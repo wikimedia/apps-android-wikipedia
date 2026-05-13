@@ -1,20 +1,21 @@
-package org.wikipedia.feed.continuereading
+package org.wikipedia.feed.model
 
 import android.net.Uri
 import androidx.core.net.toUri
-import org.wikipedia.feed.model.Card
-import org.wikipedia.feed.model.CardType
-import org.wikipedia.history.HistoryEntry
+import kotlinx.serialization.Serializable
+import org.wikipedia.page.PageTitle
 
+@Serializable
 class ContinueReadingCard(
-    val entry: HistoryEntry
-) : Card() {
+    val title: PageTitle,
+    val source: Int
+) : ForYouCard() {
     override fun image(): Uri? {
-        return entry.title.thumbUrl?.toUri()
+        return title.thumbUrl?.toUri()
     }
 
     override fun extract(): String {
-        return entry.title.description.orEmpty()
+        return title.description.orEmpty()
     }
 
     override fun type(): CardType {
@@ -22,6 +23,6 @@ class ContinueReadingCard(
     }
 
     override fun dismissHashCode(): Int {
-        return entry.title.hashCode()
+        return title.hashCode()
     }
 }

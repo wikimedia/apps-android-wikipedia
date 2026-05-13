@@ -60,6 +60,7 @@ class PersonalizationActivity : BaseActivity() {
                     },
                     onCompleteOnboardingClick = {
                         startActivity(ExploreFeedBuildingActivity.newIntent(this))
+                        setResult(RESULT_OK)
                         finish()
                     }
                 )

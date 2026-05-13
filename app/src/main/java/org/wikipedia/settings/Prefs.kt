@@ -925,6 +925,10 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_explore_feed_update_prompt_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_explore_feed_update_prompt_shown, value)
 
+    var homeForYouModulesToday
+        get() = PrefsIoUtil.getString(R.string.preference_key_home_for_you_modules_today, "")!!
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_home_for_you_modules_today, value)
+
     var homeLanguageCode
         get() = PrefsIoUtil.getString(R.string.preference_key_home_language_code, WikipediaApp.instance.appOrSystemLanguageCode)!!
         set(value) = PrefsIoUtil.setString(R.string.preference_key_home_language_code, value)

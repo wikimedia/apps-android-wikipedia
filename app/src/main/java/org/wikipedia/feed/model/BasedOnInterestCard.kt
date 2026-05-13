@@ -1,21 +1,21 @@
-package org.wikipedia.feed.interests
+package org.wikipedia.feed.model
 
-import org.wikipedia.feed.model.Card
-import org.wikipedia.feed.model.CardType
+import kotlinx.serialization.Serializable
 import org.wikipedia.feed.personalization.db.entity.InterestArticle
 import org.wikipedia.feed.personalization.db.entity.InterestTopic
-import org.wikipedia.history.HistoryEntry
+import org.wikipedia.page.PageTitle
 
+@Serializable
 class BasedOnInterestCard(
-    val entry: HistoryEntry,
+    val title: PageTitle,
     val interestTopic: InterestTopic? = null,
     val interestArticle: InterestArticle? = null
-) : Card() {
+) : ForYouCard() {
     override fun type(): CardType {
         return CardType.RANDOM // TODO: remove, since this is no longer used
     }
 
     override fun dismissHashCode(): Int {
-        return entry.title.hashCode()
+        return title.hashCode()
     }
 }

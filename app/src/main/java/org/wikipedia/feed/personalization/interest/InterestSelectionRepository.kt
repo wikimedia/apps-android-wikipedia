@@ -7,6 +7,7 @@ import org.wikipedia.feed.personalization.db.dao.InterestArticleDao
 import org.wikipedia.feed.personalization.db.dao.InterestTopicDao
 import org.wikipedia.feed.personalization.db.entity.InterestArticle
 import org.wikipedia.feed.personalization.db.entity.InterestTopic
+import org.wikipedia.feed.random.RandomClient
 import org.wikipedia.history.db.HistoryEntryWithImageDao
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
@@ -64,18 +65,6 @@ class InterestSelectionRepository(
         // remove non-main namespace articles, or Main page
         results.removeAll { it.isMainPage || it.namespace() != Namespace.MAIN }
 
-        // If there are still VERY few items, include a few random articles.
-        val maxRandomItems = 6
-        if (results.size < maxRandomItems) {
-            for (i in results.size until maxRandomItems) {
-                val title = ServiceFactory.getRest(wikiSite).getRandomSummary()
-                    .getPageTitle(wikiSite)
-                if (!results.contains(title)) {
-                    results.add(title)
-                }
-            }
-        }
-
         // Hydrate titles, if necessary
         val itemsNeedingCall = results
             .filter { it.description.isNullOrEmpty() || it.thumbUrl.isNullOrEmpty() }
@@ -89,6 +78,12 @@ class InterestSelectionRepository(
                     title.thumbUrl = page.thumbUrl()
                 }
             }
+        }
+
+        // If there are still VERY few items, include a few random articles.
+        val maxRandomItems = 6
+        if (results.size < maxRandomItems) {
+            results.addAll(RandomClient.getRandomPages(wikiSite, maxRandomItems))
         }
 
         return results.distinctBy { it.prefixedText }

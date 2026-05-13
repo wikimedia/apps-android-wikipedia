@@ -98,6 +98,7 @@ import org.wikipedia.feed.image.FeaturedImageCard
 import org.wikipedia.feed.image.FeaturedImageModule
 import org.wikipedia.feed.interests.BasedOnInterestModule
 import org.wikipedia.feed.model.Card
+import org.wikipedia.feed.model.ForYouCard
 import org.wikipedia.feed.news.NewsCard
 import org.wikipedia.feed.news.NewsItem
 import org.wikipedia.feed.news.NewsModule
@@ -136,6 +137,14 @@ class HomeFragment : Fragment() {
         if (it.resultCode == RESULT_OK) {
             val tab = if (Prefs.homePreferenceSelection == HomePreferenceType.PERSONALIZED) HomeTab.FOR_YOU else HomeTab.COMMUNITY
             selectTab(tab)
+        }
+    }
+
+    private val customizeInterestsLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == RESULT_OK) {
+            selectTab(HomeTab.FOR_YOU)
+            Prefs.homeForYouModulesToday = ""
+            viewModel.refreshForYouContent()
         }
     }
 
@@ -263,7 +272,7 @@ class HomeFragment : Fragment() {
                             requireActivity().startActivity(WikipediaLanguagesActivity.newIntent(requireContext(), invokeSource = InvokeSource.FEED))
                         },
                         onCustomizeInterestsClick = {
-                            requireActivity().startActivity(PersonalizationActivity.newIntent(requireContext(), showIntroPage = false))
+                            customizeInterestsLauncher.launch(PersonalizationActivity.newIntent(requireContext(), showIntroPage = false))
                         },
                         onTabClick = {
                             requireActivity().startActivity(TabActivity.newIntent(requireActivity()))
@@ -342,7 +351,7 @@ fun HomeScreen(
     onLoadMoreCommunityContent: () -> Unit = {},
     onLoadMoreForYouContent: () -> Unit = {},
     onHideCommunityCardClick: (card: Card) -> Unit = {},
-    onHideForYouCardClick: (module: ForYouModule, card: Card) -> Unit = { _, _ -> },
+    onHideForYouCardClick: (module: ForYouModule, card: ForYouCard) -> Unit = { _, _ -> },
     onHideModuleClick: (moduleKey: String) -> Unit = {},
     onPageClick: (historyEntry: HistoryEntry) -> Unit = {},
     onPageBookmarkClick: (historyEntry: HistoryEntry) -> Unit = {},
@@ -858,7 +867,7 @@ fun ForYouContentTab(
     wikiSite: WikiSite,
     onLoadMore: () -> Unit,
     overflowMenuState: PageOverflowMenuViewModel.PageOverflowMenuState? = null,
-    onHideCardClick: (module: ForYouModule, card: Card) -> Unit = { _, _ -> },
+    onHideCardClick: (module: ForYouModule, card: ForYouCard) -> Unit = { _, _ -> },
     onHideModuleClick: (moduleKey: String) -> Unit = {},
     onPageClick: (historyEntry: HistoryEntry) -> Unit,
     onPageBookmarkClick: (historyEntry: HistoryEntry) -> Unit = {},

@@ -13,7 +13,9 @@ import org.wikipedia.feed.CardVariation
 import org.wikipedia.feed.ForYouCardContent
 import org.wikipedia.feed.ForYouModule
 import org.wikipedia.feed.ForYouModulePager
+import org.wikipedia.feed.model.BecauseYouReadCard
 import org.wikipedia.feed.model.Card
+import org.wikipedia.feed.model.ForYouCard
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
 import org.wikipedia.theme.Theme
@@ -27,7 +29,7 @@ fun BecauseYouReadModule(
     onPageClick: (item: HistoryEntry) -> Unit = {},
     onShareClick: (entry: HistoryEntry) -> Unit = {},
     onSaveClick: (entry: HistoryEntry) -> Unit = {},
-    onHideCardClick: (module: ForYouModule, card: Card) -> Unit = { _, _ -> },
+    onHideCardClick: (module: ForYouModule, card: ForYouCard) -> Unit = { _, _ -> },
     onHideModuleClick: () -> Unit = {},
     onCardInView: (card: Card) -> Unit = {},
     onCustomizeInterestsClick: () -> Unit = {}
@@ -41,18 +43,19 @@ fun BecauseYouReadModule(
         onCardInView = onCardInView
     ) { page ->
         val card = (module.cards[page] as BecauseYouReadCard)
+        val historyEntry = HistoryEntry(card.title, HistoryEntry.SOURCE_FEED_BECAUSE_YOU_READ)
         ForYouCardContent(
             wikiSite = wikiSite,
-            entry = card.entry,
+            title = card.title,
             variation = CardVariation.entries[page % CardVariation.entries.size],
             backgroundColorIndex = backgroundColorIndex + page,
             module = module,
             card = module.cards[page],
             footerIcon = painterResource(R.drawable.ic_history_24),
             footerText = context.getString(wikiSite.languageCode, R.string.explore_feed_because_you_read, card.sourceDisplayTitle),
-            onPageClick = onPageClick,
-            onShareClick = onShareClick,
-            onSaveClick = onSaveClick,
+            onPageClick = { onPageClick(historyEntry) },
+            onShareClick = { onShareClick(historyEntry) },
+            onSaveClick = { onSaveClick(historyEntry) },
             onHideCardClick = onHideCardClick,
             onHideModuleClick = onHideModuleClick,
             onCustomizeInterestsClick = onCustomizeInterestsClick
@@ -64,17 +67,15 @@ fun BecauseYouReadModule(
 @Composable
 fun BecauseYouReadCardPreviewWithImage() {
     val wikiSite = WikiSite.preview()
-    val entry = HistoryEntry(
-        title = PageTitle(
-            text = "Test Article",
-            displayText = "Test Article",
-            wiki = WikiSite.preview(),
-            description = "This is a test article",
-            extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            thumbUrl = "https://example.com/thumb.jpg"
-        ), source = HistoryEntry.SOURCE_HISTORY
+    val title = PageTitle(
+        text = "Test Article",
+        displayText = "Test Article",
+        wiki = WikiSite.preview(),
+        description = "This is a test article",
+        extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        thumbUrl = "https://example.com/thumb.jpg"
     )
-    val card = BecauseYouReadCard(entry, sourceDisplayTitle = "<i>Test Article</i>")
+    val card = BecauseYouReadCard(title, sourceDisplayTitle = "<i>Test Article</i>")
     BaseTheme(currentTheme = Theme.LIGHT) {
         BecauseYouReadModule(
             wikiSite = wikiSite,
@@ -87,17 +88,15 @@ fun BecauseYouReadCardPreviewWithImage() {
 @Composable
 fun BecauseYouReadCardPreviewNoImage() {
     val wikiSite = WikiSite.preview()
-    val entry = HistoryEntry(
-        title = PageTitle(
-            text = "Test Article",
-            displayText = "Test Article",
-            wiki = WikiSite.preview(),
-            description = "This is a test article",
-            extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            thumbUrl = null
-        ), source = HistoryEntry.SOURCE_HISTORY
+    val title = PageTitle(
+        text = "Test Article",
+        displayText = "Test Article",
+        wiki = WikiSite.preview(),
+        description = "This is a test article",
+        extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        thumbUrl = null
     )
-    val card = BecauseYouReadCard(entry, sourceDisplayTitle = "Test Article")
+    val card = BecauseYouReadCard(title, sourceDisplayTitle = "Test Article")
     BaseTheme(currentTheme = Theme.LIGHT) {
         BecauseYouReadModule(
             wikiSite = wikiSite,
@@ -110,17 +109,15 @@ fun BecauseYouReadCardPreviewNoImage() {
 @Composable
 fun BecauseYouReadCardPreviewTextOnlyWithImage() {
     val wikiSite = WikiSite.preview()
-    val entry = HistoryEntry(
-        title = PageTitle(
-            text = "Test Article",
-            displayText = "Test Article",
-            wiki = WikiSite.preview(),
-            description = "This is a test article",
-            extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            thumbUrl = "test.jpg"
-        ), source = HistoryEntry.SOURCE_HISTORY
+    val title = PageTitle(
+        text = "Test Article",
+        displayText = "Test Article",
+        wiki = WikiSite.preview(),
+        description = "This is a test article",
+        extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        thumbUrl = "test.jpg"
     )
-    val card = BecauseYouReadCard(entry, sourceDisplayTitle = "Test Article")
+    val card = BecauseYouReadCard(title, sourceDisplayTitle = "Test Article")
     BaseTheme(currentTheme = Theme.LIGHT) {
         BecauseYouReadModule(
             wikiSite = wikiSite,
