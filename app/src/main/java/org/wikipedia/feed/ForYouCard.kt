@@ -229,12 +229,11 @@ fun ForYouCardContent(
             }
         } else {
             Column(
-                modifier = Modifier
-                    .align(Alignment.BottomStart)
-                    .fillMaxWidth()
+                modifier = Modifier.align(Alignment.BottomStart).fillMaxWidth()
             ) {
-                Column(
-                    modifier = Modifier.background(
+                Box(
+                    modifier = Modifier.fillMaxWidth().height(120.dp)
+                        .background(
                         Brush.verticalGradient(
                             colorStops = arrayOf(
                                 0.0f to Color.Transparent,
@@ -247,8 +246,11 @@ fun ForYouCardContent(
                             )
                         )
                     )
+                )
+                Column(
+                    modifier = Modifier.background(color = Color.Black.copy(alpha = 0.80f))
+                        .padding(bottom = 40.dp)
                 ) {
-                    Spacer(modifier = Modifier.height(100.dp))
                     Row(
                         modifier = Modifier.fillMaxWidth()
                     ) {
@@ -296,11 +298,6 @@ fun ForYouCardContent(
                             onCustomizeInterestsClick = onCustomizeInterestsClick
                         )
                     }
-                }
-                Column(
-                    modifier = Modifier.background(color = Color.Black.copy(alpha = 0.80f))
-                        .padding(bottom = 40.dp)
-                ) {
                     val text = if (variation == CardVariation.VARIATION_IMAGE_WITH_EXTRACT) (entry.title.extract ?: entry.title.description) else entry.title.description
                     text?.let {
                         Spacer(modifier = Modifier.height(2.dp))
