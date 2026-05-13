@@ -233,14 +233,14 @@ class HomeViewModel : ViewModel() {
                 content.topRead?.let {
                     add(TopReadListCard(it, age, wikiSite.value))
                 }
-                content.potd?.let {
-                    add(FeaturedImageCard(it, age, wikiSite.value))
-                }
                 if (!content.news.isNullOrEmpty()) {
                     add(NewsCard(content.news, age, wikiSite.value))
                 }
                 if (!content.onthisday.isNullOrEmpty()) {
                     add(OnThisDayCard(content.onthisday.take(2), age, wikiSite.value))
+                }
+                content.potd?.let {
+                    add(FeaturedImageCard(it, age, wikiSite.value))
                 }
             }.filterNot { hiddenCards.contains(it.hideKey) }.toMutableList()
             if (cardsForDay.isNotEmpty()) {
