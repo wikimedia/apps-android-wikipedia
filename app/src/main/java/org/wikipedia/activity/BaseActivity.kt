@@ -24,6 +24,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.BreadcrumbsContextHelper
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
+import org.wikipedia.analytics.eventplatform.BreadCrumbViewUtil
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.appshortcuts.AppShortcuts
@@ -227,6 +228,9 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         WikipediaApp.instance.appSessionEvent.touchSession()
         TestKitchenAdapter.client.onAppResume()
         BreadCrumbLogEvent.logScreenShown(this)
+        TestKitchenAdapter.client.getInstrument("apps-open")
+            .submitInteraction(action = "app_open", actionSource = "background",
+                actionSubtype = BreadCrumbViewUtil.getReadableScreenName(this))
     }
 
     override fun onStart() {
@@ -282,13 +286,6 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
     override fun onGoOffline() {}
 
     override fun onGoOnline() {}
-
-    override fun onNewIntent(intent: Intent) {
-        super.onNewIntent(intent)
-        val invokeSource = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource?
-        TestKitchenAdapter.client.getInstrument("apps-open")
-            .submitInteraction(action = "app_open", actionSource = "background", actionSubtype = invokeSource?.value)
-    }
 
     fun launchDonateDialog(campaignId: String? = null, donateUrl: String? = null) {
         ExclusiveBottomSheetPresenter.show(supportFragmentManager, DonateDialog.newInstance(campaignId, donateUrl))
