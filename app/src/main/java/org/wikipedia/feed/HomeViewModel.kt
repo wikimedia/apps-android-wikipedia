@@ -43,6 +43,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SettingsRepository
 import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.topics.ArticleTopics
+import org.wikipedia.util.DateUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import java.time.LocalDate
@@ -413,21 +414,24 @@ class HomeViewModel : ViewModel() {
             L.e("Failed to load modules from cache.")
         }
 
-//        if (forYouCollectionSaved.dateTime != null &&
-//            forYouCollectionSaved.dateTime.toLocalDate() == LocalDate.now() &&
-//            forYouCollectionSaved.modulesPerLanguage.containsKey(wikiSite.value.languageCode)
-//        ) {
-//            L.d("Loading modules from cache...")
-//            val modules = forYouCollectionSaved.modulesPerLanguage[wikiSite.value.languageCode].orEmpty()
-//            val newModules = mutableListOf<ForYouModule>()
-//            modules.forEach { module ->
-//                val filteredCards = module.cards.filterNot { hiddenCards.contains(it.hideKey) }
-//                if (filteredCards.isNotEmpty()) {
-//                    newModules.add(module.withCards(filteredCards))
-//                }
-//            }
-//            return newModules
-//        }
+        val lastReadEntries = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(age + 1, 30, wikiSite.value.languageCode)
+
+        if (forYouCollectionSaved.dateTime != null &&
+            forYouCollectionSaved.dateTime.toLocalDate() == LocalDate.now() &&
+            forYouCollectionSaved.dateTime.isAfter(DateUtil.iso8601LocalDateTimeParse(lastReadEntries.first().timestamp)) &&
+            forYouCollectionSaved.modulesPerLanguage.containsKey(wikiSite.value.languageCode)
+        ) {
+            L.d("Loading modules from cache...")
+            val modules = forYouCollectionSaved.modulesPerLanguage[wikiSite.value.languageCode].orEmpty()
+            val newModules = mutableListOf<ForYouModule>()
+            modules.forEach { module ->
+                val filteredCards = module.cards.filterNot { hiddenCards.contains(it.hideKey) }
+                if (filteredCards.isNotEmpty()) {
+                    newModules.add(module.withCards(filteredCards))
+                }
+            }
+            return newModules
+        }
         L.d("Loading modules from network...")
 
         // --- Interests ---
@@ -493,7 +497,6 @@ class HomeViewModel : ViewModel() {
         // --- Continue reading ---
 
         val continueReadingCards = buildList {
-            val lastReadEntries = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(age + 1, 30, wikiSite.value.languageCode)
             if (lastReadEntries.size > age) {
                 add(ContinueReadingCard(lastReadEntries[age].title, HistoryEntry.SOURCE_HISTORY))
             }
@@ -524,7 +527,6 @@ class HomeViewModel : ViewModel() {
         // --- Because you read ---
 
         val becauseYouReadCards = buildList {
-            val lastReadEntries = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(age + 1, 30, wikiSite.value.languageCode)
             if (lastReadEntries.size > age) {
                 val entry = lastReadEntries[age]
                 val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(wikiSite.value.languageCode).isNullOrEmpty()

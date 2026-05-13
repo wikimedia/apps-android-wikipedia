@@ -42,6 +42,10 @@ object DateUtil {
         return LocalDateTime.ofInstant(Instant.parse(timestamp), ZoneId.systemDefault())
     }
 
+    fun iso8601LocalDateTimeParse(timestamp: Date): LocalDateTime {
+        return LocalDateTime.ofInstant(timestamp.toInstant(), ZoneId.systemDefault())
+    }
+
     fun dbDateFormat(date: Date): String {
         return getCachedDateFormat("yyyyMMddHHmmss", Locale.ROOT, true).format(date)
     }
