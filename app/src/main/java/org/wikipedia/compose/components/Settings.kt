@@ -11,6 +11,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Switch
@@ -30,8 +33,8 @@ import androidx.compose.ui.unit.sp
 import org.wikipedia.R
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
-import org.wikipedia.settings.homefeed.CommunityModuleSetting
-import org.wikipedia.settings.homefeed.ForYouModuleSetting
+import org.wikipedia.settings.homefeed.CommunityModuleType
+import org.wikipedia.settings.homefeed.ForYouModuleType
 import org.wikipedia.theme.Theme
 
 @Composable
@@ -79,7 +82,7 @@ fun SettingsRow(
                 )
             }
         }
-
+        Spacer(modifier = Modifier.width(12.dp))
         if (trailingContent != null) {
             trailingContent()
         }
@@ -109,7 +112,7 @@ fun SettingsSection(
 fun ToggleListScreen(
     title: String,
     description: String,
-    modules: List<ModuleEntry>,
+    modules: List<ToggleSettingItem>,
     hiddenModules: Set<String>,
     onToggle: (key: String, isVisible: Boolean) -> Unit,
     onSubtitleLinkClick: ((href: String) -> Unit)? = null,
@@ -127,17 +130,19 @@ fun ToggleListScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(paddingValues),
+                .padding(paddingValues)
+                .verticalScroll(rememberScrollState()),
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
             Text(
                 modifier = Modifier
-                    .padding(horizontal = 16.dp),
+                    .padding(horizontal = 16.dp)
+                    .padding(bottom = 8.dp),
                 text = description,
                 style = MaterialTheme.typography.bodyMedium,
                 color = WikipediaTheme.colors.primaryColor
             )
-            Spacer(Modifier.height(8.dp))
+
             modules.forEach { module ->
                 val isVisible = module.key !in hiddenModules
                 SettingsRow(
@@ -167,7 +172,7 @@ fun ToggleListScreen(
     }
 }
 
-data class ModuleEntry(
+data class ToggleSettingItem(
     @param:StringRes val title: Int,
     @param:StringRes val subtitle: Int,
     val key: String
@@ -241,10 +246,10 @@ private fun ToggleListForYouScreenPreview() {
         currentTheme = Theme.LIGHT
     ) {
         ToggleListScreen(
-            title = "Community",
-            description = stringResource(R.string.home_feed_settings_community_modules_description),
-            modules = ForYouModuleSetting.entries(),
-            hiddenModules = setOf(ForYouModuleSetting.BECAUSE_YOU_READ.name),
+            title = "For you",
+            description = stringResource(R.string.home_feed_settings_for_you_modules_description),
+            modules = ForYouModuleType.entries(),
+            hiddenModules = setOf(ForYouModuleType.BECAUSE_YOU_READ.name),
             onToggle = { _, _ -> },
             onBack = { },
         )
@@ -260,8 +265,8 @@ private fun ToggleListCommunityScreenPreview() {
         ToggleListScreen(
             title = "Community",
             description = stringResource(R.string.home_feed_settings_community_modules_description),
-            modules = CommunityModuleSetting.entries(),
-            hiddenModules = setOf(CommunityModuleSetting.FEATURED_IMAGE.name, CommunityModuleSetting.ON_THIS_DAY.name),
+            modules = CommunityModuleType.entries(),
+            hiddenModules = setOf(CommunityModuleType.FEATURED_IMAGE.name, CommunityModuleType.ON_THIS_DAY.name),
             onToggle = { _, _ -> },
             onBack = { },
         )

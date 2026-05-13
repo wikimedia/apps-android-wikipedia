@@ -7,10 +7,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.viewmodel.compose.viewModel
 import org.wikipedia.R
-import org.wikipedia.compose.components.ModuleEntry
 import org.wikipedia.compose.components.ToggleListScreen
+import org.wikipedia.compose.components.ToggleSettingItem
 
-enum class CommunityModuleSetting(
+enum class CommunityModuleType(
     @param:StringRes val title: Int,
     @param:StringRes val subtitle: Int,
 ) {
@@ -35,7 +35,7 @@ enum class CommunityModuleSetting(
         subtitle = R.string.home_feed_settings_community_module_on_this_day_subtitle
     );
 
-    fun toEntry() = ModuleEntry(title, subtitle, name)
+    fun toEntry() = ToggleSettingItem(title, subtitle, name)
 
     companion object {
         fun entries() = entries.map { it.toEntry() }
@@ -52,7 +52,7 @@ fun CommunityModulesScreen(
         ToggleListScreen(
             title = stringResource(R.string.home_feed_settings_community_title),
             description = stringResource(R.string.home_feed_settings_community_modules_description),
-            modules = CommunityModuleSetting.entries(),
+            modules = CommunityModuleType.entries(),
             hiddenModules = it,
             onToggle = viewModel::toggleModuleVisibility,
             onBack = onBack
