@@ -14,6 +14,8 @@ import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.auth.AccountUtil
+import org.wikipedia.compose.components.NotificationBellState
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -148,6 +150,9 @@ class HomeViewModel : ViewModel() {
         )
     }
 
+    private val _unreadCount = MutableStateFlow(NotificationBellState())
+    val unreadCount = _unreadCount.asStateFlow()
+
     init {
         if (_selectedTab.value == HomeTab.COMMUNITY) {
             loadCommunityContent()
@@ -227,14 +232,14 @@ class HomeViewModel : ViewModel() {
                 content.topRead?.let {
                     add(TopReadListCard(it, age, wikiSite.value))
                 }
-                content.potd?.let {
-                    add(FeaturedImageCard(it, age, wikiSite.value))
-                }
                 if (!content.news.isNullOrEmpty()) {
                     add(NewsCard(content.news, age, wikiSite.value))
                 }
                 if (!content.onthisday.isNullOrEmpty()) {
                     add(OnThisDayCard(content.onthisday.take(2), age, wikiSite.value))
+                }
+                content.potd?.let {
+                    add(FeaturedImageCard(it, age, wikiSite.value))
                 }
             }.filterNot { hiddenCards.contains(it.hideKey) }.toMutableList()
             if (cardsForDay.isNotEmpty()) {
@@ -385,7 +390,12 @@ class HomeViewModel : ViewModel() {
         val interestTopics = AppDatabase.instance.topicInterestDao().getAllRandom().distinctBy { it.topicId }.take(5)
         interestTopics.forEachIndexed { index, topic ->
             val articleTopic = ArticleTopics.all.find { it.topicId == topic.topicId }
-            val entries = ServiceFactory.get(wikiSite.value).getArticlesByTopic("articletopic:" + (articleTopic?.queryTopicId ?: topic.topicId) + "^95", limit = 20, sort = "random")
+            val entries = ServiceFactory.get(wikiSite.value).getArticlesByTopic(
+                "articletopic:" + (articleTopic?.queryTopicId ?: topic.topicId) + "^95",
+                limit = 20,
+                profile = "classic_noboostlinks",
+                sort = "random"
+            )
                 .query?.pages
                 ?.filter { it.pageProps?.disambiguation == null } // Filter out disambiguation pages
                 ?.sortedBy { it.index } // Sort by index, as reported by the API
@@ -500,5 +510,9 @@ class HomeViewModel : ViewModel() {
         }
 
         return modules
+    }
+
+    fun refreshUnreadNotificationCount() {
+        _unreadCount.update { it.copy(unreadCount = Prefs.notificationUnreadCount, canShow = AccountUtil.isLoggedIn) }
     }
 }

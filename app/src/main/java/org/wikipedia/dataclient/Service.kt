@@ -748,10 +748,11 @@ interface Service {
     suspend fun getVariantTitlesByTitles(@Query("titles") titles: String): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&generator=search&redirects=&converttitles=&prop=description|pageimages|pageprops|info|extracts&exchars=500&exintro=1&explaintext=1&piprop=thumbnail" +
-    "&pilicense=any&gsrnamespace=0&gsrqiprofile=classic_noboostlinks&inprop=varianttitles|displaytitle&pithumbsize=" + PREFERRED_THUMB_SIZE)
+    "&pilicense=any&gsrnamespace=0&inprop=varianttitles|displaytitle&pithumbsize=" + PREFERRED_THUMB_SIZE)
     suspend fun getArticlesByTopic(
         @Query("gsrsearch") articleTopics: String,
         @Query("gsrlimit") limit: Int,
+        @Query("gsrqiprofile") profile: String? = null,
         @Query("gsrsort") sort: String? = null
     ): MwQueryResponse
 

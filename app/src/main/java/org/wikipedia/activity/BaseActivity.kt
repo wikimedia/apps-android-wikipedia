@@ -285,7 +285,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
 
     protected fun maybeShowReadingChallengePrompt() {
         if (ReadingChallengeWidgetRepository.shouldShowOnboardingDialog() &&
-            this !is ReadingChallengeOnboardingActivity && this !is InitialOnboardingActivity) {
+            this !is ReadingChallengeOnboardingActivity && this !is PersonalizationActivity && this !is InitialOnboardingActivity && this !is ExploreFeedBuildingActivity) {
             requestReadingChallengeActivity.launch(ReadingChallengeOnboardingActivity
                 .newIntent(this)
                 .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
