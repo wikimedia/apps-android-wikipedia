@@ -56,6 +56,7 @@
     <color name="pink300">#D9B4CD</color>
     <color name="pink800">#82456A</color>
 
+    <color name="splash_background_color">#F8F9FA</color>
     <color name="widget_background">#F8F9FA</color>
     <color name="widget_paper">#FFFFFF</color>
     <color name="widget_border">#EAECF0</color>
