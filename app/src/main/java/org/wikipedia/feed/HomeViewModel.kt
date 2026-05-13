@@ -48,6 +48,7 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import java.time.LocalDate
 import java.time.LocalDateTime
+import java.util.Date
 
 enum class HomeTab { COMMUNITY, FOR_YOU }
 enum class CommunityModules { TOP_READ, FEATURED_ARTICLE, FEATURED_IMAGE, NEWS, ON_THIS_DAY }
@@ -415,10 +416,11 @@ class HomeViewModel : ViewModel() {
         }
 
         val lastReadEntries = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(age + 1, 30, wikiSite.value.languageCode)
+        val lastReadEntryTimeStamp = lastReadEntries.firstOrNull()?.timestamp ?: Date()
 
         if (forYouCollectionSaved.dateTime != null &&
             forYouCollectionSaved.dateTime.toLocalDate() == LocalDate.now() &&
-            forYouCollectionSaved.dateTime.isAfter(DateUtil.iso8601LocalDateTimeParse(lastReadEntries.first().timestamp)) &&
+            forYouCollectionSaved.dateTime.isAfter(DateUtil.iso8601LocalDateTimeParse(lastReadEntryTimeStamp)) &&
             forYouCollectionSaved.modulesPerLanguage.containsKey(wikiSite.value.languageCode)
         ) {
             L.d("Loading modules from cache...")
