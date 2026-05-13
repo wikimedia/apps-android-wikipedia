@@ -64,6 +64,7 @@ import androidx.compose.ui.platform.LocalLocale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -74,6 +75,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.compose.components.AppButton
+import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.components.NotificationBell
 import org.wikipedia.compose.components.NotificationBellState
 import org.wikipedia.compose.components.TabsBox
@@ -285,6 +287,12 @@ class HomeFragment : Fragment() {
                         },
                         onNotificationClick = {
                             requireActivity().startActivity(NotificationActivity.newIntent(requireActivity()))
+                        },
+                        onManageModuleBtnClick = { currentTab ->
+                            when (currentTab) {
+                                HomeTab.COMMUNITY -> {}
+                                HomeTab.FOR_YOU -> {}
+                            }
                         }
                     )
                 }
@@ -368,7 +376,8 @@ fun HomeScreen(
     onUpdateTabCount: () -> Unit = {},
     onCustomizeInterestsClick: () -> Unit = {},
     onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> },
-    onNotificationClick: () -> Unit = {}
+    onNotificationClick: () -> Unit = {},
+    onManageModuleBtnClick: (currentTab: HomeTab) -> Unit = {},
 ) {
     val context = LocalContext.current
     val topInset = if (context is MainActivity) {
@@ -443,7 +452,8 @@ fun HomeScreen(
                             onImageClick = onImageClick,
                             onImageDownloadClick = onImageDownloadClick,
                             onImageShareClick = onImageShareClick,
-                            onCardImpression = onCardImpression
+                            onCardImpression = onCardImpression,
+                            onManageModuleBtnClick = onManageModuleBtnClick
                         )
                     }
                 }
@@ -462,11 +472,14 @@ fun HomeScreen(
                         onPageOverflowClick = onPageOverflowClick,
                         onPageOverflowDismiss = onPageOverflowDismiss,
                         onCustomizeInterestsClick = onCustomizeInterestsClick,
-                        onCardImpression = onCardImpression
+                        onCardImpression = onCardImpression,
+                        onManageModuleBtnClick = onManageModuleBtnClick
                     )
 
                     // Floating toolbar with gradient scrim, wordmark, and tab selector.
-                    Column(modifier = Modifier.align(Alignment.TopCenter).fillMaxWidth()) {
+                    Column(modifier = Modifier
+                        .align(Alignment.TopCenter)
+                        .fillMaxWidth()) {
                         Box(
                             modifier = Modifier
                                 .fillMaxWidth()
@@ -551,17 +564,18 @@ fun HomeToolbar(
                     modifier = Modifier
                         .width(21.dp)
                         .height(20.dp)
-                        .then(if (tabsState.pulse) {
-                            Modifier.pulse(
-                                durationMillis = 300,
-                                toScale = 1.25f,
-                                onCompleted = {
-                                    onUpdateTabCount()
-                                }
-                            )
-                        } else {
-                            Modifier
-                        }),
+                        .then(
+                            if (tabsState.pulse) {
+                                Modifier.pulse(
+                                    durationMillis = 300,
+                                    toScale = 1.25f,
+                                    onCompleted = {
+                                        onUpdateTabCount()
+                                    }
+                                )
+                            } else {
+                                Modifier
+                            }),
                     backgroundColor = Color.Transparent,
                     count = tabsState.count
                 )
@@ -660,7 +674,8 @@ fun CommunityContentTab(
     onImageClick: (image: FeaturedImage) -> Unit = {},
     onImageDownloadClick: (image: FeaturedImage) -> Unit = {},
     onImageShareClick: (image: FeaturedImage, age: Int) -> Unit = { _, _ -> },
-    onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> }
+    onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> },
+    onManageModuleBtnClick: (currentTab: HomeTab) -> Unit,
 ) {
     val activity = LocalActivity.current as? MainActivity
     when {
@@ -669,6 +684,17 @@ fun CommunityContentTab(
         }
         state.error != null && state.cards.isEmpty() -> {
             ErrorState(state.error, onRetry = onLoadMore)
+        }
+        state.isEmptyState -> {
+            HomeScreenEmptyState(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(WikipediaTheme.colors.paperColor)
+                    .padding(16.dp),
+                title = stringResource(R.string.home_feed_screen_empty_state_label),
+                description = stringResource(R.string.home_feed_community_screen_empty_state_description),
+                onManageModuleBtnClick = {}
+            )
         }
         else -> {
             LazyColumn(
@@ -875,12 +901,14 @@ fun ForYouContentTab(
     onPageOverflowClick: (pageSummary: PageSummary, source: Int, menuKey: String) -> Unit = { _, _, _ -> },
     onPageOverflowDismiss: () -> Unit = {},
     onCustomizeInterestsClick: () -> Unit = {},
-    onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> }
+    onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> },
+    onManageModuleBtnClick: (currentTab: HomeTab) -> Unit
 ) {
     when {
         state.isInitialLoading -> {
             Box(
-                modifier = Modifier.fillMaxSize()
+                modifier = Modifier
+                    .fillMaxSize()
                     .background(color = WikipediaTheme.colors.backgroundColor),
                 contentAlignment = Alignment.Center
             ) {
@@ -889,12 +917,24 @@ fun ForYouContentTab(
         }
         state.error != null && state.modules.isEmpty() -> {
             Box(
-                modifier = Modifier.fillMaxSize()
+                modifier = Modifier
+                    .fillMaxSize()
                     .background(color = WikipediaTheme.colors.backgroundColor),
                 contentAlignment = Alignment.Center
             ) {
                 ErrorState(state.error, onRetry = onLoadMore)
             }
+        }
+        state.modules.isEmpty() -> {
+            HomeScreenEmptyState(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(WikipediaTheme.colors.paperColor)
+                    .padding(16.dp),
+                title = stringResource(R.string.home_feed_screen_empty_state_label),
+                description = stringResource(R.string.home_feed_for_you_screen_empty_state_description),
+                onManageModuleBtnClick = {}
+            )
         }
         else -> {
             val listState = rememberLazyListState()
@@ -1148,7 +1188,11 @@ fun LanguageDropDownMenu(
     ) {
         Row(
             modifier = Modifier
-                .border(width = 1.dp, color = WikipediaTheme.colors.primaryColor.copy(alpha = 0.8f), shape = RoundedCornerShape(8.dp))
+                .border(
+                    width = 1.dp,
+                    color = WikipediaTheme.colors.primaryColor.copy(alpha = 0.8f),
+                    shape = RoundedCornerShape(8.dp)
+                )
                 .padding(4.dp),
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically
@@ -1233,6 +1277,66 @@ fun LanguageDropDownMenu(
                 )
             }
         }
+    }
+}
+
+@Composable
+fun HomeScreenEmptyState(
+    modifier: Modifier = Modifier,
+    title: String,
+    description: String,
+    onManageModuleBtnClick: (currentTab: HomeTab) -> Unit,
+) {
+    Column (
+        modifier = modifier,
+        verticalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterVertically),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        Image(
+            modifier = Modifier
+                .padding(bottom = 16.dp),
+            painter = painterResource(R.drawable.empty_feed_illustration),
+            contentDescription = null
+        )
+        Text(
+            text = title,
+            style = MaterialTheme.typography.titleMedium.copy(
+                fontWeight = FontWeight.SemiBold,
+                letterSpacing = 0.15.sp
+            ),
+            color = WikipediaTheme.colors.secondaryColor
+        )
+        HtmlText(
+            text = description,
+            style = MaterialTheme.typography.bodyMedium.copy(
+                letterSpacing = 0.25.sp
+            ),
+            textAlign = TextAlign.Center,
+            color = WikipediaTheme.colors.secondaryColor
+        )
+        AppButton(
+            onClick = {}
+        ) {
+            Text(
+                text = "Manage modules"
+            )
+        }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun HomeScreenEmptyStatePreview() {
+    BaseTheme(currentTheme = Theme.LIGHT) {
+        HomeScreenEmptyState(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(WikipediaTheme.colors.paperColor)
+                .padding(16.dp),
+            title = stringResource(R.string.home_feed_screen_empty_state_label),
+            description = stringResource(R.string.home_feed_community_screen_empty_state_description),
+            onManageModuleBtnClick = {}
+        )
     }
 }
 
