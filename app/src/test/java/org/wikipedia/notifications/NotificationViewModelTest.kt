@@ -19,6 +19,7 @@ import org.wikipedia.util.Resource
 class NotificationViewModelTest {
     private val repository = FakeNotificationRepository()
     private val preferences = FakeNotificationPreferences()
+    private val notificationhelper = FakeNotificationFilterHelper()
     private val wikipediaApp = mockk<WikipediaApp>(relaxed = true)
     private lateinit var viewModel: NotificationViewModel
 
@@ -32,7 +33,11 @@ class NotificationViewModelTest {
         every { NotificationFilterActivity.allWikisList() } returns listOf("en", "zh")
         every { NotificationFilterActivity.allTypesIdList() } returns listOf("edit-thank", "mention")
 
-        viewModel = NotificationViewModel(preferences, repository, NotificationFilterHelperImpl())
+        viewModel = NotificationViewModel(
+            preferences,
+            repository,
+            notificationhelper
+        )
     }
 
     @After
@@ -279,5 +284,15 @@ class NotificationViewModelTest {
         }
         override suspend fun fetchUnreadWikiDbNames() = unreadWikis
         override suspend fun fetchAndSave(filter: String?, continueStr: String?) = null
+    }
+
+    private class FakeNotificationFilterHelper: NotificationFilterHelper {
+        override fun allWikisList(): List<String> {
+            return listOf("en", "zh", "dummy")
+        }
+
+        override fun allTypesIdList(): List<String> {
+            return listOf("type1", "type2")
+        }
     }
 }
