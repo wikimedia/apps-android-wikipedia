@@ -121,6 +121,8 @@ import org.wikipedia.navtab.NavTab
 import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.settings.Prefs
+import org.wikipedia.settings.homefeed.HomeFeedSettingsActivity
+import org.wikipedia.settings.homefeed.HomeFeedSettingsStartDestination
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DimenUtil
@@ -288,11 +290,15 @@ class HomeFragment : Fragment() {
                         onNotificationClick = {
                             requireActivity().startActivity(NotificationActivity.newIntent(requireActivity()))
                         },
-                        onManageModuleBtnClick = { currentTab ->
-                            when (currentTab) {
-                                HomeTab.COMMUNITY -> {}
-                                HomeTab.FOR_YOU -> {}
-                            }
+                        onManageModuleBtnClick = {
+                            val intent = HomeFeedSettingsActivity.newIntent(
+                                context = requireContext(),
+                                startDestination = when (selectedTab) {
+                                    HomeTab.COMMUNITY -> HomeFeedSettingsStartDestination.COMMUNITY_MODULES
+                                    HomeTab.FOR_YOU -> HomeFeedSettingsStartDestination.FOR_YOU_MODULES
+                                }
+                            )
+                            requireActivity().startActivity(intent)
                         }
                     )
                 }
@@ -377,7 +383,7 @@ fun HomeScreen(
     onCustomizeInterestsClick: () -> Unit = {},
     onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> },
     onNotificationClick: () -> Unit = {},
-    onManageModuleBtnClick: (currentTab: HomeTab) -> Unit = {},
+    onManageModuleBtnClick: () -> Unit = {},
 ) {
     val context = LocalContext.current
     val topInset = if (context is MainActivity) {
@@ -675,7 +681,7 @@ fun CommunityContentTab(
     onImageDownloadClick: (image: FeaturedImage) -> Unit = {},
     onImageShareClick: (image: FeaturedImage, age: Int) -> Unit = { _, _ -> },
     onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> },
-    onManageModuleBtnClick: (currentTab: HomeTab) -> Unit,
+    onManageModuleBtnClick: () -> Unit,
 ) {
     val activity = LocalActivity.current as? MainActivity
     when {
@@ -693,7 +699,7 @@ fun CommunityContentTab(
                     .padding(16.dp),
                 title = stringResource(R.string.home_feed_screen_empty_state_label),
                 description = stringResource(R.string.home_feed_community_screen_empty_state_description),
-                onManageModuleBtnClick = {}
+                onManageModuleBtnClick = onManageModuleBtnClick
             )
         }
         else -> {
@@ -902,7 +908,7 @@ fun ForYouContentTab(
     onPageOverflowDismiss: () -> Unit = {},
     onCustomizeInterestsClick: () -> Unit = {},
     onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> },
-    onManageModuleBtnClick: (currentTab: HomeTab) -> Unit
+    onManageModuleBtnClick: () -> Unit
 ) {
     when {
         state.isInitialLoading -> {
@@ -933,7 +939,7 @@ fun ForYouContentTab(
                     .padding(16.dp),
                 title = stringResource(R.string.home_feed_screen_empty_state_label),
                 description = stringResource(R.string.home_feed_for_you_screen_empty_state_description),
-                onManageModuleBtnClick = {}
+                onManageModuleBtnClick = onManageModuleBtnClick
             )
         }
         else -> {
@@ -1285,7 +1291,7 @@ fun HomeScreenEmptyState(
     modifier: Modifier = Modifier,
     title: String,
     description: String,
-    onManageModuleBtnClick: (currentTab: HomeTab) -> Unit,
+    onManageModuleBtnClick: () -> Unit,
 ) {
     Column (
         modifier = modifier,
@@ -1315,7 +1321,7 @@ fun HomeScreenEmptyState(
             color = WikipediaTheme.colors.secondaryColor
         )
         AppButton(
-            onClick = {}
+            onClick = onManageModuleBtnClick
         ) {
             Text(
                 text = "Manage modules"

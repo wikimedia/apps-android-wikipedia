@@ -10,11 +10,17 @@ import androidx.navigation.compose.composable
 @Composable
 fun HomeFeedSettingsNavHost(
     navController: NavHostController,
+    startDestination: HomeFeedSettingsStartDestination,
     onExit: () -> Unit
 ) {
+    val startRoute = when (startDestination) {
+        HomeFeedSettingsStartDestination.ROOT -> HomeFeedSettingsDestination.Root
+        HomeFeedSettingsStartDestination.COMMUNITY_MODULES -> HomeFeedSettingsDestination.CommunityModuleScreen
+        HomeFeedSettingsStartDestination.FOR_YOU_MODULES -> HomeFeedSettingsDestination.ForYouModuleScreen
+    }
     NavHost(
         navController = navController,
-        startDestination = HomeFeedSettingsDestination.Root,
+        startDestination = startRoute,
         enterTransition = { EnterTransition.None },
         exitTransition = { ExitTransition.None },
         popEnterTransition = { EnterTransition.None },
@@ -33,13 +39,13 @@ fun HomeFeedSettingsNavHost(
 
         composable<HomeFeedSettingsDestination.CommunityModuleScreen> {
             CommunityModulesScreen(
-                onBack = { navController.navigateUp() }
+                onBack = { if (!navController.navigateUp()) onExit() }
             )
         }
 
         composable<HomeFeedSettingsDestination.ForYouModuleScreen> {
             ForYouModulesScreen(
-                onBack = { navController.navigateUp() },
+                onBack = { if (!navController.navigateUp()) onExit() },
                 navigateToFeedConfigurationScreen = {
                     navController.navigate(HomeFeedSettingsDestination.FeedConfiguration)
                 }
