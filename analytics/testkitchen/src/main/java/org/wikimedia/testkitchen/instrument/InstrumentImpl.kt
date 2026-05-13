@@ -16,7 +16,7 @@ class InstrumentImpl(
     private var defaultMediaWikiData: MediawikiData? = null
 
     fun submitInteraction(
-        action: String? = null,
+        action: String,
         actionSource: String? = null,
         actionSubtype: String? = null,
         elementId: String? = null,
