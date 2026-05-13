@@ -181,11 +181,11 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
     }
 
     private fun handleIntent(intent: Intent) {
+        if (intent.action == Intent.ACTION_MAIN && intent.categories?.contains(Intent.CATEGORY_LAUNCHER) == true) {
+            TestKitchenAdapter.client.getInstrument("apps-open")
+                .submitInteraction(action = "app_open", actionSource = "app_icon")
+        }
         if (Intent.ACTION_VIEW == intent.action && intent.data != null) {
-            if (intent.action == Intent.ACTION_MAIN && intent.categories?.contains(Intent.CATEGORY_LAUNCHER) == true) {
-                TestKitchenAdapter.client.getInstrument("apps-open")
-                    .submitInteraction(action = "app_open", actionSource = "app_icon")
-            }
             // TODO: handle special cases of non-article content, e.g. shared reading lists.
             intent.data?.let {
                 if (it.authority.orEmpty().endsWith(WikiSite.BASE_DOMAIN)) {
