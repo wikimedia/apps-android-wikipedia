@@ -92,7 +92,6 @@ import org.wikipedia.feed.continuereading.ContinueReadingModule
 import org.wikipedia.feed.dayheader.DayHeaderCard
 import org.wikipedia.feed.featured.FeaturedArticleCard
 import org.wikipedia.feed.featured.FeaturedArticleModule
-import org.wikipedia.feed.image.FeaturedImage
 import org.wikipedia.feed.image.FeaturedImageCard
 import org.wikipedia.feed.image.FeaturedImageModule
 import org.wikipedia.feed.interests.BasedOnInterestModule
@@ -265,13 +264,16 @@ class HomeFragment : Fragment() {
                             (parentFragment as? MainFragment)?.onFeedNewsItemSelected(newsItem, wikiSite)
                         },
                         onImageClick = {
-                            (parentFragment as? MainFragment)?.onFeaturedImageSelected(it)
+                            instrument.submitInteraction("click", actionSource = it.javaClass.simpleName, elementId = "article_open", pageData = TestKitchenAdapter.getPageData(pageTitle = it.featuredImage.toPageTitle()))
+                            (parentFragment as? MainFragment)?.onFeaturedImageSelected(it.featuredImage)
                         },
-                        onImageShareClick = { image, age ->
-                            (parentFragment as? MainFragment)?.onFeedShareImage(image, age)
+                        onImageShareClick = {
+                            instrument.submitInteraction("click", actionSource = it.javaClass.simpleName, elementId = "share", pageData = TestKitchenAdapter.getPageData(pageTitle = it.featuredImage.toPageTitle()))
+                            (parentFragment as? MainFragment)?.onFeedShareImage(it.featuredImage, it.age)
                         },
                         onImageDownloadClick = {
-                            (parentFragment as? MainFragment)?.onFeedDownloadImage(it)
+                            instrument.submitInteraction("click", actionSource = it.javaClass.simpleName, elementId = "download", pageData = TestKitchenAdapter.getPageData(pageTitle = it.featuredImage.toPageTitle()))
+                            (parentFragment as? MainFragment)?.onFeedDownloadImage(it.featuredImage)
                         },
                         onLanguageSelected = { languageCode ->
                             viewModel.updateLanguage(languageCode)
@@ -279,7 +281,8 @@ class HomeFragment : Fragment() {
                         onManageLanguagesClick = {
                             requireActivity().startActivity(WikipediaLanguagesActivity.newIntent(requireContext(), invokeSource = InvokeSource.FEED))
                         },
-                        onCustomizeInterestsClick = {
+                        onCustomizeInterestsClick = { card ->
+                            instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_overflow", elementId = "feed_customize")
                             customizeInterestsLauncher.launch(PersonalizationActivity.newIntent(requireContext(), showIntroPage = false))
                         },
                         onTabClick = {
@@ -380,14 +383,14 @@ fun HomeScreen(
     onPageOverflowClick: (pageSummary: PageSummary, source: Int, menuKey: String) -> Unit = { _, _, _ -> },
     onPageOverflowDismiss: () -> Unit = {},
     onNewsClick: (newsItem: NewsItem) -> Unit = {},
-    onImageClick: (image: FeaturedImage) -> Unit = {},
-    onImageDownloadClick: (image: FeaturedImage) -> Unit = {},
-    onImageShareClick: (image: FeaturedImage, age: Int) -> Unit = { _, _ -> },
+    onImageClick: (card: FeaturedImageCard) -> Unit = {},
+    onImageDownloadClick: (card: FeaturedImageCard) -> Unit = {},
+    onImageShareClick: (card: FeaturedImageCard) -> Unit = {},
     onLanguageSelected: (String) -> Unit = {},
     onManageLanguagesClick: () -> Unit = {},
     onTabClick: () -> Unit = {},
     onUpdateTabCount: () -> Unit = {},
-    onCustomizeInterestsClick: () -> Unit = {},
+    onCustomizeInterestsClick: (card: Card) -> Unit = {},
     onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> },
     onCardFooterClick: (card: Card) -> Unit = {},
     onNotificationClick: () -> Unit = {}
@@ -680,9 +683,9 @@ fun CommunityContentTab(
     onPageOverflowClick: (pageSummary: PageSummary, source: Int, menuKey: String) -> Unit = { _, _, _ -> },
     onPageOverflowDismiss: () -> Unit = {},
     onNewsClick: (newsItem: NewsItem) -> Unit = {},
-    onImageClick: (image: FeaturedImage) -> Unit = {},
-    onImageDownloadClick: (image: FeaturedImage) -> Unit = {},
-    onImageShareClick: (image: FeaturedImage, age: Int) -> Unit = { _, _ -> },
+    onImageClick: (card: FeaturedImageCard) -> Unit = {},
+    onImageDownloadClick: (card: FeaturedImageCard) -> Unit = {},
+    onImageShareClick: (card: FeaturedImageCard) -> Unit = {},
     onCardFooterClick: (card: Card) -> Unit = {},
     onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> }
 ) {
@@ -832,14 +835,14 @@ fun CommunityContentTab(
                             item(key = "tfi-${card.age}") {
                                 FeaturedImageModule(
                                     wikiSite = wikiSite,
-                                    featuredImage = card.featuredImage,
+                                    card = card,
                                     onHideCardClick = { onHideCardClick(card) },
                                     onHideModuleClick = {
                                         onHideModuleClick(card.moduleKey())
                                     },
                                     onClick = onImageClick,
                                     onDownloadClick = onImageDownloadClick,
-                                    onShareClick = { onImageShareClick(card.featuredImage, card.age) },
+                                    onShareClick = onImageShareClick,
                                     onCardImpression = { onCardImpression(card, cardIndex) }
                                 )
                             }
@@ -887,7 +890,7 @@ fun ForYouContentTab(
     onPageShareClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
     onPageOverflowClick: (pageSummary: PageSummary, source: Int, menuKey: String) -> Unit = { _, _, _ -> },
     onPageOverflowDismiss: () -> Unit = {},
-    onCustomizeInterestsClick: () -> Unit = {},
+    onCustomizeInterestsClick: (card: Card) -> Unit = {},
     onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> }
 ) {
     when {

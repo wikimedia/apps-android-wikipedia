@@ -47,7 +47,6 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.databinding.FragmentMainBinding
-import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.ImportReadingListsEvent
 import org.wikipedia.events.LoggedOutEvent
@@ -468,7 +467,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     }
 
     override fun onFeaturedImageSelected(image: FeaturedImage) {
-        startActivity(FilePageActivity.newIntent(requireActivity(), PageTitle(image.title, WikiSite(Service.COMMONS_URL))))
+        startActivity(FilePageActivity.newIntent(requireActivity(), image.toPageTitle()))
     }
 
     override fun onLoginRequested() {

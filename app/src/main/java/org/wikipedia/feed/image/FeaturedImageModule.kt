@@ -42,15 +42,16 @@ import org.wikipedia.views.imageservice.ImageService
 @Composable
 fun FeaturedImageModule(
     wikiSite: WikiSite,
-    featuredImage: FeaturedImage,
-    onClick: (featuredImage: FeaturedImage) -> Unit = {},
+    card: FeaturedImageCard,
+    onClick: (card: FeaturedImageCard) -> Unit = {},
     onHideCardClick: () -> Unit = {},
     onHideModuleClick: (featuredImage: FeaturedImage) -> Unit = {},
-    onDownloadClick: (featuredImage: FeaturedImage) -> Unit = {},
-    onShareClick: (featuredImage: FeaturedImage) -> Unit = {},
+    onDownloadClick: (card: FeaturedImageCard) -> Unit = {},
+    onShareClick: (card: FeaturedImageCard) -> Unit = {},
     onCardImpression: () -> Unit = {}
 ) {
     val context = LocalContext.current
+    val featuredImage = card.featuredImage
 
     CommunityModuleContainer(
         wikiSite = wikiSite,
@@ -65,7 +66,7 @@ fun FeaturedImageModule(
             modifier = Modifier
                 .fillMaxWidth().padding(bottom = 24.dp)
                 .clickable {
-                    onClick(featuredImage)
+                    onClick(card)
                 }
         ) {
             FadeInAsyncImage(
@@ -85,7 +86,7 @@ fun FeaturedImageModule(
                 horizontalArrangement = Arrangement.spacedBy(4.dp),
             ) {
                 IconButton(
-                    onClick = { onDownloadClick(featuredImage) },
+                    onClick = { onDownloadClick(card) },
                     modifier = Modifier.size(48.dp)
                 ) {
                     Box(
@@ -106,7 +107,7 @@ fun FeaturedImageModule(
                     }
                 }
                 IconButton(
-                    onClick = { onShareClick(featuredImage) },
+                    onClick = { onShareClick(card) },
                     modifier = Modifier.size(48.dp)
                 ) {
                     Box(
@@ -218,7 +219,7 @@ fun FeaturedImageCardPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         FeaturedImageModule(
             wikiSite = WikiSite.preview(),
-            FeaturedImage("Lorem ipsum")
+            FeaturedImageCard(FeaturedImage("Lorem ipsum"), 0, WikiSite.preview())
         )
     }
 }
