@@ -5,34 +5,58 @@ import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withTimeout
+import org.junit.After
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.notifications.db.Notification
+import org.wikipedia.notifications.db.NotificationDao
 import org.wikipedia.util.Resource
 import kotlin.system.measureTimeMillis
 
 @RunWith(AndroidJUnit4::class)
-class NotificationViewModelPerformanceTest {
-    private val numberNotifications = 1000
-    private val numberIterations = 100
-    private val notificationRepository = FakeNotificationRepository()
-    private val notificationPreferences = FakeNotificationPreferences()
+class NotificationRefactoredViewModelPerformanceTest {
+    val numberNotifications = 1000
+    val numberIterations = 100
+
+    private lateinit var viewModel: NotificationRefactoredViewModel
+    private lateinit var notificationRepository: FakeNotificationRepository
     private val notificationFilterHelper = FakeNotificationFilterHelper()
-    private lateinit var viewModel: NotificationViewModel
+    private val notificationPreferences = FakeNotificationPreferences()
+    private lateinit var db: AppDatabase
 
     @Before
     fun setUp() {
-        // Initialize ViewModel with fakes.
-        // Note: init block will trigger an initial load, but repository is empty then.
+        runBlocking {
+            val context = androidx.test.platform.app.InstrumentationRegistry.getInstrumentation().targetContext
+            db = androidx.room.Room.inMemoryDatabaseBuilder(context, AppDatabase::class.java)
+                .allowMainThreadQueries()
+                .build()
+            notificationRepository = FakeNotificationRepository(db.notificationDao())
 
-        viewModel = NotificationViewModel(
-            notificationPreferences,
-            notificationRepository,
-            notificationFilterHelper
-        )
+            viewModel = NotificationRefactoredViewModel(
+                notificationPreferences,
+                notificationRepository,
+                notificationFilterHelper
+            )
+
+            // Wait for view model to initialize - without blocking the thread
+            withTimeout(5000) { // 5 second timeout
+                viewModel.uiState.filter { it is Resource.Success }.first()
+            }
+        }
+    }
+
+
+    @After
+    fun tearDown() {
+        runBlocking {
+            db.close()
+        }
     }
 
     @Test
@@ -48,7 +72,7 @@ class NotificationViewModelPerformanceTest {
             val read =
                 if (i % 2 == 0)
                     timestampInstant.plus(
-                        30, java.time.temporal.ChronoUnit.MINUTES).toString()
+                    30, java.time.temporal.ChronoUnit.MINUTES).toString()
                 else null
             createNotification(
                 id = i.toLong(),
@@ -67,7 +91,7 @@ class NotificationViewModelPerformanceTest {
             )
         }
         println("Adding ${notifications.size} notifications to mock repository...")
-        notificationRepository.notifications.addAll(notifications)
+        notificationRepository.insertNotifications(notifications)
 
         // Apply a combination of filters
         notificationPreferences.hideRead = true
@@ -162,11 +186,21 @@ class NotificationViewModelPerformanceTest {
         override fun getNotificationExcludedWikiCodes() = excludedWikis
     }
 
-    private class FakeNotificationRepository : NotificationRepository {
-        val notifications = mutableListOf<Notification>()
-        override suspend fun getAllNotifications() = notifications
-        override suspend fun updateNotification(notification: Notification) {}
-        override suspend fun fetchUnreadWikiDbNames() = emptyMap<String, WikiSite>()
+
+    // Fake notification repository used for mocking during test
+    private class FakeNotificationRepository(private val notificationDao: NotificationDao) : NotificationRepository {
+        var unreadWikis = mapOf<String, WikiSite>()
+
+        suspend fun insertNotifications(notifications: List<Notification>) {
+            notificationDao.insertNotifications(notifications)
+        }
+        override suspend fun getAllNotifications(): List<Notification> {
+            return notificationDao.getAllNotifications()
+        }
+        override suspend fun updateNotification(notification: Notification) {
+            notificationDao.updateNotification(notification)
+        }
+        override suspend fun fetchUnreadWikiDbNames() = unreadWikis
         override suspend fun fetchAndSave(filter: String?, continueStr: String?) = null
         override suspend fun getAllSelectedNotifications(
             hideReadNotifications: Boolean,
@@ -175,7 +209,15 @@ class NotificationViewModelPerformanceTest {
             includedWikiCodes: List<String>,
             hideNotMentioned: Boolean
         ): List<Notification> {
-            return emptyList()
+            return notificationDao.getAllSelectedNotification(
+                hideReadNotifications,
+                searchQuery,
+                hasExclusions = !excludedTypeCodes.isEmpty(),
+                excludedTypeCodes,
+                includedWikiCodes,
+                hideNotMentioned,
+                NotificationCategory.MENTIONS_GROUP.map { it.id }
+            )
         }
     }
 
