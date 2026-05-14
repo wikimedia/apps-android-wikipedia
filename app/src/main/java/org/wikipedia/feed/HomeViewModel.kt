@@ -138,14 +138,14 @@ class HomeViewModel : ViewModel() {
 
     private val _communityState = MutableStateFlow(CommunityContentState())
     val communityState = combine(_communityState, SettingsRepository.hiddenModules) { state, hiddenModules ->
-        val visibleCards = state.cards.filterNot { hiddenModules.contains(it.moduleKey()) }
-        state.copy(cards = visibleCards, isEmptyState = CommunityModuleType.entries.all { hiddenModules.contains(it.name) })
+        val visibleModules = state.cards.filterNot { hiddenModules.contains(it.moduleKey()) }
+        state.copy(cards = visibleModules, isEmptyState = CommunityModuleType.entries.all { hiddenModules.contains(it.name) })
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(MAX_STOP_TIMEOUT_MILLIS), CommunityContentState())
 
     private val _forYouState = MutableStateFlow(ForYouContentState())
     val forYouState = combine(_forYouState, SettingsRepository.hiddenModules) { state, hiddenModules ->
-        val visibleCards = state.modules.filterNot { hiddenModules.contains(it.moduleKey()) }
-        state.copy(modules = visibleCards, isEmptyState = ForYouModuleType.entries.all { hiddenModules.contains(it.name) })
+        val visibleModules = state.modules.filterNot { hiddenModules.contains(it.moduleKey()) }
+        state.copy(modules = visibleModules, isEmptyState = ForYouModuleType.entries.all { hiddenModules.contains(it.name) })
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(MAX_STOP_TIMEOUT_MILLIS), ForYouContentState())
 
     // "age" in days from today. 0 = today, 1 = yesterday, etc.

@@ -32,7 +32,9 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
@@ -290,7 +292,7 @@ class HomeFragment : Fragment() {
                         onNotificationClick = {
                             requireActivity().startActivity(NotificationActivity.newIntent(requireActivity()))
                         },
-                        onManageModuleBtnClick = {
+                        onManageModulesClick = {
                             val intent = HomeFeedSettingsActivity.newIntent(
                                 context = requireContext(),
                                 startDestination = when (selectedTab) {
@@ -383,7 +385,7 @@ fun HomeScreen(
     onCustomizeInterestsClick: () -> Unit = {},
     onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> },
     onNotificationClick: () -> Unit = {},
-    onManageModuleBtnClick: () -> Unit = {},
+    onManageModulesClick: () -> Unit = {},
 ) {
     val context = LocalContext.current
     val topInset = if (context is MainActivity) {
@@ -459,7 +461,7 @@ fun HomeScreen(
                             onImageDownloadClick = onImageDownloadClick,
                             onImageShareClick = onImageShareClick,
                             onCardImpression = onCardImpression,
-                            onManageModuleBtnClick = onManageModuleBtnClick
+                            onManageModulesClick = onManageModulesClick
                         )
                     }
                 }
@@ -480,7 +482,7 @@ fun HomeScreen(
                         onPageOverflowDismiss = onPageOverflowDismiss,
                         onCustomizeInterestsClick = onCustomizeInterestsClick,
                         onCardImpression = onCardImpression,
-                        onManageModuleBtnClick = onManageModuleBtnClick
+                        onManageModulesClick = onManageModulesClick
                     )
 
                     // Floating toolbar with gradient scrim, wordmark, and tab selector.
@@ -682,7 +684,7 @@ fun CommunityContentTab(
     onImageDownloadClick: (image: FeaturedImage) -> Unit = {},
     onImageShareClick: (image: FeaturedImage, age: Int) -> Unit = { _, _ -> },
     onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> },
-    onManageModuleBtnClick: () -> Unit,
+    onManageModulesClick: () -> Unit,
 ) {
     val activity = LocalActivity.current as? MainActivity
     when {
@@ -694,10 +696,11 @@ fun CommunityContentTab(
                 modifier = Modifier
                     .fillMaxSize()
                     .background(WikipediaTheme.colors.paperColor)
-                    .padding(16.dp),
+                    .padding(16.dp)
+                    .verticalScroll(rememberScrollState()),
                 title = stringResource(R.string.home_feed_screen_empty_state_label),
                 description = stringResource(R.string.home_feed_community_screen_empty_state_description),
-                onManageModuleBtnClick = onManageModuleBtnClick
+                onManageModulesClick = onManageModulesClick
             )
         }
         state.error != null && state.cards.isEmpty() -> {
@@ -910,7 +913,7 @@ fun ForYouContentTab(
     onPageOverflowDismiss: () -> Unit = {},
     onCustomizeInterestsClick: () -> Unit = {},
     onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> },
-    onManageModuleBtnClick: () -> Unit
+    onManageModulesClick: () -> Unit
 ) {
     when {
         state.isInitialLoading -> {
@@ -928,11 +931,12 @@ fun ForYouContentTab(
                 modifier = Modifier
                     .fillMaxSize()
                     .background(WikipediaTheme.colors.paperColor)
-                    .padding(16.dp)
-                    .padding(top = (topInset * 2 + 64).dp),
+                    .padding(horizontal = 16.dp)
+                    .padding(top = (topInset * 2 + 64).dp)
+                    .verticalScroll(rememberScrollState()),
                 title = stringResource(R.string.home_feed_screen_empty_state_label),
                 description = stringResource(R.string.home_feed_for_you_screen_empty_state_description),
-                onManageModuleBtnClick = onManageModuleBtnClick
+                onManageModulesClick = onManageModulesClick
             )
         }
         state.error != null && state.modules.isEmpty() -> {
@@ -1294,7 +1298,7 @@ fun HomeScreenEmptyState(
     modifier: Modifier = Modifier,
     title: String,
     description: String,
-    onManageModuleBtnClick: () -> Unit,
+    onManageModulesClick: () -> Unit,
 ) {
     Column (
         modifier = modifier,
@@ -1324,7 +1328,7 @@ fun HomeScreenEmptyState(
             color = WikipediaTheme.colors.secondaryColor
         )
         AppButton(
-            onClick = onManageModuleBtnClick
+            onClick = onManageModulesClick
         ) {
             Text(
                 text = stringResource(R.string.home_feed_screen_empty_state_btn_label)
