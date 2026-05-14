@@ -58,7 +58,7 @@ fun ForYouModulesScreen(
                 viewModel.toggleModuleVisibility(key, isVisible)
                 if (!isVisible) {
                     val newHiddenModules = (viewModel.hiddenModules.value ?: emptySet()) + key
-                    if (CommunityModuleType.entries().all { entry -> newHiddenModules.contains(entry.key) }) {
+                    if (ForYouModuleType.entries().all { entry -> newHiddenModules.contains(entry.key) }) {
                         lastToggledOffKey = key
                         showAllOffDialog = true
                     }
