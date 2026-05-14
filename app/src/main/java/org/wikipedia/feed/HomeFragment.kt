@@ -64,6 +64,7 @@ import androidx.compose.ui.platform.LocalLocale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -78,6 +79,7 @@ import org.wikipedia.compose.components.NotificationBell
 import org.wikipedia.compose.components.NotificationBellState
 import org.wikipedia.compose.components.TabsBox
 import org.wikipedia.compose.components.WikiLangCodeBox
+import org.wikipedia.compose.components.WikipediaAlertDialog
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.components.menu.PageOverflowMenu
@@ -166,6 +168,7 @@ class HomeFragment : Fragment() {
                 val wikiSite by viewModel.wikiSite.collectAsState()
                 val tabsState by viewModel.tabsState.collectAsState()
                 val notificationState by viewModel.unreadCount.collectAsState()
+                var swipeToExplorePromptShown by remember { mutableStateOf(Prefs.isHomeSwipeToExplorePromptShown) }
 
                 BaseTheme(currentTheme = if (selectedTab == HomeTab.FOR_YOU) Theme.BLACK else WikipediaApp.instance.currentTheme) {
                     HomeScreen(
@@ -287,6 +290,31 @@ class HomeFragment : Fragment() {
                             requireActivity().startActivity(NotificationActivity.newIntent(requireActivity()))
                         }
                     )
+
+                    if (selectedTab == HomeTab.FOR_YOU && !swipeToExplorePromptShown) {
+                        WikipediaAlertDialog(
+                            title = stringResource(R.string.explore_feed_swipe_to_explore_prompt_title),
+                            titleModifier = Modifier.fillMaxWidth(),
+                            titleTextAlign = TextAlign.Start,
+                            message = stringResource(R.string.explore_feed_swipe_to_explore_prompt_message),
+                            image = {
+                                Image(
+                                    painter = painterResource(R.drawable.illustration_swipe_gesture),
+                                    contentDescription = null,
+                                    modifier = Modifier.fillMaxWidth()
+                                )
+                            },
+                            confirmButtonText = stringResource(R.string.onboarding_got_it),
+                            onDismissRequest = {
+                                swipeToExplorePromptShown = true
+                                Prefs.isHomeSwipeToExplorePromptShown = true
+                            },
+                            onConfirmButtonClick = {
+                                swipeToExplorePromptShown = true
+                                Prefs.isHomeSwipeToExplorePromptShown = true
+                            }
+                        )
+                    }
                 }
             }
         }
