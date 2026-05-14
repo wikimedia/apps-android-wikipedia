@@ -4,11 +4,15 @@ import androidx.annotation.StringRes
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.viewmodel.compose.viewModel
 import org.wikipedia.R
 import org.wikipedia.compose.components.ToggleListScreen
 import org.wikipedia.compose.components.ToggleSettingItem
+import org.wikipedia.compose.components.WikipediaAlertDialog
 
 enum class CommunityModuleType(
     @param:StringRes val title: Int,
@@ -48,14 +52,41 @@ fun CommunityModulesScreen(
     onBack: () -> Unit,
 ) {
     val hiddenModules by viewModel.hiddenModules.collectAsState()
+    var showAllOffDialog by remember { mutableStateOf(false) }
+    var lastToggledOffKey by remember { mutableStateOf("") }
+
     hiddenModules?.let {
         ToggleListScreen(
             title = stringResource(R.string.explore_feed_community_tab_label),
             description = stringResource(R.string.home_feed_settings_community_modules_description),
             modules = CommunityModuleType.entries(),
             hiddenModules = it,
-            onToggle = viewModel::toggleModuleVisibility,
+            onToggle = { key, isVisible ->
+                viewModel.toggleModuleVisibility(key, isVisible)
+                if (!isVisible) {
+                    val newHiddenModules = (viewModel.hiddenModules.value ?: emptySet()) + key
+                    if (CommunityModuleType.entries().all { entry -> newHiddenModules.contains(entry.key) }) {
+                        lastToggledOffKey = key
+                        showAllOffDialog = true
+                    }
+                }
+            },
             onBack = onBack
+        )
+    }
+
+    if (showAllOffDialog) {
+        WikipediaAlertDialog(
+            title = stringResource(R.string.home_feed_settings_community_empty_dialog_title),
+            message = stringResource(R.string.home_feed_settings_empty_dialog_text),
+            confirmButtonText = stringResource(R.string.home_feed_settings_empty_dialog_positive),
+            dismissButtonText = stringResource(android.R.string.cancel),
+            onDismissRequest = { showAllOffDialog = false },
+            onConfirmButtonClick = { showAllOffDialog = false },
+            onDismissButtonClick = {
+                showAllOffDialog = false
+                viewModel.toggleModuleVisibility(lastToggledOffKey, true)
+            }
         )
     }
 }
