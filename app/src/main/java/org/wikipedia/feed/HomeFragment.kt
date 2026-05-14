@@ -684,6 +684,7 @@ fun CommunityContentTab(
                     )
                     Spacer(modifier = Modifier.height(16.dp))
                 }
+                var lastCardWasDayHeader = false
                 state.cards.forEachIndexed { cardIndex, card ->
                     when (card) {
                         is DayHeaderCard -> {
@@ -729,6 +730,11 @@ fun CommunityContentTab(
                             }
                         }
                         is TopReadListCard -> {
+                            if (lastCardWasDayHeader) {
+                                item(key = "top-read-spacer-${card.age}") {
+                                    Spacer(modifier = Modifier.height(16.dp))
+                                }
+                            }
                             item(key = "top-read-${card.age}") {
                                 TopReadModule(
                                     wikiSite = wikiSite,
@@ -786,6 +792,11 @@ fun CommunityContentTab(
                             }
                         }
                         is OnThisDayCard -> {
+                            if (lastCardWasDayHeader) {
+                                item(key = "on-this-day-spacer-${card.age}") {
+                                    Spacer(modifier = Modifier.height(16.dp))
+                                }
+                            }
                             item(key = "on-this-day-${card.age}") {
                                 OnThisDayModule(
                                     wikiSite = wikiSite,
@@ -837,6 +848,7 @@ fun CommunityContentTab(
                             // TODO: Media of the day (Commons)
                         }
                     }
+                    lastCardWasDayHeader = card is DayHeaderCard
                 }
 
                 item(key = "load-more-community") {
