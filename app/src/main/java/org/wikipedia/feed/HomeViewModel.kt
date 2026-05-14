@@ -41,6 +41,7 @@ import org.wikipedia.json.LocalDateTimeSerializer
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SettingsRepository
+import org.wikipedia.settings.homefeed.ForYouModuleType
 import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.topics.ArticleTopics
 import org.wikipedia.util.StringUtil
@@ -49,8 +50,6 @@ import java.time.LocalDate
 import java.time.LocalDateTime
 
 enum class HomeTab { COMMUNITY, FOR_YOU }
-enum class CommunityModules { TOP_READ, FEATURED_ARTICLE, FEATURED_IMAGE, NEWS, ON_THIS_DAY }
-enum class ForYouModules { BASED_ON_INTEREST, CONTINUE_READING, BECAUSE_YOU_READ }
 private const val MAX_HIDDEN_CARDS = 100
 private const val MAX_STOP_TIMEOUT_MILLIS = 5000L
 
@@ -74,7 +73,7 @@ sealed class ForYouModule {
         override val cards: List<ForYouCard>
     ) : ForYouModule() {
         override fun withCards(cards: List<ForYouCard>): ForYouModule = copy(cards = cards)
-        override fun moduleKey(): String = ForYouModules.BASED_ON_INTEREST.name
+        override fun moduleKey(): String = ForYouModuleType.BASED_ON_INTEREST.name
     }
 
     @Serializable
@@ -84,7 +83,7 @@ sealed class ForYouModule {
         override val cards: List<ForYouCard>
     ) : ForYouModule() {
         override fun withCards(cards: List<ForYouCard>): ForYouModule = copy(cards = cards)
-        override fun moduleKey(): String = ForYouModules.CONTINUE_READING.name
+        override fun moduleKey(): String = ForYouModuleType.CONTINUE_READING.name
     }
 
     @Serializable
@@ -94,7 +93,7 @@ sealed class ForYouModule {
         override val cards: List<ForYouCard>
     ) : ForYouModule() {
         override fun withCards(cards: List<ForYouCard>): ForYouModule = copy(cards = cards)
-        override fun moduleKey(): String = ForYouModules.BECAUSE_YOU_READ.name
+        override fun moduleKey(): String = ForYouModuleType.BECAUSE_YOU_READ.name
     }
 }
 

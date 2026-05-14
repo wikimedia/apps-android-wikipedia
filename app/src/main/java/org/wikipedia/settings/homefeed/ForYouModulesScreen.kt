@@ -1,38 +1,59 @@
 package org.wikipedia.settings.homefeed
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
+import androidx.annotation.StringRes
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.res.stringResource
+import androidx.lifecycle.viewmodel.compose.viewModel
 import org.wikipedia.R
-import org.wikipedia.compose.components.WikiTopAppBar
-import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.compose.components.ToggleListScreen
+import org.wikipedia.compose.components.ToggleSettingItem
+
+enum class ForYouModuleType(
+    @param:StringRes val title: Int,
+    @param:StringRes val subtitle: Int,
+) {
+    BASED_ON_INTEREST(
+        title = R.string.home_feed_settings_based_on_interest_title,
+        subtitle = R.string.home_feed_settings_based_on_interest_subtitle
+    ),
+    BECAUSE_YOU_READ(
+        title = R.string.view_because_you_read_card_title,
+        subtitle = R.string.home_feed_settings_because_you_read_subtitle
+    ),
+    CONTINUE_READING(
+        title = R.string.home_feed_settings_continue_reading_title,
+        subtitle = R.string.home_feed_settings_continue_reading_subtitle
+    );
+
+    fun toEntry() = ToggleSettingItem(title, subtitle, name)
+
+    companion object {
+        fun entries() = entries.map { it.toEntry() }
+    }
+}
 
 @Composable
 fun ForYouModulesScreen(
+    viewModel: ModulesViewModel = viewModel(),
+    navigateToFeedConfigurationScreen: () -> Unit,
     onBack: () -> Unit,
 ) {
-    Scaffold(
-        topBar = {
-            WikiTopAppBar(
-                title = stringResource(R.string.explore_feed_for_you_tab_label),
-                onNavigationClick = onBack,
-            )
-        },
-        containerColor = WikipediaTheme.colors.paperColor,
-    ) { paddingValues ->
-        Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(paddingValues),
-            contentAlignment = Alignment.Center,
-        ) {
-            Text(text = "TODO: For You Modules")
-        }
+    val hiddenModules by viewModel.hiddenModules.collectAsState()
+    hiddenModules?.let {
+        ToggleListScreen(
+            title = stringResource(R.string.explore_feed_for_you_tab_label),
+            description = stringResource(R.string.home_feed_settings_for_you_modules_description),
+            modules = ForYouModuleType.entries(),
+            hiddenModules = it,
+            onToggle = viewModel::toggleModuleVisibility,
+            onBack = onBack,
+            onSubtitleLinkClick = { href ->
+                when (href) {
+                    "#drivingFeed" -> navigateToFeedConfigurationScreen()
+                }
+            }
+        )
     }
 }

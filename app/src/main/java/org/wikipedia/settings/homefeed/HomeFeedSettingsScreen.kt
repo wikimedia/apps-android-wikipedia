@@ -23,7 +23,7 @@ fun HomeFeedSettingsScreen(
     onBackClick: () -> Unit,
     onForYouModulesClick: () -> Unit,
     onCommunityModulesClick: () -> Unit,
-    onWhatsDrivingFeedClick: () -> Unit
+    onFeedConfigurationClick: () -> Unit
 ) {
     Scaffold(
         modifier = modifier,
@@ -64,7 +64,7 @@ fun HomeFeedSettingsScreen(
                 SettingsRow(
                     title = stringResource(R.string.home_feed_settings_whats_driving_title),
                     subtitle = stringResource(R.string.home_feed_settings_whats_driving_subtitle),
-                    onClick = onWhatsDrivingFeedClick
+                    onClick = onFeedConfigurationClick
                 )
             }
         }
@@ -81,7 +81,7 @@ private fun HomeFeedSettingsScreenLightPreview() {
             onBackClick = {},
             onForYouModulesClick = {},
             onCommunityModulesClick = {},
-            onWhatsDrivingFeedClick = {}
+            onFeedConfigurationClick = {}
         )
     }
 }
@@ -96,7 +96,7 @@ private fun HomeFeedSettingsScreenDarkPreview() {
             onBackClick = {},
             onForYouModulesClick = {},
             onCommunityModulesClick = {},
-            onWhatsDrivingFeedClick = {}
+            onFeedConfigurationClick = {}
         )
     }
 }
