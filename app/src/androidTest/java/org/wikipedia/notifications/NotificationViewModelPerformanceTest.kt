@@ -5,6 +5,7 @@ import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withTimeout
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -75,10 +76,10 @@ class NotificationViewModelPerformanceTest {
         notificationPreferences.excludedTypes.add("type1")
         viewModel.updateSearchQuery("Header 1") // Will limit to headers starting with "Header 1"
 
-        // Perform an initial fetch to ensure uiState is populated with Success data
-        // which simplifies the drop(1) logic in the measurement loop.
-        viewModel.fetchAndSave(refresh = true)
-        viewModel.uiState.filter { it is Resource.Success && it.data.first.isNotEmpty() }.first()
+        // Wait for initialization and initial fetch to finish without blocking
+        withTimeout(10000) {
+            viewModel.uiState.filter { it is Resource.Success && it.data.first.isNotEmpty() }.first()
+        }
 
         val times = mutableListOf<Long>()
 
@@ -101,7 +102,11 @@ class NotificationViewModelPerformanceTest {
         val maxTime = times.maxOrNull() ?: 0
         val averageTime = times.average()
         val sortedTimes = times.sorted()
-        val medianTime = (sortedTimes[numberIterations / 2 - 1] + sortedTimes[numberIterations / 2]) / 2.0
+        val medianTime = if (numberIterations % 2 == 0) {
+            (sortedTimes[numberIterations / 2 - 1] + sortedTimes[numberIterations / 2]) / 2.0
+        } else {
+            sortedTimes[numberIterations / 2].toDouble()
+        }
 
         println("\nPerformance Result Summary ($numberNotifications notifications, $numberIterations iterations):")
         println("Min: $minTime ms")
