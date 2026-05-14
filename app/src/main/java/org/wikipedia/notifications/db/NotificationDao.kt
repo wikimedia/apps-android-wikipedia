@@ -21,7 +21,7 @@ interface NotificationDao {
     @Query("DELETE FROM Notification")
     suspend fun deleteAll()
 
-    @Query("SELECT * FROM Notification")
+    @Query("SELECT * FROM Notification ORDER BY timestamp DESC")
     suspend fun getAllNotifications(): List<Notification>
 
     @Query("SELECT * FROM Notification WHERE `wiki` IN (:wiki)")
@@ -29,4 +29,39 @@ interface NotificationDao {
 
     @Query("SELECT * FROM Notification WHERE `wiki` IN (:wiki) AND `id` IN (:id)")
     suspend fun getNotificationById(wiki: String, id: Long): Notification?
+
+    /**
+     * Retrieves all notifications from the local database with sorting and filtering:
+     * - Sorting by timestamp (descending)
+     * - Filtering out read notifications if [hideReadNotifications] is true
+     * - Filtering by [searchQuery] against title, header, body, and secondary link labels
+     * - Filtering out excluded categories in [excludedTypeCodes]
+     * - Filtering to included wikis by transforming the database name to language code
+     * - Filtering to only "mentions" if [hideNotMentioned] is true
+     */
+    @Query("""
+        SELECT * FROM Notification
+        WHERE ((:hideReadNotifications = 0) OR (read IS NULL))
+        AND ((:searchQuery IS NULL) OR
+             (title LIKE '%' || :searchQuery || '%') OR
+             (contents LIKE '%' || :searchQuery || '%'))
+        AND ((:hasExclusions = 0) OR (category NOT IN (:excludedTypeCodes)))
+        AND (REPLACE(
+            CASE WHEN wiki LIKE '%wiki' THEN SUBSTR(wiki, 1, LENGTH(wiki)-4) ELSE wiki END,
+            '_', '-'
+        ) IN (:includedWikiCodes))
+        AND ((:hideNotMentioned = 0) OR
+             (category IN (:mentionsGroup)) OR
+             (((INSTR(category, '-') > 0) AND (SUBSTR(category, 1, INSTR(category, '-') - 1) IN (:mentionsGroup)))))
+        ORDER BY timestamp DESC
+    """)
+    suspend fun getAllSelectedNotification(
+        hideReadNotifications: Boolean,
+        searchQuery: String?,
+        hasExclusions: Boolean,
+        excludedTypeCodes: Set<String>,
+        includedWikiCodes: List<String>,
+        hideNotMentioned: Boolean,
+        mentionsGroup: List<String>
+    ): List<Notification>
 }

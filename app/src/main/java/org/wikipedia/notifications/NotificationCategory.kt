@@ -46,7 +46,7 @@ enum class NotificationCategory(val id: String,
     }
 
     companion object {
-        private val MENTIONS_GROUP = listOf(MENTION, EDIT_USER_TALK, EMAIL_USER, USER_RIGHTS, REVERTED)
+        val MENTIONS_GROUP = listOf(MENTION, EDIT_USER_TALK, EMAIL_USER, USER_RIGHTS, REVERTED)
         val FILTERS_GROUP = listOf(EDIT_USER_TALK, MENTION, EMAIL_USER, REVERTED, USER_RIGHTS, EDIT_THANK, MILESTONE_EDIT, LOGIN_FAIL, SYSTEM, ARTICLE_LINKED)
 
         fun find(id: String): NotificationCategory {

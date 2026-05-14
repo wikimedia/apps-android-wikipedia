@@ -29,4 +29,31 @@ interface NotificationRepository {
      * Supports pagination via the continue token.
      */
     suspend fun fetchAndSave(filter: String?, continueStr: String? = null): String?
+
+    /**
+     * Retrieves all notifications from the local database with sorting and filtering:
+     * - Sorting by timestamp
+     * - if indicated by boolean flag (hideReadNotifications), filtering out read notifications
+     * - if a search string is provided (searchQuery), check if any of these notification attributes
+     * contains it:
+     *   - title
+     *   - header
+     *   - body
+     *   - (secondary) link label
+     * - filtering out excluded types (excludedTypeCodes)
+     * - filtering to included wikis (includedWikiCodes) where a list of language codes is provided
+     *   and the query reproduces the StringUtil.dbNameToLangCode function using the wiki of the
+     *   notification as input and compares it with the provided language codes
+     * - if indicated by boolean flag (hideNotMentioned), filtering to those notifications where
+     *   the category string is starting with one of the strings MENTIONS_GROUP list
+     *
+     *   (Deduplication is done when inserting new entries in the database)
+     */
+    suspend fun getAllSelectedNotifications(
+        hideReadNotifications: Boolean,
+        searchQuery: String?,
+        excludedTypeCodes: Set<String>,
+        includedWikiCodes: List<String>,
+        hideNotMentioned: Boolean
+    ): List<Notification>
 }

@@ -32,4 +32,14 @@ class NotificationRepositoryImpl(private val notificationDao: NotificationDao): 
         }
         return newContinueStr
     }
+
+    override suspend fun getAllSelectedNotifications(
+        hideReadNotifications: Boolean,
+        searchQuery: String?,
+        excludedTypeCodes: Set<String>,
+        includedWikiCodes: List<String>,
+        hideNotMentioned: Boolean
+    ): List<Notification> {
+        return emptyList()
+    }
 }

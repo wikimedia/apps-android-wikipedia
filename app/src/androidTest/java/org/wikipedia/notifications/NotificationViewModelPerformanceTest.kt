@@ -88,7 +88,7 @@ class NotificationViewModelPerformanceTest {
         val sortedTimes = times.sorted()
         val medianTime = (sortedTimes[4] + sortedTimes[5]) / 2.0
 
-        println("\nPerformance Result Summary (1000 notifications, 10 iterations):")
+        println("\nPerformance Result Summary (1000 notifications, $iterations iterations):")
         println("Min: $minTime ms")
         println("Max: $maxTime ms")
         println("Average: ${"%.2f".format(averageTime)} ms")
