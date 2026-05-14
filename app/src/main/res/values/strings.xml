@@ -2518,4 +2518,12 @@
     <string name="home_feed_settings_because_you_read_subtitle">Suggestions based on a recent article from your history</string>
     <string name="home_feed_settings_continue_reading_title">Continue reading</string>
     <string name="home_feed_settings_continue_reading_subtitle">Jump back into articles you didn\'t finish</string>
+    <string name="home_feed_settings_community_empty_dialog_title">Your Community feed will be empty</string>
+    <string name="home_feed_settings_for_you_empty_dialog_title">Your \"For you\" feed will be empty</string>
+    <string name="home_feed_settings_empty_dialog_text">Turn on at least one module to see content.</string>
+    <string name="home_feed_settings_empty_dialog_positive">Continue anyway</string>
+    <string name="home_feed_screen_empty_state_label">Your feed is empty</string>
+    <string name="home_feed_community_screen_empty_state_description"><![CDATA[Turn on the <b>From the community</b> modules to start seeing content curated by contributors across the Wikimedia movement.]]></string>
+    <string name="home_feed_for_you_screen_empty_state_description"><![CDATA[Turn on the <b>For you</b> modules to start seeing content based on your preferences.]]></string>
+    <string name="home_feed_screen_empty_state_btn_label">Manage modules</string>
 </resources>

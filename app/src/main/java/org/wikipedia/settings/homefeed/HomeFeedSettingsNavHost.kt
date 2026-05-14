@@ -25,25 +25,28 @@ fun HomeFeedSettingsNavHost(
                 onBackClick = {
                     onExit()
                 },
-                onCommunityModulesClick = { navController.navigate(HomeFeedSettingsDestination.CommunityModules) },
-                onForYouModulesClick = { navController.navigate(HomeFeedSettingsDestination.ForYouModules) },
-                onWhatsDrivingFeedClick = { navController.navigate(HomeFeedSettingsDestination.WhatsDrivingFeedModules) }
+                onCommunityModulesClick = { navController.navigate(HomeFeedSettingsDestination.CommunityModuleScreen) },
+                onForYouModulesClick = { navController.navigate(HomeFeedSettingsDestination.ForYouModuleScreen) },
+                onFeedConfigurationClick = { navController.navigate(HomeFeedSettingsDestination.FeedConfiguration) }
             )
         }
 
-        composable<HomeFeedSettingsDestination.CommunityModules> {
+        composable<HomeFeedSettingsDestination.CommunityModuleScreen> {
             CommunityModulesScreen(
                 onBack = { navController.navigateUp() }
             )
         }
 
-        composable<HomeFeedSettingsDestination.ForYouModules> {
+        composable<HomeFeedSettingsDestination.ForYouModuleScreen> {
             ForYouModulesScreen(
-                onBack = { navController.navigateUp() }
+                onBack = { navController.navigateUp() },
+                navigateToFeedConfigurationScreen = {
+                    navController.navigate(HomeFeedSettingsDestination.FeedConfiguration)
+                }
             )
         }
 
-        composable<HomeFeedSettingsDestination.WhatsDrivingFeedModules> {
+        composable<HomeFeedSettingsDestination.FeedConfiguration> {
             FeedConfigurationScreen(
                 onBack = { navController.navigateUp() }
             )

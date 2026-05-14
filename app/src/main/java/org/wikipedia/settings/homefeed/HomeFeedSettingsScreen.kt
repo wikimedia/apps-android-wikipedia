@@ -3,6 +3,8 @@ package org.wikipedia.settings.homefeed
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -23,7 +25,7 @@ fun HomeFeedSettingsScreen(
     onBackClick: () -> Unit,
     onForYouModulesClick: () -> Unit,
     onCommunityModulesClick: () -> Unit,
-    onWhatsDrivingFeedClick: () -> Unit
+    onFeedConfigurationClick: () -> Unit
 ) {
     Scaffold(
         modifier = modifier,
@@ -40,7 +42,8 @@ fun HomeFeedSettingsScreen(
         Column(
             modifier = Modifier
                 .padding(paddingValues)
-                .padding(top = 24.dp),
+                .padding(top = 24.dp)
+                .verticalScroll(rememberScrollState()),
             verticalArrangement = Arrangement.spacedBy(34.dp)
         ) {
             SettingsSection(
@@ -64,7 +67,7 @@ fun HomeFeedSettingsScreen(
                 SettingsRow(
                     title = stringResource(R.string.home_feed_settings_whats_driving_title),
                     subtitle = stringResource(R.string.home_feed_settings_whats_driving_subtitle),
-                    onClick = onWhatsDrivingFeedClick
+                    onClick = onFeedConfigurationClick
                 )
             }
         }
@@ -81,7 +84,7 @@ private fun HomeFeedSettingsScreenLightPreview() {
             onBackClick = {},
             onForYouModulesClick = {},
             onCommunityModulesClick = {},
-            onWhatsDrivingFeedClick = {}
+            onFeedConfigurationClick = {}
         )
     }
 }
@@ -96,7 +99,7 @@ private fun HomeFeedSettingsScreenDarkPreview() {
             onBackClick = {},
             onForYouModulesClick = {},
             onCommunityModulesClick = {},
-            onWhatsDrivingFeedClick = {}
+            onFeedConfigurationClick = {}
         )
     }
 }

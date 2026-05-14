@@ -4,9 +4,9 @@ import android.net.Uri
 import androidx.core.net.toUri
 import org.wikipedia.R
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.feed.CommunityModules
 import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.model.WikiSiteCard
+import org.wikipedia.settings.homefeed.CommunityModuleType
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.L10nUtil
 
@@ -17,7 +17,7 @@ class FeaturedImageCard(
 ) : WikiSiteCard(wiki) {
 
     override fun moduleKey(): String {
-        return CommunityModules.FEATURED_IMAGE.name
+        return CommunityModuleType.FEATURED_IMAGE.name
     }
 
     override fun title(): String {
