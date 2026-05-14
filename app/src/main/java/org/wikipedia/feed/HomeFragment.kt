@@ -215,15 +215,15 @@ class HomeFragment : Fragment() {
                                 }.show()
                         },
                         onPageClick = { card, historyEntry ->
-                            instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_overflow", elementId = "article_open", pageData = TestKitchenAdapter.getPageData(pageTitle = historyEntry.title))
+                            instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, elementId = "article_open", pageData = TestKitchenAdapter.getPageData(pageTitle = historyEntry.title))
                             (parentFragment as? MainFragment)?.onFeedSelectPage(historyEntry, false)
                         },
                         onPageBookmarkClick = { card, historyEntry ->
-                            instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_overflow", elementId = "article_save", pageData = TestKitchenAdapter.getPageData(pageTitle = historyEntry.title))
+                            instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, elementId = "article_save", pageData = TestKitchenAdapter.getPageData(pageTitle = historyEntry.title))
                             (parentFragment as? MainFragment)?.onFeedAddPageToList(historyEntry, true)
                         },
                         onPageShareClick = { card, historyEntry ->
-                            instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_overflow", elementId = "article_share", pageData = TestKitchenAdapter.getPageData(pageTitle = historyEntry.title))
+                            instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, elementId = "article_share", pageData = TestKitchenAdapter.getPageData(pageTitle = historyEntry.title))
                             ShareUtil.shareText(requireContext(), historyEntry.title)
                         },
                         onPageOverflowClick = { card, pageSummary, source, menuKey ->

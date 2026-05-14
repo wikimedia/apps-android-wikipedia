@@ -52,6 +52,7 @@ fun HomeFeedSettingsNavHost(
             ForYouModulesScreen(
                 onBack = { navController.navigateUp() },
                 navigateToFeedConfigurationScreen = {
+                    context.instrument?.submitInteraction("click", actionSubtype = "feed_for_you", elementId = "feed_data_info")
                     navController.navigate(HomeFeedSettingsDestination.FeedConfiguration)
                 }
             )
