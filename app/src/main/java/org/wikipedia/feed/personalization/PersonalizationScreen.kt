@@ -59,6 +59,7 @@ fun PersonalizationScreen(
     )
 
     LaunchedEffect(pagerState.currentPage) {
+        context.instrument?.submitInteraction("impression", actionSource = pageActionSource[screens[pagerState.currentPage]])
         viewModel.onPageChanged(screens[pagerState.currentPage])
     }
 
@@ -113,20 +114,20 @@ fun PersonalizationScreen(
                             articlesState = interestUiState.value.articlesState,
                             totalSelectedCount = interestUiState.value.totalSelectedCount,
                             onTopicSelected = {
-                                context.instrument?.submitInteraction("click", elementId = "topic_select")
+                                context.instrument?.submitInteraction("click", actionSource = pageActionSource[screens[pagerState.currentPage]], elementId = "topic_select")
                                 viewModel.onTopicSelected(it)
                             },
                             onItemClick = {
-                                context.instrument?.submitInteraction("click", elementId = "article_select")
+                                context.instrument?.submitInteraction("click", actionSource = pageActionSource[screens[pagerState.currentPage]], elementId = "article_select")
                                 viewModel.toggleArticleSelection(it)
                             },
                             onSearchClick = onSearchClick,
                             onDeselectAllClick = {
-                                context.instrument?.submitInteraction("click", elementId = "deselect_all")
+                                context.instrument?.submitInteraction("click", actionSource = pageActionSource[screens[pagerState.currentPage]], elementId = "deselect_all")
                                 viewModel.deselectAllArticles()
                             },
                             retryLoading = {
-                                context.instrument?.submitInteraction("click", elementId = "retry")
+                                context.instrument?.submitInteraction("click", actionSource = pageActionSource[screens[pagerState.currentPage]], elementId = "retry")
                                 viewModel.retryInterestsLoading()
                             }
                         )
@@ -143,12 +144,12 @@ fun PersonalizationScreen(
                             onTypeSelected = {
                                 context.instrument?.submitInteraction(
                                     "click",
-                                    actionSource = "feed_order_customize",
+                                    actionSource = pageActionSource[screens[pagerState.currentPage]],
                                     elementId = if (it == HomePreferenceType.COMMUNITY) "community_first" else "for_you_first")
                                 viewModel.onFeedPreferenceTypeSelected(it)
                             },
                             onRetryClick = {
-                                context.instrument?.submitInteraction("click", elementId = "retry")
+                                context.instrument?.submitInteraction("click", actionSource = pageActionSource[screens[pagerState.currentPage]], elementId = "retry")
                                 viewModel.retryFeedPreferenceLoading(it)
                             }
                         )
