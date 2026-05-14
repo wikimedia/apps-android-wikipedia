@@ -220,7 +220,7 @@ class HomeFragment : Fragment() {
                         },
                         onPageBookmarkClick = { card, historyEntry ->
                             instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_overflow", elementId = "article_save", pageData = TestKitchenAdapter.getPageData(pageTitle = historyEntry.title))
-                            (parentFragment as? MainFragment)?.onFeedAddPageToList(historyEntry, false)
+                            (parentFragment as? MainFragment)?.onFeedAddPageToList(historyEntry, true)
                         },
                         onPageShareClick = { card, historyEntry ->
                             instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_overflow", elementId = "article_share", pageData = TestKitchenAdapter.getPageData(pageTitle = historyEntry.title))
@@ -260,7 +260,8 @@ class HomeFragment : Fragment() {
                         onPageOverflowDismiss = {
                             pageOverflowMenuViewModel.dismissPageOverflowMenu()
                         },
-                        onNewsClick = { newsItem ->
+                        onNewsClick = { card, newsItem ->
+                            instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionContext = mapOf("index" to card.news.indexOf(newsItem)))
                             (parentFragment as? MainFragment)?.onFeedNewsItemSelected(newsItem, wikiSite)
                         },
                         onImageClick = {
@@ -276,9 +277,11 @@ class HomeFragment : Fragment() {
                             (parentFragment as? MainFragment)?.onFeedDownloadImage(it.featuredImage)
                         },
                         onLanguageSelected = { languageCode ->
+                            instrument.submitInteraction("click", "language_menu", elementId = "language_change", actionContext = mapOf("selected_tab" to selectedTab.name, "language_code" to languageCode))
                             viewModel.updateLanguage(languageCode)
                         },
                         onManageLanguagesClick = {
+                            instrument.submitInteraction("click", "language_menu", elementId = "manage_languages", actionContext = mapOf("selected_tab" to selectedTab.name))
                             requireActivity().startActivity(WikipediaLanguagesActivity.newIntent(requireContext(), invokeSource = InvokeSource.FEED))
                         },
                         onCustomizeInterestsClick = { card ->
@@ -382,7 +385,7 @@ fun HomeScreen(
     onPageShareClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
     onPageOverflowClick: (pageSummary: PageSummary, source: Int, menuKey: String) -> Unit = { _, _, _ -> },
     onPageOverflowDismiss: () -> Unit = {},
-    onNewsClick: (newsItem: NewsItem) -> Unit = {},
+    onNewsClick: (card: NewsCard, newsItem: NewsItem) -> Unit = { _, _ -> },
     onImageClick: (card: FeaturedImageCard) -> Unit = {},
     onImageDownloadClick: (card: FeaturedImageCard) -> Unit = {},
     onImageShareClick: (card: FeaturedImageCard) -> Unit = {},
@@ -682,7 +685,7 @@ fun CommunityContentTab(
     onPageShareClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
     onPageOverflowClick: (pageSummary: PageSummary, source: Int, menuKey: String) -> Unit = { _, _, _ -> },
     onPageOverflowDismiss: () -> Unit = {},
-    onNewsClick: (newsItem: NewsItem) -> Unit = {},
+    onNewsClick: (card: NewsCard, newsItem: NewsItem) -> Unit = { _, _ -> },
     onImageClick: (card: FeaturedImageCard) -> Unit = {},
     onImageDownloadClick: (card: FeaturedImageCard) -> Unit = {},
     onImageShareClick: (card: FeaturedImageCard) -> Unit = {},
@@ -797,7 +800,7 @@ fun CommunityContentTab(
                                         onHideModuleClick(card.moduleKey())
                                     },
                                     onNewsClick = { newsItem ->
-                                        onNewsClick(newsItem)
+                                        onNewsClick(card, newsItem)
                                     },
                                     onCardImpression = { onCardImpression(card, cardIndex) }
                                 )
@@ -858,7 +861,7 @@ fun CommunityContentTab(
                 item(key = "load-more-community") {
                     if (state.isLoadingMore) {
                         LoadingIndicator()
-                    } else if (state.canLoadMore) {
+                    } else if (state.canLoadMore && state.cards.isNotEmpty()) {
                         LoadMoreButton(
                             wikiSite = wikiSite,
                             isCommunity = true,
