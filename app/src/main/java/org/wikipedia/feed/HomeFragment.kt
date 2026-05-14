@@ -226,7 +226,7 @@ class HomeFragment : Fragment() {
                             instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_overflow", elementId = "article_share", pageData = TestKitchenAdapter.getPageData(pageTitle = historyEntry.title))
                             ShareUtil.shareText(requireContext(), historyEntry.title)
                         },
-                        onPageOverflowClick = { pageSummary, source, menuKey ->
+                        onPageOverflowClick = { card, pageSummary, source, menuKey ->
                             pageOverflowMenuViewModel.onPageOverflowClick(
                                 context = requireContext(),
                                 wikiSite = wikiSite,
@@ -234,25 +234,32 @@ class HomeFragment : Fragment() {
                                 source = source,
                                 menuKey = menuKey,
                                 onOpenPage = { entry ->
+                                    instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_item_overflow", elementId = "article_open", pageData = TestKitchenAdapter.getPageData(pageTitle = entry.title))
                                     (parentFragment as? MainFragment)?.onFeedSelectPage(entry, false)
                                 },
                                 onOpenInNewTab = { entry ->
+                                    instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_item_overflow", elementId = "article_open_new_tab", pageData = TestKitchenAdapter.getPageData(pageTitle = entry.title))
                                     (parentFragment as? MainFragment)?.onFeedSelectPage(entry, true)
                                     viewModel.updateTabCount(true)
                                 },
                                 onAddRequest = { entry, addToDefault ->
+                                    instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_item_overflow", elementId = "article_save", pageData = TestKitchenAdapter.getPageData(pageTitle = entry.title))
                                     (parentFragment as? MainFragment)?.onFeedAddPageToList(entry, addToDefault)
                                 },
                                 onMoveRequest = { id, entry ->
+                                    instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_item_overflow", elementId = "article_move", pageData = TestKitchenAdapter.getPageData(pageTitle = entry.title))
                                     (parentFragment as? MainFragment)?.onFeedMovePageToList(id, entry)
                                 },
                                 onRemoveRequest = { entry, lists ->
+                                    instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_item_overflow", elementId = "article_remove", pageData = TestKitchenAdapter.getPageData(pageTitle = entry.title))
                                     (parentFragment as? MainFragment)?.onFeedRemovePageFromList(entry, lists)
                                 },
                                 onShareRequest = { entry ->
+                                    instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_item_overflow", elementId = "article_share", pageData = TestKitchenAdapter.getPageData(pageTitle = entry.title))
                                     (parentFragment as? MainFragment)?.onFeedSharePage(entry)
                                 },
                                 onLinkCopyRequest = { entry ->
+                                    instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_item_overflow", elementId = "article_copy_link", pageData = TestKitchenAdapter.getPageData(pageTitle = entry.title))
                                     (parentFragment as? MainFragment)?.onFeedCopyLink(entry)
                                 }
                             )
@@ -383,7 +390,7 @@ fun HomeScreen(
     onPageClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
     onPageBookmarkClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
     onPageShareClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
-    onPageOverflowClick: (pageSummary: PageSummary, source: Int, menuKey: String) -> Unit = { _, _, _ -> },
+    onPageOverflowClick: (card: Card, pageSummary: PageSummary, source: Int, menuKey: String) -> Unit = { _, _, _, _ -> },
     onPageOverflowDismiss: () -> Unit = {},
     onNewsClick: (card: NewsCard, newsItem: NewsItem) -> Unit = { _, _ -> },
     onImageClick: (card: FeaturedImageCard) -> Unit = {},
@@ -683,7 +690,7 @@ fun CommunityContentTab(
     onPageClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
     onPageBookmarkClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
     onPageShareClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
-    onPageOverflowClick: (pageSummary: PageSummary, source: Int, menuKey: String) -> Unit = { _, _, _ -> },
+    onPageOverflowClick: (card: Card, pageSummary: PageSummary, source: Int, menuKey: String) -> Unit = { _, _, _, _ -> },
     onPageOverflowDismiss: () -> Unit = {},
     onNewsClick: (card: NewsCard, newsItem: NewsItem) -> Unit = { _, _ -> },
     onImageClick: (card: FeaturedImageCard) -> Unit = {},
@@ -783,7 +790,7 @@ fun CommunityContentTab(
                                         )
                                     },
                                     onPageOverflowClick = { pageSummary, index ->
-                                        onPageOverflowClick(pageSummary, HistoryEntry.SOURCE_FEED_MOST_READ, "top-read-${card.age}-$index")
+                                        onPageOverflowClick(card, pageSummary, HistoryEntry.SOURCE_FEED_MOST_READ, "top-read-${card.age}-$index")
                                     },
                                     onFooterClick = { onCardFooterClick(card) },
                                     onCardImpression = { onCardImpression(card, cardIndex) }
@@ -827,7 +834,7 @@ fun CommunityContentTab(
                                         onPageClick(card, pageSummary.getHistoryEntry(wikiSite, HistoryEntry.SOURCE_FEED_ON_THIS_DAY))
                                     },
                                     onPageOverflowClick = { pageSummary, eventIndex, itemIndex ->
-                                        onPageOverflowClick(pageSummary, HistoryEntry.SOURCE_FEED_ON_THIS_DAY, "on-this-day-${card.age}-$eventIndex-$itemIndex")
+                                        onPageOverflowClick(card, pageSummary, HistoryEntry.SOURCE_FEED_ON_THIS_DAY, "on-this-day-${card.age}-$eventIndex-$itemIndex")
                                     },
                                     onFooterClick = { onCardFooterClick(card) },
                                     onCardImpression = { onCardImpression(card, cardIndex) }
@@ -891,7 +898,7 @@ fun ForYouContentTab(
     onPageClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
     onPageBookmarkClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
     onPageShareClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
-    onPageOverflowClick: (pageSummary: PageSummary, source: Int, menuKey: String) -> Unit = { _, _, _ -> },
+    onPageOverflowClick: (card: Card, pageSummary: PageSummary, source: Int, menuKey: String) -> Unit = { _, _, _, _ -> },
     onPageOverflowDismiss: () -> Unit = {},
     onCustomizeInterestsClick: (card: Card) -> Unit = {},
     onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> }
