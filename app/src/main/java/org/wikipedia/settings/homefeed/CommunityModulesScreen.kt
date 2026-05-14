@@ -7,12 +7,14 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.viewmodel.compose.viewModel
 import org.wikipedia.R
 import org.wikipedia.compose.components.ToggleListScreen
 import org.wikipedia.compose.components.ToggleSettingItem
 import org.wikipedia.compose.components.WikipediaAlertDialog
+import org.wikipedia.extensions.instrument
 
 enum class CommunityModuleType(
     @param:StringRes val title: Int,
@@ -51,6 +53,7 @@ fun CommunityModulesScreen(
     viewModel: ModulesViewModel = viewModel(),
     onBack: () -> Unit,
 ) {
+    val context = LocalContext.current
     val hiddenModules by viewModel.hiddenModules.collectAsState()
     var showAllOffDialog by remember { mutableStateOf(false) }
     var lastToggledOffKey by remember { mutableStateOf("") }
@@ -62,6 +65,7 @@ fun CommunityModulesScreen(
             modules = CommunityModuleType.entries(),
             hiddenModules = it,
             onToggle = { key, isVisible ->
+                context.instrument?.submitInteraction(if (isVisible) "enable" else "disable", actionSubtype = "feed_community", elementId = key)
                 viewModel.toggleModuleVisibility(key, isVisible)
                 if (!isVisible) {
                     val newHiddenModules = (viewModel.hiddenModules.value ?: emptySet()) + key
@@ -82,9 +86,13 @@ fun CommunityModulesScreen(
             confirmButtonText = stringResource(R.string.home_feed_settings_empty_dialog_positive),
             dismissButtonText = stringResource(android.R.string.cancel),
             onDismissRequest = { showAllOffDialog = false },
-            onConfirmButtonClick = { showAllOffDialog = false },
+            onConfirmButtonClick = {
+                showAllOffDialog = false
+                context.instrument?.submitInteraction("click", actionSubtype = "feed_community", elementId = "modules_off_confirm")
+            },
             onDismissButtonClick = {
                 showAllOffDialog = false
+                context.instrument?.submitInteraction("click", actionSubtype = "feed_community", elementId = "modules_off_cancel")
                 viewModel.toggleModuleVisibility(lastToggledOffKey, true)
             }
         )

@@ -6,12 +6,14 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import org.wikipedia.extensions.instrument
 
 @Composable
 fun HomeFeedSettingsNavHost(
     navController: NavHostController,
     onExit: () -> Unit
 ) {
+    val context = navController.context
     NavHost(
         navController = navController,
         startDestination = HomeFeedSettingsDestination.Root,
@@ -25,9 +27,18 @@ fun HomeFeedSettingsNavHost(
                 onBackClick = {
                     onExit()
                 },
-                onCommunityModulesClick = { navController.navigate(HomeFeedSettingsDestination.CommunityModuleScreen) },
-                onForYouModulesClick = { navController.navigate(HomeFeedSettingsDestination.ForYouModuleScreen) },
-                onFeedConfigurationClick = { navController.navigate(HomeFeedSettingsDestination.FeedConfiguration) }
+                onCommunityModulesClick = {
+                    context.instrument?.submitInteraction("click", elementId = "feed_modules_community")
+                    navController.navigate(HomeFeedSettingsDestination.CommunityModuleScreen)
+                },
+                onForYouModulesClick = {
+                    context.instrument?.submitInteraction("click", elementId = "feed_modules_for_you")
+                    navController.navigate(HomeFeedSettingsDestination.ForYouModuleScreen)
+                },
+                onFeedConfigurationClick = {
+                    context.instrument?.submitInteraction("click", elementId = "feed_data_info")
+                    navController.navigate(HomeFeedSettingsDestination.FeedConfiguration)
+                }
             )
         }
 
