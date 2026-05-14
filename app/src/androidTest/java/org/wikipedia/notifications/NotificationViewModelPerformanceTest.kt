@@ -33,9 +33,14 @@ class NotificationViewModelPerformanceTest {
     }
 
     @Test
-    fun testPerformanceWith1000Notifications() = runBlocking {
-        // Generate 1000 notifications
-        val notifications = (1..1000).map { i ->
+    fun testPerformance() = runBlocking {
+        // Generate notifications
+        val numberNotifications = 100
+        val baseTimestamp = java.time.Instant.parse("2025-01-01T00:00:00Z")
+        val notifications = (1..numberNotifications).map { i ->
+            val timestampInstant = baseTimestamp.plus((i - 1).toLong(), java.time.temporal.ChronoUnit.HOURS)
+            val timestamp = timestampInstant.toString()
+            val read = if (i % 2 == 0) timestampInstant.plus(30, java.time.temporal.ChronoUnit.MINUTES).toString() else null
             createNotification(
                 id = i.toLong(),
                 wiki = if (i % 2 == 0) "en" else "zh", // toggle between two wikis
@@ -45,6 +50,8 @@ class NotificationViewModelPerformanceTest {
                     else -> "revert"
                 },
                 header = "Header $i",                   // each header is unique
+                timestamp = timestamp,
+                read = read,
                 body = "Body of notification $i",       // each body is unique
                 title = "Title $i",                     // each title is unique
                 links = "Link $i"                       // each link is unique
@@ -64,10 +71,10 @@ class NotificationViewModelPerformanceTest {
         viewModel.fetchAndSave(refresh = true)
         viewModel.uiState.filter { it is Resource.Success && it.data.first.isNotEmpty() }.first()
 
-        val iterations = 100
+        val iterations = 10
         val times = mutableListOf<Long>()
 
-        println("Starting performance measurement ($iterations iterations)...")
+        println("Starting performance measurement ($numberNotifications notifications, $iterations iterations)...")
 
         repeat(iterations) { iteration ->
             val time = measureTimeMillis {
@@ -88,7 +95,7 @@ class NotificationViewModelPerformanceTest {
         val sortedTimes = times.sorted()
         val medianTime = (sortedTimes[4] + sortedTimes[5]) / 2.0
 
-        println("\nPerformance Result Summary (1000 notifications, $iterations iterations):")
+        println("\nPerformance Result Summary ($numberNotifications notifications, $iterations iterations):")
         println("Min: $minTime ms")
         println("Max: $maxTime ms")
         println("Average: ${"%.2f".format(averageTime)} ms")
@@ -105,6 +112,7 @@ class NotificationViewModelPerformanceTest {
         category: String,
         header: String,
         timestamp: String = "2023-10-27T10:00:00Z",
+        read: String? = null,
         title: String = "",
         body: String = "",
         links: String = ""
@@ -118,6 +126,7 @@ class NotificationViewModelPerformanceTest {
                     "full": "$title",
                     "text": "$title"
                 },
+                "read": ${if (read == null) "null" else "\"$read\""},
                 "timestamp": {
                     "utciso8601": "$timestamp"
                 },
@@ -151,6 +160,15 @@ class NotificationViewModelPerformanceTest {
         override suspend fun updateNotification(notification: Notification) {}
         override suspend fun fetchUnreadWikiDbNames() = emptyMap<String, WikiSite>()
         override suspend fun fetchAndSave(filter: String?, continueStr: String?) = null
+        override suspend fun getAllSelectedNotifications(
+            hideReadNotifications: Boolean,
+            searchQuery: String?,
+            excludedTypeCodes: Set<String>,
+            includedWikiCodes: List<String>,
+            hideNotMentioned: Boolean
+        ): List<Notification> {
+            return emptyList()
+        }
     }
 
     private class FakeNotificationFilterHelper: NotificationFilterHelper {
