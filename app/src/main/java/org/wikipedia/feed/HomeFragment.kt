@@ -466,6 +466,7 @@ fun HomeScreen(
 
                 HomeTab.FOR_YOU -> {
                     ForYouContentTab(
+                        topInset = topInset,
                         state = forYouContentState,
                         wikiSite = wikiSite,
                         onLoadMore = onLoadMoreForYouContent,
@@ -896,6 +897,7 @@ fun CommunityContentTab(
 @Composable
 fun ForYouContentTab(
     state: ForYouContentState,
+    topInset: Int,
     wikiSite: WikiSite,
     onLoadMore: () -> Unit,
     overflowMenuState: PageOverflowMenuViewModel.PageOverflowMenuState? = null,
@@ -926,7 +928,8 @@ fun ForYouContentTab(
                 modifier = Modifier
                     .fillMaxSize()
                     .background(WikipediaTheme.colors.paperColor)
-                    .padding(16.dp),
+                    .padding(16.dp)
+                    .padding(top = (topInset * 2 + 64).dp),
                 title = stringResource(R.string.home_feed_screen_empty_state_label),
                 description = stringResource(R.string.home_feed_for_you_screen_empty_state_description),
                 onManageModuleBtnClick = onManageModuleBtnClick
@@ -1332,16 +1335,30 @@ fun HomeScreenEmptyState(
 
 @Preview(showBackground = true)
 @Composable
-private fun HomeScreenEmptyStatePreview() {
+private fun HomeScreenCommunityEmptyStatePreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
-        HomeScreenEmptyState(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(WikipediaTheme.colors.paperColor)
-                .padding(16.dp),
-            title = stringResource(R.string.home_feed_screen_empty_state_label),
-            description = stringResource(R.string.home_feed_community_screen_empty_state_description),
-            onManageModuleBtnClick = {}
+        HomeScreen(
+            wikiSite = WikiSite.preview(),
+            selectedTab = HomeTab.COMMUNITY,
+            communityContentState = CommunityContentState(isEmptyState = true),
+            forYouContentState = ForYouContentState(isInitialLoading = true),
+            tabsState = TabsState(1, false),
+            notificationBellState = NotificationBellState(unreadCount = 5, canShow = true)
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun HomeScreenForYouEmptyStatePreview() {
+    BaseTheme(currentTheme = Theme.LIGHT) {
+        HomeScreen(
+            wikiSite = WikiSite.preview(),
+            selectedTab = HomeTab.FOR_YOU,
+            communityContentState = CommunityContentState(isEmptyState = true),
+            forYouContentState = ForYouContentState(isEmptyState = true),
+            tabsState = TabsState(1, false),
+            notificationBellState = NotificationBellState(unreadCount = 5, canShow = true)
         )
     }
 }
