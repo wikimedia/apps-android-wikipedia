@@ -43,6 +43,8 @@ data class DataInjector(
     val enableYearInReview: Boolean = false,
     val showReadingListSyncEnablePrompt: Boolean = false,
     val isSuggestedEditsHighestPriorityEnabled: Boolean = true,
+    val isReadingChallengeOnboardingShown: Boolean = true,
+    val isReadingChallengeInstallPromptShown: Boolean = true
 )
 
 abstract class BaseTest<T : AppCompatActivity>(
@@ -80,6 +82,8 @@ abstract class BaseTest<T : AppCompatActivity>(
             isYearInReviewEnabled = dataInjector.enableYearInReview
             showReadingListSyncEnablePrompt = dataInjector.showReadingListSyncEnablePrompt
             isSuggestedEditsHighestPriorityEnabled = dataInjector.isSuggestedEditsHighestPriorityEnabled
+            readingChallengeOnboardingShown = dataInjector.isReadingChallengeOnboardingShown
+            readingChallengeInstallPromptShown = dataInjector.isReadingChallengeInstallPromptShown
         }
         dataInjector.overrideEditsContribution?.let {
             Prefs.overrideSuggestedEditContribution = it
