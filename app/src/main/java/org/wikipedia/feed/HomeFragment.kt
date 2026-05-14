@@ -292,6 +292,10 @@ class HomeFragment : Fragment() {
                     )
 
                     if (selectedTab == HomeTab.FOR_YOU && !swipeToExplorePromptShown) {
+                        val dismissSwipePrompt = {
+                            swipeToExplorePromptShown = true
+                            Prefs.isHomeSwipeToExplorePromptShown = true
+                        }
                         WikipediaAlertDialog(
                             title = stringResource(R.string.explore_feed_swipe_to_explore_prompt_title),
                             titleModifier = Modifier.fillMaxWidth(),
@@ -305,14 +309,8 @@ class HomeFragment : Fragment() {
                                 )
                             },
                             confirmButtonText = stringResource(R.string.onboarding_got_it),
-                            onDismissRequest = {
-                                swipeToExplorePromptShown = true
-                                Prefs.isHomeSwipeToExplorePromptShown = true
-                            },
-                            onConfirmButtonClick = {
-                                swipeToExplorePromptShown = true
-                                Prefs.isHomeSwipeToExplorePromptShown = true
-                            }
+                            onDismissRequest = dismissSwipePrompt,
+                            onConfirmButtonClick = dismissSwipePrompt
                         )
                     }
                 }
