@@ -32,7 +32,7 @@
                 app:srcCompat="@drawable/ic_close_black_24dp"
                 app:tint="?attr/placeholder_color"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="@null"/>
+                android:contentDescription="@string/button_close_tab"/>
 
             <TextView
                 android:id="@+id/tabArticleTitle"

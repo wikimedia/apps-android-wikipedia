@@ -417,21 +417,21 @@ class HomeViewModel : ViewModel() {
             L.e("Failed to load modules from cache.")
         }
 
-        if (forYouCollectionSaved.dateTime != null &&
-            forYouCollectionSaved.dateTime.toLocalDate() == LocalDate.now() &&
-            forYouCollectionSaved.modulesPerLanguage.containsKey(wikiSite.value.languageCode)
-        ) {
-            L.d("Loading modules from cache...")
-            val modules = forYouCollectionSaved.modulesPerLanguage[wikiSite.value.languageCode].orEmpty()
-            val newModules = mutableListOf<ForYouModule>()
-            modules.forEach { module ->
-                val filteredCards = module.cards.filterNot { hiddenCards.contains(it.hideKey) }
-                if (filteredCards.isNotEmpty()) {
-                    newModules.add(module.withCards(filteredCards))
-                }
-            }
-            return newModules
-        }
+//        if (forYouCollectionSaved.dateTime != null &&
+//            forYouCollectionSaved.dateTime.toLocalDate() == LocalDate.now() &&
+//            forYouCollectionSaved.modulesPerLanguage.containsKey(wikiSite.value.languageCode)
+//        ) {
+//            L.d("Loading modules from cache...")
+//            val modules = forYouCollectionSaved.modulesPerLanguage[wikiSite.value.languageCode].orEmpty()
+//            val newModules = mutableListOf<ForYouModule>()
+//            modules.forEach { module ->
+//                val filteredCards = module.cards.filterNot { hiddenCards.contains(it.hideKey) }
+//                if (filteredCards.isNotEmpty()) {
+//                    newModules.add(module.withCards(filteredCards))
+//                }
+//            }
+//            return newModules
+//        }
         L.d("Loading modules from network...")
 
         // --- Interests ---
