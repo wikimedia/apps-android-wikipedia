@@ -2503,6 +2503,8 @@
     <string name="explore_feed_header_overflow_hide_module_message_action">Undo</string>
     <string name="explore_feed_personalized_preference_empty_state_text">You need to add interests to see personalized content recommendations. You can do this in the previous steps or later in Settings.</string>
     <string name="explore_feed_because_you_read">Because you read: %s</string>
+    <string name="explore_feed_swipe_to_explore_prompt_title">Swipe to explore</string>
+    <string name="explore_feed_swipe_to_explore_prompt_message">Swipe down to navigate between topics, or swipe sideways to explore related content.</string>
     <string name="home_feed_settings_title">Customize the Home feed</string>
     <string name="home_feed_settings_whats_driving_title">What\'s driving your feed</string>
     <string name="home_feed_settings_modules_title">Modules</string>
@@ -2516,4 +2518,8 @@
     <string name="home_feed_settings_because_you_read_subtitle">Suggestions based on a recent article from your history</string>
     <string name="home_feed_settings_continue_reading_title">Continue reading</string>
     <string name="home_feed_settings_continue_reading_subtitle">Jump back into articles you didn\'t finish</string>
+    <string name="home_feed_screen_empty_state_label">Your feed is empty</string>
+    <string name="home_feed_community_screen_empty_state_description"><![CDATA[Turn on the <b>From the community</b> modules to start seeing content curated by contributors across the Wikimedia movement.]]></string>
+    <string name="home_feed_for_you_screen_empty_state_description"><![CDATA[Turn on the <b>For you</b> modules to start seeing content based on your preferences.]]></string>
+    <string name="home_feed_screen_empty_state_btn_label">Manage modules</string>
 </resources>

@@ -29,6 +29,7 @@ import androidx.compose.ui.layout.boundsInRoot
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.DpOffset
@@ -123,7 +124,7 @@ fun CommunityModuleContainer(
                             },
                             text = {
                                 Text(
-                                    text = context.getString(wikiSite.languageCode, R.string.menu_feed_card_dismiss),
+                                    text = stringResource(R.string.menu_feed_card_dismiss),
                                     style = MaterialTheme.typography.bodyLarge,
                                     color = WikipediaTheme.colors.primaryColor
                                 )
@@ -144,7 +145,7 @@ fun CommunityModuleContainer(
                             },
                             text = {
                                 Text(
-                                    text = context.getString(wikiSite.languageCode, R.string.explore_feed_header_overflow_hide_module_label),
+                                    text = stringResource(R.string.explore_feed_header_overflow_hide_module_label),
                                     style = MaterialTheme.typography.bodyLarge,
                                     color = WikipediaTheme.colors.primaryColor
                                 )
