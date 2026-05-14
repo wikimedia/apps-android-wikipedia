@@ -26,9 +26,9 @@ fun BasedOnInterestModule(
     modifier: Modifier = Modifier,
     wikiSite: WikiSite,
     module: ForYouModule.BasedOnInterest,
-    onPageClick: (item: HistoryEntry) -> Unit = {},
-    onShareClick: (entry: HistoryEntry) -> Unit = {},
-    onSaveClick: (entry: HistoryEntry) -> Unit = {},
+    onPageClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
+    onPageBookmarkClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
+    onPageShareClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
     onHideCardClick: (module: ForYouModule, card: ForYouCard) -> Unit = { _, _ -> },
     onHideModuleClick: () -> Unit = {},
     onCardInView: (card: Card) -> Unit = {},
@@ -59,9 +59,9 @@ fun BasedOnInterestModule(
             footerText = footerTextParameter?.let {
                 context.getString(wikiSite.languageCode, R.string.explore_feed_because_of_interest, it)
             },
-            onPageClick = { onPageClick(historyEntry) },
-            onShareClick = { onShareClick(historyEntry) },
-            onSaveClick = { onSaveClick(historyEntry) },
+            onPageClick = { onPageClick(card, historyEntry) },
+            onShareClick = { onPageShareClick(card, historyEntry) },
+            onSaveClick = { onPageBookmarkClick(card, historyEntry) },
             onHideCardClick = onHideCardClick,
             onHideModuleClick = onHideModuleClick,
             onCustomizeInterestsClick = onCustomizeInterestsClick
