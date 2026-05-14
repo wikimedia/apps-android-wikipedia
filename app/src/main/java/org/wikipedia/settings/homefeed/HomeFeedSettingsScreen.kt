@@ -3,6 +3,8 @@ package org.wikipedia.settings.homefeed
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -40,7 +42,8 @@ fun HomeFeedSettingsScreen(
         Column(
             modifier = Modifier
                 .padding(paddingValues)
-                .padding(top = 24.dp),
+                .padding(top = 24.dp)
+                .verticalScroll(rememberScrollState()),
             verticalArrangement = Arrangement.spacedBy(34.dp)
         ) {
             SettingsSection(
