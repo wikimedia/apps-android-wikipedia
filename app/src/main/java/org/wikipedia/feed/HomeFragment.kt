@@ -717,14 +717,15 @@ fun CommunityContentTab(
             LoadingIndicator(modifier = modifier.fillMaxHeight())
         }
         state.isEmptyState -> {
+            val context = LocalContext.current
             HomeScreenEmptyState(
                 modifier = Modifier
                     .fillMaxSize()
                     .background(WikipediaTheme.colors.paperColor)
                     .padding(16.dp)
                     .verticalScroll(rememberScrollState()),
-                title = stringResource(R.string.home_feed_screen_empty_state_label),
-                description = stringResource(R.string.home_feed_community_screen_empty_state_description),
+                title = context.getString(wikiSite.languageCode, R.string.home_feed_screen_empty_state_label),
+                description = context.getString(wikiSite.languageCode, R.string.home_feed_community_screen_empty_state_description),
                 onManageModulesClick = onManageModulesClick
             )
         }
@@ -964,6 +965,7 @@ fun ForYouContentTab(
             }
         }
         state.isEmptyState -> {
+            val context = LocalContext.current
             HomeScreenEmptyState(
                 modifier = Modifier
                     .fillMaxSize()
@@ -971,8 +973,8 @@ fun ForYouContentTab(
                     .padding(horizontal = 16.dp)
                     .padding(top = (topInset * 2 + 64).dp)
                     .verticalScroll(rememberScrollState()),
-                title = stringResource(R.string.home_feed_screen_empty_state_label),
-                description = stringResource(R.string.home_feed_for_you_screen_empty_state_description),
+                title = context.getString(wikiSite.languageCode, R.string.home_feed_screen_empty_state_label),
+                description = context.getString(wikiSite.languageCode, R.string.home_feed_for_you_screen_empty_state_description),
                 onManageModulesClick = onManageModulesClick
             )
         }
