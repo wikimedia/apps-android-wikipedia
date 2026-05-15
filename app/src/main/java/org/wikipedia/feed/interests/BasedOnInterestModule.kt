@@ -26,6 +26,7 @@ fun BasedOnInterestModule(
     modifier: Modifier = Modifier,
     wikiSite: WikiSite,
     module: ForYouModule.BasedOnInterest,
+    savedInReadingListTitles: Set<String> = emptySet(),
     onPageClick: (item: HistoryEntry) -> Unit = {},
     onShareClick: (entry: HistoryEntry) -> Unit = {},
     onSaveClick: (entry: HistoryEntry) -> Unit = {},
@@ -52,6 +53,7 @@ fun BasedOnInterestModule(
         ForYouCardContent(
             wikiSite = wikiSite,
             title = card.title,
+            isInReadingList = savedInReadingListTitles.contains(card.title.prefixedText),
             variation = CardVariation.entries[pageIndex % CardVariation.entries.size],
             backgroundColorIndex = backgroundColorIndex + pageIndex,
             module = module,
