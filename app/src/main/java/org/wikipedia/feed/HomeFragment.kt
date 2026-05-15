@@ -314,7 +314,6 @@ class HomeFragment : Fragment() {
                         WikipediaAlertDialog(
                             title = stringResource(R.string.explore_feed_swipe_to_explore_prompt_title),
                             titleModifier = Modifier.fillMaxWidth(),
-                            titleTextAlign = TextAlign.Start,
                             message = stringResource(R.string.explore_feed_swipe_to_explore_prompt_message),
                             image = {
                                 Image(

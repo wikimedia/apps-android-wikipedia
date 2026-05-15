@@ -15,7 +15,7 @@ fun WikipediaAlertDialog(
     modifier: Modifier = Modifier,
     title: String,
     titleModifier: Modifier = Modifier,
-    titleTextAlign: TextAlign = TextAlign.Center,
+    titleTextAlign: TextAlign = TextAlign.Start,
     message: String,
     messageModifier: Modifier = Modifier,
     messageTextAlign: TextAlign = TextAlign.Start,
