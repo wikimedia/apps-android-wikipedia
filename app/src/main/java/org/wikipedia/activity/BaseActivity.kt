@@ -38,13 +38,10 @@ import org.wikipedia.events.ReadingListsNoLongerSyncedEvent
 import org.wikipedia.events.SplitLargeListsEvent
 import org.wikipedia.events.ThemeFontChangeEvent
 import org.wikipedia.events.UnreadNotificationsEvent
-import org.wikipedia.feed.onboarding.ExploreFeedBuildingActivity
-import org.wikipedia.feed.personalization.PersonalizationActivity
 import org.wikipedia.games.onthisday.OnThisDayGameResultFragment
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
 import org.wikipedia.notifications.NotificationPresenter
-import org.wikipedia.onboarding.InitialOnboardingActivity
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
@@ -60,9 +57,7 @@ import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeInstallWidgetDialog
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeOnboardingActivity
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetRepository
-import org.wikipedia.yearinreview.YearInReviewActivity
 import org.wikipedia.yearinreview.YearInReviewOnboardingActivity
-import org.wikipedia.yearinreview.YearInReviewViewModel
 
 abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callback {
     interface Callback {
@@ -160,8 +155,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         setStatusBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
         setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
         maybeShowLoggedOutInBackgroundDialog()
-        maybeShowYearInReview()
-        maybeShowReadingChallengePrompt()
+        AppAnnouncements.maybeShowAnnouncement(this)
 
         Prefs.localClassName = localClassName
 
@@ -301,20 +295,20 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         return _instrument
     }
 
-    private fun maybeShowYearInReview() {
-        if (this !is YearInReviewOnboardingActivity && this !is YearInReviewActivity &&
-            !Prefs.isInitialOnboardingEnabled && this !is PersonalizationActivity && this !is ExploreFeedBuildingActivity &&
-            YearInReviewViewModel.isAccessible && Prefs.isYearInReviewEnabled && !Prefs.yearInReviewVisited) {
-            yearInReviewLauncher.launch((YearInReviewOnboardingActivity.newIntent(this)))
-        }
+    fun showYearInReview() {
+        yearInReviewLauncher.launch((YearInReviewOnboardingActivity.newIntent(this)))
+    }
+
+    fun showReadingChallenge() {
+        requestReadingChallengeActivity.launch(ReadingChallengeOnboardingActivity
+            .newIntent(this)
+            .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
     }
 
     protected fun maybeShowReadingChallengePrompt() {
         if (ReadingChallengeWidgetRepository.shouldShowOnboardingDialog() &&
-            this !is ReadingChallengeOnboardingActivity && this !is PersonalizationActivity && this !is InitialOnboardingActivity && this !is ExploreFeedBuildingActivity) {
-            requestReadingChallengeActivity.launch(ReadingChallengeOnboardingActivity
-                .newIntent(this)
-                .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
+            this !is ReadingChallengeOnboardingActivity) {
+            showReadingChallenge()
         }
     }
 
