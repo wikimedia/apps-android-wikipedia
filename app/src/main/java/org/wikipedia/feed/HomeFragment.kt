@@ -276,7 +276,7 @@ class HomeFragment : Fragment() {
                             pageOverflowMenuViewModel.dismissPageOverflowMenu()
                         },
                         onNewsClick = { card, newsItem ->
-                            instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionContext = mapOf("index" to card.news.indexOf(newsItem)))
+                            instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, elementId = card.javaClass.simpleName, actionContext = mapOf("index" to card.news.indexOf(newsItem)))
                             (parentFragment as? MainFragment)?.onFeedNewsItemSelected(newsItem, wikiSite)
                         },
                         onImageClick = {

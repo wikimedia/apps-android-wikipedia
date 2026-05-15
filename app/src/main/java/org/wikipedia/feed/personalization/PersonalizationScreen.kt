@@ -53,9 +53,9 @@ fun PersonalizationScreen(
     val feedPreferenceUiState = viewModel.feedPreferenceUiState.collectAsState()
     val pagerState = rememberPagerState(pageCount = { screens.size })
     val pageActionSource = mapOf(
-        PersonalizationPage.CURIOSITY to "curiosity_page",
-        PersonalizationPage.INTERESTS to "interests_page",
-        PersonalizationPage.HOME_PREFERENCE to "home_preference_page"
+        PersonalizationPage.CURIOSITY to "feed_entry",
+        PersonalizationPage.INTERESTS to "feed_customize",
+        PersonalizationPage.HOME_PREFERENCE to "feed_order_customize"
     )
 
     LaunchedEffect(pagerState.currentPage) {

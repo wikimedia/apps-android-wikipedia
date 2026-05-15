@@ -14,7 +14,7 @@ class HomeFeedSettingsActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _instrument = TestKitchenAdapter.client.getInstrument("apps-home-feed")
-            .setDefaultActionSource("feed_settings")
+            .setDefaultActionSource("settings")
 
         val startDestination = intent.getStringExtra(EXTRA_START_DESTINATION)
             ?.let { HomeFeedSettingsStartDestination.valueOf(it) } ?: HomeFeedSettingsStartDestination.ROOT
