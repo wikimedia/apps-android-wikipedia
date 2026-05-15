@@ -31,7 +31,9 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
@@ -63,6 +65,7 @@ import androidx.compose.ui.platform.LocalLocale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -73,10 +76,12 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.compose.components.AppButton
+import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.components.NotificationBell
 import org.wikipedia.compose.components.NotificationBellState
 import org.wikipedia.compose.components.TabsBox
 import org.wikipedia.compose.components.WikiLangCodeBox
+import org.wikipedia.compose.components.WikipediaAlertDialog
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.components.menu.PageOverflowMenu
@@ -117,6 +122,8 @@ import org.wikipedia.navtab.NavTab
 import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.settings.Prefs
+import org.wikipedia.settings.homefeed.HomeFeedSettingsActivity
+import org.wikipedia.settings.homefeed.HomeFeedSettingsStartDestination
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DimenUtil
@@ -164,6 +171,7 @@ class HomeFragment : Fragment() {
                 val wikiSite by viewModel.wikiSite.collectAsState()
                 val tabsState by viewModel.tabsState.collectAsState()
                 val notificationState by viewModel.unreadCount.collectAsState()
+                var swipeToExplorePromptShown by remember { mutableStateOf(Prefs.isHomeSwipeToExplorePromptShown) }
 
                 BaseTheme(currentTheme = if (selectedTab == HomeTab.FOR_YOU) Theme.BLACK else WikipediaApp.instance.currentTheme) {
                     HomeScreen(
@@ -319,8 +327,40 @@ class HomeFragment : Fragment() {
                         },
                         onNotificationClick = {
                             requireActivity().startActivity(NotificationActivity.newIntent(requireActivity()))
+                        },
+                        onManageModulesClick = {
+                            val intent = HomeFeedSettingsActivity.newIntent(
+                                context = requireContext(),
+                                startDestination = when (selectedTab) {
+                                    HomeTab.COMMUNITY -> HomeFeedSettingsStartDestination.COMMUNITY_MODULES
+                                    HomeTab.FOR_YOU -> HomeFeedSettingsStartDestination.FOR_YOU_MODULES
+                                }
+                            )
+                            requireActivity().startActivity(intent)
                         }
                     )
+
+                    if (selectedTab == HomeTab.FOR_YOU && !swipeToExplorePromptShown) {
+                        val dismissSwipePrompt = {
+                            swipeToExplorePromptShown = true
+                            Prefs.isHomeSwipeToExplorePromptShown = true
+                        }
+                        WikipediaAlertDialog(
+                            title = stringResource(R.string.explore_feed_swipe_to_explore_prompt_title),
+                            titleModifier = Modifier.fillMaxWidth(),
+                            message = stringResource(R.string.explore_feed_swipe_to_explore_prompt_message),
+                            image = {
+                                Image(
+                                    painter = painterResource(R.drawable.illustration_swipe_gesture),
+                                    contentDescription = null,
+                                    modifier = Modifier.fillMaxWidth()
+                                )
+                            },
+                            confirmButtonText = stringResource(R.string.onboarding_got_it),
+                            onDismissRequest = dismissSwipePrompt,
+                            onConfirmButtonClick = dismissSwipePrompt
+                        )
+                    }
                 }
             }
         }
@@ -403,7 +443,8 @@ fun HomeScreen(
     onCustomizeInterestsClick: (card: Card) -> Unit = {},
     onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> },
     onCardFooterClick: (card: Card) -> Unit = {},
-    onNotificationClick: () -> Unit = {}
+    onNotificationClick: () -> Unit = {},
+    onManageModulesClick: () -> Unit = {}
 ) {
     val context = LocalContext.current
     val topInset = if (context is MainActivity) {
@@ -480,12 +521,14 @@ fun HomeScreen(
                             onImageShareClick = onImageShareClick,
                             onCardImpression = onCardImpression,
                             onCardFooterClick = onCardFooterClick,
+                            onManageModulesClick = onManageModulesClick
                         )
                     }
                 }
 
                 HomeTab.FOR_YOU -> {
                     ForYouContentTab(
+                        topInset = topInset,
                         state = forYouContentState,
                         wikiSite = wikiSite,
                         onLoadMore = onLoadMoreForYouContent,
@@ -498,11 +541,14 @@ fun HomeScreen(
                         onPageOverflowClick = onPageOverflowClick,
                         onPageOverflowDismiss = onPageOverflowDismiss,
                         onCustomizeInterestsClick = onCustomizeInterestsClick,
-                        onCardImpression = onCardImpression
+                        onCardImpression = onCardImpression,
+                        onManageModulesClick = onManageModulesClick
                     )
 
                     // Floating toolbar with gradient scrim, wordmark, and tab selector.
-                    Column(modifier = Modifier.align(Alignment.TopCenter).fillMaxWidth()) {
+                    Column(modifier = Modifier
+                        .align(Alignment.TopCenter)
+                        .fillMaxWidth()) {
                         Box(
                             modifier = Modifier
                                 .fillMaxWidth()
@@ -587,17 +633,18 @@ fun HomeToolbar(
                     modifier = Modifier
                         .width(21.dp)
                         .height(20.dp)
-                        .then(if (tabsState.pulse) {
-                            Modifier.pulse(
-                                durationMillis = 300,
-                                toScale = 1.25f,
-                                onCompleted = {
-                                    onUpdateTabCount()
-                                }
-                            )
-                        } else {
-                            Modifier
-                        }),
+                        .then(
+                            if (tabsState.pulse) {
+                                Modifier.pulse(
+                                    durationMillis = 300,
+                                    toScale = 1.25f,
+                                    onCompleted = {
+                                        onUpdateTabCount()
+                                    }
+                                )
+                            } else {
+                                Modifier
+                            }),
                     backgroundColor = Color.Transparent,
                     count = tabsState.count
                 )
@@ -697,11 +744,25 @@ fun CommunityContentTab(
     onImageDownloadClick: (card: FeaturedImageCard) -> Unit = {},
     onImageShareClick: (card: FeaturedImageCard) -> Unit = {},
     onCardFooterClick: (card: Card) -> Unit = {},
-    onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> }
+    onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> },
+    onManageModulesClick: () -> Unit
 ) {
     when {
         state.isInitialLoading -> {
             LoadingIndicator(modifier = modifier.fillMaxHeight())
+        }
+        state.isEmptyState -> {
+            val context = LocalContext.current
+            HomeScreenEmptyState(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(WikipediaTheme.colors.paperColor)
+                    .padding(16.dp)
+                    .verticalScroll(rememberScrollState()),
+                title = context.getString(wikiSite.languageCode, R.string.home_feed_screen_empty_state_label),
+                description = context.getString(wikiSite.languageCode, R.string.home_feed_community_screen_empty_state_description),
+                onManageModulesClick = onManageModulesClick
+            )
         }
         state.error != null && state.cards.isEmpty() -> {
             ErrorState(state.error, onRetry = onLoadMore)
@@ -720,6 +781,7 @@ fun CommunityContentTab(
                     )
                     Spacer(modifier = Modifier.height(16.dp))
                 }
+                var lastCardWasDayHeader = false
                 state.cards.forEachIndexed { cardIndex, card ->
                     when (card) {
                         is DayHeaderCard -> {
@@ -765,6 +827,11 @@ fun CommunityContentTab(
                             }
                         }
                         is TopReadListCard -> {
+                            if (lastCardWasDayHeader) {
+                                item(key = "top-read-spacer-${card.age}") {
+                                    Spacer(modifier = Modifier.height(16.dp))
+                                }
+                            }
                             item(key = "top-read-${card.age}") {
                                 TopReadModule(
                                     wikiSite = wikiSite,
@@ -814,6 +881,11 @@ fun CommunityContentTab(
                             }
                         }
                         is OnThisDayCard -> {
+                            if (lastCardWasDayHeader) {
+                                item(key = "on-this-day-spacer-${card.age}") {
+                                    Spacer(modifier = Modifier.height(16.dp))
+                                }
+                            }
                             item(key = "on-this-day-${card.age}") {
                                 OnThisDayModule(
                                     wikiSite = wikiSite,
@@ -863,6 +935,7 @@ fun CommunityContentTab(
                             // TODO: Media of the day (Commons)
                         }
                     }
+                    lastCardWasDayHeader = card is DayHeaderCard
                 }
 
                 item(key = "load-more-community") {
@@ -890,6 +963,7 @@ fun CommunityContentTab(
 @Composable
 fun ForYouContentTab(
     state: ForYouContentState,
+    topInset: Int,
     wikiSite: WikiSite,
     onLoadMore: () -> Unit,
     overflowMenuState: PageOverflowMenuViewModel.PageOverflowMenuState? = null,
@@ -901,21 +975,38 @@ fun ForYouContentTab(
     onPageOverflowClick: (card: Card, pageSummary: PageSummary, source: Int, menuKey: String) -> Unit = { _, _, _, _ -> },
     onPageOverflowDismiss: () -> Unit = {},
     onCustomizeInterestsClick: (card: Card) -> Unit = {},
-    onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> }
+    onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> },
+    onManageModulesClick: () -> Unit
 ) {
     when {
         state.isInitialLoading -> {
             Box(
-                modifier = Modifier.fillMaxSize()
+                modifier = Modifier
+                    .fillMaxSize()
                     .background(color = WikipediaTheme.colors.backgroundColor),
                 contentAlignment = Alignment.Center
             ) {
                 LoadingIndicator(modifier = Modifier.fillMaxHeight())
             }
         }
+        state.isEmptyState -> {
+            val context = LocalContext.current
+            HomeScreenEmptyState(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(WikipediaTheme.colors.paperColor)
+                    .padding(horizontal = 16.dp)
+                    .padding(top = (topInset * 2 + 64).dp)
+                    .verticalScroll(rememberScrollState()),
+                title = context.getString(wikiSite.languageCode, R.string.home_feed_screen_empty_state_label),
+                description = context.getString(wikiSite.languageCode, R.string.home_feed_for_you_screen_empty_state_description),
+                onManageModulesClick = onManageModulesClick
+            )
+        }
         state.error != null && state.modules.isEmpty() -> {
             Box(
-                modifier = Modifier.fillMaxSize()
+                modifier = Modifier
+                    .fillMaxSize()
                     .background(color = WikipediaTheme.colors.backgroundColor),
                 contentAlignment = Alignment.Center
             ) {
@@ -1174,7 +1265,11 @@ fun LanguageDropDownMenu(
     ) {
         Row(
             modifier = Modifier
-                .border(width = 1.dp, color = WikipediaTheme.colors.primaryColor.copy(alpha = 0.8f), shape = RoundedCornerShape(8.dp))
+                .border(
+                    width = 1.dp,
+                    color = WikipediaTheme.colors.primaryColor.copy(alpha = 0.8f),
+                    shape = RoundedCornerShape(8.dp)
+                )
                 .padding(4.dp),
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically
@@ -1259,6 +1354,80 @@ fun LanguageDropDownMenu(
                 )
             }
         }
+    }
+}
+
+@Composable
+fun HomeScreenEmptyState(
+    modifier: Modifier = Modifier,
+    title: String,
+    description: String,
+    onManageModulesClick: () -> Unit,
+) {
+    Column (
+        modifier = modifier,
+        verticalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterVertically),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        Image(
+            modifier = Modifier
+                .padding(bottom = 16.dp),
+            painter = painterResource(R.drawable.empty_feed_illustration),
+            contentDescription = null
+        )
+        Text(
+            text = title,
+            style = MaterialTheme.typography.titleMedium.copy(
+                fontWeight = FontWeight.SemiBold,
+                letterSpacing = 0.15.sp
+            ),
+            color = WikipediaTheme.colors.secondaryColor
+        )
+        HtmlText(
+            text = description,
+            style = MaterialTheme.typography.bodyMedium.copy(
+                letterSpacing = 0.25.sp
+            ),
+            textAlign = TextAlign.Center,
+            color = WikipediaTheme.colors.secondaryColor
+        )
+        AppButton(
+            onClick = onManageModulesClick
+        ) {
+            Text(
+                text = stringResource(R.string.home_feed_screen_empty_state_btn_label)
+            )
+        }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun HomeScreenCommunityEmptyStatePreview() {
+    BaseTheme(currentTheme = Theme.LIGHT) {
+        HomeScreen(
+            wikiSite = WikiSite.preview(),
+            selectedTab = HomeTab.COMMUNITY,
+            communityContentState = CommunityContentState(isEmptyState = true),
+            forYouContentState = ForYouContentState(isInitialLoading = true),
+            tabsState = TabsState(1, false),
+            notificationBellState = NotificationBellState(unreadCount = 5, canShow = true)
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun HomeScreenForYouEmptyStatePreview() {
+    BaseTheme(currentTheme = Theme.LIGHT) {
+        HomeScreen(
+            wikiSite = WikiSite.preview(),
+            selectedTab = HomeTab.FOR_YOU,
+            communityContentState = CommunityContentState(isEmptyState = true),
+            forYouContentState = ForYouContentState(isEmptyState = true),
+            tabsState = TabsState(1, false),
+            notificationBellState = NotificationBellState(unreadCount = 5, canShow = true)
+        )
     }
 }
 

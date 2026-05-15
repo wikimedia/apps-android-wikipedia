@@ -11,12 +11,18 @@ import org.wikipedia.extensions.instrument
 @Composable
 fun HomeFeedSettingsNavHost(
     navController: NavHostController,
+    startDestination: HomeFeedSettingsStartDestination,
     onExit: () -> Unit
 ) {
     val context = navController.context
+    val startRoute = when (startDestination) {
+        HomeFeedSettingsStartDestination.ROOT -> HomeFeedSettingsDestination.Root
+        HomeFeedSettingsStartDestination.COMMUNITY_MODULES -> HomeFeedSettingsDestination.CommunityModuleScreen
+        HomeFeedSettingsStartDestination.FOR_YOU_MODULES -> HomeFeedSettingsDestination.ForYouModuleScreen
+    }
     NavHost(
         navController = navController,
-        startDestination = HomeFeedSettingsDestination.Root,
+        startDestination = startRoute,
         enterTransition = { EnterTransition.None },
         exitTransition = { ExitTransition.None },
         popEnterTransition = { EnterTransition.None },
@@ -44,13 +50,13 @@ fun HomeFeedSettingsNavHost(
 
         composable<HomeFeedSettingsDestination.CommunityModuleScreen> {
             CommunityModulesScreen(
-                onBack = { navController.navigateUp() }
+                onBack = { if (!navController.navigateUp()) onExit() }
             )
         }
 
         composable<HomeFeedSettingsDestination.ForYouModuleScreen> {
             ForYouModulesScreen(
-                onBack = { navController.navigateUp() },
+                onBack = { if (!navController.navigateUp()) onExit() },
                 navigateToFeedConfigurationScreen = {
                     context.instrument?.submitInteraction("click", actionSubtype = "feed_for_you", elementId = "feed_data_info")
                     navController.navigate(HomeFeedSettingsDestination.FeedConfiguration)
