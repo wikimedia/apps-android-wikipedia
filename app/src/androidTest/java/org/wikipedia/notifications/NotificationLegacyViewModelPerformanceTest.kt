@@ -16,20 +16,20 @@ import org.wikipedia.util.Resource
 import kotlin.system.measureTimeMillis
 
 @RunWith(AndroidJUnit4::class)
-class NotificationViewModelPerformanceTest {
+class NotificationLegacyViewModelPerformanceTest {
     private val numberNotifications = 1000
     private val numberIterations = 100
     private val notificationRepository = FakeNotificationRepository()
     private val notificationPreferences = FakeNotificationPreferences()
     private val notificationFilterHelper = FakeNotificationFilterHelper()
-    private lateinit var viewModel: NotificationViewModel
+    private lateinit var viewModel: NotificationLegacyViewModel
 
     @Before
     fun setUp() {
         // Initialize ViewModel with fakes.
         // Note: init block will trigger an initial load, but repository is empty then.
 
-        viewModel = NotificationViewModel(
+        viewModel = NotificationLegacyViewModel(
             notificationPreferences,
             notificationRepository,
             notificationFilterHelper

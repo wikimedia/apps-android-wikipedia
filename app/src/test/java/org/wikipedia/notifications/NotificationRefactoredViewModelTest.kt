@@ -380,6 +380,12 @@ class NotificationRefactoredViewModelTest {
                 NotificationCategory.MENTIONS_GROUP.map { it.id }
             )
         }
+
+        override suspend fun markItemsAsRead(
+            ids: List<Long>,
+            readTimestamp: String?
+        ) {
+        }
     }
 
     private class FakeNotificationFilterHelper: NotificationFilterHelper {

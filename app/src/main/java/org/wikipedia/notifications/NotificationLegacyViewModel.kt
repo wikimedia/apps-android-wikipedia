@@ -15,7 +15,7 @@ import org.wikipedia.util.StringUtil
 import java.util.Date
 import java.util.Random
 
-class NotificationViewModel(
+class NotificationLegacyViewModel(
     private val notificationPreferences: NotificationPreferences,
     private val notificationRepository: NotificationRepository,
     private val notificationFilterHelper: NotificationFilterHelper

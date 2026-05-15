@@ -16,12 +16,12 @@ import org.wikipedia.notifications.db.Notification
 import org.wikipedia.util.Resource
 
 @RunWith(RobolectricTestRunner::class)
-class NotificationViewModelTest {
+class NotificationLegacyViewModelTest {
     private val repository = FakeNotificationRepository()
     private val preferences = FakeNotificationPreferences()
     private val notificationHelper = FakeNotificationFilterHelper()
     private val wikipediaApp = mockk<WikipediaApp>(relaxed = true)
-    private lateinit var viewModel: NotificationViewModel
+    private lateinit var viewModel: NotificationLegacyViewModel
 
     @Before
     fun setUp() {
@@ -33,7 +33,7 @@ class NotificationViewModelTest {
         every { NotificationFilterActivity.allWikisList() } returns listOf("en", "zh")
         every { NotificationFilterActivity.allTypesIdList() } returns listOf("edit-thank", "mention")
 
-        viewModel = NotificationViewModel(
+        viewModel = NotificationLegacyViewModel(
             preferences,
             repository,
             notificationHelper
@@ -292,6 +292,12 @@ class NotificationViewModelTest {
             hideNotMentioned: Boolean
         ): List<Notification> {
             return emptyList()
+        }
+
+        override suspend fun markItemsAsRead(
+            ids: List<Long>,
+            readTimestamp: String?
+        ) {
         }
     }
 

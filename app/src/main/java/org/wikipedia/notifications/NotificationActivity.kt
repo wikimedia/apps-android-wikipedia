@@ -68,7 +68,7 @@ import org.wikipedia.views.WikiCardView
 
 class NotificationActivity : BaseActivity() {
     private lateinit var binding: ActivityNotificationsBinding
-    private val viewModel: NotificationViewModel by viewModels {
+    private val viewModel: NotificationLegacyViewModel by viewModels {
         NotificationViewModelFactory(
             NotificationPreferencesImpl(),
             NotificationRepositoryImpl(AppDatabase.instance.notificationDao()),
