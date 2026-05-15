@@ -43,8 +43,7 @@ class PersonalizationActivity : BaseActivity() {
             )
         } else {
             listOf(
-                PersonalizationPage.INTERESTS,
-                PersonalizationPage.HOME_PREFERENCE
+                PersonalizationPage.INTERESTS
             )
         }
 

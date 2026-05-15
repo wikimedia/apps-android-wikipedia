@@ -149,8 +149,8 @@ class HomeFragment : Fragment() {
 
     private val customizeInterestsLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_OK) {
-            selectTab(HomeTab.FOR_YOU)
             Prefs.homeForYouModulesToday = ""
+            viewModel.selectTabWithoutLoadingContent(HomeTab.FOR_YOU)
             viewModel.refreshForYouContent()
         }
     }
@@ -173,6 +173,7 @@ class HomeFragment : Fragment() {
                 val wikiSite by viewModel.wikiSite.collectAsState()
                 val tabsState by viewModel.tabsState.collectAsState()
                 val notificationState by viewModel.unreadCount.collectAsState()
+                val forYouContentState by viewModel.forYouState.collectAsState()
                 var swipeToExplorePromptShown by remember { mutableStateOf(Prefs.isHomeSwipeToExplorePromptShown) }
 
                 BaseTheme(currentTheme = if (selectedTab == HomeTab.FOR_YOU) Theme.BLACK else WikipediaApp.instance.currentTheme) {
@@ -181,7 +182,7 @@ class HomeFragment : Fragment() {
                         languageState = WikipediaApp.instance.languageState,
                         selectedTab = selectedTab,
                         communityContentState = viewModel.communityState.collectAsState().value,
-                        forYouContentState = viewModel.forYouState.collectAsState().value,
+                        forYouContentState = forYouContentState,
                         overflowMenuState = pageOverflowMenuViewModel.pageOverflowMenuState,
                         tabsState = tabsState,
                         notificationBellState = notificationState,
@@ -306,7 +307,7 @@ class HomeFragment : Fragment() {
                         }
                     )
 
-                    if (selectedTab == HomeTab.FOR_YOU && !swipeToExplorePromptShown) {
+                    if (selectedTab == HomeTab.FOR_YOU && !swipeToExplorePromptShown && forYouContentState.modules.isNotEmpty()) {
                         val dismissSwipePrompt = {
                             swipeToExplorePromptShown = true
                             Prefs.isHomeSwipeToExplorePromptShown = true
@@ -724,8 +725,9 @@ fun CommunityContentTab(
                     .padding(16.dp)
                     .verticalScroll(rememberScrollState()),
                 title = context.getString(wikiSite.languageCode, R.string.home_feed_screen_empty_state_label),
-                description = context.getString(wikiSite.languageCode, R.string.home_feed_community_screen_empty_state_description),
-                onManageModulesClick = onManageModulesClick
+                description = context.getString(wikiSite.languageCode, R.string.home_feed_community_screen_all_modules_disabled_description),
+                buttonText = context.getString(wikiSite.languageCode, R.string.home_feed_screen_all_modules_disabled_btn_label),
+                onCtaClick = onManageModulesClick
             )
         }
         state.error != null && state.cards.isEmpty() -> {
@@ -963,7 +965,7 @@ fun ForYouContentTab(
                 LoadingIndicator(modifier = Modifier.fillMaxHeight())
             }
         }
-        state.isEmptyState -> {
+        state.needsInterestSelection -> {
             val context = LocalContext.current
             HomeScreenEmptyState(
                 modifier = Modifier
@@ -973,8 +975,24 @@ fun ForYouContentTab(
                     .padding(top = (topInset * 2 + 64).dp)
                     .verticalScroll(rememberScrollState()),
                 title = context.getString(wikiSite.languageCode, R.string.home_feed_screen_empty_state_label),
-                description = context.getString(wikiSite.languageCode, R.string.home_feed_for_you_screen_empty_state_description),
-                onManageModulesClick = onManageModulesClick
+                description = context.getString(wikiSite.languageCode, R.string.home_feed_for_you_screen_no_data_description),
+                buttonText = context.getString(wikiSite.languageCode, R.string.home_feed_screen_add_interests_btn_label),
+                onCtaClick = onCustomizeInterestsClick
+            )
+        }
+        state.isAllModulesHidden -> {
+            val context = LocalContext.current
+            HomeScreenEmptyState(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(WikipediaTheme.colors.paperColor)
+                    .padding(horizontal = 16.dp)
+                    .padding(top = (topInset * 2 + 64).dp)
+                    .verticalScroll(rememberScrollState()),
+                title = context.getString(wikiSite.languageCode, R.string.home_feed_screen_empty_state_label),
+                description = context.getString(wikiSite.languageCode, R.string.home_feed_for_you_screen_all_modules_disabled_description),
+                buttonText = context.getString(wikiSite.languageCode, R.string.home_feed_screen_all_modules_disabled_btn_label),
+                onCtaClick = onManageModulesClick
             )
         }
         state.error != null && state.modules.isEmpty() -> {
@@ -1336,7 +1354,8 @@ fun HomeScreenEmptyState(
     modifier: Modifier = Modifier,
     title: String,
     description: String,
-    onManageModulesClick: () -> Unit,
+    buttonText: String,
+    onCtaClick: () -> Unit,
 ) {
     Column (
         modifier = modifier,
@@ -1366,10 +1385,10 @@ fun HomeScreenEmptyState(
             color = WikipediaTheme.colors.secondaryColor
         )
         AppButton(
-            onClick = onManageModulesClick
+            onClick = onCtaClick
         ) {
             Text(
-                text = stringResource(R.string.home_feed_screen_empty_state_btn_label)
+                text = buttonText
             )
         }
     }
@@ -1398,7 +1417,7 @@ private fun HomeScreenForYouEmptyStatePreview() {
             wikiSite = WikiSite.preview(),
             selectedTab = HomeTab.FOR_YOU,
             communityContentState = CommunityContentState(isEmptyState = true),
-            forYouContentState = ForYouContentState(isEmptyState = true),
+            forYouContentState = ForYouContentState(isAllModulesHidden = true),
             tabsState = TabsState(1, false),
             notificationBellState = NotificationBellState(unreadCount = 5, canShow = true)
         )

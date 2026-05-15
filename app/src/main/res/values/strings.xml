@@ -2523,7 +2523,9 @@
     <string name="home_feed_settings_empty_dialog_text">Turn on at least one module to see content.</string>
     <string name="home_feed_settings_empty_dialog_positive">Continue anyway</string>
     <string name="home_feed_screen_empty_state_label">Your feed is empty</string>
-    <string name="home_feed_community_screen_empty_state_description"><![CDATA[Turn on the <b>From the community</b> modules to start seeing content curated by contributors across the Wikimedia movement.]]></string>
-    <string name="home_feed_for_you_screen_empty_state_description"><![CDATA[Turn on the <b>For you</b> modules to start seeing content based on your preferences.]]></string>
-    <string name="home_feed_screen_empty_state_btn_label">Manage modules</string>
+    <string name="home_feed_community_screen_all_modules_disabled_description"><![CDATA[Turn on the <b>From the community</b> modules to start seeing content curated by contributors across the Wikimedia movement.]]></string>
+    <string name="home_feed_for_you_screen_all_modules_disabled_description"><![CDATA[Turn on the <b>For you</b> modules to start seeing content based on your preferences.]]></string>
+    <string name="home_feed_for_you_screen_no_data_description">Select some topics and articles in Settings to start seeing content here based on your interests.</string>
+    <string name="home_feed_screen_all_modules_disabled_btn_label">Manage modules</string>
+    <string name="home_feed_screen_add_interests_btn_label">Add interests</string>
 </resources>

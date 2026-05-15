@@ -2270,7 +2270,9 @@
   <string name="home_feed_settings_empty_dialog_text">Body text of dialog box warning the user that their feed will be empty.</string>
   <string name="home_feed_settings_empty_dialog_positive">Button label for confirmation of a dialog box warning the user that their feed will be empty.</string>
   <string name="home_feed_screen_empty_state_label">Title text shown when the selected feed has no visible content.</string>
-  <string name="home_feed_community_screen_empty_state_description">Description text shown when all “From the community” modules are turned off in the feed settings.</string>
-  <string name="home_feed_for_you_screen_empty_state_description">Description text shown when all “For you” modules are turned off in the feed settings.</string>
-  <string name="home_feed_screen_empty_state_btn_label">Button text for managing Home feed modules from the empty state screen.</string>
+  <string name="home_feed_community_screen_all_modules_disabled_description">Description text shown when all “From the community” modules are turned off in the feed settings.</string>
+  <string name="home_feed_for_you_screen_all_modules_disabled_description">Description text shown when all “For you” modules are turned off in the feed settings.</string>
+  <string name="home_feed_screen_all_modules_disabled_btn_label">Button text for managing Home feed modules from the empty state screen.</string>
+    <string name="home_feed_for_you_screen_no_data_description">Description text shown when the For You feed has no content available yet, prompting the user to select topics and articles in Settings.</string>
+    <string name="home_feed_screen_add_interests_btn_label">Button text prompting the user to add interests for personalizing the feed content.</string>
 </resources>
