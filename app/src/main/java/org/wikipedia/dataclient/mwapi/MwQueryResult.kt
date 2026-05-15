@@ -163,13 +163,12 @@ class MwQueryResult {
     @Serializable
     class MarkReadResponse(val timestamp: String? = null, val result: String? = null)
 
-    // @todo: check this - most likely continue is correct as serial name
     @Serializable
     class NotificationList(val list: List<Notification>? = null,
                            val seenTime: SeenTime? = null,
                            val count: Int = 0,
                            private val rawcount: Int = 0,
-                           @SerialName("notcontinue") val continueStr: String? = null)
+                           @SerialName("continue") val continueStr: String? = null)
 
     @Serializable
     class WatchlistItem {
