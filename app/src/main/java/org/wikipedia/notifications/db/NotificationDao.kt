@@ -64,4 +64,20 @@ interface NotificationDao {
         hideNotMentioned: Boolean,
         mentionsGroup: List<String>
     ): List<Notification>
+
+    /**
+     * Marks selected items as read or unread.
+     * Parameters are:
+     * - ids: list of notification ids which shall be updated
+     * - value: (null or a string containing a timestamp)
+     */
+    @Query("""
+        UPDATE Notification
+        SET read = :readTimeStamp
+        WHERE id IN (:ids)
+    """)
+    suspend fun markItemsAsRead(
+        ids: List<Long>,
+        readTimeStamp: String?
+    )
 }

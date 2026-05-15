@@ -13,6 +13,7 @@ import org.wikipedia.notifications.db.Notification
 import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
 import java.util.Random
+import java.util.Date
 
 class NotificationRefactoredViewModel(
     private val notificationPreferences: NotificationPreferences,
@@ -170,16 +171,13 @@ class NotificationRefactoredViewModel(
         }
 
         // Mark items in read state and save into database
-        /* @todo update
+        // Extract the IDs from the items
+        val ids = items.mapNotNull { it.notification?.id }
         viewModelScope.launch(handler) {
-            notificationList
-                .filter { n -> items.map { container -> container.notification?.id }
-                    .firstOrNull { it == n.id } != null }
-                .map {
-                    it.read = if (markUnread) null else Date().toString()
-                    notificationRepository.updateNotification(it)
-                }
+            // Perform database transaction
+            notificationRepository.markItemsAsRead(ids, Date().toString())
+            // update the UI
             filterAndPostNotifications()
-        }*/
+        }
     }
 }

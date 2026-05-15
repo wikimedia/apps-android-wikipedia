@@ -56,4 +56,15 @@ interface NotificationRepository {
         includedWikiCodes: List<String>,
         hideNotMentioned: Boolean
     ): List<Notification>
+
+    /**
+     * Passes through the request of the view model to the local database.
+     * Parameters are:
+     * - ids: list of notification ids which shall be updated
+     * - value: (null or a string containing a timestamp)
+    */
+    suspend fun markItemsAsRead(
+        ids: List<Long>,
+        readTimestamp: String?
+    )
 }
