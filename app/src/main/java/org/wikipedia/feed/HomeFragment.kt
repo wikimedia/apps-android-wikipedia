@@ -82,6 +82,7 @@ import org.wikipedia.compose.components.NotificationBell
 import org.wikipedia.compose.components.NotificationBellState
 import org.wikipedia.compose.components.TabsBox
 import org.wikipedia.compose.components.WikiLangCodeBox
+import org.wikipedia.compose.components.WikipediaAlertDialog
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.components.menu.PageOverflowMenu
@@ -172,6 +173,7 @@ class HomeFragment : Fragment() {
                 val wikiSite by viewModel.wikiSite.collectAsState()
                 val tabsState by viewModel.tabsState.collectAsState()
                 val notificationState by viewModel.unreadCount.collectAsState()
+                var swipeToExplorePromptShown by remember { mutableStateOf(Prefs.isHomeSwipeToExplorePromptShown) }
 
                 BaseTheme(currentTheme = if (selectedTab == HomeTab.FOR_YOU) Theme.BLACK else WikipediaApp.instance.currentTheme) {
                     HomeScreen(
@@ -303,6 +305,29 @@ class HomeFragment : Fragment() {
                             requireActivity().startActivity(intent)
                         }
                     )
+
+                    if (selectedTab == HomeTab.FOR_YOU && !swipeToExplorePromptShown) {
+                        val dismissSwipePrompt = {
+                            swipeToExplorePromptShown = true
+                            Prefs.isHomeSwipeToExplorePromptShown = true
+                        }
+                        WikipediaAlertDialog(
+                            title = stringResource(R.string.explore_feed_swipe_to_explore_prompt_title),
+                            titleModifier = Modifier.fillMaxWidth(),
+                            titleTextAlign = TextAlign.Start,
+                            message = stringResource(R.string.explore_feed_swipe_to_explore_prompt_message),
+                            image = {
+                                Image(
+                                    painter = painterResource(R.drawable.illustration_swipe_gesture),
+                                    contentDescription = null,
+                                    modifier = Modifier.fillMaxWidth()
+                                )
+                            },
+                            confirmButtonText = stringResource(R.string.onboarding_got_it),
+                            onDismissRequest = dismissSwipePrompt,
+                            onConfirmButtonClick = dismissSwipePrompt
+                        )
+                    }
                 }
             }
         }
@@ -720,6 +745,7 @@ fun CommunityContentTab(
                     )
                     Spacer(modifier = Modifier.height(16.dp))
                 }
+                var lastCardWasDayHeader = false
                 state.cards.forEachIndexed { cardIndex, card ->
                     when (card) {
                         is DayHeaderCard -> {
@@ -765,6 +791,11 @@ fun CommunityContentTab(
                             }
                         }
                         is TopReadListCard -> {
+                            if (lastCardWasDayHeader) {
+                                item(key = "top-read-spacer-${card.age}") {
+                                    Spacer(modifier = Modifier.height(16.dp))
+                                }
+                            }
                             item(key = "top-read-${card.age}") {
                                 TopReadModule(
                                     wikiSite = wikiSite,
@@ -822,6 +853,11 @@ fun CommunityContentTab(
                             }
                         }
                         is OnThisDayCard -> {
+                            if (lastCardWasDayHeader) {
+                                item(key = "on-this-day-spacer-${card.age}") {
+                                    Spacer(modifier = Modifier.height(16.dp))
+                                }
+                            }
                             item(key = "on-this-day-${card.age}") {
                                 OnThisDayModule(
                                     wikiSite = wikiSite,
@@ -873,6 +909,7 @@ fun CommunityContentTab(
                             // TODO: Media of the day (Commons)
                         }
                     }
+                    lastCardWasDayHeader = card is DayHeaderCard
                 }
 
                 item(key = "load-more-community") {
