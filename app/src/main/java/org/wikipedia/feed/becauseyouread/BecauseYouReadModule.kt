@@ -26,6 +26,7 @@ fun BecauseYouReadModule(
     modifier: Modifier = Modifier,
     wikiSite: WikiSite,
     module: ForYouModule.BecauseYouRead,
+    savedInReadingListTitles: Set<String> = emptySet(),
     onPageClick: (item: HistoryEntry) -> Unit = {},
     onShareClick: (entry: HistoryEntry) -> Unit = {},
     onSaveClick: (entry: HistoryEntry) -> Unit = {},
@@ -47,6 +48,7 @@ fun BecauseYouReadModule(
         ForYouCardContent(
             wikiSite = wikiSite,
             title = card.title,
+            isInReadingList = savedInReadingListTitles.contains(card.title.prefixedText),
             variation = CardVariation.entries[page % CardVariation.entries.size],
             backgroundColorIndex = backgroundColorIndex + page,
             module = module,

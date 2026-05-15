@@ -70,6 +70,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -87,6 +89,7 @@ import org.wikipedia.compose.components.menu.PageOverflowMenuViewModel
 import org.wikipedia.compose.extensions.pulse
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.extensions.getString
@@ -120,6 +123,7 @@ import org.wikipedia.main.MainFragment
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.tabs.TabActivity
+import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.theme.Theme
@@ -178,6 +182,7 @@ class HomeFragment : Fragment() {
                         communityContentState = viewModel.communityState.collectAsState().value,
                         forYouContentState = viewModel.forYouState.collectAsState().value,
                         overflowMenuState = pageOverflowMenuViewModel.pageOverflowMenuState,
+                        savedInReadingListTitles = viewModel.savedInReadingListTitles.collectAsState().value,
                         tabsState = tabsState,
                         notificationBellState = notificationState,
                         onSelectTab = {
@@ -217,7 +222,15 @@ class HomeFragment : Fragment() {
                             (parentFragment as? MainFragment)?.onFeedSelectPage(it, false)
                         },
                         onPageBookmarkClick = {
-                            (parentFragment as? MainFragment)?.onFeedAddPageToList(it, false)
+                            lifecycleScope.launch {
+                                val page = AppDatabase.instance.readingListPageDao().findPageInAnyList(it.title)
+                                val list = AppDatabase.instance.readingListDao().getListById(page?.listId ?: -1)
+                                if (list == null || page == null) {
+                                    ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), it.title, true, InvokeSource.FEED)
+                                } else {
+                                    ReadingListBehaviorsUtil.deletePages(requireActivity(), listOf(list), page, {}, {})
+                                }
+                            }
                         },
                         onPageShareClick = {
                             ShareUtil.shareText(requireContext(), it.title)
@@ -370,6 +383,7 @@ fun HomeScreen(
     communityContentState: CommunityContentState,
     forYouContentState: ForYouContentState,
     overflowMenuState: PageOverflowMenuViewModel.PageOverflowMenuState? = null,
+    savedInReadingListTitles: Set<String> = emptySet(),
     tabsState: TabsState,
     notificationBellState: NotificationBellState,
     onSelectTab: (HomeTab) -> Unit = {},
@@ -457,6 +471,7 @@ fun HomeScreen(
                             wikiSite = wikiSite,
                             state = communityContentState,
                             overflowMenuState = overflowMenuState,
+                            savedInReadingListTitles = savedInReadingListTitles,
                             onLoadMore = onLoadMoreCommunityContent,
                             onHideCardClick = onHideCommunityCardClick,
                             onHideModuleClick = onHideModuleClick,
@@ -478,6 +493,7 @@ fun HomeScreen(
                     ForYouContentTab(
                         state = forYouContentState,
                         wikiSite = wikiSite,
+                        savedInReadingListTitles = savedInReadingListTitles,
                         onLoadMore = onLoadMoreForYouContent,
                         overflowMenuState = overflowMenuState,
                         onPageClick = onPageClick,
@@ -674,6 +690,7 @@ fun CommunityContentTab(
     wikiSite: WikiSite,
     state: CommunityContentState,
     overflowMenuState: PageOverflowMenuViewModel.PageOverflowMenuState? = null,
+    savedInReadingListTitles: Set<String> = emptySet(),
     onLoadMore: () -> Unit,
     onHideCardClick: (card: Card) -> Unit = {},
     onHideModuleClick: (moduleKey: String) -> Unit = {},
@@ -723,6 +740,7 @@ fun CommunityContentTab(
                                 FeaturedArticleModule(
                                     wikiSite = wikiSite,
                                     card.page,
+                                    isInReadingList = savedInReadingListTitles.contains(card.page.apiTitle),
                                     onPageClick = {
                                         onPageClick(
                                             it.getHistoryEntry(
@@ -903,6 +921,7 @@ fun CommunityContentTab(
 fun ForYouContentTab(
     state: ForYouContentState,
     wikiSite: WikiSite,
+    savedInReadingListTitles: Set<String> = emptySet(),
     onLoadMore: () -> Unit,
     overflowMenuState: PageOverflowMenuViewModel.PageOverflowMenuState? = null,
     onHideCardClick: (module: ForYouModule, card: ForYouCard) -> Unit = { _, _ -> },
@@ -958,6 +977,7 @@ fun ForYouContentTab(
                                             .height(viewportHeight),
                                         wikiSite = wikiSite,
                                         module = module,
+                                        savedInReadingListTitles = savedInReadingListTitles,
                                         onPageClick = { entry -> onPageClick(entry) },
                                         onShareClick = { entry -> onPageShareClick(entry) },
                                         onSaveClick = { entry -> onPageBookmarkClick(entry) },
@@ -977,6 +997,7 @@ fun ForYouContentTab(
                                             .height(viewportHeight),
                                         wikiSite = wikiSite,
                                         module = module,
+                                        savedInReadingListTitles = savedInReadingListTitles,
                                         onPageClick = { entry -> onPageClick(entry) },
                                         onShareClick = { entry -> onPageShareClick(entry) },
                                         onSaveClick = { entry -> onPageBookmarkClick(entry) },
@@ -996,6 +1017,7 @@ fun ForYouContentTab(
                                             .height(viewportHeight),
                                         wikiSite = wikiSite,
                                         module = module,
+                                        savedInReadingListTitles = savedInReadingListTitles,
                                         onPageClick = { entry -> onPageClick(entry) },
                                         onShareClick = { entry -> onPageShareClick(entry) },
                                         onSaveClick = { entry -> onPageBookmarkClick(entry) },

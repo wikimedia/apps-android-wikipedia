@@ -51,6 +51,7 @@ import kotlin.random.Random
 fun FeaturedArticleModule(
     wikiSite: WikiSite,
     article: PageSummary,
+    isInReadingList: Boolean = false,
     onPageClick: (article: PageSummary) -> Unit = {},
     onHideCardClick: () -> Unit = {},
     onHideModuleClick: () -> Unit = {},
@@ -116,7 +117,7 @@ fun FeaturedArticleModule(
                         contentAlignment = Alignment.Center
                     ) {
                         Icon(
-                            painter = painterResource(R.drawable.ic_bookmark_border_white_24dp),
+                            painter = painterResource(if (isInReadingList) R.drawable.ic_bookmark_white_24dp else R.drawable.ic_bookmark_border_white_24dp),
                             contentDescription = context.getString(wikiSite.languageCode, R.string.feed_card_add_to_default_list),
                             tint = WikipediaTheme.colors.primaryColor,
                             modifier = Modifier.size(24.dp)
@@ -209,7 +210,8 @@ fun FeaturedArticleCardNoImagePreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         FeaturedArticleModule(
             wikiSite = WikiSite.preview(),
-            article = PageSummary("Lorem ipsum", "Lorem ipsum", "Lorem ipsum", "Lorem ipsum", thumbnail = null, "")
+            article = PageSummary("Lorem ipsum", "Lorem ipsum", "Lorem ipsum", "Lorem ipsum", thumbnail = null, ""),
+            isInReadingList = true
         )
     }
 }

@@ -5,10 +5,15 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -39,6 +44,7 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.json.LocalDateTimeSerializer
 import org.wikipedia.page.PageTitle
+import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SettingsRepository
 import org.wikipedia.settings.homefeed.ForYouModuleType
@@ -151,6 +157,27 @@ class HomeViewModel : ViewModel() {
 
     private val _tabsState = MutableStateFlow(TabsState(WikipediaApp.instance.tabCount, pulse = false))
     val tabsState = _tabsState.asStateFlow()
+
+    // Holds the API titles of articles currently in the feed.
+    // Updated whenever cards finish loading.
+    private val _feedApiTitles = MutableStateFlow<List<String>>(emptyList())
+
+    // Derives saved state by asking Room only about those titles.
+    // flatMapLatest restarts the DB observation whenever _feedApiTitles changes
+    // (new cards loaded, refresh, language switch).
+    @OptIn(ExperimentalCoroutinesApi::class)
+    val savedInReadingListTitles: StateFlow<Set<String>> = _feedApiTitles
+        .flatMapLatest { titles ->
+            if (titles.isEmpty()) flowOf(emptySet())
+            else AppDatabase.instance.readingListPageDao()
+                .observeSavedApiTitles(
+                    wikiSite.value.languageCode,
+                    titles,
+                    ReadingListPage.STATUS_QUEUE_FOR_DELETE
+                )
+                .map { it.toSet() }
+        }
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(MAX_STOP_TIMEOUT_MILLIS), emptySet())
 
     private val communityHandler = CoroutineExceptionHandler { _, throwable ->
         _communityState.value = _communityState.value.copy(
@@ -274,6 +301,9 @@ class HomeViewModel : ViewModel() {
                 error = null,
                 canLoadMore = true
             )
+
+            _feedApiTitles.value = _communityState.value.cards.filterIsInstance<FeaturedArticleCard>()
+                .map { it.page.apiTitle }
         }
     }
 
@@ -304,6 +334,16 @@ class HomeViewModel : ViewModel() {
                 error = null,
                 canLoadMore = newModules.isNotEmpty()
             )
+
+            _feedApiTitles.value = _forYouState.value.modules
+                .flatMap { it.cards }
+                .map {
+                    when (it) {
+                        is BasedOnInterestCard -> it.title.prefixedText
+                        is ContinueReadingCard -> it.title.prefixedText
+                        is BecauseYouReadCard -> it.title.prefixedText
+                    }
+                }
         }
     }
 
