@@ -158,23 +158,18 @@ class HomeViewModel : ViewModel() {
     private val _tabsState = MutableStateFlow(TabsState(WikipediaApp.instance.tabCount, pulse = false))
     val tabsState = _tabsState.asStateFlow()
 
-    // Holds the API titles of articles currently in the feed.
+    // Holds the API titles of articles currently in the feed, to be queried whether they are saved in a reading list.
     // Updated whenever cards finish loading.
-    private val _feedApiTitles = MutableStateFlow<List<String>>(emptyList())
+    private val _savedInReadingApiTitles = MutableStateFlow<List<String>>(emptyList())
 
-    // Derives saved state by asking Room only about those titles.
-    // flatMapLatest restarts the DB observation whenever _feedApiTitles changes
-    // (new cards loaded, refresh, language switch).
+    // Derives saved state by asking Room only about those titles that we want to monitor.
+    // flatMapLatest restarts the DB observation whenever _savedInReadingApiTitles changes.
     @OptIn(ExperimentalCoroutinesApi::class)
-    val savedInReadingListTitles: StateFlow<Set<String>> = _feedApiTitles
+    val savedInReadingListTitles: StateFlow<Set<String>> = _savedInReadingApiTitles
         .flatMapLatest { titles ->
             if (titles.isEmpty()) flowOf(emptySet())
             else AppDatabase.instance.readingListPageDao()
-                .observeSavedApiTitles(
-                    wikiSite.value.languageCode,
-                    titles,
-                    ReadingListPage.STATUS_QUEUE_FOR_DELETE
-                )
+                .observeSavedApiTitles(wikiSite.value.languageCode, titles, ReadingListPage.STATUS_QUEUE_FOR_DELETE)
                 .map { it.toSet() }
         }
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(MAX_STOP_TIMEOUT_MILLIS), emptySet())
@@ -302,7 +297,7 @@ class HomeViewModel : ViewModel() {
                 canLoadMore = true
             )
 
-            _feedApiTitles.value = _communityState.value.cards.filterIsInstance<FeaturedArticleCard>()
+            _savedInReadingApiTitles.value = _communityState.value.cards.filterIsInstance<FeaturedArticleCard>()
                 .map { it.page.apiTitle }
         }
     }
@@ -335,7 +330,7 @@ class HomeViewModel : ViewModel() {
                 canLoadMore = newModules.isNotEmpty()
             )
 
-            _feedApiTitles.value = _forYouState.value.modules
+            _savedInReadingApiTitles.value = _forYouState.value.modules
                 .flatMap { it.cards }
                 .map {
                     when (it) {
