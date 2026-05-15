@@ -19,6 +19,8 @@ import org.wikipedia.history.db.HistoryEntryDao
 import org.wikipedia.history.db.HistoryEntryWithImageDao
 import org.wikipedia.notifications.db.Notification
 import org.wikipedia.notifications.db.NotificationDao
+import org.wikipedia.notifications.db.NotificationRemoteKey
+import org.wikipedia.notifications.db.NotificationRemoteKeyDao
 import org.wikipedia.offline.db.OfflineObject
 import org.wikipedia.offline.db.OfflineObjectDao
 import org.wikipedia.pageimages.db.PageImage
@@ -39,7 +41,7 @@ import org.wikipedia.talk.db.TalkTemplateDao
 import java.time.LocalDate
 
 const val DATABASE_NAME = "wikipedia.db"
-const val DATABASE_VERSION = 32
+const val DATABASE_VERSION = 33
 
 @Database(
     entities = [
@@ -52,6 +54,7 @@ const val DATABASE_VERSION = 32
         ReadingList::class,
         ReadingListPage::class,
         Notification::class,
+        NotificationRemoteKey::class,
         TalkTemplate::class,
         Category::class,
         DailyGameHistory::class,
@@ -77,6 +80,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun readingListDao(): ReadingListDao
     abstract fun readingListPageDao(): ReadingListPageDao
     abstract fun notificationDao(): NotificationDao
+    abstract fun notificationRemoteKeyDao(): NotificationRemoteKeyDao
     abstract fun talkTemplateDao(): TalkTemplateDao
     abstract fun categoryDao(): CategoryDao
     abstract fun dailyGameHistoryDao(): DailyGameHistoryDao

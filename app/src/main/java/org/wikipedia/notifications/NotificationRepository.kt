@@ -1,5 +1,7 @@
 package org.wikipedia.notifications
 
+import androidx.paging.PagingData
+import kotlinx.coroutines.flow.Flow
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.notifications.db.Notification
 
@@ -30,6 +32,26 @@ interface NotificationRepository {
      */
     suspend fun fetchAndSave(filter: String?, continueStr: String? = null): String?
 
+    // @todo: currently only used for testing - check if it can be replaced by getNotificationsFlow
+    suspend fun getAllSelectedNotifications(
+        hideReadNotifications: Boolean,
+        searchQuery: String?,
+        excludedTypeCodes: Set<String>,
+        includedWikiCodes: List<String>,
+        hideNotMentioned: Boolean
+    ): List<Notification>
+
+    /**
+     * Passes through the request of the view model to the local database.
+     * Parameters are:
+     * - ids: list of notification ids which shall be updated
+     * - value: (null or a string containing a timestamp)
+    */
+    suspend fun markItemsAsRead(
+        ids: List<Long>,
+        readTimestamp: String?
+    )
+
     /**
      * Retrieves all notifications from the local database with sorting and filtering:
      * - Sorting by timestamp
@@ -49,22 +71,22 @@ interface NotificationRepository {
      *
      *   (Deduplication is done when inserting new entries in the database)
      */
-    suspend fun getAllSelectedNotifications(
+    fun getNotificationsFlow(
         hideReadNotifications: Boolean,
         searchQuery: String?,
         excludedTypeCodes: Set<String>,
         includedWikiCodes: List<String>,
         hideNotMentioned: Boolean
-    ): List<Notification>
+    ): Flow<PagingData<Notification>>
 
-    /**
-     * Passes through the request of the view model to the local database.
-     * Parameters are:
-     * - ids: list of notification ids which shall be updated
-     * - value: (null or a string containing a timestamp)
-    */
-    suspend fun markItemsAsRead(
-        ids: List<Long>,
-        readTimestamp: String?
-    )
+    fun getUnreadCountsFlow(
+        excludedTypeCodes: Set<String>,
+        includedWikiCodes: List<String>
+    ): Flow<Pair<Int, Int>>
+
+    suspend fun getRemoteKey(wiki: String): String?
+
+    suspend fun saveRemoteKey(wiki: String, nextContinueStr: String?)
+
+    suspend fun clearRemoteKeys()
 }

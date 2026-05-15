@@ -1,6 +1,8 @@
 package org.wikipedia.notifications
 
+import androidx.paging.PagingData
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.first
@@ -181,6 +183,23 @@ class NotificationLegacyViewModelPerformanceTest {
             hideNotMentioned: Boolean
         ): List<Notification> {
             return emptyList()
+        }
+
+        override suspend fun markItemsAsRead(
+            ids: List<Long>,
+            readTimestamp: String?
+        ) {
+            TODO("Not yet implemented")
+        }
+
+        override fun getNotificationsFlow(
+            hideReadNotifications: Boolean,
+            searchQuery: String?,
+            excludedTypeCodes: Set<String>,
+            includedWikiCodes: List<String>,
+            hideNotMentioned: Boolean
+        ): Flow<PagingData<Notification>> {
+            TODO("Not yet implemented")
         }
     }
 

@@ -1,11 +1,13 @@
 package org.wikipedia.notifications.db
 
+import androidx.paging.PagingSource
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface NotificationDao {
@@ -43,8 +45,8 @@ interface NotificationDao {
         SELECT * FROM Notification
         WHERE ((:hideReadNotifications = 0) OR (read IS NULL))
         AND ((:searchQuery IS NULL) OR
-             (title LIKE '%' || :searchQuery || '%') OR
-             (contents LIKE '%' || :searchQuery || '%'))
+             (LOWER(title) LIKE '%' || LOWER(:searchQuery) || '%') OR
+             (LOWER(contents) LIKE '%' || LOWER(:searchQuery) || '%'))
         AND ((:hasExclusions = 0) OR (category NOT IN (:excludedTypeCodes)))
         AND (REPLACE(
             CASE WHEN wiki LIKE '%wiki' THEN SUBSTR(wiki, 1, LENGTH(wiki)-4) ELSE wiki END,
@@ -55,6 +57,34 @@ interface NotificationDao {
              (((INSTR(category, '-') > 0) AND (SUBSTR(category, 1, INSTR(category, '-') - 1) IN (:mentionsGroup)))))
         ORDER BY timestamp DESC
     """)
+    fun getAllSelectedNotificationPaged(
+        hideReadNotifications: Boolean,
+        searchQuery: String?,
+        hasExclusions: Boolean,
+        excludedTypeCodes: Set<String>,
+        includedWikiCodes: List<String>,
+        hideNotMentioned: Boolean,
+        mentionsGroup: List<String>
+    ): PagingSource<Int, Notification>
+
+    @Query("""
+        SELECT * FROM Notification
+        WHERE ((:hideReadNotifications = 0) OR (read IS NULL))
+        AND ((:searchQuery IS NULL) OR
+             (LOWER(title) LIKE '%' || LOWER(:searchQuery) || '%') OR
+             (LOWER(contents) LIKE '%' || LOWER(:searchQuery) || '%'))
+        AND ((:hasExclusions = 0) OR (category NOT IN (:excludedTypeCodes)))
+        AND (REPLACE(
+            CASE WHEN wiki LIKE '%wiki' THEN SUBSTR(wiki, 1, LENGTH(wiki)-4) ELSE wiki END,
+            '_', '-'
+        ) IN (:includedWikiCodes))
+        AND ((:hideNotMentioned = 0) OR
+             (category IN (:mentionsGroup)) OR
+             (((INSTR(category, '-') > 0) AND (SUBSTR(category, 1, INSTR(category, '-') - 1) IN (:mentionsGroup)))))
+        ORDER BY timestamp DESC
+    """)
+    // @todo: check if it can be replaced by getAllSelectedNotificationPaged
+    // getAllSelectedNotification is used for testing only
     suspend fun getAllSelectedNotification(
         hideReadNotifications: Boolean,
         searchQuery: String?,
@@ -80,4 +110,46 @@ interface NotificationDao {
         ids: List<Long>,
         readTimeStamp: String?
     )
+
+    /**
+     * Counts the number of unread notifications in the database filtering for
+     * - categories which are not in the list of excluded categories
+     * - wiki language code
+     */
+    @Query("""
+        SELECT COUNT(*) FROM Notification
+        WHERE (read IS NULL)
+        AND (category NOT IN (:excludedTypeCodes))
+        AND (REPLACE(
+            CASE WHEN wiki LIKE '%wiki' THEN SUBSTR(wiki, 1, LENGTH(wiki)-4) ELSE wiki END,
+            '_', '-'
+        ) IN (:includedWikiCodes))
+    """)
+    fun getUnreadCount(
+        excludedTypeCodes: Set<String>,
+        includedWikiCodes: List<String>
+    ): Flow<Int>
+
+    /**
+     * Counts the number of unread notifications in the database filtering for
+     * - categories which are not in the list of excluded categories
+     * - wiki language code
+     * - category-strings which are in the "mentions group" or where the prefix is in the "mentions group"
+     */
+    @Query("""
+        SELECT COUNT(*) FROM Notification
+        WHERE (read IS NULL)
+        AND (category NOT IN (:excludedTypeCodes))
+        AND (REPLACE(
+            CASE WHEN wiki LIKE '%wiki' THEN SUBSTR(wiki, 1, LENGTH(wiki)-4) ELSE wiki END,
+            '_', '-'
+        ) IN (:includedWikiCodes))
+        AND (category IN (:mentionsGroup) OR
+             (INSTR(category, '-') > 0 AND SUBSTR(category, 1, INSTR(category, '-') - 1) IN (:mentionsGroup)))
+    """)
+    fun getUnreadMentionsCount(
+        excludedTypeCodes: Set<String>,
+        includedWikiCodes: List<String>,
+        mentionsGroup: List<String>
+    ): Flow<Int>
 }

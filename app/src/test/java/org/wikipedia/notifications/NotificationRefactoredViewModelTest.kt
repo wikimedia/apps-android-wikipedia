@@ -1,10 +1,15 @@
 package org.wikipedia.notifications
 
+import androidx.paging.ExperimentalPagingApi
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingData
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.mockkObject
 import io.mockk.unmockkAll
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
@@ -32,8 +37,8 @@ class NotificationRefactoredViewModelTest {
     private val notificationHelper = FakeNotificationFilterHelper()
     private val wikipediaApp = mockk<WikipediaApp>(relaxed = true)
     private lateinit var viewModel: NotificationRefactoredViewModel
-
     private lateinit var db: AppDatabase
+
     @Before
     fun setUp() {
         val context = org.robolectric.RuntimeEnvironment.getApplication()
@@ -59,6 +64,12 @@ class NotificationRefactoredViewModelTest {
             Thread.sleep(10) // Give the background Room thread a moment to work
             attempts++
         }
+
+        runBlocking {
+            withContext(Dispatchers.IO) {
+                db.notificationDao().deleteAll()
+            }
+        }
     }
 
     @After
@@ -68,9 +79,6 @@ class NotificationRefactoredViewModelTest {
         //allNotifications.forEach {
         //    println("[ID: ${it.id}] [Wiki: ${it.wiki}] [Read: ${it.read}] [Category: ${it.category}] [Header: ${it.contents?.header}]")
         //}
-        withContext(Dispatchers.IO) {
-            db.clearAllTables()
-        }
         unmockkAll()
     }
 
@@ -385,6 +393,31 @@ class NotificationRefactoredViewModelTest {
             ids: List<Long>,
             readTimestamp: String?
         ) {
+        }
+
+        @OptIn(ExperimentalPagingApi::class)
+        override fun getNotificationsFlow(
+            hideReadNotifications: Boolean,
+            searchQuery: String?,
+            excludedTypeCodes: Set<String>,
+            includedWikiCodes: List<String>,
+            hideNotMentioned: Boolean
+        ): Flow<PagingData<Notification>> {
+            return Pager(
+                config = PagingConfig(pageSize = 50),
+                remoteMediator = NotificationRemoteMediator(this),
+                pagingSourceFactory = {
+                    notificationDao.getAllSelectedNotificationPaged(
+                        hideReadNotifications,
+                        searchQuery,
+                        !excludedTypeCodes.isEmpty(),
+                        excludedTypeCodes,
+                        includedWikiCodes,
+                        hideNotMentioned,
+                        NotificationCategory.MENTIONS_GROUP.map { it.id }
+                    )
+                }
+            ).flow
         }
     }
 

@@ -36,6 +36,7 @@ class NotificationRefactoredViewModelPerformanceTest {
             db = androidx.room.Room.inMemoryDatabaseBuilder(context, AppDatabase::class.java)
                 .allowMainThreadQueries()
                 .build()
+            db.notificationDao().deleteAll()
             notificationRepository = FakeNotificationRepository(db.notificationDao())
 
             viewModel = NotificationRefactoredViewModel(

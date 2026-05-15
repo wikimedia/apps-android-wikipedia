@@ -212,6 +212,7 @@ dependencies {
     annotationProcessor libs.androidx.room.compiler
     ksp libs.androidx.room.compiler
     implementation libs.androidx.room.ktx
+    implementation libs.androidx.room.paging
 
     implementation libs.androidx.ui.graphics
     implementation libs.androidx.glance.appwidget
