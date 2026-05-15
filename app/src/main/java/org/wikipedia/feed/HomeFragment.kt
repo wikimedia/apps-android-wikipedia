@@ -32,7 +32,9 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
@@ -75,6 +77,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.compose.components.AppButton
+import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.components.NotificationBell
 import org.wikipedia.compose.components.NotificationBellState
 import org.wikipedia.compose.components.TabsBox
@@ -121,6 +124,8 @@ import org.wikipedia.navtab.NavTab
 import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.settings.Prefs
+import org.wikipedia.settings.homefeed.HomeFeedSettingsActivity
+import org.wikipedia.settings.homefeed.HomeFeedSettingsStartDestination
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DimenUtil
@@ -288,6 +293,16 @@ class HomeFragment : Fragment() {
                         },
                         onNotificationClick = {
                             requireActivity().startActivity(NotificationActivity.newIntent(requireActivity()))
+                        },
+                        onManageModulesClick = {
+                            val intent = HomeFeedSettingsActivity.newIntent(
+                                context = requireContext(),
+                                startDestination = when (selectedTab) {
+                                    HomeTab.COMMUNITY -> HomeFeedSettingsStartDestination.COMMUNITY_MODULES
+                                    HomeTab.FOR_YOU -> HomeFeedSettingsStartDestination.FOR_YOU_MODULES
+                                }
+                            )
+                            requireActivity().startActivity(intent)
                         }
                     )
 
@@ -394,7 +409,8 @@ fun HomeScreen(
     onUpdateTabCount: () -> Unit = {},
     onCustomizeInterestsClick: () -> Unit = {},
     onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> },
-    onNotificationClick: () -> Unit = {}
+    onNotificationClick: () -> Unit = {},
+    onManageModulesClick: () -> Unit = {},
 ) {
     val context = LocalContext.current
     val topInset = if (context is MainActivity) {
@@ -469,13 +485,15 @@ fun HomeScreen(
                             onImageClick = onImageClick,
                             onImageDownloadClick = onImageDownloadClick,
                             onImageShareClick = onImageShareClick,
-                            onCardImpression = onCardImpression
+                            onCardImpression = onCardImpression,
+                            onManageModulesClick = onManageModulesClick
                         )
                     }
                 }
 
                 HomeTab.FOR_YOU -> {
                     ForYouContentTab(
+                        topInset = topInset,
                         state = forYouContentState,
                         wikiSite = wikiSite,
                         onLoadMore = onLoadMoreForYouContent,
@@ -488,11 +506,14 @@ fun HomeScreen(
                         onPageOverflowClick = onPageOverflowClick,
                         onPageOverflowDismiss = onPageOverflowDismiss,
                         onCustomizeInterestsClick = onCustomizeInterestsClick,
-                        onCardImpression = onCardImpression
+                        onCardImpression = onCardImpression,
+                        onManageModulesClick = onManageModulesClick
                     )
 
                     // Floating toolbar with gradient scrim, wordmark, and tab selector.
-                    Column(modifier = Modifier.align(Alignment.TopCenter).fillMaxWidth()) {
+                    Column(modifier = Modifier
+                        .align(Alignment.TopCenter)
+                        .fillMaxWidth()) {
                         Box(
                             modifier = Modifier
                                 .fillMaxWidth()
@@ -577,17 +598,18 @@ fun HomeToolbar(
                     modifier = Modifier
                         .width(21.dp)
                         .height(20.dp)
-                        .then(if (tabsState.pulse) {
-                            Modifier.pulse(
-                                durationMillis = 300,
-                                toScale = 1.25f,
-                                onCompleted = {
-                                    onUpdateTabCount()
-                                }
-                            )
-                        } else {
-                            Modifier
-                        }),
+                        .then(
+                            if (tabsState.pulse) {
+                                Modifier.pulse(
+                                    durationMillis = 300,
+                                    toScale = 1.25f,
+                                    onCompleted = {
+                                        onUpdateTabCount()
+                                    }
+                                )
+                            } else {
+                                Modifier
+                            }),
                     backgroundColor = Color.Transparent,
                     count = tabsState.count
                 )
@@ -686,12 +708,26 @@ fun CommunityContentTab(
     onImageClick: (image: FeaturedImage) -> Unit = {},
     onImageDownloadClick: (image: FeaturedImage) -> Unit = {},
     onImageShareClick: (image: FeaturedImage, age: Int) -> Unit = { _, _ -> },
-    onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> }
+    onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> },
+    onManageModulesClick: () -> Unit,
 ) {
     val activity = LocalActivity.current as? MainActivity
     when {
         state.isInitialLoading -> {
             LoadingIndicator(modifier = modifier.fillMaxHeight())
+        }
+        state.isEmptyState -> {
+            val context = LocalContext.current
+            HomeScreenEmptyState(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(WikipediaTheme.colors.paperColor)
+                    .padding(16.dp)
+                    .verticalScroll(rememberScrollState()),
+                title = context.getString(wikiSite.languageCode, R.string.home_feed_screen_empty_state_label),
+                description = context.getString(wikiSite.languageCode, R.string.home_feed_community_screen_empty_state_description),
+                onManageModulesClick = onManageModulesClick
+            )
         }
         state.error != null && state.cards.isEmpty() -> {
             ErrorState(state.error, onRetry = onLoadMore)
@@ -902,6 +938,7 @@ fun CommunityContentTab(
 @Composable
 fun ForYouContentTab(
     state: ForYouContentState,
+    topInset: Int,
     wikiSite: WikiSite,
     onLoadMore: () -> Unit,
     overflowMenuState: PageOverflowMenuViewModel.PageOverflowMenuState? = null,
@@ -913,21 +950,38 @@ fun ForYouContentTab(
     onPageOverflowClick: (pageSummary: PageSummary, source: Int, menuKey: String) -> Unit = { _, _, _ -> },
     onPageOverflowDismiss: () -> Unit = {},
     onCustomizeInterestsClick: () -> Unit = {},
-    onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> }
+    onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> },
+    onManageModulesClick: () -> Unit
 ) {
     when {
         state.isInitialLoading -> {
             Box(
-                modifier = Modifier.fillMaxSize()
+                modifier = Modifier
+                    .fillMaxSize()
                     .background(color = WikipediaTheme.colors.backgroundColor),
                 contentAlignment = Alignment.Center
             ) {
                 LoadingIndicator(modifier = Modifier.fillMaxHeight())
             }
         }
+        state.isEmptyState -> {
+            val context = LocalContext.current
+            HomeScreenEmptyState(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(WikipediaTheme.colors.paperColor)
+                    .padding(horizontal = 16.dp)
+                    .padding(top = (topInset * 2 + 64).dp)
+                    .verticalScroll(rememberScrollState()),
+                title = context.getString(wikiSite.languageCode, R.string.home_feed_screen_empty_state_label),
+                description = context.getString(wikiSite.languageCode, R.string.home_feed_for_you_screen_empty_state_description),
+                onManageModulesClick = onManageModulesClick
+            )
+        }
         state.error != null && state.modules.isEmpty() -> {
             Box(
-                modifier = Modifier.fillMaxSize()
+                modifier = Modifier
+                    .fillMaxSize()
                     .background(color = WikipediaTheme.colors.backgroundColor),
                 contentAlignment = Alignment.Center
             ) {
@@ -1186,7 +1240,11 @@ fun LanguageDropDownMenu(
     ) {
         Row(
             modifier = Modifier
-                .border(width = 1.dp, color = WikipediaTheme.colors.primaryColor.copy(alpha = 0.8f), shape = RoundedCornerShape(8.dp))
+                .border(
+                    width = 1.dp,
+                    color = WikipediaTheme.colors.primaryColor.copy(alpha = 0.8f),
+                    shape = RoundedCornerShape(8.dp)
+                )
                 .padding(4.dp),
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically
@@ -1271,6 +1329,80 @@ fun LanguageDropDownMenu(
                 )
             }
         }
+    }
+}
+
+@Composable
+fun HomeScreenEmptyState(
+    modifier: Modifier = Modifier,
+    title: String,
+    description: String,
+    onManageModulesClick: () -> Unit,
+) {
+    Column (
+        modifier = modifier,
+        verticalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterVertically),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        Image(
+            modifier = Modifier
+                .padding(bottom = 16.dp),
+            painter = painterResource(R.drawable.empty_feed_illustration),
+            contentDescription = null
+        )
+        Text(
+            text = title,
+            style = MaterialTheme.typography.titleMedium.copy(
+                fontWeight = FontWeight.SemiBold,
+                letterSpacing = 0.15.sp
+            ),
+            color = WikipediaTheme.colors.secondaryColor
+        )
+        HtmlText(
+            text = description,
+            style = MaterialTheme.typography.bodyMedium.copy(
+                letterSpacing = 0.25.sp
+            ),
+            textAlign = TextAlign.Center,
+            color = WikipediaTheme.colors.secondaryColor
+        )
+        AppButton(
+            onClick = onManageModulesClick
+        ) {
+            Text(
+                text = stringResource(R.string.home_feed_screen_empty_state_btn_label)
+            )
+        }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun HomeScreenCommunityEmptyStatePreview() {
+    BaseTheme(currentTheme = Theme.LIGHT) {
+        HomeScreen(
+            wikiSite = WikiSite.preview(),
+            selectedTab = HomeTab.COMMUNITY,
+            communityContentState = CommunityContentState(isEmptyState = true),
+            forYouContentState = ForYouContentState(isInitialLoading = true),
+            tabsState = TabsState(1, false),
+            notificationBellState = NotificationBellState(unreadCount = 5, canShow = true)
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun HomeScreenForYouEmptyStatePreview() {
+    BaseTheme(currentTheme = Theme.LIGHT) {
+        HomeScreen(
+            wikiSite = WikiSite.preview(),
+            selectedTab = HomeTab.FOR_YOU,
+            communityContentState = CommunityContentState(isEmptyState = true),
+            forYouContentState = ForYouContentState(isEmptyState = true),
+            tabsState = TabsState(1, false),
+            notificationBellState = NotificationBellState(unreadCount = 5, canShow = true)
+        )
     }
 }
 
