@@ -1,9 +1,13 @@
 package org.wikipedia.notifications
 
+import android.view.ViewGroup
+import androidx.paging.LoadState
+import androidx.paging.PagingData
+import androidx.paging.PagingDataAdapter
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import kotlinx.coroutines.flow.drop
-import kotlinx.coroutines.flow.filter
-import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withTimeout
 import org.junit.After
@@ -103,7 +107,21 @@ class NotificationRefactoredViewModelPerformanceTest {
         // Perform an initial fetch to ensure uiState is populated with Success data
         // which simplifies the drop(1) logic in the measurement loop.
         viewModel.fetchAndSave(refresh = true)
-        viewModel.uiState.filter { it is Resource.Success && it.data.first.isNotEmpty() }.first()
+        
+        // Use the PagingDataAdapter to observe the flow during the test
+        val adapter = NotificationItemAdapter()
+        val job = launch {
+            viewModel.notificationFlow.collectLatest {
+                adapter.submitData(it)
+            }
+        }
+
+        // Wait for initialization and initial fetch to finish without blocking
+        var initialAttempts = 0
+        while (adapter.itemCount == 0 && initialAttempts < 100) {
+            delay(10)
+            initialAttempts++
+        }
 
         val times = mutableListOf<Long>()
 
@@ -112,9 +130,9 @@ class NotificationRefactoredViewModelPerformanceTest {
         repeat(numberIterations) { iteration ->
             val time = measureTimeMillis {
                 viewModel.fetchAndSave(refresh = true)
-                // Use drop(1) to ensure we wait for the NEW emission triggered by fetchAndSave
-                // rather than returning the current StateFlow value immediately.
-                viewModel.uiState.filter { it is Resource.Success && it.data.first.isNotEmpty() }
+                // Use the adapter's loadStateFlow to wait for the result
+                adapter.loadStateFlow
+                    .filter { it.refresh is LoadState.NotLoading }
                     .drop(1)
                     .first()
             }
@@ -135,8 +153,20 @@ class NotificationRefactoredViewModelPerformanceTest {
         println("Median: ${"%.2f".format(medianTime)} ms")
 
         // Log count of items for verification
-        val finalResource = viewModel.uiState.value as Resource.Success
-        println("Final item count in UI: ${finalResource.data.first.size}")
+        println("Final item count in UI snapshot: ${adapter.itemCount}")
+        job.cancel()
+    }
+
+    private class NotificationItemAdapter : PagingDataAdapter<NotificationListItemContainer, androidx.recyclerview.widget.RecyclerView.ViewHolder>(
+        object : androidx.recyclerview.widget.DiffUtil.ItemCallback<NotificationListItemContainer>() {
+            override fun areItemsTheSame(oldItem: NotificationListItemContainer, newItem: NotificationListItemContainer) = oldItem === newItem
+            override fun areContentsTheSame(oldItem: NotificationListItemContainer, newItem: NotificationListItemContainer) = oldItem == newItem
+        }
+    ) {
+        override fun onBindViewHolder(holder: androidx.recyclerview.widget.RecyclerView.ViewHolder, position: Int) {}
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): androidx.recyclerview.widget.RecyclerView.ViewHolder {
+            return object : androidx.recyclerview.widget.RecyclerView.ViewHolder(android.view.View(parent.context)) {}
+        }
     }
 
     private fun createNotification(
@@ -191,6 +221,7 @@ class NotificationRefactoredViewModelPerformanceTest {
     // Fake notification repository used for mocking during test
     private class FakeNotificationRepository(private val notificationDao: NotificationDao) : NotificationRepository {
         var unreadWikis = mapOf<String, WikiSite>()
+        private val remoteKeys = mutableMapOf<String, String?>()
 
         suspend fun insertNotifications(notifications: List<Notification>) {
             notificationDao.insertNotifications(notifications)
@@ -220,6 +251,53 @@ class NotificationRefactoredViewModelPerformanceTest {
                 NotificationCategory.MENTIONS_GROUP.map { it.id }
             )
         }
+
+        override suspend fun markItemsAsRead(
+            ids: List<Long>,
+            readTimestamp: String?
+        ) {
+            notificationDao.markItemsAsRead(ids, readTimestamp)
+        }
+
+        override fun getNotificationsFlow(
+            hideReadNotifications: Boolean,
+            searchQuery: String?,
+            excludedTypeCodes: Set<String>,
+            includedWikiCodes: List<String>,
+            hideNotMentioned: Boolean
+        ): Flow<PagingData<Notification>> {
+            return androidx.paging.Pager(
+                config = androidx.paging.PagingConfig(pageSize = 50),
+                pagingSourceFactory = {
+                    notificationDao.getAllSelectedNotificationPaged(
+                        hideReadNotifications,
+                        searchQuery,
+                        !excludedTypeCodes.isEmpty(),
+                        excludedTypeCodes,
+                        includedWikiCodes,
+                        hideNotMentioned,
+                        NotificationCategory.MENTIONS_GROUP.map { it.id }
+                    )
+                }
+            ).flow
+        }
+
+        override fun getUnreadCountsFlow(
+            excludedTypeCodes: Set<String>,
+            includedWikiCodes: List<String>
+        ): Flow<Pair<Int, Int>> {
+            return combine(
+                notificationDao.getUnreadCount(excludedTypeCodes, includedWikiCodes),
+                notificationDao.getUnreadMentionsCount(
+                    excludedTypeCodes,
+                    includedWikiCodes,
+                    NotificationCategory.MENTIONS_GROUP.map { it.id })
+            ) { all, mentions -> all to mentions }
+        }
+
+        override suspend fun getRemoteKey(wiki: String): String? = remoteKeys[wiki]
+        override suspend fun saveRemoteKey(wiki: String, nextContinueStr: String?) { remoteKeys[wiki] = nextContinueStr }
+        override suspend fun clearRemoteKeys() { remoteKeys.clear() }
     }
 
     private class FakeNotificationFilterHelper: NotificationFilterHelper {

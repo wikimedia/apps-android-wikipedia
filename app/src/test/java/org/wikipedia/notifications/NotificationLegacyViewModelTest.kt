@@ -1,11 +1,12 @@
 package org.wikipedia.notifications
 
-import androidx.paging.ExperimentalPagingApi
-import androidx.paging.Pager
-import androidx.paging.PagingConfig
 import androidx.paging.PagingData
-import io.mockk.*
+import io.mockk.every
+import io.mockk.mockk
+import io.mockk.mockkObject
+import io.mockk.unmockkAll
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Assert.assertEquals
@@ -15,29 +16,21 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.wikipedia.WikipediaApp
-import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.json.JsonUtil
-import org.wikipedia.notifications.NotificationRefactoredViewModelTest.FakeNotificationRepository
 import org.wikipedia.notifications.db.Notification
-import org.wikipedia.notifications.db.NotificationDao
 import org.wikipedia.util.Resource
 
 @RunWith(RobolectricTestRunner::class)
 class NotificationLegacyViewModelTest {
-    private lateinit var repository: FakeNotificationRepository
+    private val repository = FakeNotificationRepository()
     private val preferences = FakeNotificationPreferences()
     private val notificationHelper = FakeNotificationFilterHelper()
     private val wikipediaApp = mockk<WikipediaApp>(relaxed = true)
     private lateinit var viewModel: NotificationLegacyViewModel
-    private lateinit var db: AppDatabase
 
     @Before
     fun setUp() {
-        val context = org.robolectric.RuntimeEnvironment.getApplication()
-        db = androidx.room.Room.inMemoryDatabaseBuilder(context, AppDatabase::class.java).build()
-        repository = FakeNotificationRepository(db.notificationDao())
-
         mockkObject(WikipediaApp)
         every { WikipediaApp.instance } returns wikipediaApp
         every { wikipediaApp.isOnline } returns true
@@ -284,9 +277,10 @@ class NotificationLegacyViewModelTest {
     }
 
     // Fake notification repository used for mocking during test
-    private class FakeNotificationRepository(private val notificationDao: NotificationDao) : NotificationRepository {
+    private class FakeNotificationRepository : NotificationRepository {
         val notifications = mutableListOf<Notification>()
         var unreadWikis = mapOf<String, WikiSite>()
+        private val remoteKeys = mutableMapOf<String, String?>()
 
         override suspend fun getAllNotifications() = notifications
         override suspend fun updateNotification(notification: Notification) {
@@ -313,7 +307,6 @@ class NotificationLegacyViewModelTest {
         ) {
         }
 
-        @OptIn(ExperimentalPagingApi::class)
         override fun getNotificationsFlow(
             hideReadNotifications: Boolean,
             searchQuery: String?,
@@ -321,22 +314,19 @@ class NotificationLegacyViewModelTest {
             includedWikiCodes: List<String>,
             hideNotMentioned: Boolean
         ): Flow<PagingData<Notification>> {
-            return Pager(
-                config = PagingConfig(pageSize = 50),
-                remoteMediator = NotificationRemoteMediator(this),
-                pagingSourceFactory = {
-                    notificationDao.getAllSelectedNotificationPaged(
-                        hideReadNotifications,
-                        searchQuery,
-                        !excludedTypeCodes.isEmpty(),
-                        excludedTypeCodes,
-                        includedWikiCodes,
-                        hideNotMentioned,
-                        NotificationCategory.MENTIONS_GROUP.map { it.id }
-                    )
-                }
-            ).flow
+            return flowOf(PagingData.from(notifications))
         }
+
+        override fun getUnreadCountsFlow(
+            excludedTypeCodes: Set<String>,
+            includedWikiCodes: List<String>
+        ): Flow<Pair<Int, Int>> {
+            return flowOf(0 to 0)
+        }
+
+        override suspend fun getRemoteKey(wiki: String): String? = remoteKeys[wiki]
+        override suspend fun saveRemoteKey(wiki: String, nextContinueStr: String?) { remoteKeys[wiki] = nextContinueStr }
+        override suspend fun clearRemoteKeys() { remoteKeys.clear() }
     }
 
     private class FakeNotificationFilterHelper: NotificationFilterHelper {

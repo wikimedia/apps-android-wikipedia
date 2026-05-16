@@ -1,22 +1,24 @@
 package org.wikipedia.notifications
 
-import androidx.paging.ExperimentalPagingApi
+import android.view.ViewGroup
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
+import androidx.paging.PagingDataAdapter
+import androidx.recyclerview.widget.DiffUtil
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.mockkObject
 import io.mockk.unmockkAll
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.filter
-import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
 import org.junit.After
 import org.junit.Assert.assertEquals
-import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -28,7 +30,6 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.notifications.db.Notification
 import org.wikipedia.notifications.db.NotificationDao
-import org.wikipedia.util.Resource
 
 @RunWith(RobolectricTestRunner::class)
 class NotificationRefactoredViewModelTest {
@@ -41,11 +42,15 @@ class NotificationRefactoredViewModelTest {
 
     @Before
     fun setUp() {
-        val context = org.robolectric.RuntimeEnvironment.getApplication()
-        db = androidx.room.Room.inMemoryDatabaseBuilder(context, AppDatabase::class.java).build()
-        repository = FakeNotificationRepository(db.notificationDao())
-
+        mockkObject(WikipediaApp)
+        every { WikipediaApp.instance } returns wikipediaApp
         every { wikipediaApp.isOnline } returns true
+
+        val context = org.robolectric.RuntimeEnvironment.getApplication()
+        db = androidx.room.Room.inMemoryDatabaseBuilder(context, AppDatabase::class.java)
+            .allowMainThreadQueries()
+            .build()
+        repository = FakeNotificationRepository(db.notificationDao())
 
         mockkObject(NotificationFilterActivity)
         every { NotificationFilterActivity.allWikisList() } returns listOf("en", "zh")
@@ -57,13 +62,8 @@ class NotificationRefactoredViewModelTest {
             notificationHelper
         )
 
-        // Wait for view model to initialize by driving the looper
-        var attempts = 0
-        while (viewModel.uiState.value !is Resource.Success && attempts < 100) {
-            Shadows.shadowOf(android.os.Looper.getMainLooper()).idle()
-            Thread.sleep(10) // Give the background Room thread a moment to work
-            attempts++
-        }
+        // Wait for view model to initialize
+        waitForViewModel()
 
         runBlocking {
             withContext(Dispatchers.IO) {
@@ -74,11 +74,9 @@ class NotificationRefactoredViewModelTest {
 
     @After
     fun tearDown() = runBlocking {
-        val allNotifications = repository.getAllNotifications()
-        //println("DATABASE DUMP: Found ${allNotifications.size} notifications")
-        //allNotifications.forEach {
-        //    println("[ID: ${it.id}] [Wiki: ${it.wiki}] [Read: ${it.read}] [Category: ${it.category}] [Header: ${it.contents?.header}]")
-        //}
+        withContext(Dispatchers.IO) {
+            db.close()
+        }
         unmockkAll()
     }
 
@@ -92,12 +90,26 @@ class NotificationRefactoredViewModelTest {
             Thread.sleep(10) // Give the background Room thread a moment to work
             attempts++
         }
-        if (attempts < maxAttempts) {
-            println("waitForViewModel: view model has processed after $attempts attempts.")
+    }
+
+    private suspend fun collectPagingData(): List<NotificationListItemContainer> = kotlinx.coroutines.coroutineScope {
+        val adapter = NotificationItemAdapter()
+        val job = launch {
+            viewModel.notificationFlow.collectLatest {
+                adapter.submitData(it)
+            }
         }
-        else {
-            println("waitForViewModel: Aborted waiting for view model after $attempts attempts.")
+        
+        // Wait for Paging to finish initial load by idling the looper
+        var attempts = 0
+        while (adapter.itemCount == 0 && attempts < 100) {
+            Shadows.shadowOf(android.os.Looper.getMainLooper()).idle()
+            kotlinx.coroutines.delay(10)
+            attempts++
         }
+        val items = adapter.snapshot().items
+        job.cancel()
+        items
     }
 
     @Test
@@ -106,12 +118,10 @@ class NotificationRefactoredViewModelTest {
         val n2 = createNotification(2, "zh", "edit-thank", "H2")
         repository.insertNotifications(listOf(n1, n2))
 
-        viewModel.fetchAndSave()
-        waitForViewModel()
-
-        val uiState = viewModel.uiState.value
-        assertTrue(uiState is Resource.Success)
-        assertEquals(2, (uiState as Resource.Success).data.first.size)
+        val items = collectPagingData()
+        // 2 items + 1 search bar header
+        assertEquals(3, items.size)
+        assertEquals(1L, items[1].notification?.id)
     }
 
     @Test
@@ -120,13 +130,10 @@ class NotificationRefactoredViewModelTest {
         val n2 = createNotification(2, "en", "mention", "New", "2023-10-02T10:00:00Z")
         repository.insertNotifications(listOf(n1, n2))
 
-        viewModel.fetchAndSave()
-        waitForViewModel()
-
-        val successState = viewModel.uiState.filter { it is Resource.Success }.first() as Resource.Success
-        val items = successState.data.first
-        assertEquals(2L, items[0].notification?.id)
-        assertEquals(1L, items[1].notification?.id)
+        val items = collectPagingData()
+        // Header + Newest + Oldest
+        assertEquals(2L, items[1].notification?.id)
+        assertEquals(1L, items[2].notification?.id)
     }
 
     @Test
@@ -155,79 +162,49 @@ class NotificationRefactoredViewModelTest {
 
         // check if match on header is reported
         viewModel.updateSearchQuery("app")
-        waitForViewModel()
-
-        val successStateHeaderFiltered = viewModel.uiState.filter { it is Resource.Success }.first() as Resource.Success
-        val itemsHeaderFiltered = successStateHeaderFiltered.data.first
-        assertEquals(1, itemsHeaderFiltered.size)
-        assertEquals(1L, itemsHeaderFiltered[0].notification?.id)
+        val itemsHeaderFiltered = collectPagingData()
+        assertEquals(2, itemsHeaderFiltered.size) // Header + 1 match
+        assertEquals(1L, itemsHeaderFiltered[1].notification?.id)
 
         // check if match on body is reported
         viewModel.updateSearchQuery("ora")
-        waitForViewModel()
-
-        val successStateBodyFiltered = viewModel.uiState.filter { it is Resource.Success }.first() as Resource.Success
-        val itemsBodyFiltered = successStateBodyFiltered.data.first
-        assertEquals(1, itemsBodyFiltered.size)
-        assertEquals(1L, itemsBodyFiltered[0].notification?.id)
+        val itemsBodyFiltered = collectPagingData()
+        assertEquals(2, itemsBodyFiltered.size)
+        assertEquals(1L, itemsBodyFiltered[1].notification?.id)
 
         // check if match on title is reported
         viewModel.updateSearchQuery("kiw")
-        waitForViewModel()
-
-        val successStateTitleFiltered = viewModel.uiState.filter { it is Resource.Success }.first() as Resource.Success
-        val itemsTitleFiltered = successStateTitleFiltered.data.first
-        assertEquals(1, itemsTitleFiltered.size)
-        assertEquals(1L, itemsTitleFiltered[0].notification?.id)
+        val itemsTitleFiltered = collectPagingData()
+        assertEquals(2, itemsTitleFiltered.size)
+        assertEquals(1L, itemsTitleFiltered[1].notification?.id)
 
         // check if match on links is reported
         viewModel.updateSearchQuery("mel")
-        waitForViewModel()
-
-        val successStateLinkFiltered = viewModel.uiState.filter { it is Resource.Success }.first() as Resource.Success
-        val itemsLinkFiltered = successStateLinkFiltered.data.first
-        assertEquals(1, itemsLinkFiltered.size)
-        assertEquals(1L, itemsLinkFiltered[0].notification?.id)
+        val itemsLinkFiltered = collectPagingData()
+        assertEquals(2, itemsLinkFiltered.size)
+        assertEquals(1L, itemsLinkFiltered[1].notification?.id)
     }
 
     @Test
     fun testHideReadFiltering() = runBlocking {
-        val n1 = createNotification(
-            1,
-            "en",
-            "mention",
-            "Unread",
-            read = "",
-            timestamp = "2023-10-27T10:45:00.123Z"
-        )
-        n1.read = null
-        val n2 = createNotification(
-            2,
-            "en",
-            "mention",
-            "Read",
-            read = "2023-10-27T14:45:00.123Z",
-            timestamp = "2023-10-27T11:45:00.123Z"
-        )
-        n2.read = "2023-10-01T10:00:00Z" // mark the notification as read by writing a timestamp
-        repository.insertNotifications(listOf(n1, n2)) // update the fake
-        preferences.excludedTypes.add("some-dummy-type")
-        preferences.hideRead = true // set the fake preference to filter out read notifications
-        viewModel.fetchAndSave() // triggers API reading, storage and update of uiState
-        waitForViewModel()
-        val successState = viewModel.uiState.filter { it is Resource.Success }.first() as Resource.Success
-        val itemsFiltered = successState.data.first
-        assertEquals(1, itemsFiltered.size)
-        assertEquals(1L, itemsFiltered[0].notification?.id)
+        val n1 = createNotification(1, "en", "mention", "Unread")
+        val n2 = createNotification(2, "en", "mention", "Read")
+        n2.read = "2023-10-01T10:00:00Z"
+        repository.insertNotifications(listOf(n1, n2))
 
-        preferences.hideRead = false // set the fake preference to not filter out read notifications
-        viewModel.fetchAndSave() // triggers API reading, storage and update of uiState
-        waitForViewModel()
-        val uiStateUnfiltered = viewModel.uiState.filter { it is Resource.Success }.first() as Resource.Success
-        val itemsUnfiltered = uiStateUnfiltered.data.first
-        assertEquals(2, itemsUnfiltered.size)
-        assertEquals(2L, itemsUnfiltered[0].notification?.id)
-        assertEquals(1L, itemsUnfiltered[1].notification?.id)
+        preferences.hideRead = true
+        // Force refresh to apply preference change
+        viewModel.fetchAndSave(true)
+
+        val itemsFiltered = collectPagingData()
+        assertEquals(2, itemsFiltered.size) // Header + 1 unread
+        assertEquals(1L, itemsFiltered[1].notification?.id)
+
+        preferences.hideRead = false
+        viewModel.fetchAndSave(true)
+
+        val itemsUnfiltered = collectPagingData()
+        assertEquals(3, itemsUnfiltered.size) // Header + 2 items
     }
 
     @Test
@@ -236,23 +213,12 @@ class NotificationRefactoredViewModelTest {
         val n2 = createNotification(2, "zh", "mention", "Excluded")
         repository.insertNotifications(listOf(n1, n2))
 
-        preferences.excludedWikis.add("en") // add "en" to the list of wikis to be filtered out
-        viewModel.fetchAndSave() // triggers API reading, storage and update of uiState
-        waitForViewModel()
-        val successStateFiltered = viewModel.uiState.filter { it is Resource.Success }.first() as Resource.Success
-        val itemsFiltered = successStateFiltered.data.first
-        assertEquals(1, itemsFiltered.size)
-        assertEquals(2L, itemsFiltered[0].notification?.id)
+        preferences.excludedWikis.add("en")
+        viewModel.fetchAndSave(true)
 
-        preferences.excludedWikis.remove("en") // remove "en" from the list
-        viewModel.fetchAndSave() // triggers API reading, storage and update of uiState
-        waitForViewModel()
-
-        val successStateUnfiltered = viewModel.uiState.filter { it is Resource.Success }.first() as Resource.Success
-        val itemsUnfiltered = successStateUnfiltered.data.first
-        assertEquals(2, itemsUnfiltered.size)
-        assertEquals(1L, itemsUnfiltered[0].notification?.id)
-        assertEquals(2L, itemsUnfiltered[1].notification?.id)
+        val itemsFiltered = collectPagingData()
+        assertEquals(2, itemsFiltered.size) // Header + 1 match (zh)
+        assertEquals(2L, itemsFiltered[1].notification?.id)
     }
 
     @Test
@@ -261,49 +227,28 @@ class NotificationRefactoredViewModelTest {
         val n2 = createNotification(2, "en", "edit-thank", "Excluded")
         repository.insertNotifications(listOf(n1, n2))
 
-        preferences.excludedTypes.add("edit-thank") // add "edit-thank" to the list of types to be filtered out
-        viewModel.fetchAndSave() // triggers API reading, storage and update of uiState
-        waitForViewModel()
+        preferences.excludedTypes.add("edit-thank")
+        viewModel.fetchAndSave(true)
 
-        val successState = viewModel.uiState.filter { it is Resource.Success }.first() as Resource.Success
-        val itemsFiltered = successState.data.first
-        assertEquals(1, itemsFiltered.size)
-        assertEquals(1L, itemsFiltered[0].notification?.id)
-
-        preferences.excludedTypes.remove("edit-thank") // remove "edit-thank" from the list
-        viewModel.fetchAndSave() // triggers API reading, storage and update of uiState
-        waitForViewModel()
-
-        val uiStateUnfiltered = viewModel.uiState.value
-        val itemsUnfiltered = (uiStateUnfiltered as Resource.Success).data.first
-        assertEquals(2, itemsUnfiltered.size)
-        assertEquals(1L, itemsUnfiltered[0].notification?.id)
-        assertEquals(2L, itemsUnfiltered[1].notification?.id)
+        val itemsFiltered = collectPagingData()
+        assertEquals(2, itemsFiltered.size) // Header + 1 match
+        assertEquals(1L, itemsFiltered[1].notification?.id)
     }
 
     @Test
     fun testTabFiltering() = runBlocking {
-        preferences.excludedTypes.add("dummy")
         val n1 = createNotification(1, "en", "mention", "Mention")
         val n2 = createNotification(2, "en", "edit-thank", "Not Mention")
         repository.insertNotifications(listOf(n1, n2))
 
-        viewModel.updateTabSelection(1) // Simulate selection of "Mentions" tab
-        waitForViewModel()
+        viewModel.updateTabSelection(1) // Mentions
+        val itemsFiltered = collectPagingData()
+        assertEquals(2, itemsFiltered.size)
+        assertEquals(1L, itemsFiltered[1].notification?.id)
 
-        val successState = viewModel.uiState.filter { it is Resource.Success }.first() as Resource.Success
-        val itemsFiltered = successState.data.first
-        assertEquals(1, itemsFiltered.size)
-        assertEquals(1L, itemsFiltered[0].notification?.id)
-
-        viewModel.updateTabSelection(0) // Simulate selection of "All" tab
-        waitForViewModel()
-
-        val uiStateUnfiltered = viewModel.uiState.value
-        val itemsUnfiltered = (uiStateUnfiltered as Resource.Success).data.first
-        assertEquals(2, itemsUnfiltered.size)
-        assertEquals(1L, itemsUnfiltered[0].notification?.id)
-        assertEquals(2L, itemsUnfiltered[1].notification?.id)
+        viewModel.updateTabSelection(0) // All
+        val itemsUnfiltered = collectPagingData()
+        assertEquals(3, itemsUnfiltered.size)
     }
 
     private fun createNotification(
@@ -312,30 +257,30 @@ class NotificationRefactoredViewModelTest {
         category: String,
         header: String,
         timestamp: String = "2022-10-27T14:45:00.123Z",
-        read: String = "",
+        read: String? = null,
         title: String = "",
         body: String = "",
         links: String = "",
     ): Notification {
-        val json = $$"""
+        val json = """
             {
-                "id": $$id,
-                "wiki": "$$wiki",
-                "category": "$$category",
+                "id": $id,
+                "wiki": "$wiki",
+                "category": "$category",
                 "title": {
-                    "full": "$$title",
-                    "text": "$$title"
+                    "full": "$title",
+                    "text": "$title"
                 },
-                "read": "$$read",
+                "read": ${if (read == null) "null" else "\"$read\""},
                 "timestamp": {
-                    "utciso8601": "$$timestamp"
+                    "utciso8601": "$timestamp"
                 },
                 "*": {
-                    "header": "$$header",
-                    "body": "$$body",
+                    "header": "$header",
+                    "body": "$body",
                     "links": {
                         "secondary": [
-                            { "label": "$$links", "url": "" }
+                            { "label": "$links", "url": "" }
                         ]
                     }
                 }
@@ -343,6 +288,16 @@ class NotificationRefactoredViewModelTest {
         """.trimIndent()
 
         return JsonUtil.decodeFromString<Notification>(json)!!
+    }
+
+    private class NotificationItemAdapter : PagingDataAdapter<NotificationListItemContainer, androidx.recyclerview.widget.RecyclerView.ViewHolder>(
+        object : DiffUtil.ItemCallback<NotificationListItemContainer>() {
+            override fun areItemsTheSame(oldItem: NotificationListItemContainer, newItem: NotificationListItemContainer) = oldItem === newItem
+            override fun areContentsTheSame(oldItem: NotificationListItemContainer, newItem: NotificationListItemContainer) = oldItem == newItem
+        }
+    ) {
+        override fun onBindViewHolder(holder: androidx.recyclerview.widget.RecyclerView.ViewHolder, position: Int) {}
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): androidx.recyclerview.widget.RecyclerView.ViewHolder = mockk(relaxed = true)
     }
 
     // Fake notification preferences used for mocking during test
@@ -359,6 +314,7 @@ class NotificationRefactoredViewModelTest {
     // Fake notification repository used for mocking during test
     private class FakeNotificationRepository(private val notificationDao: NotificationDao) : NotificationRepository {
         var unreadWikis = mapOf<String, WikiSite>()
+        private val remoteKeys = mutableMapOf<String, String?>()
 
         suspend fun insertNotifications(notifications: List<Notification>) {
             notificationDao.insertNotifications(notifications)
@@ -389,13 +345,10 @@ class NotificationRefactoredViewModelTest {
             )
         }
 
-        override suspend fun markItemsAsRead(
-            ids: List<Long>,
-            readTimestamp: String?
-        ) {
+        override suspend fun markItemsAsRead(ids: List<Long>, readTimestamp: String?) {
+            notificationDao.markItemsAsRead(ids, readTimestamp)
         }
 
-        @OptIn(ExperimentalPagingApi::class)
         override fun getNotificationsFlow(
             hideReadNotifications: Boolean,
             searchQuery: String?,
@@ -405,7 +358,6 @@ class NotificationRefactoredViewModelTest {
         ): Flow<PagingData<Notification>> {
             return Pager(
                 config = PagingConfig(pageSize = 50),
-                remoteMediator = NotificationRemoteMediator(this),
                 pagingSourceFactory = {
                     notificationDao.getAllSelectedNotificationPaged(
                         hideReadNotifications,
@@ -419,6 +371,23 @@ class NotificationRefactoredViewModelTest {
                 }
             ).flow
         }
+
+        override fun getUnreadCountsFlow(
+            excludedTypeCodes: Set<String>,
+            includedWikiCodes: List<String>
+        ): Flow<Pair<Int, Int>> {
+            return combine(
+                notificationDao.getUnreadCount(excludedTypeCodes, includedWikiCodes),
+                notificationDao.getUnreadMentionsCount(
+                    excludedTypeCodes,
+                    includedWikiCodes,
+                    NotificationCategory.MENTIONS_GROUP.map { it.id })
+            ) { all, mentions -> all to mentions }
+        }
+
+        override suspend fun getRemoteKey(wiki: String): String? = remoteKeys[wiki]
+        override suspend fun saveRemoteKey(wiki: String, nextContinueStr: String?) { remoteKeys[wiki] = nextContinueStr }
+        override suspend fun clearRemoteKeys() { remoteKeys.clear() }
     }
 
     private class FakeNotificationFilterHelper: NotificationFilterHelper {

@@ -22,6 +22,8 @@ import org.junit.runner.RunWith
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.notifications.db.Notification
 import org.wikipedia.notifications.db.NotificationDao
+import org.wikipedia.notifications.db.NotificationRemoteKey
+import org.wikipedia.notifications.db.NotificationRemoteKeyDao
 import org.wikipedia.search.db.RecentSearch
 import org.wikipedia.search.db.RecentSearchDao
 import org.wikipedia.talk.db.TalkPageSeen
@@ -35,6 +37,7 @@ class AppDatabaseTests {
     private lateinit var recentSearchDao: RecentSearchDao
     private lateinit var talkPageSeenDao: TalkPageSeenDao
     private lateinit var notificationDao: NotificationDao
+    private lateinit var notificationRemoteKeyDao: NotificationRemoteKeyDao
 
     @Before
     fun createDb() {
@@ -43,6 +46,7 @@ class AppDatabaseTests {
         recentSearchDao = db.recentSearchDao()
         talkPageSeenDao = db.talkPageSeenDao()
         notificationDao = db.notificationDao()
+        notificationRemoteKeyDao = db.notificationRemoteKeyDao()
     }
 
     @After
@@ -132,5 +136,28 @@ class AppDatabaseTests {
 
         notificationDao.deleteNotification(notificationDao.getNotificationsByWiki(listOf("zhwiki")).first())
         assertTrue(notificationDao.getAllNotifications().isEmpty())
+    }
+
+    @Test
+    fun testNotificationRemoteKey() = runBlocking {
+        val wiki = "testWiki"
+        val firstKey = "firstKey"
+        val secondKey = "secondKey"
+        val firstNotificationRemoteKey = NotificationRemoteKey(
+            wiki, nextContinueStr = firstKey
+        )
+        val secondNotificationRemoteKey = NotificationRemoteKey(
+            wiki, nextContinueStr = secondKey
+        )
+        notificationRemoteKeyDao.insert(firstNotificationRemoteKey)
+        val firstReadNotificationRemoteKey = notificationRemoteKeyDao.getRemoteKey(wiki)
+        assertNotNull(firstReadNotificationRemoteKey)
+        assertEquals(firstReadNotificationRemoteKey!!.nextContinueStr, firstKey)
+
+        // test the "on conflict replace" strategy
+        notificationRemoteKeyDao.insert(secondNotificationRemoteKey)
+        val secondReadNotificationRemoteKey = notificationRemoteKeyDao.getRemoteKey(wiki)
+        assertNotNull(secondReadNotificationRemoteKey)
+        assertEquals(secondReadNotificationRemoteKey!!.nextContinueStr, secondKey)
     }
 }

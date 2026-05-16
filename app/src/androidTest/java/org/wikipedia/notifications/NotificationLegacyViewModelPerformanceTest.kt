@@ -28,14 +28,18 @@ class NotificationLegacyViewModelPerformanceTest {
 
     @Before
     fun setUp() {
-        // Initialize ViewModel with fakes.
-        // Note: init block will trigger an initial load, but repository is empty then.
+        runBlocking {
+            viewModel = NotificationLegacyViewModel(
+                notificationPreferences,
+                notificationRepository,
+                notificationFilterHelper
+            )
 
-        viewModel = NotificationLegacyViewModel(
-            notificationPreferences,
-            notificationRepository,
-            notificationFilterHelper
-        )
+            // Wait for view model to initialize without blocking the instrumentation thread
+            withTimeout(10000) {
+                viewModel.uiState.filter { it is Resource.Success }.first()
+            }
+        }
     }
 
     @Test
@@ -189,7 +193,6 @@ class NotificationLegacyViewModelPerformanceTest {
             ids: List<Long>,
             readTimestamp: String?
         ) {
-            TODO("Not yet implemented")
         }
 
         override fun getNotificationsFlow(
@@ -199,8 +202,19 @@ class NotificationLegacyViewModelPerformanceTest {
             includedWikiCodes: List<String>,
             hideNotMentioned: Boolean
         ): Flow<PagingData<Notification>> {
-            TODO("Not yet implemented")
+            return kotlinx.coroutines.flow.flowOf(PagingData.from(notifications))
         }
+
+        override fun getUnreadCountsFlow(
+            excludedTypeCodes: Set<String>,
+            includedWikiCodes: List<String>
+        ): Flow<Pair<Int, Int>> {
+            return kotlinx.coroutines.flow.flowOf(0 to 0)
+        }
+
+        override suspend fun getRemoteKey(wiki: String): String? = null
+        override suspend fun saveRemoteKey(wiki: String, nextContinueStr: String?) {}
+        override suspend fun clearRemoteKeys() {}
     }
 
     private class FakeNotificationFilterHelper: NotificationFilterHelper {
