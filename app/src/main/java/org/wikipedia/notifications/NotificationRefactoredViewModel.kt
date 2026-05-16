@@ -99,6 +99,7 @@ class NotificationRefactoredViewModel(
                 val data = pagingData.map { notification ->
                     NotificationListItemContainer(notification)
                 }
+                // inserts a header item when the search bar shall be displayed
                 if (searchVisible) data.insertHeaderItem(item = NotificationListItemContainer()) else data
             }
         }
