@@ -8,6 +8,7 @@ import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
 import android.text.format.DateUtils
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -91,9 +92,15 @@ class NotificationActivity : BaseActivity() {
     private val typefaceSansSerifBold = Typeface.create("sans-serif", Typeface.BOLD)
 
     private val resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-        if (result.resultCode == NotificationFilterActivity.ACTIVITY_RESULT_LANGUAGES_CHANGED) {
+        Log.d("NotificationActivity", "registerForActivityResult: result.resultCode = $result.resultCode")
+        if ((result.resultCode == NotificationFilterActivity.ACTIVITY_RESULT_LANGUAGES_CHANGED) ||
+                (result.resultCode == NotificationFilterActivity.FILTER_TYPE_CATEGORY) ||
+                (result.resultCode == NotificationFilterActivity.FILTER_TYPE_WIKI)
+        ) {
+            // trigger update of data to be shown if user has selected additional languages to
+            // be filtered or modified selection of languages or modified category
             viewModel.fetchAndSave(true)
-        } else {
+        }        else {
             viewModel.updateTabSelection(binding.notificationTabLayout.selectedTabPosition)
         }
     }

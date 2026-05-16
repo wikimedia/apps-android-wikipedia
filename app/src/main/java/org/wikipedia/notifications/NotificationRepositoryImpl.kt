@@ -89,6 +89,7 @@ class NotificationRepositoryImpl(
         includedWikiCodes: List<String>,
         hideNotMentioned: Boolean
     ): Flow<PagingData<Notification>> {
+        Log.d("NotificationRepositoryImpl", "getNotificationsFlow called with $excludedTypeCodes")
         return Pager(
             config = PagingConfig(pageSize = 50),
             remoteMediator = NotificationRemoteMediator(this),

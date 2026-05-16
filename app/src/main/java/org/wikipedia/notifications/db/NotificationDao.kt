@@ -47,7 +47,10 @@ interface NotificationDao {
         AND ((:searchQuery IS NULL) OR
              (LOWER(title) LIKE '%' || LOWER(:searchQuery) || '%') OR
              (LOWER(contents) LIKE '%' || LOWER(:searchQuery) || '%'))
-        AND ((:hasExclusions = 0) OR (category NOT IN (:excludedTypeCodes)))
+        AND ((:hasExclusions = 0) OR (
+            category NOT IN (:excludedTypeCodes) AND 
+            (INSTR(category, '-') = 0 OR SUBSTR(category, 1, INSTR(category, '-') - 1) NOT IN (:excludedTypeCodes))
+        ))
         AND (REPLACE(
             CASE WHEN wiki LIKE '%wiki' THEN SUBSTR(wiki, 1, LENGTH(wiki)-4) ELSE wiki END,
             '_', '-'
@@ -73,7 +76,10 @@ interface NotificationDao {
         AND ((:searchQuery IS NULL) OR
              (LOWER(title) LIKE '%' || LOWER(:searchQuery) || '%') OR
              (LOWER(contents) LIKE '%' || LOWER(:searchQuery) || '%'))
-        AND ((:hasExclusions = 0) OR (category NOT IN (:excludedTypeCodes)))
+        AND ((:hasExclusions = 0) OR (
+            category NOT IN (:excludedTypeCodes) AND 
+            (INSTR(category, '-') = 0 OR SUBSTR(category, 1, INSTR(category, '-') - 1) NOT IN (:excludedTypeCodes))
+        ))
         AND (REPLACE(
             CASE WHEN wiki LIKE '%wiki' THEN SUBSTR(wiki, 1, LENGTH(wiki)-4) ELSE wiki END,
             '_', '-'
@@ -119,7 +125,7 @@ interface NotificationDao {
     @Query("""
         SELECT COUNT(*) FROM Notification
         WHERE (read IS NULL)
-        AND (category NOT IN (:excludedTypeCodes))
+        AND ((category NOT IN (:excludedTypeCodes)) AND (INSTR(category, '-') = 0 OR SUBSTR(category, 1, INSTR(category, '-') - 1) NOT IN (:excludedTypeCodes)))
         AND (REPLACE(
             CASE WHEN wiki LIKE '%wiki' THEN SUBSTR(wiki, 1, LENGTH(wiki)-4) ELSE wiki END,
             '_', '-'
@@ -139,7 +145,7 @@ interface NotificationDao {
     @Query("""
         SELECT COUNT(*) FROM Notification
         WHERE (read IS NULL)
-        AND (category NOT IN (:excludedTypeCodes))
+        AND ((category NOT IN (:excludedTypeCodes)) AND (INSTR(category, '-') = 0 OR SUBSTR(category, 1, INSTR(category, '-') - 1) NOT IN (:excludedTypeCodes)))
         AND (REPLACE(
             CASE WHEN wiki LIKE '%wiki' THEN SUBSTR(wiki, 1, LENGTH(wiki)-4) ELSE wiki END,
             '_', '-'

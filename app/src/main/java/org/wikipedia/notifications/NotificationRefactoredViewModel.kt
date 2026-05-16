@@ -87,16 +87,17 @@ class NotificationRefactoredViewModel(
         refreshTrigger.onStart { emit(Unit) }
     ) { query, tab, searchVisible, _ -> Triple(query, tab, searchVisible) }
         .flatMapLatest { (query, tab, searchVisible) ->
-            val wikiCodes = calcWikiCodes()
+            val filters = calcFilters()
             notificationRepository.getNotificationsFlow(
                 hideReadNotifications = notificationPreferences.isHideReadNotificationsEnabled(),
                 searchQuery = query,
-                excludedTypeCodes = wikiCodes.first,
-                includedWikiCodes = wikiCodes.second,
+                excludedTypeCodes = filters.excludedTypeCodes,
+                includedWikiCodes = filters.includedWikiCodes,
                 hideNotMentioned = tab == 1
             ).map { pagingData ->
                 Log.d("NotificationRefactoredViewModel", "Receiving data from repository")
                 val data = pagingData.map { notification ->
+                    Log.d("NotificationRefactoredViewModel", "Receiving notification ${notification.id} with category=${notification.category}")
                     NotificationListItemContainer(notification)
                 }
                 // inserts a header item when the search bar shall be displayed
@@ -110,29 +111,39 @@ class NotificationRefactoredViewModel(
             dbNameMap = notificationRepository.fetchUnreadWikiDbNames()
         }
 
-        val wikiCodes = calcWikiCodes()
-
         // Observe counts and update them reactively
         viewModelScope.launch(handler) {
-            notificationRepository.getUnreadCountsFlow(
-                wikiCodes.first, wikiCodes.second
-            ).collect { (all, mentions) ->
-                allUnreadCount = all
-                mentionsUnreadCount = mentions
-                // Trigger uiState update for the Activity to refresh tab titles
-                _uiState.value = Resource.Success(emptyList<NotificationListItemContainer>() to true)
-            }
+            // Re-calculate filters inside the collection loop to ensure they reflect preference changes
+            combine(_selectedFilterTab, _currentSearchQuery) { _, _ -> Unit }
+                .collectLatest {
+                    val filters = calcFilters()
+                    notificationRepository.getUnreadCountsFlow(
+                        filters.excludedTypeCodes, filters.includedWikiCodes
+                    ).collect { (all, mentions) ->
+                        allUnreadCount = all
+                        mentionsUnreadCount = mentions
+                        // Trigger uiState update for the Activity to refresh tab titles
+                        _uiState.value = Resource.Success(emptyList<NotificationListItemContainer>() to true)
+                    }
+                }
         }
     }
 
-    // helper function to calculate included wiki language codes
-    private fun calcWikiCodes(): Pair<Set<String>, List<String>> {
+    // helper function to calculate current filtering parameters
+    private fun calcFilters(): NotificationFilters {
+        val excludedTypeCodes = notificationPreferences.getNotificationExcludedTypeCodes()
+        Log.d("NotificationRefactoredViewModel", "excludedTypeCodes = $excludedTypeCodes")
         val excludedWikiCodes = notificationPreferences.getNotificationExcludedWikiCodes()
         val includedWikiCodes = notificationFilterHelper.allWikisList().minus(excludedWikiCodes).map {
             it.split("-")[0]
         }
-        return Pair(excludedWikiCodes, includedWikiCodes)
+        return NotificationFilters(excludedTypeCodes, includedWikiCodes)
     }
+
+    data class NotificationFilters(
+        val excludedTypeCodes: Set<String>,
+        val includedWikiCodes: List<String>
+    )
 
     // Reads filtered and sorted database content and
     // binds it together with a flag calculated from the paging state.
