@@ -97,7 +97,6 @@ class NotificationRepositoryImpl(
      */
     override suspend fun fetchAndSave(filter: String?, continueStr: String?): String? {
         //Log.d("NotificationRepositoryImpl", "continueStr = $continueStr")
-        /*
         var newContinueStr: String? = null
         val response = ServiceFactory.get(WikipediaApp.instance.wikiSite).getAllNotifications(filter, continueStr)
         _endOfPaginationReached.value = response.continuation != null
@@ -106,8 +105,8 @@ class NotificationRepositoryImpl(
             notificationDao.insertNotifications(it.list.orEmpty())
             newContinueStr = it.continueStr
         }
-        return newContinueStr */
-        // --- OVERRIDE FOR MANUAL TESTING ---
+        return newContinueStr
+        /* --- OVERRIDE FOR MANUAL TESTING ---
         val totalMockItems = 250
         val pageSize = 50
         val currentOffset = continueStr?.toIntOrNull() ?: 0
@@ -131,7 +130,7 @@ class NotificationRepositoryImpl(
             _endOfPaginationReached.value = true
         }
         return nextContinueStr
-        // ------------------------------------------------
+        // ------------------------------------------------ */
     }
 
     // @todo: Used for testing/legacy: check if it can be replaced.
@@ -153,9 +152,6 @@ class NotificationRepositoryImpl(
         notificationDao.markItemsAsRead(ids, readTimestamp)
     }
 
-    /**
-     * Reads a selection of notifications from the local database
-     */
     @OptIn(ExperimentalPagingApi::class)
     override fun getNotificationsFlow(
         hideReadNotifications: Boolean,
@@ -169,6 +165,28 @@ class NotificationRepositoryImpl(
             config = PagingConfig(pageSize = 50),
             remoteMediator = NotificationRemoteMediator(this),
             pagingSourceFactory = {
+                notificationDao.getAllSelectedNotificationPagedFullLegacy(
+                    hideReadNotifications,
+                    searchQuery,
+                    includedWikiCodes,
+                    hideNotMentioned,
+                    excludedTypeCodes.contains(NotificationCategory.SYSTEM.id),
+                    excludedTypeCodes.contains(NotificationCategory.MILESTONE_EDIT.id),
+                    excludedTypeCodes.contains(NotificationCategory.EDIT_USER_TALK.id),
+                    excludedTypeCodes.contains(NotificationCategory.EDIT_THANK.id),
+                    excludedTypeCodes.contains(NotificationCategory.REVERTED.id),
+                    excludedTypeCodes.contains(NotificationCategory.LOGIN_FAIL.id),
+                    excludedTypeCodes.contains(NotificationCategory.MENTION.id),
+                    excludedTypeCodes.contains(NotificationCategory.EMAIL_USER.id),
+                    excludedTypeCodes.contains(NotificationCategory.USER_RIGHTS.id),
+                    excludedTypeCodes.contains(NotificationCategory.ARTICLE_LINKED.id),
+                    excludedTypeCodes.contains(NotificationCategory.ALPHA_BUILD_CHECKER.id),
+                    excludedTypeCodes.contains(NotificationCategory.READING_LIST_SYNCING.id),
+                    excludedTypeCodes.contains(NotificationCategory.SYNCING.id),
+                    excludedTypeCodes.contains(NotificationCategory.RECOMMENDED_READING_LISTS.id),
+                    excludedTypeCodes.contains(NotificationCategory.GAMES.id)
+                )
+                /* "compromise" type query
                 notificationDao.getAllSelectedNotificationPaged(
                     hideReadNotifications,
                     searchQuery,
@@ -177,7 +195,7 @@ class NotificationRepositoryImpl(
                     includedWikiCodes,
                     hideNotMentioned,
                     NotificationCategory.MENTIONS_GROUP.map { it.id }
-                )
+                ) */
             }
         ).flow
     }
