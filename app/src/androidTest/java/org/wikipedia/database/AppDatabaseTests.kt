@@ -13,6 +13,7 @@ import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
 import org.junit.After
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
 import org.junit.Assert.assertNotNull
 import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
@@ -144,20 +145,22 @@ class AppDatabaseTests {
         val firstKey = "firstKey"
         val secondKey = "secondKey"
         val firstNotificationRemoteKey = NotificationRemoteKey(
-            wiki, nextContinueStr = firstKey
+            wiki, nextContinueStr = firstKey, false
         )
         val secondNotificationRemoteKey = NotificationRemoteKey(
-            wiki, nextContinueStr = secondKey
+            wiki, nextContinueStr = secondKey, true
         )
         notificationRemoteKeyDao.insert(firstNotificationRemoteKey)
         val firstReadNotificationRemoteKey = notificationRemoteKeyDao.getRemoteKey(wiki)
         assertNotNull(firstReadNotificationRemoteKey)
         assertEquals(firstReadNotificationRemoteKey!!.nextContinueStr, firstKey)
+        assertFalse(firstReadNotificationRemoteKey.endOfPaginationReached)
 
         // test the "on conflict replace" strategy
         notificationRemoteKeyDao.insert(secondNotificationRemoteKey)
         val secondReadNotificationRemoteKey = notificationRemoteKeyDao.getRemoteKey(wiki)
         assertNotNull(secondReadNotificationRemoteKey)
         assertEquals(secondReadNotificationRemoteKey!!.nextContinueStr, secondKey)
+        assertTrue(secondReadNotificationRemoteKey.endOfPaginationReached)
     }
 }

@@ -37,8 +37,11 @@ class NotificationRefactoredViewModelPerformanceTest {
     fun setUp() {
         runBlocking {
             val context = androidx.test.platform.app.InstrumentationRegistry.getInstrumentation().targetContext
-            db = androidx.room.Room.inMemoryDatabaseBuilder(context, AppDatabase::class.java)
+            db = androidx.room.Room.databaseBuilder(
+                context, AppDatabase::class.java, org.wikipedia.database.DATABASE_NAME
+            )
                 .allowMainThreadQueries()
+                .fallbackToDestructiveMigration(false)
                 .build()
             db.notificationDao().deleteAll()
             notificationRepository = FakeNotificationRepository(db.notificationDao())
@@ -56,10 +59,11 @@ class NotificationRefactoredViewModelPerformanceTest {
         }
     }
 
-
     @After
     fun tearDown() {
         runBlocking {
+            db.notificationDao().deleteAll()
+            db.notificationRemoteKeyDao().deleteAll()
             db.close()
         }
     }
@@ -297,6 +301,10 @@ class NotificationRefactoredViewModelPerformanceTest {
 
         override suspend fun getRemoteKey(wiki: String): String? = remoteKeys[wiki]
         override suspend fun saveRemoteKey(wiki: String, nextContinueStr: String?) { remoteKeys[wiki] = nextContinueStr }
+        override suspend fun getEndOfPaginationReachedFlow(): Flow<Boolean> {
+            return flowOf(false) // not used in this test suite
+        }
+
         override suspend fun clearRemoteKeys() { remoteKeys.clear() }
     }
 

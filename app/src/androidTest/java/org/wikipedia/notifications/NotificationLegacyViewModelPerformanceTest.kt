@@ -6,6 +6,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withTimeout
 import org.junit.Before
@@ -214,6 +215,10 @@ class NotificationLegacyViewModelPerformanceTest {
 
         override suspend fun getRemoteKey(wiki: String): String? = null
         override suspend fun saveRemoteKey(wiki: String, nextContinueStr: String?) {}
+        override suspend fun getEndOfPaginationReachedFlow(): Flow<Boolean> {
+            return flowOf(false) // not used in this test suite
+        }
+
         override suspend fun clearRemoteKeys() {}
     }
 

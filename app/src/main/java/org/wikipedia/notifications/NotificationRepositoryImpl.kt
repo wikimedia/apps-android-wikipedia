@@ -61,7 +61,6 @@ class NotificationRepositoryImpl(
     }
 
     init {
-        Log.d("NotificationRepositoryImpl", "init")
         if (isFirstInitialization) {
             isFirstInitialization = false
             runBlocking {
@@ -96,12 +95,10 @@ class NotificationRepositoryImpl(
      * Reads one page of notifications from the server and inserts them into the local database
      */
     override suspend fun fetchAndSave(filter: String?, continueStr: String?): String? {
-        //Log.d("NotificationRepositoryImpl", "continueStr = $continueStr")
         var newContinueStr: String? = null
         val response = ServiceFactory.get(WikipediaApp.instance.wikiSite).getAllNotifications(filter, continueStr)
         _endOfPaginationReached.value = response.continuation != null
         response.query?.notifications?.let {
-            Log.d("NotificationRepositoryImpl", "inserting into local DB: ${it.list.orEmpty()}")
             notificationDao.insertNotifications(it.list.orEmpty())
             newContinueStr = it.continueStr
         }
@@ -112,7 +109,6 @@ class NotificationRepositoryImpl(
         val currentOffset = continueStr?.toIntOrNull() ?: 0
         
         if (currentOffset >= totalMockItems) {
-            Log.d("NotificationRepositoryImpl", "end of pagination has been reached")
             _endOfPaginationReached.value = true
             return null
         }
@@ -125,7 +121,6 @@ class NotificationRepositoryImpl(
 
         val nextOffset = currentOffset + pageSize
         val nextContinueStr = if (nextOffset < totalMockItems) nextOffset.toString() else null
-        //Log.d("NotificationRepositoryImpl", "nextContinueStr = $nextContinueStr")
         if (nextContinueStr == null) {
             _endOfPaginationReached.value = true
         }
@@ -160,7 +155,6 @@ class NotificationRepositoryImpl(
         includedWikiCodes: List<String>,
         hideNotMentioned: Boolean
     ): Flow<PagingData<Notification>> {
-        // Log.d("NotificationRepositoryImpl", "getNotificationsFlow called with $excludedTypeCodes")
         return Pager(
             config = PagingConfig(pageSize = 50),
             remoteMediator = NotificationRemoteMediator(this),
@@ -219,9 +213,7 @@ class NotificationRepositoryImpl(
 
     override suspend fun getRemoteKey(wiki: String): String? {
         // return null if the database table is empty
-        Log.d("NotificationRepositoryImpl", "getRemoteKey called with wiki=$wiki")
         val notificationRemoteKey = remoteKeyDao.getRemoteKey(wiki) ?: return null
-        Log.d("NotificationRepositoryImpl", "getRemoteKey found key=$notificationRemoteKey")
         _endOfPaginationReached.value = notificationRemoteKey.endOfPaginationReached
         remoteKeyLoaded = true
         return notificationRemoteKey.nextContinueStr
@@ -240,7 +232,6 @@ class NotificationRepositoryImpl(
             getRemoteKey(wiki)
         }
         val newKey = NotificationRemoteKey(wiki, nextContinueStr, endOfPaginationReached.value)
-        Log.d("NotificationRepositoryImpl", "storing new key $newKey")
         remoteKeyDao.insert(newKey)
     }
 
