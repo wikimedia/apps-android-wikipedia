@@ -299,9 +299,10 @@ class NotificationActivity : BaseActivity() {
         // updating the count on the "all" tab
         val allTab = binding.notificationTabLayout.getTabAt(0)!!
         val allUnreadCount = viewModel.allUnreadCount
+        val suffix = if (viewModel.isEndReached) "" else "+"
         if (allUnreadCount > 0) {
             allTab.text = getString(R.string.notifications_tab_filter_all) + " " +
-                    getString(R.string.notifications_tab_filter_unread, allUnreadCount.toString())
+                    getString(R.string.notifications_tab_filter_unread, allUnreadCount.toString() + suffix)
         } else {
             allTab.text = getString(R.string.notifications_tab_filter_all)
         }
@@ -311,7 +312,7 @@ class NotificationActivity : BaseActivity() {
         val mentionsUnreadCount = viewModel.mentionsUnreadCount
         if (mentionsUnreadCount > 0) {
             mentionsTab.text = getString(R.string.notifications_tab_filter_mentions) + " " +
-                    getString(R.string.notifications_tab_filter_unread, mentionsUnreadCount.toString())
+                    getString(R.string.notifications_tab_filter_unread, mentionsUnreadCount.toString() + suffix)
         } else {
             mentionsTab.text = getString(R.string.notifications_tab_filter_mentions)
         }

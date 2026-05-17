@@ -56,6 +56,10 @@ class NotificationRefactoredViewModel(
     // sum of all unread notification for the "All" tab
     var allUnreadCount: Int = 0
 
+    // stores whether the end of the list was reached
+    var isEndReached: Boolean = false
+        private set
+
     private val _uiState = MutableStateFlow(Resource<Pair<
             List<NotificationListItemContainer>,
             Boolean>>()
@@ -111,11 +115,16 @@ class NotificationRefactoredViewModel(
             dbNameMap = notificationRepository.fetchUnreadWikiDbNames()
         }
 
-        // Observe counts and update them reactively
+        // Observe counts and pagination status reactively
         viewModelScope.launch(handler) {
             // Re-calculate filters inside the collection loop to ensure they reflect preference changes
-            combine(_selectedFilterTab, _currentSearchQuery) { _, _ -> Unit }
-                .collectLatest {
+            combine(
+                _selectedFilterTab,
+                _currentSearchQuery,
+                notificationRepository.getEndOfPaginationReachedFlow()
+            ) { _, _, isEndOfPaginationReached -> isEndOfPaginationReached}
+                .collectLatest { isEndOfPaginationReached ->
+                    isEndReached = isEndOfPaginationReached
                     val filters = calcFilters()
                     notificationRepository.getUnreadCountsFlow(
                         filters.excludedTypeCodes, filters.includedWikiCodes

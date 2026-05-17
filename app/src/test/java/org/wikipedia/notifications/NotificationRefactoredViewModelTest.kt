@@ -11,9 +11,7 @@ import io.mockk.mockk
 import io.mockk.mockkObject
 import io.mockk.unmockkAll
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
@@ -102,9 +100,9 @@ class NotificationRefactoredViewModelTest {
         
         // Wait for Paging to finish initial load by idling the looper
         var attempts = 0
-        while (adapter.itemCount == 0 && attempts < 100) {
+        while (adapter.itemCount == 0 && attempts < 200) {
             Shadows.shadowOf(android.os.Looper.getMainLooper()).idle()
-            kotlinx.coroutines.delay(10)
+            kotlinx.coroutines.delay(20)
             attempts++
         }
         val items = adapter.snapshot().items
@@ -386,8 +384,14 @@ class NotificationRefactoredViewModelTest {
         }
 
         override suspend fun getRemoteKey(wiki: String): String? = remoteKeys[wiki]
-        override suspend fun saveRemoteKey(wiki: String, nextContinueStr: String?) { remoteKeys[wiki] = nextContinueStr }
+        override suspend fun saveRemoteKey(wiki: String, nextContinueStr: String?, isEndReached: Boolean) { 
+            remoteKeys[wiki] = nextContinueStr 
+        }
         override suspend fun clearRemoteKeys() { remoteKeys.clear() }
+
+        override fun getPaginationStatusFlow(wiki: String): Flow<Boolean> {
+            return flowOf(true)
+        }
     }
 
     private class FakeNotificationFilterHelper: NotificationFilterHelper {

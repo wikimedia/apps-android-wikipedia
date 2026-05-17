@@ -23,5 +23,6 @@ open class MwQueryResponse : MwResponse() {
         @SerialName("rccontinue") val rcContinuation: String? = null
         @SerialName("rvcontinue") val rvContinuation: String? = null
         @SerialName("gcmcontinue") val gcmContinuation: String? = null
+        @SerialName("notcontinue") val notContinuation: String? = null
     }
 }

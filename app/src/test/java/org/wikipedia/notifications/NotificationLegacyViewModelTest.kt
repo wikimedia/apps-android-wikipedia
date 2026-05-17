@@ -325,8 +325,14 @@ class NotificationLegacyViewModelTest {
         }
 
         override suspend fun getRemoteKey(wiki: String): String? = remoteKeys[wiki]
-        override suspend fun saveRemoteKey(wiki: String, nextContinueStr: String?) { remoteKeys[wiki] = nextContinueStr }
+        override suspend fun saveRemoteKey(wiki: String, nextContinueStr: String?, isEndReached: Boolean) { 
+            remoteKeys[wiki] = nextContinueStr 
+        }
         override suspend fun clearRemoteKeys() { remoteKeys.clear() }
+
+        override fun getPaginationStatusFlow(wiki: String): Flow<Boolean> {
+            return flowOf(true)
+        }
     }
 
     private class FakeNotificationFilterHelper: NotificationFilterHelper {

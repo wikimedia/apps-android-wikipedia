@@ -6,6 +6,9 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.runBlocking
 import org.wikipedia.WikipediaApp
@@ -24,7 +27,11 @@ class NotificationRepositoryImpl(
     private val notificationDao: NotificationDao,
     private val remoteKeyDao: NotificationRemoteKeyDao
 ): NotificationRepository {
-
+    private var _endOfPaginationReached = MutableStateFlow(false)
+    // Status is initialized with false because in the beginning we don't know how many notifications
+    // the user has.
+    var endOfPaginationReached = _endOfPaginationReached.asStateFlow()
+    
     // --- MOCK DATA GENERATOR FOR MANUAL TESTING ---
     private fun createFakeNotification(id: Long): Notification {
         val hour = (10 + (id % 12)).toInt().toString().padStart(2, '0')
@@ -76,30 +83,41 @@ class NotificationRepositoryImpl(
      * Reads one page of notifications from the server and inserts them into the local database
      */
     override suspend fun fetchAndSave(filter: String?, continueStr: String?): String? {
-        /* var newContinueStr: String? = null
+        Log.d("NotificationRepositoryImpl", "continueStr = $continueStr")
+        /*
+        var newContinueStr: String? = null
         val response = ServiceFactory.get(WikipediaApp.instance.wikiSite).getAllNotifications(filter, continueStr)
-        Log.d("NotificationRepositoryImpl", "response from API call is $response")
+        _endOfPaginationReached.value = response.continuation != null
         response.query?.notifications?.let {
             Log.d("NotificationRepositoryImpl", "inserting into local DB: ${it.list.orEmpty()}")
             notificationDao.insertNotifications(it.list.orEmpty())
             newContinueStr = it.continueStr
         }
         return newContinueStr */
-        // --- OVERRIDE FOR MANUAL TESTING (1000 ITEMS) ---
+        // --- OVERRIDE FOR MANUAL TESTING ---
         val totalMockItems = 250
         val pageSize = 50
         val currentOffset = continueStr?.toIntOrNull() ?: 0
         
-        if (currentOffset >= totalMockItems) return null
+        if (currentOffset >= totalMockItems) {
+            Log.d("NotificationRepositoryImpl", "end of pagination has been reached")
+            _endOfPaginationReached.value = true
+            return null
+        }
 
         val mockPage = (currentOffset + 1..minOf(currentOffset + pageSize, totalMockItems)).map { 
             createFakeNotification(it.toLong()) 
         }
         
         notificationDao.insertNotifications(mockPage)
-        
+
         val nextOffset = currentOffset + pageSize
-        return if (nextOffset < totalMockItems) nextOffset.toString() else null
+        val nextContinueStr = if (nextOffset < totalMockItems) nextOffset.toString() else null
+        Log.d("NotificationRepositoryImpl", "nextContinueStr = $nextContinueStr")
+        if (nextContinueStr == null) {
+            _endOfPaginationReached.value = true
+        }
+        return nextContinueStr
         // ------------------------------------------------
     }
 
@@ -163,19 +181,28 @@ class NotificationRepositoryImpl(
             notificationDao.getUnreadMentionsCount(
                 excludedTypeCodes,
                 includedWikiCodes,
-                NotificationCategory.MENTIONS_GROUP.map { it.id })
+                NotificationCategory.MENTIONS_GROUP.map { it.id },
+                )
         ) { all, mentions -> all to mentions }
     }
 
     override suspend fun getRemoteKey(wiki: String): String? {
-        return remoteKeyDao.getRemoteKey(wiki)?.nextContinueStr
+        val key = remoteKeyDao.getRemoteKey(wiki)?.nextContinueStr
+        return key
+    }
+
+    override suspend fun clearRemoteKeys() {
+        remoteKeyDao.deleteAll()
     }
 
     override suspend fun saveRemoteKey(wiki: String, nextContinueStr: String?) {
         remoteKeyDao.insert(NotificationRemoteKey(wiki, nextContinueStr))
     }
 
-    override suspend fun clearRemoteKeys() {
-        remoteKeyDao.deleteAll()
+    /**
+     * Provide the stateflow to the view model
+     */
+    override suspend fun getEndOfPaginationReachedFlow(): StateFlow<Boolean> {
+        return endOfPaginationReached
     }
 }
