@@ -16,7 +16,6 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.json.JsonUtil
 import org.wikipedia.notifications.db.Notification
 import org.wikipedia.notifications.db.NotificationDao
 import org.wikipedia.util.Resource
@@ -71,34 +70,7 @@ class NotificationRefactoredViewModelPerformanceTest {
     @Test
     fun testPerformance() = runBlocking {
         // Generate notifications
-        val baseTimestamp = java.time.Instant.parse("2025-01-01T00:00:00Z")
-        val notifications = (1..numberNotifications).map { i ->
-            val timestampInstant =
-                baseTimestamp.plus((i - 1).toLong(),
-                    java.time.temporal.ChronoUnit.HOURS
-                )
-            val timestamp = timestampInstant.toString()
-            val read =
-                if (i % 2 == 0)
-                    timestampInstant.plus(
-                    30, java.time.temporal.ChronoUnit.MINUTES).toString()
-                else null
-            createNotification(
-                id = i.toLong(),
-                wiki = if (i % 2 == 0) "en" else "zh", // toggle between two wikis
-                category = when (i % 3) {              // inject different categories
-                    0 -> "mention"
-                    1 -> "edit-thank"
-                    else -> "revert"
-                },
-                header = "Header $i",                   // each header is unique
-                timestamp = timestamp,
-                read = read,
-                body = "Body of notification $i",       // each body is unique
-                title = "Title $i",                     // each title is unique
-                links = "Link $i"                       // each link is unique
-            )
-        }
+        val notifications = NotificationPerformanceTestStimuliGenerator.generateNotifications(numberNotifications)
         println("Adding ${notifications.size} notifications to mock repository...")
         notificationRepository.insertNotifications(notifications)
 
@@ -171,44 +143,6 @@ class NotificationRefactoredViewModelPerformanceTest {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): androidx.recyclerview.widget.RecyclerView.ViewHolder {
             return object : androidx.recyclerview.widget.RecyclerView.ViewHolder(android.view.View(parent.context)) {}
         }
-    }
-
-    private fun createNotification(
-        id: Long,
-        wiki: String,
-        category: String,
-        header: String,
-        timestamp: String = "2023-10-27T10:00:00Z",
-        read: String? = null,
-        title: String = "",
-        body: String = "",
-        links: String = ""
-    ): Notification {
-        val json = """
-            {
-                "id": $id,
-                "wiki": "${wiki}wiki",
-                "category": "$category",
-                "title": {
-                    "full": "$title",
-                    "text": "$title"
-                },
-                "read": ${if (read == null) "null" else "\"$read\""},
-                "timestamp": {
-                    "utciso8601": "$timestamp"
-                },
-                "*": {
-                    "header": "$header",
-                    "body": "$body",
-                    "links": {
-                        "secondary": [
-                            { "label": "$links", "url": "http://test.com" }
-                        ]
-                    }
-                }
-            }
-        """.trimIndent()
-        return JsonUtil.decodeFromString<Notification>(json)!!
     }
 
     private class FakeNotificationPreferences : NotificationPreferences {
