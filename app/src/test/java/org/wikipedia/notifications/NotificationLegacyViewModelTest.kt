@@ -325,13 +325,13 @@ class NotificationLegacyViewModelTest {
         }
 
         override suspend fun getRemoteKey(wiki: String): String? = remoteKeys[wiki]
-        override suspend fun saveRemoteKey(wiki: String, nextContinueStr: String?, isEndReached: Boolean) { 
-            remoteKeys[wiki] = nextContinueStr 
-        }
         override suspend fun clearRemoteKeys() { remoteKeys.clear() }
+        override suspend fun saveRemoteKey(wiki: String, nextContinueStr: String?) {
+            // not used in this test class
+        }
 
-        override fun getPaginationStatusFlow(wiki: String): Flow<Boolean> {
-            return flowOf(true)
+        override suspend fun getEndOfPaginationReachedFlow(): Flow<Boolean> {
+            return flowOf(false) // not used in this test class
         }
     }
 

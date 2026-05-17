@@ -113,6 +113,7 @@ class NotificationRefactoredViewModel(
     init {
         viewModelScope.launch(handler) {
             dbNameMap = notificationRepository.fetchUnreadWikiDbNames()
+            notificationRepository.getRemoteKey("aggregated") //@todo: store this key globally
         }
 
         // Observe counts and pagination status reactively

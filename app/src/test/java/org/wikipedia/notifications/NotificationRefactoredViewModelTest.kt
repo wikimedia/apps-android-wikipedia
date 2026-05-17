@@ -384,13 +384,13 @@ class NotificationRefactoredViewModelTest {
         }
 
         override suspend fun getRemoteKey(wiki: String): String? = remoteKeys[wiki]
-        override suspend fun saveRemoteKey(wiki: String, nextContinueStr: String?, isEndReached: Boolean) { 
+        override suspend fun saveRemoteKey(wiki: String, nextContinueStr: String?) {
             remoteKeys[wiki] = nextContinueStr 
         }
         override suspend fun clearRemoteKeys() { remoteKeys.clear() }
 
-        override fun getPaginationStatusFlow(wiki: String): Flow<Boolean> {
-            return flowOf(true)
+        override suspend fun getEndOfPaginationReachedFlow(): Flow<Boolean> {
+            return flowOf(false) // dummy not used in this test class
         }
     }
 

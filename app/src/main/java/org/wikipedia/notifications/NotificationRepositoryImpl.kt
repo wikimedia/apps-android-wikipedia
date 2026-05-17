@@ -29,9 +29,11 @@ class NotificationRepositoryImpl(
 ): NotificationRepository {
     private var _endOfPaginationReached = MutableStateFlow(false)
     // Status is initialized with false because in the beginning we don't know how many notifications
-    // the user has.
+    // the user has. Value will be loaded from database inside init
     var endOfPaginationReached = _endOfPaginationReached.asStateFlow()
-    
+
+    private var remoteKeyLoaded = false
+
     // --- MOCK DATA GENERATOR FOR MANUAL TESTING ---
     private fun createFakeNotification(id: Long): Notification {
         val hour = (10 + (id % 12)).toInt().toString().padStart(2, '0')
@@ -51,9 +53,20 @@ class NotificationRepositoryImpl(
         return JsonUtil.decodeFromString<Notification>(json)!!
     }
 
+    companion object {
+        // The repository is instantiated each time the user navigates to the notification screen.
+        // For testing purposes, we want the subsequent deletion of the local database only to
+        // during the first navigation to the notification page.
+        private var isFirstInitialization = true
+    }
+
     init {
-        runBlocking {
-            notificationDao.deleteAll()
+        Log.d("NotificationRepositoryImpl", "init")
+        if (isFirstInitialization) {
+            isFirstInitialization = false
+            runBlocking {
+                notificationDao.deleteAll()
+            }
         }
     }
     // ----------------------------------------------
@@ -83,7 +96,7 @@ class NotificationRepositoryImpl(
      * Reads one page of notifications from the server and inserts them into the local database
      */
     override suspend fun fetchAndSave(filter: String?, continueStr: String?): String? {
-        Log.d("NotificationRepositoryImpl", "continueStr = $continueStr")
+        //Log.d("NotificationRepositoryImpl", "continueStr = $continueStr")
         /*
         var newContinueStr: String? = null
         val response = ServiceFactory.get(WikipediaApp.instance.wikiSite).getAllNotifications(filter, continueStr)
@@ -113,7 +126,7 @@ class NotificationRepositoryImpl(
 
         val nextOffset = currentOffset + pageSize
         val nextContinueStr = if (nextOffset < totalMockItems) nextOffset.toString() else null
-        Log.d("NotificationRepositoryImpl", "nextContinueStr = $nextContinueStr")
+        //Log.d("NotificationRepositoryImpl", "nextContinueStr = $nextContinueStr")
         if (nextContinueStr == null) {
             _endOfPaginationReached.value = true
         }
@@ -151,7 +164,7 @@ class NotificationRepositoryImpl(
         includedWikiCodes: List<String>,
         hideNotMentioned: Boolean
     ): Flow<PagingData<Notification>> {
-        Log.d("NotificationRepositoryImpl", "getNotificationsFlow called with $excludedTypeCodes")
+        // Log.d("NotificationRepositoryImpl", "getNotificationsFlow called with $excludedTypeCodes")
         return Pager(
             config = PagingConfig(pageSize = 50),
             remoteMediator = NotificationRemoteMediator(this),
@@ -187,16 +200,30 @@ class NotificationRepositoryImpl(
     }
 
     override suspend fun getRemoteKey(wiki: String): String? {
-        val key = remoteKeyDao.getRemoteKey(wiki)?.nextContinueStr
-        return key
+        // return null if the database table is empty
+        Log.d("NotificationRepositoryImpl", "getRemoteKey called with wiki=$wiki")
+        val notificationRemoteKey = remoteKeyDao.getRemoteKey(wiki) ?: return null
+        Log.d("NotificationRepositoryImpl", "getRemoteKey found key=$notificationRemoteKey")
+        _endOfPaginationReached.value = notificationRemoteKey.endOfPaginationReached
+        remoteKeyLoaded = true
+        return notificationRemoteKey.nextContinueStr
     }
 
     override suspend fun clearRemoteKeys() {
+        remoteKeyLoaded = false
         remoteKeyDao.deleteAll()
     }
 
     override suspend fun saveRemoteKey(wiki: String, nextContinueStr: String?) {
-        remoteKeyDao.insert(NotificationRemoteKey(wiki, nextContinueStr))
+        // saveRemoteKey is called before a first call to getRemoteKey
+        // in order to avoid overwriting endOfPaginationReached with invalid data,
+        // retrieve it from local database before first save
+        if (!remoteKeyLoaded) {
+            getRemoteKey(wiki)
+        }
+        val newKey = NotificationRemoteKey(wiki, nextContinueStr, endOfPaginationReached.value)
+        Log.d("NotificationRepositoryImpl", "storing new key $newKey")
+        remoteKeyDao.insert(newKey)
     }
 
     /**
