@@ -6,6 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import org.wikipedia.extensions.instrument
 
 @Composable
 fun HomeFeedSettingsNavHost(
@@ -13,6 +14,7 @@ fun HomeFeedSettingsNavHost(
     startDestination: HomeFeedSettingsStartDestination,
     onExit: () -> Unit
 ) {
+    val context = navController.context
     val startRoute = when (startDestination) {
         HomeFeedSettingsStartDestination.ROOT -> HomeFeedSettingsDestination.Root
         HomeFeedSettingsStartDestination.COMMUNITY_MODULES -> HomeFeedSettingsDestination.CommunityModuleScreen
@@ -31,9 +33,18 @@ fun HomeFeedSettingsNavHost(
                 onBackClick = {
                     onExit()
                 },
-                onCommunityModulesClick = { navController.navigate(HomeFeedSettingsDestination.CommunityModuleScreen) },
-                onForYouModulesClick = { navController.navigate(HomeFeedSettingsDestination.ForYouModuleScreen) },
-                onFeedConfigurationClick = { navController.navigate(HomeFeedSettingsDestination.FeedConfiguration) }
+                onCommunityModulesClick = {
+                    context.instrument?.submitInteraction("click", elementId = "feed_modules_community")
+                    navController.navigate(HomeFeedSettingsDestination.CommunityModuleScreen)
+                },
+                onForYouModulesClick = {
+                    context.instrument?.submitInteraction("click", elementId = "feed_modules_for_you")
+                    navController.navigate(HomeFeedSettingsDestination.ForYouModuleScreen)
+                },
+                onFeedConfigurationClick = {
+                    context.instrument?.submitInteraction("click", elementId = "feed_data_info")
+                    navController.navigate(HomeFeedSettingsDestination.FeedConfiguration)
+                }
             )
         }
 
@@ -47,6 +58,7 @@ fun HomeFeedSettingsNavHost(
             ForYouModulesScreen(
                 onBack = { if (!navController.navigateUp()) onExit() },
                 navigateToFeedConfigurationScreen = {
+                    context.instrument?.submitInteraction("click", actionSubtype = "feed_for_you", elementId = "feed_data_info")
                     navController.navigate(HomeFeedSettingsDestination.FeedConfiguration)
                 }
             )
