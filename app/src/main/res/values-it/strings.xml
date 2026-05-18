@@ -1300,6 +1300,7 @@
   <string name="onboarding_multilingual_add_language_text">Aggiungi o modifica lingue</string>
   <string name="onboarding_welcome_title_v2">L\'enciclopedia libera\n…in più di 300 lingue</string>
   <string name="onboarding_next">Successivo</string>
+  <string name="onboarding_fresh_install_knowledge_title">Tutta la conoscenza del mondo</string>
   <string name="app_shortcuts_random">Casuale</string>
   <string name="app_shortcuts_continue_reading">Continua a leggere</string>
   <string name="app_shortcuts_search">Cerca</string>
@@ -2154,4 +2155,21 @@
   <string name="reading_challenge_widget_reward_title">La curiosità ti dona! 🛍️</string>
   <string name="reading_challenge_widget_reward_body">Festeggia il completamento della sfida con uno sconto del 15%% sul Wikipedia Store.</string>
   <string name="reading_challenge_widget_reward_button_label">Ottieni 15%% di sconto in negozio</string>
+  <string name="explore_feed_new_update_prompt_new_name_title">Un nuovo nome</string>
+  <string name="explore_feed_community_tab_label">Comunità</string>
+  <string name="explore_feed_for_you_tab_label">Per te</string>
+  <string name="explore_feed_date_today">Oggi - %s</string>
+  <string name="explore_feed_deselect_all_button_label">Deseleziona tutto</string>
+  <string name="explore_feed_potd_subtitle">Immagini giornaliere su Wikimedia Commons, selezionate da collaboratori volontari.</string>
+  <string name="explore_feed_preference_selection_screen_title">Cosa vorresti vedere prima?</string>
+  <string name="explore_feed_preference_personalized_content_title">Contenuti personalizzati</string>
+  <string name="explore_feed_manage_languages_label">Gestisci lingue</string>
+  <string name="explore_feed_header_overflow_hide_module_message_action">Annulla</string>
+  <string name="explore_feed_because_you_read">Perché hai letto: %s</string>
+  <string name="explore_feed_swipe_to_explore_prompt_title">Scorri per esplorare</string>
+  <string name="explore_feed_swipe_to_explore_prompt_message">Scorri verso il basso per navigare tra gli argomenti oppure scorri lateralmente per esplorare i contenuti correlati.</string>
+  <string name="home_feed_settings_based_on_interest_title">In base ai tuoi interessi</string>
+  <string name="home_feed_settings_based_on_interest_subtitle">Articoli personalizzati in base agli argomenti che hai scelto. &lt;a href=\"#drivingFeed\"&gt;Cosa alimenta il tuo feed?&lt;/a&gt;</string>
+  <string name="home_feed_settings_continue_reading_title">Continua a leggere</string>
+  <string name="home_feed_screen_empty_state_label">Il tuo feed è vuoto</string>
 </resources>
