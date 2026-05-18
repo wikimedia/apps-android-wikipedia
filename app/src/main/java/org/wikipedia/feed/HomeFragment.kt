@@ -344,7 +344,10 @@ class HomeFragment : Fragment() {
                             )
                             requireActivity().startActivity(intent)
                         },
-                        navigateToCommunityTab = { selectTab(HomeTab.COMMUNITY) }
+                        navigateToCommunityTab = { selectTab(HomeTab.COMMUNITY) },
+                        onCustomizeInterestsFromEmptyStateClick = {
+                            customizeInterestsLauncher.launch(PersonalizationActivity.newIntent(requireContext(), showIntroPage = false))
+                        }
                     )
 
                     if (selectedTab == HomeTab.FOR_YOU && !swipeToExplorePromptShown && forYouContentState.modules.isNotEmpty()) {
@@ -452,7 +455,8 @@ fun HomeScreen(
     onCardFooterClick: (card: Card) -> Unit = {},
     onNotificationClick: () -> Unit = {},
     onManageModulesClick: () -> Unit = {},
-    navigateToCommunityTab: () -> Unit = {}
+    navigateToCommunityTab: () -> Unit = {},
+    onCustomizeInterestsFromEmptyStateClick: () -> Unit = {}
 ) {
     val context = LocalContext.current
     val topInset = if (context is MainActivity) {
@@ -551,7 +555,8 @@ fun HomeScreen(
                         onCustomizeInterestsClick = onCustomizeInterestsClick,
                         onCardImpression = onCardImpression,
                         onManageModulesClick = onManageModulesClick,
-                        navigateToCommunityTab = navigateToCommunityTab
+                        navigateToCommunityTab = navigateToCommunityTab,
+                        onCustomizeInterestsFromEmptyStateClick = onCustomizeInterestsFromEmptyStateClick
                     )
 
                     // Floating toolbar with gradient scrim, wordmark, and tab selector.
@@ -987,7 +992,8 @@ fun ForYouContentTab(
     onCustomizeInterestsClick: (card: Card) -> Unit = {},
     onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> },
     onManageModulesClick: () -> Unit,
-    navigateToCommunityTab: () -> Unit
+    navigateToCommunityTab: () -> Unit,
+    onCustomizeInterestsFromEmptyStateClick: () -> Unit
 ) {
     when {
         state.isInitialLoading -> {
@@ -1010,7 +1016,7 @@ fun ForYouContentTab(
                     .verticalScroll(rememberScrollState()),
                 wikiSite = wikiSite,
                 showInterests = !state.interestHidden,
-                onCustomizeInterestsClick = onCustomizeInterestsClick,
+                onCustomizeInterestsFromEmptyStateClick = onCustomizeInterestsFromEmptyStateClick,
                 navigateToCommunityTab = navigateToCommunityTab
             )
         }
@@ -1433,7 +1439,7 @@ fun ForYouNoDataView(
     modifier: Modifier = Modifier,
     wikiSite: WikiSite,
     showInterests: Boolean = true,
-    onCustomizeInterestsClick: () -> Unit,
+    onCustomizeInterestsFromEmptyStateClick: () -> Unit,
     navigateToCommunityTab: () -> Unit
 ) {
     val context = LocalContext.current
@@ -1474,7 +1480,7 @@ fun ForYouNoDataView(
             EmptyStateActionRow(
                 iconRes = R.drawable.ic_baseline_tune_24,
                 text = context.getString(wikiSite.languageCode, R.string.home_feed_for_you_screen_empty_add_interests),
-                onLinkClick = onCustomizeInterestsClick
+                onLinkClick = onCustomizeInterestsFromEmptyStateClick
             )
         }
 
@@ -1636,7 +1642,7 @@ fun ForYouNoDataViewPreview() {
                 .verticalScroll(rememberScrollState()),
             wikiSite = WikiSite.preview(),
             showInterests = true,
-            onCustomizeInterestsClick = {},
+            onCustomizeInterestsFromEmptyStateClick = {},
             navigateToCommunityTab = {}
         )
     }
