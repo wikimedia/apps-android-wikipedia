@@ -161,7 +161,7 @@ class NotificationRefactoredViewModelPerformanceTest {
         var unreadWikis = mapOf<String, WikiSite>()
         private val remoteKeys = mutableMapOf<String, String?>()
 
-        suspend fun insertNotifications(notifications: List<Notification>) {
+        override suspend fun insertNotifications(notifications: List<Notification>) {
             notificationDao.insertNotifications(notifications)
         }
         override suspend fun getAllNotifications(): List<Notification> {
@@ -264,7 +264,6 @@ class NotificationRefactoredViewModelPerformanceTest {
         override suspend fun getEndOfPaginationReachedFlow(): Flow<Boolean> {
             return flowOf(false) // not used in this test suite
         }
-
         override suspend fun clearRemoteKeys() { remoteKeys.clear() }
     }
 

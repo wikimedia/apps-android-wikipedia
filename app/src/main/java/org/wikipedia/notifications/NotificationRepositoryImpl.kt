@@ -250,4 +250,7 @@ class NotificationRepositoryImpl(
     override suspend fun getEndOfPaginationReachedFlow(): StateFlow<Boolean> {
         return endOfPaginationReached
     }
+
+    // used by testing only
+    override suspend fun insertNotifications(notificationList: List<Notification>) {}
 }

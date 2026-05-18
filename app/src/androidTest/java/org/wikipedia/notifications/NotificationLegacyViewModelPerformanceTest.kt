@@ -3,6 +3,7 @@ package org.wikipedia.notifications
 import androidx.paging.PagingData
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOf
@@ -24,6 +25,12 @@ class NotificationLegacyViewModelPerformanceTest {
     private val notificationPreferences = FakeNotificationPreferences()
     private val notificationFilterHelper = FakeNotificationFilterHelper()
     private lateinit var viewModel: NotificationLegacyViewModel
+
+    // used by refactored view model
+    private val _isSearchVisible = MutableStateFlow(true)
+    var isSearchVisible: Boolean
+        get() = _isSearchVisible.value
+        set(value) { _isSearchVisible.value = value }
 
     @Before
     fun setUp() {
@@ -143,8 +150,8 @@ class NotificationLegacyViewModelPerformanceTest {
         override suspend fun getEndOfPaginationReachedFlow(): Flow<Boolean> {
             return flowOf(false) // not used in this test suite
         }
-
         override suspend fun clearRemoteKeys() {}
+        override suspend fun insertNotifications(notificationList: List<Notification>) {}
     }
 
     private class FakeNotificationFilterHelper: NotificationFilterHelper {

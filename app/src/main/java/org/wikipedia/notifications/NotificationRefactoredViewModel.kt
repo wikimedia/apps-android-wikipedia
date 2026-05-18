@@ -22,7 +22,7 @@ class NotificationRefactoredViewModel(
     private val notificationPreferences: NotificationPreferences,
     private val notificationRepository: NotificationRepository,
     private val notificationFilterHelper: NotificationFilterHelper
-) : ViewModel() {
+) : ViewModel(), NotificationViewModel {
     // Trigger for manual refreshes (e.g., pull-to-refresh)
     private val refreshTrigger = MutableSharedFlow<Unit>(replay = 1)
     private val handler = CoroutineExceptionHandler { _, throwable ->
@@ -51,10 +51,10 @@ class NotificationRefactoredViewModel(
         private set(value) { _currentSearchQuery.value = value }
 
     // sum of all unread notifications for the "Mentions"-tab
-    var mentionsUnreadCount: Int = 0
+    override var mentionsUnreadCount: Int = 0
 
     // sum of all unread notification for the "All" tab
-    var allUnreadCount: Int = 0
+    override var allUnreadCount: Int = 0
 
     // stores whether the end of the list was reached
     var isEndReached: Boolean = false
@@ -64,7 +64,7 @@ class NotificationRefactoredViewModel(
             List<NotificationListItemContainer>,
             Boolean>>()
     )
-    val uiState = _uiState.asStateFlow()
+    override val uiState = _uiState.asStateFlow()
 
     /**
      * A reactive stream of paged notification data that orchestrates the entire notification pipeline.
@@ -155,13 +155,6 @@ class NotificationRefactoredViewModel(
         val includedWikiCodes: List<String>
     )
 
-    // Reads filtered and sorted database content and
-    // binds it together with a flag calculated from the paging state.
-    // Then the uiState is updated triggering UI update.
-    private fun filterAndPostNotifications() {
-        // (Deprecated - functionality moved to Paging 3 Flow)
-    }
-
     // returns the sum of all excluded wikis plus all excluded type of notifications
     fun excludedFiltersCount(): Int {
         val excludedWikiCodes = notificationPreferences.getNotificationExcludedWikiCodes()
@@ -174,7 +167,7 @@ class NotificationRefactoredViewModel(
     // Checks connectivity state. If device is online, it fetches data from the API and stores it in
     // the database by calling repository function without an effective filter but with the current
     // paging state.
-    fun fetchAndSave(refresh: Boolean = false) {
+    override fun fetchAndSave(refresh: Boolean) {
         if (refresh) {
             viewModelScope.launch {
                 refreshTrigger.emit(Unit)
@@ -183,12 +176,12 @@ class NotificationRefactoredViewModel(
     }
 
     // Updates currentSearchQuery.
-    fun updateSearchQuery(query: String?) {
+    override fun updateSearchQuery(query: String?) {
         currentSearchQuery = query
     }
 
     // update the selection of the tab (between "All" and "Mentions"
-    fun updateTabSelection(position: Int) {
+    override fun updateTabSelection(position: Int) {
         selectedFilterTab = position
     }
 

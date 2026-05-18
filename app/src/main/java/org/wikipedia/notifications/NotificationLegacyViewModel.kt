@@ -2,7 +2,9 @@ package org.wikipedia.notifications
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.paging.PagingData
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
@@ -19,7 +21,7 @@ class NotificationLegacyViewModel(
     private val notificationPreferences: NotificationPreferences,
     private val notificationRepository: NotificationRepository,
     private val notificationFilterHelper: NotificationFilterHelper
-) : ViewModel() {
+) : ViewModel(), NotificationViewModel {
 
     private val handler = CoroutineExceptionHandler { _, throwable ->
         _uiState.value = Resource.Error(throwable)
@@ -41,13 +43,13 @@ class NotificationLegacyViewModel(
         private set
 
     // sum of all unread notifications for the "Mentions"-tab
-    var mentionsUnreadCount: Int = 0
+    override var mentionsUnreadCount: Int = 0
 
     // sum of all unread notification for the "All" tab
-    var allUnreadCount: Int = 0
+    override var allUnreadCount: Int = 0
 
     private val _uiState = MutableStateFlow(Resource<Pair<List<NotificationListItemContainer>, Boolean>>())
-    val uiState = _uiState.asStateFlow()
+    override val uiState = _uiState.asStateFlow()
 
     init {
         viewModelScope.launch(handler) {
@@ -151,7 +153,7 @@ class NotificationLegacyViewModel(
     // the database by calling repository function without an effective filter but with the current
     // paging state.
     // UI update is triggered by calling filterAndPostNotifications()
-    fun fetchAndSave(refresh: Boolean = false) {
+    override fun fetchAndSave(refresh: Boolean) {
         if (refresh) {
             currentContinueStr = null
             notificationList.clear()
@@ -168,7 +170,7 @@ class NotificationLegacyViewModel(
     // Updates currentSearchQuery and triggers filterAndPostNotifications().
     // Because filtering happens in processList called from filterAndPostNotifications(),
     // the list is immediately re-filtered in memory.
-    fun updateSearchQuery(query: String?) {
+    override fun updateSearchQuery(query: String?) {
         currentSearchQuery = query
         viewModelScope.launch(handler) {
             filterAndPostNotifications()
@@ -176,7 +178,7 @@ class NotificationLegacyViewModel(
     }
 
     // update the selection of the tab (between "All" and "Mentions"
-    fun updateTabSelection(position: Int) {
+    override fun updateTabSelection(position: Int) {
         selectedFilterTab = position
         viewModelScope.launch(handler) {
             filterAndPostNotifications()

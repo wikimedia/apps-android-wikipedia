@@ -82,4 +82,5 @@ interface NotificationRepository {
     suspend fun saveRemoteKey(wiki: String, nextContinueStr: String?)
 
     suspend fun getEndOfPaginationReachedFlow(): Flow<Boolean>
+    suspend fun insertNotifications(notificationList: List<Notification>)
 }
