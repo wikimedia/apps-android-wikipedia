@@ -379,6 +379,7 @@
   <string name="view_random_article_card_title">پوکھواں مضمون</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d کے</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d ایم</string>
+  <string name="view_top_read_card_pageviews_views_suffix">نظارے</string>
   <string name="view_main_page_card_title">اڄ وکی پیڈیا تے</string>
   <string name="view_main_page_card_action">پہلا پرت ݙیکھو</string>
   <string name="view_featured_image_card_title">اڄ دی تصویر</string>
@@ -516,6 +517,7 @@
   <string name="onboarding_get_started">شروع کرو</string>
   <string name="onboarding_got_it">گھن گھندا</string>
   <string name="onboarding_next">اڳلا</string>
+  <string name="onboarding_app_languages_primary">ابتدائی</string>
   <string name="app_shortcuts_random">بے ترتیبا</string>
   <string name="app_shortcuts_continue_reading">پڑھݨ جاری رکھو</string>
   <string name="app_shortcuts_search">ڳولو</string>
@@ -766,4 +768,5 @@
   <string name="reading_challenge_widget_search_button">ڳولو</string>
   <string name="reading_challenge_widget_random_button">بے ترتیبا</string>
   <string name="reading_challenge_widget_collect_prize_button">انعام وصول کرو</string>
+  <string name="explore_feed_community_tab_label">برادری</string>
 </resources>
