@@ -19,15 +19,6 @@ object ReadingChallengeAnalyticsHelper {
         }
     }
 
-    fun logAppOpenFromWidget() {
-        TestKitchenAdapter.client.getInstrument("apps-open")
-            .submitInteraction(
-                action = "app_open",
-                actionSource = "widget",
-                actionSubtype = "reading_challenge"
-            )
-    }
-
     private fun logHeartbeat(elementId: String, includeStreak: Boolean = false) {
         TestKitchenAdapter.client.getInstrument("apps-widgetchallenge").submitInteraction(
             action = "heartbeat",

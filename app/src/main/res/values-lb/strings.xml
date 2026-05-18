@@ -116,8 +116,9 @@
   <string name="map_view_link_text">Op enger Kaart weisen</string>
   <string name="other_languages_indication_text">An enger anerer Sprooch liesen</string>
   <string name="language_count_link_text">Disponibel an %d anere Sproochen</string>
-  <string name="edit_save_action_license_logged_in">Mam Verëffentleche sidd Dir mat den &lt;a href=\"%1$s\"&gt;Notzungsbedingungen&lt;/a&gt; d\'accord an iwwerloosst Är Kontributioun onwidderrufflech ënner der &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;-Lizenz.</string>
-  <string name="edit_anon_warning">Ännerunge ginn der IP-Adress vun Ärem Apparat zougeuerdent. Wann Dir Iech &lt;a href=\"https://#login\"&gt;aloggt&lt;/a&gt;, hutt Dir besseren Dateschutz.</string>
+  <string name="edit_save_action_license_logged_in">Mam Verëffentlechen erkläert Dir Iech mat de &lt;a href=\"%1$s\"&gt;Benotzungskonditiounen&lt;/a&gt; averstanen an domat, datt Är Kontributiounen onwidderrufflech ënner der Lizenz &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; verëffentlecht ginn.</string>
+  <string name="edit_save_action_license_anon">Mam Verëffentlechen erkläert Dir Iech mat de &lt;a href=\"%1$s\"&gt;Benotzungskonditiounen&lt;/a&gt; averstanen an domat, datt Är Kontributiounen onwidderrufflech ënner der Lizenz &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; verëffentlecht ginn. Ännerunge ginn der IP-Adress vun Ärem Apparat zougeuerdent. Wann Dir Iech &lt;a href=\"https://#login\"&gt;aloggt&lt;/a&gt;, profitéiert Dir vu méi Dateschutz.</string>
+  <string name="edit_anon_warning">Ännerunge ginn der IP-Adress vun Ärem Apparat zougeuerdent. Wann Dir Iech &lt;a href=\"https://#login\"&gt;aloggt&lt;/a&gt;, profitéiert Dir vu méi Dateschutz.</string>
   <string name="preference_title_language">Wikipedia-Sproochen</string>
   <string name="langlinks_filter_hint">Sichen</string>
   <string name="langlinks_empty">Dës Säit ass net an anere Sproochen disponibel</string>
@@ -187,7 +188,7 @@
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Benotzernumm</string>
   <string name="login_dont_have_account">Hutt Dir kee Benotzerkont?</string>
-  <string name="login_join_wikipedia">Maacht mat bei Wikipedia</string>
+  <string name="login_join_wikipedia">Bei Wikipedia matmaachen</string>
   <string name="login_forgot_password">Hutt Dir Äert Passwuert vergiess?</string>
   <string name="create_account_already_have">Hutt Dir schonn e Benotzerkont?</string>
   <string name="create_account_activity_title">E Benotzerkont opmaachen</string>
@@ -195,14 +196,15 @@
   <string name="create_account_email_hint">E-Mail (Fakultativ)</string>
   <string name="create_account_password_repeat_hint">Passwuert widderhuelen</string>
   <string name="create_account_password_is_username">Passwuert kann net selwecht si wéi de Benotzernumm</string>
-  <string name="create_account_passwords_mismatch_error">D\'Passwierder sinn net déi selwescht</string>
+  <string name="create_account_passwords_mismatch_error">D\'Passwierder sinn net d\'selwecht</string>
   <string name="create_account_email_error">Ongülteg E-Mail-Adress</string>
   <string name="create_account_username_error">Ongülteg Zeechen am Benotzernumm</string>
   <string name="create_account_password_error">D\'Passwuert muss mindestens 8 Zeechen hunn</string>
   <string name="create_account_generic_error">Benotzerkont konnt net opgemaach ginn</string>
   <string name="create_account_next">Weider</string>
   <string name="email_recommendation_dialog_title">Benotzerkont ouni E-Mail-Adress uleeën?</string>
-  <string name="email_recommendation_message">Recommandéiert wëll eng E-Mail-Adress gebraucht gëtt fir e Benotzerkont ze restauréieren.</string>
+  <string name="email_recommendation_dialog_message">Obwuel et fakultativ ass, eng E-Mail-Adress unzeginn, ass et &lt;b&gt;staark recommandéiert&lt;/b&gt;, well eng E-Mail-Adress néideg ass, fir Äre Kont ze recuperéieren, falls Dir eng Kéier Äert Passwuert verléiere sollt.</string>
+  <string name="email_recommendation_message">Recommandéiert, well eng E-Mail-Adress néideg ass, fir e Benotzerkont ze recuperéieren.</string>
   <string name="email_recommendation_dialog_create_without_email_action">Ouni E-Mail-Adress virufueren</string>
   <string name="email_recommendation_dialog_create_with_email_action">Eng E-Mail-Adress derbäisetzen</string>
   <string name="create_account_button">Benotzerkont uleeën</string>
@@ -326,6 +328,7 @@
   <string name="preference_summary_show_images">Luede vu Biller op Säiten aktivéieren oder desaktivéieren. Wielt dës Astellung of, wann Är Internetverbindung lues ass oder wann Ären Datevolume limitéiert ass.</string>
   <string name="preference_title_download_only_over_wifi">Nëmmen iwwer Wi-Fi eroflueden</string>
   <string name="dialog_title_download_only_over_wifi">Eroflueden iwwer mobil Date bestätegen?</string>
+  <string name="dialog_text_download_only_over_wifi">Dir hutt an Ären Astellungen „Nëmmen iwwer Wi-Fi eroflueden“ aktivéiert. Wëllt Dir just fir dësen Download erlaben, datt Är mobil Date benotzt ginn?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Erlaben</string>
   <string name="read_more_section">Liest méi</string>
   <string name="about_article_section">Iwwer dësen Artikel</string>
@@ -437,7 +440,7 @@
   </plurals>
   <string name="temp_account_anon_ip_edit_status">&lt;b&gt;Dir sidd net ageloggt.&lt;/b&gt; Soubal Dir eng Ännerung maacht, ginn Är Ännerungen Ärer IP-Adress zougeuerdent.</string>
   <string name="temp_account_anon_edit_status">&lt;b&gt;Dir sidd net ageloggt.&lt;/b&gt; Soubal Dir eng Ännerung maacht, gëtt en temporäre Kont fir Iech ugeluecht fir Är Privatsphär ze schützen. &lt;a href=\"%1$s\"&gt;Méi gewuer ginn&lt;/a&gt;</string>
-  <string name="temp_account_edit_status">&lt;b&gt;Dir benotzt eng temporäre Kont.&lt;/b&gt; Är Ännerung gëtt %1$s zougeuerdent. &lt;a href=\"%2$s\"&gt;Méi gewuer ginn&lt;/a&gt;.</string>
+  <string name="temp_account_edit_status">&lt;b&gt;Dir benotzt en temporäre Kont.&lt;/b&gt; Är Ännerung gëtt %1$s zougeuerdent. &lt;a href=\"%2$s\"&gt;Méi gewuer ginn&lt;/a&gt;.</string>
   <string name="temp_account_login_status">&lt;b&gt;Dir benotzt am Moment en temporäre Kont.&lt;/b&gt; Ännerungen, déi Dir mam temporäre Kont %1$s maacht, ginn net op Äre permanente Kont iwwerdroen, wann Dir Iech aloggt. Fir datt, nieft anere Virdeeler, Är Kontributiounen Ärem Benotzernumm zougeuerdent ginn, loggt Iech an oder leet e Kont un.</string>
   <string name="temp_account_end_session">Sessioun ofschléissen</string>
   <string name="temp_account_end_session_confirm">Doduerch gitt Dir aus Ärem temporäre Kont ausgeloggt. Wëllt Dir virufueren?</string>
@@ -808,7 +811,7 @@
   <string name="feed_configure_language_warning">Denkt drun, datt net all Kaartentyppen op all Sprooch disponibel sinn. Ännert Är ausgewielte Sproochen an den Astellungen.</string>
   <string name="feed_item_type_news">Artikelen iwwer aktuell Evenementer</string>
   <string name="feed_item_type_on_this_day">Evenementer an der Vergaangenheet op dësem Dag</string>
-  <string name="feed_item_type_because_you_read">Virschléi baséierend op engem Artikel aus Ärem Historique, deen Dir viru Kuerzem gelies hutt</string>
+  <string name="feed_item_type_because_you_read">Virschléi op Basis vun Artikelen aus Ärem Historique, déi Dir viru Kuerzem gelies hutt</string>
   <string name="feed_item_type_featured_article">Artikel vum Dag op Wikipedia</string>
   <string name="feed_item_type_trending">Meeschtgekuckt Artikele vum Dag</string>
   <string name="feed_item_type_featured_image">Bild vum Dag vu Wikimedia Commons</string>
@@ -1165,8 +1168,10 @@
   <string name="activity_tab_timeline_today">Haut</string>
   <string name="activity_tab_timeline_yesterday">Gëschter</string>
   <string name="activity_tab_timeline_empty_state_title">Näischt fir ze weisen</string>
+  <string name="activity_tab_timeline_empty_state_message">Fänkt u mat Liesen an Änneren, fir Ären Historique opzebauen</string>
   <string name="activity_tab_timeline_view_changes_button">Ännerunge weisen</string>
   <string name="activity_tab_onboarding_reading_patterns_title">Liesgewunnechten</string>
+  <string name="activity_tab_onboarding_reading_patterns_message">Kuckt Iech un, wéi vill Zäit Dir mat Liese verbruecht hutt a wat fir Artikelen oder Theemen Dir iwwer d\'Zäit exploréiert hutt.</string>
   <string name="activity_tab_onboarding_impact_title">Impakt-Highlights</string>
   <string name="edits_screen_what_is_title">Änneren an der Wikipedia-App</string>
   <string name="edits_screen_what_is_body">Dir sidd net sécher, wou Dir ufänke sollt fir Ännerungen ze maachen? Probéiert d\'Ännerungsvirschléi, eng Funktioun, déi d\'Méiglechkeet bitt fir kleng awer wichteg Bäiträg fir d\'Wikipedia ze maachen. Dir kënnt awer och direkt op en Artikel goen, deen Iech interesséiert, an Ännerungen am Wikitext maachen.</string>
@@ -1188,12 +1193,15 @@
   <string name="onboarding_maybe_later">Villäicht méi spéit</string>
   <string name="onboarding_explore_title">Nei Manéiere fir z\'entdecken</string>
   <string name="onboarding_reading_list_sync_title">Lieslëschte mat Synchronisatioun</string>
+  <string name="onboarding_reading_list_sync_text_v2">Dir kënnt Lieslëschten uleeë mat Artikelen, déi Dir méi spéit liese wëllt, och wann Dir offline sidd. &lt;br/&gt;Loggt Iech an Äre Wikipedia-Kont an, fir Är Lieslëschten ze synchroniséieren. &lt;a href=\"#login\"&gt;Bei Wikipedia matmaachen&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Donnéeën &amp; Privatsphär</string>
   <string name="onboarding_analytics_switch_title">Donnéeën iwwer d\'Notzung schécken</string>
   <string name="onboarding_got_it">Verstanen</string>
   <string name="onboarding_multilingual_secondary_text">Mir hunn déi follgend op Ärem Apparat fonnt:</string>
   <string name="onboarding_multilingual_add_language_text">Sproochen änneren oder derbäisetzen</string>
-  <string name="onboarding_welcome_title_v2">Déi Fräi Enzyklopedie\n... a méi wéi 300 Sproochen</string>
+  <string name="onboarding_welcome_title_v2">Déi fräi Enzyklopedie\n... a méi wéi 300 Sproochen</string>
+  <string name="onboarding_fresh_install_knowledge_learn_more">Méi iwwer Wikipedia gewuer ginn</string>
+  <string name="onboarding_app_languages_text">Op Ärem Apparat hu mir déi follgend Sprooche fonnt:</string>
   <string name="app_shortcuts_random">Zoufall</string>
   <string name="app_shortcuts_continue_reading">Virufuere mat Liesen</string>
   <string name="app_shortcuts_search">Sichen</string>
@@ -1661,7 +1669,7 @@
   <string name="on_this_day_game_entry_dialog_title">Mir presentéieren</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Wikipedia-Spiller</string>
   <string name="on_this_day_game_entry_dialog_button">Spillen</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message" fuzzy="true">Wikipedia-Spiller sinn iwwer den Entdecke-Feed ze fannen.</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia-Spiller fannt Dir am Menü „Méi“ ënner „Spiller“.</string>
   <string name="on_this_day_game_title">Wat koum als éischt?</string>
   <string name="on_this_day_game_dialog_button">Spillen</string>
   <string name="on_this_day_game_splash_message">Rot, wateren Evenement als éischt op dësem Dag an der Geschicht koum.</string>
@@ -1716,7 +1724,7 @@
   <string name="on_this_day_game_archive_btn_text">Aus dem Archiv spillen</string>
   <string name="on_this_day_game_review_results_btn_text">Resultater nokucken</string>
   <string name="on_this_day_game_score_message">Dir hutt %1$d/%2$d beim Spill vun haut kritt.</string>
-  <string name="on_this_day_game_play_today_btn_text">Spillt d\'Spill vun haut</string>
+  <string name="on_this_day_game_play_today_btn_text">Spill vum Dag spillen</string>
   <string name="on_this_day_game_continue_playing_btn_text">Virufuere mat Spillen</string>
   <string name="on_this_day_game_sound_on">Toun ausmaachen</string>
   <string name="on_this_day_game_sound_off">Toun umaachen</string>
@@ -1746,6 +1754,7 @@
   <string name="year_in_review_get_started_info">Äre Lieshistorique bleift geschützt. D\'Ablécker an Äert Liesverhale ginn op Basis vu lokal op Ärem Apparat gespäicherten Donnéeë generéiert.</string>
   <string name="year_in_review_survey_title">Hëlleft eis dobäi fir de Joresréckbléck ze verbesseren</string>
   <string name="year_in_review_survey_subtitle">Sidd Dir zefridde mat dëser Funktioun?</string>
+  <string name="year_in_review_reading_list_survey_title">Hëllef dobäi, fir d\'Lieslëscht vum Joresréckbléck %d ze verbesseren.</string>
   <string name="year_in_review_reading_list_survey_subtitle">Sidd Dir mat Ärer Lieslëscht zefridden?</string>
   <string name="year_in_review_survey_very_satisfied">Ganz zefridden</string>
   <string name="year_in_review_survey_satisfied">Zefridden</string>
@@ -1764,6 +1773,7 @@
   <string name="year_in_review_globe_icon">Globussymbol</string>
   <string name="settings_app_icon_title">App-Symbol</string>
   <string name="settings_app_icon_updated">Äert App-Symbol gouf aktualiséiert.</string>
+  <string name="year_in_review_login_dialog_positive">Aloggen / Bei Wikipedia matmaachen</string>
   <string name="year_in_review_login_dialog_negative">Virufueren ouni anzeloggen</string>
   <plurals name="year_in_review_slide_top_articles_headline">
     <item quantity="one">Ären Topartikel</item>
@@ -1785,6 +1795,8 @@
     <item quantity="one">Dir hutt %,d Artikel gespäichert</item>
     <item quantity="other">Dir hutt %,d Artikele gespäichert</item>
   </plurals>
+  <string name="year_in_review_slide_global_saved_articles_body">Wann Dir Artikelen op Lieslëschte setzt, kënnt Dir och dann op d\'Artikelen zougräifen, wann Dir offline sidd. Dir kënnt Iech och aloggen, fir Lieslëschten tëscht verschiddenen Apparater ze synchroniséieren.</string>
+  <string name="year_in_review_slide_reading_patterns_headline">Du hutt kloer Liesmusteren</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">Liblingszäit fir ze liesen</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">Liblingsdag fir ze liesen</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_month">Mount, an deem Dir am meeschte gelies hutt</string>
@@ -1799,13 +1811,22 @@
     <item quantity="other">Mir hu(nn) %,d Stonne mat Liese verbruecht</item>
   </plurals>
   <string name="year_in_review_reading_list_dialog_title">Är Lieslëscht fir de Joresréckbléck %d uleeën?</string>
+  <string name="year_in_review_reading_list_dialog_message">De Wikipedia-Joresréckbléck leet eng Lieslëscht u mat den Artikelen, op deenen Dir %1$d am meeschten Zäit verbruecht hutt. &lt;a href=\"%2$s\"&gt;Méi gewuer ginn&lt;/a&gt;</string>
   <string name="year_in_review_reading_list_dialog_positive_button_label">Uleeën</string>
   <string name="year_in_review_reading_list_dialog_negative_button_label">Nee, merci</string>
   <string name="year_in_review_reading_list_title">Joresréckbléck fir %d</string>
   <string name="year_in_review_highlights_thank_you_message">Merci, datt Dir Äert Joer mat Wikipedia verbruecht hutt.</string>
   <string name="year_in_review_highlights_looking_forward_message">Mir freeën eis op d\'nächst Joer!</string>
+  <plurals name="year_in_review_highlights_logged_out_en_hours_spent_title">
+    <item quantity="one">Stonn mat Liese verbruecht</item>
+    <item quantity="other">Stonne mat Liese verbruecht</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_en_edits_title">
+    <item quantity="one">Ännerung duerch Auteuren</item>
+    <item quantity="other">Ännerungen duerch Auteuren</item>
+  </plurals>
   <plurals name="year_in_review_highlights_logged_out_non_en_articles_title">
-    <item quantity="one">Zuel vu gekuckten Arrikelen</item>
+    <item quantity="one">Zuel vu gekuckten Artikelen</item>
     <item quantity="other">Zuel vu gekuckten Artikelen</item>
   </plurals>
   <plurals name="year_in_review_highlights_logged_out_non_en_edits_title">
@@ -1870,7 +1891,8 @@
     <item quantity="one">• %d Artikel</item>
     <item quantity="other">• %d Artikelen</item>
   </plurals>
-  <string name="recommended_reading_list_page_description_weekly">Är wéchentlech Lieslëscht. Gitt méi iwwer Theeme gewuer, déi speziell fir Iech erausgesicht goufen. Aktualiséierungen um Ufank vun der Woch.</string>
+  <string name="recommended_reading_list_page_description_daily">Är deeglech Lieslëscht. Gitt méi iwwer Theeme gewuer, déi speziell fir Iech erausgesicht goufen. Se gëtt um Mëtternuecht aktualiséiert.</string>
+  <string name="recommended_reading_list_page_description_weekly">Är wéchentlech Lieslëscht. Gitt méi iwwer Theeme gewuer, déi speziell fir Iech erausgesicht goufen. Se gëtt um Ufank vun all Woch aktualiséiert.</string>
   <string name="recommended_reading_list_page_overflow_customize">Personaliséieren</string>
   <string name="recommended_reading_list_page_overflow_about">Iwwer dës Funktioun</string>
   <string name="recommended_reading_list_page_snackbar">Entdecke gëtt all %2$s mat %1$d neien Artikelen aktualiséiert. Är Recommandatioune gi lokal op Ärem Apparat gespäichert.</string>
@@ -1949,23 +1971,66 @@
   <string name="donation_reminders_settings_report_email_body">Ech sinn op e Problem mat der Funktioun fir Donerënnerunge gestouss:\n- [Beschreift de spezifesche Problem]\n- [Screenshotten oder Linken]\n\nD\'Verhalen, dat ech gär geséich:\n- [Beschreift déi proposéiert Léisung]</string>
   <string name="donation_reminders_snackbar_modify_button_label">Änneren</string>
   <string name="hybrid_search_onboarding_learn_more">Méi gewuer ginn</string>
+  <string name="hybrid_search_onboarding_search_title">Froe stellen, Äntwerte kréien</string>
+  <string name="hybrid_search_onboarding_search_description">Dës experimentell Funktioun versteet natierlech Sprooch. Amplaz no Stéchwierder ze sichen, kënnt Dir beschreiwen, wat Dir wësse wëllt.</string>
   <string name="hybrid_search_onboarding_opt_in_choice_title">Beta-Funktioun</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_description">Fir eng limitéiert Zäit wärend dësem Experiment disponibel.</string>
   <string name="hybrid_search_beta_tag">Beta</string>
+  <string name="hybrid_search_experimental_feature_switch_label">Beim Experiment matmaachen</string>
   <string name="hybrid_search_onboarding_search_example_title">Braucht Dir Inspiratioun?</string>
+  <string name="hybrid_search_onboarding_search_example_description">Benotzt ee vun de Sichbeispiller ënnen.</string>
+  <string name="hybrid_search_onboarding_opt_out_toast_message">Dir hutt Iech decidéiert, beim Experiment net matzemaachen.</string>
+  <string name="hybrid_search_onboarding_search_example_query_pluto_as_planet">Wéini krut de Pluto de Planéitestatus oferkannt?</string>
+  <string name="hybrid_search_onboarding_search_example_query_first_olympics">éischt Olympesch Spiller</string>
+  <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">RNA vs. DNA</string>
+  <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Firwat maache Leit Ananas op d\'Pizza?</string>
   <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Wat sinn déi gréisste Stied an Europa?</string>
   <string name="hybrid_search_onboarding_screen_title">Eng nei Manéier fir ze sichen</string>
+  <string name="hybrid_search_results_header_description">Baséiert op vu Mënsche geschriwwene Wikipedia-Artikelen</string>
+  <string name="hybrid_search_results_rate_label">Bewäert dëst Resultat</string>
+  <string name="hybrid_search_results_rated_label">Bewäert</string>
+  <string name="hybrid_search_results_rate_thumb_up">Mam Daum erop bewäerten</string>
+  <string name="hybrid_search_results_rate_thumb_down">Mam Daum erof bewäerten</string>
+  <string name="hybrid_lexical_search_results_empty">Et passt keen Artikeltitel op dës Ufro.</string>
+  <string name="hybrid_search_results_empty">D\'erweidert Sich ass temporär net disponibel.</string>
   <string name="hybrid_search_no_results_header">Keng Resultater</string>
+  <string name="hybrid_search_no_results_description">Fir dëst Theema ginn am Moment keng Artikelausschnëtter fonnt. Hei e puer Virschléi, déi Dir ausprobéiere kënnt:</string>
+  <string name="hybrid_search_no_results_suggestion_rephrase_text">Formuléiert Är Sich anescht</string>
+  <string name="hybrid_search_no_results_suggestion_try_related_topic">Probéiert en änlecht Theema</string>
   <string name="hybrid_search_error_message">Et ass eppes schifgaangen. Probéiert wgl. méi spéit nach eng Kéier.</string>
   <string name="hybrid_search_who_is_prefix">Wien ass %s?</string>
   <string name="hybrid_search_turn_off_experiment_label">Dat hei Experiment desaktivéieren</string>
+  <string name="reading_challenge_widget_name">Lies-Challenge</string>
+  <string name="reading_challenge_onboarding_header">Feiert de 25. Gebuertsdag vu Wikipedia, andeems Dir bei der 25-Deeg-Lies-Challenge matmaacht!</string>
   <string name="reading_challenge_onboarding_read_title">Liest wärend 25 Deeg all Dag 1 Artikel</string>
+  <string name="reading_challenge_onboarding_read_description">Dir kënnt zu all Moment tëscht dem 1. an dem 31. Mee bei der Challenge matmaachen, fir déi 25 Deeg an Ärem eegenen Tempo zesummenzekréien.</string>
+  <string name="reading_challenge_onboarding_read_subtitle">Dir kënnt zu all Moment tëscht dem %1$s an dem %2$s bei der Challenge matmaachen, fir déi 25 Deeg an Ärem eegenen Tempo zesummenzekréien.</string>
+  <string name="reading_challenge_onboarding_win_title">Gewannt Präisser</string>
+  <string name="reading_challenge_onboarding_win_description">Completéiert eng Liesserie vu 25 Deeg, wärend d\'Challenge leeft, fir speziell Präisser ze gewannen.</string>
+  <string name="reading_challenge_onboarding_install_title">Installéiert de Widget</string>
+  <string name="reading_challenge_onboarding_install_description">Dir kritt nëtzlech Erënnerungen a Motivatioun vun eisem häerzege Gebuertsdagsmaskottchen, dem Beebee-Globus.</string>
+  <string name="reading_challenge_onboarding_note">Äre Lieshistorique bleift geschützt. D\'Ablécker an Äert Liesverhale ginn op Basis vu lokal op Ärem Apparat gespäicherten Donnéeë generéiert.</string>
   <string name="reading_challenge_onboarding_learn_more_button">Méi gewuer ginn</string>
+  <string name="reading_challenge_onboarding_join_button">Bei der Challenge matmaachen</string>
+  <string name="reading_challenge_onboarding_prompt_title">Loggt Iech an, fir bei der Challenge matzemaachen</string>
+  <string name="reading_challenge_onboarding_prompt_message">Loggt Iech an oder leet e Kont un, fir Äre Progrès bei der Lies-Challenge ze suivéieren.</string>
   <string name="reading_challenge_onboarding_prompt_no_thanks">Nee merci</string>
   <string name="reading_challenge_onboarding_prompt_login">Aloggen / Bei Wikipedia matmaachen</string>
+  <string name="reading_challenge_install_prompt_title">Installéiert de Widget vun der 25-Deeg-Lies-Challenge</string>
+  <string name="reading_challenge_install_prompt_message">De Beebee-Globus feiert Iech un. Setzt de Widget vun der Lies-Challenge derbäi, fir Äre Progrès vum Startbildschierm aus suivéieren ze kënnen.</string>
   <string name="reading_challenge_install_prompt_got_it">Verstanen</string>
   <string name="reading_challenge_install_prompt_add">Derbäisetzen</string>
+  <string name="reading_challenge_widget_explore_button">Exploréieren</string>
+  <string name="reading_challenge_widget_explore_wikipedia_button">Wikipedia exploréieren</string>
+  <string name="reading_challenge_widget_join_challenge_button">Bei der Challenge matmaachen</string>
+  <string name="reading_challenge_widget_join_the_challenge_button">Bei der Challenge matmaachen</string>
   <string name="reading_challenge_widget_search_button">Sichen</string>
   <string name="reading_challenge_widget_random_button">Zoufälleg</string>
+  <string name="reading_challenge_widget_collect_prize_button">Präis asammelen</string>
+  <string name="reading_challenge_widget_collect_your_prize_button">Sammelt Äre Präis an!</string>
+  <string name="reading_challenge_widget_not_live_title">Maacht Iech prett fir ze liesen</string>
+  <string name="reading_challenge_widget_not_live_description">Et steet eng 25-Deeg-Lies-Challenge virun der Dier.</string>
+  <string name="reading_challenge_widget_not_opted_in_description">Maacht bei der 25-Deeg-Lies-Challenge mat, fir speziell Präisser fräizeschalten.</string>
   <plurals name="reading_challenge_small_widget_streak">
     <item quantity="one">%d Dag</item>
     <item quantity="other">%d Deeg</item>
@@ -1978,5 +2043,31 @@
     <item quantity="one">%1$d vu(n) %2$d Dag</item>
     <item quantity="other">%1$d vu(n) %2$d Deeg</item>
   </plurals>
+  <string name="reading_challenge_streak_ongoing_title">25-Deeg-Lies-Challenge</string>
+  <string name="reading_challenge_widget_reminder_one_article_away">Är Serie ass just een Artikel ewech.</string>
+  <string name="reading_challenge_widget_enrolled_not_started_subtitle">Fänkt un, op eng 25-Deeg-Serie hinzeschaffen!</string>
+  <string name="reading_challenge_widget_start_reading_challenge_title">Fänkt mat Ärer Lies-Challenge un.</string>
+  <string name="reading_challenge_widget_start_reading_challenge_subtitle">All Serie fänkt iergendwou un</string>
+  <string name="reading_challenge_widget_start_spin_up_new_streak_title">Loscht op eng nei Serie?</string>
+  <string name="reading_challenge_widget_start_spin_up_new_streak_subtitle">Liest een Artikel fir duerzefueren.</string>
+  <string name="reading_challenge_widget_start_fresh_start_title">En neien Ufank.</string>
+  <string name="reading_challenge_widget_start_fresh_start_subtitle">Är Serie ass just een Artikel ewech.</string>
+  <string name="reading_challenge_widget_concluded_incomplete">Challenge ofgeschloss</string>
   <string name="reading_challenge_widget_concluded_complete">Dir hutt et gepackt!</string>
+  <string name="reading_challenge_widget_reward_title">Virwëtz geet Iech gutt! 🛍️</string>
+  <string name="reading_challenge_widget_reward_body">Feiert den Ofschloss vun der Challenge mat enger Remise vu 15%% am Wikipedia-Shop.</string>
+  <string name="reading_challenge_widget_reward_button_label">Profitéiert vun enger Remise vu 15%% am Shop</string>
+  <string name="explore_feed_new_update_prompt_new_name_title">En neien Numm</string>
+  <string name="explore_feed_new_update_prompt_primary_button_text">Mäi Feed upassen</string>
+  <string name="explore_feed_community_tab_label">Communautéit</string>
+  <string name="explore_feed_for_you_tab_label">Fir Iech</string>
+  <string name="explore_feed_date_today">Haut – %s</string>
+  <string name="explore_feed_onboarding_curiosity_title">Gitt Ärem Virwëtz no</string>
+  <string name="explore_feed_preference_personalized_content_title">Personaliséierten Inhalt</string>
+  <string name="explore_feed_manage_languages_label">Sprooche geréieren</string>
+  <string name="explore_feed_header_overflow_hide_module_label">Modul verstoppen</string>
+  <string name="explore_feed_header_overflow_hide_module_message">Modul verstoppt.</string>
+  <string name="home_feed_settings_because_you_read_subtitle">Virschléi op Basis vun engem rezenten Artikel aus Ärem Historique</string>
+  <string name="home_feed_settings_continue_reading_subtitle">Gitt zeréck op Artikelen, déi Dir net fäerdeg gelies hutt</string>
+  <string name="home_feed_screen_empty_state_label">Äre Feed ass eidel</string>
 </resources>

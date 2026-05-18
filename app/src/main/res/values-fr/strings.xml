@@ -463,8 +463,10 @@
   <string name="button_get_directions">Obtenir les directions</string>
   <string name="error_no_maps_app">Impossible de trouver une application fournissant des itinéraires.</string>
   <string name="preference_title_customize_explore_feed">Flux d\'exploration</string>
+  <string name="preference_title_customize_home_feed">Fil d\'actualité</string>
   <string name="preference_title_show_link_previews">Afficher les aperçus de liens</string>
   <string name="preference_summary_customize_explore_feed">Personnaliser le flux d\'exploration</string>
+  <string name="preference_summary_customize_home_feed">Personnalisez votre fil d\'actualité</string>
   <string name="preference_summary_show_link_previews">Afficher un rapide aperçu des articles en tapant sur les liens.</string>
   <string name="preference_title_collapse_tables">Replier les tableaux</string>
   <string name="preference_summary_collapse_tables">Replier automatiquement les tableaux dans les articles, comme les boîtes d’information, les références et les notes.</string>
@@ -874,9 +876,11 @@
   <string name="view_random_article_card_title">Article au hasard</string>
   <string name="view_random_article_card_action">Davantage d’articles au hasard</string>
   <string name="view_top_read_card_title">Les plus lus</string>
+  <string name="view_top_read_card_description">Quels sont les sujets tendance aujourd\'hui sur Wikipédia ?</string>
   <string name="view_top_read_card_action">Davantage de plus lus</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d k</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
+  <string name="view_top_read_card_pageviews_views_suffix">Vues</string>
   <string name="view_next_random_article">Charger un autre article au hasard</string>
   <string name="view_main_page_card_title">Aujourd’hui sur Wikipédia</string>
   <string name="view_main_page_card_action">Afficher la page principale</string>
@@ -1328,6 +1332,12 @@
   <string name="onboarding_multilingual_add_language_text">Ajouter ou modifier des langues</string>
   <string name="onboarding_welcome_title_v2">L’encyclopédie libre\n... dans plus de 300 langues</string>
   <string name="onboarding_next">Suivant</string>
+  <string name="onboarding_fresh_install_knowledge_title">Tout le savoir du monde</string>
+  <string name="onboarding_fresh_install_knowledge_text">Wikipédia est une encyclopédie en ligne gratuite qui compte 65 millions d\'articles rédigés et mis à jour collaborativement dans plus de 300 langues par une communauté de bénévoles.</string>
+  <string name="onboarding_fresh_install_knowledge_learn_more">En savoir plus sur Wikipédia</string>
+  <string name="onboarding_app_languages_title">Lisez en plus de 300 langues</string>
+  <string name="onboarding_app_languages_text">Nous avons détecté les langues suivantes sur votre appareil :</string>
+  <string name="onboarding_app_languages_primary">Principal</string>
   <string name="app_shortcuts_random">Au hasard</string>
   <string name="app_shortcuts_continue_reading">Continuer à lire</string>
   <string name="app_shortcuts_search">Rechercher</string>
@@ -1851,9 +1861,14 @@
   <string name="survey_dialog_general_maybe">Peut être</string>
   <string name="survey_dialog_input_hint">Commentaires supplémentaires</string>
   <string name="survey_dialog_submitted_snackbar">Commentaire envoyé. Merci !</string>
+  <string name="games_hub_activity_title">Jeux</string>
+  <string name="games_hub_activity_games_unavailable_message">Aucun jeu n\'est encore disponible dans cette langue ! Les jeux utilisent le contenu créé par les contributeurs bénévoles de Wikipédia dans chaque langue.</string>
+  <string name="games_hub_activity_games_unavailable_message_learn_more_action">En savoir plus</string>
+  <string name="games_hub_activity_overflow_view_game_stats">Consulter les statistiques de jeu</string>
+  <string name="games_hub_activity_overflow_learn_more">En savoir plus</string>
   <string name="on_this_day_game_entry_dialog_title">Présentation</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Jeux de Wikipédia</string>
-  <string name="on_this_day_game_entry_dialog_button" fuzzy="true">Jouer au jeu d\'aujourd\'hui</string>
+  <string name="on_this_day_game_entry_dialog_button">Jouer</string>
   <string name="on_this_day_game_entry_dialog_snackbar_message" fuzzy="true">Les jeux Wikipédia sont disponibles sur le fil Explorer.</string>
   <string name="on_this_day_game_title">Qu\'est-ce qui est venu en premier ?</string>
   <string name="on_this_day_game_dialog_button">Lecture</string>
@@ -1911,9 +1926,11 @@
   <string name="on_this_day_game_archive_btn_text">Jeux des jours précédents</string>
   <string name="on_this_day_game_review_results_btn_text">Voir les résultats</string>
   <string name="on_this_day_game_score_message">Votre score au jeu du jour est de %1$d/%2$d.</string>
+  <string name="on_this_day_game_play_today_btn_text">Jouez au jeu d\'aujourd\'hui</string>
   <string name="on_this_day_game_continue_playing_btn_text">Continuer à jouer</string>
   <string name="on_this_day_game_sound_on">Activer le son</string>
   <string name="on_this_day_game_sound_off">Désactiver le son</string>
+  <string name="on_this_day_game_more_label">Plus</string>
   <string name="year_in_review_learn_more">En savoir plus</string>
   <string name="year_in_review_get_started">Commencer</string>
   <string name="year_in_review_topbar_w_icon">Icône de Wikipédia W</string>

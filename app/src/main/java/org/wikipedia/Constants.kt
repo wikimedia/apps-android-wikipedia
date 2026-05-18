@@ -39,6 +39,7 @@ object Constants {
     const val INTENT_EXTRA_REVERT_QNUMBER = "revertQNumber"
     const val INTENT_EXTRA_SNACKBAR_MESSAGE = "snackbarMessage"
     const val INTENT_RETURN_TO_MAIN = "returnToMain"
+    const val INTENT_WIDGET_TYPE = "widgetType"
 
     const val MAX_READING_LIST_ARTICLE_LIMIT = 5000
     const val MAX_READING_LISTS_LIMIT = 100
