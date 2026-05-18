@@ -28,16 +28,16 @@ enum class CommunityModuleType(
         title = R.string.view_top_read_card_title,
         subtitle = R.string.view_top_read_card_description
     ),
-    FEATURED_IMAGE(
-        title = R.string.view_featured_image_card_title,
-        subtitle = R.string.explore_feed_in_the_news_subtitle
-    ),
     NEWS(
         title = R.string.view_card_news_title,
-        subtitle = R.string.explore_feed_on_this_day_subtitle
+        subtitle = R.string.explore_feed_in_the_news_subtitle
     ),
     ON_THIS_DAY(
         title = R.string.on_this_day_card_title,
+        subtitle = R.string.explore_feed_on_this_day_subtitle
+    ),
+    FEATURED_IMAGE(
+        title = R.string.view_featured_image_card_title,
         subtitle = R.string.explore_feed_potd_subtitle
     );
 
