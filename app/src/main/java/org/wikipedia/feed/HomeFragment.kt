@@ -6,7 +6,6 @@ import android.text.format.DateFormat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.compose.LocalActivity
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -32,7 +31,9 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
@@ -64,6 +65,7 @@ import androidx.compose.ui.platform.LocalLocale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -74,10 +76,12 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.compose.components.AppButton
+import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.components.NotificationBell
 import org.wikipedia.compose.components.NotificationBellState
 import org.wikipedia.compose.components.TabsBox
 import org.wikipedia.compose.components.WikiLangCodeBox
+import org.wikipedia.compose.components.WikipediaAlertDialog
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.components.menu.PageOverflowMenu
@@ -93,7 +97,6 @@ import org.wikipedia.feed.continuereading.ContinueReadingModule
 import org.wikipedia.feed.dayheader.DayHeaderCard
 import org.wikipedia.feed.featured.FeaturedArticleCard
 import org.wikipedia.feed.featured.FeaturedArticleModule
-import org.wikipedia.feed.image.FeaturedImage
 import org.wikipedia.feed.image.FeaturedImageCard
 import org.wikipedia.feed.image.FeaturedImageModule
 import org.wikipedia.feed.interests.BasedOnInterestModule
@@ -119,6 +122,8 @@ import org.wikipedia.navtab.NavTab
 import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.settings.Prefs
+import org.wikipedia.settings.homefeed.HomeFeedSettingsActivity
+import org.wikipedia.settings.homefeed.HomeFeedSettingsStartDestination
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DimenUtil
@@ -166,6 +171,7 @@ class HomeFragment : Fragment() {
                 val wikiSite by viewModel.wikiSite.collectAsState()
                 val tabsState by viewModel.tabsState.collectAsState()
                 val notificationState by viewModel.unreadCount.collectAsState()
+                var swipeToExplorePromptShown by remember { mutableStateOf(Prefs.isHomeSwipeToExplorePromptShown) }
 
                 BaseTheme(currentTheme = if (selectedTab == HomeTab.FOR_YOU) Theme.BLACK else WikipediaApp.instance.currentTheme) {
                     HomeScreen(
@@ -190,36 +196,45 @@ class HomeFragment : Fragment() {
                         onLoadMoreCommunityContent = viewModel::loadCommunityContent,
                         onLoadMoreForYouContent = viewModel::loadForYouContent,
                         onHideCommunityCardClick = { card ->
+                            instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_overflow", elementId = "card_hide")
                             val cardIndex = viewModel.hideCommunityCard(card)
                             FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.menu_feed_card_dismissed))
                                 .setAction(getString(R.string.explore_feed_header_overflow_hide_module_message_action)) {
+                                    instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_overflow", elementId = "undo_card_hide")
                                     viewModel.restoreCommunityCard(card, cardIndex)
                                 }.show()
                         },
                         onHideForYouCardClick = { module, card ->
+                            instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_overflow", elementId = "card_hide")
                             val cardIndex = viewModel.hideForYouCard(module, card)
                             FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.menu_feed_card_dismissed))
                                 .setAction(getString(R.string.explore_feed_header_overflow_hide_module_message_action)) {
+                                    instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_overflow", elementId = "undo_card_hide")
                                     viewModel.restoreForYouCard(module, card, cardIndex)
                                 }.show()
                         },
                         onHideModuleClick = { moduleKey ->
+                            instrument.submitInteraction("click", actionSource = moduleKey, actionSubtype = "feed_overflow", elementId = "module_hide")
                             viewModel.hideModule(moduleKey)
                             FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.explore_feed_header_overflow_hide_module_message))
                                 .setAction(getString(R.string.explore_feed_header_overflow_hide_module_message_action)) {
+                                    instrument.submitInteraction("click", actionSource = moduleKey, actionSubtype = "feed_overflow", elementId = "undo_module_hide")
                                     viewModel.restoreModule(moduleKey)
                                 }.show()
                         },
-                        onPageClick = {
-                            (parentFragment as? MainFragment)?.onFeedSelectPage(it, false)
+                        onPageClick = { card, historyEntry ->
+                            instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, elementId = "article_open", pageData = TestKitchenAdapter.getPageData(pageTitle = historyEntry.title))
+                            (parentFragment as? MainFragment)?.onFeedSelectPage(historyEntry, false)
                         },
-                        onPageBookmarkClick = {
-                            (parentFragment as? MainFragment)?.onFeedAddPageToList(it, false)
+                        onPageBookmarkClick = { card, historyEntry ->
+                            instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, elementId = "article_save", pageData = TestKitchenAdapter.getPageData(pageTitle = historyEntry.title))
+                            (parentFragment as? MainFragment)?.onFeedAddPageToList(historyEntry, true)
                         },
-                        onPageShareClick = {
-                            ShareUtil.shareText(requireContext(), it.title)
+                        onPageShareClick = { card, historyEntry ->
+                            instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, elementId = "article_share", pageData = TestKitchenAdapter.getPageData(pageTitle = historyEntry.title))
+                            ShareUtil.shareText(requireContext(), historyEntry.title)
                         },
-                        onPageOverflowClick = { pageSummary, source, menuKey ->
+                        onPageOverflowClick = { card, pageSummary, source, menuKey ->
                             pageOverflowMenuViewModel.onPageOverflowClick(
                                 context = requireContext(),
                                 wikiSite = wikiSite,
@@ -227,25 +242,32 @@ class HomeFragment : Fragment() {
                                 source = source,
                                 menuKey = menuKey,
                                 onOpenPage = { entry ->
+                                    instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_item_overflow", elementId = "article_open", pageData = TestKitchenAdapter.getPageData(pageTitle = entry.title))
                                     (parentFragment as? MainFragment)?.onFeedSelectPage(entry, false)
                                 },
                                 onOpenInNewTab = { entry ->
+                                    instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_item_overflow", elementId = "article_open_new_tab", pageData = TestKitchenAdapter.getPageData(pageTitle = entry.title))
                                     (parentFragment as? MainFragment)?.onFeedSelectPage(entry, true)
                                     viewModel.updateTabCount(true)
                                 },
                                 onAddRequest = { entry, addToDefault ->
+                                    instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_item_overflow", elementId = "article_save", pageData = TestKitchenAdapter.getPageData(pageTitle = entry.title))
                                     (parentFragment as? MainFragment)?.onFeedAddPageToList(entry, addToDefault)
                                 },
                                 onMoveRequest = { id, entry ->
+                                    instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_item_overflow", elementId = "article_move", pageData = TestKitchenAdapter.getPageData(pageTitle = entry.title))
                                     (parentFragment as? MainFragment)?.onFeedMovePageToList(id, entry)
                                 },
                                 onRemoveRequest = { entry, lists ->
+                                    instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_item_overflow", elementId = "article_remove", pageData = TestKitchenAdapter.getPageData(pageTitle = entry.title))
                                     (parentFragment as? MainFragment)?.onFeedRemovePageFromList(entry, lists)
                                 },
                                 onShareRequest = { entry ->
+                                    instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_item_overflow", elementId = "article_share", pageData = TestKitchenAdapter.getPageData(pageTitle = entry.title))
                                     (parentFragment as? MainFragment)?.onFeedSharePage(entry)
                                 },
                                 onLinkCopyRequest = { entry ->
+                                    instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_item_overflow", elementId = "article_copy_link", pageData = TestKitchenAdapter.getPageData(pageTitle = entry.title))
                                     (parentFragment as? MainFragment)?.onFeedCopyLink(entry)
                                 }
                             )
@@ -253,25 +275,32 @@ class HomeFragment : Fragment() {
                         onPageOverflowDismiss = {
                             pageOverflowMenuViewModel.dismissPageOverflowMenu()
                         },
-                        onNewsClick = { newsItem ->
+                        onNewsClick = { card, newsItem ->
+                            instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, elementId = card.javaClass.simpleName, actionContext = mapOf("index" to card.news.indexOf(newsItem)))
                             (parentFragment as? MainFragment)?.onFeedNewsItemSelected(newsItem, wikiSite)
                         },
                         onImageClick = {
-                            (parentFragment as? MainFragment)?.onFeaturedImageSelected(it)
+                            instrument.submitInteraction("click", actionSource = it.javaClass.simpleName, elementId = "article_open", pageData = TestKitchenAdapter.getPageData(pageTitle = it.featuredImage.toPageTitle()))
+                            (parentFragment as? MainFragment)?.onFeaturedImageSelected(it.featuredImage)
                         },
-                        onImageShareClick = { image, age ->
-                            (parentFragment as? MainFragment)?.onFeedShareImage(image, age)
+                        onImageShareClick = {
+                            instrument.submitInteraction("click", actionSource = it.javaClass.simpleName, elementId = "share", pageData = TestKitchenAdapter.getPageData(pageTitle = it.featuredImage.toPageTitle()))
+                            (parentFragment as? MainFragment)?.onFeedShareImage(it.featuredImage, it.age)
                         },
                         onImageDownloadClick = {
-                            (parentFragment as? MainFragment)?.onFeedDownloadImage(it)
+                            instrument.submitInteraction("click", actionSource = it.javaClass.simpleName, elementId = "download", pageData = TestKitchenAdapter.getPageData(pageTitle = it.featuredImage.toPageTitle()))
+                            (parentFragment as? MainFragment)?.onFeedDownloadImage(it.featuredImage)
                         },
                         onLanguageSelected = { languageCode ->
+                            instrument.submitInteraction("click", "language_menu", elementId = "language_change", actionContext = mapOf("selected_tab" to selectedTab.name, "language_code" to languageCode))
                             viewModel.updateLanguage(languageCode)
                         },
                         onManageLanguagesClick = {
+                            instrument.submitInteraction("click", "language_menu", elementId = "manage_languages", actionContext = mapOf("selected_tab" to selectedTab.name))
                             requireActivity().startActivity(WikipediaLanguagesActivity.newIntent(requireContext(), invokeSource = InvokeSource.FEED))
                         },
-                        onCustomizeInterestsClick = {
+                        onCustomizeInterestsClick = { card ->
+                            instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_overflow", elementId = "feed_customize")
                             customizeInterestsLauncher.launch(PersonalizationActivity.newIntent(requireContext(), showIntroPage = false))
                         },
                         onTabClick = {
@@ -283,10 +312,55 @@ class HomeFragment : Fragment() {
                         onCardImpression = { card, index ->
                             onCardImpression(card, index)
                         },
+                        onCardFooterClick = { card ->
+                            when (card) {
+                                is TopReadListCard -> {
+                                    instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, elementId = "more_top_read")
+                                    // TODO: simplify TopReadListCard after we remove the old feed UIs.
+                                    startActivity(TopReadArticlesActivity.newIntent(requireActivity(), TopReadListCard(card.articles, card.age, wikiSite)))
+                                }
+                                is OnThisDayCard -> {
+                                    instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, elementId = "more_on_this_day")
+                                    startActivity(OnThisDayActivity.newIntent(requireActivity(), card.age, -1, wikiSite, InvokeSource.ON_THIS_DAY_CARD_FOOTER))
+                                }
+                            }
+                        },
                         onNotificationClick = {
                             requireActivity().startActivity(NotificationActivity.newIntent(requireActivity()))
+                        },
+                        onManageModulesClick = {
+                            val intent = HomeFeedSettingsActivity.newIntent(
+                                context = requireContext(),
+                                startDestination = when (selectedTab) {
+                                    HomeTab.COMMUNITY -> HomeFeedSettingsStartDestination.COMMUNITY_MODULES
+                                    HomeTab.FOR_YOU -> HomeFeedSettingsStartDestination.FOR_YOU_MODULES
+                                }
+                            )
+                            requireActivity().startActivity(intent)
                         }
                     )
+
+                    if (selectedTab == HomeTab.FOR_YOU && !swipeToExplorePromptShown) {
+                        val dismissSwipePrompt = {
+                            swipeToExplorePromptShown = true
+                            Prefs.isHomeSwipeToExplorePromptShown = true
+                        }
+                        WikipediaAlertDialog(
+                            title = stringResource(R.string.explore_feed_swipe_to_explore_prompt_title),
+                            titleModifier = Modifier.fillMaxWidth(),
+                            message = stringResource(R.string.explore_feed_swipe_to_explore_prompt_message),
+                            image = {
+                                Image(
+                                    painter = painterResource(R.drawable.illustration_swipe_gesture),
+                                    contentDescription = null,
+                                    modifier = Modifier.fillMaxWidth()
+                                )
+                            },
+                            confirmButtonText = stringResource(R.string.onboarding_got_it),
+                            onDismissRequest = dismissSwipePrompt,
+                            onConfirmButtonClick = dismissSwipePrompt
+                        )
+                    }
                 }
             }
         }
@@ -353,22 +427,24 @@ fun HomeScreen(
     onHideCommunityCardClick: (card: Card) -> Unit = {},
     onHideForYouCardClick: (module: ForYouModule, card: ForYouCard) -> Unit = { _, _ -> },
     onHideModuleClick: (moduleKey: String) -> Unit = {},
-    onPageClick: (historyEntry: HistoryEntry) -> Unit = {},
-    onPageBookmarkClick: (historyEntry: HistoryEntry) -> Unit = {},
-    onPageShareClick: (historyEntry: HistoryEntry) -> Unit = {},
-    onPageOverflowClick: (pageSummary: PageSummary, source: Int, menuKey: String) -> Unit = { _, _, _ -> },
+    onPageClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
+    onPageBookmarkClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
+    onPageShareClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
+    onPageOverflowClick: (card: Card, pageSummary: PageSummary, source: Int, menuKey: String) -> Unit = { _, _, _, _ -> },
     onPageOverflowDismiss: () -> Unit = {},
-    onNewsClick: (newsItem: NewsItem) -> Unit = {},
-    onImageClick: (image: FeaturedImage) -> Unit = {},
-    onImageDownloadClick: (image: FeaturedImage) -> Unit = {},
-    onImageShareClick: (image: FeaturedImage, age: Int) -> Unit = { _, _ -> },
+    onNewsClick: (card: NewsCard, newsItem: NewsItem) -> Unit = { _, _ -> },
+    onImageClick: (card: FeaturedImageCard) -> Unit = {},
+    onImageDownloadClick: (card: FeaturedImageCard) -> Unit = {},
+    onImageShareClick: (card: FeaturedImageCard) -> Unit = {},
     onLanguageSelected: (String) -> Unit = {},
     onManageLanguagesClick: () -> Unit = {},
     onTabClick: () -> Unit = {},
     onUpdateTabCount: () -> Unit = {},
-    onCustomizeInterestsClick: () -> Unit = {},
+    onCustomizeInterestsClick: (card: Card) -> Unit = {},
     onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> },
-    onNotificationClick: () -> Unit = {}
+    onCardFooterClick: (card: Card) -> Unit = {},
+    onNotificationClick: () -> Unit = {},
+    onManageModulesClick: () -> Unit = {}
 ) {
     val context = LocalContext.current
     val topInset = if (context is MainActivity) {
@@ -443,13 +519,16 @@ fun HomeScreen(
                             onImageClick = onImageClick,
                             onImageDownloadClick = onImageDownloadClick,
                             onImageShareClick = onImageShareClick,
-                            onCardImpression = onCardImpression
+                            onCardImpression = onCardImpression,
+                            onCardFooterClick = onCardFooterClick,
+                            onManageModulesClick = onManageModulesClick
                         )
                     }
                 }
 
                 HomeTab.FOR_YOU -> {
                     ForYouContentTab(
+                        topInset = topInset,
                         state = forYouContentState,
                         wikiSite = wikiSite,
                         onLoadMore = onLoadMoreForYouContent,
@@ -462,11 +541,14 @@ fun HomeScreen(
                         onPageOverflowClick = onPageOverflowClick,
                         onPageOverflowDismiss = onPageOverflowDismiss,
                         onCustomizeInterestsClick = onCustomizeInterestsClick,
-                        onCardImpression = onCardImpression
+                        onCardImpression = onCardImpression,
+                        onManageModulesClick = onManageModulesClick
                     )
 
                     // Floating toolbar with gradient scrim, wordmark, and tab selector.
-                    Column(modifier = Modifier.align(Alignment.TopCenter).fillMaxWidth()) {
+                    Column(modifier = Modifier
+                        .align(Alignment.TopCenter)
+                        .fillMaxWidth()) {
                         Box(
                             modifier = Modifier
                                 .fillMaxWidth()
@@ -551,17 +633,18 @@ fun HomeToolbar(
                     modifier = Modifier
                         .width(21.dp)
                         .height(20.dp)
-                        .then(if (tabsState.pulse) {
-                            Modifier.pulse(
-                                durationMillis = 300,
-                                toScale = 1.25f,
-                                onCompleted = {
-                                    onUpdateTabCount()
-                                }
-                            )
-                        } else {
-                            Modifier
-                        }),
+                        .then(
+                            if (tabsState.pulse) {
+                                Modifier.pulse(
+                                    durationMillis = 300,
+                                    toScale = 1.25f,
+                                    onCompleted = {
+                                        onUpdateTabCount()
+                                    }
+                                )
+                            } else {
+                                Modifier
+                            }),
                     backgroundColor = Color.Transparent,
                     count = tabsState.count
                 )
@@ -651,21 +734,35 @@ fun CommunityContentTab(
     onLoadMore: () -> Unit,
     onHideCardClick: (card: Card) -> Unit = {},
     onHideModuleClick: (moduleKey: String) -> Unit = {},
-    onPageClick: (historyEntry: HistoryEntry) -> Unit,
-    onPageBookmarkClick: (historyEntry: HistoryEntry) -> Unit = {},
-    onPageShareClick: (historyEntry: HistoryEntry) -> Unit = {},
-    onPageOverflowClick: (pageSummary: PageSummary, source: Int, menuKey: String) -> Unit = { _, _, _ -> },
+    onPageClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
+    onPageBookmarkClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
+    onPageShareClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
+    onPageOverflowClick: (card: Card, pageSummary: PageSummary, source: Int, menuKey: String) -> Unit = { _, _, _, _ -> },
     onPageOverflowDismiss: () -> Unit = {},
-    onNewsClick: (newsItem: NewsItem) -> Unit = {},
-    onImageClick: (image: FeaturedImage) -> Unit = {},
-    onImageDownloadClick: (image: FeaturedImage) -> Unit = {},
-    onImageShareClick: (image: FeaturedImage, age: Int) -> Unit = { _, _ -> },
-    onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> }
+    onNewsClick: (card: NewsCard, newsItem: NewsItem) -> Unit = { _, _ -> },
+    onImageClick: (card: FeaturedImageCard) -> Unit = {},
+    onImageDownloadClick: (card: FeaturedImageCard) -> Unit = {},
+    onImageShareClick: (card: FeaturedImageCard) -> Unit = {},
+    onCardFooterClick: (card: Card) -> Unit = {},
+    onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> },
+    onManageModulesClick: () -> Unit
 ) {
-    val activity = LocalActivity.current as? MainActivity
     when {
         state.isInitialLoading -> {
             LoadingIndicator(modifier = modifier.fillMaxHeight())
+        }
+        state.isEmptyState -> {
+            val context = LocalContext.current
+            HomeScreenEmptyState(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(WikipediaTheme.colors.paperColor)
+                    .padding(16.dp)
+                    .verticalScroll(rememberScrollState()),
+                title = context.getString(wikiSite.languageCode, R.string.home_feed_screen_empty_state_label),
+                description = context.getString(wikiSite.languageCode, R.string.home_feed_community_screen_empty_state_description),
+                onManageModulesClick = onManageModulesClick
+            )
         }
         state.error != null && state.cards.isEmpty() -> {
             ErrorState(state.error, onRetry = onLoadMore)
@@ -684,6 +781,7 @@ fun CommunityContentTab(
                     )
                     Spacer(modifier = Modifier.height(16.dp))
                 }
+                var lastCardWasDayHeader = false
                 state.cards.forEachIndexed { cardIndex, card ->
                     when (card) {
                         is DayHeaderCard -> {
@@ -697,7 +795,7 @@ fun CommunityContentTab(
                                     wikiSite = wikiSite,
                                     card.page,
                                     onPageClick = {
-                                        onPageClick(
+                                        onPageClick(card,
                                             it.getHistoryEntry(
                                                 wikiSite,
                                                 HistoryEntry.SOURCE_FEED_FEATURED
@@ -709,7 +807,7 @@ fun CommunityContentTab(
                                         onHideModuleClick(card.moduleKey())
                                     },
                                     onShareClick = {
-                                        onPageShareClick(
+                                        onPageShareClick(card,
                                             it.getHistoryEntry(
                                                 wikiSite,
                                                 HistoryEntry.SOURCE_FEED_FEATURED
@@ -717,7 +815,7 @@ fun CommunityContentTab(
                                         )
                                     },
                                     onBookmarkClick = {
-                                        onPageBookmarkClick(
+                                        onPageBookmarkClick(card,
                                             it.getHistoryEntry(
                                                 wikiSite,
                                                 HistoryEntry.SOURCE_FEED_FEATURED
@@ -729,6 +827,11 @@ fun CommunityContentTab(
                             }
                         }
                         is TopReadListCard -> {
+                            if (lastCardWasDayHeader) {
+                                item(key = "top-read-spacer-${card.age}") {
+                                    Spacer(modifier = Modifier.height(16.dp))
+                                }
+                            }
                             item(key = "top-read-${card.age}") {
                                 TopReadModule(
                                     wikiSite = wikiSite,
@@ -746,7 +849,7 @@ fun CommunityContentTab(
                                         onHideModuleClick(card.moduleKey())
                                     },
                                     onPageClick = { entry ->
-                                        onPageClick(
+                                        onPageClick(card,
                                             entry.getHistoryEntry(
                                                 wikiSite,
                                                 HistoryEntry.SOURCE_FEED_MOST_READ
@@ -754,17 +857,9 @@ fun CommunityContentTab(
                                         )
                                     },
                                     onPageOverflowClick = { pageSummary, index ->
-                                        onPageOverflowClick(pageSummary, HistoryEntry.SOURCE_FEED_MOST_READ, "top-read-${card.age}-$index")
+                                        onPageOverflowClick(card, pageSummary, HistoryEntry.SOURCE_FEED_MOST_READ, "top-read-${card.age}-$index")
                                     },
-                                    onFooterClick = {
-                                        // TODO: simplify TopReadListCard after we remove the old feed UIs.
-                                        activity?.startActivity(
-                                            TopReadArticlesActivity.newIntent(
-                                                activity,
-                                                TopReadListCard(card.articles, card.age, wikiSite)
-                                            )
-                                        )
-                                    },
+                                    onFooterClick = { onCardFooterClick(card) },
                                     onCardImpression = { onCardImpression(card, cardIndex) }
                                 )
                             }
@@ -779,13 +874,18 @@ fun CommunityContentTab(
                                         onHideModuleClick(card.moduleKey())
                                     },
                                     onNewsClick = { newsItem ->
-                                        onNewsClick(newsItem)
+                                        onNewsClick(card, newsItem)
                                     },
                                     onCardImpression = { onCardImpression(card, cardIndex) }
                                 )
                             }
                         }
                         is OnThisDayCard -> {
+                            if (lastCardWasDayHeader) {
+                                item(key = "on-this-day-spacer-${card.age}") {
+                                    Spacer(modifier = Modifier.height(16.dp))
+                                }
+                            }
                             item(key = "on-this-day-${card.age}") {
                                 OnThisDayModule(
                                     wikiSite = wikiSite,
@@ -803,14 +903,12 @@ fun CommunityContentTab(
                                         onHideModuleClick(card.moduleKey())
                                     },
                                     onPageClick = { pageSummary ->
-                                        onPageClick(pageSummary.getHistoryEntry(wikiSite, HistoryEntry.SOURCE_FEED_ON_THIS_DAY))
+                                        onPageClick(card, pageSummary.getHistoryEntry(wikiSite, HistoryEntry.SOURCE_FEED_ON_THIS_DAY))
                                     },
                                     onPageOverflowClick = { pageSummary, eventIndex, itemIndex ->
-                                        onPageOverflowClick(pageSummary, HistoryEntry.SOURCE_FEED_ON_THIS_DAY, "on-this-day-${card.age}-$eventIndex-$itemIndex")
+                                        onPageOverflowClick(card, pageSummary, HistoryEntry.SOURCE_FEED_ON_THIS_DAY, "on-this-day-${card.age}-$eventIndex-$itemIndex")
                                     },
-                                    onFooterClick = {
-                                        activity?.startActivity(OnThisDayActivity.newIntent(activity, card.age, -1, wikiSite, InvokeSource.ON_THIS_DAY_CARD_FOOTER))
-                                    },
+                                    onFooterClick = { onCardFooterClick(card) },
                                     onCardImpression = { onCardImpression(card, cardIndex) }
                                 )
                             }
@@ -819,14 +917,14 @@ fun CommunityContentTab(
                             item(key = "tfi-${card.age}") {
                                 FeaturedImageModule(
                                     wikiSite = wikiSite,
-                                    featuredImage = card.featuredImage,
+                                    card = card,
                                     onHideCardClick = { onHideCardClick(card) },
                                     onHideModuleClick = {
                                         onHideModuleClick(card.moduleKey())
                                     },
                                     onClick = onImageClick,
                                     onDownloadClick = onImageDownloadClick,
-                                    onShareClick = { onImageShareClick(card.featuredImage, card.age) },
+                                    onShareClick = onImageShareClick,
                                     onCardImpression = { onCardImpression(card, cardIndex) }
                                 )
                             }
@@ -837,12 +935,13 @@ fun CommunityContentTab(
                             // TODO: Media of the day (Commons)
                         }
                     }
+                    lastCardWasDayHeader = card is DayHeaderCard
                 }
 
                 item(key = "load-more-community") {
                     if (state.isLoadingMore) {
                         LoadingIndicator()
-                    } else if (state.canLoadMore) {
+                    } else if (state.canLoadMore && state.cards.isNotEmpty()) {
                         LoadMoreButton(
                             wikiSite = wikiSite,
                             isCommunity = true,
@@ -864,32 +963,50 @@ fun CommunityContentTab(
 @Composable
 fun ForYouContentTab(
     state: ForYouContentState,
+    topInset: Int,
     wikiSite: WikiSite,
     onLoadMore: () -> Unit,
     overflowMenuState: PageOverflowMenuViewModel.PageOverflowMenuState? = null,
     onHideCardClick: (module: ForYouModule, card: ForYouCard) -> Unit = { _, _ -> },
     onHideModuleClick: (moduleKey: String) -> Unit = {},
-    onPageClick: (historyEntry: HistoryEntry) -> Unit,
-    onPageBookmarkClick: (historyEntry: HistoryEntry) -> Unit = {},
-    onPageShareClick: (historyEntry: HistoryEntry) -> Unit = {},
-    onPageOverflowClick: (pageSummary: PageSummary, source: Int, menuKey: String) -> Unit = { _, _, _ -> },
+    onPageClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
+    onPageBookmarkClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
+    onPageShareClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
+    onPageOverflowClick: (card: Card, pageSummary: PageSummary, source: Int, menuKey: String) -> Unit = { _, _, _, _ -> },
     onPageOverflowDismiss: () -> Unit = {},
-    onCustomizeInterestsClick: () -> Unit = {},
-    onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> }
+    onCustomizeInterestsClick: (card: Card) -> Unit = {},
+    onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> },
+    onManageModulesClick: () -> Unit
 ) {
     when {
         state.isInitialLoading -> {
             Box(
-                modifier = Modifier.fillMaxSize()
+                modifier = Modifier
+                    .fillMaxSize()
                     .background(color = WikipediaTheme.colors.backgroundColor),
                 contentAlignment = Alignment.Center
             ) {
                 LoadingIndicator(modifier = Modifier.fillMaxHeight())
             }
         }
+        state.isEmptyState -> {
+            val context = LocalContext.current
+            HomeScreenEmptyState(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(WikipediaTheme.colors.paperColor)
+                    .padding(horizontal = 16.dp)
+                    .padding(top = (topInset * 2 + 64).dp)
+                    .verticalScroll(rememberScrollState()),
+                title = context.getString(wikiSite.languageCode, R.string.home_feed_screen_empty_state_label),
+                description = context.getString(wikiSite.languageCode, R.string.home_feed_for_you_screen_empty_state_description),
+                onManageModulesClick = onManageModulesClick
+            )
+        }
         state.error != null && state.modules.isEmpty() -> {
             Box(
-                modifier = Modifier.fillMaxSize()
+                modifier = Modifier
+                    .fillMaxSize()
                     .background(color = WikipediaTheme.colors.backgroundColor),
                 contentAlignment = Alignment.Center
             ) {
@@ -920,9 +1037,9 @@ fun ForYouContentTab(
                                             .height(viewportHeight),
                                         wikiSite = wikiSite,
                                         module = module,
-                                        onPageClick = { entry -> onPageClick(entry) },
-                                        onShareClick = { entry -> onPageShareClick(entry) },
-                                        onSaveClick = { entry -> onPageBookmarkClick(entry) },
+                                        onPageClick = onPageClick,
+                                        onPageShareClick = onPageShareClick,
+                                        onPageBookmarkClick = onPageBookmarkClick,
                                         onHideCardClick = onHideCardClick,
                                         onHideModuleClick = { onHideModuleClick(module.moduleKey()) },
                                         onCardInView = { onCardImpression(it, index) },
@@ -939,9 +1056,9 @@ fun ForYouContentTab(
                                             .height(viewportHeight),
                                         wikiSite = wikiSite,
                                         module = module,
-                                        onPageClick = { entry -> onPageClick(entry) },
-                                        onShareClick = { entry -> onPageShareClick(entry) },
-                                        onSaveClick = { entry -> onPageBookmarkClick(entry) },
+                                        onPageClick = onPageClick,
+                                        onPageShareClick = onPageShareClick,
+                                        onPageBookmarkClick = onPageBookmarkClick,
                                         onHideCardClick = onHideCardClick,
                                         onHideModuleClick = { onHideModuleClick(module.moduleKey()) },
                                         onCardInView = { onCardImpression(it, index) },
@@ -958,9 +1075,9 @@ fun ForYouContentTab(
                                             .height(viewportHeight),
                                         wikiSite = wikiSite,
                                         module = module,
-                                        onPageClick = { entry -> onPageClick(entry) },
-                                        onShareClick = { entry -> onPageShareClick(entry) },
-                                        onSaveClick = { entry -> onPageBookmarkClick(entry) },
+                                        onPageClick = onPageClick,
+                                        onPageShareClick = onPageShareClick,
+                                        onPageBookmarkClick = onPageBookmarkClick,
                                         onHideCardClick = onHideCardClick,
                                         onHideModuleClick = { onHideModuleClick(module.moduleKey()) },
                                         onCardInView = { onCardImpression(it, index) },
@@ -1148,7 +1265,11 @@ fun LanguageDropDownMenu(
     ) {
         Row(
             modifier = Modifier
-                .border(width = 1.dp, color = WikipediaTheme.colors.primaryColor.copy(alpha = 0.8f), shape = RoundedCornerShape(8.dp))
+                .border(
+                    width = 1.dp,
+                    color = WikipediaTheme.colors.primaryColor.copy(alpha = 0.8f),
+                    shape = RoundedCornerShape(8.dp)
+                )
                 .padding(4.dp),
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically
@@ -1233,6 +1354,80 @@ fun LanguageDropDownMenu(
                 )
             }
         }
+    }
+}
+
+@Composable
+fun HomeScreenEmptyState(
+    modifier: Modifier = Modifier,
+    title: String,
+    description: String,
+    onManageModulesClick: () -> Unit,
+) {
+    Column (
+        modifier = modifier,
+        verticalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterVertically),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        Image(
+            modifier = Modifier
+                .padding(bottom = 16.dp),
+            painter = painterResource(R.drawable.empty_feed_illustration),
+            contentDescription = null
+        )
+        Text(
+            text = title,
+            style = MaterialTheme.typography.titleMedium.copy(
+                fontWeight = FontWeight.SemiBold,
+                letterSpacing = 0.15.sp
+            ),
+            color = WikipediaTheme.colors.secondaryColor
+        )
+        HtmlText(
+            text = description,
+            style = MaterialTheme.typography.bodyMedium.copy(
+                letterSpacing = 0.25.sp
+            ),
+            textAlign = TextAlign.Center,
+            color = WikipediaTheme.colors.secondaryColor
+        )
+        AppButton(
+            onClick = onManageModulesClick
+        ) {
+            Text(
+                text = stringResource(R.string.home_feed_screen_empty_state_btn_label)
+            )
+        }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun HomeScreenCommunityEmptyStatePreview() {
+    BaseTheme(currentTheme = Theme.LIGHT) {
+        HomeScreen(
+            wikiSite = WikiSite.preview(),
+            selectedTab = HomeTab.COMMUNITY,
+            communityContentState = CommunityContentState(isEmptyState = true),
+            forYouContentState = ForYouContentState(isInitialLoading = true),
+            tabsState = TabsState(1, false),
+            notificationBellState = NotificationBellState(unreadCount = 5, canShow = true)
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun HomeScreenForYouEmptyStatePreview() {
+    BaseTheme(currentTheme = Theme.LIGHT) {
+        HomeScreen(
+            wikiSite = WikiSite.preview(),
+            selectedTab = HomeTab.FOR_YOU,
+            communityContentState = CommunityContentState(isEmptyState = true),
+            forYouContentState = ForYouContentState(isEmptyState = true),
+            tabsState = TabsState(1, false),
+            notificationBellState = NotificationBellState(unreadCount = 5, canShow = true)
+        )
     }
 }
 

@@ -41,6 +41,7 @@ import org.wikipedia.json.LocalDateTimeSerializer
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SettingsRepository
+import org.wikipedia.settings.homefeed.CommunityModuleType
 import org.wikipedia.settings.homefeed.ForYouModuleType
 import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.topics.ArticleTopics
@@ -108,7 +109,8 @@ data class CommunityContentState(
     val isInitialLoading: Boolean = false,
     val isLoadingMore: Boolean = false,
     val error: Throwable? = null,
-    val canLoadMore: Boolean = true
+    val canLoadMore: Boolean = true,
+    val isEmptyState: Boolean = false
 )
 
 data class ForYouContentState(
@@ -116,7 +118,8 @@ data class ForYouContentState(
     val isInitialLoading: Boolean = false,
     val isLoadingMore: Boolean = false,
     val error: Throwable? = null,
-    val canLoadMore: Boolean = true
+    val canLoadMore: Boolean = true,
+    val isEmptyState: Boolean = false
 )
 
 data class TabsState(val count: Int, val pulse: Boolean)
@@ -135,12 +138,14 @@ class HomeViewModel : ViewModel() {
 
     private val _communityState = MutableStateFlow(CommunityContentState())
     val communityState = combine(_communityState, SettingsRepository.hiddenModules) { state, hiddenModules ->
-        state.copy(cards = state.cards.filterNot { hiddenModules.contains(it.moduleKey()) })
+        val visibleModules = state.cards.filterNot { hiddenModules.contains(it.moduleKey()) }
+        state.copy(cards = visibleModules, isEmptyState = CommunityModuleType.entries.all { hiddenModules.contains(it.name) })
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(MAX_STOP_TIMEOUT_MILLIS), CommunityContentState())
 
     private val _forYouState = MutableStateFlow(ForYouContentState())
     val forYouState = combine(_forYouState, SettingsRepository.hiddenModules) { state, hiddenModules ->
-        state.copy(modules = state.modules.filterNot { hiddenModules.contains(it.moduleKey()) })
+        val visibleModules = state.modules.filterNot { hiddenModules.contains(it.moduleKey()) }
+        state.copy(modules = visibleModules, isEmptyState = ForYouModuleType.entries.all { hiddenModules.contains(it.name) })
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(MAX_STOP_TIMEOUT_MILLIS), ForYouContentState())
 
     // "age" in days from today. 0 = today, 1 = yesterday, etc.

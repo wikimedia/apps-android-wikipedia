@@ -26,13 +26,13 @@ fun ContinueReadingModule(
     modifier: Modifier = Modifier,
     wikiSite: WikiSite,
     module: ForYouModule.ContinueReading,
-    onPageClick: (item: HistoryEntry) -> Unit = {},
-    onShareClick: (entry: HistoryEntry) -> Unit = {},
-    onSaveClick: (entry: HistoryEntry) -> Unit = {},
+    onPageClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
+    onPageBookmarkClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
+    onPageShareClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
     onHideCardClick: (module: ForYouModule, card: ForYouCard) -> Unit = { _, _ -> },
     onHideModuleClick: () -> Unit = {},
     onCardInView: (card: Card) -> Unit = {},
-    onCustomizeInterestsClick: () -> Unit = {}
+    onCustomizeInterestsClick: (card: Card) -> Unit = {}
 ) {
     val context = LocalContext.current
     val backgroundColorIndex = abs(module.cards.firstOrNull()?.hideKey.hashCode())
@@ -53,12 +53,12 @@ fun ContinueReadingModule(
             card = module.cards[pageIndex],
             footerIcon = painterResource(if (card.source == HistoryEntry.SOURCE_READING_LIST) R.drawable.ic_bookmark_border_white_24dp else R.drawable.ic_read_more_24dp),
             footerText = context.getString(wikiSite.languageCode, if (card.source == HistoryEntry.SOURCE_READING_LIST) R.string.explore_feed_from_reading_list else R.string.app_shortcuts_continue_reading),
-            onPageClick = { onPageClick(historyEntry) },
-            onShareClick = { onShareClick(historyEntry) },
-            onSaveClick = { onSaveClick(historyEntry) },
+            onPageClick = { onPageClick(card, historyEntry) },
+            onShareClick = { onPageShareClick(card, historyEntry) },
+            onSaveClick = { onPageBookmarkClick(card, historyEntry) },
             onHideCardClick = onHideCardClick,
             onHideModuleClick = onHideModuleClick,
-            onCustomizeInterestsClick = onCustomizeInterestsClick
+            onCustomizeInterestsClick = { onCustomizeInterestsClick(card) }
         )
     }
 }
