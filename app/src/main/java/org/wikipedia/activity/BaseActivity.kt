@@ -38,10 +38,14 @@ import org.wikipedia.events.ReadingListsNoLongerSyncedEvent
 import org.wikipedia.events.SplitLargeListsEvent
 import org.wikipedia.events.ThemeFontChangeEvent
 import org.wikipedia.events.UnreadNotificationsEvent
+import org.wikipedia.feed.onboarding.ExploreFeedBuildingActivity
+import org.wikipedia.feed.onboarding.ExploreFeedUpdatePromptActivity
+import org.wikipedia.feed.personalization.PersonalizationActivity
 import org.wikipedia.games.onthisday.OnThisDayGameResultFragment
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
 import org.wikipedia.notifications.NotificationPresenter
+import org.wikipedia.onboarding.InitialOnboardingActivity
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
@@ -57,7 +61,9 @@ import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeInstallWidgetDialog
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeOnboardingActivity
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetRepository
+import org.wikipedia.yearinreview.YearInReviewActivity
 import org.wikipedia.yearinreview.YearInReviewOnboardingActivity
+import org.wikipedia.yearinreview.YearInReviewViewModel
 
 abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callback {
     interface Callback {
@@ -155,7 +161,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         setStatusBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
         setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
         maybeShowLoggedOutInBackgroundDialog()
-        AppAnnouncements.maybeShowAnnouncement(this)
+        maybeShowAnnouncement(this)
 
         Prefs.localClassName = localClassName
 
@@ -352,6 +358,33 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
 
     fun setImageZoomHelper() {
         imageZoomHelper = ImageZoomHelper(this)
+    }
+
+    // Announcements must never show while these activities are on screen.
+    // They all extend BaseActivity, so without this guard, launching any of them
+    // would re-trigger maybeShowAnnouncement and could show an announcement on top of or immediately after
+    // an onboarding or announcement screen. This can cause user to see announcements back to back.
+    private val blockedActivities = setOf(
+        InitialOnboardingActivity::class.java,
+        ExploreFeedBuildingActivity::class.java,
+        ExploreFeedUpdatePromptActivity::class.java,
+        PersonalizationActivity::class.java,
+        YearInReviewOnboardingActivity::class.java,
+        YearInReviewActivity::class.java,
+        ReadingChallengeOnboardingActivity::class.java
+    )
+
+    fun maybeShowAnnouncement(activity: BaseActivity) {
+        if (activity::class.java in blockedActivities) return
+        if (Prefs.isInitialOnboardingEnabled) return
+        if (!Prefs.isExploreFeedUpdatePromptShown) return
+
+        when {
+            ReadingChallengeWidgetRepository.shouldShowOnboardingDialog() -> showReadingChallenge()
+            YearInReviewViewModel.isAccessible &&
+                    Prefs.isYearInReviewEnabled &&
+                    !Prefs.yearInReviewVisited -> showYearInReview()
+        }
     }
 
     open fun onUnreadNotification() { }
