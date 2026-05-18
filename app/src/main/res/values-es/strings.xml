@@ -1353,6 +1353,7 @@
   <string name="onboarding_multilingual_add_language_text">Añadir o editar idiomas</string>
   <string name="onboarding_welcome_title_v2">La enciclopedia libre…\n… en más de 300 idiomas</string>
   <string name="onboarding_next">Siguiente</string>
+  <string name="onboarding_app_languages_title">Leer en más de 300 idiomas</string>
   <string name="app_shortcuts_random">Aleatorio</string>
   <string name="app_shortcuts_continue_reading">Continuar leyendo</string>
   <string name="app_shortcuts_search">Buscar</string>
@@ -2180,6 +2181,7 @@
   <string name="hybrid_search_experimental_feature_switch_label">Únete al experimento</string>
   <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">ARN vs ADN</string>
   <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">¿Por qué la gente le pone piña a la pizza?</string>
+  <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">¿Cuáles son las ciudades más grandes de Europa?</string>
   <string name="reading_challenge_widget_name">Reto de lectura</string>
   <string name="reading_challenge_onboarding_header">¡Celebra el 25.º aniversario de Wikipedia participando en el reto de lectura de 25 días!</string>
   <string name="reading_challenge_onboarding_read_title">Lee 1 artículo al día durante 25 días.</string>

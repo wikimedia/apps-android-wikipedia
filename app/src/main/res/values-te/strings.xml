@@ -1145,6 +1145,7 @@
   <string name="category_tab_subcategories">ఉపవర్గాలు</string>
   <string name="category_empty">ఈ వర్గంలో వ్యాసాలేమీ కనబడలేదు.</string>
   <string name="subcategory_empty">ఈ వర్గంలో ఉపవర్గాలేమీ కనబడలేదు.</string>
+  <string name="patroller_tasks_filters_user_status_unregistered_desc">లాగిన్ కాని ఎడిటర్లు.</string>
   <string name="reading_challenge_onboarding_win_title">బహుమతులు గెలుచుకోండి</string>
   <string name="reading_challenge_onboarding_learn_more_button">మరింత తెలుసుకోండి</string>
   <plurals name="reading_challenge_small_widget_streak">
