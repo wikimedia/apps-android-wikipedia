@@ -368,6 +368,7 @@ class HomeFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        (requireActivity() as? MainActivity)?.onTabChanged(NavTab.HOME)
         viewModel.updateTabCount()
         instrument.startFunnel("home_feed")
         refreshNotification()
