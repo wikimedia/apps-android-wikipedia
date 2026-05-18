@@ -1,6 +1,11 @@
 package org.wikipedia.notifications
 
-class NotificationFilterHelperImpl: NotificationFilterHelper {
+import org.wikipedia.settings.Prefs
+
+/**
+ * Concrete implementation of [NotificationFilterHelper] that allows mocking of static data of
+ * [NotificationActivity].
+ */class NotificationFilterHelperImpl: NotificationFilterHelper {
     override fun allWikisList(): List<String> {
         return NotificationFilterActivity.allWikisList()
     }

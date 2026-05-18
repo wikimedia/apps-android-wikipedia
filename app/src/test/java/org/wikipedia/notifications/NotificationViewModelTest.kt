@@ -32,9 +32,19 @@ import org.wikipedia.notifications.db.Notification
 import org.wikipedia.notifications.db.NotificationDao
 import org.wikipedia.util.Resource
 
+/**
+ *  Test class for testing the functionality of a notification view model that allows implementation
+ *  of the Paging3 library. The test cases are unit-tests executed on the local developer machine.
+ *  The test class mainly focuses on the filtering and sorting functionality.
+ *  For reference purposes, the test class can be switched between using the legacy-code or the
+ *  refactored code. Pending review feedback, the legacy testing may be removed in future revisions.
+ *
+ *  The class is not meant to test the performance of the view model. See the related instrumented
+ *  tests in androidTest folder.
+ */
 @RunWith(RobolectricTestRunner::class)
 class NotificationViewModelTest {
-    private val legacy = true
+    private val legacy = false
     private lateinit var repository: NotificationRepository
     private val preferences = FakeNotificationPreferences()
     private val notificationHelper = FakeNotificationFilterHelper()
@@ -63,13 +73,13 @@ class NotificationViewModelTest {
         every { NotificationFilterActivity.allTypesIdList() } returns listOf("edit-thank", "mention")
 
         viewModel = if (legacy) {
-            NotificationLegacyViewModel(
+            NotificationLegacyViewModelImpl(
                 preferences,
                 repository,
                 notificationHelper
             )
         } else {
-            NotificationRefactoredViewModel(
+            NotificationRefactoredViewModelImpl(
                 preferences,
                 repository,
                 notificationHelper
@@ -119,7 +129,7 @@ class NotificationViewModelTest {
     private suspend fun collectPagingData(checkAttempts: Boolean): List<NotificationListItemContainer> = coroutineScope {
         val adapter = NotificationItemAdapter()
         val job = launch {
-            val refactoredViewModel = (viewModel as NotificationRefactoredViewModel)
+            val refactoredViewModel = (viewModel as NotificationRefactoredViewModelImpl)
             refactoredViewModel.notificationFlow.collectLatest {
                 adapter.submitData(it)
             }
@@ -145,7 +155,7 @@ class NotificationViewModelTest {
      * Verifies basic notification loading and posting to the UI.
      *
      * This test ensures that notifications inserted into the database are correctly emitted
-     * through the [viewModel.notificationFlow]. It validates that the reactive pipeline
+     * through the view model's notification flow. It validates that the reactive pipeline
      * correctly bundles database items with UI headers (like the search bar).
      */
     @Test
@@ -210,7 +220,7 @@ class NotificationViewModelTest {
     /**
      * Verifies that the search query correctly filters notifications.
      *
-     * This test replicates the search logic from the legacy [NotificationViewModel.processList],
+     * This test focuses on the search functionality as established in the legacy implementation,
      * which performs a case-insensitive match on the notification's header, body, title,
      * and secondary link labels. In the refactored version, this filtering is performed
      * by the database using SQL 'LIKE' operators.
@@ -296,8 +306,8 @@ class NotificationViewModelTest {
     /**
      * Verifies that read notifications are filtered based on user preferences.
      *
-     * This test replicates the logic from legacy [NotificationViewModel.processList] which
-     * conditionally skips notifications if [NotificationPreferences.isHideReadNotificationsEnabled]
+     * This test checks the filtering logic for notifications which have been read by the user:
+     * Skipping notifications if [NotificationPreferences.isHideReadNotificationsEnabled]
      * is true and the notification is not unread. In the refactored version, this is 
      * handled by the DAO query using 'read IS NULL' logic.
      */
@@ -340,9 +350,8 @@ class NotificationViewModelTest {
     /**
      * Verifies that notifications are filtered correctly based on their source wiki.
      *
-     * This test replicates the logic from [NotificationViewModel.processList] which
-     * filters out notifications from wikis specified in
-     * [NotificationPreferences.getNotificationExcludedWikiCodes].
+     * This test checks the logic for filtering notifications from certain sources. It filters out
+     * notifications from wikis specified in [NotificationPreferences.getNotificationExcludedWikiCodes].
      * In the refactored version, this filtering is performed by the database using SQL
      * string manipulation to extract the language code from the wiki database name.
      */
@@ -387,9 +396,9 @@ class NotificationViewModelTest {
     /**
      * Verifies that category exclusions correctly handle subtypes using prefix matching.
      *
-     * This test replicates the logic from [NotificationViewModel.processList] which
-     * uses 'startsWith' to exclude all sub-categories belonging to a base type (e.g.,
-     * excluding 'thank-you-edit' should also hide 'thank-you-edit-milestone').
+     * This checks the logic for filtering certain categories using 'startsWith' to exclude
+     * all sub-categories belonging to a base type (e.g., excluding 'thank-you-edit' should also
+     * hide 'thank-you-edit-milestone').
      * In the refactored version, this is handled by the DAO query using SQL 'LIKE' patterns.
      */
     @Test
@@ -417,9 +426,7 @@ class NotificationViewModelTest {
     /**
      * Verifies that the "Mentions" tab correctly includes sub-categories using prefix matching.
      *
-     * This test replicates the logic from legacy [NotificationViewModel.processList] and
-     * [NotificationCategory.isMentionsGroup], which use 'startsWith' to include all 
-     * sub-categories belonging to a mention group (e.g., 'edit-user-talk-v2'). 
+     * This checks the logic for switching between "All" and "Mentions" tab.
      * In the refactored version, this is handled by the DAO query using SQL 'LIKE' patterns.
      */
     @Test
@@ -458,14 +465,14 @@ class NotificationViewModelTest {
      * Verifies that the search bar header is dynamically removed during multi-select mode.
      *
      * In the legacy implementation, [NotificationActivity] manually managed the search bar
-     * visibility during action mode. This test ensures that the refactored ViewModel 
-     * reactively removes the header item from the [viewModel.notificationFlow] when 
-     * [viewModel.isSearchVisible] is set to false, matching the required UI behavior.
+     * visibility during action mode. This test ensures that the refactored view model
+     * reactively removes the header item from the notification flow when
+     * isSearchVisible is set to false, matching the required UI behavior.
      */
     @Test
     fun testSearchVisibilityInMultiSelect() = runBlocking {
-        if (!legacy && viewModel is NotificationRefactoredViewModel) {
-            val refactoredViewModel = viewModel as NotificationRefactoredViewModel
+        if (!legacy && viewModel is NotificationRefactoredViewModelImpl) {
+            val refactoredViewModel = viewModel as NotificationRefactoredViewModelImpl
             assertTrue(refactoredViewModel.isSearchVisible)
 
             refactoredViewModel.isSearchVisible =
@@ -482,12 +489,11 @@ class NotificationViewModelTest {
     /**
      * Verifies that unread counts are updated reactively when the database changes.
      *
-     * In the legacy [NotificationViewModel], unread counts were recalculated 
-     * manually as part of the [NotificationViewModel.processList] method. 
-     * This test ensures that the refactored ViewModel automatically updates its 
-     * [viewModel.allUnreadCount] and [viewModel.mentionsUnreadCount] properties 
-     * whenever the underlying database state changes (e.g., after marking an item 
-     * as read), using reactive repository flows.
+     * In the legacy notification view model, unread counts were recalculated in Kotlin code.
+     * as part of the processList method.
+     * This test ensures that the refactored view model automatically updates its
+     * allUnreadCount and mentionsUnreadCount properties whenever the underlying database state
+     * changes (e.g., after marking an item as read), using reactive repository flows.
      */
     @Test
     fun testUnreadCountsReactivity() = runBlocking {

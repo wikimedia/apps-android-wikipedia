@@ -31,7 +31,6 @@ class NotificationRemoteMediator(private val repository: NotificationRepository)
             }
 
             val nextContinueStr = repository.fetchAndSave("read|!read", continueStr)
-            Log.d("NotificationRemoteMediator", "(loadType=$loadType): repository.fetchAndSave responded with $nextContinueStr")
             if (loadType == LoadType.REFRESH) {
                 repository.clearRemoteKeys()
             }

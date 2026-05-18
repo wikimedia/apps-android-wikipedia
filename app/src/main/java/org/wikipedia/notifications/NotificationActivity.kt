@@ -8,7 +8,6 @@ import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
 import android.text.format.DateUtils
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -73,7 +72,7 @@ import org.wikipedia.views.WikiCardView
 
 class NotificationActivity : BaseActivity() {
     private lateinit var binding: ActivityNotificationsBinding
-    private val viewModel: NotificationRefactoredViewModel by viewModels {
+    private val viewModel: NotificationRefactoredViewModelImpl by viewModels {
         NotificationViewModelFactory(
             NotificationPreferencesImpl(),
             NotificationRepositoryImpl(
@@ -92,7 +91,6 @@ class NotificationActivity : BaseActivity() {
     private val typefaceSansSerifBold = Typeface.create("sans-serif", Typeface.BOLD)
 
     private val resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-        Log.d("NotificationActivity", "registerForActivityResult: result.resultCode = $result.resultCode")
         if ((result.resultCode == NotificationFilterActivity.ACTIVITY_RESULT_LANGUAGES_CHANGED) ||
                 (result.resultCode == NotificationFilterActivity.FILTER_TYPE_CATEGORY) ||
                 (result.resultCode == NotificationFilterActivity.FILTER_TYPE_WIKI)

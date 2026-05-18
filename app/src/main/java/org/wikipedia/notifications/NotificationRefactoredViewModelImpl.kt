@@ -1,6 +1,5 @@
 package org.wikipedia.notifications
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
@@ -18,7 +17,7 @@ import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
 import java.util.Date
 
-class NotificationRefactoredViewModel(
+class NotificationRefactoredViewModelImpl(
     private val notificationPreferences: NotificationPreferences,
     private val notificationRepository: NotificationRepository,
     private val notificationFilterHelper: NotificationFilterHelper
@@ -99,9 +98,7 @@ class NotificationRefactoredViewModel(
                 includedWikiCodes = filters.includedWikiCodes,
                 hideNotMentioned = tab == 1
             ).map { pagingData ->
-                Log.d("NotificationRefactoredViewModel", "Receiving data from repository")
                 val data = pagingData.map { notification ->
-                    Log.d("NotificationRefactoredViewModel", "Receiving notification ${notification.id} with category=${notification.category}")
                     NotificationListItemContainer(notification)
                 }
                 // inserts a header item when the search bar shall be displayed
@@ -142,7 +139,6 @@ class NotificationRefactoredViewModel(
     // helper function to calculate current filtering parameters
     private fun calcFilters(): NotificationFilters {
         val excludedTypeCodes = notificationPreferences.getNotificationExcludedTypeCodes()
-        Log.d("NotificationRefactoredViewModel", "excludedTypeCodes = $excludedTypeCodes")
         val excludedWikiCodes = notificationPreferences.getNotificationExcludedWikiCodes()
         val includedWikiCodes = notificationFilterHelper.allWikisList().minus(excludedWikiCodes).map {
             it.split("-")[0]

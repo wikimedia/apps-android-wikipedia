@@ -134,7 +134,7 @@ class NotificationFilterActivity : BaseActivity() {
                     } else {
                         excludedTypeCodes.clear()
                     }
-                    setResult(FILTER_TYPE_CATEGORY)
+                    setResult(FILTER_TYPE_CATEGORY) // communicate back to launching activity
                 }
                 context.getString(R.string.notifications_all_wikis_text) -> {
                     if (excludedWikiCodes.isEmpty()) {
@@ -142,17 +142,17 @@ class NotificationFilterActivity : BaseActivity() {
                     } else {
                         excludedWikiCodes.clear()
                     }
-                    setResult(FILTER_TYPE_WIKI)
+                    setResult(FILTER_TYPE_WIKI) // communicate back to launching activity
                 }
                 else -> {
                     if (filter.type == FILTER_TYPE_WIKI) {
                         if (excludedWikiCodes.contains(filter.filterCode)) excludedWikiCodes.remove(filter.filterCode)
                         else excludedWikiCodes.add(filter.filterCode)
-                        setResult(FILTER_TYPE_WIKI)
+                        setResult(FILTER_TYPE_WIKI) // communicate back to launching activity
                     } else if (filter.type == Companion.FILTER_TYPE_CATEGORY) {
                         if (excludedTypeCodes.contains(filter.filterCode)) excludedTypeCodes.remove(filter.filterCode)
                         else excludedTypeCodes.add(filter.filterCode)
-                        setResult(FILTER_TYPE_CATEGORY)
+                        setResult(FILTER_TYPE_CATEGORY) // communicate back to launching activity
                     }
                 }
             }

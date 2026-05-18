@@ -2,9 +2,7 @@ package org.wikipedia.notifications
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.paging.PagingData
 import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
@@ -17,7 +15,7 @@ import org.wikipedia.util.StringUtil
 import java.util.Date
 import java.util.Random
 
-class NotificationLegacyViewModel(
+class NotificationLegacyViewModelImpl(
     private val notificationPreferences: NotificationPreferences,
     private val notificationRepository: NotificationRepository,
     private val notificationFilterHelper: NotificationFilterHelper

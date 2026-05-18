@@ -17,6 +17,17 @@ import org.wikipedia.notifications.db.Notification
 import org.wikipedia.util.Resource
 import kotlin.system.measureTimeMillis
 
+/**
+ *  Test class for testing the performance of the legacy notification view model that does not allow
+ *  implementation of the Paging3 library.
+ *  The test cases are instrumented test cases which should be executed on a physical device.
+ *  The test case measures the execution time and reports it in the terminal.
+ *
+ *  Pending review feedback, this test class may be removed in future revisions.
+ *
+ *  The class is not meant to test the functionality of the view model. See the related unit
+ *  tests in test folder.
+ */
 @RunWith(AndroidJUnit4::class)
 class NotificationLegacyViewModelPerformanceTest {
     private val numberNotifications = 1000
@@ -24,7 +35,7 @@ class NotificationLegacyViewModelPerformanceTest {
     private val notificationRepository = FakeNotificationRepository()
     private val notificationPreferences = FakeNotificationPreferences()
     private val notificationFilterHelper = FakeNotificationFilterHelper()
-    private lateinit var viewModel: NotificationLegacyViewModel
+    private lateinit var viewModel: NotificationLegacyViewModelImpl
 
     // used by refactored view model
     private val _isSearchVisible = MutableStateFlow(true)
@@ -35,14 +46,14 @@ class NotificationLegacyViewModelPerformanceTest {
     @Before
     fun setUp() {
         runBlocking {
-            viewModel = NotificationLegacyViewModel(
+            viewModel = NotificationLegacyViewModelImpl(
                 notificationPreferences,
                 notificationRepository,
                 notificationFilterHelper
             )
 
             // Wait for view model to initialize without blocking the instrumentation thread
-            withTimeout(1000000) {
+            withTimeout(100000) {
                 viewModel.uiState.filter { it is Resource.Success }.first()
             }
         }
@@ -64,7 +75,7 @@ class NotificationLegacyViewModelPerformanceTest {
         var lastResult: Any? = null // used for detecting identical emissions of flow
 
         // Wait for initialization and initial fetch to finish without blocking
-        withTimeout(1000000) {
+        withTimeout(100000) {
             lastResult = viewModel.uiState.filter { it is Resource.Success }.first()
         }
 

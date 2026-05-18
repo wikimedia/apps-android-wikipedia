@@ -5,8 +5,11 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.StateFlow
 import org.wikipedia.util.Resource
 
-// This interface allows using both NotificationRefactoredViewModel and NotificationLegacyViewModel
-// in one unit test class
+/**
+ * Interface alllowing use of both NotificationRefactoredViewModel and NotificationLegacyViewModel
+ * in unit test [NotificationViewModelTest]
+ */
+
 interface NotificationViewModel {
     fun fetchAndSave(refresh: Boolean = false)
     fun updateSearchQuery(query: String?)

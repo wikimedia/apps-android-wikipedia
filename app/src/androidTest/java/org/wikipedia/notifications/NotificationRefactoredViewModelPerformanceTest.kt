@@ -21,12 +21,21 @@ import org.wikipedia.notifications.db.NotificationDao
 import org.wikipedia.util.Resource
 import kotlin.system.measureTimeMillis
 
+/**
+ *  Test class for testing the performance of the legacy notification view model that does allow
+ *  implementation of the Paging3 library.
+ *  The test cases are instrumented test cases which should be executed on a physical device.
+ *  The test case measures the execution time and reports it in the terminal.
+ *
+ *  The class is not meant to test the functionality of the view model. See the related unit
+ *  tests in test folder.
+ */
 @RunWith(AndroidJUnit4::class)
 class NotificationRefactoredViewModelPerformanceTest {
     val numberNotifications = 1000
     val numberIterations = 100
 
-    private lateinit var viewModel: NotificationRefactoredViewModel
+    private lateinit var viewModel: NotificationRefactoredViewModelImpl
     private lateinit var notificationRepository: FakeNotificationRepository
     private val notificationFilterHelper = FakeNotificationFilterHelper()
     private val notificationPreferences = FakeNotificationPreferences()
@@ -45,7 +54,7 @@ class NotificationRefactoredViewModelPerformanceTest {
             db.notificationDao().deleteAll()
             notificationRepository = FakeNotificationRepository(db.notificationDao())
 
-            viewModel = NotificationRefactoredViewModel(
+            viewModel = NotificationRefactoredViewModelImpl(
                 notificationPreferences,
                 notificationRepository,
                 notificationFilterHelper
@@ -161,11 +170,11 @@ class NotificationRefactoredViewModelPerformanceTest {
         var unreadWikis = mapOf<String, WikiSite>()
         private val remoteKeys = mutableMapOf<String, String?>()
 
-        override suspend fun insertNotifications(notifications: List<Notification>) {
-            notificationDao.insertNotifications(notifications)
+        override suspend fun insertNotifications(notificationList: List<Notification>) {
+            notificationDao.insertNotifications(notificationList)
         }
         override suspend fun getAllNotifications(): List<Notification> {
-            return notificationDao.getAllNotifications()
+            return emptyList() // not used
         }
         override suspend fun updateNotification(notification: Notification) {
             notificationDao.updateNotification(notification)
