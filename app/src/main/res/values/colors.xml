@@ -47,6 +47,7 @@
     <color name="orange500_50">#80FF9500</color>
     <color name="orange200">#FFC894</color>
 
+    <color name="splash_background_color">#F8F9FA</color>
 
     <color name="widget_background">#F8F9FA</color>
     <color name="widget_paper">#FFFFFF</color>
