@@ -2529,7 +2529,7 @@
     <string name="home_feed_for_you_screen_empty_title">Your feed is empty for now</string>
     <string name="home_feed_for_you_screen_empty_description">Your \"For you\" feed will populate with personalized articles as you explore.</string>
     <string name="home_feed_for_you_screen_empty_ways_to_start">Ways to get started:</string>
-    <string name="home_feed_for_you_screen_empty_add_interests"><![CDATA[Add <a href="#">some interests</a>]]></string>
-    <string name="home_feed_for_you_screen_empty_see_community"><![CDATA[See what\'s is happening in <a href="#">community</a>]]></string>
+    <string name="home_feed_for_you_screen_empty_add_interests"><![CDATA[Add <a href="#add_interests">some interests</a>]]></string>
+    <string name="home_feed_for_you_screen_empty_see_community"><![CDATA[See what\'s happening in <a href="#community_tab">community</a>]]></string>
 
 </resources>
