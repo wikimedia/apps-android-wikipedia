@@ -55,9 +55,11 @@ class NotificationLegacyViewModelPerformanceTest {
         notificationPreferences.excludedTypes.add("type1")
         viewModel.updateSearchQuery("Header 1") // Will limit to headers starting with "Header 1"
 
+        var lastResult: Any? = null // used for detecting identical emissions of flow
+
         // Wait for initialization and initial fetch to finish without blocking
         withTimeout(1000000) {
-            viewModel.uiState.filter { it is Resource.Success }.first()
+            lastResult = viewModel.uiState.filter { it is Resource.Success }.first()
         }
 
         val times = mutableListOf<Long>()
@@ -67,7 +69,10 @@ class NotificationLegacyViewModelPerformanceTest {
         repeat(numberIterations) { iteration ->
             val time = measureTimeMillis {
                 viewModel.fetchAndSave(refresh = true)
-                viewModel.uiState.filter { it is Resource.Success }.drop(1).first()
+                val result = viewModel.uiState.filter {
+                    it is Resource.Success && it !== lastResult
+                }.first()
+                lastResult = result
             }
             times.add(time)
             println("Iteration ${iteration + 1}: $time ms")
