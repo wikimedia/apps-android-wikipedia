@@ -33,7 +33,7 @@ class NotificationRepositoryImpl(
 
     private var remoteKeyLoaded = false
 
-    // --- MOCK DATA GENERATOR FOR MANUAL TESTING ---
+    /* --- MOCK DATA GENERATOR FOR MANUAL TESTING ---
     private fun createFakeNotification(id: Long): Notification {
         val hour = (10 + (id % 12)).toInt().toString().padStart(2, '0')
         val json = """
@@ -66,7 +66,7 @@ class NotificationRepositoryImpl(
                 notificationDao.deleteAll()
             }
         }
-    }
+    } */
     // ----------------------------------------------
 
     /**
