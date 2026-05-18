@@ -33,75 +33,6 @@ interface NotificationDao {
     suspend fun getNotificationById(wiki: String, id: Long): Notification?
 
     /**
-     * Retrieves all notifications from the local database with sorting and filtering:
-     * - Sorting by timestamp (descending)
-     * - Filtering out read notifications if [hideReadNotifications] is true
-     * - Filtering by [searchQuery] against title, header, body, and secondary link labels
-     * - Filtering out excluded categories in [excludedTypeCodes]
-     * - Filtering to included wikis by transforming the database name to language code
-     * - Filtering to only "mentions" if [hideNotMentioned] is true
-     */
-    @Query("""
-        SELECT * FROM Notification
-        WHERE ((:hideReadNotifications = 0) OR (read IS NULL))
-        AND ((:searchQuery IS NULL) OR
-             (LOWER(title) LIKE '%' || LOWER(:searchQuery) || '%') OR
-             (LOWER(contents) LIKE '%' || LOWER(:searchQuery) || '%'))
-        AND ((:hasExclusions = 0) OR (
-            category NOT IN (:excludedTypeCodes) AND 
-            (INSTR(category, '-') = 0 OR SUBSTR(category, 1, INSTR(category, '-') - 1) NOT IN (:excludedTypeCodes))
-        ))
-        AND (REPLACE(
-            CASE WHEN wiki LIKE '%wiki' THEN SUBSTR(wiki, 1, LENGTH(wiki)-4) ELSE wiki END,
-            '_', '-'
-        ) IN (:includedWikiCodes))
-        AND ((:hideNotMentioned = 0) OR
-             (category IN (:mentionsGroup)) OR
-             (((INSTR(category, '-') > 0) AND (SUBSTR(category, 1, INSTR(category, '-') - 1) IN (:mentionsGroup)))))
-        ORDER BY timestamp DESC
-    """)
-    fun getAllSelectedNotificationPaged(
-        hideReadNotifications: Boolean,
-        searchQuery: String?,
-        hasExclusions: Boolean,
-        excludedTypeCodes: Set<String>,
-        includedWikiCodes: List<String>,
-        hideNotMentioned: Boolean,
-        mentionsGroup: List<String>
-    ): PagingSource<Int, Notification>
-
-    @Query("""
-        SELECT * FROM Notification
-        WHERE ((:hideReadNotifications = 0) OR (read IS NULL))
-        AND ((:searchQuery IS NULL) OR
-             (LOWER(title) LIKE '%' || LOWER(:searchQuery) || '%') OR
-             (LOWER(contents) LIKE '%' || LOWER(:searchQuery) || '%'))
-        AND ((:hasExclusions = 0) OR (
-            category NOT IN (:excludedTypeCodes) AND 
-            (INSTR(category, '-') = 0 OR SUBSTR(category, 1, INSTR(category, '-') - 1) NOT IN (:excludedTypeCodes))
-        ))
-        AND (REPLACE(
-            CASE WHEN wiki LIKE '%wiki' THEN SUBSTR(wiki, 1, LENGTH(wiki)-4) ELSE wiki END,
-            '_', '-'
-        ) IN (:includedWikiCodes))
-        AND ((:hideNotMentioned = 0) OR
-             (category IN (:mentionsGroup)) OR
-             (((INSTR(category, '-') > 0) AND (SUBSTR(category, 1, INSTR(category, '-') - 1) IN (:mentionsGroup)))))
-        ORDER BY timestamp DESC
-    """)
-    // @todo: check if it can be replaced by getAllSelectedNotificationPaged
-    // getAllSelectedNotification is used for testing only
-    suspend fun getAllSelectedNotification(
-        hideReadNotifications: Boolean,
-        searchQuery: String?,
-        hasExclusions: Boolean,
-        excludedTypeCodes: Set<String>,
-        includedWikiCodes: List<String>,
-        hideNotMentioned: Boolean,
-        mentionsGroup: List<String>
-    ): List<Notification>
-
-    /**
      * Marks selected items as read or unread.
      * Parameters are:
      * - ids: list of notification ids which shall be updated
@@ -142,7 +73,7 @@ interface NotificationDao {
              (category LIKE 'reverted%'))
         ORDER BY timestamp DESC
     """)
-    fun getAllSelectedNotificationPagedFullLegacy(
+    fun getAllSelectedNotificationsPaged(
         hideReadNotifications: Boolean,
         searchQuery: String?,
         includedWikiCodes: List<String>,
@@ -174,45 +105,98 @@ interface NotificationDao {
         readTimeStamp: String?
     )
 
-    /**
-     * Counts the number of unread notifications in the database filtering for
-     * - categories which are not in the list of excluded categories
-     * - wiki language code
-     */
     @Query("""
         SELECT COUNT(*) FROM Notification
         WHERE (read IS NULL)
-        AND ((category NOT IN (:excludedTypeCodes)) AND (INSTR(category, '-') = 0 OR SUBSTR(category, 1, INSTR(category, '-') - 1) NOT IN (:excludedTypeCodes)))
+        AND (
+            (:excludeSystem = 0 OR category NOT LIKE 'system%') AND
+            (:excludeMilestone = 0 OR category NOT LIKE 'thank-you-edit%') AND
+            (:excludeUserTalk = 0 OR category NOT LIKE 'edit-user-talk%') AND
+            (:excludeEditThank = 0 OR category NOT LIKE 'edit-thank%') AND
+            (:excludeReverted = 0 OR category NOT LIKE 'reverted%') AND
+            (:excludeLoginFail = 0 OR category NOT LIKE 'login-fail%') AND
+            (:excludeMention = 0 OR category NOT LIKE 'mention%') AND
+            (:excludeEmailUser = 0 OR category NOT LIKE 'emailuser%') AND
+            (:excludeUserRights = 0 OR category NOT LIKE 'user-rights%') AND
+            (:excludeArticleLinked = 0 OR category NOT LIKE 'article-linked%') AND
+            (:excludeAlpha = 0 OR category NOT LIKE 'alpha-builder-checker%') AND
+            (:excludeReadingList = 0 OR category NOT LIKE 'reading-list-syncing%') AND
+            (:excludeSyncing = 0 OR category NOT LIKE 'syncing%') AND
+            (:excludeRecommended = 0 OR category NOT LIKE 'recommended-reading-lists%') AND
+            (:excludeGames = 0 OR category NOT LIKE 'games%')
+        )
         AND (REPLACE(
             CASE WHEN wiki LIKE '%wiki' THEN SUBSTR(wiki, 1, LENGTH(wiki)-4) ELSE wiki END,
             '_', '-'
         ) IN (:includedWikiCodes))
     """)
     fun getUnreadCount(
-        excludedTypeCodes: Set<String>,
-        includedWikiCodes: List<String>
+        includedWikiCodes: List<String>,
+        excludeSystem: Boolean,
+        excludeMilestone: Boolean,
+        excludeUserTalk: Boolean,
+        excludeEditThank: Boolean,
+        excludeReverted: Boolean,
+        excludeLoginFail: Boolean,
+        excludeMention: Boolean,
+        excludeEmailUser: Boolean,
+        excludeUserRights: Boolean,
+        excludeArticleLinked: Boolean,
+        excludeAlpha: Boolean,
+        excludeReadingList: Boolean,
+        excludeSyncing: Boolean,
+        excludeRecommended: Boolean,
+        excludeGames: Boolean
     ): Flow<Int>
 
-    /**
-     * Counts the number of unread notifications in the database filtering for
-     * - categories which are not in the list of excluded categories
-     * - wiki language code
-     * - category-strings which are in the "mentions group" or where the prefix is in the "mentions group"
-     */
     @Query("""
         SELECT COUNT(*) FROM Notification
         WHERE (read IS NULL)
-        AND ((category NOT IN (:excludedTypeCodes)) AND (INSTR(category, '-') = 0 OR SUBSTR(category, 1, INSTR(category, '-') - 1) NOT IN (:excludedTypeCodes)))
+        AND (
+            (:excludeSystem = 0 OR category NOT LIKE 'system%') AND
+            (:excludeMilestone = 0 OR category NOT LIKE 'thank-you-edit%') AND
+            (:excludeUserTalk = 0 OR category NOT LIKE 'edit-user-talk%') AND
+            (:excludeEditThank = 0 OR category NOT LIKE 'edit-thank%') AND
+            (:excludeReverted = 0 OR category NOT LIKE 'reverted%') AND
+            (:excludeLoginFail = 0 OR category NOT LIKE 'login-fail%') AND
+            (:excludeMention = 0 OR category NOT LIKE 'mention%') AND
+            (:excludeEmailUser = 0 OR category NOT LIKE 'emailuser%') AND
+            (:excludeUserRights = 0 OR category NOT LIKE 'user-rights%') AND
+            (:excludeArticleLinked = 0 OR category NOT LIKE 'article-linked%') AND
+            (:excludeAlpha = 0 OR category NOT LIKE 'alpha-builder-checker%') AND
+            (:excludeReadingList = 0 OR category NOT LIKE 'reading-list-syncing%') AND
+            (:excludeSyncing = 0 OR category NOT LIKE 'syncing%') AND
+            (:excludeRecommended = 0 OR category NOT LIKE 'recommended-reading-lists%') AND
+            (:excludeGames = 0 OR category NOT LIKE 'games%')
+        )
         AND (REPLACE(
             CASE WHEN wiki LIKE '%wiki' THEN SUBSTR(wiki, 1, LENGTH(wiki)-4) ELSE wiki END,
             '_', '-'
         ) IN (:includedWikiCodes))
-        AND (category IN (:mentionsGroup) OR
-             (INSTR(category, '-') > 0 AND SUBSTR(category, 1, INSTR(category, '-') - 1) IN (:mentionsGroup)))
+        AND (
+             (category LIKE 'mention%') OR
+             (category LIKE 'edit-user-talk%') OR
+             (category LIKE 'emailuser%') OR
+             (category LIKE 'user-rights%') OR
+             (category LIKE 'reverted%')
+        )
     """)
     fun getUnreadMentionsCount(
-        excludedTypeCodes: Set<String>,
         includedWikiCodes: List<String>,
-        mentionsGroup: List<String>
+        excludeSystem: Boolean,
+        excludeMilestone: Boolean,
+        excludeUserTalk: Boolean,
+        excludeEditThank: Boolean,
+        excludeReverted: Boolean,
+        excludeLoginFail: Boolean,
+        excludeMention: Boolean,
+        excludeEmailUser: Boolean,
+        excludeUserRights: Boolean,
+        excludeArticleLinked: Boolean,
+        excludeAlpha: Boolean,
+        excludeReadingList: Boolean,
+        excludeSyncing: Boolean,
+        excludeRecommended: Boolean,
+        excludeGames: Boolean
     ): Flow<Int>
 }

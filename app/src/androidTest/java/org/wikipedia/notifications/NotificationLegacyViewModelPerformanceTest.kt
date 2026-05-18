@@ -3,7 +3,6 @@ package org.wikipedia.notifications
 import androidx.paging.PagingData
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOf
@@ -115,15 +114,6 @@ class NotificationLegacyViewModelPerformanceTest {
         override suspend fun updateNotification(notification: Notification) {}
         override suspend fun fetchUnreadWikiDbNames() = emptyMap<String, WikiSite>()
         override suspend fun fetchAndSave(filter: String?, continueStr: String?) = "dummy"
-        override suspend fun getAllSelectedNotifications(
-            hideReadNotifications: Boolean,
-            searchQuery: String?,
-            excludedTypeCodes: Set<String>,
-            includedWikiCodes: List<String>,
-            hideNotMentioned: Boolean
-        ): List<Notification> {
-            return emptyList()
-        }
 
         override suspend fun markItemsAsRead(
             ids: List<Long>,

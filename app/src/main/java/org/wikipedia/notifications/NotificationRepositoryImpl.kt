@@ -1,6 +1,5 @@
 package org.wikipedia.notifications
 
-import android.util.Log
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
@@ -70,8 +69,9 @@ class NotificationRepositoryImpl(
     }
     // ----------------------------------------------
 
-    // currently used only by legacy code
-    // @todo: check if it can be replaced
+    /**
+     * Retrieves ALL notifications from the database - used by legacy code
+     */
     override suspend fun getAllNotifications() = notificationDao.getAllNotifications()
 
     /**
@@ -128,17 +128,6 @@ class NotificationRepositoryImpl(
         // ------------------------------------------------ */
     }
 
-    // @todo: Used for testing/legacy: check if it can be replaced.
-    override suspend fun getAllSelectedNotifications(
-        hideReadNotifications: Boolean,
-        searchQuery: String?,
-        excludedTypeCodes: Set<String>,
-        includedWikiCodes: List<String>,
-        hideNotMentioned: Boolean
-    ): List<Notification> {
-        return emptyList()
-    }
-
     /**
      * Marks a list of notifications (Ids provided) as read or unread depending on the
      * parameter
@@ -159,7 +148,7 @@ class NotificationRepositoryImpl(
             config = PagingConfig(pageSize = 50),
             remoteMediator = NotificationRemoteMediator(this),
             pagingSourceFactory = {
-                notificationDao.getAllSelectedNotificationPagedFullLegacy(
+                notificationDao.getAllSelectedNotificationsPaged(
                     hideReadNotifications,
                     searchQuery,
                     includedWikiCodes,
@@ -180,16 +169,6 @@ class NotificationRepositoryImpl(
                     excludedTypeCodes.contains(NotificationCategory.RECOMMENDED_READING_LISTS.id),
                     excludedTypeCodes.contains(NotificationCategory.GAMES.id)
                 )
-                /* "compromise" type query
-                notificationDao.getAllSelectedNotificationPaged(
-                    hideReadNotifications,
-                    searchQuery,
-                    !excludedTypeCodes.isEmpty(),
-                    excludedTypeCodes,
-                    includedWikiCodes,
-                    hideNotMentioned,
-                    NotificationCategory.MENTIONS_GROUP.map { it.id }
-                ) */
             }
         ).flow
     }
@@ -202,12 +181,42 @@ class NotificationRepositoryImpl(
         includedWikiCodes: List<String>
     ): Flow<Pair<Int, Int>> {
         return combine(
-            notificationDao.getUnreadCount(excludedTypeCodes, includedWikiCodes),
-            notificationDao.getUnreadMentionsCount(
-                excludedTypeCodes,
+            notificationDao.getUnreadCount(
                 includedWikiCodes,
-                NotificationCategory.MENTIONS_GROUP.map { it.id },
-                )
+                excludedTypeCodes.contains(NotificationCategory.SYSTEM.id),
+                excludedTypeCodes.contains(NotificationCategory.MILESTONE_EDIT.id),
+                excludedTypeCodes.contains(NotificationCategory.EDIT_USER_TALK.id),
+                excludedTypeCodes.contains(NotificationCategory.EDIT_THANK.id),
+                excludedTypeCodes.contains(NotificationCategory.REVERTED.id),
+                excludedTypeCodes.contains(NotificationCategory.LOGIN_FAIL.id),
+                excludedTypeCodes.contains(NotificationCategory.MENTION.id),
+                excludedTypeCodes.contains(NotificationCategory.EMAIL_USER.id),
+                excludedTypeCodes.contains(NotificationCategory.USER_RIGHTS.id),
+                excludedTypeCodes.contains(NotificationCategory.ARTICLE_LINKED.id),
+                excludedTypeCodes.contains(NotificationCategory.ALPHA_BUILD_CHECKER.id),
+                excludedTypeCodes.contains(NotificationCategory.READING_LIST_SYNCING.id),
+                excludedTypeCodes.contains(NotificationCategory.SYNCING.id),
+                excludedTypeCodes.contains(NotificationCategory.RECOMMENDED_READING_LISTS.id),
+                excludedTypeCodes.contains(NotificationCategory.GAMES.id)
+            ),
+            notificationDao.getUnreadMentionsCount(
+                includedWikiCodes,
+                excludedTypeCodes.contains(NotificationCategory.SYSTEM.id),
+                excludedTypeCodes.contains(NotificationCategory.MILESTONE_EDIT.id),
+                excludedTypeCodes.contains(NotificationCategory.EDIT_USER_TALK.id),
+                excludedTypeCodes.contains(NotificationCategory.EDIT_THANK.id),
+                excludedTypeCodes.contains(NotificationCategory.REVERTED.id),
+                excludedTypeCodes.contains(NotificationCategory.LOGIN_FAIL.id),
+                excludedTypeCodes.contains(NotificationCategory.MENTION.id),
+                excludedTypeCodes.contains(NotificationCategory.EMAIL_USER.id),
+                excludedTypeCodes.contains(NotificationCategory.USER_RIGHTS.id),
+                excludedTypeCodes.contains(NotificationCategory.ARTICLE_LINKED.id),
+                excludedTypeCodes.contains(NotificationCategory.ALPHA_BUILD_CHECKER.id),
+                excludedTypeCodes.contains(NotificationCategory.READING_LIST_SYNCING.id),
+                excludedTypeCodes.contains(NotificationCategory.SYNCING.id),
+                excludedTypeCodes.contains(NotificationCategory.RECOMMENDED_READING_LISTS.id),
+                excludedTypeCodes.contains(NotificationCategory.GAMES.id)
+            )
         ) { all, mentions -> all to mentions }
     }
 

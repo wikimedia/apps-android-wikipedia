@@ -11,7 +11,7 @@ import org.wikipedia.notifications.db.Notification
  */
 interface NotificationRepository {
     /**
-     * Retrieves all notifications from the local database.
+     * Retrieves all notifications from the local database - used by legacy implementation
      */
     suspend fun getAllNotifications(): List<Notification>
 
@@ -31,15 +31,6 @@ interface NotificationRepository {
      * Supports pagination via the continue token.
      */
     suspend fun fetchAndSave(filter: String?, continueStr: String? = null): String?
-
-    // @todo: currently only used for testing - check if it can be replaced by getNotificationsFlow
-    suspend fun getAllSelectedNotifications(
-        hideReadNotifications: Boolean,
-        searchQuery: String?,
-        excludedTypeCodes: Set<String>,
-        includedWikiCodes: List<String>,
-        hideNotMentioned: Boolean
-    ): List<Notification>
 
     /**
      * Passes through the request of the view model to the local database.

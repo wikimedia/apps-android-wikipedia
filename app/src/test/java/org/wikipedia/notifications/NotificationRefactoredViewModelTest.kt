@@ -442,23 +442,6 @@ class NotificationRefactoredViewModelTest {
         }
         override suspend fun fetchUnreadWikiDbNames() = unreadWikis
         override suspend fun fetchAndSave(filter: String?, continueStr: String?) = null
-        override suspend fun getAllSelectedNotifications(
-            hideReadNotifications: Boolean,
-            searchQuery: String?,
-            excludedTypeCodes: Set<String>,
-            includedWikiCodes: List<String>,
-            hideNotMentioned: Boolean
-        ): List<Notification> {
-            return notificationDao.getAllSelectedNotification(
-                hideReadNotifications,
-                searchQuery,
-                hasExclusions = !excludedTypeCodes.isEmpty(),
-                excludedTypeCodes,
-                includedWikiCodes,
-                hideNotMentioned,
-                NotificationCategory.MENTIONS_GROUP.map { it.id }
-            )
-        }
 
         override suspend fun markItemsAsRead(ids: List<Long>, readTimestamp: String?) {
             notificationDao.markItemsAsRead(ids, readTimestamp)
@@ -474,7 +457,7 @@ class NotificationRefactoredViewModelTest {
             return Pager(
                 config = PagingConfig(pageSize = 50),
                 pagingSourceFactory = {
-                    notificationDao.getAllSelectedNotificationPagedFullLegacy(
+                    notificationDao.getAllSelectedNotificationsPaged(
                         hideReadNotifications,
                         searchQuery,
                         includedWikiCodes,
@@ -504,11 +487,42 @@ class NotificationRefactoredViewModelTest {
             includedWikiCodes: List<String>
         ): Flow<Pair<Int, Int>> {
             return combine(
-                notificationDao.getUnreadCount(excludedTypeCodes, includedWikiCodes),
-                notificationDao.getUnreadMentionsCount(
-                    excludedTypeCodes,
+                notificationDao.getUnreadCount(
                     includedWikiCodes,
-                    NotificationCategory.MENTIONS_GROUP.map { it.id })
+                    excludedTypeCodes.contains(NotificationCategory.SYSTEM.id),
+                    excludedTypeCodes.contains(NotificationCategory.MILESTONE_EDIT.id),
+                    excludedTypeCodes.contains(NotificationCategory.EDIT_USER_TALK.id),
+                    excludedTypeCodes.contains(NotificationCategory.EDIT_THANK.id),
+                    excludedTypeCodes.contains(NotificationCategory.REVERTED.id),
+                    excludedTypeCodes.contains(NotificationCategory.LOGIN_FAIL.id),
+                    excludedTypeCodes.contains(NotificationCategory.MENTION.id),
+                    excludedTypeCodes.contains(NotificationCategory.EMAIL_USER.id),
+                    excludedTypeCodes.contains(NotificationCategory.USER_RIGHTS.id),
+                    excludedTypeCodes.contains(NotificationCategory.ARTICLE_LINKED.id),
+                    excludedTypeCodes.contains(NotificationCategory.ALPHA_BUILD_CHECKER.id),
+                    excludedTypeCodes.contains(NotificationCategory.READING_LIST_SYNCING.id),
+                    excludedTypeCodes.contains(NotificationCategory.SYNCING.id),
+                    excludedTypeCodes.contains(NotificationCategory.RECOMMENDED_READING_LISTS.id),
+                    excludedTypeCodes.contains(NotificationCategory.GAMES.id)
+                ),
+                notificationDao.getUnreadMentionsCount(
+                    includedWikiCodes,
+                    excludedTypeCodes.contains(NotificationCategory.SYSTEM.id),
+                    excludedTypeCodes.contains(NotificationCategory.MILESTONE_EDIT.id),
+                    excludedTypeCodes.contains(NotificationCategory.EDIT_USER_TALK.id),
+                    excludedTypeCodes.contains(NotificationCategory.EDIT_THANK.id),
+                    excludedTypeCodes.contains(NotificationCategory.REVERTED.id),
+                    excludedTypeCodes.contains(NotificationCategory.LOGIN_FAIL.id),
+                    excludedTypeCodes.contains(NotificationCategory.MENTION.id),
+                    excludedTypeCodes.contains(NotificationCategory.EMAIL_USER.id),
+                    excludedTypeCodes.contains(NotificationCategory.USER_RIGHTS.id),
+                    excludedTypeCodes.contains(NotificationCategory.ARTICLE_LINKED.id),
+                    excludedTypeCodes.contains(NotificationCategory.ALPHA_BUILD_CHECKER.id),
+                    excludedTypeCodes.contains(NotificationCategory.READING_LIST_SYNCING.id),
+                    excludedTypeCodes.contains(NotificationCategory.SYNCING.id),
+                    excludedTypeCodes.contains(NotificationCategory.RECOMMENDED_READING_LISTS.id),
+                    excludedTypeCodes.contains(NotificationCategory.GAMES.id)
+                )
             ) { all, mentions -> all to mentions }
         }
 

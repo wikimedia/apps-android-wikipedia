@@ -291,15 +291,6 @@ class NotificationLegacyViewModelTest {
         }
         override suspend fun fetchUnreadWikiDbNames() = unreadWikis
         override suspend fun fetchAndSave(filter: String?, continueStr: String?) = null
-        override suspend fun getAllSelectedNotifications(
-            hideReadNotifications: Boolean,
-            searchQuery: String?,
-            excludedTypeCodes: Set<String>,
-            includedWikiCodes: List<String>,
-            hideNotMentioned: Boolean
-        ): List<Notification> {
-            return emptyList()
-        }
 
         override suspend fun markItemsAsRead(
             ids: List<Long>,
