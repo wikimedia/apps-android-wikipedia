@@ -10,7 +10,6 @@ import org.wikipedia.Constants
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.compose.theme.BaseTheme
-import org.wikipedia.extensions.instrument
 import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.feed.onboarding.ExploreFeedBuildingActivity
 import org.wikipedia.page.PageTitle
@@ -65,7 +64,6 @@ class PersonalizationActivity : BaseActivity() {
                 )
             }
         }
-        instrument?.submitInteraction("impression")
     }
 
     companion object {
