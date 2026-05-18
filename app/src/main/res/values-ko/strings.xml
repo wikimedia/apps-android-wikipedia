@@ -31,6 +31,7 @@
 * Ykhwong
 * Ysjbserver
 * YuzaTea
+* 解浪
 * 고솜
 * 그냥기여자
 * 메지로 아르당
@@ -682,7 +683,7 @@
   <string name="reading_lists_preview_header_title">공유 목록</string>
   <string name="reading_lists_preview_save_button">저장</string>
   <string name="reading_lists_preview_save_dialog_title">목록 저장</string>
-  <string name="reading_lists_preview_save_dialog_text">목록의 이름을 지정하고 저장할 기사를 선택하세요.</string>
+  <string name="reading_lists_preview_save_dialog_text">목록의 이름을 지정하고 저장할 문서를 선택하세요.</string>
   <string name="reading_lists_preview_save_dialog_title_hint">제목</string>
   <string name="reading_lists_preview_save_dialog_cancel">취소</string>
   <string name="reading_lists_preview_save_dialog_save">저장</string>
@@ -1140,8 +1141,8 @@
   <string name="activity_tab_on_wikipedia_android">안드로이드 위키백과 앱에서</string>
   <string name="activity_tab_weekly_time_spent_hm">%1$d 시간 %2$d 분</string>
   <string name="activity_tab_weekly_time_spent">이번 주에 문서를 읽은 시간</string>
-  <string name="activity_tab_monthly_articles_read">이달의 기사</string>
-  <string name="activity_tab_monthly_articles_saved">이번 달에 저장된 기사</string>
+  <string name="activity_tab_monthly_articles_read">이달의 문서</string>
+  <string name="activity_tab_monthly_articles_saved">이번 달에 저장된 문서</string>
   <string name="activity_tab_monthly_top_categories">이번 달 동안 가장 많이 읽은 분류</string>
   <string name="activity_tab_explore_wikipedia">위키백과를 통해 알아보세요</string>
   <string name="activity_tab_discover_encourage">읽을 거리를 찾고 있나요?</string>
@@ -1983,7 +1984,7 @@
   <string name="recommended_reading_list_page_snackbar_day">일</string>
   <string name="recommended_reading_list_page_snackbar_week">주</string>
   <string name="recommended_reading_list_page_snackbar_month">월</string>
-  <string name="recommended_reading_list_settings_section_header">권장</string>
+  <string name="recommended_reading_list_settings_section_header">추천</string>
   <string name="recommended_reading_list_settings_title">발견 설정</string>
   <string name="recommended_reading_list_settings_toggle">읽기 목록 발견하기</string>
   <string name="recommended_reading_list_settings_toggle_disable_message">발견이 꺼져 있습니다. 위키백과가 읽을만한 글을 추천하지 않습니다.</string>
@@ -2078,4 +2079,5 @@
   <string name="reading_challenge_widget_enrolled_not_started_title">준비하시고, 읽으세요!</string>
   <string name="reading_challenge_widget_concluded_incomplete">도전 종료됨</string>
   <string name="reading_challenge_widget_concluded_complete">해냈습니다!</string>
+  <string name="home_feed_settings_continue_reading_title">계속 읽기</string>
 </resources>
