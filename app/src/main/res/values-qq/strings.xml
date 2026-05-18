@@ -2273,9 +2273,6 @@
   <string name="home_feed_community_screen_all_modules_disabled_description">Description text shown when all “From the community” modules are turned off in the feed settings.</string>
   <string name="home_feed_for_you_screen_all_modules_disabled_description">Description text shown when all “For you” modules are turned off in the feed settings.</string>
   <string name="home_feed_screen_all_modules_disabled_btn_label">Button text for managing Home feed modules from the empty state screen.</string>
-    <string name="home_feed_for_you_screen_no_data_description">Description text shown when the For You feed has no content available yet, prompting the user to select topics and articles in Settings.</string>
-    <string name="home_feed_screen_add_interests_btn_label">Button text prompting the user to add interests for personalizing the feed content.</string>
-    <string name="home_feed_for_you_screen_needs_reading_history_description">Description shown when the user has no reading history yet and needs to read articles to receive personalized recommendations in the “For you” feed.</string>
     <string name="home_feed_for_you_screen_empty_title">Title text shown when the “For you” feed has no personalized content available yet.</string>
     <string name="home_feed_for_you_screen_empty_description">Description explaining that the “For you” feed will populate with personalized articles as the user explores content.</string>
     <string name="home_feed_for_you_screen_empty_ways_to_start">Header introducing suggested actions for getting started with the “For you” feed.</string>
