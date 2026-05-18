@@ -110,7 +110,7 @@ data class CommunityContentState(
     val isLoadingMore: Boolean = false,
     val error: Throwable? = null,
     val canLoadMore: Boolean = true,
-    val isEmptyState: Boolean = false
+    val areAllModulesHidden: Boolean = false
 )
 
 data class ForYouContentState(
@@ -119,9 +119,14 @@ data class ForYouContentState(
     val isLoadingMore: Boolean = false,
     val error: Throwable? = null,
     val canLoadMore: Boolean = true,
-    val isAllModulesHidden: Boolean = false,
-    val needsInterestSelection: Boolean = false
+    val interestHidden: Boolean = false,
+    val emptyState: ForYouEmptyState? = null
 )
+
+enum class ForYouEmptyState {
+    ALL_MODULES_HIDDEN,
+    NO_DATA
+}
 
 data class TabsState(val count: Int, val pulse: Boolean)
 
@@ -140,17 +145,23 @@ class HomeViewModel : ViewModel() {
     private val _communityState = MutableStateFlow(CommunityContentState())
     val communityState = combine(_communityState, SettingsRepository.hiddenModules) { state, hiddenModules ->
         val visibleModules = state.cards.filterNot { hiddenModules.contains(it.moduleKey()) }
-        state.copy(cards = visibleModules, isEmptyState = CommunityModuleType.entries.all { hiddenModules.contains(it.name) })
+        state.copy(cards = visibleModules, areAllModulesHidden = CommunityModuleType.entries.all { hiddenModules.contains(it.name) })
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(MAX_STOP_TIMEOUT_MILLIS), CommunityContentState())
 
     private val _forYouState = MutableStateFlow(ForYouContentState())
     val forYouState = combine(_forYouState, SettingsRepository.hiddenModules) { state, hiddenModules ->
         val visibleModules = state.modules.filterNot { hiddenModules.contains(it.moduleKey()) }
         val allHidden = ForYouModuleType.entries.all { hiddenModules.contains(it.name) }
+        val interestHidden = hiddenModules.contains(ForYouModuleType.BASED_ON_INTEREST.name)
+        val emptyState = when {
+            allHidden -> ForYouEmptyState.ALL_MODULES_HIDDEN
+            !state.isInitialLoading && state.error == null && visibleModules.isEmpty() -> ForYouEmptyState.NO_DATA
+            else -> null
+        }
         state.copy(
             modules = visibleModules,
-            isAllModulesHidden = allHidden,
-            needsInterestSelection = !allHidden && !state.isInitialLoading && state.error == null && visibleModules.isEmpty()
+            emptyState = emptyState,
+            interestHidden = interestHidden
         )
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(MAX_STOP_TIMEOUT_MILLIS), ForYouContentState())
 

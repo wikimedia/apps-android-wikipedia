@@ -2528,4 +2528,11 @@
     <string name="home_feed_for_you_screen_no_data_description">Select some topics and articles in Settings to start seeing content here based on your interests.</string>
     <string name="home_feed_screen_all_modules_disabled_btn_label">Manage modules</string>
     <string name="home_feed_screen_add_interests_btn_label">Add interests</string>
+    <string name="home_feed_for_you_screen_needs_reading_history_description">Read some articles to start seeing recommendations here based on your reading history.</string>
+    <string name="home_feed_for_you_screen_empty_title">Your feed is empty for now</string>
+    <string name="home_feed_for_you_screen_empty_description">Your \"For you\" will populate with personalized articles as you explore.</string>
+    <string name="home_feed_for_you_screen_empty_ways_to_start">Ways to get started:</string>
+    <string name="home_feed_for_you_screen_empty_add_interests"><![CDATA[Add <a href="#">new interests</a>]]></string>
+    <string name="home_feed_for_you_screen_empty_see_community"><![CDATA[See what is happening in <a href="#">community</a>]]></string>
+
 </resources>

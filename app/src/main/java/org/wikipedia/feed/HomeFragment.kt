@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.compose.LocalActivity
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -65,8 +66,12 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLocale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.LinkInteractionListener
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.TextLinkStyles
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -304,7 +309,8 @@ class HomeFragment : Fragment() {
                                 }
                             )
                             requireActivity().startActivity(intent)
-                        }
+                        },
+                        navigateToCommunityTab = { selectTab(HomeTab.COMMUNITY) }
                     )
 
                     if (selectedTab == HomeTab.FOR_YOU && !swipeToExplorePromptShown && forYouContentState.modules.isNotEmpty()) {
@@ -411,6 +417,7 @@ fun HomeScreen(
     onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> },
     onNotificationClick: () -> Unit = {},
     onManageModulesClick: () -> Unit = {},
+    navigateToCommunityTab: () -> Unit = {}
 ) {
     val context = LocalContext.current
     val topInset = if (context is MainActivity) {
@@ -507,7 +514,8 @@ fun HomeScreen(
                         onPageOverflowDismiss = onPageOverflowDismiss,
                         onCustomizeInterestsClick = onCustomizeInterestsClick,
                         onCardImpression = onCardImpression,
-                        onManageModulesClick = onManageModulesClick
+                        onManageModulesClick = onManageModulesClick,
+                        navigateToCommunityTab = navigateToCommunityTab
                     )
 
                     // Floating toolbar with gradient scrim, wordmark, and tab selector.
@@ -716,9 +724,9 @@ fun CommunityContentTab(
         state.isInitialLoading -> {
             LoadingIndicator(modifier = modifier.fillMaxHeight())
         }
-        state.isEmptyState -> {
+        state.areAllModulesHidden -> {
             val context = LocalContext.current
-            HomeScreenEmptyState(
+            AllModulesHiddenView(
                 modifier = Modifier
                     .fillMaxSize()
                     .background(WikipediaTheme.colors.paperColor)
@@ -952,7 +960,8 @@ fun ForYouContentTab(
     onPageOverflowDismiss: () -> Unit = {},
     onCustomizeInterestsClick: () -> Unit = {},
     onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> },
-    onManageModulesClick: () -> Unit
+    onManageModulesClick: () -> Unit,
+    navigateToCommunityTab: () -> Unit
 ) {
     when {
         state.isInitialLoading -> {
@@ -965,24 +974,23 @@ fun ForYouContentTab(
                 LoadingIndicator(modifier = Modifier.fillMaxHeight())
             }
         }
-        state.needsInterestSelection -> {
-            val context = LocalContext.current
-            HomeScreenEmptyState(
+        state.emptyState == ForYouEmptyState.NO_DATA -> {
+            ForYouNoDataView(
                 modifier = Modifier
                     .fillMaxSize()
                     .background(WikipediaTheme.colors.paperColor)
                     .padding(horizontal = 16.dp)
                     .padding(top = (topInset * 2 + 64).dp)
                     .verticalScroll(rememberScrollState()),
-                title = context.getString(wikiSite.languageCode, R.string.home_feed_screen_empty_state_label),
-                description = context.getString(wikiSite.languageCode, R.string.home_feed_for_you_screen_no_data_description),
-                buttonText = context.getString(wikiSite.languageCode, R.string.home_feed_screen_add_interests_btn_label),
-                onCtaClick = onCustomizeInterestsClick
+                wikiSite = wikiSite,
+                showInterests = !state.interestHidden,
+                onCustomizeInterestsClick = onCustomizeInterestsClick,
+                navigateToCommunityTab = navigateToCommunityTab
             )
         }
-        state.isAllModulesHidden -> {
+        state.emptyState == ForYouEmptyState.ALL_MODULES_HIDDEN -> {
             val context = LocalContext.current
-            HomeScreenEmptyState(
+            AllModulesHiddenView(
                 modifier = Modifier
                     .fillMaxSize()
                     .background(WikipediaTheme.colors.paperColor)
@@ -1350,7 +1358,7 @@ fun LanguageDropDownMenu(
 }
 
 @Composable
-fun HomeScreenEmptyState(
+fun AllModulesHiddenView(
     modifier: Modifier = Modifier,
     title: String,
     description: String,
@@ -1394,6 +1402,97 @@ fun HomeScreenEmptyState(
     }
 }
 
+@Composable
+fun ForYouNoDataView(
+    modifier: Modifier = Modifier,
+    wikiSite: WikiSite,
+    showInterests: Boolean = true,
+    onCustomizeInterestsClick: () -> Unit,
+    navigateToCommunityTab: () -> Unit
+) {
+    val context = LocalContext.current
+    Column(
+        modifier = modifier,
+        verticalArrangement = Arrangement.spacedBy(16.dp, Alignment.CenterVertically),
+    ) {
+        Image(
+            modifier = Modifier
+                .fillMaxWidth(),
+            painter = painterResource(R.drawable.empty_feed_illustration),
+            contentDescription = null
+        )
+        Spacer(modifier = Modifier.width(24.dp))
+        Text(
+            modifier = Modifier
+                .fillMaxWidth(),
+            text = context.getString(wikiSite.languageCode, R.string.home_feed_for_you_screen_empty_title),
+            style = MaterialTheme.typography.headlineSmall,
+            color = WikipediaTheme.colors.primaryColor
+        )
+        Text(
+            text = context.getString(wikiSite.languageCode, R.string.home_feed_for_you_screen_empty_description),
+            style = MaterialTheme.typography.bodyMedium,
+            color = WikipediaTheme.colors.primaryColor
+        )
+
+        Text(
+            text = context.getString(wikiSite.languageCode, R.string.home_feed_for_you_screen_empty_ways_to_start),
+            style = MaterialTheme.typography.bodyMedium.copy(
+                fontWeight = FontWeight.Medium,
+                letterSpacing = 0.25.sp
+            ),
+            textAlign = TextAlign.Center,
+            color = WikipediaTheme.colors.primaryColor
+        )
+        if (showInterests) {
+            EmptyStateActionRow(
+                iconRes = R.drawable.ic_baseline_tune_24,
+                text = context.getString(wikiSite.languageCode, R.string.home_feed_for_you_screen_empty_add_interests),
+                onLinkClick = onCustomizeInterestsClick
+            )
+        }
+
+        EmptyStateActionRow(
+            iconRes = R.drawable.ic_baseline_person_24,
+            text = context.getString(wikiSite.languageCode, R.string.home_feed_for_you_screen_empty_see_community),
+            onLinkClick = navigateToCommunityTab
+        )
+    }
+}
+
+@Composable
+fun EmptyStateActionRow(
+    @DrawableRes iconRes: Int,
+    text: String,
+    onLinkClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Row(
+        modifier = modifier
+            .fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        Icon(
+            painter = painterResource(iconRes),
+            tint = WikipediaTheme.colors.primaryColor,
+            contentDescription = null
+        )
+        HtmlText(
+            text = text,
+            linkStyle = TextLinkStyles(
+                style = SpanStyle(
+                    fontSize = 14.sp,
+                    color = WikipediaTheme.colors.primaryColor,
+                    textDecoration = TextDecoration.Underline)
+            ),
+            color = WikipediaTheme.colors.primaryColor,
+            style = MaterialTheme.typography.bodyMedium,
+            linkInteractionListener = LinkInteractionListener { onLinkClick() }
+        )
+    }
+}
+
 @Preview(showBackground = true)
 @Composable
 private fun HomeScreenCommunityEmptyStatePreview() {
@@ -1401,7 +1500,7 @@ private fun HomeScreenCommunityEmptyStatePreview() {
         HomeScreen(
             wikiSite = WikiSite.preview(),
             selectedTab = HomeTab.COMMUNITY,
-            communityContentState = CommunityContentState(isEmptyState = true),
+            communityContentState = CommunityContentState(areAllModulesHidden = true),
             forYouContentState = ForYouContentState(isInitialLoading = true),
             tabsState = TabsState(1, false),
             notificationBellState = NotificationBellState(unreadCount = 5, canShow = true)
@@ -1416,8 +1515,8 @@ private fun HomeScreenForYouEmptyStatePreview() {
         HomeScreen(
             wikiSite = WikiSite.preview(),
             selectedTab = HomeTab.FOR_YOU,
-            communityContentState = CommunityContentState(isEmptyState = true),
-            forYouContentState = ForYouContentState(isAllModulesHidden = true),
+            communityContentState = CommunityContentState(areAllModulesHidden = true),
+            forYouContentState = ForYouContentState(emptyState = ForYouEmptyState.ALL_MODULES_HIDDEN),
             tabsState = TabsState(1, false),
             notificationBellState = NotificationBellState(unreadCount = 5, canShow = true)
         )
@@ -1496,5 +1595,23 @@ fun LanguageDropDownMenuPreview() {
 fun DayHeaderPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         DayHeader(LocalDate.now())
+    }
+}
+
+@Preview
+@Composable
+fun ForYouNoDataViewPreview() {
+    BaseTheme(currentTheme = Theme.LIGHT) {
+        ForYouNoDataView(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(WikipediaTheme.colors.paperColor)
+                .padding(16.dp)
+                .verticalScroll(rememberScrollState()),
+            wikiSite = WikiSite.preview(),
+            showInterests = true,
+            onCustomizeInterestsClick = {},
+            navigateToCommunityTab = {}
+        )
     }
 }
