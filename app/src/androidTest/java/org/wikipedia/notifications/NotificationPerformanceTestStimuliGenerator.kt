@@ -7,27 +7,36 @@ import java.time.temporal.ChronoUnit
 
 object NotificationPerformanceTestStimuliGenerator {
 
+    private val ALL_CATEGORIES = listOf(
+        "system", "thank-you-edit", "edit-user-talk", "edit-thank", "reverted",
+        "login-fail", "mention", "emailuser", "user-rights", "article-linked",
+        "alpha-builder-checker", "reading-list-syncing", "syncing", "recommended-reading-lists", "games"
+    )
+
+    private val WIKI_FORMATS = listOf("%swiki", "%s_wiki")
+
     fun generateNotifications(count: Int): List<Notification> {
         val baseTimestamp = Instant.parse("2025-01-01T00:00:00Z")
+        
+        val noise = "Dear Brutus, the fault is not in our stars."
         return (1..count).map { i ->
             val timestampInstant = baseTimestamp.plus((i - 1).toLong(), ChronoUnit.HOURS)
-            val timestamp = timestampInstant.toString()
-            val read = if (i % 2 == 0) timestampInstant.plus(30, ChronoUnit.MINUTES).toString() else null
+            val langCode = if (i % 2 == 0) "en" else "zh"
+            val wikiName = WIKI_FORMATS[i % WIKI_FORMATS.size].format(langCode)
+            
+            // Cycle through ALL categories to exercise every branch of the 15-way NOT LIKE filter
+            val category = ALL_CATEGORIES[i % ALL_CATEGORIES.size]
             
             createNotification(
                 id = i.toLong(),
-                wiki = if (i % 2 == 0) "en" else "zh", // toggle between two wikis
-                category = when (i % 3) {              // inject different categories
-                    0 -> "mention"
-                    1 -> "edit-thank"
-                    else -> "revert"
-                },
-                header = "Header $i",                   // each header is unique
-                timestamp = timestamp,
-                read = read,
-                body = "Body of notification $i",       // each body is unique
-                title = "Title $i",                     // each title is unique
-                links = "Link $i"                       // each link is unique
+                wiki = wikiName,
+                category = category,
+                header = "Header $i: $noise",
+                timestamp = timestampInstant.toString(),
+                read = if (i % 4 == 0) timestampInstant.plus(30, ChronoUnit.MINUTES).toString() else null,
+                body = "Body $i: ${noise.repeat(10)}",
+                title = "Title $i: $noise",
+                links = "Link $i"
             )
         }
     }
@@ -46,7 +55,7 @@ object NotificationPerformanceTestStimuliGenerator {
         val json = """
             {
                 "id": $id,
-                "wiki": "${wiki}wiki",
+                "wiki": "$wiki",
                 "category": "$category",
                 "title": {
                     "full": "$title",

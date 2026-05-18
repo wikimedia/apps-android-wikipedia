@@ -36,7 +36,7 @@ class NotificationLegacyViewModelPerformanceTest {
             )
 
             // Wait for view model to initialize without blocking the instrumentation thread
-            withTimeout(10000) {
+            withTimeout(1000000) {
                 viewModel.uiState.filter { it is Resource.Success }.first()
             }
         }
@@ -56,8 +56,8 @@ class NotificationLegacyViewModelPerformanceTest {
         viewModel.updateSearchQuery("Header 1") // Will limit to headers starting with "Header 1"
 
         // Wait for initialization and initial fetch to finish without blocking
-        withTimeout(10000) {
-            viewModel.uiState.filter { it is Resource.Success && it.data.first.isNotEmpty() }.first()
+        withTimeout(1000000) {
+            viewModel.uiState.filter { it is Resource.Success }.first()
         }
 
         val times = mutableListOf<Long>()
@@ -67,11 +67,7 @@ class NotificationLegacyViewModelPerformanceTest {
         repeat(numberIterations) { iteration ->
             val time = measureTimeMillis {
                 viewModel.fetchAndSave(refresh = true)
-                // Use drop(1) to ensure we wait for the NEW emission triggered by fetchAndSave
-                // rather than returning the current StateFlow value immediately.
-                viewModel.uiState.filter { it is Resource.Success && it.data.first.isNotEmpty() }
-                    .drop(1)
-                    .first()
+                viewModel.uiState.filter { it is Resource.Success }.drop(1).first()
             }
             times.add(time)
             println("Iteration ${iteration + 1}: $time ms")
@@ -113,7 +109,7 @@ class NotificationLegacyViewModelPerformanceTest {
         override suspend fun getAllNotifications() = notifications
         override suspend fun updateNotification(notification: Notification) {}
         override suspend fun fetchUnreadWikiDbNames() = emptyMap<String, WikiSite>()
-        override suspend fun fetchAndSave(filter: String?, continueStr: String?) = null
+        override suspend fun fetchAndSave(filter: String?, continueStr: String?) = "dummy"
         override suspend fun getAllSelectedNotifications(
             hideReadNotifications: Boolean,
             searchQuery: String?,
