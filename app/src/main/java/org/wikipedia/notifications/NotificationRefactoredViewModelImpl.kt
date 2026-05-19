@@ -59,11 +59,9 @@ class NotificationRefactoredViewModelImpl(
     var isEndReached: Boolean = false
         private set
 
-    private val _uiState = MutableStateFlow(Resource<Pair<
-            List<NotificationListItemContainer>,
-            Boolean>>()
+    private val _uiState = MutableStateFlow(Resource<Boolean>()
     )
-    override val uiState = _uiState.asStateFlow()
+    val uiState = _uiState.asStateFlow()
 
     /**
      * A reactive stream of paged notification data that orchestrates the entire notification pipeline.
@@ -130,7 +128,7 @@ class NotificationRefactoredViewModelImpl(
                         allUnreadCount = all
                         mentionsUnreadCount = mentions
                         // Trigger uiState update for the Activity to refresh tab titles
-                        _uiState.value = Resource.Success(emptyList<NotificationListItemContainer>() to true)
+                        _uiState.value = Resource.Success(true)
                     }
                 }
         }

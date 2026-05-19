@@ -47,7 +47,7 @@ class NotificationLegacyViewModelImpl(
     override var allUnreadCount: Int = 0
 
     private val _uiState = MutableStateFlow(Resource<Pair<List<NotificationListItemContainer>, Boolean>>())
-    override val uiState = _uiState.asStateFlow()
+    val uiState = _uiState.asStateFlow()
 
     init {
         viewModelScope.launch(handler) {

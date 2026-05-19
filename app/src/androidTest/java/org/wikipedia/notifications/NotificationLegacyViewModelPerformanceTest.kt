@@ -37,12 +37,6 @@ class NotificationLegacyViewModelPerformanceTest {
     private val notificationFilterHelper = FakeNotificationFilterHelper()
     private lateinit var viewModel: NotificationLegacyViewModelImpl
 
-    // used by refactored view model
-    private val _isSearchVisible = MutableStateFlow(true)
-    var isSearchVisible: Boolean
-        get() = _isSearchVisible.value
-        set(value) { _isSearchVisible.value = value }
-
     @Before
     fun setUp() {
         runBlocking {

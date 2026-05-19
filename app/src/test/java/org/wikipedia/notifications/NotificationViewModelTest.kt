@@ -104,15 +104,18 @@ class NotificationViewModelTest {
 
     // helper function to wait for view model to execute Room database query
     fun waitForViewModel() {
-        val maxAttempts = 10000
-        var attempts = 0
-        val stateBefore = viewModel.uiState.value
-        while (viewModel.uiState.value === stateBefore && attempts < maxAttempts) {
-            Shadows.shadowOf(android.os.Looper.getMainLooper()).idle()
-            Thread.sleep(10) // Give the background Room thread a moment to work
-            attempts++
+        if (!legacy) {
+            val maxAttempts = 10000
+            var attempts = 0
+            val refactoredViewModel = viewModel as NotificationRefactoredViewModelImpl
+            val stateBefore = refactoredViewModel.uiState.value
+            while (refactoredViewModel.uiState.value === stateBefore && attempts < maxAttempts) {
+                Shadows.shadowOf(android.os.Looper.getMainLooper()).idle()
+                Thread.sleep(10) // Give the background Room thread a moment to work
+                attempts++
+            }
+            assertTrue(attempts < maxAttempts) // ensure test case fails if database op is not finished
         }
-        assertTrue(attempts < maxAttempts) // ensure test case fails if database op is not finished
     }
 
     /**
@@ -166,7 +169,7 @@ class NotificationViewModelTest {
 
         if (legacy) {
             viewModel.fetchAndSave()
-            val uiState = viewModel.uiState.value
+            val uiState = (viewModel as NotificationLegacyViewModelImpl).uiState.value
             assertTrue(uiState is Resource.Success)
             assertEquals(2, (uiState as Resource.Success).data.first.size)
         } else {
@@ -205,7 +208,7 @@ class NotificationViewModelTest {
 
         if (legacy) {
             viewModel.fetchAndSave()
-            val uiState = viewModel.uiState.value
+            val uiState = (viewModel as NotificationLegacyViewModelImpl).uiState.value
             val items = (uiState as Resource.Success).data.first
             assertEquals(2L, items[0].notification?.id)
             assertEquals(1L, items[1].notification?.id)
@@ -252,7 +255,7 @@ class NotificationViewModelTest {
         // check if match on header is reported
         viewModel.updateSearchQuery("app")
         if (legacy) {
-            val uiStateHeaderFiltered = viewModel.uiState.value
+            val uiStateHeaderFiltered = (viewModel as NotificationLegacyViewModelImpl).uiState.value
             val itemsHeaderFiltered = (uiStateHeaderFiltered as Resource.Success).data.first
             assertEquals(1, itemsHeaderFiltered.size)
             assertEquals(1L, itemsHeaderFiltered[0].notification?.id)
@@ -265,7 +268,7 @@ class NotificationViewModelTest {
         // check if match on body is reported
         viewModel.updateSearchQuery("ora")
         if (legacy) {
-            val uiStateBodyFiltered = viewModel.uiState.value
+            val uiStateBodyFiltered = (viewModel as NotificationLegacyViewModelImpl).uiState.value
             val itemsBodyFiltered = (uiStateBodyFiltered as Resource.Success).data.first
             assertEquals(1, itemsBodyFiltered.size)
             assertEquals(1L, itemsBodyFiltered[0].notification?.id)
@@ -278,7 +281,7 @@ class NotificationViewModelTest {
         // check if match on title is reported
         viewModel.updateSearchQuery("kiw")
         if (legacy) {
-            val uiStateTitleFiltered = viewModel.uiState.value
+            val uiStateTitleFiltered = (viewModel as NotificationLegacyViewModelImpl).uiState.value
             val itemsTitleFiltered = (uiStateTitleFiltered as Resource.Success).data.first
             assertEquals(1, itemsTitleFiltered.size)
             assertEquals(1L, itemsTitleFiltered[0].notification?.id)
@@ -292,7 +295,7 @@ class NotificationViewModelTest {
         // check if match on links is reported
         viewModel.updateSearchQuery("mel")
         if (legacy) {
-            val uiStateLinkFiltered = viewModel.uiState.value
+            val uiStateLinkFiltered = (viewModel as NotificationLegacyViewModelImpl).uiState.value
             val itemsLinkFiltered = (uiStateLinkFiltered as Resource.Success).data.first
             assertEquals(1, itemsLinkFiltered.size)
             assertEquals(1L, itemsLinkFiltered[0].notification?.id)
@@ -321,7 +324,7 @@ class NotificationViewModelTest {
         preferences.hideRead = true // set the fake preference to filter out read notifications
         if (legacy) {
             viewModel.fetchAndSave() // triggers reading, storage and update of uiState
-            val uiStateFiltered = viewModel.uiState.value
+            val uiStateFiltered = (viewModel as NotificationLegacyViewModelImpl).uiState.value
             val itemsFiltered = (uiStateFiltered as Resource.Success).data.first
             assertEquals(1, itemsFiltered.size)
             assertEquals(1L, itemsFiltered[0].notification?.id)
@@ -335,7 +338,7 @@ class NotificationViewModelTest {
         preferences.hideRead = false // set the fake preference to not filter out read notifications
         if (legacy) {
             viewModel.fetchAndSave() // triggers API reading, storage and update of uiState
-            val uiStateUnfiltered = viewModel.uiState.value
+            val uiStateUnfiltered = (viewModel as NotificationLegacyViewModelImpl).uiState.value
             val itemsUnfiltered = (uiStateUnfiltered as Resource.Success).data.first
             assertEquals(2, itemsUnfiltered.size)
             assertEquals(1L, itemsUnfiltered[0].notification?.id)
@@ -364,7 +367,7 @@ class NotificationViewModelTest {
         preferences.excludedWikis.add("en") // add "en" to the list of wikis to be filtered out
         if (legacy) {
             viewModel.fetchAndSave() // triggers reading, storage and update of uiState
-            val uiStateFiltered = viewModel.uiState.value
+            val uiStateFiltered = (viewModel as NotificationLegacyViewModelImpl).uiState.value
             val itemsFiltered = (uiStateFiltered as Resource.Success).data.first
             assertEquals(1, itemsFiltered.size)
             assertEquals(2L, itemsFiltered[0].notification?.id)
@@ -378,7 +381,7 @@ class NotificationViewModelTest {
         preferences.excludedWikis.remove("en") // remove "en" from the list
         if (legacy) {
             viewModel.fetchAndSave() // triggers reading, storage and update of uiState
-            val uiStateUnfiltered = viewModel.uiState.value
+            val uiStateUnfiltered = (viewModel as NotificationLegacyViewModelImpl).uiState.value
             val itemsUnfiltered = (uiStateUnfiltered as Resource.Success).data.first
             assertEquals(2, itemsUnfiltered.size)
             assertEquals(1L, itemsUnfiltered[0].notification?.id)
@@ -411,7 +414,7 @@ class NotificationViewModelTest {
         preferences.excludedTypes.add("thank-you-edit")
         if (legacy) {
             viewModel.fetchAndSave() // triggers reading, storage and update of uiState
-            val uiStateFiltered = viewModel.uiState.value
+            val uiStateFiltered = (viewModel as NotificationLegacyViewModelImpl).uiState.value
             val itemsFiltered = (uiStateFiltered as Resource.Success).data.first
             assertEquals(1, itemsFiltered.size)
             assertEquals(3L, itemsFiltered[0].notification?.id)
@@ -437,7 +440,7 @@ class NotificationViewModelTest {
 
         viewModel.updateTabSelection(1) // Mentions
         if (legacy) {
-            val uiStateFiltered = viewModel.uiState.value
+            val uiStateFiltered = (viewModel as NotificationLegacyViewModelImpl).uiState.value
             val itemsFiltered = (uiStateFiltered as Resource.Success).data.first
             assertEquals(1, itemsFiltered.size) // 1 match
             assertEquals(1L, itemsFiltered[0].notification?.id)
@@ -448,7 +451,7 @@ class NotificationViewModelTest {
         }
         viewModel.updateTabSelection(0) // All
         if (legacy) {
-            val uiStateUnfiltered = viewModel.uiState.value
+            val uiStateUnfiltered = (viewModel as NotificationLegacyViewModelImpl).uiState.value
             val itemsUnfiltered = (uiStateUnfiltered as Resource.Success).data.first
             assertEquals(2, itemsUnfiltered.size) // 1 match
             assertEquals(1L, itemsUnfiltered[0].notification?.id)

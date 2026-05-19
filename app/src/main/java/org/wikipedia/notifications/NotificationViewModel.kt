@@ -13,7 +13,7 @@ import org.wikipedia.util.Resource
 interface NotificationViewModel {
     fun fetchAndSave(refresh: Boolean = false)
     fun updateSearchQuery(query: String?)
-    val uiState: StateFlow<Resource<Pair<List<NotificationListItemContainer>, Boolean>>>
+
     fun updateTabSelection(position: Int)
 
     var mentionsUnreadCount: Int
