@@ -252,6 +252,12 @@ class HomeViewModel : ViewModel() {
         _tabsState.value = TabsState(WikipediaApp.instance.tabCount, pulse)
     }
 
+    fun updateSelectedLanguageIfNeeded() {
+        if (!WikipediaApp.instance.languageState.appLanguageCodes.contains(wikiSite.value.languageCode)) {
+            updateLanguage(WikipediaApp.instance.languageState.appLanguageCode)
+        }
+    }
+
     /**
      * Loads the next day's community content (today on first call, then progressively older).
      * Safe to call as a retry — the age only advances after a successful fetch.
