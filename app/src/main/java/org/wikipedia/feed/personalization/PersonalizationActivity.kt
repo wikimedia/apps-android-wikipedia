@@ -14,7 +14,6 @@ import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.feed.onboarding.ExploreFeedBuildingActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.search.SearchActivity
-import org.wikipedia.settings.Prefs
 
 class PersonalizationActivity : BaseActivity() {
 
@@ -66,9 +65,6 @@ class PersonalizationActivity : BaseActivity() {
                         }
 
                         startActivity(ExploreFeedBuildingActivity.newIntent(this))
-                        // This implies that the user changed their interests, so we should clear the cache of
-                        // today's "For You" feed cards to ensure that they see the updated feed immediately.
-                        Prefs.homeForYouModulesToday = ""
                         setResult(RESULT_OK)
                         finish()
                     },

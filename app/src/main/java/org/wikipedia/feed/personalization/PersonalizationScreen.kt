@@ -126,7 +126,7 @@ fun PersonalizationScreen(
                             onSearchClick = onSearchClick,
                             onDeselectAllClick = {
                                 context.instrument?.submitInteraction("click", actionSource = pageActionSource[screens[pagerState.currentPage]], elementId = "deselect_all")
-                                viewModel.deselectAllArticles()
+                                viewModel.deselectAllInterests()
                             },
                             retryLoading = {
                                 context.instrument?.submitInteraction("click", actionSource = pageActionSource[screens[pagerState.currentPage]], elementId = "retry")
