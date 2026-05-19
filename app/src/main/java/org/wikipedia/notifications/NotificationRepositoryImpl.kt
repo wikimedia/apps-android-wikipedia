@@ -105,7 +105,7 @@ class NotificationRepositoryImpl(
         var newContinueStr: String? = null
         val response = ServiceFactory.get(
             WikipediaApp.instance.wikiSite).getAllNotifications(filter, continueStr)
-        _endOfPaginationReached.value = response.continuation != null
+        _endOfPaginationReached.value = response.continuation == null
         response.query?.notifications?.let {
             notificationDao.insertNotifications(it.list.orEmpty())
             newContinueStr = it.continueStr
