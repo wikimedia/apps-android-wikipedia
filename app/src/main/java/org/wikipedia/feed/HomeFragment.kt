@@ -370,6 +370,7 @@ class HomeFragment : Fragment() {
         super.onResume()
         (requireActivity() as? MainActivity)?.onTabChanged(NavTab.HOME)
         viewModel.updateTabCount()
+        viewModel.updateSelectedLanguageIfNeeded()
         instrument.startFunnel("home_feed")
         refreshNotification()
         // TODO: start new funnel for analytics
