@@ -66,7 +66,7 @@ class NotificationRepositoryImpl(
         if (isFirstInitialization) {
             isFirstInitialization = false
             runBlocking {
-                notificationDao.deleteAll()
+                //notificationDao.deleteAll()
             }
         }
     }
@@ -265,10 +265,7 @@ class NotificationRepositoryImpl(
      * Loads ALL notifications from the server to the database
      */
     override suspend fun syncAll(filter: String) {
-        var currentToken: String? = getRemoteKey(Constants.NOTIFICATIONS_DB_REMOTE_KEY)
-
-        // Safety check: only loop if we haven't reached the end yet
-        if (endOfPaginationReached.value) return
+        var currentToken: String? = null
 
         while (true) {
             // fetchAndSave performs the API call and the DB insert
