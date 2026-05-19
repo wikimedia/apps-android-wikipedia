@@ -198,7 +198,9 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
         super.onNewIntent(intent)
         setIntent(intent)
         if (intent.hasExtra(ReadingChallengeWidgetRepository.INTENT_EXTRA_READING_CHALLENGE_JOIN)) {
-            maybeShowReadingChallengePrompt()
+            if (ReadingChallengeWidgetRepository.shouldShowOnboardingDialog()) {
+                showReadingChallenge()
+            }
         }
         fragment.handleIntent(intent)
     }

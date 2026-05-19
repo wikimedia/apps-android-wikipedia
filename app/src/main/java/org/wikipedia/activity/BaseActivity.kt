@@ -301,21 +301,10 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         return _instrument
     }
 
-    fun showYearInReview() {
-        yearInReviewLauncher.launch((YearInReviewOnboardingActivity.newIntent(this)))
-    }
-
-    fun showReadingChallenge() {
+    protected fun showReadingChallenge() {
         requestReadingChallengeActivity.launch(ReadingChallengeOnboardingActivity
             .newIntent(this)
             .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
-    }
-
-    protected fun maybeShowReadingChallengePrompt() {
-        if (ReadingChallengeWidgetRepository.shouldShowOnboardingDialog() &&
-            this !is ReadingChallengeOnboardingActivity) {
-            showReadingChallenge()
-        }
     }
 
     private fun removeSplashBackground() {
@@ -383,7 +372,9 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
             ReadingChallengeWidgetRepository.shouldShowOnboardingDialog() -> showReadingChallenge()
             YearInReviewViewModel.isAccessible &&
                     Prefs.isYearInReviewEnabled &&
-                    !Prefs.yearInReviewVisited -> showYearInReview()
+                    !Prefs.yearInReviewVisited -> {
+                        yearInReviewLauncher.launch((YearInReviewOnboardingActivity.newIntent(this)))
+                    }
         }
     }
 
