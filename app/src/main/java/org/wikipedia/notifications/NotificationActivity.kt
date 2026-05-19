@@ -31,6 +31,9 @@ import androidx.core.widget.ImageViewCompat
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.paging.LoadState
+import androidx.paging.PagingDataAdapter
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -42,9 +45,6 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
-import androidx.paging.LoadState
-import androidx.paging.PagingDataAdapter
-import androidx.recyclerview.widget.DiffUtil
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.ActivityNotificationsBinding
 import org.wikipedia.databinding.ItemNotificationBinding
@@ -170,12 +170,11 @@ class NotificationActivity : BaseActivity() {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 val adapter = (binding.notificationsRecyclerView.adapter as NotificationItemAdapter)
                 adapter.loadStateFlow.collectLatest { loadStates ->
-                    // Calculate if we have arrived at a "stable" empty state
-                    val isListEmptyAndNotLoading = loadStates.refresh is LoadState.NotLoading && // loading has finished
-                            adapter.itemCount == 0 // no items to show
-                    // show the progress bar only when we are loading
-                    binding.notificationsProgressBar.isVisible = loadStates.refresh is LoadState.Loading
-                    updateVisibility(isListEmptyAndNotLoading)
+                    if (loadStates.refresh is LoadState.NotLoading) { // loading has finished
+                        binding.notificationsRefreshView.isRefreshing = false
+                        binding.notificationsProgressBar.visibility = View.GONE
+                        updateVisibility(adapter.itemCount == 0) // no items to show
+                    }
                 }
             }
         }
@@ -291,7 +290,7 @@ class NotificationActivity : BaseActivity() {
     }
     
     private fun postprocessAndDisplay() {
-        // triggering update of flow that adds the search bar as header item in the data
+        // update the counts on both tabs and manage visibility of search bar
         viewModel.isSearchVisible = actionMode == null
 
         // updating the count on the "all" tab
