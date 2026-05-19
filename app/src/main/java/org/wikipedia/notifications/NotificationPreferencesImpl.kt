@@ -5,7 +5,7 @@ import org.wikipedia.settings.Prefs
 /**
  * Concrete implementation of [NotificationPreferences] that wraps the app's [Prefs].
  */
-class NotificationPreferencesImpl: NotificationPreferences {
+class NotificationPreferencesImpl : NotificationPreferences {
     override fun isHideReadNotificationsEnabled(): Boolean {
         return Prefs.hideReadNotificationsEnabled
     }

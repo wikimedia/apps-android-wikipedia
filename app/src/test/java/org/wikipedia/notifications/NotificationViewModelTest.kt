@@ -184,8 +184,8 @@ class NotificationViewModelTest {
      * Verifies that notifications are sorted correctly by timestamp in descending order.
      *
      * In the legacy [NotificationViewModel], sorting is performed in memory using
-     * Kotlin collection transformations. This test ensures that the Room-based 
-     * [org.wikipedia.notifications.db.NotificationDao] query correctly maintains this 
+     * Kotlin collection transformations. This test ensures that the Room-based
+     * [org.wikipedia.notifications.db.NotificationDao] query correctly maintains this
      * requirement by applying 'ORDER BY timestamp DESC' at the database level.
      */
     @Test
@@ -285,7 +285,6 @@ class NotificationViewModelTest {
             val itemsTitleFiltered = (uiStateTitleFiltered as Resource.Success).data.first
             assertEquals(1, itemsTitleFiltered.size)
             assertEquals(1L, itemsTitleFiltered[0].notification?.id)
-
         } else {
             val itemsTitleFiltered = collectPagingData(true)
             assertEquals(2, itemsTitleFiltered.size)
@@ -311,7 +310,7 @@ class NotificationViewModelTest {
      *
      * This test checks the filtering logic for notifications which have been read by the user:
      * Skipping notifications if [NotificationPreferences.isHideReadNotificationsEnabled]
-     * is true and the notification is not unread. In the refactored version, this is 
+     * is true and the notification is not unread. In the refactored version, this is
      * handled by the DAO query using 'read IS NULL' logic.
      */
     @Test
@@ -393,7 +392,6 @@ class NotificationViewModelTest {
             assertEquals(1L, itemsUnfiltered[1].notification?.id)
             assertEquals(2L, itemsUnfiltered[2].notification?.id)
         }
-
     }
 
     /**
@@ -687,9 +685,9 @@ class NotificationViewModelTest {
         }
 
         override suspend fun getRemoteKey(wiki: String): String? = remoteKeys[wiki]
-        
+
         override suspend fun saveRemoteKey(wiki: String, nextContinueStr: String?) {
-            remoteKeys[wiki] = nextContinueStr 
+            remoteKeys[wiki] = nextContinueStr
         }
 
         override suspend fun clearRemoteKeys() { remoteKeys.clear() }
@@ -758,7 +756,7 @@ class NotificationViewModelTest {
     // Fake filter helper used for mocking during test informing all
     // - wikis (language codes)
     // - types/categories
-    private class FakeNotificationFilterHelper: NotificationFilterHelper {
+    private class FakeNotificationFilterHelper : NotificationFilterHelper {
         override fun allWikisList(): List<String> {
             return listOf("en", "zh", "dummy")
         }

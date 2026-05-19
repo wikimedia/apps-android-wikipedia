@@ -98,7 +98,7 @@ class NotificationActivity : BaseActivity() {
             // trigger update of data to be shown if user has selected additional languages to
             // be filtered or modified selection of languages or modified category
             viewModel.fetchAndSave(true)
-        }        else {
+        } else {
             viewModel.updateTabSelection(binding.notificationTabLayout.selectedTabPosition)
         }
     }
@@ -223,7 +223,7 @@ class NotificationActivity : BaseActivity() {
                 val itemsToMark = adapter.snapshot().items
                     .filterNot { it.type == NotificationListItemContainer.ITEM_SEARCH_BAR }
                     .filter { it.notification?.isUnread == true }
-                if(itemsToMark.isNotEmpty())
+                if (itemsToMark.isNotEmpty())
                     markReadItems(itemsToMark, false)
                 true
             }
@@ -281,14 +281,13 @@ class NotificationActivity : BaseActivity() {
                 if (actionMode != null) View.VISIBLE
                 else View.GONE
             setUpEmptySearchMessage()
-        }
-        else {
+        } else {
             binding.notificationsEmptyContainer.visibility = View.GONE
             binding.notificationsSearchEmptyContainer.visibility = View.GONE
             binding.notificationsSearchEmptyText.visibility = View.GONE
         }
     }
-    
+
     private fun postprocessAndDisplay() {
         // update the counts on both tabs and manage visibility of search bar
         viewModel.isSearchVisible = actionMode == null
@@ -601,7 +600,7 @@ class NotificationActivity : BaseActivity() {
         }
     }
 
-    private inner class NotificationItemAdapter : 
+    private inner class NotificationItemAdapter :
         PagingDataAdapter<NotificationListItemContainer, RecyclerView.ViewHolder>(NotificationDiffCallback()) {
         override fun getItemViewType(position: Int): Int {
             return getItem(position)?.type ?: NotificationListItemContainer.ITEM_NOTIFICATION

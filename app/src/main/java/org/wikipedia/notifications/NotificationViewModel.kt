@@ -1,10 +1,5 @@
 package org.wikipedia.notifications
 
-import androidx.paging.PagingData
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.StateFlow
-import org.wikipedia.util.Resource
-
 /**
  * Interface alllowing use of both NotificationRefactoredViewModel and NotificationLegacyViewModel
  * in unit test [NotificationViewModelTest]

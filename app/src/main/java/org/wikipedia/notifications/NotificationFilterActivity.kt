@@ -176,7 +176,7 @@ class NotificationFilterActivity : BaseActivity() {
         }
     }
 
-    companion object: NotificationFilterHelper {
+    companion object : NotificationFilterHelper {
         const val ACTIVITY_RESULT_LANGUAGES_CHANGED = 2
         private const val VIEW_TYPE_HEADER = 0
         private const val VIEW_TYPE_ITEM = 1

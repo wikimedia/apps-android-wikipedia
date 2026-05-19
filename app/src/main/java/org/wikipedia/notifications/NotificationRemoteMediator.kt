@@ -1,6 +1,5 @@
 package org.wikipedia.notifications
 
-import android.util.Log
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadType
 import androidx.paging.PagingState
@@ -9,7 +8,7 @@ import org.wikipedia.Constants
 import org.wikipedia.notifications.db.Notification
 
 @OptIn(ExperimentalPagingApi::class)
-class NotificationRemoteMediator(private val repository: NotificationRepository): RemoteMediator<Int, Notification>() {
+class NotificationRemoteMediator(private val repository: NotificationRepository) : RemoteMediator<Int, Notification>() {
     override suspend fun load(
         loadType: LoadType,
         state: PagingState<Int, Notification>
@@ -36,8 +35,7 @@ class NotificationRemoteMediator(private val repository: NotificationRepository)
             val nextContinueStr = if (loadType == LoadType.REFRESH) {
                 repository.syncAll(Constants.NOTIFICATIONS_FILTER_CONFIG)
                 null
-            }
-            else {
+            } else {
                 repository.fetchAndSave(Constants.NOTIFICATIONS_FILTER_CONFIG, continueStr)
             }
             if (loadType == LoadType.REFRESH) {

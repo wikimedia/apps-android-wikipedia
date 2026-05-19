@@ -118,7 +118,7 @@ class NotificationRefactoredViewModelImpl(
                 _selectedFilterTab,
                 _currentSearchQuery,
                 notificationRepository.getEndOfPaginationReachedFlow()
-            ) { _, _, isEndOfPaginationReached -> isEndOfPaginationReached}
+            ) { _, _, isEndOfPaginationReached -> isEndOfPaginationReached }
                 .collectLatest { isEndOfPaginationReached ->
                     isEndReached = isEndOfPaginationReached
                     val filters = calcFilters()

@@ -3,7 +3,6 @@ package org.wikipedia.notifications
 import androidx.paging.PagingData
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOf
@@ -160,7 +159,7 @@ class NotificationLegacyViewModelPerformanceTest {
         override suspend fun syncAll(filter: String) {}
     }
 
-    private class FakeNotificationFilterHelper: NotificationFilterHelper {
+    private class FakeNotificationFilterHelper : NotificationFilterHelper {
         override fun allWikisList(): List<String> {
             return listOf("en", "zh", "dummy")
         }

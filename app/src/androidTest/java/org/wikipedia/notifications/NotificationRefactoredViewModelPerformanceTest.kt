@@ -92,7 +92,7 @@ class NotificationRefactoredViewModelPerformanceTest {
         // Perform an initial fetch to ensure uiState is populated with Success data
         // which simplifies the drop(1) logic in the measurement loop.
         viewModel.fetchAndSave(refresh = true)
-        
+
         // Use the PagingDataAdapter to observe the flow during the test
         val adapter = NotificationItemAdapter()
         val job = launch {
@@ -163,7 +163,6 @@ class NotificationRefactoredViewModelPerformanceTest {
         override fun getNotificationExcludedTypeCodes() = excludedTypes
         override fun getNotificationExcludedWikiCodes() = excludedWikis
     }
-
 
     // Fake notification repository used for mocking during test
     private class FakeNotificationRepository(private val notificationDao: NotificationDao) : NotificationRepository {
@@ -279,7 +278,7 @@ class NotificationRefactoredViewModelPerformanceTest {
         override suspend fun clearRemoteKeys() { remoteKeys.clear() }
     }
 
-    private class FakeNotificationFilterHelper: NotificationFilterHelper {
+    private class FakeNotificationFilterHelper : NotificationFilterHelper {
         override fun allWikisList(): List<String> {
             return listOf("en", "zh", "dummy")
         }

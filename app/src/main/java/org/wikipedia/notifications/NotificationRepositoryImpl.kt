@@ -27,7 +27,7 @@ import org.wikipedia.notifications.db.NotificationRemoteKeyDao
 class NotificationRepositoryImpl(
     private val notificationDao: NotificationDao,
     private val remoteKeyDao: NotificationRemoteKeyDao
-): NotificationRepository {
+) : NotificationRepository {
     private val mutex = Mutex()
     private var _endOfPaginationReached = MutableStateFlow(false)
     // Status is initialized with false because in the beginning we don't know how many notifications

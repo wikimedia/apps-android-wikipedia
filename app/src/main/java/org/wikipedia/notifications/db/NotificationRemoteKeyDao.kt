@@ -15,7 +15,7 @@ interface NotificationRemoteKeyDao {
 
     @Query("DELETE FROM NotificationRemoteKey WHERE wiki = :wiki")
     suspend fun delete(wiki: String)
-    
+
     @Query("DELETE FROM NotificationRemoteKey")
     suspend fun deleteAll()
 }
