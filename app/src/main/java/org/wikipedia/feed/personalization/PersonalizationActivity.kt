@@ -14,6 +14,7 @@ import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.feed.onboarding.ExploreFeedBuildingActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.search.SearchActivity
+import org.wikipedia.settings.Prefs
 
 class PersonalizationActivity : BaseActivity() {
 
@@ -33,15 +34,11 @@ class PersonalizationActivity : BaseActivity() {
             .setDefaultActionSource("feed_customize")
             .startFunnel("feed_customize")
 
-        val showIntroPage = intent?.getBooleanExtra(EXTRA_SHOW_INTRO_PAGE, true) ?: true
-        val pages = if (showIntroPage) {
-            listOf(
+        val showInterestsOnly = intent?.getBooleanExtra(EXTRA_SHOW_INTERESTS_ONLY, false) ?: false
+        val pages = when {
+            showInterestsOnly -> listOf(PersonalizationPage.INTERESTS)
+            else -> listOf(
                 PersonalizationPage.CURIOSITY,
-                PersonalizationPage.INTERESTS,
-                PersonalizationPage.HOME_PREFERENCE
-            )
-        } else {
-            listOf(
                 PersonalizationPage.INTERESTS,
                 PersonalizationPage.HOME_PREFERENCE
             )
@@ -53,11 +50,19 @@ class PersonalizationActivity : BaseActivity() {
                     viewModel = viewModel,
                     screens = pages,
                     onSkipClick = { finish() },
+                    onBackButtonClick = if (showInterestsOnly) ({ finish() }) else null,
                     onSearchClick = {
                         val intent = SearchActivity.newIntent(this, Constants.InvokeSource.FEED_INTEREST_SELECTION, null, returnLink = true)
                         searchLauncher.launch(intent)
                     },
                     onCompleteOnboardingClick = {
+                        if (showInterestsOnly) {
+                            Prefs.homeForYouModulesToday = ""
+                            setResult(RESULT_OK)
+                            finish()
+                            return@PersonalizationScreen
+                        }
+
                         startActivity(ExploreFeedBuildingActivity.newIntent(this))
                         setResult(RESULT_OK)
                         finish()
@@ -68,11 +73,11 @@ class PersonalizationActivity : BaseActivity() {
     }
 
     companion object {
-        private const val EXTRA_SHOW_INTRO_PAGE = "show_intro_page"
+        private const val EXTRA_SHOW_INTERESTS_ONLY = "show_interests_only"
 
-        fun newIntent(context: Context, showIntroPage: Boolean = true): Intent {
+        fun newIntent(context: Context, showInterestsOnly: Boolean = false): Intent {
             return Intent(context, PersonalizationActivity::class.java)
-                .putExtra(EXTRA_SHOW_INTRO_PAGE, showIntroPage)
+                .putExtra(EXTRA_SHOW_INTERESTS_ONLY, showInterestsOnly)
         }
     }
 }

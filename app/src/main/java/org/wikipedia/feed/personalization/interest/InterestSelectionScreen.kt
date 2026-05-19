@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.staggeredgrid.LazyStaggeredGridState
@@ -62,25 +63,41 @@ fun InterestOnboardingScreen(
     modifier: Modifier = Modifier,
     articlesState: ArticlesState,
     topicsList: List<OnboardingTopic>,
+    totalSelectedCount: Int,
+    gridState: LazyStaggeredGridState = rememberLazyStaggeredGridState(),
     onTopicSelected: (OnboardingTopic) -> Unit,
     onItemClick: (PageTitle) -> Unit = {},
     onSearchClick: () -> Unit,
     onDeselectAllClick: () -> Unit,
     retryLoading: () -> Unit,
-    totalSelectedCount: Int,
-    gridState: LazyStaggeredGridState = rememberLazyStaggeredGridState()
+    onBackButtonClick: (() -> Unit)? = null
 ) {
     val transition = rememberInfiniteTransition(label = "shimmerTransition")
     Box(modifier = modifier) {
         Column {
-            Text(
+            Row(
                 modifier = Modifier.padding(horizontal = 16.dp),
-                text = stringResource(id = R.string.recommended_reading_list_interest_pick_title),
-                style = MaterialTheme.typography.titleLarge.copy(
-                    fontWeight = FontWeight.Medium
-                ),
-                color = WikipediaTheme.colors.primaryColor
-            )
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                if (onBackButtonClick != null) {
+                    Icon(
+                        modifier = Modifier
+                            .clickable(onClick = onBackButtonClick),
+                        painter = painterResource(id = R.drawable.ic_arrow_back_black_24dp),
+                        contentDescription = null,
+                        tint = WikipediaTheme.colors.primaryColor
+                    )
+                    Spacer(modifier = Modifier.width(12.dp))
+                }
+                Text(
+                    text = stringResource(id = R.string.recommended_reading_list_interest_pick_title),
+                    style = MaterialTheme.typography.titleLarge.copy(
+                        fontWeight = FontWeight.Medium
+                    ),
+                    color = WikipediaTheme.colors.primaryColor
+                )
+            }
+
             Spacer(modifier = Modifier.height(16.dp))
 
             LazyVerticalStaggeredGrid(
@@ -335,7 +352,8 @@ private fun InterestOnboardingScreenPreview() {
             onTopicSelected = {},
             onSearchClick = {},
             onDeselectAllClick = {},
-            retryLoading = {}
+            retryLoading = {},
+            onBackButtonClick = {}
         )
     }
 }

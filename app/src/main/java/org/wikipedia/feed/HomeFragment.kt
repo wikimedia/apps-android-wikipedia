@@ -301,7 +301,7 @@ class HomeFragment : Fragment() {
                         },
                         onCustomizeInterestsClick = { card ->
                             instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_overflow", elementId = "feed_customize")
-                            customizeInterestsLauncher.launch(PersonalizationActivity.newIntent(requireContext(), showIntroPage = false))
+                            customizeInterestsLauncher.launch(PersonalizationActivity.newIntent(requireContext(), showInterestsOnly = true))
                         },
                         onTabClick = {
                             requireActivity().startActivity(TabActivity.newIntent(requireActivity()))
@@ -372,6 +372,9 @@ class HomeFragment : Fragment() {
         viewModel.updateTabCount()
         instrument.startFunnel("home_feed")
         refreshNotification()
+        if (Prefs.homeForYouModulesToday.isEmpty()) {
+            viewModel.refreshForYouContent()
+        }
         // TODO: start new funnel for analytics
     }
 

@@ -1,12 +1,18 @@
 package org.wikipedia.settings.homefeed
 
+import android.content.Intent
 import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import org.wikipedia.Constants
 import org.wikipedia.extensions.instrument
+import org.wikipedia.feed.personalization.PersonalizationActivity
+import org.wikipedia.main.MainActivity
+import org.wikipedia.navtab.NavTab
+import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 
 @Composable
 fun HomeFeedSettingsNavHost(
@@ -66,7 +72,21 @@ fun HomeFeedSettingsNavHost(
 
         composable<HomeFeedSettingsDestination.FeedConfiguration> {
             FeedConfigurationScreen(
-                onBack = { navController.navigateUp() }
+                onBack = { if (!navController.navigateUp()) onExit() },
+                onInterestsClick = {
+                    context.startActivity(PersonalizationActivity.newIntent(context, showInterestsOnly = true))
+                },
+                onReadingHistoryClick = {
+                    context.startActivity(
+                        MainActivity.newIntent(context)
+                            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                            .putExtra(Constants.INTENT_RETURN_TO_MAIN, true)
+                            .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.SEARCH.code())
+                    )
+                },
+                onLanguagesClick = {
+                    context.startActivity(WikipediaLanguagesActivity.newIntent(context, Constants.InvokeSource.SETTINGS))
+                },
             )
         }
     }
