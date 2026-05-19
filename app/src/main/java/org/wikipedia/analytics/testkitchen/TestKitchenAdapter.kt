@@ -70,7 +70,7 @@ object TestKitchenAdapter : ClientDataCallback, EventSender {
             isLoggedIn = AccountUtil.isLoggedIn,
             isTemp = AccountUtil.isTemporaryAccount,
             sessionId = client.sessionController.sessionId,
-            languageGroups = WikipediaApp.instance.languageState.appLanguageCodes.joinToString(","),
+            languageGroups = WikipediaApp.instance.languageState.appLanguageCodes.take(10).joinToString(","),
             languagePrimary = WikipediaApp.instance.appOrSystemLanguageCode
         )
     }
