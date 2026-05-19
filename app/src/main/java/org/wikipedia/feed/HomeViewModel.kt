@@ -215,16 +215,18 @@ class HomeViewModel : ViewModel() {
 
     fun selectTab(tab: HomeTab) {
         _selectedTab.value = tab
-        if (tab == HomeTab.FOR_YOU &&
-            _forYouState.value.modules.isEmpty() &&
-            !_forYouState.value.isInitialLoading
-        ) {
-            loadForYouContent()
-        } else if (tab == HomeTab.COMMUNITY &&
-            _communityState.value.cards.isEmpty() &&
-            !_communityState.value.isInitialLoading
-        ) {
-            loadCommunityContent()
+    }
+
+    fun reloadCurrentTab() {
+        when (_selectedTab.value) {
+            HomeTab.COMMUNITY -> {
+                if ( _communityState.value.cards.isEmpty() &&
+                    !_communityState.value.isInitialLoading) { loadCommunityContent() }
+            }
+            HomeTab.FOR_YOU -> {
+                if (forYouState.value.modules.isEmpty() &&
+                    !_forYouState.value.isInitialLoading) { loadForYouContent() }
+            }
         }
     }
 
