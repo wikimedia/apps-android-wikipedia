@@ -13,6 +13,13 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.net.toUri
 import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
+import androidx.credentials.CredentialManager
+import androidx.credentials.GetCredentialRequest
+import androidx.credentials.GetPasswordOption
+import androidx.credentials.PasswordCredential
+import androidx.credentials.exceptions.GetCredentialCancellationException
+import androidx.credentials.exceptions.GetCredentialException
+import androidx.credentials.exceptions.NoCredentialException
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.launch
@@ -67,6 +74,7 @@ class LoginActivity : BaseActivity() {
                 doLogin()
             }
             CreateAccountActivity.RESULT_ACCOUNT_NOT_CREATED -> finish()
+            CreateAccountActivity.RESULT_ACCOUNT_LOGIN -> requestSavedCredentials()
         }
     }
 
@@ -135,6 +143,8 @@ class LoginActivity : BaseActivity() {
         if (savedInstanceState == null && !intent.hasExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE) &&
                 intent.getBooleanExtra(CREATE_ACCOUNT_FIRST, true)) {
             startCreateAccountActivity()
+        } else if (savedInstanceState == null) {
+            requestSavedCredentials()
         }
 
         setAllViewsClickListener()
@@ -223,6 +233,28 @@ class LoginActivity : BaseActivity() {
 
     private fun startCreateAccountActivity() {
         createAccountLauncher.launch(CreateAccountActivity.newIntent(this, loginSource))
+    }
+
+    private fun requestSavedCredentials() {
+        val credentialManager = CredentialManager.create(this)
+        val request = GetCredentialRequest(listOf(GetPasswordOption()))
+        lifecycleScope.launch {
+            try {
+                val result = credentialManager.getCredential(this@LoginActivity, request)
+                val credential = result.credential
+                if (credential is PasswordCredential) {
+                    binding.loginUsernameText.editText?.setText(credential.id)
+                    binding.loginPasswordInput.editText?.setText(credential.password)
+                    doLogin()
+                }
+            } catch (e: GetCredentialCancellationException) {
+                L.d("Credential retrieval cancelled by user.")
+            } catch (e: NoCredentialException) {
+                L.d("No saved credentials found.")
+            } catch (e: GetCredentialException) {
+                L.e("Failed to retrieve saved credentials", e)
+            }
+        }
     }
 
     private fun onLoginSuccess() {
