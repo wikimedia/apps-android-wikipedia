@@ -1,6 +1,5 @@
 package org.wikipedia.notifications
 
-import android.util.Log
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
@@ -11,14 +10,12 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.json.JsonUtil
 import org.wikipedia.notifications.db.Notification
 import org.wikipedia.notifications.db.NotificationDao
 import org.wikipedia.notifications.db.NotificationRemoteKey
