@@ -765,7 +765,7 @@ fun CommunityContentTab(
         }
         state.emptyState == FeedEmptyState.ALL_MODULES_HIDDEN || state.emptyState == FeedEmptyState.NO_DATA -> {
             val context = LocalContext.current
-            AllModulesHiddenView(
+            FeedEmptyStateView(
                 modifier = Modifier
                     .fillMaxSize()
                     .background(WikipediaTheme.colors.paperColor)
@@ -1020,7 +1020,7 @@ fun ForYouContentTab(
         }
         state.emptyState == FeedEmptyState.ALL_MODULES_HIDDEN -> {
             val context = LocalContext.current
-            AllModulesHiddenView(
+            FeedEmptyStateView(
                 modifier = Modifier
                     .fillMaxSize()
                     .background(WikipediaTheme.colors.paperColor)
@@ -1388,7 +1388,7 @@ fun LanguageDropDownMenu(
 }
 
 @Composable
-fun AllModulesHiddenView(
+fun FeedEmptyStateView(
     modifier: Modifier = Modifier,
     title: String,
     description: String,
