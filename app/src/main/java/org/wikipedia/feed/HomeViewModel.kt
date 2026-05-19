@@ -151,17 +151,17 @@ class HomeViewModel : ViewModel() {
     private val _forYouState = MutableStateFlow(ForYouContentState())
     val forYouState = combine(_forYouState, SettingsRepository.hiddenModules) { state, hiddenModules ->
         val visibleModules = state.modules.filterNot { hiddenModules.contains(it.moduleKey()) }
-        val allHidden = ForYouModuleType.entries.all { hiddenModules.contains(it.name) }
-        val interestHidden = hiddenModules.contains(ForYouModuleType.BASED_ON_INTEREST.name)
+        val areAllModulesHidden = ForYouModuleType.entries.all { hiddenModules.contains(it.name) }
+        val isInterestModuleHidden = hiddenModules.contains(ForYouModuleType.BASED_ON_INTEREST.name)
         val emptyState = when {
-            allHidden -> ForYouEmptyState.ALL_MODULES_HIDDEN
+            areAllModulesHidden -> ForYouEmptyState.ALL_MODULES_HIDDEN
             !state.isInitialLoading && state.error == null && visibleModules.isEmpty() -> ForYouEmptyState.NO_DATA
             else -> null
         }
         state.copy(
             modules = visibleModules,
             emptyState = emptyState,
-            interestHidden = interestHidden
+            interestHidden = isInterestModuleHidden
         )
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(MAX_STOP_TIMEOUT_MILLIS), ForYouContentState())
 

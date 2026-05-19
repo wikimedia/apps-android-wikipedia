@@ -177,6 +177,7 @@ class HomeFragment : Fragment() {
                 val tabsState by viewModel.tabsState.collectAsState()
                 val notificationState by viewModel.unreadCount.collectAsState()
                 val forYouContentState by viewModel.forYouState.collectAsState()
+                val communityContentState by viewModel.communityState.collectAsState()
                 var swipeToExplorePromptShown by remember { mutableStateOf(Prefs.isHomeSwipeToExplorePromptShown) }
 
                 BaseTheme(currentTheme = if (selectedTab == HomeTab.FOR_YOU) Theme.BLACK else WikipediaApp.instance.currentTheme) {
@@ -184,7 +185,7 @@ class HomeFragment : Fragment() {
                         wikiSite = wikiSite,
                         languageState = WikipediaApp.instance.languageState,
                         selectedTab = selectedTab,
-                        communityContentState = viewModel.communityState.collectAsState().value,
+                        communityContentState = communityContentState,
                         forYouContentState = forYouContentState,
                         overflowMenuState = pageOverflowMenuViewModel.pageOverflowMenuState,
                         tabsState = tabsState,
@@ -306,8 +307,10 @@ class HomeFragment : Fragment() {
                             requireActivity().startActivity(WikipediaLanguagesActivity.newIntent(requireContext(), invokeSource = InvokeSource.FEED))
                         },
                         onCustomizeInterestsClick = { card ->
-                            instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_overflow", elementId = "feed_customize")
-                            customizeInterestsLauncher.launch(PersonalizationActivity.newIntent(requireContext(), showIntroPage = false))
+                            if (card != null) {
+                                instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_overflow", elementId = "feed_customize")
+                            }
+                            customizeInterestsLauncher.launch(PersonalizationActivity.newIntent(requireContext(), showInterestsOnly = true))
                         },
                         onTabClick = {
                             requireActivity().startActivity(TabActivity.newIntent(requireActivity()))
@@ -343,10 +346,6 @@ class HomeFragment : Fragment() {
                                 }
                             )
                             requireActivity().startActivity(intent)
-                        },
-                        navigateToCommunityTab = { selectTab(HomeTab.COMMUNITY) },
-                        onCustomizeInterestsFromEmptyStateClick = {
-                            customizeInterestsLauncher.launch(PersonalizationActivity.newIntent(requireContext(), showIntroPage = false))
                         }
                     )
 
@@ -451,13 +450,11 @@ fun HomeScreen(
     onManageLanguagesClick: () -> Unit = {},
     onTabClick: () -> Unit = {},
     onUpdateTabCount: () -> Unit = {},
-    onCustomizeInterestsClick: (card: Card) -> Unit = {},
+    onCustomizeInterestsClick: (card: Card?) -> Unit = {},
     onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> },
     onCardFooterClick: (card: Card) -> Unit = {},
     onNotificationClick: () -> Unit = {},
-    onManageModulesClick: () -> Unit = {},
-    navigateToCommunityTab: () -> Unit = {},
-    onCustomizeInterestsFromEmptyStateClick: () -> Unit = {}
+    onManageModulesClick: () -> Unit = {}
 ) {
     val context = LocalContext.current
     val topInset = if (context is MainActivity) {
@@ -556,8 +553,7 @@ fun HomeScreen(
                         onCustomizeInterestsClick = onCustomizeInterestsClick,
                         onCardImpression = onCardImpression,
                         onManageModulesClick = onManageModulesClick,
-                        navigateToCommunityTab = navigateToCommunityTab,
-                        onCustomizeInterestsFromEmptyStateClick = onCustomizeInterestsFromEmptyStateClick
+                        navigateToCommunityTab = { onSelectTab(HomeTab.COMMUNITY) },
                     )
 
                     // Floating toolbar with gradient scrim, wordmark, and tab selector.
@@ -777,7 +773,7 @@ fun CommunityContentTab(
                 title = context.getString(wikiSite.languageCode, R.string.home_feed_screen_empty_state_label),
                 description = context.getString(wikiSite.languageCode, R.string.home_feed_community_screen_all_modules_disabled_description),
                 buttonText = context.getString(wikiSite.languageCode, R.string.home_feed_screen_all_modules_disabled_btn_label),
-                onCtaClick = onManageModulesClick
+                onCallToActionClick = onManageModulesClick
             )
         }
         state.error != null && state.cards.isEmpty() -> {
@@ -990,11 +986,10 @@ fun ForYouContentTab(
     onPageShareClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
     onPageOverflowClick: (card: Card, pageSummary: PageSummary, source: Int, menuKey: String) -> Unit = { _, _, _, _ -> },
     onPageOverflowDismiss: () -> Unit = {},
-    onCustomizeInterestsClick: (card: Card) -> Unit = {},
+    onCustomizeInterestsClick: (card: Card?) -> Unit = {},
     onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> },
     onManageModulesClick: () -> Unit,
-    navigateToCommunityTab: () -> Unit,
-    onCustomizeInterestsFromEmptyStateClick: () -> Unit
+    navigateToCommunityTab: () -> Unit
 ) {
     when {
         state.isInitialLoading -> {
@@ -1017,7 +1012,7 @@ fun ForYouContentTab(
                     .verticalScroll(rememberScrollState()),
                 wikiSite = wikiSite,
                 showInterests = !state.interestHidden,
-                onCustomizeInterestsFromEmptyStateClick = onCustomizeInterestsFromEmptyStateClick,
+                onCustomizeInterestsClick = { onCustomizeInterestsClick(null) },
                 navigateToCommunityTab = navigateToCommunityTab
             )
         }
@@ -1033,7 +1028,7 @@ fun ForYouContentTab(
                 title = context.getString(wikiSite.languageCode, R.string.home_feed_screen_empty_state_label),
                 description = context.getString(wikiSite.languageCode, R.string.home_feed_for_you_screen_all_modules_disabled_description),
                 buttonText = context.getString(wikiSite.languageCode, R.string.home_feed_screen_all_modules_disabled_btn_label),
-                onCtaClick = onManageModulesClick
+                onCallToActionClick = onManageModulesClick
             )
         }
         state.error != null && state.modules.isEmpty() -> {
@@ -1396,7 +1391,7 @@ fun AllModulesHiddenView(
     title: String,
     description: String,
     buttonText: String,
-    onCtaClick: () -> Unit,
+    onCallToActionClick: () -> Unit,
 ) {
     Column (
         modifier = modifier,
@@ -1426,7 +1421,7 @@ fun AllModulesHiddenView(
             color = WikipediaTheme.colors.secondaryColor
         )
         AppButton(
-            onClick = onCtaClick
+            onClick = onCallToActionClick
         ) {
             Text(
                 text = buttonText
@@ -1440,7 +1435,7 @@ fun ForYouNoDataView(
     modifier: Modifier = Modifier,
     wikiSite: WikiSite,
     showInterests: Boolean = true,
-    onCustomizeInterestsFromEmptyStateClick: () -> Unit,
+    onCustomizeInterestsClick: () -> Unit,
     navigateToCommunityTab: () -> Unit
 ) {
     val context = LocalContext.current
@@ -1481,7 +1476,7 @@ fun ForYouNoDataView(
             EmptyStateActionRow(
                 iconRes = R.drawable.ic_baseline_tune_24,
                 text = context.getString(wikiSite.languageCode, R.string.home_feed_for_you_screen_empty_add_interests),
-                onLinkClick = onCustomizeInterestsFromEmptyStateClick
+                onLinkClick = onCustomizeInterestsClick
             )
         }
 
@@ -1517,7 +1512,8 @@ fun EmptyStateActionRow(
                 style = SpanStyle(
                     fontSize = 14.sp,
                     color = WikipediaTheme.colors.primaryColor,
-                    textDecoration = TextDecoration.Underline)
+                    textDecoration = TextDecoration.Underline
+                )
             ),
             color = WikipediaTheme.colors.primaryColor,
             style = MaterialTheme.typography.bodyMedium,
@@ -1643,7 +1639,7 @@ fun ForYouNoDataViewPreview() {
                 .verticalScroll(rememberScrollState()),
             wikiSite = WikiSite.preview(),
             showInterests = true,
-            onCustomizeInterestsFromEmptyStateClick = {},
+            onCustomizeInterestsClick = {},
             navigateToCommunityTab = {}
         )
     }
