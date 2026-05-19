@@ -5,6 +5,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import kotlinx.coroutines.flow.Flow
 import org.wikipedia.feed.personalization.db.entity.InterestArticle
 
 @Dao
@@ -23,4 +24,7 @@ interface InterestArticleDao {
 
     @Query("SELECT * FROM InterestArticle WHERE lang = :lang ORDER BY RANDOM()")
     suspend fun getAllRandom(lang: String): List<InterestArticle>
+
+    @Query("SELECT EXISTS(SELECT 1 FROM InterestArticle)")
+    fun hasAnyArticles(): Flow<Boolean>
 }

@@ -2266,9 +2266,11 @@
     <string name="home_feed_settings_empty_dialog_positive">Button label for confirmation of a dialog box warning the user that their feed will be empty.</string>
     <string name="home_feed_settings_feed_configuration_description">Description explaining that selected topics and reading history influence personalized recommendations in the For You feed.</string>
     <string name="home_feed_settings_feed_configuration_interest_title">Heading title for the user’s selected interests in feed configuration settings.</string>
-    <string name="home_feed_settings_feed_configuration_interest_subtitle">Empty state message shown when the user has not added any interests yet.</string>
+    <string name="home_feed_settings_feed_configuration_empty_interest_subtitle">Empty state message shown when the user has not added any interests yet.</string>
     <string name="home_feed_settings_feed_configuration_reading_history_title">Heading title for the user’s reading history in feed configuration settings.</string>
-    <string name="home_feed_settings_feed_configuration_reading_history_subtitle">Empty state message shown when the user has no reading history available for recommendations.</string>
+    <string name="home_feed_settings_feed_configuration_empty_reading_history_subtitle">Empty state message shown when the user has no reading history available for recommendations.</string>
     <string name="home_feed_settings_feed_configuration_languages_title">Heading title for managing preferred languages in feed configuration settings.</string>
     <string name="home_feed_settings_feed_configuration_languages_subtitle">Subtitle prompting the user to edit their preferred languages.</string>
+    <string name="home_feed_settings_feed_configuration_reading_history_subtitle">Subtitle prompting users to view their recently read articles.</string>
+    <string name="home_feed_settings_feed_configuration_interest_subtitle">Subtitle indicating users can manage or update their selected topics of interest.</string>
 </resources>

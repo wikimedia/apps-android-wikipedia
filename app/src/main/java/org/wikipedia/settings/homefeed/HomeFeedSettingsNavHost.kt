@@ -71,7 +71,7 @@ fun HomeFeedSettingsNavHost(
         }
 
         composable<HomeFeedSettingsDestination.FeedConfiguration> {
-            FeedConfigurationScreen(
+            FeedConfigurationRoute (
                 onBack = { if (!navController.navigateUp()) onExit() },
                 onInterestsClick = {
                     context.startActivity(PersonalizationActivity.newIntent(context, showInterestsOnly = true))
