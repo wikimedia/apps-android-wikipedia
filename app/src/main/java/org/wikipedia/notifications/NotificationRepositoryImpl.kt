@@ -1,15 +1,20 @@
 package org.wikipedia.notifications
 
+import android.util.Log
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
+import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -26,6 +31,7 @@ class NotificationRepositoryImpl(
     private val notificationDao: NotificationDao,
     private val remoteKeyDao: NotificationRemoteKeyDao
 ): NotificationRepository {
+    private val mutex = Mutex()
     private var _endOfPaginationReached = MutableStateFlow(false)
     // Status is initialized with false because in the beginning we don't know how many notifications
     // the user has. Value will be loaded from database inside init
@@ -66,8 +72,8 @@ class NotificationRepositoryImpl(
                 notificationDao.deleteAll()
             }
         }
-    } */
-    // ----------------------------------------------
+    }
+    // ----------------------------------------------*/
 
     /**
      * Retrieves ALL notifications from the database - used by legacy code
@@ -92,31 +98,35 @@ class NotificationRepositoryImpl(
     }
 
     /**
-     * Reads one page of notifications from the server and inserts them into the local database
+     * Reads one page of notifications from the server and inserts them into the local database.
+     * Wrapped in a Mutex to prevent concurrency issues between the Pager and background sync.
      */
-    override suspend fun fetchAndSave(filter: String?, continueStr: String?): String? {
+    override suspend fun fetchAndSave(filter: String?, continueStr: String?): String? = mutex.withLock {
         var newContinueStr: String? = null
-        val response = ServiceFactory.get(WikipediaApp.instance.wikiSite).getAllNotifications(filter, continueStr)
+        val response = ServiceFactory.get(
+            WikipediaApp.instance.wikiSite).getAllNotifications(filter, continueStr)
         _endOfPaginationReached.value = response.continuation != null
         response.query?.notifications?.let {
             notificationDao.insertNotifications(it.list.orEmpty())
             newContinueStr = it.continueStr
         }
         return newContinueStr
+
         /* --- OVERRIDE FOR MANUAL TESTING ---
+        //Log.d("NotificationRepositoryImpl", "fetchAndSave called with continueStr=$continueStr")
         val totalMockItems = 250
         val pageSize = 50
         val currentOffset = continueStr?.toIntOrNull() ?: 0
-        
+
         if (currentOffset >= totalMockItems) {
             _endOfPaginationReached.value = true
             return null
         }
 
-        val mockPage = (currentOffset + 1..minOf(currentOffset + pageSize, totalMockItems)).map { 
-            createFakeNotification(it.toLong()) 
+        val mockPage = (currentOffset + 1..minOf(currentOffset + pageSize, totalMockItems)).map {
+            createFakeNotification(it.toLong())
         }
-        
+
         notificationDao.insertNotifications(mockPage)
 
         val nextOffset = currentOffset + pageSize
@@ -253,4 +263,28 @@ class NotificationRepositoryImpl(
 
     // used by testing only
     override suspend fun insertNotifications(notificationList: List<Notification>) {}
+
+    /**
+     * Loads ALL notifications from the server to the database
+     */
+    override suspend fun syncAll(filter: String) {
+        var currentToken: String? = getRemoteKey(Constants.NOTIFICATIONS_DB_REMOTE_KEY)
+
+        // Safety check: only loop if we haven't reached the end yet
+        if (endOfPaginationReached.value) return
+
+        while (true) {
+            // fetchAndSave performs the API call and the DB insert
+            val nextToken = fetchAndSave(filter, currentToken) ?: break
+
+            if (nextToken == currentToken) {
+                // Prevent infinite loops if the API returns the same token
+                break
+            }
+
+            currentToken = nextToken
+            // Optional: add a small delay to avoid hitting API rate limits (e.g., 100ms)
+            delay(Constants.NOTIFICATION_API_CALL_DELAY)
+        }
+    }
 }

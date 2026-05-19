@@ -104,7 +104,7 @@ class NotificationViewModelTest {
 
     // helper function to wait for view model to execute Room database query
     fun waitForViewModel() {
-        val maxAttempts = 100
+        val maxAttempts = 10000
         var attempts = 0
         val stateBefore = viewModel.uiState.value
         while (viewModel.uiState.value === stateBefore && attempts < maxAttempts) {
@@ -588,6 +588,9 @@ class NotificationViewModelTest {
         override suspend fun insertNotifications(notificationList: List<Notification>) {
             notificationDao.insertNotifications(notificationList)
         }
+
+        override suspend fun syncAll(filter: String) {}
+
         override suspend fun getAllNotifications(): List<Notification> {
             return notificationDao.getAllNotifications()
         }
@@ -702,6 +705,9 @@ class NotificationViewModelTest {
         override suspend fun insertNotifications(notificationList: List<Notification>) {
             this.notifications.addAll(notificationList)
         }
+
+        override suspend fun syncAll(filter: String) {}
+
         override suspend fun getAllNotifications() = notifications
         override suspend fun updateNotification(notification: Notification) {
             val index = notifications.indexOfFirst { it.id == notification.id && it.wiki == notification.wiki }

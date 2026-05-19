@@ -83,4 +83,6 @@ interface NotificationRepository {
 
     suspend fun getEndOfPaginationReachedFlow(): Flow<Boolean>
     suspend fun insertNotifications(notificationList: List<Notification>)
+
+    suspend fun syncAll(filter: String)
 }

@@ -163,6 +163,7 @@ class NotificationLegacyViewModelPerformanceTest {
         }
         override suspend fun clearRemoteKeys() {}
         override suspend fun insertNotifications(notificationList: List<Notification>) {}
+        override suspend fun syncAll(filter: String) {}
     }
 
     private class FakeNotificationFilterHelper: NotificationFilterHelper {

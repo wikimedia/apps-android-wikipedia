@@ -55,10 +55,12 @@ object Constants {
     const val WIKIDATA_DB_NAME = "wikidatawiki"
 
     val NON_LANGUAGE_SUBDOMAINS = listOf("donate", "thankyou", "quote", "textbook", "sources", "species", "commons", "meta", "abstract")
+    const val NOTIFICATIONS_DB_REMOTE_KEY = "aggregated"
+    const val NOTIFICATIONS_FILTER_CONFIG = "read|!read"
+    const val NOTIFICATION_API_CALL_DELAY: Long = 100
 
     val commonsWikiSite = WikiSite(Service.COMMONS_URL)
     val wikidataWikiSite = WikiSite(Service.WIKIDATA_URL)
-
     enum class InvokeSource(val value: String) {
         ANNOUNCEMENT("announcement"),
         APP_SHORTCUTS("appShortcuts"),

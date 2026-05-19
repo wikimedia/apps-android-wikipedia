@@ -173,6 +173,9 @@ class NotificationRefactoredViewModelPerformanceTest {
         override suspend fun insertNotifications(notificationList: List<Notification>) {
             notificationDao.insertNotifications(notificationList)
         }
+
+        override suspend fun syncAll(filter: String) {}
+
         override suspend fun getAllNotifications(): List<Notification> {
             return emptyList() // not used
         }
