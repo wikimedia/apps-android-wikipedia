@@ -110,7 +110,7 @@ data class CommunityContentState(
     val isLoadingMore: Boolean = false,
     val error: Throwable? = null,
     val canLoadMore: Boolean = true,
-    val areAllModulesHidden: Boolean = false
+    val emptyState: FeedEmptyState? = null
 )
 
 data class ForYouContentState(
@@ -120,13 +120,10 @@ data class ForYouContentState(
     val error: Throwable? = null,
     val canLoadMore: Boolean = true,
     val interestHidden: Boolean = false,
-    val emptyState: ForYouEmptyState? = null
+    val emptyState: FeedEmptyState? = null
 )
 
-enum class ForYouEmptyState {
-    ALL_MODULES_HIDDEN,
-    NO_DATA
-}
+enum class FeedEmptyState { ALL_MODULES_HIDDEN, NO_DATA }
 
 data class TabsState(val count: Int, val pulse: Boolean)
 
@@ -145,7 +142,14 @@ class HomeViewModel : ViewModel() {
     private val _communityState = MutableStateFlow(CommunityContentState())
     val communityState = combine(_communityState, SettingsRepository.hiddenModules) { state, hiddenModules ->
         val visibleModules = state.cards.filterNot { hiddenModules.contains(it.moduleKey()) }
-        state.copy(cards = visibleModules, areAllModulesHidden = CommunityModuleType.entries.all { hiddenModules.contains(it.name) })
+        val hasContent = visibleModules.any { it !is DayHeaderCard }
+        val areAllModulesHidden = CommunityModuleType.entries.all { hiddenModules.contains(it.name) }
+        val emptyState = when {
+            areAllModulesHidden -> FeedEmptyState.ALL_MODULES_HIDDEN
+            !state.isInitialLoading && state.error == null && !hasContent -> FeedEmptyState.NO_DATA
+            else -> null
+        }
+        state.copy(cards = visibleModules, emptyState = emptyState)
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(MAX_STOP_TIMEOUT_MILLIS), CommunityContentState())
 
     private val _forYouState = MutableStateFlow(ForYouContentState())
@@ -154,8 +158,8 @@ class HomeViewModel : ViewModel() {
         val areAllModulesHidden = ForYouModuleType.entries.all { hiddenModules.contains(it.name) }
         val isInterestModuleHidden = hiddenModules.contains(ForYouModuleType.BASED_ON_INTEREST.name)
         val emptyState = when {
-            areAllModulesHidden -> ForYouEmptyState.ALL_MODULES_HIDDEN
-            !state.isInitialLoading && state.error == null && visibleModules.isEmpty() -> ForYouEmptyState.NO_DATA
+            areAllModulesHidden -> FeedEmptyState.ALL_MODULES_HIDDEN
+            !state.isInitialLoading && state.error == null && visibleModules.isEmpty() -> FeedEmptyState.NO_DATA
             else -> null
         }
         state.copy(

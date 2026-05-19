@@ -763,7 +763,7 @@ fun CommunityContentTab(
         state.isInitialLoading -> {
             LoadingIndicator(modifier = modifier.fillMaxHeight())
         }
-        state.areAllModulesHidden -> {
+        state.emptyState == FeedEmptyState.ALL_MODULES_HIDDEN || state.emptyState == FeedEmptyState.NO_DATA -> {
             val context = LocalContext.current
             AllModulesHiddenView(
                 modifier = Modifier
@@ -777,6 +777,7 @@ fun CommunityContentTab(
                 onCallToActionClick = onManageModulesClick
             )
         }
+
         state.error != null && state.cards.isEmpty() -> {
             ErrorState(state.error, onRetry = onLoadMore)
         }
@@ -1003,8 +1004,8 @@ fun ForYouContentTab(
                 LoadingIndicator(modifier = Modifier.fillMaxHeight())
             }
         }
-        state.emptyState == ForYouEmptyState.NO_DATA -> {
-            ForYouNoDataView(
+        state.emptyState == FeedEmptyState.NO_DATA -> {
+            ForYouFeedEmptView(
                 modifier = Modifier
                     .fillMaxSize()
                     .background(WikipediaTheme.colors.paperColor)
@@ -1017,7 +1018,7 @@ fun ForYouContentTab(
                 navigateToCommunityTab = navigateToCommunityTab
             )
         }
-        state.emptyState == ForYouEmptyState.ALL_MODULES_HIDDEN -> {
+        state.emptyState == FeedEmptyState.ALL_MODULES_HIDDEN -> {
             val context = LocalContext.current
             AllModulesHiddenView(
                 modifier = Modifier
@@ -1432,7 +1433,7 @@ fun AllModulesHiddenView(
 }
 
 @Composable
-fun ForYouNoDataView(
+fun ForYouFeedEmptView(
     modifier: Modifier = Modifier,
     wikiSite: WikiSite,
     showInterests: Boolean = true,
@@ -1525,12 +1526,12 @@ fun EmptyStateActionRow(
 
 @Preview(showBackground = true)
 @Composable
-private fun HomeScreenCommunityEmptyStatePreview() {
+private fun HomeScreenCommunityAllModulesOffPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         HomeScreen(
             wikiSite = WikiSite.preview(),
             selectedTab = HomeTab.COMMUNITY,
-            communityContentState = CommunityContentState(areAllModulesHidden = true),
+            communityContentState = CommunityContentState(emptyState = FeedEmptyState.ALL_MODULES_HIDDEN),
             forYouContentState = ForYouContentState(isInitialLoading = true),
             tabsState = TabsState(1, false),
             notificationBellState = NotificationBellState(unreadCount = 5, canShow = true)
@@ -1540,13 +1541,13 @@ private fun HomeScreenCommunityEmptyStatePreview() {
 
 @Preview(showBackground = true)
 @Composable
-private fun HomeScreenForYouEmptyStatePreview() {
+private fun HomeScreenForYouAllModulesOffPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         HomeScreen(
             wikiSite = WikiSite.preview(),
             selectedTab = HomeTab.FOR_YOU,
-            communityContentState = CommunityContentState(areAllModulesHidden = true),
-            forYouContentState = ForYouContentState(emptyState = ForYouEmptyState.ALL_MODULES_HIDDEN),
+            communityContentState = CommunityContentState(isInitialLoading = true),
+            forYouContentState = ForYouContentState(emptyState = FeedEmptyState.ALL_MODULES_HIDDEN),
             tabsState = TabsState(1, false),
             notificationBellState = NotificationBellState(unreadCount = 5, canShow = true)
         )
@@ -1630,9 +1631,9 @@ fun DayHeaderPreview() {
 
 @Preview
 @Composable
-fun ForYouNoDataViewPreview() {
+fun ForYouFeedEmptViewPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
-        ForYouNoDataView(
+        ForYouFeedEmptView(
             modifier = Modifier
                 .fillMaxSize()
                 .background(WikipediaTheme.colors.paperColor)
