@@ -82,15 +82,18 @@ fun HomeFeedSettingsNavHost(
             FeedConfigurationScreen (
                 onBack = { if (!navController.navigateUp()) onExit() },
                 onInterestsClick = {
+                    context.instrument?.submitInteraction("click", elementId = "customize_feed")
                     customizeInterestsLauncher.launch(PersonalizationActivity.newIntent(context, showInterestsOnly = true))
                 },
                 onReadingHistoryClick = {
+                    context.instrument?.submitInteraction("click", elementId = "reading_history")
                     context.startActivity(
                         MainActivity.newIntent(context)
                             .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.SEARCH.code())
                     )
                 },
                 onLanguagesClick = {
+                    context.instrument?.submitInteraction("click", elementId = "languages")
                     context.startActivity(WikipediaLanguagesActivity.newIntent(context, Constants.InvokeSource.SETTINGS))
                 },
             )
