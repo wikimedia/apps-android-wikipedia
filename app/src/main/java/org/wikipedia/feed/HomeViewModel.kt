@@ -119,7 +119,7 @@ data class ForYouContentState(
     val isLoadingMore: Boolean = false,
     val error: Throwable? = null,
     val canLoadMore: Boolean = true,
-    val interestHidden: Boolean = false,
+    val isInterestModuleHidden: Boolean = false,
     val emptyState: FeedEmptyState? = null
 )
 
@@ -165,7 +165,7 @@ class HomeViewModel : ViewModel() {
         state.copy(
             modules = visibleModules,
             emptyState = emptyState,
-            interestHidden = isInterestModuleHidden
+            isInterestModuleHidden = isInterestModuleHidden
         )
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(MAX_STOP_TIMEOUT_MILLIS), ForYouContentState())
 
@@ -232,10 +232,6 @@ class HomeViewModel : ViewModel() {
                     !_forYouState.value.isInitialLoading) { loadForYouContent() }
             }
         }
-    }
-
-    fun selectTabWithoutLoadingContent(tab: HomeTab) {
-        _selectedTab.value = tab
     }
 
     fun updateLanguage(langCode: String) {
