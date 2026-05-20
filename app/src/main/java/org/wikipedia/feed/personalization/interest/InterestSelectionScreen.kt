@@ -84,7 +84,7 @@ fun InterestOnboardingScreen(
                         modifier = Modifier
                             .clickable(onClick = onBackButtonClick),
                         painter = painterResource(id = R.drawable.ic_arrow_back_black_24dp),
-                        contentDescription = stringResource(R.string.nav_item_back),
+                        contentDescription = null,
                         tint = WikipediaTheme.colors.primaryColor
                     )
                     Spacer(modifier = Modifier.width(12.dp))

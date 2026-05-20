@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -64,8 +65,12 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLocale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.LinkInteractionListener
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.TextLinkStyles
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -147,8 +152,8 @@ class HomeFragment : Fragment() {
 
     private val customizeInterestsLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_OK) {
-            selectTab(HomeTab.FOR_YOU)
             Prefs.homeForYouModulesToday = ""
+            viewModel.selectTab(HomeTab.FOR_YOU)
             viewModel.refreshForYouContent()
         }
     }
@@ -171,6 +176,8 @@ class HomeFragment : Fragment() {
                 val wikiSite by viewModel.wikiSite.collectAsState()
                 val tabsState by viewModel.tabsState.collectAsState()
                 val notificationState by viewModel.unreadCount.collectAsState()
+                val forYouContentState by viewModel.forYouState.collectAsState()
+                val communityContentState by viewModel.communityState.collectAsState()
                 var swipeToExplorePromptShown by remember { mutableStateOf(Prefs.isHomeSwipeToExplorePromptShown) }
 
                 BaseTheme(currentTheme = if (selectedTab == HomeTab.FOR_YOU) Theme.BLACK else WikipediaApp.instance.currentTheme) {
@@ -178,8 +185,8 @@ class HomeFragment : Fragment() {
                         wikiSite = wikiSite,
                         languageState = WikipediaApp.instance.languageState,
                         selectedTab = selectedTab,
-                        communityContentState = viewModel.communityState.collectAsState().value,
-                        forYouContentState = viewModel.forYouState.collectAsState().value,
+                        communityContentState = communityContentState,
+                        forYouContentState = forYouContentState,
                         overflowMenuState = pageOverflowMenuViewModel.pageOverflowMenuState,
                         tabsState = tabsState,
                         notificationBellState = notificationState,
@@ -300,7 +307,9 @@ class HomeFragment : Fragment() {
                             requireActivity().startActivity(WikipediaLanguagesActivity.newIntent(requireContext(), invokeSource = InvokeSource.FEED))
                         },
                         onCustomizeInterestsClick = { card ->
-                            instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_overflow", elementId = "feed_customize")
+                            if (card != null) {
+                                instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_overflow", elementId = "feed_customize")
+                            }
                             customizeInterestsLauncher.launch(PersonalizationActivity.newIntent(requireContext(), showInterestsOnly = true))
                         },
                         onTabClick = {
@@ -340,7 +349,7 @@ class HomeFragment : Fragment() {
                         }
                     )
 
-                    if (selectedTab == HomeTab.FOR_YOU && !swipeToExplorePromptShown) {
+                    if (selectedTab == HomeTab.FOR_YOU && !swipeToExplorePromptShown && forYouContentState.modules.isNotEmpty()) {
                         val dismissSwipePrompt = {
                             swipeToExplorePromptShown = true
                             Prefs.isHomeSwipeToExplorePromptShown = true
@@ -398,6 +407,7 @@ class HomeFragment : Fragment() {
 
     fun selectTab(tab: HomeTab) {
         viewModel.selectTab(tab)
+        viewModel.reloadCurrentTab()
         (requireActivity() as? MainActivity)?.onTabChanged(NavTab.HOME)
     }
 
@@ -448,7 +458,7 @@ fun HomeScreen(
     onManageLanguagesClick: () -> Unit = {},
     onTabClick: () -> Unit = {},
     onUpdateTabCount: () -> Unit = {},
-    onCustomizeInterestsClick: (card: Card) -> Unit = {},
+    onCustomizeInterestsClick: (card: Card?) -> Unit = {},
     onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> },
     onCardFooterClick: (card: Card) -> Unit = {},
     onNotificationClick: () -> Unit = {},
@@ -550,7 +560,8 @@ fun HomeScreen(
                         onPageOverflowDismiss = onPageOverflowDismiss,
                         onCustomizeInterestsClick = onCustomizeInterestsClick,
                         onCardImpression = onCardImpression,
-                        onManageModulesClick = onManageModulesClick
+                        onManageModulesClick = onManageModulesClick,
+                        navigateToCommunityTab = { onSelectTab(HomeTab.COMMUNITY) },
                     )
 
                     // Floating toolbar with gradient scrim, wordmark, and tab selector.
@@ -759,19 +770,21 @@ fun CommunityContentTab(
         state.isInitialLoading -> {
             LoadingIndicator(modifier = modifier.fillMaxHeight())
         }
-        state.isEmptyState -> {
+        state.emptyState == FeedEmptyState.ALL_MODULES_HIDDEN || state.emptyState == FeedEmptyState.NO_DATA -> {
             val context = LocalContext.current
-            HomeScreenEmptyState(
+            FeedEmptyStateView(
                 modifier = Modifier
                     .fillMaxSize()
                     .background(WikipediaTheme.colors.paperColor)
                     .padding(16.dp)
                     .verticalScroll(rememberScrollState()),
                 title = context.getString(wikiSite.languageCode, R.string.home_feed_screen_empty_state_label),
-                description = context.getString(wikiSite.languageCode, R.string.home_feed_community_screen_empty_state_description),
-                onManageModulesClick = onManageModulesClick
+                description = context.getString(wikiSite.languageCode, R.string.home_feed_community_screen_all_modules_disabled_description),
+                buttonText = context.getString(wikiSite.languageCode, R.string.home_feed_screen_all_modules_disabled_btn_label),
+                onCallToActionClick = onManageModulesClick
             )
         }
+
         state.error != null && state.cards.isEmpty() -> {
             ErrorState(state.error, onRetry = onLoadMore)
         }
@@ -982,9 +995,10 @@ fun ForYouContentTab(
     onPageShareClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
     onPageOverflowClick: (card: Card, pageSummary: PageSummary, source: Int, menuKey: String) -> Unit = { _, _, _, _ -> },
     onPageOverflowDismiss: () -> Unit = {},
-    onCustomizeInterestsClick: (card: Card) -> Unit = {},
+    onCustomizeInterestsClick: (card: Card?) -> Unit = {},
     onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> },
-    onManageModulesClick: () -> Unit
+    onManageModulesClick: () -> Unit,
+    navigateToCommunityTab: () -> Unit
 ) {
     when {
         state.isInitialLoading -> {
@@ -997,9 +1011,23 @@ fun ForYouContentTab(
                 LoadingIndicator(modifier = Modifier.fillMaxHeight())
             }
         }
-        state.isEmptyState -> {
+        state.emptyState == FeedEmptyState.NO_DATA -> {
+            ForYouFeedEmptView(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(WikipediaTheme.colors.paperColor)
+                    .padding(horizontal = 16.dp)
+                    .padding(top = (topInset * 2 + 64).dp)
+                    .verticalScroll(rememberScrollState()),
+                wikiSite = wikiSite,
+                showInterests = !state.interestHidden,
+                onCustomizeInterestsClick = { onCustomizeInterestsClick(null) },
+                navigateToCommunityTab = navigateToCommunityTab
+            )
+        }
+        state.emptyState == FeedEmptyState.ALL_MODULES_HIDDEN -> {
             val context = LocalContext.current
-            HomeScreenEmptyState(
+            FeedEmptyStateView(
                 modifier = Modifier
                     .fillMaxSize()
                     .background(WikipediaTheme.colors.paperColor)
@@ -1007,8 +1035,9 @@ fun ForYouContentTab(
                     .padding(top = (topInset * 2 + 64).dp)
                     .verticalScroll(rememberScrollState()),
                 title = context.getString(wikiSite.languageCode, R.string.home_feed_screen_empty_state_label),
-                description = context.getString(wikiSite.languageCode, R.string.home_feed_for_you_screen_empty_state_description),
-                onManageModulesClick = onManageModulesClick
+                description = context.getString(wikiSite.languageCode, R.string.home_feed_for_you_screen_all_modules_disabled_description),
+                buttonText = context.getString(wikiSite.languageCode, R.string.home_feed_screen_all_modules_disabled_btn_label),
+                onCallToActionClick = onManageModulesClick
             )
         }
         state.error != null && state.modules.isEmpty() -> {
@@ -1366,11 +1395,12 @@ fun LanguageDropDownMenu(
 }
 
 @Composable
-fun HomeScreenEmptyState(
+fun FeedEmptyStateView(
     modifier: Modifier = Modifier,
     title: String,
     description: String,
-    onManageModulesClick: () -> Unit,
+    buttonText: String,
+    onCallToActionClick: () -> Unit,
 ) {
     Column (
         modifier = modifier,
@@ -1400,23 +1430,115 @@ fun HomeScreenEmptyState(
             color = WikipediaTheme.colors.secondaryColor
         )
         AppButton(
-            onClick = onManageModulesClick
+            onClick = onCallToActionClick
         ) {
             Text(
-                text = stringResource(R.string.home_feed_screen_empty_state_btn_label)
+                text = buttonText
             )
         }
     }
 }
 
+@Composable
+fun ForYouFeedEmptView(
+    modifier: Modifier = Modifier,
+    wikiSite: WikiSite,
+    showInterests: Boolean = true,
+    onCustomizeInterestsClick: () -> Unit,
+    navigateToCommunityTab: () -> Unit
+) {
+    val context = LocalContext.current
+    Column(
+        modifier = modifier,
+        verticalArrangement = Arrangement.spacedBy(16.dp, Alignment.CenterVertically),
+    ) {
+        Image(
+            modifier = Modifier
+                .fillMaxWidth(),
+            painter = painterResource(R.drawable.empty_feed_illustration),
+            contentDescription = null
+        )
+        Spacer(modifier = Modifier.width(24.dp))
+        Text(
+            modifier = Modifier
+                .fillMaxWidth(),
+            text = context.getString(wikiSite.languageCode, R.string.home_feed_for_you_screen_empty_title),
+            style = MaterialTheme.typography.headlineSmall,
+            color = WikipediaTheme.colors.primaryColor
+        )
+        Text(
+            text = context.getString(wikiSite.languageCode, R.string.home_feed_for_you_screen_empty_description),
+            style = MaterialTheme.typography.bodyMedium,
+            color = WikipediaTheme.colors.primaryColor
+        )
+
+        Text(
+            text = context.getString(wikiSite.languageCode, R.string.home_feed_for_you_screen_empty_ways_to_start),
+            style = MaterialTheme.typography.bodyMedium.copy(
+                fontWeight = FontWeight.Medium,
+                letterSpacing = 0.25.sp
+            ),
+            textAlign = TextAlign.Center,
+            color = WikipediaTheme.colors.primaryColor
+        )
+        if (showInterests) {
+            EmptyStateActionRow(
+                iconRes = R.drawable.ic_baseline_tune_24,
+                text = context.getString(wikiSite.languageCode, R.string.home_feed_for_you_screen_empty_add_interests),
+                onLinkClick = onCustomizeInterestsClick
+            )
+        }
+
+        EmptyStateActionRow(
+            iconRes = R.drawable.ic_baseline_person_24,
+            text = context.getString(wikiSite.languageCode, R.string.home_feed_for_you_screen_empty_see_community),
+            onLinkClick = navigateToCommunityTab
+        )
+    }
+}
+
+@Composable
+fun EmptyStateActionRow(
+    @DrawableRes iconRes: Int,
+    text: String,
+    onLinkClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Row(
+        modifier = modifier
+            .fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        Icon(
+            painter = painterResource(iconRes),
+            tint = WikipediaTheme.colors.primaryColor,
+            contentDescription = null
+        )
+        HtmlText(
+            text = text,
+            linkStyle = TextLinkStyles(
+                style = SpanStyle(
+                    fontSize = 14.sp,
+                    color = WikipediaTheme.colors.primaryColor,
+                    textDecoration = TextDecoration.Underline
+                )
+            ),
+            color = WikipediaTheme.colors.primaryColor,
+            style = MaterialTheme.typography.bodyMedium,
+            linkInteractionListener = LinkInteractionListener { onLinkClick() }
+        )
+    }
+}
+
 @Preview(showBackground = true)
 @Composable
-private fun HomeScreenCommunityEmptyStatePreview() {
+private fun HomeScreenCommunityAllModulesOffPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         HomeScreen(
             wikiSite = WikiSite.preview(),
             selectedTab = HomeTab.COMMUNITY,
-            communityContentState = CommunityContentState(isEmptyState = true),
+            communityContentState = CommunityContentState(emptyState = FeedEmptyState.ALL_MODULES_HIDDEN),
             forYouContentState = ForYouContentState(isInitialLoading = true),
             tabsState = TabsState(1, false),
             notificationBellState = NotificationBellState(unreadCount = 5, canShow = true)
@@ -1426,13 +1548,13 @@ private fun HomeScreenCommunityEmptyStatePreview() {
 
 @Preview(showBackground = true)
 @Composable
-private fun HomeScreenForYouEmptyStatePreview() {
+private fun HomeScreenForYouAllModulesOffPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         HomeScreen(
             wikiSite = WikiSite.preview(),
             selectedTab = HomeTab.FOR_YOU,
-            communityContentState = CommunityContentState(isEmptyState = true),
-            forYouContentState = ForYouContentState(isEmptyState = true),
+            communityContentState = CommunityContentState(isInitialLoading = true),
+            forYouContentState = ForYouContentState(emptyState = FeedEmptyState.ALL_MODULES_HIDDEN),
             tabsState = TabsState(1, false),
             notificationBellState = NotificationBellState(unreadCount = 5, canShow = true)
         )
@@ -1511,5 +1633,23 @@ fun LanguageDropDownMenuPreview() {
 fun DayHeaderPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         DayHeader(LocalDate.now())
+    }
+}
+
+@Preview
+@Composable
+fun ForYouFeedEmptViewPreview() {
+    BaseTheme(currentTheme = Theme.LIGHT) {
+        ForYouFeedEmptView(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(WikipediaTheme.colors.paperColor)
+                .padding(16.dp)
+                .verticalScroll(rememberScrollState()),
+            wikiSite = WikiSite.preview(),
+            showInterests = true,
+            onCustomizeInterestsClick = {},
+            navigateToCommunityTab = {}
+        )
     }
 }

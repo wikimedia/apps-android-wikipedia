@@ -34,9 +34,13 @@ class PersonalizationActivity : BaseActivity() {
             .startFunnel("feed_customize")
 
         val showInterestsOnly = intent?.getBooleanExtra(EXTRA_SHOW_INTERESTS_ONLY, false) ?: false
-        val pages = when {
-            showInterestsOnly -> listOf(PersonalizationPage.INTERESTS)
-            else -> listOf(
+
+        val pages = if (showInterestsOnly) {
+            listOf(
+                PersonalizationPage.INTERESTS
+            )
+        } else {
+            listOf(
                 PersonalizationPage.CURIOSITY,
                 PersonalizationPage.INTERESTS,
                 PersonalizationPage.HOME_PREFERENCE
@@ -49,7 +53,6 @@ class PersonalizationActivity : BaseActivity() {
                     viewModel = viewModel,
                     screens = pages,
                     onSkipClick = { finish() },
-                    onBackButtonClick = if (showInterestsOnly) ({ finish() }) else null,
                     onSearchClick = {
                         val intent = SearchActivity.newIntent(this, Constants.InvokeSource.FEED_INTEREST_SELECTION, null, returnLink = true)
                         searchLauncher.launch(intent)
@@ -64,7 +67,8 @@ class PersonalizationActivity : BaseActivity() {
                         startActivity(ExploreFeedBuildingActivity.newIntent(this))
                         setResult(RESULT_OK)
                         finish()
-                    }
+                    },
+                    onBackButtonClick = if (showInterestsOnly) ({ finish() }) else null
                 )
             }
         }
