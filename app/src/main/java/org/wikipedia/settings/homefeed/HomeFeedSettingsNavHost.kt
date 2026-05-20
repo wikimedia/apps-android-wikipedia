@@ -1,6 +1,10 @@
 package org.wikipedia.settings.homefeed
 
+import android.app.Activity
+import android.app.Activity.RESULT_OK
 import android.content.Intent
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
 import androidx.compose.runtime.Composable
@@ -25,6 +29,11 @@ fun HomeFeedSettingsNavHost(
         HomeFeedSettingsStartDestination.ROOT -> HomeFeedSettingsDestination.Root
         HomeFeedSettingsStartDestination.COMMUNITY_MODULES -> HomeFeedSettingsDestination.CommunityModuleScreen
         HomeFeedSettingsStartDestination.FOR_YOU_MODULES -> HomeFeedSettingsDestination.ForYouModuleScreen
+    }
+    val customizeInterestsLauncher = rememberLauncherForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == RESULT_OK) {
+            (context as? Activity)?.setResult(RESULT_OK)
+        }
     }
     NavHost(
         navController = navController,
@@ -74,7 +83,7 @@ fun HomeFeedSettingsNavHost(
             FeedConfigurationScreen (
                 onBack = { if (!navController.navigateUp()) onExit() },
                 onInterestsClick = {
-                    context.startActivity(PersonalizationActivity.newIntent(context, showInterestsOnly = true))
+                    customizeInterestsLauncher.launch(PersonalizationActivity.newIntent(context, showInterestsOnly = true))
                 },
                 onReadingHistoryClick = {
                     context.startActivity(

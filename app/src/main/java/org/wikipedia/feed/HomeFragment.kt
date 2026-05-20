@@ -373,10 +373,13 @@ class HomeFragment : Fragment() {
         viewModel.updateSelectedLanguageIfNeeded()
         instrument.startFunnel("home_feed")
         refreshNotification()
-        if (Prefs.homeForYouModulesToday.isEmpty() && getCurrentTab() == HomeTab.FOR_YOU) {
+        // TODO: start new funnel for analytics
+    }
+
+    fun refreshForYouContent() {
+        if (Prefs.homeForYouModulesToday.isEmpty()) {
             viewModel.refreshForYouContent()
         }
-        // TODO: start new funnel for analytics
     }
 
     fun getCurrentTab(): HomeTab {

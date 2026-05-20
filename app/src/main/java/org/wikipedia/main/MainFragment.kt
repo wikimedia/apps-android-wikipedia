@@ -603,6 +603,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     private fun refreshContents() {
         when (val fragment = currentFragment) {
             is FeedFragment -> fragment.refresh()
+            is HomeFragment -> fragment.refreshForYouContent()
             is ReadingListsFragment -> fragment.updateLists()
             is HistoryFragment -> fragment.refresh()
             is SuggestedEditsTasksFragment -> fragment.refreshContents()
