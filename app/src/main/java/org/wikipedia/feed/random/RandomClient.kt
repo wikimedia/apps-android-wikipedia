@@ -61,7 +61,7 @@ class RandomClient(
 
     companion object {
         suspend fun getRandomPages(wikiSite: WikiSite, count: Int): List<PageTitle> {
-            return ServiceFactory.get(wikiSite).getRandomPagesWithExtract(max(count, 10) * 4).query?.pages.orEmpty().filter {
+            return ServiceFactory.get(wikiSite).getRandomPagesWithExtract(max(count, 10) * 4).query?.pages.orEmpty().asSequence().filter {
                 it.pageProps?.disambiguation == null
             }.filter {
                 wikiSite.languageCode != "en" || (!it.description.orEmpty().contains("list article", ignoreCase = true) && !it.description.orEmpty().contains("list of", ignoreCase = true))
@@ -76,7 +76,7 @@ class RandomClient(
                     if (!page.sectionTitle.isNullOrEmpty()) it.fragment = StringUtil.addUnderscores(page.sectionTitle)
                     it.extract = page.extract
                 }
-            }.sortedBy { it.thumbUrl == null }.take(count)
+            }.sortedBy { it.thumbUrl == null }.take(count).toList()
         }
     }
 }
