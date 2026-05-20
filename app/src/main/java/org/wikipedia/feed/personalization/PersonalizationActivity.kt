@@ -56,7 +56,6 @@ class PersonalizationActivity : BaseActivity() {
                     },
                     onCompleteOnboardingClick = {
                         if (showInterestsOnly) {
-                            Prefs.homeForYouModulesToday = ""
                             setResult(RESULT_OK)
                             finish()
                             return@PersonalizationScreen

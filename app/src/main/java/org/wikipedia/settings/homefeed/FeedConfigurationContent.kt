@@ -49,7 +49,7 @@ sealed class FeedConfigurationState {
 }
 
 @Composable
-fun FeedConfigurationRoute(
+fun FeedConfigurationScreen(
     viewModel: ModulesViewModel = viewModel(),
     onBack: () -> Unit,
     onInterestsClick: () -> Unit,
@@ -58,7 +58,7 @@ fun FeedConfigurationRoute(
 ) {
     val state by viewModel.feedConfigurationState.collectAsStateWithLifecycle()
 
-    FeedConfigurationScreen(
+    FeedConfigurationContent(
         state = state,
         onBack = onBack,
         onItemClick = { type ->
@@ -72,7 +72,7 @@ fun FeedConfigurationRoute(
 }
 
 @Composable
-fun FeedConfigurationScreen(
+fun FeedConfigurationContent(
     state: FeedConfigurationState,
     onBack: () -> Unit,
     onItemClick: (FeedConfigurationType) -> Unit
@@ -136,7 +136,7 @@ fun FeedConfigurationItemView(
         modifier = Modifier
             .fillMaxWidth()
             .clickable(
-                onClick = { onClick() }
+                onClick = onClick
             )
             .padding(horizontal = 16.dp),
         horizontalArrangement = Arrangement.spacedBy(4.dp),
@@ -149,7 +149,9 @@ fun FeedConfigurationItemView(
             tint = WikipediaTheme.colors.primaryColor,
             contentDescription = null
         )
-        Column {
+        Column(
+            verticalArrangement = Arrangement.spacedBy(4.dp)
+        ) {
             Text(
                 text = stringResource(item.title),
                 style = MaterialTheme.typography.bodyLarge,
@@ -166,11 +168,11 @@ fun FeedConfigurationItemView(
 
 @Preview
 @Composable
-private fun FeedConfigurationScreenPreview() {
+private fun FeedConfigurationContentPreview() {
     BaseTheme(
         currentTheme = Theme.LIGHT
     ) {
-        FeedConfigurationScreen(
+        FeedConfigurationContent(
             state = FeedConfigurationState.Success(
                 items = listOf(
                     FeedConfigurationItem(
