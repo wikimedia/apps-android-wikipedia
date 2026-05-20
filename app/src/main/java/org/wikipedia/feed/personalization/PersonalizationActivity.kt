@@ -33,15 +33,15 @@ class PersonalizationActivity : BaseActivity() {
             .setDefaultActionSource("feed_customize")
             .startFunnel("feed_customize")
 
-        val showIntroPage = intent?.getBooleanExtra(EXTRA_SHOW_INTRO_PAGE, true) ?: true
-        val pages = if (showIntroPage) {
+        val showInterestsOnly = intent?.getBooleanExtra(EXTRA_SHOW_INTERESTS_ONLY, false) ?: false
+
+        val pages = if (showInterestsOnly) {
             listOf(
-                PersonalizationPage.CURIOSITY,
-                PersonalizationPage.INTERESTS,
-                PersonalizationPage.HOME_PREFERENCE
+                PersonalizationPage.INTERESTS
             )
         } else {
             listOf(
+                PersonalizationPage.CURIOSITY,
                 PersonalizationPage.INTERESTS,
                 PersonalizationPage.HOME_PREFERENCE
             )
@@ -58,21 +58,28 @@ class PersonalizationActivity : BaseActivity() {
                         searchLauncher.launch(intent)
                     },
                     onCompleteOnboardingClick = {
+                        if (showInterestsOnly) {
+                            setResult(RESULT_OK)
+                            finish()
+                            return@PersonalizationScreen
+                        }
+
                         startActivity(ExploreFeedBuildingActivity.newIntent(this))
                         setResult(RESULT_OK)
                         finish()
-                    }
+                    },
+                    onBackButtonClick = if (showInterestsOnly) ({ finish() }) else null
                 )
             }
         }
     }
 
     companion object {
-        private const val EXTRA_SHOW_INTRO_PAGE = "show_intro_page"
+        private const val EXTRA_SHOW_INTERESTS_ONLY = "show_interests_only"
 
-        fun newIntent(context: Context, showIntroPage: Boolean = true): Intent {
+        fun newIntent(context: Context, showInterestsOnly: Boolean = false): Intent {
             return Intent(context, PersonalizationActivity::class.java)
-                .putExtra(EXTRA_SHOW_INTRO_PAGE, showIntroPage)
+                .putExtra(EXTRA_SHOW_INTERESTS_ONLY, showInterestsOnly)
         }
     }
 }

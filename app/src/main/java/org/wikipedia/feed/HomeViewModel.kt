@@ -110,7 +110,7 @@ data class CommunityContentState(
     val isLoadingMore: Boolean = false,
     val error: Throwable? = null,
     val canLoadMore: Boolean = true,
-    val isEmptyState: Boolean = false
+    val emptyState: FeedEmptyState? = null
 )
 
 data class ForYouContentState(
@@ -119,8 +119,11 @@ data class ForYouContentState(
     val isLoadingMore: Boolean = false,
     val error: Throwable? = null,
     val canLoadMore: Boolean = true,
-    val isEmptyState: Boolean = false
+    val interestHidden: Boolean = false,
+    val emptyState: FeedEmptyState? = null
 )
+
+enum class FeedEmptyState { ALL_MODULES_HIDDEN, NO_DATA }
 
 data class TabsState(val count: Int, val pulse: Boolean)
 
@@ -139,13 +142,31 @@ class HomeViewModel : ViewModel() {
     private val _communityState = MutableStateFlow(CommunityContentState())
     val communityState = combine(_communityState, SettingsRepository.hiddenModules) { state, hiddenModules ->
         val visibleModules = state.cards.filterNot { hiddenModules.contains(it.moduleKey()) }
-        state.copy(cards = visibleModules, isEmptyState = CommunityModuleType.entries.all { hiddenModules.contains(it.name) })
+        val hasContent = visibleModules.any { it !is DayHeaderCard }
+        val areAllModulesHidden = CommunityModuleType.entries.all { hiddenModules.contains(it.name) }
+        val emptyState = when {
+            areAllModulesHidden -> FeedEmptyState.ALL_MODULES_HIDDEN
+            !state.isInitialLoading && state.error == null && !hasContent -> FeedEmptyState.NO_DATA
+            else -> null
+        }
+        state.copy(cards = visibleModules, emptyState = emptyState)
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(MAX_STOP_TIMEOUT_MILLIS), CommunityContentState())
 
     private val _forYouState = MutableStateFlow(ForYouContentState())
     val forYouState = combine(_forYouState, SettingsRepository.hiddenModules) { state, hiddenModules ->
         val visibleModules = state.modules.filterNot { hiddenModules.contains(it.moduleKey()) }
-        state.copy(modules = visibleModules, isEmptyState = ForYouModuleType.entries.all { hiddenModules.contains(it.name) })
+        val areAllModulesHidden = ForYouModuleType.entries.all { hiddenModules.contains(it.name) }
+        val isInterestModuleHidden = hiddenModules.contains(ForYouModuleType.BASED_ON_INTEREST.name)
+        val emptyState = when {
+            areAllModulesHidden -> FeedEmptyState.ALL_MODULES_HIDDEN
+            !state.isInitialLoading && state.error == null && visibleModules.isEmpty() -> FeedEmptyState.NO_DATA
+            else -> null
+        }
+        state.copy(
+            modules = visibleModules,
+            emptyState = emptyState,
+            interestHidden = isInterestModuleHidden
+        )
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(MAX_STOP_TIMEOUT_MILLIS), ForYouContentState())
 
     // "age" in days from today. 0 = today, 1 = yesterday, etc.
@@ -198,17 +219,23 @@ class HomeViewModel : ViewModel() {
 
     fun selectTab(tab: HomeTab) {
         _selectedTab.value = tab
-        if (tab == HomeTab.FOR_YOU &&
-            _forYouState.value.modules.isEmpty() &&
-            !_forYouState.value.isInitialLoading
-        ) {
-            loadForYouContent()
-        } else if (tab == HomeTab.COMMUNITY &&
-            _communityState.value.cards.isEmpty() &&
-            !_communityState.value.isInitialLoading
-        ) {
-            loadCommunityContent()
+    }
+
+    fun reloadCurrentTab() {
+        when (_selectedTab.value) {
+            HomeTab.COMMUNITY -> {
+                if ( _communityState.value.cards.isEmpty() &&
+                    !_communityState.value.isInitialLoading) { loadCommunityContent() }
+            }
+            HomeTab.FOR_YOU -> {
+                if (forYouState.value.modules.isEmpty() &&
+                    !_forYouState.value.isInitialLoading) { loadForYouContent() }
+            }
         }
+    }
+
+    fun selectTabWithoutLoadingContent(tab: HomeTab) {
+        _selectedTab.value = tab
     }
 
     fun updateLanguage(langCode: String) {
@@ -302,7 +329,6 @@ class HomeViewModel : ViewModel() {
                 isLoadingMore = !isInitial,
                 error = null
             )
-
             val newModules = fetchForYouModules(forYouBatchIndex)
 
             // Advance batch index only after success.

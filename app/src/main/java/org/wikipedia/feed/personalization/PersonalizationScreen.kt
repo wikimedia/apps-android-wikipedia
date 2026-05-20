@@ -3,6 +3,7 @@ package org.wikipedia.feed.personalization
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -41,11 +42,12 @@ import org.wikipedia.feed.personalization.interest.InterestOnboardingScreen
 @Composable
 fun PersonalizationScreen(
     modifier: Modifier = Modifier,
+    viewModel: PersonalizationViewModel,
     screens: List<PersonalizationPage>,
     onSkipClick: () -> Unit,
     onCompleteOnboardingClick: () -> Unit,
     onSearchClick: () -> Unit,
-    viewModel: PersonalizationViewModel
+    onBackButtonClick: (() -> Unit)? = null
 ) {
     val context = LocalContext.current
     val coroutineScope = rememberCoroutineScope()
@@ -129,7 +131,8 @@ fun PersonalizationScreen(
                             retryLoading = {
                                 context.instrument?.submitInteraction("click", actionSource = pageActionSource[screens[pagerState.currentPage]], elementId = "retry")
                                 viewModel.retryInterestsLoading()
-                            }
+                            },
+                            onBackButtonClick = onBackButtonClick
                         )
                     }
                     PersonalizationPage.HOME_PREFERENCE -> {
@@ -179,24 +182,28 @@ fun OnboardingBottomBar(
                 .navigationBarsPadding(),
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            TextButton(
-                onClick = { onSkipClick() },
-                modifier = Modifier
-                    .wrapContentWidth(Alignment.Start)
-                    .wrapContentHeight(Alignment.CenterVertically)
-            ) {
-                Text(
-                    text = stringResource(id = R.string.onboarding_skip),
-                    color = WikipediaTheme.colors.placeholderColor
-                )
-            }
+            if (pagerState.pageCount > 1) {
+                TextButton(
+                    onClick = { onSkipClick() },
+                    modifier = Modifier
+                        .wrapContentWidth(Alignment.Start)
+                        .wrapContentHeight(Alignment.CenterVertically)
+                ) {
+                    Text(
+                        text = stringResource(id = R.string.onboarding_skip),
+                        color = WikipediaTheme.colors.placeholderColor
+                    )
+                }
 
-            PageIndicator(
-                modifier = Modifier
-                    .weight(1f)
-                    .wrapContentHeight(Alignment.CenterVertically),
-                pagerState = pagerState
-            )
+                PageIndicator(
+                    modifier = Modifier
+                        .weight(1f)
+                        .wrapContentHeight(Alignment.CenterVertically),
+                    pagerState = pagerState
+                )
+            } else {
+                Spacer(modifier = Modifier.weight(1f))
+            }
 
             IconButton(
                 onClick = { onNavigationRightClick() },
