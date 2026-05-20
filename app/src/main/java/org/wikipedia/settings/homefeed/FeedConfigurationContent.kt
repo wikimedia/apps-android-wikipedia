@@ -7,8 +7,10 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
@@ -105,7 +107,6 @@ fun FeedConfigurationContent(
                         .fillMaxSize()
                         .padding(paddingValues)
                         .verticalScroll(rememberScrollState()),
-                    verticalArrangement = Arrangement.spacedBy(16.dp),
                 ) {
                     Text(
                         modifier = Modifier
@@ -115,6 +116,7 @@ fun FeedConfigurationContent(
                         style = MaterialTheme.typography.bodyMedium,
                         color = WikipediaTheme.colors.primaryColor
                     )
+                    Spacer(modifier = Modifier.height(16.dp))
                     state.items.forEach { item ->
                         FeedConfigurationItemView(
                             item = item,
@@ -132,36 +134,39 @@ fun FeedConfigurationItemView(
     item: FeedConfigurationItem,
     onClick: () -> Unit
 ) {
-    Row(
+    Box(
         modifier = Modifier
-            .fillMaxWidth()
             .clickable(
                 onClick = onClick
             )
-            .padding(horizontal = 16.dp),
-        horizontalArrangement = Arrangement.spacedBy(4.dp),
     ) {
-        Icon(
+        Row(
             modifier = Modifier
-                .padding(top = 2.dp)
-                .size(22.dp),
-            painter = painterResource(item.icon),
-            tint = WikipediaTheme.colors.primaryColor,
-            contentDescription = null
-        )
-        Column(
-            verticalArrangement = Arrangement.spacedBy(4.dp)
+                .fillMaxWidth()
+                .padding(16.dp),
+            horizontalArrangement = Arrangement.spacedBy(4.dp),
         ) {
-            Text(
-                text = stringResource(item.title),
-                style = MaterialTheme.typography.bodyLarge,
-                color = WikipediaTheme.colors.primaryColor
+            Icon(
+                modifier = Modifier
+                    .size(22.dp),
+                painter = painterResource(item.icon),
+                tint = WikipediaTheme.colors.primaryColor,
+                contentDescription = null
             )
-            Text(
-                text = stringResource(item.description),
-                style = MaterialTheme.typography.bodyMedium,
-                color = WikipediaTheme.colors.secondaryColor
-            )
+            Column(
+                verticalArrangement = Arrangement.spacedBy(4.dp)
+            ) {
+                Text(
+                    text = stringResource(item.title),
+                    style = MaterialTheme.typography.bodyLarge,
+                    color = WikipediaTheme.colors.primaryColor
+                )
+                Text(
+                    text = stringResource(item.description),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = WikipediaTheme.colors.secondaryColor
+                )
+            }
         }
     }
 }
