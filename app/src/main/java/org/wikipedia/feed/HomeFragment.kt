@@ -106,6 +106,8 @@ import org.wikipedia.feed.image.FeaturedImageCard
 import org.wikipedia.feed.image.FeaturedImageModule
 import org.wikipedia.feed.interests.BasedOnInterestModule
 import org.wikipedia.feed.model.Card
+import org.wikipedia.feed.model.EmptyCommunityCard
+import org.wikipedia.feed.model.EmptyForYouCard
 import org.wikipedia.feed.model.ForYouCard
 import org.wikipedia.feed.news.NewsCard
 import org.wikipedia.feed.news.NewsItem
@@ -190,8 +192,11 @@ class HomeFragment : Fragment() {
                         overflowMenuState = pageOverflowMenuViewModel.pageOverflowMenuState,
                         tabsState = tabsState,
                         notificationBellState = notificationState,
-                        onSelectTab = {
-                            selectTab(it)
+                        onSelectTab = { tab, card ->
+                            if (card is EmptyCommunityCard || card is EmptyForYouCard) {
+                                instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, elementId = "community_feed")
+                            }
+                            selectTab(tab)
                         },
                         onRefreshTab = {
                             if (it == HomeTab.COMMUNITY) {
@@ -308,7 +313,9 @@ class HomeFragment : Fragment() {
                         },
                         onCustomizeInterestsClick = { card ->
                             if (card != null) {
-                                instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_overflow", elementId = "feed_customize")
+                                instrument.submitInteraction("click", actionSource = card.javaClass.simpleName,
+                                    actionSubtype = if (card !is EmptyForYouCard) "feed_overflow" else null,
+                                    elementId = "feed_customize")
                             }
                             customizeInterestsLauncher.launch(PersonalizationActivity.newIntent(requireContext(), showInterestsOnly = true))
                         },
@@ -338,6 +345,7 @@ class HomeFragment : Fragment() {
                             requireActivity().startActivity(NotificationActivity.newIntent(requireActivity()))
                         },
                         onManageModulesClick = {
+                            instrument.submitInteraction("click", actionSource = "feed_empty", elementId = "customize_feed")
                             val intent = HomeFeedSettingsActivity.newIntent(
                                 context = requireContext(),
                                 startDestination = when (selectedTab) {
@@ -432,7 +440,7 @@ fun HomeScreen(
     overflowMenuState: PageOverflowMenuViewModel.PageOverflowMenuState? = null,
     tabsState: TabsState,
     notificationBellState: NotificationBellState,
-    onSelectTab: (HomeTab) -> Unit = {},
+    onSelectTab: (HomeTab, Card?) -> Unit = { _, _ -> },
     onRefreshTab: (HomeTab) -> Unit = {},
     onLoadMoreCommunityContent: () -> Unit = {},
     onLoadMoreForYouContent: () -> Unit = {},
@@ -505,7 +513,7 @@ fun HomeScreen(
                             wikiSite = wikiSite,
                             selectedTab = selectedTab,
                             languageState = languageState,
-                            onTabSelected = onSelectTab,
+                            onSelectTab = onSelectTab,
                             onLanguageSelected = {
                                 onLanguageSelected(it)
                             },
@@ -555,7 +563,7 @@ fun HomeScreen(
                         onCustomizeInterestsClick = onCustomizeInterestsClick,
                         onCardImpression = onCardImpression,
                         onManageModulesClick = onManageModulesClick,
-                        navigateToCommunityTab = { onSelectTab(HomeTab.COMMUNITY) },
+                        onSelectTab = onSelectTab,
                     )
 
                     // Floating toolbar with gradient scrim, wordmark, and tab selector.
@@ -598,7 +606,7 @@ fun HomeScreen(
                                 wikiSite = wikiSite,
                                 selectedTab = selectedTab,
                                 languageState = languageState,
-                                onTabSelected = onSelectTab,
+                                onSelectTab = onSelectTab,
                                 onLanguageSelected = {
                                     onLanguageSelected(it)
                                 },
@@ -681,7 +689,7 @@ fun HomeTabBar(
     wikiSite: WikiSite,
     selectedTab: HomeTab,
     languageState: AppLanguageState? = null,
-    onTabSelected: (HomeTab) -> Unit,
+    onSelectTab: (HomeTab, Card?) -> Unit = { _, _ -> },
     onLanguageSelected: (String) -> Unit,
     onManageLanguagesClick: () -> Unit
 ) {
@@ -705,7 +713,7 @@ fun HomeTabBar(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     modifier = Modifier
                         .width(IntrinsicSize.Max)
-                        .clickable { onTabSelected(tab) }
+                        .clickable { onSelectTab(tab, null) }
                         .padding(horizontal = 12.dp, vertical = 8.dp)
                 ) {
                     Text(
@@ -766,6 +774,8 @@ fun CommunityContentTab(
         }
         state.emptyState == FeedEmptyState.ALL_MODULES_HIDDEN || state.emptyState == FeedEmptyState.NO_DATA -> {
             val context = LocalContext.current
+            val card = EmptyCommunityCard()
+            onCardImpression(card, 0)
             FeedEmptyStateView(
                 modifier = Modifier
                     .fillMaxSize()
@@ -989,10 +999,10 @@ fun ForYouContentTab(
     onPageShareClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
     onPageOverflowClick: (card: Card, pageSummary: PageSummary, source: Int, menuKey: String) -> Unit = { _, _, _, _ -> },
     onPageOverflowDismiss: () -> Unit = {},
-    onCustomizeInterestsClick: (card: Card?) -> Unit = {},
+    onCustomizeInterestsClick: (card: Card) -> Unit = {},
     onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> },
     onManageModulesClick: () -> Unit,
-    navigateToCommunityTab: () -> Unit
+    onSelectTab: (HomeTab, Card?) -> Unit = { _, _ -> }
 ) {
     when {
         state.isInitialLoading -> {
@@ -1006,6 +1016,8 @@ fun ForYouContentTab(
             }
         }
         state.emptyState == FeedEmptyState.NO_DATA -> {
+            val card = EmptyForYouCard()
+            onCardImpression(card, 0)
             ForYouFeedEmptyView(
                 modifier = Modifier
                     .fillMaxSize()
@@ -1015,8 +1027,8 @@ fun ForYouContentTab(
                     .verticalScroll(rememberScrollState()),
                 wikiSite = wikiSite,
                 showCustomizeInterests = !state.isInterestModuleHidden,
-                onCustomizeInterestsClick = { onCustomizeInterestsClick(null) },
-                navigateToCommunityTab = navigateToCommunityTab
+                onCustomizeInterestsClick = { onCustomizeInterestsClick(card) },
+                navigateToCommunityTab = { onSelectTab(HomeTab.COMMUNITY, card) }
             )
         }
         state.emptyState == FeedEmptyState.ALL_MODULES_HIDDEN -> {
