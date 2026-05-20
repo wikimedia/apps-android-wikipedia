@@ -313,7 +313,9 @@ class HomeFragment : Fragment() {
                         },
                         onCustomizeInterestsClick = { card ->
                             if (card != null) {
-                                instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_overflow", elementId = "feed_customize")
+                                instrument.submitInteraction("click", actionSource = card.javaClass.simpleName,
+                                    actionSubtype = if (card !is EmptyForYouCard) "feed_overflow" else null,
+                                    elementId = "feed_customize")
                             }
                             customizeInterestsLauncher.launch(PersonalizationActivity.newIntent(requireContext(), showInterestsOnly = true))
                         },
