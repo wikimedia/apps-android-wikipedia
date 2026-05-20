@@ -14,6 +14,7 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.personalization.homepreference.HomeContentState
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceContent
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceRepository
@@ -358,18 +359,19 @@ class PersonalizationViewModel(
             initializer {
                 val appDatabase = AppDatabase.instance
                 val instance = WikipediaApp.instance
+                val wikiSite = WikiSite.forLanguageCode(Prefs.homeLanguageCode)
                 PersonalizationViewModel(
                     interestSelectionRepository = InterestSelectionRepository(
                         interestTopicDao = appDatabase.topicInterestDao(),
                         interestArticleDao = appDatabase.articleInterestDao(),
                         historyEntryWithImageDao = appDatabase.historyEntryWithImageDao(),
                         readingListPageDao = appDatabase.readingListPageDao(),
-                        wikiSite = instance.wikiSite
+                        wikiSite = wikiSite
                     ),
                     homePreferenceRepository = HomePreferenceRepository(
                         context = instance,
-                        historyEntryWithImageDao = AppDatabase.instance.historyEntryWithImageDao(),
-                        wikiSite = instance.wikiSite
+                        historyEntryWithImageDao = appDatabase.historyEntryWithImageDao(),
+                        wikiSite = wikiSite
                     )
                 )
             }

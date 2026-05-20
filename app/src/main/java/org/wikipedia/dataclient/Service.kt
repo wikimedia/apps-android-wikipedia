@@ -224,7 +224,7 @@ interface Service {
         @Query("grnlimit") count: Int = 50,
     ): MwQueryResponse
 
-    @GET(MW_API_PREFIX + "action=query&generator=random&grnfilterredir=nonredirects&grnnamespace=0&prop=pageprops|pageimages|description|info|extracts&exchars=500&exintro=1&explaintext=1&piprop=thumbnail&pilicense=any&pithumbsize=" + PREFERRED_THUMB_SIZE)
+    @GET(MW_API_PREFIX + "action=query&generator=random&grnfilterredir=nonredirects&grnnamespace=0&prop=pageprops|pageimages|description|info|extracts&exchars=500&exintro=1&explaintext=1&piprop=thumbnail&pilicense=any&inprop=varianttitles|displaytitle&pithumbsize=" + PREFERRED_THUMB_SIZE)
     suspend fun getRandomPagesWithExtract(
         @Query("grnlimit") count: Int = 10,
     ): MwQueryResponse

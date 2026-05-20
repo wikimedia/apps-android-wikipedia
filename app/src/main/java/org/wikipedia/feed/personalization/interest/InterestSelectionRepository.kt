@@ -52,10 +52,10 @@ class InterestSelectionRepository(
         val results = mutableListOf<PageTitle>()
 
         // get most recent history entries
-        val historyTitles = historyEntryWithImageDao.findEntryForReadMore(maxItems, 0)
+        val historyTitles = historyEntryWithImageDao.findEntryForReadMore(maxItems, 0, wikiSite.languageCode)
             .map { it.title }
         // and a random sampling of reading list pages
-        val readingListTitles = readingListPageDao.getPagesByRandom(maxItems)
+        val readingListTitles = readingListPageDao.getPagesByRandomByLang(wikiSite.languageCode, maxItems)
             .map { ReadingListPage.toPageTitle(it) }
         // take the two lists and interleave them
         for (i in 0 until maxItems) {
@@ -74,6 +74,7 @@ class InterestSelectionRepository(
                 .query?.pages.orEmpty()
             pageList.forEach { page ->
                 results.find { it.prefixedText == StringUtil.addUnderscores(page.title) }?.let { title ->
+                    title.displayText = page.displayTitle(site.languageCode)
                     title.description = page.description
                     title.thumbUrl = page.thumbUrl()
                 }

@@ -1012,7 +1012,7 @@ fun ForYouContentTab(
             }
         }
         state.emptyState == FeedEmptyState.NO_DATA -> {
-            ForYouFeedEmptView(
+            ForYouFeedEmptyView(
                 modifier = Modifier
                     .fillMaxSize()
                     .background(WikipediaTheme.colors.paperColor)
@@ -1020,7 +1020,7 @@ fun ForYouContentTab(
                     .padding(top = (topInset * 2 + 64).dp)
                     .verticalScroll(rememberScrollState()),
                 wikiSite = wikiSite,
-                showInterests = !state.interestHidden,
+                showCustomizeInterests = !state.isInterestModuleHidden,
                 onCustomizeInterestsClick = { onCustomizeInterestsClick(null) },
                 navigateToCommunityTab = navigateToCommunityTab
             )
@@ -1440,10 +1440,10 @@ fun FeedEmptyStateView(
 }
 
 @Composable
-fun ForYouFeedEmptView(
+fun ForYouFeedEmptyView(
     modifier: Modifier = Modifier,
     wikiSite: WikiSite,
-    showInterests: Boolean = true,
+    showCustomizeInterests: Boolean = true,
     onCustomizeInterestsClick: () -> Unit,
     navigateToCommunityTab: () -> Unit
 ) {
@@ -1481,7 +1481,7 @@ fun ForYouFeedEmptView(
             textAlign = TextAlign.Center,
             color = WikipediaTheme.colors.primaryColor
         )
-        if (showInterests) {
+        if (showCustomizeInterests) {
             EmptyStateActionRow(
                 iconRes = R.drawable.ic_baseline_tune_24,
                 text = context.getString(wikiSite.languageCode, R.string.home_feed_for_you_screen_empty_add_interests),
@@ -1638,16 +1638,16 @@ fun DayHeaderPreview() {
 
 @Preview
 @Composable
-fun ForYouFeedEmptViewPreview() {
+fun ForYouFeedEmptyViewPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
-        ForYouFeedEmptView(
+        ForYouFeedEmptyView(
             modifier = Modifier
                 .fillMaxSize()
                 .background(WikipediaTheme.colors.paperColor)
                 .padding(16.dp)
                 .verticalScroll(rememberScrollState()),
             wikiSite = WikiSite.preview(),
-            showInterests = true,
+            showCustomizeInterests = true,
             onCustomizeInterestsClick = {},
             navigateToCommunityTab = {}
         )
