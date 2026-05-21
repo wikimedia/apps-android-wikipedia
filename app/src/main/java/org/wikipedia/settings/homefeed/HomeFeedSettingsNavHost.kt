@@ -16,6 +16,7 @@ import org.wikipedia.feed.personalization.PersonalizationActivity
 import org.wikipedia.main.MainActivity
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
+import org.wikipedia.util.FeedbackUtil
 
 @Composable
 fun HomeFeedSettingsNavHost(
@@ -30,8 +31,12 @@ fun HomeFeedSettingsNavHost(
         HomeFeedSettingsStartDestination.FOR_YOU_MODULES -> HomeFeedSettingsDestination.ForYouModuleScreen
     }
     val customizeInterestsLauncher = rememberLauncherForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        if (it.resultCode == RESULT_OK) {
-            (context as? Activity)?.setResult(RESULT_OK)
+        if (it.resultCode == RESULT_OK || it.resultCode == PersonalizationActivity.RESULT_INTERESTS_UPDATED) {
+            val context = context as Activity
+            if (it.resultCode == PersonalizationActivity.RESULT_INTERESTS_UPDATED) {
+                FeedbackUtil.showMessage(context, org.wikipedia.R.string.home_feed_settings_feed_configuration_interests_updated_message)
+            }
+            context.setResult(RESULT_OK)
         }
     }
     NavHost(

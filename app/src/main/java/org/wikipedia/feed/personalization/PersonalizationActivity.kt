@@ -59,8 +59,7 @@ class PersonalizationActivity : BaseActivity() {
                     },
                     onCompleteOnboardingClick = {
                         if (showInterestsOnly) {
-                            setResult(RESULT_OK)
-                            finish()
+                            onFinish()
                             return@PersonalizationScreen
                         }
 
@@ -68,14 +67,22 @@ class PersonalizationActivity : BaseActivity() {
                         setResult(RESULT_OK)
                         finish()
                     },
-                    onBackButtonClick = if (showInterestsOnly) ({ finish() }) else null
+                    onBackButtonClick = if (showInterestsOnly) ({
+                        onFinish()
+                    }) else null
                 )
             }
         }
     }
 
+    private fun onFinish() {
+        setResult(if (viewModel.interestsUpdated) RESULT_INTERESTS_UPDATED else RESULT_OK)
+        finish()
+    }
+
     companion object {
         private const val EXTRA_SHOW_INTERESTS_ONLY = "show_interests_only"
+        const val RESULT_INTERESTS_UPDATED = 100
 
         fun newIntent(context: Context, showInterestsOnly: Boolean = false): Intent {
             return Intent(context, PersonalizationActivity::class.java)

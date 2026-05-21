@@ -2540,4 +2540,5 @@
     <string name="home_feed_settings_feed_configuration_empty_reading_history_subtitle">Your reading history is empty. Start exploring articles to build personalized recommendations.</string>
     <string name="home_feed_settings_feed_configuration_languages_title">Languages</string>
     <string name="home_feed_settings_feed_configuration_languages_subtitle">Edit your preferred languages</string>
+    <string name="home_feed_settings_feed_configuration_interests_updated_message">Interests updated. Refresh your feed to see updates.</string>
 </resources>

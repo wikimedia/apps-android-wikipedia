@@ -95,6 +95,7 @@ class PersonalizationViewModel(
     // Single source of truth for all personalization state, can be easily extended to include feed preference and language selection states as well
     private val state = MutableStateFlow(PersonalizedViewModelState())
     private var articlesJob: Job? = null
+    var interestsUpdated = false
 
     // Each screen observes only its own derived UI state
     // runs automatically when any part of the raw state changes
@@ -237,6 +238,7 @@ class PersonalizationViewModel(
         // When a topic is selected, we want to reset the articles state and load articles for the selected topic
         viewModelScope.launch(CoroutineExceptionHandler { _, _ ->
         }) {
+            interestsUpdated = true
             clearForYouCache()
             val currentTopics = state.value.selectedTopics
             val isSelected = currentTopics.any { selected -> selected.topic.topicId == topic.topic.topicId }
@@ -291,6 +293,7 @@ class PersonalizationViewModel(
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             state.update { it.copy(articlesError = throwable) }
         }) {
+            interestsUpdated = true
             clearForYouCache()
             val current = state.value
             val isSelected = current.selectedArticles.contains(title)
@@ -318,6 +321,7 @@ class PersonalizationViewModel(
                 state.update { it.copy(articlesError = throwable) }
             }
         ) {
+            interestsUpdated = true
             clearForYouCache()
             interestSelectionRepository.deleteAllInterests()
 
