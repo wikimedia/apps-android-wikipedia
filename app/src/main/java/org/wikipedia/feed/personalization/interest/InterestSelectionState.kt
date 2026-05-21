@@ -12,7 +12,7 @@ data class InterestUiState(
     val topicsList: List<OnboardingTopic> = emptyList(),
     val articlesState: ArticlesState = ArticlesState.Loading,
     val totalSelectedCount: Int = 0,
-    val languageCode: String = "en"
+    val languageCode: String
 )
 
 sealed interface ArticlesState {

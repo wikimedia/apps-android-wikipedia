@@ -66,7 +66,7 @@ fun InterestOnboardingScreen(
     articlesState: ArticlesState,
     topicsList: List<OnboardingTopic>,
     totalSelectedCount: Int,
-    languageCode: String = "en",
+    languageCode: String,
     gridState: LazyStaggeredGridState = rememberLazyStaggeredGridState(),
     onTopicSelected: (OnboardingTopic) -> Unit,
     onItemClick: (PageTitle) -> Unit = {},
@@ -207,7 +207,7 @@ fun InterestOnboardingScreen(
 fun TopicFilterChipRow(
     topics: List<OnboardingTopic>,
     modifier: Modifier = Modifier,
-    languageCode: String = "en",
+    languageCode: String,
     onTopicSelected: (OnboardingTopic) -> Unit
 ) {
     val context = LocalContext.current
@@ -357,6 +357,7 @@ private fun InterestOnboardingScreenPreview() {
                 articles = titles,
                 selectedArticles = setOf()
             ),
+            languageCode = "",
             onTopicSelected = {},
             onSearchClick = {},
             onDeselectAllClick = {},
