@@ -154,7 +154,6 @@ class HomeFragment : Fragment() {
 
     private val customizeInterestsLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_OK) {
-            Prefs.homeForYouModulesToday = ""
             viewModel.selectTab(HomeTab.FOR_YOU)
             viewModel.refreshForYouContent()
         }
@@ -202,6 +201,8 @@ class HomeFragment : Fragment() {
                             if (it == HomeTab.COMMUNITY) {
                                 viewModel.refreshCommunityContent()
                             } else {
+                                // An explicit swipe to refresh means that we can clear the cache for today's "For You" content and reload it freshly.
+                                Prefs.homeForYouModulesToday = ""
                                 viewModel.refreshForYouContent()
                             }
                         },

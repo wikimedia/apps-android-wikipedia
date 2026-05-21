@@ -237,7 +237,6 @@ class PersonalizationViewModel(
         // When a topic is selected, we want to reset the articles state and load articles for the selected topic
         viewModelScope.launch(CoroutineExceptionHandler { _, _ ->
         }) {
-            clearForYouCache()
             val currentTopics = state.value.selectedTopics
             val isSelected = currentTopics.any { selected -> selected.topic.topicId == topic.topic.topicId }
 
@@ -291,7 +290,6 @@ class PersonalizationViewModel(
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             state.update { it.copy(articlesError = throwable) }
         }) {
-            clearForYouCache()
             val current = state.value
             val isSelected = current.selectedArticles.contains(title)
 
@@ -318,7 +316,6 @@ class PersonalizationViewModel(
                 state.update { it.copy(articlesError = throwable) }
             }
         ) {
-            clearForYouCache()
             interestSelectionRepository.deleteAllInterests()
 
             state.update {
@@ -375,10 +372,6 @@ class PersonalizationViewModel(
                     )
                 )
             }
-        }
-
-        private fun clearForYouCache() {
-            Prefs.homeForYouModulesToday = ""
         }
     }
 }
