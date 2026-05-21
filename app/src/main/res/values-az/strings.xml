@@ -2383,4 +2383,5 @@
   <string name="home_feed_community_screen_empty_state_description">Vikimedia hərəkatı boyunca könüllülər tərəfindən hazırlanmış məzmunu görməyə başlamaq üçün &lt;b&gt;İcma&lt;/b&gt; modullarını aktivləşdirin.</string>
   <string name="home_feed_for_you_screen_empty_state_description">Seçimlərinizə əsaslanan məzmuna baxmağa başlamaq üçün &lt;b&gt;Sizin üçün&lt;/b&gt; modullarını aktivləşdirin.</string>
   <string name="home_feed_screen_empty_state_btn_label">Modulları idarə et</string>
+  <string name="home_feed_for_you_screen_empty_title">Sizin lentiniz hələlik boşdur</string>
 </resources>

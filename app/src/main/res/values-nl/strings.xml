@@ -884,7 +884,7 @@
   <string name="feed_item_type_featured_image">Dagelijkse uitgelichte afbeelding van Wikimedia Commons</string>
   <string name="feed_item_type_main_page">Hoofdpagina van Wikipedia met dagelijkse uitgelichte inhoud</string>
   <string name="feed_item_type_randomizer">Genereert willekeurige pagina\'s om te lezen</string>
-  <string name="feed_item_type_suggested_edits">Voorstellen om content aan Wikipedia toe te voegen</string>
+  <string name="feed_item_type_suggested_edits">Voorstellen om inhoud aan Wikipedia toe te voegen</string>
   <string name="feed_item_type_places">Nabijgelegen pagina\'s op basis van de huidige locatie</string>
   <string name="feed_empty_message">Er staat niets in uw overzicht Verkennen</string>
   <string name="feed_configure_onboarding_action">Aanpassen</string>
@@ -1729,7 +1729,7 @@
   <string name="patroller_tasks_overflow_learn">Meer lezen</string>
   <string name="patroller_onboarding_one_title">Draag bij aan het toezicht op en de goedkeuring van Wikipedia-bewerkingen.</string>
   <string name="patroller_onboarding_one_content">Verbeter de kwaliteit van Wikipedia-inhoud door een feed met recente bewerkingen actief te beoordelen en andere redacteuren begeleiding, kwaliteitscontrole en aanmoediging te bieden.</string>
-  <string name="patroller_onboarding_two_title">Geef feedback, controleer bewerkingen en onderneem actie op het wijzigingenscherm</string>
+  <string name="patroller_onboarding_two_title">Geef feedback, controleer bewerkingen en voer handelingen uit op het wijzigingenscherm</string>
   <string name="patroller_onboarding_two_thank_title">Bedanken</string>
   <string name="patroller_onboarding_two_thank_content">Ziet u een productieve bewerking? Bedank een gebruiker voor diens bijdrage.</string>
   <string name="patroller_onboarding_two_watch_title">Volgen</string>
@@ -2428,4 +2428,18 @@
   <string name="home_feed_community_screen_empty_state_description">Schakel de modules &lt;b&gt;Vanuit de gemeenschap&lt;/b&gt; in om inhoud te bekijken die is samengesteld door bijdragers binnen de Wikimedia-beweging.</string>
   <string name="home_feed_for_you_screen_empty_state_description">Schakel de &lt;b&gt;Voor u&lt;/b&gt;-modules in om inhoud te zien die is afgestemd op uw voorkeuren.</string>
   <string name="home_feed_screen_empty_state_btn_label">Modules beheren</string>
+  <string name="home_feed_for_you_screen_empty_title">U feed is leeg op dit moment.</string>
+  <string name="home_feed_for_you_screen_empty_description">Uw \"Voor u\"-feed wordt gevuld met gepersonaliseerde pagina\'s terwijl u op verkenning bent.</string>
+  <string name="home_feed_for_you_screen_empty_ways_to_start">Manieren om te beginnen:</string>
+  <string name="home_feed_for_you_screen_empty_add_interests">U kunt &lt;a href=\"#add_interests\"&gt;interesses toevoegen&lt;/a&gt;</string>
+  <string name="home_feed_for_you_screen_empty_see_community">Kijk wat er in de &lt;a href=\"#community_tab\"&gt;gemeenschap&lt;/a&gt; gebeurt</string>
+  <string name="home_feed_settings_feed_configuration_description">Deze onderwerpen en pagina\'s bepalen wat er in uw \'Voor u\'-feed verschijnt. Verwijder items die u niet meer wilt zien of voeg nieuwe interesses toe.</string>
+  <string name="home_feed_settings_feed_configuration_interest_title">Uw interesses</string>
+  <string name="home_feed_settings_feed_configuration_empty_interest_subtitle">Uw lijst met interesses is leeg. Voeg iets toe waar u nieuwsgierig naar bent.</string>
+  <string name="home_feed_settings_feed_configuration_empty_reading_history_subtitle">Uw leesgeschiedenis is leeg. Begin met het verkennen van pagina\'s om gepersonaliseerde aanbevelingen te krijgen.</string>
+  <string name="home_feed_settings_feed_configuration_reading_history_title">Leesgeschiedenis</string>
+  <string name="home_feed_settings_feed_configuration_languages_title">Talen</string>
+  <string name="home_feed_settings_feed_configuration_languages_subtitle">Bewerk uw voorkeurstalen</string>
+  <string name="home_feed_settings_feed_configuration_interest_subtitle">Bewerk de onderwerpen waarin u geïnteresseerd bent</string>
+  <string name="home_feed_settings_feed_configuration_reading_history_subtitle">Bekijk uw recent bekeken pagina\'s</string>
 </resources>

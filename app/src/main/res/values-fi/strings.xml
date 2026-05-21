@@ -1278,6 +1278,9 @@
   <string name="onboarding_multilingual_add_language_text">Lisää tai muokkaa kieliä</string>
   <string name="onboarding_welcome_title_v2">Vapaa tietosanakirja\n…yli 300 kielellä</string>
   <string name="onboarding_next">Seuraava</string>
+  <string name="onboarding_app_languages_title">Lue yli 300 kielellä</string>
+  <string name="onboarding_app_languages_text">Laitteesta löytyneet kielet:</string>
+  <string name="onboarding_app_languages_add_button">Lisää tai muokkaa kieliä</string>
   <string name="app_shortcuts_random">Satunnainen</string>
   <string name="app_shortcuts_continue_reading">Jatka lukemista</string>
   <string name="app_shortcuts_search">Etsi</string>
@@ -2223,6 +2226,7 @@
   <string name="reading_challenge_onboarding_read_description">Voit osallistua haasteeseen milloin tahansa ajalla 1.–31. toukokuuta ja suorittaa 25 päivän haasteen aloituspäivästäsi alkaen.</string>
   <string name="reading_challenge_onboarding_win_title">Tarjolla palkintoja</string>
   <string name="reading_challenge_onboarding_win_description">Voit voitta erikoispalkintoja suorittamalla 25 päivän lukuputken haasteen ollessa aktiivisena.</string>
+  <string name="reading_challenge_onboarding_install_title">Asenna pienoisohjelma</string>
   <string name="reading_challenge_onboarding_learn_more_button">Lisätietoja</string>
   <string name="reading_challenge_onboarding_join_button">Osallistu haasteeseen</string>
   <string name="reading_challenge_onboarding_prompt_title">Osallistu haasteeseen kirjautumalla sisään</string>
@@ -2277,4 +2281,12 @@
   <string name="reading_challenge_widget_reward_title">Uteliaisuus sopii sinulle! 🛍️</string>
   <string name="reading_challenge_widget_reward_body">Juhlista haasteen suorittamista 15 %%:n alennuksella Wikipedia-kaupasta.</string>
   <string name="reading_challenge_widget_reward_button_label">Saat 15 %% alennusta kaupasta</string>
+  <string name="explore_feed_new_update_prompt_new_name_title">Uusi nimi</string>
+  <string name="explore_feed_header_overflow_hide_module_message_action">Kumoa</string>
+  <string name="explore_feed_because_you_read">Aiemmin lukemasi perusteella: %s</string>
+  <string name="home_feed_settings_modules_title">Moduulit</string>
+  <string name="home_feed_settings_based_on_interest_title">Kiinnostuksen kohteidesi perusteella</string>
+  <string name="home_feed_settings_continue_reading_title">Jatka lukemista</string>
+  <string name="home_feed_screen_empty_state_btn_label">Hallitse moduuleita</string>
+  <string name="home_feed_for_you_screen_empty_title">Syötteesi on tyhjä</string>
 </resources>

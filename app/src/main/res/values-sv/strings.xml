@@ -2373,6 +2373,7 @@
   <string name="explore_feed_onboarding_curiosity_description">Välj ämnen som intresserar dig, så anpassar vi ditt flöde.\n\nVi samlar in minimalt med anonymiserad data.</string>
   <string name="explore_feed_deselect_all_button_label">Avmarkera alla</string>
   <string name="explore_feed_potd_subtitle">Dagens bilder på Wikimedia Commons som har valts ut av frivilliga bidragsgivare</string>
+  <string name="explore_feed_featured_article_subtitle">Utmärkta artiklar är högkvalitativa artiklar på Wikipedia som redigerare väljer ut dagligen.</string>
   <string name="explore_feed_preference_selection_screen_title">Vad vill du se först?</string>
   <string name="explore_feed_preference_community_content_title">Gemenskapsrelaterat innehåll</string>
   <string name="explore_feed_preference_personalized_content_title">Anpassat innehåll</string>
@@ -2393,4 +2394,30 @@
   <string name="home_feed_settings_modules_title">Moduler</string>
   <string name="home_feed_settings_community_subtitle">Aktivera eller inaktivera flödesmodulerna i \"Gemenskap\"</string>
   <string name="home_feed_settings_for_you_subtitle">Aktivera eller inaktivera flödesmodulerna i \"För dig\"</string>
+  <string name="home_feed_settings_whats_driving_subtitle">Ämnen och artiklar som formar ditt innehåll</string>
+  <string name="home_feed_settings_community_modules_description">Om du inaktiverar en modul döljs den från ditt gemenskapsflöde. Du kan återaktivera den här när som helst. Vissa moduler kanske inte är tillgängliga på ditt språk.</string>
+  <string name="home_feed_settings_for_you_modules_description">Om du inaktiverar en modul döljs den från ditt flöde \"För dig\". Du kan återaktivera den här när som helst.</string>
+  <string name="home_feed_settings_based_on_interest_title">Baserat på dina intressen</string>
+  <string name="home_feed_settings_based_on_interest_subtitle">Artiklar som har anpassats till dina valda ämnen. &lt;a href=\"#drivingFeed\"&gt;Vad som driver ditt flöde&lt;/a&gt;</string>
+  <string name="home_feed_settings_because_you_read_subtitle">Förslag baserade på en nyligen läst artikel från din historik</string>
+  <string name="home_feed_settings_continue_reading_title">Fortsätt läsa</string>
+  <string name="home_feed_settings_continue_reading_subtitle">Hoppa tillbaka till artiklar du inte slutförde</string>
+  <string name="home_feed_screen_empty_state_label">Ditt flöde är tomt</string>
+  <string name="home_feed_community_screen_empty_state_description">Aktivera modulerna i &lt;b&gt;Från gemenskapen&lt;/b&gt; för att börja få innehåll som har valts ut av bidragsgivare inom Wikimedia-rörelsen.</string>
+  <string name="home_feed_for_you_screen_empty_state_description">Aktivera modulerna i &lt;b&gt;För dig&lt;/b&gt; för att börja få innehåll baserat på dina preferenser.</string>
+  <string name="home_feed_screen_empty_state_btn_label">Hantera moduler</string>
+  <string name="home_feed_for_you_screen_empty_title">Ditt flöde är tomt för tillfället</string>
+  <string name="home_feed_for_you_screen_empty_description">Ditt flöde \"För dig\" kommer att fyllas med personligt anpassade artiklar allt eftersom du utforskar.</string>
+  <string name="home_feed_for_you_screen_empty_ways_to_start">Sätt att komma igång:</string>
+  <string name="home_feed_for_you_screen_empty_add_interests">Lägg till &lt;a href=\"#add_interests\"&gt;några intressen&lt;/a&gt;</string>
+  <string name="home_feed_for_you_screen_empty_see_community">Se vad som händer i &lt;a href=\"#community_tab\"&gt;gemenskapen&lt;/a&gt;</string>
+  <string name="home_feed_settings_feed_configuration_description">Dessa ämnen och artiklar formar vad som visas i ditt flöde \"För dig\". Ta bort de du inte längre vill ha eller lägg till nya intressen.</string>
+  <string name="home_feed_settings_feed_configuration_interest_title">Dina intressen</string>
+  <string name="home_feed_settings_feed_configuration_empty_interest_subtitle">Din intresselista är tom. Lägg till något du är nyfiken på.</string>
+  <string name="home_feed_settings_feed_configuration_empty_reading_history_subtitle">Din läshistorik är tom. Börja utforska artiklar för att skapa personliga rekommendationer.</string>
+  <string name="home_feed_settings_feed_configuration_reading_history_title">Läshistorik</string>
+  <string name="home_feed_settings_feed_configuration_languages_title">Språk</string>
+  <string name="home_feed_settings_feed_configuration_languages_subtitle">Redigera dina föredragna språk</string>
+  <string name="home_feed_settings_feed_configuration_interest_subtitle">Redigera dina intresseämnen</string>
+  <string name="home_feed_settings_feed_configuration_reading_history_subtitle">Bläddra bland dina nyligen lästa artiklar</string>
 </resources>
