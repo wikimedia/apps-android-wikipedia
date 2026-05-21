@@ -352,7 +352,8 @@ private fun InterestOnboardingScreenPreview() {
             onTopicSelected = {},
             onSearchClick = {},
             onDeselectAllClick = {},
-            retryLoading = {}
+            retryLoading = {},
+            onBackButtonClick = {}
         )
     }
 }

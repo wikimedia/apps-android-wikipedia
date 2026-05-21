@@ -5,6 +5,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import kotlinx.coroutines.flow.Flow
 import org.wikipedia.feed.personalization.db.entity.InterestTopic
 
 @Dao
@@ -23,4 +24,7 @@ interface InterestTopicDao {
 
     @Query("SELECT * FROM InterestTopic ORDER BY RANDOM()")
     suspend fun getAllRandom(): List<InterestTopic>
+
+    @Query("SELECT EXISTS(SELECT 1 FROM InterestTopic)")
+    fun hasAnyTopics(): Flow<Boolean>
 }

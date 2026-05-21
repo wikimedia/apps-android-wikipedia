@@ -2533,11 +2533,11 @@
     <string name="home_feed_for_you_screen_empty_see_community"><![CDATA[See what\'s happening in <a href="#community_tab">community</a>]]></string>
     <string name="home_feed_settings_feed_configuration_description">These topics and articles shape what appears in your \"For You\" feed. Remove any you no longer want or add new interests.</string>
     <string name="home_feed_settings_feed_configuration_interest_title">Your interests</string>
+    <string name="home_feed_settings_feed_configuration_interest_subtitle">Edit your topics of interest</string>
     <string name="home_feed_settings_feed_configuration_empty_interest_subtitle">Your interests list is empty. Add something you\'re curious about.</string>
-    <string name="home_feed_settings_feed_configuration_empty_reading_history_subtitle">Your reading history is empty. Start exploring articles to build personalized recommendations.</string>
     <string name="home_feed_settings_feed_configuration_reading_history_title">Reading history</string>
+    <string name="home_feed_settings_feed_configuration_reading_history_subtitle">Browse your recently read articles</string>
+    <string name="home_feed_settings_feed_configuration_empty_reading_history_subtitle">Your reading history is empty. Start exploring articles to build personalized recommendations.</string>
     <string name="home_feed_settings_feed_configuration_languages_title">Languages</string>
     <string name="home_feed_settings_feed_configuration_languages_subtitle">Edit your preferred languages</string>
-    <string name="home_feed_settings_feed_configuration_interest_subtitle">Edit your topics of interest</string>
-    <string name="home_feed_settings_feed_configuration_reading_history_subtitle">Browse your recently read articles</string>
 </resources>

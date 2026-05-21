@@ -1,12 +1,21 @@
 package org.wikipedia.settings.homefeed
 
+import android.app.Activity
+import android.app.Activity.RESULT_OK
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import org.wikipedia.Constants
 import org.wikipedia.extensions.instrument
+import org.wikipedia.feed.personalization.PersonalizationActivity
+import org.wikipedia.main.MainActivity
+import org.wikipedia.navtab.NavTab
+import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 
 @Composable
 fun HomeFeedSettingsNavHost(
@@ -19,6 +28,11 @@ fun HomeFeedSettingsNavHost(
         HomeFeedSettingsStartDestination.ROOT -> HomeFeedSettingsDestination.Root
         HomeFeedSettingsStartDestination.COMMUNITY_MODULES -> HomeFeedSettingsDestination.CommunityModuleScreen
         HomeFeedSettingsStartDestination.FOR_YOU_MODULES -> HomeFeedSettingsDestination.ForYouModuleScreen
+    }
+    val customizeInterestsLauncher = rememberLauncherForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == RESULT_OK) {
+            (context as? Activity)?.setResult(RESULT_OK)
+        }
     }
     NavHost(
         navController = navController,
@@ -65,8 +79,20 @@ fun HomeFeedSettingsNavHost(
         }
 
         composable<HomeFeedSettingsDestination.FeedConfiguration> {
-            FeedConfigurationScreen(
-                onBack = { navController.navigateUp() }
+            FeedConfigurationScreen (
+                onBack = { if (!navController.navigateUp()) onExit() },
+                onInterestsClick = {
+                    customizeInterestsLauncher.launch(PersonalizationActivity.newIntent(context, showInterestsOnly = true))
+                },
+                onReadingHistoryClick = {
+                    context.startActivity(
+                        MainActivity.newIntent(context)
+                            .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.SEARCH.code())
+                    )
+                },
+                onLanguagesClick = {
+                    context.startActivity(WikipediaLanguagesActivity.newIntent(context, Constants.InvokeSource.SETTINGS))
+                },
             )
         }
     }

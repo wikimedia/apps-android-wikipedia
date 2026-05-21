@@ -393,6 +393,12 @@ class HomeFragment : Fragment() {
         // TODO: start new funnel for analytics
     }
 
+    fun refreshForYouContent() {
+        if (Prefs.homeForYouModulesToday.isEmpty()) {
+            viewModel.refreshForYouContent()
+        }
+    }
+
     fun getCurrentTab(): HomeTab {
         return viewModel.selectedTab.value
     }
