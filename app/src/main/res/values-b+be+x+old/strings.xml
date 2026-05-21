@@ -201,10 +201,10 @@
   <string name="email_recommendation_dialog_title">Стварыць рахунак без э-пошты?</string>
   <string name="create_account_button">Стварыць рахунак</string>
   <string name="preferences_general_heading">Агульныя</string>
-  <string name="preferences_account_heading">Рахунак</string>
+  <string name="preferences_account_heading">Уліковы запіс</string>
   <string name="wikipedia_app_faq">Частыя пытаньні па дастасаваньню Вікіпэдыя</string>
   <string name="send_feedback">Даслаць водгук пра аплікацыю</string>
-  <string name="create_account_account_created_toast">Рахунак створаны!</string>
+  <string name="create_account_account_created_toast">Уліковы запіс створаны!</string>
   <string name="preferences_heading_data_usage">Выкарыстаньне зьвестак</string>
   <string name="preferences_heading_experimental">Экспэрымэнтальныя</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Выдаліць сынхранізаваныя сьпісы чытаньня з „%s“?</string>
