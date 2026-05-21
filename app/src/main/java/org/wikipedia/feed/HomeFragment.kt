@@ -199,6 +199,7 @@ class HomeFragment : Fragment() {
                             selectTab(tab)
                         },
                         onRefreshTab = {
+                            Prefs.homeForYouModulesToday = ""
                             if (it == HomeTab.COMMUNITY) {
                                 viewModel.refreshCommunityContent()
                             } else {
