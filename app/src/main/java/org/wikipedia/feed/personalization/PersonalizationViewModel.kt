@@ -43,7 +43,7 @@ private data class PersonalizedViewModelState(
     val selectedArticles: Set<PageTitle> = emptySet(),
     val selectedTopics: List<OnboardingTopic> = emptyList(),
     val topicPreviewContent: Map<String, List<HomePreferenceContent>> = emptyMap(),
-    val languageCode: String = "en",
+    val languageCode: String,
     // Feed preference screen properties
     val homePreferenceType: HomePreferenceType = Prefs.homePreferenceSelection,
     val communityContent: List<HomePreferenceContent> = emptyList(),
