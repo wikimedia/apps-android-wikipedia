@@ -2070,4 +2070,5 @@
   <string name="home_feed_settings_because_you_read_subtitle">Virschléi op Basis vun engem rezenten Artikel aus Ärem Historique</string>
   <string name="home_feed_settings_continue_reading_subtitle">Gitt zeréck op Artikelen, déi Dir net fäerdeg gelies hutt</string>
   <string name="home_feed_screen_empty_state_label">Äre Feed ass eidel</string>
+  <string name="home_feed_for_you_screen_empty_title">Äre Feed ass am Moment eidel</string>
 </resources>

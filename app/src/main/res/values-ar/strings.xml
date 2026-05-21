@@ -459,8 +459,10 @@
   <string name="button_get_directions">احصل على الاتجاهات</string>
   <string name="error_no_maps_app">تعذّر إيجاد أي تطبيقٍ يوفر الاتجاهات</string>
   <string name="preference_title_customize_explore_feed">خلاصة الاستكشاف</string>
+  <string name="preference_title_customize_home_feed">الصفحة الرئيسة</string>
   <string name="preference_title_show_link_previews">إظهار معايناتٍ للوصلة</string>
   <string name="preference_summary_customize_explore_feed">تخصيص خلاصة الاستكشاف</string>
+  <string name="preference_summary_customize_home_feed">خصّص موجز الصفحة الرئيسة الخاص بك</string>
   <string name="preference_summary_show_link_previews">إظهار معاينة سريعة للمقالات حين النقر على الوصلات.</string>
   <string name="preference_title_collapse_tables">طَيّ الجداول</string>
   <string name="preference_summary_collapse_tables">تلقائيا اطو الجداول في المقالات، مثل صناديق المعلومات، المراجع، والملاحظات.</string>
@@ -962,9 +964,11 @@
   <string name="view_random_article_card_title">مقالة عشوائية</string>
   <string name="view_random_article_card_action">مقالات عشوائية أخرى</string>
   <string name="view_top_read_card_title">الأكثر قراءة</string>
+  <string name="view_top_read_card_description">ما الرائج اليوم على ويكيبيديا</string>
   <string name="view_top_read_card_action">المزيد من الأكثر قراءة</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d ألف</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d مليون</string>
+  <string name="view_top_read_card_pageviews_views_suffix">مشاهدات</string>
   <string name="view_next_random_article">مقال عشوائي اخر</string>
   <string name="view_main_page_card_title">اليوم في ويكيبيديا</string>
   <string name="view_main_page_card_action">اعرض الصفحة الرئيسية</string>
@@ -1488,6 +1492,13 @@
   <string name="onboarding_multilingual_add_language_text">أضف أو عدل اللغات</string>
   <string name="onboarding_welcome_title_v2">الموسوعة الحرة \n…بأكثر من 300 لغة</string>
   <string name="onboarding_next">التالي</string>
+  <string name="onboarding_fresh_install_knowledge_title">كل معارف العالم</string>
+  <string name="onboarding_fresh_install_knowledge_text">ويكيبيديا هي موسوعة مجانية على الإنترنت تضم ٦٥ مليون مقالة مكتوبة ومحدثة بشكل تعاوني بأكثر من ٣٠٠ لغة من قبل مجتمع من المتطوعين.</string>
+  <string name="onboarding_fresh_install_knowledge_learn_more">معرفة المزيد حول ويكيبيديا</string>
+  <string name="onboarding_app_languages_title">اقرأ بأكثر من ٣٠٠ لغة</string>
+  <string name="onboarding_app_languages_text">لقد لاحظنا وجود اللغات التالية على جهازك:</string>
+  <string name="onboarding_app_languages_primary">أساسي</string>
+  <string name="onboarding_app_languages_add_button">إضافة أو تعديل لغاتك</string>
   <string name="app_shortcuts_random">عشوائي</string>
   <string name="app_shortcuts_continue_reading">مواصلة القراءة</string>
   <string name="app_shortcuts_search">بحث</string>
