@@ -39,6 +39,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.layout
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -54,6 +55,7 @@ import org.wikipedia.compose.extensions.shimmerEffect
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.extensions.getString
 import org.wikipedia.page.PageTitle
 import org.wikipedia.theme.Theme
 import org.wikipedia.topics.ArticleTopics
@@ -64,6 +66,7 @@ fun InterestOnboardingScreen(
     articlesState: ArticlesState,
     topicsList: List<OnboardingTopic>,
     totalSelectedCount: Int,
+    languageCode: String,
     gridState: LazyStaggeredGridState = rememberLazyStaggeredGridState(),
     onTopicSelected: (OnboardingTopic) -> Unit,
     onItemClick: (PageTitle) -> Unit = {},
@@ -131,6 +134,7 @@ fun InterestOnboardingScreen(
                         ) {
                             TopicFilterChipRow(
                                 topics = topicsList,
+                                languageCode = languageCode,
                                 onTopicSelected = { onTopicSelected(it) }
                             )
                         }
@@ -203,8 +207,10 @@ fun InterestOnboardingScreen(
 fun TopicFilterChipRow(
     topics: List<OnboardingTopic>,
     modifier: Modifier = Modifier,
+    languageCode: String,
     onTopicSelected: (OnboardingTopic) -> Unit
 ) {
+    val context = LocalContext.current
     LazyRow(
         modifier = modifier,
         horizontalArrangement = Arrangement.spacedBy(8.dp),
@@ -212,7 +218,9 @@ fun TopicFilterChipRow(
     ) {
         items(items = topics, key = { it.topic.topicId }) { item ->
             FilterChip(
-                label = { Text(stringResource(item.topic.msgKey)) },
+                label = { Text(
+                    text = context.getString(languageCode, item.topic.msgKey)
+                ) },
                 selected = item.isSelected,
                 onClick = { onTopicSelected(item) },
                 leadingIcon = {
@@ -349,6 +357,7 @@ private fun InterestOnboardingScreenPreview() {
                 articles = titles,
                 selectedArticles = setOf()
             ),
+            languageCode = "",
             onTopicSelected = {},
             onSearchClick = {},
             onDeselectAllClick = {},

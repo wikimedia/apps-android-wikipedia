@@ -36,7 +36,6 @@ fun HomeFeedSettingsNavHost(
             if (it.resultCode == PersonalizationActivity.RESULT_INTERESTS_UPDATED) {
                 FeedbackUtil.showMessage(context, org.wikipedia.R.string.home_feed_settings_feed_configuration_interests_updated_message)
             }
-            context.setResult(RESULT_OK)
         }
     }
     NavHost(

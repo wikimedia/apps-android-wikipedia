@@ -33,7 +33,7 @@ class SettingsActivity : BaseSettingsActivity<SettingsFragment>() {
                 finalLanguageList != initialLanguageList) {
             setResult(ACTIVITY_RESULT_LANGUAGE_CHANGED)
         } else if (requestCode == Constants.ACTIVITY_REQUEST_FEED_CONFIGURE &&
-                (resultCode == RESULT_OK || Prefs.feedCardsEnabled != initialFeedCardsEnabled || Prefs.feedCardsOrder != initialFeedCardsOrder || Prefs.feedCardsOrder != initialFeedCardsLangDisabled)) {
+                (Prefs.feedCardsEnabled != initialFeedCardsEnabled || Prefs.feedCardsOrder != initialFeedCardsOrder || Prefs.feedCardsOrder != initialFeedCardsLangDisabled)) {
             setResult(ACTIVITY_RESULT_FEED_CONFIGURATION_CHANGED)
         }
     }

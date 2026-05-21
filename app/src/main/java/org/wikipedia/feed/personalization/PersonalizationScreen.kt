@@ -115,6 +115,7 @@ fun PersonalizationScreen(
                             topicsList = interestUiState.value.topicsList,
                             articlesState = interestUiState.value.articlesState,
                             totalSelectedCount = interestUiState.value.totalSelectedCount,
+                            languageCode = interestUiState.value.languageCode,
                             onTopicSelected = {
                                 context.instrument?.submitInteraction("click", actionSource = pageActionSource[screens[pagerState.currentPage]], elementId = "topic_select")
                                 viewModel.onTopicSelected(it)
