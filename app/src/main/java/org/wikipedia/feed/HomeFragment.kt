@@ -117,6 +117,7 @@ import org.wikipedia.feed.onthisday.OnThisDayActivity
 import org.wikipedia.feed.onthisday.OnThisDayCard
 import org.wikipedia.feed.onthisday.OnThisDayModule
 import org.wikipedia.feed.personalization.PersonalizationActivity
+import org.wikipedia.feed.personalization.PersonalizationActivity.Companion.RESULT_INTERESTS_UPDATED
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
 import org.wikipedia.feed.topread.TopReadArticlesActivity
 import org.wikipedia.feed.topread.TopReadListCard
@@ -153,7 +154,7 @@ class HomeFragment : Fragment() {
     }
 
     private val customizeInterestsLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        if (it.resultCode == RESULT_OK) {
+        if (it.resultCode == RESULT_INTERESTS_UPDATED) {
             Prefs.homeForYouModulesToday = ""
             viewModel.selectTab(HomeTab.FOR_YOU)
             viewModel.refreshForYouContent()
