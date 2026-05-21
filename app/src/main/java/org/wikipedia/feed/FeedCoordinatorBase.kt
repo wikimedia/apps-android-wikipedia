@@ -261,7 +261,7 @@ abstract class FeedCoordinatorBase(private val context: Context) {
 
     private fun addHiddenCard(card: Card) {
         hiddenCards.add(card.hideKey)
-        Prefs.hiddenCards = hiddenCards
+        Prefs.hiddenCards = hiddenCards.toList()
     }
 
     private fun isCardHidden(card: Card): Boolean {
@@ -270,7 +270,7 @@ abstract class FeedCoordinatorBase(private val context: Context) {
 
     private fun unHideCard(card: Card) {
         hiddenCards.remove(card.hideKey)
-        Prefs.hiddenCards = hiddenCards
+        Prefs.hiddenCards = hiddenCards.toList()
     }
 
     private fun isDailyCardType(card: Card): Boolean {

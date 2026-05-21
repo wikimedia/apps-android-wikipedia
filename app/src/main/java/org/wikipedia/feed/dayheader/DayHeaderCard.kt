@@ -4,7 +4,7 @@ import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.CardType
 import org.wikipedia.util.DateUtil
 
-class DayHeaderCard(private val age: Int) : Card() {
+class DayHeaderCard(val age: Int) : Card() {
 
     override fun title(): String {
         return DateUtil.getFeedCardDateString(age)

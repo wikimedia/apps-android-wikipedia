@@ -203,7 +203,8 @@ dependencies {
     implementation libs.photoview
     implementation libs.balloon
     implementation libs.retrofit2.kotlinx.serialization.converter
-    implementation(libs.paging.compose)
+    implementation libs.paging.compose
+    implementation libs.lottie.compose
 
     implementation libs.maplibre
     implementation libs.maplibre.annotation

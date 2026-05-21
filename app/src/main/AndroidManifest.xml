@@ -421,6 +421,14 @@
         <activity
             android:name=".widgets.readingchallenge.ReadingChallengeOnboardingActivity" />
 
+        <activity android:name=".feed.onboarding.ExploreFeedUpdatePromptActivity"/>
+
+        <activity android:name=".feed.onboarding.ExploreFeedBuildingActivity"/>
+
+        <activity android:name=".feed.personalization.PersonalizationActivity"/>
+
+        <activity android:name=".settings.homefeed.HomeFeedSettingsActivity"/>
+
         <provider
             android:name=".WikipediaFileProvider"
             android:authorities="${applicationId}.fileprovider"

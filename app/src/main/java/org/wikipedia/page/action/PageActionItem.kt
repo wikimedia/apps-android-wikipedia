@@ -63,9 +63,9 @@ enum class PageActionItem constructor(val id: Int,
             cb.onNewTabSelected()
         }
     },
-    EXPLORE(10, R.id.page_explore, R.string.feed, R.drawable.ic_globe) {
+    HOME(10, R.id.page_home, R.string.home, R.drawable.ic_home_filled_24dp) {
         override fun select(cb: Callback) {
-            cb.onExploreSelected()
+            cb.onHomeSelected()
         }
     },
     CATEGORIES(11, R.id.page_categories, R.string.action_item_categories, R.drawable.ic_category_black_24dp) {
@@ -103,7 +103,7 @@ enum class PageActionItem constructor(val id: Int,
         fun onViewTalkPageSelected()
         fun onViewEditHistorySelected()
         fun onNewTabSelected()
-        fun onExploreSelected()
+        fun onHomeSelected()
         fun onCategoriesSelected()
         fun onEditArticleSelected()
         fun onViewOnMapSelected()
@@ -112,7 +112,7 @@ enum class PageActionItem constructor(val id: Int,
 
     companion object {
         val DEFAULT_TOOLBAR_LIST = listOf(SAVE, LANGUAGE, FIND_IN_ARTICLE, THEME, CONTENTS).map { it.id }
-        val DEFAULT_OVERFLOW_MENU_LIST = listOf(SHARE, ADD_TO_WATCHLIST, VIEW_TALK_PAGE, VIEW_EDIT_HISTORY, VIEW_ON_MAP, NEW_TAB, EXPLORE, CATEGORIES, EDIT_ARTICLE).map { it.id }
+        val DEFAULT_OVERFLOW_MENU_LIST = listOf(SHARE, ADD_TO_WATCHLIST, VIEW_TALK_PAGE, VIEW_EDIT_HISTORY, VIEW_ON_MAP, NEW_TAB, HOME, CATEGORIES, EDIT_ARTICLE).map { it.id }
 
         fun find(id: Int): PageActionItem {
             return entries.find { id == it.id || id == it.viewId } ?: entries[0]

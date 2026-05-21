@@ -8,7 +8,7 @@ import org.wikipedia.feed.model.ListCard
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.L10nUtil
 
-class BecauseYouReadCard(
+class BecauseYouReadCardOld(
     val pageTitle: PageTitle,
     itemCards: List<BecauseYouReadItemCard>,
 ) : ListCard<BecauseYouReadItemCard>(itemCards, pageTitle.wikiSite) {

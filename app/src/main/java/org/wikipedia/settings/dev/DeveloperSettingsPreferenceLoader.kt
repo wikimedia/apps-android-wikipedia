@@ -19,6 +19,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.donate.donationreminder.DonationReminderConfig
+import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
 import org.wikipedia.games.onthisday.OnThisDayGameNotificationManager
 import org.wikipedia.games.onthisday.OnThisDayGameNotificationState
 import org.wikipedia.history.HistoryEntry
@@ -276,6 +277,23 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             isVisible = ReleaseUtil.isPreProdRelease
             onPreferenceClickListener = Preference.OnPreferenceClickListener {
                 ExclusiveBottomSheetPresenter.show((activity as AppCompatActivity).supportFragmentManager, ReadingChallengePlayGroundDialog())
+                true
+            }
+        }
+        (findPreference(R.string.preference_key_home_preference_selection) as ListPreference).apply {
+            value = Prefs.homePreferenceSelection.name
+            val states = HomePreferenceType.entries
+            val names = states.map { it.name }.toTypedArray()
+            entries = names
+            entryValues = names
+            setOnPreferenceChangeListener { _, newValue ->
+                val selectedState = newValue as String
+                val source = when (selectedState) {
+                    "COMMUNITY" -> HomePreferenceType.COMMUNITY
+                    "PERSONALIZED" -> HomePreferenceType.PERSONALIZED
+                    else -> HomePreferenceType.COMMUNITY
+                }
+                Prefs.homePreferenceSelection = source
                 true
             }
         }

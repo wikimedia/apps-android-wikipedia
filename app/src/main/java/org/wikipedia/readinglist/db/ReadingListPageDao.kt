@@ -62,6 +62,9 @@ interface ReadingListPageDao {
     @Query("SELECT * FROM ReadingListPage ORDER BY RANDOM() DESC LIMIT :limit")
     suspend fun getPagesByRandom(limit: Int): List<ReadingListPage>
 
+    @Query("SELECT * FROM ReadingListPage WHERE lang = :langCode ORDER BY RANDOM() DESC LIMIT :limit")
+    suspend fun getPagesByRandomByLang(langCode: String, limit: Int): List<ReadingListPage>
+
     @Query("SELECT * FROM ReadingListPage WHERE listId = :listId AND status != :excludedStatus")
     suspend fun getPagesByListId(listId: Long, excludedStatus: Long): List<ReadingListPage>
 
