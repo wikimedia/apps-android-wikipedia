@@ -2247,7 +2247,7 @@
   <string name="reading_challenge_widget_concluded_incomplete">도전 종료됨</string>
   <string name="reading_challenge_widget_concluded_complete">해냈습니다!</string>
   <string name="reading_challenge_widget_reward_title">호기심이 넘치는 당신은 최고! 🛍️</string>
-  <string name="reading_challenge_widget_reward_body">도전 완료를 기념하여 위키백과 스토어에서 15% 할인 혜택을 받으세요.</string>
+  <string name="reading_challenge_widget_reward_body">도전 완료를 기념하여 위키백과 스토어에서 15%% 할인 혜택을 받으세요.</string>
   <string name="reading_challenge_widget_reward_button_label">스토어에서 15%% 할인을 받으세요</string>
   <string name="explore_feed_new_update_prompt_new_name_title">새로운 이름</string>
   <string name="explore_feed_new_update_prompt_new_name_description">탐색 피드가 이제 홈 화면으로 이동했으며 이전과 같은 위치에 있습니다.</string>
