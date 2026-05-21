@@ -33,6 +33,7 @@ class InitialOnboardingActivity : BaseActivity() {
 
     private val languagesLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         appLanguageCodesState.value = WikipediaApp.instance.languageState.appLanguageCodes.toList()
+        Prefs.homeLanguageCode = WikipediaApp.instance.languageState.appLanguageCode
         setResult(RESULT_LANGUAGE_CHANGED)
     }
 

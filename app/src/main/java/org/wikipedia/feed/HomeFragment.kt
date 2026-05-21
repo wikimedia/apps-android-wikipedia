@@ -307,7 +307,7 @@ class HomeFragment : Fragment() {
                         },
                         onLanguageSelected = { languageCode ->
                             instrument.submitInteraction("click", "language_menu", elementId = "language_change", actionContext = mapOf("selected_tab" to selectedTab.name, "language_code" to languageCode))
-                            viewModel.updateLanguage(languageCode)
+                            updateLanguage(languageCode)
                         },
                         onManageLanguagesClick = {
                             instrument.submitInteraction("click", "language_menu", elementId = "manage_languages", actionContext = mapOf("selected_tab" to selectedTab.name))
@@ -407,6 +407,10 @@ class HomeFragment : Fragment() {
 
     fun refreshNotification() {
         viewModel.refreshUnreadNotificationCount()
+    }
+
+    fun updateLanguage(languageCode: String) {
+        viewModel.updateLanguage(languageCode)
     }
 
     fun selectTab(tab: HomeTab) {

@@ -249,8 +249,7 @@ class HomeViewModel : ViewModel() {
     }
 
     fun updateSelectedLanguageIfNeeded() {
-        val primaryLanguage = WikipediaApp.instance.languageState.appLanguageCode
-        if (!WikipediaApp.instance.languageState.appLanguageCodes.contains(wikiSite.value.languageCode) || (primaryLanguage != wikiSite.value.languageCode)) {
+        if (!WikipediaApp.instance.languageState.appLanguageCodes.contains(wikiSite.value.languageCode)) {
             updateLanguage(WikipediaApp.instance.languageState.appLanguageCode)
         }
     }

@@ -58,6 +58,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
         }
         if (fragment is HomeFragment) {
             val tab = if (Prefs.homePreferenceSelection == HomePreferenceType.PERSONALIZED) HomeTab.FOR_YOU else HomeTab.COMMUNITY
+            fragment.updateLanguage(Prefs.homeLanguageCode)
             fragment.selectTab(tab)
         }
     }
