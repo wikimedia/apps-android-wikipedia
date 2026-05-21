@@ -43,6 +43,7 @@ private data class PersonalizedViewModelState(
     val selectedArticles: Set<PageTitle> = emptySet(),
     val selectedTopics: List<OnboardingTopic> = emptyList(),
     val topicPreviewContent: Map<String, List<HomePreferenceContent>> = emptyMap(),
+    val languageCode: String,
     // Feed preference screen properties
     val homePreferenceType: HomePreferenceType = Prefs.homePreferenceSelection,
     val communityContent: List<HomePreferenceContent> = emptyList(),
@@ -66,7 +67,8 @@ private data class PersonalizedViewModelState(
                     selectedArticles = selectedArticles
                 )
             },
-            totalSelectedCount = selectedTopics.size + selectedArticles.size
+            totalSelectedCount = selectedTopics.size + selectedArticles.size,
+            languageCode = languageCode
         )
     }
 
@@ -93,7 +95,9 @@ class PersonalizationViewModel(
     private val homePreferenceRepository: HomePreferenceRepository
 ) : ViewModel() {
     // Single source of truth for all personalization state, can be easily extended to include feed preference and language selection states as well
-    private val state = MutableStateFlow(PersonalizedViewModelState())
+    private val state = MutableStateFlow(PersonalizedViewModelState(
+        languageCode = interestSelectionRepository.wikiSite.languageCode
+    ))
     private var articlesJob: Job? = null
     var interestsUpdated = false
 

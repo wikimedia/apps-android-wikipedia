@@ -252,6 +252,11 @@ class HomeViewModel : ViewModel() {
         if (!WikipediaApp.instance.languageState.appLanguageCodes.contains(wikiSite.value.languageCode)) {
             updateLanguage(WikipediaApp.instance.languageState.appLanguageCode)
         }
+
+        val newPrimaryLanguage = WikipediaApp.instance.languageState.appLanguageCode
+        if (newPrimaryLanguage != wikiSite.value.languageCode) {
+            _wikiSite.value = WikiSite.forLanguageCode(newPrimaryLanguage)
+        }
     }
 
     /**
