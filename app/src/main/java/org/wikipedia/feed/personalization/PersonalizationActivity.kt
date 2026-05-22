@@ -37,7 +37,8 @@ class PersonalizationActivity : BaseActivity() {
 
         val pages = if (showInterestsOnly) {
             listOf(
-                PersonalizationPage.INTERESTS
+                PersonalizationPage.INTERESTS,
+                PersonalizationPage.HOME_PREFERENCE
             )
         } else {
             listOf(
