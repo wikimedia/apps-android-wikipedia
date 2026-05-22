@@ -106,6 +106,7 @@ class ForYouCollectionSaved(
 
 data class CommunityContentState(
     val cards: List<Card> = emptyList(),
+    val wikiSite: WikiSite = WikiSite.forLanguageCode(Prefs.homeLanguageCode),
     val isInitialLoading: Boolean = false,
     val isLoadingMore: Boolean = false,
     val error: Throwable? = null,
@@ -115,6 +116,7 @@ data class CommunityContentState(
 
 data class ForYouContentState(
     val modules: List<ForYouModule> = emptyList(),
+    val wikiSite: WikiSite = WikiSite.forLanguageCode(Prefs.homeLanguageCode),
     val isInitialLoading: Boolean = false,
     val isLoadingMore: Boolean = false,
     val error: Throwable? = null,
@@ -224,12 +226,22 @@ class HomeViewModel : ViewModel() {
     fun reloadCurrentTab() {
         when (_selectedTab.value) {
             HomeTab.COMMUNITY -> {
-                if ( _communityState.value.cards.isEmpty() &&
-                    !_communityState.value.isInitialLoading) { loadCommunityContent() }
+                if (_communityState.value.wikiSite == wikiSite.value) {
+                    if ( _communityState.value.cards.isEmpty() && !_communityState.value.isInitialLoading) {
+                        loadCommunityContent()
+                    }
+                } else {
+                    refreshCommunityContent()
+                }
             }
             HomeTab.FOR_YOU -> {
-                if (forYouState.value.modules.isEmpty() &&
-                    !_forYouState.value.isInitialLoading) { loadForYouContent() }
+                if (_forYouState.value.wikiSite == wikiSite.value) {
+                    if (_forYouState.value.modules.isEmpty() && !_forYouState.value.isInitialLoading) {
+                        loadForYouContent()
+                    }
+                } else {
+                    refreshForYouContent()
+                }
             }
         }
     }
@@ -264,6 +276,7 @@ class HomeViewModel : ViewModel() {
         viewModelScope.launch(communityHandler) {
             val isInitial = _communityState.value.cards.isEmpty()
             _communityState.value = _communityState.value.copy(
+                wikiSite = wikiSite.value,
                 isInitialLoading = isInitial,
                 isLoadingMore = !isInitial,
                 error = null
@@ -321,6 +334,7 @@ class HomeViewModel : ViewModel() {
         viewModelScope.launch(forYouHandler) {
             val isInitial = _forYouState.value.modules.isEmpty()
             _forYouState.value = _forYouState.value.copy(
+                wikiSite = wikiSite.value,
                 isInitialLoading = isInitial,
                 isLoadingMore = !isInitial,
                 error = null
