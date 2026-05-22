@@ -40,6 +40,7 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.json.LocalDateTimeSerializer
 import org.wikipedia.page.PageTitle
+import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SettingsRepository
 import org.wikipedia.settings.homefeed.CommunityModuleType
@@ -531,37 +532,6 @@ class HomeViewModel : ViewModel() {
             }
         }
 
-        // --- Continue reading ---
-
-        val continueReadingCards = buildList {
-            val lastReadEntries = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(age + 1, 30, wikiSite.value.languageCode)
-            if (lastReadEntries.size > age) {
-                add(ContinueReadingCard(lastReadEntries[age].title, HistoryEntry.SOURCE_HISTORY))
-            }
-            val readingListPageTitles = AppDatabase.instance.readingListPageDao().getPagesByRandomByLang(wikiSite.value.languageCode, 10).take(3)
-                .map { it.apiTitle }
-                .fastJoinToString("|")
-            if (readingListPageTitles.isNotEmpty()) {
-                ServiceFactory.get(wikiSite.value).getInfoWithExtractsByPageTitles(readingListPageTitles)
-                    .query?.pages?.forEach { page ->
-                        add(ContinueReadingCard(PageTitle(
-                            text = page.title,
-                            wiki = wikiSite.value,
-                            thumbUrl = page.thumbUrl(),
-                            description = page.description,
-                            displayText = page.displayTitle(wikiSite.value.languageCode),
-                        ).also {
-                            if (!page.sectionTitle.isNullOrEmpty()) it.fragment = StringUtil.addUnderscores(page.sectionTitle)
-                            it.extract = page.extract
-                        }, HistoryEntry.SOURCE_READING_LIST))
-                    }
-            }
-        }.filterNot { hiddenCards.contains(it.hideKey) }.take(4)
-        if (continueReadingCards.isNotEmpty()) {
-            // The index for this module is always 0 because there is always a single instance of this module, per age.
-            modules.add(ForYouModule.ContinueReading(age, 0, continueReadingCards))
-        }
-
         // --- Because you read ---
 
         val becauseYouReadCards = buildList {
@@ -591,6 +561,34 @@ class HomeViewModel : ViewModel() {
         if (becauseYouReadCards.isNotEmpty()) {
             // The index for this module is always 0 because there is always a single instance of this module, per age.
             modules.add(ForYouModule.BecauseYouRead(age, 0, becauseYouReadCards))
+        }
+
+        // --- Continue reading ---
+
+        val continueReadingCards = buildList {
+            val lastReadEntries = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(age + 1, 30, wikiSite.value.languageCode)
+            if (lastReadEntries.size > age) {
+                add(ContinueReadingCard(lastReadEntries[age].title, HistoryEntry.SOURCE_HISTORY))
+            }
+            AppDatabase.instance.readingListPageDao().getMostRecentSavedPagesByLang(wikiSite.value.languageCode, 10).take(2)
+                .forEach {
+                    add(ContinueReadingCard(ReadingListPage.toPageTitle(it), HistoryEntry.SOURCE_READING_LIST))
+                }
+        }.filterNot { hiddenCards.contains(it.hideKey) }.take(4)
+        if (continueReadingCards.isNotEmpty()) {
+            ServiceFactory.get(wikiSite.value).getInfoWithExtractsByPageTitles(continueReadingCards.map { it.title.prefixedText }.fastJoinToString("|"))
+                .query?.pages?.forEach { page ->
+                    continueReadingCards.find { it.title.prefixedText == StringUtil.addUnderscores(page.title) }?.let {
+                        it.title.description = page.description
+                        it.title.thumbUrl = page.thumbUrl()
+                        it.title.displayText = page.displayTitle(wikiSite.value.languageCode)
+                        it.title.extract = page.extract
+                    }
+                }
+        }
+        if (continueReadingCards.isNotEmpty()) {
+            // The index for this module is always 0 because there is always a single instance of this module, per age.
+            modules.add(ForYouModule.ContinueReading(age, 0, continueReadingCards))
         }
 
         forYouCollectionSaved = ForYouCollectionSaved(
