@@ -25,6 +25,7 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
@@ -637,7 +638,9 @@ fun HomeToolbar(
     onUpdateTabCount: () -> Unit,
     onNotificationClick: () -> Unit
 ) {
-    Row {
+    Row(
+        modifier = Modifier.heightIn(72.dp)
+    ) {
         Image(
             painter = painterResource(R.drawable.feed_header_wordmark),
             contentDescription = null,
