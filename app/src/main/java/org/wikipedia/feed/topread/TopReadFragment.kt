@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -105,7 +104,7 @@ class TopReadFragment : Fragment() {
     companion object {
         fun newInstance(card: TopReadListCard): TopReadFragment {
             return TopReadFragment().apply {
-                arguments = bundleOf(TopReadArticlesActivity.TOP_READ_CARD to card)
+                arguments = Bundle().apply { putParcelable(TopReadArticlesActivity.TOP_READ_CARD, card) }
             }
         }
     }

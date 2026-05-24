@@ -15,7 +15,6 @@ import android.widget.ImageView
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.ui.Modifier
 import androidx.core.content.ContextCompat
-import androidx.core.os.bundleOf
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.drawToBitmap
 import androidx.core.view.isVisible
@@ -413,7 +412,9 @@ class OnThisDayGameResultFragment : OnThisDayGameBaseFragment(), OnThisDayGameAr
 
         fun newInstance(invokeSource: InvokeSource): OnThisDayGameResultFragment {
             return OnThisDayGameResultFragment().apply {
-                arguments = bundleOf(Constants.INTENT_EXTRA_INVOKE_SOURCE to invokeSource)
+                arguments = Bundle().apply {
+                    putSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
+                }
             }
         }
 

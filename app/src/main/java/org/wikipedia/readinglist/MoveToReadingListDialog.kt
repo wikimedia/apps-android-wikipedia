@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.core.os.bundleOf
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
@@ -78,10 +77,12 @@ class MoveToReadingListDialog : AddToReadingListDialog() {
                         showDefaultList: Boolean = true,
                         listener: DialogInterface.OnDismissListener? = null): MoveToReadingListDialog {
             return MoveToReadingListDialog().apply {
-                arguments = bundleOf(PAGE_TITLE_LIST to ArrayList<Parcelable>(titles),
-                        Constants.INTENT_EXTRA_INVOKE_SOURCE to source,
-                        SOURCE_READING_LIST_ID to sourceReadingListId,
-                        SHOW_DEFAULT_LIST to showDefaultList)
+                arguments = Bundle().apply {
+                    putParcelableArrayList(PAGE_TITLE_LIST, ArrayList<Parcelable>(titles))
+                    putSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE, source)
+                    putLong(SOURCE_READING_LIST_ID, sourceReadingListId)
+                    putBoolean(SHOW_DEFAULT_LIST, showDefaultList)
+                }
                 dismissListener = listener
             }
         }

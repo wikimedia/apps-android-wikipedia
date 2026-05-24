@@ -15,7 +15,6 @@ import android.widget.MediaController
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
-import androidx.core.os.bundleOf
 import androidx.core.view.MenuProvider
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -296,7 +295,10 @@ class GalleryItemFragment : Fragment(), MenuProvider {
 
         fun newInstance(pageTitle: PageTitle?, item: MediaListItem): GalleryItemFragment {
             return GalleryItemFragment().apply {
-                arguments = bundleOf(Constants.ARG_TITLE to pageTitle, ARG_GALLERY_ITEM to item)
+                arguments = Bundle().apply {
+                    putParcelable(Constants.ARG_TITLE, pageTitle)
+                    putParcelable(ARG_GALLERY_ITEM, item)
+                }
             }
         }
     }

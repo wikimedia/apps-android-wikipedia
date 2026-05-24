@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -111,7 +110,9 @@ class RandomItemFragment : Fragment() {
         private const val EXTRACT_MAX_LINES = 4
 
         fun newInstance(wikiSite: WikiSite) = RandomItemFragment().apply {
-            arguments = bundleOf(Constants.ARG_WIKISITE to wikiSite)
+            arguments = Bundle().apply {
+                putParcelable(Constants.ARG_WIKISITE, wikiSite)
+            }
         }
     }
 }

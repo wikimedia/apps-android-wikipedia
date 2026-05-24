@@ -11,7 +11,6 @@ import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -238,10 +237,10 @@ class SuggestedEditsCardItemFragment : Fragment() {
 
         fun newInstance(age: Int, cardActionType: DescriptionEditActivity.Action) =
                 SuggestedEditsCardItemFragment().apply {
-                    arguments = bundleOf(
-                        EXTRA_AGE to age,
-                        EXTRA_ACTION_TYPE to cardActionType
-                    )
+                    arguments = Bundle().apply {
+                        putInt(EXTRA_AGE, age)
+                        putSerializable(EXTRA_ACTION_TYPE, cardActionType)
+                    }
                 }
     }
 }

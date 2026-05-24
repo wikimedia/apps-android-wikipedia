@@ -8,7 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -134,8 +133,10 @@ class NewsFragment : Fragment() {
     companion object {
         fun newInstance(item: NewsItem, wiki: WikiSite): NewsFragment {
             return NewsFragment().apply {
-                arguments = bundleOf(NewsActivity.EXTRA_NEWS_ITEM to item,
-                    Constants.ARG_WIKISITE to wiki)
+                arguments = Bundle().apply {
+                    putParcelable(NewsActivity.EXTRA_NEWS_ITEM, item)
+                    putParcelable(Constants.ARG_WIKISITE, wiki)
+                }
             }
         }
     }

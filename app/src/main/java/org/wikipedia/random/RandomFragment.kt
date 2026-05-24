@@ -7,7 +7,6 @@ import android.util.Pair
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -238,10 +237,10 @@ class RandomFragment : Fragment() {
         const val DISABLED_BACK_BUTTON_ALPHA = 0.5f
 
         fun newInstance(wikiSite: WikiSite, invokeSource: InvokeSource) = RandomFragment().apply {
-            arguments = bundleOf(
-                Constants.ARG_WIKISITE to wikiSite,
-                Constants.INTENT_EXTRA_INVOKE_SOURCE to invokeSource
-            )
+            arguments = Bundle().apply {
+                putParcelable(Constants.ARG_WIKISITE, wikiSite)
+                putSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
+            }
         }
     }
 }

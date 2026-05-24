@@ -17,7 +17,6 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
-import androidx.core.os.bundleOf
 import androidx.core.view.MenuProvider
 import androidx.core.view.isVisible
 import androidx.core.widget.NestedScrollView
@@ -468,7 +467,9 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
 
         fun newInstance(): SuggestedEditsItemFragment {
             return SuggestedEditsImageRecsFragment().apply {
-                arguments = bundleOf(ARG_LANG to WikipediaApp.instance.appOrSystemLanguageCode)
+                arguments = Bundle().apply {
+                    putString(ARG_LANG, WikipediaApp.instance.appOrSystemLanguageCode)
+                }
             }
         }
     }

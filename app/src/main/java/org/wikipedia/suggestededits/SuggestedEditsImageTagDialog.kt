@@ -14,7 +14,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.TextView
-import androidx.core.os.bundleOf
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.lifecycleScope
@@ -201,9 +200,12 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
         const val EXTRA_LAST_TEXT = "lastText"
 
         fun newInstance(useClipboardText: Boolean, lastText: String): SuggestedEditsImageTagDialog {
-            val dialog = SuggestedEditsImageTagDialog()
-            dialog.arguments = bundleOf(EXTRA_CLIPBOARD_TEXT to useClipboardText, EXTRA_LAST_TEXT to lastText)
-            return dialog
+            return SuggestedEditsImageTagDialog().apply {
+                arguments = Bundle().apply {
+                    putBoolean(EXTRA_CLIPBOARD_TEXT, useClipboardText)
+                    putString(EXTRA_LAST_TEXT, lastText)
+                }
+            }
         }
     }
 }
