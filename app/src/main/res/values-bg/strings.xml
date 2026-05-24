@@ -460,6 +460,11 @@
   <string name="theme_category_editing">Редактиране</string>
   <string name="reading_focus_mode">Режим на фокусиране при четене</string>
   <string name="reading_focus_mode_detail">Скрива функциите за редактиране и долната лента с инструменти при превъртане</string>
+  <string name="margin_size_increase">Увеличаване на полетата</string>
+  <string name="margin_size_decrease">Намаляване на полетата</string>
+  <string name="margin_size_label">Полета</string>
+  <string name="text_justify_label">Подравняване</string>
+  <string name="text_hyphenation_label">Сричкопренасяне</string>
   <string name="editing_syntax_highlight_label">Оцветяване на синтаксиса</string>
   <string name="editing_line_numbers_label">Показване номерата на редовете</string>
   <string name="editing_monospace_font_label">Използване на моноширинен шрифт</string>

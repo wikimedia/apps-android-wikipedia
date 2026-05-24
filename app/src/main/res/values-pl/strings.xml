@@ -532,6 +532,11 @@
   <string name="theme_category_editing">Edycja</string>
   <string name="reading_focus_mode">Tryb skupienia na czytaniu</string>
   <string name="reading_focus_mode_detail">Ukrywa funkcje edycji i dolny pasek narzędzi podczas przewijania</string>
+  <string name="margin_size_increase">Zwiększ marginesy</string>
+  <string name="margin_size_decrease">Zmniejsz marginesy</string>
+  <string name="margin_size_label">Marginesy</string>
+  <string name="text_justify_label">Justowanie</string>
+  <string name="text_hyphenation_label">Dzielenie</string>
   <string name="editing_syntax_highlight_label">Podświetlanie składni</string>
   <string name="editing_line_numbers_label">Pokaż numery linii</string>
   <string name="editing_monospace_font_label">Użyj czcionki o stałej szerokości</string>

@@ -29,6 +29,9 @@
     <integer name="maxTextSizeMultiplier">8</integer>
     <item type="dimen" format="float" name="textSizeMultiplierFactor">0.1</item>
 
+    <integer name="minMarginSizeMultiplier">0</integer>
+    <integer name="maxMarginSizeMultiplier">10</integer>
+
     <dimen name="defaultThumbnailSize">56dp</dimen>
 
     <dimen name="readingListLeadHeight">240dp</dimen>

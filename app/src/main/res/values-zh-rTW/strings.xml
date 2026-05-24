@@ -521,6 +521,11 @@
   <string name="theme_category_editing">編輯</string>
   <string name="reading_focus_mode">專注閱讀模式</string>
   <string name="reading_focus_mode_detail">隱藏編輯功能與在滾軸的底端工具列</string>
+  <string name="margin_size_increase">增大邊距</string>
+  <string name="margin_size_decrease">減小邊距</string>
+  <string name="margin_size_label">邊距</string>
+  <string name="text_justify_label">兩端對齊</string>
+  <string name="text_hyphenation_label">斷詞</string>
   <string name="editing_syntax_highlight_label">語法醒目標示</string>
   <string name="editing_line_numbers_label">顯示行號</string>
   <string name="editing_monospace_font_label">使用等寬字體</string>
