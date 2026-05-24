@@ -28,6 +28,7 @@ import org.wikipedia.feed.image.FeaturedImageCard
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.WikiSiteCard
 import org.wikipedia.feed.news.NewsCard
+import org.wikipedia.feed.news.NewsItem
 import org.wikipedia.feed.news.NewsItemView
 import org.wikipedia.feed.random.RandomCardView
 import org.wikipedia.feed.topread.TopReadArticlesActivity
@@ -45,6 +46,7 @@ import org.wikipedia.games.onthisday.OnThisDayGameProvider
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.random.RandomActivity
+import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SettingsActivity
@@ -74,11 +76,14 @@ class FeedFragment : Fragment() {
         fun onFeedSelectPageWithAnimation(entry: HistoryEntry, sharedElements: Array<Pair<View, String>>)
         fun onFeedAddPageToList(entry: HistoryEntry, addToDefault: Boolean)
         fun onFeedMovePageToList(sourceReadingListId: Long, entry: HistoryEntry)
-        fun onFeedNewsItemSelected(card: NewsCard, view: NewsItemView)
+        fun onFeedRemovePageFromList(entry: HistoryEntry, lists: List<ReadingList>)
+        fun onFeedSharePage(entry: HistoryEntry)
+        fun onFeedCopyLink(entry: HistoryEntry)
+        fun onFeedNewsItemSelected(newsItem: NewsItem, wikiSite: WikiSite)
         fun onFeedSeCardFooterClicked()
-        fun onFeedShareImage(card: FeaturedImageCard)
+        fun onFeedShareImage(image: FeaturedImage, age: Int)
         fun onFeedDownloadImage(image: FeaturedImage)
-        fun onFeaturedImageSelected(card: FeaturedImageCard)
+        fun onFeaturedImageSelected(image: FeaturedImage)
         fun onLoginRequested()
         fun updateToolbarElevation(elevate: Boolean)
         fun onWikiGamesCardFooterClicked()
@@ -266,11 +271,13 @@ class FeedFragment : Fragment() {
         }
 
         override fun onNewsItemSelected(card: NewsCard, view: NewsItemView) {
-            callback?.onFeedNewsItemSelected(card, view)
+            view.newsItem?.let {
+                callback?.onFeedNewsItemSelected(it, card.wikiSite())
+            }
         }
 
         override fun onShareImage(card: FeaturedImageCard) {
-            callback?.onFeedShareImage(card)
+            callback?.onFeedShareImage(card.baseImage(), card.age())
         }
 
         override fun onDownloadImage(image: FeaturedImage) {
@@ -278,7 +285,7 @@ class FeedFragment : Fragment() {
         }
 
         override fun onFeaturedImageSelected(card: FeaturedImageCard) {
-            callback?.onFeaturedImageSelected(card)
+            callback?.onFeaturedImageSelected(card.baseImage())
         }
 
         override fun onAnnouncementPositiveAction(card: Card, uri: Uri) {

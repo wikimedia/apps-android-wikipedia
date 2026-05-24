@@ -55,6 +55,7 @@
 * Wangombe
 * Wnme
 * Wolfdietmann
+* Wrai
 * Xqt
 * Ygramul
 -->
@@ -2289,4 +2290,69 @@
   <string name="hybrid_search_error_message">Etwas ist schiefgelaufen. Bitte versuche es später erneut.</string>
   <string name="hybrid_search_who_is_prefix">Wer ist %s?</string>
   <string name="hybrid_search_turn_off_experiment_label">Dieses Experiment deaktivieren</string>
+  <string name="reading_challenge_widget_name">Leseherausforderung</string>
+  <string name="reading_challenge_onboarding_header">Feiere Wikipedias 25. Geburtstag mit der 25-Tage-Lese-Challenge!</string>
+  <string name="reading_challenge_onboarding_read_title">Lies 25 Tage lang jeden Tag einen Artikel</string>
+  <string name="reading_challenge_onboarding_read_subtitle">Nimm zwischen dem %1$s und %2$s teil und absolviere die 25 Tage in deinem eigenen Tempo.</string>
+  <string name="reading_challenge_onboarding_win_title">Gewinne Preise</string>
+  <string name="reading_challenge_onboarding_win_description">Schließe eine 25-tägige Leseserie ab, solange die Challenge läuft, und gewinne besondere Preise.</string>
+  <string name="reading_challenge_onboarding_install_title">Installiere das Widget</string>
+  <string name="reading_challenge_onboarding_install_description">Erhalte hilfreiche Erinnerungen und Motivation von unserem niedlichen Geburtstagsmaskottchen Baby Globe</string>
+  <string name="reading_challenge_onboarding_note">Deine Lesehistorie bleibt geschützt. Das Leseverhalten wird anhand lokal auf deinem Gerät gespeicherter Daten berechnet.</string>
+  <string name="reading_challenge_onboarding_learn_more_button">Mehr erfahren</string>
+  <string name="reading_challenge_onboarding_join_button">Jetzt mitmachen!</string>
+  <string name="reading_challenge_onboarding_prompt_title">Anmelden und mitmachen</string>
+  <string name="reading_challenge_onboarding_prompt_message">Melde dich an oder erstelle ein Konto, um deinen Fortschritt bei der Lese-Challenge zu verfolgen</string>
+  <string name="reading_challenge_onboarding_prompt_no_thanks">Nein, danke</string>
+  <string name="reading_challenge_onboarding_prompt_login">Anmelden / Wikipedia beitreten</string>
+  <string name="reading_challenge_install_prompt_title">Installiere das Widget für die 25-Tage-Lese-Challenge</string>
+  <string name="reading_challenge_install_prompt_message">Baby Globe feuert dich an. Füge das Lese-Challenge-Widget hinzu, um deinen Fortschritt direkt auf deinem Startbildschirm zu verfolgen.</string>
+  <string name="reading_challenge_install_prompt_got_it">Verstanden</string>
+  <string name="reading_challenge_install_prompt_add">Hinzufügen</string>
+  <string name="reading_challenge_widget_explore_button">Entdecken</string>
+  <string name="reading_challenge_widget_explore_wikipedia_button">Entdecke Wikipedia</string>
+  <string name="reading_challenge_widget_join_challenge_button">Nimm an der Challenge teil!</string>
+  <string name="reading_challenge_widget_join_the_challenge_button">Jetzt mitmachen!</string>
+  <string name="reading_challenge_widget_search_button">Suche</string>
+  <string name="reading_challenge_widget_random_button">Zufällig</string>
+  <string name="reading_challenge_widget_collect_prize_button">Preis einsammeln</string>
+  <string name="reading_challenge_widget_collect_your_prize_button">Sammle deinen Preis ein!</string>
+  <string name="reading_challenge_widget_not_live_title">Mach dich bereit zum Lesen</string>
+  <string name="reading_challenge_widget_not_live_description">Eine 25-tägige Lese-Challenge startet.</string>
+  <string name="reading_challenge_widget_not_opted_in_title">Auf die Plätze, fertig, los!</string>
+  <string name="reading_challenge_widget_not_opted_in_description">Nimm an der 25-Tage-Challenge teil und sichere dir tolle Preise.</string>
+  <plurals name="reading_challenge_small_widget_streak">
+    <item quantity="one">%d Tag</item>
+    <item quantity="other">%d Tage</item>
+  </plurals>
+  <plurals name="reading_challenge_small_widget_streak_final">
+    <item quantity="one">%1$d von %2$d</item>
+    <item quantity="other">%1$d von %2$d</item>
+  </plurals>
+  <plurals name="reading_challenge_small_widget_streak_final_large">
+    <item quantity="one">%1$d von %2$d Tag</item>
+    <item quantity="other">%1$d von %2$d Tagen</item>
+  </plurals>
+  <string name="reading_challenge_not_read_today_description">Lass den heutigen Tag nicht verstreichen, rette deine Siegesserie.</string>
+  <string name="reading_challenge_streak_ongoing_title">25-Tage-Lese-Challenge</string>
+  <string name="reading_challenge_widget_reminder_dont_let_today_drift">Lass den heutigen Tag nicht verstreichen, deine Leseserie wartet.</string>
+  <string name="reading_challenge_widget_reminder_before_day_snoozes">Bevor der Tag zu Ende geht …\nist noch Zeit, etwas zu lernen.</string>
+  <string name="reading_challenge_widget_reminder_small_bit_counts">Selbst ein kurzer Leseabschnitt zählt für dein Ziel.</string>
+  <string name="reading_challenge_widget_reminder_one_article_away">Deine Leseserie ist nur noch einen Artikel entfernt.</string>
+  <string name="reading_challenge_widget_reminder_jump_in_anytime">Dann lies doch heute mal etwas!</string>
+  <string name="reading_challenge_widget_reminder_quiet_reading_moment">Lust auf eine ruhige Lesestunde?</string>
+  <string name="reading_challenge_widget_reminder_keep_curiosity_going">Lass deiner Neugier freien Lauf!</string>
+  <string name="reading_challenge_widget_enrolled_not_started_title">Auf die Plätze, fertig, los!</string>
+  <string name="reading_challenge_widget_enrolled_not_started_subtitle">Beginne jetzt, auf eine 25-tägige Serie hinzuarbeiten!</string>
+  <string name="reading_challenge_widget_start_reading_challenge_title">Starte deine Lese-Challenge.</string>
+  <string name="reading_challenge_widget_start_reading_challenge_subtitle">Jede Serie beginnt irgendwo</string>
+  <string name="reading_challenge_widget_start_spin_up_new_streak_title">Eine neue Serie starten?</string>
+  <string name="reading_challenge_widget_start_spin_up_new_streak_subtitle">Lies einen Artikel, um loszulegen.</string>
+  <string name="reading_challenge_widget_start_fresh_start_title">Ein Neuanfang.</string>
+  <string name="reading_challenge_widget_start_fresh_start_subtitle">Deine Serie ist nur noch einen Artikel entfernt.</string>
+  <string name="reading_challenge_widget_concluded_incomplete">Challenge abgeschlossen</string>
+  <string name="reading_challenge_widget_concluded_complete">Du hast es geschafft!</string>
+  <string name="reading_challenge_widget_reward_title">Neugier steht dir gut! 🛍️</string>
+  <string name="reading_challenge_widget_reward_body">Feiere den Abschluss der Herausforderung mit 15 %% Rabatt im Wikipedia-Shop!</string>
+  <string name="reading_challenge_widget_reward_button_label">Sichere dir 15 %% Rabatt im Shop!</string>
 </resources>

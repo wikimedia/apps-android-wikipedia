@@ -8,13 +8,18 @@ import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.model.WikiSiteCard
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.settings.homefeed.CommunityModuleType
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.L10nUtil
 
 open class FeaturedArticleCard(
-    private val page: PageSummary,
-    private val age: Int, wiki: WikiSite,
+    val page: PageSummary,
+    val age: Int, wiki: WikiSite,
 ) : WikiSiteCard(wiki) {
+
+    override fun moduleKey(): String {
+        return CommunityModuleType.FEATURED_ARTICLE.name
+    }
 
     override fun title(): String {
         return L10nUtil.getString(wikiSite().languageCode, R.string.view_featured_article_card_title)

@@ -35,7 +35,7 @@ class CustomizeExploreFeedTest : BaseTest<MainActivity>(
             .navigateToMoreMenu()
             .goToSettings()
         settingsRobot
-            .clickExploreFeed()
+            .clickHomeFeed()
             .openMoreOptionsToolbar()
             .hideAllExploreFeeds()
             .pressBack()
@@ -46,7 +46,7 @@ class CustomizeExploreFeedTest : BaseTest<MainActivity>(
             .navigateToMoreMenu()
             .goToSettings()
         settingsRobot
-            .clickExploreFeed()
+            .clickHomeFeed()
             .openMoreOptionsToolbar()
             .showAllExploreFeeds()
             .pressBack()

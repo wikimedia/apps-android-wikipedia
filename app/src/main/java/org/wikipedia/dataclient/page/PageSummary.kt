@@ -6,6 +6,7 @@ import kotlinx.parcelize.Parcelize
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.LocationSerializer
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.Page
@@ -70,6 +71,10 @@ open class PageSummary(
 
     fun getPageTitle(wiki: WikiSite): PageTitle {
         return PageTitle(apiTitle, wiki, thumbnailUrl, description, displayTitle, extract)
+    }
+
+    fun getHistoryEntry(wiki: WikiSite, source: Int): HistoryEntry {
+        return HistoryEntry(getPageTitle(wiki), source)
     }
 
     override fun toString(): String {

@@ -39,6 +39,7 @@ object Constants {
     const val INTENT_EXTRA_REVERT_QNUMBER = "revertQNumber"
     const val INTENT_EXTRA_SNACKBAR_MESSAGE = "snackbarMessage"
     const val INTENT_RETURN_TO_MAIN = "returnToMain"
+    const val INTENT_WIDGET_TYPE = "widgetType"
 
     const val MAX_READING_LIST_ARTICLE_LIMIT = 5000
     const val MAX_READING_LISTS_LIMIT = 100
@@ -54,7 +55,7 @@ object Constants {
     const val WIKI_CODE_WIKIDATA = "wikidata"
     const val WIKIDATA_DB_NAME = "wikidatawiki"
 
-    val NON_LANGUAGE_SUBDOMAINS = listOf("donate", "thankyou", "quote", "textbook", "sources", "species", "commons", "meta")
+    val NON_LANGUAGE_SUBDOMAINS = listOf("donate", "thankyou", "quote", "textbook", "sources", "species", "commons", "meta", "abstract")
 
     val commonsWikiSite = WikiSite(Service.COMMONS_URL)
     val wikidataWikiSite = WikiSite(Service.WIKIDATA_URL)
@@ -112,7 +113,8 @@ object Constants {
         SUGGESTED_EDITS_RECENT_EDITS("suggestedEditsRecentEdits"),
         ON_THIS_DAY_GAME_ACTIVITY("onThisDayGame"),
         ACTIVITY_TAB("activityTab"),
-        GAMES_HUB("gamesHub")
+        GAMES_HUB("gamesHub"),
+        FEED_INTEREST_SELECTION("feedInterestSelection"),
     }
 
     enum class ImageEditType(name: String) {

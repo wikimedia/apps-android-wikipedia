@@ -14,6 +14,7 @@ import org.wikipedia.analytics.eventplatform.AppSessionEvent
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.donate.DonationResult
 import org.wikipedia.donate.donationreminder.DonationReminderConfig
+import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
 import org.wikipedia.games.onthisday.OnThisDayGameNotificationState
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.PageTitle
@@ -29,6 +30,7 @@ import org.wikipedia.util.DateUtil.dbDateParse
 import org.wikipedia.util.ReleaseUtil.isDevRelease
 import org.wikipedia.util.StringUtil
 import org.wikipedia.watchlist.WatchlistFilterTypes
+import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetRepository
 import org.wikipedia.yearinreview.YearInReviewModel
 import org.wikipedia.yearinreview.YearInReviewSurveyState
 import java.util.Date
@@ -107,9 +109,9 @@ object Prefs {
         PrefsIoUtil.remove(R.string.preference_key_tabs)
     }
 
-    var hiddenCards: Set<String>
-        get() = JsonUtil.decodeFromString<Set<String>>(PrefsIoUtil.getString(R.string.preference_key_feed_hidden_cards, null))
-            ?: emptySet()
+    var hiddenCards: List<String>
+        get() = JsonUtil.decodeFromString<List<String>>(PrefsIoUtil.getString(R.string.preference_key_feed_hidden_cards, null))
+            ?: emptyList()
         set(cards) = PrefsIoUtil.setString(R.string.preference_key_feed_hidden_cards, JsonUtil.encodeToString(cards))
 
     var sessionData
@@ -880,4 +882,64 @@ object Prefs {
     var isGameStatsUnavailableSnackbarShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_game_stats_snackbar_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_game_stats_snackbar_shown, value)
+
+    var readingChallengeStreak
+        get() = PrefsIoUtil.getInt(R.string.preference_key_reading_challenge_streak, 0)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_reading_challenge_streak, value)
+
+    var readingChallengeEnrolled
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_challenge_enrolled, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_challenge_enrolled, value)
+
+    var readingChallengeLastReadDate
+        get() = PrefsIoUtil.getString(R.string.preference_key_reading_challenge_last_read_date, "").orEmpty()
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_reading_challenge_last_read_date, value)
+
+    var readingChallengeOnboardingShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_challenge_onboarding_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_challenge_onboarding_shown, value)
+
+    var readingChallengeInstallPromptShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_challenge_install_prompt_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_challenge_install_prompt_shown, value)
+
+    var readingChallengeEnrollmentDate
+        get() = PrefsIoUtil.getString(R.string.preference_key_reading_challenge_enrollment_date, "").orEmpty()
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_reading_challenge_enrollment_date, value)
+
+    var readingChallengeEndDate
+        get() = PrefsIoUtil.getString(R.string.preference_key_reading_challenge_end_date,
+            ReadingChallengeWidgetRepository.READING_CHALLENGE_END_DATE).orEmpty()
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_reading_challenge_end_date, value)
+
+    var readingChallengeStartDate
+        get() = PrefsIoUtil.getString(R.string.preference_key_reading_challenge_start_date,
+            ReadingChallengeWidgetRepository.READING_CHALLENGE_START_DATE).orEmpty()
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_reading_challenge_start_date, value)
+
+    var readingChallengeWidgetFastCycle
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_challenge_widget_fast_cycle, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_challenge_widget_fast_cycle, value)
+
+    var isExploreFeedUpdatePromptShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_explore_feed_update_prompt_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_explore_feed_update_prompt_shown, value)
+
+    var homeForYouModulesToday
+        get() = PrefsIoUtil.getString(R.string.preference_key_home_for_you_modules_today, "")!!
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_home_for_you_modules_today, value)
+
+    var homeLanguageCode
+        get() = PrefsIoUtil.getString(R.string.preference_key_home_language_code, WikipediaApp.instance.appOrSystemLanguageCode)!!
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_home_language_code, value)
+
+    var homePreferenceSelection: HomePreferenceType
+        get() = PrefsIoUtil.getString(R.string.preference_key_home_preference_selection, null)?.let {
+            HomePreferenceType.valueOf(it)
+        } ?: HomePreferenceType.COMMUNITY
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_home_preference_selection, value.name)
+
+    var isHomeSwipeToExplorePromptShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_home_swipe_to_explore_prompt_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_home_swipe_to_explore_prompt_shown, value)
 }

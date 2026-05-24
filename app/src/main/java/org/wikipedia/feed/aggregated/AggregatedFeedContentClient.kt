@@ -34,7 +34,7 @@ class AggregatedFeedContentClient {
             for (appLangCode in WikipediaApp.instance.languageState.appLanguageCodes) {
                 if (responses.containsKey(appLangCode) && !FeedContentType.ON_THIS_DAY.langCodesDisabled.contains(appLangCode)) {
                     responses[appLangCode]?.randomOnThisDayEvent?.let {
-                        outCards.add(OnThisDayCard(it, WikiSite.forLanguageCode(appLangCode), age))
+                        outCards.add(OnThisDayCard(listOf(it), age, WikiSite.forLanguageCode(appLangCode)))
                     }
                 }
             }
@@ -81,7 +81,7 @@ class AggregatedFeedContentClient {
                     responses[appLangCode]?.topRead?.let {
                         outCards.add(
                             TopReadListCard(
-                                it,
+                                it, age,
                                 WikiSite.forLanguageCode(appLangCode)
                             )
                         )

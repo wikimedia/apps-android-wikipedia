@@ -1777,8 +1777,14 @@
   <string name="reading_challenge_onboarding_prompt_login">Пријава / Придружите се Википедији</string>
   <string name="reading_challenge_install_prompt_got_it">Разумео</string>
   <string name="reading_challenge_install_prompt_add">Додај</string>
+  <string name="reading_challenge_widget_explore_button">Истражи</string>
+  <string name="reading_challenge_widget_explore_wikipedia_button">Истражи Википедију</string>
   <string name="reading_challenge_widget_search_button">Претрага</string>
   <string name="reading_challenge_widget_random_button">Случајно</string>
   <string name="reading_challenge_widget_start_fresh_start_title">Нови почетак.</string>
   <string name="reading_challenge_widget_concluded_complete">Успели сте!</string>
+  <string name="explore_feed_community_tab_label">Заједница</string>
+  <string name="explore_feed_header_overflow_hide_module_message_action">Опозови</string>
+  <string name="home_feed_settings_continue_reading_title">Настави читање</string>
+  <string name="home_feed_settings_feed_configuration_languages_title">Језици</string>
 </resources>

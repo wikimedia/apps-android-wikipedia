@@ -643,7 +643,7 @@
   <string name="wikipedia_languages_remove_dialog_content">ၸဝ်ႈၵဝ်ႇတေၸၢင်ႈႁၼ်လႆႈ လမ်းၼႂ်ႈ တီႈၼိူဝ် ၶေႃႈမုၼ်းမႂ်ႇ ဢၼ်ၶူၼ်ႉႁႃ လႄႈ ထူဝ်ထွင်ၶူၼ်ႉႁႃဝႆး တွၼ်ႈတႃႇ ၽႃႇသႃႇၵႂၢမ်း ဝီႇၶီႇၽီးတီႈယႃး ၸိူဝ်းၵိုတ်းဝႆႉၼၼ်ႉ။</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">ဢမ်ႇၸၢင်ႈ ထွၼ်ပႅတ်ႈ ၽႃႇသႃႇၵႂၢမ်းတင်းသဵင်ႈ</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">တွၼ်ႈတႃႇ ၶူၼ်ႉႁႃ လႄႈ လူဢၢၼ်ႇ လမ်းၼႂ်းၼၼ်ႉ တီႈၽႃႇသႃႇၵႂၢမ်း ဝီႇၶီႇၽီးတီးယႃးၼၼ်ႉ ၵဵပ်းသႂ်ႇဝႆႉပၼ် တီႈဢေႇသုတ်းမၼ်း တႃႇဢၼ်ၼိုင်ႈ။</string>
-  <string name="more_language_options">ၼမ်လိူဝ်</string>
+  <string name="more_language_options">ထႅင်ႈ</string>
   <string name="add_wikipedia_languages_text">ထႅမ်သႂ်ႇ ၽႃႇသႃႇၵႂၢမ်း ဝီႇၶီႇၽီးတီးယႃး</string>
   <string name="remove_language_dialog_cancel_button_text">ယႃႉၶိုၼ်း</string>
   <string name="remove_language_dialog_ok_button_text">ဢူဝ်ႇၶေႇ</string>
