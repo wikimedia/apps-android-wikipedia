@@ -244,8 +244,14 @@
   <string name="preference_summary_customize_explore_feed">Kohanda sisuvoogu \"Avasta\"</string>
   <string name="location_permissions_enable_prompt">Kui soovid näha kohti sinu lähedal, siis luba rakendusel kasutada tuvastatud asukohta.</string>
   <string name="link_preview_dialog_saved_button">Salvestatud</string>
+  <string name="crash_report_relaunch">Alusta uuesti</string>
+  <string name="crash_report_quit">Lõpeta</string>
   <string name="article_menu_bar_save_button">Salvesta</string>
   <string name="article_menu_bar_language_button">Keel</string>
+  <string name="article_menu_bar_search_button">Otsi</string>
+  <string name="article_menu_bar_theme_button">Teema</string>
+  <string name="article_menu_bar_contents_button">Sisukord</string>
+  <string name="article_header_edit_hint">Redigeeri...</string>
   <string name="nav_item_saved">Salvestatud</string>
   <string name="saved_list_empty_title">Salvestatud lehti pole veel</string>
   <string name="reading_lists_empty_message">Salvesta artiklid lugemisnimekirja, et vaadata neid hiljem, ka ilma võrguühenduseta.</string>
