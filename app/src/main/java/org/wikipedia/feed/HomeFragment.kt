@@ -637,7 +637,9 @@ fun HomeToolbar(
     onUpdateTabCount: () -> Unit,
     onNotificationClick: () -> Unit
 ) {
-    Row {
+    Row(
+        modifier = Modifier.fillMaxWidth()
+    ) {
         Image(
             painter = painterResource(R.drawable.feed_header_wordmark),
             contentDescription = null,
@@ -649,11 +651,15 @@ fun HomeToolbar(
                 .width(128.dp)
         )
         Spacer(modifier = Modifier.weight(1f))
+
+        val actionButtonModifier = Modifier
+            .statusBarsPadding()
+            .padding(top = topInset.dp)
+            .size(48.dp)
+
         if (tabsState.count > 0) {
             IconButton(
-                modifier = Modifier
-                    .statusBarsPadding()
-                    .padding(top = topInset.dp),
+                modifier = actionButtonModifier,
                 onClick = { onTabClick() }
             ) {
                 TabsBox(
@@ -679,12 +685,13 @@ fun HomeToolbar(
         }
         if (notificationBellState.canShow) {
             NotificationBell(
-                modifier = Modifier
-                    .statusBarsPadding()
-                    .padding(top = topInset.dp),
+                modifier = actionButtonModifier,
                 unreadCount = notificationBellState.unreadCount,
                 onClick = onNotificationClick
             )
+        }
+        if (tabsState.count == 0 && !notificationBellState.canShow) {
+            Spacer(modifier = actionButtonModifier)
         }
     }
 }
