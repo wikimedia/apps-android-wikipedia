@@ -848,11 +848,11 @@
   <string name="feed_item_type_randomizer">Oxumaq üçün təsadüfi məqalələr göstər</string>
   <string name="feed_item_type_suggested_edits">Vikipediyaya məzmun əlavə etmək üçün təkliflər</string>
   <string name="feed_item_type_places">Cari məkanınıza əsaslanan yaxınlıqdakı məqalələr</string>
-  <string name="feed_empty_message">Kəşf lentinizdə heç nə yoxdur</string>
+  <string name="feed_empty_message">Əsas səhifə lentinizdə heç nə yoxdur</string>
   <string name="feed_configure_onboarding_action">Fərdiləşdir</string>
   <string name="customize_lang_selection_dialog_ok_button_text">Oldu</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">İmtina</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Kəşf lentinizi fərdiləşdirin&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt; İndi lentinizdə nəyi görəcəyinizi seçə və həmçinin sevimli məzmun növlərini prioritetləşdirə bilərsiniz.</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Əsas səhifə lentinizi fərdiləşdirin&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt; İndi lentinizdə nəyi görəcəyinizi seçə və həmçinin sevimli məzmun növlərini prioritetləşdirə bilərsiniz.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">Oldu</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">İmtina</string>
   <string name="feed_accessibility_card_text">Lentin sonuna çatdınız.</string>
@@ -1244,11 +1244,11 @@
   <string name="onboarding_get_started">Başla</string>
   <string name="onboarding_maybe_later">Bəlkə sonra</string>
   <string name="onboarding_explore_title">Kəşf etməyin yeni yolları</string>
-  <string name="onboarding_explore_text">Daim yenilənən Kəşf et lenti ilə Vikipediyanın dərinliklərinə enin.&lt;br/&gt; Lenti maraqlarınıza &lt;b&gt;uyğunlaşdırın&lt;/b&gt; - istər &lt;b&gt;bu gün&lt;/b&gt; tarixdə baş vermiş hadisələr haqqında öyrənmək, istərsə də &lt;b&gt;Təsadüfi&lt;/b&gt; zər atmaq.</string>
+  <string name="onboarding_explore_text">Daim yenilənən Əsas səhifə lenti ilə Vikipediyanın dərinliklərinə enin.&lt;br/&gt; Lenti maraqlarınıza &lt;b&gt;uyğunlaşdırın&lt;/b&gt; - istər &lt;b&gt;bu gün&lt;/b&gt; tarixdə baş vermiş hadisələr haqqında öyrənmək, istərsə də &lt;b&gt;Təsadüfi&lt;/b&gt; zər atmaq.</string>
   <string name="onboarding_reading_list_sync_title">Oxuma siyahılarının sinxronizasiyası</string>
   <string name="onboarding_reading_list_sync_text_v2">Siz hətta oflayn olsanız belə, daha sonra oxumaq istədiyiniz məqalələrdən oxuma siyahıları yarada bilərsiniz.&lt;br/&gt; Oxuma siyahılarınızı sinxronlaşdırmaq üçün Vikipediya hesabınıza daxil olun. &lt;a href=\"#login\"&gt;Vikipediyaya qoşulun&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Data və Məxfilik</string>
-  <string name="onboarding_data_privacy_text">Azad bilik hərəkatında iştirak etmək üçün şəxsi məlumatlarınızı təqdim etməməli olduğunuza inanırıq. Bu proqramda toplanan istifadə məlumatları anonimdir. &lt;a href=\"#privacy\"&gt;Məxfilik siyasətimiz&lt;/a&gt; və &lt;a href=\"#termsOfUse\"&gt;istifadə şərtlərimiz&lt;/a&gt; haqqında ətraflı məlumat əldə edin.</string>
+  <string name="onboarding_data_privacy_text">Azad bilik hərəkatında iştirak etmək üçün şəxsi məlumatlarınızı təqdim etməməli olduğunuza inanırıq. Bu proqramda toplanan istifadə məlumatları anonimdir.&lt;br/&gt;&lt;br/&gt;&lt;a href=\"#privacy\"&gt;Məxfilik siyasətimiz&lt;/a&gt; və &lt;a href=\"#termsOfUse\"&gt;istifadə şərtlərimiz&lt;/a&gt; haqqında ətraflı məlumat əldə edin.</string>
   <string name="onboarding_analytics_switch_title">İstifadə məlumatlarını göndər</string>
   <string name="onboarding_got_it">Başa düşdüm</string>
   <string name="onboarding_multilingual_secondary_text">Cihazınızda aşağıdakıları tapdıq:</string>
@@ -1291,7 +1291,7 @@
     <item quantity="one">Seçilmiş dil silinsin?</item>
     <item quantity="other">Seçilmiş dillər silinsin?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Siz yalnız Kəşf lentindəki məzmunu və qalan Vikipediya dilləri üçün sürətli axtarış filtrlərini görəcəksiniz.</string>
+  <string name="wikipedia_languages_remove_dialog_content">Siz yalnız Əsas səhifə lentindəki məzmunu və qalan Vikipediya dilləri üçün sürətli axtarış filtrlərini görəcəksiniz.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Bütün dilləri silmək mümkün deyil</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Məzmunu axtarmaq və oxumaq üçün ən azı bir Vikipediya dili saxlayın.</string>
   <string name="more_language_options">daha çox</string>
@@ -1814,7 +1814,7 @@
   <string name="on_this_day_game_stats_average_score">Ortalama xal</string>
   <string name="on_this_day_game_stats_streak">Cari ardıcıllıq</string>
   <string name="on_this_day_game_result_subtitle">Bugünkü oyunda istinad edilən məqalələr</string>
-  <string name="on_this_day_game_completed_message">Oynadığınız üçün təşəkkür edirik. Yeni oyun \"Hansı birinci baş verib?\" hər gün Kəşf et lentində mövcuddur.</string>
+  <string name="on_this_day_game_completed_message">Oynadığınız üçün təşəkkür edirik. Yeni oyun \"Hansı birinci baş verib?\" hər gün Əsas səhifə lentində mövcuddur.</string>
   <string name="on_this_day_game_menu_notifications">Oyun bildirişləri</string>
   <string name="on_this_day_game_menu_info">Daha ətraflı öyrən</string>
   <string name="on_this_day_game_menu_feedback">Funksiya ilə bağlı problem</string>
@@ -2375,13 +2375,31 @@
   <string name="home_feed_settings_community_modules_description">Modulu söndürmək onu İcma lentinizdən gizlədir. Onu istənilən vaxt burada yenidən aktivləşdirə bilərsiniz. Bəzi modullar sizin dilinizdə mövcud olmaya bilər.</string>
   <string name="home_feed_settings_for_you_modules_description">Modulu söndürmək onu \"Sizin üçün\" lentinizdən gizlədir. Onu istənilən vaxt burada yenidən aktivləşdirə bilərsiniz.</string>
   <string name="home_feed_settings_based_on_interest_title">Maraqlarınıza əsasən</string>
-  <string name="home_feed_settings_based_on_interest_subtitle">Seçdiyiniz mövzulara uyğunlaşdırılmış məqalələr. &lt;a href=\"#drivingFeed\"&gt;Lentinizi nə idarə edir&lt;/a&gt;</string>
+  <string name="home_feed_settings_based_on_interest_subtitle">Seçdiyiniz mövzulara uyğunlaşdırılmış məqalələr.&lt;br /&gt;&lt;a href=\"#drivingFeed\"&gt;Lentinizi nə idarə edir&lt;/a&gt;</string>
   <string name="home_feed_settings_because_you_read_subtitle">Tarixçənizə əsaslanan təkliflər</string>
   <string name="home_feed_settings_continue_reading_title">Oxumağa davam et</string>
   <string name="home_feed_settings_continue_reading_subtitle">Bitirmədiyiniz məqalələrə qayıdın</string>
+  <string name="home_feed_settings_community_empty_dialog_title">İcma lentiniz boş olacaq</string>
+  <string name="home_feed_settings_for_you_empty_dialog_title">\"Sizin üçün\" lentiniz boş olacaq</string>
+  <string name="home_feed_settings_empty_dialog_text">Məzmunu görmək üçün ən azı bir modulu yandırın.</string>
+  <string name="home_feed_settings_empty_dialog_positive">Yenə də davam et</string>
   <string name="home_feed_screen_empty_state_label">Lentiniz boşdur</string>
-  <string name="home_feed_community_screen_empty_state_description">Vikimedia hərəkatı boyunca könüllülər tərəfindən hazırlanmış məzmunu görməyə başlamaq üçün &lt;b&gt;İcma&lt;/b&gt; modullarını aktivləşdirin.</string>
-  <string name="home_feed_for_you_screen_empty_state_description">Seçimlərinizə əsaslanan məzmuna baxmağa başlamaq üçün &lt;b&gt;Sizin üçün&lt;/b&gt; modullarını aktivləşdirin.</string>
-  <string name="home_feed_screen_empty_state_btn_label">Modulları idarə et</string>
+  <string name="home_feed_community_screen_all_modules_disabled_description">Vikimedia icması tərəfindən hazırlanmış məzmunu görməyə başlamaq üçün &lt;b&gt;İcma&lt;/b&gt; modullarını aktivləşdirin.</string>
+  <string name="home_feed_for_you_screen_all_modules_disabled_description">Seçimlərinizə əsaslanan məzmuna baxmağa başlamaq üçün &lt;b&gt;Sizin üçün&lt;/b&gt; modullarını aktivləşdirin.</string>
+  <string name="home_feed_screen_all_modules_disabled_btn_label">Modulları idarə et</string>
   <string name="home_feed_for_you_screen_empty_title">Sizin lentiniz hələlik boşdur</string>
+  <string name="home_feed_for_you_screen_empty_description">Oxumağa davam etdikdə \"Sizin üçün\" lentiniz fərdiləşdirilmiş məqalələrlə doldurulacaq.</string>
+  <string name="home_feed_for_you_screen_empty_ways_to_start">Başlamaq üçün yollar:</string>
+  <string name="home_feed_for_you_screen_empty_add_interests">&lt;a href=\"#add_interests\"&gt;Maraq dairələrinizi&lt;/a&gt; əlavə edin</string>
+  <string name="home_feed_for_you_screen_empty_see_community">&lt;a href=\"#community_tab\"&gt;İcmada&lt;/a&gt; nələrin baş verdiyinə baxın</string>
+  <string name="home_feed_settings_feed_configuration_description">Bu mövzular və məqalələr \"Sizin üçün\" lentinizdə görünənləri formalaşdırır. Artıq istəmədiyiniz maraqları silin və ya yeni maraqlar əlavə edin.</string>
+  <string name="home_feed_settings_feed_configuration_interest_title">Maraqlarınız</string>
+  <string name="home_feed_settings_feed_configuration_interest_subtitle">Maraqlandığınız mövzuları redaktə edin</string>
+  <string name="home_feed_settings_feed_configuration_empty_interest_subtitle">Maraq siyahınız boşdur. Maraqlandığınız bir şey əlavə edin.</string>
+  <string name="home_feed_settings_feed_configuration_reading_history_title">Oxuma tarixçəsi</string>
+  <string name="home_feed_settings_feed_configuration_reading_history_subtitle">Son oxuduğunuz məqalələrə baxın</string>
+  <string name="home_feed_settings_feed_configuration_empty_reading_history_subtitle">Oxuma tarixçəniz boşdur. Fərdi tövsiyələr yaratmaq üçün məqalələri oxumağa başlayın.</string>
+  <string name="home_feed_settings_feed_configuration_languages_title">Dillər</string>
+  <string name="home_feed_settings_feed_configuration_languages_subtitle">Üstünlük verdiyiniz dilləri redaktə edin</string>
+  <string name="home_feed_settings_feed_configuration_interests_updated_message">Maraqlar yeniləndi. Yeniləmələri görmək üçün lentinizi yeniləyin.</string>
 </resources>

@@ -484,10 +484,10 @@
   <string name="feed_item_type_trending">தினமும் அதிகமாக காணப்பட்ட கட்டுரைகள்</string>
   <string name="feed_item_type_featured_image">விக்கிமீடியா பொதுவகத்திலிருந்து தினசரி சிறப்பு படம்</string>
   <string name="feed_item_type_randomizer">வாசிப்பதற்காக கட்டுறைகளை தற்போக்காக உற்பத்தி செய்க</string>
-  <string name="feed_empty_message">உங்கள் சுற்றிபார் ஓடத்தில் ஒன்றும் இல்லை</string>
+  <string name="feed_empty_message" fuzzy="true">உங்கள் சுற்றிபார் ஓடத்தில் ஒன்றும் இல்லை</string>
   <string name="feed_configure_onboarding_action">தனிப்பயனாக்குக</string>
   <string name="customize_lang_selection_dialog_ok_button_text">சரி</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;உங்கள் சுற்றிபார் ஓடத்தை விருப்பமைக&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;இப்போது உங்கள் ஓடத்தில் என்ன தெரிய வேண்டும் என்று நீங்கள் தேர்வு செய்யலாம். மேலும் உங்களுக்கு பிடித்தமான விதத்தில் வரிசைபடுத்தளாம்.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;உங்கள் சுற்றிபார் ஓடத்தை விருப்பமைக&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;இப்போது உங்கள் ஓடத்தில் என்ன தெரிய வேண்டும் என்று நீங்கள் தேர்வு செய்யலாம். மேலும் உங்களுக்கு பிடித்தமான விதத்தில் வரிசைபடுத்தளாம்.</string>
   <string name="feed_language_variants_removal_secondary_dialog_settings">அமைப்புகளுக்குச் செல்லவும்</string>
   <string name="description_edit_text_hint" fuzzy="true">தலைப்பு விவரம்</string>
   <string name="description_edit_save">பதிப்பிடு</string>
@@ -535,7 +535,7 @@
   <string name="onboarding_continue">தொடரவும்</string>
   <string name="onboarding_get_started">தொடங்கவும்</string>
   <string name="onboarding_explore_title">சுற்றிப்பார்பதற்கான புதிய வழிகள்</string>
-  <string name="onboarding_explore_text">தொடர்சியாக புதுப்பிக்கப்படும் சுற்றிபார் ஓடத்தினால் விக்கிப்பீடியா முயல் புதருக்குள் மூழ்கிடுங்கள். &lt;br /&gt;உங்கள் விருப்பத்திர்கேற்ப சுற்றிபார் ஓடத்தை &lt;b&gt;விருப்பமைக&lt;/b&gt; - &lt;b&gt;இந்த நாளில்&lt;/b&gt; நிகழ்ந்த வரலாற்று நிகழ்வுகளை அறிந்து கொள்வதோ, அல்லது &lt;b&gt;தற்போக்கான்&lt;/b&gt;ஐ வைத்து பகடையை உருட்டுவதோ.</string>
+  <string name="onboarding_explore_text" fuzzy="true">தொடர்சியாக புதுப்பிக்கப்படும் சுற்றிபார் ஓடத்தினால் விக்கிப்பீடியா முயல் புதருக்குள் மூழ்கிடுங்கள். &lt;br /&gt;உங்கள் விருப்பத்திர்கேற்ப சுற்றிபார் ஓடத்தை &lt;b&gt;விருப்பமைக&lt;/b&gt; - &lt;b&gt;இந்த நாளில்&lt;/b&gt; நிகழ்ந்த வரலாற்று நிகழ்வுகளை அறிந்து கொள்வதோ, அல்லது &lt;b&gt;தற்போக்கான்&lt;/b&gt;ஐ வைத்து பகடையை உருட்டுவதோ.</string>
   <string name="onboarding_reading_list_sync_title">ஒருங்குநிகழ்கவுடன் படிப்பு பட்டியல்கள்</string>
   <string name="onboarding_reading_list_sync_text_v2">நீங்கள் பின்னர் வாசிக்க விரும்பும் கட்டுரைகளிலிருந்து படிப்பு பட்டியல்களை உருவாக்கலாம். அவற்றை நீங்கள் இணைப்பில்லா நிலையிலும் வாசிக்கலாம். &lt;br/&gt;உங்கள் படிப்பு பட்டியல்களை ஒருங்குநிகழ் செய்ய உங்கள் வீக்கிபீடியா கணக்கிற்குள் புகுபதிகை செய்க. &lt;a href=\"#login\"&gt;விக்கிபீடியாவில் சேர்க&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">தரவு &amp; தனியுரிமை</string>
