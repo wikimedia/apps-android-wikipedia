@@ -2337,8 +2337,8 @@
   <string name="reading_challenge_widget_concluded_incomplete">Предизвикот заврши</string>
   <string name="reading_challenge_widget_concluded_complete">Успеавте!</string>
   <string name="reading_challenge_widget_reward_title">Љубопитноста ви прилега! 🛍️</string>
-  <string name="reading_challenge_widget_reward_body">Прославете го успешно завршениот предизвик со 15% % попуст во Википедиината продавница.</string>
-  <string name="reading_challenge_widget_reward_button_label">Добијте 15% % попуст во продавницата</string>
+  <string name="reading_challenge_widget_reward_body">Прославете го успешно завршениот предизвик со 15%% попуст во Википедиината продавница.</string>
+  <string name="reading_challenge_widget_reward_button_label">Добијте 15%% попуст во продавницата</string>
   <string name="explore_feed_new_update_prompt_title">„Истражи“ сега е на почетната страница, со нов изглед</string>
   <string name="explore_feed_new_update_prompt_new_name_title">Ново име</string>
   <string name="explore_feed_new_update_prompt_new_name_description">Тековникот „Истражи“ сега е на почетната страница, на истото место како претходно.</string>
