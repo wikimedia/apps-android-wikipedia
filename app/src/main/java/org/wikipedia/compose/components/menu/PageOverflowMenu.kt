@@ -6,8 +6,14 @@ import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.delay
 import org.wikipedia.compose.theme.WikipediaTheme
 
 @Composable
@@ -18,11 +24,29 @@ fun PageOverflowMenu(
     onDismiss: () -> Unit,
     items: List<Pair<String, () -> Unit>>
 ) {
+    val expanded = menuKey == overflowMenuState?.menuKey
+    var animatedExpanded by remember(menuKey) { mutableStateOf(false) }
+
+    LaunchedEffect(expanded) {
+        if (expanded) {
+            animatedExpanded = true
+        } else if (animatedExpanded) {
+            animatedExpanded = false
+        }
+    }
+
+    LaunchedEffect(animatedExpanded, expanded) {
+        if (!animatedExpanded && expanded) {
+            delay(150)
+            onDismiss()
+        }
+    }
+
     DropdownMenu(
         modifier = modifier,
-        expanded = menuKey == overflowMenuState?.menuKey,
-        onDismissRequest = onDismiss,
-        containerColor = WikipediaTheme.colors.paperColor
+        expanded = animatedExpanded,
+        onDismissRequest = { animatedExpanded = false },
+        containerColor = WikipediaTheme.colors.paperColor,
     ) {
         items.forEach { (label, action) ->
             DropdownMenuItem(
@@ -35,7 +59,7 @@ fun PageOverflowMenu(
                 },
                 onClick = {
                     action()
-                    onDismiss()
+                    animatedExpanded = false
                 },
                 contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
             )
