@@ -25,7 +25,6 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
@@ -639,7 +638,7 @@ fun HomeToolbar(
     onNotificationClick: () -> Unit
 ) {
     Row(
-        modifier = Modifier.heightIn(72.dp)
+        modifier = Modifier.fillMaxWidth()
     ) {
         Image(
             painter = painterResource(R.drawable.feed_header_wordmark),
@@ -652,11 +651,15 @@ fun HomeToolbar(
                 .width(128.dp)
         )
         Spacer(modifier = Modifier.weight(1f))
+
+        val actionButtonModifier = Modifier
+            .statusBarsPadding()
+            .padding(top = topInset.dp)
+            .size(48.dp)
+
         if (tabsState.count > 0) {
             IconButton(
-                modifier = Modifier
-                    .statusBarsPadding()
-                    .padding(top = topInset.dp),
+                modifier = actionButtonModifier,
                 onClick = { onTabClick() }
             ) {
                 TabsBox(
@@ -682,12 +685,13 @@ fun HomeToolbar(
         }
         if (notificationBellState.canShow) {
             NotificationBell(
-                modifier = Modifier
-                    .statusBarsPadding()
-                    .padding(top = topInset.dp),
+                modifier = actionButtonModifier,
                 unreadCount = notificationBellState.unreadCount,
                 onClick = onNotificationClick
             )
+        }
+        if (tabsState.count == 0 && !notificationBellState.canShow) {
+            Spacer(modifier = actionButtonModifier)
         }
     }
 }
