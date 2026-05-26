@@ -7,6 +7,7 @@
 * Anders Feder
 * BaRaN6161 TURK
 * Bencemac
+* Bjankuloski06
 * Dbrant
 * Hamilton Abreu
 * Jeeputer
@@ -2235,7 +2236,7 @@
   <string name="explore_feed_on_this_day_subtitle">Description of the On This Day card in the Home feed.</string>
   <string name="explore_feed_community_disclaimer">Text for the disclaimer at the top of the community tab in the Home feed.</string>
   <string name="explore_feed_community_load_more_label">Label text for the community tab in Home feed to load more content.</string>
-  <string name="explore_feed_manage_languages_label">Label text in the languages pop-up menu in the Home feed to manauge the app languages.</string>
+  <string name="explore_feed_manage_languages_label">Label text in the languages pop-up menu in the Home feed to manage the app languages.</string>
   <string name="explore_feed_header_overflow_hide_module_label">Label text for the overflow menu option in the card header to hide the module.</string>
   <string name="explore_feed_header_overflow_hide_module_message">Snackbar message that indicates the module is hidden.</string>
   <string name="explore_feed_header_overflow_hide_module_message_action">Label for the snackbar action to undo the hide module action.</string>
@@ -2256,11 +2257,11 @@
   <string name="home_feed_settings_because_you_read_subtitle">Subtitle describing article suggestions based on recently viewed articles.</string>
   <string name="home_feed_settings_continue_reading_title">Title for the Continue reading module in Home feed settings.</string>
   <string name="home_feed_settings_continue_reading_subtitle">Subtitle prompting users to continue reading unfinished articles.</string>
-  <string name="home_feed_screen_empty_state_label">Title text shown when the selected feed has no visible content.</string>
   <string name="home_feed_settings_community_empty_dialog_title">Title of dialog box warning the user that their Community feed will be empty.</string>
   <string name="home_feed_settings_for_you_empty_dialog_title">Title of dialog box warning the user that their \"For you\" feed will be empty.</string>
   <string name="home_feed_settings_empty_dialog_text">Body text of dialog box warning the user that their feed will be empty.</string>
   <string name="home_feed_settings_empty_dialog_positive">Button label for confirmation of a dialog box warning the user that their feed will be empty.</string>
+  <string name="home_feed_screen_empty_state_label">Title text shown when the selected feed has no visible content.</string>
   <string name="home_feed_community_screen_all_modules_disabled_description">Description text shown when all “From the community” modules are turned off in the feed settings.</string>
   <string name="home_feed_for_you_screen_all_modules_disabled_description">Description text shown when all “For you” modules are turned off in the feed settings.</string>
   <string name="home_feed_screen_all_modules_disabled_btn_label">Button text for managing Home feed modules from the empty state screen.</string>
@@ -2271,12 +2272,12 @@
   <string name="home_feed_for_you_screen_empty_see_community">Link text prompting the user to explore the Community feed for additional content. Please keep the anchor link around the word \"community\"</string>
   <string name="home_feed_settings_feed_configuration_description">Description explaining that selected topics and reading history influence personalized recommendations in the For You feed.</string>
   <string name="home_feed_settings_feed_configuration_interest_title">Heading title for the user’s selected interests in feed configuration settings.</string>
+  <string name="home_feed_settings_feed_configuration_interest_subtitle">Subtitle indicating users can manage or update their selected topics of interest.</string>
   <string name="home_feed_settings_feed_configuration_empty_interest_subtitle">Empty state message shown when the user has not added any interests yet.</string>
-  <string name="home_feed_settings_feed_configuration_empty_reading_history_subtitle">Empty state message shown when the user has no reading history available for recommendations.</string>
   <string name="home_feed_settings_feed_configuration_reading_history_title">Heading title for the user’s reading history in feed configuration settings.</string>
+  <string name="home_feed_settings_feed_configuration_reading_history_subtitle">Subtitle prompting users to view their recently read articles.</string>
+  <string name="home_feed_settings_feed_configuration_empty_reading_history_subtitle">Empty state message shown when the user has no reading history available for recommendations.</string>
   <string name="home_feed_settings_feed_configuration_languages_title">Heading title for managing preferred languages in feed configuration settings.</string>
   <string name="home_feed_settings_feed_configuration_languages_subtitle">Subtitle prompting the user to edit their preferred languages.</string>
-  <string name="home_feed_settings_feed_configuration_interest_subtitle">Subtitle indicating users can manage or update their selected topics of interest.</string>
-  <string name="home_feed_settings_feed_configuration_reading_history_subtitle">Subtitle prompting users to view their recently read articles.</string>
   <string name="home_feed_settings_feed_configuration_interests_updated_message">Message that indicates the interests have been updated, and users will need to refresh the feed to see the new contents.</string>
 </resources>

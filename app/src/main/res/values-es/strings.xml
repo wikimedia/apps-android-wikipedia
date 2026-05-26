@@ -181,7 +181,7 @@
   <string name="menu_page_watch">Vigilar</string>
   <string name="menu_page_unwatch">Dejar de vigilar</string>
   <string name="menu_page_view_talk">Ver página de discusión</string>
-  <string name="menu_page_talk_page">Paǵina de discusión</string>
+  <string name="menu_page_talk_page">Página de discusión</string>
   <string name="menu_page_view_edit_history">Ver historial de ediciones</string>
   <string name="menu_page_edit_history">Historial de ediciones</string>
   <string name="menu_page_remove_from_watchlist">Quitar de lista de seguimiento</string>
@@ -942,11 +942,11 @@
   <string name="feed_item_type_randomizer">Generar artículos al azar para leer</string>
   <string name="feed_item_type_suggested_edits">Sugerencias para añadir contenido a Wikipedia</string>
   <string name="feed_item_type_places">Artículos cercanos basados en la ubicación actual</string>
-  <string name="feed_empty_message">No hay nada en el suministro Explorar</string>
+  <string name="feed_empty_message" fuzzy="true">No hay nada en el suministro Explorar</string>
   <string name="feed_configure_onboarding_action">Personalizar</string>
   <string name="customize_lang_selection_dialog_ok_button_text">Aceptar</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Cancelar</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Personaliza el canal Explorar&lt;/strong&gt;&lt;br&gt;&lt;br&gt;Ahora puedes escoger qué mostrar en tu suministro y priorizar tus tipos de contenido preferidos.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Personaliza el canal Explorar&lt;/strong&gt;&lt;br&gt;&lt;br&gt;Ahora puedes escoger qué mostrar en tu suministro y priorizar tus tipos de contenido preferidos.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">Aceptar</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Cancelar</string>
   <string name="feed_accessibility_card_text">Has llegado al final del suministro.</string>
@@ -1342,11 +1342,11 @@
   <string name="onboarding_get_started">Empezar</string>
   <string name="onboarding_maybe_later">Quizás más tarde</string>
   <string name="onboarding_explore_title">Nuevas formas de explorar</string>
-  <string name="onboarding_explore_text">Piérdete en la vastedad de Wikipedia a través del canal de exploración, siempre al día.&lt;br/&gt; &lt;b&gt;Personaliza&lt;/b&gt; el canal en función de lo que te interesa. Aprende sobre acontecimientos históricos en &lt;b&gt;Un día como hoy&lt;/b&gt; o lanza un dado virtual mediante &lt;b&gt;Aleatorio&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Piérdete en la vastedad de Wikipedia a través del canal de exploración, siempre al día.&lt;br/&gt; &lt;b&gt;Personaliza&lt;/b&gt; el canal en función de lo que te interesa. Aprende sobre acontecimientos históricos en &lt;b&gt;Un día como hoy&lt;/b&gt; o lanza un dado virtual mediante &lt;b&gt;Aleatorio&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Listas de lectura con sincronización</string>
   <string name="onboarding_reading_list_sync_text_v2">Puedes crear listas de los artículos que quieras leer más tarde, incluso sin conexión. &lt;br/&gt;Accede a tu cuenta de Wikipedia para sincronizar tus listas de lectura. &lt;a href=\"#login\"&gt;Únete a Wikipedia&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Datos y privacidad</string>
-  <string name="onboarding_data_privacy_text">Creemos que no debería ser necesario que proporciones información personal para participar en el movimiento del conocimiento libre. Los datos de uso recopilados por esta aplicación son anónimos. Más información sobre nuestra &lt;a href=\"#privacy\"&gt;política de privacidad&lt;/a&gt; y &lt;a href=\"#termsOfUse\"&gt;términos de uso&lt;/a&gt;</string>
+  <string name="onboarding_data_privacy_text" fuzzy="true">Creemos que no debería ser necesario que proporciones información personal para participar en el movimiento del conocimiento libre. Los datos de uso recopilados por esta aplicación son anónimos. Más información sobre nuestra &lt;a href=\"#privacy\"&gt;política de privacidad&lt;/a&gt; y &lt;a href=\"#termsOfUse\"&gt;términos de uso&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Enviar datos de uso</string>
   <string name="onboarding_got_it">Entendido</string>
   <string name="onboarding_multilingual_secondary_text">Encontramos lo siguiente en tu dispositivo:</string>
@@ -1383,7 +1383,7 @@
     <item quantity="one">¿Quieres quitar el idioma seleccionado?</item>
     <item quantity="other">¿Quieres quitar los idiomas seleccionados?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Solo verás contenido en los idiomas restantes de Wikipedia en el suministro Explorar y los filtros de búsqueda rápida.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Solo verás contenido en los idiomas restantes de Wikipedia en el suministro Explorar y los filtros de búsqueda rápida.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">No es posible quitar todos los idiomas</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Conserva al menos un idioma Wikipedia por el cual buscar y leer contenido.</string>
   <string name="more_language_options">más</string>
@@ -1908,7 +1908,7 @@
   <string name="on_this_day_game_stats_average_score">promedio</string>
   <string name="on_this_day_game_stats_streak">racha</string>
   <string name="on_this_day_game_result_subtitle">Artículos referenciados en el juego de hoy</string>
-  <string name="on_this_day_game_completed_message">Gracias por jugar. Cada día hay preguntas nuevas en «¿Cuál fue primero?», disponible en la sección Explorar.</string>
+  <string name="on_this_day_game_completed_message" fuzzy="true">Gracias por jugar. Cada día hay preguntas nuevas en «¿Cuál fue primero?», disponible en la sección Explorar.</string>
   <string name="on_this_day_game_menu_notifications">Notificaciones del juego</string>
   <string name="on_this_day_game_menu_info">Más información</string>
   <string name="on_this_day_game_menu_feedback">Reportar problema</string>
@@ -1952,7 +1952,7 @@
   <string name="on_this_day_game_card_archive_label">Archivo</string>
   <string name="on_this_day_game_stats_log_in_prompt_card_button">Acceder</string>
   <string name="on_this_day_game_stats_log_in_prompt_card_title">Inicia sesión para ver tus estadísticas de juego.</string>
-  <string name="on_this_day_game_stats_log_in_prompt_card_description">Vea tus rachas, puntuaciones y más</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_description">Ver tus rachas, puntuaciones y más</string>
   <string name="wikipedia_games_title">Juegos de Wikipedia</string>
   <string name="year_in_review_learn_more">Más información</string>
   <string name="year_in_review_get_started">Comenzar</string>

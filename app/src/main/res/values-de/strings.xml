@@ -896,11 +896,11 @@
   <string name="feed_item_type_randomizer">Zufällige Artikel zum Lesen erzeugen</string>
   <string name="feed_item_type_suggested_edits">Vorschläge zum Hinzufügen von Inhalten zu Wikipedia</string>
   <string name="feed_item_type_places">Artikel in der Nähe basierend auf dem aktuellen Standort</string>
-  <string name="feed_empty_message">Es gibt nichts in deinem Entdecken-Feed</string>
+  <string name="feed_empty_message" fuzzy="true">Es gibt nichts in deinem Entdecken-Feed</string>
   <string name="feed_configure_onboarding_action">Anpassen</string>
   <string name="customize_lang_selection_dialog_ok_button_text">Okay</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Abbrechen</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Passe deinen Entdecken-Feed an&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Du kannst jetzt auswählen, was auf deinem Feed angezeigt werden soll und auch deine Lieblingsinhalte priorisieren.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Passe deinen Entdecken-Feed an&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Du kannst jetzt auswählen, was auf deinem Feed angezeigt werden soll und auch deine Lieblingsinhalte priorisieren.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">Okay</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Abbrechen</string>
   <string name="feed_accessibility_card_text">Du hast das Ende des Feeds erreicht.</string>
@@ -1295,11 +1295,11 @@
   <string name="onboarding_get_started">Anfangen</string>
   <string name="onboarding_maybe_later">Vielleicht später</string>
   <string name="onboarding_explore_title">Neue Wege zum Entdecken</string>
-  <string name="onboarding_explore_text">Tauche in die Wikipedia-Welt ein. Bleib mit einem ständig aktuellen Entdecken-Feed auf dem Laufenden.&lt;br/&gt; &lt;b&gt;Passe&lt;/b&gt; den Feed deinen Interessen an – ob er dir historische Ereignisse &lt;b&gt;An diesem Tag&lt;/b&gt; nahebringt oder wirf den Würfel mit &lt;b&gt;Zufällig&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Tauche in die Wikipedia-Welt ein. Bleib mit einem ständig aktuellen Entdecken-Feed auf dem Laufenden.&lt;br/&gt; &lt;b&gt;Passe&lt;/b&gt; den Feed deinen Interessen an – ob er dir historische Ereignisse &lt;b&gt;An diesem Tag&lt;/b&gt; nahebringt oder wirf den Würfel mit &lt;b&gt;Zufällig&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Leselisten mit Synchronisierung</string>
   <string name="onboarding_reading_list_sync_text_v2">Du kannst Leselisten von Artikeln erstellen, die du später lesen möchtest, auch wenn du offline bist. &lt;br/&gt;Melde dich bei deinem Wikipedia-Benutzerkonto an, um deine Leselisten zu synchronisieren. &lt;a href=\"#login\"&gt;Wikipedia beitreten&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Daten &amp; Privatsphäre</string>
-  <string name="onboarding_data_privacy_text">Wir sind der Meinung, dass du keine persönlichen Daten angeben musst, um am Movement für freies Wissen teilzunehmen. Die für diese App gesammelten Nutzungsdaten sind anonym. Erfahre mehr über unsere &lt;a href=\"#privacy\"&gt;Datenschutzrichtlinie&lt;/a&gt; und &lt;a href=\"#termsOfUse\"&gt;Nutzungsbedingungen&lt;/a&gt;.</string>
+  <string name="onboarding_data_privacy_text" fuzzy="true">Wir sind der Meinung, dass du keine persönlichen Daten angeben musst, um am Movement für freies Wissen teilzunehmen. Die für diese App gesammelten Nutzungsdaten sind anonym. Erfahre mehr über unsere &lt;a href=\"#privacy\"&gt;Datenschutzrichtlinie&lt;/a&gt; und &lt;a href=\"#termsOfUse\"&gt;Nutzungsbedingungen&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Nutzungsdaten senden</string>
   <string name="onboarding_got_it">Verstanden</string>
   <string name="onboarding_multilingual_secondary_text">Wir haben die folgenden Sprachen auf deinem Gerät gefunden:</string>
@@ -1335,7 +1335,7 @@
     <item quantity="one">Ausgewählte Sprache entfernen?</item>
     <item quantity="other">Ausgewählte Sprachen entfernen?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Du wirst nur die Inhalte im Entdecken-Feed und Schnellsuchfilter für die verbleibenden Wikipedia-Sprachen sehen.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Du wirst nur die Inhalte im Entdecken-Feed und Schnellsuchfilter für die verbleibenden Wikipedia-Sprachen sehen.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Es konnten nicht alle Sprachen entfernt werden</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Mindestens eine Wikipedia-Sprache für die Suche und das Lesen von Inhalten behalten.</string>
   <string name="more_language_options">mehr</string>
@@ -1856,7 +1856,7 @@
   <string name="on_this_day_game_stats_average_score">Durchschnitts-Punktzahl</string>
   <string name="on_this_day_game_stats_streak">Gegenwärtige Serie</string>
   <string name="on_this_day_game_result_subtitle">Im heutigen Spiel referenzierte Artikel</string>
-  <string name="on_this_day_game_completed_message">Danke fürs Spielen. Ein neues \"Was war zuerst?\"-Spiel steht täglich im Entdecken-Feed bereit</string>
+  <string name="on_this_day_game_completed_message" fuzzy="true">Danke fürs Spielen. Ein neues \"Was war zuerst?\"-Spiel steht täglich im Entdecken-Feed bereit</string>
   <string name="on_this_day_game_menu_notifications">Spielbenachrichtigungen</string>
   <string name="on_this_day_game_menu_info">Mehr erfahren</string>
   <string name="on_this_day_game_menu_feedback">Problem mit der Funktion</string>

@@ -464,7 +464,7 @@
   <string name="feed_configure_menu_deselect_all">Pêroyın bınımnê</string>
   <string name="customize_lang_selection_dialog_ok_button_text">TEMAM</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Bıtexelne</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Rodayışê xulasay ra keşf kerdışi xısusi kerê&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Hêni rodayışê ho de çıçi bımocneyo u sinaye zerrekê ho şenê bıweçine u biyarê ver.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Rodayışê xulasay ra keşf kerdışi xısusi kerê&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Hêni rodayışê ho de çıçi bımocneyo u sinaye zerrekê ho şenê bıweçine u biyarê ver.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">TEMAM</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Bıtexelne</string>
   <string name="feed_accessibility_card_load_more_button">Tayna bar ke</string>

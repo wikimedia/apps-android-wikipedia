@@ -855,11 +855,11 @@
   <string name="feed_item_type_randomizer">Đưa ra danh sách các bài viết ngẫu nhiên để đọc</string>
   <string name="feed_item_type_suggested_edits">Gợi ý thêm nội dung vào Wikipedia</string>
   <string name="feed_item_type_places">Các bài viết liên quan dựa trên vị trí hiện tại</string>
-  <string name="feed_empty_message">Không có gì trên Bảng tin khám phá của bạn</string>
+  <string name="feed_empty_message" fuzzy="true">Không có gì trên Bảng tin khám phá của bạn</string>
   <string name="feed_configure_onboarding_action">Tùy chỉnh</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Hủy bỏ</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Tùy chỉnh Bảng tin khám phá&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Bây giờ, bạn đã có thể chọn thứ bạn muốn thấy trên bảng tin, đồng thời tập trung vào những dạng nội dung mà bạn yêu thích.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Tùy chỉnh Bảng tin khám phá&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Bây giờ, bạn đã có thể chọn thứ bạn muốn thấy trên bảng tin, đồng thời tập trung vào những dạng nội dung mà bạn yêu thích.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Hủy bỏ</string>
   <string name="feed_accessibility_card_text">Bạn đã đến cuối nguồn cấp dữ liệu.</string>
@@ -1221,11 +1221,11 @@
   <string name="onboarding_get_started">Bắt đầu</string>
   <string name="onboarding_maybe_later">Có lẽ để sau</string>
   <string name="onboarding_explore_title">Cách thám hiểm mới</string>
-  <string name="onboarding_explore_text">Khám phá Wikipedia với nguồn cấp dữ liệu được cập nhật liên tục. &lt;br/&gt;&lt;b&gt;Tùy chỉnh &lt;/b&gt; nguồn cấp dữ liệu theo sở thích của bạn &lt;b&gt; Ngày này năm xưa &lt;/b&gt; hay &lt;b&gt;ngẫu nhiên&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Khám phá Wikipedia với nguồn cấp dữ liệu được cập nhật liên tục. &lt;br/&gt;&lt;b&gt;Tùy chỉnh &lt;/b&gt; nguồn cấp dữ liệu theo sở thích của bạn &lt;b&gt; Ngày này năm xưa &lt;/b&gt; hay &lt;b&gt;ngẫu nhiên&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Danh sách đọc có thể đồng bộ hóa</string>
   <string name="onboarding_reading_list_sync_text_v2">Bạn có thể tạo danh sách đọc có các bài bạn muốn đọc sau, ngay cả khi bạn đang ngoại tuyến. &lt;br/&gt;Đăng nhập vào tài khoản Wikipedia của bạn để đồng bộ hóa các danh sách đọc của bạn. &lt;a href=\"#login\"&gt;Tham gia Wikipedia&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Dữ liệu &amp; Quyền riêng tư</string>
-  <string name="onboarding_data_privacy_text">Chúng tôi tin rằng bạn không cần phải cung cấp thông tin cá nhân để tham gia vào phong trào tri thức miễn phí. Dữ liệu sử dụng được thu thập cho ứng dụng này là ẩn danh. Tìm hiểu thêm về &lt;a href=\"#privacy\"&gt;chính sách bảo mật&lt;/a&gt; và &lt;a href=\"#termsOfUse\"&gt;điều khoản sử dụng&lt;/a&gt; của chúng tôi.</string>
+  <string name="onboarding_data_privacy_text" fuzzy="true">Chúng tôi tin rằng bạn không cần phải cung cấp thông tin cá nhân để tham gia vào phong trào tri thức miễn phí. Dữ liệu sử dụng được thu thập cho ứng dụng này là ẩn danh. Tìm hiểu thêm về &lt;a href=\"#privacy\"&gt;chính sách bảo mật&lt;/a&gt; và &lt;a href=\"#termsOfUse\"&gt;điều khoản sử dụng&lt;/a&gt; của chúng tôi.</string>
   <string name="onboarding_analytics_switch_title">Gửi dữ liệu về cách dùng</string>
   <string name="onboarding_got_it">Đã hiểu</string>
   <string name="onboarding_multilingual_secondary_text">Đã tìm thấy các ngôn ngữ sau trên thiết bị của bạn:</string>
@@ -1260,7 +1260,7 @@
     <item quantity="one">Xóa ngôn ngữ đã chọn?</item>
     <item quantity="other">Xóa các ngôn ngữ đã chọn?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Từ bây giờ, những nội dung trên Bảng tin khám phá cũng như trong mục Tìm kiếm nhanh sẽ chỉ xuất hiện bằng các ngôn ngữ còn lại.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Từ bây giờ, những nội dung trên Bảng tin khám phá cũng như trong mục Tìm kiếm nhanh sẽ chỉ xuất hiện bằng các ngôn ngữ còn lại.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Không thể xóa hết ngôn ngữ</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Hãy giữ lại ít nhất một ngôn ngữ Wikipedia để tìm và đọc nội dung.</string>
   <string name="more_language_options">thêm</string>

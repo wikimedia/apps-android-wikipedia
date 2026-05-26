@@ -844,11 +844,11 @@
   <string name="feed_item_type_randomizer">لوستلو لپاره ناڅاپي ليکنې زېږول</string>
   <string name="feed_item_type_suggested_edits">ويکيپېډيا ته د منځپانگې ورگډولو وړانديزونه</string>
   <string name="feed_item_type_places">د اوسني ځای پربنسټ څېرمه ليکنې</string>
-  <string name="feed_empty_message">ستاسو سپړل خوراکې کې هېڅ نشته</string>
+  <string name="feed_empty_message" fuzzy="true">ستاسو سپړل خوراکې کې هېڅ نشته</string>
   <string name="feed_configure_onboarding_action">دوديزول</string>
   <string name="customize_lang_selection_dialog_ok_button_text">ښه</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">ناگارل</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;د سپړنې ليډدړه مو دوديزه کړئ&lt;/strong&gt; اوس تاسو کولی شئ خوښ کړئ چې څه ستاسو ليددړه کې وښودل شي، او د خپلو خواپورو منځپانگو ډولونو ته لومړيتوب ورکړئ.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;د سپړنې ليډدړه مو دوديزه کړئ&lt;/strong&gt; اوس تاسو کولی شئ خوښ کړئ چې څه ستاسو ليددړه کې وښودل شي، او د خپلو خواپورو منځپانگو ډولونو ته لومړيتوب ورکړئ.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">ښه</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">ناگارل</string>
   <string name="feed_accessibility_card_text">تاسو د ليددړې منځ ته رسېدلي ياست.</string>
@@ -1240,11 +1240,11 @@
   <string name="onboarding_get_started">پيلول</string>
   <string name="onboarding_maybe_later">شايد وروسته</string>
   <string name="onboarding_explore_title">د سپړلو لپاره نوې لارې</string>
-  <string name="onboarding_explore_text">د ويکي‌پېډيا منځپانگه د پرله‌پسې هم‌مهالېدونکې سپړلو ليددړې سره وپلټئ. &lt;br/&gt; \nسپړنې ليددړه د خپلو گټو سره سم &lt;b&gt;دوديزه کړئ&lt;/b&gt; &lt;b&gt;په دې ورځ&lt;/b&gt; د رامنځته شوو تاريخي پېښو اړوند زده کړه وکړئ يا په ساده ډول يوڅه &lt;b&gt;ناڅاپي&lt;/b&gt; ومومئ.</string>
+  <string name="onboarding_explore_text" fuzzy="true">د ويکي‌پېډيا منځپانگه د پرله‌پسې هم‌مهالېدونکې سپړلو ليددړې سره وپلټئ. &lt;br/&gt; \nسپړنې ليددړه د خپلو گټو سره سم &lt;b&gt;دوديزه کړئ&lt;/b&gt; &lt;b&gt;په دې ورځ&lt;/b&gt; د رامنځته شوو تاريخي پېښو اړوند زده کړه وکړئ يا په ساده ډول يوڅه &lt;b&gt;ناڅاپي&lt;/b&gt; ومومئ.</string>
   <string name="onboarding_reading_list_sync_title">همغږۍ سره لوستلړونه لوستل</string>
   <string name="onboarding_reading_list_sync_text_v2">تاسو کولی شئ د هغه ليکنو څخه لوستلړونه جوړ کړئ چې تاسو يې وروسته لوستل غواړئ، حتی کله چې تاسو افلاين ياست.&lt;br/&gt;د خپلو لوستلړونو د همغږۍ لپاره خپل ويکي‌پېډيا گڼون ته ننوځئ.&lt;a href=\"#login\"&gt;ويکي‌پېډيا سره يوځای شئ&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">اومتوکي او پټنتيا</string>
-  <string name="onboarding_data_privacy_text">موږ باور لرو چې تاسو به د وړيا پوهنغونډ غورځنگ کې د گډون لپاره ځانواله مالوماتو چمتو کولو ته اړتيا ونه لرئ. د دې کاريال کارونې اومتوک‌ ټولگه بې نومه ده. زموږ د &lt;a href=\"#privacy\"&gt;پټنتيا تگلار&lt;/a&gt; او &lt;a href=\"#termsOfUse\"&gt;کارونې منښتونو&lt;/a&gt; په اړه نور زده کړئ.</string>
+  <string name="onboarding_data_privacy_text" fuzzy="true">موږ باور لرو چې تاسو به د وړيا پوهنغونډ غورځنگ کې د گډون لپاره ځانواله مالوماتو چمتو کولو ته اړتيا ونه لرئ. د دې کاريال کارونې اومتوک‌ ټولگه بې نومه ده. زموږ د &lt;a href=\"#privacy\"&gt;پټنتيا تگلار&lt;/a&gt; او &lt;a href=\"#termsOfUse\"&gt;کارونې منښتونو&lt;/a&gt; په اړه نور زده کړئ.</string>
   <string name="onboarding_analytics_switch_title">کارونې اومتوکي لېږل</string>
   <string name="onboarding_got_it">وپوهېدم</string>
   <string name="onboarding_multilingual_secondary_text">موږ ستاسو وسيله کې لاندې څيزونه موندلي دي:</string>
@@ -1286,7 +1286,7 @@
     <item quantity="one">ټاکل‌شوې ژبه لرې‌کول؟</item>
     <item quantity="other">Removeټاکل‌شوې ژبې لرې‌کول؟</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">تاسو به يوازې د ويکي‌پېډيا پاتې ژبو لپاره د سپړونکي خوراک‌ليد او چټک پلټنې چاڼگرونو منځپانگې وگورئ.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">تاسو به يوازې د ويکي‌پېډيا پاتې ژبو لپاره د سپړونکي خوراک‌ليد او چټک پلټنې چاڼگرونو منځپانگې وگورئ.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">ټولې ژبې نشي لرې کېدای</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">لږترلږه د ويکيپېډيا يوه ژبه د منځپانگې لټون او لوستلو لپاره پرېږدئ.</string>
   <string name="more_language_options">نور</string>
@@ -1809,7 +1809,7 @@
   <string name="on_this_day_game_stats_average_score">منځگوړې نومرې</string>
   <string name="on_this_day_game_stats_streak">اوسنۍ لړۍ</string>
   <string name="on_this_day_game_result_subtitle">په نننۍ لوبه کې سرچينه‌شوې ليکنې</string>
-  <string name="on_this_day_game_completed_message">له لوبېدو مو مننه. د \"څوک لومړی راغی؟\" په نوم يوه نوې لوبه هره ورځ په پلټن‌دړه کې شتون لري.</string>
+  <string name="on_this_day_game_completed_message" fuzzy="true">له لوبېدو مو مننه. د \"څوک لومړی راغی؟\" په نوم يوه نوې لوبه هره ورځ په پلټن‌دړه کې شتون لري.</string>
   <string name="on_this_day_game_menu_notifications">د لوبې خبرتياوې</string>
   <string name="on_this_day_game_menu_info">نور مالومات</string>
   <string name="on_this_day_game_menu_feedback">د غوني ستونزه</string>
@@ -2328,11 +2328,11 @@
   <string name="explore_feed_new_update_prompt_control_description">هره سپارښتنه تاسو ته په سمه توگه وايي چې ولې هلته شتون لري. تاسو کولی شئ خپل غوره‌توبونه په اوڼنو کې هر وخت هم‌مهاله کړئ.</string>
   <string name="explore_feed_new_update_prompt_language_title">هره ژبه، په بشپړه توگه ځانواله شوې</string>
   <string name="home_feed_settings_feed_configuration_interest_title">ستاسو لېوالتياوې</string>
+  <string name="home_feed_settings_feed_configuration_interest_subtitle">خپل د لېوالتيا سکالوگانې سمول</string>
   <string name="home_feed_settings_feed_configuration_empty_interest_subtitle">ستاسو د لېوالتياوو لړليک تش دی. داسې يو څه ورگډ کړئ چې تاسو يې په اړه لېوالتيا لرئ.</string>
-  <string name="home_feed_settings_feed_configuration_empty_reading_history_subtitle">ستاسو د لوستلو پېښليک تش دی. د ځانواله سپارښتنو جوړولو لپاره د ليکنې سپړل پيل کړئ.</string>
   <string name="home_feed_settings_feed_configuration_reading_history_title">لوستلو پېښليک</string>
+  <string name="home_feed_settings_feed_configuration_reading_history_subtitle">خپلې وروستۍ لوستل شوې ليکنې سپړل</string>
+  <string name="home_feed_settings_feed_configuration_empty_reading_history_subtitle">ستاسو د لوستلو پېښليک تش دی. د ځانواله سپارښتنو جوړولو لپاره د ليکنې سپړل پيل کړئ.</string>
   <string name="home_feed_settings_feed_configuration_languages_title">ژبې</string>
   <string name="home_feed_settings_feed_configuration_languages_subtitle">د خپلې خوښې ژبې سمول</string>
-  <string name="home_feed_settings_feed_configuration_interest_subtitle">خپل د لېوالتيا سکالوگانې سمول</string>
-  <string name="home_feed_settings_feed_configuration_reading_history_subtitle">خپلې وروستۍ لوستل شوې ليکنې سپړل</string>
 </resources>

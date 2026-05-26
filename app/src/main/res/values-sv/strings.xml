@@ -864,11 +864,11 @@
   <string name="feed_item_type_randomizer">Generera slumpartiklar att läsa</string>
   <string name="feed_item_type_suggested_edits">Förslag på innehåll att lägga till i Wikipedia</string>
   <string name="feed_item_type_places">Närliggande artiklar bygger på din aktuella plats</string>
-  <string name="feed_empty_message">Det finns ingenting i ditt utforskarflöde.</string>
+  <string name="feed_empty_message">Det finns ingenting i ditt hemflöde.</string>
   <string name="feed_configure_onboarding_action">Anpassa</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Avbryt</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Anpassa ditt utforskarflöde&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Du kan nu välja vad som ska visas i ditt flöde och även prioritera dina favorittyper av innehåll.</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Anpassa ditt hemflöde&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Du kan nu välja vad som ska visas i ditt flöde och även prioritera dina favorittyper av innehåll.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Avbryt</string>
   <string name="feed_accessibility_card_text">Du är nu längst ned i flödet.</string>
@@ -1264,11 +1264,11 @@
   <string name="onboarding_get_started">Kom igång</string>
   <string name="onboarding_maybe_later">Kanske senare</string>
   <string name="onboarding_explore_title">Nya sätt att utforska</string>
-  <string name="onboarding_explore_text">Gör en djupdykning i Wikipedia genom att uppdatera utforskarflödet. &lt;br/&gt; &lt;b&gt;Anpassa&lt;/b&gt; flödet för att möta dina intressen – vare sig det handlar om historiska händelser &lt;b&gt;på denna dag&lt;/b&gt; eller kasta tärningen och få en &lt;b&gt;slumpartikel&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text">Gör en djupdykning i Wikipedia genom att uppdatera hemflödet. &lt;br/&gt; &lt;b&gt;Anpassa&lt;/b&gt; flödet för att möta dina intressen – vare sig det handlar om historiska händelser &lt;b&gt;på denna dag&lt;/b&gt; eller kasta tärningen och få en &lt;b&gt;slumpartikel&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Läslistor med synkronisering</string>
   <string name="onboarding_reading_list_sync_text_v2">Du kan skapa läslistor från artiklar du vill läsa senare, även när du inte har någon uppkoppling. &lt;br/&gt;Logga in på ditt Wikipedia-konto för att synkronisera dina läslistor. &lt;a href=\"#login\"&gt;Registrera dig på Wikipedia&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Data och integritet</string>
-  <string name="onboarding_data_privacy_text">Vi anser att du inte ska behöva lämna personlig information för att delta i rörelsen för fri kunskap. Användningsdata som samlas in för den här appen är anonym. Läs mer om vår &lt;a href=\"#privacy\"&gt;integritetspolicy&lt;/a&gt; och &lt;a href=\"#termsOfUse\"&gt;användarvillkor&lt;/a&gt; .</string>
+  <string name="onboarding_data_privacy_text">Vi anser att du inte ska behöva lämna personlig information för att delta i rörelsen för fri kunskap. Användningsdata som samlas in för den här appen är anonym.&lt;br/&gt;&lt;br/&gt;Läs mer om vår &lt;a href=\"#privacy\"&gt;integritetspolicy&lt;/a&gt; och &lt;a href=\"#termsOfUse\"&gt;användarvillkor&lt;/a&gt; .</string>
   <string name="onboarding_analytics_switch_title">Skicka användningsdata</string>
   <string name="onboarding_got_it">Jag förstår</string>
   <string name="onboarding_multilingual_secondary_text">Vi har hittat följande på din enhet:</string>
@@ -1311,7 +1311,7 @@
     <item quantity="one">Ta bort valt språk?</item>
     <item quantity="other">Ta bort valda språk?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Du kommer endast se innehåll i utforskarflödet och snabbsökningsfilter för tillgängliga Wikipediaspråk.</string>
+  <string name="wikipedia_languages_remove_dialog_content">Du kommer endast se innehåll i hemflödet och snabbsökningsfilter för tillgängliga Wikipediaspråk.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Kan inte ta bort alla språk</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Behåll minst ett Wikipedia-språk att söka och läsa innehåll på.</string>
   <string name="more_language_options">fler</string>
@@ -1837,7 +1837,7 @@
   <string name="on_this_day_game_stats_average_score">Genomsnittligt betyg</string>
   <string name="on_this_day_game_stats_streak">Nuvarande svit</string>
   <string name="on_this_day_game_result_subtitle">Artiklar som refereras till i dagens spel</string>
-  <string name="on_this_day_game_completed_message">Tack för att du spelar. Ett nytt spel av \"Vilket kom först?\" är tillgänglig dagligen på flödet Utforska.</string>
+  <string name="on_this_day_game_completed_message">Tack för att du spelar. Ett nytt spel av \"Vilket kom först?\" är tillgänglig dagligen i hemflödet.</string>
   <string name="on_this_day_game_menu_notifications">Spelaviseringar</string>
   <string name="on_this_day_game_menu_info">Ta reda på mer</string>
   <string name="on_this_day_game_menu_feedback">Problem med funktionen</string>
@@ -2285,12 +2285,12 @@
   <string name="hybrid_search_who_is_prefix">Vem är %s?</string>
   <string name="hybrid_search_turn_off_experiment_label">Stäng av experimentet</string>
   <string name="reading_challenge_widget_name">Läsutmaning</string>
-  <string name="reading_challenge_onboarding_header">Fira Wikipedias 25-årsdag genom att delta i 25-dagars läsutmaningen!</string>
+  <string name="reading_challenge_onboarding_header">Fira Wikipedias 25-årsdag och anta utmaningen att läsa 25 dagar i rad!</string>
   <string name="reading_challenge_onboarding_read_title">Läs 1 artikel om dagen i 25 dagar</string>
   <string name="reading_challenge_onboarding_read_description">Delta i utmaningen när som helst mellan 1—31 maj och slutför dina 25 dagar på eget bevåg.</string>
   <string name="reading_challenge_onboarding_read_subtitle">Delta i utmaningen närsomhelst mellan %1$s och %2$s, slutför sina 25 dagar i din egen tidslinje.</string>
   <string name="reading_challenge_onboarding_win_title">Vinn priser</string>
-  <string name="reading_challenge_onboarding_win_description">Slutför en 25-dagars lässvit medan utmaningen pågår för att vinna specialpriser.</string>
+  <string name="reading_challenge_onboarding_win_description">Läs 25 dagar i rad medan utmaningen pågår för att vinna specialpriser.</string>
   <string name="reading_challenge_onboarding_install_title">Installera widgeten</string>
   <string name="reading_challenge_onboarding_install_description">Få hjälpsamma påminnelser och motivation med vår bedårande födelsedagsmaskot Baby Globe.</string>
   <string name="reading_challenge_onboarding_note">Din läshistorik skyddas. Läsinsikter beräknas med hjälp av lokalt lagrad data på din enhet.</string>
@@ -2313,9 +2313,9 @@
   <string name="reading_challenge_widget_collect_prize_button">Hämta pris</string>
   <string name="reading_challenge_widget_collect_your_prize_button">Hämta ditt pris!</string>
   <string name="reading_challenge_widget_not_live_title">Gör dig redo att läsa</string>
-  <string name="reading_challenge_widget_not_live_description">En 25-dagars läsutmaning är på gång.</string>
+  <string name="reading_challenge_widget_not_live_description">En utmaning att läsa 25 dagar i rad är på gång.</string>
   <string name="reading_challenge_widget_not_opted_in_title">Klara, färdiga, läs!</string>
-  <string name="reading_challenge_widget_not_opted_in_description">Delta i 25-dagarsutmaningen och lås upp specialpriser.</string>
+  <string name="reading_challenge_widget_not_opted_in_description">Anta utmaningen att läsa 25 dagar i rad och lås upp specialpriser.</string>
   <plurals name="reading_challenge_small_widget_streak">
     <item quantity="one">%d dag</item>
     <item quantity="other">%d dagar</item>
@@ -2398,14 +2398,18 @@
   <string name="home_feed_settings_community_modules_description">Om du inaktiverar en modul döljs den från ditt gemenskapsflöde. Du kan återaktivera den här när som helst. Vissa moduler kanske inte är tillgängliga på ditt språk.</string>
   <string name="home_feed_settings_for_you_modules_description">Om du inaktiverar en modul döljs den från ditt flöde \"För dig\". Du kan återaktivera den här när som helst.</string>
   <string name="home_feed_settings_based_on_interest_title">Baserat på dina intressen</string>
-  <string name="home_feed_settings_based_on_interest_subtitle">Artiklar som har anpassats till dina valda ämnen. &lt;a href=\"#drivingFeed\"&gt;Vad som driver ditt flöde&lt;/a&gt;</string>
+  <string name="home_feed_settings_based_on_interest_subtitle">Artiklar som har anpassats till dina valda ämnen.&lt;br /&gt;&lt;a href=\"#drivingFeed\"&gt;Vad som driver ditt flöde&lt;/a&gt;</string>
   <string name="home_feed_settings_because_you_read_subtitle">Förslag baserade på en nyligen läst artikel från din historik</string>
   <string name="home_feed_settings_continue_reading_title">Fortsätt läsa</string>
   <string name="home_feed_settings_continue_reading_subtitle">Hoppa tillbaka till artiklar du inte slutförde</string>
+  <string name="home_feed_settings_community_empty_dialog_title">Ditt gemenskapsflöde kommer att bli tomt.</string>
+  <string name="home_feed_settings_for_you_empty_dialog_title">Ditt \"För dig\"-flöde kommer att bli tomt.</string>
+  <string name="home_feed_settings_empty_dialog_text">Aktivera minst en modul för att se innehåll.</string>
+  <string name="home_feed_settings_empty_dialog_positive">Fortsätt ändå</string>
   <string name="home_feed_screen_empty_state_label">Ditt flöde är tomt</string>
-  <string name="home_feed_community_screen_empty_state_description">Aktivera modulerna i &lt;b&gt;Från gemenskapen&lt;/b&gt; för att börja få innehåll som har valts ut av bidragsgivare inom Wikimedia-rörelsen.</string>
-  <string name="home_feed_for_you_screen_empty_state_description">Aktivera modulerna i &lt;b&gt;För dig&lt;/b&gt; för att börja få innehåll baserat på dina preferenser.</string>
-  <string name="home_feed_screen_empty_state_btn_label">Hantera moduler</string>
+  <string name="home_feed_community_screen_all_modules_disabled_description" fuzzy="true">Aktivera modulerna i &lt;b&gt;Från gemenskapen&lt;/b&gt; för att börja få innehåll som har valts ut av bidragsgivare inom Wikimedia-rörelsen.</string>
+  <string name="home_feed_for_you_screen_all_modules_disabled_description">Aktivera modulerna i &lt;b&gt;För dig&lt;/b&gt; för att börja få innehåll baserat på dina preferenser.</string>
+  <string name="home_feed_screen_all_modules_disabled_btn_label">Hantera moduler</string>
   <string name="home_feed_for_you_screen_empty_title">Ditt flöde är tomt för tillfället</string>
   <string name="home_feed_for_you_screen_empty_description">Ditt flöde \"För dig\" kommer att fyllas med personligt anpassade artiklar allt eftersom du utforskar.</string>
   <string name="home_feed_for_you_screen_empty_ways_to_start">Sätt att komma igång:</string>
@@ -2413,11 +2417,12 @@
   <string name="home_feed_for_you_screen_empty_see_community">Se vad som händer i &lt;a href=\"#community_tab\"&gt;gemenskapen&lt;/a&gt;</string>
   <string name="home_feed_settings_feed_configuration_description">Dessa ämnen och artiklar formar vad som visas i ditt flöde \"För dig\". Ta bort de du inte längre vill ha eller lägg till nya intressen.</string>
   <string name="home_feed_settings_feed_configuration_interest_title">Dina intressen</string>
+  <string name="home_feed_settings_feed_configuration_interest_subtitle">Redigera dina intresseämnen</string>
   <string name="home_feed_settings_feed_configuration_empty_interest_subtitle">Din intresselista är tom. Lägg till något du är nyfiken på.</string>
-  <string name="home_feed_settings_feed_configuration_empty_reading_history_subtitle">Din läshistorik är tom. Börja utforska artiklar för att skapa personliga rekommendationer.</string>
   <string name="home_feed_settings_feed_configuration_reading_history_title">Läshistorik</string>
+  <string name="home_feed_settings_feed_configuration_reading_history_subtitle">Bläddra bland dina nyligen lästa artiklar</string>
+  <string name="home_feed_settings_feed_configuration_empty_reading_history_subtitle">Din läshistorik är tom. Börja utforska artiklar för att skapa personliga rekommendationer.</string>
   <string name="home_feed_settings_feed_configuration_languages_title">Språk</string>
   <string name="home_feed_settings_feed_configuration_languages_subtitle">Redigera dina föredragna språk</string>
-  <string name="home_feed_settings_feed_configuration_interest_subtitle">Redigera dina intresseämnen</string>
-  <string name="home_feed_settings_feed_configuration_reading_history_subtitle">Bläddra bland dina nyligen lästa artiklar</string>
+  <string name="home_feed_settings_feed_configuration_interests_updated_message">Intressen har uppdaterats. Ladda om ditt flöde för att se uppdateringar.</string>
 </resources>
