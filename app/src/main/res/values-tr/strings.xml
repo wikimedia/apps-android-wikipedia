@@ -881,11 +881,11 @@
   <string name="feed_item_type_randomizer">Okumak için rastgele madde oluştur</string>
   <string name="feed_item_type_suggested_edits">Vikipedi\'ye içerik eklemek için öneriler</string>
   <string name="feed_item_type_places">Mevcut konumunuza dayalı yakınlardaki makaleler</string>
-  <string name="feed_empty_message">İçeriği Keşfet\'inizde hiçbir şey yok</string>
+  <string name="feed_empty_message" fuzzy="true">İçeriği Keşfet\'inizde hiçbir şey yok</string>
   <string name="feed_configure_onboarding_action">Özelleştir</string>
   <string name="customize_lang_selection_dialog_ok_button_text">Tamam</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">İptal</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Keşfet özet akışınızı özelleştirme&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Artık akışınızda neyin gösterileceğini seçebilir ve en sevdiğiniz içerik türlerine öncelik de verebilirsiniz.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Keşfet özet akışınızı özelleştirme&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Artık akışınızda neyin gösterileceğini seçebilir ve en sevdiğiniz içerik türlerine öncelik de verebilirsiniz.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">Tamam</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">İptal</string>
   <string name="feed_accessibility_card_text">Yayının altına ulaştınız.</string>
@@ -1237,11 +1237,11 @@
   <string name="onboarding_get_started">Kullanmaya başla</string>
   <string name="onboarding_maybe_later">Belki daha sonra</string>
   <string name="onboarding_explore_title">Keşfetmenin yeni yolları</string>
-  <string name="onboarding_explore_text">Vikipedi tavşan deliğine, sürekli Keşfet akışı ile dalın. &lt;br/&gt; Akışınızı ilgileriniz göre &lt;b&gt;özelleştirin&lt;/b&gt; – &lt;b&gt;Tarihte bugün&lt;/b&gt; ile tarihsel olaylar hakkında bilgi alın ya da &lt;b&gt;Rastgele&lt;/b&gt; ile zar atın.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Vikipedi tavşan deliğine, sürekli Keşfet akışı ile dalın. &lt;br/&gt; Akışınızı ilgileriniz göre &lt;b&gt;özelleştirin&lt;/b&gt; – &lt;b&gt;Tarihte bugün&lt;/b&gt; ile tarihsel olaylar hakkında bilgi alın ya da &lt;b&gt;Rastgele&lt;/b&gt; ile zar atın.</string>
   <string name="onboarding_reading_list_sync_title">Okuma listelerinin senkronizasyonu</string>
   <string name="onboarding_reading_list_sync_text_v2">Çevrimdışı olduğunuzda bile, daha sonra okumak istediğiniz maddeleri okuyabilirsiniz. &lt;br/&gt;Okuma listelerinizi senkronize etmek için Vikipedi hesabınıza giriş yapın. &lt;a href=\"#login\"&gt;Vikipedi\'ye katılın&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Veri &amp; Gizlilik</string>
-  <string name="onboarding_data_privacy_text">Ücretsiz bilgi hareketine katılmak için kişisel bilgilerinizi vermeniz gerekmediğine inanıyoruz. Bu uygulama için toplanan kullanım verilerinin kimliği bilinmez. &lt;a href=\"#privacy\"&gt;Gizlilik ilkemiz&lt;/a&gt; ve &lt;a href=\"#termsOfUse\"&gt;kullanım şartlarımız&lt;/a&gt; hakkında daha fazla bilgi edinin.</string>
+  <string name="onboarding_data_privacy_text" fuzzy="true">Ücretsiz bilgi hareketine katılmak için kişisel bilgilerinizi vermeniz gerekmediğine inanıyoruz. Bu uygulama için toplanan kullanım verilerinin kimliği bilinmez. &lt;a href=\"#privacy\"&gt;Gizlilik ilkemiz&lt;/a&gt; ve &lt;a href=\"#termsOfUse\"&gt;kullanım şartlarımız&lt;/a&gt; hakkında daha fazla bilgi edinin.</string>
   <string name="onboarding_analytics_switch_title">Kullanım verisini gönder</string>
   <string name="onboarding_got_it">Anladım</string>
   <string name="onboarding_multilingual_secondary_text">Cihazınızda aşağıdakilerini bulduk:</string>
@@ -1276,7 +1276,7 @@
     <item quantity="one">Seçilen dili kaldırılsın mı?</item>
     <item quantity="other">Seçilen dilleri kaldırılsın mı?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Kalan Vikipedi dilleri için yalnızca İçeriği Keşfet ve hızlı arama filtrelerinde içerik görürsünüz.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Kalan Vikipedi dilleri için yalnızca İçeriği Keşfet ve hızlı arama filtrelerinde içerik görürsünüz.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Tüm diller kaldırılamadı</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">İçeriği okumak ve içerikte arama yapmak için en az bir Vikipedi dili bırakın</string>
   <string name="more_language_options">daha fazla</string>

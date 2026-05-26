@@ -829,11 +829,11 @@
   <string name="feed_item_type_randomizer">Уку өчен очраклы мәкаләләр булдырыгыз</string>
   <string name="feed_item_type_suggested_edits">Википедиягә эчтәлек өстәү буенча тәкъдимнәр</string>
   <string name="feed_item_type_places">Хәзерге локациягезгә бәйле якындагы мәкаләләр</string>
-  <string name="feed_empty_message">Сезнең \"Тикшеренүләр\" лентасында бернәрсә дә юк</string>
+  <string name="feed_empty_message" fuzzy="true">Сезнең \"Тикшеренүләр\" лентасында бернәрсә дә юк</string>
   <string name="feed_configure_onboarding_action">Көйләргә</string>
   <string name="customize_lang_selection_dialog_ok_button_text">Ярар</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Кире алу</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Үзегезнең тикшеренүләр лентасын көйләгез&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;\nХәзер сез үзегезнең лентада нәрсә күрсәтергә кирәклеген, шулай ук сезнең яраткан эчтәлек төрләре өчен өстенлекләрне сайлый аласыз.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Үзегезнең тикшеренүләр лентасын көйләгез&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;\nХәзер сез үзегезнең лентада нәрсә күрсәтергә кирәклеген, шулай ук сезнең яраткан эчтәлек төрләре өчен өстенлекләрне сайлый аласыз.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">Ярар</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Кире алу</string>
   <string name="feed_accessibility_card_text">Сез лентаның аскы өлешенә барып җиттегез.</string>
@@ -1211,7 +1211,7 @@
   <string name="onboarding_get_started">Башларга</string>
   <string name="onboarding_maybe_later">Бәлки соңрак</string>
   <string name="onboarding_explore_title">Өйрәнүнең яңа ысуллары</string>
-  <string name="onboarding_explore_text">Даими яңартыла торган лента ярдәмендә Википедиянең лабиринтлары буйлап сәяхәт итегез. &lt;br/&gt; лентаны сезнең кызыксынуларыгызга туры килерлек итеп &lt;b&gt;көйләгез&lt;/b&gt; - &lt;b&gt; бу көнне  булган&lt;/b&gt; тарихи вакыйгаларны өйрәнү яисә &lt;/b&gt;уңышка&lt;/b&gt; таяну булсынмы.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Даими яңартыла торган лента ярдәмендә Википедиянең лабиринтлары буйлап сәяхәт итегез. &lt;br/&gt; лентаны сезнең кызыксынуларыгызга туры килерлек итеп &lt;b&gt;көйләгез&lt;/b&gt; - &lt;b&gt; бу көнне  булган&lt;/b&gt; тарихи вакыйгаларны өйрәнү яисә &lt;/b&gt;уңышка&lt;/b&gt; таяну булсынмы.</string>
   <string name="onboarding_reading_list_sync_title">Синхронлаштырылган уку исемлекләре</string>
   <string name="onboarding_reading_list_sync_text_v2">Сез автоном режимда булып та соңрак укырга теләгән мәкаләләрдән уку өчен исемлекләр төзи аласыз.&lt;br/&gt;Үзегезнең уку исемлекләрен синхронлаштыру өчен Википедиядәге хисап язмагызга керегез. &lt;a href=\"#login\"&gt;Википедиягә кушылыгыз&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Мәгълүмат һәм конфиденциальлек</string>
@@ -1250,7 +1250,7 @@
     <item quantity="one">Сайланган телне бетерергәме?</item>
     <item quantity="other">Сайланган телләрне бетерергәме?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Сез Лента өстәмә битендәге эчтәлекне карый һәм Википедиянең бары тик башка тел бүлекләре өчен тиз эзләү фильтрларын куллана аласыз.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Сез Лента өстәмә битендәге эчтәлекне карый һәм Википедиянең бары тик башка тел бүлекләре өчен тиз эзләү фильтрларын куллана аласыз.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Барлык телләрне дә бетерү мөмкин түгел</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Эчтәлекне эзләү һәм уку өчен Википедиянең бер генә телен булса да кулланыгыз.</string>
   <string name="more_language_options">күбрәк</string>
@@ -1731,7 +1731,7 @@
   <string name="on_this_day_game_stats_average_score">Уртача балл</string>
   <string name="on_this_day_game_stats_streak">Агымдагы серия</string>
   <string name="on_this_day_game_result_subtitle">Бүгенге уенда телгә алынган мәкаләләр</string>
-  <string name="on_this_day_game_completed_message">Уйнавыгыз өчен рәхмәт. Башка «Нәрсә элегрәк булган?» уенын көн саен тасмада табарга була.</string>
+  <string name="on_this_day_game_completed_message" fuzzy="true">Уйнавыгыз өчен рәхмәт. Башка «Нәрсә элегрәк булган?» уенын көн саен тасмада табарга була.</string>
   <string name="on_this_day_game_menu_notifications">Уен искәртүләре</string>
   <string name="on_this_day_game_menu_info">Күбрәк мәгълүмат</string>
   <string name="on_this_day_game_menu_feedback">Функция белән проблема</string>
