@@ -903,11 +903,11 @@
   <string name="feed_item_type_randomizer">Genera voci casuali da leggere</string>
   <string name="feed_item_type_suggested_edits">Suggerimenti per aggiungere contenuti a Wikipedia</string>
   <string name="feed_item_type_places">Voci nelle vicinanze in base alla posizione attuale</string>
-  <string name="feed_empty_message">Non c\'è nulla nel tuo feed Esplora</string>
+  <string name="feed_empty_message">Non c\'è niente nel tuo feed Home</string>
   <string name="feed_configure_onboarding_action">Personalizza</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Annulla</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Personalizza il tuo feed Esplora&lt;/strong&gt; &lt;br/&gt;&lt;br/&gt;Ora puoi scegliere cosa mostrare nel tuo feed e dare priorità ai tuoi tipi di contenuti preferiti.</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Personalizza il tuo feed Home&lt;/strong&gt;&lt;br/&gt;&lt;br/&gt;Ora puoi scegliere cosa mostrare nel tuo feed e dare priorità ai tuoi tipi di contenuti preferiti.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Annulla</string>
   <string name="feed_accessibility_card_text">Hai raggiunto la fine del feed.</string>
@@ -1289,11 +1289,11 @@
   <string name="onboarding_get_started">Inizia</string>
   <string name="onboarding_maybe_later">Forse in seguito</string>
   <string name="onboarding_explore_title">Nuovi modi per esplorare</string>
-  <string name="onboarding_explore_text">Immergiti nella tana del coniglio di Wikipedia con un feed Esplora in costante aggiornamento. &lt;br/&gt; &lt;b&gt;Personalizza&lt;/b&gt; il feed per i tuoi interessi, sia che si tratti di conoscere eventi storici &lt;b&gt;In questo giorno&lt;/b&gt;, sia di lanciare i dadi con &lt;b&gt;Una pagina a caso&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text">Immergiti nella tana del coniglio di Wikipedia con un feed Home in costante aggiornamento. &lt;br/&gt; &lt;b&gt;Personalizza&lt;/b&gt; il feed per i tuoi interessi, sia che si tratti di conoscere eventi storici &lt;b&gt;In questo giorno&lt;/b&gt;, sia di lanciare i dadi con &lt;b&gt;Una pagina a caso&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Elenchi di lettura con sincronizzazione</string>
   <string name="onboarding_reading_list_sync_text_v2">Puoi creare elenchi di lettura delle voci che desideri leggere in un secondo momento, anche quando sei offline. &lt;br/&gt; Accedi alla tua utenza Wikipedia per sincronizzare i tuoi elenchi di lettura. &lt;a href=\"#login\"&gt;Iscriviti a Wikipedia&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Dati e privacy</string>
-  <string name="onboarding_data_privacy_text">Riteniamo che non dovresti dover fornire informazioni personali per partecipare al movimento della conoscenza libera. I dati di utilizzo raccolti per questa app sono anonimi. Scopri di più sulla nostra &lt;a href=\"#privacy\"&gt;politica sulla privacy&lt;/a&gt; e &lt;a href=\"#termsOfUse\"&gt;sui termini di utilizzo&lt;/a&gt; .</string>
+  <string name="onboarding_data_privacy_text">Riteniamo che non dovresti dover fornire informazioni personali per partecipare al movimento della conoscenza libera. I dati di utilizzo raccolti per questa app sono anonimi.&lt;br/&gt;&lt;br/&gt;Scopri di più sulla nostra &lt;a href=\"#privacy\"&gt;politica sulla privacy&lt;/a&gt; e sui &lt;a href=\"#termsOfUse\"&gt;termini di utilizzo&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Invia dati di utilizzo</string>
   <string name="onboarding_got_it">Capito</string>
   <string name="onboarding_multilingual_secondary_text">Abbiamo trovato quanto segue sul tuo dispositivo:</string>
@@ -1330,7 +1330,7 @@
     <item quantity="one">Rimuovere la lingua selezionata?</item>
     <item quantity="other">Rimuovere le lingue selezionate?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Visualizzerai solo i contenuti nel feed Esplora e i filtri di ricerca rapida per le restanti lingue di Wikipedia.</string>
+  <string name="wikipedia_languages_remove_dialog_content">Visualizzerai solo i contenuti nel feed Home e i filtri di ricerca rapida per le restanti lingue di Wikipedia.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Impossibile rimuovere tutte le lingue</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Mantieni almeno una lingua Wikipedia da cui potrai cercare e leggere il contenuto.</string>
   <string name="more_language_options">altro</string>
@@ -1856,7 +1856,7 @@
   <string name="on_this_day_game_stats_average_score">Media dei punteggi</string>
   <string name="on_this_day_game_stats_streak">Serie attuale</string>
   <string name="on_this_day_game_result_subtitle">Voci a cui si fa riferimento nel gioco di oggi</string>
-  <string name="on_this_day_game_completed_message">Grazie per aver giocato. Ogni giorno è disponibile una nuova partita di \"Chi è arrivato prima?\" sul feed Esplora.</string>
+  <string name="on_this_day_game_completed_message">Grazie per aver giocato. Ogni giorno è disponibile una nuova partita di \"Chi è arrivato prima?\" sul feed Home.</string>
   <string name="on_this_day_game_menu_notifications">Notifiche di gioco</string>
   <string name="on_this_day_game_menu_info">Ulteriori informazioni</string>
   <string name="on_this_day_game_menu_feedback">Problema con la funzionalità</string>
@@ -2169,7 +2169,10 @@
   <string name="explore_feed_swipe_to_explore_prompt_title">Scorri per esplorare</string>
   <string name="explore_feed_swipe_to_explore_prompt_message">Scorri verso il basso per navigare tra gli argomenti oppure scorri lateralmente per esplorare i contenuti correlati.</string>
   <string name="home_feed_settings_based_on_interest_title">In base ai tuoi interessi</string>
-  <string name="home_feed_settings_based_on_interest_subtitle">Articoli personalizzati in base agli argomenti che hai scelto. &lt;a href=\"#drivingFeed\"&gt;Cosa alimenta il tuo feed?&lt;/a&gt;</string>
+  <string name="home_feed_settings_based_on_interest_subtitle">Voci personalizzate in base agli argomenti che hai scelto.&lt;br /&gt;&lt;a href=\"#drivingFeed\"&gt;Cosa alimenta il tuo feed?&lt;/a&gt;</string>
   <string name="home_feed_settings_continue_reading_title">Continua a leggere</string>
+  <string name="home_feed_settings_for_you_empty_dialog_title">Il tuo feed \"Per te\" sarà vuoto</string>
+  <string name="home_feed_settings_empty_dialog_positive">Continua comunque</string>
   <string name="home_feed_screen_empty_state_label">Il tuo feed è vuoto</string>
+  <string name="home_feed_settings_feed_configuration_interests_updated_message">Interessi aggiornati. Aggiorna il feed per vedere gli aggiornamenti.</string>
 </resources>

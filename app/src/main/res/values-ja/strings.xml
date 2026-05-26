@@ -308,10 +308,10 @@
   <string name="terms_of_use_description">利用規約</string>
   <string name="legal_safety_contacts_description">法律および安全に関する連絡先</string>
   <string name="about_wikipedia_url">https://ja.wikipedia.org/wiki/Wikipedia:ウィキペディアについて</string>
-  <string name="privacy_policy_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ/ja#オフラインでの閲覧とデータ</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ/ja</string>
-  <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">//ja.wikipedia.org/wiki/Help:ログイン#アカウントの作成</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.ja</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ja</string>
@@ -892,11 +892,11 @@
   <string name="feed_item_type_randomizer">記事をおまかせ表示する</string>
   <string name="feed_item_type_suggested_edits">ウィキペディアへの内容追加のご提案</string>
   <string name="feed_item_type_places">現在の位置に基づく近隣の記事</string>
-  <string name="feed_empty_message">あなたの探索フィードには何もありません。</string>
+  <string name="feed_empty_message" fuzzy="true">あなたの探索フィードには何もありません。</string>
   <string name="feed_configure_onboarding_action">カスタマイズ</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">キャンセル</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;探索フィードをカスタマイズする&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;フィードに表示するコンテンツを選択して、お気に入りのタイプのコンテンツに優先順位を付けることができるようになりました。</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;探索フィードをカスタマイズする&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;フィードに表示するコンテンツを選択して、お気に入りのタイプのコンテンツに優先順位を付けることができるようになりました。</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">キャンセル</string>
   <string name="feed_accessibility_card_text">フィード一覧はこれで最後です。</string>
@@ -1257,11 +1257,11 @@
   <string name="onboarding_get_started">始めよう</string>
   <string name="onboarding_maybe_later">あとで寄付する</string>
   <string name="onboarding_explore_title">新しいツールで探検しよう</string>
-  <string name="onboarding_explore_text">絶えずアップデートしていく「探検」のフィードを追って、ウィキペディアの未知の世界に潜り込みましょう。過去の出来事を&lt;b&gt;今日は何の日&lt;/ b&gt;を学んだり、&lt;b&gt;おまかせ表示&lt;/ b&gt;で運にまかせるなど、フィードをあなたの興味のままに&lt;b&gt;カスタマイズ&lt;/ b&gt;することができます。</string>
+  <string name="onboarding_explore_text" fuzzy="true">絶えずアップデートしていく「探検」のフィードを追って、ウィキペディアの未知の世界に潜り込みましょう。過去の出来事を&lt;b&gt;今日は何の日&lt;/ b&gt;を学んだり、&lt;b&gt;おまかせ表示&lt;/ b&gt;で運にまかせるなど、フィードをあなたの興味のままに&lt;b&gt;カスタマイズ&lt;/ b&gt;することができます。</string>
   <string name="onboarding_reading_list_sync_title">あとで読むリストの同期</string>
   <string name="onboarding_reading_list_sync_text_v2">後でオフラインになっても記事が読みたい、そんなあなたのためにあとで読むリストを作成できます。&lt;br/&gt;ウィキペディアのアカウントにログインして、あとで読むリストを同期しましょう&lt;a href=\"#login\"&gt;ウィキペディアに参加&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">データとプライバシー</string>
-  <string name="onboarding_data_privacy_text">私たちはフリーな知識運動に参加するために個人情報を提供する必要はないと考えています。このアプリで収集される利用データは匿名です。詳細は&lt;a href=\"#privacy\"&gt;プライバシーポリシー&lt;/a&gt;および&lt;a href=\"#termsOfUse\"&gt;利用規約&lt;/a&gt;をご覧ください。</string>
+  <string name="onboarding_data_privacy_text" fuzzy="true">私たちはフリーな知識運動に参加するために個人情報を提供する必要はないと考えています。このアプリで収集される利用データは匿名です。詳細は&lt;a href=\"#privacy\"&gt;プライバシーポリシー&lt;/a&gt;および&lt;a href=\"#termsOfUse\"&gt;利用規約&lt;/a&gt;をご覧ください。</string>
   <string name="onboarding_analytics_switch_title">使用データを送信</string>
   <string name="onboarding_got_it">了解!</string>
   <string name="onboarding_multilingual_secondary_text">お使いの端末で次の言語が見つかりました:</string>
@@ -1296,7 +1296,7 @@
     <item quantity="one">選択した言語を削除しますか?</item>
     <item quantity="other">選択した言語を削除しますか?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">探索フィードとクイック検索フィルターで、残りの言語のウィキペディアのコンテンツのみが見えるようになります。</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">探索フィードとクイック検索フィルターで、残りの言語のウィキペディアのコンテンツのみが見えるようになります。</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">すべての言語を削除することはできません</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">検索して内容を読むためにはウィキペディアの言語が少なくとも1つは必要です。</string>
   <string name="more_language_options">もっと見る</string>

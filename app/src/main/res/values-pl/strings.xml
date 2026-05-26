@@ -12,6 +12,7 @@
 * Debeet
 * Devwebtel
 * Expert3222
+* G3raltJJ
 * IOIOI
 * InternerowyGołąb
 * Kareyac
@@ -900,11 +901,11 @@
   <string name="feed_item_type_randomizer">Wylosuj artykuł do przeczytania</string>
   <string name="feed_item_type_suggested_edits">Sugestie dotyczące dodania treści do Wikipedii</string>
   <string name="feed_item_type_places">Artykuły w pobliżu na podstawie bieżącej lokalizacji</string>
-  <string name="feed_empty_message">W Twoim kanale Eksploruj nie ma nic</string>
+  <string name="feed_empty_message">Twój kanał główny jest pusty</string>
   <string name="feed_configure_onboarding_action">Dostosuj</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Anuluj</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt; Dostosuj swój kanał Eksploruj &lt;/strong&gt; &lt;br/&gt; &lt;br/&gt; Możesz teraz wybrać, co ma być wyświetlane w kanale, a także ustalić priorytet ulubionych rodzajów treści.</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt; Dostosuj swój kanał główny &lt;/strong&gt; &lt;br/&gt; &lt;br/&gt; Możesz teraz wybrać, co ma być wyświetlane w kanale, a także ustalić priorytet ulubionych rodzajów treści.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Anuluj</string>
   <string name="feed_accessibility_card_text">Dotarłeś do dolnej części kanału.</string>
@@ -1231,11 +1232,11 @@
   <string name="onboarding_get_started">Rozpocznij edycję</string>
   <string name="onboarding_maybe_later">Może później</string>
   <string name="onboarding_explore_title">Nowe metody eksploracji</string>
-  <string name="onboarding_explore_text">Zanurkuj w króliczej norze Wikipedii, ze stale aktualizowanym kanałem Eksploruj.&lt;br/&gt;&lt;b&gt;Dostosuj&lt;/b&gt; źródła do swoich zainteresowań - niezależnie od tego, czy chodzi o wydarzenia historyczne &lt;b&gt;Tego dnia&lt;/b&gt;, czy rzut kostką za pomocą &lt;b&gt;Losowego artykułu&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text">Zanurkuj w króliczej norze Wikipedii, ze stale aktualizowaną stroną główną.&lt;br/&gt;&lt;b&gt;Dostosuj&lt;/b&gt; źródła do swoich zainteresowań - niezależnie od tego, czy chodzi o wydarzenia historyczne &lt;b&gt;Tego dnia&lt;/b&gt;, czy rzut kostką za pomocą &lt;b&gt;Losowego artykułu&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Synchronizacja list do przeczytania</string>
   <string name="onboarding_reading_list_sync_text_v2">Możesz tworzyć listy do czytania z artykułów, które chcesz przeczytać później, nawet gdy jesteś offline. &lt;br/&gt; Zaloguj się do swojego konta w Wikipedii, aby zsynchronizować listy czytelnicze. &lt;a href=\"#login\"&gt; Dołącz do Wikipedii &lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Dane i prywatność</string>
-  <string name="onboarding_data_privacy_text">Uważamy, że do udziału w inicjatywie wolnej wiedzy nie powinno się wymagać podawania danych osobowych. Wszystkie dane dotyczące użytkowania zbierane dla tej aplikacji są anonimowe. Dowiedz się więcej o naszej &lt;a href=\"#privacy\"&gt;polityce prywatności&lt;/a&gt; oraz &lt;a href=\"#termsOfUse\"&gt;warunkach użytkowania&lt;/a&gt;.</string>
+  <string name="onboarding_data_privacy_text">Uważamy, że do udziału w inicjatywie wolnej wiedzy nie powinno się wymagać podawania danych osobowych. Wszystkie dane dotyczące użytkowania zbierane dla tej aplikacji są anonimowe. &lt;br/&gt;&lt;br/&gt; Dowiedz się więcej o naszej &lt;a href=\"#privacy\"&gt;polityce prywatności&lt;/a&gt; oraz &lt;a href=\"#termsOfUse\"&gt;warunkach użytkowania&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Wyślij używane dane</string>
   <string name="onboarding_got_it">Wszystko jasne</string>
   <string name="onboarding_multilingual_secondary_text">Znaleźliśmy następujące na twoim urządzeniu:</string>
@@ -1274,7 +1275,7 @@
     <item quantity="many">Usunąć wybrane języki?</item>
     <item quantity="other">Usunąć wybrane języki?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Zobaczysz tylko zawartość w kanale Eksploruj i filtry szybkiego wyszukiwania dla pozostałych języków Wikipedii.</string>
+  <string name="wikipedia_languages_remove_dialog_content">Zobaczysz tylko zawartość na kanale głównym i filtry szybkiego wyszukiwania dla pozostałych języków Wikipedii.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Nie można usunąć wszystkich języków</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Zachowaj przynajmniej jeden język Wikipedii, z którego można wyszukiwać i czytać treści.</string>
   <string name="more_language_options">więcej</string>

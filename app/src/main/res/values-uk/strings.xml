@@ -930,7 +930,7 @@
   <string name="feed_configure_onboarding_action">Налаштувати</string>
   <string name="customize_lang_selection_dialog_ok_button_text">Гаразд</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Скасувати</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Налаштуйте свою стрічку&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Ви можете вибрати, що показувати у своїй стрічці, і налаштувати пріоритетність улюблених типів матеріалів.</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Налаштуйте свою стрічку&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Ви можете вибрати, що показувати у своїй стрічці і налаштувати пріоритетність улюблених типів матеріалів.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">Гаразд</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Скасувати</string>
   <string name="feed_accessibility_card_text">Ви досягли кінця стрічки.</string>
@@ -1365,7 +1365,7 @@
   <string name="onboarding_reading_list_sync_title">Синхронізовані читальні списки</string>
   <string name="onboarding_reading_list_sync_text_v2">Ви можете укладати списки читання зі статей, які хочете почитати пізніше, навіть коли ви офлайн. &lt;br/&gt;Увійдіть у свій обліковий запис Вікіпедії, щоб синхронізувати свої списки читання. &lt;a href=\"#login\"&gt;Увійти у Вікіпедію&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Дані та конфіденційність</string>
-  <string name="onboarding_data_privacy_text">Ми вважаємо, що у вас має бути можливість брати участь у русі вільних знань, не надаючи персональної інформації. Дані про використання, які збирає ця програмка, є анонімними. Дізнайтеся більше про нашу &lt;a href=\"#privacy\"&gt;політику приватності&lt;/a&gt; та &lt;a href=\"#termsOfUse\"&gt;умови використання&lt;/a&gt;.</string>
+  <string name="onboarding_data_privacy_text">Ми вважаємо, що у вас має бути можливість брати участь у русі вільних знань, не надаючи персональної інформації. Дані про використання, які збирає ця програмка, є анонімними.&lt;br/&gt;&lt;br/&gt;Дізнайтеся більше про нашу &lt;a href=\"#privacy\"&gt;політику приватності&lt;/a&gt; та &lt;a href=\"#termsOfUse\"&gt;умови використання&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Надсилати дані використання</string>
   <string name="onboarding_got_it">Зрозуміло</string>
   <string name="onboarding_multilingual_secondary_text">Ми знайшли такі мови на Вашому пристрої:</string>

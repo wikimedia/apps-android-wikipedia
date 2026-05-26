@@ -661,11 +661,11 @@
   <string name="feed_item_type_main_page">နေ့စဉ် အထူးအကြောင်းအရာနှင့် ဝီကီပီးဒီးယား၏ ဗဟိုစာမျက်နှာ</string>
   <string name="feed_item_type_randomizer">ဖတ်ရှုရန် ကျပန်းဆောင်းပါးများကို ထုတ်မည်</string>
   <string name="feed_item_type_suggested_edits">ဝီကီပီးဒီးယားသို့ အကြောင်းအရာပေါင်းထည့်ရန် အကြံပြုချက်များ</string>
-  <string name="feed_empty_message">သင်၏ စူးစမ်းရေးအခင်းအကျင်းတွင် ဘာမျှမရှိပါ</string>
+  <string name="feed_empty_message" fuzzy="true">သင်၏ စူးစမ်းရေးအခင်းအကျင်းတွင် ဘာမျှမရှိပါ</string>
   <string name="feed_configure_onboarding_action">စိတ်ကြိုက်ပြင်ဆင်ရန်</string>
   <string name="customize_lang_selection_dialog_ok_button_text">အိုကေ</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">မလုပ်တော့ပါ</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;သင်၏အခင်းအကျင်းအား စိတ်ကြိုက်ပြင်ဆင်ရန်&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;အခုဆိုလျင် သင်၏အခင်းအကျင်းတွင် မည်သည့်အရာများကို ပြသပေးမည်၊ သင်နှစ်သက်သည့် အကြောင်းအရာအမျိုးအစားများကို ဦးစားပေးဖော်ပြမည်ဆိုသည်ကို ရွေးချယ်နိုင်ပါပြီ။</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;သင်၏အခင်းအကျင်းအား စိတ်ကြိုက်ပြင်ဆင်ရန်&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;အခုဆိုလျင် သင်၏အခင်းအကျင်းတွင် မည်သည့်အရာများကို ပြသပေးမည်၊ သင်နှစ်သက်သည့် အကြောင်းအရာအမျိုးအစားများကို ဦးစားပေးဖော်ပြမည်ဆိုသည်ကို ရွေးချယ်နိုင်ပါပြီ။</string>
   <string name="feed_lang_selection_dialog_ok_button_text">အိုကေ</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">မလုပ်တော့ပါ</string>
   <string name="feed_accessibility_card_load_more_button">ပိုမိုခေါ်ယူရန်</string>
@@ -854,7 +854,7 @@
   <string name="onboarding_get_started">စတင်ပါ</string>
   <string name="onboarding_maybe_later">နောက်ကြုံမှ</string>
   <string name="onboarding_explore_title">စူးစမ်းရန် နည်းလမ်းသစ်များ</string>
-  <string name="onboarding_explore_text">စဉ်ဆက်မပြတ် မွမ်းမံလျက်ရှိသော စူးစမ်းရေးအခင်းအကျင်းနှင့် ဝီကီပီးဒီးယား ယုန်တွင်းပေါက်သို့ ခုန်ဆင်းလိုက်ပါ။ &lt;br/&gt;သင် စိတ်ဝင်စားသော အခင်းအကျင်းကို &lt;b&gt;မွမ်းမံပြင်ဆင်ပါ&lt;/b&gt; - သမိုင်းဝင်ဖြစ်ရပ်များကို &lt;b&gt;ယနေ့ဖြစ်ရပ်များ&lt;/b&gt;၊ သို့မဟုတ် &lt;b&gt;ကျပန်း&lt;/b&gt;ဖြင့် အန်စာတုံးကို လှည့်ကာ လေ့လာနိုင်ပါသည်။</string>
+  <string name="onboarding_explore_text" fuzzy="true">စဉ်ဆက်မပြတ် မွမ်းမံလျက်ရှိသော စူးစမ်းရေးအခင်းအကျင်းနှင့် ဝီကီပီးဒီးယား ယုန်တွင်းပေါက်သို့ ခုန်ဆင်းလိုက်ပါ။ &lt;br/&gt;သင် စိတ်ဝင်စားသော အခင်းအကျင်းကို &lt;b&gt;မွမ်းမံပြင်ဆင်ပါ&lt;/b&gt; - သမိုင်းဝင်ဖြစ်ရပ်များကို &lt;b&gt;ယနေ့ဖြစ်ရပ်များ&lt;/b&gt;၊ သို့မဟုတ် &lt;b&gt;ကျပန်း&lt;/b&gt;ဖြင့် အန်စာတုံးကို လှည့်ကာ လေ့လာနိုင်ပါသည်။</string>
   <string name="onboarding_reading_list_sync_title">Sync နှင့် စာဖတ်စာရင်းများ</string>
   <string name="onboarding_reading_list_sync_text_v2">အော့ဖ်လိုင်းဖြစ်နေစဉ်တွင်တောင်မှ နောင်အခါ သင်ဖတ်ရှုလိုသော ဆောင်းပါးများကို စာဖတ်စာရင်းများအဖြစ် ပြုလုပ်နိုင်ပါသည်။ &lt;br/&gt;သင်၏ ဖတ်ရှုစာရင်းများကို ဝီကီပီးဒီးယားအကောင့်ထဲတွင် sync လုပ်ရန် လော့အင်ဝင်ရောက်ပါ။ &lt;a href=\"#login\"&gt;ဝီကီပီးဒီးယားသို့ ချိတ်ဆက်ပါ&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">ဒေတာနှင့် ကိုယ်ရေးကိုယ်တာ</string>
@@ -890,7 +890,7 @@
     <item quantity="one">ရွေးချယ်ထားသော ဘာသာစကားကို ဖယ်ရှားမည်လော?</item>
     <item quantity="other">ရွေးချယ်ထားသော ဘာသာစကားများကို ဖယ်ရှားမည်လော?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">သင်သည် စူးစမ်းရေး အခင်းအကျင်းရှိ အကြောင်းအရာနှင့် ကျန်သောဝီကီပီးဒီးယား ဘာသာစကားများအတွက် အမြန်ရှာဖွေရေး စိစစ်စနစ်များကိုသာ မြင်တွေ့ရလိမ့်မည်ဖြစ်သည်။</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">သင်သည် စူးစမ်းရေး အခင်းအကျင်းရှိ အကြောင်းအရာနှင့် ကျန်သောဝီကီပီးဒီးယား ဘာသာစကားများအတွက် အမြန်ရှာဖွေရေး စိစစ်စနစ်များကိုသာ မြင်တွေ့ရလိမ့်မည်ဖြစ်သည်။</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">ဘာသာစကားများအားလုံးကို မဖယ်ရှားနိုင်ပါ</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">အကြောင်းအရာ ရှာဖွေ၊ ဖတ်ရှုရန် ဝီကီပီးဒီးယား ဘာသာစကား အနည်းဆုံး ၁ ခု ထားရှိပါ။</string>
   <string name="more_language_options">ပို၍</string>
