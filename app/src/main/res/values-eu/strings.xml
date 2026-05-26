@@ -845,11 +845,11 @@
   <string name="feed_item_type_randomizer">Irakurtzeko ausazko artikuluak sortu</string>
   <string name="feed_item_type_suggested_edits">Wikipedian edukia gehitzeko iradokizunak</string>
   <string name="feed_item_type_places">Uneko kokapenean oinarritutako inguruko artikuluak</string>
-  <string name="feed_empty_message">Ez dago ezer zure Arakatze-jarioan</string>
+  <string name="feed_empty_message" fuzzy="true">Ez dago ezer zure Arakatze-jarioan</string>
   <string name="feed_configure_onboarding_action">Pertsonalizatu</string>
   <string name="customize_lang_selection_dialog_ok_button_text">Ados</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Utzi</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Pertsonalizatu zure Arakatze jarioa&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Orain zure jarioan zer erakutsi behar den aukeratu dezakezu eta, era berean, zure eduki mota gogokoenak lehentasunez ezarri.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Pertsonalizatu zure Arakatze jarioa&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Orain zure jarioan zer erakutsi behar den aukeratu dezakezu eta, era berean, zure eduki mota gogokoenak lehentasunez ezarri.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">Ados</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Utzi</string>
   <string name="feed_accessibility_card_text">Jarioaren amaierara iritsi zara.</string>
@@ -1233,11 +1233,11 @@
   <string name="onboarding_get_started">Has zaitez!</string>
   <string name="onboarding_maybe_later">Agian geroago</string>
   <string name="onboarding_explore_title">Exploratzeko era berriak</string>
-  <string name="onboarding_explore_text">Murgildu zaitez Wikipedian etengabe Arakatzaile ezarpena eguneratuz.&lt;br/&gt; &lt;b&gt;Pertsonalizatu&lt;/b&gt; zure interesetako jarioa – bai gertakari historikoen inguruan ikasteko &lt;b&gt;Egun honetan&lt;/b&gt;, zein dadoa botaz &lt;b&gt;Ausazkoa&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Murgildu zaitez Wikipedian etengabe Arakatzaile ezarpena eguneratuz.&lt;br/&gt; &lt;b&gt;Pertsonalizatu&lt;/b&gt; zure interesetako jarioa – bai gertakari historikoen inguruan ikasteko &lt;b&gt;Egun honetan&lt;/b&gt;, zein dadoa botaz &lt;b&gt;Ausazkoa&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Sinkronizatutako irakurketa zerrendak</string>
   <string name="onboarding_reading_list_sync_text_v2">Gero irakurri nahi dituzun artikuluen irakurketa-zerrendak egin ditzakezu, nahiz eta offline egon. &lt;br/&gt;Hasi saioa zure Wikipedian kontuan zure irakurketa-zerrendak sinkronizatzeko. &lt;a href=\"#login\"&gt;Wikipediara batu&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Datuak eta pribatutasuna</string>
-  <string name="onboarding_data_privacy_text">Uste dugu ez duzula informazio pertsonalik eman behar ezagutza librearen mugimenduan parte hartzeko. Aplikazio honetarako bildutako erabilera-datuak anonimoak dira. Lortu informazio gehiago gure &lt;a href=\"#privacy\"&gt;pribatutasun-politikari&lt;/a&gt; eta &lt;a href=\"#termsOfUse\"&gt;erabilera-baldintzei&lt;/a&gt; buruz.</string>
+  <string name="onboarding_data_privacy_text" fuzzy="true">Uste dugu ez duzula informazio pertsonalik eman behar ezagutza librearen mugimenduan parte hartzeko. Aplikazio honetarako bildutako erabilera-datuak anonimoak dira. Lortu informazio gehiago gure &lt;a href=\"#privacy\"&gt;pribatutasun-politikari&lt;/a&gt; eta &lt;a href=\"#termsOfUse\"&gt;erabilera-baldintzei&lt;/a&gt; buruz.</string>
   <string name="onboarding_analytics_switch_title">Erabilitako data bidali</string>
   <string name="onboarding_got_it">Ulertuta</string>
   <string name="onboarding_multilingual_secondary_text">Hurrengoak aurkitu ditugu zure gailuan:</string>
@@ -1280,7 +1280,7 @@
     <item quantity="one">Aukeratutako hizkuntza kendu?</item>
     <item quantity="other">Aukeratutako hizkuntzak kendu?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Arakatze horniduratik eta bilaketa azkarreko iragazkitik baino ez duzu edukia ikusiko, gainontzeko Wikipedia hizkuntzetan.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Arakatze horniduratik eta bilaketa azkarreko iragazkitik baino ez duzu edukia ikusiko, gainontzeko Wikipedia hizkuntzetan.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Ezin dira hizkuntza guztiak ezabatu</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Gorde ezazu behintzat Wikipedia hizkuntza bat zeinetatik edukia bilatu eta irakurri ahalko duzun.</string>
   <string name="more_language_options">gehiago</string>

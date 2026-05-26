@@ -470,14 +470,14 @@
   <string name="empty_tab_title">Nieuw tabblad</string>
   <string name="menu_save_all_tabs">Alle tabbladen opslaan</string>
   <string name="error_blocked_title">Uw gebruikersnaam of IP adres is geblokkeerd.</string>
-  <string name="error_blocked_by">De blokkering is geactiveerd door &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
+  <string name="error_blocked_by">De blokkade is geactiveerd door &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
   <string name="error_blocked_reason">De gegeven reden is: %s</string>
-  <string name="error_blocked_start">Begindatum van blokkering: %s</string>
-  <string name="error_blocked_expiry">Vervaldatum van blokkering: %s</string>
-  <string name="error_blocked_id">Blokkering ID: %s</string>
-  <string name="error_blocked_footer">U kunt contact opnemen met &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; of met een andere &lt;a href=\"https://nl.wikipedia.org/wiki/Wikipedia:Moderator\"&gt;moderator&lt;/a&gt; voor meer informatie over de blokkering.</string>
+  <string name="error_blocked_start">Begindatum van blokkade: %s</string>
+  <string name="error_blocked_expiry">Vervaldatum van blokkade: %s</string>
+  <string name="error_blocked_id">Blokkade-ID: %s</string>
+  <string name="error_blocked_footer">U kunt contact opnemen met &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; of met een andere &lt;a href=\"https://nl.wikipedia.org/wiki/Wikipedia:Moderator\"&gt;moderator&lt;/a&gt; voor meer informatie over de blokkade.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Werkbalk aanpassen</string>
-  <string name="error_blocked_footer_no_blocker">U kunt contact opnemen met een &lt;a href=\"https://nl.wikipedia.org/wiki/Wikipedia:Moderator\"&gt;moderator&lt;/a&gt; voor meer informatie over de blokkering.</string>
+  <string name="error_blocked_footer_no_blocker">U kunt contact opnemen met een &lt;a href=\"https://nl.wikipedia.org/wiki/Wikipedia:Moderator\"&gt;moderator&lt;/a&gt; voor meer informatie over de blokkade.</string>
   <string name="temp_account_not_logged_in">U bent niet aangemeld</string>
   <string name="temp_account_anon_ip_dialog_body">Zodra u een bewerking doorvoert, wordt uw IP-adres aan uw bewerkingen gekoppeld.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Meld u aan&lt;/a&gt; of &lt;a href=\"https://#createaccount\"&gt;maak een account aan&lt;/a&gt; om naamsvermelding te krijgen voor toekomstige bewerkingen en om toegang te krijgen tot andere functies.</string>
   <string name="temp_account_anon_dialog_body">Nadat u een wijziging hebt aangebracht, wordt er een &lt;b&gt;tijdelijk account&lt;/b&gt; aangemaakt om uw privacy te beschermen. &lt;a href=\"%1$s\"&gt;Meer informatie&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Meld u aan&lt;/a&gt; of &lt;a href=\"https://#createaccount\"&gt;maak een account aan&lt;/a&gt; om onder een zelfgekozen naam bij te dragen en om toegang te krijgen tot meer mogelijkheden.</string>
@@ -886,11 +886,11 @@
   <string name="feed_item_type_randomizer">Genereert willekeurige pagina\'s om te lezen</string>
   <string name="feed_item_type_suggested_edits">Voorstellen om inhoud aan Wikipedia toe te voegen</string>
   <string name="feed_item_type_places">Nabijgelegen pagina\'s op basis van de huidige locatie</string>
-  <string name="feed_empty_message">Er staat niets in uw overzicht Verkennen</string>
+  <string name="feed_empty_message">Er staat niets op uw startpagina.</string>
   <string name="feed_configure_onboarding_action">Aanpassen</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Annuleren</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Uw overzicht Verkennen aanpassen&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;U kunt nu kiezen welke rubrieken u in uw overzicht wilt laten zien en ook prioriteit geven aan uw favoriete soorten inhoud.</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Personaliseer uw startpagina&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;U kunt nu zelf kiezen wat er op uw feed verschijnt en ook uw favoriete soorten inhoud prioriteren.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Annuleren</string>
   <string name="feed_accessibility_card_text">U bent bij het einde aangekomen.</string>
@@ -1286,11 +1286,11 @@
   <string name="onboarding_get_started">Aan de slag</string>
   <string name="onboarding_maybe_later">Misschien later</string>
   <string name="onboarding_explore_title">Nieuwe manieren om te ontdekken</string>
-  <string name="onboarding_explore_text">Stap in de wereld van Wikipedia met een steeds bijgewerkt overzicht op Verkennen. &lt;br/&gt; Pas het overzicht aan &lt;b&gt;uw interesses&lt;/b&gt; aan – of u nu geïnteresseerd bent in historische gebeurtenissen &lt;b&gt;op deze dag&lt;/b&gt; of het gooien met de dobbelsteen voor een &lt;b&gt;willekeurige pagina&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text">Stap in de wereld van Wikipedia met een continu bijgewerkte startpagina. &lt;br/&gt; Pas het overzicht aan &lt;b&gt;uw interesses&lt;/b&gt; aan – of u nu geïnteresseerd bent in historische gebeurtenissen &lt;b&gt;op deze dag&lt;/b&gt; of het gooien met de dobbelsteen voor een &lt;b&gt;willekeurige pagina&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Leeslijsten met synchronisatie</string>
   <string name="onboarding_reading_list_sync_text_v2">U kunt leeslijsten maken van pagina\'s die u later wilt lezen, ook als u offline bent. &lt;br/&gt;Meld u aan bij uw Wikipedia-account om uw leeslijsten te synchroniseren. &lt;a href=\"#login\"&gt;Bij Wikipedia aanmelden&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Gegevens &amp; privacy</string>
-  <string name="onboarding_data_privacy_text">Wij zijn van mening dat u geen persoonlijke informatie hoeft te verstrekken om deel te nemen aan de vrije kennisbeweging. De gebruiksgegevens die voor deze app worden verzameld, zijn anoniem. Lees meer over ons &lt;a href=\"#privacy\"&gt;privacybeleid&lt;/a&gt; en &lt;a href=\"#termsOfUse\"&gt;onze gebruiksvoorwaarden&lt;/a&gt; .</string>
+  <string name="onboarding_data_privacy_text">Wij zijn van mening dat u geen persoonlijke informatie hoeft te verstrekken om deel te nemen aan de vrije kennisbeweging. De gebruiksgegevens die voor deze app worden verzameld, zijn anoniem. &lt;br/&gt;&lt;br/&gt;Lees meer over ons &lt;a href=\"#privacy\"&gt;privacybeleid&lt;/a&gt; en &lt;a href=\"#termsOfUse\"&gt;onze gebruiksvoorwaarden&lt;/a&gt; .</string>
   <string name="onboarding_analytics_switch_title">Uw gebruiksgegevens verzenden</string>
   <string name="onboarding_got_it">Begrepen</string>
   <string name="onboarding_multilingual_secondary_text">We hebben het volgende gevonden op uw apparaat:</string>
@@ -1333,7 +1333,7 @@
     <item quantity="one">Geselecteerde taal verwijderen?</item>
     <item quantity="other">Geselecteerde talen verwijderen?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">U ziet alleen inhoud op het overzicht Verkennen en snelle zoekfilters voor de resterende Wikipedia-talen.</string>
+  <string name="wikipedia_languages_remove_dialog_content">U ziet alleen inhoud op de startpagina en in de snelle zoekfilters voor de overige Wikipedia-talen.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Kan niet alle talen verwijderen</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Houd ten minste één Wikipedia-taal waarin u inhoud kunt zoeken en lezen.</string>
   <string name="more_language_options">meer</string>
@@ -1859,7 +1859,7 @@
   <string name="on_this_day_game_stats_average_score">Gemiddelde score</string>
   <string name="on_this_day_game_stats_streak">Huidige reeks</string>
   <string name="on_this_day_game_result_subtitle">Pagina\'s waarnaar in het spel van vandaag wordt verwezen</string>
-  <string name="on_this_day_game_completed_message">Bedankt voor het spelen. Er is iedere dag een nieuw “Wat gebeurde er eerst?”-spel te vinden onder Verkennen.</string>
+  <string name="on_this_day_game_completed_message">Bedankt voor het spelen. Er is iedere dag een nieuw “Wat gebeurde er eerst?”-spel te vinden op de startpagina.</string>
   <string name="on_this_day_game_menu_notifications">Spelmeldingen</string>
   <string name="on_this_day_game_menu_info">Meer lezen</string>
   <string name="on_this_day_game_menu_feedback">Probleem met functie</string>
@@ -2420,14 +2420,18 @@
   <string name="home_feed_settings_community_modules_description">Als u een module uitschakelt, wordt deze verborgen in uw gemeenschapsfeed. U kunt de module hier op elk gewenst moment weer inschakelen. Sommige modules zijn mogelijk niet beschikbaar in uw taal.</string>
   <string name="home_feed_settings_for_you_modules_description">Als u een module uitschakelt, wordt deze niet meer weergegeven in de \'Voor jou\'-feed. U kunt de module hier op elk gewenst moment weer inschakelen.</string>
   <string name="home_feed_settings_based_on_interest_title">Op basis van uw interesses</string>
-  <string name="home_feed_settings_based_on_interest_subtitle">Pagina\'s afgestemd op de onderwerpen die u hebt gekozen. &lt;a href=\"#drivingFeed\"&gt;Wat is de drijfveer achter uw feed?&lt;/a&gt;</string>
+  <string name="home_feed_settings_based_on_interest_subtitle">Pagina\'s afgestemd op de onderwerpen die u hebt gekozen.&lt;br /&gt;&lt;a href=\"#drivingFeed\"&gt;Wat is de drijfveer achter uw feed?&lt;/a&gt;</string>
   <string name="home_feed_settings_because_you_read_subtitle">Suggesties gebaseerd op een recente pagina uit uw geschiedenis.</string>
   <string name="home_feed_settings_continue_reading_title">Verder lezen</string>
   <string name="home_feed_settings_continue_reading_subtitle">Verder gaan met pagina\'s die u niet hebt uitgelezen.</string>
+  <string name="home_feed_settings_community_empty_dialog_title">Uw gemeenschapsfeed zal leeg zijn.</string>
+  <string name="home_feed_settings_for_you_empty_dialog_title">Uw \"Voor u\"-feed zal leeg zijn.</string>
+  <string name="home_feed_settings_empty_dialog_text">Schakel ten minste één module in om de inhoud te kunnen bekijken.</string>
+  <string name="home_feed_settings_empty_dialog_positive">Toch doorgaan</string>
   <string name="home_feed_screen_empty_state_label">Uw feed is leeg.</string>
-  <string name="home_feed_community_screen_empty_state_description">Schakel de modules &lt;b&gt;Vanuit de gemeenschap&lt;/b&gt; in om inhoud te bekijken die is samengesteld door bijdragers binnen de Wikimedia-beweging.</string>
-  <string name="home_feed_for_you_screen_empty_state_description">Schakel de &lt;b&gt;Voor u&lt;/b&gt;-modules in om inhoud te zien die is afgestemd op uw voorkeuren.</string>
-  <string name="home_feed_screen_empty_state_btn_label">Modules beheren</string>
+  <string name="home_feed_community_screen_all_modules_disabled_description" fuzzy="true">Schakel de modules &lt;b&gt;Vanuit de gemeenschap&lt;/b&gt; in om inhoud te bekijken die is samengesteld door bijdragers binnen de Wikimedia-beweging.</string>
+  <string name="home_feed_for_you_screen_all_modules_disabled_description">Schakel de &lt;b&gt;Voor u&lt;/b&gt;-modules in om inhoud te zien die is afgestemd op uw voorkeuren.</string>
+  <string name="home_feed_screen_all_modules_disabled_btn_label">Modules beheren</string>
   <string name="home_feed_for_you_screen_empty_title">U feed is leeg op dit moment.</string>
   <string name="home_feed_for_you_screen_empty_description">Uw \"Voor u\"-feed wordt gevuld met gepersonaliseerde pagina\'s terwijl u op verkenning bent.</string>
   <string name="home_feed_for_you_screen_empty_ways_to_start">Manieren om te beginnen:</string>
@@ -2435,11 +2439,12 @@
   <string name="home_feed_for_you_screen_empty_see_community">Kijk wat er in de &lt;a href=\"#community_tab\"&gt;gemeenschap&lt;/a&gt; gebeurt</string>
   <string name="home_feed_settings_feed_configuration_description">Deze onderwerpen en pagina\'s bepalen wat er in uw \'Voor u\'-feed verschijnt. Verwijder items die u niet meer wilt zien of voeg nieuwe interesses toe.</string>
   <string name="home_feed_settings_feed_configuration_interest_title">Uw interesses</string>
+  <string name="home_feed_settings_feed_configuration_interest_subtitle">Bewerk de onderwerpen waarin u geïnteresseerd bent</string>
   <string name="home_feed_settings_feed_configuration_empty_interest_subtitle">Uw lijst met interesses is leeg. Voeg iets toe waar u nieuwsgierig naar bent.</string>
-  <string name="home_feed_settings_feed_configuration_empty_reading_history_subtitle">Uw leesgeschiedenis is leeg. Begin met het verkennen van pagina\'s om gepersonaliseerde aanbevelingen te krijgen.</string>
   <string name="home_feed_settings_feed_configuration_reading_history_title">Leesgeschiedenis</string>
+  <string name="home_feed_settings_feed_configuration_reading_history_subtitle">Bekijk uw recent bekeken pagina\'s</string>
+  <string name="home_feed_settings_feed_configuration_empty_reading_history_subtitle">Uw leesgeschiedenis is leeg. Begin met het verkennen van pagina\'s om gepersonaliseerde aanbevelingen te krijgen.</string>
   <string name="home_feed_settings_feed_configuration_languages_title">Talen</string>
   <string name="home_feed_settings_feed_configuration_languages_subtitle">Bewerk uw voorkeurstalen</string>
-  <string name="home_feed_settings_feed_configuration_interest_subtitle">Bewerk de onderwerpen waarin u geïnteresseerd bent</string>
-  <string name="home_feed_settings_feed_configuration_reading_history_subtitle">Bekijk uw recent bekeken pagina\'s</string>
+  <string name="home_feed_settings_feed_configuration_interests_updated_message">Interesses bijgewerkt. Vernieuw uw feed om deze bij te werken.</string>
 </resources>

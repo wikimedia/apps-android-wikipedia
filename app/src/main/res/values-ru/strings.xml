@@ -985,11 +985,11 @@
   <string name="feed_item_type_randomizer">Сгенерировать случайный список статей для чтения</string>
   <string name="feed_item_type_suggested_edits">Предложено к редактированию кратких описаний</string>
   <string name="feed_item_type_places">Статьи поблизости на основе текущего местоположения</string>
-  <string name="feed_empty_message">Ваша лента пуста</string>
+  <string name="feed_empty_message" fuzzy="true">Ваша лента пуста</string>
   <string name="feed_configure_onboarding_action">Настроить</string>
   <string name="customize_lang_selection_dialog_ok_button_text">ОК</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Отмена</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Настройте свою ленту&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Теперь вы можете выбрать, что будет отображаться в ленте, а также определить приоритеты для выбранных типов содержимого.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Настройте свою ленту&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Теперь вы можете выбрать, что будет отображаться в ленте, а также определить приоритеты для выбранных типов содержимого.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">ОК</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Отмена</string>
   <string name="feed_accessibility_card_text">Вы достигли конца ленты.</string>
@@ -1420,11 +1420,11 @@
   <string name="onboarding_get_started">Начать</string>
   <string name="onboarding_maybe_later">Может позже</string>
   <string name="onboarding_explore_title">Новые способы исследований</string>
-  <string name="onboarding_explore_text">Путешествуйте по лабиринтам Википедии с помощью постоянно обновляемой ленты. &lt;br/&gt;&lt;b&gt;Настройте&lt;/b&gt; ленту так, чтобы она отвечала вашим интересам — будь то изучение исторических событий, случившихся &lt;b&gt;в этот день&lt;/b&gt;, или положитесь &lt;b&gt;на удачу&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Путешествуйте по лабиринтам Википедии с помощью постоянно обновляемой ленты. &lt;br/&gt;&lt;b&gt;Настройте&lt;/b&gt; ленту так, чтобы она отвечала вашим интересам — будь то изучение исторических событий, случившихся &lt;b&gt;в этот день&lt;/b&gt;, или положитесь &lt;b&gt;на удачу&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Списки для чтения с синхронизацией</string>
   <string name="onboarding_reading_list_sync_text_v2">Вы можете создавать списки для чтения из статей, которые вы хотите прочитать позже, даже если вы находитесь в офлайне. &lt;br/&gt;Авторизуйтесь с помощью учётной записи Википедии для синхронизации ваших списков для чтения. &lt;a href=\"#login\"&gt;Происоединяйтесь к Википедии&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Данные и конфиденциальность</string>
-  <string name="onboarding_data_privacy_text">Мы считаем, что вам не нужно предоставлять личную информацию для участия в движении за свободные знания. Данные об использовании, собранные для этого приложения, анонимны. Узнайте больше о нашей &lt;a href=\"#privacy\"&gt;политике конфиденциальности&lt;/a&gt; и &lt;a href=\"#termsOfUse\"&gt;условиях\nиспользования&lt;/a&gt;.</string>
+  <string name="onboarding_data_privacy_text" fuzzy="true">Мы считаем, что вам не нужно предоставлять личную информацию для участия в движении за свободные знания. Данные об использовании, собранные для этого приложения, анонимны. Узнайте больше о нашей &lt;a href=\"#privacy\"&gt;политике конфиденциальности&lt;/a&gt; и &lt;a href=\"#termsOfUse\"&gt;условиях\nиспользования&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Отправлять отчёты об использовании</string>
   <string name="onboarding_got_it">Понятно</string>
   <string name="onboarding_multilingual_secondary_text">Мы нашли следующие языки на вашем устройстве:</string>
@@ -1464,7 +1464,7 @@
     <item quantity="many">Удалить выбранные языки?</item>
     <item quantity="other">Удалить выбранные языки?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Вы сможете просмотреть содержимое на вкладке Лента и использовать быстрые поисковые фильтры только для других языковых разделов Википедии.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Вы сможете просмотреть содержимое на вкладке Лента и использовать быстрые поисковые фильтры только для других языковых разделов Википедии.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Нельзя удалить все языки</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Оставьте, по меньшей мере, один язык для поиска и чтения.</string>
   <string name="more_language_options">ещё языки</string>
@@ -2005,7 +2005,7 @@
   <string name="on_this_day_game_stats_average_score">Средний балл</string>
   <string name="on_this_day_game_stats_streak">Текущая серия</string>
   <string name="on_this_day_game_result_subtitle">Статьи, упомянутые в сегодняшней игре</string>
-  <string name="on_this_day_game_completed_message">Спасибо, что играли. Новая игра «Что произошло раньше?» доступна ежедневно в ленте</string>
+  <string name="on_this_day_game_completed_message" fuzzy="true">Спасибо, что играли. Новая игра «Что произошло раньше?» доступна ежедневно в ленте</string>
   <string name="on_this_day_game_menu_notifications">Уведомления об игре</string>
   <string name="on_this_day_game_menu_info">Узнать больше</string>
   <string name="on_this_day_game_menu_feedback">Проблема с функцией</string>

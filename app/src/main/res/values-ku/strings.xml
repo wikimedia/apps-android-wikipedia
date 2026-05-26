@@ -743,11 +743,11 @@
   <string name="feed_item_type_main_page">Serrûpela Wîkîpediyayê tevî naveroka bijare yê rojane</string>
   <string name="feed_item_type_randomizer">Gotarên ketober çêke ji bo xwendinê</string>
   <string name="feed_item_type_suggested_edits">Pêşniyarên ji bo tevlîkirina Wîkîpediyayê</string>
-  <string name="feed_empty_message">Ti tişt tine li ser kanala te ya keşfkirinê</string>
+  <string name="feed_empty_message" fuzzy="true">Ti tişt tine li ser kanala te ya keşfkirinê</string>
   <string name="feed_configure_onboarding_action">Xisûsî bike</string>
   <string name="customize_lang_selection_dialog_ok_button_text">Baş e</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Betal bike</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Kanala xwe ya keşfkirinê xisûsî bike&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Tu vêga dikarî tiştê ku li ser kanala te were nîşandan bibijêrî, û naveroka xwe ya favorî bi pêş derxî.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Kanala xwe ya keşfkirinê xisûsî bike&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Tu vêga dikarî tiştê ku li ser kanala te were nîşandan bibijêrî, û naveroka xwe ya favorî bi pêş derxî.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">Baş e</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Betal bike</string>
   <string name="feed_accessibility_card_text">Te gihîşt binê binî.</string>

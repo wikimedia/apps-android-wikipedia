@@ -858,11 +858,11 @@
   <string name="feed_item_type_randomizer">Vis vilkårlig artikel</string>
   <string name="feed_item_type_suggested_edits">Forslag om at tilføje indhold til Wikipedia</string>
   <string name="feed_item_type_places">Nærliggende artikler baseret på den aktuelle placering</string>
-  <string name="feed_empty_message">Der er intet i dit Udforsk-feed</string>
+  <string name="feed_empty_message" fuzzy="true">Der er intet i dit Udforsk-feed</string>
   <string name="feed_configure_onboarding_action">Tilpas</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Annullér</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Tilpas dit Udforsk-feed&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Du kan nu vælge, hvad der skal vises i dit feed, og også prioritere dine foretrukne typer indhold.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Tilpas dit Udforsk-feed&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Du kan nu vælge, hvad der skal vises i dit feed, og også prioritere dine foretrukne typer indhold.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Annullér</string>
   <string name="feed_accessibility_card_text">Du har nået bunden af feedet.</string>
@@ -1257,11 +1257,11 @@
   <string name="onboarding_get_started">Kom i gang</string>
   <string name="onboarding_maybe_later">Måske senere</string>
   <string name="onboarding_explore_title">Nye måder at udforske</string>
-  <string name="onboarding_explore_text">Dyk ned i Wikipedias kaninhul med et konstant opdaterende Udforsk-feed. &lt;br/&gt; &lt;b&gt;Tilpas&lt;/b&gt; feedet til dine interesser – om det er historiske hændelser &lt;b&gt;På denne dag&lt;/b&gt;, eller et kast med terningen med &lt;b&gt;Vilkårlig&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Dyk ned i Wikipedias kaninhul med et konstant opdaterende Udforsk-feed. &lt;br/&gt; &lt;b&gt;Tilpas&lt;/b&gt; feedet til dine interesser – om det er historiske hændelser &lt;b&gt;På denne dag&lt;/b&gt;, eller et kast med terningen med &lt;b&gt;Vilkårlig&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Læselister med synkronisering</string>
   <string name="onboarding_reading_list_sync_text_v2">Du kan lave læselister med artikler, du ønsker at læse senere, selv når du er uden internetadgang. &lt;br/&gt;Log ind på din Wikipediakonto for at synkronisere dine læselister.&lt;a href=\"#login\"&gt;Opret konto på Wikipedia&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Data og privatliv</string>
-  <string name="onboarding_data_privacy_text">Vi mener, at du ikke skal afgive personlige oplysninger for at deltage i den frie vidensbevægelse. Brugsdata indsamlet til denne app er anonyme. Lær mere om vores &lt;a href=\"#privacy\"&gt;privatlivspolitik&lt;/a&gt; og &lt;a href=\"#termsOfUse\"&gt;vilkår for brug&lt;/a&gt;.</string>
+  <string name="onboarding_data_privacy_text" fuzzy="true">Vi mener, at du ikke skal afgive personlige oplysninger for at deltage i den frie vidensbevægelse. Brugsdata indsamlet til denne app er anonyme. Lær mere om vores &lt;a href=\"#privacy\"&gt;privatlivspolitik&lt;/a&gt; og &lt;a href=\"#termsOfUse\"&gt;vilkår for brug&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Send brugsdata</string>
   <string name="onboarding_got_it">O.k.</string>
   <string name="onboarding_multilingual_secondary_text">Vi har fundet følgende på din enhed:</string>
@@ -1297,7 +1297,7 @@
     <item quantity="one">Fjern valgt sprog?</item>
     <item quantity="other">Fjern valgte sprog?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Du vil kun se indhold i Udforsk-feedet og hurtigsøgningsfiltre for de tilbageværende Wikipedia-sprog.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Du vil kun se indhold i Udforsk-feedet og hurtigsøgningsfiltre for de tilbageværende Wikipedia-sprog.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Kan ikke fjerne alle sprog</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Behold mindst et Wikipedia-sprog som du kan søge og læse indhold på.</string>
   <string name="more_language_options">mere</string>
@@ -1823,7 +1823,7 @@
   <string name="on_this_day_game_stats_average_score">Gennemsnitlig score</string>
   <string name="on_this_day_game_stats_streak">Nuværende streak</string>
   <string name="on_this_day_game_result_subtitle">Artikler der refereres til i dagens spil</string>
-  <string name="on_this_day_game_completed_message">Tak for at spille med. Et nyt spil \"Hvad kom først?\" er dagligt tilgængeligt i Udforsk-feedet.</string>
+  <string name="on_this_day_game_completed_message" fuzzy="true">Tak for at spille med. Et nyt spil \"Hvad kom først?\" er dagligt tilgængeligt i Udforsk-feedet.</string>
   <string name="on_this_day_game_menu_notifications">Spil notificeringer</string>
   <string name="on_this_day_game_menu_info">Lær mere</string>
   <string name="on_this_day_game_menu_feedback">Problem med funktionen</string>
