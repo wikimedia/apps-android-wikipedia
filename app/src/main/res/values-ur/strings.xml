@@ -645,7 +645,7 @@
   <string name="onboarding_continue">جاری رکھیں</string>
   <string name="onboarding_get_started">شروع کریں</string>
   <string name="onboarding_explore_title">اکتشاف کی نئی راہیں</string>
-  <string name="onboarding_explore_text">Dive down the Wikipedia rabbit hole with a constantly updating Explore feed۔ &lt;br/&gt; &lt;b&gt;حسب ضرورت&lt;/b&gt; the feed to your interests – whether it’s learning about تاریخی واقعات &lt;b&gt;آج کے دن&lt;/b&gt;، یا لڈو کے ڈانے کو گھما کے &lt;b&gt;بے ترتیب&lt;/b&gt;۔</string>
+  <string name="onboarding_explore_text" fuzzy="true">Dive down the Wikipedia rabbit hole with a constantly updating Explore feed۔ &lt;br/&gt; &lt;b&gt;حسب ضرورت&lt;/b&gt; the feed to your interests – whether it’s learning about تاریخی واقعات &lt;b&gt;آج کے دن&lt;/b&gt;، یا لڈو کے ڈانے کو گھما کے &lt;b&gt;بے ترتیب&lt;/b&gt;۔</string>
   <string name="onboarding_reading_list_sync_title">موجودہ وقت تک فہرستیں برائے مطالعہ</string>
   <string name="onboarding_analytics_switch_title">استعمال شدہ ڈیٹا بھیجیں</string>
   <string name="onboarding_got_it">سمجھ آ گیا</string>

@@ -843,11 +843,11 @@
   <string name="feed_item_type_randomizer">Generar articulos aleatori a leger</string>
   <string name="feed_item_type_suggested_edits">Suggestiones pro adder contento a Wikipedia</string>
   <string name="feed_item_type_places">Articulos a proximitate a base del localisation actual</string>
-  <string name="feed_empty_message">Il ha nihil sur tu canal Explorar</string>
+  <string name="feed_empty_message">Il ha nihil sur tu canal Initio</string>
   <string name="feed_configure_onboarding_action">Personalisar</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Cancellar</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Personalisa tu canal Explorar&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Tu pote ora eliger lo que tu vole monstrar in tu canal, e tamben dar prioritate a tu typos favorite de contento.</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Personalisa tu canal Initio&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Tu pote ora eliger lo que tu vole monstrar in tu canal, e tamben dar prioritate a tu typos favorite de contento.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Cancellar</string>
   <string name="feed_accessibility_card_text">Tu ha attingite le fin del canal.</string>
@@ -1241,11 +1241,11 @@
   <string name="onboarding_get_started">Comenciar</string>
   <string name="onboarding_maybe_later">Forsan plus tarde</string>
   <string name="onboarding_explore_title">Nove manieras de explorar</string>
-  <string name="onboarding_explore_text">Immerge te in le mundo de Wikipedia con un canal Explorar continuemente actualisate.&lt;br/&gt; &lt;b&gt;Personalisa&lt;/b&gt; le canal secundo tu interesses: apprende eventos historic con &lt;b&gt;Sur iste die&lt;/b&gt; o jecta le datos con &lt;b&gt;Aleatori&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text">Immerge te in le mundo de Wikipedia con un canal Initio continuemente actualisate.&lt;br/&gt; &lt;b&gt;Personalisa&lt;/b&gt; le canal secundo tu interesses: apprende eventos historic con &lt;b&gt;Sur iste die&lt;/b&gt; o jecta le datos con &lt;b&gt;Aleatori&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Listas de lectura con synchronisation</string>
   <string name="onboarding_reading_list_sync_text_v2">Tu pote facer listas de lectura de articulos que tu vole leger plus tarde, mesmo quando tu es disconnectite. &lt;br/&gt;Aperi session in tu conto de Wikipedia pro synchronisar tu listas de lectura. &lt;a href=\"#login\"&gt;Crear un conto sur Wikipedia&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Datos e vita private</string>
-  <string name="onboarding_data_privacy_text">Nos crede que non debe esser necessari fornir information personal pro participar in le movimento de cognoscentia libere. Le datos de uso colligite pro iste application es anonyme. Lege plus sur nostre &lt;a href=\"#privacy\"&gt;politica de confidentialitate&lt;/a&gt; e &lt;a href=\"#termsOfUse\"&gt;conditiones de uso&lt;/a&gt;.</string>
+  <string name="onboarding_data_privacy_text">Nos crede que non debe esser necessari fornir information personal pro participar in le movimento de cognoscentia libere. Le datos de uso colligite pro iste application es anonyme.&lt;br/&gt;&lt;br/&gt;Lege plus sur nostre &lt;a href=\"#privacy\"&gt;politica de confidentialitate&lt;/a&gt; e &lt;a href=\"#termsOfUse\"&gt;conditiones de uso&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Inviar datos de uso</string>
   <string name="onboarding_got_it">Comprendite</string>
   <string name="onboarding_multilingual_secondary_text">Nos ha trovate lo sequente sur tu apparato:</string>
@@ -1288,7 +1288,7 @@
     <item quantity="one">Remover le lingua seligite?</item>
     <item quantity="other">Remover le linguas seligite?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Tu videra solmente le contento del canal Explorar e le filtros de recerca rapide pro le linguas restante de Wikipedia.</string>
+  <string name="wikipedia_languages_remove_dialog_content">Tu videra solmente le contento del canal Initio e le filtros de recerca rapide pro le linguas restante de Wikipedia.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Impossibile remover tote le linguas</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Mantene al minus un lingua de Wikipedia in le qual cercar e leger contento.</string>
   <string name="more_language_options">plus</string>
@@ -1814,7 +1814,7 @@
   <string name="on_this_day_game_stats_average_score">Score medie</string>
   <string name="on_this_day_game_stats_streak">Serie actual</string>
   <string name="on_this_day_game_result_subtitle">Articulos referentiate in le joco de hodie</string>
-  <string name="on_this_day_game_completed_message">Gratias pro haber jocate. Cata die es disponibile un nove joco de “Qual ha evenite primo?” sur tu fluxo Explorar.</string>
+  <string name="on_this_day_game_completed_message">Gratias pro haber jocate. Cata die es disponibile un nove joco de “Qual ha evenite primo?” sur tu canal Initio.</string>
   <string name="on_this_day_game_menu_notifications">Notificationes de joco</string>
   <string name="on_this_day_game_menu_info">Leger plus</string>
   <string name="on_this_day_game_menu_feedback">Problema de functionalitate</string>
@@ -2375,12 +2375,31 @@
   <string name="home_feed_settings_community_modules_description">Disactivar un modulo lo cela in tu canal “Communitate”. Tu pote reactivar lo hic a omne momento. Alcun modulos pote non esser disponibile in tu lingua.</string>
   <string name="home_feed_settings_for_you_modules_description">Disactivar un modulo lo cela in tu canal “Pro te”. Tu pote reactivar lo hic a omne momento.</string>
   <string name="home_feed_settings_based_on_interest_title">A base de tu interesses</string>
-  <string name="home_feed_settings_based_on_interest_subtitle">Articulos adaptate al themas que tu ha seligite. &lt;a href=\"#drivingFeed\"&gt;Sur que se basa tu canal?&lt;/a&gt;</string>
+  <string name="home_feed_settings_based_on_interest_subtitle">Articulos adaptate al themas que tu ha seligite.&lt;br /&gt;&lt;a href=\"#drivingFeed\"&gt;Sur que se basa tu canal?&lt;/a&gt;</string>
   <string name="home_feed_settings_because_you_read_subtitle">Suggestiones basate sur un articulo recente de tu historia</string>
   <string name="home_feed_settings_continue_reading_title">Continuar a leger</string>
   <string name="home_feed_settings_continue_reading_subtitle">Reprender articulos que tu non ha finite</string>
+  <string name="home_feed_settings_community_empty_dialog_title">Tu canal Communitate essera vacue</string>
+  <string name="home_feed_settings_for_you_empty_dialog_title">Tu canal “Pro te” essera vacue</string>
+  <string name="home_feed_settings_empty_dialog_text">Activa al minus un modulo pro vider contento.</string>
+  <string name="home_feed_settings_empty_dialog_positive">Continuar totevia</string>
   <string name="home_feed_screen_empty_state_label">Tu canal es vacue</string>
-  <string name="home_feed_community_screen_empty_state_description">Activa le modulos &lt;b&gt;Del communitate&lt;/b&gt; pro comenciar a vider contento curate per contributores de tote le movimento de Wikimedia.</string>
-  <string name="home_feed_for_you_screen_empty_state_description">Activa le modulos &lt;b&gt;Pro te&lt;/b&gt; pro comenciar a vider contento basate sur tu preferentias.</string>
-  <string name="home_feed_screen_empty_state_btn_label">Gerer modulos</string>
+  <string name="home_feed_community_screen_all_modules_disabled_description">Activa le modulos &lt;b&gt;Communitate&lt;/b&gt; pro comenciar a vider contento curate per e sur le communitate de Wikimedia.</string>
+  <string name="home_feed_for_you_screen_all_modules_disabled_description">Activa le modulos &lt;b&gt;Pro te&lt;/b&gt; pro comenciar a vider contento basate sur tu preferentias.</string>
+  <string name="home_feed_screen_all_modules_disabled_btn_label">Gerer modulos</string>
+  <string name="home_feed_for_you_screen_empty_title">Tu canal es vacue pro le momento</string>
+  <string name="home_feed_for_you_screen_empty_description">Tu canal “Pro te” se plenara con articulos personalisate a mesura que tu explora.</string>
+  <string name="home_feed_for_you_screen_empty_ways_to_start">Manieras de comenciar:</string>
+  <string name="home_feed_for_you_screen_empty_add_interests">Adde &lt;a href=\"#add_interests\"&gt;alcun interesses&lt;/a&gt;</string>
+  <string name="home_feed_for_you_screen_empty_see_community">Vide lo que occurre in le &lt;a href=\"#community_tab\"&gt;communitate&lt;/a&gt;</string>
+  <string name="home_feed_settings_feed_configuration_description">Iste topicos e articulos forma lo que appare in tu canal “Pro te”. Remove lo que tu non vole plus o adde nove interesses.</string>
+  <string name="home_feed_settings_feed_configuration_interest_title">Tu interesses</string>
+  <string name="home_feed_settings_feed_configuration_interest_subtitle">Modificar tu topicos de interesse</string>
+  <string name="home_feed_settings_feed_configuration_empty_interest_subtitle">Tu lista de interesses es vacue. Adde un cosa del qual tu es curiose.</string>
+  <string name="home_feed_settings_feed_configuration_reading_history_title">Historia de lectura</string>
+  <string name="home_feed_settings_feed_configuration_reading_history_subtitle">Explora tu articulos recentemente legite</string>
+  <string name="home_feed_settings_feed_configuration_empty_reading_history_subtitle">Tu historia de lectura es vacue. Comencia a explorar articulos pro construer recommendationes personalisate.</string>
+  <string name="home_feed_settings_feed_configuration_languages_title">Linguas</string>
+  <string name="home_feed_settings_feed_configuration_languages_subtitle">Modificar tu linguas preferite</string>
+  <string name="home_feed_settings_feed_configuration_interests_updated_message">Interesses actualisate. Refresca tu canal pro vider actualitates.</string>
 </resources>

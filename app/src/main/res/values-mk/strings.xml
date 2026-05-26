@@ -393,10 +393,10 @@
   <string name="button_get_directions">Дај насоки</string>
   <string name="error_no_maps_app">Не можев да најдам прилози што даваат насоки.</string>
   <string name="preference_title_customize_explore_feed">Тековник „Истражи“</string>
-  <string name="preference_title_customize_home_feed">Тековник на Почетна</string>
+  <string name="preference_title_customize_home_feed">Тековник „Почетна“</string>
   <string name="preference_title_show_link_previews">Прегледи на врски</string>
   <string name="preference_summary_customize_explore_feed">Прилагоди го тековникот „Истражи“</string>
-  <string name="preference_summary_customize_home_feed">Прилагоди го тековникот на Почетна</string>
+  <string name="preference_summary_customize_home_feed">Прилагоди го тековникот „Почетна“</string>
   <string name="preference_summary_show_link_previews">Дава брз преглед на статијата кога ќе се допре на нејзината врска</string>
   <string name="preference_title_collapse_tables">Склопи табели</string>
   <string name="preference_summary_collapse_tables">Автоматски склопувај ги табелите во статии како со инфокутиите, наводите и белешките.</string>
@@ -851,11 +851,11 @@
   <string name="feed_item_type_randomizer">Дава случајни статии за читање</string>
   <string name="feed_item_type_suggested_edits">Предлози за додавање содржина на Википедија</string>
   <string name="feed_item_type_places">Статии во близина врз основа на тековната местоположба</string>
-  <string name="feed_empty_message">Нема ништо во тековникот „Истражи“</string>
+  <string name="feed_empty_message">Нема ништо во тековникот „Почетна“</string>
   <string name="feed_configure_onboarding_action">Прилагоди</string>
   <string name="customize_lang_selection_dialog_ok_button_text">ОК</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Откажи</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Прилагодете си го тековникот „Истражи“&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Можете да изберете што да се прикажува во тековникот и да им дадете предност на вашите омилени видови содржини.</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Прилагодете си го тековникот „Почетна“&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Можете да изберете што да се прикажува во тековникот и да им дадете предност на вашите омилени видови содржини.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">ОК</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Откажи</string>
   <string name="feed_accessibility_card_text">Дојдовте до дното на доводот.</string>
@@ -1252,11 +1252,11 @@
   <string name="onboarding_get_started">Започнете</string>
   <string name="onboarding_maybe_later">Можеби подоцна</string>
   <string name="onboarding_explore_title">Нови начини на истражување</string>
-  <string name="onboarding_explore_text">Нурнете се длабоко во Википедија со постојано подновениот тековник „Истражи“.&lt;br/&gt; &lt;b&gt;Прилагодете&lt;/b&gt; го тековниот според вашите интереси — дознајте за историските настани кои се случиле &lt;b&gt;На денешен ден&lt;/b&gt; или пробајте си ја среќата со &lt;b&gt;Случајна&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text">Нурнете се длабоко во Википедија со постојано подновениот тековник „Почетна“.&lt;br/&gt; &lt;b&gt;Прилагодете&lt;/b&gt; го тековниот според вашите интереси — дознајте за историските настани кои се случиле &lt;b&gt;На денешен ден&lt;/b&gt; или пробајте си ја среќата со &lt;b&gt;Случајна&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Списоци за читање со усогласување</string>
   <string name="onboarding_reading_list_sync_text_v2">Можете да правите списоци за читање од статиите што сакате да ги читате подоцна, дури и кога немате линија. &lt;br/&gt;Најавете се на Википедија за да ги усогласите списоците. &lt;a href=\"#login\"&gt;Приклучете се на Википедија&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Податоци и приватност</string>
-  <string name="onboarding_data_privacy_text">Сметаме дека не треба да давате лични информации за да учествувате во движењето за слободно знаење. Податоците за употреба на овој прилог што ги собираме се анонимни. Дознајте повеќе за нашите &lt;a href=\"#privacy\"&gt;правила за лични податоци&lt;/a&gt; и &lt;a href=\"#termsOfUse\"&gt;условите на употреба&lt;/a&gt;.</string>
+  <string name="onboarding_data_privacy_text">Сметаме дека не треба да давате лични информации за да учествувате во движењето за слободно знаење. Податоците за употреба на овој прилог што ги собираме се анонимни.&lt;br/&gt;&lt;br/&gt;Дознајте повеќе за нашите &lt;a href=\"#privacy\"&gt;правила за лични податоци&lt;/a&gt; и &lt;a href=\"#termsOfUse\"&gt;условите на употреба&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Испраќај податоци за употреба</string>
   <string name="onboarding_got_it">Јасно</string>
   <string name="onboarding_multilingual_secondary_text">Го пронајдов следново на вашиот уред:</string>
@@ -1299,7 +1299,7 @@
     <item quantity="one">Да го отстранам избраниот јазик?</item>
     <item quantity="other">Да ги отстранам избраните јазици?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Содржината во тековникот „Истражи“ и филтрите за брзо пребарување ќе се однесуваат само на преостанатите јазици на Википедија.</string>
+  <string name="wikipedia_languages_remove_dialog_content">Содржината во тековникот „Почетна“ и филтрите за брзо пребарување ќе се однесуваат само на преостанатите јазици на Википедија.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Не можам да ги отстранам сите јазици</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Задржете барем еден јазик на Википедија од кој ќе пребарувате и читате содржини.</string>
   <string name="more_language_options">повеќе</string>
@@ -1826,7 +1826,7 @@
   <string name="on_this_day_game_stats_average_score">Просечно бодови</string>
   <string name="on_this_day_game_stats_streak">Тековна седенка</string>
   <string name="on_this_day_game_result_subtitle">Статии на кои се однесува денешната игра</string>
-  <string name="on_this_day_game_completed_message">Благодариме што играте. Имаме нова игра „Што се случило попрво?“ секој ден во тековникот Истражи.</string>
+  <string name="on_this_day_game_completed_message">Благодариме што играте. Имаме нова игра „Што се случило попрво?“ секој ден во тековникот „Почетна“.</string>
   <string name="on_this_day_game_menu_notifications">Известувања во играта</string>
   <string name="on_this_day_game_menu_info">Дознајте повеќе</string>
   <string name="on_this_day_game_menu_feedback">Проблем со функцијата</string>
@@ -2345,9 +2345,12 @@
   <string name="explore_feed_new_update_prompt_two_ways_title">Ваш тековник, два начина</string>
   <string name="explore_feed_new_update_prompt_two_ways_description">Откријте статии лично прилагодени на вашите интереси во „За вас“ или прелистајте ги најдобрите уреднички на Википедија содржини во „Заедница“</string>
   <string name="explore_feed_new_update_prompt_control_title">Останете во контрола</string>
+  <string name="explore_feed_new_update_prompt_control_description">Секоја препорака точно ви кажува зошто е таму. Можете да ги измените поставките во секое време во Нагодувања.</string>
   <string name="explore_feed_new_update_prompt_language_title">Секој јазик, целосно персонализиран</string>
+  <string name="explore_feed_new_update_prompt_language_description">Читате на повеќе јазици? Секој добива свое искуство. Само префрлете се и новиот тековник е готов.</string>
   <string name="explore_feed_new_update_prompt_primary_button_text">Прилагоди довод</string>
   <string name="explore_feed_customize_interests">Прилагоди интереси</string>
+  <string name="explore_feed_new_update_prompt_secondary_button_text">Постави ми го</string>
   <string name="explore_feed_building_text">Да го изградиме вашиот тековник…</string>
   <string name="explore_feed_community_tab_label">Заедница</string>
   <string name="explore_feed_for_you_tab_label">За вас</string>
@@ -2356,5 +2359,59 @@
   <string name="explore_feed_from_reading_list">Од вашиот список на читање</string>
   <string name="explore_feed_because_of_interest">Бидејќи ве интересира: %s</string>
   <string name="explore_feed_onboarding_curiosity_title">Следете ја вашата љубопитност</string>
+  <string name="explore_feed_onboarding_curiosity_description">Изберете теми што ве интересираат, а ние ќе ви го персонализираме тековникот.\n\nСобираме само минимални податоци, кои ги анонимизираме.</string>
   <string name="explore_feed_deselect_all_button_label">Одизбери сè</string>
+  <string name="explore_feed_potd_subtitle">Дневни слики на Ризницата, избрани од доброволни учесници</string>
+  <string name="explore_feed_featured_article_subtitle">Избраните статии се вбројуваат меѓу најквалитетните статии на Википедија, избрани секој ден од уредниците</string>
+  <string name="explore_feed_preference_selection_screen_title">Што би сакале да видите прво?</string>
+  <string name="explore_feed_preference_community_content_title">Содржини за заедницата</string>
+  <string name="explore_feed_preference_personalized_content_title">Персонализирана содржина</string>
+  <string name="explore_feed_in_the_news_subtitle">Статии кои се значително подновени за да ги одразат скорешните тековни настани од широк интерес</string>
+  <string name="explore_feed_on_this_day_subtitle">Откријте историски настани што се случиле на денешен ден</string>
+  <string name="explore_feed_community_disclaimer">Содржини и ресурси избрани од и во врска со Викимедиината заедница</string>
+  <string name="explore_feed_community_load_more_label">Погледајте минати содржини за заедницата</string>
+  <string name="explore_feed_manage_languages_label">Управ. со јазици</string>
+  <string name="explore_feed_header_overflow_hide_module_label">Скриј модул</string>
+  <string name="explore_feed_header_overflow_hide_module_message">Модулот е скриен.</string>
+  <string name="explore_feed_header_overflow_hide_module_message_action">Врати</string>
+  <string name="explore_feed_personalized_preference_empty_state_text">Ќе треба да додадете интереси за да гледате персонализирани предложени содржини. Ова можете да го направите во претходните чекори или подоцна во нагодувањата.</string>
+  <string name="explore_feed_because_you_read">Бидејќи читавте: %s</string>
+  <string name="explore_feed_swipe_to_explore_prompt_title">Повлечете за да истражите</string>
+  <string name="explore_feed_swipe_to_explore_prompt_message">Повлечете надолу за да се движите помеѓу темите или повлечете странично за да ги истражите поврзаните содржини.</string>
+  <string name="home_feed_settings_title">Прилагоди го тековникот „Почетна“</string>
+  <string name="home_feed_settings_whats_driving_title">Што го движи вашиот тековник</string>
+  <string name="home_feed_settings_modules_title">Модули</string>
+  <string name="home_feed_settings_community_subtitle">Вклучете/исклучете ги модулите на тековникот „Заедница“</string>
+  <string name="home_feed_settings_for_you_subtitle">Вклучете/исклучете ги модулите на тековникот „За вас“</string>
+  <string name="home_feed_settings_whats_driving_subtitle">Теми и статии што ја обликуваат вашата содржина</string>
+  <string name="home_feed_settings_community_modules_description">Ако исклучите модул, тој ќе се скрие од вашиот тековник „Заедница“. Можете повторно да го вклучите тука во било кое време. Некои модули може да не се достапни на вашиот јазик.</string>
+  <string name="home_feed_settings_for_you_modules_description">Ако исклучите модул, тој ќе се скрие од вашиот тековник „За вас“. Можете повторно да го вклучите тука во било кое време.</string>
+  <string name="home_feed_settings_based_on_interest_title">Според вашите интереси</string>
+  <string name="home_feed_settings_based_on_interest_subtitle">Статии прилагодени на теми по ваш избор.&lt;br /&gt;&lt;a href=\"#drivingFeed\"&gt;Што го движи вашиот тековник&lt;/a&gt;</string>
+  <string name="home_feed_settings_because_you_read_subtitle">Предлози според скорешна статија од вашата историја</string>
+  <string name="home_feed_settings_continue_reading_title">Продолжете со читање</string>
+  <string name="home_feed_settings_continue_reading_subtitle">Вратете се на статијата што не ја довршивте</string>
+  <string name="home_feed_settings_community_empty_dialog_title">Вашиот тековник „Заедница“ ќе биде празен</string>
+  <string name="home_feed_settings_for_you_empty_dialog_title">Вашиот тековник „За вас“ ќе биде празен</string>
+  <string name="home_feed_settings_empty_dialog_text">Вклучете барем еден модул за да гледате содржини.</string>
+  <string name="home_feed_settings_empty_dialog_positive">Сепак продолжи</string>
+  <string name="home_feed_screen_empty_state_label">Вашиот тековник е празен</string>
+  <string name="home_feed_community_screen_all_modules_disabled_description">Вклучете модули за &lt;b&gt;Заедница&lt;/b&gt; за да почнете да гледате содржини од и во врска со Викимедиината заедница.</string>
+  <string name="home_feed_for_you_screen_all_modules_disabled_description">Вклучете модули за &lt;b&gt;За вас&lt;/b&gt; за да почнете да гледате содржини според вашите нагодувања.</string>
+  <string name="home_feed_screen_all_modules_disabled_btn_label">Управ. со модули</string>
+  <string name="home_feed_for_you_screen_empty_title">Вашиот тековник засега е празен</string>
+  <string name="home_feed_for_you_screen_empty_description">Вашиот тековник „За вас“ ќе се исполни со персонализирани статии додека истражувате.</string>
+  <string name="home_feed_for_you_screen_empty_ways_to_start">Начини да почнете:</string>
+  <string name="home_feed_for_you_screen_empty_add_interests">Додајте &lt;a href=\"#add_interests\"&gt;некои интереси&lt;/a&gt;</string>
+  <string name="home_feed_for_you_screen_empty_see_community">Погледајте ги случувањата во &lt;a href=\"#community_tab\"&gt;заедницата&lt;/a&gt;</string>
+  <string name="home_feed_settings_feed_configuration_description">Овие теми и статии одредуваат што ќе стои во вашиот тековник „За вас“. Отстранете ги они ешто повеќе не ги сакате или додајте нови интереси.</string>
+  <string name="home_feed_settings_feed_configuration_interest_title">Ваши интереси</string>
+  <string name="home_feed_settings_feed_configuration_interest_subtitle">Уредете ваши теми од интерес</string>
+  <string name="home_feed_settings_feed_configuration_empty_interest_subtitle">Вашиот список со интереси е празен. Додајте нешто што ве интересира.</string>
+  <string name="home_feed_settings_feed_configuration_reading_history_title">Историја на читање</string>
+  <string name="home_feed_settings_feed_configuration_reading_history_subtitle">Прелистајте ги неодамна прочитаните статии</string>
+  <string name="home_feed_settings_feed_configuration_empty_reading_history_subtitle">Вашата историја на читање е празна. Почнете да истражувате статии за да изградите персонализирани предлози.</string>
+  <string name="home_feed_settings_feed_configuration_languages_title">Јазици</string>
+  <string name="home_feed_settings_feed_configuration_languages_subtitle">Уредете ги вашите претпочитани јазици</string>
+  <string name="home_feed_settings_feed_configuration_interests_updated_message">Интересите се подновени. Превчитајте го тековникот за да ги видите подновите.</string>
 </resources>

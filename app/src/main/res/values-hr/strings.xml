@@ -892,7 +892,7 @@
   <string name="wikipedia_languages_add_language_text">Dodaj jezik</string>
   <string name="wikipedia_languages_remove_text">Ukloni jezik</string>
   <string name="wikipedia_languages_remove_action_mode_title">Ukloni jezik</string>
-  <string name="wikipedia_languages_remove_dialog_content">Sadržaj na stranici „Istražite“ i filteri za brzu pretragu bit će prikazani samo na preostalim jezicima Wikipedije.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Sadržaj na stranici „Istražite“ i filteri za brzu pretragu bit će prikazani samo na preostalim jezicima Wikipedije.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Nije moguće ukloniti sve jezike</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Zadržite barem jedan jezik za pretragu i čitanje sadržaja.</string>
   <string name="more_language_options">više</string>

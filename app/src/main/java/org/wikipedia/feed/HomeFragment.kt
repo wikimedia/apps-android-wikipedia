@@ -48,6 +48,7 @@ import androidx.compose.material3.pulltorefresh.PullToRefreshBox
 import androidx.compose.material3.pulltorefresh.PullToRefreshDefaults.Indicator
 import androidx.compose.material3.pulltorefresh.rememberPullToRefreshState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -62,6 +63,7 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.platform.LocalLocale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -72,6 +74,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.fragment.app.Fragment
@@ -136,6 +139,7 @@ import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.ShareUtil
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
@@ -637,7 +641,9 @@ fun HomeToolbar(
     onUpdateTabCount: () -> Unit,
     onNotificationClick: () -> Unit
 ) {
-    Row {
+    Row(
+        modifier = Modifier.fillMaxWidth()
+    ) {
         Image(
             painter = painterResource(R.drawable.feed_header_wordmark),
             contentDescription = null,
@@ -649,11 +655,15 @@ fun HomeToolbar(
                 .width(128.dp)
         )
         Spacer(modifier = Modifier.weight(1f))
+
+        val actionButtonModifier = Modifier
+            .statusBarsPadding()
+            .padding(top = topInset.dp)
+            .size(48.dp)
+
         if (tabsState.count > 0) {
             IconButton(
-                modifier = Modifier
-                    .statusBarsPadding()
-                    .padding(top = topInset.dp),
+                modifier = actionButtonModifier,
                 onClick = { onTabClick() }
             ) {
                 TabsBox(
@@ -679,12 +689,13 @@ fun HomeToolbar(
         }
         if (notificationBellState.canShow) {
             NotificationBell(
-                modifier = Modifier
-                    .statusBarsPadding()
-                    .padding(top = topInset.dp),
+                modifier = actionButtonModifier,
                 unreadCount = notificationBellState.unreadCount,
                 onClick = onNotificationClick
             )
+        }
+        if (tabsState.count == 0 && !notificationBellState.canShow) {
+            Spacer(modifier = actionButtonModifier)
         }
     }
 }
@@ -799,191 +810,194 @@ fun CommunityContentTab(
             ErrorState(state.error, onRetry = onLoadMore)
         }
         else -> {
-            LazyColumn(
-                modifier = modifier.fillMaxSize(),
-                contentPadding = PaddingValues(top = 16.dp, bottom = 16.dp)
-            ) {
-                item {
-                    CommunityDisclaimer(
-                        modifier = Modifier
-                            .padding(horizontal = 16.dp)
-                            .fillMaxWidth(),
-                        wikiSite = wikiSite
-                    )
-                    Spacer(modifier = Modifier.height(16.dp))
-                }
-                var lastCardWasDayHeader = false
-                state.cards.forEachIndexed { cardIndex, card ->
-                    when (card) {
-                        is DayHeaderCard -> {
-                            item(key = "day-header-${card.age}") {
-                                DayHeader(LocalDate.now().minusDays(card.age.toLong()), isFirst = card.age == 0)
-                            }
-                        }
-                        is FeaturedArticleCard -> {
-                            item(key = "tfa-${card.age}") {
-                                FeaturedArticleModule(
-                                    wikiSite = wikiSite,
-                                    card.page,
-                                    onPageClick = {
-                                        onPageClick(card,
-                                            it.getHistoryEntry(
-                                                wikiSite,
-                                                HistoryEntry.SOURCE_FEED_FEATURED
-                                            )
-                                        )
-                                    },
-                                    onHideCardClick = { onHideCardClick(card) },
-                                    onHideModuleClick = {
-                                        onHideModuleClick(card.moduleKey())
-                                    },
-                                    onShareClick = {
-                                        onPageShareClick(card,
-                                            it.getHistoryEntry(
-                                                wikiSite,
-                                                HistoryEntry.SOURCE_FEED_FEATURED
-                                            )
-                                        )
-                                    },
-                                    onBookmarkClick = {
-                                        onPageBookmarkClick(card,
-                                            it.getHistoryEntry(
-                                                wikiSite,
-                                                HistoryEntry.SOURCE_FEED_FEATURED
-                                            )
-                                        )
-                                    },
-                                    onCardImpression = { onCardImpression(card, cardIndex) }
-                                )
-                            }
-                        }
-                        is TopReadListCard -> {
-                            if (lastCardWasDayHeader) {
-                                item(key = "top-read-spacer-${card.age}") {
-                                    Spacer(modifier = Modifier.height(16.dp))
-                                }
-                            }
-                            item(key = "top-read-${card.age}") {
-                                TopReadModule(
-                                    wikiSite = wikiSite,
-                                    topRead = card.articles,
-                                    pageOverflowContent = { index ->
-                                        PageOverflowMenu(
-                                            menuKey = "top-read-${card.age}-$index",
-                                            overflowMenuState = overflowMenuState,
-                                            onDismiss = onPageOverflowDismiss,
-                                            items = overflowMenuState?.items.orEmpty()
-                                        )
-                                    },
-                                    onHideCardClick = { onHideCardClick(card) },
-                                    onHideModuleClick = {
-                                        onHideModuleClick(card.moduleKey())
-                                    },
-                                    onPageClick = { entry ->
-                                        onPageClick(card,
-                                            entry.getHistoryEntry(
-                                                wikiSite,
-                                                HistoryEntry.SOURCE_FEED_MOST_READ
-                                            )
-                                        )
-                                    },
-                                    onPageOverflowClick = { pageSummary, index ->
-                                        onPageOverflowClick(card, pageSummary, HistoryEntry.SOURCE_FEED_MOST_READ, "top-read-${card.age}-$index")
-                                    },
-                                    onFooterClick = { onCardFooterClick(card) },
-                                    onCardImpression = { onCardImpression(card, cardIndex) }
-                                )
-                            }
-                        }
-                        is NewsCard -> {
-                            item(key = "news-${card.age}") {
-                                NewsModule(
-                                    wikiSite = wikiSite,
-                                    newsItems = card.news,
-                                    onHideCardClick = { onHideCardClick(card) },
-                                    onHideModuleClick = {
-                                        onHideModuleClick(card.moduleKey())
-                                    },
-                                    onNewsClick = { newsItem ->
-                                        onNewsClick(card, newsItem)
-                                    },
-                                    onCardImpression = { onCardImpression(card, cardIndex) }
-                                )
-                            }
-                        }
-                        is OnThisDayCard -> {
-                            if (lastCardWasDayHeader) {
-                                item(key = "on-this-day-spacer-${card.age}") {
-                                    Spacer(modifier = Modifier.height(16.dp))
-                                }
-                            }
-                            item(key = "on-this-day-${card.age}") {
-                                OnThisDayModule(
-                                    wikiSite = wikiSite,
-                                    events = card.events,
-                                    pageOverflowContent = { eventIndex, itemIndex ->
-                                        PageOverflowMenu(
-                                            menuKey = "on-this-day-${card.age}-$eventIndex-$itemIndex",
-                                            overflowMenuState = overflowMenuState,
-                                            onDismiss = onPageOverflowDismiss,
-                                            items = overflowMenuState?.items.orEmpty()
-                                        )
-                                    },
-                                    onHideCardClick = { onHideCardClick(card) },
-                                    onHideModuleClick = {
-                                        onHideModuleClick(card.moduleKey())
-                                    },
-                                    onPageClick = { pageSummary ->
-                                        onPageClick(card, pageSummary.getHistoryEntry(wikiSite, HistoryEntry.SOURCE_FEED_ON_THIS_DAY))
-                                    },
-                                    onPageOverflowClick = { pageSummary, eventIndex, itemIndex ->
-                                        onPageOverflowClick(card, pageSummary, HistoryEntry.SOURCE_FEED_ON_THIS_DAY, "on-this-day-${card.age}-$eventIndex-$itemIndex")
-                                    },
-                                    onFooterClick = { onCardFooterClick(card) },
-                                    onCardImpression = { onCardImpression(card, cardIndex) }
-                                )
-                            }
-                        }
-                        is FeaturedImageCard -> {
-                            item(key = "tfi-${card.age}") {
-                                FeaturedImageModule(
-                                    wikiSite = wikiSite,
-                                    card = card,
-                                    onHideCardClick = { onHideCardClick(card) },
-                                    onHideModuleClick = {
-                                        onHideModuleClick(card.moduleKey())
-                                    },
-                                    onClick = onImageClick,
-                                    onDownloadClick = onImageDownloadClick,
-                                    onShareClick = onImageShareClick,
-                                    onCardImpression = { onCardImpression(card, cardIndex) }
-                                )
-                            }
-                        }
-                        else -> {
-                            // TODO: Today's Featured Picture
-                            // TODO: DYK
-                            // TODO: Media of the day (Commons)
-                        }
-                    }
-                    lastCardWasDayHeader = card is DayHeaderCard
-                }
-
-                item(key = "load-more-community") {
-                    if (state.isLoadingMore) {
-                        LoadingIndicator()
-                    } else if (state.canLoadMore && state.cards.isNotEmpty()) {
-                        LoadMoreButton(
-                            wikiSite = wikiSite,
-                            isCommunity = true,
-                            onClick = onLoadMore
+            val layoutDirection = if (L10nUtil.isLangRTL(wikiSite.languageCode)) LayoutDirection.Rtl else LayoutDirection.Ltr
+            CompositionLocalProvider(LocalLayoutDirection provides layoutDirection) {
+                LazyColumn(
+                    modifier = modifier.fillMaxSize(),
+                    contentPadding = PaddingValues(top = 16.dp, bottom = 16.dp)
+                ) {
+                    item {
+                        CommunityDisclaimer(
+                            modifier = Modifier
+                                .padding(horizontal = 16.dp)
+                                .fillMaxWidth(),
+                            wikiSite = wikiSite
                         )
+                        Spacer(modifier = Modifier.height(16.dp))
                     }
-                }
+                    var lastCardWasDayHeader = false
+                    state.cards.forEachIndexed { cardIndex, card ->
+                        when (card) {
+                            is DayHeaderCard -> {
+                                item(key = "day-header-${card.age}") {
+                                    DayHeader(LocalDate.now().minusDays(card.age.toLong()), isFirst = card.age == 0)
+                                }
+                            }
+                            is FeaturedArticleCard -> {
+                                item(key = "tfa-${card.age}") {
+                                    FeaturedArticleModule(
+                                        wikiSite = wikiSite,
+                                        card.page,
+                                        onPageClick = {
+                                            onPageClick(card,
+                                                it.getHistoryEntry(
+                                                    wikiSite,
+                                                    HistoryEntry.SOURCE_FEED_FEATURED
+                                                )
+                                            )
+                                        },
+                                        onHideCardClick = { onHideCardClick(card) },
+                                        onHideModuleClick = {
+                                            onHideModuleClick(card.moduleKey())
+                                        },
+                                        onShareClick = {
+                                            onPageShareClick(card,
+                                                it.getHistoryEntry(
+                                                    wikiSite,
+                                                    HistoryEntry.SOURCE_FEED_FEATURED
+                                                )
+                                            )
+                                        },
+                                        onBookmarkClick = {
+                                            onPageBookmarkClick(card,
+                                                it.getHistoryEntry(
+                                                    wikiSite,
+                                                    HistoryEntry.SOURCE_FEED_FEATURED
+                                                )
+                                            )
+                                        },
+                                        onCardImpression = { onCardImpression(card, cardIndex) }
+                                    )
+                                }
+                            }
+                            is TopReadListCard -> {
+                                if (lastCardWasDayHeader) {
+                                    item(key = "top-read-spacer-${card.age}") {
+                                        Spacer(modifier = Modifier.height(16.dp))
+                                    }
+                                }
+                                item(key = "top-read-${card.age}") {
+                                    TopReadModule(
+                                        wikiSite = wikiSite,
+                                        topRead = card.articles,
+                                        pageOverflowContent = { index ->
+                                            PageOverflowMenu(
+                                                menuKey = "top-read-${card.age}-$index",
+                                                overflowMenuState = overflowMenuState,
+                                                onDismiss = onPageOverflowDismiss,
+                                                items = overflowMenuState?.items.orEmpty()
+                                            )
+                                        },
+                                        onHideCardClick = { onHideCardClick(card) },
+                                        onHideModuleClick = {
+                                            onHideModuleClick(card.moduleKey())
+                                        },
+                                        onPageClick = { entry ->
+                                            onPageClick(card,
+                                                entry.getHistoryEntry(
+                                                    wikiSite,
+                                                    HistoryEntry.SOURCE_FEED_MOST_READ
+                                                )
+                                            )
+                                        },
+                                        onPageOverflowClick = { pageSummary, index ->
+                                            onPageOverflowClick(card, pageSummary, HistoryEntry.SOURCE_FEED_MOST_READ, "top-read-${card.age}-$index")
+                                        },
+                                        onFooterClick = { onCardFooterClick(card) },
+                                        onCardImpression = { onCardImpression(card, cardIndex) }
+                                    )
+                                }
+                            }
+                            is NewsCard -> {
+                                item(key = "news-${card.age}") {
+                                    NewsModule(
+                                        wikiSite = wikiSite,
+                                        newsItems = card.news,
+                                        onHideCardClick = { onHideCardClick(card) },
+                                        onHideModuleClick = {
+                                            onHideModuleClick(card.moduleKey())
+                                        },
+                                        onNewsClick = { newsItem ->
+                                            onNewsClick(card, newsItem)
+                                        },
+                                        onCardImpression = { onCardImpression(card, cardIndex) }
+                                    )
+                                }
+                            }
+                            is OnThisDayCard -> {
+                                if (lastCardWasDayHeader) {
+                                    item(key = "on-this-day-spacer-${card.age}") {
+                                        Spacer(modifier = Modifier.height(16.dp))
+                                    }
+                                }
+                                item(key = "on-this-day-${card.age}") {
+                                    OnThisDayModule(
+                                        wikiSite = wikiSite,
+                                        events = card.events,
+                                        pageOverflowContent = { eventIndex, itemIndex ->
+                                            PageOverflowMenu(
+                                                menuKey = "on-this-day-${card.age}-$eventIndex-$itemIndex",
+                                                overflowMenuState = overflowMenuState,
+                                                onDismiss = onPageOverflowDismiss,
+                                                items = overflowMenuState?.items.orEmpty()
+                                            )
+                                        },
+                                        onHideCardClick = { onHideCardClick(card) },
+                                        onHideModuleClick = {
+                                            onHideModuleClick(card.moduleKey())
+                                        },
+                                        onPageClick = { pageSummary ->
+                                            onPageClick(card, pageSummary.getHistoryEntry(wikiSite, HistoryEntry.SOURCE_FEED_ON_THIS_DAY))
+                                        },
+                                        onPageOverflowClick = { pageSummary, eventIndex, itemIndex ->
+                                            onPageOverflowClick(card, pageSummary, HistoryEntry.SOURCE_FEED_ON_THIS_DAY, "on-this-day-${card.age}-$eventIndex-$itemIndex")
+                                        },
+                                        onFooterClick = { onCardFooterClick(card) },
+                                        onCardImpression = { onCardImpression(card, cardIndex) }
+                                    )
+                                }
+                            }
+                            is FeaturedImageCard -> {
+                                item(key = "tfi-${card.age}") {
+                                    FeaturedImageModule(
+                                        wikiSite = wikiSite,
+                                        card = card,
+                                        onHideCardClick = { onHideCardClick(card) },
+                                        onHideModuleClick = {
+                                            onHideModuleClick(card.moduleKey())
+                                        },
+                                        onClick = onImageClick,
+                                        onDownloadClick = onImageDownloadClick,
+                                        onShareClick = onImageShareClick,
+                                        onCardImpression = { onCardImpression(card, cardIndex) }
+                                    )
+                                }
+                            }
+                            else -> {
+                                // TODO: Today's Featured Picture
+                                // TODO: DYK
+                                // TODO: Media of the day (Commons)
+                            }
+                        }
+                        lastCardWasDayHeader = card is DayHeaderCard
+                    }
 
-                if (state.error != null && state.cards.isNotEmpty()) {
-                    item(key = "error-community") {
-                        ErrorState(state.error, onRetry = onLoadMore)
+                    item(key = "load-more-community") {
+                        if (state.isLoadingMore) {
+                            LoadingIndicator()
+                        } else if (state.canLoadMore && state.cards.isNotEmpty()) {
+                            LoadMoreButton(
+                                wikiSite = wikiSite,
+                                isCommunity = true,
+                                onClick = onLoadMore
+                            )
+                        }
+                    }
+
+                    if (state.error != null && state.cards.isNotEmpty()) {
+                        item(key = "error-community") {
+                            ErrorState(state.error, onRetry = onLoadMore)
+                        }
                     }
                 }
             }
@@ -1063,96 +1077,99 @@ fun ForYouContentTab(
             }
         }
         else -> {
-            val listState = rememberLazyListState()
-            val modules = state.modules
+            val layoutDirection = if (L10nUtil.isLangRTL(wikiSite.languageCode)) LayoutDirection.Rtl else LayoutDirection.Ltr
+            CompositionLocalProvider(LocalLayoutDirection provides layoutDirection) {
+                val listState = rememberLazyListState()
+                val modules = state.modules
 
-            BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
-                val viewportHeight = maxHeight
+                BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
+                    val viewportHeight = maxHeight
 
-                LazyColumn(
-                    state = listState,
-                    flingBehavior = rememberSnapFlingBehavior(lazyListState = listState),
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .background(WikipediaTheme.colors.backgroundColor)
-                ) {
-                    modules.forEachIndexed { index, module ->
-                        when (module) {
-                            is ForYouModule.BasedOnInterest -> {
-                                item(key = "interest-${module.age}-$index") {
-                                    BasedOnInterestModule(
-                                        modifier = Modifier
-                                            .fillMaxWidth()
-                                            .height(viewportHeight),
-                                        wikiSite = wikiSite,
-                                        module = module,
-                                        onPageClick = onPageClick,
-                                        onPageShareClick = onPageShareClick,
-                                        onPageBookmarkClick = onPageBookmarkClick,
-                                        onHideCardClick = onHideCardClick,
-                                        onHideModuleClick = { onHideModuleClick(module.moduleKey()) },
-                                        onCardInView = { onCardImpression(it, index) },
-                                        onCustomizeInterestsClick = onCustomizeInterestsClick
-                                    )
+                    LazyColumn(
+                        state = listState,
+                        flingBehavior = rememberSnapFlingBehavior(lazyListState = listState),
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .background(WikipediaTheme.colors.backgroundColor)
+                    ) {
+                        modules.forEachIndexed { index, module ->
+                            when (module) {
+                                is ForYouModule.BasedOnInterest -> {
+                                    item(key = "interest-${module.age}-$index") {
+                                        BasedOnInterestModule(
+                                            modifier = Modifier
+                                                .fillMaxWidth()
+                                                .height(viewportHeight),
+                                            wikiSite = wikiSite,
+                                            module = module,
+                                            onPageClick = onPageClick,
+                                            onPageShareClick = onPageShareClick,
+                                            onPageBookmarkClick = onPageBookmarkClick,
+                                            onHideCardClick = onHideCardClick,
+                                            onHideModuleClick = { onHideModuleClick(module.moduleKey()) },
+                                            onCardInView = { onCardImpression(it, index) },
+                                            onCustomizeInterestsClick = onCustomizeInterestsClick
+                                        )
+                                    }
                                 }
-                            }
 
-                            is ForYouModule.ContinueReading -> {
-                                item(key = "continue-reading-${module.age}-$index") {
-                                    ContinueReadingModule(
-                                        modifier = Modifier
-                                            .fillMaxWidth()
-                                            .height(viewportHeight),
-                                        wikiSite = wikiSite,
-                                        module = module,
-                                        onPageClick = onPageClick,
-                                        onPageShareClick = onPageShareClick,
-                                        onPageBookmarkClick = onPageBookmarkClick,
-                                        onHideCardClick = onHideCardClick,
-                                        onHideModuleClick = { onHideModuleClick(module.moduleKey()) },
-                                        onCardInView = { onCardImpression(it, index) },
-                                        onCustomizeInterestsClick = onCustomizeInterestsClick
-                                    )
+                                is ForYouModule.ContinueReading -> {
+                                    item(key = "continue-reading-${module.age}-$index") {
+                                        ContinueReadingModule(
+                                            modifier = Modifier
+                                                .fillMaxWidth()
+                                                .height(viewportHeight),
+                                            wikiSite = wikiSite,
+                                            module = module,
+                                            onPageClick = onPageClick,
+                                            onPageShareClick = onPageShareClick,
+                                            onPageBookmarkClick = onPageBookmarkClick,
+                                            onHideCardClick = onHideCardClick,
+                                            onHideModuleClick = { onHideModuleClick(module.moduleKey()) },
+                                            onCardInView = { onCardImpression(it, index) },
+                                            onCustomizeInterestsClick = onCustomizeInterestsClick
+                                        )
+                                    }
                                 }
-                            }
 
-                            is ForYouModule.BecauseYouRead -> {
-                                item(key = "because-you-read-${module.age}-$index") {
-                                    BecauseYouReadModule(
-                                        modifier = Modifier
-                                            .fillMaxWidth()
-                                            .height(viewportHeight),
-                                        wikiSite = wikiSite,
-                                        module = module,
-                                        onPageClick = onPageClick,
-                                        onPageShareClick = onPageShareClick,
-                                        onPageBookmarkClick = onPageBookmarkClick,
-                                        onHideCardClick = onHideCardClick,
-                                        onHideModuleClick = { onHideModuleClick(module.moduleKey()) },
-                                        onCardInView = { onCardImpression(it, index) },
-                                        onCustomizeInterestsClick = onCustomizeInterestsClick
-                                    )
+                                is ForYouModule.BecauseYouRead -> {
+                                    item(key = "because-you-read-${module.age}-$index") {
+                                        BecauseYouReadModule(
+                                            modifier = Modifier
+                                                .fillMaxWidth()
+                                                .height(viewportHeight),
+                                            wikiSite = wikiSite,
+                                            module = module,
+                                            onPageClick = onPageClick,
+                                            onPageShareClick = onPageShareClick,
+                                            onPageBookmarkClick = onPageBookmarkClick,
+                                            onHideCardClick = onHideCardClick,
+                                            onHideModuleClick = { onHideModuleClick(module.moduleKey()) },
+                                            onCardInView = { onCardImpression(it, index) },
+                                            onCustomizeInterestsClick = onCustomizeInterestsClick
+                                        )
+                                    }
                                 }
                             }
                         }
-                    }
 
-                    item(key = "load-more-foryou") {
-                        if (state.isLoadingMore) {
-                            LoadingIndicator()
-                        } else if (state.canLoadMore) {
-                            // In case we want to load more For You items in the future:
-                            // LoadMoreButton(
-                            //     wikiSite = wikiSite,
-                            //     isCommunity = false,
-                            //     onClick = onLoadMore
-                            // )
+                        item(key = "load-more-foryou") {
+                            if (state.isLoadingMore) {
+                                LoadingIndicator()
+                            } else if (state.canLoadMore) {
+                                // In case we want to load more For You items in the future:
+                                // LoadMoreButton(
+                                //     wikiSite = wikiSite,
+                                //     isCommunity = false,
+                                //     onClick = onLoadMore
+                                // )
+                            }
                         }
-                    }
 
-                    if (state.error != null && state.modules.isNotEmpty()) {
-                        item(key = "error-foryou") {
-                            ErrorState(state.error, onRetry = onLoadMore)
+                        if (state.error != null && state.modules.isNotEmpty()) {
+                            item(key = "error-foryou") {
+                                ErrorState(state.error, onRetry = onLoadMore)
+                            }
                         }
                     }
                 }

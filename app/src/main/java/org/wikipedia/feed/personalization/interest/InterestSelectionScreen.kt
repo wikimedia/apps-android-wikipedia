@@ -34,16 +34,19 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.layout
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
 import org.wikipedia.R
@@ -59,6 +62,7 @@ import org.wikipedia.extensions.getString
 import org.wikipedia.page.PageTitle
 import org.wikipedia.theme.Theme
 import org.wikipedia.topics.ArticleTopics
+import org.wikipedia.util.L10nUtil
 
 @Composable
 fun InterestOnboardingScreen(
@@ -103,93 +107,96 @@ fun InterestOnboardingScreen(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            LazyVerticalStaggeredGrid(
-                columns = StaggeredGridCells.Adaptive(140.dp),
-                modifier = Modifier.fillMaxSize(),
-                state = gridState,
-                verticalItemSpacing = 16.dp,
-                horizontalArrangement = Arrangement.spacedBy(16.dp),
-                contentPadding = PaddingValues(start = 16.dp, end = 16.dp, bottom = 16.dp),
-                content = {
-                    item(span = StaggeredGridItemSpan.FullLine) {
-                        SearchBarCard(
-                            onSearchClick = onSearchClick,
-                            text = stringResource(R.string.recommended_reading_list_interest_pick_search_hint)
-                        )
-                    }
-                    item(span = StaggeredGridItemSpan.FullLine) {
-                        Box(
-                            modifier = Modifier.layout { measurable, constraints ->
-                                val extra = 16.dp.roundToPx() * 2
-                                val placeable = measurable.measure(
-                                    constraints.copy(
-                                        minWidth = constraints.minWidth + extra,
-                                        maxWidth = constraints.maxWidth + extra
-                                    )
-                                )
-                                layout(placeable.width, placeable.height) {
-                                    placeable.place(0, 0)
-                                }
-                            }
-                        ) {
-                            TopicFilterChipRow(
-                                topics = topicsList,
-                                languageCode = languageCode,
-                                onTopicSelected = { onTopicSelected(it) }
+            val layoutDirection = if (L10nUtil.isLangRTL(languageCode)) LayoutDirection.Rtl else LayoutDirection.Ltr
+            CompositionLocalProvider(LocalLayoutDirection provides layoutDirection) {
+                LazyVerticalStaggeredGrid(
+                    columns = StaggeredGridCells.Adaptive(140.dp),
+                    modifier = Modifier.fillMaxSize(),
+                    state = gridState,
+                    verticalItemSpacing = 16.dp,
+                    horizontalArrangement = Arrangement.spacedBy(16.dp),
+                    contentPadding = PaddingValues(start = 16.dp, end = 16.dp, bottom = 16.dp),
+                    content = {
+                        item(span = StaggeredGridItemSpan.FullLine) {
+                            SearchBarCard(
+                                onSearchClick = onSearchClick,
+                                text = stringResource(R.string.recommended_reading_list_interest_pick_search_hint)
                             )
                         }
-                    }
+                        item(span = StaggeredGridItemSpan.FullLine) {
+                            Box(
+                                modifier = Modifier.layout { measurable, constraints ->
+                                    val extra = 16.dp.roundToPx() * 2
+                                    val placeable = measurable.measure(
+                                        constraints.copy(
+                                            minWidth = constraints.minWidth + extra,
+                                            maxWidth = constraints.maxWidth + extra
+                                        )
+                                    )
+                                    layout(placeable.width, placeable.height) {
+                                        placeable.place(0, 0)
+                                    }
+                                }
+                            ) {
+                                TopicFilterChipRow(
+                                    topics = topicsList,
+                                    languageCode = languageCode,
+                                    onTopicSelected = { onTopicSelected(it) }
+                                )
+                            }
+                        }
 
-                    when (articlesState) {
-                        is ArticlesState.Error -> {
-                            item(span = StaggeredGridItemSpan.FullLine) {
-                                Box(
-                                    modifier = modifier
-                                        .fillMaxSize(),
-                                    contentAlignment = Alignment.Center
-                                ) {
-                                    WikiErrorView(
+                        when (articlesState) {
+                            is ArticlesState.Error -> {
+                                item(span = StaggeredGridItemSpan.FullLine) {
+                                    Box(
+                                        modifier = modifier
+                                            .fillMaxSize(),
+                                        contentAlignment = Alignment.Center
+                                    ) {
+                                        WikiErrorView(
+                                            modifier = Modifier
+                                                .fillMaxWidth(),
+                                            caught = articlesState.message,
+                                            errorClickEvents = WikiErrorClickEvents(
+                                                retryClickListener = retryLoading
+                                            ),
+                                            retryForGenericError = true
+                                        )
+                                    }
+                                }
+                            }
+                            ArticlesState.Loading -> {
+                                items(10) {
+                                    Box(
                                         modifier = Modifier
-                                            .fillMaxWidth(),
-                                        caught = articlesState.message,
-                                        errorClickEvents = WikiErrorClickEvents(
-                                            retryClickListener = retryLoading
-                                        ),
-                                        retryForGenericError = true
+                                            .fillMaxWidth()
+                                            .height(200.dp)
+                                            .clip(RoundedCornerShape(size = 16.dp))
+                                            .shimmerEffect(transition = transition)
+                                    )
+                                }
+                            }
+
+                            is ArticlesState.Success -> {
+                                items(articlesState.articles) { item ->
+                                    ArticleCard(
+                                        modifier = Modifier.animateItem(),
+                                        item = item,
+                                        isSelected = articlesState.selectedArticles.contains(item),
+                                        onItemClick = { onItemClick(item) }
+                                    )
+                                }
+                                item(span = StaggeredGridItemSpan.FullLine) {
+                                    Spacer(
+                                        modifier = Modifier.height(64.dp)
                                     )
                                 }
                             }
                         }
-                        ArticlesState.Loading -> {
-                            items(10) {
-                                Box(
-                                    modifier = Modifier
-                                        .fillMaxWidth()
-                                        .height(200.dp)
-                                        .clip(RoundedCornerShape(size = 16.dp))
-                                        .shimmerEffect(transition = transition)
-                                )
-                            }
-                        }
-
-                        is ArticlesState.Success -> {
-                            items(articlesState.articles) { item ->
-                                ArticleCard(
-                                    modifier = Modifier.animateItem(),
-                                    item = item,
-                                    isSelected = articlesState.selectedArticles.contains(item),
-                                    onItemClick = { onItemClick(item) }
-                                )
-                            }
-                            item(span = StaggeredGridItemSpan.FullLine) {
-                                Spacer(
-                                    modifier = Modifier.height(64.dp)
-                                )
-                            }
-                        }
                     }
-                }
-            )
+                )
+            }
         }
 
         SelectionBottomBar(
