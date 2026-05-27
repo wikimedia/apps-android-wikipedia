@@ -17,6 +17,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -25,6 +26,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -38,6 +41,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -136,6 +140,20 @@ fun ForYouContentTab(
                 val listState = rememberLazyListState()
                 val modules = state.modules
 
+                LaunchedEffect(listState, modules.size) {
+                    snapshotFlow {
+                        println("orange run")
+                        Pair(listState.firstVisibleItemIndex, listState.isScrollInProgress)
+                    }.collect { (index, isScrolling) ->
+                        println("orange current feed index: $index")
+                        val dummyIndex = modules.size + 1
+                        if (!isScrolling && index >= dummyIndex) {
+                            println("orange teleporting to index: 0")
+                            listState.scrollToItem(0)
+                        }
+                    }
+                }
+
                 BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
                     val viewportHeight = maxHeight
 
@@ -147,64 +165,19 @@ fun ForYouContentTab(
                             .background(WikipediaTheme.colors.backgroundColor)
                     ) {
                         modules.forEachIndexed { index, module ->
-                            when (module) {
-                                is ForYouModule.BasedOnInterest -> {
-                                    item(key = "interest-${module.age}-$index") {
-                                        BasedOnInterestModule(
-                                            modifier = Modifier
-                                                .fillMaxWidth()
-                                                .height(viewportHeight),
-                                            wikiSite = wikiSite,
-                                            module = module,
-                                            onPageClick = onPageClick,
-                                            onPageShareClick = onPageShareClick,
-                                            onPageBookmarkClick = onPageBookmarkClick,
-                                            onHideCardClick = onHideCardClick,
-                                            onHideModuleClick = { onHideModuleClick(module.moduleKey()) },
-                                            onCardInView = { onCardImpression(it, index) },
-                                            onCustomizeInterestsClick = onCustomizeInterestsClick
-                                        )
-                                    }
-                                }
-
-                                is ForYouModule.ContinueReading -> {
-                                    item(key = "continue-reading-${module.age}-$index") {
-                                        ContinueReadingModule(
-                                            modifier = Modifier
-                                                .fillMaxWidth()
-                                                .height(viewportHeight),
-                                            wikiSite = wikiSite,
-                                            module = module,
-                                            onPageClick = onPageClick,
-                                            onPageShareClick = onPageShareClick,
-                                            onPageBookmarkClick = onPageBookmarkClick,
-                                            onHideCardClick = onHideCardClick,
-                                            onHideModuleClick = { onHideModuleClick(module.moduleKey()) },
-                                            onCardInView = { onCardImpression(it, index) },
-                                            onCustomizeInterestsClick = onCustomizeInterestsClick
-                                        )
-                                    }
-                                }
-
-                                is ForYouModule.BecauseYouRead -> {
-                                    item(key = "because-you-read-${module.age}-$index") {
-                                        BecauseYouReadModule(
-                                            modifier = Modifier
-                                                .fillMaxWidth()
-                                                .height(viewportHeight),
-                                            wikiSite = wikiSite,
-                                            module = module,
-                                            onPageClick = onPageClick,
-                                            onPageShareClick = onPageShareClick,
-                                            onPageBookmarkClick = onPageBookmarkClick,
-                                            onHideCardClick = onHideCardClick,
-                                            onHideModuleClick = { onHideModuleClick(module.moduleKey()) },
-                                            onCardInView = { onCardImpression(it, index) },
-                                            onCustomizeInterestsClick = onCustomizeInterestsClick
-                                        )
-                                    }
-                                }
-                            }
+                            ForYouModuleItem(
+                                module = module,
+                                index = index,
+                                viewPortHeight = viewportHeight,
+                                wikiSite = wikiSite,
+                                onPageClick = onPageClick,
+                                onPageShareClick = onPageShareClick,
+                                onPageBookmarkClick = onPageBookmarkClick,
+                                onHideCardClick = onHideCardClick,
+                                onHideModuleClick = onHideModuleClick,
+                                onCardImpression = onCardImpression,
+                                onCustomizeInterestsClick = onCustomizeInterestsClick
+                            )
                         }
 
                         item(key = "load-more-foryou") {
@@ -240,8 +213,99 @@ fun ForYouContentTab(
                                 ErrorState(state.error, onRetry = onLoadMore)
                             }
                         }
+
+                        if (state.error == null && !state.isLoadingMore && !state.canLoadMore && state.modules.isNotEmpty()) {
+                            ForYouModuleItem(
+                                module = state.modules.first(),
+                                index = modules.size + 1,
+                                viewPortHeight = viewportHeight,
+                                wikiSite = wikiSite,
+                                isDummy = true,
+                                onPageClick = onPageClick,
+                                onPageShareClick = onPageShareClick,
+                                onPageBookmarkClick = onPageBookmarkClick,
+                                onHideCardClick = onHideCardClick,
+                                onHideModuleClick = onHideModuleClick,
+                                onCardImpression = { _, _ -> },
+                                onCustomizeInterestsClick = onCustomizeInterestsClick
+                            )
+                        }
                     }
                 }
+            }
+        }
+    }
+}
+
+private fun LazyListScope.ForYouModuleItem(
+    module: ForYouModule,
+    index: Int,
+    viewPortHeight: Dp,
+    wikiSite: WikiSite,
+    isDummy: Boolean = false,
+    onPageClick: (card: Card, historyEntry: HistoryEntry) -> Unit,
+    onPageShareClick: (card: Card, historyEntry: HistoryEntry) -> Unit,
+    onPageBookmarkClick: (card: Card, historyEntry: HistoryEntry) -> Unit,
+    onHideCardClick: (module: ForYouModule, card: ForYouCard) -> Unit,
+    onHideModuleClick: (moduleKey: String) -> Unit,
+    onCardImpression: (card: Card, index: Int) -> Unit,
+    onCustomizeInterestsClick: (card: Card) -> Unit
+) {
+    val key = if (isDummy) "dummy-${module.age}" else "${module.javaClass.simpleName}-${module.age}-$index"
+    println("orange isDummy: $isDummy key : $key")
+    when (module) {
+        is ForYouModule.BasedOnInterest -> {
+            item(key = key) {
+                BasedOnInterestModule(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(viewPortHeight),
+                    wikiSite = wikiSite,
+                    module = module,
+                    onPageClick = onPageClick,
+                    onPageShareClick = onPageShareClick,
+                    onPageBookmarkClick = onPageBookmarkClick,
+                    onHideCardClick = onHideCardClick,
+                    onHideModuleClick = { onHideModuleClick(module.moduleKey()) },
+                    onCardInView = { onCardImpression(it, index) },
+                    onCustomizeInterestsClick = onCustomizeInterestsClick
+                )
+            }
+        }
+        is ForYouModule.ContinueReading -> {
+            item(key = key) {
+                ContinueReadingModule(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(viewPortHeight),
+                    wikiSite = wikiSite,
+                    module = module,
+                    onPageClick = onPageClick,
+                    onPageShareClick = onPageShareClick,
+                    onPageBookmarkClick = onPageBookmarkClick,
+                    onHideCardClick = onHideCardClick,
+                    onHideModuleClick = { onHideModuleClick(module.moduleKey()) },
+                    onCardInView = { onCardImpression(it, index) },
+                    onCustomizeInterestsClick = onCustomizeInterestsClick
+                )
+            }
+        }
+        is ForYouModule.BecauseYouRead -> {
+            item(key = key) {
+                BecauseYouReadModule(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(viewPortHeight),
+                    wikiSite = wikiSite,
+                    module = module,
+                    onPageClick = onPageClick,
+                    onPageShareClick = onPageShareClick,
+                    onPageBookmarkClick = onPageBookmarkClick,
+                    onHideCardClick = onHideCardClick,
+                    onHideModuleClick = { onHideModuleClick(module.moduleKey()) },
+                    onCardInView = { onCardImpression(it, index) },
+                    onCustomizeInterestsClick = onCustomizeInterestsClick
+                )
             }
         }
     }
