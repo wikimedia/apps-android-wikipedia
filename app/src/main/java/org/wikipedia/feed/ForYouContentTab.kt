@@ -29,6 +29,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLayoutDirection
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.LinkInteractionListener
 import androidx.compose.ui.text.SpanStyle
@@ -216,6 +217,21 @@ fun ForYouContentTab(
                                 //     isCommunity = false,
                                 //     onClick = onLoadMore
                                 // )
+                            } else if (state.modules.isNotEmpty()) {
+                                // only when we don't serve new content on the same day
+                                val card = EmptyForYouCard()
+                                ForYouEndOfFeedView(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .height(viewportHeight)
+                                        .background(colorResource(R.color.green800))
+                                        .padding(16.dp)
+                                        .padding(top = (topInset * 2 + 64).dp),
+                                    wikiSite = wikiSite,
+                                    showCustomizeInterests = !state.isInterestModuleHidden,
+                                    onCustomizeInterestsClick = { onCustomizeInterestsClick(card) },
+                                    navigateToCommunityTab = { onSelectTab(HomeTab.COMMUNITY, card) }
+                                )
                             }
                         }
 
@@ -319,6 +335,73 @@ fun EmptyStateActionRow(
             color = WikipediaTheme.colors.primaryColor,
             style = MaterialTheme.typography.bodyMedium,
             linkInteractionListener = LinkInteractionListener { onLinkClick() }
+        )
+    }
+}
+
+@Composable
+fun ForYouEndOfFeedView(
+    modifier: Modifier = Modifier,
+    wikiSite: WikiSite,
+    showCustomizeInterests: Boolean = true,
+    onCustomizeInterestsClick: () -> Unit,
+    navigateToCommunityTab: () -> Unit
+) {
+    val context = LocalContext.current
+    Column(
+        modifier = modifier,
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy(16.dp, Alignment.CenterVertically)
+    ) {
+        Image(
+            painter = painterResource(R.drawable.ic_yir_puzzle),
+            contentDescription = null
+        )
+        Spacer(modifier = Modifier.height(16.dp))
+        Text(
+            modifier = Modifier.fillMaxWidth(),
+            text = context.getString(wikiSite.languageCode, R.string.home_feed_for_you_screen_end_of_feed_title),
+            style = MaterialTheme.typography.headlineSmall,
+            color = WikipediaTheme.colors.primaryColor
+        )
+        Text(
+            modifier = Modifier.fillMaxWidth(),
+            text = context.getString(wikiSite.languageCode, R.string.home_feed_for_you_screen_end_of_feed_description),
+            style = MaterialTheme.typography.bodyMedium,
+            color = WikipediaTheme.colors.primaryColor
+        )
+        Text(
+            modifier = Modifier.fillMaxWidth(),
+            text = context.getString(wikiSite.languageCode, R.string.home_feed_for_you_screen_end_of_feed_ways_to_keep_learning),
+            style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Medium),
+            color = WikipediaTheme.colors.primaryColor
+        )
+        EmptyStateActionRow(
+            iconRes = R.drawable.ic_baseline_tune_24,
+            text = context.getString(wikiSite.languageCode, R.string.home_feed_for_you_screen_end_of_feed_add_interests),
+            onLinkClick = onCustomizeInterestsClick
+        )
+        EmptyStateActionRow(
+            iconRes = R.drawable.ic_diversity_3_24dp,
+            text = context.getString(wikiSite.languageCode, R.string.home_feed_for_you_screen_end_of_feed_see_community),
+            onLinkClick = navigateToCommunityTab
+        )
+    }
+}
+
+@Preview
+@Composable
+fun ForYouEndOfFeedViewPreview() {
+    BaseTheme(currentTheme = Theme.DARK) {
+        ForYouEndOfFeedView(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(colorResource(R.color.green800))
+                .padding(16.dp),
+            wikiSite = WikiSite.preview(),
+            showCustomizeInterests = true,
+            onCustomizeInterestsClick = {},
+            navigateToCommunityTab = {}
         )
     }
 }

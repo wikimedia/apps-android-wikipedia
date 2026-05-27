@@ -121,7 +121,7 @@ data class ForYouContentState(
     val isInitialLoading: Boolean = false,
     val isLoadingMore: Boolean = false,
     val error: Throwable? = null,
-    val canLoadMore: Boolean = true,
+    val canLoadMore: Boolean = false,
     val isInterestModuleHidden: Boolean = false,
     val emptyState: FeedEmptyState? = null
 )
@@ -349,8 +349,7 @@ class HomeViewModel : ViewModel() {
                 modules = _forYouState.value.modules + newModules,
                 isInitialLoading = false,
                 isLoadingMore = false,
-                error = null,
-                canLoadMore = newModules.isNotEmpty()
+                error = null
             )
         }
     }
