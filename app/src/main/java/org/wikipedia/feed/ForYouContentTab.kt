@@ -142,13 +142,10 @@ fun ForYouContentTab(
 
                 LaunchedEffect(listState, modules.size) {
                     snapshotFlow {
-                        println("orange run")
                         Pair(listState.firstVisibleItemIndex, listState.isScrollInProgress)
                     }.collect { (index, isScrolling) ->
-                        println("orange current feed index: $index")
                         val dummyIndex = modules.size + 1
                         if (!isScrolling && index >= dummyIndex) {
-                            println("orange teleporting to index: 0")
                             listState.scrollToItem(0)
                         }
                     }
@@ -252,7 +249,6 @@ private fun LazyListScope.ForYouModuleItem(
     onCustomizeInterestsClick: (card: Card) -> Unit
 ) {
     val key = if (isDummy) "dummy-${module.age}" else "${module.javaClass.simpleName}-${module.age}-$index"
-    println("orange isDummy: $isDummy key : $key")
     when (module) {
         is ForYouModule.BasedOnInterest -> {
             item(key = key) {
