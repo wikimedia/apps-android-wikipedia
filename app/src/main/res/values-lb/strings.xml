@@ -439,7 +439,7 @@
     <item quantity="other">De Kont leeft a(n) %d Deeg of.</item>
   </plurals>
   <string name="temp_account_anon_ip_edit_status">&lt;b&gt;Dir sidd net ageloggt.&lt;/b&gt; Soubal Dir eng Ännerung maacht, ginn Är Ännerungen Ärer IP-Adress zougeuerdent.</string>
-  <string name="temp_account_anon_edit_status">&lt;b&gt;Dir sidd net ageloggt.&lt;/b&gt; Soubal Dir eng Ännerung maacht, gëtt en temporäre Kont fir Iech ugeluecht fir Är Privatsphär ze schützen. &lt;a href=\"%1$s\"&gt;Méi gewuer ginn&lt;/a&gt;</string>
+  <string name="temp_account_anon_edit_status">&lt;b&gt;Dir sidd net ageloggt.&lt;/b&gt; Soubal Dir eng Ännerung maacht, gëtt en temporäre Kont fir Iech ugeluecht, fir Är Privatsphär ze schützen. &lt;a href=\"%1$s\"&gt;Méi gewuer ginn&lt;/a&gt;</string>
   <string name="temp_account_edit_status">&lt;b&gt;Dir benotzt en temporäre Kont.&lt;/b&gt; Är Ännerung gëtt %1$s zougeuerdent. &lt;a href=\"%2$s\"&gt;Méi gewuer ginn&lt;/a&gt;.</string>
   <string name="temp_account_login_status">&lt;b&gt;Dir benotzt am Moment en temporäre Kont.&lt;/b&gt; Ännerungen, déi Dir mam temporäre Kont %1$s maacht, ginn net op Äre permanente Kont iwwerdroen, wann Dir Iech aloggt. Fir datt, nieft anere Virdeeler, Är Kontributiounen Ärem Benotzernumm zougeuerdent ginn, loggt Iech an oder leet e Kont un.</string>
   <string name="temp_account_end_session">Sessioun ofschléissen</string>
@@ -1736,7 +1736,7 @@
   <string name="on_this_day_game_card_archive_label">Archiv</string>
   <string name="on_this_day_game_stats_log_in_prompt_card_button">Aloggen</string>
   <string name="on_this_day_game_stats_log_in_prompt_card_title">Loggt Iech an, fir Är Spillstatistiken ze kucken</string>
-  <string name="on_this_day_game_stats_log_in_prompt_card_description">Kuckt Är Serien, Är Punkten a méi</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_description">Kuckt Är Serien, Punkten a méi</string>
   <string name="wikipedia_games_title">Wikipedia-Spiller</string>
   <string name="wikipedia_games_subtitle">Deeglech Quiz-Spiller, déi op Wikipedia-Inhalter baséieren.</string>
   <string name="year_in_review_learn_more">Méi gewuer ginn</string>

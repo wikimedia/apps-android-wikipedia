@@ -10,6 +10,7 @@
 * Cooltey
 * DVrandecic (WMF)
 * Dbrant
+* Desvaters
 * DraconicDark
 * Druesenfieber
 * Elliot
@@ -297,7 +298,7 @@
   <string name="about_description">Über die Wikipedia-App</string>
   <string name="privacy_policy_description">Datenschutzrichtlinie</string>
   <string name="terms_of_use_description">Nutzungsbedingungen</string>
-  <string name="legal_safety_contacts_description" fuzzy="true">Rechts- und Sicherheitskontakte</string>
+  <string name="legal_safety_contacts_description">Kontakte für Rechtliches &amp; Sicherheit</string>
   <string name="about_wikipedia_url">https://de.wikipedia.org/wiki/Wikipedia:Über_Wikipedia</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/de</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/de</string>
@@ -442,8 +443,10 @@
   <string name="button_get_directions">Richtungen abrufen</string>
   <string name="error_no_maps_app">Es konnten keine Apps gefunden werden, die Richtungen zur Verfügung stellen.</string>
   <string name="preference_title_customize_explore_feed">Entdecken-Feed</string>
+  <string name="preference_title_customize_home_feed">Home-Feed</string>
   <string name="preference_title_show_link_previews">Vorschaubilder von Links anzeigen</string>
   <string name="preference_summary_customize_explore_feed">Den Entdecken-Feed anpassen</string>
+  <string name="preference_summary_customize_home_feed">Passe deinen Home-Feed an</string>
   <string name="preference_summary_show_link_previews">Zeigt eine schnelle Vorschau von Artikeln beim Antippen von Links.</string>
   <string name="preference_title_collapse_tables">Tabellen einklappen</string>
   <string name="preference_summary_collapse_tables">Tabellen in Artikeln wie Infoboxen, Einzelnachweise und Anmerkungen automatisch einklappen.</string>
@@ -853,6 +856,7 @@
   <string name="view_random_article_card_title">Zufälliger Artikel</string>
   <string name="view_random_article_card_action">Mehr zufällige Artikel</string>
   <string name="view_top_read_card_title">Meistgelesen</string>
+  <string name="view_top_read_card_description">Was heute auf Wikipedia im Trend ist</string>
   <string name="view_top_read_card_action">Mehr Meistgelesen</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d k</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
@@ -900,7 +904,7 @@
   <string name="feed_configure_onboarding_action">Anpassen</string>
   <string name="customize_lang_selection_dialog_ok_button_text">Okay</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Abbrechen</string>
-  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Passe deinen Entdecken-Feed an&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Du kannst jetzt auswählen, was auf deinem Feed angezeigt werden soll und auch deine Lieblingsinhalte priorisieren.</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Passe deinen Home-Feed an&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Du kannst jetzt auswählen, was auf deinem Feed angezeigt werden soll, und außerdem deine Lieblingsinhalte priorisieren.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">Okay</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Abbrechen</string>
   <string name="feed_accessibility_card_text">Du hast das Ende des Feeds erreicht.</string>
@@ -1276,6 +1280,7 @@
   <string name="activity_tab_onboarding_stay_in_control_message">Wähle, welche Module angezeigt werden sollen. Alle persönlichen Daten bleiben privat auf deinem Gerät und der Browsing-Verlauf kann jederzeit gelöscht werden.</string>
   <string name="edits_screen_what_is_title">Bearbeiten in der Wikipedia-App</string>
   <string name="edits_screen_what_is_body">Bist du dir unsicher, wie du mit dem Bearbeiten anfangen sollst? Probiere vorgeschlagene Bearbeitungen aus, eine Funktion, die Möglichkeiten für kleine, aber wichtige Beiträge zur Wikipedia bietet. Alternativ kannst du direkt einen für dich interessanten Artikel aufrufen und eine Änderung im Wikitext vornehmen.</string>
+  <string name="activity_tab_snackbar_label">Die Spielestatistiken werden für deine primäre Sprache angezeigt.</string>
   <string name="file_page_activity_title">Dateiseite</string>
   <string name="file_page_add_image_caption_button">Bildunterschrift hinzufügen</string>
   <string name="file_page_add_image_tags_button">Bilder-Tags hinzufügen</string>
@@ -1299,13 +1304,20 @@
   <string name="onboarding_reading_list_sync_title">Leselisten mit Synchronisierung</string>
   <string name="onboarding_reading_list_sync_text_v2">Du kannst Leselisten von Artikeln erstellen, die du später lesen möchtest, auch wenn du offline bist. &lt;br/&gt;Melde dich bei deinem Wikipedia-Benutzerkonto an, um deine Leselisten zu synchronisieren. &lt;a href=\"#login\"&gt;Wikipedia beitreten&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Daten &amp; Privatsphäre</string>
-  <string name="onboarding_data_privacy_text" fuzzy="true">Wir sind der Meinung, dass du keine persönlichen Daten angeben musst, um am Movement für freies Wissen teilzunehmen. Die für diese App gesammelten Nutzungsdaten sind anonym. Erfahre mehr über unsere &lt;a href=\"#privacy\"&gt;Datenschutzrichtlinie&lt;/a&gt; und &lt;a href=\"#termsOfUse\"&gt;Nutzungsbedingungen&lt;/a&gt;.</string>
+  <string name="onboarding_data_privacy_text">Wir sind der Meinung, dass du keine persönlichen Daten angeben musst, um an der Bewegung für freies Wissen teilzunehmen. Die für diese App gesammelten Nutzungsdaten sind anonym. Erfahre mehr über unsere &lt;a href=\"#privacy\"&gt;Datenschutzrichtlinie&lt;/a&gt; und &lt;a href=\"#termsOfUse\"&gt;Nutzungsbedingungen&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Nutzungsdaten senden</string>
   <string name="onboarding_got_it">Verstanden</string>
   <string name="onboarding_multilingual_secondary_text">Wir haben die folgenden Sprachen auf deinem Gerät gefunden:</string>
   <string name="onboarding_multilingual_add_language_text">Sprachen hinzufügen oder bearbeiten</string>
   <string name="onboarding_welcome_title_v2">Die freie Enzyklopädie\n… in über 300 Sprachen</string>
   <string name="onboarding_next">Weiter</string>
+  <string name="onboarding_fresh_install_knowledge_title">Alles Wissen auf der Welt</string>
+  <string name="onboarding_fresh_install_knowledge_text">Wikipedia ist eine freie Online-Enzyklopädie mit 65 Millionen Artikeln, die von einer Vielzahl an Freiwilligen in über 300 Sprachen gemeinsam verfasst und gepflegt werden.</string>
+  <string name="onboarding_fresh_install_knowledge_learn_more">Mehr über Wikipedia erfahren</string>
+  <string name="onboarding_app_languages_title">In mehr als 300 Sprachen lesen</string>
+  <string name="onboarding_app_languages_text">Wir haben die folgenden Sprachen auf deinem Gerät erkannt:</string>
+  <string name="onboarding_app_languages_primary">Primär</string>
+  <string name="onboarding_app_languages_add_button">Sprachen hinzufügen oder bearbeiten</string>
   <string name="app_shortcuts_random">Zufällig</string>
   <string name="app_shortcuts_continue_reading">Mit dem Lesen fortfahren</string>
   <string name="app_shortcuts_search">Suchen</string>
@@ -1335,7 +1347,7 @@
     <item quantity="one">Ausgewählte Sprache entfernen?</item>
     <item quantity="other">Ausgewählte Sprachen entfernen?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Du wirst nur die Inhalte im Entdecken-Feed und Schnellsuchfilter für die verbleibenden Wikipedia-Sprachen sehen.</string>
+  <string name="wikipedia_languages_remove_dialog_content">Du wirst nur die Inhalte im Home-Feed und Schnellsuchfilter für die verbleibenden Wikipedia-Sprachen sehen.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Es konnten nicht alle Sprachen entfernt werden</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Mindestens eine Wikipedia-Sprache für die Suche und das Lesen von Inhalten behalten.</string>
   <string name="more_language_options">mehr</string>
@@ -1828,6 +1840,8 @@
   <string name="survey_dialog_general_maybe">Vielleicht</string>
   <string name="survey_dialog_input_hint">Zusätzliches Feedback</string>
   <string name="survey_dialog_submitted_snackbar">Feedback gesendet. Danke!</string>
+  <string name="games_hub_activity_games_unavailable_message_learn_more_action">Mehr erfahren</string>
+  <string name="games_hub_activity_overflow_learn_more">Mehr erfahren</string>
   <string name="on_this_day_game_entry_dialog_title">Wir präsentieren</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Wikipedia-Spiele</string>
   <string name="on_this_day_game_entry_dialog_button" fuzzy="true">Heutiges Spiel spielen</string>
@@ -1843,7 +1857,7 @@
   <string name="on_this_day_game_point">+1 Punkt</string>
   <string name="on_this_day_game_next">Nächste Frage</string>
   <string name="on_this_day_game_finish">Endergebnisse</string>
-  <string name="on_this_day_game_share_button" fuzzy="true">Teilen</string>
+  <string name="on_this_day_game_share_button">Score teilen</string>
   <string name="on_this_day_game_feed_entry_card_heading">Wikipedia-Spiele</string>
   <string name="on_this_day_game_feed_entry_card_title">Was war zuerst?</string>
   <string name="on_this_day_game_result">Sie haben %1$d von %2$d erzielt.</string>
@@ -2272,13 +2286,13 @@
   <string name="hybrid_search_onboarding_search_example_description">Verwende eines der Suchbeispiele unten.</string>
   <string name="hybrid_search_onboarding_opt_out_toast_message">Du hast das Experiment deaktiviert.</string>
   <string name="hybrid_search_onboarding_search_example_query_pluto_as_planet">Wann wurde Pluto der Planetenstatus aberkannt?</string>
-  <string name="hybrid_search_onboarding_search_example_query_first_olympics" fuzzy="true">Erste Olympische Spiele</string>
+  <string name="hybrid_search_onboarding_search_example_query_first_olympics">Erste Olympische Spiele</string>
   <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">RNA vs. DNA</string>
   <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Warum kommt Ananas auf Pizza?</string>
   <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Was sind die größten Städte Europas?</string>
   <string name="hybrid_search_onboarding_screen_title">Eine neue Art zu suchen</string>
-  <string name="hybrid_search_results_header_description" fuzzy="true">Aus von Menschen verfassten Wikipedia-Artikeln</string>
-  <string name="hybrid_search_results_rate_label" fuzzy="true">Ergebnisse bewerten</string>
+  <string name="hybrid_search_results_header_description">Aus von Menschen verfassten Wikipedia-Artikeln</string>
+  <string name="hybrid_search_results_rate_label">Dieses Ergebnis bewerten</string>
   <string name="hybrid_search_results_rated_label">Bewertet</string>
   <string name="hybrid_search_results_rate_thumb_up">Positiv bewerten</string>
   <string name="hybrid_search_results_rate_thumb_down">Negativ bewerten</string>
