@@ -2339,7 +2339,7 @@
   <string name="explore_feed_building_text">راځئ چې ستاسو کتنمخ جوړ کړو...</string>
   <string name="explore_feed_community_tab_label">ټولنه</string>
   <string name="explore_feed_for_you_tab_label">ستاسو لپاره</string>
-  <string name="explore_feed_date_today" fuzzy="true">نن -</string>
+  <string name="explore_feed_date_today">نن - %s</string>
   <string name="explore_feed_load_previous_day_label">تېره ورځ بارول</string>
   <string name="explore_feed_from_reading_list">ستاسو له لوستلړ څخه</string>
   <string name="explore_feed_because_of_interest">ستاسو د لېوالتياوو پربنسټ: %s</string>
