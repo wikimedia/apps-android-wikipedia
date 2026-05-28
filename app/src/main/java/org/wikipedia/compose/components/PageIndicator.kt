@@ -4,16 +4,13 @@ import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.background
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -31,6 +28,7 @@ fun PageIndicator(
     pagerState: PagerState,
     animationDuration: Int = 500,
     indicatorSpacing: Dp = 12.dp,
+    maxIndicatorSize: Dp = 8.dp,
     activeColor: Color = WikipediaTheme.colors.progressiveColor,
     inactiveColor: Color = WikipediaTheme.colors.inactiveColor
 ) {
@@ -40,40 +38,35 @@ fun PageIndicator(
         verticalAlignment = Alignment.CenterVertically
     ) {
         repeat(pagerState.pageCount) { index ->
-            val colorTransition by animateColorAsState(
-                targetValue = if (index == pagerState.currentPage) {
-                    activeColor
-                } else {
-                    inactiveColor
-                },
-                animationSpec = tween(
-                    durationMillis = animationDuration,
-                    easing = FastOutSlowInEasing
-                )
+            val colorState = animateColorAsState(
+                targetValue = if (index == pagerState.currentPage) activeColor else inactiveColor,
+                animationSpec = tween(durationMillis = animationDuration, easing = FastOutSlowInEasing)
             )
-            val sizeTransition by animateDpAsState(
+            val sizeState = animateDpAsState(
                 targetValue = paginationSizeGradient(
                     totalIndicators = pagerState.pageCount,
                     iteration = index,
-                    pagerState = pagerState
-                ).dp,
+                    pagerState = pagerState,
+                    max = maxIndicatorSize
+                ),
                 animationSpec = tween(durationMillis = animationDuration)
             )
-            Box(
-                modifier = Modifier
-                    .background(colorTransition, CircleShape)
-                    .size(sizeTransition)
-            )
+            Canvas(modifier = Modifier.size(maxIndicatorSize)) {
+                drawCircle(
+                    color = colorState.value,
+                    radius = sizeState.value.toPx() / 2f
+                )
+            }
         }
     }
 }
 
-private fun paginationSizeGradient(totalIndicators: Int, iteration: Int, pagerState: PagerState): Int {
+private fun paginationSizeGradient(totalIndicators: Int, iteration: Int, pagerState: PagerState, max: Dp): Dp {
     return when {
-        totalIndicators <= 5 -> 8
-        (iteration - pagerState.currentPage).absoluteValue <= 4 -> 8
-        (iteration - pagerState.currentPage).absoluteValue == 5 -> 4
-        else -> 2
+        totalIndicators <= 5 -> max
+        (iteration - pagerState.currentPage).absoluteValue <= 4 -> max
+        (iteration - pagerState.currentPage).absoluteValue == 5 -> max / 2
+        else -> max / 4
     }
 }
 

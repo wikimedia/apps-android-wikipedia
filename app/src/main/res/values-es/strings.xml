@@ -40,6 +40,7 @@
 * Geom
 * Geryescalier
 * GseSro
+* HakanIST
 * Hal9000wopr
 * Harvest
 * Ihojose
@@ -2030,7 +2031,7 @@
     <item quantity="one">Editaste %s vez</item>
     <item quantity="other">Editaste %s veces</item>
   </plurals>
-  <string name="year_in_review_slide_edited_times_body">{{PLURAL|one=Gracias por ser uno de los editores voluntarios haciendo una diferencia en los projectos de Wikimedia en todo el mundo. Los voluntarios como used hizo %,d cambio en más de 300 ediciones de idiomas diferentes de Wikipedia.|Gracias por ser uno de los editores voluntarios haciendo una diferencia en los projectos de Wikimedia en todo el mundo. Los voluntarios como usted hicieron %,d cambios en más de 300 ediciones de idiomas diferentes de Wikipedia.</string>
+  <string name="year_in_review_slide_edited_times_body">{{PLURAL|one=Gracias por ser uno de los editores voluntarios haciendo una diferencia en los projectos de Wikimedia en todo el mundo. Los voluntarios como used hizo %1$,d cambio en más de 300 ediciones de idiomas diferentes de Wikipedia.|Gracias por ser uno de los editores voluntarios haciendo una diferencia en los projectos de Wikimedia en todo el mundo. Los voluntarios como usted hicieron %1$,d cambios en más de 300 ediciones de idiomas diferentes de Wikipedia.</string>
   <string name="year_in_review_slide_reading_patterns_headline">Tienes patrones de lectura claros</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">Tiempo favorito para leer</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">Día favorito para leer</string>

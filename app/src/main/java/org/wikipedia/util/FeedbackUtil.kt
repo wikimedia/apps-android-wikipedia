@@ -53,9 +53,9 @@ object FeedbackUtil {
 
     fun showError(activity: Activity, e: Throwable, wikiSite: WikiSite = WikipediaApp.instance.wikiSite) {
         val error = ThrowableUtil.getAppError(activity, e)
-        makeSnackbar(activity, error.error, wikiSite = wikiSite).also {
-            if (error.error.length > 200) {
-                it.duration = Snackbar.LENGTH_INDEFINITE
+        val isIndefinite = error.error.length > 200
+        makeSnackbar(activity, error.error, duration = if (isIndefinite) Snackbar.LENGTH_INDEFINITE else LENGTH_DEFAULT, wikiSite = wikiSite).also {
+            if (isIndefinite) {
                 it.setAction(android.R.string.ok) { _ ->
                     it.dismiss()
                 }
@@ -149,6 +149,10 @@ object FeedbackUtil {
         val textView = snackbar.view.findViewById<TextView>(com.google.android.material.R.id.snackbar_text)
         textView.setLinkTextColor(ResourceUtil.getThemedColor(view.context, R.attr.progressive_color))
         textView.movementMethod = LinkMovementMethodExt.getExternalLinkMovementMethod(wikiSite)
+        if (duration == Snackbar.LENGTH_INDEFINITE) {
+            // For indefinite snackbars, allow the user to select and copy text.
+            textView.setTextIsSelectable(true)
+        }
         return snackbar
     }
 

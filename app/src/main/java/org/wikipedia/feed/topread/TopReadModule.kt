@@ -210,7 +210,10 @@ fun TopReadItem(
                 )
             }
 
-            Box {
+            Box(
+                modifier = Modifier
+                    .size(48.dp)
+            ) {
                 IconButton(
                     onClick = {
                         onPageOverflowClick(pageSummary)

@@ -110,7 +110,8 @@ class CustomHtmlParser(private val handler: TagHandler) : TagHandler, ContentHan
 
     class CustomTagHandler(private val view: TextView?) : TagHandler {
         private var lastAClass = ""
-        private var lastHiddenSpanPos = -1
+        private var hiddenSpanDepth = 0
+        private var hiddenSpanStartPos = -1
         private var listItemCounts = Stack<Int>()
         private val listParents = mutableListOf<String>()
 
@@ -197,13 +198,28 @@ class CustomHtmlParser(private val handler: TagHandler) : TagHandler, ContentHan
                 handleListTag(output)
             } else if (tag == "span" && output != null) {
                 if (opening) {
-                    if (getValue(attributes, "style").orEmpty().contains("display:none")) {
-                        lastHiddenSpanPos = output.length
+                    if (hiddenSpanDepth > 0) {
+                        // Already inside a hidden span, just track nesting depth.
+                        hiddenSpanDepth++
+                    } else if (getValue(attributes, "style").orEmpty().let {
+                        it.contains("display:none") || it.contains("display: none")
+                    }) {
+                        // Entering a new hidden span. Record the output position so we can
+                        // truncate everything appended while inside this span.
+                        hiddenSpanDepth = 1
+                        hiddenSpanStartPos = output.length
                     }
                 } else {
-                    if (lastHiddenSpanPos >= 0 && lastHiddenSpanPos < output.length) {
-                        output.delete(lastHiddenSpanPos, output.length)
-                        lastHiddenSpanPos = -1
+                    if (hiddenSpanDepth > 0) {
+                        hiddenSpanDepth--
+                        if (hiddenSpanDepth == 0 && hiddenSpanStartPos >= 0) {
+                            // The outermost hidden span has closed. Remove all content
+                            // that was appended while we were inside it.
+                            if (hiddenSpanStartPos < output.length) {
+                                output.delete(hiddenSpanStartPos, output.length)
+                            }
+                            hiddenSpanStartPos = -1
+                        }
                     }
                 }
             }
