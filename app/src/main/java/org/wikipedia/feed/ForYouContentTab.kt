@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
@@ -196,9 +197,9 @@ fun ForYouContentTab(
                                         .height(viewportHeight)
                                         .background(colorResource(R.color.green800))
                                         .padding(16.dp)
-                                        .padding(top = (topInset * 2 + 64).dp),
+                                        .padding(top = (topInset * 2 + 64).dp)
+                                        .navigationBarsPadding(),
                                     wikiSite = wikiSite,
-                                    showCustomizeInterests = !state.isInterestModuleHidden,
                                     onCustomizeInterestsClick = { onCustomizeInterestsClick(card) },
                                     navigateToCommunityTab = { onSelectTab(HomeTab.COMMUNITY, card) }
                                 )
@@ -403,7 +404,6 @@ fun EmptyStateActionRow(
 fun ForYouEndOfFeedView(
     modifier: Modifier = Modifier,
     wikiSite: WikiSite,
-    showCustomizeInterests: Boolean = true,
     onCustomizeInterestsClick: () -> Unit,
     navigateToCommunityTab: () -> Unit
 ) {
@@ -459,7 +459,6 @@ fun ForYouEndOfFeedViewPreview() {
                 .background(colorResource(R.color.green800))
                 .padding(16.dp),
             wikiSite = WikiSite.preview(),
-            showCustomizeInterests = true,
             onCustomizeInterestsClick = {},
             navigateToCommunityTab = {}
         )
