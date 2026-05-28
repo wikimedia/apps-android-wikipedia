@@ -19,6 +19,7 @@
 * Grace03
 * Gsdn
 * GuoPC
+* HakanIST
 * Hehua
 * Huajing
 * Huanqiu
@@ -607,7 +608,7 @@
   <string name="reading_list_item_deleted">%s已从列表中移除</string>
   <string name="reading_list_item_deleted_from_list">%1$s已从%2$s移除</string>
   <string name="reading_list_articles_deleted">从列表中移除了%d个条目</string>
-  <string name="reading_list_articles_deleted_from_list">从%s中移除了%d个条目</string>
+  <string name="reading_list_articles_deleted_from_list" fuzzy="true">从%1$s中移除了%2$d个条目</string>
   <string name="reading_lists_deleted_message">%d 个列表已删除</string>
   <string name="reading_lists_default_list_delete_message">无法删除默认列表（%s）</string>
   <string name="reading_lists_default_plus_one_list_delete_message">%1$s 已删除。无法删除默认列表 (%2$s)。</string>

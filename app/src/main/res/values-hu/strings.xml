@@ -864,11 +864,11 @@
   <string name="feed_item_type_randomizer">Véletlenszerűen kiválasztott szócikkek</string>
   <string name="feed_item_type_suggested_edits">Javaslatok a Wikipédia tartalmának fejlesztésére</string>
   <string name="feed_item_type_places">Közeli cikkek az aktuális hely alapján</string>
-  <string name="feed_empty_message" fuzzy="true">Nincs semmi a Felfedezés hírfolyamodban</string>
+  <string name="feed_empty_message">Nincs semmi a Kezdőlap hírfolyamodban</string>
   <string name="feed_configure_onboarding_action">Testreszabás</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Mégse</string>
-  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Szabd testre a Felfedezés hírfolyamodat!&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Mostantól kiválaszthatod, hogy mi jelenjen meg a hírfolyamodban, és át is rendezheted azt, feljebb helyezve a kedvenc tartalomtípusaidat.</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Szabd testre a Kezdőlap hírfolyamodat!&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Mostantól kiválaszthatod, hogy mi jelenjen meg a hírfolyamodban, és át is rendezheted azt, feljebb helyezve a kedvenc tartalomtípusaidat.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Mégse</string>
   <string name="feed_accessibility_card_text">Elérted a hírfolyamod alját.</string>
@@ -1264,11 +1264,11 @@
   <string name="onboarding_get_started">Kezdés</string>
   <string name="onboarding_maybe_later">Talán később</string>
   <string name="onboarding_explore_title">Új módok a felfedezésre</string>
-  <string name="onboarding_explore_text" fuzzy="true">Merülj alá a Wikipédiában a folyamatosan frissülő Felfedezés hírfolyammal!&lt;br /&gt; &lt;b&gt;Szabd testre&lt;/b&gt; a hírfolyamot az érdeklődésednek megfelelően – izgassanak bár az &lt;b&gt;Ezen a napon&lt;/b&gt; történt események, vagy ami épp &lt;b&gt;Találomra&lt;/b&gt; jön.</string>
+  <string name="onboarding_explore_text">Merülj alá a Wikipédiában a folyamatosan frissülő Kezdőlap hírfolyammal!&lt;br /&gt; &lt;b&gt;Szabd testre&lt;/b&gt; a hírfolyamot az érdeklődésednek megfelelően – izgassanak bár az &lt;b&gt;Ezen a napon&lt;/b&gt; történt események, vagy ami épp &lt;b&gt;Találomra&lt;/b&gt; jön.</string>
   <string name="onboarding_reading_list_sync_title">Olvasólisták szinkronizálással</string>
   <string name="onboarding_reading_list_sync_text_v2">Olvasólistákat készíthetsz olyan szócikkekről, amelyeket később szeretnél elolvasni, akár offline is.&lt;br/&gt;Jelentkezz be a Wikipédia-fiókodba, hogy szinkronizálhasd az olvasólistáidat.&lt;a href=\"#login\"&gt;Csatlakozz a Wikipédiához&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Adatvédelem</string>
-  <string name="onboarding_data_privacy_text" fuzzy="true">Hiszünk benne, hogy nem kell elvárni tőled személyes adatok megadását a nyílttudás-mozgalomban való részvételhez. Az alkalmazás által gyűjtött használati adatok anonimak. További információkért lásd az &lt;a href=\"#privacy\"&gt;adatvédelmi irányelvünket&lt;/a&gt; és a &lt;a href=\"#termsOfUse\"&gt;felhasználási feltételeinket&lt;/a&gt;.</string>
+  <string name="onboarding_data_privacy_text">Hiszünk benne, hogy nem kell elvárni tőled személyes adatok megadását a nyílttudás-mozgalomban való részvételhez. Az alkalmazás által gyűjtött használati adatok anonimak.&lt;br/&gt;&lt;br/&gt;További információkért lásd az &lt;a href=\"#privacy\"&gt;adatvédelmi irányelvünket&lt;/a&gt; és a &lt;a href=\"#termsOfUse\"&gt;felhasználási feltételeinket&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Felhasználási adatok küldése</string>
   <string name="onboarding_got_it">Értem</string>
   <string name="onboarding_multilingual_secondary_text">A következőket találtuk a készülékeden:</string>
@@ -1311,7 +1311,7 @@
     <item quantity="one">Eltávolítod a kijelölt nyelvet?</item>
     <item quantity="other">Eltávolítod a kijelölt nyelveket?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Csak a megmaradó Wikipédia nyelveken fogsz tartalmakat látni a Felfedezés listában és a gyorskereső szűrőkben.</string>
+  <string name="wikipedia_languages_remove_dialog_content">Csak a megmaradó Wikipédia nyelveken fogsz tartalmakat látni a Kezdőlap listában és a gyorskereső szűrőkben.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Nem törölhető az összes nyelv</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Tarts meg legalább egy Wikipédia nyelvet, amin keresni és olvasni szeretnél.</string>
   <string name="more_language_options">több</string>
@@ -1837,7 +1837,7 @@
   <string name="on_this_day_game_stats_average_score">átlagpontszám</string>
   <string name="on_this_day_game_stats_streak">jelenlegi sorozat</string>
   <string name="on_this_day_game_result_subtitle">A mai játékban hivatkozott szócikkek</string>
-  <string name="on_this_day_game_completed_message" fuzzy="true">Egy új „Melyik volt előbb?” játék minden nap elérhető a Felfedezés menüben.</string>
+  <string name="on_this_day_game_completed_message">Egy új „Melyik volt előbb?” játék minden nap elérhető a Kezdőlap menüben.</string>
   <string name="on_this_day_game_menu_notifications">Játék értesítések</string>
   <string name="on_this_day_game_menu_info">Tudj meg többet</string>
   <string name="on_this_day_game_menu_feedback">Probléma a funkcióval</string>
@@ -2397,12 +2397,16 @@
   <string name="home_feed_settings_community_modules_description">Egy modul kikapcsolásával az eltűnik a Közösség hírfolyamból. Itt bármikor újra bekapcsolhatod. Előfordulhat, hogy egyes modulok nem érhetők el a nyelveden.</string>
   <string name="home_feed_settings_for_you_modules_description">Egy modul kikapcsolásával az eltűnik a „Neked” hírfolyamból. Itt bármikor újra bekapcsolhatod.</string>
   <string name="home_feed_settings_based_on_interest_title">Az érdeklődési köreid alapján</string>
-  <string name="home_feed_settings_based_on_interest_subtitle" fuzzy="true">Az általad választott témákhoz igazított cikkek. &lt;a href=\"#drivingFeed\"&gt;Mi alakítja a hírfolyamodat&lt;/a&gt;</string>
+  <string name="home_feed_settings_based_on_interest_subtitle">Az általad választott témákhoz igazított cikkek.&lt;br /&gt;&lt;a href=\"#drivingFeed\"&gt;Mi alakítja a hírfolyamodat&lt;/a&gt;</string>
   <string name="home_feed_settings_because_you_read_subtitle">Javaslatok az előzményeidben szereplő egyik nemrég olvasott cikk alapján</string>
   <string name="home_feed_settings_continue_reading_title">Olvasás folytatása</string>
   <string name="home_feed_settings_continue_reading_subtitle">Folytasd azokat a cikkeket, amelyeket nem fejeztél be</string>
+  <string name="home_feed_settings_community_empty_dialog_title">A „Közösség” hírfolyamod üres lesz</string>
+  <string name="home_feed_settings_for_you_empty_dialog_title">A „Neked” hírfolyamod üres lesz</string>
+  <string name="home_feed_settings_empty_dialog_text">Kapcsolj be legalább egy modult a tartalom megjelenítéséhez.</string>
+  <string name="home_feed_settings_empty_dialog_positive">Folytatás mindenképpen</string>
   <string name="home_feed_screen_empty_state_label">A hírfolyamod üres</string>
-  <string name="home_feed_community_screen_all_modules_disabled_description" fuzzy="true">Kapcsold be a &lt;b&gt;Közösségi tartalmak&lt;/b&gt; modulokat, hogy a Wikimédia-mozgalom közreműködői által válogatott tartalmak jelenjenek meg.</string>
+  <string name="home_feed_community_screen_all_modules_disabled_description">Kapcsold be a &lt;b&gt;Közösség&lt;/b&gt; modulokat, hogy a Wikimédia-közösség által válogatott és róla szóló tartalmak jelenjenek meg.</string>
   <string name="home_feed_for_you_screen_all_modules_disabled_description">Kapcsold be a &lt;b&gt;Neked&lt;/b&gt; modulokat, hogy a beállításaid alapján megjelenő tartalmakat láthass.</string>
   <string name="home_feed_screen_all_modules_disabled_btn_label">Modulok kezelése</string>
   <string name="home_feed_for_you_screen_empty_title">A hírfolyamod egyelőre üres</string>
@@ -2419,4 +2423,5 @@
   <string name="home_feed_settings_feed_configuration_empty_reading_history_subtitle">Az olvasási előzményeid üresek. Kezdj el cikkeket böngészni a személyre szabott ajánlások kialakításához.</string>
   <string name="home_feed_settings_feed_configuration_languages_title">Nyelvek</string>
   <string name="home_feed_settings_feed_configuration_languages_subtitle">Kedvenc nyelveid szerkesztése</string>
+  <string name="home_feed_settings_feed_configuration_interests_updated_message">Az érdeklődési köreid frissültek. Frissítsd a hírfolyamot a változások megtekintéséhez.</string>
 </resources>

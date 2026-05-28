@@ -1850,7 +1850,7 @@
   <string name="on_this_day_game_feed_entry_card_heading">Wikipedia-spellen</string>
   <string name="on_this_day_game_feed_entry_card_title">Wat gebeurde er eerst?</string>
   <string name="on_this_day_game_result">U hebt %1$d/%2$d behaald.</string>
-  <string name="on_this_day_game_next_in">Volgend spel in %s</string>
+  <string name="on_this_day_game_next_in">Volgend spel over %s</string>
   <string name="on_this_day_game_your_stats">Uw statistieken</string>
   <plurals name="on_this_day_game_stats_games_played">
     <item quantity="one">spel gespeeld</item>
@@ -2429,7 +2429,7 @@
   <string name="home_feed_settings_empty_dialog_text">Schakel ten minste één module in om de inhoud te kunnen bekijken.</string>
   <string name="home_feed_settings_empty_dialog_positive">Toch doorgaan</string>
   <string name="home_feed_screen_empty_state_label">Uw feed is leeg.</string>
-  <string name="home_feed_community_screen_all_modules_disabled_description" fuzzy="true">Schakel de modules &lt;b&gt;Vanuit de gemeenschap&lt;/b&gt; in om inhoud te bekijken die is samengesteld door bijdragers binnen de Wikimedia-beweging.</string>
+  <string name="home_feed_community_screen_all_modules_disabled_description">Schakel de &lt;b&gt;gemeenschapsmodules&lt;/b&gt; in om inhoud te bekijken die is samengesteld door en over de Wikimedia-gemeenschap.</string>
   <string name="home_feed_for_you_screen_all_modules_disabled_description">Schakel de &lt;b&gt;Voor u&lt;/b&gt;-modules in om inhoud te zien die is afgestemd op uw voorkeuren.</string>
   <string name="home_feed_screen_all_modules_disabled_btn_label">Modules beheren</string>
   <string name="home_feed_for_you_screen_empty_title">U feed is leeg op dit moment.</string>
