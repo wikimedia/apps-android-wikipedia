@@ -2545,5 +2545,4 @@
     <string name="home_feed_for_you_screen_end_of_feed_description">Come back tomorrow to find fresh new articles customized for you.</string>
     <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Ways to keep learning:</string>
     <string name="home_feed_for_you_screen_end_of_feed_add_interests"><![CDATA[Add <a href="#add_interests">new interests</a>]]></string>
-    <string name="home_feed_for_you_screen_end_of_feed_see_community"><![CDATA[See what is happening in <a href="#community_tab">community</a>]]></string>
 </resources>

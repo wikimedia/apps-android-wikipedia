@@ -359,7 +359,7 @@ fun ForYouFeedEmptyView(
         }
 
         EmptyStateActionRow(
-            iconRes = R.drawable.ic_baseline_person_24,
+            iconRes = R.drawable.ic_diversity_3_24dp,
             text = context.getString(wikiSite.languageCode, R.string.home_feed_for_you_screen_empty_see_community),
             onLinkClick = navigateToCommunityTab
         )
@@ -443,7 +443,7 @@ fun ForYouEndOfFeedView(
         )
         EmptyStateActionRow(
             iconRes = R.drawable.ic_diversity_3_24dp,
-            text = context.getString(wikiSite.languageCode, R.string.home_feed_for_you_screen_end_of_feed_see_community),
+            text = context.getString(wikiSite.languageCode, R.string.home_feed_for_you_screen_empty_see_community),
             onLinkClick = navigateToCommunityTab
         )
     }
