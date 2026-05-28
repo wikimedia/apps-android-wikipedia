@@ -127,12 +127,14 @@ object AccountUtil {
         return userName.length > 6 && userName[0] == '~' && userName[5] == '-' && userName.substring(1, 5).isDigitsOnly()
     }
 
-    fun bailWithLogout() {
+    fun bailWithLogout(postEventBus: Boolean = true) {
         // Signal to the rest of the app that we're explicitly logging out in the background.
         L.e(("User cookie has likely expired. Logging out user."))
         WikipediaApp.instance.resetAfterLogOut()
         Prefs.loggedOutInBackground = true
-        FlowEventBus.post(LoggedOutInBackgroundEvent())
+        if (postEventBus) {
+            FlowEventBus.post(LoggedOutInBackgroundEvent())
+        }
     }
 
     private fun createAccount(userName: String, password: String): Boolean {

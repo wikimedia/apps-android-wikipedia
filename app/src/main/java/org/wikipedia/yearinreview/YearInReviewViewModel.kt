@@ -38,7 +38,7 @@ import java.util.concurrent.TimeUnit
 import kotlin.math.abs
 
 class YearInReviewViewModel : ViewModel() {
-    private val handler = ThrowableUtil.MwCoroutineExceptionHandler { _, throwable ->
+    private val handler = ThrowableUtil.MwCoroutineExceptionHandler { _, throwable, isNotLoggedIn ->
         L.e(throwable)
         _uiScreenListState.value = UiState.Error(throwable)
     }

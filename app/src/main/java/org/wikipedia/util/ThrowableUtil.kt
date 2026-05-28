@@ -8,7 +8,6 @@ import kotlinx.coroutines.withContext
 import org.json.JSONException
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.auth.AccountUtil
 import org.wikipedia.createaccount.CreateAccountException
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -91,7 +90,8 @@ object ThrowableUtil {
     }
 
     fun isNotLoggedIn(t: Throwable?): Boolean {
-        return t is MwException && t.error.code?.contains("notloggedin") == true
+        val invalidLoginCodes = listOf("assertuserfailed", "notloggedin")
+        return t is MwException && t.error.code?.let { invalidLoginCodes.contains(it) } == true
     }
 
     suspend fun getBlockMessageHtml(blockInfo: MwServiceError.BlockInfo, wikiSite: WikiSite = WikipediaApp.instance.wikiSite): String {
@@ -130,17 +130,13 @@ object ThrowableUtil {
     class AppError(val error: String, val detail: String?)
 
     class MwCoroutineExceptionHandler(
-        private val onError: (CoroutineContext, Throwable) -> Unit
+        private val onError: (CoroutineContext, Throwable, Boolean) -> Unit
     ) : CoroutineExceptionHandler {
-        private val invalidLoginCodes = listOf("assertuserfailed", "notloggedin")
         override val key: CoroutineContext.Key<*>
             get() = CoroutineExceptionHandler
 
         override fun handleException(context: CoroutineContext, exception: Throwable) {
-            if ((exception as? MwException)?.error?.code?.let { invalidLoginCodes.contains(it) } == true) {
-                AccountUtil.bailWithLogout()
-            }
-            onError(context, exception)
+            onError(context, exception, isNotLoggedIn(exception))
         }
     }
 }
