@@ -814,7 +814,7 @@
   <string name="view_random_article_card_title">임의 문서</string>
   <string name="view_random_article_card_action">임의의 문서 더 보기</string>
   <string name="view_top_read_card_title">가장 많이 읽은 글</string>
-  <string name="view_top_read_card_description">오늘 위키피디아에서 인기 있는 항목</string>
+  <string name="view_top_read_card_description">오늘 위키백과에서 인기 있는 항목</string>
   <string name="view_top_read_card_action">가장 많이 읽은 글 더 보기</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d k</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
@@ -1252,7 +1252,7 @@
   <string name="onboarding_welcome_title_v2">우리 모두의 백과사전\n...300개 이상의 언어 지원</string>
   <string name="onboarding_next">다음</string>
   <string name="onboarding_fresh_install_knowledge_title">세상의 모든 지식</string>
-  <string name="onboarding_fresh_install_knowledge_text">위키피디아는 300개 이상의 언어로 자원봉사자 공동체가 공동으로 작성하고 관리하는 6,500만 개 이상의 문서를 보유한 무료 온라인 백과사전입니다.</string>
+  <string name="onboarding_fresh_install_knowledge_text">위키백과는 300개 이상의 언어로 자원봉사자 공동체가 공동으로 작성하고 관리하는 6,500만 개 이상의 문서를 보유한 무료 온라인 백과사전입니다.</string>
   <string name="onboarding_fresh_install_knowledge_learn_more">위키백과에 대해 더 알아보기</string>
   <string name="onboarding_app_languages_title">300개 이상의 언어로 제공됩니다</string>
   <string name="onboarding_app_languages_text">장치에서 다음의 언어를 발견했습니다:</string>
@@ -1781,7 +1781,7 @@
   <string name="on_this_day_game_entry_dialog_title">소개</string>
   <string name="on_this_day_game_entry_dialog_subtitle">위키백과 게임</string>
   <string name="on_this_day_game_entry_dialog_button">플레이</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">위키피디아 게임은 더보기 메뉴의 게임 허브에서 이용할 수 있습니다.</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message">위키백과 게임은 더보기 메뉴의 게임 허브에서 이용할 수 있습니다.</string>
   <string name="on_this_day_game_title">어느 것이 먼저 일어났나요?</string>
   <string name="on_this_day_game_dialog_button">플레이</string>
   <string name="on_this_day_game_splash_message">오늘 어떤 역사적 사건이 먼저 일어났는지 맞춰보세요.</string>
@@ -1803,7 +1803,7 @@
     <item quantity="other">플레이한 게임</item>
   </plurals>
   <string name="on_this_day_game_stats_average_score">평균 점수</string>
-  <string name="on_this_day_game_stats_streak">현재 연속 기록</string>
+  <string name="on_this_day_game_stats_streak">현재 연승 기록</string>
   <string name="on_this_day_game_result_subtitle">오늘의 게임에서 참조된 문서</string>
   <string name="on_this_day_game_completed_message">플레이해주셔서 감사합니다. 새로운 \"어느 것이 먼저 일어났나요?\" 게임은 매일 홈 피드에서 제공됩니다.</string>
   <string name="on_this_day_game_menu_notifications">게임 알림</string>
@@ -1849,7 +1849,7 @@
   <string name="on_this_day_game_card_archive_label">이전 게임</string>
   <string name="on_this_day_game_stats_log_in_prompt_card_button">로그인</string>
   <string name="on_this_day_game_stats_log_in_prompt_card_title">게임 통계를 보려면 로그인하세요</string>
-  <string name="on_this_day_game_stats_log_in_prompt_card_description">연속 기록, 점수 등을 확인하세요</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_description">연승 기록, 점수 등을 확인하세요</string>
   <string name="wikipedia_games_title">위키백과 게임</string>
   <string name="wikipedia_games_subtitle">위키백과 콘텐츠를 기반으로 한 일일 퀴즈 게임입니다.</string>
   <string name="year_in_review_learn_more">더 알아보기</string>
@@ -2156,7 +2156,7 @@
   <string name="donation_reminders_snacbkbar_confirmation_label">감사합니다! 이 실험이 진행되는 동안 %2$s 읽으실 때마다 %1$s 기부하도록 알려드리겠습니다.</string>
   <string name="donation_reminders_first_milestone_reached_prompt_title">%2$s 후원 약속을 한 이후로 %1$s 만큼을 읽었습니다</string>
   <string name="donation_reminders_subsequent_milestone_reached_prompt_title">%1$s개를 추가로 읽었습니다</string>
-  <string name="donation_reminders_prompt_message">%2$s 만큼 읽을 때 마다 %3$s 만큼 기부하도록 %1$s에 기부 알림을 설정하셨습니다. 위키피디아를 지원하겠다는 약속을 실천할 준비가 되셨나요?</string>
+  <string name="donation_reminders_prompt_message">%2$s 만큼 읽을 때 마다 %3$s 만큼 기부하도록 %1$s에 기부 알림을 설정하셨습니다. 위키백과를 지원하겠다는 약속을 실천할 준비가 되셨나요?</string>
   <string name="donation_reminders_prompt_positive_button">지금 기부하기</string>
   <string name="donation_reminders_prompt_negative_button">지금은 괜찮습니다</string>
   <string name="donation_reminders_gpay_text">구글 페이로 %s만큼 기부하기</string>

@@ -54,7 +54,7 @@ class HomeFragment : Fragment() {
     private val viewModel: HomeViewModel by viewModels()
     private val pageOverflowMenuViewModel: PageOverflowMenuViewModel by viewModels()
     private val cardImpressions = mutableSetOf<String>()
-    private val instrument = TestKitchenAdapter.client.getInstrument("apps-home-feed")
+    private val instrument = TestKitchenAdapter.client.getInstrument("apps-home-feed").startFunnel("home_feed")
 
     private val personalizationResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_OK) {
@@ -302,7 +302,6 @@ class HomeFragment : Fragment() {
         viewModel.updateSelectedLanguageIfNeeded()
         instrument.startFunnel("home_feed")
         refreshNotification()
-        // TODO: start new funnel for analytics
     }
 
     fun getCurrentTab(): HomeTab {
