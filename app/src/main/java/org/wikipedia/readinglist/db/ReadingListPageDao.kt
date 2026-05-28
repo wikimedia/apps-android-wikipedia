@@ -98,7 +98,7 @@ interface ReadingListPageDao {
     @Query("SELECT * FROM ReadingListPage WHERE atime > 0 ORDER BY atime DESC LIMIT 1")
     suspend fun getMostRecentSavedPage(): ReadingListPage?
 
-    @Query("SELECT * FROM ReadingListPage WHERE lang = :langCode ORDER BY atime DESC LIMIT :limit")
+    @Query("SELECT * FROM ReadingListPage WHERE lang = :langCode GROUP BY apiTitle ORDER BY atime DESC LIMIT :limit")
     suspend fun getMostRecentSavedPagesByLang(langCode: String, limit: Int): List<ReadingListPage>
 
     @Query("SELECT * FROM ReadingListPage WHERE atime > 0 ORDER BY atime DESC LIMIT :limit OFFSET :offset")
