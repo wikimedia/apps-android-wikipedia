@@ -8,12 +8,15 @@ import androidx.core.os.bundleOf
 import androidx.core.text.isDigitsOnly
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.dataclient.SharedPreferenceCookieManager
+import org.wikipedia.events.LoggedOutInBackgroundEvent
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.login.LoginResult
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.UriUtil
+import org.wikipedia.util.log.L
 import org.wikipedia.util.log.L.d
 import org.wikipedia.util.log.L.logRemoteErrorIfProd
 import java.time.LocalDate
@@ -122,6 +125,14 @@ object AccountUtil {
 
     fun isUserNameTemporary(userName: String): Boolean {
         return userName.length > 6 && userName[0] == '~' && userName[5] == '-' && userName.substring(1, 5).isDigitsOnly()
+    }
+
+    fun bailWithLogout() {
+        // Signal to the rest of the app that we're explicitly logging out in the background.
+        L.e(("User cookie has likely expired. Logging out user."))
+        WikipediaApp.instance.resetAfterLogOut()
+        Prefs.loggedOutInBackground = true
+        FlowEventBus.post(LoggedOutInBackgroundEvent())
     }
 
     private fun createAccount(userName: String, password: String): Boolean {

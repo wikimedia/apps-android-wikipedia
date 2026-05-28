@@ -359,10 +359,10 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&meta=authmanagerinfo&amirequestsfor=login")
     suspend fun getAuthManagerForLogin(): MwQueryResponse
 
-    @GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib|hasmsg|options")
+    @GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib|hasmsg|options&assert=user")
     suspend fun getUserInfo(): MwQueryResponse
 
-    @GET(MW_API_PREFIX + "action=query&meta=userinfo|globaluserinfo&guiprop=editcount&uiprop=groups|blockinfo|editcount|latestcontrib|hasmsg|options")
+    @GET(MW_API_PREFIX + "action=query&meta=userinfo|globaluserinfo&guiprop=editcount&uiprop=groups|blockinfo|editcount|latestcontrib|hasmsg|options&assert=user")
     suspend fun getLocalAndGlobalUserInfo(): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&list=users&usprop=editcount|groups|registration|rights")
@@ -609,7 +609,7 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&prop=info|categories&converttitles=&redirects=&inprop=watched&clshow=!hidden&cllimit=100")
     suspend fun getWatchedStatusWithCategories(@Query("titles") titles: String): MwQueryResponse
 
-    @GET(MW_API_PREFIX + "action=query&list=watchlist&wllimit=500&wlprop=ids|title|flags|comment|parsedcomment|timestamp|sizes|user|loginfo")
+    @GET(MW_API_PREFIX + "action=query&list=watchlist&wllimit=500&wlprop=ids|title|flags|comment|parsedcomment|timestamp|sizes|user|loginfo&assert=user")
     @Headers("Cache-Control: no-cache")
     suspend fun getWatchlist(
         @Query("wlallrev") latestRevisions: String?,

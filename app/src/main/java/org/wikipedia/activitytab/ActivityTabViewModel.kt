@@ -39,6 +39,7 @@ import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.ThrowableUtil
 import org.wikipedia.util.UiState
 import java.time.Instant
 import java.time.LocalDate
@@ -206,7 +207,7 @@ class ActivityTabViewModel : ViewModel() {
         if (!AccountUtil.isLoggedIn) {
             return
         }
-        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+        viewModelScope.launch(ThrowableUtil.MwCoroutineExceptionHandler { _, throwable ->
             _impactUiState.value = UiState.Error(throwable)
         }) {
             _impactUiState.value = UiState.Loading

@@ -1,12 +1,14 @@
 package org.wikipedia.util
 
 import android.content.Context
+import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.withContext
 import org.json.JSONException
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.createaccount.CreateAccountException
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -19,6 +21,7 @@ import java.net.SocketTimeoutException
 import java.net.UnknownHostException
 import java.util.concurrent.TimeoutException
 import javax.net.ssl.SSLException
+import kotlin.coroutines.CoroutineContext
 
 @Suppress("SameParameterValue")
 object ThrowableUtil {
@@ -125,4 +128,19 @@ object ThrowableUtil {
 
     class EmptyException : Exception()
     class AppError(val error: String, val detail: String?)
+
+    class MwCoroutineExceptionHandler(
+        private val onError: (CoroutineContext, Throwable) -> Unit
+    ) : CoroutineExceptionHandler {
+        private val invalidLoginCodes = listOf("assertuserfailed")
+        override val key: CoroutineContext.Key<*>
+            get() = CoroutineExceptionHandler
+
+        override fun handleException(context: CoroutineContext, exception: Throwable) {
+            if ((exception as? MwException)?.error?.code?.let { invalidLoginCodes.contains(it) } == true) {
+                AccountUtil.bailWithLogout()
+            }
+            onError(context, exception)
+        }
+    }
 }
