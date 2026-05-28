@@ -132,7 +132,7 @@ object ThrowableUtil {
     class MwCoroutineExceptionHandler(
         private val onError: (CoroutineContext, Throwable) -> Unit
     ) : CoroutineExceptionHandler {
-        private val invalidLoginCodes = listOf("assertuserfailed")
+        private val invalidLoginCodes = listOf("assertuserfailed", "notloggedin")
         override val key: CoroutineContext.Key<*>
             get() = CoroutineExceptionHandler
 
