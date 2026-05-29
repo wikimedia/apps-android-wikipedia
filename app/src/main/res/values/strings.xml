@@ -2534,6 +2534,8 @@
     <string name="home_feed_settings_feed_configuration_description">These topics and articles shape what appears in your \"For You\" feed. Remove any you no longer want or add new interests.</string>
     <string name="home_feed_settings_feed_configuration_interest_title">Your interests</string>
     <string name="home_feed_settings_feed_configuration_interest_subtitle">Edit your topics of interest</string>
+    <string name="home_feed_settings_feed_configuration_location_title">Your location</string>
+    <string name="home_feed_settings_feed_configuration_location_subtitle">Update your location in Places to see articles nearby</string>
     <string name="home_feed_settings_feed_configuration_empty_interest_subtitle">Your interests list is empty. Add something you\'re curious about.</string>
     <string name="home_feed_settings_feed_configuration_reading_history_title">Reading history</string>
     <string name="home_feed_settings_feed_configuration_reading_history_subtitle">Browse your recently read articles</string>
