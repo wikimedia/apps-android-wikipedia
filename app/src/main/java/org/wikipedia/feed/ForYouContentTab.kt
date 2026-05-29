@@ -1,6 +1,7 @@
 package org.wikipedia.feed
 
 import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.snapping.rememberSnapFlingBehavior
@@ -98,7 +99,7 @@ fun ForYouContentTab(
         state.emptyState == FeedEmptyState.NO_DATA -> {
             val card = EmptyForYouCard()
             onCardImpression(card, 0)
-            ForYouFeedEmptyView(
+            ForYouFeedMessageView(
                 modifier = Modifier
                     .fillMaxSize()
                     .background(WikipediaTheme.colors.paperColor)
@@ -106,6 +107,11 @@ fun ForYouContentTab(
                     .padding(top = (topInset * 2 + 64).dp)
                     .verticalScroll(rememberScrollState()),
                 wikiSite = wikiSite,
+                illustrationResId = R.drawable.empty_feed_illustration,
+                titleResId = R.string.home_feed_for_you_screen_empty_title,
+                descriptionResId = R.string.home_feed_for_you_screen_empty_description,
+                headerResId = R.string.home_feed_for_you_screen_empty_ways_to_start,
+                customizeInterestsTextResId = R.string.home_feed_for_you_screen_empty_add_interests,
                 showCustomizeInterests = !state.isInterestModuleHidden,
                 onCustomizeInterestsClick = { onCustomizeInterestsClick(card) },
                 navigateToCommunityTab = { onSelectTab(HomeTab.COMMUNITY, card) }
@@ -164,7 +170,7 @@ fun ForYouContentTab(
                             .background(WikipediaTheme.colors.backgroundColor)
                     ) {
                         modules.forEachIndexed { index, module ->
-                            ForYouModuleItem(
+                            forYouModuleItem(
                                 module = module,
                                 index = index,
                                 viewPortHeight = viewportHeight,
@@ -192,7 +198,7 @@ fun ForYouContentTab(
                             } else if (state.modules.isNotEmpty()) {
                                 // only when we don't serve new content on the same day
                                 val card = EmptyForYouCard()
-                                ForYouEndOfFeedView(
+                                ForYouFeedMessageView(
                                     modifier = Modifier
                                         .fillMaxWidth()
                                         .height(viewportHeight)
@@ -201,6 +207,11 @@ fun ForYouContentTab(
                                         .padding(top = (topInset * 2 + 64).dp)
                                         .navigationBarsPadding(),
                                     wikiSite = wikiSite,
+                                    illustrationResId = R.drawable.ic_yir_puzzle,
+                                    titleResId = R.string.home_feed_for_you_screen_end_of_feed_title,
+                                    descriptionResId = R.string.home_feed_for_you_screen_end_of_feed_description,
+                                    headerResId = R.string.home_feed_for_you_screen_end_of_feed_ways_to_keep_learning,
+                                    customizeInterestsTextResId = R.string.home_feed_for_you_screen_end_of_feed_add_interests,
                                     onCustomizeInterestsClick = { onCustomizeInterestsClick(card) },
                                     navigateToCommunityTab = { onSelectTab(HomeTab.COMMUNITY, card) }
                                 )
@@ -214,12 +225,11 @@ fun ForYouContentTab(
                         }
 
                         if (state.error == null && !state.isLoadingMore && !state.canLoadMore && state.modules.isNotEmpty()) {
-                            ForYouModuleItem(
+                            forYouModuleItem(
                                 module = state.modules.first(),
                                 index = modules.size + 1,
                                 viewPortHeight = viewportHeight,
                                 wikiSite = wikiSite,
-                                isDummy = true,
                                 onPageClick = onPageClick,
                                 onPageShareClick = onPageShareClick,
                                 onPageBookmarkClick = onPageBookmarkClick,
@@ -236,12 +246,11 @@ fun ForYouContentTab(
     }
 }
 
-private fun LazyListScope.ForYouModuleItem(
+private fun LazyListScope.forYouModuleItem(
     module: ForYouModule,
     index: Int,
     viewPortHeight: Dp,
     wikiSite: WikiSite,
-    isDummy: Boolean = false,
     onPageClick: (card: Card, historyEntry: HistoryEntry) -> Unit,
     onPageShareClick: (card: Card, historyEntry: HistoryEntry) -> Unit,
     onPageBookmarkClick: (card: Card, historyEntry: HistoryEntry) -> Unit,
@@ -250,7 +259,7 @@ private fun LazyListScope.ForYouModuleItem(
     onCardImpression: (card: Card, index: Int) -> Unit,
     onCustomizeInterestsClick: (card: Card) -> Unit
 ) {
-    val key = if (isDummy) "dummy-${module.age}" else "${module.javaClass.simpleName}-${module.age}-$index"
+    val key = "${module.javaClass.simpleName}-${module.age}-$index"
     when (module) {
         is ForYouModule.BasedOnInterest -> {
             item(key = key) {
@@ -402,9 +411,16 @@ fun EmptyStateActionRow(
 }
 
 @Composable
-fun ForYouEndOfFeedView(
+fun ForYouFeedMessageView(
     modifier: Modifier = Modifier,
     wikiSite: WikiSite,
+    @DrawableRes illustrationResId: Int,
+    @StringRes titleResId: Int,
+    @StringRes descriptionResId: Int,
+    @StringRes headerResId: Int,
+    @StringRes customizeInterestsTextResId: Int,
+    @StringRes communityTabTextResId: Int = R.string.home_feed_for_you_screen_empty_see_community,
+    showCustomizeInterests: Boolean = true,
     onCustomizeInterestsClick: () -> Unit,
     navigateToCommunityTab: () -> Unit
 ) {
@@ -417,36 +433,38 @@ fun ForYouEndOfFeedView(
         Image(
             modifier = Modifier
                 .size(125.dp),
-            painter = painterResource(R.drawable.ic_yir_puzzle),
+            painter = painterResource(illustrationResId),
             contentDescription = null
         )
         Spacer(modifier = Modifier.height(16.dp))
         Text(
             modifier = Modifier.fillMaxWidth(),
-            text = context.getString(wikiSite.languageCode, R.string.home_feed_for_you_screen_end_of_feed_title),
+            text = context.getString(wikiSite.languageCode, titleResId),
             style = MaterialTheme.typography.headlineSmall,
             color = WikipediaTheme.colors.primaryColor
         )
         Text(
             modifier = Modifier.fillMaxWidth(),
-            text = context.getString(wikiSite.languageCode, R.string.home_feed_for_you_screen_end_of_feed_description),
+            text = context.getString(wikiSite.languageCode, descriptionResId),
             style = MaterialTheme.typography.bodyMedium,
             color = WikipediaTheme.colors.primaryColor
         )
         Text(
             modifier = Modifier.fillMaxWidth(),
-            text = context.getString(wikiSite.languageCode, R.string.home_feed_for_you_screen_end_of_feed_ways_to_keep_learning),
+            text = context.getString(wikiSite.languageCode, headerResId),
             style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Medium),
             color = WikipediaTheme.colors.primaryColor
         )
-        EmptyStateActionRow(
-            iconRes = R.drawable.ic_baseline_tune_24,
-            text = context.getString(wikiSite.languageCode, R.string.home_feed_for_you_screen_end_of_feed_add_interests),
-            onLinkClick = onCustomizeInterestsClick
-        )
+        if (showCustomizeInterests) {
+            EmptyStateActionRow(
+                iconRes = R.drawable.ic_baseline_tune_24,
+                text = context.getString(wikiSite.languageCode, customizeInterestsTextResId),
+                onLinkClick = onCustomizeInterestsClick
+            )
+        }
         EmptyStateActionRow(
             iconRes = R.drawable.ic_diversity_3_24dp,
-            text = context.getString(wikiSite.languageCode, R.string.home_feed_for_you_screen_empty_see_community),
+            text = context.getString(wikiSite.languageCode, communityTabTextResId),
             onLinkClick = navigateToCommunityTab
         )
     }
@@ -454,15 +472,21 @@ fun ForYouEndOfFeedView(
 
 @Preview
 @Composable
-fun ForYouEndOfFeedViewPreview() {
+fun ForYouFeedMessageViewPreview() {
     BaseTheme(currentTheme = Theme.DARK) {
-        ForYouEndOfFeedView(
+        ForYouFeedMessageView(
             modifier = Modifier
                 .fillMaxSize()
                 .background(colorResource(R.color.green800))
                 .padding(16.dp),
             wikiSite = WikiSite.preview(),
             onCustomizeInterestsClick = {},
+            illustrationResId = R.drawable.ic_yir_puzzle,
+            titleResId = R.string.home_feed_for_you_screen_end_of_feed_title,
+            descriptionResId = R.string.home_feed_for_you_screen_end_of_feed_description,
+            headerResId = R.string.home_feed_for_you_screen_end_of_feed_ways_to_keep_learning,
+            customizeInterestsTextResId = R.string.home_feed_for_you_screen_end_of_feed_add_interests,
+            communityTabTextResId = R.string.home_feed_for_you_screen_empty_see_community,
             navigateToCommunityTab = {}
         )
     }
@@ -472,13 +496,19 @@ fun ForYouEndOfFeedViewPreview() {
 @Composable
 fun ForYouFeedEmptyViewPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
-        ForYouFeedEmptyView(
+        ForYouFeedMessageView(
             modifier = Modifier
                 .fillMaxSize()
                 .background(WikipediaTheme.colors.paperColor)
                 .padding(16.dp)
                 .verticalScroll(rememberScrollState()),
             wikiSite = WikiSite.preview(),
+            illustrationResId = R.drawable.empty_feed_illustration,
+            titleResId = R.string.home_feed_for_you_screen_empty_title,
+            descriptionResId = R.string.home_feed_for_you_screen_empty_description,
+            headerResId = R.string.home_feed_for_you_screen_empty_ways_to_start,
+            customizeInterestsTextResId = R.string.home_feed_for_you_screen_empty_add_interests,
+            communityTabTextResId = R.string.home_feed_for_you_screen_empty_see_community,
             showCustomizeInterests = true,
             onCustomizeInterestsClick = {},
             navigateToCommunityTab = {}
