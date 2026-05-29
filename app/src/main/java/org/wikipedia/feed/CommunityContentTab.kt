@@ -37,7 +37,7 @@ import org.wikipedia.feed.news.NewsItem
 import org.wikipedia.feed.news.NewsModule
 import org.wikipedia.feed.onthisday.OnThisDayCard
 import org.wikipedia.feed.onthisday.OnThisDayModule
-import org.wikipedia.feed.topread.TopReadListCard
+import org.wikipedia.feed.topread.TopReadCard
 import org.wikipedia.feed.topread.TopReadModule
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.util.L10nUtil
@@ -151,7 +151,7 @@ fun CommunityContentTab(
                                     )
                                 }
                             }
-                            is TopReadListCard -> {
+                            is TopReadCard -> {
                                 if (lastCardWasDayHeader) {
                                     item(key = "top-read-spacer-${card.age}") {
                                         Spacer(modifier = Modifier.height(16.dp))
