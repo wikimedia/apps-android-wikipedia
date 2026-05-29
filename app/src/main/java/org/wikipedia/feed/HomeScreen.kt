@@ -42,6 +42,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -67,7 +68,6 @@ import org.wikipedia.language.AppLanguageState
 import org.wikipedia.main.MainActivity
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DimenUtil
-import kotlin.collections.orEmpty
 
 @Composable
 fun HomeScreen(
@@ -292,7 +292,7 @@ fun HomeToolbar(
 
         if (tabsState.count > 0) {
             IconButton(
-                modifier = actionButtonModifier,
+                modifier = actionButtonModifier.testTag(HomeScreenTestTags.TOOLBAR_TAB_BUTTON),
                 onClick = { onTabClick() }
             ) {
                 TabsBox(
@@ -318,7 +318,7 @@ fun HomeToolbar(
         }
         if (notificationBellState.canShow) {
             NotificationBell(
-                modifier = actionButtonModifier,
+                modifier = actionButtonModifier.testTag(HomeScreenTestTags.TOOLBAR_NOTIFICATION_BUTTON),
                 unreadCount = notificationBellState.unreadCount,
                 onClick = onNotificationClick
             )
@@ -359,6 +359,10 @@ fun HomeTabBar(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     modifier = Modifier
                         .width(IntrinsicSize.Max)
+                        .testTag(
+                            if (tab == HomeTab.COMMUNITY) HomeScreenTestTags.TAB_COMMUNITY
+                            else HomeScreenTestTags.TAB_FOR_YOU
+                        )
                         .clickable { onSelectTab(tab, null) }
                         .padding(horizontal = 12.dp, vertical = 8.dp)
                 ) {
@@ -404,6 +408,7 @@ fun LanguageDropDownMenu(
         modifier = Modifier
             .padding(horizontal = 8.dp)
             .clip(RoundedCornerShape(8.dp))
+            .testTag(HomeScreenTestTags.LANGUAGE_MENU_BUTTON)
             .clickable {
                 expanded = true
             },
@@ -445,6 +450,7 @@ fun LanguageDropDownMenu(
             repeat(languageCodes.size) {
                 val langCode = languageCodes[it]
                 DropdownMenuItem(
+                    modifier = Modifier.testTag(HomeScreenTestTags.languageItem(langCode)),
                     leadingIcon = {
                         WikiLangCodeBox(
                             modifier = Modifier
@@ -486,6 +492,7 @@ fun LanguageDropDownMenu(
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
+                    .testTag(HomeScreenTestTags.LANGUAGE_MANAGE_BUTTON)
                     .clickable {
                         onManageLanguagesClick()
                         expanded = false
@@ -501,6 +508,17 @@ fun LanguageDropDownMenu(
             }
         }
     }
+}
+
+object HomeScreenTestTags {
+    const val TOOLBAR_TAB_BUTTON = "home_toolbar_tab_button"
+    const val TOOLBAR_NOTIFICATION_BUTTON = "home_toolbar_notification_button"
+    const val TAB_COMMUNITY = "home_tab_community"
+    const val TAB_FOR_YOU = "home_tab_for_you"
+    const val LANGUAGE_MENU_BUTTON = "home_language_menu_button"
+    const val LANGUAGE_MANAGE_BUTTON = "home_language_manage_button"
+
+    fun languageItem(languageCode: String): String = "home_language_item_$languageCode"
 }
 
 @Preview(showBackground = true)

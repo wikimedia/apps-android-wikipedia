@@ -27,6 +27,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.ColorPainter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
@@ -73,6 +74,7 @@ fun FeaturedArticleModule(
                 .fillMaxWidth()
                 .padding(start = 16.dp, end = 16.dp, bottom = 24.dp)
                 .clip(RoundedCornerShape(16.dp))
+                .testTag(FeaturedArticleModuleTestTags.CARD)
                 .clickable { onPageClick(article) }
         ) {
             if (article.thumbnailUrl.isNullOrEmpty()) {
@@ -103,7 +105,7 @@ fun FeaturedArticleModule(
                 horizontalArrangement = Arrangement.spacedBy(4.dp),
             ) {
                 IconButton(
-                    modifier = Modifier.size(48.dp),
+                    modifier = Modifier.size(48.dp).testTag(FeaturedArticleModuleTestTags.BOOKMARK_BUTTON),
                     onClick = { onBookmarkClick(article) }
                 ) {
                     Box(
@@ -124,7 +126,7 @@ fun FeaturedArticleModule(
                     }
                 }
                 IconButton(
-                    modifier = Modifier.size(48.dp),
+                    modifier = Modifier.size(48.dp).testTag(FeaturedArticleModuleTestTags.SHARE_BUTTON),
                     onClick = { onShareClick(article) }
                 ) {
                     Box(
@@ -190,6 +192,12 @@ fun FeaturedArticleModule(
             }
         }
     }
+}
+
+object FeaturedArticleModuleTestTags {
+    const val CARD = "featured_article_card"
+    const val BOOKMARK_BUTTON = "featured_article_bookmark_button"
+    const val SHARE_BUTTON = "featured_article_share_button"
 }
 
 @Preview(showBackground = true)

@@ -12,6 +12,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.delay
 import org.wikipedia.compose.theme.WikipediaTheme
@@ -48,8 +49,9 @@ fun PageOverflowMenu(
         onDismissRequest = { animatedExpanded = false },
         containerColor = WikipediaTheme.colors.paperColor,
     ) {
-        items.forEach { (label, action) ->
+        items.forEachIndexed { index, (label, action) ->
             DropdownMenuItem(
+                modifier = Modifier.testTag("page_overflow_item_$index"),
                 text = {
                     Text(
                         text = label,
