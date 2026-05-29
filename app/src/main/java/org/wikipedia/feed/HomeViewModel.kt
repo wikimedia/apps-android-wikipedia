@@ -1,6 +1,9 @@
 package org.wikipedia.feed
 
+import android.Manifest
+import android.content.pm.PackageManager
 import androidx.compose.ui.util.fastJoinToString
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -96,6 +99,17 @@ sealed class ForYouModule {
     ) : ForYouModule() {
         override fun withCards(cards: List<ForYouCard>): ForYouModule = copy(cards = cards)
         override fun moduleKey(): String = ForYouModuleType.BECAUSE_YOU_READ.name
+    }
+
+    @Serializable
+    data class PlacesOfInterest(
+        override val age: Int,
+        override val index: Int,
+        override val cards: List<ForYouCard>,
+        val hasLocationPermission: Boolean
+    ) : ForYouModule() {
+        override fun withCards(cards: List<ForYouCard>): ForYouModule = copy(cards = cards)
+        override fun moduleKey(): String = ForYouModuleType.PLACES_OF_INTEREST.name
     }
 }
 
@@ -473,7 +487,7 @@ class HomeViewModel : ViewModel() {
                     newModules.add(module.withCards(filteredCards))
                 }
             }
-            return newModules
+            return withPlacesModule(newModules)
         }
         L.d("Loading modules from network...")
 
@@ -603,7 +617,30 @@ class HomeViewModel : ViewModel() {
         withContext(Dispatchers.Default) {
             Prefs.homeForYouModulesToday = JsonUtil.encodeToString(forYouCollectionSaved).orEmpty()
         }
+        return withPlacesModule(modules)
+    }
+
+    /**
+     * Appends the Places of Interest module to the end of the For You modules.
+     * Intentionally kept out of the date-keyed [Prefs.homeForYouModulesToday] cache, since the
+     * module is location-based: caching it by date would surface stale, wrong-location results.
+     *
+     * When location permission is not granted, the module shows the location CTA (empty) state.
+     * When it is granted, we will fetch nearby articles for the user's last Places location.
+     */
+    private fun withPlacesModule(modules: List<ForYouModule>): List<ForYouModule> {
+        if (!hasLocationPermission()) {
+            val ctaModule = ForYouModule.PlacesOfInterest(age = 0, index = 0, cards = emptyList(), hasLocationPermission = false)
+            return modules + ctaModule
+        }
+        // TODO: location permission is granted — fetch nearby articles for
         return modules
+    }
+
+    private fun hasLocationPermission(): Boolean {
+        val context = WikipediaApp.instance
+        return ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED ||
+                ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED
     }
 
     fun refreshUnreadNotificationCount() {

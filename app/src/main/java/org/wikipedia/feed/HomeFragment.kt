@@ -42,6 +42,7 @@ import org.wikipedia.main.MainFragment
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.tabs.TabActivity
+import org.wikipedia.places.PlacesActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.homefeed.HomeFeedSettingsActivity
 import org.wikipedia.settings.homefeed.HomeFeedSettingsStartDestination
@@ -266,6 +267,9 @@ class HomeFragment : Fragment() {
                                 }
                             )
                             requireActivity().startActivity(intent)
+                        },
+                        onPlacesCtaClick = {
+                            requireActivity().startActivity(PlacesActivity.newIntent(requireContext()))
                         }
                     )
 

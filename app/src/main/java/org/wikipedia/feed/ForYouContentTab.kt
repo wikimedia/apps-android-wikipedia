@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
@@ -41,6 +42,7 @@ import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.wikipedia.R
+import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.components.menu.PageOverflowMenuViewModel
 import org.wikipedia.compose.theme.BaseTheme
@@ -54,6 +56,7 @@ import org.wikipedia.feed.interests.BasedOnInterestModule
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.EmptyForYouCard
 import org.wikipedia.feed.model.ForYouCard
+import org.wikipedia.feed.places.PlacesOfInterestCtaModule
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.L10nUtil
@@ -75,7 +78,8 @@ fun ForYouContentTab(
     onCustomizeInterestsClick: (card: Card) -> Unit = {},
     onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> },
     onManageModulesClick: () -> Unit,
-    onSelectTab: (HomeTab, Card?) -> Unit = { _, _ -> }
+    onSelectTab: (HomeTab, Card?) -> Unit = { _, _ -> },
+    onPlacesCtaClick: () -> Unit = {}
 ) {
     when {
         state.isInitialLoading -> {
@@ -182,6 +186,26 @@ fun ForYouContentTab(
                                             onCardInView = { onCardImpression(it, index) },
                                             onCustomizeInterestsClick = onCustomizeInterestsClick
                                         )
+                                    }
+                                }
+
+                                is ForYouModule.PlacesOfInterest -> {
+                                    item(key = "places-of-interest-${module.age}-$index") {
+                                        if (!module.hasLocationPermission) {
+                                            PlacesOfInterestCtaModule(
+                                                modifier = Modifier
+                                                    .fillMaxWidth()
+                                                    .height(viewportHeight)
+                                                    .background(ComposeColors.Green800)
+                                                    .padding(horizontal = 16.dp)
+                                                    .padding(top = (topInset * 2 + 64).dp)
+                                                    .navigationBarsPadding(),
+                                                wikiSite = wikiSite,
+                                                onGoToPlacesClick = onPlacesCtaClick
+                                            )
+                                        } else {
+                                            // TODO: render the nearby place article cards module.
+                                        }
                                     }
                                 }
 

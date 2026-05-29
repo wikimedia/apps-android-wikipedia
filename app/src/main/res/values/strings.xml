@@ -2543,4 +2543,9 @@
     <string name="home_feed_settings_feed_configuration_languages_title">Languages</string>
     <string name="home_feed_settings_feed_configuration_languages_subtitle">Edit your preferred languages</string>
     <string name="home_feed_settings_feed_configuration_interests_updated_message">Interests updated. Refresh your feed to see updates.</string>
+    <string name="home_feed_places_of_interest_cta_title">Stories from places you love</string>
+    <string name="home_feed_places_of_interest_cta_description">Articles will appear based on your last viewed place. Visit the Places tab and select a location.</string>
+    <string name="home_feed_places_of_interest_cta_button">Go to Places</string>
+    <string name="home_feed_settings_places_of_interest_title">Places of interest</string>
+    <string name="home_feed_settings_places_of_interest_subtitle">Discover articles about places near your last location in Places.</string>
 </resources>

@@ -2282,4 +2282,9 @@
   <string name="home_feed_settings_feed_configuration_languages_title">Heading title for managing preferred languages in feed configuration settings.</string>
   <string name="home_feed_settings_feed_configuration_languages_subtitle">Subtitle prompting the user to edit their preferred languages.</string>
   <string name="home_feed_settings_feed_configuration_interests_updated_message">Message that indicates the interests have been updated, and users will need to refresh the feed to see the new contents.</string>
+    <string name="home_feed_places_of_interest_cta_title">Section title for the Places of Interest module in the home feed.</string>
+    <string name="home_feed_places_of_interest_cta_description">Description explaining that articles are recommended based on the user’s last viewed place and instructing them to select a location in the Places tab.</string>
+    <string name="home_feed_places_of_interest_cta_button">Button text that navigates the user to the Places tab.</string>
+    <string name="home_feed_settings_places_of_interest_title">Title for the Places of Interest settings section.</string>
+    <string name="home_feed_settings_places_of_interest_subtitle">Subtitle describing that nearby place-based articles are shown using the user’s last selected location in Places.</string>
 </resources>
