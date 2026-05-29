@@ -308,7 +308,11 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
     }
 
     private fun maybeShowLoggedOutInBackgroundDialog() {
-        if (Prefs.loggedOutInBackground) {
+        if (Prefs.loggedOutInBackground && this is LoginActivity) {
+            Prefs.loggedOutInBackground = false
+            return
+        }
+        if (Prefs.loggedOutInBackground && this !is LoginActivity) {
             Prefs.loggedOutInBackground = false
 
             val instrument = TestKitchenAdapter.client.getInstrument("apps-authentication")

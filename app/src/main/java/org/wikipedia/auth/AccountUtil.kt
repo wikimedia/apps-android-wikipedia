@@ -16,7 +16,6 @@ import org.wikipedia.login.LoginResult
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.UriUtil
-import org.wikipedia.util.log.L
 import org.wikipedia.util.log.L.d
 import org.wikipedia.util.log.L.logRemoteErrorIfProd
 import java.time.LocalDate
@@ -129,7 +128,6 @@ object AccountUtil {
 
     fun bailWithLogout(postEventBus: Boolean = true) {
         // Signal to the rest of the app that we're explicitly logging out in the background.
-        L.e(("User cookie has likely expired. Logging out user."))
         WikipediaApp.instance.resetAfterLogOut()
         Prefs.loggedOutInBackground = true
         if (postEventBus) {
@@ -139,7 +137,7 @@ object AccountUtil {
 
     private fun createAccount(userName: String, password: String): Boolean {
         var account = account()
-        if (account == null || account.name.isNullOrEmpty() || account.name != userName) {
+        if (account == null || account.name.isEmpty() || account.name != userName) {
             removeAccount()
             account = Account(userName, accountType())
             return accountManager().addAccountExplicitly(account, password, null)

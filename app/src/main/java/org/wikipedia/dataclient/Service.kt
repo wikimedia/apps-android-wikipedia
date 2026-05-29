@@ -359,6 +359,9 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&meta=authmanagerinfo&amirequestsfor=login")
     suspend fun getAuthManagerForLogin(): MwQueryResponse
 
+    @GET(MW_API_PREFIX + "assert=user")
+    suspend fun getAssertUser(): MwQueryResponse
+
     @GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib|hasmsg|options&assert=user")
     suspend fun getUserInfo(): MwQueryResponse
 

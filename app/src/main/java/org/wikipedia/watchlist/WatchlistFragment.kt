@@ -47,6 +47,7 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
+import org.wikipedia.util.ThrowableUtil
 import org.wikipedia.views.NotificationButtonView
 import org.wikipedia.views.SearchAndFilterActionProvider
 import java.time.LocalDateTime
@@ -187,6 +188,11 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
     }
 
     private fun onError(t: Throwable) {
+        if (ThrowableUtil.isNotLoggedIn(t)) {
+            requireActivity().finish()
+            AccountUtil.bailWithLogout()
+            return
+        }
         binding.watchlistRefreshView.isRefreshing = false
         binding.watchlistProgressBar.visibility = View.GONE
         binding.watchlistErrorView.setError(t)

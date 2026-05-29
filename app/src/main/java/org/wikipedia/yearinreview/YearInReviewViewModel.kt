@@ -5,6 +5,8 @@ import android.location.Geocoder
 import androidx.core.graphics.createBitmap
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -38,7 +40,7 @@ import java.util.concurrent.TimeUnit
 import kotlin.math.abs
 
 class YearInReviewViewModel : ViewModel() {
-    private val handler = ThrowableUtil.MwCoroutineExceptionHandler { _, throwable, isNotLoggedIn ->
+    private val handler = CoroutineExceptionHandler { _, throwable ->
         L.e(throwable)
         _uiScreenListState.value = UiState.Error(throwable)
     }
@@ -315,6 +317,17 @@ class YearInReviewViewModel : ViewModel() {
 
         fun getYearInReviewModel(year: Int = YIR_YEAR): YearInReviewModel? {
             return Prefs.yearInReviewModelData[year]
+        }
+
+        fun checkLoginStatus(coroutineScope: CoroutineScope) {
+            coroutineScope.launch(ThrowableUtil.MwCoroutineExceptionHandler { _, throwable, isNotLoggedIn ->
+                L.e(throwable)
+                if (isNotLoggedIn) {
+                    WikipediaApp.instance.resetAfterLogOut()
+                }
+            }) {
+                ServiceFactory.get(WikipediaApp.instance.wikiSite).getAssertUser()
+            }
         }
     }
 }
