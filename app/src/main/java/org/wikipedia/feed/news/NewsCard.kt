@@ -5,12 +5,19 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.model.UtcDate
 import org.wikipedia.feed.model.WikiSiteCard
+import org.wikipedia.settings.homefeed.CommunityModuleType
 import org.wikipedia.util.L10nUtil
 import java.util.concurrent.TimeUnit
 
-class NewsCard(private val news: List<NewsItem>,
-               private val age: Int,
-               wiki: WikiSite) : WikiSiteCard(wiki) {
+class NewsCard(
+    val news: List<NewsItem>,
+    val age: Int,
+    wiki: WikiSite
+) : WikiSiteCard(wiki) {
+
+    override fun moduleKey(): String {
+        return CommunityModuleType.NEWS.name
+    }
 
     override fun title(): String {
         return L10nUtil.getString(wikiSite().languageCode, R.string.view_card_news_title)

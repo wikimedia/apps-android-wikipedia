@@ -81,7 +81,7 @@ class DonationReminderActivity : BaseActivity() {
             DonorExperienceEvent.logDonationReminderAction(
                 activeInterface = "reminder_config",
                 action = "impression",
-                campaignId = DonationReminderHelper.campaignId
+                campaignId = DonationReminderHelper.getCampaignId()
             )
         }
     }

@@ -12,19 +12,13 @@ import org.wikipedia.R
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 
-class ScoreView(
-    context: Context,
-    attrs: AttributeSet? = null,
-) : LinearLayout(context, attrs) {
+class ScoreView(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
 
     private val scoreViews = mutableListOf<ShapeableImageView>()
 
     init {
         orientation = HORIZONTAL
-        layoutParams = ViewGroup.LayoutParams(
-            ViewGroup.LayoutParams.WRAP_CONTENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT
-        )
+        layoutParams = ViewGroup.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
     }
 
     fun generateViews(size: Int) {
@@ -38,20 +32,12 @@ class ScoreView(
         }
     }
 
-    fun updateScore(answerState: List<Boolean>, currentQuestionIndex: Int, gotToNext: Boolean) {
-        if (currentQuestionIndex >= answerState.size) {
-            return
-        }
-        updateScoreViewAppearance(
-            scoreView = scoreViews[currentQuestionIndex],
-            isCorrect = answerState[currentQuestionIndex],
-            isAnswered = gotToNext // when false, user has not answered
-        )
-    }
-
-    fun updateInitialScores(answerState: List<Boolean>, currentQuestionIndex: Int) {
+    fun updateScores(answerState: List<Boolean>, currentQuestionIndex: Int, goToNext: Boolean) {
         for (i in answerState.indices) {
-            val isAnswered = i < currentQuestionIndex
+            // Question is answered if:
+            // 1. It's before the current question (i < currentQuestionIndex), OR
+            // 2. It's the current question AND user has submitted answer (goToNext)
+            val isAnswered = i < currentQuestionIndex || (i == currentQuestionIndex && goToNext)
             val isCorrect = isAnswered && answerState[i]
             updateScoreViewAppearance(scoreViews[i], isCorrect, isAnswered)
         }

@@ -148,6 +148,7 @@ fun YearInReviewOnboardingBottomBar(
     onGetStartedClick: () -> Unit
 ) {
     val context = LocalContext.current
+    val mediaWikiUrl = stringResource(R.string.year_in_review_media_wiki_url)
     BottomAppBar(
         containerColor = WikipediaTheme.colors.paperColor,
         content = {
@@ -168,7 +169,7 @@ fun YearInReviewOnboardingBottomBar(
                         YearInReviewEvent.submit(action = "learn_click", slide = "explore_prompt")
                         UriUtil.handleExternalLink(
                             context = context,
-                            uri = context.getString(R.string.year_in_review_media_wiki_url).toUri()
+                            uri = mediaWikiUrl.toUri()
                         )
                     }
                 ) {

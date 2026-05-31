@@ -6,6 +6,7 @@ import android.app.ActivityOptions
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.icu.text.ListFormatter
 import android.os.Build
 import android.os.Bundle
 import android.speech.RecognizerIntent
@@ -41,6 +42,7 @@ import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.activitytab.ActivityTabFragment
 import org.wikipedia.activitytab.ActivityTabOnboardingActivity
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
+import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.concurrency.FlowEventBus
@@ -51,13 +53,13 @@ import org.wikipedia.events.LoggedOutEvent
 import org.wikipedia.events.LoggedOutInBackgroundEvent
 import org.wikipedia.events.NewRecommendedReadingListEvent
 import org.wikipedia.feed.FeedFragment
+import org.wikipedia.feed.HomeFragment
 import org.wikipedia.feed.image.FeaturedImage
-import org.wikipedia.feed.image.FeaturedImageCard
 import org.wikipedia.feed.news.NewsActivity
-import org.wikipedia.feed.news.NewsCard
-import org.wikipedia.feed.news.NewsItemView
+import org.wikipedia.feed.news.NewsItem
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.gallery.MediaDownloadReceiver
+import org.wikipedia.games.GamesHubActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.HistoryFragment
 import org.wikipedia.login.LoginActivity
@@ -73,6 +75,8 @@ import org.wikipedia.places.PlacesActivity
 import org.wikipedia.random.RandomActivity
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.ReadingListsFragment
+import org.wikipedia.readinglist.RemoveFromReadingListsDialog
+import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.search.SearchActivity
 import org.wikipedia.search.SearchFragment
 import org.wikipedia.settings.Prefs
@@ -84,6 +88,7 @@ import org.wikipedia.suggestededits.SuggestedEditsTasksActivity
 import org.wikipedia.suggestededits.SuggestedEditsTasksFragment
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.usercontrib.UserContribListActivity
+import org.wikipedia.util.ClipboardUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ShareUtil
@@ -147,6 +152,8 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
                     when (event) {
                         is LoggedOutEvent,
                         is LoggedOutInBackgroundEvent -> {
+                            requireActivity().invalidateOptionsMenu()
+                            (currentFragment as? HomeFragment)?.refreshNotification()
                             ExclusiveBottomSheetPresenter.dismiss(childFragmentManager)
                             refreshContents()
                         }
@@ -183,11 +190,8 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
                 return@setOnItemSelectedListener false
             }
             val fragment = currentFragment
-            if (item.order == NavTab.EXPLORE.code()) {
-                FeedFragment.maybeShowExploreFeedSurvey(requireActivity())
-                if (fragment is FeedFragment) {
-                    fragment.scrollToTop()
-                }
+            if (item.order == NavTab.HOME.code() && fragment is FeedFragment) {
+                fragment.scrollToTop()
             }
             if (fragment is HistoryFragment && item.order == NavTab.SEARCH.code()) {
                 openSearchActivity(InvokeSource.NAV_MENU, null, null)
@@ -355,9 +359,9 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         } else if (intent.hasExtra(Constants.INTENT_EXTRA_DELETE_READING_LIST)) {
             onNavigateTo(NavTab.READING_LISTS)
         } else if (intent.hasExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB) &&
-                !(binding.mainNavTabLayout.selectedItemId == NavTab.EXPLORE.code() &&
-                        intent.getIntExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.EXPLORE.code()) == NavTab.EXPLORE.code())) {
-            onNavigateTo(NavTab.of(intent.getIntExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.EXPLORE.code())))
+                !(binding.mainNavTabLayout.selectedItemId == NavTab.HOME.code() &&
+                        intent.getIntExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.HOME.code()) == NavTab.HOME.code())) {
+            onNavigateTo(NavTab.of(intent.getIntExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.HOME.code())))
         } else if (intent.hasExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB)) {
             onNavigateTo(NavTab.of(intent.getIntExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB, NavTab.EDITS.code())))
         } else if (intent.hasExtra(Constants.INTENT_EXTRA_PREVIEW_SAVED_READING_LISTS)) {
@@ -408,26 +412,47 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         ReadingListBehaviorsUtil.moveToList(requireActivity(), sourceReadingListId, entry.title, InvokeSource.FEED)
     }
 
-    override fun onFeedNewsItemSelected(card: NewsCard, view: NewsItemView) {
-        val options = ActivityOptions.makeSceneTransitionAnimation(requireActivity(), view.imageView, getString(R.string.transition_news_item))
-        view.newsItem?.let {
-            startActivity(NewsActivity.newIntent(requireActivity(), it, card.wikiSite()), if (it.thumb() != null) options.toBundle() else null)
+    override fun onFeedRemovePageFromList(entry: HistoryEntry, lists: List<ReadingList>) {
+        RemoveFromReadingListsDialog(lists).deleteOrShowDialog(requireActivity()) { readingLists, _ ->
+            if (!requireActivity().isDestroyed) {
+                val names = readingLists.map { it.title }.run {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                        ListFormatter.getInstance().format(this)
+                    } else {
+                        joinToString(separator = ", ")
+                    }
+                }
+                FeedbackUtil.showMessage(requireActivity(), getString(R.string.reading_list_item_deleted_from_list, entry.title.displayText, names))
+            }
         }
+    }
+
+    override fun onFeedSharePage(entry: HistoryEntry) {
+        ShareUtil.shareText(requireContext(), entry.title.displayText, entry.title.uri)
+    }
+
+    override fun onFeedCopyLink(entry: HistoryEntry) {
+        ClipboardUtil.setPlainText(requireContext(), text = entry.title.uri)
+        FeedbackUtil.showMessage(requireActivity(), R.string.address_copied)
+    }
+
+    override fun onFeedNewsItemSelected(newsItem: NewsItem, wikiSite: WikiSite) {
+        startActivity(NewsActivity.newIntent(requireActivity(), newsItem, wikiSite))
     }
 
     override fun onFeedSeCardFooterClicked() {
         startActivity(SuggestedEditsTasksActivity.newIntent(requireActivity()))
     }
 
-    override fun onFeedShareImage(card: FeaturedImageCard) {
-        val thumbUrl = card.baseImage().thumbnailUrl
-        val fullSizeUrl = card.baseImage().original.source
+    override fun onFeedShareImage(image: FeaturedImage, age: Int) {
+        val thumbUrl = image.thumbnailUrl
+        val fullSizeUrl = image.original.source
         ImageService.loadImage(requireContext(), thumbUrl, onSuccess = { bitmap ->
             if (!isAdded) {
                 return@loadImage
             }
             ShareUtil.shareImage(lifecycleScope, requireContext(), bitmap, File(thumbUrl).name,
-                ShareUtil.getFeaturedImageShareSubject(requireContext(), card.age()), fullSizeUrl)
+                ShareUtil.getFeaturedImageShareSubject(requireContext(), age), fullSizeUrl)
         })
     }
 
@@ -441,8 +466,8 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         }
     }
 
-    override fun onFeaturedImageSelected(card: FeaturedImageCard) {
-        startActivity(FilePageActivity.newIntent(requireActivity(), PageTitle(card.filename(), card.wikiSite())))
+    override fun onFeaturedImageSelected(image: FeaturedImage) {
+        startActivity(FilePageActivity.newIntent(requireActivity(), image.toPageTitle()))
     }
 
     override fun onLoginRequested() {
@@ -452,6 +477,11 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
 
     override fun updateToolbarElevation(elevate: Boolean) {
         callback()?.updateToolbarElevation(elevate)
+    }
+
+    override fun onWikiGamesCardFooterClicked() {
+        WikiGamesEvent.submit(action = "more_click", "game_feed")
+        startActivity(GamesHubActivity.newIntent(requireActivity()))
     }
 
     fun requestUpdateToolbarElevation() {
@@ -563,7 +593,9 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     fun openSearchActivity(source: InvokeSource, query: String?, transitionView: View?) {
         val intent = SearchActivity.newIntent(requireActivity(), source, query)
         val options = transitionView?.let {
-            ActivityOptions.makeSceneTransitionAnimation(requireActivity(), it, getString(R.string.transition_search_bar))
+            if (intent.component?.className == SearchActivity::class.java.name) {
+                ActivityOptions.makeSceneTransitionAnimation(requireActivity(), it, getString(R.string.transition_search_bar))
+            } else null
         }
         startActivityForResult(intent, Constants.ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY, options?.toBundle())
     }

@@ -30,7 +30,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ColorFilter
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
@@ -199,9 +198,10 @@ fun AboutWikipediaHeader(
     versionName: String,
     snackbarHostState: SnackbarHostState
 ) {
-    val context = LocalContext.current
     val scope = rememberCoroutineScope()
 
+    val alreadyEnabledMessage = stringResource(R.string.show_developer_settings_already_enabled)
+    val enabledMessage = stringResource(R.string.show_developer_settings_enabled)
     Column(
         modifier = modifier,
         horizontalAlignment = Alignment.CenterHorizontally
@@ -212,14 +212,14 @@ fun AboutWikipediaHeader(
                     when (isEnabled) {
                         true -> {
                             snackbarHostState.showSnackbar(
-                                message = context.getString(R.string.show_developer_settings_already_enabled),
+                                message = alreadyEnabledMessage,
                                 duration = SnackbarDuration.Short
                             )
                         }
 
                         false -> {
                             snackbarHostState.showSnackbar(
-                                message = context.getString(R.string.show_developer_settings_enabled),
+                                message = enabledMessage,
                                 duration = SnackbarDuration.Short
                             )
                         }

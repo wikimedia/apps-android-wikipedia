@@ -39,7 +39,7 @@
   <string name="page_error_back_to_main">Назад</string>
   <string name="error_back">Назад</string>
   <string name="error_next">Следваща</string>
-  <string name="menu_clear_all_history" fuzzy="true">Изчистване на историята</string>
+  <string name="menu_clear_all_history">Изчистване историята на четене</string>
   <string name="history_item_deleted">%s е премахната от историята</string>
   <string name="history_items_deleted">%d статии са премахнати от историята</string>
   <string name="history_item_delete_undo">Отмяна</string>
@@ -52,7 +52,7 @@
   <string name="wikimedia_commons">Общомедия</string>
   <string name="wikidata">Уикиданни</string>
   <string name="dialog_title_clear_history">Изчистване на историята</string>
-  <string name="dialog_message_clear_history" fuzzy="true">Това ще изтрие цялата история на сърфиране и ще затвори всички отворени раздели. Сигурни ли сте?</string>
+  <string name="dialog_message_clear_history">Това ще изтрие цялата ви история на сърфиране. Сигурни ли сте?</string>
   <string name="dialog_message_clear_history_yes">Да</string>
   <string name="dialog_message_clear_history_no">Не</string>
   <string name="share_via">Споделяне чрез</string>
@@ -797,11 +797,11 @@
   <string name="feed_item_type_main_page">Начална страница на Уикипедия с дневно избрано съдържание</string>
   <string name="feed_item_type_randomizer">Генериране на произволни статии за четене</string>
   <string name="feed_item_type_suggested_edits">Предложения за добавяне на съдържание към Уикипедия</string>
-  <string name="feed_empty_message">Няма нищо във Вашата хранилка за Откриване</string>
+  <string name="feed_empty_message" fuzzy="true">Няма нищо във Вашата хранилка за Откриване</string>
   <string name="feed_configure_onboarding_action">Персонализиране</string>
   <string name="customize_lang_selection_dialog_ok_button_text">Добре</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Отказ</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Персонализирайте вашата хранилка за откриване&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt; Сега можете да изберете какво да се показва във Вашата хранилка, както и да давате приоритет на любимия си вид съдържание.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Персонализирайте вашата хранилка за откриване&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt; Сега можете да изберете какво да се показва във Вашата хранилка, както и да давате приоритет на любимия си вид съдържание.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">Добре</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Отказ</string>
   <string name="feed_accessibility_card_load_more_button">Зареждане на още</string>
@@ -1069,7 +1069,7 @@
   <string name="onboarding_get_started">Начало</string>
   <string name="onboarding_maybe_later">Може би по-късно</string>
   <string name="onboarding_explore_title">Нови начини за откриване</string>
-  <string name="onboarding_explore_text">Гмурнете се в Уикипедия с постоянно обновяващата се хранилка за откриване. &lt;br/&gt; &lt;b&gt;Персонализирайте&lt;/b&gt; хранилката според Вашите интереси – опознайте историческите събития &lt;b&gt;На днешната дата&lt;/b&gt; или пробвайте късмета си със &lt;b&gt;Случайна&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Гмурнете се в Уикипедия с постоянно обновяващата се хранилка за откриване. &lt;br/&gt; &lt;b&gt;Персонализирайте&lt;/b&gt; хранилката според Вашите интереси – опознайте историческите събития &lt;b&gt;На днешната дата&lt;/b&gt; или пробвайте късмета си със &lt;b&gt;Случайна&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Списъци за четене със синхронизация</string>
   <string name="onboarding_reading_list_sync_text_v2">Можете да правите списъци за четене от статии, които искате да четете по-късно, дори когато нямате мрежа. &lt;br/&gt;Влезте в сметката си в Уикипедия, за да синхронизирате списъците си за четене. &lt;a href=\"#login\"&gt;Присъединете се към Уикипедия&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Данни и поверителност</string>
@@ -1107,7 +1107,7 @@
     <item quantity="one">Премахване на избрания език?</item>
     <item quantity="other">Премахване на избраните езици?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Ще виждате съдържание във вашата хранилка за Откриване и филтрите за бързо търсене само на останалите езици на Уикипедия.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Ще виждате съдържание във вашата хранилка за Откриване и филтрите за бързо търсене само на останалите езици на Уикипедия.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Не могат да се премахнат всички езици</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Оставете поне един език на Уикипедия, на който да търсите и да четете съдържание.</string>
   <string name="more_language_options">още</string>
@@ -1537,4 +1537,5 @@
     <item quantity="one">%d статия</item>
     <item quantity="other">%d статии</item>
   </plurals>
+  <string name="reading_challenge_widget_search_button">Търсене</string>
 </resources>

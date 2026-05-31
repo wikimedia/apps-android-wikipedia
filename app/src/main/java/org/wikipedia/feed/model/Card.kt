@@ -6,6 +6,10 @@ abstract class Card {
 
     val hideKey get() = (type().code() + dismissHashCode()).toString()
 
+    open fun moduleKey(): String {
+        return ""
+    }
+
     open fun title(): String {
         return ""
     }

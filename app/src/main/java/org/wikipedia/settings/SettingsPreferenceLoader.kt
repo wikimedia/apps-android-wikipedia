@@ -18,13 +18,13 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.donate.DonateUtil
 import org.wikipedia.donate.donationreminder.DonationReminderActivity
 import org.wikipedia.donate.donationreminder.DonationReminderHelper
-import org.wikipedia.feed.configure.ConfigureActivity
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingActivity
 import org.wikipedia.readinglist.recommended.RecommendedReadingListSettingsActivity
 import org.wikipedia.readinglist.recommended.RecommendedReadingListSource
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
+import org.wikipedia.settings.homefeed.HomeFeedSettingsActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.theme.ThemeFittingRoomActivity
 import org.wikipedia.util.FeedbackUtil
@@ -45,9 +45,9 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
                     Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE)
             true
         }
-        findPreference(R.string.preference_key_customize_explore_feed).onPreferenceClickListener = Preference.OnPreferenceClickListener {
+        findPreference(R.string.preference_key_customize_home_feed).onPreferenceClickListener = Preference.OnPreferenceClickListener {
              activity.startActivityForResult(
-                 ConfigureActivity.newIntent(activity, Constants.InvokeSource.NAV_MENU.ordinal),
+                 HomeFeedSettingsActivity.newIntent(activity),
                     Constants.ACTIVITY_REQUEST_FEED_CONFIGURE)
             true
         }
@@ -85,8 +85,6 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
                     .setPositiveButton(R.string.year_in_review_disable_positive_button) { _, _ ->
                         YearInReviewEvent.submit(action = "yir_off_confirm_click", slide = "setting")
                         Prefs.yearInReviewModelData = emptyMap()
-                        Prefs.yearInReviewReadingListSurveyShown = false
-                        Prefs.yearInReviewReadingListVisitCount = 0
                         (preference as SwitchPreferenceCompat).isChecked = false
                     }
                     .setNegativeButton(R.string.year_in_review_disable_negative_button) { _, _ ->

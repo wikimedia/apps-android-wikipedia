@@ -88,9 +88,9 @@
   <string name="edit_section_find_in_page">पृष्ठमा खोज्नुहोस्</string>
   <string name="menu_page_font_and_theme">फन्ट र थिम</string>
   <string name="menu_page_add_to_list">अध्ययन सूचीमा थप गर्नुहोस्</string>
-  <string name="menu_page_add_to_default_list">बचत</string>
+  <string name="menu_page_add_to_default_list">सङ्ग्रह गर्नुहोस्</string>
   <string name="feed_card_add_to_list">अध्ययन सूचीमा थप गर्नुहोस्</string>
-  <string name="feed_card_add_to_default_list">बचत</string>
+  <string name="feed_card_add_to_default_list">सङ्ग्रह गर्नुहोस्</string>
   <string name="menu_page_share">सूत्र आदान-प्रदान गर्नुहोस्</string>
   <string name="menu_article_share">लेख साझा गर्ने</string>
   <string name="menu_page_article_share">साझा</string>
@@ -100,11 +100,12 @@
   <string name="menu_page_recently_viewed">भर्खरै हेरिएको</string>
   <string name="menu_page_archive">अभिलेख</string>
   <string name="menu_long_press_open_page">खोल्नुहोस्</string>
+  <string name="menu_long_press_open_in_places">स्थानहरूमा खोल्नुहोस्</string>
   <string name="menu_long_press_open_in_new_tab">नयाँ ट्याबमा खोल्नुहोस्</string>
   <string name="menu_long_press_copy_page">सूत्रकाे ठेगाना प्रतिलिपि गर्नुहोस्</string>
   <string name="menu_text_select_define">परिभाषित गर्नुहोस्</string>
-  <string name="on_this_day_page_share">आदान-प्रदान गर्नुहोस्</string>
-  <string name="reading_list_page_share">आदान-प्रदान गर्नुहोस्</string>
+  <string name="on_this_day_page_share">साझा गर्नुहोस्</string>
+  <string name="reading_list_page_share">साझा गर्नुहोस्</string>
   <string name="menu_text_select_edit_here">यहाँ सम्पादन गर्नुहोस्</string>
   <string name="menu_edit_article">लेख सम्पादन गर्नुहोस्</string>
   <string name="last_updated_text">अन्तिम पटक %s मा अद्यावधिक गरिएको</string>
@@ -131,6 +132,7 @@
   <string name="dialog_message_leaving_edit">तपाईँको सम्पादनहरू प्रकाशित भएका छैनन् । यो पृष्ठ छोड्न निश्चित हुनुहुन्छ?</string>
   <string name="dialog_message_leaving_edit_leave">छोड्नुहोस्</string>
   <string name="dialog_message_leaving_edit_stay">रहनुहोस्</string>
+  <string name="dialog_confirm_delete_donation_history_title">मेटाउने पुष्टि गर्नुहोस्</string>
   <string name="dialog_confirm_delete_donation_history_delete">मेटाउनुहोस्</string>
   <string name="dialog_confirm_delete_donation_history_cancel">रद्द गर्नुहोस्</string>
   <string name="menu_show_toc">विषयसूची</string>
@@ -145,7 +147,7 @@
   <string name="edit_section_captcha_reload">पुनः लोड गर्न क्याप्चामा ट्याप गर्नुहोस्</string>
   <string name="nav_item_login">विकिपिडियामा प्रवेश गर्नुहोस्</string>
   <string name="login_username_hint">प्रयोगकर्ताको नाम</string>
-  <string name="login_password_hint">पासवर्ड</string>
+  <string name="login_password_hint">प्रवेश शब्द</string>
   <string name="account_creation_password_hint">प्रवेश</string>
   <string name="login_2fa_hint">दुई-कारक प्रमाणीकरण कोड</string>
   <string name="login_2fa_other_workflow_error_msg" fuzzy="true">दुई चरण प्रामाणिकरण आवश्यक! कृपया मुख्य गतिविधि फर्कनुहोस् 2FA प्रतिक प्रयोग गरेर प्रवेश गर्नुहोस् र पुन: प्रयास गर्नुहोस्।</string>
@@ -250,7 +252,7 @@
   <string name="edit_abandon_confirm">यो पृष्ठ परिवर्तन भइसक्यो। आफ्ना परिवर्तनहरू सङ्ग्रह नगरी बाहिर निक्लन चाहनुहुन्छ?</string>
   <string name="edit_abandon_confirm_yes">हो</string>
   <string name="edit_abandon_confirm_no">होइन</string>
-  <string name="user_blocked_from_editing_title">रोक लगाइएको</string>
+  <string name="user_blocked_from_editing_title">निषेधित</string>
   <string name="user_logged_in_blocked_from_editing">तपाईंको प्रयोगकर्ता खातालाई यो विकिमा सम्पादन गर्न रोक लगाइएको छ।</string>
   <string name="user_anon_blocked_from_editing">तपाईंको IP ठेगानालाई सम्पादन गर्न रोक लगाइएको छ।</string>
   <string name="edit_how_page_improved">तपाईँले यस पृष्ठमा कसरी सुधार ल्याउनुभयो?</string>
@@ -259,7 +261,7 @@
   <string name="edit_preview">पूर्वावलोकन</string>
   <string name="edit_undo">अन्डू गर्नुहोस्</string>
   <string name="edit_redo">पुन: कायम गर्नुहाेस्</string>
-  <string name="edit_rollback">पूर्ववत गर्ने</string>
+  <string name="edit_rollback">पूर्ववत गर्नुहोस्</string>
   <string name="edit_warn">चेतावनी</string>
   <string name="edit_damage">क्षति %s</string>
   <plurals name="edit_diff_bytes">
@@ -278,6 +280,8 @@
   <string name="edit_conflict_title">सम्पादन द्वन्द</string>
   <string name="edit_notices">सूचनाहरू सम्पादन गर्नुहाेस्</string>
   <string name="edit_notices_please_read">कृपया सम्पादन गर्नु अघि पढ्नुहोस्</string>
+  <string name="edit_notices_show_auto">स्वचालित रूपमा सम्पादन सूचनाहरू देखाउनुहोस्</string>
+  <string name="edit_notices_tooltip">यस लेखको सम्पादन सूचनाहरू हेर्न यो बटनमा ट्याप गर्नुहोस्।</string>
   <string name="find_next">अर्को खोज्नुहोस्</string>
   <string name="find_previous">पछिल्लो खोज्नुहोस्</string>
   <string name="find_first_occurence">यो पहिलो घटना हो</string>
@@ -316,7 +320,7 @@
   <string name="menu_gallery_visit_image_page">फाइल पृष्ठमा जानुहोस्</string>
   <string name="gallery_error_draw_failed">चित्र प्रदर्शन गर्न सकिएन।</string>
   <string name="license_title">%s को इजाजतपत्र</string>
-  <string name="gallery_menu_share">आदान-प्रदान गर्नुहोस्</string>
+  <string name="gallery_menu_share">साझा गर्नुहोस्</string>
   <string name="gallery_share_error">निम्न छवि आदान-प्रदान गर्न सकिएन: %s</string>
   <string name="gallery_save_progress">फाइल डाउनलोड गर्दै…</string>
   <string name="gallery_save_success">फाइल साँचियो।</string>
@@ -358,6 +362,7 @@
   <string name="preference_summary_show_link_previews">लिङ्कहरूमा ट्याप गर्दा लेखहरूका द्रुत पूर्वावलोकन प्रदर्शन गर्नुहोस्।</string>
   <string name="preference_title_collapse_tables">तालिका लुकाउनुहोस्</string>
   <string name="nav_item_donate">दान गर्नुहाेस्</string>
+  <string name="nav_item_year_in_review">समीक्षामा वर्ष</string>
   <string name="error_voice_search_not_available">माफ गर्नुहोस्, आवाज पहिचान उपलब्ध छैन।</string>
   <string name="location_service_disabled">स्थान सेवाहरू असक्षम पारिएको छ।</string>
   <string name="enable_location_service">सक्षम पार्नुहोस्</string>
@@ -374,7 +379,7 @@
   <string name="link_preview_dialog_read_button">पढ्नुहोस्</string>
   <string name="link_preview_dialog_save_button">सङ्ग्रह गर्नुहोस्</string>
   <string name="link_preview_dialog_saved_button">सुरक्षित गरिएको</string>
-  <string name="link_preview_dialog_share_button">साझेदारी गर्नुहोस्</string>
+  <string name="link_preview_dialog_share_button">साझा गर्नुहोस्</string>
   <string name="error_page_does_not_exist">यो पृष्ठ अवस्थित छैन</string>
   <string name="view_wiki_error_message_offline">इन्टरनेटमा जडान हुन सकेन</string>
   <string name="reference_title">सन्दर्भ %s</string>
@@ -492,7 +497,9 @@
   <string name="reading_lists_import_failure_message">पठन सूची आयात असफल भयो</string>
   <string name="reading_lists_export_select_lists_message">निर्यात गर्न सूची(हरू) चयन गर्नुहोस्</string>
   <string name="reading_lists_export_completed_message">पठन सूची(हरू) निर्यात गरियो</string>
+  <string name="reading_lists_preview_header_title">साझा सूची</string>
   <string name="reading_lists_preview_save_button">सङ्ग्रह गर्नुहोस्</string>
+  <string name="reading_lists_preview_save_dialog_title">सूची सङ्ग्रह गर्नुहोस्</string>
   <string name="reading_lists_preview_save_dialog_title_hint">शीर्षक</string>
   <string name="reading_lists_preview_save_dialog_cancel">रद्द गर्नुहोस्</string>
   <string name="reading_lists_preview_save_dialog_save">सङ्ग्रह गर्नुहोस्</string>
@@ -593,7 +600,7 @@
   <string name="view_main_page_card_action">मुख्य पृष्ठ हेर्नुहोस्</string>
   <string name="view_featured_image_card_title">आजको तस्बिर</string>
   <string name="view_featured_image_card_download">डाउनलोड गर्नुहोस्</string>
-  <string name="view_featured_image_card_share">साझेदारी गर्नुहोस्</string>
+  <string name="view_featured_image_card_share">साझा गर्नुहोस्</string>
   <string name="menu_feed_card_dismiss">यो कार्ड लुकाउनुहोस्</string>
   <string name="menu_feed_card_dismissed">कार्ड लुकाइयो।</string>
   <string name="menu_feed_card_edit_card_languages">कार्ड भाषाहरू सम्पादन गर्नुहोस्</string>
@@ -627,7 +634,7 @@
   <string name="feed_item_type_randomizer">पढ्नको लागि अनियमित लेखहरू उत्पन्न गर्नुहोस्</string>
   <string name="feed_item_type_suggested_edits">विकिपिडियामा सामग्री थप्न सुझावहरू</string>
   <string name="feed_item_type_places">हालको स्थानमा आधारित नजिकैका लेखहरू</string>
-  <string name="feed_empty_message">तपाईको अन्वेषण फिडमा केही पनि छैन।</string>
+  <string name="feed_empty_message" fuzzy="true">तपाईको अन्वेषण फिडमा केही पनि छैन।</string>
   <string name="feed_configure_onboarding_action">अनुकुलित बनाउनुहोस्</string>
   <string name="customize_lang_selection_dialog_ok_button_text">हुन्छ</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">रद्द गर्नुहोस्</string>
@@ -673,6 +680,11 @@
   <string name="description_edit_tutorial_title_descriptions">लेख विवरणहरू</string>
   <string name="description_edit_tutorial_keep_it_short">यसलाई छोटो राख्नुहोस्</string>
   <string name="description_edit_tutorial_button_label_start_editing">सम्पादन सुरु गर्नुहोस्</string>
+  <string name="description_edit_tutorial_promise">सुरु गरेर, म यो सुविधाको दुरुपयोग नगर्ने वाचा गर्छु।</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">मेसिन सुझावहरू</string>
+  <string name="customize_toolbar_title">उपकरणपट्टी अनुकूलित गर्नुहोस्</string>
+  <string name="customize_toolbar_category_toolbar">उपकरणपट्टी</string>
+  <string name="customize_toolbar_reset_to_default_button">पूर्वनिर्धारितमा पुनः सेट गर्नुहोस्</string>
   <string name="suggested_edits_activity_title">सम्पादन</string>
   <string name="suggested_edits_describe_articles">लेखहरूको वर्णन गर्नुहोस्</string>
   <string name="suggested_edits_edit_patrol_review">समीक्षा</string>
@@ -754,6 +766,13 @@
   <string name="suggested_edits_encourage_account_creation_login_button">प्रवेश/विकिपिडियामा जोडिनुहोस्</string>
   <string name="suggested_edits_contribution_current_revision_text">तपाईको सम्पादन हाल विकिपिडियामा प्रत्यक्ष छ</string>
   <string name="suggested_card_more_edits">थप सुझावित सम्पादनहरू</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">सुझाव गरिएका विवरणहरू</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">पर्याप्त जानकारी छैन</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">सुझाउ गरिएको विवरणहरू देख्न सकिँदैन</string>
+  <string name="suggested_edits_inappropriate_suggestion">अनुपयुक्त सुझाव</string>
+  <string name="suggested_edits_do_not_understand_suggestion">काम बुझिएन।</string>
+  <string name="suggested_edits_report_suggestion">प्रतिवेदन</string>
+  <string name="suggested_edits_suggestion_report_submitted">प्रतिवेदन पेश गरियो</string>
   <plurals name="suggested_edits_contribution_diff_count_text">
     <item quantity="one">%1$s अक्षर</item>
     <item quantity="other">%1$s अक्षरहरू</item>
@@ -762,6 +781,7 @@
     <item quantity="one">तपाईँले %d वटा अक्षर थप्नुभयो</item>
     <item quantity="other">तपाईँले %d वटा अक्षरहरू थप्नुभयो</item>
   </plurals>
+  <string name="image_recommendation_tutorial">स्वशिक्षा</string>
   <string name="image_recommendation_accept">हो</string>
   <string name="image_recommendation_reject">होइन</string>
   <string name="image_recommendation_notsure">निश्चित छैन</string>
@@ -785,7 +805,7 @@
   <string name="onboarding_get_started">सुरु गर्नुहोस्</string>
   <string name="onboarding_maybe_later">पछि हुनसक्छ</string>
   <string name="onboarding_explore_title">अन्वेषण गर्ने नयाँ तरिका</string>
-  <string name="onboarding_explore_text">अन्वेषण नामक फिडमा विशेष लेख, प्रचलनमा रहेका शीर्षक र अध्ययनसम्बन्धी सुझावहरू फेला पार्नुहोस्।</string>
+  <string name="onboarding_explore_text" fuzzy="true">अन्वेषण नामक फिडमा विशेष लेख, प्रचलनमा रहेका शीर्षक र अध्ययनसम्बन्धी सुझावहरू फेला पार्नुहोस्।</string>
   <string name="onboarding_analytics_switch_title">प्रयोग सम्बन्धी डाटाहरू पठाउने</string>
   <string name="onboarding_got_it">मैले बुझेँ</string>
   <string name="onboarding_multilingual_add_language_text">भाषा थप वा सम्पादन गर्नुहोस्</string>
@@ -805,6 +825,8 @@
     <item quantity="one">गत वर्ष</item>
     <item quantity="other">%d वर्ष पहिले</item>
   </plurals>
+  <string name="on_this_day_end_of_scroll_message">तपाईँ समयका माध्यमबाट यात्रा गर्नुभयो🚀</string>
+  <string name="on_this_day_back_to_future">भविष्यमा फर्कनुहोस्</string>
   <string name="languages_list_activity_title">भाषा थप्नुहोस्</string>
   <string name="languages_list_suggested_text">सुझावित</string>
   <string name="languages_list_all_text">सबै भाषाहरू</string>
@@ -855,6 +877,10 @@
   <string name="insert_media_advanced_settings_image_size_custom_width">चौडाइ</string>
   <string name="insert_media_advanced_settings_image_size_custom_height">उचाइ</string>
   <string name="insert_media_insert_button">घुसाउनुहोस्</string>
+  <string name="templates_insert_button">थप्नुहोस्</string>
+  <string name="templates_param_suggested_value">जस्तै %s</string>
+  <string name="templates_param_optional_hint">%s (वैकल्पिक)</string>
+  <string name="templates_param_suggested_hint">%s (सुझाव गरिएको)</string>
   <string name="templates_learn_more_link">अधिक जानकारी</string>
   <string name="main_drawer_help">सहायता</string>
   <string name="main_drawer_login">विकिपिडियामा लग इन/सहभागी हुनुहोस्</string>
@@ -867,6 +893,7 @@
   <string name="talk_title">वार्तालाप</string>
   <string name="talk_user_title">वार्तालाप: %s</string>
   <string name="talk_new_topic">नयाँ विषय</string>
+  <string name="talk_warn">चेतावनी</string>
   <string name="talk_warn_save_dialog_title">परिवर्तनहरू सङ्ग्रह गर्नुहोस्?</string>
   <string name="talk_warn_save_dialog_publish">प्रकाशित गर्नुहोस्</string>
   <string name="talk_warn_save_dialog_cancel">रद्द गर्नुहोस्</string>
@@ -948,6 +975,7 @@
   <string name="user_contrib_current">हालको</string>
   <string name="user_contrib_menu_label">योगदानहरू</string>
   <string name="talk_templates_new_message_dialog_cancel">रद्द गर्नुहोस्</string>
+  <string name="patroller_tasks_filters_wiki_filter_header">विकि</string>
   <string name="patroller_tasks_filters_user_status_registered">दर्ता भएको</string>
   <string name="patroller_tasks_filters_user_status_learners_desc">दर्ता भएका सम्पादकहरू जसको अनुभव \"नयाँ आगन्तुक\" र \"अनुभवी प्रयोगकर्ताहरू\" बीच पर्दछ।</string>
   <string name="patroller_tasks_filters_user_status_experienced_desc">५०० भन्दा बढी सम्पादन र ३० दिनको गतिविधिस सहितका दर्ता भएका सम्पादकहरू।</string>
@@ -981,5 +1009,6 @@
   <string name="donation_reminders_prompt_negative_button">अहिले हैन</string>
   <string name="donation_reminders_settings_no_thanks_btn_label">पर्दैन, धन्यवाद</string>
   <string name="donation_reminders_settings_learn_more_button">थप जान्नुहोस्</string>
+  <string name="donation_reminders_settings_report_button">सुविधामा समस्या छ</string>
   <string name="donation_reminders_snackbar_modify_button_label">परिमार्जन गर्नुहोस्</string>
 </resources>

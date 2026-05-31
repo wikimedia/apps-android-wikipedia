@@ -7,6 +7,7 @@ import com.google.android.gms.wallet.PaymentData
 import com.google.android.gms.wallet.PaymentDataRequest
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.async
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import org.json.JSONObject
@@ -22,8 +23,11 @@ import org.wikipedia.dataclient.donate.DonationConfigHelper
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.Resource
 import org.wikipedia.util.log.L
+import retrofit2.create
+import java.net.SocketTimeoutException
 import java.time.Instant
 import java.util.concurrent.TimeUnit
+import java.util.concurrent.TimeoutException
 import kotlin.math.abs
 
 class GooglePayViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
@@ -57,8 +61,12 @@ class GooglePayViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
     var finalAmount = 0f
 
+    private val service: Service
+
     init {
         DonateUtil.currencyFormat.minimumFractionDigits = 0
+        val wikiSite = WikiSite(GooglePayComponent.PAYMENTS_API_URL)
+        service = ServiceFactory.createRetrofit(wikiSite, ServiceFactory.getBasePath(wikiSite)).create<Service>()
         load()
     }
 
@@ -86,8 +94,7 @@ class GooglePayViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                 Prefs.paymentMethodsGatewayId = ""
 
                 val paymentMethodsCall = async {
-                    ServiceFactory.get(WikiSite(GooglePayComponent.PAYMENTS_API_URL))
-                        .getPaymentMethods(DonateUtil.currentCountryCode)
+                    service.getPaymentMethods(DonateUtil.currentCountryCode)
                 }
                 paymentMethodsCall.await().response?.let { response ->
                     Prefs.paymentMethodsLastQueryTime = now
@@ -144,32 +151,47 @@ class GooglePayViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             // any localized format, e.g. comma as decimal separator.
             val decimalFormatCanonical = GooglePayComponent.getDecimalFormat(DonateUtil.currencyCode, true)
 
-            val response = ServiceFactory.get(WikiSite(GooglePayComponent.PAYMENTS_API_URL))
-                .submitPayment(
-                    amount = decimalFormatCanonical.format(finalAmount),
-                    appVersion = BuildConfig.VERSION_NAME,
-                    banner = CampaignCollection.getFormattedCampaignId(campaignId),
-                    city = billingObj.optString("locality", ""),
-                    country = DonateUtil.currentCountryCode,
-                    currency = DonateUtil.currencyCode,
-                    donorCountry = billingObj.optString("countryCode", DonateUtil.currentCountryCode),
-                    email = paymentDataObj.optString("email", ""),
-                    fullName = billingObj.optString("name", ""),
-                    language = WikipediaApp.instance.appOrSystemLanguageCode,
-                    recurring = if (recurring) "1" else "0",
-                    paymentToken = token,
-                    optIn = if (optInEmail) "1" else "0",
-                    payTheFee = if (payTheFee) "1" else "0",
-                    paymentMethod = GooglePayComponent.PAYMENT_METHOD_NAME,
-                    paymentNetwork = infoObj.optString("cardNetwork", ""),
-                    postalCode = billingObj.optString("postalCode", ""),
-                    stateProvince = billingObj.optString("administrativeArea", ""),
-                    streetAddress = billingObj.optString("address1", ""),
-                    appInstallId = WikipediaApp.instance.appInstallID
-                )
-
-            L.d("Payment response: $response")
-
+            // Launch the payment call in its own async job, and suppress timeout exceptions that
+            // might occur if the payment gateway takes too long.
+            val paymentCall = async {
+                try {
+                    val response = service.submitPayment(
+                        amount = decimalFormatCanonical.format(finalAmount),
+                        appVersion = BuildConfig.VERSION_NAME,
+                        banner = CampaignCollection.getFormattedCampaignId(campaignId),
+                        city = billingObj.optString("locality", ""),
+                        country = DonateUtil.currentCountryCode,
+                        currency = DonateUtil.currencyCode,
+                        donorCountry = billingObj.optString("countryCode", DonateUtil.currentCountryCode),
+                        email = paymentDataObj.optString("email", ""),
+                        fullName = billingObj.optString("name", ""),
+                        language = WikipediaApp.instance.appOrSystemLanguageCode,
+                        recurring = if (recurring) "1" else "0",
+                        paymentToken = token,
+                        optIn = if (optInEmail) "1" else "0",
+                        payTheFee = if (payTheFee) "1" else "0",
+                        paymentMethod = GooglePayComponent.PAYMENT_METHOD_NAME,
+                        paymentNetwork = infoObj.optString("cardNetwork", ""),
+                        postalCode = billingObj.optString("postalCode", ""),
+                        stateProvince = billingObj.optString("administrativeArea", ""),
+                        streetAddress = billingObj.optString("address1", ""),
+                        appInstallId = WikipediaApp.instance.appInstallID
+                    )
+                    L.d("Payment response: $response")
+                } catch (e: SocketTimeoutException) {
+                    // Do nothing, since the gateway call might take longer than our socket timeout.
+                } catch (e: TimeoutException) {
+                    // Same, but for different potential sources of timeouts.
+                }
+            }
+            // Wait a few seconds for the call to finish, but then don't worry if the call doesn't
+            // finish, and signal success to the user anyway.
+            for (i in 0..5) {
+                if (paymentCall.isCompleted) {
+                    break
+                }
+                delay(1000)
+            }
             uiState.value = DonateSuccess()
         }
     }

@@ -90,6 +90,20 @@ object StringUtil {
         return code.replace("[⧼⧽]".toRegex(), "")
     }
 
+    /**
+     * Convenience function for parsing wikitext that might contain external links (and ONLY
+     * external links), to save a round-trip call to the parse API.
+     */
+    fun parseWikitextExternalLinks(wikitext: String): String {
+        val pattern = """\[(\S+)(?:\s+([^]]+))?]""".toRegex()
+
+        return pattern.replace(wikitext) { match ->
+            val url = match.groupValues[1]
+            val displayText = match.groupValues[2].ifEmpty { url }
+            """<a href="$url">$displayText</a>"""
+        }
+    }
+
     fun normalizedEquals(str1: String?, str2: String?): Boolean {
         return if (str1 == null || str2 == null) {
             str1 == null && str2 == null
@@ -148,7 +162,7 @@ object StringUtil {
         }
     }
 
-    private fun isIndexInsideHtmlTag(text: String, index: Int): Boolean {
+    fun isIndexInsideHtmlTag(text: String, index: Int): Boolean {
         var tagStack = 0
         for (i in text.indices) {
             if (text[i] == '<') { tagStack++ } else if (text[i] == '>') { tagStack-- }

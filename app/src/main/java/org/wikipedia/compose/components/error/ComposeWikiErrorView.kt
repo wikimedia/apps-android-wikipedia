@@ -122,12 +122,10 @@ fun WikiErrorView(
             modifier = Modifier
                 .heightIn(min = 48.dp)
                 .widthIn(min = 0.dp),
-
             onClick = {
                 BreadCrumbLogEvent.logClick(context, "errorButton")
                 getClickEventForErrorType(errorClickEvents, errorType)?.invoke()
             },
-
             colors = ButtonDefaults.buttonColors(
                 containerColor = WikipediaTheme.colors.backgroundColor,
                 contentColor = WikipediaTheme.colors.placeholderColor
@@ -148,6 +146,7 @@ fun WikiErrorView(
                 modifier = Modifier
                     .padding(horizontal = 16.dp),
                 text = footerErrorMessage,
+                textAlign = TextAlign.Center,
                 color = WikipediaTheme.colors.placeholderColor,
                 fontSize = 14.sp
             )

@@ -31,10 +31,13 @@
   <string name="search_hint">ค้นหาในวิกิพีเดีย</string>
   <string name="search_hint_voice_search">ค้นหาโดยใช้เสียง</string>
   <string name="search_hint_search_languages">ค้นหาภาษา</string>
+  <string name="search_back_button_content_description">ย้อนกลับ</string>
+  <string name="search_icon_content_description">ค้นหา</string>
   <string name="filter_hint_filter_my_lists_and_articles">กรองรายการของฉัน</string>
   <string name="nav_item_suggested_edits">การแก้ไขที่แนะนำ</string>
   <string name="nav_item_more">เพิ่มเติม</string>
   <string name="nav_item_search">ค้นหา</string>
+  <string name="nav_item_contribute">ส่วนร่วม</string>
   <string name="error_network_error">ไม่สามารถเชื่อมต่ออินเทอร์เน็ตได้</string>
   <string name="page_error_retry">ลองใหม่</string>
   <string name="card_offline_error_retry">ลองใหม่</string>
@@ -129,6 +132,7 @@
   <string name="dialog_message_leaving_edit_leave">ออก</string>
   <string name="dialog_message_leaving_edit_stay">อยู่ต่อ</string>
   <string name="dialog_confirm_delete_donation_history_delete">ลบ</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">ยกเลิก</string>
   <string name="menu_show_toc">สารบัญ</string>
   <string name="search_no_results_found">ไม่พบผลลัพธ์</string>
   <string name="search_reading_list_no_results">ไม่พบผลลัพธ์ใน \"%s\"</string>
@@ -262,6 +266,8 @@
   <string name="edit_summary_tag_links">เพิ่มลิงก์</string>
   <string name="edit_summary_tag_other">อื่น ๆ</string>
   <string name="edit_summary_tag_other_hint">วิธีการอื่นที่คุณปรับปรุงบทความนี้</string>
+  <string name="edit_summary_added_short_description">เพิ่มคำอธิบายแบบสั้น</string>
+  <string name="edit_summary_updated_short_description">อัปเดตคำอธิบายแบบสั้น</string>
   <string name="edit_conflict_title">แก้ไขชนกัน</string>
   <string name="edit_conflict_message">หน้านี้ได้ถูกแก้ไขโดยผู้ใช้คนอื่นไปแล้ว และเมื่อคุณแก้ไขจึงมีการชนกันเกิดขึ้น คุณสามารถแก้ปัญหาเบื้องต้นโดยการคัดลอกการแก้ไขของคุณ และลองโหลดหน้านี้ใหม่ แล้วแก้ไขอีกครั้ง</string>
   <string name="edit_notices_please_read">โปรดอ่านก่อนแก้ไข</string>
@@ -689,11 +695,11 @@
   <string name="feed_item_type_main_page">หน้าหลักของวิกิพีเดียพร้อมเนื้อหาคัดสรรประจำวัน</string>
   <string name="feed_item_type_randomizer">สร้างบทความที่จะอ่านแบบสุ่ม</string>
   <string name="feed_item_type_suggested_edits">คำแนะนำเพื่อเพิ่มเนื้อหาลงในวิกิพีเดีย</string>
-  <string name="feed_empty_message">ไม่มีอะไรเลยบนฟีดสำรวจของคุณ</string>
+  <string name="feed_empty_message" fuzzy="true">ไม่มีอะไรเลยบนฟีดสำรวจของคุณ</string>
   <string name="feed_configure_onboarding_action">ปรับแต่ง</string>
   <string name="customize_lang_selection_dialog_ok_button_text">ตกลง</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">ยกเลิก</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;ปรับแต่งฟีดสำรวจของคุณ&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;คุณสามารถเลือกสิ่งที่จะแสดงบนฟีดของคุณ และยังสามารถจัดลำดับความสำคัญของชนิดเนื้อหาโปรดของคุณได้แล้วตอนนี้</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;ปรับแต่งฟีดสำรวจของคุณ&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;คุณสามารถเลือกสิ่งที่จะแสดงบนฟีดของคุณ และยังสามารถจัดลำดับความสำคัญของชนิดเนื้อหาโปรดของคุณได้แล้วตอนนี้</string>
   <string name="feed_lang_selection_dialog_ok_button_text">ตกลง</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">ยกเลิก</string>
   <string name="feed_accessibility_card_text">คุณได้มาถึงส่วนล่างสุดของฟีดแล้ว</string>
@@ -881,7 +887,7 @@
   <string name="onboarding_get_started">เริ่มต้นใช้งาน</string>
   <string name="onboarding_maybe_later">ไว้ทีหลัง</string>
   <string name="onboarding_explore_title">วิธีใหม่ในการสำรวจ</string>
-  <string name="onboarding_explore_text">สำรวจเนื้อหาใหม่ ๆ ในวิกิพีเดียด้วยฟีดสำรวจที่ปรับปรุงอย่างต่อเนื่อง &lt;br/&gt; &lt;b&gt;ปรับแต่ง&lt;/b&gt;ฟีดให้ตรงตามความสนใจของคุณ ไม่ว่าจะเป็นเรื่องเกี่ยวกับเหตุการณ์&lt;b&gt;วันนี้ในอดีต&lt;/b&gt; หรือ&lt;b&gt;สุ่ม&lt;/b&gt;เนื้อหาต่าง ๆ</string>
+  <string name="onboarding_explore_text" fuzzy="true">สำรวจเนื้อหาใหม่ ๆ ในวิกิพีเดียด้วยฟีดสำรวจที่ปรับปรุงอย่างต่อเนื่อง &lt;br/&gt; &lt;b&gt;ปรับแต่ง&lt;/b&gt;ฟีดให้ตรงตามความสนใจของคุณ ไม่ว่าจะเป็นเรื่องเกี่ยวกับเหตุการณ์&lt;b&gt;วันนี้ในอดีต&lt;/b&gt; หรือ&lt;b&gt;สุ่ม&lt;/b&gt;เนื้อหาต่าง ๆ</string>
   <string name="onboarding_reading_list_sync_title">รายการอ่านที่มีการซิงค์</string>
   <string name="onboarding_reading_list_sync_text_v2">คุณสามารถสร้างรายการอ่านจากบทความที่คุณต้องการอ่านในภายหลังแม้กระทั่งเมื่อคุณออฟไลน์ได้ &lt;br/&gt;เข้าสู่ระบบบัญชีวิกิพีเดียของคุณเพื่อซิงค์รายการอ่านของคุณ &lt;a href=\"#login\"&gt;เข้าร่วมวิกิพีเดีย&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">ส่งข้อมูลการใช้งาน</string>
@@ -917,7 +923,7 @@
     <item quantity="one">ลบภาษาที่เลือกไว้ออกหรือไม่?</item>
     <item quantity="other">ลบภาษาที่เลือกไว้ออกหรือไม่?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">คุณจะเห็นเฉพาะเนื้อหาที่อยู่บนฟีดสำรวจและตัวกรองการค้นหาแบบด่วนสำหรับภาษาวิกิพีเดียที่เหลือเท่านั้น</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">คุณจะเห็นเฉพาะเนื้อหาที่อยู่บนฟีดสำรวจและตัวกรองการค้นหาแบบด่วนสำหรับภาษาวิกิพีเดียที่เหลือเท่านั้น</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">ไม่สามารถเอาทุกภาษาออกได้</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">เหลือภาษาของวิกิพีเดียไว้อย่างน้อยหนึ่งภาษาเพื่อให้สามารถใช้ค้นหาและอ่านเนื้อหาได้</string>
   <string name="more_language_options">เพิ่มเติม</string>

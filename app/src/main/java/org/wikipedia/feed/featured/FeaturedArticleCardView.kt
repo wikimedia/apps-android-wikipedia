@@ -14,7 +14,6 @@ import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.views.ImageZoomHelper
 
-@Suppress("LeakingThis")
 open class FeaturedArticleCardView(context: Context) : DefaultFeedCardView<FeaturedArticleCard>(context) {
 
     private val binding = ViewCardFeaturedArticleBinding.inflate(LayoutInflater.from(context), this, true)

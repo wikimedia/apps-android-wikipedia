@@ -4,7 +4,6 @@ plugins {
     id 'com.android.application'
     id 'com.google.devtools.ksp'
     id 'com.google.gms.google-services'
-    id 'kotlin-android'
     id 'kotlin-parcelize'
     id 'kotlinx-serialization'
     alias(libs.plugins.compose.compiler)
@@ -17,7 +16,7 @@ final Properties PROD_PROPS = loadProperties(PROD_PROPS_FILE)
 final Properties REPO_PROPS = loadProperties(REPO_PROPS_FILE)
 
 static def computeVersionName(versionCode, label) {
-    return "2.7.${versionCode}-${label}-${(new Date()).format('yyyy-MM-dd')}"
+    return "${versionCode}-${label}-${(new Date()).format('yyyy-MM-dd')}"
 }
 
 android {
@@ -40,14 +39,14 @@ android {
         applicationId 'org.wikipedia'
         minSdk = 23
         targetSdk = 36
-        versionCode 50558
+        versionCode 50590
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
 
         vectorDrawables.useSupportLibrary = true
 
-        signingConfig signingConfigs.debug
+        signingConfig = signingConfigs.debug
 
         buildConfigField "String", "DEFAULT_RESTBASE_URI_FORMAT", '"%1$s://%2$s/api/rest_v1/"'
         buildConfigField "String", "META_WIKI_BASE_URI", '"https://meta.wikimedia.org"'
@@ -55,19 +54,20 @@ android {
         buildConfigField "String", "EVENTGATE_LOGGING_EXTERNAL_BASE_URI", '"https://intake-logging.wikimedia.org"'
         def TEST_LOGIN_USERNAME = System.getenv('TEST_LOGIN_USERNAME')
         def TEST_LOGIN_PASSWORD = System.getenv('TEST_LOGIN_PASSWORD')
+
         buildConfigField "String", "TEST_LOGIN_USERNAME", TEST_LOGIN_USERNAME != null ? "\"${TEST_LOGIN_USERNAME}\"" : '"Foo"'
         buildConfigField "String", "TEST_LOGIN_PASSWORD", TEST_LOGIN_PASSWORD != null ? "\"${TEST_LOGIN_PASSWORD}\"" : '"Bar"'
     }
 
     testOptions {
-        execution 'ANDROIDX_TEST_ORCHESTRATOR'
+        execution = 'ANDROIDX_TEST_ORCHESTRATOR'
         animationsDisabled = true
     }
 
     buildFeatures {
-        viewBinding true
-        buildConfig true
-        compose true
+        viewBinding = true
+        buildConfig = true
+        compose = true
     }
 
     androidResources {
@@ -76,14 +76,13 @@ android {
 
     sourceSets {
 
-        [ prod, beta, alpha, dev, custom ].forEach {
-            it.java.srcDirs += 'src/extra/java'
-            it.res.srcDirs += 'src/extra/res'
+        ['prod', 'beta', 'alpha', 'dev', 'custom'].forEach { name ->
+            maybeCreate(name).java.srcDirs += 'src/extra/java'
+            maybeCreate(name).kotlin.srcDirs += 'src/extra/java'
+            maybeCreate(name).res.srcDirs += 'src/extra/res'
         }
 
-        androidTest {
-            assets.srcDirs += files("$projectDir/schemas".toString())
-        }
+        maybeCreate('androidTest').assets.srcDirs += files("$projectDir/schemas".toString())
     }
 
     signingConfigs {
@@ -120,7 +119,7 @@ android {
         }
         prod {
             versionName computeVersionName(defaultConfig.versionCode, 'r')
-            signingConfig signingConfigs.prod
+            signingConfig = signingConfigs.prod
         }
         alpha {
             versionName computeVersionName(defaultConfig.versionCode, 'alpha')
@@ -129,17 +128,17 @@ android {
         beta {
             versionName computeVersionName(defaultConfig.versionCode, 'beta')
             applicationIdSuffix '.beta'
-            signingConfig signingConfigs.prod
+            signingConfig = signingConfigs.prod
         }
         fdroid {
             versionName computeVersionName(defaultConfig.versionCode, 'fdroid')
-            signingConfig signingConfigs.prod
+            signingConfig = signingConfigs.prod
         }
         custom {
             versionName computeVersionName(defaultConfig.versionCode, customChannel)
             // next line is for injecting a custom channel value into the custom/AndroidManifest.xml
             manifestPlaceholders = [customChannel:getProperty('customChannel').toString()]
-            signingConfig signingConfigs.prod
+            signingConfig = signingConfigs.prod
         }
     }
 
@@ -152,21 +151,16 @@ android {
 
     bundle {
         language {
-            enableSplit false
+            enableSplit = false
         }
     }
-    namespace 'org.wikipedia'
+    namespace = 'org.wikipedia'
 }
 
 ksp {
     arg("room.schemaLocation", "$projectDir/schemas")
 }
 
-configurations {
-    compileClasspath.extendsFrom(implementation)
-}
-
-apply from: '../gradle/src/test.gradle'
 apply from: '../gradle/src/ktlint.gradle'
 
 dependencies {
@@ -176,6 +170,8 @@ dependencies {
     // Debug with ./gradlew -q app:dependencies --configuration compile
 
     coreLibraryDesugaring libs.desugar.jdk.libs
+
+    implementation project(':analytics:testkitchen')
 
     implementation libs.kotlin.stdlib.jdk8
     implementation libs.kotlinx.coroutines.core
@@ -197,7 +193,7 @@ dependencies {
     implementation libs.drawerlayout
     implementation libs.swiperefreshlayout
     implementation libs.work.runtime.ktx
-    implementation libs.metrics.platform
+    implementation libs.hcaptcha
 
     implementation libs.okhttp.tls
     implementation libs.okhttp3.logging.interceptor
@@ -207,7 +203,8 @@ dependencies {
     implementation libs.photoview
     implementation libs.balloon
     implementation libs.retrofit2.kotlinx.serialization.converter
-    implementation(libs.paging.compose)
+    implementation libs.paging.compose
+    implementation libs.lottie.compose
 
     implementation libs.maplibre
     implementation libs.maplibre.annotation
@@ -216,6 +213,12 @@ dependencies {
     annotationProcessor libs.androidx.room.compiler
     ksp libs.androidx.room.compiler
     implementation libs.androidx.room.ktx
+
+    implementation libs.androidx.ui.graphics
+    implementation libs.androidx.glance.appwidget
+    implementation libs.androidx.glance.material3
+    implementation libs.androidx.glance.preview
+    implementation libs.androidx.glance.appwidget.preview
 
     // For language detection during editing
     prodImplementation libs.com.google.mlkit.language.id
@@ -249,11 +252,10 @@ dependencies {
     implementation libs.plumber.android
 
     testImplementation libs.junit
-    testImplementation libs.mockito.inline
+    testImplementation libs.mockk
     testImplementation libs.robolectric
     testImplementation libs.okhttp3.okhttp
     testImplementation libs.mockwebserver
-    testImplementation libs.hamcrest
     testImplementation libs.room.testing
 
     androidTestImplementation libs.espresso.core
@@ -265,7 +267,6 @@ dependencies {
     androidTestImplementation libs.room.testing
     androidTestUtil libs.androidx.orchestrator
 
-    // Coil
     implementation(libs.coil.compose)
     implementation(libs.coil.network.okhttp)
     implementation(libs.coil.gif)

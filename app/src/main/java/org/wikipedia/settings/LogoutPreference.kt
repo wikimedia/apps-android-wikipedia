@@ -14,9 +14,8 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.SingleWebViewActivity
-import org.wikipedia.analytics.eventplatform.CreateAccountEvent
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.auth.AccountUtil
-import org.wikipedia.login.LoginActivity
 import org.wikipedia.util.StringUtil
 
 @Suppress("unused")
@@ -48,11 +47,19 @@ class LogoutPreference : Preference {
         holder.itemView.findViewById<Button>(R.id.logoutButton).apply {
             text = context.getString(if (AccountUtil.isTemporaryAccount) R.string.temp_account_end_session else R.string.preference_title_logout)
             setOnClickListener {
+                val instrument = TestKitchenAdapter.client.getInstrument("apps-authentication")
+                    .startFunnel("logout_account")
+                instrument.submitInteraction("click", actionSource = "settings", elementId = "logout_button")
+
                 activity?.let {
+                    instrument.submitInteraction("impression", actionSource = "logout_warning")
                     MaterialAlertDialogBuilder(it)
                         .setMessage(if (AccountUtil.isTemporaryAccount) R.string.temp_account_end_session_confirm else R.string.logout_prompt)
-                        .setNegativeButton(R.string.logout_dialog_cancel_button_text, null)
+                        .setNegativeButton(R.string.logout_dialog_cancel_button_text) { dialog, which ->
+                            instrument.submitInteraction("click", actionSource = "logout_warning", elementId = "cancel_button")
+                        }
                         .setPositiveButton(if (AccountUtil.isTemporaryAccount) R.string.temp_account_end_session else R.string.preference_title_logout) { _, _ ->
+                            instrument.submitInteraction("click", actionSource = "logout_warning", elementId = "confirm_button")
                             WikipediaApp.instance.logOut()
                             Prefs.readingListsLastSyncTime = null
                             Prefs.isReadingListSyncEnabled = false
@@ -64,15 +71,23 @@ class LogoutPreference : Preference {
             }
         }
         holder.itemView.findViewById<View>(R.id.accountVanishButton).setOnClickListener {
+            val instrument = TestKitchenAdapter.client.getInstrument("apps-authentication")
+                .startFunnel("vanish_account")
+                .setDefaultActionSource("vanish_warning")
+            instrument.submitInteraction("click", actionSource = "settings", elementId = "vanish_button")
+
             activity?.let {
+                instrument.submitInteraction("impression")
                 MaterialAlertDialogBuilder(it, R.style.AlertDialogTheme_Icon_Delete)
                     .setIcon(R.drawable.ic_person_remove)
                     .setTitle(R.string.account_vanish_request_confirm_title)
                     .setMessage(StringUtil.fromHtml(it.getString(R.string.account_vanish_request_confirm)))
-                    .setNegativeButton(android.R.string.cancel, null)
+                    .setNegativeButton(android.R.string.cancel) { dialog, which ->
+                        instrument.submitInteraction("click", elementId = "cancel_button")
+                    }
                     .setPositiveButton(R.string.account_vanish_request_title) { _, _ ->
+                        instrument.submitInteraction("click", elementId = "confirm_button")
                         it.finish()
-                        CreateAccountEvent(LoginActivity.SOURCE_SETTINGS).logVanish()
                         it.startActivity(SingleWebViewActivity.newIntent(it, it.getString(R.string.account_vanish_url), isWebForm = true))
                     }.show()
             }

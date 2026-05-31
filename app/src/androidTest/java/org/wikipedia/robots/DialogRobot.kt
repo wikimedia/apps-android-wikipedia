@@ -2,16 +2,28 @@ package org.wikipedia.robots
 
 import BaseRobot
 import android.content.Context
+import android.util.Log
+import androidx.test.espresso.NoMatchingViewException
 import org.wikipedia.R
 
 class DialogRobot : BaseRobot() {
+
+    fun dismissSurveyDialog() = apply {
+        click.ifDialogShown("No thanks", errorString = "No Survey Dialog dialog shown.")
+    }
 
     fun dismissContributionDialog() = apply {
         click.ifDialogShown("No thanks", errorString = "No Contribution dialog shown.")
     }
 
     fun dismissBigEnglishDialog() = apply {
-        click.ifDialogShown("Maybe later", errorString = "No Big English dialog shown.")
+        try {
+            click.onDisplayedViewWithIdAndContentDescription(R.id.closeButton, "Close")
+        } catch (e: NoMatchingViewException) {
+            Log.e("DialogRobot", "No Big English Dialog shown.")
+        } catch (e: Exception) {
+            Log.e("DialogRobot", "Unexpected Error: ${e.message}")
+        }
     }
 
     fun clickLogOutUser() = apply {

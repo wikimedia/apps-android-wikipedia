@@ -1,7 +1,8 @@
 package org.wikipedia.page
 
-import org.hamcrest.MatcherAssert
-import org.hamcrest.Matchers
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertTrue
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -12,90 +13,79 @@ class NamespaceTest {
 
     @Test
     fun testOf() {
-        MatcherAssert.assertThat(Namespace.of(Namespace.SPECIAL.code()), Matchers.`is`(Namespace.SPECIAL))
+        assertEquals(Namespace.SPECIAL, Namespace.of(Namespace.SPECIAL.code()))
     }
 
     @Test
     fun testFromLegacyStringMain() {
-        MatcherAssert.assertThat(
-            Namespace.fromLegacyString(WikiSite.forLanguageCode("test"), null),
-            Matchers.`is`(Namespace.MAIN)
-        )
+        assertEquals(Namespace.MAIN, Namespace.fromLegacyString(WikiSite.forLanguageCode("test"), null))
     }
 
     @Test
     fun testFromLegacyStringFile() {
-        MatcherAssert.assertThat(Namespace.fromLegacyString(WikiSite.forLanguageCode("he"), "קובץ"),
-            Matchers.`is`(Namespace.FILE))
+        assertEquals(Namespace.FILE, Namespace.fromLegacyString(WikiSite.forLanguageCode("he"), "קובץ"))
     }
 
     @Test
     fun testFromLegacyStringSpecial() {
-        MatcherAssert.assertThat(Namespace.fromLegacyString(WikiSite.forLanguageCode("lez"), "Служебная"),
-            Matchers.`is`(Namespace.SPECIAL))
+        assertEquals(Namespace.SPECIAL, Namespace.fromLegacyString(WikiSite.forLanguageCode("lez"), "Служебная"))
     }
 
     @Test
     fun testFromLegacyStringTalk() {
-        MatcherAssert.assertThat(Namespace.fromLegacyString(WikiSite.forLanguageCode("en"), "Talk"),
-            Matchers.`is`(Namespace.TALK))
-        MatcherAssert.assertThat(Namespace.fromLegacyString(WikiSite.forLanguageCode("ru"), "Обсуждение"),
-            Matchers.`is`(Namespace.TALK))
+        assertEquals(Namespace.TALK, Namespace.fromLegacyString(WikiSite.forLanguageCode("en"), "Talk"))
+        assertEquals(Namespace.TALK, Namespace.fromLegacyString(WikiSite.forLanguageCode("ru"), "Обсуждение"))
     }
 
     @Test
     fun testFromLegacyStringUser() {
-        MatcherAssert.assertThat(Namespace.fromLegacyString(WikiSite.forLanguageCode("en"), "User"),
-            Matchers.`is`(Namespace.USER))
-        MatcherAssert.assertThat(Namespace.fromLegacyString(WikiSite.forLanguageCode("af"), "Gebruiker"),
-            Matchers.`is`(Namespace.USER))
+        assertEquals(Namespace.USER, Namespace.fromLegacyString(WikiSite.forLanguageCode("en"), "User"))
+        assertEquals(Namespace.USER, Namespace.fromLegacyString(WikiSite.forLanguageCode("af"), "Gebruiker"))
     }
 
     @Test
     fun testFromLegacyStringUserTalk() {
-        MatcherAssert.assertThat(Namespace.fromLegacyString(WikiSite.forLanguageCode("en"), "User talk"),
-            Matchers.`is`(Namespace.USER_TALK))
-        MatcherAssert.assertThat(Namespace.fromLegacyString(WikiSite.forLanguageCode("vi"), "Thảo luận Thành viên"),
-            Matchers.`is`(Namespace.USER_TALK))
+        assertEquals(Namespace.USER_TALK, Namespace.fromLegacyString(WikiSite.forLanguageCode("en"), "User talk"))
+        assertEquals(Namespace.USER_TALK, Namespace.fromLegacyString(WikiSite.forLanguageCode("vi"), "Thảo luận Thành viên"))
     }
 
     @Test
     fun testCode() {
-        MatcherAssert.assertThat(Namespace.MAIN.code(), Matchers.`is`(0))
-        MatcherAssert.assertThat(Namespace.TALK.code(), Matchers.`is`(1))
+        assertEquals(0, Namespace.MAIN.code())
+        assertEquals(1, Namespace.TALK.code())
     }
 
     @Test
     fun testSpecial() {
-        MatcherAssert.assertThat(Namespace.SPECIAL.special(), Matchers.`is`(true))
-        MatcherAssert.assertThat(Namespace.MAIN.special(), Matchers.`is`(false))
+        assertTrue(Namespace.SPECIAL.special())
+        assertFalse(Namespace.MAIN.special())
     }
 
     @Test
     fun testMain() {
-        MatcherAssert.assertThat(Namespace.MAIN.main(), Matchers.`is`(true))
-        MatcherAssert.assertThat(Namespace.TALK.main(), Matchers.`is`(false))
+        assertTrue(Namespace.MAIN.main())
+        assertFalse(Namespace.TALK.main())
     }
 
     @Test
     fun testFile() {
-        MatcherAssert.assertThat(Namespace.FILE.file(), Matchers.`is`(true))
-        MatcherAssert.assertThat(Namespace.MAIN.file(), Matchers.`is`(false))
+        assertTrue(Namespace.FILE.file())
+        assertFalse(Namespace.MAIN.file())
     }
 
     @Test
     fun testTalkNegative() {
-        MatcherAssert.assertThat(Namespace.MEDIA.talk(), Matchers.`is`(false))
-        MatcherAssert.assertThat(Namespace.SPECIAL.talk(), Matchers.`is`(false))
+        assertFalse(Namespace.MEDIA.talk())
+        assertFalse(Namespace.SPECIAL.talk())
     }
 
     @Test
     fun testTalkZero() {
-        MatcherAssert.assertThat(Namespace.MAIN.talk(), Matchers.`is`(false))
+        assertFalse(Namespace.MAIN.talk())
     }
 
     @Test
     fun testTalkOdd() {
-        MatcherAssert.assertThat(Namespace.TALK.talk(), Matchers.`is`(true))
+        assertTrue(Namespace.TALK.talk())
     }
 }

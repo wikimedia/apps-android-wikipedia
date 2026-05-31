@@ -31,7 +31,7 @@ class LanguageListRobot : BaseRobot() {
             textViewId = R.id.wiki_language_title
         )
         click.onViewWithText("Add language")
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun assertAddLanguageTextColor(theme: Theme) = apply {
@@ -65,7 +65,7 @@ class LanguageListRobot : BaseRobot() {
 
         composeTestRule.onNodeWithTag(title)
             .performClick()
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun assertJapaneseLanguageTextColor(context: Context, theme: Theme) = apply {

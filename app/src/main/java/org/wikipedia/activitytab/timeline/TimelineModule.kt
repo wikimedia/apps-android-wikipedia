@@ -32,7 +32,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.core.net.toUri
 import coil3.compose.AsyncImage
 import org.wikipedia.R
 import org.wikipedia.compose.components.HtmlText
@@ -219,10 +218,9 @@ fun TimelineDateSeparator(
     date: Date,
     modifier: Modifier = Modifier
 ) {
-    val context = LocalContext.current
     val (dateHeaderText, showSecondaryDate) = when {
-        date.isToday() -> context.getString(R.string.activity_tab_timeline_today) to true
-        date.isYesterday() -> context.getString(R.string.activity_tab_timeline_yesterday) to true
+        date.isToday() -> stringResource(R.string.activity_tab_timeline_today) to true
+        date.isYesterday() -> stringResource(R.string.activity_tab_timeline_yesterday) to true
         else -> DateUtil.getMMMMdYYYY(date, false) to false
     }
 
@@ -262,7 +260,7 @@ private fun TimelineItemPreview() {
                 timestamp = Date(),
                 source = 1,
                 activitySource = ActivitySource.EDIT,
-                wiki = WikiSite("en.wikipedia.org".toUri(), "en")
+                wiki = WikiSite.preview()
             ),
             onItemClick = {}
         )

@@ -4,7 +4,7 @@ import org.wikipedia.analytics.ABTest
 
 class DonationReminderAbTest : ABTest("donationReminder", GROUP_SIZE_2) {
 
-    fun getGroupName(): String {
+    override fun getGroupName(): String {
         return when (group) {
             GROUP_2 -> "b" // test group
             else -> "a" // control

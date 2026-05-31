@@ -1,8 +1,7 @@
 package org.wikipedia.language
 
-import org.hamcrest.MatcherAssert
-import org.hamcrest.Matchers
 import org.jsoup.Jsoup
+import org.junit.Assert.assertEquals
 import org.junit.Test
 import java.io.File
 import java.util.function.Consumer
@@ -34,7 +33,7 @@ class TranslationTests {
             val lang =
                 if (dir.name.contains("-")) dir.name.substring(dir.name.indexOf("-") + 1) else "en"
             val targetStringsXml = File(dir, STRINGS_XML_NAME)
-            val targetMap = findMatchedParamsInXML(targetStringsXml, POSSIBLE_PARAMS, true)
+            val targetMap = findMatchedParamsInXML(targetStringsXml, POSSIBLE_PARAMS, quote = true, ignorePluralOne = true)
 
             // compare the counts inside the maps
             targetMap.forEach { (targetKey, targetList) ->
@@ -50,7 +49,7 @@ class TranslationTests {
         }
 
         // Step 3: check the result
-        MatcherAssert.assertThat("\n" + mismatches.toString(), mismatches.length, Matchers.`is`(0))
+        assertEquals("\n" + mismatches.toString(), 0, mismatches.length)
     }
 
     @Test
@@ -71,8 +70,15 @@ class TranslationTests {
             }
         }
 
+        // Step 4: Check if the item in qq/strings.xml exists in en/strings.xml
+        for (item in qqList) {
+            if (!baseList.contains(item)) {
+                mismatches.append("Extra item in qq/strings.xml not found in en/strings.xml ").append(item).append(" \n")
+            }
+        }
+
         // Step 4: check the result
-        MatcherAssert.assertThat("\n" + mismatches.toString(), mismatches.length, Matchers.`is`(0))
+        assertEquals("\n" + mismatches.toString(), 0, mismatches.length)
     }
 
     @Test
@@ -99,7 +105,7 @@ class TranslationTests {
             })
         }
 
-        MatcherAssert.assertThat("\n" + mismatches.toString(), mismatches.length, Matchers.`is`(0))
+        assertEquals("\n" + mismatches.toString(), 0, mismatches.length)
     }
 
     @Test
@@ -124,7 +130,7 @@ class TranslationTests {
                     .append("\n")
             }
         }
-        MatcherAssert.assertThat("\n" + mismatches.toString(), mismatches.length, Matchers.`is`(0))
+        assertEquals("\n" + mismatches.toString(), 0, mismatches.length)
     }
 
     @Test
@@ -142,7 +148,7 @@ class TranslationTests {
             // Skip "qq" since it contains a lot of {{Identical}} tags
             if (lang != "qq") {
                 val targetStringsXml = File(dir, STRINGS_XML_NAME)
-                val targetMap = findMatchedParamsInXML(targetStringsXml, UNSUPPORTED_TEXTS_REGEX, false)
+                val targetMap = findMatchedParamsInXML(targetStringsXml, UNSUPPORTED_TEXTS_REGEX, quote = false)
 
                 // compare the counts inside the maps
                 targetMap.forEach { (targetKey, targetList) ->
@@ -159,7 +165,7 @@ class TranslationTests {
         }
 
         // Step 3: check the result
-        MatcherAssert.assertThat("\n" + mismatches.toString(), mismatches.length, Matchers.`is`(0))
+        assertEquals("\n" + mismatches.toString(), 0, mismatches.length)
     }
 
     private val baseFile: File
@@ -209,7 +215,7 @@ class TranslationTests {
     }
 
     @Throws(Throwable::class)
-    private fun findMatchedParamsInXML(xmlPath: File, params: List<String>, quote: Boolean): Map<String, List<Int>> {
+    private fun findMatchedParamsInXML(xmlPath: File, params: List<String>, quote: Boolean, ignorePluralOne: Boolean = false): Map<String, List<Int>> {
         val map = mutableMapOf<String, List<Int>>()
         val document = Jsoup.parse(xmlPath, "UTF-8")
 
@@ -252,7 +258,7 @@ class TranslationTests {
             for (subElement in pluralElements) {
                 val subName = subElement.attr("quantity")
                 val subValue = subElement.text()
-                if (subName == "one") {
+                if (subName == "one" && ignorePluralOne) {
                     continue
                 }
 
@@ -291,7 +297,7 @@ class TranslationTests {
             "\\[\\[.*?\\]\\]",
             "\\*\\*.*?\\*\\*",
             "''.*?''",
-            "[^%]%[ .,;?][^d]"
+            "(?<!%)%(?!%|,d|\\d|d|s|f)"
         )
         private val BAD_NAMES = listOf("ldrtl", "sw360dp", "sw600dp", "sw720dp", "v19", "v21", "v23", "land", "night")
 

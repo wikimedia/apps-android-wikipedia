@@ -6,12 +6,19 @@ import org.wikipedia.R
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.model.WikiSiteCard
+import org.wikipedia.settings.homefeed.CommunityModuleType
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.L10nUtil
 
-class FeaturedImageCard(private val featuredImage: FeaturedImage,
-                        private val age: Int,
-                        wiki: WikiSite) : WikiSiteCard(wiki) {
+class FeaturedImageCard(
+    val featuredImage: FeaturedImage,
+    val age: Int,
+    wiki: WikiSite
+) : WikiSiteCard(wiki) {
+
+    override fun moduleKey(): String {
+        return CommunityModuleType.FEATURED_IMAGE.name
+    }
 
     override fun title(): String {
         return L10nUtil.getString(wikiSite().languageCode, R.string.view_featured_image_card_title)

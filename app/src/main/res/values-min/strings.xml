@@ -2,6 +2,7 @@
 <!-- Authors:
 * Ardzun
 * Iwan Novirion
+* Rang Djambak
 -->
 <resources>
   <string name="app_name_prod">Wikipedia</string>
@@ -14,6 +15,15 @@
   <string name="search_hint">Cari Wikipedia</string>
   <string name="search_hint_voice_search">Cari jo suaro</string>
   <string name="search_hint_search_languages">Cari bahaso</string>
+  <string name="search_back_button_content_description">Baliak</string>
+  <string name="search_clear_query_content_description">Hapuih kueri</string>
+  <string name="search_icon_content_description">Cari</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Sariang daftar ambo</string>
+  <string name="nav_item_suggested_edits">Suntiang</string>
+  <string name="nav_item_activity">Aktivitas</string>
+  <string name="nav_item_more">Lainnyo</string>
+  <string name="nav_item_search">Cari</string>
+  <string name="nav_item_contribute">Kontribusi</string>
   <string name="error_network_error">Indak dapek tahubuang ka internet.</string>
   <string name="page_error_retry">Cubo lai</string>
   <string name="card_offline_error_retry">Cubo lai</string>
@@ -22,19 +32,39 @@
   <string name="offline_load_error_retry">Cubo lai</string>
   <string name="page_error_back_to_main">Baliak</string>
   <string name="error_back">Baliak</string>
-  <string name="menu_clear_all_history" fuzzy="true">Hapuih riwayaik</string>
+  <string name="error_next">Salanjuiknyo</string>
+  <string name="menu_clear_all_history">Hapuih riwayaik bacaan</string>
   <string name="history_item_deleted">%s dihapuih dari riwayaik</string>
   <string name="history_items_deleted">%d artikel dihapuih dari riwayaik</string>
   <string name="history_item_delete_undo">Batal</string>
   <string name="notification_archive_undo">Batal</string>
   <string name="app_settings">Pangaturan aplikasi</string>
+  <string name="search_tab_tooltip">Takan ikon baliak untuak lansuang mamulai mangetik istilah nan dicari.</string>
+  <string name="history_list_title">Sijarah</string>
+  <string name="image_content_description">Gambar: %s</string>
+  <string name="page_content_description">Laman: %s</string>
+  <string name="wikimedia_commons">Wikimedia Commons</string>
+  <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Hapuih riwayaik panjalajahan</string>
-  <string name="dialog_message_clear_history" fuzzy="true">Iko ka maapuih sadoalah riwayaik jalajah Sanak, sarato manutuik tab nan kini masih tabukak. Lai Sanak yakin?</string>
+  <string name="dialog_message_clear_history">Iko akan maapuih sadoalah riwayaik jalajah Sanak. Apo Sanak yakin?</string>
   <string name="dialog_message_clear_history_yes">Yo</string>
   <string name="dialog_message_clear_history_no">Ndak</string>
   <string name="share_via">Bagikan lewaik</string>
   <string name="image_share_via">Bagikan lewaik</string>
   <string name="search_redirect_from">Dialiahkan dari %s</string>
+  <string name="page_edit_history_activity_title">Riwayaik revisi: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">Rangkuman suntiangan kosoang</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Cari atau sariang suntiangan</string>
+  <string name="page_edit_history_filter_by">Sariang manuruik</string>
+  <string name="page_edit_history_filter_by_all">Kasadoan suntiangan ( %s )</string>
+  <string name="page_edit_history_filter_by_user">Suntiangan pangguno (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Suntiangan pangguno indak tadaftar (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Suntiangan bot (%s)</string>
+  <string name="page_edit_history_metrics_content_description">Metrik dari %1$s sampai %2$s</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="other">%1$d suntiangan sajak %2$s</item>
+  </plurals>
   <string name="menu_page_show_tabs">Tampilkan tab</string>
   <string name="menu_page_other_languages">Ganti bahaso</string>
   <string name="menu_page_find_in_page" fuzzy="true">Cari di laman</string>

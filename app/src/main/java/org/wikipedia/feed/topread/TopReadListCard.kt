@@ -7,12 +7,20 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.model.ListCard
+import org.wikipedia.settings.homefeed.CommunityModuleType
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.L10nUtil
 
 @Parcelize
-class TopReadListCard(private val articles: TopRead, val site: WikiSite) :
-    ListCard<TopReadItemCard>(toItems(articles.articles, site), site), Parcelable {
+class TopReadListCard(
+    val articles: TopRead,
+    val age: Int,
+    val site: WikiSite
+) : ListCard<TopReadItemCard>(toItems(articles.articles, site), site), Parcelable {
+
+    override fun moduleKey(): String {
+        return CommunityModuleType.TOP_READ.name
+    }
 
     override fun title(): String {
         return L10nUtil.getString(wikiSite().languageCode, R.string.view_top_read_card_title)

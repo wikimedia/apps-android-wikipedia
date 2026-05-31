@@ -66,6 +66,7 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
 
             // Logic for checking whether the wiki has image recommendations enabled
             // (in case we need to rely on it in the future)
+
             /*
             homeSiteParamCall.await().paraminfo?.modules?.let {
                 if (it.isNotEmpty() && it[0].parameters.isNotEmpty()) {

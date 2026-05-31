@@ -29,6 +29,7 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.CircularProgressBar.Companion.MIN_PROGRESS
+import java.io.IOException
 
 object ReadingListBehaviorsUtil {
 
@@ -362,7 +363,14 @@ object ReadingListBehaviorsUtil {
         if (addToDefault) {
             MainScope().launch(exceptionHandler) {
                 // If the title is a redirect, resolve it before saving to the reading list.
-                val pageInfo = ServiceFactory.get(title.wikiSite).getInfoByPageIdsOrTitles(null, title.prefixedText).query?.firstPage()
+                val pageInfo = try {
+                    ServiceFactory.get(title.wikiSite).getInfoByPageIdsOrTitles(null, title.prefixedText).query?.firstPage()
+                } catch (e: IOException) {
+                    // A network error (or being offline) during the redirect resolution is not a big deal,
+                    // and we can just proceed with the original title.
+                    L.e(e)
+                    null
+                }
                 val finalPageTitle = pageInfo?.let {
                     PageTitle(it.title, title.wikiSite, it.thumbUrl(), it.description, it.displayTitle(title.wikiSite.languageCode), null)
                 } ?: title

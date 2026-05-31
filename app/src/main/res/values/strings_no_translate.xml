@@ -5,9 +5,10 @@
 
     <!-- URLs -->
     <string name="support_email">android-support@wikimedia.org</string>
-    <string name="donate_url">https://donate.wikimedia.org/?wmf_medium=WikipediaApp&amp;wmf_campaign=Android&amp;wmf_source=%1$s&amp;uselang=%2$s&amp;app_version=%3$s</string>
+    <string name="donate_url">https://donate.wikimedia.org/?wmf_medium=WikipediaApp&amp;wmf_campaign=Android&amp;wmf_source=%1$s&amp;uselang=%2$s&amp;app_version=%3$s&amp;app_install_id=%4$s</string>
     <string name="talk_pages_survey_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/Communication/UsertestingOctober2021</string>
-    <string name="survey_privacy_policy_url">https://foundation.wikimedia.org/wiki/Legal:Wikipedia_Android_App_Onboarding_Survey_Privacy_Statement</string>
+    <string name="survey_privacy_policy_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Legal:Wikipedia_Android_App_Onboarding_Survey_Privacy_Statement</string>
+    <string name="legal_safety_contact_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Legal:Wikimedia_Foundation_Legal_and_Safety_Contact_Information</string>
     <string name="image_captions_style_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Images</string>
     <string name="image_alt_text_style_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Images</string>
     <string name="short_description_help_url_en">https://en.wikipedia.org/wiki/Wikipedia:Short_description</string>
@@ -22,7 +23,9 @@
     <string name="donate_tax_url">https://donate.wikimedia.org/wiki/Special:LandingCheck?landing_page=Tax_deductibility&amp;basic=true</string>
     <string name="donate_email">donate@wikimedia.org</string>
     <string name="donor_privacy_policy_url">https://foundation.wikimedia.org/wiki/Policy:Donor_privacy_policy</string>
-    <string name="on_this_day_game_wiki_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/TrivaGame</string>
+    <string name="games_hub_wiki_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Games</string>
+    <string name="on_this_day_game_wiki_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/TriviaGame</string>
+    <string name="on_this_day_game_wiki_languages_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/TriviaGame#Want_to_help_bring_the_game_to_your_language?</string>
     <string name="on_this_day_game_share_url">https://play.google.com/store/apps/details?id=org.wikipedia&amp;referrer=utm_source%3Dgame%26utm_medium%3Dlink%26utm_campaign%3Dfirst</string>
     <string name="year_in_review_share_url">https://play.google.com/store/apps/details?id=org.wikipedia&amp;pli=1&amp;referrer=utm_source%3Dwmfapp%26utm_medium%3Dlink%26utm_campaign%3D</string>
     <string name="year_in_review_media_wiki_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Wikipedia_Year_in_Review</string>
@@ -39,8 +42,9 @@
     <string name="editing_learn_more_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Editing</string>
     <string name="apps_about_wmf_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/About_the_Wikimedia_Foundation</string>
     <string name="forget_password_link">https://%s.wikipedia.org/wiki/Special:PasswordReset</string>
-    <string name="explore_feed_survey_url">https://wikimedia.qualtrics.com/jfe/form/SV_4V0kURVL6q5Da6y</string>
-
+    <string name="hybrid_search_info_link">https://www.mediawiki.org/wiki/Readers/Information_Retrieval/Phase_1</string>
+    <string name="reading_challenge_learn_more">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/25th_Birthday_Reading_Challenge</string>
+    <string name="reading_challenge_reward_url">https://store.wikimedia.org/discount/Widget15</string>
     <!-- Accounts -->
     <string name="account_name">@string/wikimedia</string>
     <string name="account_type">org.wikimedia</string>
@@ -105,7 +109,21 @@
     <string name="diff_link_wikitext">{{{diffLink}}}</string>
     <string name="wikiText_replace_url">[[%1$s|%2$s]]</string>
 
-    <string name="year_in_review_action_positive">Take me there</string>
-    <string name="year_in_review_text"><![CDATA[<strong>Wikipedia 2024 Year in Review</strong><br/><br/>Wikipedia is the largest knowledge resource ever assembled in the history of the world, and it’s freely available to everyone everywhere. Here’s a review of 2024 through the lens of Wikipedia.]]></string>
+    <!-- Example semantic search queries, specifically for testing with Greek and French. -->
+    <string name="hybrid_search_onboarding_search_example_query1_el">Πότε ο Πλούτωνας έπαψε να θεωρείται πλανήτης;</string>
+    <string name="hybrid_search_onboarding_search_example_query2_el">Πρώτοι Ολυμπιακοί Αγώνες</string>
+    <string name="hybrid_search_onboarding_search_example_query3_el">RNA vs DNA</string>
+    <string name="hybrid_search_onboarding_search_example_query4_el">Η μεγαλύτερη λίμνη στην Ελλάδα</string>
+    <string name="hybrid_search_onboarding_search_example_query5_el">Εθνικό πιάτο στην Ελλάδα</string>
+    <string name="hybrid_search_onboarding_search_example_query1_fr">Pourquoi les étoiles semblent-elles scintiller la nuit ?</string>
+    <string name="hybrid_search_onboarding_search_example_query2_fr">Origine des Jeux Olympiques</string>
+    <string name="hybrid_search_onboarding_search_example_query3_fr">ADN ou ARN</string>
+    <string name="hybrid_search_onboarding_search_example_query4_fr">Pourquoi rêvons-nous ?</string>
+    <string name="hybrid_search_onboarding_search_example_query5_fr">Comment les langues disparaissent-elles ?</string>
+    <string name="hybrid_search_onboarding_search_example_query1_pt">Maior planeta do Sistema Solar</string>
+    <string name="hybrid_search_onboarding_search_example_query2_pt">Primeira Olimpíada de verão</string>
+    <string name="hybrid_search_onboarding_search_example_query3_pt">RNA vs DNA</string>
+    <string name="hybrid_search_onboarding_search_example_query4_pt">O que é um buraco negro?</string>
+    <string name="hybrid_search_onboarding_search_example_query5_pt">Qual é o maior rio do Brasil?</string>
 
 </resources>

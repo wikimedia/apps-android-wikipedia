@@ -106,6 +106,10 @@ abstract class FeedCoordinatorBase(private val context: Context) {
                 FeedContentType.PLACES.isEnabled = false
                 FeedContentType.saveState()
             }
+            card.type() == CardType.WIKI_GAMES -> {
+                FeedContentType.WIKI_GAMES.isEnabled = false
+                FeedContentType.saveState()
+            }
             else -> {
                 addHiddenCard(card)
             }
@@ -127,6 +131,10 @@ abstract class FeedCoordinatorBase(private val context: Context) {
             }
             card.type() == CardType.PLACES -> {
                 FeedContentType.PLACES.isEnabled = true
+                FeedContentType.saveState()
+            }
+            card.type() == CardType.WIKI_GAMES -> {
+                FeedContentType.WIKI_GAMES.isEnabled = true
                 FeedContentType.saveState()
             }
             else -> unHideCard(card)
@@ -253,7 +261,7 @@ abstract class FeedCoordinatorBase(private val context: Context) {
 
     private fun addHiddenCard(card: Card) {
         hiddenCards.add(card.hideKey)
-        Prefs.hiddenCards = hiddenCards
+        Prefs.hiddenCards = hiddenCards.toList()
     }
 
     private fun isCardHidden(card: Card): Boolean {
@@ -262,7 +270,7 @@ abstract class FeedCoordinatorBase(private val context: Context) {
 
     private fun unHideCard(card: Card) {
         hiddenCards.remove(card.hideKey)
-        Prefs.hiddenCards = hiddenCards
+        Prefs.hiddenCards = hiddenCards.toList()
     }
 
     private fun isDailyCardType(card: Card): Boolean {

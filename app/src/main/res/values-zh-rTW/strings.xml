@@ -16,9 +16,11 @@
 * LNDDYL
 * Lakejason0
 * Liuxinyu970226
+* LowensteinYang
 * Madeleinemcc
 * Mikepanhu
 * MuratTheTurkish
+* Peterxy12
 * Reke
 * Sanmosa
 * Simon Shek
@@ -85,27 +87,27 @@
   <string name="dialog_message_clear_history_no">否</string>
   <string name="share_via">共用方式</string>
   <string name="image_share_via">共用方式</string>
-  <string name="search_redirect_from">重新導向自 %s</string>
+  <string name="search_redirect_from">重新導向自%s</string>
   <string name="page_edit_history_activity_title">修訂紀錄：%s</string>
-  <string name="page_edit_history_minor_edit">&lt;b&gt;小&lt;/b&gt; %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;小&lt;/b&gt;%s</string>
   <string name="page_edit_history_comment_placeholder">空白編輯摘要</string>
   <string name="page_edit_history_search_or_filter_edits_hint">搜尋或篩選編輯</string>
   <string name="page_edit_history_filter_by">篩選依據</string>
-  <string name="page_edit_history_filter_by_all">所有編輯 (%s 筆)</string>
-  <string name="page_edit_history_filter_by_user">使用者編輯 (%s 筆)</string>
-  <string name="page_edit_history_filter_by_anon">未註冊編輯 (%s 筆)</string>
-  <string name="page_edit_history_filter_by_bot">機器人編輯 (%s 筆)</string>
-  <string name="page_edit_history_metrics_content_description">%1$s 到 %2$s 之間的計量</string>
+  <string name="page_edit_history_filter_by_all">所有編輯（%s）</string>
+  <string name="page_edit_history_filter_by_user">使用者編輯（%s）</string>
+  <string name="page_edit_history_filter_by_anon">未註冊編輯（%s）</string>
+  <string name="page_edit_history_filter_by_bot">機器人編輯（%s）</string>
+  <string name="page_edit_history_metrics_content_description">從%1$s到%2$s之間的計量</string>
   <plurals name="page_edit_history_article_edits_since_year">
-    <item quantity="one">自 %2$s 年共 %1$d 筆編輯</item>
-    <item quantity="other">自 %2$s 年共 %1$d 筆編輯</item>
+    <item quantity="one">自%2$s年共%1$d筆編輯</item>
+    <item quantity="other">自%2$s年共%1$d筆編輯</item>
   </plurals>
   <plurals name="edits_since_year_per_wiki">
-    <item quantity="one">自 %2$s 年共 %1$d 筆編輯（%3$s）</item>
-    <item quantity="other">自 %2$s 年共 %1$d 筆編輯（%3$s）</item>
+    <item quantity="one">自%2$s年共%1$d筆編輯（%3$s）</item>
+    <item quantity="other">自%2$s年共%1$d筆編輯（%3$s）</item>
   </plurals>
   <string name="page_edit_history_empty_search_message">請嘗試變更&lt;a href=\"#\"&gt;篩選條件&lt;/a&gt;以查看更多編輯</string>
-  <string name="menu_page_show_tabs">顯示索引標籤</string>
+  <string name="menu_page_show_tabs">顯示分頁</string>
   <string name="menu_page_other_languages">變更語言</string>
   <string name="menu_page_find_in_page">在條目中尋找</string>
   <string name="menu_page_add_to_watchlist">新增至監視清單</string>
@@ -145,10 +147,10 @@
   <string name="edit_history_link_text">檢視編輯歷史</string>
   <string name="map_view_link_text">在地圖上檢視</string>
   <string name="other_languages_indication_text">以其它語言閱讀</string>
-  <string name="language_count_link_text">尚有 %d 個可用語言版本</string>
+  <string name="language_count_link_text">尚有%d個可用語言版本</string>
   <string name="edit_save_action_license_logged_in">發布即表示您同意我們的&lt;a href=\"%1$s\"&gt;《使用條款》&lt;/a&gt;，同時同意依據&lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;授權，且不撤回您所釋出的貢獻。</string>
-  <string name="edit_save_action_license_anon">發佈即表示您同意我們的&lt;a href=\"%1$s\"&gt;《使用條款》&lt;/a&gt;，同時同意依據&lt;a href=\"%2$s/\"&gt;CC BY-SA 4.0&lt;/a&gt;授權您的貢獻。編輯行為將會計入裝置的 IP 位址。&lt;a href=\"https://#login\"&gt;登入&lt;/a&gt;後私密性將增強。</string>
-  <string name="edit_anon_warning">編輯將以您的裝置的 IP 位址發布。如果您有&lt;a href=\"https://#login\"&gt;登入&lt;/a&gt;，您可以擁有更多隱私。</string>
+  <string name="edit_save_action_license_anon">發佈即表示您同意我們的&lt;a href=\"%1$s\"&gt;《使用條款》&lt;/a&gt;，同時同意依據&lt;a href=\"%2$s/\"&gt;CC BY-SA 4.0&lt;/a&gt;授權您的貢獻。編輯行為將會計入裝置的IP位址。&lt;a href=\"https://#login\"&gt;登入&lt;/a&gt;後私密性將增強。</string>
+  <string name="edit_anon_warning">編輯將以您的裝置的IP位址發布。如果您有&lt;a href=\"https://#login\"&gt;登入&lt;/a&gt;，您可以擁有更多隱私。</string>
   <string name="preference_title_language">維基百科語言</string>
   <string name="langlinks_filter_hint">搜尋</string>
   <string name="langlinks_empty">此頁面沒有其它可用語言版本。</string>
@@ -224,13 +226,13 @@
   <string name="create_account_already_have">已經擁有帳號了嗎？</string>
   <string name="create_account_activity_title">建立帳號</string>
   <string name="dialog_create_account_checking_progress">驗證中</string>
-  <string name="create_account_email_hint">電子信箱（非必填）</string>
+  <string name="create_account_email_hint">電子邮箱（非必填）</string>
   <string name="create_account_password_repeat_hint">重複輸入密碼</string>
   <string name="create_account_password_is_username">密碼不可以和使用者名稱相同</string>
   <string name="create_account_passwords_mismatch_error">密碼不符合</string>
   <string name="create_account_email_error">無效的電子郵件地址</string>
   <string name="create_account_username_error">使用者名稱含有無效字元</string>
-  <string name="create_account_password_error">密碼長度至少要 8 個字元</string>
+  <string name="create_account_password_error">密碼長度至少要8個字元</string>
   <string name="create_account_generic_error">無法建立帳號</string>
   <string name="create_account_next">下一步</string>
   <string name="email_recommendation_dialog_title">不帶電子郵件地址來建立帳號？</string>
@@ -240,7 +242,7 @@
   <string name="email_recommendation_dialog_create_with_email_action">新增電子郵件地址</string>
   <string name="create_account_button">建立帳號</string>
   <string name="create_account_name_unavailable">使用者名稱「%s」不可用。請選擇其它名稱。</string>
-  <string name="create_account_ip_block_message">很抱歉，您的 IP 位址目前已被封鎖而無法建立新帳號。</string>
+  <string name="create_account_ip_block_message">很抱歉，您的IP位址目前已被封鎖而無法建立新帳號。</string>
   <string name="create_account_ip_block_help_url">https://zh.wikipedia.org/wiki/Help:我被封禁了</string>
   <string name="create_account_ip_block_details">詳細資訊</string>
   <string name="preferences_general_heading">一般</string>
@@ -250,7 +252,7 @@
   <string name="create_account_account_created_toast">已建立帳號！</string>
   <string name="preferences_heading_syncing">同步</string>
   <string name="preferences_heading_data_usage">資料使用</string>
-  <string name="preferences_heading_experimental">試驗</string>
+  <string name="preferences_heading_experimental">試驗功能</string>
   <string name="preference_title_sync_reading_lists_from_account">同步閱讀清單</string>
   <string name="preference_title_download_reading_list_articles">下載閱讀清單條目</string>
   <string name="preference_summary_sync_reading_lists">透過儲存至您的維基百科帳號上，來橫跨不同裝置同步閱讀清單</string>
@@ -275,6 +277,7 @@
   <string name="about_description">關於維基百科應用程式</string>
   <string name="privacy_policy_description">隱私權政策</string>
   <string name="terms_of_use_description">使用條款</string>
+  <string name="legal_safety_contacts_description">法律與安全聯絡人</string>
   <string name="about_wikipedia_url">https://zh.wikipedia.org/wiki/Wikipedia:關於</string>
   <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/zh#Offline_reading_and_data</string>
@@ -873,11 +876,11 @@
   <string name="feed_item_type_randomizer">產生隨機條目來閱讀</string>
   <string name="feed_item_type_suggested_edits">添加內容到維基百科的建議</string>
   <string name="feed_item_type_places">基於目前位置附近的相關條目</string>
-  <string name="feed_empty_message">您的探索摘要內無任何內容</string>
+  <string name="feed_empty_message">您的首頁feed內無任何內容</string>
   <string name="feed_configure_onboarding_action">自訂</string>
   <string name="customize_lang_selection_dialog_ok_button_text">確認</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">取消</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;自訂您的探索摘要&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;您現在可在您的摘要內挑選出所要顯示內容，並且可以排序您所喜愛的內容種類。</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;自訂您的首頁feed&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;您現在可在您的feed內挑選出所要顯示內容，並且可以排序您所喜愛的內容種類。</string>
   <string name="feed_lang_selection_dialog_ok_button_text">確認</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">取消</string>
   <string name="feed_accessibility_card_text">您已達到摘要下端。</string>
@@ -1269,19 +1272,20 @@
   <string name="size_mb">%.2f MB</string>
   <string name="onboarding_skip">略過</string>
   <string name="onboarding_continue">繼續</string>
-  <string name="onboarding_get_started">入門</string>
+  <string name="onboarding_get_started">開始</string>
   <string name="onboarding_maybe_later">稍後再說</string>
   <string name="onboarding_explore_title">「探索」頁的新樣貌</string>
-  <string name="onboarding_explore_text">時常更新的「探索」頁，讓您沉迷於維基百科而無法自拔。&lt;br/&gt;依照您的喜好，&lt;b&gt;自訂&lt;/b&gt;首頁內容。您可以從「&lt;b&gt;歷史上的今天&lt;/b&gt;」瞭解歷史事件，也可以使用「&lt;b&gt;隨機&lt;/b&gt;」碰碰運氣。</string>
+  <string name="onboarding_explore_text">透過不斷更新的首頁feed，深入探索維基百科的奇妙世界。&lt;br/&gt;依照您的喜好，&lt;b&gt;自訂&lt;/b&gt;首頁內容。您可以從「&lt;b&gt;歷史上的今天&lt;/b&gt;」瞭解歷史事件，也可以使用「&lt;b&gt;隨機&lt;/b&gt;」碰碰運氣。</string>
   <string name="onboarding_reading_list_sync_title">閱讀清單同步更新</string>
   <string name="onboarding_reading_list_sync_text_v2">對於想要稍後閱讀的條目，您可以建立閱讀清單，即使在離線時也可使用。&lt;br/&gt;登入維基百科帳號後方可同步閱讀清單。&lt;a href=\"#login\"&gt;加入維基百科&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">資料及隱私權</string>
-  <string name="onboarding_data_privacy_text">我們認為您不必提供個人資訊，即可參與自由的知識運動。此應用程式以匿名方式收集使用資料。詳細了解我們的&lt;a href=\"#privacy\"&gt;隱私權政策&lt;/a&gt;和&lt;a href=\"#termsOfUse\"&gt;使用條款&lt;/a&gt;。</string>
+  <string name="onboarding_data_privacy_text">我們認為您不必提供個人資訊，即可參與自由的知識運動。此應用程式以匿名方式收集使用資料。&lt;br/&gt;&lt;br/&gt;詳細了解我們的&lt;a href=\"#privacy\"&gt;隱私權政策&lt;/a&gt;和&lt;a href=\"#termsOfUse\"&gt;使用條款&lt;/a&gt;。</string>
   <string name="onboarding_analytics_switch_title">傳送使用情況資料</string>
   <string name="onboarding_got_it">了解</string>
   <string name="onboarding_multilingual_secondary_text">我們在您的裝置上找到以下語言：</string>
   <string name="onboarding_multilingual_add_language_text">新增或編輯語言</string>
   <string name="onboarding_welcome_title_v2">自由的百科全書\n…超過 300 種可用的語言版本</string>
+  <string name="onboarding_next">下一個</string>
   <string name="app_shortcuts_random">隨機</string>
   <string name="app_shortcuts_continue_reading">繼續閱讀</string>
   <string name="app_shortcuts_search">搜尋</string>
@@ -1311,7 +1315,7 @@
     <item quantity="one">移除所選語言？</item>
     <item quantity="other">移除所選語言？</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">您僅能查看在探索摘要的內容，與快速搜尋其餘維基百科語言的篩選器。</string>
+  <string name="wikipedia_languages_remove_dialog_content">您只能在首頁feed和快速搜尋篩選器中看到剩餘維基百科語言的內容。</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">無法移除所有語言</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">請保留至少一種用在搜尋與閱讀內容的維基語言。</string>
   <string name="more_language_options">更多</string>
@@ -1386,7 +1390,7 @@
   <string name="templates_description_missing_data">此模板缺少&lt;a href=\"%1$s\"&gt;模板資料&lt;/a&gt;，且參數已&lt;a href=\"%2$s\"&gt;自動產生&lt;/a&gt;。因此模板及參數都缺乏描述。</string>
   <string name="main_drawer_help">說明</string>
   <string name="main_drawer_login">登入/加入維基百科</string>
-  <string name="main_tooltip_action_button">入門</string>
+  <string name="main_tooltip_action_button">開始</string>
   <string name="main_tooltip_watchlist_title">監視清單</string>
   <string name="main_tooltip_watchlist_text">在&lt;b&gt;監視清單&lt;/b&gt;下的更多選單裡，尋找您之前新增到監視清單的條目與頁面。</string>
   <string name="custom_date_picker_dialog_ok_button_text">確認</string>
@@ -1806,8 +1810,8 @@
   <string name="survey_dialog_submitted_snackbar">意見回饋提交成功。謝謝！</string>
   <string name="on_this_day_game_entry_dialog_title">介紹</string>
   <string name="on_this_day_game_entry_dialog_subtitle">維基百科遊戲</string>
-  <string name="on_this_day_game_entry_dialog_button">遊玩今天的遊戲</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">維基百科遊戲可在探索摘要中取得。</string>
+  <string name="on_this_day_game_entry_dialog_button" fuzzy="true">遊玩今天的遊戲</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message" fuzzy="true">維基百科遊戲可在探索摘要中取得。</string>
   <string name="on_this_day_game_title">猜先後</string>
   <string name="on_this_day_game_dialog_button">遊玩</string>
   <string name="on_this_day_game_splash_message">猜猜歷史上的這一天最先發生的事件是什麼。</string>
@@ -1819,14 +1823,9 @@
   <string name="on_this_day_game_point">+1 分</string>
   <string name="on_this_day_game_next">下一個問題</string>
   <string name="on_this_day_game_finish">最終結果</string>
-  <string name="on_this_day_game_share_button">分享</string>
-  <string name="on_this_day_game_pause_title">暫停遊戲？</string>
-  <string name="on_this_day_game_pause_body">您的進度會在當天內保存。您可以在探索摘要中找到該遊戲。</string>
-  <string name="on_this_day_game_pause_negative">繼續遊玩</string>
-  <string name="on_this_day_game_pause_positive">了解</string>
+  <string name="on_this_day_game_share_button" fuzzy="true">分享</string>
   <string name="on_this_day_game_feed_entry_card_heading">維基百科遊戲</string>
   <string name="on_this_day_game_feed_entry_card_title">猜先後</string>
-  <string name="on_this_day_game_feed_entry_card_subtitle">猜猜歷史上的這一天最先發生的事件是什麼。</string>
   <string name="on_this_day_game_result">您的得分 %1$d/%2$d。</string>
   <string name="on_this_day_game_next_in">下一個遊戲會在 %s 開始</string>
   <string name="on_this_day_game_your_stats">您的狀態</string>
@@ -1837,7 +1836,7 @@
   <string name="on_this_day_game_stats_average_score">平均分數</string>
   <string name="on_this_day_game_stats_streak">目前連勝</string>
   <string name="on_this_day_game_result_subtitle">今天遊戲中引用到的條目</string>
-  <string name="on_this_day_game_completed_message">感謝您的遊玩。新的「猜先後」遊戲每日會在探索摘要中提供。</string>
+  <string name="on_this_day_game_completed_message">感謝您的參與。每天都會在首頁feed上推出新的「哪個先出現？」遊戲。</string>
   <string name="on_this_day_game_menu_notifications">遊戲通知</string>
   <string name="on_this_day_game_menu_info">了解更多</string>
   <string name="on_this_day_game_menu_feedback">功能問題</string>
@@ -1873,7 +1872,7 @@
   <string name="on_this_day_game_sound_on">打開音效</string>
   <string name="on_this_day_game_sound_off">關閉音效</string>
   <string name="year_in_review_learn_more">了解更多</string>
-  <string name="year_in_review_get_started">入門</string>
+  <string name="year_in_review_get_started">開始</string>
   <string name="year_in_review_topbar_w_icon">維基百科 W 圖示</string>
   <string name="year_in_review_navigate_left">向左導覽</string>
   <string name="year_in_review_close">關閉</string>
@@ -2125,7 +2124,7 @@
   <string name="recommended_reading_list_onboarding_card_title">發現專為您挑選的條目</string>
   <string name="recommended_reading_list_onboarding_card_message">您的每週維基百科條目閱讀清單，專為您精心挑選。</string>
   <string name="recommended_reading_list_onboarding_card_new">新的！</string>
-  <string name="recommended_reading_list_onboarding_card_positive_button">入門</string>
+  <string name="recommended_reading_list_onboarding_card_positive_button">開始</string>
   <string name="recommended_reading_list_onboarding_card_negative_button">不用了，謝謝</string>
   <string name="recommended_reading_list_onboarding_card_negative_snackbar">若要稍後設定建議閱讀列表，請前往「設定」。</string>
   <string name="recommended_reading_list_interest_source_message">我們可以如何建立您的推薦閱讀清單？</string>
@@ -2157,20 +2156,20 @@
   <string name="recommended_reading_list_page_description_monthly">您的每月閱讀清單。了解專為您挑選的新主題。更新於每月 1 日。</string>
   <string name="recommended_reading_list_page_overflow_customize">自訂</string>
   <string name="recommended_reading_list_page_overflow_about">關於此功能</string>
-  <string name="recommended_reading_list_page_snackbar">Discover 將每%2$s更新 %1$d 篇新條目。您的推薦內容會儲存在您的本機裝置上。</string>
-  <string name="recommended_reading_list_page_snackbar_action">自訂 Discover</string>
+  <string name="recommended_reading_list_page_snackbar">「發現」將每%2$s更新 %1$d 篇新條目。您的推薦內容會儲存在您的本機裝置上。</string>
+  <string name="recommended_reading_list_page_snackbar_action">自訂「發現」功能</string>
   <string name="recommended_reading_list_page_snackbar_day">日</string>
   <string name="recommended_reading_list_page_snackbar_week">週</string>
   <string name="recommended_reading_list_page_snackbar_month">月</string>
   <string name="recommended_reading_list_settings_section_header">建議</string>
-  <string name="recommended_reading_list_settings_title">Discover 設定</string>
-  <string name="recommended_reading_list_settings_toggle">Discover 閱讀清單</string>
-  <string name="recommended_reading_list_settings_toggle_disable_message">已關閉 Discover 功能。維基百科不會再為您推薦值得閱讀的條目。</string>
-  <string name="recommended_reading_list_settings_turn_off_dialog_title">關閉 Discover？</string>
-  <string name="recommended_reading_list_settings_turn_off_dialog_message">如果您關閉 Discover，您不會再收到來自維基百科的%s閱讀推薦。</string>
+  <string name="recommended_reading_list_settings_title">「發現」設定</string>
+  <string name="recommended_reading_list_settings_toggle">「發現」閱讀清單</string>
+  <string name="recommended_reading_list_settings_toggle_disable_message">已關閉「發現」功能。維基百科不會再為您推薦值得閱讀的條目。</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_title">關閉「發現」功能？</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_message">如果您關閉「發現」功能，您不會再收到來自維基百科的%s閱讀推薦。</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">關閉</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_negative_button">不，保持開啟</string>
-  <string name="recommended_reading_list_settings_turn_off_snackbar">Discover 功能已關閉。您可以隨時在設定裡將其重新開啟。</string>
+  <string name="recommended_reading_list_settings_turn_off_snackbar">「發現」功能已關閉。您可以隨時在設定裡將其重新開啟。</string>
   <string name="recommended_reading_list_settings_articles">條目</string>
   <string name="recommended_reading_list_settings_updates_frequency">%s更新</string>
   <string name="recommended_reading_list_settings_updates_frequency_daily">每日</string>
@@ -2179,12 +2178,12 @@
   <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">每一日</string>
   <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">每一週</string>
   <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">每個月</string>
-  <string name="recommended_reading_list_settings_updates_base_title">Discover 如何建立</string>
+  <string name="recommended_reading_list_settings_updates_base_title">「發現」功能如何建立</string>
   <string name="recommended_reading_list_settings_updates_base_subtitle_interests">根據您的興趣</string>
   <string name="recommended_reading_list_settings_updates_base_subtitle_saved">根據您儲存過的條目</string>
   <string name="recommended_reading_list_settings_updates_base_subtitle_history">根據您的閱讀歷史</string>
-  <string name="recommended_reading_list_settings_updates_base_dialog_title">調整 Discover 的建立方式？</string>
-  <string name="recommended_reading_list_settings_updates_base_dialog_message">如果您調整 Discover 產生建議的方法，您目前的推薦會被取代。</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_title">調整「發現」清單的建立方式？</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_message">如果您調整「發現」清單產生建議的方法，您目前的推薦會被取代。</string>
   <string name="recommended_reading_list_settings_updates_base_dialog_positive_button">調整</string>
   <string name="recommended_reading_list_settings_updates_base_dialog_negative_button">不用</string>
   <string name="recommended_reading_list_settings_updates_base_snackbar_interests">您目前的推薦內容是基於您的興趣呈現。</string>
@@ -2193,16 +2192,16 @@
   <string name="recommended_reading_list_settings_updates_base_snackbar_action">撤銷</string>
   <string name="recommended_reading_list_settings_interests">興趣</string>
   <string name="recommended_reading_list_settings_notifications_title">通知</string>
-  <string name="recommended_reading_list_settings_notifications_subtitle">當 Discover 更新時，維基百科不會向您發送通知。</string>
-  <string name="recommended_reading_list_settings_notifications_subtitle_disable">Discover 的通知已關閉。在 Discover 更新時您不會收到通知。</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle">當「發現」清單更新時，維基百科不會向您發送通知。</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle_disable">「發現」功能的通知已關閉。在「發現」清單更新時您不會收到通知。</string>
   <string name="recommended_reading_list_settings_notifications_dialog_title">關閉通知？</string>
-  <string name="recommended_reading_list_settings_notifications_dialog_message">如果您關閉通知，在 Discover 更新時您不會再收到提醒。</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_message">如果您關閉通知，在「發現」清單更新時您不會再收到提醒。</string>
   <string name="recommended_reading_list_settings_notifications_dialog_positive_button">關閉它們</string>
   <string name="recommended_reading_list_settings_notifications_dialog_negative_button">不，保持開啟</string>
-  <string name="recommended_reading_list_notification_title">您的 %s 個 Discover 閱讀清單已準備就緒。</string>
+  <string name="recommended_reading_list_notification_title">您的%s個「發現」閱讀清單已準備就緒。</string>
   <string name="recommended_reading_list_notification_subtitle">輕觸來查看您的最新推薦。</string>
-  <string name="recommended_reading_list_settings_notification_subtitle_enable">當您的 Discover 更新時，維基百科會對您發送通知。</string>
-  <string name="recommended_reading_list_settings_toggle_enable_message">已開啟 Discover 功能。維基百科會為您推薦值得閱讀的條目。</string>
+  <string name="recommended_reading_list_settings_notification_subtitle_enable">當您的「發現」閱讀清單更新時，維基百科會對您發送通知。</string>
+  <string name="recommended_reading_list_settings_toggle_enable_message">已開啟「發現」功能。維基百科會為您推薦值得閱讀的條目。</string>
   <string name="donation_reminders_prompt_dismiss_snackbar">您可以在設定中隨時修改捐款提醒。</string>
   <string name="donation_settings_section_header">捐款</string>
   <string name="donation_reminders_settings_title">我們應如何提醒您？</string>
@@ -2239,8 +2238,44 @@
   <string name="donation_reminders_settings_report_email_subject">問題報告 - 捐款提醒</string>
   <string name="donation_reminders_settings_report_email_body">我遇到了維基百科捐款提醒功能的問題：\n- [描述具體問題]\n- [截圖或連結]\n\n我預期看到的結果是：\n- [描述建議的解決方案]</string>
   <string name="donation_reminders_snackbar_modify_button_label">修改</string>
-  <string name="explore_feed_survey_dialog_title">協助我們改進探索功能</string>
-  <string name="explore_feed_survey_dialog_message">請填寫一份關於探索摘要的簡短問卷。您的回饋將有助於我們改善往後的應用程式。</string>
-  <string name="explore_feed_survey_dialog_positive_button_label">參加調查</string>
-  <string name="explore_feed_survey_dialog_negative_button_label">不用了，謝謝</string>
+  <string name="hybrid_search_search_hint">搜尋或提問任何內容</string>
+  <string name="hybrid_search_article_search_hint">詢問關於條目%s</string>
+  <string name="hybrid_search_suggestion_title">搜尋：</string>
+  <string name="hybrid_search_onboarding_learn_more">了解更多</string>
+  <string name="hybrid_search_onboarding_search_title">提出問題，獲得答案</string>
+  <string name="hybrid_search_onboarding_search_description">此實驗性功能可理解自然語言。可不用搜尋關鍵字，只需描述您要的內容即可。</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_title">測試功能</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_description">僅在本次實驗期間的有限時間內可用。</string>
+  <string name="hybrid_search_beta_tag">測試版</string>
+  <string name="hybrid_search_experimental_feature_switch_label">加入實驗</string>
+  <string name="hybrid_search_onboarding_search_example_title">需要靈感嗎？</string>
+  <string name="hybrid_search_onboarding_search_example_description">請使用以下搜尋範例之一。</string>
+  <string name="hybrid_search_onboarding_opt_out_toast_message">您已選擇退出實驗。</string>
+  <string name="hybrid_search_onboarding_search_example_query_pluto_as_planet">冥王星何時從行星名單裡移除？</string>
+  <string name="hybrid_search_onboarding_search_example_query_first_olympics">第一屆奧運</string>
+  <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">RNA 與 DNA</string>
+  <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">為什麼人們要在披薩上加鳳梨？</string>
+  <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">歐洲最大的城市有哪些？</string>
+  <string name="hybrid_search_onboarding_screen_title">一種新的搜尋方式</string>
+  <string name="hybrid_search_results_header_description" fuzzy="true">來源出自人工撰寫的維基百科條目</string>
+  <string name="hybrid_search_results_rate_label">評價此結果</string>
+  <string name="hybrid_search_results_rated_label">已評價</string>
+  <string name="hybrid_search_results_rate_thumb_up">很棒</string>
+  <string name="hybrid_search_results_rate_thumb_down">不好</string>
+  <string name="hybrid_lexical_search_results_empty">沒有任何條目的標題符合此查詢。</string>
+  <string name="hybrid_search_results_empty">增強搜尋功能暫時無法使用。</string>
+  <string name="hybrid_search_no_results_header">沒有結果</string>
+  <string name="hybrid_search_no_results_description">此主題目前無法回傳條目摘錄。您可以嘗試以下方法：</string>
+  <string name="hybrid_search_no_results_suggestion_rephrase_text">重新表達您的搜尋</string>
+  <string name="hybrid_search_no_results_suggestion_try_related_topic">嘗試相關主題</string>
+  <string name="hybrid_search_error_message">發生錯誤。請稍後再試。</string>
+  <string name="hybrid_search_who_is_prefix">%s是誰？</string>
+  <string name="hybrid_search_turn_off_experiment_label">關閉此實驗</string>
+  <string name="home_feed_settings_based_on_interest_subtitle">根據您選擇的主題所撰寫的條目。&lt;br /&gt;&lt;a href=\"#drivingFeed\"&gt;是什麼正驅動著你的feed&lt;/a&gt;</string>
+  <string name="home_feed_settings_community_empty_dialog_title">您的社群feed將會是空的。</string>
+  <string name="home_feed_settings_for_you_empty_dialog_title">您的「為你推薦」feed將會是空的。</string>
+  <string name="home_feed_settings_empty_dialog_text">至少啟用一個模組才能查看內容。</string>
+  <string name="home_feed_settings_empty_dialog_positive">仍要繼續</string>
+  <string name="home_feed_community_screen_all_modules_disabled_description">啟用&lt;b&gt;社群&lt;/b&gt;模組，即可開始查看由維基媒體社群所策劃和關於維基媒體社群的內容。</string>
+  <string name="home_feed_settings_feed_configuration_interests_updated_message">您的喜好已更新。請重新整理頁面查看更新。</string>
 </resources>

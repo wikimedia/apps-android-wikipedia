@@ -15,6 +15,9 @@ import org.wikipedia.base.actions.WebActions
 import java.util.concurrent.TimeUnit
 
 abstract class BaseRobot {
+    protected val composeTestRule: ComposeTestRule
+        get() = ComposeTestManager.getComposeTestRule()
+
     protected val click = ClickActions()
     protected val input = InputActions()
     protected val list = ListActions()
@@ -23,9 +26,6 @@ abstract class BaseRobot {
     protected val system = SystemActions()
     protected val verify = VerificationActions()
     protected val web = WebActions()
-
-    protected val composeTestRule: ComposeTestRule
-        get() = ComposeTestManager.getComposeTestRule()
 
     protected fun delay(seconds: Long) {
         onView(isRoot()).perform(waitOnId(TimeUnit.SECONDS.toMillis(seconds)))

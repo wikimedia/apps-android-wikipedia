@@ -1,7 +1,6 @@
 package org.wikipedia.feed.news
 
-import org.hamcrest.MatcherAssert
-import org.hamcrest.Matchers
+import org.junit.Assert.assertFalse
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -25,10 +24,7 @@ class NewsLinkTest {
     fun testTitleNormalization() {
         for (newsItem in content) {
             for (link in newsItem.links) {
-                MatcherAssert.assertThat(
-                    NewsLinkCard(link!!, TEST).title(),
-                    Matchers.not(Matchers.containsString("_"))
-                )
+                assertFalse(NewsLinkCard(link!!, TEST).title().contains("_"))
             }
         }
     }

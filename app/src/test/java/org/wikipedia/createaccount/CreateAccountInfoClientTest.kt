@@ -1,8 +1,8 @@
 package org.wikipedia.createaccount
 
 import kotlinx.coroutines.runBlocking
-import org.hamcrest.MatcherAssert
-import org.hamcrest.Matchers
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotNull
 import org.junit.Test
 import org.wikipedia.test.MockRetrofitTest
 
@@ -14,8 +14,8 @@ class CreateAccountInfoClientTest : MockRetrofitTest() {
         runBlocking {
             apiService.getAuthManagerInfo()
         }.run {
-            MatcherAssert.assertThat(query!!.createAccountToken(), Matchers.`is`("5d78e6a823be0901eeae9f6486f752da59123760+\\"))
-            MatcherAssert.assertThat(query!!.captchaId(), Matchers.`is`("272460457"))
+            assertEquals("5d78e6a823be0901eeae9f6486f752da59123760+\\", query!!.createAccountToken())
+            assertEquals("272460457", query!!.captchaId())
         }
     }
 
@@ -27,7 +27,7 @@ class CreateAccountInfoClientTest : MockRetrofitTest() {
             try {
                 apiService.getAuthManagerInfo()
             } catch (e: Exception) {
-                MatcherAssert.assertThat(e, Matchers.notNullValue())
+                assertNotNull(e)
             }
         }
     }
@@ -40,7 +40,7 @@ class CreateAccountInfoClientTest : MockRetrofitTest() {
             try {
                 apiService.getAuthManagerInfo()
             } catch (e: Exception) {
-                MatcherAssert.assertThat(e, Matchers.notNullValue())
+                assertNotNull(e)
             }
         }
     }
