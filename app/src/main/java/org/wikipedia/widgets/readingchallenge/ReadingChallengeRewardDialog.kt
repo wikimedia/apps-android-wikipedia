@@ -28,13 +28,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
+import androidx.fragment.compose.content
 import org.wikipedia.R
 import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.compose.components.AppButton
@@ -49,34 +49,37 @@ class ReadingChallengeRewardDialog : ExtendedBottomSheetDialogFragment(startExpa
     private val instrument = TestKitchenAdapter.client.getInstrument("apps-widgetchallenge")
         .startFunnel("widget_challenge")
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ) = content {
+        BaseTheme {
+            RewardScreen(
+                onCloseClick = {
+                    dismiss()
+                },
+                onNavigateClick = {
+                    instrument.submitInteraction(
+                        action = "click",
+                        actionSource = "challenge_complete",
+                        elementId = "store_button",
+                        actionContext = mapOf("streak_count" to Prefs.readingChallengeStreak)
+                    )
+                    UriUtil.visitInExternalBrowser(requireContext(), getString(R.string.reading_challenge_reward_url).toUri())
+                    dismiss()
+                }
+            )
+        }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         instrument.submitInteraction(
             action = "impression",
             actionSource = "challenge_complete",
             elementId = "collect_prize",
             actionContext = mapOf("streak_count" to Prefs.readingChallengeStreak)
         )
-        return ComposeView(requireContext()).apply {
-            setContent {
-                BaseTheme {
-                    RewardScreen(
-                        onCloseClick = {
-                            dismiss()
-                        },
-                        onNavigateClick = {
-                            instrument.submitInteraction(
-                                action = "click",
-                                actionSource = "challenge_complete",
-                                elementId = "store_button",
-                                actionContext = mapOf("streak_count" to Prefs.readingChallengeStreak)
-                            )
-                            UriUtil.visitInExternalBrowser(requireContext(), getString(R.string.reading_challenge_reward_url).toUri())
-                            dismiss()
-                        }
-                    )
-                }
-            }
-        }
     }
 }
 
@@ -86,7 +89,8 @@ fun RewardScreen(
     onNavigateClick: () -> Unit
 ) {
     Column(
-        modifier = Modifier.fillMaxWidth()
+        modifier = Modifier
+            .fillMaxWidth()
             .padding(start = 16.dp, end = 16.dp, top = 16.dp, bottom = 16.dp)
             .verticalScroll(rememberScrollState()),
     ) {
@@ -99,7 +103,9 @@ fun RewardScreen(
                 .background(WikipediaTheme.colors.placeholderColor)
         )
         Row(
-            modifier = Modifier.fillMaxWidth().padding(top = 8.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 8.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(

@@ -37,7 +37,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.dropShadow
 import androidx.compose.ui.graphics.shadow.Shadow
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -45,6 +44,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
+import androidx.fragment.compose.content
 import org.wikipedia.R
 import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.compose.components.TwoButtonBottomBar
@@ -60,42 +60,42 @@ class ReadingChallengeInstallWidgetDialog : ExtendedBottomSheetDialogFragment(st
         .setDefaultActionSource("widget_challenge_install")
         .startFunnel("widget_challenge")
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ) = content {
+        BaseTheme {
+            InstallWidgetScreen(
+                pinToWidgetSupported = pinWidgetSupported(),
+                onCloseClick = {
+                    instrument.submitInteraction(
+                        action = "click",
+                        elementId = "install_close"
+                    )
+                    dismiss()
+                },
+                onGotItClick = {
+                    instrument.submitInteraction(
+                        action = "click",
+                        elementId = "install_accept"
+                    )
+                    dismiss()
+                },
+                onAddClick = {
+                    instrument.submitInteraction(
+                        action = "click",
+                        elementId = "install_add"
+                    )
+                    requestToPinWidget(requireContext())
+                    dismiss()
+                }
+            )
+        }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         instrument.submitInteraction(action = "impression")
         Prefs.readingChallengeInstallPromptShown = true
-
-        return ComposeView(requireContext()).apply {
-            setContent {
-                BaseTheme {
-                    InstallWidgetScreen(
-                        pinToWidgetSupported = pinWidgetSupported(),
-                        onCloseClick = {
-                            instrument.submitInteraction(
-                                action = "click",
-                                elementId = "install_close"
-                            )
-                            dismiss()
-                        },
-                        onGotItClick = {
-                            instrument.submitInteraction(
-                                action = "click",
-                                elementId = "install_accept"
-                            )
-                            dismiss()
-                        },
-                        onAddClick = {
-                            instrument.submitInteraction(
-                                action = "click",
-                                elementId = "install_add"
-                            )
-                            requestToPinWidget(requireContext())
-                            dismiss()
-                        }
-                    )
-                }
-            }
-        }
     }
 
     private fun pinWidgetSupported(): Boolean {

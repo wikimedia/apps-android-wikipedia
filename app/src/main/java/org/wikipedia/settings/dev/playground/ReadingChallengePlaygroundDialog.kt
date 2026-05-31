@@ -37,12 +37,12 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.fragment.compose.content
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.coroutines.launch
 import org.wikipedia.R
@@ -56,58 +56,54 @@ import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetWorker
 import java.time.LocalDate
 
 class ReadingChallengePlayGroundDialog : ExtendedBottomSheetDialogFragment(startExpanded = true) {
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ) = content {
         val repository = ReadingChallengeWidgetRepository(requireContext())
+        val stateFlow = remember { repository.observeState() }
+        val coroutineScope = rememberCoroutineScope()
 
-        return ComposeView(requireContext()).apply {
-            setContent {
-                val stateFlow = remember { repository.observeState() }
-                val coroutineScope = rememberCoroutineScope()
-
-                BaseTheme {
-                    Column(modifier = Modifier.fillMaxSize()) {
-                        Row(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(horizontal = 16.dp),
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            IconButton(
-                                onClick = { dismiss() },
-                                content = {
-                                    Icon(
-                                        painter = painterResource(R.drawable.ic_arrow_back_black_24dp),
-                                        contentDescription = stringResource(R.string.nav_item_back),
-                                        tint = WikipediaTheme.colors.primaryColor
-                                    )
-                                }
-                            )
-                            Text(
-                                text = "Reading Challenge Playground",
-                                style = MaterialTheme.typography.headlineSmall.copy(
-                                    fontWeight = FontWeight.Bold,
-                                    fontSize = 18.sp
-                                ),
-                                color = WikipediaTheme.colors.primaryColor,
-                                modifier = Modifier.padding(start = 8.dp)
+        BaseTheme {
+            Column(modifier = Modifier.fillMaxSize()) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    IconButton(
+                        onClick = { dismiss() },
+                        content = {
+                            Icon(
+                                painter = painterResource(R.drawable.ic_arrow_back_black_24dp),
+                                contentDescription = stringResource(R.string.nav_item_back),
+                                tint = WikipediaTheme.colors.primaryColor
                             )
                         }
-                        ReadingChallengePlayground(
-                            modifier = Modifier.padding(16.dp),
-                            state = stateFlow.collectAsState(initial = ReadingChallengeState.NotLiveYet).value,
-                            updateWidgetsExplicitly = {
-                                coroutineScope.launch {
-                                    ReadingChallengeWidgetRepository(requireContext()).updateWidgetsAndSendAnalytics()
-                                }
-                            },
-                            updateWidgetsUpdateFrequency = {
-                                ReadingChallengeWidgetWorker.scheduleNextWidgetUpdate(requireContext())
-                            }
-                        )
-                    }
+                    )
+                    Text(
+                        text = "Reading Challenge Playground",
+                        style = MaterialTheme.typography.headlineSmall.copy(
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 18.sp
+                        ),
+                        color = WikipediaTheme.colors.primaryColor,
+                        modifier = Modifier.padding(start = 8.dp)
+                    )
                 }
+                ReadingChallengePlayground(
+                    modifier = Modifier.padding(16.dp),
+                    state = stateFlow.collectAsState(initial = ReadingChallengeState.NotLiveYet).value,
+                    updateWidgetsExplicitly = {
+                        coroutineScope.launch {
+                            ReadingChallengeWidgetRepository(requireContext()).updateWidgetsAndSendAnalytics()
+                        }
+                    },
+                    updateWidgetsUpdateFrequency = {
+                        ReadingChallengeWidgetWorker.scheduleNextWidgetUpdate(requireContext())
+                    }
+                )
             }
         }
     }
