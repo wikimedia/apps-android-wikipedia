@@ -4,7 +4,6 @@ import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
-import android.view.HapticFeedbackConstants
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
@@ -15,6 +14,8 @@ import android.view.ViewGroup
 import android.widget.CompoundButton
 import android.widget.Toast
 import androidx.core.text.method.LinkMovementMethodCompat
+import androidx.core.view.HapticFeedbackConstantsCompat
+import androidx.core.view.ViewCompat
 import androidx.core.view.children
 import androidx.core.view.isEmpty
 import androidx.core.widget.ImageViewCompat
@@ -395,7 +396,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                 .alpha(1f)
                 .withEndAction {
                     binding.publishProgressText.setText(R.string.suggested_edits_image_tags_published)
-                    playSuccessVibration()
+                    ViewCompat.performHapticFeedback(binding.imageView, HapticFeedbackConstantsCompat.CONFIRM)
                 }
                 .duration = duration / 2
 
@@ -422,10 +423,6 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         }
         binding.publishOverlayContainer.visibility = GONE
         FeedbackUtil.showError(requireActivity(), caught)
-    }
-
-    private fun playSuccessVibration() {
-        binding.imageView.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS)
     }
 
     private fun updateLicenseTextShown() {
