@@ -1833,7 +1833,7 @@
   <string name="on_this_day_game_notification_turned_off_snackbar_message">Notificationes de joco disactivate.</string>
   <string name="on_this_day_game_notification_turned_on_snackbar_message">Notificationes de joco activate.</string>
   <string name="on_this_day_game_notification_text">Le joco “Qual ha evenite primo?” de hodie es preste a esser jocate.</string>
-  <string name="on_this_day_game_report_email_subject">Reporto de problema – jocos de Wikipeia</string>
+  <string name="on_this_day_game_report_email_subject">Reporto de problema – jocos de Wikipedia</string>
   <string name="on_this_day_game_report_email_body">Io ha incontrate un problema con le function Jocos de Wikipedia:\n- [Describe le problema specific]\n\nLe comportamento que io vole vider es:\n- [Describe le solution proponite]</string>
   <string name="on_this_day_game_notification_undo">Disfacer</string>
   <string name="on_this_day_game_share_link_message">Io joca a “Qual ha evenite primo?”, un quiz quotidian sur le app Android de Wikipedia %s</string>
