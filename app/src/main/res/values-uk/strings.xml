@@ -1109,7 +1109,7 @@
   <string name="suggested_edits_gate_message">Вибачте, %s, щоб скористатися цією функцією, ви маєте зробити хоча б три редагування безпосередньо в статті.</string>
   <string name="suggested_edits_editing_tips_link_text">Редагування порад</string>
   <string name="suggested_edits_help_page_link_text">Довідка з «Пропонованих редагувань»</string>
-  <string name="suggested_edits_edit_streak_label_text">Страйк редагувань</string>
+  <string name="suggested_edits_edit_streak_label_text">Серія редагувань</string>
   <string name="suggested_edits_views_label_text">Перегляди</string>
   <string name="suggested_edits_quality_label_text">Якість редагувань</string>
   <string name="suggested_edits_quality_perfect_text">Ідеально</string>

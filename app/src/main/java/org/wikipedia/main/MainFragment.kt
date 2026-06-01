@@ -10,7 +10,6 @@ import android.icu.text.ListFormatter
 import android.os.Build
 import android.os.Bundle
 import android.speech.RecognizerIntent
-import android.util.Pair
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
@@ -42,7 +41,6 @@ import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.activitytab.ActivityTabFragment
 import org.wikipedia.activitytab.ActivityTabOnboardingActivity
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
-import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.concurrency.FlowEventBus
@@ -52,14 +50,12 @@ import org.wikipedia.events.ImportReadingListsEvent
 import org.wikipedia.events.LoggedOutEvent
 import org.wikipedia.events.LoggedOutInBackgroundEvent
 import org.wikipedia.events.NewRecommendedReadingListEvent
-import org.wikipedia.feed.FeedFragment
 import org.wikipedia.feed.HomeFragment
 import org.wikipedia.feed.image.FeaturedImage
 import org.wikipedia.feed.news.NewsActivity
 import org.wikipedia.feed.news.NewsItem
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.gallery.MediaDownloadReceiver
-import org.wikipedia.games.GamesHubActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.HistoryFragment
 import org.wikipedia.login.LoginActivity
@@ -84,12 +80,10 @@ import org.wikipedia.settings.SettingsActivity
 import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.staticdata.UserTalkAliasData
-import org.wikipedia.suggestededits.SuggestedEditsTasksActivity
 import org.wikipedia.suggestededits.SuggestedEditsTasksFragment
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.usercontrib.UserContribListActivity
 import org.wikipedia.util.ClipboardUtil
-import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.TabUtil
@@ -103,7 +97,7 @@ import org.wikipedia.yearinreview.YearInReviewViewModel
 import java.io.File
 import java.util.concurrent.TimeUnit
 
-class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.Callback, HistoryFragment.Callback, MenuNavTabDialog.Callback, ActivityTabFragment.Callback {
+class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragment.Callback, MenuNavTabDialog.Callback, ActivityTabFragment.Callback {
     interface Callback {
         fun onTabChanged(tab: NavTab)
         fun updateToolbarElevation(elevate: Boolean)
@@ -190,9 +184,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
                 return@setOnItemSelectedListener false
             }
             val fragment = currentFragment
-            if (item.order == NavTab.HOME.code() && fragment is FeedFragment) {
-                fragment.scrollToTop()
-            }
             if (fragment is HistoryFragment && item.order == NavTab.SEARCH.code()) {
                 openSearchActivity(InvokeSource.NAV_MENU, null, null)
                 return@setOnItemSelectedListener true
@@ -267,9 +258,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
                                 resultCode == SettingsActivity.ACTIVITY_RESULT_FEED_CONFIGURATION_CHANGED ||
                                 resultCode == SettingsActivity.ACTIVITY_RESULT_LOG_OUT))) {
             refreshContents()
-            if (resultCode == SettingsActivity.ACTIVITY_RESULT_FEED_CONFIGURATION_CHANGED) {
-                updateFeedHiddenCards()
-            }
             if (resultCode == SettingsActivity.ACTIVITY_RESULT_LOG_OUT) {
                 FeedbackUtil.showMessage(requireActivity(), R.string.toast_logout_complete)
             }
@@ -302,8 +290,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     }
 
     override fun onPrepareMenu(menu: Menu) {
-        requestUpdateToolbarElevation()
-
         menu.findItem(R.id.menu_search_lists).isVisible = currentFragment is ReadingListsFragment
         menu.findItem(R.id.menu_overflow_button).isVisible = currentFragment is ReadingListsFragment
 
@@ -371,11 +357,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         }
     }
 
-    override fun onFeedSearchRequested(view: View) {
-        openSearchActivity(InvokeSource.FEED_BAR, null, view)
-    }
-
-    override fun onFeedVoiceSearchRequested() {
+    fun onFeedVoiceSearchRequested() {
         val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
                 .putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
         try {
@@ -385,7 +367,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         }
     }
 
-    override fun onFeedSelectPage(entry: HistoryEntry, openInNewBackgroundTab: Boolean) {
+    fun onFeedSelectPage(entry: HistoryEntry, openInNewBackgroundTab: Boolean) {
         if (openInNewBackgroundTab) {
             TabUtil.openInNewBackgroundTab(entry)
             showTabCountsAnimation = true
@@ -395,24 +377,15 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         }
     }
 
-    override fun onFeedSelectPageWithAnimation(entry: HistoryEntry, sharedElements: Array<Pair<View, String>>) {
-        val options = ActivityOptions.makeSceneTransitionAnimation(requireActivity(), *sharedElements)
-        val intent = PageActivity.newIntentForNewTab(requireContext(), entry, entry.title)
-        if (sharedElements.isNotEmpty()) {
-            intent.putExtra(Constants.INTENT_EXTRA_HAS_TRANSITION_ANIM, true)
-        }
-        startActivity(intent, if (DimenUtil.isLandscape(requireContext()) || sharedElements.isEmpty()) null else options.toBundle())
-    }
-
-    override fun onFeedAddPageToList(entry: HistoryEntry, addToDefault: Boolean) {
+    fun onFeedAddPageToList(entry: HistoryEntry, addToDefault: Boolean) {
         ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), entry.title, addToDefault, InvokeSource.FEED)
     }
 
-    override fun onFeedMovePageToList(sourceReadingListId: Long, entry: HistoryEntry) {
+    fun onFeedMovePageToList(sourceReadingListId: Long, entry: HistoryEntry) {
         ReadingListBehaviorsUtil.moveToList(requireActivity(), sourceReadingListId, entry.title, InvokeSource.FEED)
     }
 
-    override fun onFeedRemovePageFromList(entry: HistoryEntry, lists: List<ReadingList>) {
+    fun onFeedRemovePageFromList(entry: HistoryEntry, lists: List<ReadingList>) {
         RemoveFromReadingListsDialog(lists).deleteOrShowDialog(requireActivity()) { readingLists, _ ->
             if (!requireActivity().isDestroyed) {
                 val names = readingLists.map { it.title }.run {
@@ -427,24 +400,20 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         }
     }
 
-    override fun onFeedSharePage(entry: HistoryEntry) {
+    fun onFeedSharePage(entry: HistoryEntry) {
         ShareUtil.shareText(requireContext(), entry.title.displayText, entry.title.uri)
     }
 
-    override fun onFeedCopyLink(entry: HistoryEntry) {
+    fun onFeedCopyLink(entry: HistoryEntry) {
         ClipboardUtil.setPlainText(requireContext(), text = entry.title.uri)
         FeedbackUtil.showMessage(requireActivity(), R.string.address_copied)
     }
 
-    override fun onFeedNewsItemSelected(newsItem: NewsItem, wikiSite: WikiSite) {
+    fun onFeedNewsItemSelected(newsItem: NewsItem, wikiSite: WikiSite) {
         startActivity(NewsActivity.newIntent(requireActivity(), newsItem, wikiSite))
     }
 
-    override fun onFeedSeCardFooterClicked() {
-        startActivity(SuggestedEditsTasksActivity.newIntent(requireActivity()))
-    }
-
-    override fun onFeedShareImage(image: FeaturedImage, age: Int) {
+    fun onFeedShareImage(image: FeaturedImage, age: Int) {
         val thumbUrl = image.thumbnailUrl
         val fullSizeUrl = image.original.source
         ImageService.loadImage(requireContext(), thumbUrl, onSuccess = { bitmap ->
@@ -456,7 +425,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         })
     }
 
-    override fun onFeedDownloadImage(image: FeaturedImage) {
+    fun onFeedDownloadImage(image: FeaturedImage) {
         pendingDownloadImage = image
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU ||
             ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
@@ -466,27 +435,13 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         }
     }
 
-    override fun onFeaturedImageSelected(image: FeaturedImage) {
+    fun onFeaturedImageSelected(image: FeaturedImage) {
         startActivity(FilePageActivity.newIntent(requireActivity(), image.toPageTitle()))
     }
 
-    override fun onLoginRequested() {
+    fun onLoginRequested() {
         startActivityForResult(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_NAV),
                 Constants.ACTIVITY_REQUEST_LOGIN)
-    }
-
-    override fun updateToolbarElevation(elevate: Boolean) {
-        callback()?.updateToolbarElevation(elevate)
-    }
-
-    override fun onWikiGamesCardFooterClicked() {
-        WikiGamesEvent.submit(action = "more_click", "game_feed")
-        startActivity(GamesHubActivity.newIntent(requireActivity()))
-    }
-
-    fun requestUpdateToolbarElevation() {
-        val fragment = currentFragment
-        updateToolbarElevation(fragment is FeedFragment && fragment.shouldElevateToolbar())
     }
 
     override fun onLoadPage(entry: HistoryEntry) {
@@ -552,18 +507,14 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
 
     fun onGoOffline() {
         val fragment = currentFragment
-        if (fragment is FeedFragment) {
-            fragment.onGoOffline()
-        } else if (fragment is HistoryFragment) {
+        if (fragment is HistoryFragment) {
             fragment.refresh()
         }
     }
 
     fun onGoOnline() {
         val fragment = currentFragment
-        if (fragment is FeedFragment) {
-            fragment.onGoOnline()
-        } else if (fragment is HistoryFragment) {
+        if (fragment is HistoryFragment) {
             fragment.refresh()
         }
     }
@@ -602,17 +553,9 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
 
     private fun refreshContents() {
         when (val fragment = currentFragment) {
-            is FeedFragment -> fragment.refresh()
             is ReadingListsFragment -> fragment.updateLists()
             is HistoryFragment -> fragment.refresh()
             is SuggestedEditsTasksFragment -> fragment.refreshContents()
-        }
-    }
-
-    private fun updateFeedHiddenCards() {
-        val fragment = currentFragment
-        if (fragment is FeedFragment) {
-            fragment.updateHiddenCards()
         }
     }
 

@@ -36,7 +36,7 @@ import org.wikipedia.feed.personalization.PersonalizationActivity
 import org.wikipedia.feed.personalization.PersonalizationActivity.Companion.RESULT_INTERESTS_UPDATED
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
 import org.wikipedia.feed.topread.TopReadArticlesActivity
-import org.wikipedia.feed.topread.TopReadListCard
+import org.wikipedia.feed.topread.TopReadCard
 import org.wikipedia.main.MainActivity
 import org.wikipedia.main.MainFragment
 import org.wikipedia.navtab.NavTab
@@ -67,7 +67,6 @@ class HomeFragment : Fragment() {
     private val customizeInterestsLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_INTERESTS_UPDATED) {
             Prefs.homeForYouModulesToday = ""
-            viewModel.selectTab(HomeTab.FOR_YOU)
             viewModel.refreshForYouContent()
         }
     }
@@ -243,10 +242,10 @@ class HomeFragment : Fragment() {
                         },
                         onCardFooterClick = { card ->
                             when (card) {
-                                is TopReadListCard -> {
+                                is TopReadCard -> {
                                     instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, elementId = "more_top_read")
                                     // TODO: simplify TopReadListCard after we remove the old feed UIs.
-                                    startActivity(TopReadArticlesActivity.newIntent(requireActivity(), TopReadListCard(card.articles, card.age, wikiSite)))
+                                    startActivity(TopReadArticlesActivity.newIntent(requireActivity(), TopReadCard(card.articles, card.age, wikiSite)))
                                 }
                                 is OnThisDayCard -> {
                                     instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, elementId = "more_on_this_day")
@@ -328,7 +327,6 @@ class HomeFragment : Fragment() {
 
     fun selectTab(tab: HomeTab) {
         viewModel.selectTab(tab)
-        viewModel.reloadCurrentTab()
         (requireActivity() as? MainActivity)?.onTabChanged(NavTab.HOME)
     }
 
