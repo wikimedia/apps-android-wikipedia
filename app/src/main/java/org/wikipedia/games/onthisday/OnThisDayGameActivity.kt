@@ -32,6 +32,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.UriUtil
+import java.time.LocalDate
 
 class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
 
@@ -202,15 +203,10 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         const val EXTRA_GAME_STATUS = "gameStatus"
 
         fun newIntent(context: Context, invokeSource: Constants.InvokeSource, wikiSite: WikiSite, date: LocalDate? = null, gameStatus: Int = -1): Intent {
-            val resolvedDate = Prefs.lastOtdGameDateOverride
-                .takeIf { it.isNotEmpty() }
-                ?.let { runCatching { LocalDate.parse(it, DateTimeFormatter.ISO_LOCAL_DATE) }.getOrElse { LocalDate.now() } }
-                ?: date
-
             return Intent(context, OnThisDayGameActivity::class.java)
                 .putExtra(Constants.ARG_WIKISITE, wikiSite)
                 .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
-                .putExtra(OnThisDayGameViewModel.EXTRA_DATE, resolvedDate)
+                .putExtra(OnThisDayGameViewModel.EXTRA_DATE, Prefs.lastOtdGameDateOverride)
                 .apply {
                     if (gameStatus == DailyGameHistory.GAME_COMPLETED) {
                         putExtra(EXTRA_GAME_STATUS, gameStatus)

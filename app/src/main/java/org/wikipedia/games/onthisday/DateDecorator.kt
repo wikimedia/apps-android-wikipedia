@@ -2,7 +2,6 @@ package org.wikipedia.games.onthisday
 
 import android.content.Context
 import android.content.res.ColorStateList
-import androidx.core.content.ContextCompat
 import com.google.android.material.datepicker.DayViewDecorator
 import kotlinx.parcelize.Parcelize
 import org.wikipedia.R
@@ -28,9 +27,9 @@ class DateDecorator(
         }
 
         return when (scoreData[date]) {
-            0, 1, 2 -> ColorStateList.valueOf(ContextCompat.getColor(context, R.color.yellow200))
-            3, 4 -> ColorStateList.valueOf(ContextCompat.getColor(context, R.color.orange200))
-            5 -> ColorStateList.valueOf(ContextCompat.getColor(context, R.color.green600))
+            0, 1, 2 -> context.getColorStateList(R.color.yellow200)
+            3, 4 -> context.getColorStateList(R.color.orange200)
+            5 -> context.getColorStateList(R.color.green600)
             else -> null
         }
     }
@@ -46,7 +45,7 @@ class DateDecorator(
         val date = LocalDate.of(year, month + 1, day)
         return when (scoreData[date]) {
             null -> super.getTextColor(context, year, month, day, valid, selected)
-            else -> ColorStateList.valueOf(ContextCompat.getColor(context, R.color.gray700))
+            else -> context.getColorStateList(R.color.gray700)
         }
     }
 }
