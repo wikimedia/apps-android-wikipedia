@@ -8,10 +8,6 @@ class PlacesOfInterestCard(
     val title: PageTitle,
     val distance: String
 ) : ForYouCard() {
-    override fun type(): CardType {
-        return CardType.PLACES
-    }
-
     override fun dismissHashCode(): Int {
         return title.hashCode()
     }
