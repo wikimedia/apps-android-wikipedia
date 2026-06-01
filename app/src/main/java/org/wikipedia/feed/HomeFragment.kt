@@ -66,7 +66,6 @@ class HomeFragment : Fragment() {
     private val customizeInterestsLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_INTERESTS_UPDATED) {
             Prefs.homeForYouModulesToday = ""
-            viewModel.selectTab(HomeTab.FOR_YOU)
             viewModel.refreshForYouContent()
         }
     }
@@ -324,7 +323,6 @@ class HomeFragment : Fragment() {
 
     fun selectTab(tab: HomeTab) {
         viewModel.selectTab(tab)
-        viewModel.reloadCurrentTab()
         (requireActivity() as? MainActivity)?.onTabChanged(NavTab.HOME)
     }
 
