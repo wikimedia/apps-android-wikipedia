@@ -6,7 +6,6 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.feed.model.ListCard
 import org.wikipedia.settings.homefeed.CommunityModuleType
-import org.wikipedia.util.DateUtil
 
 @Parcelize
 class TopReadCard(
@@ -17,11 +16,6 @@ class TopReadCard(
 
     override fun moduleKey(): String {
         return CommunityModuleType.TOP_READ.name
-    }
-
-    // TODO: replace this with a general function for sending title.
-    override fun subtitle(): String {
-        return DateUtil.getShortDateString(articles.localDate)
     }
 
     override fun dismissHashCode(): Int {

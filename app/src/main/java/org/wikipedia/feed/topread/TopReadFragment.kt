@@ -21,6 +21,7 @@ import org.wikipedia.feed.view.ListItemView
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageActivity
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
+import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.TabUtil
@@ -42,7 +43,7 @@ class TopReadFragment : Fragment() {
 
         (requireActivity() as AppCompatActivity).run {
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
-            supportActionBar?.title = getString(R.string.top_read_activity_title, card.subtitle())
+            supportActionBar?.title = getString(R.string.top_read_activity_title, DateUtil.getShortDateString(card.articles.localDate))
         }
 
         binding.root.setLayoutDirectionByLang(card.wikiSite().languageCode)
