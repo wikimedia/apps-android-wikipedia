@@ -2009,8 +2009,8 @@
     <item quantity="other">%s kez düzenlediniz</item>
   </plurals>
   <plurals name="year_in_review_slide_edited_times_body">
-    <item quantity="one">Vikimedia projelerinde fark yaratan gönüllü editörlerden biri olduğunuz için teşekkür ederiz.</item>
-    <item quantity="other">Vikimedia projelerinde fark yaratan gönüllü editörlerden biri olduğunuz için teşekkür ederiz.</item>
+    <item quantity="one">Vikimedia projelerinde fark yaratan gönüllü editörlerden biri olduğunuz için teşekkür ederiz. Sizin gibi gönüllüler, Vikipedi\'nin 300\'den fazla farklı dil sürümünde %,d değişiklik yaptı.</item>
+    <item quantity="other">Vikimedia projelerinde fark yaratan gönüllü editörlerden biri olduğunuz için teşekkür ederiz. Sizin gibi gönüllüler, Vikipedi\'nin 300\'den fazla farklı dil sürümünde %,d değişiklik yaptı.</item>
   </plurals>
   <plurals name="year_in_review_slide_app_edited_times_headline">
     <item quantity="one">Resmi Vikipedi uygulamalarındaki editörler %,d düzenleme yaptı</item>
@@ -2085,8 +2085,8 @@
     <item quantity="other">%2$d yılında %1$,d madde okuyarak</item>
   </plurals>
   <plurals name="year_in_review_slide_spent_minutes_reading_body_top">
-    <item quantity="one">Tahminimize göre bu sizi küresel olarak Vikipedi okuyucularının ilk %%1$s\'sine koyuyor.</item>
-    <item quantity="other">Tahminimize göre bu sizi küresel olarak Vikipedi okuyucularının ilk %%1$s\'sine koyuyor.</item>
+    <item quantity="one">Tahminimize göre bu sizi küresel olarak Vikipedi okuyucularının ilk %%1$s\'sine koyuyor. Ortalama bir kişi yılda %2$,d madde okur.</item>
+    <item quantity="other">Tahminimize göre bu sizi küresel olarak Vikipedi okuyucularının ilk %%1$s\'sine koyuyor. Ortalama bir kişi yılda %2$,d madde okur.</item>
   </plurals>
   <plurals name="year_in_review_slide_spent_minutes_reading_body_global_first">
     <item quantity="one">Vikipedi\'de %,d madde vardı</item>
