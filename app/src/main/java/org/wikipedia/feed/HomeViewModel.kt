@@ -35,7 +35,7 @@ import org.wikipedia.feed.model.ForYouCard
 import org.wikipedia.feed.news.NewsCard
 import org.wikipedia.feed.onthisday.OnThisDayCard
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
-import org.wikipedia.feed.topread.TopReadListCard
+import org.wikipedia.feed.topread.TopReadCard
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.json.LocalDateTimeSerializer
@@ -290,7 +290,7 @@ class HomeViewModel : ViewModel() {
                     add(FeaturedArticleCard(it, age, wikiSite.value))
                 }
                 content.topRead?.let {
-                    add(TopReadListCard(it, age, wikiSite.value))
+                    add(TopReadCard(it, age, wikiSite.value))
                 }
                 if (!content.news.isNullOrEmpty()) {
                     add(NewsCard(content.news, age, wikiSite.value))

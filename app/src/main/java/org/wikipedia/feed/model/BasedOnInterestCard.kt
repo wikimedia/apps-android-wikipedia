@@ -11,9 +11,6 @@ class BasedOnInterestCard(
     val interestTopic: InterestTopic? = null,
     val interestArticle: InterestArticle? = null
 ) : ForYouCard() {
-    override fun type(): CardType {
-        return CardType.RANDOM // TODO: remove, since this is no longer used
-    }
 
     override fun dismissHashCode(): Int {
         return title.hashCode()

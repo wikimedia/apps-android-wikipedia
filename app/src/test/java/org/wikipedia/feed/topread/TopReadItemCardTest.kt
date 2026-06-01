@@ -22,7 +22,7 @@ class TopReadItemCardTest {
 
     @Test
     fun testTitleNormalization() {
-        val topReadItemCards = TopReadListCard.toItems(content.articles, TEST)
+        val topReadItemCards = TopReadCard.toItems(content.articles, TEST)
         for (topReadItemCard in topReadItemCards) {
             assertFalse(topReadItemCard.title().contains("_"))
         }
