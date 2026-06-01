@@ -56,6 +56,7 @@ import org.wikipedia.feed.interests.BasedOnInterestModule
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.EmptyForYouCard
 import org.wikipedia.feed.model.ForYouCard
+import org.wikipedia.feed.places.PlacesOfInterestArticlesModule
 import org.wikipedia.feed.places.PlacesOfInterestCtaModule
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.theme.Theme
@@ -204,7 +205,20 @@ fun ForYouContentTab(
                                                 onGoToPlacesClick = onPlacesCtaClick
                                             )
                                         } else {
-                                            // TODO: render the nearby place article cards module.
+                                            PlacesOfInterestArticlesModule(
+                                                modifier = Modifier
+                                                    .fillMaxWidth()
+                                                    .height(viewportHeight),
+                                                wikiSite = wikiSite,
+                                                module = module,
+                                                onPageClick = onPageClick,
+                                                onPageShareClick = onPageShareClick,
+                                                onPageBookmarkClick = onPageBookmarkClick,
+                                                onHideCardClick = onHideCardClick,
+                                                onHideModuleClick = { onHideModuleClick(module.moduleKey()) },
+                                                onCardInView = { onCardImpression(it, index) },
+                                                onCustomizeInterestsClick = onCustomizeInterestsClick
+                                            )
                                         }
                                     }
                                 }

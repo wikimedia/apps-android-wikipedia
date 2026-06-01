@@ -2548,4 +2548,5 @@
     <string name="home_feed_places_of_interest_cta_button">Go to Places</string>
     <string name="home_feed_settings_places_of_interest_title">Places of interest</string>
     <string name="home_feed_settings_places_of_interest_subtitle">Discover articles about places near your last location in Places.</string>
+    <string name="home_feed_places_of_interest_card_footer">%1$s • Based on your location in Places</string>
 </resources>

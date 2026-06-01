@@ -38,7 +38,22 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.extensions.getString
+import org.wikipedia.feed.ForYouCardContent
+import org.wikipedia.feed.ForYouModule
+import org.wikipedia.feed.ForYouModulePager
+import org.wikipedia.feed.model.Card
+import org.wikipedia.feed.model.ForYouCard
+import org.wikipedia.feed.model.PlacesOfInterestCard
+import org.wikipedia.history.HistoryEntry
+import org.wikipedia.page.PageTitle
 import org.wikipedia.theme.Theme
+
+private const val SHORT_TILE_WEIGHT = 100f
+private const val TALL_TILE_WEIGHT = 171f
+private const val IMAGE_GIZA = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Pyramids_of_Giza%2C_Giza%2C_GG%2C_EGY_%2846986591195%29.jpg/960px-Pyramids_of_Giza%2C_Giza%2C_GG%2C_EGY_%2846986591195%29.jpg"
+private const val IMAGE_RIO = "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Rio_de_Janeiro%2C_Brazil_-21.jpg/960px-Rio_de_Janeiro%2C_Brazil_-21.jpg"
+private const val IMAGE_LOUVRE = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Pavillon_Sully_du_Louvre_002.jpg/960px-Pavillon_Sully_du_Louvre_002.jpg"
+private const val IMAGE_SNOWY_MOUNTAIN = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Snowy_Mountains_In_Sky_%28Unsplash%29.jpg/960px-Snowy_Mountains_In_Sky_%28Unsplash%29.jpg"
 
 @Composable
 fun PlacesOfInterestCtaModule(
@@ -98,14 +113,43 @@ fun PlacesOfInterestCtaModule(
     }
 }
 
-private const val SHORT_TILE_WEIGHT = 100f
-private const val TALL_TILE_WEIGHT = 171f
-
-private const val IMAGE_GIZA = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Pyramids_of_Giza%2C_Giza%2C_GG%2C_EGY_%2846986591195%29.jpg/960px-Pyramids_of_Giza%2C_Giza%2C_GG%2C_EGY_%2846986591195%29.jpg"
-private const val IMAGE_RIO = "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Rio_de_Janeiro%2C_Brazil_-21.jpg/960px-Rio_de_Janeiro%2C_Brazil_-21.jpg"
-private const val IMAGE_LOUVRE = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Pavillon_Sully_du_Louvre_002.jpg/960px-Pavillon_Sully_du_Louvre_002.jpg"
-private const val IMAGE_SNOWY_MOUNTAIN = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Snowy_Mountains_In_Sky_%28Unsplash%29.jpg/960px-Snowy_Mountains_In_Sky_%28Unsplash%29.jpg"
-
+@Composable
+fun PlacesOfInterestArticlesModule(
+    modifier: Modifier = Modifier,
+    wikiSite: WikiSite,
+    module: ForYouModule.PlacesOfInterest,
+    onPageClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
+    onPageBookmarkClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
+    onPageShareClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
+    onHideCardClick: (module: ForYouModule, card: ForYouCard) -> Unit = { _, _ -> },
+    onHideModuleClick: () -> Unit = {},
+    onCardInView: (card: Card) -> Unit = {},
+    onCustomizeInterestsClick: (card: Card) -> Unit = {},
+) {
+    val context = LocalContext.current
+    ForYouModulePager(
+        modifier = modifier,
+        module = module,
+        onCardInView = onCardInView
+    ) { pageIndex ->
+        val card = module.cards[pageIndex] as PlacesOfInterestCard
+        val historyEntry = HistoryEntry(card.title, HistoryEntry.SOURCE_FEED_PLACES)
+        ForYouCardContent(
+            wikiSite = wikiSite,
+            title = card.title,
+            module = module,
+            card = card,
+            footerIcon = painterResource(R.drawable.ic_location_on_24dp),
+            footerText = context.getString(wikiSite.languageCode, R.string.home_feed_places_of_interest_card_footer, card.distance),
+            onPageClick = { onPageClick(card, historyEntry) },
+            onShareClick = { onPageShareClick(card, historyEntry) },
+            onSaveClick = { onPageBookmarkClick(card, historyEntry) },
+            onHideCardClick = onHideCardClick,
+            onHideModuleClick = onHideModuleClick,
+            onCustomizeInterestsClick = { onCustomizeInterestsClick(card) }
+        )
+    }
+}
 @Composable
 private fun PlaceholderImageGrid(
     modifier: Modifier = Modifier
@@ -162,6 +206,27 @@ private fun PlacesOfInterestCtaModulePreview() {
                 .background(ComposeColors.Green800)
                 .padding(horizontal = 16.dp),
             wikiSite = WikiSite.preview()
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun PlacesOfInterestArticlesModulePreview() {
+    val title = PageTitle(
+        text = "Eiffel Tower",
+        displayText = "Eiffel Tower",
+        wiki = WikiSite.preview(),
+        description = "Wrought-iron lattice tower in Paris",
+        extract = "The Eiffel Tower is a wrought-iron lattice tower on the Champ de Mars in Paris, France.",
+        thumbUrl = "https://example.com/thumb.jpg"
+    )
+    val card = PlacesOfInterestCard(title, distance = "10 km")
+    BaseTheme(currentTheme = Theme.LIGHT) {
+        PlacesOfInterestArticlesModule(
+            modifier = Modifier.fillMaxSize(),
+            wikiSite = WikiSite.preview(),
+            module = ForYouModule.PlacesOfInterest(0, 0, listOf(card, card, card, card), hasLocationPermission = true)
         )
     }
 }

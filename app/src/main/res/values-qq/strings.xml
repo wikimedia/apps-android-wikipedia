@@ -2287,4 +2287,5 @@
     <string name="home_feed_places_of_interest_cta_button">Button text that navigates the user to the Places tab.</string>
     <string name="home_feed_settings_places_of_interest_title">Title for the Places of Interest settings section.</string>
     <string name="home_feed_settings_places_of_interest_subtitle">Subtitle describing that nearby place-based articles are shown using the user’s last selected location in Places.</string>
+    <string name="home_feed_places_of_interest_card_footer">Footer text shown on a Places of Interest article card, displaying the article date followed by an indication that the recommendation is based on the user\'s selected location in Places. %1$s is replaced by distance.</string>
 </resources>

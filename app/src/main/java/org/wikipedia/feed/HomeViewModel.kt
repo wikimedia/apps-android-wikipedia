@@ -2,16 +2,20 @@ package org.wikipedia.feed
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.location.Location
 import androidx.compose.ui.util.fastJoinToString
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.mapLatest
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -34,6 +38,7 @@ import org.wikipedia.feed.model.BecauseYouReadCard
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.ContinueReadingCard
 import org.wikipedia.feed.model.ForYouCard
+import org.wikipedia.feed.model.PlacesOfInterestCard
 import org.wikipedia.feed.news.NewsCard
 import org.wikipedia.feed.onthisday.OnThisDayCard
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
@@ -49,14 +54,17 @@ import org.wikipedia.settings.homefeed.CommunityModuleType
 import org.wikipedia.settings.homefeed.ForYouModuleType
 import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.topics.ArticleTopics
+import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import java.time.LocalDate
 import java.time.LocalDateTime
+import java.util.Locale
 
 enum class HomeTab { COMMUNITY, FOR_YOU }
 private const val MAX_HIDDEN_CARDS = 100
 private const val MAX_STOP_TIMEOUT_MILLIS = 5000L
+private const val PLACES_DISPLAY_CARD_COUNT = 4
 
 @Serializable
 sealed class ForYouModule {
@@ -169,9 +177,19 @@ class HomeViewModel : ViewModel() {
         state.copy(cards = visibleModules, emptyState = emptyState)
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(MAX_STOP_TIMEOUT_MILLIS), CommunityContentState())
 
+    @OptIn(ExperimentalCoroutinesApi::class)
+    private val placesModule: StateFlow<ForYouModule.PlacesOfInterest?> = Prefs.placesLastLocationFlow
+        .mapLatest { buildPlacesModule() }
+        .stateIn(
+            viewModelScope,
+            SharingStarted.WhileSubscribed(MAX_STOP_TIMEOUT_MILLIS),
+            null
+        )
+
     private val _forYouState = MutableStateFlow(ForYouContentState())
-    val forYouState = combine(_forYouState, SettingsRepository.hiddenModules) { state, hiddenModules ->
-        val visibleModules = state.modules.filterNot { hiddenModules.contains(it.moduleKey()) }
+    val forYouState = combine(_forYouState, SettingsRepository.hiddenModules, placesModule) { state, hiddenModules, placesModule ->
+        val allModules = state.modules + listOfNotNull(placesModule)
+        val visibleModules = allModules.filterNot { hiddenModules.contains(it.moduleKey()) }
         val areAllModulesHidden = ForYouModuleType.entries.all { hiddenModules.contains(it.name) }
         val isInterestModuleHidden = hiddenModules.contains(ForYouModuleType.BASED_ON_INTEREST.name)
         val emptyState = when {
@@ -487,7 +505,7 @@ class HomeViewModel : ViewModel() {
                     newModules.add(module.withCards(filteredCards))
                 }
             }
-            return withPlacesModule(newModules)
+            return newModules
         }
         L.d("Loading modules from network...")
 
@@ -617,24 +635,47 @@ class HomeViewModel : ViewModel() {
         withContext(Dispatchers.Default) {
             Prefs.homeForYouModulesToday = JsonUtil.encodeToString(forYouCollectionSaved).orEmpty()
         }
-        return withPlacesModule(modules)
+        return modules
     }
 
-    /**
-     * Appends the Places of Interest module to the end of the For You modules.
-     * Intentionally kept out of the date-keyed [Prefs.homeForYouModulesToday] cache, since the
-     * module is location-based: caching it by date would surface stale, wrong-location results.
-     *
-     * When location permission is not granted, the module shows the location CTA (empty) state.
-     * When it is granted, we will fetch nearby articles for the user's last Places location.
-     */
-    private fun withPlacesModule(modules: List<ForYouModule>): List<ForYouModule> {
+    private suspend fun buildPlacesModule(): ForYouModule.PlacesOfInterest? {
         if (!hasLocationPermission()) {
-            val ctaModule = ForYouModule.PlacesOfInterest(age = 0, index = 0, cards = emptyList(), hasLocationPermission = false)
-            return modules + ctaModule
+            return ForYouModule.PlacesOfInterest(age = 0, index = 0, cards = emptyList(), hasLocationPermission = false)
         }
-        // TODO: location permission is granted — fetch nearby articles for
-        return modules
+        val location = Prefs.placesLastLocationAndZoomLevel?.first
+            ?: return ForYouModule.PlacesOfInterest(age = 0, index = 0, cards = emptyList(), hasLocationPermission = false)
+
+        val cards = try {
+            val coordinates = "${location.latitude}|${location.longitude}"
+            ServiceFactory.get(wikiSite.value)
+                .getGeoSearch(coordinates, 10000, 10, 10)
+                .query?.pages.orEmpty()
+                .filter { it.coordinates != null }
+                .map { page ->
+                    val title = PageTitle(
+                        text = page.title,
+                        wiki = wikiSite.value,
+                        thumbUrl = page.thumbUrl(),
+                        description = page.description,
+                        displayText = page.displayTitle(wikiSite.value.languageCode),
+                    ).also { it.extract = page.extract }
+                    val articleLocation = Location("").apply {
+                        latitude = page.coordinates!![0].lat
+                        longitude = page.coordinates[0].lon
+                    }
+                    val distance = GeoUtil.getDistanceWithUnit(location, articleLocation, Locale.getDefault())
+                    PlacesOfInterestCard(title, distance)
+                }
+                .take(PLACES_DISPLAY_CARD_COUNT)
+        } catch (e: Exception) {
+            L.e(e)
+            return null
+        }
+
+        if (cards.isEmpty()) {
+            return null
+        }
+        return ForYouModule.PlacesOfInterest(age = 0, index = 0, cards = cards, hasLocationPermission = true)
     }
 
     private fun hasLocationPermission(): Boolean {

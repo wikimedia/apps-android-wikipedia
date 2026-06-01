@@ -5,7 +5,8 @@ import org.wikipedia.page.PageTitle
 
 @Serializable
 class PlacesOfInterestCard(
-    val title: PageTitle
+    val title: PageTitle,
+    val distance: String
 ) : ForYouCard() {
     override fun type(): CardType {
         return CardType.PLACES
