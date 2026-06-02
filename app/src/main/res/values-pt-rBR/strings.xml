@@ -2285,6 +2285,9 @@
   <string name="home_feed_screen_all_modules_disabled_btn_label">Gerenciar módulos</string>
   <string name="home_feed_for_you_screen_empty_title">Seu feed está vazio no momento</string>
   <string name="home_feed_for_you_screen_empty_ways_to_start">Formas de começar:</string>
+  <string name="home_feed_for_you_screen_empty_add_interests">Adicione &lt;a href=\"#add_interests\"&gt;alguns interesses&lt;/a&gt;</string>
+  <string name="home_feed_for_you_screen_empty_see_community">Veja o que está acontecendo na &lt;a href=\"#community_tab\"&gt;comunidade&lt;/a&gt;</string>
+  <string name="home_feed_settings_feed_configuration_description">Esses tópicos e artigos determinam o que aparece no seu feed \"Para você\". Remova aqueles que você não deseja mais ver ou adicione novos interesses.</string>
   <string name="home_feed_settings_feed_configuration_interest_title">Seus interesses</string>
   <string name="home_feed_settings_feed_configuration_interest_subtitle">Edite seus tópicos de interesse</string>
   <string name="home_feed_settings_feed_configuration_empty_interest_subtitle">Sua lista de interesses está vazia. Adicione algo que te desperte a curiosidade.</string>

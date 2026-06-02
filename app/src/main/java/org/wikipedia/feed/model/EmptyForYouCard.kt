@@ -1,10 +1,6 @@
 package org.wikipedia.feed.model
 
-class EmptyForYouCard() : Card() {
-    override fun type(): CardType {
-        return CardType.RANDOM // TODO: remove, since this is no longer used
-    }
-
+class EmptyForYouCard : Card() {
     override fun dismissHashCode(): Int {
         return this.javaClass.simpleName.hashCode()
     }
