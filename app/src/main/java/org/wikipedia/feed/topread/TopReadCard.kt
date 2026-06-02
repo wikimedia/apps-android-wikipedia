@@ -2,17 +2,14 @@ package org.wikipedia.feed.topread
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
-import org.wikipedia.R
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
-import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.model.ListCard
 import org.wikipedia.settings.homefeed.CommunityModuleType
 import org.wikipedia.util.DateUtil
-import org.wikipedia.util.L10nUtil
 
 @Parcelize
-class TopReadListCard(
+class TopReadCard(
     val articles: TopRead,
     val age: Int,
     val site: WikiSite
@@ -22,20 +19,9 @@ class TopReadListCard(
         return CommunityModuleType.TOP_READ.name
     }
 
-    override fun title(): String {
-        return L10nUtil.getString(wikiSite().languageCode, R.string.view_top_read_card_title)
-    }
-
+    // TODO: replace this with a general function for sending title.
     override fun subtitle(): String {
         return DateUtil.getShortDateString(articles.localDate)
-    }
-
-    override fun type(): CardType {
-        return CardType.TOP_READ_LIST
-    }
-
-    fun footerActionText(): String {
-        return L10nUtil.getString(wikiSite().languageCode, R.string.view_top_read_card_action)
     }
 
     override fun dismissHashCode(): Int {

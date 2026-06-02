@@ -17,7 +17,7 @@ import org.wikipedia.R
 import org.wikipedia.databinding.FragmentMostReadBinding
 import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.feed.model.Card
-import org.wikipedia.feed.view.ListCardItemView
+import org.wikipedia.feed.view.ListItemView
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageActivity
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
@@ -61,20 +61,20 @@ class TopReadFragment : Fragment() {
     }
 
     private class RecyclerAdapter constructor(items: List<TopReadItemCard>, private val callback: Callback) :
-        DefaultRecyclerAdapter<TopReadItemCard, ListCardItemView>(items) {
+        DefaultRecyclerAdapter<TopReadItemCard, ListItemView>(items) {
 
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DefaultViewHolder<ListCardItemView> {
-            return DefaultViewHolder(ListCardItemView(parent.context))
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DefaultViewHolder<ListItemView> {
+            return DefaultViewHolder(ListItemView(parent.context))
         }
 
-        override fun onBindViewHolder(holder: DefaultViewHolder<ListCardItemView>, position: Int) {
+        override fun onBindViewHolder(holder: DefaultViewHolder<ListItemView>, position: Int) {
             val card = item(position)
             holder.view.setCard(card).setHistoryEntry(HistoryEntry(card.pageTitle,
                 HistoryEntry.SOURCE_FEED_MOST_READ_ACTIVITY)).setCallback(callback)
         }
     }
 
-    private inner class Callback : ListCardItemView.Callback {
+    private inner class Callback : ListItemView.Callback {
         override fun onSelectPage(card: Card, entry: HistoryEntry, openInNewBackgroundTab: Boolean) {
             if (openInNewBackgroundTab) {
                 TabUtil.openInNewBackgroundTab(entry)
@@ -103,7 +103,7 @@ class TopReadFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance(card: TopReadListCard): TopReadFragment {
+        fun newInstance(card: TopReadCard): TopReadFragment {
             return TopReadFragment().apply {
                 arguments = bundleOf(TopReadArticlesActivity.TOP_READ_CARD to card)
             }

@@ -20,7 +20,7 @@ import org.wikipedia.databinding.FragmentNewsBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.feed.model.Card
-import org.wikipedia.feed.view.ListCardItemView
+import org.wikipedia.feed.view.ListItemView
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageActivity
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
@@ -89,13 +89,13 @@ class NewsFragment : Fragment() {
     private val appCompatActivity get() = requireActivity() as AppCompatActivity
 
     private class RecyclerAdapter constructor(items: List<NewsLinkCard>, private val callback: Callback) :
-        DefaultRecyclerAdapter<NewsLinkCard, ListCardItemView>(items) {
+        DefaultRecyclerAdapter<NewsLinkCard, ListItemView>(items) {
 
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DefaultViewHolder<ListCardItemView> {
-            return DefaultViewHolder(ListCardItemView(parent.context))
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DefaultViewHolder<ListItemView> {
+            return DefaultViewHolder(ListItemView(parent.context))
         }
 
-        override fun onBindViewHolder(holder: DefaultViewHolder<ListCardItemView>, position: Int) {
+        override fun onBindViewHolder(holder: DefaultViewHolder<ListItemView>, position: Int) {
             val card = item(position)
             holder.view.setCard(card)
                 .setHistoryEntry(HistoryEntry(card.pageTitle(), HistoryEntry.SOURCE_NEWS))
@@ -103,7 +103,7 @@ class NewsFragment : Fragment() {
         }
     }
 
-    private inner class Callback : ListCardItemView.Callback {
+    private inner class Callback : ListItemView.Callback {
         override fun onSelectPage(card: Card, entry: HistoryEntry, openInNewBackgroundTab: Boolean) {
             if (openInNewBackgroundTab) {
                 TabUtil.openInNewBackgroundTab(entry)

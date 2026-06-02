@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -34,7 +35,7 @@ import org.wikipedia.feed.model.ForYouCard
 import org.wikipedia.feed.news.NewsCard
 import org.wikipedia.feed.onthisday.OnThisDayCard
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
-import org.wikipedia.feed.topread.TopReadListCard
+import org.wikipedia.feed.topread.TopReadCard
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.json.LocalDateTimeSerializer
@@ -201,10 +202,12 @@ class HomeViewModel : ViewModel() {
     val unreadCount = _unreadCount.asStateFlow()
 
     init {
-        if (_selectedTab.value == HomeTab.COMMUNITY) {
-            loadCommunityContent()
-        } else {
-            loadForYouContent()
+        viewModelScope.launch {
+            combine(_selectedTab, _wikiSite) { tab, site -> tab to site }
+            .distinctUntilChanged()
+            .collect { (tab, site) ->
+                ensureContentLoaded(tab, site)
+            }
         }
     }
 
@@ -224,37 +227,28 @@ class HomeViewModel : ViewModel() {
         _selectedTab.value = tab
     }
 
-    fun reloadCurrentTab() {
-        when (_selectedTab.value) {
+    private fun ensureContentLoaded(tab: HomeTab, site: WikiSite) {
+        when (tab) {
             HomeTab.COMMUNITY -> {
-                if (_communityState.value.wikiSite == wikiSite.value) {
-                    if ( _communityState.value.cards.isEmpty() && !_communityState.value.isInitialLoading) {
-                        loadCommunityContent()
-                    }
-                } else {
+                if (_communityState.value.wikiSite != site) {
                     refreshCommunityContent()
+                } else if (_communityState.value.cards.isEmpty() && !_communityState.value.isInitialLoading) {
+                    loadCommunityContent()
                 }
             }
             HomeTab.FOR_YOU -> {
-                if (_forYouState.value.wikiSite == wikiSite.value) {
-                    if (_forYouState.value.modules.isEmpty() && !_forYouState.value.isInitialLoading) {
-                        loadForYouContent()
-                    }
-                } else {
+                if (_forYouState.value.wikiSite != site) {
                     refreshForYouContent()
+                } else if (_forYouState.value.modules.isEmpty() && !_forYouState.value.isInitialLoading) {
+                    loadForYouContent()
                 }
             }
         }
     }
 
     fun updateLanguage(langCode: String) {
-        _wikiSite.value = WikiSite.forLanguageCode(langCode)
         Prefs.homeLanguageCode = langCode
-        if (selectedTab.value == HomeTab.COMMUNITY) {
-            refreshCommunityContent()
-        } else {
-            refreshForYouContent()
-        }
+        _wikiSite.value = WikiSite.forLanguageCode(langCode)
     }
 
     fun updateTabCount(pulse: Boolean = false) {
@@ -296,7 +290,7 @@ class HomeViewModel : ViewModel() {
                     add(FeaturedArticleCard(it, age, wikiSite.value))
                 }
                 content.topRead?.let {
-                    add(TopReadListCard(it, age, wikiSite.value))
+                    add(TopReadCard(it, age, wikiSite.value))
                 }
                 if (!content.news.isNullOrEmpty()) {
                     add(NewsCard(content.news, age, wikiSite.value))
@@ -340,6 +334,7 @@ class HomeViewModel : ViewModel() {
                 isLoadingMore = !isInitial,
                 error = null
             )
+
             val newModules = fetchForYouModules(forYouBatchIndex)
 
             // Advance batch index only after success.

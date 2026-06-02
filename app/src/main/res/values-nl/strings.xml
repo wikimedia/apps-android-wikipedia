@@ -1500,7 +1500,7 @@
   <string name="thank_label">Bedanken</string>
   <string name="view_user_page">Gebruikerspagina bekijken</string>
   <string name="thank_dialog_title_text">Publiekelijk een bedankje sturen</string>
-  <string name="thank_dialog_text">\'Bedankjes\' zijn een gemakkelijke manier om waardering te tonen voor het werk van een redacteur op Wikipedia. \'Bedankjes\' kunnen niet ongedaan worden gemaakt en zijn openbaar zichtbaar</string>
+  <string name="thank_dialog_text">\'Bedankjes\' zijn een gemakkelijke manier om waardering te tonen voor het werk van een bewerker op Wikipedia. \'Bedankjes\' kunnen niet ongedaan worden gemaakt en zijn openbaar zichtbaar</string>
   <string name="thank_dialog_positive_button_text">Bedankje sturen</string>
   <string name="thank_dialog_negative_button_text">Annuleren</string>
   <string name="thank_success_message">Uw bedankje is verstuurd naar %s 👍</string>
@@ -1950,8 +1950,8 @@
   <string name="year_in_review_slide_app_icon_body_unlocked">Activeer uw nieuwe apppictogram in de Instellingen onder Apppictogram. Bedankt voor het investeren in de toekomst van de vrije kennis. Uw bijdragen als %1$s in %2$d helpen de weg vrij te maken naar een wereld van vrije informatie. Daarom is nu voor u een eigen bijdragerspictogram ontsloten voor Wikipedia op uw startscherm.</string>
   <string name="year_in_review_slide_app_icon_body_unlock">Wat fijn dat Wikipedia deel uitmaakte van uw jaar %1$d! Ontgrendel met uw bijdragen een speciale beloning in uw Jaaroverzicht %2$d. Dat doet u door &lt;a href=\"%3$s\"&gt;Wikipedia te bewerken&lt;/a&gt; of door vanuit de app te doneren aan de &lt;a href=\"%4$s\"&gt;Wikimedia Foundation&lt;/a&gt;, de non-profitorganisatie erachter. Als Wikipedia dit jaar voor u behulpzaam is geweest, overweeg dan te doneren zodat Wikipedia ook in de toekomst voor iedereen gratis, advertentievrij, betrouwbaar en toegankelijk blijft. Als u ergens anders hebt gedoneerd, stellen we uw steun zeer op prijs.</string>
   <string name="year_in_review_slide_app_icon_donor">donateur</string>
-  <string name="year_in_review_slide_app_icon_editor">redacteur</string>
-  <string name="year_in_review_slide_app_icon_donor_and_editor">donateur en redacteur</string>
+  <string name="year_in_review_slide_app_icon_editor">een bewerker</string>
+  <string name="year_in_review_slide_app_icon_donor_and_editor">donateur en bewerker</string>
   <string name="year_in_review_slide_geo_headline">De pagina\'s die u hebt gelezen staan het dichtst bij %s</string>
   <string name="year_in_review_slide_geo_body">Het land dat het dichtst bij veel pagina\'s die u hebt gelezen ligt, lijkt %1$s te zijn, gebaseerd op pagina\'s als &lt;b&gt;%2$s&lt;/b&gt; en &lt;b&gt;%3$s&lt;/b&gt;.</string>
   <string name="year_in_review_login_dialog_title">Aanmelden voor personalisering?</string>

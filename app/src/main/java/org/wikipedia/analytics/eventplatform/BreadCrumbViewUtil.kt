@@ -5,16 +5,12 @@ import android.view.ContextThemeWrapper
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
-import androidx.core.view.ancestors
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
-import com.google.android.material.button.MaterialButton
 import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
-import org.wikipedia.feed.view.ListCardItemView
-import org.wikipedia.feed.view.ListCardView
 import org.wikipedia.main.MainActivity
 import org.wikipedia.main.MainFragment
 import org.wikipedia.navtab.NavTab
@@ -28,15 +24,9 @@ object BreadCrumbViewUtil {
         val parent = view.parent
         if (parent is RecyclerView) {
             val position = parent.findContainingViewHolder(view)?.bindingAdapterPosition ?: 0
-            val parentCardName = if (view is ListCardItemView) {
-                // If null, ListItemView is not in a CardView
-                view.ancestors.firstOrNull { it is ListCardView<*> }?.javaClass?.simpleName
-            } else {
-                null
-            }
             // If no parent card is available, return only recyclerview name and click position for
             // non-cardView recyclerViews
-            val parentName = parentCardName ?: getReadableNameForView(parent)
+            val parentName = getReadableNameForView(parent)
             return "$parentName.$position"
         }
         return if (view.id == View.NO_ID) {
@@ -52,9 +42,6 @@ object BreadCrumbViewUtil {
 
     private fun getViewResourceName(view: View): String {
         return try {
-            if (view.id == R.id.footerActionButton) {
-                return (view as MaterialButton).text.toString()
-            }
             view.resources.getResourceEntryName(view.id)
         } catch (e: Exception) {
             VIEW_UNNAMED
