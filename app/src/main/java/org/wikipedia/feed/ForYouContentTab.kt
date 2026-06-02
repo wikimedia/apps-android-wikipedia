@@ -18,7 +18,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.lazy.rememberLazyListState
@@ -40,8 +39,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.LinkInteractionListener
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextLinkStyles
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
@@ -319,64 +318,6 @@ private fun LazyListScope.forYouModuleItem(
 }
 
 @Composable
-fun ForYouFeedEmptyView(
-    modifier: Modifier = Modifier,
-    wikiSite: WikiSite,
-    showCustomizeInterests: Boolean = true,
-    onCustomizeInterestsClick: () -> Unit,
-    navigateToCommunityTab: () -> Unit
-) {
-    val context = LocalContext.current
-    Column(
-        modifier = modifier,
-        verticalArrangement = Arrangement.spacedBy(16.dp, Alignment.CenterVertically),
-    ) {
-        Image(
-            modifier = Modifier
-                .fillMaxWidth(),
-            painter = painterResource(R.drawable.empty_feed_illustration),
-            contentDescription = null
-        )
-        Spacer(modifier = Modifier.width(24.dp))
-        Text(
-            modifier = Modifier
-                .fillMaxWidth(),
-            text = context.getString(wikiSite.languageCode, R.string.home_feed_for_you_screen_empty_title),
-            style = MaterialTheme.typography.headlineSmall,
-            color = WikipediaTheme.colors.primaryColor
-        )
-        Text(
-            text = context.getString(wikiSite.languageCode, R.string.home_feed_for_you_screen_empty_description),
-            style = MaterialTheme.typography.bodyMedium,
-            color = WikipediaTheme.colors.primaryColor
-        )
-
-        Text(
-            text = context.getString(wikiSite.languageCode, R.string.home_feed_for_you_screen_empty_ways_to_start),
-            style = MaterialTheme.typography.bodyMedium.copy(
-                fontWeight = FontWeight.Medium,
-                letterSpacing = 0.25.sp
-            ),
-            textAlign = TextAlign.Center,
-            color = WikipediaTheme.colors.primaryColor
-        )
-        if (showCustomizeInterests) {
-            EmptyStateActionRow(
-                iconRes = R.drawable.ic_baseline_tune_24,
-                text = context.getString(wikiSite.languageCode, R.string.home_feed_for_you_screen_empty_add_interests),
-                onLinkClick = onCustomizeInterestsClick
-            )
-        }
-
-        EmptyStateActionRow(
-            iconRes = R.drawable.ic_diversity_3_24dp,
-            text = context.getString(wikiSite.languageCode, R.string.home_feed_for_you_screen_empty_see_community),
-            onLinkClick = navigateToCommunityTab
-        )
-    }
-}
-
-@Composable
 fun EmptyStateActionRow(
     @DrawableRes iconRes: Int,
     text: String,
@@ -440,7 +381,9 @@ fun ForYouFeedMessageView(
         Text(
             modifier = Modifier.fillMaxWidth(),
             text = context.getString(wikiSite.languageCode, titleResId),
-            style = MaterialTheme.typography.headlineSmall,
+            style = MaterialTheme.typography.headlineSmall.copy(
+                fontFamily = FontFamily.Serif
+            ),
             color = WikipediaTheme.colors.primaryColor
         )
         Text(
