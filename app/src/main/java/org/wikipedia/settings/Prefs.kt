@@ -20,6 +20,7 @@ import org.wikipedia.analytics.eventplatform.AppSessionEvent
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.donate.DonationResult
 import org.wikipedia.donate.donationreminder.DonationReminderConfig
+import org.wikipedia.feed.model.PlacesOfInterestCache
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
 import org.wikipedia.games.onthisday.OnThisDayGameNotificationState
 import org.wikipedia.json.JsonUtil
@@ -716,6 +717,10 @@ object Prefs {
             }
             PrefsIoUtil.setString(R.string.preference_key_places_last_location_and_zoom_level, locationAndZoomLevelString)
         }
+
+    var placesOfInterestCache: PlacesOfInterestCache?
+        get() = JsonUtil.decodeFromString(PrefsIoUtil.getString(R.string.preference_key_places_of_interest_cache, null))
+        set(pool) = PrefsIoUtil.setString(R.string.preference_key_places_of_interest_cache, JsonUtil.encodeToString(pool))
 
     val placesLastLocationFlow: Flow<Location?> = callbackFlow {
         val key = WikipediaApp.instance.getString(R.string.preference_key_places_last_location_and_zoom_level)

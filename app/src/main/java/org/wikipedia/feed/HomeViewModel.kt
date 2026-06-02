@@ -39,6 +39,7 @@ import org.wikipedia.feed.model.BecauseYouReadCard
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.ContinueReadingCard
 import org.wikipedia.feed.model.ForYouCard
+import org.wikipedia.feed.model.PlacesOfInterestCache
 import org.wikipedia.feed.model.PlacesOfInterestCard
 import org.wikipedia.feed.news.NewsCard
 import org.wikipedia.feed.onthisday.OnThisDayCard
@@ -66,6 +67,8 @@ enum class HomeTab { COMMUNITY, FOR_YOU }
 private const val MAX_HIDDEN_CARDS = 100
 private const val MAX_STOP_TIMEOUT_MILLIS = 5000L
 private const val PLACES_DISPLAY_CARD_COUNT = 4
+private const val PLACES_ARTICLES_REQUEST_LIMIT = 50
+private const val PLACES_SEARCH_RADIUS_METERS = 10000
 
 @Serializable
 sealed class ForYouModule {
@@ -640,37 +643,68 @@ class HomeViewModel : ViewModel() {
         val location = Prefs.placesLastLocationAndZoomLevel?.first
             ?: return ForYouModule.PlacesOfInterest(age = 0, index = 0, cards = emptyList(), hasLocationPermission = false)
 
-        val cards = try {
-            val coordinates = "${location.latitude}|${location.longitude}"
-            ServiceFactory.get(wikiSite.value)
-                .getGeoSearch(coordinates, 10000, 10, 10)
-                .query?.pages.orEmpty()
-                .filter { it.coordinates != null }
-                .map { page ->
-                    val title = PageTitle(
-                        text = page.title,
-                        wiki = wikiSite.value,
-                        thumbUrl = page.thumbUrl(),
-                        description = page.description,
-                        displayText = page.displayTitle(wikiSite.value.languageCode),
-                    ).also { it.extract = page.extract }
-                    val articleLocation = Location("").apply {
-                        latitude = page.coordinates!![0].lat
-                        longitude = page.coordinates[0].lon
-                    }
-                    val distance = GeoUtil.getDistanceWithUnit(location, articleLocation, Locale.getDefault())
-                    PlacesOfInterestCard(title, distance)
-                }
-                .take(PLACES_DISPLAY_CARD_COUNT)
-        } catch (e: Exception) {
-            L.e(e)
-            return null
-        }
-
+        val pool = getPlacesData(location)
+        val cards = selectDailyPlacesCards(pool)
         if (cards.isEmpty()) {
             return null
         }
         return ForYouModule.PlacesOfInterest(age = 0, index = 0, cards = cards, hasLocationPermission = true)
+    }
+
+    private suspend fun getPlacesData(location: Location): PlacesOfInterestCache {
+        val cached = Prefs.placesOfInterestCache
+        if (cached != null && cached.languageCode == wikiSite.value.languageCode) {
+            return cached
+        }
+
+        val coordinates = "${location.latitude}|${location.longitude}"
+        val cards = ServiceFactory.get(wikiSite.value)
+            .getGeoSearch(coordinates, PLACES_SEARCH_RADIUS_METERS, PLACES_ARTICLES_REQUEST_LIMIT, PLACES_ARTICLES_REQUEST_LIMIT)
+            .query?.pages.orEmpty()
+            .filter { it.coordinates != null }
+            .sortedBy {
+                location.distanceTo(Location("").apply {
+                    latitude = it.coordinates!![0].lat
+                    longitude = it.coordinates[0].lon
+                })
+            }
+            .map { page ->
+                val title = PageTitle(
+                    text = page.title,
+                    wiki = wikiSite.value,
+                    thumbUrl = page.thumbUrl(),
+                    description = page.description,
+                    displayText = page.displayTitle(wikiSite.value.languageCode),
+                    extract = page.extract
+                )
+                val articleLocation = Location("").apply {
+                    latitude = page.coordinates!![0].lat
+                    longitude = page.coordinates[0].lon
+                }
+                val distance = GeoUtil.getDistanceWithUnit(location, articleLocation, Locale.getDefault())
+                PlacesOfInterestCard(title, distance)
+            }
+
+        return PlacesOfInterestCache(
+            languageCode = wikiSite.value.languageCode,
+            latitude = location.latitude,
+            longitude = location.longitude,
+            anchorEpochDay = LocalDate.now().toEpochDay(),
+            cards = cards
+        ).also { Prefs.placesOfInterestCache = it }
+    }
+
+    private fun selectDailyPlacesCards(cache: PlacesOfInterestCache): List<PlacesOfInterestCard> {
+        if (cache.cards.isEmpty()) {
+            return cache.cards
+        }
+        // Show consecutive blocks of cards (0-3, 4-7, ...) one block per day, starting from the day
+        // the pool was fetched, with the final block holding whatever remainder is left, then cycling
+        // back to the first block.
+        val blocks = cache.cards.chunked(PLACES_DISPLAY_CARD_COUNT)
+        val daysSinceFetched = (LocalDate.now().toEpochDay() - cache.anchorEpochDay).coerceAtLeast(0)
+        val todayBlock = (daysSinceFetched % blocks.size).toInt()
+        return blocks[todayBlock]
     }
 
     private fun hasLocationPermission(): Boolean {
