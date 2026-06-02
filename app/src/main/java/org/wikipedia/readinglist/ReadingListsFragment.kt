@@ -52,7 +52,6 @@ import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentReadingListsBinding
 import org.wikipedia.events.ArticleSavedOrDeletedEvent
 import org.wikipedia.events.NewRecommendedReadingListEvent
-import org.wikipedia.feed.FeedFragment
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.main.MainActivity
@@ -860,8 +859,8 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             binding.onboardingView.setMessageText(getString(R.string.reading_lists_login_reminder_text))
             binding.onboardingView.setImageResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.sync_reading_list_prompt_drawable), true)
             binding.onboardingView.setPositiveButton(R.string.reading_lists_login_button, {
-                if (isAdded && requireParentFragment() is FeedFragment.Callback) {
-                    (requireParentFragment() as FeedFragment.Callback).onLoginRequested()
+                if (isAdded && requireParentFragment() is MainFragment) {
+                    (requireParentFragment() as MainFragment).onLoginRequested()
                 }
             }, true)
             binding.onboardingView.setNegativeButton(R.string.reading_lists_ignore_button, {

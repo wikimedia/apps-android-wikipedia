@@ -7,16 +7,6 @@
     tools:paddingTop="16dp"
     tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
 
-    <org.wikipedia.feed.view.GradientCircleNumberView
-        android:id="@+id/view_list_card_number"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="2dp"
-        android:visibility="gone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/view_list_card_item_title"
         android:layout_width="0dp"
@@ -29,7 +19,7 @@
         android:lineSpacingExtra="5sp"
         android:transitionName="@string/transition_article_title"
         app:layout_constraintEnd_toStartOf="@+id/view_list_card_item_image"
-        app:layout_constraintStart_toEndOf="@+id/view_list_card_number"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Lorem ipsum" />
 

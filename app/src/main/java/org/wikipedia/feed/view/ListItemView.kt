@@ -8,12 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.VisibleForTesting
 import androidx.constraintlayout.widget.ConstraintLayout
-import org.wikipedia.databinding.ViewListCardItemBinding
-import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.databinding.ViewListItemBinding
 import org.wikipedia.extensions.coroutineScope
-import org.wikipedia.feed.model.Card
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageAvailableOfflineHandler
+import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.DeviceUtil
@@ -23,16 +22,16 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.util.TransitionUtil
 import org.wikipedia.views.ViewUtil
 
-class ListCardItemView(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
+class ListItemView(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
     interface Callback {
-        fun onSelectPage(card: Card, entry: HistoryEntry, openInNewBackgroundTab: Boolean)
-        fun onSelectPage(card: Card, entry: HistoryEntry, sharedElements: Array<Pair<View, String>>)
+        fun onSelectPage(title: PageTitle, entry: HistoryEntry, openInNewBackgroundTab: Boolean)
+        fun onSelectPage(title: PageTitle, entry: HistoryEntry, sharedElements: Array<Pair<View, String>>)
         fun onAddPageToList(entry: HistoryEntry, addToDefault: Boolean)
         fun onMovePageToList(sourceReadingListId: Long, entry: HistoryEntry)
     }
 
-    private val binding = ViewListCardItemBinding.inflate(LayoutInflater.from(context), this)
-    private var card: Card? = null
+    private val binding = ViewListItemBinding.inflate(LayoutInflater.from(context), this)
+    private var title: PageTitle? = null
 
     @get:VisibleForTesting
     var callback: Callback? = null
@@ -44,10 +43,7 @@ class ListCardItemView(context: Context, attrs: AttributeSet? = null) : Constrai
 
     init {
         isFocusable = true
-        layoutParams = ViewGroup.LayoutParams(
-            ViewGroup.LayoutParams.MATCH_PARENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT
-        )
+        layoutParams = ViewGroup.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
         val topBottomPadding = 16
         setPadding(0, DimenUtil.roundedDpToPx(topBottomPadding.toFloat()),
             0, DimenUtil.roundedDpToPx(topBottomPadding.toFloat()))
@@ -55,21 +51,21 @@ class ListCardItemView(context: Context, attrs: AttributeSet? = null) : Constrai
         setBackgroundResource(ResourceUtil.getThemedAttributeId(context, androidx.appcompat.R.attr.selectableItemBackground))
 
         setOnClickListener {
-            if (historyEntry != null && card != null) {
-                callback?.onSelectPage(card!!, historyEntry!!, TransitionUtil.getSharedElements(context, binding.viewListCardItemImage))
+            if (historyEntry != null && title != null) {
+                callback?.onSelectPage(title!!, historyEntry!!, TransitionUtil.getSharedElements(context, binding.viewListCardItemImage))
             }
         }
 
         setOnLongClickListener { view ->
             LongPressMenu(view, callback = object : LongPressMenu.Callback {
                 override fun onOpenLink(entry: HistoryEntry) {
-                    card?.let {
+                    title?.let {
                         callback?.onSelectPage(it, entry, false)
                     }
                 }
 
                 override fun onOpenInNewTab(entry: HistoryEntry) {
-                    card?.let {
+                    title?.let {
                         callback?.onSelectPage(it, entry, true)
                     }
                 }
@@ -88,17 +84,17 @@ class ListCardItemView(context: Context, attrs: AttributeSet? = null) : Constrai
         }
     }
 
-    fun setCard(card: Card?): ListCardItemView {
-        this.card = card
+    fun setPageTitle(title: PageTitle?): ListItemView {
+        this.title = title
         return this
     }
 
-    fun setCallback(callback: Callback?): ListCardItemView {
+    fun setCallback(callback: Callback?): ListItemView {
         this.callback = callback
         return this
     }
 
-    fun setHistoryEntry(entry: HistoryEntry): ListCardItemView {
+    fun setHistoryEntry(entry: HistoryEntry): ListItemView {
         historyEntry = entry
         setTitle(StringUtil.fromHtml(entry.title.displayText))
         setSubtitle(entry.title.description)
@@ -127,35 +123,10 @@ class ListCardItemView(context: Context, attrs: AttributeSet? = null) : Constrai
         binding.viewListCardItemSubtitle.text = text
     }
 
-    fun setNumber(number: Int) {
-        binding.viewListCardNumber.visibility = VISIBLE
-        binding.viewListCardNumber.setNumber(number)
-    }
-
-    fun setPageViews(pageViews: Long) {
-        binding.viewListCardItemPageviews.visibility = VISIBLE
-        binding.viewListCardItemPageviews.text = StringUtil.getPageViewText(context, pageViews)
-    }
-
-    fun setGraphView(viewHistories: List<PageSummary.ViewHistory>) {
-        val dataSet = mutableListOf<Float>()
-        var i = viewHistories.size
-        while (DEFAULT_VIEW_HISTORY_ITEMS > i++) {
-            dataSet.add(0f)
-        }
-        dataSet.addAll(viewHistories.map { it.views })
-        binding.viewListCardItemGraph.visibility = VISIBLE
-        binding.viewListCardItemGraph.setData(dataSet)
-    }
-
     private fun setViewsGreyedOut(greyedOut: Boolean) {
         val alpha = if (greyedOut) 0.5f else 1.0f
         binding.viewListCardItemTitle.alpha = alpha
         binding.viewListCardItemSubtitle.alpha = alpha
         binding.viewListCardItemImage.alpha = alpha
-    }
-
-    companion object {
-        private const val DEFAULT_VIEW_HISTORY_ITEMS = 5
     }
 }

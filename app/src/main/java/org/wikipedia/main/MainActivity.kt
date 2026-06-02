@@ -27,7 +27,6 @@ import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.databinding.ActivityMainBinding
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.feed.FeedFragment
 import org.wikipedia.feed.HomeFragment
 import org.wikipedia.feed.HomeTab
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
@@ -53,9 +52,6 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
     private var controlNavTabInFragment = false
     private val onboardingLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         val fragment = fragment.currentFragment
-        if (it.resultCode == InitialOnboardingActivity.RESULT_LANGUAGE_CHANGED && fragment is FeedFragment) {
-            fragment.refresh()
-        }
         if (fragment is HomeFragment) {
             val tab = if (Prefs.homePreferenceSelection == HomePreferenceType.PERSONALIZED) HomeTab.FOR_YOU else HomeTab.COMMUNITY
             fragment.updateLanguage(Prefs.homeLanguageCode)
@@ -149,7 +145,6 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
             applyNavBarTheme(WikipediaApp.instance.currentTheme)
         }
         applyInsets()
-        fragment.requestUpdateToolbarElevation()
     }
 
     private fun applyInsets() {
