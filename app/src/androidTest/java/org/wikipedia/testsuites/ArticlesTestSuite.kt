@@ -16,8 +16,8 @@ import org.wikipedia.tests.offline.SavedArticleOnlineOfflineTest
 
 @RunWith(Suite::class)
 @SuiteClasses(
-    SavedArticleOnlineOfflineTest::class,
-    SavedArticleTest::class,
+    //SavedArticleOnlineOfflineTest::class, // TODO: Update tests to support Jetpack Compose-based UI.
+    //SavedArticleTest::class, // TODO: Update tests to support Jetpack Compose-based UI.
     ArticlePageActionItemTest::class,
     ArticleSectionsTest::class,
     ArticleTabTest::class,

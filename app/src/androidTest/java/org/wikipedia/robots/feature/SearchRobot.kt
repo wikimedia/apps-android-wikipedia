@@ -162,23 +162,6 @@ class SearchRobot : BaseRobot() {
         pressBack()
     }
 
-    fun pressBackUntilExploreFeed() = apply {
-        val maxAttempts = 3
-        var attempts = 0
-        while (attempts < maxAttempts) {
-            try {
-                verify.viewWithIdDoesNotExist(R.id.feed_view)
-                pressBack()
-                delay(TestConfig.DELAY_SHORT)
-                attempts++
-            } catch (_: AssertionFailedError) {
-                break
-            } catch (_: Exception) {
-                break
-            }
-        }
-    }
-
     fun swipeToDelete(position: Int, title: String) = apply {
         onView(withId(R.id.history_list))
             .perform(

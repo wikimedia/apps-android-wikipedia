@@ -31,35 +31,6 @@ class HomeScreenRobot : BaseRobot() {
         delay(TestConfig.DELAY_SHORT)
     }
 
-    fun assertAllFeedCardsAreHidden() = apply {
-        onView(allOf(withId(R.id.empty_container), withParent(withParent(withId(R.id.swipe_refresh_layout))), isDisplayed()))
-            .check(matches(isDisplayed()))
-        delay(TestConfig.DELAY_SHORT)
-    }
-
-    fun assertEmptyMessageIsNotVisible() = apply {
-        // Ensure that empty message is not shown on explore feed
-        onView(allOf(withId(R.id.empty_container), withParent(withParent(withId(R.id.swipe_refresh_layout))),
-            TestUtil.isNotVisible())).check(matches(TestUtil.isNotVisible()))
-    }
-
-    fun imagesDoesNotShow() = apply {
-        // Assert that images arent shown anymore
-        onView(allOf(withId(R.id.articleImage), withParent(allOf(withId(R.id.articleImageContainer),
-            withParent(withId(R.id.view_wiki_article_card)))), isDisplayed())).check(ViewAssertions.doesNotExist())
-        delay(TestConfig.DELAY_SHORT)
-    }
-
-    fun dismissTooltip(activity: Activity) = apply {
-        system.dismissTooltipIfAny(activity, viewId = R.id.buttonView)
-        delay(TestConfig.DELAY_SHORT)
-    }
-
-    fun dismissFeedCustomization() = apply {
-        scroll.toViewAndClick(R.id.view_announcement_action_negative)
-        delay(TestConfig.DELAY_SHORT)
-    }
-
     fun verifyIfSnackBarAppears() = apply {
         onView(withId(com.google.android.material.R.id.snackbar_text))
             .check(matches(isDisplayed()))

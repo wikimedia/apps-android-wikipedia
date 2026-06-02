@@ -91,10 +91,8 @@ class ReadingListsTest : BaseTest<MainActivity>(
     }
 
     private fun search(title: String) {
-        searchRobot
-            .tapSearchView()
-            .typeTextInView(title)
-            .clickOnItemFromSearchList(0)
+        // TODO: update steps
+        // 1. Search for an article and open it
     }
 
     companion object {

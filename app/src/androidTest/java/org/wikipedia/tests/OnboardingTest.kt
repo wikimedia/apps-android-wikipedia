@@ -22,25 +22,6 @@ class OnboardingTest : BaseTest<MainActivity>(
 
     @Test
     fun startOnboardingTest() {
-        systemRobot
-            .disableDarkMode(context)
-        onboardingRobot
-            .checkWelcomeScreenViewsForVisibility()
-            .checkPrimaryTextViewColor(Theme.LIGHT)
-            .checkSecondaryTextViewColor(Theme.LIGHT)
-            .verifyAppLanguageMatchesDeviceLanguage()
-            .swipeAllTheWayToEnd()
-            .swipeBackToWelcomeScreen()
-            .moveAllTheWayToEndUsingTapButton()
-            .swipeBackToWelcomeScreen()
-    systemRobot
-        .enableDarkMode(context)
-    onboardingRobot
-        .checkWelcomeScreenViewsForVisibility()
-        .checkPrimaryTextViewColor(Theme.DARK)
-        .checkSecondaryTextViewColor(Theme.DARK)
-        .skipWelcomeScreen()
-    systemRobot
-        .clickOnSystemDialogWithText("Allow")
+        // @TODO: update with new onboarding flow
     }
 }

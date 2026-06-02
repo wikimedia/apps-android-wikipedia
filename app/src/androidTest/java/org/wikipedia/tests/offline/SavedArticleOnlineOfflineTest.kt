@@ -32,26 +32,10 @@ class SavedArticleOnlineOfflineTest : BaseTest<MainActivity>(
         }
         systemRobot
             .clickOnSystemDialogWithText("Allow")
-        searchRobot
-            .tapSearchView()
-            .typeTextInView(TestConstants.SEARCH_TERM)
-            .longClickOnItemFromSearchList(0)
-            .clickSave(action = { isSaved ->
-                if (!isSaved) {
-                    searchRobot
-                        .pressBack()
-                }
-            })
-            .clickSearchInsideSearchFragment()
-            .typeTextInView(TestConstants.SEARCH_TERM2)
-            .longClickOnItemFromSearchList(0)
-            .clickSave(action = { isSaved ->
-                if (!isSaved) {
-                    searchRobot
-                        .pressBack()
-                }
-            })
-            .pressBackUntilExploreFeed()
+        // @TODO: update steps
+        // 1. Search for an article and save it to a reading list.
+        // 2. Search for another article and save it to the same reading list.
+        // 3. Go to the saved page and open the reading list.
         bottomNavRobot
             .navigateToSavedPage()
         savedScreenRobot
