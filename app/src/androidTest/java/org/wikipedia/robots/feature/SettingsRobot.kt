@@ -11,18 +11,11 @@ import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.ViewAction
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.scrollTo
-import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
 import androidx.test.espresso.contrib.RecyclerViewActions
-import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
 import androidx.test.espresso.matcher.ViewMatchers.hasDescendant
-import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
-import androidx.test.espresso.matcher.ViewMatchers.withContentDescription
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
-import org.hamcrest.Matchers.allOf
-import org.junit.Assert.assertTrue
 import org.wikipedia.R
-import org.wikipedia.TestUtil.childAtPosition
 import org.wikipedia.base.TestConfig
 
 class SettingsRobot : BaseRobot() {
@@ -100,7 +93,6 @@ class SettingsRobot : BaseRobot() {
         scrollToSettingsPreferenceItem(R.string.preference_title_show_images, click())
         delay(TestConfig.DELAY_SHORT)
     }
-
 
     fun pressBack() = apply {
         goBack()

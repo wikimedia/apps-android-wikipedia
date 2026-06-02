@@ -22,7 +22,6 @@ import androidx.test.espresso.matcher.ViewMatchers.isDescendantOfA
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
-import junit.framework.AssertionFailedError
 import org.hamcrest.Matchers.allOf
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp

@@ -8,15 +8,12 @@ import org.wikipedia.base.BaseTest
 import org.wikipedia.main.MainActivity
 import org.wikipedia.robots.SystemRobot
 import org.wikipedia.robots.feature.PageRobot
-import org.wikipedia.robots.feature.SearchRobot
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
 class ArticleSectionsTest : BaseTest<MainActivity>(
  activityClass = MainActivity::class.java,
 ) {
-
-    private val searchRobot = SearchRobot()
     private val pageRobot = PageRobot(context)
     private val systemRobot = SystemRobot()
 

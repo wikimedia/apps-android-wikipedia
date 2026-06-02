@@ -9,7 +9,6 @@ import org.wikipedia.main.MainActivity
 import org.wikipedia.robots.SystemRobot
 import org.wikipedia.robots.feature.SettingsRobot
 import org.wikipedia.robots.navigation.BottomNavRobot
-import org.wikipedia.robots.screen.HomeScreenRobot
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
@@ -18,7 +17,6 @@ class ShowImageTest : BaseTest<MainActivity>(
 ) {
     private val bottomNavRobot = BottomNavRobot()
     private val settingsRobot = SettingsRobot()
-    private val homeScreenRobot = HomeScreenRobot()
     private val systemRobot = SystemRobot()
 
     @Test
