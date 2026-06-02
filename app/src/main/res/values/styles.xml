@@ -96,10 +96,8 @@
 
     <style name="AppTheme.Splash">
         <item name="android:navigationBarColor">@color/splash_background_color</item>
-        <item name="android:windowBackground">@color/splash_background_color</item>
-        <item name="android:windowSplashScreenAnimatedIcon" tools:targetApi="31">@drawable/animated_splash</item>
-        <item name="android:windowSplashScreenAnimationDuration" tools:targetApi="31">1000</item>
-        <item name="android:windowSplashScreenBackground" tools:targetApi="31">@color/splash_background_color</item>
+        <item name="android:statusBarColor">@color/splash_background_color</item>
+        <item name="android:windowBackground">@drawable/splash_background_drawable</item>
     </style>
 
     <style name="AppTheme.ActionBar">
