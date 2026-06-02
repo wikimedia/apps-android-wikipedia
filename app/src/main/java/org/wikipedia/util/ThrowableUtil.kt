@@ -1,6 +1,7 @@
 package org.wikipedia.util
 
 import android.content.Context
+import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.withContext
@@ -19,6 +20,7 @@ import java.net.SocketTimeoutException
 import java.net.UnknownHostException
 import java.util.concurrent.TimeoutException
 import javax.net.ssl.SSLException
+import kotlin.coroutines.CoroutineContext
 
 @Suppress("SameParameterValue")
 object ThrowableUtil {
@@ -88,7 +90,8 @@ object ThrowableUtil {
     }
 
     fun isNotLoggedIn(t: Throwable?): Boolean {
-        return t is MwException && t.error.code?.contains("notloggedin") == true
+        val invalidLoginCodes = listOf("assertuserfailed", "notloggedin")
+        return t is MwException && t.error.code?.let { invalidLoginCodes.contains(it) } == true
     }
 
     suspend fun getBlockMessageHtml(blockInfo: MwServiceError.BlockInfo, wikiSite: WikiSite = WikipediaApp.instance.wikiSite): String {
@@ -125,4 +128,15 @@ object ThrowableUtil {
 
     class EmptyException : Exception()
     class AppError(val error: String, val detail: String?)
+
+    class MwCoroutineExceptionHandler(
+        private val onError: (CoroutineContext, Throwable, Boolean) -> Unit
+    ) : CoroutineExceptionHandler {
+        override val key: CoroutineContext.Key<*>
+            get() = CoroutineExceptionHandler
+
+        override fun handleException(context: CoroutineContext, exception: Throwable) {
+            onError(context, exception, isNotLoggedIn(exception))
+        }
+    }
 }

@@ -1,12 +1,13 @@
 package org.wikipedia.recurring
 
-import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 import org.wikipedia.WikipediaApp
 import org.wikipedia.alphaupdater.AlphaUpdateChecker
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.settings.RemoteConfigRefreshTask
 import org.wikipedia.util.ReleaseUtil
+import org.wikipedia.util.ThrowableUtil
 import org.wikipedia.util.log.L
 
 class RecurringTasksExecutor() {
@@ -24,8 +25,11 @@ class RecurringTasksExecutor() {
                 it.add(AlphaUpdateChecker(app))
             }
         }.forEach { task ->
-            MainScope().launch(CoroutineExceptionHandler { _, throwable ->
+            MainScope().launch(ThrowableUtil.MwCoroutineExceptionHandler { _, throwable, isNotLoggedIn ->
                 L.e(throwable)
+                if (isNotLoggedIn) {
+                    AccountUtil.bailWithLogout(false)
+                }
             }) {
                 task.runIfNecessary()
             }
