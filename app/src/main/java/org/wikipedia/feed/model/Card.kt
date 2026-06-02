@@ -12,10 +12,6 @@ abstract class Card {
         return ""
     }
 
-    open fun subtitle(): String? {
-        return null
-    }
-
     protected open fun dismissHashCode(): Int {
         return hashCode()
     }
