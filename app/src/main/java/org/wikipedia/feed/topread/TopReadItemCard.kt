@@ -13,9 +13,5 @@ class TopReadItemCard(
         return page.displayTitle
     }
 
-    override fun subtitle(): String? {
-        return page.description
-    }
-
     val pageTitle get() = page.getPageTitle(wiki)
 }
