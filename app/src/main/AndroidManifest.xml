@@ -257,9 +257,6 @@
         <activity android:name=".feed.onthisday.OnThisDayActivity"
             android:configChanges="orientation|screenSize"/>
 
-        <activity android:name=".feed.configure.ConfigureActivity"
-            android:label="@string/feed_configure_activity_title"/>
-
         <activity android:name=".random.RandomActivity"
             android:label="@string/view_random_card_title"
             android:theme="@style/AppTheme.ActionBar"/>

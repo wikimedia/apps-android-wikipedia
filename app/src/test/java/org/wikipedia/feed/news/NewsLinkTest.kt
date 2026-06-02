@@ -24,7 +24,7 @@ class NewsLinkTest {
     fun testTitleNormalization() {
         for (newsItem in content) {
             for (link in newsItem.links) {
-                assertFalse(NewsLinkCard(link!!, TEST).title().contains("_"))
+                assertFalse(NewsLinkCard(link, TEST).title().contains("_"))
             }
         }
     }
