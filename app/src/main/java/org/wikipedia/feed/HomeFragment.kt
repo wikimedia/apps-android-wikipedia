@@ -121,20 +121,20 @@ class HomeFragment : Fragment() {
                         onLoadMoreForYouContent = viewModel::loadForYouContent,
                         onHideCommunityCardClick = { card ->
                             instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_overflow", elementId = "card_hide")
-                            val cardIndex = viewModel.hideCommunityCard(card)
+                            viewModel.hideCommunityCard(card)
                             FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.menu_feed_card_dismissed))
                                 .setAction(getString(R.string.explore_feed_header_overflow_hide_module_message_action)) {
                                     instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_overflow", elementId = "undo_card_hide")
-                                    viewModel.restoreCommunityCard(card, cardIndex)
+                                    viewModel.restoreCommunityCard(card)
                                 }.show()
                         },
-                        onHideForYouCardClick = { module, card ->
+                        onHideForYouCardClick = { _, card ->
                             instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_overflow", elementId = "card_hide")
-                            val cardIndex = viewModel.hideForYouCard(module, card)
+                            viewModel.hideForYouCard(card)
                             FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.menu_feed_card_dismissed))
                                 .setAction(getString(R.string.explore_feed_header_overflow_hide_module_message_action)) {
                                     instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_overflow", elementId = "undo_card_hide")
-                                    viewModel.restoreForYouCard(module, card, cardIndex)
+                                    viewModel.restoreForYouCard(card)
                                 }.show()
                         },
                         onHideModuleClick = { moduleKey ->

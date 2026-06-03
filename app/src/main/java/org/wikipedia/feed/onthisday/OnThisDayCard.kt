@@ -14,11 +14,7 @@ class OnThisDayCard(val events: List<OnThisDay.Event>, val age: Int, wiki: WikiS
         return CommunityModuleType.ON_THIS_DAY.name
     }
 
-    override fun subtitle(): String {
-        return DateUtil.getFeedCardShortDateString(date)
-    }
-
     override fun dismissHashCode(): Int {
-        return TimeUnit.MILLISECONDS.toDays(date.time.time).toInt() + wikiSite().hashCode()
+        return TimeUnit.MILLISECONDS.toDays(date.time.time).toInt() + wikiSite().hashCode() + moduleKey().hashCode()
     }
 }

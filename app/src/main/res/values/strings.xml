@@ -2549,4 +2549,8 @@
     <string name="home_feed_settings_places_of_interest_title">Places of interest</string>
     <string name="home_feed_settings_places_of_interest_subtitle">Discover articles about places near your last location in Places.</string>
     <string name="home_feed_places_of_interest_card_footer">%1$s • Based on your location in Places</string>
+    <string name="home_feed_for_you_screen_end_of_feed_title">That\'s it for today!</string>
+    <string name="home_feed_for_you_screen_end_of_feed_description">Come back tomorrow to find fresh new articles customized for you.</string>
+    <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Ways to keep learning:</string>
+    <string name="home_feed_for_you_screen_end_of_feed_add_interests"><![CDATA[Add <a href="#add_interests">new interests</a>]]></string>
 </resources>
