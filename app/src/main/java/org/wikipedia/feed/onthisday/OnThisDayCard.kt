@@ -15,6 +15,6 @@ class OnThisDayCard(val events: List<OnThisDay.Event>, val age: Int, wiki: WikiS
     }
 
     override fun dismissHashCode(): Int {
-        return TimeUnit.MILLISECONDS.toDays(date.time.time).toInt() + wikiSite().hashCode()
+        return TimeUnit.MILLISECONDS.toDays(date.time.time).toInt() + wikiSite().hashCode() + moduleKey().hashCode()
     }
 }
