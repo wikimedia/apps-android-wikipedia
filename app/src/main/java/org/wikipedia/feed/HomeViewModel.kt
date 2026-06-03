@@ -17,8 +17,8 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.mapLatest
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.flow.transformLatest
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -114,7 +114,8 @@ sealed class ForYouModule {
         override val age: Int,
         override val index: Int,
         override val cards: List<ForYouCard>,
-        val hasLocationPermission: Boolean
+        val hasLocationPermission: Boolean,
+        val isLoading: Boolean = false
     ) : ForYouModule() {
         override fun withCards(cards: List<ForYouCard>): ForYouModule = copy(cards = cards)
         override fun moduleKey(): String = ForYouModuleType.PLACES_OF_INTEREST.name
@@ -185,7 +186,12 @@ class HomeViewModel : ViewModel() {
 
     @OptIn(ExperimentalCoroutinesApi::class)
     private val placesModule: StateFlow<ForYouModule.PlacesOfInterest?> = Prefs.placesLastLocationFlow
-        .mapLatest { buildPlacesModule() }
+        .transformLatest {
+            if (hasLocationPermission()) {
+                emit(ForYouModule.PlacesOfInterest(age = 0, index = 0, cards = emptyList(), isLoading = true, hasLocationPermission = true))
+            }
+            emit(buildPlacesModule())
+        }
         .stateIn(
             viewModelScope,
             SharingStarted.WhileSubscribed(MAX_STOP_TIMEOUT_MILLIS),
@@ -609,7 +615,8 @@ class HomeViewModel : ViewModel() {
 
     private suspend fun getPlacesData(location: Location): PlacesOfInterestCache {
         val cached = Prefs.placesOfInterestCache
-        if (cached != null && cached.languageCode == wikiSite.value.languageCode) {
+        if (cached != null && cached.languageCode == wikiSite.value.languageCode &&
+            cached.latitude == location.latitude && cached.longitude == location.longitude) {
             return cached
         }
 

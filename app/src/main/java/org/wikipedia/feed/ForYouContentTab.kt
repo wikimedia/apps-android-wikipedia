@@ -326,33 +326,46 @@ private fun LazyListScope.forYouModuleItem(
         }
         is ForYouModule.PlacesOfInterest -> {
             item(key = key) {
-                if (!module.hasLocationPermission) {
-                    PlacesOfInterestCtaModule(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(viewPortHeight)
-                            .background(ComposeColors.Green800)
-                            .padding(horizontal = 16.dp)
-                            .padding(top = (topInset * 2 + 64).dp)
-                            .navigationBarsPadding(),
-                        wikiSite = wikiSite,
-                        onGoToPlacesClick = onPlacesCtaClick
-                    )
-                } else {
-                    PlacesOfInterestArticlesModule(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(viewPortHeight),
-                        wikiSite = wikiSite,
-                        module = module,
-                        onPageClick = onPageClick,
-                        onPageShareClick = onPageShareClick,
-                        onPageBookmarkClick = onPageBookmarkClick,
-                        onHideCardClick = onHideCardClick,
-                        onHideModuleClick = { onHideModuleClick(module.moduleKey()) },
-                        onCardInView = { onCardImpression(it, index) },
-                        onCustomizeInterestsClick = onCustomizeInterestsClick
-                    )
+                when {
+                    module.isLoading -> {
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(viewPortHeight),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            LoadingIndicator()
+                        }
+                    }
+                    !module.hasLocationPermission -> {
+                        PlacesOfInterestCtaModule(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(viewPortHeight)
+                                .background(ComposeColors.Green800)
+                                .padding(horizontal = 16.dp)
+                                .padding(top = (topInset * 2 + 64).dp)
+                                .navigationBarsPadding(),
+                            wikiSite = wikiSite,
+                            onGoToPlacesClick = onPlacesCtaClick
+                        )
+                    }
+                    else -> {
+                        PlacesOfInterestArticlesModule(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(viewPortHeight),
+                            wikiSite = wikiSite,
+                            module = module,
+                            onPageClick = onPageClick,
+                            onPageShareClick = onPageShareClick,
+                            onPageBookmarkClick = onPageBookmarkClick,
+                            onHideCardClick = onHideCardClick,
+                            onHideModuleClick = { onHideModuleClick(module.moduleKey()) },
+                            onCardInView = { onCardImpression(it, index) },
+                            onCustomizeInterestsClick = onCustomizeInterestsClick
+                        )
+                    }
                 }
             }
         }
