@@ -297,8 +297,6 @@ class HomeViewModel : ViewModel() {
                 .getFeedFeatured(date.year.toString(), "%02d".format(date.monthValue), "%02d".format(date.dayOfMonth), wikiSite.value.languageCode)
 
             // Construct Card objects based on the day's content
-            val hiddenCards = SettingsRepository.hiddenCards.first()
-
             val cardsForDay = buildList<Card> {
                 content.tfa?.let {
                     add(FeaturedArticleCard(it, age, wikiSite.value))
@@ -315,7 +313,7 @@ class HomeViewModel : ViewModel() {
                 content.potd?.let {
                     add(FeaturedImageCard(it, age, wikiSite.value))
                 }
-            }.filterNot { hiddenCards.contains(it.hideKey) }.toMutableList()
+            }.toMutableList()
             if (cardsForDay.isNotEmpty()) {
                 cardsForDay.add(0, DayHeaderCard(age))
             }
