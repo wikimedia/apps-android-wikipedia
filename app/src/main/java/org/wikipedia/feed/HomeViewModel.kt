@@ -199,11 +199,12 @@ class HomeViewModel : ViewModel() {
         SettingsRepository.hiddenCards,
         placesModule
     ) { state, hiddenModules, hiddenCards, placesModule ->
-        val visibleItems = state.modules + listOfNotNull(placesModule)
+        val visibleItems = (state.modules + listOfNotNull(placesModule))
             .filterNot { hiddenModules.contains(it.moduleKey()) }
             .mapNotNull { module ->
                 val visibleCards = module.cards.filterNot { hiddenCards.contains(it.hideKey) }
-                if (visibleCards.isEmpty()) null else module.withCards(visibleCards)
+                // only drop module when it has cards, and they are all hidden, not when it is empty to begin with.
+                if (module.cards.isNotEmpty() && visibleCards.isEmpty()) null else module.withCards(visibleCards)
             }
         val areAllModulesHidden = ForYouModuleType.entries.all { hiddenModules.contains(it.name) }
         val isInterestModuleHidden = hiddenModules.contains(ForYouModuleType.BASED_ON_INTEREST.name)
