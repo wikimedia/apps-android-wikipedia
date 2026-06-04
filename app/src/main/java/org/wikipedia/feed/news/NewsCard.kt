@@ -17,7 +17,7 @@ class NewsCard(
     }
 
     override fun dismissHashCode(): Int {
-        return TimeUnit.MILLISECONDS.toDays(date().baseCalendar.time.time).toInt() + wikiSite().hashCode()
+        return TimeUnit.MILLISECONDS.toDays(date().baseCalendar.time.time).toInt() + wikiSite().hashCode() + moduleKey().hashCode()
     }
 
     fun date(): UtcDate {
