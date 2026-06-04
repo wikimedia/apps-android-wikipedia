@@ -126,4 +126,9 @@
     <string name="hybrid_search_onboarding_search_example_query4_pt">O que é um buraco negro?</string>
     <string name="hybrid_search_onboarding_search_example_query5_pt">Qual é o maior rio do Brasil?</string>
 
+    <string name="launcher_clip">M 0 0 L 0 28.575 L 28.575 28.575 L 28.575 0 Z</string>
+
+    <string name="splash_clip_from">M 0 0 L 0 432 L 432 432 L 432 0 Z M 307.7 168.32 C 307.7 168.32 307.7 168.32 307.7 168.32 C 307.7 168.32 307.7 168.32 307.7 168.32 C 307.7 168.32 307.7 168.32 307.7 168.32 C 307.7 168.32 307.7 168.32 307.7 168.32 Z</string>
+    <string name="splash_clip_to">M 0 0 L 0 432 L 432 432 L 432 0 Z M 307.7 168.32 C 307.7 168.32 307.7 168.32 307.7 168.32 C 307.7 168.32 307.7 168.32 307.7 168.32 C 307.7 168.32 307.7 168.32 307.7 168.32 C 307.7 168.32 307.7 168.32 307.7 168.32 Z</string>
+    <string name="splash_star">M Z</string>
 </resources>
