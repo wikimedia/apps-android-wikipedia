@@ -17,7 +17,7 @@ import org.wikipedia.R
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ItemCustomizeToolbarMenuBinding
 import org.wikipedia.databinding.ViewPageActionOverflowBinding
-import org.wikipedia.page.PageViewModel
+import org.wikipedia.page.PageViewState
 import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.page.customize.CustomizeToolbarActivity
 import org.wikipedia.page.tabs.Tab
@@ -54,7 +54,7 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
         }
     }
 
-    fun show(anchorView: View, callback: PageActionItem.Callback, currentTab: Tab, model: PageViewModel) {
+    fun show(anchorView: View, callback: PageActionItem.Callback, currentTab: Tab, model: PageViewState) {
         this.callback = callback
         popupWindowHost = PopupWindow(this, ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT, true)

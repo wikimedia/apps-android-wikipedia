@@ -10,7 +10,7 @@ import okhttp3.Response
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.RestService
 import org.wikipedia.page.LinkHandler
-import org.wikipedia.page.PageViewModel
+import org.wikipedia.page.PageViewState
 import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 import java.io.IOException
@@ -22,7 +22,7 @@ abstract class OkHttpWebViewClient : WebViewClient() {
         They should not be made into general Interceptors.
      */
 
-    abstract val model: PageViewModel
+    abstract val model: PageViewState
     abstract val linkHandler: LinkHandler
 
     override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
