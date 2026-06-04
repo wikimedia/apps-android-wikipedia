@@ -124,9 +124,9 @@ class ListActions {
     }
 
     fun scrollToRecyclerView(
-        recyclerViewId: Int = R.id.feed_view,
+        recyclerViewId: Int,
         title: String,
-        textViewId: Int = R.id.view_card_header_title,
+        textViewId: Int,
         verticalOffset: Int = 200,
         action: (() -> Unit)? = null
     ) = apply {
@@ -332,9 +332,9 @@ class ListActions {
     }
 
     fun scrollAndPerform(
-        viewIdRes: Int = R.id.feed_view,
+        viewIdRes: Int,
         title: String,
-        textViewId: Int = R.id.view_card_header_title,
+        textViewId: Int,
         action: (Int) -> Unit = {}
     ) {
         val matcher = withCardTitle(title, textViewId)
@@ -359,7 +359,7 @@ class ListActions {
         }
     }
 
-    private fun withCardTitle(title: String, textViewId: Int = R.id.view_card_header_title): Matcher<RecyclerView.ViewHolder> {
+    private fun withCardTitle(title: String, textViewId: Int): Matcher<RecyclerView.ViewHolder> {
         return object : BoundedMatcher<RecyclerView.ViewHolder, DefaultViewHolder<*>>(
             DefaultViewHolder::class.java
         ) {
