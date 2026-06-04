@@ -444,7 +444,7 @@
   <string name="button_add_to_reading_list">Aggiungi all\'elenco di lettura</string>
   <string name="page_offline_notice_cannot_load_while_offline">Non è possibile caricare la voce in assenza di connessione.</string>
   <string name="page_offline_notice_add_to_reading_list">Suggerimento: aggiungi la voce ad un elenco di lettura e verrà scaricata non appena sarai collegato a internet.</string>
-  <string name="page_offline_notice_last_date">Stai leggendo una versione di questa voce in assenza di connessione salvata il %s</string>
+  <string name="page_offline_notice_last_date">Stai leggendo una versione offline di questa voce salvata il %s</string>
   <string name="redirected_from_snackbar">Reindirizzamento da \"%s\"</string>
   <string name="button_get_directions">Ottieni indicazioni</string>
   <string name="error_no_maps_app">Impossibile trovare delle applicazioni che forniscono indicazioni.</string>
@@ -481,8 +481,8 @@
   <string name="reference_title">Riferimento %s</string>
   <string name="reference_list_title">Note</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Attenuazione dell\'immagine (nel tema Scuro e Nero)</string>
-  <string name="preference_title_prefer_offline_content">Preferisci contenuti in assenza di connessione</string>
-  <string name="preference_summary_prefer_offline_content">Salva l\'utilizzo dei dati caricando le voci che sono disponibili in assenza di connessione anziché caricare sempre l\'ultima versione di una voce</string>
+  <string name="preference_title_prefer_offline_content">Preferisci contenuti offline</string>
+  <string name="preference_summary_prefer_offline_content">Riduci il consumo di dati caricando le voci che sono disponibili offline anziché caricare sempre la versione più recente di una voce</string>
   <string name="preference_title_delete_local_donation_history">Cancella la cronologia delle donazioni</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Abbina il tema del sistema</string>
   <string name="page_footer_license_text">Il contenuto è disponibile in base alla licenza $1, se non diversamente specificato</string>
@@ -572,12 +572,12 @@
     <item quantity="other">%1$d voci, %2$.2f MB</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail_without_size">
-    <item quantity="one">%1$d di 1 voce disponile in assenza di connessione Internet</item>
-    <item quantity="other">%1$d di %2$d voci disponili in assenza di connessione Internet</item>
+    <item quantity="one">%1$d di 1 voce disponibile offline</item>
+    <item quantity="other">%1$d di %2$d voci disponibili offline</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail">
-    <item quantity="one">%1$d di 1 voce disponile in assenza di connessione Internet, %3$.2f MB</item>
-    <item quantity="other">%1$d di %2$d voci disponili in assenza di connessione Internet, %3$.2f MB</item>
+    <item quantity="one">%1$d di 1 voce disponibile offline, %3$.2f MB</item>
+    <item quantity="other">%1$d di %2$d voci disponibili offline, %3$.2f MB</item>
   </plurals>
   <string name="reading_list_sort">Ordina</string>
   <string name="reading_list_sort_ellipsis">Ordina per…</string>
@@ -628,7 +628,7 @@
   <string name="saved_list_empty_title">Nessun elenco di lettura ancora</string>
   <string name="reading_lists_empty_message">Aggiungi voci ad un elenco per leggerle più tardi, anche quando sei offline.</string>
   <string name="reading_list_empty">Non hai aggiunto alcuna voce a questo elenco.</string>
-  <string name="reading_list_article_offline">Disponibile in assenza di connessione</string>
+  <string name="reading_list_article_offline">Disponibile offline</string>
   <string name="reading_list_article_make_offline">Rendi questa voce disponibile non in linea</string>
   <string name="reading_list_add_to_other_list">Aggiungi ad un altro elenco di lettura</string>
   <string name="reading_list_move_to_other_list">Sposta ad un altro elenco di lettura</string>
