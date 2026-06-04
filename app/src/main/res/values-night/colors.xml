@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <color name="launcher_background_color">#222428</color>
     <color name="splash_background_color">#27292D</color>
+    <color name="splash_foreground_color">#F8F9FA</color>
 
     <color name="widget_background">#27292D</color>
     <color name="widget_paper">#202122</color>
