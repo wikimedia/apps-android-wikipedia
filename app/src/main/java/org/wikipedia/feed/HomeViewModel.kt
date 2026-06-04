@@ -25,6 +25,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.feed.dayheader.DayHeaderCard
+import org.wikipedia.feed.didyouknow.DidYouKnowCard
 import org.wikipedia.feed.featured.FeaturedArticleCard
 import org.wikipedia.feed.image.FeaturedImageCard
 import org.wikipedia.feed.model.BasedOnInterestCard
@@ -300,6 +301,9 @@ class HomeViewModel : ViewModel() {
                 }
                 content.potd?.let {
                     add(FeaturedImageCard(it, age, wikiSite.value))
+                }
+                content.dyk?.let {
+                    add(DidYouKnowCard(it, date.toString(), wikiSite.value))
                 }
             }.filterNot { hiddenCards.contains(it.hideKey) }.toMutableList()
             if (cardsForDay.isNotEmpty()) {

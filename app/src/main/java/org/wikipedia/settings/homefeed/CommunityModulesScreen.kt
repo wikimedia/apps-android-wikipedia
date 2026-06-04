@@ -39,6 +39,10 @@ enum class CommunityModuleType(
     FEATURED_IMAGE(
         title = R.string.view_featured_image_card_title,
         subtitle = R.string.explore_feed_potd_subtitle
+    ),
+    DID_YOU_KNOW(
+        title = R.string.home_feed_did_you_know_title,
+        subtitle = R.string.home_feed_did_you_know_subtitle
     );
 
     fun toEntry() = ToggleSettingItem(title, subtitle, name)
