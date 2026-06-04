@@ -1,6 +1,5 @@
 package org.wikipedia.feed.didyouknow
 
-import android.content.Context
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -69,7 +68,6 @@ fun DidYouKnowModule(
         ) {
             dyk.take(maxDidYouKnowItems).forEach { item ->
                 DidYouKnowListItem(
-                    context = context,
                     wikiSite = wikiSite,
                     dykHtml = item.html,
                     onClick = onPageClick,
@@ -101,7 +99,6 @@ fun DidYouKnowModule(
 
 @Composable
 fun DidYouKnowListItem(
-    context: Context,
     wikiSite: WikiSite,
     dykHtml: String,
     onClick: (PageTitle) -> Unit
