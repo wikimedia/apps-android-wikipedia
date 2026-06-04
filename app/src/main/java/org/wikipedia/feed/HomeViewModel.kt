@@ -10,6 +10,7 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -53,7 +54,6 @@ import java.time.LocalDate
 import java.time.LocalDateTime
 
 enum class HomeTab { COMMUNITY, FOR_YOU }
-private const val MAX_HIDDEN_CARDS = 100
 private const val MAX_STOP_TIMEOUT_MILLIS = 5000L
 
 @Serializable
@@ -64,10 +64,6 @@ sealed class ForYouModule {
 
     abstract fun withCards(cards: List<ForYouCard>): ForYouModule
     abstract fun moduleKey(): String
-
-    fun matchesIdentity(other: ForYouModule): Boolean {
-        return this::class == other::class && age == other.age && index == other.index
-    }
 
     @Serializable
     data class BasedOnInterest(
@@ -144,30 +140,45 @@ class HomeViewModel : ViewModel() {
     val selectedTab = _selectedTab.asStateFlow()
 
     private val _communityState = MutableStateFlow(CommunityContentState())
-    val communityState = combine(_communityState, SettingsRepository.hiddenModules) { state, hiddenModules ->
-        val visibleModules = state.cards.filterNot { hiddenModules.contains(it.moduleKey()) }
-        val hasContent = visibleModules.any { it !is DayHeaderCard }
+    val communityState = combine(
+        _communityState,
+        SettingsRepository.hiddenModules,
+        SettingsRepository.hiddenCards
+    ) { state, hiddenModules, hiddenCards ->
+        val visibleItems = state.cards
+            .filterNot { hiddenModules.contains(it.moduleKey()) }
+            .filterNot { hiddenCards.contains(it.hideKey) }
+        val hasContent = visibleItems.any { it !is DayHeaderCard }
         val areAllModulesHidden = CommunityModuleType.entries.all { hiddenModules.contains(it.name) }
         val emptyState = when {
             areAllModulesHidden -> FeedEmptyState.ALL_MODULES_HIDDEN
             !state.isInitialLoading && state.error == null && !hasContent -> FeedEmptyState.NO_DATA
             else -> null
         }
-        state.copy(cards = visibleModules, emptyState = emptyState)
+        state.copy(cards = visibleItems, emptyState = emptyState)
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(MAX_STOP_TIMEOUT_MILLIS), CommunityContentState())
 
     private val _forYouState = MutableStateFlow(ForYouContentState())
-    val forYouState = combine(_forYouState, SettingsRepository.hiddenModules) { state, hiddenModules ->
-        val visibleModules = state.modules.filterNot { hiddenModules.contains(it.moduleKey()) }
+    val forYouState = combine(
+        _forYouState,
+        SettingsRepository.hiddenModules,
+        SettingsRepository.hiddenCards
+    ) { state, hiddenModules, hiddenCards ->
+        val visibleItems = state.modules
+            .filterNot { hiddenModules.contains(it.moduleKey()) }
+            .mapNotNull { module ->
+                val visibleCards = module.cards.filterNot { hiddenCards.contains(it.hideKey) }
+                if (visibleCards.isEmpty()) null else module.withCards(visibleCards)
+            }
         val areAllModulesHidden = ForYouModuleType.entries.all { hiddenModules.contains(it.name) }
         val isInterestModuleHidden = hiddenModules.contains(ForYouModuleType.BASED_ON_INTEREST.name)
         val emptyState = when {
             areAllModulesHidden -> FeedEmptyState.ALL_MODULES_HIDDEN
-            !state.isInitialLoading && state.error == null && visibleModules.isEmpty() -> FeedEmptyState.NO_DATA
+            !state.isInitialLoading && state.error == null && visibleItems.isEmpty() -> FeedEmptyState.NO_DATA
             else -> null
         }
         state.copy(
-            modules = visibleModules,
+            modules = visibleItems,
             emptyState = emptyState,
             isInterestModuleHidden = isInterestModuleHidden
         )
@@ -202,6 +213,9 @@ class HomeViewModel : ViewModel() {
     val unreadCount = _unreadCount.asStateFlow()
 
     init {
+        viewModelScope.launch {
+            SettingsRepository.migrateLegacyHiddenCards()
+        }
         viewModelScope.launch {
             combine(_selectedTab, _wikiSite) { tab, site -> tab to site }
             .distinctUntilChanged()
@@ -283,8 +297,6 @@ class HomeViewModel : ViewModel() {
                 .getFeedFeatured(date.year.toString(), "%02d".format(date.monthValue), "%02d".format(date.dayOfMonth), wikiSite.value.languageCode)
 
             // Construct Card objects based on the day's content
-            val hiddenCards = Prefs.hiddenCards
-
             val cardsForDay = buildList<Card> {
                 content.tfa?.let {
                     add(FeaturedArticleCard(it, age, wikiSite.value))
@@ -301,7 +313,7 @@ class HomeViewModel : ViewModel() {
                 content.potd?.let {
                     add(FeaturedImageCard(it, age, wikiSite.value))
                 }
-            }.filterNot { hiddenCards.contains(it.hideKey) }.toMutableList()
+            }.toMutableList()
             if (cardsForDay.isNotEmpty()) {
                 cardsForDay.add(0, DayHeaderCard(age))
             }
@@ -349,75 +361,28 @@ class HomeViewModel : ViewModel() {
         }
     }
 
-    fun hideCommunityCard(card: Card): Int {
-        addHiddenCard(card)
-        val cardIndex = _communityState.value.cards.indexOf(card)
-        if (cardIndex >= 0) {
-            _communityState.value = _communityState.value.copy(
-                cards = _communityState.value.cards - card
-            )
+    fun hideCommunityCard(card: Card) {
+        viewModelScope.launch {
+            SettingsRepository.addHiddenCard(card.hideKey)
         }
-        return cardIndex
     }
 
-    fun restoreCommunityCard(card: Card, index: Int) {
-        Prefs.hiddenCards -= card.hideKey
-         _communityState.value = _communityState.value.copy(
-            cards = _communityState.value.cards.toMutableList().apply {
-                if (index in 0..size) {
-                    add(index, card)
-                }
-            }
-        )
+    fun restoreCommunityCard(card: Card) {
+        viewModelScope.launch {
+            SettingsRepository.removeHiddenCard(card.hideKey)
+        }
     }
 
-    fun hideForYouCard(module: ForYouModule, card: ForYouCard): Int {
-        addHiddenCard(card)
-        val modules = _forYouState.value.modules
-        val moduleIndex = modules.indexOfFirst { it.matchesIdentity(module) }
-        if (moduleIndex < 0) {
-            return -1
+    fun hideForYouCard(card: ForYouCard) {
+        viewModelScope.launch {
+            SettingsRepository.addHiddenCard(card.hideKey)
         }
-        val currentModule = modules[moduleIndex]
-        val cardIndex = currentModule.cards.indexOf(card)
-        if (cardIndex < 0) {
-            return -1
-        }
-        val updatedCards = currentModule.cards.toMutableList().apply {
-            removeAt(cardIndex)
-        }
-        // If this was the last card in the module, remove the module.
-        val updatedModules = modules.toMutableList().apply {
-            if (updatedCards.isEmpty()) {
-                removeAt(moduleIndex)
-            } else {
-                this[moduleIndex] = currentModule.withCards(updatedCards)
-            }
-        }
-        _forYouState.update { it.copy(modules = updatedModules) }
-        if (updatedCards.isEmpty()) {
-            return moduleIndex
-        }
-        return cardIndex
     }
 
-    fun restoreForYouCard(module: ForYouModule, card: ForYouCard, index: Int) {
-        Prefs.hiddenCards -= card.hideKey
-        val modules = _forYouState.value.modules.toMutableList()
-        val moduleIndex = modules.indexOfFirst { it.matchesIdentity(module) }
-        if (moduleIndex >= 0) {
-            val currentModule = modules[moduleIndex]
-            val insertIndex = index.coerceIn(0, currentModule.cards.size)
-            val updatedCards = currentModule.cards.toMutableList().apply {
-                add(insertIndex, card)
-            }
-            modules[moduleIndex] = currentModule.withCards(updatedCards)
-        } else {
-            // If the module was removed when the card was hidden, add it back in.
-            val insertIndex = index.coerceIn(0, modules.size)
-            modules.add(insertIndex, module.withCards(listOf(card)))
+    fun restoreForYouCard(card: ForYouCard) {
+        viewModelScope.launch {
+            SettingsRepository.removeHiddenCard(card.hideKey)
         }
-        _forYouState.update { it.copy(modules = modules) }
     }
 
     fun hideModule(moduleKey: String) {
@@ -432,18 +397,9 @@ class HomeViewModel : ViewModel() {
         }
     }
 
-    private fun addHiddenCard(card: Card) {
-        val hiddenCards = Prefs.hiddenCards.toMutableList()
-        if (hiddenCards.size > MAX_HIDDEN_CARDS) {
-            hiddenCards.removeAt(0)
-        }
-        hiddenCards += card.hideKey
-        Prefs.hiddenCards = hiddenCards
-    }
-
     private suspend fun fetchForYouModules(age: Int): List<ForYouModule> {
         val modules = mutableListOf<ForYouModule>()
-        val hiddenCards = Prefs.hiddenCards
+        val hiddenCards = SettingsRepository.hiddenCards.first()
         var forYouCollectionSaved = ForYouCollectionSaved()
 
         try {

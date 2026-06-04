@@ -18,6 +18,6 @@ class TopReadCard(
     }
 
     override fun dismissHashCode(): Int {
-        return articles.localDate.toEpochDay().toInt() + site.hashCode()
+        return articles.localDate.toEpochDay().toInt() + site.hashCode() + moduleKey().hashCode()
     }
 }
