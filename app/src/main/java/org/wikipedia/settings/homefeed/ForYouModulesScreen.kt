@@ -35,6 +35,18 @@ enum class ForYouModuleType(
     PLACES_OF_INTEREST(
         title = R.string.home_feed_settings_places_of_interest_title,
         subtitle = R.string.home_feed_settings_places_of_interest_subtitle
+    ),
+    DISCOVER_RECOMMENDATIONS(
+        title = R.string.home_feed_settings_discover_recommendations_title,
+        subtitle = R.string.home_feed_settings_discover_recommendations_subtitle
+    ),
+    RANDOM(
+        title = R.string.home_feed_settings_random_title,
+        subtitle = R.string.home_feed_settings_random_subtitle
+    ),
+    GAMES(
+        title = R.string.home_feed_settings_games_title,
+        subtitle = R.string.home_feed_settings_games_subtitle
     );
 
     fun toEntry() = ToggleSettingItem(title, subtitle, name)
