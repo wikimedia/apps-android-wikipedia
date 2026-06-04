@@ -293,6 +293,9 @@ class HomeViewModel : ViewModel() {
                 content.topRead?.let {
                     add(TopReadCard(it, age, wikiSite.value))
                 }
+                content.dyk?.let {
+                    add(DidYouKnowCard(it, date.toString(), wikiSite.value))
+                }
                 if (!content.news.isNullOrEmpty()) {
                     add(NewsCard(content.news, age, wikiSite.value))
                 }
@@ -301,9 +304,6 @@ class HomeViewModel : ViewModel() {
                 }
                 content.potd?.let {
                     add(FeaturedImageCard(it, age, wikiSite.value))
-                }
-                content.dyk?.let {
-                    add(DidYouKnowCard(it, date.toString(), wikiSite.value))
                 }
             }.filterNot { hiddenCards.contains(it.hideKey) }.toMutableList()
             if (cardsForDay.isNotEmpty()) {
