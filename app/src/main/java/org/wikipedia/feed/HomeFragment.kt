@@ -29,6 +29,7 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.EmptyCommunityCard
 import org.wikipedia.feed.model.EmptyForYouCard
+import org.wikipedia.feed.model.PlacesOfInterestLocationPromptCard
 import org.wikipedia.feed.onboarding.ExploreFeedUpdatePromptActivity
 import org.wikipedia.feed.onthisday.OnThisDayActivity
 import org.wikipedia.feed.onthisday.OnThisDayCard
@@ -268,6 +269,7 @@ class HomeFragment : Fragment() {
                             requireActivity().startActivity(intent)
                         },
                         onPlacesCtaClick = {
+                            instrument.submitInteraction("click", actionSource = PlacesOfInterestLocationPromptCard::class.java.simpleName, elementId = "go_to_places")
                             requireActivity().startActivity(PlacesActivity.newIntent(requireContext()))
                         }
                     )

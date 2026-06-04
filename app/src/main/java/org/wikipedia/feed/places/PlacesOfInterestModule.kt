@@ -56,7 +56,7 @@ private const val IMAGE_LOUVRE = "https://upload.wikimedia.org/wikipedia/commons
 private const val IMAGE_SNOWY_MOUNTAIN = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Snowy_Mountains_In_Sky_%28Unsplash%29.jpg/960px-Snowy_Mountains_In_Sky_%28Unsplash%29.jpg"
 
 @Composable
-fun PlacesOfInterestCtaModule(
+fun PlacesOfInterestLocationPromptModule(
     modifier: Modifier = Modifier,
     wikiSite: WikiSite,
     onGoToPlacesClick: () -> Unit = {}
@@ -198,9 +198,9 @@ private fun ColumnScope.PlaceholderTile(
 
 @Preview
 @Composable
-private fun PlacesOfInterestCtaModulePreview() {
+private fun PlacesOfInterestLocationPromptModulePreview() {
     BaseTheme(currentTheme = Theme.DARK) {
-        PlacesOfInterestCtaModule(
+        PlacesOfInterestLocationPromptModule(
             modifier = Modifier
                 .fillMaxSize()
                 .background(ComposeColors.Green800)

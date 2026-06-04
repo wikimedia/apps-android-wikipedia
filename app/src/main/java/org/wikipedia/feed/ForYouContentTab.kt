@@ -62,8 +62,9 @@ import org.wikipedia.feed.interests.BasedOnInterestModule
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.EmptyForYouCard
 import org.wikipedia.feed.model.ForYouCard
+import org.wikipedia.feed.model.PlacesOfInterestLocationPromptCard
 import org.wikipedia.feed.places.PlacesOfInterestArticlesModule
-import org.wikipedia.feed.places.PlacesOfInterestCtaModule
+import org.wikipedia.feed.places.PlacesOfInterestLocationPromptModule
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.L10nUtil
@@ -338,7 +339,8 @@ private fun LazyListScope.forYouModuleItem(
                         }
                     }
                     !module.hasLocationPermission -> {
-                        PlacesOfInterestCtaModule(
+                        onCardImpression(PlacesOfInterestLocationPromptCard(), index)
+                        PlacesOfInterestLocationPromptModule(
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .height(viewPortHeight)
