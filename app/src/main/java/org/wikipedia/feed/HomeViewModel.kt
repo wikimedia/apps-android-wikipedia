@@ -613,20 +613,20 @@ class HomeViewModel : ViewModel() {
         return ForYouModule.PlacesOfInterest(age = 0, index = 0, cards = cards, hasLocationPermission = true)
     }
 
-    private suspend fun getPlacesData(location: Location): PlacesOfInterestCache {
+    private suspend fun getPlacesData(savedLocation: Location): PlacesOfInterestCache {
         val cached = Prefs.placesOfInterestCache
         if (cached != null && cached.languageCode == wikiSite.value.languageCode &&
-            cached.latitude == location.latitude && cached.longitude == location.longitude) {
+            cached.latitude == savedLocation.latitude && cached.longitude == savedLocation.longitude) {
             return cached
         }
 
-        val coordinates = "${location.latitude}|${location.longitude}"
+        val coordinates = "${savedLocation.latitude}|${savedLocation.longitude}"
         val cards = ServiceFactory.get(wikiSite.value)
             .getGeoSearch(coordinates, PLACES_SEARCH_RADIUS_METERS, PLACES_ARTICLES_REQUEST_LIMIT, PLACES_ARTICLES_REQUEST_LIMIT)
             .query?.pages.orEmpty()
             .filter { it.coordinates != null }
             .sortedBy {
-                location.distanceTo(Location("").apply {
+                savedLocation.distanceTo(Location("").apply {
                     latitude = it.coordinates!![0].lat
                     longitude = it.coordinates[0].lon
                 })
@@ -644,15 +644,15 @@ class HomeViewModel : ViewModel() {
                     latitude = page.coordinates!![0].lat
                     longitude = page.coordinates[0].lon
                 }
-                val distance = GeoUtil.getDistanceWithUnit(location, articleLocation, Locale.getDefault())
+                val distance = GeoUtil.getDistanceWithUnit(savedLocation, articleLocation, Locale.getDefault())
                 PlacesOfInterestCard(title, distance)
             }
 
         return PlacesOfInterestCache(
             languageCode = wikiSite.value.languageCode,
-            latitude = location.latitude,
-            longitude = location.longitude,
-            anchorEpochDay = LocalDate.now().toEpochDay(),
+            latitude = savedLocation.latitude,
+            longitude = savedLocation.longitude,
+            fetchedDay = LocalDate.now().toEpochDay(),
             cards = cards
         ).also { Prefs.placesOfInterestCache = it }
     }
@@ -662,10 +662,10 @@ class HomeViewModel : ViewModel() {
             return cache.cards
         }
         // Show consecutive blocks of cards (0-3, 4-7, ...) one block per day, starting from the day
-        // the pool was fetched, with the final block holding whatever remainder is left, then cycling
+        // the articles were fetched, with the final block holding whatever remainder is left, then cycling
         // back to the first block.
         val blocks = cache.cards.chunked(PLACES_DISPLAY_CARD_COUNT)
-        val daysSinceFetched = (LocalDate.now().toEpochDay() - cache.anchorEpochDay).coerceAtLeast(0)
+        val daysSinceFetched = (LocalDate.now().toEpochDay() - cache.fetchedDay).coerceAtLeast(0)
         val todayBlock = (daysSinceFetched % blocks.size).toInt()
         return blocks[todayBlock]
     }

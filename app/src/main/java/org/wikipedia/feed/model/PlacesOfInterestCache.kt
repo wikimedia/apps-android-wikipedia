@@ -7,6 +7,6 @@ class PlacesOfInterestCache(
     val languageCode: String,
     val latitude: Double,
     val longitude: Double,
-    val anchorEpochDay: Long,
+    val fetchedDay: Long,
     val cards: List<PlacesOfInterestCard>
 )

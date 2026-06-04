@@ -720,7 +720,7 @@ object Prefs {
 
     var placesOfInterestCache: PlacesOfInterestCache?
         get() = JsonUtil.decodeFromString(PrefsIoUtil.getString(R.string.preference_key_places_of_interest_cache, null))
-        set(pool) = PrefsIoUtil.setString(R.string.preference_key_places_of_interest_cache, JsonUtil.encodeToString(pool))
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_places_of_interest_cache, JsonUtil.encodeToString(value))
 
     val placesLastLocationFlow: Flow<Location?> = callbackFlow {
         val key = WikipediaApp.instance.getString(R.string.preference_key_places_last_location_and_zoom_level)

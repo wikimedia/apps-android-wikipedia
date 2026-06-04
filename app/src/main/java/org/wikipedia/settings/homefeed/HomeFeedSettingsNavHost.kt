@@ -91,7 +91,6 @@ fun HomeFeedSettingsNavHost(
                     customizeInterestsLauncher.launch(PersonalizationActivity.newIntent(context, showInterestsOnly = true))
                 },
                 onLocationClick = {
-                    // TODO: confirm elementId with data
                     context.instrument?.submitInteraction("click", elementId = "your_location")
                     context.startActivity(PlacesActivity.newIntent(context))
                 },
