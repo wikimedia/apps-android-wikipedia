@@ -55,7 +55,7 @@ uiGraphics = "1.11.2"
 lottieCompose = "6.7.1"
 datastorePreferences = "1.2.1"
 
-googlePlayAgeSignals = "0.0.1"
+googlePlayAgeSignals = "0.0.3"
 
 [libraries]
 androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastorePreferences" }

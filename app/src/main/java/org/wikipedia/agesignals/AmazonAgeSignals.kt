@@ -68,23 +68,18 @@ class AmazonUserDataClient(private val context: Context) {
                         responseStatus = if (responseStatusIndex >= 0) {
                             it.getString(responseStatusIndex) ?: ""
                         } else "",
-
                         userStatus = if (userStatusIndex >= 0) {
                             it.getString(userStatusIndex) ?: ""
                         } else "",
-
                         ageLower = if (ageLowerIndex >= 0 && !it.isNull(ageLowerIndex)) {
                             it.getInt(ageLowerIndex)
                         } else null,
-
                         ageUpper = if (ageUpperIndex >= 0 && !it.isNull(ageUpperIndex)) {
                             it.getInt(ageUpperIndex)
                         } else null,
-
                         userId = if (userIdIndex >= 0) {
                             it.getString(userIdIndex)
                         } else null,
-
                         mostRecentApprovalDate = if (approvalDateIndex >= 0) {
                             it.getString(approvalDateIndex)
                         } else null
