@@ -89,7 +89,6 @@ fun DidYouKnowScreen(
             dykHtmlList.forEach {
                 item {
                     DidYouKnowListItem(
-                        context = context,
                         wikiSite = wikiSite,
                         dykHtml = it,
                         onClick = onPageClick,
