@@ -38,6 +38,7 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.extensions.getString
+import org.wikipedia.feed.CardVariation
 import org.wikipedia.feed.ForYouCardContent
 import org.wikipedia.feed.ForYouModule
 import org.wikipedia.feed.ForYouModulePager
@@ -47,6 +48,7 @@ import org.wikipedia.feed.model.PlacesOfInterestCard
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
 import org.wikipedia.theme.Theme
+import kotlin.math.abs
 
 private const val SHORT_TILE_WEIGHT = 100f
 private const val TALL_TILE_WEIGHT = 171f
@@ -127,6 +129,8 @@ fun PlacesOfInterestArticlesModule(
     onCustomizeInterestsClick: (card: Card) -> Unit = {},
 ) {
     val context = LocalContext.current
+    val backgroundColorIndex = abs(module.cards.firstOrNull()?.hideKey.hashCode())
+
     ForYouModulePager(
         modifier = modifier,
         module = module,
@@ -137,6 +141,8 @@ fun PlacesOfInterestArticlesModule(
         ForYouCardContent(
             wikiSite = wikiSite,
             title = card.title,
+            variation = CardVariation.entries[pageIndex % CardVariation.entries.size],
+            backgroundColorIndex = backgroundColorIndex + pageIndex,
             module = module,
             card = card,
             footerIcon = painterResource(R.drawable.ic_location_on_24dp),
