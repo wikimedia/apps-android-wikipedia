@@ -2270,6 +2270,9 @@
   <string name="home_feed_for_you_screen_empty_ways_to_start">Header introducing suggested actions for getting started with the “For you” feed.</string>
   <string name="home_feed_for_you_screen_empty_add_interests">Link text prompting the user to add new interests to personalize the “For you” feed. Please keep the anchor link around the word \"some interests\"</string>
   <string name="home_feed_for_you_screen_empty_see_community">Link text prompting the user to explore the Community feed for additional content. Please keep the anchor link around the word \"community\"</string>
+  <string name="home_feed_random_title">Title for the Random Article module in the For You feed.</string>
+  <string name="home_feed_random_subtitle">Description of the Random Article module in the For You feed.</string>
+  <string name="home_feed_random_shuffle_button">Button label for going to the Randomizer feature in the app.</string>
   <string name="home_feed_settings_feed_configuration_description">Description explaining that selected topics and reading history influence personalized recommendations in the For You feed.</string>
   <string name="home_feed_settings_feed_configuration_interest_title">Heading title for the user’s selected interests in feed configuration settings.</string>
   <string name="home_feed_settings_feed_configuration_interest_subtitle">Subtitle indicating users can manage or update their selected topics of interest.</string>

@@ -33,6 +33,7 @@ import org.wikipedia.feed.model.BecauseYouReadCard
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.ContinueReadingCard
 import org.wikipedia.feed.model.ForYouCard
+import org.wikipedia.feed.model.RandomCard
 import org.wikipedia.feed.news.NewsCard
 import org.wikipedia.feed.onthisday.OnThisDayCard
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
@@ -93,6 +94,16 @@ sealed class ForYouModule {
     ) : ForYouModule() {
         override fun withCards(cards: List<ForYouCard>): ForYouModule = copy(cards = cards)
         override fun moduleKey(): String = ForYouModuleType.BECAUSE_YOU_READ.name
+    }
+
+    @Serializable
+    data class Random(
+        override val age: Int,
+        override val index: Int,
+        override val cards: List<ForYouCard>
+    ) : ForYouModule() {
+        override fun withCards(cards: List<ForYouCard>): ForYouModule = copy(cards = cards)
+        override fun moduleKey(): String = ForYouModuleType.RANDOM.name
     }
 }
 
@@ -544,6 +555,15 @@ class HomeViewModel : ViewModel() {
         if (continueReadingCards.isNotEmpty()) {
             // The index for this module is always 0 because there is always a single instance of this module, per age.
             modules.add(ForYouModule.ContinueReading(age, 0, continueReadingCards))
+        }
+
+        // --- Random article ---
+
+        val random = ServiceFactory.getRest(wikiSite.value).getRandomSummary()
+        val randomCard = RandomCard(random.getPageTitle(wikiSite.value))
+        if (!hiddenCards.contains(randomCard.hideKey)) {
+            // The index for this module is always 0 because there is always a single instance of this module, per age.
+            modules.add(ForYouModule.Random(age, 0, listOf(randomCard)))
         }
 
         forYouCollectionSaved = ForYouCollectionSaved(

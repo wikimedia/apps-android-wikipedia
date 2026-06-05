@@ -72,6 +72,7 @@ fun ForYouCardContent(
     card: ForYouCard? = null,
     footerIcon: Painter? = null,
     footerText: String? = null,
+    footerContent: @Composable () -> Unit = {},
     onPageClick: (PageTitle) -> Unit = {},
     onShareClick: (PageTitle) -> Unit = {},
     onSaveClick: (PageTitle) -> Unit = {},
@@ -81,6 +82,7 @@ fun ForYouCardContent(
 ) {
     val context = LocalContext.current
     var overflowMenuExpanded by remember { mutableStateOf(false) }
+    val showSpaceForPagerDots = (module?.cards?.size ?: 0) > 1
 
     Box(
         modifier = Modifier
@@ -224,7 +226,8 @@ fun ForYouCardContent(
                         )
                     }
                 }
-                Spacer(modifier = Modifier.height(40.dp))
+                footerContent()
+                Spacer(modifier = Modifier.height(if (showSpaceForPagerDots) 40.dp else 16.dp))
             }
         } else {
             Column(
@@ -248,7 +251,7 @@ fun ForYouCardContent(
                 )
                 Column(
                     modifier = Modifier.background(color = Color.Black.copy(alpha = 0.80f))
-                        .padding(bottom = 40.dp)
+                        .padding(bottom = if (showSpaceForPagerDots) 40.dp else 16.dp)
                 ) {
                     Row(
                         modifier = Modifier.fillMaxWidth()
@@ -331,6 +334,7 @@ fun ForYouCardContent(
                             )
                         }
                     }
+                    footerContent()
                 }
             }
         }

@@ -61,6 +61,7 @@ import org.wikipedia.feed.interests.BasedOnInterestModule
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.EmptyForYouCard
 import org.wikipedia.feed.model.ForYouCard
+import org.wikipedia.feed.random.RandomModule
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.L10nUtil
@@ -299,6 +300,24 @@ private fun LazyListScope.forYouModuleItem(
         is ForYouModule.BecauseYouRead -> {
             item(key = key) {
                 BecauseYouReadModule(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(viewPortHeight),
+                    wikiSite = wikiSite,
+                    module = module,
+                    onPageClick = onPageClick,
+                    onPageShareClick = onPageShareClick,
+                    onPageBookmarkClick = onPageBookmarkClick,
+                    onHideCardClick = onHideCardClick,
+                    onHideModuleClick = { onHideModuleClick(module.moduleKey()) },
+                    onCardInView = { onCardImpression(it, index) },
+                    onCustomizeInterestsClick = onCustomizeInterestsClick
+                )
+            }
+        }
+        is ForYouModule.Random -> {
+            item(key = key) {
+                RandomModule(
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(viewPortHeight),

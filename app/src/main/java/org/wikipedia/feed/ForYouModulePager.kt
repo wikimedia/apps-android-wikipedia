@@ -37,7 +37,7 @@ fun ForYouModulePager(
 
         HorizontalPager(
             state = pagerState,
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
         ) { page ->
             Box(
                 modifier = Modifier.onGloballyPositioned { coordinates ->
