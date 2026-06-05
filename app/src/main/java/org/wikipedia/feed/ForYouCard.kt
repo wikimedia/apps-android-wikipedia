@@ -470,19 +470,10 @@ fun ForYouCardDropdownMenu(
 @Preview
 @Composable
 fun ForYouModulePreviewWithImage() {
-    val wikiSite = WikiSite.preview()
-    val title = PageTitle(
-        text = "Test Article",
-        displayText = "Test Article",
-        wiki = WikiSite.preview(),
-        description = "This is a test article",
-        extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        thumbUrl = "https://example.com/thumb.jpg"
-    )
     BaseTheme(currentTheme = Theme.LIGHT) {
         ForYouCardContent(
-            wikiSite = wikiSite,
-            title = title,
+            wikiSite = WikiSite.preview(),
+            title = PageTitle.preview(),
             footerText = "Lorem ipsum"
         )
     }
@@ -491,19 +482,10 @@ fun ForYouModulePreviewWithImage() {
 @Preview
 @Composable
 fun ForYouModulePreviewNoImage() {
-    val wikiSite = WikiSite.preview()
-    val title = PageTitle(
-        text = "Test Article",
-        displayText = "Test Article",
-        wiki = WikiSite.preview(),
-        description = "This is a test article",
-        extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        thumbUrl = null
-    )
     BaseTheme(currentTheme = Theme.LIGHT) {
         ForYouCardContent(
-            wikiSite = wikiSite,
-            title = title,
+            wikiSite = WikiSite.preview(),
+            title = PageTitle.preview(withThumbnail = false),
             footerText = "Lorem ipsum"
         )
     }
@@ -512,19 +494,10 @@ fun ForYouModulePreviewNoImage() {
 @Preview
 @Composable
 fun ForYouModulePreviewTextOnlyWithImage() {
-    val wikiSite = WikiSite.preview()
-    val title = PageTitle(
-        text = "Test Article",
-        displayText = "Test Article",
-        wiki = WikiSite.preview(),
-        description = "This is a test article",
-        extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        thumbUrl = "test.jpg"
-    )
     BaseTheme(currentTheme = Theme.LIGHT) {
         ForYouCardContent(
-            wikiSite = wikiSite,
-            title = title,
+            wikiSite = WikiSite.preview(),
+            title = PageTitle.preview(),
             footerText = "Lorem ipsum",
             variation = CardVariation.VARIATION_TEXT_ONLY,
             backgroundColorIndex = 2
