@@ -24,9 +24,11 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.lifecycleScope
+import com.google.android.play.agesignals.AgeSignalsException
 import com.google.android.play.agesignals.AgeSignalsManagerFactory
 import com.google.android.play.agesignals.AgeSignalsRequest
 import com.google.android.play.agesignals.AgeSignalsResult
+import com.google.android.play.agesignals.model.AgeSignalsErrorCode
 import com.google.android.play.agesignals.model.AgeSignalsVerificationStatus
 import com.google.android.play.agesignals.testing.FakeAgeSignalsManager
 import kotlinx.coroutines.launch
@@ -64,6 +66,7 @@ class AgeSignalsActivity : AppCompatActivity() {
                     val fakeVerifiedUser =
                         AgeSignalsResult.builder()
                             .setUserStatus(AgeSignalsVerificationStatus.VERIFIED)
+                            .setAgeLower(18)
                             .build()
                     val manager = FakeAgeSignalsManager()
                     manager.setNextAgeSignalsResult(fakeVerifiedUser)
@@ -118,6 +121,37 @@ class AgeSignalsActivity : AppCompatActivity() {
                     manager.checkAgeSignals(AgeSignalsRequest.builder().build())
                         .addOnSuccessListener { ageSignalsResult ->
                             resultText += "UNKNOWN user response :\n$ageSignalsResult\n\n"
+                        }
+
+                    val fakeDeclaredUserWithCustomAgeRange =
+                        AgeSignalsResult.builder()
+                            .setUserStatus(AgeSignalsVerificationStatus.DECLARED)
+                            .setAgeLower(13)
+                            .setAgeUpper(15)
+                            .setInstallId("fake_install_id")
+                            .build()
+                    manager.setNextAgeSignalsResult(fakeDeclaredUserWithCustomAgeRange)
+                    manager.checkAgeSignals(AgeSignalsRequest.builder().build())
+                        .addOnSuccessListener { ageSignalsResult ->
+                            resultText += "DECLARED user age 13 - 15 response :\n$ageSignalsResult\n\n"
+                        }
+
+                    val fakeNullUserStatus =
+                        AgeSignalsResult.builder()
+                            .setUserStatus(null)
+                            .build()
+                    manager.setNextAgeSignalsResult(fakeNullUserStatus)
+                    manager.checkAgeSignals(AgeSignalsRequest.builder().build())
+                        .addOnSuccessListener { ageSignalsResult ->
+                            resultText += "NULL user response :\n$ageSignalsResult\n\n"
+                        }
+
+                    manager.setNextAgeSignalsException(
+                        AgeSignalsException(AgeSignalsErrorCode.NETWORK_ERROR)
+                    )
+                    manager.checkAgeSignals(AgeSignalsRequest.builder().build())
+                        .addOnFailureListener { error ->
+                            resultText += "NETWORK_ERROR response :\n$error\n\n"
                         }
                 },
                 onAmazonAgeSignalClick = {
