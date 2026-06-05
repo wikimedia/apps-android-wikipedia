@@ -26,6 +26,8 @@ import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.compose.components.WikipediaAlertDialog
 import org.wikipedia.compose.components.menu.PageOverflowMenuViewModel
 import org.wikipedia.compose.theme.BaseTheme
+import org.wikipedia.feed.didyouknow.DidYouKnowActivity
+import org.wikipedia.feed.didyouknow.DidYouKnowCard
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.EmptyCommunityCard
 import org.wikipedia.feed.model.EmptyForYouCard
@@ -120,20 +122,20 @@ class HomeFragment : Fragment() {
                         onLoadMoreForYouContent = viewModel::loadForYouContent,
                         onHideCommunityCardClick = { card ->
                             instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_overflow", elementId = "card_hide")
-                            val cardIndex = viewModel.hideCommunityCard(card)
+                            viewModel.hideCommunityCard(card)
                             FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.menu_feed_card_dismissed))
                                 .setAction(getString(R.string.explore_feed_header_overflow_hide_module_message_action)) {
                                     instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_overflow", elementId = "undo_card_hide")
-                                    viewModel.restoreCommunityCard(card, cardIndex)
+                                    viewModel.restoreCommunityCard(card)
                                 }.show()
                         },
-                        onHideForYouCardClick = { module, card ->
+                        onHideForYouCardClick = { _, card ->
                             instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_overflow", elementId = "card_hide")
-                            val cardIndex = viewModel.hideForYouCard(module, card)
+                            viewModel.hideForYouCard(card)
                             FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.menu_feed_card_dismissed))
                                 .setAction(getString(R.string.explore_feed_header_overflow_hide_module_message_action)) {
                                     instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_overflow", elementId = "undo_card_hide")
-                                    viewModel.restoreForYouCard(module, card, cardIndex)
+                                    viewModel.restoreForYouCard(card)
                                 }.show()
                         },
                         onHideModuleClick = { moduleKey ->
@@ -243,12 +245,15 @@ class HomeFragment : Fragment() {
                             when (card) {
                                 is TopReadCard -> {
                                     instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, elementId = "more_top_read")
-                                    // TODO: simplify TopReadListCard after we remove the old feed UIs.
                                     startActivity(TopReadArticlesActivity.newIntent(requireActivity(), TopReadCard(card.articles, card.age, wikiSite)))
                                 }
                                 is OnThisDayCard -> {
                                     instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, elementId = "more_on_this_day")
                                     startActivity(OnThisDayActivity.newIntent(requireActivity(), card.age, -1, wikiSite, InvokeSource.ON_THIS_DAY_CARD_FOOTER))
+                                }
+                                is DidYouKnowCard -> {
+                                    instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, elementId = "more_did_you_know")
+                                    startActivity(DidYouKnowActivity.newIntent(requireActivity(), card.site, card.items))
                                 }
                             }
                         },

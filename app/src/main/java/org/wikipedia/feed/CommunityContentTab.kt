@@ -26,6 +26,8 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.extensions.getString
 import org.wikipedia.feed.dayheader.DayHeaderCard
+import org.wikipedia.feed.didyouknow.DidYouKnowCard
+import org.wikipedia.feed.didyouknow.DidYouKnowModule
 import org.wikipedia.feed.featured.FeaturedArticleCard
 import org.wikipedia.feed.featured.FeaturedArticleModule
 import org.wikipedia.feed.image.FeaturedImageCard
@@ -254,9 +256,25 @@ fun CommunityContentTab(
                                     )
                                 }
                             }
+                            is DidYouKnowCard -> {
+                                item(key = "dyk-${card.date}") {
+                                    DidYouKnowModule(
+                                        wikiSite = wikiSite,
+                                        dyk = card.items,
+                                        onHideCardClick = { onHideCardClick(card) },
+                                        onHideModuleClick = {
+                                            onHideModuleClick(card.moduleKey())
+                                        },
+                                        onPageClick = {
+                                            onPageClick(card, HistoryEntry(it, HistoryEntry.SOURCE_FEED_DID_YOU_KNOW))
+                                        },
+                                        onFooterClick = { onCardFooterClick(card) },
+                                        onCardImpression = { onCardImpression(card, cardIndex) }
+                                    )
+                                }
+                            }
                             else -> {
                                 // TODO: Today's Featured Picture
-                                // TODO: DYK
                                 // TODO: Media of the day (Commons)
                             }
                         }

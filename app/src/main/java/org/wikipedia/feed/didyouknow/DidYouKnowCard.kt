@@ -1,4 +1,4 @@
-package org.wikipedia.feed.topread
+package org.wikipedia.feed.didyouknow
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
@@ -7,17 +7,17 @@ import org.wikipedia.feed.model.Card
 import org.wikipedia.settings.homefeed.CommunityModuleType
 
 @Parcelize
-class TopReadCard(
-    val articles: TopRead,
-    val age: Int,
+class DidYouKnowCard(
+    val items: List<DidYouKnowItem>,
+    val date: String = "",
     val site: WikiSite
 ) : Card(), Parcelable {
 
     override fun moduleKey(): String {
-        return CommunityModuleType.TOP_READ.name
+        return CommunityModuleType.DID_YOU_KNOW.name
     }
 
     override fun dismissHashCode(): Int {
-        return articles.localDate.toEpochDay().toInt() + site.hashCode() + moduleKey().hashCode()
+        return moduleKey().hashCode() + date.hashCode() + site.hashCode()
     }
 }

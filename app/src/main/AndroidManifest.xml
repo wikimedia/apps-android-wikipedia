@@ -272,6 +272,8 @@
             android:name=".feed.topread.TopReadArticlesActivity"
             android:theme="@style/AppTheme.ActionBar"/>
 
+        <activity android:name=".feed.didyouknow.DidYouKnowActivity"/>
+
         <activity android:name=".feed.onthisday.OnThisDayActivity"
             android:configChanges="orientation|screenSize"/>
 
