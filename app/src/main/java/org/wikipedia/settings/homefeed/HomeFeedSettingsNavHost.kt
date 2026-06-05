@@ -91,7 +91,7 @@ fun HomeFeedSettingsNavHost(
                     customizeInterestsLauncher.launch(PersonalizationActivity.newIntent(context, showInterestsOnly = true))
                 },
                 onLocationClick = {
-                    context.instrument?.submitInteraction("click", elementId = "your_location")
+                    context.instrument?.submitInteraction("click", elementId = "update_location")
                     context.startActivity(PlacesActivity.newIntent(context))
                 },
                 onReadingHistoryClick = {

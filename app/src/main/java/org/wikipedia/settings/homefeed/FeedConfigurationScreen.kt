@@ -189,6 +189,12 @@ private fun FeedConfigurationContentPreview() {
                         icon = R.drawable.ic_baseline_tune_24
                     ),
                     FeedConfigurationItem(
+                        type = FeedConfigurationType.LOCATION,
+                        title = R.string.home_feed_settings_feed_configuration_location_title,
+                        description = R.string.home_feed_settings_feed_configuration_location_subtitle,
+                        icon = R.drawable.ic_location_on_24dp
+                    ),
+                    FeedConfigurationItem(
                         type = FeedConfigurationType.READING_HISTORY,
                         title = R.string.home_feed_settings_feed_configuration_reading_history_title,
                         description = R.string.home_feed_settings_feed_configuration_empty_reading_history_subtitle,
