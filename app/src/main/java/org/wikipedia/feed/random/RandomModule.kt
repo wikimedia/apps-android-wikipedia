@@ -17,14 +17,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.extensions.getString
-import org.wikipedia.extensions.instrument
-import org.wikipedia.feed.CardVariation
 import org.wikipedia.feed.ForYouCardContent
 import org.wikipedia.feed.ForYouModule
 import org.wikipedia.feed.ForYouModulePager
@@ -33,9 +30,7 @@ import org.wikipedia.feed.model.ForYouCard
 import org.wikipedia.feed.model.RandomCard
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
-import org.wikipedia.random.RandomActivity
 import org.wikipedia.theme.Theme
-import kotlin.math.abs
 
 @Composable
 fun RandomModule(
@@ -48,10 +43,10 @@ fun RandomModule(
     onHideCardClick: (module: ForYouModule, card: ForYouCard) -> Unit = { _, _ -> },
     onHideModuleClick: () -> Unit = {},
     onCardInView: (card: Card) -> Unit = {},
-    onCustomizeInterestsClick: (card: Card) -> Unit = {}
+    onCustomizeInterestsClick: (card: Card) -> Unit = {},
+    onShuffleClick: () -> Unit = {}
 ) {
     val context = LocalContext.current
-    val backgroundColorIndex = abs(module.cards.firstOrNull()?.hideKey.hashCode())
 
     ForYouModulePager(
         modifier = modifier,
@@ -63,17 +58,12 @@ fun RandomModule(
         ForYouCardContent(
             wikiSite = wikiSite,
             title = card.title,
-            variation = CardVariation.entries[page % CardVariation.entries.size],
-            backgroundColorIndex = backgroundColorIndex + page,
             module = module,
             card = module.cards[page],
             footerText = context.getString(wikiSite.languageCode, R.string.view_random_article_card_title),
             footerContent = {
                 Button(
-                    onClick = {
-                        context.instrument?.submitInteraction("click", elementId = "random_card_shuffle_button")
-                        context.startActivity(RandomActivity.newIntent(context, wikiSite, Constants.InvokeSource.FEED))
-                    },
+                    onClick = onShuffleClick,
                     modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 16.dp),
                     colors = ButtonDefaults.buttonColors(
                         containerColor = WikipediaTheme.colors.progressiveColor,
@@ -114,19 +104,10 @@ fun RandomModule(
 @Preview
 @Composable
 fun RandomCardPreviewWithImage() {
-    val wikiSite = WikiSite.preview()
-    val title = PageTitle(
-        text = "Test Article",
-        displayText = "Test Article",
-        wiki = WikiSite.preview(),
-        description = "This is a test article",
-        extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        thumbUrl = "https://example.com/thumb.jpg"
-    )
-    val card = RandomCard(title)
+    val card = RandomCard(PageTitle.preview())
     BaseTheme(currentTheme = Theme.LIGHT) {
         RandomModule(
-            wikiSite = wikiSite,
+            wikiSite = WikiSite.preview(),
             module = ForYouModule.Random(0, 0, mutableListOf(card, card))
         )
     }
@@ -135,19 +116,10 @@ fun RandomCardPreviewWithImage() {
 @Preview
 @Composable
 fun RandomCardPreviewNoImage() {
-    val wikiSite = WikiSite.preview()
-    val title = PageTitle(
-        text = "Test Article",
-        displayText = "Test Article",
-        wiki = WikiSite.preview(),
-        description = "This is a test article",
-        extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        thumbUrl = null
-    )
-    val card = RandomCard(title)
+    val card = RandomCard(PageTitle.preview(withThumbnail = false))
     BaseTheme(currentTheme = Theme.LIGHT) {
         RandomModule(
-            wikiSite = wikiSite,
+            wikiSite = WikiSite.preview(),
             module = ForYouModule.Random(0, 0, mutableListOf(card))
         )
     }
@@ -156,19 +128,10 @@ fun RandomCardPreviewNoImage() {
 @Preview
 @Composable
 fun RandomCardPreviewTextOnlyWithImage() {
-    val wikiSite = WikiSite.preview()
-    val title = PageTitle(
-        text = "Test Article",
-        displayText = "Test Article",
-        wiki = WikiSite.preview(),
-        description = "This is a test article",
-        extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        thumbUrl = "test.jpg"
-    )
-    val card = RandomCard(title)
+    val card = RandomCard(PageTitle.preview())
     BaseTheme(currentTheme = Theme.LIGHT) {
         RandomModule(
-            wikiSite = wikiSite,
+            wikiSite = WikiSite.preview(),
             module = ForYouModule.Random(0, 0, mutableListOf(card))
         )
     }
