@@ -55,6 +55,7 @@ uiGraphics = "1.11.2"
 lottieCompose = "6.7.1"
 datastorePreferences = "1.2.1"
 
+googlePlayAgeSignals = "0.0.3"
 
 [libraries]
 androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastorePreferences" }
@@ -133,6 +134,7 @@ androidx-glance-appwidget = { module = "androidx.glance:glance-appwidget", versi
 androidx-glance-preview = { module = "androidx.glance:glance-preview", version.ref = "glance" }
 androidx-glance-appwidget-preview = { module = "androidx.glance:glance-appwidget-preview", version.ref = "glance" }
 androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics", version.ref = "uiGraphics" }
+google-play-age-signals = { module = "com.google.android.play:age-signals", version.ref = "googlePlayAgeSignals" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "gradle" }

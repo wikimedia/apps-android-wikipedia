@@ -595,4 +595,10 @@
             android:title="Feed Preference Selection"/>
     </PreferenceCategory>
 
+    <PreferenceCategory android:title="Experiments">
+        <Preference
+            android:key="@string/preference_key_age_signals"
+            android:title="Age Signals" />
+    </PreferenceCategory>
+
 </PreferenceScreen>
