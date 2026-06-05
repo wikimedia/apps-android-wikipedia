@@ -45,8 +45,8 @@ import org.wikipedia.main.MainFragment
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.tabs.TabActivity
-import org.wikipedia.random.RandomActivity
 import org.wikipedia.places.PlacesActivity
+import org.wikipedia.random.RandomActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.homefeed.HomeFeedSettingsActivity
 import org.wikipedia.settings.homefeed.HomeFeedSettingsStartDestination

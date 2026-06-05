@@ -41,8 +41,8 @@ import org.wikipedia.feed.model.BecauseYouReadCard
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.ContinueReadingCard
 import org.wikipedia.feed.model.ForYouCard
-import org.wikipedia.feed.model.RandomCard
 import org.wikipedia.feed.model.PlacesOfInterestCard
+import org.wikipedia.feed.model.RandomCard
 import org.wikipedia.feed.news.NewsCard
 import org.wikipedia.feed.onthisday.OnThisDayCard
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
