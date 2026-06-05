@@ -50,11 +50,9 @@ import androidx.compose.ui.unit.sp
 import org.wikipedia.R
 import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.components.HtmlText
-import org.wikipedia.compose.components.menu.PageOverflowMenuViewModel
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.extensions.getString
 import org.wikipedia.feed.becauseyouread.BecauseYouReadModule
 import org.wikipedia.feed.continuereading.ContinueReadingModule
@@ -65,6 +63,7 @@ import org.wikipedia.feed.model.ForYouCard
 import org.wikipedia.feed.model.PlacesOfInterestLocationPromptCard
 import org.wikipedia.feed.places.PlacesOfInterestArticlesModule
 import org.wikipedia.feed.places.PlacesOfInterestLocationPromptModule
+import org.wikipedia.feed.random.RandomModule
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.L10nUtil
@@ -75,18 +74,16 @@ fun ForYouContentTab(
     topInset: Int,
     wikiSite: WikiSite,
     onLoadMore: () -> Unit,
-    overflowMenuState: PageOverflowMenuViewModel.PageOverflowMenuState? = null,
     onHideCardClick: (module: ForYouModule, card: ForYouCard) -> Unit = { _, _ -> },
     onHideModuleClick: (moduleKey: String) -> Unit = {},
     onPageClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
     onPageBookmarkClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
     onPageShareClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
-    onPageOverflowClick: (card: Card, pageSummary: PageSummary, source: Int, menuKey: String) -> Unit = { _, _, _, _ -> },
-    onPageOverflowDismiss: () -> Unit = {},
     onCustomizeInterestsClick: (card: Card) -> Unit = {},
     onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> },
     onManageModulesClick: () -> Unit,
     onSelectTab: (HomeTab, Card?) -> Unit = { _, _ -> },
+    onShuffleClick: () -> Unit = {},
     onPlacesCtaClick: () -> Unit = {}
 ) {
     when {
@@ -187,6 +184,7 @@ fun ForYouContentTab(
                                 onHideModuleClick = onHideModuleClick,
                                 onCardImpression = onCardImpression,
                                 onCustomizeInterestsClick = onCustomizeInterestsClick,
+                                onShuffleClick = onShuffleClick,
                                 onPlacesCtaClick = onPlacesCtaClick
                             )
                         }
@@ -244,6 +242,7 @@ fun ForYouContentTab(
                                 onHideModuleClick = onHideModuleClick,
                                 onCardImpression = { _, _ -> },
                                 onCustomizeInterestsClick = onCustomizeInterestsClick,
+                                onShuffleClick = onShuffleClick,
                                 onPlacesCtaClick = onPlacesCtaClick
                             )
                         }
@@ -267,6 +266,7 @@ private fun LazyListScope.forYouModuleItem(
     onHideModuleClick: (moduleKey: String) -> Unit,
     onCardImpression: (card: Card, index: Int) -> Unit,
     onCustomizeInterestsClick: (card: Card) -> Unit,
+    onShuffleClick: () -> Unit,
     onPlacesCtaClick: () -> Unit
 ) {
     val key = "${module.javaClass.simpleName}-${module.age}-$index"
@@ -369,6 +369,25 @@ private fun LazyListScope.forYouModuleItem(
                         )
                     }
                 }
+            }
+        }
+        is ForYouModule.Random -> {
+            item(key = key) {
+                RandomModule(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(viewPortHeight),
+                    wikiSite = wikiSite,
+                    module = module,
+                    onPageClick = onPageClick,
+                    onPageShareClick = onPageShareClick,
+                    onPageBookmarkClick = onPageBookmarkClick,
+                    onHideCardClick = onHideCardClick,
+                    onHideModuleClick = { onHideModuleClick(module.moduleKey()) },
+                    onCardInView = { onCardImpression(it, index) },
+                    onCustomizeInterestsClick = onCustomizeInterestsClick,
+                    onShuffleClick = onShuffleClick
+                )
             }
         }
     }

@@ -45,6 +45,7 @@ import org.wikipedia.main.MainFragment
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.tabs.TabActivity
+import org.wikipedia.random.RandomActivity
 import org.wikipedia.places.PlacesActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.homefeed.HomeFeedSettingsActivity
@@ -272,6 +273,10 @@ class HomeFragment : Fragment() {
                                 }
                             )
                             requireActivity().startActivity(intent)
+                        },
+                        onShuffleClick = {
+                            instrument.submitInteraction("click", elementId = "random_card_shuffle_button")
+                            startActivity(RandomActivity.newIntent(requireActivity(), wikiSite, InvokeSource.FEED))
                         },
                         onPlacesCtaClick = {
                             instrument.submitInteraction("click", actionSource = PlacesOfInterestLocationPromptCard::class.java.simpleName, elementId = "go_to_places")

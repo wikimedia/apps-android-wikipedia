@@ -66,19 +66,10 @@ fun ContinueReadingModule(
 @Preview
 @Composable
 fun ContinueReadingCardPreviewWithImage() {
-    val wikiSite = WikiSite.preview()
-    val title = PageTitle(
-        text = "Test Article",
-        displayText = "Test Article",
-        wiki = WikiSite.preview(),
-        description = "This is a test article",
-        extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        thumbUrl = "https://example.com/thumb.jpg"
-    )
-    val card = ContinueReadingCard(title, HistoryEntry.SOURCE_HISTORY)
+    val card = ContinueReadingCard(PageTitle.preview(), HistoryEntry.SOURCE_HISTORY)
     BaseTheme(currentTheme = Theme.LIGHT) {
         ContinueReadingModule(
-            wikiSite = wikiSite,
+            wikiSite = WikiSite.preview(),
             module = ForYouModule.ContinueReading(0, 0, mutableListOf(card, card, card, card))
         )
     }
@@ -87,19 +78,10 @@ fun ContinueReadingCardPreviewWithImage() {
 @Preview
 @Composable
 fun ContinueReadingCardPreviewNoImage() {
-    val wikiSite = WikiSite.preview()
-    val title = PageTitle(
-        text = "Test Article",
-        displayText = "Test Article",
-        wiki = WikiSite.preview(),
-        description = "This is a test article",
-        extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        thumbUrl = null
-    )
-    val card = ContinueReadingCard(title, HistoryEntry.SOURCE_HISTORY)
+    val card = ContinueReadingCard(PageTitle.preview(withThumbnail = false), HistoryEntry.SOURCE_HISTORY)
     BaseTheme(currentTheme = Theme.LIGHT) {
         ContinueReadingModule(
-            wikiSite = wikiSite,
+            wikiSite = WikiSite.preview(),
             module = ForYouModule.ContinueReading(0, 0, mutableListOf(card, card, card, card))
         )
     }
@@ -108,19 +90,10 @@ fun ContinueReadingCardPreviewNoImage() {
 @Preview
 @Composable
 fun ContinueReadingCardPreviewTextOnlyWithImage() {
-    val wikiSite = WikiSite.preview()
-    val title = PageTitle(
-        text = "Test Article",
-        displayText = "Test Article",
-        wiki = WikiSite.preview(),
-        description = "This is a test article",
-        extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        thumbUrl = "test.jpg"
-    )
-    val card = ContinueReadingCard(title, HistoryEntry.SOURCE_HISTORY)
+    val card = ContinueReadingCard(PageTitle.preview(), HistoryEntry.SOURCE_HISTORY)
     BaseTheme(currentTheme = Theme.LIGHT) {
         ContinueReadingModule(
-            wikiSite = wikiSite,
+            wikiSite = WikiSite.preview(),
             module = ForYouModule.ContinueReading(0, 0, mutableListOf(card, card, card, card))
         )
     }

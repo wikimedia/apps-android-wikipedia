@@ -104,6 +104,7 @@ fun HomeScreen(
     onCardFooterClick: (card: Card) -> Unit = {},
     onNotificationClick: () -> Unit = {},
     onManageModulesClick: () -> Unit = {},
+    onShuffleClick: () -> Unit = {},
     onPlacesCtaClick: () -> Unit = {}
 ) {
     val context = LocalContext.current
@@ -192,18 +193,16 @@ fun HomeScreen(
                         state = forYouContentState,
                         wikiSite = wikiSite,
                         onLoadMore = onLoadMoreForYouContent,
-                        overflowMenuState = overflowMenuState,
                         onPageClick = onPageClick,
                         onHideCardClick = onHideForYouCardClick,
                         onHideModuleClick = onHideModuleClick,
                         onPageBookmarkClick = onPageBookmarkClick,
                         onPageShareClick = onPageShareClick,
-                        onPageOverflowClick = onPageOverflowClick,
-                        onPageOverflowDismiss = onPageOverflowDismiss,
                         onCustomizeInterestsClick = onCustomizeInterestsClick,
                         onCardImpression = onCardImpression,
                         onManageModulesClick = onManageModulesClick,
                         onSelectTab = onSelectTab,
+                        onShuffleClick = onShuffleClick,
                         onPlacesCtaClick = onPlacesCtaClick
                     )
 
@@ -512,8 +511,8 @@ private fun HomeScreenCommunityAllModulesOffPreview() {
         HomeScreen(
             wikiSite = WikiSite.preview(),
             selectedTab = HomeTab.COMMUNITY,
-            communityContentState = CommunityContentState(emptyState = FeedEmptyState.ALL_MODULES_HIDDEN),
-            forYouContentState = ForYouContentState(isInitialLoading = true),
+            communityContentState = CommunityContentState(emptyState = FeedEmptyState.ALL_MODULES_HIDDEN, wikiSite = WikiSite.preview()),
+            forYouContentState = ForYouContentState(isInitialLoading = true, wikiSite = WikiSite.preview()),
             tabsState = TabsState(1, false),
             notificationBellState = NotificationBellState(unreadCount = 5, canShow = true)
         )
@@ -527,8 +526,8 @@ private fun HomeScreenForYouAllModulesOffPreview() {
         HomeScreen(
             wikiSite = WikiSite.preview(),
             selectedTab = HomeTab.FOR_YOU,
-            communityContentState = CommunityContentState(isInitialLoading = true),
-            forYouContentState = ForYouContentState(emptyState = FeedEmptyState.ALL_MODULES_HIDDEN),
+            communityContentState = CommunityContentState(isInitialLoading = true, wikiSite = WikiSite.preview()),
+            forYouContentState = ForYouContentState(emptyState = FeedEmptyState.ALL_MODULES_HIDDEN, wikiSite = WikiSite.preview()),
             tabsState = TabsState(1, false),
             notificationBellState = NotificationBellState(unreadCount = 5, canShow = true)
         )
@@ -542,8 +541,8 @@ fun HomeScreenCommunityPreview() {
         HomeScreen(
             wikiSite = WikiSite.preview(),
             selectedTab = HomeTab.COMMUNITY,
-            communityContentState = CommunityContentState(isInitialLoading = true),
-            forYouContentState = ForYouContentState(isInitialLoading = true),
+            communityContentState = CommunityContentState(isInitialLoading = true, wikiSite = WikiSite.preview()),
+            forYouContentState = ForYouContentState(isInitialLoading = true, wikiSite = WikiSite.preview()),
             tabsState = TabsState(1, false),
             notificationBellState = NotificationBellState(unreadCount = 5, canShow = true)
         )
@@ -557,8 +556,8 @@ fun HomeScreenForYouPreview() {
         HomeScreen(
             wikiSite = WikiSite.preview(),
             selectedTab = HomeTab.FOR_YOU,
-            communityContentState = CommunityContentState(isInitialLoading = true),
-            forYouContentState = ForYouContentState(isInitialLoading = true),
+            communityContentState = CommunityContentState(isInitialLoading = true, wikiSite = WikiSite.preview()),
+            forYouContentState = ForYouContentState(isInitialLoading = true, wikiSite = WikiSite.preview()),
             tabsState = TabsState(1, false),
             notificationBellState = NotificationBellState(unreadCount = 99, canShow = true)
         )

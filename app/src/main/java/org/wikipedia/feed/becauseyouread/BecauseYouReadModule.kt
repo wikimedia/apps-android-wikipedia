@@ -66,19 +66,10 @@ fun BecauseYouReadModule(
 @Preview
 @Composable
 fun BecauseYouReadCardPreviewWithImage() {
-    val wikiSite = WikiSite.preview()
-    val title = PageTitle(
-        text = "Test Article",
-        displayText = "Test Article",
-        wiki = WikiSite.preview(),
-        description = "This is a test article",
-        extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        thumbUrl = "https://example.com/thumb.jpg"
-    )
-    val card = BecauseYouReadCard(title, sourceDisplayTitle = "<i>Test Article</i>")
+    val card = BecauseYouReadCard(PageTitle.preview(), sourceDisplayTitle = "<i>Test Article</i>")
     BaseTheme(currentTheme = Theme.LIGHT) {
         BecauseYouReadModule(
-            wikiSite = wikiSite,
+            wikiSite = WikiSite.preview(),
             module = ForYouModule.BecauseYouRead(0, 0, mutableListOf(card, card, card, card))
         )
     }
@@ -87,19 +78,10 @@ fun BecauseYouReadCardPreviewWithImage() {
 @Preview
 @Composable
 fun BecauseYouReadCardPreviewNoImage() {
-    val wikiSite = WikiSite.preview()
-    val title = PageTitle(
-        text = "Test Article",
-        displayText = "Test Article",
-        wiki = WikiSite.preview(),
-        description = "This is a test article",
-        extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        thumbUrl = null
-    )
-    val card = BecauseYouReadCard(title, sourceDisplayTitle = "Test Article")
+    val card = BecauseYouReadCard(PageTitle.preview(withThumbnail = false), sourceDisplayTitle = "Test Article")
     BaseTheme(currentTheme = Theme.LIGHT) {
         BecauseYouReadModule(
-            wikiSite = wikiSite,
+            wikiSite = WikiSite.preview(),
             module = ForYouModule.BecauseYouRead(0, 0, mutableListOf(card, card, card, card))
         )
     }
@@ -108,19 +90,10 @@ fun BecauseYouReadCardPreviewNoImage() {
 @Preview
 @Composable
 fun BecauseYouReadCardPreviewTextOnlyWithImage() {
-    val wikiSite = WikiSite.preview()
-    val title = PageTitle(
-        text = "Test Article",
-        displayText = "Test Article",
-        wiki = WikiSite.preview(),
-        description = "This is a test article",
-        extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        thumbUrl = "test.jpg"
-    )
-    val card = BecauseYouReadCard(title, sourceDisplayTitle = "Test Article")
+    val card = BecauseYouReadCard(PageTitle.preview(), sourceDisplayTitle = "Test Article")
     BaseTheme(currentTheme = Theme.LIGHT) {
         BecauseYouReadModule(
-            wikiSite = wikiSite,
+            wikiSite = WikiSite.preview(),
             module = ForYouModule.BecauseYouRead(0, 0, mutableListOf(card, card, card, card))
         )
     }
