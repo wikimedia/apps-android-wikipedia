@@ -216,6 +216,7 @@ class HomeViewModel : ViewModel() {
         placesModule
     ) { state, hiddenModules, hiddenCards, placesModule ->
         val visibleItems = (state.modules + listOfNotNull(placesModule))
+            .sortedBy { ForYouModuleType.valueOf(it.moduleKey()).ordinal }
             .filterNot { hiddenModules.contains(it.moduleKey()) }
             .mapNotNull { module ->
                 val visibleCards = module.cards.filterNot { hiddenCards.contains(it.hideKey) }
