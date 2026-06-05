@@ -41,7 +41,6 @@ import org.wikipedia.feed.model.BecauseYouReadCard
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.ContinueReadingCard
 import org.wikipedia.feed.model.ForYouCard
-import org.wikipedia.feed.model.PlacesOfInterestCache
 import org.wikipedia.feed.model.PlacesOfInterestCard
 import org.wikipedia.feed.news.NewsCard
 import org.wikipedia.feed.onthisday.OnThisDayCard
@@ -67,8 +66,7 @@ import java.util.Locale
 
 enum class HomeTab { COMMUNITY, FOR_YOU }
 private const val MAX_STOP_TIMEOUT_MILLIS = 5000L
-private const val PLACES_DISPLAY_CARD_COUNT = 4
-private const val PLACES_ARTICLES_REQUEST_LIMIT = 50
+private const val PLACES_ARTICLES_REQUEST_LIMIT = 10
 private const val PLACES_SEARCH_RADIUS_METERS = 10000
 
 @Serializable
@@ -609,23 +607,16 @@ class HomeViewModel : ViewModel() {
         val location = Prefs.placesLastLocationAndZoomLevel?.first
             ?: return ForYouModule.PlacesOfInterest(age = 0, index = 0, cards = emptyList(), hasLocationPermission = false)
 
-        val pool = getPlacesData(location)
-        val cards = selectDailyPlacesCards(pool)
+        val cards = getPlacesCards(location)
         if (cards.isEmpty()) {
             return null
         }
         return ForYouModule.PlacesOfInterest(age = 0, index = 0, cards = cards, hasLocationPermission = true)
     }
 
-    private suspend fun getPlacesData(savedLocation: Location): PlacesOfInterestCache {
-        val cached = Prefs.placesOfInterestCache
-        if (cached != null && cached.languageCode == wikiSite.value.languageCode &&
-            cached.latitude == savedLocation.latitude && cached.longitude == savedLocation.longitude) {
-            return cached
-        }
-
+    private suspend fun getPlacesCards(savedLocation: Location): List<PlacesOfInterestCard> {
         val coordinates = "${savedLocation.latitude}|${savedLocation.longitude}"
-        val cards = ServiceFactory.get(wikiSite.value)
+        return ServiceFactory.get(wikiSite.value)
             .getGeoSearch(coordinates, PLACES_SEARCH_RADIUS_METERS, PLACES_ARTICLES_REQUEST_LIMIT, PLACES_ARTICLES_REQUEST_LIMIT)
             .query?.pages.orEmpty()
             .filter { it.coordinates != null }
@@ -651,27 +642,6 @@ class HomeViewModel : ViewModel() {
                 val distance = GeoUtil.getDistanceWithUnit(savedLocation, articleLocation, Locale.getDefault())
                 PlacesOfInterestCard(title, distance)
             }
-
-        return PlacesOfInterestCache(
-            languageCode = wikiSite.value.languageCode,
-            latitude = savedLocation.latitude,
-            longitude = savedLocation.longitude,
-            fetchedDay = LocalDate.now().toEpochDay(),
-            cards = cards
-        ).also { Prefs.placesOfInterestCache = it }
-    }
-
-    private fun selectDailyPlacesCards(cache: PlacesOfInterestCache): List<PlacesOfInterestCard> {
-        if (cache.cards.isEmpty()) {
-            return cache.cards
-        }
-        // Show consecutive blocks of cards (0-3, 4-7, ...) one block per day, starting from the day
-        // the articles were fetched, with the final block holding whatever remainder is left, then cycling
-        // back to the first block.
-        val blocks = cache.cards.chunked(PLACES_DISPLAY_CARD_COUNT)
-        val daysSinceFetched = (LocalDate.now().toEpochDay() - cache.fetchedDay).coerceAtLeast(0)
-        val todayBlock = (daysSinceFetched % blocks.size).toInt()
-        return blocks[todayBlock]
     }
 
     private fun hasLocationPermission(): Boolean {
