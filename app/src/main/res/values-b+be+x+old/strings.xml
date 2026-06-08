@@ -383,6 +383,7 @@
   <string name="user_option_sync_label">Налады</string>
   <string name="notification_syncing_cancel_button">Скасаваць</string>
   <string name="notifications_poll_enable_positive">Увамкнуць</string>
+  <string name="view_featured_image_card_download">Сьцягнуць</string>
   <string name="view_continue_reading_card_subtitle_today">сёньня</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Скасаваць</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Скасаваць</string>

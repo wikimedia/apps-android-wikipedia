@@ -2391,6 +2391,9 @@
   <string name="home_feed_settings_because_you_read_subtitle">Предлози според скорешна статија од вашата историја</string>
   <string name="home_feed_settings_continue_reading_title">Продолжете со читање</string>
   <string name="home_feed_settings_continue_reading_subtitle">Вратете се на статијата што не ја довршивте</string>
+  <string name="home_feed_did_you_know_title">Дали сте знаеле?</string>
+  <string name="home_feed_did_you_know_subtitle">Интересни факти од статии избрани од доброволни уредници</string>
+  <string name="home_feed_did_you_know_more_label">Повеќе „Дали сте знаеле?“</string>
   <string name="home_feed_settings_community_empty_dialog_title">Вашиот тековник „Заедница“ ќе биде празен</string>
   <string name="home_feed_settings_for_you_empty_dialog_title">Вашиот тековник „За вас“ ќе биде празен</string>
   <string name="home_feed_settings_empty_dialog_text">Вклучете барем еден модул за да гледате содржини.</string>
@@ -2404,6 +2407,9 @@
   <string name="home_feed_for_you_screen_empty_ways_to_start">Начини да почнете:</string>
   <string name="home_feed_for_you_screen_empty_add_interests">Додајте &lt;a href=\"#add_interests\"&gt;некои интереси&lt;/a&gt;</string>
   <string name="home_feed_for_you_screen_empty_see_community">Погледајте ги случувањата во &lt;a href=\"#community_tab\"&gt;заедницата&lt;/a&gt;</string>
+  <string name="home_feed_random_title">Случајна</string>
+  <string name="home_feed_random_subtitle">Случајна статија која ќе ја поттикне вашата љубопитност</string>
+  <string name="home_feed_random_shuffle_button">Измешај</string>
   <string name="home_feed_settings_feed_configuration_description">Овие теми и статии одредуваат што ќе стои во вашиот тековник „За вас“. Отстранете ги они ешто повеќе не ги сакате или додајте нови интереси.</string>
   <string name="home_feed_settings_feed_configuration_interest_title">Ваши интереси</string>
   <string name="home_feed_settings_feed_configuration_interest_subtitle">Уредете ваши теми од интерес</string>

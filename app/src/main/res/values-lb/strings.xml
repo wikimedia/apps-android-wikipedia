@@ -2069,10 +2069,13 @@
   <string name="explore_feed_header_overflow_hide_module_message">Modul verstoppt.</string>
   <string name="home_feed_settings_because_you_read_subtitle">Virschléi op Basis vun engem rezenten Artikel aus Ärem Historique</string>
   <string name="home_feed_settings_continue_reading_subtitle">Gitt zeréck op Artikelen, déi Dir net fäerdeg gelies hutt</string>
+  <string name="home_feed_did_you_know_title">Wousst Dir schonn?</string>
+  <string name="home_feed_did_you_know_more_label">Méi „Wousst Dir schonn?“</string>
   <string name="home_feed_settings_empty_dialog_positive">Trotzdeem virufueren</string>
   <string name="home_feed_screen_empty_state_label">Äre Feed ass eidel</string>
   <string name="home_feed_for_you_screen_empty_title">Äre Feed ass am Moment eidel</string>
   <string name="home_feed_settings_feed_configuration_reading_history_title">Lieshistorique</string>
   <string name="home_feed_settings_feed_configuration_languages_title">Sproochen</string>
   <string name="home_feed_settings_feed_configuration_languages_subtitle">Ännert Är preferéiert Sproochen</string>
+  <string name="home_feed_for_you_screen_end_of_feed_title">Dat war et fir haut!</string>
 </resources>

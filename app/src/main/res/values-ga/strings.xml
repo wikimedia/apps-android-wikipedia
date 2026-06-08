@@ -2703,6 +2703,9 @@
   <string name="home_feed_settings_because_you_read_subtitle">Moltaí bunaithe ar alt le déanaí ó do stair</string>
   <string name="home_feed_settings_continue_reading_title">Lean ort ag léamh</string>
   <string name="home_feed_settings_continue_reading_subtitle">Léim ar ais chuig ailt nár chríochnaigh tú</string>
+  <string name="home_feed_did_you_know_title">An raibh a fhios agat?</string>
+  <string name="home_feed_did_you_know_subtitle">Fíricí spéisiúla ó ailt a roghnaigh eagarthóirí deonacha</string>
+  <string name="home_feed_did_you_know_more_label">An raibh a fhios agat níos mó?</string>
   <string name="home_feed_settings_community_empty_dialog_title">Beidh do bheatha Pobail folamh</string>
   <string name="home_feed_settings_for_you_empty_dialog_title">Beidh do bheatha \"Duit féin\" folamh</string>
   <string name="home_feed_settings_empty_dialog_text">Cuir modúl amháin ar a laghad ar siúl chun ábhar a fheiceáil.</string>
@@ -2726,4 +2729,8 @@
   <string name="home_feed_settings_feed_configuration_languages_title">Teangacha</string>
   <string name="home_feed_settings_feed_configuration_languages_subtitle">Cuir do theangacha is fearr leat in eagar</string>
   <string name="home_feed_settings_feed_configuration_interests_updated_message">Nuashonraíodh na spéiseanna. Athnuachan do bheatha chun nuashonruithe a fheiceáil.</string>
+  <string name="home_feed_for_you_screen_end_of_feed_title">Sin é don lá inniu!</string>
+  <string name="home_feed_for_you_screen_end_of_feed_description">Tar ar ais amárach chun ailt úra nua a fháil atá saincheaptha duitse.</string>
+  <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Bealaí chun leanúint ar aghaidh ag foghlaim:</string>
+  <string name="home_feed_for_you_screen_end_of_feed_add_interests">Cuir &lt;a href=\"#add_interests\"&gt;leasanna nua&lt;/a&gt; leis</string>
 </resources>
