@@ -1,8 +1,7 @@
 package org.wikipedia.language
 
-import org.hamcrest.MatcherAssert
-import org.hamcrest.Matchers
 import org.jsoup.Jsoup
+import org.junit.Assert.assertEquals
 import org.junit.Test
 import java.io.File
 import java.util.function.Consumer
@@ -20,8 +19,9 @@ class TranslationTests {
         // Check for multiple single (non-sequential) parameters
         baseMap.forEach { (key, list) ->
             val singleIntParam = POSSIBLE_PARAMS.indexOf("%d")
+            val singleIntSepParam = POSSIBLE_PARAMS.indexOf("%,d")
             val singleStrParam = POSSIBLE_PARAMS.indexOf("%s")
-            if ((list[singleIntParam] + list[singleStrParam] > 1) && !key.contains('[')) {
+            if ((list[singleIntParam] + list[singleIntSepParam] + list[singleStrParam] > 1) && !key.contains('[')) {
                 mismatches.append("Too many single parameters in ")
                     .append(STRINGS_XML_NAME).append(": ")
                     .append(key).append(" \n")
@@ -33,7 +33,7 @@ class TranslationTests {
             val lang =
                 if (dir.name.contains("-")) dir.name.substring(dir.name.indexOf("-") + 1) else "en"
             val targetStringsXml = File(dir, STRINGS_XML_NAME)
-            val targetMap = findMatchedParamsInXML(targetStringsXml, POSSIBLE_PARAMS, true)
+            val targetMap = findMatchedParamsInXML(targetStringsXml, POSSIBLE_PARAMS, quote = true, ignorePluralOne = true)
 
             // compare the counts inside the maps
             targetMap.forEach { (targetKey, targetList) ->
@@ -49,7 +49,7 @@ class TranslationTests {
         }
 
         // Step 3: check the result
-        MatcherAssert.assertThat("\n" + mismatches.toString(), mismatches.length, Matchers.`is`(0))
+        assertEquals("\n" + mismatches.toString(), 0, mismatches.length)
     }
 
     @Test
@@ -70,8 +70,15 @@ class TranslationTests {
             }
         }
 
+        // Step 4: Check if the item in qq/strings.xml exists in en/strings.xml
+        for (item in qqList) {
+            if (!baseList.contains(item)) {
+                mismatches.append("Extra item in qq/strings.xml not found in en/strings.xml ").append(item).append(" \n")
+            }
+        }
+
         // Step 4: check the result
-        MatcherAssert.assertThat("\n" + mismatches.toString(), mismatches.length, Matchers.`is`(0))
+        assertEquals("\n" + mismatches.toString(), 0, mismatches.length)
     }
 
     @Test
@@ -98,7 +105,32 @@ class TranslationTests {
             })
         }
 
-        MatcherAssert.assertThat("\n" + mismatches.toString(), mismatches.length, Matchers.`is`(0))
+        assertEquals("\n" + mismatches.toString(), 0, mismatches.length)
+    }
+
+    @Test
+    @Throws(Throwable::class)
+    fun testPluralsHaveItems() {
+        val mismatches = StringBuilder()
+
+        // Step 1: collect all items in en/strings.xml
+        val basePluralsList = findStringItemInXML(baseFile, "plurals")
+
+        // Step 2: check qq/strings.xml for plurals without items
+        val document = Jsoup.parse(qQFile, "UTF-8")
+        val pluralsElements = document.select("plurals")
+        for (element in pluralsElements) {
+            val name = element.attr("name")
+            val items = element.select("> item")
+            // Check if this plural exists in base and has no items in qq
+            if (basePluralsList.contains(name) && items.isEmpty()) {
+                mismatches
+                    .append("Plurals has no <item> element in qq/strings/xml: ")
+                    .append(name)
+                    .append("\n")
+            }
+        }
+        assertEquals("\n" + mismatches.toString(), 0, mismatches.length)
     }
 
     @Test
@@ -116,7 +148,7 @@ class TranslationTests {
             // Skip "qq" since it contains a lot of {{Identical}} tags
             if (lang != "qq") {
                 val targetStringsXml = File(dir, STRINGS_XML_NAME)
-                val targetMap = findMatchedParamsInXML(targetStringsXml, UNSUPPORTED_TEXTS_REGEX, false)
+                val targetMap = findMatchedParamsInXML(targetStringsXml, UNSUPPORTED_TEXTS_REGEX, quote = false)
 
                 // compare the counts inside the maps
                 targetMap.forEach { (targetKey, targetList) ->
@@ -133,7 +165,7 @@ class TranslationTests {
         }
 
         // Step 3: check the result
-        MatcherAssert.assertThat("\n" + mismatches.toString(), mismatches.length, Matchers.`is`(0))
+        assertEquals("\n" + mismatches.toString(), 0, mismatches.length)
     }
 
     private val baseFile: File
@@ -183,7 +215,7 @@ class TranslationTests {
     }
 
     @Throws(Throwable::class)
-    private fun findMatchedParamsInXML(xmlPath: File, params: List<String>, quote: Boolean): Map<String, List<Int>> {
+    private fun findMatchedParamsInXML(xmlPath: File, params: List<String>, quote: Boolean, ignorePluralOne: Boolean = false): Map<String, List<Int>> {
         val map = mutableMapOf<String, List<Int>>()
         val document = Jsoup.parse(xmlPath, "UTF-8")
 
@@ -226,7 +258,7 @@ class TranslationTests {
             for (subElement in pluralElements) {
                 val subName = subElement.attr("quantity")
                 val subValue = subElement.text()
-                if (subName == "one") {
+                if (subName == "one" && ignorePluralOne) {
                     continue
                 }
 
@@ -254,9 +286,10 @@ class TranslationTests {
 
         /** Add more if needed, but then also add some tests.  */
         private val POSSIBLE_PARAMS = listOf(
-            "%s", "%1\$s", "%2\$s", "%3\$s",
-            "%d", "%1\$d", "%2\$d", "%3\$d",
-            "%.2f", "%1$.2f", "%2$.2f", "%3$.2f",
+            "%s", "%1\$s", "%2\$s", "%3\$s", "%4\$s",
+            "%d", "%1\$d", "%2\$d", "%3\$d", "%4\$d",
+            "%,d", "%1$,d", "%2$,d", "%3$,d", "%4$,d",
+            "%.2f", "%1$.2f", "%2$.2f", "%3$.2f", "%4$.2f",
             "^1"
         )
         private val UNSUPPORTED_TEXTS_REGEX = listOf(
@@ -264,9 +297,9 @@ class TranslationTests {
             "\\[\\[.*?\\]\\]",
             "\\*\\*.*?\\*\\*",
             "''.*?''",
-            "[^%]%[ .,;?]"
+            "(?<!%)%(?!%|,d|\\d|d|s|f)"
         )
-        private val BAD_NAMES = listOf("ldrtl", "sw360dp", "sw600dp", "sw720dp", "v19", "v21", "v23", "land", "night")
+        private val BAD_NAMES = listOf("ldrtl", "sw360dp", "sw600dp", "sw720dp", "v19", "v21", "v23", "v31", "land", "night")
 
         private var BASE_FILE: File? = null
         private var QQ_FILE: File? = null

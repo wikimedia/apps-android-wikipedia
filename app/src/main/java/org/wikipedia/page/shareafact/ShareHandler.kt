@@ -1,6 +1,5 @@
 package org.wikipedia.page.shareafact
 
-import android.os.Build
 import android.view.ActionMode
 import android.view.MenuItem
 import kotlinx.serialization.Serializable
@@ -55,9 +54,7 @@ class ShareHandler(private val fragment: PageFragment, private val bridge: Commu
                 }
             }
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            mode.invalidateContentRect()
-        }
+        mode.invalidateContentRect()
     }
 
     fun shouldEnableWiktionaryDialog(): Boolean {

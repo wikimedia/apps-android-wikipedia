@@ -8,17 +8,25 @@ import androidx.core.view.isVisible
 import androidx.core.widget.ImageViewCompat
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
+import org.wikipedia.analytics.eventplatform.ActivityTabEvent
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.analytics.eventplatform.PlacesEvent
+import org.wikipedia.analytics.eventplatform.WikiGamesEvent
+import org.wikipedia.analytics.eventplatform.YearInReviewEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ViewMainDrawerBinding
+import org.wikipedia.games.GamesHubActivity
+import org.wikipedia.games.WikiGames
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.places.PlacesActivity
 import org.wikipedia.settings.Prefs
+import org.wikipedia.suggestededits.SuggestedEditsTasksActivity
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil.getThemedColorStateList
+import org.wikipedia.yearinreview.YearInReviewViewModel
 
 class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
     interface Callback {
@@ -35,10 +43,16 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
     private var _binding: ViewMainDrawerBinding? = null
     private val binding get() = _binding!!
 
+    private val yirEntrySlide get() = if (AccountUtil.isLoggedIn) "li_profile" else "lo_profile"
+    private val yirEnabled get() = YearInReviewViewModel.isAccessible && Prefs.isYearInReviewEnabled
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = ViewMainDrawerBinding.inflate(inflater, container, false)
 
-        binding.mainDrawerYearInReviewContainer.isVisible = Prefs.isYearInReviewEnabled
+        if (yirEnabled) {
+            YearInReviewEvent.submit(action = "impression", slide = yirEntrySlide)
+        }
+        binding.mainDrawerYearInReviewContainer.isVisible = yirEnabled
 
         binding.mainDrawerAccountContainer.setOnClickListener {
             BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerAccountContainer)
@@ -59,6 +73,12 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
         binding.mainDrawerWatchlistContainer.setOnClickListener {
             BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerWatchlistContainer)
             callback()?.watchlistClick()
+            dismiss()
+        }
+
+        binding.mainDrawerGamesHubContainer.setOnClickListener {
+            WikiGamesEvent.submit(action = "games_click", activeInterface = "more_menu")
+            requireActivity().startActivity(GamesHubActivity.newIntent(requireActivity()))
             dismiss()
         }
 
@@ -88,7 +108,16 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
         }
 
         binding.mainDrawerYearInReviewContainer.setOnClickListener {
+            YearInReviewEvent.submit(action = "start_click", slide = yirEntrySlide)
             callback()?.yearInReviewClick()
+            dismiss()
+        }
+        binding.yearInReviewRedDot.isVisible = !Prefs.yearInReviewVisited
+
+        binding.mainDrawerEditContainer.setOnClickListener {
+            BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerEditContainer)
+            ActivityTabEvent.submit(activeInterface = "more_menu", action = "edit_click")
+            startActivity(SuggestedEditsTasksActivity.newIntent(requireContext()))
             dismiss()
         }
 
@@ -124,22 +153,25 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
                 binding.mainDrawerAccountName.isVisible = true
                 binding.mainDrawerLoginButton.isVisible = false
             }
-            binding.mainDrawerTalkContainer.visibility = View.VISIBLE
+            binding.mainDrawerTalkContainer.isVisible = true
             binding.mainDrawerTempAccountContainer.isVisible = AccountUtil.isTemporaryAccount
             binding.mainDrawerWatchlistContainer.isVisible = !AccountUtil.isTemporaryAccount
-            binding.mainDrawerContribsContainer.visibility = View.VISIBLE
+            binding.mainDrawerContribsContainer.isVisible = true
+            binding.mainDrawerEditContainer.isVisible = true
         } else {
             binding.mainDrawerAccountAvatar.setImageResource(R.drawable.ic_login_24px)
             ImageViewCompat.setImageTintList(binding.mainDrawerAccountAvatar, getThemedColorStateList(requireContext(), R.attr.progressive_color))
-            binding.mainDrawerAccountName.visibility = View.GONE
+            binding.mainDrawerAccountName.isVisible = false
             binding.mainDrawerTempAccountContainer.isVisible = false
             binding.mainDrawerLoginButton.textAlignment = View.TEXT_ALIGNMENT_TEXT_START
             binding.mainDrawerLoginButton.text = getString(R.string.main_drawer_login)
             binding.mainDrawerLoginButton.setTextColor(getThemedColorStateList(requireContext(), R.attr.progressive_color))
-            binding.mainDrawerTalkContainer.visibility = View.GONE
-            binding.mainDrawerWatchlistContainer.visibility = View.GONE
-            binding.mainDrawerContribsContainer.visibility = View.GONE
+            binding.mainDrawerTalkContainer.isVisible = false
+            binding.mainDrawerWatchlistContainer.isVisible = false
+            binding.mainDrawerContribsContainer.isVisible = false
+            binding.mainDrawerEditContainer.isVisible = false
         }
+        binding.mainDrawerGamesHubContainer.isVisible = WikiGames.WHICH_CAME_FIRST.isLangSupported(*WikipediaApp.instance.languageState.appLanguageCodes.toTypedArray())
     }
 
     private fun callback(): Callback? {

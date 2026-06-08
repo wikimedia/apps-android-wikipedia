@@ -13,6 +13,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.base.TestConfig
+import org.wikipedia.dataclient.donate.CampaignCollection
 
 class MoreMenuRobot : BaseRobot() {
 
@@ -55,7 +56,7 @@ class MoreMenuRobot : BaseRobot() {
 
     fun clickTalk() = apply {
         click.onViewWithId(R.id.main_drawer_talk_container)
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun clickWatchList() = apply {
@@ -87,8 +88,9 @@ class MoreMenuRobot : BaseRobot() {
         try {
             val customTabIntentMatcher = allOf(
                 hasAction(Intent.ACTION_VIEW),
-                hasData(context.getString(R.string.donate_url,
-                    WikipediaApp.instance.languageState.systemLanguageCode, BuildConfig.VERSION_NAME))
+                hasData(context.getString(R.string.donate_url, CampaignCollection.getFormattedCampaignId("appmenu"),
+                    WikipediaApp.instance.languageState.systemLanguageCode, BuildConfig.VERSION_NAME,
+                    WikipediaApp.instance.appInstallID))
             )
             intended(customTabIntentMatcher)
         } catch (e: AssertionError) {

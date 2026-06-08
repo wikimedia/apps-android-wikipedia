@@ -27,7 +27,7 @@
   <string name="article_load_error_retry">Ripruva</string>
   <string name="offline_load_error_retry">Ripruva</string>
   <string name="error_next">N avanti</string>
-  <string name="menu_clear_all_history">Cancella la crunuluggìa</string>
+  <string name="menu_clear_all_history" fuzzy="true">Cancella la crunuluggìa</string>
   <string name="history_item_deleted">%s rimovutu dâ crunuluggìa</string>
   <string name="history_items_deleted">%d vuci rimuvuti dâ crunuluggìa</string>
   <string name="history_item_delete_undo">Annulla</string>
@@ -39,7 +39,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Svanca crunuluggìa di navigazzioni</string>
-  <string name="dialog_message_clear_history">Si cunfermi cancillirai tutta la tò crunuluggìa di navigazzioni e chiudirai tutti li schedi apruti attualimenti. Sî sìcuru?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Si cunfermi cancillirai tutta la tò crunuluggìa di navigazzioni e chiudirai tutti li schedi apruti attualimenti. Sî sìcuru?</string>
   <string name="dialog_message_clear_history_yes">Sì</string>
   <string name="dialog_message_clear_history_no">No</string>
   <string name="share_via">Cunnividi cu</string>
@@ -187,7 +187,6 @@
   <string name="terms_of_use_description">Cunnizzioni d\'usu</string>
   <string name="about_wikipedia_url">https://scn.wikipedia.org/wiki/Wikipedia:Àutri nfurmazzioni</string>
   <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="about_contributors_heading">Cuntribbutura</string>
   <string name="about_translators_heading">Traduttura</string>
   <string name="about_app_license_heading">Licenza</string>

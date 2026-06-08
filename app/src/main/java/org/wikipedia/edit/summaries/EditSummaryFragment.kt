@@ -160,8 +160,7 @@ class EditSummaryFragment : Fragment() {
             }) {
                 val query = ServiceFactory.get(title.wikiSite)
                     .getWatchedStatusWithUserOptions(title.prefixedText).query!!
-                binding.watchPageCheckBox.isChecked = query.firstPage()!!.watched ||
-                        query.userInfo?.options?.watchDefault == 1
+                binding.watchPageCheckBox.isChecked = query.firstPage()!!.watched || query.userInfo?.options?.watchEditedPagesByDefault == true
             }
         } else {
             binding.watchPageCheckBox.isEnabled = false

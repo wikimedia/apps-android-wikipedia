@@ -29,7 +29,7 @@
   <string name="page_error_back_to_main">Каялла таврӑн</string>
   <string name="error_back">Каялла таврӑн</string>
   <string name="error_next">Малалли</string>
-  <string name="menu_clear_all_history">Историе тасат</string>
+  <string name="menu_clear_all_history" fuzzy="true">Историе тасат</string>
   <string name="history_item_deleted">«%s» статьяна паллашнисен историнчен кӑларнӑ</string>
   <string name="history_items_deleted">Пӑхнисен историйӗнчен %d статья катертнӗ</string>
   <string name="history_item_delete_undo">Тавӑр</string>
@@ -42,7 +42,7 @@
   <string name="wikimedia_commons">Викиуправӑш</string>
   <string name="wikidata">Викиданнӑйсем</string>
   <string name="dialog_title_clear_history">Паллашнисен историне тасат</string>
-  <string name="dialog_message_clear_history">Страницӑсемпе паллашнин мӗнпур истори ҫухалӗ, тата пӗтӗм табсем хупӑнӗҫ. Ҫавах тумалла-и?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Страницӑсемпе паллашнин мӗнпур истори ҫухалӗ, тата пӗтӗм табсем хупӑнӗҫ. Ҫавах тумалла-и?</string>
   <string name="dialog_message_clear_history_yes">Ҫапла</string>
   <string name="dialog_message_clear_history_no">Ҫук</string>
   <string name="share_via">Пайлаш...</string>
@@ -207,9 +207,6 @@
   <string name="privacy_policy_description">Конфиденциальность йĕркисем</string>
   <string name="terms_of_use_description">Усӑ курмалли условисем</string>
   <string name="about_wikipedia_url">https://cv.wikipedia.org/wiki/Википеди:Википеди_çинчен</string>
-  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru#Офлайнра_вуласси_тата_даннӑйсем</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/cv</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="about_libraries_heading">Усӑ курнӑ библиотекӑсем</string>
   <string name="about_contributors_heading">Авторсем</string>
   <string name="about_translators_heading">Куҫаруҫӑсем</string>

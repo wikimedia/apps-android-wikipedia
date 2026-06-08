@@ -34,7 +34,7 @@
   <string name="page_error_back_to_main">Mene järilleh</string>
   <string name="error_back">Mene järilleh</string>
   <string name="error_next">Tulii</string>
-  <string name="menu_clear_all_history">Pyhki histourii</string>
+  <string name="menu_clear_all_history" fuzzy="true">Pyhki histourii</string>
   <string name="history_item_deleted">%s otettu iäre histouriespäi</string>
   <string name="history_items_deleted">%d artiklua pyhkitty histouriespäi</string>
   <string name="history_item_delete_undo">Hylgiä</string>
@@ -46,7 +46,7 @@
   <string name="wikimedia_commons">Wikimedii Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Pyhki livuavushistourii</string>
-  <string name="dialog_message_clear_history">Tämä hävittäy kogo livuanduhistourien da salbuau avvoi olijat välilehtet. Oletgo varmu?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Tämä hävittäy kogo livuanduhistourien da salbuau avvoi olijat välilehtet. Oletgo varmu?</string>
   <string name="dialog_message_clear_history_yes">Muga</string>
   <string name="dialog_message_clear_history_no">Ei</string>
   <string name="share_via">Jua palvelus</string>

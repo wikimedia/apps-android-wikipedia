@@ -3,6 +3,7 @@ package org.wikipedia.settings.dev
 import android.content.DialogInterface
 import android.content.Intent
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.preference.ListPreference
 import androidx.preference.Preference
@@ -18,10 +19,12 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.donate.donationreminder.DonationReminderConfig
+import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
 import org.wikipedia.games.onthisday.OnThisDayGameNotificationManager
 import org.wikipedia.games.onthisday.OnThisDayGameNotificationState
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
+import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingListPage
@@ -30,10 +33,13 @@ import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequen
 import org.wikipedia.settings.BasePreferenceLoader
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.dev.playground.CategoryDeveloperPlayGround
+import org.wikipedia.settings.dev.playground.ReadingChallengePlayGroundDialog
 import org.wikipedia.setupLeakCanary
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.StringUtil.fromHtml
+import org.wikipedia.yearinreview.YearInReviewSurveyState
 
 internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : BasePreferenceLoader(fragment) {
     private val setMediaWikiBaseUriChangeListener = Preference.OnPreferenceChangeListener { _, _ ->
@@ -113,7 +119,14 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             val pages = (0 until numberOfArticles).map {
                 ReadingListPage(PageTitle("Malformed page $it", WikiSite.forLanguageCode("foo")))
             }
+            fragment.lifecycleScope.launch(CoroutineExceptionHandler { _, caught ->
+                MaterialAlertDialogBuilder(activity)
+                    .setMessage(caught.message)
+                    .setPositiveButton(android.R.string.ok, null)
+                    .show()
+            }) {
             AppDatabase.instance.readingListPageDao().addPagesToList(AppDatabase.instance.readingListDao().getDefaultList(), pages, true)
+                }
             true
         }
         findPreference(R.string.preference_key_missing_description_test).onPreferenceClickListener = Preference.OnPreferenceClickListener {
@@ -192,18 +205,6 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             setupLeakCanary()
             true
         }
-        findPreference(R.string.preference_key_feed_yir_onboarding_card_enabled).onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _: Preference, isEnabled: Any? ->
-            if (isEnabled is Boolean && isEnabled) {
-                Prefs.hiddenCards = emptySet()
-                Toast.makeText(activity, "Please relaunch the app.", Toast.LENGTH_SHORT).show()
-            }
-            true
-        }
-        findPreference(R.string.preference_key_otd_game_state).onPreferenceClickListener = Preference.OnPreferenceClickListener {
-            Prefs.otdGameState = ""
-            Toast.makeText(activity, "Game reset.", Toast.LENGTH_SHORT).show()
-            true
-        }
         findPreference(R.string.preferences_developer_otd_show_notification).onPreferenceClickListener = Preference.OnPreferenceClickListener {
             OnThisDayGameNotificationManager.showNotification(activity)
             true
@@ -250,6 +251,52 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             fragment.requireActivity().finish()
             true
         }
+        (findPreference(R.string.preference_key_yir_survey_state) as ListPreference).apply {
+            val states = YearInReviewSurveyState.entries
+            val names = states.map { it.name }.toTypedArray()
+            entries = names
+            entryValues = names
+            setOnPreferenceChangeListener { _, newValue ->
+                val selectedState = newValue as String
+                val source = when (selectedState) {
+                    "NOT_TRIGGERED" -> YearInReviewSurveyState.NOT_TRIGGERED
+                    "SHOULD_SHOW" -> YearInReviewSurveyState.SHOULD_SHOW
+                    else -> YearInReviewSurveyState.SHOWN
+                }
+                Prefs.yearInReviewSurveyState = source
+                true
+            }
+        }
+        (findPreference(R.string.preference_key_event_platform_intake_base_uri_list) as ListPreference).setOnPreferenceChangeListener { _, newValue ->
+            val selectedState = newValue as String
+            Prefs.eventPlatformIntakeUriOverride = selectedState
+            findPreference(R.string.preference_key_event_platform_intake_base_uri).summary = selectedState
+            true
+        }
+        findPreference(R.string.preference_key_reading_challenge_widgets).apply {
+            isVisible = ReleaseUtil.isPreProdRelease
+            onPreferenceClickListener = Preference.OnPreferenceClickListener {
+                ExclusiveBottomSheetPresenter.show((activity as AppCompatActivity).supportFragmentManager, ReadingChallengePlayGroundDialog())
+                true
+            }
+        }
+        (findPreference(R.string.preference_key_home_preference_selection) as ListPreference).apply {
+            value = Prefs.homePreferenceSelection.name
+            val states = HomePreferenceType.entries
+            val names = states.map { it.name }.toTypedArray()
+            entries = names
+            entryValues = names
+            setOnPreferenceChangeListener { _, newValue ->
+                val selectedState = newValue as String
+                val source = when (selectedState) {
+                    "COMMUNITY" -> HomePreferenceType.COMMUNITY
+                    "PERSONALIZED" -> HomePreferenceType.PERSONALIZED
+                    else -> HomePreferenceType.COMMUNITY
+                }
+                Prefs.homePreferenceSelection = source
+                true
+            }
+        }
     }
 
     private fun setUpMediaWikiSettings() {
@@ -262,30 +309,44 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
     }
 
     private fun createTestReadingList(listName: String, numOfLists: Int, numOfArticles: Int) {
-        var index = 0
-        AppDatabase.instance.readingListDao().getListsWithoutContents().asReversed().forEach {
-            if (it.title.contains(listName)) {
-                val trimmedListTitle = it.title.substring(listName.length).trim()
-                index = trimmedListTitle.toIntOrNull()?.coerceAtLeast(index) ?: index
-                return
+        fragment.lifecycleScope.launch(CoroutineExceptionHandler { _, caught ->
+            MaterialAlertDialogBuilder(activity)
+                .setMessage(caught.message)
+                .setPositiveButton(android.R.string.ok, null)
+                .show()
+        }) {
+            var index = 0
+            AppDatabase.instance.readingListDao().getListsWithoutContents().asReversed().forEach {
+                if (it.title.contains(listName)) {
+                    val trimmedListTitle = it.title.substring(listName.length).trim()
+                    index = trimmedListTitle.toIntOrNull()?.coerceAtLeast(index) ?: index
+                    return@forEach
+                }
             }
-        }
-        for (i in 0 until numOfLists) {
-            index += 1
-            val list = AppDatabase.instance.readingListDao().createList("$listName $index", "")
-            val pages = (0 until numOfArticles).map {
-                ReadingListPage(PageTitle("${it + 1}", WikipediaApp.instance.wikiSite))
+            for (i in 0 until numOfLists) {
+                index += 1
+                val list = AppDatabase.instance.readingListDao().createList("$listName $index", "")
+                val pages = (0 until numOfArticles).map {
+                    ReadingListPage(PageTitle("${it + 1}", WikipediaApp.instance.wikiSite))
+                }
+                AppDatabase.instance.readingListPageDao().addPagesToList(list, pages, true)
             }
-            AppDatabase.instance.readingListPageDao().addPagesToList(list, pages, true)
         }
     }
 
     private fun deleteTestReadingList(listName: String, numOfLists: Int) {
-        var remainingNumOfLists = numOfLists
-        AppDatabase.instance.readingListDao().getAllLists().forEach {
-            if (it.title.contains(listName) && remainingNumOfLists > 0) {
-                AppDatabase.instance.readingListDao().deleteList(it)
-                remainingNumOfLists--
+        fragment.lifecycleScope.launch(CoroutineExceptionHandler { _, caught ->
+            MaterialAlertDialogBuilder(activity)
+                .setMessage(caught.message)
+                .setPositiveButton(android.R.string.ok, null)
+                .show()
+        }) {
+            var remainingNumOfLists = numOfLists
+            AppDatabase.instance.readingListDao().getAllLists().forEach {
+                if (it.title.contains(listName) && remainingNumOfLists > 0) {
+                    AppDatabase.instance.readingListDao().deleteList(it)
+                    remainingNumOfLists--
+                }
             }
         }
     }

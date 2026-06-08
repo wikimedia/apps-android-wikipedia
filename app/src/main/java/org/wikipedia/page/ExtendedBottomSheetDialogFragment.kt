@@ -4,7 +4,9 @@ import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
 import android.view.MotionEvent
+import android.view.View
 import androidx.annotation.StyleRes
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import org.wikipedia.R
@@ -13,7 +15,9 @@ import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.ResourceUtil
 
-open class ExtendedBottomSheetDialogFragment : BottomSheetDialogFragment() {
+open class ExtendedBottomSheetDialogFragment(
+    private val startExpanded: Boolean = false
+) : BottomSheetDialogFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,8 +30,15 @@ open class ExtendedBottomSheetDialogFragment : BottomSheetDialogFragment() {
 
     override fun onStart() {
         super.onStart()
-        dialog?.window?.let {
-            DeviceUtil.setNavigationBarColor(it, ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
+        dialog?.let {
+            it.window?.let { window ->
+                DeviceUtil.setNavigationBarColor(window, ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
+            }
+            if (startExpanded) {
+                it.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)?.let { sheet ->
+                    BottomSheetBehavior.from(sheet).state = BottomSheetBehavior.STATE_EXPANDED
+                }
+            }
         }
     }
 

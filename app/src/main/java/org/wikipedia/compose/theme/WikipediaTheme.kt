@@ -7,9 +7,6 @@ import androidx.compose.material3.RippleConfiguration
 import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import org.wikipedia.WikipediaApp
 import org.wikipedia.theme.Theme
 
@@ -19,9 +16,7 @@ fun BaseTheme(
     currentTheme: Theme = WikipediaApp.instance.currentTheme,
     content: @Composable () -> Unit
 ) {
-    val appTheme by remember { mutableStateOf(currentTheme) }
-
-    val wikipediaColorSystem = when (appTheme) {
+    val wikipediaColorSystem = when (currentTheme) {
         Theme.LIGHT -> LightColors
         Theme.DARK -> DarkColors
         Theme.BLACK -> BlackColors

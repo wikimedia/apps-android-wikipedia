@@ -17,17 +17,37 @@ import java.util.TimeZone
 
 @Dao
 interface HistoryEntryWithImageDao {
+    @Query("SELECT HistoryEntry.*, PageImage.* FROM HistoryEntry LEFT OUTER JOIN PageImage ON (HistoryEntry.namespace = PageImage.namespace AND HistoryEntry.apiTitle = PageImage.apiTitle AND HistoryEntry.lang = PageImage.lang) INNER JOIN (SELECT lang, apiTitle, MAX(timestamp) as max_timestamp FROM HistoryEntry WHERE timestamp BETWEEN :startMillis AND :endMillis GROUP BY lang, apiTitle) LatestEntries ON HistoryEntry.apiTitle = LatestEntries.apiTitle AND HistoryEntry.lang = LatestEntries.lang AND HistoryEntry.timestamp = LatestEntries.max_timestamp WHERE PageImage.timeSpentSec > 0 ORDER BY PageImage.timeSpentSec DESC LIMIT :limit")
+    @RewriteQueriesToDropUnusedColumns
+    suspend fun getLongestReadArticlesInPeriod(startMillis: Long, endMillis: Long, limit: Int): List<HistoryEntryWithImage>
+
+    @Query("SELECT HistoryEntry.*, PageImage.imageName, PageImage.description, PageImage.geoLat, PageImage.geoLon, PageImage.timeSpentSec FROM HistoryEntry LEFT OUTER JOIN PageImage ON (HistoryEntry.namespace = PageImage.namespace AND HistoryEntry.apiTitle = PageImage.apiTitle AND HistoryEntry.lang = PageImage.lang) INNER JOIN (SELECT lang, apiTitle, MAX(timestamp) as max_timestamp FROM HistoryEntry GROUP BY lang, apiTitle) LatestEntries ON HistoryEntry.apiTitle = LatestEntries.apiTitle AND HistoryEntry.timestamp = LatestEntries.max_timestamp ORDER BY timestamp DESC LIMIT :limit OFFSET :offset")
+    @RewriteQueriesToDropUnusedColumns
+    suspend fun getHistoryEntriesWithOffset(limit: Int, offset: Int): List<HistoryEntryWithImage>
 
     // TODO: convert to PagingSource.
     // https://developer.android.com/topic/libraries/architecture/paging/v3-overview
-    @Query("SELECT HistoryEntry.*, PageImage.imageName, PageImage.description, PageImage.geoLat, PageImage.geoLon, PageImage.timeSpentSec FROM HistoryEntry LEFT OUTER JOIN PageImage ON (HistoryEntry.namespace = PageImage.namespace AND HistoryEntry.apiTitle = PageImage.apiTitle AND HistoryEntry.lang = PageImage.lang) INNER JOIN(SELECT lang, apiTitle, MAX(timestamp) as max_timestamp FROM HistoryEntry GROUP BY lang, apiTitle) LatestEntries ON HistoryEntry.apiTitle = LatestEntries.apiTitle AND HistoryEntry.timestamp = LatestEntries.max_timestamp WHERE UPPER(HistoryEntry.displayTitle) LIKE UPPER(:term) ESCAPE '\\' ORDER BY timestamp DESC")
+    @Query("SELECT HistoryEntry.*, PageImage.imageName, PageImage.description, PageImage.geoLat, PageImage.geoLon, PageImage.timeSpentSec FROM HistoryEntry LEFT OUTER JOIN PageImage ON (HistoryEntry.namespace = PageImage.namespace AND HistoryEntry.apiTitle = PageImage.apiTitle AND HistoryEntry.lang = PageImage.lang) INNER JOIN (SELECT lang, apiTitle, MAX(timestamp) as max_timestamp FROM HistoryEntry GROUP BY lang, apiTitle) LatestEntries ON HistoryEntry.apiTitle = LatestEntries.apiTitle AND HistoryEntry.timestamp = LatestEntries.max_timestamp WHERE UPPER(HistoryEntry.displayTitle) LIKE UPPER(:term) ESCAPE '\\' ORDER BY timestamp DESC")
     @RewriteQueriesToDropUnusedColumns
     suspend fun findEntriesBySearchTerm(term: String): List<HistoryEntryWithImage>
 
     // TODO: convert to PagingSource.
-    @Query("SELECT HistoryEntry.*, PageImage.imageName, PageImage.description, PageImage.geoLat, PageImage.geoLon, PageImage.timeSpentSec FROM HistoryEntry LEFT OUTER JOIN PageImage ON (HistoryEntry.namespace = PageImage.namespace AND HistoryEntry.apiTitle = PageImage.apiTitle AND HistoryEntry.lang = PageImage.lang) WHERE source != :excludeSource1 AND source != :excludeSource2 AND source != :excludeSource3 AND timeSpentSec >= :minTimeSpent ORDER BY timestamp DESC LIMIT :limit")
+    @Query("SELECT HistoryEntry.*, PageImage.imageName, PageImage.description, PageImage.geoLat, PageImage.geoLon, PageImage.timeSpentSec FROM HistoryEntry LEFT OUTER JOIN PageImage ON (HistoryEntry.namespace = PageImage.namespace AND HistoryEntry.apiTitle = PageImage.apiTitle AND HistoryEntry.lang = PageImage.lang) WHERE source != :excludeSource1 AND source != :excludeSource2 AND source != :excludeSource3 AND timeSpentSec >= :minTimeSpent AND (:langCode IS NULL OR HistoryEntry.lang = :langCode) ORDER BY timestamp DESC LIMIT :limit")
     @RewriteQueriesToDropUnusedColumns
-    suspend fun findEntriesBy(excludeSource1: Int, excludeSource2: Int, excludeSource3: Int, minTimeSpent: Int, limit: Int): List<HistoryEntryWithImage>
+    suspend fun findEntriesBy(excludeSource1: Int, excludeSource2: Int, excludeSource3: Int, minTimeSpent: Int, limit: Int, langCode: String? = null): List<HistoryEntryWithImage>
+
+    @Query("SELECT SUM(timeSpentSec) FROM (" +
+            "  SELECT DISTINCT HistoryEntry.lang, HistoryEntry.apiTitle, PageImage.timeSpentSec FROM HistoryEntry" +
+            "  LEFT OUTER JOIN PageImage ON (HistoryEntry.namespace = PageImage.namespace AND HistoryEntry.apiTitle = PageImage.apiTitle AND HistoryEntry.lang = PageImage.lang)" +
+            "  WHERE timestamp BETWEEN :startMillis AND :endMillis" +
+            ")")
+    suspend fun getTimeSpentBetween(startMillis: Long, endMillis: Long = System.currentTimeMillis()): Long
+
+    @Query("SELECT HistoryEntry.*, PageImage.imageName, PageImage.description, PageImage.geoLat, PageImage.geoLon, PageImage.timeSpentSec FROM HistoryEntry" +
+            "  LEFT OUTER JOIN PageImage ON (HistoryEntry.namespace = PageImage.namespace AND HistoryEntry.apiTitle = PageImage.apiTitle AND HistoryEntry.lang = PageImage.lang)" +
+            "  WHERE PageImage.geoLat IS NOT 0.0 AND PageImage.geoLon IS NOT 0.0 AND timestamp BETWEEN :startMillis AND :endMillis ORDER BY timestamp DESC LIMIT :limit")
+    @RewriteQueriesToDropUnusedColumns
+    suspend fun getEntriesWithCoordinates(limit: Int, startMillis: Long, endMillis: Long = System.currentTimeMillis()): List<HistoryEntryWithImage>
 
     suspend fun findHistoryItem(wikiSite: WikiSite, searchQuery: String): SearchResults {
         var normalizedQuery = StringUtils.stripAccents(searchQuery)
@@ -42,6 +62,10 @@ interface HistoryEntryWithImageDao {
 
         return if (entries.isEmpty()) SearchResults()
         else SearchResults(entries.take(3).map { SearchResult(toHistoryEntry(it).title, SearchResult.SearchResultType.HISTORY) }.toMutableList())
+    }
+
+    suspend fun getMostRecentEntriesWithImage(limit: Int): List<HistoryEntry> {
+        return getHistoryEntriesWithOffset(limit, 0).map { toHistoryEntry(it) }
     }
 
     suspend fun filterHistoryItemsWithoutTime(searchQuery: String = ""): List<HistoryEntry> {
@@ -71,10 +95,15 @@ interface HistoryEntryWithImageDao {
         return list
     }
 
-    suspend fun findEntryForReadMore(limit: Int, minTimeSpent: Int): List<HistoryEntry> {
-        val entries = findEntriesBy(HistoryEntry.SOURCE_MAIN_PAGE, HistoryEntry.SOURCE_RANDOM,
-            HistoryEntry.SOURCE_FEED_MAIN_PAGE, minTimeSpent, limit)
-        return entries.map { toHistoryEntry(it) }
+    suspend fun findEntryForReadMore(limit: Int, minTimeSpent: Int, langCode: String? = null): List<HistoryEntry> {
+        return findEntriesBy(HistoryEntry.SOURCE_MAIN_PAGE, HistoryEntry.SOURCE_RANDOM,
+            HistoryEntry.SOURCE_FEED_MAIN_PAGE, minTimeSpent, limit, langCode).map { toHistoryEntry(it) }
+    }
+
+    suspend fun getHistoryItemWIthImage(searchTerm: String): List<HistoryEntryWithImage> {
+        val normalizedQuery = StringUtils.stripAccents(searchTerm).replace("\\", "\\\\")
+            .replace("%", "\\%").replace("_", "\\_")
+        return findEntriesBySearchTerm("%$normalizedQuery%")
     }
 
     private fun normalizedQuery(searchQuery: String): String {
@@ -90,7 +119,7 @@ interface HistoryEntryWithImageDao {
             lang = entryWithImage.lang,
             apiTitle = entryWithImage.apiTitle,
             displayTitle = entryWithImage.displayTitle,
-            id = 0,
+            id = entryWithImage.id,
             namespace = entryWithImage.namespace,
             timestamp = entryWithImage.timestamp,
             source = entryWithImage.source

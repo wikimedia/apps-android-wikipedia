@@ -1,7 +1,6 @@
 package org.wikipedia.dataclient.growthtasks
 
 import kotlinx.serialization.EncodeDefault
-import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.Serializable
 
 @Suppress("unused")
@@ -40,8 +39,7 @@ class GrowthImageSuggestion(
     )
 
     @Serializable
-    @OptIn(ExperimentalSerializationApi::class)
-    class AddImageFeedbackBody constructor(
+    class AddImageFeedbackBody(
         val token: String = "",
         val editRevId: Long = 0,
         val filename: String = "",

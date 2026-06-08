@@ -12,7 +12,7 @@ import org.wikipedia.page.PageTitle
 @Suppress("unused")
 @Serializable
 @SerialName("/analytics/legacy/editattemptstep/2.0.3")
-class EditAttemptStepEvent(private val event: EditAttemptStepInteractionEvent) : Event(STREAM_NAME) {
+class EditAttemptStepEvent(private val event: EditAttemptStepInteractionEvent) : EventWithDt(STREAM_NAME) {
 
     companion object {
         const val INTERFACE_WIKITEXT = "wikitext"

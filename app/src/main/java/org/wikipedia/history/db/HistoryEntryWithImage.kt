@@ -14,5 +14,6 @@ data class HistoryEntryWithImage(
     val imageName: String?,
     val description: String?,
     val geoLat: Double?,
-    val geoLon: Double?
+    val geoLon: Double?,
+    val id: Long,
 )

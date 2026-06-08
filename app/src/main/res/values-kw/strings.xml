@@ -11,7 +11,7 @@
   <string name="search_hint">Hwilas yn Wikipedia</string>
   <string name="error_network_error" fuzzy="true">Nyns eus junyans rosweyth :(</string>
   <string name="page_error_retry">Assaya arta</string>
-  <string name="menu_clear_all_history">Klerhe an istori</string>
+  <string name="menu_clear_all_history" fuzzy="true">Klerhe an istori</string>
   <string name="dialog_title_clear_history" fuzzy="true">Klerhe an istori peuri?</string>
   <string name="share_via">Kevranna dre</string>
   <string name="menu_page_other_languages" fuzzy="true">Redya yn yethow erel</string>

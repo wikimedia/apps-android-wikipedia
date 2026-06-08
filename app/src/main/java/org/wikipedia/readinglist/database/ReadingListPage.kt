@@ -50,10 +50,6 @@ data class ReadingListPage(
 
     val saving get() = offline && (status == STATUS_QUEUE_FOR_SAVE || status == STATUS_QUEUE_FOR_FORCED_SAVE)
 
-    fun touch() {
-        atime = System.currentTimeMillis()
-    }
-
     companion object {
         const val STATUS_QUEUE_FOR_SAVE = 0L
         const val STATUS_SAVED = 1L

@@ -77,18 +77,10 @@ class ReferenceDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        return object : BottomSheetDialog(requireActivity(), theme) {
-            override fun onBackPressed() {
-                if (binding.referencePager.currentItem > 0) {
-                    binding.referencePager.setCurrentItem(binding.referencePager.currentItem - 1, true)
-                } else {
-                    super.onBackPressed()
-                }
-            }
-        }
+        return BottomSheetDialog(requireActivity(), theme)
     }
 
-    private inner class ViewHolder constructor(val binding: ViewReferencePagerItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    private inner class ViewHolder(val binding: ViewReferencePagerItemBinding) : RecyclerView.ViewHolder(binding.root) {
         init {
             binding.referenceText.movementMethod = LinkMovementMethodExt(callback()?.linkHandler)
         }
@@ -116,7 +108,7 @@ class ReferenceDialog : ExtendedBottomSheetDialogFragment() {
         }
     }
 
-    private inner class ReferencesAdapter constructor(val references: List<PageReferences.Reference>) : RecyclerView.Adapter<ViewHolder>() {
+    private inner class ReferencesAdapter(val references: List<PageReferences.Reference>) : RecyclerView.Adapter<ViewHolder>() {
         override fun getItemCount(): Int {
             return references.size
         }

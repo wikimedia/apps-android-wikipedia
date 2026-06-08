@@ -39,6 +39,8 @@ class TalkTopicsViewModel(var pageTitle: PageTitle) : ViewModel() {
     }
 
     private val threadItems = mutableListOf<ThreadItem>()
+    private val seenThreadItemsSha = mutableSetOf<String>()
+
     var sortedThreadItems = listOf<ThreadItem>()
     var isWatched = false
     var hasWatchlistExpiry = false
@@ -107,6 +109,10 @@ class TalkTopicsViewModel(var pageTitle: PageTitle) : ViewModel() {
             threadItems.addAll(discussionToolsInfoResponse.pageInfo?.threads ?: emptyList())
             sortAndFilterThreadItems()
 
+            seenThreadItemsSha.clear()
+            val shaList = threadItems.mapNotNull { threadSha(it) }
+            seenThreadItemsSha.addAll(talkPageDao.getFor(shaList).map { it.sha })
+
             val watchStatus = if (WikipediaApp.instance.isOnline && AccountUtil.isLoggedIn) ServiceFactory.get(pageTitle.wikiSite)
                     .getWatchedStatus(pageTitle.prefixedText).query?.firstPage()!! else MwQueryPage()
             isWatched = watchStatus.watched
@@ -129,20 +135,25 @@ class TalkTopicsViewModel(var pageTitle: PageTitle) : ViewModel() {
         }
     }
 
-    fun markAsSeen(threadItem: ThreadItem?, force: Boolean = false) {
+    fun markAsSeen(threadItem: ThreadItem?, force: Boolean = false, action: (() -> Unit)) {
         threadSha(threadItem)?.let {
             viewModelScope.launch(actionHandler) {
                 if (topicSeen(threadItem) && !force) {
                     talkPageDao.deleteTalkPageSeen(it)
+                    seenThreadItemsSha.remove(it)
                 } else {
                     talkPageDao.insertTalkPageSeen(TalkPageSeen(it))
+                    seenThreadItemsSha.add(it)
                 }
+                action()
             }
         }
     }
 
     fun topicSeen(threadItem: ThreadItem?): Boolean {
-        return threadSha(threadItem)?.run { talkPageDao.getTalkPageSeen(this) != null } ?: false
+        return threadSha(threadItem)?.let {
+            seenThreadItemsSha.any { sha -> sha == it }
+        } ?: false
     }
 
     private fun threadSha(threadItem: ThreadItem?): String? {

@@ -25,14 +25,14 @@
   <string name="offline_load_error_retry">दुबारा कोसिस करीं</string>
   <string name="page_error_back_to_main">पाछे जाईं</string>
   <string name="error_back">पाछे जाईं</string>
-  <string name="menu_clear_all_history">इतिहास साफ करीं</string>
+  <string name="menu_clear_all_history" fuzzy="true">इतिहास साफ करीं</string>
   <string name="history_item_deleted">%s इतिहास से हटावल गइल</string>
   <string name="history_items_deleted">%d लेख इतिहास से हटावल गइल</string>
   <string name="history_item_delete_undo">पहिले नियर करीं</string>
   <string name="notification_archive_undo">वापस लीं</string>
   <string name="app_settings">एप सेटिंग सभ</string>
   <string name="dialog_title_clear_history">ब्राउजिंग इतिहास साफ करीं</string>
-  <string name="dialog_message_clear_history">ई आपके सगरी ब्राउजिंग इतिहास साफ करी, आ कौनों वर्तमान खुलल टैब भी बंद कर दी। निश्चित बानी?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">ई आपके सगरी ब्राउजिंग इतिहास साफ करी, आ कौनों वर्तमान खुलल टैब भी बंद कर दी। निश्चित बानी?</string>
   <string name="dialog_message_clear_history_yes">हँऽ</string>
   <string name="dialog_message_clear_history_no">ना</string>
   <string name="share_via">साझा करीं</string>
@@ -175,8 +175,6 @@
   <string name="privacy_policy_description">गोपनीयता नीति</string>
   <string name="terms_of_use_description">उपयोग के शर्त</string>
   <string name="about_wikipedia_url">https://bh.wikipedia.org/wiki/विकिपीडिया:के_बारे_में</string>
-  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://bh.wikipedia.org/wiki/विकिपीडिया:Request_an_account</string>
   <string name="about_libraries_heading">इस्तेमाल कइल गइल लाइब्रेरी</string>
   <string name="about_contributors_heading">योगदान</string>

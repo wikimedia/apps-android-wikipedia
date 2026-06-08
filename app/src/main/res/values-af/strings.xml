@@ -20,13 +20,13 @@
   <string name="error_network_error">Kan nie aan die internet koppel nie.</string>
   <string name="page_error_retry">Probeer weer</string>
   <string name="page_error_back_to_main">Gaan terug</string>
-  <string name="menu_clear_all_history">Vee geskiedenis uit</string>
+  <string name="menu_clear_all_history" fuzzy="true">Vee geskiedenis uit</string>
   <string name="history_item_deleted">%s uit geskiedenis verwyder</string>
   <string name="history_items_deleted">%d artikels uit geskiedenis verwyder</string>
   <string name="history_item_delete_undo">Ontdaan</string>
   <string name="app_settings">Programinstellings</string>
   <string name="dialog_title_clear_history">Wis blaaigeskiedenis</string>
-  <string name="dialog_message_clear_history">Die sal al u blaaigeskiedenis wis en enige oop oortjies sluit. Is u seker?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Die sal al u blaaigeskiedenis wis en enige oop oortjies sluit. Is u seker?</string>
   <string name="dialog_message_clear_history_yes">Ja</string>
   <string name="dialog_message_clear_history_no">Nee</string>
   <string name="share_via">Deel deur</string>

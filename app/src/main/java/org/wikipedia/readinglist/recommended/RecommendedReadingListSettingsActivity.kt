@@ -117,14 +117,14 @@ class RecommendedReadingListSettingsActivity : BaseActivity(), BaseActivity.Call
                     },
                     wikiErrorClickEvents = WikiErrorClickEvents(
                         backClickListener = {
-                            onBackPressed()
+                            onBackPressedDispatcher.onBackPressed()
                         },
                         retryClickListener = {
                             viewModel.generateRecommendedReadingList()
                         }
                     ),
                     onListGenerated = {
-                        onBackPressed()
+                        onBackPressedDispatcher.onBackPressed()
                     }
                 )
             }

@@ -3,7 +3,6 @@ package org.wikipedia.talk.template
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Typeface
-import android.os.Build
 import android.text.TextUtils
 import android.util.AttributeSet
 import android.view.LayoutInflater
@@ -32,10 +31,8 @@ class TalkTemplatesItemView(context: Context, attrs: AttributeSet? = null) : Lin
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT)
         setBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.paper_color))
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            foreground = AppCompatResources.getDrawable(context,
-                ResourceUtil.getThemedAttributeId(context, androidx.appcompat.R.attr.selectableItemBackground))
-        }
+        foreground = AppCompatResources.getDrawable(context,
+            ResourceUtil.getThemedAttributeId(context, androidx.appcompat.R.attr.selectableItemBackground))
         DeviceUtil.setContextClickAsLongClick(this)
     }
 

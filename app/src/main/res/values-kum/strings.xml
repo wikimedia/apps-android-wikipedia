@@ -21,7 +21,7 @@
   <string name="offline_load_error_retry">Такрарламакъ</string>
   <string name="page_error_back_to_main">Артгъа</string>
   <string name="error_back">Къайтмакъ</string>
-  <string name="menu_clear_all_history">Тарихни тазаламакъ</string>
+  <string name="menu_clear_all_history" fuzzy="true">Тарихни тазаламакъ</string>
   <string name="history_item_deleted">%s макъала тарихден тайгъан</string>
   <string name="history_items_deleted">%d макъала тарихден тайгъан</string>
   <string name="history_item_delete_undo">Гери алмакъ</string>

@@ -1,25 +1,24 @@
 package org.wikipedia.donate
 
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
-import android.net.Uri
 import android.os.Bundle
 import android.text.method.LinkMovementMethod
 import android.view.View
 import androidx.activity.viewModels
+import androidx.core.net.toUri
 import androidx.core.view.children
 import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import com.google.android.gms.wallet.AutoResolveHelper
-import com.google.android.gms.wallet.PaymentData
+import com.google.android.gms.common.api.CommonStatusCodes
 import com.google.android.gms.wallet.PaymentsClient
 import com.google.android.gms.wallet.button.ButtonConstants
 import com.google.android.gms.wallet.button.ButtonOptions
+import com.google.android.gms.wallet.contract.TaskResultContracts
 import com.google.android.material.button.MaterialButton
 import kotlinx.coroutines.launch
 import org.json.JSONArray
@@ -40,6 +39,7 @@ import kotlin.math.max
 class GooglePayActivity : BaseActivity() {
     private lateinit var binding: ActivityDonateBinding
     private lateinit var paymentsClient: PaymentsClient
+    private lateinit var campaignId: String
 
     private val viewModel: GooglePayViewModel by viewModels()
 
@@ -48,13 +48,39 @@ class GooglePayActivity : BaseActivity() {
 
     private val transactionFee get() = max(DonateUtil.getAmountFloat(binding.donateAmountText.text.toString()) * GooglePayComponent.TRANSACTION_FEE_PERCENTAGE, viewModel.transactionFee)
 
+    private val paymentDataLauncher = registerForActivityResult(TaskResultContracts.GetPaymentDataResult()) { taskResult ->
+        when (taskResult.status.statusCode) {
+            CommonStatusCodes.SUCCESS -> {
+                taskResult.result?.let { paymentData ->
+                    viewModel.submit(paymentData,
+                        binding.checkBoxTransactionFee.isChecked,
+                        binding.checkBoxRecurring.isChecked,
+                        if (viewModel.emailOptInRequired) binding.checkBoxAllowEmail.isChecked else true,
+                        intent.getStringExtra(DonateDialog.ARG_CAMPAIGN_ID).orEmpty().ifEmpty { CAMPAIGN_ID_APP_MENU })
+                }
+            }
+
+            CommonStatusCodes.CANCELED -> {
+                // The user cancelled the payment attempt
+            }
+
+            CommonStatusCodes.ERROR -> {
+                taskResult.status.statusMessage?.let { message ->
+                    FeedbackUtil.showMessage(this, message)
+                }
+            }
+        }
+    }
+
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDonateBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
+        binding.toolbar.title = getString(R.string.donate_gpay_activity_title_with_currency, DonateUtil.currencyCode)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         title = ""
+        campaignId = intent.getStringExtra(DonateDialog.ARG_CAMPAIGN_ID).orEmpty().ifEmpty { CAMPAIGN_ID_APP_MENU }
 
         binding.donateAmountInput.prefixText = DonateUtil.currencySymbol
 
@@ -69,22 +95,20 @@ class GooglePayActivity : BaseActivity() {
                                 setLoadingState()
                             }
                             is Resource.Error -> {
-                                DonorExperienceEvent.logAction("error_other", "gpay")
+                                DonorExperienceEvent.logAction("error_other", "gpay", campaignId = campaignId)
                                 setErrorState(resource.throwable)
                             }
                             is GooglePayViewModel.NoPaymentMethod -> {
-                                DonorExperienceEvent.logAction("no_payment_method", "gpay")
-                                DonateDialog.launchDonateLink(this@GooglePayActivity, intent.getStringExtra(DonateDialog.ARG_DONATE_URL))
+                                DonorExperienceEvent.logAction("no_payment_method", "gpay", campaignId = campaignId)
+                                DonateDialog.launchDonateLink(this@GooglePayActivity, url = intent.getStringExtra(DonateDialog.ARG_DONATE_URL))
                                 finish()
                             }
                             is Resource.Success -> {
-                                DonorExperienceEvent.logAction("impression", "googlepay_initiated")
+                                DonorExperienceEvent.logAction("impression", "googlepay_initiated", campaignId = campaignId)
                                 onContentsReceived(resource.data)
                             }
                             is GooglePayViewModel.DonateSuccess -> {
-                                DonorExperienceEvent.logAction("impression", "gpay_processed",
-                                    campaignId = intent.getStringExtra(DonateDialog.ARG_CAMPAIGN_ID).orEmpty().ifEmpty { CAMPAIGN_ID_APP_MENU }
-                                )
+                                DonorExperienceEvent.logAction("impression", "gpay_processed", campaignId = campaignId)
                                 CampaignCollection.addDonationResult(
                                     amount = viewModel.finalAmount,
                                     currency = DonateUtil.currencyCode,
@@ -100,7 +124,7 @@ class GooglePayActivity : BaseActivity() {
         }
 
         binding.errorView.backClickListener = View.OnClickListener {
-            onBackPressed()
+            onBackPressedDispatcher.onBackPressed()
         }
 
         binding.payButton.setOnClickListener {
@@ -117,15 +141,13 @@ class GooglePayActivity : BaseActivity() {
             viewModel.finalAmount = totalAmount
 
             if (typedManually) {
-                DonorExperienceEvent.logAction("amount_entered", "gpay")
+                DonorExperienceEvent.logAction("amount_entered", "gpay", campaignId = campaignId)
             }
             DonorExperienceEvent.submit("donate_confirm_click", "gpay",
                 "add_transaction: ${binding.checkBoxTransactionFee.isChecked}, recurring: ${binding.checkBoxRecurring.isChecked}, email_subscribe: ${binding.checkBoxAllowEmail.isChecked}")
 
-            AutoResolveHelper.resolveTask(
-                paymentsClient.loadPaymentData(viewModel.getPaymentDataRequest()),
-                this, LOAD_PAYMENT_DATA_REQUEST_CODE
-            )
+            val task = paymentsClient.loadPaymentData(viewModel.getPaymentDataRequest())
+            task.addOnCompleteListener(paymentDataLauncher::launch)
         }
 
         binding.donateAmountText.addTextChangedListener { text ->
@@ -146,20 +168,20 @@ class GooglePayActivity : BaseActivity() {
         }
 
         binding.linkProblemsDonating.setOnClickListener {
-            DonorExperienceEvent.logAction("report_problem_click", "gpay")
-            UriUtil.visitInExternalBrowser(this, Uri.parse(getString(R.string.donate_problems_url)))
+            DonorExperienceEvent.logAction("report_problem_click", "gpay", campaignId = campaignId)
+            UriUtil.visitInExternalBrowser(this, getString(R.string.donate_problems_url).toUri())
         }
         binding.linkOtherWays.setOnClickListener {
-            DonorExperienceEvent.logAction("other_give_click", "gpay")
-            UriUtil.visitInExternalBrowser(this, Uri.parse(getString(R.string.donate_other_ways_url)))
+            DonorExperienceEvent.logAction("other_give_click", "gpay", campaignId = campaignId)
+            UriUtil.visitInExternalBrowser(this, getString(R.string.donate_other_ways_url).toUri())
         }
         binding.linkFAQ.setOnClickListener {
-            DonorExperienceEvent.logAction("faq_click", "gpay")
-            UriUtil.visitInExternalBrowser(this, Uri.parse(getString(R.string.donate_faq_url)))
+            DonorExperienceEvent.logAction("faq_click", "gpay", campaignId = campaignId)
+            UriUtil.visitInExternalBrowser(this, getString(R.string.donate_faq_url).toUri())
         }
         binding.linkTaxDeduct.setOnClickListener {
-            DonorExperienceEvent.logAction("taxinfo_click", "gpay")
-            UriUtil.visitInExternalBrowser(this, Uri.parse(getString(R.string.donate_tax_url)))
+            DonorExperienceEvent.logAction("taxinfo_click", "gpay", campaignId = campaignId)
+            UriUtil.visitInExternalBrowser(this, getString(R.string.donate_tax_url).toUri())
         }
         binding.disclaimerText1.movementMethod = LinkMovementMethod.getInstance()
         binding.disclaimerText2.movementMethod = LinkMovementMethod.getInstance()
@@ -241,7 +263,7 @@ class GooglePayActivity : BaseActivity() {
             button.setOnClickListener {
                 setButtonHighlighted(it)
                 setAmountText(it.tag as Float)
-                DonorExperienceEvent.logAction("amount_selected", "gpay")
+                DonorExperienceEvent.logAction("amount_selected", "gpay", campaignId = campaignId)
             }
         }
         binding.amountPresetsFlow.referencedIds = viewIds.toIntArray()
@@ -280,38 +302,7 @@ class GooglePayActivity : BaseActivity() {
         shouldWatchText = true
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if (requestCode == LOAD_PAYMENT_DATA_REQUEST_CODE) {
-            when (resultCode) {
-                Activity.RESULT_OK -> {
-                    data?.let { dataIntent ->
-                        PaymentData.getFromIntent(dataIntent)?.let { paymentData ->
-                            viewModel.submit(paymentData,
-                                binding.checkBoxTransactionFee.isChecked,
-                                binding.checkBoxRecurring.isChecked,
-                                if (viewModel.emailOptInRequired) binding.checkBoxAllowEmail.isChecked else true,
-                                intent.getStringExtra(DonateDialog.ARG_CAMPAIGN_ID).orEmpty().ifEmpty { CAMPAIGN_ID_APP_MENU })
-                        }
-                    }
-                }
-                Activity.RESULT_CANCELED -> {
-                    // The user cancelled the payment attempt
-                }
-                AutoResolveHelper.RESULT_ERROR -> {
-                    AutoResolveHelper.getStatusFromIntent(data)?.let {
-                        it.statusMessage?.let { message ->
-                            FeedbackUtil.showMessage(this, message)
-                        }
-                    }
-                }
-            }
-        }
-    }
-
     companion object {
-        private const val LOAD_PAYMENT_DATA_REQUEST_CODE = 42
         private const val CAMPAIGN_ID_APP_MENU = "appmenu"
         const val FILLED_AMOUNT = "filledAmount"
 

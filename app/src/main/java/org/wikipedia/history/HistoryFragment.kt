@@ -23,16 +23,21 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 import org.wikipedia.BackPressedHandler
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentHistoryBinding
 import org.wikipedia.main.MainActivity
 import org.wikipedia.main.MainFragment
 import org.wikipedia.page.PageAvailableOfflineHandler
 import org.wikipedia.readinglist.database.ReadingList
+import org.wikipedia.search.HybridSearchAbCTest
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
@@ -273,17 +278,22 @@ class HistoryFragment : Fragment(), BackPressedHandler {
             }
             clearHistoryButton.setOnClickListener {
                 if (selectedEntries.isEmpty()) {
-                    MaterialAlertDialogBuilder(requireContext())
-                            .setTitle(R.string.dialog_title_clear_history)
-                            .setMessage(R.string.dialog_message_clear_history)
-                            .setPositiveButton(R.string.dialog_message_clear_history_yes) { _, _ -> viewModel.deleteAllHistoryItems() }
-                            .setNegativeButton(R.string.dialog_message_clear_history_no, null).show()
+                    clearAllHistory(requireContext(), lifecycleScope) {
+                        viewModel.afterDeleteAllHistoryItems()
+                    }
                 } else {
                     deleteSelectedPages()
                 }
             }
             FeedbackUtil.setButtonTooltip(historyFilterButton, clearHistoryButton)
             adjustSearchCardView(searchCardView)
+            updateSearchHint(searchCardView.findViewById(R.id.search_icon), searchCardView.findViewById(R.id.search_text_view))
+        }
+
+        private fun updateSearchHint(searchIcon: ImageView, searchTextView: TextView) {
+            val showHybridSearch = Prefs.isHybridSearchOnboardingShown && HybridSearchAbCTest().isHybridSearchEnabled(WikipediaApp.instance.appOrSystemLanguageCode)
+            searchIcon.contentDescription = getString(if (showHybridSearch) R.string.hybrid_search_search_hint else R.string.search_hint)
+            searchTextView.text = getString(if (showHybridSearch) R.string.hybrid_search_search_hint else R.string.search_hint)
         }
     }
 
@@ -444,6 +454,23 @@ class HistoryFragment : Fragment(), BackPressedHandler {
         private const val VIEW_TYPE_SEARCH_CARD = 0
         private const val VIEW_TYPE_HEADER = 1
         private const val VIEW_TYPE_ITEM = 2
+
+        fun clearAllHistory(context: Context, coroutineScope: CoroutineScope, action: () -> Unit) {
+            MaterialAlertDialogBuilder(context)
+                .setTitle(R.string.dialog_title_clear_history)
+                .setMessage(R.string.dialog_message_clear_history)
+                .setPositiveButton(R.string.dialog_message_clear_history_yes) { _, _ ->
+                    coroutineScope.launch(
+                        CoroutineExceptionHandler { _, t -> L.e(t) }
+                    ) {
+                        AppDatabase.instance.historyEntryDao().deleteAll()
+                        AppDatabase.instance.pageImagesDao().deleteAll()
+                        AppDatabase.instance.categoryDao().deleteAll()
+                        action()
+                    }
+                }
+                .setNegativeButton(R.string.dialog_message_clear_history_no, null).show()
+        }
 
         fun newInstance(): HistoryFragment {
             return HistoryFragment()

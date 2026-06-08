@@ -17,10 +17,12 @@ import androidx.work.WorkRequest
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.dataclient.Service
 import org.wikipedia.extensions.parcelable
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
+import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.imageservice.ImageService
@@ -62,8 +64,10 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
             if (pageTitle.thumbUrl.isNullOrEmpty()) {
                 remoteViews.setViewVisibility(R.id.widget_content_thumbnail, View.GONE)
             } else {
-                ImageService.loadImage(context, pageTitle.thumbUrl, onSuccess = { bitmap ->
+                ImageService.loadImage(context, ImageUrlUtil.getUrlForPreferredSize(pageTitle.thumbUrl!!,
+                    Service.PREFERRED_THUMB_SIZE), onSuccess = { bitmap ->
                     remoteViews.setImageViewBitmap(R.id.widget_content_thumbnail, bitmap)
+                    appWidgetManager.updateAppWidget(widgetId, remoteViews)
                 })
                 remoteViews.setViewVisibility(R.id.widget_content_thumbnail, View.VISIBLE)
             }
@@ -72,6 +76,7 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
             val pendingIntent = PendingIntentCompat.getActivity(context, 1,
                 PageActivity.newIntentForNewTab(context, historyEntry, historyEntry.title)
                     .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, Constants.InvokeSource.WIDGET)
+                    .putExtra(Constants.INTENT_WIDGET_TYPE, WidgetTypes.FEATURED_ARTICLE.value)
                     .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK),
                     PendingIntent.FLAG_UPDATE_CURRENT, false)
 

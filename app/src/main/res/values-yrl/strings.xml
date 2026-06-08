@@ -29,7 +29,7 @@
   <string name="page_error_back_to_main">Muyuirisawa</string>
   <string name="error_back">Muyuirisawa</string>
   <string name="error_next">Tenundewara</string>
-  <string name="menu_clear_all_history">Umuwéu maranduwapawa</string>
+  <string name="menu_clear_all_history" fuzzy="true">Umuwéu maranduwapawa</string>
   <string name="history_item_deleted">%s umusaka ana maranduwapawa suí</string>
   <string name="history_items_deleted">%d kuatiata taumuçaká ã mbeuçawara ukara kití</string>
   <string name="history_item_delete_undo">Muyuíri</string>
@@ -42,7 +42,7 @@
   <string name="wikimedia_commons">Wikimédiya Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Umuwéu sikarisawa mumbeusawa</string>
-  <string name="dialog_message_clear_history">Yawá usó umuéu pãnhé nesikariçawa rumbueçá açuí yawá usikĩdá kurí aramẽ yuí pãnhé ukena’i pirariwá. Ĩdé çatãbika yawá reçé?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Yawá usó umuéu pãnhé nesikariçawa rumbueçá açuí yawá usikĩdá kurí aramẽ yuí pãnhé ukena’i pirariwá. Ĩdé çatãbika yawá reçé?</string>
   <string name="dialog_message_clear_history_yes">Ẽẽ</string>
   <string name="dialog_message_clear_history_no">Umbaá</string>
   <string name="share_via">Muputawa rupí</string>
@@ -212,9 +212,7 @@
   <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:Yawá reçé</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/yrl</string>
   <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/yrl</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/yrl</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="about_contributors_heading">Pitimũgara\'etá</string>
   <string name="about_translators_heading">Sinimukanhẽẽgara\'etá</string>
   <string name="about_app_license_heading">Mutarawa</string>

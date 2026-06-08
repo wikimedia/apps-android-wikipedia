@@ -16,10 +16,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.automirrored.filled.ArrowForward
-import androidx.compose.material.icons.filled.Close
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -86,7 +82,7 @@ fun SourceSelectionScreen(
                 },
                 navigationIcon = {
                     Icon(
-                        imageVector = if (fromSettings) Icons.AutoMirrored.Filled.ArrowBack else Icons.Default.Close,
+                        painter = painterResource(if (fromSettings) R.drawable.ic_arrow_back_black_24dp else R.drawable.ic_close_black_24dp),
                         contentDescription = stringResource(id = if (fromSettings) R.string.search_back_button_content_description else R.string.table_close),
                         modifier = Modifier
                             .size(48.dp)
@@ -247,7 +243,7 @@ fun SourceSelectionContent(
                         .background(WikipediaTheme.colors.borderColor)
                 )
                 Icon(
-                    imageVector = Icons.AutoMirrored.Filled.ArrowForward,
+                    painter = painterResource(R.drawable.ic_arrow_forward_black_24dp),
                     contentDescription = stringResource(R.string.nav_item_forward),
                     tint = WikipediaTheme.colors.primaryColor,
                     modifier = Modifier

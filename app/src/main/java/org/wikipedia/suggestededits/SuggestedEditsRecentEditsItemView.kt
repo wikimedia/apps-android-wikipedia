@@ -5,7 +5,6 @@ import android.graphics.Typeface
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.annotation.DrawableRes
@@ -17,7 +16,7 @@ import org.wikipedia.util.DateUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 
-class SuggestedEditsRecentEditsItemView constructor(context: Context, attrs: AttributeSet? = null) : FrameLayout(context, attrs) {
+class SuggestedEditsRecentEditsItemView(context: Context, attrs: AttributeSet? = null) : FrameLayout(context, attrs) {
     val binding = ItemSuggestedEditsRecentEditsBinding.inflate(LayoutInflater.from(context), this, true)
     var callback: Callback? = null
     private var item: MwQueryResult.RecentChange? = null
@@ -38,7 +37,6 @@ class SuggestedEditsRecentEditsItemView constructor(context: Context, attrs: Att
         }
     }
 
-    @Suppress("KotlinConstantConditions")
     fun setItem(item: MwQueryResult.RecentChange, currentQuery: String?) {
         this.item = item
         var isSummaryEmpty = false

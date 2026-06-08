@@ -1,8 +1,8 @@
 package org.wikipedia.dataclient.okhttp
 
 import okhttp3.Request
-import org.hamcrest.MatcherAssert
-import org.hamcrest.Matchers
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertTrue
 import org.junit.Test
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor.Companion.shouldSave
@@ -17,12 +17,12 @@ class OfflineCacheInterceptorTest {
                 OfflineCacheInterceptor.SAVE_HEADER_SAVE
             )
             .build()
-        MatcherAssert.assertThat(shouldSave(request), Matchers.`is`(true))
+        assertTrue(shouldSave(request))
     }
 
     @Test
     fun testIsCacheableFalse() {
         val request = Request.Builder().url(Service.WIKIPEDIA_URL).build()
-        MatcherAssert.assertThat(shouldSave(request), Matchers.`is`(false))
+        assertFalse(shouldSave(request))
     }
 }

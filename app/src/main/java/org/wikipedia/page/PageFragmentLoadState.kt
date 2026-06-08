@@ -3,13 +3,13 @@ package org.wikipedia.page
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.ArticleLinkPreviewInteractionEvent
-import org.wikipedia.analytics.metricsplatform.ArticleLinkPreviewInteraction
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.bridge.CommunicationBridge
 import org.wikipedia.bridge.JavaScriptActionHandler
@@ -41,6 +41,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
                             private var bridge: CommunicationBridge,
                             private var leadImagesHandler: LeadImagesHandler,
                             private var currentTab: Tab) {
+    private var pageLoadJob: Job? = null
 
     fun load(pushBackStack: Boolean) {
         if (pushBackStack && model.title != null && model.curEntry != null) {
@@ -118,93 +119,100 @@ class PageFragmentLoadState(private var model: PageViewModel,
     }
 
     private fun pageLoad() {
-        model.title?.let { title ->
-            fragment.lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
-                    L.e("Page details network error: ", throwable)
-                    commonSectionFetchOnCatch(throwable)
-                }) {
-                    model.readingListPage = AppDatabase.instance.readingListPageDao().findPageInAnyList(title)
+        pageLoadJob?.let {
+            if (it.isActive) {
+                it.cancel()
+            }
+        }
+        pageLoadJob = fragment.lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
+            L.e("Page details network error: ", throwable)
+            commonSectionFetchOnCatch(throwable)
+        }) {
+            if (model.title == null) {
+                return@launch
+            }
+            val title = model.title!!
+            model.readingListPage = AppDatabase.instance.readingListPageDao().findPageInAnyList(title)
 
-                    fragment.updateQuickActionsAndMenuOptions()
-                    fragment.requireActivity().invalidateOptionsMenu()
-                    fragment.callback()?.onPageUpdateProgressBar(true)
-                    model.page = null
-                    val delayLoadHtml = title.prefixedText.contains(":")
-                    if (!delayLoadHtml) {
-                        bridge.resetHtml(title)
-                    }
-                    if (title.namespace() === Namespace.SPECIAL) {
-                        // Short-circuit the entire process of fetching the Summary, since Special: pages
-                        // are not supported in RestBase.
-                        bridge.resetHtml(title)
-                        leadImagesHandler.loadLeadImage()
-                        fragment.requireActivity().invalidateOptionsMenu()
-                        fragment.onPageMetadataLoaded()
-                        return@launch
-                    }
+            fragment.updateQuickActionsAndMenuOptions()
+            fragment.requireActivity().invalidateOptionsMenu()
+            fragment.callback()?.onPageUpdateProgressBar(true)
+            model.page = null
+            val delayLoadHtml = title.prefixedText.contains(":")
+            if (!delayLoadHtml) {
+                bridge.resetHtml(title)
+            }
+            if (title.namespace() === Namespace.SPECIAL) {
+                // Short-circuit the entire process of fetching the Summary, since Special: pages
+                // are not supported in RestBase.
+                bridge.resetHtml(title)
+                leadImagesHandler.loadLeadImage()
+                fragment.requireActivity().invalidateOptionsMenu()
+                fragment.onPageMetadataLoaded()
+                return@launch
+            }
 
-                    val pageSummaryRequest = async {
-                        ServiceFactory.getRest(title.wikiSite).getSummaryResponse(title.prefixedText, cacheControl = model.cacheControl.toString(),
-                            saveHeader = if (model.isInReadingList) OfflineCacheInterceptor.SAVE_HEADER_SAVE else null,
-                            langHeader = title.wikiSite.languageCode, titleHeader = UriUtil.encodeURL(title.prefixedText))
+            val pageSummaryRequest = async {
+                ServiceFactory.getRest(title.wikiSite).getSummaryResponse(title.prefixedText, cacheControl = model.cacheControl.toString(),
+                    saveHeader = if (model.isInReadingList) OfflineCacheInterceptor.SAVE_HEADER_SAVE else null,
+                    langHeader = title.wikiSite.languageCode, titleHeader = UriUtil.encodeURL(title.prefixedText))
+            }
+            val makeWatchRequest = WikipediaApp.instance.isOnline && AccountUtil.isLoggedIn
+            val watchedRequest = async {
+                try {
+                    if (makeWatchRequest) {
+                        ServiceFactory.get(title.wikiSite)
+                            .getWatchedStatusWithCategories(title.prefixedText)
+                    } else if (WikipediaApp.instance.isOnline && !AccountUtil.isLoggedIn) {
+                        AnonymousNotificationHelper.maybeGetAnonUserInfo(title.wikiSite)
+                    } else {
+                        MwQueryResponse()
                     }
-                    val makeWatchRequest = WikipediaApp.instance.isOnline && AccountUtil.isLoggedIn
-                    val watchedRequest = async {
-                        try {
-                            if (makeWatchRequest) {
-                                ServiceFactory.get(title.wikiSite)
-                                    .getWatchedStatusWithCategories(title.prefixedText)
-                            } else if (WikipediaApp.instance.isOnline && !AccountUtil.isLoggedIn) {
-                                AnonymousNotificationHelper.maybeGetAnonUserInfo(title.wikiSite)
-                            } else {
-                                MwQueryResponse()
-                            }
-                        } catch (_: IOException) {
-                            L.w("Ignoring network error while fetching watched status.")
-                            MwQueryResponse()
-                        }
+                } catch (_: IOException) {
+                    L.w("Ignoring network error while fetching watched status.")
+                    MwQueryResponse()
+                }
+            }
+            val categoriesRequest = async {
+                try {
+                    if (!makeWatchRequest && WikipediaApp.instance.isOnline) {
+                        ServiceFactory.get(title.wikiSite).getCategoriesProps(title.text)
+                    } else {
+                        MwQueryResponse()
                     }
-                    val categoriesRequest = async {
-                        try {
-                            if (!makeWatchRequest && WikipediaApp.instance.isOnline) {
-                                ServiceFactory.get(title.wikiSite).getCategoriesProps(title.text)
-                            } else {
-                                MwQueryResponse()
-                            }
-                        } catch (_: IOException) {
-                            L.w("Ignoring network error while fetching categories.")
-                            MwQueryResponse()
-                        }
-                    }
-                    val pageSummaryResponse = pageSummaryRequest.await()
-                    val watchedResponse = watchedRequest.await()
-                    val categoriesResponse = categoriesRequest.await()
-                    val isWatched = watchedResponse.query?.firstPage()?.watched == true
-                    val hasWatchlistExpiry = watchedResponse.query?.firstPage()?.hasWatchlistExpiry() == true
-                    if (pageSummaryResponse.body() == null) {
-                        throw RuntimeException("Summary response was invalid.")
-                    }
-                    val redirectedFrom = if (pageSummaryResponse.raw().priorResponse?.isRedirect == true) model.title?.displayText else null
-                    createPageModel(pageSummaryResponse, isWatched, hasWatchlistExpiry)
-                    if (OfflineCacheInterceptor.SAVE_HEADER_SAVE == pageSummaryResponse.headers()[OfflineCacheInterceptor.SAVE_HEADER]) {
-                        showPageOfflineMessage(pageSummaryResponse.headers().getInstant("date"))
-                    }
+                } catch (_: IOException) {
+                    L.w("Ignoring network error while fetching categories.")
+                    MwQueryResponse()
+                }
+            }
+            val pageSummaryResponse = pageSummaryRequest.await()
+            val watchedResponse = watchedRequest.await()
+            val categoriesResponse = categoriesRequest.await()
+            val isWatched = watchedResponse.query?.firstPage()?.watched == true
+            val hasWatchlistExpiry = watchedResponse.query?.firstPage()?.hasWatchlistExpiry() == true
+            if (pageSummaryResponse.body() == null) {
+                throw RuntimeException("Summary response was invalid.")
+            }
+            val redirectedFrom = if (pageSummaryResponse.raw().priorResponse?.isRedirect == true) model.title?.displayText else null
+            createPageModel(pageSummaryResponse, isWatched, hasWatchlistExpiry)
+            if (OfflineCacheInterceptor.SAVE_HEADER_SAVE == pageSummaryResponse.headers()[OfflineCacheInterceptor.SAVE_HEADER]) {
+                showPageOfflineMessage(pageSummaryResponse.headers().getInstant("date"))
+            }
 
-                    val categoryList = (categoriesResponse.query ?: watchedResponse.query)?.firstPage()?.categories?.map { category ->
-                        Category(title = category.title, lang = title.wikiSite.languageCode)
-                    }.orEmpty()
-                    if (categoryList.isNotEmpty()) {
-                        AppDatabase.instance.categoryDao().upsertAll(categoryList)
-                    }
+            val categoryList = (categoriesResponse.query ?: watchedResponse.query)?.firstPage()?.categories?.map { category ->
+                Category(title = category.title, lang = title.wikiSite.languageCode)
+            }.orEmpty()
+            if (categoryList.isNotEmpty()) {
+                AppDatabase.instance.categoryDao().upsertAll(categoryList)
+            }
 
-                    if (delayLoadHtml) {
-                        bridge.resetHtml(title)
-                    }
-                    fragment.onPageMetadataLoaded(redirectedFrom)
+            if (delayLoadHtml) {
+                bridge.resetHtml(title)
+            }
+            fragment.onPageMetadataLoaded(redirectedFrom)
 
-                    if (AnonymousNotificationHelper.shouldCheckAnonNotifications(watchedResponse)) {
-                        checkAnonNotifications(title)
-                    }
+            if (AnonymousNotificationHelper.shouldCheckAnonNotifications(watchedResponse)) {
+                checkAnonNotifications(title)
             }
         }
     }
@@ -222,7 +230,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
     }
 
     private fun showPageOfflineMessage(dateHeader: Instant?) {
-        if (!fragment.isAdded || dateHeader == null) {
+        if (dateHeader == null) {
             return
         }
         val localDate = LocalDate.ofInstant(dateHeader, ZoneId.systemDefault())
@@ -235,7 +243,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
     private fun createPageModel(response: Response<PageSummary>,
                                 isWatched: Boolean,
                                 hasWatchlistExpiry: Boolean) {
-        if (!fragment.isAdded || response.body() == null) {
+        if (response.body() == null) {
             return
         }
         val pageSummary = response.body()
@@ -286,7 +294,6 @@ class PageFragmentLoadState(private var model: PageViewModel,
                 // And finally, count this as a page view.
                 WikipediaApp.instance.appSessionEvent.pageViewed(entry)
                 ArticleLinkPreviewInteractionEvent(title.wikiSite.dbName(), pageSummary?.pageId ?: 0, entry.source).logNavigate()
-                ArticleLinkPreviewInteraction(fragment, entry.source).logNavigate()
             }
         }
     }

@@ -7,9 +7,6 @@ import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.togetherWith
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Clear
-import androidx.compose.material.icons.outlined.Search
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.runtime.Composable
@@ -17,6 +14,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import org.wikipedia.R
 import org.wikipedia.compose.theme.WikipediaTheme
@@ -85,7 +83,7 @@ fun WikiTopAppBarWithSearch(
                                     },
                                     content = {
                                         Icon(
-                                            imageVector = Icons.Outlined.Clear,
+                                            painter = painterResource(R.drawable.ic_close_black_24dp),
                                             contentDescription = stringResource(R.string.search_clear_query_content_description),
                                             tint = WikipediaTheme.colors.placeholderColor
                                         )
@@ -106,7 +104,7 @@ fun WikiTopAppBarWithSearch(
                                 },
                                 content = {
                                     Icon(
-                                        imageVector = Icons.Outlined.Search,
+                                        painter = painterResource(R.drawable.outline_search_24),
                                         contentDescription = stringResource(R.string.search_icon_content_description),
                                         tint = WikipediaTheme.colors.primaryColor
                                     )

@@ -89,7 +89,7 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
     override fun onStart() {
         super.onStart()
         try {
-            if (requireArguments().getBoolean("useClipboardText")) {
+            if (requireArguments().getBoolean(EXTRA_CLIPBOARD_TEXT)) {
                 val clipboard = requireContext().getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
                 if (clipboard.hasPrimaryClip() && clipboard.primaryClip != null) {
                     val primaryClip = clipboard.primaryClip!!
@@ -99,11 +99,11 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
                         binding.imageTagsSearchText.selectAll()
                     }
                 }
-            } else if (requireArguments().getString("lastText")!!.isNotEmpty()) {
-                binding.imageTagsSearchText.setText(requireArguments().getString("lastText")!!)
+            } else if (requireArguments().getString(EXTRA_LAST_TEXT)!!.isNotEmpty()) {
+                binding.imageTagsSearchText.setText(requireArguments().getString(EXTRA_LAST_TEXT)!!)
                 binding.imageTagsSearchText.selectAll()
             }
-        } catch (ignore: Exception) {
+        } catch (_: Exception) {
         }
         dialog?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE)
     }
@@ -197,9 +197,12 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
     }
 
     companion object {
+        const val EXTRA_CLIPBOARD_TEXT = "useClipboardText"
+        const val EXTRA_LAST_TEXT = "lastText"
+
         fun newInstance(useClipboardText: Boolean, lastText: String): SuggestedEditsImageTagDialog {
             val dialog = SuggestedEditsImageTagDialog()
-            dialog.arguments = bundleOf("useClipboardText" to useClipboardText, "lastText" to lastText)
+            dialog.arguments = bundleOf(EXTRA_CLIPBOARD_TEXT to useClipboardText, EXTRA_LAST_TEXT to lastText)
             return dialog
         }
     }

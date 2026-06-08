@@ -52,7 +52,12 @@ class UserInfo : BlockInfo() {
 
     @Serializable
     class Options {
-        @SerialName("watchdefault") val watchDefault: Int = 0
-        @SerialName("centralnotice-display-campaign-type-fundraising") val fundraisingOptIn: JsonElement? = null
+        @SerialName("watchdefault") private val watchDefault: JsonElement? = null
+        @SerialName("centralnotice-display-campaign-type-fundraising") private val fundraisingOptIn: JsonElement? = null
+
+        val watchEditedPagesByDefault get() = isExplicitOne(watchDefault)
+        val optedInToFundraising get() = isExplicitOne(fundraisingOptIn)
+
+        private fun isExplicitOne(element: JsonElement?) = element?.toString().orEmpty().replace("\"", "") == "1"
     }
 }

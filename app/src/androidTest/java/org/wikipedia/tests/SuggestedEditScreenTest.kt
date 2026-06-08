@@ -12,6 +12,7 @@ import org.wikipedia.robots.feature.LoginRobot
 import org.wikipedia.robots.navigation.BottomNavRobot
 import org.wikipedia.robots.screen.SuggestedEditsScreenRobot
 
+// MARK: requires login
 @LargeTest
 @RunWith(AndroidJUnit4::class)
 class SuggestedEditScreenTest : BaseTest<MainActivity>(
@@ -30,41 +31,40 @@ class SuggestedEditScreenTest : BaseTest<MainActivity>(
     fun runTest() {
         systemRobot
             .clickOnSystemDialogWithText("Allow")
+        loginRobot
+            .loginState(
+                loggedIn = {},
+                loggedOut = {
+                    navRobot
+                        .navigateToMoreMenu()
+                        .clickLoginMenuItem()
+                    loginRobot
+                        .logInUser()
+                    systemRobot
+                        .clickOnSystemDialogWithText("Allow")
+                }
+            )
         navRobot
             .navigateToMoreMenu()
-            .clickLoginMenuItem()
-        loginRobot
-            .logInUser()
-        systemRobot
-            .clickOnSystemDialogWithText("Allow")
-        navRobot
-            .navigateToSuggestedEdits()
-        systemRobot
-            .dismissTooltip(activity)
-            .dismissTooltip(activity)
-            .dismissTooltip(activity)
-            .dismissTooltip(activity)
-        suggestedEditsScreenRobot
-            .verifyContributionsIsVisible()
-            .verifyViewsIsVisible()
-            .verifyLastEditedIsVisible()
-            .verifyEditQualityIsVisible()
+            .clickEditsMenuItem()
         suggestedEditsScreenRobot
             .verifyArticleDescriptionDoesNotExist(context)
+            .verifyImageCaptionsExist(context)
+            .verifyImageTagsExist(context)
             .increaseContribution()
-            .enterContributionScreen()
         systemRobot
-            .clickOnSystemDialogWithText("No thanks")
             .pressBack()
+        navRobot
+            .navigateToMoreMenu()
+            .clickEditsMenuItem()
         suggestedEditsScreenRobot
             .clickArticleDescriptions()
             .pressBack()
-            .clickImageTags()
-            .pressBack()
-            .disableImageCaptionOnboarding()
             .clickImageCaptions()
             .pressBack()
-            .clickSuggestedEdits()
+            .clickImageTags()
+            .pressBack()
+            .pressBack()
         navRobot
             .navigateToMoreMenu()
         loginRobot

@@ -13,30 +13,13 @@
         android:paddingTop="16dp"
         android:orientation="vertical">
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/messageLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="4dp"
-            android:textSize="11sp"
-            android:textAllCaps="true"
-            android:text="@string/donation_reminders_initial_prompt_label"
-            app:chipBackgroundColor="?attr/addition_color"
-            app:chipStrokeWidth="0dp"
-            app:chipMinTouchTargetSize="0dp"
-            app:chipStartPadding="0dp"
-            app:chipEndPadding="0dp"
-            app:chipCornerRadius="18dp"
-            app:chipMinHeight="22dp"/>
-
         <TextView
             android:id="@+id/messageTitleView"
             style="@style/TextAppearance.Material3.TitleMedium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
-            android:textColor="?attr/primary_color"
-            android:text="@string/donation_reminders_initial_prompt_title"/>
+            android:textColor="?attr/primary_color"/>
 
         <TextView
             android:id="@+id/messageTextView"
@@ -44,7 +27,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="?attr/secondary_color"
-            android:text="@string/donation_reminders_initial_prompt_message"
             android:layout_marginBottom="4dp" />
 
         <com.google.android.flexbox.FlexboxLayout

@@ -13,6 +13,9 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.PendingIntentCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.getSystemService
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.launch
 import kotlinx.serialization.Serializable
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
@@ -77,16 +80,20 @@ object ReadingListsExportImportHelper : BaseActivity.Callback {
             .setStyle(NotificationCompat.BigTextStyle().bigText(context.getString(R.string.reading_list_notification_text, numOfLists)))
     }
 
-    fun importLists(activity: BaseActivity, jsonString: String) {
+    fun importLists(activity: AppCompatActivity, jsonString: String) {
         ReadingListsAnalyticsHelper.logImportStart(activity)
-        try {
+        activity.lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
+            FeedbackUtil.showMessage(activity, R.string.reading_lists_import_failure_message)
+            ReadingListsAnalyticsHelper.logImportCancelled(activity)
+        }) {
             val contents: ExportableContents = JsonUtil.decodeFromString(jsonString)!!
             val readingLists = contents.readingListsV1
             for (list in readingLists) {
                 val allLists = AppDatabase.instance.readingListDao().getAllLists()
-                val existingTitles = AppDatabase.instance.readingListDao().getAllLists().map { it.title }
-                if (existingTitles.contains(list.name)) {
-                    allLists.filter { it.title == list.name }.forEach { addTitlesToList(list, it) }
+                if (allLists.any { it.title == list.name }) {
+                    allLists.filter { it.title == list.name }.forEach {
+                        addTitlesToList(list, it)
+                    }
                     continue
                 }
                 val readingList = AppDatabase.instance.readingListDao().createList(list.name!!, list.description)
@@ -94,13 +101,10 @@ object ReadingListsExportImportHelper : BaseActivity.Callback {
                 ReadingListsAnalyticsHelper.logImportFinished(activity, list.pages.size)
             }
             FeedbackUtil.showMessage(activity, activity.resources.getQuantityString(R.plurals.reading_list_import_success_message, readingLists.size))
-        } catch (e: Exception) {
-            FeedbackUtil.showMessage(activity, R.string.reading_lists_import_failure_message)
-            ReadingListsAnalyticsHelper.logImportCancelled(activity)
         }
     }
 
-    private fun addTitlesToList(exportedList: ExportableReadingList, list: ReadingList) {
+    private suspend fun addTitlesToList(exportedList: ExportableReadingList, list: ReadingList) {
         val titles = exportedList.pages.map { page ->
             PageTitle(page.title, WikiSite.forLanguageCode(page.lang)).also {
                 if (page.ns != Namespace.MAIN.code()) { it.namespace = Namespace.of(page.ns).name }

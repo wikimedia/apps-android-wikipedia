@@ -16,6 +16,7 @@ import okhttp3.Request
 import okio.Buffer
 import okio.Sink
 import okio.Timeout
+import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.database.AppDatabase
@@ -32,7 +33,11 @@ import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.*
+import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.ImageUrlUtil
+import org.wikipedia.util.ThrowableUtil
+import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.CircularProgressBar
 import java.io.IOException
@@ -66,7 +71,11 @@ class SavedPageSyncService(context: Context, params: WorkerParameters) : Corouti
                     shouldSendSyncEvent = true
                 }
                 if (pagesToUnSave.isNotEmpty()) {
-                    AppDatabase.instance.readingListPageDao().resetUnsavedPageStatus()
+                    AppDatabase.instance.readingListPageDao().updateStatus(
+                        oldStatus = ReadingListPage.STATUS_SAVED,
+                        newStatus = ReadingListPage.STATUS_QUEUE_FOR_SAVE,
+                        offline = false
+                    )
                     shouldSendSyncEvent = true
                 }
             }
@@ -180,7 +189,7 @@ class SavedPageSyncService(context: Context, params: WorkerParameters) : Corouti
 
             val fileUrls = mutableSetOf<String>()
             // download css and javascript assets
-            mobileHTMLResponse.body?.let {
+            mobileHTMLResponse.body.use {
                 fileUrls.addAll(PageComponentsUrlParser.parse(it.string(),
                     pageTitle.wikiSite).filter { url -> url.isNotEmpty() })
             }
@@ -188,15 +197,22 @@ class SavedPageSyncService(context: Context, params: WorkerParameters) : Corouti
                 // download thumbnail and lead image
                 if (!summaryResponse.thumbnailUrl.isNullOrEmpty()) {
                     page.thumbUrl = UriUtil.resolveProtocolRelativeUrl(pageTitle.wikiSite, summaryResponse.thumbnailUrl.orEmpty())
+                    val existingPageImage = AppDatabase.instance.pageImagesDao()
+                        .findItemsBy(pageTitle.wikiSite.languageCode, pageTitle.namespace, pageTitle.prefixedText)
+                        .firstOrNull()
+
                     AppDatabase.instance.pageImagesDao().insertPageImage(PageImage(
-                        pageTitle,
+                        pageTitle.wikiSite.languageCode,
+                        pageTitle.namespace,
+                        page.apiTitle,
                         page.thumbUrl.orEmpty(),
                         summaryResponse.description,
-                        summaryResponse.coordinates?.latitude,
-                        summaryResponse.coordinates?.longitude
+                        existingPageImage?.timeSpentSec ?: 0,
+                        summaryResponse.coordinates?.latitude ?: 0.0,
+                        summaryResponse.coordinates?.longitude ?: 0.0
                     ))
                     fileUrls.add(UriUtil.resolveProtocolRelativeUrl(
-                        ImageUrlUtil.getUrlForPreferredSize(page.thumbUrl.orEmpty(), DimenUtil.calculateLeadImageWidth())))
+                        ImageUrlUtil.getUrlForPreferredSize(page.thumbUrl.orEmpty(), Constants.PREFERRED_CARD_THUMBNAIL_SIZE)))
                 }
 
                 // download article images
@@ -264,7 +280,7 @@ class SavedPageSyncService(context: Context, params: WorkerParameters) : Corouti
         withContext(Dispatchers.IO) {
             OkHttpConnectionFactory.client.newCall(request).execute().use { response ->
                 // Read the entirety of the response, so that it's written to cache by the interceptor.
-                response.body?.source()?.readAll(object : Sink {
+                response.body.source().readAll(object : Sink {
                     override fun write(source: Buffer, byteCount: Long) {}
                     override fun flush() {}
                     override fun timeout(): Timeout {

@@ -2,7 +2,6 @@ package org.wikipedia.settings.languages
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.os.Build
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -34,10 +33,8 @@ class WikipediaLanguagesItemView : LinearLayout {
                 ViewGroup.LayoutParams.WRAP_CONTENT)
         minimumHeight = DimenUtil.roundedDpToPx(DimenUtil.getDimension(R.dimen.list_item_default_height))
         setBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.paper_color))
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            foreground = AppCompatResources.getDrawable(context,
-                ResourceUtil.getThemedAttributeId(context, androidx.appcompat.R.attr.selectableItemBackground))
-        }
+        foreground = AppCompatResources.getDrawable(context,
+            ResourceUtil.getThemedAttributeId(context, androidx.appcompat.R.attr.selectableItemBackground))
         binding.wikiLanguageCheckbox.setOnCheckedChangeListener { _, _ ->
             callback?.onCheckedChanged(position)
             updateBackgroundColor()

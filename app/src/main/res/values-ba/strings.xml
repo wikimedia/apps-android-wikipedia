@@ -47,7 +47,7 @@
   <string name="page_error_back_to_main">Кире ҡайтырға</string>
   <string name="error_back">Кире ҡайтырға</string>
   <string name="error_next">Артабан</string>
-  <string name="menu_clear_all_history">Тарихты таҙартырға</string>
+  <string name="menu_clear_all_history" fuzzy="true">Тарихты таҙартырға</string>
   <string name="history_item_deleted">\"%s\" ҡарау тарихынан юйылған</string>
   <string name="history_items_deleted">%d мәҡәлә ҡарау тарихынан юйылған</string>
   <string name="history_item_delete_undo">Кире алырға</string>
@@ -60,7 +60,7 @@
   <string name="wikimedia_commons">Викимилек</string>
   <string name="wikidata">Викимәғлүмәт</string>
   <string name="dialog_title_clear_history">Ҡаралған биттәр тарихын таҙартырға</string>
-  <string name="dialog_message_clear_history">Ҡараған биттәрҙең барлыҡ тарихы һәм асыҡ ҡушымталар юйыласаҡ. Дауам итергәме?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Ҡараған биттәрҙең барлыҡ тарихы һәм асыҡ ҡушымталар юйыласаҡ. Дауам итергәме?</string>
   <string name="dialog_message_clear_history_yes">Эйе</string>
   <string name="dialog_message_clear_history_no">Юҡ</string>
   <string name="share_via">Уртаҡлашырға</string>
@@ -246,12 +246,9 @@
   <string name="privacy_policy_description">Сер һаҡлау сәйәсәте</string>
   <string name="terms_of_use_description">Ҡулланыу шарттары</string>
   <string name="about_wikipedia_url">https://ba.wikipedia.org/wiki/Википедия:Тасуирлама</string>
-  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru#Офлайнда уҡыу һәм мәғлүмәттәр</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ba</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="about_libraries_heading">Файҙаланылған китапханалар</string>
   <string name="about_contributors_heading">Авторҙар</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Команда бите&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Команда бите&lt;/a&gt;</string>
   <string name="about_translators_heading">Тәржемәселәр</string>
   <string name="about_translators_translatewiki">Был ҡушымта &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; ирекмәндәре тарафынан тәржемә ителгән.</string>
   <string name="about_app_license_heading">Лицензия</string>
@@ -834,11 +831,11 @@
   <string name="feed_item_type_randomizer">Уҡыу өсөн осраҡлы мәҡәләләр исемлеге булдырыу</string>
   <string name="feed_item_type_suggested_edits">Википедияға эстәлек өҫтәү тәҡдимдәре</string>
   <string name="feed_item_type_places">Хәҙерге урынға нигеҙләнгән яҡындағы мәҡәләләр</string>
-  <string name="feed_empty_message">Һеҙҙең \"Тикшер\" теҙмәһендә бер нәмә лә юҡ</string>
+  <string name="feed_empty_message" fuzzy="true">Һеҙҙең \"Тикшер\" теҙмәһендә бер нәмә лә юҡ</string>
   <string name="feed_configure_onboarding_action">Көйләргә</string>
   <string name="customize_lang_selection_dialog_ok_button_text">Яҡшы</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Кире алырға</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Теҙмәгеҙҙе көйләгеҙ&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Хәҙер һеҙ теҙмәлә нимә күрһәтеләсәген һайлай, шулай уҡ яратҡан эстәлек төрҙәре өсөн өҫтөнлөктәр ҡуя алаһығыҙ.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Теҙмәгеҙҙе көйләгеҙ&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Хәҙер һеҙ теҙмәлә нимә күрһәтеләсәген һайлай, шулай уҡ яратҡан эстәлек төрҙәре өсөн өҫтөнлөктәр ҡуя алаһығыҙ.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">Яҡшы</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Кире алырға</string>
   <string name="feed_accessibility_card_text">Һеҙ теҙмәнең аҫҡы өлөшөнә барып еттегеҙ.</string>
@@ -1136,11 +1133,11 @@
   <string name="onboarding_get_started">Башларға</string>
   <string name="onboarding_maybe_later">Бәлки, һуңғараҡ</string>
   <string name="onboarding_explore_title">Өйрәнеүҙең яңы ысулдары</string>
-  <string name="onboarding_explore_text">Википедия лабиринтында даими яңыртылып торған теҙмә ярҙамында сәйәхәт итегеҙ. &lt;br/&gt; Теҙмәне үҙегеҙҙе ҡыҙыҡһындырған темаға тура килерлек итеп &lt;b&gt;көйләгеҙ&lt;/b&gt; — ул &lt;b&gt;был көндә булған тарихи ваҡиғалар&lt;/b&gt; йәки &lt;/b&gt;осраҡлы һайланған&lt;/b&gt; тема булыуы мөмкин.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Википедия лабиринтында даими яңыртылып торған теҙмә ярҙамында сәйәхәт итегеҙ. &lt;br/&gt; Теҙмәне үҙегеҙҙе ҡыҙыҡһындырған темаға тура килерлек итеп &lt;b&gt;көйләгеҙ&lt;/b&gt; — ул &lt;b&gt;был көндә булған тарихи ваҡиғалар&lt;/b&gt; йәки &lt;/b&gt;осраҡлы һайланған&lt;/b&gt; тема булыуы мөмкин.</string>
   <string name="onboarding_reading_list_sync_title">Синхронлаштырылған уҡыу исемлектәре</string>
   <string name="onboarding_reading_list_sync_text_v2">Һеҙ һуңыраҡ, хатта офлайн режимда булғанда ла, уҡырға теләгән мәҡәләләр исемлеген төҙөй алаһығыҙ. Уҡыу исемлектәрен синхронлаштырыу өсөн Википедиялағы иҫәп яҙмағыҙға инегеҙ. &lt;a href=\"#login\"&gt;Википедияға ҡушылығыҙ&lt;/a&gt;&lt;br&gt;</string>
   <string name="onboarding_data_privacy_title">Мәғлүмәттәр һәм конфиденциаллек</string>
-  <string name="onboarding_data_privacy_text">Беҙ, бушлай белем хәрәкәтендә ҡатнашыу өсөн шәхси мәғлүмәт бирергә мәжбүр булмаҫҡа тейешһегеҙ тип иҫәпләйбеҙ. Был ҡушымта өсөн йыйылған ҡулланыу мәғлүмәттәре аноним. Беҙҙең &lt;a href=\"#privacy\"&gt;хосуси сәйәсәт&lt;/a&gt; һәм &lt;a href=\"#termsOfUse\"&gt;ҡулланыу шарттары&lt;/a&gt; тураһында тулыраҡ белешегеҙ.</string>
+  <string name="onboarding_data_privacy_text" fuzzy="true">Беҙ, бушлай белем хәрәкәтендә ҡатнашыу өсөн шәхси мәғлүмәт бирергә мәжбүр булмаҫҡа тейешһегеҙ тип иҫәпләйбеҙ. Был ҡушымта өсөн йыйылған ҡулланыу мәғлүмәттәре аноним. Беҙҙең &lt;a href=\"#privacy\"&gt;хосуси сәйәсәт&lt;/a&gt; һәм &lt;a href=\"#termsOfUse\"&gt;ҡулланыу шарттары&lt;/a&gt; тураһында тулыраҡ белешегеҙ.</string>
   <string name="onboarding_analytics_switch_title">Ҡулланыу мәғлүмәттәрен ебәрергә</string>
   <string name="onboarding_got_it">Аңлашылды</string>
   <string name="onboarding_multilingual_secondary_text">Һеҙҙең ҡоролмала түбәндәге телдәрҙе таптыҡ:</string>
@@ -1175,7 +1172,7 @@
     <item quantity="one">Һайланған телде юйырғамы?</item>
     <item quantity="other">Һайланған телдәрҙе юйырғамы?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Һеҙ йөкмәткене теҙмә ҡушымтаһында ғына күрә  һәм тиҙ эҙләү фильтрын башҡа тел бүлектәрендә генә ҡуллана алаһығыҙ.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Һеҙ йөкмәткене теҙмә ҡушымтаһында ғына күрә  һәм тиҙ эҙләү фильтрын башҡа тел бүлектәрендә генә ҡуллана алаһығыҙ.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Бөтә телдәрҙе лә юйырға ярамай</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Эҙләү һәм уҡыу өсөн бер телде булһа ла ҡалдырығыҙ.</string>
   <string name="more_language_options">күберәк телдәр</string>
@@ -1250,8 +1247,6 @@
   <string name="templates_description_missing_data">Был ҡалыпта &lt;a href=\"%1$s\"&gt;TemplateData&lt;/a&gt; юҡ, һәм уның параметрҙары &lt;a href=\"%2$s\"&gt;автоматик рәүештә булдырылған&lt;/a&gt;. Шуға күрә ҡалыптың һәм уның параметрҙарының тасуирламалары юҡ.</string>
   <string name="main_drawer_help">Белешмә</string>
   <string name="main_drawer_login">Танылығыҙ / Википедияға ҡушылығыҙ</string>
-  <string name="main_tooltip_text">Сәләм %s, Википедияны һәр кем мөхәррирләй алғанын беләһегеҙме?</string>
-  <string name="main_tooltip_text_v2">Википедияны һәр кем мөхәррирләй алғанын беләһегеҙме?</string>
   <string name="main_tooltip_action_button">Башларға</string>
   <string name="main_tooltip_watchlist_title">Күҙәтеү исемлеге</string>
   <string name="main_tooltip_watchlist_text">Өҫтәмә менюла &lt;b&gt;Күҙәтеү исемлегендә&lt;/b&gt; элек өҫтәгән мәҡәләләрҙе һәм биттәрҙе табығыҙ.</string>
@@ -1602,7 +1597,7 @@
   <string name="email_report_patroller_tasks_subject">Проблема тураһында мәғлүмәт - Тикшереү функцияһы</string>
   <string name="email_report_patroller_tasks_body">Тикшереү функцияһы проблемаһы менән осраштым:\n-[Аныҡ проблеманы күрһәтегеҙ]\nМин күрергә теләгән ғәмәл:\n-[Хәл итеү юлын тасуирлағыҙ]\n\n[Скриншоттар йәки һылтанмалар]</string>
   <string name="donation_campaign_maybe_later_snackbar">Иртәгә тағы ла иҫегеҙгә төшөрөрбөҙ.</string>
-  <string name="donation_campaign_donated_snackbar">Рәхмәт! Йомартлығығыҙ Википедияның һәм уның туғандаш проекттарының үҫешеүенә булышлыҡ итә.</string>
+  <string name="donation_campaign_donated_snackbar" fuzzy="true">Рәхмәт! Йомартлығығыҙ Википедияның һәм уның туғандаш проекттарының үҫешеүенә булышлыҡ итә.</string>
   <string name="donation_campaign_go_back_button">Кире ҡайтырға</string>
   <string name="menu_single_webview_open_external">Система браузерында асырға</string>
   <string name="survey_dialog_title">Был функцияны яҡшыртырға ярҙам итегеҙ</string>

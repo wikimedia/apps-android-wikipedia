@@ -30,7 +30,7 @@
   <string name="page_error_back_to_main">رجع لّور</string>
   <string name="error_back">رجع لّور</string>
   <string name="error_next">لماجي</string>
-  <string name="menu_clear_all_history">مسح ليسطوريك</string>
+  <string name="menu_clear_all_history" fuzzy="true">مسح ليسطوريك</string>
   <string name="history_item_deleted">تحيدات %s من ليسطوريك</string>
   <string name="history_items_deleted">تحيدات %d مقالة من ليسطوريك</string>
   <string name="history_item_delete_undo">رجّع</string>
@@ -43,7 +43,7 @@
   <string name="wikimedia_commons">ويكيميديا كومنز</string>
   <string name="wikidata">ويكيداطا</string>
   <string name="dialog_title_clear_history">مسح ليسطوريك</string>
-  <string name="dialog_message_clear_history">هادشي غايمسح ڭاع ليسطوريك ديالك، وغايسد ڭاع التبويبات لي محلولين. واش متأكد؟</string>
+  <string name="dialog_message_clear_history" fuzzy="true">هادشي غايمسح ڭاع ليسطوريك ديالك، وغايسد ڭاع التبويبات لي محلولين. واش متأكد؟</string>
   <string name="dialog_message_clear_history_yes">آه</string>
   <string name="dialog_message_clear_history_no">لا</string>
   <string name="share_via">پارطاجي ب</string>
@@ -352,6 +352,14 @@
   <string name="suggested_edits_contributions_stat_tooltip">لمجموع د تبديلات ديالك حتال دابا.</string>
   <string name="suggested_edits_disabled_message">التبديلات لمقتارحة مامفعلاش. سمح لينا %s، راه ترجّعو بزاف د لمساهمات اللخرة ديالك.</string>
   <string name="suggested_edits_quality_okay_text">واخا</string>
+  <plurals name="suggested_edits_edit_streak_detail_text">
+    <item quantity="zero">تا نهار</item>
+    <item quantity="one">نهار واحد</item>
+    <item quantity="two">يوماين</item>
+    <item quantity="few">%d يوم</item>
+    <item quantity="many">%d يام</item>
+    <item quantity="other">%d يوم</item>
+  </plurals>
   <string name="suggested_edits_task_new" fuzzy="true">جديد</string>
   <string name="suggested_edits_contribution_language_label">لوغة</string>
   <string name="suggested_edits_contribution_date_time_label">تاريخ / وقت</string>

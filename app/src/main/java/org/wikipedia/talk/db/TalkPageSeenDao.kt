@@ -4,7 +4,6 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface TalkPageSeenDao {
@@ -12,10 +11,13 @@ interface TalkPageSeenDao {
     suspend fun insertTalkPageSeen(talkPageSeen: TalkPageSeen)
 
     @Query("SELECT * FROM TalkPageSeen WHERE sha = :sha LIMIT 1")
-    fun getTalkPageSeen(sha: String): TalkPageSeen?
+    suspend fun getTalkPageSeen(sha: String): TalkPageSeen?
 
     @Query("SELECT * FROM TalkPageSeen")
-    fun getAll(): Flow<List<TalkPageSeen>>
+    suspend fun getAll(): List<TalkPageSeen>
+
+    @Query("SELECT * FROM TalkPageSeen WHERE sha IN (:shaList)")
+    suspend fun getFor(shaList: List<String>): List<TalkPageSeen>
 
     @Query("DELETE FROM TalkPageSeen WHERE sha = :sha")
     suspend fun deleteTalkPageSeen(sha: String)

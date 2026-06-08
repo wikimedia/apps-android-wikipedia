@@ -39,7 +39,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
@@ -361,15 +360,17 @@ private fun UpdatesFrequencyView(
     onUpdateFrequency: (RecommendedReadingListUpdateFrequency) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    val context = LocalContext.current
     var showDialog by remember { mutableStateOf(false) }
     val frequencies = RecommendedReadingListUpdateFrequency.entries.toTypedArray()
-    val dialogOptions = frequencies.map { context.getString(it.dialogStringRes) }
+    val dialogOptions = frequencies.map { stringResource(it.dialogStringRes) }
     val selectedDialogOption = stringResource(selectedFrequency.dialogStringRes)
     val updateFrequencyString = stringResource(
         R.string.recommended_reading_list_settings_updates_frequency,
         stringResource(selectedFrequency.displayStringRes)
     )
+    val stringToFrequency = remember(dialogOptions, frequencies) {
+        dialogOptions.zip(frequencies).toMap()
+    }
     ListItem(
         modifier = modifier
             .clickable(
@@ -405,9 +406,7 @@ private fun UpdatesFrequencyView(
             selectedOption = selectedDialogOption,
             onDismissRequest = { showDialog = false },
             onOptionSelected = { selectedOptionString ->
-                val newSelectedFrequency = frequencies.find {
-                    context.getString(it.dialogStringRes) == selectedOptionString
-                } ?: RecommendedReadingListUpdateFrequency.DAILY
+                val newSelectedFrequency = stringToFrequency[selectedOptionString] ?: RecommendedReadingListUpdateFrequency.DAILY
                 onUpdateFrequency(newSelectedFrequency)
             }
         )

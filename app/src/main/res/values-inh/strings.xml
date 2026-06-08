@@ -31,7 +31,7 @@
   <string name="page_error_back_to_main">ТIехьашкахьа</string>
   <string name="error_back">ЮхагIо</string>
   <string name="error_next">ДӀахо</string>
-  <string name="menu_clear_all_history">IоцIенде тархьар</string>
+  <string name="menu_clear_all_history" fuzzy="true">IоцIенде тархьар</string>
   <string name="history_item_deleted">Статья \"%s\" дIаяьккхай хьалха хьийжа хиннача статьяшта юкъера</string>
   <string name="history_items_deleted">%d статья дIаяьккхай хьалха хьийжа хиннача статьяшта юкъера</string>
   <string name="history_item_delete_undo">Юхадаккха</string>
@@ -44,7 +44,7 @@
   <string name="wikimedia_commons">Викиларма</string>
   <string name="wikidata">Викидараш</string>
   <string name="dialog_title_clear_history">ЦIенде хьалха даь хьажараш</string>
-  <string name="dialog_message_clear_history">Iа хьалха хьа мел йийла хинна оагIонаш дIяргья исторе чура, еррига вкладкаш а дIакъовлалургья. ДIахо дIаяхийтта вай?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Iа хьалха хьа мел йийла хинна оагIонаш дIяргья исторе чура, еррига вкладкаш а дIакъовлалургья. ДIахо дIаяхийтта вай?</string>
   <string name="dialog_message_clear_history_yes">XӀаъу</string>
   <string name="dialog_message_clear_history_no">A</string>
   <string name="share_via">Кхычахьа дIаяхийтта...</string>
@@ -231,14 +231,12 @@
   <string name="terms_of_use_description">Пайда эцара бехкамаш</string>
   <string name="about_wikipedia_url">https://inh.wikipedia.org/wiki/Википеди:Сурт_оттадар</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.m.wikimedia.org/wiki/Privacy_policy/inh</string>
-  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru#Офлайн_дешар_а_дараш_а</string>
   <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru</string>
   <string name="terms_of_use_url" fuzzy="true">https://meta.m.wikimedia.org/wiki/Terms_of_Use/inh</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ru</string>
   <string name="about_libraries_heading">Пайда ийца библиотекаш</string>
   <string name="about_contributors_heading">Автораш</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Тоабан оагӀув&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Тоабан оагӀув&lt;/a&gt;</string>
   <string name="about_translators_heading">Таржамхой</string>
   <string name="about_translators_translatewiki">Укх приложенена &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; чу таржам даьр ГӀалгӀай Википеден админ ва (&lt;a href=\"https://instagram.com/ingush_wikipedia\"&gt;@Ingush_Wikipedia&lt;/a&gt;).</string>
   <string name="about_app_license_heading">Лицензи</string>
@@ -798,11 +796,11 @@
   <string name="feed_item_type_main_page">Википеден керттера лустам</string>
   <string name="feed_item_type_randomizer">ТӀехьагӀа еша дӀаяхка мегаргйола ца ховш нийсъенна статьяш хьагойта езий?</string>
   <string name="feed_item_type_suggested_edits">ОагӀонех лаьцар тоаде йиш я.</string>
-  <string name="feed_empty_message">Хьа лента даьсса да</string>
+  <string name="feed_empty_message" fuzzy="true">Хьа лента даьсса да</string>
   <string name="feed_configure_onboarding_action">Оттамаш де</string>
   <string name="customize_lang_selection_dialog_ok_button_text">ХӀАЪА</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Эшац</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Хьатоаде хьай лента&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;ХӀанз хьа харжа аьттув ба фу гойташ хургда а хьа лента тӀа, цу юкъера хьайна дукхагӀа эшаш дар малагӀа да а.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Хьатоаде хьай лента&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;ХӀанз хьа харжа аьттув ба фу гойташ хургда а хьа лента тӀа, цу юкъера хьайна дукхагӀа эшаш дар малагӀа да а.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">ХӀАЪА</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">ЭШАЦ</string>
   <string name="feed_accessibility_card_text">Лентай чаккхенга кхаьчар хьо.</string>
@@ -1068,7 +1066,7 @@
   <string name="onboarding_get_started">ДӀадоладе</string>
   <string name="onboarding_maybe_later">ТӀехьагӀа мег</string>
   <string name="onboarding_explore_title">Тахкара керда наькъаш</string>
-  <string name="onboarding_explore_text">Википеде гӀолла лела хьайна даим кердадувлача лентах пайда а эцаш. &lt;br/&gt;&lt;b&gt;Оттамаш&lt;/b&gt; де йиш цу лента тӀа хьай хьашт дар цо гойтаргдолаш — &lt;b&gt;укх дийнахьа&lt;/b&gt; тархьаре хинна хӀамаш е &lt;b&gt;ца ховш нийсъенна&lt;/b&gt; оагӀонаш.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Википеде гӀолла лела хьайна даим кердадувлача лентах пайда а эцаш. &lt;br/&gt;&lt;b&gt;Оттамаш&lt;/b&gt; де йиш цу лента тӀа хьай хьашт дар цо гойтаргдолаш — &lt;b&gt;укх дийнахьа&lt;/b&gt; тархьаре хинна хӀамаш е &lt;b&gt;ца ховш нийсъенна&lt;/b&gt; оагӀонаш.</string>
   <string name="onboarding_reading_list_sync_title">Дешарá дола листамаш синхронизацеца</string>
   <string name="onboarding_reading_list_sync_text_v2">Хье офлайн вале/яле а, тӀехьагӀа хьайна еша безам болча оагӀонех дешара листамаш хьаде йиш я хьа. &lt;br/&gt;Хьай аккаунтаца авторизаци е, хьай дешара листамашта синхронизаци ергйолаш. &lt;a href=\"#login\"&gt;Хьахоттале Википедех&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Пайда эцарах отчёташ дӀаахийта</string>
@@ -1108,7 +1106,7 @@
     <item quantity="many">ДӀабаккха хьахержа дола метташ?</item>
     <item quantity="other">ДӀабаккха хьахержа дола метташ?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Википеден кхыдолча меттала йолча разделашка мара вӀаштехьа хургдац хьа Лента яхача вкладка тӀа долчунга хьажа а сиха лахара фильтраш лелае а.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Википеден кхыдолча меттала йолча разделашка мара вӀаштехьа хургдац хьа Лента яхача вкладка тӀа долчунга хьажа а сиха лахара фильтраш лелае а.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Деррига метташ дӀадаха йиш яц</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Цхьа мотт мукъагӀа бита бéза хьа, дéша а лаха а йиш хургйолаш</string>
   <string name="more_language_options">кхы а да метташ</string>
@@ -1173,8 +1171,6 @@
   <string name="insert_media_insert_button">ДӀачудаккха</string>
   <string name="main_drawer_help">ГӀо</string>
   <string name="main_drawer_login">Чувала Википеде чу</string>
-  <string name="main_tooltip_text">Моаршал да хьога, %s, хой хьона, моллагIа саг Википеди тоае йиш йолаш волга?</string>
-  <string name="main_tooltip_text_v2">Хой шоана, хӀара саго Википеди тоае мегаш йолга?</string>
   <string name="main_tooltip_action_button">ДIадоладе</string>
   <string name="main_tooltip_watchlist_title">Зем-листам</string>
   <string name="main_tooltip_watchlist_text">ХьалхагӀа хьай зем-листамá тӀатеха йола статьяши оагӀонаши хьалаха &lt;b&gt;«Зем-листам»&lt;/b&gt; яхача раздела чу («Кхы а» яхача меню чу).</string>

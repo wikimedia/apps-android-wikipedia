@@ -1,6 +1,7 @@
 package org.wikipedia.readinglist.sync
 
-import android.content.*
+import android.content.ContentResolver
+import android.content.Context
 import android.os.Bundle
 import androidx.core.os.bundleOf
 import androidx.work.Constraints
@@ -33,6 +34,9 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
+import java.time.Instant
+import java.time.LocalDateTime
+import java.time.ZoneOffset
 
 class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : CoroutineWorker(context, params) {
 
@@ -196,6 +200,8 @@ class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : Corou
                             AppDatabase.instance.readingListDao().createList(remoteList.name(), remoteList.description())
                         }
                         localList.remoteId = remoteList.id
+                        localList.atime = remoteList.created.toInstant(ZoneOffset.UTC).toEpochMilli()
+                        localList.mtime = remoteList.updated.toInstant(ZoneOffset.UTC).toEpochMilli()
                         allLocalLists.add(localList)
                         upsertNeeded = true
                     } else {
@@ -339,7 +345,7 @@ class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : Corou
                             for (i in ids.indices) {
                                 localPages[i].remoteId = ids[i]
                             }
-                            AppDatabase.instance.readingListPageDao().updatePages(localPages)
+                            AppDatabase.instance.readingListPageDao().updateReadingListPages(localPages)
                         }
                     } catch (t: Throwable) {
                         // TODO: optimization opportunity -- if the server can return the ID
@@ -385,7 +391,7 @@ class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : Corou
                                 }
                             }
                         }
-                        AppDatabase.instance.readingListPageDao().updatePages(localPages)
+                        AppDatabase.instance.readingListPageDao().updateReadingListPages(localPages)
                     }
                 }
             } catch (e: CancellationException) {
@@ -447,7 +453,7 @@ class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : Corou
         return extras
     }
 
-    private fun createOrUpdatePage(listForPage: ReadingList,
+    private suspend fun createOrUpdatePage(listForPage: ReadingList,
                                    remotePage: RemoteReadingListEntry) {
         val remoteTitle = pageTitleFromRemoteEntry(remotePage)
         var localPage = listForPage.pages.find { ReadingListPage.toPageTitle(it) == remoteTitle }
@@ -456,11 +462,11 @@ class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : Corou
         if (localPage == null) {
             localPage = ReadingListPage(pageTitleFromRemoteEntry(remotePage))
             localPage.listId = listForPage.id
-            if (AppDatabase.instance.readingListPageDao().pageExistsInList(listForPage, remoteTitle)) {
-                updateOnly = true
-            }
+            updateOnly = AppDatabase.instance.readingListPageDao().getPageByTitle(listForPage, remoteTitle) != null
         }
         localPage.remoteId = remotePage.id
+        localPage.atime = remotePage.created.toInstant(ZoneOffset.UTC).toEpochMilli()
+        localPage.mtime = remotePage.updated.toInstant(ZoneOffset.UTC).toEpochMilli()
         if (updateOnly) {
             L.d("Updating local page " + localPage.apiTitle)
             AppDatabase.instance.readingListPageDao().updateReadingListPage(localPage)
@@ -470,7 +476,7 @@ class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : Corou
         }
     }
 
-    private fun deletePageByTitle(listForPage: ReadingList, title: PageTitle) {
+    private suspend fun deletePageByTitle(listForPage: ReadingList, title: PageTitle) {
         var localPage = listForPage.pages.find { ReadingListPage.toPageTitle(it) == title }
         if (localPage == null) {
             localPage = AppDatabase.instance.readingListPageDao().getPageByTitle(listForPage, title)
@@ -489,7 +495,9 @@ class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : Corou
     private fun remoteEntryFromLocalPage(localPage: ReadingListPage): RemoteReadingListEntry {
         val title = ReadingListPage.toPageTitle(localPage)
         return RemoteReadingListEntry(0, 0,
-            "${title.wikiSite.scheme()}://${title.wikiSite.authority()}", title.prefixedText)
+            "${title.wikiSite.scheme()}://${title.wikiSite.authority()}", title.prefixedText,
+            created = if (localPage.atime == 0L) LocalDateTime.now() else LocalDateTime.ofInstant(Instant.ofEpochMilli(localPage.atime), ZoneOffset.UTC),
+            updated = if (localPage.mtime == 0L) LocalDateTime.now() else LocalDateTime.ofInstant(Instant.ofEpochMilli(localPage.mtime), ZoneOffset.UTC))
     }
 
     companion object {

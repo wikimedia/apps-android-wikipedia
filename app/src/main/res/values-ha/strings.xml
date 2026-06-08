@@ -34,7 +34,7 @@
   <string name="page_error_back_to_main">Koma baya</string>
   <string name="error_back">Koma baya</string>
   <string name="error_next">Gaba</string>
-  <string name="menu_clear_all_history">Share tarihi</string>
+  <string name="menu_clear_all_history" fuzzy="true">Share tarihi</string>
   <string name="history_item_deleted">%s cire daga tarihi</string>
   <string name="history_items_deleted">%d maƙalolin da aka cire daga tarihi</string>
   <string name="history_item_delete_undo">Warware</string>
@@ -47,7 +47,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Goge tarihin browsing</string>
-  <string name="dialog_message_clear_history">Wannan zai share dukkan tarihin binciken ka, kuma zai kulle shafukan da ka buɗe gaba ɗaya a halin yanzu. Ka tabbata?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Wannan zai share dukkan tarihin binciken ka, kuma zai kulle shafukan da ka buɗe gaba ɗaya a halin yanzu. Ka tabbata?</string>
   <string name="dialog_message_clear_history_yes">Eh</string>
   <string name="dialog_message_clear_history_no">A\'a</string>
   <string name="share_via">Aika ta</string>
@@ -231,12 +231,9 @@
   <string name="privacy_policy_description">Manufofin kariya</string>
   <string name="terms_of_use_description">Sharuɗɗan amfani</string>
   <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:About</string>
-  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="about_libraries_heading">Laburaren da aka yi amfani da su</string>
   <string name="about_contributors_heading">Gudummuwa</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Shafin tawaga&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Shafin tawaga&lt;/a&gt;</string>
   <string name="about_translators_heading">Mai fassara</string>
   <string name="about_translators_translatewiki">Lasisi</string>
   <string name="about_app_license_heading">Lasisi</string>
@@ -795,11 +792,11 @@
   <string name="feed_item_type_main_page">Babban shafi na Wikipedia tare da abubuwan da ke cikin yau da kullun</string>
   <string name="feed_item_type_randomizer">Samar da labarai na bazuwar don karantawa</string>
   <string name="feed_item_type_suggested_edits">Shawarwari don ƙara abun ciki zuwa Wikipedia</string>
-  <string name="feed_empty_message">Babu wani abu a kan abincinku na Bincike</string>
+  <string name="feed_empty_message" fuzzy="true">Babu wani abu a kan abincinku na Bincike</string>
   <string name="feed_configure_onboarding_action">Keɓance</string>
   <string name="customize_lang_selection_dialog_ok_button_text">Yayi</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Soke</string>
-  <string name="feed_configure_onboarding_text">Yanke abincin Bincike yanzu zaka iya zaɓar abin da za ka nuna akan abincinka, kuma ka ba da fifiko ga nau\'ikan abubuwan da ka fi so.&lt;br/&gt;&lt;br/&gt;</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">Yanke abincin Bincike yanzu zaka iya zaɓar abin da za ka nuna akan abincinka, kuma ka ba da fifiko ga nau\'ikan abubuwan da ka fi so.&lt;br/&gt;&lt;br/&gt;</string>
   <string name="feed_lang_selection_dialog_ok_button_text">Yayi</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Soke</string>
   <string name="feed_accessibility_card_text">Kun kai ga kasan abincin.</string>
@@ -1094,7 +1091,7 @@
   <string name="onboarding_get_started">Fara</string>
   <string name="onboarding_maybe_later">Wataƙila daga baya</string>
   <string name="onboarding_explore_title">Sabbin hanyoyin bincike</string>
-  <string name="onboarding_explore_text">Nitsaye cikin rami na zomo na Wikipedia tare da sabuntawa akai-akai Bincike ciyarwa. Yi amfani da abinci don abubuwan da kuke so - ko yana koyo game da abubuwan da suka faru a tarihi &lt;b&gt;A wannan rana&lt;/b&gt;, ko kuma mirgine dice tare da Random.&lt;br/&gt;</string>
+  <string name="onboarding_explore_text" fuzzy="true">Nitsaye cikin rami na zomo na Wikipedia tare da sabuntawa akai-akai Bincike ciyarwa. Yi amfani da abinci don abubuwan da kuke so - ko yana koyo game da abubuwan da suka faru a tarihi &lt;b&gt;A wannan rana&lt;/b&gt;, ko kuma mirgine dice tare da Random.&lt;br/&gt;</string>
   <string name="onboarding_reading_list_sync_title">Jerin karatu tare da daidaitawa</string>
   <string name="onboarding_reading_list_sync_text_v2">Kuna iya yin jerin karatu daga labaran da kuke so ku karanta daga baya, koda kuwa kuna kan layi. Shigar da asusunku na Wikipedia don daidaita jerin karatun ku. &lt;a href=\"#login\"&gt;Shigar da Wikipedia&lt;/a&gt;&lt;br/&gt;</string>
   <string name="onboarding_analytics_switch_title">Sanya bayanai na amfani</string>
@@ -1130,7 +1127,7 @@
     <item quantity="one">Cire zaɓaɓɓen harshe?</item>
     <item quantity="other">Cire zaɓaɓɓun harsuna?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Za ku ga abun ciki ne kawai a kan Binciken abinci da kuma saurin bincike don sauran harsunan Wikipedia.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Za ku ga abun ciki ne kawai a kan Binciken abinci da kuma saurin bincike don sauran harsunan Wikipedia.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Ba za a iya cire dukkan harsuna ba</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Ku ajiye akalla harshe ɗaya na Wikipedia daga abin da za a bincika da karanta abun ciki.</string>
   <string name="more_language_options">ƙari</string>
@@ -1196,8 +1193,6 @@
   <string name="insert_media_insert_button">Saka</string>
   <string name="main_drawer_help">Taimako</string>
   <string name="main_drawer_login">Shiga / shiga Wikipedia</string>
-  <string name="main_tooltip_text">Hi %s, shin kun san cewa kowa zai iya gyara Wikipedia?</string>
-  <string name="main_tooltip_text_v2">Shin kun san cewa kowa zai iya gyara Wikipedia?</string>
   <string name="main_tooltip_action_button">Fara</string>
   <string name="main_tooltip_watchlist_title">Jerina na bin sawu</string>
   <string name="main_tooltip_watchlist_text">Neman labarai da shafuka da ka kara a baya a cikin jerin abubuwan kallo a cikin More menu a ƙarƙashin Watchlist.</string>
@@ -1535,7 +1530,7 @@
   <string name="email_report_patroller_tasks_subject">Rahoton fitowa- Gyara Patrol Feature</string>
   <string name="email_report_patroller_tasks_body">Na gamu da matsala tare da Gyara Patrol Feature: - [Bayyana takamaiman matsala] __hau____hau____hau__ Halin da nake so in gani shine: - [Bayyana mafita da aka tsara] __hau____hau____hau__ [Screenshots ko Links]</string>
   <string name="donation_campaign_maybe_later_snackbar">Za mu sake tunatar da ku gobe.</string>
-  <string name="donation_campaign_donated_snackbar">Na gode, ƙaunataccen mai ba da gudummawa! karimcinku yana taimakawa wajen ci gaba da Wikipedia da shafukan \'yan uwanta.</string>
+  <string name="donation_campaign_donated_snackbar" fuzzy="true">Na gode, ƙaunataccen mai ba da gudummawa! karimcinku yana taimakawa wajen ci gaba da Wikipedia da shafukan \'yan uwanta.</string>
   <string name="donation_campaign_go_back_button">Koma baya</string>
   <string name="menu_single_webview_open_external">Bude a cikin tsarin mai lilo</string>
   <string name="places_title">Wajaje</string>
