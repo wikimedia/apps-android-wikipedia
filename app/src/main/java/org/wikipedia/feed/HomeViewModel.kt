@@ -194,6 +194,13 @@ class HomeViewModel : ViewModel() {
         state.copy(cards = visibleItems, emptyState = emptyState)
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(MAX_STOP_TIMEOUT_MILLIS), CommunityContentState())
 
+    /**
+     * The Places of Interest module is loaded differently from the other "For you" modules, because it depends on location permission
+     * and the user's saved location from Places. So it lives in its own flow that reacts to those changes directly.
+     * Whenever the saved location changes, we rebuild just this module (emitting a loading placeholder first
+     * when permission is granted) rather than reloading the entire tab. The result is merged into forYouState
+     * and sorted into its usual position by using ForYouModuleType enum ordinal.
+     */
     @OptIn(ExperimentalCoroutinesApi::class)
     private val placesModule: StateFlow<ForYouModule.PlacesOfInterest?> = Prefs.placesLastLocationFlow
         .transformLatest {

@@ -28,6 +28,7 @@ import androidx.compose.ui.graphics.painter.BrushPainter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -75,7 +76,7 @@ fun PlacesOfInterestLocationPromptModule(
         Text(
             modifier = Modifier.fillMaxWidth(),
             text = context.getString(wikiSite.languageCode, R.string.home_feed_places_of_interest_cta_title),
-            style = MaterialTheme.typography.headlineSmall,
+            style = MaterialTheme.typography.headlineSmall.copy(fontFamily = FontFamily.Serif),
             color = WikipediaTheme.colors.primaryColor
         )
 
@@ -96,7 +97,7 @@ fun PlacesOfInterestLocationPromptModule(
             border = BorderStroke(1.dp, WikipediaTheme.colors.primaryColor)
         ) {
             Icon(
-                painter = painterResource(R.drawable.ic_location_on_24dp),
+                painter = painterResource(R.drawable.ic_location_on_filled_24dp),
                 contentDescription = null,
                 tint = WikipediaTheme.colors.primaryColor,
                 modifier = Modifier.size(20.dp)
