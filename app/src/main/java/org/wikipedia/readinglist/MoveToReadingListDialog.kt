@@ -2,7 +2,6 @@ package org.wikipedia.readinglist
 
 import android.content.DialogInterface
 import android.os.Bundle
-import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -78,7 +77,7 @@ class MoveToReadingListDialog : AddToReadingListDialog() {
                         listener: DialogInterface.OnDismissListener? = null): MoveToReadingListDialog {
             return MoveToReadingListDialog().apply {
                 arguments = Bundle().apply {
-                    putParcelableArrayList(PAGE_TITLE_LIST, ArrayList<Parcelable>(titles))
+                    putParcelableArrayList(PAGE_TITLE_LIST, ArrayList(titles))
                     putSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE, source)
                     putLong(SOURCE_READING_LIST_ID, sourceReadingListId)
                     putBoolean(SHOW_DEFAULT_LIST, showDefaultList)

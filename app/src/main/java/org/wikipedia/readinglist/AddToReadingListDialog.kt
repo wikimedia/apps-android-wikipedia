@@ -3,7 +3,6 @@ package org.wikipedia.readinglist
 import android.annotation.SuppressLint
 import android.content.DialogInterface
 import android.os.Bundle
-import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -213,7 +212,7 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
                         listener: DialogInterface.OnDismissListener? = null): AddToReadingListDialog {
             return AddToReadingListDialog().apply {
                 arguments = Bundle().apply {
-                    putParcelableArrayList(PAGE_TITLE_LIST, ArrayList<Parcelable>(titles))
+                    putParcelableArrayList(PAGE_TITLE_LIST, ArrayList(titles))
                     putSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE, source)
                     putBoolean(SHOW_DEFAULT_LIST, true)
                 }
