@@ -6,16 +6,15 @@ import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
-import android.os.Build
 import android.os.Bundle
-import android.os.VibrationEffect
-import android.os.Vibrator
 import android.util.Pair
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.getSystemService
 import androidx.core.os.bundleOf
+import androidx.core.view.HapticFeedbackConstantsCompat
+import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -72,13 +71,7 @@ class RandomFragment : Fragment() {
                     firstImpactTime = 0L
                     lastShakeTime = now
                     onNextClick()
-                    val vibrator = requireContext().getSystemService(Vibrator::class.java)
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                        vibrator?.vibrate(VibrationEffect.createOneShot(SHAKE_VIBRATE_MS, VibrationEffect.DEFAULT_AMPLITUDE))
-                    } else {
-                        @Suppress("DEPRECATION")
-                        vibrator?.vibrate(SHAKE_VIBRATE_MS)
-                    }
+                    ViewCompat.performHapticFeedback(binding.randomNextButton, HapticFeedbackConstantsCompat.CONFIRM)
                 } else {
                     firstImpactTime = now
                 }
@@ -295,7 +288,6 @@ class RandomFragment : Fragment() {
         const val SHAKE_THRESHOLD = 12f
         const val SHAKE_COOLDOWN_MS = 1000L
         const val SHAKE_DOUBLE_WINDOW_MS = 500L
-        const val SHAKE_VIBRATE_MS = 80L
 
         fun newInstance(wikiSite: WikiSite, invokeSource: InvokeSource) = RandomFragment().apply {
             arguments = bundleOf(
