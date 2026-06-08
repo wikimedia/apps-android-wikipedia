@@ -36,7 +36,7 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
 
-enum class FeedConfigurationType { INTERESTS, READING_HISTORY, LANGUAGES }
+enum class FeedConfigurationType { INTERESTS, LOCATION, READING_HISTORY, LANGUAGES }
 
 data class FeedConfigurationItem(
     @param:StringRes val title: Int,
@@ -55,6 +55,7 @@ fun FeedConfigurationScreen(
     viewModel: ModulesViewModel = viewModel(),
     onBack: () -> Unit,
     onInterestsClick: () -> Unit,
+    onLocationClick: () -> Unit,
     onReadingHistoryClick: () -> Unit,
     onLanguagesClick: () -> Unit,
 ) {
@@ -67,6 +68,7 @@ fun FeedConfigurationScreen(
             when (type) {
                 FeedConfigurationType.INTERESTS -> onInterestsClick()
                 FeedConfigurationType.READING_HISTORY -> onReadingHistoryClick()
+                FeedConfigurationType.LOCATION -> onLocationClick()
                 FeedConfigurationType.LANGUAGES -> onLanguagesClick()
             }
         }
@@ -185,6 +187,12 @@ private fun FeedConfigurationContentPreview() {
                         title = R.string.home_feed_settings_feed_configuration_interest_title,
                         description = R.string.home_feed_settings_feed_configuration_empty_interest_subtitle,
                         icon = R.drawable.ic_baseline_tune_24
+                    ),
+                    FeedConfigurationItem(
+                        type = FeedConfigurationType.LOCATION,
+                        title = R.string.home_feed_settings_feed_configuration_location_title,
+                        description = R.string.home_feed_settings_feed_configuration_location_subtitle,
+                        icon = R.drawable.ic_location_on_24dp
                     ),
                     FeedConfigurationItem(
                         type = FeedConfigurationType.READING_HISTORY,
