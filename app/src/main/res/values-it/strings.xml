@@ -2171,8 +2171,12 @@
   <string name="home_feed_settings_based_on_interest_title">In base ai tuoi interessi</string>
   <string name="home_feed_settings_based_on_interest_subtitle">Voci personalizzate in base agli argomenti che hai scelto.&lt;br /&gt;&lt;a href=\"#drivingFeed\"&gt;Cosa alimenta il tuo feed?&lt;/a&gt;</string>
   <string name="home_feed_settings_continue_reading_title">Continua a leggere</string>
+  <string name="home_feed_did_you_know_title">Lo sapevi?</string>
   <string name="home_feed_settings_for_you_empty_dialog_title">Il tuo feed \"Per te\" sarà vuoto</string>
   <string name="home_feed_settings_empty_dialog_positive">Continua comunque</string>
   <string name="home_feed_screen_empty_state_label">Il tuo feed è vuoto</string>
+  <string name="home_feed_random_title">Casuale</string>
+  <string name="home_feed_random_subtitle">Una voce a caso per stuzzicare la tua curiosità</string>
+  <string name="home_feed_random_shuffle_button">Mescola</string>
   <string name="home_feed_settings_feed_configuration_interests_updated_message">Interessi aggiornati. Aggiorna il feed per vedere gli aggiornamenti.</string>
 </resources>

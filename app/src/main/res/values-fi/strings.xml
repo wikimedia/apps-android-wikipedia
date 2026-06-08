@@ -2347,6 +2347,7 @@
   <string name="home_feed_settings_because_you_read_subtitle">Hiljattain lukemaasi artikkeliin perustuvia ehdotuksia</string>
   <string name="home_feed_settings_continue_reading_title">Jatka lukemista</string>
   <string name="home_feed_settings_continue_reading_subtitle">Palaa takaisin artikkeleihin, joita et lukenut loppuun</string>
+  <string name="home_feed_did_you_know_title">Tiesitkö?</string>
   <string name="home_feed_settings_community_empty_dialog_title">Yhteisö-syötteesi tulee olemaan tyhjä</string>
   <string name="home_feed_settings_for_you_empty_dialog_title">Sinulle-syötteesi tulee olemaan tyhjä</string>
   <string name="home_feed_settings_empty_dialog_text">Ota käyttöön vähintään yksi moduuli nähdäksesi sisältöä.</string>
@@ -2370,4 +2371,8 @@
   <string name="home_feed_settings_feed_configuration_languages_title">Kielet</string>
   <string name="home_feed_settings_feed_configuration_languages_subtitle">Muokkaa ensisijaisia kieliäsi</string>
   <string name="home_feed_settings_feed_configuration_interests_updated_message">Kiinnostuksen kohteet päivitetty. Päivitä syötteesi nähdäksesi muutokset.</string>
+  <string name="home_feed_for_you_screen_end_of_feed_title">Siinä kaikki tältä päivältä!</string>
+  <string name="home_feed_for_you_screen_end_of_feed_description">Tule takaisin huomenna löytääksesi uusia, sinulle räätälöityjä artikkeleita.</string>
+  <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Keinoja jatkaa oppimista:</string>
+  <string name="home_feed_for_you_screen_end_of_feed_add_interests">Lisää &lt;a href=\"#add_interests\"&gt;uusia kiinnostuksen kohteita&lt;/a&gt;</string>
 </resources>
