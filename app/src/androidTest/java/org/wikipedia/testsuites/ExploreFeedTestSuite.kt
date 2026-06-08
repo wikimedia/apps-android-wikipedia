@@ -4,8 +4,6 @@ import org.junit.runner.RunWith
 import org.junit.runners.Suite
 import org.junit.runners.Suite.SuiteClasses
 import org.wikipedia.tests.explorefeed.BecauseYouReadTest
-import org.wikipedia.tests.explorefeed.FeedScreenSearchTest
-import org.wikipedia.tests.explorefeed.FeedScreenTest
 import org.wikipedia.tests.explorefeed.HomeFeedComposeTest
 import org.wikipedia.tests.explorefeed.HomeFeedModuleActionsComposeTest
 import org.wikipedia.tests.explorefeed.NavigationItemTest

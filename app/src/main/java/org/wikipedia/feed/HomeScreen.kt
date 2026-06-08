@@ -517,6 +517,11 @@ object HomeScreenTestTags {
     const val LANGUAGE_MENU_BUTTON = "home_language_menu_button"
     const val LANGUAGE_MANAGE_BUTTON = "home_language_manage_button"
 
+    // Tags the feed list of each tab. The list is only composed once its content has
+    // loaded, so the presence of one of these nodes is a reliable "content loaded" signal.
+    const val COMMUNITY_FEED_LIST = "home_community_feed_list"
+    const val FOR_YOU_FEED_LIST = "home_for_you_feed_list"
+
     fun languageItem(languageCode: String): String = "home_language_item_$languageCode"
 }
 
