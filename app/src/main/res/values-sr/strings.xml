@@ -1790,6 +1790,9 @@
   <string name="explore_feed_community_tab_label">Заједница</string>
   <string name="explore_feed_header_overflow_hide_module_message_action">Опозови</string>
   <string name="home_feed_settings_continue_reading_title">Настави читање</string>
+  <string name="home_feed_did_you_know_title">Да ли сте знали?</string>
   <string name="home_feed_settings_empty_dialog_positive">Свеједно настави</string>
+  <string name="home_feed_random_title">Случајно</string>
+  <string name="home_feed_random_shuffle_button">Промешај</string>
   <string name="home_feed_settings_feed_configuration_languages_title">Језици</string>
 </resources>

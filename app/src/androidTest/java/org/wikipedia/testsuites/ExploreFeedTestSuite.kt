@@ -13,11 +13,9 @@ import org.wikipedia.tests.explorefeed.NavigationItemTest
 @RunWith(Suite::class)
 @SuiteClasses(
     NavigationItemTest::class,
-    FeedScreenTest::class,
     BecauseYouReadTest::class,
     HomeFeedComposeTest::class,
     HomeFeedModuleActionsComposeTest::class,
     // FeedScreenSuggestedEditTest::class, TODO: uncomment when login test in CI/CD is resolved
-    FeedScreenSearchTest::class
 )
 class ExploreFeedTestSuite

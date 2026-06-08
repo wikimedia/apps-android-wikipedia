@@ -31,6 +31,10 @@ enum class ForYouModuleType(
     CONTINUE_READING(
         title = R.string.home_feed_settings_continue_reading_title,
         subtitle = R.string.home_feed_settings_continue_reading_subtitle
+    ),
+    RANDOM(
+        title = R.string.home_feed_random_title,
+        subtitle = R.string.home_feed_random_subtitle
     );
 
     fun toEntry() = ToggleSettingItem(title, subtitle, name)

@@ -206,7 +206,7 @@ fun FeaturedArticleCardWithImagePreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         FeaturedArticleModule(
             wikiSite = WikiSite.preview(),
-            article = PageSummary("Lorem ipsum", "Lorem ipsum", "Lorem ipsum", "Lorem ipsum", thumbnail = "test.jpg", "")
+            article = PageSummary.preview()
         )
     }
 }
@@ -217,7 +217,7 @@ fun FeaturedArticleCardNoImagePreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         FeaturedArticleModule(
             wikiSite = WikiSite.preview(),
-            article = PageSummary("Lorem ipsum", "Lorem ipsum", "Lorem ipsum", "Lorem ipsum", thumbnail = null, "")
+            article = PageSummary.preview(withThumbnail = false)
         )
     }
 }

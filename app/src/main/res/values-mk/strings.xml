@@ -1820,8 +1820,8 @@
   <string name="on_this_day_game_next_in">Следна игра за %s</string>
   <string name="on_this_day_game_your_stats">Ваша статистика</string>
   <plurals name="on_this_day_game_stats_games_played">
-    <item quantity="one">Играна игра</item>
-    <item quantity="other">Играни игри</item>
+    <item quantity="one">Одиграна игра</item>
+    <item quantity="other">Одиграни игри</item>
   </plurals>
   <string name="on_this_day_game_stats_average_score">Просечно бодови</string>
   <string name="on_this_day_game_stats_streak">Тековна седенка</string>
@@ -2369,7 +2369,7 @@
   <string name="explore_feed_in_the_news_subtitle">Статии кои се значително подновени за да ги одразат скорешните тековни настани од широк интерес</string>
   <string name="explore_feed_on_this_day_subtitle">Откријте историски настани што се случиле на денешен ден</string>
   <string name="explore_feed_community_disclaimer">Содржини и ресурси избрани од и во врска со Викимедиината заедница</string>
-  <string name="explore_feed_community_load_more_label">Погледајте минати содржини за заедницата</string>
+  <string name="explore_feed_community_load_more_label">Минати содржини од заедницата</string>
   <string name="explore_feed_manage_languages_label">Управ. со јазици</string>
   <string name="explore_feed_header_overflow_hide_module_label">Скриј модул</string>
   <string name="explore_feed_header_overflow_hide_module_message">Модулот е скриен.</string>
@@ -2391,6 +2391,9 @@
   <string name="home_feed_settings_because_you_read_subtitle">Предлози според скорешна статија од вашата историја</string>
   <string name="home_feed_settings_continue_reading_title">Продолжете со читање</string>
   <string name="home_feed_settings_continue_reading_subtitle">Вратете се на статијата што не ја довршивте</string>
+  <string name="home_feed_did_you_know_title">Дали сте знаеле?</string>
+  <string name="home_feed_did_you_know_subtitle">Интересни факти од статии избрани од доброволни уредници</string>
+  <string name="home_feed_did_you_know_more_label">Повеќе „Дали сте знаеле?“</string>
   <string name="home_feed_settings_community_empty_dialog_title">Вашиот тековник „Заедница“ ќе биде празен</string>
   <string name="home_feed_settings_for_you_empty_dialog_title">Вашиот тековник „За вас“ ќе биде празен</string>
   <string name="home_feed_settings_empty_dialog_text">Вклучете барем еден модул за да гледате содржини.</string>
@@ -2404,6 +2407,9 @@
   <string name="home_feed_for_you_screen_empty_ways_to_start">Начини да почнете:</string>
   <string name="home_feed_for_you_screen_empty_add_interests">Додајте &lt;a href=\"#add_interests\"&gt;некои интереси&lt;/a&gt;</string>
   <string name="home_feed_for_you_screen_empty_see_community">Погледајте ги случувањата во &lt;a href=\"#community_tab\"&gt;заедницата&lt;/a&gt;</string>
+  <string name="home_feed_random_title">Случајна</string>
+  <string name="home_feed_random_subtitle">Случајна статија која ќе ја поттикне вашата љубопитност</string>
+  <string name="home_feed_random_shuffle_button">Измешај</string>
   <string name="home_feed_settings_feed_configuration_description">Овие теми и статии одредуваат што ќе стои во вашиот тековник „За вас“. Отстранете ги они ешто повеќе не ги сакате или додајте нови интереси.</string>
   <string name="home_feed_settings_feed_configuration_interest_title">Ваши интереси</string>
   <string name="home_feed_settings_feed_configuration_interest_subtitle">Уредете ваши теми од интерес</string>
@@ -2414,4 +2420,8 @@
   <string name="home_feed_settings_feed_configuration_languages_title">Јазици</string>
   <string name="home_feed_settings_feed_configuration_languages_subtitle">Уредете ги вашите претпочитани јазици</string>
   <string name="home_feed_settings_feed_configuration_interests_updated_message">Интересите се подновени. Превчитајте го тековникот за да ги видите подновите.</string>
+  <string name="home_feed_for_you_screen_end_of_feed_title">Толку за денес!</string>
+  <string name="home_feed_for_you_screen_end_of_feed_description">Вратете се утре за нови статии прилагодени за вас.</string>
+  <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Како постојано да учите:</string>
+  <string name="home_feed_for_you_screen_end_of_feed_add_interests">Додајте &lt;a href=\"#add_interests\"&gt;нови интереси&lt;/a&gt;</string>
 </resources>

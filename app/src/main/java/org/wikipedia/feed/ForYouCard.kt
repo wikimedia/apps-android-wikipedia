@@ -72,6 +72,7 @@ fun ForYouCardContent(
     card: ForYouCard? = null,
     footerIcon: Painter? = null,
     footerText: String? = null,
+    footerContent: @Composable () -> Unit = {},
     onPageClick: (PageTitle) -> Unit = {},
     onShareClick: (PageTitle) -> Unit = {},
     onSaveClick: (PageTitle) -> Unit = {},
@@ -81,6 +82,7 @@ fun ForYouCardContent(
 ) {
     val context = LocalContext.current
     var overflowMenuExpanded by remember { mutableStateOf(false) }
+    val showSpaceForPagerDots = (module?.cards?.size ?: 0) > 1
 
     Box(
         modifier = Modifier
@@ -224,7 +226,8 @@ fun ForYouCardContent(
                         )
                     }
                 }
-                Spacer(modifier = Modifier.height(40.dp))
+                footerContent()
+                Spacer(modifier = Modifier.height(if (showSpaceForPagerDots) 40.dp else 16.dp))
             }
         } else {
             Column(
@@ -248,7 +251,7 @@ fun ForYouCardContent(
                 )
                 Column(
                     modifier = Modifier.background(color = Color.Black.copy(alpha = 0.80f))
-                        .padding(bottom = 40.dp)
+                        .padding(bottom = if (showSpaceForPagerDots) 40.dp else 16.dp)
                 ) {
                     Row(
                         modifier = Modifier.fillMaxWidth()
@@ -331,6 +334,7 @@ fun ForYouCardContent(
                             )
                         }
                     }
+                    footerContent()
                 }
             }
         }
@@ -466,19 +470,10 @@ fun ForYouCardDropdownMenu(
 @Preview
 @Composable
 fun ForYouModulePreviewWithImage() {
-    val wikiSite = WikiSite.preview()
-    val title = PageTitle(
-        text = "Test Article",
-        displayText = "Test Article",
-        wiki = WikiSite.preview(),
-        description = "This is a test article",
-        extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        thumbUrl = "https://example.com/thumb.jpg"
-    )
     BaseTheme(currentTheme = Theme.LIGHT) {
         ForYouCardContent(
-            wikiSite = wikiSite,
-            title = title,
+            wikiSite = WikiSite.preview(),
+            title = PageTitle.preview(),
             footerText = "Lorem ipsum"
         )
     }
@@ -487,19 +482,10 @@ fun ForYouModulePreviewWithImage() {
 @Preview
 @Composable
 fun ForYouModulePreviewNoImage() {
-    val wikiSite = WikiSite.preview()
-    val title = PageTitle(
-        text = "Test Article",
-        displayText = "Test Article",
-        wiki = WikiSite.preview(),
-        description = "This is a test article",
-        extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        thumbUrl = null
-    )
     BaseTheme(currentTheme = Theme.LIGHT) {
         ForYouCardContent(
-            wikiSite = wikiSite,
-            title = title,
+            wikiSite = WikiSite.preview(),
+            title = PageTitle.preview(withThumbnail = false),
             footerText = "Lorem ipsum"
         )
     }
@@ -508,19 +494,10 @@ fun ForYouModulePreviewNoImage() {
 @Preview
 @Composable
 fun ForYouModulePreviewTextOnlyWithImage() {
-    val wikiSite = WikiSite.preview()
-    val title = PageTitle(
-        text = "Test Article",
-        displayText = "Test Article",
-        wiki = WikiSite.preview(),
-        description = "This is a test article",
-        extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        thumbUrl = "test.jpg"
-    )
     BaseTheme(currentTheme = Theme.LIGHT) {
         ForYouCardContent(
-            wikiSite = wikiSite,
-            title = title,
+            wikiSite = WikiSite.preview(),
+            title = PageTitle.preview(),
             footerText = "Lorem ipsum",
             variation = CardVariation.VARIATION_TEXT_ONLY,
             backgroundColorIndex = 2

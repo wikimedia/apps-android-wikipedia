@@ -799,7 +799,7 @@
   <string name="preference_title_notification_email_user">E-mail ontvangen</string>
   <string name="preference_summary_notification_email_user">Iemand heeft u via de wiki een e-mail gestuurd</string>
   <string name="preference_title_notification_user_rights">Wijzigingen in gebruikersrechten</string>
-  <string name="preference_summary_notification_user_rights">Ontvangen wanneer uw gebruikersrechten veranderen</string>
+  <string name="preference_summary_notification_user_rights">Ontvangen wanneer uw gebruikersrechten wijzigen</string>
   <string name="preference_title_notification_article_linked">Koppelingen naar pagina\'s die u hebt aangemaakt</string>
   <string name="preference_summary_notification_article_linked">Ontvangen wanneer een nieuwe koppeling wordt gelegd naar een pagina die u hebt aangemaakt</string>
   <string name="preference_category_push_notifications">Pushmeldingen</string>
@@ -1445,7 +1445,7 @@
   <string name="talk_response_submitted">Reactie geplaatst.</string>
   <string name="talk_snackbar_undo">Ongedaan maken</string>
   <string name="talk_last_modified">&lt;b&gt;Laatst bewerkt %1$s&lt;/b&gt; door %2$s</string>
-  <string name="talk_snackbar_survey_text">Bedankt voor het gebruiken van overlegpagina\'s. Zou u ons willen helpen de app te verbeteren, door deel te nemen aan een enquête?</string>
+  <string name="talk_snackbar_survey_text">Bedankt voor het gebruiken van overlegpagina\'s. Zou u ons willen helpen de app te verbeteren, door een vragenlijst in te vullen?</string>
   <string name="talk_snackbar_survey_action_text">Aan de slag</string>
   <string name="talk_share_discussion_subject">Wikipedia - discussie over overlegpagina-onderwerp \"%s\"</string>
   <string name="talk_share_talk_page">Wikipedia - discussies op overlegpagina</string>
@@ -1499,8 +1499,8 @@
   <string name="watchlist_details_prev_edit">Vorige bewerking</string>
   <string name="thank_label">Bedanken</string>
   <string name="view_user_page">Gebruikerspagina bekijken</string>
-  <string name="thank_dialog_title_text">Publiekelijk een bedankje sturen</string>
-  <string name="thank_dialog_text">\'Bedankjes\' zijn een gemakkelijke manier om waardering te tonen voor het werk van een redacteur op Wikipedia. \'Bedankjes\' kunnen niet ongedaan worden gemaakt en zijn openbaar zichtbaar</string>
+  <string name="thank_dialog_title_text">Openbaar een bedankje sturen</string>
+  <string name="thank_dialog_text">\'Bedankjes\' zijn een gemakkelijke manier om waardering te tonen voor het werk van een bewerker op Wikipedia. \'Bedankjes\' kunnen niet ongedaan worden gemaakt en zijn openbaar zichtbaar</string>
   <string name="thank_dialog_positive_button_text">Bedankje sturen</string>
   <string name="thank_dialog_negative_button_text">Annuleren</string>
   <string name="thank_success_message">Uw bedankje is verstuurd naar %s 👍</string>
@@ -1574,7 +1574,7 @@
   <string name="watchlist_filter_contribution_authorship_own">Uw eigen wijzigingen</string>
   <string name="watchlist_filter_contribution_authorship_except_own">Wijzigingen door anderen</string>
   <string name="watchlist_filter_automated_contributions_header">Automatische bijdragen</string>
-  <string name="watchlist_filter_automated_contributions_bot">Bot</string>
+  <string name="watchlist_filter_automated_contributions_bot">Robot</string>
   <string name="watchlist_filter_automated_contributions_human">Mens (geen robot)</string>
   <string name="watchlist_filter_significance_header">Betekenis</string>
   <string name="watchlist_filter_significance_minor">Kleine bewerkingen</string>
@@ -1692,7 +1692,7 @@
   <string name="patroller_tasks_filters_latest_revisions_latest_revision">Laatste versie</string>
   <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">Niet de laatste versie</string>
   <string name="patroller_tasks_filters_automated_contributions_header">Automatische bijdragen</string>
-  <string name="patroller_tasks_filters_automated_contributions_bot">Bot</string>
+  <string name="patroller_tasks_filters_automated_contributions_bot">Robt</string>
   <string name="patroller_tasks_filters_automated_contributions_human">Mens (geen robot)</string>
   <string name="patroller_tasks_filters_significance_header">Betekenis</string>
   <string name="patroller_tasks_filters_significance_minor">Kleine bewerkingen</string>
@@ -1729,7 +1729,7 @@
   <string name="patroller_tasks_overflow_learn">Meer lezen</string>
   <string name="patroller_onboarding_one_title">Draag bij aan het toezicht op en de goedkeuring van Wikipedia-bewerkingen.</string>
   <string name="patroller_onboarding_one_content">Verbeter de kwaliteit van Wikipedia-inhoud door een feed met recente bewerkingen actief te beoordelen en andere redacteuren begeleiding, kwaliteitscontrole en aanmoediging te bieden.</string>
-  <string name="patroller_onboarding_two_title">Geef feedback, controleer bewerkingen en voer handelingen uit op het wijzigingenscherm</string>
+  <string name="patroller_onboarding_two_title">Geef terugkoppeling, controleer bewerkingen en voer handelingen uit op het wijzigingenscherm</string>
   <string name="patroller_onboarding_two_thank_title">Bedanken</string>
   <string name="patroller_onboarding_two_thank_content">Ziet u een productieve bewerking? Bedank een gebruiker voor diens bijdrage.</string>
   <string name="patroller_onboarding_two_watch_title">Volgen</string>
@@ -1950,8 +1950,8 @@
   <string name="year_in_review_slide_app_icon_body_unlocked">Activeer uw nieuwe apppictogram in de Instellingen onder Apppictogram. Bedankt voor het investeren in de toekomst van de vrije kennis. Uw bijdragen als %1$s in %2$d helpen de weg vrij te maken naar een wereld van vrije informatie. Daarom is nu voor u een eigen bijdragerspictogram ontsloten voor Wikipedia op uw startscherm.</string>
   <string name="year_in_review_slide_app_icon_body_unlock">Wat fijn dat Wikipedia deel uitmaakte van uw jaar %1$d! Ontgrendel met uw bijdragen een speciale beloning in uw Jaaroverzicht %2$d. Dat doet u door &lt;a href=\"%3$s\"&gt;Wikipedia te bewerken&lt;/a&gt; of door vanuit de app te doneren aan de &lt;a href=\"%4$s\"&gt;Wikimedia Foundation&lt;/a&gt;, de non-profitorganisatie erachter. Als Wikipedia dit jaar voor u behulpzaam is geweest, overweeg dan te doneren zodat Wikipedia ook in de toekomst voor iedereen gratis, advertentievrij, betrouwbaar en toegankelijk blijft. Als u ergens anders hebt gedoneerd, stellen we uw steun zeer op prijs.</string>
   <string name="year_in_review_slide_app_icon_donor">donateur</string>
-  <string name="year_in_review_slide_app_icon_editor">redacteur</string>
-  <string name="year_in_review_slide_app_icon_donor_and_editor">donateur en redacteur</string>
+  <string name="year_in_review_slide_app_icon_editor">een bewerker</string>
+  <string name="year_in_review_slide_app_icon_donor_and_editor">donateur en bewerker</string>
   <string name="year_in_review_slide_geo_headline">De pagina\'s die u hebt gelezen staan het dichtst bij %s</string>
   <string name="year_in_review_slide_geo_body">Het land dat het dichtst bij veel pagina\'s die u hebt gelezen ligt, lijkt %1$s te zijn, gebaseerd op pagina\'s als &lt;b&gt;%2$s&lt;/b&gt; en &lt;b&gt;%3$s&lt;/b&gt;.</string>
   <string name="year_in_review_login_dialog_title">Aanmelden voor personalisering?</string>
@@ -2424,6 +2424,9 @@
   <string name="home_feed_settings_because_you_read_subtitle">Suggesties gebaseerd op een recente pagina uit uw geschiedenis.</string>
   <string name="home_feed_settings_continue_reading_title">Verder lezen</string>
   <string name="home_feed_settings_continue_reading_subtitle">Verder gaan met pagina\'s die u niet hebt uitgelezen.</string>
+  <string name="home_feed_did_you_know_title">Wist u dat?</string>
+  <string name="home_feed_did_you_know_subtitle">Interessante feiten uit pagina\'s geselecteerd door vrijwillige bewerkers</string>
+  <string name="home_feed_did_you_know_more_label">Meer \"Wist u dat?\"</string>
   <string name="home_feed_settings_community_empty_dialog_title">Uw gemeenschapsfeed zal leeg zijn.</string>
   <string name="home_feed_settings_for_you_empty_dialog_title">Uw \"Voor u\"-feed zal leeg zijn.</string>
   <string name="home_feed_settings_empty_dialog_text">Schakel ten minste één module in om de inhoud te kunnen bekijken.</string>
@@ -2437,6 +2440,9 @@
   <string name="home_feed_for_you_screen_empty_ways_to_start">Manieren om te beginnen:</string>
   <string name="home_feed_for_you_screen_empty_add_interests">U kunt &lt;a href=\"#add_interests\"&gt;interesses toevoegen&lt;/a&gt;</string>
   <string name="home_feed_for_you_screen_empty_see_community">Kijk wat er in de &lt;a href=\"#community_tab\"&gt;gemeenschap&lt;/a&gt; gebeurt</string>
+  <string name="home_feed_random_title">Willekeurig</string>
+  <string name="home_feed_random_subtitle">Een willekeurige pagina om uw nieuwsgierigheid te prikkelen</string>
+  <string name="home_feed_random_shuffle_button">Willekeurig</string>
   <string name="home_feed_settings_feed_configuration_description">Deze onderwerpen en pagina\'s bepalen wat er in uw \'Voor u\'-feed verschijnt. Verwijder items die u niet meer wilt zien of voeg nieuwe interesses toe.</string>
   <string name="home_feed_settings_feed_configuration_interest_title">Uw interesses</string>
   <string name="home_feed_settings_feed_configuration_interest_subtitle">Bewerk de onderwerpen waarin u geïnteresseerd bent</string>
@@ -2447,4 +2453,8 @@
   <string name="home_feed_settings_feed_configuration_languages_title">Talen</string>
   <string name="home_feed_settings_feed_configuration_languages_subtitle">Bewerk uw voorkeurstalen</string>
   <string name="home_feed_settings_feed_configuration_interests_updated_message">Interesses bijgewerkt. Vernieuw uw feed om deze bij te werken.</string>
+  <string name="home_feed_for_you_screen_end_of_feed_title">Dat was het voor vandaag!</string>
+  <string name="home_feed_for_you_screen_end_of_feed_description">Kom morgen terug voor gloednieuwe pagina\'s die speciaal voor jou zijn samengesteld.</string>
+  <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Manieren om te blijven leren:</string>
+  <string name="home_feed_for_you_screen_end_of_feed_add_interests">Voeg &lt;a href=\"#add_interests\"&gt;nieuwe interesses&lt;/a&gt; toe</string>
 </resources>

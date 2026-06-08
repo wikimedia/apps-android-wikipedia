@@ -1109,7 +1109,7 @@
   <string name="suggested_edits_gate_message">Вибачте, %s, щоб скористатися цією функцією, ви маєте зробити хоча б три редагування безпосередньо в статті.</string>
   <string name="suggested_edits_editing_tips_link_text">Редагування порад</string>
   <string name="suggested_edits_help_page_link_text">Довідка з «Пропонованих редагувань»</string>
-  <string name="suggested_edits_edit_streak_label_text">Страйк редагувань</string>
+  <string name="suggested_edits_edit_streak_label_text">Серія редагувань</string>
   <string name="suggested_edits_views_label_text">Перегляди</string>
   <string name="suggested_edits_quality_label_text">Якість редагувань</string>
   <string name="suggested_edits_quality_perfect_text">Ідеально</string>
@@ -2618,6 +2618,9 @@
   <string name="home_feed_settings_because_you_read_subtitle">Пропозиції на основі недавньої статті з вашої історії</string>
   <string name="home_feed_settings_continue_reading_title">Продовжити читання</string>
   <string name="home_feed_settings_continue_reading_subtitle">Поверніться до статей, які ви не дочитали до кінця</string>
+  <string name="home_feed_did_you_know_title">Чи знаєте ви?</string>
+  <string name="home_feed_did_you_know_subtitle">Цікаві факти зі статей, відібраних редакторами-волонтерами</string>
+  <string name="home_feed_did_you_know_more_label">Більше \"Чи знаєте ви?\"</string>
   <string name="home_feed_settings_community_empty_dialog_title">Ваша стрічка «Спільнота» буде порожньою</string>
   <string name="home_feed_settings_for_you_empty_dialog_title">Ваша стрічка «Для вас» буде порожньою</string>
   <string name="home_feed_settings_empty_dialog_text">Увімкніть хоча б один модуль, щоб бачити вміст.</string>
@@ -2631,6 +2634,9 @@
   <string name="home_feed_for_you_screen_empty_ways_to_start">Способи початку:</string>
   <string name="home_feed_for_you_screen_empty_add_interests">Додайте &lt;a href=\"#add_interests\"&gt;кілька уподобань&lt;/a&gt;</string>
   <string name="home_feed_for_you_screen_empty_see_community">Дивіться, що відбувається у &lt;a href=\"#community_tab\"&gt;спільноті&lt;/a&gt;</string>
+  <string name="home_feed_random_title">Випадкові</string>
+  <string name="home_feed_random_subtitle">Випадкова стаття, щоб викликати вашу цікавість</string>
+  <string name="home_feed_random_shuffle_button">Перемішати</string>
   <string name="home_feed_settings_feed_configuration_description">Ці теми та статті впливають на те, що відображається у вашій стрічці «Для вас». Видаліть ті, які вам більше не потрібні, або додайте нові інтереси.</string>
   <string name="home_feed_settings_feed_configuration_interest_title">Ваші інтереси</string>
   <string name="home_feed_settings_feed_configuration_interest_subtitle">Редагуйте теми ваших зацікавлень</string>
@@ -2641,4 +2647,8 @@
   <string name="home_feed_settings_feed_configuration_languages_title">Мови</string>
   <string name="home_feed_settings_feed_configuration_languages_subtitle">Редагувати свої бажані мови</string>
   <string name="home_feed_settings_feed_configuration_interests_updated_message">Інтереси оновлено. Оновіть свою стрічку, щоб переглянути оновлення.</string>
+  <string name="home_feed_for_you_screen_end_of_feed_title">На сьогодні все!</string>
+  <string name="home_feed_for_you_screen_end_of_feed_description">Заходьте завтра, щоб знайти нові статті, підготовлені спеціально для вас.</string>
+  <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Способи продовження навчання:</string>
+  <string name="home_feed_for_you_screen_end_of_feed_add_interests">Додайте &lt;a href=\"#add_interests\"&gt;нові інтереси&lt;/a&gt;</string>
 </resources>

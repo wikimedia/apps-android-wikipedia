@@ -101,5 +101,19 @@ open class PageSummary(
         const val TYPE_STANDARD = "standard"
         const val TYPE_DISAMBIGUATION = "disambiguation"
         const val TYPE_MAIN_PAGE = "mainpage"
+
+        /**
+         * For use in Composable previews.
+         */
+        fun preview(withThumbnail: Boolean = true): PageSummary {
+            return PageSummary(
+                displayTitle = "Lorem <i>ipsum</i>",
+                prefixTitle = "Lorem_ipsum",
+                description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                thumbnail = if (withThumbnail) "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Commons-logo.svg/1200px-Commons-logo.svg.png" else null,
+                lang = "en"
+            )
+        }
     }
 }
