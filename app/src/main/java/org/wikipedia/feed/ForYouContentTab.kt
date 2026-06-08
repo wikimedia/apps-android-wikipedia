@@ -49,6 +49,7 @@ import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.wikipedia.R
+import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
@@ -60,6 +61,9 @@ import org.wikipedia.feed.interests.BasedOnInterestModule
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.EmptyForYouCard
 import org.wikipedia.feed.model.ForYouCard
+import org.wikipedia.feed.model.PlacesOfInterestLocationPromptCard
+import org.wikipedia.feed.places.PlacesOfInterestArticlesModule
+import org.wikipedia.feed.places.PlacesOfInterestLocationPromptModule
 import org.wikipedia.feed.random.RandomModule
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.theme.Theme
@@ -80,7 +84,8 @@ fun ForYouContentTab(
     onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> },
     onManageModulesClick: () -> Unit,
     onSelectTab: (HomeTab, Card?) -> Unit = { _, _ -> },
-    onShuffleClick: () -> Unit = {}
+    onShuffleClick: () -> Unit = {},
+    onPlacesCtaClick: () -> Unit = {}
 ) {
     when {
         state.isInitialLoading -> {
@@ -171,6 +176,7 @@ fun ForYouContentTab(
                             forYouModuleItem(
                                 module = module,
                                 index = index,
+                                topInset = topInset,
                                 viewPortHeight = viewportHeight,
                                 wikiSite = wikiSite,
                                 onPageClick = onPageClick,
@@ -180,7 +186,8 @@ fun ForYouContentTab(
                                 onHideModuleClick = onHideModuleClick,
                                 onCardImpression = onCardImpression,
                                 onCustomizeInterestsClick = onCustomizeInterestsClick,
-                                onShuffleClick = onShuffleClick
+                                onShuffleClick = onShuffleClick,
+                                onPlacesCtaClick = onPlacesCtaClick
                             )
                         }
 
@@ -227,6 +234,7 @@ fun ForYouContentTab(
                             forYouModuleItem(
                                 module = state.modules.first(),
                                 index = modules.size + 1,
+                                topInset = topInset,
                                 viewPortHeight = viewportHeight,
                                 wikiSite = wikiSite,
                                 onPageClick = onPageClick,
@@ -236,7 +244,8 @@ fun ForYouContentTab(
                                 onHideModuleClick = onHideModuleClick,
                                 onCardImpression = { _, _ -> },
                                 onCustomizeInterestsClick = onCustomizeInterestsClick,
-                                onShuffleClick = onShuffleClick
+                                onShuffleClick = onShuffleClick,
+                                onPlacesCtaClick = onPlacesCtaClick
                             )
                         }
                     }
@@ -249,6 +258,7 @@ fun ForYouContentTab(
 private fun LazyListScope.forYouModuleItem(
     module: ForYouModule,
     index: Int,
+    topInset: Int,
     viewPortHeight: Dp,
     wikiSite: WikiSite,
     onPageClick: (card: Card, historyEntry: HistoryEntry) -> Unit,
@@ -258,7 +268,8 @@ private fun LazyListScope.forYouModuleItem(
     onHideModuleClick: (moduleKey: String) -> Unit,
     onCardImpression: (card: Card, index: Int) -> Unit,
     onCustomizeInterestsClick: (card: Card) -> Unit,
-    onShuffleClick: () -> Unit
+    onShuffleClick: () -> Unit,
+    onPlacesCtaClick: () -> Unit
 ) {
     val key = "${module.javaClass.simpleName}-${module.age}-$index"
     when (module) {
@@ -314,6 +325,52 @@ private fun LazyListScope.forYouModuleItem(
                     onCardInView = { onCardImpression(it, index) },
                     onCustomizeInterestsClick = onCustomizeInterestsClick
                 )
+            }
+        }
+        is ForYouModule.PlacesOfInterest -> {
+            item(key = key) {
+                when {
+                    module.isLoading -> {
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(viewPortHeight),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            LoadingIndicator()
+                        }
+                    }
+                    !module.hasLocationPermission -> {
+                        onCardImpression(PlacesOfInterestLocationPromptCard(), index)
+                        PlacesOfInterestLocationPromptModule(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(viewPortHeight)
+                                .background(ComposeColors.Green800)
+                                .padding(horizontal = 16.dp)
+                                .padding(top = (topInset * 2 + 64).dp)
+                                .navigationBarsPadding(),
+                            wikiSite = wikiSite,
+                            onGoToPlacesClick = onPlacesCtaClick
+                        )
+                    }
+                    else -> {
+                        PlacesOfInterestArticlesModule(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(viewPortHeight),
+                            wikiSite = wikiSite,
+                            module = module,
+                            onPageClick = onPageClick,
+                            onPageShareClick = onPageShareClick,
+                            onPageBookmarkClick = onPageBookmarkClick,
+                            onHideCardClick = onHideCardClick,
+                            onHideModuleClick = { onHideModuleClick(module.moduleKey()) },
+                            onCardInView = { onCardImpression(it, index) },
+                            onCustomizeInterestsClick = onCustomizeInterestsClick
+                        )
+                    }
+                }
             }
         }
         is ForYouModule.Random -> {

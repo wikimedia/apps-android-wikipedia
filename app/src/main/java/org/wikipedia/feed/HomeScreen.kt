@@ -104,7 +104,8 @@ fun HomeScreen(
     onCardFooterClick: (card: Card) -> Unit = {},
     onNotificationClick: () -> Unit = {},
     onManageModulesClick: () -> Unit = {},
-    onShuffleClick: () -> Unit = {}
+    onShuffleClick: () -> Unit = {},
+    onPlacesCtaClick: () -> Unit = {}
 ) {
     val context = LocalContext.current
     val topInset = if (context is MainActivity) {
@@ -201,7 +202,8 @@ fun HomeScreen(
                         onCardImpression = onCardImpression,
                         onManageModulesClick = onManageModulesClick,
                         onSelectTab = onSelectTab,
-                        onShuffleClick = onShuffleClick
+                        onShuffleClick = onShuffleClick,
+                        onPlacesCtaClick = onPlacesCtaClick
                     )
 
                     // Floating toolbar with gradient scrim, wordmark, and tab selector.

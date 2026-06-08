@@ -1,17 +1,24 @@
 package org.wikipedia.feed
 
+import android.Manifest
+import android.content.pm.PackageManager
+import android.location.Location
 import androidx.compose.ui.util.fastJoinToString
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.flow.transformLatest
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -34,6 +41,7 @@ import org.wikipedia.feed.model.BecauseYouReadCard
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.ContinueReadingCard
 import org.wikipedia.feed.model.ForYouCard
+import org.wikipedia.feed.model.PlacesOfInterestCard
 import org.wikipedia.feed.model.RandomCard
 import org.wikipedia.feed.news.NewsCard
 import org.wikipedia.feed.onthisday.OnThisDayCard
@@ -50,13 +58,17 @@ import org.wikipedia.settings.homefeed.CommunityModuleType
 import org.wikipedia.settings.homefeed.ForYouModuleType
 import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.topics.ArticleTopics
+import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import java.time.LocalDate
 import java.time.LocalDateTime
+import java.util.Locale
 
 enum class HomeTab { COMMUNITY, FOR_YOU }
 private const val MAX_STOP_TIMEOUT_MILLIS = 5000L
+private const val PLACES_ARTICLES_REQUEST_LIMIT = 10
+private const val PLACES_SEARCH_RADIUS_METERS = 10000
 
 @Serializable
 sealed class ForYouModule {
@@ -95,6 +107,18 @@ sealed class ForYouModule {
     ) : ForYouModule() {
         override fun withCards(cards: List<ForYouCard>): ForYouModule = copy(cards = cards)
         override fun moduleKey(): String = ForYouModuleType.BECAUSE_YOU_READ.name
+    }
+
+    @Serializable
+    data class PlacesOfInterest(
+        override val age: Int,
+        override val index: Int,
+        override val cards: List<ForYouCard>,
+        val hasLocationPermission: Boolean,
+        val isLoading: Boolean = false
+    ) : ForYouModule() {
+        override fun withCards(cards: List<ForYouCard>): ForYouModule = copy(cards = cards)
+        override fun moduleKey(): String = ForYouModuleType.PLACES_OF_INTEREST.name
     }
 
     @Serializable
@@ -170,17 +194,41 @@ class HomeViewModel : ViewModel() {
         state.copy(cards = visibleItems, emptyState = emptyState)
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(MAX_STOP_TIMEOUT_MILLIS), CommunityContentState())
 
+    /**
+     * The Places of Interest module is loaded differently from the other "For you" modules, because it depends on location permission
+     * and the user's saved location from Places. So it lives in its own flow that reacts to those changes directly.
+     * Whenever the saved location changes, we rebuild just this module (emitting a loading placeholder first
+     * when permission is granted) rather than reloading the entire tab. The result is merged into forYouState
+     * and sorted into its usual position by using ForYouModuleType enum ordinal.
+     */
+    @OptIn(ExperimentalCoroutinesApi::class)
+    private val placesModule: StateFlow<ForYouModule.PlacesOfInterest?> = Prefs.placesLastLocationFlow
+        .transformLatest {
+            if (hasLocationPermission()) {
+                emit(ForYouModule.PlacesOfInterest(age = 0, index = 0, cards = emptyList(), isLoading = true, hasLocationPermission = true))
+            }
+            emit(buildPlacesModule())
+        }
+        .stateIn(
+            viewModelScope,
+            SharingStarted.WhileSubscribed(MAX_STOP_TIMEOUT_MILLIS),
+            null
+        )
+
     private val _forYouState = MutableStateFlow(ForYouContentState())
     val forYouState = combine(
         _forYouState,
         SettingsRepository.hiddenModules,
-        SettingsRepository.hiddenCards
-    ) { state, hiddenModules, hiddenCards ->
-        val visibleItems = state.modules
+        SettingsRepository.hiddenCards,
+        placesModule
+    ) { state, hiddenModules, hiddenCards, placesModule ->
+        val visibleItems = (state.modules + listOfNotNull(placesModule))
+            .sortedBy { ForYouModuleType.valueOf(it.moduleKey()).ordinal }
             .filterNot { hiddenModules.contains(it.moduleKey()) }
             .mapNotNull { module ->
                 val visibleCards = module.cards.filterNot { hiddenCards.contains(it.hideKey) }
-                if (visibleCards.isEmpty()) null else module.withCards(visibleCards)
+                // only drop module when it has cards, and they are all hidden, not when it is empty to begin with.
+                if (module.cards.isNotEmpty() && visibleCards.isEmpty()) null else module.withCards(visibleCards)
             }
         val areAllModulesHidden = ForYouModuleType.entries.all { hiddenModules.contains(it.name) }
         val isInterestModuleHidden = hiddenModules.contains(ForYouModuleType.BASED_ON_INTEREST.name)
@@ -578,6 +626,56 @@ class HomeViewModel : ViewModel() {
             Prefs.homeForYouModulesToday = JsonUtil.encodeToString(forYouCollectionSaved).orEmpty()
         }
         return modules
+    }
+
+    private suspend fun buildPlacesModule(): ForYouModule.PlacesOfInterest? {
+        if (!hasLocationPermission()) {
+            return ForYouModule.PlacesOfInterest(age = 0, index = 0, cards = emptyList(), hasLocationPermission = false)
+        }
+        val location = Prefs.placesLastLocationAndZoomLevel?.first
+            ?: return ForYouModule.PlacesOfInterest(age = 0, index = 0, cards = emptyList(), hasLocationPermission = false)
+
+        val cards = getPlacesCards(location)
+        if (cards.isEmpty()) {
+            return null
+        }
+        return ForYouModule.PlacesOfInterest(age = 0, index = 0, cards = cards, hasLocationPermission = true)
+    }
+
+    private suspend fun getPlacesCards(savedLocation: Location): List<PlacesOfInterestCard> {
+        val coordinates = "${savedLocation.latitude}|${savedLocation.longitude}"
+        return ServiceFactory.get(wikiSite.value)
+            .getGeoSearch(coordinates, PLACES_SEARCH_RADIUS_METERS, PLACES_ARTICLES_REQUEST_LIMIT, PLACES_ARTICLES_REQUEST_LIMIT)
+            .query?.pages.orEmpty()
+            .filter { it.coordinates != null }
+            .sortedBy {
+                savedLocation.distanceTo(Location("").apply {
+                    latitude = it.coordinates!![0].lat
+                    longitude = it.coordinates[0].lon
+                })
+            }
+            .map { page ->
+                val title = PageTitle(
+                    text = page.title,
+                    wiki = wikiSite.value,
+                    thumbUrl = page.thumbUrl(),
+                    description = page.description,
+                    displayText = page.displayTitle(wikiSite.value.languageCode),
+                    extract = page.extract
+                )
+                val articleLocation = Location("").apply {
+                    latitude = page.coordinates!![0].lat
+                    longitude = page.coordinates[0].lon
+                }
+                val distance = GeoUtil.getDistanceWithUnit(savedLocation, articleLocation, Locale.getDefault())
+                PlacesOfInterestCard(title, distance)
+            }
+    }
+
+    private fun hasLocationPermission(): Boolean {
+        val context = WikipediaApp.instance
+        return ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED ||
+                ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED
     }
 
     fun refreshUnreadNotificationCount() {

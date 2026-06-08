@@ -2540,6 +2540,8 @@
     <string name="home_feed_settings_feed_configuration_description">These topics and articles shape what appears in your \"For You\" feed. Remove any you no longer want or add new interests.</string>
     <string name="home_feed_settings_feed_configuration_interest_title">Your interests</string>
     <string name="home_feed_settings_feed_configuration_interest_subtitle">Edit your topics of interest</string>
+    <string name="home_feed_settings_feed_configuration_location_title">Your location</string>
+    <string name="home_feed_settings_feed_configuration_location_subtitle">Update your location in Places to see articles nearby</string>
     <string name="home_feed_settings_feed_configuration_empty_interest_subtitle">Your interests list is empty. Add something you\'re curious about.</string>
     <string name="home_feed_settings_feed_configuration_reading_history_title">Reading history</string>
     <string name="home_feed_settings_feed_configuration_reading_history_subtitle">Browse your recently read articles</string>
@@ -2547,6 +2549,12 @@
     <string name="home_feed_settings_feed_configuration_languages_title">Languages</string>
     <string name="home_feed_settings_feed_configuration_languages_subtitle">Edit your preferred languages</string>
     <string name="home_feed_settings_feed_configuration_interests_updated_message">Interests updated. Refresh your feed to see updates.</string>
+    <string name="home_feed_places_of_interest_cta_title">Stories from places you love</string>
+    <string name="home_feed_places_of_interest_cta_description">Articles will appear based on your last viewed place. Visit the Places tab and select a location.</string>
+    <string name="home_feed_places_of_interest_cta_button">Go to Places</string>
+    <string name="home_feed_settings_places_of_interest_title">Places of interest</string>
+    <string name="home_feed_settings_places_of_interest_subtitle">Articles nearby your last location in Places</string>
+    <string name="home_feed_places_of_interest_card_footer">%1$s • Based on your location in Places</string>
     <string name="home_feed_for_you_screen_end_of_feed_title">That\'s it for today!</string>
     <string name="home_feed_for_you_screen_end_of_feed_description">Come back tomorrow to find fresh new articles customized for you.</string>
     <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Ways to keep learning:</string>

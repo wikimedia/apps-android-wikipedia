@@ -31,6 +31,7 @@ import org.wikipedia.feed.didyouknow.DidYouKnowCard
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.EmptyCommunityCard
 import org.wikipedia.feed.model.EmptyForYouCard
+import org.wikipedia.feed.model.PlacesOfInterestLocationPromptCard
 import org.wikipedia.feed.onboarding.ExploreFeedUpdatePromptActivity
 import org.wikipedia.feed.onthisday.OnThisDayActivity
 import org.wikipedia.feed.onthisday.OnThisDayCard
@@ -44,6 +45,7 @@ import org.wikipedia.main.MainFragment
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.tabs.TabActivity
+import org.wikipedia.places.PlacesActivity
 import org.wikipedia.random.RandomActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.homefeed.HomeFeedSettingsActivity
@@ -275,6 +277,10 @@ class HomeFragment : Fragment() {
                         onShuffleClick = {
                             instrument.submitInteraction("click", elementId = "random_card_shuffle_button")
                             startActivity(RandomActivity.newIntent(requireActivity(), wikiSite, InvokeSource.FEED))
+                        },
+                        onPlacesCtaClick = {
+                            instrument.submitInteraction("click", actionSource = PlacesOfInterestLocationPromptCard::class.java.simpleName, elementId = "go_to_places")
+                            requireActivity().startActivity(PlacesActivity.newIntent(requireContext()))
                         }
                     )
 
