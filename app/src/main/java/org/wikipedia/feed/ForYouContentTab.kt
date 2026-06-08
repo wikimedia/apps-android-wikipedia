@@ -2,7 +2,6 @@ package org.wikipedia.feed
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.snapping.rememberSnapFlingBehavior
 import androidx.compose.foundation.layout.Arrangement
@@ -47,6 +46,10 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil3.compose.SubcomposeAsyncImage
+import coil3.compose.SubcomposeAsyncImageContent
+import coil3.request.ImageRequest
+import coil3.request.allowHardware
 import org.wikipedia.R
 import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.components.HtmlText
@@ -211,7 +214,7 @@ fun ForYouContentTab(
                                         .padding(top = (topInset * 2 + 64).dp)
                                         .navigationBarsPadding(),
                                     wikiSite = wikiSite,
-                                    illustrationResId = R.drawable.ic_yir_puzzle,
+                                    illustrationResId = R.drawable.yir_puzzle_browser,
                                     titleResId = R.string.home_feed_for_you_screen_end_of_feed_title,
                                     descriptionResId = R.string.home_feed_for_you_screen_end_of_feed_description,
                                     headerResId = R.string.home_feed_for_you_screen_end_of_feed_ways_to_keep_learning,
@@ -447,10 +450,13 @@ fun ForYouFeedMessageView(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(16.dp, Alignment.CenterVertically)
     ) {
-        Image(
-            modifier = Modifier
-                .size(125.dp),
-            painter = painterResource(illustrationResId),
+        SubcomposeAsyncImage(
+            modifier = Modifier.size(125.dp),
+            model = ImageRequest.Builder(context)
+                .data(illustrationResId)
+                .allowHardware(false)
+                .build(),
+            success = { SubcomposeAsyncImageContent() },
             contentDescription = null
         )
         Spacer(modifier = Modifier.height(16.dp))
