@@ -55,6 +55,7 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.extensions.getString
 import org.wikipedia.extensions.instrument
+import org.wikipedia.extensions.serializableExtra
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DeviceUtil
@@ -109,7 +110,8 @@ class HybridSearchOnboardingActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         DeviceUtil.setEdgeToEdge(this)
         Prefs.isHybridSearchEnabled = true
-        val source = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as? Constants.InvokeSource
+        val source = intent.serializableExtra<Constants.InvokeSource>(Constants.INTENT_EXTRA_INVOKE_SOURCE)
+            ?: Constants.InvokeSource.NAV_MENU
 
         _instrument = TestKitchenAdapter.client.getInstrument("apps-search")
             .setDefaultActionSource("hybrid_search_onboarding")
@@ -128,7 +130,7 @@ class HybridSearchOnboardingActivity : BaseActivity() {
 
                         val intent = SearchActivity.newIntent(
                             context = this,
-                            source = source ?: Constants.InvokeSource.NAV_MENU,
+                            source = source,
                             query = null
                         )
                         if (!Prefs.isHybridSearchEnabled) {
@@ -146,7 +148,7 @@ class HybridSearchOnboardingActivity : BaseActivity() {
 
                         startActivity(SearchActivity.newIntent(
                             context = this,
-                            source = source ?: Constants.InvokeSource.NAV_MENU,
+                            source = source,
                             query = exampleQuery,
                             initiateHybridSearch = true
                         ))
