@@ -2518,6 +2518,9 @@
     <string name="home_feed_settings_because_you_read_subtitle">Suggestions based on a recent article from your history</string>
     <string name="home_feed_settings_continue_reading_title">Continue reading</string>
     <string name="home_feed_settings_continue_reading_subtitle">Jump back into articles you didn\'t finish</string>
+    <string name="home_feed_did_you_know_title">Did you know?</string>
+    <string name="home_feed_did_you_know_subtitle">Interesting facts from articles selected by volunteer editors</string>
+    <string name="home_feed_did_you_know_more_label">More did you know</string>
     <string name="home_feed_settings_community_empty_dialog_title">Your Community feed will be empty</string>
     <string name="home_feed_settings_for_you_empty_dialog_title">Your \"For you\" feed will be empty</string>
     <string name="home_feed_settings_empty_dialog_text">Turn on at least one module to see content.</string>
@@ -2531,6 +2534,9 @@
     <string name="home_feed_for_you_screen_empty_ways_to_start">Ways to get started:</string>
     <string name="home_feed_for_you_screen_empty_add_interests"><![CDATA[Add <a href="#add_interests">some interests</a>]]></string>
     <string name="home_feed_for_you_screen_empty_see_community"><![CDATA[See what\'s happening in <a href="#community_tab">community</a>]]></string>
+    <string name="home_feed_random_title">Random</string>
+    <string name="home_feed_random_subtitle">Random article to spark your curiosity</string>
+    <string name="home_feed_random_shuffle_button">Shuffle</string>
     <string name="home_feed_settings_feed_configuration_description">These topics and articles shape what appears in your \"For You\" feed. Remove any you no longer want or add new interests.</string>
     <string name="home_feed_settings_feed_configuration_interest_title">Your interests</string>
     <string name="home_feed_settings_feed_configuration_interest_subtitle">Edit your topics of interest</string>
@@ -2541,4 +2547,8 @@
     <string name="home_feed_settings_feed_configuration_languages_title">Languages</string>
     <string name="home_feed_settings_feed_configuration_languages_subtitle">Edit your preferred languages</string>
     <string name="home_feed_settings_feed_configuration_interests_updated_message">Interests updated. Refresh your feed to see updates.</string>
+    <string name="home_feed_for_you_screen_end_of_feed_title">That\'s it for today!</string>
+    <string name="home_feed_for_you_screen_end_of_feed_description">Come back tomorrow to find fresh new articles customized for you.</string>
+    <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Ways to keep learning:</string>
+    <string name="home_feed_for_you_screen_end_of_feed_add_interests"><![CDATA[Add <a href="#add_interests">new interests</a>]]></string>
 </resources>

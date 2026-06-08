@@ -28,6 +28,10 @@ enum class CommunityModuleType(
         title = R.string.view_top_read_card_title,
         subtitle = R.string.view_top_read_card_description
     ),
+    DID_YOU_KNOW(
+        title = R.string.home_feed_did_you_know_title,
+        subtitle = R.string.home_feed_did_you_know_subtitle
+    ),
     NEWS(
         title = R.string.view_card_news_title,
         subtitle = R.string.explore_feed_in_the_news_subtitle

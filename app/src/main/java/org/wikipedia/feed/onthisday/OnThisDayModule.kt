@@ -304,20 +304,12 @@ private fun OnThisDayPageItem(
 @Preview
 @Composable
 fun OnThisDayPageItemPreview() {
-    val pageSummary = PageSummary(
-        displayTitle = "Dog and Cat",
-        prefixTitle = "Dog_and_Cat",
-        description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        thumbnail = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Commons-logo.svg/1200px-Commons-logo.svg.png",
-        lang = "en"
-    )
     BaseTheme(currentTheme = Theme.LIGHT) {
         OnThisDayPageItem(
             LocalContext.current,
             viewPortSize = DpSize(360.dp, 80.dp),
             wikiSite = WikiSite.preview(),
-            pageSummary = pageSummary,
+            pageSummary = PageSummary.preview(),
             pageOverflowContent = {},
             onPageClick = {},
             onPageOverflowClick = {}
@@ -328,19 +320,10 @@ fun OnThisDayPageItemPreview() {
 @Preview
 @Composable
 fun OnThisDayModulePreview() {
-    val pageSummary = PageSummary(
-        displayTitle = "Lorem ipsum",
-        prefixTitle = "Lorem_ipsum",
-        description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        thumbnail = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Commons-logo.svg/1200px-Commons-logo.svg.png",
-        lang = "en"
-    )
-
     val event = OnThisDay.Event(
         year = 2023,
         text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        pages = listOf(pageSummary, pageSummary, pageSummary)
+        pages = listOf(PageSummary.preview(), PageSummary.preview(), PageSummary.preview())
     )
 
     BaseTheme(currentTheme = Theme.LIGHT) {

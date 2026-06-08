@@ -2297,4 +2297,5 @@
   <string name="home_feed_settings_feed_configuration_languages_title">Idiomas</string>
   <string name="home_feed_settings_feed_configuration_languages_subtitle">Edite seus idiomas preferidos</string>
   <string name="home_feed_settings_feed_configuration_interests_updated_message">Interesses atualizados. Atualize seu feed para ver as novidades.</string>
+  <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Formas de continuar aprendendo:</string>
 </resources>

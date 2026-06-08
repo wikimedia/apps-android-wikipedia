@@ -34,6 +34,7 @@
 
     <color name="green600">#00AF89</color>
     <color name="green700">#14866D</color>
+    <color name="green800">#196551</color>
 
     <color name="red500">#FF4242</color>
     <color name="red700">#B32424</color>
@@ -56,7 +57,11 @@
     <color name="pink300">#D9B4CD</color>
     <color name="pink800">#82456A</color>
 
+    <color name="launcher_background_color">#F3F4F5</color>
     <color name="splash_background_color">#F8F9FA</color>
+    <color name="splash_foreground_color">#27292D</color>
+    <color name="splash_star_color">@android:color/transparent</color>
+
     <color name="widget_background">#F8F9FA</color>
     <color name="widget_paper">#FFFFFF</color>
     <color name="widget_border">#EAECF0</color>

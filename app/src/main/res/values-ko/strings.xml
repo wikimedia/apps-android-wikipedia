@@ -420,7 +420,7 @@
   <string name="preference_title_customize_explore_feed">둘러보기 피드</string>
   <string name="preference_title_customize_home_feed">홈 피드</string>
   <string name="preference_title_show_link_previews">링크 미리보기 보이기</string>
-  <string name="preference_summary_customize_explore_feed">둘러보기 피드를 사용자 지정합니다.</string>
+  <string name="preference_summary_customize_explore_feed">둘러보기 피드를 맞춤 설정합니다.</string>
   <string name="preference_summary_customize_home_feed">홈 피드를 맞춤 설정하세요</string>
   <string name="preference_summary_show_link_previews">문서의 링크를 터치할 때 빠른 미리보기를 보여줍니다.</string>
   <string name="preference_title_collapse_tables">표 접기</string>
@@ -1784,7 +1784,7 @@
   <string name="on_this_day_game_entry_dialog_snackbar_message">위키백과 게임은 더보기 메뉴의 게임 허브에서 이용할 수 있습니다.</string>
   <string name="on_this_day_game_title">어느 것이 먼저 일어났나요?</string>
   <string name="on_this_day_game_dialog_button">플레이</string>
-  <string name="on_this_day_game_splash_message">오늘 어떤 역사적 사건이 먼저 일어났는지 맞춰보세요.</string>
+  <string name="on_this_day_game_splash_message">역사 속 오늘 어떤 사건이 먼저 일어났는지 맞춰보세요.</string>
   <string name="on_this_day_game_progress">%2$d 중 %1$d</string>
   <string name="on_this_day_game_score">점수: %d</string>
   <string name="on_this_day_game_submit">제출</string>
@@ -2345,4 +2345,8 @@
   <string name="home_feed_settings_feed_configuration_languages_title">언어</string>
   <string name="home_feed_settings_feed_configuration_languages_subtitle">선호하시는 언어를 편집하세요</string>
   <string name="home_feed_settings_feed_configuration_interests_updated_message">관심사가 업데이트되었습니다. 피드를 새로고침하여 업데이트를 확인하세요.</string>
+  <string name="home_feed_for_you_screen_end_of_feed_title">오늘은 여기까지입니다!</string>
+  <string name="home_feed_for_you_screen_end_of_feed_description">내일 다시 오시면 맞춤 설정된 새로운 문서들을 만나보실 수 있습니다.</string>
+  <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">계속해서 배우는 방법:</string>
+  <string name="home_feed_for_you_screen_end_of_feed_add_interests">&lt;a href=\"#add_interests\"&gt;새로운 관심사&lt;/a&gt;를 추가해 보세요</string>
 </resources>
