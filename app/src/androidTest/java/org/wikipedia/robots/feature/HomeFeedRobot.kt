@@ -1,121 +1,99 @@
 package org.wikipedia.robots.feature
 
-import androidx.compose.ui.test.hasTestTag
+import android.content.Context
 import androidx.compose.ui.test.junit4.ComposeTestRule
-import androidx.compose.ui.test.onAllNodesWithTag
-import androidx.compose.ui.test.onAllNodesWithText
-import androidx.compose.ui.test.onNodeWithTag
-import androidx.compose.ui.test.onNodeWithText
-import androidx.compose.ui.test.performClick
-import androidx.compose.ui.test.performScrollToNode
-import org.junit.Assert.assertTrue
+import androidx.test.uiautomator.UiDevice
 import org.wikipedia.R
+import org.wikipedia.base.livedata.ComposeRobot
 import org.wikipedia.feed.CommunityModuleTestTags
 import org.wikipedia.feed.HomeScreenTestTags
 import org.wikipedia.feed.featured.FeaturedArticleModuleTestTags
-import org.wikipedia.feed.topread.TopReadModuleTestTags
 
 /**
- * Drives the home feed against live network data.
+ * Drives the home feed against live network data. All synchronization lives in [ComposeRobot];
+ * this class only expresses feature intent.
  *
- * Synchronization note: the feed loads through [org.wikipedia.feed.HomeViewModel] on
- * `viewModelScope` + Retrofit, which run on real dispatchers — not on the Compose test
- * clock. So we never gate on `waitForIdle()` (the loading indicator may keep the UI from
- * ever becoming idle); instead we poll for the rendered feed list with [waitUntil], which
- * waits against real elapsed time. This behaves identically under the v1 and v2 testing APIs.
+ * Anchoring note: interaction tests target the **Featured Article** card. With live data it is the
+ * one card guaranteed to be present (always first in the Community feed), so tests don't flake on
+ * days when optional modules like "Top read" are absent from the API response.
  */
-class HomeFeedRobot(private val composeTestRule: ComposeTestRule) {
+class HomeFeedRobot(
+    composeTestRule: ComposeTestRule,
+    device: UiDevice,
+    context: Context
+) : ComposeRobot(composeTestRule, device, context) {
 
-    fun waitForCommunityFeedLoaded(timeoutMillis: Long = FEED_LOAD_TIMEOUT_MS) = apply {
-        awaitTag(HomeScreenTestTags.COMMUNITY_FEED_LIST, timeoutMillis)
+    fun waitForCommunityFeedLoaded() = apply {
+        awaitTag(HomeScreenTestTags.COMMUNITY_FEED_LIST)
     }
 
     fun assertCommunityFeedHasCards() = apply {
-        assertListHasChildren(HomeScreenTestTags.COMMUNITY_FEED_LIST)
+        assertHasChildren(HomeScreenTestTags.COMMUNITY_FEED_LIST)
     }
 
     fun clickFeaturedArticleCard() = apply {
-        composeTestRule.onNodeWithTag(FeaturedArticleModuleTestTags.CARD).performClick()
+        scrollToAndClick(HomeScreenTestTags.COMMUNITY_FEED_LIST, FeaturedArticleModuleTestTags.CARD)
+    }
+
+    fun saveFeaturedArticle() = apply {
+        scrollToAndClick(HomeScreenTestTags.COMMUNITY_FEED_LIST, FeaturedArticleModuleTestTags.BOOKMARK_BUTTON)
+    }
+
+    fun assertSaveConfirmation() = apply {
+        assertSnackbarShown("Expected a confirmation snackbar after saving the article")
+    }
+
+    fun shareFeaturedArticle() = apply {
+        scrollToAndClick(HomeScreenTestTags.COMMUNITY_FEED_LIST, FeaturedArticleModuleTestTags.SHARE_BUTTON)
+    }
+
+    fun openFeaturedModuleOverflow() = apply {
+        scrollToAndClick(
+            HomeScreenTestTags.COMMUNITY_FEED_LIST,
+            CommunityModuleTestTags.overflowButton(R.string.view_featured_article_card_title)
+        )
+    }
+
+    fun hideFeaturedCard() = apply {
+        clickTag(CommunityModuleTestTags.hideCardItem(R.string.view_featured_article_card_title))
+    }
+
+    fun assertFeaturedCardHidden() = apply {
+        awaitTagGone(FeaturedArticleModuleTestTags.CARD)
     }
 
     /**
-     * Mirrors a real user: scroll the Community feed down to a "Top read" article row and tap it.
-     * Top read sits below the featured article, so reaching it exercises the scroll path.
+     * Contract-driven parity check: every module the backend served today (from FeedContract) must
+     * be reachable in the rendered feed. A served-but-unreachable module fails with a diagnostic
+     * naming it — that's the "data had it, UI didn't render it" regression. Modules the backend did
+     * not serve are absent from [servedModules], so a quiet day never produces a false failure.
      */
-    fun scrollToAndClickTopReadArticle(index: Int = 0) = apply {
-        val itemTag = TopReadModuleTestTags.item(index)
-        composeTestRule.onNodeWithTag(HomeScreenTestTags.COMMUNITY_FEED_LIST)
-            .performScrollToNode(hasTestTag(itemTag))
-        composeTestRule.onNodeWithTag(itemTag).performClick()
-    }
-
-    fun openTopReadArticleOverflow(index: Int = 0) = apply {
-        val overflowTag = TopReadModuleTestTags.overflowButton(index)
-        composeTestRule.onNodeWithTag(HomeScreenTestTags.COMMUNITY_FEED_LIST)
-            .performScrollToNode(hasTestTag(overflowTag))
-        composeTestRule.onNodeWithTag(overflowTag).performClick()
-    }
-
-    fun tapOverflowMenuItem(label: String) = apply {
-        composeTestRule.onNodeWithText(label).performClick()
-    }
-
-    fun openTopReadModuleOverflow() = apply {
-        val overflowTag = CommunityModuleTestTags.overflowButton(R.string.view_top_read_card_title)
-        composeTestRule.onNodeWithTag(HomeScreenTestTags.COMMUNITY_FEED_LIST)
-            .performScrollToNode(hasTestTag(overflowTag))
-        composeTestRule.onNodeWithTag(overflowTag).performClick()
-    }
-
-    fun hideTopReadCard() = apply {
-        composeTestRule.onNodeWithTag(
-            CommunityModuleTestTags.hideCardItem(R.string.view_top_read_card_title)
-        ).performClick()
-    }
-
-    fun assertTopReadCardHidden(timeoutMillis: Long = FEED_LOAD_TIMEOUT_MS) = apply {
-        composeTestRule.waitUntil(timeoutMillis) {
-            composeTestRule.onAllNodesWithTag(TopReadModuleTestTags.item(0), useUnmergedTree = true)
-                .fetchSemanticsNodes().isEmpty()
+    fun assertServedModulesRendered(servedModules: Map<String, String>) = apply {
+        servedModules.forEach { (tag, name) ->
+            assertReachableByScroll(
+                HomeScreenTestTags.COMMUNITY_FEED_LIST,
+                tag,
+                "Backend served the '$name' module today, but it never rendered in the Community " +
+                    "feed — regression in the card-to-module mapping, the module composable, or its test tag."
+            )
         }
     }
 
-    fun switchToForYouTab(timeoutMillis: Long = FEED_LOAD_TIMEOUT_MS) = apply {
-        composeTestRule.onNodeWithTag(HomeScreenTestTags.TAB_FOR_YOU).performClick()
-        awaitTag(HomeScreenTestTags.FOR_YOU_FEED_LIST, timeoutMillis)
+    fun switchToForYouTab() = apply {
+        clickTag(HomeScreenTestTags.TAB_FOR_YOU)
+        awaitTag(HomeScreenTestTags.FOR_YOU_FEED_LIST)
     }
 
     fun assertForYouFeedHasModules() = apply {
-        assertListHasChildren(HomeScreenTestTags.FOR_YOU_FEED_LIST)
+        assertHasChildren(HomeScreenTestTags.FOR_YOU_FEED_LIST)
     }
 
     fun selectLanguage(languageCode: String) = apply {
-        composeTestRule.onNodeWithTag(HomeScreenTestTags.LANGUAGE_MENU_BUTTON).performClick()
-        composeTestRule.onNodeWithTag(HomeScreenTestTags.languageItem(languageCode)).performClick()
+        clickTag(HomeScreenTestTags.LANGUAGE_MENU_BUTTON)
+        clickTag(HomeScreenTestTags.languageItem(languageCode))
     }
 
-    fun assertLanguageIndicatorShows(languageCode: String, timeoutMillis: Long = FEED_LOAD_TIMEOUT_MS) = apply {
-        val label = languageCode.uppercase()
-        composeTestRule.waitUntil(timeoutMillis) {
-            composeTestRule.onAllNodesWithText(label).fetchSemanticsNodes().isNotEmpty()
-        }
-    }
-
-    private fun awaitTag(tag: String, timeoutMillis: Long) {
-        composeTestRule.waitUntil(timeoutMillis) {
-            composeTestRule.onAllNodesWithTag(tag, useUnmergedTree = true)
-                .fetchSemanticsNodes().isNotEmpty()
-        }
-    }
-
-    private fun assertListHasChildren(tag: String) {
-        val childCount = composeTestRule.onNodeWithTag(tag, useUnmergedTree = true)
-            .fetchSemanticsNode().children.size
-        assertTrue("Expected feed list '$tag' to render at least one item", childCount > 0)
-    }
-
-    companion object {
-        // Generous: real network on CI emulators can be slow. We poll, so this is only an upper bound.
-        private const val FEED_LOAD_TIMEOUT_MS = 20_000L
+    fun assertLanguageIndicatorShows(languageCode: String) = apply {
+        awaitText(languageCode.uppercase())
     }
 }
