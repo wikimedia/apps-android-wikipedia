@@ -645,7 +645,7 @@ class HomeViewModel : ViewModel() {
     private suspend fun getPlacesCards(savedLocation: Location): List<PlacesOfInterestCard> {
         val coordinates = "${savedLocation.latitude}|${savedLocation.longitude}"
         return ServiceFactory.get(wikiSite.value)
-            .getGeoSearch(coordinates, PLACES_SEARCH_RADIUS_METERS, PLACES_ARTICLES_REQUEST_LIMIT, PLACES_ARTICLES_REQUEST_LIMIT)
+            .getGeoSearchWithExtracts(coordinates, PLACES_SEARCH_RADIUS_METERS, PLACES_ARTICLES_REQUEST_LIMIT, PLACES_ARTICLES_REQUEST_LIMIT)
             .query?.pages.orEmpty()
             .filter { it.coordinates != null }
             .sortedBy {
