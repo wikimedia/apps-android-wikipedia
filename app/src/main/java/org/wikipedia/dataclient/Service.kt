@@ -282,6 +282,14 @@ interface Service {
         @Query("colimit") coLimit: Int,
     ): MwQueryResponse
 
+    @GET(MW_API_PREFIX + "action=query&generator=geosearch&prop=coordinates|description|pageimages|info|extracts&exchars=500&exintro=1&explaintext=1&inprop=varianttitles|displaytitle&pilicense=any")
+    suspend fun getGeoSearchWithExtracts(
+        @Query("ggscoord", encoded = true) coordinates: String,
+        @Query("ggsradius") radius: Int,
+        @Query("ggslimit") ggsLimit: Int,
+        @Query("colimit") coLimit: Int,
+    ): MwQueryResponse
+
     @GET("api.php?format=json&action=getPaymentMethods")
     suspend fun getPaymentMethods(@Query("country") country: String): PaymentResponseContainer
 

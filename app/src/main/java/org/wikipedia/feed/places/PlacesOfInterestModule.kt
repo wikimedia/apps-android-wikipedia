@@ -5,7 +5,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -52,7 +51,7 @@ import org.wikipedia.theme.Theme
 private const val SHORT_TILE_WEIGHT = 100f
 private const val TALL_TILE_WEIGHT = 171f
 private const val IMAGE_GIZA = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Pyramids_of_Giza%2C_Giza%2C_GG%2C_EGY_%2846986591195%29.jpg/960px-Pyramids_of_Giza%2C_Giza%2C_GG%2C_EGY_%2846986591195%29.jpg"
-private const val IMAGE_RIO = "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Rio_de_Janeiro%2C_Brazil_-21.jpg/960px-Rio_de_Janeiro%2C_Brazil_-21.jpg"
+private const val IMAGE_RIO = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Rio_de_Janeiro%2C_Brazil_003_version_2.jpg/960px-Rio_de_Janeiro%2C_Brazil_003_version_2.jpg"
 private const val IMAGE_LOUVRE = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Pavillon_Sully_du_Louvre_002.jpg/960px-Pavillon_Sully_du_Louvre_002.jpg"
 private const val IMAGE_SNOWY_MOUNTAIN = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Snowy_Mountains_In_Sky_%28Unsplash%29.jpg/960px-Snowy_Mountains_In_Sky_%28Unsplash%29.jpg"
 
@@ -157,7 +156,7 @@ private fun PlaceholderImageGrid(
 ) {
     Row(
         modifier = modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.spacedBy(12.dp)
+        horizontalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         Column(
             modifier = Modifier.weight(1f).fillMaxHeight(),
@@ -177,14 +176,14 @@ private fun PlaceholderImageGrid(
 }
 
 @Composable
-private fun ColumnScope.PlaceholderTile(
+private fun PlaceholderTile(
     modifier: Modifier = Modifier,
     imageUrl: String? = null
 ) {
     Box(
         modifier = modifier
             .fillMaxWidth()
-            .clip(RoundedCornerShape(12.dp))
+            .clip(RoundedCornerShape(16.dp))
     ) {
         AsyncImage(
             model = imageUrl,
