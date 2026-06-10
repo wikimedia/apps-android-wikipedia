@@ -270,13 +270,12 @@ fun CommunityContentTab(
                                         },
                                         onFooterClick = { onCardFooterClick(card) },
                                         onCardImpression = { onCardImpression(card, cardIndex) },
-                                        pageOverflowContent = { index, offset ->
+                                        pageOverflowContent = { index ->
                                             PageOverflowMenu(
                                                 menuKey = "dyk-${card.date}-$index",
                                                 overflowMenuState = overflowMenuState,
                                                 onDismiss = onPageOverflowDismiss,
-                                                items = overflowMenuState?.items.orEmpty(),
-                                                offset = offset
+                                                items = overflowMenuState?.items.orEmpty()
                                             )
                                         },
                                         onPageOverflowClick = { pageSummary, index ->

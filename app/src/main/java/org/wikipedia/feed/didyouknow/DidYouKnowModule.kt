@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -56,7 +57,7 @@ fun DidYouKnowModule(
     onPageClick: (PageTitle) -> Unit,
     onFooterClick: () -> Unit,
     onCardImpression: () -> Unit = {},
-    pageOverflowContent: @Composable (Int, DpOffset) -> Unit = { _, _ -> },
+    pageOverflowContent: @Composable (Int) -> Unit = {},
     onPageOverflowClick: (PageSummary, Int) -> Unit = { _, _ -> },
 ) {
     val maxDidYouKnowItems = 3
@@ -80,7 +81,7 @@ fun DidYouKnowModule(
                     wikiSite = wikiSite,
                     dykHtml = item.html,
                     onClick = onPageClick,
-                    pageOverflowContent = { offset -> pageOverflowContent(index, offset) },
+                    pageOverflowContent = { pageOverflowContent(index) },
                     onPageOverflowClick = { onPageOverflowClick(it, index) }
                 )
             }
@@ -113,7 +114,7 @@ fun DidYouKnowListItem(
     wikiSite: WikiSite,
     dykHtml: String,
     onClick: (PageTitle) -> Unit,
-    pageOverflowContent: @Composable (DpOffset) -> Unit,
+    pageOverflowContent: @Composable () -> Unit,
     onPageOverflowClick: (PageSummary) -> Unit = {}
 ) {
     var menuOffset by remember { mutableStateOf(DpOffset.Zero) }
@@ -156,13 +157,17 @@ fun DidYouKnowListItem(
                     },
                     onLongClickLink = { url, intOffset ->
                         menuOffset = with(density) { DpOffset(intOffset.x.toDp(), intOffset.y.toDp()) }
-
                         val title = PageTitle.titleForUri(url.toUri(), wikiSite)
                         onPageOverflowClick(PageSummary(title.displayText, title.prefixedText, title.description,
                             title.extract, title.thumbUrl, title.wikiSite.languageCode))
                     }
                 )
-                pageOverflowContent(menuOffset)
+                // Zero-size anchor positioned at the tap point. DropdownMenu anchors to
+                // this box so it opens exactly at the long-press location regardless of
+                // whether it expands above or below the tap.
+                Box(modifier = Modifier.offset(x = menuOffset.x, y = menuOffset.y)) {
+                    pageOverflowContent()
+                }
             }
         }
         Spacer(modifier = Modifier.height(24.dp))

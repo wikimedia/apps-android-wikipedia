@@ -28,8 +28,6 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
 import androidx.core.net.toUri
-import kotlin.math.roundToInt
-import kotlinx.coroutines.withTimeoutOrNull
 import org.wikipedia.WikipediaApp
 import org.wikipedia.compose.extensions.composeFromHtml
 import org.wikipedia.compose.theme.BaseTheme
@@ -37,6 +35,7 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.UriUtil
+import kotlin.math.roundToInt
 
 @Composable
 fun HtmlText(
@@ -88,26 +87,24 @@ fun HtmlText(
                             }
                         }
                         if (isLongPress) {
+                            var didLongPress = false
                             layoutResult?.let { layout ->
                                 val charPosition = layout.getOffsetForPosition(down.position)
                                 annotatedString.getLinkAnnotations(charPosition, charPosition)
                                     .firstOrNull()?.let { range ->
                                         (range.item as? LinkAnnotation.Url)?.url?.let { url ->
-                                            onLongClickLink(
-                                                url,
-                                                IntOffset(
-                                                    down.position.x.roundToInt(),
-                                                    down.position.y.roundToInt()
-                                                )
-                                            )
+                                            onLongClickLink(url, IntOffset(down.position.x.roundToInt(), down.position.y.roundToInt()))
+                                            didLongPress = true
                                         }
                                     }
                             }
-                            var stillDown = true
-                            while (stillDown) {
-                                val event = awaitPointerEvent(PointerEventPass.Initial)
-                                event.changes.forEach { it.consume() }
-                                stillDown = event.changes.any { it.pressed }
+                            if (didLongPress) {
+                                var stillDown = true
+                                while (stillDown) {
+                                    val event = awaitPointerEvent(PointerEventPass.Initial)
+                                    event.changes.forEach { it.consume() }
+                                    stillDown = event.changes.any { it.pressed }
+                                }
                             }
                         }
                     }
