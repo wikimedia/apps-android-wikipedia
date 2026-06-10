@@ -279,7 +279,7 @@ fun CommunityContentTab(
                                             )
                                         },
                                         onPageOverflowClick = { pageSummary, index ->
-                                            onPageOverflowClick(card, pageSummary, HistoryEntry.SOURCE_FEED_MOST_READ, "dyk-${card.date}-$index")
+                                            onPageOverflowClick(card, pageSummary, HistoryEntry.SOURCE_FEED_DID_YOU_KNOW, "dyk-${card.date}-$index")
                                         }
                                     )
                                 }
