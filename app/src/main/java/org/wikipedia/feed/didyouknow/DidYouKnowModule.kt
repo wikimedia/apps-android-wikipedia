@@ -56,7 +56,7 @@ fun DidYouKnowModule(
     onPageClick: (PageTitle) -> Unit,
     onFooterClick: () -> Unit,
     onCardImpression: () -> Unit = {},
-    pageOverflowContent: @Composable (Int) -> Unit = {},
+    pageOverflowContent: @Composable (Int, DpOffset) -> Unit = { _, _ -> },
     onPageOverflowClick: (PageSummary, Int) -> Unit = { _, _ -> },
 ) {
     val maxDidYouKnowItems = 3
@@ -80,7 +80,7 @@ fun DidYouKnowModule(
                     wikiSite = wikiSite,
                     dykHtml = item.html,
                     onClick = onPageClick,
-                    pageOverflowContent = { pageOverflowContent(index) },
+                    pageOverflowContent = { offset -> pageOverflowContent(index, offset) },
                     onPageOverflowClick = { onPageOverflowClick(it, index) }
                 )
             }
@@ -113,7 +113,7 @@ fun DidYouKnowListItem(
     wikiSite: WikiSite,
     dykHtml: String,
     onClick: (PageTitle) -> Unit,
-    pageOverflowContent: @Composable () -> Unit,
+    pageOverflowContent: @Composable (DpOffset) -> Unit,
     onPageOverflowClick: (PageSummary) -> Unit = {}
 ) {
     var menuOffset by remember { mutableStateOf(DpOffset.Zero) }
@@ -162,7 +162,7 @@ fun DidYouKnowListItem(
                             title.extract, title.thumbUrl, title.wikiSite.languageCode))
                     }
                 )
-                pageOverflowContent()
+                pageOverflowContent(menuOffset)
             }
         }
         Spacer(modifier = Modifier.height(24.dp))

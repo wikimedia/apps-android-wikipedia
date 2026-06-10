@@ -156,12 +156,13 @@ fun DidYouKnowScreen(
                         wikiSite = wikiSite,
                         dykHtml = html,
                         onClick = onPageClick,
-                        pageOverflowContent = {
+                        pageOverflowContent = { offset ->
                             PageOverflowMenu(
                                 menuKey = "dyk-$index",
                                 overflowMenuState = overflowMenuState,
                                 onDismiss = onPageOverflowDismiss,
-                                items = overflowMenuState?.items.orEmpty()
+                                items = overflowMenuState?.items.orEmpty(),
+                                offset = offset
                             )
                         },
                         onPageOverflowClick = { onPageOverflowClick(it, HistoryEntry.SOURCE_FEED_MOST_READ, "dyk-$index") }

@@ -12,6 +12,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.delay
 import org.wikipedia.compose.theme.WikipediaTheme
@@ -22,7 +23,8 @@ fun PageOverflowMenu(
     menuKey: String,
     overflowMenuState: PageOverflowMenuViewModel.PageOverflowMenuState?,
     onDismiss: () -> Unit,
-    items: List<Pair<String, () -> Unit>>
+    items: List<Pair<String, () -> Unit>>,
+    offset: DpOffset = DpOffset.Zero
 ) {
     val expanded = menuKey == overflowMenuState?.menuKey
     var animatedExpanded by remember(menuKey) { mutableStateOf(false) }
@@ -46,6 +48,7 @@ fun PageOverflowMenu(
         modifier = modifier,
         expanded = animatedExpanded,
         onDismissRequest = { animatedExpanded = false },
+        offset = offset,
         containerColor = WikipediaTheme.colors.paperColor,
     ) {
         items.forEach { (label, action) ->
