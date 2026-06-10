@@ -34,6 +34,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.DpOffset
+import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.net.toUri
@@ -47,6 +48,7 @@ import org.wikipedia.extensions.getString
 import org.wikipedia.feed.CommunityModuleContainer
 import org.wikipedia.page.PageTitle
 import org.wikipedia.theme.Theme
+import org.wikipedia.util.StringUtil
 
 @Composable
 fun DidYouKnowModule(
@@ -117,7 +119,7 @@ fun DidYouKnowListItem(
     pageOverflowContent: @Composable () -> Unit,
     onPageOverflowClick: (PageSummary) -> Unit = {}
 ) {
-    var menuOffset by remember { mutableStateOf(DpOffset.Zero) }
+    var longPressOffset by remember { mutableStateOf(DpOffset.Zero) }
     val density = LocalDensity.current
 
     Column {
@@ -148,7 +150,7 @@ fun DidYouKnowListItem(
 
             Box {
                 HtmlText(
-                    text = dykHtml,
+                    text = StringUtil.removeBoldTags(dykHtml),
                     color = WikipediaTheme.colors.primaryColor,
                     style = MaterialTheme.typography.bodyMedium,
                     linkInteractionListener = {
@@ -156,16 +158,15 @@ fun DidYouKnowListItem(
                         onClick(PageTitle.titleForUri(url.toUri(), wikiSite))
                     },
                     onLongClickLink = { url, intOffset ->
-                        menuOffset = with(density) { DpOffset(intOffset.x.toDp(), intOffset.y.toDp()) }
+                        longPressOffset = with(density) { DpOffset(intOffset.x.toDp(), intOffset.y.toDp()) }
                         val title = PageTitle.titleForUri(url.toUri(), wikiSite)
                         onPageOverflowClick(PageSummary(title.displayText, title.prefixedText, title.description,
                             title.extract, title.thumbUrl, title.wikiSite.languageCode))
                     }
                 )
                 // Zero-size anchor positioned at the tap point. DropdownMenu anchors to
-                // this box so it opens exactly at the long-press location regardless of
-                // whether it expands above or below the tap.
-                Box(modifier = Modifier.offset(x = menuOffset.x, y = menuOffset.y)) {
+                // this box so it opens exactly at the long-press location.
+                Box(modifier = Modifier.offset { IntOffset(longPressOffset.x.roundToPx(), longPressOffset.y.roundToPx()) }) {
                     pageOverflowContent()
                 }
             }

@@ -92,6 +92,10 @@ class StringUtilTest {
         assertEquals("te_st", StringUtil.removeHTMLTags("<tag>te_st</tag>"))
     }
 
+    fun testRemoveBoldTags() {
+        assertEquals("Lorem <i>ipsum</i>", StringUtil.removeStyleTags("Lorem <b data=\"123\"><i>ipsum</i></b>"))
+    }
+
     @Test
     fun testRemoveStyleTags() {
         assertEquals("Lorem  <i>ipsum</i>", StringUtil.removeStyleTags("Lorem <style data=\"123\">test</style> <i>ipsum</i>"))

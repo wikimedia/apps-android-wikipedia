@@ -164,7 +164,7 @@ fun DidYouKnowScreen(
                                 items = overflowMenuState?.items.orEmpty()
                             )
                         },
-                        onPageOverflowClick = { onPageOverflowClick(it, HistoryEntry.SOURCE_FEED_MOST_READ, "dyk-$index") }
+                        onPageOverflowClick = { onPageOverflowClick(it, HistoryEntry.SOURCE_ACTIVITY_DID_YOU_KNOW, "dyk-$index") }
                     )
                 }
             }
