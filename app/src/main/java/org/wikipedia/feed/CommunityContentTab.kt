@@ -269,7 +269,18 @@ fun CommunityContentTab(
                                             onPageClick(card, HistoryEntry(it, HistoryEntry.SOURCE_FEED_DID_YOU_KNOW))
                                         },
                                         onFooterClick = { onCardFooterClick(card) },
-                                        onCardImpression = { onCardImpression(card, cardIndex) }
+                                        onCardImpression = { onCardImpression(card, cardIndex) },
+                                        pageOverflowContent = { index ->
+                                            PageOverflowMenu(
+                                                menuKey = "dyk-${card.date}-$index",
+                                                overflowMenuState = overflowMenuState,
+                                                onDismiss = onPageOverflowDismiss,
+                                                items = overflowMenuState?.items.orEmpty()
+                                            )
+                                        },
+                                        onPageOverflowClick = { pageSummary, index ->
+                                            onPageOverflowClick(card, pageSummary, HistoryEntry.SOURCE_FEED_DID_YOU_KNOW, "dyk-${card.date}-$index")
+                                        }
                                     )
                                 }
                             }
