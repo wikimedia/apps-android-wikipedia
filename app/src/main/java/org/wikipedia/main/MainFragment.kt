@@ -195,6 +195,9 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
 
         binding.mainNavTabLayout.setOverlayDot(NavTab.EDITS, !Prefs.isActivityTabOnboardingShown)
 
+        maybeShowFeedNewModulesTooltip()
+        Prefs.incrementExploreFeedVisitCount()
+
         notificationButtonView = NotificationButtonView(requireActivity())
 
         if (savedInstanceState == null) {
@@ -568,6 +571,21 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
                 .setNegativeButton(R.string.shareable_reading_lists_new_install_dialog_got_it, null)
                 .show()
             Prefs.importReadingListsNewInstallDialogShown = true
+        }
+    }
+
+    private fun maybeShowFeedNewModulesTooltip() {
+        if (Prefs.exploreFeedVisitCount == 0) {
+            // Explicitly consider this tooltip "shown", since we only want to show it to users
+            // who have used the Feed already, instead of completely new users.
+            Prefs.isHomeFeedUpdateTooltipShown = true
+        } else if (!Prefs.isHomeFeedUpdateTooltipShown) {
+            Prefs.isHomeFeedUpdateTooltipShown = true
+            binding.root.post {
+                if (isAdded) {
+                    FeedbackUtil.showTooltip(requireActivity(), binding.mainNavTabLayout.findViewById(NavTab.HOME.id), getString(R.string.home_feed_update_tooltip1), aboveOrBelow = true, autoDismiss = false, showDismissButton = true)
+                }
+            }
         }
     }
 
