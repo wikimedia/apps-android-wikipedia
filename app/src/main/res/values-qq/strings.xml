@@ -2273,6 +2273,7 @@
   <string name="home_feed_for_you_screen_empty_ways_to_start">Header introducing suggested actions for getting started with the “For you” feed.</string>
   <string name="home_feed_for_you_screen_empty_add_interests">Link text prompting the user to add new interests to personalize the “For you” feed. Please keep the anchor link around the word \"some interests\"</string>
   <string name="home_feed_for_you_screen_empty_see_community">Link text prompting the user to explore the Community feed for additional content. Please keep the anchor link around the word \"community\"</string>
+  <string name="home_feed_update_tooltip1">Message that explains new features introduced into the Home Feed.</string>
   <string name="home_feed_random_title">Title for the Random Article module in the For You feed.</string>
   <string name="home_feed_random_subtitle">Description of the Random Article module in the For You feed.</string>
   <string name="home_feed_random_shuffle_button">Button label for going to the Randomizer feature in the app.</string>

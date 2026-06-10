@@ -1,19 +1,29 @@
 package org.wikipedia.compose.components
 
+import androidx.compose.foundation.gestures.awaitEachGesture
+import androidx.compose.foundation.gestures.awaitFirstDown
 import androidx.compose.foundation.text.TextAutoSize
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.pointer.PointerEventPass
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.LinkAnnotation
 import androidx.compose.ui.text.LinkInteractionListener
 import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.TextLayoutResult
 import androidx.compose.ui.text.TextLinkStyles
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
@@ -25,6 +35,7 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.UriUtil
+import kotlin.math.roundToInt
 
 @Composable
 fun HtmlText(
@@ -45,16 +56,63 @@ fun HtmlText(
     overflow: TextOverflow = TextOverflow.Ellipsis,
     lineHeight: TextUnit = 1.6.em,
     linkInteractionListener: LinkInteractionListener = defaultLinkInteractionListener(),
+    onLongClickLink: ((url: String, offset: IntOffset) -> Unit)? = null,
     textAlign: TextAlign = TextAlign.Start,
     autoSize: TextAutoSize? = null
 ) {
+    val annotatedString = AnnotatedString.composeFromHtml(
+        htmlString = text,
+        linkStyles = linkStyle,
+        linkInteractionListener = linkInteractionListener
+    )
+    var layoutResult by remember { mutableStateOf<TextLayoutResult?>(null) }
+
     Text(
-        modifier = modifier,
-        text = AnnotatedString.composeFromHtml(
-            htmlString = text,
-            linkStyles = linkStyle,
-            linkInteractionListener = linkInteractionListener
+        modifier = modifier.then(
+            if (onLongClickLink != null) {
+                // Use PointerEventPass.Initial so our handler fires BEFORE Text's internal link
+                // handler (which uses Main pass, inner-to-outer). On short taps we leave events
+                // unconsumed so Text handles clicks normally. On long press we fire the callback
+                // and consume the eventual up event to prevent Text from also triggering a click.
+                Modifier.pointerInput(text) {
+                    awaitEachGesture {
+                        val down = awaitFirstDown(requireUnconsumed = false, pass = PointerEventPass.Initial)
+                        var isLongPress = true
+                        withTimeoutOrNull(viewConfiguration.longPressTimeoutMillis) {
+                            while (isLongPress) {
+                                val event = awaitPointerEvent(PointerEventPass.Initial)
+                                if (event.changes.any { !it.pressed && it.previousPressed }) {
+                                    isLongPress = false
+                                }
+                            }
+                        }
+                        if (isLongPress) {
+                            var didLongPress = false
+                            layoutResult?.let { layout ->
+                                val charPosition = layout.getOffsetForPosition(down.position)
+                                annotatedString.getLinkAnnotations(charPosition, charPosition)
+                                    .firstOrNull()?.let { range ->
+                                        (range.item as? LinkAnnotation.Url)?.url?.let { url ->
+                                            onLongClickLink(url, IntOffset(down.position.x.roundToInt(), down.position.y.roundToInt()))
+                                            didLongPress = true
+                                        }
+                                    }
+                            }
+                            if (didLongPress) {
+                                var stillDown = true
+                                while (stillDown) {
+                                    val event = awaitPointerEvent(PointerEventPass.Initial)
+                                    event.changes.forEach { it.consume() }
+                                    stillDown = event.changes.any { it.pressed }
+                                }
+                            }
+                        }
+                    }
+                }
+            } else Modifier
         ),
+        text = annotatedString,
+        onTextLayout = { result -> layoutResult = result },
         lineHeight = lineHeight,
         style = style,
         color = color,
