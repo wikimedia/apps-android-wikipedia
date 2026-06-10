@@ -197,12 +197,13 @@ class HomeViewModel : ViewModel() {
     /**
      * The Places of Interest module is loaded differently from the other "For you" modules, because it depends on location permission
      * and the user's saved location from Places. So it lives in its own flow that reacts to those changes directly.
-     * Whenever the saved location changes, we rebuild just this module (emitting a loading placeholder first
-     * when permission is granted) rather than reloading the entire tab. The result is merged into forYouState
-     * and sorted into its usual position by using ForYouModuleType enum ordinal.
+     * Whenever the saved location or the feed language changes, we rebuild just this module (emitting a loading
+     * placeholder first when permission is granted) rather than reloading the entire tab. The result is merged into
+     * forYouState and sorted into its usual position by using ForYouModuleType enum ordinal.
      */
     @OptIn(ExperimentalCoroutinesApi::class)
-    private val placesModule: StateFlow<ForYouModule.PlacesOfInterest?> = Prefs.placesLastLocationFlow
+    private val placesModule: StateFlow<ForYouModule.PlacesOfInterest?> =
+        combine(Prefs.placesLastLocationFlow, _wikiSite) { _, _ -> }
         .transformLatest {
             if (hasLocationPermission()) {
                 emit(ForYouModule.PlacesOfInterest(age = 0, index = 0, cards = emptyList(), isLoading = true, hasLocationPermission = true))
