@@ -2534,6 +2534,7 @@
     <string name="home_feed_for_you_screen_empty_ways_to_start">Ways to get started:</string>
     <string name="home_feed_for_you_screen_empty_add_interests"><![CDATA[Add <a href="#add_interests">some interests</a>]]></string>
     <string name="home_feed_for_you_screen_empty_see_community"><![CDATA[See what\'s happening in <a href="#community_tab">community</a>]]></string>
+    <string name="home_feed_update_tooltip1">New: \"Random Article\" and \"Places of Interest\" are available in For You and \"Did You Know\" is in the Community Tab.</string>
     <string name="home_feed_random_title">Random</string>
     <string name="home_feed_random_subtitle">Random article to spark your curiosity</string>
     <string name="home_feed_random_shuffle_button">Shuffle</string>
