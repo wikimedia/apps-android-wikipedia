@@ -191,7 +191,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
             }
             binding.mainViewPager.setCurrentItem(item.order, false)
             requireActivity().invalidateOptionsMenu()
-            if (fragment is HomeFragment && item.order == NavTab.SEARCH.code()) {
+            if (item.order == NavTab.SEARCH.code()) {
                 maybeShowSearchWidgetInstallPrompt()
             }
             true
