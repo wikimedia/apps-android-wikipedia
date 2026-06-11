@@ -642,7 +642,7 @@
   <string name="preference_summary_notification_system">Pesanan dari sistem</string>
   <string name="preference_title_notification_milestone">Pencapaian</string>
   <string name="preference_summary_notification_milestone">Tuntutan suntingan tertentu telah dicapai</string>
-  <string name="preference_title_notification_thanks">Terima kasih</string>
+  <string name="preference_title_notification_thanks">Penghargaan</string>
   <string name="preference_summary_notification_thanks">Seseorang berterima kasih untuk suntingan anda</string>
   <string name="preference_title_notification_revert">Balikkan</string>
   <string name="preference_summary_notification_revert">Salah satu sumbangan anda telah diundurkan</string>
@@ -717,11 +717,11 @@
   <string name="feed_item_type_main_page">Halaman utama Wikipedia dengan kandungan pilihan harian</string>
   <string name="feed_item_type_randomizer">Menjana rencana rawak untuk dibaca</string>
   <string name="feed_item_type_suggested_edits">Cadangan untuk menambah kandungan ke Wikipedia</string>
-  <string name="feed_empty_message">Tiada apa-apa pada suapan Jelajah anda</string>
+  <string name="feed_empty_message" fuzzy="true">Tiada apa-apa pada suapan Jelajah anda</string>
   <string name="feed_configure_onboarding_action">Ubah suai</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Batal</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Ubahsuai suapan Jelajah anda&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Anda kini boleh memilih apa yang akan dipaparkan pada suapan anda, dan juga mengutamakan jenis kandungan kegemaran anda.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Ubahsuai suapan Jelajah anda&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Anda kini boleh memilih apa yang akan dipaparkan pada suapan anda, dan juga mengutamakan jenis kandungan kegemaran anda.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Batal</string>
   <string name="feed_accessibility_card_load_more_button">Muatkan lagi</string>
@@ -801,7 +801,7 @@
   <string name="suggested_edits_task_image_caption_edit_disable_text">Dikunci sehingga anda telah menyunting %d kapsyen imej</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Dikunci sehingga anda telah menyunting %d penerangan rencana (disahkan)</string>
   <string name="suggested_edits_task_multilingual_negative">Bukan untuk saya</string>
-  <string name="suggested_edits_task_multilingual_positive">Tambahkan bahasa</string>
+  <string name="suggested_edits_task_multilingual_positive">Tambah bahasa</string>
   <string name="suggested_edits_image_caption_summary_title_image">Fail</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Seniman</string>
   <string name="suggested_edits_image_caption_summary_title_author">Penulis</string>
@@ -884,7 +884,7 @@
   <string name="onboarding_get_started">Memulakan</string>
   <string name="onboarding_maybe_later">Lain kalilah</string>
   <string name="onboarding_explore_title">Cara baru untuk diterokai</string>
-  <string name="onboarding_explore_text">Dengarkan lubang kelinci Wikipedia dengan mengemas kini suapan Jelajah secara berterusan. &lt;br/&gt; &lt;b&gt;Ubahsuai&lt;/b&gt; suapan untuk minat anda – sama ada pembelajaran tentang peristiwa sejarah &lt;b&gt;Pada hari ini&lt;/b&gt;, atau membaling dadu dengan &lt;b&gt;Rawak&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Dengarkan lubang kelinci Wikipedia dengan mengemas kini suapan Jelajah secara berterusan. &lt;br/&gt; &lt;b&gt;Ubahsuai&lt;/b&gt; suapan untuk minat anda – sama ada pembelajaran tentang peristiwa sejarah &lt;b&gt;Pada hari ini&lt;/b&gt;, atau membaling dadu dengan &lt;b&gt;Rawak&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Senarai bacaan dengan penyegerakan</string>
   <string name="onboarding_reading_list_sync_text_v2">Anda boleh membuat senarai bacaan dari artikel yang ingin dibaca kemudian, walaupun semasa anda berada di luar talian. &lt;br/&gt;Log masuk ke akaun Wikipedia anda untuk menyegerakkan senarai bacaan anda. &lt;a href=\"#login\"&gt;Sertai Wikipedia&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Hantar data penggunaan</string>
@@ -907,19 +907,19 @@
     <item quantity="other">%d tahun lepas</item>
   </plurals>
   <string name="on_this_day_back_to_future">Kembali ke masa depan</string>
-  <string name="languages_list_activity_title">Tambahkan bahasa</string>
+  <string name="languages_list_activity_title">Tambah bahasa</string>
   <string name="languages_list_suggested_text">Disyorkan</string>
   <string name="languages_list_all_text">Semua bahasa</string>
   <string name="wikipedia_languages_title">Bahasa Wikipedia</string>
   <string name="wikipedia_languages_your_languages_text">Bahasa anda</string>
-  <string name="wikipedia_languages_add_language_text">Tambahkan bahasa</string>
+  <string name="wikipedia_languages_add_language_text">Tambah bahasa</string>
   <string name="wikipedia_languages_remove_text">Buang bahasa</string>
   <string name="wikipedia_languages_remove_action_mode_title">Buang bahasa</string>
   <plurals name="wikipedia_languages_remove_dialog_title">
     <item quantity="one">Buang bahasa yang dipilih?</item>
     <item quantity="other">Buang bahasa yang dipilih?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Anda hanya akan melihat kandungan pada suapan Teroka dan penapis carian pantas untuk bahasa Wikipedia yang masih ada.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Anda hanya akan melihat kandungan pada suapan Teroka dan penapis carian pantas untuk bahasa Wikipedia yang masih ada.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Tidak dapat membuang semua bahasa</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Pastikan sekurang-kurangnya satu bahasa Wikipedia yang boleh digunakan untuk mencari dan membaca kandungan.</string>
   <string name="more_language_options">lagi</string>
@@ -1000,7 +1000,7 @@
   <string name="menu_option_user_page">Laman pengguna %s</string>
   <string name="talk_menu_copy_text">Salin teks</string>
   <string name="watchlist_details_watch_label">Pantau</string>
-  <string name="thank_label">Terima kasih</string>
+  <string name="thank_label">Hargai</string>
   <string name="view_user_page">Lihat laman pengguna</string>
   <string name="thank_dialog_title_text">Hantar \'Terima kasih\' secara terbuka</string>
   <string name="thank_dialog_positive_button_text">Ucap terima kasih</string>

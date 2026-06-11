@@ -508,7 +508,7 @@
   <string name="feed_configure_onboarding_action">Larasaké</string>
   <string name="customize_lang_selection_dialog_ok_button_text">YA</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Wurung</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Larasaké pakan Dlajahé panjenengan&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Panjenengan saiki bisa milih apa sing arep katuduhaké ing pakané panjenengan, lan uga tengenaké jinis-jinis isèn-isèn sing panjenengan senengi.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Larasaké pakan Dlajahé panjenengan&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Panjenengan saiki bisa milih apa sing arep katuduhaké ing pakané panjenengan, lan uga tengenaké jinis-jinis isèn-isèn sing panjenengan senengi.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">YA</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Wurung</string>
   <string name="feed_accessibility_card_load_more_button">Mot liyané</string>
@@ -630,7 +630,7 @@
     <item quantity="one">Busak basa kang kapilih?</item>
     <item quantity="other">Busak basa kang kapilih?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Panjenengan mung bakal ndeleng kontèn ing saran Dlajah lan saringan golèkan rikat kanggo basa-basa Wikipédia liyané.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Panjenengan mung bakal ndeleng kontèn ing saran Dlajah lan saringan golèkan rikat kanggo basa-basa Wikipédia liyané.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Ora bisa ngilangi kabèh basa</string>
   <string name="more_language_options">liyané</string>
   <string name="add_wikipedia_languages_text">Tambah basa Wikipédia</string>

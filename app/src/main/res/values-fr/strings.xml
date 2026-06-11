@@ -18,6 +18,7 @@
 * Derugon
 * Djiboun
 * DreZhsh
+* Easmit
 * Elodark
 * Eneelk
 * Envlh
@@ -462,9 +463,11 @@
   <string name="redirected_from_snackbar">Redirigé de « %s »</string>
   <string name="button_get_directions">Obtenir les directions</string>
   <string name="error_no_maps_app">Impossible de trouver une application fournissant des itinéraires.</string>
-  <string name="preference_title_customize_explore_feed">Flux d\'exploration</string>
+  <string name="preference_title_customize_explore_feed">Flux d’exploration</string>
+  <string name="preference_title_customize_home_feed">Fil d\'actualité</string>
   <string name="preference_title_show_link_previews">Afficher les aperçus de liens</string>
   <string name="preference_summary_customize_explore_feed">Personnaliser le flux d\'exploration</string>
+  <string name="preference_summary_customize_home_feed">Personnalisez votre fil d\'actualité</string>
   <string name="preference_summary_show_link_previews">Afficher un rapide aperçu des articles en tapant sur les liens.</string>
   <string name="preference_title_collapse_tables">Replier les tableaux</string>
   <string name="preference_summary_collapse_tables">Replier automatiquement les tableaux dans les articles, comme les boîtes d’information, les références et les notes.</string>
@@ -874,9 +877,11 @@
   <string name="view_random_article_card_title">Article au hasard</string>
   <string name="view_random_article_card_action">Davantage d’articles au hasard</string>
   <string name="view_top_read_card_title">Les plus lus</string>
+  <string name="view_top_read_card_description">Quels sont les sujets tendance aujourd\'hui sur Wikipédia ?</string>
   <string name="view_top_read_card_action">Davantage de plus lus</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d k</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
+  <string name="view_top_read_card_pageviews_views_suffix">Vues</string>
   <string name="view_next_random_article">Charger un autre article au hasard</string>
   <string name="view_main_page_card_title">Aujourd’hui sur Wikipédia</string>
   <string name="view_main_page_card_action">Afficher la page principale</string>
@@ -917,11 +922,11 @@
   <string name="feed_item_type_randomizer">Générer des articles aléatoires à lire</string>
   <string name="feed_item_type_suggested_edits">Suggestions pour ajouter du contenu à Wikipédia</string>
   <string name="feed_item_type_places">Articles à proximité selon votre position</string>
-  <string name="feed_empty_message">Il n’y a rien dans votre flux d\'exploration</string>
+  <string name="feed_empty_message">Il n’y a rien dans votre fil d\'actualité</string>
   <string name="feed_configure_onboarding_action">Personnaliser</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Annuler</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Personnaliser votre flux d\'exploration&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt; Vous pouvez maintenant choisir ce que vous voulez montrer sur votre flux et aussi prioriser vos types de contenu favoris.</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Personnaliser votre fil d\'actualité&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt; Vous pouvez maintenant choisir ce que vous voulez montrer sur votre flux et aussi prioriser vos types de contenu favoris.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Annuler</string>
   <string name="feed_accessibility_card_text">Vous avez atteint la fin du flux.</string>
@@ -1298,6 +1303,7 @@
   <string name="activity_tab_onboarding_stay_in_control_message">Choisissez les modules à afficher. Toutes vos données personnelles restent privées et enregistrées uniquement sur votre appareil. Votre historique de navigation peut être effacé à tout moment.</string>
   <string name="edits_screen_what_is_title">Contribuer depuis l’appli Wikipédia</string>
   <string name="edits_screen_what_is_body">Vous ne savez pas par où commencer pour contribuer ? Essayez les Modifications suggérées, une fonctionnalité qui vous propose de faire de petites mais vitales contributions à Wikipédia. Vous pouvez aussi accéder directement à un article qui vous intéresse et le modifier en wikicode.</string>
+  <string name="activity_tab_snackbar_label">Les statistiques de jeu sont affichées pour votre langue principale.</string>
   <string name="file_page_activity_title">Page du fichier</string>
   <string name="file_page_add_image_caption_button">Ajouter une légende d’image</string>
   <string name="file_page_add_image_tags_button">Ajouter des balises d’image</string>
@@ -1317,17 +1323,24 @@
   <string name="onboarding_get_started">C’est parti</string>
   <string name="onboarding_maybe_later">Peut-être plus tard</string>
   <string name="onboarding_explore_title">Nouvelles façons d’explorer</string>
-  <string name="onboarding_explore_text">Plongez dans l\'univers de Wikipédia avec un flux d\'exploration continuellement mis à jour.&lt;br/&gt; &lt;b&gt;Personnalisez&lt;/b&gt; le flux selon vos centres d\'intérêt — que ce soit pour découvrir les événements historiques &lt;b&gt;Ce jour-là&lt;/b&gt;, ou tenter votre chance avec &lt;b&gt;l\'option Aléatoire&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text">Plongez dans l\'univers de Wikipédia avec un fil d\'actualité continuellement mis à jour.&lt;br/&gt; &lt;b&gt;Personnalisez&lt;/b&gt; le flux selon vos centres d\'intérêt — que ce soit pour découvrir les événements historiques &lt;b&gt;Ce jour-là&lt;/b&gt;, ou tenter votre chance avec &lt;b&gt;l\'option Aléatoire&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Listes de lecture avec synchronisation</string>
   <string name="onboarding_reading_list_sync_text_v2">Vous pouvez créer des listes de lecture depuis les articles que vous voulez lire ultérieurement, même lorsque vous êtes hors connexion.&lt;br /&gt;\nConnectez-vous à votre compte Wikipédia pour synchroniser vos listes de lecture. &lt;a href=\"#login\"&gt;Rejoindre Wikipédia&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Données &amp; confidentialité</string>
-  <string name="onboarding_data_privacy_text">Nous pensons que vous ne devriez pas avoir à fournir d’informations personnelles pour participer au mouvement du savoir libre. Les données d’utilisation collectées pour cette application sont anonymes. Apprenez-en plus sur notre &lt;a href=\"#privacy\"&gt;politique de confidentialité&lt;/a&gt; et &lt;a href=\"#termsOfUse\"&gt;nos conditions d’utilisation&lt;/a&gt;.</string>
+  <string name="onboarding_data_privacy_text">Nous considérons que vous ne devriez pas avoir à fournir d’informations personnelles pour participer au mouvement du savoir libre. Les données d’utilisation collectées pour cette application sont anonymes. Apprenez-en plus sur notre &lt;a href=\"#privacy\"&gt;politique de confidentialité&lt;/a&gt; et &lt;a href=\"#termsOfUse\"&gt;nos conditions d’utilisation&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Envoyer les données d’utilisation</string>
   <string name="onboarding_got_it">Compris !</string>
   <string name="onboarding_multilingual_secondary_text">Nous avons trouvé ceci sur votre appareil :</string>
   <string name="onboarding_multilingual_add_language_text">Ajouter ou modifier des langues</string>
   <string name="onboarding_welcome_title_v2">L’encyclopédie libre\n... dans plus de 300 langues</string>
   <string name="onboarding_next">Suivant</string>
+  <string name="onboarding_fresh_install_knowledge_title">Tout le savoir du monde</string>
+  <string name="onboarding_fresh_install_knowledge_text">Wikipédia est une encyclopédie en ligne gratuite qui compte 65 millions d\'articles rédigés et mis à jour collaborativement dans plus de 300 langues par une communauté de bénévoles.</string>
+  <string name="onboarding_fresh_install_knowledge_learn_more">En savoir plus sur Wikipédia</string>
+  <string name="onboarding_app_languages_title">Lisez en plus de 300 langues</string>
+  <string name="onboarding_app_languages_text">Nous avons détecté les langues suivantes sur votre appareil :</string>
+  <string name="onboarding_app_languages_primary">Principal</string>
+  <string name="onboarding_app_languages_add_button">Ajoutez ou modifiez vos langues</string>
   <string name="app_shortcuts_random">Au hasard</string>
   <string name="app_shortcuts_continue_reading">Continuer à lire</string>
   <string name="app_shortcuts_search">Rechercher</string>
@@ -1357,7 +1370,7 @@
     <item quantity="one">Supprimer la langue sélectionnée ?</item>
     <item quantity="other">Supprimer les langues sélectionnées ?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Vous ne verrez que le contenu du flux d’exploration ainsi que les filtres de recherche rapide pour les autres langues de Wikipédia.</string>
+  <string name="wikipedia_languages_remove_dialog_content">Vous ne verrez que le contenu du fil d\'actualité ainsi que les filtres de recherche rapide pour les autres langues de Wikipédia.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Impossible de supprimer toutes les langues</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Gardez au moins une langue de Wikipédia avec laquelle vous pourrez chercher et lire du contenu.</string>
   <string name="more_language_options">plus</string>
@@ -1851,10 +1864,15 @@
   <string name="survey_dialog_general_maybe">Peut être</string>
   <string name="survey_dialog_input_hint">Commentaires supplémentaires</string>
   <string name="survey_dialog_submitted_snackbar">Commentaire envoyé. Merci !</string>
+  <string name="games_hub_activity_title">Jeux</string>
+  <string name="games_hub_activity_games_unavailable_message">Aucun jeu n\'est encore disponible dans cette langue ! Les jeux utilisent le contenu créé par les contributeurs bénévoles de Wikipédia dans chaque langue.</string>
+  <string name="games_hub_activity_games_unavailable_message_learn_more_action">En savoir plus</string>
+  <string name="games_hub_activity_overflow_view_game_stats">Consulter les statistiques de jeu</string>
+  <string name="games_hub_activity_overflow_learn_more">En savoir plus</string>
   <string name="on_this_day_game_entry_dialog_title">Présentation</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Jeux de Wikipédia</string>
-  <string name="on_this_day_game_entry_dialog_button" fuzzy="true">Jouer au jeu d\'aujourd\'hui</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message" fuzzy="true">Les jeux Wikipédia sont disponibles sur le fil Explorer.</string>
+  <string name="on_this_day_game_entry_dialog_button">Jouer</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message">Les jeux Wikipédia sont disponibles dans le Hub des jeux, accessible dans le menu PLUS.</string>
   <string name="on_this_day_game_title">Qu\'est-ce qui est venu en premier ?</string>
   <string name="on_this_day_game_dialog_button">Lecture</string>
   <string name="on_this_day_game_splash_message">Devinez quel événement s’est produit en premier ce jour-là dans l’histoire.</string>
@@ -1866,7 +1884,7 @@
   <string name="on_this_day_game_point">+1 point</string>
   <string name="on_this_day_game_next">Question suivante</string>
   <string name="on_this_day_game_finish">Résultats finaux</string>
-  <string name="on_this_day_game_share_button" fuzzy="true">Partager</string>
+  <string name="on_this_day_game_share_button">Partager</string>
   <string name="on_this_day_game_feed_entry_card_heading">Jeux de Wikipédia</string>
   <string name="on_this_day_game_feed_entry_card_title">Qu\'est-ce qui est venu en premier ?</string>
   <string name="on_this_day_game_result">Vous avez marqué %1$d/%2$d.</string>
@@ -1911,9 +1929,21 @@
   <string name="on_this_day_game_archive_btn_text">Jeux des jours précédents</string>
   <string name="on_this_day_game_review_results_btn_text">Voir les résultats</string>
   <string name="on_this_day_game_score_message">Votre score au jeu du jour est de %1$d/%2$d.</string>
+  <string name="on_this_day_game_play_today_btn_text">Jouez au jeu d\'aujourd\'hui</string>
   <string name="on_this_day_game_continue_playing_btn_text">Continuer à jouer</string>
   <string name="on_this_day_game_sound_on">Activer le son</string>
   <string name="on_this_day_game_sound_off">Désactiver le son</string>
+  <string name="on_this_day_game_more_label">Plus</string>
+  <string name="on_this_day_game_card_progress_label">Vous êtes sur la question %d. Continuez à deviner quel événement est arrivé le premier en ce jour de l\'histoire.</string>
+  <string name="on_this_day_game_card_progress_short_label">Vous êtes à la question %d.</string>
+  <string name="on_this_day_game_explore_feed_card_score_message">Vous avez marqué %1$d/%2$d sur le match d\'aujourd\'hui. Le prochain jeu dans %3$s</string>
+  <string name="on_this_day_game_explore_feed_card_score_short_message">Vous avez marqué %1$d/%2$d sur le match d\'aujourd\'hui.</string>
+  <string name="on_this_day_game_card_archive_label">Archivé</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_button">Se connecter</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_title">Connectez-vous pour voir les statistiques de votre jeu</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_description">Voir vos streaks, vos scores et plus encore</string>
+  <string name="wikipedia_games_title">Jeux de Wikipédia</string>
+  <string name="wikipedia_games_subtitle">Jeux quotidiens basés sur le contenu de Wikipédia.</string>
   <string name="year_in_review_learn_more">En savoir plus</string>
   <string name="year_in_review_get_started">Commencer</string>
   <string name="year_in_review_topbar_w_icon">Icône de Wikipédia W</string>
@@ -2300,7 +2330,7 @@
   <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Pourquoi met-on de l\'ananas sur la pizza ?</string>
   <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Quelles sont les plus grandes villes d\'Europe ?</string>
   <string name="hybrid_search_onboarding_screen_title">Une nouvelle façon de faire des recherches</string>
-  <string name="hybrid_search_results_header_description" fuzzy="true">Source : articles Wikipédia rédigés par des humains</string>
+  <string name="hybrid_search_results_header_description">Source : articles Wikipédia rédigés par des humains</string>
   <string name="hybrid_search_results_rate_label">Évaluez ce résultat</string>
   <string name="hybrid_search_results_rated_label">Évalué</string>
   <string name="hybrid_search_results_rate_thumb_up">Évaluer comme un pouce levé</string>
@@ -2317,6 +2347,7 @@
   <string name="reading_challenge_widget_name">Défi de lecture</string>
   <string name="reading_challenge_onboarding_header">Célébrez le 25e anniversaire de Wikipédia en participant au défi de lecture de 25 jours !</string>
   <string name="reading_challenge_onboarding_read_title">Lisez un article par jour et ce, pendant 25 jours</string>
+  <string name="reading_challenge_onboarding_read_description">Rejoignez le défi à tout moment entre le 1er et le 31 mai, complétez vos 25 jours à votre propre rythme.</string>
   <string name="reading_challenge_onboarding_read_subtitle">Participez au défi à tout moment entre le %1$s et le %2$s, et complétez les 25 jours à votre rythme.</string>
   <string name="reading_challenge_onboarding_win_title">Des prix à gagner</string>
   <string name="reading_challenge_onboarding_win_description">Terminez une série de 25 jours de lecture pendant la durée du défi pour gagner des prix spéciaux</string>

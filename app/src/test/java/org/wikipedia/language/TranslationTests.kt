@@ -299,7 +299,7 @@ class TranslationTests {
             "''.*?''",
             "(?<!%)%(?!%|,d|\\d|d|s|f)"
         )
-        private val BAD_NAMES = listOf("ldrtl", "sw360dp", "sw600dp", "sw720dp", "v19", "v21", "v23", "land", "night")
+        private val BAD_NAMES = listOf("ldrtl", "sw360dp", "sw600dp", "sw720dp", "v19", "v21", "v23", "v31", "land", "night")
 
         private var BASE_FILE: File? = null
         private var QQ_FILE: File? = null

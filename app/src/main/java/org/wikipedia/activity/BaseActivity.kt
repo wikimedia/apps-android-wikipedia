@@ -19,10 +19,12 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.wikimedia.testkitchen.instrument.InstrumentImpl
 import org.wikipedia.Constants
+import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.BreadcrumbsContextHelper
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
+import org.wikipedia.analytics.eventplatform.BreadCrumbViewUtil
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.appshortcuts.AppShortcuts
@@ -40,8 +42,8 @@ import org.wikipedia.games.onthisday.OnThisDayGameResultFragment
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
 import org.wikipedia.notifications.NotificationPresenter
-import org.wikipedia.onboarding.InitialOnboardingActivity
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
+import org.wikipedia.page.PageActivity
 import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent
@@ -56,7 +58,6 @@ import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeInstallWidgetDialog
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeOnboardingActivity
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetRepository
-import org.wikipedia.yearinreview.YearInReviewActivity
 import org.wikipedia.yearinreview.YearInReviewOnboardingActivity
 import org.wikipedia.yearinreview.YearInReviewViewModel
 
@@ -112,10 +113,31 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         removeSplashBackground()
 
         if (AppShortcuts.ACTION_APP_SHORTCUT == intent.action) {
-            intent.putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, Constants.InvokeSource.APP_SHORTCUTS)
+            intent.putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, InvokeSource.APP_SHORTCUTS)
             val shortcutId = intent.getStringExtra(AppShortcuts.APP_SHORTCUT_ID)
             if (!shortcutId.isNullOrEmpty()) {
                 ShortcutManagerCompat.reportShortcutUsed(applicationContext, shortcutId)
+            }
+        }
+
+        val invokeSource = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource?
+        invokeSource?.let {
+            when (it) {
+                InvokeSource.WIDGET -> {
+                    val widgetType = intent.getStringExtra(Constants.INTENT_WIDGET_TYPE)
+                    TestKitchenAdapter.client.getInstrument("apps-open")
+                        .submitInteraction(action = "app_open", actionSource = "widget", actionSubtype = widgetType)
+                }
+                InvokeSource.NOTIFICATION -> {
+                    TestKitchenAdapter.client.getInstrument("apps-open")
+                        .submitInteraction(action = "app_open", actionSource = "notification")
+                }
+                InvokeSource.APP_SHORTCUTS -> {
+                    val shortcutId = intent.getStringExtra(AppShortcuts.APP_SHORTCUT_ID)
+                    TestKitchenAdapter.client.getInstrument("apps-open")
+                        .submitInteraction(action = "app_open", actionSource = "shortcut", actionSubtype = shortcutId)
+                }
+                else -> { }
             }
         }
 
@@ -135,8 +157,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         setStatusBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
         setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
         maybeShowLoggedOutInBackgroundDialog()
-        maybeShowYearInReview()
-        maybeShowReadingChallengePrompt()
+        maybeShowAnnouncement(this)
 
         Prefs.localClassName = localClassName
 
@@ -205,6 +226,9 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         WikipediaApp.instance.appSessionEvent.touchSession()
         TestKitchenAdapter.client.onAppResume()
         BreadCrumbLogEvent.logScreenShown(this)
+        TestKitchenAdapter.client.getInstrument("apps-open")
+            .submitInteraction(action = "app_open", actionSource = "background",
+                actionSubtype = BreadCrumbViewUtil.getReadableScreenName(this))
     }
 
     override fun onStart() {
@@ -273,21 +297,10 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         return _instrument
     }
 
-    private fun maybeShowYearInReview() {
-        if (this !is YearInReviewOnboardingActivity && this !is YearInReviewActivity &&
-            !Prefs.isInitialOnboardingEnabled &&
-            YearInReviewViewModel.isAccessible && Prefs.isYearInReviewEnabled && !Prefs.yearInReviewVisited) {
-            yearInReviewLauncher.launch((YearInReviewOnboardingActivity.newIntent(this)))
-        }
-    }
-
-    protected fun maybeShowReadingChallengePrompt() {
-        if (ReadingChallengeWidgetRepository.shouldShowOnboardingDialog() &&
-            this !is ReadingChallengeOnboardingActivity && this !is InitialOnboardingActivity) {
-            requestReadingChallengeActivity.launch(ReadingChallengeOnboardingActivity
-                .newIntent(this)
-                .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
-        }
+    protected fun showReadingChallenge() {
+        requestReadingChallengeActivity.launch(ReadingChallengeOnboardingActivity
+            .newIntent(this)
+            .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
     }
 
     private fun removeSplashBackground() {
@@ -330,6 +343,28 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
 
     fun setImageZoomHelper() {
         imageZoomHelper = ImageZoomHelper(this)
+    }
+
+    fun maybeShowAnnouncement(activity: BaseActivity) {
+        // Announcements may only be shown on top of these activities:
+        if (listOf(
+                MainActivity::class,
+                PageActivity::class
+        ).none { it.isInstance(activity) }) {
+            return
+        }
+
+        if (Prefs.isInitialOnboardingEnabled) return
+        if (!Prefs.isExploreFeedUpdatePromptShown) return
+
+        when {
+            ReadingChallengeWidgetRepository.shouldShowOnboardingDialog() -> showReadingChallenge()
+            YearInReviewViewModel.isAccessible &&
+                    Prefs.isYearInReviewEnabled &&
+                    !Prefs.yearInReviewVisited -> {
+                        yearInReviewLauncher.launch((YearInReviewOnboardingActivity.newIntent(this)))
+                    }
+        }
     }
 
     open fun onUnreadNotification() { }

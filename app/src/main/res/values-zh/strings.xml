@@ -19,6 +19,7 @@
 * Grace03
 * Gsdn
 * GuoPC
+* HakanIST
 * Hehua
 * Huajing
 * Huanqiu
@@ -41,6 +42,7 @@
 * NeverBehave
 * NigelSoft
 * Ouclie
+* Peterxy
 * Peterxy12
 * PexEric
 * Phenolla
@@ -607,7 +609,7 @@
   <string name="reading_list_item_deleted">%s已从列表中移除</string>
   <string name="reading_list_item_deleted_from_list">%1$s已从%2$s移除</string>
   <string name="reading_list_articles_deleted">从列表中移除了%d个条目</string>
-  <string name="reading_list_articles_deleted_from_list">从%s中移除了%d个条目</string>
+  <string name="reading_list_articles_deleted_from_list" fuzzy="true">从%1$s中移除了%2$d个条目</string>
   <string name="reading_lists_deleted_message">%d 个列表已删除</string>
   <string name="reading_lists_default_list_delete_message">无法删除默认列表（%s）</string>
   <string name="reading_lists_default_plus_one_list_delete_message">%1$s 已删除。无法删除默认列表 (%2$s)。</string>
@@ -881,11 +883,11 @@
   <string name="feed_item_type_randomizer">随机选择条目以便阅读</string>
   <string name="feed_item_type_suggested_edits">向维基百科添加内容的建议</string>
   <string name="feed_item_type_places">当前位置附近的条目</string>
-  <string name="feed_empty_message">您的探索订阅源中没有内容</string>
+  <string name="feed_empty_message" fuzzy="true">您的探索订阅源中没有内容</string>
   <string name="feed_configure_onboarding_action">自定义</string>
   <string name="customize_lang_selection_dialog_ok_button_text">确定</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">取消</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;自定义您的探索订阅源&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;现在您可以选择订阅源中显示的内容，并优先显示您最喜爱的内容类型。</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;自定义您的探索订阅源&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;现在您可以选择订阅源中显示的内容，并优先显示您最喜爱的内容类型。</string>
   <string name="feed_lang_selection_dialog_ok_button_text">确定</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">取消</string>
   <string name="feed_accessibility_card_text">您已到达信息流的底部。</string>
@@ -1277,11 +1279,11 @@
   <string name="onboarding_get_started">开始吧</string>
   <string name="onboarding_maybe_later">以后再说</string>
   <string name="onboarding_explore_title">全新的探索方式</string>
-  <string name="onboarding_explore_text">经由不断更新的探索订阅源踏上维基百科之旅。&lt;br/&gt;根据您的兴趣来&lt;b&gt;自定义&lt;/b&gt;订阅——无论是了解&lt;b&gt;历史上的今天&lt;/b&gt;发生了什么，还是借由&lt;b&gt;随机条目&lt;/b&gt;工具抽取条目。</string>
+  <string name="onboarding_explore_text" fuzzy="true">经由不断更新的探索订阅源踏上维基百科之旅。&lt;br/&gt;根据您的兴趣来&lt;b&gt;自定义&lt;/b&gt;订阅——无论是了解&lt;b&gt;历史上的今天&lt;/b&gt;发生了什么，还是借由&lt;b&gt;随机条目&lt;/b&gt;工具抽取条目。</string>
   <string name="onboarding_reading_list_sync_title">同步阅读列表</string>
   <string name="onboarding_reading_list_sync_text_v2">您可以将想要稍后阅读的条目加入阅读列表，即使在离线时也可阅读。&lt;br/&gt;登录至您的维基百科账号以同步您的阅读列表。&lt;a href=\"#login\"&gt;加入维基百科&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">数据和隐私</string>
-  <string name="onboarding_data_privacy_text">我们相信，参加自由的知识运动不需要您提供个人信息。本应用以匿名方式收集使用数据。了解我们的&lt;a href=\"#privacy\"&gt;隐私政策&lt;/a&gt;和&lt;a href=\"#termsOfUse\"&gt;使用条款&lt;/a&gt;的更多信息。</string>
+  <string name="onboarding_data_privacy_text" fuzzy="true">我们相信，参加自由的知识运动不需要您提供个人信息。本应用以匿名方式收集使用数据。了解我们的&lt;a href=\"#privacy\"&gt;隐私政策&lt;/a&gt;和&lt;a href=\"#termsOfUse\"&gt;使用条款&lt;/a&gt;的更多信息。</string>
   <string name="onboarding_analytics_switch_title">发送使用数据</string>
   <string name="onboarding_got_it">知道了</string>
   <string name="onboarding_multilingual_secondary_text">我们在您的设备上找到以下语言：</string>
@@ -1317,7 +1319,7 @@
     <item quantity="one">移除所选语言？</item>
     <item quantity="other">移除所选语言？</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">只有剩余语言的维基百科内容才能在探索订阅源和快速搜索过滤器中可见。</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">只有剩余语言的维基百科内容才能在探索订阅源和快速搜索过滤器中可见。</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">不能移除所有语言</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">请保持至少一种维基百科语言供搜索和阅读内容。</string>
   <string name="more_language_options">更多</string>
@@ -1836,7 +1838,7 @@
   <string name="on_this_day_game_stats_average_score">平均分</string>
   <string name="on_this_day_game_stats_streak">目前连胜</string>
   <string name="on_this_day_game_result_subtitle">今天游戏中引用到的条目</string>
-  <string name="on_this_day_game_completed_message">感谢您的游玩。新的“猜先后”游戏每日可在探索订阅源中找到。</string>
+  <string name="on_this_day_game_completed_message" fuzzy="true">感谢您的游玩。新的“猜先后”游戏每日可在探索订阅源中找到。</string>
   <string name="on_this_day_game_menu_notifications">游戏通知</string>
   <string name="on_this_day_game_menu_info">了解更多</string>
   <string name="on_this_day_game_menu_feedback">功能问题</string>

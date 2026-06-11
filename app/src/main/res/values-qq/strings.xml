@@ -7,6 +7,7 @@
 * Anders Feder
 * BaRaN6161 TURK
 * Bencemac
+* Bjankuloski06
 * Dbrant
 * Hamilton Abreu
 * Jeeputer
@@ -430,8 +431,10 @@
   <string name="button_get_directions">Button to obtain directions to the location specified in the link preview.</string>
   <string name="error_no_maps_app">Error displayed when the device does not have any apps installed that are capable of providing directions to a location.</string>
   <string name="preference_title_customize_explore_feed">Title of the preference for customizing the explore feed.</string>
+  <string name="preference_title_customize_home_feed">Title of the preference for customizing the home feed.</string>
   <string name="preference_title_show_link_previews">Title of the preference for enabling or disabling link previews.\n\nShown in the preferences screen along with the following:\n* {{msg-wikimedia|Wikipedia-android-strings-preference title show images}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title language}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title show link previews}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title eventlogging opt in}}\n* {{msg-wikimedia|Wikipedia-android-strings-zero warn when leaving}}</string>
   <string name="preference_summary_customize_explore_feed">Description of the preference for customizing the explore feed.</string>
+  <string name="preference_summary_customize_home_feed">Description of the preference for customizing the home feed.</string>
   <string name="preference_summary_show_link_previews">Description of the preference for enabling or disabling link previews.</string>
   <string name="preference_title_collapse_tables">Title of the preference for enabling or disabling automatic collapsing of infoboxes and other tables.</string>
   <string name="preference_summary_collapse_tables">Description of the preference for enabling or disabling automatic collapsing of infoboxes and other tables.</string>
@@ -838,9 +841,11 @@
   <string name="view_random_article_card_title">Title of a card that the user can click to view a randomly selected Wikipedia article</string>
   <string name="view_random_article_card_action">Label of a action button that leads the user to the Randomizer page.</string>
   <string name="view_top_read_card_title">Feed card title for recently popular articles.\n{{Identical|Top read}}</string>
+  <string name="view_top_read_card_description">Feed card description for recently popular articles.</string>
   <string name="view_top_read_card_action">Button label to navigate to a full-screen view containing more trending articles.</string>
   <string name="view_top_read_card_pageviews_k_suffix">Text for showing the amount of pageviews in thousands. \"%d\" represents the number of pageviews in thousands.</string>
   <string name="view_top_read_card_pageviews_m_suffix">Text for showing the amount of pageviews in millions. \"%d\" represents the number of pageviews in millions.</string>
+  <string name="view_top_read_card_pageviews_views_suffix">Suffix text for the amount of pageviews.</string>
   <string name="view_next_random_article">Button hint for loading another random article.</string>
   <string name="view_main_page_card_title">Title of a card that the user can click to view the main page of the Wikipedia project for the current app language.</string>
   <string name="view_main_page_card_action">Button label for navigating to the Main Page of Wikipedia.</string>
@@ -1268,6 +1273,13 @@
   <string name="onboarding_multilingual_add_language_text">Button text to suggest that users can now add more languages of their preference.</string>
   <string name="onboarding_welcome_title_v2">Title for a tutorial screen about the free encyclopedia and now the app is available in over 300 languages.</string>
   <string name="onboarding_next">Button label to continue to the next onboarding or tutorial screen.</string>
+  <string name="onboarding_fresh_install_knowledge_title">Title text for onboarding screen related to the knowledge source of Wikipedia.</string>
+  <string name="onboarding_fresh_install_knowledge_text">Message text for onboarding screen related to the knowledge source of Wikipedia.</string>
+  <string name="onboarding_fresh_install_knowledge_learn_more">Label text for onboarding screen related to the knowledge source of Wikipedia.</string>
+  <string name="onboarding_app_languages_title">Title text for the onboarding screen to select the app languages.</string>
+  <string name="onboarding_app_languages_text">Message text for the onboarding screen to select the app languages.</string>
+  <string name="onboarding_app_languages_primary">Description text for the onboarding screen that indicates the first language is the primary language in the app.</string>
+  <string name="onboarding_app_languages_add_button">Button label for the onboarding screen to select app languages.</string>
   <string name="app_shortcuts_random">A shortcut icon on the home screen for getting a random article.\n{{Identical|Random}}</string>
   <string name="app_shortcuts_continue_reading">A shortcut icon on the home screen for continuing reading an article.</string>
   <string name="app_shortcuts_search">A shortcut icon on the home screen for opening the search page.\n{{Identical|Search}}</string>
@@ -2156,6 +2168,10 @@
   <string name="reading_challenge_install_prompt_message">Message of the prompt for the Reading challenge for installing the 25-day reading challenge widget.</string>
   <string name="reading_challenge_install_prompt_got_it">Button of the prompt for the Reading challenge for installing the 25-day reading challenge widget that confirms the content.</string>
   <string name="reading_challenge_install_prompt_add">Button of the prompt for the Reading challenge for installing the 25-day reading challenge widget that to add the widget.</string>
+  <string name="search_widget_install_prompt_title">Title of the bottom sheet prompting the user to install the Wikipedia Search home screen widget.</string>
+  <string name="search_widget_install_prompt_message">Message of the bottom sheet prompting the user to install the Wikipedia Search home screen widget.</string>
+  <string name="search_widget_install_prompt_add">Button label that starts the flow to add the Wikipedia Search widget to the home screen.</string>
+  <string name="search_widget_install_prompt_got_it">Button label that dismisses the Wikipedia Search widget install prompt.</string>
   <string name="reading_challenge_widget_explore_button">Button label in the Reading challenge widget to explore the Wikipedia app.</string>
   <string name="reading_challenge_widget_explore_wikipedia_button">Button label in the Reading challenge widget to explore the Wikipedia app.</string>
   <string name="reading_challenge_widget_join_challenge_button">Button label in the Reading challenge widget to join the challenge.</string>
@@ -2168,18 +2184,9 @@
   <string name="reading_challenge_widget_not_live_description">Message in the Reading challenge widget that indicates the reading challenge is not live.</string>
   <string name="reading_challenge_widget_not_opted_in_title">Title in the Reading challenge widget that indicates the reading challenge is not opted in.</string>
   <string name="reading_challenge_widget_not_opted_in_description">Message in the Reading challenge widget that indicates the reading challenge is not opted in</string>
-  <plurals name="reading_challenge_small_widget_streak">
-    <item quantity="one">Text showing a streak on the small Reading Challenge home screen widget. %d will be replaced by the number of days the user has opened at least one article.</item>
-    <item quantity="other">Text showing a streak of multiple days on the small Reading Challenge home screen widget. %d will be replaced by the number of days the user has opened at least one article.</item>
-  </plurals>
-  <plurals name="reading_challenge_small_widget_streak_final">
-    <item quantity="one">Text showing a streak on the small Reading Challenge home screen widget. %1$d is the number of days the user has opened at least one article, out of a total of %2$d days, as part of the reading challenge.</item>
-    <item quantity="other">Text showing a streak on the small Reading Challenge home screen widget. %1$d is the number of days the user has opened at least one article, out of a total of %2$d days, as part of the reading challenge.</item>
-  </plurals>
-  <plurals name="reading_challenge_small_widget_streak_final_large">
-    <item quantity="one">Text showing a streak on the large Reading Challenge home screen widget. %1$d is the number of days the user has opened at least one article, out of a total of %2$d days, as part of the reading challenge.</item>
-    <item quantity="other">Text showing a streak on the large Reading Challenge home screen widget. %1$d is the number of days the user has opened at least one article, out of a total of %2$d days, as part of the reading challenge.</item>
-  </plurals>
+  <string name="reading_challenge_small_widget_streak">Text showing a streak of multiple days on the small Reading Challenge home screen widget. %d will be replaced by the number of days the user has opened at least one article.</string>
+  <string name="reading_challenge_small_widget_streak_final">Text showing a streak on the small Reading Challenge home screen widget. %1$d is the number of days the user has opened at least one article, out of a total of %2$d days, as part of the reading challenge.</string>
+  <string name="reading_challenge_small_widget_streak_final_large">Text showing a streak on the large Reading Challenge home screen widget. %1$d is the number of days the user has opened at least one article, out of a total of %2$d days, as part of the reading challenge.</string>
   <string name="reading_challenge_not_read_today_description">Message shown when the user has not read today, encouraging them to maintain their reading streak.</string>
   <string name="reading_challenge_streak_ongoing_title">Title for an ongoing reading challenge streak.</string>
   <string name="reading_challenge_widget_reminder_dont_let_today_drift">Motivational reminder message encouraging the user not to let the day pass without reading to maintain their streak.</string>
@@ -2202,4 +2209,98 @@
   <string name="reading_challenge_widget_reward_title">Title of a dialog box rewarding the user for completing the reading challenge.</string>
   <string name="reading_challenge_widget_reward_body">Body text of a dialog box rewarding the user for completing the reading challenge.</string>
   <string name="reading_challenge_widget_reward_button_label">Button label to navigate to the Wikipedia store with a discount, as a reward for completing the reading challenge.</string>
+  <string name="explore_feed_new_update_prompt_title">Title text for the onboarding prompt annoncing the rename of the Explore Feed to Home.</string>
+  <string name="explore_feed_new_update_prompt_new_name_title">Title for the slide explaining the feed\'s new name.</string>
+  <string name="explore_feed_new_update_prompt_new_name_description">Body text explaining that the Explore feed has been renamed to Home and remains in the same location.</string>
+  <string name="explore_feed_new_update_prompt_two_ways_title">Title for the slide describing the two content tabs available in the Home feed.</string>
+  <string name="explore_feed_new_update_prompt_two_ways_description">Body text describing the two feed modes: personalized articles in For You, and editorially curated content in Community.</string>
+  <string name="explore_feed_new_update_prompt_control_title">Title for the slide explaining about user control.</string>
+  <string name="explore_feed_new_update_prompt_control_description">Body text explaining that each recommendation shows its reason, and that preferences can be updated in Settings.</string>
+  <string name="explore_feed_new_update_prompt_language_title">Title for the slide describing per-language feed personalization.</string>
+  <string name="explore_feed_new_update_prompt_language_description">Body text explaining that users reading in multiple languages each get a separately personalized feed, which updates automatically on language switch.</string>
+  <string name="explore_feed_new_update_prompt_primary_button_text">Label for the primary action button on the feed update onboarding prompt, directing the user to manually customize their feed.</string>
+  <string name="explore_feed_customize_interests">Button label for customizing the interests used for composing Home feed content.</string>
+  <string name="explore_feed_new_update_prompt_secondary_button_text">Label for the secondary action button on the feed update onboarding prompt, allowing the user to have their feed configured automatically.</string>
+  <string name="explore_feed_building_text">Body text for the feed building screen.</string>
+  <string name="explore_feed_community_tab_label">Label text for the explore feed type tab for the community content.</string>
+  <string name="explore_feed_for_you_tab_label">Label text for the explore feed type tab for the personalized content.</string>
+  <string name="explore_feed_date_today">Date label at the top of the Home feed for the content of the current day. The %s symbol is replaced with the date.</string>
+  <string name="explore_feed_load_previous_day_label">Label text for the explore feed to load more content.</string>
+  <string name="explore_feed_from_reading_list">Label explaining that the current suggestion is from your reading list.</string>
+  <string name="explore_feed_because_of_interest">Label explaining that the current suggestion is based on one of your selected interests, which could be a topic or an article. The %s symbol is replaced by the name of the interest.</string>
+  <string name="explore_feed_onboarding_curiosity_title">Display name for the title of the Explore feed onboarding screen prompting users to follow topics.</string>
+  <string name="explore_feed_onboarding_curiosity_description">Body text for the Explore feed onboarding screen explaining feed personalization and data usage. \n\n represents a paragraph break between the personalization explanation and the data collection notice.</string>
+  <string name="explore_feed_deselect_all_button_label">Button text to deselect all selected items in the intereset selection screen.</string>
+  <string name="explore_feed_potd_subtitle">Description of the Picture of the Day card in the Home feed.</string>
+  <string name="explore_feed_featured_article_subtitle">Description of the Featured Article card in the Home feed.</string>
+  <string name="explore_feed_preference_selection_screen_title">Screen title prompting the user to choose which type of content should appear first in the explore feed.</string>
+  <string name="explore_feed_preference_community_content_title">Option label for selecting community-related content in the preference selection screen.</string>
+  <string name="explore_feed_preference_personalized_content_title">Option label for selecting personalized content based on user interests in preference selection screen.</string>
+  <string name="explore_feed_in_the_news_subtitle">Description of the In the News card in the Home feed.</string>
+  <string name="explore_feed_on_this_day_subtitle">Description of the On This Day card in the Home feed.</string>
+  <string name="explore_feed_community_disclaimer">Text for the disclaimer at the top of the community tab in the Home feed.</string>
+  <string name="explore_feed_community_load_more_label">Label text for the community tab in Home feed to load more content.</string>
+  <string name="explore_feed_manage_languages_label">Label text in the languages pop-up menu in the Home feed to manage the app languages.</string>
+  <string name="explore_feed_header_overflow_hide_module_label">Label text for the overflow menu option in the card header to hide the module.</string>
+  <string name="explore_feed_header_overflow_hide_module_message">Snackbar message that indicates the module is hidden.</string>
+  <string name="explore_feed_header_overflow_hide_module_message_action">Label for the snackbar action to undo the hide module action.</string>
+  <string name="explore_feed_personalized_preference_empty_state_text">Message shown when no interests are selected, informing the user that they need to add interests to receive personalized content recommendations and guiding them to previous steps or Settings.</string>
+  <string name="explore_feed_because_you_read">Label explaining that the current suggestion is from the article you read. The %s symbol is replaced by the name of the article.</string>
+  <string name="explore_feed_swipe_to_explore_prompt_title">Title of the explore feed prompt that shows the gestures to explore the feed.</string>
+  <string name="explore_feed_swipe_to_explore_prompt_message">Message of the explore feed prompt that shows the gestures to explore the feed.</string>
+  <string name="home_feed_settings_title">Title for the home feed settings screen.</string>
+  <string name="home_feed_settings_whats_driving_title">Title for What\'s Driving modules in home feed settings.</string>
+  <string name="home_feed_settings_modules_title">Title for Community and For You Setting item.</string>
+  <string name="home_feed_settings_community_subtitle">Description for toggling visibility of Community feed sections.</string>
+  <string name="home_feed_settings_for_you_subtitle">Description for toggling visibility of personalized For You feed sections.</string>
+  <string name="home_feed_settings_whats_driving_subtitle">Description for sections highlighting topics and articles influencing your feed.</string>
+  <string name="home_feed_settings_community_modules_description">Description explaining that disabled Community feed modules can be re-enabled later and that some modules may not be available in all languages.</string>
+  <string name="home_feed_settings_for_you_modules_description">Description explaining that disabled For You feed modules can be re-enabled later.</string>
+  <string name="home_feed_settings_based_on_interest_title">Title for the Based on your interests module in Home feed settings.</string>
+  <string name="home_feed_settings_based_on_interest_subtitle">Subtitle describing article recommendations based on selected interests and feed preferences. Please keep the anchor link around the word \"What’s driving your feed\"\\</string>
+  <string name="home_feed_settings_because_you_read_subtitle">Subtitle describing article suggestions based on recently viewed articles.</string>
+  <string name="home_feed_settings_continue_reading_title">Title for the Continue reading module in Home feed settings.</string>
+  <string name="home_feed_settings_continue_reading_subtitle">Subtitle prompting users to continue reading unfinished articles.</string>
+  <string name="home_feed_did_you_know_title">Title of the Did You Know module in the Community feed.</string>
+  <string name="home_feed_did_you_know_subtitle">Subtitle of the Did You Know module in the Community feed.</string>
+  <string name="home_feed_did_you_know_more_label">Button label to see more Did You Know items.</string>
+  <string name="home_feed_settings_community_empty_dialog_title">Title of dialog box warning the user that their Community feed will be empty.</string>
+  <string name="home_feed_settings_for_you_empty_dialog_title">Title of dialog box warning the user that their \"For you\" feed will be empty.</string>
+  <string name="home_feed_settings_empty_dialog_text">Body text of dialog box warning the user that their feed will be empty.</string>
+  <string name="home_feed_settings_empty_dialog_positive">Button label for confirmation of a dialog box warning the user that their feed will be empty.</string>
+  <string name="home_feed_screen_empty_state_label">Title text shown when the selected feed has no visible content.</string>
+  <string name="home_feed_community_screen_all_modules_disabled_description">Description text shown when all “From the community” modules are turned off in the feed settings.</string>
+  <string name="home_feed_for_you_screen_all_modules_disabled_description">Description text shown when all “For you” modules are turned off in the feed settings.</string>
+  <string name="home_feed_screen_all_modules_disabled_btn_label">Button text for managing Home feed modules from the empty state screen.</string>
+  <string name="home_feed_for_you_screen_empty_title">Title text shown when the “For you” feed has no personalized content available yet.</string>
+  <string name="home_feed_for_you_screen_empty_description">Description explaining that the “For you” feed will populate with personalized articles as the user explores content.</string>
+  <string name="home_feed_for_you_screen_empty_ways_to_start">Header introducing suggested actions for getting started with the “For you” feed.</string>
+  <string name="home_feed_for_you_screen_empty_add_interests">Link text prompting the user to add new interests to personalize the “For you” feed. Please keep the anchor link around the word \"some interests\"</string>
+  <string name="home_feed_for_you_screen_empty_see_community">Link text prompting the user to explore the Community feed for additional content. Please keep the anchor link around the word \"community\"</string>
+  <string name="home_feed_update_tooltip1">Message that explains new features introduced into the Home Feed.</string>
+  <string name="home_feed_random_title">Title for the Random Article module in the For You feed.</string>
+  <string name="home_feed_random_subtitle">Description of the Random Article module in the For You feed.</string>
+  <string name="home_feed_random_shuffle_button">Button label for going to the Randomizer feature in the app.</string>
+  <string name="home_feed_settings_feed_configuration_description">Description explaining that selected topics and reading history influence personalized recommendations in the For You feed.</string>
+  <string name="home_feed_settings_feed_configuration_interest_title">Heading title for the user’s selected interests in feed configuration settings.</string>
+  <string name="home_feed_settings_feed_configuration_interest_subtitle">Subtitle indicating users can manage or update their selected topics of interest.</string>
+  <string name="home_feed_settings_feed_configuration_location_title">Heading title for the user\'s selected location settings.</string>
+  <string name="home_feed_settings_feed_configuration_location_subtitle">Subtitle explaining that updating the Places location will show nearby articles.</string>
+  <string name="home_feed_settings_feed_configuration_empty_interest_subtitle">Empty state message shown when the user has not added any interests yet.</string>
+  <string name="home_feed_settings_feed_configuration_reading_history_title">Heading title for the user’s reading history in feed configuration settings.</string>
+  <string name="home_feed_settings_feed_configuration_reading_history_subtitle">Subtitle prompting users to view their recently read articles.</string>
+  <string name="home_feed_settings_feed_configuration_empty_reading_history_subtitle">Empty state message shown when the user has no reading history available for recommendations.</string>
+  <string name="home_feed_settings_feed_configuration_languages_title">Heading title for managing preferred languages in feed configuration settings.</string>
+  <string name="home_feed_settings_feed_configuration_languages_subtitle">Subtitle prompting the user to edit their preferred languages.</string>
+  <string name="home_feed_settings_feed_configuration_interests_updated_message">Message that indicates the interests have been updated, and users will need to refresh the feed to see the new contents.</string>
+  <string name="home_feed_places_of_interest_cta_title">Section title for the Places of Interest module in the home feed.</string>
+  <string name="home_feed_places_of_interest_cta_description">Description explaining that articles are recommended based on the user’s last viewed place and instructing them to select a location in the Places tab.</string>
+  <string name="home_feed_places_of_interest_cta_button">Button text that navigates the user to the Places tab.</string>
+  <string name="home_feed_settings_places_of_interest_title">Title for the Places of Interest settings section.</string>
+  <string name="home_feed_settings_places_of_interest_subtitle">Subtitle describing that nearby place-based articles are shown using the user’s last selected location in Places.</string>
+  <string name="home_feed_places_of_interest_card_footer">Footer text shown on a Places of Interest article card, displaying the article date followed by an indication that the recommendation is based on the user\'s selected location in Places. %1$s is replaced by distance.</string>
+  <string name="home_feed_for_you_screen_end_of_feed_title">Title text shown when the user reaches the end of the personalized feed for the day.</string>
+  <string name="home_feed_for_you_screen_end_of_feed_description">Description text encouraging the user to return later for refreshed personalized articles.</string>
+  <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Section header introducing additional actions the user can take after reaching the end of the feed.</string>
+  <string name="home_feed_for_you_screen_end_of_feed_add_interests">Link text prompting the user to add new interests to improve personalized recommendations.</string>
 </resources>

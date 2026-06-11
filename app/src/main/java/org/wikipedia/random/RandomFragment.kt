@@ -2,11 +2,19 @@ package org.wikipedia.random
 
 import android.app.ActivityOptions
 import android.graphics.drawable.Animatable
+import android.hardware.Sensor
+import android.hardware.SensorEvent
+import android.hardware.SensorEventListener
+import android.hardware.SensorManager
+import android.os.Build
 import android.os.Bundle
+import android.os.VibrationEffect
+import android.os.Vibrator
 import android.util.Pair
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.getSystemService
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -34,6 +42,7 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.log.L
 import org.wikipedia.views.PositionAwareFragmentStateAdapter
+import kotlin.math.sqrt
 
 class RandomFragment : Fragment() {
 
@@ -42,6 +51,41 @@ class RandomFragment : Fragment() {
     private val viewModel: RandomViewModel by viewModels()
     private val viewPagerListener = ViewPagerListener()
     private val topTitle get() = getTopChild()?.title
+    private var sensorManager: SensorManager? = null
+    private var lastShakeTime = 0L
+    private var firstImpactTime = 0L
+
+    private val shakeListener = object : SensorEventListener {
+        override fun onSensorChanged(event: SensorEvent) {
+            val x = event.values[0]
+            val y = event.values[1]
+            val z = event.values[2]
+            val acceleration = sqrt(x * x + y * y + z * z) - SensorManager.GRAVITY_EARTH
+            if (acceleration > SHAKE_THRESHOLD) {
+                val now = System.currentTimeMillis()
+                if (now - lastShakeTime < SHAKE_COOLDOWN_MS) {
+                    return
+                }
+                if (firstImpactTime == 0L) {
+                    firstImpactTime = now
+                } else if (now - firstImpactTime <= SHAKE_DOUBLE_WINDOW_MS) {
+                    firstImpactTime = 0L
+                    lastShakeTime = now
+                    onNextClick()
+                    val vibrator = requireContext().getSystemService(Vibrator::class.java)
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                        vibrator?.vibrate(VibrationEffect.createOneShot(SHAKE_VIBRATE_MS, VibrationEffect.DEFAULT_AMPLITUDE))
+                    } else {
+                        @Suppress("DEPRECATION")
+                        vibrator?.vibrate(SHAKE_VIBRATE_MS)
+                    }
+                } else {
+                    firstImpactTime = now
+                }
+            }
+        }
+        override fun onAccuracyChanged(sensor: Sensor, accuracy: Int) {}
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -100,6 +144,18 @@ class RandomFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         updateSaveButton(topTitle)
+        sensorManager = requireContext().getSystemService()
+        sensorManager?.registerListener(
+            shakeListener,
+            sensorManager?.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
+            SensorManager.SENSOR_DELAY_UI
+        )
+    }
+
+    override fun onPause() {
+        sensorManager?.unregisterListener(shakeListener)
+        sensorManager = null
+        super.onPause()
     }
 
     override fun onDestroyView() {
@@ -236,6 +292,10 @@ class RandomFragment : Fragment() {
         const val DEFAULT_PAGER_TAB = 0
         const val ENABLED_BACK_BUTTON_ALPHA = 1f
         const val DISABLED_BACK_BUTTON_ALPHA = 0.5f
+        const val SHAKE_THRESHOLD = 12f
+        const val SHAKE_COOLDOWN_MS = 1000L
+        const val SHAKE_DOUBLE_WINDOW_MS = 500L
+        const val SHAKE_VIBRATE_MS = 80L
 
         fun newInstance(wikiSite: WikiSite, invokeSource: InvokeSource) = RandomFragment().apply {
             arguments = bundleOf(

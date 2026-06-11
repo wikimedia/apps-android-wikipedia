@@ -11,7 +11,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import coil3.compose.AsyncImage
@@ -68,7 +68,7 @@ fun FadeInAsyncImage(
         contentScale = contentScale,
         placeholder = placeholder,
         error = error,
-        modifier = modifier.alpha(alpha),
+        modifier = modifier.graphicsLayer { this.alpha = alpha },
         onLoading = {
             imageLoaded = false
             shouldFadeIn = false

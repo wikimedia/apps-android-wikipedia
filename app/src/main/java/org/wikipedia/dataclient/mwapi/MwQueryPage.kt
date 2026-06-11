@@ -140,7 +140,7 @@ class MwQueryPage {
     class PageProps {
 
         @SerialName("wikibase_item") val wikiBaseItem: String = ""
-        private val disambiguation: String? = null
+        public val disambiguation: String? = null
         @SerialName("displaytitle") val displayTitle: String? = null
     }
 

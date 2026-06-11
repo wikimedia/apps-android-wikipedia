@@ -1,6 +1,12 @@
 package org.wikipedia.settings
 
+import android.content.SharedPreferences
 import android.location.Location
+import androidx.preference.PreferenceManager
+import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.flow.distinctUntilChanged
 import okhttp3.Cookie
 import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 import okhttp3.logging.HttpLoggingInterceptor
@@ -14,6 +20,7 @@ import org.wikipedia.analytics.eventplatform.AppSessionEvent
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.donate.DonationResult
 import org.wikipedia.donate.donationreminder.DonationReminderConfig
+import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
 import org.wikipedia.games.onthisday.OnThisDayGameNotificationState
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.PageTitle
@@ -108,9 +115,9 @@ object Prefs {
         PrefsIoUtil.remove(R.string.preference_key_tabs)
     }
 
-    var hiddenCards: Set<String>
-        get() = JsonUtil.decodeFromString<Set<String>>(PrefsIoUtil.getString(R.string.preference_key_feed_hidden_cards, null))
-            ?: emptySet()
+    var hiddenCards: List<String>
+        get() = JsonUtil.decodeFromString<List<String>>(PrefsIoUtil.getString(R.string.preference_key_feed_hidden_cards, null))
+            ?: emptyList()
         set(cards) = PrefsIoUtil.setString(R.string.preference_key_feed_hidden_cards, JsonUtil.encodeToString(cards))
 
     var sessionData
@@ -714,6 +721,21 @@ object Prefs {
             PrefsIoUtil.setString(R.string.preference_key_places_last_location_and_zoom_level, locationAndZoomLevelString)
         }
 
+    val placesLastLocationFlow: Flow<Location?> = callbackFlow {
+        val key = WikipediaApp.instance.getString(R.string.preference_key_places_last_location_and_zoom_level)
+        val prefs = PreferenceManager.getDefaultSharedPreferences(WikipediaApp.instance)
+        trySend(placesLastLocationAndZoomLevel?.first)
+        val listener = SharedPreferences.OnSharedPreferenceChangeListener { _, changedKey ->
+            if (changedKey == key) {
+                trySend(placesLastLocationAndZoomLevel?.first)
+            }
+        }
+        prefs.registerOnSharedPreferenceChangeListener(listener)
+        awaitClose { prefs.unregisterOnSharedPreferenceChangeListener(listener) }
+    }.distinctUntilChanged { old, new ->
+        old?.latitude == new?.latitude && old?.longitude == new?.longitude
+    }
+
     var recentUsedTemplates
         get() = JsonUtil.decodeFromString<Set<PageTitle>>(PrefsIoUtil.getString(R.string.preference_key_recent_used_templates, null)) ?: emptySet()
         set(set) = PrefsIoUtil.setString(R.string.preference_key_recent_used_templates, JsonUtil.encodeToString(set))
@@ -923,4 +945,34 @@ object Prefs {
     var readingChallengeWidgetFastCycle
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_challenge_widget_fast_cycle, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_challenge_widget_fast_cycle, value)
+
+    var isExploreFeedUpdatePromptShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_explore_feed_update_prompt_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_explore_feed_update_prompt_shown, value)
+
+    var homeForYouModulesToday
+        get() = PrefsIoUtil.getString(R.string.preference_key_home_for_you_modules_today, "")!!
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_home_for_you_modules_today, value)
+
+    var homeLanguageCode
+        get() = PrefsIoUtil.getString(R.string.preference_key_home_language_code, WikipediaApp.instance.appOrSystemLanguageCode)!!
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_home_language_code, value)
+
+    var homePreferenceSelection: HomePreferenceType
+        get() = PrefsIoUtil.getString(R.string.preference_key_home_preference_selection, null)?.let {
+            HomePreferenceType.valueOf(it)
+        } ?: HomePreferenceType.COMMUNITY
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_home_preference_selection, value.name)
+
+    var isHomeSwipeToExplorePromptShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_home_swipe_to_explore_prompt_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_home_swipe_to_explore_prompt_shown, value)
+
+    var isHomeFeedUpdateTooltipShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_home_feed_update_tooltip_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_home_feed_update_tooltip_shown, value)
+
+    var searchWidgetInstallPromptShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_search_widget_install_prompt_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_search_widget_install_prompt_shown, value)
 }

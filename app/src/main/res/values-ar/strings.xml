@@ -25,6 +25,7 @@
 * Hubaishan
 * Kassem789
 * Kassem7899
+* Kopmil
 * MRidhaAJ
 * Maroen1990
 * Meno25
@@ -67,31 +68,31 @@
   <string name="wikimedia">ويكيميديا</string>
   <string name="nav_item_back">رجوع</string>
   <string name="page_tabs_back">رجوع</string>
-  <string name="nav_item_forward">إلى الأمام</string>
-  <string name="search_hint">ابحث في ويكيبيديا</string>
+  <string name="nav_item_forward">تقدُّم</string>
+  <string name="search_hint">البحث في ويكيبيديا</string>
   <string name="search_hint_voice_search">البحث الصوتي</string>
   <string name="search_hint_search_languages">بحث عن لغة</string>
   <string name="search_back_button_content_description">رجوع</string>
-  <string name="search_clear_query_content_description">مسح الاستعلام</string>
+  <string name="search_clear_query_content_description">محو الاستعلام</string>
   <string name="search_icon_content_description">بحث</string>
   <string name="filter_hint_filter_my_lists_and_articles">تصفية قوائمي</string>
   <string name="nav_item_suggested_edits">تعديلات</string>
   <string name="nav_item_activity">نشاط</string>
   <string name="nav_item_more">المزيد</string>
   <string name="nav_item_search">بحث</string>
-  <string name="nav_item_contribute">ساهم</string>
+  <string name="nav_item_contribute">المساهمة</string>
   <string name="error_network_error">لا يُمكن الاتصال بالإنترنت.</string>
   <string name="page_error_retry">إعادة المحاولة</string>
   <string name="card_offline_error_retry">إعادة المحاولة</string>
   <string name="storage_access_error_retry">إعادة المحاولة</string>
   <string name="article_load_error_retry">إعادة المحاولة</string>
   <string name="offline_load_error_retry">إعادة المحاولة</string>
-  <string name="page_error_back_to_main">ارجع إلى الخلف</string>
+  <string name="page_error_back_to_main">رجوع</string>
   <string name="error_back">رجوع</string>
-  <string name="error_next">التالي</string>
-  <string name="menu_clear_all_history">مسح تاريخ القراءة</string>
-  <string name="history_item_deleted">أزيلت %s من التاريخ</string>
-  <string name="history_items_deleted">أُزيلت مقالات %d من السجل</string>
+  <string name="error_next">تالٍ</string>
+  <string name="menu_clear_all_history">محو تاريخ القراءة</string>
+  <string name="history_item_deleted">تمّ إزالة %s من التاريخ</string>
+  <string name="history_items_deleted">تمّ إزالة %d من المقالات من التاريخ</string>
   <string name="history_item_delete_undo">تراجع</string>
   <string name="notification_archive_undo">تراجع</string>
   <string name="app_settings">إعدادات التطبيق</string>
@@ -101,102 +102,102 @@
   <string name="page_content_description">الصفحة: %s</string>
   <string name="wikimedia_commons">ويكيميديا كومنز</string>
   <string name="wikidata">ويكي بيانات</string>
-  <string name="dialog_title_clear_history">مسح تاريخ التصفح</string>
-  <string name="dialog_message_clear_history">سيؤدي هذا إلى حذف سجل تصفحك بالكامل. هل أنت متأكد؟</string>
+  <string name="dialog_title_clear_history">محو تاريخ التصفُّح</string>
+  <string name="dialog_message_clear_history">سيؤدي هذا إلى حذف تاريخ تصفُّحك بالكامل. هل أنت متأكّد؟</string>
   <string name="dialog_message_clear_history_yes">نعم</string>
   <string name="dialog_message_clear_history_no">لا</string>
-  <string name="share_via">مشاركة عبر</string>
-  <string name="image_share_via">مشاركة عبر</string>
+  <string name="share_via">المشاركة عبر</string>
+  <string name="image_share_via">المشاركة عبر</string>
   <string name="search_redirect_from">بالتحويل من %s</string>
-  <string name="page_edit_history_activity_title">تاريخ مراجعة: %s</string>
+  <string name="page_edit_history_activity_title">تاريخ المراجعة: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;ط&lt;/b&gt; %s</string>
-  <string name="page_edit_history_comment_placeholder">ملخص محرر فارغ</string>
-  <string name="page_edit_history_search_or_filter_edits_hint">ابحث في التعديلات أو افرزها</string>
+  <string name="page_edit_history_comment_placeholder">ملخّص تحرير فارغ</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">البحث عن التعديلات أو فرزها</string>
   <string name="page_edit_history_filter_by">الفرز حسب</string>
   <string name="page_edit_history_filter_by_all">جميع التعديلات (%s)</string>
   <string name="page_edit_history_filter_by_user">تعديلات المستخدمين (%s)</string>
-  <string name="page_edit_history_filter_by_anon">التعديلات غير المسجلة ( %s )</string>
+  <string name="page_edit_history_filter_by_anon">التعديلات غير المسجّلة (%s)</string>
   <string name="page_edit_history_filter_by_bot">تعديلات البوت (%s)</string>
-  <string name="page_edit_history_metrics_content_description">المصفوفات من %1$s إلى %2$s</string>
+  <string name="page_edit_history_metrics_content_description">المقاييس من %1$s إلى %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
-    <item quantity="zero">لا تعديل منذ %2$s</item>
+    <item quantity="zero">لا تعديلات منذ %2$s</item>
     <item quantity="one">تعديل واحد منذ %2$s</item>
-    <item quantity="two">تعديلين منذ %2$s</item>
+    <item quantity="two">تعديلَين منذ %2$s</item>
     <item quantity="few">%1$d تعديلات منذ %2$s</item>
     <item quantity="many">%1$d تعديل منذ %2$s</item>
     <item quantity="other">%1$d تعديل منذ %2$s</item>
   </plurals>
   <plurals name="edits_since_year_per_wiki">
-    <item quantity="zero">لا تعديل منذ %2$s (%3$s)</item>
+    <item quantity="zero">لا تعديلات منذ %2$s (%3$s)</item>
     <item quantity="one">%1$d تعديل واحد منذ %2$s (%3$s)</item>
-    <item quantity="two">تعديلين منذ %2$s(%3$s)</item>
+    <item quantity="two">تعديلَين منذ %2$s(%3$s)</item>
     <item quantity="few">%1$d تعديلات منذ %2$s(%3$s)</item>
     <item quantity="many">%1$d تعديل منذ %2$s(%3$s)</item>
     <item quantity="other">%1$d تعديل منذ %2$s(%3$s)</item>
   </plurals>
   <string name="page_edit_history_empty_search_message">حاول تغيير &lt;a href=\"#\"&gt;عوامل التصفية&lt;/a&gt; لرؤية المزيد من التعديلات</string>
-  <string name="menu_page_show_tabs">أظهر التبويبات</string>
-  <string name="menu_page_other_languages">غير اللغة</string>
-  <string name="menu_page_find_in_page">ابحث في المقالة</string>
-  <string name="menu_page_add_to_watchlist">أضف لقائمة المراقبة</string>
-  <string name="menu_page_watch">راقب</string>
-  <string name="menu_page_unwatch">لا تراقب</string>
-  <string name="menu_page_view_talk">اعرض صفحة النقاش</string>
+  <string name="menu_page_show_tabs">إظهار التبويبات</string>
+  <string name="menu_page_other_languages">تغيير اللغة</string>
+  <string name="menu_page_find_in_page">البحث في المقالة</string>
+  <string name="menu_page_add_to_watchlist">إضافة إلى قائمة المراقبة</string>
+  <string name="menu_page_watch">مراقبة</string>
+  <string name="menu_page_unwatch">إلغاء المراقبة</string>
+  <string name="menu_page_view_talk">عرض صفحة النقاش</string>
   <string name="menu_page_talk_page">صفحة النقاش</string>
-  <string name="menu_page_view_edit_history">اعرض تاريخ التعديلات</string>
+  <string name="menu_page_view_edit_history">عرض تاريخ التعديلات</string>
   <string name="menu_page_edit_history">تاريخ التعديل</string>
-  <string name="menu_page_remove_from_watchlist">أزل من قائمة المراقبة</string>
-  <string name="menu_page_watched">مُراقبَة</string>
+  <string name="menu_page_remove_from_watchlist">إزالة من قائمة المراقبة</string>
+  <string name="menu_page_watched">مُراقَبة</string>
   <string name="edit_section_find_in_page">البحث في الصفحة</string>
   <string name="menu_page_font_and_theme">الخط والمظهر</string>
-  <string name="menu_page_add_to_list">أضف إلى قائمة القراءة</string>
-  <string name="menu_page_add_to_default_list">احفظ</string>
-  <string name="feed_card_add_to_list">أضف إلى قائمة القراءة</string>
-  <string name="feed_card_add_to_default_list">احفظ</string>
-  <string name="menu_page_share">شارك الوصلة</string>
-  <string name="menu_article_share">شارك المقالة</string>
-  <string name="menu_page_article_share">شارك</string>
-  <string name="menu_page_open_a_new_tab">افتح تبويبًا جديدًا</string>
+  <string name="menu_page_add_to_list">إضافة إلى قائمة القراءة</string>
+  <string name="menu_page_add_to_default_list">حفظ</string>
+  <string name="feed_card_add_to_list">إضافة إلى قائمة القراءة</string>
+  <string name="feed_card_add_to_default_list">حفظ</string>
+  <string name="menu_page_share">مشاركة الوصلة</string>
+  <string name="menu_article_share">مشاركة المقالة</string>
+  <string name="menu_page_article_share">مشاركة</string>
+  <string name="menu_page_open_a_new_tab">فتح تبويب جديد</string>
   <string name="menu_page_new_tab">تبويب جديد</string>
   <string name="menu_page_reading_lists">قوائم القراءة</string>
-  <string name="menu_page_recently_viewed">طالعتها مؤخرًا</string>
+  <string name="menu_page_recently_viewed">طالعتها مؤخّرًا</string>
   <string name="menu_page_archive">الأرشيف</string>
-  <string name="menu_long_press_open_page">افتح</string>
-  <string name="menu_long_press_open_in_places">مفتوح في الأماكن</string>
-  <string name="menu_long_press_open_in_new_tab">افتح في تبويب جديد</string>
-  <string name="menu_long_press_copy_page">انسخ عنوان الوصلة</string>
-  <string name="menu_text_select_define">عرّف</string>
-  <string name="on_this_day_page_share">شارك</string>
-  <string name="reading_list_page_share">شارك</string>
-  <string name="menu_text_select_edit_here">عدّل هنا</string>
-  <string name="menu_edit_article">عدل المقالة</string>
-  <string name="last_updated_text">آخر تحديث %s</string>
-  <string name="talk_page_link_text">اعرض صفحة النقاش</string>
-  <string name="edit_history_link_text">اعرض تاريخ الصفحة</string>
-  <string name="map_view_link_text">اعرض على خريطة</string>
-  <string name="other_languages_indication_text">اقرأ بلغة أخرى</string>
+  <string name="menu_long_press_open_page">فتح</string>
+  <string name="menu_long_press_open_in_places">فتح في الأماكن</string>
+  <string name="menu_long_press_open_in_new_tab">فتح في تبويب جديد</string>
+  <string name="menu_long_press_copy_page">نسخ عنوان الوصلة</string>
+  <string name="menu_text_select_define">تعريف</string>
+  <string name="on_this_day_page_share">مشاركة</string>
+  <string name="reading_list_page_share">مشاركة</string>
+  <string name="menu_text_select_edit_here">التعديل هنا</string>
+  <string name="menu_edit_article">تعديل المقالة</string>
+  <string name="last_updated_text">حُدّثت آخر مرة منذ %s</string>
+  <string name="talk_page_link_text">عرض صفحة النقاش</string>
+  <string name="edit_history_link_text">عرض تاريخ الصفحة</string>
+  <string name="map_view_link_text">العرض على خريطة</string>
+  <string name="other_languages_indication_text">القراءة بلغة أخرى</string>
   <string name="language_count_link_text">متاحة في %d لغة أخرى</string>
   <string name="content_license_cc_by_sa">المشاع الإبداعي النسبة-الترخيص بالمثل 4.0</string>
   <string name="edit_save_action_license_logged_in">بالنشر، فإنك توافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt;، ونشر تعديلك بلا رجعة تحت رخصة &lt;a href=\"%2$s\"&gt;المشاع الإبداعي: النسبة-الترخيص بالمثل 4.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">بالنشر، فإنك توافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt;وعلى نشر مساهماتك بلا رجعة تحت رخصة &lt;a href=\"%2$s\"&gt;المشاع الإبداعي: النسبة-الترخيص بالمثل 4.0&lt;/a&gt;. التعديلات سوف تنسب إلى عنوان بروتوكول الإنترنت الخاص بجهازك. في حال كنت &lt;a href=\"https://#login\"&gt;مسجلا للدخول&lt;/a&gt;، فإنك ستحظى بالمزيد من الخصوصية.</string>
-  <string name="edit_anon_warning">ستُنسب التعديلات إلى عنوان IP الخاص بجهازك. إذا قمت &lt;a href=\"https://#login\"&gt;بتسجيل الدخول&lt;/a&gt; ، سيكون لديك المزيد من الخصوصية.</string>
+  <string name="edit_save_action_license_anon">بالنشر، فإنك توافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt;وعلى نشر مساهماتك بلا رجعة تحت رخصة &lt;a href=\"%2$s\"&gt;المشاع الإبداعي: النسبة-الترخيص بالمثل 4.0&lt;/a&gt;. ستُنسَب التعديلات إلى عنوان بروتوكول الإنترنت الخاص بجهازك. في حال كنت &lt;a href=\"https://#login\"&gt;مسجّلًا للدخول&lt;/a&gt;، فستتمتّع بمزيدٍ من الخصوصية.</string>
+  <string name="edit_anon_warning">ستُنسَب التعديلات إلى عنوان IP الخاصّ بجهازك. إذا &lt;a href=\"https://#login\"&gt;سجّلت&lt;/a&gt; الدخول، فستتمتّع بمزيدٍ من الخصوصية.</string>
   <string name="preference_title_language">لغات ويكيبيديا</string>
   <string name="langlinks_filter_hint">بحث</string>
-  <string name="langlinks_empty">هذه الصفحة غير متوفرة بلغات أخرى</string>
+  <string name="langlinks_empty">هذه الصفحة غير متوفّرة بلغات أخرى</string>
   <string name="langlinks_no_match">لم يتم العثور على لغات</string>
   <string name="langlinks_activity_title">لغات أخرى</string>
   <string name="langlinks_your_wikipedia_languages">لغات ويكيبيديا الخاصة بك</string>
-  <string name="menu_save_changes">انشر التغييرات</string>
-  <string name="edit_saved_successfully">تم نشر التعديل!</string>
+  <string name="menu_save_changes">نشر التغييرات</string>
+  <string name="edit_saved_successfully">نُشر التعديل!</string>
   <string name="stub_article_edit_saved_successfully">نُشر التعديل! قد يستغرق ظهور التغييرات بعض الوقت.</string>
   <string name="dialog_message_edit_failed">فشل التعديل!</string>
   <string name="dialog_message_edit_failed_retry">إعادة المحاولة</string>
   <string name="dialog_message_edit_failed_cancel">إلغاء</string>
-  <string name="dialog_message_leaving_edit">لم تُنشر تغييراتك حتى الآن. هل أنت متأكد أنك تريد ترك هذه الصفحة؟</string>
+  <string name="dialog_message_leaving_edit">لم تُنشَر تغييراتك حتى الآن. هل أنت متأكّد من أنك تريد ترك هذه الصفحة؟</string>
   <string name="dialog_message_leaving_edit_leave">المغادرة</string>
   <string name="dialog_message_leaving_edit_stay">البقاء</string>
   <string name="dialog_confirm_delete_donation_history_title">تأكيد الحذف</string>
-  <string name="dialog_confirm_delete_donation_history_message">سيتم تطبيق هذا فقط على التبرعات المقدمة من هذا الجهاز.</string>
+  <string name="dialog_confirm_delete_donation_history_message">سيتم تطبيق هذا فقط على التبرُّعات المقدَّمة من هذا الجهاز.</string>
   <string name="dialog_confirm_delete_donation_history_delete">حذف</string>
   <string name="dialog_confirm_delete_donation_history_cancel">إلغاء</string>
   <string name="menu_show_toc">جدول المحتويات</string>
@@ -204,30 +205,30 @@
   <string name="search_reading_list_no_results">لا نتائج في %s</string>
   <string name="search_reading_lists_no_results">لا نتائج في قوائم القراءة</string>
   <string name="search_history_no_results">لا نتائج في التاريخ</string>
-  <string name="edit_section_captcha_message">للمساعدة على الحماية ضد البريد المزعج الآلي، فضلاً أدخل الكلمات التي تظهر أدناه</string>
-  <string name="edit_section_captcha_request_an_account_message">لا تستطيع رؤية الصورة؟ &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;اطلب حسابًا&lt;/a&gt;</string>
-  <string name="edit_section_captcha_hint">كرر الكلمات من فوق</string>
-  <string name="title_captcha">أدخل كلمة التحقق</string>
-  <string name="edit_section_captcha_reload">انقر على كلمة التحقق لإعادة التحميل</string>
+  <string name="edit_section_captcha_message">للمساعدة في الحماية من السبام الآلي، يُرجى إدخال الكلمات التي تظهر أدناه</string>
+  <string name="edit_section_captcha_request_an_account_message">ألا ترى الصورة؟ &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;اطلب حسابًا&lt;/a&gt;</string>
+  <string name="edit_section_captcha_hint">كرّر الكلمات من فوق</string>
+  <string name="title_captcha">أدخِل رمز التحقُّق (CAPTCHA)</string>
+  <string name="edit_section_captcha_reload">انقر على رمز التحقُّق لإعادة التحميل</string>
   <string name="nav_item_login">تسجيل الدخول إلى ويكيبيديا</string>
   <string name="login_username_hint">اسم المستخدم</string>
-  <string name="login_password_hint">كلمة السر</string>
-  <string name="account_creation_password_hint">كلمة السر</string>
+  <string name="login_password_hint">كلمة المرور</string>
+  <string name="account_creation_password_hint">كلمة المرور</string>
   <string name="login_2fa_hint">رمز المصادقة الثنائية</string>
-  <string name="login_2fa_other_workflow_error_msg">المصادقة الثنائية مطلوبة! يُرجى تسجيل الدخول من الشاشة الرئيسية، وإدخال رمز المصادقة الثنائية.</string>
-  <string name="login_email_auth_hint">رمز التحقق من البريد الإلكتروني</string>
-  <string name="login_email_auth_other_workflow_error_msg">مطلوب التحقق من بريدك الإلكتروني! يُرجى تسجيل الدخول من الشاشة الرئيسية، وإدخال رمز التحقق.</string>
-  <string name="login_background_error_msg">تعذر تسجيل الدخول مرة أخرى. يُرجى العودة إلى الشاشة الرئيسية وتسجيل الدخول يدويًا.</string>
+  <string name="login_2fa_other_workflow_error_msg">تُلزم المصادقة الثنائية! يُرجى تسجيل الدخول من الشاشة الرئيسة، وإدخال الرمز الموجود على رمز المصادقة الثنائية الخاص بك.</string>
+  <string name="login_email_auth_hint">رمز التحقُّق من البريد الإلكتروني</string>
+  <string name="login_email_auth_other_workflow_error_msg">التحقُّق من البريد الإلكتروني مطلوب! يُرجى تسجيل الدخول من الشاشة الرئيسة، وإدخال رمز التحقُّق الخاصّ ببريدك الإلكتروني.</string>
+  <string name="login_background_error_msg">تعذّر معاودة تسجيل الدخول. يُرجى العودة إلى الشاشة الرئيسة وتسجيل الدخول يدويًّا.</string>
   <string name="onboarding_card_login">تسجيل الدخول</string>
   <string name="page_editing_login">تسجيل الدخول</string>
   <string name="reading_lists_sync_login">تسجيل الدخول</string>
   <string name="create_account_login">تسجيل الدخول</string>
   <string name="menu_login">تسجيل الدخول</string>
   <string name="login_activity_title">تسجيل الدخول</string>
-  <string name="login_in_progress_dialog_message">جارٍ تسجيل دخولك…</string>
+  <string name="login_in_progress_dialog_message">جارٍ تسجيل الدخول…</string>
   <string name="login_success_toast">تم تسجيل الدخول!</string>
   <string name="reset_password_title">تعيين كلمة مرورك</string>
-  <string name="reset_password_description">قمت بتسجيل الدخول باستخدام كلمة سر مؤقتة، لإنهاء تسجيل الدخول; يُرجَى تعيين كلمة السر الجديدة هنا.</string>
+  <string name="reset_password_description">لقد سجّلت الدخول باستخدام كلمة مرور مؤقّتة. لإكمال عملية تسجيل الدخول، يُرجى تعيين كلمة المرور الجديدة هنا.</string>
   <string name="reset_password_hint">كلمة السر الجديدة</string>
   <string name="reset_password_button">حفظ وتسجيل الدخول</string>
   <string name="preference_title_logout">تسجيل الخروج</string>
@@ -458,8 +459,10 @@
   <string name="button_get_directions">احصل على الاتجاهات</string>
   <string name="error_no_maps_app">تعذّر إيجاد أي تطبيقٍ يوفر الاتجاهات</string>
   <string name="preference_title_customize_explore_feed">خلاصة الاستكشاف</string>
+  <string name="preference_title_customize_home_feed">الصفحة الرئيسة</string>
   <string name="preference_title_show_link_previews">إظهار معايناتٍ للوصلة</string>
   <string name="preference_summary_customize_explore_feed">تخصيص خلاصة الاستكشاف</string>
+  <string name="preference_summary_customize_home_feed">خصّص موجز الصفحة الرئيسة الخاص بك</string>
   <string name="preference_summary_show_link_previews">إظهار معاينة سريعة للمقالات حين النقر على الوصلات.</string>
   <string name="preference_title_collapse_tables">طَيّ الجداول</string>
   <string name="preference_summary_collapse_tables">تلقائيا اطو الجداول في المقالات، مثل صناديق المعلومات، المراجع، والملاحظات.</string>
@@ -961,9 +964,11 @@
   <string name="view_random_article_card_title">مقالة عشوائية</string>
   <string name="view_random_article_card_action">مقالات عشوائية أخرى</string>
   <string name="view_top_read_card_title">الأكثر قراءة</string>
+  <string name="view_top_read_card_description">ما الرائج اليوم على ويكيبيديا</string>
   <string name="view_top_read_card_action">المزيد من الأكثر قراءة</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d ألف</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d مليون</string>
+  <string name="view_top_read_card_pageviews_views_suffix">مشاهدات</string>
   <string name="view_next_random_article">مقال عشوائي اخر</string>
   <string name="view_main_page_card_title">اليوم في ويكيبيديا</string>
   <string name="view_main_page_card_action">اعرض الصفحة الرئيسية</string>
@@ -1008,11 +1013,11 @@
   <string name="feed_item_type_randomizer">توليد مقالات عشوائية للقراءة</string>
   <string name="feed_item_type_suggested_edits">اقتراحات لإضافة محتوى إلى ويكيبيديا</string>
   <string name="feed_item_type_places">المقالات القريبة بناءً على الموقع الحالي</string>
-  <string name="feed_empty_message">لا يوجد شيء في خلاصة استكشافك</string>
+  <string name="feed_empty_message" fuzzy="true">لا يوجد شيء في خلاصة استكشافك</string>
   <string name="feed_configure_onboarding_action">تخصيص</string>
   <string name="customize_lang_selection_dialog_ok_button_text">حسنا</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">إلغاء</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;تخصيص خلاصة استكشافك&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;يمكنك الآن اختيار ما تريد عرضه على خلاصتك، وكذلك تحديد أولويات أنواع المحتوى المفضلة لديك.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;تخصيص خلاصة استكشافك&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;يمكنك الآن اختيار ما تريد عرضه على خلاصتك، وكذلك تحديد أولويات أنواع المحتوى المفضلة لديك.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">حسنا</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">إلغاء</string>
   <string name="feed_accessibility_card_text">وصلت إلى نهاية التغذية.</string>
@@ -1476,17 +1481,24 @@
   <string name="onboarding_get_started">ابدأ</string>
   <string name="onboarding_maybe_later">ربما لاحقا</string>
   <string name="onboarding_explore_title">طريقة جديدة للاستكشاف</string>
-  <string name="onboarding_explore_text">تبحّر في محتويات ويكيبيديا باقتراحات الاستكشاف المُحدثة باستمرار. &lt;br/&gt; &lt;b&gt;خصِّص&lt;/b&gt;  الاقتراحات حسب اهتماماتك - سواء أكانت تعلم شيءٍ عن أحداثٍ تاريخيةٍ &lt;b&gt;في هذا اليوم&lt;/b&gt;، أو ارمِ النرد لاقتراحٍ &lt;b&gt;عشوائي&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text" fuzzy="true">تبحّر في محتويات ويكيبيديا باقتراحات الاستكشاف المُحدثة باستمرار. &lt;br/&gt; &lt;b&gt;خصِّص&lt;/b&gt;  الاقتراحات حسب اهتماماتك - سواء أكانت تعلم شيءٍ عن أحداثٍ تاريخيةٍ &lt;b&gt;في هذا اليوم&lt;/b&gt;، أو ارمِ النرد لاقتراحٍ &lt;b&gt;عشوائي&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">قوائم القراءة مع المزامنة</string>
   <string name="onboarding_reading_list_sync_text_v2">أنشئ قوائم قراءة من المقالات التي تريد قراءتها لاحقا، حتى في وضع عدم الاتصال. &lt;br/&gt;قم بتسجيل الدخول لحسابك في ويكيبيديا لمزامنة قوائم قراءتك، &lt;a href=\"#login\"&gt;انضم إلى ويكيبيديا&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">البيانات والخصوصية</string>
-  <string name="onboarding_data_privacy_text">نعتقد أنه لا ينبغي عليك تقديم معلومات شخصية للمشاركة في حركة المعرفة الحرة. بيانات الاستخدام التي يتم جمعها لهذا التطبيق مجهولة. تعرف على المزيد حول &lt;a href=\"#privacy\"&gt;سياسة الخصوصية&lt;/a&gt; &lt;a href=\"#termsOfUse\"&gt;وشروط الاستخدام&lt;/a&gt; الخاصة بنا.</string>
+  <string name="onboarding_data_privacy_text" fuzzy="true">نعتقد أنه لا ينبغي عليك تقديم معلومات شخصية للمشاركة في حركة المعرفة الحرة. بيانات الاستخدام التي يتم جمعها لهذا التطبيق مجهولة. تعرف على المزيد حول &lt;a href=\"#privacy\"&gt;سياسة الخصوصية&lt;/a&gt; &lt;a href=\"#termsOfUse\"&gt;وشروط الاستخدام&lt;/a&gt; الخاصة بنا.</string>
   <string name="onboarding_analytics_switch_title">إرسال بيانات الاستخدام</string>
   <string name="onboarding_got_it">فهمت</string>
   <string name="onboarding_multilingual_secondary_text">لقد وجدنا ما يلي على جهازك:</string>
   <string name="onboarding_multilingual_add_language_text">أضف أو عدل اللغات</string>
   <string name="onboarding_welcome_title_v2">الموسوعة الحرة \n…بأكثر من 300 لغة</string>
   <string name="onboarding_next">التالي</string>
+  <string name="onboarding_fresh_install_knowledge_title">كل معارف العالم</string>
+  <string name="onboarding_fresh_install_knowledge_text">ويكيبيديا هي موسوعة مجانية على الإنترنت تضم ٦٥ مليون مقالة مكتوبة ومحدثة بشكل تعاوني بأكثر من ٣٠٠ لغة من قبل مجتمع من المتطوعين.</string>
+  <string name="onboarding_fresh_install_knowledge_learn_more">معرفة المزيد حول ويكيبيديا</string>
+  <string name="onboarding_app_languages_title">اقرأ بأكثر من ٣٠٠ لغة</string>
+  <string name="onboarding_app_languages_text">لقد لاحظنا وجود اللغات التالية على جهازك:</string>
+  <string name="onboarding_app_languages_primary">أساسي</string>
+  <string name="onboarding_app_languages_add_button">إضافة أو تعديل لغاتك</string>
   <string name="app_shortcuts_random">عشوائي</string>
   <string name="app_shortcuts_continue_reading">مواصلة القراءة</string>
   <string name="app_shortcuts_search">بحث</string>
@@ -1524,7 +1536,7 @@
     <item quantity="many">إزالة اللغات المختارة؟</item>
     <item quantity="other">إزالة اللغة المختارة؟</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">لن تشاهد سوى المحتوى في مرشحات خلاصة الاستكشاف والبحث السريع عن لغات ويكيبيديا المتبقية.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">لن تشاهد سوى المحتوى في مرشحات خلاصة الاستكشاف والبحث السريع عن لغات ويكيبيديا المتبقية.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">لا يمكن إزالة كل اللغات</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">احتفظ بلغة ويكيبيديا واحدة على الأقل للبحث عن المحتوى وقراءته.</string>
   <string name="more_language_options">المزيد</string>
@@ -2079,7 +2091,7 @@
   <string name="on_this_day_game_stats_average_score">متوسط النتيجة</string>
   <string name="on_this_day_game_stats_streak">السلسلة الحالية</string>
   <string name="on_this_day_game_result_subtitle">المقالات المشار إليها في مباراة اليوم</string>
-  <string name="on_this_day_game_completed_message">شكرًا لك على اللعب. تتوفر لعبة جديدة بعنوان \"أيهما جاء أولاً؟\" يوميًا على موجز Explore.</string>
+  <string name="on_this_day_game_completed_message" fuzzy="true">شكرًا لك على اللعب. تتوفر لعبة جديدة بعنوان \"أيهما جاء أولاً؟\" يوميًا على موجز Explore.</string>
   <string name="on_this_day_game_menu_notifications">إشعارات اللعبة</string>
   <string name="on_this_day_game_menu_info">يتعلم أكثر</string>
   <string name="on_this_day_game_menu_feedback">مشكلة مع الميزة</string>
