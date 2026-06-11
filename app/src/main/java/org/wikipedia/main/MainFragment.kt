@@ -91,6 +91,7 @@ import org.wikipedia.views.NotificationButtonView
 import org.wikipedia.views.TabCountsView
 import org.wikipedia.views.imageservice.ImageService
 import org.wikipedia.watchlist.WatchlistActivity
+import org.wikipedia.widgets.SearchWidgetInstallDialog
 import org.wikipedia.yearinreview.YearInReviewDialog
 import org.wikipedia.yearinreview.YearInReviewOnboardingActivity
 import org.wikipedia.yearinreview.YearInReviewViewModel
@@ -190,6 +191,9 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
             }
             binding.mainViewPager.setCurrentItem(item.order, false)
             requireActivity().invalidateOptionsMenu()
+            if (item.order == NavTab.SEARCH.code()) {
+                maybeShowSearchWidgetInstallPrompt()
+            }
             true
         }
 
@@ -586,6 +590,12 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
                     FeedbackUtil.showTooltip(requireActivity(), binding.mainNavTabLayout.findViewById(NavTab.HOME.id), getString(R.string.home_feed_update_tooltip1), aboveOrBelow = true, autoDismiss = false, showDismissButton = true)
                 }
             }
+        }
+    }
+
+    private fun maybeShowSearchWidgetInstallPrompt() {
+        if (!Prefs.searchWidgetInstallPromptShown && !SearchWidgetInstallDialog.isWidgetInstalled()) {
+            ExclusiveBottomSheetPresenter.show(childFragmentManager, SearchWidgetInstallDialog())
         }
     }
 

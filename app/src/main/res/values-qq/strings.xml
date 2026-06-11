@@ -2168,6 +2168,10 @@
   <string name="reading_challenge_install_prompt_message">Message of the prompt for the Reading challenge for installing the 25-day reading challenge widget.</string>
   <string name="reading_challenge_install_prompt_got_it">Button of the prompt for the Reading challenge for installing the 25-day reading challenge widget that confirms the content.</string>
   <string name="reading_challenge_install_prompt_add">Button of the prompt for the Reading challenge for installing the 25-day reading challenge widget that to add the widget.</string>
+  <string name="search_widget_install_prompt_title">Title of the bottom sheet prompting the user to install the Wikipedia Search home screen widget.</string>
+  <string name="search_widget_install_prompt_message">Message of the bottom sheet prompting the user to install the Wikipedia Search home screen widget.</string>
+  <string name="search_widget_install_prompt_add">Button label that starts the flow to add the Wikipedia Search widget to the home screen.</string>
+  <string name="search_widget_install_prompt_got_it">Button label that dismisses the Wikipedia Search widget install prompt.</string>
   <string name="reading_challenge_widget_explore_button">Button label in the Reading challenge widget to explore the Wikipedia app.</string>
   <string name="reading_challenge_widget_explore_wikipedia_button">Button label in the Reading challenge widget to explore the Wikipedia app.</string>
   <string name="reading_challenge_widget_join_challenge_button">Button label in the Reading challenge widget to join the challenge.</string>
