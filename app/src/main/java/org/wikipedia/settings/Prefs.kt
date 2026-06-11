@@ -963,4 +963,12 @@ object Prefs {
     var isHomeSwipeToExplorePromptShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_home_swipe_to_explore_prompt_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_home_swipe_to_explore_prompt_shown, value)
+
+    var isHomeFeedUpdateTooltipShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_home_feed_update_tooltip_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_home_feed_update_tooltip_shown, value)
+
+    var searchWidgetInstallPromptShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_search_widget_install_prompt_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_search_widget_install_prompt_shown, value)
 }

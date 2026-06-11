@@ -282,6 +282,8 @@ class PersonalizationViewModel(
                 state.update { it.copy(articlesError = throwable) }
             }
         ) {
+            interestsUpdated = true
+            clearForYouCache()
             interestSelectionRepository.saveArticle(title, interestSelectionRepository.wikiSite.languageCode)
             state.update {
                 val newItems = listOf(title) + it.articles
