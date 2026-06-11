@@ -76,6 +76,16 @@
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:contentDescription="@string/places_filter_title"/>
 
+                <ImageView
+                    android:id="@+id/sortButton"
+                    android:layout_width="48dp"
+                    android:layout_height="match_parent"
+                    android:padding="12dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/places_sort_button_description"
+                    app:srcCompat="@drawable/ic_sort_white_24dp"
+                    app:tint="?attr/primary_color"/>
+
                 <org.wikipedia.views.TabCountsView
                     android:id="@+id/tabsButton"
                     android:layout_width="48dp"

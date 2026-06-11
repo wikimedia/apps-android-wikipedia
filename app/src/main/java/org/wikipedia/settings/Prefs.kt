@@ -689,6 +689,10 @@ object Prefs {
         get() = PrefsIoUtil.getString(R.string.preference_key_places_wiki_code, WikipediaApp.instance.appOrSystemLanguageCode).orEmpty()
         set(value) = PrefsIoUtil.setString(R.string.preference_key_places_wiki_code, value)
 
+    var placesSortMode
+        get() = PrefsIoUtil.getString(R.string.preference_key_places_sort_mode, null).orEmpty()
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_places_sort_mode, value)
+
     var placesDefaultLocationLatLng
         get(): String? {
             val lanLng = PrefsIoUtil.getString(R.string.preference_key_default_places_location_latlng, null)

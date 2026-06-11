@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/menu_places_sort_popularity"
+            android:title="@string/places_sort_popularity"/>
+        <item
+            android:id="@+id/menu_places_sort_distance"
+            android:title="@string/places_sort_distance"/>
+    </group>
+</menu>
