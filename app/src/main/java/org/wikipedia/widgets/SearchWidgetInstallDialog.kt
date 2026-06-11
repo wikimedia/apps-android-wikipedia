@@ -22,6 +22,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.compose.components.AppButton
 import org.wikipedia.compose.components.InstallWidgetScreen
 import org.wikipedia.compose.theme.BaseTheme
@@ -30,8 +31,12 @@ import org.wikipedia.settings.Prefs
 
 class SearchWidgetInstallDialog : ExtendedBottomSheetDialogFragment(startExpanded = true) {
 
+    private val instrument = TestKitchenAdapter.client.getInstrument("apps-widgetsearch")
+        .setDefaultActionSource("widget_search_install")
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
+        instrument.submitInteraction(action = "impression")
         Prefs.searchWidgetInstallPromptShown = true
 
         return ComposeView(requireContext()).apply {
@@ -40,7 +45,10 @@ class SearchWidgetInstallDialog : ExtendedBottomSheetDialogFragment(startExpande
                     InstallWidgetScreen(
                         title = stringResource(R.string.search_widget_install_prompt_title),
                         message = stringResource(R.string.search_widget_install_prompt_message),
-                        onCloseClick = { dismiss() },
+                        onCloseClick = {
+                            instrument.submitInteraction(action = "click", elementId = "install_close")
+                            dismiss()
+                        },
                         previewContent = {
                             Image(
                                 modifier = Modifier.fillMaxSize(),
@@ -63,6 +71,7 @@ class SearchWidgetInstallDialog : ExtendedBottomSheetDialogFragment(startExpande
                                 modifier = Modifier.fillMaxWidth(),
                                 onClick = {
                                     if (pinSupported) {
+                                        instrument.submitInteraction(action = "click", elementId = "install_add")
                                         requestToPinWidget(requireContext())
                                     }
                                     dismiss()
