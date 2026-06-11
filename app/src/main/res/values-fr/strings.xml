@@ -463,7 +463,7 @@
   <string name="redirected_from_snackbar">Redirigé de « %s »</string>
   <string name="button_get_directions">Obtenir les directions</string>
   <string name="error_no_maps_app">Impossible de trouver une application fournissant des itinéraires.</string>
-  <string name="preference_title_customize_explore_feed">Flux d\'exploration</string>
+  <string name="preference_title_customize_explore_feed">Flux d’exploration</string>
   <string name="preference_title_customize_home_feed">Fil d\'actualité</string>
   <string name="preference_title_show_link_previews">Afficher les aperçus de liens</string>
   <string name="preference_summary_customize_explore_feed">Personnaliser le flux d\'exploration</string>
@@ -1327,7 +1327,7 @@
   <string name="onboarding_reading_list_sync_title">Listes de lecture avec synchronisation</string>
   <string name="onboarding_reading_list_sync_text_v2">Vous pouvez créer des listes de lecture depuis les articles que vous voulez lire ultérieurement, même lorsque vous êtes hors connexion.&lt;br /&gt;\nConnectez-vous à votre compte Wikipédia pour synchroniser vos listes de lecture. &lt;a href=\"#login\"&gt;Rejoindre Wikipédia&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Données &amp; confidentialité</string>
-  <string name="onboarding_data_privacy_text">Nous pensons que vous ne devriez pas avoir à fournir d’informations personnelles pour participer au mouvement du savoir libre. Les données d’utilisation collectées pour cette application sont anonymes. Apprenez-en plus sur notre &lt;a href=\"#privacy\"&gt;politique de confidentialité&lt;/a&gt; et &lt;a href=\"#termsOfUse\"&gt;nos conditions d’utilisation&lt;/a&gt;.</string>
+  <string name="onboarding_data_privacy_text">Nous considérons que vous ne devriez pas avoir à fournir d’informations personnelles pour participer au mouvement du savoir libre. Les données d’utilisation collectées pour cette application sont anonymes. Apprenez-en plus sur notre &lt;a href=\"#privacy\"&gt;politique de confidentialité&lt;/a&gt; et &lt;a href=\"#termsOfUse\"&gt;nos conditions d’utilisation&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Envoyer les données d’utilisation</string>
   <string name="onboarding_got_it">Compris !</string>
   <string name="onboarding_multilingual_secondary_text">Nous avons trouvé ceci sur votre appareil :</string>
