@@ -2413,6 +2413,8 @@
   <string name="home_feed_settings_feed_configuration_description">Овие теми и статии одредуваат што ќе стои во вашиот тековник „За вас“. Отстранете ги они ешто повеќе не ги сакате или додајте нови интереси.</string>
   <string name="home_feed_settings_feed_configuration_interest_title">Ваши интереси</string>
   <string name="home_feed_settings_feed_configuration_interest_subtitle">Уредете ваши теми од интерес</string>
+  <string name="home_feed_settings_feed_configuration_location_title">Ваша местоположба</string>
+  <string name="home_feed_settings_feed_configuration_location_subtitle">Подноваете ја местоположбата во „Места“ за да видите статии во близина</string>
   <string name="home_feed_settings_feed_configuration_empty_interest_subtitle">Вашиот список со интереси е празен. Додајте нешто што ве интересира.</string>
   <string name="home_feed_settings_feed_configuration_reading_history_title">Историја на читање</string>
   <string name="home_feed_settings_feed_configuration_reading_history_subtitle">Прелистајте ги неодамна прочитаните статии</string>
@@ -2420,6 +2422,12 @@
   <string name="home_feed_settings_feed_configuration_languages_title">Јазици</string>
   <string name="home_feed_settings_feed_configuration_languages_subtitle">Уредете ги вашите претпочитани јазици</string>
   <string name="home_feed_settings_feed_configuration_interests_updated_message">Интересите се подновени. Превчитајте го тековникот за да ги видите подновите.</string>
+  <string name="home_feed_places_of_interest_cta_title">Приказни од места што ги сакате</string>
+  <string name="home_feed_places_of_interest_cta_description">Статиите ќе се појавуваат во зависност од последното место што сте го гледале. Појдете на јазичето „Места“ и изберете место.</string>
+  <string name="home_feed_places_of_interest_cta_button">Оди на „Места“</string>
+  <string name="home_feed_settings_places_of_interest_title">Места од интерес</string>
+  <string name="home_feed_settings_places_of_interest_subtitle">Статии во близина на вашата последна местоположба во „Места“</string>
+  <string name="home_feed_places_of_interest_card_footer">%1$s • Според вашата местоположба во „Места“</string>
   <string name="home_feed_for_you_screen_end_of_feed_title">Толку за денес!</string>
   <string name="home_feed_for_you_screen_end_of_feed_description">Вратете се утре за нови статии прилагодени за вас.</string>
   <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Како постојано да учите:</string>

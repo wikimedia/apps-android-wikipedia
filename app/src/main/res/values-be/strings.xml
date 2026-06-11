@@ -552,7 +552,7 @@
   <string name="reading_list_menu_delete">Выдаліць спіс</string>
   <string name="reading_list_menu_export">Спіс экспарту</string>
   <string name="reading_list_menu_select">Выбраць</string>
-  <string name="reading_list_menu_unselect">Адмяніць выбар</string>
+  <string name="reading_list_menu_unselect">Скасаваць выбар</string>
   <string name="reading_list_export_write_permission_rationale">Патрабуецца дазвол для запісу ў сховішча прылады, каб мець магчымасць экспартаваць спіс для чытання.</string>
   <string name="reading_list_menu_rename">Рэдагаваць назву/апісанне</string>
   <string name="reading_list_action_menu_remove_from_offline">Выдаліць з файлаў, якія дасяжны па-за сеткай</string>
