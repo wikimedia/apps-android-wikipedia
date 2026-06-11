@@ -46,7 +46,7 @@ fun InstallWidgetScreen(
         modifier = modifier
             .navigationBarsPadding()
             .fillMaxWidth()
-            .padding(start = 16.dp, end = 16.dp, top = 24.dp)
+            .padding(start = 16.dp, end = 16.dp, top = 24.dp),
     ) {
         Box(modifier = Modifier.fillMaxWidth()) {
             Text(
@@ -71,11 +71,11 @@ fun InstallWidgetScreen(
                 }
         }
 
+        Spacer(modifier = Modifier.height(8.dp))
+
         Column(
             modifier = Modifier.verticalScroll(rememberScrollState())
         ) {
-            Spacer(modifier = Modifier.height(8.dp))
-
             Text(
                 modifier = Modifier.fillMaxWidth(),
                 text = message,
