@@ -2456,6 +2456,8 @@
   <string name="home_feed_settings_feed_configuration_description">Bu konular ve maddeler \"Size özel\" akışınızda nelerin görüneceğini belirler. Artık istemediğinizi kaldırın veya yeni ilgi alanları ekleyin.</string>
   <string name="home_feed_settings_feed_configuration_interest_title">İlgi alanlarınız</string>
   <string name="home_feed_settings_feed_configuration_interest_subtitle">İlgi alanı konularınızı düzenleyin</string>
+  <string name="home_feed_settings_feed_configuration_location_title">Konumunuz</string>
+  <string name="home_feed_settings_feed_configuration_location_subtitle">Yakındaki maddeleri görmek için yerinizi güncelleyin</string>
   <string name="home_feed_settings_feed_configuration_empty_interest_subtitle">İlgi alanları listeniz boş. Merak ettiğiniz bir şey ekleyin.</string>
   <string name="home_feed_settings_feed_configuration_reading_history_title">Okuma geçmişi</string>
   <string name="home_feed_settings_feed_configuration_reading_history_subtitle">Son okunan maddelerinize göz atın</string>
@@ -2463,6 +2465,8 @@
   <string name="home_feed_settings_feed_configuration_languages_title">Diller</string>
   <string name="home_feed_settings_feed_configuration_languages_subtitle">Tercih ettiğiniz dilleri düzenleyin</string>
   <string name="home_feed_settings_feed_configuration_interests_updated_message">İlgi alanları güncellendi. Güncellemeleri görmek için akışınızı yenileyin.</string>
+  <string name="home_feed_places_of_interest_cta_title">Sevdiğiniz yerlerden hikayeler</string>
+  <string name="home_feed_places_of_interest_cta_button">Yerlere Git</string>
   <string name="home_feed_for_you_screen_end_of_feed_title">Bugünlük bu kadar!</string>
   <string name="home_feed_for_you_screen_end_of_feed_description">Yarın size özel olarak derlenmiş taze yeni maddeler bulmak için geri gelin.</string>
   <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Öğrenmeye devam etmenin yolları:</string>
