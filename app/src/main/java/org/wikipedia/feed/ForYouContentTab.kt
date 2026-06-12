@@ -59,6 +59,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.extensions.getString
 import org.wikipedia.feed.becauseyouread.BecauseYouReadModule
 import org.wikipedia.feed.continuereading.ContinueReadingModule
+import org.wikipedia.feed.discover.DiscoverEnablePromptModule
 import org.wikipedia.feed.interests.BasedOnInterestModule
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.EmptyForYouCard
@@ -87,7 +88,8 @@ fun ForYouContentTab(
     onManageModulesClick: () -> Unit,
     onSelectTab: (HomeTab, Card?) -> Unit = { _, _ -> },
     onShuffleClick: () -> Unit = {},
-    onPlacesCtaClick: () -> Unit = {}
+    onPlacesCtaClick: () -> Unit = {},
+    onDiscoverCtaClick: () -> Unit = {}
 ) {
     when {
         state.isInitialLoading -> {
@@ -188,7 +190,8 @@ fun ForYouContentTab(
                                 onCardImpression = onCardImpression,
                                 onCustomizeInterestsClick = onCustomizeInterestsClick,
                                 onShuffleClick = onShuffleClick,
-                                onPlacesCtaClick = onPlacesCtaClick
+                                onPlacesCtaClick = onPlacesCtaClick,
+                                onDiscoverCtaClick = onDiscoverCtaClick
                             )
                         }
 
@@ -246,7 +249,8 @@ fun ForYouContentTab(
                                 onCardImpression = { _, _ -> },
                                 onCustomizeInterestsClick = onCustomizeInterestsClick,
                                 onShuffleClick = onShuffleClick,
-                                onPlacesCtaClick = onPlacesCtaClick
+                                onPlacesCtaClick = onPlacesCtaClick,
+                                onDiscoverCtaClick = onDiscoverCtaClick
                             )
                         }
                     }
@@ -270,7 +274,8 @@ private fun LazyListScope.forYouModuleItem(
     onCardImpression: (card: Card, index: Int) -> Unit,
     onCustomizeInterestsClick: (card: Card) -> Unit,
     onShuffleClick: () -> Unit,
-    onPlacesCtaClick: () -> Unit
+    onPlacesCtaClick: () -> Unit,
+    onDiscoverCtaClick: () -> Unit
 ) {
     val key = "${module.javaClass.simpleName}-${module.age}-$index"
     when (module) {
@@ -369,6 +374,43 @@ private fun LazyListScope.forYouModuleItem(
                             onHideModuleClick = { onHideModuleClick(module.moduleKey()) },
                             onCardInView = { onCardImpression(it, index) },
                             onCustomizeInterestsClick = onCustomizeInterestsClick
+                        )
+                    }
+                }
+            }
+        }
+        is ForYouModule.Discover -> {
+            item(key = key) {
+                when {
+                    module.isLoading -> {
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(viewPortHeight),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            LoadingIndicator()
+                        }
+                    }
+                    !module.isEnabled -> {
+                        DiscoverEnablePromptModule(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(viewPortHeight)
+                                .background(ComposeColors.Green800)
+                                .padding(horizontal = 16.dp)
+                                .padding(top = (topInset * 2 + 64).dp)
+                                .navigationBarsPadding(),
+                            wikiSite = wikiSite,
+                            onEnableDiscoverClick = onDiscoverCtaClick
+                        )
+                    }
+                    else -> {
+                        // TODO: replace with the Discover article card UI + "see all" slide.
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(viewPortHeight)
                         )
                     }
                 }

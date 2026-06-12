@@ -281,6 +281,9 @@ class HomeFragment : Fragment() {
                         onPlacesCtaClick = {
                             instrument.submitInteraction("click", actionSource = PlacesOfInterestLocationPromptCard::class.java.simpleName, elementId = "go_to_places")
                             requireActivity().startActivity(PlacesActivity.newIntent(requireContext()))
+                        },
+                        onDiscoverCtaClick = {
+                            // @TODO: open discover recommended reading list settings
                         }
                     )
 

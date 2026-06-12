@@ -2297,7 +2297,12 @@
   <string name="home_feed_places_of_interest_cta_description">Description explaining that articles are recommended based on the user’s last viewed place and instructing them to select a location in the Places tab.</string>
   <string name="home_feed_places_of_interest_cta_button">Button text that navigates the user to the Places tab.</string>
   <string name="home_feed_settings_places_of_interest_title">Title for the Places of Interest settings section.</string>
-  <string name="home_feed_settings_places_of_interest_subtitle">Subtitle describing that nearby place-based articles are shown using the user’s last selected location in Places.</string>
+  <string name="home_feed_settings_places_of_interest_subtitle">Subtitle describing that nearby place-based articles are shown using the user\’s last selected location in Places.</string>
+  <string name="home_feed_settings_discover_title">Title for the Discover recommendations settings section.</string>
+  <string name="home_feed_settings_discover_subtitle">Subtitle describing that articles from the user\'s Discover reading list are shown.</string>
+  <string name="home_feed_discover_cta_title">Section title for the Discover module in the home feed.</string>
+  <string name="home_feed_discover_cta_description">Description explaining that Discover recommends articles picked for the user, with a choice of daily, weekly, or monthly updates.</string>
+  <string name="home_feed_discover_cta_button">Button text that enables the Discover reading list.</string>
   <string name="home_feed_places_of_interest_card_footer">Footer text shown on a Places of Interest article card, displaying the article date followed by an indication that the recommendation is based on the user\'s selected location in Places. %1$s is replaced by distance.</string>
   <string name="home_feed_for_you_screen_end_of_feed_title">Title text shown when the user reaches the end of the personalized feed for the day.</string>
   <string name="home_feed_for_you_screen_end_of_feed_description">Description text encouraging the user to return later for refreshed personalized articles.</string>
