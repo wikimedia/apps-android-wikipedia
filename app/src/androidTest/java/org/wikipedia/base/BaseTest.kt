@@ -44,7 +44,8 @@ data class DataInjector(
     val showReadingListSyncEnablePrompt: Boolean = false,
     val isSuggestedEditsHighestPriorityEnabled: Boolean = true,
     val isExploreFeedUpdatePromptShown: Boolean = true,
-    val readingChallengeOnboardingShown: Boolean = true
+    val readingChallengeOnboardingShown: Boolean = true,
+    val searchWidgetInstallPromptShown: Boolean = true
 )
 
 abstract class BaseTest<T : AppCompatActivity>(
@@ -53,6 +54,11 @@ abstract class BaseTest<T : AppCompatActivity>(
 ) {
     @get:Rule
     val testLogRule = TestLogRule()
+
+    // On failure, names any dialog/sheet that was covering the screen — the usual hidden cause of a
+    // "no view found" failure. See ScreenStateReporter.
+    @get:Rule
+    val screenStateReporter = ScreenStateReporter()
 
     @get:Rule
     var activityScenarioRule: ActivityScenarioRule<T>
@@ -84,6 +90,7 @@ abstract class BaseTest<T : AppCompatActivity>(
             isSuggestedEditsHighestPriorityEnabled = dataInjector.isSuggestedEditsHighestPriorityEnabled
             isExploreFeedUpdatePromptShown = dataInjector.isExploreFeedUpdatePromptShown
             readingChallengeOnboardingShown = dataInjector.readingChallengeOnboardingShown
+            searchWidgetInstallPromptShown = dataInjector.searchWidgetInstallPromptShown
         }
         dataInjector.overrideEditsContribution?.let {
             Prefs.overrideSuggestedEditContribution = it

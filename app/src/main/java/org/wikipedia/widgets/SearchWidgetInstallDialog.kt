@@ -17,6 +17,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -43,6 +44,7 @@ class SearchWidgetInstallDialog : ExtendedBottomSheetDialogFragment(startExpande
             setContent {
                 BaseTheme {
                     InstallWidgetScreen(
+                        modifier = Modifier.testTag(SearchWidgetInstallDialogTestTags.ROOT),
                         title = stringResource(R.string.search_widget_install_prompt_title),
                         message = stringResource(R.string.search_widget_install_prompt_message),
                         onCloseClick = {
@@ -68,7 +70,9 @@ class SearchWidgetInstallDialog : ExtendedBottomSheetDialogFragment(startExpande
                         bottomContent = {
                             val pinSupported = pinWidgetSupported()
                             AppButton(
-                                modifier = Modifier.fillMaxWidth(),
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .testTag(SearchWidgetInstallDialogTestTags.PRIMARY_BUTTON),
                                 onClick = {
                                     if (pinSupported) {
                                         instrument.submitInteraction(action = "click", elementId = "install_add")
@@ -112,4 +116,9 @@ class SearchWidgetInstallDialog : ExtendedBottomSheetDialogFragment(startExpande
             ).isNotEmpty()
         }
     }
+}
+
+object SearchWidgetInstallDialogTestTags {
+    const val ROOT = "search_widget_install_root"
+    const val PRIMARY_BUTTON = "search_widget_install_primary"
 }

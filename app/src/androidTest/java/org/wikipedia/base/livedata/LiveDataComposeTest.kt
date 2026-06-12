@@ -27,6 +27,7 @@ import org.junit.After
 import org.junit.Assume.assumeTrue
 import org.junit.Before
 import org.junit.Rule
+import org.wikipedia.base.ScreenStateReporter
 import org.wikipedia.settings.Prefs
 
 /**
@@ -48,6 +49,11 @@ abstract class LiveDataComposeTest<A : AppCompatActivity>(
 
     @get:Rule
     val composeTestRule = createEmptyComposeRule()
+
+    // On failure, names any dialog/sheet that was covering the screen — the usual hidden cause of a
+    // "no node found" failure. See ScreenStateReporter.
+    @get:Rule
+    val screenStateReporter = ScreenStateReporter()
 
     @get:Rule
     val permissionRule: GrantPermissionRule =
@@ -92,6 +98,7 @@ abstract class LiveDataComposeTest<A : AppCompatActivity>(
         Prefs.showOneTimeCustomizeToolbarTooltip = false
         Prefs.readingListShareTooltipShown = true
         Prefs.isYearInReviewEnabled = false
+        Prefs.searchWidgetInstallPromptShown = true
     }
 
     /** Override to launch from a custom entry [Intent] (e.g. a deep link); default launches [activityClass]. */
