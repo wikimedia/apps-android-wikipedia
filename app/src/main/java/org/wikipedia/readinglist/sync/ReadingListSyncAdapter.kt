@@ -3,7 +3,6 @@ package org.wikipedia.readinglist.sync
 import android.content.ContentResolver
 import android.content.Context
 import android.os.Bundle
-import androidx.core.os.bundleOf
 import androidx.work.Constraints
 import androidx.work.CoroutineWorker
 import androidx.work.Data
@@ -539,12 +538,12 @@ class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : Corou
         }
 
         fun manualSyncWithForce() {
-            manualSync(bundleOf(SYNC_EXTRAS_FORCE_FULL_SYNC to true))
+            manualSync(Bundle().apply { putBoolean(SYNC_EXTRAS_FORCE_FULL_SYNC, true) })
         }
 
         fun manualSyncWithRefresh() {
             Prefs.isSuggestedEditsHighestPriorityEnabled = false
-            manualSync(bundleOf(SYNC_EXTRAS_REFRESHING to true))
+            manualSync(Bundle().apply { putBoolean(SYNC_EXTRAS_REFRESHING, true) })
         }
 
         fun manualSync(extras: Bundle = Bundle()) {

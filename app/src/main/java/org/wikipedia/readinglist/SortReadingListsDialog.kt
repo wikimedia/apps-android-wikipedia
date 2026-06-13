@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.R
@@ -83,7 +82,9 @@ class SortReadingListsDialog : ExtendedBottomSheetDialogFragment() {
 
         fun newInstance(sortOption: Int): SortReadingListsDialog {
             return SortReadingListsDialog().apply {
-                arguments = bundleOf(SORT_OPTION to sortOption)
+                arguments = Bundle().apply {
+                    putInt(SORT_OPTION, sortOption)
+                }
             }
         }
     }

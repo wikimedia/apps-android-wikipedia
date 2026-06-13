@@ -10,7 +10,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.SeekBar
 import android.widget.SeekBar.OnSeekBarChangeListener
-import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -347,8 +346,10 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
 
         fun newInstance(source: InvokeSource, isEditing: Boolean = false): ThemeChooserDialog {
             return ThemeChooserDialog().apply {
-                arguments = bundleOf(Constants.INTENT_EXTRA_INVOKE_SOURCE to source,
-                        EXTRA_IS_EDITING to isEditing)
+                arguments = Bundle().apply {
+                    putSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE, source)
+                    putBoolean(EXTRA_IS_EDITING, isEditing)
+                }
             }
         }
     }

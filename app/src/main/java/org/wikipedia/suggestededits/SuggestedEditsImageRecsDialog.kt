@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.widget.CheckBox
 import android.widget.CompoundButton
 import androidx.appcompat.app.AlertDialog
-import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.R
@@ -78,7 +77,9 @@ class SuggestedEditsImageRecsDialog : DialogFragment() {
 
         fun newInstance(response: Int): SuggestedEditsImageRecsDialog {
             return SuggestedEditsImageRecsDialog().apply {
-                arguments = bundleOf(ARG_RESPONSE to response)
+                arguments = Bundle().apply {
+                    putInt(ARG_RESPONSE, response)
+                }
             }
         }
     }
