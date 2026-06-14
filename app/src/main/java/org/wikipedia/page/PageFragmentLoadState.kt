@@ -6,6 +6,7 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.async
+import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -188,6 +189,20 @@ class PageFragmentLoadState(private var model: PageViewModel,
             val pageSummaryResponse = pageSummaryRequest.await()
             val watchedResponse = watchedRequest.await()
             val categoriesResponse = categoriesRequest.await()
+
+            // A newer page load may have superseded this one while we were awaiting the
+            // network. Cancellation is cooperative, so a load whose requests were served
+            // from cache (e.g. the article that was already open before a new one was
+            // launched via an external link) can resume past these await()s without ever
+            // observing the cancel() in pageLoad(). If we commit anyway, createPageModel()
+            // fuses this stale response's lead image with the current model.title, leaving
+            // the new article's text under the previous article's lead image (and a refresh
+            // that reloads the wrong page). Re-check that this load is still the current one
+            // before mutating any shared state. (T395597)
+            if (!isActive || model.title !== title) {
+                return@launch
+            }
+
             val isWatched = watchedResponse.query?.firstPage()?.watched == true
             val hasWatchlistExpiry = watchedResponse.query?.firstPage()?.hasWatchlistExpiry() == true
             if (pageSummaryResponse.body() == null) {

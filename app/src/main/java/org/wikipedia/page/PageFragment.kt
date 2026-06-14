@@ -1038,6 +1038,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         model.page = null
         model.readingListPage = null
         model.forceNetwork = isRefresh
+        // Clear the previous article's lead image immediately, so it can't remain on screen
+        // under the new article's text while the new page's metadata is still loading. (T395597)
+        leadImagesHandler.loadLeadImage()
         webView.visibility = View.VISIBLE
         binding.pageActionsTabLayout.visibility = View.VISIBLE
         binding.pageActionsTabLayout.enableAllTabs()
