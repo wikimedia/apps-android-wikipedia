@@ -2281,6 +2281,10 @@
   <string name="reading_challenge_install_prompt_message">Körpə qlobus sizi dəstəkləyir. Əsas ekrandan irəliləyişinizi izləmək üçün Oxuma Yarışması vidcetini əlavə edin.</string>
   <string name="reading_challenge_install_prompt_got_it">Başa düşdüm</string>
   <string name="reading_challenge_install_prompt_add">Əlavə et</string>
+  <string name="search_widget_install_prompt_title">Axtarış üçün daha sürətli bir yol</string>
+  <string name="search_widget_install_prompt_message">Əsas ekrandan biliklərə cəld giriş üçün Vikipediya Axtarış vidcetini quraşdırın.</string>
+  <string name="search_widget_install_prompt_add">Əlavə et</string>
+  <string name="search_widget_install_prompt_got_it">Başa düşdüm</string>
   <string name="reading_challenge_widget_explore_button">Kəşf et</string>
   <string name="reading_challenge_widget_explore_wikipedia_button">Vikipediyanı kəşf et</string>
   <string name="reading_challenge_widget_join_challenge_button">Yarışmaya qoşul</string>

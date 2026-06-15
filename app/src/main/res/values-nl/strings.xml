@@ -2326,6 +2326,10 @@
   <string name="reading_challenge_install_prompt_message">Baby Globe moedigt u aan. Voeg de widget \'Leesuitdaging\' toe om uw voortgang vanaf uw startscherm bij te houden.</string>
   <string name="reading_challenge_install_prompt_got_it">Begrepen</string>
   <string name="reading_challenge_install_prompt_add">Toevoegen</string>
+  <string name="search_widget_install_prompt_title">Een manier om sneller te zoeken</string>
+  <string name="search_widget_install_prompt_message">Installeer het zoekwidget voor Wikipedia voor directe toegang tot kennis vanaf uw startscherm</string>
+  <string name="search_widget_install_prompt_add">Toevoegen</string>
+  <string name="search_widget_install_prompt_got_it">Begrepen</string>
   <string name="reading_challenge_widget_explore_button">Verkennen</string>
   <string name="reading_challenge_widget_explore_wikipedia_button">Wikipedia verkennen</string>
   <string name="reading_challenge_widget_join_challenge_button">Meedoen aan de uitdaging</string>
