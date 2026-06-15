@@ -2249,6 +2249,8 @@
   <string name="reading_challenge_onboarding_prompt_login">Kirjaudu sisään / liity Wikipediaan</string>
   <string name="reading_challenge_install_prompt_got_it">Selvä</string>
   <string name="reading_challenge_install_prompt_add">Lisää</string>
+  <string name="search_widget_install_prompt_add">Lisää</string>
+  <string name="search_widget_install_prompt_got_it">Selvä</string>
   <string name="reading_challenge_widget_explore_button">Tutustu</string>
   <string name="reading_challenge_widget_explore_wikipedia_button">Tutustu Wikipediaan</string>
   <string name="reading_challenge_widget_join_challenge_button">Osallistu haasteeseen</string>

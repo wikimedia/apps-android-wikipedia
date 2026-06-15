@@ -2514,6 +2514,10 @@
   <string name="reading_challenge_install_prompt_message">Малюк Глобус підтримує вас. Додайте віджет читацького виклику, щоб відстежувати свій прогрес на головному екрані.</string>
   <string name="reading_challenge_install_prompt_got_it">Зрозуміло</string>
   <string name="reading_challenge_install_prompt_add">Додати</string>
+  <string name="search_widget_install_prompt_title">Швидший спосіб пошуку</string>
+  <string name="search_widget_install_prompt_message">Встановіть віджет пошуку у вікіпедії для миттєвого доступу до знань з головного екрана.</string>
+  <string name="search_widget_install_prompt_add">Додати</string>
+  <string name="search_widget_install_prompt_got_it">Зрозуміло</string>
   <string name="reading_challenge_widget_explore_button">Дослідити</string>
   <string name="reading_challenge_widget_explore_wikipedia_button">Дослідити Вікіпедію</string>
   <string name="reading_challenge_widget_join_challenge_button">Приєднатися до виклику</string>
