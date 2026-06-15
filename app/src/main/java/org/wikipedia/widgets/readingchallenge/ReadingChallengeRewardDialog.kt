@@ -2,7 +2,6 @@ package org.wikipedia.widgets.readingchallenge
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -54,6 +53,13 @@ class ReadingChallengeRewardDialog : ExtendedBottomSheetDialogFragment(startExpa
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ) = content {
+        instrument.submitInteraction(
+            action = "impression",
+            actionSource = "challenge_complete",
+            elementId = "collect_prize",
+            actionContext = mapOf("streak_count" to Prefs.readingChallengeStreak)
+        )
+
         BaseTheme {
             RewardScreen(
                 onCloseClick = {
@@ -71,15 +77,6 @@ class ReadingChallengeRewardDialog : ExtendedBottomSheetDialogFragment(startExpa
                 }
             )
         }
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        instrument.submitInteraction(
-            action = "impression",
-            actionSource = "challenge_complete",
-            elementId = "collect_prize",
-            actionContext = mapOf("streak_count" to Prefs.readingChallengeStreak)
-        )
     }
 }
 
