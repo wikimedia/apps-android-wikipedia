@@ -2227,6 +2227,10 @@
   <string name="reading_challenge_install_prompt_message">베이비 글로브가 여러분을 응원합니다! 읽기 도전 위젯을 홈 화면에 추가하여 진행 상황을 확인하세요.</string>
   <string name="reading_challenge_install_prompt_got_it">알겠습니다</string>
   <string name="reading_challenge_install_prompt_add">추가</string>
+  <string name="search_widget_install_prompt_title">더 빠른 검색 방법</string>
+  <string name="search_widget_install_prompt_message">위키백과 검색 위젯을 설치하면 홈 화면에서 지식에 즉시 접근할 수 있습니다.</string>
+  <string name="search_widget_install_prompt_add">추가</string>
+  <string name="search_widget_install_prompt_got_it">알겠습니다</string>
   <string name="reading_challenge_widget_explore_button">둘러보기</string>
   <string name="reading_challenge_widget_explore_wikipedia_button">위키백과 둘러보기</string>
   <string name="reading_challenge_widget_join_challenge_button">도전 참여</string>

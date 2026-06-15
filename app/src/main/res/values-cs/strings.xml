@@ -867,6 +867,7 @@
   <string name="view_random_article_card_title">Náhodný článek</string>
   <string name="view_random_article_card_action">Další náhodné články</string>
   <string name="view_top_read_card_title">Nejčtenější</string>
+  <string name="view_top_read_card_description">Co je dnes na Wikipedii populární</string>
   <string name="view_top_read_card_action">Další nejčtenější</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d tisíc</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d milionů</string>
@@ -1750,6 +1751,9 @@
   <string name="recommended_reading_list_interest_source_message">Jak bychom měli sestavit váš doporučený seznam k přečtení?</string>
   <string name="recommended_reading_list_interest_source_interests">Nechte mě vybrat si na základě svých zájmů</string>
   <string name="recommended_reading_list_interest_source_history">Vyberte pro mě na základě mé historie čtení</string>
+  <string name="recommended_reading_list_interest_pick_title">O co máte zájem?</string>
+  <string name="recommended_reading_list_interest_pick_search_hint">Vyhledat článek</string>
+  <string name="recommended_reading_list_interest_select_minimum">Vyberte alespoň jeden zájem</string>
   <string name="recommended_reading_list_page_subtitle_made_for">Sestaveno pro %s</string>
   <string name="recommended_reading_list_page_description_weekly">Váš týdenní seznam k přečtení. Dozvíte se o nových tématech vybraných jen pro vás. Aktualizuje se na začátku týdne.</string>
   <string name="recommended_reading_list_page_overflow_customize">Přizpůsobit</string>
@@ -1784,4 +1788,13 @@
   <string name="donation_reminders_prompt_negative_button">Teď ne</string>
   <string name="donation_reminders_gpay_text">Darovat %s přes Google Pay</string>
   <string name="donation_reminders_gpay_different_amount_text">Darovat jinou částku pomocí Google Pay</string>
+  <string name="explore_feed_customize_interests">Přizpůsobit zájmy</string>
+  <string name="explore_feed_community_tab_label">Komunita</string>
+  <string name="explore_feed_for_you_tab_label">Pro vás</string>
+  <string name="explore_feed_deselect_all_button_label">Zrušit celý výběr</string>
+  <string name="explore_feed_community_disclaimer">Obsah a zdroje vybrané komunitou Wikimedia a týkající se této komunity</string>
+  <string name="explore_feed_community_load_more_label">Prohlédnout minulý obsah komunity</string>
+  <string name="explore_feed_manage_languages_label">Spravovat jazyky</string>
+  <string name="explore_feed_header_overflow_hide_module_label">Skrýt modul</string>
+  <string name="explore_feed_because_you_read">Protože jste četli: %s</string>
 </resources>

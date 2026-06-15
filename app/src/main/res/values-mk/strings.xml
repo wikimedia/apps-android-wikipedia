@@ -2293,6 +2293,10 @@
   <string name="reading_challenge_install_prompt_message">Глобусчето ве бодри. Додајте го елементот Читателски предизвик за да го следите вашиот напредок од почетниот екран.</string>
   <string name="reading_challenge_install_prompt_got_it">Јасно</string>
   <string name="reading_challenge_install_prompt_add">Додај</string>
+  <string name="search_widget_install_prompt_title">Побрз начин за пребарување</string>
+  <string name="search_widget_install_prompt_message">Воспоставете го елементот Пребарување на Википедија за непосреден пристап до знаење од вашиот почетен екран.</string>
+  <string name="search_widget_install_prompt_add">Додај</string>
+  <string name="search_widget_install_prompt_got_it">Јасно</string>
   <string name="reading_challenge_widget_explore_button">Истражи</string>
   <string name="reading_challenge_widget_explore_wikipedia_button">Истражете ја Википедија</string>
   <string name="reading_challenge_widget_join_challenge_button">Придружи се на предизвикот</string>
@@ -2407,6 +2411,7 @@
   <string name="home_feed_for_you_screen_empty_ways_to_start">Начини да почнете:</string>
   <string name="home_feed_for_you_screen_empty_add_interests">Додајте &lt;a href=\"#add_interests\"&gt;некои интереси&lt;/a&gt;</string>
   <string name="home_feed_for_you_screen_empty_see_community">Погледајте ги случувањата во &lt;a href=\"#community_tab\"&gt;заедницата&lt;/a&gt;</string>
+  <string name="home_feed_update_tooltip1">Ново: „Случајна статија“ и „Места од интерес“ се достапни во „За вас“ и „Дали сте знаеле“ во јазичето „Заедница“.</string>
   <string name="home_feed_random_title">Случајна</string>
   <string name="home_feed_random_subtitle">Случајна статија која ќе ја поттикне вашата љубопитност</string>
   <string name="home_feed_random_shuffle_button">Измешај</string>
