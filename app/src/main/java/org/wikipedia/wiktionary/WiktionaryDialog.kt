@@ -23,7 +23,8 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
     private val viewModel: WiktionaryViewModel by viewModels()
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ) = content {
         LocalView.current.setLayoutDirectionByLang(viewModel.pageTitle.wikiSite.languageCode)
