@@ -59,6 +59,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.extensions.getString
 import org.wikipedia.feed.becauseyouread.BecauseYouReadModule
 import org.wikipedia.feed.continuereading.ContinueReadingModule
+import org.wikipedia.feed.discover.DiscoverArticlesModule
 import org.wikipedia.feed.discover.DiscoverEnablePromptModule
 import org.wikipedia.feed.interests.BasedOnInterestModule
 import org.wikipedia.feed.model.Card
@@ -89,7 +90,8 @@ fun ForYouContentTab(
     onSelectTab: (HomeTab, Card?) -> Unit = { _, _ -> },
     onShuffleClick: () -> Unit = {},
     onPlacesCtaClick: () -> Unit = {},
-    onDiscoverCtaClick: () -> Unit = {}
+    onEnableDiscoverClick: () -> Unit = {},
+    onSeeAllRecommendationClick: () -> Unit = {}
 ) {
     when {
         state.isInitialLoading -> {
@@ -191,7 +193,8 @@ fun ForYouContentTab(
                                 onCustomizeInterestsClick = onCustomizeInterestsClick,
                                 onShuffleClick = onShuffleClick,
                                 onPlacesCtaClick = onPlacesCtaClick,
-                                onDiscoverCtaClick = onDiscoverCtaClick
+                                onEnableDiscoverClick = onEnableDiscoverClick,
+                                onSeeAllRecommendationClick = onSeeAllRecommendationClick
                             )
                         }
 
@@ -250,7 +253,8 @@ fun ForYouContentTab(
                                 onCustomizeInterestsClick = onCustomizeInterestsClick,
                                 onShuffleClick = onShuffleClick,
                                 onPlacesCtaClick = onPlacesCtaClick,
-                                onDiscoverCtaClick = onDiscoverCtaClick
+                                onEnableDiscoverClick = onEnableDiscoverClick,
+                                onSeeAllRecommendationClick = onSeeAllRecommendationClick
                             )
                         }
                     }
@@ -275,7 +279,8 @@ private fun LazyListScope.forYouModuleItem(
     onCustomizeInterestsClick: (card: Card) -> Unit,
     onShuffleClick: () -> Unit,
     onPlacesCtaClick: () -> Unit,
-    onDiscoverCtaClick: () -> Unit
+    onEnableDiscoverClick: () -> Unit,
+    onSeeAllRecommendationClick: () -> Unit
 ) {
     val key = "${module.javaClass.simpleName}-${module.age}-$index"
     when (module) {
@@ -402,15 +407,25 @@ private fun LazyListScope.forYouModuleItem(
                                 .padding(top = (topInset * 2 + 64).dp)
                                 .navigationBarsPadding(),
                             wikiSite = wikiSite,
-                            onEnableDiscoverClick = onDiscoverCtaClick
+                            onEnableDiscoverClick = onEnableDiscoverClick
                         )
                     }
                     else -> {
-                        // TODO: replace with the Discover article card UI + "see all" slide.
-                        Box(
+                        DiscoverArticlesModule(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .height(viewPortHeight)
+                                .height(viewPortHeight),
+                            topInset = topInset,
+                            wikiSite = wikiSite,
+                            module = module,
+                            onPageClick = onPageClick,
+                            onPageShareClick = onPageShareClick,
+                            onPageBookmarkClick = onPageBookmarkClick,
+                            onHideCardClick = onHideCardClick,
+                            onHideModuleClick = { onHideModuleClick(module.moduleKey()) },
+                            onCardInView = { onCardImpression(it, index) },
+                            onCustomizeInterestsClick = onCustomizeInterestsClick,
+                            onSeeAllRecommendationClick = onSeeAllRecommendationClick
                         )
                     }
                 }

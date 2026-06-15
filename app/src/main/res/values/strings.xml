@@ -2564,6 +2564,10 @@
     <string name="home_feed_discover_cta_title">From Discover</string>
     <string name="home_feed_discover_cta_description">Learn about new topics, picked just for you. Choose between daily, weekly or monthly updates.</string>
     <string name="home_feed_discover_cta_button">Enable Discover reading list</string>
+    <string name="home_feed_discover_card_footer">From your Discover reading list</string>
+    <string name="home_feed_discover_see_all_title">There\'s more to discover</string>
+    <string name="home_feed_discover_see_all_description">Your personalized reading list has more stories picked just for you.</string>
+    <string name="home_feed_discover_see_all_button">Explore all recommendations</string>
     <string name="home_feed_places_of_interest_card_footer">%1$s • Based on your location in Places</string>
     <string name="home_feed_for_you_screen_end_of_feed_title">That\'s it for today!</string>
     <string name="home_feed_for_you_screen_end_of_feed_description">Come back tomorrow to find fresh new articles customized for you.</string>

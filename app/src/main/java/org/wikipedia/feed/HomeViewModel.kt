@@ -49,6 +49,7 @@ import org.wikipedia.feed.model.DiscoverCard
 import org.wikipedia.feed.model.ForYouCard
 import org.wikipedia.feed.model.PlacesOfInterestCard
 import org.wikipedia.feed.model.RandomCard
+import org.wikipedia.feed.model.SeeAllRecommendationCard
 import org.wikipedia.feed.news.NewsCard
 import org.wikipedia.feed.onthisday.OnThisDayCard
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
@@ -58,6 +59,7 @@ import org.wikipedia.json.JsonUtil
 import org.wikipedia.json.LocalDateTimeSerializer
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingListPage
+import org.wikipedia.readinglist.recommended.RecommendedReadingListHelper
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SettingsRepository
 import org.wikipedia.settings.homefeed.CommunityModuleType
@@ -73,6 +75,7 @@ import java.util.Locale
 
 enum class HomeTab { COMMUNITY, FOR_YOU }
 private const val MAX_STOP_TIMEOUT_MILLIS = 5000L
+private const val MAX_DISCOVER_ARTICLE_CARDS = 4
 private const val PLACES_ARTICLES_REQUEST_LIMIT = 10
 private const val PLACES_SEARCH_RADIUS_METERS = 10000
 
@@ -682,13 +685,12 @@ class HomeViewModel : ViewModel() {
     /**
      * Builds the Discover module from the locally stored recommended pages. When the feature is
      * disabled, returns a module flagged as such so the UI can show the setup prompt.
-     * TODO: trigger RecommendedReadingListHelper.generateRecommendedReadingList()
      */
     private suspend fun buildDiscoverModule(): ForYouModule.Discover {
         if (!Prefs.isRecommendedReadingListEnabled) {
             return ForYouModule.Discover(age = 0, index = 0, cards = emptyList(), isEnabled = false)
         }
-        val cards = AppDatabase.instance.recommendedPageDao().getNewRecommendedPages().map { page ->
+        val cards = RecommendedReadingListHelper.generateRecommendedReadingList(Prefs.resetRecommendedReadingList).map { page ->
             DiscoverCard(
                 PageTitle(
                     text = page.apiTitle,
@@ -699,7 +701,12 @@ class HomeViewModel : ViewModel() {
                 )
             )
         }
-        return ForYouModule.Discover(age = 0, index = 0, cards = cards, isEnabled = true)
+        val displayCards = if (cards.size > MAX_DISCOVER_ARTICLE_CARDS) {
+            cards.take(MAX_DISCOVER_ARTICLE_CARDS) + SeeAllRecommendationCard()
+        } else {
+            cards
+        }
+        return ForYouModule.Discover(age = 0, index = 0, cards = displayCards, isEnabled = true)
     }
 
     private suspend fun buildPlacesModule(): ForYouModule.PlacesOfInterest? {

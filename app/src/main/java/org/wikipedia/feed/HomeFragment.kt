@@ -47,6 +47,9 @@ import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.places.PlacesActivity
 import org.wikipedia.random.RandomActivity
+import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingActivity
+import org.wikipedia.readinglist.recommended.RecommendedReadingListSettingsActivity
+import org.wikipedia.readinglist.recommended.RecommendedReadingListSource
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.homefeed.HomeFeedSettingsActivity
 import org.wikipedia.settings.homefeed.HomeFeedSettingsStartDestination
@@ -282,8 +285,16 @@ class HomeFragment : Fragment() {
                             instrument.submitInteraction("click", actionSource = PlacesOfInterestLocationPromptCard::class.java.simpleName, elementId = "go_to_places")
                             requireActivity().startActivity(PlacesActivity.newIntent(requireContext()))
                         },
-                        onDiscoverCtaClick = {
-                            // @TODO: open discover recommended reading list settings
+                        onEnableDiscoverClick = {
+                            if (Prefs.recommendedReadingListInterests.isEmpty() &&
+                                Prefs.recommendedReadingListSource == RecommendedReadingListSource.INTERESTS) {
+                                requireActivity().startActivity(RecommendedReadingListOnboardingActivity.newIntent(requireContext()))
+                            } else {
+                                requireActivity().startActivity(RecommendedReadingListSettingsActivity.newIntent(requireContext()))
+                            }
+                        },
+                        onSeeAllRecommendationClick = {
+                            // @TODO: open the full Discover recommended reading list
                         }
                     )
 

@@ -2303,6 +2303,10 @@
   <string name="home_feed_discover_cta_title">Section title for the Discover module in the home feed.</string>
   <string name="home_feed_discover_cta_description">Description explaining that Discover recommends articles picked for the user, with a choice of daily, weekly, or monthly updates.</string>
   <string name="home_feed_discover_cta_button">Button text that enables the Discover reading list.</string>
+  <string name="home_feed_discover_card_footer">Footer label shown on a Discover article card, indicating the article comes from the user\'s Discover reading list.</string>
+  <string name="home_feed_discover_see_all_title">Title of the final card in the Discover module, inviting the user to view the rest of their recommendations.</string>
+  <string name="home_feed_discover_see_all_description">Description on the final Discover card explaining that the personalized reading list has more articles to explore.</string>
+  <string name="home_feed_discover_see_all_button">Button text on the final Discover card that opens the full recommended reading list.</string>
   <string name="home_feed_places_of_interest_card_footer">Footer text shown on a Places of Interest article card, displaying the article date followed by an indication that the recommendation is based on the user\'s selected location in Places. %1$s is replaced by distance.</string>
   <string name="home_feed_for_you_screen_end_of_feed_title">Title text shown when the user reaches the end of the personalized feed for the day.</string>
   <string name="home_feed_for_you_screen_end_of_feed_description">Description text encouraging the user to return later for refreshed personalized articles.</string>
