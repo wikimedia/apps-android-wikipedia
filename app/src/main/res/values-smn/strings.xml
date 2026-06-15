@@ -65,9 +65,9 @@
   <string name="menu_page_show_tabs">Čääiti koskâloostâid</string>
   <string name="menu_page_other_languages">Molso kielâ</string>
   <string name="menu_page_find_in_page">Uusâ artikkâlist</string>
-  <string name="menu_page_add_to_watchlist">Lasseet tarkkumliiston</string>
+  <string name="menu_page_add_to_watchlist">Lasseet čuávvumliiston</string>
   <string name="menu_page_watch">Čuávu</string>
-  <string name="menu_page_unwatch">Jooskâ tarkkuustâllâm</string>
+  <string name="menu_page_unwatch">Jooskâ čuávumist</string>
   <string name="menu_page_view_talk">Čääiti savâstâllâmsiijđo</string>
   <string name="menu_page_talk_page">Savâstâllâmsijđo</string>
   <string name="menu_page_view_edit_history">Čääiti hammimhistorjá</string>
@@ -172,7 +172,7 @@
   <string name="preference_title_sync_reading_lists_from_account">Luuhâmlistoi synkronisistem</string>
   <string name="preference_title_download_reading_list_articles">Luođii luuhâmlisto artikkâlijd</string>
   <string name="history_filter_list_hint">Sillii historjá</string>
-  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Lasseet tarkkumliiston</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Lasseet čuávvumliiston</string>
   <string name="settings_item_preferences">Asâttâsah</string>
   <string name="settings_activity_title">Asâttâsah</string>
   <string name="privacy_policy_description">Tiätusyejikeevâtlâšvuotâ</string>

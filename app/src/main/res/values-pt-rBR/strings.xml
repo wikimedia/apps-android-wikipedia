@@ -2186,6 +2186,10 @@
   <string name="reading_challenge_install_prompt_message">O Bebê Globo está torcendo por você. Adicione o widget do Desafio de Leitura para acompanhar seu progresso diretamente da tela inicial.</string>
   <string name="reading_challenge_install_prompt_got_it">Entendi</string>
   <string name="reading_challenge_install_prompt_add">Adicionar</string>
+  <string name="search_widget_install_prompt_title">Uma maneira mais rápida de pesquisar</string>
+  <string name="search_widget_install_prompt_message">Instale o widget de pesquisa da Wikipédia para ter acesso imediato ao conhecimento diretamente da sua tela inicial.</string>
+  <string name="search_widget_install_prompt_add">Adicionar</string>
+  <string name="search_widget_install_prompt_got_it">Entendi</string>
   <string name="reading_challenge_widget_explore_button">Explorar</string>
   <string name="reading_challenge_widget_explore_wikipedia_button">Explora Wikipédia</string>
   <string name="reading_challenge_widget_join_challenge_button">Participe do desafio</string>
@@ -2299,6 +2303,8 @@
   <string name="home_feed_settings_feed_configuration_description">Esses tópicos e artigos determinam o que aparece no seu feed \"Para você\". Remova aqueles que você não deseja mais ver ou adicione novos interesses.</string>
   <string name="home_feed_settings_feed_configuration_interest_title">Seus interesses</string>
   <string name="home_feed_settings_feed_configuration_interest_subtitle">Edite seus tópicos de interesse</string>
+  <string name="home_feed_settings_feed_configuration_location_title">Sua localização</string>
+  <string name="home_feed_settings_feed_configuration_location_subtitle">Atualize sua localização nos Locais para ver artigos nas proximidades</string>
   <string name="home_feed_settings_feed_configuration_empty_interest_subtitle">Sua lista de interesses está vazia. Adicione algo que te desperte a curiosidade.</string>
   <string name="home_feed_settings_feed_configuration_reading_history_title">Histórico de leitura</string>
   <string name="home_feed_settings_feed_configuration_reading_history_subtitle">Veja os artigos que leu recentemente</string>
@@ -2306,6 +2312,12 @@
   <string name="home_feed_settings_feed_configuration_languages_title">Idiomas</string>
   <string name="home_feed_settings_feed_configuration_languages_subtitle">Edite seus idiomas preferidos</string>
   <string name="home_feed_settings_feed_configuration_interests_updated_message">Interesses atualizados. Atualize seu feed para ver as novidades.</string>
+  <string name="home_feed_places_of_interest_cta_title">Histórias de lugares que você adora</string>
+  <string name="home_feed_places_of_interest_cta_description">Atualize sua localização nos Locais para ver artigos nas proximidades</string>
+  <string name="home_feed_places_of_interest_cta_button">Ir para Locais</string>
+  <string name="home_feed_settings_places_of_interest_title">Lugares de interesse</string>
+  <string name="home_feed_settings_places_of_interest_subtitle">Artigos próximos à sua última localização nos Locais</string>
+  <string name="home_feed_places_of_interest_card_footer">%1$s • Com base na sua localização nos Locais</string>
   <string name="home_feed_for_you_screen_end_of_feed_title">Por hoje é só!</string>
   <string name="home_feed_for_you_screen_end_of_feed_description">Volte amanhã para encontrar novos artigos personalizados para você.</string>
   <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Formas de continuar aprendendo:</string>
