@@ -33,11 +33,7 @@ class SearchWidgetInstallDialog : ExtendedBottomSheetDialogFragment(startExpande
     private val instrument = TestKitchenAdapter.client.getInstrument("apps-widgetsearch")
         .setDefaultActionSource("widget_search_install")
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ) = content {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) = content {
         instrument.submitInteraction(action = "impression")
         Prefs.searchWidgetInstallPromptShown = true
 

@@ -81,11 +81,7 @@ class HomeFragment : Fragment() {
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ) = content {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) = content {
         val selectedTab by viewModel.selectedTab.collectAsState()
         val wikiSite by viewModel.wikiSite.collectAsState()
         val tabsState by viewModel.tabsState.collectAsState()

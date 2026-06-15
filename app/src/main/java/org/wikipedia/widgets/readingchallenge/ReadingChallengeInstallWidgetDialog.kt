@@ -44,11 +44,7 @@ class ReadingChallengeInstallWidgetDialog : ExtendedBottomSheetDialogFragment(st
         .setDefaultActionSource("widget_challenge_install")
         .startFunnel("widget_challenge")
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ) = content {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) = content {
         instrument.submitInteraction(action = "impression")
         Prefs.readingChallengeInstallPromptShown = true
 

@@ -48,11 +48,7 @@ class ReadingChallengeRewardDialog : ExtendedBottomSheetDialogFragment(startExpa
     private val instrument = TestKitchenAdapter.client.getInstrument("apps-widgetchallenge")
         .startFunnel("widget_challenge")
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ) = content {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) = content {
         instrument.submitInteraction(
             action = "impression",
             actionSource = "challenge_complete",

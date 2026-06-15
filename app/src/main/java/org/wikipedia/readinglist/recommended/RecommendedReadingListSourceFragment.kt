@@ -21,13 +21,8 @@ class RecommendedReadingListSourceFragment : Fragment() {
 
     private val viewModel: RecommendedReadingListSourceViewModel by viewModels()
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ) = content {
-        val activeInterface =
-            if (viewModel.fromSettings) "settings_hub_select" else "rrl_hub_select"
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) = content {
+        val activeInterface = if (viewModel.fromSettings) "settings_hub_select" else "rrl_hub_select"
 
         RecommendedReadingListEvent.submit(
             "impression",

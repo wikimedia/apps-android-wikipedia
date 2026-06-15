@@ -56,10 +56,7 @@ import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetWorker
 import java.time.LocalDate
 
 class ReadingChallengePlayGroundDialog : ExtendedBottomSheetDialogFragment(startExpanded = true) {
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ) = content {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) = content {
         val repository = remember { ReadingChallengeWidgetRepository(requireContext()) }
         val stateFlow = remember { repository.observeState() }
         val coroutineScope = rememberCoroutineScope()

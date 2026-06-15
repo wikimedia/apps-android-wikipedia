@@ -60,11 +60,7 @@ class WatchlistExpiryDialog : ExtendedBottomSheetDialogFragment() {
     private val expiryList = listOf(WatchlistExpiry.NEVER, WatchlistExpiry.ONE_WEEK, WatchlistExpiry.ONE_MONTH,
             WatchlistExpiry.THREE_MONTH, WatchlistExpiry.SIX_MONTH)
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ) = content {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) = content {
         BaseTheme {
             WatchlistExpiryDialogView(
                 modifier = Modifier

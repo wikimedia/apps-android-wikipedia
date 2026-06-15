@@ -96,11 +96,7 @@ class RecommendedReadingListInterestsFragment : Fragment() {
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ) = content {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) = content {
         BaseTheme {
             RecommendedReadingListInterestsScreen(
                 uiState = viewModel.uiState.collectAsState().value,

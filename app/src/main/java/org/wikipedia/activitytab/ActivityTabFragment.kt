@@ -143,11 +143,7 @@ class ActivityTabFragment : Fragment() {
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ) = content {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) = content {
         BaseTheme {
             val scrollToGames = viewModel.scrollToGames.collectAsState().value
             ActivityTabScreen(
