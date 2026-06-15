@@ -162,6 +162,7 @@
   <string name="map_view_link_text">Haritada görüntüle</string>
   <string name="other_languages_indication_text">Başka dilde oku</string>
   <string name="language_count_link_text">%d farklı dilde mevcut</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">Yayımlayarak &lt;a href=\"%1$s\"&gt;Kullanım Şartları&lt;/a&gt;\'nı ve katkılarınızı geri dönülemez şekilde &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; lisansıyla yayımlamayı kabul etmiş olursunuz.</string>
   <string name="edit_save_action_license_anon">Yayımlayarak &lt;a href=\"%1$s\"&gt;Kullanım Şartları&lt;/a&gt;\'nı ve katkılarınızı geri dönülemez şekilde &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; lisansıyla yayınlamayı kabul etmiş olursunuz. Değişiklikleriniz cihazınızın IP adresiyle kaydedilecek. Eğer &lt;a href=\"https://#login\"&gt;giriş yaparsanız&lt;/a&gt; daha fazla gizliliğe sahip olursunuz.</string>
   <string name="edit_anon_warning">Değişiklikler cihazınızın IP adresiyle yayınlanır.  &lt;a href=\"https://#login\"&gt;Oturum açarsanız yaparsanız&lt;/a&gt; daha fazla gizlilik sağlayabilirsiniz.</string>
@@ -225,6 +226,7 @@
   <string name="logged_out_in_background_cancel">İptal</string>
   <string name="account_vanish_request_title">Hesabı yok et</string>
   <string name="account_vanish_request_confirm_title">Hesabı yok etme uyarısı</string>
+  <string name="account_vanish_request_confirm">Hesap silme &lt;b&gt;son çare&lt;/b&gt;dir ve &lt;b&gt;yalnızca düzenlemeyi tamamen bırakmak istediğinizde&lt;/b&gt; ve geçmiş ilişkilerinizi mümkün olduğunca gizlemek istediğinizde kullanılmalıdır.&lt;br/&gt;&lt;br/&gt;Vikipedi\'de hesap silme, hesap adınızı değiştirerek başkalarının katkılarınızı tanıyamamasını sağlayan hesap gizleme adı verilen bir işlemle yapılır. &lt;b&gt;Hesap gizleme, tam anonimlik garanti etmez veya projelere yapılan katkıları kaldırmaz&lt;/b&gt;.</string>
   <string name="history_empty_title">Yakın zamanda görüntülenen madde yok</string>
   <string name="history_empty_message">Okuduklarınızı buradan takip edin.</string>
   <string name="history_offline_articles_toast">Geçmişteki bazı maddeler, çevrimdışı iken görünmeyebilir.</string>
@@ -290,10 +292,13 @@
   <string name="about_description">Vikipedi uygulaması hakkında</string>
   <string name="privacy_policy_description">Gizlilik politikası</string>
   <string name="terms_of_use_description">Kullanım şartları</string>
+  <string name="legal_safety_contacts_description">Hukuki ve güvenlik iletişim</string>
   <string name="about_wikipedia_url">https://tr.wikipedia.org/wiki/Vikipedi:Hakkında</string>
-  <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/tr</string>
+  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tr#Offline_reading_and_data</string>
-  <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Terms_of_Use</string>
+  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.tr</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.tr</string>
   <string name="about_libraries_heading">Kullanılan kütüphaneler</string>
@@ -434,8 +439,10 @@
   <string name="button_get_directions">Yol tarifi al</string>
   <string name="error_no_maps_app">Tarif verebilecek herhangi bir uygulama bulunamadı.</string>
   <string name="preference_title_customize_explore_feed">Yayın Akışını Keşfedin</string>
+  <string name="preference_title_customize_home_feed">Ana akış</string>
   <string name="preference_title_show_link_previews">Bağlantı önizlemelerini göster</string>
   <string name="preference_summary_customize_explore_feed">Keşfet akışını özelleştir</string>
+  <string name="preference_summary_customize_home_feed">Ana akışınızı özelleştirin</string>
   <string name="preference_summary_show_link_previews">Bağlantılara dokunduğunuzda maddelerin hızlı bir önizlemesini göster.</string>
   <string name="preference_title_collapse_tables">Tabloları daralt</string>
   <string name="preference_summary_collapse_tables">Bilgi kutuları, kaynakça ve notlar gibi maddelerdeki tabloları otomatik olarak daralt.</string>
@@ -484,9 +491,15 @@
   <string name="error_blocked_footer_no_blocker">Engellemeyi görüşmek için bir &lt;a href=\"https://tr.wikipedia.org/wiki/Vikipedi:Hizmetliler#Hizmetliler_listesi\"&gt;hizmetli&lt;/a&gt; ile iletişime geçebilirsiniz.</string>
   <string name="temp_account_not_logged_in">Oturum açmadınız</string>
   <string name="temp_account_anon_ip_dialog_body">Bir değişiklik yaptığınızda, IP adresiniz değişikliklerinizle ilişkilendirilecektir.\n&lt;br /&gt;&lt;br /&gt;Gelecekteki düzenlemelerinizi kaydetmek ve diğer özelliklere erişmek için &lt;a href=\"https://#login\"&gt;Giriş yapın&lt;/a&gt; veya &lt;a href=\"https://#createaccount\"&gt;hesap oluşturun&lt;/a&gt;.</string>
+  <string name="temp_account_anon_dialog_body">Bir düzenleme yaptığınızda gizliliğinizi korumak için &lt;b&gt;geçici bir hesap&lt;/b&gt; oluşturulacaktır. &lt;a href=\"%1$s\"&gt;Daha fazla bilgi edinin&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Giriş yapın&lt;/a&gt; veya gelecekteki düzenlemelerinizin size atfedilmesi ve diğer özelliklere erişim için &lt;a href=\"https://#createaccount\"&gt;hesap oluşturun&lt;/a&gt;.</string>
+  <string name="temp_account_temp_dialog_body">Düzenlemeniz %1$s\'e atfedilecektir. IP adresiniz yöneticiler tarafından görülebilir olacaktır.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Giriş yaparsanız&lt;/a&gt; veya &lt;a href=\"https://#createaccount\"&gt;hesap oluşturursanız&lt;/a&gt;, düzenlemeleriniz seçtiğiniz bir isme atfedilecek ve diğer avantajlardan yararlanacaksınız.</string>
   <string name="temp_account_dialog_ok">Anladım</string>
   <string name="temp_account_using_title">Geçici bir hesap kullanıyorsunuz</string>
   <string name="temp_account_dialog_discard">Değişiklikleri silin ve oturum açın</string>
+  <plurals name="temp_account_created">
+    <item quantity="one">Düzenlemeniz yayınlandıktan sonra %1$s adlı geçici hesap oluşturuldu. %2$d gün sonra süresi dolacak.</item>
+    <item quantity="other">Düzenlemeniz yayınlandıktan sonra %1$s adlı geçici hesap oluşturuldu. %2$d gün sonra süresi dolacak.</item>
+  </plurals>
   <plurals name="temp_account_expiry">
     <item quantity="one">Hesabın %d gün içinde süresi dolacak.</item>
     <item quantity="other">Hesabın %d gün içinde süresi dolacak.</item>
@@ -819,6 +832,7 @@
   <string name="notifications_select_all_filters">Tüm filtreleri seç</string>
   <string name="notifications_tab_filter_all">Hepsi</string>
   <string name="notifications_tab_filter_mentions">Bahsetmeler</string>
+  <string name="notifications_tab_filter_unread">(%s)</string>
   <string name="notifications_search_bar_hint">Bildirimleri filtrele ya da ara</string>
   <string name="notifications_search_bar_filter_hint">Bildirim filtresi</string>
   <string name="notifications_menu_mark_as_read">Okunmuş olarak işaretle</string>
@@ -838,9 +852,11 @@
   <string name="view_random_article_card_title">Rastgele madde</string>
   <string name="view_random_article_card_action">Daha fazla rastgele maddeler</string>
   <string name="view_top_read_card_title">En çok okunanlar</string>
+  <string name="view_top_read_card_description">Vikipedi\'de bugün trend olan nedir</string>
   <string name="view_top_read_card_action">Daha en çok okunanlar</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d b</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
+  <string name="view_top_read_card_pageviews_views_suffix">görüntülenme</string>
   <string name="view_next_random_article">Başka bir rastgele madde yükle</string>
   <string name="view_main_page_card_title">Vikipedi\'de bugün</string>
   <string name="view_main_page_card_action">Ana sayfayı görüntüle</string>
@@ -881,11 +897,11 @@
   <string name="feed_item_type_randomizer">Okumak için rastgele madde oluştur</string>
   <string name="feed_item_type_suggested_edits">Vikipedi\'ye içerik eklemek için öneriler</string>
   <string name="feed_item_type_places">Mevcut konumunuza dayalı yakınlardaki makaleler</string>
-  <string name="feed_empty_message" fuzzy="true">İçeriği Keşfet\'inizde hiçbir şey yok</string>
+  <string name="feed_empty_message">Ana akışınızda hiçbir şey yok</string>
   <string name="feed_configure_onboarding_action">Özelleştir</string>
   <string name="customize_lang_selection_dialog_ok_button_text">Tamam</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">İptal</string>
-  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Keşfet özet akışınızı özelleştirme&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Artık akışınızda neyin gösterileceğini seçebilir ve en sevdiğiniz içerik türlerine öncelik de verebilirsiniz.</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Ana akışınızı özelleştirin&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Artık akışınızda neyin gösterileceğini seçebilir, ayrıca Vikipedi dillerinize göre öncelik sırasını belirleyebilirsiniz.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">Tamam</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">İptal</string>
   <string name="feed_accessibility_card_text">Yayının altına ulaştınız.</string>
@@ -918,7 +934,7 @@
   <string name="description_edit_help_title">Bilgi: Madde açıklamaları</string>
   <string name="description_edit_help_about_wikidata">Vikiveri hakkında</string>
   <string name="description_edit_help_wikidata_guide">Tanım yazımı için Vikiveri rehberi</string>
-  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description/tr#İngilizce_açıklamalar_için_yönergeler</string>
+  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Special:MyLanguage/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Madde tanımlarını düzenlemeye olan ilginiz için teşekkürler! Daha fazla değişiklik yapmak için lütfen Vikipedi hesabınıza giriş yapın.</string>
   <string name="description_edit_license_notice">Madde tanımını değiştirerek &lt;a href=\"%1$s\"&gt;Kullanım Şartları&lt;/a&gt;nı ve katkılarımı geri dönülemez şekilde &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lisansıyla yayımlamayı kabul ediyorum.</string>
   <string name="description_edit_helper_text_lowercase_warning">genellikle küçük harfle başlar</string>
@@ -1108,6 +1124,7 @@
   </plurals>
   <string name="suggested_edits_contribution_seen_text">Son 30 gün içinde %s kez görüldü.</string>
   <string name="suggested_edits_image_tag_contribution_label">%d etiket eklediniz</string>
+  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Dün</string>
   <string name="suggested_edits_encourage_account_creation_title">Herkesin Vikipedi\'yi düzenleyebileceğini biliyor muydunuz?</string>
   <string name="suggested_edits_encourage_account_creation_message">Önerilen düzenlemeler, Android\'de Vikipedi\'yi düzenlemenin yeni bir yoludur. Vikipedi\'ye küçük ancak hayati katkılar yapmanıza yardımcı olur.\nAmacımız, düzenlemeyi herkes için daha kolay ve daha erişilebilir hale getirmektir! Başlamak için oturum açın veya Vikipedi\'ye katılın.</string>
@@ -1172,6 +1189,8 @@
   <string name="edit_summary_added_caption">Alt yazı eklendi</string>
   <string name="edit_summary_added_image_and_caption">Görsel ve alt yazı eklendi</string>
   <string name="edit_published_view">Görüntüle</string>
+  <string name="activity_tab_logged_out_title">Vikipedi uygulamasındaki etkinliğinizi görüntülemek için giriş yapın veya hesap oluşturun</string>
+  <string name="activity_tab_user_reading">%s\'nin okumaları</string>
   <string name="activity_tab_on_wikipedia_android">Vikipedi Android\'de</string>
   <string name="activity_tab_weekly_time_spent_hm">%1$ds %2$dd</string>
   <string name="activity_tab_weekly_time_spent">Bu hafta okumaya harcanan zaman</string>
@@ -1191,6 +1210,8 @@
   <string name="activity_tab_menu_feedback">Özellikle ilgili sorun</string>
   <string name="activity_tab_menu_info">Daha fazla bilgi</string>
   <string name="activity_tab_menu_customize">Özelleştir</string>
+  <string name="activity_tab_menu_customize_description">Okuma içgörüleri, ayarlardaki uygulama dillerinize dayanır ve düzenleme içgörüleri birincil uygulama dilinizle sınırlıdır.</string>
+  <string name="activity_tab_highlights">Öne çıkanlar</string>
   <string name="activity_tab_customize_screen_reading_history_switch_title">Okuma geçmişi</string>
   <string name="activity_tab_impact">Etkiniz</string>
   <string name="activity_tab_impact_most_viewed">Düzenlemenizden bu yana en çok görüntülenen</string>
@@ -1218,6 +1239,43 @@
   </plurals>
   <string name="activity_tab_impact_best_streak">En iyi seri</string>
   <string name="activity_tab_impact_last_edited">Son düzenleme</string>
+  <string name="activity_tab_impact_suggested_edits_title">Son zamanlarda maddelere 0 düzenleme</string>
+  <string name="activity_tab_impact_suggested_edits_message">Bu ay henüz bir düzenleme yapmamışsınız gibi görünüyor. İlginizi çeken konuları düzenleyerek özgür bilgiyi genişletin.</string>
+  <string name="activity_tab_impact_suggested_edits_button">Düzenleme yap</string>
+  <string name="activity_tab_impact_recent_activity">Son etkinliğiniz (son 30 gün)</string>
+  <plurals name="activity_tab_impact_recent_activity_edits">
+    <item quantity="one">Düzenleme</item>
+    <item quantity="other">Düzenleme</item>
+  </plurals>
+  <plurals name="activity_tab_impact_recent_activity_views">
+    <item quantity="one">Düzenlediğiniz maddelerdeki görüntülenme</item>
+    <item quantity="other">Düzenlediğiniz maddelerdeki görüntülenmeler</item>
+  </plurals>
+  <string name="activity_tab_customize_screen_time_spent_switch_title">Okuma süresi</string>
+  <string name="activity_tab_customize_screen_reading_insights_switch_title">Okuma içgörüleri</string>
+  <string name="activity_tab_customize_screen_editing_insights_switch_title">Düzenleme içgörüleri</string>
+  <string name="activity_tab_customize_screen_impact_switch_title">Tüm zamanların etkisi</string>
+  <string name="activity_tab_customize_screen_games_switch_title">Oyun istatistikleri</string>
+  <string name="activity_tab_customize_screen_donations_switch_title">Son uygulama içi bağış</string>
+  <string name="activity_tab_customize_screen_timeline_switch_title">Davranış zaman çizelgesi</string>
+  <string name="activity_tab_customize_screen_no_modules_message">Etkinlik modülleri kapalı. Bu sekmede güncellemeleri görmek için &lt;a href=\"#\"&gt;bunları açın&lt;/a&gt;.</string>
+  <string name="activity_tab_timeline_today">Bugün</string>
+  <string name="activity_tab_timeline_yesterday">Dün</string>
+  <string name="activity_tab_timeline_empty_state_title">Gösterilecek bir şey yok</string>
+  <string name="activity_tab_timeline_empty_state_message">Geçmişinizi oluşturmak için okumaya ve düzenlemeye başlayın</string>
+  <string name="activity_tab_timeline_view_changes_button">Değişiklikleri görüntüle</string>
+  <string name="activity_tab_onboarding_reading_patterns_title">Okuma kalıpları</string>
+  <string name="activity_tab_onboarding_reading_patterns_message">Ne kadar zaman okuyarak geçirdiğinizi ve zaman içinde hangi maddeleri veya konuları keşfettiğinizi görün.</string>
+  <string name="activity_tab_onboarding_screen_title">Etkinlik ile tanışın</string>
+  <string name="activity_tab_onboarding_impact_title">Etki öne çıkanları</string>
+  <string name="activity_tab_onboarding_impact_message">Katkılarınız ve paylaştığınız bilginin erişimi hakkında içgörüleri keşfedin.</string>
+  <string name="activity_tab_onboarding_engage_title">Katılımın daha fazla yolu</string>
+  <string name="activity_tab_onboarding_engage_message">Sizi Vikipedi ile daha derin bir şekilde bağlayan oyunlar, kaydedilen maddeler ve diğer etkinliklerin istatistiklerini keşfedin.</string>
+  <string name="activity_tab_onboarding_stay_in_control_title">Kontrolü elinizde tutun</string>
+  <string name="activity_tab_onboarding_stay_in_control_message">Hangi modüllerin gösterileceğini seçin. Tüm kişisel veriler cihazınızda gizli kalır ve tarama geçmişi istediğiniz zaman silinebilir.</string>
+  <string name="edits_screen_what_is_title">Vikipedi uygulamasında düzenleme</string>
+  <string name="edits_screen_what_is_body">Düzenlemeye nereden başlayacağınızdan emin değil misiniz? Küçük ama önemli katkılar yapma fırsatları yaratan Önerilen Düzenlemeler özelliğini deneyin.</string>
+  <string name="activity_tab_snackbar_label">Oyun istatistikleri birincil diliniz için gösterilir.</string>
   <string name="file_page_activity_title">Dosya sayfası</string>
   <string name="file_page_add_image_caption_button">Resim yazısı ekle</string>
   <string name="file_page_add_image_tags_button">Resim etiketlerini ekle</string>
@@ -1237,16 +1295,24 @@
   <string name="onboarding_get_started">Kullanmaya başla</string>
   <string name="onboarding_maybe_later">Belki daha sonra</string>
   <string name="onboarding_explore_title">Keşfetmenin yeni yolları</string>
-  <string name="onboarding_explore_text" fuzzy="true">Vikipedi tavşan deliğine, sürekli Keşfet akışı ile dalın. &lt;br/&gt; Akışınızı ilgileriniz göre &lt;b&gt;özelleştirin&lt;/b&gt; – &lt;b&gt;Tarihte bugün&lt;/b&gt; ile tarihsel olaylar hakkında bilgi alın ya da &lt;b&gt;Rastgele&lt;/b&gt; ile zar atın.</string>
+  <string name="onboarding_explore_text">Sürekli güncellenen bir Ana akış ile Vikipedi tavşan deliğine dalın. &lt;br/&gt; Akışı ilgi alanlarınıza göre &lt;b&gt;özelleştirin&lt;/b&gt; – ister &lt;b&gt;Tarihte bugün&lt;/b&gt; ile tarihî olayları öğrenin, ister &lt;b&gt;Rastgele&lt;/b&gt; ile şansınızı deneyin.</string>
   <string name="onboarding_reading_list_sync_title">Okuma listelerinin senkronizasyonu</string>
   <string name="onboarding_reading_list_sync_text_v2">Çevrimdışı olduğunuzda bile, daha sonra okumak istediğiniz maddeleri okuyabilirsiniz. &lt;br/&gt;Okuma listelerinizi senkronize etmek için Vikipedi hesabınıza giriş yapın. &lt;a href=\"#login\"&gt;Vikipedi\'ye katılın&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Veri &amp; Gizlilik</string>
-  <string name="onboarding_data_privacy_text" fuzzy="true">Ücretsiz bilgi hareketine katılmak için kişisel bilgilerinizi vermeniz gerekmediğine inanıyoruz. Bu uygulama için toplanan kullanım verilerinin kimliği bilinmez. &lt;a href=\"#privacy\"&gt;Gizlilik ilkemiz&lt;/a&gt; ve &lt;a href=\"#termsOfUse\"&gt;kullanım şartlarımız&lt;/a&gt; hakkında daha fazla bilgi edinin.</string>
+  <string name="onboarding_data_privacy_text">Özgür bilgi hareketine katılmak için kişisel bilgi vermek zorunda kalmamanız gerektiğine inanıyoruz. Bu uygulama için toplanan kullanım verileri anonimdir.&lt;br/&gt;&lt;br/&gt;&lt;a href=\"#privacy\"&gt;Gizlilik politikamız&lt;/a&gt; ve &lt;a href=\"#termsOfUse\"&gt;kullanım koşullarımız&lt;/a&gt; hakkında daha fazla bilgi edinin.</string>
   <string name="onboarding_analytics_switch_title">Kullanım verisini gönder</string>
   <string name="onboarding_got_it">Anladım</string>
   <string name="onboarding_multilingual_secondary_text">Cihazınızda aşağıdakilerini bulduk:</string>
   <string name="onboarding_multilingual_add_language_text">Dil ekle veya düzenle</string>
   <string name="onboarding_welcome_title_v2">Özgür Ansiklopedi\n...300\'den fazla dilde</string>
+  <string name="onboarding_next">İleri</string>
+  <string name="onboarding_fresh_install_knowledge_title">Dünyanın tüm bilgisi</string>
+  <string name="onboarding_fresh_install_knowledge_text">Vikipedi, 300\'den fazla dilde işbirliği içinde yazılmış ve bakımı yapılan 65 milyon maddelik ücretsiz bir çevrimiçi ansiklopedidir.</string>
+  <string name="onboarding_fresh_install_knowledge_learn_more">Vikipedi hakkında daha fazla bilgi edinin</string>
+  <string name="onboarding_app_languages_title">300\'den fazla dilde okuyun</string>
+  <string name="onboarding_app_languages_text">Cihazınızda aşağıdaki dilleri fark ettik:</string>
+  <string name="onboarding_app_languages_primary">Birincil</string>
+  <string name="onboarding_app_languages_add_button">Dillerinizi ekleyin veya düzenleyin</string>
   <string name="app_shortcuts_random">Rastgele</string>
   <string name="app_shortcuts_continue_reading">Okumaya devam et</string>
   <string name="app_shortcuts_search">Ara</string>
@@ -1276,7 +1342,7 @@
     <item quantity="one">Seçilen dili kaldırılsın mı?</item>
     <item quantity="other">Seçilen dilleri kaldırılsın mı?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Kalan Vikipedi dilleri için yalnızca İçeriği Keşfet ve hızlı arama filtrelerinde içerik görürsünüz.</string>
+  <string name="wikipedia_languages_remove_dialog_content">Kalan Vikipedi dilleri için yalnızca Ana akışta ve hızlı arama filtrelerinde içerik göreceksiniz.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Tüm diller kaldırılamadı</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">İçeriği okumak ve içerikte arama yapmak için en az bir Vikipedi dili bırakın</string>
   <string name="more_language_options">daha fazla</string>
@@ -1348,6 +1414,7 @@
   <string name="templates_learn_more_link">Daha fazla bilgi edin</string>
   <string name="templates_description_incomplete">Şablonlar kullanıcılar tarafından oluşturulur ve tam tanımlar eksik olabilir.</string>
   <string name="templates_description_empty">\" %s \" şablonunun henüz bir açıklaması yok.</string>
+  <string name="templates_description_missing_data">Bu şablon &lt;a href=\"%1$s\"&gt;ŞablonVerisi&lt;/a&gt; eksiktir ve parametreleri &lt;a href=\"%2$s\"&gt;otomatik oluşturulmuştur&lt;/a&gt;. Sonuç olarak şablon ve parametreleri açıklamalardan yoksundur.</string>
   <string name="main_drawer_help">Yardım</string>
   <string name="main_drawer_login">Vikipedi\'ye oturum açın / katılın</string>
   <string name="main_tooltip_action_button">Kullanmaya başla</string>
@@ -1677,6 +1744,7 @@
   <string name="patroller_onboarding_two_watch_title">İzle</string>
   <string name="patroller_onboarding_two_watch_content">Madde düzenlemelerini takip etmek mi istiyorsunuz? İzleme Listenize ekleyin. \'Diğer\' altında görüntüleyin.</string>
   <string name="patroller_onboarding_two_talk_title">Tartışma</string>
+  <string name="patroller_onboarding_two_talk_content">Diğer editörlerle iletişim kurun. Sık kullanılan tartışma sayfası mesajlarını kaydedin veya bir şablon kullanın.</string>
   <string name="patroller_onboarding_two_undo_title">Geri Al/Geri Döndür</string>
   <string name="patroller_onboarding_two_undo_content">Zararlı olabilecek bir düzenlemeyi geri almak ya da geri döndürmek için \'Geri Al\'ı seçin.</string>
   <string name="patroller_diff_tooltip_one">Hasar, bir düzenlemenin vikiye zarar verip vermeyeceğini kestirir.</string>
@@ -1686,6 +1754,7 @@
   <string name="patroller_diff_feedback_dialog_input_hint">Geri bildirim</string>
   <string name="patroller_diff_feedback_tooltip">\'Özellikle ilgili sorun\' altında istediğiniz zaman geri bildirim göndermek için taşan menüye dokunun.</string>
   <string name="patroller_saved_message_title_vandalism">Vandalizm uyarısı</string>
+  <string name="patroller_saved_message_title_editing_tests">Düzenleme denemeleri</string>
   <string name="patroller_saved_message_title_npov">Tarafsız bakış açısı</string>
   <string name="patroller_saved_message_title_auto_trans">Otomatik çeviri</string>
   <string name="patroller_saved_message_title_coi_rem">Çıkar çatışması hatırlatıcısı</string>
@@ -1694,6 +1763,19 @@
   <string name="patroller_saved_message_title_edit_summary_reminder">Düzenleme özeti bırakın</string>
   <string name="patroller_saved_message_title_do_not_censor">Sansürlemeyin</string>
   <string name="patroller_saved_message_title_art_imp">Madde iyileştirme önerisi</string>
+  <string name="patroller_saved_message_body_vandalism">Merhaba {{{username}}}, [{{{diffLink}}}|son katkılarınızdan] bir veya daha fazlasını geri aldığımı bildirmek isterim çünkü yapıcı görünmemektedirler. Hata yaptığımı düşünüyorsanız veya sorularınız varsa [[User talk:{{{senderUserName}}}|tartışma sayfamda]] mesaj bırakabilirsiniz. Lütfen devam eden vandalizmin kısıtlamalara yol açabileceğini unutmayın.</string>
+  <string name="patroller_saved_message_body_editing_tests">Merhaba {{{username}}}, Vikipedi\'nin dikkatinizi çektiğine ve düzenlemeyi öğrenmek istediğinize memnunum. Yaptığınız düzenleme denemesi işe yaradı; ancak bu projenin amacının herkesin başvurabileceği güvenilir ve eksiksiz bir ansiklopedi geliştirmek olduğunu unutmamalısınız. Düzenlemeniz içeriği etkilediği için kaldırılmıştır.\nVikipedi\'de nasıl düzenleme yapacağınızı öğrenmek istiyorsanız [[Wikipedia:Sandbox|deneme tahtası]] hizmetinizdedir. Yorumlarınız bir maddeye özgüyse doğru yer o maddenin tartışma sayfasıdır.</string>
+  <string name="patroller_saved_message_body_npov">Merhaba {{{username}}}, yaptığınız bazı katkılar bu Vikipedi\'nin [[Wikipedia:NPOV|tarafsız bakış açısı]] politikasına uyum için gereken tarafsızlığı karşılamamaktadır. Bu nedenle bazı içerikler değiştirilmiş veya kaldırılmıştır. Lütfen kısmi bir bakış açısı gösteren paragrafları veya bölümleri, bir ansiklopedide beklenen daha tarafsız ve nesnel bir metinle değiştirin.</string>
+  <string name="patroller_saved_message_body_auto_trans">Merhaba {{{username}}}, yaptığınız bazı katkılar muhtemelen makine çevirileridir, bu nedenle şablonla değiştirilmiş veya işaretlenmiştir. Maddede iyileştirme yapılmazsa silinebilir.\n\nTüm bu bilgilere rağmen hâlâ sorularınız varsa [[User talk:{{{senderUserName}}}|tartışma sayfamda]] mesaj bırakmaktan çekinmeyin. Bu küçük olay nedeniyle cesaretinizi kaybetmeyin. Katkılarınız Vikipedi için çok önemlidir.</string>
+  <string name="patroller_saved_message_body_coi_rem">Merhaba {{{username}}}, Vikipedi\'ye katkılarınızı takdir ediyorum; ancak [[Wikipedia:Conflict_of_interest|çıkar çatışması]] durumunda olduğunuzu fark ettim. Çıkar çatışması, Vikipedi\'nin tarafsızlık ve güvenilirlik hedefleri ile belirli editörlerin, kişilerin, kuruluşların veya her türden şirketlerin özel hedefleri arasındaki uyumsuzluktur.\n\nAna alandaki tüm katkılar, bu Vikipedi\'nin içerik kriterleri ([[Wikipedia:What_Wikipedia_is_not|Vikipedi ne değildir]]), ansiklopedik kalite ([[Wikipedia:Verifiability|doğrulanabilirlik]] ve [[Wikipedia:No_original_research|özgün araştırma yasağı]]), editöryel yöntem ([[Wikipedia:Neutral_point_of_view|tarafsız bakış açısı]]) ve içerik meşruiyeti ([[Wikipedia:Copyrights|telif hakları]]) politikalarına tabidir.\n\nÇıkar çatışması altında düzenleme yapıyorsanız ilgili politikayı özel bir dikkatle uygulamalısınız; aksi hâlde kullanıcı hesabınız özel amaçlı olarak değerlendirilebilir ve engellenebilir. Sorularınız varsa tartışma sayfamda bana ulaşmaktan çekinmeyin.</string>
+  <string name="patroller_saved_message_body_final_warning">Birden fazla yıkıcı düzenleme yaptığınız için bu son uyarınız olacaktır. Vikipedi\'yi tekrar vandalizmle tahrip ederseniz düzenlemeniz engellenebilir.</string>
+  <string name="patroller_saved_message_body_copy_vio">Son düzenlemeniz izinsiz telif hakkıyla korunan materyal içeriyor gibi görünmektedir. Lütfen tüm içeriğin bu Vikipedi\'nin telif hakkı politikalarına uygun olduğundan emin olun.</string>
+  <string name="patroller_saved_message_body_edit_summary">Merhaba {{{username}}}, düzenleme özeti bırakmadan Vikipedi\'den içerik kaldırdığınız görülmektedir. Lütfen diğer editörlerin katkılarınızı anlamasına yardımcı olması için bir düzenleme özeti bırakın.</string>
+  <string name="patroller_saved_message_body_do_not_censor">Merhaba {{{username}}}, madde tartışma sayfasında tartışmadan içerik kaldırdığınız görülmektedir. Lütfen Vikipedi\'nin sansürlenmediğini ve içeriğin tartışmalı olduğu için kaldırılmaması gerektiğini unutmayın. Bilginin yanlış olduğunu düşünüyorsanız lütfen madde tartışma sayfasında uzlaşmaya varın.</string>
+  <string name="talk_warn_learn_more_label">Mesaj yer tutucuları hakkında bilgi edinin</string>
+  <string name="talk_warn_learn_more_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_Suggested_edits#Message_placeholders</string>
+  <string name="talk_warn_saved_messages_usage_instruction">Özelleştirmek, göndermek ve mesajlarınıza kaydetmek için aşağıdaki örnek bir mesajı kullanın.</string>
+  <string name="patroller_saved_message_body_art_imp">Merhaba {{{username}}}. Maddeniz harika bir başlangıç! Daha da iyi hale getirmek için güvenilir kaynaklara daha fazla referans eklemeyi düşünün. Bu, bilgilerin doğrulanmasına yardımcı olur ve maddenin kalitesini artırır. Daha fazla ayrıntı için bu Vikipedi\'nin [[Wikipedia:Reliable_sources|güvenilir kaynaklar]] kurallarına göz atın.</string>
   <string name="talk_templates_menu_edit_title">Düzenle</string>
   <string name="data_opt_in_accept">Kabul et</string>
   <string name="data_opt_in_reject">Reddet</string>
@@ -1708,17 +1790,23 @@
   <string name="donation_campaign_go_back_button">Geri dön</string>
   <string name="menu_single_webview_open_external">Sistem tarayıcısında aç</string>
   <string name="donate_gpay_dialog_title">Google Pay ile bağış yapmak ister misiniz?</string>
+  <string name="donate_gpay_dialog_description">Google Pay ile bağış yapın veya başka bir ödeme yöntemi seçin.</string>
   <string name="donate_gpay_dialog_pay_button">Google Pay ile bağış yapın</string>
   <string name="donate_gpay_dialog_other_button">Diğer ödeme yöntemi</string>
   <string name="donate_gpay_activity_title">Bir tutar seçin</string>
+  <string name="donate_gpay_activity_title_with_currency">Bir tutar seçin (%s)</string>
   <string name="donate_gpay_check_transaction_fee">Bağışımın %%100\'ünü alabilmeniz için işlem ücretlerini karşılamak üzere cömertçe %s ekleyeceğim.</string>
   <string name="donate_gpay_check_recurring">Bunu aylık olarak yinelenen bir bağış yapın.</string>
   <string name="donate_gpay_check_send_email">Evet, Wikimedia Vakfı bana ara sıra e-posta gönderebilir.</string>
   <string name="donate_gpay_minimum_amount">Lütfen bir miktar seçin (en az %s)</string>
   <string name="donate_gpay_maximum_amount">Uygulamamız aracılığıyla %s üzerindeki bağışları kabul edemiyoruz. Lütfen benefactors@wikimedia.org adresinde büyük bağışlar ekibimizle iletişime geçin.</string>
+  <string name="donate_gpay_success_message">&lt;b&gt;Teşekkürler!&lt;/b&gt; Vikipedi\'ye olan cömertliğiniz bizim için çok değerli.</string>
   <string name="donate_gpay_help_problems">Bağış sorunları mı yaşıyorsunuz?</string>
+  <string name="donate_gpay_help_other_ways">Diğer bağış yolları</string>
   <string name="donate_gpay_help_faq">Sıkça sorulan sorular</string>
   <string name="donate_gpay_help_tax">Vergiden düşülebilirlik bilgileri</string>
+  <string name="donation_history_deleted_message_snackbar">Bağış geçmişi temizlendi.</string>
+  <string name="donation_history_no_history_message_snackbar">Temizlenecek bağış geçmişiniz yok.</string>
   <string name="places_title">Yerler</string>
   <string name="places_permissions_denied">Haritadaki yerinizi görmek için konum izni gereklidir. Lütfen tekrar deneyin.</string>
   <string name="places_search_hint">Yerleri ara</string>
@@ -1728,7 +1816,11 @@
   <string name="places_empty_list">Bu alan boş. &lt;a href=\"#\"&gt;Haritayı&lt;/a&gt; uzaklaştırın.</string>
   <string name="places_card_title">Yakındaki yerler</string>
   <string name="places_card_action">Yakındaki daha fazla yer</string>
+  <string name="places_card_enable_location_card_message">Mekanlar, Vikipedi\'yi keşfetmenin harita tabanlı bir yoludur</string>
+  <string name="places_card_enable_location_card_button">Konumu etkinleştir</string>
+  <string name="places_card_distance_suffix">%s uzaklıkta</string>
   <string name="places_card_distance_unknown">Bilinmeyen mesafe</string>
+  <string name="places_empty_message_snackbar">Yakında madde yok. Uzaklaştırıp haritayı kaydırmayı deneyin.</string>
   <string name="survey_dialog_title">Bu özelliği geliştirmemize yardımcı olun</string>
   <string name="survey_dialog_message">Bu özellikten mutlu musunuz?</string>
   <string name="survey_dialog_option_satisfied">Mutlu</string>
@@ -1738,22 +1830,290 @@
   <string name="survey_dialog_option_very_unsatisfied">Çok mutsuz</string>
   <string name="survey_dialog_cancel">İptal</string>
   <string name="survey_dialog_submit">Gönder</string>
+  <string name="survey_dialog_next">İleri</string>
   <string name="survey_dialog_general_yes">Evet</string>
   <string name="survey_dialog_general_no">Hayır</string>
   <string name="survey_dialog_general_maybe">Belki</string>
   <string name="survey_dialog_input_hint">Ek geri bildirim</string>
   <string name="survey_dialog_submitted_snackbar">Geri bildirim gönderildi. Teşekkür ederiz!</string>
+  <string name="games_hub_activity_title">Oyunlar</string>
+  <string name="games_hub_activity_games_unavailable_message">Bu dilde henüz oyun mevcut değil! Oyunlar, her dilin gönüllü editörleri tarafından oluşturulan içeriklerden yararlanır.</string>
+  <string name="games_hub_activity_games_unavailable_message_learn_more_action">Daha fazla bilgi</string>
+  <string name="games_hub_activity_overflow_view_game_stats">Oyun istatistiklerini görüntüle</string>
+  <string name="games_hub_activity_overflow_learn_more">Daha fazla bilgi</string>
+  <string name="on_this_day_game_entry_dialog_title">Karşınızda</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Vikipedi oyunları</string>
   <string name="on_this_day_game_entry_dialog_button">Oyna</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message">Vikipedi oyunları, DAHA FAZLA menüsündeki Oyun Merkezi\'nde bulunabilir.</string>
+  <string name="on_this_day_game_title">Hangisi daha önce oldu?</string>
+  <string name="on_this_day_game_dialog_button">Oyna</string>
+  <string name="on_this_day_game_splash_message">Tarihte bugün hangi olayın daha önce gerçekleştiğini tahmin edin.</string>
+  <string name="on_this_day_game_progress">%1$d / %2$d</string>
+  <string name="on_this_day_game_score">Puan: %d</string>
+  <string name="on_this_day_game_submit">Gönder</string>
+  <string name="on_this_day_game_correct">Doğru!</string>
+  <string name="on_this_day_game_incorrect">Yanlış!</string>
   <string name="on_this_day_game_point">+1 puan</string>
   <string name="on_this_day_game_next">Sonraki soru</string>
+  <string name="on_this_day_game_finish">Son sonuçlar</string>
+  <string name="on_this_day_game_share_button">Puanı paylaş</string>
+  <string name="on_this_day_game_feed_entry_card_heading">Vikipedi oyunları</string>
+  <string name="on_this_day_game_feed_entry_card_title">Hangisi daha önce oldu?</string>
+  <string name="on_this_day_game_result">%1$d/%2$d puan aldınız.</string>
+  <string name="on_this_day_game_next_in">Sonraki oyun %s içinde</string>
   <string name="on_this_day_game_your_stats">İstatistikleriniz</string>
+  <plurals name="on_this_day_game_stats_games_played">
+    <item quantity="one">Oynanan oyun</item>
+    <item quantity="other">Oynanan oyunlar</item>
+  </plurals>
+  <string name="on_this_day_game_stats_average_score">Ortalama puan</string>
+  <string name="on_this_day_game_stats_streak">Mevcut seri</string>
+  <string name="on_this_day_game_result_subtitle">Bugünkü oyunda referans verilen maddeler</string>
+  <string name="on_this_day_game_completed_message">Oynadığınız için teşekkürler. Yeni bir \"Hangisi daha önce oldu?\" oyunu her gün Ana akışta kullanıma sunulmaktadır.</string>
+  <string name="on_this_day_game_menu_notifications">Oyun bildirimleri</string>
+  <string name="on_this_day_game_menu_info">Daha fazla bilgi</string>
+  <string name="on_this_day_game_menu_feedback">Özellik sorunu</string>
+  <string name="on_this_day_game_article_read_button">Maddeyi oku</string>
+  <string name="on_this_day_game_article_related_event_title">Bu maddeyle ilgili olay</string>
+  <string name="on_this_day_game_article_answer_correct_stats_message">Bu soruyu doğru yanıtladınız</string>
+  <string name="on_this_day_game_article_answer_incorrect_stats_message">Bu soruyu yanlış yanıtladınız</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_title">Oyun bildirimleri kapatılsın mı?</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_subtitle">Anlık bildirimleri kapatırsanız, yeni bir oyun oynamaya hazır olduğunda artık günlük hatırlatma almayacaksınız.</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_title">Oyun bildirimleri açılsın mı?</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_subtitle">Oyun bildirimleri, yeni bir oyun oynamaya hazır olduğunda sizi günlük olarak uyarır.</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_positive_btn_label">Hayır, açık kalsın</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_negative_btn_label">Kapat</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">Evet, aç</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">Kapalı kalsın</string>
+  <string name="on_this_day_game_notification_turned_off_snackbar_message">Oyun bildirimleri kapatıldı.</string>
+  <string name="on_this_day_game_notification_turned_on_snackbar_message">Oyun bildirimleri açıldı.</string>
+  <string name="on_this_day_game_notification_text">Bugünkü \"Hangisi daha önce oldu?\" oyunu oynamaya hazır.</string>
+  <string name="on_this_day_game_report_email_subject">Sorun Raporu - Vikipedi oyunları</string>
+  <string name="on_this_day_game_report_email_body">Vikipedi oyunları özelliğiyle ilgili bir sorunla karşılaştım: - [Sorunu açıklayın]  Görmek istediğim davranış</string>
   <string name="on_this_day_game_notification_undo">Geri al</string>
+  <string name="on_this_day_game_share_link_message">Vikipedi Android uygulamasındaki günlük bilgi yarışması oyunu \"Hangisi daha önce oldu?\" oynuyorum %s</string>
+  <string name="on_this_day_game_share_screen_title">Bugün \"Hangisi daha önce oldu?\" oyununda %1$d/%2$d puan aldım.</string>
+  <string name="on_this_day_game_share_screen_subtitle">Konu başlıkları:</string>
+  <string name="on_this_day_game_archive_calendar_title">Oynamak için tarihe göre bir oyun seçin.</string>
+  <string name="on_this_day_game_score_toast_message">Bu gün %1$d/%2$d puan aldınız.</string>
+  <string name="on_this_day_game_continue_btn_text">Bugünkü oyuna devam et</string>
+  <string name="on_this_day_game_current_progress_message">%d. sorudasınız.</string>
+  <string name="on_this_day_game_archive_btn_text">Arşivi oyna</string>
+  <string name="on_this_day_game_review_results_btn_text">Sonuçları incele</string>
+  <string name="on_this_day_game_score_message">Bugünkü oyunda %1$d/%2$d puan aldınız.</string>
+  <string name="on_this_day_game_play_today_btn_text">Bugünkü oyunu oyna</string>
+  <string name="on_this_day_game_continue_playing_btn_text">Oynamaya devam et</string>
+  <string name="on_this_day_game_sound_on">Sesi aç</string>
+  <string name="on_this_day_game_sound_off">Sesi kapat</string>
+  <string name="on_this_day_game_more_label">Daha fazla</string>
+  <string name="on_this_day_game_card_progress_label">%d. sorudasınız. Tarihte bugün hangi olayın daha önce gerçekleştiğini tahmin etmeye devam edin.</string>
+  <string name="on_this_day_game_card_progress_short_label">%d. sorudasınız.</string>
+  <string name="on_this_day_game_explore_feed_card_score_message">Bugünkü oyunda %1$d/%2$d puan aldınız. Sonraki oyun %3$s içinde</string>
+  <string name="on_this_day_game_explore_feed_card_score_short_message">Bugünkü oyunda %1$d/%2$d puan aldınız.</string>
+  <string name="on_this_day_game_card_archive_label">Arşiv</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_button">Giriş yap</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_title">Oyun istatistiklerinizi görmek için giriş yapın</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_description">Serilerinizi, puanlarınızı ve daha fazlasını görün</string>
+  <string name="wikipedia_games_title">Vikipedi oyunları</string>
+  <string name="wikipedia_games_subtitle">Vikipedi içeriğine dayalı günlük bilgi yarışması oyunları.</string>
+  <string name="year_in_review_learn_more">Daha fazla bilgi</string>
+  <string name="year_in_review_get_started">Başla</string>
+  <string name="year_in_review_topbar_w_icon">Vikipedi W Simgesi</string>
+  <string name="year_in_review_navigate_left">Sola git</string>
+  <string name="year_in_review_close">Kapat</string>
+  <string name="year_in_review_share_icon">Paylaş Simgesi</string>
+  <string name="year_in_review_heart_icon">Kalp Simgesi</string>
+  <string name="year_in_review_navigate_right">Sağa git</string>
+  <string name="year_in_review_donate">Bağış yap</string>
+  <string name="year_in_review_information_icon">Bilgi Simgesi</string>
+  <string name="year_in_review_get_started_headline">Vikipedi Yıl Değerlendirmenizi keşfedin</string>
+  <string name="year_in_review_get_started_bodytext">Vikipedi uygulamasında hangi maddeleri okuduğunuz ve yaptığınız düzenlemeler hakkında içgörüleri görün.</string>
+  <string name="year_in_review_get_started_info">Okuma geçmişiniz korunur. Okuma içgörüleri, cihazınızda yerel olarak depolanan veriler kullanılarak hesaplanır.</string>
+  <string name="year_in_review_get_started_later">Yıl Değerlendirmenize daha sonra Daha fazla menüsünden erişebilirsiniz.</string>
+  <string name="year_in_review_survey_title">Yıl Değerlendirmesini iyileştirmeye yardımcı olun</string>
+  <string name="year_in_review_survey_subtitle">Bu özellikten memnun musunuz?</string>
+  <string name="year_in_review_reading_list_survey_title">%d Yıl Değerlendirmesi okuma listesinin iyileştirilmesine yardımcı olun.</string>
   <string name="year_in_review_reading_list_survey_subtitle">Okuma listenizden memnun musunuz?</string>
+  <string name="year_in_review_survey_very_satisfied">Çok memnun</string>
+  <string name="year_in_review_survey_satisfied">Memnun</string>
+  <string name="year_in_review_survey_neutral">Nötr</string>
+  <string name="year_in_review_survey_unsatisfied">Memnun değil</string>
+  <string name="year_in_review_survey_very_unsatisfied">Hiç memnun değil</string>
+  <string name="year_in_review_survey_placeholder_text">Ek düşünceleriniz var mı?</string>
+  <string name="year_in_review_survey_cancel">İptal</string>
+  <string name="year_in_review_survey_submit">Gönder</string>
+  <string name="year_in_review_disable_title">Yıl Değerlendirmesini kapatmak istediğinizden emin misiniz?</string>
+  <string name="year_in_review_disable_positive_button">Evet, eminim</string>
+  <string name="year_in_review_disable_negative_button">Hayır, teşekkürler</string>
+  <string name="year_in_review_setting_subtitle">Yıl Değerlendirmesini kapatmak, depolanan tüm kişiselleştirilmiş içgörüleri temizler ve Yıl Değerlendirmesini gizler.</string>
+  <string name="year_in_review_screendeck_image_content_description">Yıl Değerlendirmesi ana ekranı için görsel kaynağı</string>
+  <string name="year_in_review_screenshot_error">Ekran görüntüsü oluşturulamadı: %s</string>
+  <string name="year_in_review_share_subject">Vikipedi Yıl Değerlendirmem</string>
+  <string name="year_in_review_share_body">İşte Vikipedi Yıl Değerlendirmem. Vikipedi Android uygulaması ile oluşturuldu %1$s %2$s</string>
+  <string name="year_in_review_globe_icon">Küre simgesi</string>
+  <string name="settings_app_icon_title">Uygulama simgesi</string>
+  <string name="settings_app_icon_subtitle">Katkıcı avantajı</string>
+  <string name="settings_app_icon_preference_subtitle">Vikipedi\'ye yaptığınız %d uygulama içi katkıyı kutlayan özel bir simgeye erişiminiz var. Bu simge ana ekranınızda görüntülenecektir.</string>
+  <string name="settings_app_icon_updated">Uygulama simgeniz güncellendi.</string>
+  <string name="year_in_review_slide_app_icon_title_unlocked">Ana ekranınız için yeni uygulama simgesi açıldı</string>
+  <string name="year_in_review_slide_app_icon_title_unlock">Gelecek yıl için katkıcı ödülünüzü açın!</string>
+  <string name="year_in_review_slide_app_icon_body_unlocked">Ayarlar\'daki Uygulama simgesi bölümünden yeni uygulama simgenizi etkinleştirin. Özgür bilginin geleceğine yatırım yaptığınız için teşekkürler. %2$d yılında %1$s olarak yaptığınız katkılar, özgür bilgi dünyasının yolunu açmaya yardımcı oluyor ve sonuç olarak ana ekranınız için özel bir katkıcı Vikipedi simgesi açtınız.</string>
+  <string name="year_in_review_slide_app_icon_body_unlock">Vikipedi\'nin %1$d yılınızın bir parçası olmasına sevindik! Bir katkıcı olarak %2$d Yıl Değerlendirmenizde özel bir ödül açın – ister &lt;a href=\"%3$s\"&gt;Vikipedi\'yi düzenleyerek&lt;/a&gt; ister uygulamadan arkasındaki kâr amacı gütmeyen kuruluş &lt;a href=\"%4$s\"&gt;Vikimedia Vakfı\'na&lt;/a&gt; bağış yaparak. Vikipedi sizin için faydalıysa, geleceğini sürdürmeye ve onu ücretsiz, reklamsız, güvenilir ve herkes için erişilebilir tutmaya yardımcı olmak için bağış yapmayı düşünün. Başka bir yerden bağış yaptıysanız desteğiniz derinden takdir edilmektedir.</string>
+  <string name="year_in_review_slide_app_icon_donor">bağışçı</string>
+  <string name="year_in_review_slide_app_icon_editor">editör</string>
+  <string name="year_in_review_slide_app_icon_donor_and_editor">bağışçı ve editör</string>
+  <string name="year_in_review_slide_geo_headline">Okuduğunuz maddeler %s\'ye en yakın</string>
   <string name="year_in_review_slide_geo_body">Okuduğunuz birçok makaleye en yakın ülke &lt;b&gt;%2$s&lt;/b&gt; ve &lt;b&gt;%3$s&lt;/b&gt; gibi makalelere bakılarak %1$s gibi görünüyor.</string>
+  <string name="year_in_review_login_dialog_title">Kişiselleştirme için giriş yapılsın mı?</string>
+  <string name="year_in_review_login_dialog_body">Giriş yapmak kişiselleştirilmiş içgörülere erişim sağlar. Giriş yapmadan da toplu içgörüleri görebilirsiniz.</string>
+  <string name="year_in_review_login_dialog_positive">Giriş yap / Vikipedi\'ye katıl</string>
+  <string name="year_in_review_login_dialog_negative">Giriş yapmadan devam et</string>
+  <plurals name="year_in_review_slide_top_articles_headline">
+    <item quantity="one">En çok okuduğunuz madde</item>
+    <item quantity="other">En çok okuduğunuz maddeler</item>
+  </plurals>
+  <plurals name="year_in_review_slide_top_articles_body">
+    <item quantity="one">İşte %1$d yılında en çok ziyaret ettiğiniz madde: %2$s</item>
+    <item quantity="other">İşte %1$d yılında en çok ziyaret ettiğiniz maddeler: %2$s</item>
+  </plurals>
+  <string name="year_in_review_slide_top_categories_headline">En ilgi çekici kategorileriniz</string>
+  <string name="year_in_review_slide_top_categories_body">Kategoriler, benzer konulardaki maddeleri bir araya getirir. %1$d yılında bu ilginç kategorilerdeki maddeleri birçok kez ziyaret ettiniz: %2$s</string>
   <string name="year_in_review_slide_most_read_english_articles_headline">İngilizce Vikipedi\'nin en çok okunan makaleleri</string>
+  <plurals name="year_in_review_slide_most_read_english_articles_body">
+    <item quantity="one">İnsanlar dünyamız hakkında bilgi edinmek istediklerinde Vikipedi\'ye yönelir. İngilizce Vikipedi\'de en çok ziyaret edilen %1$d madde: %2$s &lt;br /&gt;&lt;a href=\"%3$s\"&gt;Özel blog yazımızda&lt;/a&gt; daha fazlasını okuyun.</item>
+    <item quantity="other">İnsanlar dünyamız hakkında bilgi edinmek istediklerinde Vikipedi\'ye yönelir. İngilizce Vikipedi\'de en çok ziyaret edilen %1$d madde: %2$s &lt;br /&gt;&lt;a href=\"%3$s\"&gt;Özel blog yazımızda&lt;/a&gt; daha fazlasını okuyun.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edits_viewed_times_headline">
+    <item quantity="one">Düzenlemeniz yakın zamanda %,d\'den fazla kez görüntülendi</item>
+    <item quantity="other">Düzenlemeleriniz yakın zamanda %,d\'den fazla kez görüntülendi</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edits_viewed_times_body">
+    <item quantity="one">Dünya çapındaki okuyucular katkılarınızı takdir ediyor. Son 2 ayda, düzenlediğiniz maddeler toplam %,d kez görüntülendi.</item>
+    <item quantity="other">Dünya çapındaki okuyucular katkılarınızı takdir ediyor. Son 2 ayda, düzenlediğiniz maddeler toplam %,d kez görüntülendi.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edited_per_minute_headline">
+    <item quantity="one">Vikipedi dakikada %,d kez düzenlendi</item>
+    <item quantity="other">Vikipedi dakikada %,d kez düzenlendi</item>
+  </plurals>
+  <string name="year_in_review_slide_edited_per_minute_body">Maddeler, güvenilir kaynaklar kullanılarak işbirliği içinde oluşturulur ve geliştirilir. Hepimizin paylaşabileceği bilgi var, &lt;a href=\"%s\"&gt;nasıl katılacağınızı öğrenin.&lt;/a&gt;</string>
+  <plurals name="year_in_review_slide_bytes_added_headline">
+    <item quantity="one">%,d bayt eklendi</item>
+    <item quantity="other">%,d bayt eklendi</item>
+  </plurals>
+  <plurals name="year_in_review_slide_bytes_added_body">
+    <item quantity="one">%1$d yılında gönüllüler İngilizce Vikipedi\'ye %2$,d bayt ekledi. Tüm çalışmalarının toplamı, dünyaya sundukları sürekli gelişen, olgulara dayalı ve güvenilir bir bilgi kaynağına yol açmaktadır. Hepimizin paylaşabileceği bilgi var, &lt;a href=\"%3$s\"&gt;nasıl katılacağınızı öğrenin&lt;/a&gt;.</item>
+    <item quantity="other">%1$d yılında gönüllüler İngilizce Vikipedi\'ye %2$,d bayt ekledi. Tüm çalışmalarının toplamı, dünyaya sundukları sürekli gelişen, olgulara dayalı ve güvenilir bir bilgi kaynağına yol açmaktadır. Hepimizin paylaşabileceği bilgi var, &lt;a href=\"%3$s\"&gt;nasıl katılacağınızı öğrenin&lt;/a&gt;.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edited_times_headline">
+    <item quantity="one">%s kez düzenlediniz</item>
+    <item quantity="other">%s kez düzenlediniz</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edited_times_body">
+    <item quantity="one">Vikimedia projelerinde fark yaratan gönüllü editörlerden biri olduğunuz için teşekkür ederiz. Sizin gibi gönüllüler, Vikipedi\'nin 300\'den fazla farklı dil sürümünde %,d değişiklik yaptı.</item>
+    <item quantity="other">Vikimedia projelerinde fark yaratan gönüllü editörlerden biri olduğunuz için teşekkür ederiz. Sizin gibi gönüllüler, Vikipedi\'nin 300\'den fazla farklı dil sürümünde %,d değişiklik yaptı.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_app_edited_times_headline">
+    <item quantity="one">Resmi Vikipedi uygulamalarındaki editörler %,d düzenleme yaptı</item>
+    <item quantity="other">Resmi Vikipedi uygulamalarındaki editörler %,d düzenleme yaptı</item>
+  </plurals>
+  <string name="year_in_review_slide_app_edited_times_body">Vikipedi\'nin kalbi ve ruhu, gönüllü katkıcılar, bağışçılar ve milyarlarca okuyucudan oluşan küresel topluluğumuzdur.</string>
+  <plurals name="year_in_review_slide_english_edited_times_headline">
+    <item quantity="one">Editörler bu yıl %,d değişiklik yaptı</item>
+    <item quantity="other">Editörler bu yıl %,d değişiklik yaptı</item>
+  </plurals>
+  <plurals name="year_in_review_slide_english_edited_times_body_first">
+    <item quantity="one">Gönüllüler, Vikipedi\'nin 300\'den fazla farklı dil sürümünde %,d değişiklik yaptı.</item>
+    <item quantity="other">Gönüllüler, Vikipedi\'nin 300\'den fazla farklı dil sürümünde %,d değişiklik yaptı.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_english_edited_times_body_second">
+    <item quantity="one">İngilizce Vikipedi\'de %,d değişiklik yapıldı. Her gün her saat, gönüllüler bilgiyi geliştirmek için çalışıyor.</item>
+    <item quantity="other">İngilizce Vikipedi\'de %,d değişiklik yapıldı. Her gün her saat, gönüllüler bilgiyi geliştirmek için çalışıyor.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_saved_articles_headline">
+    <item quantity="one">%,d madde kaydetdiniz</item>
+    <item quantity="other">%,d madde kaydettiniz</item>
+  </plurals>
+  <plurals name="year_in_review_slide_saved_articles_body">
+    <item quantity="one">Bu maddeler arasında &lt;b&gt;%1$s&lt;/b&gt;, &lt;b&gt;%2$s&lt;/b&gt; ve &lt;b&gt;%3$s&lt;/b&gt; vardı. Her kaydedilen madde ilgi alanlarınızı yansıtır ve Vikipedi\'de kişiselleştirilmiş bir bilgi tabanı oluşturmanıza yardımcı olur.&lt;br /&gt;&lt;br /&gt;Aktif uygulama kullanıcılarının bu yıl %4$,d kaydedilmiş maddesi vardı.</item>
+    <item quantity="other">Bu maddeler arasında &lt;b&gt;%1$s&lt;/b&gt;, &lt;b&gt;%2$s&lt;/b&gt; ve &lt;b&gt;%3$s&lt;/b&gt; vardı. Her kaydedilen madde ilgi alanlarınızı yansıtır ve Vikipedi\'de kişiselleştirilmiş bir bilgi tabanı oluşturmanıza yardımcı olur.&lt;br /&gt;&lt;br /&gt;Aktif uygulama kullanıcılarının bu yıl %4$,d kaydedilmiş maddesi vardı.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_global_saved_articles_headline">
+    <item quantity="one">Uygulama kullanıcılarının %,d kaydedilmiş maddesi vardı</item>
+    <item quantity="other">Uygulama kullanıcılarının %,d kaydedilmiş maddesi vardı</item>
+  </plurals>
+  <string name="year_in_review_slide_global_saved_articles_body">Okuma listelerine madde eklemek, çevrimdışıyken bile maddelere erişmenizi sağlar. Ayrıca tüm cihazlarınızda senkronize etmek için giriş yapabilirsiniz.</string>
+  <string name="year_in_review_slide_reading_patterns_headline">Net okuma kalıplarınız var</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_time">En sevdiğiniz okuma zamanı</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_day">En sevdiğiniz okuma günü</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_month">En çok okuduğunuz ay</string>
+  <string name="year_in_review_slide_reading_pattern_morning">Sabah</string>
+  <string name="year_in_review_slide_reading_pattern_midday">Öğle</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon">Öğleden sonra</string>
+  <string name="year_in_review_slide_reading_pattern_evening">Akşam</string>
+  <string name="year_in_review_slide_reading_pattern_night">Gece</string>
+  <string name="year_in_review_slide_reading_pattern_late_night">Gece geç</string>
+  <plurals name="year_in_review_slide_english_reading_hours_headline">
+    <item quantity="one">%,d saat okuyarak geçirdik</item>
+    <item quantity="other">%,d saat okuyarak geçirdik</item>
+  </plurals>
+  <plurals name="year_in_review_slide_english_reading_hours_body_first">
+    <item quantity="one">İnsanlar tahminen %,d saat harcadı</item>
+    <item quantity="other">İnsanlar tahminen %,d saat harcadı</item>
+  </plurals>
+  <plurals name="year_in_review_slide_english_reading_hours_body_second">
+    <item quantity="one">—yaklaşık %1$,d yıl!— %2$d yılında İngilizce Vikipedi okuyarak. Vikipedi, merakınızı gidermek istediğinizde yanınızda.</item>
+    <item quantity="other">—yaklaşık %1$,d yıl!— %2$d yılında İngilizce Vikipedi okuyarak. Vikipedi, merakınızı gidermek istediğinizde yanınızda.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_available_languages_headline">
+    <item quantity="one">Vikipedi %,d\'den fazla dilde kullanılabilirdi</item>
+    <item quantity="other">Vikipedi %,d\'den fazla dilde kullanılabilirdi</item>
+  </plurals>
+  <plurals name="year_in_review_slide_available_languages_body_first">
+    <item quantity="one">Vikipedi\'de %,d madde vardı</item>
+    <item quantity="other">Vikipedi\'de %,d madde vardı</item>
+  </plurals>
+  <plurals name="year_in_review_slide_available_languages_body_second">
+    <item quantity="one">bu yıl %,d\'den fazla aktif dilde. Bilgiyi erişilebilir kılmak için milyonlarca kişiye katıldınız.</item>
+    <item quantity="other">bu yıl %,d\'den fazla aktif dilde. Bilgiyi erişilebilir kılmak için milyonlarca kişiye katıldınız.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_headline_first">
+    <item quantity="one">%,d dakika harcadınız</item>
+    <item quantity="other">%,d dakika harcadınız</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_headline_second">
+    <item quantity="one">%2$d yılında %1$,d madde okuyarak</item>
+    <item quantity="other">%2$d yılında %1$,d madde okuyarak</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_top">
+    <item quantity="one">Tahminimize göre bu sizi küresel olarak Vikipedi okuyucularının ilk %%1$s\'sine koyuyor. Ortalama bir kişi yılda %2$,d madde okur.</item>
+    <item quantity="other">Tahminimize göre bu sizi küresel olarak Vikipedi okuyucularının ilk %%1$s\'sine koyuyor. Ortalama bir kişi yılda %2$,d madde okur.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_global_first">
+    <item quantity="one">Vikipedi\'de %,d madde vardı</item>
+    <item quantity="other">Vikipedi\'de %,d madde vardı</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_global_second">
+    <item quantity="one">bu yıl %,d\'den fazla aktif dilde. Bilgiyi erişilebilir kılmak için milyonlarca kişiye katıldınız.</item>
+    <item quantity="other">bu yıl %,d\'den fazla aktif dilde. Bilgiyi erişilebilir kılmak için milyonlarca kişiye katıldınız.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_english_first">
+    <item quantity="one">İnsanlar tahminen %,d saat harcadı</item>
+    <item quantity="other">İnsanlar tahminen %,d saat harcadı</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_english_second">
+    <item quantity="one">—yaklaşık %1$,d yıl!— %2$d yılında İngilizce Vikipedi okuyarak.</item>
+    <item quantity="other">—yaklaşık %1$,d yıl!— %2$d yılında İngilizce Vikipedi okuyarak.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_viewed_articles_times_headline">
+    <item quantity="one">Uygulama kullanıcıları Vikipedi maddelerini %,d kez görüntüledi</item>
+    <item quantity="other">Uygulama kullanıcıları Vikipedi maddelerini %,d kez görüntüledi</item>
+  </plurals>
+  <string name="year_in_review_slide_viewed_articles_times_body">Dünyanın dört bir yanındaki insanlar için Vikipedi, bir soruyu yanıtlarken, bilgi ararken veya yeni bir konuyu keşfederken ilk durak.</string>
   <string name="year_in_review_reading_list_dialog_title">Yıl Sonu Değerlendirmenizi Oluşturun %d okuma listesi?</string>
   <string name="year_in_review_reading_list_dialog_message">Vikipedi Yıl Sonu İncelemesi, %1$d yılında en çok zaman geçirdiğiniz maddelerin bir okuma listesini oluşturacaktır. &lt;a href=\"%2$s\"&gt;Daha fazla öğrenin&lt;/a&gt;</string>
+  <string name="year_in_review_reading_list_dialog_positive_button_label">Oluştur</string>
+  <string name="year_in_review_reading_list_dialog_negative_button_label">Hayır, teşekkürler</string>
+  <string name="year_in_review_reading_list_title">Yıl Değerlendirmesi %d</string>
   <string name="year_in_review_reading_list_description">%1$s için yapıldı. %2$d içinde en çok zaman harcadığınız makaleler.</string>
   <string name="year_in_review_highlights_thank_you_message">Yılınızı Vikipedi ile geçirdiğiniz için teşekkür ederiz</string>
   <string name="year_in_review_highlights_looking_forward_message">Gelecek yılı sabırsızlıkla bekliyoruz!</string>
@@ -1761,11 +2121,35 @@
     <item quantity="one">İngilizce Vikipedi\'de en çok okunan makale</item>
     <item quantity="other">İngilizce Vikipedi\'de en çok okunan makaleler</item>
   </plurals>
+  <plurals name="year_in_review_highlights_logged_out_en_hours_spent_title">
+    <item quantity="one">Okuyarak geçirilen saat</item>
+    <item quantity="other">Okuyarak geçirilen saat</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_en_edits_title">
+    <item quantity="one">Editörlerin yaptığı değişiklik</item>
+    <item quantity="other">Editörlerin yaptığı değişiklikler</item>
+  </plurals>
   <plurals name="year_in_review_highlights_logged_out_non_en_articles_title">
     <item quantity="one">Görüntülenen makale sayısı</item>
     <item quantity="other">Görüntülenen makale sayısı</item>
   </plurals>
+  <plurals name="year_in_review_highlights_logged_out_non_en_edits_title">
+    <item quantity="one">Uygulama üzerinden düzenleme</item>
+    <item quantity="other">Uygulama üzerinden düzenlemeler</item>
+  </plurals>
   <string name="year_in_review_highlights_logged_out_non_en_wikipedia_edited_title">Vikipedi ne sıklıkla düzenlendi?</string>
+  <plurals name="year_in_review_highlights_logged_out_non_en_wikipedia_per_minute_label">
+    <item quantity="one">Dakikada %d kez</item>
+    <item quantity="other">Dakikada %d kez</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_most_read_article_title">
+    <item quantity="one">En çok okuduğum madde</item>
+    <item quantity="other">En çok okuduğum maddeler</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_minutes_read_title">
+    <item quantity="one">Okunan dakika</item>
+    <item quantity="other">Okunan dakikalar</item>
+  </plurals>
   <string name="year_in_review_highlights_logged_in_favorite_day_title">Okumak için en sevdiğim gün</string>
   <plurals name="year_in_review_highlights_logged_in_articles_read_title">
     <item quantity="one">Makale okundu</item>
@@ -1781,7 +2165,310 @@
   </plurals>
   <string name="year_in_review_highlights_share_button_title">Önemli noktaları paylaşın</string>
   <string name="year_in_review_highlights_logo_description">Wikipedia logosu</string>
+  <string name="recommended_reading_list_title">Keşfet</string>
+  <string name="recommended_reading_list_onboarding_card_title">Özellikle sizin için seçilmiş maddeleri keşfedin</string>
+  <string name="recommended_reading_list_onboarding_card_message">Sizin için özel olarak derlenen haftalık Vikipedi makale okuma listeniz.</string>
+  <string name="recommended_reading_list_onboarding_card_new">Yeni!</string>
+  <string name="recommended_reading_list_onboarding_card_positive_button">Başla</string>
+  <string name="recommended_reading_list_onboarding_card_negative_button">Hayır, teşekkürler</string>
+  <string name="recommended_reading_list_onboarding_card_negative_snackbar">Önerilen okuma listenizi daha sonra ayarlamak için Ayarlar\'a gidin.</string>
+  <string name="recommended_reading_list_interest_source_message">Önerilen okuma listenizi nasıl oluşturalım?</string>
+  <string name="recommended_reading_list_interest_source_interests">İlgi alanlarıma göre seçeyim</string>
+  <string name="recommended_reading_list_interest_source_saved">Kaydettiğim maddelere göre seç</string>
+  <string name="recommended_reading_list_interest_source_history">Okuma geçmişime göre seç</string>
+  <string name="recommended_reading_list_interest_pick_title">Nelere ilgi duyuyorsunuz?</string>
+  <string name="recommended_reading_list_interest_pick_search_hint">Madde ara</string>
+  <plurals name="recommended_reading_list_interest_pick_selected_articles">
+    <item quantity="one">%d seçili</item>
+    <item quantity="other">%d seçili</item>
+  </plurals>
+  <string name="recommended_reading_list_interest_select_minimum">En az bir ilgi alanı seçin</string>
+  <string name="recommended_reading_list_interest_pick_random_button_content_description">Rastgele seç</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar">Sizin için rastgele birkaç madde seçtik.</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar_action">Geri al</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_title">Rastgele ilgi alanları seçilsin mi?</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_message">Mevcut ilgi alanlarınız rastgele seçilenlerle değiştirilecektir.</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_positive_button">Evet, benim için seç</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_negative_button">Vazgeç</string>
+  <string name="recommended_reading_list_page_subtitle_made_for">%s için hazırlandı</string>
+  <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">Sizin için hazırlandı</string>
+  <plurals name="recommended_reading_list_page_subtitle_articles">
+    <item quantity="one">• %d madde</item>
+    <item quantity="other">• %d madde</item>
+  </plurals>
+  <string name="recommended_reading_list_page_description_daily">Günlük okuma listeniz. Özellikle sizin için seçilmiş yeni konular öğrenin. Gece yarısı güncellenir.</string>
+  <string name="recommended_reading_list_page_description_weekly">Haftalık okuma listeniz. Özellikle sizin için seçilmiş yeni konular öğrenin. Haftanın başında güncellenir.</string>
+  <string name="recommended_reading_list_page_description_monthly">Aylık okuma listeniz. Özellikle sizin için seçilmiş yeni konular öğrenin. Her ayın ilk günü güncellenir.</string>
+  <string name="recommended_reading_list_page_overflow_customize">Özelleştir</string>
+  <string name="recommended_reading_list_page_overflow_about">Bu özellik hakkında</string>
+  <string name="recommended_reading_list_page_snackbar">Keşfet her %2$s %1$d yeni madde ile güncellenecektir. Önerileriniz cihazınızda yerel olarak depolanır.</string>
+  <string name="recommended_reading_list_page_snackbar_action">Keşfet\'i özelleştir</string>
+  <string name="recommended_reading_list_page_snackbar_day">Gün</string>
+  <string name="recommended_reading_list_page_snackbar_week">Hafta</string>
+  <string name="recommended_reading_list_page_snackbar_month">Ay</string>
+  <string name="recommended_reading_list_settings_section_header">Öneriler</string>
+  <string name="recommended_reading_list_settings_title">Keşfet ayarları</string>
+  <string name="recommended_reading_list_settings_toggle">Keşfet okuma listesi</string>
+  <string name="recommended_reading_list_settings_toggle_disable_message">Keşfet kapalı. Vikipedi size madde önerisi yapmayacaktır.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_title">Keşfet kapatılsın mı?</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_message">Keşfet\'i kapatırsanız Vikipedi\'den %s okuma önerisi almayı bırakırsınız.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">Kapat</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_negative_button">Hayır, açık kalsın</string>
+  <string name="recommended_reading_list_settings_turn_off_snackbar">Keşfet kapatıldı. İstediğiniz zaman ayarlardan tekrar açabilirsiniz.</string>
+  <string name="recommended_reading_list_settings_articles">makale</string>
+  <string name="recommended_reading_list_settings_updates_frequency">Güncelleme %s</string>
+  <string name="recommended_reading_list_settings_updates_frequency_daily">Günlük</string>
+  <string name="recommended_reading_list_settings_updates_frequency_weekly">Haftalık</string>
+  <string name="recommended_reading_list_settings_updates_frequency_monthly">aylık</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">Her gün</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">Her hafta</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">Her ay</string>
+  <string name="recommended_reading_list_settings_updates_base_title">Keşfet nasıl oluşturulur</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_interests">İlgi alanlarınıza göre</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_saved">Kaydedilen maddelerinize göre</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_history">Okuma geçmişinize göre</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_title">Keşfet\'in oluşturulma şekli değiştirilsin mi?</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_message">Keşfet\'in önerileri oluşturma şeklini değiştirirseniz mevcut önerileriniz değiştirilecektir.</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_positive_button">Değiştir</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_negative_button">Vazgeç</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_interests">Önerileriniz artık ilgi alanlarınıza dayanmaktadır.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_saved">Önerileriniz artık kaydedilen maddelerinize dayanmaktadır.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_history">Önerileriniz artık okuma geçmişinize dayanmaktadır.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_action">Geri al</string>
+  <string name="recommended_reading_list_settings_interests">İlgi alanları</string>
+  <string name="recommended_reading_list_settings_notifications_title">Bildirimler</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle">Vikipedi, Keşfet güncellendiğinde size bildirim göndermeyecektir.</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle_disable">Keşfet bildirimleri kapalı. Keşfet güncellendiğinde bildirim almayacaksınız.</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_title">Bildirimler kapatılsın mı?</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_message">Bildirimleri kapatırsanız Keşfet güncellendiğinde artık hatırlatma almayacaksınız.</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Kapat</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Hayır, açık kalsın</string>
+  <string name="recommended_reading_list_notification_title">%s Keşfet okuma listeniz hazır.</string>
+  <string name="recommended_reading_list_notification_subtitle">En son önerilerinizi görmek için dokunun.</string>
+  <string name="recommended_reading_list_settings_notification_subtitle_enable">Keşfet güncellendiğinde Vikipedi size bildirim gönderecektir.</string>
+  <string name="recommended_reading_list_settings_toggle_enable_message">Keşfet açık. Vikipedi size okuyacağınız maddeler önerecektir.</string>
+  <string name="donation_reminders_prompt_dismiss_snackbar">Bağış hatırlatıcıları Ayarlar\'dan her zaman değiştirilebilir.</string>
+  <string name="donation_settings_section_header">Bağışlar</string>
+  <string name="donation_reminders_settings_title">Size nasıl hatırlatalım?</string>
+  <string name="donation_reminders_settings_option_title">Bağış hatırlatıcıları</string>
+  <string name="donation_reminders_settings_thank_you_message">Cömertliğiniz Vikipedi\'nin gelişmesine yardımcı oluyor. Okuduğunuz makale sayısına göre bir bağış hatırlatıcısı ayarlayın.</string>
+  <string name="donation_reminders_settings_donation_info">Bağışlar, Vikipedi ve diğer özgür bilgi projelerinin ev sahibi olan Wikimedia Vakfı ve bağlı kuruluşlara gitmektedir.</string>
+  <string name="donation_reminders_settings_article_frequency_label">Şu kadar okuduğumda</string>
+  <string name="donation_reminders_settings_amount_label">Bağış yapmamı hatırlat</string>
+  <string name="donation_reminders_settings_confirm_btn_label">Hatırlatıcıyı onayla</string>
+  <string name="donation_reminders_settings_about_experiment_btn_label">Bu deney hakkında</string>
+  <string name="donation_reminders_settings_article_frequency_input_suffix_label">makale</string>
+  <string name="donation_reminders_settings_warning_min_amount">Lütfen en az %s girin</string>
+  <string name="donation_reminders_settings_warning_max_amount">En fazla %s girebilirsiniz</string>
+  <string name="donation_reminders_settings_option_custom">Özel…</string>
+  <string name="donation_reminders_snacbkbar_confirmation_label">Teşekkürler! Bu deney süresince %2$s okuduğunuzda %1$s bağış yapmanızı hatırlatacağız.</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title">%2$s taahhüt ettiğinizden beri %1$s okudunuz</string>
+  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">Bir %1$s daha okudunuz</string>
+  <string name="donation_reminders_prompt_message">Okuduğunuz her %2$s için %3$s bağış yapmak üzere %1$s tarihinde bir bağış hatırlatıcısı ayarladınız. Taahhüdünüzü yerine getirmeye hazır mısınız?</string>
+  <string name="donation_reminders_prompt_positive_button">Şimdi bağış yap</string>
+  <string name="donation_reminders_prompt_negative_button">Şimdi değil</string>
+  <string name="donation_reminders_gpay_text">Google Pay ile %s bağış yap</string>
+  <string name="donation_reminders_gpay_different_amount_text">Google Pay ile farklı bir tutarda bağış yap</string>
+  <string name="donation_reminders_settings_description_on">Bağış hatırlatıcıları açık. Bu deney süresince okuduğunuz her %2$s için %1$s bağış yapmayı Vikipedi size hatırlatacaktır.</string>
+  <string name="donation_reminders_settings_description_off">Bağış hatırlatıcıları kapalı.</string>
+  <string name="donation_reminders_settings_tooltip_info_label">Madde sayısı cihazınızda yerel olarak depolanır</string>
+  <plurals name="donation_reminders_text_articles">
+    <item quantity="one">%d makale</item>
+    <item quantity="other">%d makale</item>
+  </plurals>
+  <string name="donation_reminders_settings_no_thanks_btn_label">Hayır, teşekkürler</string>
+  <string name="donation_reminders_experiment_label">DENEY</string>
+  <string name="donation_reminders_settings_learn_more_button">Daha fazla bilgi</string>
+  <string name="donation_reminders_settings_report_button">Özellik sorunu</string>
+  <string name="donation_reminders_settings_report_email_subject">Sorun Raporu - Bağış Hatırlatıcıları</string>
+  <string name="donation_reminders_settings_report_email_body">Bağış hatırlatıcıları özelliğiyle ilgili bir sorunla karşılaştım: - [Sorunu açıklayın] - [Ekran görüntüleri veya bağlantılar]</string>
+  <string name="donation_reminders_snackbar_modify_button_label">Değiştir</string>
+  <string name="hybrid_search_search_hint">Bir şey arayın veya sorun</string>
+  <string name="hybrid_search_article_search_hint">%s hakkında sorun</string>
+  <string name="hybrid_search_suggestion_title">Şunu ara:</string>
+  <string name="hybrid_search_onboarding_learn_more">Daha fazla bilgi</string>
+  <string name="hybrid_search_onboarding_search_title">Soru sorun, yanıt alın</string>
+  <string name="hybrid_search_onboarding_search_description">Bu deneysel özellik doğal dili anlar. Anahtar kelime aramak yerine bilmek istediğiniz şeyi açıklayın.</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_title">Beta özelliği</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_description">Bu deney süresince sınırlı bir süre için kullanılabilir.</string>
+  <string name="hybrid_search_beta_tag">Beta</string>
+  <string name="hybrid_search_experimental_feature_switch_label">Deneye katıl</string>
+  <string name="hybrid_search_onboarding_search_example_title">İlham mı lazım?</string>
+  <string name="hybrid_search_onboarding_search_example_description">Aşağıdaki arama örneklerinden birini kullanın.</string>
+  <string name="hybrid_search_onboarding_opt_out_toast_message">Deneyden çıktınız.</string>
+  <string name="hybrid_search_onboarding_search_example_query_pluto_as_planet">Plüton ne zaman gezegen olmaktan çıkarıldı?</string>
   <string name="hybrid_search_onboarding_search_example_query_first_olympics">ilk Olimpiyatlar</string>
+  <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">RNA ve DNA</string>
+  <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">İnsanlar neden pizzaya ananas koyuyor?</string>
+  <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Avrupa\'nın en büyük şehirleri hangileri?</string>
+  <string name="hybrid_search_onboarding_screen_title">Yeni bir arama yöntemi</string>
+  <string name="hybrid_search_results_header_description">İnsanlar tarafından yazılmış Vikipedi maddelerinden alınmıştır</string>
   <string name="hybrid_search_results_rate_label">Bu sonucu değerlendirin</string>
+  <string name="hybrid_search_results_rated_label">Değerlendirildi</string>
+  <string name="hybrid_search_results_rate_thumb_up">Beğen</string>
+  <string name="hybrid_search_results_rate_thumb_down">Beğenme</string>
   <string name="hybrid_lexical_search_results_empty">Bu sorguyla eşleşen makale başlığı bulunamadı.</string>
+  <string name="hybrid_search_results_empty">Gelişmiş arama geçici olarak kullanılamıyor.</string>
+  <string name="hybrid_search_no_results_header">Sonuç yok</string>
+  <string name="hybrid_search_no_results_description">Bu konu şu anda madde alıntıları döndürmüyor. Deneyebileceğiniz bazı şeyler:</string>
+  <string name="hybrid_search_no_results_suggestion_rephrase_text">Aramanızı yeniden ifade edin</string>
+  <string name="hybrid_search_no_results_suggestion_try_related_topic">İlgili bir konu deneyin</string>
+  <string name="hybrid_search_error_message">Arama sonuçları yüklenirken bir hata oluştu. Lütfen tekrar deneyin.</string>
+  <string name="hybrid_search_who_is_prefix">%s kimdir?</string>
+  <string name="hybrid_search_turn_off_experiment_label">Bu deneyi kapat</string>
+  <string name="reading_challenge_widget_name">Okuma Mücadelesi</string>
+  <string name="reading_challenge_onboarding_header">Vikipedi\'nin 25. doğum gününü 25 günlük okuma mücadelesine katılarak kutlayın!</string>
+  <string name="reading_challenge_onboarding_read_title">25 gün boyunca günde 1 makale okuyun</string>
+  <string name="reading_challenge_onboarding_read_description">Mücadeleye 1 Mayıs ile 31 Mayıs arasında istediğiniz zaman katılın, 25 gününüzü kendi zaman çizelgenizde tamamlayın.</string>
+  <string name="reading_challenge_onboarding_read_subtitle">Mücadeleye %1$s ile %2$s arasında istediğiniz zaman katılın, 25 gününüzü kendi zaman çizelgenizde tamamlayın.</string>
+  <string name="reading_challenge_onboarding_win_title">Ödüller kazanın</string>
+  <string name="reading_challenge_onboarding_win_description">Mücadele aktifken 25 günlük bir okuma serisi tamamlayarak özel ödüller kazanın.</string>
+  <string name="reading_challenge_onboarding_install_title">Widget\'ı yükleyin</string>
+  <string name="reading_challenge_onboarding_install_description">Sevimli doğum günü maskotu Bebek Küre ile faydalı hatırlatmalar ve motivasyon alın.</string>
+  <string name="reading_challenge_onboarding_note">Okuma geçmişiniz korunur. Okuma içgörüleri, cihazınızda yerel olarak depolanan veriler kullanılarak hesaplanır.</string>
+  <string name="reading_challenge_onboarding_learn_more_button">Daha fazla bilgi</string>
+  <string name="reading_challenge_onboarding_join_button">Mücadeleye katıl</string>
+  <string name="reading_challenge_onboarding_prompt_title">Mücadeleye katılmak için giriş yapın</string>
+  <string name="reading_challenge_onboarding_prompt_message">Okuma mücadelesindeki ilerlemenizi takip etmek için giriş yapın veya hesap oluşturun.</string>
+  <string name="reading_challenge_onboarding_prompt_no_thanks">Hayır, teşekkürler</string>
+  <string name="reading_challenge_onboarding_prompt_login">Giriş yap / Vikipedi\'ye katıl</string>
+  <string name="reading_challenge_install_prompt_title">25 günlük okuma mücadelesi widget\'ını yükleyin</string>
+  <string name="reading_challenge_install_prompt_message">Bebek Küre sizi tezahürat yaparak destekliyor. İlerlemenizi ana ekranınızdan takip etmek için Okuma Mücadelesi widget\'ını ekleyin.</string>
+  <string name="reading_challenge_install_prompt_got_it">Anladım</string>
+  <string name="reading_challenge_install_prompt_add">Ekle</string>
+  <string name="reading_challenge_widget_explore_button">Keşfet</string>
+  <string name="reading_challenge_widget_explore_wikipedia_button">Vikipedi\'yi keşfet</string>
+  <string name="reading_challenge_widget_join_challenge_button">Mücadeleye katıl</string>
+  <string name="reading_challenge_widget_join_the_challenge_button">Mücadeleye katıl</string>
+  <string name="reading_challenge_widget_search_button">Ara</string>
+  <string name="reading_challenge_widget_random_button">Rastgele</string>
+  <string name="reading_challenge_widget_collect_prize_button">Ödülü al</string>
+  <string name="reading_challenge_widget_collect_your_prize_button">Ödülünüzü alın!</string>
+  <string name="reading_challenge_widget_not_live_title">Okumaya hazır olun</string>
+  <string name="reading_challenge_widget_not_live_description">25 günlük bir okuma mücadelesi yolda.</string>
+  <string name="reading_challenge_widget_not_opted_in_title">Hazır, başla, oku!</string>
+  <string name="reading_challenge_widget_not_opted_in_description">25 günlük mücadeleye katılın ve özel ödüller kazanın.</string>
+  <plurals name="reading_challenge_small_widget_streak">
+    <item quantity="one">%d gün</item>
+    <item quantity="other">%d gün</item>
+  </plurals>
+  <plurals name="reading_challenge_small_widget_streak_final">
+    <item quantity="one">%1$d / %2$d</item>
+    <item quantity="other">%1$d / %2$d</item>
+  </plurals>
+  <plurals name="reading_challenge_small_widget_streak_final_large">
+    <item quantity="one">%1$d / %2$d gün</item>
+    <item quantity="other">%1$d / %2$d gün</item>
+  </plurals>
+  <string name="reading_challenge_not_read_today_description">Bugünün boşa geçmesine izin vermeyin, serinizi koruyun.</string>
+  <string name="reading_challenge_streak_ongoing_title">25 günlük okuma mücadelesi</string>
+  <string name="reading_challenge_widget_reminder_dont_let_today_drift">Bugünün boşa geçmesine izin vermeyin, okuma seriniz sizi bekliyor.</string>
+  <string name="reading_challenge_widget_reminder_before_day_snoozes">Gün uykuya dalmadan önce… bir şeyler öğrenmek için hâlâ vakit var.</string>
+  <string name="reading_challenge_widget_reminder_small_bit_counts">Küçük bir okuma bile hedefinize katkıda bulunur.</string>
+  <string name="reading_challenge_widget_reminder_one_article_away">Seriniz sadece bir makale uzakta.</string>
+  <string name="reading_challenge_widget_reminder_jump_in_anytime">Bugün istediğiniz zaman biraz okumaya dalın.</string>
+  <string name="reading_challenge_widget_reminder_quiet_reading_moment">Sessiz bir okuma anı mı?</string>
+  <string name="reading_challenge_widget_reminder_keep_curiosity_going">Merakınızı canlı tutun.</string>
+  <string name="reading_challenge_widget_enrolled_not_started_title">Hazır, başla, oku!</string>
+  <string name="reading_challenge_widget_enrolled_not_started_subtitle">25 günlük bir seri için çalışmaya başlayın!</string>
+  <string name="reading_challenge_widget_start_reading_challenge_title">Okuma mücadelenizi başlatın.</string>
+  <string name="reading_challenge_widget_start_reading_challenge_subtitle">Her seri bir yerden başlar</string>
+  <string name="reading_challenge_widget_start_spin_up_new_streak_title">Yeni bir seri başlatalım mı?</string>
+  <string name="reading_challenge_widget_start_spin_up_new_streak_subtitle">Başlamak için bir makale okuyun.</string>
+  <string name="reading_challenge_widget_start_fresh_start_title">Yeni bir başlangıç.</string>
+  <string name="reading_challenge_widget_start_fresh_start_subtitle">Seriniz sadece bir makale uzakta.</string>
+  <string name="reading_challenge_widget_concluded_incomplete">Mücadele sona erdi</string>
+  <string name="reading_challenge_widget_concluded_complete">Başardınız!</string>
+  <string name="reading_challenge_widget_reward_title">Merak size yakışıyor! 🛍️</string>
+  <string name="reading_challenge_widget_reward_body">Mücadeleyi tamamlamayı Vikipedi Mağazasında %%15 indirimle kutlayın.</string>
+  <string name="reading_challenge_widget_reward_button_label">Mağazada %%15 indirim kazanın</string>
+  <string name="explore_feed_new_update_prompt_title">Keşfet artık yeni görünümüyle Ana Sayfa</string>
+  <string name="explore_feed_new_update_prompt_new_name_title">Yeni bir isim</string>
+  <string name="explore_feed_new_update_prompt_new_name_description">Keşfet akışı artık eskiyle aynı yerde, Ana Sayfa olarak adlandırılıyor.</string>
+  <string name="explore_feed_new_update_prompt_two_ways_title">Akışınız, iki şekilde</string>
+  <string name="explore_feed_new_update_prompt_two_ways_description">Size Özel\'de ilgi alanlarınıza göre kişiselleştirilmiş maddeleri keşfedin veya Topluluk\'ta Vikipedi\'nin en iyi editöryel içeriğine göz atın.</string>
+  <string name="explore_feed_new_update_prompt_control_title">Kontrolü elinizde tutun</string>
+  <string name="explore_feed_new_update_prompt_control_description">Her öneri size neden orada olduğunu söyler. Tercihlerinizi istediğiniz zaman Ayarlar\'dan güncelleyebilirsiniz.</string>
+  <string name="explore_feed_new_update_prompt_language_title">Her dil, tamamen kişiselleştirilmiş</string>
+  <string name="explore_feed_new_update_prompt_language_description">Birden fazla dilde mi okuyorsunuz? Her biri kendi deneyimini yaşar. Dil değiştirin ve yeni akışınız hazır.</string>
+  <string name="explore_feed_new_update_prompt_primary_button_text">Akışımı özelleştir</string>
+  <string name="explore_feed_customize_interests">İlgi alanlarını özelleştir</string>
+  <string name="explore_feed_new_update_prompt_secondary_button_text">Benim için ayarla</string>
+  <string name="explore_feed_building_text">Akışınız oluşturuluyor…</string>
+  <string name="explore_feed_community_tab_label">Topluluk</string>
+  <string name="explore_feed_for_you_tab_label">Size özel</string>
+  <string name="explore_feed_date_today">Bugün - %s</string>
+  <string name="explore_feed_load_previous_day_label">Önceki günü yükle</string>
+  <string name="explore_feed_from_reading_list">Okuma listenizden</string>
+  <string name="explore_feed_because_of_interest">İlgi alanınız nedeniyle: %s</string>
+  <string name="explore_feed_onboarding_curiosity_title">Merakınızın peşinden gidin</string>
+  <string name="explore_feed_onboarding_curiosity_description">İlginizi çeken konuları seçin, akışınızı kişiselleştireceğiz. Minimum düzeyde anonimleştirilmiş veri topluyoruz.</string>
+  <string name="explore_feed_deselect_all_button_label">Tümünün seçimini kaldır</string>
+  <string name="explore_feed_potd_subtitle">Gönüllü katkıda bulunanlar tarafından seçilen Wikimedia Commons\'taki günlük resimler</string>
+  <string name="explore_feed_featured_article_subtitle">Seçkin maddeler, editörler tarafından günlük olarak seçilen Vikipedi\'nin en kaliteli maddeleridir</string>
+  <string name="explore_feed_preference_selection_screen_title">Önce neyi görmek istersiniz?</string>
+  <string name="explore_feed_preference_community_content_title">Toplulukla ilgili içerik</string>
+  <string name="explore_feed_preference_personalized_content_title">Kişiselleştirilmiş içerik</string>
+  <string name="explore_feed_in_the_news_subtitle">Geniş ilgi gören güncel veya son olayları yansıtmak için önemli ölçüde güncellenen maddeler</string>
+  <string name="explore_feed_on_this_day_subtitle">Bu günden tarihî olayları keşfedin</string>
+  <string name="explore_feed_community_disclaimer">Vikimedia topluluğu tarafından ve hakkında seçilmiş içerik ve kaynaklar</string>
+  <string name="explore_feed_community_load_more_label">Geçmiş topluluk içeriğini gör</string>
+  <string name="explore_feed_manage_languages_label">Dilleri yönet</string>
+  <string name="explore_feed_header_overflow_hide_module_label">Modülü gizle</string>
+  <string name="explore_feed_header_overflow_hide_module_message">Modül gizlendi.</string>
+  <string name="explore_feed_header_overflow_hide_module_message_action">Geri al</string>
+  <string name="explore_feed_personalized_preference_empty_state_text">Kişiselleştirilmiş içerik önerilerini görmek için ilgi alanları eklemeniz gerekiyor. Bunu önceki adımlarda veya daha sonra Ayarlar\'dan yapabilirsiniz.</string>
+  <string name="explore_feed_because_you_read">Okuduğunuz için: %s</string>
+  <string name="explore_feed_swipe_to_explore_prompt_title">Keşfetmek için kaydırın</string>
+  <string name="explore_feed_swipe_to_explore_prompt_message">Konular arasında gezinmek için aşağı kaydırın veya ilgili içerikleri keşfetmek için yana kaydırın.</string>
+  <string name="home_feed_settings_title">Ana akışı özelleştir</string>
+  <string name="home_feed_settings_whats_driving_title">Akışınızı ne belirliyor</string>
+  <string name="home_feed_settings_modules_title">Modüller</string>
+  <string name="home_feed_settings_community_subtitle">\"Topluluk\" akış modüllerini açın veya kapatın</string>
+  <string name="home_feed_settings_for_you_subtitle">\"Size özel\" akış modüllerini açın veya kapatın</string>
+  <string name="home_feed_settings_whats_driving_subtitle">İçeriğinizi şekillendiren konular ve maddeler</string>
+  <string name="home_feed_settings_community_modules_description">Bir modülü kapatmak, onu Topluluk akışınızdan gizler. İstediğiniz zaman buradan yeniden etkinleştirebilirsiniz. Bazı modüller dilinizde kullanılamayabilir.</string>
+  <string name="home_feed_settings_for_you_modules_description">Bir modülü kapatmak, onu \"Size özel\" akışınızdan gizler. İstediğiniz zaman buradan yeniden etkinleştirebilirsiniz.</string>
+  <string name="home_feed_settings_based_on_interest_title">İlgi alanlarınıza göre</string>
+  <string name="home_feed_settings_based_on_interest_subtitle">Seçtiğiniz konulara göre uyarlanmış maddeler.&lt;br /&gt;&lt;a href=\"#drivingFeed\"&gt;Akışınızı ne belirliyor&lt;/a&gt;</string>
+  <string name="home_feed_settings_because_you_read_subtitle">Geçmişinizdeki yakın zamanda okunan bir maddeye dayalı öneriler</string>
+  <string name="home_feed_settings_continue_reading_title">Okumaya devam et</string>
+  <string name="home_feed_settings_continue_reading_subtitle">Bitirmediğiniz maddelere geri dönün</string>
+  <string name="home_feed_did_you_know_title">Bunları biliyor muydunuz?</string>
+  <string name="home_feed_did_you_know_subtitle">Gönüllü editörler tarafından seçilen makalelerden ilginç bilgiler.</string>
+  <string name="home_feed_did_you_know_more_label">Daha fazlasını biliyor muydunuz?</string>
+  <string name="home_feed_settings_community_empty_dialog_title">Topluluk akışınız boş olacak</string>
+  <string name="home_feed_settings_for_you_empty_dialog_title">\"Size özel\" akışınız boş olacak</string>
+  <string name="home_feed_settings_empty_dialog_text">İçerik görmek için en az bir modülü açın.</string>
+  <string name="home_feed_settings_empty_dialog_positive">Yine de devam et</string>
+  <string name="home_feed_screen_empty_state_label">Akışınız boş</string>
+  <string name="home_feed_community_screen_all_modules_disabled_description">Vikimedia topluluğu tarafından ve hakkında derlenen içerikleri görmeye başlamak için &lt;b&gt;Topluluk&lt;/b&gt; modüllerini açın.</string>
+  <string name="home_feed_for_you_screen_all_modules_disabled_description">Tercihlerinize dayalı içerikleri görmeye başlamak için &lt;b&gt;Size özel&lt;/b&gt; modülleri açın.</string>
+  <string name="home_feed_screen_all_modules_disabled_btn_label">Modülleri yönet</string>
+  <string name="home_feed_for_you_screen_empty_title">Akışınız şimdilik boş</string>
+  <string name="home_feed_for_you_screen_empty_description">Siz keşfettikçe \"Size özel\" akışınız kişiselleştirilmiş maddelerle dolacaktır.</string>
+  <string name="home_feed_for_you_screen_empty_ways_to_start">Başlama yolları:</string>
+  <string name="home_feed_for_you_screen_empty_add_interests">&lt;a href=\"#add_interests\"&gt;İlgi alanları&lt;/a&gt; ekleyin</string>
+  <string name="home_feed_for_you_screen_empty_see_community">&lt;a href=\"#community_tab\"&gt;Topluluk&lt;/a&gt; sekmesinde neler olduğuna bakın</string>
+  <string name="home_feed_random_title">Rastgele</string>
+  <string name="home_feed_random_subtitle">Merakınızı uyandıracak rastgele bir makale</string>
+  <string name="home_feed_random_shuffle_button">Karıştır</string>
+  <string name="home_feed_settings_feed_configuration_description">Bu konular ve maddeler \"Size özel\" akışınızda nelerin görüneceğini belirler. Artık istemediğinizi kaldırın veya yeni ilgi alanları ekleyin.</string>
+  <string name="home_feed_settings_feed_configuration_interest_title">İlgi alanlarınız</string>
+  <string name="home_feed_settings_feed_configuration_interest_subtitle">İlgi alanı konularınızı düzenleyin</string>
+  <string name="home_feed_settings_feed_configuration_location_title">Konumunuz</string>
+  <string name="home_feed_settings_feed_configuration_location_subtitle">Yakındaki maddeleri görmek için yerinizi güncelleyin</string>
+  <string name="home_feed_settings_feed_configuration_empty_interest_subtitle">İlgi alanları listeniz boş. Merak ettiğiniz bir şey ekleyin.</string>
+  <string name="home_feed_settings_feed_configuration_reading_history_title">Okuma geçmişi</string>
+  <string name="home_feed_settings_feed_configuration_reading_history_subtitle">Son okunan maddelerinize göz atın</string>
+  <string name="home_feed_settings_feed_configuration_empty_reading_history_subtitle">Okuma geçmişiniz boş. Kişiselleştirilmiş öneriler oluşturmak için maddeleri keşfetmeye başlayın.</string>
+  <string name="home_feed_settings_feed_configuration_languages_title">Diller</string>
+  <string name="home_feed_settings_feed_configuration_languages_subtitle">Tercih ettiğiniz dilleri düzenleyin</string>
+  <string name="home_feed_settings_feed_configuration_interests_updated_message">İlgi alanları güncellendi. Güncellemeleri görmek için akışınızı yenileyin.</string>
+  <string name="home_feed_places_of_interest_cta_title">Sevdiğiniz yerlerden hikayeler</string>
+  <string name="home_feed_places_of_interest_cta_button">Yerlere Git</string>
+  <string name="home_feed_for_you_screen_end_of_feed_title">Bugünlük bu kadar!</string>
+  <string name="home_feed_for_you_screen_end_of_feed_description">Yarın size özel olarak derlenmiş taze yeni maddeler bulmak için geri gelin.</string>
+  <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Öğrenmeye devam etmenin yolları:</string>
+  <string name="home_feed_for_you_screen_end_of_feed_add_interests">&lt;a href=\"#add_interests\"&gt;İlgi alanları&lt;/a&gt; ekleyin</string>
 </resources>

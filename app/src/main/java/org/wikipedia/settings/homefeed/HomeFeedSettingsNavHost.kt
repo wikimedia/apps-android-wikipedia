@@ -15,6 +15,7 @@ import org.wikipedia.extensions.instrument
 import org.wikipedia.feed.personalization.PersonalizationActivity
 import org.wikipedia.main.MainActivity
 import org.wikipedia.navtab.NavTab
+import org.wikipedia.places.PlacesActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.util.FeedbackUtil
 
@@ -88,6 +89,10 @@ fun HomeFeedSettingsNavHost(
                 onInterestsClick = {
                     context.instrument?.submitInteraction("click", elementId = "customize_feed")
                     customizeInterestsLauncher.launch(PersonalizationActivity.newIntent(context, showInterestsOnly = true))
+                },
+                onLocationClick = {
+                    context.instrument?.submitInteraction("click", elementId = "update_location")
+                    context.startActivity(PlacesActivity.newIntent(context))
                 },
                 onReadingHistoryClick = {
                     context.instrument?.submitInteraction("click", elementId = "reading_history")

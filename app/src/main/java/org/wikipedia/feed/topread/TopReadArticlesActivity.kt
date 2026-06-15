@@ -6,12 +6,15 @@ import android.os.Bundle
 import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.extensions.parcelableExtra
+import org.wikipedia.util.DateUtil
 
 class TopReadArticlesActivity : SingleFragmentActivity<TopReadFragment>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        title = getString(R.string.top_read_activity_title, intent.parcelableExtra<TopReadListCard>(TOP_READ_CARD)?.subtitle().orEmpty())
+        val card = intent.parcelableExtra<TopReadCard>(TOP_READ_CARD)
+        val dateStr = card?.let { DateUtil.getShortDateString(it.articles.localDate) }
+        title = getString(R.string.top_read_activity_title, dateStr.orEmpty())
     }
 
     public override fun createFragment(): TopReadFragment {
@@ -20,7 +23,7 @@ class TopReadArticlesActivity : SingleFragmentActivity<TopReadFragment>() {
 
     companion object {
         const val TOP_READ_CARD = "item"
-        fun newIntent(context: Context, card: TopReadListCard): Intent {
+        fun newIntent(context: Context, card: TopReadCard): Intent {
             return Intent(context, TopReadArticlesActivity::class.java)
                 .putExtra(TOP_READ_CARD, card)
         }

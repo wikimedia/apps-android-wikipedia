@@ -16,11 +16,12 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.databinding.FragmentMostReadBinding
 import org.wikipedia.extensions.setLayoutDirectionByLang
-import org.wikipedia.feed.model.Card
-import org.wikipedia.feed.view.ListCardItemView
+import org.wikipedia.feed.view.ListItemView
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageActivity
+import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
+import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.TabUtil
@@ -42,15 +43,15 @@ class TopReadFragment : Fragment() {
 
         (requireActivity() as AppCompatActivity).run {
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
-            supportActionBar?.title = getString(R.string.top_read_activity_title, card.subtitle())
+            supportActionBar?.title = getString(R.string.top_read_activity_title, DateUtil.getShortDateString(card.articles.localDate))
         }
 
-        binding.root.setLayoutDirectionByLang(card.wikiSite().languageCode)
+        binding.root.setLayoutDirectionByLang(card.site.languageCode)
 
         binding.mostReadRecyclerView.layoutManager = LinearLayoutManager(context)
         binding.mostReadRecyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_divider))
         binding.mostReadRecyclerView.isNestedScrollingEnabled = false
-        binding.mostReadRecyclerView.adapter = RecyclerAdapter(card.items(), Callback())
+        binding.mostReadRecyclerView.adapter = RecyclerAdapter(card.articles.articles.map { it.getPageTitle(card.site) }, Callback())
 
         return binding.root
     }
@@ -60,22 +61,22 @@ class TopReadFragment : Fragment() {
         super.onDestroyView()
     }
 
-    private class RecyclerAdapter constructor(items: List<TopReadItemCard>, private val callback: Callback) :
-        DefaultRecyclerAdapter<TopReadItemCard, ListCardItemView>(items) {
+    private class RecyclerAdapter(items: List<PageTitle>, private val callback: Callback) :
+        DefaultRecyclerAdapter<PageTitle, ListItemView>(items) {
 
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DefaultViewHolder<ListCardItemView> {
-            return DefaultViewHolder(ListCardItemView(parent.context))
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DefaultViewHolder<ListItemView> {
+            return DefaultViewHolder(ListItemView(parent.context))
         }
 
-        override fun onBindViewHolder(holder: DefaultViewHolder<ListCardItemView>, position: Int) {
-            val card = item(position)
-            holder.view.setCard(card).setHistoryEntry(HistoryEntry(card.pageTitle,
+        override fun onBindViewHolder(holder: DefaultViewHolder<ListItemView>, position: Int) {
+            val title = item(position)
+            holder.view.setPageTitle(title).setHistoryEntry(HistoryEntry(title,
                 HistoryEntry.SOURCE_FEED_MOST_READ_ACTIVITY)).setCallback(callback)
         }
     }
 
-    private inner class Callback : ListCardItemView.Callback {
-        override fun onSelectPage(card: Card, entry: HistoryEntry, openInNewBackgroundTab: Boolean) {
+    private inner class Callback : ListItemView.Callback {
+        override fun onSelectPage(title: PageTitle, entry: HistoryEntry, openInNewBackgroundTab: Boolean) {
             if (openInNewBackgroundTab) {
                 TabUtil.openInNewBackgroundTab(entry)
                 FeedbackUtil.showMessage(requireActivity(), R.string.article_opened_in_background_tab)
@@ -84,7 +85,7 @@ class TopReadFragment : Fragment() {
             }
         }
 
-        override fun onSelectPage(card: Card, entry: HistoryEntry, sharedElements: Array<Pair<View, String>>) {
+        override fun onSelectPage(title: PageTitle, entry: HistoryEntry, sharedElements: Array<Pair<View, String>>) {
             val options = ActivityOptions.makeSceneTransitionAnimation(requireActivity(), *sharedElements)
             val intent = PageActivity.newIntentForNewTab(requireContext(), entry, entry.title)
             if (sharedElements.isNotEmpty()) {
@@ -103,7 +104,7 @@ class TopReadFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance(card: TopReadListCard): TopReadFragment {
+        fun newInstance(card: TopReadCard): TopReadFragment {
             return TopReadFragment().apply {
                 arguments = bundleOf(TopReadArticlesActivity.TOP_READ_CARD to card)
             }

@@ -26,6 +26,8 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.extensions.getString
 import org.wikipedia.feed.dayheader.DayHeaderCard
+import org.wikipedia.feed.didyouknow.DidYouKnowCard
+import org.wikipedia.feed.didyouknow.DidYouKnowModule
 import org.wikipedia.feed.featured.FeaturedArticleCard
 import org.wikipedia.feed.featured.FeaturedArticleModule
 import org.wikipedia.feed.image.FeaturedImageCard
@@ -37,7 +39,7 @@ import org.wikipedia.feed.news.NewsItem
 import org.wikipedia.feed.news.NewsModule
 import org.wikipedia.feed.onthisday.OnThisDayCard
 import org.wikipedia.feed.onthisday.OnThisDayModule
-import org.wikipedia.feed.topread.TopReadListCard
+import org.wikipedia.feed.topread.TopReadCard
 import org.wikipedia.feed.topread.TopReadModule
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.util.L10nUtil
@@ -151,7 +153,7 @@ fun CommunityContentTab(
                                     )
                                 }
                             }
-                            is TopReadListCard -> {
+                            is TopReadCard -> {
                                 if (lastCardWasDayHeader) {
                                     item(key = "top-read-spacer-${card.age}") {
                                         Spacer(modifier = Modifier.height(16.dp))
@@ -254,9 +256,36 @@ fun CommunityContentTab(
                                     )
                                 }
                             }
+                            is DidYouKnowCard -> {
+                                item(key = "dyk-${card.date}") {
+                                    DidYouKnowModule(
+                                        wikiSite = wikiSite,
+                                        dyk = card.items,
+                                        onHideCardClick = { onHideCardClick(card) },
+                                        onHideModuleClick = {
+                                            onHideModuleClick(card.moduleKey())
+                                        },
+                                        onPageClick = {
+                                            onPageClick(card, HistoryEntry(it, HistoryEntry.SOURCE_FEED_DID_YOU_KNOW))
+                                        },
+                                        onFooterClick = { onCardFooterClick(card) },
+                                        onCardImpression = { onCardImpression(card, cardIndex) },
+                                        pageOverflowContent = { index ->
+                                            PageOverflowMenu(
+                                                menuKey = "dyk-${card.date}-$index",
+                                                overflowMenuState = overflowMenuState,
+                                                onDismiss = onPageOverflowDismiss,
+                                                items = overflowMenuState?.items.orEmpty()
+                                            )
+                                        },
+                                        onPageOverflowClick = { pageSummary, index ->
+                                            onPageOverflowClick(card, pageSummary, HistoryEntry.SOURCE_FEED_DID_YOU_KNOW, "dyk-${card.date}-$index")
+                                        }
+                                    )
+                                }
+                            }
                             else -> {
                                 // TODO: Today's Featured Picture
-                                // TODO: DYK
                                 // TODO: Media of the day (Commons)
                             }
                         }

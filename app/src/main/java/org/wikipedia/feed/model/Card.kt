@@ -1,10 +1,8 @@
 package org.wikipedia.feed.model
 
-import android.net.Uri
-
 abstract class Card {
 
-    val hideKey get() = (type().code() + dismissHashCode()).toString()
+    val hideKey get() = dismissHashCode().toString()
 
     open fun moduleKey(): String {
         return ""
@@ -14,28 +12,12 @@ abstract class Card {
         return ""
     }
 
-    open fun subtitle(): String? {
-        return null
-    }
-
-    open fun image(): Uri? {
-        return null
-    }
-
-    open fun extract(): String? {
-        return null
-    }
-
-    abstract fun type(): CardType
-    open fun onDismiss() {}
-    open fun onRestore() {}
-
     protected open fun dismissHashCode(): Int {
         return hashCode()
     }
 
     override fun hashCode(): Int {
-        return 31 * type().code() + title().hashCode()
+        return 31 * title().hashCode()
     }
 
     override fun equals(other: Any?): Boolean {

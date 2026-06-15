@@ -36,8 +36,9 @@ class SearchTest : BaseTest<MainActivity>(
         systemRobot
             .disableDarkMode(context)
             .clickOnSystemDialogWithText("Allow")
-        homeScreenRobot
-            .clickSearchContainer()
+        // TODO: update steps
+        // navigate to search screen from home screen
+
         searchRobot
             .typeTextInView(SEARCH_TERM)
             .verifySearchResult(ARTICLE_TITLE)

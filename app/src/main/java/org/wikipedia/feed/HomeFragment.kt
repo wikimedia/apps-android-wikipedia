@@ -25,9 +25,12 @@ import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.compose.components.WikipediaAlertDialog
 import org.wikipedia.compose.components.menu.PageOverflowMenuViewModel
 import org.wikipedia.compose.theme.BaseTheme
+import org.wikipedia.feed.didyouknow.DidYouKnowActivity
+import org.wikipedia.feed.didyouknow.DidYouKnowCard
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.EmptyCommunityCard
 import org.wikipedia.feed.model.EmptyForYouCard
+import org.wikipedia.feed.model.PlacesOfInterestLocationPromptCard
 import org.wikipedia.feed.onboarding.ExploreFeedUpdatePromptActivity
 import org.wikipedia.feed.onthisday.OnThisDayActivity
 import org.wikipedia.feed.onthisday.OnThisDayCard
@@ -35,12 +38,14 @@ import org.wikipedia.feed.personalization.PersonalizationActivity
 import org.wikipedia.feed.personalization.PersonalizationActivity.Companion.RESULT_INTERESTS_UPDATED
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
 import org.wikipedia.feed.topread.TopReadArticlesActivity
-import org.wikipedia.feed.topread.TopReadListCard
+import org.wikipedia.feed.topread.TopReadCard
 import org.wikipedia.main.MainActivity
 import org.wikipedia.main.MainFragment
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.tabs.TabActivity
+import org.wikipedia.places.PlacesActivity
+import org.wikipedia.random.RandomActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.homefeed.HomeFeedSettingsActivity
 import org.wikipedia.settings.homefeed.HomeFeedSettingsStartDestination
@@ -65,7 +70,6 @@ class HomeFragment : Fragment() {
     private val customizeInterestsLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_INTERESTS_UPDATED) {
             Prefs.homeForYouModulesToday = ""
-            viewModel.selectTab(HomeTab.FOR_YOU)
             viewModel.refreshForYouContent()
         }
     }
@@ -102,7 +106,11 @@ class HomeFragment : Fragment() {
                 notificationBellState = notificationState,
                 onSelectTab = { tab, card ->
                     if (card is EmptyCommunityCard || card is EmptyForYouCard) {
-                        instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, elementId = "community_feed")
+                        instrument.submitInteraction(
+                            "click",
+                            actionSource = card.javaClass.simpleName,
+                            elementId = "community_feed"
+                        )
                     }
                     selectTab(tab)
                 },
@@ -117,42 +125,96 @@ class HomeFragment : Fragment() {
                 onLoadMoreCommunityContent = viewModel::loadCommunityContent,
                 onLoadMoreForYouContent = viewModel::loadForYouContent,
                 onHideCommunityCardClick = { card ->
-                    instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_overflow", elementId = "card_hide")
-                    val cardIndex = viewModel.hideCommunityCard(card)
-                    FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.menu_feed_card_dismissed))
+                    instrument.submitInteraction(
+                        "click",
+                        actionSource = card.javaClass.simpleName,
+                        actionSubtype = "feed_overflow",
+                        elementId = "card_hide"
+                    )
+                    viewModel.hideCommunityCard(card)
+                    FeedbackUtil.makeSnackbar(
+                        requireActivity(),
+                        getString(R.string.menu_feed_card_dismissed)
+                    )
                         .setAction(getString(R.string.explore_feed_header_overflow_hide_module_message_action)) {
-                            instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_overflow", elementId = "undo_card_hide")
-                            viewModel.restoreCommunityCard(card, cardIndex)
+                            instrument.submitInteraction(
+                                "click",
+                                actionSource = card.javaClass.simpleName,
+                                actionSubtype = "feed_overflow",
+                                elementId = "undo_card_hide"
+                            )
+                            viewModel.restoreCommunityCard(card)
                         }.show()
                 },
-                onHideForYouCardClick = { module, card ->
-                    instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_overflow", elementId = "card_hide")
-                    val cardIndex = viewModel.hideForYouCard(module, card)
-                    FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.menu_feed_card_dismissed))
+                onHideForYouCardClick = { _, card ->
+                    instrument.submitInteraction(
+                        "click",
+                        actionSource = card.javaClass.simpleName,
+                        actionSubtype = "feed_overflow",
+                        elementId = "card_hide"
+                    )
+                    viewModel.hideForYouCard(card)
+                    FeedbackUtil.makeSnackbar(
+                        requireActivity(),
+                        getString(R.string.menu_feed_card_dismissed)
+                    )
                         .setAction(getString(R.string.explore_feed_header_overflow_hide_module_message_action)) {
-                            instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_overflow", elementId = "undo_card_hide")
-                            viewModel.restoreForYouCard(module, card, cardIndex)
+                            instrument.submitInteraction(
+                                "click",
+                                actionSource = card.javaClass.simpleName,
+                                actionSubtype = "feed_overflow",
+                                elementId = "undo_card_hide"
+                            )
+                            viewModel.restoreForYouCard(card)
                         }.show()
                 },
                 onHideModuleClick = { moduleKey ->
-                    instrument.submitInteraction("click", actionSource = moduleKey, actionSubtype = "feed_overflow", elementId = "module_hide")
+                    instrument.submitInteraction(
+                        "click",
+                        actionSource = moduleKey,
+                        actionSubtype = "feed_overflow",
+                        elementId = "module_hide"
+                    )
                     viewModel.hideModule(moduleKey)
-                    FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.explore_feed_header_overflow_hide_module_message))
+                    FeedbackUtil.makeSnackbar(
+                        requireActivity(),
+                        getString(R.string.explore_feed_header_overflow_hide_module_message)
+                    )
                         .setAction(getString(R.string.explore_feed_header_overflow_hide_module_message_action)) {
-                            instrument.submitInteraction("click", actionSource = moduleKey, actionSubtype = "feed_overflow", elementId = "undo_module_hide")
+                            instrument.submitInteraction(
+                                "click",
+                                actionSource = moduleKey,
+                                actionSubtype = "feed_overflow",
+                                elementId = "undo_module_hide"
+                            )
                             viewModel.restoreModule(moduleKey)
                         }.show()
                 },
                 onPageClick = { card, historyEntry ->
-                    instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, elementId = "article_open", pageData = TestKitchenAdapter.getPageData(pageTitle = historyEntry.title))
+                    instrument.submitInteraction(
+                        "click",
+                        actionSource = card.javaClass.simpleName,
+                        elementId = "article_open",
+                        pageData = TestKitchenAdapter.getPageData(pageTitle = historyEntry.title)
+                    )
                     (parentFragment as? MainFragment)?.onFeedSelectPage(historyEntry, false)
                 },
                 onPageBookmarkClick = { card, historyEntry ->
-                    instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, elementId = "article_save", pageData = TestKitchenAdapter.getPageData(pageTitle = historyEntry.title))
+                    instrument.submitInteraction(
+                        "click",
+                        actionSource = card.javaClass.simpleName,
+                        elementId = "article_save",
+                        pageData = TestKitchenAdapter.getPageData(pageTitle = historyEntry.title)
+                    )
                     (parentFragment as? MainFragment)?.onFeedAddPageToList(historyEntry, true)
                 },
                 onPageShareClick = { card, historyEntry ->
-                    instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, elementId = "article_share", pageData = TestKitchenAdapter.getPageData(pageTitle = historyEntry.title))
+                    instrument.submitInteraction(
+                        "click",
+                        actionSource = card.javaClass.simpleName,
+                        elementId = "article_share",
+                        pageData = TestKitchenAdapter.getPageData(pageTitle = historyEntry.title)
+                    )
                     ShareUtil.shareText(requireContext(), historyEntry.title)
                 },
                 onPageOverflowClick = { card, pageSummary, source, menuKey ->
@@ -163,32 +225,80 @@ class HomeFragment : Fragment() {
                         source = source,
                         menuKey = menuKey,
                         onOpenPage = { entry ->
-                            instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_item_overflow", elementId = "article_open", pageData = TestKitchenAdapter.getPageData(pageTitle = entry.title))
+                            instrument.submitInteraction(
+                                "click",
+                                actionSource = card.javaClass.simpleName,
+                                actionSubtype = "feed_item_overflow",
+                                elementId = "article_open",
+                                pageData = TestKitchenAdapter.getPageData(pageTitle = entry.title)
+                            )
                             (parentFragment as? MainFragment)?.onFeedSelectPage(entry, false)
                         },
                         onOpenInNewTab = { entry ->
-                            instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_item_overflow", elementId = "article_open_new_tab", pageData = TestKitchenAdapter.getPageData(pageTitle = entry.title))
+                            instrument.submitInteraction(
+                                "click",
+                                actionSource = card.javaClass.simpleName,
+                                actionSubtype = "feed_item_overflow",
+                                elementId = "article_open_new_tab",
+                                pageData = TestKitchenAdapter.getPageData(pageTitle = entry.title)
+                            )
                             (parentFragment as? MainFragment)?.onFeedSelectPage(entry, true)
                             viewModel.updateTabCount(true)
                         },
                         onAddRequest = { entry, addToDefault ->
-                            instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_item_overflow", elementId = "article_save", pageData = TestKitchenAdapter.getPageData(pageTitle = entry.title))
-                            (parentFragment as? MainFragment)?.onFeedAddPageToList(entry, addToDefault)
+                            instrument.submitInteraction(
+                                "click",
+                                actionSource = card.javaClass.simpleName,
+                                actionSubtype = "feed_item_overflow",
+                                elementId = "article_save",
+                                pageData = TestKitchenAdapter.getPageData(pageTitle = entry.title)
+                            )
+                            (parentFragment as? MainFragment)?.onFeedAddPageToList(
+                                entry,
+                                addToDefault
+                            )
                         },
                         onMoveRequest = { id, entry ->
-                            instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_item_overflow", elementId = "article_move", pageData = TestKitchenAdapter.getPageData(pageTitle = entry.title))
+                            instrument.submitInteraction(
+                                "click",
+                                actionSource = card.javaClass.simpleName,
+                                actionSubtype = "feed_item_overflow",
+                                elementId = "article_move",
+                                pageData = TestKitchenAdapter.getPageData(pageTitle = entry.title)
+                            )
                             (parentFragment as? MainFragment)?.onFeedMovePageToList(id, entry)
                         },
                         onRemoveRequest = { entry, lists ->
-                            instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_item_overflow", elementId = "article_remove", pageData = TestKitchenAdapter.getPageData(pageTitle = entry.title))
-                            (parentFragment as? MainFragment)?.onFeedRemovePageFromList(entry, lists)
+                            instrument.submitInteraction(
+                                "click",
+                                actionSource = card.javaClass.simpleName,
+                                actionSubtype = "feed_item_overflow",
+                                elementId = "article_remove",
+                                pageData = TestKitchenAdapter.getPageData(pageTitle = entry.title)
+                            )
+                            (parentFragment as? MainFragment)?.onFeedRemovePageFromList(
+                                entry,
+                                lists
+                            )
                         },
                         onShareRequest = { entry ->
-                            instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_item_overflow", elementId = "article_share", pageData = TestKitchenAdapter.getPageData(pageTitle = entry.title))
+                            instrument.submitInteraction(
+                                "click",
+                                actionSource = card.javaClass.simpleName,
+                                actionSubtype = "feed_item_overflow",
+                                elementId = "article_share",
+                                pageData = TestKitchenAdapter.getPageData(pageTitle = entry.title)
+                            )
                             (parentFragment as? MainFragment)?.onFeedSharePage(entry)
                         },
                         onLinkCopyRequest = { entry ->
-                            instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_item_overflow", elementId = "article_copy_link", pageData = TestKitchenAdapter.getPageData(pageTitle = entry.title))
+                            instrument.submitInteraction(
+                                "click",
+                                actionSource = card.javaClass.simpleName,
+                                actionSubtype = "feed_item_overflow",
+                                elementId = "article_copy_link",
+                                pageData = TestKitchenAdapter.getPageData(pageTitle = entry.title)
+                            )
                             (parentFragment as? MainFragment)?.onFeedCopyLink(entry)
                         }
                     )
@@ -197,36 +307,81 @@ class HomeFragment : Fragment() {
                     pageOverflowMenuViewModel.dismissPageOverflowMenu()
                 },
                 onNewsClick = { card, newsItem ->
-                    instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, elementId = card.javaClass.simpleName, actionContext = mapOf("index" to card.news.indexOf(newsItem)))
+                    instrument.submitInteraction(
+                        "click",
+                        actionSource = card.javaClass.simpleName,
+                        elementId = card.javaClass.simpleName,
+                        actionContext = mapOf("index" to card.news.indexOf(newsItem))
+                    )
                     (parentFragment as? MainFragment)?.onFeedNewsItemSelected(newsItem, wikiSite)
                 },
                 onImageClick = {
-                    instrument.submitInteraction("click", actionSource = it.javaClass.simpleName, elementId = "article_open", pageData = TestKitchenAdapter.getPageData(pageTitle = it.featuredImage.toPageTitle()))
+                    instrument.submitInteraction(
+                        "click",
+                        actionSource = it.javaClass.simpleName,
+                        elementId = "article_open",
+                        pageData = TestKitchenAdapter.getPageData(pageTitle = it.featuredImage.toPageTitle())
+                    )
                     (parentFragment as? MainFragment)?.onFeaturedImageSelected(it.featuredImage)
                 },
                 onImageShareClick = {
-                    instrument.submitInteraction("click", actionSource = it.javaClass.simpleName, elementId = "share", pageData = TestKitchenAdapter.getPageData(pageTitle = it.featuredImage.toPageTitle()))
+                    instrument.submitInteraction(
+                        "click",
+                        actionSource = it.javaClass.simpleName,
+                        elementId = "share",
+                        pageData = TestKitchenAdapter.getPageData(pageTitle = it.featuredImage.toPageTitle())
+                    )
                     (parentFragment as? MainFragment)?.onFeedShareImage(it.featuredImage, it.age)
                 },
                 onImageDownloadClick = {
-                    instrument.submitInteraction("click", actionSource = it.javaClass.simpleName, elementId = "download", pageData = TestKitchenAdapter.getPageData(pageTitle = it.featuredImage.toPageTitle()))
+                    instrument.submitInteraction(
+                        "click",
+                        actionSource = it.javaClass.simpleName,
+                        elementId = "download",
+                        pageData = TestKitchenAdapter.getPageData(pageTitle = it.featuredImage.toPageTitle())
+                    )
                     (parentFragment as? MainFragment)?.onFeedDownloadImage(it.featuredImage)
                 },
                 onLanguageSelected = { languageCode ->
-                    instrument.submitInteraction("click", "language_menu", elementId = "language_change", actionContext = mapOf("selected_tab" to selectedTab.name, "language_code" to languageCode))
+                    instrument.submitInteraction(
+                        "click",
+                        "language_menu",
+                        elementId = "language_change",
+                        actionContext = mapOf(
+                            "selected_tab" to selectedTab.name,
+                            "language_code" to languageCode
+                        )
+                    )
                     updateLanguage(languageCode)
                 },
                 onManageLanguagesClick = {
-                    instrument.submitInteraction("click", "language_menu", elementId = "manage_languages", actionContext = mapOf("selected_tab" to selectedTab.name))
-                    requireActivity().startActivity(WikipediaLanguagesActivity.newIntent(requireContext(), invokeSource = InvokeSource.FEED))
+                    instrument.submitInteraction(
+                        "click",
+                        "language_menu",
+                        elementId = "manage_languages",
+                        actionContext = mapOf("selected_tab" to selectedTab.name)
+                    )
+                    requireActivity().startActivity(
+                        WikipediaLanguagesActivity.newIntent(
+                            requireContext(),
+                            invokeSource = InvokeSource.FEED
+                        )
+                    )
                 },
                 onCustomizeInterestsClick = { card ->
                     if (card != null) {
-                        instrument.submitInteraction("click", actionSource = card.javaClass.simpleName,
+                        instrument.submitInteraction(
+                            "click", actionSource = card.javaClass.simpleName,
                             actionSubtype = if (card !is EmptyForYouCard) "feed_overflow" else null,
-                            elementId = "feed_customize")
+                            elementId = "feed_customize"
+                        )
                     }
-                    customizeInterestsLauncher.launch(PersonalizationActivity.newIntent(requireContext(), showInterestsOnly = true))
+                    customizeInterestsLauncher.launch(
+                        PersonalizationActivity.newIntent(
+                            requireContext(),
+                            showInterestsOnly = true
+                        )
+                    )
                 },
                 onTabClick = {
                     requireActivity().startActivity(TabActivity.newIntent(requireActivity()))
@@ -239,14 +394,50 @@ class HomeFragment : Fragment() {
                 },
                 onCardFooterClick = { card ->
                     when (card) {
-                        is TopReadListCard -> {
-                            instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, elementId = "more_top_read")
-                            // TODO: simplify TopReadListCard after we remove the old feed UIs.
-                            startActivity(TopReadArticlesActivity.newIntent(requireActivity(), TopReadListCard(card.articles, card.age, wikiSite)))
+                        is TopReadCard -> {
+                            instrument.submitInteraction(
+                                "click",
+                                actionSource = card.javaClass.simpleName,
+                                elementId = "more_top_read"
+                            )
+                            startActivity(
+                                TopReadArticlesActivity.newIntent(
+                                    requireActivity(),
+                                    TopReadCard(card.articles, card.age, wikiSite)
+                                )
+                            )
                         }
+
                         is OnThisDayCard -> {
-                            instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, elementId = "more_on_this_day")
-                            startActivity(OnThisDayActivity.newIntent(requireActivity(), card.age, -1, wikiSite, InvokeSource.ON_THIS_DAY_CARD_FOOTER))
+                            instrument.submitInteraction(
+                                "click",
+                                actionSource = card.javaClass.simpleName,
+                                elementId = "more_on_this_day"
+                            )
+                            startActivity(
+                                OnThisDayActivity.newIntent(
+                                    requireActivity(),
+                                    card.age,
+                                    -1,
+                                    wikiSite,
+                                    InvokeSource.ON_THIS_DAY_CARD_FOOTER
+                                )
+                            )
+                        }
+
+                        is DidYouKnowCard -> {
+                            instrument.submitInteraction(
+                                "click",
+                                actionSource = card.javaClass.simpleName,
+                                elementId = "more_did_you_know"
+                            )
+                            startActivity(
+                                DidYouKnowActivity.newIntent(
+                                    requireActivity(),
+                                    card.site,
+                                    card.items
+                                )
+                            )
                         }
                     }
                 },
@@ -254,7 +445,11 @@ class HomeFragment : Fragment() {
                     requireActivity().startActivity(NotificationActivity.newIntent(requireActivity()))
                 },
                 onManageModulesClick = {
-                    instrument.submitInteraction("click", actionSource = "feed_empty", elementId = "customize_feed")
+                    instrument.submitInteraction(
+                        "click",
+                        actionSource = "feed_empty",
+                        elementId = "customize_feed"
+                    )
                     val intent = HomeFeedSettingsActivity.newIntent(
                         context = requireContext(),
                         startDestination = when (selectedTab) {
@@ -263,6 +458,24 @@ class HomeFragment : Fragment() {
                         }
                     )
                     requireActivity().startActivity(intent)
+                },
+                onShuffleClick = {
+                    instrument.submitInteraction("click", elementId = "random_card_shuffle_button")
+                    startActivity(
+                        RandomActivity.newIntent(
+                            requireActivity(),
+                            wikiSite,
+                            InvokeSource.FEED
+                        )
+                    )
+                },
+                onPlacesCtaClick = {
+                    instrument.submitInteraction(
+                        "click",
+                        actionSource = PlacesOfInterestLocationPromptCard::class.java.simpleName,
+                        elementId = "go_to_places"
+                    )
+                    requireActivity().startActivity(PlacesActivity.newIntent(requireContext()))
                 }
             )
 
@@ -319,7 +532,6 @@ class HomeFragment : Fragment() {
 
     fun selectTab(tab: HomeTab) {
         viewModel.selectTab(tab)
-        viewModel.reloadCurrentTab()
         (requireActivity() as? MainActivity)?.onTabChanged(NavTab.HOME)
     }
 

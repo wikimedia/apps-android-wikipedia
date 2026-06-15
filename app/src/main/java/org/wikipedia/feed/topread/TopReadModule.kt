@@ -238,14 +238,7 @@ fun TopReadItem(
 @Preview(showBackground = true)
 @Composable
 fun TopReadCardPreview() {
-    val article = PageSummary(
-        displayTitle = "Test Article",
-        prefixTitle = "Test_Article",
-        description = "This is a test article.",
-        extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        thumbnail = null,
-        lang = "en"
-    )
+    val article = PageSummary.preview()
     BaseTheme(currentTheme = Theme.LIGHT) {
         TopReadModule(
             wikiSite = WikiSite.preview(),
