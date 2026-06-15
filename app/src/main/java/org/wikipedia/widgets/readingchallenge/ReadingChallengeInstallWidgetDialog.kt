@@ -8,7 +8,6 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.fillMaxSize
@@ -24,12 +23,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.dropShadow
 import androidx.compose.ui.graphics.shadow.Shadow
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
+import androidx.fragment.compose.content
 import org.wikipedia.R
 import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.compose.components.InstallWidgetScreen
@@ -45,81 +44,76 @@ class ReadingChallengeInstallWidgetDialog : ExtendedBottomSheetDialogFragment(st
         .setDefaultActionSource("widget_challenge_install")
         .startFunnel("widget_challenge")
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) = content {
         instrument.submitInteraction(action = "impression")
         Prefs.readingChallengeInstallPromptShown = true
 
-        return ComposeView(requireContext()).apply {
-            setContent {
-                BaseTheme {
-                    val onGotItClick = {
-                        instrument.submitInteraction(action = "click", elementId = "install_accept")
-                        dismiss()
-                    }
-                    InstallWidgetScreen(
-                        title = stringResource(R.string.reading_challenge_install_prompt_title),
-                        message = stringResource(R.string.reading_challenge_install_prompt_message),
-                        onCloseClick = {
-                            instrument.submitInteraction(action = "click", elementId = "install_close")
-                            dismiss()
-                        },
-                        previewContent = {
-                            Image(
-                                modifier = Modifier.fillMaxSize(),
-                                contentScale = ContentScale.FillWidth,
-                                painter = painterResource(id = R.drawable.reading_challenge_blur_background),
-                                contentDescription = null
-                            )
-                            Image(
-                                modifier = Modifier
-                                    .align(Alignment.Center)
-                                    .padding(vertical = 24.dp)
-                                    .dropShadow(
-                                        shape = RoundedCornerShape(12.dp),
-                                        shadow = Shadow(
-                                            color = WikipediaTheme.colors.overlayColor,
-                                            radius = 12.dp,
-                                            offset = DpOffset(0.dp, 12.dp)
-                                        )
-                                    ),
-                                painter = painterResource(id = R.drawable.reading_challenge_widget_example),
-                                contentDescription = null
-                            )
-                        },
-                        bottomContent = {
-                            if (pinWidgetSupported()) {
-                                TwoButtonBottomBar(
-                                    modifier = Modifier.fillMaxWidth(),
-                                    primaryButtonText = stringResource(R.string.reading_challenge_install_prompt_add),
-                                    secondaryButtonText = stringResource(R.string.reading_challenge_install_prompt_got_it),
-                                    onPrimaryOnClick = {
-                                        instrument.submitInteraction(action = "click", elementId = "install_add")
-                                        requestToPinWidget(requireContext())
-                                        dismiss()
-                                    },
-                                    onSecondaryOnClick = onGotItClick
-                                )
-                            } else {
-                                Button(
-                                    modifier = Modifier.fillMaxWidth(),
-                                    colors = ButtonDefaults.buttonColors(
-                                        containerColor = WikipediaTheme.colors.progressiveColor
-                                    ),
-                                    onClick = onGotItClick
-                                ) {
-                                    Text(
-                                        text = stringResource(R.string.reading_challenge_install_prompt_got_it),
-                                        style = MaterialTheme.typography.labelLarge,
-                                        color = WikipediaTheme.colors.paperColor,
-                                        textAlign = TextAlign.Center
-                                    )
-                                }
-                            }
-                        }
-                    )
-                }
+        BaseTheme {
+            val onGotItClick = {
+                instrument.submitInteraction(action = "click", elementId = "install_accept")
+                dismiss()
             }
+            InstallWidgetScreen(
+                title = stringResource(R.string.reading_challenge_install_prompt_title),
+                message = stringResource(R.string.reading_challenge_install_prompt_message),
+                onCloseClick = {
+                    instrument.submitInteraction(action = "click", elementId = "install_close")
+                    dismiss()
+                },
+                previewContent = {
+                    Image(
+                        modifier = Modifier.fillMaxSize(),
+                        contentScale = ContentScale.FillWidth,
+                        painter = painterResource(id = R.drawable.reading_challenge_blur_background),
+                        contentDescription = null
+                    )
+                    Image(
+                        modifier = Modifier
+                            .align(Alignment.Center)
+                            .padding(vertical = 24.dp)
+                            .dropShadow(
+                                shape = RoundedCornerShape(12.dp),
+                                shadow = Shadow(
+                                    color = WikipediaTheme.colors.overlayColor,
+                                    radius = 12.dp,
+                                    offset = DpOffset(0.dp, 12.dp)
+                                )
+                            ),
+                        painter = painterResource(id = R.drawable.reading_challenge_widget_example),
+                        contentDescription = null
+                    )
+                },
+                bottomContent = {
+                    if (pinWidgetSupported()) {
+                        TwoButtonBottomBar(
+                            modifier = Modifier.fillMaxWidth(),
+                            primaryButtonText = stringResource(R.string.reading_challenge_install_prompt_add),
+                            secondaryButtonText = stringResource(R.string.reading_challenge_install_prompt_got_it),
+                            onPrimaryOnClick = {
+                                instrument.submitInteraction(action = "click", elementId = "install_add")
+                                requestToPinWidget(requireContext())
+                                dismiss()
+                            },
+                            onSecondaryOnClick = onGotItClick
+                        )
+                    } else {
+                        Button(
+                            modifier = Modifier.fillMaxWidth(),
+                            colors = ButtonDefaults.buttonColors(
+                                containerColor = WikipediaTheme.colors.progressiveColor
+                            ),
+                            onClick = onGotItClick
+                        ) {
+                            Text(
+                                text = stringResource(R.string.reading_challenge_install_prompt_got_it),
+                                style = MaterialTheme.typography.labelLarge,
+                                color = WikipediaTheme.colors.paperColor,
+                                textAlign = TextAlign.Center
+                            )
+                        }
+                    }
+                }
+            )
         }
     }
 

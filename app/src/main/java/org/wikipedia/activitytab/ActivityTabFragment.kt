@@ -55,7 +55,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.layout.positionInParent
-import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -67,6 +66,7 @@ import androidx.core.net.toUri
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.fragment.compose.content
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -143,8 +143,31 @@ class ActivityTabFragment : Fragment() {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        super.onCreateView(inflater, container, savedInstanceState)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) = content {
+        BaseTheme {
+            val scrollToGames = viewModel.scrollToGames.collectAsState().value
+            ActivityTabScreen(
+                isLoggedIn = AccountUtil.isLoggedIn && !AccountUtil.isTemporaryAccount,
+                userName = AccountUtil.userName,
+                languageCode = WikipediaApp.instance.wikiSite.languageCode,
+                modules = Prefs.activityTabModules,
+                haveAtLeastOneDonation = Prefs.donationResults.isNotEmpty(),
+                areGamesAvailable = WikiGames.WHICH_CAME_FIRST.isLangSupported(WikipediaApp.instance.wikiSite.languageCode),
+                refreshSilently = viewModel.shouldRefreshTimelineSilently,
+                scrollToGames = scrollToGames,
+                readingHistoryState = viewModel.readingHistoryState.collectAsState().value,
+                donationUiState = viewModel.donationUiState.collectAsState().value,
+                wikiGamesUiState = viewModel.wikiGamesUiState.collectAsState().value,
+                impactUiState = viewModel.impactUiState.collectAsState().value,
+                timelineFlow = viewModel.timelineFlow,
+                onScrollToGamesConsumed = {
+                    viewModel.onScrollToGamesConsumed()
+                }
+            )
+        }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.RESUMED) {
                 FlowEventBus.events.collectLatest { event ->
@@ -169,31 +192,6 @@ class ActivityTabFragment : Fragment() {
                             state = if (isAllDataEmpty) "empty" else "complete"
                         )
                     }
-                }
-            }
-        }
-        return ComposeView(requireContext()).apply {
-            setContent {
-                BaseTheme {
-                    val scrollToGames = viewModel.scrollToGames.collectAsState().value
-                    ActivityTabScreen(
-                        isLoggedIn = AccountUtil.isLoggedIn && !AccountUtil.isTemporaryAccount,
-                        userName = AccountUtil.userName,
-                        languageCode = WikipediaApp.instance.wikiSite.languageCode,
-                        modules = Prefs.activityTabModules,
-                        haveAtLeastOneDonation = Prefs.donationResults.isNotEmpty(),
-                        areGamesAvailable = WikiGames.WHICH_CAME_FIRST.isLangSupported(WikipediaApp.instance.wikiSite.languageCode),
-                        refreshSilently = viewModel.shouldRefreshTimelineSilently,
-                        scrollToGames = scrollToGames,
-                        readingHistoryState = viewModel.readingHistoryState.collectAsState().value,
-                        donationUiState = viewModel.donationUiState.collectAsState().value,
-                        wikiGamesUiState = viewModel.wikiGamesUiState.collectAsState().value,
-                        impactUiState = viewModel.impactUiState.collectAsState().value,
-                        timelineFlow = viewModel.timelineFlow,
-                        onScrollToGamesConsumed = {
-                            viewModel.onScrollToGamesConsumed()
-                        }
-                    )
                 }
             }
         }
