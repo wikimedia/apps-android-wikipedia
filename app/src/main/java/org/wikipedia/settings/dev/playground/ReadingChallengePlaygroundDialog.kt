@@ -60,7 +60,7 @@ class ReadingChallengePlayGroundDialog : ExtendedBottomSheetDialogFragment(start
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ) = content {
-        val repository = ReadingChallengeWidgetRepository(requireContext())
+        val repository = remember { ReadingChallengeWidgetRepository(requireContext()) }
         val stateFlow = remember { repository.observeState() }
         val coroutineScope = rememberCoroutineScope()
 
