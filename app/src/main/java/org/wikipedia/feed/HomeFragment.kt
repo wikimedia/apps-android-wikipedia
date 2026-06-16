@@ -309,7 +309,7 @@ class HomeFragment : Fragment() {
                             message = stringResource(R.string.explore_feed_swipe_to_explore_prompt_message),
                             image = {
                                 Image(
-                                    painter = painterResource(R.drawable.illustration_swipe_gesture),
+                                    painter = painterResource(R.drawable.swipe_gesture_illustration),
                                     contentDescription = null,
                                     modifier = Modifier.fillMaxWidth()
                                 )
