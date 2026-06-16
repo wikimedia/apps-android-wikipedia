@@ -1,5 +1,6 @@
 package org.wikipedia.feed.discover
 
+import androidx.annotation.StringRes
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -82,13 +83,14 @@ fun DiscoverArticlesModule(
     topInset: Int,
     wikiSite: WikiSite,
     module: ForYouModule.Discover,
+    @StringRes updateFrequency: Int,
     onPageClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
     onPageBookmarkClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
     onPageShareClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
     onHideCardClick: (module: ForYouModule, card: ForYouCard) -> Unit = { _, _ -> },
     onHideModuleClick: () -> Unit = {},
     onCardInView: (card: Card) -> Unit = {},
-    onCustomizeInterestsClick: (card: Card) -> Unit = {},
+    onCustomizeClick: (card: Card) -> Unit = {},
     onSeeAllRecommendationClick: () -> Unit = {}
 ) {
     val context = LocalContext.current
@@ -107,19 +109,21 @@ fun DiscoverArticlesModule(
             }
             is DiscoverCard -> {
                 val historyEntry = HistoryEntry(card.title, HistoryEntry.SOURCE_RECOMMENDED_READING_LIST)
+                val updateFrequencyText = context.getString(wikiSite.languageCode, updateFrequency)
                 ForYouCardContent(
                     wikiSite = wikiSite,
                     title = card.title,
                     module = module,
                     card = card,
                     footerIcon = painterResource(R.drawable.ic_lightbulb_24dp),
-                    footerText = context.getString(wikiSite.languageCode, R.string.home_feed_discover_card_footer),
+                    footerText = context.getString(wikiSite.languageCode, R.string.home_feed_discover_card_footer, updateFrequencyText),
                     onPageClick = { onPageClick(card, historyEntry) },
                     onShareClick = { onPageShareClick(card, historyEntry) },
                     onSaveClick = { onPageBookmarkClick(card, historyEntry) },
                     onHideCardClick = onHideCardClick,
                     onHideModuleClick = onHideModuleClick,
-                    onCustomizeInterestsClick = { onCustomizeInterestsClick(card) }
+                    customizeMenuText = R.string.explore_feed_customize_discover,
+                    onCustomizeClick = { onCustomizeClick(card) }
                 )
             }
             else -> {}

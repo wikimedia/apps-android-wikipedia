@@ -29,6 +29,7 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.feed.didyouknow.DidYouKnowActivity
 import org.wikipedia.feed.didyouknow.DidYouKnowCard
 import org.wikipedia.feed.model.Card
+import org.wikipedia.feed.model.DiscoverCard
 import org.wikipedia.feed.model.EmptyCommunityCard
 import org.wikipedia.feed.model.EmptyForYouCard
 import org.wikipedia.feed.model.PlacesOfInterestLocationPromptCard
@@ -230,13 +231,17 @@ class HomeFragment : Fragment() {
                             instrument.submitInteraction("click", "language_menu", elementId = "manage_languages", actionContext = mapOf("selected_tab" to selectedTab.name))
                             requireActivity().startActivity(WikipediaLanguagesActivity.newIntent(requireContext(), invokeSource = InvokeSource.FEED))
                         },
-                        onCustomizeInterestsClick = { card ->
+                        onCustomizeClick = { card ->
                             if (card != null) {
                                 instrument.submitInteraction("click", actionSource = card.javaClass.simpleName,
                                     actionSubtype = if (card !is EmptyForYouCard) "feed_overflow" else null,
                                     elementId = "feed_customize")
                             }
-                            customizeInterestsLauncher.launch(PersonalizationActivity.newIntent(requireContext(), showInterestsOnly = true))
+                            if (card is DiscoverCard) {
+                                requireActivity().startActivity(RecommendedReadingListSettingsActivity.newIntent(requireContext()))
+                            } else {
+                                customizeInterestsLauncher.launch(PersonalizationActivity.newIntent(requireContext(), showInterestsOnly = true))
+                            }
                         },
                         onTabClick = {
                             requireActivity().startActivity(TabActivity.newIntent(requireActivity()))

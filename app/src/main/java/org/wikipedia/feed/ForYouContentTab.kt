@@ -84,7 +84,7 @@ fun ForYouContentTab(
     onPageClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
     onPageBookmarkClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
     onPageShareClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
-    onCustomizeInterestsClick: (card: Card) -> Unit = {},
+    onCustomizeClick: (card: Card) -> Unit = {},
     onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> },
     onManageModulesClick: () -> Unit,
     onSelectTab: (HomeTab, Card?) -> Unit = { _, _ -> },
@@ -121,7 +121,7 @@ fun ForYouContentTab(
                 headerResId = R.string.home_feed_for_you_screen_empty_ways_to_start,
                 customizeInterestsTextResId = R.string.home_feed_for_you_screen_empty_add_interests,
                 showCustomizeInterests = !state.isInterestModuleHidden,
-                onCustomizeInterestsClick = { onCustomizeInterestsClick(card) },
+                onCustomizeClick = { onCustomizeClick(card) },
                 navigateToCommunityTab = { onSelectTab(HomeTab.COMMUNITY, card) }
             )
         }
@@ -190,7 +190,7 @@ fun ForYouContentTab(
                                 onHideCardClick = onHideCardClick,
                                 onHideModuleClick = onHideModuleClick,
                                 onCardImpression = onCardImpression,
-                                onCustomizeInterestsClick = onCustomizeInterestsClick,
+                                onCustomizeClick = onCustomizeClick,
                                 onShuffleClick = onShuffleClick,
                                 onPlacesCtaClick = onPlacesCtaClick,
                                 onEnableDiscoverClick = onEnableDiscoverClick,
@@ -225,7 +225,7 @@ fun ForYouContentTab(
                                     descriptionResId = R.string.home_feed_for_you_screen_end_of_feed_description,
                                     headerResId = R.string.home_feed_for_you_screen_end_of_feed_ways_to_keep_learning,
                                     customizeInterestsTextResId = R.string.home_feed_for_you_screen_end_of_feed_add_interests,
-                                    onCustomizeInterestsClick = { onCustomizeInterestsClick(card) },
+                                    onCustomizeClick = { onCustomizeClick(card) },
                                     navigateToCommunityTab = { onSelectTab(HomeTab.COMMUNITY, card) }
                                 )
                             }
@@ -250,7 +250,7 @@ fun ForYouContentTab(
                                 onHideCardClick = onHideCardClick,
                                 onHideModuleClick = onHideModuleClick,
                                 onCardImpression = { _, _ -> },
-                                onCustomizeInterestsClick = onCustomizeInterestsClick,
+                                onCustomizeClick = onCustomizeClick,
                                 onShuffleClick = onShuffleClick,
                                 onPlacesCtaClick = onPlacesCtaClick,
                                 onEnableDiscoverClick = onEnableDiscoverClick,
@@ -276,7 +276,7 @@ private fun LazyListScope.forYouModuleItem(
     onHideCardClick: (module: ForYouModule, card: ForYouCard) -> Unit,
     onHideModuleClick: (moduleKey: String) -> Unit,
     onCardImpression: (card: Card, index: Int) -> Unit,
-    onCustomizeInterestsClick: (card: Card) -> Unit,
+    onCustomizeClick: (card: Card) -> Unit,
     onShuffleClick: () -> Unit,
     onPlacesCtaClick: () -> Unit,
     onEnableDiscoverClick: () -> Unit,
@@ -298,7 +298,7 @@ private fun LazyListScope.forYouModuleItem(
                     onHideCardClick = onHideCardClick,
                     onHideModuleClick = { onHideModuleClick(module.moduleKey()) },
                     onCardInView = { onCardImpression(it, index) },
-                    onCustomizeInterestsClick = onCustomizeInterestsClick
+                    onCustomizeClick = onCustomizeClick
                 )
             }
         }
@@ -316,7 +316,7 @@ private fun LazyListScope.forYouModuleItem(
                     onHideCardClick = onHideCardClick,
                     onHideModuleClick = { onHideModuleClick(module.moduleKey()) },
                     onCardInView = { onCardImpression(it, index) },
-                    onCustomizeInterestsClick = onCustomizeInterestsClick
+                    onCustomizeClick = onCustomizeClick
                 )
             }
         }
@@ -334,7 +334,7 @@ private fun LazyListScope.forYouModuleItem(
                     onHideCardClick = onHideCardClick,
                     onHideModuleClick = { onHideModuleClick(module.moduleKey()) },
                     onCardInView = { onCardImpression(it, index) },
-                    onCustomizeInterestsClick = onCustomizeInterestsClick
+                    onCustomizeClick = onCustomizeClick
                 )
             }
         }
@@ -378,7 +378,7 @@ private fun LazyListScope.forYouModuleItem(
                             onHideCardClick = onHideCardClick,
                             onHideModuleClick = { onHideModuleClick(module.moduleKey()) },
                             onCardInView = { onCardImpression(it, index) },
-                            onCustomizeInterestsClick = onCustomizeInterestsClick
+                            onCustomizeClick = onCustomizeClick
                         )
                     }
                 }
@@ -418,13 +418,14 @@ private fun LazyListScope.forYouModuleItem(
                             topInset = topInset,
                             wikiSite = wikiSite,
                             module = module,
+                            updateFrequency = module.updateFrequency.displayStringRes,
                             onPageClick = onPageClick,
                             onPageShareClick = onPageShareClick,
                             onPageBookmarkClick = onPageBookmarkClick,
                             onHideCardClick = onHideCardClick,
                             onHideModuleClick = { onHideModuleClick(module.moduleKey()) },
                             onCardInView = { onCardImpression(it, index) },
-                            onCustomizeInterestsClick = onCustomizeInterestsClick,
+                            onCustomizeClick = onCustomizeClick,
                             onSeeAllRecommendationClick = onSeeAllRecommendationClick
                         )
                     }
@@ -445,7 +446,7 @@ private fun LazyListScope.forYouModuleItem(
                     onHideCardClick = onHideCardClick,
                     onHideModuleClick = { onHideModuleClick(module.moduleKey()) },
                     onCardInView = { onCardImpression(it, index) },
-                    onCustomizeInterestsClick = onCustomizeInterestsClick,
+                    onCustomizeClick = onCustomizeClick,
                     onShuffleClick = onShuffleClick
                 )
             }
@@ -498,7 +499,7 @@ fun ForYouFeedMessageView(
     @StringRes customizeInterestsTextResId: Int,
     @StringRes communityTabTextResId: Int = R.string.home_feed_for_you_screen_empty_see_community,
     showCustomizeInterests: Boolean = true,
-    onCustomizeInterestsClick: () -> Unit,
+    onCustomizeClick: () -> Unit,
     navigateToCommunityTab: () -> Unit
 ) {
     val context = LocalContext.current
@@ -541,7 +542,7 @@ fun ForYouFeedMessageView(
             EmptyStateActionRow(
                 iconRes = R.drawable.ic_baseline_tune_24,
                 text = context.getString(wikiSite.languageCode, customizeInterestsTextResId),
-                onLinkClick = onCustomizeInterestsClick
+                onLinkClick = onCustomizeClick
             )
         }
         EmptyStateActionRow(
@@ -562,7 +563,7 @@ fun ForYouFeedMessageViewPreview() {
                 .background(colorResource(R.color.green800))
                 .padding(16.dp),
             wikiSite = WikiSite.preview(),
-            onCustomizeInterestsClick = {},
+            onCustomizeClick = {},
             illustrationResId = R.drawable.ic_yir_puzzle,
             titleResId = R.string.home_feed_for_you_screen_end_of_feed_title,
             descriptionResId = R.string.home_feed_for_you_screen_end_of_feed_description,
@@ -592,7 +593,7 @@ fun ForYouFeedEmptyViewPreview() {
             customizeInterestsTextResId = R.string.home_feed_for_you_screen_empty_add_interests,
             communityTabTextResId = R.string.home_feed_for_you_screen_empty_see_community,
             showCustomizeInterests = true,
-            onCustomizeInterestsClick = {},
+            onCustomizeClick = {},
             navigateToCommunityTab = {}
         )
     }
