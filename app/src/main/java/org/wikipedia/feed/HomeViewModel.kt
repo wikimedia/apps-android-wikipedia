@@ -61,6 +61,7 @@ import org.wikipedia.json.JsonUtil
 import org.wikipedia.json.LocalDateTimeSerializer
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingListPage
+import org.wikipedia.readinglist.database.RecommendedPage
 import org.wikipedia.readinglist.recommended.RecommendedReadingListHelper
 import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
 import org.wikipedia.settings.Prefs
@@ -694,33 +695,30 @@ class HomeViewModel : ViewModel() {
         return modules
     }
 
-    /**
-     * Builds the Discover module from the locally stored recommended pages. When the feature is
-     * disabled, returns a module flagged as such so the UI can show the setup prompt.
-     */
     private suspend fun buildDiscoverModule(): ForYouModule.Discover? {
         if (!Prefs.isRecommendedReadingListEnabled) {
             return ForYouModule.Discover(age = 0, index = 0, cards = emptyList(), isEnabled = false)
         }
-        val cards = RecommendedReadingListHelper.generateRecommendedReadingList(Prefs.resetRecommendedReadingList).map { page ->
+        val pages = RecommendedReadingListHelper.generateRecommendedReadingList(Prefs.resetRecommendedReadingList)
+
+        val displayPages = pages.take(MAX_DISCOVER_ARTICLE_CARDS)
+        if (displayPages.isEmpty()) {
+            return null
+        }
+        updateMissingExtracts(displayPages)
+        val cards = displayPages.map { page ->
             DiscoverCard(
                 PageTitle(
                     text = page.apiTitle,
                     wiki = page.wiki,
                     thumbUrl = page.thumbUrl,
                     description = page.description,
-                    displayText = page.displayTitle
+                    displayText = page.displayTitle,
+                    extract = page.extract
                 )
             )
         }
-        val displayCards = if (cards.size > MAX_DISCOVER_ARTICLE_CARDS) {
-            cards.take(MAX_DISCOVER_ARTICLE_CARDS) + SeeAllRecommendationCard()
-        } else {
-            cards
-        }
-        if (displayCards.isEmpty()) {
-            return null
-        }
+        val displayCards = if (pages.size > MAX_DISCOVER_ARTICLE_CARDS) cards + SeeAllRecommendationCard() else cards
         return ForYouModule.Discover(
             age = 0,
             index = 0,
@@ -728,6 +726,25 @@ class HomeViewModel : ViewModel() {
             isEnabled = true,
             updateFrequency = Prefs.recommendedReadingListUpdateFrequency
         )
+    }
+
+    /**
+     * Pages cached before the [RecommendedPage.extract] column existed have a null extract.
+     * This function fetches those null extracts in a single batched request and saves them to DB.
+     */
+    private suspend fun updateMissingExtracts(pages: List<RecommendedPage>) {
+        val missing = pages.filter { it.extract == null }
+        if (missing.isEmpty()) {
+            return
+        }
+        runCatching {
+            ServiceFactory.get(wikiSite.value)
+                .getInfoWithExtractsByPageTitles(missing.fastJoinToString("|") { it.apiTitle })
+                .query?.pages?.forEach { page ->
+                    missing.find { it.apiTitle == StringUtil.addUnderscores(page.title) }?.extract = page.extract
+                }
+        }.onFailure { L.e(it) }
+        AppDatabase.instance.recommendedPageDao().updateAll(missing.filter { it.extract != null })
     }
 
     private suspend fun buildPlacesModule(): ForYouModule.PlacesOfInterest? {

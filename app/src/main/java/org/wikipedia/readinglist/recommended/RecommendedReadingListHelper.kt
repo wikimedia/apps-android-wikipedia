@@ -138,7 +138,8 @@ object RecommendedReadingListHelper {
                     apiTitle = it.prefixedText,
                     displayTitle = it.displayText,
                     description = it.description,
-                    thumbUrl = it.thumbUrl
+                    thumbUrl = it.thumbUrl,
+                    extract = it.extract
                 )
 
                 // Insert the recommended page into the database
@@ -186,6 +187,7 @@ object RecommendedReadingListHelper {
                     displayText = page.displayTitle(wikiSite.languageCode)
                     description = page.description
                     thumbUrl = page.thumbUrl()
+                    extract = page.extract
                 }
             }.filter {
                 AppDatabase.instance.recommendedPageDao()
