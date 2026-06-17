@@ -14,26 +14,30 @@ import androidx.compose.material3.RadioButtonDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.wikipedia.R
-import org.wikipedia.compose.components.SettingsRow
-import org.wikipedia.compose.components.SettingsSection
 import org.wikipedia.compose.components.WikiTopAppBar
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
 import org.wikipedia.theme.Theme
 
 @Composable
 fun HomeFeedDefaultViewScreen(
     modifier: Modifier = Modifier,
+    currentDefaultView: HomePreferenceType = HomePreferenceType.COMMUNITY,
     onBackClick: () -> Unit = {},
-    onForYouModulesClick: () -> Unit = {}
+    onDefaultViewSelect: (HomePreferenceType) -> Unit = {}
 ) {
+    var currentSelection by remember { mutableStateOf(currentDefaultView) }
+
     Scaffold(
         modifier = modifier,
         topBar = {
@@ -49,30 +53,27 @@ fun HomeFeedDefaultViewScreen(
         Column(
             modifier = Modifier
                 .padding(paddingValues)
-                .padding(top = 8.dp)
-                .verticalScroll(rememberScrollState()),
-            verticalArrangement = Arrangement.spacedBy(16.dp)
+                .verticalScroll(rememberScrollState())
         ) {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 8.dp)
                     .clickable(onClick = {
-
+                        currentSelection = HomePreferenceType.COMMUNITY
+                        onDefaultViewSelect(currentSelection)
                     }),
-                verticalAlignment = Alignment.Top
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
             ) {
                 RadioButton(
-                    selected = true,
-                    onClick = { },
+                    modifier = Modifier.padding(start = 24.dp, top = 8.dp),
+                    selected = currentSelection == HomePreferenceType.COMMUNITY,
+                    onClick = null,
                     colors = RadioButtonDefaults.colors(
                         selectedColor = WikipediaTheme.colors.primaryColor,
                         unselectedColor = WikipediaTheme.colors.primaryColor,
                     )
                 )
-                Column(
-
-                ) {
+                Column(modifier = Modifier.padding(top = 8.dp, bottom = 8.dp, end = 24.dp).weight(1f)) {
                     Text(
                         text = stringResource(R.string.explore_feed_community_tab_label),
                         style = MaterialTheme.typography.bodyLarge,
@@ -89,23 +90,22 @@ fun HomeFeedDefaultViewScreen(
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 8.dp)
                     .clickable(onClick = {
-
+                        currentSelection = HomePreferenceType.PERSONALIZED
+                        onDefaultViewSelect(currentSelection)
                     }),
-                verticalAlignment = Alignment.Top
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
             ) {
                 RadioButton(
-                    selected = true,
-                    onClick = { },
+                    modifier = Modifier.padding(start = 24.dp, top = 8.dp),
+                    selected = currentSelection == HomePreferenceType.PERSONALIZED,
+                    onClick = null,
                     colors = RadioButtonDefaults.colors(
                         selectedColor = WikipediaTheme.colors.primaryColor,
                         unselectedColor = WikipediaTheme.colors.primaryColor,
                     )
                 )
-                Column(
-
-                ) {
+                Column(modifier = Modifier.padding(top = 8.dp, bottom = 8.dp, end = 24.dp).weight(1f)) {
                     Text(
                         text = stringResource(R.string.explore_feed_for_you_tab_label),
                         style = MaterialTheme.typography.bodyLarge,
@@ -123,7 +123,7 @@ fun HomeFeedDefaultViewScreen(
     }
 }
 
-@Preview(showBackground = true)
+@Preview
 @Composable
 private fun HomeFeedDefaultViewScreenLightPreview() {
     BaseTheme(
@@ -133,7 +133,7 @@ private fun HomeFeedDefaultViewScreenLightPreview() {
     }
 }
 
-@Preview(showBackground = true)
+@Preview
 @Composable
 private fun HomeFeedDefaultViewScreenDarkPreview() {
     BaseTheme(

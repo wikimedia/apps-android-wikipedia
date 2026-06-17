@@ -16,6 +16,7 @@ import org.wikipedia.feed.personalization.PersonalizationActivity
 import org.wikipedia.main.MainActivity
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.places.PlacesActivity
+import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.util.FeedbackUtil
 
@@ -115,7 +116,12 @@ fun HomeFeedSettingsNavHost(
 
         composable<HomeFeedSettingsDestination.DefaultFeedViewScreen> {
             HomeFeedDefaultViewScreen(
-                onBackClick = { if (!navController.navigateUp()) onExit() }
+                currentDefaultView = Prefs.homePreferenceSelection,
+                onBackClick = { if (!navController.navigateUp()) onExit() },
+                onDefaultViewSelect = { selection ->
+                    context.instrument?.submitInteraction("click", elementId = "feed_default_view_select", actionSubtype = selection.name)
+                    Prefs.homePreferenceSelection = selection
+                }
             )
         }
     }
