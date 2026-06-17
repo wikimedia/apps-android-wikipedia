@@ -63,6 +63,7 @@ import org.wikipedia.feed.discover.DiscoverArticlesModule
 import org.wikipedia.feed.discover.DiscoverEnablePromptModule
 import org.wikipedia.feed.interests.BasedOnInterestModule
 import org.wikipedia.feed.model.Card
+import org.wikipedia.feed.model.DiscoverEnablePromptCard
 import org.wikipedia.feed.model.EmptyForYouCard
 import org.wikipedia.feed.model.ForYouCard
 import org.wikipedia.feed.model.PlacesOfInterestLocationPromptCard
@@ -398,6 +399,7 @@ private fun LazyListScope.forYouModuleItem(
                         }
                     }
                     !module.isEnabled -> {
+                        onCardImpression(DiscoverEnablePromptCard(), index)
                         DiscoverEnablePromptModule(
                             modifier = Modifier
                                 .fillMaxWidth()

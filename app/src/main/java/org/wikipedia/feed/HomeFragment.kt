@@ -52,7 +52,6 @@ import org.wikipedia.readinglist.ReadingListActivity
 import org.wikipedia.readinglist.ReadingListMode
 import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingActivity
 import org.wikipedia.readinglist.recommended.RecommendedReadingListSettingsActivity
-import org.wikipedia.readinglist.recommended.RecommendedReadingListSource
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.homefeed.HomeFeedSettingsActivity
 import org.wikipedia.settings.homefeed.HomeFeedSettingsStartDestination
@@ -293,14 +292,11 @@ class HomeFragment : Fragment() {
                             requireActivity().startActivity(PlacesActivity.newIntent(requireContext()))
                         },
                         onEnableDiscoverClick = {
-                            if (Prefs.recommendedReadingListInterests.isEmpty() &&
-                                Prefs.recommendedReadingListSource == RecommendedReadingListSource.INTERESTS) {
-                                requireActivity().startActivity(RecommendedReadingListOnboardingActivity.newIntent(requireContext()))
-                            } else {
-                                requireActivity().startActivity(RecommendedReadingListSettingsActivity.newIntent(requireContext()))
-                            }
+                            instrument.submitInteraction("click", elementId = "enable_discover_reading_list_button")
+                            requireActivity().startActivity(RecommendedReadingListOnboardingActivity.newIntent(requireContext()))
                         },
                         onSeeAllRecommendationClick = {
+                            instrument.submitInteraction("click", elementId = "explore_all_recommendations_button")
                             startActivity(ReadingListActivity.newIntent(requireContext(), readingListMode = ReadingListMode.RECOMMENDED))
                         }
                     )
