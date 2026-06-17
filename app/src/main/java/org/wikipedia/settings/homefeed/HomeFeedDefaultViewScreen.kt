@@ -83,7 +83,7 @@ fun HomeFeedDefaultViewScreen(
                         modifier = Modifier.padding(top = 4.dp),
                         text = stringResource(R.string.explore_feed_preference_community_content_title),
                         style = MaterialTheme.typography.bodyMedium,
-                        color = WikipediaTheme.colors.primaryColor
+                        color = WikipediaTheme.colors.secondaryColor
                     )
                 }
             }
@@ -115,7 +115,7 @@ fun HomeFeedDefaultViewScreen(
                         modifier = Modifier.padding(top = 4.dp),
                         text = stringResource(R.string.explore_feed_preference_personalized_content_title),
                         style = MaterialTheme.typography.bodyMedium,
-                        color = WikipediaTheme.colors.primaryColor
+                        color = WikipediaTheme.colors.secondaryColor
                     )
                 }
             }
