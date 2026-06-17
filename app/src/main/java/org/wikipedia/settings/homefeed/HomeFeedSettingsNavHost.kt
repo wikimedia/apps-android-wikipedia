@@ -30,6 +30,7 @@ fun HomeFeedSettingsNavHost(
         HomeFeedSettingsStartDestination.ROOT -> HomeFeedSettingsDestination.Root
         HomeFeedSettingsStartDestination.COMMUNITY_MODULES -> HomeFeedSettingsDestination.CommunityModuleScreen
         HomeFeedSettingsStartDestination.FOR_YOU_MODULES -> HomeFeedSettingsDestination.ForYouModuleScreen
+        HomeFeedSettingsStartDestination.DEFAULT_FEED_VIEW -> HomeFeedSettingsDestination.DefaultFeedViewScreen
     }
     val customizeInterestsLauncher = rememberLauncherForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_OK || it.resultCode == PersonalizationActivity.RESULT_INTERESTS_UPDATED) {
@@ -63,6 +64,10 @@ fun HomeFeedSettingsNavHost(
                 onFeedConfigurationClick = {
                     context.instrument?.submitInteraction("click", elementId = "feed_data_info")
                     navController.navigate(HomeFeedSettingsDestination.FeedConfiguration)
+                },
+                onDefaultFeedViewClick = {
+                    context.instrument?.submitInteraction("click", elementId = "feed_default_view")
+                    navController.navigate(HomeFeedSettingsDestination.DefaultFeedViewScreen)
                 }
             )
         }
@@ -105,6 +110,12 @@ fun HomeFeedSettingsNavHost(
                     context.instrument?.submitInteraction("click", elementId = "languages")
                     context.startActivity(WikipediaLanguagesActivity.newIntent(context, Constants.InvokeSource.SETTINGS))
                 },
+            )
+        }
+
+        composable<HomeFeedSettingsDestination.DefaultFeedViewScreen> {
+            HomeFeedDefaultViewScreen(
+                onBackClick = { if (!navController.navigateUp()) onExit() }
             )
         }
     }
