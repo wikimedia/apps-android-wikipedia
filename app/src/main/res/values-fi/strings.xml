@@ -2249,6 +2249,8 @@
   <string name="reading_challenge_onboarding_prompt_login">Kirjaudu sisään / liity Wikipediaan</string>
   <string name="reading_challenge_install_prompt_got_it">Selvä</string>
   <string name="reading_challenge_install_prompt_add">Lisää</string>
+  <string name="search_widget_install_prompt_add">Lisää</string>
+  <string name="search_widget_install_prompt_got_it">Selvä</string>
   <string name="reading_challenge_widget_explore_button">Tutustu</string>
   <string name="reading_challenge_widget_explore_wikipedia_button">Tutustu Wikipediaan</string>
   <string name="reading_challenge_widget_join_challenge_button">Osallistu haasteeseen</string>
@@ -2347,6 +2349,9 @@
   <string name="home_feed_settings_because_you_read_subtitle">Hiljattain lukemaasi artikkeliin perustuvia ehdotuksia</string>
   <string name="home_feed_settings_continue_reading_title">Jatka lukemista</string>
   <string name="home_feed_settings_continue_reading_subtitle">Palaa takaisin artikkeleihin, joita et lukenut loppuun</string>
+  <string name="home_feed_did_you_know_title">Tiesitkö?</string>
+  <string name="home_feed_did_you_know_subtitle">Kiinnostavia tietoja vapaaehtoisten muokkaajien valitsemista artikkeleista</string>
+  <string name="home_feed_did_you_know_more_label">Lisää Tiesitkö, että -kohteita</string>
   <string name="home_feed_settings_community_empty_dialog_title">Yhteisö-syötteesi tulee olemaan tyhjä</string>
   <string name="home_feed_settings_for_you_empty_dialog_title">Sinulle-syötteesi tulee olemaan tyhjä</string>
   <string name="home_feed_settings_empty_dialog_text">Ota käyttöön vähintään yksi moduuli nähdäksesi sisältöä.</string>
@@ -2360,9 +2365,14 @@
   <string name="home_feed_for_you_screen_empty_ways_to_start">Aloitustavat:</string>
   <string name="home_feed_for_you_screen_empty_add_interests">Lisää &lt;a href=\"#add_interests\"&gt;kiinnostuksen kohteita&lt;/a&gt;</string>
   <string name="home_feed_for_you_screen_empty_see_community">Katso, mitä &lt;a href=\"#community_tab\"&gt;yhteisössä&lt;/a&gt; tapahtuu</string>
+  <string name="home_feed_random_title">Satunnainen</string>
+  <string name="home_feed_random_subtitle">Satunnainen artikkeli uteliaisuutesi herättämiseksi</string>
+  <string name="home_feed_random_shuffle_button">Sekoita</string>
   <string name="home_feed_settings_feed_configuration_description">Nämä artikkelit ja aiheet vaikuttavat siihen, mitä Sinulle-syötteessäsi näkyy. Voit poistaa aiheita, joita et enää halua, tai lisätä uusia kiinnostuksen kohteitasi.</string>
   <string name="home_feed_settings_feed_configuration_interest_title">Kiinnostuksen kohteesi</string>
   <string name="home_feed_settings_feed_configuration_interest_subtitle">Muokkaa kiinnostuksen kohteitasi</string>
+  <string name="home_feed_settings_feed_configuration_location_title">Sijaintisi</string>
+  <string name="home_feed_settings_feed_configuration_location_subtitle">Päivitä sijaintisi Paikoissa nähdäksesi lähellä olevia artikkeleita</string>
   <string name="home_feed_settings_feed_configuration_empty_interest_subtitle">Kiinnostuksen kohteidesi listasi on tyhjä. Lisää jotain, mistä olet kiinnostunut.</string>
   <string name="home_feed_settings_feed_configuration_reading_history_title">Lukuhistoria</string>
   <string name="home_feed_settings_feed_configuration_reading_history_subtitle">Selaa hiljattain lukemiasi artikkeleita</string>
@@ -2370,4 +2380,12 @@
   <string name="home_feed_settings_feed_configuration_languages_title">Kielet</string>
   <string name="home_feed_settings_feed_configuration_languages_subtitle">Muokkaa ensisijaisia kieliäsi</string>
   <string name="home_feed_settings_feed_configuration_interests_updated_message">Kiinnostuksen kohteet päivitetty. Päivitä syötteesi nähdäksesi muutokset.</string>
+  <string name="home_feed_places_of_interest_cta_title">Tarinoita lempipaikoistasi</string>
+  <string name="home_feed_places_of_interest_cta_description">Artikkelit näkyvät viimeksi katsomasi paikan mukaan. Käy Paikat-välilehdellä ja valitse sijainti.</string>
+  <string name="home_feed_places_of_interest_cta_button">Siirry Paikkoihin</string>
+  <string name="home_feed_settings_places_of_interest_title">Kiinnostavat paikat</string>
+  <string name="home_feed_for_you_screen_end_of_feed_title">Siinä kaikki tältä päivältä!</string>
+  <string name="home_feed_for_you_screen_end_of_feed_description">Tule takaisin huomenna löytääksesi uusia, sinulle räätälöityjä artikkeleita.</string>
+  <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Keinoja jatkaa oppimista:</string>
+  <string name="home_feed_for_you_screen_end_of_feed_add_interests">Lisää &lt;a href=\"#add_interests\"&gt;uusia kiinnostuksen kohteita&lt;/a&gt;</string>
 </resources>

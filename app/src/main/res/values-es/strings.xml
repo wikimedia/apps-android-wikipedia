@@ -1240,7 +1240,7 @@
   <string name="activity_tab_logged_out_title">Ingrese o cree una cuenta para ver su actividad en la aplicación de Wikipedia</string>
   <string name="activity_tab_user_reading">Se está leyendo %s</string>
   <string name="activity_tab_on_wikipedia_android">En Wikipedia Android</string>
-  <string name="activity_tab_weekly_time_spent_hm">%1$dm %2$dm</string>
+  <string name="activity_tab_weekly_time_spent_hm">%1$dh %2$dm</string>
   <string name="activity_tab_weekly_time_spent">Tiempo dedicado a la lectura esta semana</string>
   <string name="activity_tab_monthly_articles_read">Artículos leídos este mes</string>
   <string name="activity_tab_monthly_articles_saved">Artículos guardados este mes</string>

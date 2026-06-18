@@ -27,7 +27,7 @@
   <string name="nav_item_more">Болей</string>
   <string name="nav_item_search">Шукаць</string>
   <string name="nav_item_contribute">Зрабіць унёсак</string>
-  <string name="error_network_error">Не атрымліваецца далучыцца да Інтэрнэту.</string>
+  <string name="error_network_error">Не ўдаецца далучыцца да Інтэрнэту.</string>
   <string name="page_error_retry">Паспрабаваць ізноў</string>
   <string name="card_offline_error_retry">Паўтарыць</string>
   <string name="storage_access_error_retry">Паўтарыць</string>
@@ -273,7 +273,7 @@
   <string name="clear_recent_searches_confirm">Вы ўпэўнены, што жадаеце ачысьціць Вашую гісторыю пошуку?</string>
   <string name="clear_recent_searches_confirm_yes">Так</string>
   <string name="clear_recent_searches_confirm_no">Не</string>
-  <string name="error_browser_not_found">Не атрымалася адчыніць ўэб-старонку (ня знойдзены ўэб-браўзэр).</string>
+  <string name="error_browser_not_found">Не ўдалося адчыніць ўэб-старонку (ня знойдзены ўэб-браўзэр).</string>
   <string name="table_infobox">Хуткія факты</string>
   <string name="table_other">Болей зьвестак</string>
   <string name="table_close">Закрыць</string>
@@ -290,13 +290,13 @@
   <string name="dialog_title_download_only_over_wifi">Пацьвердзіць сьцягваньне праз мабільную сетку?</string>
   <string name="read_more_section">Даведацца болей</string>
   <string name="menu_gallery_visit_image_page">Перайсьці на старонку файла</string>
-  <string name="gallery_error_draw_failed">Не атрымалася вывесьці выяву.</string>
+  <string name="gallery_error_draw_failed">Не ўдалося вывесьці выяву.</string>
   <string name="license_title">Ліцэнзія для %s</string>
   <string name="gallery_menu_share">Падзяліцца</string>
-  <string name="gallery_share_error">Не атрымалася падзяліцца выявай: %s</string>
+  <string name="gallery_share_error">Не ўдалося падзяліцца выявай: %s</string>
   <string name="gallery_save_progress">Сьцягваньне файлу…</string>
   <string name="gallery_save_success">Файл захаваны.</string>
-  <string name="gallery_error_video_failed">Не атрымалася прайграць відэа.</string>
+  <string name="gallery_error_video_failed">Не ўдалося прайграць відэа.</string>
   <string name="gallery_save_image_write_permission_rationale">Для захаваньня выяваў неабходны дазвол на запіс у сховішча вашай прылады.</string>
   <string name="err_cannot_save_file">Немагчыма захаваць файл</string>
   <string name="expand_refs">Націсьніце каб развярнуць</string>
@@ -365,6 +365,8 @@
     <item quantity="many">%1$d артыкулаў, %2$.2f МБ</item>
     <item quantity="other">%1$d артыкулаў, %2$.2f МБ</item>
   </plurals>
+  <string name="reading_list_sort">Сартаваць</string>
+  <string name="reading_list_sort_ellipsis">Сартаваць паводле…</string>
   <string name="reading_list_name_hint">Назва гэтага сьпісу</string>
   <string name="reading_list_description_hint">Апісаньне (неабавязкова)</string>
   <string name="reading_list_select_item">Выбраць</string>
@@ -372,6 +374,7 @@
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Скасаваць</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Увайсьці</string>
   <string name="reading_list_saved_list_rename">%1$s (створана ўдзельнікам)</string>
+  <string name="reading_lists_menu_sort_by">Сартаваць паводле</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">Добра</string>
   <string name="reading_list_delete_dialog_ok_button_text">Добра</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">Скасаваць</string>
@@ -383,6 +386,7 @@
   <string name="user_option_sync_label">Налады</string>
   <string name="notification_syncing_cancel_button">Скасаваць</string>
   <string name="notifications_poll_enable_positive">Увамкнуць</string>
+  <string name="view_featured_image_card_download">Сьцягнуць</string>
   <string name="view_continue_reading_card_subtitle_today">сёньня</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Скасаваць</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Скасаваць</string>
@@ -399,6 +403,7 @@
   <string name="text_input_dialog_cancel_button_text">Скасаваць</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Скасаваць</string>
   <string name="talk_warn_save_dialog_cancel">Скасаваць</string>
+  <string name="talk_overflow_sort_by">Сартаваць паводле</string>
   <string name="menu_option_edit_source">Рэдагаваць код</string>
   <string name="thank_dialog_negative_button_text">Скасаваць</string>
   <string name="watchlist_expiry_dialog_permanent">Заўсёдна</string>

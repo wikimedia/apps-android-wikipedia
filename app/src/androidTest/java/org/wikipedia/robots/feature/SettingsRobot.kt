@@ -11,60 +11,16 @@ import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.ViewAction
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.scrollTo
-import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
 import androidx.test.espresso.contrib.RecyclerViewActions
-import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
 import androidx.test.espresso.matcher.ViewMatchers.hasDescendant
-import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
-import androidx.test.espresso.matcher.ViewMatchers.withContentDescription
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
-import org.hamcrest.Matchers.allOf
-import org.junit.Assert.assertTrue
 import org.wikipedia.R
-import org.wikipedia.TestUtil.childAtPosition
 import org.wikipedia.base.TestConfig
 
 class SettingsRobot : BaseRobot() {
     fun verifyTitle() = apply {
         verify.viewWithTextDisplayed("Settings")
-    }
-
-    fun clickExploreFeedSettingItem() = apply {
-        // Click on `Explore feed` option
-        onView(
-            allOf(
-                withId(R.id.recycler_view),
-            childAtPosition(withId(android.R.id.list_container), 0)
-            )
-        )
-            .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(2, click()))
-
-        delay(TestConfig.DELAY_SHORT)
-    }
-
-    fun openMoreOptionsToolbar() = apply {
-        onView(allOf(
-            withContentDescription("More options"),
-            childAtPosition(childAtPosition(withId(R.id.toolbar), 2), 0), isDisplayed()
-        ))
-            .perform(click())
-        delay(TestConfig.DELAY_SHORT)
-    }
-
-    fun hideAllExploreFeeds() = apply {
-        // Choose the option to hide all explore feed cards
-        onView(allOf(withId(R.id.title), withText("Hide all"),
-            childAtPosition(childAtPosition(withId(androidx.appcompat.R.id.content), 0), 0), isDisplayed()))
-            .perform(click())
-        delay(TestConfig.DELAY_SHORT)
-    }
-
-    fun showAllExploreFeeds() = apply {
-        onView(allOf(withId(R.id.title), withText("Show all"),
-            childAtPosition(childAtPosition(withId(androidx.appcompat.R.id.content), 0), 0), isDisplayed()))
-            .perform(click())
-        delay(TestConfig.DELAY_SHORT)
     }
 
     fun clickAboutWikipediaAppOptionItem() = apply {
@@ -135,31 +91,6 @@ class SettingsRobot : BaseRobot() {
 
     fun toggleShowImages() = apply {
         scrollToSettingsPreferenceItem(R.string.preference_title_show_images, click())
-        delay(TestConfig.DELAY_SHORT)
-    }
-
-    fun verifyExploreFeedIsEmpty(context: Context) = apply {
-        try {
-            verify.viewWithTextDisplayed(text = context.getString(R.string.feed_empty_message))
-            delay(TestConfig.DELAY_SHORT)
-        } catch (e: AssertionError) {
-            Log.d("SettingsRobot: ", "Assertion error due to offline mode")
-            // checks offline card is visible
-           verify.viewWithTextDisplayed(context.getString(R.string.view_offline_card_text))
-            // test the feed is empty
-            onView(withId(R.id.feed_view))
-                .check { view, noViewFoundException ->
-                    val expectedCount = 2
-                    val recyclerView = view as RecyclerView
-                    val itemCount = recyclerView.adapter?.itemCount ?: 0
-                    assertTrue("ExpectedCount: $expectedCount, Actual: $itemCount", itemCount == expectedCount)
-                }
-            onView(withText("Featured article")).check(doesNotExist())
-        }
-    }
-
-    fun verifyExploreFeedIsNotEmpty(context: Context) = apply {
-        verify.textIsNotVisible(context.getString(R.string.feed_empty_message))
         delay(TestConfig.DELAY_SHORT)
     }
 

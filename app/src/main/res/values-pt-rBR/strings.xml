@@ -2186,6 +2186,10 @@
   <string name="reading_challenge_install_prompt_message">O Bebê Globo está torcendo por você. Adicione o widget do Desafio de Leitura para acompanhar seu progresso diretamente da tela inicial.</string>
   <string name="reading_challenge_install_prompt_got_it">Entendi</string>
   <string name="reading_challenge_install_prompt_add">Adicionar</string>
+  <string name="search_widget_install_prompt_title">Uma maneira mais rápida de pesquisar</string>
+  <string name="search_widget_install_prompt_message">Instale o widget de pesquisa da Wikipédia para ter acesso imediato ao conhecimento diretamente da sua tela inicial.</string>
+  <string name="search_widget_install_prompt_add">Adicionar</string>
+  <string name="search_widget_install_prompt_got_it">Entendi</string>
   <string name="reading_challenge_widget_explore_button">Explorar</string>
   <string name="reading_challenge_widget_explore_wikipedia_button">Explora Wikipédia</string>
   <string name="reading_challenge_widget_join_challenge_button">Participe do desafio</string>
@@ -2232,6 +2236,7 @@
   <string name="reading_challenge_widget_reward_title">A curiosidade fica bem em você! 🛍️</string>
   <string name="reading_challenge_widget_reward_body">Comemore a conclusão do desafio com 15%% de desconto na Loja da Wikipédia</string>
   <string name="reading_challenge_widget_reward_button_label">Ganhe 15%% de desconto na loja</string>
+  <string name="explore_feed_new_update_prompt_title">O Explore agora é a Página Inicial, com um novo visual</string>
   <string name="explore_feed_new_update_prompt_new_name_title">Um novo nome</string>
   <string name="explore_feed_new_update_prompt_new_name_description">O feed Explorar agora se chama Iniciar, no mesmo lugar de antes.</string>
   <string name="explore_feed_new_update_prompt_two_ways_title">Seu feed, de duas maneiras</string>
@@ -2251,6 +2256,7 @@
   <string name="explore_feed_from_reading_list">Da sua lista de leitura</string>
   <string name="explore_feed_because_of_interest">Devido ao seu interesse: %s</string>
   <string name="explore_feed_onboarding_curiosity_title">Siga sua curiosidade</string>
+  <string name="explore_feed_onboarding_curiosity_description">Selecione os tópicos que lhe interessam e personalizaremos seu feed.\n\nColetamos uma quantidade mínima de dados, que são anonimizados.</string>
   <string name="explore_feed_deselect_all_button_label">Desmarcar todos</string>
   <string name="explore_feed_potd_subtitle">Imagens do dia na Wikimedia Commons, selecionadas por colaboradores voluntários</string>
   <string name="explore_feed_featured_article_subtitle">Os artigos em destaque são alguns dos artigos de maior qualidade da Wikipédia, selecionados diariamente pelos editores</string>
@@ -2279,7 +2285,11 @@
   <string name="home_feed_settings_because_you_read_subtitle">Sugestões com base em um artigo recente do seu histórico</string>
   <string name="home_feed_settings_continue_reading_title">Continue lendo</string>
   <string name="home_feed_settings_continue_reading_subtitle">Volte aos artigos que você não terminou de ler</string>
+  <string name="home_feed_did_you_know_title">Você sabia?</string>
+  <string name="home_feed_did_you_know_subtitle">Curiosidades extraídas de artigos selecionados por editores voluntários</string>
+  <string name="home_feed_did_you_know_more_label">Você sabia que...</string>
   <string name="home_feed_settings_community_empty_dialog_title">Seu feed da Comunidade estará vazio</string>
+  <string name="home_feed_settings_empty_dialog_text">Ative pelo menos um módulo para visualizar o conteúdo.</string>
   <string name="home_feed_settings_empty_dialog_positive">Continuar mesmo assim</string>
   <string name="home_feed_screen_empty_state_label">Seu feed está vazio</string>
   <string name="home_feed_screen_all_modules_disabled_btn_label">Gerenciar módulos</string>
@@ -2287,9 +2297,14 @@
   <string name="home_feed_for_you_screen_empty_ways_to_start">Formas de começar:</string>
   <string name="home_feed_for_you_screen_empty_add_interests">Adicione &lt;a href=\"#add_interests\"&gt;alguns interesses&lt;/a&gt;</string>
   <string name="home_feed_for_you_screen_empty_see_community">Veja o que está acontecendo na &lt;a href=\"#community_tab\"&gt;comunidade&lt;/a&gt;</string>
+  <string name="home_feed_random_title">Aleatório</string>
+  <string name="home_feed_random_subtitle">Artigo aleatório para despertar sua curiosidade</string>
+  <string name="home_feed_random_shuffle_button">Aleatório</string>
   <string name="home_feed_settings_feed_configuration_description">Esses tópicos e artigos determinam o que aparece no seu feed \"Para você\". Remova aqueles que você não deseja mais ver ou adicione novos interesses.</string>
   <string name="home_feed_settings_feed_configuration_interest_title">Seus interesses</string>
   <string name="home_feed_settings_feed_configuration_interest_subtitle">Edite seus tópicos de interesse</string>
+  <string name="home_feed_settings_feed_configuration_location_title">Sua localização</string>
+  <string name="home_feed_settings_feed_configuration_location_subtitle">Atualize sua localização nos Locais para ver artigos nas proximidades</string>
   <string name="home_feed_settings_feed_configuration_empty_interest_subtitle">Sua lista de interesses está vazia. Adicione algo que te desperte a curiosidade.</string>
   <string name="home_feed_settings_feed_configuration_reading_history_title">Histórico de leitura</string>
   <string name="home_feed_settings_feed_configuration_reading_history_subtitle">Veja os artigos que leu recentemente</string>
@@ -2297,5 +2312,13 @@
   <string name="home_feed_settings_feed_configuration_languages_title">Idiomas</string>
   <string name="home_feed_settings_feed_configuration_languages_subtitle">Edite seus idiomas preferidos</string>
   <string name="home_feed_settings_feed_configuration_interests_updated_message">Interesses atualizados. Atualize seu feed para ver as novidades.</string>
+  <string name="home_feed_places_of_interest_cta_title">Histórias de lugares que você adora</string>
+  <string name="home_feed_places_of_interest_cta_description">Atualize sua localização nos Locais para ver artigos nas proximidades</string>
+  <string name="home_feed_places_of_interest_cta_button">Ir para Locais</string>
+  <string name="home_feed_settings_places_of_interest_title">Lugares de interesse</string>
+  <string name="home_feed_settings_places_of_interest_subtitle">Artigos próximos à sua última localização nos Locais</string>
+  <string name="home_feed_places_of_interest_card_footer">%1$s • Com base na sua localização nos Locais</string>
+  <string name="home_feed_for_you_screen_end_of_feed_title">Por hoje é só!</string>
+  <string name="home_feed_for_you_screen_end_of_feed_description">Volte amanhã para encontrar novos artigos personalizados para você.</string>
   <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Formas de continuar aprendendo:</string>
 </resources>

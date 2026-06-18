@@ -811,7 +811,7 @@
   <string name="notifications_offline_disable_message">이 기능은 오프라인 상태에서 사용할 수 없습니다.</string>
   <string name="view_because_you_read_card_title">읽었던 글 관련 추천</string>
   <string name="view_random_card_title">임의의 문서 보기</string>
-  <string name="view_random_article_card_title">임의 문서</string>
+  <string name="view_random_article_card_title">무작위 문서</string>
   <string name="view_random_article_card_action">임의의 문서 더 보기</string>
   <string name="view_top_read_card_title">가장 많이 읽은 글</string>
   <string name="view_top_read_card_description">오늘 위키백과에서 인기 있는 항목</string>
@@ -2227,6 +2227,10 @@
   <string name="reading_challenge_install_prompt_message">베이비 글로브가 여러분을 응원합니다! 읽기 도전 위젯을 홈 화면에 추가하여 진행 상황을 확인하세요.</string>
   <string name="reading_challenge_install_prompt_got_it">알겠습니다</string>
   <string name="reading_challenge_install_prompt_add">추가</string>
+  <string name="search_widget_install_prompt_title">더 빠른 검색 방법</string>
+  <string name="search_widget_install_prompt_message">위키백과 검색 위젯을 설치하면 홈 화면에서 지식에 즉시 접근할 수 있습니다.</string>
+  <string name="search_widget_install_prompt_add">추가</string>
+  <string name="search_widget_install_prompt_got_it">알겠습니다</string>
   <string name="reading_challenge_widget_explore_button">둘러보기</string>
   <string name="reading_challenge_widget_explore_wikipedia_button">위키백과 둘러보기</string>
   <string name="reading_challenge_widget_join_challenge_button">도전 참여</string>
@@ -2322,6 +2326,9 @@
   <string name="home_feed_settings_because_you_read_subtitle">검색 기록에 있는 최근 문서 관련 추천</string>
   <string name="home_feed_settings_continue_reading_title">계속 읽기</string>
   <string name="home_feed_settings_continue_reading_subtitle">읽다 만 문서로 돌아가기</string>
+  <string name="home_feed_did_you_know_title">알고 계십니까?</string>
+  <string name="home_feed_did_you_know_subtitle">자원 편집자들이 선정한 문서에서 발췌한 흥미로운 사실들</string>
+  <string name="home_feed_did_you_know_more_label">알고 계십니까 더 보기</string>
   <string name="home_feed_settings_community_empty_dialog_title">커뮤니티 피드가 비어있게 됩니다</string>
   <string name="home_feed_settings_for_you_empty_dialog_title">\"추천\" 피드가 비어있게 됩니다</string>
   <string name="home_feed_settings_empty_dialog_text">콘텐츠를 보려면 하나 이상의 모듈을 활성화하세요.</string>
@@ -2335,9 +2342,15 @@
   <string name="home_feed_for_you_screen_empty_ways_to_start">시작하는 방법:</string>
   <string name="home_feed_for_you_screen_empty_add_interests">&lt;a href=\"#add_interests\"&gt;관심사&lt;/a&gt;를 추가해 보세요</string>
   <string name="home_feed_for_you_screen_empty_see_community">&lt;a href=\"#community_tab\"&gt;커뮤니티&lt;/a&gt;에서 무슨 일이 일어나고 있는지 확인해 보세요</string>
+  <string name="home_feed_update_tooltip1">새로운 기능: 추천 탭에서 \"무작위 문서\" 및 \"관심 지점\"를, 커뮤니티 탭에서 \"알고 계십니까\"를 이용할 수 있습니다.</string>
+  <string name="home_feed_random_title">아무거나</string>
+  <string name="home_feed_random_subtitle">호기심을 자극할 만한 무작위 문서</string>
+  <string name="home_feed_random_shuffle_button">셔플</string>
   <string name="home_feed_settings_feed_configuration_description">이러한 주제와 문서는 \"추천\"에 표시되는 콘텐츠를 결정합니다. 더 이상 원하지 않는 항목을 제거하거나 새로운 관심사를 추가하세요.</string>
   <string name="home_feed_settings_feed_configuration_interest_title">당신의 관심사</string>
   <string name="home_feed_settings_feed_configuration_interest_subtitle">관심 있는 주제를 편집하세요</string>
+  <string name="home_feed_settings_feed_configuration_location_title">내 위치</string>
+  <string name="home_feed_settings_feed_configuration_location_subtitle">주변 문서를 보려면 장소에서 위치를 업데이트하세요</string>
   <string name="home_feed_settings_feed_configuration_empty_interest_subtitle">관심사 목록이 비어 있습니다. 궁금한 것을 추가해 주세요.</string>
   <string name="home_feed_settings_feed_configuration_reading_history_title">문서 열람 기록</string>
   <string name="home_feed_settings_feed_configuration_reading_history_subtitle">최근 읽은 문서를 탐색</string>
@@ -2345,6 +2358,12 @@
   <string name="home_feed_settings_feed_configuration_languages_title">언어</string>
   <string name="home_feed_settings_feed_configuration_languages_subtitle">선호하시는 언어를 편집하세요</string>
   <string name="home_feed_settings_feed_configuration_interests_updated_message">관심사가 업데이트되었습니다. 피드를 새로고침하여 업데이트를 확인하세요.</string>
+  <string name="home_feed_places_of_interest_cta_title">당신이 사랑하는 장소들의 이야기</string>
+  <string name="home_feed_places_of_interest_cta_description">마지막으로 방문한 장소를 기반으로 한 문서가 표시됩니다. 장소 탭에서 위치를 선택하세요.</string>
+  <string name="home_feed_places_of_interest_cta_button">장소로 가기</string>
+  <string name="home_feed_settings_places_of_interest_title">관심 지점</string>
+  <string name="home_feed_settings_places_of_interest_subtitle">장소의 마지막 위치 근처의 문서</string>
+  <string name="home_feed_places_of_interest_card_footer">%1$s • 장소의 위치에 기반함</string>
   <string name="home_feed_for_you_screen_end_of_feed_title">오늘은 여기까지입니다!</string>
   <string name="home_feed_for_you_screen_end_of_feed_description">내일 다시 오시면 맞춤 설정된 새로운 문서들을 만나보실 수 있습니다.</string>
   <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">계속해서 배우는 방법:</string>

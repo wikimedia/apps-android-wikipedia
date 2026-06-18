@@ -2,7 +2,6 @@ package org.wikipedia.feed
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.snapping.rememberSnapFlingBehavior
 import androidx.compose.foundation.layout.Arrangement
@@ -47,13 +46,16 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil3.compose.SubcomposeAsyncImage
+import coil3.compose.SubcomposeAsyncImageContent
+import coil3.request.ImageRequest
+import coil3.request.allowHardware
 import org.wikipedia.R
+import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.components.HtmlText
-import org.wikipedia.compose.components.menu.PageOverflowMenuViewModel
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.extensions.getString
 import org.wikipedia.feed.becauseyouread.BecauseYouReadModule
 import org.wikipedia.feed.continuereading.ContinueReadingModule
@@ -61,6 +63,10 @@ import org.wikipedia.feed.interests.BasedOnInterestModule
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.EmptyForYouCard
 import org.wikipedia.feed.model.ForYouCard
+import org.wikipedia.feed.model.PlacesOfInterestLocationPromptCard
+import org.wikipedia.feed.places.PlacesOfInterestArticlesModule
+import org.wikipedia.feed.places.PlacesOfInterestLocationPromptModule
+import org.wikipedia.feed.random.RandomModule
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.L10nUtil
@@ -71,18 +77,17 @@ fun ForYouContentTab(
     topInset: Int,
     wikiSite: WikiSite,
     onLoadMore: () -> Unit,
-    overflowMenuState: PageOverflowMenuViewModel.PageOverflowMenuState? = null,
     onHideCardClick: (module: ForYouModule, card: ForYouCard) -> Unit = { _, _ -> },
     onHideModuleClick: (moduleKey: String) -> Unit = {},
     onPageClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
     onPageBookmarkClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
     onPageShareClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
-    onPageOverflowClick: (card: Card, pageSummary: PageSummary, source: Int, menuKey: String) -> Unit = { _, _, _, _ -> },
-    onPageOverflowDismiss: () -> Unit = {},
     onCustomizeInterestsClick: (card: Card) -> Unit = {},
     onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> },
     onManageModulesClick: () -> Unit,
-    onSelectTab: (HomeTab, Card?) -> Unit = { _, _ -> }
+    onSelectTab: (HomeTab, Card?) -> Unit = { _, _ -> },
+    onShuffleClick: () -> Unit = {},
+    onPlacesCtaClick: () -> Unit = {}
 ) {
     when {
         state.isInitialLoading -> {
@@ -172,6 +177,7 @@ fun ForYouContentTab(
                             forYouModuleItem(
                                 module = module,
                                 index = index,
+                                topInset = topInset,
                                 viewPortHeight = viewportHeight,
                                 wikiSite = wikiSite,
                                 onPageClick = onPageClick,
@@ -180,7 +186,9 @@ fun ForYouContentTab(
                                 onHideCardClick = onHideCardClick,
                                 onHideModuleClick = onHideModuleClick,
                                 onCardImpression = onCardImpression,
-                                onCustomizeInterestsClick = onCustomizeInterestsClick
+                                onCustomizeInterestsClick = onCustomizeInterestsClick,
+                                onShuffleClick = onShuffleClick,
+                                onPlacesCtaClick = onPlacesCtaClick
                             )
                         }
 
@@ -206,7 +214,7 @@ fun ForYouContentTab(
                                         .padding(top = (topInset * 2 + 64).dp)
                                         .navigationBarsPadding(),
                                     wikiSite = wikiSite,
-                                    illustrationResId = R.drawable.ic_yir_puzzle,
+                                    illustrationResId = R.drawable.yir_puzzle_browser,
                                     titleResId = R.string.home_feed_for_you_screen_end_of_feed_title,
                                     descriptionResId = R.string.home_feed_for_you_screen_end_of_feed_description,
                                     headerResId = R.string.home_feed_for_you_screen_end_of_feed_ways_to_keep_learning,
@@ -227,6 +235,7 @@ fun ForYouContentTab(
                             forYouModuleItem(
                                 module = state.modules.first(),
                                 index = modules.size + 1,
+                                topInset = topInset,
                                 viewPortHeight = viewportHeight,
                                 wikiSite = wikiSite,
                                 onPageClick = onPageClick,
@@ -235,7 +244,9 @@ fun ForYouContentTab(
                                 onHideCardClick = onHideCardClick,
                                 onHideModuleClick = onHideModuleClick,
                                 onCardImpression = { _, _ -> },
-                                onCustomizeInterestsClick = onCustomizeInterestsClick
+                                onCustomizeInterestsClick = onCustomizeInterestsClick,
+                                onShuffleClick = onShuffleClick,
+                                onPlacesCtaClick = onPlacesCtaClick
                             )
                         }
                     }
@@ -248,6 +259,7 @@ fun ForYouContentTab(
 private fun LazyListScope.forYouModuleItem(
     module: ForYouModule,
     index: Int,
+    topInset: Int,
     viewPortHeight: Dp,
     wikiSite: WikiSite,
     onPageClick: (card: Card, historyEntry: HistoryEntry) -> Unit,
@@ -256,7 +268,9 @@ private fun LazyListScope.forYouModuleItem(
     onHideCardClick: (module: ForYouModule, card: ForYouCard) -> Unit,
     onHideModuleClick: (moduleKey: String) -> Unit,
     onCardImpression: (card: Card, index: Int) -> Unit,
-    onCustomizeInterestsClick: (card: Card) -> Unit
+    onCustomizeInterestsClick: (card: Card) -> Unit,
+    onShuffleClick: () -> Unit,
+    onPlacesCtaClick: () -> Unit
 ) {
     val key = "${module.javaClass.simpleName}-${module.age}-$index"
     when (module) {
@@ -311,6 +325,71 @@ private fun LazyListScope.forYouModuleItem(
                     onHideModuleClick = { onHideModuleClick(module.moduleKey()) },
                     onCardInView = { onCardImpression(it, index) },
                     onCustomizeInterestsClick = onCustomizeInterestsClick
+                )
+            }
+        }
+        is ForYouModule.PlacesOfInterest -> {
+            item(key = key) {
+                when {
+                    module.isLoading -> {
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(viewPortHeight),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            LoadingIndicator()
+                        }
+                    }
+                    !module.hasLocationPermission -> {
+                        onCardImpression(PlacesOfInterestLocationPromptCard(), index)
+                        PlacesOfInterestLocationPromptModule(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(viewPortHeight)
+                                .background(ComposeColors.Green800)
+                                .padding(horizontal = 16.dp)
+                                .padding(top = (topInset * 2 + 64).dp)
+                                .navigationBarsPadding(),
+                            wikiSite = wikiSite,
+                            onGoToPlacesClick = onPlacesCtaClick
+                        )
+                    }
+                    else -> {
+                        PlacesOfInterestArticlesModule(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(viewPortHeight),
+                            wikiSite = wikiSite,
+                            module = module,
+                            onPageClick = onPageClick,
+                            onPageShareClick = onPageShareClick,
+                            onPageBookmarkClick = onPageBookmarkClick,
+                            onHideCardClick = onHideCardClick,
+                            onHideModuleClick = { onHideModuleClick(module.moduleKey()) },
+                            onCardInView = { onCardImpression(it, index) },
+                            onCustomizeInterestsClick = onCustomizeInterestsClick
+                        )
+                    }
+                }
+            }
+        }
+        is ForYouModule.Random -> {
+            item(key = key) {
+                RandomModule(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(viewPortHeight),
+                    wikiSite = wikiSite,
+                    module = module,
+                    onPageClick = onPageClick,
+                    onPageShareClick = onPageShareClick,
+                    onPageBookmarkClick = onPageBookmarkClick,
+                    onHideCardClick = onHideCardClick,
+                    onHideModuleClick = { onHideModuleClick(module.moduleKey()) },
+                    onCardInView = { onCardImpression(it, index) },
+                    onCustomizeInterestsClick = onCustomizeInterestsClick,
+                    onShuffleClick = onShuffleClick
                 )
             }
         }
@@ -371,10 +450,13 @@ fun ForYouFeedMessageView(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(16.dp, Alignment.CenterVertically)
     ) {
-        Image(
-            modifier = Modifier
-                .size(125.dp),
-            painter = painterResource(illustrationResId),
+        SubcomposeAsyncImage(
+            modifier = Modifier.size(125.dp),
+            model = ImageRequest.Builder(context)
+                .data(illustrationResId)
+                .allowHardware(false)
+                .build(),
+            success = { SubcomposeAsyncImageContent() },
             contentDescription = null
         )
         Spacer(modifier = Modifier.height(16.dp))

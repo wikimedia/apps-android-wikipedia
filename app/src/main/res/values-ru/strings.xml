@@ -480,8 +480,10 @@
   <string name="button_get_directions">Проложить маршрут</string>
   <string name="error_no_maps_app">Не удалось найти ни одного приложения, которое бы прокладывало маршрут.</string>
   <string name="preference_title_customize_explore_feed">Лента</string>
+  <string name="preference_title_customize_home_feed">Персональная лента</string>
   <string name="preference_title_show_link_previews">Показывать предпросмотр ссылок</string>
   <string name="preference_summary_customize_explore_feed">Настроить ленту</string>
+  <string name="preference_summary_customize_home_feed">Настройте собственную ленту главной страницы</string>
   <string name="preference_summary_show_link_previews">Показывать быстрый предпросмотр статей при нажатии на ссылки.</string>
   <string name="preference_title_collapse_tables">Свернуть таблицы</string>
   <string name="preference_summary_collapse_tables">Автоматически сворачивать таблицы в статьях, например, карточки, примечания и комментарии.</string>
@@ -940,9 +942,11 @@
   <string name="view_random_article_card_title">Случайная статья</string>
   <string name="view_random_article_card_action">Ещё случайные статьи</string>
   <string name="view_top_read_card_title">Самое читаемое</string>
+  <string name="view_top_read_card_description">Популярное сегодня в Википедии</string>
   <string name="view_top_read_card_action">Больше популярных статей</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d тыс.</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d млн</string>
+  <string name="view_top_read_card_pageviews_views_suffix">просмотров</string>
   <string name="view_next_random_article">Скачать другую случайную статью</string>
   <string name="view_main_page_card_title">Сегодня в Википедии</string>
   <string name="view_main_page_card_action">Посмотреть Заглавную страницу</string>
@@ -2614,4 +2618,15 @@
   <string name="reading_challenge_widget_reward_title">Любопытство вам идёт! 🛍️</string>
   <string name="reading_challenge_widget_reward_body">Отметьте успешное прохождение челленджа со скидкой 15%% в Wikipedia Store.</string>
   <string name="reading_challenge_widget_reward_button_label">Получите скидку 15%% в магазине</string>
+  <string name="explore_feed_community_tab_label">Сообщество</string>
+  <string name="explore_feed_for_you_tab_label">Для вас</string>
+  <string name="explore_feed_date_today">Сегодня - %s</string>
+  <string name="explore_feed_load_previous_day_label">Посмотреть предыдущий день</string>
+  <string name="explore_feed_potd_subtitle">Ежедневные изображения с Викисклада, отобранные участниками сообщества</string>
+  <string name="explore_feed_in_the_news_subtitle">Статьи, находящиеся в центре общественного внимания в связи с текущими событиями</string>
+  <string name="explore_feed_community_disclaimer">Материалы и инструменты, рекомендуемые сообществом Викимедиа</string>
+  <string name="explore_feed_community_load_more_label">Материалы за прошлый день</string>
+  <string name="home_feed_settings_modules_title">Модули</string>
+  <string name="home_feed_settings_community_subtitle">Включайте или отключайте модули вкладки «Сообщество».</string>
+  <string name="home_feed_settings_for_you_subtitle">Включайте или отключайте модули вкладки «Для вас».</string>
 </resources>

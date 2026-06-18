@@ -430,7 +430,7 @@
   <string name="nav_item_donate">Пожертвувати</string>
   <string name="nav_item_year_in_review">Огляд року</string>
   <string name="error_voice_search_not_available">На жаль, розпізнавання голосу не підтримується.</string>
-  <string name="location_service_disabled">Служби локалізації вимкнені.</string>
+  <string name="location_service_disabled">Служби визначення місцезнаходження вимкнено.</string>
   <string name="enable_location_service">Увімкнути</string>
   <string name="location_permissions_enable_prompt">Надайте дозвіл на визначення розташування, щоб мати змогу побачити місця поблизу.</string>
   <string name="location_permissions_enable_action">Увімкнути</string>
@@ -929,7 +929,7 @@
   <string name="feed_item_type_main_page">Головна сторінка Вікіпедії з денним вибраним контентом</string>
   <string name="feed_item_type_randomizer">Згенерувати випадкові статті до читання</string>
   <string name="feed_item_type_suggested_edits">Пропозиції додати контент у Вікіпедію</string>
-  <string name="feed_item_type_places">Статті поблизу на основі поточного місцезнаходження</string>
+  <string name="feed_item_type_places">Статті поблизу на основі поточного розташування</string>
   <string name="feed_empty_message">У вашій стрічці нічого немає</string>
   <string name="feed_configure_onboarding_action">Налаштувати</string>
   <string name="customize_lang_selection_dialog_ok_button_text">Гаразд</string>
@@ -2514,6 +2514,10 @@
   <string name="reading_challenge_install_prompt_message">Малюк Глобус підтримує вас. Додайте віджет читацького виклику, щоб відстежувати свій прогрес на головному екрані.</string>
   <string name="reading_challenge_install_prompt_got_it">Зрозуміло</string>
   <string name="reading_challenge_install_prompt_add">Додати</string>
+  <string name="search_widget_install_prompt_title">Швидший спосіб пошуку</string>
+  <string name="search_widget_install_prompt_message">Встановіть віджет пошуку у вікіпедії для миттєвого доступу до знань з головного екрана.</string>
+  <string name="search_widget_install_prompt_add">Додати</string>
+  <string name="search_widget_install_prompt_got_it">Зрозуміло</string>
   <string name="reading_challenge_widget_explore_button">Дослідити</string>
   <string name="reading_challenge_widget_explore_wikipedia_button">Дослідити Вікіпедію</string>
   <string name="reading_challenge_widget_join_challenge_button">Приєднатися до виклику</string>
@@ -2618,6 +2622,9 @@
   <string name="home_feed_settings_because_you_read_subtitle">Пропозиції на основі недавньої статті з вашої історії</string>
   <string name="home_feed_settings_continue_reading_title">Продовжити читання</string>
   <string name="home_feed_settings_continue_reading_subtitle">Поверніться до статей, які ви не дочитали до кінця</string>
+  <string name="home_feed_did_you_know_title">Чи знаєте ви?</string>
+  <string name="home_feed_did_you_know_subtitle">Цікаві факти зі статей, відібраних редакторами-волонтерами</string>
+  <string name="home_feed_did_you_know_more_label">Більше \"Чи знаєте ви?\"</string>
   <string name="home_feed_settings_community_empty_dialog_title">Ваша стрічка «Спільнота» буде порожньою</string>
   <string name="home_feed_settings_for_you_empty_dialog_title">Ваша стрічка «Для вас» буде порожньою</string>
   <string name="home_feed_settings_empty_dialog_text">Увімкніть хоча б один модуль, щоб бачити вміст.</string>
@@ -2631,9 +2638,15 @@
   <string name="home_feed_for_you_screen_empty_ways_to_start">Способи початку:</string>
   <string name="home_feed_for_you_screen_empty_add_interests">Додайте &lt;a href=\"#add_interests\"&gt;кілька уподобань&lt;/a&gt;</string>
   <string name="home_feed_for_you_screen_empty_see_community">Дивіться, що відбувається у &lt;a href=\"#community_tab\"&gt;спільноті&lt;/a&gt;</string>
+  <string name="home_feed_update_tooltip1">Нове: «Випадкова стаття» та «Цікаві місця» доступні у розділі «Для вас», а «Чи знаєте ви?» — у вкладці «Спільнота».</string>
+  <string name="home_feed_random_title">Випадкові</string>
+  <string name="home_feed_random_subtitle">Випадкова стаття, щоб викликати вашу цікавість</string>
+  <string name="home_feed_random_shuffle_button">Перемішати</string>
   <string name="home_feed_settings_feed_configuration_description">Ці теми та статті впливають на те, що відображається у вашій стрічці «Для вас». Видаліть ті, які вам більше не потрібні, або додайте нові інтереси.</string>
   <string name="home_feed_settings_feed_configuration_interest_title">Ваші інтереси</string>
   <string name="home_feed_settings_feed_configuration_interest_subtitle">Редагуйте теми ваших зацікавлень</string>
+  <string name="home_feed_settings_feed_configuration_location_title">Ваше місце розташування</string>
+  <string name="home_feed_settings_feed_configuration_location_subtitle">Оновіть своє розташування в Місцях, щоб переглянути статті поблизу</string>
   <string name="home_feed_settings_feed_configuration_empty_interest_subtitle">Ваш список інтересів порожній. Додайте щось, що вас цікавить.</string>
   <string name="home_feed_settings_feed_configuration_reading_history_title">Історія читання</string>
   <string name="home_feed_settings_feed_configuration_reading_history_subtitle">Перегляньте нещодавно прочитані статті</string>
@@ -2641,4 +2654,14 @@
   <string name="home_feed_settings_feed_configuration_languages_title">Мови</string>
   <string name="home_feed_settings_feed_configuration_languages_subtitle">Редагувати свої бажані мови</string>
   <string name="home_feed_settings_feed_configuration_interests_updated_message">Інтереси оновлено. Оновіть свою стрічку, щоб переглянути оновлення.</string>
+  <string name="home_feed_places_of_interest_cta_title">Історії з місць, які ви любите</string>
+  <string name="home_feed_places_of_interest_cta_description">Статті з’являтимуться на основі останнього переглянутого вами місця. Перейдіть на вкладку «Місця» та виберіть потрібне розташування.</string>
+  <string name="home_feed_places_of_interest_cta_button">Перейти до Місць</string>
+  <string name="home_feed_settings_places_of_interest_title">Цікаві місця</string>
+  <string name="home_feed_settings_places_of_interest_subtitle">Статті поблизу вашого останнього розташування в Місцях</string>
+  <string name="home_feed_places_of_interest_card_footer">%1$s • На основі вашого розташування в Місцях</string>
+  <string name="home_feed_for_you_screen_end_of_feed_title">На сьогодні все!</string>
+  <string name="home_feed_for_you_screen_end_of_feed_description">Заходьте завтра, щоб знайти нові статті, підготовлені спеціально для вас.</string>
+  <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Способи продовження навчання:</string>
+  <string name="home_feed_for_you_screen_end_of_feed_add_interests">Додайте &lt;a href=\"#add_interests\"&gt;нові інтереси&lt;/a&gt;</string>
 </resources>

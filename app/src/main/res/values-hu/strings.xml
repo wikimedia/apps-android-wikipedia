@@ -2303,6 +2303,10 @@
   <string name="reading_challenge_install_prompt_message">Baby Globe szurkol neked. Add hozzá az Olvasási kihívás widgetet, hogy a kezdőképernyőről is követhesd a haladásodat.</string>
   <string name="reading_challenge_install_prompt_got_it">Értem</string>
   <string name="reading_challenge_install_prompt_add">Hozzáadás</string>
+  <string name="search_widget_install_prompt_title">Gyorsabb keresés</string>
+  <string name="search_widget_install_prompt_message">Telepítsd a Wikipédia keresőmodult, hogy közvetlenül a kezdőképernyődről érhesd el a Wikipédia tudását.</string>
+  <string name="search_widget_install_prompt_add">Hozzáadás</string>
+  <string name="search_widget_install_prompt_got_it">Értem</string>
   <string name="reading_challenge_widget_explore_button">Felfedezés</string>
   <string name="reading_challenge_widget_explore_wikipedia_button">Wikipédia felfedezése</string>
   <string name="reading_challenge_widget_join_challenge_button">Csatlakozás a kihíváshoz</string>
@@ -2401,6 +2405,9 @@
   <string name="home_feed_settings_because_you_read_subtitle">Javaslatok az előzményeidben szereplő egyik nemrég olvasott cikk alapján</string>
   <string name="home_feed_settings_continue_reading_title">Olvasás folytatása</string>
   <string name="home_feed_settings_continue_reading_subtitle">Folytasd azokat a cikkeket, amelyeket nem fejeztél be</string>
+  <string name="home_feed_did_you_know_title">Tudtad?</string>
+  <string name="home_feed_did_you_know_subtitle">Önkéntes szerkesztők által kiválasztott érdekességek szócikkekből</string>
+  <string name="home_feed_did_you_know_more_label">Még több érdekesség</string>
   <string name="home_feed_settings_community_empty_dialog_title">A „Közösség” hírfolyamod üres lesz</string>
   <string name="home_feed_settings_for_you_empty_dialog_title">A „Neked” hírfolyamod üres lesz</string>
   <string name="home_feed_settings_empty_dialog_text">Kapcsolj be legalább egy modult a tartalom megjelenítéséhez.</string>
@@ -2414,9 +2421,15 @@
   <string name="home_feed_for_you_screen_empty_ways_to_start">Első lépések:</string>
   <string name="home_feed_for_you_screen_empty_add_interests">Adj hozzá &lt;a href=\"#add_interests\"&gt;érdeklődési köröket&lt;/a&gt;</string>
   <string name="home_feed_for_you_screen_empty_see_community">Nézd meg, mi történik a &lt;a href=\"#community_tab\"&gt;Közösség&lt;/a&gt; lapon</string>
+  <string name="home_feed_update_tooltip1">Új: a „Véletlenszerű szócikk” és a „Közeli helyek” elérhető a „Neked” lapon, a „Tudtad?” pedig a „Közösség” lapon.</string>
+  <string name="home_feed_random_title">Véletlen</string>
+  <string name="home_feed_random_subtitle">Véletlenszerű szócikk a kíváncsiságod felkeltésére</string>
+  <string name="home_feed_random_shuffle_button">Keverés</string>
   <string name="home_feed_settings_feed_configuration_description">Ezek a témák és cikkek alakítják a „Neked” hírfolyamban megjelenő tartalmakat. Távolítsd el azokat, amelyeket már nem szeretnél, vagy adj hozzá új érdeklődési köröket.</string>
   <string name="home_feed_settings_feed_configuration_interest_title">Érdeklődési köreid</string>
   <string name="home_feed_settings_feed_configuration_interest_subtitle">Érdeklődési köreid szerkesztése</string>
+  <string name="home_feed_settings_feed_configuration_location_title">Tartózkodási helyed</string>
+  <string name="home_feed_settings_feed_configuration_location_subtitle">Frissítsd a tartózkodási helyedet a Helyekben a közeli szócikkek megjelenítéséhez</string>
   <string name="home_feed_settings_feed_configuration_empty_interest_subtitle">Az érdeklődési köreid listája üres. Adj hozzá valamit, ami érdekel.</string>
   <string name="home_feed_settings_feed_configuration_reading_history_title">Olvasási előzmények</string>
   <string name="home_feed_settings_feed_configuration_reading_history_subtitle">Böngészd a nemrég olvasott cikkeidet</string>
@@ -2424,4 +2437,14 @@
   <string name="home_feed_settings_feed_configuration_languages_title">Nyelvek</string>
   <string name="home_feed_settings_feed_configuration_languages_subtitle">Kedvenc nyelveid szerkesztése</string>
   <string name="home_feed_settings_feed_configuration_interests_updated_message">Az érdeklődési köreid frissültek. Frissítsd a hírfolyamot a változások megtekintéséhez.</string>
+  <string name="home_feed_places_of_interest_cta_title">Történetek a kedvenc helyeidről</string>
+  <string name="home_feed_places_of_interest_cta_description">A szócikkek az utoljára megtekintett hely alapján jelennek meg. Nyisd meg a Helyek lapot, és válassz egy helyszínt.</string>
+  <string name="home_feed_places_of_interest_cta_button">Ugrás a Helyek lapra</string>
+  <string name="home_feed_settings_places_of_interest_title">Érdekes helyek</string>
+  <string name="home_feed_settings_places_of_interest_subtitle">Szócikkek a Helyekben legutóbb megtekintett helyed közeléből</string>
+  <string name="home_feed_places_of_interest_card_footer">%1$s • A Helyekben megadott tartózkodási helyed alapján</string>
+  <string name="home_feed_for_you_screen_end_of_feed_title">Ennyi volt mára!</string>
+  <string name="home_feed_for_you_screen_end_of_feed_description">Gyere vissza holnap új, személyre szabott szócikkekért.</string>
+  <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">További felfedeznivalók:</string>
+  <string name="home_feed_for_you_screen_end_of_feed_add_interests">Adj hozzá &lt;a href=\"#add_interests\"&gt;új érdeklődési köröket&lt;/a&gt;</string>
 </resources>

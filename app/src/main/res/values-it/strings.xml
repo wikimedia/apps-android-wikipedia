@@ -314,6 +314,7 @@
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.it</string>
   <string name="about_libraries_heading">Librerie usate</string>
   <string name="about_contributors_heading">Contributori</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Team page&lt;/a&gt;</string>
   <string name="about_translators_heading">Traduttori</string>
   <string name="about_translators_translatewiki">Questa applicazione è stata tradotta da traduttori volontari su &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licenza</string>
@@ -1217,6 +1218,7 @@
   <string name="activity_tab_menu_feedback">Problema con la funzionalità</string>
   <string name="activity_tab_menu_info">Scopri di più</string>
   <string name="activity_tab_menu_customize">Personalizza</string>
+  <string name="activity_tab_menu_customize_description">Le statistiche sulla lettura si basano sulle lingue dell\'app impostate nelle impostazioni, mentre le informazioni sulla modifica sono limitate alla lingua principale dell\'app. Le informazioni utilizzano dati locali, ad eccezione delle modifiche che sono pubbliche.</string>
   <string name="activity_tab_highlights">Evidenzazioni</string>
   <string name="activity_tab_customize_screen_reading_history_switch_title">Cronologia di lettura</string>
   <string name="activity_tab_impact">Il tuo impatto</string>
@@ -1254,6 +1256,7 @@
     <item quantity="other">Visualizzazioni delle voci che hai modificato</item>
   </plurals>
   <string name="activity_tab_customize_screen_time_spent_switch_title">Tempo passato a leggere</string>
+  <string name="activity_tab_customize_screen_reading_insights_switch_title">Statistiche sulla lettura</string>
   <string name="activity_tab_customize_screen_impact_switch_title">Impatto dall\'inizio</string>
   <string name="activity_tab_customize_screen_games_switch_title">Statistiche di gioco</string>
   <string name="activity_tab_customize_screen_donations_switch_title">Ultima donazione nell\'app</string>
@@ -1915,6 +1918,7 @@
   <string name="year_in_review_information_icon">Icona delle informazioni</string>
   <string name="year_in_review_get_started_headline">Esplora il tuo Anno in Rassegna su Wikipedia</string>
   <string name="year_in_review_get_started_bodytext">Visualizza informazioni su quali voci hai letto sull\'app Wikipedia, e sulle modifiche che hai fatto.</string>
+  <string name="year_in_review_get_started_info">La cronologia di lettura è protetta. Le statistiche di lettura vengono calcolate utilizzando i dati memorizzati localmente sul dispositivo.</string>
   <string name="year_in_review_survey_title">Aiutaci a migliorare l\'Anno in Rassenga</string>
   <string name="year_in_review_survey_subtitle">Sei soddisfatto di questa funzionalità?</string>
   <string name="year_in_review_reading_list_survey_title">Aiutaci a migliorare l\'elenco di lettura dell\'Anno in Rassegna %d.</string>
@@ -2033,6 +2037,7 @@
   <string name="recommended_reading_list_page_snackbar_month">Mese</string>
   <string name="recommended_reading_list_settings_section_header">Consigli</string>
   <string name="recommended_reading_list_settings_title">Scopri le impostazioni</string>
+  <string name="recommended_reading_list_settings_toggle">Esplora l\'elenco di lettura</string>
   <string name="recommended_reading_list_settings_toggle_disable_message">La funzione Scopri è disattivata. Wikipedia non ti consiglierà voci da leggere.</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_title">Vuoi disattivare Discover?</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_message">Se disattivi Discover, non riceverai più %s consigli di lettura da Wikipedia.</string>
@@ -2070,6 +2075,7 @@
   <string name="recommended_reading_list_notification_title">Il tuo elenco di lettura %s Discover è pronto.</string>
   <string name="recommended_reading_list_notification_subtitle">Tocca per vedere le tue ultime raccomandazioni.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">Quando il tuo Discover sarà aggiornato, Wikipedia ti invierà una notifica.</string>
+  <string name="recommended_reading_list_settings_toggle_enable_message">La funzione Esplora è disattivata. Wikipedia non ti consiglierà voci da leggere.</string>
   <string name="donation_reminders_prompt_dismiss_snackbar">I promemoria per fare una donazione possono essere modificati in qualsiasi momento nelle Impostazioni.</string>
   <string name="donation_settings_section_header">Donazioni</string>
   <string name="donation_reminders_settings_title">Come dovremmo ricordartelo?</string>
@@ -2099,6 +2105,7 @@
   <string name="donation_reminders_settings_no_thanks_btn_label">No, grazie</string>
   <string name="donation_reminders_experiment_label">SPERIMENTARE</string>
   <string name="donation_reminders_settings_learn_more_button">Scopri di più</string>
+  <string name="donation_reminders_settings_report_button">Problema con la funzionalità</string>
   <string name="donation_reminders_snackbar_modify_button_label">Modifica</string>
   <string name="hybrid_search_search_hint">Cerca o chiedi qualsiasi cosa</string>
   <string name="hybrid_search_suggestion_title">Cerca per:</string>
@@ -2133,6 +2140,7 @@
   <string name="reading_challenge_install_prompt_message">Baby Globe fa il tifo per te. Aggiungi il widget Sfida di lettura per monitorare i tuoi progressi direttamente dalla schermata iniziale.</string>
   <string name="reading_challenge_install_prompt_got_it">Capito</string>
   <string name="reading_challenge_install_prompt_add">Aggiungi</string>
+  <string name="reading_challenge_widget_explore_button">Esplora</string>
   <string name="reading_challenge_widget_explore_wikipedia_button">Esplora Wikipedia</string>
   <string name="reading_challenge_widget_search_button">Cerca</string>
   <string name="reading_challenge_widget_random_button">Casuale</string>
@@ -2155,7 +2163,9 @@
   <string name="reading_challenge_widget_reward_title">La curiosità ti dona! 🛍️</string>
   <string name="reading_challenge_widget_reward_body">Festeggia il completamento della sfida con uno sconto del 15%% sul Wikipedia Store.</string>
   <string name="reading_challenge_widget_reward_button_label">Ottieni 15%% di sconto in negozio</string>
+  <string name="explore_feed_new_update_prompt_title">Esplora è ora Pagina principale, con un nuovo look</string>
   <string name="explore_feed_new_update_prompt_new_name_title">Un nuovo nome</string>
+  <string name="explore_feed_new_update_prompt_new_name_description">La sezione Esplora ora si trova nella Pagina principale, nello stesso punto di prima.</string>
   <string name="explore_feed_community_tab_label">Comunità</string>
   <string name="explore_feed_for_you_tab_label">Per te</string>
   <string name="explore_feed_date_today">Oggi - %s</string>
@@ -2163,16 +2173,25 @@
   <string name="explore_feed_potd_subtitle">Immagini giornaliere su Wikimedia Commons, selezionate da collaboratori volontari.</string>
   <string name="explore_feed_preference_selection_screen_title">Cosa vorresti vedere prima?</string>
   <string name="explore_feed_preference_personalized_content_title">Contenuti personalizzati</string>
+  <string name="explore_feed_community_disclaimer">Contenuti e risorse selezionati dalla e sulla comunità Wikimedia</string>
+  <string name="explore_feed_community_load_more_label">Visualizza i contenuti precedenti della community</string>
   <string name="explore_feed_manage_languages_label">Gestisci lingue</string>
   <string name="explore_feed_header_overflow_hide_module_message_action">Annulla</string>
+  <string name="explore_feed_personalized_preference_empty_state_text">Per visualizzare consigli di contenuti personalizzati, è necessario aggiungere i propri interessi. È possibile farlo nei passaggi precedenti oppure in seguito nelle Impostazioni.</string>
   <string name="explore_feed_because_you_read">Perché hai letto: %s</string>
   <string name="explore_feed_swipe_to_explore_prompt_title">Scorri per esplorare</string>
   <string name="explore_feed_swipe_to_explore_prompt_message">Scorri verso il basso per navigare tra gli argomenti oppure scorri lateralmente per esplorare i contenuti correlati.</string>
+  <string name="home_feed_settings_whats_driving_subtitle">Argomenti e voci che definiscono i tuoi contenuti</string>
   <string name="home_feed_settings_based_on_interest_title">In base ai tuoi interessi</string>
   <string name="home_feed_settings_based_on_interest_subtitle">Voci personalizzate in base agli argomenti che hai scelto.&lt;br /&gt;&lt;a href=\"#drivingFeed\"&gt;Cosa alimenta il tuo feed?&lt;/a&gt;</string>
   <string name="home_feed_settings_continue_reading_title">Continua a leggere</string>
+  <string name="home_feed_did_you_know_title">Lo sapevi?</string>
   <string name="home_feed_settings_for_you_empty_dialog_title">Il tuo feed \"Per te\" sarà vuoto</string>
+  <string name="home_feed_settings_empty_dialog_text">Attiva almeno un modulo per visualizzare il contenuto.</string>
   <string name="home_feed_settings_empty_dialog_positive">Continua comunque</string>
   <string name="home_feed_screen_empty_state_label">Il tuo feed è vuoto</string>
+  <string name="home_feed_random_title">Casuale</string>
+  <string name="home_feed_random_subtitle">Una voce a caso per stuzzicare la tua curiosità</string>
+  <string name="home_feed_random_shuffle_button">Mescola</string>
   <string name="home_feed_settings_feed_configuration_interests_updated_message">Interessi aggiornati. Aggiorna il feed per vedere gli aggiornamenti.</string>
 </resources>

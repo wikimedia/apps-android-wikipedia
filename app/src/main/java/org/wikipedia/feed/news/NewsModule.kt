@@ -151,29 +151,21 @@ private fun removeItalicParenthetical(text: String): String {
 @Preview(showBackground = true)
 @Composable
 fun NewsCardPreviewWithImage() {
-    val pageSummary = PageSummary(
-        displayTitle = "Dog and Cat",
-        prefixTitle = "Dog_and_Cat",
-        description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        thumbnail = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Commons-logo.svg/1200px-Commons-logo.svg.png",
-        lang = "en"
-    )
     BaseTheme(currentTheme = Theme.LIGHT) {
         NewsModule(
             wikiSite = WikiSite.preview(),
             newsItems = listOf(
                 NewsItem(
                     story = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                    links = listOf(pageSummary)
+                    links = listOf(PageSummary.preview())
                 ),
                 NewsItem(
                     story = "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-                    links = listOf(pageSummary)
+                    links = listOf(PageSummary.preview())
                 ),
                 NewsItem(
                     story = "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-                    links = listOf(pageSummary)
+                    links = listOf(PageSummary.preview())
                 )
             )
         )
@@ -183,29 +175,21 @@ fun NewsCardPreviewWithImage() {
 @Preview(showBackground = true)
 @Composable
 fun NewsCardPreviewNoImage() {
-    val pageSummary = PageSummary(
-        displayTitle = "Dog and Cat",
-        prefixTitle = "Dog_and_Cat",
-        description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        thumbnail = null,
-        lang = "en"
-    )
     BaseTheme(currentTheme = Theme.LIGHT) {
         NewsModule(
             wikiSite = WikiSite.preview(),
             newsItems = listOf(
                 NewsItem(
                     story = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                    links = listOf(pageSummary)
+                    links = listOf(PageSummary.preview())
                 ),
                 NewsItem(
                     story = "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-                    links = listOf(pageSummary)
+                    links = listOf(PageSummary.preview())
                 ),
                 NewsItem(
                     story = "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-                    links = listOf(pageSummary)
+                    links = listOf(PageSummary.preview())
                 )
             )
         )

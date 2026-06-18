@@ -2293,6 +2293,10 @@
   <string name="reading_challenge_install_prompt_message">Глобусчето ве бодри. Додајте го елементот Читателски предизвик за да го следите вашиот напредок од почетниот екран.</string>
   <string name="reading_challenge_install_prompt_got_it">Јасно</string>
   <string name="reading_challenge_install_prompt_add">Додај</string>
+  <string name="search_widget_install_prompt_title">Побрз начин за пребарување</string>
+  <string name="search_widget_install_prompt_message">Воспоставете го елементот Пребарување на Википедија за непосреден пристап до знаење од вашиот почетен екран.</string>
+  <string name="search_widget_install_prompt_add">Додај</string>
+  <string name="search_widget_install_prompt_got_it">Јасно</string>
   <string name="reading_challenge_widget_explore_button">Истражи</string>
   <string name="reading_challenge_widget_explore_wikipedia_button">Истражете ја Википедија</string>
   <string name="reading_challenge_widget_join_challenge_button">Придружи се на предизвикот</string>
@@ -2391,6 +2395,9 @@
   <string name="home_feed_settings_because_you_read_subtitle">Предлози според скорешна статија од вашата историја</string>
   <string name="home_feed_settings_continue_reading_title">Продолжете со читање</string>
   <string name="home_feed_settings_continue_reading_subtitle">Вратете се на статијата што не ја довршивте</string>
+  <string name="home_feed_did_you_know_title">Дали сте знаеле?</string>
+  <string name="home_feed_did_you_know_subtitle">Интересни факти од статии избрани од доброволни уредници</string>
+  <string name="home_feed_did_you_know_more_label">Повеќе „Дали сте знаеле?“</string>
   <string name="home_feed_settings_community_empty_dialog_title">Вашиот тековник „Заедница“ ќе биде празен</string>
   <string name="home_feed_settings_for_you_empty_dialog_title">Вашиот тековник „За вас“ ќе биде празен</string>
   <string name="home_feed_settings_empty_dialog_text">Вклучете барем еден модул за да гледате содржини.</string>
@@ -2404,9 +2411,15 @@
   <string name="home_feed_for_you_screen_empty_ways_to_start">Начини да почнете:</string>
   <string name="home_feed_for_you_screen_empty_add_interests">Додајте &lt;a href=\"#add_interests\"&gt;некои интереси&lt;/a&gt;</string>
   <string name="home_feed_for_you_screen_empty_see_community">Погледајте ги случувањата во &lt;a href=\"#community_tab\"&gt;заедницата&lt;/a&gt;</string>
+  <string name="home_feed_update_tooltip1">Ново: „Случајна статија“ и „Места од интерес“ се достапни во „За вас“ и „Дали сте знаеле“ во јазичето „Заедница“.</string>
+  <string name="home_feed_random_title">Случајна</string>
+  <string name="home_feed_random_subtitle">Случајна статија која ќе ја поттикне вашата љубопитност</string>
+  <string name="home_feed_random_shuffle_button">Измешај</string>
   <string name="home_feed_settings_feed_configuration_description">Овие теми и статии одредуваат што ќе стои во вашиот тековник „За вас“. Отстранете ги они ешто повеќе не ги сакате или додајте нови интереси.</string>
   <string name="home_feed_settings_feed_configuration_interest_title">Ваши интереси</string>
   <string name="home_feed_settings_feed_configuration_interest_subtitle">Уредете ваши теми од интерес</string>
+  <string name="home_feed_settings_feed_configuration_location_title">Ваша местоположба</string>
+  <string name="home_feed_settings_feed_configuration_location_subtitle">Подноваете ја местоположбата во „Места“ за да видите статии во близина</string>
   <string name="home_feed_settings_feed_configuration_empty_interest_subtitle">Вашиот список со интереси е празен. Додајте нешто што ве интересира.</string>
   <string name="home_feed_settings_feed_configuration_reading_history_title">Историја на читање</string>
   <string name="home_feed_settings_feed_configuration_reading_history_subtitle">Прелистајте ги неодамна прочитаните статии</string>
@@ -2414,6 +2427,12 @@
   <string name="home_feed_settings_feed_configuration_languages_title">Јазици</string>
   <string name="home_feed_settings_feed_configuration_languages_subtitle">Уредете ги вашите претпочитани јазици</string>
   <string name="home_feed_settings_feed_configuration_interests_updated_message">Интересите се подновени. Превчитајте го тековникот за да ги видите подновите.</string>
+  <string name="home_feed_places_of_interest_cta_title">Приказни од места што ги сакате</string>
+  <string name="home_feed_places_of_interest_cta_description">Статиите ќе се појавуваат во зависност од последното место што сте го гледале. Појдете на јазичето „Места“ и изберете место.</string>
+  <string name="home_feed_places_of_interest_cta_button">Оди на „Места“</string>
+  <string name="home_feed_settings_places_of_interest_title">Места од интерес</string>
+  <string name="home_feed_settings_places_of_interest_subtitle">Статии во близина на вашата последна местоположба во „Места“</string>
+  <string name="home_feed_places_of_interest_card_footer">%1$s • Според вашата местоположба во „Места“</string>
   <string name="home_feed_for_you_screen_end_of_feed_title">Толку за денес!</string>
   <string name="home_feed_for_you_screen_end_of_feed_description">Вратете се утре за нови статии прилагодени за вас.</string>
   <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Како постојано да учите:</string>

@@ -370,7 +370,7 @@
   <string name="alpha_update_notification_text">Tik om te downloaden</string>
   <string name="dialog_close_description">Sluiten</string>
   <string name="preference_title_show_images">Afbeeldingen weergeven</string>
-  <string name="preference_summary_show_images">Laden van afbeeldingen in pagina\'s in- of uitschakelen. Schakel deze instelling uit als uw internetverbinding langzaam is, of als u een beperkte hoeveelheid data kunt gebruiken.</string>
+  <string name="preference_summary_show_images">Schakel het laden van afbeeldingen op pagina\'s in of uit. Schakel deze instelling uit als uw internetverbinding traag is of als uw data-abonnement beperkt is.</string>
   <string name="preference_title_download_only_over_wifi">Alleen downloaden via Wi-Fi</string>
   <string name="dialog_title_download_only_over_wifi">Bevestig downloaden via mobiele data</string>
   <string name="dialog_text_download_only_over_wifi">U heeft \"Alleen downloaden via wifi\" ingeschakeld in de instellingen. Wilt u alleen voor deze download toestaan dat uw mobiele data-abonnement wordt gebruikt?</string>
@@ -463,7 +463,7 @@
   <string name="reference_list_title">Referenties</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Afbeeldingen dimmen (in donker thema)</string>
   <string name="preference_title_prefer_offline_content">Offline-inhoud de voorkeur geven</string>
-  <string name="preference_summary_prefer_offline_content">Mobiel dataverkeer besparen door offline beschikbare pagina\'s te laden in plaats van steeds de laatste versie op te halen</string>
+  <string name="preference_summary_prefer_offline_content">Mobiel gegevensverkeer besparen door offline beschikbare pagina\'s te laden in plaats van steeds de laatste versie op te halen</string>
   <string name="preference_title_delete_local_donation_history">Donatiegeschiedenis wissen</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Gelijk aan systeemthema</string>
   <string name="page_footer_license_text">De inhoud is beschikbaar onder $1 tenzij anders aangegeven</string>
@@ -536,7 +536,7 @@
   <string name="reading_list_save_to">Naar leeslijst opslaan</string>
   <string name="reading_list_move_to">Naar leeslijst verplaatsen</string>
   <string name="reading_list_create_new">Nieuwe aanmaken</string>
-  <string name="reading_list_title_exists">Leeslijst “%s” bestaan reeds.</string>
+  <string name="reading_list_title_exists">Leeslijst “%s” bestaat al.</string>
   <string name="reading_list_article_added_to_named">%1$s toegevoegd aan %2$s.</string>
   <string name="reading_list_article_added_to_default_list">%s opgeslagen. Wilt u het toevoegen aan een lijst?</string>
   <string name="reading_list_article_moved_to_named">%1$s naar %2$s verplaatst.</string>
@@ -780,7 +780,7 @@
   </plurals>
   <string name="watchlist_title">Volglijst</string>
   <string name="preference_title_notification_poll">Ververs meldingen</string>
-  <string name="preference_summary_notification_poll">Sta de app toe data te gebruiken om op de achtergrond te checken op nieuwe meldingen.</string>
+  <string name="preference_summary_notification_poll">Sta de app toe gegevens te gebruiken om op de achtergrond te controleren op nieuwe meldingen.</string>
   <string name="preference_category_notification_types">Meldingtypes in de app</string>
   <string name="preference_title_notification_system">Systeem</string>
   <string name="preference_summary_notification_system">Berichten van systeem</string>
@@ -799,7 +799,7 @@
   <string name="preference_title_notification_email_user">E-mail ontvangen</string>
   <string name="preference_summary_notification_email_user">Iemand heeft u via de wiki een e-mail gestuurd</string>
   <string name="preference_title_notification_user_rights">Wijzigingen in gebruikersrechten</string>
-  <string name="preference_summary_notification_user_rights">Ontvangen wanneer uw gebruikersrechten veranderen</string>
+  <string name="preference_summary_notification_user_rights">Ontvangen wanneer uw gebruikersrechten wijzigen</string>
   <string name="preference_title_notification_article_linked">Koppelingen naar pagina\'s die u hebt aangemaakt</string>
   <string name="preference_summary_notification_article_linked">Ontvangen wanneer een nieuwe koppeling wordt gelegd naar een pagina die u hebt aangemaakt</string>
   <string name="preference_category_push_notifications">Pushmeldingen</string>
@@ -1445,7 +1445,7 @@
   <string name="talk_response_submitted">Reactie geplaatst.</string>
   <string name="talk_snackbar_undo">Ongedaan maken</string>
   <string name="talk_last_modified">&lt;b&gt;Laatst bewerkt %1$s&lt;/b&gt; door %2$s</string>
-  <string name="talk_snackbar_survey_text">Bedankt voor het gebruiken van overlegpagina\'s. Zou u ons willen helpen de app te verbeteren, door deel te nemen aan een enquête?</string>
+  <string name="talk_snackbar_survey_text">Bedankt voor het gebruiken van overlegpagina\'s. Zou u ons willen helpen de app te verbeteren, door een vragenlijst in te vullen?</string>
   <string name="talk_snackbar_survey_action_text">Aan de slag</string>
   <string name="talk_share_discussion_subject">Wikipedia - discussie over overlegpagina-onderwerp \"%s\"</string>
   <string name="talk_share_talk_page">Wikipedia - discussies op overlegpagina</string>
@@ -1499,7 +1499,7 @@
   <string name="watchlist_details_prev_edit">Vorige bewerking</string>
   <string name="thank_label">Bedanken</string>
   <string name="view_user_page">Gebruikerspagina bekijken</string>
-  <string name="thank_dialog_title_text">Publiekelijk een bedankje sturen</string>
+  <string name="thank_dialog_title_text">Openbaar een bedankje sturen</string>
   <string name="thank_dialog_text">\'Bedankjes\' zijn een gemakkelijke manier om waardering te tonen voor het werk van een bewerker op Wikipedia. \'Bedankjes\' kunnen niet ongedaan worden gemaakt en zijn openbaar zichtbaar</string>
   <string name="thank_dialog_positive_button_text">Bedankje sturen</string>
   <string name="thank_dialog_negative_button_text">Annuleren</string>
@@ -1574,7 +1574,7 @@
   <string name="watchlist_filter_contribution_authorship_own">Uw eigen wijzigingen</string>
   <string name="watchlist_filter_contribution_authorship_except_own">Wijzigingen door anderen</string>
   <string name="watchlist_filter_automated_contributions_header">Automatische bijdragen</string>
-  <string name="watchlist_filter_automated_contributions_bot">Bot</string>
+  <string name="watchlist_filter_automated_contributions_bot">Robot</string>
   <string name="watchlist_filter_automated_contributions_human">Mens (geen robot)</string>
   <string name="watchlist_filter_significance_header">Betekenis</string>
   <string name="watchlist_filter_significance_minor">Kleine bewerkingen</string>
@@ -1692,7 +1692,7 @@
   <string name="patroller_tasks_filters_latest_revisions_latest_revision">Laatste versie</string>
   <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">Niet de laatste versie</string>
   <string name="patroller_tasks_filters_automated_contributions_header">Automatische bijdragen</string>
-  <string name="patroller_tasks_filters_automated_contributions_bot">Bot</string>
+  <string name="patroller_tasks_filters_automated_contributions_bot">Robt</string>
   <string name="patroller_tasks_filters_automated_contributions_human">Mens (geen robot)</string>
   <string name="patroller_tasks_filters_significance_header">Betekenis</string>
   <string name="patroller_tasks_filters_significance_minor">Kleine bewerkingen</string>
@@ -1728,14 +1728,14 @@
   <string name="patroller_tasks_overflow_report">Probleem met functie</string>
   <string name="patroller_tasks_overflow_learn">Meer lezen</string>
   <string name="patroller_onboarding_one_title">Draag bij aan het toezicht op en de goedkeuring van Wikipedia-bewerkingen.</string>
-  <string name="patroller_onboarding_one_content">Verbeter de kwaliteit van Wikipedia-inhoud door een feed met recente bewerkingen actief te beoordelen en andere redacteuren begeleiding, kwaliteitscontrole en aanmoediging te bieden.</string>
-  <string name="patroller_onboarding_two_title">Geef feedback, controleer bewerkingen en voer handelingen uit op het wijzigingenscherm</string>
+  <string name="patroller_onboarding_one_content">Verbeter de kwaliteit van Wikipedia-inhoud door een feed met recente bewerkingen actief te beoordelen en andere bewerkers begeleiding, kwaliteitscontrole en aanmoediging te bieden.</string>
+  <string name="patroller_onboarding_two_title">Geef terugkoppeling, controleer bewerkingen en voer handelingen uit op het wijzigingenscherm</string>
   <string name="patroller_onboarding_two_thank_title">Bedanken</string>
   <string name="patroller_onboarding_two_thank_content">Ziet u een productieve bewerking? Bedank een gebruiker voor diens bijdrage.</string>
   <string name="patroller_onboarding_two_watch_title">Volgen</string>
   <string name="patroller_onboarding_two_watch_content">Wilt u de bewerkingen van een pagina bijhouden? Voeg die toe aan uw volglijst. Bekijk ze onder ‘Meer’.</string>
   <string name="patroller_onboarding_two_talk_title">Overleg</string>
-  <string name="patroller_onboarding_two_talk_content">Communiceer met andere redacteuren. Bewaar veelgebruikte overlegpagina-berichten of gebruik een sjabloon.</string>
+  <string name="patroller_onboarding_two_talk_content">Communiceer met andere bewerkers. Bewaar veelgebruikte overlegpagina-berichten of gebruik een sjabloon.</string>
   <string name="patroller_onboarding_two_undo_title">Ongedaan maken/terugdraaien</string>
   <string name="patroller_onboarding_two_undo_content">Kies ‘Ongedaan maken’ om een mogelijk schadelijke bewerking ongedaan te maken of terug te draaien.</string>
   <string name="patroller_diff_tooltip_one">Schade voorspelt of een bewerking schade aan een wiki veroorzaakt.</string>
@@ -1758,7 +1758,7 @@
   <string name="patroller_saved_message_body_editing_tests">Hallo {{{username}}}, ik ben blij dat Wikipedia uw aandacht heeft getrokken en dat u hebt willen leren bewerken. Uw bewerkingstest is geslaagd. Maar vergeet niet dat het doel van dit project is om een betrouwbare en volledige encyclopedie te ontwikkelen die iedereen kan raadplegen. Uw bewerking heeft invloed gehad op de inhoud en is daarom verwijderd.\nAls u wilt leren hoe u Wikipedia moet bewerken, staat het [[Wikipedia:Zandbak|kladblok]] tot uw beschikking. Als uw opmerkingen specifiek betrekking hadden op een pagina, is de overlegpagina de juiste plaats.</string>
   <string name="patroller_saved_message_body_npov">Hallo {{{username}}}, sommige bijdragen die u hebt geleverd voldoen niet aan de neutraliteit die vereist is door het beleid van deze Wikipedia omtrent het innemen van een [[Wikipedia:NPOV|neutraal standpunt]]. Daarom is bepaalde inhoud aangepast of verwijderd. Wijzig de alinea’s of secties die een eenzijdig standpunt weergeven en vervang ze door een meer neutrale en objectieve tekst, zoals van een encyclopedie kan worden verwacht.</string>
   <string name="patroller_saved_message_body_auto_trans">Hallo {{{username}}}, sommige bijdragen die u hebt geleverd zijn mogelijk machinevertalingen. Daarom zijn ze aangepast of gemarkeerd met een sjabloon. Als er geen verbeteringen aan de pagina worden aangebracht, kunnen ze worden verwijderd.\n\nHebt u ondanks al deze informatie toch nog vragen, laat dan gerust een bericht achter op [[User talk:{{{senderUserName}}}|mijn overlegpagina]]. Laat u niet ontmoedigen door dit kleine voorval. Uw bijdragen zijn erg belangrijk voor Wikipedia.</string>
-  <string name="patroller_saved_message_body_coi_rem">Hallo {{{username}}}, ik waardeer uw medewerking aan Wikipedia. Ik heb echter gemerkt dat u te maken hebt met een [[Wikipedia:Belangenverstrengeling|belangenconflict]]. Een belangenconflict is de onverenigbaarheid tussen de doelstellingen van Wikipedia op het gebied van neutraliteit en betrouwbaarheid enerzijds en de specifieke doelstellingen van bepaalde redacteuren, individuen, entiteiten of bedrijven anderzijds.\n\nAlle bijdragen in de hoofdnaamruimte zijn onderworpen aan het beleid van inhoudscriteria van deze Wikipedia (zie [[Wikipedia:Wat Wikipedia niet is|Wat Wikipedia niet is]]), encyclopedische kwaliteit (zie [[Wikipedia:Verifieerbaarheid|Verifieerbaarheid]] en [[Wikipedia:Geen origineel onderzoek|Geen origineel onderzoek]]), redactionele methode (zie [[Wikipedia:NPOV|Neutraal standpunt]]) en legitimiteit van de inhoud (zie [[Wikipedia:Copyrights|Auteursrechten]]). Van alle redacteuren wordt verwacht dat zij zich aan dit beleid houden bij het maken en beoordelen van inhoud, en dat zij de handelingen van andere redacteuren om ervoor te zorgen dat dit beleid wordt nageleefd respecteren en daarbij uitgaan van goede wil.\n\nAls u met een belangenverstrengeling aan het bewerken bent, moet u het bijbehorende beleid met bijzondere zorg toepassen. Anders kan uw gebruikersaccount worden geblokkeerd. Als u vragen hebt, kunt u gerust contact met mij opnemen via mijn overlegpagina.</string>
+  <string name="patroller_saved_message_body_coi_rem">Hallo {{{username}}}, ik waardeer uw medewerking aan Wikipedia. Ik heb echter gemerkt dat u te maken hebt met een [[Wikipedia:Belangenverstrengeling|belangenconflict]]. Een belangenconflict is de onverenigbaarheid tussen de doelstellingen van Wikipedia op het gebied van neutraliteit en betrouwbaarheid enerzijds en de specifieke doelstellingen van bepaalde bewerkers, individuen, entiteiten of bedrijven anderzijds.\n\nAlle bijdragen in de hoofdnaamruimte zijn onderworpen aan het beleid van inhoudscriteria van deze Wikipedia (zie [[Wikipedia:Wat Wikipedia niet is|Wat Wikipedia niet is]]), encyclopedische kwaliteit (zie [[Wikipedia:Verifieerbaarheid|Verifieerbaarheid]] en [[Wikipedia:Geen origineel onderzoek|Geen origineel onderzoek]]), redactionele methode (zie [[Wikipedia:NPOV|Neutraal standpunt]]) en legitimiteit van de inhoud (zie [[Wikipedia:Copyrights|Auteursrechten]]). Van alle bewerkers wordt verwacht dat zij zich aan dit beleid houden bij het maken en beoordelen van inhoud, en dat zij de handelingen van andere bewerkers om ervoor te zorgen dat dit beleid wordt nageleefd respecteren en daarbij uitgaan van goede wil.\n\nAls u met een belangenverstrengeling aan het bewerken bent, moet u het bijbehorende beleid met bijzondere zorg toepassen. Anders kan uw gebruikersaccount worden geblokkeerd. Als u vragen hebt, kunt u gerust contact met mij opnemen via mijn overlegpagina.</string>
   <string name="patroller_saved_message_body_final_warning">Omdat u meerdere destructieve bewerkingen hebt aangebracht, is dit uw laatste waarschuwing. Als u Wikipedia opnieuw beschadigt, wordt u uitgesloten van het bewerken.</string>
   <string name="patroller_saved_message_body_copy_vio">Het lijkt erop dat uw recente bewerking zonder toestemming auteursrechtelijk beschermd materiaal bevat. Zorg ervoor dat alle inhoud voldoet aan het [[Wikipedia:Copyrights|copyright]]-beleid van Wikipedia om verwijdering te voorkomen.</string>
   <string name="patroller_saved_message_body_edit_summary">Hallo {{{username}}}, het lijkt erop dat u inhoud van Wikipedia hebt verwijderd zonder een bewerkingssamenvatting achter te laten. Laat een bewerkingssamenvatting achter wanneer u inhoud aan Wikipedia toevoegt of verwijdert.</string>
@@ -1827,7 +1827,7 @@
   <string name="survey_dialog_input_hint">Aanvullende terugkoppeling</string>
   <string name="survey_dialog_submitted_snackbar">Terugkoppeling ingediend. Dank u wel!</string>
   <string name="games_hub_activity_title">Spellen</string>
-  <string name="games_hub_activity_games_unavailable_message">Er zijn nog geen spellen beschikbaar in deze taal! De spellen maken gebruik van inhoud die door vrijwillige redacteuren voor de betreffende Wikipedia-pagina\'s is gemaakt.</string>
+  <string name="games_hub_activity_games_unavailable_message">Er zijn nog geen spellen beschikbaar in deze taal! De spellen maken gebruik van inhoud die door vrijwillige bewerkers voor de betreffende Wikipedia-pagina\'s is gemaakt.</string>
   <string name="games_hub_activity_games_unavailable_message_learn_more_action">Meer lezen</string>
   <string name="games_hub_activity_overflow_view_game_stats">Spelstatistieken bekijken</string>
   <string name="games_hub_activity_overflow_learn_more">Meer lezen</string>
@@ -1978,8 +1978,8 @@
     <item quantity="other">Uw bewerkingen zijn onlangs meer dan %,d keer bekeken</item>
   </plurals>
   <plurals name="year_in_review_slide_edits_viewed_times_body">
-    <item quantity="one">Lezers over de hele wereld waarderen uw bijdragen. In de afgelopen twee maanden zijn de pagina\'s die u hebt bewerkt in totaal %,d keer bekeken. Dankzij redacteuren zoals u is Wikipedia een gestaag verbeterende, op feiten gebaseerde en betrouwbare kennisbron voor de wereld.</item>
-    <item quantity="other">Lezers over de hele wereld waarderen uw bijdragen. In de afgelopen twee maanden zijn de pagina\'s die u hebt bewerkt in totaal %,d keer bekeken. Dankzij redacteuren zoals u is Wikipedia een gestaag verbeterende, op feiten gebaseerde en betrouwbare kennisbron voor de wereld.</item>
+    <item quantity="one">Lezers over de hele wereld waarderen uw bijdragen. In de afgelopen twee maanden zijn de pagina\'s die u hebt bewerkt in totaal %,d keer bekeken. Dankzij bewerkers zoals u is Wikipedia een gestaag verbeterende, op feiten gebaseerde en betrouwbare kennisbron voor de wereld.</item>
+    <item quantity="other">Lezers over de hele wereld waarderen uw bijdragen. In de afgelopen twee maanden zijn de pagina\'s die u hebt bewerkt in totaal %,d keer bekeken. Dankzij bewerkers zoals u is Wikipedia een gestaag verbeterende, op feiten gebaseerde en betrouwbare kennisbron voor de wereld.</item>
   </plurals>
   <plurals name="year_in_review_slide_edited_per_minute_headline">
     <item quantity="one">Wikipedia werd %,d keer per minuut bewerkt</item>
@@ -1999,17 +1999,17 @@
     <item quantity="other">U hebt %s keer bewerkt</item>
   </plurals>
   <plurals name="year_in_review_slide_edited_times_body">
-    <item quantity="one">Bedankt dat u een van de vrijwillige redacteuren bent die het verschil maakt in Wikimedia-projecten over de hele wereld. Vrijwilligers zoals u hebben %,d wijziging aangebracht in meer dan 300 verschillende taaledities van Wikipedia.</item>
-    <item quantity="other">Bedankt dat u een van de vrijwillige redacteuren bent die het verschil maakt in Wikimedia-projecten over de hele wereld. Vrijwilligers zoals u hebben %,d wijzigingen aangebracht in meer dan 300 verschillende taaledities van Wikipedia.</item>
+    <item quantity="one">Bedankt dat u een van de vrijwillige bewerkers bent die het verschil maakt in Wikimedia-projecten over de hele wereld. Vrijwilligers zoals u hebben %,d wijziging aangebracht in meer dan 300 verschillende taaledities van Wikipedia.</item>
+    <item quantity="other">Bedankt dat u een van de vrijwillige bewerkers bent die het verschil maakt in Wikimedia-projecten over de hele wereld. Vrijwilligers zoals u hebben %,d wijzigingen aangebracht in meer dan 300 verschillende taaledities van Wikipedia.</item>
   </plurals>
   <plurals name="year_in_review_slide_app_edited_times_headline">
-    <item quantity="one">Redacteuren op de officiële Wikipedia-apps hebben %,d bewerking uitgevoerd</item>
-    <item quantity="other">Redacteuren op de officiële Wikipedia-apps hebben %,d bewerkingen uitgevoerd</item>
+    <item quantity="one">Bewerkers op de officiële Wikipedia-apps hebben %,d bewerking uitgevoerd</item>
+    <item quantity="other">Bewerkers op de officiële Wikipedia-apps hebben %,d bewerkingen uitgevoerd</item>
   </plurals>
   <string name="year_in_review_slide_app_edited_times_body">Het hart en de ziel van Wikipedia zijn onze wereldwijde gemeenschap van vrijwillige bijdragers, donateurs en miljarden lezers zoals u – allemaal verenigd om onbeperkte toegang te delen tot betrouwbare informatie.</string>
   <plurals name="year_in_review_slide_english_edited_times_headline">
-    <item quantity="one">Redacteuren hebben dit jaar %,d wijziging aangebracht</item>
-    <item quantity="other">Redacteuren hebben dit jaar %,d wijzigingen aangebracht</item>
+    <item quantity="one">Bewerkers hebben dit jaar %,d wijziging aangebracht</item>
+    <item quantity="other">Bewerkers hebben dit jaar %,d wijzigingen aangebracht</item>
   </plurals>
   <plurals name="year_in_review_slide_english_edited_times_body_first">
     <item quantity="one">Vrijwilligers brachten %,d wijziging aan in meer dan 300 verschillende taaledities van Wikipedia.</item>
@@ -2326,6 +2326,10 @@
   <string name="reading_challenge_install_prompt_message">Baby Globe moedigt u aan. Voeg de widget \'Leesuitdaging\' toe om uw voortgang vanaf uw startscherm bij te houden.</string>
   <string name="reading_challenge_install_prompt_got_it">Begrepen</string>
   <string name="reading_challenge_install_prompt_add">Toevoegen</string>
+  <string name="search_widget_install_prompt_title">Een manier om sneller te zoeken</string>
+  <string name="search_widget_install_prompt_message">Installeer het zoekwidget voor Wikipedia voor directe toegang tot kennis vanaf uw startscherm</string>
+  <string name="search_widget_install_prompt_add">Toevoegen</string>
+  <string name="search_widget_install_prompt_got_it">Begrepen</string>
   <string name="reading_challenge_widget_explore_button">Verkennen</string>
   <string name="reading_challenge_widget_explore_wikipedia_button">Wikipedia verkennen</string>
   <string name="reading_challenge_widget_join_challenge_button">Meedoen aan de uitdaging</string>
@@ -2424,6 +2428,9 @@
   <string name="home_feed_settings_because_you_read_subtitle">Suggesties gebaseerd op een recente pagina uit uw geschiedenis.</string>
   <string name="home_feed_settings_continue_reading_title">Verder lezen</string>
   <string name="home_feed_settings_continue_reading_subtitle">Verder gaan met pagina\'s die u niet hebt uitgelezen.</string>
+  <string name="home_feed_did_you_know_title">Wist u dat?</string>
+  <string name="home_feed_did_you_know_subtitle">Interessante feiten uit pagina\'s geselecteerd door vrijwillige bewerkers</string>
+  <string name="home_feed_did_you_know_more_label">Meer \"Wist u dat?\"</string>
   <string name="home_feed_settings_community_empty_dialog_title">Uw gemeenschapsfeed zal leeg zijn.</string>
   <string name="home_feed_settings_for_you_empty_dialog_title">Uw \"Voor u\"-feed zal leeg zijn.</string>
   <string name="home_feed_settings_empty_dialog_text">Schakel ten minste één module in om de inhoud te kunnen bekijken.</string>
@@ -2437,9 +2444,15 @@
   <string name="home_feed_for_you_screen_empty_ways_to_start">Manieren om te beginnen:</string>
   <string name="home_feed_for_you_screen_empty_add_interests">U kunt &lt;a href=\"#add_interests\"&gt;interesses toevoegen&lt;/a&gt;</string>
   <string name="home_feed_for_you_screen_empty_see_community">Kijk wat er in de &lt;a href=\"#community_tab\"&gt;gemeenschap&lt;/a&gt; gebeurt</string>
+  <string name="home_feed_update_tooltip1">Nieuw: \"Willekeurige pagina\" en \"Plaatsen in de buurt\" zijn beschikbaar in \"Voor u\" en \"Wist u dat\" is in het tabblad Gemeenschap.</string>
+  <string name="home_feed_random_title">Willekeurig</string>
+  <string name="home_feed_random_subtitle">Een willekeurige pagina om uw nieuwsgierigheid te prikkelen</string>
+  <string name="home_feed_random_shuffle_button">Willekeurig</string>
   <string name="home_feed_settings_feed_configuration_description">Deze onderwerpen en pagina\'s bepalen wat er in uw \'Voor u\'-feed verschijnt. Verwijder items die u niet meer wilt zien of voeg nieuwe interesses toe.</string>
   <string name="home_feed_settings_feed_configuration_interest_title">Uw interesses</string>
   <string name="home_feed_settings_feed_configuration_interest_subtitle">Bewerk de onderwerpen waarin u geïnteresseerd bent</string>
+  <string name="home_feed_settings_feed_configuration_location_title">Uw locatie</string>
+  <string name="home_feed_settings_feed_configuration_location_subtitle">Werk uw locatie bij in Plaatsen om pagina\'s in de buurt te bekijken</string>
   <string name="home_feed_settings_feed_configuration_empty_interest_subtitle">Uw lijst met interesses is leeg. Voeg iets toe waar u nieuwsgierig naar bent.</string>
   <string name="home_feed_settings_feed_configuration_reading_history_title">Leesgeschiedenis</string>
   <string name="home_feed_settings_feed_configuration_reading_history_subtitle">Bekijk uw recent bekeken pagina\'s</string>
@@ -2447,6 +2460,12 @@
   <string name="home_feed_settings_feed_configuration_languages_title">Talen</string>
   <string name="home_feed_settings_feed_configuration_languages_subtitle">Bewerk uw voorkeurstalen</string>
   <string name="home_feed_settings_feed_configuration_interests_updated_message">Interesses bijgewerkt. Vernieuw uw feed om deze bij te werken.</string>
+  <string name="home_feed_places_of_interest_cta_title">Verhalen van plaatsen waar u van houdt</string>
+  <string name="home_feed_places_of_interest_cta_description">Er worden pagina\'s weergegeven op basis van de laatste door u bekeken plaats. Ga naar het tabblad Plaatsen en selecteer een locatie.</string>
+  <string name="home_feed_places_of_interest_cta_button">Naar Plaatsen gaan</string>
+  <string name="home_feed_settings_places_of_interest_title">Belangwekkende plaatsen</string>
+  <string name="home_feed_settings_places_of_interest_subtitle">Pagina\'s in de buurt van uw laatste locatie in Plaatsen</string>
+  <string name="home_feed_places_of_interest_card_footer">%1$s • Gebaseerd op uw locatie in Plaatsen</string>
   <string name="home_feed_for_you_screen_end_of_feed_title">Dat was het voor vandaag!</string>
   <string name="home_feed_for_you_screen_end_of_feed_description">Kom morgen terug voor gloednieuwe pagina\'s die speciaal voor jou zijn samengesteld.</string>
   <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Manieren om te blijven leren:</string>
