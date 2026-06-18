@@ -11,4 +11,6 @@ sealed interface HomeFeedSettingsDestination {
     data object CommunityModuleScreen : HomeFeedSettingsDestination
     @Serializable
     data object FeedConfiguration : HomeFeedSettingsDestination
+    @Serializable
+    data object DefaultFeedViewScreen : HomeFeedSettingsDestination
 }

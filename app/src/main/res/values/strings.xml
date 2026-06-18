@@ -2496,7 +2496,7 @@
     <string name="explore_feed_featured_article_subtitle">Featured articles are some of the highest-quality articles on Wikipedia, selected daily by editors</string>
     <string name="explore_feed_preference_selection_screen_title">What would you like to see first?</string>
     <string name="explore_feed_preference_community_content_title">Community-related content</string>
-    <string name="explore_feed_preference_personalized_content_title">Personalized content </string>
+    <string name="explore_feed_preference_personalized_content_title">Personalized content</string>
     <string name="explore_feed_in_the_news_subtitle">Articles that have been substantially updated to reflect recent or current events of wide interest</string>
     <string name="explore_feed_on_this_day_subtitle">Discover historical events from this day</string>
     <string name="explore_feed_community_disclaimer">Content and resources selected by and about the Wikimedia community</string>
@@ -2509,7 +2509,9 @@
     <string name="explore_feed_because_you_read">Because you read: %s</string>
     <string name="explore_feed_swipe_to_explore_prompt_title">Swipe to explore</string>
     <string name="explore_feed_swipe_to_explore_prompt_message">Swipe up to navigate between topics, or swipe sideways to explore related content.</string>
-    <string name="home_feed_settings_title">Customize the Home feed</string>
+    <string name="home_feed_settings_title">Customize your Home feed</string>
+    <string name="home_feed_settings_default_view_title">Default feed view</string>
+    <string name="home_feed_settings_default_view_subtitle">Choose which feed displays first when you open the app</string>
     <string name="home_feed_settings_whats_driving_title">What\'s driving your feed</string>
     <string name="home_feed_settings_modules_title">Modules</string>
     <string name="home_feed_settings_community_subtitle">Turn on or off \"Community\" feed modules</string>
