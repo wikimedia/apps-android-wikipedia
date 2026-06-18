@@ -8,6 +8,7 @@
 * Fitoschido
 * Gorbi
 * Jens Jensen
+* Jhertel
 * Joedalton
 * JorgeElias2302
 * Kenn.jensen
@@ -80,7 +81,7 @@
   <string name="page_edit_history_filter_by_all">Alle redigeringer (%s)</string>
   <string name="page_edit_history_filter_by_user">Brugerredigeringer (%s)</string>
   <string name="page_edit_history_filter_by_anon">Uregistrede redigeringer (%s)</string>
-  <string name="page_edit_history_filter_by_bot">Bot redigeringer (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Bot-redigeringer (%s)</string>
   <string name="page_edit_history_metrics_content_description">Målinger fra %1$s til %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="one">%1$d redigering siden %2$s</item>
@@ -94,7 +95,7 @@
   <string name="menu_page_show_tabs">Vis faner</string>
   <string name="menu_page_other_languages">Skift sprog</string>
   <string name="menu_page_find_in_page">Find i artiklen</string>
-  <string name="menu_page_add_to_watchlist">Tilføj til overvågningsliste</string>
+  <string name="menu_page_add_to_watchlist">Føj til overvågningsliste</string>
   <string name="menu_page_watch">Overvåg</string>
   <string name="menu_page_unwatch">Overvåg ikke</string>
   <string name="menu_page_view_talk">Vis diskussionsside</string>
@@ -105,7 +106,7 @@
   <string name="menu_page_watched">Overvåget</string>
   <string name="edit_section_find_in_page">Søg på siden</string>
   <string name="menu_page_font_and_theme">Skrifttype og tema</string>
-  <string name="menu_page_add_to_list">Tilføj til læseliste</string>
+  <string name="menu_page_add_to_list">Føj til læseliste</string>
   <string name="menu_page_add_to_default_list">Gem</string>
   <string name="feed_card_add_to_list">Tilføj til læseliste</string>
   <string name="feed_card_add_to_default_list">Gem</string>
@@ -118,7 +119,7 @@
   <string name="menu_page_recently_viewed">Senest vist</string>
   <string name="menu_page_archive">Arkiv</string>
   <string name="menu_long_press_open_page">Åbn</string>
-  <string name="menu_long_press_open_in_places">Åben på Steder</string>
+  <string name="menu_long_press_open_in_places">Åbn på Steder</string>
   <string name="menu_long_press_open_in_new_tab">Åbn i ny fane</string>
   <string name="menu_long_press_copy_page">Kopier link-adresse</string>
   <string name="menu_text_select_define">Definer</string>
@@ -132,7 +133,7 @@
   <string name="map_view_link_text">Vis på et kort</string>
   <string name="other_languages_indication_text">Læs på et andet sprog</string>
   <string name="language_count_link_text">Tilgængelig på %d andre sprog</string>
-  <string name="edit_save_action_license_logged_in">Ved at udgive, accepterer du &lt;a href=\"%1$s\"&gt;Betingelser for brug&lt;/a&gt;, og du accepterer uigenkaldeligt at udgive dine bidrag under &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licensen.</string>
+  <string name="edit_save_action_license_logged_in">Ved at udgive accepterer du &lt;a href=\"%1$s\"&gt;Betingelser for brug&lt;/a&gt;, og du accepterer uigenkaldeligt at udgive dine bidrag under &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licensen.</string>
   <string name="edit_save_action_license_anon">Ved at udgive, accepterer du &lt;a href=\"%1$s\"&gt;brugsbetingelserne&lt;/a&gt;, og du accepterer uigenkaldeligt at udgive dine bidrag under &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; licensen. Ændringer vil blive tilskrevet IP-adressen for din enhed. Hvis du &lt;a href=\"https://#login\"&gt;logger på&lt;/a&gt;, vil du have mere privatliv.</string>
   <string name="edit_anon_warning">Redigeringer vil blive tilskrevet din enheds IP-adresse. Hvis du &lt;a href=\"https://#login\"&gt;logger ind&lt;/a&gt;, får du mere privatliv.</string>
   <string name="preference_title_language">Wikipediasprog</string>
@@ -159,7 +160,7 @@
   <string name="search_reading_list_no_results">Ingen resultater fundet i \"%s\"</string>
   <string name="search_reading_lists_no_results">Ingen resultater fundet i læselister</string>
   <string name="search_history_no_results">Ingen resultater fundet i historik</string>
-  <string name="edit_section_captcha_message">For at beskytte mod automatiseret spam, indtast de ord, der vises nedenfor</string>
+  <string name="edit_section_captcha_message">For at beskytte mod automatiseret spam bedes du indtaste de ord, der vises nedenfor</string>
   <string name="edit_section_captcha_request_an_account_message">Kan du ikke se billeder? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Anmod om en konto&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Gentag ordene ovenfor</string>
   <string name="title_captcha">Indtast CAPTCHA</string>
@@ -168,9 +169,9 @@
   <string name="login_username_hint">Brugernavn</string>
   <string name="login_password_hint">Adgangskode</string>
   <string name="account_creation_password_hint">Adgangskode</string>
-  <string name="login_2fa_hint">To-faktor godkendelseskode</string>
-  <string name="login_2fa_other_workflow_error_msg">To-faktor-godkendelse påkrævet! Log ind fra hovedskærmen, og indtast koden fra dit 2FA-token.</string>
-  <string name="login_email_auth_hint">E-mail bekræftelseskode</string>
+  <string name="login_2fa_hint">Tofaktorgodkendelseskode</string>
+  <string name="login_2fa_other_workflow_error_msg">Tofaktorgodkendelse påkrævet! Log ind fra hovedskærmen, og indtast koden fra dit 2FA-token.</string>
+  <string name="login_email_auth_hint">E-mailbekræftelseskode</string>
   <string name="login_email_auth_other_workflow_error_msg">E-mailbekræftelse påkrævet! Log venligst på fra hovedskærmen, og indtast din e-mailbekræftelseskode.</string>
   <string name="login_background_error_msg">Kan ikke logge ind igen. Gå tilbage til hovedskærmen og log ind manuelt.</string>
   <string name="onboarding_card_login">Log på</string>
@@ -182,23 +183,23 @@
   <string name="login_in_progress_dialog_message">Logger dig på...</string>
   <string name="login_success_toast">Du er nu logget ind!</string>
   <string name="reset_password_title">Sæt din adgangskode</string>
-  <string name="reset_password_description">Du loggede på med en midlertidig kode. For at afslutte indlogning, angiv venligst din nye adgangskode her.</string>
+  <string name="reset_password_description">Du loggede på med en midlertidig kode. For at afslutte indlogning bedes du venligst angive din nye adgangskode her.</string>
   <string name="reset_password_hint">Ny adgangskode</string>
-  <string name="reset_password_button">Gem og logind</string>
+  <string name="reset_password_button">Gem og log ind</string>
   <string name="preference_title_logout">Log af</string>
   <string name="toast_logout_complete">Logget af</string>
   <string name="logout_prompt">Du vil blive logget ud fra alle enheder du er logget ind på. Vil du fortsætte?</string>
   <string name="logout_dialog_cancel_button_text">Annullér</string>
   <string name="logged_out_in_background_title">Logget af</string>
-  <string name="logged_out_in_background_dialog">Du har blevet logget ud af Wikipedia. Vil du logge ind igen?</string>
+  <string name="logged_out_in_background_dialog">Du er blevet logget ud af Wikipedia. Vil du logge ind igen?</string>
   <string name="logged_out_in_background_login">Log på</string>
   <string name="logged_out_in_background_cancel">Annullér</string>
   <string name="account_vanish_request_title">Slet konto</string>
   <string name="account_vanish_request_confirm_title">Advarsel om kontosletning</string>
-  <string name="account_vanish_request_confirm">At forsvinde er en &lt;b&gt;sidste udvej&lt;/b&gt; og bør &lt;b&gt;kun bruges, når du ønsker at stoppe med at redigere for altid&lt;/b&gt; og også for at skjule så mange af dine tidligere tilknytninger som muligt.&lt;br/&gt;&lt;br/&gt; Sletning af konto på Wikipedia sker ved at ændre dit kontonavn, sådan at andre ikke kan genkende dine bidrag i en proces, der kaldes kontoforsvinding. &lt;b&gt;Forsvinding garanterer ikke fuldstændig anonymitet eller fjerner bidrag til projekterne&lt;/b&gt; .</string>
+  <string name="account_vanish_request_confirm">At forsvinde er en &lt;b&gt;sidste udvej&lt;/b&gt; og bør &lt;b&gt;kun bruges, når du ønsker at ophøre med at redigere for altid&lt;/b&gt; og også for at skjule så mange af dine tidligere tilknytninger som muligt.&lt;br/&gt;&lt;br/&gt; Kontosletning på Wikipedia sker ved at ændre dit kontonavn, således at andre ikke kan genkende dine bidrag, i en proces, der kaldes kontoforsvinding. &lt;b&gt;Forsvinding garanterer ikke fuldstændig anonymitet eller fjerner bidrag til projekterne&lt;/b&gt; .</string>
   <string name="history_empty_title">Ingen nyligt læste artikler.</string>
   <string name="history_empty_message">Hold styr på hvad du har læst her.</string>
-  <string name="history_offline_articles_toast">Nogle artikler i historikken kan måske ikke vises når offline.</string>
+  <string name="history_offline_articles_toast">Nogle artikler i historikken kan måske ikke vises når du er offline.</string>
   <string name="search_empty_message">Søg og læs den frie encyklopædi på dit sprog</string>
   <string name="search_empty_message_multilingual_upgrade">Søg på Wikipedia i flere sprog</string>
   <string name="delete_selected_items">Slet valgte elementer</string>
@@ -219,20 +220,20 @@
   <string name="create_account_password_error">Adgangskoden skal være mindst 8 tegn</string>
   <string name="create_account_generic_error">Kunne ikke oprette konto</string>
   <string name="create_account_next">Næste</string>
-  <string name="email_recommendation_dialog_title">Opret konto uden email adresse?</string>
-  <string name="email_recommendation_dialog_message">Selvom e-mailadressen er valgfri anbefales det kraftigt da en email er nødvendig for gendannelse af din konto hvis du skulle miste din adgangskode.</string>
+  <string name="email_recommendation_dialog_title">Opret konto uden e-mailadresse?</string>
+  <string name="email_recommendation_dialog_message">Selvom e-mailadressen er valgfri anbefales den kraftigt, da en e-mail er nødvendig for gendannelse af din konto hvis du skulle miste din adgangskode.</string>
   <string name="email_recommendation_message">Anbefalet da e-mail er nødvendig for gendannelse af konto.</string>
   <string name="email_recommendation_dialog_create_without_email_action">Fortsæt uden email</string>
-  <string name="email_recommendation_dialog_create_with_email_action">Tilføj en email adresse</string>
+  <string name="email_recommendation_dialog_create_with_email_action">Tilføj en e-mailadresse</string>
   <string name="create_account_button">Opret konto</string>
-  <string name="create_account_name_unavailable">Brugernavnet »%s« er ikke tilgængelig. Vælg venligst et andet navn.</string>
+  <string name="create_account_name_unavailable">Brugernavnet »%s« er ikke tilgængeligt. Vælg venligst et andet navn.</string>
   <string name="create_account_ip_block_message">Beklager, din IP-adresse er på nuværende tidspunkt blokeret fra at oprette nye kontoer.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Detaljer</string>
   <string name="preferences_general_heading">Generelt</string>
   <string name="preferences_account_heading">Konto</string>
-  <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
-  <string name="send_feedback">Send feedback</string>
+  <string name="wikipedia_app_faq">Ofte stillede spørgsmål til Wikipedia-appen</string>
+  <string name="send_feedback">Send feedback om appen</string>
   <string name="create_account_account_created_toast">Konto oprettet!</string>
   <string name="preferences_heading_syncing">Synkroniserer</string>
   <string name="preferences_heading_data_usage">Dataforbrug</string>
@@ -241,21 +242,21 @@
   <string name="preference_title_download_reading_list_articles">Hent artikler på din læseliste</string>
   <string name="preference_summary_sync_reading_lists">Synkroniser læselister på tværs af forskellige enheder ved at gemme dem på din Wikipediakonto</string>
   <string name="preference_summary_sync_reading_lists_from_account">Synkroniser læselister på tværs af forskellige enheder ved at gemme dem på din Wikipediakonto »%s«</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Fjern synkroniserede læselister fra din »%s«?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Dette vil fuldstændig slette alle tidligere synkroniserede læselister fra eksternt lager. Fjern alle synkroniserede lister fra din konto »%s«?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Fjern synkroniserede læselister fra »%s«?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Dette vil fuldstændig slette alle tidligere synkroniserede læselister fra fjernlageret. Fjern alle synkroniserede lister fra din konto »%s«?</string>
   <string name="preference_title_auto_upload_crash_reports">Send rapporter om nedbrud</string>
   <string name="preference_summary_auto_upload_crash_reports">Tillad appen at sende rapporter om nedbrud til en tredjepartstjeneste automatisk, så vi kan gennemgå nedbruddet og rette fejlen hurtigere og nemmere.</string>
   <string name="editing_error_spamblacklist">Henvisninger til blokerede domæner (%s) fundet. Fjern dem, og prøv igen.</string>
   <string name="history_filter_list_hint">Filtrer historik</string>
   <string name="error_can_not_process_link">Kunne ikke vise dette link</string>
   <string name="page_protected_autoconfirmed">Denne side er delvis beskyttet.</string>
-  <string name="page_protected_sysop">Denne side er beskyttet.</string>
+  <string name="page_protected_sysop">Denne side er fuldt beskyttet.</string>
   <string name="page_protected_other">Denne side er beskyttet til følgende niveauer: %s</string>
   <string name="page_protected_can_not_edit">Beklager, din konto har ikke tilstrækkelige rettigheder til at redigere denne side på dette tidspunkt.</string>
   <string name="page_protected_can_not_edit_anon">Beklager, denne side kan ikke redigeres anonymt på dette tidspunkt.</string>
   <string name="page_protected_can_not_edit_title">Denne side er beskyttet</string>
-  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Tilføj til overvågningsliste</string>
-  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Følg med på hvad som sker med artikler du er interesseret i. Tryk på menuen og vælg Tilføj til overvågningsliste for at se hvordan artiklen ændrer sig.</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Føj til overvågningsliste</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Følg med på hvad som sker med artikler du er interesseret i. Tryk på menuen og vælg Føj til overvågningsliste for at se hvordan artiklen ændrer sig.</string>
   <string name="settings_item_preferences">Indstillinger</string>
   <string name="settings_activity_title">Indstillinger</string>
   <string name="about_description">Om Wikipedia-appen</string>
@@ -263,9 +264,9 @@
   <string name="terms_of_use_description">Vilkår for anvendelse</string>
   <string name="legal_safety_contacts_description">Juridiske og sikkerhedsmæssige kontakter</string>
   <string name="about_wikipedia_url">https://da.wikipedia.org/wiki/Hjælp:Om</string>
-  <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Privacy_policy</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/da</string>
-  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Terms_of_Use</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.da</string>
   <string name="about_libraries_heading">Anvendte biblioteker</string>
   <string name="about_contributors_heading">Bidragsydere</string>
@@ -276,7 +277,7 @@
   <string name="about_app_license">Kildekode tilgængelig på &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0-licensen&lt;/a&gt; . Medmindre andet er angivet, er indhold tilgængeligt under en &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Navngivelse-Del på samme Vilkår-licens&lt;/a&gt; .</string>
   <string name="about_wmf">Et produkt fra &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Om</string>
-  <string name="about_logo_content_description">Wikipedia puslespil globus logo</string>
+  <string name="about_logo_content_description">Wikipedia puslespils-globuslogo</string>
   <string name="edit_abandon_confirm">Den side er blevet ændret. Er du sikker på at du vil afslutte uden at gemme dine ændringer?</string>
   <string name="edit_abandon_confirm_yes">Ja</string>
   <string name="edit_abandon_confirm_no">Nej</string>
@@ -309,7 +310,7 @@
   <string name="edit_conflict_title">Redigeringskonflikt</string>
   <string name="edit_conflict_message">Siden er allerede blevet redigeret af en anden bruger, og er i konflikt med din redigering. Kopier venligst dine ændringer, gå tilbage og opdater siden, og forsøg så at redigere igen.</string>
   <string name="edit_notices">Redigeringsbemærkninger</string>
-  <string name="edit_notices_please_read">Venligst læs før du redigerer</string>
+  <string name="edit_notices_please_read">Læs venligst før du redigerer</string>
   <string name="edit_notices_show_auto">Vis redigeringsbemærkninger automatisk</string>
   <string name="edit_notices_tooltip">Tryk på denne knap for at se redigeringsbemærkninger for denne artikel.</string>
   <string name="find_next">Find næste</string>
@@ -319,7 +320,7 @@
   <string name="article_opened_in_background_tab">Denne artikel er blevet åbnet i en baggrundsfane.</string>
   <string name="abusefilter_title_warn">Dette er muligvis ikke en konstruktiv redigering. Er du sikker på at du ønsker at offentliggøre den?</string>
   <string name="abusefilter_title_disallow">Du kan ikke offentliggøre denne redigering. Gå venligst tilbage og ændr den.</string>
-  <string name="abusefilter_text_warn">Et automatisk filter har identificeret denne redigering som potentielt er ukonstruktiv. Den kan indeholde en eller flere af følgende:&lt;br /&gt;&lt;br /&gt;· Skrive udelukkende med store bogstaver&lt;br /&gt;· Slette alt i artikler eller spamming&lt;br /&gt;· Irrelevante eksterne links eller billeder&lt;br /&gt;· Gentagelser af tegn</string>
+  <string name="abusefilter_text_warn">Et automatisk filter har identificeret denne redigering som potentielt er ukonstruktiv. Den kan indeholde en eller flere af følgende:&lt;br /&gt;&lt;br /&gt;· Skrevet udelukkende med store bogstaver&lt;br /&gt;· Sletter alt i en artikel eller spammer&lt;br /&gt;· Irrelevante eksterne links eller billeder&lt;br /&gt;· Gentagelser af tegn</string>
   <string name="abusefilter_text_disallow">Et automatisk filter har identificeret denne redigering som potentielt ukonstruktiv, eller potentielt hærværk.&lt;br /&gt;&lt;br /&gt;Wikipedia er en encyklopædi, og kun neutralt og relevant indhold hører til her.</string>
   <string name="page_similar_titles">Lignende sider</string>
   <string name="search_did_you_mean">Mente du »%s«?</string>
@@ -333,7 +334,7 @@
   <string name="clear_recent_searches_confirm">Er du sikker på du ønsker at slette din søgehistorik?</string>
   <string name="clear_recent_searches_confirm_yes">Ja</string>
   <string name="clear_recent_searches_confirm_no">Nej</string>
-  <string name="error_browser_not_found">Kunne ikke åbne webside (ingen browser app fundet).</string>
+  <string name="error_browser_not_found">Kunne ikke åbne webside (ingen browser-app fundet).</string>
   <string name="table_infobox">Hurtige fakta</string>
   <string name="table_other">Flere oplysninger</string>
   <string name="table_close">Luk</string>
@@ -405,8 +406,10 @@
   <string name="button_get_directions">Få rutevejledninger</string>
   <string name="error_no_maps_app">Kunne ikke finde nogen apps, der giver rutevejledninger.</string>
   <string name="preference_title_customize_explore_feed">Udforsk-feed</string>
+  <string name="preference_title_customize_home_feed">Startfeed</string>
   <string name="preference_title_show_link_previews">Vis forhåndsvisning af links</string>
   <string name="preference_summary_customize_explore_feed">Tilpas Udforsk-feedet</string>
+  <string name="preference_summary_customize_home_feed">Tilpas dit startfeed</string>
   <string name="preference_summary_show_link_previews">Viser en kort forhåndsvisning af artikler når du trykker på links.</string>
   <string name="preference_title_collapse_tables">Fold tabeller sammen</string>
   <string name="preference_summary_collapse_tables">Sammenfold automatisk tabeller i artikler, såsom infobokse, referencer og noter.</string>
@@ -513,7 +516,7 @@
   <string name="reading_list_create_new">Opret ny</string>
   <string name="reading_list_title_exists">Læselisten »%s« findes allerede.</string>
   <string name="reading_list_article_added_to_named">Tilføjede %1$s til %2$s.</string>
-  <string name="reading_list_article_added_to_default_list">Gemte %s. Ønsker du at tilføj den til en liste?</string>
+  <string name="reading_list_article_added_to_default_list">Gemte %s. Ønsker du at tilføje den til en liste?</string>
   <string name="reading_list_article_moved_to_named">Flyttede %1$s til %2$s</string>
   <string name="reading_list_article_already_exists_message">%1$s indeholder allerede %2$s.</string>
   <string name="reading_list_articles_already_exist_message">%s indeholder allerede alle artiklerne.</string>
@@ -815,9 +818,11 @@
   <string name="view_random_article_card_title">Tilfældig artikel</string>
   <string name="view_random_article_card_action">Flere tilfældige artikler</string>
   <string name="view_top_read_card_title">Mest læste</string>
+  <string name="view_top_read_card_description">Hvad er populært på Wikipedia i dag</string>
   <string name="view_top_read_card_action">Flere mest læste</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d k</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
+  <string name="view_top_read_card_pageviews_views_suffix">visninger</string>
   <string name="view_next_random_article">Indlæs en anden vilkårlig artikel</string>
   <string name="view_main_page_card_title">I dag på Wikipedia</string>
   <string name="view_main_page_card_action">Vis hovedsiden</string>
@@ -858,11 +863,11 @@
   <string name="feed_item_type_randomizer">Vis vilkårlig artikel</string>
   <string name="feed_item_type_suggested_edits">Forslag om at tilføje indhold til Wikipedia</string>
   <string name="feed_item_type_places">Nærliggende artikler baseret på den aktuelle placering</string>
-  <string name="feed_empty_message" fuzzy="true">Der er intet i dit Udforsk-feed</string>
+  <string name="feed_empty_message">Der er intet på dit startfeed</string>
   <string name="feed_configure_onboarding_action">Tilpas</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Annullér</string>
-  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Tilpas dit Udforsk-feed&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Du kan nu vælge, hvad der skal vises i dit feed, og også prioritere dine foretrukne typer indhold.</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Tilpas dit startfeed&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Du kan nu vælge, hvad der skal vises i dit feed, og også prioritere dine foretrukne typer indhold.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Annullér</string>
   <string name="feed_accessibility_card_text">Du har nået bunden af feedet.</string>
@@ -895,7 +900,7 @@
   <string name="description_edit_help_title">Hjælp: Artikelbeskrivelser</string>
   <string name="description_edit_help_about_wikidata">Om Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Wikidata-guide til at skrive beskrivelser</string>
-  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Special:MyLanguage/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Tak for din fortsatte interesse i at redigere artikelbeskrivelser! Log venligst ind på din Wikipedia-konto for at foretage yderligere redigeringer.</string>
   <string name="description_edit_license_notice">Ved at ændre artikelbeskrivelsen accepterer jeg &lt;a href=\"%1$s\"&gt;brugsbetingelserne&lt;/a&gt; samt at uigenkaldeligt frigive mine bidrag under &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;-licensen.</string>
   <string name="description_edit_helper_text_lowercase_warning">begynder som regel med et lille bogstav</string>
@@ -905,6 +910,7 @@
   <string name="description_too_short">Teksten er for kort.</string>
   <string name="description_too_long">Forsøg at hold beskrivelser korte, sådan at brugere hurtigt kan forstå artiklens emne</string>
   <string name="description_ends_with_punctuation">Teksten må ikke ende med skilletegn.</string>
+  <string name="description_starts_with_article">Undgå at starte med artikler som \"et\", \"en\", \"a\" eller \"the\".</string>
   <string name="description_starts_with_uppercase">Begynd med et lille bogstav med mindre det første ord er et egennavn.</string>
   <string name="description_starts_with_lowercase">Undgå at starte med et lille bogstav.</string>
   <string name="description_is_in_different_language">Teksten ser ud til at være på et uventet sprog. Sproget skulle være %s.</string>
@@ -1257,17 +1263,24 @@
   <string name="onboarding_get_started">Kom i gang</string>
   <string name="onboarding_maybe_later">Måske senere</string>
   <string name="onboarding_explore_title">Nye måder at udforske</string>
-  <string name="onboarding_explore_text" fuzzy="true">Dyk ned i Wikipedias kaninhul med et konstant opdaterende Udforsk-feed. &lt;br/&gt; &lt;b&gt;Tilpas&lt;/b&gt; feedet til dine interesser – om det er historiske hændelser &lt;b&gt;På denne dag&lt;/b&gt;, eller et kast med terningen med &lt;b&gt;Vilkårlig&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text">Dyk ned i Wikipedias kaninhul med et konstant opdaterende startfeed. &lt;br/&gt; &lt;b&gt;Tilpas&lt;/b&gt; feedet til dine interesser – om det er historiske hændelser &lt;b&gt;På denne dag&lt;/b&gt;, eller at kaste terningerne med &lt;b&gt;Tilfældig&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Læselister med synkronisering</string>
   <string name="onboarding_reading_list_sync_text_v2">Du kan lave læselister med artikler, du ønsker at læse senere, selv når du er uden internetadgang. &lt;br/&gt;Log ind på din Wikipediakonto for at synkronisere dine læselister.&lt;a href=\"#login\"&gt;Opret konto på Wikipedia&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Data og privatliv</string>
-  <string name="onboarding_data_privacy_text" fuzzy="true">Vi mener, at du ikke skal afgive personlige oplysninger for at deltage i den frie vidensbevægelse. Brugsdata indsamlet til denne app er anonyme. Lær mere om vores &lt;a href=\"#privacy\"&gt;privatlivspolitik&lt;/a&gt; og &lt;a href=\"#termsOfUse\"&gt;vilkår for brug&lt;/a&gt;.</string>
+  <string name="onboarding_data_privacy_text">Vi mener, at du ikke skal afgive personlige oplysninger for at deltage i den frie vidensbevægelse. Brugsdata indsamlet til denne app er anonyme.&lt;br/&gt;&lt;br/&gt;Lær mere om vores &lt;a href=\"#privacy\"&gt;privatlivspolitik&lt;/a&gt; og &lt;a href=\"#termsOfUse\"&gt;vilkår for brug&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Send brugsdata</string>
   <string name="onboarding_got_it">O.k.</string>
   <string name="onboarding_multilingual_secondary_text">Vi har fundet følgende på din enhed:</string>
   <string name="onboarding_multilingual_add_language_text">Tilføj eller rediger sprog</string>
   <string name="onboarding_welcome_title_v2">Den frie encyklopædi\n…på mere end 300 sprog</string>
   <string name="onboarding_next">Næste</string>
+  <string name="onboarding_fresh_install_knowledge_title">Hele verdens kundskab</string>
+  <string name="onboarding_fresh_install_knowledge_text">Wikipedia er et frit online leksikon med 65 millioner artikler, der er skrevet og vedligeholdt i fællesskab på mere end 300 sprog af et fællesskab af frivillige.</string>
+  <string name="onboarding_fresh_install_knowledge_learn_more">Læs mere om Wikipedia</string>
+  <string name="onboarding_app_languages_title">Læs på mere end 300 sprog</string>
+  <string name="onboarding_app_languages_text">Vi har bemærket følgende sprog på din enhed:</string>
+  <string name="onboarding_app_languages_primary">Primær</string>
+  <string name="onboarding_app_languages_add_button">Tilføj eller rediger dine sprog</string>
   <string name="app_shortcuts_random">Tilfældig</string>
   <string name="app_shortcuts_continue_reading">Fortsæt læsning</string>
   <string name="app_shortcuts_search">Søg</string>
@@ -1297,7 +1310,7 @@
     <item quantity="one">Fjern valgt sprog?</item>
     <item quantity="other">Fjern valgte sprog?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Du vil kun se indhold i Udforsk-feedet og hurtigsøgningsfiltre for de tilbageværende Wikipedia-sprog.</string>
+  <string name="wikipedia_languages_remove_dialog_content">Du vil kun se indhold i startfeedet og hurtigsøgningsfiltre for de tilgængelige Wikipedia-sprog.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Kan ikke fjerne alle sprog</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Behold mindst et Wikipedia-sprog som du kan søge og læse indhold på.</string>
   <string name="more_language_options">mere</string>
@@ -1823,7 +1836,7 @@
   <string name="on_this_day_game_stats_average_score">Gennemsnitlig score</string>
   <string name="on_this_day_game_stats_streak">Nuværende streak</string>
   <string name="on_this_day_game_result_subtitle">Artikler der refereres til i dagens spil</string>
-  <string name="on_this_day_game_completed_message" fuzzy="true">Tak for at spille med. Et nyt spil \"Hvad kom først?\" er dagligt tilgængeligt i Udforsk-feedet.</string>
+  <string name="on_this_day_game_completed_message">Tak for at spille med. Et nyt spil \"Hvad kom først?\" er dagligt tilgængeligt i startfeedet.</string>
   <string name="on_this_day_game_menu_notifications">Spil notificeringer</string>
   <string name="on_this_day_game_menu_info">Lær mere</string>
   <string name="on_this_day_game_menu_feedback">Problem med funktionen</string>
@@ -2274,6 +2287,7 @@
   <string name="reading_challenge_onboarding_header">Fejr Wikipedias 25-års fødselsdag ved at deltage i 25-dages læseudfordringen!</string>
   <string name="reading_challenge_onboarding_read_title">Læs 1 artikel om dagen i 25 dage</string>
   <string name="reading_challenge_onboarding_read_description">Deltag i udfordringen når som helst mellem 1. maj og 31. maj, og gennemfør dine 25 dage på din egen tidslinje.</string>
+  <string name="reading_challenge_onboarding_read_subtitle">Deltag i udfordringen når som helst mellem %1$s og %2$s , og gennemfør dine 25 dage på din egen tidslinje.</string>
   <string name="reading_challenge_onboarding_win_title">Vind præmier</string>
   <string name="reading_challenge_onboarding_win_description">Gennemfør en 25-dages læse-streak, mens udfordringen er aktiv, for at vinde særlige præmier.</string>
   <string name="reading_challenge_onboarding_install_title">Installér widgetten</string>
@@ -2289,6 +2303,10 @@
   <string name="reading_challenge_install_prompt_message">Baby Globe hepper på dig. Tilføj Reading Challenge-widgetten for at spore dine fremskridt fra din startskærm.</string>
   <string name="reading_challenge_install_prompt_got_it">Forstået</string>
   <string name="reading_challenge_install_prompt_add">Tilføj</string>
+  <string name="search_widget_install_prompt_title">En hurtigere måde at søge på</string>
+  <string name="search_widget_install_prompt_message">Installer Wikipedia-søgewidgeten for øjeblikkelig adgang til viden fra din startskærm.</string>
+  <string name="search_widget_install_prompt_add">Tilføj</string>
+  <string name="search_widget_install_prompt_got_it">Forstået</string>
   <string name="reading_challenge_widget_explore_button">Udforsk</string>
   <string name="reading_challenge_widget_explore_wikipedia_button">Udforsk Wikipedia</string>
   <string name="reading_challenge_widget_join_challenge_button">Deltag i udfordringen</string>
@@ -2335,4 +2353,8 @@
   <string name="reading_challenge_widget_reward_title">Nysgerrighed klæder dig! 🛍️</string>
   <string name="reading_challenge_widget_reward_body">Fejr at have gennemført udfordringen med 15%% rabat i Wikipedia Store.</string>
   <string name="reading_challenge_widget_reward_button_label">Få 15%% rabat i butikken</string>
+  <string name="explore_feed_new_update_prompt_title">Udforsk er nu Hjem, med et nyt udseende</string>
+  <string name="explore_feed_new_update_prompt_new_name_title">Et nyt navn</string>
+  <string name="explore_feed_new_update_prompt_new_name_description">Udforsk-feedet er nu Hjem, på samme sted som før.</string>
+  <string name="explore_feed_new_update_prompt_two_ways_title">Dit feed, på to måder</string>
 </resources>

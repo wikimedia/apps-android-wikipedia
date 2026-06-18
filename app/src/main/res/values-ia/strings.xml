@@ -2379,6 +2379,9 @@
   <string name="home_feed_settings_because_you_read_subtitle">Suggestiones basate sur un articulo recente de tu historia</string>
   <string name="home_feed_settings_continue_reading_title">Continuar a leger</string>
   <string name="home_feed_settings_continue_reading_subtitle">Reprender articulos que tu non ha finite</string>
+  <string name="home_feed_did_you_know_title">Sapeva tu que…?</string>
+  <string name="home_feed_did_you_know_subtitle">Factos interessante de articulos seligite per redactores voluntari</string>
+  <string name="home_feed_did_you_know_more_label">Plus “Sapeva tu que…?”</string>
   <string name="home_feed_settings_community_empty_dialog_title">Tu canal Communitate essera vacue</string>
   <string name="home_feed_settings_for_you_empty_dialog_title">Tu canal “Pro te” essera vacue</string>
   <string name="home_feed_settings_empty_dialog_text">Activa al minus un modulo pro vider contento.</string>
@@ -2392,9 +2395,14 @@
   <string name="home_feed_for_you_screen_empty_ways_to_start">Manieras de comenciar:</string>
   <string name="home_feed_for_you_screen_empty_add_interests">Adde &lt;a href=\"#add_interests\"&gt;alcun interesses&lt;/a&gt;</string>
   <string name="home_feed_for_you_screen_empty_see_community">Vide lo que occurre in le &lt;a href=\"#community_tab\"&gt;communitate&lt;/a&gt;</string>
+  <string name="home_feed_random_title">Aleatori</string>
+  <string name="home_feed_random_subtitle">Articulo aleatori pro stimular tu curiositate</string>
+  <string name="home_feed_random_shuffle_button">Aleatorisar</string>
   <string name="home_feed_settings_feed_configuration_description">Iste topicos e articulos forma lo que appare in tu canal “Pro te”. Remove lo que tu non vole plus o adde nove interesses.</string>
   <string name="home_feed_settings_feed_configuration_interest_title">Tu interesses</string>
   <string name="home_feed_settings_feed_configuration_interest_subtitle">Modificar tu topicos de interesse</string>
+  <string name="home_feed_settings_feed_configuration_location_title">Tu position</string>
+  <string name="home_feed_settings_feed_configuration_location_subtitle">Actualisa tu position in Locos pro vider articulos a proximitate</string>
   <string name="home_feed_settings_feed_configuration_empty_interest_subtitle">Tu lista de interesses es vacue. Adde un cosa del qual tu es curiose.</string>
   <string name="home_feed_settings_feed_configuration_reading_history_title">Historia de lectura</string>
   <string name="home_feed_settings_feed_configuration_reading_history_subtitle">Explora tu articulos recentemente legite</string>
@@ -2402,6 +2410,12 @@
   <string name="home_feed_settings_feed_configuration_languages_title">Linguas</string>
   <string name="home_feed_settings_feed_configuration_languages_subtitle">Modificar tu linguas preferite</string>
   <string name="home_feed_settings_feed_configuration_interests_updated_message">Interesses actualisate. Refresca tu canal pro vider actualitates.</string>
+  <string name="home_feed_places_of_interest_cta_title">Historias de locos que tu ama</string>
+  <string name="home_feed_places_of_interest_cta_description">Le articulos apparera a base del ultime loco que tu ha examinate. Visita le scheda Locos e selige un loco.</string>
+  <string name="home_feed_places_of_interest_cta_button">Visitar Locos</string>
+  <string name="home_feed_settings_places_of_interest_title">Locos de interesse</string>
+  <string name="home_feed_settings_places_of_interest_subtitle">Articulos vicin a tu ultime position in Locos</string>
+  <string name="home_feed_places_of_interest_card_footer">%1$s • Basate sur tu position in Locos</string>
   <string name="home_feed_for_you_screen_end_of_feed_title">Isto es toto pro hodie!</string>
   <string name="home_feed_for_you_screen_end_of_feed_description">Reveni deman pro trovar nove articulos personalisate pro te.</string>
   <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Manieras de continuar a apprender:</string>

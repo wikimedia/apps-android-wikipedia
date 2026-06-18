@@ -14,6 +14,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.first
@@ -209,6 +210,10 @@ class HomeViewModel : ViewModel() {
                 emit(ForYouModule.PlacesOfInterest(age = 0, index = 0, cards = emptyList(), isLoading = true, hasLocationPermission = true))
             }
             emit(buildPlacesModule())
+        }
+        .catch {
+            L.e(it)
+            emit(null)
         }
         .stateIn(
             viewModelScope,
@@ -646,7 +651,7 @@ class HomeViewModel : ViewModel() {
     private suspend fun getPlacesCards(savedLocation: Location): List<PlacesOfInterestCard> {
         val coordinates = "${savedLocation.latitude}|${savedLocation.longitude}"
         return ServiceFactory.get(wikiSite.value)
-            .getGeoSearch(coordinates, PLACES_SEARCH_RADIUS_METERS, PLACES_ARTICLES_REQUEST_LIMIT, PLACES_ARTICLES_REQUEST_LIMIT)
+            .getGeoSearchWithExtracts(coordinates, PLACES_SEARCH_RADIUS_METERS, PLACES_ARTICLES_REQUEST_LIMIT, PLACES_ARTICLES_REQUEST_LIMIT)
             .query?.pages.orEmpty()
             .filter { it.coordinates != null }
             .sortedBy {
