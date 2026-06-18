@@ -18,6 +18,7 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.transformLatest
 import kotlinx.coroutines.flow.update
@@ -42,12 +43,16 @@ import org.wikipedia.feed.model.BecauseYouReadCard
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.ContinueReadingCard
 import org.wikipedia.feed.model.ForYouCard
+import org.wikipedia.feed.model.OnThisDayGameCard
 import org.wikipedia.feed.model.PlacesOfInterestCard
 import org.wikipedia.feed.model.RandomCard
 import org.wikipedia.feed.news.NewsCard
 import org.wikipedia.feed.onthisday.OnThisDayCard
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
 import org.wikipedia.feed.topread.TopReadCard
+import org.wikipedia.games.WikiGames
+import org.wikipedia.games.db.DailyGameHistory
+import org.wikipedia.games.onthisday.OnThisDayGameProvider
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.json.LocalDateTimeSerializer
@@ -130,6 +135,17 @@ sealed class ForYouModule {
     ) : ForYouModule() {
         override fun withCards(cards: List<ForYouCard>): ForYouModule = copy(cards = cards)
         override fun moduleKey(): String = ForYouModuleType.RANDOM.name
+    }
+
+    @Serializable
+    data class Games(
+        override val age: Int,
+        override val index: Int,
+        override val cards: List<ForYouCard>,
+        val isLoading: Boolean = false
+    ) : ForYouModule() {
+        override fun withCards(cards: List<ForYouCard>): ForYouModule = copy(cards = cards)
+        override fun moduleKey(): String = ForYouModuleType.GAMES.name
     }
 }
 
@@ -221,14 +237,46 @@ class HomeViewModel : ViewModel() {
             null
         )
 
+    /**
+     * The Games module is loaded reactively, like Places, because its content should reflect live game progress.
+     * We observe today's game as a Room Flow in [DailyGameHistory] DB, so every write during play re-emits and rebuilds the
+     * module, moving the card through Preview -> InProgress -> Completed without a manual feed refresh.
+     */
+    @OptIn(ExperimentalCoroutinesApi::class)
+    private val gameModule: StateFlow<ForYouModule.Games?> =
+        _wikiSite.flatMapLatest { site ->
+            val today = LocalDate.now()
+            AppDatabase.instance.dailyGameHistoryDao().findGameHistoryByDateFlow(
+                gameName = WikiGames.WHICH_CAME_FIRST.ordinal,
+                language = site.languageCode,
+                year = today.year,
+                month = today.monthValue,
+                day = today.dayOfMonth
+            )
+        }
+        .transformLatest<DailyGameHistory?, ForYouModule.Games?> {
+            emit(ForYouModule.Games(age = 0, index = 0, cards = emptyList(), isLoading = true))
+            emit(buildGameModule())
+        }
+        .catch {
+            L.e(it)
+            emit(null)
+        }
+        .stateIn(
+            viewModelScope,
+            SharingStarted.WhileSubscribed(MAX_STOP_TIMEOUT_MILLIS),
+            null
+        )
+
     private val _forYouState = MutableStateFlow(ForYouContentState())
     val forYouState = combine(
         _forYouState,
         SettingsRepository.hiddenModules,
         SettingsRepository.hiddenCards,
-        placesModule
-    ) { state, hiddenModules, hiddenCards, placesModule ->
-        val visibleItems = (state.modules + listOfNotNull(placesModule))
+        placesModule,
+        gameModule
+    ) { state, hiddenModules, hiddenCards, placesModule, gameModule ->
+        val visibleItems = (state.modules + listOfNotNull(placesModule, gameModule))
             .sortedBy { ForYouModuleType.valueOf(it.moduleKey()).ordinal }
             .filterNot { hiddenModules.contains(it.moduleKey()) }
             .mapNotNull { module ->
@@ -632,6 +680,11 @@ class HomeViewModel : ViewModel() {
             Prefs.homeForYouModulesToday = JsonUtil.encodeToString(forYouCollectionSaved).orEmpty()
         }
         return modules
+    }
+
+    private suspend fun buildGameModule(): ForYouModule.Games {
+        val state = OnThisDayGameProvider.getGameState(wikiSite.value, LocalDate.now())
+        return ForYouModule.Games(age = 0, index = 0, cards = listOf(OnThisDayGameCard(state)))
     }
 
     private suspend fun buildPlacesModule(): ForYouModule.PlacesOfInterest? {

@@ -67,6 +67,7 @@ import org.wikipedia.feed.model.PlacesOfInterestLocationPromptCard
 import org.wikipedia.feed.places.PlacesOfInterestArticlesModule
 import org.wikipedia.feed.places.PlacesOfInterestLocationPromptModule
 import org.wikipedia.feed.random.RandomModule
+import org.wikipedia.feed.wikigames.GamesModule
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.L10nUtil
@@ -372,6 +373,23 @@ private fun LazyListScope.forYouModuleItem(
                         )
                     }
                 }
+            }
+        }
+        is ForYouModule.Games -> {
+            item(key = key) {
+                // TODO: add overflow actions and other game type actions
+                GamesModule(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(viewPortHeight)
+                        .background(ComposeColors.Green800)
+                        .padding(horizontal = 16.dp)
+                        .padding(top = (topInset * 2 + 64).dp)
+                        .navigationBarsPadding(),
+                    wikiSite = wikiSite,
+                    module = module,
+                    onCardInView = { onCardImpression(it, index) }
+                )
             }
         }
         is ForYouModule.Random -> {
