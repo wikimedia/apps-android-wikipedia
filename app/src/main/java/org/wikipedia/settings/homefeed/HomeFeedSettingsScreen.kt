@@ -22,10 +22,11 @@ import org.wikipedia.theme.Theme
 @Composable
 fun HomeFeedSettingsScreen(
     modifier: Modifier = Modifier,
-    onBackClick: () -> Unit,
-    onForYouModulesClick: () -> Unit,
-    onCommunityModulesClick: () -> Unit,
-    onFeedConfigurationClick: () -> Unit
+    onBackClick: () -> Unit = {},
+    onForYouModulesClick: () -> Unit = {},
+    onCommunityModulesClick: () -> Unit = {},
+    onFeedConfigurationClick: () -> Unit = {},
+    onDefaultFeedViewClick: () -> Unit = {}
 ) {
     Scaffold(
         modifier = modifier,
@@ -46,6 +47,12 @@ fun HomeFeedSettingsScreen(
                 .verticalScroll(rememberScrollState()),
             verticalArrangement = Arrangement.spacedBy(34.dp)
         ) {
+            SettingsRow(
+                title = stringResource(R.string.home_feed_settings_default_view_title),
+                subtitle = stringResource(R.string.home_feed_settings_default_view_subtitle),
+                onClick = onDefaultFeedViewClick
+            )
+
             SettingsSection(
                 title = stringResource(R.string.explore_feed_community_tab_label)
             ) {
@@ -80,12 +87,7 @@ private fun HomeFeedSettingsScreenLightPreview() {
     BaseTheme(
         currentTheme = Theme.LIGHT
     ) {
-        HomeFeedSettingsScreen(
-            onBackClick = {},
-            onForYouModulesClick = {},
-            onCommunityModulesClick = {},
-            onFeedConfigurationClick = {}
-        )
+        HomeFeedSettingsScreen()
     }
 }
 
@@ -95,11 +97,6 @@ private fun HomeFeedSettingsScreenDarkPreview() {
     BaseTheme(
         currentTheme = Theme.DARK
     ) {
-        HomeFeedSettingsScreen(
-            onBackClick = {},
-            onForYouModulesClick = {},
-            onCommunityModulesClick = {},
-            onFeedConfigurationClick = {}
-        )
+        HomeFeedSettingsScreen()
     }
 }
