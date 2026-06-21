@@ -118,6 +118,43 @@ object JavaScriptActionHandler {
         return "pcs.c1.Page.setEditButtons($isEditable, $isProtected)"
     }
 
+    fun setAssessment(assessment: String?): String {
+        return "var assessmentLabel = document.getElementById('assessment-label');" +
+                "if (assessmentLabel) { assessmentLabel.remove(); }" +
+                (if (assessment.isNullOrEmpty()) "" else {
+                    val color = when (assessment.lowercase()) {
+                        "fa" -> "#6699ff"
+                        "fl" -> "#6699ff"
+                        "ga" -> "#339966"
+                        "a" -> "#66ffff"
+                        "b" -> "#ffff66"
+                        "c" -> "#ffcc66"
+                        "start" -> "#ff9966"
+                        "stub" -> "#ff6666"
+                        "list" -> "#aa88ff"
+                        else -> "#999999"
+                    }
+                    "var container = document.createElement('div');" +
+                            "container.id = 'assessment-label';" +
+                            "container.style.display = 'inline-block';" +
+                            "container.style.backgroundColor = '$color';" +
+                            "container.style.color = 'white';" +
+                            "container.style.padding = '2px 4px';" +
+                            "container.style.marginTop = '8dp';" +
+                            "container.style.fontSize = '12px';" +
+                            "container.style.textTransform = 'uppercase';" +
+                            "container.style.fontFamily = 'sans-serif-medium';" +
+                            "container.innerText = '$assessment';" +
+                            "var titleDesc = document.getElementById('pcs-edit-section-title-description');" +
+                            "if (titleDesc) {" +
+                            "  titleDesc.insertAdjacentElement('afterend', container);" +
+                            "} else {" +
+                            "  var title = document.getElementById('section_0');" +
+                            "  if (title) title.insertAdjacentElement('afterend', container);" +
+                            "}"
+                })
+    }
+
     fun setFooter(model: PageViewModel): String {
         if (model.page == null) {
             return ""

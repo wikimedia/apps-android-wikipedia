@@ -55,23 +55,6 @@
         </LinearLayout>
     </FrameLayout>
 
-    <TextView
-        android:id="@+id/view_page_header_assessment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginHorizontal="16dp"
-        android:paddingHorizontal="4dp"
-        android:paddingVertical="2dp"
-        android:textAllCaps="true"
-        android:textSize="12sp"
-        android:fontFamily="sans-serif-medium"
-        android:textColor="@color/white"
-        android:visibility="gone"
-        tools:text="Stub"
-        tools:visibility="visible"
-        tools:background="#999"/>
-
     <org.wikipedia.donate.donationreminder.DonationReminderCardView
         android:id="@+id/donationReminderCardView"
         android:layout_width="match_parent"

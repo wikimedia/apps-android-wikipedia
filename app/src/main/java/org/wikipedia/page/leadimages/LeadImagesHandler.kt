@@ -266,7 +266,6 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
     fun loadLeadImage() {
         val url = leadImageUrl
         initDisplayDimensions()
-        pageHeaderView.setAssessment(page?.pageProperties?.assessment)
         if (page != null && !isMainPage && !url.isNullOrEmpty() && isLeadImageEnabled) {
             pageHeaderView.show()
             pageHeaderView.loadImage(url)
