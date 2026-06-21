@@ -33,6 +33,7 @@ data class PageProperties(
     val geo: Location? = null,
     val wikiBaseItem: String? = null,
     val descriptionSource: String? = null,
+    val assessment: String? = null,
     // FIXME: This is not a true page property, since it depends on current user.
     var canEdit: Boolean = false
 ) : Parcelable {

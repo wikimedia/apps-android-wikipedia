@@ -1,6 +1,7 @@
 package org.wikipedia.page.leadimages
 
 import android.content.Context
+import android.graphics.Color
 import android.util.AttributeSet
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -44,6 +45,28 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
 
     var callback: Callback? = null
     val imageView get() = binding.viewPageHeaderImage
+
+    fun setAssessment(assessment: String?) {
+        if (assessment.isNullOrEmpty()) {
+            binding.viewPageHeaderAssessment.isVisible = false
+        } else {
+            binding.viewPageHeaderAssessment.isVisible = true
+            binding.viewPageHeaderAssessment.text = assessment
+            val color = when (assessment.lowercase()) {
+                "fa" -> "#6699ff"
+                "fl" -> "#6699ff"
+                "ga" -> "#339966"
+                "a" -> "#66ffff"
+                "b" -> "#ffff66"
+                "c" -> "#ffcc66"
+                "start" -> "#ff9966"
+                "stub" -> "#ff6666"
+                "list" -> "#aa88ff"
+                else -> "#999999"
+            }
+            binding.viewPageHeaderAssessment.setBackgroundColor(Color.parseColor(color))
+        }
+    }
 
     init {
         binding.viewPageHeaderImageGradientBottom.background = GradientUtil.getPowerGradient(ResourceUtil.getThemedColor(context, R.attr.overlay_color), Gravity.BOTTOM)

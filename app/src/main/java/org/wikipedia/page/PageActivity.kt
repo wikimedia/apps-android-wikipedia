@@ -686,9 +686,9 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                         return true
                     }
                 }
-                UriUtil.visitInExternalBrowser(this, title.uri.toUri())
-                finish()
-                return true
+                //UriUtil.visitInExternalBrowser(this, title.uri.toUri())
+//                finish()
+//                return true
             }
         }
         return false

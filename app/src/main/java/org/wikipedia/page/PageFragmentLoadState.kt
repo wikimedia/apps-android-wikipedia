@@ -7,6 +7,8 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
+import kotlinx.serialization.json.jsonObject
+import kotlinx.serialization.json.jsonPrimitive
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.ArticleLinkPreviewInteractionEvent
@@ -190,11 +192,25 @@ class PageFragmentLoadState(private var model: PageViewModel,
             val categoriesResponse = categoriesRequest.await()
             val isWatched = watchedResponse.query?.firstPage()?.watched == true
             val hasWatchlistExpiry = watchedResponse.query?.firstPage()?.hasWatchlistExpiry() == true
+
+            var assessment: String? = null
+            (watchedResponse.query ?: categoriesResponse.query)?.firstPage()?.pageAssessments?.let {
+                try {
+                    val assessmentsObj = it.jsonObject
+                    if (assessmentsObj.isNotEmpty()) {
+                        val firstProject = assessmentsObj.keys.first()
+                        assessment = assessmentsObj[firstProject]?.jsonObject?.get("class")?.jsonPrimitive?.content
+                    }
+                } catch (e: Exception) {
+                    L.e(e)
+                }
+            }
+
             if (pageSummaryResponse.body() == null) {
                 throw RuntimeException("Summary response was invalid.")
             }
             val redirectedFrom = if (pageSummaryResponse.raw().priorResponse?.isRedirect == true) model.title?.displayText else null
-            createPageModel(pageSummaryResponse, isWatched, hasWatchlistExpiry)
+            createPageModel(pageSummaryResponse, isWatched, hasWatchlistExpiry, assessment)
             if (OfflineCacheInterceptor.SAVE_HEADER_SAVE == pageSummaryResponse.headers()[OfflineCacheInterceptor.SAVE_HEADER]) {
                 showPageOfflineMessage(pageSummaryResponse.headers().getInstant("date"))
             }
@@ -242,13 +258,17 @@ class PageFragmentLoadState(private var model: PageViewModel,
 
     private fun createPageModel(response: Response<PageSummary>,
                                 isWatched: Boolean,
-                                hasWatchlistExpiry: Boolean) {
+                                hasWatchlistExpiry: Boolean,
+                                assessment: String?) {
         if (response.body() == null) {
             return
         }
         val pageSummary = response.body()
         val page = pageSummary?.toPage(model.title)
-        model.page = page
+        page?.let {
+            model.page = it
+            it.pageProperties = it.pageProperties.copy(assessment = assessment)
+        }
         model.isWatched = isWatched
         model.hasWatchlistExpiry = hasWatchlistExpiry
         model.title = page?.title
