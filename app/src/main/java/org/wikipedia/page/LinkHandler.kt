@@ -89,7 +89,7 @@ abstract class LinkHandler(protected val context: Context) : JSEventListener, Ur
                 if (newTitle.isFilePage) {
                     onMediaLinkClicked(newTitle)
                 } else if (newTitle.isSpecial) {
-                    //onExternalLinkClicked(uri)
+                    onExternalLinkClicked(uri)
                     onInternalLinkClicked(newTitle)
                 } else {
                     onInternalLinkClicked(newTitle)
