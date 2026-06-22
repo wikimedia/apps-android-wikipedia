@@ -2274,8 +2274,8 @@
   <string name="explore_feed_personalized_preference_empty_state_text">Você precisa adicionar interesses para ver recomendações de conteúdo personalizadas. Você pode fazer isso nas etapas anteriores ou mais tarde em Configurações.</string>
   <string name="explore_feed_because_you_read">Porque você leu: %s</string>
   <string name="explore_feed_swipe_to_explore_prompt_title">Deslize para explorar</string>
-  <string name="explore_feed_swipe_to_explore_prompt_message">Deslize para baixo para navegar entre os tópicos ou deslize para os lados para explorar conteúdos relacionados.</string>
-  <string name="home_feed_settings_title">Personalizar o feed inicial</string>
+  <string name="explore_feed_swipe_to_explore_prompt_message" fuzzy="true">Deslize para baixo para navegar entre os tópicos ou deslize para os lados para explorar conteúdos relacionados.</string>
+  <string name="home_feed_settings_title" fuzzy="true">Personalizar o feed inicial</string>
   <string name="home_feed_settings_whats_driving_title">O que está aparecendo no seu feed</string>
   <string name="home_feed_settings_modules_title">Módulos</string>
   <string name="home_feed_settings_community_subtitle">Ativar ou desativar os módulos do feed \"Comunidade\"</string>

@@ -2369,8 +2369,10 @@
   <string name="explore_feed_personalized_preference_empty_state_text">Fərdiləşdirilmiş məzmun tövsiyələrini görmək üçün maraqlarınızı əlavə etməlisiniz. Bunu əvvəlki addımlarda və ya daha sonra Parametrlərdə edə bilərsiniz.</string>
   <string name="explore_feed_because_you_read">Oxuduğunuz üçün: %s</string>
   <string name="explore_feed_swipe_to_explore_prompt_title">Kəşf etmək üçün sürüşdür</string>
-  <string name="explore_feed_swipe_to_explore_prompt_message">Mövzular arasında keçid etmək üçün aşağı sürüşdürün və ya əlaqəli məzmunu araşdırmaq üçün yanlara sürüşdürün.</string>
+  <string name="explore_feed_swipe_to_explore_prompt_message">Mövzular arasında keçid etmək üçün yuxarı sürüşdürün və ya əlaqəli məzmunu araşdırmaq üçün yanlara sürüşdürün.</string>
   <string name="home_feed_settings_title">Ana səhifə lentinizi fərdiləşdirin</string>
+  <string name="home_feed_settings_default_view_title">Defolt lent görünüşü</string>
+  <string name="home_feed_settings_default_view_subtitle">Tətbiqi açdığınız zaman hansı lentin ilk göstəriləcəyini seçin</string>
   <string name="home_feed_settings_whats_driving_title">Lentinizi nə idarə edir</string>
   <string name="home_feed_settings_modules_title">Modullar</string>
   <string name="home_feed_settings_community_subtitle">\"İcma\" lent modullarını aktivləşdirin və ya söndürün</string>

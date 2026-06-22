@@ -2391,8 +2391,8 @@
   <string name="explore_feed_personalized_preference_empty_state_text">Személyre szabott tartalomajánlások megjelenítéséhez érdeklődési köröket kell hozzáadnod. Ezt megteheted az előző lépésekben vagy később a Beállításokban.</string>
   <string name="explore_feed_because_you_read">Mert ezt olvastad: %s</string>
   <string name="explore_feed_swipe_to_explore_prompt_title">Lapozz a felfedezéshez</string>
-  <string name="explore_feed_swipe_to_explore_prompt_message">Húzd lefelé az ujjad a témák közötti navigáláshoz, vagy oldalra a kapcsolódó tartalmak felfedezéséhez.</string>
-  <string name="home_feed_settings_title">A Kezdőlap hírfolyam személyre szabása</string>
+  <string name="explore_feed_swipe_to_explore_prompt_message" fuzzy="true">Húzd lefelé az ujjad a témák közötti navigáláshoz, vagy oldalra a kapcsolódó tartalmak felfedezéséhez.</string>
+  <string name="home_feed_settings_title" fuzzy="true">A Kezdőlap hírfolyam személyre szabása</string>
   <string name="home_feed_settings_whats_driving_title">Mi alakítja a hírfolyamodat</string>
   <string name="home_feed_settings_modules_title">Modulok</string>
   <string name="home_feed_settings_community_subtitle">A „Közösség” hírfolyam moduljainak be- vagy kikapcsolása</string>
