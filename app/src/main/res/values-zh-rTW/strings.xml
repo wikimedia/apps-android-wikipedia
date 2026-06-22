@@ -1287,6 +1287,8 @@
   <string name="onboarding_multilingual_add_language_text">新增或編輯語言</string>
   <string name="onboarding_welcome_title_v2">自由的百科全書\n…超過 300 種可用的語言版本</string>
   <string name="onboarding_next">下一個</string>
+  <string name="onboarding_app_languages_primary">首選</string>
+  <string name="onboarding_app_languages_add_button">新增或編輯您的語言</string>
   <string name="app_shortcuts_random">隨機</string>
   <string name="app_shortcuts_continue_reading">繼續閱讀</string>
   <string name="app_shortcuts_search">搜尋</string>
@@ -1809,6 +1811,11 @@
   <string name="survey_dialog_general_maybe">也許</string>
   <string name="survey_dialog_input_hint">額外回饋</string>
   <string name="survey_dialog_submitted_snackbar">意見回饋提交成功。謝謝！</string>
+  <string name="games_hub_activity_title">遊戲</string>
+  <string name="games_hub_activity_games_unavailable_message">目前還沒有該語言的遊戲！遊戲內容皆由各語言的維基百科志工編輯創作。</string>
+  <string name="games_hub_activity_games_unavailable_message_learn_more_action">了解更多</string>
+  <string name="games_hub_activity_overflow_view_game_stats">查看遊戲統計數據</string>
+  <string name="games_hub_activity_overflow_learn_more">了解更多</string>
   <string name="on_this_day_game_entry_dialog_title">介紹</string>
   <string name="on_this_day_game_entry_dialog_subtitle">維基百科遊戲</string>
   <string name="on_this_day_game_entry_dialog_button">玩遊戲</string>
@@ -1869,9 +1876,11 @@
   <string name="on_this_day_game_archive_btn_text">遊玩舊檔</string>
   <string name="on_this_day_game_review_results_btn_text">查看結果</string>
   <string name="on_this_day_game_score_message">您在今天的遊戲答對了 %1$d 題（全部 %2$d 題）。</string>
+  <string name="on_this_day_game_play_today_btn_text">遊玩今天的遊戲</string>
   <string name="on_this_day_game_continue_playing_btn_text">繼續遊玩</string>
   <string name="on_this_day_game_sound_on">打開音效</string>
   <string name="on_this_day_game_sound_off">關閉音效</string>
+  <string name="on_this_day_game_more_label">更多</string>
   <string name="year_in_review_learn_more">了解更多</string>
   <string name="year_in_review_get_started">開始</string>
   <string name="year_in_review_topbar_w_icon">維基百科 W 圖示</string>
@@ -2272,11 +2281,20 @@
   <string name="hybrid_search_error_message">發生錯誤。請稍後再試。</string>
   <string name="hybrid_search_who_is_prefix">%s是誰？</string>
   <string name="hybrid_search_turn_off_experiment_label">關閉此實驗</string>
+  <string name="explore_feed_manage_languages_label">管理語言</string>
+  <string name="explore_feed_header_overflow_hide_module_label">隱藏模組</string>
+  <string name="explore_feed_header_overflow_hide_module_message">模組已隱藏。</string>
   <string name="home_feed_settings_based_on_interest_subtitle">根據您選擇的主題所撰寫的條目。&lt;br /&gt;&lt;a href=\"#drivingFeed\"&gt;是什麼正驅動著你的feed&lt;/a&gt;</string>
   <string name="home_feed_settings_community_empty_dialog_title">您的社群feed將會是空的。</string>
   <string name="home_feed_settings_for_you_empty_dialog_title">您的「為你推薦」feed將會是空的。</string>
   <string name="home_feed_settings_empty_dialog_text">至少啟用一個模組才能查看內容。</string>
   <string name="home_feed_settings_empty_dialog_positive">仍要繼續</string>
   <string name="home_feed_community_screen_all_modules_disabled_description">啟用&lt;b&gt;社群&lt;/b&gt;模組，即可開始查看由維基媒體社群所策劃和關於維基媒體社群的內容。</string>
+  <string name="home_feed_settings_feed_configuration_interest_title">您的興趣</string>
+  <string name="home_feed_settings_feed_configuration_interest_subtitle">編輯您感興趣的主題</string>
+  <string name="home_feed_settings_feed_configuration_location_title">你的位置</string>
+  <string name="home_feed_settings_feed_configuration_languages_title">語言</string>
+  <string name="home_feed_settings_feed_configuration_languages_subtitle">挑選您的偏好語言</string>
   <string name="home_feed_settings_feed_configuration_interests_updated_message">您的喜好已更新。請重新整理頁面查看更新。</string>
+  <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">持續學習的方法：</string>
 </resources>

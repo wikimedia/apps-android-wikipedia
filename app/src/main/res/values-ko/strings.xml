@@ -2312,8 +2312,10 @@
   <string name="explore_feed_personalized_preference_empty_state_text">맞춤 콘텐츠 추천을 보려면 관심사를 추가해야 합니다. 이 작업은 이전 단계에서 또는 나중에 설정에서 수행할 수 있습니다.</string>
   <string name="explore_feed_because_you_read">당신이 다음을 읽었기에: %s</string>
   <string name="explore_feed_swipe_to_explore_prompt_title">스와이프하여 둘러보세요</string>
-  <string name="explore_feed_swipe_to_explore_prompt_message">아래로 스와이프하여 주제 간을 이동하거나, 좌우로 스와이프하여 관련 콘텐츠를 둘러보세요.</string>
-  <string name="home_feed_settings_title">홈 피드를 맞춤 설정합니다</string>
+  <string name="explore_feed_swipe_to_explore_prompt_message">위로 스와이프하여 주제 간을 이동하거나, 좌우로 스와이프하여 관련 콘텐츠를 둘러보세요.</string>
+  <string name="home_feed_settings_title">홈 피드를 맞춤 설정하세요</string>
+  <string name="home_feed_settings_default_view_title">기본 피드 보기</string>
+  <string name="home_feed_settings_default_view_subtitle">앱을 열었을 때 어떤 피드가 먼저 표시될지 선택하세요</string>
   <string name="home_feed_settings_whats_driving_title">무엇이 내 피드를 만드나요?</string>
   <string name="home_feed_settings_modules_title">모듈</string>
   <string name="home_feed_settings_community_subtitle">\"커뮤니티\" 피드 모듈을 켜거나 끕니다.</string>

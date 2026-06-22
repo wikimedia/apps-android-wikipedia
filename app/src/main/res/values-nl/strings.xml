@@ -2414,8 +2414,10 @@
   <string name="explore_feed_personalized_preference_empty_state_text">Voeg interesses toe om gepersonaliseerde aanbevelingen voor inhoud te zien. U kunt dit doen in de vorige stappen of later in de instellingen.</string>
   <string name="explore_feed_because_you_read">Omdat u het volgende hebt gelezen: %s</string>
   <string name="explore_feed_swipe_to_explore_prompt_title">Veeg om te ontdekken</string>
-  <string name="explore_feed_swipe_to_explore_prompt_message">Veeg naar beneden om tussen onderwerpen te navigeren, of veeg opzij om gerelateerde inhoud te bekijken.</string>
+  <string name="explore_feed_swipe_to_explore_prompt_message">Veeg omhoog om tussen onderwerpen te schakelen, of zijwaarts om soortgelijke onderwerpen te bekijken.</string>
   <string name="home_feed_settings_title">Uw startpagina personaliseren</string>
+  <string name="home_feed_settings_default_view_title">Standaardkanaal</string>
+  <string name="home_feed_settings_default_view_subtitle">Kies welk kanaal eerst verschijnt wanneer u de app opent</string>
   <string name="home_feed_settings_whats_driving_title">Wat is de drijvende kracht achter uw feed?</string>
   <string name="home_feed_settings_modules_title">Modules</string>
   <string name="home_feed_settings_community_subtitle">\'Gemeenschap\'-feedmodules in- of uitschakelen.</string>

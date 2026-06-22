@@ -2365,8 +2365,8 @@
   <string name="explore_feed_personalized_preference_empty_state_text">Es necessari adder interesses pro vider le recommendationes de contento personalisate. Tu pote facer lo in le previe passos, o plus tarde in Parametros.</string>
   <string name="explore_feed_because_you_read">Perque tu ha legite: %s</string>
   <string name="explore_feed_swipe_to_explore_prompt_title">Glissa pro explorar</string>
-  <string name="explore_feed_swipe_to_explore_prompt_message">Glissa a basso pro navigar inter topicos, o glissa lateralmente pro explorar le contento associate.</string>
-  <string name="home_feed_settings_title">Personalisar le canal Initio</string>
+  <string name="explore_feed_swipe_to_explore_prompt_message" fuzzy="true">Glissa a basso pro navigar inter topicos, o glissa lateralmente pro explorar le contento associate.</string>
+  <string name="home_feed_settings_title" fuzzy="true">Personalisar le canal Initio</string>
   <string name="home_feed_settings_whats_driving_title">Lo que actiona tu canal</string>
   <string name="home_feed_settings_modules_title">Modulos</string>
   <string name="home_feed_settings_community_subtitle">Activar o disactivar modulos del canal “Communitate”</string>
