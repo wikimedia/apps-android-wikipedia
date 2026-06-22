@@ -2388,8 +2388,8 @@
   <string name="explore_feed_personalized_preference_empty_state_text">Du måste lägga till intressen för att se anpassade innehållsrekommendationer. Du kan göra detta i föregående steg eller senare i Inställningar.</string>
   <string name="explore_feed_because_you_read">Eftersom du läste: %s</string>
   <string name="explore_feed_swipe_to_explore_prompt_title">Svep för att utforska</string>
-  <string name="explore_feed_swipe_to_explore_prompt_message">Svep nedåt för att navigera mellan ämnen eller svep i sidled för att utforska relaterat innehåll.</string>
-  <string name="home_feed_settings_title">Anpassa hemflödet</string>
+  <string name="explore_feed_swipe_to_explore_prompt_message" fuzzy="true">Svep nedåt för att navigera mellan ämnen eller svep i sidled för att utforska relaterat innehåll.</string>
+  <string name="home_feed_settings_title" fuzzy="true">Anpassa hemflödet</string>
   <string name="home_feed_settings_whats_driving_title">Vad som driver ditt flöde</string>
   <string name="home_feed_settings_modules_title">Moduler</string>
   <string name="home_feed_settings_community_subtitle">Aktivera eller inaktivera flödesmodulerna i \"Gemenskap\"</string>
