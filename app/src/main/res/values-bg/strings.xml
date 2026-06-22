@@ -459,7 +459,7 @@
     <item quantity="other">Акаунтът ще изтече след %d дни.</item>
   </plurals>
   <string name="temp_account_anon_ip_edit_status">&lt;b&gt;Не сте влезли в системата.&lt;/b&gt; След като направите редакция, вашият IP адрес ще бъде свързан с редакциите ви.</string>
-  <string name="temp_account_anon_edit_status" fuzzy="true">Не сте влезли в системата. След като направите редакция, ще Ви бъде създадена временна сметка, за да се защити поверителността Ви.</string>
+  <string name="temp_account_anon_edit_status" fuzzy="true">Не сте влезли в системата. След като направите редакция, ще Ви бъде създадена временна сметка, за да се защити поверителността Ви. &lt;a href=\"%1$s\"&gt;Научете повече&lt;/a&gt;</string>
   <string name="temp_account_edit_status">&lt;b&gt;Използвате временен акаунт.&lt;/b&gt; Вашата редакция ще бъде приписана на %1$s . &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s \"&gt;Learn more&lt;/a&gt; .</string>
   <string name="temp_account_end_session">Завършване на сесията</string>
   <string name="crash_report_activity_title">Грешка в приложението</string>
