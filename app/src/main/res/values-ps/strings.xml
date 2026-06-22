@@ -2362,8 +2362,8 @@
   <string name="explore_feed_personalized_preference_empty_state_text">د ځانواله شوې منځپانگيزو وړانديزونو ليدلو لپاره تاسو بايد خپلې لېوالتياوې ورگډ کړئ. تاسو کولی شئ دا په تېرو پړاوونو يا وروسته په اوڼنو کې ترسره کړئ.</string>
   <string name="explore_feed_because_you_read">ځکه چې تاسو لولئ: %s</string>
   <string name="explore_feed_swipe_to_explore_prompt_title">سپړلو لپاره يې راکاږئ</string>
-  <string name="explore_feed_swipe_to_explore_prompt_message">د سکالوگانو ترمنځ گرځېدو لپاره يې کښته راکاږئ، يا اړخ‌لارې وکاروئ؛ ترڅو اړوند منځپانگې و پلټئ.</string>
-  <string name="home_feed_settings_title">ار کتنمخ دوديزول</string>
+  <string name="explore_feed_swipe_to_explore_prompt_message" fuzzy="true">د سکالوگانو ترمنځ گرځېدو لپاره يې کښته راکاږئ، يا اړخ‌لارې وکاروئ؛ ترڅو اړوند منځپانگې و پلټئ.</string>
+  <string name="home_feed_settings_title" fuzzy="true">ار کتنمخ دوديزول</string>
   <string name="home_feed_settings_whats_driving_title">ستاسو کتمنخ څه چلوي</string>
   <string name="home_feed_settings_modules_title">چلنوال</string>
   <string name="home_feed_settings_community_subtitle">د \"ټولنې\" کتنمخ چلنوال بلول او گولول</string>

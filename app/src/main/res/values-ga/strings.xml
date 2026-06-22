@@ -2596,6 +2596,10 @@
   <string name="reading_challenge_install_prompt_message">Tá Baby Globe ag spreagadh tú. Cuir an giuirléid Dúshlán Léitheoireachta leis chun do dhul chun cinn a rianú ó do scáileán baile.</string>
   <string name="reading_challenge_install_prompt_got_it">Tuigim é.</string>
   <string name="reading_challenge_install_prompt_add">Cuir leis</string>
+  <string name="search_widget_install_prompt_title">Bealach níos tapúla chun cuardach a dhéanamh</string>
+  <string name="search_widget_install_prompt_message">Suiteáil an ghiuirléid Cuardaigh Vicipéid le haghaidh rochtain láithreach ar eolas ó do scáileán baile.</string>
+  <string name="search_widget_install_prompt_add">Cuir leis</string>
+  <string name="search_widget_install_prompt_got_it">Tuigim é.</string>
   <string name="reading_challenge_widget_explore_button">Taiscéal</string>
   <string name="reading_challenge_widget_explore_wikipedia_button">Iniúchadh a dhéanamh ar Vicipéid</string>
   <string name="reading_challenge_widget_join_challenge_button">Glac páirt sa dúshlán</string>
@@ -2689,8 +2693,8 @@
   <string name="explore_feed_personalized_preference_empty_state_text">Ní mór duit leasanna a chur leis chun moltaí ábhair phearsantaithe a fheiceáil. Is féidir leat é seo a dhéanamh sna céimeanna roimhe seo nó níos déanaí i Socruithe.</string>
   <string name="explore_feed_because_you_read">Mar gheall gur léigh tú: %s</string>
   <string name="explore_feed_swipe_to_explore_prompt_title">Svaidhpeáil chun iniúchadh a dhéanamh</string>
-  <string name="explore_feed_swipe_to_explore_prompt_message">Svaidhpeáil síos chun nascleanúint a dhéanamh idir topaicí, nó svaidhpeáil i leataobh chun ábhar gaolmhar a iniúchadh.</string>
-  <string name="home_feed_settings_title">Saincheap an fotha Baile</string>
+  <string name="explore_feed_swipe_to_explore_prompt_message" fuzzy="true">Svaidhpeáil síos chun nascleanúint a dhéanamh idir topaicí, nó svaidhpeáil i leataobh chun ábhar gaolmhar a iniúchadh.</string>
+  <string name="home_feed_settings_title" fuzzy="true">Saincheap an fotha Baile</string>
   <string name="home_feed_settings_whats_driving_title">Cad atá ag tiomáint do bheatha</string>
   <string name="home_feed_settings_modules_title">Modúil</string>
   <string name="home_feed_settings_community_subtitle">Modúil beatha \"Pobal\" a chasadh air nó as</string>
@@ -2719,9 +2723,15 @@
   <string name="home_feed_for_you_screen_empty_ways_to_start">Bealaí le tosú:</string>
   <string name="home_feed_for_you_screen_empty_add_interests">Cuir &lt;a href=\"#add_interests\"&gt;roinnt spéiseanna&lt;/a&gt; leis</string>
   <string name="home_feed_for_you_screen_empty_see_community">Féach cad atá ag tarlú sa &lt;a href=\"#community_tab\"&gt;phobal&lt;/a&gt;</string>
+  <string name="home_feed_update_tooltip1">Nua: Tá \"Alt Randamach\" agus \"Áiteanna Suimiúla\" ar fáil i Duit Féin agus tá \"An raibh a Fhios Agat\" sa Chluaisín Pobail.</string>
+  <string name="home_feed_random_title">Randamach</string>
+  <string name="home_feed_random_subtitle">Alt randamach chun do chuid fiosrachta a mhúscailt</string>
+  <string name="home_feed_random_shuffle_button">Meascán</string>
   <string name="home_feed_settings_feed_configuration_description">Is iad na topaicí agus na hairteagail seo a mhúnlaíonn a bhfuil le feiceáil i do bheatha \"Duit\". Bain aon cheann nach dteastaíonn uait a thuilleadh nó cuir leasanna nua leis.</string>
   <string name="home_feed_settings_feed_configuration_interest_title">Do leasanna</string>
   <string name="home_feed_settings_feed_configuration_interest_subtitle">Cuir d’ábhair spéise in eagar</string>
+  <string name="home_feed_settings_feed_configuration_location_title">Do shuíomh</string>
+  <string name="home_feed_settings_feed_configuration_location_subtitle">Nuashonraigh do shuíomh in Áiteanna chun ailt in aice láimhe a fheiceáil</string>
   <string name="home_feed_settings_feed_configuration_empty_interest_subtitle">Tá do liosta spéiseanna folamh. Cuir rud éigin leis a bhfuil spéis agat ann.</string>
   <string name="home_feed_settings_feed_configuration_reading_history_title">Stair a léamh</string>
   <string name="home_feed_settings_feed_configuration_reading_history_subtitle">Brabhsáil d’ailt a léigh tú le déanaí</string>
@@ -2729,6 +2739,12 @@
   <string name="home_feed_settings_feed_configuration_languages_title">Teangacha</string>
   <string name="home_feed_settings_feed_configuration_languages_subtitle">Cuir do theangacha is fearr leat in eagar</string>
   <string name="home_feed_settings_feed_configuration_interests_updated_message">Nuashonraíodh na spéiseanna. Athnuachan do bheatha chun nuashonruithe a fheiceáil.</string>
+  <string name="home_feed_places_of_interest_cta_title">Scéalta ó áiteanna is breá leat</string>
+  <string name="home_feed_places_of_interest_cta_description">Beidh ailt le feiceáil bunaithe ar an áit dheireanach a chonaic tú. Tabhair cuairt ar an táb Áiteanna agus roghnaigh suíomh.</string>
+  <string name="home_feed_places_of_interest_cta_button">Téigh go dtí Áiteanna</string>
+  <string name="home_feed_settings_places_of_interest_title">Áiteanna spéise</string>
+  <string name="home_feed_settings_places_of_interest_subtitle">Ailt in aice le do shuíomh deireanach in Áiteanna</string>
+  <string name="home_feed_places_of_interest_card_footer">%1$s • Bunaithe ar do shuíomh in Áiteanna</string>
   <string name="home_feed_for_you_screen_end_of_feed_title">Sin é don lá inniu!</string>
   <string name="home_feed_for_you_screen_end_of_feed_description">Tar ar ais amárach chun ailt úra nua a fháil atá saincheaptha duitse.</string>
   <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Bealaí chun leanúint ar aghaidh ag foghlaim:</string>
