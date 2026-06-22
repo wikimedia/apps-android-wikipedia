@@ -2335,8 +2335,8 @@
   <string name="explore_feed_personalized_preference_empty_state_text">Sinun tulee lisätä kiinnostuksen kohteita nähdäksesi personoituja sisältösuosituksia. Voit tehdä tämän edellisissä vaiheissa tai myöhemmin sovelluksen asetuksissa.</string>
   <string name="explore_feed_because_you_read">Aiemmin lukemasi perusteella: %s</string>
   <string name="explore_feed_swipe_to_explore_prompt_title">Pyyhkäise selataksesi</string>
-  <string name="explore_feed_swipe_to_explore_prompt_message">Pyyhkäise alas siirtäksesi aiheiden välillä tai pyyhkäise sivulle nähdeksi aiheeseen liittyvää sisältöä.</string>
-  <string name="home_feed_settings_title">Mukauta etusivun syöte</string>
+  <string name="explore_feed_swipe_to_explore_prompt_message" fuzzy="true">Pyyhkäise alas siirtäksesi aiheiden välillä tai pyyhkäise sivulle nähdeksi aiheeseen liittyvää sisältöä.</string>
+  <string name="home_feed_settings_title" fuzzy="true">Mukauta etusivun syöte</string>
   <string name="home_feed_settings_whats_driving_title">Mikä ohjaa syötettäsi</string>
   <string name="home_feed_settings_modules_title">Moduulit</string>
   <string name="home_feed_settings_community_subtitle">Ota käyttöön tai poista käytöstä ”Yhteisö”-syötteen moduuleja</string>

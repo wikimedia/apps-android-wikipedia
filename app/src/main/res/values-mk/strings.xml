@@ -2381,8 +2381,8 @@
   <string name="explore_feed_personalized_preference_empty_state_text">Ќе треба да додадете интереси за да гледате персонализирани предложени содржини. Ова можете да го направите во претходните чекори или подоцна во нагодувањата.</string>
   <string name="explore_feed_because_you_read">Бидејќи читавте: %s</string>
   <string name="explore_feed_swipe_to_explore_prompt_title">Повлечете за да истражите</string>
-  <string name="explore_feed_swipe_to_explore_prompt_message">Повлечете надолу за да се движите помеѓу темите или повлечете странично за да ги истражите поврзаните содржини.</string>
-  <string name="home_feed_settings_title">Прилагоди го тековникот „Почетна“</string>
+  <string name="explore_feed_swipe_to_explore_prompt_message" fuzzy="true">Повлечете надолу за да се движите помеѓу темите или повлечете странично за да ги истражите поврзаните содржини.</string>
+  <string name="home_feed_settings_title" fuzzy="true">Прилагоди го тековникот „Почетна“</string>
   <string name="home_feed_settings_whats_driving_title">Што го движи вашиот тековник</string>
   <string name="home_feed_settings_modules_title">Модули</string>
   <string name="home_feed_settings_community_subtitle">Вклучете/исклучете ги модулите на тековникот „Заедница“</string>

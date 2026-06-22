@@ -2429,8 +2429,8 @@
   <string name="explore_feed_personalized_preference_empty_state_text">Du musst Interessen hinzufügen, um personalisierte Inhaltsempfehlungen zu sehen. Das kannst du in den vorherigen Schritten oder später in den Einstellungen tun.</string>
   <string name="explore_feed_because_you_read">Weil du gelesen hast: %s</string>
   <string name="explore_feed_swipe_to_explore_prompt_title">Wischen zum Entdecken</string>
-  <string name="explore_feed_swipe_to_explore_prompt_message">Wische nach unten, um zwischen Themen zu wechseln, oder zur Seite, um verwandte Inhalte zu entdecken.</string>
-  <string name="home_feed_settings_title">Start-Feed anpassen</string>
+  <string name="explore_feed_swipe_to_explore_prompt_message" fuzzy="true">Wische nach unten, um zwischen Themen zu wechseln, oder zur Seite, um verwandte Inhalte zu entdecken.</string>
+  <string name="home_feed_settings_title" fuzzy="true">Start-Feed anpassen</string>
   <string name="home_feed_settings_whats_driving_title">Was deinen Feed bestimmt</string>
   <string name="home_feed_settings_modules_title">Module</string>
   <string name="home_feed_settings_community_subtitle">Module des „Gemeinschaft“-Feeds ein- oder ausschalten</string>
