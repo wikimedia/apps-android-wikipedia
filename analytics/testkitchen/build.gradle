@@ -6,17 +6,15 @@ plugins {
     id 'kotlinx-serialization'
 }
 
-final JavaVersion JAVA_VERSION = JavaVersion.VERSION_17
-
 android {
     namespace = 'org.wikimedia.testkitchen'
-    compileSdk = 36
+    compileSdk = 37
 
     compileOptions {
         coreLibraryDesugaringEnabled = true
 
-        sourceCompatibility = JAVA_VERSION
-        targetCompatibility = JAVA_VERSION
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     kotlin {
@@ -26,7 +24,7 @@ android {
     }
 
     defaultConfig {
-        targetSdk = 36
+        targetSdk = 37
         multiDexEnabled = true
 
         buildConfigField "String", "EVENTGATE_ANALYTICS_EXTERNAL_BASE_URI", '"https://intake-analytics.wikimedia.org"'
