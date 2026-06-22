@@ -68,6 +68,7 @@ import org.wikipedia.feed.places.PlacesOfInterestArticlesModule
 import org.wikipedia.feed.places.PlacesOfInterestLocationPromptModule
 import org.wikipedia.feed.random.RandomModule
 import org.wikipedia.feed.wikigames.GamesModule
+import org.wikipedia.feed.wikigames.OnThisDayCardGameState
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.L10nUtil
@@ -88,7 +89,8 @@ fun ForYouContentTab(
     onManageModulesClick: () -> Unit,
     onSelectTab: (HomeTab, Card?) -> Unit = { _, _ -> },
     onShuffleClick: () -> Unit = {},
-    onPlacesCtaClick: () -> Unit = {}
+    onPlacesCtaClick: () -> Unit = {},
+    onGamesModuleActionClick: (OnThisDayCardGameState) -> Unit = { _ -> }
 ) {
     when {
         state.isInitialLoading -> {
@@ -189,7 +191,8 @@ fun ForYouContentTab(
                                 onCardImpression = onCardImpression,
                                 onCustomizeInterestsClick = onCustomizeInterestsClick,
                                 onShuffleClick = onShuffleClick,
-                                onPlacesCtaClick = onPlacesCtaClick
+                                onPlacesCtaClick = onPlacesCtaClick,
+                                onGamesModuleActionClick = onGamesModuleActionClick
                             )
                         }
 
@@ -247,7 +250,8 @@ fun ForYouContentTab(
                                 onCardImpression = { _, _ -> },
                                 onCustomizeInterestsClick = onCustomizeInterestsClick,
                                 onShuffleClick = onShuffleClick,
-                                onPlacesCtaClick = onPlacesCtaClick
+                                onPlacesCtaClick = onPlacesCtaClick,
+                                onGamesModuleActionClick = onGamesModuleActionClick
                             )
                         }
                     }
@@ -271,7 +275,8 @@ private fun LazyListScope.forYouModuleItem(
     onCardImpression: (card: Card, index: Int) -> Unit,
     onCustomizeInterestsClick: (card: Card) -> Unit,
     onShuffleClick: () -> Unit,
-    onPlacesCtaClick: () -> Unit
+    onPlacesCtaClick: () -> Unit,
+    onGamesModuleActionClick: (OnThisDayCardGameState) -> Unit
 ) {
     val key = "${module.javaClass.simpleName}-${module.age}-$index"
     when (module) {
@@ -388,6 +393,8 @@ private fun LazyListScope.forYouModuleItem(
                         .navigationBarsPadding(),
                     wikiSite = wikiSite,
                     module = module,
+                    onActionClick = onGamesModuleActionClick,
+                    onHideModuleClick = { onHideModuleClick(module.moduleKey()) },
                     onCardInView = { onCardImpression(it, index) }
                 )
             }

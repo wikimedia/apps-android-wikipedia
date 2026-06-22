@@ -40,6 +40,9 @@ import org.wikipedia.feed.personalization.PersonalizationActivity.Companion.RESU
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
 import org.wikipedia.feed.topread.TopReadArticlesActivity
 import org.wikipedia.feed.topread.TopReadCard
+import org.wikipedia.feed.wikigames.OnThisDayCardGameState
+import org.wikipedia.games.db.DailyGameHistory
+import org.wikipedia.games.onthisday.OnThisDayGameActivity
 import org.wikipedia.main.MainActivity
 import org.wikipedia.main.MainFragment
 import org.wikipedia.navtab.NavTab
@@ -281,6 +284,19 @@ class HomeFragment : Fragment() {
                         onPlacesCtaClick = {
                             instrument.submitInteraction("click", actionSource = PlacesOfInterestLocationPromptCard::class.java.simpleName, elementId = "go_to_places")
                             requireActivity().startActivity(PlacesActivity.newIntent(requireContext()))
+                        },
+                        onGamesModuleActionClick = { state ->
+                            val gameStatus = when (state) {
+                                is OnThisDayCardGameState.Completed -> DailyGameHistory.GAME_COMPLETED
+                                is OnThisDayCardGameState.InProgress,
+                                is OnThisDayCardGameState.Preview -> DailyGameHistory.GAME_IN_PROGRESS
+                            }
+                            requireActivity().startActivity(OnThisDayGameActivity.newIntent(
+                                context = requireContext(),
+                                invokeSource = InvokeSource.FEED,
+                                wikiSite = wikiSite,
+                                gameStatus = gameStatus
+                            ))
                         }
                     )
 

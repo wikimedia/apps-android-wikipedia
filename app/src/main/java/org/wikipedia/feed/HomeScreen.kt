@@ -62,6 +62,7 @@ import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.ForYouCard
 import org.wikipedia.feed.news.NewsCard
 import org.wikipedia.feed.news.NewsItem
+import org.wikipedia.feed.wikigames.OnThisDayCardGameState
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.language.AppLanguageState
 import org.wikipedia.main.MainActivity
@@ -105,7 +106,8 @@ fun HomeScreen(
     onNotificationClick: () -> Unit = {},
     onManageModulesClick: () -> Unit = {},
     onShuffleClick: () -> Unit = {},
-    onPlacesCtaClick: () -> Unit = {}
+    onPlacesCtaClick: () -> Unit = {},
+    onGamesModuleActionClick: (OnThisDayCardGameState) -> Unit = {}
 ) {
     val context = LocalContext.current
     val topInset = if (context is MainActivity) {
@@ -203,7 +205,8 @@ fun HomeScreen(
                         onManageModulesClick = onManageModulesClick,
                         onSelectTab = onSelectTab,
                         onShuffleClick = onShuffleClick,
-                        onPlacesCtaClick = onPlacesCtaClick
+                        onPlacesCtaClick = onPlacesCtaClick,
+                        onGamesModuleActionClick = onGamesModuleActionClick
                     )
 
                     // Floating toolbar with gradient scrim, wordmark, and tab selector.

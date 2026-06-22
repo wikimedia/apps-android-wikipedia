@@ -74,20 +74,30 @@ object OnThisDayGameProvider {
             day = currentDay
         )
 
+        val events = if (skipLoadingEvents) emptyList() else getGameEvents(wikiSite, date)
+
+        // For future use: if we decide to show the user's current question instead, update the questionIndex based on gameHistory.currentQuestionIndex
+        val (event1, event2) = eventPairForQuestion(events, questionIndex = 0)
+
         if (gameHistory != null) {
             if (gameHistory.status == DailyGameHistory.GAME_COMPLETED) {
-                return OnThisDayCardGameState.Completed(langCode = wikiSite.languageCode, score = gameHistory.score, totalQuestions = Prefs.otdGameQuestionsPerDay)
+                return OnThisDayCardGameState.Completed(langCode = wikiSite.languageCode, score = gameHistory.score, totalQuestions = Prefs.otdGameQuestionsPerDay, event1 = event1, event2 = event2)
             } else if (gameHistory.status == DailyGameHistory.GAME_IN_PROGRESS) {
-                return OnThisDayCardGameState.InProgress(langCode = wikiSite.languageCode, currentQuestion = gameHistory.currentQuestionIndex)
+                return OnThisDayCardGameState.InProgress(langCode = wikiSite.languageCode, currentQuestion = gameHistory.currentQuestionIndex, event1 = event1, event2 = event2)
             }
         }
 
-        if (skipLoadingEvents) {
-            return OnThisDayCardGameState.Preview(langCode = wikiSite.languageCode, event1 = OnThisDay.Event(), event2 = OnThisDay.Event())
-        }
+        return OnThisDayCardGameState.Preview(langCode = wikiSite.languageCode, event1 = event1, event2 = event2)
+    }
 
-        val events = getGameEvents(wikiSite, date)
-        return OnThisDayCardGameState.Preview(langCode = wikiSite.languageCode, event1 = events[0], event2 = events[1])
+    // gets the proper event pair for the given question index. If there aren't enough events, returns empty events.
+    fun eventPairForQuestion(events: List<OnThisDay.Event>, questionIndex: Int): Pair<OnThisDay.Event, OnThisDay.Event> {
+        val firstIndex = questionIndex * 2
+        val secondIndex = firstIndex + 1
+        if (secondIndex >= events.size) {
+            return OnThisDay.Event() to OnThisDay.Event()
+        }
+        return events[firstIndex] to events[secondIndex]
     }
 
     fun getThumbnailUrlForEvent(event: OnThisDay.Event): String? {

@@ -35,7 +35,6 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -64,9 +63,9 @@ fun GamesModule(
     modifier: Modifier = Modifier,
     wikiSite: WikiSite,
     module: ForYouModule.Games,
-    onActionClick: (state: OnThisDayCardGameState) -> Unit = {},
-    onHideModuleClick: () -> Unit = {},
-    onCardInView: (card: Card) -> Unit = {}
+    onActionClick: (state: OnThisDayCardGameState) -> Unit,
+    onHideModuleClick: () -> Unit,
+    onCardInView: (card: Card) -> Unit
 ) {
     if (module.isLoading) {
         Box(modifier = modifier, contentAlignment = Alignment.Center) {
@@ -112,7 +111,8 @@ private fun OnThisDayGameModuleCard(
     }
 
     Column(
-        modifier = modifier
+        modifier = modifier,
+        verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -122,9 +122,8 @@ private fun OnThisDayGameModuleCard(
                 modifier = Modifier.weight(1f),
                 text = context.getString(wikiSite.languageCode, R.string.on_this_day_game_title),
                 color = Color.White,
-                style = MaterialTheme.typography.headlineMedium.copy(fontFamily = FontFamily.Serif),
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis
+                style = MaterialTheme.typography.headlineSmall.copy(fontFamily = FontFamily.Serif),
+                maxLines = 1
             )
             Box {
                 IconButton(onClick = { overflowMenuExpanded = true }) {
@@ -148,13 +147,9 @@ private fun OnThisDayGameModuleCard(
             }
         }
 
-        Spacer(Modifier.height(8.dp))
-
         GameEventCard(modifier = Modifier.weight(1f), event = state.event1)
-        Spacer(Modifier.height(12.dp))
-        GameEventCard(modifier = Modifier.weight(1f), event = state.event2)
 
-        Spacer(Modifier.height(16.dp))
+        GameEventCard(modifier = Modifier.weight(1f), event = state.event2)
 
         OutlinedButton(
             modifier = Modifier.align(Alignment.CenterHorizontally),
@@ -165,7 +160,7 @@ private fun OnThisDayGameModuleCard(
         ) {
             Text(
                 text = context.getString(wikiSite.languageCode, buttonTextRes),
-                style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.Medium)
+                style = MaterialTheme.typography.labelLarge
             )
         }
 
@@ -232,7 +227,10 @@ private fun GamesModulePreview() {
                         )
                     )
                 )
-            )
+            ),
+            onActionClick = {},
+            onHideModuleClick = {},
+            onCardInView = { }
         )
     }
 }
