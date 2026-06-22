@@ -296,7 +296,7 @@
   <string name="edit_zoom_in">Увећај</string>
   <string name="edit_zoom_out">Умањи</string>
   <string name="edit_summary_tag_typo">Типографске грешке</string>
-  <string name="edit_summary_tag_grammar">Граматичке грешке</string>
+  <string name="edit_summary_tag_grammar">Поправљена граматика</string>
   <string name="edit_summary_tag_links">Додати линкови</string>
   <string name="edit_summary_tag_other">Друго</string>
   <string name="edit_summary_tag_other_hint">Други начини на које сте побољшали страницу</string>

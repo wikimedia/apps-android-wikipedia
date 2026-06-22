@@ -420,7 +420,7 @@
   <string name="button_get_directions">Прокласти маршрут</string>
   <string name="error_no_maps_app">Не вдалося знайти жодної програми, яка прокладала б маршрут.</string>
   <string name="preference_title_customize_explore_feed">Стрічка</string>
-  <string name="preference_title_customize_home_feed">Домашня стрічка</string>
+  <string name="preference_title_customize_home_feed">Головна стрічка</string>
   <string name="preference_title_show_link_previews">Показувати попередній перегляд посилань</string>
   <string name="preference_summary_customize_explore_feed">Налаштувати стрічку</string>
   <string name="preference_summary_customize_home_feed">Налаштувати свою домашню стрічку</string>
@@ -2608,8 +2608,8 @@
   <string name="explore_feed_personalized_preference_empty_state_text">Щоб переглядати персоналізовані рекомендації щодо контенту, потрібно додати інтереси. Ви можете зробити це на попередніх кроках або пізніше в налаштуваннях.</string>
   <string name="explore_feed_because_you_read">Оскільки Ви читали: %s</string>
   <string name="explore_feed_swipe_to_explore_prompt_title">Проведіть пальцем, щоб дослідити</string>
-  <string name="explore_feed_swipe_to_explore_prompt_message">Проведіть пальцем униз, щоб перейти до іншої теми, або убік, щоб переглянути пов\'язаний контент.</string>
-  <string name="home_feed_settings_title">Налаштувати домашню стрічку</string>
+  <string name="explore_feed_swipe_to_explore_prompt_message" fuzzy="true">Проведіть пальцем униз, щоб перейти до іншої теми, або убік, щоб переглянути пов\'язаний контент.</string>
+  <string name="home_feed_settings_title" fuzzy="true">Налаштувати домашню стрічку</string>
   <string name="home_feed_settings_whats_driving_title">Що впливає на вашу стрічку</string>
   <string name="home_feed_settings_modules_title">Модулі</string>
   <string name="home_feed_settings_community_subtitle">Увімкнути чи вимкнути модулі стрічки «Спільнота»</string>
