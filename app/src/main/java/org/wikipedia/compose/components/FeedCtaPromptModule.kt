@@ -67,7 +67,7 @@ fun FeedCtaPromptModule(
             modifier = Modifier.fillMaxWidth(),
             text = title,
             style = MaterialTheme.typography.headlineSmall.copy(fontFamily = FontFamily.Serif),
-            color = WikipediaTheme.colors.primaryColor
+            color = ComposeColors.Gray100
         )
 
         Spacer(modifier = Modifier.height(12.dp))
@@ -76,7 +76,7 @@ fun FeedCtaPromptModule(
             modifier = Modifier.fillMaxWidth(),
             text = description,
             style = MaterialTheme.typography.bodyMedium.copy(letterSpacing = 0.25.sp),
-            color = WikipediaTheme.colors.primaryColor
+            color = ComposeColors.Gray100
         )
 
         Spacer(modifier = Modifier.height(24.dp))
@@ -84,19 +84,19 @@ fun FeedCtaPromptModule(
         OutlinedButton(
             modifier = Modifier.align(Alignment.CenterHorizontally),
             onClick = onButtonClick,
-            border = BorderStroke(1.dp, WikipediaTheme.colors.primaryColor)
+            border = BorderStroke(1.dp, ComposeColors.Gray100)
         ) {
             Icon(
                 painter = buttonIcon,
                 contentDescription = null,
-                tint = WikipediaTheme.colors.primaryColor,
+                tint = ComposeColors.Gray100,
                 modifier = Modifier.size(20.dp)
             )
             Spacer(modifier = Modifier.size(8.dp))
             Text(
                 text = buttonText,
                 style = MaterialTheme.typography.labelLarge,
-                color = WikipediaTheme.colors.primaryColor
+                color = ComposeColors.Gray100
             )
         }
 
