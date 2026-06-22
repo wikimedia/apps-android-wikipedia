@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* ArcaneIE
 * Dbrant
 * Kareyac
 * MTongov
@@ -27,6 +28,7 @@
   <string name="search_icon_content_description">Търсене</string>
   <string name="filter_hint_filter_my_lists_and_articles">Филтриране на списъците</string>
   <string name="nav_item_suggested_edits">Редакции</string>
+  <string name="nav_item_activity">Дейност</string>
   <string name="nav_item_more">Още</string>
   <string name="nav_item_search">Търсене</string>
   <string name="nav_item_contribute">Добавете своя принос</string>
@@ -118,6 +120,7 @@
   <string name="map_view_link_text">Преглед върху карта</string>
   <string name="other_languages_indication_text">Прочитане на друг език</string>
   <string name="language_count_link_text">Налична на %d други езика</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">Публикувайки промените, Вие се съгласявате с &lt;a href=\"%1$s\"&gt;Условията за ползване&lt;/a&gt; и безвъзвратно публикувате приносите си под &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; лиценз.</string>
   <string name="edit_save_action_license_anon">Публикувайки промените, Вие се съгласявате с &lt;a href=\"%1$s\"&gt;Условията за ползване&lt;/a&gt; и безвъзвратно публикувате приносите си под &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; лиценз. Редакциите ще бъдат приписани на IP адреса на вашето  устройство. Ако &lt;a href=\"https://#login\"&gt;влезете в системата&lt;/a&gt;, тази информация няма да бъде публична.</string>
   <string name="edit_anon_warning">Редакциите ще бъдат приписани на IP адреса на вашето устройство. Ако &lt;a href=\"https://#login\"&gt;влезете&lt;/a&gt;, ще имате по-голяма поверителност.</string>
@@ -157,6 +160,8 @@
   <string name="login_2fa_hint">Двукомпонентен удостоверителен код</string>
   <string name="login_2fa_other_workflow_error_msg">Изисква се двуфакторно удостоверяване! Моля, влезте от главния екран и въведете кода от вашия 2FA токен.</string>
   <string name="login_email_auth_hint">Код за потвърждение на имейл</string>
+  <string name="login_email_auth_other_workflow_error_msg">Изисква се потвърждение на имейл адреса! Моля, влезте от главния екран и въведете кода си за потвърждение на имейл адреса.</string>
+  <string name="login_background_error_msg">Невъзможно е повторно влизане. Моля, върнете се на главния екран и влезте ръчно.</string>
   <string name="onboarding_card_login">Влизане</string>
   <string name="page_editing_login">Влизане</string>
   <string name="reading_lists_sync_login">Влизане</string>
@@ -179,6 +184,7 @@
   <string name="logged_out_in_background_cancel">Отказ</string>
   <string name="account_vanish_request_title">Изтриване на сметката</string>
   <string name="account_vanish_request_confirm_title">Предупреждение за изтриване на сметката</string>
+  <string name="account_vanish_request_confirm">Изчезването е &lt;b&gt;последна мярка&lt;/b&gt; и трябва &lt;b&gt;да се използва само когато искате да спрете редактирането завинаги&lt;/b&gt; , а също и да скриете колкото е възможно повече от миналите си асоциации.&lt;br/&gt;&lt;br/&gt; Изтриването на акаунт в Уикипедия се извършва чрез промяна на името на акаунта ви, така че другите да не могат да разпознаят вашия принос в процес, наречен „изчезване на акаунт“. &lt;b&gt;Изчезването не гарантира пълна анонимност или премахване на приноса към проектите&lt;/b&gt; .</string>
   <string name="history_empty_title">Няма скорошно преглеждани статии</string>
   <string name="history_empty_message">Следете какво сте чели тук.</string>
   <string name="history_offline_articles_toast">Някои статии в историята може да са недостъпни офлайн.</string>
@@ -238,12 +244,16 @@
   <string name="page_protected_can_not_edit_anon">За съжаление, към момента тази страница не може да бъде редактирана анонимно.</string>
   <string name="page_protected_can_not_edit_title">Тази страница е защитена</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Добавяне към списъка за наблюдение</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Следете какво се случва със статиите, които ви интересуват. Докоснете менюто за препълване и изберете &lt;b&gt;„Добавяне към списъка за наблюдение“,&lt;/b&gt; за да видите промените в дадена статия.</string>
   <string name="settings_item_preferences">Настройки</string>
   <string name="settings_activity_title">Настройки</string>
   <string name="about_description">Относно приложението Уикипедия.</string>
   <string name="privacy_policy_description">Защита на личните данни</string>
   <string name="terms_of_use_description">Условия за ползване</string>
+  <string name="legal_safety_contacts_description">Контакти за правни въпроси и въпроси, свързани с безопасността</string>
   <string name="about_wikipedia_url">https://bg.wikipedia.org/wiki/Уикипедия:За_Уикипедия</string>
+  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Privacy_policy</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Офлайн_четене_и_данни</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.bg</string>
   <string name="about_libraries_heading">Използвани библиотеки</string>
   <string name="about_contributors_heading">Сътрудници</string>
@@ -254,6 +264,7 @@
   <string name="about_app_license">Програмният код е достъпен на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; под лиценз &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Освен ако друго не е упоменато, съдържанието е достъпно под лиценз &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.bg\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Продукт на &lt;a href=\"https://wikimediafoundation.org/\"&gt;Фондация Уикимедия&lt;/a&gt;</string>
   <string name="about_activity_title">Относно</string>
+  <string name="about_logo_content_description">Лого на глобус с пъзел от Уикипедия</string>
   <string name="edit_abandon_confirm">Страницата е била променена. Сигурни ли сте, че искате да излезете, без да запазите промените си?</string>
   <string name="edit_abandon_confirm_yes">Да</string>
   <string name="edit_abandon_confirm_no">Не</string>
@@ -382,12 +393,15 @@
   <string name="button_get_directions">Упътвания</string>
   <string name="error_no_maps_app">Не са намерени приложения, предоставящи навигация.</string>
   <string name="preference_title_customize_explore_feed">Разгледайте емисията</string>
+  <string name="preference_title_customize_home_feed">Домашна емисия</string>
   <string name="preference_title_show_link_previews">Предварителен преглед на връзки</string>
   <string name="preference_summary_customize_explore_feed">Персонализирайте емисията за изследване</string>
+  <string name="preference_summary_customize_home_feed">Персонализирайте емисията на началната си страница</string>
   <string name="preference_summary_show_link_previews">Показва бърз предварителен преглед на статии, когато се натисне връзка.</string>
   <string name="preference_title_collapse_tables">Свиване на таблици</string>
   <string name="preference_summary_collapse_tables">Автоматично свиване на таблиците в статиите, като например инфокутии, източници и бележки.</string>
   <string name="nav_item_donate">Направете дарение</string>
+  <string name="nav_item_year_in_review">Годишен преглед</string>
   <string name="error_voice_search_not_available">За съжаление, гласовото разпознаване не е достъпно.</string>
   <string name="location_service_disabled">Услугите за местоположение са изключени.</string>
   <string name="enable_location_service">Включване</string>
@@ -405,7 +419,9 @@
   <string name="link_preview_dialog_save_button">Съхраняване</string>
   <string name="link_preview_dialog_saved_button">Съхранена</string>
   <string name="link_preview_dialog_share_button">Споделяне</string>
+  <string name="link_preview_stub_placeholder_text">Тази статия е заключителна, което означава, че няма достатъчно съдържание в нея, за да се генерира визуализация. Можете обаче да промените това.</string>
   <string name="error_page_does_not_exist">Тази страница не съществува</string>
+  <string name="error_user_page_does_not_exist">Уикипедия няма &lt;a href=\"%1$s \"&gt;user page&lt;/a&gt; с точно това име. Като цяло, тази страница трябва да бъде създадена и редактирана от &lt;b&gt;&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s&lt;/b&gt; . Ако имате съмнения, моля, проверете дали „ %3$s “ съществува.</string>
   <string name="view_wiki_error_message_offline">Няма връзка с интернет</string>
   <string name="view_wiki_error_message_timeout">Не е възможно свързването с Уикипедия. Проверете Вашата мрежова връзка или опитайте по-късно</string>
   <string name="reference_title">Източник %s</string>
@@ -413,6 +429,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Избледняване на изображенията (в Тъмен облик)</string>
   <string name="preference_title_prefer_offline_content">Предпочитане на офлайн съдържание</string>
   <string name="preference_summary_prefer_offline_content">Пестете мобилни данни, като зареждате статии, които са налични в офлайн режим, вместо да зареждате последната им версия.</string>
+  <string name="preference_title_delete_local_donation_history">Изчистване на историята на даренията</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Съвпада със системния облик</string>
   <string name="page_footer_license_text">Съдържанието е достъпно под $1, освен ако не е посочено друго</string>
   <string name="empty_tab_title">Нов раздел</string>
@@ -427,9 +444,23 @@
   <string name="theme_chooser_menu_item_short_tooltip">Персонализирайте лентата си с инструменти</string>
   <string name="error_blocked_footer_no_blocker">Можете да се свържете с &lt;a href=\"https://https://bg.wikipedia.org/wiki/Уикипедия:Администратори\"&gt;администратор&lt;/a&gt;, за да обсъдите блокирането.</string>
   <string name="temp_account_not_logged_in">Вие не сте влезли в системата</string>
+  <string name="temp_account_anon_ip_dialog_body">След като направите редакция, вашият IP адрес ще бъде свързан с редакциите ви.&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;Влезте&lt;/a&gt; или &lt;a href=\"https://#createaccount\"&gt;създайте акаунт&lt;/a&gt; , за да получите признание за бъдещи редакции и да получите достъп до други функции.</string>
+  <string name="temp_account_anon_dialog_body">След като направите редакция, ще ви бъде създаден &lt;b&gt;временен акаунт&lt;/b&gt; , за да се защити поверителността ви. &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Learn more&lt;/a&gt; .&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;Влезте&lt;/a&gt; или &lt;a href=\"https://#createaccount\"&gt;създайте акаунт&lt;/a&gt; , за да получите признание за бъдещи редакции и да получите достъп до други функции.</string>
+  <string name="temp_account_temp_dialog_body">Вашата редакция ще бъде приписана на %1$s . Вашият IP адрес ще бъде видим за администраторите.&lt;br /&gt;&lt;br /&gt; Ако &lt;a href=\"https://#login\"&gt;влезете&lt;/a&gt; или &lt;a href=\"https://#createaccount\"&gt;създадете акаунт&lt;/a&gt; , вашите редакции ще бъдат свързани с избрано от вас име, наред с други предимства.</string>
   <string name="temp_account_dialog_ok">Разбрах</string>
   <string name="temp_account_using_title">Използвате временна сметка</string>
   <string name="temp_account_dialog_discard">Отхвърляне на промените ли влизане</string>
+  <plurals name="temp_account_created">
+    <item quantity="one">Временен акаунт %1$s беше създаден след публикуване на редакцията ви. Той ще изтече след %2$d ден.</item>
+    <item quantity="other">Временен акаунт %1$s беше създаден след публикуване на редакцията ви. Той ще изтече след %2$d дни.</item>
+  </plurals>
+  <plurals name="temp_account_expiry">
+    <item quantity="one">Акаунтът ще изтече след %d ден.</item>
+    <item quantity="other">Акаунтът ще изтече след %d дни.</item>
+  </plurals>
+  <string name="temp_account_anon_ip_edit_status">&lt;b&gt;Не сте влезли в системата.&lt;/b&gt; След като направите редакция, вашият IP адрес ще бъде свързан с редакциите ви.</string>
+  <string name="temp_account_anon_edit_status" fuzzy="true">Не сте влезли в системата. След като направите редакция, ще Ви бъде създадена временна сметка, за да се защити поверителността Ви. &lt;a href=\"%1$s\"&gt;Научете повече&lt;/a&gt;</string>
+  <string name="temp_account_edit_status">&lt;b&gt;Използвате временен акаунт.&lt;/b&gt; Вашата редакция ще бъде приписана на %1$s . &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s \"&gt;Learn more&lt;/a&gt; .</string>
   <string name="temp_account_end_session">Завършване на сесията</string>
   <string name="crash_report_activity_title">Грешка в приложението</string>
   <string name="crash_report_relaunch_or_quit">За съжаление, приложението на Уикипедия претърпя срив и бе спряно.\n\nБихте ли желали да започнете отначало или да излезете?</string>
@@ -857,6 +888,7 @@
   <string name="customize_toolbar_title">Персонализиране на лентата с инструменти</string>
   <string name="customize_toolbar_category_toolbar">Лента с инструменти</string>
   <string name="customize_toolbar_category_menu">Меню</string>
+  <string name="customize_toolbar_drag_and_drop_placeholder">Плъзнете и пуснете любимите си елементи тук 👋</string>
   <string name="suggested_edits_describe_articles">Описване на статии</string>
   <string name="suggested_edits_caption_images">Описване на изображения</string>
   <string name="suggested_edits_tag_images">Добавяне на етикети</string>
