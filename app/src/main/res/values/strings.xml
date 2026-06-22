@@ -2568,4 +2568,7 @@
     <string name="home_feed_for_you_screen_end_of_feed_description">Come back tomorrow to find fresh new articles customized for you.</string>
     <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Ways to keep learning:</string>
     <string name="home_feed_for_you_screen_end_of_feed_add_interests"><![CDATA[Add <a href="#add_interests">new interests</a>]]></string>
+    <string name="home_feed_games_module_cta_prompt_title">Want to play more games?</string>
+    <string name="home_feed_games_module_cta_prompt_subtitle">Go to the games hub</string>
+    <string name="home_feed_games_module_cta_prompt_button_text">Games hub</string>
 </resources>

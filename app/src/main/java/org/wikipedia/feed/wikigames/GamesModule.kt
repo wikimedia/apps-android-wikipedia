@@ -6,10 +6,8 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -37,11 +35,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
 import org.wikipedia.R
 import org.wikipedia.compose.ComposeColors
+import org.wikipedia.compose.components.FeedCtaPromptModule
 import org.wikipedia.compose.components.WikiCard
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
@@ -52,21 +52,31 @@ import org.wikipedia.feed.ForYouModule
 import org.wikipedia.feed.ForYouModulePager
 import org.wikipedia.feed.LoadingIndicator
 import org.wikipedia.feed.model.Card
+import org.wikipedia.feed.model.GamesModulePromptCard
 import org.wikipedia.feed.model.OnThisDayGameCard
 import org.wikipedia.feed.onthisday.OnThisDay
 import org.wikipedia.games.onthisday.OnThisDayGameProvider
 import org.wikipedia.theme.Theme
 import org.wikipedia.views.imageservice.ImageService
 
+private val promptImageUrls = listOf(
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Red_eyed_tree_frog_edit2.jpg/960px-Red_eyed_tree_frog_edit2.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Palais_de_l%27Industrie_-_%C3%89douard_Baldus.jpg/1920px-Palais_de_l%27Industrie_-_%C3%89douard_Baldus.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/1/17/Monet_w861.jpg?_=20230407213842",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Mercury_in_color_-_Prockter07_centered.jpg/1280px-Mercury_in_color_-_Prockter07_centered.jpg"
+)
+
 @Composable
 fun GamesModule(
     modifier: Modifier = Modifier,
     wikiSite: WikiSite,
     module: ForYouModule.Games,
-    onActionClick: (state: OnThisDayCardGameState) -> Unit,
+    onGameActionClick: (state: OnThisDayCardGameState) -> Unit,
+    onGoToGamesHubClick: () -> Unit,
     onHideModuleClick: () -> Unit,
     onCardInView: (card: Card) -> Unit
 ) {
+    val context = LocalContext.current
     if (module.isLoading) {
         Box(modifier = modifier, contentAlignment = Alignment.Center) {
             LoadingIndicator()
@@ -79,16 +89,27 @@ fun GamesModule(
         module = module,
         onCardInView = onCardInView
     ) { page ->
-        // TODO: handle the "Games hub" promo card here (page 2) when it is added.
+        // space for the floating pager dots
+        val bottomSpacing = if (module.cards.size > 1) 40.dp else 16.dp
         when (val card = module.cards[page]) {
             is OnThisDayGameCard -> OnThisDayGameModuleCard(
-                modifier = Modifier.fillMaxSize(),
                 wikiSite = wikiSite,
                 state = card.state,
-                onActionClick = { onActionClick(card.state) },
+                bottomSpacing = bottomSpacing,
+                onActionClick = { onGameActionClick(card.state) },
                 onHideModuleClick = onHideModuleClick
             )
-            else -> {}
+            else -> {
+                FeedCtaPromptModule(
+                    title = context.getString(wikiSite.languageCode, R.string.home_feed_games_module_cta_prompt_title),
+                    description = context.getString(wikiSite.languageCode, R.string.home_feed_games_module_cta_prompt_subtitle),
+                    buttonText = context.getString(wikiSite.languageCode, R.string.home_feed_games_module_cta_prompt_button_text),
+                    buttonIcon = painterResource(R.drawable.ic_esports_24),
+                    imageUrls = promptImageUrls,
+                    bottomSpacing = bottomSpacing,
+                    onButtonClick = onGoToGamesHubClick
+                )
+            }
         }
     }
 }
@@ -98,6 +119,7 @@ private fun OnThisDayGameModuleCard(
     modifier: Modifier = Modifier,
     wikiSite: WikiSite,
     state: OnThisDayCardGameState,
+    bottomSpacing: Dp,
     onActionClick: () -> Unit,
     onHideModuleClick: () -> Unit
 ) {
@@ -111,7 +133,8 @@ private fun OnThisDayGameModuleCard(
     }
 
     Column(
-        modifier = modifier,
+        modifier = modifier
+            .padding(top = 16.dp, bottom = bottomSpacing),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         Row(
@@ -163,8 +186,6 @@ private fun OnThisDayGameModuleCard(
                 style = MaterialTheme.typography.labelLarge
             )
         }
-
-        Spacer(Modifier.height(40.dp))
     }
 }
 
@@ -228,9 +249,34 @@ private fun GamesModulePreview() {
                     )
                 )
             ),
-            onActionClick = {},
+            onGameActionClick = {},
             onHideModuleClick = {},
-            onCardInView = { }
+            onCardInView = { },
+            onGoToGamesHubClick = {}
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun GamesModulePromptPreview() {
+    BaseTheme(currentTheme = Theme.LIGHT) {
+        GamesModule(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(ComposeColors.Green800),
+            wikiSite = WikiSite.preview(),
+            module = ForYouModule.Games(
+                age = 0,
+                index = 0,
+                cards = listOf(
+                    GamesModulePromptCard()
+                )
+            ),
+            onGameActionClick = {},
+            onHideModuleClick = {},
+            onCardInView = { },
+            onGoToGamesHubClick = {}
         )
     }
 }

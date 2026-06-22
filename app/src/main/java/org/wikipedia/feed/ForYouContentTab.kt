@@ -90,7 +90,8 @@ fun ForYouContentTab(
     onSelectTab: (HomeTab, Card?) -> Unit = { _, _ -> },
     onShuffleClick: () -> Unit = {},
     onPlacesCtaClick: () -> Unit = {},
-    onGamesModuleActionClick: (OnThisDayCardGameState) -> Unit = { _ -> }
+    onGameActionClick: (OnThisDayCardGameState) -> Unit = { _ -> },
+    onGoToGamesHubClick: () -> Unit = {}
 ) {
     when {
         state.isInitialLoading -> {
@@ -192,7 +193,8 @@ fun ForYouContentTab(
                                 onCustomizeInterestsClick = onCustomizeInterestsClick,
                                 onShuffleClick = onShuffleClick,
                                 onPlacesCtaClick = onPlacesCtaClick,
-                                onGamesModuleActionClick = onGamesModuleActionClick
+                                onGameActionClick = onGameActionClick,
+                                onGoToGamesHubClick = onGoToGamesHubClick
                             )
                         }
 
@@ -251,7 +253,8 @@ fun ForYouContentTab(
                                 onCustomizeInterestsClick = onCustomizeInterestsClick,
                                 onShuffleClick = onShuffleClick,
                                 onPlacesCtaClick = onPlacesCtaClick,
-                                onGamesModuleActionClick = onGamesModuleActionClick
+                                onGameActionClick = onGameActionClick,
+                                onGoToGamesHubClick = onGoToGamesHubClick
                             )
                         }
                     }
@@ -276,7 +279,8 @@ private fun LazyListScope.forYouModuleItem(
     onCustomizeInterestsClick: (card: Card) -> Unit,
     onShuffleClick: () -> Unit,
     onPlacesCtaClick: () -> Unit,
-    onGamesModuleActionClick: (OnThisDayCardGameState) -> Unit
+    onGameActionClick: (OnThisDayCardGameState) -> Unit,
+    onGoToGamesHubClick: () -> Unit
 ) {
     val key = "${module.javaClass.simpleName}-${module.age}-$index"
     when (module) {
@@ -393,7 +397,8 @@ private fun LazyListScope.forYouModuleItem(
                         .navigationBarsPadding(),
                     wikiSite = wikiSite,
                     module = module,
-                    onActionClick = onGamesModuleActionClick,
+                    onGameActionClick = onGameActionClick,
+                    onGoToGamesHubClick = onGoToGamesHubClick,
                     onHideModuleClick = { onHideModuleClick(module.moduleKey()) },
                     onCardInView = { onCardImpression(it, index) }
                 )

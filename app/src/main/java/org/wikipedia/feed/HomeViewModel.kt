@@ -19,6 +19,7 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.transformLatest
 import kotlinx.coroutines.flow.update
@@ -43,6 +44,7 @@ import org.wikipedia.feed.model.BecauseYouReadCard
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.ContinueReadingCard
 import org.wikipedia.feed.model.ForYouCard
+import org.wikipedia.feed.model.GamesModulePromptCard
 import org.wikipedia.feed.model.OnThisDayGameCard
 import org.wikipedia.feed.model.PlacesOfInterestCard
 import org.wikipedia.feed.model.RandomCard
@@ -245,6 +247,10 @@ class HomeViewModel : ViewModel() {
     @OptIn(ExperimentalCoroutinesApi::class)
     private val gameModule: StateFlow<ForYouModule.Games?> =
         _wikiSite.flatMapLatest { site ->
+            // short-circuit so that we don't observe if we don't have access to GamesHub
+            if (!hasGamesHubAccess()) {
+                return@flatMapLatest flowOf(null)
+            }
             val today = LocalDate.now()
             AppDatabase.instance.dailyGameHistoryDao().findGameHistoryByDateFlow(
                 gameName = WikiGames.WHICH_CAME_FIRST.ordinal,
@@ -253,10 +259,10 @@ class HomeViewModel : ViewModel() {
                 month = today.monthValue,
                 day = today.dayOfMonth
             )
-        }
-        .transformLatest<DailyGameHistory?, ForYouModule.Games?> {
-            emit(ForYouModule.Games(age = 0, index = 0, cards = emptyList(), isLoading = true))
-            emit(buildGameModule())
+            .transformLatest<DailyGameHistory?, ForYouModule.Games?> {
+                emit(ForYouModule.Games(age = 0, index = 0, cards = emptyList(), isLoading = true))
+                emit(buildGameModule())
+            }
         }
         .catch {
             L.e(it)
@@ -683,8 +689,15 @@ class HomeViewModel : ViewModel() {
     }
 
     private suspend fun buildGameModule(): ForYouModule.Games {
-        val state = OnThisDayGameProvider.getGameState(wikiSite.value, LocalDate.now())
-        return ForYouModule.Games(age = 0, index = 0, cards = listOf(OnThisDayGameCard(state)))
+        val feedLanguageSupported = WikiGames.WHICH_CAME_FIRST.isLangSupported(wikiSite.value.languageCode)
+        val cards = if (feedLanguageSupported) {
+            val state = OnThisDayGameProvider.getGameState(wikiSite.value, LocalDate.now())
+            listOf(OnThisDayGameCard(state), GamesModulePromptCard())
+        } else {
+            listOf(GamesModulePromptCard())
+        }
+
+        return ForYouModule.Games(age = 0, index = 0, cards = cards)
     }
 
     private suspend fun buildPlacesModule(): ForYouModule.PlacesOfInterest? {
@@ -729,6 +742,10 @@ class HomeViewModel : ViewModel() {
                 val distance = GeoUtil.getDistanceWithUnit(savedLocation, articleLocation, Locale.getDefault())
                 PlacesOfInterestCard(title, distance)
             }
+    }
+
+    private fun hasGamesHubAccess(): Boolean {
+        return WikiGames.WHICH_CAME_FIRST.isLangSupported(*WikipediaApp.instance.languageState.appLanguageCodes.toTypedArray())
     }
 
     private fun hasLocationPermission(): Boolean {

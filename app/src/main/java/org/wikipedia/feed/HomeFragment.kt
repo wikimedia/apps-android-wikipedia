@@ -41,6 +41,7 @@ import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
 import org.wikipedia.feed.topread.TopReadArticlesActivity
 import org.wikipedia.feed.topread.TopReadCard
 import org.wikipedia.feed.wikigames.OnThisDayCardGameState
+import org.wikipedia.games.GamesHubActivity
 import org.wikipedia.games.db.DailyGameHistory
 import org.wikipedia.games.onthisday.OnThisDayGameActivity
 import org.wikipedia.main.MainActivity
@@ -285,7 +286,7 @@ class HomeFragment : Fragment() {
                             instrument.submitInteraction("click", actionSource = PlacesOfInterestLocationPromptCard::class.java.simpleName, elementId = "go_to_places")
                             requireActivity().startActivity(PlacesActivity.newIntent(requireContext()))
                         },
-                        onGamesModuleActionClick = { state ->
+                        onGameActionClick = { state ->
                             val gameStatus = when (state) {
                                 is OnThisDayCardGameState.Completed -> DailyGameHistory.GAME_COMPLETED
                                 is OnThisDayCardGameState.InProgress,
@@ -297,6 +298,9 @@ class HomeFragment : Fragment() {
                                 wikiSite = wikiSite,
                                 gameStatus = gameStatus
                             ))
+                        },
+                        onGoToGamesHubClick = {
+                            requireActivity().startActivity(GamesHubActivity.newIntent(requireContext()))
                         }
                     )
 

@@ -2307,4 +2307,7 @@
   <string name="home_feed_for_you_screen_end_of_feed_description">Description text encouraging the user to return later for refreshed personalized articles.</string>
   <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Section header introducing additional actions the user can take after reaching the end of the feed.</string>
   <string name="home_feed_for_you_screen_end_of_feed_add_interests">Link text prompting the user to add new interests to improve personalized recommendations.</string>
+  <string name="home_feed_games_module_cta_prompt_title">Title for the prompt card in the Games module that invites the user to play more games.</string>
+  <string name="home_feed_games_module_cta_prompt_subtitle">Subtitle for the prompt card in the Games module directing the user to the Games hub.</string>
+  <string name="home_feed_games_module_cta_prompt_button_text">Button text on the Games module prompt card that navigates the user to the Games hub.</string>
 </resources>

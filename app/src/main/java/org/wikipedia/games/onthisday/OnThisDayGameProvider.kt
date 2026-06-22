@@ -76,8 +76,12 @@ object OnThisDayGameProvider {
 
         val events = if (skipLoadingEvents) emptyList() else getGameEvents(wikiSite, date)
 
-        // For future use: if we decide to show the user's current question instead, update the questionIndex based on gameHistory.currentQuestionIndex
-        val (event1, event2) = eventPairForQuestion(events, questionIndex = 0)
+        val questionIndex = when {
+            gameHistory == null -> 0
+            gameHistory.status == DailyGameHistory.GAME_COMPLETED -> gameHistory.currentQuestionIndex - 1
+            else -> gameHistory.currentQuestionIndex
+        }
+        val (event1, event2) = eventPairForQuestion(events, questionIndex)
 
         if (gameHistory != null) {
             if (gameHistory.status == DailyGameHistory.GAME_COMPLETED) {
@@ -94,7 +98,7 @@ object OnThisDayGameProvider {
     fun eventPairForQuestion(events: List<OnThisDay.Event>, questionIndex: Int): Pair<OnThisDay.Event, OnThisDay.Event> {
         val firstIndex = questionIndex * 2
         val secondIndex = firstIndex + 1
-        if (secondIndex >= events.size) {
+        if (firstIndex < 0 || secondIndex >= events.size) {
             return OnThisDay.Event() to OnThisDay.Event()
         }
         return events[firstIndex] to events[secondIndex]
