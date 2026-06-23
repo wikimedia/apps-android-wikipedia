@@ -78,6 +78,10 @@ object StringUtil {
         return fromHtml(text).toString()
     }
 
+    fun removeBoldTags(text: String): String {
+        return text.replace("</?b(?:\\s+[^>]*)?>".toRegex(), "")
+    }
+
     fun removeStyleTags(text: String): String {
         return text.replace("<style.*?</style>".toRegex(), "")
     }

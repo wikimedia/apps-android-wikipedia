@@ -21,7 +21,7 @@
   <string name="nav_item_forward">Pêşve</string>
   <string name="search_hint">Li Wîkîpediyayê bigere</string>
   <string name="search_hint_voice_search">Lêgerîna ketana dengê</string>
-  <string name="search_hint_search_languages">Li zimanekî bigere</string>
+  <string name="search_hint_search_languages">Zimanekî lê bigere</string>
   <string name="filter_hint_filter_my_lists_and_articles">Lîsteyên min parzûn bike</string>
   <string name="nav_item_suggested_edits">Guhartin</string>
   <string name="nav_item_more">Zêdetir</string>
@@ -42,7 +42,7 @@
   <string name="notification_archive_undo">Vegerîne</string>
   <string name="app_settings">Eyarên sepanê</string>
   <string name="search_tab_tooltip">Ji bo rasterast dest bi nivîsîna peyveke lêgerînê bikî, cardin bitepîne ser îkonê.</string>
-  <string name="history_list_title">Dîrok</string>
+  <string name="history_list_title">Tarîx</string>
   <string name="image_content_description">Wêne: %s</string>
   <string name="page_content_description">Rûpel: %s</string>
   <string name="wikimedia_commons">Wîkîmedya Kommons</string>
@@ -219,7 +219,7 @@
   <string name="error_can_not_process_link">Nikare vê lînkê nîşan bide</string>
   <string name="page_protected_autoconfirmed">Ev rûpel nîv-parastî ye</string>
   <string name="page_protected_sysop">Ev rûpel bi temamî parastî ye.</string>
-  <string name="page_protected_other">Ev rûpel tê parastin. Astên parastinê: %s</string>
+  <string name="page_protected_other">Ev rûpel tê parastin. Dereceya parastinê: %s</string>
   <string name="page_protected_can_not_edit">Bibore, hesabê te vêga ne xwediyê mafên bo guherandina vê rûpelê ye.</string>
   <string name="page_protected_can_not_edit_anon">Bibore, ev rûpel vê gavê wek anonîm nikare were guhartin.</string>
   <string name="page_protected_can_not_edit_title">Ev rûpel parastî ye</string>
@@ -235,17 +235,17 @@
   <string name="about_contributors_heading">Tevkar</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Rûpela tîmê&lt;/a&gt;</string>
   <string name="about_translators_heading">Wergêr</string>
-  <string name="about_translators_translatewiki">Ev sepan ji aliyê bikarhênerên xwebexş ve li ser &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.netê&lt;/a&gt; hatiye wergerandin.</string>
+  <string name="about_translators_translatewiki">Ev sepan ji aliyê bikarhênerên xwebexş ve li ser &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.netê&lt;/a&gt; hatiye tercimekirin.</string>
   <string name="about_app_license_heading">Destûr</string>
   <string name="about_app_license" fuzzy="true">Koda çavkanî berdest e li ser &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; û &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;Github&lt;/a&gt;ê li bin &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Lîsansa Apache 2.0&lt;/a&gt;. Ger bi awayekî din nehatibe diyarkirin, naverok li bin &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Lîsansa Creatice Commons yê Atfkirin-ParvekirinaWekhevan&lt;/a&gt; berdest e.</string>
   <string name="about_wmf">Berhemeke &lt;a href=\"https://wikimediafoundation.org/\"&gt;Weqfa Wîkîmedyayê&lt;/a&gt;</string>
   <string name="about_activity_title">Derbarê</string>
-  <string name="edit_abandon_confirm">Ev rûpel hat guhartin. Bi rastî dixwazî bêyî tomarkirina guhartinên xwe derkevî?</string>
+  <string name="edit_abandon_confirm">Ev rûpel hat guhartin. Bi rastî dixwazî bêyî qeydkirina guhartinên xwe derkevî?</string>
   <string name="edit_abandon_confirm_yes">Erê</string>
   <string name="edit_abandon_confirm_no">Na</string>
   <string name="user_blocked_from_editing_title">Astengkirî</string>
   <string name="user_logged_in_blocked_from_editing">Hesabê te yê bikarhêneriyê li ser vê wîkiyê hatiye astengkirin.</string>
-  <string name="user_anon_blocked_from_editing">Navnîşana te ya IPê ji bo guhartinan astengkirî ye.</string>
+  <string name="user_anon_blocked_from_editing">Adresa te ya IPê ji bo guhartinan hatiye astengkirin.</string>
   <string name="edit_how_page_improved">Te li ser vê rûpelê çi sererast kir?</string>
   <string name="edit_next">Pêşve</string>
   <string name="edit_done">Biweşîne</string>
@@ -282,16 +282,16 @@
   <string name="page_similar_titles">Rûpelên mîna vê</string>
   <string name="search_did_you_mean">Mebesta te \"%s\" bû?</string>
   <string name="search_recent_header">Lêgerînên dawî:</string>
-  <string name="search_results_count_zero">Encam nînin</string>
+  <string name="search_results_count_zero">Netîce tine</string>
   <plurals name="search_results_count">
-    <item quantity="one">1 encam</item>
-    <item quantity="other">%d encam</item>
+    <item quantity="one">1 netîce</item>
+    <item quantity="other">%d netîceyan</item>
   </plurals>
   <string name="button_clear_all_recent_searches">Lêgerînên dawî paqij bike</string>
-  <string name="clear_recent_searches_confirm">Bi rastî dixwazî dîroka lêgerînê paqij bikî?</string>
+  <string name="clear_recent_searches_confirm">Bi rastî dixwazî tarîxa lêgerînê paqij bikî?</string>
   <string name="clear_recent_searches_confirm_yes">Erê</string>
   <string name="clear_recent_searches_confirm_no">Na</string>
-  <string name="error_browser_not_found">Malpera înternetê nikare were vekirin (sepana gerokê tune)</string>
+  <string name="error_browser_not_found">Websîteya înternetê nikare were vekirin (sepana gerokê tine)</string>
   <string name="table_infobox">Agahiyên praktîk</string>
   <string name="table_other">Zêdetir agahî</string>
   <string name="table_close">Bigre</string>
@@ -305,7 +305,7 @@
   <string name="preference_title_show_images">Wêneyan nîşan bide</string>
   <string name="preference_summary_show_images">Barkirina wêneyan yê li nav rûpelan bigire an veke. Ger girêdana te ya înternetê hêdî be an înterneta te kêm be, vê mîhengê îşaret neke.</string>
   <string name="preference_title_download_only_over_wifi">Tenê ji ser Wîfiyê daxîne</string>
-  <string name="dialog_title_download_only_over_wifi">Daxistina bi rêya înterneta mobîlê dipejirînî?</string>
+  <string name="dialog_title_download_only_over_wifi">Daxistina bi riya înterneta mobîlê qebûl dikî?</string>
   <string name="dialog_text_download_only_over_wifi">Te mîhenga \"Tenê ji ser wîfiyê daxîne\" aktîv kiriye. Tu dixwazî ku tenê ji bo vê daxistinê destûr bidî înterneta xwe mobîl?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Destûr bide</string>
   <string name="read_more_section">Zêdetir bixwîne</string>
@@ -318,10 +318,10 @@
   <string name="gallery_save_progress">Dosye tê daxistin...</string>
   <string name="gallery_save_success">Pel hate tomarkirin.</string>
   <string name="gallery_error_video_failed">Vîdyo nikare were lîstin.</string>
-  <string name="gallery_save_image_write_permission_rationale">Destûra qeydkirina li ser depoya amûra te ji bo daxistina wêneyan hewce ye.</string>
+  <string name="gallery_save_image_write_permission_rationale">Ji bo daxistina resman, îzna qeydkirinê ser depoya cihaza te hewce ye.</string>
   <string name="gallery_edit_button_content_description">Binnivîsa wêneyî biguhêre</string>
   <string name="gallery_add_image_caption_button">Sernavê wêneyî lê zêde bike</string>
-  <string name="gallery_add_image_caption_in_language_button">Sernavê wêneyî lê zêde bike (%s)</string>
+  <string name="gallery_add_image_caption_in_language_button">Nivîsa resmê lê zêde bike (%s)</string>
   <string name="err_cannot_save_file">Dosye nikare bê tomarkirin</string>
   <string name="expand_refs">Ji bo firehkirinê bitepîne</string>
   <string name="cc_logo">Lîsansa Creative Commonsê</string>

@@ -2418,6 +2418,10 @@
     <string name="reading_challenge_install_prompt_message">Baby Globe is cheering you on. Add the Reading Challenge widget to track your progress from your homescreen.</string>
     <string name="reading_challenge_install_prompt_got_it">Got it</string>
     <string name="reading_challenge_install_prompt_add">Add</string>
+    <string name="search_widget_install_prompt_title">A Faster way to Search</string>
+    <string name="search_widget_install_prompt_message">Install the Wikipedia Search widget for instant access to knowledge from your home screen.</string>
+    <string name="search_widget_install_prompt_add">Add</string>
+    <string name="search_widget_install_prompt_got_it">Got it</string>
     <string name="reading_challenge_widget_explore_button">Explore</string>
     <string name="reading_challenge_widget_explore_wikipedia_button">Explore Wikipedia</string>
     <string name="reading_challenge_widget_join_challenge_button">Join challenge</string>
@@ -2492,7 +2496,7 @@
     <string name="explore_feed_featured_article_subtitle">Featured articles are some of the highest-quality articles on Wikipedia, selected daily by editors</string>
     <string name="explore_feed_preference_selection_screen_title">What would you like to see first?</string>
     <string name="explore_feed_preference_community_content_title">Community-related content</string>
-    <string name="explore_feed_preference_personalized_content_title">Personalized content </string>
+    <string name="explore_feed_preference_personalized_content_title">Personalized content</string>
     <string name="explore_feed_in_the_news_subtitle">Articles that have been substantially updated to reflect recent or current events of wide interest</string>
     <string name="explore_feed_on_this_day_subtitle">Discover historical events from this day</string>
     <string name="explore_feed_community_disclaimer">Content and resources selected by and about the Wikimedia community</string>
@@ -2504,8 +2508,10 @@
     <string name="explore_feed_personalized_preference_empty_state_text">You need to add interests to see personalized content recommendations. You can do this in the previous steps or later in Settings.</string>
     <string name="explore_feed_because_you_read">Because you read: %s</string>
     <string name="explore_feed_swipe_to_explore_prompt_title">Swipe to explore</string>
-    <string name="explore_feed_swipe_to_explore_prompt_message">Swipe down to navigate between topics, or swipe sideways to explore related content.</string>
-    <string name="home_feed_settings_title">Customize the Home feed</string>
+    <string name="explore_feed_swipe_to_explore_prompt_message">Swipe up to navigate between topics, or swipe sideways to explore related content.</string>
+    <string name="home_feed_settings_title">Customize your Home feed</string>
+    <string name="home_feed_settings_default_view_title">Default feed view</string>
+    <string name="home_feed_settings_default_view_subtitle">Choose which feed displays first when you open the app</string>
     <string name="home_feed_settings_whats_driving_title">What\'s driving your feed</string>
     <string name="home_feed_settings_modules_title">Modules</string>
     <string name="home_feed_settings_community_subtitle">Turn on or off \"Community\" feed modules</string>
@@ -2518,6 +2524,9 @@
     <string name="home_feed_settings_because_you_read_subtitle">Suggestions based on a recent article from your history</string>
     <string name="home_feed_settings_continue_reading_title">Continue reading</string>
     <string name="home_feed_settings_continue_reading_subtitle">Jump back into articles you didn\'t finish</string>
+    <string name="home_feed_did_you_know_title">Did you know?</string>
+    <string name="home_feed_did_you_know_subtitle">Interesting facts from articles selected by volunteer editors</string>
+    <string name="home_feed_did_you_know_more_label">More did you know</string>
     <string name="home_feed_settings_community_empty_dialog_title">Your Community feed will be empty</string>
     <string name="home_feed_settings_for_you_empty_dialog_title">Your \"For you\" feed will be empty</string>
     <string name="home_feed_settings_empty_dialog_text">Turn on at least one module to see content.</string>
@@ -2531,9 +2540,15 @@
     <string name="home_feed_for_you_screen_empty_ways_to_start">Ways to get started:</string>
     <string name="home_feed_for_you_screen_empty_add_interests"><![CDATA[Add <a href="#add_interests">some interests</a>]]></string>
     <string name="home_feed_for_you_screen_empty_see_community"><![CDATA[See what\'s happening in <a href="#community_tab">community</a>]]></string>
+    <string name="home_feed_update_tooltip1">New: \"Random Article\" and \"Places of Interest\" are available in For You and \"Did You Know\" is in the Community Tab.</string>
+    <string name="home_feed_random_title">Random</string>
+    <string name="home_feed_random_subtitle">Random article to spark your curiosity</string>
+    <string name="home_feed_random_shuffle_button">Shuffle</string>
     <string name="home_feed_settings_feed_configuration_description">These topics and articles shape what appears in your \"For You\" feed. Remove any you no longer want or add new interests.</string>
     <string name="home_feed_settings_feed_configuration_interest_title">Your interests</string>
     <string name="home_feed_settings_feed_configuration_interest_subtitle">Edit your topics of interest</string>
+    <string name="home_feed_settings_feed_configuration_location_title">Your location</string>
+    <string name="home_feed_settings_feed_configuration_location_subtitle">Update your location in Places to see articles nearby</string>
     <string name="home_feed_settings_feed_configuration_empty_interest_subtitle">Your interests list is empty. Add something you\'re curious about.</string>
     <string name="home_feed_settings_feed_configuration_reading_history_title">Reading history</string>
     <string name="home_feed_settings_feed_configuration_reading_history_subtitle">Browse your recently read articles</string>
@@ -2541,4 +2556,14 @@
     <string name="home_feed_settings_feed_configuration_languages_title">Languages</string>
     <string name="home_feed_settings_feed_configuration_languages_subtitle">Edit your preferred languages</string>
     <string name="home_feed_settings_feed_configuration_interests_updated_message">Interests updated. Refresh your feed to see updates.</string>
+    <string name="home_feed_places_of_interest_cta_title">Stories from places you love</string>
+    <string name="home_feed_places_of_interest_cta_description">Articles will appear based on your last viewed place. Visit the Places tab and select a location.</string>
+    <string name="home_feed_places_of_interest_cta_button">Go to Places</string>
+    <string name="home_feed_settings_places_of_interest_title">Places of interest</string>
+    <string name="home_feed_settings_places_of_interest_subtitle">Articles nearby your last location in Places</string>
+    <string name="home_feed_places_of_interest_card_footer">%1$s • Based on your location in Places</string>
+    <string name="home_feed_for_you_screen_end_of_feed_title">That\'s it for today!</string>
+    <string name="home_feed_for_you_screen_end_of_feed_description">Come back tomorrow to find fresh new articles customized for you.</string>
+    <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Ways to keep learning:</string>
+    <string name="home_feed_for_you_screen_end_of_feed_add_interests"><![CDATA[Add <a href="#add_interests">new interests</a>]]></string>
 </resources>

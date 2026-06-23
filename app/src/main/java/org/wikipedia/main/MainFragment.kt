@@ -91,6 +91,7 @@ import org.wikipedia.views.NotificationButtonView
 import org.wikipedia.views.TabCountsView
 import org.wikipedia.views.imageservice.ImageService
 import org.wikipedia.watchlist.WatchlistActivity
+import org.wikipedia.widgets.SearchWidgetInstallDialog
 import org.wikipedia.yearinreview.YearInReviewDialog
 import org.wikipedia.yearinreview.YearInReviewOnboardingActivity
 import org.wikipedia.yearinreview.YearInReviewViewModel
@@ -190,10 +191,16 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
             }
             binding.mainViewPager.setCurrentItem(item.order, false)
             requireActivity().invalidateOptionsMenu()
+            if (item.order == NavTab.SEARCH.code()) {
+                maybeShowSearchWidgetInstallPrompt()
+            }
             true
         }
 
         binding.mainNavTabLayout.setOverlayDot(NavTab.EDITS, !Prefs.isActivityTabOnboardingShown)
+
+        maybeShowFeedNewModulesTooltip()
+        Prefs.incrementExploreFeedVisitCount()
 
         notificationButtonView = NotificationButtonView(requireActivity())
 
@@ -568,6 +575,27 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
                 .setNegativeButton(R.string.shareable_reading_lists_new_install_dialog_got_it, null)
                 .show()
             Prefs.importReadingListsNewInstallDialogShown = true
+        }
+    }
+
+    private fun maybeShowFeedNewModulesTooltip() {
+        if (Prefs.exploreFeedVisitCount == 0) {
+            // Explicitly consider this tooltip "shown", since we only want to show it to users
+            // who have used the Feed already, instead of completely new users.
+            Prefs.isHomeFeedUpdateTooltipShown = true
+        } else if (!Prefs.isHomeFeedUpdateTooltipShown) {
+            Prefs.isHomeFeedUpdateTooltipShown = true
+            binding.root.post {
+                if (isAdded) {
+                    FeedbackUtil.showTooltip(requireActivity(), binding.mainNavTabLayout.findViewById(NavTab.HOME.id), getString(R.string.home_feed_update_tooltip1), aboveOrBelow = true, autoDismiss = false, showDismissButton = true)
+                }
+            }
+        }
+    }
+
+    private fun maybeShowSearchWidgetInstallPrompt() {
+        if (!Prefs.searchWidgetInstallPromptShown && !SearchWidgetInstallDialog.isWidgetInstalled()) {
+            ExclusiveBottomSheetPresenter.show(childFragmentManager, SearchWidgetInstallDialog())
         }
     }
 

@@ -24,7 +24,6 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.BreadcrumbsContextHelper
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
-import org.wikipedia.analytics.eventplatform.BreadCrumbViewUtil
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.appshortcuts.AppShortcuts
@@ -228,7 +227,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         BreadCrumbLogEvent.logScreenShown(this)
         TestKitchenAdapter.client.getInstrument("apps-open")
             .submitInteraction(action = "app_open", actionSource = "background",
-                actionSubtype = BreadCrumbViewUtil.getReadableScreenName(this))
+                actionSubtype = this::class.java.simpleName)
     }
 
     override fun onStart() {

@@ -2168,6 +2168,10 @@
   <string name="reading_challenge_install_prompt_message">Message of the prompt for the Reading challenge for installing the 25-day reading challenge widget.</string>
   <string name="reading_challenge_install_prompt_got_it">Button of the prompt for the Reading challenge for installing the 25-day reading challenge widget that confirms the content.</string>
   <string name="reading_challenge_install_prompt_add">Button of the prompt for the Reading challenge for installing the 25-day reading challenge widget that to add the widget.</string>
+  <string name="search_widget_install_prompt_title">Title of the bottom sheet prompting the user to install the Wikipedia Search home screen widget.</string>
+  <string name="search_widget_install_prompt_message">Message of the bottom sheet prompting the user to install the Wikipedia Search home screen widget.</string>
+  <string name="search_widget_install_prompt_add">Button label that starts the flow to add the Wikipedia Search widget to the home screen.</string>
+  <string name="search_widget_install_prompt_got_it">Button label that dismisses the Wikipedia Search widget install prompt.</string>
   <string name="reading_challenge_widget_explore_button">Button label in the Reading challenge widget to explore the Wikipedia app.</string>
   <string name="reading_challenge_widget_explore_wikipedia_button">Button label in the Reading challenge widget to explore the Wikipedia app.</string>
   <string name="reading_challenge_widget_join_challenge_button">Button label in the Reading challenge widget to join the challenge.</string>
@@ -2245,6 +2249,8 @@
   <string name="explore_feed_swipe_to_explore_prompt_title">Title of the explore feed prompt that shows the gestures to explore the feed.</string>
   <string name="explore_feed_swipe_to_explore_prompt_message">Message of the explore feed prompt that shows the gestures to explore the feed.</string>
   <string name="home_feed_settings_title">Title for the home feed settings screen.</string>
+  <string name="home_feed_settings_default_view_title">Title for preference that lets the user choose whether the Community or For You feed is displayed by default.</string>
+  <string name="home_feed_settings_default_view_subtitle">Subtitle for preference that lets the user choose whether the Community or For You feed is displayed by default.</string>
   <string name="home_feed_settings_whats_driving_title">Title for What\'s Driving modules in home feed settings.</string>
   <string name="home_feed_settings_modules_title">Title for Community and For You Setting item.</string>
   <string name="home_feed_settings_community_subtitle">Description for toggling visibility of Community feed sections.</string>
@@ -2257,6 +2263,9 @@
   <string name="home_feed_settings_because_you_read_subtitle">Subtitle describing article suggestions based on recently viewed articles.</string>
   <string name="home_feed_settings_continue_reading_title">Title for the Continue reading module in Home feed settings.</string>
   <string name="home_feed_settings_continue_reading_subtitle">Subtitle prompting users to continue reading unfinished articles.</string>
+  <string name="home_feed_did_you_know_title">Title of the Did You Know module in the Community feed.</string>
+  <string name="home_feed_did_you_know_subtitle">Subtitle of the Did You Know module in the Community feed.</string>
+  <string name="home_feed_did_you_know_more_label">Button label to see more Did You Know items.</string>
   <string name="home_feed_settings_community_empty_dialog_title">Title of dialog box warning the user that their Community feed will be empty.</string>
   <string name="home_feed_settings_for_you_empty_dialog_title">Title of dialog box warning the user that their \"For you\" feed will be empty.</string>
   <string name="home_feed_settings_empty_dialog_text">Body text of dialog box warning the user that their feed will be empty.</string>
@@ -2270,9 +2279,15 @@
   <string name="home_feed_for_you_screen_empty_ways_to_start">Header introducing suggested actions for getting started with the “For you” feed.</string>
   <string name="home_feed_for_you_screen_empty_add_interests">Link text prompting the user to add new interests to personalize the “For you” feed. Please keep the anchor link around the word \"some interests\"</string>
   <string name="home_feed_for_you_screen_empty_see_community">Link text prompting the user to explore the Community feed for additional content. Please keep the anchor link around the word \"community\"</string>
+  <string name="home_feed_update_tooltip1">Message that explains new features introduced into the Home Feed.</string>
+  <string name="home_feed_random_title">Title for the Random Article module in the For You feed.</string>
+  <string name="home_feed_random_subtitle">Description of the Random Article module in the For You feed.</string>
+  <string name="home_feed_random_shuffle_button">Button label for going to the Randomizer feature in the app.</string>
   <string name="home_feed_settings_feed_configuration_description">Description explaining that selected topics and reading history influence personalized recommendations in the For You feed.</string>
   <string name="home_feed_settings_feed_configuration_interest_title">Heading title for the user’s selected interests in feed configuration settings.</string>
   <string name="home_feed_settings_feed_configuration_interest_subtitle">Subtitle indicating users can manage or update their selected topics of interest.</string>
+  <string name="home_feed_settings_feed_configuration_location_title">Heading title for the user\'s selected location settings.</string>
+  <string name="home_feed_settings_feed_configuration_location_subtitle">Subtitle explaining that updating the Places location will show nearby articles.</string>
   <string name="home_feed_settings_feed_configuration_empty_interest_subtitle">Empty state message shown when the user has not added any interests yet.</string>
   <string name="home_feed_settings_feed_configuration_reading_history_title">Heading title for the user’s reading history in feed configuration settings.</string>
   <string name="home_feed_settings_feed_configuration_reading_history_subtitle">Subtitle prompting users to view their recently read articles.</string>
@@ -2280,4 +2295,14 @@
   <string name="home_feed_settings_feed_configuration_languages_title">Heading title for managing preferred languages in feed configuration settings.</string>
   <string name="home_feed_settings_feed_configuration_languages_subtitle">Subtitle prompting the user to edit their preferred languages.</string>
   <string name="home_feed_settings_feed_configuration_interests_updated_message">Message that indicates the interests have been updated, and users will need to refresh the feed to see the new contents.</string>
+  <string name="home_feed_places_of_interest_cta_title">Section title for the Places of Interest module in the home feed.</string>
+  <string name="home_feed_places_of_interest_cta_description">Description explaining that articles are recommended based on the user’s last viewed place and instructing them to select a location in the Places tab.</string>
+  <string name="home_feed_places_of_interest_cta_button">Button text that navigates the user to the Places tab.</string>
+  <string name="home_feed_settings_places_of_interest_title">Title for the Places of Interest settings section.</string>
+  <string name="home_feed_settings_places_of_interest_subtitle">Subtitle describing that nearby place-based articles are shown using the user’s last selected location in Places.</string>
+  <string name="home_feed_places_of_interest_card_footer">Footer text shown on a Places of Interest article card, displaying the article date followed by an indication that the recommendation is based on the user\'s selected location in Places. %1$s is replaced by distance.</string>
+  <string name="home_feed_for_you_screen_end_of_feed_title">Title text shown when the user reaches the end of the personalized feed for the day.</string>
+  <string name="home_feed_for_you_screen_end_of_feed_description">Description text encouraging the user to return later for refreshed personalized articles.</string>
+  <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Section header introducing additional actions the user can take after reaching the end of the feed.</string>
+  <string name="home_feed_for_you_screen_end_of_feed_add_interests">Link text prompting the user to add new interests to improve personalized recommendations.</string>
 </resources>

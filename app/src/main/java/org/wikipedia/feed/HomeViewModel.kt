@@ -1,16 +1,25 @@
 package org.wikipedia.feed
 
+import android.Manifest
+import android.content.pm.PackageManager
+import android.location.Location
 import androidx.compose.ui.util.fastJoinToString
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.flow.transformLatest
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -25,6 +34,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.feed.dayheader.DayHeaderCard
+import org.wikipedia.feed.didyouknow.DidYouKnowCard
 import org.wikipedia.feed.featured.FeaturedArticleCard
 import org.wikipedia.feed.image.FeaturedImageCard
 import org.wikipedia.feed.model.BasedOnInterestCard
@@ -32,6 +42,8 @@ import org.wikipedia.feed.model.BecauseYouReadCard
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.ContinueReadingCard
 import org.wikipedia.feed.model.ForYouCard
+import org.wikipedia.feed.model.PlacesOfInterestCard
+import org.wikipedia.feed.model.RandomCard
 import org.wikipedia.feed.news.NewsCard
 import org.wikipedia.feed.onthisday.OnThisDayCard
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
@@ -47,14 +59,17 @@ import org.wikipedia.settings.homefeed.CommunityModuleType
 import org.wikipedia.settings.homefeed.ForYouModuleType
 import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.topics.ArticleTopics
+import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import java.time.LocalDate
 import java.time.LocalDateTime
+import java.util.Locale
 
 enum class HomeTab { COMMUNITY, FOR_YOU }
-private const val MAX_HIDDEN_CARDS = 100
 private const val MAX_STOP_TIMEOUT_MILLIS = 5000L
+private const val PLACES_ARTICLES_REQUEST_LIMIT = 10
+private const val PLACES_SEARCH_RADIUS_METERS = 10000
 
 @Serializable
 sealed class ForYouModule {
@@ -64,10 +79,6 @@ sealed class ForYouModule {
 
     abstract fun withCards(cards: List<ForYouCard>): ForYouModule
     abstract fun moduleKey(): String
-
-    fun matchesIdentity(other: ForYouModule): Boolean {
-        return this::class == other::class && age == other.age && index == other.index
-    }
 
     @Serializable
     data class BasedOnInterest(
@@ -98,6 +109,28 @@ sealed class ForYouModule {
         override fun withCards(cards: List<ForYouCard>): ForYouModule = copy(cards = cards)
         override fun moduleKey(): String = ForYouModuleType.BECAUSE_YOU_READ.name
     }
+
+    @Serializable
+    data class PlacesOfInterest(
+        override val age: Int,
+        override val index: Int,
+        override val cards: List<ForYouCard>,
+        val hasLocationPermission: Boolean,
+        val isLoading: Boolean = false
+    ) : ForYouModule() {
+        override fun withCards(cards: List<ForYouCard>): ForYouModule = copy(cards = cards)
+        override fun moduleKey(): String = ForYouModuleType.PLACES_OF_INTEREST.name
+    }
+
+    @Serializable
+    data class Random(
+        override val age: Int,
+        override val index: Int,
+        override val cards: List<ForYouCard>
+    ) : ForYouModule() {
+        override fun withCards(cards: List<ForYouCard>): ForYouModule = copy(cards = cards)
+        override fun moduleKey(): String = ForYouModuleType.RANDOM.name
+    }
 }
 
 @Serializable
@@ -122,7 +155,7 @@ data class ForYouContentState(
     val isInitialLoading: Boolean = false,
     val isLoadingMore: Boolean = false,
     val error: Throwable? = null,
-    val canLoadMore: Boolean = true,
+    val canLoadMore: Boolean = false,
     val isInterestModuleHidden: Boolean = false,
     val emptyState: FeedEmptyState? = null
 )
@@ -144,30 +177,74 @@ class HomeViewModel : ViewModel() {
     val selectedTab = _selectedTab.asStateFlow()
 
     private val _communityState = MutableStateFlow(CommunityContentState())
-    val communityState = combine(_communityState, SettingsRepository.hiddenModules) { state, hiddenModules ->
-        val visibleModules = state.cards.filterNot { hiddenModules.contains(it.moduleKey()) }
-        val hasContent = visibleModules.any { it !is DayHeaderCard }
+    val communityState = combine(
+        _communityState,
+        SettingsRepository.hiddenModules,
+        SettingsRepository.hiddenCards
+    ) { state, hiddenModules, hiddenCards ->
+        val visibleItems = state.cards
+            .filterNot { hiddenModules.contains(it.moduleKey()) }
+            .filterNot { hiddenCards.contains(it.hideKey) }
+        val hasContent = visibleItems.any { it !is DayHeaderCard }
         val areAllModulesHidden = CommunityModuleType.entries.all { hiddenModules.contains(it.name) }
         val emptyState = when {
             areAllModulesHidden -> FeedEmptyState.ALL_MODULES_HIDDEN
             !state.isInitialLoading && state.error == null && !hasContent -> FeedEmptyState.NO_DATA
             else -> null
         }
-        state.copy(cards = visibleModules, emptyState = emptyState)
+        state.copy(cards = visibleItems, emptyState = emptyState)
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(MAX_STOP_TIMEOUT_MILLIS), CommunityContentState())
 
+    /**
+     * The Places of Interest module is loaded differently from the other "For you" modules, because it depends on location permission
+     * and the user's saved location from Places. So it lives in its own flow that reacts to those changes directly.
+     * Whenever the saved location or the feed language changes, we rebuild just this module (emitting a loading
+     * placeholder first when permission is granted) rather than reloading the entire tab. The result is merged into
+     * forYouState and sorted into its usual position by using ForYouModuleType enum ordinal.
+     */
+    @OptIn(ExperimentalCoroutinesApi::class)
+    private val placesModule: StateFlow<ForYouModule.PlacesOfInterest?> =
+        combine(Prefs.placesLastLocationFlow, _wikiSite) { _, _ -> }
+        .transformLatest {
+            if (hasLocationPermission()) {
+                emit(ForYouModule.PlacesOfInterest(age = 0, index = 0, cards = emptyList(), isLoading = true, hasLocationPermission = true))
+            }
+            emit(buildPlacesModule())
+        }
+        .catch {
+            L.e(it)
+            emit(null)
+        }
+        .stateIn(
+            viewModelScope,
+            SharingStarted.WhileSubscribed(MAX_STOP_TIMEOUT_MILLIS),
+            null
+        )
+
     private val _forYouState = MutableStateFlow(ForYouContentState())
-    val forYouState = combine(_forYouState, SettingsRepository.hiddenModules) { state, hiddenModules ->
-        val visibleModules = state.modules.filterNot { hiddenModules.contains(it.moduleKey()) }
+    val forYouState = combine(
+        _forYouState,
+        SettingsRepository.hiddenModules,
+        SettingsRepository.hiddenCards,
+        placesModule
+    ) { state, hiddenModules, hiddenCards, placesModule ->
+        val visibleItems = (state.modules + listOfNotNull(placesModule))
+            .sortedBy { ForYouModuleType.valueOf(it.moduleKey()).ordinal }
+            .filterNot { hiddenModules.contains(it.moduleKey()) }
+            .mapNotNull { module ->
+                val visibleCards = module.cards.filterNot { hiddenCards.contains(it.hideKey) }
+                // only drop module when it has cards, and they are all hidden, not when it is empty to begin with.
+                if (module.cards.isNotEmpty() && visibleCards.isEmpty()) null else module.withCards(visibleCards)
+            }
         val areAllModulesHidden = ForYouModuleType.entries.all { hiddenModules.contains(it.name) }
         val isInterestModuleHidden = hiddenModules.contains(ForYouModuleType.BASED_ON_INTEREST.name)
         val emptyState = when {
             areAllModulesHidden -> FeedEmptyState.ALL_MODULES_HIDDEN
-            !state.isInitialLoading && state.error == null && visibleModules.isEmpty() -> FeedEmptyState.NO_DATA
+            !state.isInitialLoading && state.error == null && visibleItems.isEmpty() -> FeedEmptyState.NO_DATA
             else -> null
         }
         state.copy(
-            modules = visibleModules,
+            modules = visibleItems,
             emptyState = emptyState,
             isInterestModuleHidden = isInterestModuleHidden
         )
@@ -202,6 +279,9 @@ class HomeViewModel : ViewModel() {
     val unreadCount = _unreadCount.asStateFlow()
 
     init {
+        viewModelScope.launch {
+            SettingsRepository.migrateLegacyHiddenCards()
+        }
         viewModelScope.launch {
             combine(_selectedTab, _wikiSite) { tab, site -> tab to site }
             .distinctUntilChanged()
@@ -283,14 +363,15 @@ class HomeViewModel : ViewModel() {
                 .getFeedFeatured(date.year.toString(), "%02d".format(date.monthValue), "%02d".format(date.dayOfMonth), wikiSite.value.languageCode)
 
             // Construct Card objects based on the day's content
-            val hiddenCards = Prefs.hiddenCards
-
             val cardsForDay = buildList<Card> {
                 content.tfa?.let {
                     add(FeaturedArticleCard(it, age, wikiSite.value))
                 }
                 content.topRead?.let {
                     add(TopReadCard(it, age, wikiSite.value))
+                }
+                content.dyk?.let {
+                    add(DidYouKnowCard(it, date.toString(), wikiSite.value))
                 }
                 if (!content.news.isNullOrEmpty()) {
                     add(NewsCard(content.news, age, wikiSite.value))
@@ -301,7 +382,7 @@ class HomeViewModel : ViewModel() {
                 content.potd?.let {
                     add(FeaturedImageCard(it, age, wikiSite.value))
                 }
-            }.filterNot { hiddenCards.contains(it.hideKey) }.toMutableList()
+            }.toMutableList()
             if (cardsForDay.isNotEmpty()) {
                 cardsForDay.add(0, DayHeaderCard(age))
             }
@@ -344,81 +425,33 @@ class HomeViewModel : ViewModel() {
                 modules = _forYouState.value.modules + newModules,
                 isInitialLoading = false,
                 isLoadingMore = false,
-                error = null,
-                canLoadMore = newModules.isNotEmpty()
+                error = null
             )
         }
     }
 
-    fun hideCommunityCard(card: Card): Int {
-        addHiddenCard(card)
-        val cardIndex = _communityState.value.cards.indexOf(card)
-        if (cardIndex >= 0) {
-            _communityState.value = _communityState.value.copy(
-                cards = _communityState.value.cards - card
-            )
+    fun hideCommunityCard(card: Card) {
+        viewModelScope.launch {
+            SettingsRepository.addHiddenCard(card.hideKey)
         }
-        return cardIndex
     }
 
-    fun restoreCommunityCard(card: Card, index: Int) {
-        Prefs.hiddenCards -= card.hideKey
-         _communityState.value = _communityState.value.copy(
-            cards = _communityState.value.cards.toMutableList().apply {
-                if (index in 0..size) {
-                    add(index, card)
-                }
-            }
-        )
+    fun restoreCommunityCard(card: Card) {
+        viewModelScope.launch {
+            SettingsRepository.removeHiddenCard(card.hideKey)
+        }
     }
 
-    fun hideForYouCard(module: ForYouModule, card: ForYouCard): Int {
-        addHiddenCard(card)
-        val modules = _forYouState.value.modules
-        val moduleIndex = modules.indexOfFirst { it.matchesIdentity(module) }
-        if (moduleIndex < 0) {
-            return -1
+    fun hideForYouCard(card: ForYouCard) {
+        viewModelScope.launch {
+            SettingsRepository.addHiddenCard(card.hideKey)
         }
-        val currentModule = modules[moduleIndex]
-        val cardIndex = currentModule.cards.indexOf(card)
-        if (cardIndex < 0) {
-            return -1
-        }
-        val updatedCards = currentModule.cards.toMutableList().apply {
-            removeAt(cardIndex)
-        }
-        // If this was the last card in the module, remove the module.
-        val updatedModules = modules.toMutableList().apply {
-            if (updatedCards.isEmpty()) {
-                removeAt(moduleIndex)
-            } else {
-                this[moduleIndex] = currentModule.withCards(updatedCards)
-            }
-        }
-        _forYouState.update { it.copy(modules = updatedModules) }
-        if (updatedCards.isEmpty()) {
-            return moduleIndex
-        }
-        return cardIndex
     }
 
-    fun restoreForYouCard(module: ForYouModule, card: ForYouCard, index: Int) {
-        Prefs.hiddenCards -= card.hideKey
-        val modules = _forYouState.value.modules.toMutableList()
-        val moduleIndex = modules.indexOfFirst { it.matchesIdentity(module) }
-        if (moduleIndex >= 0) {
-            val currentModule = modules[moduleIndex]
-            val insertIndex = index.coerceIn(0, currentModule.cards.size)
-            val updatedCards = currentModule.cards.toMutableList().apply {
-                add(insertIndex, card)
-            }
-            modules[moduleIndex] = currentModule.withCards(updatedCards)
-        } else {
-            // If the module was removed when the card was hidden, add it back in.
-            val insertIndex = index.coerceIn(0, modules.size)
-            modules.add(insertIndex, module.withCards(listOf(card)))
+    fun restoreForYouCard(card: ForYouCard) {
+        viewModelScope.launch {
+            SettingsRepository.removeHiddenCard(card.hideKey)
         }
-        _forYouState.update { it.copy(modules = modules) }
     }
 
     fun hideModule(moduleKey: String) {
@@ -433,18 +466,9 @@ class HomeViewModel : ViewModel() {
         }
     }
 
-    private fun addHiddenCard(card: Card) {
-        val hiddenCards = Prefs.hiddenCards.toMutableList()
-        if (hiddenCards.size > MAX_HIDDEN_CARDS) {
-            hiddenCards.removeAt(0)
-        }
-        hiddenCards += card.hideKey
-        Prefs.hiddenCards = hiddenCards
-    }
-
     private suspend fun fetchForYouModules(age: Int): List<ForYouModule> {
         val modules = mutableListOf<ForYouModule>()
-        val hiddenCards = Prefs.hiddenCards
+        val hiddenCards = SettingsRepository.hiddenCards.first()
         var forYouCollectionSaved = ForYouCollectionSaved()
 
         try {
@@ -591,6 +615,15 @@ class HomeViewModel : ViewModel() {
             modules.add(ForYouModule.ContinueReading(age, 0, continueReadingCards))
         }
 
+        // --- Random article ---
+
+        val random = ServiceFactory.getRest(wikiSite.value).getRandomSummary()
+        val randomCard = RandomCard(random.getPageTitle(wikiSite.value))
+        if (!hiddenCards.contains(randomCard.hideKey)) {
+            // The index for this module is always 0 because there is always a single instance of this module, per age.
+            modules.add(ForYouModule.Random(age, 0, listOf(randomCard)))
+        }
+
         forYouCollectionSaved = ForYouCollectionSaved(
             dateTime = LocalDateTime.now(),
             modulesPerLanguage = forYouCollectionSaved.modulesPerLanguage + (wikiSite.value.languageCode to modules)
@@ -599,6 +632,56 @@ class HomeViewModel : ViewModel() {
             Prefs.homeForYouModulesToday = JsonUtil.encodeToString(forYouCollectionSaved).orEmpty()
         }
         return modules
+    }
+
+    private suspend fun buildPlacesModule(): ForYouModule.PlacesOfInterest? {
+        if (!hasLocationPermission()) {
+            return ForYouModule.PlacesOfInterest(age = 0, index = 0, cards = emptyList(), hasLocationPermission = false)
+        }
+        val location = Prefs.placesLastLocationAndZoomLevel?.first
+            ?: return ForYouModule.PlacesOfInterest(age = 0, index = 0, cards = emptyList(), hasLocationPermission = false)
+
+        val cards = getPlacesCards(location)
+        if (cards.isEmpty()) {
+            return null
+        }
+        return ForYouModule.PlacesOfInterest(age = 0, index = 0, cards = cards, hasLocationPermission = true)
+    }
+
+    private suspend fun getPlacesCards(savedLocation: Location): List<PlacesOfInterestCard> {
+        val coordinates = "${savedLocation.latitude}|${savedLocation.longitude}"
+        return ServiceFactory.get(wikiSite.value)
+            .getGeoSearchWithExtracts(coordinates, PLACES_SEARCH_RADIUS_METERS, PLACES_ARTICLES_REQUEST_LIMIT, PLACES_ARTICLES_REQUEST_LIMIT)
+            .query?.pages.orEmpty()
+            .filter { it.coordinates != null }
+            .sortedBy {
+                savedLocation.distanceTo(Location("").apply {
+                    latitude = it.coordinates!![0].lat
+                    longitude = it.coordinates[0].lon
+                })
+            }
+            .map { page ->
+                val title = PageTitle(
+                    text = page.title,
+                    wiki = wikiSite.value,
+                    thumbUrl = page.thumbUrl(),
+                    description = page.description,
+                    displayText = page.displayTitle(wikiSite.value.languageCode),
+                    extract = page.extract
+                )
+                val articleLocation = Location("").apply {
+                    latitude = page.coordinates!![0].lat
+                    longitude = page.coordinates[0].lon
+                }
+                val distance = GeoUtil.getDistanceWithUnit(savedLocation, articleLocation, Locale.getDefault())
+                PlacesOfInterestCard(title, distance)
+            }
+    }
+
+    private fun hasLocationPermission(): Boolean {
+        val context = WikipediaApp.instance
+        return ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED ||
+                ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED
     }
 
     fun refreshUnreadNotificationCount() {

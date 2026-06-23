@@ -72,19 +72,10 @@ fun BasedOnInterestModule(
 @Preview
 @Composable
 fun BasedOnInterestCardPreviewWithImage() {
-    val wikiSite = WikiSite.preview()
-    val title = PageTitle(
-        text = "Test Article",
-        displayText = "Test Article",
-        wiki = WikiSite.preview(),
-        description = "This is a test article",
-        extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        thumbUrl = "https://example.com/thumb.jpg"
-    )
-    val card = BasedOnInterestCard(title)
+    val card = BasedOnInterestCard(PageTitle.preview())
     BaseTheme(currentTheme = Theme.LIGHT) {
         BasedOnInterestModule(
-            wikiSite = wikiSite,
+            wikiSite = WikiSite.preview(),
             module = ForYouModule.BasedOnInterest(0, 0, mutableListOf(card, card, card, card))
         )
     }
@@ -93,19 +84,10 @@ fun BasedOnInterestCardPreviewWithImage() {
 @Preview
 @Composable
 fun BasedOnInterestCardPreviewNoImage() {
-    val wikiSite = WikiSite.preview()
-    val title = PageTitle(
-        text = "Test Article",
-        displayText = "Test Article",
-        wiki = WikiSite.preview(),
-        description = "This is a test article",
-        extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        thumbUrl = null
-    )
-    val card = BasedOnInterestCard(title)
+    val card = BasedOnInterestCard(PageTitle.preview(withThumbnail = false))
     BaseTheme(currentTheme = Theme.LIGHT) {
         BasedOnInterestModule(
-            wikiSite = wikiSite,
+            wikiSite = WikiSite.preview(),
             module = ForYouModule.BasedOnInterest(0, 0, mutableListOf(card, card, card, card))
         )
     }
@@ -114,19 +96,10 @@ fun BasedOnInterestCardPreviewNoImage() {
 @Preview
 @Composable
 fun BasedOnInterestCardPreviewTextOnlyWithImage() {
-    val wikiSite = WikiSite.preview()
-    val title = PageTitle(
-        text = "Test Article",
-        displayText = "Test Article",
-        wiki = WikiSite.preview(),
-        description = "This is a test article",
-        extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        thumbUrl = "test.jpg"
-    )
-    val card = BasedOnInterestCard(title)
+    val card = BasedOnInterestCard(PageTitle.preview())
     BaseTheme(currentTheme = Theme.LIGHT) {
         BasedOnInterestModule(
-            wikiSite = wikiSite,
+            wikiSite = WikiSite.preview(),
             module = ForYouModule.BasedOnInterest(0, 0, mutableListOf(card, card, card, card))
         )
     }

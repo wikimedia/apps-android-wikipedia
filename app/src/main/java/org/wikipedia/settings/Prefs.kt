@@ -1,6 +1,12 @@
 package org.wikipedia.settings
 
+import android.content.SharedPreferences
 import android.location.Location
+import androidx.preference.PreferenceManager
+import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.flow.distinctUntilChanged
 import okhttp3.Cookie
 import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 import okhttp3.logging.HttpLoggingInterceptor
@@ -711,6 +717,21 @@ object Prefs {
             PrefsIoUtil.setString(R.string.preference_key_places_last_location_and_zoom_level, locationAndZoomLevelString)
         }
 
+    val placesLastLocationFlow: Flow<Location?> = callbackFlow {
+        val key = WikipediaApp.instance.getString(R.string.preference_key_places_last_location_and_zoom_level)
+        val prefs = PreferenceManager.getDefaultSharedPreferences(WikipediaApp.instance)
+        trySend(placesLastLocationAndZoomLevel?.first)
+        val listener = SharedPreferences.OnSharedPreferenceChangeListener { _, changedKey ->
+            if (changedKey == key) {
+                trySend(placesLastLocationAndZoomLevel?.first)
+            }
+        }
+        prefs.registerOnSharedPreferenceChangeListener(listener)
+        awaitClose { prefs.unregisterOnSharedPreferenceChangeListener(listener) }
+    }.distinctUntilChanged { old, new ->
+        old?.latitude == new?.latitude && old?.longitude == new?.longitude
+    }
+
     var recentUsedTemplates
         get() = JsonUtil.decodeFromString<Set<PageTitle>>(PrefsIoUtil.getString(R.string.preference_key_recent_used_templates, null)) ?: emptySet()
         set(set) = PrefsIoUtil.setString(R.string.preference_key_recent_used_templates, JsonUtil.encodeToString(set))
@@ -942,4 +963,12 @@ object Prefs {
     var isHomeSwipeToExplorePromptShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_home_swipe_to_explore_prompt_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_home_swipe_to_explore_prompt_shown, value)
+
+    var isHomeFeedUpdateTooltipShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_home_feed_update_tooltip_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_home_feed_update_tooltip_shown, value)
+
+    var searchWidgetInstallPromptShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_search_widget_install_prompt_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_search_widget_install_prompt_shown, value)
 }
