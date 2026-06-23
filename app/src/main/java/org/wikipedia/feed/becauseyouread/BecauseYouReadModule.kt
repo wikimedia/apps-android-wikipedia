@@ -32,7 +32,7 @@ fun BecauseYouReadModule(
     onHideCardClick: (module: ForYouModule, card: ForYouCard) -> Unit = { _, _ -> },
     onHideModuleClick: () -> Unit = {},
     onCardInView: (card: Card) -> Unit = {},
-    onCustomizeInterestsClick: (card: Card) -> Unit = {}
+    onCustomizeClick: (card: Card) -> Unit = {}
 ) {
     val context = LocalContext.current
     val backgroundColorIndex = abs(module.cards.firstOrNull()?.hideKey.hashCode())
@@ -58,7 +58,7 @@ fun BecauseYouReadModule(
             onSaveClick = { onPageBookmarkClick(card, historyEntry) },
             onHideCardClick = onHideCardClick,
             onHideModuleClick = onHideModuleClick,
-            onCustomizeInterestsClick = { onCustomizeInterestsClick(card) }
+            onCustomizeClick = { onCustomizeClick(card) }
         )
     }
 }

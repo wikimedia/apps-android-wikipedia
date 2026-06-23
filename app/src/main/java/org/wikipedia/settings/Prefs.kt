@@ -2,11 +2,15 @@ package org.wikipedia.settings
 
 import android.content.SharedPreferences
 import android.location.Location
+import androidx.annotation.StringRes
 import androidx.preference.PreferenceManager
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onStart
 import okhttp3.Cookie
 import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 import okhttp3.logging.HttpLoggingInterceptor
@@ -730,6 +734,32 @@ object Prefs {
         awaitClose { prefs.unregisterOnSharedPreferenceChangeListener(listener) }
     }.distinctUntilChanged { old, new ->
         old?.latitude == new?.latitude && old?.longitude == new?.longitude
+    }
+
+    /**
+     * Emits the key of any preference as it changes. Backed by a single shared
+     * [SharedPreferences.OnSharedPreferenceChangeListener], so observing reactive preferences
+     * costs one shared listener rather than a dedicated [callbackFlow] per key.
+     */
+    val preferenceKeyChangeFlow: Flow<String> = callbackFlow {
+        val prefs = PreferenceManager.getDefaultSharedPreferences(WikipediaApp.instance)
+        val listener = SharedPreferences.OnSharedPreferenceChangeListener { _, changedKey ->
+            changedKey?.let { trySend(it) }
+        }
+        prefs.registerOnSharedPreferenceChangeListener(listener)
+        awaitClose { prefs.unregisterOnSharedPreferenceChangeListener(listener) }
+    }
+
+    /**
+     * Emits once on subscription (with the current values) and again whenever any of the given
+     * preference [keys] changes, so collectors can re-read the current values reactively.
+     */
+    fun observeKeys(@StringRes vararg keys: Int): Flow<Unit> {
+        val keyStrings = keys.map { WikipediaApp.instance.getString(it) }.toSet()
+        return preferenceKeyChangeFlow
+            .filter { it in keyStrings }
+            .onStart { emit("") }
+            .map { }
     }
 
     var recentUsedTemplates

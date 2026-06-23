@@ -59,8 +59,11 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.extensions.getString
 import org.wikipedia.feed.becauseyouread.BecauseYouReadModule
 import org.wikipedia.feed.continuereading.ContinueReadingModule
+import org.wikipedia.feed.discover.DiscoverArticlesModule
+import org.wikipedia.feed.discover.DiscoverEnablePromptModule
 import org.wikipedia.feed.interests.BasedOnInterestModule
 import org.wikipedia.feed.model.Card
+import org.wikipedia.feed.model.DiscoverEnablePromptCard
 import org.wikipedia.feed.model.EmptyForYouCard
 import org.wikipedia.feed.model.ForYouCard
 import org.wikipedia.feed.model.PlacesOfInterestLocationPromptCard
@@ -82,12 +85,14 @@ fun ForYouContentTab(
     onPageClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
     onPageBookmarkClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
     onPageShareClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
-    onCustomizeInterestsClick: (card: Card) -> Unit = {},
+    onCustomizeClick: (card: Card) -> Unit = {},
     onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> },
     onManageModulesClick: () -> Unit,
     onSelectTab: (HomeTab, Card?) -> Unit = { _, _ -> },
     onShuffleClick: () -> Unit = {},
-    onPlacesCtaClick: () -> Unit = {}
+    onPlacesTeaserClick: () -> Unit = {},
+    onDiscoverTeaserClick: () -> Unit = {},
+    onSeeAllRecommendationsClick: () -> Unit = {}
 ) {
     when {
         state.isInitialLoading -> {
@@ -117,7 +122,7 @@ fun ForYouContentTab(
                 headerResId = R.string.home_feed_for_you_screen_empty_ways_to_start,
                 customizeInterestsTextResId = R.string.home_feed_for_you_screen_empty_add_interests,
                 showCustomizeInterests = !state.isInterestModuleHidden,
-                onCustomizeInterestsClick = { onCustomizeInterestsClick(card) },
+                onCustomizeClick = { onCustomizeClick(card) },
                 navigateToCommunityTab = { onSelectTab(HomeTab.COMMUNITY, card) }
             )
         }
@@ -186,9 +191,11 @@ fun ForYouContentTab(
                                 onHideCardClick = onHideCardClick,
                                 onHideModuleClick = onHideModuleClick,
                                 onCardImpression = onCardImpression,
-                                onCustomizeInterestsClick = onCustomizeInterestsClick,
+                                onCustomizeClick = onCustomizeClick,
                                 onShuffleClick = onShuffleClick,
-                                onPlacesCtaClick = onPlacesCtaClick
+                                onPlacesTeaserClick = onPlacesTeaserClick,
+                                onDiscoverTeaserClick = onDiscoverTeaserClick,
+                                onSeeAllRecommendationsClick = onSeeAllRecommendationsClick
                             )
                         }
 
@@ -219,7 +226,7 @@ fun ForYouContentTab(
                                     descriptionResId = R.string.home_feed_for_you_screen_end_of_feed_description,
                                     headerResId = R.string.home_feed_for_you_screen_end_of_feed_ways_to_keep_learning,
                                     customizeInterestsTextResId = R.string.home_feed_for_you_screen_end_of_feed_add_interests,
-                                    onCustomizeInterestsClick = { onCustomizeInterestsClick(card) },
+                                    onCustomizeClick = { onCustomizeClick(card) },
                                     navigateToCommunityTab = { onSelectTab(HomeTab.COMMUNITY, card) }
                                 )
                             }
@@ -244,9 +251,11 @@ fun ForYouContentTab(
                                 onHideCardClick = onHideCardClick,
                                 onHideModuleClick = onHideModuleClick,
                                 onCardImpression = { _, _ -> },
-                                onCustomizeInterestsClick = onCustomizeInterestsClick,
+                                onCustomizeClick = onCustomizeClick,
                                 onShuffleClick = onShuffleClick,
-                                onPlacesCtaClick = onPlacesCtaClick
+                                onPlacesTeaserClick = onPlacesTeaserClick,
+                                onDiscoverTeaserClick = onDiscoverTeaserClick,
+                                onSeeAllRecommendationsClick = onSeeAllRecommendationsClick
                             )
                         }
                     }
@@ -268,9 +277,11 @@ private fun LazyListScope.forYouModuleItem(
     onHideCardClick: (module: ForYouModule, card: ForYouCard) -> Unit,
     onHideModuleClick: (moduleKey: String) -> Unit,
     onCardImpression: (card: Card, index: Int) -> Unit,
-    onCustomizeInterestsClick: (card: Card) -> Unit,
+    onCustomizeClick: (card: Card) -> Unit,
     onShuffleClick: () -> Unit,
-    onPlacesCtaClick: () -> Unit
+    onPlacesTeaserClick: () -> Unit,
+    onDiscoverTeaserClick: () -> Unit,
+    onSeeAllRecommendationsClick: () -> Unit
 ) {
     val key = "${module.javaClass.simpleName}-${module.age}-$index"
     when (module) {
@@ -288,7 +299,7 @@ private fun LazyListScope.forYouModuleItem(
                     onHideCardClick = onHideCardClick,
                     onHideModuleClick = { onHideModuleClick(module.moduleKey()) },
                     onCardInView = { onCardImpression(it, index) },
-                    onCustomizeInterestsClick = onCustomizeInterestsClick
+                    onCustomizeClick = onCustomizeClick
                 )
             }
         }
@@ -306,7 +317,7 @@ private fun LazyListScope.forYouModuleItem(
                     onHideCardClick = onHideCardClick,
                     onHideModuleClick = { onHideModuleClick(module.moduleKey()) },
                     onCardInView = { onCardImpression(it, index) },
-                    onCustomizeInterestsClick = onCustomizeInterestsClick
+                    onCustomizeClick = onCustomizeClick
                 )
             }
         }
@@ -324,7 +335,7 @@ private fun LazyListScope.forYouModuleItem(
                     onHideCardClick = onHideCardClick,
                     onHideModuleClick = { onHideModuleClick(module.moduleKey()) },
                     onCardInView = { onCardImpression(it, index) },
-                    onCustomizeInterestsClick = onCustomizeInterestsClick
+                    onCustomizeClick = onCustomizeClick
                 )
             }
         }
@@ -352,7 +363,7 @@ private fun LazyListScope.forYouModuleItem(
                                 .padding(top = (topInset * 2 + 64).dp)
                                 .navigationBarsPadding(),
                             wikiSite = wikiSite,
-                            onGoToPlacesClick = onPlacesCtaClick
+                            onGoToPlacesClick = onPlacesTeaserClick
                         )
                     }
                     else -> {
@@ -368,7 +379,56 @@ private fun LazyListScope.forYouModuleItem(
                             onHideCardClick = onHideCardClick,
                             onHideModuleClick = { onHideModuleClick(module.moduleKey()) },
                             onCardInView = { onCardImpression(it, index) },
-                            onCustomizeInterestsClick = onCustomizeInterestsClick
+                            onCustomizeClick = onCustomizeClick
+                        )
+                    }
+                }
+            }
+        }
+        is ForYouModule.Discover -> {
+            item(key = key) {
+                when {
+                    module.isLoading -> {
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(viewPortHeight),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            LoadingIndicator()
+                        }
+                    }
+                    !module.isEnabled -> {
+                        onCardImpression(DiscoverEnablePromptCard(), index)
+                        DiscoverEnablePromptModule(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(viewPortHeight)
+                                .background(ComposeColors.Green800)
+                                .padding(horizontal = 16.dp)
+                                .padding(top = (topInset * 2 + 64).dp)
+                                .navigationBarsPadding(),
+                            wikiSite = wikiSite,
+                            onEnableDiscoverClick = onDiscoverTeaserClick
+                        )
+                    }
+                    else -> {
+                        DiscoverArticlesModule(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(viewPortHeight),
+                            topInset = topInset,
+                            wikiSite = wikiSite,
+                            module = module,
+                            updateFrequency = module.updateFrequency.displayStringRes,
+                            onPageClick = onPageClick,
+                            onPageShareClick = onPageShareClick,
+                            onPageBookmarkClick = onPageBookmarkClick,
+                            onHideCardClick = onHideCardClick,
+                            onHideModuleClick = { onHideModuleClick(module.moduleKey()) },
+                            onCardInView = { onCardImpression(it, index) },
+                            onCustomizeClick = onCustomizeClick,
+                            onSeeAllRecommendationsClick = onSeeAllRecommendationsClick
                         )
                     }
                 }
@@ -388,7 +448,7 @@ private fun LazyListScope.forYouModuleItem(
                     onHideCardClick = onHideCardClick,
                     onHideModuleClick = { onHideModuleClick(module.moduleKey()) },
                     onCardInView = { onCardImpression(it, index) },
-                    onCustomizeInterestsClick = onCustomizeInterestsClick,
+                    onCustomizeClick = onCustomizeClick,
                     onShuffleClick = onShuffleClick
                 )
             }
@@ -441,7 +501,7 @@ fun ForYouFeedMessageView(
     @StringRes customizeInterestsTextResId: Int,
     @StringRes communityTabTextResId: Int = R.string.home_feed_for_you_screen_empty_see_community,
     showCustomizeInterests: Boolean = true,
-    onCustomizeInterestsClick: () -> Unit,
+    onCustomizeClick: () -> Unit,
     navigateToCommunityTab: () -> Unit
 ) {
     val context = LocalContext.current
@@ -484,7 +544,7 @@ fun ForYouFeedMessageView(
             EmptyStateActionRow(
                 iconRes = R.drawable.ic_baseline_tune_24,
                 text = context.getString(wikiSite.languageCode, customizeInterestsTextResId),
-                onLinkClick = onCustomizeInterestsClick
+                onLinkClick = onCustomizeClick
             )
         }
         EmptyStateActionRow(
@@ -505,7 +565,7 @@ fun ForYouFeedMessageViewPreview() {
                 .background(colorResource(R.color.green800))
                 .padding(16.dp),
             wikiSite = WikiSite.preview(),
-            onCustomizeInterestsClick = {},
+            onCustomizeClick = {},
             illustrationResId = R.drawable.ic_yir_puzzle,
             titleResId = R.string.home_feed_for_you_screen_end_of_feed_title,
             descriptionResId = R.string.home_feed_for_you_screen_end_of_feed_description,
@@ -535,7 +595,7 @@ fun ForYouFeedEmptyViewPreview() {
             customizeInterestsTextResId = R.string.home_feed_for_you_screen_empty_add_interests,
             communityTabTextResId = R.string.home_feed_for_you_screen_empty_see_community,
             showCustomizeInterests = true,
-            onCustomizeInterestsClick = {},
+            onCustomizeClick = {},
             navigateToCommunityTab = {}
         )
     }

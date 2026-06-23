@@ -1,5 +1,6 @@
 package org.wikipedia.feed
 
+import androidx.annotation.StringRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -78,7 +79,8 @@ fun ForYouCardContent(
     onSaveClick: (PageTitle) -> Unit = {},
     onHideCardClick: (module: ForYouModule, card: ForYouCard) -> Unit = { _, _ -> },
     onHideModuleClick: () -> Unit = {},
-    onCustomizeInterestsClick: () -> Unit = {}
+    @StringRes customizeMenuText: Int = R.string.explore_feed_customize_interests,
+    onCustomizeClick: () -> Unit = {}
 ) {
     val context = LocalContext.current
     var overflowMenuExpanded by remember { mutableStateOf(false) }
@@ -199,7 +201,8 @@ fun ForYouCardContent(
                                     }
                                 },
                                 onHideModuleClick = onHideModuleClick,
-                                onCustomizeInterestsClick = onCustomizeInterestsClick
+                                customizeMenuText = customizeMenuText,
+                                onCustomizeClick = onCustomizeClick
                             )
                         }
                     }
@@ -297,7 +300,8 @@ fun ForYouCardContent(
                                 }
                             },
                             onHideModuleClick = onHideModuleClick,
-                            onCustomizeInterestsClick = onCustomizeInterestsClick
+                            customizeMenuText = customizeMenuText,
+                            onCustomizeClick = onCustomizeClick
                         )
                     }
                     val text = if (variation == CardVariation.VARIATION_IMAGE_WITH_EXTRACT) (title.extract ?: title.description) else title.description
@@ -350,7 +354,8 @@ fun ForYouCardDropdownMenu(
     onSaveClick: () -> Unit = {},
     onHideCardClick: () -> Unit = {},
     onHideModuleClick: () -> Unit = {},
-    onCustomizeInterestsClick: () -> Unit
+    @StringRes customizeMenuText: Int = R.string.explore_feed_customize_interests,
+    onCustomizeClick: () -> Unit
 ) {
     val context = LocalContext.current
     DropdownMenu(
@@ -454,13 +459,13 @@ fun ForYouCardDropdownMenu(
             },
             text = {
                 Text(
-                    text = context.getString(wikiSite.languageCode, R.string.explore_feed_customize_interests),
+                    text = context.getString(wikiSite.languageCode, customizeMenuText),
                     style = MaterialTheme.typography.bodyLarge,
                     color = WikipediaTheme.colors.primaryColor
                 )
             },
             onClick = {
-                onCustomizeInterestsClick()
+                onCustomizeClick()
                 onDismiss()
             }
         )
