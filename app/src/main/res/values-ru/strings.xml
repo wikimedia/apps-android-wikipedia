@@ -942,7 +942,7 @@
   <string name="view_random_article_card_title">Случайная статья</string>
   <string name="view_random_article_card_action">Ещё случайные статьи</string>
   <string name="view_top_read_card_title">Самое читаемое</string>
-  <string name="view_top_read_card_description">Популярное сегодня в Википедии</string>
+  <string name="view_top_read_card_description">Популярное в Википедии за день</string>
   <string name="view_top_read_card_action">Больше популярных статей</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d тыс.</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d млн</string>
@@ -989,11 +989,11 @@
   <string name="feed_item_type_randomizer">Сгенерировать случайный список статей для чтения</string>
   <string name="feed_item_type_suggested_edits">Предложено к редактированию кратких описаний</string>
   <string name="feed_item_type_places">Статьи поблизости на основе текущего местоположения</string>
-  <string name="feed_empty_message" fuzzy="true">Ваша лента пуста</string>
+  <string name="feed_empty_message">Ваша главная страница пуста</string>
   <string name="feed_configure_onboarding_action">Настроить</string>
   <string name="customize_lang_selection_dialog_ok_button_text">ОК</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Отмена</string>
-  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Настройте свою ленту&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Теперь вы можете выбрать, что будет отображаться в ленте, а также определить приоритеты для выбранных типов содержимого.</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Настройте свою главную страницу&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Теперь вы можете выбрать, что будет отображаться в ленте, а также определить приоритеты для выбранных типов содержимого.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">ОК</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Отмена</string>
   <string name="feed_accessibility_card_text">Вы достигли конца ленты.</string>
@@ -1322,7 +1322,7 @@
   <string name="activity_tab_play_wiki_games">Играть в ВикиИгры</string>
   <string name="activity_tab_report_email_subject">Сообщить о проблеме — вкладка «Активность»</string>
   <string name="activity_tab_report_email_body">I have encountered a problem with Activity Tab feature:\n- [Опишите конкретную проблему]\n\nThe behavior I would like to see is:\n- [Опишите предполагаемое решение]</string>
-  <string name="activity_tab_menu_feedback">Проблема с функцией</string>
+  <string name="activity_tab_menu_feedback">Сообщить о проблеме</string>
   <string name="activity_tab_menu_info">Узнать больше</string>
   <string name="activity_tab_menu_customize">Настроить</string>
   <string name="activity_tab_menu_customize_description">Статистика на вкладке «Активность» основана на основном языке, установленном в настройках, и использует локальные данные, за исключением правок, которые являются общедоступными.\n\nСтатистика чтения основана на языках, выбранных в настройках приложения, а статистика редактирования ограничена языком приложения, выбранным в качестве основного. Статистика использует локальные данные, за исключением общедоступных правок.</string>
@@ -1424,17 +1424,24 @@
   <string name="onboarding_get_started">Начать</string>
   <string name="onboarding_maybe_later">Может позже</string>
   <string name="onboarding_explore_title">Новые способы исследований</string>
-  <string name="onboarding_explore_text" fuzzy="true">Путешествуйте по лабиринтам Википедии с помощью постоянно обновляемой ленты. &lt;br/&gt;&lt;b&gt;Настройте&lt;/b&gt; ленту так, чтобы она отвечала вашим интересам — будь то изучение исторических событий, случившихся &lt;b&gt;в этот день&lt;/b&gt;, или положитесь &lt;b&gt;на удачу&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text">Путешествуйте по лабиринтам Википедии с помощью постоянно обновляемой ленты. &lt;br/&gt;&lt;b&gt;Настройте&lt;/b&gt; ленту так, чтобы она отвечала вашим интересам — будь то изучение исторических событий, случившихся &lt;b&gt;в этот день&lt;/b&gt;, или положитесь &lt;b&gt;на удачу&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Списки для чтения с синхронизацией</string>
   <string name="onboarding_reading_list_sync_text_v2">Вы можете создавать списки для чтения из статей, которые вы хотите прочитать позже, даже если вы находитесь в офлайне. &lt;br/&gt;Авторизуйтесь с помощью учётной записи Википедии для синхронизации ваших списков для чтения. &lt;a href=\"#login\"&gt;Происоединяйтесь к Википедии&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Данные и конфиденциальность</string>
-  <string name="onboarding_data_privacy_text" fuzzy="true">Мы считаем, что вам не нужно предоставлять личную информацию для участия в движении за свободные знания. Данные об использовании, собранные для этого приложения, анонимны. Узнайте больше о нашей &lt;a href=\"#privacy\"&gt;политике конфиденциальности&lt;/a&gt; и &lt;a href=\"#termsOfUse\"&gt;условиях\nиспользования&lt;/a&gt;.</string>
+  <string name="onboarding_data_privacy_text">Мы считаем, что вам не нужно предоставлять личную информацию для участия в движении за свободные знания. Данные об использовании, собранные для этого приложения, анонимны.&lt;br/&gt;&lt;br/&gt;Узнайте больше о нашей &lt;a href=\"#privacy\"&gt;политике конфиденциальности&lt;/a&gt; и &lt;a href=\"#termsOfUse\"&gt;условиях\nиспользования&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Отправлять отчёты об использовании</string>
   <string name="onboarding_got_it">Понятно</string>
   <string name="onboarding_multilingual_secondary_text">Мы нашли следующие языки на вашем устройстве:</string>
   <string name="onboarding_multilingual_add_language_text">Добавить или удалить язык</string>
   <string name="onboarding_welcome_title_v2">Свободная энциклопедия\n…более, чем на 300 языках</string>
   <string name="onboarding_next">Далее</string>
+  <string name="onboarding_fresh_install_knowledge_title">Все знания мира</string>
+  <string name="onboarding_fresh_install_knowledge_text">Википедия — это свободная онлайн-энциклопедия, содержащая 65 миллионов статей, созданных и поддерживаемых сообществом из волонтёров на более чем 300 языках.</string>
+  <string name="onboarding_fresh_install_knowledge_learn_more">Узнать больше о Википедии</string>
+  <string name="onboarding_app_languages_title">Читайте на более чем 300 языках</string>
+  <string name="onboarding_app_languages_text">Мы обнаружили на вашем устройстве следующие языки:</string>
+  <string name="onboarding_app_languages_primary">Основной</string>
+  <string name="onboarding_app_languages_add_button">Добавить или изменить языки</string>
   <string name="app_shortcuts_random">Случайная</string>
   <string name="app_shortcuts_continue_reading">Продолжить чтение</string>
   <string name="app_shortcuts_search">Поиск</string>
@@ -1468,7 +1475,7 @@
     <item quantity="many">Удалить выбранные языки?</item>
     <item quantity="other">Удалить выбранные языки?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Вы сможете просмотреть содержимое на вкладке Лента и использовать быстрые поисковые фильтры только для других языковых разделов Википедии.</string>
+  <string name="wikipedia_languages_remove_dialog_content">Вы сможете просмотреть содержимое на вкладке Главная и использовать быстрые поисковые фильтры только для других языковых разделов Википедии.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Нельзя удалить все языки</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Оставьте, по меньшей мере, один язык для поиска и чтения.</string>
   <string name="more_language_options">ещё языки</string>
@@ -1872,7 +1879,7 @@
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Вы уверены, что хотите выполнить откат?</string>
   <string name="patroller_tasks_patrol_edit_rollback_success">Откат завершён</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">Посмотреть</string>
-  <string name="patroller_tasks_overflow_report">Проблема с функцией</string>
+  <string name="patroller_tasks_overflow_report">Сообщить о проблеме</string>
   <string name="patroller_tasks_overflow_learn">Узнать больше</string>
   <string name="patroller_onboarding_one_title">Участвуйте в контроле и утверждении правок в Википедии.</string>
   <string name="patroller_onboarding_one_content">Повышайте качество контента Википедии, активно просматривая ленту свежих правок и предоставляя рекомендации, контроль качества и поддержку другим редакторам.</string>
@@ -1890,7 +1897,7 @@
   <string name="patroller_diff_feedback_dialog_feedback_title">Как мы можем улучшить эту функцию?</string>
   <string name="patroller_diff_menu_edit_history_title">История редактирования статьи</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Обратная связь</string>
-  <string name="patroller_diff_feedback_tooltip">Чтобы в любое время отправить отзыв, нажмите во всплывающем меню на «Проблема с функцией».</string>
+  <string name="patroller_diff_feedback_tooltip">Чтобы в любое время отправить отзыв, нажмите во всплывающем меню на «Сообщить о проблеме».</string>
   <string name="patroller_saved_message_title_vandalism">Предупреждение о вандализме</string>
   <string name="patroller_saved_message_title_editing_tests">Тестирование редактирования</string>
   <string name="patroller_saved_message_title_npov">Нейтральная точка зрения</string>
@@ -2009,10 +2016,10 @@
   <string name="on_this_day_game_stats_average_score">Средний балл</string>
   <string name="on_this_day_game_stats_streak">Текущая серия</string>
   <string name="on_this_day_game_result_subtitle">Статьи, упомянутые в сегодняшней игре</string>
-  <string name="on_this_day_game_completed_message" fuzzy="true">Спасибо, что играли. Новая игра «Что произошло раньше?» доступна ежедневно в ленте</string>
+  <string name="on_this_day_game_completed_message">Спасибо, что играли. Новая игра «Что произошло раньше?» доступна ежедневно на главной</string>
   <string name="on_this_day_game_menu_notifications">Уведомления об игре</string>
   <string name="on_this_day_game_menu_info">Узнать больше</string>
-  <string name="on_this_day_game_menu_feedback">Проблема с функцией</string>
+  <string name="on_this_day_game_menu_feedback">Сообщить о проблеме</string>
   <string name="on_this_day_game_article_read_button">Прочитать статью</string>
   <string name="on_this_day_game_article_related_event_title">Событие, связанное с этой статьей</string>
   <string name="on_this_day_game_article_answer_correct_stats_message">Вы правильно ответили на этот вопрос</string>
@@ -2509,7 +2516,7 @@
   <string name="donation_reminders_settings_no_thanks_btn_label">Нет, спасибо</string>
   <string name="donation_reminders_experiment_label">ЭКСПЕРИМЕНТ</string>
   <string name="donation_reminders_settings_learn_more_button">Узнать больше</string>
-  <string name="donation_reminders_settings_report_button">Проблема с функцией</string>
+  <string name="donation_reminders_settings_report_button">Сообщить о проблеме</string>
   <string name="donation_reminders_settings_report_email_subject">Сообщить о проблеме — Напоминания о пожертвованиях</string>
   <string name="donation_reminders_settings_report_email_body">I have encountered a problem with the Donation reminders feature:\n- [Опишите конкретную проблему]\n- [Скриншоты или ссылки]\n\nThe behavior I would like to see is:\n- [Опишите предполагаемое решение]</string>
   <string name="donation_reminders_snackbar_modify_button_label">Изменить</string>
@@ -2566,6 +2573,10 @@
   <string name="reading_challenge_install_prompt_message">Малыш Глобус вас поддерживает. Добавьте виджет читательского челленджа, чтобы отслеживать свой прогресс прямо с главного экрана.</string>
   <string name="reading_challenge_install_prompt_got_it">Понятно</string>
   <string name="reading_challenge_install_prompt_add">Добавить</string>
+  <string name="search_widget_install_prompt_title">Более быстрый способ поиска</string>
+  <string name="search_widget_install_prompt_message">Установите виджет поиска по Википедии для мгновенного доступа к знаниям напрямую с главного экрана.</string>
+  <string name="search_widget_install_prompt_add">Добавить</string>
+  <string name="search_widget_install_prompt_got_it">Понятно</string>
   <string name="reading_challenge_widget_explore_button">Исследовать</string>
   <string name="reading_challenge_widget_explore_wikipedia_button">Исследовать Википедию</string>
   <string name="reading_challenge_widget_join_challenge_button">Присоединиться</string>
@@ -2618,15 +2629,96 @@
   <string name="reading_challenge_widget_reward_title">Любопытство вам идёт! 🛍️</string>
   <string name="reading_challenge_widget_reward_body">Отметьте успешное прохождение челленджа со скидкой 15%% в Wikipedia Store.</string>
   <string name="reading_challenge_widget_reward_button_label">Получите скидку 15%% в магазине</string>
+  <string name="explore_feed_new_update_prompt_title">Лента теперь называется Главная и получила новый дизайн.</string>
+  <string name="explore_feed_new_update_prompt_new_name_title">Новое название</string>
+  <string name="explore_feed_new_update_prompt_new_name_description">Лента переименована в Главную. Её расположение не изменилось.</string>
+  <string name="explore_feed_new_update_prompt_two_ways_title">Одна лента — два режима</string>
+  <string name="explore_feed_new_update_prompt_two_ways_description">Находите статьи, подобранные по вашим интересам, в разделе «Для вас», или просматривайте лучшие редакционные материалы Википедии в разделе «Сообщество».</string>
+  <string name="explore_feed_new_update_prompt_control_title">Держите всё под контролем</string>
+  <string name="explore_feed_new_update_prompt_control_description">Для каждой рекомендации точно указано, почему она отображается. Вы в любое время можете изменить свои предпочтения в настройках.</string>
+  <string name="explore_feed_new_update_prompt_language_title">На любом языке, полностью персонализировано</string>
+  <string name="explore_feed_new_update_prompt_language_description">Читаете на нескольких языках? Для каждого языка — свой отдельный опыт. Просто переключитесь, и ваша новая лента будет готова.</string>
+  <string name="explore_feed_new_update_prompt_primary_button_text">Настроить мою ленту</string>
+  <string name="explore_feed_customize_interests">Настройте интересы</string>
+  <string name="explore_feed_new_update_prompt_secondary_button_text">Настройте за меня</string>
+  <string name="explore_feed_building_text">Давайте создадим вашу ленту…</string>
   <string name="explore_feed_community_tab_label">Сообщество</string>
   <string name="explore_feed_for_you_tab_label">Для вас</string>
   <string name="explore_feed_date_today">Сегодня - %s</string>
   <string name="explore_feed_load_previous_day_label">Посмотреть предыдущий день</string>
+  <string name="explore_feed_from_reading_list">Из вашего списка для чтения</string>
+  <string name="explore_feed_because_of_interest">Потому что вам интересно: %s</string>
+  <string name="explore_feed_onboarding_curiosity_title">Следуйте за своим любопытством</string>
+  <string name="explore_feed_onboarding_curiosity_description">Выберите интересующие вас темы, и мы настроим вашу ленту под вас.\n\nМы собираем минимум данных и обезличиваем их.</string>
+  <string name="explore_feed_deselect_all_button_label">Снять все выделения</string>
   <string name="explore_feed_potd_subtitle">Ежедневные изображения с Викисклада, отобранные участниками сообщества</string>
+  <string name="explore_feed_featured_article_subtitle">Избранные статьи — это одни из самых качественных статей Википедии, ежедневно отбираемые редакторами</string>
+  <string name="explore_feed_preference_selection_screen_title">Что бы вы хотели видеть в первую очередь?</string>
+  <string name="explore_feed_preference_community_content_title">Контент, связанный с сообществом</string>
+  <string name="explore_feed_preference_personalized_content_title">Персонализированный контент</string>
   <string name="explore_feed_in_the_news_subtitle">Статьи, находящиеся в центре общественного внимания в связи с текущими событиями</string>
-  <string name="explore_feed_community_disclaimer">Материалы и инструменты, рекомендуемые сообществом Викимедиа</string>
-  <string name="explore_feed_community_load_more_label">Материалы за прошлый день</string>
+  <string name="explore_feed_on_this_day_subtitle">Узнайте о исторических событиях, произошедших в этот день</string>
+  <string name="explore_feed_community_disclaimer">Материалы, рекомендуемые сообществом Викимедиа</string>
+  <string name="explore_feed_community_load_more_label">Материалы за предыдущий день</string>
+  <string name="explore_feed_manage_languages_label">Изменить языки</string>
+  <string name="explore_feed_header_overflow_hide_module_label">Скрыть модуль</string>
+  <string name="explore_feed_header_overflow_hide_module_message">Модуль скрыт.</string>
+  <string name="explore_feed_header_overflow_hide_module_message_action">Отменить</string>
+  <string name="explore_feed_personalized_preference_empty_state_text">Добавьте свои интересы, чтобы получать персональные рекомендации. Вы можете сделать это на предыдущих шагах или позже в настройках.</string>
+  <string name="explore_feed_because_you_read">Потому что вы читали: %s</string>
+  <string name="explore_feed_swipe_to_explore_prompt_title">Смахните, чтобы посмотреть больше</string>
+  <string name="explore_feed_swipe_to_explore_prompt_message" fuzzy="true">Смахните вниз, чтобы перейти к другой теме, или в сторону, чтобы посмотреть связанный контент.</string>
+  <string name="home_feed_settings_title" fuzzy="true">Настройка ленты главной страницы</string>
+  <string name="home_feed_settings_whats_driving_title">Что формирует вашу ленту</string>
   <string name="home_feed_settings_modules_title">Модули</string>
   <string name="home_feed_settings_community_subtitle">Включайте или отключайте модули вкладки «Сообщество».</string>
   <string name="home_feed_settings_for_you_subtitle">Включайте или отключайте модули вкладки «Для вас».</string>
+  <string name="home_feed_settings_whats_driving_subtitle">Темы и статьи, формирующие ваш контент</string>
+  <string name="home_feed_settings_community_modules_description">Если отключить модуль, он перестанет отображаться в вашей ленте «Сообщество». Вы можете в любой момент снова включить его здесь. Некоторые модули могут быть недоступны на вашем языке.</string>
+  <string name="home_feed_settings_for_you_modules_description">Если отключить модуль, он перестанет отображаться в вашей ленте «Для вас». Вы можете в любой момент снова включить его здесь.</string>
+  <string name="home_feed_settings_based_on_interest_title">На основе ваших интересов</string>
+  <string name="home_feed_settings_based_on_interest_subtitle">Статьи, подобранные с учетом выбранных вами тем.&lt;br /&gt; &lt;a href=\"#drivingFeed\"&gt;Что формирует вашу ленту&lt;/a&gt;</string>
+  <string name="home_feed_settings_because_you_read_subtitle">Предложения, основанные на недавней статье из вашей истории.</string>
+  <string name="home_feed_settings_continue_reading_title">Продолжить чтение</string>
+  <string name="home_feed_settings_continue_reading_subtitle">Вернитесь к статьям, которые вы не дочитали.</string>
+  <string name="home_feed_did_you_know_title">Знаете ли вы?</string>
+  <string name="home_feed_did_you_know_subtitle">Интересные факты из статей, отобранные редакторами-волонтёрами.</string>
+  <string name="home_feed_did_you_know_more_label">Больше интересных фактов</string>
+  <string name="home_feed_settings_community_empty_dialog_title">Ваша лента «Сообщество» будет пустой.</string>
+  <string name="home_feed_settings_for_you_empty_dialog_title">Ваша лента «Для вас» будет пустой.</string>
+  <string name="home_feed_settings_empty_dialog_text">Включите хотя бы один модуль, чтобы просмотреть содержимое.</string>
+  <string name="home_feed_settings_empty_dialog_positive">Все равно продолжить</string>
+  <string name="home_feed_screen_empty_state_label">Ваша лента пуста</string>
+  <string name="home_feed_community_screen_all_modules_disabled_description">Включите модули &lt;b&gt;«Сообщество»&lt;/b&gt;, чтобы получать материалы, отобранные сообществом Викимедиа и посвящённые ему.</string>
+  <string name="home_feed_for_you_screen_all_modules_disabled_description">Включите модули &lt;b&gt;«Для вас»&lt;/b&gt;, чтобы получать материалы на основе ваших предпочтений.</string>
+  <string name="home_feed_screen_all_modules_disabled_btn_label">Настроить модули</string>
+  <string name="home_feed_for_you_screen_empty_title">Ваша лента пока пуста</string>
+  <string name="home_feed_for_you_screen_empty_description">По мере просмотра в вашей ленте «Для вас» будут появляться персонализированные статьи.</string>
+  <string name="home_feed_for_you_screen_empty_ways_to_start">Способы начать:</string>
+  <string name="home_feed_for_you_screen_empty_add_interests">Добавьте &lt;a href=\"#add_interests\"&gt;несколько интересов&lt;/a&gt;</string>
+  <string name="home_feed_for_you_screen_empty_see_community">Узнайте, что происходит в &lt;a href=\"#community_tab\"&gt;сообществе&lt;/a&gt;</string>
+  <string name="home_feed_update_tooltip1">Новое: разделы «Случайная статья» и «Интересные места» доступны в разделе «Для вас», а раздел «Знаете ли вы?» находится во вкладке «Сообщество».</string>
+  <string name="home_feed_random_title">Случайная</string>
+  <string name="home_feed_random_subtitle">Случайная статья для расширения кругозора</string>
+  <string name="home_feed_random_shuffle_button">Перемешать</string>
+  <string name="home_feed_settings_feed_configuration_description">Эти темы и статьи формируют вашу ленту «Для вас». Удалите неактуальные интересы или добавьте новые.</string>
+  <string name="home_feed_settings_feed_configuration_interest_title">Ваши нтересы</string>
+  <string name="home_feed_settings_feed_configuration_interest_subtitle">Выберите интересующие вас темы</string>
+  <string name="home_feed_settings_feed_configuration_location_title">Ваше местоположение</string>
+  <string name="home_feed_settings_feed_configuration_location_subtitle">Обновите своё местоположение в разделе «Места», чтобы увидеть статьи о местах поблизости</string>
+  <string name="home_feed_settings_feed_configuration_empty_interest_subtitle">Ваш список интересов пуст. Добавьте что-нибудь, интересующее вас.</string>
+  <string name="home_feed_settings_feed_configuration_reading_history_title">История прочтения</string>
+  <string name="home_feed_settings_feed_configuration_reading_history_subtitle">Просмотрите недавно прочитанные статьи</string>
+  <string name="home_feed_settings_feed_configuration_empty_reading_history_subtitle">Ваша история прочтения пуста. Начните изучать статьи, чтобы получать персонализированные рекомендации.</string>
+  <string name="home_feed_settings_feed_configuration_languages_title">Языки</string>
+  <string name="home_feed_settings_feed_configuration_languages_subtitle">Выберите предпочитаемые языки</string>
+  <string name="home_feed_settings_feed_configuration_interests_updated_message">Интересы обновлены. Обновите свою ленту, чтобы увидеть изменения.</string>
+  <string name="home_feed_places_of_interest_cta_title">Истории из ваших любимых мест.</string>
+  <string name="home_feed_places_of_interest_cta_description">Статьи будут отображаться в на основе места, которое вы посетили последним. Перейдите во вкладку «Места» и выберите нужное местоположение.</string>
+  <string name="home_feed_places_of_interest_cta_button">Перейти в раздел «Места»</string>
+  <string name="home_feed_settings_places_of_interest_title">Интересные места</string>
+  <string name="home_feed_settings_places_of_interest_subtitle">Статьи рядом с вашим последним местоположением в разделе «Места».</string>
+  <string name="home_feed_places_of_interest_card_footer">%1$s • На основе вашего местоположения в разделе «Места»</string>
+  <string name="home_feed_for_you_screen_end_of_feed_title">На сегодня всё!</string>
+  <string name="home_feed_for_you_screen_end_of_feed_description">Заходите завтра, чтобы найти новые статьи, подобранные специально для вас.</string>
 </resources>
