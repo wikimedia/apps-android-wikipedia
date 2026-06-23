@@ -50,8 +50,8 @@ import org.wikipedia.extensions.getString
 import org.wikipedia.feed.ForYouCardDropdownMenu
 import org.wikipedia.feed.ForYouModule
 import org.wikipedia.feed.ForYouModulePager
-import org.wikipedia.feed.LoadingIndicator
 import org.wikipedia.feed.model.Card
+import org.wikipedia.feed.model.ForYouCard
 import org.wikipedia.feed.model.GamesModulePromptCard
 import org.wikipedia.feed.model.OnThisDayGameCard
 import org.wikipedia.feed.onthisday.OnThisDay
@@ -73,16 +73,12 @@ fun GamesModule(
     module: ForYouModule.Games,
     onGameActionClick: (state: OnThisDayCardGameState) -> Unit,
     onGoToGamesHubClick: () -> Unit,
+    onHideCardClick: (module: ForYouModule, card: ForYouCard) -> Unit,
     onHideModuleClick: () -> Unit,
-    onCardInView: (card: Card) -> Unit
+    onCardInView: (card: Card) -> Unit,
+    onCustomizeInterestsClick: (card: Card) -> Unit
 ) {
     val context = LocalContext.current
-    if (module.isLoading) {
-        Box(modifier = modifier, contentAlignment = Alignment.Center) {
-            LoadingIndicator()
-        }
-        return
-    }
 
     ForYouModulePager(
         modifier = modifier,
@@ -97,7 +93,9 @@ fun GamesModule(
                 state = card.state,
                 bottomSpacing = bottomSpacing,
                 onActionClick = { onGameActionClick(card.state) },
-                onHideModuleClick = onHideModuleClick
+                onHideCardClick = { onHideCardClick(module, card) },
+                onHideModuleClick = onHideModuleClick,
+                onCustomizeInterestsClick = { onCustomizeInterestsClick(card) }
             )
             else -> {
                 FeedCtaPromptModule(
@@ -121,7 +119,9 @@ private fun OnThisDayGameModuleCard(
     state: OnThisDayCardGameState,
     bottomSpacing: Dp,
     onActionClick: () -> Unit,
-    onHideModuleClick: () -> Unit
+    onHideCardClick: () -> Unit,
+    onHideModuleClick: () -> Unit,
+    onCustomizeInterestsClick: () -> Unit
 ) {
     val context = LocalContext.current
     var overflowMenuExpanded by remember { mutableStateOf(false) }
@@ -161,11 +161,11 @@ private fun OnThisDayGameModuleCard(
                     expanded = overflowMenuExpanded,
                     wikiSite = wikiSite,
                     onDismiss = { overflowMenuExpanded = false },
-                    onShareClick = {},
-                    onSaveClick = {},
-                    onHideCardClick = {},
+                    onShareClick = null,
+                    onSaveClick = null,
+                    onHideCardClick = onHideCardClick,
                     onHideModuleClick = onHideModuleClick,
-                    onCustomizeInterestsClick = {}
+                    onCustomizeInterestsClick = onCustomizeInterestsClick
                 )
             }
         }
@@ -252,7 +252,9 @@ private fun GamesModulePreview() {
             onGameActionClick = {},
             onHideModuleClick = {},
             onCardInView = { },
-            onGoToGamesHubClick = {}
+            onGoToGamesHubClick = {},
+            onHideCardClick = { _, _ -> },
+            onCustomizeInterestsClick = { _ -> }
         )
     }
 }
@@ -276,7 +278,9 @@ private fun GamesModulePromptPreview() {
             onGameActionClick = {},
             onHideModuleClick = {},
             onCardInView = { },
-            onGoToGamesHubClick = {}
+            onGoToGamesHubClick = {},
+            onHideCardClick = { _, _ -> },
+            onCustomizeInterestsClick = { _ -> }
         )
     }
 }

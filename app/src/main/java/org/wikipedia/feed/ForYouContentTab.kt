@@ -386,22 +386,36 @@ private fun LazyListScope.forYouModuleItem(
         }
         is ForYouModule.Games -> {
             item(key = key) {
-                // TODO: add overflow actions and other game type actions
-                GamesModule(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(viewPortHeight)
-                        .background(ComposeColors.Green800)
-                        .padding(horizontal = 16.dp)
-                        .padding(top = (topInset * 2 + 64).dp)
-                        .navigationBarsPadding(),
-                    wikiSite = wikiSite,
-                    module = module,
-                    onGameActionClick = onGameActionClick,
-                    onGoToGamesHubClick = onGoToGamesHubClick,
-                    onHideModuleClick = { onHideModuleClick(module.moduleKey()) },
-                    onCardInView = { onCardImpression(it, index) }
-                )
+                when {
+                    module.isLoading -> {
+                        Box(modifier = Modifier
+                            .fillMaxWidth()
+                            .height(viewPortHeight),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            LoadingIndicator()
+                        }
+                    }
+                    else -> {
+                        GamesModule(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(viewPortHeight)
+                                .background(ComposeColors.Green800)
+                                .padding(horizontal = 16.dp)
+                                .padding(top = (topInset * 2 + 64).dp)
+                                .navigationBarsPadding(),
+                            wikiSite = wikiSite,
+                            module = module,
+                            onGameActionClick = onGameActionClick,
+                            onGoToGamesHubClick = onGoToGamesHubClick,
+                            onHideCardClick = onHideCardClick,
+                            onHideModuleClick = { onHideModuleClick(module.moduleKey()) },
+                            onCardInView = { onCardImpression(it, index) },
+                            onCustomizeInterestsClick = onCustomizeInterestsClick
+                        )
+                    }
+                }
             }
         }
         is ForYouModule.Random -> {
