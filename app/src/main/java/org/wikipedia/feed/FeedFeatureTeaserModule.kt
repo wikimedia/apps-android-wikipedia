@@ -1,4 +1,4 @@
-package org.wikipedia.compose.components
+package org.wikipedia.feed
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
@@ -41,7 +41,7 @@ import org.wikipedia.theme.Theme
 private const val SHORT_TILE_WEIGHT = 100f
 private const val TALL_TILE_WEIGHT = 171f
 @Composable
-fun FeedCtaPromptModule(
+fun FeedFeatureTeaserModule(
     title: String,
     description: String,
     buttonText: String,
@@ -153,9 +153,9 @@ private fun PlaceholderTile(
 
 @Preview
 @Composable
-private fun FeedCtaPromptModulePreview() {
+private fun FeedFeatureTeaserModulePreview() {
     BaseTheme(currentTheme = Theme.DARK) {
-        FeedCtaPromptModule(
+        FeedFeatureTeaserModule(
             modifier = Modifier
                 .fillMaxSize()
                 .background(ComposeColors.Green800)

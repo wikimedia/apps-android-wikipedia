@@ -90,9 +90,9 @@ fun ForYouContentTab(
     onManageModulesClick: () -> Unit,
     onSelectTab: (HomeTab, Card?) -> Unit = { _, _ -> },
     onShuffleClick: () -> Unit = {},
-    onPlacesCtaClick: () -> Unit = {},
-    onEnableDiscoverClick: () -> Unit = {},
-    onSeeAllRecommendationClick: () -> Unit = {}
+    onPlacesTeaserClick: () -> Unit = {},
+    onDiscoverTeaserClick: () -> Unit = {},
+    onSeeAllRecommendationsClick: () -> Unit = {}
 ) {
     when {
         state.isInitialLoading -> {
@@ -193,9 +193,9 @@ fun ForYouContentTab(
                                 onCardImpression = onCardImpression,
                                 onCustomizeClick = onCustomizeClick,
                                 onShuffleClick = onShuffleClick,
-                                onPlacesCtaClick = onPlacesCtaClick,
-                                onEnableDiscoverClick = onEnableDiscoverClick,
-                                onSeeAllRecommendationClick = onSeeAllRecommendationClick
+                                onPlacesTeaserClick = onPlacesTeaserClick,
+                                onDiscoverTeaserClick = onDiscoverTeaserClick,
+                                onSeeAllRecommendationsClick = onSeeAllRecommendationsClick
                             )
                         }
 
@@ -253,9 +253,9 @@ fun ForYouContentTab(
                                 onCardImpression = { _, _ -> },
                                 onCustomizeClick = onCustomizeClick,
                                 onShuffleClick = onShuffleClick,
-                                onPlacesCtaClick = onPlacesCtaClick,
-                                onEnableDiscoverClick = onEnableDiscoverClick,
-                                onSeeAllRecommendationClick = onSeeAllRecommendationClick
+                                onPlacesTeaserClick = onPlacesTeaserClick,
+                                onDiscoverTeaserClick = onDiscoverTeaserClick,
+                                onSeeAllRecommendationsClick = onSeeAllRecommendationsClick
                             )
                         }
                     }
@@ -279,9 +279,9 @@ private fun LazyListScope.forYouModuleItem(
     onCardImpression: (card: Card, index: Int) -> Unit,
     onCustomizeClick: (card: Card) -> Unit,
     onShuffleClick: () -> Unit,
-    onPlacesCtaClick: () -> Unit,
-    onEnableDiscoverClick: () -> Unit,
-    onSeeAllRecommendationClick: () -> Unit
+    onPlacesTeaserClick: () -> Unit,
+    onDiscoverTeaserClick: () -> Unit,
+    onSeeAllRecommendationsClick: () -> Unit
 ) {
     val key = "${module.javaClass.simpleName}-${module.age}-$index"
     when (module) {
@@ -363,7 +363,7 @@ private fun LazyListScope.forYouModuleItem(
                                 .padding(top = (topInset * 2 + 64).dp)
                                 .navigationBarsPadding(),
                             wikiSite = wikiSite,
-                            onGoToPlacesClick = onPlacesCtaClick
+                            onGoToPlacesClick = onPlacesTeaserClick
                         )
                     }
                     else -> {
@@ -409,7 +409,7 @@ private fun LazyListScope.forYouModuleItem(
                                 .padding(top = (topInset * 2 + 64).dp)
                                 .navigationBarsPadding(),
                             wikiSite = wikiSite,
-                            onEnableDiscoverClick = onEnableDiscoverClick
+                            onEnableDiscoverClick = onDiscoverTeaserClick
                         )
                     }
                     else -> {
@@ -428,7 +428,7 @@ private fun LazyListScope.forYouModuleItem(
                             onHideModuleClick = { onHideModuleClick(module.moduleKey()) },
                             onCardInView = { onCardImpression(it, index) },
                             onCustomizeClick = onCustomizeClick,
-                            onSeeAllRecommendationClick = onSeeAllRecommendationClick
+                            onSeeAllRecommendationsClick = onSeeAllRecommendationsClick
                         )
                     }
                 }

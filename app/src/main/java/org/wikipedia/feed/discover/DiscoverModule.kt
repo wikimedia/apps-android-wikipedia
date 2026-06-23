@@ -36,11 +36,11 @@ import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
 import org.wikipedia.R
 import org.wikipedia.compose.ComposeColors
-import org.wikipedia.compose.components.FeedCtaPromptModule
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.extensions.getString
+import org.wikipedia.feed.FeedFeatureTeaserModule
 import org.wikipedia.feed.ForYouCardContent
 import org.wikipedia.feed.ForYouModule
 import org.wikipedia.feed.ForYouModulePager
@@ -50,6 +50,7 @@ import org.wikipedia.feed.model.ForYouCard
 import org.wikipedia.feed.model.SeeAllRecommendationCard
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.theme.Theme
+
 private val discoverPromptImageUrls = listOf(
     "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Red_eyed_tree_frog_edit2.jpg/960px-Red_eyed_tree_frog_edit2.jpg",
     "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Palais_de_l%27Industrie_-_%C3%89douard_Baldus.jpg/1920px-Palais_de_l%27Industrie_-_%C3%89douard_Baldus.jpg",
@@ -66,7 +67,7 @@ fun DiscoverEnablePromptModule(
     onEnableDiscoverClick: () -> Unit = {}
 ) {
     val context = LocalContext.current
-    FeedCtaPromptModule(
+    FeedFeatureTeaserModule(
         modifier = modifier,
         title = context.getString(wikiSite.languageCode, R.string.home_feed_discover_cta_title),
         description = context.getString(wikiSite.languageCode, R.string.home_feed_discover_cta_description),
@@ -91,7 +92,7 @@ fun DiscoverArticlesModule(
     onHideModuleClick: () -> Unit = {},
     onCardInView: (card: Card) -> Unit = {},
     onCustomizeClick: (card: Card) -> Unit = {},
-    onSeeAllRecommendationClick: () -> Unit = {}
+    onSeeAllRecommendationsClick: () -> Unit = {}
 ) {
     val context = LocalContext.current
     ForYouModulePager(
@@ -101,10 +102,10 @@ fun DiscoverArticlesModule(
     ) { page ->
         when (val card = module.cards[page]) {
             is SeeAllRecommendationCard -> {
-                SeeAllRecommendationSlide(
+                SeeAllRecommendationsSlide(
                     topInset = topInset,
                     wikiSite = wikiSite,
-                    onSeeAllRecommendationClick = onSeeAllRecommendationClick
+                    onSeeAllRecommendationsClick = onSeeAllRecommendationsClick
                 )
             }
             is DiscoverCard -> {
@@ -132,11 +133,11 @@ fun DiscoverArticlesModule(
 }
 
 @Composable
-fun SeeAllRecommendationSlide(
+fun SeeAllRecommendationsSlide(
     modifier: Modifier = Modifier,
     topInset: Int,
     wikiSite: WikiSite,
-    onSeeAllRecommendationClick: () -> Unit = {}
+    onSeeAllRecommendationsClick: () -> Unit = {}
 ) {
     val context = LocalContext.current
     Column(
@@ -173,7 +174,7 @@ fun SeeAllRecommendationSlide(
 
         OutlinedButton(
             modifier = Modifier.align(Alignment.CenterHorizontally),
-            onClick = onSeeAllRecommendationClick,
+            onClick = onSeeAllRecommendationsClick,
             border = BorderStroke(1.dp, Color.White)
         ) {
             Icon(
@@ -245,7 +246,7 @@ private fun SkeletonArticlePreviewRow(
 @Composable
 private fun SeeAllRecommendationSlidePreview() {
     BaseTheme(currentTheme = Theme.DARK) {
-        SeeAllRecommendationSlide(
+        SeeAllRecommendationsSlide(
             modifier = Modifier
                 .fillMaxSize()
                 .background(ComposeColors.Green800)

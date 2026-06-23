@@ -11,10 +11,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.wikipedia.R
 import org.wikipedia.compose.ComposeColors
-import org.wikipedia.compose.components.FeedCtaPromptModule
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.extensions.getString
+import org.wikipedia.feed.FeedFeatureTeaserModule
 import org.wikipedia.feed.ForYouCardContent
 import org.wikipedia.feed.ForYouModule
 import org.wikipedia.feed.ForYouModulePager
@@ -24,6 +24,7 @@ import org.wikipedia.feed.model.PlacesOfInterestCard
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
 import org.wikipedia.theme.Theme
+
 private val placesPromptImageUrls = listOf(
     "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Pyramids_of_Giza%2C_Giza%2C_GG%2C_EGY_%2846986591195%29.jpg/960px-Pyramids_of_Giza%2C_Giza%2C_GG%2C_EGY_%2846986591195%29.jpg",
     "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Pavillon_Sully_du_Louvre_002.jpg/960px-Pavillon_Sully_du_Louvre_002.jpg",
@@ -38,7 +39,7 @@ fun PlacesOfInterestLocationPromptModule(
     onGoToPlacesClick: () -> Unit = {}
 ) {
     val context = LocalContext.current
-    FeedCtaPromptModule(
+    FeedFeatureTeaserModule(
         modifier = modifier,
         title = context.getString(wikiSite.languageCode, R.string.home_feed_places_of_interest_cta_title),
         description = context.getString(wikiSite.languageCode, R.string.home_feed_places_of_interest_cta_description),

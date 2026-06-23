@@ -287,15 +287,15 @@ class HomeFragment : Fragment() {
                             instrument.submitInteraction("click", elementId = "random_card_shuffle_button")
                             startActivity(RandomActivity.newIntent(requireActivity(), wikiSite, InvokeSource.FEED))
                         },
-                        onPlacesCtaClick = {
+                        onPlacesTeaserClick = {
                             instrument.submitInteraction("click", actionSource = PlacesOfInterestLocationPromptCard::class.java.simpleName, elementId = "go_to_places")
                             requireActivity().startActivity(PlacesActivity.newIntent(requireContext()))
                         },
-                        onEnableDiscoverClick = {
+                        onDiscoverTeaserClick = {
                             instrument.submitInteraction("click", elementId = "enable_discover_reading_list_button")
                             requireActivity().startActivity(RecommendedReadingListOnboardingActivity.newIntent(requireContext()))
                         },
-                        onSeeAllRecommendationClick = {
+                        onSeeAllRecommendationsClick = {
                             instrument.submitInteraction("click", elementId = "explore_all_recommendations_button")
                             startActivity(ReadingListActivity.newIntent(requireContext(), readingListMode = ReadingListMode.RECOMMENDED))
                         }
