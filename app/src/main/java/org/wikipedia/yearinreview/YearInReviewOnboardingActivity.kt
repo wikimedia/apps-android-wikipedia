@@ -45,22 +45,11 @@ class YearInReviewOnboardingActivity : BaseActivity() {
                             showLoginDialog = false
                         },
                         onConfirmButtonClick = {
-                            YearInReviewEvent.submit(
-                                action = "login_click",
-                                slide = "explore_prompt"
-                            )
-                            loginLauncher.launch(
-                                LoginActivity.newIntent(
-                                    this@YearInReviewOnboardingActivity,
-                                    LoginActivity.SOURCE_YEAR_IN_REVIEW
-                                )
-                            )
+                            YearInReviewEvent.submit(action = "login_click", slide = "explore_prompt")
+                            loginLauncher.launch(LoginActivity.newIntent(this@YearInReviewOnboardingActivity, LoginActivity.SOURCE_YEAR_IN_REVIEW))
                         },
                         onDismissButtonClick = {
-                            YearInReviewEvent.submit(
-                                action = "continue_click",
-                                slide = "explore_prompt"
-                            )
+                            YearInReviewEvent.submit(action = "continue_click", slide = "explore_prompt")
                             proceed()
                         }
                     )
@@ -68,10 +57,7 @@ class YearInReviewOnboardingActivity : BaseActivity() {
 
                 YearInReviewOnboardingScreen(
                     onBackButtonClick = {
-                        YearInReviewEvent.submit(
-                            action = "close_click",
-                            slide = "explore_prompt"
-                        )
+                        YearInReviewEvent.submit(action = "close_click", slide = "explore_prompt")
                         setResult(RESULT_CANCELED)
                         finish()
                     },
