@@ -40,6 +40,20 @@ class Notification(var id: Long = 0,
         return id + wiki.hashCode()
     }
 
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is Notification) return false
+        if (id != other.id) return false
+        if (wiki != other.wiki) return false
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = id.hashCode()
+        result = 31 * result + wiki.hashCode()
+        return result
+    }
+
     fun date(): Date {
         return timestamp?.date() ?: Date()
     }

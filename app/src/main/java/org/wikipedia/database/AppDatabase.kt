@@ -23,6 +23,8 @@ import org.wikipedia.history.db.HistoryEntryDao
 import org.wikipedia.history.db.HistoryEntryWithImageDao
 import org.wikipedia.notifications.db.Notification
 import org.wikipedia.notifications.db.NotificationDao
+import org.wikipedia.notifications.db.NotificationRemoteKey
+import org.wikipedia.notifications.db.NotificationRemoteKeyDao
 import org.wikipedia.offline.db.OfflineObject
 import org.wikipedia.offline.db.OfflineObjectDao
 import org.wikipedia.pageimages.db.PageImage
@@ -56,6 +58,7 @@ const val DATABASE_VERSION = 33
         ReadingList::class,
         ReadingListPage::class,
         Notification::class,
+        NotificationRemoteKey::class,
         TalkTemplate::class,
         Category::class,
         DailyGameHistory::class,
@@ -83,6 +86,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun readingListDao(): ReadingListDao
     abstract fun readingListPageDao(): ReadingListPageDao
     abstract fun notificationDao(): NotificationDao
+    abstract fun notificationRemoteKeyDao(): NotificationRemoteKeyDao
     abstract fun talkTemplateDao(): TalkTemplateDao
     abstract fun categoryDao(): CategoryDao
     abstract fun dailyGameHistoryDao(): DailyGameHistoryDao
@@ -378,6 +382,12 @@ abstract class AppDatabase : RoomDatabase() {
                         "thumbUrl TEXT NOT NULL," +
                         "PRIMARY KEY (apiTitle, lang, namespace)" +
                         ")")
+            }
+        }
+
+        val MIGRATION_32_33 = object : Migration(32, 33) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL("CREATE TABLE IF NOT EXISTS `NotificationRemoteKey` (`wiki` TEXT NOT NULL, `nextContinueStr` TEXT, `endOfPaginationReached` INTEGER NOT NULL, PRIMARY KEY(`wiki`))")
             }
         }
 

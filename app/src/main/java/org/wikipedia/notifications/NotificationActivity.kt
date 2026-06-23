@@ -34,16 +34,21 @@ import androidx.core.widget.ImageViewCompat
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.paging.LoadState
+import androidx.paging.PagingDataAdapter
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.tabs.TabLayout
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.ActivityNotificationsBinding
 import org.wikipedia.databinding.ItemNotificationBinding
 import org.wikipedia.dataclient.WikiSite
@@ -70,11 +75,18 @@ import org.wikipedia.views.WikiCardView
 
 class NotificationActivity : BaseActivity() {
     private lateinit var binding: ActivityNotificationsBinding
-    private val viewModel: NotificationViewModel by viewModels()
+    private val viewModel: NotificationRefactoredViewModelImpl by viewModels {
+        NotificationViewModelFactory(
+            NotificationPreferencesImpl(),
+            NotificationRepositoryImpl(
+                AppDatabase.instance.notificationDao(),
+                AppDatabase.instance.notificationRemoteKeyDao()
+            ),
+            NotificationFilterHelperImpl()
+        )
+    }
 
     private lateinit var externalLinkIcon: Drawable
-    private val notificationContainerList = mutableListOf<NotificationListItemContainer>()
-    private var fromContinuation: Boolean = false
     private var actionMode: ActionMode? = null
     private val multiSelectActionModeCallback = MultiSelectCallback()
     private val searchActionModeCallback = SearchCallback()
@@ -82,7 +94,12 @@ class NotificationActivity : BaseActivity() {
     private val typefaceSansSerifBold = Typeface.create("sans-serif", Typeface.BOLD)
 
     private val resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-        if (result.resultCode == NotificationFilterActivity.ACTIVITY_RESULT_LANGUAGES_CHANGED) {
+        if ((result.resultCode == NotificationFilterActivity.ACTIVITY_RESULT_LANGUAGES_CHANGED) ||
+                (result.resultCode == NotificationFilterActivity.FILTER_TYPE_CATEGORY) ||
+                (result.resultCode == NotificationFilterActivity.FILTER_TYPE_WIKI)
+        ) {
+            // trigger update of data to be shown if user has selected additional languages to
+            // be filtered or modified selection of languages or modified category
             viewModel.fetchAndSave(true)
         } else {
             viewModel.updateTabSelection(binding.notificationTabLayout.selectedTabPosition)
@@ -140,13 +157,40 @@ class NotificationActivity : BaseActivity() {
         Prefs.notificationUnreadCount = 0
         setLoadingState()
 
+        // stream for updating metadata
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.uiState.collect {
                     when (it) {
-                        is Resource.Success -> onNotificationsComplete(it.data.first, it.data.second)
+                        is Resource.Success -> {
+                            setSuccessState()
+                            postprocessAndDisplay()
+                        }
                         is Resource.Error -> setErrorState(it.throwable)
                     }
+                }
+            }
+        }
+
+        // stream for controlling visibility
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                val adapter = (binding.notificationsRecyclerView.adapter as NotificationItemAdapter)
+                adapter.loadStateFlow.collectLatest { loadStates ->
+                    if (loadStates.refresh is LoadState.NotLoading) { // loading has finished
+                        binding.notificationsRefreshView.isRefreshing = false
+                        binding.notificationsProgressBar.visibility = View.GONE
+                        updateVisibility(adapter.itemCount == 0) // no items to show
+                    }
+                }
+            }
+        }
+
+        // stream to inform the adapter that new data has arrived
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                viewModel.notificationFlow.collectLatest {
+                    (binding.notificationsRecyclerView.adapter as NotificationItemAdapter).submitData(it)
                 }
             }
         }
@@ -181,11 +225,13 @@ class NotificationActivity : BaseActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.menu_notifications_mark_all_as_read -> {
-                if (notificationContainerList.isNotEmpty()) {
-                    markReadItems(notificationContainerList
-                        .filterNot { it.type == NotificationListItemContainer.ITEM_SEARCH_BAR }
-                        .filter { it.notification?.isUnread == true }, false)
-                }
+                // use the adapter as data source
+                val adapter = (binding.notificationsRecyclerView.adapter as NotificationItemAdapter)
+                val itemsToMark = adapter.snapshot().items
+                    .filterNot { it.type == NotificationListItemContainer.ITEM_SEARCH_BAR }
+                    .filter { it.notification?.isUnread == true }
+                if (itemsToMark.isNotEmpty())
+                    markReadItems(itemsToMark, false)
                 true
             }
             R.id.menu_notifications_prefs -> {
@@ -225,64 +271,61 @@ class NotificationActivity : BaseActivity() {
         binding.notificationsErrorView.visibility = View.VISIBLE
     }
 
-    private fun onNotificationsComplete(notifications: List<NotificationListItemContainer>,
-                                        fromContinuation: Boolean) {
-        setSuccessState()
-        this.fromContinuation = fromContinuation
-
-        notificationContainerList.clear()
-        notificationContainerList.addAll(notifications)
-        postprocessAndDisplay()
-    }
-
-    private fun postprocessAndDisplay(position: Int? = null) {
-        val allTab = binding.notificationTabLayout.getTabAt(0)!!
-        val allUnreadCount = viewModel.allUnreadCount
-        if (allUnreadCount > 0) {
-            allTab.text = getString(R.string.notifications_tab_filter_all) + " " +
-                    getString(R.string.notifications_tab_filter_unread, allUnreadCount.toString())
-        } else {
-            allTab.text = getString(R.string.notifications_tab_filter_all)
-        }
-
-        val mentionsTab = binding.notificationTabLayout.getTabAt(1)!!
-        val mentionsUnreadCount = viewModel.mentionsUnreadCount
-        if (mentionsUnreadCount > 0) {
-            mentionsTab.text = getString(R.string.notifications_tab_filter_mentions) + " " +
-                    getString(R.string.notifications_tab_filter_unread, mentionsUnreadCount.toString())
-        } else {
-            mentionsTab.text = getString(R.string.notifications_tab_filter_mentions)
-        }
-
-        // Handle search bar and TabLayout visibility
-        binding.notificationTabLayout.visibility = if (actionMode != null) View.GONE else View.VISIBLE
-        if (actionMode != null) {
-            if (notificationContainerList.any { it.type == NotificationListItemContainer.ITEM_SEARCH_BAR }) {
-                notificationContainerList.removeAt(0)
-            }
-        } else {
-            if (notificationContainerList.none { it.type == NotificationListItemContainer.ITEM_SEARCH_BAR }) {
-                notificationContainerList.add(0, NotificationListItemContainer())
-            }
-        }
-
-        if (notificationContainerList.filterNot { it.type == NotificationListItemContainer.ITEM_SEARCH_BAR }.isEmpty()) {
-            binding.notificationsEmptyContainer.visibility = if (actionMode == null && viewModel.excludedFiltersCount() == 0) View.VISIBLE else View.GONE
-            binding.notificationsSearchEmptyContainer.visibility = if (viewModel.excludedFiltersCount() != 0) View.VISIBLE else View.GONE
-            binding.notificationsSearchEmptyText.visibility = if (actionMode != null) View.VISIBLE else View.GONE
+    // helper function depending on actionMode and excludedFiltersCount, show/hide certain element
+    // called when data changes (stream setup in onCreate) and when user acts (postprocessAndDisplay)
+    // Input parameter isListEmpty is calculated differently at calling site.
+    private fun updateVisibility(isListEmpty: Boolean) {
+        if (isListEmpty) {
+            binding.notificationsEmptyContainer.visibility =
+                if (actionMode == null && viewModel.excludedFiltersCount() == 0)
+                    View.VISIBLE
+                else View.GONE
+            binding.notificationsSearchEmptyContainer.visibility =
+                if (viewModel.excludedFiltersCount() != 0)
+                    View.VISIBLE
+                else View.GONE
+            binding.notificationsSearchEmptyText.visibility =
+                if (actionMode != null) View.VISIBLE
+                else View.GONE
             setUpEmptySearchMessage()
         } else {
             binding.notificationsEmptyContainer.visibility = View.GONE
             binding.notificationsSearchEmptyContainer.visibility = View.GONE
             binding.notificationsSearchEmptyText.visibility = View.GONE
         }
+    }
+
+    private fun postprocessAndDisplay() {
+        // update the counts on both tabs and manage visibility of search bar
+        viewModel.isSearchVisible = actionMode == null
+
+        // updating the count on the "all" tab
+        val allTab = binding.notificationTabLayout.getTabAt(0)!!
+        val allUnreadCount = viewModel.allUnreadCount
+        val suffix = if (viewModel.isEndReached) "" else "+"
+        if (allUnreadCount > 0) {
+            allTab.text = getString(R.string.notifications_tab_filter_all) + " " +
+                    getString(R.string.notifications_tab_filter_unread, allUnreadCount.toString() + suffix)
+        } else {
+            allTab.text = getString(R.string.notifications_tab_filter_all)
+        }
+
+        // updating the count on the "mentions" tab
+        val mentionsTab = binding.notificationTabLayout.getTabAt(1)!!
+        val mentionsUnreadCount = viewModel.mentionsUnreadCount
+        if (mentionsUnreadCount > 0) {
+            mentionsTab.text = getString(R.string.notifications_tab_filter_mentions) + " " +
+                    getString(R.string.notifications_tab_filter_unread, mentionsUnreadCount.toString() + suffix)
+        } else {
+            mentionsTab.text = getString(R.string.notifications_tab_filter_mentions)
+        }
+
+        // Handle search bar and TabLayout visibility
+        binding.notificationTabLayout.visibility = if (actionMode != null) View.GONE else View.VISIBLE
+
+        updateVisibility((binding.notificationsRecyclerView.adapter as NotificationItemAdapter).itemCount == 0)
 
         invalidateOptionsMenu()
-        if (position != null) {
-            binding.notificationsRecyclerView.adapter?.notifyItemChanged(position)
-        } else {
-            binding.notificationsRecyclerView.adapter?.notifyDataSetChanged()
-        }
     }
 
     private fun setUpEmptySearchMessage() {
@@ -308,7 +351,8 @@ class NotificationActivity : BaseActivity() {
         }
 
         finishActionMode()
-        postprocessAndDisplay(position)
+        // No call to postprocessAndDisplay here. markReadItems induces change on data.
+        // Change of data will trigger flow to emit that calls postprocessAndDisplay
     }
 
     private fun showMarkReadItemsUndoSnackbar(items: List<NotificationListItemContainer>, markUnread: Boolean) {
@@ -347,9 +391,15 @@ class NotificationActivity : BaseActivity() {
         }
     }
 
-    private val selectedItemCount get() = notificationContainerList.count { it.selected }
+    // selected items count calculated using the adapter as data source
+    private val selectedItemCount get() =
+        (binding.notificationsRecyclerView.adapter as NotificationItemAdapter).snapshot().items
+            .count { it.selected }
 
-    private val selectedItems get() = notificationContainerList.filterNot { it.type == NotificationListItemContainer.ITEM_SEARCH_BAR }.filter { it.selected }
+    // selected items calculated using the adapter as data source
+    private val selectedItems get() =
+        (binding.notificationsRecyclerView.adapter as NotificationItemAdapter).snapshot().items
+            .filterNot { it.type == NotificationListItemContainer.ITEM_SEARCH_BAR }.filter { it.selected }
 
     private inner class NotificationItemHolder(val binding: ItemNotificationBinding) :
         RecyclerView.ViewHolder(binding.root), View.OnClickListener, View.OnLongClickListener, SwipeableItemTouchHelperCallback.Callback {
@@ -557,13 +607,10 @@ class NotificationActivity : BaseActivity() {
         }
     }
 
-    private inner class NotificationItemAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-        override fun getItemCount(): Int {
-            return notificationContainerList.size
-        }
-
+    private inner class NotificationItemAdapter :
+        PagingDataAdapter<NotificationListItemContainer, RecyclerView.ViewHolder>(NotificationDiffCallback()) {
         override fun getItemViewType(position: Int): Int {
-            return notificationContainerList[position].type
+            return getItem(position)?.type ?: NotificationListItemContainer.ITEM_NOTIFICATION
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, type: Int): RecyclerView.ViewHolder {
@@ -574,15 +621,50 @@ class NotificationActivity : BaseActivity() {
         }
 
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, pos: Int) {
+            val item = getItem(pos)
             when (holder) {
-                is NotificationItemHolder -> holder.bindItem(notificationContainerList[pos], pos)
+                is NotificationItemHolder -> item?.let { holder.bindItem(it, pos) }
                 is NotificationSearchBarHolder -> holder.updateFilterIconAndCount()
             }
+        }
+    }
 
-            // if we're at the bottom of the list, and we have a continuation string, then execute it.
-            if (pos == notificationContainerList.size - 1 && fromContinuation) {
-                viewModel.fetchAndSave()
+    /**
+     * Handles list diffing on a background thread for Paging 3.
+     *
+     * This callback ensures that the [RecyclerView] only updates the specific items that have changed.
+     */
+    private class NotificationDiffCallback : DiffUtil.ItemCallback<NotificationListItemContainer>() {
+        /**
+         * Checks if two items represent the same logical notification.
+         * For actual notifications, it uses the composite primary key (id + wiki).
+         * For search bar (and potentially further types in future), it simply compares the item type.
+         */
+        override fun areItemsTheSame(
+            oldItem: NotificationListItemContainer,
+            newItem: NotificationListItemContainer
+        ): Boolean {
+            return if (
+                oldItem.type == newItem.type &&
+                oldItem.type == NotificationListItemContainer.ITEM_NOTIFICATION) {
+                // actual notification
+                oldItem.notification?.id == newItem.notification?.id &&
+                        oldItem.notification?.wiki == newItem.notification?.wiki
+            } else {
+                // search bar
+                oldItem.type == newItem.type
             }
+        }
+
+        /**
+         * Checks if the visual content of the item has changed.
+         * This includes checking the notification data itself (e.g., read/unread status)
+         * and the UI selection state. If this returns false, the item is redrawn.
+         */
+        override fun areContentsTheSame(
+            oldItem: NotificationListItemContainer,
+            newItem: NotificationListItemContainer): Boolean {
+            return oldItem.notification == newItem.notification && oldItem.selected == newItem.selected
         }
     }
 
@@ -650,6 +732,7 @@ class NotificationActivity : BaseActivity() {
             super.onCreateActionMode(mode, menu)
             mode.menuInflater.inflate(R.menu.menu_action_mode_notifications, menu)
             actionMode = mode
+            postprocessAndDisplay() // inform the view model --> search bar will be removed
             return true
         }
 
@@ -695,17 +778,20 @@ class NotificationActivity : BaseActivity() {
         override fun onDestroyActionMode(mode: ActionMode) {
             checkAllItems(mode, false)
             actionMode = null
+            postprocessAndDisplay() // inform the view model --> search bar will be restored
             super.onDestroyActionMode(mode)
         }
 
         private fun checkAllItems(mode: ActionMode, check: Boolean) {
-            notificationContainerList
+            // use the adapter as data source
+            val adapter = binding.notificationsRecyclerView.adapter as NotificationItemAdapter
+            adapter.snapshot().items
                 .filterNot { it.type == NotificationListItemContainer.ITEM_SEARCH_BAR }
                 .map { it.selected = check }
             mode.title = selectedItemCount.toString()
             mode.menu.findItem(R.id.menu_check_all).isVisible = !check
             mode.menu.findItem(R.id.menu_uncheck_all).isVisible = check
-            binding.notificationsRecyclerView.adapter?.notifyDataSetChanged()
+            adapter.notifyDataSetChanged()
         }
     }
 
