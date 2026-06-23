@@ -126,13 +126,11 @@ object AccountUtil {
         return userName.length > 6 && userName[0] == '~' && userName[5] == '-' && userName.substring(1, 5).isDigitsOnly()
     }
 
-    fun bailWithLogout(postEventBus: Boolean = true) {
+    fun bailWithLogout(queueLoggedOutInBackgroundDialog: Boolean = true) {
         // Signal to the rest of the app that we're explicitly logging out in the background.
         WikipediaApp.instance.resetAfterLogOut()
-        Prefs.loggedOutInBackground = true
-        if (postEventBus) {
-            FlowEventBus.post(LoggedOutInBackgroundEvent())
-        }
+        Prefs.queueLoggedOutInBackgroundDialog = queueLoggedOutInBackgroundDialog
+        FlowEventBus.post(LoggedOutInBackgroundEvent())
     }
 
     private fun createAccount(userName: String, password: String): Boolean {

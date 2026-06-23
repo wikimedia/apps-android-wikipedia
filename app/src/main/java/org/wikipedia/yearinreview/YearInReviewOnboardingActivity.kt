@@ -10,8 +10,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.res.stringResource
-import androidx.lifecycle.coroutineScope
-import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.YearInReviewEvent
@@ -34,61 +32,57 @@ class YearInReviewOnboardingActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         YearInReviewEvent.submit(action = "impression", slide = "explore_prompt")
         Prefs.yearInReviewVisited = true
-
-        lifecycle.coroutineScope.launch {
-            YearInReviewViewModel.checkLoginStatus(lifecycle.coroutineScope)
-            setContent {
-                BaseTheme {
-                    var showLoginDialog by remember { mutableStateOf(false) }
-                    if (showLoginDialog) {
-                        WikipediaAlertDialog(
-                            title = stringResource(R.string.year_in_review_login_dialog_title),
-                            message = stringResource(R.string.year_in_review_login_dialog_body),
-                            confirmButtonText = stringResource(R.string.year_in_review_login_dialog_positive),
-                            dismissButtonText = stringResource(R.string.year_in_review_login_dialog_negative),
-                            onDismissRequest = {
-                                showLoginDialog = false
-                            },
-                            onConfirmButtonClick = {
-                                YearInReviewEvent.submit(
-                                    action = "login_click",
-                                    slide = "explore_prompt"
-                                )
-                                loginLauncher.launch(
-                                    LoginActivity.newIntent(
-                                        this@YearInReviewOnboardingActivity,
-                                        LoginActivity.SOURCE_YEAR_IN_REVIEW
-                                    )
-                                )
-                            },
-                            onDismissButtonClick = {
-                                YearInReviewEvent.submit(
-                                    action = "continue_click",
-                                    slide = "explore_prompt"
-                                )
-                                proceed()
-                            }
-                        )
-                    }
-
-                    YearInReviewOnboardingScreen(
-                        onBackButtonClick = {
+        setContent {
+            BaseTheme {
+                var showLoginDialog by remember { mutableStateOf(false) }
+                if (showLoginDialog) {
+                    WikipediaAlertDialog(
+                        title = stringResource(R.string.year_in_review_login_dialog_title),
+                        message = stringResource(R.string.year_in_review_login_dialog_body),
+                        confirmButtonText = stringResource(R.string.year_in_review_login_dialog_positive),
+                        dismissButtonText = stringResource(R.string.year_in_review_login_dialog_negative),
+                        onDismissRequest = {
+                            showLoginDialog = false
+                        },
+                        onConfirmButtonClick = {
                             YearInReviewEvent.submit(
-                                action = "close_click",
+                                action = "login_click",
                                 slide = "explore_prompt"
                             )
-                            setResult(RESULT_CANCELED)
-                            finish()
+                            loginLauncher.launch(
+                                LoginActivity.newIntent(
+                                    this@YearInReviewOnboardingActivity,
+                                    LoginActivity.SOURCE_YEAR_IN_REVIEW
+                                )
+                            )
                         },
-                        onGetStartedClick = {
-                            if (!AccountUtil.isLoggedIn) {
-                                showLoginDialog = true
-                            } else {
-                                proceed()
-                            }
+                        onDismissButtonClick = {
+                            YearInReviewEvent.submit(
+                                action = "continue_click",
+                                slide = "explore_prompt"
+                            )
+                            proceed()
                         }
                     )
                 }
+
+                YearInReviewOnboardingScreen(
+                    onBackButtonClick = {
+                        YearInReviewEvent.submit(
+                            action = "close_click",
+                            slide = "explore_prompt"
+                        )
+                        setResult(RESULT_CANCELED)
+                        finish()
+                    },
+                    onGetStartedClick = {
+                        if (!AccountUtil.isLoggedIn) {
+                            showLoginDialog = true
+                        } else {
+                            proceed()
+                        }
+                    }
+                )
             }
         }
     }

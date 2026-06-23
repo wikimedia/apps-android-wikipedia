@@ -6,7 +6,6 @@ import androidx.core.graphics.createBitmap
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -28,7 +27,6 @@ import org.wikipedia.util.DateUtil
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.GeoUtil.LocationClusterer
 import org.wikipedia.util.StringUtil
-import org.wikipedia.util.ThrowableUtil
 import org.wikipedia.util.UiState
 import org.wikipedia.util.log.L
 import java.io.IOException
@@ -317,17 +315,6 @@ class YearInReviewViewModel : ViewModel() {
 
         fun getYearInReviewModel(year: Int = YIR_YEAR): YearInReviewModel? {
             return Prefs.yearInReviewModelData[year]
-        }
-
-        fun checkLoginStatus(coroutineScope: CoroutineScope) {
-            coroutineScope.launch(ThrowableUtil.MwCoroutineExceptionHandler { _, throwable, isNotLoggedIn ->
-                L.e(throwable)
-                if (isNotLoggedIn) {
-                    WikipediaApp.instance.resetAfterLogOut()
-                }
-            }) {
-                ServiceFactory.get(WikipediaApp.instance.wikiSite).getAssertUser()
-            }
         }
     }
 }

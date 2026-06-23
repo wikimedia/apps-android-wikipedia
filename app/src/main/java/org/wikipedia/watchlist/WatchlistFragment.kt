@@ -31,6 +31,7 @@ import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.FragmentWatchlistBinding
 import org.wikipedia.databinding.ViewWatchlistSearchBarBinding
+import org.wikipedia.dataclient.mwapi.MwNotLoggedInException
 import org.wikipedia.dataclient.mwapi.MwQueryResult
 import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.history.HistoryEntry
@@ -47,7 +48,6 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
-import org.wikipedia.util.ThrowableUtil
 import org.wikipedia.views.NotificationButtonView
 import org.wikipedia.views.SearchAndFilterActionProvider
 import java.time.LocalDateTime
@@ -188,7 +188,7 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
     }
 
     private fun onError(t: Throwable) {
-        if (ThrowableUtil.isNotLoggedIn(t)) {
+        if (t is MwNotLoggedInException) {
             requireActivity().finish()
             AccountUtil.bailWithLogout()
             return

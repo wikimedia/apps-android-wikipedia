@@ -101,6 +101,7 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.growthtasks.GrowthUserImpact
+import org.wikipedia.dataclient.mwapi.MwNotLoggedInException
 import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.events.LoggedInEvent
 import org.wikipedia.events.LoggedOutEvent
@@ -168,6 +169,16 @@ class ActivityTabFragment : Fragment() {
                             editCount = viewModel.getTotalEditsCount(),
                             state = if (isAllDataEmpty) "empty" else "complete"
                         )
+                    }
+                }
+            }
+        }
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.RESUMED) {
+                viewModel.impactUiState.collectLatest {
+                    if (it is UiState.Error && it.error is MwNotLoggedInException) {
+                        callback()?.onNavigateTo(NavTab.HOME)
+                        AccountUtil.bailWithLogout()
                     }
                 }
             }
