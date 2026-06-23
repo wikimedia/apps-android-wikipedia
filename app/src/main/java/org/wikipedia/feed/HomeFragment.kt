@@ -41,6 +41,7 @@ import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
 import org.wikipedia.feed.topread.TopReadArticlesActivity
 import org.wikipedia.feed.topread.TopReadCard
 import org.wikipedia.feed.wikigames.OnThisDayCardGameState
+import org.wikipedia.feed.wikigames.WikiGame
 import org.wikipedia.games.GamesHubActivity
 import org.wikipedia.games.db.DailyGameHistory
 import org.wikipedia.games.onthisday.OnThisDayGameActivity
@@ -286,18 +287,22 @@ class HomeFragment : Fragment() {
                             instrument.submitInteraction("click", actionSource = PlacesOfInterestLocationPromptCard::class.java.simpleName, elementId = "go_to_places")
                             requireActivity().startActivity(PlacesActivity.newIntent(requireContext()))
                         },
-                        onGameActionClick = { state ->
-                            val gameStatus = when (state) {
-                                is OnThisDayCardGameState.Completed -> DailyGameHistory.GAME_COMPLETED
-                                is OnThisDayCardGameState.InProgress,
-                                is OnThisDayCardGameState.Preview -> DailyGameHistory.GAME_IN_PROGRESS
+                        onGameActionClick = { game ->
+                            when (game) {
+                                is WikiGame.OnThisDayGame -> {
+                                    val gameStatus = when (game.state) {
+                                        is OnThisDayCardGameState.Completed -> DailyGameHistory.GAME_COMPLETED
+                                        is OnThisDayCardGameState.InProgress,
+                                        is OnThisDayCardGameState.Preview -> DailyGameHistory.GAME_IN_PROGRESS
+                                    }
+                                    requireActivity().startActivity(OnThisDayGameActivity.newIntent(
+                                        context = requireContext(),
+                                        invokeSource = InvokeSource.FEED,
+                                        wikiSite = wikiSite,
+                                        gameStatus = gameStatus
+                                    ))
+                                }
                             }
-                            requireActivity().startActivity(OnThisDayGameActivity.newIntent(
-                                context = requireContext(),
-                                invokeSource = InvokeSource.FEED,
-                                wikiSite = wikiSite,
-                                gameStatus = gameStatus
-                            ))
                         },
                         onGoToGamesHubClick = {
                             requireActivity().startActivity(GamesHubActivity.newIntent(requireContext()))

@@ -45,13 +45,14 @@ import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.ContinueReadingCard
 import org.wikipedia.feed.model.ForYouCard
 import org.wikipedia.feed.model.GamesModulePromptCard
-import org.wikipedia.feed.model.OnThisDayGameCard
 import org.wikipedia.feed.model.PlacesOfInterestCard
 import org.wikipedia.feed.model.RandomCard
+import org.wikipedia.feed.model.WikiGameCard
 import org.wikipedia.feed.news.NewsCard
 import org.wikipedia.feed.onthisday.OnThisDayCard
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
 import org.wikipedia.feed.topread.TopReadCard
+import org.wikipedia.feed.wikigames.WikiGame
 import org.wikipedia.games.WikiGames
 import org.wikipedia.games.db.DailyGameHistory
 import org.wikipedia.games.onthisday.OnThisDayGameProvider
@@ -689,15 +690,20 @@ class HomeViewModel : ViewModel() {
     }
 
     private suspend fun buildGameModule(): ForYouModule.Games {
-        val feedLanguageSupported = WikiGames.WHICH_CAME_FIRST.isLangSupported(wikiSite.value.languageCode)
-        val cards = if (feedLanguageSupported) {
-            val state = OnThisDayGameProvider.getGameState(wikiSite.value, LocalDate.now())
-            listOf(OnThisDayGameCard(state), GamesModulePromptCard())
-        } else {
-            listOf(GamesModulePromptCard())
-        }
+        val today = LocalDate.now()
+        val gameCards = WikiGames.entries
+            .filter { it.isLangSupported(wikiSite.value.languageCode) }
+            .mapNotNull { buildWikiGame(it, today)?.let { game -> WikiGameCard(game, today.toString()) } }
+        val cards = gameCards + GamesModulePromptCard()
 
         return ForYouModule.Games(age = 0, index = 0, cards = cards)
+    }
+
+    private suspend fun buildWikiGame(game: WikiGames, date: LocalDate): WikiGame? = when (game) {
+        WikiGames.WHICH_CAME_FIRST -> {
+            val state = OnThisDayGameProvider.getGameState(wikiSite.value, date)
+            WikiGame.OnThisDayGame(state)
+        }
     }
 
     private suspend fun buildPlacesModule(): ForYouModule.PlacesOfInterest? {

@@ -53,7 +53,7 @@ import org.wikipedia.feed.ForYouModulePager
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.ForYouCard
 import org.wikipedia.feed.model.GamesModulePromptCard
-import org.wikipedia.feed.model.OnThisDayGameCard
+import org.wikipedia.feed.model.WikiGameCard
 import org.wikipedia.feed.onthisday.OnThisDay
 import org.wikipedia.games.onthisday.OnThisDayGameProvider
 import org.wikipedia.theme.Theme
@@ -71,7 +71,7 @@ fun GamesModule(
     modifier: Modifier = Modifier,
     wikiSite: WikiSite,
     module: ForYouModule.Games,
-    onGameActionClick: (state: OnThisDayCardGameState) -> Unit,
+    onGameActionClick: (game: WikiGame) -> Unit,
     onGoToGamesHubClick: () -> Unit,
     onHideCardClick: (module: ForYouModule, card: ForYouCard) -> Unit,
     onHideModuleClick: () -> Unit,
@@ -88,15 +88,17 @@ fun GamesModule(
         // space for the floating pager dots
         val bottomSpacing = if (module.cards.size > 1) 40.dp else 16.dp
         when (val card = module.cards[page]) {
-            is OnThisDayGameCard -> OnThisDayGameModuleCard(
-                wikiSite = wikiSite,
-                state = card.state,
-                bottomSpacing = bottomSpacing,
-                onActionClick = { onGameActionClick(card.state) },
-                onHideCardClick = { onHideCardClick(module, card) },
-                onHideModuleClick = onHideModuleClick,
-                onCustomizeInterestsClick = { onCustomizeInterestsClick(card) }
-            )
+            is WikiGameCard -> when (val game = card.wikiGame) {
+                is WikiGame.OnThisDayGame -> OnThisDayGameModuleCard(
+                    wikiSite = wikiSite,
+                    state = game.state,
+                    bottomSpacing = bottomSpacing,
+                    onActionClick = { onGameActionClick(game) },
+                    onHideCardClick = { onHideCardClick(module, card) },
+                    onHideModuleClick = onHideModuleClick,
+                    onCustomizeInterestsClick = { onCustomizeInterestsClick(card) }
+                )
+            }
             else -> {
                 FeedCtaPromptModule(
                     title = context.getString(wikiSite.languageCode, R.string.home_feed_games_module_cta_prompt_title),
@@ -240,12 +242,15 @@ private fun GamesModulePreview() {
                 age = 0,
                 index = 0,
                 cards = listOf(
-                    OnThisDayGameCard(
-                        OnThisDayCardGameState.Preview(
-                            langCode = "en",
-                            event1 = OnThisDay.Event(text = "U.S. figure skater Nancy Kerrigan is attacked and injured by an assailant.", year = 1994),
-                            event2 = OnThisDay.Event(text = "Americans storm the United States Capitol Building to disrupt certification of the 2020 presidential election.", year = 2021)
-                        )
+                    WikiGameCard(
+                        WikiGame.OnThisDayGame(
+                            OnThisDayCardGameState.Preview(
+                                langCode = "en",
+                                event1 = OnThisDay.Event(text = "U.S. figure skater Nancy Kerrigan is attacked and injured by an assailant.", year = 1994),
+                                event2 = OnThisDay.Event(text = "Americans storm the United States Capitol Building to disrupt certification of the 2020 presidential election.", year = 2021)
+                            )
+                        ),
+                        date = "2024-01-06"
                     )
                 )
             ),

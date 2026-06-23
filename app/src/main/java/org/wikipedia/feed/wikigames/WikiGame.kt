@@ -2,11 +2,19 @@ package org.wikipedia.feed.wikigames
 
 import kotlinx.serialization.Serializable
 import org.wikipedia.feed.onthisday.OnThisDay
+import org.wikipedia.games.WikiGames
 
 // Represents all game types that can appear in the Explore feed and GamesHub.
 // This can be extended whenever a new Wiki game is introduced.
+@Serializable
 sealed class WikiGame {
-    data class OnThisDayGame(val state: OnThisDayCardGameState) : WikiGame()
+    // Stable identity of the game type, used for hide keys
+    abstract val game: WikiGames
+
+    @Serializable
+    data class OnThisDayGame(val state: OnThisDayCardGameState) : WikiGame() {
+        override val game: WikiGames get() = WikiGames.WHICH_CAME_FIRST
+    }
 }
 
 // UI state for Which Came First game.

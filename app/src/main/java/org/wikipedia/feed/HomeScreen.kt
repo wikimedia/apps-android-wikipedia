@@ -62,7 +62,7 @@ import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.ForYouCard
 import org.wikipedia.feed.news.NewsCard
 import org.wikipedia.feed.news.NewsItem
-import org.wikipedia.feed.wikigames.OnThisDayCardGameState
+import org.wikipedia.feed.wikigames.WikiGame
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.language.AppLanguageState
 import org.wikipedia.main.MainActivity
@@ -107,7 +107,7 @@ fun HomeScreen(
     onManageModulesClick: () -> Unit = {},
     onShuffleClick: () -> Unit = {},
     onPlacesCtaClick: () -> Unit = {},
-    onGameActionClick: (OnThisDayCardGameState) -> Unit = {},
+    onGameActionClick: (WikiGame) -> Unit = {},
     onGoToGamesHubClick: () -> Unit = {}
 ) {
     val context = LocalContext.current

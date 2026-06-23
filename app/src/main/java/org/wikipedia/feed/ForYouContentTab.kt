@@ -68,7 +68,7 @@ import org.wikipedia.feed.places.PlacesOfInterestArticlesModule
 import org.wikipedia.feed.places.PlacesOfInterestLocationPromptModule
 import org.wikipedia.feed.random.RandomModule
 import org.wikipedia.feed.wikigames.GamesModule
-import org.wikipedia.feed.wikigames.OnThisDayCardGameState
+import org.wikipedia.feed.wikigames.WikiGame
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.L10nUtil
@@ -90,7 +90,7 @@ fun ForYouContentTab(
     onSelectTab: (HomeTab, Card?) -> Unit = { _, _ -> },
     onShuffleClick: () -> Unit = {},
     onPlacesCtaClick: () -> Unit = {},
-    onGameActionClick: (OnThisDayCardGameState) -> Unit = { _ -> },
+    onGameActionClick: (WikiGame) -> Unit = { _ -> },
     onGoToGamesHubClick: () -> Unit = {}
 ) {
     when {
@@ -279,7 +279,7 @@ private fun LazyListScope.forYouModuleItem(
     onCustomizeInterestsClick: (card: Card) -> Unit,
     onShuffleClick: () -> Unit,
     onPlacesCtaClick: () -> Unit,
-    onGameActionClick: (OnThisDayCardGameState) -> Unit,
+    onGameActionClick: (WikiGame) -> Unit,
     onGoToGamesHubClick: () -> Unit
 ) {
     val key = "${module.javaClass.simpleName}-${module.age}-$index"
