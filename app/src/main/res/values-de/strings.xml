@@ -605,8 +605,8 @@
     <item quantity="other">%d Artikel aus Liste entfernt</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d Artikel entfernt von %s</item>
-    <item quantity="other">%d Artikel entfernt von %s</item>
+    <item quantity="one">%1$d Artikel entfernt von %2$s</item>
+    <item quantity="other">%1$d Artikel entfernt von %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d Liste gelöscht</item>

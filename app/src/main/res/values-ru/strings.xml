@@ -658,10 +658,10 @@
     <item quantity="other">Статей удалено из списка: %d</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">Статей удалено из %s: %d</item>
-    <item quantity="few">Статей удалено из %s: %d</item>
-    <item quantity="many">Статей удалено из %s: %d</item>
-    <item quantity="other">Статей удалено из %s: %d</item>
+    <item quantity="one">Статей удалено из %2$s: %1$d</item>
+    <item quantity="few">Статей удалено из %2$s: %1$d</item>
+    <item quantity="many">Статей удалено из %2$s: %1$d</item>
+    <item quantity="other">Статей удалено из %2$s: %1$d</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d список удалён</item>

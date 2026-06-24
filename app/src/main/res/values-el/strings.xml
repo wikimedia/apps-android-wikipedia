@@ -545,8 +545,8 @@
     <item quantity="other">%d λήμματα αφαιρέθηκαν από τη λίστα</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d λήμμα αφαιρέθηκε από %s</item>
-    <item quantity="other">%d λήμματα αφαιρέθηκαν από %s</item>
+    <item quantity="one">%1$d λήμμα αφαιρέθηκε από %2$s</item>
+    <item quantity="other">%1$d λήμματα αφαιρέθηκαν από %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d λίστα διαγράφηκε</item>

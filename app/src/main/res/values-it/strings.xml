@@ -610,8 +610,8 @@
     <item quantity="other">%d voci rimosse dall\'elenco</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d voce rimossa da %s</item>
-    <item quantity="other">%d voci rimosse da %s</item>
+    <item quantity="one">%1$d voce rimossa da %2$s</item>
+    <item quantity="other">%1$d voci rimosse da %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d elenco cancellato</item>

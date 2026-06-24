@@ -576,8 +576,8 @@
     <item quantity="other">목록에서 제거된 문서 %d개</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%s에서 제거된 문서 %d개</item>
-    <item quantity="other">%s에서 제거된 문서 %d개</item>
+    <item quantity="one">%2$s에서 제거된 문서 %1$d개</item>
+    <item quantity="other">%2$s에서 제거된 문서 %1$d개</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="other">목록 %d개 삭제됨</item>

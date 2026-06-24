@@ -590,8 +590,8 @@
     <item quantity="other">%d pagina\'s verwijderd uit lijst</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d pagina verwijderd uit %s</item>
-    <item quantity="other">%d pagina\'s verwijderd uit %s</item>
+    <item quantity="one">%1$d pagina verwijderd uit %2$s</item>
+    <item quantity="other">%1$d pagina\'s verwijderd uit %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d lijst verwijderd</item>

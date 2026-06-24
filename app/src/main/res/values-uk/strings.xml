@@ -598,10 +598,10 @@
     <item quantity="other">%d статей вилучено зі списку</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d статтю вилучено з %s</item>
-    <item quantity="few">%d статті вилучено з %s</item>
-    <item quantity="many">%d статей вилучено з %s</item>
-    <item quantity="other">%d статей вилучено з %s</item>
+    <item quantity="one">%1$d статтю вилучено з %2$s</item>
+    <item quantity="few">%1$d статті вилучено з %2$s</item>
+    <item quantity="many">%1$d статей вилучено з %2$s</item>
+    <item quantity="other">%1$d статей вилучено з %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d список вилучено</item>

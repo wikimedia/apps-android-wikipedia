@@ -553,8 +553,8 @@
     <item quantity="other">%d məqalə siyahıdan silindi</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d məqalə %s siyahısından silindi</item>
-    <item quantity="other">%d məqalə %s siyahısından silindi</item>
+    <item quantity="one">%1$d məqalə %2$s siyahısından silindi</item>
+    <item quantity="other">%1$d məqalə %2$s siyahısından silindi</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d siyahı silindi</item>

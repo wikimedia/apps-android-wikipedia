@@ -569,8 +569,8 @@
     <item quantity="other">%d szócikk eltávolítva a listáról</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d szócikk eltávolítva a(z) %s listáról</item>
-    <item quantity="other">%d szócikk eltávolítva a(z) %s listáról</item>
+    <item quantity="one">%1$d szócikk eltávolítva a(z) %2$s listáról</item>
+    <item quantity="other">%1$d szócikk eltávolítva a(z) %2$s listáról</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d lista törölve</item>
