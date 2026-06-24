@@ -507,8 +507,8 @@
     <item quantity="other">%d ta maqola roʻyxatdan oʻchirldi</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d ta maqola %s dan oʻchirildi</item>
-    <item quantity="other">%d ta maqola %s dan oʻchirildi</item>
+    <item quantity="one">%1$d ta maqola %2$s dan oʻchirildi</item>
+    <item quantity="other">%1$d ta maqola %2$s dan oʻchirildi</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d ta roʻyxat oʻchirildi</item>

@@ -578,8 +578,8 @@
     <item quantity="other">%d artikkelia poistettu listalta</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d artikkeli poistettu lukulistalta %s</item>
-    <item quantity="other">%d artikkelia poistettu lukulistalta %s</item>
+    <item quantity="one">%1$d artikkeli poistettu lukulistalta %2$s</item>
+    <item quantity="other">%1$d artikkelia poistettu lukulistalta %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d lista poistettu</item>

@@ -590,8 +590,8 @@
     <item quantity="other">Message shown when multiple articles are removed from a reading list. The \"%d\" symbol is replaced with the number of articles removed.</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">Message shown when one article is removed from a reading list.The \"%d\" symbol is replaced with the number of articles removed.The \"%s\" symbol is replaced with the reading list name.</item>
-    <item quantity="other">Message shown when multiple articles are removed from a reading list. The \"%d\" symbol is replaced with the number of articles removed.The \"%s\" symbol is replaced with the reading list name.</item>
+    <item quantity="one">Message shown when one article is removed from a reading list.The \"%1$d\" symbol is replaced with the number of articles removed.The \"%2$s\" symbol is replaced with the reading list name.</item>
+    <item quantity="other">Message shown when multiple articles are removed from a reading list. The \"%1$d\" symbol is replaced with the number of articles removed.The \"%2$s\" symbol is replaced with the reading list name.</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">Toast message shown when one reading list is deleted. The \"%d\" symbol is replaced with the number of the lists deleted.</item>

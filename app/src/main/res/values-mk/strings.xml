@@ -555,8 +555,8 @@
     <item quantity="other">Отстранети %d статии од списокот</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">Отстранета %d статија од %s</item>
-    <item quantity="other">Отстранети %d статии од %s</item>
+    <item quantity="one">Отстранета %1$d статија од %2$s</item>
+    <item quantity="other">Отстранети %1$d статии од %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d избришан список</item>

@@ -524,8 +524,8 @@
     <item quantity="other">%d lahabaya yihi ya kpɛ</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d lahabali nyɛla din yihi kpɛ %s</item>
-    <item quantity="other">%d lahabaya yihi ya kpɛ %s</item>
+    <item quantity="one">%1$d lahabali nyɛla din yihi kpɛ %2$s</item>
+    <item quantity="other">%1$d lahabaya yihi ya kpɛ %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d yuli nyahiya</item>
