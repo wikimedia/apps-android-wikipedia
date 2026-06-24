@@ -29,6 +29,7 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.feed.didyouknow.DidYouKnowActivity
 import org.wikipedia.feed.didyouknow.DidYouKnowCard
 import org.wikipedia.feed.model.Card
+import org.wikipedia.feed.model.DiscoverCard
 import org.wikipedia.feed.model.EmptyCommunityCard
 import org.wikipedia.feed.model.EmptyForYouCard
 import org.wikipedia.feed.model.GamesModulePromptCard
@@ -54,6 +55,10 @@ import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.places.PlacesActivity
 import org.wikipedia.random.RandomActivity
+import org.wikipedia.readinglist.ReadingListActivity
+import org.wikipedia.readinglist.ReadingListMode
+import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingActivity
+import org.wikipedia.readinglist.recommended.RecommendedReadingListSettingsActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.homefeed.HomeFeedSettingsActivity
 import org.wikipedia.settings.homefeed.HomeFeedSettingsStartDestination
@@ -234,13 +239,17 @@ class HomeFragment : Fragment() {
                             instrument.submitInteraction("click", "language_menu", elementId = "manage_languages", actionContext = mapOf("selected_tab" to selectedTab.name))
                             requireActivity().startActivity(WikipediaLanguagesActivity.newIntent(requireContext(), invokeSource = InvokeSource.FEED))
                         },
-                        onCustomizeInterestsClick = { card ->
+                        onCustomizeClick = { card ->
                             if (card != null) {
                                 instrument.submitInteraction("click", actionSource = card.javaClass.simpleName,
                                     actionSubtype = if (card !is EmptyForYouCard) "feed_overflow" else null,
                                     elementId = "feed_customize")
                             }
-                            customizeInterestsLauncher.launch(PersonalizationActivity.newIntent(requireContext(), showInterestsOnly = true))
+                            if (card is DiscoverCard) {
+                                requireActivity().startActivity(RecommendedReadingListSettingsActivity.newIntent(requireContext()))
+                            } else {
+                                customizeInterestsLauncher.launch(PersonalizationActivity.newIntent(requireContext(), showInterestsOnly = true))
+                            }
                         },
                         onTabClick = {
                             requireActivity().startActivity(TabActivity.newIntent(requireActivity()))
@@ -285,9 +294,17 @@ class HomeFragment : Fragment() {
                             instrument.submitInteraction("click", elementId = "random_card_shuffle_button")
                             startActivity(RandomActivity.newIntent(requireActivity(), wikiSite, InvokeSource.FEED))
                         },
-                        onPlacesCtaClick = {
+                        onPlacesTeaserClick = {
                             instrument.submitInteraction("click", actionSource = PlacesOfInterestLocationPromptCard::class.java.simpleName, elementId = "go_to_places")
                             requireActivity().startActivity(PlacesActivity.newIntent(requireContext()))
+                        },
+                        onDiscoverTeaserClick = {
+                            instrument.submitInteraction("click", elementId = "enable_discover_reading_list_button")
+                            requireActivity().startActivity(RecommendedReadingListOnboardingActivity.newIntent(requireContext()))
+                        },
+                        onSeeAllRecommendationsClick = {
+                            instrument.submitInteraction("click", elementId = "explore_all_recommendations_button")
+                            startActivity(ReadingListActivity.newIntent(requireContext(), readingListMode = ReadingListMode.RECOMMENDED))
                         },
                         onGameActionClick = { wikiGame ->
                             when (wikiGame) {
