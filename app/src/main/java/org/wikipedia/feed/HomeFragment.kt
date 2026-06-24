@@ -31,7 +31,9 @@ import org.wikipedia.feed.didyouknow.DidYouKnowCard
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.EmptyCommunityCard
 import org.wikipedia.feed.model.EmptyForYouCard
+import org.wikipedia.feed.model.GamesModulePromptCard
 import org.wikipedia.feed.model.PlacesOfInterestLocationPromptCard
+import org.wikipedia.feed.model.WikiGameCard
 import org.wikipedia.feed.onboarding.ExploreFeedUpdatePromptActivity
 import org.wikipedia.feed.onthisday.OnThisDayActivity
 import org.wikipedia.feed.onthisday.OnThisDayCard
@@ -287,14 +289,20 @@ class HomeFragment : Fragment() {
                             instrument.submitInteraction("click", actionSource = PlacesOfInterestLocationPromptCard::class.java.simpleName, elementId = "go_to_places")
                             requireActivity().startActivity(PlacesActivity.newIntent(requireContext()))
                         },
-                        onGameActionClick = { game ->
-                            when (game) {
+                        onGameActionClick = { wikiGame ->
+                            when (wikiGame) {
                                 is WikiGame.OnThisDayGame -> {
-                                    val gameStatus = when (game.state) {
+                                    val gameStatus = when (wikiGame.state) {
                                         is OnThisDayCardGameState.Completed -> DailyGameHistory.GAME_COMPLETED
                                         is OnThisDayCardGameState.InProgress,
                                         is OnThisDayCardGameState.Preview -> DailyGameHistory.GAME_IN_PROGRESS
                                     }
+                                    val elementId = when (wikiGame.state) {
+                                        is OnThisDayCardGameState.Preview -> "play_click"
+                                        is OnThisDayCardGameState.InProgress -> "continue_click"
+                                        is OnThisDayCardGameState.Completed -> "review_click"
+                                    }
+                                    instrument.submitInteraction("click", actionSource = wikiGame.cardName, elementId = elementId, actionContext = mapOf("game" to wikiGame.game.name))
                                     requireActivity().startActivity(OnThisDayGameActivity.newIntent(
                                         context = requireContext(),
                                         invokeSource = InvokeSource.FEED,
@@ -305,6 +313,7 @@ class HomeFragment : Fragment() {
                             }
                         },
                         onGoToGamesHubClick = {
+                            instrument.submitInteraction("click", actionSource = GamesModulePromptCard::class.java.simpleName, elementId = "go_to_games_hub")
                             requireActivity().startActivity(GamesHubActivity.newIntent(requireContext()))
                         }
                     )
@@ -375,9 +384,10 @@ class HomeFragment : Fragment() {
 
     private fun onCardImpression(card: Card, index: Int) {
         if (cardImpressions.add(card.hideKey)) {
+            val actionSource = if (card is WikiGameCard) card.wikiGame.cardName else card.javaClass.simpleName
             instrument.submitInteraction(
                 "impression",
-                actionSource = card.javaClass.simpleName,
+                actionSource = actionSource,
                 actionContext = mapOf("card_index" to index)
             )
         }

@@ -11,6 +11,9 @@ sealed class WikiGame {
     // Stable identity of the game type, used for hide keys
     abstract val game: WikiGames
 
+    // per game analytics source name, e.g. "OnThisDayGameCard"
+    val cardName: String get() = "${this.javaClass.simpleName}Card"
+
     @Serializable
     data class OnThisDayGame(val state: OnThisDayCardGameState) : WikiGame() {
         override val game: WikiGames get() = WikiGames.WHICH_CAME_FIRST
