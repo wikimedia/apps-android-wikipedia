@@ -41,12 +41,12 @@ import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
 import org.wikipedia.R
 import org.wikipedia.compose.ComposeColors
-import org.wikipedia.compose.components.FeedCtaPromptModule
 import org.wikipedia.compose.components.WikiCard
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.extensions.getString
+import org.wikipedia.feed.FeedFeatureTeaserModule
 import org.wikipedia.feed.ForYouCardDropdownMenu
 import org.wikipedia.feed.ForYouModule
 import org.wikipedia.feed.ForYouModulePager
@@ -100,7 +100,7 @@ fun GamesModule(
                 )
             }
             else -> {
-                FeedCtaPromptModule(
+                FeedFeatureTeaserModule(
                     title = context.getString(wikiSite.languageCode, R.string.home_feed_games_module_cta_prompt_title),
                     description = context.getString(wikiSite.languageCode, R.string.home_feed_games_module_cta_prompt_subtitle),
                     buttonText = context.getString(wikiSite.languageCode, R.string.home_feed_games_module_cta_prompt_button_text),
@@ -167,7 +167,7 @@ private fun OnThisDayGameModuleCard(
                     onSaveClick = null,
                     onHideCardClick = onHideCardClick,
                     onHideModuleClick = onHideModuleClick,
-                    onCustomizeInterestsClick = onCustomizeInterestsClick
+                    onCustomizeClick = onCustomizeInterestsClick
                 )
             }
         }

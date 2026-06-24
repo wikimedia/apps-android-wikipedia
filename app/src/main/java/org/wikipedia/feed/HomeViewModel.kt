@@ -17,13 +17,12 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
-import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.filterIsInstance
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.merge
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.merge
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.transformLatest
 import kotlinx.coroutines.flow.update
@@ -335,16 +334,19 @@ class HomeViewModel : ViewModel() {
             null
         )
 
+    // Combine the reactive modules first so the outer combine stays within the 5-flow typed overloads.
+    private val reactiveModules = combine(placesModule, discoverModule, gameModule) { places, discover, game ->
+        listOfNotNull(places, discover, game)
+    }
+
     private val _forYouState = MutableStateFlow(ForYouContentState())
     val forYouState = combine(
         _forYouState,
         SettingsRepository.hiddenModules,
         SettingsRepository.hiddenCards,
-        placesModule,
-        discoverModule,
-        gameModule
-    ) { state, hiddenModules, hiddenCards, placesModule, discoverModule, gameModule ->
-        val visibleItems = (state.modules + listOfNotNull(placesModule, discoverModule, gameModule))
+        reactiveModules
+    ) { state, hiddenModules, hiddenCards, reactiveModules ->
+        val visibleItems = (state.modules + reactiveModules)
             .sortedBy { ForYouModuleType.valueOf(it.moduleKey()).ordinal }
             .filterNot { hiddenModules.contains(it.moduleKey()) }
             .mapNotNull { module ->
