@@ -85,14 +85,15 @@ fun GamesModule(
         module = module,
         onCardInView = onCardInView
     ) { page ->
-        // space for the floating pager dots
-        val bottomSpacing = if (module.cards.size > 1) 40.dp else 16.dp
+        val spacingForPagerDots = if (module.cards.size > 1) 40.dp else 16.dp
+        val cardModifier = Modifier.padding(horizontal = 16.dp)
         when (val card = module.cards[page]) {
             is WikiGameCard -> when (val game = card.wikiGame) {
                 is WikiGame.OnThisDayGame -> OnThisDayGameModuleCard(
+                    modifier = cardModifier,
                     wikiSite = wikiSite,
                     state = game.state,
-                    bottomSpacing = bottomSpacing,
+                    bottomSpacing = spacingForPagerDots,
                     onActionClick = { onGameActionClick(game) },
                     onHideCardClick = { onHideCardClick(module, card) },
                     onHideModuleClick = onHideModuleClick,
@@ -101,12 +102,13 @@ fun GamesModule(
             }
             else -> {
                 FeedFeatureTeaserModule(
+                    modifier = cardModifier,
                     title = context.getString(wikiSite.languageCode, R.string.home_feed_games_module_cta_prompt_title),
                     description = context.getString(wikiSite.languageCode, R.string.home_feed_games_module_cta_prompt_subtitle),
                     buttonText = context.getString(wikiSite.languageCode, R.string.home_feed_games_module_cta_prompt_button_text),
                     buttonIcon = painterResource(R.drawable.ic_esports_24),
                     imageUrls = promptImageUrls,
-                    bottomSpacing = bottomSpacing,
+                    bottomSpacing = spacingForPagerDots,
                     onButtonClick = onGoToGamesHubClick
                 )
             }

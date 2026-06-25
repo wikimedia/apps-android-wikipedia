@@ -7,5 +7,5 @@ class WikiGameCard(
     val wikiGame: WikiGame,
     val date: String
 ) : ForYouCard() {
-    override fun dismissHashCode(): Int = 31 * wikiGame.game.ordinal + date.hashCode()
+    override fun dismissHashCode(): Int = wikiGame.game.name.hashCode() + date.hashCode()
 }

@@ -462,7 +462,6 @@ private fun LazyListScope.forYouModuleItem(
                                 .fillMaxWidth()
                                 .height(viewPortHeight)
                                 .background(ComposeColors.Green800)
-                                .padding(horizontal = 16.dp)
                                 .padding(top = (topInset * 2 + 64).dp)
                                 .navigationBarsPadding(),
                             wikiSite = wikiSite,
