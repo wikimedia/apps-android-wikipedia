@@ -493,9 +493,9 @@
     <item quantity="one">%d grein fjarlægð af lista</item>
     <item quantity="other">%d greinar fjarlægðar af lista</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d grein fjarlægð af %s</item>
-    <item quantity="other">%d greinar fjarlægðar af %s</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">%1$d grein fjarlægð af %2$s</item>
+    <item quantity="other">%1$d greinar fjarlægðar af %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d lista eytt</item>

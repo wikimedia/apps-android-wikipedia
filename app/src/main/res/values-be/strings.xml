@@ -572,11 +572,11 @@
     <item quantity="many">%d артыкулаў выдалена са спіса</item>
     <item quantity="other">%d артыкулаў выдалена са спіса</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d артыкул выдалены з %s </item>
-    <item quantity="few">%d артыкулы выдалены з %s</item>
-    <item quantity="many">%d артыкулаў выдалена з %s</item>
-    <item quantity="other">%d артыкулаў выдалена з %s</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">%1$d артыкул выдалены з %2$s </item>
+    <item quantity="few">%1$d артыкулы выдалены з %2$s</item>
+    <item quantity="many">%1$d артыкулаў выдалена з %2$s</item>
+    <item quantity="other">%1$d артыкулаў выдалена з %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d спіс выдалены</item>

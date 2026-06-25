@@ -508,9 +508,9 @@
     <item quantity="one">١ وتار سڕایەوە لە پێڕست</item>
     <item quantity="other">%d وتار سڕایەوە لە پێڕست</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d وتار سڕدرایەوە لە %s</item>
-    <item quantity="other">%d وتار سڕدرایەوە لە %s</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">%1$d وتار سڕدرایەوە لە %2$s</item>
+    <item quantity="other">%1$d وتار سڕدرایەوە لە %2$s</item>
   </plurals>
   <string name="reading_list_items_deleted">%d وتار سڕایەوە لە پێڕست</string>
   <string name="reading_lists_item_deleted">%s سڕایەوە لە پێڕست</string>

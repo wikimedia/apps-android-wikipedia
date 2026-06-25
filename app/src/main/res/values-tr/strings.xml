@@ -601,8 +601,8 @@
     <item quantity="other">%d madde listeden kaldırıldı</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d sayfa %s listesinden çıkarıldı</item>
-    <item quantity="other">%d sayfa %s listesinden çıkarıldı</item>
+    <item quantity="one">%1$d sayfa %2$s listesinden çıkarıldı</item>
+    <item quantity="other">%1$d sayfa %2$s listesinden çıkarıldı</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d liste silindi</item>
@@ -2422,6 +2422,7 @@
   <string name="explore_feed_swipe_to_explore_prompt_title">Keşfetmek için kaydırın</string>
   <string name="explore_feed_swipe_to_explore_prompt_message" fuzzy="true">Konular arasında gezinmek için aşağı kaydırın veya ilgili içerikleri keşfetmek için yana kaydırın.</string>
   <string name="home_feed_settings_title" fuzzy="true">Ana akışı özelleştir</string>
+  <string name="home_feed_settings_default_view_title">Varsayılan akış görünümü</string>
   <string name="home_feed_settings_whats_driving_title">Akışınızı ne belirliyor</string>
   <string name="home_feed_settings_modules_title">Modüller</string>
   <string name="home_feed_settings_community_subtitle">\"Topluluk\" akış modüllerini açın veya kapatın</string>

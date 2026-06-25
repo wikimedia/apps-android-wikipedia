@@ -307,7 +307,7 @@
   <string name="terms_of_use_description">Condizioni d\'uso</string>
   <string name="legal_safety_contacts_description">Contatti legali e di sicurezza</string>
   <string name="about_wikipedia_url">https://it.wikipedia.org/wiki/Wikipedia:Sala_stampa/Wikipedia</string>
-  <string name="privacy_policy_url" fuzzy="true">https://meta.m.wikimedia.org/wiki/Privacy_policy/it</string>
+  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Policy:Privacy_policy/it</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use/it</string>
   <string name="android_app_request_an_account_url">https://it.wikipedia.org/wiki/Aiuto:Come_registrarsi</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.it</string>
@@ -610,8 +610,8 @@
     <item quantity="other">%d voci rimosse dall\'elenco</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d voce rimossa da %s</item>
-    <item quantity="other">%d voci rimosse da %s</item>
+    <item quantity="one">%1$d voce rimossa da %2$s</item>
+    <item quantity="other">%1$d voci rimosse da %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d elenco cancellato</item>
@@ -864,6 +864,7 @@
   <string name="view_top_read_card_action">Altre tendenze</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d mila</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
+  <string name="view_top_read_card_pageviews_views_suffix">visualizzazioni</string>
   <string name="view_next_random_article">Carica un\'altra voce a caso</string>
   <string name="view_main_page_card_title">Oggi su Wikipedia</string>
   <string name="view_main_page_card_action">Vedi la pagina principale</string>
@@ -2180,7 +2181,7 @@
   <string name="explore_feed_personalized_preference_empty_state_text">Per visualizzare consigli di contenuti personalizzati, è necessario aggiungere i propri interessi. È possibile farlo nei passaggi precedenti oppure in seguito nelle Impostazioni.</string>
   <string name="explore_feed_because_you_read">Perché hai letto: %s</string>
   <string name="explore_feed_swipe_to_explore_prompt_title">Scorri per esplorare</string>
-  <string name="explore_feed_swipe_to_explore_prompt_message" fuzzy="true">Scorri verso il basso per navigare tra gli argomenti oppure scorri lateralmente per esplorare i contenuti correlati.</string>
+  <string name="explore_feed_swipe_to_explore_prompt_message">Scorri verso l\'alto per navigare tra gli argomenti oppure scorri lateralmente per esplorare i contenuti correlati.</string>
   <string name="home_feed_settings_whats_driving_subtitle">Argomenti e voci che definiscono i tuoi contenuti</string>
   <string name="home_feed_settings_based_on_interest_title">In base ai tuoi interessi</string>
   <string name="home_feed_settings_based_on_interest_subtitle">Voci personalizzate in base agli argomenti che hai scelto.&lt;br /&gt;&lt;a href=\"#drivingFeed\"&gt;Cosa alimenta il tuo feed?&lt;/a&gt;</string>
@@ -2194,4 +2195,6 @@
   <string name="home_feed_random_subtitle">Una voce a caso per stuzzicare la tua curiosità</string>
   <string name="home_feed_random_shuffle_button">Mescola</string>
   <string name="home_feed_settings_feed_configuration_interests_updated_message">Interessi aggiornati. Aggiorna il feed per vedere gli aggiornamenti.</string>
+  <string name="home_feed_discover_cta_description">Scopri nuovi argomenti, selezionati appositamente per te. Scegli tra aggiornamenti giornalieri, settimanali o mensili.</string>
+  <string name="home_feed_discover_see_all_description">Il tuo elenco di lettura personalizzato ha altre storie selezionate appositamente per te.</string>
 </resources>

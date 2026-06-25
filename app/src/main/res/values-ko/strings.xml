@@ -576,8 +576,7 @@
     <item quantity="other">목록에서 제거된 문서 %d개</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%s에서 제거된 문서 %d개</item>
-    <item quantity="other">%s에서 제거된 문서 %d개</item>
+    <item quantity="other">%2$s에서 제거된 문서 %1$d개</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="other">목록 %d개 삭제됨</item>
@@ -2285,6 +2284,7 @@
   <string name="explore_feed_new_update_prompt_language_description">여러 언어로 읽으시나요? 각 언어마다 다른 경험을 제공합니다. 언어를 바꾸기만 하면 새로운 피드가 바로 나타납니다.</string>
   <string name="explore_feed_new_update_prompt_primary_button_text">피드 사용자 지정</string>
   <string name="explore_feed_customize_interests">관심사 맞춤 설정</string>
+  <string name="explore_feed_customize_discover">발견 맞춤 설정</string>
   <string name="explore_feed_new_update_prompt_secondary_button_text">설정해 주세요</string>
   <string name="explore_feed_building_text">나만의 피드를 만들어 봅시다…</string>
   <string name="explore_feed_community_tab_label">커뮤니티</string>
@@ -2365,6 +2365,15 @@
   <string name="home_feed_places_of_interest_cta_button">장소로 가기</string>
   <string name="home_feed_settings_places_of_interest_title">관심 지점</string>
   <string name="home_feed_settings_places_of_interest_subtitle">장소의 마지막 위치 근처의 문서</string>
+  <string name="home_feed_settings_discover_title">추천 발견</string>
+  <string name="home_feed_settings_discover_subtitle">읽기 목록 발견에서의 문서</string>
+  <string name="home_feed_discover_cta_title">발견으로부터</string>
+  <string name="home_feed_discover_cta_description">엄선된 새로운 주제들을 알아보세요. 매일, 매주 또는 매월 업데이트 중에서 선택하세요.</string>
+  <string name="home_feed_discover_cta_button">읽기 목록 발견 활성화</string>
+  <string name="home_feed_discover_card_footer">발견으로부터 • %s마다 업데이트</string>
+  <string name="home_feed_discover_see_all_title">발견할 것이 더 많습니다</string>
+  <string name="home_feed_discover_see_all_description">나만의 맞춤형 읽기 목록에는 나만을 위해 엄선된 더 많은 이야기가 담겨 있습니다.</string>
+  <string name="home_feed_discover_see_all_button">모든 추천 둘러보기</string>
   <string name="home_feed_places_of_interest_card_footer">%1$s • 장소의 위치에 기반함</string>
   <string name="home_feed_for_you_screen_end_of_feed_title">오늘은 여기까지입니다!</string>
   <string name="home_feed_for_you_screen_end_of_feed_description">내일 다시 오시면 맞춤 설정된 새로운 문서들을 만나보실 수 있습니다.</string>

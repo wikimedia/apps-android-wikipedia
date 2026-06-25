@@ -486,8 +486,8 @@
     <item quantity="other">%d వ్యాసాలను జాబితా నుండి తీసేసాం</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%s నుండి %d వ్యాసాన్ని తీసేసాం</item>
-    <item quantity="other">%s నుండి %d వ్యాసాలను తీసేసాం</item>
+    <item quantity="one">%2$s నుండి %1$d వ్యాసాన్ని తీసేసాం</item>
+    <item quantity="other">%2$s నుండి %1$d వ్యాసాలను తీసేసాం</item>
   </plurals>
   <string name="reading_list_items_deleted">%d వ్యాసాలను జాబితా నుండి తీసేసాం</string>
   <string name="reading_lists_item_deleted">%s ని జాబితాల నుండి తీసేసాం</string>

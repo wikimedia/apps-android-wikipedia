@@ -54,7 +54,7 @@
   <string name="page_error_back_to_main">Gå tilbage</string>
   <string name="error_back">Tilbage</string>
   <string name="error_next">Næste</string>
-  <string name="menu_clear_all_history">Se læsehistorik</string>
+  <string name="menu_clear_all_history">Ryd læsehistorik</string>
   <string name="history_item_deleted">%s fjernet fra historikken</string>
   <string name="history_items_deleted">%d artikler fjernet fra historikken</string>
   <string name="history_item_delete_undo">Fortryd</string>
@@ -73,7 +73,7 @@
   <string name="share_via">Del via</string>
   <string name="image_share_via">Del via</string>
   <string name="search_redirect_from">Omdirigeret fra %s</string>
-  <string name="page_edit_history_activity_title">Revisionshistorik: %s</string>
+  <string name="page_edit_history_activity_title">Versionshistorik: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Tom redigeringforklaring</string>
   <string name="page_edit_history_search_or_filter_edits_hint">Søg eller filtrér redigeringer</string>
@@ -133,7 +133,7 @@
   <string name="map_view_link_text">Vis på et kort</string>
   <string name="other_languages_indication_text">Læs på et andet sprog</string>
   <string name="language_count_link_text">Tilgængelig på %d andre sprog</string>
-  <string name="edit_save_action_license_logged_in">Ved at udgive accepterer du &lt;a href=\"%1$s\"&gt;Betingelser for brug&lt;/a&gt;, og du accepterer uigenkaldeligt at udgive dine bidrag under &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licensen.</string>
+  <string name="edit_save_action_license_logged_in">Ved at udgive accepterer du &lt;a href=\"%1$s\"&gt;Betingelser for brug&lt;/a&gt;, og du accepterer uigenkaldeligt at udgive dine bidrag under &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;-licensen.</string>
   <string name="edit_save_action_license_anon">Ved at udgive, accepterer du &lt;a href=\"%1$s\"&gt;brugsbetingelserne&lt;/a&gt;, og du accepterer uigenkaldeligt at udgive dine bidrag under &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; licensen. Ændringer vil blive tilskrevet IP-adressen for din enhed. Hvis du &lt;a href=\"https://#login\"&gt;logger på&lt;/a&gt;, vil du have mere privatliv.</string>
   <string name="edit_anon_warning">Redigeringer vil blive tilskrevet din enheds IP-adresse. Hvis du &lt;a href=\"https://#login\"&gt;logger ind&lt;/a&gt;, får du mere privatliv.</string>
   <string name="preference_title_language">Wikipediasprog</string>
@@ -154,7 +154,7 @@
   <string name="dialog_confirm_delete_donation_history_title">Bekræft sletning</string>
   <string name="dialog_confirm_delete_donation_history_message">Dette gælder kun for donationer fra denne enhed.</string>
   <string name="dialog_confirm_delete_donation_history_delete">Slet</string>
-  <string name="dialog_confirm_delete_donation_history_cancel">Fortryd</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Afbryd</string>
   <string name="menu_show_toc">Indholdsfortegnelse</string>
   <string name="search_no_results_found">Ingen resultater fundet</string>
   <string name="search_reading_list_no_results">Ingen resultater fundet i \"%s\"</string>
@@ -169,7 +169,7 @@
   <string name="login_username_hint">Brugernavn</string>
   <string name="login_password_hint">Adgangskode</string>
   <string name="account_creation_password_hint">Adgangskode</string>
-  <string name="login_2fa_hint">Tofaktorgodkendelseskode</string>
+  <string name="login_2fa_hint">Kode til tofaktorgodkendelse</string>
   <string name="login_2fa_other_workflow_error_msg">Tofaktorgodkendelse påkrævet! Log ind fra hovedskærmen, og indtast koden fra dit 2FA-token.</string>
   <string name="login_email_auth_hint">E-mailbekræftelseskode</string>
   <string name="login_email_auth_other_workflow_error_msg">E-mailbekræftelse påkrævet! Log venligst på fra hovedskærmen, og indtast din e-mailbekræftelseskode.</string>
@@ -226,14 +226,14 @@
   <string name="email_recommendation_dialog_create_without_email_action">Fortsæt uden email</string>
   <string name="email_recommendation_dialog_create_with_email_action">Tilføj en e-mailadresse</string>
   <string name="create_account_button">Opret konto</string>
-  <string name="create_account_name_unavailable">Brugernavnet »%s« er ikke tilgængeligt. Vælg venligst et andet navn.</string>
+  <string name="create_account_name_unavailable">Brugernavnet \"%s\" er ikke tilgængeligt. Vælg venligst et andet navn.</string>
   <string name="create_account_ip_block_message">Beklager, din IP-adresse er på nuværende tidspunkt blokeret fra at oprette nye kontoer.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Detaljer</string>
   <string name="preferences_general_heading">Generelt</string>
   <string name="preferences_account_heading">Konto</string>
   <string name="wikipedia_app_faq">Ofte stillede spørgsmål til Wikipedia-appen</string>
-  <string name="send_feedback">Send feedback om appen</string>
+  <string name="send_feedback">Send tilbagemelding om app</string>
   <string name="create_account_account_created_toast">Konto oprettet!</string>
   <string name="preferences_heading_syncing">Synkroniserer</string>
   <string name="preferences_heading_data_usage">Dataforbrug</string>
@@ -242,8 +242,8 @@
   <string name="preference_title_download_reading_list_articles">Hent artikler på din læseliste</string>
   <string name="preference_summary_sync_reading_lists">Synkroniser læselister på tværs af forskellige enheder ved at gemme dem på din Wikipediakonto</string>
   <string name="preference_summary_sync_reading_lists_from_account">Synkroniser læselister på tværs af forskellige enheder ved at gemme dem på din Wikipediakonto »%s«</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Fjern synkroniserede læselister fra »%s«?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Dette vil fuldstændig slette alle tidligere synkroniserede læselister fra fjernlageret. Fjern alle synkroniserede lister fra din konto »%s«?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Fjern synkroniserede læselister fra \"%s\"?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Dette vil fuldstændig slette alle tidligere synkroniserede læselister fra fjernlageret. Fjern alle synkroniserede lister fra din konto \"%s\"?</string>
   <string name="preference_title_auto_upload_crash_reports">Send rapporter om nedbrud</string>
   <string name="preference_summary_auto_upload_crash_reports">Tillad appen at sende rapporter om nedbrud til en tredjepartstjeneste automatisk, så vi kan gennemgå nedbruddet og rette fejlen hurtigere og nemmere.</string>
   <string name="editing_error_spamblacklist">Henvisninger til blokerede domæner (%s) fundet. Fjern dem, og prøv igen.</string>
@@ -567,9 +567,9 @@
     <item quantity="one">%d artikel fjernet fra listen</item>
     <item quantity="other">%d artikler fjernet fra listen</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d artikel fjernet fra %s</item>
-    <item quantity="other">%d artikler fjernet fra %s</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">%1$d artikel fjernet fra %2$s</item>
+    <item quantity="other">%1$d artikler fjernet fra %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d liste slettet</item>
@@ -2357,4 +2357,106 @@
   <string name="explore_feed_new_update_prompt_new_name_title">Et nyt navn</string>
   <string name="explore_feed_new_update_prompt_new_name_description">Udforsk-feedet er nu Hjem, på samme sted som før.</string>
   <string name="explore_feed_new_update_prompt_two_ways_title">Dit feed, på to måder</string>
+  <string name="explore_feed_new_update_prompt_two_ways_description">Opdag artikler, der er tilpasset dine interesser i For You, eller gennemse Wikipedias bedste redaktionelle indhold i Community.</string>
+  <string name="explore_feed_new_update_prompt_control_title">Bevar kontrollen</string>
+  <string name="explore_feed_new_update_prompt_control_description">Hver anbefaling fortæller dig præcis, hvorfor den er der. Du kan til enhver tid opdatere dine præferencer i Indstillinger.</string>
+  <string name="explore_feed_new_update_prompt_language_title">Alle sprog, fuldt personligt tilpasset</string>
+  <string name="explore_feed_new_update_prompt_language_description">Læser du på flere sprog? Hvert sprog får sin egen oplevelse. Bare skift, og dit nye feed er klar.</string>
+  <string name="explore_feed_new_update_prompt_primary_button_text">Tilpas mit feed</string>
+  <string name="explore_feed_customize_interests">Tilpas interesser</string>
+  <string name="explore_feed_customize_discover">Tilpas Discover</string>
+  <string name="explore_feed_new_update_prompt_secondary_button_text">Sæt det op for mig</string>
+  <string name="explore_feed_building_text">Lad os bygge dit feed…</string>
+  <string name="explore_feed_community_tab_label">Fællesskab</string>
+  <string name="explore_feed_for_you_tab_label">Til dig</string>
+  <string name="explore_feed_date_today">I dag - %s</string>
+  <string name="explore_feed_load_previous_day_label">Indlæs forrige dag</string>
+  <string name="explore_feed_from_reading_list">Fra din læseliste</string>
+  <string name="explore_feed_because_of_interest">På grund af din interesse: %s</string>
+  <string name="explore_feed_onboarding_curiosity_title">Følg din nysgerrighed</string>
+  <string name="explore_feed_onboarding_curiosity_description">Vælg emner, der interesserer dig, så personliggør vi dit feed.\n\nVi indsamler minimale data, der er anonymiserede.</string>
+  <string name="explore_feed_deselect_all_button_label">Fravælg alle</string>
+  <string name="explore_feed_potd_subtitle">Daglige billeder på Wikimedia Commons, udvalgt af frivillige bidragydere</string>
+  <string name="explore_feed_featured_article_subtitle">Udvalgte artikler er nogle af de artikler af højeste kvalitet på Wikipedia, udvalgt dagligt af redaktører</string>
+  <string name="explore_feed_preference_selection_screen_title">Hvad vil du gerne se først?</string>
+  <string name="explore_feed_preference_community_content_title">Fællesskabsrelateret indhold</string>
+  <string name="explore_feed_preference_personalized_content_title">Personligt tilpasset indhold</string>
+  <string name="explore_feed_in_the_news_subtitle">Artikler, der er blevet væsentligt opdateret for at afspejle nylige eller aktuelle begivenheder af bred interesse</string>
+  <string name="explore_feed_on_this_day_subtitle">Opdag historiske begivenheder fra denne dag</string>
+  <string name="explore_feed_community_disclaimer">Indhold og ressourcer udvalgt af og om Wikimedia-fællesskabet</string>
+  <string name="explore_feed_community_load_more_label">Se tidligere indhold fra fællesskabet</string>
+  <string name="explore_feed_manage_languages_label">Administrer sprog</string>
+  <string name="explore_feed_header_overflow_hide_module_label">Skjul modul</string>
+  <string name="explore_feed_header_overflow_hide_module_message">Modul skjult.</string>
+  <string name="explore_feed_header_overflow_hide_module_message_action">Fortryd</string>
+  <string name="explore_feed_personalized_preference_empty_state_text">Du skal tilføje interesser for at se personlige indholdsanbefalinger. Du kan gøre dette i de foregående trin eller senere i Indstillinger.</string>
+  <string name="explore_feed_because_you_read">Fordi du læste: %s</string>
+  <string name="explore_feed_swipe_to_explore_prompt_title">Stryg for at udforske</string>
+  <string name="explore_feed_swipe_to_explore_prompt_message">Stryg op for at navigere mellem emner, eller stryg sidelæns for at udforske relateret indhold.</string>
+  <string name="home_feed_settings_title">Tilpas dit startfeed</string>
+  <string name="home_feed_settings_default_view_title">Standard feedvisning</string>
+  <string name="home_feed_settings_default_view_subtitle">Vælg hvilket feed der vises først, når du åbner appen</string>
+  <string name="home_feed_settings_whats_driving_title">Hvad driver dit feed</string>
+  <string name="home_feed_settings_modules_title">Moduler</string>
+  <string name="home_feed_settings_community_subtitle">Slå feedmoduler til eller fra for \"Fællesskab\"</string>
+  <string name="home_feed_settings_for_you_subtitle">Slå feedmoduler til eller fra \"Til dig\"</string>
+  <string name="home_feed_settings_whats_driving_subtitle">Emner og artikler, der former dit indhold</string>
+  <string name="home_feed_settings_community_modules_description">Hvis du slår et modul fra, skjules det fra dit fællesskabsfeed. Du kan til enhver tid genaktivere det her. Nogle moduler er muligvis ikke tilgængelige på dit sprog.</string>
+  <string name="home_feed_settings_for_you_modules_description">Hvis du deaktiverer et modul, skjules det fra dit \"Til dig\"-feed. Du kan til enhver tid genaktivere det her.</string>
+  <string name="home_feed_settings_based_on_interest_title">Baseret på dine interesser</string>
+  <string name="home_feed_settings_based_on_interest_subtitle">Artikler skræddersyet til de emner, du har valgt.&lt;br /&gt;&lt;a href=\"#drivingFeed\"&gt;Hvad driver dit feed&lt;/a&gt;</string>
+  <string name="home_feed_settings_because_you_read_subtitle">Forslag baseret på en nylig artikel fra din historie</string>
+  <string name="home_feed_settings_continue_reading_title">Fortsæt læsning</string>
+  <string name="home_feed_settings_continue_reading_subtitle">Spring tilbage til artikler, du ikke blev færdig med</string>
+  <string name="home_feed_did_you_know_title">Vidste du?</string>
+  <string name="home_feed_did_you_know_subtitle">Interessante fakta fra artikler udvalgt af frivillige redaktører</string>
+  <string name="home_feed_did_you_know_more_label">Vidste du mere</string>
+  <string name="home_feed_settings_community_empty_dialog_title">Dit fællesskabsfeed vil være tomt</string>
+  <string name="home_feed_settings_for_you_empty_dialog_title">Dit \"Til dig\"-feed vil være tomt</string>
+  <string name="home_feed_settings_empty_dialog_text">Slå mindst ét modul til for at se indhold.</string>
+  <string name="home_feed_settings_empty_dialog_positive">Fortsæt alligevel</string>
+  <string name="home_feed_screen_empty_state_label">Dit feed er tomt</string>
+  <string name="home_feed_community_screen_all_modules_disabled_description">Aktivér &lt;b&gt;fællesskabsmoduler&lt;/b&gt; for at begynde at se indhold, der er kurateret af og om Wikimedia-fællesskabet.</string>
+  <string name="home_feed_for_you_screen_all_modules_disabled_description">Aktivér &lt;b&gt;Til dig&lt;/b&gt; -modulerne for at begynde at se indhold baseret på dine præferencer.</string>
+  <string name="home_feed_screen_all_modules_disabled_btn_label">Administrer moduler</string>
+  <string name="home_feed_for_you_screen_empty_title">Dit feed er tomt for nu</string>
+  <string name="home_feed_for_you_screen_empty_description">Dit \"Til dig\"-feed vil fyldes med personlige artikler, mens du udforsker.</string>
+  <string name="home_feed_for_you_screen_empty_ways_to_start">Måder at komme i gang på:</string>
+  <string name="home_feed_for_you_screen_empty_add_interests">Tilføj &lt;a href=\"#add_interests\"&gt;nogle interesser&lt;/a&gt;</string>
+  <string name="home_feed_for_you_screen_empty_see_community">Se hvad der sker i &lt;a href=\"#community_tab\"&gt;fællesskabet&lt;/a&gt;</string>
+  <string name="home_feed_update_tooltip1">Nyt: \"Tilfældig artikel\" og \"Seværdigheder\" er tilgængelige i Til dig, og \"Vidste du det?\" er i fanen Fællesskab.</string>
+  <string name="home_feed_random_title">Tilfældig</string>
+  <string name="home_feed_random_subtitle">Tilfældig artikel til at vække din nysgerrighed</string>
+  <string name="home_feed_random_shuffle_button">Bland</string>
+  <string name="home_feed_settings_feed_configuration_description">Disse emner og artikler former, hvad der vises i dit \"Til dig\"-feed. Fjern dem, du ikke længere ønsker, eller tilføj nye interesser.</string>
+  <string name="home_feed_settings_feed_configuration_interest_title">Dine interesser</string>
+  <string name="home_feed_settings_feed_configuration_interest_subtitle">Rediger dine emner af interesse</string>
+  <string name="home_feed_settings_feed_configuration_location_title">Din placering</string>
+  <string name="home_feed_settings_feed_configuration_location_subtitle">Opdater din placering i Steder for at se artikler i nærheden</string>
+  <string name="home_feed_settings_feed_configuration_empty_interest_subtitle">Din interesseliste er tom. Tilføj noget, du er nysgerrig efter.</string>
+  <string name="home_feed_settings_feed_configuration_reading_history_title">Læsehistorik</string>
+  <string name="home_feed_settings_feed_configuration_reading_history_subtitle">Gennemse dine senest læste artikler</string>
+  <string name="home_feed_settings_feed_configuration_empty_reading_history_subtitle">Din læsehistorik er tom. Begynd at udforske artikler for at lave personlige anbefalinger.</string>
+  <string name="home_feed_settings_feed_configuration_languages_title">Sprog</string>
+  <string name="home_feed_settings_feed_configuration_languages_subtitle">Rediger dine foretrukne sprog</string>
+  <string name="home_feed_settings_feed_configuration_interests_updated_message">Interesser opdateret. Opdater dit feed for at se opdateringer.</string>
+  <string name="home_feed_places_of_interest_cta_title">Historier fra steder du elsker</string>
+  <string name="home_feed_places_of_interest_cta_description">Artikler vises baseret på dit sidst viste sted. Gå til fanen Steder, og vælg en placering.</string>
+  <string name="home_feed_places_of_interest_cta_button">Gå til steder</string>
+  <string name="home_feed_settings_places_of_interest_title">Steder af interesse</string>
+  <string name="home_feed_settings_places_of_interest_subtitle">Artikler i nærheden af din seneste placering i Steder</string>
+  <string name="home_feed_settings_discover_title">Opdag anbefalinger</string>
+  <string name="home_feed_settings_discover_subtitle">Artikler fra din Discover-læseliste</string>
+  <string name="home_feed_discover_cta_title">Fra Discover</string>
+  <string name="home_feed_discover_cta_description">Lær om nye emner, udvalgt specielt til dig. Vælg mellem daglige, ugentlige eller månedlige opdateringer.</string>
+  <string name="home_feed_discover_cta_button">Aktivér Discover-læseliste</string>
+  <string name="home_feed_discover_card_footer">Fra Discover • Opdateringer %s</string>
+  <string name="home_feed_discover_see_all_title">Der er mere at opdage</string>
+  <string name="home_feed_discover_see_all_description">Din personlige læseliste har flere historier udvalgt specielt til dig.</string>
+  <string name="home_feed_discover_see_all_button">Udforsk alle anbefalinger</string>
+  <string name="home_feed_places_of_interest_card_footer">%1$s • Baseret på din placering i Steder</string>
+  <string name="home_feed_for_you_screen_end_of_feed_title">Det var det for i dag!</string>
+  <string name="home_feed_for_you_screen_end_of_feed_description">Kom tilbage i morgen for at finde nye, friske artikler, der er skræddersyet til dig.</string>
+  <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Måder at blive ved med at lære:</string>
+  <string name="home_feed_for_you_screen_end_of_feed_add_interests">Tilføj &lt;a href=\"#add_interests\"&gt;nye interesser&lt;/a&gt;</string>
 </resources>

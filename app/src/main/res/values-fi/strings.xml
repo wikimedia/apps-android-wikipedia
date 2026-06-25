@@ -578,8 +578,8 @@
     <item quantity="other">%d artikkelia poistettu listalta</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d artikkeli poistettu lukulistalta %s</item>
-    <item quantity="other">%d artikkelia poistettu lukulistalta %s</item>
+    <item quantity="one">%1$d artikkeli poistettu lukulistalta %2$s</item>
+    <item quantity="other">%1$d artikkelia poistettu lukulistalta %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d lista poistettu</item>
@@ -594,7 +594,7 @@
   <string name="reading_lists_item_deleted">%s poistettu listoista</string>
   <string name="reading_list_item_delete_undo">Kumoa</string>
   <string name="reading_list_deleted">%s poistettu</string>
-  <string name="saved_list_empty_title">Tallennettuja sivuja ei vielä ole</string>
+  <string name="saved_list_empty_title">Ei vielä tallennettuja sivua</string>
   <string name="reading_lists_empty_message">Lisää artikkeleita listaan, jotta voit tarkastella niitä myöhemmin. Voit lukea lukulistassa olevia artikkeleja myös ilman verkkoyhteyttä.</string>
   <string name="reading_list_empty">Tässä lukulistassa ei ole artikkeleita.</string>
   <string name="reading_list_article_offline">Saatavilla ilman verkkoyhteyttä</string>
@@ -2249,6 +2249,7 @@
   <string name="reading_challenge_onboarding_prompt_login">Kirjaudu sisään / liity Wikipediaan</string>
   <string name="reading_challenge_install_prompt_got_it">Selvä</string>
   <string name="reading_challenge_install_prompt_add">Lisää</string>
+  <string name="search_widget_install_prompt_title">Nopeampi tapa hakea</string>
   <string name="search_widget_install_prompt_add">Lisää</string>
   <string name="search_widget_install_prompt_got_it">Selvä</string>
   <string name="reading_challenge_widget_explore_button">Tutustu</string>
@@ -2335,8 +2336,10 @@
   <string name="explore_feed_personalized_preference_empty_state_text">Sinun tulee lisätä kiinnostuksen kohteita nähdäksesi personoituja sisältösuosituksia. Voit tehdä tämän edellisissä vaiheissa tai myöhemmin sovelluksen asetuksissa.</string>
   <string name="explore_feed_because_you_read">Aiemmin lukemasi perusteella: %s</string>
   <string name="explore_feed_swipe_to_explore_prompt_title">Pyyhkäise selataksesi</string>
-  <string name="explore_feed_swipe_to_explore_prompt_message" fuzzy="true">Pyyhkäise alas siirtäksesi aiheiden välillä tai pyyhkäise sivulle nähdeksi aiheeseen liittyvää sisältöä.</string>
-  <string name="home_feed_settings_title" fuzzy="true">Mukauta etusivun syöte</string>
+  <string name="explore_feed_swipe_to_explore_prompt_message">Pyyhkäise ylös siirtäksesi aiheiden välillä tai pyyhkäise sivulle nähdeksi aiheeseen liittyvää sisältöä.</string>
+  <string name="home_feed_settings_title">Mukauta etusivun syötteesi</string>
+  <string name="home_feed_settings_default_view_title">Oletusarvoinen syötenäkymä</string>
+  <string name="home_feed_settings_default_view_subtitle">Valitse, mikä syöte näytetään ensin, kun avaat sovelluksen</string>
   <string name="home_feed_settings_whats_driving_title">Mikä ohjaa syötettäsi</string>
   <string name="home_feed_settings_modules_title">Moduulit</string>
   <string name="home_feed_settings_community_subtitle">Ota käyttöön tai poista käytöstä ”Yhteisö”-syötteen moduuleja</string>

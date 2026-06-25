@@ -515,9 +515,9 @@
     <item quantity="one">%d مضمون فھرست کان ختم ڪيو ويو</item>
     <item quantity="other">%d مضمونَ فھرست کان ختم ڪيا ويا</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d مضمون %s مان ھٽايو ويو</item>
-    <item quantity="other">%d مضمون %s مان ھٽايا ويا</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">%1$d مضمون %2$s مان ھٽايو ويو</item>
+    <item quantity="other">%1$d مضمون %2$s مان ھٽايا ويا</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d فھرست ڊاٿي وئي</item>
