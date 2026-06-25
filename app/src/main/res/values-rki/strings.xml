@@ -542,7 +542,7 @@
     <item quantity="one">%d ဆောင်းပါးကို စရင်းက ဖယ်ယှားထားရေ</item>
     <item quantity="other"> စရင်းက ဆောင်းပါး %d ခုကို ဖယ်ယှားလိုက်တေ</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
     <item quantity="one">%1$d ဆောင်းပါးကို %2$s</item>
     <item quantity="other">%1$d ဆောင်းပါးကို %2$s က ဖယ်ယှားလိုက်တေ</item>
   </plurals>

@@ -572,7 +572,7 @@
     <item quantity="one">%d लेख को सूची से हटाया गया</item>
     <item quantity="other"> %d लेख सूची से हटाए गए</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
     <item quantity="one">%1$d लेख को %2$s से हटाया गया</item>
     <item quantity="other">%1$d लेखों को %2$s से हटाया गया</item>
   </plurals>

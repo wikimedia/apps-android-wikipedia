@@ -604,7 +604,7 @@
     <item quantity="many">Usunięto %d artykułów z listy</item>
     <item quantity="other">Usunięto %d artykułów z listy</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
     <item quantity="one">Usunięto %1$d artykuł z listy %2$s</item>
     <item quantity="few">Usunięto %1$d artykuły z listy %2$s</item>
     <item quantity="many">Usunięto %1$d artykułów z listy %2$s</item>

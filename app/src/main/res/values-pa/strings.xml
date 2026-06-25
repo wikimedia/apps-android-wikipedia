@@ -527,7 +527,7 @@
     <item quantity="one">%d ਲੇਖ ਹਟਾਇਆ ਗਿਆ</item>
     <item quantity="other"> ਸੂਚੀ ਵਿੱਚੋਂ %d ਲੇਖ ਹਟਾਏ ਗਏ</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
     <item quantity="one">%2$s ਤੋਂ %1$d ਲੇਖ ਹਟਾਇਆ ਗਿਆ</item>
     <item quantity="other">%2$s ਤੋਂ %1$d ਲੇਖ ਹਟਾਏ ਗਏ</item>
   </plurals>

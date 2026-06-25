@@ -443,7 +443,7 @@
     <item quantity="one">အဝ်ႏစာႏရင်ꩻကို ဖုဲင်းထန်ႏထွူလဲဉ်း ရောမ်ဖြုဲင်ꩻ %d</item>
     <item quantity="other">အဝ်ႏစာႏရင်ꩻကို ဖုဲင်းထန်ႏထွူလဲဉ်း ရောမ်ဖြုဲင်ꩻဖိုင်ႏ %d</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
     <item quantity="one">အဝ်ႏ%2$sကို ဖုဲင်းထန်ႏထွူလဲဉ်း ရောမ်ဖြုဲင်ꩻ %1$d</item>
     <item quantity="other">အဝ်ႏ%2$sကို ဖုဲင်းထန်ႏထွူလဲဉ်း ရောမ်ဖြုဲင်ꩻဖိုင်ႏ %1$d</item>
   </plurals>

@@ -572,7 +572,7 @@
     <item quantity="few">%d članki odstranjeni s seznama</item>
     <item quantity="other">%d člankov odstranjenih s seznama</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
     <item quantity="one">%1$d članek odstranjen s seznama %2$s</item>
     <item quantity="two">%1$d članka odstranjena s seznama %2$s</item>
     <item quantity="few">%1$d članki odstranjeni s seznama %2$s</item>

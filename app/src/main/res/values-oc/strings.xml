@@ -356,4 +356,14 @@
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">per 1 mes</string>
   <string name="watchlist_expiry_dialog_one_month">1 mes</string>
   <string name="page_issues_title">Problèmas de la pagina</string>
+  <string name="explore_feed_customize_discover">Personalizar la descubèrta</string>
+  <string name="home_feed_settings_discover_title">Descubrir lei recomandacions</string>
+  <string name="home_feed_settings_discover_subtitle">Articles de vòstra lista de lectura Descubèrta</string>
+  <string name="home_feed_discover_cta_title">De Descobrir</string>
+  <string name="home_feed_discover_cta_description">Aprendre de subjèctes novèus, chausits per vos. Chausir entre leis actualizacions quotidianas, setmanieras o mesadieras.</string>
+  <string name="home_feed_discover_cta_button">Activar la lista de lectura de descubèrta</string>
+  <string name="home_feed_discover_card_footer">De Descubrir • Actualizacions %s</string>
+  <string name="home_feed_discover_see_all_title">I a mai de descubrir</string>
+  <string name="home_feed_discover_see_all_description">Vòstra lista de lectura personalizada a mai d\'istòrias chausidas per vos.</string>
+  <string name="home_feed_discover_see_all_button">Exploratz totei lei recomandacions</string>
 </resources>

@@ -489,7 +489,7 @@
     <item quantity="one">%d makalah dibuang deri daptar</item>
     <item quantity="other">%d makalah dibuang deri daptar</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
     <item quantity="one">%1$d makalah dibuang deri daptar %2$s</item>
     <item quantity="other">%1$d makalah dibuang deri daptar %2$s</item>
   </plurals>
