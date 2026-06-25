@@ -653,12 +653,12 @@
     <item quantity="other">%d مقالة أزيلة من القائمة</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="zero">%d مقالة أُزيلت من  %s\n</item>
-    <item quantity="one">مقالة واحدة أُزيلت من  %s\n</item>
-    <item quantity="two">مقالتان أُزيلت من  %s\n</item>
-    <item quantity="few">%d مقالات أُزيلت من  %s\n</item>
-    <item quantity="many">%d مقالة أُزيلت من  %s\n</item>
-    <item quantity="other">%d مقالة أُزيلت من  %s\n</item>
+    <item quantity="zero">%1$d مقالة أُزيلت من  %2$s\n</item>
+    <item quantity="one">مقالة واحدة أُزيلت من  %2$s\n</item>
+    <item quantity="two">مقالتان أُزيلت من  %2$s\n</item>
+    <item quantity="few">%1$d مقالات أُزيلت من  %2$s\n</item>
+    <item quantity="many">%1$d مقالة أُزيلت من  %2$s\n</item>
+    <item quantity="other">%1$d مقالة أُزيلت من  %2$s\n</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="zero">%d قائمة محذوفة\n</item>

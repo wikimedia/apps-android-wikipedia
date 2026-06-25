@@ -535,9 +535,9 @@
     <item quantity="one">%d мәкалә исемлектән бетерелгән</item>
     <item quantity="other">%d мәкаләләр исемлектән бетерелгән</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d мәкаләсе бетерелде %s</item>
-    <item quantity="other">%d мәкаләләре бетерелде %s</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">%1$d мәкаләсе бетерелде %2$s</item>
+    <item quantity="other">%1$d мәкаләләре бетерелде %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d исемлек бетерелде</item>

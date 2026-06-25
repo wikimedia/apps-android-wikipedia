@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Edwingudfriend
+* Fredrick Kafuka
 * Jadnapac
 * Killy95
 * Kisare
@@ -204,4 +205,14 @@
   <string name="talk_message_empty">Ujumbe hauwezi kuwa tupu.</string>
   <string name="talk_subject_empty">Mada haiwezi kuwa tupu</string>
   <string name="year_in_review_login_dialog_negative">Endelea bila kuingia</string>
+  <string name="explore_feed_customize_discover">Binafsisha ugunduzi</string>
+  <string name="home_feed_settings_discover_title">Gundua mapendekezo</string>
+  <string name="home_feed_settings_discover_subtitle">Makala kutoka kwenye orodha ya gunduzi uliyoisoma.</string>
+  <string name="home_feed_discover_cta_title">Kutoka kwenye ugunduzi</string>
+  <string name="home_feed_discover_cta_description">Jifunze kuhusu mada mpya, zilizochaguliwa kwa ajili yako tu. Chagua kati ya masasisho ya siku, wiki au mwezi.</string>
+  <string name="home_feed_discover_cta_button">Wezesha kusoma orodha ya Gunduzi</string>
+  <string name="home_feed_discover_card_footer">Kutoka kwenye ugunduzi.sashisha %s</string>
+  <string name="home_feed_discover_see_all_title">Kuna mengi zaidi ya kugundua</string>
+  <string name="home_feed_discover_see_all_description">Orodha ya usomaji iliyoundwa kwa ajili Yako ina hadithi zaidi.</string>
+  <string name="home_feed_discover_see_all_button">Tazama mapendekezo yote</string>
 </resources>

@@ -551,9 +551,9 @@
     <item quantity="one">artikulu %d kendu da zerrendatik</item>
     <item quantity="other">%d artikulu kendu dira zerrendatik</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">artikulu %d kendu da %s zerrendatik</item>
-    <item quantity="other">%d artikulu kendu dira %s zerrendatik</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">artikulu %1$d kendu da %2$s zerrendatik</item>
+    <item quantity="other">%1$d artikulu kendu dira %2$s zerrendatik</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">zerrenda %d ezabatuta</item>

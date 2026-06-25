@@ -589,9 +589,9 @@
     <item quantity="one">%d pagina verwijderd uit lijst</item>
     <item quantity="other">%d pagina\'s verwijderd uit lijst</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d pagina verwijderd uit %s</item>
-    <item quantity="other">%d pagina\'s verwijderd uit %s</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">%1$d pagina verwijderd uit %2$s</item>
+    <item quantity="other">%1$d pagina\'s verwijderd uit %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d lijst verwijderd</item>
@@ -2387,6 +2387,7 @@
   <string name="explore_feed_new_update_prompt_language_description">Lezen in meerdere talen? Elke taal biedt een eigen ervaring. Schakel eenvoudig over en uw nieuwe feed is direct beschikbaar.</string>
   <string name="explore_feed_new_update_prompt_primary_button_text">Mijn feed aanpassen</string>
   <string name="explore_feed_customize_interests">Interesses aanpassen</string>
+  <string name="explore_feed_customize_discover">Ontdekken aanpassen</string>
   <string name="explore_feed_new_update_prompt_secondary_button_text">Stel het voor me in</string>
   <string name="explore_feed_building_text">Laten we uw feed samenstellen...</string>
   <string name="explore_feed_community_tab_label">Gemeenschap</string>
@@ -2467,6 +2468,15 @@
   <string name="home_feed_places_of_interest_cta_button">Naar Plaatsen gaan</string>
   <string name="home_feed_settings_places_of_interest_title">Belangwekkende plaatsen</string>
   <string name="home_feed_settings_places_of_interest_subtitle">Pagina\'s in de buurt van uw laatste locatie in Plaatsen</string>
+  <string name="home_feed_settings_discover_title">Ontdek aanbevelingen</string>
+  <string name="home_feed_settings_discover_subtitle">Artikelen uit uw Ontdekken-leeslijst</string>
+  <string name="home_feed_discover_cta_title">Uit Ontdekken</string>
+  <string name="home_feed_discover_cta_description">Leer over nieuwe onderwerpen, speciaal voor u uitgekozen. Kies tussen dagelijkse, wekelijkse of maandelijkse berichten.</string>
+  <string name="home_feed_discover_cta_button">Leeslijst voor Ontdekken inschakelen</string>
+  <string name="home_feed_discover_card_footer">Uit Ontdekken • Berichten %s</string>
+  <string name="home_feed_discover_see_all_title">Er valt nog meer te ontdekken</string>
+  <string name="home_feed_discover_see_all_description">Uw persoonlijke leeslijst bevat nog meer verhalen die speciaal voor u zijn uitgekozen.</string>
+  <string name="home_feed_discover_see_all_button">Alle aanbevelingen bekijken</string>
   <string name="home_feed_places_of_interest_card_footer">%1$s • Gebaseerd op uw locatie in Plaatsen</string>
   <string name="home_feed_for_you_screen_end_of_feed_title">Dat was het voor vandaag!</string>
   <string name="home_feed_for_you_screen_end_of_feed_description">Kom morgen terug voor gloednieuwe pagina\'s die speciaal voor jou zijn samengesteld.</string>

@@ -657,11 +657,11 @@
     <item quantity="many">Статей удалено из списка: %d</item>
     <item quantity="other">Статей удалено из списка: %d</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">Статей удалено из %s: %d</item>
-    <item quantity="few">Статей удалено из %s: %d</item>
-    <item quantity="many">Статей удалено из %s: %d</item>
-    <item quantity="other">Статей удалено из %s: %d</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">Статей удалено из %2$s: %1$d</item>
+    <item quantity="few">Статей удалено из %2$s: %1$d</item>
+    <item quantity="many">Статей удалено из %2$s: %1$d</item>
+    <item quantity="other">Статей удалено из %2$s: %1$d</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d список удалён</item>
@@ -1984,7 +1984,7 @@
   <string name="games_hub_activity_title">Игры</string>
   <string name="games_hub_activity_games_unavailable_message">Игры на этом языке пока недоступны! В играх используется контент, созданный редакторами-добровольцами для каждого языкового раздела Википедии.</string>
   <string name="games_hub_activity_games_unavailable_message_learn_more_action">Узнать больше</string>
-  <string name="games_hub_activity_overflow_view_game_stats">Просмотреть игровую статистику</string>
+  <string name="games_hub_activity_overflow_view_game_stats">Игровая статистика</string>
   <string name="games_hub_activity_overflow_learn_more">Узнать больше</string>
   <string name="on_this_day_game_entry_dialog_title">Введение</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Игры Википедии</string>

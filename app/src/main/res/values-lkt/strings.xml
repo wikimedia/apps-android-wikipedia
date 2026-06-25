@@ -420,7 +420,7 @@
     <item quantity="other">čhašówapi etáŋhaŋ wówapi %d yuȟéyab ičú</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="other">%s etáŋhaŋ wówapi %d yuȟéyab ičú</item>
+    <item quantity="other">%2$s etáŋhaŋ wówapi %1$d yuȟéyab ičú</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="other">čhašówapi  %d iháŋgya</item>

@@ -552,9 +552,9 @@
     <item quantity="one">%d məqalə siyahıdan silindi</item>
     <item quantity="other">%d məqalə siyahıdan silindi</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d məqalə %s siyahısından silindi</item>
-    <item quantity="other">%d məqalə %s siyahısından silindi</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">%1$d məqalə %2$s siyahısından silindi</item>
+    <item quantity="other">%1$d məqalə %2$s siyahısından silindi</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d siyahı silindi</item>
@@ -2342,6 +2342,7 @@
   <string name="explore_feed_new_update_prompt_language_description">Birdən çox dildə oxuyursunuz? Hər birinin öz təcrübəsi var. Sadəcə keçid edin və yeni lentiniz hazırdır.</string>
   <string name="explore_feed_new_update_prompt_primary_button_text">Lentimi fərdiləşdir</string>
   <string name="explore_feed_customize_interests">Maraqları fərdiləşdir</string>
+  <string name="explore_feed_customize_discover">Kəşf et bölməsini fərdiləşdir</string>
   <string name="explore_feed_new_update_prompt_secondary_button_text">Mənim üçün qur</string>
   <string name="explore_feed_building_text">Gəlin lentinizi yaradaq…</string>
   <string name="explore_feed_community_tab_label">İcma</string>
@@ -2422,6 +2423,15 @@
   <string name="home_feed_places_of_interest_cta_button">Məkanlara get</string>
   <string name="home_feed_settings_places_of_interest_title">Maraqlı yerlər</string>
   <string name="home_feed_settings_places_of_interest_subtitle">Yerlərdə son yerinizə yaxın məqalələr</string>
+  <string name="home_feed_settings_discover_title">Kəşf tövsiyələri</string>
+  <string name="home_feed_settings_discover_subtitle">Kəşf edilmiş oxuma siyahınızdan məqalələr</string>
+  <string name="home_feed_discover_cta_title">Kəşf etdən</string>
+  <string name="home_feed_discover_cta_description">Yalnız sizin üçün seçilmiş yeni mövzular haqqında məlumat əldə edin. Gündəlik, həftəlik və ya aylıq yeniləmələr arasında seçim edin.</string>
+  <string name="home_feed_discover_cta_button">Kəşf edilmiş oxuma siyahısını aktivləşdir</string>
+  <string name="home_feed_discover_card_footer">Kəşf etdən • %s yeniləmələr</string>
+  <string name="home_feed_discover_see_all_title">Kəşf ediləcək daha çox şey var</string>
+  <string name="home_feed_discover_see_all_description">Fərdiləşdirilmiş oxuma siyahınızda yalnız sizin üçün seçilmiş daha çox hekayə var.</string>
+  <string name="home_feed_discover_see_all_button">Bütün tövsiyələri kəşf et</string>
   <string name="home_feed_places_of_interest_card_footer">%1$s • Yerlərdəki yerinizə əsasən</string>
   <string name="home_feed_for_you_screen_end_of_feed_title">Bugünlük bu qədər!</string>
   <string name="home_feed_for_you_screen_end_of_feed_description">Sabah sizin üçün fərdiləşdirilmiş yeni məqalələr tapmaq üçün yenə gəlin.</string>

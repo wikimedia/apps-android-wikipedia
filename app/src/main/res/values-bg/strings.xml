@@ -552,9 +552,9 @@
     <item quantity="one">%d статия е премахната от списъка</item>
     <item quantity="other">%d статии са премахнати от списъка</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d статия е премахната от %s</item>
-    <item quantity="other">%d статии са премахнати от %s</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">%1$d статия е премахната от %2$s</item>
+    <item quantity="other">%1$d статии са премахнати от %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d списък е изтрит</item>

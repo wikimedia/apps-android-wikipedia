@@ -550,8 +550,8 @@
     <item quantity="other">%d ليکنې له لړليک لرې شوې</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d ليکنه له %s لرې شوه</item>
-    <item quantity="other">%d ليکنې له%s لرې شوې</item>
+    <item quantity="one">%1$d ليکنه له %2$s لرې شوه</item>
+    <item quantity="other">%1$d ليکنې له%2$s لرې شوې</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d لړليک ړنگ شو</item>

@@ -569,9 +569,9 @@
     <item quantity="one">%d مقاله از فهرست حذف شد</item>
     <item quantity="other">%d مقاله از فهرست حذف شدند</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d مقاله از %s حذف شد</item>
-    <item quantity="other">%d مقاله از %s حذف شدند</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">%1$d مقاله از %2$s حذف شد</item>
+    <item quantity="other">%1$d مقاله از %2$s حذف شدند</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d فهرست حذف شد</item>

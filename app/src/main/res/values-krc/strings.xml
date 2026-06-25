@@ -527,8 +527,8 @@
     <item quantity="other">%d статья тизмеден къоратлды</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d бет %s тизмеден къоратылды</item>
-    <item quantity="other">%d бет %s тизмеден къоратылды</item>
+    <item quantity="one">%1$d бет %2$s тизмеден къоратылды</item>
+    <item quantity="other">%1$d бет %2$s тизмеден къоратылды</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d тизме кетерилди</item>

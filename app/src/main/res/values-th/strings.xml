@@ -470,8 +470,8 @@
   <plurals name="reading_list_articles_deleted">
     <item quantity="other">เอา %d บทความออกจากรายการแล้ว</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="other">เอา %d บทความออกจาก %s แล้ว</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="other">เอา %1$d บทความออกจาก %2$s แล้ว</item>
   </plurals>
   <string name="reading_list_items_deleted">ลบ %d บทความออกจากรายการแล้ว</string>
   <string name="reading_lists_item_deleted">เอา %s ออกจากรายการแล้ว</string>

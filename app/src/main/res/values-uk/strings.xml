@@ -423,7 +423,7 @@
   <string name="preference_title_customize_home_feed">Головна стрічка</string>
   <string name="preference_title_show_link_previews">Показувати попередній перегляд посилань</string>
   <string name="preference_summary_customize_explore_feed">Налаштувати стрічку</string>
-  <string name="preference_summary_customize_home_feed">Налаштувати свою домашню стрічку</string>
+  <string name="preference_summary_customize_home_feed">Налаштувати свою головну стрічку</string>
   <string name="preference_summary_show_link_previews">Показувати попередній перегляд статей при натисненні на посилання.</string>
   <string name="preference_title_collapse_tables">Згорнути таблиці</string>
   <string name="preference_summary_collapse_tables">Автоматично згортати табличні блоки (інфобокси, примітки, коментарі тощо).</string>
@@ -597,11 +597,11 @@
     <item quantity="many">%d статей вилучено зі списку</item>
     <item quantity="other">%d статей вилучено зі списку</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d статтю вилучено з %s</item>
-    <item quantity="few">%d статті вилучено з %s</item>
-    <item quantity="many">%d статей вилучено з %s</item>
-    <item quantity="other">%d статей вилучено з %s</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">%1$d статтю вилучено з %2$s</item>
+    <item quantity="few">%1$d статті вилучено з %2$s</item>
+    <item quantity="many">%1$d статей вилучено з %2$s</item>
+    <item quantity="other">%1$d статей вилучено з %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d список вилучено</item>
@@ -2581,6 +2581,7 @@
   <string name="explore_feed_new_update_prompt_language_description">Читаєте кількома мовами? Кожна з них дає інший досвід. Просто перемкніться, і ваша нова стрічка готова.</string>
   <string name="explore_feed_new_update_prompt_primary_button_text">Налаштувати мою стрічку</string>
   <string name="explore_feed_customize_interests">Налаштувати інтереси</string>
+  <string name="explore_feed_customize_discover">Налаштувати рекомендації</string>
   <string name="explore_feed_new_update_prompt_secondary_button_text">Налаштуйте це для мене</string>
   <string name="explore_feed_building_text">Створімо вашу стрічку…</string>
   <string name="explore_feed_community_tab_label">Спільнота</string>
@@ -2608,8 +2609,10 @@
   <string name="explore_feed_personalized_preference_empty_state_text">Щоб переглядати персоналізовані рекомендації щодо контенту, потрібно додати інтереси. Ви можете зробити це на попередніх кроках або пізніше в налаштуваннях.</string>
   <string name="explore_feed_because_you_read">Оскільки Ви читали: %s</string>
   <string name="explore_feed_swipe_to_explore_prompt_title">Проведіть пальцем, щоб дослідити</string>
-  <string name="explore_feed_swipe_to_explore_prompt_message" fuzzy="true">Проведіть пальцем униз, щоб перейти до іншої теми, або убік, щоб переглянути пов\'язаний контент.</string>
-  <string name="home_feed_settings_title" fuzzy="true">Налаштувати домашню стрічку</string>
+  <string name="explore_feed_swipe_to_explore_prompt_message">Проведіть пальцем угору, щоб перейти до іншої теми, або убік, щоб переглянути пов\'язаний контент.</string>
+  <string name="home_feed_settings_title">Налаштуйте свою головну стрічку</string>
+  <string name="home_feed_settings_default_view_title">Стандартний вигляд стрічки</string>
+  <string name="home_feed_settings_default_view_subtitle">Виберіть, яку стрічку відображати першою під час відкриття програми</string>
   <string name="home_feed_settings_whats_driving_title">Що впливає на вашу стрічку</string>
   <string name="home_feed_settings_modules_title">Модулі</string>
   <string name="home_feed_settings_community_subtitle">Увімкнути чи вимкнути модулі стрічки «Спільнота»</string>
@@ -2659,6 +2662,7 @@
   <string name="home_feed_places_of_interest_cta_button">Перейти до Місць</string>
   <string name="home_feed_settings_places_of_interest_title">Цікаві місця</string>
   <string name="home_feed_settings_places_of_interest_subtitle">Статті поблизу вашого останнього розташування в Місцях</string>
+  <string name="home_feed_settings_discover_title">Відкрийте для себе рекомендації</string>
   <string name="home_feed_places_of_interest_card_footer">%1$s • На основі вашого розташування в Місцях</string>
   <string name="home_feed_for_you_screen_end_of_feed_title">На сьогодні все!</string>
   <string name="home_feed_for_you_screen_end_of_feed_description">Заходьте завтра, щоб знайти нові статті, підготовлені спеціально для вас.</string>

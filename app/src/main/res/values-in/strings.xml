@@ -573,8 +573,8 @@
   <string name="reading_list_item_deleted">%s dihapus dari daftar</string>
   <string name="reading_list_item_deleted_from_list">%1$s dihapus dari %2$s</string>
   <string name="reading_list_articles_deleted">%d artikel dihapus dari daftar</string>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="other">%d artikel dihapus dari %s</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="other">%1$d artikel dihapus dari %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="other">%d daftar dihapus</item>

@@ -530,9 +530,9 @@
     <item quantity="one">%d Artikel vun der Lëscht erofgeholl</item>
     <item quantity="other">%d Artikele vun der Lëscht erofgeholl</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d Artikel vu(n) %s erofgeholl</item>
-    <item quantity="other">%d Artikele vu(n) %s erofgeholl</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">%1$d Artikel vu(n) %2$s erofgeholl</item>
+    <item quantity="other">%1$d Artikele vu(n) %2$s erofgeholl</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d Lëscht geläscht</item>

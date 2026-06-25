@@ -333,7 +333,7 @@
   <string name="edit_intent">Vorsatz %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s Byte</item>
-    <item quantity="other">%s Bytes</item>
+    <item quantity="other">%s Byte</item>
   </plurals>
   <string name="edit_zoom_in">Vergrößern</string>
   <string name="edit_zoom_out">Verkleinern</string>
@@ -604,9 +604,9 @@
     <item quantity="one">%d Artikel aus Liste entfernt</item>
     <item quantity="other">%d Artikel aus Liste entfernt</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d Artikel entfernt von %s</item>
-    <item quantity="other">%d Artikel entfernt von %s</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">%1$d Artikel entfernt von %2$s</item>
+    <item quantity="other">%1$d Artikel entfernt von %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d Liste gelöscht</item>
@@ -2003,11 +2003,11 @@
   <string name="year_in_review_slide_edited_per_minute_body">Artikel werden gemeinsam erstellt und mithilfe zuverlässiger Quellen verbessert. Wir alle haben Wissen, das wir teilen können. &lt;a href=\"%s\"&gt;Erfahre, wie du dich beteiligen kannst.&lt;/a&gt;</string>
   <plurals name="year_in_review_slide_bytes_added_headline">
     <item quantity="one">%,d Byte hinzugefügt</item>
-    <item quantity="other">%,d Bytes hinzugefügt</item>
+    <item quantity="other">%,d Byte hinzugefügt</item>
   </plurals>
   <plurals name="year_in_review_slide_bytes_added_body">
-    <item quantity="one">Im Jahr %1$d haben Freiwillige %2$,d Byte zur Englischsprachigen Wikipedia beigetragen. Die Summe ihrer gemeinsamen Arbeit führt zu einer sich stetig verbessernden, faktenbasierten und verlässlichen Wissensressource, die sie der Welt zur Verfügung stellen. Wir alle haben Wissen zu teilen, &lt;a href=\"%3$s\"&gt;erfahre, wie du mitmachen kannst&lt;/a&gt;.</item>
-    <item quantity="other">Im Jahr %1$d haben Freiwillige %2$,d Bytes zur Englischsprachigen Wikipedia beigetragen. Die Summe ihrer gemeinsamen Arbeit führt zu einer sich stetig verbessernden, faktenbasierten und verlässlichen Wissensressource, die sie der Welt zur Verfügung stellen. Wir alle haben Wissen zu teilen, &lt;a href=\"%3$s\"&gt;erfahre, wie du mitmachen kannst&lt;/a&gt;.</item>
+    <item quantity="one">Im Jahr %1$d haben Freiwillige %2$,d Byte zur englischsprachigen Wikipedia beigetragen. Die Summe ihrer gemeinsamen Arbeit führt zu einer sich stetig verbessernden, faktenbasierten und verlässlichen Wissensressource, die sie der Welt zur Verfügung stellen. Wir alle haben Wissen zu teilen, &lt;a href=\"%3$s\"&gt;erfahre, wie du mitmachen kannst&lt;/a&gt;.</item>
+    <item quantity="other">Im Jahr %1$d haben Freiwillige %2$,d Byte zur englischsprachigen Wikipedia beigetragen. Die Summe ihrer gemeinsamen Arbeit führt zu einer sich stetig verbessernden, faktenbasierten und verlässlichen Wissensressource, die sie der Welt zur Verfügung stellen. Wir alle haben Wissen zu teilen, &lt;a href=\"%3$s\"&gt;erfahre, wie du mitmachen kannst&lt;/a&gt;.</item>
   </plurals>
   <plurals name="year_in_review_slide_edited_times_headline">
     <item quantity="one">Du hast Wikipedia %s Mal bearbeitet</item>

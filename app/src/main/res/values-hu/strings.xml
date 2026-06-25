@@ -263,9 +263,10 @@
   <string name="terms_of_use_description">Felhasználási feltételek</string>
   <string name="legal_safety_contacts_description">Jogi és biztonsági kapcsolatok</string>
   <string name="about_wikipedia_url">https://hu.wikipedia.org/wiki/Wikipédia:Rólunk</string>
-  <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/hu</string>
+  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Policy:Privacy_policy/hu</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/hu#Olvasólisták_és_offline_olvasás</string>
-  <string name="terms_of_use_url" fuzzy="true">https://meta.wikimedia.org/wiki/Terms_of_use/hu</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/FAQ/Android/hu</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use/hu</string>
   <string name="android_app_request_an_account_url">https://hu.wikipedia.org/wiki/Wikipédia:Felhasználói_fiók_kérése</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.hu</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.hu</string>
@@ -569,8 +570,8 @@
     <item quantity="other">%d szócikk eltávolítva a listáról</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d szócikk eltávolítva a(z) %s listáról</item>
-    <item quantity="other">%d szócikk eltávolítva a(z) %s listáról</item>
+    <item quantity="one">%1$d szócikk eltávolítva a(z) %2$s listáról</item>
+    <item quantity="other">%1$d szócikk eltávolítva a(z) %2$s listáról</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d lista törölve</item>
@@ -901,7 +902,7 @@
   <string name="description_edit_help_title">Info: szócikkleírások</string>
   <string name="description_edit_help_about_wikidata">A Wikidatáról</string>
   <string name="description_edit_help_wikidata_guide">Wikidata-útmutató leírások készítéséről</string>
-  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Special:MyLanguage/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Köszönjük a folyamatos érdeklődésedet a szócikkleírások szerkesztése iránt! További szerkesztéshez kérjük jelentkezz be a Wikipédia-fiókoddal.</string>
   <string name="description_edit_license_notice">A szócikkleírás szerkesztésével elfogadom a &lt;a href=\"%1$s\"&gt;felhasználási feltételeket&lt;/a&gt; és visszavonhatatlanul &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; licenc alá helyezem a szerkesztéseimet.</string>
   <string name="description_edit_helper_text_lowercase_warning">általában kis kezdőbetűvel kezdődik</string>
@@ -977,7 +978,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Zárolva, míg el nem végzel az alkalmazáson belül %d ellenőrzött szócikkleírás szerkesztést</string>
   <string name="suggested_edits_task_multilingual_negative">Nem nekem való</string>
   <string name="suggested_edits_task_multilingual_positive">Nyelvek hozzáadása</string>
-  <string name="suggested_edits_image_caption_summary_title_image">Fájl</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Kép</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Művész</string>
   <string name="suggested_edits_image_caption_summary_title_author">Szerző</string>
   <string name="suggested_edits_image_caption_summary_title_source">Forrás</string>
@@ -2364,6 +2365,7 @@
   <string name="explore_feed_new_update_prompt_language_description">Több nyelven olvasol? Mindegyikhez külön élmény tartozik. Csak válts nyelvet, és az új hírfolyamod már készen is áll.</string>
   <string name="explore_feed_new_update_prompt_primary_button_text">Hírfolyam személyre szabása</string>
   <string name="explore_feed_customize_interests">Érdeklődési körök személyre szabása</string>
+  <string name="explore_feed_customize_discover">A Felfedezés személyre szabása</string>
   <string name="explore_feed_new_update_prompt_secondary_button_text">Állítsd be helyettem</string>
   <string name="explore_feed_building_text">Állítsuk össze a hírfolyamodat…</string>
   <string name="explore_feed_community_tab_label">Közösség</string>
@@ -2391,8 +2393,10 @@
   <string name="explore_feed_personalized_preference_empty_state_text">Személyre szabott tartalomajánlások megjelenítéséhez érdeklődési köröket kell hozzáadnod. Ezt megteheted az előző lépésekben vagy később a Beállításokban.</string>
   <string name="explore_feed_because_you_read">Mert ezt olvastad: %s</string>
   <string name="explore_feed_swipe_to_explore_prompt_title">Lapozz a felfedezéshez</string>
-  <string name="explore_feed_swipe_to_explore_prompt_message" fuzzy="true">Húzd lefelé az ujjad a témák közötti navigáláshoz, vagy oldalra a kapcsolódó tartalmak felfedezéséhez.</string>
-  <string name="home_feed_settings_title" fuzzy="true">A Kezdőlap hírfolyam személyre szabása</string>
+  <string name="explore_feed_swipe_to_explore_prompt_message">Húzd felfelé az ujjad a témák közötti navigáláshoz, vagy oldalra a kapcsolódó tartalmak felfedezéséhez.</string>
+  <string name="home_feed_settings_title">A Kezdőlap hírfolyamod személyre szabása</string>
+  <string name="home_feed_settings_default_view_title">Alapértelmezett hírfolyamnézet</string>
+  <string name="home_feed_settings_default_view_subtitle">Válaszd ki, melyik hírfolyam jelenjen meg elsőként az alkalmazás megnyitásakor</string>
   <string name="home_feed_settings_whats_driving_title">Mi alakítja a hírfolyamodat</string>
   <string name="home_feed_settings_modules_title">Modulok</string>
   <string name="home_feed_settings_community_subtitle">A „Közösség” hírfolyam moduljainak be- vagy kikapcsolása</string>
@@ -2442,6 +2446,15 @@
   <string name="home_feed_places_of_interest_cta_button">Ugrás a Helyek lapra</string>
   <string name="home_feed_settings_places_of_interest_title">Érdekes helyek</string>
   <string name="home_feed_settings_places_of_interest_subtitle">Szócikkek a Helyekben legutóbb megtekintett helyed közeléből</string>
+  <string name="home_feed_settings_discover_title">Felfedezési ajánlások</string>
+  <string name="home_feed_settings_discover_subtitle">Cikkek a Felfedezés olvasási listádról</string>
+  <string name="home_feed_discover_cta_title">A Felfedezésből</string>
+  <string name="home_feed_discover_cta_description">Ismerj meg új témákat, kifejezetten neked válogatva. Válassz napi, heti vagy havi frissítéseket.</string>
+  <string name="home_feed_discover_cta_button">A Felfedezés olvasási lista engedélyezése</string>
+  <string name="home_feed_discover_card_footer">A Felfedezésből • %s frissítve</string>
+  <string name="home_feed_discover_see_all_title">További felfedeznivalók</string>
+  <string name="home_feed_discover_see_all_description">A személyre szabott olvasási listádon további, kifejezetten neked válogatott történetek várnak.</string>
+  <string name="home_feed_discover_see_all_button">Az összes ajánlás felfedezése</string>
   <string name="home_feed_places_of_interest_card_footer">%1$s • A Helyekben megadott tartózkodási helyed alapján</string>
   <string name="home_feed_for_you_screen_end_of_feed_title">Ennyi volt mára!</string>
   <string name="home_feed_for_you_screen_end_of_feed_description">Gyere vissza holnap új, személyre szabott szócikkekért.</string>
