@@ -592,7 +592,7 @@
     <item quantity="many">%d článků odstraněno ze seznamu</item>
     <item quantity="other">%d článků odstraněno ze seznamu</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
     <item quantity="one">%1$d článek odstraněn ze seznamu %2$s</item>
     <item quantity="few">%1$d články odstraněny ze seznamu %2$s</item>
     <item quantity="many">%1$d článků odstraněno ze seznamu %2$s</item>
