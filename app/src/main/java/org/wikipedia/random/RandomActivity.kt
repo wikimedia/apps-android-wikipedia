@@ -26,6 +26,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.database.ReadingListPage
+import org.wikipedia.theme.Theme
 
 class RandomActivity : BaseActivity() {
 
@@ -40,7 +41,7 @@ class RandomActivity : BaseActivity() {
         WindowInsetsControllerCompat(window, window.decorView).isAppearanceLightStatusBars = false
 
         setContent {
-            BaseTheme {
+            BaseTheme(currentTheme = Theme.BLACK) {
                 RandomScreen(
                     viewModel = viewModel,
                     onBackPressed = { onBackPressedDispatcher.onBackPressed() },

@@ -54,7 +54,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.content.getSystemService
@@ -147,10 +146,30 @@ fun RandomScreen(
             )
         }
 
-        RandomTopBar(
-            modifier = Modifier.align(Alignment.TopStart),
-            onBackPressed = onBackPressed
-        )
+        Column(modifier = Modifier.align(Alignment.TopStart)) {
+            RandomTopBar(
+                modifier = Modifier.background(Color.Black.copy(alpha = 0.8f)),
+                onBackPressed = onBackPressed
+            )
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(80.dp)
+                    .background(
+                        Brush.verticalGradient(
+                            colorStops = arrayOf(
+                                0.0f to Color.Black.copy(alpha = 0.80f),
+                                0.18f to Color.Black.copy(alpha = 0.7f),
+                                0.38f to Color.Black.copy(alpha = 0.50f),
+                                0.58f to Color.Black.copy(alpha = 0.30f),
+                                0.76f to Color.Black.copy(alpha = 0.15f),
+                                0.90f to Color.Black.copy(alpha = 0.05f),
+                                1.0f to Color.Transparent
+                            )
+                        )
+                    )
+            )
+        }
     }
 }
 
@@ -199,62 +218,65 @@ private fun RandomItemPage(
                         )
                     }
 
-                    Box(
-                        modifier = Modifier
-                            .align(Alignment.BottomStart)
-                            .fillMaxWidth()
-                            .height(280.dp)
-                            .background(
-                                Brush.verticalGradient(
-                                    colorStops = arrayOf(
-                                        0.0f to Color.Transparent,
-                                        0.30f to Color.Black.copy(alpha = 0.20f),
-                                        0.60f to Color.Black.copy(alpha = 0.50f),
-                                        1.0f to Color.Black.copy(alpha = 0.85f)
+                    Column(
+                        modifier = Modifier.align(Alignment.BottomStart).fillMaxWidth()
+                    ) {
+                        Box(
+                            modifier = Modifier.fillMaxWidth().height(120.dp)
+                                .background(
+                                    Brush.verticalGradient(
+                                        colorStops = arrayOf(
+                                            0.0f to Color.Transparent,
+                                            0.18f to Color.Black.copy(alpha = 0.05f),
+                                            0.38f to Color.Black.copy(alpha = 0.15f),
+                                            0.58f to Color.Black.copy(alpha = 0.30f),
+                                            0.76f to Color.Black.copy(alpha = 0.50f),
+                                            0.90f to Color.Black.copy(alpha = 0.7f),
+                                            1.0f to Color.Black.copy(alpha = 0.80f)
+                                        )
                                     )
                                 )
-                            )
-                    )
-
-                    Column(
-                        modifier = Modifier
-                            .align(Alignment.BottomStart)
-                            .fillMaxWidth()
-                            .padding(horizontal = 16.dp)
-                            .padding(bottom = 24.dp)
-                    ) {
-                        HtmlText(
-                            text = summary.displayTitle,
-                            color = Color.White,
-                            style = MaterialTheme.typography.headlineSmall.copy(
-                                fontFamily = FontFamily.Serif
-                            ),
-                            maxLines = 3
                         )
-                        if (!summary.description.isNullOrEmpty()) {
-                            HtmlText(
-                                modifier = Modifier.padding(top = 4.dp),
-                                text = summary.description!!,
-                                color = Color.White,
-                                style = MaterialTheme.typography.bodyMedium,
-                                maxLines = 2
-                            )
-                        }
-                        HorizontalDivider(
+                        Box(
                             modifier = Modifier
-                                .padding(vertical = 12.dp)
-                                .width(48.dp),
-                            thickness = 1.dp,
-                            color = Color.White.copy(alpha = 0.5f)
-                        )
-                        if (!summary.extract.isNullOrEmpty()) {
-                            HtmlText(
-                                text = summary.extract!!,
-                                color = Color.White,
-                                style = MaterialTheme.typography.bodyMedium,
-                                maxLines = EXTRACT_MAX_LINES,
-                                overflow = TextOverflow.Ellipsis
-                            )
+                                .fillMaxWidth()
+                                .background(color = Color.Black.copy(alpha = 0.8f))
+                        ) {
+                            Column(modifier = Modifier.fillMaxWidth()
+                                .padding(start = 16.dp, end = 16.dp, bottom = 24.dp)) {
+                                HtmlText(
+                                    text = summary.displayTitle,
+                                    color = Color.White,
+                                    style = MaterialTheme.typography.headlineSmall.copy(
+                                        fontFamily = FontFamily.Serif
+                                    ),
+                                    maxLines = 3
+                                )
+                                if (!summary.description.isNullOrEmpty()) {
+                                    HtmlText(
+                                        modifier = Modifier.padding(top = 4.dp),
+                                        text = summary.description!!,
+                                        color = Color.White.copy(alpha = 0.8f),
+                                        style = MaterialTheme.typography.bodyMedium,
+                                        maxLines = 2
+                                    )
+                                }
+                                HorizontalDivider(
+                                    modifier = Modifier
+                                        .padding(vertical = 12.dp)
+                                        .width(48.dp),
+                                    thickness = 1.dp,
+                                    color = Color.White.copy(alpha = 0.8f)
+                                )
+                                if (!summary.extract.isNullOrEmpty()) {
+                                    HtmlText(
+                                        text = summary.extract!!,
+                                        color = Color.White,
+                                        style = MaterialTheme.typography.bodyMedium,
+                                        maxLines = 8
+                                    )
+                                }
+                            }
                         }
                     }
                 }
@@ -346,13 +368,12 @@ private fun RandomControls(
 ) {
     var diceClickCount by remember { mutableIntStateOf(0) }
     val diceRotation by animateFloatAsState(targetValue = diceClickCount * 360f, label = "diceRotation")
-
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .background(WikipediaTheme.colors.paperColor)
             .navigationBarsPadding()
-            .padding(vertical = 8.dp),
+            .padding(vertical = 16.dp),
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -363,12 +384,10 @@ private fun RandomControls(
             Icon(
                 painter = painterResource(R.drawable.ic_replay_black_24dp),
                 contentDescription = null,
-                tint = WikipediaTheme.colors.primaryColor.copy(alpha = if (backEnabled) 1f else 0.5f)
+                tint = WikipediaTheme.colors.progressiveColor.copy(alpha = if (backEnabled) 1f else 0.5f)
             )
         }
-
         Spacer(modifier = Modifier.width(32.dp))
-
         Box(
             modifier = Modifier
                 .size(48.dp)
@@ -387,9 +406,7 @@ private fun RandomControls(
                 modifier = Modifier.rotate(diceRotation)
             )
         }
-
         Spacer(modifier = Modifier.width(32.dp))
-
         IconButton(
             onClick = onSaveClick,
             enabled = saveEnabled
@@ -399,7 +416,7 @@ private fun RandomControls(
                     if (isSaved) R.drawable.ic_bookmark_white_24dp else R.drawable.ic_bookmark_border_white_24dp
                 ),
                 contentDescription = stringResource(R.string.button_add_to_reading_list),
-                tint = WikipediaTheme.colors.primaryColor.copy(alpha = if (saveEnabled) 1f else 0.5f)
+                tint = WikipediaTheme.colors.progressiveColor.copy(alpha = if (saveEnabled) 1f else 0.5f)
             )
         }
     }
@@ -470,7 +487,6 @@ private fun ShakeToAdvance(onShake: () -> Unit) {
     }
 }
 
-private const val EXTRACT_MAX_LINES = 6
 private const val SHAKE_THRESHOLD = 12f
 private const val SHAKE_COOLDOWN_MS = 1000L
 private const val SHAKE_DOUBLE_WINDOW_MS = 500L
@@ -484,16 +500,7 @@ private fun RandomItemPagePreview() {
             Box(modifier = Modifier.weight(1f)) {
                 RandomItemPage(
                     wikiSite = WikiSite.preview(),
-                    state = Resource.Success(
-                        PageSummary(
-                            displayTitle = "Gleicheniales",
-                            prefixTitle = "Gleicheniales",
-                            description = "Order of ferns",
-                            extract = "Gleicheniales is an order of ferns in the subclass Polypodiidae (the leptosporangiate ferns). The Gleicheniales has spore records potentially as early as the Early Carboniferous.",
-                            thumbnail = null,
-                            lang = "en"
-                        )
-                    ),
+                    state = Resource.Success(PageSummary.preview()),
                     onClick = {},
                     onRetry = {},
                     onBackClick = {}
