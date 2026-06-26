@@ -174,11 +174,15 @@ class ActivityTabFragment : Fragment() {
             }
         }
         viewLifecycleOwner.lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.RESUMED) {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.impactUiState.collectLatest {
                     if (it is UiState.Error && it.error is MwNotLoggedInException) {
-                        callback()?.onNavigateTo(NavTab.HOME)
                         AccountUtil.bailWithLogout()
+                        requireActivity().window.decorView.post {
+                            if (!requireActivity().isDestroyed) {
+                                callback()?.onNavigateTo(NavTab.HOME)
+                            }
+                        }
                     }
                 }
             }
