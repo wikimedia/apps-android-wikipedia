@@ -583,7 +583,7 @@
             android:title="Reading Challenge Widget Configurations" />
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="New Explore Feed">
+    <PreferenceCategory android:title="New Home Feed">
         <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_explore_feed_update_prompt_shown"
             android:title="@string/preference_key_explore_feed_update_prompt_shown"/>
@@ -599,6 +599,9 @@
         <ListPreference
             android:key="@string/preference_key_home_preference_selection"
             android:title="Feed Preference Selection"/>
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_randomizer_shake_prompt_shown"
+            android:title="@string/preference_key_randomizer_shake_prompt_shown"/>
     </PreferenceCategory>
 
 </PreferenceScreen>

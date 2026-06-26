@@ -8,6 +8,15 @@ import android.os.Build
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.lifecycle.Lifecycle
@@ -19,6 +28,7 @@ import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.compose.components.WikipediaAlertDialog
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.database.AppDatabase
@@ -29,6 +39,7 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.RemoveFromReadingListsDialog
+import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.FeedbackUtil
 
@@ -44,6 +55,8 @@ class RandomActivity : BaseActivity() {
         WindowInsetsControllerCompat(window, window.decorView).isAppearanceLightStatusBars = false
 
         setContent {
+            var shakePromptShown by remember { mutableStateOf(Prefs.randomizerShakePromptShown) }
+
             BaseTheme(currentTheme = Theme.BLACK) {
                 RandomScreen(
                     viewModel = viewModel,
@@ -51,6 +64,28 @@ class RandomActivity : BaseActivity() {
                     onArticleClick = ::openArticle,
                     onSaveClick = ::onSaveClick
                 )
+
+                if (!shakePromptShown) {
+                    val dismissShakePrompt = {
+                        shakePromptShown = true
+                        Prefs.randomizerShakePromptShown = true
+                    }
+                    WikipediaAlertDialog(
+                        title = stringResource(R.string.randomizer_shake_prompt_title),
+                        titleModifier = Modifier.fillMaxWidth(),
+                        message = stringResource(R.string.randomizer_shake_prompt_message),
+                        image = {
+                            Image(
+                                painter = painterResource(R.drawable.shake_to_shuffle),
+                                contentDescription = null,
+                                modifier = Modifier.fillMaxWidth()
+                            )
+                        },
+                        confirmButtonText = stringResource(R.string.onboarding_got_it),
+                        onDismissRequest = dismissShakePrompt,
+                        onConfirmButtonClick = dismissShakePrompt
+                    )
+                }
             }
         }
 
