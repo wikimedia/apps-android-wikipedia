@@ -8,6 +8,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
@@ -16,6 +17,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.random.RandomClient
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.Resource
+import kotlin.time.Duration.Companion.milliseconds
 
 class RandomViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     val wikiSite = savedStateHandle.get<WikiSite>(Constants.ARG_WIKISITE)!!
@@ -69,8 +71,16 @@ class RandomViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             loading = false
             loadError = throwable
         }) {
-            val newItems = RandomClient.getRandomPages(wikiSite, BATCH_SIZE)
-            items.addAll(newItems)
+            var tries = 0
+            while (tries++ < 5) {
+                val newItems = RandomClient.getRandomPages(wikiSite, BATCH_SIZE)
+                    .filter { !it.thumbUrl.isNullOrEmpty() && !it.extract.isNullOrEmpty() }
+                if (!newItems.isEmpty()) {
+                    items.addAll(newItems)
+                    break
+                }
+                delay(1000.milliseconds)
+            }
             loadError = null
             loading = false
         }
