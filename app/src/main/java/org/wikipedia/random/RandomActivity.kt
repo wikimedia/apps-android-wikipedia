@@ -3,6 +3,8 @@ package org.wikipedia.random
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
+import android.icu.text.ListFormatter
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
@@ -15,18 +17,20 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
+import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.concurrency.FlowEventBus
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.ArticleSavedOrDeletedEvent
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
-import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
-import org.wikipedia.readinglist.database.ReadingListPage
+import org.wikipedia.readinglist.RemoveFromReadingListsDialog
 import org.wikipedia.theme.Theme
+import org.wikipedia.util.FeedbackUtil
 
 class RandomActivity : BaseActivity() {
 
@@ -34,7 +38,6 @@ class RandomActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         WindowCompat.setDecorFitsSystemWindows(window, false)
         setStatusBarColor(Color.TRANSPARENT)
         setNavigationBarColor(Color.TRANSPARENT)
@@ -74,23 +77,26 @@ class RandomActivity : BaseActivity() {
 
     private fun onSaveClick(title: PageTitle) {
         if (viewModel.saveButtonState) {
-            LongPressMenu(window.decorView, existsInAnyList = false, callback = object : LongPressMenu.Callback {
-                override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
-                    ReadingListBehaviorsUtil.addToDefaultList(this@RandomActivity, title, addToDefault, viewModel.invokeSource) {
-                        viewModel.updateSaveState(title)
-                    }
+            lifecycleScope.launch {
+                val lists = AppDatabase.instance.readingListDao().getListsFromPageOccurrences(AppDatabase.instance.readingListPageDao().getAllPageOccurrences(title))
+                if (lists.isEmpty()) {
+                    return@launch
                 }
-
-                override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
-                    page?.let {
-                        ReadingListBehaviorsUtil.moveToList(this@RandomActivity, it.listId, title, viewModel.invokeSource) {
-                            viewModel.updateSaveState(title)
+                RemoveFromReadingListsDialog(lists).deleteOrShowDialog(this@RandomActivity) { readingLists, _ ->
+                    if (!this@RandomActivity.isDestroyed) {
+                        val names = readingLists.map { it.title }.run {
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                                ListFormatter.getInstance().format(this)
+                            } else {
+                                joinToString(separator = ", ")
+                            }
                         }
+                        FeedbackUtil.showMessage(this@RandomActivity, getString(R.string.reading_list_item_deleted_from_list, title.displayText, names))
                     }
                 }
-            }).show(HistoryEntry(title, HistoryEntry.SOURCE_RANDOM))
+            }
         } else {
-            ReadingListBehaviorsUtil.addToDefaultList(this, title, true, viewModel.invokeSource) {
+            ReadingListBehaviorsUtil.addToDefaultList(this, title, true, InvokeSource.RANDOM_ACTIVITY) {
                 viewModel.updateSaveState(title)
             }
         }
