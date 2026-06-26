@@ -3,12 +3,16 @@ package org.wikipedia.yir
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.SystemBarStyle
 import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.compose.theme.BaseTheme
+import org.wikipedia.util.DeviceUtil
+import android.graphics.Color as AndroidColor
 
 /**
  * Hosts the new immersive Year in Review story (the [org.wikipedia.yir] spike).
@@ -19,7 +23,16 @@ import org.wikipedia.compose.theme.BaseTheme
 class YirActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        // YiR is always a dark, full-bleed experience, so force transparent system bars with light
+        // (white) icons regardless of the app theme. SystemBarStyle.dark => light icons.
+        enableEdgeToEdge(
+            statusBarStyle = SystemBarStyle.dark(AndroidColor.TRANSPARENT),
+            navigationBarStyle = SystemBarStyle.dark(AndroidColor.TRANSPARENT)
+        )
         super.onCreate(savedInstanceState)
+        // BaseActivity.onCreate sets the system-bar icons by app theme (dark icons in light theme).
+        // YiR is always dark and full-bleed, so override to light (white) icons after super runs.
+        DeviceUtil.setLightSystemUiVisibility(this, light = false)
         setContent {
             BaseTheme {
                 YirStoryScaffold(
@@ -99,7 +112,7 @@ private fun demoPages(): List<YirPage> {
         ),
         // 4. Closing framing card.
         YirPage(
-            background  = YirBackground.Animation(
+            background = YirBackground.Animation(
                 assetPath = "lottie/bg_shooting_star.lottie",
                 loop = true
             ),
