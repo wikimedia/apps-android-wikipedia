@@ -40,6 +40,7 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.StringUtil.fromHtml
 import org.wikipedia.yearinreview.YearInReviewSurveyState
+import org.wikipedia.yir.YirActivity
 
 internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : BasePreferenceLoader(fragment) {
     private val setMediaWikiBaseUriChangeListener = Preference.OnPreferenceChangeListener { _, _ ->
@@ -217,6 +218,10 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
         }
         findPreference(R.string.preference_key_playground_category).onPreferenceClickListener = Preference.OnPreferenceClickListener {
             activity.startActivity(Intent(activity, CategoryDeveloperPlayGround::class.java))
+            true
+        }
+        findPreference(R.string.preference_key_yir_story_spike).onPreferenceClickListener = Preference.OnPreferenceClickListener {
+            activity.startActivity(YirActivity.newIntent(activity))
             true
         }
         (findPreference(R.string.preference_key_recommended_reading_list_notification_simulator) as ListPreference).apply {
