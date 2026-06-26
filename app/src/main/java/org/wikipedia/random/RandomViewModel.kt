@@ -1,7 +1,7 @@
 package org.wikipedia.random
 
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateMapOf
+import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.SavedStateHandle
@@ -12,9 +12,8 @@ import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.database.AppDatabase
-import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.feed.random.RandomClient
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.Resource
 
@@ -22,23 +21,58 @@ class RandomViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     val wikiSite = savedStateHandle.get<WikiSite>(Constants.ARG_WIKISITE)!!
     val invokeSource = savedStateHandle.get<InvokeSource>(Constants.INTENT_EXTRA_INVOKE_SOURCE) ?: InvokeSource.RANDOM_ACTIVITY
 
-    val pages = mutableStateMapOf<Int, Resource<PageSummary>>()
+    private val items = mutableStateListOf<PageTitle>()
+    private var loading = false
+
+    var loadError by mutableStateOf<Throwable?>(null)
+        private set
 
     private var currentTitle: PageTitle? = null
 
     var saveButtonState by mutableStateOf(false)
         private set
 
-    fun loadPage(page: Int, forceReload: Boolean = false) {
-        val existing = pages[page]
-        if (!forceReload && (existing is Resource.Loading || existing is Resource.Success)) {
-            return
+    init {
+        loadMore()
+    }
+
+    fun itemAt(page: Int): PageTitle? = items.getOrNull(page)
+
+    fun stateFor(page: Int): Resource<PageTitle> {
+        return when {
+            page < items.size -> Resource.Success(items[page])
+            loadError != null -> Resource.Error(loadError!!)
+            else -> Resource.Loading()
         }
-        pages[page] = Resource.Loading()
+    }
+
+    /**
+     * Fetch another batch of random articles once the requested page approaches the end of the
+     * buffer, so that swiping forward stays ahead of the network.
+     */
+    fun prefetchIfNeeded(page: Int) {
+        if (!loading && loadError == null && page >= items.size - PREFETCH_DISTANCE) {
+            loadMore()
+        }
+    }
+
+    fun retry() {
+        if (!loading) {
+            loadError = null
+            loadMore()
+        }
+    }
+
+    private fun loadMore() {
+        loading = true
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
-            pages[page] = Resource.Error(throwable)
+            loading = false
+            loadError = throwable
         }) {
-            pages[page] = Resource.Success(ServiceFactory.getRest(wikiSite).getRandomSummary())
+            val newItems = RandomClient.getRandomPages(wikiSite, BATCH_SIZE)
+            items.addAll(newItems)
+            loadError = null
+            loading = false
         }
     }
 
@@ -60,5 +94,7 @@ class RandomViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
     companion object {
         const val FIRST_PAGE = 0
+        private const val BATCH_SIZE = 10
+        private const val PREFETCH_DISTANCE = 5
     }
 }

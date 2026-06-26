@@ -67,8 +67,6 @@ import org.wikipedia.compose.components.FadeInAsyncImage
 import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
-import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.page.PageTitle
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.ImageUrlUtil
@@ -86,13 +84,9 @@ fun RandomScreen(
     val coroutineScope = rememberCoroutineScope()
     val pagerState = rememberPagerState(initialPage = RandomViewModel.FIRST_PAGE, pageCount = { Int.MAX_VALUE })
 
-    val currentSummary = when (val resource = viewModel.pages[pagerState.currentPage]) {
-        is Resource.Success -> resource.data
-        else -> null
-    }
-    val currentTitle = currentSummary?.getPageTitle(viewModel.wikiSite)
+    val currentTitle = viewModel.itemAt(pagerState.currentPage)
 
-    LaunchedEffect(pagerState.currentPage, currentSummary) {
+    LaunchedEffect(pagerState.currentPage, currentTitle) {
         viewModel.updateSaveState(currentTitle)
     }
 
@@ -125,13 +119,12 @@ fun RandomScreen(
                     .fillMaxWidth()
             ) { page ->
                 LaunchedEffect(page) {
-                    viewModel.loadPage(page)
+                    viewModel.prefetchIfNeeded(page)
                 }
                 RandomItemPage(
-                    wikiSite = viewModel.wikiSite,
-                    state = viewModel.pages[page],
+                    state = viewModel.stateFor(page),
                     onClick = onArticleClick,
-                    onRetry = { viewModel.loadPage(page, forceReload = true) },
+                    onRetry = { viewModel.retry() },
                     onBackClick = onBackPressed
                 )
             }
@@ -175,8 +168,7 @@ fun RandomScreen(
 
 @Composable
 private fun RandomItemPage(
-    wikiSite: WikiSite,
-    state: Resource<PageSummary>?,
+    state: Resource<PageTitle>?,
     onClick: (PageTitle) -> Unit,
     onRetry: () -> Unit,
     onBackClick: () -> Unit
@@ -190,15 +182,14 @@ private fun RandomItemPage(
     ) {
         when (state) {
             is Resource.Success -> {
-                val summary = state.data
-                val title = summary.getPageTitle(wikiSite)
+                val title = state.data
 
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
                         .clickable { onClick(title) }
                 ) {
-                    if (summary.thumbnailUrl.isNullOrEmpty()) {
+                    if (title.thumbUrl.isNullOrEmpty()) {
                         Box(
                             modifier = Modifier
                                 .fillMaxSize()
@@ -208,7 +199,7 @@ private fun RandomItemPage(
                         FadeInAsyncImage(
                             model = ImageService.getRequest(
                                 context,
-                                url = ImageUrlUtil.getUrlForPreferredSize(summary.thumbnailUrl!!, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)
+                                url = ImageUrlUtil.getUrlForPreferredSize(title.thumbUrl!!, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)
                             ),
                             placeholder = ColorPainter(Color.Black),
                             error = ColorPainter(Color.DarkGray),
@@ -245,17 +236,17 @@ private fun RandomItemPage(
                             Column(modifier = Modifier.fillMaxWidth()
                                 .padding(start = 16.dp, end = 16.dp, bottom = 24.dp)) {
                                 HtmlText(
-                                    text = summary.displayTitle,
+                                    text = title.displayText,
                                     color = Color.White,
                                     style = MaterialTheme.typography.headlineSmall.copy(
                                         fontFamily = FontFamily.Serif
                                     ),
                                     maxLines = 3
                                 )
-                                if (!summary.description.isNullOrEmpty()) {
+                                if (!title.description.isNullOrEmpty()) {
                                     HtmlText(
                                         modifier = Modifier.padding(top = 4.dp),
-                                        text = summary.description!!,
+                                        text = title.description!!,
                                         color = Color.White.copy(alpha = 0.8f),
                                         style = MaterialTheme.typography.bodyMedium,
                                         maxLines = 2
@@ -268,9 +259,9 @@ private fun RandomItemPage(
                                     thickness = 1.dp,
                                     color = Color.White.copy(alpha = 0.8f)
                                 )
-                                if (!summary.extract.isNullOrEmpty()) {
+                                if (!title.extract.isNullOrEmpty()) {
                                     HtmlText(
-                                        text = summary.extract!!,
+                                        text = title.extract!!,
                                         color = Color.White,
                                         style = MaterialTheme.typography.bodyMedium,
                                         maxLines = 8
@@ -499,8 +490,7 @@ private fun RandomItemPagePreview() {
         Column(modifier = Modifier.fillMaxSize()) {
             Box(modifier = Modifier.weight(1f)) {
                 RandomItemPage(
-                    wikiSite = WikiSite.preview(),
-                    state = Resource.Success(PageSummary.preview()),
+                    state = Resource.Success(PageTitle.preview()),
                     onClick = {},
                     onRetry = {},
                     onBackClick = {}
