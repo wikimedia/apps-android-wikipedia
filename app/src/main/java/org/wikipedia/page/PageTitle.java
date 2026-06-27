@@ -325,17 +325,13 @@ public class PageTitle implements Parcelable {
     }
 
     private String getUriForDomain(String domain) {
-        try {
-            return String.format(
-                    "%1$s://%2$s/wiki/%3$s%4$s",
-                    getWikiSite().scheme(),
-                    domain,
-                    URLEncoder.encode(getPrefixedText(), "utf-8"),
-                    (this.fragment != null && this.fragment.length() > 0) ? ("#" + this.fragment) : ""
-            );
-        } catch (UnsupportedEncodingException e) {
-            throw new RuntimeException(e);
-        }
+        return String.format(
+                "%1$s://%2$s/wiki/%3$s%4$s",
+                getWikiSite().scheme(),
+                domain,
+                android.net.Uri.encode(getPrefixedText(), ":/"),
+                (this.fragment != null && this.fragment.length() > 0) ? ("#" + this.fragment) : ""
+        );
     }
 
     private PageTitle(Parcel in) {
