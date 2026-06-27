@@ -56,6 +56,8 @@ import static org.mockito.Mockito.when;
         assertThat(enwiki.titleForInternalLink("/wiki/India").getCanonicalUri(), is("https://en.wikipedia.org/wiki/India"));
         assertThat(enwiki.titleForInternalLink("/wiki/India Gate").getCanonicalUri(), is("https://en.wikipedia.org/wiki/India_Gate"));
         assertThat(enwiki.titleForInternalLink("/wiki/India's Gate").getCanonicalUri(), is("https://en.wikipedia.org/wiki/India%27s_Gate"));
+        assertThat(enwiki.titleForInternalLink("/wiki/File:William_Frederick_Yeames_-_And_when_did_you_last_see_your_father?_-_Google_Art_Project.jpg").getCanonicalUri(), 
+                is("https://en.wikipedia.org/wiki/File:William_Frederick_Yeames_-_And_when_did_you_last_see_your_father%3F_-_Google_Art_Project.jpg"));
     }
 
     @Test public void testWikiSite() throws Throwable {
