@@ -8,7 +8,9 @@ import androidx.core.os.bundleOf
 import androidx.core.text.isDigitsOnly
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.dataclient.SharedPreferenceCookieManager
+import org.wikipedia.events.LoggedOutInBackgroundEvent
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.login.LoginResult
 import org.wikipedia.settings.Prefs
@@ -124,9 +126,16 @@ object AccountUtil {
         return userName.length > 6 && userName[0] == '~' && userName[5] == '-' && userName.substring(1, 5).isDigitsOnly()
     }
 
+    fun bailWithLogout() {
+        // Signal to the rest of the app that we're explicitly logging out in the background.
+        WikipediaApp.instance.resetAfterLogOut()
+        Prefs.queueLoggedOutInBackgroundDialog = true
+        FlowEventBus.post(LoggedOutInBackgroundEvent())
+    }
+
     private fun createAccount(userName: String, password: String): Boolean {
         var account = account()
-        if (account == null || account.name.isNullOrEmpty() || account.name != userName) {
+        if (account == null || account.name.isEmpty() || account.name != userName) {
             removeAccount()
             account = Account(userName, accountType())
             return accountManager().addAccountExplicitly(account, password, null)

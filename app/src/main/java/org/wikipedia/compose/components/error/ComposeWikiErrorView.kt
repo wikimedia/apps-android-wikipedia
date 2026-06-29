@@ -35,13 +35,13 @@ import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.mwapi.MwException
+import org.wikipedia.dataclient.mwapi.MwNotLoggedInException
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.ThrowableUtil.is404
 import org.wikipedia.util.ThrowableUtil.isEmptyException
-import org.wikipedia.util.ThrowableUtil.isNotLoggedIn
 import org.wikipedia.util.ThrowableUtil.isOffline
 import org.wikipedia.util.ThrowableUtil.isTimeout
 
@@ -186,7 +186,7 @@ private fun getErrorType(caught: Throwable?, pageTitle: PageTitle?, retryForGene
             isEmptyException(it) -> {
                 return ComposeErrorType.Empty()
             }
-            isNotLoggedIn(it) -> {
+            it is MwNotLoggedInException -> {
                 return ComposeErrorType.LoggedOut()
             }
         }
