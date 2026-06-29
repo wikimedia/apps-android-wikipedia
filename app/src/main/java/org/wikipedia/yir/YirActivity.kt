@@ -33,10 +33,16 @@ class YirActivity : BaseActivity() {
         // BaseActivity.onCreate sets the system-bar icons by app theme (dark icons in light theme).
         // YiR is always dark and full-bleed, so override to light (white) icons after super runs.
         DeviceUtil.setLightSystemUiVisibility(this, light = false)
+
+        val orientation = intent.getStringExtra(EXTRA_ORIENTATION)
+            ?.let { runCatching { YirPagerOrientation.valueOf(it) }.getOrNull() }
+            ?: YirPagerOrientation.VERTICAL
+
         setContent {
             BaseTheme {
                 YirStoryScaffold(
                     pages = demoPages(),
+                    orientation = orientation,
                     onClose = { finish() },
                     onDonate = { /* TODO: wire to donate flow; placeholder for the spike */ }
                 )
@@ -45,17 +51,27 @@ class YirActivity : BaseActivity() {
     }
 
     companion object {
-        fun newIntent(context: Context): Intent {
+        private const val EXTRA_ORIENTATION = "extra_orientation"
+
+        fun newIntent(context: Context, orientation: YirPagerOrientation = YirPagerOrientation.VERTICAL): Intent {
             return Intent(context, YirActivity::class.java)
+                .putExtra(EXTRA_ORIENTATION, orientation.name)
         }
     }
 }
 
-/** The teal -> green -> pale gradient from the current Year in Review. */
+/**
+ * The Year in Review background, matching the production header (yearInReviewHeaderBackground):
+ * near-black at the top, teal -> green through the middle, then solid WHITE from ~65% to the bottom.
+ * Same color stops as the live YiR so the immersive version reads the same.
+ */
 private val yirGreenGradient = listOf(
-    Color(0xFF0A3D3A),
-    Color(0xFF12B36B),
-    Color(0xFFEAF7EE)
+    0.125f to Color(0xFF171717),
+    0.225f to Color(0xFF003F45),
+    0.285f to Color(0xFF00807A),
+    0.440f to Color(0xFF2AECA6),
+    0.525f to Color(0xFF86FFAC),
+    0.650f to Color(0xFFFFFFFF)
 )
 
 /**
@@ -73,10 +89,10 @@ private fun demoPages(): List<YirPage> {
             ),
             content = {
                 YirFramingContent(
-                    headline = "Your 2025 in Review",
+                    headline = "Your 2026 in Review",
                     supportingText = "A look back at what you read, explored and discovered this year.",
                     ctas = emptyList(),
-                    hint = "Swipe up to begin"
+                    hint = "Swipe to begin"
                 )
             }
         ),
@@ -106,6 +122,29 @@ private fun demoPages(): List<YirPage> {
                     ),
                     resultHeadline = "Your most-read article was The Birth of Venus",
                     resultSupportingText = "You opened it 27 times this year.",
+                    onSaveArticle = { /* TODO: wire to save flow */ }
+                )
+            }
+        ),
+        // 3b. Interactive image-guess card (images added later; rounded placeholders for now).
+        YirPage(
+            background = YirBackground.Gradient(yirGreenGradient),
+            content = {
+                YirImageGuessContent(
+                    prompt = "Which of these images appeared in the article you visited most?",
+                    options = listOf(
+                        YirImageOption(
+                            imageSrc = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Six_weeks_old_cat_%28aka%29.jpg/960px-Six_weeks_old_cat_%28aka%29.jpg",
+                            isCorrect = true),
+                        YirImageOption(
+                            imageSrc = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Callie_the_golden_retriever_puppy.jpg/960px-Callie_the_golden_retriever_puppy.jpg"
+                        ),
+                        YirImageOption(
+                            imageSrc = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Juvenile_Female_Mesocricetus_auratus_in_Pet_Store_enclosure%2C_Illinois%2C_USA.jpg/960px-Juvenile_Female_Mesocricetus_auratus_in_Pet_Store_enclosure%2C_Illinois%2C_USA.jpg"
+                        )
+                    ),
+                    resultHeadline = "It was The Birth of Venus",
+                    resultSupportingText = "You visited it more than any other article this year.",
                     onSaveArticle = { /* TODO: wire to save flow */ }
                 )
             }

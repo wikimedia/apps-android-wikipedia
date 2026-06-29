@@ -48,10 +48,11 @@ sealed interface YirBackground {
     data class Solid(val color: Color) : YirBackground
 
     /**
-     * A vertical gradient, e.g. the teal -> green -> pale look from the current Year in Review.
-     * Colors are drawn top-to-bottom in the order given.
+     * A vertical gradient defined by explicit stops (offset 0f..1f -> color), drawn top-to-bottom.
+     * Stops (not just a flat color list) so we can match the current Year in Review header, which
+     * is dark at the top, green through the middle, then solid white for the bottom third.
      */
-    data class Gradient(val colors: List<Color>) : YirBackground
+    data class Gradient(val colorStops: List<Pair<Float, Color>>) : YirBackground
 
     data class Image(@DrawableRes val resId: Int) : YirBackground
 

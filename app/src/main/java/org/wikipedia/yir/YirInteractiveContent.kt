@@ -18,7 +18,6 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -60,8 +59,7 @@ fun YirInteractiveContent(
     onSaveArticle: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    var selectedIndex by remember { mutableIntStateOf(-1) }
-    var submitted by remember { mutableStateOf(false) }
+    var revealed by remember { mutableStateOf(false) }
 
     Column(
         modifier = modifier
@@ -78,29 +76,13 @@ fun YirInteractiveContent(
         )
         Spacer(Modifier.height(24.dp))
 
-        options.forEachIndexed { index, option ->
-            GuessOptionRow(
-                option = option,
-                selected = index == selectedIndex,
-                submitted = submitted,
-                onClick = { if (!submitted) selectedIndex = index }
-            )
-            Spacer(Modifier.height(12.dp))
-        }
-
-        Spacer(Modifier.height(12.dp))
-
-        if (!submitted) {
-            Button(
-                onClick = { submitted = true },
-                enabled = selectedIndex >= 0,
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = Color.White,
-                    contentColor = Color.Black
-                ),
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Text("Submit", fontWeight = FontWeight.Bold)
+        // No Submit step: tapping an option reveals the insight, which replaces the options. Keeping
+        // the result up here (not stacked below the options) keeps its text on the dark/green part of
+        // the background, away from the white lower third.
+        if (!revealed) {
+            options.forEach { option ->
+                GuessOptionRow(option = option, onClick = { revealed = true })
+                Spacer(Modifier.height(12.dp))
             }
         } else {
             ResultBlock(
@@ -115,63 +97,30 @@ fun YirInteractiveContent(
 @Composable
 private fun GuessOptionRow(
     option: YirGuessOption,
-    selected: Boolean,
-    submitted: Boolean,
     onClick: () -> Unit
 ) {
-    // Resolve the visual state. Pre-submit: selection just shows a highlight border. Post-submit:
-    // the correct answer is greened, a wrong pick is reddened, everything else is dimmed.
-    val correctColor = Color(0xFF1E8E5A)
-    val wrongColor = Color(0xFFB3261E)
-
-    val containerColor: Color
-    val borderColor: Color
-    when {
-        submitted && option.isCorrect -> {
-            containerColor = correctColor
-            borderColor = Color.White
-        }
-        submitted && selected && !option.isCorrect -> {
-            containerColor = wrongColor
-            borderColor = Color.White
-        }
-        submitted -> {
-            containerColor = Color.White.copy(alpha = 0.25f)
-            borderColor = Color.Transparent
-        }
-        selected -> {
-            containerColor = Color.White
-            borderColor = Color(0xFF1B5FB0)
-        }
-        else -> {
-            containerColor = Color.White.copy(alpha = 0.92f)
-            borderColor = Color.Transparent
-        }
-    }
-
-    val onContainer = if (containerColor == correctColor || containerColor == wrongColor) Color.White else Color.Black
-
+    val shape = RoundedCornerShape(16.dp)
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .clip(RoundedCornerShape(16.dp))
-            .background(containerColor)
-            .border(2.dp, borderColor, RoundedCornerShape(16.dp))
-            .clickable(enabled = !submitted, onClick = onClick)
+            .clip(shape)
+            .background(Color.White.copy(alpha = 0.92f))
+            .border(2.dp, Color.Black, shape)
+            .clickable(onClick = onClick)
             .padding(14.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Column(modifier = Modifier.weight(1f)) {
             Text(
                 text = option.title,
-                color = onContainer,
+                color = Color.Black,
                 fontWeight = FontWeight.Bold,
                 fontStyle = FontStyle.Italic,
                 fontSize = 17.sp
             )
             Text(
                 text = option.description,
-                color = onContainer.copy(alpha = 0.7f),
+                color = Color.Black.copy(alpha = 0.7f),
                 fontSize = 14.sp
             )
         }
@@ -181,13 +130,13 @@ private fun GuessOptionRow(
             modifier = Modifier
                 .size(48.dp)
                 .clip(RoundedCornerShape(8.dp))
-                .background(onContainer.copy(alpha = 0.15f))
+                .background(Color.Black.copy(alpha = 0.12f))
         )
     }
 }
 
 @Composable
-private fun ResultBlock(
+internal fun ResultBlock(
     headline: String,
     supportingText: String,
     onSaveArticle: () -> Unit
@@ -217,7 +166,7 @@ private fun ResultBlock(
         }
         Spacer(Modifier.height(16.dp))
         Text(
-            text = "Swipe up to continue",
+            text = "Swipe to continue",
             color = Color.White.copy(alpha = 0.7f),
             fontSize = 13.sp,
             modifier = Modifier.fillMaxWidth(),

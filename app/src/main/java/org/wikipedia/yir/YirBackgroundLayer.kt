@@ -51,7 +51,7 @@ fun YirBackgroundLayer(
                 Box(Modifier.fillMaxSize().background(background.color))
             }
             is YirBackground.Gradient -> {
-                Box(Modifier.fillMaxSize().background(Brush.verticalGradient(background.colors)))
+                Box(Modifier.fillMaxSize().background(Brush.verticalGradient(*background.colorStops.toTypedArray())))
             }
             is YirBackground.Image -> {
                 Image(

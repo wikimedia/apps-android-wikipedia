@@ -1,7 +1,10 @@
 package org.wikipedia.yir
 
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.VerticalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.Composable
@@ -11,48 +14,70 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+
+/** How the story pages advance. Vertical = swipe up (For You). Horizontal = swipe left/right (carousel). */
+enum class YirPagerOrientation { VERTICAL, HORIZONTAL }
 
 /**
  * The fixed Year in Review story shell. Everything in here is the same for every card; the only
  * thing that varies is each [YirPage]'s content.
  *
  * Responsibilities:
- *  - Vertical swipe paging between cards (the one, uniform way to move between cards — like the
- *    "For You" feed). We use swipe, not tap-zones, so paging never collides with interactive
- *    cards' option buttons.
- *  - The full-bleed background per card (image / animation / color), via [YirBackgroundLayer].
+ *  - Swipe paging between cards (vertical = For You style, horizontal = carousel style), chosen via
+ *    [orientation]. Switching is a one-line difference (VerticalPager vs HorizontalPager); we expose
+ *    it as a flag so design can feel both. Swipe is the only way between cards — tap never navigates.
+ *  - The full-bleed background per card (solid / gradient / image / animation), via [YirBackgroundLayer].
  *  - The fixed top bar overlay (close, donate, open slot), via [YirTopBar].
- *  - Per-card phase wiring: a one-shot background animation flips the card to REVEALED and the
- *    text auto-fades in. There is no tap-to-skip and no timer / no auto-advance to the next card —
- *    swipe is the only way between cards. (Deliberate limitations; see NOTES.)
- *
- * The progress indicator is intentionally not here yet (Step 4).
+ *  - The stories-style progress indicator: a horizontal bar under the top bar in horizontal mode, or
+ *    a vertical bar down the right edge in vertical mode.
+ *  - Per-card phase wiring: a one-shot background animation flips the card to REVEALED and the text
+ *    auto-fades in. No tap-to-skip, no timer, no auto-advance — swipe only. (See NOTES.)
  */
 @Composable
 fun YirStoryScaffold(
     pages: List<YirPage>,
     onClose: () -> Unit,
     modifier: Modifier = Modifier,
+    orientation: YirPagerOrientation = YirPagerOrientation.VERTICAL,
     onDonate: (() -> Unit)? = null
 ) {
     val pagerState = rememberPagerState(pageCount = { pages.size })
 
     Box(modifier = modifier.fillMaxSize()) {
-        VerticalPager(
-            state = pagerState,
-            modifier = Modifier.fillMaxSize()
-        ) { page ->
-            YirCard(
-                page = pages[page],
-                isActive = pagerState.settledPage == page
-            )
+        when (orientation) {
+            YirPagerOrientation.VERTICAL ->
+                VerticalPager(state = pagerState, modifier = Modifier.fillMaxSize()) { page ->
+                    YirCard(page = pages[page], isActive = pagerState.settledPage == page)
+                }
+            YirPagerOrientation.HORIZONTAL ->
+                HorizontalPager(state = pagerState, modifier = Modifier.fillMaxSize()) { page ->
+                    YirCard(page = pages[page], isActive = pagerState.settledPage == page)
+                }
         }
 
-        YirTopBar(
-            onClose = onClose,
-            onDonate = onDonate,
-            modifier = Modifier.align(Alignment.TopCenter)
-        )
+        // Top overlay: the top bar, with the horizontal progress bar right under it (horizontal mode).
+        Column(modifier = Modifier.align(Alignment.TopCenter)) {
+            YirTopBar(onClose = onClose, onDonate = onDonate)
+            if (orientation == YirPagerOrientation.HORIZONTAL) {
+                YirProgressIndicator(
+                    pageCount = pages.size,
+                    currentPage = pagerState.currentPage,
+                    orientation = orientation,
+                    modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp)
+                )
+            }
+        }
+
+        // Vertical mode: the progress runs down the right edge.
+        if (orientation == YirPagerOrientation.VERTICAL) {
+            YirProgressIndicator(
+                pageCount = pages.size,
+                currentPage = pagerState.currentPage,
+                orientation = orientation,
+                modifier = Modifier.align(Alignment.CenterEnd).padding(end = 8.dp)
+            )
+        }
     }
 }
 
