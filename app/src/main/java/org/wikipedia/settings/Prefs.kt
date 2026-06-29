@@ -1001,4 +1001,8 @@ object Prefs {
     var searchWidgetInstallPromptShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_search_widget_install_prompt_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_search_widget_install_prompt_shown, value)
+
+    var randomizerShakePromptShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_randomizer_shake_prompt_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_randomizer_shake_prompt_shown, value)
 }
