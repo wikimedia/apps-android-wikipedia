@@ -229,8 +229,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         val activity = requireActivity()
         webView.setBackgroundColor(ResourceUtil.getThemedColor(activity, R.attr.paper_color))
         bridge = CommunicationBridge(this)
-        webView.settings.builtInZoomControls = true
-        webView.settings.displayZoomControls = false
+        if (Prefs.pinchToZoomEnabled) {
+            webView.settings.builtInZoomControls = true
+            webView.settings.displayZoomControls = false
+        }
         setupMessageHandlers()
 
         binding.pageError.retryClickListener = View.OnClickListener { refreshPage() }
@@ -405,7 +407,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             override val linkHandler get() = this@PageFragment.linkHandler
 
             override fun onPageFinished(view: WebView, url: String) {
-                bridge.evaluateImmediate(JavaScriptActionHandler.enableUserScaling(), null)
+                if (Prefs.pinchToZoomEnabled) {
+                    bridge.evaluateImmediate(JavaScriptActionHandler.enableUserScaling(), null)
+                }
                 bridge.evaluateImmediate("(function() { return (typeof pcs !== 'undefined'); })();") { pcsExists ->
                     if (!isAdded) {
                         return@evaluateImmediate
