@@ -563,7 +563,7 @@
     <item quantity="many">%d člankov odstranjenyh iz spiska</item>
     <item quantity="other">%d člankov odstranjenyh iz spiska</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+  <plurals name="reading_list_articles_deleted_from_list">
     <item quantity="one">%1$d članok odstranjeny iz spiska %2$s</item>
     <item quantity="few">%1$d članky odstranjene iz spiska %2$s</item>
     <item quantity="many">%1$d člankov odstranjenyh iz spiska %2$s</item>
@@ -1861,7 +1861,7 @@
   <string name="survey_dialog_submitted_snackbar">Povratna informacija odpravjena. Hvala!</string>
   <string name="on_this_day_game_entry_dialog_title">Prědstavjenje</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Igry Vikipedije</string>
-  <string name="on_this_day_game_entry_dialog_button" fuzzy="true">Igrajte dnešnju igru</string>
+  <string name="on_this_day_game_entry_dialog_button">Igrati</string>
   <string name="on_this_day_game_entry_dialog_snackbar_message" fuzzy="true">Igry Vikipedije sut dostupne v kanalu «Odkryti».</string>
   <string name="on_this_day_game_title">Čto bylo prvo?</string>
   <string name="on_this_day_game_dialog_button">Igrati</string>
@@ -1874,7 +1874,7 @@
   <string name="on_this_day_game_point">+1 bal</string>
   <string name="on_this_day_game_next">Slědujuče pytanje</string>
   <string name="on_this_day_game_finish">Konečne rezultaty</string>
-  <string name="on_this_day_game_share_button" fuzzy="true">Poděliti se</string>
+  <string name="on_this_day_game_share_button">Poděliti se rezultatom</string>
   <string name="on_this_day_game_feed_entry_card_heading">Igry Vikipedije</string>
   <string name="on_this_day_game_feed_entry_card_title">Čto bylo prvo?</string>
   <string name="on_this_day_game_result">Vaš rezultat: %1$d/%2$d.</string>
@@ -2400,7 +2400,7 @@
   <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Začto ljudi dodavajut ananas do pice?</string>
   <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Ktore sut največše grady v Evropě?</string>
   <string name="hybrid_search_onboarding_screen_title">Novy sposob iskanja</string>
-  <string name="hybrid_search_results_header_description" fuzzy="true">S izvorami iz člankov Vikipedije generovanyh ljudami</string>
+  <string name="hybrid_search_results_header_description">S izvorami iz člankov Vikipedije napisanyh ljudami</string>
   <string name="hybrid_search_results_rate_label">Ocěnite tutoj rezultat</string>
   <string name="hybrid_search_results_rated_label">Ocěnjeno</string>
   <string name="hybrid_search_results_rate_thumb_up">Ocěnka pozitivna</string>
