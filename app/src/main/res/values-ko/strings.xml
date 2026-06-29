@@ -821,7 +821,7 @@
   <string name="view_next_random_article">무작위로 다른 문서 불러오기</string>
   <string name="view_main_page_card_title">오늘의 위키백과</string>
   <string name="view_main_page_card_action">대문 문서 보기</string>
-  <string name="view_featured_image_card_title">오늘의 이미지</string>
+  <string name="view_featured_image_card_title">오늘의 사진</string>
   <string name="view_featured_image_card_download">다운로드</string>
   <string name="view_featured_image_card_share">공유</string>
   <string name="menu_feed_card_dismiss">이 카드 숨기기</string>
