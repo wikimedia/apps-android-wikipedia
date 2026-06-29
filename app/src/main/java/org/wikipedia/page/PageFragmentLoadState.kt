@@ -16,6 +16,7 @@ import org.wikipedia.bridge.JavaScriptActionHandler
 import org.wikipedia.categories.db.Category
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.dataclient.mwapi.MwNotLoggedInException
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor
 import org.wikipedia.dataclient.page.PageSummary
@@ -168,6 +169,9 @@ class PageFragmentLoadState(private var model: PageViewModel,
                     } else {
                         MwQueryResponse()
                     }
+                } catch (_: MwNotLoggedInException) {
+                    AccountUtil.bailWithLogout()
+                    MwQueryResponse()
                 } catch (_: IOException) {
                     L.w("Ignoring network error while fetching watched status.")
                     MwQueryResponse()
