@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.activity.FragmentUtil
@@ -111,10 +110,12 @@ class ReadingListItemActionsDialog : ExtendedBottomSheetDialogFragment() {
 
         fun newInstance(lists: List<ReadingList>, pageID: Long, hasActionMode: Boolean): ReadingListItemActionsDialog {
             return ReadingListItemActionsDialog().apply {
-                arguments = bundleOf(ARG_READING_LIST_NAME to lists[0].title,
-                        ARG_READING_LIST_SIZE to lists.size,
-                        ARG_READING_LIST_PAGE to pageID,
-                        ARG_READING_LIST_HAS_ACTION_MODE to hasActionMode)
+                arguments = Bundle().apply {
+                    putString(ARG_READING_LIST_NAME, lists[0].title)
+                    putInt(ARG_READING_LIST_SIZE, lists.size)
+                    putLong(ARG_READING_LIST_PAGE, pageID)
+                    putBoolean(ARG_READING_LIST_HAS_ACTION_MODE, hasActionMode)
+                }
             }
         }
     }

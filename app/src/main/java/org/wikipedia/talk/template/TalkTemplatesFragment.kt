@@ -13,7 +13,6 @@ import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
-import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -522,10 +521,12 @@ class TalkTemplatesFragment : Fragment() {
     companion object {
         fun newInstance(pageTitle: PageTitle?, templateManagement: Boolean = false, fromRevisionId: Long = -1, toRevisionId: Long = -1): TalkTemplatesFragment {
             return TalkTemplatesFragment().apply {
-                arguments = bundleOf(Constants.ARG_TITLE to pageTitle,
-                    EXTRA_TEMPLATE_MANAGEMENT to templateManagement,
-                    TalkReplyActivity.FROM_REVISION_ID to fromRevisionId,
-                    TalkReplyActivity.TO_REVISION_ID to toRevisionId)
+                arguments = Bundle().apply {
+                    putParcelable(Constants.ARG_TITLE, pageTitle)
+                    putBoolean(EXTRA_TEMPLATE_MANAGEMENT, templateManagement)
+                    putLong(TalkReplyActivity.FROM_REVISION_ID, fromRevisionId)
+                    putLong(TalkReplyActivity.TO_REVISION_ID, toRevisionId)
+                }
             }
         }
     }

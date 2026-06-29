@@ -31,7 +31,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -112,11 +111,11 @@ class WatchlistExpiryDialog : ExtendedBottomSheetDialogFragment() {
         const val ARG_PAGE_TITLE = "pageTitle"
 
         fun newInstance(pageTitle: PageTitle): WatchlistExpiryDialog {
-            val dialog = WatchlistExpiryDialog()
-            dialog.arguments = bundleOf(
-                ARG_PAGE_TITLE to pageTitle
-            )
-            return dialog
+            return WatchlistExpiryDialog().apply {
+                arguments = Bundle().apply {
+                    putParcelable(ARG_PAGE_TITLE, pageTitle)
+                }
+            }
         }
     }
 }

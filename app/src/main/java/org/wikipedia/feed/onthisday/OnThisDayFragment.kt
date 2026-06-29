@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.os.bundleOf
 import androidx.core.widget.TextViewCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -281,12 +280,12 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
 
         fun newInstance(age: Int, wikiSite: WikiSite, year: Int, invokeSource: InvokeSource): OnThisDayFragment {
             return OnThisDayFragment().apply {
-                arguments = bundleOf(
-                    OnThisDayActivity.EXTRA_AGE to age,
-                    Constants.ARG_WIKISITE to wikiSite,
-                    OnThisDayActivity.EXTRA_YEAR to year,
-                    Constants.INTENT_EXTRA_INVOKE_SOURCE to invokeSource
-                )
+                arguments = Bundle().apply {
+                    putInt(OnThisDayActivity.EXTRA_AGE, age)
+                    putParcelable(Constants.ARG_WIKISITE, wikiSite)
+                    putInt(OnThisDayActivity.EXTRA_YEAR, year)
+                    putSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
+                }
             }
         }
     }

@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
-import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -161,7 +160,9 @@ class OnThisDayGameMainMenuFragment : OnThisDayGameBaseFragment() {
 
         fun newInstance(invokeSource: InvokeSource): OnThisDayGameMainMenuFragment {
             return OnThisDayGameMainMenuFragment().apply {
-                arguments = bundleOf(Constants.INTENT_EXTRA_INVOKE_SOURCE to invokeSource)
+                arguments = Bundle().apply {
+                    putSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
+                }
             }
         }
 

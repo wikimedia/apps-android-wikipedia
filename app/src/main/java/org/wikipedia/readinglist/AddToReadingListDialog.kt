@@ -3,11 +3,9 @@ package org.wikipedia.readinglist
 import android.annotation.SuppressLint
 import android.content.DialogInterface
 import android.os.Bundle
-import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -213,9 +211,11 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
                         source: InvokeSource,
                         listener: DialogInterface.OnDismissListener? = null): AddToReadingListDialog {
             return AddToReadingListDialog().apply {
-                arguments = bundleOf(PAGE_TITLE_LIST to ArrayList<Parcelable>(titles),
-                        Constants.INTENT_EXTRA_INVOKE_SOURCE to source,
-                        SHOW_DEFAULT_LIST to true)
+                arguments = Bundle().apply {
+                    putParcelableArrayList(PAGE_TITLE_LIST, ArrayList(titles))
+                    putSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE, source)
+                    putBoolean(SHOW_DEFAULT_LIST, true)
+                }
                 dismissListener = listener
             }
         }

@@ -18,7 +18,6 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.view.ActionMode
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
-import androidx.core.os.bundleOf
 import androidx.core.view.MenuItemCompat
 import androidx.core.view.MenuProvider
 import androidx.core.view.isVisible
@@ -1209,16 +1208,18 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
         fun newInstance(listId: Long): ReadingListFragment {
             return ReadingListFragment().apply {
-                arguments = bundleOf(ReadingListActivity.EXTRA_READING_LIST_ID to listId)
+                arguments = Bundle().apply {
+                    putLong(ReadingListActivity.EXTRA_READING_LIST_ID, listId)
+                }
             }
         }
 
         fun newInstance(readingListMode: ReadingListMode, invokeSource: InvokeSource? = null): ReadingListFragment {
             return ReadingListFragment().apply {
-                arguments = bundleOf(
-                    ReadingListActivity.EXTRA_READING_LIST_MODE to readingListMode,
-                    ReadingListActivity.EXTRA_SOURCE to invokeSource
-                )
+                arguments = Bundle().apply {
+                    putSerializable(ReadingListActivity.EXTRA_READING_LIST_MODE, readingListMode)
+                    putSerializable(ReadingListActivity.EXTRA_SOURCE, invokeSource)
+                }
             }
         }
     }

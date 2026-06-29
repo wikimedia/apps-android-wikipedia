@@ -3,7 +3,6 @@ package org.wikipedia.usercontrib
 import android.app.Dialog
 import android.os.Bundle
 import android.view.View
-import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
@@ -106,9 +105,11 @@ class UserInformationDialog : DialogFragment() {
         const val USERNAME_ARG = "username"
 
         fun newInstance(username: String): UserInformationDialog {
-            val dialog = UserInformationDialog()
-            dialog.arguments = bundleOf(USERNAME_ARG to username)
-            return dialog
+            return UserInformationDialog().apply {
+                arguments = Bundle().apply {
+                    putString(USERNAME_ARG, username)
+                }
+            }
         }
     }
 }

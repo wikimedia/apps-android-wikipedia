@@ -28,7 +28,6 @@ import androidx.core.graphics.Insets
 import androidx.core.graphics.applyCanvas
 import androidx.core.graphics.createBitmap
 import androidx.core.graphics.drawable.toDrawable
-import androidx.core.os.bundleOf
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
@@ -821,10 +820,10 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
 
         fun newInstance(pageTitle: PageTitle?, location: Location?): PlacesFragment {
             return PlacesFragment().apply {
-                arguments = bundleOf(
-                    Constants.ARG_TITLE to pageTitle,
-                    PlacesActivity.EXTRA_LOCATION to location
-                )
+                arguments = Bundle().apply {
+                    putParcelable(Constants.ARG_TITLE, pageTitle)
+                    putParcelable(PlacesActivity.EXTRA_LOCATION, location)
+                }
             }
         }
 

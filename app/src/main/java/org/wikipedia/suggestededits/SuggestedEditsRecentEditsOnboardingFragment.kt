@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.net.toUri
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import org.wikipedia.R
@@ -29,7 +28,9 @@ class SuggestedEditsRecentEditsOnboardingFragment : OnboardingFragment(), Onboar
         }
 
         override fun createFragment(position: Int): Fragment {
-            return ItemFragment().apply { arguments = bundleOf(ARG_POSITION to position) }
+            return ItemFragment().apply {
+                arguments = Bundle().apply { putInt(ARG_POSITION, position) }
+            }
         }
     }
 
