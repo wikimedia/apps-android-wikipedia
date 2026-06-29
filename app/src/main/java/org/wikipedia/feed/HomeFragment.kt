@@ -19,6 +19,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -26,6 +28,7 @@ import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.compose.components.WikipediaAlertDialog
 import org.wikipedia.compose.components.menu.PageOverflowMenuViewModel
 import org.wikipedia.compose.theme.BaseTheme
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.feed.didyouknow.DidYouKnowActivity
 import org.wikipedia.feed.didyouknow.DidYouKnowCard
 import org.wikipedia.feed.model.Card
@@ -49,6 +52,7 @@ import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.places.PlacesActivity
 import org.wikipedia.random.RandomActivity
 import org.wikipedia.readinglist.ReadingListActivity
+import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.ReadingListMode
 import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingActivity
 import org.wikipedia.readinglist.recommended.RecommendedReadingListSettingsActivity
@@ -110,6 +114,7 @@ class HomeFragment : Fragment() {
                         communityContentState = communityContentState,
                         forYouContentState = forYouContentState,
                         overflowMenuState = pageOverflowMenuViewModel.pageOverflowMenuState,
+                        savedInReadingListTitles = viewModel.savedInReadingListTitles.collectAsState().value,
                         tabsState = tabsState,
                         notificationBellState = notificationState,
                         onSelectTab = { tab, card ->
@@ -161,7 +166,15 @@ class HomeFragment : Fragment() {
                         },
                         onPageBookmarkClick = { card, historyEntry ->
                             instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, elementId = "article_save", pageData = TestKitchenAdapter.getPageData(pageTitle = historyEntry.title))
-                            (parentFragment as? MainFragment)?.onFeedAddPageToList(historyEntry, true)
+                            lifecycleScope.launch {
+                                val page = AppDatabase.instance.readingListPageDao().findPageInAnyList(historyEntry.title)
+                                val list = AppDatabase.instance.readingListDao().getListById(page?.listId ?: -1)
+                                if (list == null || page == null) {
+                                    ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), historyEntry.title, true, InvokeSource.FEED)
+                                } else {
+                                    ReadingListBehaviorsUtil.deletePages(requireActivity(), listOf(list), page, {}, {})
+                                }
+                            }
                         },
                         onPageShareClick = { card, historyEntry ->
                             instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, elementId = "article_share", pageData = TestKitchenAdapter.getPageData(pageTitle = historyEntry.title))

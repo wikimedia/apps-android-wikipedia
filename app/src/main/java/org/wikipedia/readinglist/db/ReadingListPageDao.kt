@@ -7,6 +7,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Transaction
 import androidx.room.Update
+import kotlinx.coroutines.flow.Flow
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.dataclient.WikiSite
@@ -103,6 +104,9 @@ interface ReadingListPageDao {
 
     @Query("SELECT * FROM ReadingListPage WHERE atime > 0 ORDER BY atime DESC LIMIT :limit OFFSET :offset")
     suspend fun getPagesBySavedTime(limit: Int, offset: Int): List<ReadingListPage>
+
+    @Query("SELECT apiTitle FROM ReadingListPage WHERE lang = :lang AND apiTitle IN (:apiTitles) AND status != :excludedStatus")
+    fun observeSavedApiTitles(lang: String, apiTitles: List<String>, excludedStatus: Long): Flow<List<String>>
 
     suspend fun getAllPagesToBeSaved() = getPagesByStatus(ReadingListPage.STATUS_QUEUE_FOR_SAVE, true)
 
