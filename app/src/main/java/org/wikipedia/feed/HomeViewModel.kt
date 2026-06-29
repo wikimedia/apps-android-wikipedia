@@ -17,9 +17,10 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
-import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.filterIsInstance
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.merge
 import kotlinx.coroutines.flow.stateIn
@@ -320,6 +321,25 @@ class HomeViewModel : ViewModel() {
     private val _tabsState = MutableStateFlow(TabsState(WikipediaApp.instance.tabCount, pulse = false))
     val tabsState = _tabsState.asStateFlow()
 
+    // Holds the API titles of articles currently in the feed, to be queried whether they are saved in a reading list.
+    private val _savedInReadingApiTitles = MutableStateFlow<List<String>>(emptyList())
+
+    // Derives saved state by asking Room only about those titles that we want to monitor.
+    // flatMapLatest restarts the DB observation whenever _savedInReadingApiTitles changes.
+    @OptIn(ExperimentalCoroutinesApi::class)
+    val savedInReadingListTitles: StateFlow<Set<String>> = _savedInReadingApiTitles
+        .flatMapLatest { titles ->
+            if (titles.isEmpty()) flowOf(emptySet())
+            else AppDatabase.instance.readingListPageDao()
+                .observeSavedApiTitles(
+                    wikiSite.value.languageCode,
+                    titles,
+                    ReadingListPage.STATUS_QUEUE_FOR_DELETE
+                )
+                .map { it.toSet() }
+        }
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(MAX_STOP_TIMEOUT_MILLIS), emptySet())
+
     private val communityHandler = CoroutineExceptionHandler { _, throwable ->
         _communityState.value = _communityState.value.copy(
             isInitialLoading = false,
@@ -458,6 +478,9 @@ class HomeViewModel : ViewModel() {
                 error = null,
                 canLoadMore = true
             )
+
+            _savedInReadingApiTitles.value = _communityState.value.cards.filterIsInstance<FeaturedArticleCard>()
+                .map { it.page.apiTitle }
         }
     }
 
@@ -488,6 +511,20 @@ class HomeViewModel : ViewModel() {
                 isLoadingMore = false,
                 error = null
             )
+
+            _savedInReadingApiTitles.value = _forYouState.value.modules
+                .flatMap { it.cards }
+                .mapNotNull {
+                    when (it) {
+                        is BasedOnInterestCard -> it.title.prefixedText
+                        is ContinueReadingCard -> it.title.prefixedText
+                        is BecauseYouReadCard -> it.title.prefixedText
+                        is DiscoverCard -> it.title.prefixedText
+                        is PlacesOfInterestCard -> it.title.prefixedText
+                        is RandomCard -> it.title.prefixedText
+                        else -> null
+                    }
+                }
         }
     }
 
