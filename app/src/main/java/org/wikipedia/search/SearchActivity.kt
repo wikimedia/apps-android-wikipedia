@@ -10,6 +10,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.extensions.instrument
+import org.wikipedia.extensions.serializableExtra
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.log.L
@@ -44,15 +45,12 @@ class SearchActivity : SingleFragmentActivity<SearchFragment>() {
     }
 
     public override fun createFragment(): SearchFragment {
-        var source = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource?
-        if (source == null) {
-            when {
-                Intent.ACTION_SEND == intent.action -> { source = InvokeSource.INTENT_SHARE }
-                Intent.ACTION_PROCESS_TEXT == intent.action -> { source = InvokeSource.INTENT_PROCESS_TEXT }
-                else -> {
-                    source = InvokeSource.INTENT_UNKNOWN
-                    L.logRemoteErrorIfProd(RuntimeException("Unknown intent when launching SearchActivity: " + intent.action.orEmpty()))
-                }
+        val source = intent.serializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) ?: when {
+            Intent.ACTION_SEND == intent.action -> InvokeSource.INTENT_SHARE
+            Intent.ACTION_PROCESS_TEXT == intent.action -> InvokeSource.INTENT_PROCESS_TEXT
+            else -> {
+                L.logRemoteErrorIfProd(RuntimeException("Unknown intent when launching SearchActivity: " + intent.action.orEmpty()))
+                InvokeSource.INTENT_UNKNOWN
             }
         }
         return SearchFragment.newInstance(

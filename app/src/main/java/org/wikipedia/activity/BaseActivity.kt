@@ -37,6 +37,7 @@ import org.wikipedia.events.ReadingListsNoLongerSyncedEvent
 import org.wikipedia.events.SplitLargeListsEvent
 import org.wikipedia.events.ThemeFontChangeEvent
 import org.wikipedia.events.UnreadNotificationsEvent
+import org.wikipedia.extensions.serializableExtra
 import org.wikipedia.games.onthisday.OnThisDayGameResultFragment
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
@@ -119,25 +120,22 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
             }
         }
 
-        val invokeSource = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource?
-        invokeSource?.let {
-            when (it) {
-                InvokeSource.WIDGET -> {
-                    val widgetType = intent.getStringExtra(Constants.INTENT_WIDGET_TYPE)
-                    TestKitchenAdapter.client.getInstrument("apps-open")
-                        .submitInteraction(action = "app_open", actionSource = "widget", actionSubtype = widgetType)
-                }
-                InvokeSource.NOTIFICATION -> {
-                    TestKitchenAdapter.client.getInstrument("apps-open")
-                        .submitInteraction(action = "app_open", actionSource = "notification")
-                }
-                InvokeSource.APP_SHORTCUTS -> {
-                    val shortcutId = intent.getStringExtra(AppShortcuts.APP_SHORTCUT_ID)
-                    TestKitchenAdapter.client.getInstrument("apps-open")
-                        .submitInteraction(action = "app_open", actionSource = "shortcut", actionSubtype = shortcutId)
-                }
-                else -> { }
+        when (intent.serializableExtra<InvokeSource>(Constants.INTENT_EXTRA_INVOKE_SOURCE)) {
+            InvokeSource.WIDGET -> {
+                val widgetType = intent.getStringExtra(Constants.INTENT_WIDGET_TYPE)
+                TestKitchenAdapter.client.getInstrument("apps-open")
+                    .submitInteraction(action = "app_open", actionSource = "widget", actionSubtype = widgetType)
             }
+            InvokeSource.NOTIFICATION -> {
+                TestKitchenAdapter.client.getInstrument("apps-open")
+                    .submitInteraction(action = "app_open", actionSource = "notification")
+            }
+            InvokeSource.APP_SHORTCUTS -> {
+                val shortcutId = intent.getStringExtra(AppShortcuts.APP_SHORTCUT_ID)
+                TestKitchenAdapter.client.getInstrument("apps-open")
+                    .submitInteraction(action = "app_open", actionSource = "shortcut", actionSubtype = shortcutId)
+            }
+            else -> { }
         }
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
