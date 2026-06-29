@@ -96,15 +96,31 @@ private fun demoPages(): List<YirPage> {
                 )
             }
         ),
-        // 2. Standard content card: one-shot animation background that plays then holds its last
-        // frame; the text fades in on top.
+        // 2. Standard content card: full-bleed one-shot background (bg3, holds its last frame) PLUS
+        // a looping Lottie hero in the content above the text. The content animation layers over the
+        // full-bleed background, it does not replace it.
         YirPage(
             background = YirBackground.Animation("lottie/bg3.lottie"),
             content = { phase ->
                 YirStandardContent(
                     headline = "924 minutes reading",
                     supportingText = "Not all screen time is created equal. Your longest session: March 7, 43 minutes.",
-                    phase = phase
+                    phase = phase,
+                    foregroundAnimationAsset = "lottie/reading_book.lottie"
+                )
+            }
+        ),
+        // 2b. Standard content card over the gradient: pencil hero loop in the content with dark
+        // text, for a card whose background is light where the text sits.
+        YirPage(
+            background = YirBackground.Gradient(yirGreenGradient),
+            content = { phase ->
+                YirStandardContent(
+                    headline = "You edited 1,000 times",
+                    supportingText = "Your edits this year helped keep Wikipedia accurate for millions of readers.",
+                    phase = phase,
+                    foregroundAnimationAsset = "lottie/pencil_write.lottie",
+                    textColor = Color(0xFF202122)
                 )
             }
         ),
