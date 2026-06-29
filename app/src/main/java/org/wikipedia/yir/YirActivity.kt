@@ -14,24 +14,14 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.util.DeviceUtil
 import android.graphics.Color as AndroidColor
 
-/**
- * Hosts the new immersive Year in Review story (the [org.wikipedia.yir] spike).
- *
- * For now it feeds the scaffold placeholder content so the shell (paging, background, top bar) is
- * runnable from Developer Settings. Real content/interactive slides arrive in later steps.
- */
 class YirActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        // YiR is always a dark, full-bleed experience, so force transparent system bars with light
-        // (white) icons regardless of the app theme. SystemBarStyle.dark => light icons.
         enableEdgeToEdge(
             statusBarStyle = SystemBarStyle.dark(AndroidColor.TRANSPARENT),
             navigationBarStyle = SystemBarStyle.dark(AndroidColor.TRANSPARENT)
         )
         super.onCreate(savedInstanceState)
-        // BaseActivity.onCreate sets the system-bar icons by app theme (dark icons in light theme).
-        // YiR is always dark and full-bleed, so override to light (white) icons after super runs.
         DeviceUtil.setLightSystemUiVisibility(this, light = false)
 
         val orientation = intent.getStringExtra(EXTRA_ORIENTATION)
@@ -60,11 +50,6 @@ class YirActivity : BaseActivity() {
     }
 }
 
-/**
- * The Year in Review background, matching the production header (yearInReviewHeaderBackground):
- * near-black at the top, teal -> green through the middle, then solid WHITE from ~65% to the bottom.
- * Same color stops as the live YiR so the immersive version reads the same.
- */
 private val yirGreenGradient = listOf(
     0.125f to Color(0xFF171717),
     0.225f to Color(0xFF003F45),
@@ -74,14 +59,9 @@ private val yirGreenGradient = listOf(
     0.650f to Color(0xFFFFFFFF)
 )
 
-/**
- * The four-slide wireframe set: Opening (framing) -> Standard (content) -> Interactive -> Closing
- * (framing). Backgrounds use the gradient as a placeholder where a Lottie would go; swap a card's
- * background to YirBackground.Animation("lottie/...") once Design provides assets.
- */
 private fun demoPages(): List<YirPage> {
     return listOf(
-        // 1. Opening framing card.
+        // Opening framing card.
         YirPage(
             background = YirBackground.Animation(
                 assetPath = "lottie/bg_shooting_star.lottie",
@@ -96,9 +76,7 @@ private fun demoPages(): List<YirPage> {
                 )
             }
         ),
-        // 2. Standard content card: full-bleed one-shot background (bg3, holds its last frame) PLUS
-        // a looping Lottie hero in the content above the text. The content animation layers over the
-        // full-bleed background, it does not replace it.
+        // Standard card: full-bleed bg animation + a looping hero animation layered in the content.
         YirPage(
             background = YirBackground.Animation("lottie/bg3.lottie"),
             content = { phase ->
@@ -110,8 +88,7 @@ private fun demoPages(): List<YirPage> {
                 )
             }
         ),
-        // 2b. Standard content card over the gradient: pencil hero loop in the content with dark
-        // text, for a card whose background is light where the text sits.
+        // Standard card over the gradient: pencil hero loop with dark text.
         YirPage(
             background = YirBackground.Gradient(yirGreenGradient),
             content = { phase ->
@@ -124,7 +101,7 @@ private fun demoPages(): List<YirPage> {
                 )
             }
         ),
-        // 3. Interactive card.
+        // Interactive guess card.
         YirPage(
             background = YirBackground.Gradient(yirGreenGradient),
             content = {
@@ -142,7 +119,7 @@ private fun demoPages(): List<YirPage> {
                 )
             }
         ),
-        // 3b. Interactive image-guess card (images added later; rounded placeholders for now).
+        // Interactive image-guess card.
         YirPage(
             background = YirBackground.Gradient(yirGreenGradient),
             content = {
@@ -165,7 +142,7 @@ private fun demoPages(): List<YirPage> {
                 )
             }
         ),
-        // 4. Closing framing card.
+        // Closing framing card.
         YirPage(
             background = YirBackground.Animation(
                 assetPath = "lottie/bg_shooting_star.lottie",

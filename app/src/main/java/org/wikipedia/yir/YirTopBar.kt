@@ -20,14 +20,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import org.wikipedia.R
 
-/**
- * The fixed top bar that overlays every card. It does not draw a background of its own so the
- * full-bleed layer shows through.
- *
- * It is deliberately slot-based: the close ("X") and Donate are wired by the host, and [actions]
- * is an open trailing slot so design can add things later (e.g. Share) without changing the
- * scaffold. Donate isn't final either, so it's just a callback here.
- */
 @Composable
 fun YirTopBar(
     onClose: () -> Unit,
@@ -50,7 +42,6 @@ fun YirTopBar(
             )
         }
 
-        // Pushes trailing controls to the end while leaving the center untouched.
         Row(
             modifier = Modifier.weight(1f),
             horizontalArrangement = Arrangement.End,

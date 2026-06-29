@@ -20,24 +20,8 @@ import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 
-/**
- * The target duration we want a one-shot background animation to take before it holds its last
- * frame. A longer asset is sped up to roughly this so the insight text doesn't wait too long; a
- * shorter asset plays at its natural speed (we never slow one down).
- */
 private const val ANIMATION_TARGET_MS = 2500f
 
-/**
- * The full-bleed background of a card: a solid color, a gradient, an image, or an animation.
- *
- * A one-shot animation (loop = false) plays once, holds on its last frame as the background, and
- * calls [onAnimationFinished] so the card can fade its text in on top. A looping animation
- * (framing cards) loops while [isActive] and never finishes.
- *
- * @param isActive whether this is the settled/visible page. Animations only play while active so
- *   off-screen pages don't burn frames; a looping animation restarts from the start when the page
- *   becomes active again (matches the framing-card spec).
- */
 @Composable
 fun YirBackgroundLayer(
     background: YirBackground,

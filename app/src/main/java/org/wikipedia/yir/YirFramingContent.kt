@@ -27,11 +27,6 @@ data class YirCta(
     val onClick: () -> Unit
 )
 
-/**
- * Framing card (Opening / Closing). Content is the primary focus: a headline, supporting copy and
- * one or more CTAs, centered over a (usually looping) ambient background. Used both to welcome the
- * user in and to celebrate completion at the end.
- */
 @Composable
 fun YirFramingContent(
     headline: String,
@@ -61,8 +56,7 @@ fun YirFramingContent(
             textAlign = TextAlign.Center,
             modifier = Modifier.padding(top = 16.dp, bottom = 40.dp)
         )
-        // A framing card without buttons (e.g. the opening) shows a subtle nav hint instead, since
-        // content can't advance the pager — the user swipes.
+
         hint?.let {
             Text(
                 text = it,

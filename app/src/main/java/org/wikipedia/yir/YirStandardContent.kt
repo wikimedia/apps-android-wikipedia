@@ -27,21 +27,6 @@ import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 import org.wikipedia.compose.theme.BaseTheme
 
-/**
- * Standard "content" card: a single insight, vertically centered, that fades in once the card's
- * one-shot background animation has finished ([YirCardPhase.REVEALED]).
- *
- * Besides the full-bleed background, a standard card may also show a Lottie *in the content* via
- * [foregroundAnimationAsset]: a square hero animation that sits above the text and loops
- * continuously (like the looping gifs in the current Year in Review). This proves that animations
- * can live in the content slot, not only as the full-bleed background. When the card has a hero
- * loop, give it a plain solid/gradient background so the two don't fight for attention.
- *
- * @param foregroundAnimationAsset Lottie asset path under `assets/` (e.g. "lottie/reading_book.lottie"),
- *   or null for a text-only card. It loops while shown and is independent of [phase].
- * @param textColor the color of the insight text. Defaults to white for cards over a dark
- *   background; pass a dark color for cards whose background is light where the text sits.
- */
 @Composable
 fun YirStandardContent(
     headline: String,

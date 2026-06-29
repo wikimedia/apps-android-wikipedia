@@ -19,14 +19,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.wikipedia.compose.theme.BaseTheme
 
-/**
- * Stories-style progress: one segment per card. Segments up to and including the current card are
- * filled; the rest are faint.
- *
- * Discrete on purpose — segments don't animate-fill to a per-card duration, because cards never
- * auto-advance on a timer (see NOTES). Horizontal pager => a bar under the top bar; vertical pager
- * => a column down the right edge (where a vertically-swiped story has room for it).
- */
 @Composable
 fun YirProgressIndicator(
     pageCount: Int,
@@ -39,7 +31,6 @@ fun YirProgressIndicator(
     val thickness = 3.dp
     val corner = RoundedCornerShape(thickness / 2)
 
-    println("orange currentPage: $currentPage, pageCount: $pageCount, orientation: $orientation")
     if (orientation == YirPagerOrientation.HORIZONTAL) {
         Row(
             modifier = modifier.fillMaxWidth(),

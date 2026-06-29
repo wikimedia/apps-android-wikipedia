@@ -30,11 +30,6 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 
-/**
- * Dev-only chooser shown when opening the YiR story spike: pick which pager style to launch with.
- * Lets design feel both the For-You (vertical) and carousel (horizontal) navigation without a code
- * change. Mirrors the Reading Challenge playground bottom sheet.
- */
 class YirOrientationChooserDialog : ExtendedBottomSheetDialogFragment(startExpanded = true) {
 
     override fun onCreateView(

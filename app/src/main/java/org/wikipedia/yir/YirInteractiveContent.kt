@@ -39,17 +39,6 @@ data class YirGuessOption(
     val isCorrect: Boolean
 )
 
-/**
- * Interactive card: the user guesses, submits, then sees the personalized result.
- *
- * States: pre-selection (tap to highlight, can change) -> after Submit, the result. On submit the
- * correct option is highlighted; if the user was wrong their pick is also marked, but they are
- * never blocked from continuing. The result (headline + supporting copy + optional save CTA) stays
- * visible until the user swipes to the next card.
- *
- * Wireframe note: the spec separates a "submitted feedback" state from a "reveal" state; here they
- * are shown together after Submit to keep the spike simple. (See NOTES / caveats.)
- */
 @Composable
 fun YirInteractiveContent(
     prompt: String,
@@ -76,9 +65,6 @@ fun YirInteractiveContent(
         )
         Spacer(Modifier.height(24.dp))
 
-        // No Submit step: tapping an option reveals the insight, which replaces the options. Keeping
-        // the result up here (not stacked below the options) keeps its text on the dark/green part of
-        // the background, away from the white lower third.
         if (!revealed) {
             options.forEach { option ->
                 GuessOptionRow(option = option, onClick = { revealed = true })

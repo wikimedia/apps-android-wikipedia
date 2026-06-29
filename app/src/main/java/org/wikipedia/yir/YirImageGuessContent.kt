@@ -34,27 +34,11 @@ import coil3.compose.AsyncImage
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 
-/**
- * One image option for the image-guess card. [imageSrc] is null for now (placeholder tile) —
- * design's images get dropped in later. [isCorrect] is the local stand-in for the real answer.
- */
 data class YirImageOption(
     val imageSrc: String? = null,
     val isCorrect: Boolean = false
 )
 
-/**
- * Interactive image-guess card ("which of these images appeared in the article you visited most?").
- *
- * The images are clipped to plain rounded squares for now; the bespoke hand-drawn frames in the
- * mockup are design artwork and should arrive as assets (see NOTES — shapes). Tiles are laid out in
- * a light zigzag (alternating left/right) to echo the scattered mockup.
- *
- * Pre-selection: tap a tile to select (you can change). After Submit the card transitions to the
- * result. Note: unlike the text-list variant (which keeps the options visible and re-colours them),
- * this variant swaps the big tiles out for the result, because three full-size tiles plus a result
- * don't fit without scrolling — and we don't scroll inside the pager.
- */
 @Composable
 fun YirImageGuessContent(
     prompt: String,
@@ -81,7 +65,6 @@ fun YirImageGuessContent(
         )
         Spacer(Modifier.height(24.dp))
 
-        // No Submit step: tapping a tile reveals the insight, which replaces the tiles.
         if (!revealed) {
             options.forEachIndexed { index, option ->
                 Box(modifier = Modifier.fillMaxWidth()) {
