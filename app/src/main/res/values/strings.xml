@@ -2513,6 +2513,7 @@
     <string name="home_feed_settings_title">Customize your Home feed</string>
     <string name="home_feed_settings_default_view_title">Default feed view</string>
     <string name="home_feed_settings_default_view_subtitle">Choose which feed displays first when you open the app</string>
+    <string name="home_feed_settings_default_view_confirm">This change will apply the next time you open the app.</string>
     <string name="home_feed_settings_whats_driving_title">What\'s driving your feed</string>
     <string name="home_feed_settings_modules_title">Modules</string>
     <string name="home_feed_settings_community_subtitle">Turn on or off \"Community\" feed modules</string>
