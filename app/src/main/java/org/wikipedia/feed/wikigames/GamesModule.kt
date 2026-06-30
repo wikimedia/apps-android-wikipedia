@@ -174,9 +174,9 @@ private fun OnThisDayGameModuleCard(
             }
         }
 
-        GameEventCard(modifier = Modifier.weight(1f), event = state.event1)
+        GameEventCard(modifier = Modifier.weight(1f), event = state.event1, onClick = onActionClick)
 
-        GameEventCard(modifier = Modifier.weight(1f), event = state.event2)
+        GameEventCard(modifier = Modifier.weight(1f), event = state.event2, onClick = onActionClick)
 
         OutlinedButton(
             modifier = Modifier.align(Alignment.CenterHorizontally),
@@ -196,16 +196,20 @@ private fun OnThisDayGameModuleCard(
 @Composable
 private fun GameEventCard(
     modifier: Modifier = Modifier,
-    event: OnThisDay.Event
+    event: OnThisDay.Event,
+    onClick: () -> Unit
 ) {
     WikiCard(
         modifier = modifier,
         elevation = 0.dp,
+        onClick = onClick,
         shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(containerColor = ComposeColors.Gray700)
     ) {
         Row(
-            modifier = Modifier.padding(16.dp),
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp),
             horizontalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             Text(
