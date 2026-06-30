@@ -15,4 +15,6 @@ class UtcDate(private val age: Int) {
     val month get() = (baseCalendar[Calendar.MONTH] + 1).toString().padStart(2, '0')
 
     val day get() = baseCalendar[Calendar.DATE].toString().padStart(2, '0')
+
+    override fun toString(): String = "$year-$month-$day"
 }

@@ -17,7 +17,6 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
-import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.filterIsInstance
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
@@ -70,6 +69,7 @@ import org.wikipedia.settings.homefeed.CommunityModuleType
 import org.wikipedia.settings.homefeed.ForYouModuleType
 import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.topics.ArticleTopics
+import org.wikipedia.util.DateUtil
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
@@ -419,9 +419,10 @@ class HomeViewModel : ViewModel() {
             )
 
             val age = nextCommunityAge
-            val date = LocalDate.now().minusDays(nextCommunityAge.toLong())
+            val date = DateUtil.getUtcRequestDateFor(nextCommunityAge)
             val content = ServiceFactory.getRest(wikiSite.value)
-                .getFeedFeatured(date.year.toString(), "%02d".format(date.monthValue), "%02d".format(date.dayOfMonth), wikiSite.value.languageCode)
+                .getFeedFeatured(date.year, date.month, date.day, wikiSite.value.languageCode)
+
 
             // Construct Card objects based on the day's content
             val cardsForDay = buildList<Card> {
@@ -536,7 +537,7 @@ class HomeViewModel : ViewModel() {
             withContext(Dispatchers.Default) {
                 forYouCollectionSaved = JsonUtil.decodeFromString<ForYouCollectionSaved>(Prefs.homeForYouModulesToday)!!
             }
-        } catch (e: Exception) {
+        } catch (_: Exception) {
             L.e("Failed to load modules from cache.")
         }
 

@@ -28,7 +28,7 @@ class OnThisDayViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     private val _uiState = MutableStateFlow(Resource<List<OnThisDay.Event>>())
     val uiState = _uiState.asStateFlow()
 
-    fun loadOnThisDay(calendar: Calendar = DateUtil.getDefaultDateFor(age)) {
+    fun loadOnThisDay(calendar: Calendar = DateUtil.getUtcRequestDateFor(age).baseCalendar) {
         _uiState.value = Resource.Loading()
         viewModelScope.launch(handler) {
             val response = ServiceFactory.getRest(wikiSite).getOnThisDay(calendar[Calendar.MONTH] + 1, calendar[Calendar.DATE])

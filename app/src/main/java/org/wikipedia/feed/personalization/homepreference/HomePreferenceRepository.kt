@@ -8,8 +8,8 @@ import org.wikipedia.extensions.getString
 import org.wikipedia.history.db.HistoryEntryWithImageDao
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.DateUtil
 import org.wikipedia.util.StringUtil
-import java.time.LocalDate
 
 class HomePreferenceRepository(
     private val context: Context,
@@ -17,12 +17,12 @@ class HomePreferenceRepository(
     private val wikiSite: WikiSite
 ) {
     suspend fun getCommunityPreviewContent(): List<HomePreferenceContent> {
-        val currentDate = LocalDate.now()
+        val currentDate = DateUtil.getUtcRequestDateFor(0)
 
         val response = ServiceFactory.getRest(wikiSite).getFeedFeatured(
-            year = currentDate.year.toString(),
-            month = "%02d".format(currentDate.monthValue),
-            day = "%02d".format(currentDate.dayOfMonth),
+            year = currentDate.year,
+            month = currentDate.month,
+            day = currentDate.day,
             lang = wikiSite.languageCode
         )
 
