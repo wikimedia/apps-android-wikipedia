@@ -423,7 +423,6 @@ class HomeViewModel : ViewModel() {
             val content = ServiceFactory.getRest(wikiSite.value)
                 .getFeedFeatured(date.year, date.month, date.day, wikiSite.value.languageCode)
 
-
             // Construct Card objects based on the day's content
             val cardsForDay = buildList<Card> {
                 content.tfa?.let {
