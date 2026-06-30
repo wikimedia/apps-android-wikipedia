@@ -31,6 +31,9 @@ sealed interface ReadingChallengeState {
 
     // State 5: Challenge Remove
     object ChallengeRemoved : ReadingChallengeState
+
+    // State 6: Post-challenge transition — widget becomes a permanent Random Article launcher
+    object RandomArticle : ReadingChallengeState
 }
 
 data class ReadingChallengeUserData(

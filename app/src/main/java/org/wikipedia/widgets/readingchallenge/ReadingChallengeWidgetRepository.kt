@@ -54,8 +54,10 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
     }
 
     fun resolveState(userData: ReadingChallengeUserData): ReadingChallengeState {
+        // After REMOVE_DATE the prize window is closed for everyone, so all users — including
+        // those still on the "challenge completed" prize screen — transition to the Random Article widget.
         if (userData.currentDate.isAfter(REMOVE_DATE)) {
-            return ReadingChallengeState.ChallengeRemoved
+            return ReadingChallengeState.RandomArticle
         }
 
         if (userData.currentDate.isBefore(START_DATE)) {
@@ -63,28 +65,26 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
         }
 
         if (!userData.enabled) {
-            // Past end date and never enrolled treat as concluded with no streak
+            // Past end date and never enrolled: nothing to conclude, transition straight to Random Article
             if (userData.currentDate.isAfter(END_DATE)) {
-                return ReadingChallengeState.ChallengeConcludedNoStreak
+                return ReadingChallengeState.RandomArticle
             }
             return ReadingChallengeState.NotEnrolled
         }
 
         // From this point onward, user is enrolled
 
-        // Success State, once user is enrolled we check immediately to bypass other conditions if they finish on time
+        // Success State, once user is enrolled we check immediately to bypass other conditions if they finish on time.
+        // Completed users keep collecting their prize until REMOVE_DATE (handled by the guard above).
         if (userData.currentStreak >= READING_STREAK_GOAL) {
             return ReadingChallengeState.ChallengeCompleted
         }
 
-        // Past end date with a broken streak — challenge is concluded and cannot restart.
+        // Past end date with a broken streak — challenge is concluded and cannot restart, so the
+        // incomplete/no-streak users transition immediately to the Random Article widget.
         // Active streaks past end date fall through and continue toward completion (buffer period)
         if (userData.currentDate.isAfter(END_DATE) && !userData.hasActiveStreak) {
-            return if (userData.currentStreak > 0) {
-                ReadingChallengeState.ChallengeConcludedIncomplete(userData.currentStreak) // streak did not hit 25, but they did have a streak
-            } else {
-                ReadingChallengeState.ChallengeConcludedNoStreak // no streak at all
-            }
+            return ReadingChallengeState.RandomArticle
         }
 
         // no article read since enrollment
