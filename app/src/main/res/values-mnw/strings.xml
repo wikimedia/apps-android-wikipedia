@@ -461,9 +461,9 @@
     <item quantity="one">လိက်ပရေင် %d ပ္တိတ်လဝ် နူ စရင်</item>
     <item quantity="other">လိက်ပရေင် %d ပ္တိတ်လဝ် နူ စရင်</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d လိက်ပရေင်တအ် ပ္တိတ်လဝ် နူ %s</item>
-    <item quantity="other">%d လိက်ပရေင်တအ် ပ္တိတ်လဝ် နူ %s</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">%1$d လိက်ပရေင်တအ် ပ္တိတ်လဝ် နူ %2$s</item>
+    <item quantity="other">%1$d လိက်ပရေင်တအ် ပ္တိတ်လဝ် နူ %2$s</item>
   </plurals>
   <string name="reading_list_items_deleted">%d လိက်ပရေင် ပတိတ်ထောအ် နူစရင်</string>
   <string name="reading_lists_item_deleted">%s ပတိတ်ထောအ် နူ စရင်</string>

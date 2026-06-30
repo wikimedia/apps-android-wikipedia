@@ -572,11 +572,11 @@
     <item quantity="few">%d članki odstranjeni s seznama</item>
     <item quantity="other">%d člankov odstranjenih s seznama</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d članek odstranjen s seznama %s</item>
-    <item quantity="two">%d članka odstranjena s seznama %s</item>
-    <item quantity="few">%d članki odstranjeni s seznama %s</item>
-    <item quantity="other">%d člankov odstranjenih s seznama %s</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">%1$d članek odstranjen s seznama %2$s</item>
+    <item quantity="two">%1$d članka odstranjena s seznama %2$s</item>
+    <item quantity="few">%1$d članki odstranjeni s seznama %2$s</item>
+    <item quantity="other">%1$d člankov odstranjenih s seznama %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d seznam izbrisan</item>

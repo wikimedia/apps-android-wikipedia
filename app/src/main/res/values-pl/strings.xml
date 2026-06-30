@@ -604,11 +604,11 @@
     <item quantity="many">Usunięto %d artykułów z listy</item>
     <item quantity="other">Usunięto %d artykułów z listy</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">Usunięto %d artykuł z listy %s</item>
-    <item quantity="few">Usunięto %d artykuły z listy %s</item>
-    <item quantity="many">Usunięto %d artykułów z listy %s</item>
-    <item quantity="other">Usunięto %d artykułów z listy %s</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">Usunięto %1$d artykuł z listy %2$s</item>
+    <item quantity="few">Usunięto %1$d artykuły z listy %2$s</item>
+    <item quantity="many">Usunięto %1$d artykułów z listy %2$s</item>
+    <item quantity="other">Usunięto %1$d artykułów z listy %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">Usunięto %d listę</item>

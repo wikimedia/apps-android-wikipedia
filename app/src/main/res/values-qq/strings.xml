@@ -590,8 +590,8 @@
     <item quantity="other">Message shown when multiple articles are removed from a reading list. The \"%d\" symbol is replaced with the number of articles removed.</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">Message shown when one article is removed from a reading list.The \"%d\" symbol is replaced with the number of articles removed.The \"%s\" symbol is replaced with the reading list name.</item>
-    <item quantity="other">Message shown when multiple articles are removed from a reading list. The \"%d\" symbol is replaced with the number of articles removed.The \"%s\" symbol is replaced with the reading list name.</item>
+    <item quantity="one">Message shown when one article is removed from a reading list.The \"%1$d\" symbol is replaced with the number of articles removed.The \"%2$s\" symbol is replaced with the reading list name.</item>
+    <item quantity="other">Message shown when multiple articles are removed from a reading list. The \"%1$d\" symbol is replaced with the number of articles removed.The \"%2$s\" symbol is replaced with the reading list name.</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">Toast message shown when one reading list is deleted. The \"%d\" symbol is replaced with the number of the lists deleted.</item>
@@ -2220,6 +2220,7 @@
   <string name="explore_feed_new_update_prompt_language_description">Body text explaining that users reading in multiple languages each get a separately personalized feed, which updates automatically on language switch.</string>
   <string name="explore_feed_new_update_prompt_primary_button_text">Label for the primary action button on the feed update onboarding prompt, directing the user to manually customize their feed.</string>
   <string name="explore_feed_customize_interests">Button label for customizing the interests used for composing Home feed content.</string>
+  <string name="explore_feed_customize_discover">Menu item label for opening the Discover settings to customize the recommended reading list.</string>
   <string name="explore_feed_new_update_prompt_secondary_button_text">Label for the secondary action button on the feed update onboarding prompt, allowing the user to have their feed configured automatically.</string>
   <string name="explore_feed_building_text">Body text for the feed building screen.</string>
   <string name="explore_feed_community_tab_label">Label text for the explore feed type tab for the community content.</string>
@@ -2300,6 +2301,15 @@
   <string name="home_feed_places_of_interest_cta_button">Button text that navigates the user to the Places tab.</string>
   <string name="home_feed_settings_places_of_interest_title">Title for the Places of Interest settings section.</string>
   <string name="home_feed_settings_places_of_interest_subtitle">Subtitle describing that nearby place-based articles are shown using the user’s last selected location in Places.</string>
+  <string name="home_feed_settings_discover_title">Title for the Discover recommendations settings section.</string>
+  <string name="home_feed_settings_discover_subtitle">Subtitle describing that articles from the user\'s Discover reading list are shown.</string>
+  <string name="home_feed_discover_cta_title">Section title for the Discover module in the home feed.</string>
+  <string name="home_feed_discover_cta_description">Description explaining that Discover recommends articles picked for the user, with a choice of daily, weekly, or monthly updates.</string>
+  <string name="home_feed_discover_cta_button">Button text that enables the Discover reading list.</string>
+  <string name="home_feed_discover_card_footer">Footer label shown on a Discover article card, indicating the article comes from the user\'s Discover reading list. %s is replaced by update frequency.</string>
+  <string name="home_feed_discover_see_all_title">Title of the final card in the Discover module, inviting the user to view the rest of their recommendations.</string>
+  <string name="home_feed_discover_see_all_description">Description on the final Discover card explaining that the personalized reading list has more articles to explore.</string>
+  <string name="home_feed_discover_see_all_button">Button text on the final Discover card that opens the full recommended reading list.</string>
   <string name="home_feed_places_of_interest_card_footer">Footer text shown on a Places of Interest article card, displaying the article date followed by an indication that the recommendation is based on the user\'s selected location in Places. %1$s is replaced by distance.</string>
   <string name="home_feed_for_you_screen_end_of_feed_title">Title text shown when the user reaches the end of the personalized feed for the day.</string>
   <string name="home_feed_for_you_screen_end_of_feed_description">Description text encouraging the user to return later for refreshed personalized articles.</string>

@@ -584,8 +584,8 @@
     <item quantity="other">從清單移除 %d 個條目</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">已從%s移除 %d 個條目</item>
-    <item quantity="other">已從%s移除 %d 個條目</item>
+    <item quantity="one">已從%2$s移除 %1$d 個條目</item>
+    <item quantity="other">已從%2$s移除 %1$d 個條目</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">已刪除 %d 個清單</item>

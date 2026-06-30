@@ -590,12 +590,12 @@
     <item quantity="many">%d alt bainte den liosta </item>
     <item quantity="other">%d alt bainte den liosta</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">one=%d alt bainte as %s</item>
-    <item quantity="two">one=%d alt bainte as %s</item>
-    <item quantity="few">one=%d alt bainte as %s</item>
-    <item quantity="many">one=%d alt bainte as %s</item>
-    <item quantity="other">%d alt bainte as %s</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">one=%1$d alt bainte as %2$s</item>
+    <item quantity="two">one=%1$d alt bainte as %2$s</item>
+    <item quantity="few">one=%1$d alt bainte as %2$s</item>
+    <item quantity="many">one=%1$d alt bainte as %2$s</item>
+    <item quantity="other">%1$d alt bainte as %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d liosta scriosta</item>

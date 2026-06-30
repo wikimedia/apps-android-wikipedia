@@ -575,8 +575,8 @@
         <item quantity="other">%d articles removed from list</item>
     </plurals>
     <plurals name="reading_list_articles_deleted_from_list">
-        <item quantity="one">%d article removed from %s</item>
-        <item quantity="other">%d articles removed from %s</item>
+        <item quantity="one">%1$d article removed from %2$s</item>
+        <item quantity="other">%1$d articles removed from %2$s</item>
     </plurals>
     <plurals name="reading_lists_deleted_message">
         <item quantity="one">%d list deleted</item>
@@ -2481,6 +2481,7 @@
     <string name="explore_feed_new_update_prompt_language_description">Reading in multiple languages? Each one gets its own experience. Just switch and your new feed is ready.</string>
     <string name="explore_feed_new_update_prompt_primary_button_text">Customize my feed</string>
     <string name="explore_feed_customize_interests">Customize interests</string>
+    <string name="explore_feed_customize_discover">Customize Discover</string>
     <string name="explore_feed_new_update_prompt_secondary_button_text">Set it up for me</string>
     <string name="explore_feed_building_text">Let\'s build your feed…</string>
     <string name="explore_feed_community_tab_label">Community</string>
@@ -2561,6 +2562,15 @@
     <string name="home_feed_places_of_interest_cta_button">Go to Places</string>
     <string name="home_feed_settings_places_of_interest_title">Places of interest</string>
     <string name="home_feed_settings_places_of_interest_subtitle">Articles nearby your last location in Places</string>
+    <string name="home_feed_settings_discover_title">Discover recommendations</string>
+    <string name="home_feed_settings_discover_subtitle">Articles from your Discover reading list</string>
+    <string name="home_feed_discover_cta_title">From Discover</string>
+    <string name="home_feed_discover_cta_description">Learn about new topics, picked just for you. Choose between daily, weekly or monthly updates.</string>
+    <string name="home_feed_discover_cta_button">Enable Discover reading list</string>
+    <string name="home_feed_discover_card_footer">From Discover • Updates %s</string>
+    <string name="home_feed_discover_see_all_title">There\'s more to discover</string>
+    <string name="home_feed_discover_see_all_description">Your personalized reading list has more stories picked just for you.</string>
+    <string name="home_feed_discover_see_all_button">Explore all recommendations</string>
     <string name="home_feed_places_of_interest_card_footer">%1$s • Based on your location in Places</string>
     <string name="home_feed_for_you_screen_end_of_feed_title">That\'s it for today!</string>
     <string name="home_feed_for_you_screen_end_of_feed_description">Come back tomorrow to find fresh new articles customized for you.</string>

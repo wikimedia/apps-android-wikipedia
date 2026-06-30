@@ -18,5 +18,6 @@ data class RecommendedPage(
     var description: String? = null,
     var thumbUrl: String? = null,
     // 0 = new, 1 = expired
-    var status: Int = 0
+    var status: Int = 0,
+    var extract: String? = null
 )

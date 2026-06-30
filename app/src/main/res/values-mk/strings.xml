@@ -555,8 +555,8 @@
     <item quantity="other">Отстранети %d статии од списокот</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">Отстранета %d статија од %s</item>
-    <item quantity="other">Отстранети %d статии од %s</item>
+    <item quantity="one">Отстранета %1$d статија од %2$s</item>
+    <item quantity="other">Отстранети %1$d статии од %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d избришан список</item>
@@ -2354,6 +2354,7 @@
   <string name="explore_feed_new_update_prompt_language_description">Читате на повеќе јазици? Секој добива свое искуство. Само префрлете се и новиот тековник е готов.</string>
   <string name="explore_feed_new_update_prompt_primary_button_text">Прилагоди довод</string>
   <string name="explore_feed_customize_interests">Прилагоди интереси</string>
+  <string name="explore_feed_customize_discover">Прилагоди го „Откриј“</string>
   <string name="explore_feed_new_update_prompt_secondary_button_text">Постави ми го</string>
   <string name="explore_feed_building_text">Да го изградиме вашиот тековник…</string>
   <string name="explore_feed_community_tab_label">Заедница</string>
@@ -2381,8 +2382,10 @@
   <string name="explore_feed_personalized_preference_empty_state_text">Ќе треба да додадете интереси за да гледате персонализирани предложени содржини. Ова можете да го направите во претходните чекори или подоцна во нагодувањата.</string>
   <string name="explore_feed_because_you_read">Бидејќи читавте: %s</string>
   <string name="explore_feed_swipe_to_explore_prompt_title">Повлечете за да истражите</string>
-  <string name="explore_feed_swipe_to_explore_prompt_message" fuzzy="true">Повлечете надолу за да се движите помеѓу темите или повлечете странично за да ги истражите поврзаните содржини.</string>
-  <string name="home_feed_settings_title" fuzzy="true">Прилагоди го тековникот „Почетна“</string>
+  <string name="explore_feed_swipe_to_explore_prompt_message">Повлечете нагоре за да се движите помеѓу темите или повлечете странично за да ги истражите поврзаните содржини.</string>
+  <string name="home_feed_settings_title">Прилагоди го тековникот „Почетна“</string>
+  <string name="home_feed_settings_default_view_title">Стандарден приказ на тековникот</string>
+  <string name="home_feed_settings_default_view_subtitle">Изберете кој тековник да се прикаже прв кога ќе го отворите прилогот</string>
   <string name="home_feed_settings_whats_driving_title">Што го движи вашиот тековник</string>
   <string name="home_feed_settings_modules_title">Модули</string>
   <string name="home_feed_settings_community_subtitle">Вклучете/исклучете ги модулите на тековникот „Заедница“</string>
@@ -2432,6 +2435,15 @@
   <string name="home_feed_places_of_interest_cta_button">Оди на „Места“</string>
   <string name="home_feed_settings_places_of_interest_title">Места од интерес</string>
   <string name="home_feed_settings_places_of_interest_subtitle">Статии во близина на вашата последна местоположба во „Места“</string>
+  <string name="home_feed_settings_discover_title">Предлози за „Откриј“</string>
+  <string name="home_feed_settings_discover_subtitle">Статии од вашиот список за читање „Откриј“</string>
+  <string name="home_feed_discover_cta_title">Од „Откриј“</string>
+  <string name="home_feed_discover_cta_description">Дознајте за нови теми, избрани само за вас. Изберете дали да ги добивате дневно, неделно или месечно.</string>
+  <string name="home_feed_discover_cta_button">Овозможи го списокот за читање „Откриј“</string>
+  <string name="home_feed_discover_card_footer">Од „Откриј“ • Честота: %s</string>
+  <string name="home_feed_discover_see_all_title">Има уште за откривање</string>
+  <string name="home_feed_discover_see_all_description">Вашиот лично прилагоден список на читање има повеќе приказни избрани само за вас.</string>
+  <string name="home_feed_discover_see_all_button">Истражете ги сите препораки</string>
   <string name="home_feed_places_of_interest_card_footer">%1$s • Според вашата местоположба во „Места“</string>
   <string name="home_feed_for_you_screen_end_of_feed_title">Толку за денес!</string>
   <string name="home_feed_for_you_screen_end_of_feed_description">Вратете се утре за нови статии прилагодени за вас.</string>

@@ -569,8 +569,8 @@
     <item quantity="other">%d artiklar togs bort från listan</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d artikel togs bort från %s</item>
-    <item quantity="other">%d artiklar togs bort från %s</item>
+    <item quantity="one">%1$d artikel togs bort från %2$s</item>
+    <item quantity="other">%1$d artiklar togs bort från %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d lista raderades</item>

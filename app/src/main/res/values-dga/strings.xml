@@ -490,9 +490,9 @@
     <item quantity="one">%d ba iri la aatekele a yi a yoe poɔ</item>
     <item quantity="other">%d ba iri la aatekelehi yi a yoe poɔ</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d ba iri la aatekele a yi %s</item>
-    <item quantity="other">%d ba iri la aatekelehi a yi %s</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">%1$d ba iri la aatekele a yi %2$s</item>
+    <item quantity="other">%1$d ba iri la aatekelehi a yi %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d ba sãâ la gane yoe bare</item>
