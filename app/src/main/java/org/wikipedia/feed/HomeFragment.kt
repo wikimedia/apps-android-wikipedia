@@ -66,6 +66,7 @@ import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ShareUtil
+import org.wikipedia.views.SurveyDialog
 
 class HomeFragment : Fragment() {
     private val viewModel: HomeViewModel by viewModels()
