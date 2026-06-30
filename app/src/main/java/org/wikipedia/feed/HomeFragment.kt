@@ -319,7 +319,7 @@ class HomeFragment : Fragment() {
                                         is OnThisDayCardGameState.InProgress -> "continue_click"
                                         is OnThisDayCardGameState.Completed -> "review_click"
                                     }
-                                    instrument.submitInteraction("click", actionSource = wikiGame.cardName, elementId = elementId, actionContext = mapOf("game" to wikiGame.game.name))
+                                    instrument.submitInteraction("click", actionSource = WikiGameCard::class.java.simpleName, elementId = elementId, actionContext = mapOf("game" to wikiGame.game.name))
                                     requireActivity().startActivity(OnThisDayGameActivity.newIntent(
                                         context = requireContext(),
                                         invokeSource = InvokeSource.FEED,
@@ -401,10 +401,9 @@ class HomeFragment : Fragment() {
 
     private fun onCardImpression(card: Card, index: Int) {
         if (cardImpressions.add(card.hideKey)) {
-            val actionSource = if (card is WikiGameCard) card.wikiGame.cardName else card.javaClass.simpleName
             instrument.submitInteraction(
                 "impression",
-                actionSource = actionSource,
+                actionSource = card.javaClass.simpleName,
                 actionContext = mapOf("card_index" to index)
             )
         }

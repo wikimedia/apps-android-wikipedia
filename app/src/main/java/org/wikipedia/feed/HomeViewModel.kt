@@ -164,7 +164,6 @@ sealed class ForYouModule {
         override fun moduleKey(): String = ForYouModuleType.RANDOM.name
     }
 
-    @Serializable
     data class Games(
         override val age: Int,
         override val index: Int,
