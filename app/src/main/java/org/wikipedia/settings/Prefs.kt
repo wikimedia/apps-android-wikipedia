@@ -402,7 +402,7 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_history_offline_articles_toast, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_history_offline_articles_toast, value)
 
-    var loggedOutInBackground
+    var queueLoggedOutInBackgroundDialog
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_logged_out_in_background, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_logged_out_in_background, value)
 

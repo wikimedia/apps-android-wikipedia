@@ -530,7 +530,7 @@
     <item quantity="one">Le compte expirera dans %d jour.</item>
     <item quantity="other">Le compte expirera dans %d jours.</item>
   </plurals>
-  <string name="temp_account_anon_ip_edit_status">&lt;b&gt;Vous n’êtes pas connecté·e.&lt;/b&gt; Vos modifications seront associées à votre adresse IP.</string>
+  <string name="temp_account_anon_ip_edit_status">&lt;b&gt;Vous n\'êtes pas connecté.&lt;/b&gt; Une fois que vous aurez effectué une modification, votre adresse IP sera associée à vos modifications.</string>
   <string name="temp_account_anon_edit_status">&lt;b&gt;Vous n’êtes pas connecté·e.&lt;/b&gt; Une fois que vous aurez fait une modification, un compte temporaire vous sera créé pour protéger votre vie privée. &lt;a href=\"%1$s\"&gt;En savoir plus&lt;/a&gt;</string>
   <string name="temp_account_edit_status">&lt;b&gt;Vous utilisez un compte temporaire.&lt;/b&gt; Votre modification sera attribuée à %1$s. &lt;a href=\"%2$s\"&gt;En savoir plus&lt;/a&gt;.</string>
   <string name="temp_account_login_status">&lt;b&gt;Vous utilisez actuellement un compte temporaire.&lt;/b&gt; Les modifications effectuées avec le compte temporaire %1$s ne seront pas transférées vers votre compte permanent lorsque vous vous connecterez. Connectez-vous ou créez un compte pour que vos contributions soient attribuées à votre nom d’utilisateur, ainsi que pour bénéficier d’autres avantages.</string>
@@ -728,8 +728,8 @@
   <string name="reading_lists_action_menu_export_lists">Exporter</string>
   <string name="reading_lists_import_file_picker_title">Choisir le fichier à importer</string>
   <string name="reading_lists_import_failure_message">Échec d’importation des listes de lecture</string>
-  <string name="reading_lists_export_select_lists_message">Sélectionnez les listes à exporter</string>
-  <string name="reading_lists_export_completed_message">Listes de lecture exportées</string>
+  <string name="reading_lists_export_select_lists_message">Sélectionner la ou les liste(s) à exporter</string>
+  <string name="reading_lists_export_completed_message">Liste(s) de lecture exportée(s)</string>
   <plurals name="reading_list_export_failed_message">
     <item quantity="one">Échec de l’exportation de la liste de lecture</item>
     <item quantity="other">Échec de l’exportation des listes de lecture</item>
@@ -878,7 +878,7 @@
   <string name="view_random_article_card_title">Article au hasard</string>
   <string name="view_random_article_card_action">Davantage d’articles au hasard</string>
   <string name="view_top_read_card_title">Les plus lus</string>
-  <string name="view_top_read_card_description">Quels sont les sujets tendance aujourd\'hui sur Wikipédia ?</string>
+  <string name="view_top_read_card_description">Les sujets tendance sur Wikipédia aujourd\'hui</string>
   <string name="view_top_read_card_action">Davantage de plus lus</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d k</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
@@ -932,7 +932,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Annuler</string>
   <string name="feed_accessibility_card_text">Vous avez atteint la fin du flux.</string>
   <string name="feed_accessibility_card_load_more_button">Charger davantage</string>
-  <string name="feed_language_variants_removal_dialog_title">Sélectionnez une variante régionale pour une meilleure expérience de lecture</string>
+  <string name="feed_language_variants_removal_dialog_title">Sélectionnez une variante de langue régionale pour une meilleure expérience de lecture</string>
   <string name="feed_language_variants_removal_dialog_message">Vous utilisez actuellement une variante générique du chinois non prise en charge comme langue principale de Wikipédia.</string>
   <string name="feed_language_variants_removal_dialog_save">Enregistrer</string>
   <string name="feed_language_variants_removal_secondary_dialog_title">Veuillez mettre à jour vos langues secondaires</string>
@@ -1205,7 +1205,7 @@
   <string name="image_recommendation_onboarding_1">Les images aident les gens à comprendre, mais beaucoup d’articles n’en ont pas.</string>
   <string name="image_recommendation_onboarding_2">Vous déciderez si une image suggérée doit être mise dans un article de Wikipédia.</string>
   <string name="image_recommendation_onboarding_3">Les suggestions sont générées automatiquement et vous devrez faire preuve de discernement pour décider de les accepter ou de les refuser.</string>
-  <string name="image_recommendation_onboarding_4">Les images proviennent de Wikimedia Commons, une collection d’images sous licence libre utilisée par Wikipédia.</string>
+  <string name="image_recommendation_onboarding_4">Les images proviennent de Wikimédia Commons, une collection d’images sous licence libre utilisée par Wikipédia.</string>
   <string name="image_recommendation_tooltip_1">Relire cet article pour comprendre son sujet</string>
   <string name="image_recommendation_tooltip_2">Examinez l\'image et les informations qui y sont associées.</string>
   <string name="image_recommendation_tooltip_3">Décidez si l’image aide les lecteurs à mieux comprendre ce sujet.</string>
@@ -1246,11 +1246,11 @@
   <string name="activity_tab_impact_most_viewed">Les plus vues depuis votre modification</string>
   <string name="activity_tab_impact_contributions_this_month">Contributions ce mois</string>
   <plurals name="activity_tab_impact_edits_this_month">
-    <item quantity="one">modification</item>
-    <item quantity="other">modifications ce mois</item>
+    <item quantity="one">modification ce mois-ci</item>
+    <item quantity="other">modifications ce mois-ci</item>
   </plurals>
   <plurals name="activity_tab_impact_edits_last_month">
-    <item quantity="one">modification</item>
+    <item quantity="one">modification le mois dernier</item>
     <item quantity="other">modifications le mois dernier</item>
   </plurals>
   <string name="activity_tab_impact_all_time">Impact global</string>

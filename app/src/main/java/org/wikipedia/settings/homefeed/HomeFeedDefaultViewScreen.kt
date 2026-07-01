@@ -1,5 +1,6 @@
 package org.wikipedia.settings.homefeed
 
+import androidx.activity.compose.LocalActivity
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -28,6 +29,7 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
 import org.wikipedia.theme.Theme
+import org.wikipedia.util.FeedbackUtil
 
 @Composable
 fun HomeFeedDefaultViewScreen(
@@ -37,6 +39,15 @@ fun HomeFeedDefaultViewScreen(
     onDefaultViewSelect: (HomePreferenceType) -> Unit = {}
 ) {
     var currentSelection by remember { mutableStateOf(currentDefaultView) }
+    var showConfirmMessage by remember { mutableStateOf(false) }
+    var confirmMessageShown by remember { mutableStateOf(false) }
+
+    if (showConfirmMessage && !confirmMessageShown) {
+        confirmMessageShown = true
+        LocalActivity.current?.let {
+            FeedbackUtil.showMessage(it, R.string.home_feed_settings_default_view_confirm)
+        }
+    }
 
     Scaffold(
         modifier = modifier,
@@ -59,6 +70,7 @@ fun HomeFeedDefaultViewScreen(
                 modifier = Modifier
                     .fillMaxWidth()
                     .clickable(onClick = {
+                        showConfirmMessage = true
                         currentSelection = HomePreferenceType.COMMUNITY
                         onDefaultViewSelect(currentSelection)
                     }),
@@ -91,6 +103,7 @@ fun HomeFeedDefaultViewScreen(
                 modifier = Modifier
                     .fillMaxWidth()
                     .clickable(onClick = {
+                        showConfirmMessage = true
                         currentSelection = HomePreferenceType.PERSONALIZED
                         onDefaultViewSelect(currentSelection)
                     }),

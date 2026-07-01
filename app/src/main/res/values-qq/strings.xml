@@ -2252,6 +2252,7 @@
   <string name="home_feed_settings_title">Title for the home feed settings screen.</string>
   <string name="home_feed_settings_default_view_title">Title for preference that lets the user choose whether the Community or For You feed is displayed by default.</string>
   <string name="home_feed_settings_default_view_subtitle">Subtitle for preference that lets the user choose whether the Community or For You feed is displayed by default.</string>
+  <string name="home_feed_settings_default_view_confirm">Confirmation message after the user selects their default feed preference.</string>
   <string name="home_feed_settings_whats_driving_title">Title for What\'s Driving modules in home feed settings.</string>
   <string name="home_feed_settings_modules_title">Title for Community and For You Setting item.</string>
   <string name="home_feed_settings_community_subtitle">Description for toggling visibility of Community feed sections.</string>
@@ -2300,7 +2301,9 @@
   <string name="home_feed_places_of_interest_cta_description">Description explaining that articles are recommended based on the user’s last viewed place and instructing them to select a location in the Places tab.</string>
   <string name="home_feed_places_of_interest_cta_button">Button text that navigates the user to the Places tab.</string>
   <string name="home_feed_settings_places_of_interest_title">Title for the Places of Interest settings section.</string>
-  <string name="home_feed_settings_places_of_interest_subtitle">Subtitle describing that nearby place-based articles are shown using the user’s last selected location in Places.</string>
+  <string name="home_feed_settings_places_of_interest_subtitle">Subtitle describing that nearby place-based articles are shown using the user\’s last selected location in Places.</string>
+    <string name="home_feed_settings_games_title">Title for the Games module in Home feed settings.</string>
+    <string name="home_feed_settings_games_subtitle">Subtitle describing that the Games module provides daily games based on Wikipedia content.</string>
   <string name="home_feed_settings_discover_title">Title for the Discover recommendations settings section.</string>
   <string name="home_feed_settings_discover_subtitle">Subtitle describing that articles from the user\'s Discover reading list are shown.</string>
   <string name="home_feed_discover_cta_title">Section title for the Discover module in the home feed.</string>
@@ -2317,4 +2320,7 @@
   <string name="home_feed_for_you_screen_end_of_feed_add_interests">Link text prompting the user to add new interests to improve personalized recommendations.</string>
   <string name="randomizer_shake_prompt_title">Title of popup dialog that explains the shake-to-shuffle feature.</string>
   <string name="randomizer_shake_prompt_message">Message of popup dialog that explains the shake-to-shuffle feature.</string>
+  <string name="home_feed_games_module_cta_prompt_title">Title for the prompt card in the Games module that invites the user to play more games.</string>
+  <string name="home_feed_games_module_cta_prompt_subtitle">Subtitle for the prompt card in the Games module directing the user to the Games hub.</string>
+  <string name="home_feed_games_module_cta_prompt_button_text">Button text on the Games module prompt card that navigates the user to the Games hub.</string>
 </resources>

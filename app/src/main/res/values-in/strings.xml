@@ -27,6 +27,7 @@
 * Macofe
 * Mas ady
 * Mnam23
+* Muhamad Izzul Fiqih
 * MuratTheTurkish
 * N1304xTeamcons
 * Naufal06
@@ -427,8 +428,10 @@
   <string name="button_get_directions">Dapatkan petunjuk arah</string>
   <string name="error_no_maps_app">Tidak dapat menemukan aplikasi yang memberikan petunjuk arah.</string>
   <string name="preference_title_customize_explore_feed">Umpan jelajahi</string>
+  <string name="preference_title_customize_home_feed">Beranda</string>
   <string name="preference_title_show_link_previews">Tampilkan pratayang pranala</string>
   <string name="preference_summary_customize_explore_feed">Ubahsuai umpan Jelajah</string>
+  <string name="preference_summary_customize_home_feed">Sesuaikan beranda Anda</string>
   <string name="preference_summary_show_link_previews">Tampilkan pratayang singkat artikel setelah menekan pranala.</string>
   <string name="preference_title_collapse_tables">Ciutkan tabel</string>
   <string name="preference_summary_collapse_tables">Secara otomatis menciutkan tabel dalam artikel, seperti kotak info, referensi, dan catatan.</string>
