@@ -51,7 +51,7 @@ workRuntimeKtx = "2.11.2"
 composeBom = "2026.06.00"
 composeActivity = "1.13.0"
 composeViewModel = "2.11.0"
-uiGraphics = "1.11.3"
+uiGraphics = "1.11.4"
 lottieCompose = "6.7.1"
 datastorePreferences = "1.2.1"
 
