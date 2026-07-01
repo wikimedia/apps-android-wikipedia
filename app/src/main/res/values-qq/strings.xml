@@ -2254,6 +2254,7 @@
   <string name="home_feed_settings_title">Title for the home feed settings screen.</string>
   <string name="home_feed_settings_default_view_title">Title for preference that lets the user choose whether the Community or For You feed is displayed by default.</string>
   <string name="home_feed_settings_default_view_subtitle">Subtitle for preference that lets the user choose whether the Community or For You feed is displayed by default.</string>
+  <string name="home_feed_settings_default_view_confirm">Confirmation message after the user selects their default feed preference.</string>
   <string name="home_feed_settings_whats_driving_title">Title for What\'s Driving modules in home feed settings.</string>
   <string name="home_feed_settings_modules_title">Title for Community and For You Setting item.</string>
   <string name="home_feed_settings_community_subtitle">Description for toggling visibility of Community feed sections.</string>

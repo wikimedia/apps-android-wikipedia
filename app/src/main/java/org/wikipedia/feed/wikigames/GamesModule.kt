@@ -60,10 +60,10 @@ import org.wikipedia.theme.Theme
 import org.wikipedia.views.imageservice.ImageService
 
 private val promptImageUrls = listOf(
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Red_eyed_tree_frog_edit2.jpg/960px-Red_eyed_tree_frog_edit2.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Palais_de_l%27Industrie_-_%C3%89douard_Baldus.jpg/1920px-Palais_de_l%27Industrie_-_%C3%89douard_Baldus.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/1/17/Monet_w861.jpg?_=20230407213842",
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Mercury_in_color_-_Prockter07_centered.jpg/1280px-Mercury_in_color_-_Prockter07_centered.jpg"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Red_eyed_tree_frog_edit2.jpg/500px-Red_eyed_tree_frog_edit2.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Palais_de_l%27Industrie_-_%C3%89douard_Baldus.jpg/500px-Palais_de_l%27Industrie_-_%C3%89douard_Baldus.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Monet_w861.jpg/500px-Monet_w861.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Mercury_in_color_-_Prockter07_centered.jpg/500px-Mercury_in_color_-_Prockter07_centered.jpg"
 )
 
 @Composable
@@ -174,9 +174,9 @@ private fun OnThisDayGameModuleCard(
             }
         }
 
-        GameEventCard(modifier = Modifier.weight(1f), event = state.event1)
+        GameEventCard(modifier = Modifier.weight(1f), event = state.event1, onClick = onActionClick)
 
-        GameEventCard(modifier = Modifier.weight(1f), event = state.event2)
+        GameEventCard(modifier = Modifier.weight(1f), event = state.event2, onClick = onActionClick)
 
         OutlinedButton(
             modifier = Modifier.align(Alignment.CenterHorizontally),
@@ -196,16 +196,20 @@ private fun OnThisDayGameModuleCard(
 @Composable
 private fun GameEventCard(
     modifier: Modifier = Modifier,
-    event: OnThisDay.Event
+    event: OnThisDay.Event,
+    onClick: () -> Unit
 ) {
     WikiCard(
         modifier = modifier,
         elevation = 0.dp,
+        onClick = onClick,
         shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(containerColor = ComposeColors.Gray700)
     ) {
         Row(
-            modifier = Modifier.padding(16.dp),
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp),
             horizontalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             Text(
