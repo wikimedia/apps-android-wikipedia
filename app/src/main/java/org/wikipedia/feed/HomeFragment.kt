@@ -67,6 +67,7 @@ import org.wikipedia.theme.Theme
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.views.SurveyDialog
+import java.time.LocalDate
 
 class HomeFragment : Fragment() {
     private val viewModel: HomeViewModel by viewModels()
@@ -369,6 +370,7 @@ class HomeFragment : Fragment() {
         viewModel.updateSelectedLanguageIfNeeded()
         instrument.startFunnel("home_feed")
         refreshNotification()
+        maybeShowSurveyDialog()
     }
 
     fun getCurrentTab(): HomeTab {
@@ -409,5 +411,52 @@ class HomeFragment : Fragment() {
                 actionContext = mapOf("card_index" to index)
             )
         }
+    }
+
+    private fun maybeShowSurveyDialog() {
+        val endDate = LocalDate.of(2026, 8, 14)
+        val minVisits = 4
+
+        // don't show the survey if the user has not seen other dialogs or prompts that can be shown on the feed
+        if (!Prefs.isExploreFeedUpdatePromptShown || !Prefs.isHomeFeedUpdateTooltipShown) {
+            return
+        }
+
+        if (Prefs.homeFeedSurveyShown || LocalDate.now().isAfter(endDate)) {
+            return
+        }
+
+        if (Prefs.exploreFeedVisitCount < minVisits) {
+            return
+        }
+
+        Prefs.homeFeedSurveyShown = true
+        SurveyDialog.showHomeFeedFeedbackDialog(
+            activity = requireActivity(),
+            onImpression = {
+                instrument.submitInteraction(
+                    action = "impression",
+                    actionSource = "home_feed_feedback"
+                )
+            },
+            onCancel = {
+                instrument.submitInteraction(
+                    action = "click",
+                    actionSource = "home_feed_feedback",
+                    elementId = "feedback_cancel"
+                )
+            },
+            onSubmit = { feedbackOption, feedbackText ->
+                instrument.submitInteraction(
+                    action = "click",
+                    actionSource = "home_feed_feedback",
+                    elementId = "feedback_submit",
+                    actionContext = buildMap {
+                        feedbackOption?.let { put("feedback_select", it) }
+                        put("feedback_text", feedbackText)
+                    }
+                )
+            }
+        )
     }
 }

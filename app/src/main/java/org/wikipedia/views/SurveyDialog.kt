@@ -1,6 +1,7 @@
 package org.wikipedia.views
 
 import android.app.Activity
+import android.text.InputFilter
 import android.view.View
 import android.widget.ScrollView
 import android.widget.TextView
@@ -20,8 +21,11 @@ object SurveyDialog {
 
     fun showHomeFeedFeedbackDialog(
         activity: Activity,
+        onImpression: () -> Unit,
+        onCancel: () -> Unit,
         onSubmit: (feedbackOption: Int?, feedbackText: String) -> Unit
     ) {
+        val maxCharacter = 250
         var dialog: AlertDialog? = null
         val binding = DialogFeedbackOptionsBinding.inflate(activity.layoutInflater)
         binding.titleText.text = activity.getString(R.string.home_feed_survey_title)
@@ -29,6 +33,9 @@ object SurveyDialog {
         binding.optionVerySatisfied.isVisible = true
         binding.optionVeryUnsatisfied.isVisible = true
         binding.feedbackInputContainer.isVisible = true
+        binding.feedbackInputContainer.isCounterEnabled = true
+        binding.feedbackInputContainer.counterMaxLength = maxCharacter
+        binding.feedbackInput.filters = arrayOf(InputFilter.LengthFilter(maxCharacter))
         binding.feedbackInput.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
                 binding.dialogContainer.postDelayed({
@@ -39,7 +46,10 @@ object SurveyDialog {
             }
         }
 
-        binding.cancelButton.setOnClickListener { dialog?.dismiss() }
+        binding.cancelButton.setOnClickListener {
+            onCancel()
+            dialog?.dismiss()
+        }
         binding.submitButton.setOnClickListener {
             val feedbackOption = getSelectedOption(binding)
             val feedbackText = binding.feedbackInput.text.toString()
@@ -52,6 +62,7 @@ object SurveyDialog {
             .setCancelable(false)
             .setView(binding.root)
 
+        onImpression()
         dialog = dialogBuilder.show()
     }
 
