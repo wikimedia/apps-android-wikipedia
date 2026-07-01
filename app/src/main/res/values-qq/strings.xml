@@ -1790,6 +1790,8 @@
   <string name="places_empty_message_snackbar">Empty snackbar message for the current area that does not have articles available.</string>
   <string name="survey_dialog_title">Title text for the survey dialog</string>
   <string name="survey_dialog_message">Dialog message for the feedback form in the survey dialog.</string>
+  <string name="home_feed_survey_title">Title text for the survey dialog asking for feedback about the Home feed.</string>
+  <string name="home_feed_survey_message">Dialog message asking whether the user is satisfied with the new feed on the Home screen.</string>
   <string name="survey_dialog_option_satisfied">Option for the feedback form in the survey dialog that indicates satisfied.</string>
   <string name="survey_dialog_option_neutral">Option for the feedback form in the survey dialog that indicates neutral.</string>
   <string name="survey_dialog_option_unsatisfied">Option for the feedback form in the survey dialog that indicates unsatisfied.</string>
