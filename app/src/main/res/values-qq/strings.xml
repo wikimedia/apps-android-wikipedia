@@ -23,6 +23,7 @@
 * McDutchie
 * Metalhead64
 * Minh Nguyen
+* Mohammad ebz
 * MuratTheTurkish
 * Naheulf
 * Nemo bis
@@ -252,7 +253,7 @@
   <string name="create_account_ip_block_details">Button label that shows details that describe an IP address block.</string>
   <string name="preferences_general_heading">Preferences general heading.\n{{Identical|General}}</string>
   <string name="preferences_account_heading">Preferences account heading.\n{{Identical|Account}}</string>
-  <string name="wikipedia_app_faq">Label for a preferences menu link to the FAQ (frequently asked questions) wiki page for the Wikipedia apps for Android and iOS.</string>
+  <string name="wikipedia_app_faq">Label for a preferences menu link to the FAQ (frequently asked questions) wiki page for the Wikipedia apps for Android and iOS.\n\nhttps://www.mediawiki.org/wiki/Wikimedia_Apps/FAQ/Android</string>
   <string name="send_feedback">Text to show for link used for sending feedback about the app.</string>
   <string name="create_account_account_created_toast">Message shown in a small toast when account creation is successful.\n* {{msg-mw|Accountcreatedtext|message}}</string>
   <string name="preferences_heading_syncing">Section title for preferences related to syncing</string>
@@ -282,7 +283,7 @@
   <string name="about_description">Summary of the preference item to show the About screen.</string>
   <string name="privacy_policy_description">Summary of the preference item to show the terms of use.\n{{Identical|Privacy policy}}</string>
   <string name="terms_of_use_description">Summary of the preference item to show the terms of use.\n{{Identical|Terms of use}}</string>
-  <string name="legal_safety_contacts_description">Summary of the preference item to show the legal and safety contact information.</string>
+  <string name="legal_safety_contacts_description">Summary of the preference item to show the legal and safety contact information.\n\nhttps://foundation.wikimedia.org/wiki/Legal:Wikimedia_Foundation_Legal_and_Safety_Contact_Information/</string>
   <string name="about_wikipedia_url">URL leading to the About Wikipedia page. If you can find the appropriate language specific URL, please do so. If not, feel free to keep the English one. Example for Czech (lang code ‘cs’): https://cs.wikipedia.org/wiki/Nápověda:Úvod\nPlease test the URL to make sure it works.</string>
   <string name="privacy_policy_url">URL leading to the Wikimedia Foundation privacy policy. If you can find the appropriate language specific URL of the mobile site please do so. If not feel free to keep the English one. Example for German (lang code \"de\"): https://meta.m.wikimedia.org/w/index.php?title=Privacy_policy/de\nPlease test the URL to make sure it works.</string>
   <string name="offline_reading_and_data_url">{{optional}}\nURL leading to the Offline reading and data section of Wikimedia Android app FAQ. If you can find the appropriate language specific URL of the mobile site please do so.</string>
@@ -2301,9 +2302,9 @@
   <string name="home_feed_places_of_interest_cta_description">Description explaining that articles are recommended based on the user’s last viewed place and instructing them to select a location in the Places tab.</string>
   <string name="home_feed_places_of_interest_cta_button">Button text that navigates the user to the Places tab.</string>
   <string name="home_feed_settings_places_of_interest_title">Title for the Places of Interest settings section.</string>
-  <string name="home_feed_settings_places_of_interest_subtitle">Subtitle describing that nearby place-based articles are shown using the user\’s last selected location in Places.</string>
-    <string name="home_feed_settings_games_title">Title for the Games module in Home feed settings.</string>
-    <string name="home_feed_settings_games_subtitle">Subtitle describing that the Games module provides daily games based on Wikipedia content.</string>
+  <string name="home_feed_settings_places_of_interest_subtitle">Subtitle describing that nearby place-based articles are shown using the user’s last selected location in Places.</string>
+  <string name="home_feed_settings_games_title">Title for the Games module in Home feed settings.</string>
+  <string name="home_feed_settings_games_subtitle">Subtitle describing that the Games module provides daily games based on Wikipedia content.</string>
   <string name="home_feed_settings_discover_title">Title for the Discover recommendations settings section.</string>
   <string name="home_feed_settings_discover_subtitle">Subtitle describing that articles from the user\'s Discover reading list are shown.</string>
   <string name="home_feed_discover_cta_title">Section title for the Discover module in the home feed.</string>
