@@ -73,7 +73,7 @@ fun HomeScreen(
     overflowMenuState: PageOverflowMenuViewModel.PageOverflowMenuState? = null,
     tabsState: TabsState,
     notificationBellState: NotificationBellState,
-    actions: HomeActions = HomeActions()
+    onAction: (HomeAction) -> Unit = {}
 ) {
     val context = LocalContext.current
     val topInset = if (context is MainActivity) {
@@ -86,7 +86,7 @@ fun HomeScreen(
         modifier = Modifier.fillMaxSize(),
         state = pullToRefreshState,
         isRefreshing = isRefreshing,
-        onRefresh = { actions.onRefreshTab(selectedTab) },
+        onRefresh = { onAction(HomeAction.RefreshTab(selectedTab)) },
         indicator = {
             Indicator(
                 modifier = Modifier.align(Alignment.TopCenter),
@@ -111,10 +111,10 @@ fun HomeScreen(
                         HomeToolbar(
                             topInset = topInset,
                             tabsState = tabsState,
-                            onTabClick = actions.onTabClick,
-                            onUpdateTabCount = actions.onUpdateTabCount,
+                            onTabClick = { onAction(HomeAction.TabClick) },
+                            onUpdateTabCount = { onAction(HomeAction.UpdateTabCount) },
                             notificationBellState = notificationBellState,
-                            onNotificationClick = actions.onNotificationClick
+                            onNotificationClick = { onAction(HomeAction.NotificationClick) }
                         )
 
                         HomeTabBar(
@@ -122,9 +122,9 @@ fun HomeScreen(
                             wikiSite = wikiSite,
                             selectedTab = selectedTab,
                             languageState = languageState,
-                            onSelectTab = actions.onSelectTab,
-                            onLanguageSelected = actions.onLanguageSelected,
-                            onManageLanguagesClick = actions.onManageLanguagesClick
+                            onSelectTab = { tab, card -> onAction(HomeAction.SelectTab(tab, card)) },
+                            onLanguageSelected = { onAction(HomeAction.LanguageSelected(it)) },
+                            onManageLanguagesClick = { onAction(HomeAction.ManageLanguagesClick) }
                         )
 
                         CommunityContentTab(
@@ -132,7 +132,7 @@ fun HomeScreen(
                             wikiSite = wikiSite,
                             state = communityContentState,
                             overflowMenuState = overflowMenuState,
-                            actions = actions
+                            onAction = onAction
                         )
                     }
                 }
@@ -142,7 +142,7 @@ fun HomeScreen(
                         topInset = topInset,
                         state = forYouContentState,
                         wikiSite = wikiSite,
-                        actions = actions
+                        onAction = onAction
                     )
 
                     // Floating toolbar with gradient scrim, wordmark, and tab selector.
@@ -157,10 +157,10 @@ fun HomeScreen(
                             HomeToolbar(
                                 topInset = topInset,
                                 tabsState = tabsState,
-                                onTabClick = actions.onTabClick,
-                                onUpdateTabCount = actions.onUpdateTabCount,
+                                onTabClick = { onAction(HomeAction.TabClick) },
+                                onUpdateTabCount = { onAction(HomeAction.UpdateTabCount) },
                                 notificationBellState = notificationBellState,
-                                onNotificationClick = actions.onNotificationClick
+                                onNotificationClick = { onAction(HomeAction.NotificationClick) }
                             )
                         }
                         Box(
@@ -185,9 +185,9 @@ fun HomeScreen(
                                 wikiSite = wikiSite,
                                 selectedTab = selectedTab,
                                 languageState = languageState,
-                                onSelectTab = actions.onSelectTab,
-                                onLanguageSelected = actions.onLanguageSelected,
-                                onManageLanguagesClick = actions.onManageLanguagesClick
+                                onSelectTab = { tab, card -> onAction(HomeAction.SelectTab(tab, card)) },
+                                onLanguageSelected = { onAction(HomeAction.LanguageSelected(it)) },
+                                onManageLanguagesClick = { onAction(HomeAction.ManageLanguagesClick) }
                             )
                         }
                     }

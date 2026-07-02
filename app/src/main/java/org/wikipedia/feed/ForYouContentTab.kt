@@ -78,7 +78,7 @@ fun ForYouContentTab(
     state: ForYouContentState,
     topInset: Int,
     wikiSite: WikiSite,
-    actions: HomeActions = HomeActions()
+    onAction: (HomeAction) -> Unit = {}
 ) {
     when {
         state.isInitialLoading -> {
@@ -93,7 +93,7 @@ fun ForYouContentTab(
         }
         state.emptyState == FeedEmptyState.NO_DATA -> {
             val card = EmptyForYouCard()
-            actions.onCardImpression(card, 0)
+            onAction(HomeAction.CardImpression(card, 0))
             ForYouFeedMessageView(
                 modifier = Modifier
                     .fillMaxSize()
@@ -108,8 +108,8 @@ fun ForYouContentTab(
                 headerResId = R.string.home_feed_for_you_screen_empty_ways_to_start,
                 customizeInterestsTextResId = R.string.home_feed_for_you_screen_empty_add_interests,
                 showCustomizeInterests = !state.isInterestModuleHidden,
-                onCustomizeClick = { actions.onCustomizeClick(card) },
-                navigateToCommunityTab = { actions.onSelectTab(HomeTab.COMMUNITY, card) }
+                onCustomizeClick = { onAction(HomeAction.CustomizeClick(card)) },
+                navigateToCommunityTab = { onAction(HomeAction.SelectTab(HomeTab.COMMUNITY, card)) }
             )
         }
         state.emptyState == FeedEmptyState.ALL_MODULES_HIDDEN -> {
@@ -124,7 +124,7 @@ fun ForYouContentTab(
                 title = context.getString(wikiSite.languageCode, R.string.home_feed_screen_empty_state_label),
                 description = context.getString(wikiSite.languageCode, R.string.home_feed_for_you_screen_all_modules_disabled_description),
                 buttonText = context.getString(wikiSite.languageCode, R.string.home_feed_screen_all_modules_disabled_btn_label),
-                onCallToActionClick = actions.onManageModulesClick
+                onCallToActionClick = { onAction(HomeAction.ManageModulesClick) }
             )
         }
         state.error != null && state.modules.isEmpty() -> {
@@ -134,7 +134,7 @@ fun ForYouContentTab(
                     .background(color = WikipediaTheme.colors.backgroundColor),
                 contentAlignment = Alignment.Center
             ) {
-                ErrorState(state.error, onRetry = actions.onLoadMoreForYouContent)
+                ErrorState(state.error, onRetry = { onAction(HomeAction.LoadMoreForYouContent) })
             }
         }
         else -> {
@@ -171,7 +171,7 @@ fun ForYouContentTab(
                                 topInset = topInset,
                                 viewPortHeight = viewportHeight,
                                 wikiSite = wikiSite,
-                                actions = actions
+                                onAction = onAction
                             )
                         }
 
@@ -202,15 +202,15 @@ fun ForYouContentTab(
                                     descriptionResId = R.string.home_feed_for_you_screen_end_of_feed_description,
                                     headerResId = R.string.home_feed_for_you_screen_end_of_feed_ways_to_keep_learning,
                                     customizeInterestsTextResId = R.string.home_feed_for_you_screen_end_of_feed_add_interests,
-                                    onCustomizeClick = { actions.onCustomizeClick(card) },
-                                    navigateToCommunityTab = { actions.onSelectTab(HomeTab.COMMUNITY, card) }
+                                    onCustomizeClick = { onAction(HomeAction.CustomizeClick(card)) },
+                                    navigateToCommunityTab = { onAction(HomeAction.SelectTab(HomeTab.COMMUNITY, card)) }
                                 )
                             }
                         }
 
                         if (state.error != null && state.modules.isNotEmpty()) {
                             item(key = "error-foryou") {
-                                ErrorState(state.error, onRetry = actions.onLoadMoreForYouContent)
+                                ErrorState(state.error, onRetry = { onAction(HomeAction.LoadMoreForYouContent) })
                             }
                         }
 
@@ -221,7 +221,7 @@ fun ForYouContentTab(
                                 topInset = topInset,
                                 viewPortHeight = viewportHeight,
                                 wikiSite = wikiSite,
-                                actions = actions,
+                                onAction = onAction,
                                 onCardImpression = { _, _ -> }
                             )
                         }
@@ -238,8 +238,8 @@ private fun LazyListScope.forYouModuleItem(
     topInset: Int,
     viewPortHeight: Dp,
     wikiSite: WikiSite,
-    actions: HomeActions,
-    onCardImpression: (card: Card, index: Int) -> Unit = actions.onCardImpression
+    onAction: (HomeAction) -> Unit,
+    onCardImpression: (card: Card, index: Int) -> Unit = { card, index -> onAction(HomeAction.CardImpression(card, index)) }
 ) {
     val key = "${module.javaClass.simpleName}-${module.age}-$index"
     when (module) {
@@ -251,13 +251,13 @@ private fun LazyListScope.forYouModuleItem(
                         .height(viewPortHeight),
                     wikiSite = wikiSite,
                     module = module,
-                    onPageClick = actions.onPageClick,
-                    onPageShareClick = actions.onPageShareClick,
-                    onPageBookmarkClick = actions.onPageBookmarkClick,
-                    onHideCardClick = actions.onHideForYouCardClick,
-                    onHideModuleClick = { actions.onHideModuleClick(module.moduleKey()) },
+                    onPageClick = { card, entry -> onAction(HomeAction.PageClick(card, entry)) },
+                    onPageShareClick = { card, entry -> onAction(HomeAction.PageShareClick(card, entry)) },
+                    onPageBookmarkClick = { card, entry -> onAction(HomeAction.PageBookmarkClick(card, entry)) },
+                    onHideCardClick = { module, card -> onAction(HomeAction.HideForYouCard(module, card)) },
+                    onHideModuleClick = { onAction(HomeAction.HideModule(module.moduleKey())) },
                     onCardInView = { onCardImpression(it, index) },
-                    onCustomizeClick = actions.onCustomizeClick
+                    onCustomizeClick = { onAction(HomeAction.CustomizeClick(it)) }
                 )
             }
         }
@@ -269,13 +269,13 @@ private fun LazyListScope.forYouModuleItem(
                         .height(viewPortHeight),
                     wikiSite = wikiSite,
                     module = module,
-                    onPageClick = actions.onPageClick,
-                    onPageShareClick = actions.onPageShareClick,
-                    onPageBookmarkClick = actions.onPageBookmarkClick,
-                    onHideCardClick = actions.onHideForYouCardClick,
-                    onHideModuleClick = { actions.onHideModuleClick(module.moduleKey()) },
+                    onPageClick = { card, entry -> onAction(HomeAction.PageClick(card, entry)) },
+                    onPageShareClick = { card, entry -> onAction(HomeAction.PageShareClick(card, entry)) },
+                    onPageBookmarkClick = { card, entry -> onAction(HomeAction.PageBookmarkClick(card, entry)) },
+                    onHideCardClick = { module, card -> onAction(HomeAction.HideForYouCard(module, card)) },
+                    onHideModuleClick = { onAction(HomeAction.HideModule(module.moduleKey())) },
                     onCardInView = { onCardImpression(it, index) },
-                    onCustomizeClick = actions.onCustomizeClick
+                    onCustomizeClick = { onAction(HomeAction.CustomizeClick(it)) }
                 )
             }
         }
@@ -287,13 +287,13 @@ private fun LazyListScope.forYouModuleItem(
                         .height(viewPortHeight),
                     wikiSite = wikiSite,
                     module = module,
-                    onPageClick = actions.onPageClick,
-                    onPageShareClick = actions.onPageShareClick,
-                    onPageBookmarkClick = actions.onPageBookmarkClick,
-                    onHideCardClick = actions.onHideForYouCardClick,
-                    onHideModuleClick = { actions.onHideModuleClick(module.moduleKey()) },
+                    onPageClick = { card, entry -> onAction(HomeAction.PageClick(card, entry)) },
+                    onPageShareClick = { card, entry -> onAction(HomeAction.PageShareClick(card, entry)) },
+                    onPageBookmarkClick = { card, entry -> onAction(HomeAction.PageBookmarkClick(card, entry)) },
+                    onHideCardClick = { module, card -> onAction(HomeAction.HideForYouCard(module, card)) },
+                    onHideModuleClick = { onAction(HomeAction.HideModule(module.moduleKey())) },
                     onCardInView = { onCardImpression(it, index) },
-                    onCustomizeClick = actions.onCustomizeClick
+                    onCustomizeClick = { onAction(HomeAction.CustomizeClick(it)) }
                 )
             }
         }
@@ -321,7 +321,7 @@ private fun LazyListScope.forYouModuleItem(
                                 .padding(top = (topInset * 2 + 64).dp)
                                 .navigationBarsPadding(),
                             wikiSite = wikiSite,
-                            onGoToPlacesClick = actions.onPlacesTeaserClick
+                            onGoToPlacesClick = { onAction(HomeAction.PlacesTeaserClick) }
                         )
                     }
                     else -> {
@@ -331,13 +331,13 @@ private fun LazyListScope.forYouModuleItem(
                                 .height(viewPortHeight),
                             wikiSite = wikiSite,
                             module = module,
-                            onPageClick = actions.onPageClick,
-                            onPageShareClick = actions.onPageShareClick,
-                            onPageBookmarkClick = actions.onPageBookmarkClick,
-                            onHideCardClick = actions.onHideForYouCardClick,
-                            onHideModuleClick = { actions.onHideModuleClick(module.moduleKey()) },
+                            onPageClick = { card, entry -> onAction(HomeAction.PageClick(card, entry)) },
+                            onPageShareClick = { card, entry -> onAction(HomeAction.PageShareClick(card, entry)) },
+                            onPageBookmarkClick = { card, entry -> onAction(HomeAction.PageBookmarkClick(card, entry)) },
+                            onHideCardClick = { module, card -> onAction(HomeAction.HideForYouCard(module, card)) },
+                            onHideModuleClick = { onAction(HomeAction.HideModule(module.moduleKey())) },
                             onCardInView = { onCardImpression(it, index) },
-                            onCustomizeClick = actions.onCustomizeClick
+                            onCustomizeClick = { onAction(HomeAction.CustomizeClick(it)) }
                         )
                     }
                 }
@@ -367,7 +367,7 @@ private fun LazyListScope.forYouModuleItem(
                                 .padding(top = (topInset * 2 + 64).dp)
                                 .navigationBarsPadding(),
                             wikiSite = wikiSite,
-                            onEnableDiscoverClick = actions.onDiscoverTeaserClick
+                            onEnableDiscoverClick = { onAction(HomeAction.DiscoverTeaserClick) }
                         )
                     }
                     else -> {
@@ -379,14 +379,14 @@ private fun LazyListScope.forYouModuleItem(
                             wikiSite = wikiSite,
                             module = module,
                             updateFrequency = module.updateFrequency.displayStringRes,
-                            onPageClick = actions.onPageClick,
-                            onPageShareClick = actions.onPageShareClick,
-                            onPageBookmarkClick = actions.onPageBookmarkClick,
-                            onHideCardClick = actions.onHideForYouCardClick,
-                            onHideModuleClick = { actions.onHideModuleClick(module.moduleKey()) },
+                            onPageClick = { card, entry -> onAction(HomeAction.PageClick(card, entry)) },
+                            onPageShareClick = { card, entry -> onAction(HomeAction.PageShareClick(card, entry)) },
+                            onPageBookmarkClick = { card, entry -> onAction(HomeAction.PageBookmarkClick(card, entry)) },
+                            onHideCardClick = { module, card -> onAction(HomeAction.HideForYouCard(module, card)) },
+                            onHideModuleClick = { onAction(HomeAction.HideModule(module.moduleKey())) },
                             onCardInView = { onCardImpression(it, index) },
-                            onCustomizeClick = actions.onCustomizeClick,
-                            onSeeAllRecommendationsClick = actions.onSeeAllRecommendationsClick
+                            onCustomizeClick = { onAction(HomeAction.CustomizeClick(it)) },
+                            onSeeAllRecommendationsClick = { onAction(HomeAction.SeeAllRecommendationsClick) }
                         )
                     }
                 }
@@ -414,12 +414,12 @@ private fun LazyListScope.forYouModuleItem(
                                 .navigationBarsPadding(),
                             wikiSite = wikiSite,
                             module = module,
-                            onGameActionClick = actions.onGameActionClick,
-                            onGoToGamesHubClick = actions.onGoToGamesHubClick,
-                            onHideCardClick = actions.onHideForYouCardClick,
-                            onHideModuleClick = { actions.onHideModuleClick(module.moduleKey()) },
+                            onGameActionClick = { onAction(HomeAction.GameActionClick(it)) },
+                            onGoToGamesHubClick = { onAction(HomeAction.GoToGamesHubClick) },
+                            onHideCardClick = { module, card -> onAction(HomeAction.HideForYouCard(module, card)) },
+                            onHideModuleClick = { onAction(HomeAction.HideModule(module.moduleKey())) },
                             onCardInView = { onCardImpression(it, index) },
-                            onCustomizeInterestsClick = actions.onCustomizeClick
+                            onCustomizeInterestsClick = { onAction(HomeAction.CustomizeClick(it)) }
                         )
                     }
                 }
@@ -433,14 +433,14 @@ private fun LazyListScope.forYouModuleItem(
                         .height(viewPortHeight),
                     wikiSite = wikiSite,
                     module = module,
-                    onPageClick = actions.onPageClick,
-                    onPageShareClick = actions.onPageShareClick,
-                    onPageBookmarkClick = actions.onPageBookmarkClick,
-                    onHideCardClick = actions.onHideForYouCardClick,
-                    onHideModuleClick = { actions.onHideModuleClick(module.moduleKey()) },
+                    onPageClick = { card, entry -> onAction(HomeAction.PageClick(card, entry)) },
+                    onPageShareClick = { card, entry -> onAction(HomeAction.PageShareClick(card, entry)) },
+                    onPageBookmarkClick = { card, entry -> onAction(HomeAction.PageBookmarkClick(card, entry)) },
+                    onHideCardClick = { module, card -> onAction(HomeAction.HideForYouCard(module, card)) },
+                    onHideModuleClick = { onAction(HomeAction.HideModule(module.moduleKey())) },
                     onCardInView = { onCardImpression(it, index) },
-                    onCustomizeClick = actions.onCustomizeClick,
-                    onShuffleClick = actions.onShuffleClick
+                    onCustomizeClick = { onAction(HomeAction.CustomizeClick(it)) },
+                    onShuffleClick = { onAction(HomeAction.ShuffleClick) }
                 )
             }
         }
