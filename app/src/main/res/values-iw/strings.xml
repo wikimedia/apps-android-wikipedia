@@ -2179,4 +2179,9 @@
   <string name="hybrid_search_results_rate_label">דירוג התוצאה הזאת</string>
   <string name="hybrid_search_no_results_header">אין תוצאות</string>
   <string name="hybrid_search_turn_off_experiment_label">כיבוי הניסוי הזה</string>
+  <string name="home_feed_settings_games_title">משחקים</string>
+  <string name="home_feed_settings_games_subtitle">משחקים יומיומיים המבוססים על תוכן ויקיפדיה</string>
+  <string name="home_feed_games_module_cta_prompt_title">רוצה לשחק משחקים נוספים?</string>
+  <string name="home_feed_games_module_cta_prompt_subtitle">לך למרכז המשחקים</string>
+  <string name="home_feed_games_module_cta_prompt_button_text">מרכז המשחקים</string>
 </resources>

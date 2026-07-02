@@ -589,7 +589,7 @@
     <item quantity="one">%d pagina verwijderd uit lijst</item>
     <item quantity="other">%d pagina\'s verwijderd uit lijst</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+  <plurals name="reading_list_articles_deleted_from_list">
     <item quantity="one">%1$d pagina verwijderd uit %2$s</item>
     <item quantity="other">%1$d pagina\'s verwijderd uit %2$s</item>
   </plurals>
@@ -2419,6 +2419,7 @@
   <string name="home_feed_settings_title">Uw startpagina personaliseren</string>
   <string name="home_feed_settings_default_view_title">Standaardkanaal</string>
   <string name="home_feed_settings_default_view_subtitle">Kies welk kanaal eerst verschijnt wanneer u de app opent</string>
+  <string name="home_feed_settings_default_view_confirm">Deze wijziging gaat de volgende keer dat u de app opent in.</string>
   <string name="home_feed_settings_whats_driving_title">Wat is de drijvende kracht achter uw feed?</string>
   <string name="home_feed_settings_modules_title">Modules</string>
   <string name="home_feed_settings_community_subtitle">\'Gemeenschap\'-feedmodules in- of uitschakelen.</string>
@@ -2468,6 +2469,8 @@
   <string name="home_feed_places_of_interest_cta_button">Naar Plaatsen gaan</string>
   <string name="home_feed_settings_places_of_interest_title">Belangwekkende plaatsen</string>
   <string name="home_feed_settings_places_of_interest_subtitle">Pagina\'s in de buurt van uw laatste locatie in Plaatsen</string>
+  <string name="home_feed_settings_games_title">Spellen</string>
+  <string name="home_feed_settings_games_subtitle">Dagelijkse spelletjes gebaseerd op Wikipedia-inhoud</string>
   <string name="home_feed_settings_discover_title">Ontdek aanbevelingen</string>
   <string name="home_feed_settings_discover_subtitle">Artikelen uit uw Ontdekken-leeslijst</string>
   <string name="home_feed_discover_cta_title">Uit Ontdekken</string>
@@ -2482,4 +2485,7 @@
   <string name="home_feed_for_you_screen_end_of_feed_description">Kom morgen terug voor gloednieuwe pagina\'s die speciaal voor jou zijn samengesteld.</string>
   <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Manieren om te blijven leren:</string>
   <string name="home_feed_for_you_screen_end_of_feed_add_interests">Voeg &lt;a href=\"#add_interests\"&gt;nieuwe interesses&lt;/a&gt; toe</string>
+  <string name="home_feed_games_module_cta_prompt_title">Wilt u nog meer spellen spelen?</string>
+  <string name="home_feed_games_module_cta_prompt_subtitle">Ga naar het spellencentrum</string>
+  <string name="home_feed_games_module_cta_prompt_button_text">Spellencentrum</string>
 </resources>

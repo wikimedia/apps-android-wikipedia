@@ -2336,6 +2336,10 @@
   <string name="reading_challenge_install_prompt_message">Bebek Küre sizi tezahürat yaparak destekliyor. İlerlemenizi ana ekranınızdan takip etmek için Okuma Mücadelesi widget\'ını ekleyin.</string>
   <string name="reading_challenge_install_prompt_got_it">Anladım</string>
   <string name="reading_challenge_install_prompt_add">Ekle</string>
+  <string name="search_widget_install_prompt_title">Daha Hızlı Arama Yöntemi</string>
+  <string name="search_widget_install_prompt_message">Ana ekranınızdan anında bilgiye erişmek için Vikipedi Arama aracını ekleyin.</string>
+  <string name="search_widget_install_prompt_add">Ekle</string>
+  <string name="search_widget_install_prompt_got_it">Anladım</string>
   <string name="reading_challenge_widget_explore_button">Keşfet</string>
   <string name="reading_challenge_widget_explore_wikipedia_button">Vikipedi\'yi keşfet</string>
   <string name="reading_challenge_widget_join_challenge_button">Mücadeleye katıl</string>
@@ -2393,6 +2397,7 @@
   <string name="explore_feed_new_update_prompt_language_description">Birden fazla dilde mi okuyorsunuz? Her biri kendi deneyimini yaşar. Dil değiştirin ve yeni akışınız hazır.</string>
   <string name="explore_feed_new_update_prompt_primary_button_text">Akışımı özelleştir</string>
   <string name="explore_feed_customize_interests">İlgi alanlarını özelleştir</string>
+  <string name="explore_feed_customize_discover">Keşfet\'i Özelleştir</string>
   <string name="explore_feed_new_update_prompt_secondary_button_text">Benim için ayarla</string>
   <string name="explore_feed_building_text">Akışınız oluşturuluyor…</string>
   <string name="explore_feed_community_tab_label">Topluluk</string>
@@ -2420,9 +2425,11 @@
   <string name="explore_feed_personalized_preference_empty_state_text">Kişiselleştirilmiş içerik önerilerini görmek için ilgi alanları eklemeniz gerekiyor. Bunu önceki adımlarda veya daha sonra Ayarlar\'dan yapabilirsiniz.</string>
   <string name="explore_feed_because_you_read">Okuduğunuz için: %s</string>
   <string name="explore_feed_swipe_to_explore_prompt_title">Keşfetmek için kaydırın</string>
-  <string name="explore_feed_swipe_to_explore_prompt_message" fuzzy="true">Konular arasında gezinmek için aşağı kaydırın veya ilgili içerikleri keşfetmek için yana kaydırın.</string>
-  <string name="home_feed_settings_title" fuzzy="true">Ana akışı özelleştir</string>
+  <string name="explore_feed_swipe_to_explore_prompt_message">Konular arasında gezinmek için yukarı kaydırın veya ilgili içerikleri keşfetmek için yana kaydırın.</string>
+  <string name="home_feed_settings_title">Anasayfa akışınızı özelleştirin</string>
   <string name="home_feed_settings_default_view_title">Varsayılan akış görünümü</string>
+  <string name="home_feed_settings_default_view_subtitle">Uygulamayı açtığınızda hangi haber akışının önce görüntüleneceğini seçin.</string>
+  <string name="home_feed_settings_default_view_confirm">Bu değişiklik, uygulamayı bir sonraki açışınızda geçerli olacaktır.</string>
   <string name="home_feed_settings_whats_driving_title">Akışınızı ne belirliyor</string>
   <string name="home_feed_settings_modules_title">Modüller</string>
   <string name="home_feed_settings_community_subtitle">\"Topluluk\" akış modüllerini açın veya kapatın</string>
@@ -2451,6 +2458,7 @@
   <string name="home_feed_for_you_screen_empty_ways_to_start">Başlama yolları:</string>
   <string name="home_feed_for_you_screen_empty_add_interests">&lt;a href=\"#add_interests\"&gt;İlgi alanları&lt;/a&gt; ekleyin</string>
   <string name="home_feed_for_you_screen_empty_see_community">&lt;a href=\"#community_tab\"&gt;Topluluk&lt;/a&gt; sekmesinde neler olduğuna bakın</string>
+  <string name="home_feed_update_tooltip1">Yeni: \"Rastgele Madde\" ve \"İlgi Çekici Yerler\" artık \"Size Özel\" bölümünde, \"Biliyor muydunuz\" ise \"Topluluk\" sekmesinde yer alıyor.</string>
   <string name="home_feed_random_title">Rastgele</string>
   <string name="home_feed_random_subtitle">Merakınızı uyandıracak rastgele bir makale</string>
   <string name="home_feed_random_shuffle_button">Karıştır</string>
@@ -2467,9 +2475,27 @@
   <string name="home_feed_settings_feed_configuration_languages_subtitle">Tercih ettiğiniz dilleri düzenleyin</string>
   <string name="home_feed_settings_feed_configuration_interests_updated_message">İlgi alanları güncellendi. Güncellemeleri görmek için akışınızı yenileyin.</string>
   <string name="home_feed_places_of_interest_cta_title">Sevdiğiniz yerlerden hikayeler</string>
+  <string name="home_feed_places_of_interest_cta_description">Maddeler, en son görüntülediğiniz yer temel alınarak gösterilecektir. \"Yerler\" sekmesine gidin ve bir konum seçin.</string>
   <string name="home_feed_places_of_interest_cta_button">Yerlere Git</string>
+  <string name="home_feed_settings_places_of_interest_title">Gezilecek yerler</string>
+  <string name="home_feed_settings_places_of_interest_subtitle">\"Yerler\"de son konumunuzun yakınındaki maddeler</string>
+  <string name="home_feed_settings_games_title">Oyunlar</string>
+  <string name="home_feed_settings_games_subtitle">Vikipedi içeriğine dayalı günlük oyunlar</string>
+  <string name="home_feed_settings_discover_title">Önerileri keşfedin</string>
+  <string name="home_feed_settings_discover_subtitle">Keşfet okuma listenizdeki maddeler</string>
+  <string name="home_feed_discover_cta_title">Keşfet\'ten</string>
+  <string name="home_feed_discover_cta_description">Sadece sizin için seçilmiş yeni konular hakkında bilgi edinin. Günlük, haftalık veya aylık güncellemeler arasından seçim yapın.</string>
+  <string name="home_feed_discover_cta_button">Keşfet okuma listesini etkinleştirin</string>
+  <string name="home_feed_discover_card_footer">Keşfet • Güncellemeler %s</string>
+  <string name="home_feed_discover_see_all_title">Keşfedilecek daha çok şey var</string>
+  <string name="home_feed_discover_see_all_description">Kişiselleştirilmiş okuma listenizde, tam size göre seçilmiş daha fazla hikâye bulunuyor.</string>
+  <string name="home_feed_discover_see_all_button">Tüm önerileri keşfedin</string>
+  <string name="home_feed_places_of_interest_card_footer">%1$s • Yerler\'deki konumunuza göre</string>
   <string name="home_feed_for_you_screen_end_of_feed_title">Bugünlük bu kadar!</string>
   <string name="home_feed_for_you_screen_end_of_feed_description">Yarın size özel olarak derlenmiş taze yeni maddeler bulmak için geri gelin.</string>
   <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Öğrenmeye devam etmenin yolları:</string>
   <string name="home_feed_for_you_screen_end_of_feed_add_interests">&lt;a href=\"#add_interests\"&gt;İlgi alanları&lt;/a&gt; ekleyin</string>
+  <string name="home_feed_games_module_cta_prompt_title">Daha fazla oyun oynamak ister misiniz?</string>
+  <string name="home_feed_games_module_cta_prompt_subtitle">Oyun merkezine gidin</string>
+  <string name="home_feed_games_module_cta_prompt_button_text">Oyun merkezi</string>
 </resources>
