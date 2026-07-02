@@ -54,8 +54,7 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
     }
 
     fun resolveState(userData: ReadingChallengeUserData): ReadingChallengeState {
-        // After REMOVE_DATE the prize window is closed for everyone, so all users — including
-        // those still on the "challenge completed" prize screen — transition to the Random Article widget.
+        // After TRANSITION_DATE the widget will transition to Random widget
         if (userData.currentDate.isAfter(TRANSITION_DATE)) {
             return ReadingChallengeState.RandomArticle
         }
@@ -65,7 +64,7 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
         }
 
         if (!userData.enabled) {
-            // Past end date and never enrolled: nothing to conclude, transition straight to Random Article
+            // Past end date and never enrolled: transitions straight to Random Article
             if (userData.currentDate.isAfter(END_DATE)) {
                 return ReadingChallengeState.RandomArticle
             }
@@ -75,7 +74,7 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
         // From this point onward, user is enrolled
 
         // Success State, once user is enrolled we check immediately to bypass other conditions if they finish on time.
-        // Completed users keep collecting their prize until REMOVE_DATE (handled by the guard above).
+        // Completed users can collect their prize until TRANSITION_DATE
         if (userData.currentStreak >= READING_STREAK_GOAL) {
             return ReadingChallengeState.ChallengeCompleted
         }
