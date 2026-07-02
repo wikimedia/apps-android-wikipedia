@@ -114,6 +114,8 @@ fun ReadingChallengeSmallWidgetContent(
                 bottomContent = {
                     WidgetButton(
                         text = context.getString(R.string.reading_challenge_widget_random_button),
+                        backgroundColor = combination.contentColor,
+                        contentColor = combination.backgroundColor,
                         action = actionRunCallback<RandomizerAction>()
                     )
                 }

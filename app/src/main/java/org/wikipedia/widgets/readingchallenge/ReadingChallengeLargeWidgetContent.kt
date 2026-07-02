@@ -120,6 +120,7 @@ fun ReadingChallengeLargeWidgetContent(
             val combination = WidgetCombinations.streakOngoing.forToday(enrollmentDate = enrollmentDate)
             RandomArticleLargeWidget(
                 backgroundColor = combination.backgroundColor,
+                contentColor = combination.contentColor,
                 mascotImageResId = combination.iconResId
             )
         }
@@ -460,6 +461,7 @@ fun EnrolledNotStartedLargeWidget(
 @Composable
 fun RandomArticleLargeWidget(
     backgroundColor: Color,
+    contentColor: Color,
     mascotImageResId: Int,
     titleBarIcon: Int = R.drawable.ic_w_logo_shadow
 ) {
@@ -498,6 +500,8 @@ fun RandomArticleLargeWidget(
                 Spacer(modifier = GlanceModifier.defaultWeight())
                 WidgetButton(
                     text = context.getString(R.string.view_random_article_card_title),
+                    backgroundColor = contentColor,
+                    contentColor = backgroundColor,
                     action = actionRunCallback<RandomizerAction>()
                 )
             }

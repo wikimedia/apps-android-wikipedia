@@ -56,7 +56,7 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
     fun resolveState(userData: ReadingChallengeUserData): ReadingChallengeState {
         // After REMOVE_DATE the prize window is closed for everyone, so all users — including
         // those still on the "challenge completed" prize screen — transition to the Random Article widget.
-        if (userData.currentDate.isAfter(REMOVE_DATE)) {
+        if (userData.currentDate.isAfter(TRANSITION_DATE)) {
             return ReadingChallengeState.RandomArticle
         }
 
@@ -80,7 +80,7 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
             return ReadingChallengeState.ChallengeCompleted
         }
 
-        // Past end date with a broken streak — challenge is concluded and cannot restart, so the
+        // Past end date with a broken streak challenge is concluded and cannot restart, so the
         // incomplete/no-streak users transition immediately to the Random Article widget.
         // Active streaks past end date fall through and continue toward completion (buffer period)
         if (userData.currentDate.isAfter(END_DATE) && !userData.hasActiveStreak) {
@@ -138,7 +138,7 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
         ReadingChallengeWidget().updateAll(context)
     }
     suspend fun updateOnArticleRead(currentDate: LocalDate) {
-        if (currentDate.isBefore(START_DATE) || currentDate.isAfter(REMOVE_DATE)) return
+        if (currentDate.isBefore(START_DATE) || currentDate.isAfter(TRANSITION_DATE)) return
         if (Prefs.readingChallengeStreak >= READING_STREAK_GOAL) return
 
         // after end date but streak is not active
@@ -159,7 +159,7 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
         const val READING_CHALLENGE_START_DATE = "2026-05-11"
         val START_DATE get() = LocalDate.parse(Prefs.readingChallengeStartDate.ifEmpty { READING_CHALLENGE_START_DATE })
         val END_DATE get() = LocalDate.parse(Prefs.readingChallengeEndDate.ifEmpty { READING_CHALLENGE_END_DATE })
-        private val REMOVE_DATE = LocalDate.of(2026, 7, 27)
+        private val TRANSITION_DATE = LocalDate.of(2026, 7, 28)
 
         private val isChallengeActive: Boolean
             get() = !LocalDate.now().isBefore(START_DATE) && !LocalDate.now().isAfter(END_DATE)
