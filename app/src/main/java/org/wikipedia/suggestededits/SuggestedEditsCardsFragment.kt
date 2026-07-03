@@ -39,6 +39,7 @@ import org.wikipedia.descriptions.DescriptionEditActivity.Action.IMAGE_RECOMMEND
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_CAPTION
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.VANDALISM_PATROL
+import org.wikipedia.extensions.serializableExtra
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.SuggestionsActivity.Companion.EXTRA_SOURCE_ADDED_CONTRIBUTION
@@ -95,7 +96,7 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
         (requireActivity() as AppCompatActivity).apply {
             setSupportActionBar(binding.toolbar)
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
-            supportActionBar?.title = getActionBarTitle(intent.getSerializableExtra(Constants.INTENT_EXTRA_ACTION) as DescriptionEditActivity.Action)
+            supportActionBar?.title = getActionBarTitle(intent.serializableExtra(Constants.INTENT_EXTRA_ACTION)!!)
         }
 
         return binding.root
