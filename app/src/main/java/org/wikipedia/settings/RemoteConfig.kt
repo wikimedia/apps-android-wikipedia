@@ -67,7 +67,8 @@ object RemoteConfig {
         @SerialName("imghost") val imgHost: String = "",
         @SerialName("reportapi") val reportApi: String = "",
         val sentry: Boolean = false,
-        val siteKey: String = ""
+        val siteKey: String = "",
+        val editSiteKey: String = ""
     )
 
     @Suppress("unused")

@@ -21,6 +21,7 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.captcha.HCaptchaHelper
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.ActivityTalkReplyBinding
 import org.wikipedia.dataclient.WikiSite
@@ -63,6 +64,24 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
     private var shouldWatchText = true
     private var subjectOrBodyModified = false
     private var savedSuccess = false
+    private var pendingForceShowCaptcha = false
+    private var hCaptchaDisclaimer: CharSequence = ""
+
+    private val hCaptchaHelper = HCaptchaHelper(this, object : HCaptchaHelper.Callback {
+        override fun onShow() {}
+
+        override fun onSuccess(token: String) {
+            binding.progressBar.isVisible = true
+            setSaveButtonEnabled(false)
+            viewModel.postReply(binding.replySubjectText.text.toString().trim(), getWikitextBody(), token, pendingForceShowCaptcha)
+        }
+
+        override fun onError(e: Exception, code: Int) {
+            binding.progressBar.isVisible = false
+            setSaveButtonEnabled(true)
+            FeedbackUtil.showError(this@TalkReplyActivity, e)
+        }
+    })
 
     private val linkMovementMethod = LinkMovementMethodExt { url, title, linkText, x, y ->
         linkHandler.onUrlClick(url, title, linkText, x, y)
@@ -170,6 +189,18 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
             }
         }
 
+        viewModel.hCaptchaDisclaimerData.observe(this) {
+            hCaptchaDisclaimer = StringUtil.fromHtml(it)
+            maybeShowHCaptchaDisclaimer()
+        }
+
+        viewModel.hCaptchaRequest.observe(this) { request ->
+            pendingForceShowCaptcha = request.forceShowCaptcha
+            maybeShowHCaptchaDisclaimer()
+            hCaptchaHelper.cleanup()
+            hCaptchaHelper.show(request.siteKey)
+        }
+
         viewModel.saveTemplateData.observe(this) {
             if (it is Resource.Success) {
                 viewModel.talkTemplateSaved = true
@@ -226,6 +257,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
     }
 
     public override fun onDestroy() {
+        hCaptchaHelper.cleanup()
         if (!savedSuccess && binding.replyInputView.editText.text.isNotBlank() && viewModel.topic != null) {
             draftReplies.put(viewModel.topic!!.id, binding.replyInputView.editText.text)
         }
@@ -468,7 +500,14 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
         supportActionBar?.title = getString(R.string.edit_preview)
         binding.replyNextButton.text = getString(R.string.description_edit_save)
         messagePreviewFragment.showPreview(viewModel.pageTitle, getWikitextForPreview())
+        maybeShowHCaptchaDisclaimer()
         EditAttemptStepEvent.logSaveIntent(viewModel.pageTitle)
+    }
+
+    private fun maybeShowHCaptchaDisclaimer() {
+        if (this::messagePreviewFragment.isInitialized && hCaptchaDisclaimer.isNotEmpty()) {
+            messagePreviewFragment.showHCaptchaDisclaimer(hCaptchaDisclaimer)
+        }
     }
 
     private fun getWikitextForPreview(): String {

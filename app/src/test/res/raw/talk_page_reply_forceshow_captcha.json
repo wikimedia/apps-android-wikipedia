@@ -1,0 +1,14 @@
+{
+  "discussiontoolsedit": {
+    "result": "error",
+    "edit": {
+      "captcha": {
+        "type": "hcaptcha",
+        "mime": "application/javascript",
+        "key": "45205f58-be1c-40f0-b286-07a4498ea3da",
+        "error": "forceshowcaptcha"
+      },
+      "result": "Failure"
+    }
+  }
+}
