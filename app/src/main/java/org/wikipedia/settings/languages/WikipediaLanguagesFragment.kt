@@ -3,11 +3,16 @@ package org.wikipedia.settings.languages
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.view.MotionEvent
+import android.view.View
+import android.view.ViewGroup
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
-import androidx.core.os.bundleOf
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
@@ -26,7 +31,7 @@ import org.wikipedia.push.WikipediaFirebaseMessagingService
 import org.wikipedia.settings.SettingsActivity
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.MultiSelectActionModeCallback
-import java.util.*
+import java.util.Collections
 
 class WikipediaLanguagesFragment : Fragment(), MenuProvider, WikipediaLanguagesItemView.Callback {
     private var _binding: FragmentWikipediaLanguagesBinding? = null
@@ -354,7 +359,9 @@ class WikipediaLanguagesFragment : Fragment(), MenuProvider, WikipediaLanguagesI
 
         fun newInstance(invokeSource: InvokeSource): WikipediaLanguagesFragment {
             val instance = WikipediaLanguagesFragment()
-            instance.arguments = bundleOf(Constants.INTENT_EXTRA_INVOKE_SOURCE to invokeSource)
+            instance.arguments = Bundle().apply {
+                putSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
+            }
             return instance
         }
     }

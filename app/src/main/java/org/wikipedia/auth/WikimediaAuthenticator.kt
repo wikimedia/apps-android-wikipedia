@@ -6,7 +6,6 @@ import android.accounts.AccountAuthenticatorResponse
 import android.accounts.AccountManager
 import android.content.Context
 import android.os.Bundle
-import androidx.core.os.bundleOf
 import org.wikipedia.R
 import org.wikipedia.auth.AccountUtil.account
 import org.wikipedia.auth.AccountUtil.accountType
@@ -46,7 +45,9 @@ class WikimediaAuthenticator(private val context: Context) : AbstractAccountAuth
 
     override fun hasFeatures(response: AccountAuthenticatorResponse,
                              account: Account, features: Array<String>): Bundle {
-        return bundleOf(AccountManager.KEY_BOOLEAN_RESULT to false)
+        return Bundle().apply {
+            putBoolean(AccountManager.KEY_BOOLEAN_RESULT, false)
+        }
     }
 
     private fun supportedAccountType(type: String?): Boolean {
@@ -56,11 +57,17 @@ class WikimediaAuthenticator(private val context: Context) : AbstractAccountAuth
     private fun addAccount(response: AccountAuthenticatorResponse): Bundle {
         val intent = LoginActivity.newIntent(context, LoginActivity.SOURCE_SYSTEM)
                 .putExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE, response)
-        return bundleOf(AccountManager.KEY_INTENT to intent)
+        return Bundle().apply {
+            putParcelable(AccountManager.KEY_INTENT, intent)
+        }
     }
 
     private fun unsupportedOperation(): Bundle {
-        return bundleOf(AccountManager.KEY_ERROR_CODE to AccountManager.ERROR_CODE_UNSUPPORTED_OPERATION,
-                AccountManager.KEY_ERROR_MESSAGE to "") // HACK: the docs indicate that this is a required key bit it's not displayed to the user.
+        return Bundle().apply {
+            putInt(AccountManager.KEY_ERROR_CODE, AccountManager.ERROR_CODE_UNSUPPORTED_OPERATION)
+
+            // HACK: the docs indicate that this is a required key bit it's not displayed to the user.
+            putString(AccountManager.KEY_ERROR_MESSAGE, "")
+        }
     }
 }

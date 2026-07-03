@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.widget.PopupMenu
 import androidx.core.app.ActivityOptionsCompat
-import androidx.core.os.bundleOf
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
@@ -446,11 +445,11 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
 
         fun newInstance(entry: HistoryEntry, location: Location? = null, lastKnownLocation: Location? = null): LinkPreviewDialog {
             return LinkPreviewDialog().apply {
-                arguments = bundleOf(
-                    ARG_ENTRY to entry,
-                    ARG_LOCATION to location,
-                    ARG_LAST_KNOWN_LOCATION to lastKnownLocation
-                )
+                arguments = Bundle().apply {
+                    putParcelable(ARG_ENTRY, entry)
+                    putParcelable(ARG_LOCATION, location)
+                    putParcelable(ARG_LAST_KNOWN_LOCATION, lastKnownLocation)
+                }
             }
         }
     }

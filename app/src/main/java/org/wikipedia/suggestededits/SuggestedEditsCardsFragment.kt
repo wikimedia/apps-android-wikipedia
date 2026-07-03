@@ -15,7 +15,6 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.os.bundleOf
 import androidx.core.view.MenuProvider
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -427,9 +426,9 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
     companion object {
         fun newInstance(action: DescriptionEditActivity.Action): SuggestedEditsCardsFragment {
             return SuggestedEditsCardsFragment().apply {
-                arguments = bundleOf(
-                    Constants.INTENT_EXTRA_ACTION to action,
-                )
+                arguments = Bundle().apply {
+                    putSerializable(Constants.INTENT_EXTRA_ACTION, action)
+                }
             }
         }
     }

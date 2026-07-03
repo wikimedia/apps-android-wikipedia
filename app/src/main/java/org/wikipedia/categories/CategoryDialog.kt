@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -122,7 +121,11 @@ class CategoryDialog : ExtendedBottomSheetDialogFragment() {
 
     companion object {
         fun newInstance(title: PageTitle): CategoryDialog {
-            return CategoryDialog().apply { arguments = bundleOf(Constants.ARG_TITLE to title) }
+            return CategoryDialog().apply {
+                arguments = Bundle().apply {
+                    putParcelable(Constants.ARG_TITLE, title)
+                }
+            }
         }
     }
 }

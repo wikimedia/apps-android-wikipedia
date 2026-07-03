@@ -11,7 +11,6 @@ import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
-import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -401,13 +400,13 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
 
         fun newInstance(source: InvokeSource, query: String?, returnLink: Boolean = false, title: String? = null, initiateHybridSearch: Boolean = false): SearchFragment =
                 SearchFragment().apply {
-                    arguments = bundleOf(
-                        Constants.INTENT_EXTRA_INVOKE_SOURCE to source,
-                        ARG_QUERY to query,
-                        SearchActivity.EXTRA_RETURN_LINK to returnLink,
-                        SearchActivity.EXTRA_TITLE to title,
-                        SearchActivity.EXTRA_SHOW_HYBRID_SEARCH to initiateHybridSearch
-                    )
+                    arguments = Bundle().apply {
+                        putSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE, source)
+                        putString(ARG_QUERY, query)
+                        putBoolean(SearchActivity.EXTRA_RETURN_LINK, returnLink)
+                        putString(SearchActivity.EXTRA_TITLE, title)
+                        putBoolean(SearchActivity.EXTRA_SHOW_HYBRID_SEARCH, initiateHybridSearch)
+                    }
                 }
     }
 }

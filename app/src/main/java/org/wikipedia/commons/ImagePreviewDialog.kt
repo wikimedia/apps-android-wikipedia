@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -101,7 +100,10 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
 
         fun newInstance(pageSummaryForEdit: PageSummaryForEdit, action: Action? = null): ImagePreviewDialog {
             val dialog = ImagePreviewDialog().apply {
-                arguments = bundleOf(ARG_SUMMARY to pageSummaryForEdit, ARG_ACTION to action)
+                arguments = Bundle().apply {
+                    putParcelable(ARG_SUMMARY, pageSummaryForEdit)
+                    putSerializable(ARG_ACTION, action)
+                }
             }
             return dialog
         }

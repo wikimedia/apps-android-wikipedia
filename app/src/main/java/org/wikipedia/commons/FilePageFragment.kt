@@ -14,7 +14,6 @@ import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.os.bundleOf
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -238,8 +237,10 @@ class FilePageFragment : Fragment(), FilePageView.Callback, MenuProvider {
     companion object {
         fun newInstance(pageTitle: PageTitle, allowEdit: Boolean): FilePageFragment {
             return FilePageFragment().apply {
-                arguments = bundleOf(Constants.ARG_TITLE to pageTitle,
-                        FilePageActivity.INTENT_EXTRA_ALLOW_EDIT to allowEdit)
+                arguments = Bundle().apply {
+                    putParcelable(Constants.ARG_TITLE, pageTitle)
+                    putBoolean(FilePageActivity.INTENT_EXTRA_ALLOW_EDIT, allowEdit)
+                }
             }
         }
     }

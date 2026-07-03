@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import org.wikipedia.R
@@ -31,7 +30,9 @@ class DescriptionEditTutorialFragment : OnboardingFragment() {
         }
 
         override fun createFragment(position: Int): Fragment {
-            return ItemFragment().apply { arguments = bundleOf(ARG_POSITION to position) }
+            return ItemFragment().apply {
+                arguments = Bundle().apply { putInt(ARG_POSITION, position) }
+            }
         }
     }
 
@@ -59,7 +60,9 @@ class DescriptionEditTutorialFragment : OnboardingFragment() {
         val pages = arrayOf(R.layout.inflate_description_edit_tutorial_page_one, R.layout.inflate_description_edit_tutorial_page_two, R.layout.inflate_description_edit_tutorial_page_three)
 
         fun newInstance(showAIOnBoarding: Boolean) = DescriptionEditTutorialFragment().apply {
-            arguments = bundleOf(DescriptionEditTutorialActivity.SHOULD_SHOW_AI_ON_BOARDING to showAIOnBoarding)
+            arguments = Bundle().apply {
+                putBoolean(DescriptionEditTutorialActivity.SHOULD_SHOW_AI_ON_BOARDING, showAIOnBoarding)
+            }
         }
     }
 }

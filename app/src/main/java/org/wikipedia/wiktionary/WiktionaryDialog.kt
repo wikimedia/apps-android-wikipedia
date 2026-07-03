@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.compose.ui.platform.ComposeView
-import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import org.wikipedia.Constants
 import org.wikipedia.activity.FragmentUtil
@@ -60,7 +59,10 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
 
         fun newInstance(title: PageTitle, selectedText: String): WiktionaryDialog {
             return WiktionaryDialog().apply {
-                arguments = bundleOf(Constants.ARG_TITLE to title, Constants.ARG_TEXT to selectedText)
+                arguments = Bundle().apply {
+                    putParcelable(Constants.ARG_TITLE, title)
+                    putString(Constants.ARG_TEXT, selectedText)
+                }
             }
         }
     }
