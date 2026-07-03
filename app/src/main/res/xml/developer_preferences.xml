@@ -601,4 +601,10 @@
             android:title="Feed Preference Selection"/>
     </PreferenceCategory>
 
+    <PreferenceCategory android:title="Reading">
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_pinch_to_zoom_enabled"
+            android:title="Enable pinch-to-zoom in articles"/>
+    </PreferenceCategory>
+
 </PreferenceScreen>
