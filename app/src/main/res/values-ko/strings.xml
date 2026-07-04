@@ -576,8 +576,7 @@
     <item quantity="other">목록에서 제거된 문서 %d개</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%s에서 제거된 문서 %d개</item>
-    <item quantity="other">%s에서 제거된 문서 %d개</item>
+    <item quantity="other">%2$s에서 제거된 문서 %1$d개</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="other">목록 %d개 삭제됨</item>
@@ -822,7 +821,7 @@
   <string name="view_next_random_article">무작위로 다른 문서 불러오기</string>
   <string name="view_main_page_card_title">오늘의 위키백과</string>
   <string name="view_main_page_card_action">대문 문서 보기</string>
-  <string name="view_featured_image_card_title">오늘의 이미지</string>
+  <string name="view_featured_image_card_title">오늘의 사진</string>
   <string name="view_featured_image_card_download">다운로드</string>
   <string name="view_featured_image_card_share">공유</string>
   <string name="menu_feed_card_dismiss">이 카드 숨기기</string>
@@ -2227,6 +2226,10 @@
   <string name="reading_challenge_install_prompt_message">베이비 글로브가 여러분을 응원합니다! 읽기 도전 위젯을 홈 화면에 추가하여 진행 상황을 확인하세요.</string>
   <string name="reading_challenge_install_prompt_got_it">알겠습니다</string>
   <string name="reading_challenge_install_prompt_add">추가</string>
+  <string name="search_widget_install_prompt_title">더 빠른 검색 방법</string>
+  <string name="search_widget_install_prompt_message">위키백과 검색 위젯을 설치하면 홈 화면에서 지식에 즉시 접근할 수 있습니다.</string>
+  <string name="search_widget_install_prompt_add">추가</string>
+  <string name="search_widget_install_prompt_got_it">알겠습니다</string>
   <string name="reading_challenge_widget_explore_button">둘러보기</string>
   <string name="reading_challenge_widget_explore_wikipedia_button">위키백과 둘러보기</string>
   <string name="reading_challenge_widget_join_challenge_button">도전 참여</string>
@@ -2281,6 +2284,7 @@
   <string name="explore_feed_new_update_prompt_language_description">여러 언어로 읽으시나요? 각 언어마다 다른 경험을 제공합니다. 언어를 바꾸기만 하면 새로운 피드가 바로 나타납니다.</string>
   <string name="explore_feed_new_update_prompt_primary_button_text">피드 사용자 지정</string>
   <string name="explore_feed_customize_interests">관심사 맞춤 설정</string>
+  <string name="explore_feed_customize_discover">발견 맞춤 설정</string>
   <string name="explore_feed_new_update_prompt_secondary_button_text">설정해 주세요</string>
   <string name="explore_feed_building_text">나만의 피드를 만들어 봅시다…</string>
   <string name="explore_feed_community_tab_label">커뮤니티</string>
@@ -2308,8 +2312,11 @@
   <string name="explore_feed_personalized_preference_empty_state_text">맞춤 콘텐츠 추천을 보려면 관심사를 추가해야 합니다. 이 작업은 이전 단계에서 또는 나중에 설정에서 수행할 수 있습니다.</string>
   <string name="explore_feed_because_you_read">당신이 다음을 읽었기에: %s</string>
   <string name="explore_feed_swipe_to_explore_prompt_title">스와이프하여 둘러보세요</string>
-  <string name="explore_feed_swipe_to_explore_prompt_message">아래로 스와이프하여 주제 간을 이동하거나, 좌우로 스와이프하여 관련 콘텐츠를 둘러보세요.</string>
-  <string name="home_feed_settings_title">홈 피드를 맞춤 설정합니다</string>
+  <string name="explore_feed_swipe_to_explore_prompt_message">위로 스와이프하여 주제 간을 이동하거나, 좌우로 스와이프하여 관련 콘텐츠를 둘러보세요.</string>
+  <string name="home_feed_settings_title">홈 피드를 맞춤 설정하세요</string>
+  <string name="home_feed_settings_default_view_title">기본 피드 보기</string>
+  <string name="home_feed_settings_default_view_subtitle">앱을 열었을 때 어떤 피드가 먼저 표시될지 선택하세요</string>
+  <string name="home_feed_settings_default_view_confirm">이 변경 사항은 다음 번에 앱을 열 때 적용됩니다.</string>
   <string name="home_feed_settings_whats_driving_title">무엇이 내 피드를 만드나요?</string>
   <string name="home_feed_settings_modules_title">모듈</string>
   <string name="home_feed_settings_community_subtitle">\"커뮤니티\" 피드 모듈을 켜거나 끕니다.</string>
@@ -2359,9 +2366,23 @@
   <string name="home_feed_places_of_interest_cta_button">장소로 가기</string>
   <string name="home_feed_settings_places_of_interest_title">관심 지점</string>
   <string name="home_feed_settings_places_of_interest_subtitle">장소의 마지막 위치 근처의 문서</string>
+  <string name="home_feed_settings_games_title">게임</string>
+  <string name="home_feed_settings_games_subtitle">위키백과 콘텐츠를 기반으로 한 일일 게임</string>
+  <string name="home_feed_settings_discover_title">추천 발견</string>
+  <string name="home_feed_settings_discover_subtitle">읽기 목록 발견에서의 문서</string>
+  <string name="home_feed_discover_cta_title">발견으로부터</string>
+  <string name="home_feed_discover_cta_description">엄선된 새로운 주제들을 알아보세요. 매일, 매주 또는 매월 업데이트 중에서 선택하세요.</string>
+  <string name="home_feed_discover_cta_button">읽기 목록 발견 활성화</string>
+  <string name="home_feed_discover_card_footer">발견으로부터 • %s마다 업데이트</string>
+  <string name="home_feed_discover_see_all_title">발견할 것이 더 많습니다</string>
+  <string name="home_feed_discover_see_all_description">나만의 맞춤형 읽기 목록에는 나만을 위해 엄선된 더 많은 이야기가 담겨 있습니다.</string>
+  <string name="home_feed_discover_see_all_button">모든 추천 둘러보기</string>
   <string name="home_feed_places_of_interest_card_footer">%1$s • 장소의 위치에 기반함</string>
   <string name="home_feed_for_you_screen_end_of_feed_title">오늘은 여기까지입니다!</string>
   <string name="home_feed_for_you_screen_end_of_feed_description">내일 다시 오시면 맞춤 설정된 새로운 문서들을 만나보실 수 있습니다.</string>
   <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">계속해서 배우는 방법:</string>
   <string name="home_feed_for_you_screen_end_of_feed_add_interests">&lt;a href=\"#add_interests\"&gt;새로운 관심사&lt;/a&gt;를 추가해 보세요</string>
+  <string name="home_feed_games_module_cta_prompt_title">더 많은 게임을 원하시나요?</string>
+  <string name="home_feed_games_module_cta_prompt_subtitle">게임 허브로 이동</string>
+  <string name="home_feed_games_module_cta_prompt_button_text">게임 허브</string>
 </resources>

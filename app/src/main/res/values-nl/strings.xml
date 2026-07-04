@@ -590,8 +590,8 @@
     <item quantity="other">%d pagina\'s verwijderd uit lijst</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d pagina verwijderd uit %s</item>
-    <item quantity="other">%d pagina\'s verwijderd uit %s</item>
+    <item quantity="one">%1$d pagina verwijderd uit %2$s</item>
+    <item quantity="other">%1$d pagina\'s verwijderd uit %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d lijst verwijderd</item>
@@ -2326,6 +2326,10 @@
   <string name="reading_challenge_install_prompt_message">Baby Globe moedigt u aan. Voeg de widget \'Leesuitdaging\' toe om uw voortgang vanaf uw startscherm bij te houden.</string>
   <string name="reading_challenge_install_prompt_got_it">Begrepen</string>
   <string name="reading_challenge_install_prompt_add">Toevoegen</string>
+  <string name="search_widget_install_prompt_title">Een manier om sneller te zoeken</string>
+  <string name="search_widget_install_prompt_message">Installeer het zoekwidget voor Wikipedia voor directe toegang tot kennis vanaf uw startscherm</string>
+  <string name="search_widget_install_prompt_add">Toevoegen</string>
+  <string name="search_widget_install_prompt_got_it">Begrepen</string>
   <string name="reading_challenge_widget_explore_button">Verkennen</string>
   <string name="reading_challenge_widget_explore_wikipedia_button">Wikipedia verkennen</string>
   <string name="reading_challenge_widget_join_challenge_button">Meedoen aan de uitdaging</string>
@@ -2383,6 +2387,7 @@
   <string name="explore_feed_new_update_prompt_language_description">Lezen in meerdere talen? Elke taal biedt een eigen ervaring. Schakel eenvoudig over en uw nieuwe feed is direct beschikbaar.</string>
   <string name="explore_feed_new_update_prompt_primary_button_text">Mijn feed aanpassen</string>
   <string name="explore_feed_customize_interests">Interesses aanpassen</string>
+  <string name="explore_feed_customize_discover">Ontdekken aanpassen</string>
   <string name="explore_feed_new_update_prompt_secondary_button_text">Stel het voor me in</string>
   <string name="explore_feed_building_text">Laten we uw feed samenstellen...</string>
   <string name="explore_feed_community_tab_label">Gemeenschap</string>
@@ -2410,8 +2415,11 @@
   <string name="explore_feed_personalized_preference_empty_state_text">Voeg interesses toe om gepersonaliseerde aanbevelingen voor inhoud te zien. U kunt dit doen in de vorige stappen of later in de instellingen.</string>
   <string name="explore_feed_because_you_read">Omdat u het volgende hebt gelezen: %s</string>
   <string name="explore_feed_swipe_to_explore_prompt_title">Veeg om te ontdekken</string>
-  <string name="explore_feed_swipe_to_explore_prompt_message">Veeg naar beneden om tussen onderwerpen te navigeren, of veeg opzij om gerelateerde inhoud te bekijken.</string>
+  <string name="explore_feed_swipe_to_explore_prompt_message">Veeg omhoog om tussen onderwerpen te schakelen, of zijwaarts om soortgelijke onderwerpen te bekijken.</string>
   <string name="home_feed_settings_title">Uw startpagina personaliseren</string>
+  <string name="home_feed_settings_default_view_title">Standaardkanaal</string>
+  <string name="home_feed_settings_default_view_subtitle">Kies welk kanaal eerst verschijnt wanneer u de app opent</string>
+  <string name="home_feed_settings_default_view_confirm">Deze wijziging gaat de volgende keer dat u de app opent in.</string>
   <string name="home_feed_settings_whats_driving_title">Wat is de drijvende kracht achter uw feed?</string>
   <string name="home_feed_settings_modules_title">Modules</string>
   <string name="home_feed_settings_community_subtitle">\'Gemeenschap\'-feedmodules in- of uitschakelen.</string>
@@ -2461,9 +2469,23 @@
   <string name="home_feed_places_of_interest_cta_button">Naar Plaatsen gaan</string>
   <string name="home_feed_settings_places_of_interest_title">Belangwekkende plaatsen</string>
   <string name="home_feed_settings_places_of_interest_subtitle">Pagina\'s in de buurt van uw laatste locatie in Plaatsen</string>
+  <string name="home_feed_settings_games_title">Spellen</string>
+  <string name="home_feed_settings_games_subtitle">Dagelijkse spelletjes gebaseerd op Wikipedia-inhoud</string>
+  <string name="home_feed_settings_discover_title">Ontdek aanbevelingen</string>
+  <string name="home_feed_settings_discover_subtitle">Artikelen uit uw Ontdekken-leeslijst</string>
+  <string name="home_feed_discover_cta_title">Uit Ontdekken</string>
+  <string name="home_feed_discover_cta_description">Leer over nieuwe onderwerpen, speciaal voor u uitgekozen. Kies tussen dagelijkse, wekelijkse of maandelijkse berichten.</string>
+  <string name="home_feed_discover_cta_button">Leeslijst voor Ontdekken inschakelen</string>
+  <string name="home_feed_discover_card_footer">Uit Ontdekken • Berichten %s</string>
+  <string name="home_feed_discover_see_all_title">Er valt nog meer te ontdekken</string>
+  <string name="home_feed_discover_see_all_description">Uw persoonlijke leeslijst bevat nog meer verhalen die speciaal voor u zijn uitgekozen.</string>
+  <string name="home_feed_discover_see_all_button">Alle aanbevelingen bekijken</string>
   <string name="home_feed_places_of_interest_card_footer">%1$s • Gebaseerd op uw locatie in Plaatsen</string>
   <string name="home_feed_for_you_screen_end_of_feed_title">Dat was het voor vandaag!</string>
   <string name="home_feed_for_you_screen_end_of_feed_description">Kom morgen terug voor gloednieuwe pagina\'s die speciaal voor jou zijn samengesteld.</string>
   <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Manieren om te blijven leren:</string>
   <string name="home_feed_for_you_screen_end_of_feed_add_interests">Voeg &lt;a href=\"#add_interests\"&gt;nieuwe interesses&lt;/a&gt; toe</string>
+  <string name="home_feed_games_module_cta_prompt_title">Wilt u nog meer spellen spelen?</string>
+  <string name="home_feed_games_module_cta_prompt_subtitle">Ga naar het spellencentrum</string>
+  <string name="home_feed_games_module_cta_prompt_button_text">Spellencentrum</string>
 </resources>

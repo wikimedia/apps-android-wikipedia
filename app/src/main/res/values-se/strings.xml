@@ -534,10 +534,10 @@
     <item quantity="two">%d artihkkala sihkkojuvvon listtus</item>
     <item quantity="other">%d artihkkala sihkkojuvvon listtus</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d artihkal sihkkojuvvon %s:s</item>
-    <item quantity="two">%d artihkkala sihkkojuvvon %s:s</item>
-    <item quantity="other">%d artihkkala sihkkojuvvon %s:s</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">%1$d artihkal sihkkojuvvon %2$s:s</item>
+    <item quantity="two">%1$d artihkkala sihkkojuvvon %2$s:s</item>
+    <item quantity="other">%1$d artihkkala sihkkojuvvon %2$s:s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d listu sihkkojuvvon</item>

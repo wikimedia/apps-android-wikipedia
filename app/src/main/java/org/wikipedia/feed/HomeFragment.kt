@@ -28,9 +28,12 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.feed.didyouknow.DidYouKnowActivity
 import org.wikipedia.feed.didyouknow.DidYouKnowCard
 import org.wikipedia.feed.model.Card
+import org.wikipedia.feed.model.DiscoverCard
 import org.wikipedia.feed.model.EmptyCommunityCard
 import org.wikipedia.feed.model.EmptyForYouCard
+import org.wikipedia.feed.model.GamesModulePromptCard
 import org.wikipedia.feed.model.PlacesOfInterestLocationPromptCard
+import org.wikipedia.feed.model.WikiGameCard
 import org.wikipedia.feed.onboarding.ExploreFeedUpdatePromptActivity
 import org.wikipedia.feed.onthisday.OnThisDayActivity
 import org.wikipedia.feed.onthisday.OnThisDayCard
@@ -39,6 +42,11 @@ import org.wikipedia.feed.personalization.PersonalizationActivity.Companion.RESU
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
 import org.wikipedia.feed.topread.TopReadArticlesActivity
 import org.wikipedia.feed.topread.TopReadCard
+import org.wikipedia.feed.wikigames.OnThisDayCardGameState
+import org.wikipedia.feed.wikigames.WikiGame
+import org.wikipedia.games.GamesHubActivity
+import org.wikipedia.games.db.DailyGameHistory
+import org.wikipedia.games.onthisday.OnThisDayGameActivity
 import org.wikipedia.main.MainActivity
 import org.wikipedia.main.MainFragment
 import org.wikipedia.navtab.NavTab
@@ -46,6 +54,10 @@ import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.places.PlacesActivity
 import org.wikipedia.random.RandomActivity
+import org.wikipedia.readinglist.ReadingListActivity
+import org.wikipedia.readinglist.ReadingListMode
+import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingActivity
+import org.wikipedia.readinglist.recommended.RecommendedReadingListSettingsActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.homefeed.HomeFeedSettingsActivity
 import org.wikipedia.settings.homefeed.HomeFeedSettingsStartDestination
@@ -364,7 +376,7 @@ class HomeFragment : Fragment() {
                         )
                     )
                 },
-                onCustomizeInterestsClick = { card ->
+                onCustomizeClick = { card ->
                     if (card != null) {
                         instrument.submitInteraction(
                             "click", actionSource = card.javaClass.simpleName,
@@ -372,12 +384,20 @@ class HomeFragment : Fragment() {
                             elementId = "feed_customize"
                         )
                     }
-                    customizeInterestsLauncher.launch(
-                        PersonalizationActivity.newIntent(
-                            requireContext(),
-                            showInterestsOnly = true
+                    if (card is DiscoverCard) {
+                        requireActivity().startActivity(
+                            RecommendedReadingListSettingsActivity.newIntent(
+                                requireContext()
+                            )
                         )
-                    )
+                    } else {
+                        customizeInterestsLauncher.launch(
+                            PersonalizationActivity.newIntent(
+                                requireContext(),
+                                showInterestsOnly = true
+                            )
+                        )
+                    }
                 },
                 onTabClick = {
                     requireActivity().startActivity(TabActivity.newIntent(requireActivity()))
@@ -465,13 +485,74 @@ class HomeFragment : Fragment() {
                         )
                     )
                 },
-                onPlacesCtaClick = {
+                onPlacesTeaserClick = {
                     instrument.submitInteraction(
                         "click",
                         actionSource = PlacesOfInterestLocationPromptCard::class.java.simpleName,
                         elementId = "go_to_places"
                     )
                     requireActivity().startActivity(PlacesActivity.newIntent(requireContext()))
+                },
+                onDiscoverTeaserClick = {
+                    instrument.submitInteraction(
+                        "click",
+                        elementId = "enable_discover_reading_list_button"
+                    )
+                    requireActivity().startActivity(
+                        RecommendedReadingListOnboardingActivity.newIntent(
+                            requireContext()
+                        )
+                    )
+                },
+                onSeeAllRecommendationsClick = {
+                    instrument.submitInteraction(
+                        "click",
+                        elementId = "explore_all_recommendations_button"
+                    )
+                    startActivity(
+                        ReadingListActivity.newIntent(
+                            requireContext(),
+                            readingListMode = ReadingListMode.RECOMMENDED
+                        )
+                    )
+                },
+                onGameActionClick = { wikiGame ->
+                    when (wikiGame) {
+                        is WikiGame.OnThisDayGame -> {
+                            val gameStatus = when (wikiGame.state) {
+                                is OnThisDayCardGameState.Completed -> DailyGameHistory.GAME_COMPLETED
+                                is OnThisDayCardGameState.InProgress,
+                                is OnThisDayCardGameState.Preview -> DailyGameHistory.GAME_IN_PROGRESS
+                            }
+                            val elementId = when (wikiGame.state) {
+                                is OnThisDayCardGameState.Preview -> "play_click"
+                                is OnThisDayCardGameState.InProgress -> "continue_click"
+                                is OnThisDayCardGameState.Completed -> "review_click"
+                            }
+                            instrument.submitInteraction(
+                                "click",
+                                actionSource = WikiGameCard::class.java.simpleName,
+                                elementId = elementId,
+                                actionContext = mapOf("game" to wikiGame.game.name)
+                            )
+                            requireActivity().startActivity(
+                                OnThisDayGameActivity.newIntent(
+                                    context = requireContext(),
+                                    invokeSource = InvokeSource.FEED,
+                                    wikiSite = wikiSite,
+                                    gameStatus = gameStatus
+                                )
+                            )
+                        }
+                    }
+                },
+                onGoToGamesHubClick = {
+                    instrument.submitInteraction(
+                        "click",
+                        actionSource = GamesModulePromptCard::class.java.simpleName,
+                        elementId = "go_to_games_hub"
+                    )
+                    requireActivity().startActivity(GamesHubActivity.newIntent(requireContext()))
                 }
             )
 
@@ -486,7 +567,7 @@ class HomeFragment : Fragment() {
                     message = stringResource(R.string.explore_feed_swipe_to_explore_prompt_message),
                     image = {
                         Image(
-                            painter = painterResource(R.drawable.illustration_swipe_gesture),
+                            painter = painterResource(R.drawable.swipe_gesture_illustration),
                             contentDescription = null,
                             modifier = Modifier.fillMaxWidth()
                         )

@@ -43,7 +43,7 @@ fun RandomModule(
     onHideCardClick: (module: ForYouModule, card: ForYouCard) -> Unit = { _, _ -> },
     onHideModuleClick: () -> Unit = {},
     onCardInView: (card: Card) -> Unit = {},
-    onCustomizeInterestsClick: (card: Card) -> Unit = {},
+    onCustomizeClick: (card: Card) -> Unit = {},
     onShuffleClick: () -> Unit = {}
 ) {
     val context = LocalContext.current
@@ -96,7 +96,7 @@ fun RandomModule(
             onSaveClick = { onPageBookmarkClick(card, historyEntry) },
             onHideCardClick = onHideCardClick,
             onHideModuleClick = onHideModuleClick,
-            onCustomizeInterestsClick = { onCustomizeInterestsClick(card) }
+            onCustomizeClick = { onCustomizeClick(card) }
         )
     }
 }

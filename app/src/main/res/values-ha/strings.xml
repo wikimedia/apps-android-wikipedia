@@ -499,9 +499,9 @@
     <item quantity="one">%d an cire labarin daga jeri</item>
     <item quantity="other"> %d an cire labarai daga jeri</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d an cire makala daga %s</item>
-    <item quantity="other">%d an cire makala daga %s</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">%1$d an cire makala daga %2$s</item>
+    <item quantity="other">%1$d an cire makala daga %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d list deleted</item>

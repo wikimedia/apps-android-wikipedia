@@ -532,8 +532,8 @@
     <item quantity="other">Tinanggal na ang %d (na) artikulo</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">Tinanggal na ang %d artikulo sa %s</item>
-    <item quantity="other">Tinanggal na ang %d (na) artikulo sa %s</item>
+    <item quantity="one">Tinanggal na ang %1$d artikulo sa %2$s</item>
+    <item quantity="other">Tinanggal na ang %1$d (na) artikulo sa %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">Nabura na ang %d listahan</item>

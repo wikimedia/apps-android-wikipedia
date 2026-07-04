@@ -23,6 +23,7 @@
 * McDutchie
 * Metalhead64
 * Minh Nguyen
+* Mohammad ebz
 * MuratTheTurkish
 * Naheulf
 * Nemo bis
@@ -252,7 +253,7 @@
   <string name="create_account_ip_block_details">Button label that shows details that describe an IP address block.</string>
   <string name="preferences_general_heading">Preferences general heading.\n{{Identical|General}}</string>
   <string name="preferences_account_heading">Preferences account heading.\n{{Identical|Account}}</string>
-  <string name="wikipedia_app_faq">Label for a preferences menu link to the FAQ (frequently asked questions) wiki page for the Wikipedia apps for Android and iOS.</string>
+  <string name="wikipedia_app_faq">Label for a preferences menu link to the FAQ (frequently asked questions) wiki page for the Wikipedia apps for Android and iOS.\n\nhttps://www.mediawiki.org/wiki/Wikimedia_Apps/FAQ/Android</string>
   <string name="send_feedback">Text to show for link used for sending feedback about the app.</string>
   <string name="create_account_account_created_toast">Message shown in a small toast when account creation is successful.\n* {{msg-mw|Accountcreatedtext|message}}</string>
   <string name="preferences_heading_syncing">Section title for preferences related to syncing</string>
@@ -282,7 +283,7 @@
   <string name="about_description">Summary of the preference item to show the About screen.</string>
   <string name="privacy_policy_description">Summary of the preference item to show the terms of use.\n{{Identical|Privacy policy}}</string>
   <string name="terms_of_use_description">Summary of the preference item to show the terms of use.\n{{Identical|Terms of use}}</string>
-  <string name="legal_safety_contacts_description">Summary of the preference item to show the legal and safety contact information.</string>
+  <string name="legal_safety_contacts_description">Summary of the preference item to show the legal and safety contact information.\n\nhttps://foundation.wikimedia.org/wiki/Legal:Wikimedia_Foundation_Legal_and_Safety_Contact_Information/</string>
   <string name="about_wikipedia_url">URL leading to the About Wikipedia page. If you can find the appropriate language specific URL, please do so. If not, feel free to keep the English one. Example for Czech (lang code ‘cs’): https://cs.wikipedia.org/wiki/Nápověda:Úvod\nPlease test the URL to make sure it works.</string>
   <string name="privacy_policy_url">URL leading to the Wikimedia Foundation privacy policy. If you can find the appropriate language specific URL of the mobile site please do so. If not feel free to keep the English one. Example for German (lang code \"de\"): https://meta.m.wikimedia.org/w/index.php?title=Privacy_policy/de\nPlease test the URL to make sure it works.</string>
   <string name="offline_reading_and_data_url">{{optional}}\nURL leading to the Offline reading and data section of Wikimedia Android app FAQ. If you can find the appropriate language specific URL of the mobile site please do so.</string>
@@ -590,8 +591,8 @@
     <item quantity="other">Message shown when multiple articles are removed from a reading list. The \"%d\" symbol is replaced with the number of articles removed.</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">Message shown when one article is removed from a reading list.The \"%d\" symbol is replaced with the number of articles removed.The \"%s\" symbol is replaced with the reading list name.</item>
-    <item quantity="other">Message shown when multiple articles are removed from a reading list. The \"%d\" symbol is replaced with the number of articles removed.The \"%s\" symbol is replaced with the reading list name.</item>
+    <item quantity="one">Message shown when one article is removed from a reading list.The \"%1$d\" symbol is replaced with the number of articles removed.The \"%2$s\" symbol is replaced with the reading list name.</item>
+    <item quantity="other">Message shown when multiple articles are removed from a reading list. The \"%1$d\" symbol is replaced with the number of articles removed.The \"%2$s\" symbol is replaced with the reading list name.</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">Toast message shown when one reading list is deleted. The \"%d\" symbol is replaced with the number of the lists deleted.</item>
@@ -2220,6 +2221,7 @@
   <string name="explore_feed_new_update_prompt_language_description">Body text explaining that users reading in multiple languages each get a separately personalized feed, which updates automatically on language switch.</string>
   <string name="explore_feed_new_update_prompt_primary_button_text">Label for the primary action button on the feed update onboarding prompt, directing the user to manually customize their feed.</string>
   <string name="explore_feed_customize_interests">Button label for customizing the interests used for composing Home feed content.</string>
+  <string name="explore_feed_customize_discover">Menu item label for opening the Discover settings to customize the recommended reading list.</string>
   <string name="explore_feed_new_update_prompt_secondary_button_text">Label for the secondary action button on the feed update onboarding prompt, allowing the user to have their feed configured automatically.</string>
   <string name="explore_feed_building_text">Body text for the feed building screen.</string>
   <string name="explore_feed_community_tab_label">Label text for the explore feed type tab for the community content.</string>
@@ -2249,6 +2251,9 @@
   <string name="explore_feed_swipe_to_explore_prompt_title">Title of the explore feed prompt that shows the gestures to explore the feed.</string>
   <string name="explore_feed_swipe_to_explore_prompt_message">Message of the explore feed prompt that shows the gestures to explore the feed.</string>
   <string name="home_feed_settings_title">Title for the home feed settings screen.</string>
+  <string name="home_feed_settings_default_view_title">Title for preference that lets the user choose whether the Community or For You feed is displayed by default.</string>
+  <string name="home_feed_settings_default_view_subtitle">Subtitle for preference that lets the user choose whether the Community or For You feed is displayed by default.</string>
+  <string name="home_feed_settings_default_view_confirm">Confirmation message after the user selects their default feed preference.</string>
   <string name="home_feed_settings_whats_driving_title">Title for What\'s Driving modules in home feed settings.</string>
   <string name="home_feed_settings_modules_title">Title for Community and For You Setting item.</string>
   <string name="home_feed_settings_community_subtitle">Description for toggling visibility of Community feed sections.</string>
@@ -2298,9 +2303,23 @@
   <string name="home_feed_places_of_interest_cta_button">Button text that navigates the user to the Places tab.</string>
   <string name="home_feed_settings_places_of_interest_title">Title for the Places of Interest settings section.</string>
   <string name="home_feed_settings_places_of_interest_subtitle">Subtitle describing that nearby place-based articles are shown using the user’s last selected location in Places.</string>
+  <string name="home_feed_settings_games_title">Title for the Games module in Home feed settings.</string>
+  <string name="home_feed_settings_games_subtitle">Subtitle describing that the Games module provides daily games based on Wikipedia content.</string>
+  <string name="home_feed_settings_discover_title">Title for the Discover recommendations settings section.</string>
+  <string name="home_feed_settings_discover_subtitle">Subtitle describing that articles from the user\'s Discover reading list are shown.</string>
+  <string name="home_feed_discover_cta_title">Section title for the Discover module in the home feed.</string>
+  <string name="home_feed_discover_cta_description">Description explaining that Discover recommends articles picked for the user, with a choice of daily, weekly, or monthly updates.</string>
+  <string name="home_feed_discover_cta_button">Button text that enables the Discover reading list.</string>
+  <string name="home_feed_discover_card_footer">Footer label shown on a Discover article card, indicating the article comes from the user\'s Discover reading list. %s is replaced by update frequency.</string>
+  <string name="home_feed_discover_see_all_title">Title of the final card in the Discover module, inviting the user to view the rest of their recommendations.</string>
+  <string name="home_feed_discover_see_all_description">Description on the final Discover card explaining that the personalized reading list has more articles to explore.</string>
+  <string name="home_feed_discover_see_all_button">Button text on the final Discover card that opens the full recommended reading list.</string>
   <string name="home_feed_places_of_interest_card_footer">Footer text shown on a Places of Interest article card, displaying the article date followed by an indication that the recommendation is based on the user\'s selected location in Places. %1$s is replaced by distance.</string>
   <string name="home_feed_for_you_screen_end_of_feed_title">Title text shown when the user reaches the end of the personalized feed for the day.</string>
   <string name="home_feed_for_you_screen_end_of_feed_description">Description text encouraging the user to return later for refreshed personalized articles.</string>
   <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Section header introducing additional actions the user can take after reaching the end of the feed.</string>
   <string name="home_feed_for_you_screen_end_of_feed_add_interests">Link text prompting the user to add new interests to improve personalized recommendations.</string>
+  <string name="home_feed_games_module_cta_prompt_title">Title for the prompt card in the Games module that invites the user to play more games.</string>
+  <string name="home_feed_games_module_cta_prompt_subtitle">Subtitle for the prompt card in the Games module directing the user to the Games hub.</string>
+  <string name="home_feed_games_module_cta_prompt_button_text">Button text on the Games module prompt card that navigates the user to the Games hub.</string>
 </resources>

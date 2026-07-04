@@ -513,8 +513,8 @@
     <item quantity="other">%d artikli efacita de listo</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d artiklo efacita de %s</item>
-    <item quantity="other">%d artikli efacita de %s</item>
+    <item quantity="one">%1$d artiklo efacita de %2$s</item>
+    <item quantity="other">%1$d artikli efacita de %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d listo efacita</item>

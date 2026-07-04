@@ -24,7 +24,6 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.BreadcrumbsContextHelper
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
-import org.wikipedia.analytics.eventplatform.BreadCrumbViewUtil
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.appshortcuts.AppShortcuts
@@ -228,7 +227,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         BreadCrumbLogEvent.logScreenShown(this)
         TestKitchenAdapter.client.getInstrument("apps-open")
             .submitInteraction(action = "app_open", actionSource = "background",
-                actionSubtype = BreadCrumbViewUtil.getReadableScreenName(this))
+                actionSubtype = this::class.java.simpleName)
     }
 
     override fun onStart() {
@@ -308,27 +307,27 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
     }
 
     private fun maybeShowLoggedOutInBackgroundDialog() {
-        if (Prefs.loggedOutInBackground) {
-            Prefs.loggedOutInBackground = false
+        if (!Prefs.queueLoggedOutInBackgroundDialog || isDestroyed || this is LoginActivity)
+            return
+        Prefs.queueLoggedOutInBackgroundDialog = false
 
-            val instrument = TestKitchenAdapter.client.getInstrument("apps-authentication")
-                .setDefaultActionSource("logout_background_dialog")
-                .startFunnel("logout_account_background")
-            instrument.submitInteraction("impression")
+        val instrument = TestKitchenAdapter.client.getInstrument("apps-authentication")
+            .setDefaultActionSource("logout_background_dialog")
+            .startFunnel("logout_account_background")
+        instrument.submitInteraction("impression")
 
-            MaterialAlertDialogBuilder(this)
-                    .setCancelable(false)
-                    .setTitle(R.string.logged_out_in_background_title)
-                    .setMessage(R.string.logged_out_in_background_dialog)
-                    .setPositiveButton(R.string.logged_out_in_background_login) { _, _ ->
-                        instrument.submitInteraction("click", elementId = "login_button")
-                        startActivity(LoginActivity.newIntent(this@BaseActivity, LoginActivity.SOURCE_LOGOUT_BACKGROUND))
-                    }
-                    .setNegativeButton(R.string.logged_out_in_background_cancel) { _, _ ->
-                        instrument.submitInteraction("click", elementId = "cancel")
-                    }
-                    .show()
-        }
+        MaterialAlertDialogBuilder(this)
+                .setCancelable(false)
+                .setTitle(R.string.logged_out_in_background_title)
+                .setMessage(R.string.logged_out_in_background_dialog)
+                .setPositiveButton(R.string.logged_out_in_background_login) { _, _ ->
+                    instrument.submitInteraction("click", elementId = "login_button")
+                    startActivity(LoginActivity.newIntent(this@BaseActivity, LoginActivity.SOURCE_LOGOUT_BACKGROUND))
+                }
+                .setNegativeButton(R.string.logged_out_in_background_cancel) { _, _ ->
+                    instrument.submitInteraction("click", elementId = "cancel")
+                }
+                .show()
     }
 
     private fun dismissCurrentTooltip() {

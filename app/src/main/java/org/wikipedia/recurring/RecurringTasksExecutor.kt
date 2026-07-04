@@ -5,11 +5,13 @@ import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 import org.wikipedia.WikipediaApp
 import org.wikipedia.alphaupdater.AlphaUpdateChecker
+import org.wikipedia.auth.AccountUtil
+import org.wikipedia.dataclient.mwapi.MwNotLoggedInException
 import org.wikipedia.settings.RemoteConfigRefreshTask
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.log.L
 
-class RecurringTasksExecutor() {
+class RecurringTasksExecutor {
     fun run() {
         val app = WikipediaApp.instance
 
@@ -26,6 +28,9 @@ class RecurringTasksExecutor() {
         }.forEach { task ->
             MainScope().launch(CoroutineExceptionHandler { _, throwable ->
                 L.e(throwable)
+                if (throwable is MwNotLoggedInException) {
+                    AccountUtil.bailWithLogout()
+                }
             }) {
                 task.runIfNecessary()
             }

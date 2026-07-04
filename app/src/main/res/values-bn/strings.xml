@@ -1029,7 +1029,7 @@
   <string name="insert_media_settings" fuzzy="true">মিডিয়া সেটিং</string>
   <string name="insert_media_settings_uploaded_image">আপলোডকৃত ছবি</string>
   <string name="insert_media_settings_caption" fuzzy="true">ক্যাপশন</string>
-  <string name="insert_media_advanced_settings">উচ্চতর সেটিং</string>
+  <string name="insert_media_advanced_settings">উন্নত সেটিং</string>
   <string name="insert_media_advanced_settings_image_position">চিত্রের অবস্থান</string>
   <string name="insert_media_advanced_settings_image_position_right">ডানে</string>
   <string name="insert_media_advanced_settings_image_position_left">বামে</string>

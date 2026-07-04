@@ -14,9 +14,15 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.filterIsInstance
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.merge
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.transformLatest
 import kotlinx.coroutines.flow.update
@@ -28,10 +34,12 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.compose.components.NotificationBellState
+import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.events.NewRecommendedReadingListEvent
 import org.wikipedia.feed.dayheader.DayHeaderCard
 import org.wikipedia.feed.didyouknow.DidYouKnowCard
 import org.wikipedia.feed.featured.FeaturedArticleCard
@@ -40,18 +48,29 @@ import org.wikipedia.feed.model.BasedOnInterestCard
 import org.wikipedia.feed.model.BecauseYouReadCard
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.ContinueReadingCard
+import org.wikipedia.feed.model.DiscoverCard
 import org.wikipedia.feed.model.ForYouCard
+import org.wikipedia.feed.model.GamesModulePromptCard
 import org.wikipedia.feed.model.PlacesOfInterestCard
 import org.wikipedia.feed.model.RandomCard
+import org.wikipedia.feed.model.SeeAllRecommendationCard
+import org.wikipedia.feed.model.WikiGameCard
 import org.wikipedia.feed.news.NewsCard
 import org.wikipedia.feed.onthisday.OnThisDayCard
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
 import org.wikipedia.feed.topread.TopReadCard
+import org.wikipedia.feed.wikigames.WikiGame
+import org.wikipedia.games.WikiGames
+import org.wikipedia.games.db.DailyGameHistory
+import org.wikipedia.games.onthisday.OnThisDayGameProvider
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.json.LocalDateTimeSerializer
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingListPage
+import org.wikipedia.readinglist.database.RecommendedPage
+import org.wikipedia.readinglist.recommended.RecommendedReadingListHelper
+import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SettingsRepository
 import org.wikipedia.settings.homefeed.CommunityModuleType
@@ -67,6 +86,7 @@ import java.util.Locale
 
 enum class HomeTab { COMMUNITY, FOR_YOU }
 private const val MAX_STOP_TIMEOUT_MILLIS = 5000L
+private const val MAX_DISCOVER_ARTICLE_CARDS = 4
 private const val PLACES_ARTICLES_REQUEST_LIMIT = 10
 private const val PLACES_SEARCH_RADIUS_METERS = 10000
 
@@ -122,6 +142,19 @@ sealed class ForYouModule {
     }
 
     @Serializable
+    data class Discover(
+        override val age: Int,
+        override val index: Int,
+        override val cards: List<ForYouCard>,
+        val isEnabled: Boolean,
+        val isLoading: Boolean = false,
+        val updateFrequency: RecommendedReadingListUpdateFrequency = RecommendedReadingListUpdateFrequency.DAILY
+    ) : ForYouModule() {
+        override fun withCards(cards: List<ForYouCard>): ForYouModule = copy(cards = cards)
+        override fun moduleKey(): String = ForYouModuleType.DISCOVER.name
+    }
+
+    @Serializable
     data class Random(
         override val age: Int,
         override val index: Int,
@@ -129,6 +162,16 @@ sealed class ForYouModule {
     ) : ForYouModule() {
         override fun withCards(cards: List<ForYouCard>): ForYouModule = copy(cards = cards)
         override fun moduleKey(): String = ForYouModuleType.RANDOM.name
+    }
+
+    data class Games(
+        override val age: Int,
+        override val index: Int,
+        override val cards: List<ForYouCard>,
+        val isLoading: Boolean = false
+    ) : ForYouModule() {
+        override fun withCards(cards: List<ForYouCard>): ForYouModule = copy(cards = cards)
+        override fun moduleKey(): String = ForYouModuleType.GAMES.name
     }
 }
 
@@ -210,20 +253,99 @@ class HomeViewModel : ViewModel() {
             }
             emit(buildPlacesModule())
         }
+        .catch {
+            L.e(it)
+            emit(null)
+        }
         .stateIn(
             viewModelScope,
             SharingStarted.WhileSubscribed(MAX_STOP_TIMEOUT_MILLIS),
             null
         )
 
+    /**
+     * The Discover module (recommended reading list) loads independently of the batched "For you"
+     * modules, like Places. It reacts to the Discover settings (enabled state, article count, source, update frequency)
+     * and to NewRecommendedReadingListEvent posted when a new list is generated by RecommendedReadingListTask or the settings screen.
+     * On each trigger it emits a loading placeholder, then the module read from the local
+     * recommended pages. The result is merged into forYouState and sorted into its usual position by
+     * ForYouModuleType enum ordinal.
+     */
+    @OptIn(ExperimentalCoroutinesApi::class)
+    private val discoverModule: StateFlow<ForYouModule.Discover?> =
+        merge(
+            Prefs.observeKeys(
+                R.string.preference_key_recommended_reading_list_enabled,
+                R.string.preference_key_recommended_reading_list_articles_number,
+                R.string.preference_key_recommended_reading_list_source,
+                R.string.preference_key_recommended_reading_list_update_frequency
+            ),
+            FlowEventBus.events.filterIsInstance<NewRecommendedReadingListEvent>().map { }
+        )
+        .transformLatest {
+            if (Prefs.isRecommendedReadingListEnabled) {
+                emit(ForYouModule.Discover(age = 0, index = 0, cards = emptyList(), isEnabled = true, isLoading = true))
+            }
+            emit(buildDiscoverModule())
+        }
+        .catch {
+            L.e(it)
+            emit(null)
+        }
+        .stateIn(
+            viewModelScope,
+            SharingStarted.WhileSubscribed(MAX_STOP_TIMEOUT_MILLIS),
+            null
+        )
+
+    /**
+     * The Games module is loaded reactively, like Places, because its content should reflect live game progress.
+     * We observe today's game as a Room Flow in [DailyGameHistory] DB, so every write during play re-emits and rebuilds the
+     * module, moving the card through Preview -> InProgress -> Completed without a manual feed refresh.
+     */
+    @OptIn(ExperimentalCoroutinesApi::class)
+    private val gameModule: StateFlow<ForYouModule.Games?> =
+        _wikiSite.flatMapLatest { site ->
+            // short-circuit so that we don't observe if we don't have access to GamesHub
+            if (!hasGamesHubAccess()) {
+                return@flatMapLatest flowOf(null)
+            }
+            val today = LocalDate.now()
+            AppDatabase.instance.dailyGameHistoryDao().findGameHistoryByDateFlow(
+                gameName = WikiGames.WHICH_CAME_FIRST.ordinal,
+                language = site.languageCode,
+                year = today.year,
+                month = today.monthValue,
+                day = today.dayOfMonth
+            )
+            .transformLatest<DailyGameHistory?, ForYouModule.Games?> {
+                emit(ForYouModule.Games(age = 0, index = 0, cards = emptyList(), isLoading = true))
+                emit(buildGameModule())
+            }
+        }
+        .catch {
+            L.e(it)
+            emit(null)
+        }
+        .stateIn(
+            viewModelScope,
+            SharingStarted.WhileSubscribed(MAX_STOP_TIMEOUT_MILLIS),
+            null
+        )
+
+    // Combine the reactive modules first so the outer combine stays within the 5-flow typed overloads.
+    private val reactiveModules = combine(placesModule, discoverModule, gameModule) { places, discover, game ->
+        listOfNotNull(places, discover, game)
+    }
+
     private val _forYouState = MutableStateFlow(ForYouContentState())
     val forYouState = combine(
         _forYouState,
         SettingsRepository.hiddenModules,
         SettingsRepository.hiddenCards,
-        placesModule
-    ) { state, hiddenModules, hiddenCards, placesModule ->
-        val visibleItems = (state.modules + listOfNotNull(placesModule))
+        reactiveModules
+    ) { state, hiddenModules, hiddenCards, reactiveModules ->
+        val visibleItems = (state.modules + reactiveModules)
             .sortedBy { ForYouModuleType.valueOf(it.moduleKey()).ordinal }
             .filterNot { hiddenModules.contains(it.moduleKey()) }
             .mapNotNull { module ->
@@ -629,6 +751,58 @@ class HomeViewModel : ViewModel() {
         return modules
     }
 
+    private suspend fun buildDiscoverModule(): ForYouModule.Discover? {
+        if (!Prefs.isRecommendedReadingListEnabled) {
+            return ForYouModule.Discover(age = 0, index = 0, cards = emptyList(), isEnabled = false)
+        }
+        val pages = RecommendedReadingListHelper.generateRecommendedReadingList(Prefs.resetRecommendedReadingList)
+
+        val displayPages = pages.take(MAX_DISCOVER_ARTICLE_CARDS)
+        if (displayPages.isEmpty()) {
+            return null
+        }
+        updateMissingExtracts(displayPages)
+        val cards = displayPages.map { page ->
+            DiscoverCard(
+                PageTitle(
+                    text = page.apiTitle,
+                    wiki = page.wiki,
+                    thumbUrl = page.thumbUrl,
+                    description = page.description,
+                    displayText = page.displayTitle,
+                    extract = page.extract
+                )
+            )
+        }
+        val displayCards = if (pages.size > MAX_DISCOVER_ARTICLE_CARDS) cards + SeeAllRecommendationCard() else cards
+        return ForYouModule.Discover(
+            age = 0,
+            index = 0,
+            cards = displayCards,
+            isEnabled = true,
+            updateFrequency = Prefs.recommendedReadingListUpdateFrequency
+        )
+    }
+
+    /**
+     * Pages cached before the [RecommendedPage.extract] column existed have a null extract.
+     * This function fetches those null extracts in a single batched request and saves them to DB.
+     */
+    private suspend fun updateMissingExtracts(pages: List<RecommendedPage>) {
+        val missing = pages.filter { it.extract == null }
+        if (missing.isEmpty()) {
+            return
+        }
+        runCatching {
+            ServiceFactory.get(wikiSite.value)
+                .getInfoWithExtractsByPageTitles(missing.fastJoinToString("|") { it.apiTitle })
+                .query?.pages?.forEach { page ->
+                    missing.find { it.apiTitle == StringUtil.addUnderscores(page.title) }?.extract = page.extract
+                }
+        }.onFailure { L.e(it) }
+        AppDatabase.instance.recommendedPageDao().updateAll(missing.filter { it.extract != null })
+    }
+
     private suspend fun buildPlacesModule(): ForYouModule.PlacesOfInterest? {
         if (!hasLocationPermission()) {
             return ForYouModule.PlacesOfInterest(age = 0, index = 0, cards = emptyList(), hasLocationPermission = false)
@@ -641,6 +815,23 @@ class HomeViewModel : ViewModel() {
             return null
         }
         return ForYouModule.PlacesOfInterest(age = 0, index = 0, cards = cards, hasLocationPermission = true)
+    }
+
+    private suspend fun buildGameModule(): ForYouModule.Games {
+        val today = LocalDate.now()
+        val gameCards = WikiGames.entries
+            .filter { it.isLangSupported(wikiSite.value.languageCode) }
+            .mapNotNull { buildWikiGame(it, today)?.let { game -> WikiGameCard(game, today.toString()) } }
+        val cards = gameCards + GamesModulePromptCard()
+
+        return ForYouModule.Games(age = 0, index = 0, cards = cards)
+    }
+
+    private suspend fun buildWikiGame(game: WikiGames, date: LocalDate): WikiGame? = when (game) {
+        WikiGames.WHICH_CAME_FIRST -> {
+            val state = OnThisDayGameProvider.getGameState(wikiSite.value, date)
+            WikiGame.OnThisDayGame(state)
+        }
     }
 
     private suspend fun getPlacesCards(savedLocation: Location): List<PlacesOfInterestCard> {
@@ -671,6 +862,10 @@ class HomeViewModel : ViewModel() {
                 val distance = GeoUtil.getDistanceWithUnit(savedLocation, articleLocation, Locale.getDefault())
                 PlacesOfInterestCard(title, distance)
             }
+    }
+
+    private fun hasGamesHubAccess(): Boolean {
+        return WikiGames.WHICH_CAME_FIRST.isLangSupported(*WikipediaApp.instance.languageState.appLanguageCodes.toTypedArray())
     }
 
     private fun hasLocationPermission(): Boolean {

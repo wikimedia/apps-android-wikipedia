@@ -593,10 +593,10 @@
     <item quantity="other">%d ערכים הוסרו מהרשימה</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">ערך אחד הוסר מהרשימה %s</item>
-    <item quantity="two">שני ערכים הוסרו מהרשימה %s</item>
-    <item quantity="many">%d ערכים הוסרו מהרשימה %s</item>
-    <item quantity="other">%d ערכים הוסרו מהרשימה %s</item>
+    <item quantity="one">ערך אחד הוסר מהרשימה %2$s</item>
+    <item quantity="two">שני ערכים הוסרו מהרשימה %2$s</item>
+    <item quantity="many">%1$d ערכים הוסרו מהרשימה %2$s</item>
+    <item quantity="other">%1$d ערכים הוסרו מהרשימה %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">נמחקה רשימה אחת</item>
@@ -2179,4 +2179,9 @@
   <string name="hybrid_search_results_rate_label">דירוג התוצאה הזאת</string>
   <string name="hybrid_search_no_results_header">אין תוצאות</string>
   <string name="hybrid_search_turn_off_experiment_label">כיבוי הניסוי הזה</string>
+  <string name="home_feed_settings_games_title">משחקים</string>
+  <string name="home_feed_settings_games_subtitle">משחקים יומיומיים המבוססים על תוכן ויקיפדיה</string>
+  <string name="home_feed_games_module_cta_prompt_title">רוצה לשחק משחקים נוספים?</string>
+  <string name="home_feed_games_module_cta_prompt_subtitle">לך למרכז המשחקים</string>
+  <string name="home_feed_games_module_cta_prompt_button_text">מרכז המשחקים</string>
 </resources>

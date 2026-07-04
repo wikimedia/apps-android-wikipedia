@@ -12,6 +12,7 @@
 * Codeurluce
 * Cooltey
 * Crochet.david
+* Crowwhailord
 * Daniel236
 * Dbrant
 * DePlusJean
@@ -119,7 +120,7 @@
   <string name="history_list_title">Historique</string>
   <string name="image_content_description">Image : %s</string>
   <string name="page_content_description">Page : %s</string>
-  <string name="wikimedia_commons">Wikimedia Commons</string>
+  <string name="wikimedia_commons">Wikimédia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Effacer l’historique de navigation</string>
   <string name="dialog_message_clear_history">Cela supprimera l’intégralité de votre historique de navigation. Êtes-vous sûr·e ?</string>
@@ -254,7 +255,7 @@
   <string name="account_vanish_request_confirm_title">Avertissement de disparition du compte</string>
   <string name="account_vanish_request_confirm">La disparition de compte est une &lt;b&gt;mesure de dernier recours&lt;/b&gt; et ne doit être utilisée &lt;b&gt;que si vous souhaitez cesser définitivement toute contribution&lt;/b&gt;, ainsi que masquer autant que possible vos liens antérieurs avec le projet.&lt;br/&gt;&lt;br/&gt;\nLa suppression d’un compte sur Wikipédia s’effectue en modifiant le nom du compte, afin que les autres ne puissent plus reconnaître vos contributions — un processus appelé « disparition de compte ». &lt;b&gt;Ce processus ne garantit pas l’anonymat complet et n’efface pas vos contributions aux projets.&lt;/b&gt;</string>
   <string name="history_empty_title">Aucun article consulté récemment</string>
-  <string name="history_empty_message">Retrace ce que vous avez lu ici.</string>
+  <string name="history_empty_message">Retracez ce que vous avez lu ici.</string>
   <string name="history_offline_articles_toast">Certains articles de l’historique peuvent ne pas être consultables en mode déconnecté.</string>
   <string name="search_empty_message">Cherchez et lisez l’encyclopédie libre dans votre langue</string>
   <string name="search_empty_message_multilingual_upgrade">Chercher sur Wikipédia dans davantage de langues</string>
@@ -364,7 +365,7 @@
   <string name="edit_summary_tag_other">Autre</string>
   <string name="edit_summary_tag_other_hint">Autres façons d’améliorer la page</string>
   <string name="edit_summary_added_short_description">Courte description ajoutée</string>
-  <string name="edit_summary_updated_short_description">Courte description importée</string>
+  <string name="edit_summary_updated_short_description">Courte description mise à jour</string>
   <string name="edit_conflict_title">Conflit de modification</string>
   <string name="edit_conflict_message">La page a déjà été modifiée par un autre utilisateur et est en conflit avec votre modification. Veuillez copier vos modifications, revenir en arrière et actualiser la page, puis essayer de la modifier à nouveau.</string>
   <string name="edit_notices">Avertissements de modification</string>
@@ -529,7 +530,7 @@
     <item quantity="one">Le compte expirera dans %d jour.</item>
     <item quantity="other">Le compte expirera dans %d jours.</item>
   </plurals>
-  <string name="temp_account_anon_ip_edit_status">&lt;b&gt;Vous n’êtes pas connecté·e.&lt;/b&gt; Vos modifications seront associées à votre adresse IP.</string>
+  <string name="temp_account_anon_ip_edit_status">&lt;b&gt;Vous n\'êtes pas connecté.&lt;/b&gt; Une fois que vous aurez effectué une modification, votre adresse IP sera associée à vos modifications.</string>
   <string name="temp_account_anon_edit_status">&lt;b&gt;Vous n’êtes pas connecté·e.&lt;/b&gt; Une fois que vous aurez fait une modification, un compte temporaire vous sera créé pour protéger votre vie privée. &lt;a href=\"%1$s\"&gt;En savoir plus&lt;/a&gt;</string>
   <string name="temp_account_edit_status">&lt;b&gt;Vous utilisez un compte temporaire.&lt;/b&gt; Votre modification sera attribuée à %1$s. &lt;a href=\"%2$s\"&gt;En savoir plus&lt;/a&gt;.</string>
   <string name="temp_account_login_status">&lt;b&gt;Vous utilisez actuellement un compte temporaire.&lt;/b&gt; Les modifications effectuées avec le compte temporaire %1$s ne seront pas transférées vers votre compte permanent lorsque vous vous connecterez. Connectez-vous ou créez un compte pour que vos contributions soient attribuées à votre nom d’utilisateur, ainsi que pour bénéficier d’autres avantages.</string>
@@ -626,8 +627,8 @@
     <item quantity="other">%d articles supprimés de la liste</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d article supprimé de %s</item>
-    <item quantity="other">%d articles supprimés de %s</item>
+    <item quantity="one">%1$d article supprimé de %2$s</item>
+    <item quantity="other">%1$d articles supprimés de %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d liste supprimée</item>
@@ -727,8 +728,8 @@
   <string name="reading_lists_action_menu_export_lists">Exporter</string>
   <string name="reading_lists_import_file_picker_title">Choisir le fichier à importer</string>
   <string name="reading_lists_import_failure_message">Échec d’importation des listes de lecture</string>
-  <string name="reading_lists_export_select_lists_message">Sélectionnez les listes à exporter</string>
-  <string name="reading_lists_export_completed_message">Listes de lecture exportées</string>
+  <string name="reading_lists_export_select_lists_message">Sélectionner la ou les liste(s) à exporter</string>
+  <string name="reading_lists_export_completed_message">Liste(s) de lecture exportée(s)</string>
   <plurals name="reading_list_export_failed_message">
     <item quantity="one">Échec de l’exportation de la liste de lecture</item>
     <item quantity="other">Échec de l’exportation des listes de lecture</item>
@@ -877,7 +878,7 @@
   <string name="view_random_article_card_title">Article au hasard</string>
   <string name="view_random_article_card_action">Davantage d’articles au hasard</string>
   <string name="view_top_read_card_title">Les plus lus</string>
-  <string name="view_top_read_card_description">Quels sont les sujets tendance aujourd\'hui sur Wikipédia ?</string>
+  <string name="view_top_read_card_description">Les sujets tendance sur Wikipédia aujourd\'hui</string>
   <string name="view_top_read_card_action">Davantage de plus lus</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d k</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
@@ -931,7 +932,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Annuler</string>
   <string name="feed_accessibility_card_text">Vous avez atteint la fin du flux.</string>
   <string name="feed_accessibility_card_load_more_button">Charger davantage</string>
-  <string name="feed_language_variants_removal_dialog_title">Sélectionnez une variante régionale pour une meilleure expérience de lecture</string>
+  <string name="feed_language_variants_removal_dialog_title">Sélectionnez une variante de langue régionale pour une meilleure expérience de lecture</string>
   <string name="feed_language_variants_removal_dialog_message">Vous utilisez actuellement une variante générique du chinois non prise en charge comme langue principale de Wikipédia.</string>
   <string name="feed_language_variants_removal_dialog_save">Enregistrer</string>
   <string name="feed_language_variants_removal_secondary_dialog_title">Veuillez mettre à jour vos langues secondaires</string>
@@ -1204,7 +1205,7 @@
   <string name="image_recommendation_onboarding_1">Les images aident les gens à comprendre, mais beaucoup d’articles n’en ont pas.</string>
   <string name="image_recommendation_onboarding_2">Vous déciderez si une image suggérée doit être mise dans un article de Wikipédia.</string>
   <string name="image_recommendation_onboarding_3">Les suggestions sont générées automatiquement et vous devrez faire preuve de discernement pour décider de les accepter ou de les refuser.</string>
-  <string name="image_recommendation_onboarding_4">Les images proviennent de Wikimedia Commons, une collection d’images sous licence libre utilisée par Wikipédia.</string>
+  <string name="image_recommendation_onboarding_4">Les images proviennent de Wikimédia Commons, une collection d’images sous licence libre utilisée par Wikipédia.</string>
   <string name="image_recommendation_tooltip_1">Relire cet article pour comprendre son sujet</string>
   <string name="image_recommendation_tooltip_2">Examinez l\'image et les informations qui y sont associées.</string>
   <string name="image_recommendation_tooltip_3">Décidez si l’image aide les lecteurs à mieux comprendre ce sujet.</string>
@@ -1245,11 +1246,11 @@
   <string name="activity_tab_impact_most_viewed">Les plus vues depuis votre modification</string>
   <string name="activity_tab_impact_contributions_this_month">Contributions ce mois</string>
   <plurals name="activity_tab_impact_edits_this_month">
-    <item quantity="one">modification</item>
-    <item quantity="other">modifications ce mois</item>
+    <item quantity="one">modification ce mois-ci</item>
+    <item quantity="other">modifications ce mois-ci</item>
   </plurals>
   <plurals name="activity_tab_impact_edits_last_month">
-    <item quantity="one">modification</item>
+    <item quantity="one">modification le mois dernier</item>
     <item quantity="other">modifications le mois dernier</item>
   </plurals>
   <string name="activity_tab_impact_all_time">Impact global</string>
@@ -2364,6 +2365,10 @@
   <string name="reading_challenge_install_prompt_message">Baby Globe vous encourage. Ajoutez le widget du défi de lecture pour suivre vos progrès depuis votre écran d\'accueil.</string>
   <string name="reading_challenge_install_prompt_got_it">J\'ai compris</string>
   <string name="reading_challenge_install_prompt_add">Ajouter</string>
+  <string name="search_widget_install_prompt_title">Une méthode de recherche plus rapide</string>
+  <string name="search_widget_install_prompt_message">Installez le widget de recherche Wikipedia pour accéder instantanément aux connaissances à partir de votre écran d\'accueil.</string>
+  <string name="search_widget_install_prompt_add">Ajouter</string>
+  <string name="search_widget_install_prompt_got_it">J\'ai compris</string>
   <string name="reading_challenge_widget_explore_button">Explorer</string>
   <string name="reading_challenge_widget_explore_wikipedia_button">Explorer Wikipédia</string>
   <string name="reading_challenge_widget_join_challenge_button">Participer au défi</string>
@@ -2410,4 +2415,110 @@
   <string name="reading_challenge_widget_reward_title">La curiosité vous va à merveille !</string>
   <string name="reading_challenge_widget_reward_body">Fêtez la réussite de ce défi en bénéficiant de 15 %% de réduction à la boutique Wikipédia</string>
   <string name="reading_challenge_widget_reward_button_label">Bénéficiez de 15 %% de réduction à la boutique</string>
+  <string name="explore_feed_new_update_prompt_title">Explorer s\'appelle désormais Accueil, avec une nouvelle présentation.</string>
+  <string name="explore_feed_new_update_prompt_new_name_title">Un nouveau nom</string>
+  <string name="explore_feed_new_update_prompt_new_name_description">Le flux Explorer se nomme désormais Accueil et est situé au même endroit qu\'auparavant.</string>
+  <string name="explore_feed_new_update_prompt_two_ways_title">Votre flux, deux façons</string>
+  <string name="explore_feed_new_update_prompt_two_ways_description">Découvrez des articles adaptés à vos centres d\'intérêt dans la rubrique « Pour vous », ou parcourez les meilleurs contenus éditoriaux de Wikipédia dans la rubrique « Communauté ».</string>
+  <string name="explore_feed_new_update_prompt_control_title">Gardez le contrôle</string>
+  <string name="explore_feed_new_update_prompt_control_description">Chaque recommandation vous indique exactement pourquoi elle est là. Vous pouvez mettre à jour vos préférences à tout moment dans les paramètres.</string>
+  <string name="explore_feed_new_update_prompt_language_title">Chaque langue, entièrement personnalisée</string>
+  <string name="explore_feed_new_update_prompt_language_description">Vous lisez en plusieurs langues ? Chacun a sa propre expérience. Il suffit de changer et votre nouveau flux est prêt.</string>
+  <string name="explore_feed_new_update_prompt_primary_button_text">Personnaliser mon flux</string>
+  <string name="explore_feed_customize_interests">Personnaliser les centres d\'intérêt</string>
+  <string name="explore_feed_customize_discover">Personnaliser la Découverte</string>
+  <string name="explore_feed_new_update_prompt_secondary_button_text">Configurez-le pour moi</string>
+  <string name="explore_feed_building_text">Construisons votre flux…</string>
+  <string name="explore_feed_community_tab_label">Communauté</string>
+  <string name="explore_feed_for_you_tab_label">Pour vous</string>
+  <string name="explore_feed_date_today">Aujourd\'hui - %s</string>
+  <string name="explore_feed_load_previous_day_label">Charger le jour précédent</string>
+  <string name="explore_feed_from_reading_list">De votre liste de lecture</string>
+  <string name="explore_feed_because_of_interest">En raison de vos centres d\'intérêt : %s</string>
+  <string name="explore_feed_onboarding_curiosity_title">Suivez votre curiosité</string>
+  <string name="explore_feed_onboarding_curiosity_description">Sélectionnez les sujets qui vous intéressent et nous personnaliserons votre flux.\n\nNous collectons un minimum de données qui sont anonymisées.</string>
+  <string name="explore_feed_deselect_all_button_label">Tout désélectionner</string>
+  <string name="explore_feed_potd_subtitle">Images quotidiennes de Wikimedia Commons, sélectionnées par des contributeurs bénévoles</string>
+  <string name="explore_feed_featured_article_subtitle">Les articles mis en avant sont parmi les articles de la plus haute qualité sur Wikipédia, sélectionnés quotidiennement par les contributeurs.</string>
+  <string name="explore_feed_preference_selection_screen_title">Qu\'aimeriez-vous voir en premier ?</string>
+  <string name="explore_feed_preference_community_content_title">Contenu lié à la communauté</string>
+  <string name="explore_feed_preference_personalized_content_title">Contenu personnalisé</string>
+  <string name="explore_feed_in_the_news_subtitle">Articles qui ont été mis à jour de manière substantielle pour refléter des événements récents ou d\'actualité d\'intérêt général</string>
+  <string name="explore_feed_on_this_day_subtitle">Découvrez les événements historiques de cette journée</string>
+  <string name="explore_feed_community_disclaimer">Contenu et ressources sélectionnés par et au sujet de la communauté Wikimedia</string>
+  <string name="explore_feed_community_load_more_label">Consultez les anciens contenus de la communauté</string>
+  <string name="explore_feed_manage_languages_label">Modifier la langue</string>
+  <string name="explore_feed_header_overflow_hide_module_label">Masquer le module</string>
+  <string name="explore_feed_header_overflow_hide_module_message">Module caché.</string>
+  <string name="explore_feed_header_overflow_hide_module_message_action">Annuler</string>
+  <string name="explore_feed_personalized_preference_empty_state_text">Vous devez ajouter des centres d\'intérêt pour recevoir des recommandations de contenu personnalisées. Vous pouvez le faire dans les étapes précédentes ou plus tard dans les Paramètres.</string>
+  <string name="explore_feed_because_you_read">Parce que vous avez lu : %s</string>
+  <string name="explore_feed_swipe_to_explore_prompt_title">Faites glisser pour explorer</string>
+  <string name="explore_feed_swipe_to_explore_prompt_message">Faites glisser vers le haut pour naviguer entre les sujets, ou faites glisser vers les côtés pour explorer le contenu associé.</string>
+  <string name="home_feed_settings_title">Personnaliser le flux d\'accueil</string>
+  <string name="home_feed_settings_default_view_title">Affichage du flux par défaut</string>
+  <string name="home_feed_settings_default_view_subtitle">Choisissez le flux qui s\'affichera en premier lorsque vous ouvrirez l\'application.</string>
+  <string name="home_feed_settings_whats_driving_title">Qu\'est-ce qui influence votre flux ?</string>
+  <string name="home_feed_settings_modules_title">Modules</string>
+  <string name="home_feed_settings_community_subtitle">Activer ou désactiver les modules de flux « Communauté »</string>
+  <string name="home_feed_settings_for_you_subtitle">Activer ou désactiver les modules de flux « Pour vous »</string>
+  <string name="home_feed_settings_whats_driving_subtitle">Sujets et articles qui façonnent votre contenu</string>
+  <string name="home_feed_settings_community_modules_description">Désactiver un module le masque dans votre flux Communauté. Vous pouvez le réactiver ici à tout moment. Certains modules peuvent ne pas être disponibles dans votre langue.</string>
+  <string name="home_feed_settings_for_you_modules_description">Désactiver un module le masque dans votre flux « Pour vous ». Vous pouvez le réactiver ici à tout moment.</string>
+  <string name="home_feed_settings_based_on_interest_title">En fonction de vos intérêts</string>
+  <string name="home_feed_settings_based_on_interest_subtitle">Des articles adaptés aux sujets que vous avez choisis.&lt;br /&gt; &lt;a href=\"#drivingFeed\"&gt;Qu\'est-ce qui influence votre flux ?&lt;/a&gt;</string>
+  <string name="home_feed_settings_because_you_read_subtitle">Suggestions basées sur un article récemment lu de votre historique</string>
+  <string name="home_feed_settings_continue_reading_title">Continuer à lire</string>
+  <string name="home_feed_settings_continue_reading_subtitle">Reprendre les articles que vous n\'avez pas terminés.</string>
+  <string name="home_feed_did_you_know_title">Le saviez-vous ?</string>
+  <string name="home_feed_did_you_know_subtitle">Faits intéressants tirés d\'articles choisis par des contributeurs bénévoles</string>
+  <string name="home_feed_did_you_know_more_label">Plus de \"le saviez-vous\"</string>
+  <string name="home_feed_settings_community_empty_dialog_title">Votre fil communautaire va être vide.</string>
+  <string name="home_feed_settings_for_you_empty_dialog_title">Votre flux « Pour toi » sera vide</string>
+  <string name="home_feed_settings_empty_dialog_text">Activez au moins un module pour afficher le contenu.</string>
+  <string name="home_feed_settings_empty_dialog_positive">Continuer quand même</string>
+  <string name="home_feed_screen_empty_state_label">Votre flux est vide</string>
+  <string name="home_feed_community_screen_all_modules_disabled_description">Activez les modules de la &lt;b&gt;Communauté&lt;/b&gt; pour commencer à voir le contenu organisé par et sur la communauté Wikimedia.</string>
+  <string name="home_feed_for_you_screen_all_modules_disabled_description">Activez les modules &lt;b&gt;« Pour vous »&lt;/b&gt; pour commencer à voir du contenu basé sur vos préférences.</string>
+  <string name="home_feed_screen_all_modules_disabled_btn_label">Gérer les modules</string>
+  <string name="home_feed_for_you_screen_empty_title">Votre flux est vide pour le moment</string>
+  <string name="home_feed_for_you_screen_empty_description">Votre flux « Pour vous » sera alimenté en articles personnalisés au fur et à mesure de votre navigation.</string>
+  <string name="home_feed_for_you_screen_empty_ways_to_start">Comment commencer :</string>
+  <string name="home_feed_for_you_screen_empty_add_interests">Ajoutez des &lt;a href=\"#add_interests\"&gt;centres d\'intérêt&lt;/a&gt;</string>
+  <string name="home_feed_for_you_screen_empty_see_community">Voir ce qui se passe dans la &lt;a href=\"#community_tab\"&gt;communauté&lt;/a&gt;</string>
+  <string name="home_feed_update_tooltip1">Nouveautés : Les rubriques « Article aléatoire » et « Lieux d’intérêt » sont disponibles dans la section « Pour vous », et la rubrique « Le saviez-vous ? » se trouve dans l\'onglet Communauté.</string>
+  <string name="home_feed_random_title">Aléatoire</string>
+  <string name="home_feed_random_subtitle">Article aléatoire pour éveiller votre curiosité</string>
+  <string name="home_feed_random_shuffle_button">Lecture aléatoire</string>
+  <string name="home_feed_settings_feed_configuration_description">Ces sujets et articles déterminent le contenu de votre fil d\'actualité « Pour vous ». Supprimez ceux qui ne vous intéressent plus ou ajoutez de nouveaux centres d\'intérêt.</string>
+  <string name="home_feed_settings_feed_configuration_interest_title">Vos centres d\'intérêt</string>
+  <string name="home_feed_settings_feed_configuration_interest_subtitle">Modifier vos centres d\'intérêt</string>
+  <string name="home_feed_settings_feed_configuration_location_title">Votre emplacement</string>
+  <string name="home_feed_settings_feed_configuration_location_subtitle">Mettre à jour votre localisation dans Lieux pour voir les articles à proximité.</string>
+  <string name="home_feed_settings_feed_configuration_empty_interest_subtitle">Votre liste de centres d\'intérêt est vide. Ajouter quelque chose qui vous intéresse.</string>
+  <string name="home_feed_settings_feed_configuration_reading_history_title">Historique de lecture</string>
+  <string name="home_feed_settings_feed_configuration_reading_history_subtitle">Consulter les articles récemment lus</string>
+  <string name="home_feed_settings_feed_configuration_empty_reading_history_subtitle">Votre historique de lecture est vide. Commencer à explorer les articles pour obtenir des recommandations personnalisées.</string>
+  <string name="home_feed_settings_feed_configuration_languages_title">Langues</string>
+  <string name="home_feed_settings_feed_configuration_languages_subtitle">Modifier vos langues préférées</string>
+  <string name="home_feed_settings_feed_configuration_interests_updated_message">Centres d\'intérêts mis à jour. Actualiser votre flux pour voir les nouveautés.</string>
+  <string name="home_feed_places_of_interest_cta_title">Histoires des lieux que vous appréciez</string>
+  <string name="home_feed_places_of_interest_cta_description">Les articles affichés dépendent du dernier lieu consulté. Visitez l\'onglet Lieux et sélectionnez un emplacement.</string>
+  <string name="home_feed_places_of_interest_cta_button">Aller aux Lieux</string>
+  <string name="home_feed_settings_places_of_interest_title">Lieux d\'intérêt</string>
+  <string name="home_feed_settings_places_of_interest_subtitle">Articles à proximité de votre dernière position dans Lieux</string>
+  <string name="home_feed_settings_discover_title">Découvrez les recommandations</string>
+  <string name="home_feed_settings_discover_subtitle">Articles de votre liste de lecture Découvrir</string>
+  <string name="home_feed_discover_cta_title">Depuis Découvrir</string>
+  <string name="home_feed_discover_cta_description">Découvrez de nouveaux sujets, sélectionnés spécialement pour vous. Choisissez entre des mises à jour quotidiennes, hebdomadaires ou mensuelles.</string>
+  <string name="home_feed_discover_cta_button">Activer la liste de lecture Découvrir</string>
+  <string name="home_feed_discover_card_footer">Depuis Découvrir • Mises à jour %s</string>
+  <string name="home_feed_discover_see_all_title">Il y a plus à découvrir.</string>
+  <string name="home_feed_discover_see_all_description">Votre liste de lecture personnalisée contient davantage d\'histoires sélectionnées spécialement pour vous.</string>
+  <string name="home_feed_discover_see_all_button">Explorez toutes les recommandations</string>
+  <string name="home_feed_places_of_interest_card_footer">%1$s • Basé sur votre emplacement dans Lieux</string>
+  <string name="home_feed_for_you_screen_end_of_feed_title">C\'est tout pour aujourd\'hui !</string>
+  <string name="home_feed_for_you_screen_end_of_feed_description">Revenez demain pour découvrir de nouveaux articles personnalisés.</string>
+  <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Moyens de continuer à apprendre :</string>
+  <string name="home_feed_for_you_screen_end_of_feed_add_interests">Ajouter de &lt;a href=\"#add_interests\"&gt;nouveaux centres d\'intérêt&lt;/a&gt;</string>
 </resources>

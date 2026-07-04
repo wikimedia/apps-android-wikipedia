@@ -365,6 +365,8 @@
     <item quantity="many">%1$d артыкулаў, %2$.2f МБ</item>
     <item quantity="other">%1$d артыкулаў, %2$.2f МБ</item>
   </plurals>
+  <string name="reading_list_sort">Сартаваць</string>
+  <string name="reading_list_sort_ellipsis">Сартаваць паводле…</string>
   <string name="reading_list_name_hint">Назва гэтага сьпісу</string>
   <string name="reading_list_description_hint">Апісаньне (неабавязкова)</string>
   <string name="reading_list_select_item">Выбраць</string>
@@ -372,6 +374,7 @@
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Скасаваць</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Увайсьці</string>
   <string name="reading_list_saved_list_rename">%1$s (створана ўдзельнікам)</string>
+  <string name="reading_lists_menu_sort_by">Сартаваць паводле</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">Добра</string>
   <string name="reading_list_delete_dialog_ok_button_text">Добра</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">Скасаваць</string>
@@ -400,6 +403,7 @@
   <string name="text_input_dialog_cancel_button_text">Скасаваць</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Скасаваць</string>
   <string name="talk_warn_save_dialog_cancel">Скасаваць</string>
+  <string name="talk_overflow_sort_by">Сартаваць паводле</string>
   <string name="menu_option_edit_source">Рэдагаваць код</string>
   <string name="thank_dialog_negative_button_text">Скасаваць</string>
   <string name="watchlist_expiry_dialog_permanent">Заўсёдна</string>

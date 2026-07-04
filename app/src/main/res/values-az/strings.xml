@@ -553,8 +553,8 @@
     <item quantity="other">%d məqalə siyahıdan silindi</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d məqalə %s siyahısından silindi</item>
-    <item quantity="other">%d məqalə %s siyahısından silindi</item>
+    <item quantity="one">%1$d məqalə %2$s siyahısından silindi</item>
+    <item quantity="other">%1$d məqalə %2$s siyahısından silindi</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d siyahı silindi</item>
@@ -2281,6 +2281,10 @@
   <string name="reading_challenge_install_prompt_message">Körpə qlobus sizi dəstəkləyir. Əsas ekrandan irəliləyişinizi izləmək üçün Oxuma Yarışması vidcetini əlavə edin.</string>
   <string name="reading_challenge_install_prompt_got_it">Başa düşdüm</string>
   <string name="reading_challenge_install_prompt_add">Əlavə et</string>
+  <string name="search_widget_install_prompt_title">Axtarış üçün daha sürətli bir yol</string>
+  <string name="search_widget_install_prompt_message">Əsas ekrandan biliklərə cəld giriş üçün Vikipediya Axtarış vidcetini quraşdırın.</string>
+  <string name="search_widget_install_prompt_add">Əlavə et</string>
+  <string name="search_widget_install_prompt_got_it">Başa düşdüm</string>
   <string name="reading_challenge_widget_explore_button">Kəşf et</string>
   <string name="reading_challenge_widget_explore_wikipedia_button">Vikipediyanı kəşf et</string>
   <string name="reading_challenge_widget_join_challenge_button">Yarışmaya qoşul</string>
@@ -2338,6 +2342,7 @@
   <string name="explore_feed_new_update_prompt_language_description">Birdən çox dildə oxuyursunuz? Hər birinin öz təcrübəsi var. Sadəcə keçid edin və yeni lentiniz hazırdır.</string>
   <string name="explore_feed_new_update_prompt_primary_button_text">Lentimi fərdiləşdir</string>
   <string name="explore_feed_customize_interests">Maraqları fərdiləşdir</string>
+  <string name="explore_feed_customize_discover">Kəşf et bölməsini fərdiləşdir</string>
   <string name="explore_feed_new_update_prompt_secondary_button_text">Mənim üçün qur</string>
   <string name="explore_feed_building_text">Gəlin lentinizi yaradaq…</string>
   <string name="explore_feed_community_tab_label">İcma</string>
@@ -2365,8 +2370,11 @@
   <string name="explore_feed_personalized_preference_empty_state_text">Fərdiləşdirilmiş məzmun tövsiyələrini görmək üçün maraqlarınızı əlavə etməlisiniz. Bunu əvvəlki addımlarda və ya daha sonra Parametrlərdə edə bilərsiniz.</string>
   <string name="explore_feed_because_you_read">Oxuduğunuz üçün: %s</string>
   <string name="explore_feed_swipe_to_explore_prompt_title">Kəşf etmək üçün sürüşdür</string>
-  <string name="explore_feed_swipe_to_explore_prompt_message">Mövzular arasında keçid etmək üçün aşağı sürüşdürün və ya əlaqəli məzmunu araşdırmaq üçün yanlara sürüşdürün.</string>
+  <string name="explore_feed_swipe_to_explore_prompt_message">Mövzular arasında keçid etmək üçün yuxarı sürüşdürün və ya əlaqəli məzmunu araşdırmaq üçün yanlara sürüşdürün.</string>
   <string name="home_feed_settings_title">Ana səhifə lentinizi fərdiləşdirin</string>
+  <string name="home_feed_settings_default_view_title">Defolt lent görünüşü</string>
+  <string name="home_feed_settings_default_view_subtitle">Tətbiqi açdığınız zaman hansı lentin ilk göstəriləcəyini seçin</string>
+  <string name="home_feed_settings_default_view_confirm">Bu dəyişiklik növbəti dəfə tətbiqi açdığınız zaman tətbiq olunacaq.</string>
   <string name="home_feed_settings_whats_driving_title">Lentinizi nə idarə edir</string>
   <string name="home_feed_settings_modules_title">Modullar</string>
   <string name="home_feed_settings_community_subtitle">\"İcma\" lent modullarını aktivləşdirin və ya söndürün</string>
@@ -2416,9 +2424,23 @@
   <string name="home_feed_places_of_interest_cta_button">Məkanlara get</string>
   <string name="home_feed_settings_places_of_interest_title">Maraqlı yerlər</string>
   <string name="home_feed_settings_places_of_interest_subtitle">Yerlərdə son yerinizə yaxın məqalələr</string>
+  <string name="home_feed_settings_games_title">Oyunlar</string>
+  <string name="home_feed_settings_games_subtitle">Vikipediya məzmununa əsaslanan gündəlik oyunlar</string>
+  <string name="home_feed_settings_discover_title">Kəşf tövsiyələri</string>
+  <string name="home_feed_settings_discover_subtitle">Kəşf edilmiş oxuma siyahınızdan məqalələr</string>
+  <string name="home_feed_discover_cta_title">Kəşf etdən</string>
+  <string name="home_feed_discover_cta_description">Yalnız sizin üçün seçilmiş yeni mövzular haqqında məlumat əldə edin. Gündəlik, həftəlik və ya aylıq yeniləmələr arasında seçim edin.</string>
+  <string name="home_feed_discover_cta_button">Kəşf edilmiş oxuma siyahısını aktivləşdir</string>
+  <string name="home_feed_discover_card_footer">Kəşf etdən • %s yeniləmələr</string>
+  <string name="home_feed_discover_see_all_title">Kəşf ediləcək daha çox şey var</string>
+  <string name="home_feed_discover_see_all_description">Fərdiləşdirilmiş oxuma siyahınızda yalnız sizin üçün seçilmiş daha çox hekayə var.</string>
+  <string name="home_feed_discover_see_all_button">Bütün tövsiyələri kəşf et</string>
   <string name="home_feed_places_of_interest_card_footer">%1$s • Yerlərdəki yerinizə əsasən</string>
   <string name="home_feed_for_you_screen_end_of_feed_title">Bugünlük bu qədər!</string>
   <string name="home_feed_for_you_screen_end_of_feed_description">Sabah sizin üçün fərdiləşdirilmiş yeni məqalələr tapmaq üçün yenə gəlin.</string>
   <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Öyrənməyə davam etmək yolları:</string>
   <string name="home_feed_for_you_screen_end_of_feed_add_interests">&lt;a href=\"#add_interests\"&gt;Yeni maraqlar&lt;/a&gt; əlavə et</string>
+  <string name="home_feed_games_module_cta_prompt_title">Daha çox oyun oynamaq istəyirsiniz?</string>
+  <string name="home_feed_games_module_cta_prompt_subtitle">Oyun mərkəzinə get</string>
+  <string name="home_feed_games_module_cta_prompt_button_text">Oyun mərkəzi</string>
 </resources>

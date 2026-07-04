@@ -575,8 +575,8 @@
         <item quantity="other">%d articles removed from list</item>
     </plurals>
     <plurals name="reading_list_articles_deleted_from_list">
-        <item quantity="one">%d article removed from %s</item>
-        <item quantity="other">%d articles removed from %s</item>
+        <item quantity="one">%1$d article removed from %2$s</item>
+        <item quantity="other">%1$d articles removed from %2$s</item>
     </plurals>
     <plurals name="reading_lists_deleted_message">
         <item quantity="one">%d list deleted</item>
@@ -2481,6 +2481,7 @@
     <string name="explore_feed_new_update_prompt_language_description">Reading in multiple languages? Each one gets its own experience. Just switch and your new feed is ready.</string>
     <string name="explore_feed_new_update_prompt_primary_button_text">Customize my feed</string>
     <string name="explore_feed_customize_interests">Customize interests</string>
+    <string name="explore_feed_customize_discover">Customize Discover</string>
     <string name="explore_feed_new_update_prompt_secondary_button_text">Set it up for me</string>
     <string name="explore_feed_building_text">Let\'s build your feed…</string>
     <string name="explore_feed_community_tab_label">Community</string>
@@ -2496,7 +2497,7 @@
     <string name="explore_feed_featured_article_subtitle">Featured articles are some of the highest-quality articles on Wikipedia, selected daily by editors</string>
     <string name="explore_feed_preference_selection_screen_title">What would you like to see first?</string>
     <string name="explore_feed_preference_community_content_title">Community-related content</string>
-    <string name="explore_feed_preference_personalized_content_title">Personalized content </string>
+    <string name="explore_feed_preference_personalized_content_title">Personalized content</string>
     <string name="explore_feed_in_the_news_subtitle">Articles that have been substantially updated to reflect recent or current events of wide interest</string>
     <string name="explore_feed_on_this_day_subtitle">Discover historical events from this day</string>
     <string name="explore_feed_community_disclaimer">Content and resources selected by and about the Wikimedia community</string>
@@ -2508,8 +2509,11 @@
     <string name="explore_feed_personalized_preference_empty_state_text">You need to add interests to see personalized content recommendations. You can do this in the previous steps or later in Settings.</string>
     <string name="explore_feed_because_you_read">Because you read: %s</string>
     <string name="explore_feed_swipe_to_explore_prompt_title">Swipe to explore</string>
-    <string name="explore_feed_swipe_to_explore_prompt_message">Swipe down to navigate between topics, or swipe sideways to explore related content.</string>
-    <string name="home_feed_settings_title">Customize the Home feed</string>
+    <string name="explore_feed_swipe_to_explore_prompt_message">Swipe up to navigate between topics, or swipe sideways to explore related content.</string>
+    <string name="home_feed_settings_title">Customize your Home feed</string>
+    <string name="home_feed_settings_default_view_title">Default feed view</string>
+    <string name="home_feed_settings_default_view_subtitle">Choose which feed displays first when you open the app</string>
+    <string name="home_feed_settings_default_view_confirm">This change will apply the next time you open the app.</string>
     <string name="home_feed_settings_whats_driving_title">What\'s driving your feed</string>
     <string name="home_feed_settings_modules_title">Modules</string>
     <string name="home_feed_settings_community_subtitle">Turn on or off \"Community\" feed modules</string>
@@ -2559,9 +2563,23 @@
     <string name="home_feed_places_of_interest_cta_button">Go to Places</string>
     <string name="home_feed_settings_places_of_interest_title">Places of interest</string>
     <string name="home_feed_settings_places_of_interest_subtitle">Articles nearby your last location in Places</string>
+    <string name="home_feed_settings_games_title">Games</string>
+    <string name="home_feed_settings_games_subtitle">Daily games based on Wikipedia content</string>
+    <string name="home_feed_settings_discover_title">Discover recommendations</string>
+    <string name="home_feed_settings_discover_subtitle">Articles from your Discover reading list</string>
+    <string name="home_feed_discover_cta_title">From Discover</string>
+    <string name="home_feed_discover_cta_description">Learn about new topics, picked just for you. Choose between daily, weekly or monthly updates.</string>
+    <string name="home_feed_discover_cta_button">Enable Discover reading list</string>
+    <string name="home_feed_discover_card_footer">From Discover • Updates %s</string>
+    <string name="home_feed_discover_see_all_title">There\'s more to discover</string>
+    <string name="home_feed_discover_see_all_description">Your personalized reading list has more stories picked just for you.</string>
+    <string name="home_feed_discover_see_all_button">Explore all recommendations</string>
     <string name="home_feed_places_of_interest_card_footer">%1$s • Based on your location in Places</string>
     <string name="home_feed_for_you_screen_end_of_feed_title">That\'s it for today!</string>
     <string name="home_feed_for_you_screen_end_of_feed_description">Come back tomorrow to find fresh new articles customized for you.</string>
     <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Ways to keep learning:</string>
     <string name="home_feed_for_you_screen_end_of_feed_add_interests"><![CDATA[Add <a href="#add_interests">new interests</a>]]></string>
+    <string name="home_feed_games_module_cta_prompt_title">Want to play more games?</string>
+    <string name="home_feed_games_module_cta_prompt_subtitle">Go to the games hub</string>
+    <string name="home_feed_games_module_cta_prompt_button_text">Games hub</string>
 </resources>

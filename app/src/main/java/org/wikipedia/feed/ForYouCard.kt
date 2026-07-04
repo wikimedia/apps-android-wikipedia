@@ -1,5 +1,6 @@
 package org.wikipedia.feed
 
+import androidx.annotation.StringRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -78,7 +79,8 @@ fun ForYouCardContent(
     onSaveClick: (PageTitle) -> Unit = {},
     onHideCardClick: (module: ForYouModule, card: ForYouCard) -> Unit = { _, _ -> },
     onHideModuleClick: () -> Unit = {},
-    onCustomizeInterestsClick: () -> Unit = {}
+    @StringRes customizeMenuText: Int = R.string.explore_feed_customize_interests,
+    onCustomizeClick: () -> Unit = {}
 ) {
     val context = LocalContext.current
     var overflowMenuExpanded by remember { mutableStateOf(false) }
@@ -199,7 +201,8 @@ fun ForYouCardContent(
                                     }
                                 },
                                 onHideModuleClick = onHideModuleClick,
-                                onCustomizeInterestsClick = onCustomizeInterestsClick
+                                customizeMenuText = customizeMenuText,
+                                onCustomizeClick = onCustomizeClick
                             )
                         }
                     }
@@ -297,7 +300,8 @@ fun ForYouCardContent(
                                 }
                             },
                             onHideModuleClick = onHideModuleClick,
-                            onCustomizeInterestsClick = onCustomizeInterestsClick
+                            customizeMenuText = customizeMenuText,
+                            onCustomizeClick = onCustomizeClick
                         )
                     }
                     val text = if (variation == CardVariation.VARIATION_IMAGE_WITH_EXTRACT) (title.extract ?: title.description) else title.description
@@ -346,11 +350,12 @@ fun ForYouCardDropdownMenu(
     expanded: Boolean,
     wikiSite: WikiSite,
     onDismiss: () -> Unit = {},
-    onShareClick: () -> Unit = {},
-    onSaveClick: () -> Unit = {},
+    onShareClick: (() -> Unit)? = {},
+    onSaveClick: (() -> Unit)? = {},
     onHideCardClick: () -> Unit = {},
     onHideModuleClick: () -> Unit = {},
-    onCustomizeInterestsClick: () -> Unit
+    @StringRes customizeMenuText: Int = R.string.explore_feed_customize_interests,
+    onCustomizeClick: () -> Unit
 ) {
     val context = LocalContext.current
     DropdownMenu(
@@ -359,48 +364,54 @@ fun ForYouCardDropdownMenu(
         onDismissRequest = onDismiss,
         containerColor = WikipediaTheme.colors.paperColor
     ) {
-        DropdownMenuItem(
-            leadingIcon = {
-                Icon(
-                    painter = painterResource(R.drawable.ic_share),
-                    contentDescription = null,
-                    tint = WikipediaTheme.colors.secondaryColor,
-                    modifier = Modifier.size(24.dp)
-                )
-            },
-            text = {
-                Text(
-                    text = context.getString(wikiSite.languageCode, R.string.menu_page_article_share),
-                    style = MaterialTheme.typography.bodyLarge,
-                    color = WikipediaTheme.colors.primaryColor
-                )
-            },
-            onClick = {
-                onShareClick()
-                onDismiss()
-            }
-        )
-        DropdownMenuItem(
-            leadingIcon = {
-                Icon(
-                    painter = painterResource(R.drawable.ic_bookmark_border_white_24dp),
-                    contentDescription = null,
-                    tint = WikipediaTheme.colors.secondaryColor,
-                    modifier = Modifier.size(24.dp)
-                )
-            },
-            text = {
-                Text(
-                    text = context.getString(wikiSite.languageCode, R.string.menu_page_add_to_default_list),
-                    style = MaterialTheme.typography.bodyLarge,
-                    color = WikipediaTheme.colors.primaryColor
-                )
-            },
-            onClick = {
-                onSaveClick()
-                onDismiss()
-            }
-        )
+        if (onShareClick != null) {
+            DropdownMenuItem(
+                leadingIcon = {
+                    Icon(
+                        painter = painterResource(R.drawable.ic_share),
+                        contentDescription = null,
+                        tint = WikipediaTheme.colors.secondaryColor,
+                        modifier = Modifier.size(24.dp)
+                    )
+                },
+                text = {
+                    Text(
+                        text = context.getString(wikiSite.languageCode, R.string.menu_page_article_share),
+                        style = MaterialTheme.typography.bodyLarge,
+                        color = WikipediaTheme.colors.primaryColor
+                    )
+                },
+                onClick = {
+                    onShareClick()
+                    onDismiss()
+                }
+            )
+        }
+
+        if (onSaveClick != null) {
+            DropdownMenuItem(
+                leadingIcon = {
+                    Icon(
+                        painter = painterResource(R.drawable.ic_bookmark_border_white_24dp),
+                        contentDescription = null,
+                        tint = WikipediaTheme.colors.secondaryColor,
+                        modifier = Modifier.size(24.dp)
+                    )
+                },
+                text = {
+                    Text(
+                        text = context.getString(wikiSite.languageCode, R.string.menu_page_add_to_default_list),
+                        style = MaterialTheme.typography.bodyLarge,
+                        color = WikipediaTheme.colors.primaryColor
+                    )
+                },
+                onClick = {
+                    onSaveClick()
+                    onDismiss()
+                }
+            )
+        }
+
         DropdownMenuItem(
             leadingIcon = {
                 Icon(
@@ -454,13 +465,13 @@ fun ForYouCardDropdownMenu(
             },
             text = {
                 Text(
-                    text = context.getString(wikiSite.languageCode, R.string.explore_feed_customize_interests),
+                    text = context.getString(wikiSite.languageCode, customizeMenuText),
                     style = MaterialTheme.typography.bodyLarge,
                     color = WikipediaTheme.colors.primaryColor
                 )
             },
             onClick = {
-                onCustomizeInterestsClick()
+                onCustomizeClick()
                 onDismiss()
             }
         )
