@@ -433,7 +433,7 @@
   <string name="link_preview_dialog_share_button">Κοινοποίηση</string>
   <string name="link_preview_stub_placeholder_text">Αυτό το λήμμα είναι προς επέκταση, που σημαίνει ότι δεν υπάρχει αρκετό περιεχόμενο στο λήμμα για να δημιουργηθεί μια προεπισκόπηση. Ωστόσο, μπορείτε να το αλλάξετε αυτό.</string>
   <string name="error_page_does_not_exist">Αυτή η σελίδα δεν υπάρχει</string>
-  <string name="error_user_page_does_not_exist">Η Βικιπαίδεια δεν έχει &lt;a href=\"%1$s\"&gt;σελίδα χρήση&lt;/a&gt; με αυτό το ακριβές όνομα. Γενικά, αυτή η σελίδα θα πρέπει να δημιουργηθεί και να επεξεργαστεί από {{GENDER:%3$s|τον|την}} &lt;b&gt;&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s&lt;/b&gt;. Σε περίπτωση αμφιβολίας, επαληθεύστε ότι υπάρχει {{GENDER:%3$s|ο|η}} «%3$s».</string>
+  <string name="error_user_page_does_not_exist">Η Βικιπαίδεια δεν έχει &lt;a href=\"%1$s\"&gt;σελίδα χρήση&lt;/a&gt; με αυτό το ακριβές όνομα. Γενικά, αυτή η σελίδα θα πρέπει να δημιουργηθεί και να επεξεργαστεί από &lt;b&gt;&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s&lt;/b&gt;. Σε περίπτωση αμφιβολίας, επαληθεύστε ότι υπάρχει «%3$s».</string>
   <string name="view_wiki_error_message_offline">Δεν υπάρχει σύνδεση με το διαδίκτυο</string>
   <string name="view_wiki_error_message_timeout">Δεν είναι δυνατή η σύνδεση στη Βικιπαίδεια. Ελέγξτε τη σύνδεση σας ή δοκιμάστε ξανά αργότερα</string>
   <string name="reference_title">Παραπομπή %s</string>
