@@ -474,7 +474,7 @@ fun RandomArticleLargeWidget(
             modifier = GlanceModifier
                 .fillMaxSize()
                 .padding(horizontal = 16.dp, vertical = 12.dp)
-                .clickable(actionRunCallback<RandomizerAction>())
+                .clickable(actionRunCallback<RandomArticleWidgetAction>())
         ) {
             Row(
                 modifier = GlanceModifier.fillMaxWidth(),
@@ -502,7 +502,7 @@ fun RandomArticleLargeWidget(
                     text = context.getString(R.string.view_random_article_card_title),
                     backgroundColor = contentColor,
                     contentColor = backgroundColor,
-                    action = actionRunCallback<RandomizerAction>()
+                    action = actionRunCallback<RandomArticleWidgetAction>()
                 )
             }
         }

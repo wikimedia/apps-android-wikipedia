@@ -108,7 +108,7 @@ fun ReadingChallengeSmallWidgetContent(
                 modifier = GlanceModifier
                     .fillMaxSize()
                     .padding(vertical = 12.dp, horizontal = 16.dp)
-                    .clickable(onClick = actionRunCallback<RandomizerAction>()),
+                    .clickable(onClick = actionRunCallback<RandomArticleWidgetAction>()),
                 mainImageResId = combination.iconResId,
                 backgroundColor = combination.backgroundColor,
                 bottomContent = {
@@ -116,7 +116,7 @@ fun ReadingChallengeSmallWidgetContent(
                         text = context.getString(R.string.reading_challenge_widget_random_button),
                         backgroundColor = combination.contentColor,
                         contentColor = combination.backgroundColor,
-                        action = actionRunCallback<RandomizerAction>()
+                        action = actionRunCallback<RandomArticleWidgetAction>()
                     )
                 }
             )

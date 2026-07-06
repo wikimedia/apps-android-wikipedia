@@ -15,10 +15,7 @@ object ReadingChallengeAnalyticsHelper {
             ReadingChallengeState.NotLiveYet -> logHeartbeat(elementId = "not_yet_live")
             ReadingChallengeState.EnrolledNotStarted -> logHeartbeat(elementId = "enrolled_not_started")
             ReadingChallengeState.ChallengeRemoved -> logHeartbeat(elementId = "challenge_removed", includeStreak = true)
-            ReadingChallengeState.RandomArticle -> {
-                // @TODO: Add heartbeat for Random Article state when the widget is transitioned to it.
-                // @TODO: confirm instrument name, actionSource, and elementId for Random Article widget
-            }
+            ReadingChallengeState.RandomArticle -> logRandomArticleHeartbeat()
             else -> {}
         }
     }
@@ -29,6 +26,14 @@ object ReadingChallengeAnalyticsHelper {
             actionSource = "widget_challenge",
             elementId = elementId,
             actionContext = if (includeStreak) mapOf("streak_count" to Prefs.readingChallengeStreak) else null
+        )
+    }
+
+    private fun logRandomArticleHeartbeat() {
+        TestKitchenAdapter.client.getInstrument("apps-widget-random-article").submitInteraction(
+            action = "heartbeat",
+            actionSource = "widget_random_article",
+            elementId = "random_article"
         )
     }
 }
