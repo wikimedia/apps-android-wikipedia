@@ -127,7 +127,7 @@ class ReadingChallengeWidgetRepositoryTest {
     }
 
     @Test
-    fun `transitions to RandomArticle on day after END_DATE when incomplete streak is broken`() {
+    fun `return ChallengeConcludedIncomplete on day after END_DATE when streak is broken`() {
         val state = repository.resolveState(
             ReadingChallengeUserData(
                 currentDate = DAY_AFTER_END,
@@ -137,7 +137,8 @@ class ReadingChallengeWidgetRepositoryTest {
                 hasActiveStreak = false
             )
         )
-        TestCase.assertTrue(state is ReadingChallengeState.RandomArticle)
+        TestCase.assertTrue(state is ReadingChallengeState.ChallengeConcludedIncomplete)
+        TestCase.assertEquals(10, (state as ReadingChallengeState.ChallengeConcludedIncomplete).streak)
     }
 
     @Test
@@ -161,7 +162,7 @@ class ReadingChallengeWidgetRepositoryTest {
     }
 
     @Test
-    fun `transitions to RandomArticle when not enrolled past end date`() {
+    fun `returns ChallengeConcludedNoStreak when not enrolled past end date`() {
         val state = repository.resolveState(
             ReadingChallengeUserData(
                 currentDate = DAY_AFTER_END,
@@ -171,7 +172,7 @@ class ReadingChallengeWidgetRepositoryTest {
                 hasActiveStreak = false
             )
         )
-        TestCase.assertTrue(state is ReadingChallengeState.RandomArticle)
+        TestCase.assertTrue(state is ReadingChallengeState.ChallengeConcludedNoStreak)
     }
 
     @Test
@@ -294,7 +295,7 @@ class ReadingChallengeWidgetRepositoryTest {
             )
         )
         TestCase.assertFalse(state is ReadingChallengeState.EnrolledNotStarted)
-        TestCase.assertTrue(state is ReadingChallengeState.RandomArticle)
+        TestCase.assertTrue(state is ReadingChallengeState.ChallengeConcludedNoStreak)
     }
 
     // Streak Ongoing: Not Yet Read Today
@@ -403,6 +404,36 @@ class ReadingChallengeWidgetRepositoryTest {
         TestCase.assertTrue(state is ReadingChallengeState.RandomArticle)
     }
 
+    @Test
+    fun `new user installed after the challenge sees RandomArticle`() {
+        val state = repository.resolveState(
+            ReadingChallengeUserData(
+                currentDate = MID_CHALLENGE_DATE,
+                enabled = false,
+                currentStreak = 0,
+                hasReadToday = false,
+                hasActiveStreak = false,
+                isNewUser = true
+            )
+        )
+        TestCase.assertTrue(state is ReadingChallengeState.RandomArticle)
+    }
+
+    @Test
+    fun `existing not-enrolled user is NOT treated as a new user during the challenge`() {
+        val state = repository.resolveState(
+            ReadingChallengeUserData(
+                currentDate = MID_CHALLENGE_DATE,
+                enabled = false,
+                currentStreak = 0,
+                hasReadToday = false,
+                hasActiveStreak = false,
+                isNewUser = false
+            )
+        )
+        TestCase.assertTrue(state is ReadingChallengeState.NotEnrolled)
+    }
+
     // has read today test
     @Test
     fun `hasReadToday returns true when lastReadDate matches currentDate`() {
@@ -490,7 +521,7 @@ class ReadingChallengeWidgetRepositoryTest {
     }
 
     @Test
-    fun `broken streak on REMOVE_DATE itself transitions to RandomArticle`() {
+    fun `broken streak on REMOVE_DATE itself is concluded incomplete`() {
         val state = repository.resolveState(
             ReadingChallengeUserData(
                 currentDate = REMOVE_DATE,
@@ -500,7 +531,7 @@ class ReadingChallengeWidgetRepositoryTest {
                 hasActiveStreak = false
             )
         )
-        TestCase.assertTrue(state is ReadingChallengeState.RandomArticle)
+        TestCase.assertTrue(state is ReadingChallengeState.ChallengeConcludedIncomplete)
     }
 
     @Test
@@ -544,59 +575,6 @@ class ReadingChallengeWidgetRepositoryTest {
         repository.recalculateStreakIfNeeded(currentDate)
 
         TestCase.assertEquals(30, newCurrentStreak)
-    }
-
-    @Test
-    fun `enrolled zero streak with no-streak conclusion transitions to RandomArticle past end date`() {
-        val state = repository.resolveState(
-            ReadingChallengeUserData(
-                currentDate = AFTER_END_BEFORE_REMOVE_DATE,
-                enabled = true,
-                currentStreak = 0,
-                hasReadToday = false,
-                hasActiveStreak = false
-            )
-        )
-        TestCase.assertTrue(state is ReadingChallengeState.RandomArticle)
-    }
-
-    @Test
-    fun `active streak that lapses past end date transitions to RandomArticle`() {
-        val ongoing = repository.resolveState(
-            ReadingChallengeUserData(
-                currentDate = AFTER_END_BEFORE_REMOVE_DATE,
-                enabled = true,
-                currentStreak = 15,
-                hasReadToday = false,
-                hasActiveStreak = true
-            )
-        )
-        TestCase.assertTrue(ongoing is ReadingChallengeState.StreakOngoingNeedsReading)
-
-        val lapsed = repository.resolveState(
-            ReadingChallengeUserData(
-                currentDate = AFTER_END_BEFORE_REMOVE_DATE,
-                enabled = true,
-                currentStreak = 15,
-                hasReadToday = false,
-                hasActiveStreak = false
-            )
-        )
-        TestCase.assertTrue(lapsed is ReadingChallengeState.RandomArticle)
-    }
-
-    @Test
-    fun `completed user is not transitioned to RandomArticle before remove date`() {
-        val state = repository.resolveState(
-            ReadingChallengeUserData(
-                currentDate = AFTER_END_BEFORE_REMOVE_DATE,
-                enabled = true,
-                currentStreak = READING_STREAK_GOAL,
-                hasReadToday = false,
-                hasActiveStreak = false
-            )
-        )
-        TestCase.assertTrue(state is ReadingChallengeState.ChallengeCompleted)
     }
 
     companion object {

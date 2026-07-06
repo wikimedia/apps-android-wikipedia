@@ -13,9 +13,12 @@ import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.distinctUntilChanged
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.eventplatform.DailyStatsEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.settings.Prefs
+import java.time.Instant
 import java.time.LocalDate
+import java.time.ZoneId
 import java.time.temporal.ChronoUnit
 
 class ReadingChallengeWidgetRepository(private val context: Context) {
@@ -54,8 +57,13 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
     }
 
     fun resolveState(userData: ReadingChallengeUserData): ReadingChallengeState {
-        // After TRANSITION_DATE the widget will transition to Random widget
-        if (userData.currentDate.isAfter(TRANSITION_DATE)) {
+        // After REMOVE_DATE the widget will transition to Random widget
+        if (userData.currentDate.isAfter(REMOVE_DATE)) {
+            return ReadingChallengeState.RandomArticle
+        }
+
+        // New users will immediately go to the Random Article widget.
+        if (userData.isNewUser) {
             return ReadingChallengeState.RandomArticle
         }
 
@@ -64,26 +72,28 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
         }
 
         if (!userData.enabled) {
-            // Past end date and never enrolled: transitions straight to Random Article
+            // Past end date and never enrolled treat as concluded with no streak
             if (userData.currentDate.isAfter(END_DATE)) {
-                return ReadingChallengeState.RandomArticle
+                return ReadingChallengeState.ChallengeConcludedNoStreak
             }
             return ReadingChallengeState.NotEnrolled
         }
 
         // From this point onward, user is enrolled
 
-        // Success State, once user is enrolled we check immediately to bypass other conditions if they finish on time.
-        // Completed users can collect their prize until TRANSITION_DATE
+        // Success State, once user is enrolled we check immediately to bypass other conditions if they finish on time
         if (userData.currentStreak >= READING_STREAK_GOAL) {
             return ReadingChallengeState.ChallengeCompleted
         }
 
-        // Past end date with a broken streak challenge is concluded and cannot restart, so the
-        // incomplete/no-streak users transition immediately to the Random Article widget.
+        // Past end date with a broken streak — challenge is concluded and cannot restart.
         // Active streaks past end date fall through and continue toward completion (buffer period)
         if (userData.currentDate.isAfter(END_DATE) && !userData.hasActiveStreak) {
-            return ReadingChallengeState.RandomArticle
+            return if (userData.currentStreak > 0) {
+                ReadingChallengeState.ChallengeConcludedIncomplete(userData.currentStreak) // streak did not hit 25, but they did have a streak
+            } else {
+                ReadingChallengeState.ChallengeConcludedNoStreak // no streak at all
+            }
         }
 
         // no article read since enrollment
@@ -107,9 +117,17 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
                 enabled = Prefs.readingChallengeEnrolled,
                 currentStreak = Prefs.readingChallengeStreak,
                 hasReadToday = hasReadToday(currentDate),
-                hasActiveStreak = hasActiveStreak(currentDate)
+                hasActiveStreak = hasActiveStreak(currentDate),
+                isNewUser = isNewUser()
             )
         )
+    }
+
+    fun isNewUser(): Boolean {
+        val installDate = Instant.ofEpochMilli(DailyStatsEvent.getInstallTime(context))
+            .atZone(ZoneId.systemDefault())
+            .toLocalDate()
+        return installDate.isAfter(END_DATE)
     }
 
     fun hasActiveStreak(currentDate: LocalDate): Boolean {
@@ -137,7 +155,7 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
         ReadingChallengeWidget().updateAll(context)
     }
     suspend fun updateOnArticleRead(currentDate: LocalDate) {
-        if (currentDate.isBefore(START_DATE) || currentDate.isAfter(TRANSITION_DATE)) return
+        if (currentDate.isBefore(START_DATE) || currentDate.isAfter(REMOVE_DATE)) return
         if (Prefs.readingChallengeStreak >= READING_STREAK_GOAL) return
 
         // after end date but streak is not active
@@ -158,7 +176,7 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
         const val READING_CHALLENGE_START_DATE = "2026-05-11"
         val START_DATE get() = LocalDate.parse(Prefs.readingChallengeStartDate.ifEmpty { READING_CHALLENGE_START_DATE })
         val END_DATE get() = LocalDate.parse(Prefs.readingChallengeEndDate.ifEmpty { READING_CHALLENGE_END_DATE })
-        private val TRANSITION_DATE = LocalDate.of(2026, 7, 28)
+        private val REMOVE_DATE = LocalDate.of(2026, 7, 28)
 
         private val isChallengeActive: Boolean
             get() = !LocalDate.now().isBefore(START_DATE) && !LocalDate.now().isAfter(END_DATE)

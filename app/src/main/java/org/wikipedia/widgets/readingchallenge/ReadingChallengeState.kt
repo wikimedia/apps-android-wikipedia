@@ -41,5 +41,6 @@ data class ReadingChallengeUserData(
     val enabled: Boolean,
     val currentStreak: Int,
     val hasReadToday: Boolean,
-    val hasActiveStreak: Boolean
+    val hasActiveStreak: Boolean,
+    val isNewUser: Boolean = false
 )
