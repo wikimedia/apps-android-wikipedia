@@ -106,7 +106,7 @@
   <string name="preference_title_language">Википедин меттанаш</string>
   <string name="langlinks_filter_hint">Лахар</string>
   <string name="langlinks_empty">ХӀара агӀо кхечу меттанашкахь тӀекхочуш йац.</string>
-  <string name="langlinks_no_match">Меттанаш цакарий</string>
+  <string name="langlinks_no_match">Меттанаш ца карийна</string>
   <string name="langlinks_activity_title">Кхин меттанаш</string>
   <string name="langlinks_your_wikipedia_languages">Википедин хьан меттанаш</string>
   <string name="menu_save_changes">Хийцамаш дӀаӀалашбан</string>
