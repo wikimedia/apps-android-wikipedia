@@ -8,6 +8,7 @@
 * Nirajan pant
 * Nirjal stha
 * Parbat subedi
+* Pratik11
 * Suniltheblue
 * पर्वत सुबेदी
 * बडा काजी
@@ -1011,4 +1012,10 @@
   <string name="donation_reminders_settings_learn_more_button">थप जान्नुहोस्</string>
   <string name="donation_reminders_settings_report_button">सुविधामा समस्या छ</string>
   <string name="donation_reminders_snackbar_modify_button_label">परिमार्जन गर्नुहोस्</string>
+  <string name="home_feed_settings_default_view_confirm">यो परिवर्तन तपाईंले अर्को पटक एप खोल्दा लागू हुनेछ।</string>
+  <string name="home_feed_settings_games_title">खेलहरू</string>
+  <string name="home_feed_settings_games_subtitle">विकिपिडिया सामग्रीमा आधारित दैनिक खेलहरू</string>
+  <string name="home_feed_games_module_cta_prompt_title">थप खेलहरू खेल्न चाहनुहुन्छ?</string>
+  <string name="home_feed_games_module_cta_prompt_subtitle">खेल केन्द्रमा जानुहोस्</string>
+  <string name="home_feed_games_module_cta_prompt_button_text">खेल हब</string>
 </resources>

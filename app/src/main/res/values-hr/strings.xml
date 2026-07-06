@@ -265,6 +265,7 @@
   <string name="about_app_license">Izvorni kôd dostupan je na &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubu&lt;/a&gt; pod licencijom &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Ako nije drugačije navedeno, sadržaj je dostupan pod licencijom &lt;a href=\" &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Proizvod &lt;a href=\"https://wikimediafoundation.org/\"&gt;Zaklade Wikimedija&lt;/a&gt;</string>
   <string name="about_activity_title">O</string>
+  <string name="about_logo_content_description">Globus od slagalica, logotip Wikipedije</string>
   <string name="edit_abandon_confirm">Stranica je promijenjena. Jeste li sigurni da želite izaći bez spremanja promjena?</string>
   <string name="edit_abandon_confirm_yes">Da</string>
   <string name="edit_abandon_confirm_no">Ne</string>
@@ -277,7 +278,10 @@
   <string name="edit_preview">Pregled</string>
   <string name="edit_undo">Vrati</string>
   <string name="edit_redo">Ponovi</string>
+  <string name="edit_rollback">Ukloni</string>
   <string name="edit_warn">Upozori</string>
+  <string name="edit_damage">Šteta: %s</string>
+  <string name="edit_intent">Namjera: %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s bajt</item>
     <item quantity="few">%s bajta</item>
@@ -439,6 +443,8 @@
   <string name="temp_account_anon_ip_edit_status">&lt;b&gt;Niste prijavljeni.&lt;/b&gt; Kad napravite izmjenu, vaše izmjene pripisat će se vašoj IP adresi.</string>
   <string name="temp_account_anon_edit_status">&lt;b&gt;Niste prijavljeni.&lt;/b&gt; Kad napravite izmjenu, dodijelit će vam se privremeni račun radi zaštite vaših privatnih podataka. &lt;a href=\"%1$s\"&gt;Saznajte više&lt;/a&gt;</string>
   <string name="temp_account_edit_status">&lt;b&gt;Služite se privremenim računom.&lt;/b&gt; Vaše izmjene pripisat će se računu %1$s. &lt;a href=\"%2$s\"&gt;Saznajte više&lt;/a&gt;.</string>
+  <string name="temp_account_login_status">&lt;b&gt;Služite se privremenim računom.&lt;/b&gt; Kad se prijavite, izmjene koje ste napravili koristeći se privremenim računom %1$s neće se pripisati vašem trajnom računu. Prijavite se ili registrirajte kako bi vam se pripisale zasluge za izmjene i kako biste pristupili ostalim pogodnostima.</string>
+  <string name="temp_account_end_session_confirm">Odjavit ćete se iz privremenog računa. Želite li nastaviti?</string>
   <string name="crash_report_activity_title">Pogreška aplikacije</string>
   <string name="crash_report_relaunch_or_quit">Žao nam je, ali aplikacija Wikipedija je prekinuta.\n\nŽelite li početi ponovno ili prekinuti?</string>
   <string name="crash_report_relaunch">Počni ponovno</string>
@@ -469,6 +475,7 @@
   <string name="editing_syntax_highlight_label">Isticanje sintakse</string>
   <string name="editing_line_numbers_label">Prikaži brojeve redova</string>
   <string name="editing_monospace_font_label">Rabi neproporcionalni font</string>
+  <string name="editing_typing_suggestions">Prikaži prijedloge pri tipkanju</string>
   <string name="nav_item_saved">Spremljeno</string>
   <string name="reading_list_save_to">Dodaj na popis za čitanje</string>
   <string name="reading_list_move_to">Premjesti na popis za čitanje</string>
@@ -543,9 +550,20 @@
   <string name="no_user_lists_msg">Stvorite popise za mjesta koja želite posjetiti, omiljene teme i više toga</string>
   <string name="reading_list_saved_list_rename">%1$s (stvorio korisnik)</string>
   <string name="reading_lists_menu_create_list">Stvori novi popis</string>
+  <string name="reading_lists_menu_import_list">Uvezi popis</string>
   <string name="reading_lists_menu_sort_by">Poredaj po</string>
   <string name="reading_lists_refresh_sync_option">Osvježi sinkronizaciju</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Prijava / registracija</string>
+  <plurals name="reading_list_article_offline_message">
+    <item quantity="one">Ovaj će članak odsad biti dostupan izvan mreže.</item>
+    <item quantity="few">Ovi će članci odsad biti dostupni izvan mreže.</item>
+    <item quantity="other">Ovi će članci odsad biti dostupni izvan mreže.</item>
+  </plurals>
+  <plurals name="reading_list_article_not_offline_message">
+    <item quantity="one">Ovaj članak više neće biti dostupan izvan mreže.</item>
+    <item quantity="few">Ovi članci više neće biti dostupni izvan mreže.</item>
+    <item quantity="other">Ovi članci više neće biti dostupni izvan mreže.</item>
+  </plurals>
   <string name="reading_list_menu_last_sync">Posljednja sinkronizacija: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">U redu</string>
   <string name="reading_list_delete_dialog_ok_button_text">U redu</string>
@@ -555,8 +573,16 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Odustani</string>
   <string name="reading_list_split_dialog_ok_button_text">U redu</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">Izbriši</string>
+  <string name="reading_list_activity_title">Popis za čitanje: %s</string>
+  <string name="reading_list_notification_title">Uspješno ste izvezli popis(e) za čitanje</string>
+  <string name="reading_list_notification_detailed_text">Popisi za čitanje izvezeni su u \'reading_lists_export.json\'</string>
   <string name="reading_lists_action_menu_export_lists">Izvoz</string>
+  <string name="reading_lists_import_file_picker_title">Izaberite datoteku za uvoz</string>
+  <string name="reading_lists_import_failure_message">Uvoz popisa za čitanje nije uspio</string>
+  <string name="reading_lists_export_select_lists_message">Izaberite popis(e) za uvoz</string>
+  <string name="reading_lists_export_completed_message">Uspješno ste izvezli popis(e) za čitanje</string>
   <string name="reading_lists_preview_save_dialog_title">Sačuvaj popis</string>
+  <string name="reading_lists_preview_save_dialog_text">Naslovite popis i izaberite članke koje želite spremiti.</string>
   <string name="reading_lists_preview_save_dialog_title_hint">Naslov</string>
   <string name="reading_lists_preview_save_dialog_cancel">Odustani</string>
   <string name="reading_lists_preview_saved_snackbar_action">Prikaži</string>
@@ -626,6 +652,7 @@
   <string name="preference_category_display_settings">Postavke prikaza</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">Wikipedija</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">Obavijesti s Wikipedije</string>
+  <string name="notifications_tab_filter_mentions">Spominjanja</string>
   <string name="notifications_menu_mark_as_read">Označi kao pročitano</string>
   <string name="notifications_menu_mark_as_unread">Označi kao nepročitano</string>
   <string name="notifications_swipe_action_read">Pročitano</string>
@@ -682,6 +709,7 @@
   <string name="feed_lang_selection_dialog_ok_button_text">U redu</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Odustani</string>
   <string name="feed_accessibility_card_load_more_button">Učitaj više</string>
+  <string name="feed_language_variants_removal_secondary_dialog_title">Ažurirajte svoje sporedne jezike</string>
   <string name="description_edit_text_hint">Opis članka</string>
   <string name="description_edit_article_description_label">Članak</string>
   <string name="description_edit_translate_article_description_label_per_language">Opis članka (%s)</string>
@@ -710,6 +738,7 @@
   <string name="description_too_short">Tekst je prekratak.</string>
   <string name="description_ends_with_punctuation">Tekst ne smije završavati interpunkcijskim znakom.</string>
   <string name="description_starts_with_uppercase">Počnite pisati malim slovima osim ako je prva riječ vlastita imenica.</string>
+  <string name="description_is_in_different_language">Čini se da je tekst napisan na neočekivanom jeziku. Jezik bi trebao biti %s.</string>
   <string name="description_edit_success_saved">Objavljen opis članka!</string>
   <string name="description_edit_success_saved_snackbar">Objavljen opis članka!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Objavljen opis članka! (%s)</string>

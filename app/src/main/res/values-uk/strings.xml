@@ -2613,6 +2613,7 @@
   <string name="home_feed_settings_title">Налаштуйте свою головну стрічку</string>
   <string name="home_feed_settings_default_view_title">Стандартний вигляд стрічки</string>
   <string name="home_feed_settings_default_view_subtitle">Виберіть, яку стрічку відображати першою під час відкриття програми</string>
+  <string name="home_feed_settings_default_view_confirm">Ця зміна набуде чинності наступного разу, коли ви відкриєте програмку.</string>
   <string name="home_feed_settings_whats_driving_title">Що впливає на вашу стрічку</string>
   <string name="home_feed_settings_modules_title">Модулі</string>
   <string name="home_feed_settings_community_subtitle">Увімкнути чи вимкнути модулі стрічки «Спільнота»</string>
@@ -2662,10 +2663,23 @@
   <string name="home_feed_places_of_interest_cta_button">Перейти до Місць</string>
   <string name="home_feed_settings_places_of_interest_title">Цікаві місця</string>
   <string name="home_feed_settings_places_of_interest_subtitle">Статті поблизу вашого останнього розташування в Місцях</string>
+  <string name="home_feed_settings_games_title">Ігри</string>
+  <string name="home_feed_settings_games_subtitle">Щоденні ігри на основі контенту Вікіпедії</string>
   <string name="home_feed_settings_discover_title">Відкрийте для себе рекомендації</string>
+  <string name="home_feed_settings_discover_subtitle">Статті з вашого списку читання в «Дослідити»</string>
+  <string name="home_feed_discover_cta_title">З «Дослідити»</string>
+  <string name="home_feed_discover_cta_description">Дізнавайтеся про нові теми, підібрані спеціально для вас. Вибирайте щоденні, щотижневі або щомісячні оновлення.</string>
+  <string name="home_feed_discover_cta_button">Увімкнути рекомендований список читання</string>
+  <string name="home_feed_discover_card_footer">З «Дослідити» • Оновлення %s</string>
+  <string name="home_feed_discover_see_all_title">Ще є що відкрити</string>
+  <string name="home_feed_discover_see_all_description">У вашому персоналізованому списку читання є більше історій, підібраних спеціально для вас.</string>
+  <string name="home_feed_discover_see_all_button">Переглянути всі рекомендації</string>
   <string name="home_feed_places_of_interest_card_footer">%1$s • На основі вашого розташування в Місцях</string>
   <string name="home_feed_for_you_screen_end_of_feed_title">На сьогодні все!</string>
   <string name="home_feed_for_you_screen_end_of_feed_description">Заходьте завтра, щоб знайти нові статті, підготовлені спеціально для вас.</string>
   <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Способи продовження навчання:</string>
   <string name="home_feed_for_you_screen_end_of_feed_add_interests">Додайте &lt;a href=\"#add_interests\"&gt;нові інтереси&lt;/a&gt;</string>
+  <string name="home_feed_games_module_cta_prompt_title">Хочете зіграти більше ігор?</string>
+  <string name="home_feed_games_module_cta_prompt_subtitle">Перейдіть до хабу ігор</string>
+  <string name="home_feed_games_module_cta_prompt_button_text">Хаб ігор</string>
 </resources>
