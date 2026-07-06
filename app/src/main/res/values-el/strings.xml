@@ -193,6 +193,9 @@
   <string name="logged_out_in_background_dialog">Αποσυνδεθήκατε από τη Βικιπαίδεια. Θέλετε να συνδεθείτε ξανά;</string>
   <string name="logged_out_in_background_login">Σύνδεση</string>
   <string name="logged_out_in_background_cancel">Ακύρωση</string>
+  <string name="account_vanish_request_title">Εξαφάνιση λογαριασμού</string>
+  <string name="account_vanish_request_confirm_title">Προειδοποίηση εξαφάνισης λογαριασμού</string>
+  <string name="account_vanish_request_confirm">Η εξαφάνιση είναι η &lt;b&gt;έσχατη λύση&lt;/b&gt; και θα πρέπει &lt;b&gt;να χρησιμοποιείται μόνο όταν θέλετε να σταματήσετε την επεξεργασία για πάντα&lt;/b&gt; και επίσης να αποκρύψετε όσο το δυνατόν περισσότερες από τις προηγούμενες συσχετίσεις σας.&lt;br/&gt;&lt;br/&gt; Η διαγραφή λογαριασμού στη Wikipedia γίνεται αλλάζοντας το όνομα του λογαριασμού σας, ώστε άλλοι να μην μπορούν να αναγνωρίσουν τις συνεισφορές σας, με μια διαδικασία που ονομάζεται εξαφάνιση λογαριασμού. &lt;b&gt;Η εξαφάνιση δεν εγγυάται πλήρη ανωνυμία ούτε την κατάργηση συνεισφορών στα έργα&lt;/b&gt; .</string>
   <string name="history_empty_title">Δεν υπάρχουν πρόσφατες σελίδες εδώ.</string>
   <string name="history_empty_message">Ιχνηλατήστε τι έχετε διαβάσει εδώ.</string>
   <string name="history_offline_articles_toast">Μερικά λήμματα στο ιστορικό μπορεί να μην είναι προσβάσιμα όταν είστε εκτός σύνδεσης.</string>
@@ -252,11 +255,13 @@
   <string name="page_protected_can_not_edit_anon">Λυπούμαστε, σε αυτή η σελίδα δεν μπορεί να γίνει ανώνυμη επεξεργασία επί του παρόντος.</string>
   <string name="page_protected_can_not_edit_title">Αυτή η σελίδα είναι προστατευμένη</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Προσθήκη στη Λίστα Παρακολούθησης</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Παρακολουθήστε τι συμβαίνει με τα λήμματα που σας ενδιαφέρουν. Πατήστε το μενού επέκτασης και επιλέξτε &lt;b&gt;Προσθήκη στη λίστα παρακολούθησης&lt;/b&gt; για να δείτε τις αλλαγές σε ένα λήμμα.</string>
   <string name="settings_item_preferences">Ρυθμίσεις</string>
   <string name="settings_activity_title">Ρυθμίσεις</string>
   <string name="about_description">Σχετικά με την εφαρμογή της Βικιπαίδειας</string>
   <string name="privacy_policy_description">Πολιτική ιδιωτικότητας</string>
   <string name="terms_of_use_description">Όροι χρήσης</string>
+  <string name="legal_safety_contacts_description">Επαφές για νομικά θέματα και θέματα ασφαλείας</string>
   <string name="about_wikipedia_url">https://el.wikipedia.org/wiki/Βικιπαίδεια:Σχετικά</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
@@ -426,7 +431,9 @@
   <string name="link_preview_dialog_save_button">Αποθήκευση</string>
   <string name="link_preview_dialog_saved_button">Αποθηκεύτηκε</string>
   <string name="link_preview_dialog_share_button">Κοινοποίηση</string>
+  <string name="link_preview_stub_placeholder_text">Αυτό το λήμμα είναι προς επέκταση, που σημαίνει ότι δεν υπάρχει αρκετό περιεχόμενο στο λήμμα για να δημιουργηθεί μια προεπισκόπηση. Ωστόσο, μπορείτε να το αλλάξετε αυτό.</string>
   <string name="error_page_does_not_exist">Αυτή η σελίδα δεν υπάρχει</string>
+  <string name="error_user_page_does_not_exist">Η Βικιπαίδεια δεν έχει &lt;a href=\"%1$s\"&gt;σελίδα χρήση&lt;/a&gt; με αυτό το ακριβές όνομα. Γενικά, αυτή η σελίδα θα πρέπει να δημιουργηθεί και να επεξεργαστεί από &lt;b&gt;&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s&lt;/b&gt;. Σε περίπτωση αμφιβολίας, επαληθεύστε ότι υπάρχει «%3$s».</string>
   <string name="view_wiki_error_message_offline">Δεν υπάρχει σύνδεση με το διαδίκτυο</string>
   <string name="view_wiki_error_message_timeout">Δεν είναι δυνατή η σύνδεση στη Βικιπαίδεια. Ελέγξτε τη σύνδεση σας ή δοκιμάστε ξανά αργότερα</string>
   <string name="reference_title">Παραπομπή %s</string>
@@ -455,6 +462,15 @@
   <string name="temp_account_dialog_ok">Κατάλαβα</string>
   <string name="temp_account_using_title">Χρησιμοποιείτε έναν προσωρινό λογαριασμό</string>
   <string name="temp_account_dialog_discard">Απόρριψη αλλαγών και σύνδεση</string>
+  <plurals name="temp_account_created">
+    <item quantity="one">Ο προσωρινός λογαριασμός %1$s δημιουργήθηκε μετά τη δημοσίευση της επεξεργασίας σας. Θα λήξει σε μία ημέρα.</item>
+    <item quantity="other">Ο προσωρινός λογαριασμός %1$s δημιουργήθηκε μετά τη δημοσίευση της επεξεργασίας σας. Θα λήξει σε %2$d ημέρες.</item>
+  </plurals>
+  <plurals name="temp_account_expiry">
+    <item quantity="one">Ο λογαριασμός θα λήξει σε μία ημέρα.</item>
+    <item quantity="other">Ο λογαριασμός θα λήξει σε %d ημέρες.</item>
+  </plurals>
+  <string name="temp_account_anon_ip_edit_status">&lt;b&gt;Δεν έχετε συνδεθεί.&lt;/b&gt; Μόλις κάνετε μια επεξεργασία, η διεύθυνση IP σας θα συσχετιστεί με τις επεξεργασίες σας.</string>
   <string name="temp_account_end_session">Λήξη συνεδρίας</string>
   <string name="crash_report_activity_title">Σφάλμα εφαρμογής</string>
   <string name="crash_report_relaunch_or_quit">Λυπούμαστε, η εφαρμογή Βικιπαίδεια αντιμετώπισε σφάλμα και τερματίστηκε.\n\nΘέλετε να ξεκινήσετε ξανά ή να σταματήσετε;</string>

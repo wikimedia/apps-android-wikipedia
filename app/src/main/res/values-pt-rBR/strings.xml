@@ -600,7 +600,7 @@
     <item quantity="one">%d artigo removido da lista</item>
     <item quantity="other">%d artigos removidos da lista</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+  <plurals name="reading_list_articles_deleted_from_list">
     <item quantity="one">%1$d artigo removido de %2$s</item>
     <item quantity="other">%1$d artigos removidos de %2$s</item>
   </plurals>
@@ -2282,6 +2282,7 @@
   <string name="home_feed_settings_title">Personalize seu feed inicial</string>
   <string name="home_feed_settings_default_view_title">Visualização padrão do feed</string>
   <string name="home_feed_settings_default_view_subtitle">Escolha qual feed será exibido primeiro ao abrir o aplicativo</string>
+  <string name="home_feed_settings_default_view_confirm">Essa alteração entrará em vigor na próxima vez que você abrir o aplicativo.</string>
   <string name="home_feed_settings_whats_driving_title">O que está aparecendo no seu feed</string>
   <string name="home_feed_settings_modules_title">Módulos</string>
   <string name="home_feed_settings_community_subtitle">Ativar ou desativar os módulos do feed \"Comunidade\"</string>
@@ -2331,6 +2332,8 @@
   <string name="home_feed_places_of_interest_cta_button">Ir para Locais</string>
   <string name="home_feed_settings_places_of_interest_title">Lugares de interesse</string>
   <string name="home_feed_settings_places_of_interest_subtitle">Artigos próximos à sua última localização nos Locais</string>
+  <string name="home_feed_settings_games_title">Jogos</string>
+  <string name="home_feed_settings_games_subtitle">Jogos diários baseados no conteúdo da Wikipédia</string>
   <string name="home_feed_settings_discover_title">Descubra as recomendações</string>
   <string name="home_feed_settings_discover_subtitle">Artigos da sua lista de leitura do Descobrir</string>
   <string name="home_feed_discover_cta_title">Do Descobrir</string>
@@ -2345,4 +2348,7 @@
   <string name="home_feed_for_you_screen_end_of_feed_description">Volte amanhã para encontrar novos artigos personalizados para você.</string>
   <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Formas de continuar aprendendo:</string>
   <string name="home_feed_for_you_screen_end_of_feed_add_interests">Adicionar &lt;a href=\"#add_interests\"&gt;novos interesses&lt;/a&gt;</string>
+  <string name="home_feed_games_module_cta_prompt_title">Quer jogar mais jogos?</string>
+  <string name="home_feed_games_module_cta_prompt_subtitle">Acesse a central de jogos</string>
+  <string name="home_feed_games_module_cta_prompt_button_text">Central de jogos</string>
 </resources>

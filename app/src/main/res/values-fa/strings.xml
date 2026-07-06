@@ -173,8 +173,8 @@
   <string name="dialog_message_edit_failed_retry">تلاش دوباره</string>
   <string name="dialog_message_edit_failed_cancel">انصراف</string>
   <string name="dialog_message_leaving_edit">ویرایش شما هنوز ذخیره نشده است. آیا واقعاً می‌خواهید از این صفحه خارج شوید؟</string>
-  <string name="dialog_message_leaving_edit_leave">ترک‌کردن</string>
-  <string name="dialog_message_leaving_edit_stay">ماندن</string>
+  <string name="dialog_message_leaving_edit_leave">برو</string>
+  <string name="dialog_message_leaving_edit_stay">بمان</string>
   <string name="dialog_confirm_delete_donation_history_title">تأیید حذف</string>
   <string name="dialog_confirm_delete_donation_history_message">این فقط بر کمک‌های اعطا شده از روی همین دستگاه اعمال می‌شود.</string>
   <string name="dialog_confirm_delete_donation_history_delete">حذف</string>
@@ -185,7 +185,7 @@
   <string name="search_reading_lists_no_results">نتیجه‌ای در فهرست مطالعه یافت نشد</string>
   <string name="search_history_no_results">نتیجه‌ای در تاریخچه یافت نشد</string>
   <string name="edit_section_captcha_message">برای محافظت در برابر اسپم لطفاً کلمات زیر را وارد کنید</string>
-  <string name="edit_section_captcha_request_an_account_message">تصویر را نمی‌توانید ببینید؟ &lt;a href=\"https://fa.wikipedia.org/wiki/ویکی‌پدیا:درخواست ایجاد حساب کاربری\"&gt;درخواست یک حساب&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">تصویر را نمی‌توانید ببینید؟ &lt;a href=\"https://fa.wikipedia.org/wiki/ویکی‌پدیا:درخواست یک حساب\"&gt;درخواست یک حساب&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">کلمات بالا را تکرار کنید</string>
   <string name="title_captcha">کپچا را وارد کنید</string>
   <string name="edit_section_captcha_reload">بر روی کپچا با انگشت بزنید تا تغییر کند</string>
@@ -207,11 +207,11 @@
   <string name="login_in_progress_dialog_message">در حال ورود به سامانه…</string>
   <string name="login_success_toast">وارد شدید!</string>
   <string name="reset_password_title">تنظیم رمز عبورتان</string>
-  <string name="reset_password_description">با رمز عبور موقت به سامانه وارد شدید. برای ورود مجدد رمز عبور جدید انتخاب کنید.</string>
+  <string name="reset_password_description">شما با یک گذرواژه موقت وارد سیستم شده‌اید. برای تکمیل ورود به سیستم، لطفاً گذرواژه جدید خود را اینجا تنظیم کنید.</string>
   <string name="reset_password_hint">رمز عبور جدید</string>
   <string name="reset_password_button">ذخیره و ورود به سامانه</string>
   <string name="preference_title_logout">خروج از سامانه</string>
-  <string name="toast_logout_complete">خارج شد</string>
+  <string name="toast_logout_complete">خارج شدید</string>
   <string name="logout_prompt">با این کار در همهٔ دستگاه‌هایی که با آنها به ویکی وارد شده‌اید، خارج می‌شوید. آیا همچنان می‌خواهید ادامه دهید؟</string>
   <string name="logout_dialog_cancel_button_text">انصراف</string>
   <string name="logged_out_in_background_title">خارج شدید</string>
@@ -220,6 +220,7 @@
   <string name="logged_out_in_background_cancel">انصراف</string>
   <string name="account_vanish_request_title">حذف حساب</string>
   <string name="account_vanish_request_confirm_title">هشدار حذف حساب</string>
+  <string name="account_vanish_request_confirm">ناپدیدسازی &lt;b&gt;آخرین راه‌حل&lt;/b&gt; است و &lt;b&gt;فقط زمانی باید از آن استفاده شود که می‌خواهید ویرایش را برای همیشه متوقف کنید&lt;/b&gt; و همچنین تا حد امکان ارتباطات گذشته خود را پنهان کنید.&lt;br/&gt;&lt;br/&gt;حذف حساب کاربری در ویکی‌پدیا با تغییر نام حساب کاربری شما انجام می‌شود تا دیگران نتوانند مشارکت‌های شما را در فرآیندی به نام حذف حساب کاربری تشخیص دهند. &lt;b&gt;حذف حساب کاربری، ناشناس بودن کامل یا حذف مشارکت‌ها در پروژه‌ها را تضمین نمی‌کند&lt;/b&gt;.</string>
   <string name="history_empty_title">اخیراً هیچ مقاله‌ای دیده نشده است</string>
   <string name="history_empty_message">پیگیری مواردی که قبلاً مطالعه کردید.</string>
   <string name="history_offline_articles_toast">برخی از مقالات در تاریخچه ممکن است در حالت آفلاین دیده نشوند.</string>
@@ -246,7 +247,7 @@
   <string name="email_recommendation_dialog_title">حساب بدون ایمیل ساخته شود؟</string>
   <string name="email_recommendation_dialog_message">هرچند که آدرس ایمیل اختیاری است، &lt;b&gt;به شدت توصیه&lt;/b&gt; می‌شود که آدرس ایمیل را وارد کنید. این آدرس برای بازیابی حساب در هنگام فراموشی رمز عبور لازم خواهد بود.</string>
   <string name="email_recommendation_message">نظر به اینکه برای بازیابی حساب کاربری لازم است توصیه می‌شود.</string>
-  <string name="email_recommendation_dialog_create_without_email_action">بدون ایمیل ادامه دهید</string>
+  <string name="email_recommendation_dialog_create_without_email_action">ادامه بدون ایمیل</string>
   <string name="email_recommendation_dialog_create_with_email_action">افزودن یک آدرس ایمیل</string>
   <string name="create_account_button">ایجاد حساب</string>
   <string name="create_account_name_unavailable">نام کاربری «%s» در دسترس نیست. لطفاً نام دیگری را انتخاب کنید.</string>
@@ -259,10 +260,10 @@
   <string name="send_feedback">ارسال بازخورد برنامه</string>
   <string name="create_account_account_created_toast">حساب ایجاد شد!</string>
   <string name="preferences_heading_syncing">همگام‌سازی</string>
-  <string name="preferences_heading_data_usage">مصرف دیتا</string>
+  <string name="preferences_heading_data_usage">مصرف داده</string>
   <string name="preferences_heading_experimental">آزمایشی</string>
   <string name="preference_title_sync_reading_lists_from_account">همگام‌سازی فهرست مطالعه</string>
-  <string name="preference_title_download_reading_list_articles">دانلود مقالات فهرست مطالعه</string>
+  <string name="preference_title_download_reading_list_articles">بارگیری مقالات فهرست مطالعه</string>
   <string name="preference_summary_sync_reading_lists">همگام‌سازی فهرست مطالعه بین چند دستگاه متفاوت با ذخیرهٔ آنها در حساب ویکی‌پدیا</string>
   <string name="preference_summary_sync_reading_lists_from_account">همگام‌سازی فهرست مطالعه بین چند دستگاه متفاوت با ذخیرهٔ آنها در حساب «%s» در ویکی‌پدیا</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">فهرست‌های مطالعهٔ همگام‌سازی‌شده از «%s» حذف شوند؟</string>
@@ -283,7 +284,7 @@
   <string name="settings_item_preferences">تنظیمات</string>
   <string name="settings_activity_title">تنظیمات</string>
   <string name="about_description">دربارهٔ برنامه ویکی‌پدیا</string>
-  <string name="privacy_policy_description">سیاست حفظ حریم خصوصی</string>
+  <string name="privacy_policy_description">سیاست محرمانگی</string>
   <string name="terms_of_use_description">شرایط استفاده</string>
   <string name="legal_safety_contacts_description">تماس‌های حقوقی و ایمنی</string>
   <string name="about_wikipedia_url">https://fa.wikipedia.org/wiki/ویکی‌پدیا:آشنایی_با_دانشنامه</string>
@@ -300,9 +301,10 @@
   <string name="about_translators_heading">مترجم‌ها</string>
   <string name="about_translators_translatewiki">این اپلیکیشن توسط مترجمان داوطلب در &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; ترجمه شده است.</string>
   <string name="about_app_license_heading">مجوز</string>
-  <string name="about_app_license" fuzzy="true">کد اصلی در &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; و &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; تحت مجوز &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;. برای موارد خاص تحت مجوز &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; یافت می‌شود.</string>
+  <string name="about_app_license">کد منبع در &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;گیت‌هاب&lt;/a&gt; تحت &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;مجوز آپاچی ۲٫۰\n&lt;/a&gt; در دسترس است. مگر اینکه خلاف آن ذکر شده باشد، محتوا تحت &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;مجوز کریتیو کامنز انتساب-اشتراک‌گذاری مشابه&lt;/a&gt; در دسترس است.</string>
   <string name="about_wmf">محصولی از &lt;a href=\"https://wikimediafoundation.org/\"&gt;بنیاد ویکی‌مدیا&lt;/a&gt;</string>
   <string name="about_activity_title">درباره</string>
+  <string name="about_logo_content_description">نشان‌وارهٔ جهان پازلی ویکی پدیا</string>
   <string name="edit_abandon_confirm">صفحه ویرایش شده است. آیا مطمئنید که می‌خواهید بدون ذخیره تغییرات خارج شوید؟</string>
   <string name="edit_abandon_confirm_yes">بله</string>
   <string name="edit_abandon_confirm_no">خیر</string>
@@ -317,6 +319,8 @@
   <string name="edit_redo">انجام دوباره</string>
   <string name="edit_rollback">واگردانی</string>
   <string name="edit_warn">هشدار</string>
+  <string name="edit_damage">%s آسیب</string>
+  <string name="edit_intent">%s مشتاق</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s بایت</item>
     <item quantity="other">%s بایت</item>
@@ -682,6 +686,8 @@
   <string name="reading_list_notification_text">%d فهرست مطالعه تحت عنوان «reading_lists export.json» در پوشهٔ بارگیری‌های شما برون‌بری شد</string>
   <string name="reading_lists_action_menu_export_lists">برون‌بری</string>
   <string name="reading_lists_import_file_picker_title">فایل مورد نظر را برای درون‌ریزی انتخاب کنید</string>
+  <string name="reading_lists_export_select_lists_message">فهرست(هایی) را برای برون‌بری انتخاب کنید</string>
+  <string name="reading_lists_export_completed_message">فهرست(های) مطالعه برون‌بری شد</string>
   <string name="reading_lists_preview_save_button">ذخیره</string>
   <string name="reading_lists_preview_save_dialog_title">ذخیرهٔ فهرست</string>
   <string name="reading_lists_preview_save_dialog_title_hint">عنوان</string>
@@ -819,6 +825,7 @@
   <string name="view_random_article_card_title">مقالهٔ تصادفی</string>
   <string name="view_random_article_card_action">مقاله‌های تصادفی بیشتر</string>
   <string name="view_top_read_card_title">پربازدیدها</string>
+  <string name="view_top_read_card_description">چیزی که امروز در ویکی‌پدیا فراگیر شده است</string>
   <string name="view_top_read_card_action">پربازدیدهای بیشتر</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d هزار</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d میلیون</string>
@@ -863,7 +870,7 @@
   <string name="feed_item_type_randomizer">مقالهٔ تصادفی برای مطالعه</string>
   <string name="feed_item_type_suggested_edits">پیشنهادهایی برای افزودن محتوا به ویکی‌پدیا</string>
   <string name="feed_item_type_places">مقاله‌های مکان‌های نزدیک بر پایهٔ موقعیت مکانی کنونی شما</string>
-  <string name="feed_empty_message" fuzzy="true">در خوراک بازدیدتان چیزی وجود ندارد</string>
+  <string name="feed_empty_message">چیزی در محتوای صفحه اصلی شما وجود ندارد</string>
   <string name="feed_configure_onboarding_action">سفارشی‌سازی</string>
   <string name="customize_lang_selection_dialog_ok_button_text">تأیید</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">لغو</string>
@@ -1141,6 +1148,11 @@
   <string name="edit_summary_added_caption">زیرنویس اضافه شده</string>
   <string name="edit_summary_added_image_and_caption">تصویر و کپشن اضافه شد</string>
   <string name="edit_published_view">مشاهده</string>
+  <string name="activity_tab_logged_out_title">برای مشاهدهٔ فعالیت خود در برنامه ویکی‌پدیا، وارد شوید یا یک حساب کاربری ایجاد کنید</string>
+  <string name="activity_tab_user_reading">مطالعهٔ %s</string>
+  <string name="activity_tab_on_wikipedia_android">در ویکی‌پدیا اندروید</string>
+  <string name="activity_tab_weekly_time_spent_hm">%1$d ساعت %2$d دقیقه</string>
+  <string name="activity_tab_weekly_time_spent">زمان صرف‌شده برای مطالعه در این هفته</string>
   <string name="activity_tab_monthly_articles_read">مقالات خوانده‌شده در این ماه</string>
   <string name="activity_tab_monthly_articles_saved">مقالات ذخیره‌شده در این ماه</string>
   <string name="activity_tab_monthly_top_categories">رده‌های برتر خوانده‌شده در این ماه</string>
@@ -1410,7 +1422,7 @@
   <string name="revision_undo_title">آیا از خنثی‌سازی این ویرایش اطمینان دارید؟</string>
   <string name="revision_undo_message" fuzzy="true">این عمل باعث برگردانده‌شدن تغییرات اعمال‌شده در نسخه(های) مقالهٔ نمایش‌یافته در اینجا می‌شود.</string>
   <string name="revision_undo_summary_hint">خلاصه (اختیاری)</string>
-  <string name="revision_undo_reason" fuzzy="true">برای ادامه، لطفاً دلیلی برای برگرداندن این ویرایش ارائه دهید:</string>
+  <string name="revision_undo_reason">دلیل بازگردانی را به اشتراک بگذارید</string>
   <string name="revision_undo_success">نسخه برگردانده شد.</string>
   <string name="revision_rollback_dialog_title">آیا از واگردانی این ویرایش‌ها مطمئن هستید؟</string>
   <string name="revision_rollback_success">ویرایش‌ها برگردانده شدند.</string>
