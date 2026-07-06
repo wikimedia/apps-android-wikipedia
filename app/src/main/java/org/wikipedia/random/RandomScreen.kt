@@ -63,6 +63,7 @@ import androidx.lifecycle.compose.LocalLifecycleOwner
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.compose.components.FadeInAsyncImage
 import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.theme.BaseTheme
@@ -90,6 +91,9 @@ fun RandomScreen(
 
     LaunchedEffect(pagerState.currentPage, currentTitle) {
         viewModel.updateSaveState(currentTitle)
+        if (currentTitle != null) {
+            context.instrument?.submitInteraction("impression", pageData = TestKitchenAdapter.getPageData(pageTitle = currentTitle))
+        }
     }
 
     val goToNext: () -> Unit = {
