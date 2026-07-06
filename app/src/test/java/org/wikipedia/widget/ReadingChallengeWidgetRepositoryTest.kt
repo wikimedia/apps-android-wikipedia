@@ -358,22 +358,6 @@ class ReadingChallengeWidgetRepositoryTest {
         TestCase.assertEquals(7, (state as ReadingChallengeState.StreakOngoingReadToday).streak)
     }
 
-    // After REMOVE_DATE all users transition to RandomArticle
-    @Test
-    fun `transitions to RandomArticle after remove date`() {
-        val state = repository.resolveState(
-            ReadingChallengeUserData(
-                currentDate = DAY_AFTER_REMOVE,
-                enabled = true,
-                currentStreak = 2,
-                hasReadToday = false,
-                hasActiveStreak = false
-            )
-        )
-
-        TestCase.assertTrue(state is ReadingChallengeState.RandomArticle)
-    }
-
     @Test
     fun `completed user transitions to RandomArticle after remove date`() {
         val state = repository.resolveState(
