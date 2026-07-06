@@ -569,9 +569,9 @@
     <item quantity="one">%d artigo removido da lista</item>
     <item quantity="other">%d artigos removidos da lista</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d artigo removido de %s</item>
-    <item quantity="other">%d artigos removidos de %s</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">%1$d artigo removido de %2$s</item>
+    <item quantity="other">%1$d artigos removidos de %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d lista eliminada</item>
@@ -863,11 +863,11 @@
   <string name="feed_item_type_randomizer">Gerar artigos aleatórios para ler</string>
   <string name="feed_item_type_suggested_edits">Sugestões de adição de conteúdo à Wikipédia</string>
   <string name="feed_item_type_places">Artigos nas proximidades com base na localização atual</string>
-  <string name="feed_empty_message">Não há nada no seu feed Explorar</string>
+  <string name="feed_empty_message" fuzzy="true">Não há nada no seu feed Explorar</string>
   <string name="feed_configure_onboarding_action">Personalizar</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Cancelar</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Personalize o seu feed Explorar&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Agora pode escolher o que deseja mostrar no seu feed, e também priorizar os seus tipos de conteúdos favoritos.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Personalize o seu feed Explorar&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Agora pode escolher o que deseja mostrar no seu feed, e também priorizar os seus tipos de conteúdos favoritos.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Cancelar</string>
   <string name="feed_accessibility_card_text">Atingiu o fim do feed.</string>
@@ -1238,7 +1238,7 @@
   <string name="onboarding_get_started">Começar</string>
   <string name="onboarding_maybe_later">Talvez mais tarde</string>
   <string name="onboarding_explore_title">Novas formas de explorar</string>
-  <string name="onboarding_explore_text">Mergulhe no poço sem fundo da Wikipédia com um feed Explorar em constante atualização. &lt;br/&gt; &lt;b&gt;Personalize&lt;/b&gt; o feed com as suas preferências – quer seja acontecimentos históricos &lt;b&gt;Neste dia&lt;/b&gt;, ou assuntos ao calhas com &lt;b&gt;Aleatório&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Mergulhe no poço sem fundo da Wikipédia com um feed Explorar em constante atualização. &lt;br/&gt; &lt;b&gt;Personalize&lt;/b&gt; o feed com as suas preferências – quer seja acontecimentos históricos &lt;b&gt;Neste dia&lt;/b&gt;, ou assuntos ao calhas com &lt;b&gt;Aleatório&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Listas de leitura com sincronização</string>
   <string name="onboarding_reading_list_sync_text_v2">Pode criar listas de leitura dos artigos que pretende ler mais tarde, mesmo quando estiver sem acesso à Internet. &lt;br/&gt;Entre na sua conta da Wikipédia para sincronizar as suas listas de leitura. &lt;a href=\"#login\"&gt;Junte-se à Wikipédia&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Dados e Privacidade</string>
@@ -1276,7 +1276,7 @@
     <item quantity="one">Remover idioma selecionado?</item>
     <item quantity="other">Remover idiomas selecionados?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Só verá conteúdo no feed de Explorar e nos filtros de pesquisa rápida para os restantes idiomas da Wikipédia.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Só verá conteúdo no feed de Explorar e nos filtros de pesquisa rápida para os restantes idiomas da Wikipédia.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Não é possível remover todos os idiomas</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Mantenha pelo menos um idioma da Wikipédia para pesquisar e ler o conteúdo.</string>
   <string name="more_language_options">mais</string>

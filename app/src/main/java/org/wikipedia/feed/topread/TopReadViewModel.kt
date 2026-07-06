@@ -4,5 +4,5 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 
 class TopReadViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
-    val card = savedStateHandle.get<TopReadListCard>(TopReadArticlesActivity.TOP_READ_CARD)!!
+    val card = savedStateHandle.get<TopReadCard>(TopReadArticlesActivity.TOP_READ_CARD)!!
 }

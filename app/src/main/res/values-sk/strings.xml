@@ -533,10 +533,10 @@
     <item quantity="other">%d článkov odstránených zo zoznamu</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d článok odstránený zv%s</item>
-    <item quantity="few">%d články odstránené z %s</item>
-    <item quantity="many">%d článkov odstránených z %s</item>
-    <item quantity="other">%d článkov odstránených z %s</item>
+    <item quantity="one">%1$d článok odstránený zv%2$s</item>
+    <item quantity="few">%1$d články odstránené z %2$s</item>
+    <item quantity="many">%1$d článkov odstránených z %2$s</item>
+    <item quantity="other">%1$d článkov odstránených z %2$s</item>
   </plurals>
   <string name="reading_list_items_deleted">Zo zoznamu na prečítanie bolo odstránených %d článkov</string>
   <string name="reading_lists_item_deleted">%s bol odstránený zo zoznamov</string>
@@ -820,11 +820,11 @@
   <string name="feed_item_type_main_page">Hlavná stránka Wikipédie s odporúčaným obsahom</string>
   <string name="feed_item_type_randomizer">Generuje náhodné články na prečítanie</string>
   <string name="feed_item_type_suggested_edits">Návrhy na pridanie obsahu na Wikipédiu</string>
-  <string name="feed_empty_message">Nič nie je vo vašom kanále Objaviť</string>
+  <string name="feed_empty_message" fuzzy="true">Nič nie je vo vašom kanále Objaviť</string>
   <string name="feed_configure_onboarding_action">Prispôsobiť</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Zrušiť</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Prispôsobte si svoj kanál Objaviť&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Teraz si môžete vybrať, čo sa má zobrazovať na vašej stránke, a tiež uprednostňovať svoje obľúbené typy obsahu.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Prispôsobte si svoj kanál Objaviť&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Teraz si môžete vybrať, čo sa má zobrazovať na vašej stránke, a tiež uprednostňovať svoje obľúbené typy obsahu.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Zrušiť</string>
   <string name="feed_accessibility_card_text">Dostali ste sa na koniec kanálu Objaviť.</string>
@@ -1118,7 +1118,7 @@
   <string name="onboarding_get_started">Začíname</string>
   <string name="onboarding_maybe_later">Možno neskôr</string>
   <string name="onboarding_explore_title">Nové možnosti pre objavovanie</string>
-  <string name="onboarding_explore_text">Ponorte sa do Wikipédie s priebežne aktualizovaným kanálom Objaviť. &lt;br/&gt; &lt;b&gt;Prispôsobte&lt;/b&gt; si ho podľa svojich záujmov – či už je to &lt;b&gt;V tento deň&lt;/ b&gt; alebo &lt;b&gt;Náhodný článok&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Ponorte sa do Wikipédie s priebežne aktualizovaným kanálom Objaviť. &lt;br/&gt; &lt;b&gt;Prispôsobte&lt;/b&gt; si ho podľa svojich záujmov – či už je to &lt;b&gt;V tento deň&lt;/ b&gt; alebo &lt;b&gt;Náhodný článok&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Zoznamy na prečítanie so synchronizáciou</string>
   <string name="onboarding_reading_list_sync_text_v2">Môžete si vytvárať zoznamy na prečítanie z článkov, ktoré si chcete prečítať, aj keď sa odhlásite od svojho účtu.&lt;br/&gt;Prihláste sa do svojho účtu na Wikipédii, aby ste mohli svoje zoznamy na prečítanie synchronizovať.&lt;br/&gt;&lt;a href=\"#login\"&gt;Pripojiť sa k Wikipédii&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Údaje a súkromie</string>
@@ -1160,7 +1160,7 @@
     <item quantity="many">Odstrániť vybrané jazyky?</item>
     <item quantity="other">Odstrániť vybrané jazyky?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Zobrazí sa iba obsah na filtroch Objaviť a filtre rýchleho vyhľadávania pre zostávajúce jazyky Wikipédie.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Zobrazí sa iba obsah na filtroch Objaviť a filtre rýchleho vyhľadávania pre zostávajúce jazyky Wikipédie.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Nemôžete odstrániť všetky jazyky</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Udržujte si aspoň jeden jazyk Wikipédie, z ktorého môžete vyhľadávať a čítať obsah.</string>
   <string name="more_language_options">viac</string>

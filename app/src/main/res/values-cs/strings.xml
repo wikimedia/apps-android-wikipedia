@@ -317,10 +317,10 @@
   <string name="edit_damage">Poškozeno %s</string>
   <string name="edit_intent">Záměr %s</string>
   <plurals name="edit_diff_bytes">
-    <item quantity="one">%s byte.</item>
-    <item quantity="few">%s byty.</item>
-    <item quantity="many">%s bytu.</item>
-    <item quantity="other">%s bytů.</item>
+    <item quantity="one">%s bajt</item>
+    <item quantity="few">%s bajty</item>
+    <item quantity="many">%s bajtu</item>
+    <item quantity="other">%s bajtů</item>
   </plurals>
   <string name="edit_zoom_in">Přiblížit</string>
   <string name="edit_zoom_out">Oddálit</string>
@@ -592,11 +592,11 @@
     <item quantity="many">%d článků odstraněno ze seznamu</item>
     <item quantity="other">%d článků odstraněno ze seznamu</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d článek odstraněn ze seznamu %s</item>
-    <item quantity="few">%d články odstraněny ze seznamu %s</item>
-    <item quantity="many">%d článků odstraněno ze seznamu %s</item>
-    <item quantity="other">%d článků odstraněno ze seznamu %s</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">%1$d článek odstraněn ze seznamu %2$s</item>
+    <item quantity="few">%1$d články odstraněny ze seznamu %2$s</item>
+    <item quantity="many">%1$d článků odstraněno ze seznamu %2$s</item>
+    <item quantity="other">%1$d článků odstraněno ze seznamu %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d seznam odstraněn</item>
@@ -867,6 +867,7 @@
   <string name="view_random_article_card_title">Náhodný článek</string>
   <string name="view_random_article_card_action">Další náhodné články</string>
   <string name="view_top_read_card_title">Nejčtenější</string>
+  <string name="view_top_read_card_description">Co je dnes na Wikipedii populární</string>
   <string name="view_top_read_card_action">Další nejčtenější</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d tisíc</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d milionů</string>
@@ -912,11 +913,11 @@
   <string name="feed_item_type_randomizer">Vygenerujte si náhodný článek k přečtení</string>
   <string name="feed_item_type_suggested_edits">Návrhy na přidávání obsahu do Wikipedie</string>
   <string name="feed_item_type_places">Články v okolí podle aktuální polohy</string>
-  <string name="feed_empty_message">Nic není ve vašem kanále Objevit</string>
+  <string name="feed_empty_message" fuzzy="true">Nic není ve vašem kanále Objevit</string>
   <string name="feed_configure_onboarding_action">Přizpůsobit</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Zrušit</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Přizpůsobte si svůj kanál Objevit&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Nyní si můžete vybrat, co se má zobrazovat na vaší stránce, a také upřednostňovat své oblíbené typy obsahu.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Přizpůsobte si svůj kanál Objevit&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Nyní si můžete vybrat, co se má zobrazovat na vaší stránce, a také upřednostňovat své oblíbené typy obsahu.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Zrušit</string>
   <string name="feed_accessibility_card_text">Dosáhli jste dna kanálu Objevit.</string>
@@ -1291,7 +1292,7 @@
   <string name="onboarding_get_started">Začít</string>
   <string name="onboarding_maybe_later">Možná později</string>
   <string name="onboarding_explore_title">Nové možnosti pro objevování</string>
-  <string name="onboarding_explore_text">Ponořte se do Wikipedie s průběžně aktualizovaným kanálem Objevit. &lt;br/&gt; &lt;b&gt;Přizpůsobte&lt;/b&gt; si jej podle svých zájmů – ať už je to &lt;b&gt;Dnešek v minulosti&lt;/b&gt; nebo &lt;b&gt;Náhodné články&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Ponořte se do Wikipedie s průběžně aktualizovaným kanálem Objevit. &lt;br/&gt; &lt;b&gt;Přizpůsobte&lt;/b&gt; si jej podle svých zájmů – ať už je to &lt;b&gt;Dnešek v minulosti&lt;/b&gt; nebo &lt;b&gt;Náhodné články&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Seznam k přečtení se synchronizací</string>
   <string name="onboarding_reading_list_sync_text_v2">Můžete si vytvářet seznamy k přečtení z článků, které si chcete přečíst, i když se odhlásíte od svého účtu.&lt;br/&gt;Přihlaste se do svého účtu na Wikipedii, abyste mohli své seznamy k přečtení synchronizovat.&lt;br/&gt;&lt;a href=\"#login\"&gt;Připojte se k Wikipedii&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Data a soukromí</string>
@@ -1332,7 +1333,7 @@
     <item quantity="many">Odebrat vybrané jazyky?</item>
     <item quantity="other">Odebrat vybrané jazyky?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Zobrazí se pouze obsah na filtrech Objevit a filtry rychlého vyhledávání pro zbývající jazyky Wikipedie.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Zobrazí se pouze obsah na filtrech Objevit a filtry rychlého vyhledávání pro zbývající jazyky Wikipedie.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Nelze odebrat všechny jazyky</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Udržujte si alespoň jeden jazyk Wikipedie, ze kterého můžete vyhledávat a číst obsah.</string>
   <string name="more_language_options">více</string>
@@ -1750,6 +1751,9 @@
   <string name="recommended_reading_list_interest_source_message">Jak bychom měli sestavit váš doporučený seznam k přečtení?</string>
   <string name="recommended_reading_list_interest_source_interests">Nechte mě vybrat si na základě svých zájmů</string>
   <string name="recommended_reading_list_interest_source_history">Vyberte pro mě na základě mé historie čtení</string>
+  <string name="recommended_reading_list_interest_pick_title">O co máte zájem?</string>
+  <string name="recommended_reading_list_interest_pick_search_hint">Vyhledat článek</string>
+  <string name="recommended_reading_list_interest_select_minimum">Vyberte alespoň jeden zájem</string>
   <string name="recommended_reading_list_page_subtitle_made_for">Sestaveno pro %s</string>
   <string name="recommended_reading_list_page_description_weekly">Váš týdenní seznam k přečtení. Dozvíte se o nových tématech vybraných jen pro vás. Aktualizuje se na začátku týdne.</string>
   <string name="recommended_reading_list_page_overflow_customize">Přizpůsobit</string>
@@ -1784,4 +1788,13 @@
   <string name="donation_reminders_prompt_negative_button">Teď ne</string>
   <string name="donation_reminders_gpay_text">Darovat %s přes Google Pay</string>
   <string name="donation_reminders_gpay_different_amount_text">Darovat jinou částku pomocí Google Pay</string>
+  <string name="explore_feed_customize_interests">Přizpůsobit zájmy</string>
+  <string name="explore_feed_community_tab_label">Komunita</string>
+  <string name="explore_feed_for_you_tab_label">Pro vás</string>
+  <string name="explore_feed_deselect_all_button_label">Zrušit celý výběr</string>
+  <string name="explore_feed_community_disclaimer">Obsah a zdroje vybrané komunitou Wikimedia a týkající se této komunity</string>
+  <string name="explore_feed_community_load_more_label">Prohlédnout minulý obsah komunity</string>
+  <string name="explore_feed_manage_languages_label">Spravovat jazyky</string>
+  <string name="explore_feed_header_overflow_hide_module_label">Skrýt modul</string>
+  <string name="explore_feed_because_you_read">Protože jste četli: %s</string>
 </resources>

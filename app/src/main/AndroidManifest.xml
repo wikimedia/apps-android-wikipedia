@@ -246,11 +246,10 @@
             android:name=".feed.topread.TopReadArticlesActivity"
             android:theme="@style/AppTheme.ActionBar"/>
 
+        <activity android:name=".feed.didyouknow.DidYouKnowActivity"/>
+
         <activity android:name=".feed.onthisday.OnThisDayActivity"
             android:configChanges="orientation|screenSize"/>
-
-        <activity android:name=".feed.configure.ConfigureActivity"
-            android:label="@string/feed_configure_activity_title"/>
 
         <activity android:name=".random.RandomActivity"
             android:label="@string/view_random_card_title"
@@ -410,6 +409,17 @@
             android:name=".donate.donationreminder.DonationReminderActivity"
             android:windowSoftInputMode="adjustResize"/>
 
+        <activity
+            android:name=".widgets.readingchallenge.ReadingChallengeOnboardingActivity" />
+
+        <activity android:name=".feed.onboarding.ExploreFeedUpdatePromptActivity"/>
+
+        <activity android:name=".feed.onboarding.ExploreFeedBuildingActivity"/>
+
+        <activity android:name=".feed.personalization.PersonalizationActivity"/>
+
+        <activity android:name=".settings.homefeed.HomeFeedSettingsActivity"/>
+
         <provider
             android:name=".WikipediaFileProvider"
             android:authorities="${applicationId}.fileprovider"
@@ -446,6 +456,18 @@
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/widget_featured_page" />
+        </receiver>
+
+        <receiver
+            android:label="@string/reading_challenge_widget_name"
+            android:name=".widgets.readingchallenge.ReadingChallengeWidgetReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/reading_challenge_widget_info"/>
         </receiver>
 
         <receiver android:name=".notifications.NotificationPollBroadcastReceiver"

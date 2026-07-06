@@ -527,9 +527,9 @@
     <item quantity="one">%d ਲੇਖ ਹਟਾਇਆ ਗਿਆ</item>
     <item quantity="other"> ਸੂਚੀ ਵਿੱਚੋਂ %d ਲੇਖ ਹਟਾਏ ਗਏ</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%s ਤੋਂ %d ਲੇਖ ਹਟਾਇਆ ਗਿਆ</item>
-    <item quantity="other">%s ਤੋਂ %d ਲੇਖ ਹਟਾਏ ਗਏ</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">%2$s ਤੋਂ %1$d ਲੇਖ ਹਟਾਇਆ ਗਿਆ</item>
+    <item quantity="other">%2$s ਤੋਂ %1$d ਲੇਖ ਹਟਾਏ ਗਏ</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d ਸੂਚੀ ਮਿਟਾਈ ਗਈ</item>
@@ -1102,7 +1102,7 @@
   <string name="onboarding_explore_title">ਖੋਜ ਕਰਨ ਦੇ ਨਵੇਂ ਤਰੀਕੇ</string>
   <string name="onboarding_reading_list_sync_title">ਸਮਕਾਲੀਕਰਨ ਨਾਲ ਪਡ਼੍ਹਨਵਾਲੀ ਸੂਚੀਆਂ</string>
   <string name="onboarding_data_privacy_title">ਡਾਟਾ ਅਤੇ ਨਿੱਜਤਾ</string>
-  <string name="onboarding_data_privacy_text">ਸਾਡਾ ਮੰਨਣਾ ਹੈ ਕਿ ਤੁਹਾਨੂੰ ਮੁਫਤ ਗਿਆਨ ਲਹਿਰ ਵਿੱਚ ਹਿੱਸਾ ਲੈਣ ਲਈ ਨਿੱਜੀ ਜਾਣਕਾਰੀ ਪ੍ਰਦਾਨ ਕਰਨ ਦੀ ਲੋੜ ਨਹੀਂ ਹੋਣੀ ਚਾਹੀਦੀ। ਇਸ ਐਪ ਲਈ ਇਕੱਤਰ ਕੀਤਾ ਗਿਆ ਵਰਤੋਂ ਡੇਟਾ ਗੁਮਨਾਮ ਹੈ। ਸਾਡੀ &lt;a href=\"#privacy\"&gt;ਪਰਦੇਦਾਰੀ ਨੀਤੀ&lt;/a&gt; ਅਤੇ &lt;a href=\"#termsOfUse\"&gt;ਵਰਤੋਂ ਦੀਆਂ ਸ਼ਰਤਾਂ&lt;/a&gt; ਬਾਰੇ ਹੋਰ ਜਾਣੋ।</string>
+  <string name="onboarding_data_privacy_text" fuzzy="true">ਸਾਡਾ ਮੰਨਣਾ ਹੈ ਕਿ ਤੁਹਾਨੂੰ ਮੁਫਤ ਗਿਆਨ ਲਹਿਰ ਵਿੱਚ ਹਿੱਸਾ ਲੈਣ ਲਈ ਨਿੱਜੀ ਜਾਣਕਾਰੀ ਪ੍ਰਦਾਨ ਕਰਨ ਦੀ ਲੋੜ ਨਹੀਂ ਹੋਣੀ ਚਾਹੀਦੀ। ਇਸ ਐਪ ਲਈ ਇਕੱਤਰ ਕੀਤਾ ਗਿਆ ਵਰਤੋਂ ਡੇਟਾ ਗੁਮਨਾਮ ਹੈ। ਸਾਡੀ &lt;a href=\"#privacy\"&gt;ਪਰਦੇਦਾਰੀ ਨੀਤੀ&lt;/a&gt; ਅਤੇ &lt;a href=\"#termsOfUse\"&gt;ਵਰਤੋਂ ਦੀਆਂ ਸ਼ਰਤਾਂ&lt;/a&gt; ਬਾਰੇ ਹੋਰ ਜਾਣੋ।</string>
   <string name="onboarding_analytics_switch_title">ਵਰਤੋਂ ਡਾਟਾ ਭੇਜੋ</string>
   <string name="onboarding_got_it">ਸਮਝ ਲਿਆ</string>
   <string name="onboarding_multilingual_secondary_text">ਸਾਨੂੰ ਤੁਹਾਡੀ ਜੰਤਰ \'ਤੇ ਹੇਠ ਲਿਖੀਆਂ ਚੀਜ਼ਾਂ ਮਿਲੀਆਂ ਹਨ:</string>

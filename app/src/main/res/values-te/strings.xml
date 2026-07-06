@@ -486,8 +486,8 @@
     <item quantity="other">%d వ్యాసాలను జాబితా నుండి తీసేసాం</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%s నుండి %d వ్యాసాన్ని తీసేసాం</item>
-    <item quantity="other">%s నుండి %d వ్యాసాలను తీసేసాం</item>
+    <item quantity="one">%2$s నుండి %1$d వ్యాసాన్ని తీసేసాం</item>
+    <item quantity="other">%2$s నుండి %1$d వ్యాసాలను తీసేసాం</item>
   </plurals>
   <string name="reading_list_items_deleted">%d వ్యాసాలను జాబితా నుండి తీసేసాం</string>
   <string name="reading_lists_item_deleted">%s ని జాబితాల నుండి తీసేసాం</string>
@@ -1145,6 +1145,7 @@
   <string name="category_tab_subcategories">ఉపవర్గాలు</string>
   <string name="category_empty">ఈ వర్గంలో వ్యాసాలేమీ కనబడలేదు.</string>
   <string name="subcategory_empty">ఈ వర్గంలో ఉపవర్గాలేమీ కనబడలేదు.</string>
+  <string name="patroller_tasks_filters_user_status_unregistered_desc">లాగిన్ కాని ఎడిటర్లు.</string>
   <string name="reading_challenge_onboarding_win_title">బహుమతులు గెలుచుకోండి</string>
   <string name="reading_challenge_onboarding_learn_more_button">మరింత తెలుసుకోండి</string>
   <plurals name="reading_challenge_small_widget_streak">

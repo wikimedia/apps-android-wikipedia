@@ -515,9 +515,9 @@
     <item quantity="one">%d مضمون فھرست کان ختم ڪيو ويو</item>
     <item quantity="other">%d مضمونَ فھرست کان ختم ڪيا ويا</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d مضمون %s مان ھٽايو ويو</item>
-    <item quantity="other">%d مضمون %s مان ھٽايا ويا</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">%1$d مضمون %2$s مان ھٽايو ويو</item>
+    <item quantity="other">%1$d مضمون %2$s مان ھٽايا ويا</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d فھرست ڊاٿي وئي</item>
@@ -754,11 +754,11 @@
   <string name="feed_item_type_main_page">روزانو نمايان ڪيو ويندڙ مواد سان وڪيپيڊيا جو مک صفحو</string>
   <string name="feed_item_type_randomizer">پڙھن لاءِ بلاترتيب مضمون پيدا ڪريو</string>
   <string name="feed_item_type_suggested_edits">وڪيپيڊيا ۾ مواد وجهڻ لاءِ مشورا</string>
-  <string name="feed_empty_message">توھان جي کوجنا رسد ۾ ڪاشيءِ ناھي</string>
+  <string name="feed_empty_message" fuzzy="true">توھان جي کوجنا رسد ۾ ڪاشيءِ ناھي</string>
   <string name="feed_configure_onboarding_action">پنھنجايو</string>
   <string name="customize_lang_selection_dialog_ok_button_text">ٺيڪ</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">رد</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;پنھنجي کوجنا پھچ کي پنھنجايو&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;توھان ھاڻي اھو چونڊي سگهو ٿا تہ توھان جي پھچ تي ڇا ڏيکاريو وڃي، ۽ پنھنجي مواد جي پسنديده قسمن کي ترجيح پڻ ڏئي سگهو ٿا.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;پنھنجي کوجنا پھچ کي پنھنجايو&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;توھان ھاڻي اھو چونڊي سگهو ٿا تہ توھان جي پھچ تي ڇا ڏيکاريو وڃي، ۽ پنھنجي مواد جي پسنديده قسمن کي ترجيح پڻ ڏئي سگهو ٿا.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">ٺيڪ</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">رد</string>
   <string name="feed_accessibility_card_text">توھان رسد جي تري تائين پھچي چڪا آھيو.</string>
@@ -1089,7 +1089,7 @@
     <item quantity="one">چونڊيل ٻولي هٽايون؟</item>
     <item quantity="other">چونڊيل ٻوليون هٽايون؟</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">توھان رڳو رھيل وڪيپيڊيا ٻولين لاءِ کوجنا رسد تي مواد ۽ ترت ڳولا ڇاڻيون ڏسندا.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">توھان رڳو رھيل وڪيپيڊيا ٻولين لاءِ کوجنا رسد تي مواد ۽ ترت ڳولا ڇاڻيون ڏسندا.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">سڀ ٻوليون ھٽائي نٿيون سگهجن</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">گهٽ ۾ گهٽ ھڪ وڪيپيڊيا ٻولي رکو جنھن ۾ مواد ڳولي ۽ پڙھي سگهجي.</string>
   <string name="more_language_options">وڌيڪ</string>

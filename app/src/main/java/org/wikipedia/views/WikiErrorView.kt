@@ -9,13 +9,13 @@ import androidx.annotation.StringRes
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewWikiErrorBinding
 import org.wikipedia.dataclient.mwapi.MwException
+import org.wikipedia.dataclient.mwapi.MwNotLoggedInException
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.ThrowableUtil.is404
 import org.wikipedia.util.ThrowableUtil.isEmptyException
-import org.wikipedia.util.ThrowableUtil.isNotLoggedIn
 import org.wikipedia.util.ThrowableUtil.isOffline
 import org.wikipedia.util.ThrowableUtil.isTimeout
 import org.wikipedia.views.WikiErrorView.ErrorType.USER_PAGE_MISSING
@@ -97,7 +97,7 @@ class WikiErrorView : LinearLayout {
                 isEmptyException(it) -> {
                     return ErrorType.EMPTY
                 }
-                isNotLoggedIn(it) -> {
+                it is MwNotLoggedInException -> {
                     return ErrorType.LOGGED_OUT
                 }
                 else -> { }

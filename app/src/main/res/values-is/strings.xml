@@ -493,9 +493,9 @@
     <item quantity="one">%d grein fjarlægð af lista</item>
     <item quantity="other">%d greinar fjarlægðar af lista</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d grein fjarlægð af %s</item>
-    <item quantity="other">%d greinar fjarlægðar af %s</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">%1$d grein fjarlægð af %2$s</item>
+    <item quantity="other">%1$d greinar fjarlægðar af %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d lista eytt</item>
@@ -787,11 +787,11 @@
   <string name="feed_item_type_main_page">Aðalsíða Wikipedia með úrvalsefni dagsins</string>
   <string name="feed_item_type_randomizer">Útbúðu handahófsvaldar greinar til að lesa</string>
   <string name="feed_item_type_suggested_edits">Tillögur að efni til að bæta við Wikipedia</string>
-  <string name="feed_empty_message">Það er ekkert á \'Uppgötva\'-streyminu þínu</string>
+  <string name="feed_empty_message" fuzzy="true">Það er ekkert á \'Uppgötva\'-streyminu þínu</string>
   <string name="feed_configure_onboarding_action">Sérsníða</string>
   <string name="customize_lang_selection_dialog_ok_button_text">Í lagi</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Hætta við</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Sérsníddu \'Uppgötva\'-streymið þitt&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Núna geturðu valið hvað eigi að birta í streyminu þínu auk þess að forgangsraða eftirlætistegundum efnis.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Sérsníddu \'Uppgötva\'-streymið þitt&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Núna geturðu valið hvað eigi að birta í streyminu þínu auk þess að forgangsraða eftirlætistegundum efnis.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">Í lagi</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Hætta við</string>
   <string name="feed_accessibility_card_text">Þú hefur náð á enda streymis.</string>
@@ -1083,7 +1083,7 @@
   <string name="onboarding_get_started">Komast í gang</string>
   <string name="onboarding_maybe_later">Kannski síðar</string>
   <string name="onboarding_explore_title">Nýjar leiðir til að kanna heiminn</string>
-  <string name="onboarding_explore_text">Hentu þér út í djúpu Wikipedia-laugina með \'Uppgötva\'-streymi sem er uppfært í sífellu. &lt;br/&gt;Þú getur &lt;b&gt;sérsniðið&lt;/b&gt; streymið eftir áhugamálum þínum – hvort sem það er til að læra um sögulega atburði í &lt;b&gt;Á þessum degi&lt;/b&gt;, eða með því að taka áhættuna í &lt;b&gt;Slembið&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Hentu þér út í djúpu Wikipedia-laugina með \'Uppgötva\'-streymi sem er uppfært í sífellu. &lt;br/&gt;Þú getur &lt;b&gt;sérsniðið&lt;/b&gt; streymið eftir áhugamálum þínum – hvort sem það er til að læra um sögulega atburði í &lt;b&gt;Á þessum degi&lt;/b&gt;, eða með því að taka áhættuna í &lt;b&gt;Slembið&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Leslistar með samstillingu</string>
   <string name="onboarding_reading_list_sync_text_v2">Þú getur búið til leslista úr greinum til að lesa þær síðar, jafnvel án nettengingar. &lt;br/&gt;Skráðu þig inn á Wikipedia-notandaaðganginn þinn til að samstilla leslistana þína. &lt;a href=\"#login\"&gt;Skráðu þig á Wikipedia&lt;/a&gt; \\</string>
   <string name="onboarding_analytics_switch_title">Senda upplýsingar um notkun</string>
@@ -1119,7 +1119,7 @@
     <item quantity="one">Fjarlægja valið tungumál?</item>
     <item quantity="other">Fjarlægja valin tungumál?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Þú munt aðeins sjá efni í Uppgötva-streyminu og skyndileitarsíum fyrir önnur Wikipedia-tungumál.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Þú munt aðeins sjá efni í Uppgötva-streyminu og skyndileitarsíum fyrir önnur Wikipedia-tungumál.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Get ekki fjarlægt öll tungumál</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Haltu að minnsta kosti einu Wikipedia-tungumáli til að leita að og lesa efni.</string>
   <string name="more_language_options">meira</string>

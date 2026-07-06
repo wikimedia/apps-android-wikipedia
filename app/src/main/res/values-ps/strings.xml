@@ -118,6 +118,7 @@
   <string name="map_view_link_text">په نخچه کې کتل</string>
   <string name="other_languages_indication_text">په بله ژبه لوستل</string>
   <string name="language_count_link_text">په %d نورو ژبو د لاسرسي وړ ده</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">خپرولو سره، تاسو له &lt;a href=\"%1$s\"&gt; کارولو منښتونه&lt;/a&gt; منئ او د &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; منښتليک لاندې خپلې ونډې په نه بدلېدونکي ډول خپروئ.</string>
   <string name="edit_save_action_license_anon">د خپرولو سره تاسو د &lt;a href=\"%1$s\"&gt;کارولو منښتونه&lt;/a&gt; منئ او په نه بدلېدونکي ډول خپلې ونډې د &lt;a href=\"%2$s/\"&gt;CC BY-SA 4.0&lt;/a&gt; منښتليک لاندې خپروئ. سمونونه به ستاسو د سولگر وېبپتې ته منسوب شي. که تاسو &lt;a href=\"https://#login\"&gt;ننوځئ&lt;/a&gt;؛ نو تاسو به ډېره پټنتيا ولرئ.</string>
   <string name="edit_anon_warning">سمونونه به ستاسو د سولگر وېبپتې ته منسوب شي، که چېرې تاسو &lt;a href=\"https://#login\"&gt;ننوځئ&lt;/a&gt;؛ نو تاسو به ډېر خونديتوب ولرئ.</string>
@@ -215,7 +216,7 @@
   <string name="create_account_ip_block_message">بښنې سره، اوسمهال ستاسو په وېب‌‌پتې د نوي گڼون جوړولو بنديز لگول شوی.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">سپيناوي</string>
-  <string name="preferences_general_heading">ټولگړی</string>
+  <string name="preferences_general_heading">ټولواله</string>
   <string name="preferences_account_heading">گڼون</string>
   <string name="wikipedia_app_faq">ويکيپېډيا کاريال ډ‌ځ‌پ</string>
   <string name="send_feedback">د کاريال په اړه غبرگون لېږل</string>
@@ -249,7 +250,13 @@
   <string name="terms_of_use_description">د کارولو منښتونه</string>
   <string name="legal_safety_contacts_description">قانوني او خونديتوب اړيکې</string>
   <string name="about_wikipedia_url">https://ps.wikipedia.org/wiki/ويکيپېډيا:پېژندنه</string>
+  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Privacy_policy/ps</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://ps.wikipedia.org/wiki/ويکيپېډيا:د_گڼون_جوړېدو_غوښتنه</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.ps</string>
+  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ps</string>
   <string name="about_libraries_heading">کارېدلي کتابتونونه</string>
   <string name="about_contributors_heading">ونډه‌وال</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;ډله مخ&lt;/a&gt;</string>
@@ -388,8 +395,10 @@
   <string name="button_get_directions">لارښوونې ترلاسه کول</string>
   <string name="error_no_maps_app">هېڅ داسې کاريال ونه موندل شو چې لارښوونې چمتو کړي.</string>
   <string name="preference_title_customize_explore_feed">سپړلو ليددړه</string>
+  <string name="preference_title_customize_home_feed">ار مخ</string>
   <string name="preference_title_show_link_previews">وېتړ مخکتنې کتل</string>
   <string name="preference_summary_customize_explore_feed">د سپړنې ليددړه دوديزول</string>
+  <string name="preference_summary_customize_home_feed">خپل ار کتنمخ دوديزول</string>
   <string name="preference_summary_show_link_previews">د ليکنې په تړونو ټوکلو پرمهال د هغې گړندۍ مخکتنه ښودل</string>
   <string name="preference_title_collapse_tables">لښتيال پرځول</string>
   <string name="preference_summary_collapse_tables">په ليکنو کې په خپلکاري ډول لښتيالونه پرځول لکه مالومات‌بکسونه، سرچينې او يادښتونه.</string>
@@ -548,8 +557,8 @@
     <item quantity="other">%d ليکنې له لړليک لرې شوې</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d ليکنه له %s لرې شوه</item>
-    <item quantity="other">%d ليکنې له%s لرې شوې</item>
+    <item quantity="one">%1$d ليکنه له %2$s لرې شوه</item>
+    <item quantity="other">%1$d ليکنې له%2$s لرې شوې</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d لړليک ړنگ شو</item>
@@ -779,6 +788,7 @@
   <string name="notifications_select_all_filters">ټول چاڼگر غوره‌کول</string>
   <string name="notifications_tab_filter_all">ټول</string>
   <string name="notifications_tab_filter_mentions">يادگېرنې</string>
+  <string name="notifications_tab_filter_unread">(%s)</string>
   <string name="notifications_search_bar_hint">خبرتياوې پلټل يا چاڼول</string>
   <string name="notifications_search_bar_filter_hint">خبرتيا چاڼگر</string>
   <string name="notifications_menu_mark_as_read">لوستي په توگه نښه‌کول</string>
@@ -798,9 +808,11 @@
   <string name="view_random_article_card_title">ناڅاپي ليکنې</string>
   <string name="view_random_article_card_action">نورې ناڅاپي ليکنې</string>
   <string name="view_top_read_card_title">ډېر لوستل شوي</string>
+  <string name="view_top_read_card_description">نن ويکيپېډيا کې څه روان دي</string>
   <string name="view_top_read_card_action">نور ډېر لوستل شوي</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d زره</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d مېليونه</string>
+  <string name="view_top_read_card_pageviews_views_suffix">کتنې</string>
   <string name="view_next_random_article">بله ناڅاپي ليکنه بارول</string>
   <string name="view_main_page_card_title">نن په ويکيپېډيا کې</string>
   <string name="view_main_page_card_action">آر مخ کتل</string>
@@ -841,11 +853,11 @@
   <string name="feed_item_type_randomizer">لوستلو لپاره ناڅاپي ليکنې زېږول</string>
   <string name="feed_item_type_suggested_edits">ويکيپېډيا ته د منځپانگې ورگډولو وړانديزونه</string>
   <string name="feed_item_type_places">د اوسني ځای پربنسټ څېرمه ليکنې</string>
-  <string name="feed_empty_message">ستاسو سپړل خوراکې کې هېڅ نشته</string>
+  <string name="feed_empty_message">ستاسو ار کتنمخ کې هېڅ نشته</string>
   <string name="feed_configure_onboarding_action">دوديزول</string>
   <string name="customize_lang_selection_dialog_ok_button_text">ښه</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">ناگارل</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;د سپړنې ليډدړه مو دوديزه کړئ&lt;/strong&gt; اوس تاسو کولی شئ خوښ کړئ چې څه ستاسو ليددړه کې وښودل شي، او د خپلو خواپورو منځپانگو ډولونو ته لومړيتوب ورکړئ.</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;ار کتنمخ مو دوديزه کړئ&lt;/strong&gt; اوس تاسو کولی شئ خوښ کړئ چې څه ستاسو کتنمخ کې وښودل شي، او د خپلو خواپورو منځپانگو ډولونو ته لومړيتوب ورکړئ.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">ښه</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">ناگارل</string>
   <string name="feed_accessibility_card_text">تاسو د ليددړې منځ ته رسېدلي ياست.</string>
@@ -878,6 +890,7 @@
   <string name="description_edit_help_title">مالومات: ليکنې څرگنداوي</string>
   <string name="description_edit_help_about_wikidata">د ويکي‌اومتوک په اړه</string>
   <string name="description_edit_help_wikidata_guide">د ويکي‌اومتوک د څرگنداوي ليکنې لارښود</string>
+  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Special:MyLanguage/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">د ليکنو د څرگنداوي سمولو کې ستاسو پرله‌پسې لېوالتيا نه مننه! د نورو سمونونو لپاره مهرباني وکړئ خپل ويکي‌پېډيا گڼون ته ننوځئ.</string>
   <string name="description_edit_license_notice">د ليکنې د څرگنداوي بدلولو سره زه د a href=\"%1$s\"&gt;کارونې منښتونه&lt;/a&gt; منم او خپلې ونډې په نه بدلېدونکي ډول د &lt;a href=\"%2$s\"&gt;ټولگړې پنځونې سي‌سي‌۰ &lt;/a&gt; منښتليک لاندې خپروم.</string>
   <string name="description_edit_helper_text_lowercase_warning">تر ډېره کوچنيو تورو سره پيلېږي</string>
@@ -887,6 +900,7 @@
   <string name="description_too_short">ليک ډېر لنډ دی.</string>
   <string name="description_too_long">هڅه وکړئ سپيناوی مو لنډ وي؛ ترڅو کارنان سملاسي د ليکنې په سکالو پوه شي</string>
   <string name="description_ends_with_punctuation">ليک بايد ليکنښو سره پای ته ونه رسېږي.</string>
+  <string name="description_starts_with_article">د \"پر\" او \"په\" په څېر د نيمگړو سرليکونو د ليکنو ليکلو څخه ډډه وکړئ.</string>
   <string name="description_starts_with_uppercase">کوچنيو تورو سره يې پيل کړئ؛ مگر دا چې لومړی ويوکی يو ځانگړی نوم وي.</string>
   <string name="description_starts_with_lowercase">په کوچني تورو له پيلولو ډډه‌کول.</string>
   <string name="description_is_in_different_language">داسې ښکاري چې ليک په ناڅاپي ژبه کې دی. ژبه بايد %s وي.</string>
@@ -1069,6 +1083,7 @@
     <item quantity="one">تاسو %d نښلن ورگډ کړ</item>
     <item quantity="other"> تاسو %d نښانونه ورگډ کړل</item>
   </plurals>
+  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">پرون</string>
   <string name="suggested_edits_encourage_account_creation_title">ايا تاسو پوهېدئ چې هرڅوک ويکيپېډيا سمولای شي.</string>
   <string name="suggested_edits_encourage_account_creation_message">وړانديزشوي سمونونه په اندرويد کې د ويکي‌پېډيا سمولو لپاره يوه نوې لار ده. دا تاسو سره مرسته کوي چې په ويکي‌پېډيا کې کوچنۍ؛ خو ارزښتمنې ونډې واخلئ.\nزموږ موخه دا ده چې سمو کول د هر چا لپاره اسانه او د لاسرسي وړ وگرځوو! پيلولو لپاره ننوځئ يا له ويکي‌پېډيا سره يوځای شئ.</string>
@@ -1232,22 +1247,31 @@
   <string name="description_edit_login_cancel_button_text">ناگارل</string>
   <string name="offline_read_permission_rationale">د افلاين لټون لپاره ستاسو وسيله کې د زخيره‌کولو لپاره د لاسرسي اجازه اړينه ده.</string>
   <string name="offline_read_final_rationale">د افلاين کتاتبتون لپاره ستاسو وسيله کې د زخيره‌کولو لپاره د لاسرسي اجازه اړينه ده.</string>
+  <string name="size_gb">%.2f گيگابايټ</string>
+  <string name="size_mb">%.2f مېگابايټ</string>
   <string name="onboarding_skip">تېرېدل</string>
   <string name="onboarding_continue">پرله‌پورې</string>
   <string name="onboarding_get_started">پيلول</string>
   <string name="onboarding_maybe_later">شايد وروسته</string>
   <string name="onboarding_explore_title">د سپړلو لپاره نوې لارې</string>
-  <string name="onboarding_explore_text">د ويکي‌پېډيا منځپانگه د پرله‌پسې هم‌مهالېدونکې سپړلو ليددړې سره وپلټئ. &lt;br/&gt; \nسپړنې ليددړه د خپلو گټو سره سم &lt;b&gt;دوديزه کړئ&lt;/b&gt; &lt;b&gt;په دې ورځ&lt;/b&gt; د رامنځته شوو تاريخي پېښو اړوند زده کړه وکړئ يا په ساده ډول يوڅه &lt;b&gt;ناڅاپي&lt;/b&gt; ومومئ.</string>
+  <string name="onboarding_explore_text">د ويکي‌پېډيا منځپانگه د پرله‌پسې هم‌مهالېدونکي ار کتنمخ سره وپلټئ. &lt;br/&gt; \nکتنمخ مو له خپلې خوښې سره سم &lt;b&gt;دوديزه کړئ&lt;/b&gt; &lt;b&gt;په دې ورځ&lt;/b&gt; د رامنځته شوو تاريخي پېښو اړوند زده کړه وکړئ يا په ساده ډول يوڅه &lt;b&gt;ناڅاپي&lt;/b&gt; ومومئ.</string>
   <string name="onboarding_reading_list_sync_title">همغږۍ سره لوستلړونه لوستل</string>
   <string name="onboarding_reading_list_sync_text_v2">تاسو کولی شئ د هغه ليکنو څخه لوستلړونه جوړ کړئ چې تاسو يې وروسته لوستل غواړئ، حتی کله چې تاسو افلاين ياست.&lt;br/&gt;د خپلو لوستلړونو د همغږۍ لپاره خپل ويکي‌پېډيا گڼون ته ننوځئ.&lt;a href=\"#login\"&gt;ويکي‌پېډيا سره يوځای شئ&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">اومتوکي او پټنتيا</string>
-  <string name="onboarding_data_privacy_text">موږ باور لرو چې تاسو به د وړيا پوهنغونډ غورځنگ کې د گډون لپاره ځانواله مالوماتو چمتو کولو ته اړتيا ونه لرئ. د دې کاريال کارونې اومتوک‌ ټولگه بې نومه ده. زموږ د &lt;a href=\"#privacy\"&gt;پټنتيا تگلار&lt;/a&gt; او &lt;a href=\"#termsOfUse\"&gt;کارونې منښتونو&lt;/a&gt; په اړه نور زده کړئ.</string>
+  <string name="onboarding_data_privacy_text">موږ باور لرو چې تاسو به د وړيا پوهنغونډ غورځنگ کې د گډون لپاره ځانواله مالوماتو چمتو کولو ته اړتيا ونه لرئ. د دې کاريال کارونې اومتوک‌ ټولگه بې نومه ده.&lt;br/&gt;\n&lt;br/&gt;زموږ د &lt;a href=\"#privacy\"&gt;پټنتيا تگلار&lt;/a&gt; او &lt;a href=\"#termsOfUse\"&gt;کارونې منښتونو&lt;/a&gt; په اړه نور زده کړئ.</string>
   <string name="onboarding_analytics_switch_title">کارونې اومتوکي لېږل</string>
   <string name="onboarding_got_it">وپوهېدم</string>
   <string name="onboarding_multilingual_secondary_text">موږ ستاسو وسيله کې لاندې څيزونه موندلي دي:</string>
   <string name="onboarding_multilingual_add_language_text">ژبې ورگډول يا سمول</string>
   <string name="onboarding_welcome_title_v2">وړيا پوهنغونډ\n...له ۳۰۰ څخه زياتو ژبو کې</string>
   <string name="onboarding_next">راتلونکی</string>
+  <string name="onboarding_fresh_install_knowledge_title">د ټولې نړۍ پوهه</string>
+  <string name="onboarding_fresh_install_knowledge_text">ويکي‌پېډيا يوه پرليکه وړيا پوهنغونډ دی چې له ۶۵ ميليونو ليکنو چې په همکارۍ سره ليکل شوې او له ۳۰۰ ډېرو ژبو کې د خپلخوښو کارنانو له خوا ساتل کېږي.</string>
+  <string name="onboarding_fresh_install_knowledge_learn_more">د ويکي‌پېډيا اړوند نور زده‌کول</string>
+  <string name="onboarding_app_languages_title">له ۳۰۰ څخه په زياتو ژبو يې ولولئ</string>
+  <string name="onboarding_app_languages_text">موږ ستاسو وسيله کې لاندې ژبې ليدلې دي:</string>
+  <string name="onboarding_app_languages_primary">بنسټيز</string>
+  <string name="onboarding_app_languages_add_button">خپلې ژبې ورگډول يا سمول</string>
   <string name="app_shortcuts_random">ناڅاپي</string>
   <string name="app_shortcuts_continue_reading">لوستلو ته دوام ورکول</string>
   <string name="app_shortcuts_search">پلټل</string>
@@ -1277,7 +1301,7 @@
     <item quantity="one">ټاکل‌شوې ژبه لرې‌کول؟</item>
     <item quantity="other">Removeټاکل‌شوې ژبې لرې‌کول؟</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">تاسو به يوازې د ويکي‌پېډيا پاتې ژبو لپاره د سپړونکي خوراک‌ليد او چټک پلټنې چاڼگرونو منځپانگې وگورئ.</string>
+  <string name="wikipedia_languages_remove_dialog_content">تاسو به يوازې د ويکي‌پېډيا پاتې ژبو لپاره د ار کتنمخ او چټک پلټنې چاڼگرونو منځپانگې وگورئ.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">ټولې ژبې نشي لرې کېدای</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">لږترلږه د ويکيپېډيا يوه ژبه د منځپانگې لټون او لوستلو لپاره پرېږدئ.</string>
   <string name="more_language_options">نور</string>
@@ -1339,6 +1363,7 @@
   <string name="insert_media_advanced_settings_image_size_custom">دوديز</string>
   <string name="insert_media_advanced_settings_image_size_custom_width">پراخوالی</string>
   <string name="insert_media_advanced_settings_image_size_custom_height">لوړوالی</string>
+  <string name="insert_media_advanced_settings_image_size_custom_px">پيکسېل</string>
   <string name="insert_media_insert_button">ورټومبل</string>
   <string name="templates_search_hint">کينډۍ پلټل</string>
   <string name="templates_insert_button">ورټومبل</string>
@@ -1517,6 +1542,7 @@
   <string name="watchlist_filter_contribution_authorship_own">بدلونونه ستاسو لخوا</string>
   <string name="watchlist_filter_contribution_authorship_except_own">د نورو لخوا بدلونونه</string>
   <string name="watchlist_filter_automated_contributions_header">خپلکاره ونډې</string>
+  <string name="watchlist_filter_automated_contributions_bot">روباټ</string>
   <string name="watchlist_filter_automated_contributions_human">انسان (نه بوټ)</string>
   <string name="watchlist_filter_significance_header">ارزښت</string>
   <string name="watchlist_filter_significance_minor">وړوکي سمونونه</string>
@@ -1557,7 +1583,7 @@
   <string name="archive_empty">هېڅ خونديځ‌شوي مخونه ونه موندل شول.</string>
   <string name="user_contrib_filter_ns">نوم‌تشيال له مخې چاڼول</string>
   <string name="user_contrib_filter_all">ټول نوم‌تشيالونه</string>
-  <string name="user_contrib_filter_ns_header">نوم‌‌تشيال چانگر</string>
+  <string name="user_contrib_filter_ns_header">نوم‌‌تشيال چاڼگر</string>
   <string name="namespace_article">ليکنه</string>
   <string name="user_contrib_current">اوسنی</string>
   <string name="media_playback_error">د رسنۍ په غږولو کې تېروتنه.</string>
@@ -1634,6 +1660,7 @@
   <string name="patroller_tasks_filters_latest_revisions_latest_revision">وروستۍ بياليدنه</string>
   <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">وروستۍ بياليدنه نه ده</string>
   <string name="patroller_tasks_filters_automated_contributions_header">خپلکاره ونډې</string>
+  <string name="patroller_tasks_filters_automated_contributions_bot">روباټ</string>
   <string name="patroller_tasks_filters_automated_contributions_human">انسان (نه بوټ)</string>
   <string name="patroller_tasks_filters_significance_header">ارزښت</string>
   <string name="patroller_tasks_filters_significance_minor">کوچني سمونونه</string>
@@ -1705,6 +1732,7 @@
   <string name="patroller_saved_message_body_edit_summary">سلام {{{username}}}، داسې ښکاري چې تاسو د ويکي‌پېډيا څخه منځپانگه لرې کړې ده، بې له دې چې د هغې د سمون لنډيز پرېږدئ. مهرباني وکړئ هرلکه چې تاسو ته ويکي‌پېډيا منځپانگه ورگډوئ يا لرې کوئ، د سمون لنډيز يې وليکئ.</string>
   <string name="patroller_saved_message_body_do_not_censor">سلام {{{username}}}، داسې ښکاري چې تاسو د ليکنې د خبرو اترو مخ کې له شننې کولو پرته منځپانگه لرې کړې ده. مهرباني وکړئ دا په ياد ولرئ چې ويکي‌پېډيا کوم سانسور نه دی او منځپانگه بايد لرې نه شي ځکه چې دا جنجال جوړوي. که تاسو باوري ياست چې مالومات ناسم دي، مهرباني وکړئ د ليکنې د خبرو اترو مخ کې پرې يوې اجماع ته ورسېږې.</string>
   <string name="talk_warn_learn_more_label">د پيغام ځاي‌ناستو په اړه نور زده کړئ</string>
+  <string name="talk_warn_learn_more_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_Suggested_edits#Message_placeholders</string>
   <string name="talk_warn_saved_messages_usage_instruction">لاندې يو پيغام د خپلو پيغامونو دوديزولو، لېږلو او خوندي کولو لپاره د بېلگې په توگه وکاروئ.</string>
   <string name="patroller_saved_message_body_art_imp">سلام {{{username}}}. ستاسو ليکنه يو ښه پيل ده! د دې لا ښه کولو لپاره د باوري سرچينو لپاره د نورو سرچينو ورگډول په پام کې ونيسئ. دا د مالوماتو تاييد کې مرسته کوي او د ليکنې کيفيت ښه کوي. د نور سپيناوي لپاره د ويکي‌پېډيا د [[ويکيپېډيا:باوري_سرچينې|باوري سرچينو]] لارښود کرښې وگورئ.</string>
   <string name="talk_templates_menu_edit_title">سمول</string>
@@ -1800,7 +1828,7 @@
   <string name="on_this_day_game_stats_average_score">منځگوړې نومرې</string>
   <string name="on_this_day_game_stats_streak">اوسنۍ لړۍ</string>
   <string name="on_this_day_game_result_subtitle">په نننۍ لوبه کې سرچينه‌شوې ليکنې</string>
-  <string name="on_this_day_game_completed_message">له لوبېدو مو مننه. د \"څوک لومړی راغی؟\" په نوم يوه نوې لوبه هره ورځ په پلټن‌دړه کې شتون لري.</string>
+  <string name="on_this_day_game_completed_message">له لوبېدو مو مننه. د \"څوک لومړی راغی؟\" په نوم يوه نوې لوبه هره ورځ په ار کتنمخ کې شتون لري.</string>
   <string name="on_this_day_game_menu_notifications">د لوبې خبرتياوې</string>
   <string name="on_this_day_game_menu_info">نور مالومات</string>
   <string name="on_this_day_game_menu_feedback">د غوني ستونزه</string>
@@ -2251,6 +2279,7 @@
   <string name="reading_challenge_onboarding_header">د ويکي‌پېډيا ۲۵مې کليزې د نمانځنې په موخه د ۲۵ ورځنۍ لوست ننگونې سره يوځای شئ!</string>
   <string name="reading_challenge_onboarding_read_title">د ۲۵ ورځو لپاره هره ورځ ۱ ليکنه ولولئ</string>
   <string name="reading_challenge_onboarding_read_description">د می له ۱ تر کی ۳۱ پورې هر وخت په ننگونه کې گډون وکړئ، په خپل مهالوېش کې خپلې ۲۵ ورځې بشپړې کړئ.</string>
+  <string name="reading_challenge_onboarding_read_subtitle">د %1$s او %2$s پورې هر وخت په ننگونه کې گډون وکړئ،  په خپل مهالوېش کې خپلې ۲۵ ورځې بشپړې کړئ.</string>
   <string name="reading_challenge_onboarding_win_title">ډالۍ وگټئ</string>
   <string name="reading_challenge_onboarding_win_description">د ځانگړو ډاليو گټلو لپاره د ننگونې په ژوندۍ بڼه د لوستلو ۲۵ ورځنۍ لړۍ بشپړه کړئ.</string>
   <string name="reading_challenge_onboarding_install_title">پراخ‌توکي نصبول</string>
@@ -2266,6 +2295,10 @@
   <string name="reading_challenge_install_prompt_message">ماشوم ځمکه تاسو هڅوي. د لوستلو پراخ‌توکی ورگډوي؛ ترڅو له خپل کور سکرين څخه خپل پرمختگ وڅارئ.</string>
   <string name="reading_challenge_install_prompt_got_it">پوه شوم</string>
   <string name="reading_challenge_install_prompt_add">ورگډول</string>
+  <string name="search_widget_install_prompt_title">د پلټلو يوه گړندۍ لار</string>
+  <string name="search_widget_install_prompt_message">په خپل کور پرده کې پوهې ته د ژر لاسرسي لپاره د ويکي‌پېډيا پلټلو ويجيټ نصب کړئ.</string>
+  <string name="search_widget_install_prompt_add">ورگډول</string>
+  <string name="search_widget_install_prompt_got_it">وپوهېدم</string>
   <string name="reading_challenge_widget_explore_button">سپړل</string>
   <string name="reading_challenge_widget_explore_wikipedia_button">ويکي‌پېډيا سپړل</string>
   <string name="reading_challenge_widget_join_challenge_button">ننگونه کې گډون کول</string>
@@ -2312,4 +2345,115 @@
   <string name="reading_challenge_widget_reward_title">څېړنه له تاسو سره ښه ښکاري! 🛍️</string>
   <string name="reading_challenge_widget_reward_body">په ويکي‌پېډيا پلورنځي کې ۱۵%% کمښت سره د ننگونې بشپړولو ونمانځئ.</string>
   <string name="reading_challenge_widget_reward_button_label">پلورنځي کې ۱۵%% کمښت ترلاسه کړئ</string>
+  <string name="explore_feed_new_update_prompt_title">سپړل اوس په يوه نوي ليد سره په کور بدل شوی دی</string>
+  <string name="explore_feed_new_update_prompt_new_name_title">يو نوی نوم</string>
+  <string name="explore_feed_new_update_prompt_new_name_description">د سپړنې کتنمخ اوس کور دی، په هماغه ځای کې چې مخکې و.</string>
+  <string name="explore_feed_new_update_prompt_two_ways_title">ستاستو کتنمخ، دوه لارې</string>
+  <string name="explore_feed_new_update_prompt_two_ways_description">ستاسو لپاره کې ستاسو د خوښې سره سم ځانواله شوې ليکنې ومومئ، يا په ټولنه کې د ويکي‌پېډيا غوره اداري منځپانگه وپلټئ.</string>
+  <string name="explore_feed_new_update_prompt_control_title">کنترول کې اوسئ</string>
+  <string name="explore_feed_new_update_prompt_control_description">هره سپارښتنه تاسو ته په سمه توگه وايي چې ولې هلته شتون لري. تاسو کولی شئ خپل غوره‌توبونه په اوڼنو کې هر وخت هم‌مهاله کړئ.</string>
+  <string name="explore_feed_new_update_prompt_language_title">هره ژبه، په بشپړه توگه ځانواله شوې</string>
+  <string name="explore_feed_new_update_prompt_language_description">په څو ژبو لوستل؟ هر يو خپله تجربه لري. يوازې بدل يې کړئ او ستاسو نوی کتنمخ چمتو دی.</string>
+  <string name="explore_feed_new_update_prompt_primary_button_text">زما کتمنخ دوديزول</string>
+  <string name="explore_feed_customize_interests">لېوالتياوې دوديزول</string>
+  <string name="explore_feed_customize_discover">دوديزه موندل</string>
+  <string name="explore_feed_new_update_prompt_secondary_button_text">زما لپاره يې واوڼئ</string>
+  <string name="explore_feed_building_text">راځئ چې ستاسو کتنمخ جوړ کړو...</string>
+  <string name="explore_feed_community_tab_label">ټولنه</string>
+  <string name="explore_feed_for_you_tab_label">ستاسو لپاره</string>
+  <string name="explore_feed_date_today">نن - %s</string>
+  <string name="explore_feed_load_previous_day_label">تېره ورځ بارول</string>
+  <string name="explore_feed_from_reading_list">ستاسو له لوستلړ څخه</string>
+  <string name="explore_feed_because_of_interest">ستاسو د لېوالتياوو پربنسټ: %s</string>
+  <string name="explore_feed_onboarding_curiosity_title">خپله کونجکاوي وڅارئ</string>
+  <string name="explore_feed_onboarding_curiosity_description">هغه سکالوگانې غوره کړئ چې تاسو يې لېواله ياست، او مو به ستاسو کتنمخ دوديزه کړو.</string>
+  <string name="explore_feed_deselect_all_button_label">ټول ناټاکل</string>
+  <string name="explore_feed_potd_subtitle">په ويکي‌رسنۍ خونديځ کې ورځني انځورونه، د خپلخوښو ونډه‌والو له خوا غوره شوي</string>
+  <string name="explore_feed_featured_article_subtitle">ټاکلې ليکنې په ويکي‌پېډيا کې د غوره کيفيت لرونکې ليکنې دي، چې هره ورځ د سمونگرانو له خوا غوره کېږي.</string>
+  <string name="explore_feed_preference_selection_screen_title">کوم څه لومړی ليدل غواړئ؟</string>
+  <string name="explore_feed_preference_community_content_title">ټولنې اړوند منځپانگه</string>
+  <string name="explore_feed_preference_personalized_content_title">ځانواله شوې منځپانگه</string>
+  <string name="explore_feed_in_the_news_subtitle">هغه ليکنې چې د وروستيو يا اوسنيو پېښو په اړه د پراخه لېوالتياوو پام کې نيولو سره هممهاله شوې دي</string>
+  <string name="explore_feed_on_this_day_subtitle">د نن ورځې تاريخي پېښې ومومئ</string>
+  <string name="explore_feed_community_disclaimer">د ويکي‌رسنۍ ټولنې له خوا او د هغې په اړه غوره‌شوې منځپانگې او سرچينې</string>
+  <string name="explore_feed_community_load_more_label">د ټولنې پخوانۍ منځپانگې وگورئ</string>
+  <string name="explore_feed_manage_languages_label">ژبې مهارول</string>
+  <string name="explore_feed_header_overflow_hide_module_label">چلنوال پټول</string>
+  <string name="explore_feed_header_overflow_hide_module_message">چلنوال پټ شو.</string>
+  <string name="explore_feed_header_overflow_hide_module_message_action">ناکړل</string>
+  <string name="explore_feed_personalized_preference_empty_state_text">د ځانواله شوې منځپانگيزو وړانديزونو ليدلو لپاره تاسو بايد خپلې لېوالتياوې ورگډ کړئ. تاسو کولی شئ دا په تېرو پړاوونو يا وروسته په اوڼنو کې ترسره کړئ.</string>
+  <string name="explore_feed_because_you_read">ځکه چې تاسو لولئ: %s</string>
+  <string name="explore_feed_swipe_to_explore_prompt_title">سپړلو لپاره يې راکاږئ</string>
+  <string name="explore_feed_swipe_to_explore_prompt_message">د سکالوگانو ترمنځ گرځېدو لپاره يې پورته راکاږئ، يا اړخ‌لارې وکاروئ؛ ترڅو اړوند منځپانگې و پلټئ.</string>
+  <string name="home_feed_settings_title">خپل ار کتنمخ دوديزول</string>
+  <string name="home_feed_settings_default_view_title">تلواله کتنمخ کتل</string>
+  <string name="home_feed_settings_default_view_subtitle">وټاکئ چې کله تاسو کاريال پرانېځئ؛ نو کوم کتنمخ درته لومړی ښکاره شي</string>
+  <string name="home_feed_settings_default_view_confirm">دا بدلون به په راتلونکي ځل پلی شي، کله چې تاسو کاريال بيا پرانېځئ.</string>
+  <string name="home_feed_settings_whats_driving_title">ستاسو کتمنخ څه چلوي</string>
+  <string name="home_feed_settings_modules_title">چلنوال</string>
+  <string name="home_feed_settings_community_subtitle">د \"ټولنې\" کتنمخ چلنوال بلول او گولول</string>
+  <string name="home_feed_settings_for_you_subtitle">د \"ستاسو لپاره\" کتنمخ چلنوال بلول يا گولول</string>
+  <string name="home_feed_settings_whats_driving_subtitle">سکالوگانې او ليکنې چې ستاسو منځپانگې ته بڼه ورکوي</string>
+  <string name="home_feed_settings_community_modules_description">د چلنوال بندول ستاسو د ټولنې کتنمخ څخه پټوي. تاسو کولی شئ دا هر وخت دلته بيا چارن کړئ. ځينې چلنوال ښايي ستاسو ژبه کې شتون ونه‌لري.</string>
+  <string name="home_feed_settings_for_you_modules_description">د چلنوال بندول ستاسو د \"ستاسو لپاره\" د کتنمخ څخه پټوي. تاسو کولی شئ دا هر وخت دلته بيا چارن کړئ.</string>
+  <string name="home_feed_settings_based_on_interest_title">ستاسو د خوښو پربنسټ</string>
+  <string name="home_feed_settings_based_on_interest_subtitle">ليکنې چې ستاسو د غوره کړو سکالوگانو سره ورته دي. &lt;a href=\"#drivingFeed\"&gt;ستاسو کتمنخ څه چلوي&lt;/a&gt;</string>
+  <string name="home_feed_settings_because_you_read_subtitle">وړانديزونه ستاسو د پېښليک د وروستيو ليکنې پربنسټ دي</string>
+  <string name="home_feed_settings_continue_reading_title">لوستلو ته دوام ورکول</string>
+  <string name="home_feed_settings_continue_reading_subtitle">بېرته هغه ليکنو ته ورشئ؛ چې پای ته رسولې مو نه دي</string>
+  <string name="home_feed_did_you_know_title">ايا پوهېدې؟</string>
+  <string name="home_feed_did_you_know_subtitle">د خپل‌خوښو سمونگرانو له خوا ليکنو ته غوره شوي په خواپورې رښتينولۍ</string>
+  <string name="home_feed_did_you_know_more_label">نور په څه پوهېږئ</string>
+  <string name="home_feed_settings_community_empty_dialog_title">ستاسو د ټولنې کتنمخ به تش وي</string>
+  <string name="home_feed_settings_for_you_empty_dialog_title">ستاسو د \"ستاسو لپاره\" کتنمخ به تش وي</string>
+  <string name="home_feed_settings_empty_dialog_text">د منځپانگې ليدلو لپاره لږ تر لږه يو چلنوال چارن کړئ.</string>
+  <string name="home_feed_settings_empty_dialog_positive">هرڅنگه چې وي دوام ورکړئ</string>
+  <string name="home_feed_screen_empty_state_label">ستاسو کتنمخ تش دی</string>
+  <string name="home_feed_community_screen_all_modules_disabled_description">د ويکي‌رسنۍ ټولنې له‌خوا او د هغې په اړه د منځپانگې ليدلو لپاره د &lt;b&gt;ټولنې&lt;/b&gt; چلنوال بل کړئ.</string>
+  <string name="home_feed_for_you_screen_all_modules_disabled_description">د خپل غوره‌توبونو پربنسټ د منځپانگې ليدلو لپاره د &lt;b&gt;ستاسو لپاره&lt;/b&gt; چلنوال بل کړئ.</string>
+  <string name="home_feed_screen_all_modules_disabled_btn_label">چلنوال مهارول</string>
+  <string name="home_feed_for_you_screen_empty_title">وسمهال ستاسو کتنمخ تش دی</string>
+  <string name="home_feed_for_you_screen_empty_description">ستاسو د \"ستاسو لپاره\" کتنمخ به د ځانواله شويو ليکنو سره ډک شي، هغه ډول چې تاسو يې پلټئ.</string>
+  <string name="home_feed_for_you_screen_empty_ways_to_start">د پيلولو لارې:</string>
+  <string name="home_feed_for_you_screen_empty_add_interests">&lt;a href=\"#add_interests\"&gt;ځينې لېوالتياوې&lt;/a&gt; ورگډول</string>
+  <string name="home_feed_for_you_screen_empty_see_community">وگورئ چې په &lt;a href=\"#community_tab\"&gt;ټولنه&lt;/a&gt; کې څه پېښېږي</string>
+  <string name="home_feed_update_tooltip1">نوی: \"ناڅاپي ليکنه\" او \"خواپورې ځايونه\" ستاسو لپاره شتون لري او په \"ايا پوهېدې\" ټولنې نښکه کې دي.</string>
+  <string name="home_feed_random_title">ناټاکلی</string>
+  <string name="home_feed_random_subtitle">ستاسو د تجسس راپارولو لپاره ناڅاپي ليکنه</string>
+  <string name="home_feed_settings_feed_configuration_description">دا سکالوگانې او ليکنې د \"ستاسو لپاره\" په کتمنخ کې ښودل شوي مواد جوړوي. هغه څه لرې کړئ چې تاسو يې نور نه غواړئ يا نوې لېوالتياوې ورگډې کړئ.</string>
+  <string name="home_feed_settings_feed_configuration_interest_title">ستاسو لېوالتياوې</string>
+  <string name="home_feed_settings_feed_configuration_interest_subtitle">خپل د لېوالتيا سکالوگانې سمول</string>
+  <string name="home_feed_settings_feed_configuration_location_title">ستاسې ځای</string>
+  <string name="home_feed_settings_feed_configuration_location_subtitle">خپل ځای مو په ځايونو کې هم‌مهاله کړئ؛ ترڅو څېرمه ليکنې وگورئ</string>
+  <string name="home_feed_settings_feed_configuration_empty_interest_subtitle">ستاسو د لېوالتياوو لړليک تش دی. داسې يو څه ورگډ کړئ چې تاسو يې په اړه لېوالتيا لرئ.</string>
+  <string name="home_feed_settings_feed_configuration_reading_history_title">لوستلو پېښليک</string>
+  <string name="home_feed_settings_feed_configuration_reading_history_subtitle">خپلې وروستۍ لوستل شوې ليکنې سپړل</string>
+  <string name="home_feed_settings_feed_configuration_empty_reading_history_subtitle">ستاسو د لوستلو پېښليک تش دی. د ځانواله سپارښتنو جوړولو لپاره د ليکنې سپړل پيل کړئ.</string>
+  <string name="home_feed_settings_feed_configuration_languages_title">ژبې</string>
+  <string name="home_feed_settings_feed_configuration_languages_subtitle">د خپلې خوښې ژبې سمول</string>
+  <string name="home_feed_settings_feed_configuration_interests_updated_message">لېوالتياوې مو هممهاله شوې. خپل کتنمخ تاند کړئ؛ ترڅو هممهالېدنې وگورئ.</string>
+  <string name="home_feed_places_of_interest_cta_title">د هغه ځايونو کيسې چې تاسو يې خوښوئ</string>
+  <string name="home_feed_places_of_interest_cta_description">ليکنې به ستاسو د وروستيو ليدلو پر بنسټ ښکاره شي. د ځايونو ريښکې نه ليدنه وکړئ او يو ځای غوره کړئ.</string>
+  <string name="home_feed_places_of_interest_cta_button">ځايونو ته ورتلل</string>
+  <string name="home_feed_settings_places_of_interest_title">پام وړ ځايونه</string>
+  <string name="home_feed_settings_places_of_interest_subtitle">په ځايونو کې ستاسو وروستي موقعيت ته څېرمه ليکنې</string>
+  <string name="home_feed_settings_games_title">لوبې</string>
+  <string name="home_feed_settings_games_subtitle">د ويکي‌پېډيا منځنپانگې پربنسټ ورځنۍ لوبې</string>
+  <string name="home_feed_settings_discover_title">سپارښتنې موندل</string>
+  <string name="home_feed_settings_discover_subtitle">ستاسو له موندلي لوستلړ نه ليکنې</string>
+  <string name="home_feed_discover_cta_title">له موندلو</string>
+  <string name="home_feed_discover_cta_description">د نويو سکالوگانو په اړه زده کړئ، چې يوازې ستاسو لپاره غوره شوې دي. د ورځنيو، اوونيزو يآ مياشتنيو هم‌مهالېدنو ترمنځ يې خوښ کړئ.</string>
+  <string name="home_feed_discover_cta_button">لوستلړ موندل چارنول</string>
+  <string name="home_feed_discover_card_footer">موندلو څخه • %s هم‌مهالېدنې</string>
+  <string name="home_feed_discover_see_all_title">د موندلو لپاره نور هم شته</string>
+  <string name="home_feed_discover_see_all_description">ستاسو ځانواله لوستلړ نورې کيسې لري چې يوازې ستاسو لپاره غوره شوې دي.</string>
+  <string name="home_feed_discover_see_all_button">ټول وړانديزونه لټون کول</string>
+  <string name="home_feed_places_of_interest_card_footer">%1$s • په ځايونو کې ستاسو د موقعيت پربنسټ</string>
+  <string name="home_feed_for_you_screen_end_of_feed_title">د نن ورځې لپاره دا بس دي!</string>
+  <string name="home_feed_for_you_screen_end_of_feed_description">سبا بېرته راوگرځئ؛ ترڅو تازه نوې ليکنې ومومئ چې ستاسو لپاره ترتيب شوې وي.</string>
+  <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">د زده کړې دوام لپاره لارې:</string>
+  <string name="home_feed_for_you_screen_end_of_feed_add_interests">نوې &lt;a href=\"#add_interests\"&gt;لېوالتياوې&lt;/a&gt; ورگډول</string>
+  <string name="home_feed_games_module_cta_prompt_title">غواړې نورې لوبې ولوبوې؟</string>
+  <string name="home_feed_games_module_cta_prompt_subtitle">لوبځي ته ورشه</string>
+  <string name="home_feed_games_module_cta_prompt_button_text">لوبځی</string>
 </resources>

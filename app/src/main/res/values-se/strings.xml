@@ -534,10 +534,10 @@
     <item quantity="two">%d artihkkala sihkkojuvvon listtus</item>
     <item quantity="other">%d artihkkala sihkkojuvvon listtus</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d artihkal sihkkojuvvon %s:s</item>
-    <item quantity="two">%d artihkkala sihkkojuvvon %s:s</item>
-    <item quantity="other">%d artihkkala sihkkojuvvon %s:s</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">%1$d artihkal sihkkojuvvon %2$s:s</item>
+    <item quantity="two">%1$d artihkkala sihkkojuvvon %2$s:s</item>
+    <item quantity="other">%1$d artihkkala sihkkojuvvon %2$s:s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d listu sihkkojuvvon</item>
@@ -838,11 +838,11 @@
   <string name="feed_item_type_main_page">Wikipedia váldosiidu otná deattuhuvvon sisdoaluin</string>
   <string name="feed_item_type_randomizer">Soaitilmas válljejuvvon artihkkalat</string>
   <string name="feed_item_type_suggested_edits">Evttohus sisdoalu lasihit Wikipediai</string>
-  <string name="feed_empty_message">Dáppe ii leat mihkkege</string>
+  <string name="feed_empty_message" fuzzy="true">Dáppe ii leat mihkkege</string>
   <string name="feed_configure_onboarding_action">Heivet</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Gaskkalduhte</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Heivet guorahallansiiddu.&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Sáhtát heivehit ja vuoruhit guđet sisdoalut galget čájehuvvot.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Heivet guorahallansiiddu.&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Sáhtát heivehit ja vuoruhit guđet sisdoalut galget čájehuvvot.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Gaskkalduhte</string>
   <string name="feed_accessibility_card_text">Don leat ollen guorahallansiiddu vuolemussii.</string>
@@ -1149,11 +1149,11 @@
   <string name="onboarding_get_started">Boađe johtui</string>
   <string name="onboarding_maybe_later">Soaitá maŋŋelaš</string>
   <string name="onboarding_explore_title">Ođđa guorahallanvuogit</string>
-  <string name="onboarding_explore_text">Buokčalastte Wikipediai guorahallansiiddu bokte. &lt;br/&gt; &lt;b&gt;Heivet&lt;/b&gt; sisdoalu iežat miela mielde, juogo háliidat oaidnit historjjálaš dáhpáhusaid &lt;b&gt;otná beaivvi&lt;/b&gt; dahje ohcat &lt;b&gt;soaitilmis artihkkaliid&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Buokčalastte Wikipediai guorahallansiiddu bokte. &lt;br/&gt; &lt;b&gt;Heivet&lt;/b&gt; sisdoalu iežat miela mielde, juogo háliidat oaidnit historjjálaš dáhpáhusaid &lt;b&gt;otná beaivvi&lt;/b&gt; dahje ohcat &lt;b&gt;soaitilmis artihkkaliid&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Lohkanlisttut main lea synkroniseren</string>
   <string name="onboarding_reading_list_sync_text_v2">Sáhtát ráhkadit lohkanlisttuid main leat artihkkalat maid háliidat maŋŋel lohkat, dalle maid go it beasa nehttii.&lt;br/&gt;Čálit sisa ovttain Wikipedia-geavaheaddjidovddaldagain sihkkarastinmáŋget listtuid. &lt;a href=\"#login\"&gt;Searvva Wikipediai&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Data ja persovdnasuodjalus</string>
-  <string name="onboarding_data_privacy_text">Mii oaivvildit ahte don it galgga dárbbašit almmuhit iežat persovnnalaš dieđuid searvama dihte friddja máhtu lihkadussii. Geavahandáhtat mat čoggojuvvojit dán áppas, leat anonymat. Oahpa eanet &lt;a href=\"#privacy\"&gt;min persovdnasuodjaluspolitihka&lt;/a&gt; ja &lt;a href=\"#termsOfUse\"&gt;min geavahaneavttuid birra&lt;/a&gt;.</string>
+  <string name="onboarding_data_privacy_text" fuzzy="true">Mii oaivvildit ahte don it galgga dárbbašit almmuhit iežat persovnnalaš dieđuid searvama dihte friddja máhtu lihkadussii. Geavahandáhtat mat čoggojuvvojit dán áppas, leat anonymat. Oahpa eanet &lt;a href=\"#privacy\"&gt;min persovdnasuodjaluspolitihka&lt;/a&gt; ja &lt;a href=\"#termsOfUse\"&gt;min geavahaneavttuid birra&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Sádde geavahandáhtaid</string>
   <string name="onboarding_got_it">Ok, ipmirdin.</string>
   <string name="onboarding_multilingual_secondary_text">Čuovvovaš gávdnojuvvui du ovttadagas:</string>
@@ -1189,7 +1189,7 @@
     <item quantity="two">Sihkkut válljejuvvon gielaid?</item>
     <item quantity="other">Sihkkut válljejuvvon gielaid?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Sisdoallu guorahallansiiddus ja jođánisohcansillis leat dušše olámuttos daid Wikipedia-gielaide mat leat báhcán.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Sisdoallu guorahallansiiddus ja jođánisohcansillis leat dušše olámuttos daid Wikipedia-gielaide mat leat báhcán.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Ii sáhte sihkkut visot gielaid</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Doalat unnimusat ovtta Wikipedia-giela mainna sáhtát ohcat ja lohkat sisdoalu</string>
   <string name="more_language_options">eambbo</string>
@@ -1661,4 +1661,5 @@
   <string name="year_in_review_learn_more">Lassedieđut</string>
   <string name="donation_reminders_settings_learn_more_button">Lassedieđut</string>
   <string name="hybrid_search_onboarding_learn_more">Lassedieđut</string>
+  <string name="reading_challenge_install_prompt_add">Lasit</string>
 </resources>

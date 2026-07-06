@@ -718,11 +718,11 @@
   <string name="feed_item_type_main_page">দৈনিক নির্বাচিত বিষয়বস্তুসহ উইকিপিডিয়ার প্রধান পাতা</string>
   <string name="feed_item_type_randomizer">পড়ার জন্য অনির্ধারিত প্রবন্ধ বের করুন</string>
   <string name="feed_item_type_suggested_edits">উইকিপিডিয়ায় বিষয়বস্তু যোগের পরামর্শ</string>
-  <string name="feed_empty_message">আপনার অন্বেষণ ফিডে আর কিছু নেই</string>
+  <string name="feed_empty_message" fuzzy="true">আপনার অন্বেষণ ফিডে আর কিছু নেই</string>
   <string name="feed_configure_onboarding_action">পছন্দকরণ</string>
   <string name="customize_lang_selection_dialog_ok_button_text">ঠিক আছে</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">বাতিল</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;আপনার অন্বেষণ ফিড স্বনির্ধারণ করুন&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;আপনি এখন আপনার ফিডে কি প্রদর্শন করাতে চান তা চয়ন করতে পারেন, এবং আপনার পছন্দসই বিষয়বস্তুর ধরনকে অগ্রাধিকার দিতে পারবেন।</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;আপনার অন্বেষণ ফিড স্বনির্ধারণ করুন&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;আপনি এখন আপনার ফিডে কি প্রদর্শন করাতে চান তা চয়ন করতে পারেন, এবং আপনার পছন্দসই বিষয়বস্তুর ধরনকে অগ্রাধিকার দিতে পারবেন।</string>
   <string name="feed_lang_selection_dialog_ok_button_text">ঠিক আছে</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">বাতিল</string>
   <string name="feed_accessibility_card_text">আপনি ফিডের একদম শেষে পৌঁছে গেছেন।</string>
@@ -1029,7 +1029,7 @@
   <string name="insert_media_settings" fuzzy="true">মিডিয়া সেটিং</string>
   <string name="insert_media_settings_uploaded_image">আপলোডকৃত ছবি</string>
   <string name="insert_media_settings_caption" fuzzy="true">ক্যাপশন</string>
-  <string name="insert_media_advanced_settings">উচ্চতর সেটিং</string>
+  <string name="insert_media_advanced_settings">উন্নত সেটিং</string>
   <string name="insert_media_advanced_settings_image_position">চিত্রের অবস্থান</string>
   <string name="insert_media_advanced_settings_image_position_right">ডানে</string>
   <string name="insert_media_advanced_settings_image_position_left">বামে</string>

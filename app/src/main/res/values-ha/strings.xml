@@ -499,9 +499,9 @@
     <item quantity="one">%d an cire labarin daga jeri</item>
     <item quantity="other"> %d an cire labarai daga jeri</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d an cire makala daga %s</item>
-    <item quantity="other">%d an cire makala daga %s</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">%1$d an cire makala daga %2$s</item>
+    <item quantity="other">%1$d an cire makala daga %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d list deleted</item>
@@ -792,11 +792,11 @@
   <string name="feed_item_type_main_page">Babban shafi na Wikipedia tare da abubuwan da ke cikin yau da kullun</string>
   <string name="feed_item_type_randomizer">Samar da labarai na bazuwar don karantawa</string>
   <string name="feed_item_type_suggested_edits">Shawarwari don ƙara abun ciki zuwa Wikipedia</string>
-  <string name="feed_empty_message">Babu wani abu a kan abincinku na Bincike</string>
+  <string name="feed_empty_message" fuzzy="true">Babu wani abu a kan abincinku na Bincike</string>
   <string name="feed_configure_onboarding_action">Keɓance</string>
   <string name="customize_lang_selection_dialog_ok_button_text">Yayi</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Soke</string>
-  <string name="feed_configure_onboarding_text">Yanke abincin Bincike yanzu zaka iya zaɓar abin da za ka nuna akan abincinka, kuma ka ba da fifiko ga nau\'ikan abubuwan da ka fi so.&lt;br/&gt;&lt;br/&gt;</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">Yanke abincin Bincike yanzu zaka iya zaɓar abin da za ka nuna akan abincinka, kuma ka ba da fifiko ga nau\'ikan abubuwan da ka fi so.&lt;br/&gt;&lt;br/&gt;</string>
   <string name="feed_lang_selection_dialog_ok_button_text">Yayi</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Soke</string>
   <string name="feed_accessibility_card_text">Kun kai ga kasan abincin.</string>
@@ -1091,7 +1091,7 @@
   <string name="onboarding_get_started">Fara</string>
   <string name="onboarding_maybe_later">Wataƙila daga baya</string>
   <string name="onboarding_explore_title">Sabbin hanyoyin bincike</string>
-  <string name="onboarding_explore_text">Nitsaye cikin rami na zomo na Wikipedia tare da sabuntawa akai-akai Bincike ciyarwa. Yi amfani da abinci don abubuwan da kuke so - ko yana koyo game da abubuwan da suka faru a tarihi &lt;b&gt;A wannan rana&lt;/b&gt;, ko kuma mirgine dice tare da Random.&lt;br/&gt;</string>
+  <string name="onboarding_explore_text" fuzzy="true">Nitsaye cikin rami na zomo na Wikipedia tare da sabuntawa akai-akai Bincike ciyarwa. Yi amfani da abinci don abubuwan da kuke so - ko yana koyo game da abubuwan da suka faru a tarihi &lt;b&gt;A wannan rana&lt;/b&gt;, ko kuma mirgine dice tare da Random.&lt;br/&gt;</string>
   <string name="onboarding_reading_list_sync_title">Jerin karatu tare da daidaitawa</string>
   <string name="onboarding_reading_list_sync_text_v2">Kuna iya yin jerin karatu daga labaran da kuke so ku karanta daga baya, koda kuwa kuna kan layi. Shigar da asusunku na Wikipedia don daidaita jerin karatun ku. &lt;a href=\"#login\"&gt;Shigar da Wikipedia&lt;/a&gt;&lt;br/&gt;</string>
   <string name="onboarding_analytics_switch_title">Sanya bayanai na amfani</string>
@@ -1127,7 +1127,7 @@
     <item quantity="one">Cire zaɓaɓɓen harshe?</item>
     <item quantity="other">Cire zaɓaɓɓun harsuna?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Za ku ga abun ciki ne kawai a kan Binciken abinci da kuma saurin bincike don sauran harsunan Wikipedia.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Za ku ga abun ciki ne kawai a kan Binciken abinci da kuma saurin bincike don sauran harsunan Wikipedia.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Ba za a iya cire dukkan harsuna ba</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Ku ajiye akalla harshe ɗaya na Wikipedia daga abin da za a bincika da karanta abun ciki.</string>
   <string name="more_language_options">ƙari</string>

@@ -484,8 +484,8 @@
     <item quantity="other">%d članaka je uklonjeno iz liste</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d članak je uklonjen iz %s</item>
-    <item quantity="other">%d članaka je uklonjeno iz %s</item>
+    <item quantity="one">%1$d članak je uklonjen iz %2$s</item>
+    <item quantity="other">%1$d članaka je uklonjeno iz %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d lista je obrisana</item>
@@ -769,11 +769,11 @@
   <string name="feed_item_type_main_page">Glavna strana Vikipedije sa sadržajem dana</string>
   <string name="feed_item_type_randomizer">Generišite slučajne članke za čitanje</string>
   <string name="feed_item_type_suggested_edits">Predlozi za dodavanje sadržaja na Vikipediji</string>
-  <string name="feed_empty_message">Vaš fid „Istraži“ je prazan</string>
+  <string name="feed_empty_message" fuzzy="true">Vaš fid „Istraži“ je prazan</string>
   <string name="feed_configure_onboarding_action">Prilagodi</string>
   <string name="customize_lang_selection_dialog_ok_button_text">U redu</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Otkaži</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Prilagodite fid „Istraži“&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Sada možete da izaberete šta želite da se prikazuje u fidu, kao i da date prednost vašem omiljenom tipu sadržaja.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Prilagodite fid „Istraži“&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Sada možete da izaberete šta želite da se prikazuje u fidu, kao i da date prednost vašem omiljenom tipu sadržaja.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">U redu</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Otkaži</string>
   <string name="feed_accessibility_card_text">Došli ste do kraja fida.</string>
@@ -1061,7 +1061,7 @@
   <string name="onboarding_get_started">Započnite</string>
   <string name="onboarding_maybe_later">Možda kasnije</string>
   <string name="onboarding_explore_title">Novi načini za istraživanje</string>
-  <string name="onboarding_explore_text">Zavirite u nepoznati svet Vikipedije pomoću fida „Istraži“ koji se neprekidno ažurira.&lt;br/&gt; &lt;b&gt;Prilagodite&lt;/b&gt; fid svojim interesima – upoznajte istorijske događaje koji su se odigrali &lt;b&gt;na današnji dan&lt;/b&gt; ili iskušajte sreću sa &lt;b&gt;slučajnim člankom&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Zavirite u nepoznati svet Vikipedije pomoću fida „Istraži“ koji se neprekidno ažurira.&lt;br/&gt; &lt;b&gt;Prilagodite&lt;/b&gt; fid svojim interesima – upoznajte istorijske događaje koji su se odigrali &lt;b&gt;na današnji dan&lt;/b&gt; ili iskušajte sreću sa &lt;b&gt;slučajnim člankom&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Liste za čitanje sa sinhronizacijom</string>
   <string name="onboarding_reading_list_sync_text_v2">Možete da pravite liste za čitanje od članaka koje želite da čitate kasnije, čak i kada ste oflajn. &lt;br/&gt;Prijavite se na svoj nalog na Vikipediji da biste sinhronizovali liste za čitanje. &lt;a href=\"#login\"&gt;Pridružite se Vikipediji&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Šalji podatke o upotrebi</string>
@@ -1097,7 +1097,7 @@
     <item quantity="one">Ukloniti izabrani jezik?</item>
     <item quantity="other">Ukloniti izabrane jezike?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Sadržaj u fidu „Istraži“ i filterima za brzu pretragu će se odnositi samo na preostale jezike Vikipedije.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Sadržaj u fidu „Istraži“ i filterima za brzu pretragu će se odnositi samo na preostale jezike Vikipedije.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Nije moguće ukloniti sve jezike</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Zadržite bar jedan jezik za pretragu i čitanje.</string>
   <string name="more_language_options">još</string>

@@ -70,7 +70,7 @@ class YearInReviewViewModel : ViewModel() {
             if (yearInReviewModelMap[YIR_YEAR] == null) {
                 val totalSavedArticlesCount = async {
                     AppDatabase.instance.readingListPageDao()
-                        .getTotalLocallySavedPagesBetween(dataStartMillis, dataEndMillis) ?: 0
+                        .getTotalSavedPagesBetween(dataStartMillis, dataEndMillis) ?: 0
                 }
                 val randomSavedArticleTitles = async {
                     AppDatabase.instance.readingListPageDao()

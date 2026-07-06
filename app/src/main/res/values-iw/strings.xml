@@ -593,10 +593,10 @@
     <item quantity="other">%d ערכים הוסרו מהרשימה</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">ערך אחד הוסר מהרשימה %s</item>
-    <item quantity="two">שני ערכים הוסרו מהרשימה %s</item>
-    <item quantity="many">%d ערכים הוסרו מהרשימה %s</item>
-    <item quantity="other">%d ערכים הוסרו מהרשימה %s</item>
+    <item quantity="one">ערך אחד הוסר מהרשימה %2$s</item>
+    <item quantity="two">שני ערכים הוסרו מהרשימה %2$s</item>
+    <item quantity="many">%1$d ערכים הוסרו מהרשימה %2$s</item>
+    <item quantity="other">%1$d ערכים הוסרו מהרשימה %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">נמחקה רשימה אחת</item>
@@ -923,11 +923,11 @@
   <string name="feed_item_type_randomizer">יצירת ערכים אקראיים לקריאה</string>
   <string name="feed_item_type_suggested_edits">הצעות להוספת תוכן לוויקיפדיה</string>
   <string name="feed_item_type_places">ערכים על מקומות בסביבה, לפי המיקום הנוכחי</string>
-  <string name="feed_empty_message">אין שום דבר בהזנת ה\"לחקור\" שלך</string>
+  <string name="feed_empty_message" fuzzy="true">אין שום דבר בהזנת ה\"לחקור\" שלך</string>
   <string name="feed_configure_onboarding_action">התאמה אישית</string>
   <string name="customize_lang_selection_dialog_ok_button_text">אישור</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">ביטול</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;תעשו התאמה אישית של ההזנה שלכם&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;אתם יכולים לבחור מה להציג בהזנה שלכם ולתעדף את סוגי התוכן שאתם אוהבים.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;תעשו התאמה אישית של ההזנה שלכם&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;אתם יכולים לבחור מה להציג בהזנה שלכם ולתעדף את סוגי התוכן שאתם אוהבים.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">אישור</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">ביטול</string>
   <string name="feed_accessibility_card_text">הגעת לסוף ההזנה.</string>
@@ -1356,11 +1356,11 @@
   <string name="onboarding_get_started">להתחיל</string>
   <string name="onboarding_maybe_later">אולי מאוחר יותר</string>
   <string name="onboarding_explore_title">דרכים חדשות לחקור</string>
-  <string name="onboarding_explore_text">תצללו לוויקיפדיה עם ההזנה המתעדכנת שלנו: \"לחקור\". &lt;br/&gt; תתאימו את ההזנה למה שמעניין אתכם – תלמדו על מה שקרה &lt;b&gt;היום בהיסטוריה&lt;/b&gt;, או תפתחו משהו &lt;b&gt;אקראי&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text" fuzzy="true">תצללו לוויקיפדיה עם ההזנה המתעדכנת שלנו: \"לחקור\". &lt;br/&gt; תתאימו את ההזנה למה שמעניין אתכם – תלמדו על מה שקרה &lt;b&gt;היום בהיסטוריה&lt;/b&gt;, או תפתחו משהו &lt;b&gt;אקראי&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">רשימת קריאה עם סנכרון</string>
   <string name="onboarding_reading_list_sync_text_v2">אפשר ליצור רשימות קריאה מערכים שברצונך לקרוא מאוחר יותר, גם ללא חיבור לרשת. &lt;br/&gt;יש להיכנס לחשבון הוויקיפדיה שלך כדי לסנכרן את רשימות הקריאה שלך &lt;a href=\"#login\"&gt;הצטרפות לוויקיפדיה&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">נתונים ופרטיות</string>
-  <string name="onboarding_data_privacy_text">אנו מאמינים בכך שלא צריך לחייב אותך לספק מידע אישי כדי להשתתף בתנועת הידע החופשי. נתוני השימוש שנאספו עבור היישום הזה הם אלמוניים. אפשר לקבל מידע נוסף על &lt;a href=\"#privacy\"&gt;מדיניות הפרטיות&lt;/a&gt; ועל &lt;a href=\"#termsOfUse\"&gt;תנאי השימוש&lt;/a&gt; שלנו.</string>
+  <string name="onboarding_data_privacy_text" fuzzy="true">אנו מאמינים בכך שלא צריך לחייב אותך לספק מידע אישי כדי להשתתף בתנועת הידע החופשי. נתוני השימוש שנאספו עבור היישום הזה הם אלמוניים. אפשר לקבל מידע נוסף על &lt;a href=\"#privacy\"&gt;מדיניות הפרטיות&lt;/a&gt; ועל &lt;a href=\"#termsOfUse\"&gt;תנאי השימוש&lt;/a&gt; שלנו.</string>
   <string name="onboarding_analytics_switch_title">שליחת נתוני שימוש</string>
   <string name="onboarding_got_it">הבנתי</string>
   <string name="onboarding_multilingual_secondary_text">מצאנו את השפות הבאות במכשיר שלך:</string>
@@ -1400,7 +1400,7 @@
     <item quantity="many">להסיר את השפות שנבחרו?</item>
     <item quantity="other">להסיר את השפות שנבחרו?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">בהזנת הגילוי וכן במסנני החיפוש המהירים, יוצג רק תוכן בשפות הוויקיפדיה שמופיעות ברשימה.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">בהזנת הגילוי וכן במסנני החיפוש המהירים, יוצג רק תוכן בשפות הוויקיפדיה שמופיעות ברשימה.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">לא ניתן להסיר את כל השפות</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">יש להשאיר לפחות שפת ויקיפדיה אחת שבה ברצונך לחפש ולקרוא תוכן.</string>
   <string name="more_language_options">עוד</string>
@@ -1935,7 +1935,7 @@
   <string name="on_this_day_game_stats_average_score">תוצאה ממוצעת</string>
   <string name="on_this_day_game_stats_streak">רצף נוכחי</string>
   <string name="on_this_day_game_result_subtitle">ערכים שהוזכרו במשחק של היום</string>
-  <string name="on_this_day_game_completed_message">תודה ששיחקתם. משחק חדש של \"מה היה קודם?\" זמין מדי יום בהזנת \"לחקור\".</string>
+  <string name="on_this_day_game_completed_message" fuzzy="true">תודה ששיחקתם. משחק חדש של \"מה היה קודם?\" זמין מדי יום בהזנת \"לחקור\".</string>
   <string name="on_this_day_game_menu_notifications">התראות משחק</string>
   <string name="on_this_day_game_menu_info">מידע נוסף</string>
   <string name="on_this_day_game_menu_feedback">בעיה עם תכונה</string>
@@ -2168,6 +2168,7 @@
   <string name="hybrid_search_onboarding_learn_more">מידע נוסף</string>
   <string name="hybrid_search_onboarding_search_title">לשאול שאלות, לקבל תשובות</string>
   <string name="hybrid_search_onboarding_opt_in_choice_description">זמין לזמן מוגבל במהלך הניסוי הזה.</string>
+  <string name="hybrid_search_beta_tag">בטא</string>
   <string name="hybrid_search_experimental_feature_switch_label">הצטרפות לניסוי</string>
   <string name="hybrid_search_onboarding_search_example_title">זקוק להשראה?</string>
   <string name="hybrid_search_onboarding_search_example_description">אפשר להשתמש באחת מדוגמאות החיפוש שלהלן.</string>
@@ -2178,4 +2179,9 @@
   <string name="hybrid_search_results_rate_label">דירוג התוצאה הזאת</string>
   <string name="hybrid_search_no_results_header">אין תוצאות</string>
   <string name="hybrid_search_turn_off_experiment_label">כיבוי הניסוי הזה</string>
+  <string name="home_feed_settings_games_title">משחקים</string>
+  <string name="home_feed_settings_games_subtitle">משחקים יומיומיים המבוססים על תוכן ויקיפדיה</string>
+  <string name="home_feed_games_module_cta_prompt_title">רוצה לשחק משחקים נוספים?</string>
+  <string name="home_feed_games_module_cta_prompt_subtitle">לך למרכז המשחקים</string>
+  <string name="home_feed_games_module_cta_prompt_button_text">מרכז המשחקים</string>
 </resources>

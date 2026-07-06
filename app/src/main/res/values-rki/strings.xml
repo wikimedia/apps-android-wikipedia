@@ -542,9 +542,9 @@
     <item quantity="one">%d ဆောင်းပါးကို စရင်းက ဖယ်ယှားထားရေ</item>
     <item quantity="other"> စရင်းက ဆောင်းပါး %d ခုကို ဖယ်ယှားလိုက်တေ</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d ဆောင်းပါးကို %s</item>
-    <item quantity="other">%d ဆောင်းပါးကို %s က ဖယ်ယှားလိုက်တေ</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">%1$d ဆောင်းပါးကို %2$s</item>
+    <item quantity="other">%1$d ဆောင်းပါးကို %2$s က ဖယ်ယှားလိုက်တေ</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d စရင်းကို ဖျက်လိုက်ပါယာ</item>
@@ -836,11 +836,11 @@
   <string name="feed_item_type_randomizer">ဖတ်ရှုဖို့ ကျပန်းဆောင်းပါးတိကို ထုတ်ဖို့</string>
   <string name="feed_item_type_suggested_edits">ဝီကီးပီးဒီးယားမှာ အကြောင်းအရာထည့်ဖို့ အကြံပြုချက်တိ</string>
   <string name="feed_item_type_places">လက်ဟိတည်နီရာကိုအခြီခံပနာ အနီးနားက ဆောင်းပါးတိ</string>
-  <string name="feed_empty_message">သင်ဧ့ စူးစမ်းရေးအခင်းအကျင်းမာ တခုလေ့မဟိပါ</string>
+  <string name="feed_empty_message" fuzzy="true">သင်ဧ့ စူးစမ်းရေးအခင်းအကျင်းမာ တခုလေ့မဟိပါ</string>
   <string name="feed_configure_onboarding_action">စိတ်ကြိုက်ပြင်ဆင်ပါ</string>
   <string name="customize_lang_selection_dialog_ok_button_text">အိုခေ</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">မလုပ်ယာ</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;သင်ဧ့အခင်းအကျင်းကို စိတ်ကြိုက်ပြင်ဆင်ပါ&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;‌ဒေဂုဆိုကေ သင်ဧ့အခင်းအကျင်းမာ ဇာအရာတိကို ပြသပီးဖို့၊ သင်နှစ်သက်ရေ အကြောင်းအရာအမျိုးအစားတိကို ဦးစားပီးဖော်ပြဖို့ဆိုစော်ကို ရွီးချယ်နိုင်ပါယာ။</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;သင်ဧ့အခင်းအကျင်းကို စိတ်ကြိုက်ပြင်ဆင်ပါ&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;‌ဒေဂုဆိုကေ သင်ဧ့အခင်းအကျင်းမာ ဇာအရာတိကို ပြသပီးဖို့၊ သင်နှစ်သက်ရေ အကြောင်းအရာအမျိုးအစားတိကို ဦးစားပီးဖော်ပြဖို့ဆိုစော်ကို ရွီးချယ်နိုင်ပါယာ။</string>
   <string name="feed_lang_selection_dialog_ok_button_text">အိုခေ</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">မလုပ်ယာ</string>
   <string name="feed_accessibility_card_text">သင်စွာ ဖိဒ်ဧ့အောက်ခြီသို့ ရောက်ဟိလားပါယာ။</string>

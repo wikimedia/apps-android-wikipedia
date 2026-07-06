@@ -547,8 +547,8 @@
     <item quantity="other">%d articles suprimits de la llista</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d article suprimit de %s</item>
-    <item quantity="other">%d articles suprimits de %s</item>
+    <item quantity="one">%1$d article suprimit de %2$s</item>
+    <item quantity="other">%1$d articles suprimits de %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d llista suprimida</item>
@@ -840,11 +840,11 @@
   <string name="feed_item_type_main_page">Pàgina principal de la Viquipèdia amb contingut destacat del dia</string>
   <string name="feed_item_type_randomizer">Genera articles a l\'atzar per llegir</string>
   <string name="feed_item_type_suggested_edits">Suggeriments per afegir contingut a la Viquipèdia</string>
-  <string name="feed_empty_message">No hi ha res al canal Explora</string>
+  <string name="feed_empty_message" fuzzy="true">No hi ha res al canal Explora</string>
   <string name="feed_configure_onboarding_action">Personalitza</string>
   <string name="customize_lang_selection_dialog_ok_button_text">D’acord</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Cancel·la</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Personalitza el teu canal Explora&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Ara pots escollir quin contingut veus al teu canal i configurar-lo al teu gust.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Personalitza el teu canal Explora&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Ara pots escollir quin contingut veus al teu canal i configurar-lo al teu gust.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">D’acord</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Cancel·la</string>
   <string name="feed_accessibility_card_text">Heu arribat al final del canal.</string>
@@ -1151,7 +1151,7 @@
   <string name="onboarding_get_started">Primers passos</string>
   <string name="onboarding_maybe_later">Potser més endavant</string>
   <string name="onboarding_explore_title">Noves formes d\'explorar</string>
-  <string name="onboarding_explore_text">Capbusseu-vos a l\'univers de la Viquipèdia amb el canal d\'actualització contínua «Exploreu». &lt;br/&gt;&lt;b&gt;Personalitzeu&lt;/b&gt; el canal amb els vostres interessos, llegiu sobre els esdeveniments històrics d\'&lt;b&gt;Un dia com avui&lt;/b&gt; o jugueu als daus amb l\'&lt;b&gt;Article a l\'atzar&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Capbusseu-vos a l\'univers de la Viquipèdia amb el canal d\'actualització contínua «Exploreu». &lt;br/&gt;&lt;b&gt;Personalitzeu&lt;/b&gt; el canal amb els vostres interessos, llegiu sobre els esdeveniments històrics d\'&lt;b&gt;Un dia com avui&lt;/b&gt; o jugueu als daus amb l\'&lt;b&gt;Article a l\'atzar&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Llistes de lectura amb sincronització</string>
   <string name="onboarding_reading_list_sync_text_v2">Podeu fer llistes de lectura d\'articles que voleu llegir més endavant, fins i tot quan sigueu fora de línia. &lt;br/&gt;Inicieu una sessió al vostre compte de Viquipèdia per sincronitzar les llistes de lectura. &lt;a href=\"#login\"&gt;Uniu-vos a la Viquipèdia&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Dades i privadesa</string>
@@ -1189,7 +1189,7 @@
     <item quantity="one">Voleu suprimir la llengua seleccionada?</item>
     <item quantity="other">Voleu suprimir les llengües seleccionades?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Només veureu el contingut del canal «Exploreu» i els filtres de cerca ràpids per a les llengües de Viquipèdia restants.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Només veureu el contingut del canal «Exploreu» i els filtres de cerca ràpids per a les llengües de Viquipèdia restants.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">No es poden suprimir totes les llengües</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Mantingueu com a mínim una llengua de Viquipèdia a partir de la qual cercar i llegir contingut.</string>
   <string name="more_language_options">més</string>
