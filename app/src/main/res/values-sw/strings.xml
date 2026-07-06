@@ -206,6 +206,9 @@
   <string name="talk_subject_empty">Mada haiwezi kuwa tupu</string>
   <string name="year_in_review_login_dialog_negative">Endelea bila kuingia</string>
   <string name="explore_feed_customize_discover">Binafsisha ugunduzi</string>
+  <string name="home_feed_settings_default_view_confirm">Mabadiliko haya yatatumika wakati ujao unapofungua programu.</string>
+  <string name="home_feed_settings_games_title">Mchezo</string>
+  <string name="home_feed_settings_games_subtitle">Michezo ya kila siku kulingana na maudhui ya Wikipedia</string>
   <string name="home_feed_settings_discover_title">Gundua mapendekezo</string>
   <string name="home_feed_settings_discover_subtitle">Makala kutoka kwenye orodha ya gunduzi uliyoisoma.</string>
   <string name="home_feed_discover_cta_title">Kutoka kwenye ugunduzi</string>
@@ -215,4 +218,7 @@
   <string name="home_feed_discover_see_all_title">Kuna mengi zaidi ya kugundua</string>
   <string name="home_feed_discover_see_all_description">Orodha ya usomaji iliyoundwa kwa ajili Yako ina hadithi zaidi.</string>
   <string name="home_feed_discover_see_all_button">Tazama mapendekezo yote</string>
+  <string name="home_feed_games_module_cta_prompt_title">Je, unataka kucheza michezo zaidi?</string>
+  <string name="home_feed_games_module_cta_prompt_subtitle">Nenda kwenye kitovu cha michezo</string>
+  <string name="home_feed_games_module_cta_prompt_button_text">Kitovu cha michezo</string>
 </resources>
