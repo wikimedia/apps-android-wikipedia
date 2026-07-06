@@ -134,7 +134,7 @@ data class WikiSite(
 
     companion object {
         const val DEFAULT_SCHEME = "https"
-        const val BASE_DOMAIN = "wikipedia.org"
+        const val BASE_DOMAIN = "catalyst.wmcloud.org"
         private var DEFAULT_BASE_URL: String? = null
 
         fun supportedAuthority(authority: String): Boolean {
@@ -147,10 +147,7 @@ data class WikiSite(
 
         fun forLanguageCode(languageCode: String): WikiSite {
             val uri = ensureScheme(DEFAULT_BASE_URL!!.toUri())
-            return WikiSite(
-                (if (languageCode.isEmpty()) "" else languageCodeToSubdomain(languageCode) + ".") + uri.authority,
-                languageCode
-            )
+            return WikiSite("5c92b063e0." + uri.authority, languageCode)
         }
 
         fun normalizeLanguageCode(languageCode: String): String {

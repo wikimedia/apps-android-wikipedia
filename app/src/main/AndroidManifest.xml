@@ -146,6 +146,8 @@
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data android:scheme="wikipedia" />
                 <data android:host="*.wikipedia.org" />
+                <data android:host="*.wmcloud.org" />
+                <data android:pathPrefix="/wiki/" />
                 <!-- Add more deeplink hosts as needed -->
             </intent-filter>
         </activity>

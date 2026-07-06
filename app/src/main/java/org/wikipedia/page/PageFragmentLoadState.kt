@@ -16,6 +16,7 @@ import org.wikipedia.bridge.JavaScriptActionHandler
 import org.wikipedia.categories.db.Category
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwNotLoggedInException
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor
@@ -141,7 +142,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
             model.page = null
             val delayLoadHtml = title.prefixedText.contains(":")
             if (!delayLoadHtml) {
-                bridge.resetHtml(title)
+                bridge.resetHtml(PageTitle(title.prefixedText, WikiSite("https://en.wikipedia.org")))
             }
             if (title.namespace() === Namespace.SPECIAL) {
                 // Short-circuit the entire process of fetching the Summary, since Special: pages
@@ -154,7 +155,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
             }
 
             val pageSummaryRequest = async {
-                ServiceFactory.getRest(title.wikiSite).getSummaryResponse(title.prefixedText, cacheControl = model.cacheControl.toString(),
+                ServiceFactory.getRest(WikiSite("https://en.wikipedia.org")).getSummaryResponse(title.prefixedText, cacheControl = model.cacheControl.toString(),
                     saveHeader = if (model.isInReadingList) OfflineCacheInterceptor.SAVE_HEADER_SAVE else null,
                     langHeader = title.wikiSite.languageCode, titleHeader = UriUtil.encodeURL(title.prefixedText))
             }
