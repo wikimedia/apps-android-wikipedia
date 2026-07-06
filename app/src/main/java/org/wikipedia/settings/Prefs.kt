@@ -1005,4 +1005,8 @@ object Prefs {
     var randomizerShakePromptShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_randomizer_shake_prompt_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_randomizer_shake_prompt_shown, value)
+
+    var homeFeedSurveyShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_home_feed_survey_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_home_feed_survey_shown, value)
 }

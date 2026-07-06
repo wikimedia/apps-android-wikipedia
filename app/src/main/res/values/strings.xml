@@ -1891,6 +1891,8 @@
     <!-- Survey dialog -->
     <string name="survey_dialog_title">Help us improve this feature</string>
     <string name="survey_dialog_message">Are you satisfied with this feature?</string>
+    <string name="home_feed_survey_title">Help improve Home</string>
+    <string name="home_feed_survey_message">Are you satisfied with the \"Community\" and \"For you\" feeds?</string>
     <string name="survey_dialog_option_satisfied">Satisfied</string>
     <string name="survey_dialog_option_neutral">Neutral</string>
     <string name="survey_dialog_option_unsatisfied">Unsatisfied</string>
