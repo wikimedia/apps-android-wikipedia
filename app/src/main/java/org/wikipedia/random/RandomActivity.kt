@@ -28,12 +28,14 @@ import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.compose.components.WikipediaAlertDialog
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.ArticleSavedOrDeletedEvent
+import org.wikipedia.extensions.instrument
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
@@ -53,6 +55,9 @@ class RandomActivity : BaseActivity() {
         setStatusBarColor(Color.TRANSPARENT)
         setNavigationBarColor(Color.TRANSPARENT)
         WindowInsetsControllerCompat(window, window.decorView).isAppearanceLightStatusBars = false
+
+        _instrument = TestKitchenAdapter.client.getInstrument("apps-randomizer")
+            .startFunnel("randomizer")
 
         setContent {
             var shakePromptShown by remember { mutableStateOf(Prefs.randomizerShakePromptShown) }
@@ -101,16 +106,12 @@ class RandomActivity : BaseActivity() {
     }
 
     private fun openArticle(title: PageTitle) {
-        startActivity(
-            PageActivity.newIntentForNewTab(
-                this,
-                HistoryEntry(title, HistoryEntry.SOURCE_RANDOM),
-                title
-            )
-        )
+        instrument?.submitInteraction("click", elementId = "article_open", pageData = TestKitchenAdapter.getPageData(pageTitle = title))
+        startActivity(PageActivity.newIntentForNewTab(this, HistoryEntry(title, HistoryEntry.SOURCE_RANDOM), title))
     }
 
     private fun onSaveClick(title: PageTitle) {
+        instrument?.submitInteraction("click", elementId = "article_save", pageData = TestKitchenAdapter.getPageData(pageTitle = title))
         if (viewModel.saveButtonState) {
             lifecycleScope.launch {
                 val lists = AppDatabase.instance.readingListDao().getListsFromPageOccurrences(AppDatabase.instance.readingListPageDao().getAllPageOccurrences(title))

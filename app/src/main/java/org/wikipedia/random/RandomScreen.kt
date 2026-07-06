@@ -67,6 +67,7 @@ import org.wikipedia.compose.components.FadeInAsyncImage
 import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.extensions.instrument
 import org.wikipedia.page.PageTitle
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.ImageUrlUtil
@@ -81,6 +82,7 @@ fun RandomScreen(
     onArticleClick: (PageTitle) -> Unit,
     onSaveClick: (PageTitle) -> Unit
 ) {
+    val context = LocalContext.current
     val coroutineScope = rememberCoroutineScope()
     val pagerState = rememberPagerState(initialPage = RandomViewModel.FIRST_PAGE, pageCount = { Int.MAX_VALUE })
 
@@ -103,7 +105,10 @@ fun RandomScreen(
         }
     }
 
-    ShakeToAdvance(onShake = goToNext)
+    ShakeToAdvance(onShake = {
+        context.instrument?.submitInteraction("shake")
+        goToNext()
+    })
 
     Box(
         modifier = Modifier
@@ -133,8 +138,14 @@ fun RandomScreen(
                 isSaved = viewModel.saveButtonState,
                 saveEnabled = currentTitle != null,
                 backEnabled = pagerState.currentPage > RandomViewModel.FIRST_PAGE,
-                onBackClick = goToPrevious,
-                onNextClick = goToNext,
+                onBackClick = {
+                    context.instrument?.submitInteraction("click", elementId = "previous_button")
+                    goToPrevious()
+                },
+                onNextClick = {
+                    context.instrument?.submitInteraction("click", elementId = "next_button")
+                    goToNext()
+                },
                 onSaveClick = { currentTitle?.let(onSaveClick) }
             )
         }
