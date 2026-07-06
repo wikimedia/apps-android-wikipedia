@@ -535,6 +535,10 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     }
 
     private fun handleIntent(intent: Intent) {
+        if (intent.action == Intent.ACTION_MAIN && intent.categories?.contains(Intent.CATEGORY_LAUNCHER) == true) {
+            TestKitchenAdapter.client.getInstrument("apps-open")
+                .submitInteraction(action = "app_open", actionSource = "app_icon")
+        }
         if (Intent.ACTION_VIEW == intent.action && intent.data != null) {
             var uri = intent.data!!
             TestKitchenAdapter.client.getInstrument("apps-open")

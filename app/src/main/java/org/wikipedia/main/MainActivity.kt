@@ -13,7 +13,6 @@ import androidx.appcompat.view.ActionMode
 import androidx.appcompat.view.ContextThemeWrapper
 import androidx.appcompat.widget.Toolbar
 import androidx.core.graphics.Insets
-import androidx.core.net.toUri
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
 import androidx.core.view.updatePadding
@@ -24,16 +23,13 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
-import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.databinding.ActivityMainBinding
-import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.HomeFragment
 import org.wikipedia.feed.HomeTab
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.onboarding.InitialOnboardingActivity
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
-import org.wikipedia.page.PageActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DeviceUtil
@@ -99,8 +95,6 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
         supportActionBar?.title = ""
         supportActionBar?.setDisplayHomeAsUpEnabled(false)
         binding.mainToolbar.navigationIcon = null
-
-        handleIntent(intent)
     }
 
     override fun onResume() {
@@ -205,25 +199,6 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
 
     override fun onGoOnline() {
         fragment.onGoOnline()
-    }
-
-    private fun handleIntent(intent: Intent) {
-        if (intent.action == Intent.ACTION_MAIN && intent.categories?.contains(Intent.CATEGORY_LAUNCHER) == true) {
-            TestKitchenAdapter.client.getInstrument("apps-open")
-                .submitInteraction(action = "app_open", actionSource = "app_icon")
-        }
-        if (Intent.ACTION_VIEW == intent.action && intent.data != null) {
-            // TODO: handle special cases of non-article content, e.g. shared reading lists.
-            intent.data?.let {
-                if (it.authority.orEmpty().endsWith(WikiSite.BASE_DOMAIN)) {
-                    // Pass it right along to PageActivity
-                    val uri = it.toString().replace("wikipedia://", WikiSite.DEFAULT_SCHEME + "://").toUri()
-                    startActivity(Intent(this, PageActivity::class.java)
-                            .setAction(Intent.ACTION_VIEW)
-                            .setData(uri))
-                }
-            }
-        }
     }
 
     fun isCurrentFragmentSelected(f: Fragment): Boolean {
