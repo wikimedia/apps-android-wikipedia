@@ -236,7 +236,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
         return binding.mainToolbar
     }
 
-    fun getStatusBarInsets(): Insets? {
+    fun getStatusBarInsets(): Insets {
         return statusBarInsets
     }
 

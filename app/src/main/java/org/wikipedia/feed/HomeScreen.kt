@@ -114,7 +114,7 @@ fun HomeScreen(
 ) {
     val context = LocalContext.current
     val topInset = if (context is MainActivity) {
-        DimenUtil.roundedPxToDp((context.getStatusBarInsets()?.top ?: 0).toFloat())
+        DimenUtil.roundedPxToDp(context.getStatusBarInsets().top.toFloat())
     } else 64
     val pullToRefreshState = rememberPullToRefreshState()
     val isRefreshing = pullToRefreshState.isAnimating && (communityContentState.isInitialLoading || forYouContentState.isInitialLoading)
