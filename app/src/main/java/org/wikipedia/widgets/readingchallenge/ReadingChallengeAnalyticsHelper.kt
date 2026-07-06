@@ -32,8 +32,7 @@ object ReadingChallengeAnalyticsHelper {
     private fun logRandomArticleHeartbeat() {
         TestKitchenAdapter.client.getInstrument("apps-widget").submitInteraction(
             action = "heartbeat",
-            actionSource = "widget_random_article",
-            elementId = "random_article"
+            actionSource = "widget_random_article"
         )
     }
 }
