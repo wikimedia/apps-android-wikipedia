@@ -29,6 +29,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
@@ -48,6 +49,7 @@ fun FeedFeatureTeaserModule(
     buttonIcon: Painter,
     imageUrls: List<String>,
     modifier: Modifier = Modifier,
+    bottomSpacing: Dp = 16.dp,
     onButtonClick: () -> Unit = {}
 ) {
     Column(
@@ -100,7 +102,7 @@ fun FeedFeatureTeaserModule(
             )
         }
 
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(bottomSpacing))
     }
 }
 

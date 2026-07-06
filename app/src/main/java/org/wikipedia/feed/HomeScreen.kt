@@ -63,6 +63,7 @@ import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.ForYouCard
 import org.wikipedia.feed.news.NewsCard
 import org.wikipedia.feed.news.NewsItem
+import org.wikipedia.feed.wikigames.WikiGame
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.language.AppLanguageState
 import org.wikipedia.main.MainActivity
@@ -107,7 +108,9 @@ fun HomeScreen(
     onShuffleClick: () -> Unit = {},
     onPlacesTeaserClick: () -> Unit = {},
     onDiscoverTeaserClick: () -> Unit = {},
-    onSeeAllRecommendationsClick: () -> Unit = {}
+    onSeeAllRecommendationsClick: () -> Unit = {},
+    onGameActionClick: (WikiGame) -> Unit = {},
+    onGoToGamesHubClick: () -> Unit = {}
 ) {
     val context = LocalContext.current
     val topInset = if (context is MainActivity) {
@@ -207,7 +210,9 @@ fun HomeScreen(
                         onShuffleClick = onShuffleClick,
                         onPlacesTeaserClick = onPlacesTeaserClick,
                         onDiscoverTeaserClick = onDiscoverTeaserClick,
-                        onSeeAllRecommendationsClick = onSeeAllRecommendationsClick
+                        onSeeAllRecommendationsClick = onSeeAllRecommendationsClick,
+                        onGameActionClick = onGameActionClick,
+                        onGoToGamesHubClick = onGoToGamesHubClick
                     )
 
                     // Floating toolbar with gradient scrim, wordmark, and tab selector.

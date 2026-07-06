@@ -71,6 +71,8 @@ import org.wikipedia.feed.model.PlacesOfInterestLocationPromptCard
 import org.wikipedia.feed.places.PlacesOfInterestArticlesModule
 import org.wikipedia.feed.places.PlacesOfInterestLocationPromptModule
 import org.wikipedia.feed.random.RandomModule
+import org.wikipedia.feed.wikigames.GamesModule
+import org.wikipedia.feed.wikigames.WikiGame
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.L10nUtil
@@ -93,7 +95,9 @@ fun ForYouContentTab(
     onShuffleClick: () -> Unit = {},
     onPlacesTeaserClick: () -> Unit = {},
     onDiscoverTeaserClick: () -> Unit = {},
-    onSeeAllRecommendationsClick: () -> Unit = {}
+    onSeeAllRecommendationsClick: () -> Unit = {},
+    onGameActionClick: (WikiGame) -> Unit = { _ -> },
+    onGoToGamesHubClick: () -> Unit = {}
 ) {
     when {
         state.isInitialLoading -> {
@@ -197,7 +201,9 @@ fun ForYouContentTab(
                                 onShuffleClick = onShuffleClick,
                                 onPlacesTeaserClick = onPlacesTeaserClick,
                                 onDiscoverTeaserClick = onDiscoverTeaserClick,
-                                onSeeAllRecommendationsClick = onSeeAllRecommendationsClick
+                                onSeeAllRecommendationsClick = onSeeAllRecommendationsClick,
+                                onGameActionClick = onGameActionClick,
+                                onGoToGamesHubClick = onGoToGamesHubClick
                             )
                         }
 
@@ -257,7 +263,9 @@ fun ForYouContentTab(
                                 onShuffleClick = onShuffleClick,
                                 onPlacesTeaserClick = onPlacesTeaserClick,
                                 onDiscoverTeaserClick = onDiscoverTeaserClick,
-                                onSeeAllRecommendationsClick = onSeeAllRecommendationsClick
+                                onSeeAllRecommendationsClick = onSeeAllRecommendationsClick,
+                                onGameActionClick = onGameActionClick,
+                                onGoToGamesHubClick = onGoToGamesHubClick
                             )
                         }
                     }
@@ -283,7 +291,9 @@ private fun LazyListScope.forYouModuleItem(
     onShuffleClick: () -> Unit,
     onPlacesTeaserClick: () -> Unit,
     onDiscoverTeaserClick: () -> Unit,
-    onSeeAllRecommendationsClick: () -> Unit
+    onSeeAllRecommendationsClick: () -> Unit,
+    onGameActionClick: (WikiGame) -> Unit,
+    onGoToGamesHubClick: () -> Unit
 ) {
     val key = "${module.javaClass.simpleName}-${module.age}-$index"
     when (module) {
@@ -431,6 +441,39 @@ private fun LazyListScope.forYouModuleItem(
                             onCardInView = { onCardImpression(it, index) },
                             onCustomizeClick = onCustomizeClick,
                             onSeeAllRecommendationsClick = onSeeAllRecommendationsClick
+                        )
+                    }
+                }
+            }
+        }
+        is ForYouModule.Games -> {
+            item(key = key) {
+                when {
+                    module.isLoading -> {
+                        Box(modifier = Modifier
+                            .fillMaxWidth()
+                            .height(viewPortHeight),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            LoadingIndicator()
+                        }
+                    }
+                    else -> {
+                        GamesModule(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(viewPortHeight)
+                                .background(ComposeColors.Green800)
+                                .padding(top = (topInset * 2 + 64).dp)
+                                .navigationBarsPadding(),
+                            wikiSite = wikiSite,
+                            module = module,
+                            onGameActionClick = onGameActionClick,
+                            onGoToGamesHubClick = onGoToGamesHubClick,
+                            onHideCardClick = onHideCardClick,
+                            onHideModuleClick = { onHideModuleClick(module.moduleKey()) },
+                            onCardInView = { onCardImpression(it, index) },
+                            onCustomizeInterestsClick = onCustomizeClick
                         )
                     }
                 }

@@ -2386,6 +2386,7 @@
   <string name="home_feed_settings_title">Прилагоди го тековникот „Почетна“</string>
   <string name="home_feed_settings_default_view_title">Стандарден приказ на тековникот</string>
   <string name="home_feed_settings_default_view_subtitle">Изберете кој тековник да се прикаже прв кога ќе го отворите прилогот</string>
+  <string name="home_feed_settings_default_view_confirm">Оваа промена ќе се примени следниот пат кога ќе го отворите прилогот.</string>
   <string name="home_feed_settings_whats_driving_title">Што го движи вашиот тековник</string>
   <string name="home_feed_settings_modules_title">Модули</string>
   <string name="home_feed_settings_community_subtitle">Вклучете/исклучете ги модулите на тековникот „Заедница“</string>
@@ -2435,6 +2436,8 @@
   <string name="home_feed_places_of_interest_cta_button">Оди на „Места“</string>
   <string name="home_feed_settings_places_of_interest_title">Места од интерес</string>
   <string name="home_feed_settings_places_of_interest_subtitle">Статии во близина на вашата последна местоположба во „Места“</string>
+  <string name="home_feed_settings_games_title">Игри</string>
+  <string name="home_feed_settings_games_subtitle">Дневни игри со содржини на Википедија</string>
   <string name="home_feed_settings_discover_title">Предлози за „Откриј“</string>
   <string name="home_feed_settings_discover_subtitle">Статии од вашиот список за читање „Откриј“</string>
   <string name="home_feed_discover_cta_title">Од „Откриј“</string>
@@ -2449,4 +2452,7 @@
   <string name="home_feed_for_you_screen_end_of_feed_description">Вратете се утре за нови статии прилагодени за вас.</string>
   <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Како постојано да учите:</string>
   <string name="home_feed_for_you_screen_end_of_feed_add_interests">Додајте &lt;a href=\"#add_interests\"&gt;нови интереси&lt;/a&gt;</string>
+  <string name="home_feed_games_module_cta_prompt_title">Сакате повеќе игри?</string>
+  <string name="home_feed_games_module_cta_prompt_subtitle">Одете на центарот за игри</string>
+  <string name="home_feed_games_module_cta_prompt_button_text">Центар за игри</string>
 </resources>
