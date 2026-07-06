@@ -451,8 +451,8 @@ class HomeFragment : Fragment() {
                     actionSource = "home_feed_feedback",
                     elementId = "feedback_submit",
                     actionContext = buildMap {
-                        feedbackOption?.let { put("feedback_select", it) }
-                        put("feedback_text", feedbackText)
+                        feedbackOption?.let { put("score", it) }
+                        put("text", feedbackText)
                     }
                 )
             }
