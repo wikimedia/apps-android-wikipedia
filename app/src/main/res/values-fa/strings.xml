@@ -1775,7 +1775,7 @@
   <string name="hybrid_search_results_rate_thumb_down">نظر منفی دهید</string>
   <string name="hybrid_search_results_empty">جستجوی پیشرفته موقتاً در دسترس نیست.</string>
   <string name="hybrid_search_no_results_header">بدون نتیجه</string>
-  <string name="random_article_widget_name">چالش مطالعه</string>
+  <string name="reading_challenge_widget_name">چالش مطالعه</string>
   <string name="reading_challenge_onboarding_join_button">به چالش بپیوندید</string>
   <string name="reading_challenge_onboarding_prompt_title">برای شرکت در چالش وارد شوید</string>
   <string name="reading_challenge_onboarding_prompt_no_thanks">نه ممنون</string>

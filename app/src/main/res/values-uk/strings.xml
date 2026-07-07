@@ -2494,7 +2494,7 @@
   <string name="hybrid_search_error_message">Щось пішло не так. Будь ласка, спробуйте ще раз пізніше.</string>
   <string name="hybrid_search_who_is_prefix">Хто такі %s?</string>
   <string name="hybrid_search_turn_off_experiment_label">Вимкнути цей експеримент</string>
-  <string name="random_article_widget_name">Читацький виклик</string>
+  <string name="reading_challenge_widget_name">Читацький виклик</string>
   <string name="reading_challenge_onboarding_header">Відсвяткуйте 25-річчя Вікіпедії, приєднавшись до 25-денного читацького виклику!</string>
   <string name="reading_challenge_onboarding_read_title">Читайте 1 статтю щодня упродовж 25 днів</string>
   <string name="reading_challenge_onboarding_read_description">Приєднуйтесь до виклику будь-коли з 1 по 31 травня, завершіть свої 25 днів за власним графіком.</string>

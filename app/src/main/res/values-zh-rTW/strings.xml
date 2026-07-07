@@ -2289,7 +2289,7 @@
   <string name="hybrid_search_error_message">發生錯誤。請稍後再試。</string>
   <string name="hybrid_search_who_is_prefix">%s是誰？</string>
   <string name="hybrid_search_turn_off_experiment_label">關閉此實驗</string>
-  <string name="random_article_widget_name">閱讀挑戰</string>
+  <string name="reading_challenge_widget_name">閱讀挑戰</string>
   <string name="reading_challenge_onboarding_learn_more_button">了解更多</string>
   <string name="reading_challenge_onboarding_join_button">參與挑戰</string>
   <string name="reading_challenge_onboarding_prompt_title">登入來參與挑戰</string>

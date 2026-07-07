@@ -2400,7 +2400,7 @@
     <string name="hybrid_search_turn_off_experiment_label">Turn off this experiment</string>
 
     <!-- Reading challenge   -->
-    <string name="random_article_widget_name">Random article</string>
+    <string name="reading_challenge_widget_name">Reading Challenge</string>
     <string name="reading_challenge_onboarding_header">Celebrate Wikipedia\'s 25th birthday by joining the 25-day reading challenge!</string>
     <string name="reading_challenge_onboarding_read_title">Read 1 article a day for 25 days</string>
     <string name="reading_challenge_onboarding_read_description">Join the challenge anytime between 1 May and 31 May, complete your 25 days on your own timeline.</string>
@@ -2586,4 +2586,7 @@
     <string name="home_feed_games_module_cta_prompt_title">Want to play more games?</string>
     <string name="home_feed_games_module_cta_prompt_subtitle">Go to the games hub</string>
     <string name="home_feed_games_module_cta_prompt_button_text">Games hub</string>
+
+    <!-- Random Article Widget   -->
+    <string name="random_article_widget_name">Random article</string>
 </resources>

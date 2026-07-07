@@ -2206,7 +2206,7 @@
   <string name="hybrid_search_error_message">무언가가 잘못되었습니다. 나중에 다시 시도해 주세요.</string>
   <string name="hybrid_search_who_is_prefix">%s은(는) 누구인가요?</string>
   <string name="hybrid_search_turn_off_experiment_label">이 실험 기능 끄기</string>
-  <string name="random_article_widget_name">읽기 도전</string>
+  <string name="reading_challenge_widget_name">읽기 도전</string>
   <string name="reading_challenge_onboarding_header">위키백과 25주년을 기념하여 25일 독서 도전에 참여하세요!</string>
   <string name="reading_challenge_onboarding_read_title">25일 동안 문서를 매일 하나씩 읽으세요</string>
   <string name="reading_challenge_onboarding_read_description">5월 1일부터 5월 31일 사이에 언제든지 도전에 참여하고, 25일 동안의 여정을 원하는 일정에 맞춰 완료하세요.</string>

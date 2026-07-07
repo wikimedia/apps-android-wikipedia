@@ -2007,7 +2007,7 @@
   <string name="donation_reminders_snackbar_modify_button_label">変更</string>
   <string name="hybrid_search_onboarding_learn_more">詳細</string>
   <string name="hybrid_search_no_results_header">結果なし</string>
-  <string name="random_article_widget_name">読書チャレンジ</string>
+  <string name="reading_challenge_widget_name">読書チャレンジ</string>
   <string name="reading_challenge_onboarding_header">ウィキペディア誕生25周年を記念して、25日間閲覧チャレンジに参加しよう！</string>
   <string name="reading_challenge_onboarding_read_title">25日間、1日1記事を読もう</string>
   <string name="reading_challenge_onboarding_read_subtitle">%1$sから%2$sまでの間、いつでもチャレンジに参加できます。自分のペースで25日連続記録を達成しましょう。</string>

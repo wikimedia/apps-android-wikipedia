@@ -2024,7 +2024,7 @@
   <string name="hybrid_search_error_message">Et ass eppes schifgaangen. Probéiert wgl. méi spéit nach eng Kéier.</string>
   <string name="hybrid_search_who_is_prefix">Wien ass %s?</string>
   <string name="hybrid_search_turn_off_experiment_label">Dat hei Experiment desaktivéieren</string>
-  <string name="random_article_widget_name">Lies-Challenge</string>
+  <string name="reading_challenge_widget_name">Lies-Challenge</string>
   <string name="reading_challenge_onboarding_header">Feiert de 25. Gebuertsdag vu Wikipedia, andeems Dir bei der 25-Deeg-Lies-Challenge matmaacht!</string>
   <string name="reading_challenge_onboarding_read_title">Liest wärend 25 Deeg all Dag 1 Artikel</string>
   <string name="reading_challenge_onboarding_read_description">Dir kënnt zu all Moment tëscht dem 1. an dem 31. Mee bei der Challenge matmaachen, fir déi 25 Deeg an Ärem eegenen Tempo zesummenzekréien.</string>

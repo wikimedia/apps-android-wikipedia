@@ -2233,7 +2233,7 @@
   <string name="hybrid_search_error_message">Jokin meni pieleen. Yritä myöhemmin uudelleen.</string>
   <string name="hybrid_search_who_is_prefix">Kuka %s on?</string>
   <string name="hybrid_search_turn_off_experiment_label">Poista tämä kokeilu käytöstä</string>
-  <string name="random_article_widget_name">Lukuhaaste</string>
+  <string name="reading_challenge_widget_name">Lukuhaaste</string>
   <string name="reading_challenge_onboarding_header">Juhlista 25-vuotiasta Wikipediaa osallistumalla 25 päivän lukuhaasteeseen!</string>
   <string name="reading_challenge_onboarding_read_title">Lue yksi artikkeli päivässä 25 päivän ajan</string>
   <string name="reading_challenge_onboarding_read_description">Voit osallistua haasteeseen milloin tahansa ajalla 1.–31. toukokuuta ja suorittaa 25 päivän haasteen aloituspäivästäsi alkaen.</string>

@@ -2316,7 +2316,7 @@
   <string name="hybrid_search_error_message">Arama sonuçları yüklenirken bir hata oluştu. Lütfen tekrar deneyin.</string>
   <string name="hybrid_search_who_is_prefix">%s kimdir?</string>
   <string name="hybrid_search_turn_off_experiment_label">Bu deneyi kapat</string>
-  <string name="random_article_widget_name">Okuma Mücadelesi</string>
+  <string name="reading_challenge_widget_name">Okuma Mücadelesi</string>
   <string name="reading_challenge_onboarding_header">Vikipedi\'nin 25. doğum gününü 25 günlük okuma mücadelesine katılarak kutlayın!</string>
   <string name="reading_challenge_onboarding_read_title">25 gün boyunca günde 1 makale okuyun</string>
   <string name="reading_challenge_onboarding_read_description">Mücadeleye 1 Mayıs ile 31 Mayıs arasında istediğiniz zaman katılın, 25 gününüzü kendi zaman çizelgenizde tamamlayın.</string>

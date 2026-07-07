@@ -2576,7 +2576,7 @@
   <string name="hybrid_search_error_message">Chuaigh rud éigin mícheart. Déan iarracht arís ar ball.</string>
   <string name="hybrid_search_who_is_prefix">Cé hé %s?</string>
   <string name="hybrid_search_turn_off_experiment_label">Múch an turgnamh seo</string>
-  <string name="random_article_widget_name">Dúshlán Léitheoireachta</string>
+  <string name="reading_challenge_widget_name">Dúshlán Léitheoireachta</string>
   <string name="reading_challenge_onboarding_header">Ceiliúir 25ú breithlá Vicipéid trí bheith páirteach sa dúshlán léitheoireachta 25 lá!</string>
   <string name="reading_challenge_onboarding_read_title">Léigh alt amháin in aghaidh an lae ar feadh 25 lá</string>
   <string name="reading_challenge_onboarding_read_description">Glac páirt sa dúshlán am ar bith idir an 1 Bealtaine agus an 31 Bealtaine, agus comhlánaigh do 25 lá ar do sceideal ama féin.</string>

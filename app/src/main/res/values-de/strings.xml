@@ -2321,7 +2321,7 @@
   <string name="hybrid_search_error_message">Etwas ist schiefgelaufen. Bitte versuche es später erneut.</string>
   <string name="hybrid_search_who_is_prefix">Wer ist %s?</string>
   <string name="hybrid_search_turn_off_experiment_label">Dieses Experiment deaktivieren</string>
-  <string name="random_article_widget_name">Leseherausforderung</string>
+  <string name="reading_challenge_widget_name">Leseherausforderung</string>
   <string name="reading_challenge_onboarding_header">Feiere Wikipedias 25. Geburtstag mit der 25-Tage-Lese-Challenge!</string>
   <string name="reading_challenge_onboarding_read_title">Lies 25 Tage lang jeden Tag einen Artikel</string>
   <string name="reading_challenge_onboarding_read_description">Nimm jederzeit zwischen dem 1. und 31. Mai an der Challenge teil und absolviere deine 25 Tage in deinem eigenen Tempo.</string>

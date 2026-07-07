@@ -2169,7 +2169,7 @@
   <string name="hybrid_search_error_message">Algo deu errado. Por favor, tente novamente mais tarde.</string>
   <string name="hybrid_search_who_is_prefix">Quem é %s?</string>
   <string name="hybrid_search_turn_off_experiment_label">Desative esta experiência</string>
-  <string name="random_article_widget_name">Desafio de leitura</string>
+  <string name="reading_challenge_widget_name">Desafio de leitura</string>
   <string name="reading_challenge_onboarding_header">Comemore o 25º aniversário da Wikipédia participando do desafio de leitura de 25 dias!</string>
   <string name="reading_challenge_onboarding_read_title">Leia um artigo por dia durante 25 dias</string>
   <string name="reading_challenge_onboarding_read_description">Participe do desafio a qualquer momento entre 1º e 31 de maio e complete os 25 dias no seu próprio ritmo.</string>
