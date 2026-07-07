@@ -2284,7 +2284,7 @@
   <string name="hybrid_search_error_message">Något blev fel. Försök igen senare.</string>
   <string name="hybrid_search_who_is_prefix">Vem är %s?</string>
   <string name="hybrid_search_turn_off_experiment_label">Stäng av experimentet</string>
-  <string name="reading_challenge_widget_name">Läsutmaning</string>
+  <string name="random_article_widget_name">Läsutmaning</string>
   <string name="reading_challenge_onboarding_header">Fira Wikipedias 25-årsdag och anta utmaningen att läsa 25 dagar i rad!</string>
   <string name="reading_challenge_onboarding_read_title">Läs 1 artikel om dagen i 25 dagar</string>
   <string name="reading_challenge_onboarding_read_description">Delta i utmaningen när som helst mellan 1—31 maj och slutför dina 25 dagar på eget bevåg.</string>

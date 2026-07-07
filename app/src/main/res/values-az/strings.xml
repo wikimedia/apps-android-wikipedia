@@ -2261,7 +2261,7 @@
   <string name="hybrid_search_error_message">Xəta baş verdi. Daha sonra yenidən cəhd edin.</string>
   <string name="hybrid_search_who_is_prefix">%s kimdir?</string>
   <string name="hybrid_search_turn_off_experiment_label">Bu təcrübəni söndür</string>
-  <string name="reading_challenge_widget_name">Oxuma Yarışması</string>
+  <string name="random_article_widget_name">Oxuma Yarışması</string>
   <string name="reading_challenge_onboarding_header">25 günlük oxuma yarışmasına qoşularaq Vikipediyanın 25-ci doğum gününü qeyd edin!</string>
   <string name="reading_challenge_onboarding_read_title">25 gün ərzində gündə 1 məqalə oxuyun</string>
   <string name="reading_challenge_onboarding_read_description">1 may - 31 may tarixləri arasında istənilən vaxt çağırışa qoşulun, 25 gününüzü öz qrafikinizdə tamamlayın.</string>

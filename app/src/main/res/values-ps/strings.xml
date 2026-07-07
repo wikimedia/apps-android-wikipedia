@@ -2275,7 +2275,7 @@
   <string name="hybrid_search_error_message">يو څه ناسم پېښ شول. مهرباني وکړئ وروسته بيا هڅه وکړئ.</string>
   <string name="hybrid_search_who_is_prefix">%s څوک دی؟</string>
   <string name="hybrid_search_turn_off_experiment_label">دا ازمېښت گول کړئ</string>
-  <string name="reading_challenge_widget_name">لوست ننگونې</string>
+  <string name="random_article_widget_name">لوست ننگونې</string>
   <string name="reading_challenge_onboarding_header">د ويکي‌پېډيا ۲۵مې کليزې د نمانځنې په موخه د ۲۵ ورځنۍ لوست ننگونې سره يوځای شئ!</string>
   <string name="reading_challenge_onboarding_read_title">د ۲۵ ورځو لپاره هره ورځ ۱ ليکنه ولولئ</string>
   <string name="reading_challenge_onboarding_read_description">د می له ۱ تر کی ۳۱ پورې هر وخت په ننگونه کې گډون وکړئ، په خپل مهالوېش کې خپلې ۲۵ ورځې بشپړې کړئ.</string>

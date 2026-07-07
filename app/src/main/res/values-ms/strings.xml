@@ -1101,7 +1101,7 @@
   <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">Setiap minggu</string>
   <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">Setiap bulan</string>
   <string name="recommended_reading_list_settings_notifications_title">Pemberitahuan</string>
-  <string name="reading_challenge_widget_name">Cabaran Membaca</string>
+  <string name="random_article_widget_name">Cabaran Membaca</string>
   <string name="reading_challenge_onboarding_header">Raikan hari jadi ke-25 Wikipedia dengan menyertai cabaran membaca selama 25 hari!</string>
   <string name="reading_challenge_onboarding_read_title">Baca 1 laman rencana setiap hari selama 25 hari</string>
   <string name="reading_challenge_onboarding_read_subtitle">Sertai cabaran ini pada bila-bila masa antara %1$s hingga %2$s, dan lengkapkan 25 hari mengikut jadual anda sendiri.</string>

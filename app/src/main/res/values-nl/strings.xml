@@ -2306,7 +2306,7 @@
   <string name="hybrid_search_error_message">Er is iets misgegaan. Probeer het later opnieuw.</string>
   <string name="hybrid_search_who_is_prefix">Wie is %s?</string>
   <string name="hybrid_search_turn_off_experiment_label">Dit experiment uit uitschakelen</string>
-  <string name="reading_challenge_widget_name">Leesuitdaging</string>
+  <string name="random_article_widget_name">Leesuitdaging</string>
   <string name="reading_challenge_onboarding_header">Vier de 25e verjaardag van Wikipedia door mee te doen aan de 25-daagse leesuitdaging!</string>
   <string name="reading_challenge_onboarding_read_title">Lees één pagina per dag gedurende 25 dagen.</string>
   <string name="reading_challenge_onboarding_read_description">Doe mee aan de uitdaging tussen 1 mei en 31 mei en voltooi de 25 dagen in uw eigen tempo.</string>

@@ -2494,7 +2494,7 @@
   <string name="hybrid_search_error_message">شيء ما حدث خطأ رجاءً حاول مرة أخرى لاحقاً</string>
   <string name="hybrid_search_who_is_prefix">من هو %s؟</string>
   <string name="hybrid_search_turn_off_experiment_label">أطفئ هذه التجربة</string>
-  <string name="reading_challenge_widget_name">تحدي القراءة</string>
+  <string name="random_article_widget_name">تحدي القراءة</string>
   <string name="reading_challenge_onboarding_header">احتفل بعيد ميلاد ويكيبيديا الـ25 من خلال الانضمام إلى تحدي القراءة لمدة 25 يوماً!</string>
   <string name="reading_challenge_onboarding_read_title">اقرأ مقالة واحدة يوميا لمدة 25 يوما</string>
   <string name="reading_challenge_onboarding_read_description">انضم إلى التحدي في أي وقت بين 1 مايو و 31 مايو، استكمل 25 يوماً في جدول زمني الخاص بك.</string>

@@ -2261,7 +2261,7 @@
   <string name="hybrid_search_error_message">Un error ha occurrite. Per favor tenta lo de novo plus tarde.</string>
   <string name="hybrid_search_who_is_prefix">Qui es %s?</string>
   <string name="hybrid_search_turn_off_experiment_label">Disactivar iste experimento</string>
-  <string name="reading_challenge_widget_name">Defia de lectura</string>
+  <string name="random_article_widget_name">Defia de lectura</string>
   <string name="reading_challenge_onboarding_header">Celebra le 25te anniversario de Wikipedia con le defia de lectura de 25 dies!</string>
   <string name="reading_challenge_onboarding_read_title">Lege 1 articulo per die durante 25 dies</string>
   <string name="reading_challenge_onboarding_read_description">Participa in le defia inter le 1 e le 31 de maio, completa tu 25 dies secundo tu proprie calendario.</string>

@@ -2183,7 +2183,7 @@
   <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">ARN vs ADN</string>
   <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">¿Por qué la gente le pone piña a la pizza?</string>
   <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">¿Cuáles son las ciudades más grandes de Europa?</string>
-  <string name="reading_challenge_widget_name">Reto de lectura</string>
+  <string name="random_article_widget_name">Reto de lectura</string>
   <string name="reading_challenge_onboarding_header">¡Celebra el 25.º aniversario de Wikipedia participando en el reto de lectura de 25 días!</string>
   <string name="reading_challenge_onboarding_read_title">Lee 1 artículo al día durante 25 días.</string>
   <string name="reading_challenge_onboarding_read_subtitle">Puedes unirte en cualquier momento entre el %1$s y el %2$s y completar los 25 días a tu propio ritmo.</string>

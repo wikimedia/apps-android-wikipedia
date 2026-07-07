@@ -2553,7 +2553,7 @@
   <string name="hybrid_search_error_message">Что-то пошло не так. Пожалуйста, повторите попытку позже.</string>
   <string name="hybrid_search_who_is_prefix">Кто такой %s?</string>
   <string name="hybrid_search_turn_off_experiment_label">Отказаться от участия в эксперименте</string>
-  <string name="reading_challenge_widget_name">Читательский челлендж</string>
+  <string name="random_article_widget_name">Читательский челлендж</string>
   <string name="reading_challenge_onboarding_header">Отметьте 25-летие Википедии, приняв участие в 25-дневном читательском челлендже!</string>
   <string name="reading_challenge_onboarding_read_title">Читайте по одной статье в день в течение 25 дней.</string>
   <string name="reading_challenge_onboarding_read_description">Присоединяйтесь к челленджу в любой день с 1 по 31 мая и завершите свои 25 дней в удобное для вас время.</string>

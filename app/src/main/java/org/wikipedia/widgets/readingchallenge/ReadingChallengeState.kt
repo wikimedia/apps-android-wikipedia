@@ -32,7 +32,8 @@ sealed interface ReadingChallengeState {
     // State 5: Challenge Remove
     object ChallengeRemoved : ReadingChallengeState
 
-    // State 6: Post-challenge transition — widget becomes a permanent Random Article launcher
+    // Temporary post-challenge transition state. Once the Reading Challenge widget is removed,
+    // Random Article will have its own widget implementation and this state can be deleted.
     object RandomArticle : ReadingChallengeState
 }
 

@@ -2284,7 +2284,7 @@
   <string name="hybrid_search_no_results_suggestion_try_related_topic">Keress egy kapcsolódó témára</string>
   <string name="hybrid_search_error_message">Valami félresikerült. Kérlek próbáld újra később.</string>
   <string name="hybrid_search_turn_off_experiment_label">Kísérlet kikapcsolása</string>
-  <string name="reading_challenge_widget_name">Olvasási kihívás</string>
+  <string name="random_article_widget_name">Olvasási kihívás</string>
   <string name="reading_challenge_onboarding_header">Ünnepeld velünk a Wikipédia 25. születésnapját a 25 napos olvasási kihívással!</string>
   <string name="reading_challenge_onboarding_read_title">Olvass el napi 1 szócikket 25 napon át</string>
   <string name="reading_challenge_onboarding_read_description">Bármikor csatlakozhatsz a kihíváshoz május 1. és május 31. között, és a saját ütemedben teljesítheted a 25 napot.</string>

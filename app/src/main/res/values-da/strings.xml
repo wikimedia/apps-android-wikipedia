@@ -2283,7 +2283,7 @@
   <string name="hybrid_search_error_message">Noget gik galt. Prøv venligst igen senere.</string>
   <string name="hybrid_search_who_is_prefix">Hvem er %s?</string>
   <string name="hybrid_search_turn_off_experiment_label">Slå dette eksperiment fra</string>
-  <string name="reading_challenge_widget_name">Læseudfordring</string>
+  <string name="random_article_widget_name">Læseudfordring</string>
   <string name="reading_challenge_onboarding_header">Fejr Wikipedias 25-års fødselsdag ved at deltage i 25-dages læseudfordringen!</string>
   <string name="reading_challenge_onboarding_read_title">Læs 1 artikel om dagen i 25 dage</string>
   <string name="reading_challenge_onboarding_read_description">Deltag i udfordringen når som helst mellem 1. maj og 31. maj, og gennemfør dine 25 dage på din egen tidslinje.</string>
