@@ -1001,4 +1001,8 @@ object Prefs {
     var searchWidgetInstallPromptShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_search_widget_install_prompt_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_search_widget_install_prompt_shown, value)
+
+    var homeFeedSurveyShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_home_feed_survey_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_home_feed_survey_shown, value)
 }
