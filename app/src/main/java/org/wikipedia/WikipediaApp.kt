@@ -5,6 +5,8 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Handler
+import android.os.Process
+import android.os.UserManager
 import android.speech.RecognizerIntent
 import android.webkit.WebView
 import androidx.appcompat.app.AppCompatDelegate
@@ -138,6 +140,14 @@ class WikipediaApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
+
+        // The system WebView's sandboxed renderer can get bound to the app and run onCreate()
+        // in an isolated process, where UserManager (and thus SharedPreferences) is not available.
+        // In such a case, there's no point continuing initialization.
+        if ((Build.VERSION.SDK_INT >= Build.VERSION_CODES.P && Process.isIsolated()) ||
+            getSystemService(UserManager::class.java) == null) {
+            return
+        }
 
         WikiSite.setDefaultBaseUrl(Prefs.mediaWikiBaseUrl)
 
