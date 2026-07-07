@@ -53,7 +53,7 @@ class RandomActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         WindowCompat.setDecorFitsSystemWindows(window, false)
         setStatusBarColor(Color.TRANSPARENT)
-        setNavigationBarColor(Color.TRANSPARENT)
+        setNavigationBarColor(Color.BLACK)
         WindowInsetsControllerCompat(window, window.decorView).isAppearanceLightStatusBars = false
 
         _instrument = TestKitchenAdapter.client.getInstrument("apps-randomizer")

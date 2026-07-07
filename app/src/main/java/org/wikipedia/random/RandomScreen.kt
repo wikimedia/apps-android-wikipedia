@@ -33,6 +33,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -50,11 +51,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.ColorPainter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.core.content.getSystemService
 import androidx.lifecycle.Lifecycle
@@ -72,6 +75,7 @@ import org.wikipedia.extensions.instrument
 import org.wikipedia.page.PageTitle
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.ImageUrlUtil
+import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.views.imageservice.ImageService
 import kotlin.math.sqrt
@@ -198,89 +202,92 @@ private fun RandomItemPage(
         when (state) {
             is Resource.Success -> {
                 val title = state.data
+                val layoutDirection = if (L10nUtil.isLangRTL(title.wikiSite.languageCode)) LayoutDirection.Rtl else LayoutDirection.Ltr
+                CompositionLocalProvider(LocalLayoutDirection provides layoutDirection) {
 
-                Box(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .clickable { onClick(title) }
-                ) {
-                    if (title.thumbUrl.isNullOrEmpty()) {
-                        Box(
-                            modifier = Modifier
-                                .fillMaxSize()
-                                .background(WikipediaTheme.colors.backgroundColor)
-                        )
-                    } else {
-                        FadeInAsyncImage(
-                            model = ImageService.getRequest(
-                                context,
-                                url = ImageUrlUtil.getUrlForPreferredSize(title.thumbUrl!!, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)
-                            ),
-                            placeholder = ColorPainter(Color.Black),
-                            error = ColorPainter(Color.DarkGray),
-                            contentDescription = null,
-                            contentScale = ContentScale.Crop,
-                            modifier = Modifier.fillMaxSize()
-                        )
-                    }
-
-                    Column(
-                        modifier = Modifier.align(Alignment.BottomStart).fillMaxWidth()
+                    Box(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .clickable { onClick(title) }
                     ) {
-                        Box(
-                            modifier = Modifier.fillMaxWidth().height(120.dp)
-                                .background(
-                                    Brush.verticalGradient(
-                                        colorStops = arrayOf(
-                                            0.0f to Color.Transparent,
-                                            0.18f to Color.Black.copy(alpha = 0.05f),
-                                            0.38f to Color.Black.copy(alpha = 0.15f),
-                                            0.58f to Color.Black.copy(alpha = 0.30f),
-                                            0.76f to Color.Black.copy(alpha = 0.50f),
-                                            0.90f to Color.Black.copy(alpha = 0.7f),
-                                            1.0f to Color.Black.copy(alpha = 0.80f)
+                        if (title.thumbUrl.isNullOrEmpty()) {
+                            Box(
+                                modifier = Modifier
+                                    .fillMaxSize()
+                                    .background(WikipediaTheme.colors.backgroundColor)
+                            )
+                        } else {
+                            FadeInAsyncImage(
+                                model = ImageService.getRequest(
+                                    context,
+                                    url = ImageUrlUtil.getUrlForPreferredSize(title.thumbUrl!!, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)
+                                ),
+                                placeholder = ColorPainter(Color.Black),
+                                error = ColorPainter(Color.DarkGray),
+                                contentDescription = null,
+                                contentScale = ContentScale.Crop,
+                                modifier = Modifier.fillMaxSize()
+                            )
+                        }
+
+                        Column(
+                            modifier = Modifier.align(Alignment.BottomStart).fillMaxWidth()
+                        ) {
+                            Box(
+                                modifier = Modifier.fillMaxWidth().height(120.dp)
+                                    .background(
+                                        Brush.verticalGradient(
+                                            colorStops = arrayOf(
+                                                0.0f to Color.Transparent,
+                                                0.18f to Color.Black.copy(alpha = 0.05f),
+                                                0.38f to Color.Black.copy(alpha = 0.15f),
+                                                0.58f to Color.Black.copy(alpha = 0.30f),
+                                                0.76f to Color.Black.copy(alpha = 0.50f),
+                                                0.90f to Color.Black.copy(alpha = 0.7f),
+                                                1.0f to Color.Black.copy(alpha = 0.80f)
+                                            )
                                         )
                                     )
-                                )
-                        )
-                        Box(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .background(color = Color.Black.copy(alpha = 0.8f))
-                        ) {
-                            Column(modifier = Modifier.fillMaxWidth()
-                                .padding(start = 16.dp, end = 16.dp, bottom = 24.dp)) {
-                                HtmlText(
-                                    text = title.displayText,
-                                    color = Color.White,
-                                    style = MaterialTheme.typography.headlineSmall.copy(
-                                        fontFamily = FontFamily.Serif
-                                    ),
-                                    maxLines = 3
-                                )
-                                if (!title.description.isNullOrEmpty()) {
+                            )
+                            Box(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .background(color = Color.Black.copy(alpha = 0.8f))
+                            ) {
+                                Column(modifier = Modifier.fillMaxWidth()
+                                    .padding(start = 16.dp, end = 16.dp, bottom = 24.dp)) {
                                     HtmlText(
-                                        modifier = Modifier.padding(top = 4.dp),
-                                        text = title.description!!,
-                                        color = Color.White.copy(alpha = 0.8f),
-                                        style = MaterialTheme.typography.bodyMedium,
-                                        maxLines = 2
-                                    )
-                                }
-                                HorizontalDivider(
-                                    modifier = Modifier
-                                        .padding(vertical = 12.dp)
-                                        .width(48.dp),
-                                    thickness = 1.dp,
-                                    color = Color.White.copy(alpha = 0.8f)
-                                )
-                                if (!title.extract.isNullOrEmpty()) {
-                                    HtmlText(
-                                        text = title.extract!!,
+                                        text = title.displayText,
                                         color = Color.White,
-                                        style = MaterialTheme.typography.bodyMedium,
-                                        maxLines = 8
+                                        style = MaterialTheme.typography.headlineSmall.copy(
+                                            fontFamily = FontFamily.Serif
+                                        ),
+                                        maxLines = 3
                                     )
+                                    if (!title.description.isNullOrEmpty()) {
+                                        HtmlText(
+                                            modifier = Modifier.padding(top = 4.dp),
+                                            text = title.description!!,
+                                            color = Color.White.copy(alpha = 0.8f),
+                                            style = MaterialTheme.typography.bodyMedium,
+                                            maxLines = 2
+                                        )
+                                    }
+                                    HorizontalDivider(
+                                        modifier = Modifier
+                                            .padding(vertical = 12.dp)
+                                            .width(48.dp),
+                                        thickness = 1.dp,
+                                        color = Color.White.copy(alpha = 0.8f)
+                                    )
+                                    if (!title.extract.isNullOrEmpty()) {
+                                        HtmlText(
+                                            text = title.extract!!,
+                                            color = Color.White,
+                                            style = MaterialTheme.typography.bodyMedium,
+                                            maxLines = 8
+                                        )
+                                    }
                                 }
                             }
                         }
