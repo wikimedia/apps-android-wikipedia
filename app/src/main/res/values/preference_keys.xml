@@ -225,4 +225,6 @@
     <string name="preference_key_home_swipe_to_explore_prompt_shown">homeSwipeToExplorePromptShown</string>
     <string name="preference_key_home_feed_update_tooltip_shown">homeFeedUpdateTooltipShown</string>
     <string name="preference_key_search_widget_install_prompt_shown">searchWidgetInstallPromptShown</string>
+    <string name="preference_key_randomizer_shake_prompt_shown">randomizerShakePromptShown</string>
+    <string name="preference_key_home_feed_survey_shown">homeFeedSurveyShown</string>
 </resources>

@@ -306,8 +306,9 @@ class HomeViewModel : ViewModel() {
     @OptIn(ExperimentalCoroutinesApi::class)
     private val gameModule: StateFlow<ForYouModule.Games?> =
         _wikiSite.flatMapLatest { site ->
-            // short-circuit so that we don't observe if we don't have access to GamesHub
-            if (!hasGamesHubAccess()) {
+            val supportedGames = getSupportedGames(site.languageCode)
+            // short-circuit if no games are supported for this language
+            if (supportedGames.isEmpty()) {
                 return@flatMapLatest flowOf(null)
             }
             val today = LocalDate.now()
@@ -320,7 +321,7 @@ class HomeViewModel : ViewModel() {
             )
             .transformLatest<DailyGameHistory?, ForYouModule.Games?> {
                 emit(ForYouModule.Games(age = 0, index = 0, cards = emptyList(), isLoading = true))
-                emit(buildGameModule())
+                emit(buildGameModule(supportedGames))
             }
         }
         .catch {
@@ -817,10 +818,9 @@ class HomeViewModel : ViewModel() {
         return ForYouModule.PlacesOfInterest(age = 0, index = 0, cards = cards, hasLocationPermission = true)
     }
 
-    private suspend fun buildGameModule(): ForYouModule.Games {
+    private suspend fun buildGameModule(supportedGames: List<WikiGames>): ForYouModule.Games {
         val today = LocalDate.now()
-        val gameCards = WikiGames.entries
-            .filter { it.isLangSupported(wikiSite.value.languageCode) }
+        val gameCards = supportedGames
             .mapNotNull { buildWikiGame(it, today)?.let { game -> WikiGameCard(game, today.toString()) } }
         val cards = gameCards + GamesModulePromptCard()
 
@@ -864,8 +864,8 @@ class HomeViewModel : ViewModel() {
             }
     }
 
-    private fun hasGamesHubAccess(): Boolean {
-        return WikiGames.WHICH_CAME_FIRST.isLangSupported(*WikipediaApp.instance.languageState.appLanguageCodes.toTypedArray())
+    private fun getSupportedGames(languageCode: String): List<WikiGames> {
+        return WikiGames.entries.filter { it.isLangSupported(languageCode) }
     }
 
     private fun hasLocationPermission(): Boolean {

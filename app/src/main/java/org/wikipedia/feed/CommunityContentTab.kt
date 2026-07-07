@@ -24,7 +24,6 @@ import org.wikipedia.compose.components.menu.PageOverflowMenu
 import org.wikipedia.compose.components.menu.PageOverflowMenuViewModel
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.extensions.getString
 import org.wikipedia.feed.dayheader.DayHeaderCard
 import org.wikipedia.feed.didyouknow.DidYouKnowCard
@@ -33,10 +32,8 @@ import org.wikipedia.feed.featured.FeaturedArticleCard
 import org.wikipedia.feed.featured.FeaturedArticleModule
 import org.wikipedia.feed.image.FeaturedImageCard
 import org.wikipedia.feed.image.FeaturedImageModule
-import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.EmptyCommunityCard
 import org.wikipedia.feed.news.NewsCard
-import org.wikipedia.feed.news.NewsItem
 import org.wikipedia.feed.news.NewsModule
 import org.wikipedia.feed.onthisday.OnThisDayCard
 import org.wikipedia.feed.onthisday.OnThisDayModule
@@ -53,21 +50,7 @@ fun CommunityContentTab(
     wikiSite: WikiSite,
     state: CommunityContentState,
     overflowMenuState: PageOverflowMenuViewModel.PageOverflowMenuState? = null,
-    onLoadMore: () -> Unit,
-    onHideCardClick: (card: Card) -> Unit = {},
-    onHideModuleClick: (moduleKey: String) -> Unit = {},
-    onPageClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
-    onPageBookmarkClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
-    onPageShareClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
-    onPageOverflowClick: (card: Card, pageSummary: PageSummary, source: Int, menuKey: String) -> Unit = { _, _, _, _ -> },
-    onPageOverflowDismiss: () -> Unit = {},
-    onNewsClick: (card: NewsCard, newsItem: NewsItem) -> Unit = { _, _ -> },
-    onImageClick: (card: FeaturedImageCard) -> Unit = {},
-    onImageDownloadClick: (card: FeaturedImageCard) -> Unit = {},
-    onImageShareClick: (card: FeaturedImageCard) -> Unit = {},
-    onCardFooterClick: (card: Card) -> Unit = {},
-    onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> },
-    onManageModulesClick: () -> Unit
+    onAction: (HomeAction) -> Unit = {}
 ) {
     when {
         state.isInitialLoading -> {
@@ -76,7 +59,7 @@ fun CommunityContentTab(
         state.emptyState == FeedEmptyState.ALL_MODULES_HIDDEN || state.emptyState == FeedEmptyState.NO_DATA -> {
             val context = LocalContext.current
             val card = EmptyCommunityCard()
-            onCardImpression(card, 0)
+            onAction(HomeAction.CardImpression(card, 0))
             FeedEmptyStateView(
                 modifier = Modifier
                     .fillMaxSize()
@@ -86,12 +69,12 @@ fun CommunityContentTab(
                 title = context.getString(wikiSite.languageCode, R.string.home_feed_screen_empty_state_label),
                 description = context.getString(wikiSite.languageCode, R.string.home_feed_community_screen_all_modules_disabled_description),
                 buttonText = context.getString(wikiSite.languageCode, R.string.home_feed_screen_all_modules_disabled_btn_label),
-                onCallToActionClick = onManageModulesClick
+                onCallToActionClick = { onAction(HomeAction.ManageModulesClick) }
             )
         }
 
         state.error != null && state.cards.isEmpty() -> {
-            ErrorState(state.error, onRetry = onLoadMore)
+            ErrorState(state.error, onRetry = { onAction(HomeAction.LoadMoreCommunityContent) })
         }
         else -> {
             val layoutDirection = if (L10nUtil.isLangRTL(wikiSite.languageCode)) LayoutDirection.Rtl else LayoutDirection.Ltr
@@ -125,34 +108,34 @@ fun CommunityContentTab(
                                         wikiSite = wikiSite,
                                         card.page,
                                         onPageClick = {
-                                            onPageClick(card,
+                                            onAction(HomeAction.PageClick(card,
                                                 it.getHistoryEntry(
                                                     wikiSite,
                                                     HistoryEntry.SOURCE_FEED_FEATURED
                                                 )
-                                            )
+                                            ))
                                         },
-                                        onHideCardClick = { onHideCardClick(card) },
+                                        onHideCardClick = { onAction(HomeAction.HideCommunityCard(card)) },
                                         onHideModuleClick = {
-                                            onHideModuleClick(card.moduleKey())
+                                            onAction(HomeAction.HideModule(card.moduleKey()))
                                         },
                                         onShareClick = {
-                                            onPageShareClick(card,
+                                            onAction(HomeAction.PageShareClick(card,
                                                 it.getHistoryEntry(
                                                     wikiSite,
                                                     HistoryEntry.SOURCE_FEED_FEATURED
                                                 )
-                                            )
+                                            ))
                                         },
                                         onBookmarkClick = {
-                                            onPageBookmarkClick(card,
+                                            onAction(HomeAction.PageBookmarkClick(card,
                                                 it.getHistoryEntry(
                                                     wikiSite,
                                                     HistoryEntry.SOURCE_FEED_FEATURED
                                                 )
-                                            )
+                                            ))
                                         },
-                                        onCardImpression = { onCardImpression(card, cardIndex) }
+                                        onCardImpression = { onAction(HomeAction.CardImpression(card, cardIndex)) }
                                     )
                                 }
                             }
@@ -170,27 +153,27 @@ fun CommunityContentTab(
                                             PageOverflowMenu(
                                                 menuKey = "top-read-${card.age}-$index",
                                                 overflowMenuState = overflowMenuState,
-                                                onDismiss = onPageOverflowDismiss,
+                                                onDismiss = { onAction(HomeAction.PageOverflowDismiss) },
                                                 items = overflowMenuState?.items.orEmpty()
                                             )
                                         },
-                                        onHideCardClick = { onHideCardClick(card) },
+                                        onHideCardClick = { onAction(HomeAction.HideCommunityCard(card)) },
                                         onHideModuleClick = {
-                                            onHideModuleClick(card.moduleKey())
+                                            onAction(HomeAction.HideModule(card.moduleKey()))
                                         },
                                         onPageClick = { entry ->
-                                            onPageClick(card,
+                                            onAction(HomeAction.PageClick(card,
                                                 entry.getHistoryEntry(
                                                     wikiSite,
                                                     HistoryEntry.SOURCE_FEED_MOST_READ
                                                 )
-                                            )
+                                            ))
                                         },
                                         onPageOverflowClick = { pageSummary, index ->
-                                            onPageOverflowClick(card, pageSummary, HistoryEntry.SOURCE_FEED_MOST_READ, "top-read-${card.age}-$index")
+                                            onAction(HomeAction.PageOverflowClick(card, pageSummary, HistoryEntry.SOURCE_FEED_MOST_READ, "top-read-${card.age}-$index"))
                                         },
-                                        onFooterClick = { onCardFooterClick(card) },
-                                        onCardImpression = { onCardImpression(card, cardIndex) }
+                                        onFooterClick = { onAction(HomeAction.CardFooterClick(card)) },
+                                        onCardImpression = { onAction(HomeAction.CardImpression(card, cardIndex)) }
                                     )
                                 }
                             }
@@ -199,14 +182,14 @@ fun CommunityContentTab(
                                     NewsModule(
                                         wikiSite = wikiSite,
                                         newsItems = card.news,
-                                        onHideCardClick = { onHideCardClick(card) },
+                                        onHideCardClick = { onAction(HomeAction.HideCommunityCard(card)) },
                                         onHideModuleClick = {
-                                            onHideModuleClick(card.moduleKey())
+                                            onAction(HomeAction.HideModule(card.moduleKey()))
                                         },
                                         onNewsClick = { newsItem ->
-                                            onNewsClick(card, newsItem)
+                                            onAction(HomeAction.NewsClick(card, newsItem))
                                         },
-                                        onCardImpression = { onCardImpression(card, cardIndex) }
+                                        onCardImpression = { onAction(HomeAction.CardImpression(card, cardIndex)) }
                                     )
                                 }
                             }
@@ -224,22 +207,22 @@ fun CommunityContentTab(
                                             PageOverflowMenu(
                                                 menuKey = "on-this-day-${card.age}-$eventIndex-$itemIndex",
                                                 overflowMenuState = overflowMenuState,
-                                                onDismiss = onPageOverflowDismiss,
+                                                onDismiss = { onAction(HomeAction.PageOverflowDismiss) },
                                                 items = overflowMenuState?.items.orEmpty()
                                             )
                                         },
-                                        onHideCardClick = { onHideCardClick(card) },
+                                        onHideCardClick = { onAction(HomeAction.HideCommunityCard(card)) },
                                         onHideModuleClick = {
-                                            onHideModuleClick(card.moduleKey())
+                                            onAction(HomeAction.HideModule(card.moduleKey()))
                                         },
                                         onPageClick = { pageSummary ->
-                                            onPageClick(card, pageSummary.getHistoryEntry(wikiSite, HistoryEntry.SOURCE_FEED_ON_THIS_DAY))
+                                            onAction(HomeAction.PageClick(card, pageSummary.getHistoryEntry(wikiSite, HistoryEntry.SOURCE_FEED_ON_THIS_DAY)))
                                         },
                                         onPageOverflowClick = { pageSummary, eventIndex, itemIndex ->
-                                            onPageOverflowClick(card, pageSummary, HistoryEntry.SOURCE_FEED_ON_THIS_DAY, "on-this-day-${card.age}-$eventIndex-$itemIndex")
+                                            onAction(HomeAction.PageOverflowClick(card, pageSummary, HistoryEntry.SOURCE_FEED_ON_THIS_DAY, "on-this-day-${card.age}-$eventIndex-$itemIndex"))
                                         },
-                                        onFooterClick = { onCardFooterClick(card) },
-                                        onCardImpression = { onCardImpression(card, cardIndex) }
+                                        onFooterClick = { onAction(HomeAction.CardFooterClick(card)) },
+                                        onCardImpression = { onAction(HomeAction.CardImpression(card, cardIndex)) }
                                     )
                                 }
                             }
@@ -248,14 +231,14 @@ fun CommunityContentTab(
                                     FeaturedImageModule(
                                         wikiSite = wikiSite,
                                         card = card,
-                                        onHideCardClick = { onHideCardClick(card) },
+                                        onHideCardClick = { onAction(HomeAction.HideCommunityCard(card)) },
                                         onHideModuleClick = {
-                                            onHideModuleClick(card.moduleKey())
+                                            onAction(HomeAction.HideModule(card.moduleKey()))
                                         },
-                                        onClick = onImageClick,
-                                        onDownloadClick = onImageDownloadClick,
-                                        onShareClick = onImageShareClick,
-                                        onCardImpression = { onCardImpression(card, cardIndex) }
+                                        onClick = { onAction(HomeAction.ImageClick(it)) },
+                                        onDownloadClick = { onAction(HomeAction.ImageDownloadClick(it)) },
+                                        onShareClick = { onAction(HomeAction.ImageShareClick(it)) },
+                                        onCardImpression = { onAction(HomeAction.CardImpression(card, cardIndex)) }
                                     )
                                 }
                             }
@@ -264,25 +247,25 @@ fun CommunityContentTab(
                                     DidYouKnowModule(
                                         wikiSite = wikiSite,
                                         dyk = card.items,
-                                        onHideCardClick = { onHideCardClick(card) },
+                                        onHideCardClick = { onAction(HomeAction.HideCommunityCard(card)) },
                                         onHideModuleClick = {
-                                            onHideModuleClick(card.moduleKey())
+                                            onAction(HomeAction.HideModule(card.moduleKey()))
                                         },
                                         onPageClick = {
-                                            onPageClick(card, HistoryEntry(it, HistoryEntry.SOURCE_FEED_DID_YOU_KNOW))
+                                            onAction(HomeAction.PageClick(card, HistoryEntry(it, HistoryEntry.SOURCE_FEED_DID_YOU_KNOW)))
                                         },
-                                        onFooterClick = { onCardFooterClick(card) },
-                                        onCardImpression = { onCardImpression(card, cardIndex) },
+                                        onFooterClick = { onAction(HomeAction.CardFooterClick(card)) },
+                                        onCardImpression = { onAction(HomeAction.CardImpression(card, cardIndex)) },
                                         pageOverflowContent = { index ->
                                             PageOverflowMenu(
                                                 menuKey = "dyk-${card.date}-$index",
                                                 overflowMenuState = overflowMenuState,
-                                                onDismiss = onPageOverflowDismiss,
+                                                onDismiss = { onAction(HomeAction.PageOverflowDismiss) },
                                                 items = overflowMenuState?.items.orEmpty()
                                             )
                                         },
                                         onPageOverflowClick = { pageSummary, index ->
-                                            onPageOverflowClick(card, pageSummary, HistoryEntry.SOURCE_FEED_DID_YOU_KNOW, "dyk-${card.date}-$index")
+                                            onAction(HomeAction.PageOverflowClick(card, pageSummary, HistoryEntry.SOURCE_FEED_DID_YOU_KNOW, "dyk-${card.date}-$index"))
                                         }
                                     )
                                 }
@@ -302,14 +285,14 @@ fun CommunityContentTab(
                             LoadMoreButton(
                                 wikiSite = wikiSite,
                                 isCommunity = true,
-                                onClick = onLoadMore
+                                onClick = { onAction(HomeAction.LoadMoreCommunityContent) }
                             )
                         }
                     }
 
                     if (state.error != null && state.cards.isNotEmpty()) {
                         item(key = "error-community") {
-                            ErrorState(state.error, onRetry = onLoadMore)
+                            ErrorState(state.error, onRetry = { onAction(HomeAction.LoadMoreCommunityContent) })
                         }
                     }
                 }
