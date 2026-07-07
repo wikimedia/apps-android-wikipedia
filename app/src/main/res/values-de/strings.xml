@@ -604,7 +604,7 @@
     <item quantity="one">%d Artikel aus Liste entfernt</item>
     <item quantity="other">%d Artikel aus Liste entfernt</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+  <plurals name="reading_list_articles_deleted_from_list">
     <item quantity="one">%1$d Artikel entfernt von %2$s</item>
     <item quantity="other">%1$d Artikel entfernt von %2$s</item>
   </plurals>
@@ -2402,6 +2402,7 @@
   <string name="explore_feed_new_update_prompt_language_description">Jede Sprache, vollständig personalisiert</string>
   <string name="explore_feed_new_update_prompt_primary_button_text">Feed anpassen</string>
   <string name="explore_feed_customize_interests">Interessen anpassen</string>
+  <string name="explore_feed_customize_discover">Entdecken anpassen</string>
   <string name="explore_feed_new_update_prompt_secondary_button_text">Für mich einrichten</string>
   <string name="explore_feed_building_text">Wir erstellen deinen Feed…</string>
   <string name="explore_feed_community_tab_label">Gemeinschaft</string>
@@ -2429,8 +2430,11 @@
   <string name="explore_feed_personalized_preference_empty_state_text">Du musst Interessen hinzufügen, um personalisierte Inhaltsempfehlungen zu sehen. Das kannst du in den vorherigen Schritten oder später in den Einstellungen tun.</string>
   <string name="explore_feed_because_you_read">Weil du gelesen hast: %s</string>
   <string name="explore_feed_swipe_to_explore_prompt_title">Wischen zum Entdecken</string>
-  <string name="explore_feed_swipe_to_explore_prompt_message" fuzzy="true">Wische nach unten, um zwischen Themen zu wechseln, oder zur Seite, um verwandte Inhalte zu entdecken.</string>
-  <string name="home_feed_settings_title" fuzzy="true">Start-Feed anpassen</string>
+  <string name="explore_feed_swipe_to_explore_prompt_message">Wische nach oben, um zwischen Themen zu wechseln, oder zur Seite, um verwandte Inhalte zu entdecken.</string>
+  <string name="home_feed_settings_title">Start-Feed anpassen</string>
+  <string name="home_feed_settings_default_view_title">Standard-Feed-Ansicht</string>
+  <string name="home_feed_settings_default_view_subtitle">Wähle, welcher Feed beim Öffnen der App zuerst angezeigt wird</string>
+  <string name="home_feed_settings_default_view_confirm">Diese Änderung wird beim nächsten Öffnen der App wirksam.</string>
   <string name="home_feed_settings_whats_driving_title">Was deinen Feed bestimmt</string>
   <string name="home_feed_settings_modules_title">Module</string>
   <string name="home_feed_settings_community_subtitle">Module des „Gemeinschaft“-Feeds ein- oder ausschalten</string>
@@ -2480,9 +2484,23 @@
   <string name="home_feed_places_of_interest_cta_button">Orte öffnen</string>
   <string name="home_feed_settings_places_of_interest_title">Interessante Orte</string>
   <string name="home_feed_settings_places_of_interest_subtitle">Artikel in der Nähe deines letzten Standorts unter „Orte“</string>
+  <string name="home_feed_settings_games_title">Spiele</string>
+  <string name="home_feed_settings_games_subtitle">Tägliche Spiele auf Basis von Wikipedia-Inhalten</string>
+  <string name="home_feed_settings_discover_title">Entdecken-Empfehlungen</string>
+  <string name="home_feed_settings_discover_subtitle">Artikel aus deiner Entdecken-Leseliste</string>
+  <string name="home_feed_discover_cta_title">Aus Entdecken</string>
+  <string name="home_feed_discover_cta_description">Erfahre mehr über neue Themen, speziell für dich ausgewählt. Wähle zwischen täglichen, wöchentlichen oder monatlichen Updates.</string>
+  <string name="home_feed_discover_cta_button">Entdecken-Leseliste aktivieren</string>
+  <string name="home_feed_discover_card_footer">Aus Entdecken • Aktualisiert %s</string>
+  <string name="home_feed_discover_see_all_title">Es gibt mehr zu entdecken</string>
+  <string name="home_feed_discover_see_all_description">Deine personalisierte Leseliste enthält weitere Geschichten, speziell für dich ausgewählt.</string>
+  <string name="home_feed_discover_see_all_button">Alle Empfehlungen erkunden</string>
   <string name="home_feed_places_of_interest_card_footer">%1$s • Basierend auf deinem Standort unter „Orte“</string>
   <string name="home_feed_for_you_screen_end_of_feed_title">Das war’s für heute!</string>
   <string name="home_feed_for_you_screen_end_of_feed_description">Komm morgen wieder für frische, auf dich zugeschnittene Artikel.</string>
   <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">So lernst du weiter:</string>
   <string name="home_feed_for_you_screen_end_of_feed_add_interests">Füge &lt;a href=\"#add_interests\"&gt;neue Interessen&lt;/a&gt; hinzu</string>
+  <string name="home_feed_games_module_cta_prompt_title">Lust auf mehr Spiele?</string>
+  <string name="home_feed_games_module_cta_prompt_subtitle">Zum Spiele-Hub</string>
+  <string name="home_feed_games_module_cta_prompt_button_text">Spiele-Hub</string>
 </resources>

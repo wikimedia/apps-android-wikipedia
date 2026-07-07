@@ -821,7 +821,7 @@
   <string name="view_next_random_article">무작위로 다른 문서 불러오기</string>
   <string name="view_main_page_card_title">오늘의 위키백과</string>
   <string name="view_main_page_card_action">대문 문서 보기</string>
-  <string name="view_featured_image_card_title">오늘의 이미지</string>
+  <string name="view_featured_image_card_title">오늘의 사진</string>
   <string name="view_featured_image_card_download">다운로드</string>
   <string name="view_featured_image_card_share">공유</string>
   <string name="menu_feed_card_dismiss">이 카드 숨기기</string>
@@ -2316,6 +2316,7 @@
   <string name="home_feed_settings_title">홈 피드를 맞춤 설정하세요</string>
   <string name="home_feed_settings_default_view_title">기본 피드 보기</string>
   <string name="home_feed_settings_default_view_subtitle">앱을 열었을 때 어떤 피드가 먼저 표시될지 선택하세요</string>
+  <string name="home_feed_settings_default_view_confirm">이 변경 사항은 다음 번에 앱을 열 때 적용됩니다.</string>
   <string name="home_feed_settings_whats_driving_title">무엇이 내 피드를 만드나요?</string>
   <string name="home_feed_settings_modules_title">모듈</string>
   <string name="home_feed_settings_community_subtitle">\"커뮤니티\" 피드 모듈을 켜거나 끕니다.</string>
@@ -2365,6 +2366,8 @@
   <string name="home_feed_places_of_interest_cta_button">장소로 가기</string>
   <string name="home_feed_settings_places_of_interest_title">관심 지점</string>
   <string name="home_feed_settings_places_of_interest_subtitle">장소의 마지막 위치 근처의 문서</string>
+  <string name="home_feed_settings_games_title">게임</string>
+  <string name="home_feed_settings_games_subtitle">위키백과 콘텐츠를 기반으로 한 일일 게임</string>
   <string name="home_feed_settings_discover_title">추천 발견</string>
   <string name="home_feed_settings_discover_subtitle">읽기 목록 발견에서의 문서</string>
   <string name="home_feed_discover_cta_title">발견으로부터</string>
@@ -2379,4 +2382,7 @@
   <string name="home_feed_for_you_screen_end_of_feed_description">내일 다시 오시면 맞춤 설정된 새로운 문서들을 만나보실 수 있습니다.</string>
   <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">계속해서 배우는 방법:</string>
   <string name="home_feed_for_you_screen_end_of_feed_add_interests">&lt;a href=\"#add_interests\"&gt;새로운 관심사&lt;/a&gt;를 추가해 보세요</string>
+  <string name="home_feed_games_module_cta_prompt_title">더 많은 게임을 원하시나요?</string>
+  <string name="home_feed_games_module_cta_prompt_subtitle">게임 허브로 이동</string>
+  <string name="home_feed_games_module_cta_prompt_button_text">게임 허브</string>
 </resources>

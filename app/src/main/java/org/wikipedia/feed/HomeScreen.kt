@@ -55,14 +55,8 @@ import org.wikipedia.compose.extensions.pulse
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.extensions.getString
-import org.wikipedia.feed.image.FeaturedImageCard
 import org.wikipedia.feed.model.Card
-import org.wikipedia.feed.model.ForYouCard
-import org.wikipedia.feed.news.NewsCard
-import org.wikipedia.feed.news.NewsItem
-import org.wikipedia.history.HistoryEntry
 import org.wikipedia.language.AppLanguageState
 import org.wikipedia.main.MainActivity
 import org.wikipedia.theme.Theme
@@ -79,35 +73,7 @@ fun HomeScreen(
     overflowMenuState: PageOverflowMenuViewModel.PageOverflowMenuState? = null,
     tabsState: TabsState,
     notificationBellState: NotificationBellState,
-    onSelectTab: (HomeTab, Card?) -> Unit = { _, _ -> },
-    onRefreshTab: (HomeTab) -> Unit = {},
-    onLoadMoreCommunityContent: () -> Unit = {},
-    onLoadMoreForYouContent: () -> Unit = {},
-    onHideCommunityCardClick: (card: Card) -> Unit = {},
-    onHideForYouCardClick: (module: ForYouModule, card: ForYouCard) -> Unit = { _, _ -> },
-    onHideModuleClick: (moduleKey: String) -> Unit = {},
-    onPageClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
-    onPageBookmarkClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
-    onPageShareClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
-    onPageOverflowClick: (card: Card, pageSummary: PageSummary, source: Int, menuKey: String) -> Unit = { _, _, _, _ -> },
-    onPageOverflowDismiss: () -> Unit = {},
-    onNewsClick: (card: NewsCard, newsItem: NewsItem) -> Unit = { _, _ -> },
-    onImageClick: (card: FeaturedImageCard) -> Unit = {},
-    onImageDownloadClick: (card: FeaturedImageCard) -> Unit = {},
-    onImageShareClick: (card: FeaturedImageCard) -> Unit = {},
-    onLanguageSelected: (String) -> Unit = {},
-    onManageLanguagesClick: () -> Unit = {},
-    onTabClick: () -> Unit = {},
-    onUpdateTabCount: () -> Unit = {},
-    onCustomizeClick: (card: Card?) -> Unit = {},
-    onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> },
-    onCardFooterClick: (card: Card) -> Unit = {},
-    onNotificationClick: () -> Unit = {},
-    onManageModulesClick: () -> Unit = {},
-    onShuffleClick: () -> Unit = {},
-    onPlacesTeaserClick: () -> Unit = {},
-    onDiscoverTeaserClick: () -> Unit = {},
-    onSeeAllRecommendationsClick: () -> Unit = {}
+    onAction: (HomeAction) -> Unit = {}
 ) {
     val context = LocalContext.current
     val topInset = if (context is MainActivity) {
@@ -120,7 +86,7 @@ fun HomeScreen(
         modifier = Modifier.fillMaxSize(),
         state = pullToRefreshState,
         isRefreshing = isRefreshing,
-        onRefresh = { onRefreshTab(selectedTab) },
+        onRefresh = { onAction(HomeAction.RefreshTab(selectedTab)) },
         indicator = {
             Indicator(
                 modifier = Modifier.align(Alignment.TopCenter),
@@ -145,10 +111,10 @@ fun HomeScreen(
                         HomeToolbar(
                             topInset = topInset,
                             tabsState = tabsState,
-                            onTabClick = onTabClick,
-                            onUpdateTabCount = onUpdateTabCount,
+                            onTabClick = { onAction(HomeAction.TabClick) },
+                            onUpdateTabCount = { onAction(HomeAction.UpdateTabCount) },
                             notificationBellState = notificationBellState,
-                            onNotificationClick = onNotificationClick
+                            onNotificationClick = { onAction(HomeAction.NotificationClick) }
                         )
 
                         HomeTabBar(
@@ -156,13 +122,9 @@ fun HomeScreen(
                             wikiSite = wikiSite,
                             selectedTab = selectedTab,
                             languageState = languageState,
-                            onSelectTab = onSelectTab,
-                            onLanguageSelected = {
-                                onLanguageSelected(it)
-                            },
-                            onManageLanguagesClick = {
-                                onManageLanguagesClick()
-                            }
+                            onSelectTab = { tab, card -> onAction(HomeAction.SelectTab(tab, card)) },
+                            onLanguageSelected = { onAction(HomeAction.LanguageSelected(it)) },
+                            onManageLanguagesClick = { onAction(HomeAction.ManageLanguagesClick) }
                         )
 
                         CommunityContentTab(
@@ -170,21 +132,7 @@ fun HomeScreen(
                             wikiSite = wikiSite,
                             state = communityContentState,
                             overflowMenuState = overflowMenuState,
-                            onLoadMore = onLoadMoreCommunityContent,
-                            onHideCardClick = onHideCommunityCardClick,
-                            onHideModuleClick = onHideModuleClick,
-                            onPageClick = onPageClick,
-                            onPageBookmarkClick = onPageBookmarkClick,
-                            onPageShareClick = onPageShareClick,
-                            onPageOverflowClick = onPageOverflowClick,
-                            onPageOverflowDismiss = onPageOverflowDismiss,
-                            onNewsClick = onNewsClick,
-                            onImageClick = onImageClick,
-                            onImageDownloadClick = onImageDownloadClick,
-                            onImageShareClick = onImageShareClick,
-                            onCardImpression = onCardImpression,
-                            onCardFooterClick = onCardFooterClick,
-                            onManageModulesClick = onManageModulesClick
+                            onAction = onAction
                         )
                     }
                 }
@@ -194,20 +142,7 @@ fun HomeScreen(
                         topInset = topInset,
                         state = forYouContentState,
                         wikiSite = wikiSite,
-                        onLoadMore = onLoadMoreForYouContent,
-                        onPageClick = onPageClick,
-                        onHideCardClick = onHideForYouCardClick,
-                        onHideModuleClick = onHideModuleClick,
-                        onPageBookmarkClick = onPageBookmarkClick,
-                        onPageShareClick = onPageShareClick,
-                        onCustomizeClick = onCustomizeClick,
-                        onCardImpression = onCardImpression,
-                        onManageModulesClick = onManageModulesClick,
-                        onSelectTab = onSelectTab,
-                        onShuffleClick = onShuffleClick,
-                        onPlacesTeaserClick = onPlacesTeaserClick,
-                        onDiscoverTeaserClick = onDiscoverTeaserClick,
-                        onSeeAllRecommendationsClick = onSeeAllRecommendationsClick
+                        onAction = onAction
                     )
 
                     // Floating toolbar with gradient scrim, wordmark, and tab selector.
@@ -222,10 +157,10 @@ fun HomeScreen(
                             HomeToolbar(
                                 topInset = topInset,
                                 tabsState = tabsState,
-                                onTabClick = onTabClick,
-                                onUpdateTabCount = onUpdateTabCount,
+                                onTabClick = { onAction(HomeAction.TabClick) },
+                                onUpdateTabCount = { onAction(HomeAction.UpdateTabCount) },
                                 notificationBellState = notificationBellState,
-                                onNotificationClick = onNotificationClick
+                                onNotificationClick = { onAction(HomeAction.NotificationClick) }
                             )
                         }
                         Box(
@@ -250,13 +185,9 @@ fun HomeScreen(
                                 wikiSite = wikiSite,
                                 selectedTab = selectedTab,
                                 languageState = languageState,
-                                onSelectTab = onSelectTab,
-                                onLanguageSelected = {
-                                    onLanguageSelected(it)
-                                },
-                                onManageLanguagesClick = {
-                                    onManageLanguagesClick()
-                                }
+                                onSelectTab = { tab, card -> onAction(HomeAction.SelectTab(tab, card)) },
+                                onLanguageSelected = { onAction(HomeAction.LanguageSelected(it)) },
+                                onManageLanguagesClick = { onAction(HomeAction.ManageLanguagesClick) }
                             )
                         }
                     }

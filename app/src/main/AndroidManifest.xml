@@ -260,8 +260,7 @@
             android:configChanges="orientation|screenSize"/>
 
         <activity android:name=".random.RandomActivity"
-            android:label="@string/view_random_card_title"
-            android:theme="@style/AppTheme.ActionBar"/>
+            android:label="@string/view_random_card_title"/>
 
         <activity android:name=".theme.ThemeFittingRoomActivity"
             android:label="@string/preference_title_app_theme"

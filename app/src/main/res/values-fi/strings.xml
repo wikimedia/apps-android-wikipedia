@@ -1814,7 +1814,7 @@
   <string name="on_this_day_game_entry_dialog_title">Esittelyssä</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Wikipedia-pelit</string>
   <string name="on_this_day_game_entry_dialog_button">Pelaa</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipediat-pelit ovat saatavilla Pelit-osiossa, joka löytyy lisävalikosta.</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipediat-pelit ovat saatavilla Pelikeskuksessa, joka löytyy lisävalikosta.</string>
   <string name="on_this_day_game_title">Kumpi tuli ensin?</string>
   <string name="on_this_day_game_dialog_button">Pelaa</string>
   <string name="on_this_day_game_splash_message">Veikkaa, kumpi tapahtuma tuli ensin tällä päivämäärällä historiassa.</string>
@@ -2340,6 +2340,7 @@
   <string name="home_feed_settings_title">Mukauta etusivun syötteesi</string>
   <string name="home_feed_settings_default_view_title">Oletusarvoinen syötenäkymä</string>
   <string name="home_feed_settings_default_view_subtitle">Valitse, mikä syöte näytetään ensin, kun avaat sovelluksen</string>
+  <string name="home_feed_settings_default_view_confirm">Tämä muutos tulee voimaan, kun avaat sovelluksen seuraavan kerran.</string>
   <string name="home_feed_settings_whats_driving_title">Mikä ohjaa syötettäsi</string>
   <string name="home_feed_settings_modules_title">Moduulit</string>
   <string name="home_feed_settings_community_subtitle">Ota käyttöön tai poista käytöstä ”Yhteisö”-syötteen moduuleja</string>
@@ -2387,8 +2388,14 @@
   <string name="home_feed_places_of_interest_cta_description">Artikkelit näkyvät viimeksi katsomasi paikan mukaan. Käy Paikat-välilehdellä ja valitse sijainti.</string>
   <string name="home_feed_places_of_interest_cta_button">Siirry Paikkoihin</string>
   <string name="home_feed_settings_places_of_interest_title">Kiinnostavat paikat</string>
+  <string name="home_feed_settings_games_title">Pelit</string>
+  <string name="home_feed_settings_games_subtitle">Wikipedian sisällön pohjalta valitut päivittäiset pelit</string>
+  <string name="home_feed_discover_see_all_button">Selaa suosituksia</string>
   <string name="home_feed_for_you_screen_end_of_feed_title">Siinä kaikki tältä päivältä!</string>
   <string name="home_feed_for_you_screen_end_of_feed_description">Tule takaisin huomenna löytääksesi uusia, sinulle räätälöityjä artikkeleita.</string>
   <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Keinoja jatkaa oppimista:</string>
   <string name="home_feed_for_you_screen_end_of_feed_add_interests">Lisää &lt;a href=\"#add_interests\"&gt;uusia kiinnostuksen kohteita&lt;/a&gt;</string>
+  <string name="home_feed_games_module_cta_prompt_title">Haluatko pelata lisää pelejä?</string>
+  <string name="home_feed_games_module_cta_prompt_subtitle">Siirry Pelikeskukseen</string>
+  <string name="home_feed_games_module_cta_prompt_button_text">Pelikeskus</string>
 </resources>

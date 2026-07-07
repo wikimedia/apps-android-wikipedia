@@ -402,7 +402,7 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_history_offline_articles_toast, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_history_offline_articles_toast, value)
 
-    var loggedOutInBackground
+    var queueLoggedOutInBackgroundDialog
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_logged_out_in_background, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_logged_out_in_background, value)
 
@@ -1001,4 +1001,12 @@ object Prefs {
     var searchWidgetInstallPromptShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_search_widget_install_prompt_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_search_widget_install_prompt_shown, value)
+
+    var randomizerShakePromptShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_randomizer_shake_prompt_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_randomizer_shake_prompt_shown, value)
+
+    var homeFeedSurveyShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_home_feed_survey_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_home_feed_survey_shown, value)
 }

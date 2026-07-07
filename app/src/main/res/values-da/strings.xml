@@ -567,7 +567,7 @@
     <item quantity="one">%d artikel fjernet fra listen</item>
     <item quantity="other">%d artikler fjernet fra listen</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+  <plurals name="reading_list_articles_deleted_from_list">
     <item quantity="one">%1$d artikel fjernet fra %2$s</item>
     <item quantity="other">%1$d artikler fjernet fra %2$s</item>
   </plurals>
@@ -2396,6 +2396,7 @@
   <string name="home_feed_settings_title">Tilpas dit startfeed</string>
   <string name="home_feed_settings_default_view_title">Standard feedvisning</string>
   <string name="home_feed_settings_default_view_subtitle">Vælg hvilket feed der vises først, når du åbner appen</string>
+  <string name="home_feed_settings_default_view_confirm">Denne ændring gælder næste gang du åbner appen.</string>
   <string name="home_feed_settings_whats_driving_title">Hvad driver dit feed</string>
   <string name="home_feed_settings_modules_title">Moduler</string>
   <string name="home_feed_settings_community_subtitle">Slå feedmoduler til eller fra for \"Fællesskab\"</string>
@@ -2445,6 +2446,8 @@
   <string name="home_feed_places_of_interest_cta_button">Gå til steder</string>
   <string name="home_feed_settings_places_of_interest_title">Steder af interesse</string>
   <string name="home_feed_settings_places_of_interest_subtitle">Artikler i nærheden af din seneste placering i Steder</string>
+  <string name="home_feed_settings_games_title">Spil</string>
+  <string name="home_feed_settings_games_subtitle">Daglige spil baseret på Wikipedia-indhold</string>
   <string name="home_feed_settings_discover_title">Opdag anbefalinger</string>
   <string name="home_feed_settings_discover_subtitle">Artikler fra din Discover-læseliste</string>
   <string name="home_feed_discover_cta_title">Fra Discover</string>
@@ -2459,4 +2462,7 @@
   <string name="home_feed_for_you_screen_end_of_feed_description">Kom tilbage i morgen for at finde nye, friske artikler, der er skræddersyet til dig.</string>
   <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Måder at blive ved med at lære:</string>
   <string name="home_feed_for_you_screen_end_of_feed_add_interests">Tilføj &lt;a href=\"#add_interests\"&gt;nye interesser&lt;/a&gt;</string>
+  <string name="home_feed_games_module_cta_prompt_title">Vil du spille flere spil?</string>
+  <string name="home_feed_games_module_cta_prompt_subtitle">Gå til spilhubben</string>
+  <string name="home_feed_games_module_cta_prompt_button_text">Spilhub</string>
 </resources>

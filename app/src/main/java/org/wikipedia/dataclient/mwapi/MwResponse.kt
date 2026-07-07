@@ -13,7 +13,13 @@ abstract class MwResponse {
     init {
         if (errors?.isNotEmpty() == true) {
             // prioritize "blocked" or "abusefilter" errors over others.
-            throw MwException(errors.firstOrNull { it.key.contains("blocked") || it.key.startsWith("abusefilter-") } ?: errors.first())
+            errors.firstOrNull { it.key.contains("blocked") || it.key.startsWith("abusefilter-") }?.let {
+                throw MwException(it)
+            }
+            errors.firstOrNull { it.key.contains("assertuserfailed") || it.key.contains("notloggedin") }?.let {
+                throw MwNotLoggedInException(it)
+            }
+            throw MwException(errors.first())
         }
     }
 }
