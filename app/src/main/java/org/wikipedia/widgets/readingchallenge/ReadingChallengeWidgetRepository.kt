@@ -123,6 +123,8 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
         )
     }
 
+    // Users who installs the app after the challenge end date will be
+    // immediately transitioned to the Random Article widget.
     fun isNewUser(): Boolean {
         val installDate = Instant.ofEpochMilli(DailyStatsEvent.getInstallTime(context))
             .atZone(ZoneId.systemDefault())
