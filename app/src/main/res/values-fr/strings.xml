@@ -1873,7 +1873,7 @@
   <string name="on_this_day_game_entry_dialog_title">Présentation</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Jeux de Wikipédia</string>
   <string name="on_this_day_game_entry_dialog_button">Jouer</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Les jeux Wikipédia sont disponibles dans le Hub des jeux, accessible dans le menu PLUS.</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message">Les jeux Wikipédia sont disponibles dans la Centrale des jeux, accessible dans le menu PLUS.</string>
   <string name="on_this_day_game_title">Qu\'est-ce qui est venu en premier ?</string>
   <string name="on_this_day_game_dialog_button">Lecture</string>
   <string name="on_this_day_game_splash_message">Devinez quel événement s’est produit en premier ce jour-là dans l’histoire.</string>
@@ -2458,6 +2458,7 @@
   <string name="home_feed_settings_title">Personnaliser le flux d\'accueil</string>
   <string name="home_feed_settings_default_view_title">Affichage du flux par défaut</string>
   <string name="home_feed_settings_default_view_subtitle">Choisissez le flux qui s\'affichera en premier lorsque vous ouvrirez l\'application.</string>
+  <string name="home_feed_settings_default_view_confirm">Ce changement s’appliquera la prochaine fois que vous ouvrez l’application.</string>
   <string name="home_feed_settings_whats_driving_title">Qu\'est-ce qui influence votre flux ?</string>
   <string name="home_feed_settings_modules_title">Modules</string>
   <string name="home_feed_settings_community_subtitle">Activer ou désactiver les modules de flux « Communauté »</string>
@@ -2507,6 +2508,8 @@
   <string name="home_feed_places_of_interest_cta_button">Aller aux Lieux</string>
   <string name="home_feed_settings_places_of_interest_title">Lieux d\'intérêt</string>
   <string name="home_feed_settings_places_of_interest_subtitle">Articles à proximité de votre dernière position dans Lieux</string>
+  <string name="home_feed_settings_games_title">Jeux</string>
+  <string name="home_feed_settings_games_subtitle">Jeux quotidiens basés sur le contenu de Wikipédia</string>
   <string name="home_feed_settings_discover_title">Découvrez les recommandations</string>
   <string name="home_feed_settings_discover_subtitle">Articles de votre liste de lecture Découvrir</string>
   <string name="home_feed_discover_cta_title">Depuis Découvrir</string>
@@ -2521,4 +2524,7 @@
   <string name="home_feed_for_you_screen_end_of_feed_description">Revenez demain pour découvrir de nouveaux articles personnalisés.</string>
   <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Moyens de continuer à apprendre :</string>
   <string name="home_feed_for_you_screen_end_of_feed_add_interests">Ajouter de &lt;a href=\"#add_interests\"&gt;nouveaux centres d\'intérêt&lt;/a&gt;</string>
+  <string name="home_feed_games_module_cta_prompt_title">Envie de jouer à d’autres jeux ?</string>
+  <string name="home_feed_games_module_cta_prompt_subtitle">Rendez-vous sur la centrale des jeux</string>
+  <string name="home_feed_games_module_cta_prompt_button_text">Centrale des jeux</string>
 </resources>
