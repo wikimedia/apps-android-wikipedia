@@ -307,7 +307,7 @@ class HomeViewModel : ViewModel() {
     private val gameModule: StateFlow<ForYouModule.Games?> =
         _wikiSite.flatMapLatest { site ->
             val supportedGames = getSupportedGames(site.languageCode)
-            // short-circuit so that we don't observe if we don't have access to GamesHub
+            // short-circuit if no games are supported for this language
             if (supportedGames.isEmpty()) {
                 return@flatMapLatest flowOf(null)
             }
