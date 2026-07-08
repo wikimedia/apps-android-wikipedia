@@ -268,6 +268,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         updateLists()
     }
 
+    // TODO migration: think about this implementation in Jetpack Compose version
     private fun enableLayoutTransition(enable: Boolean) {
         if (enable) {
             binding.contentContainer.layoutTransition.enableTransitionType(LayoutTransition.CHANGING)
