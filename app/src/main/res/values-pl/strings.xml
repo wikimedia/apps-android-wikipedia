@@ -1745,4 +1745,6 @@
   <string name="on_this_day_game_report_email_body">Napotkałem(-am) problem z funkcją gier Wikipedii:\n- [Opisz konkretny problem]\n\nOczekiwane działanie:\n- [Opisz proponowane rozwiązanie]</string>
   <string name="on_this_day_game_notification_undo">Cofnij</string>
   <string name="on_this_day_game_share_link_message">Gram w „Co było pierwsze?”, codzienną grę z ciekawostkami w aplikacji Wikipedia na Androida. Dołącz do mnie: %s</string>
+  <string name="randomizer_shake_prompt_title">Potrząśnij, aby losowo wybrać artykuł</string>
+  <string name="randomizer_shake_prompt_message">Potrząśnij urządzeniem, aby przejść do losowego artykułu i trafić na coś niespodziewanego.</string>
 </resources>
