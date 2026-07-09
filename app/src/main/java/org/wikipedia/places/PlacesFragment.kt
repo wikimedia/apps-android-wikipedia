@@ -21,6 +21,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.appcompat.widget.PopupMenu
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.content.ContextCompat
@@ -99,6 +100,7 @@ import org.wikipedia.views.ViewUtil
 import org.wikipedia.views.imageservice.ImageService
 import java.util.Locale
 import kotlin.math.abs
+import kotlin.math.ln
 
 class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPreviewDialog.DismissCallback, MapLibreMap.OnMapClickListener {
 
@@ -130,6 +132,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             latitudeDiffToMeters(it.projection.visibleRegion.latLngBounds.latitudeSpan / 2)
         } ?: 50
     private var magnifiedMarker: Symbol? = null
+    private var maxPageViews: Long = 0L
 
     private val locationPermissionRequest = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
         when {
@@ -243,6 +246,11 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         binding.langCodeButton.setOnClickListener {
             PlacesEvent.logAction("filter_click", "search_bar_view")
             filterLauncher.launch(PlacesFilterActivity.newIntent(requireActivity()))
+        }
+
+        binding.sortButton.setOnClickListener {
+            PlacesEvent.logAction("sort_click", "search_bar_view")
+            showSortMenu(it)
         }
 
         binding.searchCloseBtn.setOnClickListener {
@@ -432,6 +440,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         binding.listEmptyContainer.isVisible = !isMapVisible && (binding.listRecyclerView.adapter?.itemCount ?: 0) == 0
         binding.searchContainer.backgroundTintList = tintColor
         binding.myLocationButton.isVisible = isMapVisible
+        binding.sortButton.isVisible = !isMapVisible
     }
 
     private fun showLinkPreview(pageTitle: PageTitle, location: Location) {
@@ -443,13 +452,36 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             LinkPreviewDialog.newInstance(entry, location, getLastKnownUserLocation()))
     }
 
+    private fun showSortMenu(anchor: View) {
+        PopupMenu(requireContext(), anchor).apply {
+            menuInflater.inflate(R.menu.menu_places_sort, menu)
+            menu.findItem(viewModel.sortMode.menuId).isChecked = true
+            setOnMenuItemClickListener { item ->
+                val newMode = SortMode.entries.first { it.menuId == item.itemId }
+                if (viewModel.sortMode != newMode) {
+                    viewModel.sortMode = newMode
+                    viewModel.applySort()
+                    PlacesEvent.logAction("sort_select", "search_bar_view", newMode.name.lowercase())
+                }
+                true
+            }
+            show()
+        }
+    }
+
     private fun resetMagnifiedSymbol() {
-        // Reset the magnified marker to regular size
-        magnifiedMarker?.let {
-            it.iconSize = 1.0f
-            symbolManager?.update(it)
+        magnifiedMarker?.let { marker ->
+            val page = annotationCache.find { it.annotation == marker }
+            marker.iconSize = page?.let { popularityIconSize(it.pageViews) } ?: 1.0f
+            symbolManager?.update(marker)
         }
         viewModel.highlightedPageTitle = null
+    }
+
+    private fun popularityIconSize(pageViews: Long): Float {
+        if (maxPageViews <= 0L || pageViews <= 0L) return POPULARITY_MIN_SCALE
+        val ratio = (ln(pageViews.toDouble() + 1.0) / ln(maxPageViews.toDouble() + 1.0)).toFloat().coerceIn(0f, 1f)
+        return POPULARITY_MIN_SCALE + (POPULARITY_MAX_SCALE - POPULARITY_MIN_SCALE) * ratio
     }
 
     private fun setMagnifiedSymbol(symbol: Symbol?) {
@@ -588,6 +620,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
     }
 
     private fun updateMapMarkers(pages: List<NearbyPage>) {
+        maxPageViews = pages.maxOfOrNull { it.pageViews } ?: 0L
         symbolManager?.let { manager ->
 
             pages.filter {
@@ -598,6 +631,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
                         .withLatLng(LatLng(it.latitude, it.longitude))
                         .withTextFont(MARKER_FONT_STACK)
                         .withIconImage(MARKER_DRAWABLE)
+                        .withIconSize(popularityIconSize(it.pageViews))
                 )
                 if (viewModel.highlightedPageTitle?.prefixedText.orEmpty() == it.pageTitle.prefixedText) {
                     setMagnifiedSymbol(it.annotation)
@@ -810,6 +844,8 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         const val MAX_ANNOTATIONS = 250
         const val THUMB_SIZE = 120
         const val ITEMS_PER_REQUEST = 75
+        const val POPULARITY_MIN_SCALE = 0.7f
+        const val POPULARITY_MAX_SCALE = 1.4f
         const val CLUSTER_TEXT_LAYER_ID = "mapbox-android-cluster-text"
         const val CLUSTER_CIRCLE_LAYER_ID = "mapbox-android-cluster-circle0"
         const val ZOOM_IN_ANIMATION_DURATION = 1000
