@@ -576,8 +576,8 @@
   <string name="reading_list_item_deleted">%s dihapus dari daftar</string>
   <string name="reading_list_item_deleted_from_list">%1$s dihapus dari %2$s</string>
   <string name="reading_list_articles_deleted">%d artikel dihapus dari daftar</string>
-  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
-    <item quantity="other">%1$d artikel dihapus dari %2$s</item>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="other">%1$d bahan bacoan diapus dari %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="other">%d daftar dihapus</item>
@@ -819,6 +819,7 @@
   <string name="view_random_article_card_title">Artikel acak</string>
   <string name="view_random_article_card_action">Artikel acak lebih</string>
   <string name="view_top_read_card_title">Bacaan teratas</string>
+  <string name="view_top_read_card_description">Apa yang sedang tren hari ini di Wikipedia?</string>
   <string name="view_top_read_card_action">Lebih banyak bacaan teratas</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d rb</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d jt</string>

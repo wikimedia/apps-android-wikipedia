@@ -24,6 +24,7 @@
 * Metalhead64
 * Minh Nguyen
 * Mohammad ebz
+* Muhamad Izzul Fiqih
 * MuratTheTurkish
 * Naheulf
 * Nemo bis
@@ -285,7 +286,7 @@
   <string name="terms_of_use_description">Summary of the preference item to show the terms of use.\n{{Identical|Terms of use}}</string>
   <string name="legal_safety_contacts_description">Summary of the preference item to show the legal and safety contact information.\n\nhttps://foundation.wikimedia.org/wiki/Legal:Wikimedia_Foundation_Legal_and_Safety_Contact_Information/</string>
   <string name="about_wikipedia_url">URL leading to the About Wikipedia page. If you can find the appropriate language specific URL, please do so. If not, feel free to keep the English one. Example for Czech (lang code ‘cs’): https://cs.wikipedia.org/wiki/Nápověda:Úvod\nPlease test the URL to make sure it works.</string>
-  <string name="privacy_policy_url">URL leading to the Wikimedia Foundation privacy policy. If you can find the appropriate language specific URL of the mobile site please do so. If not feel free to keep the English one. Example for German (lang code \"de\"): https://meta.m.wikimedia.org/w/index.php?title=Privacy_policy/de\nPlease test the URL to make sure it works.</string>
+  <string name="privacy_policy_url">URL leading to the Wikimedia Foundation privacy policy. If you can find the appropriate language specific URL of the mobile site please do so. If not feel free to keep the English one. Example for German (lang code \"de\"): https://meta.m.wikimedia.org/w/index.php?title=Privacy_policy/jax\nPlease test the URL to make sure it works.</string>
   <string name="offline_reading_and_data_url">{{optional}}\nURL leading to the Offline reading and data section of Wikimedia Android app FAQ. If you can find the appropriate language specific URL of the mobile site please do so.</string>
   <string name="android_app_faq_url">{{optional}}\nURL leading to the page of Wikimedia Android app FAQ. If you can find the appropriate language specific URL of the mobile site, please do so.</string>
   <string name="terms_of_use_url">URL leading to the Wikimedia Foundation terms of use. If you can find the appropriate language specific URL of the mobile site please do so. If not feel free to keep the English one. Example for German (lang code \"de\"): https://foundation.m.wikimedia.org/wiki/Terms_of_Use/de\nPlease test the URL to make sure it works</string>
@@ -2321,6 +2322,8 @@
   <string name="home_feed_for_you_screen_end_of_feed_description">Description text encouraging the user to return later for refreshed personalized articles.</string>
   <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Section header introducing additional actions the user can take after reaching the end of the feed.</string>
   <string name="home_feed_for_you_screen_end_of_feed_add_interests">Link text prompting the user to add new interests to improve personalized recommendations.</string>
+  <string name="randomizer_shake_prompt_title">Title of popup dialog that explains the shake-to-shuffle feature.</string>
+  <string name="randomizer_shake_prompt_message">Message of popup dialog that explains the shake-to-shuffle feature.</string>
   <string name="home_feed_games_module_cta_prompt_title">Title for the prompt card in the Games module that invites the user to play more games.</string>
   <string name="home_feed_games_module_cta_prompt_subtitle">Subtitle for the prompt card in the Games module directing the user to the Games hub.</string>
   <string name="home_feed_games_module_cta_prompt_button_text">Button text on the Games module prompt card that navigates the user to the Games hub.</string>

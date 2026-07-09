@@ -1668,6 +1668,7 @@
   <string name="places_empty_message_snackbar">Et gëtt keng Artikelen an der Géigend. Probéiert d\'Kaart ze verklengeren oder ze verréckelen.</string>
   <string name="survey_dialog_title">Hëlleft eis dës Funktioun ze verbesseren</string>
   <string name="survey_dialog_message">Sidd Dir zefridde mat dëser Funktioun?</string>
+  <string name="home_feed_survey_message">Sidd Dir zefridde mam „Communautéit“- a mam „Fir Iech“-Feed?</string>
   <string name="survey_dialog_option_satisfied">Zefridden</string>
   <string name="survey_dialog_option_neutral">Neutral</string>
   <string name="survey_dialog_option_unsatisfied">Onzefridden</string>
@@ -2186,5 +2187,6 @@
   <string name="home_feed_for_you_screen_end_of_feed_description">Kommt muer zeréck, fir frësch nei Artikelen ze fannen, déi op Iech zesummegestallt goufen.</string>
   <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Méiglechkeeten, fir weider ze léieren:</string>
   <string name="home_feed_for_you_screen_end_of_feed_add_interests">Setzt &lt;a href=\"#add_interests\"&gt;nei Interessen&lt;/a&gt; derbäi</string>
+  <string name="randomizer_shake_prompt_message">Rëselt Ären Apparat, fir op en zoufällegen Artikel ze geroden an eppes Onerwaartes ze léieren.</string>
   <string name="home_feed_games_module_cta_prompt_title">Wëllt Dir nach méi Spiller spillen?</string>
 </resources>

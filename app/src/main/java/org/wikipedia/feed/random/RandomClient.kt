@@ -21,8 +21,8 @@ object RandomClient {
                 displayText = page.displayTitle(wikiSite.languageCode),
             ).also {
                 if (!page.sectionTitle.isNullOrEmpty()) it.fragment = StringUtil.addUnderscores(page.sectionTitle)
-                it.extract = page.extract
+                it.extract = page.extract?.trim()
             }
-        }.sortedBy { it.thumbUrl == null }.take(count).toList()
+        }.sortedBy { it.thumbUrl == null || it.extract.isNullOrEmpty() }.take(count).toList()
     }
 }
