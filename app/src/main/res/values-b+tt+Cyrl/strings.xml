@@ -82,7 +82,7 @@
   <string name="menu_page_find_in_page">Биттә табу</string>
   <string name="menu_page_add_to_watchlist">Күзәтү исемлегенә өстәргә</string>
   <string name="menu_page_watch">Күзәтү</string>
-  <string name="menu_page_unwatch">Күзәтмәү</string>
+  <string name="menu_page_unwatch">Күзәтүдән алу</string>
   <string name="menu_page_view_talk">Бәхәс битен карау</string>
   <string name="menu_page_talk_page">Бәхәс бите</string>
   <string name="menu_page_view_edit_history">Тарихын карау</string>
