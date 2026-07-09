@@ -501,6 +501,11 @@
   <string name="theme_category_editing">Urejanje</string>
   <string name="reading_focus_mode">Način za branje</string>
   <string name="reading_focus_mode_detail">Ob pomikanju skrije možnosti urejanja in orodno vrstico na dnu</string>
+  <string name="margin_size_increase">Povečaj robove</string>
+  <string name="margin_size_decrease">Zmanjšaj robove</string>
+  <string name="margin_size_label">Robovi</string>
+  <string name="text_justify_label">Poravnaj</string>
+  <string name="text_hyphenation_label">Deljenje</string>
   <string name="editing_syntax_highlight_label">Označevanje skladnje</string>
   <string name="editing_line_numbers_label">Prikaži številke vrstic</string>
   <string name="editing_monospace_font_label">Uporabi pisavo monospace</string>

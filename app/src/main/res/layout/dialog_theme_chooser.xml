@@ -181,6 +181,118 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/marginSizeContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/margin_size_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/margin_size_label"
+                    android:textColor="?attr/primary_color"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp">
+
+                    <TextView
+                        android:id="@+id/buttonDecreaseMarginSize"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:contentDescription="@string/margin_size_decrease"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:text="-"
+                        android:textColor="?attr/primary_color"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        tools:ignore="HardcodedText" />
+
+                    <org.wikipedia.views.DiscreteSeekBar
+                        android:id="@+id/margin_size_seek_bar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:max="@integer/maxMarginSizeMultiplier"
+                        android:progressBackgroundTint="?attr/border_color"
+                        app:min="@integer/minMarginSizeMultiplier"
+                        app:tickDrawable="@drawable/ic_seek_bar_tick" />
+
+                    <TextView
+                        android:id="@+id/buttonIncreaseMarginSize"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:contentDescription="@string/margin_size_increase"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:text="+"
+                        android:textColor="?attr/primary_color"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        tools:ignore="HardcodedText" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/textFormattingDividerTop"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="?attr/border_color" />
+
+            <LinearLayout
+                android:id="@+id/textFormattingContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/text_justify_switch"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="32dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/text_justify_label"
+                    android:textColor="?attr/primary_color" />
+
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/text_hyphenation_switch"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="32dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/text_hyphenation_label"
+                    android:textColor="?attr/primary_color" />
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/textFormattingDividerBottom"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="?attr/border_color" />
+
+            <LinearLayout
                 android:id="@+id/readingFocusModeContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">

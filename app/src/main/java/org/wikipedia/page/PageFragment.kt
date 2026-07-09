@@ -964,6 +964,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         // Explicitly set the top margin (even though it might have already been set in the setup
         // handler), since the page metadata might have altered the lead image display state.
         bridge.execute(JavaScriptActionHandler.setTopMargin(leadImagesHandler.topMargin))
+        bridge.execute(JavaScriptActionHandler.setHorizontalMargins(Prefs.marginSizeMultiplier))
         bridge.execute(JavaScriptActionHandler.setFooter(model))
     }
 
@@ -1051,6 +1052,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     fun updateFontSize() {
         webView.settings.defaultFontSize = app.getFontSize().toInt()
+    }
+
+    fun updateMargins() {
+        bridge.execute(JavaScriptActionHandler.setHorizontalMargins(Prefs.marginSizeMultiplier))
     }
 
     fun updateQuickActionsAndMenuOptions() {
