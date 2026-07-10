@@ -1768,6 +1768,8 @@
   <string name="places_empty_message_snackbar">Yaxınlıqda məqalə yoxdur. Xəritəni böyütməyi və hərəkət etdirməyi yoxlayın.</string>
   <string name="survey_dialog_title">Bu funksiyanı təkmilləşdirməkdə bizə kömək edin</string>
   <string name="survey_dialog_message">Bu funksiya sizi qane edirmi?</string>
+  <string name="home_feed_survey_title">Ana səhifəni təkmilləşdirməyə kömək et</string>
+  <string name="home_feed_survey_message">\"İcma\" və \"Sizin üçün\" lentlərindən razısınızmı?</string>
   <string name="survey_dialog_option_satisfied">Razıyam</string>
   <string name="survey_dialog_option_neutral">Neytral</string>
   <string name="survey_dialog_option_unsatisfied">Razı deyiləm</string>
