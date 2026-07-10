@@ -7,10 +7,12 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Transaction
 import androidx.room.Update
+import kotlinx.coroutines.flow.Flow
 import org.wikipedia.R
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
+import org.wikipedia.readinglist.database.ReadingListWithPages
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.log.L
@@ -37,6 +39,10 @@ interface ReadingListDao {
 
     @Query("UPDATE ReadingList SET remoteId = -1")
     suspend fun markAllListsUnsynced()
+
+    @Transaction
+    @Query("SELECT * FROM ReadingList")
+    fun getListsWithPagesFlow(): Flow<List<ReadingListWithPages>>
 
     suspend fun getAllLists(): List<ReadingList> {
         val lists = getListsWithoutContents()

@@ -8,11 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import org.wikipedia.R
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.history.SearchActionModeCallback
@@ -22,7 +22,7 @@ import org.wikipedia.views.ReadingListsOverflowView
 
 class ReadingListsComposeFragment : Fragment() {
 
-    private var currentSearchQuery by mutableStateOf<String?>(null)
+    private val viewModel: ReadingListsViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -32,7 +32,8 @@ class ReadingListsComposeFragment : Fragment() {
         return ComposeView(requireContext()).apply {
             setContent {
                 BaseTheme {
-                    ReadingListsComposeScreen(searchQuery = currentSearchQuery)
+                    val uiState by viewModel.uiState.collectAsState()
+                    ReadingListsComposeScreen(uiState = uiState)
                 }
             }
         }
@@ -58,12 +59,12 @@ class ReadingListsComposeFragment : Fragment() {
         }
 
         override fun onQueryChange(s: String) {
-            currentSearchQuery = s.trim()
+            viewModel.setSearchQuery(s.trim())
         }
 
         override fun onDestroyActionMode(mode: ActionMode) {
             super.onDestroyActionMode(mode)
-            currentSearchQuery = null
+            viewModel.setSearchQuery(null)
             if (isAdded) {
                 (requireParentFragment() as MainFragment).setBottomNavVisible(true)
             }

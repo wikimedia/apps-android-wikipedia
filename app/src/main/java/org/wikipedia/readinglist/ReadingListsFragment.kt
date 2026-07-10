@@ -320,6 +320,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 }
             })
 
+            // TODO migration: important code
             // if the default list is empty, then removes it.
             if (lists.size == 1 && lists[0] is ReadingList &&
                     (lists[0] as ReadingList).isDefault &&
