@@ -1,6 +1,5 @@
 package org.wikipedia.readinglist.compose
 
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement.spacedBy
@@ -40,7 +39,6 @@ import org.wikipedia.readinglist.ReadingListUiModel
 import org.wikipedia.theme.Theme
 import org.wikipedia.views.imageservice.ImageService
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun ReadingListRow(
     list: ReadingListUiModel,
@@ -163,18 +161,14 @@ private fun ReadingListThumbnails(list: ReadingListUiModel, modifier: Modifier =
 
 @Composable
 private fun ThumbnailCell(url: String?, modifier: Modifier = Modifier) {
-    if (url.isNullOrEmpty()) {
-        Spacer(modifier = modifier.background(WikipediaTheme.colors.borderColor))
-    } else {
-        AsyncImage(
-            model = ImageService.getRequest(context = LocalContext.current, url = url),
-            contentDescription = null,
-            contentScale = ContentScale.Crop,
-            placeholder = ColorPainter(WikipediaTheme.colors.borderColor),
-            error = ColorPainter(WikipediaTheme.colors.borderColor),
-            modifier = modifier
-        )
-    }
+    AsyncImage(
+        model = ImageService.getRequest(context = LocalContext.current, url = url),
+        contentDescription = null,
+        contentScale = ContentScale.Crop,
+        placeholder = ColorPainter(WikipediaTheme.colors.borderColor),
+        error = ColorPainter(WikipediaTheme.colors.borderColor),
+        modifier = modifier
+    )
 }
 
 @Preview

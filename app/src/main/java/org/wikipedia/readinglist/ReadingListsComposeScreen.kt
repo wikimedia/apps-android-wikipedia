@@ -4,13 +4,13 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.HorizontalDivider
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.readinglist.compose.ReadingListPageRow
 import org.wikipedia.readinglist.compose.ReadingListRow
 import org.wikipedia.theme.Theme
 
@@ -45,10 +45,11 @@ fun ReadingListsComposeScreen(
                             onClick = {},
                             onLongClick = {}
                         )
-                        // TODO migration: replace with the PageRow composable (search-result article row).
-                        is ReadingListRow.PageRow -> Text(
-                            text = "– ${row.page.title}  [in: ${row.containingLists.joinToString()}]",
-                            color = WikipediaTheme.colors.progressiveColor
+                        is ReadingListRow.PageRow -> ReadingListPageRow(
+                            page = row.page,
+                            containingLists = row.containingLists,
+                            onClick = {},
+                            onLongClick = {}
                         )
                     }
                     HorizontalDivider(
