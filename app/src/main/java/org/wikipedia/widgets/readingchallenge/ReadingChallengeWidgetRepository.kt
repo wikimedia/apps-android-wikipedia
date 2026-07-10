@@ -16,6 +16,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.DailyStatsEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.DeviceUtil
 import java.time.Instant
 import java.time.LocalDate
 import java.time.ZoneId
@@ -185,9 +186,9 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
 
         fun isWidgetInstalled(): Boolean {
             val context = WikipediaApp.instance
-            val ids = AppWidgetManager.getInstance(context).getAppWidgetIds(
+            val ids = AppWidgetManager.getInstance(context)?.getAppWidgetIds(
                 ComponentName(context, ReadingChallengeWidgetReceiver::class.java)
-            )
+            ) ?: intArrayOf()
             return ids.isNotEmpty()
         }
 
@@ -196,7 +197,7 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
         }
 
         fun shouldShowWidgetInstallDialog(): Boolean {
-            return Prefs.readingChallengeOnboardingShown && !Prefs.readingChallengeInstallPromptShown &&
+            return DeviceUtil.areWidgetsSupported && Prefs.readingChallengeOnboardingShown && !Prefs.readingChallengeInstallPromptShown &&
                     Prefs.readingChallengeEnrolled && AccountUtil.isLoggedIn && isChallengeActive && !isWidgetInstalled()
         }
 

@@ -24,6 +24,7 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.auth.AccountUtil.updateAccount
 import org.wikipedia.captcha.CaptchaHandler
 import org.wikipedia.captcha.CaptchaResult
+import org.wikipedia.captcha.HCaptchaHelper
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.createaccount.CreateAccountActivity
 import org.wikipedia.databinding.ActivityLoginBinding
@@ -52,6 +53,7 @@ class LoginActivity : BaseActivity() {
     private var wiki = WikipediaApp.instance.wikiSite
     private var uiPromptResult: LoginResult? = null
     private var captchaResult: CaptchaResult? = null
+    private var hCaptchaToken: String? = null
     private var firstStepToken: String? = null
 
     private val loginClient = LoginClient()
@@ -75,6 +77,24 @@ class LoginActivity : BaseActivity() {
             onLoginSuccess()
         }
     }
+
+    private val hCaptchaHelper = HCaptchaHelper(this, object : HCaptchaHelper.Callback {
+        override fun onShow() {
+            instrument?.submitInteraction("hcaptcha_show")
+        }
+
+        override fun onSuccess(token: String) {
+            instrument?.submitInteraction("hcaptcha_success")
+            hCaptchaToken = token
+            doLogin()
+        }
+
+        override fun onError(e: Exception, code: Int) {
+            instrument?.submitInteraction("hcaptcha_error", actionContext = e.getInstrumentActionContext())
+            showProgressBar(false)
+            FeedbackUtil.showMessage(this@LoginActivity, e.message.orEmpty())
+        }
+    })
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -151,6 +171,11 @@ class LoginActivity : BaseActivity() {
         super.onStop()
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        hCaptchaHelper.cleanup()
+    }
+
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putBoolean("loginShowing", true)
@@ -196,6 +221,7 @@ class LoginActivity : BaseActivity() {
         uiPromptResult = null
         captchaResult = null
         captchaHandler.hideCaptcha()
+        hCaptchaToken = null
     }
 
     private fun clearErrors() {
@@ -263,12 +289,12 @@ class LoginActivity : BaseActivity() {
         val twoFactorCode = getText(binding.login2faText)
         showProgressBar(true)
 
-        if (uiPromptResult == null && captchaResult == null) {
+        if (uiPromptResult == null && captchaResult == null && hCaptchaToken == null) {
             loginClient.login(lifecycleScope, WikipediaApp.instance.wikiSite, username, password, cb = loginCallback)
         } else {
             loginClient.login(lifecycleScope, WikipediaApp.instance.wikiSite, username, password, token = firstStepToken,
                 captchaId = if (captchaResult != null) captchaHandler.captchaId() else null,
-                captchaWord = if (captchaResult != null) captchaHandler.captchaWord() else null,
+                captchaWord = if (hCaptchaToken != null) hCaptchaToken else if (captchaResult != null) captchaHandler.captchaWord() else null,
                 twoFactorCode = if (uiPromptResult is LoginOATHResult) twoFactorCode else null,
                 emailAuthCode = if (uiPromptResult is LoginEmailAuthResult) twoFactorCode else null,
                 isContinuation = uiPromptResult != null,
@@ -312,6 +338,14 @@ class LoginActivity : BaseActivity() {
                 FeedbackUtil.showError(this@LoginActivity, caught)
             }
             DeviceUtil.hideSoftKeyboard(this@LoginActivity)
+        }
+
+        override fun hCaptchaPrompt(result: LoginResult, caught: Throwable, siteKey: String, token: String?) {
+            showProgressBar(true)
+            firstStepToken = token
+            hCaptchaHelper.cleanup()
+            instrument?.submitInteraction("hcaptcha_load")
+            hCaptchaHelper.show(siteKey)
         }
 
         override fun passwordResetPrompt(token: String?) {
