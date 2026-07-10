@@ -158,7 +158,7 @@ GEM
       mutex_m
     jmespath (1.6.2)
     json (2.12.2)
-    jwt (2.10.2)
+    jwt (2.10.3)
       base64
     logger (1.7.0)
     mini_magick (4.13.2)
