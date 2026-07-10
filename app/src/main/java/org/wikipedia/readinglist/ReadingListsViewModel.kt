@@ -99,8 +99,11 @@ class ReadingListsViewModel : ViewModel() {
             title = title,
             description = description,
             isDefault = isDefault,
-            numPages = pages.size,
-            sizeBytes = sizeBytesFromPages
+            totalPages = pages.size,
+            sizeBytesFromPages = sizeBytesFromPages,
+            thumbUrls = pages.mapNotNull { it.thumbUrl }.filterNot { it.isEmpty() },
+            // TODO migration: wire the "new import" indicator once recentPreviewSavedReadingList is ported.
+            isNew = false
         )
     }
 
@@ -130,8 +133,10 @@ data class ReadingListUiModel(
     val title: String,
     val description: String?,
     val isDefault: Boolean,
-    val numPages: Int,
-    val sizeBytes: Long
+    val totalPages: Int,
+    val sizeBytesFromPages: Long,
+    val thumbUrls: List<String> = emptyList(),
+    val isNew: Boolean = false
 )
 
 /** Immutable snapshot of a saved article, used for [ReadingListRow.PageRow] while searching. */

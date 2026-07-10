@@ -239,6 +239,8 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 }).show()
         }
 
+        // TODO migration: implement this in Jetpack Compose version
+        // this should show "New version" indicator on the list item if the list is newly imported
         override fun importNewList() {
             var filePickerIntent = Intent(Intent.ACTION_GET_CONTENT)
             filePickerIntent.type = "application/json"

@@ -1,85 +1,62 @@
 package org.wikipedia.readinglist
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.readinglist.compose.ReadingListRow
+import org.wikipedia.theme.Theme
 
 @Composable
 fun ReadingListsComposeScreen(
     uiState: ReadingListsUiState,
     modifier: Modifier = Modifier
 ) {
-    Column(
-        modifier = modifier
-            .fillMaxSize()
-            .verticalScroll(rememberScrollState())
-            .padding(24.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
-    ) {
-        Text(
-            text = "Reading Lists (Compose)",
-            color = WikipediaTheme.colors.primaryColor,
-            textAlign = TextAlign.Center
-        )
-
-        // TODO migration: temporary UI to verify data retrieval.
-        when (val content = uiState.content) {
-            is ReadingListsUiState.Content.Loading -> {
-                Text(
-                    text = "Loading…",
-                    color = WikipediaTheme.colors.secondaryColor,
-                    textAlign = TextAlign.Center
-                )
-            }
-            is ReadingListsUiState.Content.Success -> {
-                Text(
-                    text = "Loaded ${content.rows.size} row(s)",
-                    color = WikipediaTheme.colors.secondaryColor,
-                    textAlign = TextAlign.Center
-                )
-                content.rows.forEach { row ->
+    when (val content = uiState.content) {
+        is ReadingListsUiState.Content.Loading -> {
+            // TODO migration: show loading indicator
+        }
+        is ReadingListsUiState.Content.Error -> {
+            // TODO migration: show error message
+        }
+        is ReadingListsUiState.Content.Success -> {
+            LazyColumn(
+                modifier = modifier.fillMaxSize()
+            ) {
+                items(
+                    items = content.rows,
+                    key = { row ->
+                        when (row) {
+                            is ReadingListRow.ListRow -> "list-${row.list.id}"
+                            is ReadingListRow.PageRow -> "page-${row.page.id}"
+                        }
+                    }
+                ) { row ->
                     when (row) {
-                        is ReadingListRow.ListRow -> Text(
-                            text = "• ${row.list.title} (${row.list.numPages})",
-                            color = WikipediaTheme.colors.primaryColor,
-                            textAlign = TextAlign.Center
+                        is ReadingListRow.ListRow -> ReadingListRow(
+                            list = row.list,
+                            onClick = {},
+                            onLongClick = {}
                         )
+                        // TODO migration: replace with the PageRow composable (search-result article row).
                         is ReadingListRow.PageRow -> Text(
                             text = "– ${row.page.title}  [in: ${row.containingLists.joinToString()}]",
-                            color = WikipediaTheme.colors.progressiveColor,
-                            textAlign = TextAlign.Center
+                            color = WikipediaTheme.colors.progressiveColor
                         )
                     }
+                    HorizontalDivider(
+                        color = WikipediaTheme.colors.borderColor,
+                        thickness = 0.5.dp
+                    )
                 }
             }
-            is ReadingListsUiState.Content.Error -> {
-                Text(
-                    text = "Error: ${content.throwable.message}",
-                    color = WikipediaTheme.colors.destructiveColor,
-                    textAlign = TextAlign.Center
-                )
-            }
-        }
-
-        if (!uiState.searchQuery.isNullOrEmpty()) {
-            Text(
-                text = "Searching: \"${uiState.searchQuery}\"",
-                color = WikipediaTheme.colors.secondaryColor,
-                textAlign = TextAlign.Center
-            )
         }
     }
 }
@@ -87,13 +64,15 @@ fun ReadingListsComposeScreen(
 @Preview
 @Composable
 private fun ReadingListsComposeScreenPreview() {
-    BaseTheme {
+    BaseTheme(
+        currentTheme = Theme.LIGHT
+    ) {
         ReadingListsComposeScreen(
             uiState = ReadingListsUiState(
                 content = ReadingListsUiState.Content.Success(
                     listOf(
-                        ReadingListRow.ListRow(ReadingListUiModel(id = 1, title = "Default", description = null, isDefault = true, numPages = 3, sizeBytes = 0)),
-                        ReadingListRow.ListRow(ReadingListUiModel(id = 2, title = "Physics", description = "reading", isDefault = false, numPages = 12, sizeBytes = 0))
+                        ReadingListRow.ListRow(ReadingListUiModel(id = 1, title = "Default", description = null, isDefault = true, totalPages = 3, sizeBytesFromPages = 0)),
+                        ReadingListRow.ListRow(ReadingListUiModel(id = 2, title = "Physics", description = "reading", isDefault = false, totalPages = 12, sizeBytesFromPages = 1240000))
                     )
                 )
             )
