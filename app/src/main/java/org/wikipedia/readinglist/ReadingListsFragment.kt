@@ -323,6 +323,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             })
 
             // TODO migration: important code
+            // TODO migration: can trigger empty state
             // if the default list is empty, then removes it.
             if (lists.size == 1 && lists[0] is ReadingList &&
                     (lists[0] as ReadingList).isDefault &&
@@ -359,6 +360,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
                 binding.swipeRefreshLayout.isRefreshing = false
                 maybeShowListLimitMessage()
+                // TODO migration: Empty screen state case for Jetpack Compose version
                 updateEmptyState(searchQuery)
                 maybeDeleteListFromIntent()
                 maybeShowPreviewSavedReadingListsSnackbar()
@@ -390,6 +392,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
     }
 
+    // TODO migration: Empty screen state case for Jetpack Compose version
     private fun updateEmptyState(searchQuery: String?) {
         if (searchQuery.isNullOrEmpty()) {
             binding.searchEmptyView.visibility = View.GONE
@@ -401,6 +404,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
     }
 
+    // TODO migration: Empty screen state case for Jetpack Compose version
     private fun setEmptyContainerVisibility(visible: Boolean) {
         if (visible) {
             binding.emptyContainer.visibility = View.VISIBLE
@@ -410,6 +414,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
     }
 
+    // TODO migration: Empty screen state case for Jetpack Compose version
     private fun setUpEmptyContainer() {
         if (displayedLists.size == 1 && displayedLists[0] is ReadingList &&
                 (displayedLists[0] as ReadingList).isDefault &&
