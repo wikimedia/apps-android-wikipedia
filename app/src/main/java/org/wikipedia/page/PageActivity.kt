@@ -555,7 +555,9 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                             lifecycleScope.launch(CoroutineExceptionHandler { _, t ->
                                 L.e(t)
                             }) {
-                                EditSectionViewModel.retryUntilNewRevision(pageFragment.title!!, revision)
+                                // TODO!
+                                //EditSectionViewModel.retryUntilNewRevision(pageFragment.title!!, revision)
+
                                 FeedbackUtil.showMessage(this@PageActivity, R.string.edit_saved_successfully)
                             }
                         } else {
