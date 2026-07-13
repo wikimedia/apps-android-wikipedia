@@ -14,10 +14,15 @@ import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import org.wikipedia.R
+import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.main.MainActivity
 import org.wikipedia.main.MainFragment
+import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingActivity
+import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
+import org.wikipedia.settings.Prefs
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.views.ReadingListsOverflowView
 
 class ReadingListsComposeFragment : Fragment() {
@@ -33,8 +38,42 @@ class ReadingListsComposeFragment : Fragment() {
             setContent {
                 BaseTheme {
                     val uiState by viewModel.uiState.collectAsState()
-                    ReadingListsComposeScreen(uiState = uiState)
+                    ReadingListsComposeScreen(
+                        uiState = uiState,
+                        onOnboardingAction = ::onOnboardingAction
+                    )
                 }
+            }
+        }
+    }
+
+    private fun onOnboardingAction(action: OnboardingAction) {
+        when (action) {
+            OnboardingAction.RecommendedShown -> {
+                RecommendedReadingListEvent.submit("impression", "rrl_saved_prompt")
+            }
+            OnboardingAction.RecommendedAccept -> {
+                startActivity(RecommendedReadingListOnboardingActivity.newIntent(requireContext()))
+                RecommendedReadingListEvent.submit("enter_click", "rrl_saved_prompt")
+            }
+            OnboardingAction.RecommendedDismiss -> {
+                Prefs.isRecommendedReadingListOnboardingShown = true
+                FeedbackUtil.showMessage(this, getString(R.string.recommended_reading_list_onboarding_card_negative_snackbar))
+                RecommendedReadingListEvent.submit("nothanks_click", "rrl_saved_prompt")
+            }
+            OnboardingAction.SyncEnable -> {
+                ReadingListSyncAdapter.setSyncEnabledWithSetup()
+            }
+            OnboardingAction.SyncDismiss -> {
+                Prefs.isReadingListSyncReminderEnabled = false
+            }
+            OnboardingAction.LoginRequest -> {
+                if (isAdded && requireParentFragment() is MainFragment) {
+                    (requireParentFragment() as MainFragment).onLoginRequested()
+                }
+            }
+            OnboardingAction.LoginDismiss -> {
+                Prefs.isReadingListLoginReminderEnabled = false
             }
         }
     }
@@ -52,6 +91,7 @@ class ReadingListsComposeFragment : Fragment() {
     // TODO migration: filter the list based on the search query
     private val searchActionModeCallback = object : SearchActionModeCallback() {
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
+            viewModel.setSearchActive(true)
             if (isAdded) {
                 (requireParentFragment() as MainFragment).setBottomNavVisible(false)
             }
@@ -64,6 +104,7 @@ class ReadingListsComposeFragment : Fragment() {
 
         override fun onDestroyActionMode(mode: ActionMode) {
             super.onDestroyActionMode(mode)
+            viewModel.setSearchActive(false)
             viewModel.setSearchQuery(null)
             if (isAdded) {
                 (requireParentFragment() as MainFragment).setBottomNavVisible(true)

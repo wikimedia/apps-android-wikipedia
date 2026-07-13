@@ -11,22 +11,34 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.stateIn
 import org.apache.commons.lang3.StringUtils
+import org.wikipedia.R
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.database.ReadingListWithPages
 import org.wikipedia.settings.Prefs
+import org.wikipedia.settings.RemoteConfig
 class ReadingListsViewModel : ViewModel() {
     private val searchQuery = MutableStateFlow<String?>(null)
+    private val searchActive = MutableStateFlow(false)
 
     val uiState: StateFlow<ReadingListsUiState> =
         combine(
             AppDatabase.instance.readingListDao().getListsWithPagesFlow(),
-            searchQuery
-        ) { relations, query ->
+            searchQuery,
+            searchActive,
+            Prefs.observeKeys(
+                R.string.preference_key_recommended_reading_list_onboarding_shown,
+                R.string.preference_key_sync_reading_lists,
+                R.string.preference_key_reading_list_sync_reminder_enabled,
+                R.string.preference_key_reading_list_login_reminder_enabled
+            )
+        ) { relations, query, isSearchActive, _ ->
             ReadingListsUiState(
                 content = ReadingListsUiState.Content.Success(buildRows(relations, query)),
-                searchQuery = query
+                searchQuery = query,
+                onboarding = resolveOnboardingState(query, isSearchActive)
             )
         }
             .catch { emit(ReadingListsUiState(content = ReadingListsUiState.Content.Error(it))) }
@@ -39,6 +51,30 @@ class ReadingListsViewModel : ViewModel() {
 
     fun setSearchQuery(query: String?) {
         searchQuery.value = query
+    }
+
+    fun setSearchActive(active: Boolean) {
+        searchActive.value = active
+    }
+
+    private fun resolveOnboardingState(query: String?, isSearchActive: Boolean): OnboardingState {
+        if (isSearchActive || !query.isNullOrEmpty()) {
+            return OnboardingState.None
+        }
+        return when {
+            !Prefs.isRecommendedReadingListOnboardingShown -> {
+                OnboardingState.RecommendedReadingList
+            }
+            (AccountUtil.isLoggedIn && !AccountUtil.isTemporaryAccount) && !Prefs.isReadingListSyncEnabled &&
+                    Prefs.isReadingListSyncReminderEnabled && !RemoteConfig.config.disableReadingListSync -> {
+                OnboardingState.SyncReminder
+            }
+            (!AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount) && Prefs.isReadingListLoginReminderEnabled &&
+                    !RemoteConfig.config.disableReadingListSync -> {
+                OnboardingState.LoginReminder
+            }
+            else -> OnboardingState.None
+        }
     }
 
     private fun buildRows(relations: List<ReadingListWithPages>, query: String?): List<ReadingListRow> {
@@ -167,11 +203,19 @@ sealed interface ReadingListRow {
  */
 data class ReadingListsUiState(
     val content: Content,
-    val searchQuery: String? = null
+    val searchQuery: String? = null,
+    val onboarding: OnboardingState = OnboardingState.None
 ) {
     sealed interface Content {
         data object Loading : Content
         data class Success(val rows: List<ReadingListRow>) : Content
         data class Error(val throwable: Throwable) : Content
     }
+}
+
+sealed interface OnboardingState {
+    data object None : OnboardingState
+    data object RecommendedReadingList : OnboardingState
+    data object SyncReminder : OnboardingState
+    data object LoginReminder : OnboardingState
 }

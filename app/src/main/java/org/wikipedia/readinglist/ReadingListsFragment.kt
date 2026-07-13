@@ -827,6 +827,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
     }
 
+    // TODO: migration verify and test this onboarding flow is accurate in Jetpack Compose version
     private fun maybeShowOnboarding(searchQuery: String?) {
         if (!searchQuery.isNullOrEmpty()) {
             binding.onboardingView.isVisible = false

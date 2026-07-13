@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
@@ -14,8 +15,10 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -23,18 +26,28 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.wikipedia.R
+import org.wikipedia.compose.components.MessageCard
 import org.wikipedia.compose.components.SearchEmptyView
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.readinglist.compose.ReadingListPageRow
 import org.wikipedia.readinglist.compose.ReadingListRow
 import org.wikipedia.theme.Theme
+import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.StringUtil
 
 @Composable
 fun ReadingListsComposeScreen(
     uiState: ReadingListsUiState,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onOnboardingAction: (OnboardingAction) -> Unit = {}
 ) {
+    LaunchedEffect(uiState.onboarding) {
+        if (uiState.onboarding == OnboardingState.RecommendedReadingList) {
+            onOnboardingAction(OnboardingAction.RecommendedShown)
+        }
+    }
+
     when (val content = uiState.content) {
         is ReadingListsUiState.Content.Loading -> {
             // TODO migration: show loading indicator
@@ -43,28 +56,110 @@ fun ReadingListsComposeScreen(
             // TODO migration: show error message
         }
         is ReadingListsUiState.Content.Success -> when {
-            content.rows.isEmpty() && uiState.searchQuery.isNullOrEmpty() -> {
+            content.rows.isEmpty() && uiState.searchQuery.isNullOrEmpty() &&
+                uiState.onboarding == OnboardingState.None -> {
                 EmptyReadingLists(modifier = modifier)
             }
-            content.rows.isEmpty() -> {
+            content.rows.isEmpty() && !uiState.searchQuery.isNullOrEmpty() -> {
                 SearchEmptyView(
                     modifier = modifier.fillMaxSize(),
                     emptyTexTitle = stringResource(R.string.search_reading_lists_no_results)
                 )
             }
+
             else -> {
-                ReadingListsList(rows = content.rows, modifier = modifier)
+                ReadingListsList(
+                    rows = content.rows,
+                    onboarding = uiState.onboarding,
+                    onOnboardingAction = onOnboardingAction,
+                    modifier = modifier
+                )
             }
         }
     }
 }
 
 @Composable
+private fun OnboardingCard(
+    state: OnboardingState,
+    onAction: (OnboardingAction) -> Unit,
+    modifier: Modifier = Modifier
+) {
+    val context = LocalContext.current
+    val cardModifier = modifier
+        .fillMaxWidth()
+        .padding(start = 16.dp, end = 16.dp, top = 16.dp, bottom = 24.dp)
+
+    when (state) {
+        OnboardingState.RecommendedReadingList -> {
+            MessageCard(
+                modifier = cardModifier,
+                label = stringResource(R.string.recommended_reading_list_onboarding_card_new),
+                title = stringResource(R.string.recommended_reading_list_onboarding_card_title),
+                message = stringResource(R.string.recommended_reading_list_onboarding_card_message),
+                positiveButtonText = stringResource(R.string.recommended_reading_list_onboarding_card_positive_button),
+                onPositiveButtonClick = { onAction(OnboardingAction.RecommendedAccept) },
+                onContainerClick = { onAction(OnboardingAction.RecommendedAccept) },
+                negativeButtonText = stringResource(R.string.recommended_reading_list_onboarding_card_negative_button),
+                onNegativeButtonClick = { onAction(OnboardingAction.RecommendedDismiss) }
+            )
+        }
+        OnboardingState.SyncReminder -> {
+            MessageCard(
+                modifier = cardModifier,
+                title = stringResource(R.string.reading_lists_sync_reminder_title),
+                message = StringUtil.fromHtml(stringResource(R.string.reading_lists_sync_reminder_text)).toString(),
+                imageRes = ResourceUtil.getThemedAttributeId(context, R.attr.sync_reading_list_prompt_drawable),
+                positiveButtonText = stringResource(R.string.reading_lists_sync_reminder_action),
+                onPositiveButtonClick = { onAction(OnboardingAction.SyncEnable) },
+                onContainerClick = { onAction(OnboardingAction.SyncEnable) },
+                negativeButtonText = stringResource(R.string.reading_lists_ignore_button),
+                onNegativeButtonClick = { onAction(OnboardingAction.SyncDismiss) }
+            )
+        }
+        OnboardingState.LoginReminder -> {
+            MessageCard(
+                modifier = cardModifier,
+                title = stringResource(R.string.reading_list_login_reminder_title),
+                message = stringResource(R.string.reading_lists_login_reminder_text),
+                imageRes = ResourceUtil.getThemedAttributeId(context, R.attr.sync_reading_list_prompt_drawable),
+                positiveButtonText = stringResource(R.string.reading_lists_login_button),
+                onPositiveButtonClick = { onAction(OnboardingAction.LoginRequest) },
+                onContainerClick = { onAction(OnboardingAction.LoginRequest) },
+                negativeButtonText = stringResource(R.string.reading_lists_ignore_button),
+                onNegativeButtonClick = { onAction(OnboardingAction.LoginDismiss) }
+            )
+        }
+        OnboardingState.None -> Unit
+    }
+}
+
+sealed interface OnboardingAction {
+    data object RecommendedShown : OnboardingAction
+    data object RecommendedAccept : OnboardingAction
+    data object RecommendedDismiss : OnboardingAction
+    data object SyncEnable : OnboardingAction
+    data object SyncDismiss : OnboardingAction
+    data object LoginRequest : OnboardingAction
+    data object LoginDismiss : OnboardingAction
+}
+
+@Composable
 private fun ReadingListsList(
     rows: List<ReadingListRow>,
+    onboarding: OnboardingState,
+    onOnboardingAction: (OnboardingAction) -> Unit,
     modifier: Modifier = Modifier
 ) {
     LazyColumn(modifier = modifier.fillMaxSize()) {
+        if (onboarding != OnboardingState.None) {
+            item(key = "onboarding") {
+                OnboardingCard(
+                    state = onboarding,
+                    onAction = onOnboardingAction
+                )
+            }
+        }
         items(
             items = rows,
             key = { row ->
@@ -151,6 +246,23 @@ private fun ReadingListsEmptyPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         ReadingListsComposeScreen(
             uiState = ReadingListsUiState(content = ReadingListsUiState.Content.Success(emptyList()))
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun ReadingListsOnboardingPreview() {
+    BaseTheme(currentTheme = Theme.LIGHT) {
+        ReadingListsComposeScreen(
+            uiState = ReadingListsUiState(
+                content = ReadingListsUiState.Content.Success(
+                    listOf(
+                        ReadingListRow.ListRow(ReadingListUiModel(id = 2, title = "Physics", description = "reading", isDefault = false, totalPages = 12, sizeBytesFromPages = 1240000))
+                    )
+                ),
+                onboarding = OnboardingState.RecommendedReadingList
+            )
         )
     }
 }
