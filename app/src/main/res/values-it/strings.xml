@@ -1274,7 +1274,7 @@
   <string name="activity_tab_onboarding_reading_patterns_message">Scopri quanto tempo hai dedicato alla lettura e quali voci o argomenti hai approfondito nel tempo.</string>
   <string name="activity_tab_onboarding_impact_message">Scopri informazioni sui tuoi contributi e sulla portata della conoscenza che hai condiviso.</string>
   <string name="activity_tab_onboarding_engage_title">Altri modi per interagire</string>
-  <string name="activity_tab_onboarding_engage_message">Esplora le statistiche relative a giochi, articoli salvati e altre attività che ti consentono di entrare di più in contatto con Wikipedia.</string>
+  <string name="activity_tab_onboarding_engage_message">Esplora le statistiche relative a giochi, voci salvate e altre attività che ti consentono di entrare di più in contatto con Wikipedia.</string>
   <string name="activity_tab_onboarding_stay_in_control_title">Mantieni il controllo</string>
   <string name="activity_tab_onboarding_stay_in_control_message">Scegli quali moduli visualizzare. Tutti i dati personali rimangono privati sul tuo dispositivo e la cronologia di navigazione può essere cancellata in qualsiasi momento.</string>
   <string name="edits_screen_what_is_title">Modifica nell\'app Wikipedia</string>
@@ -1311,12 +1311,12 @@
   <string name="onboarding_welcome_title_v2">L\'enciclopedia libera\n…in più di 300 lingue</string>
   <string name="onboarding_next">Successivo</string>
   <string name="onboarding_fresh_install_knowledge_title">Tutta la conoscenza del mondo</string>
-  <string name="onboarding_fresh_install_knowledge_text">Wikipedia è un\'enciclopedia online gratuita con 65 milioni di articoli, scritti e aggiornati in modo collaborativo in oltre 300 lingue da una comunità di volontari.</string>
+  <string name="onboarding_fresh_install_knowledge_text">Wikipedia è un\'enciclopedia online gratuita con 65 milioni di voci, scritte e aggiornate in modo collaborativo in oltre 300 lingue da una comunità di volontari.</string>
   <string name="onboarding_fresh_install_knowledge_learn_more">Ulteriori informazioni su Wikipedia</string>
   <string name="onboarding_app_languages_title">Leggi in oltre 300 lingue</string>
   <string name="onboarding_app_languages_text">Abbiamo rilevato le seguenti lingue sul tuo dispositivo:</string>
-  <string name="onboarding_app_languages_primary">Primario</string>
-  <string name="onboarding_app_languages_add_button">Aggiungi o modifica lingue</string>
+  <string name="onboarding_app_languages_primary">Primaria</string>
+  <string name="onboarding_app_languages_add_button">Aggiungi o modifica le tue lingue</string>
   <string name="app_shortcuts_random">Casuale</string>
   <string name="app_shortcuts_continue_reading">Continua a leggere</string>
   <string name="app_shortcuts_search">Cerca</string>
