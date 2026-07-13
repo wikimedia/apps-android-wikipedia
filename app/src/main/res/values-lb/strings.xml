@@ -1668,6 +1668,7 @@
   <string name="places_empty_message_snackbar">Et gëtt keng Artikelen an der Géigend. Probéiert d\'Kaart ze verklengeren oder ze verréckelen.</string>
   <string name="survey_dialog_title">Hëlleft eis dës Funktioun ze verbesseren</string>
   <string name="survey_dialog_message">Sidd Dir zefridde mat dëser Funktioun?</string>
+  <string name="home_feed_survey_message">Sidd Dir zefridde mam „Communautéit“- a mam „Fir Iech“-Feed?</string>
   <string name="survey_dialog_option_satisfied">Zefridden</string>
   <string name="survey_dialog_option_neutral">Neutral</string>
   <string name="survey_dialog_option_unsatisfied">Onzefridden</string>
@@ -2120,6 +2121,7 @@
   <string name="home_feed_settings_title">Äre Start-Feed upassen</string>
   <string name="home_feed_settings_default_view_title">Standard-Feed</string>
   <string name="home_feed_settings_default_view_subtitle">Sicht eraus, wat fir ee Feed fir d\'éischt ugewise gëtt, wann Dir d\'App opmaacht.</string>
+  <string name="home_feed_settings_default_view_confirm">Dës Ännerung gëtt applizéiert, wann Dir fir d\'nächst Kéier d\'App opmaacht.</string>
   <string name="home_feed_settings_whats_driving_title">Wat beaflosst Äre Feed?</string>
   <string name="home_feed_settings_modules_title">Moduler</string>
   <string name="home_feed_settings_community_subtitle">Aktivéiert an desaktivéiert Moduler am „Communautéit“-Feed</string>
@@ -2169,6 +2171,8 @@
   <string name="home_feed_places_of_interest_cta_button">Op „Plazen“ goen</string>
   <string name="home_feed_settings_places_of_interest_title">Interessant Plazen</string>
   <string name="home_feed_settings_places_of_interest_subtitle">Artikelen an der Géigend vun Ärem leschte Standuert ënner „Plazen“</string>
+  <string name="home_feed_settings_games_title">Spiller</string>
+  <string name="home_feed_settings_games_subtitle">Deeglech Spiller op Basis vu Wikipedia-Contenu</string>
   <string name="home_feed_settings_discover_title">„Entdecken“-Recommandatiounen</string>
   <string name="home_feed_settings_discover_subtitle">Artikele vun Ärer „Entdecken“-Lieslëscht</string>
   <string name="home_feed_discover_cta_title">Vun „Entdecken“</string>
@@ -2183,4 +2187,6 @@
   <string name="home_feed_for_you_screen_end_of_feed_description">Kommt muer zeréck, fir frësch nei Artikelen ze fannen, déi op Iech zesummegestallt goufen.</string>
   <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Méiglechkeeten, fir weider ze léieren:</string>
   <string name="home_feed_for_you_screen_end_of_feed_add_interests">Setzt &lt;a href=\"#add_interests\"&gt;nei Interessen&lt;/a&gt; derbäi</string>
+  <string name="randomizer_shake_prompt_message">Rëselt Ären Apparat, fir op en zoufällegen Artikel ze geroden an eppes Onerwaartes ze léieren.</string>
+  <string name="home_feed_games_module_cta_prompt_title">Wëllt Dir nach méi Spiller spillen?</string>
 </resources>

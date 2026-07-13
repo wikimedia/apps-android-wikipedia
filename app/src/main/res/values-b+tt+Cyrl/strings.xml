@@ -82,7 +82,7 @@
   <string name="menu_page_find_in_page">Биттә табу</string>
   <string name="menu_page_add_to_watchlist">Күзәтү исемлегенә өстәргә</string>
   <string name="menu_page_watch">Күзәтү</string>
-  <string name="menu_page_unwatch">Күзәтмәү</string>
+  <string name="menu_page_unwatch">Күзәтүдән алу</string>
   <string name="menu_page_view_talk">Бәхәс битен карау</string>
   <string name="menu_page_talk_page">Бәхәс бите</string>
   <string name="menu_page_view_edit_history">Тарихын карау</string>
@@ -246,6 +246,7 @@
   <string name="about_description">Википедия кушымтасы турында</string>
   <string name="privacy_policy_description">Яшеренлек сәясәте</string>
   <string name="terms_of_use_description">Куллану шартлары</string>
+  <string name="legal_safety_contacts_description">Юридик һәм иминлек сораулары буенча элемтә</string>
   <string name="about_wikipedia_url">https://tt.wikipedia.org/wiki/Википедия:Turında</string>
   <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tt#Оффлайнда_уку_һәм_мәгълүматлар</string>
   <string name="about_libraries_heading">Кулланыла торган китапханәләр</string>
@@ -386,8 +387,10 @@
   <string name="button_get_directions">Юнәлеш алырга</string>
   <string name="error_no_maps_app">Маршрут төзи торган бер генә кушымтаны да табып булмады.</string>
   <string name="preference_title_customize_explore_feed">Лентаны тикшерергә</string>
+  <string name="preference_title_customize_home_feed">Шәхси тасма</string>
   <string name="preference_title_show_link_previews">Сылтамаларны карап алу</string>
   <string name="preference_summary_customize_explore_feed">\"Күзәтү\" лентасын көйләргә</string>
+  <string name="preference_summary_customize_home_feed">Баш битнең тасмасын үзегез өчен көйләгез</string>
   <string name="preference_summary_show_link_previews">Сылтамалар буенча күчеп, мәкаләләрне тиз карап алу</string>
   <string name="preference_title_collapse_tables">Таблицаларны яшерергә</string>
   <string name="preference_summary_collapse_tables">Мәкаләләрдә мәгълүмат бокслары, сылтамалар һәм искәрмәләр кебек таблица блокларын автомат рәвештә яшерергә.</string>
@@ -786,9 +789,11 @@
   <string name="view_random_article_card_title">Очраклы мәкалә</string>
   <string name="view_random_article_card_action">Күбрәк очраклы мәкаләләр</string>
   <string name="view_top_read_card_title">Иң күп укылган</string>
+  <string name="view_top_read_card_description">Бүген Википедиядә нәрсә популяр</string>
   <string name="view_top_read_card_action">Башка популяр мәкаләләр</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d мең</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d миллион</string>
+  <string name="view_top_read_card_pageviews_views_suffix">караулар</string>
   <string name="view_next_random_article">Башка очраклы мәкаләне йөкләгез</string>
   <string name="view_main_page_card_title">Бүген Википедиядә</string>
   <string name="view_main_page_card_action">Төп битне карарга</string>
