@@ -145,6 +145,10 @@ class ResetPasswordActivity : BaseActivity() {
             FeedbackUtil.showError(this@ResetPasswordActivity, caught)
         }
 
+        override fun hCaptchaPrompt(result: LoginResult, caught: Throwable, siteKey: String, token: String?) {
+            // TODO: support hCaptcha here, too.
+        }
+
         override fun passwordResetPrompt(token: String?) {
             // This case should not happen here, and we wouldn't have much to do anyway.
         }

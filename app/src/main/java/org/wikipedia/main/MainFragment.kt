@@ -84,6 +84,7 @@ import org.wikipedia.suggestededits.SuggestedEditsTasksFragment
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.usercontrib.UserContribListActivity
 import org.wikipedia.util.ClipboardUtil
+import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.TabUtil
@@ -600,7 +601,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
     }
 
     private fun maybeShowSearchWidgetInstallPrompt() {
-        if (!Prefs.searchWidgetInstallPromptShown && !SearchWidgetInstallDialog.isWidgetInstalled()) {
+        if (DeviceUtil.areWidgetsSupported && !Prefs.searchWidgetInstallPromptShown && !SearchWidgetInstallDialog.isWidgetInstalled()) {
             ExclusiveBottomSheetPresenter.show(childFragmentManager, SearchWidgetInstallDialog())
         }
     }

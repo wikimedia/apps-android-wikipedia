@@ -24,6 +24,7 @@
 * Metalhead64
 * Minh Nguyen
 * Mohammad ebz
+* Muhamad Izzul Fiqih
 * MuratTheTurkish
 * Naheulf
 * Nemo bis
@@ -286,7 +287,7 @@
   <string name="terms_of_use_description">Summary of the preference item to show the terms of use.\n{{Identical|Terms of use}}</string>
   <string name="legal_safety_contacts_description">Summary of the preference item to show the legal and safety contact information.\n\nhttps://foundation.wikimedia.org/wiki/Legal:Wikimedia_Foundation_Legal_and_Safety_Contact_Information/</string>
   <string name="about_wikipedia_url">URL leading to the About Wikipedia page. If you can find the appropriate language specific URL, please do so. If not, feel free to keep the English one. Example for Czech (lang code ‘cs’): https://cs.wikipedia.org/wiki/Nápověda:Úvod\nPlease test the URL to make sure it works.</string>
-  <string name="privacy_policy_url">URL leading to the Wikimedia Foundation privacy policy. If you can find the appropriate language specific URL of the mobile site please do so. If not feel free to keep the English one. Example for German (lang code \"de\"): https://meta.m.wikimedia.org/w/index.php?title=Privacy_policy/de\nPlease test the URL to make sure it works.</string>
+  <string name="privacy_policy_url">URL leading to the Wikimedia Foundation privacy policy. If you can find the appropriate language specific URL of the mobile site please do so. If not feel free to keep the English one. Example for German (lang code \"de\"): https://meta.m.wikimedia.org/w/index.php?title=Privacy_policy/jax\nPlease test the URL to make sure it works.</string>
   <string name="offline_reading_and_data_url">{{optional}}\nURL leading to the Offline reading and data section of Wikimedia Android app FAQ. If you can find the appropriate language specific URL of the mobile site please do so.</string>
   <string name="android_app_faq_url">{{optional}}\nURL leading to the page of Wikimedia Android app FAQ. If you can find the appropriate language specific URL of the mobile site, please do so.</string>
   <string name="terms_of_use_url">URL leading to the Wikimedia Foundation terms of use. If you can find the appropriate language specific URL of the mobile site please do so. If not feel free to keep the English one. Example for German (lang code \"de\"): https://foundation.m.wikimedia.org/wiki/Terms_of_Use/de\nPlease test the URL to make sure it works</string>
@@ -2153,6 +2154,7 @@
   <string name="hybrid_search_who_is_prefix">Prefix used before a query, where %s is replaced with the query text.</string>
   <string name="hybrid_search_turn_off_experiment_label">Label for the option that disables the hybrid search experiment.</string>
   <string name="reading_challenge_widget_name">Display name for the small Reading Challenge home screen widget.</string>
+  <string name="random_article_widget_name">Display name for the Random Article home screen widget.</string>
   <string name="reading_challenge_onboarding_header">Title of the onboarding screen for the Reading challenge.</string>
   <string name="reading_challenge_onboarding_read_title">Title of the first item in onboarding screen for the Reading challenge that indicates read one article for 25 days to complete the challenge.</string>
   <string name="reading_challenge_onboarding_read_description">Description of the first item in onboarding screen for the Reading challenge that indicates read one article for 25 days to complete the challenge between 1 May to 31 May.</string>
