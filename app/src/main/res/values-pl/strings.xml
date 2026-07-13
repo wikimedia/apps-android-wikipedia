@@ -62,6 +62,7 @@
   <string name="search_icon_content_description">Szukaj</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtruj moją listę</string>
   <string name="nav_item_suggested_edits">Edycje</string>
+  <string name="nav_item_activity">Aktywność</string>
   <string name="nav_item_more">Więcej</string>
   <string name="nav_item_search">Szukaj</string>
   <string name="nav_item_contribute">Wnieś swój wkład</string>
@@ -74,7 +75,7 @@
   <string name="page_error_back_to_main">Wróć</string>
   <string name="error_back">Wróć</string>
   <string name="error_next">Dalej</string>
-  <string name="menu_clear_all_history" fuzzy="true">Wyczyść historię</string>
+  <string name="menu_clear_all_history">Wyczyść historię przeglądania</string>
   <string name="history_item_deleted">Usunięto %s z historii</string>
   <string name="history_items_deleted">%d artykułów usunięto z historii</string>
   <string name="history_item_delete_undo">Cofnij</string>
@@ -87,7 +88,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidane</string>
   <string name="dialog_title_clear_history">Wyczyść historię przeglądania</string>
-  <string name="dialog_message_clear_history" fuzzy="true">Nastąpi usunięcie całej historii odwiedzin stron oraz zamknięcie otwartych kart. Kontynuować?</string>
+  <string name="dialog_message_clear_history">Spowoduje to usunięcie całej historii przeglądania. Jesteś pewien?</string>
   <string name="dialog_message_clear_history_yes">Tak</string>
   <string name="dialog_message_clear_history_no">Nie</string>
   <string name="share_via">Udostępnij przez</string>
@@ -197,6 +198,7 @@
   <string name="login_2fa_other_workflow_error_msg">Wymagane jest uwierzytelnianie dwuskładnikowe! Zaloguj się z ekranu głównego i wprowadź kod z tokena 2FA.</string>
   <string name="login_email_auth_hint">Kod weryfikacyjny z e-mail</string>
   <string name="login_email_auth_other_workflow_error_msg">Wymagana weryfikacja e-maila! Zaloguj się z ekranu głównego i wprowadź swój kod weryfikacyjny adresu e-mail.</string>
+  <string name="login_background_error_msg">Nie można się ponownie zalogować. Wróć do ekranu głównego i zaloguj się ręcznie.</string>
   <string name="onboarding_card_login">Zaloguj się</string>
   <string name="page_editing_login">Zaloguj się</string>
   <string name="reading_lists_sync_login">Zaloguj się</string>
@@ -432,6 +434,7 @@
   <string name="preference_title_customize_explore_feed">Kanał Eksploruj</string>
   <string name="preference_title_show_link_previews">Pokaż podgląd linków</string>
   <string name="preference_summary_customize_explore_feed">Dostosuj kanał Eksploruj</string>
+  <string name="preference_summary_customize_home_feed">Dostosuj swój kanał główny</string>
   <string name="preference_summary_show_link_previews">Pokaż szybki podgląd artykułów po kliknięciu na linki.</string>
   <string name="preference_title_collapse_tables">Zwiń tabele</string>
   <string name="preference_summary_collapse_tables">Automatyczne zwinięcie w artykułach tabel, takich jak infoboksy, odnośniki i uwagi.</string>
@@ -982,6 +985,7 @@
   <string name="customize_toolbar_reset_to_default_button">Przywróć ustawienia domyślne</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">Przytrzymaj ikonę przeciągania, aby przenieść element</string>
   <string name="customize_toolbar_item_default_tooltip">Naciśnij i przeciągnij element, aby zmienić jego położenie</string>
+  <string name="suggested_edits_activity_title">Edytuj</string>
   <string name="suggested_edits_describe_articles">Opisz artykuły</string>
   <string name="suggested_edits_caption_images">Podpisz obrazy</string>
   <string name="suggested_edits_tag_images">Dodaj znaczniki do obrazów</string>
@@ -1213,6 +1217,19 @@
   <string name="edit_summary_added_caption">Dodano podpis</string>
   <string name="edit_summary_added_image_and_caption">Dodano obraz i podpis</string>
   <string name="edit_published_view">Podgląd</string>
+  <string name="activity_tab_monthly_top_categories">Najczęściej czytane kategorie w tym miesiącu</string>
+  <string name="activity_tab_explore_wikipedia">Odkryj przez Wikipedię</string>
+  <string name="activity_tab_discover_encourage">Szukasz czegoś nowego do czytania?</string>
+  <string name="activity_tab_donation_unknown">Nieznane</string>
+  <string name="activity_tab_menu_info">Dowiedz się więcej</string>
+  <string name="activity_tab_menu_customize">Dostosuj</string>
+  <string name="activity_tab_customize_screen_time_spent_switch_title">Czas spędzony na czytaniu</string>
+  <string name="activity_tab_timeline_today">Dzisiaj</string>
+  <string name="activity_tab_timeline_yesterday">Wczoraj</string>
+  <string name="activity_tab_timeline_empty_state_title">Nic do pokazania</string>
+  <string name="activity_tab_timeline_empty_state_message">Zacznij czytać i edytować, aby zbudować swoją historię</string>
+  <string name="activity_tab_timeline_view_changes_button">Pokaż zmiany</string>
+  <string name="activity_tab_onboarding_reading_patterns_title">Wzorce czytania</string>
   <string name="file_page_activity_title">Strona pliku</string>
   <string name="file_page_add_image_caption_button">Dodaj podpis obrazu</string>
   <string name="file_page_add_image_tags_button">Dodaj tagi obrazu</string>
@@ -1242,6 +1259,7 @@
   <string name="onboarding_multilingual_secondary_text">Znaleźliśmy następujące na twoim urządzeniu:</string>
   <string name="onboarding_multilingual_add_language_text">Dodaj lub edytuj języki</string>
   <string name="onboarding_welcome_title_v2">Wolna encyklopedia\n...w prawie 300 językach</string>
+  <string name="onboarding_next">Następny</string>
   <string name="app_shortcuts_random">Losowa strona</string>
   <string name="app_shortcuts_continue_reading">Czytaj dalej</string>
   <string name="app_shortcuts_search">Szukaj</string>
@@ -1366,6 +1384,7 @@
   <string name="talk_warn_save_dialog_publish">Opublikuj</string>
   <string name="talk_warn_save_dialog_cancel">Anuluj</string>
   <string name="talk_warn_save_dialog_dont_save">Nie zapisuj</string>
+  <string name="talk_warn_saved_messages">Zapisane wiadomości</string>
   <string name="talk_page_empty">Ta strona dyskusji jest pusta</string>
   <string name="talk_add_reply">Odpowiedz</string>
   <string name="talk_no_subject">(Bez tematu)</string>
