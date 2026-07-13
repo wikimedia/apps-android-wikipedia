@@ -2344,8 +2344,8 @@
   <string name="reading_challenge_widget_start_fresh_start_title">全新開始。</string>
   <string name="reading_challenge_widget_start_fresh_start_subtitle">您的連續紀錄只需一篇條目。</string>
   <string name="reading_challenge_widget_concluded_complete">您做到了！</string>
-  <string name="reading_challenge_widget_reward_body">完成挑戰即可享有維基百科商城的 15% 折扣。</string>
-  <string name="reading_challenge_widget_reward_button_label">商城購物可享 15% 折扣</string>
+  <string name="reading_challenge_widget_reward_body">完成挑戰即可享有維基百科商城的 15%% 折扣。</string>
+  <string name="reading_challenge_widget_reward_button_label">商城購物可享 15%% 折扣</string>
   <string name="explore_feed_new_update_prompt_new_name_title">新名稱</string>
   <string name="explore_feed_new_update_prompt_control_title">保持掌控</string>
   <string name="explore_feed_new_update_prompt_language_title">每種語言，完整個人化</string>
