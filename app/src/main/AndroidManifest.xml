@@ -466,7 +466,7 @@
         </receiver>
 
         <receiver
-            android:label="@string/reading_challenge_widget_name"
+            android:label="@string/random_article_widget_name"
             android:name=".widgets.readingchallenge.ReadingChallengeWidgetReceiver"
             android:exported="true">
             <intent-filter>
