@@ -3,6 +3,7 @@ package org.wikipedia.readinglist.compose
 import androidx.compose.foundation.background
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement.spacedBy
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -14,10 +15,16 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.CheckboxDefaults
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -50,12 +57,13 @@ fun ReadingListRow(
     isSelected: Boolean = false,
     onSelectionChange: () -> Unit = {},
     onClick: () -> Unit = {},
-    onLongClick: () -> Unit = {}
+    onMenuAction: (ReadingListMenuAction) -> Unit = {}
 ) {
+    var menuExpanded by remember { mutableStateOf(false) }
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .combinedClickable(onClick = onClick, onLongClick = onLongClick)
+            .combinedClickable(onClick = onClick, onLongClick = { menuExpanded = true })
             .padding(horizontal = 16.dp, vertical = 16.dp)
     ) {
         if (isSelectionMode) {
@@ -126,7 +134,87 @@ fun ReadingListRow(
 
         Spacer(modifier = Modifier.width(16.dp))
         ReadingListThumbnails(list)
+
+        Box {
+            ReadingListItemMenu(
+                expanded = menuExpanded,
+                isDefault = list.isDefault,
+                isSelected = isSelected,
+                onDismiss = { menuExpanded = false },
+                onAction = {
+                    menuExpanded = false
+                    onMenuAction(it)
+                }
+            )
+        }
     }
+}
+
+enum class ReadingListMenuAction {
+    Rename, Delete, SaveAllOffline, RemoveAllOffline, Export, Select, Share
+}
+
+@Composable
+private fun ReadingListItemMenu(
+    expanded: Boolean,
+    isDefault: Boolean,
+    isSelected: Boolean,
+    onDismiss: () -> Unit,
+    onAction: (ReadingListMenuAction) -> Unit
+) {
+    // Default list will not have rename and delete option
+    DropdownMenu(
+        expanded = expanded,
+        onDismissRequest = onDismiss,
+        containerColor = WikipediaTheme.colors.paperColor
+    ) {
+        if (!isDefault) {
+            ReadingListMenuItem(
+                text = stringResource(R.string.reading_list_menu_rename),
+                onClick = { onAction(ReadingListMenuAction.Rename) }
+            )
+        }
+        ReadingListMenuItem(
+            text = stringResource(R.string.reading_list_action_menu_save_all_for_offline),
+            onClick = { onAction(ReadingListMenuAction.SaveAllOffline) }
+        )
+        ReadingListMenuItem(
+            text = stringResource(R.string.reading_list_action_menu_remove_all_from_offline),
+            onClick = { onAction(ReadingListMenuAction.RemoveAllOffline) }
+        )
+        ReadingListMenuItem(
+            text = stringResource(R.string.reading_list_menu_export),
+            onClick = { onAction(ReadingListMenuAction.Export) }
+        )
+        ReadingListMenuItem(
+            text = stringResource(if (isSelected) R.string.reading_list_menu_unselect else R.string.reading_list_menu_select),
+            onClick = { onAction(ReadingListMenuAction.Select) }
+        )
+        if (!isDefault) {
+            ReadingListMenuItem(
+                text = stringResource(R.string.reading_list_menu_delete),
+                onClick = { onAction(ReadingListMenuAction.Delete) }
+            )
+        }
+        ReadingListMenuItem(
+            text = stringResource(R.string.reading_list_share_menu_label),
+            onClick = { onAction(ReadingListMenuAction.Share) }
+        )
+    }
+}
+
+@Composable
+private fun ReadingListMenuItem(text: String, onClick: () -> Unit) {
+    DropdownMenuItem(
+        text = {
+            Text(
+                text = text,
+                style = MaterialTheme.typography.bodyLarge,
+                color = WikipediaTheme.colors.primaryColor
+            )
+        },
+        onClick = onClick
+    )
 }
 
 @Composable

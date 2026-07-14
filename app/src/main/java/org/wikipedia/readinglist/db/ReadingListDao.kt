@@ -44,6 +44,14 @@ interface ReadingListDao {
     @Query("SELECT * FROM ReadingList")
     fun getListsWithPagesFlow(): Flow<List<ReadingListWithPages>>
 
+    @Transaction
+    @Query("SELECT * FROM ReadingList WHERE id = :id")
+    suspend fun getListWithPagesById(id: Long): ReadingListWithPages?
+
+    @Transaction
+    @Query("SELECT * FROM ReadingList WHERE id IN (:ids)")
+    suspend fun getListsWithPagesByIds(ids: Set<Long>): List<ReadingListWithPages>
+
     suspend fun getAllLists(): List<ReadingList> {
         val lists = getListsWithoutContents()
         lists.forEach {

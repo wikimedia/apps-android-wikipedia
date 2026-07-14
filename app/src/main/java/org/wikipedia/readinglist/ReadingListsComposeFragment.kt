@@ -37,6 +37,7 @@ import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.main.MainActivity
 import org.wikipedia.main.MainFragment
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
+import org.wikipedia.readinglist.compose.ReadingListMenuAction
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingActivity
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
@@ -80,7 +81,7 @@ class ReadingListsComposeFragment : Fragment(), SortReadingListsDialog.Callback 
                         onOnboardingAction = ::onOnboardingAction,
                         onRefresh = ::onRefresh,
                         onListClick = ::onListClick,
-                        onListLongClick = ::onListLongClick,
+                        onListMenuAction = ::onListMenuAction,
                         onListSelectionChange = ::toggleListSelection
                     )
                 }
@@ -277,8 +278,40 @@ class ReadingListsComposeFragment : Fragment(), SortReadingListsDialog.Callback 
         }
     }
 
-    private fun onListLongClick(listId: Long) {
-        // TODO migration: show full context menu like XML version
+    private fun onListMenuAction(listId: Long, action: ReadingListMenuAction) {
+        viewLifecycleOwner.lifecycleScope.launch {
+            val list = AppDatabase.instance.readingListDao().getListWithPagesById(listId)?.toReadingList() ?: return@launch
+            // List refresh happens reactively via the DB flow, so these callbacks don't call updateLists.
+            when (action) {
+                ReadingListMenuAction.Rename -> {
+                    if (list.isDefault) return@launch
+                    ReadingListBehaviorsUtil.renameReadingList(requireActivity(), list) {
+                        ReadingListSyncAdapter.manualSync()
+                    }
+                }
+                ReadingListMenuAction.Delete -> {
+                    ReadingListBehaviorsUtil.deleteReadingList(requireActivity(), list, true) {
+                        ReadingListBehaviorsUtil.showDeleteListUndoSnackbar(requireActivity(), list) {}
+                    }
+                }
+                ReadingListMenuAction.SaveAllOffline -> {
+                    ReadingListBehaviorsUtil.savePagesForOffline(requireActivity(), list.pages) {}
+                }
+                ReadingListMenuAction.RemoveAllOffline -> {
+                    ReadingListBehaviorsUtil.removePagesFromOffline(requireActivity(), list.pages) {}
+                }
+                ReadingListMenuAction.Export -> {
+                    ReadingListsExportImportHelper.exportLists(requireActivity() as BaseActivity, listOf(list))
+                }
+                ReadingListMenuAction.Select -> {
+                    beginMultiSelect()
+                    toggleListSelection(listId)
+                }
+                ReadingListMenuAction.Share -> {
+                    ReadingListsShareHelper.shareReadingList(requireActivity() as AppCompatActivity, list)
+                }
+            }
+        }
     }
 
     private fun toggleListSelection(listId: Long) {
@@ -384,8 +417,8 @@ class ReadingListsComposeFragment : Fragment(), SortReadingListsDialog.Callback 
     private fun deleteSelectedLists() {
         val selectedIds = viewModel.selectionState.value.selectedListIds
         viewLifecycleOwner.lifecycleScope.launch {
-            val lists = AppDatabase.instance.readingListDao().getAllLists()
-                .filter { it.id in selectedIds }
+            val lists = AppDatabase.instance.readingListDao().getListsWithPagesByIds(selectedIds)
+                .map { it.toReadingList() }
             if (lists.isEmpty()) {
                 return@launch
             }
@@ -399,8 +432,8 @@ class ReadingListsComposeFragment : Fragment(), SortReadingListsDialog.Callback 
     private fun exportSelectedLists() {
         val selectedIds = viewModel.selectionState.value.selectedListIds
         viewLifecycleOwner.lifecycleScope.launch {
-            val lists = AppDatabase.instance.readingListDao().getAllLists()
-                .filter { it.id in selectedIds }
+            val lists = AppDatabase.instance.readingListDao().getListsWithPagesByIds(selectedIds)
+                .map { it.toReadingList() }
             if (lists.isNotEmpty()) {
                 ReadingListsExportImportHelper.exportLists(requireActivity() as BaseActivity, lists)
                 actionMode?.finish()

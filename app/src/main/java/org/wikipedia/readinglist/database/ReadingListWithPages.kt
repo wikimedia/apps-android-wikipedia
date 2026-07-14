@@ -11,4 +11,11 @@ class ReadingListWithPages(
     @Embedded val list: ReadingList,
     @Relation(parentColumn = "id", entityColumn = "listId")
     val pages: List<ReadingListPage>
-)
+) {
+    fun toReadingList(): ReadingList {
+        return list.apply {
+            pages.clear()
+            pages.addAll(this@ReadingListWithPages.pages.filterNot { it.status == ReadingListPage.STATUS_QUEUE_FOR_DELETE })
+        }
+    }
+}

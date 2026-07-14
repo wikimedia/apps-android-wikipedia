@@ -127,14 +127,9 @@ class ReadingListsViewModel : ViewModel() {
     }
 
     private fun buildRows(relations: List<ReadingListWithPages>, query: String?): List<ReadingListRow> {
-        // Room @Relation can't use where clause so we filter the pages queued for deletion here to match
-        // then after that we sort, check for empty default list
-        val lists = relations.map { relation ->
-            relation.list.apply {
-                pages.clear()
-                pages.addAll(relation.pages.filterNot { it.status == ReadingListPage.STATUS_QUEUE_FOR_DELETE })
-            }
-        }.toMutableList()
+        // toReadingList() drops pages queued for deletion (Room @Relation can't filter children in SQL);
+        // after that we sort and check for the empty default list.
+        val lists = relations.map { it.toReadingList() }.toMutableList()
 
         if (query.isNullOrEmpty()) {
             ReadingList.sort(lists, Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC))

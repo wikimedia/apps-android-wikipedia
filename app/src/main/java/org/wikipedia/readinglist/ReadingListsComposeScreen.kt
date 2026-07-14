@@ -33,6 +33,7 @@ import org.wikipedia.compose.components.MessageCard
 import org.wikipedia.compose.components.SearchEmptyView
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.readinglist.compose.ReadingListMenuAction
 import org.wikipedia.readinglist.compose.ReadingListPageRow
 import org.wikipedia.readinglist.compose.ReadingListRow
 import org.wikipedia.theme.Theme
@@ -50,7 +51,7 @@ fun ReadingListsComposeScreen(
     onOnboardingAction: (OnboardingAction) -> Unit = {},
     onRefresh: () -> Unit = {},
     onListClick: (Long) -> Unit = {},
-    onListLongClick: (Long) -> Unit = {},
+    onListMenuAction: (Long, ReadingListMenuAction) -> Unit = { _, _ -> },
     onListSelectionChange: (Long) -> Unit = {}
 ) {
     LaunchedEffect(uiState.onboarding) {
@@ -82,7 +83,7 @@ fun ReadingListsComposeScreen(
                 selectedListIds = selectedListIds,
                 onOnboardingAction = onOnboardingAction,
                 onListClick = onListClick,
-                onListLongClick = onListLongClick,
+                onListMenuAction = onListMenuAction,
                 onListSelectionChange = onListSelectionChange
             )
         }
@@ -93,7 +94,7 @@ fun ReadingListsComposeScreen(
             selectedListIds = selectedListIds,
             onOnboardingAction = onOnboardingAction,
             onListClick = onListClick,
-            onListLongClick = onListLongClick,
+            onListMenuAction = onListMenuAction,
             onListSelectionChange = onListSelectionChange,
             modifier = modifier
         )
@@ -107,7 +108,7 @@ private fun ReadingListsContent(
     selectedListIds: Set<Long>,
     onOnboardingAction: (OnboardingAction) -> Unit,
     onListClick: (Long) -> Unit,
-    onListLongClick: (Long) -> Unit,
+    onListMenuAction: (Long, ReadingListMenuAction) -> Unit,
     onListSelectionChange: (Long) -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -129,7 +130,7 @@ private fun ReadingListsContent(
                 isSelectionMode = isSelectionMode,
                 selectedListIds = selectedListIds,
                 onListClick = onListClick,
-                onListLongClick = onListLongClick,
+                onListMenuAction = onListMenuAction,
                 onListSelectionChange = onListSelectionChange,
                 modifier = modifier
             )
@@ -210,7 +211,7 @@ private fun ReadingListsList(
     isSelectionMode: Boolean,
     selectedListIds: Set<Long>,
     onListClick: (Long) -> Unit,
-    onListLongClick: (Long) -> Unit,
+    onListMenuAction: (Long, ReadingListMenuAction) -> Unit,
     onListSelectionChange: (Long) -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -239,7 +240,7 @@ private fun ReadingListsList(
                     isSelected = row.list.id in selectedListIds,
                     onSelectionChange = { onListSelectionChange(row.list.id) },
                     onClick = { onListClick(row.list.id) },
-                    onLongClick = { onListLongClick(row.list.id) }
+                    onMenuAction = { action -> onListMenuAction(row.list.id, action) }
                 )
                 is ReadingListRow.PageRow -> ReadingListPageRow(
                     page = row.page,
