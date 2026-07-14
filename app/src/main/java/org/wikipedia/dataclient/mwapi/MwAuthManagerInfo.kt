@@ -9,9 +9,9 @@ internal class MwAuthManagerInfo {
 
     @Serializable
     internal class Request(val id: String? = null,
-                           private val metadata: Map<String, String>? = null,
+                           val metadata: Map<String, String>? = null,
                            private val required: String? = null,
-                           private val provider: String? = null,
+                           val provider: String? = null,
                            private val account: String? = null,
                            val fields: Map<String, Field>? = null)
 

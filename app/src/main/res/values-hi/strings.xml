@@ -183,6 +183,9 @@
   <string name="account_creation_password_hint">पासवर्ड</string>
   <string name="login_2fa_hint" fuzzy="true">दो-कारक प्रमाणीकरण कोड</string>
   <string name="login_2fa_other_workflow_error_msg" fuzzy="true">दो-कारक प्रमाणीकरण आवश्यक है! कृपया मुख्य कार्यकलाप पर वापस जाएँ और अपने 2FA टोकन से लॉग-इन कर पुनः प्रयास करें।</string>
+  <string name="login_email_auth_hint">ईमेल सत्यापन कोड</string>
+  <string name="login_email_auth_other_workflow_error_msg">ईमेल सत्यापन आवश्यक है! कृपया मुख्य स्क्रीन से लॉग-इन करें और अपना ईमेल सत्यापन कोड दर्ज करें।</string>
+  <string name="login_background_error_msg">पुनः लॉग-इन करने में असमर्थ। कृपया मुख्य स्क्रीन पर वापस जाएं और हस्तचालन से लॉग-इन करें।</string>
   <string name="onboarding_card_login">लॉग-इन करें</string>
   <string name="page_editing_login">लॉग-इन करें</string>
   <string name="reading_lists_sync_login">लॉग-इन करें</string>
@@ -271,6 +274,7 @@
   <string name="about_description">विकिपीडिया एप के बारे में</string>
   <string name="privacy_policy_description">गोपनीयता नीति</string>
   <string name="terms_of_use_description">उपयोग की शर्तें</string>
+  <string name="legal_safety_contacts_description">कानूनी और सुरक्षा संपर्क</string>
   <string name="about_wikipedia_url">https://hi.wikipedia.org/wiki/विकिपीडिया:विकिपीडिया_के_बारे में</string>
   <string name="about_libraries_heading">लाइब्रेरीज़ का प्रयोग किया गया</string>
   <string name="about_contributors_heading">योगदानकर्ता</string>
@@ -415,6 +419,7 @@
   <string name="preference_title_collapse_tables">तालिकाओं को संक्षिप्त करें</string>
   <string name="preference_summary_collapse_tables">लेखों में तालिकाओं को स्वचालित रूप से संक्षिप्त करें जैसे ज्ञानसंदूक, संदर्भ और नोट्स आदि।</string>
   <string name="nav_item_donate">दान करें</string>
+  <string name="nav_item_year_in_review">वर्ष की समीक्षा</string>
   <string name="error_voice_search_not_available">क्षमा करें, आवाज की पहचान उपलब्ध नहीं है।</string>
   <string name="location_service_disabled">स्थिति सेवाएं बंद हैं।</string>
   <string name="enable_location_service">चालू करें</string>
@@ -567,9 +572,9 @@
     <item quantity="one">%d लेख को सूची से हटाया गया</item>
     <item quantity="other"> %d लेख सूची से हटाए गए</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d लेख को %s से हटाया गया</item>
-    <item quantity="other">%d लेखों को %s से हटाया गया</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">%1$d लेख को %2$s से हटाया गया</item>
+    <item quantity="other">%1$d लेखों को %2$s से हटाया गया</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d सूची हटाई गई</item>
@@ -861,11 +866,11 @@
   <string name="feed_item_type_randomizer">पढ़ने के लिए कोई भी लेख उत्पन्न करें</string>
   <string name="feed_item_type_suggested_edits">विकिपीडिया पर सामग्री जोड़ने के सुझाव</string>
   <string name="feed_item_type_places">वर्तमान स्थान के आधार पर निकटवर्ती लेख</string>
-  <string name="feed_empty_message">आपके एक्सप्लोर फ़ीड में कुछ भी नहीं है</string>
+  <string name="feed_empty_message" fuzzy="true">आपके एक्सप्लोर फ़ीड में कुछ भी नहीं है</string>
   <string name="feed_configure_onboarding_action">अनुकूलित करें</string>
   <string name="customize_lang_selection_dialog_ok_button_text">ठीक है</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">रद्द करें</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;अपना एक्सप्लोर फ़ीड अनुकूलित करें&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt; अब आप चुन सकते हैं कि आपके फ़ीड पर क्या दिखाना है, और अपनी पसंदीदा प्रकार की सामग्री को प्राथमिकता भी दे सकते हैं।</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;अपना एक्सप्लोर फ़ीड अनुकूलित करें&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt; अब आप चुन सकते हैं कि आपके फ़ीड पर क्या दिखाना है, और अपनी पसंदीदा प्रकार की सामग्री को प्राथमिकता भी दे सकते हैं।</string>
   <string name="feed_lang_selection_dialog_ok_button_text">ठीक है</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">रद्द करें</string>
   <string name="feed_accessibility_card_text">आप फ़ीड की अंत तक पहुंच गए हैं।</string>
@@ -941,6 +946,7 @@
   <string name="customize_toolbar_reset_to_default_button">डिफ़ॉल्ट पर रीसेट</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">आइटम को स्थानांतरित करने के लिए ड्रैग आइकन को दबाए रखें</string>
   <string name="customize_toolbar_item_default_tooltip">किसी आइटम का स्थान बदलने के लिए उसे दबाएं और खींचें</string>
+  <string name="suggested_edits_activity_title">सम्पादित करें</string>
   <string name="suggested_edits_describe_articles">लेखों का वर्णन करें</string>
   <string name="suggested_edits_caption_images">चित्र को कैप्शन करें</string>
   <string name="suggested_edits_tag_images">चित्र टैग करें</string>
@@ -1129,16 +1135,16 @@
   <string name="image_recommendation_notsure">अनिश्चित</string>
   <string name="image_recommendation_reject_title">अस्वीकृति का कारण</string>
   <string name="image_recommendation_reject_subtitle">अस्वीकृति का कारण गुमनाम है और भविष्य में छवि सुझावों को बेहतर बनाएगा।</string>
-  <string name="image_recommendation_reject_not_relevant">ईमेज रिलेवेंट नहीं है</string>
-  <string name="image_recommendation_reject_no_info">डिसाइड करने के लिए यह जानकारी काफी नहीं है</string>
-  <string name="image_recommendation_reject_offensive">ईमेज ऑफेंसिव है</string>
-  <string name="image_recommendation_reject_low_quality">ईमेज घटिया क्वॉलिटी की है</string>
+  <string name="image_recommendation_reject_not_relevant">चित्र प्रासंगिक नहीं है</string>
+  <string name="image_recommendation_reject_no_info">निर्धारित करने के लिए पर्याप्त जानकारी नहीं है</string>
+  <string name="image_recommendation_reject_offensive">चित्र अपमानजनक है</string>
+  <string name="image_recommendation_reject_low_quality">चित्र कम गुणवत्ता का है</string>
   <string name="image_recommendation_reject_dont_know">मुझे इस विषय के बारे में जानकारी नहीं है</string>
   <string name="image_recommendation_reject_other">अन्य</string>
   <string name="image_recommendation_reject_submit">जमा करें</string>
   <string name="image_recommendation_tooltip_main">सुझाए गए संपादन में लेखों में लुप्त छवियाँ जोड़ें</string>
-  <string name="image_recommendation_onboarding_1">पिक्चर्स लोगों को समझने में सहायता करतीं हैं, लेकिन बहुत आर्टिकल्स में पिक्चर्स नहीं होते हैं</string>
-  <string name="image_recommendation_onboarding_2">आप डिसाइड करेगें यदि एक सजेस्टेड इमेज एक विकिपीडिया आर्टिकल में होना चाहिए या नहीं|</string>
+  <string name="image_recommendation_onboarding_1">चित्रों से लोगों को समझने में मदद मिलती है, लेकिन कई लेखों में एक भी चित्र नहीं है।</string>
+  <string name="image_recommendation_onboarding_2">आप तय करें कि विकिपीडिया के किसी लेख पर कोई सुझावित चित्र जोड़ा जाना चाहिए कि नहीं।</string>
   <string name="image_recommendation_onboarding_3">सजेशंस मशीन जेनरेटेड होते हैं और उनको स्वीकार या अस्वीकार करने के लिए आपको आपके जजमेंट का इस्तेमाल करना पड़ेगा</string>
   <string name="image_recommendation_onboarding_4">ईमेज विकिपीडिया कॉमन्स से चुनें जाते हैं, जो विकिपीडिया द्वारा उपयोग किए जाने वाले फ्रीली लाइसेंस्ड इमेजेस का एक कलेक्शन है|</string>
   <string name="image_recommendation_tooltip_1">इस आर्टिकल के मुद्दे को समझने के इस आर्टिकल को रिव्यू करें</string>
@@ -1153,6 +1159,11 @@
   <string name="edit_summary_added_caption">एड किया हुआ कैप्शन</string>
   <string name="edit_summary_added_image_and_caption">छवि और कैप्शन जोड़ा गया</string>
   <string name="edit_published_view">देखें</string>
+  <string name="activity_tab_logged_out_title">विकिपीडिया ऐप पर अपनी गतिविधि देखने के लिए लॉग-इन करें या खाता बनाएं।</string>
+  <string name="activity_tab_monthly_top_categories">इस महीने पढ़ी गई शीर्ष श्रेणियां</string>
+  <string name="activity_tab_explore_wikipedia">विकिपीडिया के माध्यम से खोजें</string>
+  <string name="activity_tab_discover_encourage">कुछ नया पढ़ने की तलाश में हैं?</string>
+  <string name="activity_tab_donation_unknown">अज्ञात</string>
   <string name="activity_tab_timeline_yesterday">कल</string>
   <string name="file_page_activity_title">फ़ाइल पृष्ठ</string>
   <string name="file_page_add_image_caption_button">चित्र कैप्शन जोड़ें</string>
@@ -1173,16 +1184,17 @@
   <string name="onboarding_get_started">शुरू करें</string>
   <string name="onboarding_maybe_later">शायद बाद में</string>
   <string name="onboarding_explore_title">अन्वेषण के नए तरीके</string>
-  <string name="onboarding_explore_text">लगातार अपडेट हो रहे एक्सप्लोर फ़ीड के साथ विकिपीडिया के अंतहीन रास्तों पर जायें।&lt;br/&gt; फ़ीड को अपनी रुचियों के अनुसार &lt;b&gt;अनुकूलित करें&lt;/b&gt; - चाहे वह &lt;b&gt;इस दिन&lt;/b&gt; की ऐतिहासिक घटनाओं के बारे में सीखना हो, या &lt;b&gt;बेतरतीब&lt;/b&gt; पासा घुमाना हो।</string>
+  <string name="onboarding_explore_text" fuzzy="true">लगातार अपडेट हो रहे एक्सप्लोर फ़ीड के साथ विकिपीडिया के अंतहीन रास्तों पर जायें।&lt;br/&gt; फ़ीड को अपनी रुचियों के अनुसार &lt;b&gt;अनुकूलित करें&lt;/b&gt; - चाहे वह &lt;b&gt;इस दिन&lt;/b&gt; की ऐतिहासिक घटनाओं के बारे में सीखना हो, या &lt;b&gt;बेतरतीब&lt;/b&gt; पासा घुमाना हो।</string>
   <string name="onboarding_reading_list_sync_title">सिंक के साथ पठन सूचियां</string>
   <string name="onboarding_reading_list_sync_text_v2">आप उन लेखों की पठन सूची बना सकते हैं जिन्हें आप बाद में पढ़ना चाहते हैं, तब भी जब आप ऑफ़लाइन हों।&lt;br/&gt; अपनी पठन सूचियों को सिंक करने के लिए अपने विकिपीडिया खाते में लॉगिन करें। &lt;a href=\"#login\"&gt;विकिपीडिया से जुड़ें&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">डेटा और गोपनीयता</string>
-  <string name="onboarding_data_privacy_text">हमारा मानना है कि मुक्त ज्ञान आंदोलन में भाग लेने के लिए आपको व्यक्तिगत जानकारी प्रदान करने की आवश्यकता नहीं होनी चाहिए। इस ऐप के लिए एकत्र किया गया उपयोग डेटा गुमनाम है। हमारी &lt;a href=\"#privacy\"&gt;गोपनीयता नीति&lt;/a&gt; और &lt;a href=\"#termsOfUse\"&gt;उपयोग की शर्तों&lt;/a&gt; के बारे में अधिक जानें।</string>
+  <string name="onboarding_data_privacy_text" fuzzy="true">हमारा मानना है कि मुक्त ज्ञान आंदोलन में भाग लेने के लिए आपको व्यक्तिगत जानकारी प्रदान करने की आवश्यकता नहीं होनी चाहिए। इस ऐप के लिए एकत्र किया गया उपयोग डेटा गुमनाम है। हमारी &lt;a href=\"#privacy\"&gt;गोपनीयता नीति&lt;/a&gt; और &lt;a href=\"#termsOfUse\"&gt;उपयोग की शर्तों&lt;/a&gt; के बारे में अधिक जानें।</string>
   <string name="onboarding_analytics_switch_title">उपयोग किया गया डेटा भेजें</string>
   <string name="onboarding_got_it">समझ गया</string>
   <string name="onboarding_multilingual_secondary_text">हमने आपके डिवाइस पर निम्नलिखित पाया है:</string>
   <string name="onboarding_multilingual_add_language_text">भाषाएं जोड़ें या संपादित करें</string>
   <string name="onboarding_welcome_title_v2">नि:शुल्क विश्वकोश\n...300 से अधिक भाषाओं में</string>
+  <string name="onboarding_next">अगला</string>
   <string name="app_shortcuts_random">कोई भी</string>
   <string name="app_shortcuts_continue_reading">पढ़ना जारी रखें</string>
   <string name="app_shortcuts_search">खोजना</string>
@@ -1212,7 +1224,7 @@
     <item quantity="one">चयनित भाषा हटाएं?</item>
     <item quantity="other">चयनित भाषाएं हटाएं?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">आप शेष विकिपीडिया भाषाओं के लिए केवल एक्सप्लोर फ़ीड और त्वरित खोज फ़िल्टर पर सामग्री देखेंगे।</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">आप शेष विकिपीडिया भाषाओं के लिए केवल एक्सप्लोर फ़ीड और त्वरित खोज फ़िल्टर पर सामग्री देखेंगे।</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">सभी भाषाओं को नहीं हटा सकते</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">कम से कम एक विकिपीडिया भाषा रखें जिससे सामग्री को खोजा और पढ़ा जा सके।</string>
   <string name="more_language_options">अधिक</string>
@@ -1553,12 +1565,16 @@
   <string name="survey_dialog_general_yes">हाँ</string>
   <string name="survey_dialog_general_no">नहीं</string>
   <string name="survey_dialog_submitted_snackbar" fuzzy="true">फीडबैक जमा किया गया. धन्यवाद!</string>
+  <string name="games_hub_activity_games_unavailable_message_learn_more_action">अधिक जानिए</string>
+  <string name="games_hub_activity_overflow_learn_more">अधिक जानिए</string>
   <string name="on_this_day_game_turn_on_notification_dialog_title">खेल सूचनाएं चालू करें?</string>
   <string name="on_this_day_game_turn_off_notification_dialog_positive_btn_label">नहीं, इन्हें चालू रखें</string>
   <string name="on_this_day_game_turn_off_notification_dialog_negative_btn_label">इन्हें बंद कर दें।</string>
   <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">हाँ, इन्हें चालू कर दें।</string>
+  <string name="on_this_day_game_more_label">अधिक</string>
   <string name="year_in_review_disable_positive_button">हाँ, मुझे यकीन है</string>
   <string name="year_in_review_slide_reading_pattern_night">रात</string>
   <string name="donation_reminders_settings_article_frequency_input_suffix_label">लेख</string>
   <string name="donation_reminders_prompt_negative_button">अभी नहीं</string>
+  <string name="home_feed_did_you_know_title">क्या आप जानते हैं?</string>
 </resources>

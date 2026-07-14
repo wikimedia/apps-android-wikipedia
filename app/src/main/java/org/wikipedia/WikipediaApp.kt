@@ -5,6 +5,8 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Handler
+import android.os.Process
+import android.os.UserManager
 import android.speech.RecognizerIntent
 import android.webkit.WebView
 import androidx.appcompat.app.AppCompatDelegate
@@ -43,6 +45,7 @@ import io.bitdrift.capture.Capture.Logger
 import io.bitdrift.capture.providers.session.SessionStrategy
 import kotlin.time.TimeSource
 import java.util.UUID
+import org.wikipedia.bitdriftdev.GlobalDebugGesture
 
 class WikipediaApp : Application() {
     init {
@@ -142,8 +145,19 @@ class WikipediaApp : Application() {
     override fun onCreate() {
         super.onCreate()
 
+        // The system WebView's sandboxed renderer can get bound to the app and run onCreate()
+        // in an isolated process, where UserManager (and thus SharedPreferences) is not available.
+        // In such a case, there's no point continuing initialization.
+        if ((Build.VERSION.SDK_INT >= Build.VERSION_CODES.P && Process.isIsolated()) ||
+            getSystemService(UserManager::class.java) == null) {
+            return
+        }
+
+        GlobalDebugGesture.install(this)
+
         Logger.start(
-            apiKey = "GiDvD5/VKuHDL5ZqX8NUdQevdZxHsIj0PQ/FdUcKrGsypSILRUl6M09id0FBY3cojQQ=",
+            // update local.properties to include BITDRIFT_API_KEY
+            apiKey = BuildConfig.BITDRIFT_API_KEY,
             sessionStrategy = SessionStrategy.Fixed(),
         )
         appStartTime = TimeSource.Monotonic.markNow()

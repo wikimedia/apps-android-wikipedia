@@ -1,5 +1,14 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath(libs.bitdrift.capture.plugin)
+    }
+}
+
 plugins {
     id 'com.android.application'
     id 'com.google.devtools.ksp'
@@ -20,7 +29,7 @@ static def computeVersionName(versionCode, label) {
 }
 
 android {
-    compileSdk = 36
+    compileSdk = 37
 
     compileOptions {
         coreLibraryDesugaringEnabled = true
@@ -38,8 +47,8 @@ android {
     defaultConfig {
         applicationId 'org.wikipedia'
         minSdk = 23
-        targetSdk = 36
-        versionCode 50577
+        targetSdk = 37
+        versionCode 50598
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
@@ -57,6 +66,14 @@ android {
 
         buildConfigField "String", "TEST_LOGIN_USERNAME", TEST_LOGIN_USERNAME != null ? "\"${TEST_LOGIN_USERNAME}\"" : '"Foo"'
         buildConfigField "String", "TEST_LOGIN_PASSWORD", TEST_LOGIN_PASSWORD != null ? "\"${TEST_LOGIN_PASSWORD}\"" : '"Bar"'
+
+        def bitdriftApiKey = project.rootProject.file("local.properties")
+                .withReader {
+                    def props = new Properties()
+                    props.load(it)
+                    return props.getProperty("BITDRIFT_API_KEY", "")
+                }
+        buildConfigField "String", "BITDRIFT_API_KEY", "\"${bitdriftApiKey}\""
     }
 
     testOptions {
@@ -162,6 +179,7 @@ ksp {
 }
 
 apply from: '../gradle/src/ktlint.gradle'
+apply plugin: 'io.bitdrift.capture-plugin'
 
 dependencies {
 
@@ -205,7 +223,8 @@ dependencies {
     implementation libs.photoview
     implementation libs.balloon
     implementation libs.retrofit2.kotlinx.serialization.converter
-    implementation(libs.paging.compose)
+    implementation libs.paging.compose
+    implementation libs.lottie.compose
 
     implementation libs.maplibre
     implementation libs.maplibre.annotation
@@ -214,6 +233,12 @@ dependencies {
     annotationProcessor libs.androidx.room.compiler
     ksp libs.androidx.room.compiler
     implementation libs.androidx.room.ktx
+
+    implementation libs.androidx.ui.graphics
+    implementation libs.androidx.glance.appwidget
+    implementation libs.androidx.glance.material3
+    implementation libs.androidx.glance.preview
+    implementation libs.androidx.glance.appwidget.preview
 
     // For language detection during editing
     prodImplementation libs.com.google.mlkit.language.id
@@ -262,7 +287,6 @@ dependencies {
     androidTestImplementation libs.room.testing
     androidTestUtil libs.androidx.orchestrator
 
-    // Coil
     implementation(libs.coil.compose)
     implementation(libs.coil.network.okhttp)
     implementation(libs.coil.gif)
@@ -305,4 +329,10 @@ private static Properties loadProperties(File file) {
         System.err.println "\"${file}\" not found"
     }
     return props
+}
+
+bitdrift {
+    instrumentation {
+        automaticOkHttpInstrumentation = true
+    }
 }

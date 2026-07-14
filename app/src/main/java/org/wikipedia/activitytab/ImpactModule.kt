@@ -60,7 +60,7 @@ fun ImpactModule(
                 modifier = modifier.fillMaxWidth(),
                 totalEdits = impact.totalEditsCount,
                 totalThanks = impact.receivedThanksCount,
-                longestEditingStreak = impact.longestEditingStreak?.totalEditCountForPeriod ?: 0,
+                longestEditingStreak = impact.longestEditingStreak?.datePeriod?.days ?: 0,
                 lastEditTimestamp = impact.lastEditTimestamp,
                 lastThirtyDaysEdits = impact.lastThirtyDaysEdits,
                 totalPageviewsCount = impact.totalPageviewsCount,

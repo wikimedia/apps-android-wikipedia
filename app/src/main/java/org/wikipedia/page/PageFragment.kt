@@ -438,6 +438,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                                 }
                             }
                         }
+                        callback()?.onPageLoadComplete()
                     }
                 }
             }
@@ -1459,9 +1460,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             articleInteractionEvent?.logNewTabClick()
         }
 
-        override fun onExploreSelected() {
-            goToMainActivity(tab = NavTab.EXPLORE, tabExtra = Constants.INTENT_EXTRA_GO_TO_MAIN_TAB)
-            articleInteractionEvent?.logExploreClick()
+        override fun onHomeSelected() {
+            goToMainActivity(tab = NavTab.HOME, tabExtra = Constants.INTENT_EXTRA_GO_TO_MAIN_TAB)
+            articleInteractionEvent?.logHomeClick()
         }
 
         override fun onCategoriesSelected() {

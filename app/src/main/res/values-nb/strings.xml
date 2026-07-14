@@ -23,6 +23,7 @@
 * Telaneo
 * VukAnd12
 * Vukky
+* Yupik
 -->
 <resources>
   <string name="app_name_prod">Wikipedia</string>
@@ -562,8 +563,8 @@
     <item quantity="other">%d artikler fjernet fra listen</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d artikkel fjernet fra %s</item>
-    <item quantity="other">%d artikler fjernet fra %s</item>
+    <item quantity="one">%1$d artikkel fjernet fra %2$s</item>
+    <item quantity="other">%1$d artikler fjernet fra %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d liste slettet</item>
@@ -856,11 +857,11 @@
   <string name="feed_item_type_randomizer">Tilfeldig utvalgte artikler</string>
   <string name="feed_item_type_suggested_edits">Forslag om å legge til innhold på Wikipedia</string>
   <string name="feed_item_type_places">Artikler i nærheten, basert på den nåværende plasseringen din</string>
-  <string name="feed_empty_message">Det er ingenting her</string>
+  <string name="feed_empty_message" fuzzy="true">Det er ingenting her</string>
   <string name="feed_configure_onboarding_action">Tilpass</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Avbryt</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Tilpass utforskingssiden&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Du kan tilpasse og prioritere hvilke typer innhold som skal vises.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Tilpass utforskingssiden&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Du kan tilpasse og prioritere hvilke typer innhold som skal vises.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Avbryt</string>
   <string name="feed_accessibility_card_text">Du har nådd bunnen av utforskersiden.</string>
@@ -1252,11 +1253,11 @@
   <string name="onboarding_get_started">Kom i gang</string>
   <string name="onboarding_maybe_later">Kanskje senere</string>
   <string name="onboarding_explore_title">Nye måter å utforske</string>
-  <string name="onboarding_explore_text">Dykk ned i Wikipedia gjennom utforskersiden. &lt;br/&gt; &lt;b&gt;Tilpass&lt;/b&gt; innholdet etter smaken din, enten du vil se historiske hendelser &lt;b&gt;på denne dag&lt;/b&gt; eller oppdage &lt;b&gt;tilfeldige artikler&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Dykk ned i Wikipedia gjennom utforskersiden. &lt;br/&gt; &lt;b&gt;Tilpass&lt;/b&gt; innholdet etter smaken din, enten du vil se historiske hendelser &lt;b&gt;på denne dag&lt;/b&gt; eller oppdage &lt;b&gt;tilfeldige artikler&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Leselister med synkronisering</string>
   <string name="onboarding_reading_list_sync_text_v2">Du kan lage leselister med artikler du vil lese senere, selv når du er uten nettilgang.&lt;br/&gt;Logg inn med en Wikipedia-konto for å sikkerhetskopiere listene. &lt;a href=\"#login\"&gt;Registrer deg på Wikipedia&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Data og personvern</string>
-  <string name="onboarding_data_privacy_text">Vi mener at du ikke skal trenge å oppgi personlig informasjon for å delta i bevegelsen for fri kunnskap. Bruksdata som samles inn for denne appen er anonyme. Lær mer om &lt;a href=\"#privacy\"&gt;personvernspolitikken vår&lt;/a&gt; og &lt;a href=\"#termsOfUse\"&gt;bruksvilkårene våre&lt;/a&gt;.</string>
+  <string name="onboarding_data_privacy_text" fuzzy="true">Vi mener at du ikke skal trenge å oppgi personlig informasjon for å delta i bevegelsen for fri kunnskap. Bruksdata som samles inn for denne appen er anonyme. Lær mer om &lt;a href=\"#privacy\"&gt;personvernspolitikken vår&lt;/a&gt; og &lt;a href=\"#termsOfUse\"&gt;bruksvilkårene våre&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Send bruksdata</string>
   <string name="onboarding_got_it">Skjønner</string>
   <string name="onboarding_multilingual_secondary_text">Følgende ble funnet på enheten din:</string>
@@ -1291,7 +1292,7 @@
     <item quantity="one">Fjern valgt språk?</item>
     <item quantity="other">Fjern valgte språk?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Innhold på utforskersiden og hurtigsøkefilter vil bare være tilgjengelig på de gjenværende Wikipedia-språkene.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Innhold på utforskersiden og hurtigsøkefilter vil bare være tilgjengelig på de gjenværende Wikipedia-språkene.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Kan ikke fjerne alle språk</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Behold minst ett Wikipedia-språk som du kan søke og lese innhold på</string>
   <string name="more_language_options">mer</string>
@@ -1779,8 +1780,8 @@
   <string name="survey_dialog_submitted_snackbar">Tilbakemelding sendt. Hjertelig takk!</string>
   <string name="on_this_day_game_entry_dialog_title">Introduserer</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Wikipediaspill</string>
-  <string name="on_this_day_game_entry_dialog_button">Spill dagens spill</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia-spill er tilgjengelig i Utforsk-feeden.</string>
+  <string name="on_this_day_game_entry_dialog_button" fuzzy="true">Spill dagens spill</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message" fuzzy="true">Wikipedia-spill er tilgjengelig i Utforsk-feeden.</string>
   <string name="on_this_day_game_title">Hva kom først?</string>
   <string name="on_this_day_game_dialog_button">Spill</string>
   <string name="on_this_day_game_splash_message">Gjett hvilken hendelse som kom først på denne dagen i historien.</string>
@@ -1792,14 +1793,9 @@
   <string name="on_this_day_game_point">+1 poeng</string>
   <string name="on_this_day_game_next">Neste spørsmål</string>
   <string name="on_this_day_game_finish">Endelig resultat</string>
-  <string name="on_this_day_game_share_button">Del</string>
-  <string name="on_this_day_game_pause_title">Sette spillet på pause?</string>
-  <string name="on_this_day_game_pause_body">Fremgangen din blir lagret for dagen. Du kan finne spillet i Utforsksiden din</string>
-  <string name="on_this_day_game_pause_negative">Fortsett å spille</string>
-  <string name="on_this_day_game_pause_positive">Skjønner</string>
+  <string name="on_this_day_game_share_button" fuzzy="true">Del</string>
   <string name="on_this_day_game_feed_entry_card_heading">Wikipediaspill</string>
   <string name="on_this_day_game_feed_entry_card_title">Hva kom først?</string>
-  <string name="on_this_day_game_feed_entry_card_subtitle">Gjett hvilken hendelse som kom først på denne dagen i historien.</string>
   <string name="on_this_day_game_result">Du fikk %1$d av %2$d poeng.</string>
   <string name="on_this_day_game_next_in">Neste spill om %s</string>
   <string name="on_this_day_game_your_stats">Dine stats</string>
@@ -1810,7 +1806,7 @@
   <string name="on_this_day_game_stats_average_score">Gjennomsnittlig poengsum</string>
   <string name="on_this_day_game_stats_streak">Nåværende rekke</string>
   <string name="on_this_day_game_result_subtitle">Artikler referert til i dagens spill</string>
-  <string name="on_this_day_game_completed_message">Takk for at du spiller. Et nytt spill av \"Hva kom først?\" er tilgjengelig daglig på Utforsk-siden.</string>
+  <string name="on_this_day_game_completed_message" fuzzy="true">Takk for at du spiller. Et nytt spill av \"Hva kom først?\" er tilgjengelig daglig på Utforsk-siden.</string>
   <string name="on_this_day_game_menu_notifications">Spillvarsler</string>
   <string name="on_this_day_game_menu_info">Lær mer</string>
   <string name="on_this_day_game_menu_feedback">Problem med funksjonen</string>
@@ -1915,4 +1911,6 @@
   <string name="recommended_reading_list_settings_updates_frequency_daily">daglige</string>
   <string name="recommended_reading_list_settings_updates_frequency_weekly">ukentlige</string>
   <string name="recommended_reading_list_settings_updates_frequency_monthly">månedlige</string>
+  <string name="donation_reminders_settings_learn_more_button">Lær mer</string>
+  <string name="reading_challenge_install_prompt_add">Legg til</string>
 </resources>

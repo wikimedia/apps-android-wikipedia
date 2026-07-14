@@ -717,5 +717,4 @@
   <string name="donation_reminders_prompt_negative_button">Ne sada</string>
   <string name="donation_reminders_settings_no_thanks_btn_label">Ne, hvala</string>
   <string name="donation_reminders_snackbar_modify_button_label">Izmijeni</string>
-  <string name="explore_feed_survey_dialog_negative_button_label">Ne, hvala</string>
 </resources>

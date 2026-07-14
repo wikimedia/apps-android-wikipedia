@@ -539,9 +539,9 @@
     <item quantity="one">%d мәҡәлә исемлектән юйылған</item>
     <item quantity="other">%d мәҡәләләр исемлектән юйылған</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d мәҡәлә %s исемлектән юйылған</item>
-    <item quantity="other">%d мәҡәләләр %s исемлектән юйылған</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">%1$d мәҡәлә %2$s исемлектән юйылған</item>
+    <item quantity="other">%1$d мәҡәләләр %2$s исемлектән юйылған</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d исемлек юйылған</item>
@@ -831,11 +831,11 @@
   <string name="feed_item_type_randomizer">Уҡыу өсөн осраҡлы мәҡәләләр исемлеге булдырыу</string>
   <string name="feed_item_type_suggested_edits">Википедияға эстәлек өҫтәү тәҡдимдәре</string>
   <string name="feed_item_type_places">Хәҙерге урынға нигеҙләнгән яҡындағы мәҡәләләр</string>
-  <string name="feed_empty_message">Һеҙҙең \"Тикшер\" теҙмәһендә бер нәмә лә юҡ</string>
+  <string name="feed_empty_message" fuzzy="true">Һеҙҙең \"Тикшер\" теҙмәһендә бер нәмә лә юҡ</string>
   <string name="feed_configure_onboarding_action">Көйләргә</string>
   <string name="customize_lang_selection_dialog_ok_button_text">Яҡшы</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Кире алырға</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Теҙмәгеҙҙе көйләгеҙ&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Хәҙер һеҙ теҙмәлә нимә күрһәтеләсәген һайлай, шулай уҡ яратҡан эстәлек төрҙәре өсөн өҫтөнлөктәр ҡуя алаһығыҙ.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Теҙмәгеҙҙе көйләгеҙ&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Хәҙер һеҙ теҙмәлә нимә күрһәтеләсәген һайлай, шулай уҡ яратҡан эстәлек төрҙәре өсөн өҫтөнлөктәр ҡуя алаһығыҙ.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">Яҡшы</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Кире алырға</string>
   <string name="feed_accessibility_card_text">Һеҙ теҙмәнең аҫҡы өлөшөнә барып еттегеҙ.</string>
@@ -1133,11 +1133,11 @@
   <string name="onboarding_get_started">Башларға</string>
   <string name="onboarding_maybe_later">Бәлки, һуңғараҡ</string>
   <string name="onboarding_explore_title">Өйрәнеүҙең яңы ысулдары</string>
-  <string name="onboarding_explore_text">Википедия лабиринтында даими яңыртылып торған теҙмә ярҙамында сәйәхәт итегеҙ. &lt;br/&gt; Теҙмәне үҙегеҙҙе ҡыҙыҡһындырған темаға тура килерлек итеп &lt;b&gt;көйләгеҙ&lt;/b&gt; — ул &lt;b&gt;был көндә булған тарихи ваҡиғалар&lt;/b&gt; йәки &lt;/b&gt;осраҡлы һайланған&lt;/b&gt; тема булыуы мөмкин.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Википедия лабиринтында даими яңыртылып торған теҙмә ярҙамында сәйәхәт итегеҙ. &lt;br/&gt; Теҙмәне үҙегеҙҙе ҡыҙыҡһындырған темаға тура килерлек итеп &lt;b&gt;көйләгеҙ&lt;/b&gt; — ул &lt;b&gt;был көндә булған тарихи ваҡиғалар&lt;/b&gt; йәки &lt;/b&gt;осраҡлы һайланған&lt;/b&gt; тема булыуы мөмкин.</string>
   <string name="onboarding_reading_list_sync_title">Синхронлаштырылған уҡыу исемлектәре</string>
   <string name="onboarding_reading_list_sync_text_v2">Һеҙ һуңыраҡ, хатта офлайн режимда булғанда ла, уҡырға теләгән мәҡәләләр исемлеген төҙөй алаһығыҙ. Уҡыу исемлектәрен синхронлаштырыу өсөн Википедиялағы иҫәп яҙмағыҙға инегеҙ. &lt;a href=\"#login\"&gt;Википедияға ҡушылығыҙ&lt;/a&gt;&lt;br&gt;</string>
   <string name="onboarding_data_privacy_title">Мәғлүмәттәр һәм конфиденциаллек</string>
-  <string name="onboarding_data_privacy_text">Беҙ, бушлай белем хәрәкәтендә ҡатнашыу өсөн шәхси мәғлүмәт бирергә мәжбүр булмаҫҡа тейешһегеҙ тип иҫәпләйбеҙ. Был ҡушымта өсөн йыйылған ҡулланыу мәғлүмәттәре аноним. Беҙҙең &lt;a href=\"#privacy\"&gt;хосуси сәйәсәт&lt;/a&gt; һәм &lt;a href=\"#termsOfUse\"&gt;ҡулланыу шарттары&lt;/a&gt; тураһында тулыраҡ белешегеҙ.</string>
+  <string name="onboarding_data_privacy_text" fuzzy="true">Беҙ, бушлай белем хәрәкәтендә ҡатнашыу өсөн шәхси мәғлүмәт бирергә мәжбүр булмаҫҡа тейешһегеҙ тип иҫәпләйбеҙ. Был ҡушымта өсөн йыйылған ҡулланыу мәғлүмәттәре аноним. Беҙҙең &lt;a href=\"#privacy\"&gt;хосуси сәйәсәт&lt;/a&gt; һәм &lt;a href=\"#termsOfUse\"&gt;ҡулланыу шарттары&lt;/a&gt; тураһында тулыраҡ белешегеҙ.</string>
   <string name="onboarding_analytics_switch_title">Ҡулланыу мәғлүмәттәрен ебәрергә</string>
   <string name="onboarding_got_it">Аңлашылды</string>
   <string name="onboarding_multilingual_secondary_text">Һеҙҙең ҡоролмала түбәндәге телдәрҙе таптыҡ:</string>
@@ -1172,7 +1172,7 @@
     <item quantity="one">Һайланған телде юйырғамы?</item>
     <item quantity="other">Һайланған телдәрҙе юйырғамы?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Һеҙ йөкмәткене теҙмә ҡушымтаһында ғына күрә  һәм тиҙ эҙләү фильтрын башҡа тел бүлектәрендә генә ҡуллана алаһығыҙ.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Һеҙ йөкмәткене теҙмә ҡушымтаһында ғына күрә  һәм тиҙ эҙләү фильтрын башҡа тел бүлектәрендә генә ҡуллана алаһығыҙ.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Бөтә телдәрҙе лә юйырға ярамай</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Эҙләү һәм уҡыу өсөн бер телде булһа ла ҡалдырығыҙ.</string>
   <string name="more_language_options">күберәк телдәр</string>

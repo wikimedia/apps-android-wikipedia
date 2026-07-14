@@ -1,3 +1,3 @@
 package org.wikipedia.login
 
-class LoginFailedException(message: String?) : Exception(message)
+class LoginFailedException(message: String?, messageCode: String? = null) : Exception(message)

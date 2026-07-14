@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Arifin.wijaya
+* Bennylin
 * Diki Ananta
 * MuratTheTurkish
 * N219
@@ -327,7 +328,7 @@
   <string name="reading_list_sort_by_created">Urutaké miturut tanggal panggawéné (anyar dhéwé)</string>
   <string name="reading_list_sort_by_created_desc">Urutaké miturut tanggal panggawéné (lawas dhéwé)</string>
   <string name="reading_list_menu_delete">Busak pratélan</string>
-  <string name="reading_list_menu_rename">Besut jeneng/dhèskripsi</string>
+  <string name="reading_list_menu_rename">Besut jeneng/wedharan</string>
   <string name="reading_list_action_menu_remove_from_offline">Busek saka jaban jaringan</string>
   <string name="reading_list_action_menu_save_for_offline">Simpen kanggo ing njaban jaringan</string>
   <string name="reading_list_action_menu_remove_all_from_offline">Busak kabèh ing oflèn</string>
@@ -507,7 +508,7 @@
   <string name="feed_configure_onboarding_action">Larasaké</string>
   <string name="customize_lang_selection_dialog_ok_button_text">YA</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Wurung</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Larasaké pakan Dlajahé panjenengan&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Panjenengan saiki bisa milih apa sing arep katuduhaké ing pakané panjenengan, lan uga tengenaké jinis-jinis isèn-isèn sing panjenengan senengi.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Larasaké pakan Dlajahé panjenengan&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Panjenengan saiki bisa milih apa sing arep katuduhaké ing pakané panjenengan, lan uga tengenaké jinis-jinis isèn-isèn sing panjenengan senengi.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">YA</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Wurung</string>
   <string name="feed_accessibility_card_load_more_button">Mot liyané</string>
@@ -629,7 +630,7 @@
     <item quantity="one">Busak basa kang kapilih?</item>
     <item quantity="other">Busak basa kang kapilih?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Panjenengan mung bakal ndeleng kontèn ing saran Dlajah lan saringan golèkan rikat kanggo basa-basa Wikipédia liyané.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Panjenengan mung bakal ndeleng kontèn ing saran Dlajah lan saringan golèkan rikat kanggo basa-basa Wikipédia liyané.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Ora bisa ngilangi kabèh basa</string>
   <string name="more_language_options">liyané</string>
   <string name="add_wikipedia_languages_text">Tambah basa Wikipédia</string>

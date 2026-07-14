@@ -38,7 +38,7 @@ class EditIconTest : BaseTest<MainActivity>(
         searchRobot
             .tapSearchView()
         assertEditIconProtection(SEARCH_TERM, isProtected = false)
-        assertEditIconProtection(SEARCH_TERM_AVATAR, action = {
+        assertEditIconProtection(SEARCH_TERM_AVATAR, isProtected = false, action = {
             dialogRobot
                 .dismissBigEnglishDialog()
                 .dismissContributionDialog()

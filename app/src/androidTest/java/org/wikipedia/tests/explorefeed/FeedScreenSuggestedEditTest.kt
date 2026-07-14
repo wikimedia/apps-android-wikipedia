@@ -7,11 +7,11 @@ import org.junit.runner.RunWith
 import org.wikipedia.base.BaseTest
 import org.wikipedia.main.MainActivity
 import org.wikipedia.robots.SystemRobot
-import org.wikipedia.robots.feature.ExploreFeedRobot
 import org.wikipedia.robots.feature.LoginRobot
 import org.wikipedia.robots.navigation.BottomNavRobot
 import org.wikipedia.robots.screen.HomeScreenRobot
 
+// MARK: requires login
 @LargeTest
 @RunWith(AndroidJUnit4::class)
 class FeedScreenSuggestedEditTest : BaseTest<MainActivity>(
@@ -21,13 +21,13 @@ class FeedScreenSuggestedEditTest : BaseTest<MainActivity>(
     private val loginRobot = LoginRobot()
     private val systemRobot = SystemRobot()
     private val homeScreenRobot = HomeScreenRobot()
-    private val exploreFeedRobot = ExploreFeedRobot()
 
     @Test
     fun runTest() {
         // Following test requires login
         // 1. Notification click
         // 2. Suggested Edit Visibility
+        setDeviceOrientation(isLandscape = false)
         systemRobot
             .clickOnSystemDialogWithText("Allow")
         loginRobot
@@ -36,9 +36,7 @@ class FeedScreenSuggestedEditTest : BaseTest<MainActivity>(
                     homeScreenRobot
                         .navigateToNotifications()
                         .pressBack()
-                    // Final Feed View Test which appears after user logs in and user has to be online
-                    exploreFeedRobot
-                        .scrollToSuggestedEditsIfVisible()
+                    // @TODO: New explore feed does not have suggested edits, but if we add it, scroll to it and check if it's visible
                 },
                 loggedOut = {
                     // Navigating to Login Menu
@@ -55,9 +53,7 @@ class FeedScreenSuggestedEditTest : BaseTest<MainActivity>(
                     systemRobot
                         .clickOnSystemDialogWithText(text = "No thanks")
                         .pressBack()
-                    // Final Feed View Test which appears after user logs in and user has to be online
-                    exploreFeedRobot
-                        .scrollToSuggestedEditsIfVisible()
+                    // @TODO: New explore feed does not have suggested edits, but if we add it, scroll to it and check if it's visible
                 }
             )
     }

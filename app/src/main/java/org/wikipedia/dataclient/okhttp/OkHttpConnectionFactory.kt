@@ -6,8 +6,6 @@ import okhttp3.CacheControl
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import okhttp3.tls.HandshakeCertificates
-import io.bitdrift.capture.network.okhttp.CaptureOkHttpEventListenerFactory
-import io.bitdrift.capture.network.retrofit.RetrofitUrlPathProvider
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.SharedPreferenceCookieManager
@@ -41,9 +39,6 @@ object OkHttpConnectionFactory {
                 .addInterceptor(TestStubInterceptor())
                 .addInterceptor(TitleEncodeInterceptor())
                 .addInterceptor(HttpLoggingInterceptor().setLevel(Prefs.retrofitLogLevel))
-                .eventListenerFactory(CaptureOkHttpEventListenerFactory(
-                    requestFieldProvider = RetrofitUrlPathProvider()
-                ))
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
             val certFactory = CertificateFactory.getInstance("X.509")

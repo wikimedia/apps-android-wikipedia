@@ -610,11 +610,11 @@
   <string name="feed_item_type_main_page">Páxina principal de Wikipedia co contido destacado diario</string>
   <string name="feed_item_type_randomizer">Xerar artigos aleatorios para ler</string>
   <string name="feed_item_type_suggested_edits">Suxestións para engadir contido a Wikipedia</string>
-  <string name="feed_empty_message">Non hai nada na súa canle Explorar</string>
+  <string name="feed_empty_message" fuzzy="true">Non hai nada na súa canle Explorar</string>
   <string name="feed_configure_onboarding_action">Personalizar</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Cancelar</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Personalizar a súa canle Explorar&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Agora pode escoller o que desexa amosar na súa canle, e tamén priorizar os seus tipos de contidos favoritos.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Personalizar a súa canle Explorar&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Agora pode escoller o que desexa amosar na súa canle, e tamén priorizar os seus tipos de contidos favoritos.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Cancelar</string>
   <string name="feed_accessibility_card_text">Chegou ó final da canle.</string>
@@ -713,7 +713,7 @@
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Páxina do ficheiro en Wikimedia Commons</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Páxina de ficheiro en Wikipedia</string>
   <string name="suggested_edits_article_cta_image_tags">Engada etiquetas á imaxe</string>
-  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Engadir lenda de imaxe</string>
+  <string name="suggested_edits_article_cta_image_caption">Engadir un pé de foto</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Engadir lenda de imaxe (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Ver</string>
   <string name="suggested_edits_feed_card_add_image_caption">Engadir lenda de imaxe</string>
@@ -758,7 +758,7 @@
   <string name="onboarding_get_started">Comezar</string>
   <string name="onboarding_maybe_later">Quizais máis tarde</string>
   <string name="onboarding_explore_title">Novas formas de explorar</string>
-  <string name="onboarding_explore_text">Mergúllese no pozo sen fondo da Wikipedia cunha canle Explorar en constante actualización. &lt;br/&gt; &lt;b&gt;Personalice&lt;/b&gt; a canle coas súas preferencias – se quere aprender sobre acontecementos históricos &lt;b&gt;Neste dia&lt;/b&gt;, ou lanzar os dados con &lt;b&gt;Aleatorio&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Mergúllese no pozo sen fondo da Wikipedia cunha canle Explorar en constante actualización. &lt;br/&gt; &lt;b&gt;Personalice&lt;/b&gt; a canle coas súas preferencias – se quere aprender sobre acontecementos históricos &lt;b&gt;Neste dia&lt;/b&gt;, ou lanzar os dados con &lt;b&gt;Aleatorio&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Listas de lectura con sincronización</string>
   <string name="onboarding_reading_list_sync_text_v2">Pode crear listas de lectura dos artigos que quere ler máis tarde, incluso cando estea sen acceso a Internet. &lt;br/&gt;Conéctese á súa conta de Wikipedia para sincronizar as súas listas de lectura. &lt;a href=\"#login\"&gt;Acceder a Wikipedia&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Envíar datos de uso</string>
@@ -791,7 +791,7 @@
     <item quantity="one">¿Quere quitar a lingua seleccionada?</item>
     <item quantity="other">¿Quere quitar as linguas  seleccionadas?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Só verá contido nas linguas restantes de Wikipedia no fluxo de Explorar e nos filtros de procura rápida.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Só verá contido nas linguas restantes de Wikipedia no fluxo de Explorar e nos filtros de procura rápida.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Non é posible eliminar tódalas linguas</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Manteña polo menos unha lingua de Wikipedia na que procurar e ler contido.</string>
   <string name="more_language_options">máis</string>

@@ -507,8 +507,8 @@
     <item quantity="other">%d ta maqola roʻyxatdan oʻchirldi</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d ta maqola %s dan oʻchirildi</item>
-    <item quantity="other">%d ta maqola %s dan oʻchirildi</item>
+    <item quantity="one">%1$d ta maqola %2$s dan oʻchirildi</item>
+    <item quantity="other">%1$d ta maqola %2$s dan oʻchirildi</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d ta roʻyxat oʻchirildi</item>
@@ -799,11 +799,11 @@
   <string name="feed_item_type_main_page">Vikipedianing bosh sahifasi bilan kunlik kontentlar bilan tanishib boring</string>
   <string name="feed_item_type_randomizer">Tasodifiy tavsiya etilgan maqolalar</string>
   <string name="feed_item_type_suggested_edits">Vikipediyaga tarkib qoʻshish boʻyicha takliflar</string>
-  <string name="feed_empty_message">Kezish tasmangizda hech narsa yoʻq</string>
+  <string name="feed_empty_message" fuzzy="true">Kezish tasmangizda hech narsa yoʻq</string>
   <string name="feed_configure_onboarding_action">Moslash</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Bekor qilish</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Kezish tasmangizni moslashtiring&lt;/strong&gt;&lt;br/&gt;&lt;br/&gt; Endi tasmangizda nimani namoyish qilishni tanlashingiz, shuningdek, oʻzingiz yoqtirgan tarkib turlariga ustuvor ahamiyat berishingiz mumkin boʻladi.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Kezish tasmangizni moslashtiring&lt;/strong&gt;&lt;br/&gt;&lt;br/&gt; Endi tasmangizda nimani namoyish qilishni tanlashingiz, shuningdek, oʻzingiz yoqtirgan tarkib turlariga ustuvor ahamiyat berishingiz mumkin boʻladi.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Bekor qilish</string>
   <string name="feed_accessibility_card_text">Siz tasmaning eng pastki qismiga yetdingiz.</string>
@@ -1099,11 +1099,11 @@
   <string name="onboarding_get_started">Boshladik</string>
   <string name="onboarding_maybe_later">Keyinroq</string>
   <string name="onboarding_explore_title">Kezish uchun yangi imkoniyatlar</string>
-  <string name="onboarding_explore_text">Doimo yangilanib boriladigan yangiliklar tasmasi orqali Vikipediyaning axborotlar ummoniga shoʻngʻib boring. &lt;br/&gt; Oʻzingizning qiziqishingizga koʻra tasmani &lt;b&gt;Moslashtiring&lt;/b&gt; .</string>
+  <string name="onboarding_explore_text" fuzzy="true">Doimo yangilanib boriladigan yangiliklar tasmasi orqali Vikipediyaning axborotlar ummoniga shoʻngʻib boring. &lt;br/&gt; Oʻzingizning qiziqishingizga koʻra tasmani &lt;b&gt;Moslashtiring&lt;/b&gt; .</string>
   <string name="onboarding_reading_list_sync_title">Sinxronli roʻyxatni oʻqish</string>
   <string name="onboarding_reading_list_sync_text_v2">Siz keyinroq, hatto oflaynda ham oʻqishni xohlagan maqolalardan roʻyxatlarni tuzishingiz mumkin. &lt;br/&gt;Roʻyxatlaringizni sinxronlashtirish uchun Vikipediya hisobingizga kiring. &lt;a href=\"#login\"&gt;Vikipediaga kirmoq&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Maʼlumot va Maxfiylik</string>
-  <string name="onboarding_data_privacy_text">Erkin bilimlar harakatida ishtirok etish uchun shaxsiy ma’lumotlarni taqdim etishingiz shart emas deb hisoblaymiz. Bu ilova uchun toʻplangan foydalanish maʼlumotlari anonim hisoblanadi. Batafsil maʼlumotni &lt;a href=\"#privacy\"&gt;maxfiylik siyosati&lt;/a&gt; hamda &lt;a href=\"#termsOfUse\"&gt;foydalanish shartlari&lt;/a&gt;dan olishingiz mumkin.</string>
+  <string name="onboarding_data_privacy_text" fuzzy="true">Erkin bilimlar harakatida ishtirok etish uchun shaxsiy ma’lumotlarni taqdim etishingiz shart emas deb hisoblaymiz. Bu ilova uchun toʻplangan foydalanish maʼlumotlari anonim hisoblanadi. Batafsil maʼlumotni &lt;a href=\"#privacy\"&gt;maxfiylik siyosati&lt;/a&gt; hamda &lt;a href=\"#termsOfUse\"&gt;foydalanish shartlari&lt;/a&gt;dan olishingiz mumkin.</string>
   <string name="onboarding_analytics_switch_title">Fodalanilgan trafik maʼlumotini joʻnatmoq</string>
   <string name="onboarding_got_it">Tushunarli</string>
   <string name="onboarding_multilingual_secondary_text">Qurilmangizda quyidagilarni aniqladik:</string>
@@ -1137,7 +1137,7 @@
     <item quantity="one">Tanlangan tilni olib tashlaysizmi?</item>
     <item quantity="other">Tanlangan tillarni olib tashlaysizmi?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Siz faqat Kezish varaqasida hamda tezkor qidiruv filtrida Vikipedianing qolgan tillarini koʻra olasiz.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Siz faqat Kezish varaqasida hamda tezkor qidiruv filtrida Vikipedianing qolgan tillarini koʻra olasiz.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Barcha tillarni olib tashlab boʻlmaydi</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Maqolani qidirish va oʻqish uchun kamida bitta Vikipediya tilini saqlang.</string>
   <string name="more_language_options">batafsil</string>

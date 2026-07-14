@@ -7,6 +7,7 @@ import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import org.wikimedia.testkitchen.instrument.InstrumentImpl
 import org.wikipedia.R
 import org.wikipedia.databinding.GroupCaptchaBinding
 import org.wikipedia.dataclient.ServiceFactory
@@ -21,7 +22,8 @@ import org.wikipedia.views.ViewUtil
 class CaptchaHandler(private val activity: AppCompatActivity, private val wiki: WikiSite,
                      captchaView: View, private val primaryView: View,
                      private val prevTitle: String, submitButtonText: String?,
-                     private val isModal: Boolean = true) {
+                     private val isModal: Boolean = true,
+                     private val instrument: InstrumentImpl? = null) {
     private val binding = GroupCaptchaBinding.bind(captchaView)
     private var captchaResult: CaptchaResult? = null
     private var clientJob: Job? = null
@@ -35,7 +37,10 @@ class CaptchaHandler(private val activity: AppCompatActivity, private val wiki: 
         binding.requestAccountText.text = StringUtil.fromHtml(activity.getString(R.string.edit_section_captcha_request_an_account_message))
         binding.requestAccountText.movementMethod = LinkMovementMethodExt { _ -> FeedbackUtil.showAndroidAppRequestAnAccount(activity) }
         binding.requestAccountText.isVisible = isModal
-        binding.captchaImage.setOnClickListener { requestNewCaptcha() }
+        binding.captchaImage.setOnClickListener {
+            instrument?.submitInteraction("fancy_captcha_request_new")
+            requestNewCaptcha()
+        }
     }
 
     fun captchaId(): String? {
@@ -73,6 +78,7 @@ class CaptchaHandler(private val activity: AppCompatActivity, private val wiki: 
         if (captchaResult == null) {
             return
         }
+        instrument?.submitInteraction("fancy_captcha_show")
         DeviceUtil.hideSoftKeyboard(activity)
         if (!isReload) {
             if (isModal) {

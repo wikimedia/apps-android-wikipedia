@@ -5,6 +5,7 @@ import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.dataclient.page.TalkPage
 import org.wikipedia.dataclient.restbase.Metrics
+import org.wikipedia.dataclient.restbase.PageViews
 import org.wikipedia.dataclient.restbase.PreviewRequest
 import org.wikipedia.dataclient.restbase.RbDefinition
 import org.wikipedia.dataclient.restbase.UserEdits
@@ -201,6 +202,20 @@ interface RestService {
         @Path("fromDate") fromDate: String,
         @Path("toDate") toDate: String
     ): UserEdits
+
+    @GET("metrics/pageviews/v3/per_editor/{globalUserId}/daily/{fromDate}/{toDate}")
+    suspend fun getPageViewsForEditedPagesDaily(
+        @Path("globalUserId") globalUserId: Int,
+        @Path("fromDate") fromDate: String,
+        @Path("toDate") toDate: String
+    ): PageViews
+
+    @GET("metrics/pageviews/v3/top_pages_per_editor/{globalUserId}/monthly/{fromDate}/{toDate}")
+    suspend fun getMostViewedEditedPagesMonthly(
+        @Path("globalUserId") globalUserId: Int,
+        @Path("fromDate") fromDate: String,
+        @Path("toDate") toDate: String
+    ): PageViews
 
     @POST("transform/wikitext/to/mobile-html/{title}")
     suspend fun getHtmlPreviewFromWikitext(

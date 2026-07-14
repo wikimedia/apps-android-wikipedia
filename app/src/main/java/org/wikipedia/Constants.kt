@@ -28,6 +28,7 @@ object Constants {
     const val INTENT_EXTRA_DELETE_READING_LIST = "deleteReadingList"
     const val INTENT_EXTRA_GO_TO_MAIN_TAB = "goToMainTab"
     const val INTENT_EXTRA_GO_TO_SE_TAB = "goToSETab"
+    const val INTENT_EXTRA_SCROLL_TO_GAMES = "scrollToGames"
     const val INTENT_EXTRA_HAS_TRANSITION_ANIM = "hasTransitionAnim"
     const val INTENT_EXTRA_INVOKE_SOURCE = "invokeSource"
     const val INTENT_EXTRA_PREVIEW_SAVED_READING_LISTS = "previewSavedReadingList"
@@ -36,14 +37,16 @@ object Constants {
     const val INTENT_EXTRA_NOTIFICATION_SYNC_PAUSE_RESUME = "syncPauseResume"
     const val INTENT_EXTRA_NOTIFICATION_TYPE = "notificationType"
     const val INTENT_EXTRA_REVERT_QNUMBER = "revertQNumber"
+    const val INTENT_EXTRA_SNACKBAR_MESSAGE = "snackbarMessage"
     const val INTENT_RETURN_TO_MAIN = "returnToMain"
+    const val INTENT_WIDGET_TYPE = "widgetType"
 
     const val MAX_READING_LIST_ARTICLE_LIMIT = 5000
     const val MAX_READING_LISTS_LIMIT = 100
     const val MAX_TABS = 100
     const val MIN_LANGUAGES_TO_UNLOCK_TRANSLATION = 2
     const val PLAIN_TEXT_MIME_TYPE = "text/plain"
-    const val PREFERRED_CARD_THUMBNAIL_SIZE = 800
+    const val PREFERRED_CARD_THUMBNAIL_SIZE = 960
     const val PREFERRED_GALLERY_IMAGE_SIZE = 1280
     const val SUGGESTION_REQUEST_ITEMS = 5
 
@@ -52,7 +55,7 @@ object Constants {
     const val WIKI_CODE_WIKIDATA = "wikidata"
     const val WIKIDATA_DB_NAME = "wikidatawiki"
 
-    val NON_LANGUAGE_SUBDOMAINS = listOf("donate", "thankyou", "quote", "textbook", "sources", "species", "commons", "meta")
+    val NON_LANGUAGE_SUBDOMAINS = listOf("donate", "thankyou", "quote", "textbook", "sources", "species", "commons", "meta", "abstract")
 
     val commonsWikiSite = WikiSite(Service.COMMONS_URL)
     val wikidataWikiSite = WikiSite(Service.WIKIDATA_URL)
@@ -109,7 +112,10 @@ object Constants {
         EDIT_ADD_IMAGE("editAddImage"),
         SUGGESTED_EDITS_RECENT_EDITS("suggestedEditsRecentEdits"),
         ON_THIS_DAY_GAME_ACTIVITY("onThisDayGame"),
-        ACTIVITY_TAB("activityTab")
+        ACTIVITY_TAB("activityTab"),
+        GAMES_HUB("gamesHub"),
+        FEED_INTEREST_SELECTION("feedInterestSelection"),
+        DID_YOU_KNOW("didYouKnow"),
     }
 
     enum class ImageEditType(name: String) {

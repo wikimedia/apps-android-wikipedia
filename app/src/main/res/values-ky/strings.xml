@@ -15,6 +15,7 @@
   <string name="page_tabs_back">Артка</string>
   <string name="nav_item_forward">Алдыга</string>
   <string name="search_hint">Википедиядан издөө</string>
+  <string name="search_icon_content_description">Издөө</string>
   <string name="nav_item_search">Издөө</string>
   <string name="error_network_error" fuzzy="true">Тармакка туташуу туруктуу эмес.</string>
   <string name="page_error_retry">Кайра аракет кылуу</string>
@@ -159,6 +160,7 @@
   <string name="gallery_menu_share">Бөлүшүү</string>
   <string name="close_all_tabs_confirm_yes">Ооба</string>
   <string name="close_all_tabs_confirm_no">Жок</string>
+  <string name="format_error_server_message">Билдирме: \"%s\"</string>
   <string name="view_link_preview_error_button_dismiss">Жабуу</string>
   <string name="page_footer_license_text">Башкача белгиленбесе, мазмун $1 лицензиясы боюнча жеткиликтүү.</string>
   <string name="article_menu_bar_language_button">Тил</string>

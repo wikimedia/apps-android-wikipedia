@@ -470,8 +470,8 @@
   <plurals name="reading_list_articles_deleted">
     <item quantity="other">เอา %d บทความออกจากรายการแล้ว</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="other">เอา %d บทความออกจาก %s แล้ว</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="other">เอา %1$d บทความออกจาก %2$s แล้ว</item>
   </plurals>
   <string name="reading_list_items_deleted">ลบ %d บทความออกจากรายการแล้ว</string>
   <string name="reading_lists_item_deleted">เอา %s ออกจากรายการแล้ว</string>
@@ -695,11 +695,11 @@
   <string name="feed_item_type_main_page">หน้าหลักของวิกิพีเดียพร้อมเนื้อหาคัดสรรประจำวัน</string>
   <string name="feed_item_type_randomizer">สร้างบทความที่จะอ่านแบบสุ่ม</string>
   <string name="feed_item_type_suggested_edits">คำแนะนำเพื่อเพิ่มเนื้อหาลงในวิกิพีเดีย</string>
-  <string name="feed_empty_message">ไม่มีอะไรเลยบนฟีดสำรวจของคุณ</string>
+  <string name="feed_empty_message" fuzzy="true">ไม่มีอะไรเลยบนฟีดสำรวจของคุณ</string>
   <string name="feed_configure_onboarding_action">ปรับแต่ง</string>
   <string name="customize_lang_selection_dialog_ok_button_text">ตกลง</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">ยกเลิก</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;ปรับแต่งฟีดสำรวจของคุณ&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;คุณสามารถเลือกสิ่งที่จะแสดงบนฟีดของคุณ และยังสามารถจัดลำดับความสำคัญของชนิดเนื้อหาโปรดของคุณได้แล้วตอนนี้</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;ปรับแต่งฟีดสำรวจของคุณ&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;คุณสามารถเลือกสิ่งที่จะแสดงบนฟีดของคุณ และยังสามารถจัดลำดับความสำคัญของชนิดเนื้อหาโปรดของคุณได้แล้วตอนนี้</string>
   <string name="feed_lang_selection_dialog_ok_button_text">ตกลง</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">ยกเลิก</string>
   <string name="feed_accessibility_card_text">คุณได้มาถึงส่วนล่างสุดของฟีดแล้ว</string>
@@ -887,7 +887,7 @@
   <string name="onboarding_get_started">เริ่มต้นใช้งาน</string>
   <string name="onboarding_maybe_later">ไว้ทีหลัง</string>
   <string name="onboarding_explore_title">วิธีใหม่ในการสำรวจ</string>
-  <string name="onboarding_explore_text">สำรวจเนื้อหาใหม่ ๆ ในวิกิพีเดียด้วยฟีดสำรวจที่ปรับปรุงอย่างต่อเนื่อง &lt;br/&gt; &lt;b&gt;ปรับแต่ง&lt;/b&gt;ฟีดให้ตรงตามความสนใจของคุณ ไม่ว่าจะเป็นเรื่องเกี่ยวกับเหตุการณ์&lt;b&gt;วันนี้ในอดีต&lt;/b&gt; หรือ&lt;b&gt;สุ่ม&lt;/b&gt;เนื้อหาต่าง ๆ</string>
+  <string name="onboarding_explore_text" fuzzy="true">สำรวจเนื้อหาใหม่ ๆ ในวิกิพีเดียด้วยฟีดสำรวจที่ปรับปรุงอย่างต่อเนื่อง &lt;br/&gt; &lt;b&gt;ปรับแต่ง&lt;/b&gt;ฟีดให้ตรงตามความสนใจของคุณ ไม่ว่าจะเป็นเรื่องเกี่ยวกับเหตุการณ์&lt;b&gt;วันนี้ในอดีต&lt;/b&gt; หรือ&lt;b&gt;สุ่ม&lt;/b&gt;เนื้อหาต่าง ๆ</string>
   <string name="onboarding_reading_list_sync_title">รายการอ่านที่มีการซิงค์</string>
   <string name="onboarding_reading_list_sync_text_v2">คุณสามารถสร้างรายการอ่านจากบทความที่คุณต้องการอ่านในภายหลังแม้กระทั่งเมื่อคุณออฟไลน์ได้ &lt;br/&gt;เข้าสู่ระบบบัญชีวิกิพีเดียของคุณเพื่อซิงค์รายการอ่านของคุณ &lt;a href=\"#login\"&gt;เข้าร่วมวิกิพีเดีย&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">ส่งข้อมูลการใช้งาน</string>
@@ -923,7 +923,7 @@
     <item quantity="one">ลบภาษาที่เลือกไว้ออกหรือไม่?</item>
     <item quantity="other">ลบภาษาที่เลือกไว้ออกหรือไม่?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">คุณจะเห็นเฉพาะเนื้อหาที่อยู่บนฟีดสำรวจและตัวกรองการค้นหาแบบด่วนสำหรับภาษาวิกิพีเดียที่เหลือเท่านั้น</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">คุณจะเห็นเฉพาะเนื้อหาที่อยู่บนฟีดสำรวจและตัวกรองการค้นหาแบบด่วนสำหรับภาษาวิกิพีเดียที่เหลือเท่านั้น</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">ไม่สามารถเอาทุกภาษาออกได้</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">เหลือภาษาของวิกิพีเดียไว้อย่างน้อยหนึ่งภาษาเพื่อให้สามารถใช้ค้นหาและอ่านเนื้อหาได้</string>
   <string name="more_language_options">เพิ่มเติม</string>

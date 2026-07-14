@@ -2,7 +2,7 @@ package org.wikipedia.feed.configure
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import org.wikipedia.games.onthisday.OnThisDayGameViewModel
+import org.wikipedia.games.WikiGames
 
 @Serializable
 class FeedAvailability {
@@ -23,5 +23,5 @@ class FeedAvailability {
     val onThisDay: List<String> = emptyList()
 
     @SerialName("games")
-    val games: List<String> = OnThisDayGameViewModel.LANG_CODES_SUPPORTED
+    val games: List<String> = WikiGames.WHICH_CAME_FIRST.supportLanguages
 }

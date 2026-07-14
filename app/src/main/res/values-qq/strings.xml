@@ -7,6 +7,7 @@
 * Anders Feder
 * BaRaN6161 TURK
 * Bencemac
+* Bjankuloski06
 * Dbrant
 * Hamilton Abreu
 * Jeeputer
@@ -22,9 +23,12 @@
 * McDutchie
 * Metalhead64
 * Minh Nguyen
+* Mohammad ebz
+* Muhamad Izzul Fiqih
 * MuratTheTurkish
 * Naheulf
 * Nemo bis
+* Nemoralis
 * Nike
 * Omotecho
 * Patriccck
@@ -250,7 +254,7 @@
   <string name="create_account_ip_block_details">Button label that shows details that describe an IP address block.</string>
   <string name="preferences_general_heading">Preferences general heading.\n{{Identical|General}}</string>
   <string name="preferences_account_heading">Preferences account heading.\n{{Identical|Account}}</string>
-  <string name="wikipedia_app_faq">Label for a preferences menu link to the FAQ (frequently asked questions) wiki page for the Wikipedia apps for Android and iOS.</string>
+  <string name="wikipedia_app_faq">Label for a preferences menu link to the FAQ (frequently asked questions) wiki page for the Wikipedia apps for Android and iOS.\n\nhttps://www.mediawiki.org/wiki/Wikimedia_Apps/FAQ/Android</string>
   <string name="send_feedback">Text to show for link used for sending feedback about the app.</string>
   <string name="create_account_account_created_toast">Message shown in a small toast when account creation is successful.\n* {{msg-mw|Accountcreatedtext|message}}</string>
   <string name="preferences_heading_syncing">Section title for preferences related to syncing</string>
@@ -280,8 +284,9 @@
   <string name="about_description">Summary of the preference item to show the About screen.</string>
   <string name="privacy_policy_description">Summary of the preference item to show the terms of use.\n{{Identical|Privacy policy}}</string>
   <string name="terms_of_use_description">Summary of the preference item to show the terms of use.\n{{Identical|Terms of use}}</string>
+  <string name="legal_safety_contacts_description">Summary of the preference item to show the legal and safety contact information.\n\nhttps://foundation.wikimedia.org/wiki/Legal:Wikimedia_Foundation_Legal_and_Safety_Contact_Information/</string>
   <string name="about_wikipedia_url">URL leading to the About Wikipedia page. If you can find the appropriate language specific URL, please do so. If not, feel free to keep the English one. Example for Czech (lang code ‘cs’): https://cs.wikipedia.org/wiki/Nápověda:Úvod\nPlease test the URL to make sure it works.</string>
-  <string name="privacy_policy_url">URL leading to the Wikimedia Foundation privacy policy. If you can find the appropriate language specific URL of the mobile site please do so. If not feel free to keep the English one. Example for German (lang code \"de\"): https://meta.m.wikimedia.org/w/index.php?title=Privacy_policy/de\nPlease test the URL to make sure it works.</string>
+  <string name="privacy_policy_url">URL leading to the Wikimedia Foundation privacy policy. If you can find the appropriate language specific URL of the mobile site please do so. If not feel free to keep the English one. Example for German (lang code \"de\"): https://meta.m.wikimedia.org/w/index.php?title=Privacy_policy/jax\nPlease test the URL to make sure it works.</string>
   <string name="offline_reading_and_data_url">{{optional}}\nURL leading to the Offline reading and data section of Wikimedia Android app FAQ. If you can find the appropriate language specific URL of the mobile site please do so.</string>
   <string name="android_app_faq_url">{{optional}}\nURL leading to the page of Wikimedia Android app FAQ. If you can find the appropriate language specific URL of the mobile site, please do so.</string>
   <string name="terms_of_use_url">URL leading to the Wikimedia Foundation terms of use. If you can find the appropriate language specific URL of the mobile site please do so. If not feel free to keep the English one. Example for German (lang code \"de\"): https://foundation.m.wikimedia.org/wiki/Terms_of_Use/de\nPlease test the URL to make sure it works</string>
@@ -428,8 +433,10 @@
   <string name="button_get_directions">Button to obtain directions to the location specified in the link preview.</string>
   <string name="error_no_maps_app">Error displayed when the device does not have any apps installed that are capable of providing directions to a location.</string>
   <string name="preference_title_customize_explore_feed">Title of the preference for customizing the explore feed.</string>
+  <string name="preference_title_customize_home_feed">Title of the preference for customizing the home feed.</string>
   <string name="preference_title_show_link_previews">Title of the preference for enabling or disabling link previews.\n\nShown in the preferences screen along with the following:\n* {{msg-wikimedia|Wikipedia-android-strings-preference title show images}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title language}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title show link previews}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title eventlogging opt in}}\n* {{msg-wikimedia|Wikipedia-android-strings-zero warn when leaving}}</string>
   <string name="preference_summary_customize_explore_feed">Description of the preference for customizing the explore feed.</string>
+  <string name="preference_summary_customize_home_feed">Description of the preference for customizing the home feed.</string>
   <string name="preference_summary_show_link_previews">Description of the preference for enabling or disabling link previews.</string>
   <string name="preference_title_collapse_tables">Title of the preference for enabling or disabling automatic collapsing of infoboxes and other tables.</string>
   <string name="preference_summary_collapse_tables">Description of the preference for enabling or disabling automatic collapsing of infoboxes and other tables.</string>
@@ -585,8 +592,8 @@
     <item quantity="other">Message shown when multiple articles are removed from a reading list. The \"%d\" symbol is replaced with the number of articles removed.</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">Message shown when one article is removed from a reading list.The \"%d\" symbol is replaced with the number of articles removed.The \"%s\" symbol is replaced with the reading list name.</item>
-    <item quantity="other">Message shown when multiple articles are removed from a reading list. The \"%d\" symbol is replaced with the number of articles removed.The \"%s\" symbol is replaced with the reading list name.</item>
+    <item quantity="one">Message shown when one article is removed from a reading list.The \"%1$d\" symbol is replaced with the number of articles removed.The \"%2$s\" symbol is replaced with the reading list name.</item>
+    <item quantity="other">Message shown when multiple articles are removed from a reading list. The \"%1$d\" symbol is replaced with the number of articles removed.The \"%2$s\" symbol is replaced with the reading list name.</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">Toast message shown when one reading list is deleted. The \"%d\" symbol is replaced with the number of the lists deleted.</item>
@@ -660,7 +667,7 @@
   <string name="reading_lists_menu_import_list">Menu option offering user an option to import a reading list from a csv file.</string>
   <string name="reading_lists_menu_sort_by">Heading for a list of suggested sort options.\n{{Identical|Sort by}}</string>
   <string name="reading_lists_refresh_sync_option">Menu option suggesting that the user can manually sync using this option.</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Affirmative answer to confirm and redirect to the login / Sign up page.\n{{Identical|Log in / Sign up}}\n\n{{Identical|Log in / create account}}\n\n{{Identical|Log in}}</string>
+  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Affirmative answer to confirm and redirect to the login / Sign up page.\n\n{{Identical|Log in / create account}}\n\n{{Identical|Log in}}</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Message shown when a single reading list article is made available for offline use.</item>
     <item quantity="other">Message shown when more than one reading list article is made available for offline use.</item>
@@ -836,9 +843,11 @@
   <string name="view_random_article_card_title">Title of a card that the user can click to view a randomly selected Wikipedia article</string>
   <string name="view_random_article_card_action">Label of a action button that leads the user to the Randomizer page.</string>
   <string name="view_top_read_card_title">Feed card title for recently popular articles.\n{{Identical|Top read}}</string>
+  <string name="view_top_read_card_description">Feed card description for recently popular articles.</string>
   <string name="view_top_read_card_action">Button label to navigate to a full-screen view containing more trending articles.</string>
   <string name="view_top_read_card_pageviews_k_suffix">Text for showing the amount of pageviews in thousands. \"%d\" represents the number of pageviews in thousands.</string>
   <string name="view_top_read_card_pageviews_m_suffix">Text for showing the amount of pageviews in millions. \"%d\" represents the number of pageviews in millions.</string>
+  <string name="view_top_read_card_pageviews_views_suffix">Suffix text for the amount of pageviews.</string>
   <string name="view_next_random_article">Button hint for loading another random article.</string>
   <string name="view_main_page_card_title">Title of a card that the user can click to view the main page of the Wikipedia project for the current app language.</string>
   <string name="view_main_page_card_action">Button label for navigating to the Main Page of Wikipedia.</string>
@@ -998,7 +1007,7 @@
   <string name="suggested_edits_image_caption_summary_title_artist">Artist title text of the file summary shown in suggested edit card.</string>
   <string name="suggested_edits_image_caption_summary_title_author">Author title text of the file summary shown in suggested edit card.\n{{Identical|Author}}</string>
   <string name="suggested_edits_image_caption_summary_title_source">Source title text of the file summary shown in suggested edit card.\n\n{{Identical|Source}}</string>
-  <string name="suggested_edits_image_caption_summary_title_license">License title text of the file summary shown in suggested edit card.\n{{Identical|Licence}}</string>
+  <string name="suggested_edits_image_caption_summary_title_license">License title text of the file summary shown in suggested edit card.</string>
   <string name="suggested_edits_image_caption_summary_title_date">Date title text of the file summary shown in suggested edit card.\n{{Identical|Date}}</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">Text suggesting that one in-app contribution was made.</item>
@@ -1235,6 +1244,7 @@
   <string name="activity_tab_onboarding_stay_in_control_message">Short explanation about privacy and control.</string>
   <string name="edits_screen_what_is_title">Title text for a card that introduces editing in the Wikipedia app.</string>
   <string name="edits_screen_what_is_body">Description text for a card that introduces editing in the Wikipedia app. \"Suggested Edits\" is {{msg-wm|Wikipedia-android-strings-suggested edits feed card title}}</string>
+  <string name="activity_tab_snackbar_label">Snackbar message prompting the user to update their primary language in order to view game statistics.</string>
   <string name="file_page_activity_title">Title shown at the top of the activity for the file page.</string>
   <string name="file_page_add_image_caption_button">Button label to add image caption for the file.</string>
   <string name="file_page_add_image_tags_button">Button label to add image tags for the file.</string>
@@ -1264,6 +1274,14 @@
   <string name="onboarding_multilingual_secondary_text">Onboarding subtitle text informing the user about the languages found on the device.</string>
   <string name="onboarding_multilingual_add_language_text">Button text to suggest that users can now add more languages of their preference.</string>
   <string name="onboarding_welcome_title_v2">Title for a tutorial screen about the free encyclopedia and now the app is available in over 300 languages.</string>
+  <string name="onboarding_next">Button label to continue to the next onboarding or tutorial screen.</string>
+  <string name="onboarding_fresh_install_knowledge_title">Title text for onboarding screen related to the knowledge source of Wikipedia.</string>
+  <string name="onboarding_fresh_install_knowledge_text">Message text for onboarding screen related to the knowledge source of Wikipedia.</string>
+  <string name="onboarding_fresh_install_knowledge_learn_more">Label text for onboarding screen related to the knowledge source of Wikipedia.</string>
+  <string name="onboarding_app_languages_title">Title text for the onboarding screen to select the app languages.</string>
+  <string name="onboarding_app_languages_text">Message text for the onboarding screen to select the app languages.</string>
+  <string name="onboarding_app_languages_primary">Description text for the onboarding screen that indicates the first language is the primary language in the app.</string>
+  <string name="onboarding_app_languages_add_button">Button label for the onboarding screen to select app languages.</string>
   <string name="app_shortcuts_random">A shortcut icon on the home screen for getting a random article.\n{{Identical|Random}}</string>
   <string name="app_shortcuts_continue_reading">A shortcut icon on the home screen for continuing reading an article.</string>
   <string name="app_shortcuts_search">A shortcut icon on the home screen for opening the search page.\n{{Identical|Search}}</string>
@@ -1774,6 +1792,8 @@
   <string name="places_empty_message_snackbar">Empty snackbar message for the current area that does not have articles available.</string>
   <string name="survey_dialog_title">Title text for the survey dialog</string>
   <string name="survey_dialog_message">Dialog message for the feedback form in the survey dialog.</string>
+  <string name="home_feed_survey_title">Title text for the survey dialog asking for feedback about the Home feed.</string>
+  <string name="home_feed_survey_message">Dialog message asking whether the user is satisfied with the new feed on the Home screen.</string>
   <string name="survey_dialog_option_satisfied">Option for the feedback form in the survey dialog that indicates satisfied.</string>
   <string name="survey_dialog_option_neutral">Option for the feedback form in the survey dialog that indicates neutral.</string>
   <string name="survey_dialog_option_unsatisfied">Option for the feedback form in the survey dialog that indicates unsatisfied.</string>
@@ -1787,6 +1807,11 @@
   <string name="survey_dialog_general_maybe">Button label for a general neutral response to a survey question.</string>
   <string name="survey_dialog_input_hint">Hint label for the survey dialog input field.</string>
   <string name="survey_dialog_submitted_snackbar">Text for the snackbar message the feedback form in the survey dialog that indicates the feedback has been submitted.</string>
+  <string name="games_hub_activity_title">Activity title for the Games hub.</string>
+  <string name="games_hub_activity_games_unavailable_message">Snackbar message that indicates the game is unavailable in this language.</string>
+  <string name="games_hub_activity_games_unavailable_message_learn_more_action">The action button for the snackbar message that indicates the game is unavailable.</string>
+  <string name="games_hub_activity_overflow_view_game_stats">Menu label for the overflow menu in the Games hub that opens the game stats.</string>
+  <string name="games_hub_activity_overflow_learn_more">Menu label for the overflow menu in the Games hub that opens the learn more page.</string>
   <string name="on_this_day_game_entry_dialog_title">Title for the trivia game dialog.</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Subtitle for the trivia game dialog.</string>
   <string name="on_this_day_game_entry_dialog_button">Entry dialog Button label for the trivia game to enter the trivia game.</string>
@@ -1803,13 +1828,8 @@
   <string name="on_this_day_game_next">Button label for navigating to the next question.</string>
   <string name="on_this_day_game_finish">Button label for finishing the game.</string>
   <string name="on_this_day_game_share_button">Button label for sharing game results.</string>
-  <string name="on_this_day_game_pause_title">Title of a dialog box that pops up when the game is about to be paused.</string>
-  <string name="on_this_day_game_pause_body">Body text of a dialog box that pops up when the game is about to be paused.</string>
-  <string name="on_this_day_game_pause_negative">Negative action button of a dialog box for pausing the current game.</string>
-  <string name="on_this_day_game_pause_positive">Positive action button of a dialog box for pausing the current game.</string>
   <string name="on_this_day_game_feed_entry_card_heading">header for the game feed entry card</string>
   <string name="on_this_day_game_feed_entry_card_title">title for the game feed entry card\n\nShould match {{msg-wm|Wikipedia-android-strings-on this day game title}}</string>
-  <string name="on_this_day_game_feed_entry_card_subtitle">subtitle for the game feed entry card</string>
   <string name="on_this_day_game_result">Message shown at the end of a game. The %1$d symbol is replaced with the number of correct answers, %2$d is the total number of questions.</string>
   <string name="on_this_day_game_next_in">Message indicating the time left until the next game. %s is replaced by the time.</string>
   <string name="on_this_day_game_your_stats">Title on top of your statistics from previous days of gameplay.</string>
@@ -1852,9 +1872,21 @@
   <string name="on_this_day_game_archive_btn_text">Label for the archive button.</string>
   <string name="on_this_day_game_review_results_btn_text">Label for the review result button.</string>
   <string name="on_this_day_game_score_message">Text that shows the user\'s score of the current game.The %1$d parameter is the user\'s score and the %2$d parameter is the total number of questions.</string>
-  <string name="on_this_day_game_continue_playing_btn_text">label for continue playing button.</string>
+  <string name="on_this_day_game_play_today_btn_text">Label for playing today\'s game button.</string>
+  <string name="on_this_day_game_continue_playing_btn_text">Label for continue playing button.</string>
   <string name="on_this_day_game_sound_on">Menu item label when game sound is turned off.</string>
   <string name="on_this_day_game_sound_off">Menu item label when game sound is turned on./</string>
+  <string name="on_this_day_game_more_label">Button text shown on the On This Day game card in the Explore feed that opens the Games Hub.</string>
+  <string name="on_this_day_game_card_progress_label">Informational text shown in the On This Day game card in the Explore feed indicating the user’s current question number, where %d is replaced with the question index, and prompting them to continue guessing which historical event occurred first.</string>
+  <string name="on_this_day_game_card_progress_short_label">Informational text shown in the On This Day game card in the Explore feed indicating the user’s current question number, where %d is replaced with the question index.</string>
+  <string name="on_this_day_game_explore_feed_card_score_message">Message displayed on the Explore feed card after completing today’s On This Day game, showing the user’s score (%1$d correct out of %2$d total) and a countdown timer %3$s (hours:minutes:seconds) until the next game becomes available.</string>
+  <string name="on_this_day_game_explore_feed_card_score_short_message">Message displayed on the Explore feed card after completing today’s On This Day game, showing the user’s score (%1$d correct out of %2$d total).</string>
+  <string name="on_this_day_game_card_archive_label">Message displayed on the game card to play the archived On this day game.</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_button">Button text for the \"Log in\" action in the On This Day game stats view, prompting the user to sign in to access their game history and statistics.</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_title">Message prompting the user to log in in order to access and view their On This Day game statistics.</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_description">Supporting text describing that the user can view their game streaks, scores, and additional performance details.</string>
+  <string name="wikipedia_games_title">Title text for the Wikipedia Games.</string>
+  <string name="wikipedia_games_subtitle">Subtitle text describing the Wikipedia Games as daily trivia games based on Wikipedia content.</string>
   <string name="year_in_review_learn_more">Button text for the Year in Review button Learn More.</string>
   <string name="year_in_review_get_started">Button text for the Year in Review button Get Started.</string>
   <string name="year_in_review_topbar_w_icon">Content description of the W Wikipedia icon for the Year in Review scaffold.</string>
@@ -2087,8 +2119,213 @@
   <string name="donation_reminders_settings_report_email_subject">Subject heading for sending a report about a problem with the Donation reminders feature.</string>
   <string name="donation_reminders_settings_report_email_body">Body of email for sending a report about a problem with the Donation reminders feature.</string>
   <string name="donation_reminders_snackbar_modify_button_label">Label for the button that allows the user to modify the donation reminder.</string>
-  <string name="explore_feed_survey_dialog_title">Title label for the explore feed survey dialog.</string>
-  <string name="explore_feed_survey_dialog_message">Message label for the explore feed survey dialog.</string>
-  <string name="explore_feed_survey_dialog_positive_button_label">Positive label for the button that confirms taking explore feed survey.</string>
-  <string name="explore_feed_survey_dialog_negative_button_label">Negative label for the button that dismisses explore feed survey.</string>
+  <string name="hybrid_search_search_hint">Hint text for the search box for the hybrid search feature.</string>
+  <string name="hybrid_search_article_search_hint">Hint text for the search box for the hybrid search feature in the article screen. %s is replaced by the title of the article.</string>
+  <string name="hybrid_search_suggestion_title">Title shown as a search suggestion while the user is typing a query, when the hybrid search experiment is enabled.</string>
+  <string name="hybrid_search_onboarding_learn_more">Menu label for visiting the information page of the hybrid search.</string>
+  <string name="hybrid_search_onboarding_search_title">Onboarding title explaining hybrid search info.</string>
+  <string name="hybrid_search_onboarding_search_description">Onboarding description explaining hybrid search info.</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_title">Onboarding title for the opt in choice info.</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_description">Onboarding description for the opt in choice info.</string>
+  <string name="hybrid_search_beta_tag">Label shown in the app bar to indicate that the Hybrid Search feature is in beta.</string>
+  <string name="hybrid_search_experimental_feature_switch_label">Label for a toggle switch that allows users to enable or disable the experimental Hybrid Search feature.</string>
+  <string name="hybrid_search_onboarding_search_example_title">Title shown on the Hybrid Search onboarding screen that introduces example search queries.</string>
+  <string name="hybrid_search_onboarding_search_example_description">Descriptive text on the Hybrid Search onboarding screen explaining that the onboarding screen shows example search queries.</string>
+  <string name="hybrid_search_onboarding_opt_out_toast_message">Toast message shown when the user opts out of the Hybrid Search experiment.</string>
+  <string name="hybrid_search_onboarding_search_example_query_pluto_as_planet">Predefined example search query displayed as a suggestion chip during Hybrid Search onboarding.</string>
+  <string name="hybrid_search_onboarding_search_example_query_first_olympics">Predefined example search query displayed as a suggestion chip during Hybrid Search onboarding.</string>
+  <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">Predefined example search query displayed as a suggestion chip during Hybrid Search onboarding.</string>
+  <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Predefined example search query displayed as a suggestion chip during Hybrid Search onboarding.</string>
+  <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Predefined example search query displayed as a suggestion chip during Hybrid Search onboarding.</string>
+  <string name="hybrid_search_onboarding_screen_title">Title for the hybrid search onboarding screen.</string>
+  <string name="hybrid_search_results_header_description">Description for the semantic search result header.</string>
+  <string name="hybrid_search_results_rate_label">Text for rating the semantic search result.</string>
+  <string name="hybrid_search_results_rated_label">Label indicating that the semantic search result has been rated.</string>
+  <string name="hybrid_search_results_rate_thumb_up">Image description for rating the semantic search result that indicates thumbs up.</string>
+  <string name="hybrid_search_results_rate_thumb_down">Image description for rating the semantic search result that indicates thumbs down.</string>
+  <string name="hybrid_lexical_search_results_empty">Message indicating that no article title matches were found for this query.</string>
+  <string name="hybrid_search_results_empty">Text for showing the semantic search is currently unavailable.</string>
+  <string name="hybrid_search_no_results_header">Header Text displayed when semantic search returns no results.</string>
+  <string name="hybrid_search_no_results_description">Displayed when a semantic search returns no results. Includes a brief message and suggestions for the user to try next.</string>
+  <string name="hybrid_search_no_results_suggestion_rephrase_text">Suggestion shown to the user to reword or modify their search when semantic search returns no results.</string>
+  <string name="hybrid_search_no_results_suggestion_try_related_topic">Suggestion shown to the user to try searching for a related topic when semantic search returns no results.</string>
+  <string name="hybrid_search_error_message">Error message displayed when the semantic search fails, asking the user to try again later.</string>
+  <string name="hybrid_search_who_is_prefix">Prefix used before a query, where %s is replaced with the query text.</string>
+  <string name="hybrid_search_turn_off_experiment_label">Label for the option that disables the hybrid search experiment.</string>
+  <string name="reading_challenge_widget_name">Display name for the small Reading Challenge home screen widget.</string>
+  <string name="random_article_widget_name">Display name for the Random Article home screen widget.</string>
+  <string name="reading_challenge_onboarding_header">Title of the onboarding screen for the Reading challenge.</string>
+  <string name="reading_challenge_onboarding_read_title">Title of the first item in onboarding screen for the Reading challenge that indicates read one article for 25 days to complete the challenge.</string>
+  <string name="reading_challenge_onboarding_read_description">Description of the first item in onboarding screen for the Reading challenge that indicates read one article for 25 days to complete the challenge between 1 May to 31 May.</string>
+  <string name="reading_challenge_onboarding_read_subtitle">Description of the first item in onboarding screen for the Reading challenge that indicates read one article for 25 days to complete the challenge between specified date range.The %1$s will be replaced by the start date and %2$s will be replaced by the end date.</string>
+  <string name="reading_challenge_onboarding_win_title">Title of the first item in onboarding screen for the Reading challenge that indicates you can win the prize.</string>
+  <string name="reading_challenge_onboarding_win_description">Description of the first item in onboarding screen for the Reading challenge that indicates how you can win the prize.</string>
+  <string name="reading_challenge_onboarding_install_title">Title of the first item in onboarding screen for the Reading challenge that indicates to install widgets.</string>
+  <string name="reading_challenge_onboarding_install_description">Description of the first item in onboarding screen for the Reading challenge that indicates to install widgets.</string>
+  <string name="reading_challenge_onboarding_note">Message for the Reading challenge that indicates how the reading history is being protected.</string>
+  <string name="reading_challenge_onboarding_learn_more_button">Button for the Reading challenge onboarding screen that opens a link for more information.</string>
+  <string name="reading_challenge_onboarding_join_button">Button for the Reading challenge onboarding screen that opts in the challenge.</string>
+  <string name="reading_challenge_onboarding_prompt_title">Title of the dialog to confirm joining in the reading challenge.</string>
+  <string name="reading_challenge_onboarding_prompt_message">Message of the dialog to confirm joining in the reading challenge that indicates you have to have an account to start.</string>
+  <string name="reading_challenge_onboarding_prompt_no_thanks">Button of the dialog to confirm joining in the reading challenge that closes the dialog.</string>
+  <string name="reading_challenge_onboarding_prompt_login">Button of the dialog to confirm joining in the reading challenge that opens the login page.</string>
+  <string name="reading_challenge_install_prompt_title">Title of the prompt for the Reading challenge for installing the 25-day reading challenge widget.</string>
+  <string name="reading_challenge_install_prompt_message">Message of the prompt for the Reading challenge for installing the 25-day reading challenge widget.</string>
+  <string name="reading_challenge_install_prompt_got_it">Button of the prompt for the Reading challenge for installing the 25-day reading challenge widget that confirms the content.</string>
+  <string name="reading_challenge_install_prompt_add">Button of the prompt for the Reading challenge for installing the 25-day reading challenge widget that to add the widget.</string>
+  <string name="search_widget_install_prompt_title">Title of the bottom sheet prompting the user to install the Wikipedia Search home screen widget.</string>
+  <string name="search_widget_install_prompt_message">Message of the bottom sheet prompting the user to install the Wikipedia Search home screen widget.</string>
+  <string name="search_widget_install_prompt_add">Button label that starts the flow to add the Wikipedia Search widget to the home screen.</string>
+  <string name="search_widget_install_prompt_got_it">Button label that dismisses the Wikipedia Search widget install prompt.</string>
+  <string name="reading_challenge_widget_explore_button">Button label in the Reading challenge widget to explore the Wikipedia app.</string>
+  <string name="reading_challenge_widget_explore_wikipedia_button">Button label in the Reading challenge widget to explore the Wikipedia app.</string>
+  <string name="reading_challenge_widget_join_challenge_button">Button label in the Reading challenge widget to join the challenge.</string>
+  <string name="reading_challenge_widget_join_the_challenge_button">Button label in the Reading challenge widget to join the challenge.</string>
+  <string name="reading_challenge_widget_search_button">Button label in the Reading challenge widget to open the search screen in the app.</string>
+  <string name="reading_challenge_widget_random_button">Button label in the Reading challenge widget to open a random article in the app.</string>
+  <string name="reading_challenge_widget_collect_prize_button">Title in the Reading challenge widget that indicates to collect the prize.</string>
+  <string name="reading_challenge_widget_collect_your_prize_button">Button in the Reading challenge widget that indicates to collect the prize.</string>
+  <string name="reading_challenge_widget_not_live_title">Title in the Reading challenge widget that indicates the reading challenge is not live.</string>
+  <string name="reading_challenge_widget_not_live_description">Message in the Reading challenge widget that indicates the reading challenge is not live.</string>
+  <string name="reading_challenge_widget_not_opted_in_title">Title in the Reading challenge widget that indicates the reading challenge is not opted in.</string>
+  <string name="reading_challenge_widget_not_opted_in_description">Message in the Reading challenge widget that indicates the reading challenge is not opted in</string>
+  <string name="reading_challenge_small_widget_streak">Text showing a streak of multiple days on the small Reading Challenge home screen widget. %d will be replaced by the number of days the user has opened at least one article.</string>
+  <string name="reading_challenge_small_widget_streak_final">Text showing a streak on the small Reading Challenge home screen widget. %1$d is the number of days the user has opened at least one article, out of a total of %2$d days, as part of the reading challenge.</string>
+  <string name="reading_challenge_small_widget_streak_final_large">Text showing a streak on the large Reading Challenge home screen widget. %1$d is the number of days the user has opened at least one article, out of a total of %2$d days, as part of the reading challenge.</string>
+  <string name="reading_challenge_not_read_today_description">Message shown when the user has not read today, encouraging them to maintain their reading streak.</string>
+  <string name="reading_challenge_streak_ongoing_title">Title for an ongoing reading challenge streak.</string>
+  <string name="reading_challenge_widget_reminder_dont_let_today_drift">Motivational reminder message encouraging the user not to let the day pass without reading to maintain their streak.</string>
+  <string name="reading_challenge_widget_reminder_before_day_snoozes">Motivational reminder message encouraging the user to read before the day ends.</string>
+  <string name="reading_challenge_widget_reminder_small_bit_counts">Motivational reminder message reassuring the user that even a short reading session contributes to their goal.</string>
+  <string name="reading_challenge_widget_reminder_one_article_away">Motivational reminder message encouraging the user that reading one article will maintain their streak.</string>
+  <string name="reading_challenge_widget_reminder_jump_in_anytime">Motivational reminder message inviting the user to read at any point during the day.</string>
+  <string name="reading_challenge_widget_reminder_quiet_reading_moment">Motivational reminder message prompting the user to take a quiet moment to read.</string>
+  <string name="reading_challenge_widget_reminder_keep_curiosity_going">Motivational reminder message encouraging the user to continue reading to satisfy their curiosity.</string>
+  <string name="reading_challenge_widget_enrolled_not_started_title">Title text displayed on the Reading Challenge widget when the user is enrolled but has not yet started reading.</string>
+  <string name="reading_challenge_widget_enrolled_not_started_subtitle">Subtitle text displayed on the Reading Challenge widget when the user is enrolled but has not yet started reading.</string>
+  <string name="reading_challenge_widget_start_reading_challenge_title">Title shown on the Reading Challenge widget prompting the user to begin their reading challenge.</string>
+  <string name="reading_challenge_widget_start_reading_challenge_subtitle">Subtitle shown on the Reading Challenge widget encouraging the user that every streak has a starting point.</string>
+  <string name="reading_challenge_widget_start_spin_up_new_streak_title">Title shown on the Reading Challenge widget prompting the user to start a new reading streak.</string>
+  <string name="reading_challenge_widget_start_spin_up_new_streak_subtitle">Subtitle shown on the Reading Challenge widget instructing the user to read one article to begin their new streak.</string>
+  <string name="reading_challenge_widget_start_fresh_start_title">Title shown on the Reading Challenge widget indicating the user is beginning a new streak after a previous one ended.</string>
+  <string name="reading_challenge_widget_start_fresh_start_subtitle">Subtitle shown on the Reading Challenge widget encouraging the user that reading one article will start their new streak.</string>
+  <string name="reading_challenge_widget_concluded_incomplete">Message shown when the reading challenge has concluded, with the user not completing it fully.</string>
+  <string name="reading_challenge_widget_concluded_complete">Message shown when the reading challenge has concluded, with the user having completed it successfully.</string>
+  <string name="reading_challenge_widget_reward_title">Title of a dialog box rewarding the user for completing the reading challenge.</string>
+  <string name="reading_challenge_widget_reward_body">Body text of a dialog box rewarding the user for completing the reading challenge.</string>
+  <string name="reading_challenge_widget_reward_button_label">Button label to navigate to the Wikipedia store with a discount, as a reward for completing the reading challenge.</string>
+  <string name="explore_feed_new_update_prompt_title">Title text for the onboarding prompt annoncing the rename of the Explore Feed to Home.</string>
+  <string name="explore_feed_new_update_prompt_new_name_title">Title for the slide explaining the feed\'s new name.</string>
+  <string name="explore_feed_new_update_prompt_new_name_description">Body text explaining that the Explore feed has been renamed to Home and remains in the same location.</string>
+  <string name="explore_feed_new_update_prompt_two_ways_title">Title for the slide describing the two content tabs available in the Home feed.</string>
+  <string name="explore_feed_new_update_prompt_two_ways_description">Body text describing the two feed modes: personalized articles in For You, and editorially curated content in Community.</string>
+  <string name="explore_feed_new_update_prompt_control_title">Title for the slide explaining about user control.</string>
+  <string name="explore_feed_new_update_prompt_control_description">Body text explaining that each recommendation shows its reason, and that preferences can be updated in Settings.</string>
+  <string name="explore_feed_new_update_prompt_language_title">Title for the slide describing per-language feed personalization.</string>
+  <string name="explore_feed_new_update_prompt_language_description">Body text explaining that users reading in multiple languages each get a separately personalized feed, which updates automatically on language switch.</string>
+  <string name="explore_feed_new_update_prompt_primary_button_text">Label for the primary action button on the feed update onboarding prompt, directing the user to manually customize their feed.</string>
+  <string name="explore_feed_customize_interests">Button label for customizing the interests used for composing Home feed content.</string>
+  <string name="explore_feed_customize_discover">Menu item label for opening the Discover settings to customize the recommended reading list.</string>
+  <string name="explore_feed_new_update_prompt_secondary_button_text">Label for the secondary action button on the feed update onboarding prompt, allowing the user to have their feed configured automatically.</string>
+  <string name="explore_feed_building_text">Body text for the feed building screen.</string>
+  <string name="explore_feed_community_tab_label">Label text for the explore feed type tab for the community content.</string>
+  <string name="explore_feed_for_you_tab_label">Label text for the explore feed type tab for the personalized content.</string>
+  <string name="explore_feed_date_today">Date label at the top of the Home feed for the content of the current day. The %s symbol is replaced with the date.</string>
+  <string name="explore_feed_load_previous_day_label">Label text for the explore feed to load more content.</string>
+  <string name="explore_feed_from_reading_list">Label explaining that the current suggestion is from your reading list.</string>
+  <string name="explore_feed_because_of_interest">Label explaining that the current suggestion is based on one of your selected interests, which could be a topic or an article. The %s symbol is replaced by the name of the interest.</string>
+  <string name="explore_feed_onboarding_curiosity_title">Display name for the title of the Explore feed onboarding screen prompting users to follow topics.</string>
+  <string name="explore_feed_onboarding_curiosity_description">Body text for the Explore feed onboarding screen explaining feed personalization and data usage. \n\n represents a paragraph break between the personalization explanation and the data collection notice.</string>
+  <string name="explore_feed_deselect_all_button_label">Button text to deselect all selected items in the intereset selection screen.</string>
+  <string name="explore_feed_potd_subtitle">Description of the Picture of the Day card in the Home feed.</string>
+  <string name="explore_feed_featured_article_subtitle">Description of the Featured Article card in the Home feed.</string>
+  <string name="explore_feed_preference_selection_screen_title">Screen title prompting the user to choose which type of content should appear first in the explore feed.</string>
+  <string name="explore_feed_preference_community_content_title">Option label for selecting community-related content in the preference selection screen.</string>
+  <string name="explore_feed_preference_personalized_content_title">Option label for selecting personalized content based on user interests in preference selection screen.</string>
+  <string name="explore_feed_in_the_news_subtitle">Description of the In the News card in the Home feed.</string>
+  <string name="explore_feed_on_this_day_subtitle">Description of the On This Day card in the Home feed.</string>
+  <string name="explore_feed_community_disclaimer">Text for the disclaimer at the top of the community tab in the Home feed.</string>
+  <string name="explore_feed_community_load_more_label">Label text for the community tab in Home feed to load more content.</string>
+  <string name="explore_feed_manage_languages_label">Label text in the languages pop-up menu in the Home feed to manage the app languages.</string>
+  <string name="explore_feed_header_overflow_hide_module_label">Label text for the overflow menu option in the card header to hide the module.</string>
+  <string name="explore_feed_header_overflow_hide_module_message">Snackbar message that indicates the module is hidden.</string>
+  <string name="explore_feed_header_overflow_hide_module_message_action">Label for the snackbar action to undo the hide module action.</string>
+  <string name="explore_feed_personalized_preference_empty_state_text">Message shown when no interests are selected, informing the user that they need to add interests to receive personalized content recommendations and guiding them to previous steps or Settings.</string>
+  <string name="explore_feed_because_you_read">Label explaining that the current suggestion is from the article you read. The %s symbol is replaced by the name of the article.</string>
+  <string name="explore_feed_swipe_to_explore_prompt_title">Title of the explore feed prompt that shows the gestures to explore the feed.</string>
+  <string name="explore_feed_swipe_to_explore_prompt_message">Message of the explore feed prompt that shows the gestures to explore the feed.</string>
+  <string name="home_feed_settings_title">Title for the home feed settings screen.</string>
+  <string name="home_feed_settings_default_view_title">Title for preference that lets the user choose whether the Community or For You feed is displayed by default.</string>
+  <string name="home_feed_settings_default_view_subtitle">Subtitle for preference that lets the user choose whether the Community or For You feed is displayed by default.</string>
+  <string name="home_feed_settings_default_view_confirm">Confirmation message after the user selects their default feed preference.</string>
+  <string name="home_feed_settings_whats_driving_title">Title for What\'s Driving modules in home feed settings.</string>
+  <string name="home_feed_settings_modules_title">Title for Community and For You Setting item.</string>
+  <string name="home_feed_settings_community_subtitle">Description for toggling visibility of Community feed sections.</string>
+  <string name="home_feed_settings_for_you_subtitle">Description for toggling visibility of personalized For You feed sections.</string>
+  <string name="home_feed_settings_whats_driving_subtitle">Description for sections highlighting topics and articles influencing your feed.</string>
+  <string name="home_feed_settings_community_modules_description">Description explaining that disabled Community feed modules can be re-enabled later and that some modules may not be available in all languages.</string>
+  <string name="home_feed_settings_for_you_modules_description">Description explaining that disabled For You feed modules can be re-enabled later.</string>
+  <string name="home_feed_settings_based_on_interest_title">Title for the Based on your interests module in Home feed settings.</string>
+  <string name="home_feed_settings_based_on_interest_subtitle">Subtitle describing article recommendations based on selected interests and feed preferences. Please keep the anchor link around the word \"What’s driving your feed\"\\</string>
+  <string name="home_feed_settings_because_you_read_subtitle">Subtitle describing article suggestions based on recently viewed articles.</string>
+  <string name="home_feed_settings_continue_reading_title">Title for the Continue reading module in Home feed settings.</string>
+  <string name="home_feed_settings_continue_reading_subtitle">Subtitle prompting users to continue reading unfinished articles.</string>
+  <string name="home_feed_did_you_know_title">Title of the Did You Know module in the Community feed.</string>
+  <string name="home_feed_did_you_know_subtitle">Subtitle of the Did You Know module in the Community feed.</string>
+  <string name="home_feed_did_you_know_more_label">Button label to see more Did You Know items.</string>
+  <string name="home_feed_settings_community_empty_dialog_title">Title of dialog box warning the user that their Community feed will be empty.</string>
+  <string name="home_feed_settings_for_you_empty_dialog_title">Title of dialog box warning the user that their \"For you\" feed will be empty.</string>
+  <string name="home_feed_settings_empty_dialog_text">Body text of dialog box warning the user that their feed will be empty.</string>
+  <string name="home_feed_settings_empty_dialog_positive">Button label for confirmation of a dialog box warning the user that their feed will be empty.</string>
+  <string name="home_feed_screen_empty_state_label">Title text shown when the selected feed has no visible content.</string>
+  <string name="home_feed_community_screen_all_modules_disabled_description">Description text shown when all “From the community” modules are turned off in the feed settings.</string>
+  <string name="home_feed_for_you_screen_all_modules_disabled_description">Description text shown when all “For you” modules are turned off in the feed settings.</string>
+  <string name="home_feed_screen_all_modules_disabled_btn_label">Button text for managing Home feed modules from the empty state screen.</string>
+  <string name="home_feed_for_you_screen_empty_title">Title text shown when the “For you” feed has no personalized content available yet.</string>
+  <string name="home_feed_for_you_screen_empty_description">Description explaining that the “For you” feed will populate with personalized articles as the user explores content.</string>
+  <string name="home_feed_for_you_screen_empty_ways_to_start">Header introducing suggested actions for getting started with the “For you” feed.</string>
+  <string name="home_feed_for_you_screen_empty_add_interests">Link text prompting the user to add new interests to personalize the “For you” feed. Please keep the anchor link around the word \"some interests\"</string>
+  <string name="home_feed_for_you_screen_empty_see_community">Link text prompting the user to explore the Community feed for additional content. Please keep the anchor link around the word \"community\"</string>
+  <string name="home_feed_update_tooltip1">Message that explains new features introduced into the Home Feed.</string>
+  <string name="home_feed_random_title">Title for the Random Article module in the For You feed.</string>
+  <string name="home_feed_random_subtitle">Description of the Random Article module in the For You feed.</string>
+  <string name="home_feed_random_shuffle_button">Button label for going to the Randomizer feature in the app.</string>
+  <string name="home_feed_settings_feed_configuration_description">Description explaining that selected topics and reading history influence personalized recommendations in the For You feed.</string>
+  <string name="home_feed_settings_feed_configuration_interest_title">Heading title for the user’s selected interests in feed configuration settings.</string>
+  <string name="home_feed_settings_feed_configuration_interest_subtitle">Subtitle indicating users can manage or update their selected topics of interest.</string>
+  <string name="home_feed_settings_feed_configuration_location_title">Heading title for the user\'s selected location settings.</string>
+  <string name="home_feed_settings_feed_configuration_location_subtitle">Subtitle explaining that updating the Places location will show nearby articles.</string>
+  <string name="home_feed_settings_feed_configuration_empty_interest_subtitle">Empty state message shown when the user has not added any interests yet.</string>
+  <string name="home_feed_settings_feed_configuration_reading_history_title">Heading title for the user’s reading history in feed configuration settings.</string>
+  <string name="home_feed_settings_feed_configuration_reading_history_subtitle">Subtitle prompting users to view their recently read articles.</string>
+  <string name="home_feed_settings_feed_configuration_empty_reading_history_subtitle">Empty state message shown when the user has no reading history available for recommendations.</string>
+  <string name="home_feed_settings_feed_configuration_languages_title">Heading title for managing preferred languages in feed configuration settings.</string>
+  <string name="home_feed_settings_feed_configuration_languages_subtitle">Subtitle prompting the user to edit their preferred languages.</string>
+  <string name="home_feed_settings_feed_configuration_interests_updated_message">Message that indicates the interests have been updated, and users will need to refresh the feed to see the new contents.</string>
+  <string name="home_feed_places_of_interest_cta_title">Section title for the Places of Interest module in the home feed.</string>
+  <string name="home_feed_places_of_interest_cta_description">Description explaining that articles are recommended based on the user’s last viewed place and instructing them to select a location in the Places tab.</string>
+  <string name="home_feed_places_of_interest_cta_button">Button text that navigates the user to the Places tab.</string>
+  <string name="home_feed_settings_places_of_interest_title">Title for the Places of Interest settings section.</string>
+  <string name="home_feed_settings_places_of_interest_subtitle">Subtitle describing that nearby place-based articles are shown using the user’s last selected location in Places.</string>
+  <string name="home_feed_settings_games_title">Title for the Games module in Home feed settings.</string>
+  <string name="home_feed_settings_games_subtitle">Subtitle describing that the Games module provides daily games based on Wikipedia content.</string>
+  <string name="home_feed_settings_discover_title">Title for the Discover recommendations settings section.</string>
+  <string name="home_feed_settings_discover_subtitle">Subtitle describing that articles from the user\'s Discover reading list are shown.</string>
+  <string name="home_feed_discover_cta_title">Section title for the Discover module in the home feed.</string>
+  <string name="home_feed_discover_cta_description">Description explaining that Discover recommends articles picked for the user, with a choice of daily, weekly, or monthly updates.</string>
+  <string name="home_feed_discover_cta_button">Button text that enables the Discover reading list.</string>
+  <string name="home_feed_discover_card_footer">Footer label shown on a Discover article card, indicating the article comes from the user\'s Discover reading list. %s is replaced by update frequency.</string>
+  <string name="home_feed_discover_see_all_title">Title of the final card in the Discover module, inviting the user to view the rest of their recommendations.</string>
+  <string name="home_feed_discover_see_all_description">Description on the final Discover card explaining that the personalized reading list has more articles to explore.</string>
+  <string name="home_feed_discover_see_all_button">Button text on the final Discover card that opens the full recommended reading list.</string>
+  <string name="home_feed_places_of_interest_card_footer">Footer text shown on a Places of Interest article card, displaying the article date followed by an indication that the recommendation is based on the user\'s selected location in Places. %1$s is replaced by distance.</string>
+  <string name="home_feed_for_you_screen_end_of_feed_title">Title text shown when the user reaches the end of the personalized feed for the day.</string>
+  <string name="home_feed_for_you_screen_end_of_feed_description">Description text encouraging the user to return later for refreshed personalized articles.</string>
+  <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Section header introducing additional actions the user can take after reaching the end of the feed.</string>
+  <string name="home_feed_for_you_screen_end_of_feed_add_interests">Link text prompting the user to add new interests to improve personalized recommendations.</string>
+  <string name="randomizer_shake_prompt_title">Title of popup dialog that explains the shake-to-shuffle feature.</string>
+  <string name="randomizer_shake_prompt_message">Message of popup dialog that explains the shake-to-shuffle feature.</string>
+  <string name="home_feed_games_module_cta_prompt_title">Title for the prompt card in the Games module that invites the user to play more games.</string>
+  <string name="home_feed_games_module_cta_prompt_subtitle">Subtitle for the prompt card in the Games module directing the user to the Games hub.</string>
+  <string name="home_feed_games_module_cta_prompt_button_text">Button text on the Games module prompt card that navigates the user to the Games hub.</string>
 </resources>

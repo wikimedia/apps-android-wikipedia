@@ -5,6 +5,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Transaction
+import kotlinx.coroutines.flow.Flow
 import org.wikipedia.history.HistoryEntry
 
 @Dao
@@ -53,6 +54,9 @@ interface HistoryEntryDao {
 
     @Query("SELECT CAST(strftime('%m', timestamp / 1000, 'unixepoch', 'localtime') AS INTEGER) AS month FROM HistoryEntry WHERE timestamp BETWEEN :startMillis AND :endMillis GROUP BY month ORDER BY COUNT(id) DESC LIMIT 1")
     suspend fun getMostReadingMonthBetween(startMillis: Long, endMillis: Long = System.currentTimeMillis()): Int?
+
+    @Query("SELECT EXISTS(SELECT 1 FROM HistoryEntry)")
+    fun hasAnyEntries(): Flow<Boolean>
 
     @Transaction
     suspend fun insert(entries: List<HistoryEntry>) {

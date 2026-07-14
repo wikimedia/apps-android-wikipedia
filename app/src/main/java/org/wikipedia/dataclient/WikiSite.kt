@@ -158,8 +158,17 @@ data class WikiSite(
                 AppLanguageLookUpTable.NORWEGIAN_BOKMAL_LANGUAGE_CODE -> AppLanguageLookUpTable.NORWEGIAN_LEGACY_LANGUAGE_CODE // T114042
                 AppLanguageLookUpTable.BELARUSIAN_LEGACY_LANGUAGE_CODE -> AppLanguageLookUpTable.BELARUSIAN_TARASK_LANGUAGE_CODE // T111853
                 AppLanguageLookUpTable.CHINESE_LEGACY_YUE_LANGUAGE_CODE -> AppLanguageLookUpTable.CHINESE_YUE_LANGUAGE_CODE
+                AppLanguageLookUpTable.CHINESE_CLASSICAL_LANGUAGE_CODE -> AppLanguageLookUpTable.CHINESE_CLASSICAL_LEGACY_LANGUAGE_CODE
                 else -> languageCode
             }
+        }
+
+        /**
+         * For use only in Composable Previews, since this bypasses much of the internal constructor
+         * logic that depends on a WikipediaApp instance.
+         */
+        fun preview(languageCode: String = "en"): WikiSite {
+            return WikiSite("https://$languageCode.wikipedia.org/".toUri(), languageCode)
         }
 
         private fun languageCodeToSubdomain(languageCode: String): String {

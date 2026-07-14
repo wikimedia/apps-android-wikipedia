@@ -36,6 +36,7 @@ class MediaTest : BaseTest<MainActivity>(
             .clickLeadImage()
             .swipePagerLeft()
             .swipePagerLeft()
+            .swipePagerLeft()
         mediaRobot
             .doubleTapToZoomOut()
             .doubleTapToZoomOut()

@@ -27,7 +27,7 @@ class HttpStatusException : IOException {
         this.code = rsp.code
         url = rsp.request.url.toUri().toString()
         try {
-            rsp.body?.let {
+            rsp.body.let {
                 if (it.contentType().toString().contains("json")) {
                     val body = it.string()
                     if (body.contains("\$schema")) {

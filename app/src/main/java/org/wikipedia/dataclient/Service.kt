@@ -1,5 +1,8 @@
 package org.wikipedia.dataclient
 
+import org.wikimedia.testkitchen.config.Experiment
+import org.wikimedia.testkitchen.config.Instrument
+import org.wikimedia.testkitchen.config.StreamConfigCollection
 import org.wikipedia.captcha.Captcha
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsEditResponse
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsInfoResponse
@@ -10,7 +13,6 @@ import org.wikipedia.dataclient.mwapi.CreateAccountResponse
 import org.wikipedia.dataclient.mwapi.MwParseResponse
 import org.wikipedia.dataclient.mwapi.MwPostResponse
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
-import org.wikipedia.dataclient.mwapi.MwStreamConfigsResponse
 import org.wikipedia.dataclient.mwapi.ParamInfoResponse
 import org.wikipedia.dataclient.mwapi.ShortenUrlResponse
 import org.wikipedia.dataclient.mwapi.SiteMatrix
@@ -24,6 +26,7 @@ import org.wikipedia.dataclient.wikidata.EntityPostResponse
 import org.wikipedia.dataclient.wikidata.Search
 import org.wikipedia.edit.Edit
 import org.wikipedia.login.LoginResponse
+import retrofit2.Response
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
@@ -49,6 +52,14 @@ interface Service {
                              @Query("gpsoffset") gpsOffset: Int?): MwQueryResponse
 
     @GET(
+        MW_API_PREFIX + "action=query&redirects=&converttitles=&prop=description|pageimages|coordinates|info&piprop=thumbnail" +
+                "&pilicense=any&generator=prefixsearch&gpsnamespace=0&inprop=varianttitles|displaytitle&pithumbsize=" + PREFERRED_THUMB_SIZE
+    )
+    suspend fun prefixSearchResponse(@Query("gpssearch") searchTerm: String?,
+                             @Query("gpslimit") maxResults: Int,
+                             @Query("gpsoffset") gpsOffset: Int?): Response<MwQueryResponse>
+
+    @GET(
         MW_API_PREFIX + "action=query&converttitles=" +
                 "&prop=description|pageimages|pageprops|coordinates|info&ppprop=mainpage|disambiguation" +
                 "&generator=search&gsrnamespace=0&gsrwhat=text" +
@@ -61,6 +72,21 @@ interface Service {
         @Query("gsrlimit") gsrLimit: Int,
         @Query("gsroffset") gsrOffset: Int?
     ): MwQueryResponse
+
+    @GET(
+        MW_API_PREFIX + "action=query&converttitles=" +
+                "&prop=description|pageimages|pageprops|coordinates|info&ppprop=mainpage|disambiguation" +
+                "&generator=search&gsrnamespace=0&gsrwhat=text" +
+                "&inprop=varianttitles|displaytitle" +
+                "&gsrinfo=&gsrprop=redirecttitle|snippet|sectiontitle&piprop=thumbnail&pilicense=any&pithumbsize=" +
+                PREFERRED_THUMB_SIZE
+    )
+    suspend fun fullTextSearchResponse(
+        @Query("gsrsearch") searchTerm: String?,
+        @Query("gsrlimit") gsrLimit: Int,
+        @Query("gsroffset") gsrOffset: Int?,
+        @Query("cirrusSemanticSearch") isSemantic: Boolean? = null
+    ): Response<MwQueryResponse>
 
     @GET(MW_API_PREFIX + "action=query&list=allusers&auwitheditsonly=1")
     suspend fun prefixSearchUsers(
@@ -93,14 +119,16 @@ interface Service {
 
     @GET(
         MW_API_PREFIX + "action=query&generator=search&gsrnamespace=0&gsrqiprofile=classic_noboostlinks" +
-                "&origin=*&piprop=thumbnail&pilicense=any&prop=pageimages|description|info|pageprops" +
-                "&inprop=varianttitles&smaxage=86400&maxage=86400&pithumbsize=" + PREFERRED_THUMB_SIZE
+                "&origin=*&piprop=thumbnail&pilicense=any&prop=pageimages|description|info|pageprops|extracts&exchars=500&exintro=1&explaintext=1" +
+                "&inprop=varianttitles&pithumbsize=" + PREFERRED_THUMB_SIZE
     )
     suspend fun searchMoreLike(
         @Query("gsrsearch") searchTerm: String?,
         @Query("gsrlimit") gsrLimit: Int,
         @Query("pilimit") piLimit: Int,
         @Query("gsroffset") gsrOffset: Int? = null,
+        @Query("smaxage") sMaxAge: Int = 86400,
+        @Query("maxage") maxAge: Int = 86400
     ): MwQueryResponse
 
     // ------- Miscellaneous -------
@@ -117,7 +145,10 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&prop=info|description|pageimages&pilicense=any&inprop=varianttitles|displaytitle&redirects=1&pithumbsize=" + PREFERRED_THUMB_SIZE)
     suspend fun getInfoByPageIdsOrTitles(@Query("pageids") pageIds: String? = null, @Query("titles") titles: String? = null): MwQueryResponse
 
-    @GET(MW_API_PREFIX + "action=query&meta=globaluserinfo&guiprop=editcount&prop=info|description|pageimages&pilicense=any&inprop=varianttitles|displaytitle&redirects=1&pithumbsize=" + PREFERRED_THUMB_SIZE)
+    @GET(MW_API_PREFIX + "action=query&prop=info|description|pageimages|extracts&exchars=500&exintro=1&explaintext=1&pilicense=any&inprop=varianttitles|displaytitle&redirects=1&pithumbsize=" + PREFERRED_THUMB_SIZE)
+    suspend fun getInfoWithExtractsByPageTitles(@Query("titles") titles: String? = null): MwQueryResponse
+
+    @GET(MW_API_PREFIX + "action=query&meta=globaluserinfo&guiprop=editcount&prop=info|description|pageimages&pilicense=any&inprop=varianttitles|displaytitle&redirects=1&assert=user&pithumbsize=" + PREFERRED_THUMB_SIZE)
     suspend fun getInfoByTitlesWithGlobalUserInfo(@Query("titles") titles: String? = null): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&meta=siteinfo&siprop=general|autocreatetempuser")
@@ -193,6 +224,11 @@ interface Service {
         @Query("grnlimit") count: Int = 50,
     ): MwQueryResponse
 
+    @GET(MW_API_PREFIX + "action=query&generator=random&grnfilterredir=nonredirects&grnnamespace=0&prop=pageprops|pageimages|description|info|extracts&exchars=500&exintro=1&explaintext=1&piprop=thumbnail&pilicense=any&inprop=varianttitles|displaytitle&pithumbsize=" + PREFERRED_THUMB_SIZE)
+    suspend fun getRandomPagesWithExtract(
+        @Query("grnlimit") count: Int = 10,
+    ): MwQueryResponse
+
     @GET(MW_API_PREFIX + "action=query&generator=random&redirects=1&grnnamespace=6&prop=info|description|imageinfo|revisions|globalusage&inprop=protection&gunamespace=0&rvprop=ids|timestamp|flags|comment|user|content&rvslots=mediainfo&iiprop=timestamp|user|url|mime|extmetadata&iilocalonly=1&iiurlwidth=" + PREFERRED_THUMB_SIZE)
     suspend fun getRandomImages(
         @Query("grnlimit") count: Int = 10,
@@ -216,8 +252,14 @@ interface Service {
         @Field("token") token: String
     ): MwPostResponse
 
-    @GET(MW_API_PREFIX + "action=streamconfigs&format=json&constraints=destination_event_service=eventgate-analytics-external")
-    suspend fun getStreamConfigs(): MwStreamConfigsResponse
+    @GET(MW_API_PREFIX + "action=streamconfigs&format=json")
+    suspend fun getStreamConfigs(): StreamConfigCollection
+
+    @GET("api/v1/experiments")
+    suspend fun getExperiments(): List<Experiment>
+
+    @GET("api/v1/instruments")
+    suspend fun getInstruments(): List<Instrument>
 
     @GET(MW_API_PREFIX + "action=query&meta=allmessages&amenableparser=1")
     suspend fun getMessages(
@@ -234,6 +276,14 @@ interface Service {
 
     @GET(MW_API_PREFIX + "action=query&generator=geosearch&prop=coordinates|description|pageimages|info&inprop=varianttitles|displaytitle&pilicense=any")
     suspend fun getGeoSearch(
+        @Query("ggscoord", encoded = true) coordinates: String,
+        @Query("ggsradius") radius: Int,
+        @Query("ggslimit") ggsLimit: Int,
+        @Query("colimit") coLimit: Int,
+    ): MwQueryResponse
+
+    @GET(MW_API_PREFIX + "action=query&generator=geosearch&prop=coordinates|description|pageimages|info|extracts&exchars=500&exintro=1&explaintext=1&inprop=varianttitles|displaytitle&pilicense=any")
+    suspend fun getGeoSearchWithExtracts(
         @Query("ggscoord", encoded = true) coordinates: String,
         @Query("ggsradius") radius: Int,
         @Query("ggslimit") ggsLimit: Int,
@@ -317,10 +367,10 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&meta=authmanagerinfo&amirequestsfor=login")
     suspend fun getAuthManagerForLogin(): MwQueryResponse
 
-    @GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib|hasmsg|options")
+    @GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib|hasmsg|options&assert=user")
     suspend fun getUserInfo(): MwQueryResponse
 
-    @GET(MW_API_PREFIX + "action=query&meta=userinfo|globaluserinfo&guiprop=editcount&uiprop=groups|blockinfo|editcount|latestcontrib|hasmsg|options")
+    @GET(MW_API_PREFIX + "action=query&meta=userinfo|globaluserinfo&guiprop=editcount&uiprop=groups|blockinfo|editcount|latestcontrib|hasmsg|options&assert=user")
     suspend fun getLocalAndGlobalUserInfo(): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&list=users&usprop=editcount|groups|registration|rights")
@@ -338,9 +388,8 @@ interface Service {
     // ------- Notifications -------
 
     @Headers("Cache-Control: no-cache")
-    @GET(MW_API_PREFIX + "action=query&meta=notifications&notformat=model&notlimit=max")
+    @GET(MW_API_PREFIX + "action=query&meta=notifications&notformat=model&notlimit=max&notwikis=*")
     suspend fun getAllNotifications(
-        @Query("notwikis") wikiList: String?,
         @Query("notfilter") filter: String?,
         @Query("notcontinue") continueStr: String?
     ): MwQueryResponse
@@ -568,7 +617,7 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&prop=info|categories&converttitles=&redirects=&inprop=watched&clshow=!hidden&cllimit=100")
     suspend fun getWatchedStatusWithCategories(@Query("titles") titles: String): MwQueryResponse
 
-    @GET(MW_API_PREFIX + "action=query&list=watchlist&wllimit=500&wlprop=ids|title|flags|comment|parsedcomment|timestamp|sizes|user|loginfo")
+    @GET(MW_API_PREFIX + "action=query&list=watchlist&wllimit=500&wlprop=ids|title|flags|comment|parsedcomment|timestamp|sizes|user|loginfo&assert=user")
     @Headers("Cache-Control: no-cache")
     suspend fun getWatchlist(
         @Query("wlallrev") latestRevisions: String?,
@@ -711,16 +760,34 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&prop=info&converttitles=&inprop=varianttitles")
     suspend fun getVariantTitlesByTitles(@Query("titles") titles: String): MwQueryResponse
 
+    @GET(MW_API_PREFIX + "action=query&generator=search&redirects=&converttitles=&prop=description|pageimages|pageprops|info|extracts&exchars=500&exintro=1&explaintext=1&piprop=thumbnail" +
+    "&pilicense=any&gsrnamespace=0&inprop=varianttitles|displaytitle&pithumbsize=" + PREFERRED_THUMB_SIZE)
+    suspend fun getArticlesByTopic(
+        @Query("gsrsearch") articleTopics: String,
+        @Query("gsrlimit") limit: Int,
+        @Query("gsrqiprofile") profile: String? = null,
+        @Query("gsrsort") sort: String? = null
+    ): MwQueryResponse
+
     companion object {
-        const val WIKIPEDIA_URL = "https://wikipedia.org/"
-        const val WIKIMEDIA_URL = "https://wikimedia.org/"
-        const val WIKIDATA_URL = "https://www.wikidata.org/"
+        const val WIKIPEDIA_URL = "https://${WikiSite.BASE_DOMAIN}/"
+        const val BASE_AUTHORITY_WIKIMEDIA = "wikimedia.org"
+        const val WIKIMEDIA_URL = "https://${BASE_AUTHORITY_WIKIMEDIA}/"
+        const val BASE_AUTHORITY_WIKIDATA = "wikidata.org"
+        const val WIKIDATA_URL = "https://www.${BASE_AUTHORITY_WIKIDATA}/"
         const val COMMONS_URL = "https://commons.wikimedia.org/"
         const val URL_FRAGMENT_FROM_COMMONS = "/wikipedia/commons/"
         const val MW_API_PREFIX = "w/api.php?format=json&formatversion=2&errorformat=html&errorsuselocal=1&"
-        const val PREFERRED_THUMB_SIZE = 320
+        const val PREFERRED_THUMB_SIZE = 330
 
         // Maximum cache time for site-specific data, and other things not likely to change very often.
         const val SITE_INFO_MAXAGE = 86400
+
+        fun isWikimediaAuthority(authority: String?): Boolean {
+            return !authority.isNullOrEmpty() &&
+                    (authority == WikiSite.BASE_DOMAIN || authority.endsWith(".${WikiSite.BASE_DOMAIN}") ||
+                            authority == BASE_AUTHORITY_WIKIMEDIA || authority.endsWith(".${BASE_AUTHORITY_WIKIMEDIA}") ||
+                            authority == BASE_AUTHORITY_WIKIDATA || authority.endsWith(".${BASE_AUTHORITY_WIKIDATA}"))
+        }
     }
 }

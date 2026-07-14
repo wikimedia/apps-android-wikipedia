@@ -1,211 +1,230 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
-    <string name="preference_key_language">content_language</string>
-    <string name="preference_key_cookie_map">cookie_map</string>
-    <string name="preference_key_remote_config">remote_config</string>
-    <string name="preference_key_reading_app_install_id">readingAppInstallID</string>
-    <string name="preference_key_text_size_multiplier">textSizeMultiplier</string>
-    <string name="preference_key_editing_text_size_multiplier">editingTextSizeMultiplier</string>
-    <string name="preference_key_color_theme">colorTheme</string>
-    <string name="preference_key_previous_color_theme">previousColorTheme</string>
-    <string name="preference_key_font_family">fontFamily</string>
-    <string name="preference_key_app_channel">channel</string>
-    <string name="preference_key_language_mru">languageMru</string>
-    <string name="preference_key_language_app">languageApp</string>
-    <string name="preference_key_show_images">showImages</string>
-    <string name="preference_key_announcement_country_override">announcementCountryOverride</string>
-    <string name="preference_key_announcement_ignore_date">announcementIgnoreDate</string>
-    <string name="preference_key_announcement_version_code">announcementVersionCode</string>
-    <string name="preference_key_announcement_shown_dialogs">announcementShownDialogs</string>
-    <string name="preference_key_announcement_pause_time">announcementPauseTime</string>
-    <string name="preference_key_announcement_debug_url">announcementDebugUrl</string>
-    <string name="preference_key_announcement_custom_tab_test_url">announcementCustomTabTestUrl</string>
-    <string name="preference_key_restbase_uri_format">RESTBaseUriFormat</string>
-    <string name="preference_key_mediawiki_base_uri">mediaWikiBaseUri</string>
-    <string name="preference_key_mediawiki_base_uri_supports_lang_code">mediaWikiBaseUriSupportsLangCode</string>
-    <string name="preference_key_retrofit_log_level">retrofitLog</string>
-    <string name="preference_key_daily_event_time_task_name">dailyEventTask</string>
-    <string name="preference_key_talk_offline_cleanup_task_name">talkOfflineCleanupTask</string>
-    <string name="preference_key_login_groups">groups</string>
-    <string name="preference_key_login_force_email_auth">loginForceEmailAuth</string>
-    <string name="preference_key_show_developer_settings">showDeveloperSettings</string>
-    <string name="preference_key_last_run_time_format">%s-lastrun</string>
-    <string name="preference_key_tabs">tabs</string>
-    <string name="preference_key_customize_explore_feed">customizeExploreFeed</string>
-    <string name="preference_key_show_link_previews">showLinkPreviews</string>
-    <string name="preference_key_collapse_tables">collapseTables</string>
-    <string name="preference_key_session_data">session_data</string>
-    <string name="preference_key_session_timeout">session_timeout</string>
-    <string name="preference_key_crashed_before_activity_created">crashedBeforeActivityCreated</string>
-    <string name="preference_key_reading_list_sort_mode">readingListSortMode</string>
-    <string name="preference_key_reading_list_page_sort_mode">readingListPageSortMode</string>
-    <string name="preference_key_page_last_shown">pageLastShown</string>
-    <string name="preference_key_feed_hidden_cards">feedHiddenCards</string>
-    <string name="preference_key_memory_leak_test">memoryLeakTest</string>
-    <string name="preference_key_description_edit_tutorial_enabled">descriptionEditTutorialEnabled</string>
-    <string name="preference_key_last_description_edit_time">lastDescriptionEditTime</string>
-    <string name="preference_key_total_anon_descriptions_edited">totalAnonDescriptionsEdited</string>
-    <string name="preference_key_missing_description_test">findArticleWithMissingDescription</string>
-    <string name="preference_key_missing_description_test2">findArticleWithMissingSecondLangDescription</string>
-    <string name="preference_category_sync">syncSettings</string>
-    <string name="preference_key_sync_reading_lists">syncReadingLists</string>
-    <string name="preference_key_reading_list_sync_reminder_enabled">readingListSyncReminder</string>
-    <string name="preference_key_reading_list_login_reminder_enabled">readingListLoginReminder</string>
-    <string name="preference_key_reading_lists_remote_setup_pending">readingListsRemoteSetupPending</string>
-    <string name="preference_key_reading_lists_remote_delete_pending">readingListsRemoteDeletePending</string>
-    <string name="preference_key_initial_onboarding_enabled">initialOnboardingEnabled</string>
-    <string name="preference_key_permission_asked">permissionAsked</string>
-    <string name="preference_key_dim_dark_mode_images">dimDarkModeImages</string>
-    <string name="preference_key_notification_customize_push">customizePushNotifications</string>
-    <string name="preference_key_notification_hide_read">hideReadNotifications</string>
-    <string name="preference_key_notification_unread_count">notificationUnreadCount</string>
-    <string name="preference_key_anon_user_has_notification">anonUserHasNotification</string>
-    <string name="preference_key_last_anon_user_with_messages">lastAnonUserWithMessages</string>
-    <string name="preference_key_last_anon_notification_lang">lastAnonNotificationLang</string>
-    <string name="preference_key_last_anon_edit_time">lastAnonEditTime</string>
-    <string name="preference_key_last_anon_notification_time">lastAnonNotificationTime</string>
-    <string name="preference_key_empty_placeholder">emptyPlaceholder</string>
-    <string name="preference_key_prefer_offline_content">preferOfflineContent</string>
-    <string name="preference_key_feed_cards_order">feedCardsOrder</string>
-    <string name="preference_key_feed_cards_enabled">feedCardsEnabled</string>
-    <string name="preference_key_feed_cards_lang_supported">feedCardsLangSupported</string>
-    <string name="preference_key_feed_cards_lang_disabled">feedCardsLangDisabled</string>
-    <string name="preference_key_feed_customize_onboarding_card_enabled">feedCustomizeOnboardingCardEnabled</string>
-    <string name="preference_key_add_articles">addArticles</string>
-    <string name="preference_key_add_reading_lists">addReadingLists</string>
-    <string name="preference_key_delete_reading_lists">deleteReadingLists</string>
-    <string name="preference_key_delete_test_reading_lists">deleteTestReadingLists</string>
-    <string name="preference_key_add_malformed_reading_list_page">addMalformedReadingListPage</string>
-    <string name="preference_key_reading_lists_last_sync_time">readingListsLastSyncTime</string>
-    <string name="preference_key_reading_lists_deleted_ids">readingListsDeletedIds</string>
-    <string name="preference_key_reading_list_pages_deleted_ids">readingListPagesDeletedIds</string>
-    <string name="preference_key_show_reading_lists_sync_prompt">showReadingListsSyncPrompt</string>
-    <string name="preference_key_reading_lists_first_time_sync">readingListsFirstTimeSyncV2</string>
-    <string name="preference_key_about_wikipedia_app">aboutWikipediaApp</string>
-    <string name="preference_key_send_feedback">sendFeedback</string>
-    <string name="preference_key_logout">logOut</string>
-    <string name="preference_key_download_only_over_wifi">downloadOnlyOverWiFi</string>
-    <string name="preference_key_download_reading_list_articles">downloadReadingListArticles</string>
-    <string name="preference_key_remote_notifications_seen_time">remoteNotificationsSeenTime</string>
-    <string name="preference_key_save_count_reading_lists">saveCountReadingLists</string>
-    <string name="preference_key_history_offline_articles_toast">historyOfflineArticlesToast</string>
-    <string name="preference_key_logged_out_in_background">loggedOutInBackground</string>
-    <string name="preference_key_show_description_edit_success_prompt">showDescriptionEditSuccessPrompt</string>
-    <string name="preference_key_visited_article_page">hasVisitedArticlePage</string>
-    <string name="preference_key_match_system_theme">matchSystemTheme</string>
-    <string name="preference_key_image_zoom_tooltip_shown">imageZoomTooltipShown</string>
-    <string name="preference_key_suggested_edits_pause_date">suggestedEditsPauseDate</string>
-    <string name="preference_key_suggested_edits_pause_reverts">suggestedEditsPauseReverts</string>
-    <string name="preference_key_suggested_edits_override_counts">suggestedEditsOverrideCounts</string>
-    <string name="preference_key_suggested_edits_override_edits">suggestedEditsOverrideEdits</string>
-    <string name="preference_key_suggested_edits_override_contribution">suggestedEditsOverrideContribution</string>
-    <string name="preference_key_suggested_edits_override_reverts">suggestedEditsOverrideReverts</string>
-    <string name="preference_key_suggested_edits_reactivation_pass_stage_one">suggestedEditsReactivationPassStageOne</string>
-    <string name="preference_key_suggested_edits_reactivation_test">suggestedEditsReactivationTest</string>
-    <string name="preference_key_image_tags_onboarding_shown">imageTagsOnboardingShown</string>
-    <string name="preference_key_install_referrer_attempts">installReferrerAttempts</string>
-    <string name="preference_key_temporary_wikitext_storage">temporaryWikitextStorage</string>
-    <string name="preference_key_suggested_edits_highest_priority_enabled">SEHighestPriorityEnabled</string>
-    <string name="preference_key_explore_feed_visit_count">exploreFeedVisitCount</string>
-    <string name="preference_key_selected_language_position_in_search">selectedLanguagePositionInSearch</string>
-    <string name="preference_key_show_search_tab_tooltip">showSearchTabTooltip</string>
-    <string name="preference_key_push_notification_token">pushNotificationToken</string>
-    <string name="preference_key_push_notification_token_subscribed">pushNotificationTokenSubscribed</string>
-    <string name="preference_key_push_notification_token_old">pushNotificationTokenOld</string>
-    <string name="preference_key_push_notification_options_set">pushNotificationOptionsSet</string>
-    <string name="preference_key_event_platform_session_id">eventPlatformSessionId</string>
-    <string name="preference_key_event_platform_intake_base_uri">eventPlatformIntakeBaseUri</string>
-    <string name="preference_key_event_platform_intake_base_uri_list">eventPlatformIntakeBaseUriList</string>
-    <string name="preference_key_event_platform_stored_stream_configs">eventPlatformStoredStreamConfigs</string>
-    <string name="preference_key_crash_report_local_class_name">crashReportLocalClassName</string>
-    <string name="preference_key_watchlist_disabled_langs">watchlistDisabledLangs</string>
-    <string name="preference_key_excluded_wiki_codes_notification">filterNotificationExcludedWikiCodes</string>
-    <string name="preference_key_excluded_type_codes_notification">filterNotificationExcludedTypeCodes</string>
-    <string name="preference_key_auto_show_edit_notices">autoShowEditNotices</string>
-    <string name="preference_key_edit_notices_tooltip_shown">editNoticesTooltipShown</string>
-    <string name="preference_key_customize_toolbar_tooltip">showCustomizeToolbarTooltip</string>
-    <string name="preference_key_customize_toolbar_order">customizeToolbarOrder</string>
-    <string name="preference_key_customize_toolbar_menu_order">customizeToolbarMenuOrder</string>
-    <string name="preference_key_show_edit_talk_page_source_prompt">showEditTalkPageSourcePrompt</string>
-    <string name="preference_key_temp_account_welcome_shown">tempAccountWelcomeShown</string>
-    <string name="preference_key_temp_account_dialog_shown">tempAccountDialogShown</string>
-    <string name="preference_key_temp_account_create_day">tempAccountCreateDay</string>
-    <string name="preference_key_talk_topics_sort_mode">talkTopicsSortMode</string>
-    <string name="preference_key_reading_focus_mode">readingFocusMode</string>
-    <string name="preference_key_edit_history_filter_type">editHistoryFilterType</string>
-    <string name="preference_key_talk_topic_expand_all">talkTopicExpandAll</string>
-    <string name="preference_key_user_contrib_filter_ns">userContribFilterNamespaces</string>
-    <string name="preference_key_user_contrib_filter_excluded_ns">userContribFilterNamespaces</string>
-    <string name="preference_key_user_contrib_filter_lang_code">userContribFilterLangCode</string>
-    <string name="preference_key_import_reading_lists_new_install_dialog_shown">importReadingListsNewInstallDialogShown</string>
-    <string name="preference_key_import_reading_lists_dialog_shown">importReadingListsDialogShown</string>
-    <string name="preference_key_receive_reading_lists_data">receiveReadingListsData</string>
-    <string name="preference_key_edit_syntax_highlight">editSyntaxHighlight</string>
-    <string name="preference_key_edit_monospace_font">editMonospaceFont</string>
-    <string name="preference_key_edit_line_numbers">editLineNumbers</string>
-    <string name="preference_key_edit_typing_suggestions">editTypingSuggestions</string>
-    <string name="preference_key_donation_banner_opt_in">donationBannerOptIn</string>
-    <string name="preference_key_reading_lists_share_url_shorten">useUrlShortenerForSharing</string>
-    <string name="preference_key_reading_lists_share_tooltip_shown">readingListShareTooltipShown</string>
-    <string name="preference_key_reading_lists_recent_receive_id">readingListRecentReceiveId</string>
-    <string name="preference_key_se_machine_generated_descriptions_tooltip_shown">seMachineGeneratedDescriptionsTooltipShown</string>
-    <string name="preference_key_se_image_recs_onboarding_shown">seImageRecsOnboardingShown</string>
-    <string name="preference_key_excluded_wiki_codes_watchlist">filterWatchlistExcludedWikiCodes</string>
-    <string name="preference_key_included_type_codes_watchlist">filterWatchlistIncludedTypeCodesV2</string>
-    <string name="preference_key_event_platform_queue_size">eventPlatformQueueSize</string>
-    <string name="preference_key_recent_edits_wiki_code">filterRecentEditsWikiCode</string>
-    <string name="preference_key_recent_edits_included_type_codes">filterRecentEditsIncludedTypeCodes</string>
-    <string name="preference_key_recent_edits_onboarding_shown">recentEditsOnboardingShown</string>
-    <string name="preference_key_show_sequential_recent_edits_diff_tooltip">showSequentialRecentEditsDiffTooltip</string>
-    <string name="preference_key_show_recent_edits_feedback_form">showRecentEditsFeedbackForm</string>
-    <string name="preference_key_places_wiki_code">filterPlacesWikiCode</string>
-    <string name="preference_key_places_last_location_and_zoom_level">placesLastLocationAndZoomLevel</string>
-    <string name="preference_key_recent_used_templates">recentUsedTemplates</string>
-    <string name="preference_key_donation_test_env">donationTestEnv</string>
-    <string name="preference_key_donation_results">donationResults</string>
-    <string name="preference_key_payment_methods_last_query_time">paymentMethodsLastQueryTime</string>
-    <string name="preference_key_payment_methods_merchant_id">paymentMethodsMerchantId</string>
-    <string name="preference_key_payment_methods_gateway_id">paymentMethodsGatewayId</string>
-    <string name="preference_key_otd_game_state">otdGameState</string>
-    <string name="preference_key_otd_game_history">otdGameHistory</string>
-    <string name="preference_key_otd_game_date_override">otdGameDateOverride</string>
-    <string name="preference_key_otd_game_num_questions">otdGameNumQuestions</string>
-    <string name="preference_key_otd_entry_dialog_shown">otdEntryDialogShown</string>
-    <string name="preference_key_otd_notification_state">otdNotificationState</string>
-    <string name="preference_key_otd_game_first_played_shown">otdGameFirstPlayedShown</string>
-    <string name="preference_key_impact_last_query_time">impactLastQueryTime</string>
-    <string name="preference_key_impact_last_response_body">impactLastResponseBody</string>
-    <string name="preference_key_default_places_location_latlng">placesDefaultLocationLatLng</string>
-    <string name="preference_key_delete_local_donation_history">deleteLocalDonationHistory</string>
-    <string name="preference_key_playground_category">categoryPlayground</string>
-    <string name="preference_key_otd_is_archive_game_playing">isArchiveGamePlaying</string>
-    <string name="preference_key_otd_sound_on">isOtdSoundOn</string>
-    <string name="preference_key_year_in_review_is_enabled">isYearInReviewEnabled</string>
-    <string name="preference_key_year_in_review_visited">yearInReviewVisited</string>
-    <string name="preference_key_yir_survey_state">yirSurveyState</string>
-    <string name="preference_key_selected_app_icon">selectedAppIcon</string>
-    <string name="preference_category_recommended_reading_list">recommendedReadingListSettings</string>
-    <string name="preference_key_recommended_reading_list_enabled">recommendedReadingListEnabled</string>
-    <string name="preference_key_recommended_reading_list_articles_number">recommendedReadingListArticlesNumber</string>
-    <string name="preference_key_recommended_reading_list_update_frequency">recommendedReadingListUpdateFrequency</string>
-    <string name="preference_key_recommended_reading_list_interests">recommendedReadingListInterests</string>
-    <string name="preference_key_recommended_reading_list_source">recommendedReadingListSource</string>
-    <string name="preference_key_recommended_reading_list_notification_enabled">recommendedReadingListNotificationEnabled</string>
-    <string name="preference_key_recommended_reading_list_titles_with_offset">recommendedReadingListTitlesWithOffset</string>
-    <string name="preference_key_recommended_reading_list_onboarding_shown">recommendedReadingListOnboardingShown</string>
-    <string name="preference_key_recommended_reading_list_notification_simulator">recommendedReadingListNotificationSimulator</string>
-    <string name="preference_key_recommended_reading_list_new_list_generated">recommendedReadingListNewListGenerated</string>
-    <string name="preference_key_recommended_reading_list_reset">recommendedReadingListReset</string>
-    <string name="preference_key_donation_reminder_config">donationReminderConfig</string>
-    <string name="preference_key_donation_reminders">donationReminder</string>
-    <string name="preference_key_donation_reminders_dev_reset">donationReminderDevReset</string>
-    <string name="preference_key_donation_reminders_dev_reset_seen_date">donationReminderDevResetSeenDate</string>
-    <string name="preference_category_donations">donations</string>
-    <string name="preference_key_activity_tab_modules">activityTabModules</string>
-    <string name="preference_key_activity_tab_onboarding_shown">activityTabOnboardingShown</string>
-    <string name="preference_key_yir_model_data">yirModelData</string>
-    <string name="preference_key_yir_reading_list_visit_count">yirReadingListVisitCount</string>
-    <string name="preference_key_yir_reading_list_survey_shown">yirReadingListSurveyShown</string>
-    <string name="preference_key_explore_feed_survey_shown">exploreFeedSurveyShown</string>
-
+    <string name="preference_key_language" translatable="false">content_language</string>
+    <string name="preference_key_cookie_map" translatable="false">cookie_map</string>
+    <string name="preference_key_remote_config" translatable="false">remote_config</string>
+    <string name="preference_key_reading_app_install_id" translatable="false">readingAppInstallID</string>
+    <string name="preference_key_text_size_multiplier" translatable="false">textSizeMultiplier</string>
+    <string name="preference_key_editing_text_size_multiplier" translatable="false">editingTextSizeMultiplier</string>
+    <string name="preference_key_color_theme" translatable="false">colorTheme</string>
+    <string name="preference_key_previous_color_theme" translatable="false">previousColorTheme</string>
+    <string name="preference_key_font_family" translatable="false">fontFamily</string>
+    <string name="preference_key_app_channel" translatable="false">channel</string>
+    <string name="preference_key_language_mru" translatable="false">languageMru</string>
+    <string name="preference_key_language_app" translatable="false">languageApp</string>
+    <string name="preference_key_show_images" translatable="false">showImages</string>
+    <string name="preference_key_announcement_country_override" translatable="false">announcementCountryOverride</string>
+    <string name="preference_key_announcement_ignore_date" translatable="false">announcementIgnoreDate</string>
+    <string name="preference_key_announcement_version_code" translatable="false">announcementVersionCode</string>
+    <string name="preference_key_announcement_shown_dialogs" translatable="false">announcementShownDialogs</string>
+    <string name="preference_key_announcement_pause_time" translatable="false">announcementPauseTime</string>
+    <string name="preference_key_announcement_debug_url" translatable="false">announcementDebugUrl</string>
+    <string name="preference_key_announcement_custom_tab_test_url" translatable="false">announcementCustomTabTestUrl</string>
+    <string name="preference_key_restbase_uri_format" translatable="false">RESTBaseUriFormat</string>
+    <string name="preference_key_mediawiki_base_uri" translatable="false">mediaWikiBaseUri</string>
+    <string name="preference_key_mediawiki_base_uri_supports_lang_code" translatable="false">mediaWikiBaseUriSupportsLangCode</string>
+    <string name="preference_key_retrofit_log_level" translatable="false">retrofitLog</string>
+    <string name="preference_key_daily_event_time_task_name" translatable="false">dailyEventTask</string>
+    <string name="preference_key_talk_offline_cleanup_task_name" translatable="false">talkOfflineCleanupTask</string>
+    <string name="preference_key_login_groups" translatable="false">groups</string>
+    <string name="preference_key_login_force_email_auth" translatable="false">loginForceEmailAuth</string>
+    <string name="preference_key_last_background_login_date_time" translatable="false">lastBackgroundLoginDateTime</string>
+    <string name="preference_key_show_developer_settings" translatable="false">showDeveloperSettings</string>
+    <string name="preference_key_last_run_time_format" translatable="false">%s-lastrun</string>
+    <string name="preference_key_tabs" translatable="false">tabs</string>
+    <string name="preference_key_customize_home_feed" translatable="false">customizeHomeFeed</string>
+    <string name="preference_key_show_link_previews" translatable="false">showLinkPreviews</string>
+    <string name="preference_key_collapse_tables" translatable="false">collapseTables</string>
+    <string name="preference_key_session_data" translatable="false">session_data</string>
+    <string name="preference_key_session_timeout" translatable="false">session_timeout</string>
+    <string name="preference_key_crashed_before_activity_created" translatable="false">crashedBeforeActivityCreated</string>
+    <string name="preference_key_reading_list_sort_mode" translatable="false">readingListSortMode</string>
+    <string name="preference_key_reading_list_page_sort_mode" translatable="false">readingListPageSortMode</string>
+    <string name="preference_key_page_last_shown" translatable="false">pageLastShown</string>
+    <string name="preference_key_feed_hidden_cards" translatable="false">feedHiddenCards</string>
+    <string name="preference_key_memory_leak_test" translatable="false">memoryLeakTest</string>
+    <string name="preference_key_description_edit_tutorial_enabled" translatable="false">descriptionEditTutorialEnabled</string>
+    <string name="preference_key_last_description_edit_time" translatable="false">lastDescriptionEditTime</string>
+    <string name="preference_key_total_anon_descriptions_edited" translatable="false">totalAnonDescriptionsEdited</string>
+    <string name="preference_key_missing_description_test" translatable="false">findArticleWithMissingDescription</string>
+    <string name="preference_key_missing_description_test2" translatable="false">findArticleWithMissingSecondLangDescription</string>
+    <string name="preference_category_sync" translatable="false">syncSettings</string>
+    <string name="preference_key_sync_reading_lists" translatable="false">syncReadingLists</string>
+    <string name="preference_key_reading_list_sync_reminder_enabled" translatable="false">readingListSyncReminder</string>
+    <string name="preference_key_reading_list_login_reminder_enabled" translatable="false">readingListLoginReminder</string>
+    <string name="preference_key_reading_lists_remote_setup_pending" translatable="false">readingListsRemoteSetupPending</string>
+    <string name="preference_key_reading_lists_remote_delete_pending" translatable="false">readingListsRemoteDeletePending</string>
+    <string name="preference_key_initial_onboarding_enabled" translatable="false">initialOnboardingEnabled</string>
+    <string name="preference_key_permission_asked" translatable="false">permissionAsked</string>
+    <string name="preference_key_dim_dark_mode_images" translatable="false">dimDarkModeImages</string>
+    <string name="preference_key_notification_customize_push" translatable="false">customizePushNotifications</string>
+    <string name="preference_key_notification_hide_read" translatable="false">hideReadNotifications</string>
+    <string name="preference_key_notification_unread_count" translatable="false">notificationUnreadCount</string>
+    <string name="preference_key_anon_user_has_notification" translatable="false">anonUserHasNotification</string>
+    <string name="preference_key_last_anon_user_with_messages" translatable="false">lastAnonUserWithMessages</string>
+    <string name="preference_key_last_anon_notification_lang" translatable="false">lastAnonNotificationLang</string>
+    <string name="preference_key_last_anon_edit_time" translatable="false">lastAnonEditTime</string>
+    <string name="preference_key_last_anon_notification_time" translatable="false">lastAnonNotificationTime</string>
+    <string name="preference_key_empty_placeholder" translatable="false">emptyPlaceholder</string>
+    <string name="preference_key_prefer_offline_content" translatable="false">preferOfflineContent</string>
+    <string name="preference_key_feed_cards_order" translatable="false">feedCardsOrder</string>
+    <string name="preference_key_feed_cards_enabled" translatable="false">feedCardsEnabled</string>
+    <string name="preference_key_feed_cards_lang_supported" translatable="false">feedCardsLangSupported</string>
+    <string name="preference_key_feed_cards_lang_disabled" translatable="false">feedCardsLangDisabled</string>
+    <string name="preference_key_feed_customize_onboarding_card_enabled" translatable="false">feedCustomizeOnboardingCardEnabled</string>
+    <string name="preference_key_add_articles" translatable="false">addArticles</string>
+    <string name="preference_key_add_reading_lists" translatable="false">addReadingLists</string>
+    <string name="preference_key_delete_reading_lists" translatable="false">deleteReadingLists</string>
+    <string name="preference_key_delete_test_reading_lists" translatable="false">deleteTestReadingLists</string>
+    <string name="preference_key_add_malformed_reading_list_page" translatable="false">addMalformedReadingListPage</string>
+    <string name="preference_key_reading_lists_last_sync_time" translatable="false">readingListsLastSyncTime</string>
+    <string name="preference_key_reading_lists_deleted_ids" translatable="false">readingListsDeletedIds</string>
+    <string name="preference_key_reading_list_pages_deleted_ids" translatable="false">readingListPagesDeletedIds</string>
+    <string name="preference_key_show_reading_lists_sync_prompt" translatable="false">showReadingListsSyncPrompt</string>
+    <string name="preference_key_reading_lists_first_time_sync" translatable="false">readingListsFirstTimeSyncV2</string>
+    <string name="preference_key_about_wikipedia_app" translatable="false">aboutWikipediaApp</string>
+    <string name="preference_key_send_feedback" translatable="false">sendFeedback</string>
+    <string name="preference_key_logout" translatable="false">logOut</string>
+    <string name="preference_key_download_only_over_wifi" translatable="false">downloadOnlyOverWiFi</string>
+    <string name="preference_key_download_reading_list_articles" translatable="false">downloadReadingListArticles</string>
+    <string name="preference_key_remote_notifications_seen_time" translatable="false">remoteNotificationsSeenTime</string>
+    <string name="preference_key_save_count_reading_lists" translatable="false">saveCountReadingLists</string>
+    <string name="preference_key_history_offline_articles_toast" translatable="false">historyOfflineArticlesToast</string>
+    <string name="preference_key_logged_out_in_background" translatable="false">loggedOutInBackground</string>
+    <string name="preference_key_show_description_edit_success_prompt" translatable="false">showDescriptionEditSuccessPrompt</string>
+    <string name="preference_key_visited_article_page" translatable="false">hasVisitedArticlePage</string>
+    <string name="preference_key_match_system_theme" translatable="false">matchSystemTheme</string>
+    <string name="preference_key_image_zoom_tooltip_shown" translatable="false">imageZoomTooltipShown</string>
+    <string name="preference_key_suggested_edits_pause_date" translatable="false">suggestedEditsPauseDate</string>
+    <string name="preference_key_suggested_edits_pause_reverts" translatable="false">suggestedEditsPauseReverts</string>
+    <string name="preference_key_suggested_edits_override_counts" translatable="false">suggestedEditsOverrideCounts</string>
+    <string name="preference_key_suggested_edits_override_edits" translatable="false">suggestedEditsOverrideEdits</string>
+    <string name="preference_key_suggested_edits_override_contribution" translatable="false">suggestedEditsOverrideContribution</string>
+    <string name="preference_key_suggested_edits_override_reverts" translatable="false">suggestedEditsOverrideReverts</string>
+    <string name="preference_key_suggested_edits_reactivation_pass_stage_one" translatable="false">suggestedEditsReactivationPassStageOne</string>
+    <string name="preference_key_suggested_edits_reactivation_test" translatable="false">suggestedEditsReactivationTest</string>
+    <string name="preference_key_image_tags_onboarding_shown" translatable="false">imageTagsOnboardingShown</string>
+    <string name="preference_key_install_referrer_attempts" translatable="false">installReferrerAttempts</string>
+    <string name="preference_key_temporary_wikitext_storage" translatable="false">temporaryWikitextStorage</string>
+    <string name="preference_key_suggested_edits_highest_priority_enabled" translatable="false">SEHighestPriorityEnabled</string>
+    <string name="preference_key_explore_feed_visit_count" translatable="false">exploreFeedVisitCount</string>
+    <string name="preference_key_selected_language_position_in_search" translatable="false">selectedLanguagePositionInSearch</string>
+    <string name="preference_key_show_search_tab_tooltip" translatable="false">showSearchTabTooltip</string>
+    <string name="preference_key_push_notification_token" translatable="false">pushNotificationToken</string>
+    <string name="preference_key_push_notification_token_subscribed" translatable="false">pushNotificationTokenSubscribed</string>
+    <string name="preference_key_push_notification_token_old" translatable="false">pushNotificationTokenOld</string>
+    <string name="preference_key_event_platform_session_id" translatable="false">eventPlatformSessionId</string>
+    <string name="preference_key_event_platform_intake_base_uri" translatable="false">eventPlatformIntakeBaseUri</string>
+    <string name="preference_key_event_platform_intake_base_uri_list" translatable="false">eventPlatformIntakeBaseUriList</string>
+    <string name="preference_key_event_platform_stored_stream_configs" translatable="false">eventPlatformStoredStreamConfigs</string>
+    <string name="preference_key_crash_report_local_class_name" translatable="false">crashReportLocalClassName</string>
+    <string name="preference_key_watchlist_disabled_langs" translatable="false">watchlistDisabledLangs</string>
+    <string name="preference_key_excluded_wiki_codes_notification" translatable="false">filterNotificationExcludedWikiCodes</string>
+    <string name="preference_key_excluded_type_codes_notification" translatable="false">filterNotificationExcludedTypeCodes</string>
+    <string name="preference_key_auto_show_edit_notices" translatable="false">autoShowEditNotices</string>
+    <string name="preference_key_edit_notices_tooltip_shown" translatable="false">editNoticesTooltipShown</string>
+    <string name="preference_key_customize_toolbar_tooltip" translatable="false">showCustomizeToolbarTooltip</string>
+    <string name="preference_key_customize_toolbar_order" translatable="false">customizeToolbarOrder</string>
+    <string name="preference_key_customize_toolbar_menu_order" translatable="false">customizeToolbarMenuOrder</string>
+    <string name="preference_key_show_edit_talk_page_source_prompt" translatable="false">showEditTalkPageSourcePrompt</string>
+    <string name="preference_key_temp_account_welcome_shown" translatable="false">tempAccountWelcomeShown</string>
+    <string name="preference_key_temp_account_dialog_shown" translatable="false">tempAccountDialogShown</string>
+    <string name="preference_key_temp_account_create_day" translatable="false">tempAccountCreateDay</string>
+    <string name="preference_key_talk_topics_sort_mode" translatable="false">talkTopicsSortMode</string>
+    <string name="preference_key_reading_focus_mode" translatable="false">readingFocusMode</string>
+    <string name="preference_key_edit_history_filter_type" translatable="false">editHistoryFilterType</string>
+    <string name="preference_key_talk_topic_expand_all" translatable="false">talkTopicExpandAll</string>
+    <string name="preference_key_user_contrib_filter_ns" translatable="false">userContribFilterNamespaces</string>
+    <string name="preference_key_user_contrib_filter_excluded_ns" translatable="false">userContribFilterNamespaces</string>
+    <string name="preference_key_user_contrib_filter_lang_code" translatable="false">userContribFilterLangCode</string>
+    <string name="preference_key_import_reading_lists_new_install_dialog_shown" translatable="false">importReadingListsNewInstallDialogShown</string>
+    <string name="preference_key_import_reading_lists_dialog_shown" translatable="false">importReadingListsDialogShown</string>
+    <string name="preference_key_receive_reading_lists_data" translatable="false">receiveReadingListsData</string>
+    <string name="preference_key_edit_syntax_highlight" translatable="false">editSyntaxHighlight</string>
+    <string name="preference_key_edit_monospace_font" translatable="false">editMonospaceFont</string>
+    <string name="preference_key_edit_line_numbers" translatable="false">editLineNumbers</string>
+    <string name="preference_key_edit_typing_suggestions" translatable="false">editTypingSuggestions</string>
+    <string name="preference_key_donation_banner_opt_in" translatable="false">donationBannerOptIn</string>
+    <string name="preference_key_reading_lists_share_url_shorten" translatable="false">useUrlShortenerForSharing</string>
+    <string name="preference_key_reading_lists_share_tooltip_shown" translatable="false">readingListShareTooltipShown</string>
+    <string name="preference_key_reading_lists_recent_receive_id" translatable="false">readingListRecentReceiveId</string>
+    <string name="preference_key_se_machine_generated_descriptions_tooltip_shown" translatable="false">seMachineGeneratedDescriptionsTooltipShown</string>
+    <string name="preference_key_se_image_recs_onboarding_shown" translatable="false">seImageRecsOnboardingShown</string>
+    <string name="preference_key_excluded_wiki_codes_watchlist" translatable="false">filterWatchlistExcludedWikiCodes</string>
+    <string name="preference_key_included_type_codes_watchlist" translatable="false">filterWatchlistIncludedTypeCodesV2</string>
+    <string name="preference_key_event_platform_queue_size" translatable="false">eventPlatformQueueSize</string>
+    <string name="preference_key_recent_edits_wiki_code" translatable="false">filterRecentEditsWikiCode</string>
+    <string name="preference_key_recent_edits_included_type_codes" translatable="false">filterRecentEditsIncludedTypeCodes</string>
+    <string name="preference_key_recent_edits_onboarding_shown" translatable="false">recentEditsOnboardingShown</string>
+    <string name="preference_key_show_sequential_recent_edits_diff_tooltip" translatable="false">showSequentialRecentEditsDiffTooltip</string>
+    <string name="preference_key_show_recent_edits_feedback_form" translatable="false">showRecentEditsFeedbackForm</string>
+    <string name="preference_key_places_wiki_code" translatable="false">filterPlacesWikiCode</string>
+    <string name="preference_key_places_last_location_and_zoom_level" translatable="false">placesLastLocationAndZoomLevel</string>
+    <string name="preference_key_recent_used_templates" translatable="false">recentUsedTemplates</string>
+    <string name="preference_key_donation_test_env" translatable="false">donationTestEnv</string>
+    <string name="preference_key_donation_results" translatable="false">donationResults</string>
+    <string name="preference_key_payment_methods_last_query_time" translatable="false">paymentMethodsLastQueryTime</string>
+    <string name="preference_key_payment_methods_merchant_id" translatable="false">paymentMethodsMerchantId</string>
+    <string name="preference_key_payment_methods_gateway_id" translatable="false">paymentMethodsGatewayId</string>
+    <string name="preference_key_otd_game_state" translatable="false">otdGameState</string>
+    <string name="preference_key_otd_game_history" translatable="false">otdGameHistory</string>
+    <string name="preference_key_otd_last_played_date" translatable="false">otdLastPlayedDate</string>
+    <string name="preference_key_otd_game_date_override" translatable="false">otdGameDateOverride</string>
+    <string name="preference_key_otd_game_num_questions" translatable="false">otdGameNumQuestions</string>
+    <string name="preference_key_otd_entry_dialog_shown" translatable="false">otdEntryDialogShown</string>
+    <string name="preference_key_otd_notification_state" translatable="false">otdNotificationState</string>
+    <string name="preference_key_otd_game_first_played_shown" translatable="false">otdGameFirstPlayedShown</string>
+    <string name="preference_key_impact_last_query_time" translatable="false">impactLastQueryTime</string>
+    <string name="preference_key_impact_last_response_body" translatable="false">impactLastResponseBody</string>
+    <string name="preference_key_default_places_location_latlng" translatable="false">placesDefaultLocationLatLng</string>
+    <string name="preference_key_delete_local_donation_history" translatable="false">deleteLocalDonationHistory</string>
+    <string name="preference_key_playground_category" translatable="false">categoryPlayground</string>
+    <string name="preference_key_otd_is_archive_game_playing" translatable="false">isArchiveGamePlaying</string>
+    <string name="preference_key_otd_sound_on" translatable="false">isOtdSoundOn</string>
+    <string name="preference_key_year_in_review_is_enabled" translatable="false">isYearInReviewEnabled</string>
+    <string name="preference_key_year_in_review_visited" translatable="false">yearInReviewVisited</string>
+    <string name="preference_key_yir_survey_state" translatable="false">yirSurveyState</string>
+    <string name="preference_key_selected_app_icon" translatable="false">selectedAppIcon</string>
+    <string name="preference_category_recommended_reading_list" translatable="false">recommendedReadingListSettings</string>
+    <string name="preference_key_recommended_reading_list_enabled" translatable="false">recommendedReadingListEnabled</string>
+    <string name="preference_key_recommended_reading_list_articles_number" translatable="false">recommendedReadingListArticlesNumber</string>
+    <string name="preference_key_recommended_reading_list_update_frequency" translatable="false">recommendedReadingListUpdateFrequency</string>
+    <string name="preference_key_recommended_reading_list_interests" translatable="false">recommendedReadingListInterests</string>
+    <string name="preference_key_recommended_reading_list_source" translatable="false">recommendedReadingListSource</string>
+    <string name="preference_key_recommended_reading_list_notification_enabled" translatable="false">recommendedReadingListNotificationEnabled</string>
+    <string name="preference_key_recommended_reading_list_titles_with_offset" translatable="false">recommendedReadingListTitlesWithOffset</string>
+    <string name="preference_key_recommended_reading_list_onboarding_shown" translatable="false">recommendedReadingListOnboardingShown</string>
+    <string name="preference_key_recommended_reading_list_notification_simulator" translatable="false">recommendedReadingListNotificationSimulator</string>
+    <string name="preference_key_recommended_reading_list_new_list_generated" translatable="false">recommendedReadingListNewListGenerated</string>
+    <string name="preference_key_recommended_reading_list_reset" translatable="false">recommendedReadingListReset</string>
+    <string name="preference_key_donation_reminder_config" translatable="false">donationReminderConfig</string>
+    <string name="preference_key_donation_reminders" translatable="false">donationReminder</string>
+    <string name="preference_key_donation_reminders_dev_reset" translatable="false">donationReminderDevReset</string>
+    <string name="preference_key_donation_reminders_dev_reset_seen_date" translatable="false">donationReminderDevResetSeenDate</string>
+    <string name="preference_category_donations" translatable="false">donations</string>
+    <string name="preference_key_activity_tab_modules" translatable="false">activityTabModules</string>
+    <string name="preference_key_activity_tab_onboarding_shown" translatable="false">activityTabOnboardingShown</string>
+    <string name="preference_key_yir_model_data" translatable="false">yirModelData</string>
+    <string name="preference_key_hybrid_search_onboarding_shown" translatable="false">hybridSearchOnboardingShown</string>
+    <string name="preference_key_hybrid_search_enabled" translatable="false">hybridSearchEnabled</string>
+    <string name="preference_key_game_stats_snackbar_shown" translatable="false">gameStatsSnackbarShown</string>
+    <string name="preference_key_reading_challenge_streak" translatable="false">readingChallengeStreak</string>
+    <string name="preference_key_reading_challenge_enrolled" translatable="false">readingChallengeEnrolled</string>
+    <string name="preference_key_reading_challenge_last_read_date" translatable="false">readingChallengeLastReadDate</string>
+    <string name="preference_key_reading_challenge_widgets" translatable="false">readingChallengeWidgets</string>
+    <string name="preference_key_reading_challenge_onboarding_shown" translatable="false">readingChallengeOnboardingShown</string>
+    <string name="preference_key_reading_challenge_install_prompt_shown" translatable="false">readingChallengeInstallPromptShown</string>
+    <string name="preference_key_reading_challenge_enrollment_date" translatable="false">readingChallengeEnrollmentDate</string>
+    <string name="preference_key_reading_challenge_start_date" translatable="false">readingChallengeStartDate</string>
+    <string name="preference_key_reading_challenge_end_date" translatable="false">readingChallengeEndDate</string>
+    <string name="preference_key_reading_challenge_widget_fast_cycle" translatable="false">readingChallengeWidgetFastCycle</string>
+    <string name="preference_key_explore_feed_update_prompt_shown" translatable="false">exploreFeedUpdatePromptShown</string>
+    <string name="preference_key_home_language_code" translatable="false">homeLanguageCode</string>
+    <string name="preference_key_home_preference_selection" translatable="false">exploreFeedPreferenceSelection</string>
+    <string name="preference_key_home_for_you_modules_today" translatable="false">homeForYouModulesToday</string>
+    <string name="preference_key_home_swipe_to_explore_prompt_shown" translatable="false">homeSwipeToExplorePromptShown</string>
+    <string name="preference_key_home_feed_update_tooltip_shown" translatable="false">homeFeedUpdateTooltipShown</string>
+    <string name="preference_key_search_widget_install_prompt_shown" translatable="false">searchWidgetInstallPromptShown</string>
+    <string name="preference_key_randomizer_shake_prompt_shown" translatable="false">randomizerShakePromptShown</string>
+    <string name="preference_key_home_feed_survey_shown" translatable="false">homeFeedSurveyShown</string>
 </resources>

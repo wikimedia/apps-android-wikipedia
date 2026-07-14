@@ -46,7 +46,7 @@
   <string name="dialog_message_clear_history_no">ვარი</string>
   <string name="share_via">გობჟინაფაშ საშუალება</string>
   <string name="image_share_via">გობჟინაფა</string>
-  <string name="search_redirect_from">გინოწურაფილი რე %s-შე</string>
+  <string name="search_redirect_from">გინოწურაფილ რე %s-შე</string>
   <string name="menu_page_show_tabs">აშნარაგადეფიშ ძირაფა</string>
   <string name="menu_page_other_languages">ნინაშ თირუა</string>
   <string name="menu_page_find_in_page">სტატიას გორუა</string>

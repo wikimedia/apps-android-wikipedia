@@ -12,6 +12,7 @@
 * Guycn2
 * IKhitron
 * Inkbug
+* Ladypine
 * Matanya
 * MuratTheTurkish
 * Neriah
@@ -269,6 +270,7 @@
   <string name="about_description">אודות יישום ויקיפדיה</string>
   <string name="privacy_policy_description">מדיניות פרטיות</string>
   <string name="terms_of_use_description">תנאי שימוש</string>
+  <string name="legal_safety_contacts_description">פרטי קשר לענייני משפט ובטיחות</string>
   <string name="about_wikipedia_url">https://he.wikipedia.org/wiki/WP:ABOUT</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use/he</string>
@@ -592,10 +594,10 @@
     <item quantity="other">%d ערכים הוסרו מהרשימה</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">ערך אחד הוסר מהרשימה %s</item>
-    <item quantity="two">שני ערכים הוסרו מהרשימה %s</item>
-    <item quantity="many">%d ערכים הוסרו מהרשימה %s</item>
-    <item quantity="other">%d ערכים הוסרו מהרשימה %s</item>
+    <item quantity="one">ערך אחד הוסר מהרשימה %2$s</item>
+    <item quantity="two">שני ערכים הוסרו מהרשימה %2$s</item>
+    <item quantity="many">%1$d ערכים הוסרו מהרשימה %2$s</item>
+    <item quantity="other">%1$d ערכים הוסרו מהרשימה %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">נמחקה רשימה אחת</item>
@@ -922,11 +924,11 @@
   <string name="feed_item_type_randomizer">יצירת ערכים אקראיים לקריאה</string>
   <string name="feed_item_type_suggested_edits">הצעות להוספת תוכן לוויקיפדיה</string>
   <string name="feed_item_type_places">ערכים על מקומות בסביבה, לפי המיקום הנוכחי</string>
-  <string name="feed_empty_message">אין שום דבר בהזנת ה\"לחקור\" שלך</string>
+  <string name="feed_empty_message" fuzzy="true">אין שום דבר בהזנת ה\"לחקור\" שלך</string>
   <string name="feed_configure_onboarding_action">התאמה אישית</string>
   <string name="customize_lang_selection_dialog_ok_button_text">אישור</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">ביטול</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;תעשו התאמה אישית של ההזנה שלכם&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;אתם יכולים לבחור מה להציג בהזנה שלכם ולתעדף את סוגי התוכן שאתם אוהבים.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;תעשו התאמה אישית של ההזנה שלכם&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;אתם יכולים לבחור מה להציג בהזנה שלכם ולתעדף את סוגי התוכן שאתם אוהבים.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">אישור</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">ביטול</string>
   <string name="feed_accessibility_card_text">הגעת לסוף ההזנה.</string>
@@ -1062,7 +1064,7 @@
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">דף הקובץ בוויקישיתוף</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">דף קובץ בוויקיפדיה</string>
   <string name="suggested_edits_article_cta_image_tags">הוספת תגי תמונה</string>
-  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">הוספת כיתוב לתמונה</string>
+  <string name="suggested_edits_article_cta_image_caption">הוספת כיתוב לתמונה</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">הוספת כיתוב לתמונה (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">הצגה</string>
   <string name="suggested_edits_feed_card_add_image_caption">הוספת כיתוב תמונה</string>
@@ -1335,6 +1337,7 @@
   <string name="activity_tab_onboarding_stay_in_control_message">כאן אפשר לבחור אילו מודולים להציג. כל הנתונים האישיים נשארים פרטיים במכשיר שלך ואפשר לנקות את היסטוריית הגלישה בכל זמן.</string>
   <string name="edits_screen_what_is_title">עריכה ביישום ויקיפדיה</string>
   <string name="edits_screen_what_is_body">לא ברור לך איפה להתחיל עם עריכה? מומלץ לנסות את \"עריכות מוצעות\", תכונה שיוצרת הזדמנויות לעשות תרומות קטנות, אבל חיוניות לוויקיפדיה. לחלופין, אפשר לעבור ישר לערך שמעניין אותך ולעשות שם שינוי בקוד ויקי.</string>
+  <string name="activity_tab_snackbar_label">סטטיסטיקת המשחק מופיעות לשפה העיקרית שלך.</string>
   <string name="file_page_activity_title">דף קובץ</string>
   <string name="file_page_add_image_caption_button">הוספת כיתוב תמונה</string>
   <string name="file_page_add_image_tags_button">הוספת תגי תמונה</string>
@@ -1354,16 +1357,17 @@
   <string name="onboarding_get_started">להתחיל</string>
   <string name="onboarding_maybe_later">אולי מאוחר יותר</string>
   <string name="onboarding_explore_title">דרכים חדשות לחקור</string>
-  <string name="onboarding_explore_text">תצללו לוויקיפדיה עם ההזנה המתעדכנת שלנו: \"לחקור\". &lt;br/&gt; תתאימו את ההזנה למה שמעניין אתכם – תלמדו על מה שקרה &lt;b&gt;היום בהיסטוריה&lt;/b&gt;, או תפתחו משהו &lt;b&gt;אקראי&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text" fuzzy="true">תצללו לוויקיפדיה עם ההזנה המתעדכנת שלנו: \"לחקור\". &lt;br/&gt; תתאימו את ההזנה למה שמעניין אתכם – תלמדו על מה שקרה &lt;b&gt;היום בהיסטוריה&lt;/b&gt;, או תפתחו משהו &lt;b&gt;אקראי&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">רשימת קריאה עם סנכרון</string>
   <string name="onboarding_reading_list_sync_text_v2">אפשר ליצור רשימות קריאה מערכים שברצונך לקרוא מאוחר יותר, גם ללא חיבור לרשת. &lt;br/&gt;יש להיכנס לחשבון הוויקיפדיה שלך כדי לסנכרן את רשימות הקריאה שלך &lt;a href=\"#login\"&gt;הצטרפות לוויקיפדיה&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">נתונים ופרטיות</string>
-  <string name="onboarding_data_privacy_text">אנו מאמינים בכך שלא צריך לחייב אותך לספק מידע אישי כדי להשתתף בתנועת הידע החופשי. נתוני השימוש שנאספו עבור היישום הזה הם אלמוניים. אפשר לקבל מידע נוסף על &lt;a href=\"#privacy\"&gt;מדיניות הפרטיות&lt;/a&gt; ועל &lt;a href=\"#termsOfUse\"&gt;תנאי השימוש&lt;/a&gt; שלנו.</string>
+  <string name="onboarding_data_privacy_text" fuzzy="true">אנו מאמינים בכך שלא צריך לחייב אותך לספק מידע אישי כדי להשתתף בתנועת הידע החופשי. נתוני השימוש שנאספו עבור היישום הזה הם אלמוניים. אפשר לקבל מידע נוסף על &lt;a href=\"#privacy\"&gt;מדיניות הפרטיות&lt;/a&gt; ועל &lt;a href=\"#termsOfUse\"&gt;תנאי השימוש&lt;/a&gt; שלנו.</string>
   <string name="onboarding_analytics_switch_title">שליחת נתוני שימוש</string>
   <string name="onboarding_got_it">הבנתי</string>
   <string name="onboarding_multilingual_secondary_text">מצאנו את השפות הבאות במכשיר שלך:</string>
   <string name="onboarding_multilingual_add_language_text">הוספה או עריכה של השפות</string>
   <string name="onboarding_welcome_title_v2">האנציקלופדיה החופשית\n…ביותר מ־300 שפות</string>
+  <string name="onboarding_next">הבא</string>
   <string name="app_shortcuts_random">אקראי</string>
   <string name="app_shortcuts_continue_reading">המשך קריאה</string>
   <string name="app_shortcuts_search">חיפוש</string>
@@ -1397,7 +1401,7 @@
     <item quantity="many">להסיר את השפות שנבחרו?</item>
     <item quantity="other">להסיר את השפות שנבחרו?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">בהזנת הגילוי וכן במסנני החיפוש המהירים, יוצג רק תוכן בשפות הוויקיפדיה שמופיעות ברשימה.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">בהזנת הגילוי וכן במסנני החיפוש המהירים, יוצג רק תוכן בשפות הוויקיפדיה שמופיעות ברשימה.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">לא ניתן להסיר את כל השפות</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">יש להשאיר לפחות שפת ויקיפדיה אחת שבה ברצונך לחפש ולקרוא תוכן.</string>
   <string name="more_language_options">עוד</string>
@@ -1902,10 +1906,15 @@
   <string name="survey_dialog_general_maybe">אולי</string>
   <string name="survey_dialog_input_hint">משוב נוסף</string>
   <string name="survey_dialog_submitted_snackbar">המשוב נשלח. תודה רבה!</string>
+  <string name="games_hub_activity_title">משחקים</string>
+  <string name="games_hub_activity_games_unavailable_message">אין משחקים זמינים בשפה הזאת עדיין! משחקים משתמשים בתוכן שנוצר על־ידי עורכים מתנדבים עבור ויקיפדיה של כל שפה ושפה.</string>
+  <string name="games_hub_activity_games_unavailable_message_learn_more_action">מידע נוסף</string>
+  <string name="games_hub_activity_overflow_view_game_stats">הצגת סטטיסטיקת משחק</string>
+  <string name="games_hub_activity_overflow_learn_more">מידע נוסף</string>
   <string name="on_this_day_game_entry_dialog_title">גאים להציג</string>
   <string name="on_this_day_game_entry_dialog_subtitle">משחקי ויקיפדיה</string>
-  <string name="on_this_day_game_entry_dialog_button">לשחק במשחק של היום</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">משחקי ויקיפדיה זמינים בהזנת \"לחקור\".</string>
+  <string name="on_this_day_game_entry_dialog_button">לשחק</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message">משחקי ויקיפדיה זמינים במרכז המשחקים שמופיע בתפריט „עוד”.</string>
   <string name="on_this_day_game_title">מה היה קודם?</string>
   <string name="on_this_day_game_dialog_button">לשחק</string>
   <string name="on_this_day_game_splash_message">לנחש איזה אירוע היה ראשון ביום הזה בהיסטוריה.</string>
@@ -1917,14 +1926,9 @@
   <string name="on_this_day_game_point">הרווחת נקודה</string>
   <string name="on_this_day_game_next">השאלה הבאה</string>
   <string name="on_this_day_game_finish">תוצאה סופית</string>
-  <string name="on_this_day_game_share_button">שיתוף</string>
-  <string name="on_this_day_game_pause_title">להשהות את המשחק?</string>
-  <string name="on_this_day_game_pause_body">ההתקדמות שלך תישמר למשך היום. אפשר למצוא את המשחק בהזנת ה\"לחקור\" שלך.</string>
-  <string name="on_this_day_game_pause_negative">להמשיך לשחק</string>
-  <string name="on_this_day_game_pause_positive">הבנתי</string>
+  <string name="on_this_day_game_share_button">שיתוף ניקוד</string>
   <string name="on_this_day_game_feed_entry_card_heading">משחקי ויקיפדיה</string>
   <string name="on_this_day_game_feed_entry_card_title">מה היה קודם?</string>
-  <string name="on_this_day_game_feed_entry_card_subtitle">לנחש איזה אירוע היה ראשון ביום הזה בהיסטוריה.</string>
   <string name="on_this_day_game_result">קיבלת %1$d/%2$d.</string>
   <string name="on_this_day_game_next_in">המשחק הבא בעוד %s</string>
   <string name="on_this_day_game_your_stats">הסטטיסטיקה שלך</string>
@@ -1932,7 +1936,7 @@
   <string name="on_this_day_game_stats_average_score">תוצאה ממוצעת</string>
   <string name="on_this_day_game_stats_streak">רצף נוכחי</string>
   <string name="on_this_day_game_result_subtitle">ערכים שהוזכרו במשחק של היום</string>
-  <string name="on_this_day_game_completed_message">תודה ששיחקתם. משחק חדש של \"מה היה קודם?\" זמין מדי יום בהזנת \"לחקור\".</string>
+  <string name="on_this_day_game_completed_message" fuzzy="true">תודה ששיחקתם. משחק חדש של \"מה היה קודם?\" זמין מדי יום בהזנת \"לחקור\".</string>
   <string name="on_this_day_game_menu_notifications">התראות משחק</string>
   <string name="on_this_day_game_menu_info">מידע נוסף</string>
   <string name="on_this_day_game_menu_feedback">בעיה עם תכונה</string>
@@ -1964,9 +1968,18 @@
   <string name="on_this_day_game_archive_btn_text">לשחק בארכיון</string>
   <string name="on_this_day_game_review_results_btn_text">סקירת תוצאות</string>
   <string name="on_this_day_game_score_message">קיבלת %1$d/%2$d במשחק של היום.</string>
+  <string name="on_this_day_game_play_today_btn_text">לשחק במשחק היומי</string>
   <string name="on_this_day_game_continue_playing_btn_text">להמשיך לשחק</string>
   <string name="on_this_day_game_sound_on">להפעיל צליל</string>
   <string name="on_this_day_game_sound_off">להשתיק צליל</string>
+  <string name="on_this_day_game_more_label">עוד</string>
+  <string name="on_this_day_game_card_progress_label">זאת שאלה מס׳ %d. יש להמשיך לנחש איזה אירוע הוא המוקדם יותר ביום הזה בהיסטוריה.</string>
+  <string name="on_this_day_game_card_progress_short_label">זאת שאלה מס׳ %d.</string>
+  <string name="on_this_day_game_card_archive_label">ארכיון</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_button">כניסה</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_title">יש להיכנס כדי לצפות בסטטיסטיקת המשחקים שלך</string>
+  <string name="wikipedia_games_title">משחקי ויקיפדיה</string>
+  <string name="wikipedia_games_subtitle">משחקי טריוויה יומיים המבוססים על תוכן מוויקיפדיה.</string>
   <string name="year_in_review_learn_more">מידע נוסף</string>
   <string name="year_in_review_get_started">להתחיל</string>
   <string name="year_in_review_topbar_w_icon">סמל W של ויקיפדיה</string>
@@ -2013,7 +2026,9 @@
   <string name="year_in_review_slide_app_icon_editor">העריכות</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">התרומות והעריכות</string>
   <string name="year_in_review_slide_geo_headline">המדינה שהערכים שקראת הכי קרובים אליה היא %s</string>
+  <string name="year_in_review_slide_geo_body">המדינה שהכי קרובה לכמות הגדולה ביותר של ערכים שקראת היא כפי הנראה: %1$s, לפי ערכים כמו &lt;b&gt;%2$s&lt;/b&gt; וגם &lt;b&gt;%3$s&lt;/b&gt;.</string>
   <string name="year_in_review_login_dialog_title">להיכנס לחשבון בשביל התאמה אישית?</string>
+  <string name="year_in_review_login_dialog_body">כניסה למערכת מאפשר לך לגשת לתובנות שתואמות לך אישית. אפשר עדיין לצפות בתובנות כוללניות מבלי להיכנס.</string>
   <string name="year_in_review_login_dialog_positive">כניסה לחשבון / הצטרפות לוויקיפדיה</string>
   <string name="year_in_review_login_dialog_negative">להמשיך בלי להיכנס לחשבון</string>
   <plurals name="year_in_review_slide_top_articles_headline">
@@ -2030,7 +2045,19 @@
   </plurals>
   <string name="year_in_review_slide_top_categories_headline">הקטגוריות המעניינות ביותר שלך</string>
   <string name="year_in_review_slide_most_read_english_articles_headline">הערכים הנקראים ביותר בוויקיפדיה האנגלית</string>
+  <plurals name="year_in_review_slide_edited_times_headline">
+    <item quantity="one">ערכת פעם אחת</item>
+    <item quantity="two">ערכת פעמיים</item>
+    <item quantity="many">ערכת %s פעמים</item>
+    <item quantity="other">ערכת %s פעמים</item>
+  </plurals>
   <string name="year_in_review_slide_app_edited_times_body">הלב והנשמה של ויקיפדיה הם הקהילה העולמית שלנו של תורמים מתנדבים, תורמי כסף ומיליארדי קוראים כמוך – כולם מאוחדים כדי לחלוק גישה בלתי־מוגבלת למידע אמין.</string>
+  <plurals name="year_in_review_slide_english_edited_times_headline">
+    <item quantity="one">עורכים ביצעו שינוי אחד השנה</item>
+    <item quantity="two">עורכים ביצעו שני שינויים השנה</item>
+    <item quantity="many">עורכים ביצעו %,d שינויים השנה</item>
+    <item quantity="other">עורכים ביצעו %,d שינויים השנה</item>
+  </plurals>
   <string name="year_in_review_slide_global_saved_articles_body">הוספת ערכים לרשימות קריאה מאפשרת לך גישה לערכים גם לא חיבור לרשת. ניתן גם להתחבר כדי לסנכרן רשימות קריאה בין מכשירים.</string>
   <string name="year_in_review_slide_reading_patterns_headline">יש לך דפוסי קריאה ברורים</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">הזמן האהוב לקריאה</string>
@@ -2052,7 +2079,19 @@
   <string name="year_in_review_highlights_looking_forward_message">אנחנו מצפים לשנה הבאה!</string>
   <string name="year_in_review_highlights_logged_out_non_en_wikipedia_edited_title">כל כמה זמן ויקיפדיה נערכה</string>
   <string name="year_in_review_highlights_logged_in_favorite_day_title">היום האהוב לקריאה</string>
+  <plurals name="year_in_review_highlights_logged_in_articles_interested_categories_title">
+    <item quantity="one">קטגוריה שעניינה אותי</item>
+    <item quantity="two">קטגוריות שעניינו אותי</item>
+    <item quantity="many">קטגוריות שעניינו אותי</item>
+    <item quantity="other">קטגוריות שעניינו אותי</item>
+  </plurals>
+  <string name="year_in_review_highlights_share_button_title">שיתוף רגעי שיא</string>
   <string name="year_in_review_highlights_logo_description">סמל ויקיפדיה</string>
+  <string name="recommended_reading_list_onboarding_card_new">חדש!</string>
+  <string name="recommended_reading_list_onboarding_card_negative_button">לא, תודה</string>
+  <string name="recommended_reading_list_interest_source_interests">תנו לי לבחור לפי תחומי העניין שלי</string>
+  <string name="recommended_reading_list_interest_source_saved">לבחור בשבילי לפי הערכים ששמרתי</string>
+  <string name="recommended_reading_list_interest_source_history">לבחור בשבילי לפי היסטוריית הקריאה שלי</string>
   <string name="recommended_reading_list_interest_pick_title">מה מעניין אותך?</string>
   <string name="recommended_reading_list_interest_pick_search_hint">חיפוש אחר ערך</string>
   <string name="recommended_reading_list_interest_select_minimum">נא לבחור לפחות תחום עניין אחד</string>
@@ -2082,8 +2121,14 @@
   <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">מדי יום</string>
   <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">מדי שבוע</string>
   <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">מדי חודש</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_interests">לפי תחומי העניין שלך</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_saved">לפי הערכים ששמרת</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_history">לפני היסטוריית הקריאה שלך</string>
   <string name="recommended_reading_list_settings_updates_base_dialog_positive_button">כוונון</string>
   <string name="recommended_reading_list_settings_updates_base_dialog_negative_button">לא משנה</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_interests">ההמלצות שלך מבוססות מעתה על תחומי העניין שלך.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_saved">ההמלצות שלך מבוססות מעתה על הערכים ששמרת.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_history">ההמלצות שלך מבוססות מעתה על היסטוריית הקריאה שלך.</string>
   <string name="recommended_reading_list_settings_updates_base_snackbar_action">ביטול</string>
   <string name="recommended_reading_list_settings_interests">תחומי עניין</string>
   <string name="recommended_reading_list_settings_notifications_title">התראות</string>
@@ -2103,10 +2148,41 @@
   <string name="donation_reminders_settings_option_custom">מותאם...</string>
   <string name="donation_reminders_prompt_positive_button">לתרום עכשיו</string>
   <string name="donation_reminders_prompt_negative_button">לא עכשיו</string>
+  <string name="donation_reminders_gpay_text">לתרום %s עם Google Pay</string>
+  <string name="donation_reminders_gpay_different_amount_text">לתרום סכום אחר עם Google Pay</string>
+  <string name="donation_reminders_settings_description_off">תזכורות תרומה כבויות.</string>
+  <string name="donation_reminders_settings_tooltip_info_label">מספר הערכים מאוחסן מקומית במכשיר שלך</string>
+  <plurals name="donation_reminders_text_articles">
+    <item quantity="one">ערך</item>
+    <item quantity="two">שני ערכים</item>
+    <item quantity="many">%d ערכים</item>
+    <item quantity="other">%d ערכים</item>
+  </plurals>
   <string name="donation_reminders_settings_no_thanks_btn_label">לא, תודה</string>
   <string name="donation_reminders_experiment_label">ניסוי</string>
   <string name="donation_reminders_settings_learn_more_button">מידע נוסף</string>
+  <string name="donation_reminders_settings_report_button">בעיה עם תכונה</string>
   <string name="donation_reminders_snackbar_modify_button_label">שינוי</string>
-  <string name="explore_feed_survey_dialog_positive_button_label">מילוי סקר</string>
-  <string name="explore_feed_survey_dialog_negative_button_label">לא, תודה</string>
+  <string name="hybrid_search_search_hint">לחפש או לשאול משהו</string>
+  <string name="hybrid_search_article_search_hint">לשאול לגבי %s</string>
+  <string name="hybrid_search_suggestion_title">חיפוש אחר:</string>
+  <string name="hybrid_search_onboarding_learn_more">מידע נוסף</string>
+  <string name="hybrid_search_onboarding_search_title">לשאול שאלות, לקבל תשובות</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_description">זמין לזמן מוגבל במהלך הניסוי הזה.</string>
+  <string name="hybrid_search_beta_tag">בטא</string>
+  <string name="hybrid_search_experimental_feature_switch_label">הצטרפות לניסוי</string>
+  <string name="hybrid_search_onboarding_search_example_title">זקוק להשראה?</string>
+  <string name="hybrid_search_onboarding_search_example_description">אפשר להשתמש באחת מדוגמאות החיפוש שלהלן.</string>
+  <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">RNA מול DNA</string>
+  <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">למה אנשים שמים אננס על פיצה?</string>
+  <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">מה הן הערים הגדולות ביותר באירופה?</string>
+  <string name="hybrid_search_onboarding_screen_title">דרך חדשה לחפש</string>
+  <string name="hybrid_search_results_rate_label">דירוג התוצאה הזאת</string>
+  <string name="hybrid_search_no_results_header">אין תוצאות</string>
+  <string name="hybrid_search_turn_off_experiment_label">כיבוי הניסוי הזה</string>
+  <string name="home_feed_settings_games_title">משחקים</string>
+  <string name="home_feed_settings_games_subtitle">משחקים יומיים המבוססים על תוכן ויקיפדיה</string>
+  <string name="home_feed_games_module_cta_prompt_title">רוצה לשחק משחקים נוספים?</string>
+  <string name="home_feed_games_module_cta_prompt_subtitle">מעבר למרכז המשחקים</string>
+  <string name="home_feed_games_module_cta_prompt_button_text">מרכז המשחקים</string>
 </resources>

@@ -1,267 +1,277 @@
 package org.wikipedia.search
 
-import android.location.Location
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isVisible
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.ComposeView
+import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.paging.LoadState
-import androidx.recyclerview.widget.ConcatAdapter
-import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
-import org.wikipedia.LongPressHandler
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil.getCallback
-import org.wikipedia.adapter.PagingDataAdapterPatched
-import org.wikipedia.analytics.eventplatform.PlacesEvent
-import org.wikipedia.databinding.FragmentSearchResultsBinding
-import org.wikipedia.databinding.ItemSearchNoResultsBinding
-import org.wikipedia.databinding.ItemSearchResultBinding
-import org.wikipedia.extensions.setLayoutDirectionByLang
+import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
+import org.wikipedia.compose.theme.BaseTheme
+import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.extensions.instrument
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.LongPressMenu
-import org.wikipedia.readinglist.database.ReadingListPage
-import org.wikipedia.util.ResourceUtil.getThemedColorStateList
+import org.wikipedia.settings.Prefs
+import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
-import org.wikipedia.views.DefaultViewHolder
-import org.wikipedia.views.ViewUtil
+import org.wikipedia.util.UiState
+import org.wikipedia.util.UriUtil
 
 class SearchResultsFragment : Fragment() {
-    interface Callback {
-        fun onSearchAddPageToList(entry: HistoryEntry, addToDefault: Boolean)
-        fun onSearchMovePageToList(sourceReadingListId: Long, entry: HistoryEntry)
-        fun onSearchProgressBar(enabled: Boolean)
-        fun navigateToTitle(item: PageTitle, inNewTab: Boolean, position: Int, location: Location? = null)
-        fun setSearchText(text: CharSequence)
-    }
 
-    private var _binding: FragmentSearchResultsBinding? = null
-    private val binding get() = _binding!!
+    private var composeView: ComposeView? = null
     private val viewModel: SearchResultsViewModel by viewModels()
-    private val searchResultsAdapter = SearchResultsAdapter()
-    private val noSearchResultAdapter = NoSearchResultAdapter()
-    private val searchResultsConcatAdapter = ConcatAdapter(searchResultsAdapter)
+    var showHybridSearch by mutableStateOf(false)
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        _binding = FragmentSearchResultsBinding.inflate(inflater, container, false)
-        binding.searchResultsList.layoutManager = LinearLayoutManager(requireActivity())
-        binding.searchResultsList.adapter = searchResultsConcatAdapter
-        binding.searchErrorView.backClickListener = View.OnClickListener { requireActivity().finish() }
-        binding.searchErrorView.retryClickListener = View.OnClickListener {
-            binding.searchErrorView.visibility = View.GONE
-            startSearch(viewModel.searchTerm, true)
-        }
+    val isShowing get() = composeView?.visibility == View.VISIBLE
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
 
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
-                launch {
-                    viewModel.searchResultsFlow.collectLatest {
-                        binding.searchResultsList.isVisible = true
-                        binding.searchErrorView.isVisible = false
-                        searchResultsAdapter.submitData(lifecycleScope, it)
+                viewModel.searchTermForLogging.collectLatest { query ->
+                    if (!query.isNullOrEmpty()) {
+                        requireActivity().instrument?.submitInteraction(
+                            "search_init", actionContext = mapOf("query" to query)
+                        )
                     }
                 }
-                launch {
-                    searchResultsAdapter.loadStateFlow.collectLatest {
-                        callback()?.onSearchProgressBar(it.append is LoadState.Loading || it.refresh is LoadState.Loading)
-                        if (it.refresh is LoadState.Error) {
-                            binding.searchErrorView.setError((it.refresh as LoadState.Error).error)
-                            binding.searchErrorView.isVisible = true
-                            binding.searchResultsList.isVisible = false
-                            return@collectLatest
-                        }
-                        binding.searchErrorView.isVisible = false
-                        val showEmpty = (it.append is LoadState.NotLoading && it.append.endOfPaginationReached && searchResultsAdapter.itemCount == 0)
-                        if (showEmpty) {
-                            searchResultsConcatAdapter.addAdapter(noSearchResultAdapter)
-                        } else {
-                            searchResultsConcatAdapter.removeAdapter(noSearchResultAdapter)
+            }
+        }
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                viewModel.lexicalResultsForLogging.collectLatest { data ->
+                    if (data != null) {
+                        requireActivity().instrument?.submitInteraction(
+                            "show_search_result",
+                            actionContext = viewModel.getStandardEventActionContext()
+                        )
+                    }
+                }
+            }
+        }
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                viewModel.hybridSearchResultState.collectLatest { state ->
+                    if (state is UiState.Success) {
+                        requireActivity().instrument?.submitInteraction(
+                            "show_hybrid_result",
+                            actionContext = viewModel.getHybridEventActionContext()
+                        )
+                        if (viewModel.languageCode.value == "el") {
+                            // In the Greek case, we log the literal list of semantic search results
+                            // to the Breadcrumbs schema, to be cross-referenced using the x-search-id field.
+                            // (This only needs to be sent once, so let's send it upon impression.)
+                            BreadCrumbLogEvent.logMap(requireContext(), viewModel.getBreadcrumbActionContext())
                         }
                     }
                 }
             }
         }
-        return binding.root
-    }
 
-    override fun onDestroyView() {
-        binding.searchErrorView.retryClickListener = null
-        _binding = null
-        super.onDestroyView()
+        return ComposeView(requireActivity()).apply {
+            composeView = this
+            setContent {
+                BaseTheme {
+                    if (showHybridSearch && viewModel.isHybridSearchExperimentOn) {
+                        HybridSearchResultsScreen(
+                            viewModel = viewModel,
+                            modifier = Modifier.fillMaxSize(),
+                            onNavigateToTitle = { result, inNewTab, position, location ->
+                                requireActivity().instrument?.submitInteraction("search_result_click",
+                                    elementId = "lexical_search_result",
+                                    pageData = TestKitchenAdapter.getPageData(result.pageTitle),
+                                    actionContext = viewModel.getHybridEventActionContext(result)
+                                )
+                                callback()?.navigateToTitle(result.pageTitle, inNewTab, position, location)
+                            },
+                            onSemanticCardImpression = { result ->
+                                requireActivity().instrument?.submitInteraction("impression",
+                                    elementId = "semantic_search_card",
+                                    pageData = TestKitchenAdapter.getPageData(result.pageTitle),
+                                    actionContext = viewModel.getHybridEventActionContext(result)
+                                )
+                            },
+                            onSemanticItemClick = { result, title, inNewTab, fromSnippetLink, position, location ->
+                                requireActivity().instrument?.submitInteraction("search_result_click",
+                                    elementId = if (fromSnippetLink) "semantic_search_link" else "semantic_search_result",
+                                    pageData = TestKitchenAdapter.getPageData(title),
+                                    actionContext = viewModel.getHybridEventActionContext(result)
+                                )
+                                callback()?.navigateToTitle(title, inNewTab, position, location)
+                            },
+                            onItemLongClick = { view, searchResult, position ->
+                                val entry = HistoryEntry(searchResult.pageTitle, HistoryEntry.SOURCE_SEARCH)
+                                LongPressMenu(view, callback = SearchResultLongPressHandler(callback(), position)).show(entry)
+                            },
+                            onInfoClick = {
+                                requireActivity().instrument?.submitInteraction("click", elementId = "learn_more")
+
+                                UriUtil.visitInExternalBrowser(requireActivity(), getString(R.string.hybrid_search_info_link).toUri())
+                            },
+                            onTurnOffExperimentClick = {
+                                requireActivity().instrument?.submitInteraction("click", elementId = "hybrid_search_opt_out")
+
+                                Prefs.isHybridSearchEnabled = false
+                                showHybridSearch = false
+                                callback()?.setSearchText(StringUtil.fromHtml(it).toString())
+                            },
+                            onCloseSearch = { requireActivity().finish() },
+                            onRetrySearch = {
+                                viewModel.refreshSearchResults()
+                            },
+                            onLoading = { enabled ->
+                                callback()?.onSearchProgressBar(enabled)
+                            },
+                            onRatingClick = { isPositive, result ->
+                                requireActivity().instrument?.submitInteraction("click",
+                                    elementId = if (isPositive) "thumb_up" else "thumb_down",
+                                    pageData = TestKitchenAdapter.getPageData(result.pageTitle),
+                                    actionContext = viewModel.getHybridEventActionContext(result)
+                                )
+                            },
+                            onLexicalResultsEmpty = {
+                                requireActivity().instrument?.submitInteraction("search_error", actionSubtype = "lexical_search_error",
+                                    actionContext = mapOf("error" to getString(R.string.hybrid_lexical_search_results_empty))
+                                )
+
+                                FeedbackUtil.showMessage(requireActivity(), R.string.hybrid_lexical_search_results_empty)
+                            },
+                            onSemanticResultsEmpty = {
+                                requireActivity().instrument?.submitInteraction("search_error", actionSubtype = "semantic_search_error",
+                                    actionContext = mapOf("error" to getString(R.string.hybrid_search_results_empty))
+                                )
+
+                                FeedbackUtil.showMessage(requireActivity(), R.string.hybrid_search_results_empty)
+                            },
+                            onError = {
+                                requireActivity().instrument?.submitInteraction("search_error", actionContext = mapOf("error" to it.message.orEmpty()))
+                            }
+                        )
+                    } else {
+                        SearchResultsScreen(
+                            viewModel = viewModel,
+                            modifier = Modifier.fillMaxSize(),
+                            onNavigateToTitle = { result, inNewTab, position, location ->
+
+                                requireActivity().instrument?.submitInteraction("search_result_click",
+                                    pageData = TestKitchenAdapter.getPageData(result.pageTitle),
+                                    actionContext = viewModel.getStandardEventActionContext(result)
+                                )
+
+                                callback()?.navigateToTitle(result.pageTitle, inNewTab, position, location)
+                            },
+                            onItemLongClick = { view, searchResult, position ->
+                                val entry =
+                                    HistoryEntry(searchResult.pageTitle, HistoryEntry.SOURCE_SEARCH)
+                                LongPressMenu(
+                                    view,
+                                    callback = SearchResultLongPressHandler(callback(), position)
+                                ).show(entry)
+                            },
+                            onSemanticSearchClick = { result, query, isSuggestion ->
+
+                                if (isSuggestion) {
+                                    requireActivity().instrument?.submitInteraction("click",
+                                        elementId = "semantic_search_explicit", actionContext = viewModel.getStandardEventActionContext())
+                                } else {
+                                    requireActivity().instrument?.submitInteraction("search_result_click",
+                                        actionContext = viewModel.getStandardEventActionContext(result)
+                                    )
+                                }
+
+                                callback()?.setSearchText(StringUtil.fromHtml(query).toString())
+                                showHybridSearch = true
+                                DeviceUtil.hideSoftKeyboard(requireActivity())
+                            },
+                            onCloseSearch = { requireActivity().finish() },
+                            onRetrySearch = {
+                                viewModel.refreshSearchResults()
+                            },
+                            onLanguageClick = { position ->
+                                if (isAdded && position >= 0) {
+                                    (requireParentFragment() as SearchFragment).setUpLanguageScroll(
+                                        position
+                                    )
+                                }
+                            },
+                            onLoading = { enabled ->
+                                callback()?.onSearchProgressBar(enabled)
+                            },
+                            onNoResults = {
+                                DeviceUtil.showSoftKeyboard(requireActivity())
+                            }
+                        )
+                    }
+                }
+            }
+        }
     }
 
     fun show() {
-        binding.searchResultsDisplay.visibility = View.VISIBLE
+        composeView?.visibility = View.VISIBLE
     }
 
     fun hide() {
-        binding.searchResultsDisplay.visibility = View.GONE
+        composeView?.visibility = View.GONE
     }
 
-    val isShowing get() = binding.searchResultsDisplay.visibility == View.VISIBLE
-
-    fun setLayoutDirection(langCode: String) {
-        binding.searchResultsList.setLayoutDirectionByLang(langCode)
-    }
-
-    fun startSearch(term: String?, force: Boolean) {
-        if (!force && viewModel.searchTerm == term && viewModel.languageCode == searchLanguageCode) {
+    fun startSearch(term: String?, force: Boolean, resetHybridSearch: Boolean = false) {
+        if (!force && viewModel.searchTerm.value == term && viewModel.languageCode.value == searchLanguageCode) {
             return
         }
 
-        viewModel.searchTerm = term
-        viewModel.languageCode = searchLanguageCode
+        requireActivity().instrument?.setDefaultMediaWikiData(WikiSite.forLanguageCode(searchLanguageCode).dbName())
+        viewModel.updateLanguageCode(searchLanguageCode)
+        viewModel.updateSearchTerm(if (term.isNullOrBlank()) "" else term)
 
-        if (term.isNullOrBlank()) {
-            clearResults()
-            return
-        }
-
-        binding.searchResultsList.scrollToPosition(0)
-        searchResultsAdapter.refresh()
-    }
-
-    private fun clearResults() {
-        binding.searchResultsList.visibility = View.GONE
-        binding.searchErrorView.visibility = View.GONE
-        binding.searchErrorView.visibility = View.GONE
-    }
-
-    private inner class SearchResultsFragmentLongPressHandler(private val lastPositionRequested: Int) : LongPressMenu.Callback {
-        override fun onOpenLink(entry: HistoryEntry) {
-            callback()?.navigateToTitle(entry.title, false, lastPositionRequested)
-        }
-
-        override fun onOpenInNewTab(entry: HistoryEntry) {
-            callback()?.navigateToTitle(entry.title, true, lastPositionRequested)
-        }
-
-        override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
-            callback()?.onSearchAddPageToList(entry, addToDefault)
-        }
-
-        override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
-            page.let {
-                callback()?.onSearchMovePageToList(page!!.listId, entry)
-            }
+        // If user changes the language, make sure to turn off hybrid search screen.
+        showHybridSearch = !resetHybridSearch && showHybridSearch && viewModel.isHybridSearchExperimentOn
+        if (showHybridSearch) {
+            viewModel.resetHybridSearchState()
+            viewModel.loadHybridSearchResults()
+        } else if (force) {
+            viewModel.refreshSearchResults()
         }
     }
 
-    private inner class SearchResultsDiffCallback : DiffUtil.ItemCallback<SearchResult>() {
-        override fun areItemsTheSame(oldItem: SearchResult, newItem: SearchResult): Boolean {
-            return false
-        }
-
-        override fun areContentsTheSame(oldItem: SearchResult, newItem: SearchResult): Boolean {
-            return areItemsTheSame(oldItem, newItem)
-        }
-    }
-
-    private inner class SearchResultsAdapter : PagingDataAdapterPatched<SearchResult, DefaultViewHolder<View>>(SearchResultsDiffCallback()) {
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DefaultViewHolder<View> {
-            return SearchResultItemViewHolder(ItemSearchResultBinding.inflate(layoutInflater, parent, false))
-        }
-
-        override fun onBindViewHolder(holder: DefaultViewHolder<View>, pos: Int) {
-            if (pos in 0..<itemCount) {
-                getItem(pos)?.let {
-                    (holder as SearchResultItemViewHolder).bindItem(pos, it)
-                }
-            }
-        }
-    }
-
-    private inner class NoSearchResultAdapter : RecyclerView.Adapter<NoSearchResultItemViewHolder>() {
-        override fun onBindViewHolder(holder: NoSearchResultItemViewHolder, position: Int) {
-            holder.bindItem(viewModel.countsPerLanguageCode[position])
-        }
-
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoSearchResultItemViewHolder {
-            return NoSearchResultItemViewHolder(ItemSearchNoResultsBinding.inflate(layoutInflater, parent, false))
-        }
-
-        override fun getItemCount(): Int { return viewModel.countsPerLanguageCode.size }
-    }
-
-    private inner class NoSearchResultItemViewHolder(val itemBinding: ItemSearchNoResultsBinding) : DefaultViewHolder<View>(itemBinding.root) {
-        private val accentColorStateList = getThemedColorStateList(requireContext(), R.attr.progressive_color)
-        private val secondaryColorStateList = getThemedColorStateList(requireContext(), R.attr.secondary_color)
-        fun bindItem(resultPair: Pair<String, Int>) {
-            val langCode = resultPair.first
-            val resultCount = resultPair.second
-            if (resultCount == 0 && viewModel.invokeSource == Constants.InvokeSource.PLACES) {
-                PlacesEvent.logAction("no_results_impression", "search_view")
-            }
-            itemBinding.resultsText.text = if (resultCount == 0) getString(R.string.search_results_count_zero) else resources.getQuantityString(R.plurals.search_results_count, resultCount, resultCount)
-            itemBinding.resultsText.setTextColor(if (resultCount == 0) secondaryColorStateList else accentColorStateList)
-            itemBinding.languageCode.visibility = if (viewModel.countsPerLanguageCode.size == 1) View.GONE else View.VISIBLE
-            itemBinding.languageCode.setLangCode(langCode)
-            itemBinding.languageCode.setTextColor(if (resultCount == 0) secondaryColorStateList else accentColorStateList)
-            itemBinding.languageCode.setBackgroundTint(if (resultCount == 0) secondaryColorStateList else accentColorStateList)
-            view.isEnabled = resultCount > 0
-            view.setOnClickListener {
-                if (!isAdded) {
-                    return@setOnClickListener
-                }
-                (requireParentFragment() as SearchFragment).setUpLanguageScroll(position)
-            }
-        }
-    }
-
-    private inner class SearchResultItemViewHolder(val itemBinding: ItemSearchResultBinding) : DefaultViewHolder<View>(itemBinding.root) {
-        fun bindItem(position: Int, searchResult: SearchResult) {
-            val (pageTitle, redirectFrom, type) = searchResult
-            if (redirectFrom.isNullOrEmpty()) {
-                itemBinding.pageListItemRedirect.visibility = View.GONE
-                itemBinding.pageListItemRedirectArrow.visibility = View.GONE
-                itemBinding.pageListItemDescription.text = pageTitle.description
-            } else {
-                itemBinding.pageListItemRedirect.visibility = View.VISIBLE
-                itemBinding.pageListItemRedirectArrow.visibility = View.VISIBLE
-                itemBinding.pageListItemRedirect.text = getString(R.string.search_redirect_from, redirectFrom)
-                itemBinding.pageListItemDescription.visibility = View.GONE
-            }
-
-            if (type === SearchResult.SearchResultType.SEARCH) {
-                itemBinding.pageListIcon.visibility = View.GONE
-            } else {
-                itemBinding.pageListIcon.visibility = View.VISIBLE
-                itemBinding.pageListIcon.setImageResource(if (type === SearchResult.SearchResultType.HISTORY) R.drawable.ic_history_24 else if (type === SearchResult.SearchResultType.TAB_LIST) R.drawable.ic_tab_one_24px else R.drawable.ic_bookmark_white_24dp)
-            }
-            // highlight search term within the text
-            StringUtil.boldenKeywordText(itemBinding.pageListItemTitle, pageTitle.displayText, viewModel.searchTerm)
-            itemBinding.pageListItemImage.visibility = if (pageTitle.thumbUrl.isNullOrEmpty()) if (type === SearchResult.SearchResultType.SEARCH) View.GONE else View.INVISIBLE else View.VISIBLE
-            ViewUtil.loadImage(itemBinding.pageListItemImage, pageTitle.thumbUrl)
-
-            view.isLongClickable = true
-            view.setOnClickListener {
-                callback()?.navigateToTitle(searchResult.pageTitle, false, position, searchResult.location)
-            }
-            view.setOnCreateContextMenuListener(LongPressHandler(view,
-                    HistoryEntry.SOURCE_SEARCH, SearchResultsFragmentLongPressHandler(position), pageTitle))
-        }
-    }
-
-    private fun callback(): Callback? {
-        return getCallback(this, Callback::class.java)
+    private fun callback(): SearchResultCallback? {
+        return getCallback(this, SearchResultCallback::class.java)
     }
 
     fun setInvokeSource(invokeSource: Constants.InvokeSource) {
         viewModel.invokeSource = invokeSource
     }
 
-    private val searchLanguageCode get() =
-        if (isAdded) (requireParentFragment() as SearchFragment).searchLanguageCode else WikipediaApp.instance.languageState.appLanguageCode
+    private val searchLanguageCode
+        get() =
+            if (isAdded) (requireParentFragment() as SearchFragment).searchLanguageCode else WikipediaApp.instance.languageState.appLanguageCode
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        composeView = null
+    }
 }

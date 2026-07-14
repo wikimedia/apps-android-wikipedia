@@ -10,8 +10,7 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 
-abstract class PagingDataAdapterPatched<T : Any, VH : RecyclerView.ViewHolder>
-(
+abstract class PagingDataAdapterPatched<T : Any, VH : RecyclerView.ViewHolder>(
     diffCallback: DiffUtil.ItemCallback<T>,
     mainDispatcher: CoroutineContext = Dispatchers.Main,
     workerDispatcher: CoroutineContext = Dispatchers.Default,

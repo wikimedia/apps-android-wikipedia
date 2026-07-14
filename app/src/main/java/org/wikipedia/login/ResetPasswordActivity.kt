@@ -108,7 +108,7 @@ class ResetPasswordActivity : BaseActivity() {
         }
         if (uiPromptResult == null) {
             loginClient?.login(lifecycleScope, WikipediaApp.instance.wikiSite, userName, password, retypedPassword = retypedPassword,
-                token = firstStepToken, cb = loginCallback)
+                token = firstStepToken, isContinuation = true, cb = loginCallback)
         } else {
             loginClient?.login(lifecycleScope, WikipediaApp.instance.wikiSite, userName, password, retypedPassword = retypedPassword,
                 twoFactorCode = if (uiPromptResult is LoginOATHResult) twoFactorCode else null,
@@ -143,6 +143,10 @@ class ResetPasswordActivity : BaseActivity() {
             binding.login2faText.requestFocus()
             DeviceUtil.hideSoftKeyboard(this@ResetPasswordActivity)
             FeedbackUtil.showError(this@ResetPasswordActivity, caught)
+        }
+
+        override fun hCaptchaPrompt(result: LoginResult, caught: Throwable, siteKey: String, token: String?) {
+            // TODO: support hCaptcha here, too.
         }
 
         override fun passwordResetPrompt(token: String?) {

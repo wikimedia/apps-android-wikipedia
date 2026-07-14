@@ -551,10 +551,10 @@
     <item quantity="few">%d articole eliminate din listă</item>
     <item quantity="other">%d articole eliminate din listă</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d articol eliminat din %s</item>
-    <item quantity="few">%d articole eliminate din %s</item>
-    <item quantity="other">%d articole eliminate din %s</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">%1$d articol eliminat din %2$s</item>
+    <item quantity="few">%1$d articole eliminate din %2$s</item>
+    <item quantity="other">%1$d articole eliminate din %2$s</item>
   </plurals>
   <string name="reading_list_items_deleted">%d articole eliminate din listă</string>
   <string name="reading_lists_item_deleted">%s eliminat din liste</string>
@@ -830,11 +830,11 @@
   <string name="feed_item_type_main_page">Pagina principală a Wikipedia cu conținut recomandat zilnic</string>
   <string name="feed_item_type_randomizer">Generați articole aleatorii pentru a fi citite</string>
   <string name="feed_item_type_suggested_edits">Sugestii pentru adăugarea de conținut la Wikipedia</string>
-  <string name="feed_empty_message">Nu există nimic în feedul dvs. Explorează</string>
+  <string name="feed_empty_message" fuzzy="true">Nu există nimic în feedul dvs. Explorează</string>
   <string name="feed_configure_onboarding_action">Personalizare</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Anulare</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Personalizați-vă fluxul Explorează&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Acum puteți alege ce să afișați în fluxul dvs. și să acordați prioritate tipurilor dvs. de conținut preferate.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Personalizați-vă fluxul Explorează&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Acum puteți alege ce să afișați în fluxul dvs. și să acordați prioritate tipurilor dvs. de conținut preferate.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Anulare</string>
   <string name="feed_accessibility_card_text">Ați ajuns în partea de jos a fluxului.</string>
@@ -1161,11 +1161,11 @@
   <string name="onboarding_get_started">Începe</string>
   <string name="onboarding_maybe_later">Poate mai târziu</string>
   <string name="onboarding_explore_title">Noi căi de explorare</string>
-  <string name="onboarding_explore_text">Aruncă-te în gaura de iepure Wikipedia cu o actualizare constantă a fluxului Explore. &lt;br/&gt; &lt;b&gt;Personalizați&lt;/b&gt; fluxul în funcție de interesele dvs. - fie că învață despre evenimente istorice &lt;b&gt;În această zi&lt;/b&gt;, fie că arunca cu zarurile cu &lt;b&gt;Aleator&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Aruncă-te în gaura de iepure Wikipedia cu o actualizare constantă a fluxului Explore. &lt;br/&gt; &lt;b&gt;Personalizați&lt;/b&gt; fluxul în funcție de interesele dvs. - fie că învață despre evenimente istorice &lt;b&gt;În această zi&lt;/b&gt;, fie că arunca cu zarurile cu &lt;b&gt;Aleator&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Citirea listelor cu sincronizare</string>
   <string name="onboarding_reading_list_sync_text_v2">Puteți crea liste de citire din articole pe care doriți să le citiți mai târziu, chiar și atunci când sunteți offline.&lt;br/&gt;Conectați-vă la contul dvs. Wikipedia pentru a vă sincroniza listele de citire.. &lt;a href=\"#login\"&gt;Alăturați-vă Wikipedia&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Confidențialitatea datelor</string>
-  <string name="onboarding_data_privacy_text">Considerăm că nu ar trebui să furnizați informații personale pentru a participa la mișcarea liberă a cunoașterii. Datele de utilizare colectate pentru această aplicație sunt anonime. Aflați mai multe despre &lt;a href=\"#privacy\"&gt;politica noastră de confidențialitate&lt;/a&gt; și de &lt;a href=\"#termsOfUse\"&gt;termenii de utilizare&lt;/a&gt; .</string>
+  <string name="onboarding_data_privacy_text" fuzzy="true">Considerăm că nu ar trebui să furnizați informații personale pentru a participa la mișcarea liberă a cunoașterii. Datele de utilizare colectate pentru această aplicație sunt anonime. Aflați mai multe despre &lt;a href=\"#privacy\"&gt;politica noastră de confidențialitate&lt;/a&gt; și de &lt;a href=\"#termsOfUse\"&gt;termenii de utilizare&lt;/a&gt; .</string>
   <string name="onboarding_analytics_switch_title">Trimiteți date de utilizare</string>
   <string name="onboarding_got_it">Am înțeles</string>
   <string name="onboarding_multilingual_secondary_text">Am găsit următoarele pe dispozitivul dvs.:</string>
@@ -1202,7 +1202,7 @@
     <item quantity="few">Eliminați limbile selectate?</item>
     <item quantity="other"/>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Veți vedea conținut doar în fluxul Explorează și filtrele de căutare rapidă pentru limbile Wikipedia rămase.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Veți vedea conținut doar în fluxul Explorează și filtrele de căutare rapidă pentru limbile Wikipedia rămase.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Imposibil de șters toate limbile</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Păstrați cel puțin o limbă Wikipedia din care să căutați și să citiți conținut.</string>
   <string name="more_language_options">mai mult</string>
@@ -1483,7 +1483,7 @@
   <string name="survey_dialog_general_yes">Da</string>
   <string name="survey_dialog_general_no">Nu</string>
   <string name="survey_dialog_general_maybe">Pot fi</string>
-  <string name="on_this_day_game_completed_message">Vă mulțumesc că ați jucat. Un nou joc \"Care a venit primul?\" este disponibil zilnic în feedul Explore.</string>
+  <string name="on_this_day_game_completed_message" fuzzy="true">Vă mulțumesc că ați jucat. Un nou joc \"Care a venit primul?\" este disponibil zilnic în feedul Explore.</string>
   <string name="on_this_day_game_article_read_button">Citiți articolul</string>
   <string name="recommended_reading_list_title">Discover</string>
   <string name="recommended_reading_list_interest_source_interests">Lasă-mă să aleg potrivit intereselor mele</string>
@@ -1538,4 +1538,5 @@
   <string name="recommended_reading_list_settings_notifications_dialog_message">Dacă vă dezactivați notificările, nu veți mai fi notificat când „Discover” este actualizat.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">Când „Discover“-ul dvs. este actualizat, Wikipedia vă va trimite o notificare.</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">„Descoperă“ este activat. Wikipedia vă va recomanda articole de citit.</string>
+  <string name="donation_reminders_prompt_positive_button">Donați acum</string>
 </resources>

@@ -1,53 +1,20 @@
 package org.wikipedia.feed.image
 
-import android.net.Uri
-import androidx.core.net.toUri
-import org.wikipedia.R
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.model.WikiSiteCard
-import org.wikipedia.util.DateUtil
-import org.wikipedia.util.L10nUtil
+import org.wikipedia.settings.homefeed.CommunityModuleType
 
 class FeaturedImageCard(
-    private val featuredImage: FeaturedImage,
-    private val age: Int,
+    val featuredImage: FeaturedImage,
+    val age: Int,
     wiki: WikiSite
 ) : WikiSiteCard(wiki) {
 
-    override fun title(): String {
-        return L10nUtil.getString(wikiSite().languageCode, R.string.view_featured_image_card_title)
-    }
-
-    override fun subtitle(): String {
-        return DateUtil.getFeedCardDateString(age)
-    }
-
-    override fun image(): Uri? {
-        return featuredImage.thumbnailUrl.ifEmpty { null }?.toUri()
-    }
-
-    override fun type(): CardType {
-        return CardType.FEATURED_IMAGE
+    override fun moduleKey(): String {
+        return CommunityModuleType.FEATURED_IMAGE.name
     }
 
     override fun dismissHashCode(): Int {
         return featuredImage.title.hashCode()
-    }
-
-    fun baseImage(): FeaturedImage {
-        return featuredImage
-    }
-
-    fun age(): Int {
-        return age
-    }
-
-    fun filename(): String {
-        return featuredImage.title
-    }
-
-    fun description(): String {
-        return featuredImage.description.text.ifEmpty { filename() }
     }
 }
