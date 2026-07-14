@@ -45,6 +45,8 @@ fun ReadingListsComposeScreen(
     modifier: Modifier = Modifier,
     isRefreshing: Boolean = false,
     pullToRefreshEnabled: Boolean = true,
+    isSelectionMode: Boolean = false,
+    selectedListIds: Set<Long> = emptySet(),
     onOnboardingAction: (OnboardingAction) -> Unit = {},
     onRefresh: () -> Unit = {},
     onListClick: (Long) -> Unit = {},
@@ -76,6 +78,8 @@ fun ReadingListsComposeScreen(
         ) {
             ReadingListsContent(
                 uiState = uiState,
+                isSelectionMode = isSelectionMode,
+                selectedListIds = selectedListIds,
                 onOnboardingAction = onOnboardingAction,
                 onListClick = onListClick,
                 onListLongClick = onListLongClick,
@@ -85,6 +89,8 @@ fun ReadingListsComposeScreen(
     } else {
         ReadingListsContent(
             uiState = uiState,
+            isSelectionMode = isSelectionMode,
+            selectedListIds = selectedListIds,
             onOnboardingAction = onOnboardingAction,
             onListClick = onListClick,
             onListLongClick = onListLongClick,
@@ -97,6 +103,8 @@ fun ReadingListsComposeScreen(
 @Composable
 private fun ReadingListsContent(
     uiState: ReadingListsUiState,
+    isSelectionMode: Boolean,
+    selectedListIds: Set<Long>,
     onOnboardingAction: (OnboardingAction) -> Unit,
     onListClick: (Long) -> Unit,
     onListLongClick: (Long) -> Unit,
@@ -118,8 +126,8 @@ private fun ReadingListsContent(
                 rows = uiState.rows,
                 onboarding = uiState.onboarding,
                 onOnboardingAction = onOnboardingAction,
-                isSelectionMode = uiState.isSelectionMode,
-                selectedListIds = uiState.selectedListIds,
+                isSelectionMode = isSelectionMode,
+                selectedListIds = selectedListIds,
                 onListClick = onListClick,
                 onListLongClick = onListLongClick,
                 onListSelectionChange = onListSelectionChange,

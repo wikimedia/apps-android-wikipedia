@@ -24,6 +24,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
@@ -69,10 +70,13 @@ class ReadingListsComposeFragment : Fragment(), SortReadingListsDialog.Callback 
                 BaseTheme {
                     val uiState by viewModel.uiState.collectAsState()
                     val isRefreshing by viewModel.isRefreshing.collectAsState()
+                    val selectionState by viewModel.selectionState.collectAsState()
                     ReadingListsComposeScreen(
                         uiState = uiState,
                         isRefreshing = isRefreshing,
                         pullToRefreshEnabled = !RemoteConfig.config.disableReadingListSync,
+                        isSelectionMode = selectionState.enabled,
+                        selectedListIds = selectionState.selectedListIds,
                         onOnboardingAction = ::onOnboardingAction,
                         onRefresh = ::onRefresh,
                         onListClick = ::onListClick,
@@ -99,7 +103,7 @@ class ReadingListsComposeFragment : Fragment(), SortReadingListsDialog.Callback 
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.uiState.collect {
+                combine(viewModel.uiState, viewModel.selectionState) { _, _ -> }.collect {
                     actionMode?.invalidate()
                 }
             }
@@ -300,12 +304,11 @@ class ReadingListsComposeFragment : Fragment(), SortReadingListsDialog.Callback 
         }
 
         override fun onPrepareActionMode(mode: ActionMode, menu: Menu): Boolean {
-            val uiState = viewModel.uiState.value
-            val selectedLists = uiState.rows.filterIsInstance<ReadingListRow.ListRow>()
-                .filter { it.list.id in uiState.selectedListIds }
-            val allListIds = uiState.rows.filterIsInstance<ReadingListRow.ListRow>()
-                .map { it.list.id }
-            val allSelected = allListIds.isNotEmpty() && uiState.selectedListIds.containsAll(allListIds)
+            val selectedIds = viewModel.selectionState.value.selectedListIds
+            val listRows = viewModel.uiState.value.rows.filterIsInstance<ReadingListRow.ListRow>()
+            val selectedLists = listRows.filter { it.list.id in selectedIds }
+            val allListIds = listRows.map { it.list.id }
+            val allSelected = allListIds.isNotEmpty() && selectedIds.containsAll(allListIds)
             val onlyDefaultSelected = selectedLists.size == 1 && selectedLists.single().list.isDefault
 
             mode.title = if (selectedLists.isEmpty()) "" else {
@@ -344,7 +347,7 @@ class ReadingListsComposeFragment : Fragment(), SortReadingListsDialog.Callback 
         override fun onActionItemClicked(mode: ActionMode, menuItem: MenuItem): Boolean {
             return when (menuItem.itemId) {
                 R.id.menu_delete_selected -> {
-                    deleteSelectedLists()
+                    onDeleteSelected()
                     true
                 }
                 R.id.menu_export_selected -> {
@@ -352,10 +355,11 @@ class ReadingListsComposeFragment : Fragment(), SortReadingListsDialog.Callback 
                     true
                 }
                 R.id.menu_select -> {
-                    val uiState = viewModel.uiState.value
-                    val allListIds = uiState.rows.filterIsInstance<ReadingListRow.ListRow>()
+                    val allListIds = viewModel.uiState.value.rows
+                        .filterIsInstance<ReadingListRow.ListRow>()
                         .map { it.list.id }
-                    if (allListIds.isNotEmpty() && uiState.selectedListIds.containsAll(allListIds)) {
+                    val selectedIds = viewModel.selectionState.value.selectedListIds
+                    if (allListIds.isNotEmpty() && selectedIds.containsAll(allListIds)) {
                         viewModel.clearListSelection()
                     } else {
                         viewModel.selectAllLists()
@@ -378,7 +382,7 @@ class ReadingListsComposeFragment : Fragment(), SortReadingListsDialog.Callback 
     }
 
     private fun deleteSelectedLists() {
-        val selectedIds = viewModel.uiState.value.selectedListIds
+        val selectedIds = viewModel.selectionState.value.selectedListIds
         viewLifecycleOwner.lifecycleScope.launch {
             val lists = AppDatabase.instance.readingListDao().getAllLists()
                 .filter { it.id in selectedIds }
@@ -393,7 +397,7 @@ class ReadingListsComposeFragment : Fragment(), SortReadingListsDialog.Callback 
     }
 
     private fun exportSelectedLists() {
-        val selectedIds = viewModel.uiState.value.selectedListIds
+        val selectedIds = viewModel.selectionState.value.selectedListIds
         viewLifecycleOwner.lifecycleScope.launch {
             val lists = AppDatabase.instance.readingListDao().getAllLists()
                 .filter { it.id in selectedIds }

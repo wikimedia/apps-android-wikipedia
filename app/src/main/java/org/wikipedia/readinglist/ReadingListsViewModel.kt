@@ -22,17 +22,18 @@ import org.wikipedia.settings.RemoteConfig
 class ReadingListsViewModel : ViewModel() {
     private val searchQuery = MutableStateFlow<String?>(null)
     private val searchActive = MutableStateFlow(false)
-    private val selectionState = MutableStateFlow(ReadingListsSelectionState())
 
     private val _isRefreshing = MutableStateFlow(false)
     val isRefreshing: StateFlow<Boolean> = _isRefreshing.asStateFlow()
+
+    private val _selectionState = MutableStateFlow(ReadingListsSelectionState())
+    val selectionState: StateFlow<ReadingListsSelectionState> = _selectionState.asStateFlow()
 
     val uiState: StateFlow<ReadingListsUiState> =
         combine(
             AppDatabase.instance.readingListDao().getListsWithPagesFlow(),
             searchQuery,
             searchActive,
-            selectionState,
             Prefs.observeKeys(
                 R.string.preference_key_recommended_reading_list_onboarding_shown,
                 R.string.preference_key_sync_reading_lists,
@@ -40,13 +41,11 @@ class ReadingListsViewModel : ViewModel() {
                 R.string.preference_key_reading_list_login_reminder_enabled,
                 R.string.preference_key_reading_list_sort_mode
             )
-        ) { relations, query, isSearchActive, selection, _ ->
+        ) { relations, query, isSearchActive, _ ->
             ReadingListsUiState(
                 rows = buildRows(relations, query),
                 searchQuery = query,
-                onboarding = resolveOnboardingState(query, isSearchActive),
-                isSelectionMode = selection.enabled,
-                selectedListIds = selection.selectedListIds
+                onboarding = resolveOnboardingState(query, isSearchActive)
             )
         }
             .flowOn(Dispatchers.IO)
@@ -69,22 +68,22 @@ class ReadingListsViewModel : ViewModel() {
     }
 
     fun setSelectionMode(enabled: Boolean) {
-        selectionState.value = ReadingListsSelectionState(enabled = enabled)
+        _selectionState.value = ReadingListsSelectionState(enabled = enabled)
     }
 
     fun toggleListSelection(listId: Long) {
-        val selectedListIds = selectionState.value.selectedListIds.toMutableSet()
+        val selectedListIds = _selectionState.value.selectedListIds.toMutableSet()
         if (!selectedListIds.add(listId)) {
             selectedListIds.remove(listId)
         }
-        selectionState.value = ReadingListsSelectionState(
+        _selectionState.value = ReadingListsSelectionState(
             enabled = true,
             selectedListIds = selectedListIds
         )
     }
 
     fun selectAllLists() {
-        selectionState.value = ReadingListsSelectionState(
+        _selectionState.value = ReadingListsSelectionState(
             enabled = true,
             selectedListIds = uiState.value.rows.filterIsInstance<ReadingListRow.ListRow>()
                 .mapTo(mutableSetOf()) { it.list.id }
@@ -92,7 +91,7 @@ class ReadingListsViewModel : ViewModel() {
     }
 
     fun clearListSelection() {
-        selectionState.value = selectionState.value.copy(selectedListIds = emptySet())
+        _selectionState.value = _selectionState.value.copy(selectedListIds = emptySet())
     }
 
     fun setSortMode(sortMode: Int) {
@@ -247,12 +246,10 @@ sealed interface ReadingListRow {
 data class ReadingListsUiState(
     val rows: List<ReadingListRow> = emptyList(),
     val searchQuery: String? = null,
-    val onboarding: OnboardingState = OnboardingState.None,
-    val isSelectionMode: Boolean = false,
-    val selectedListIds: Set<Long> = emptySet()
+    val onboarding: OnboardingState = OnboardingState.None
 )
 
-private data class ReadingListsSelectionState(
+data class ReadingListsSelectionState(
     val enabled: Boolean = false,
     val selectedListIds: Set<Long> = emptySet()
 )
