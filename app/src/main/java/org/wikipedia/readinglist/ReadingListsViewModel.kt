@@ -94,6 +94,14 @@ class ReadingListsViewModel : ViewModel() {
         _selectionState.value = _selectionState.value.copy(selectedListIds = emptySet())
     }
 
+    fun containingLists(pageId: Long): List<ContainingList> {
+        return uiState.value.rows
+            .filterIsInstance<ReadingListRow.PageRow>()
+            .firstOrNull { it.page.id == pageId }
+            ?.containingLists
+            .orEmpty()
+    }
+
     fun setSortMode(sortMode: Int) {
         Prefs.setReadingListSortMode(
             when (sortMode) {
@@ -155,16 +163,16 @@ class ReadingListsViewModel : ViewModel() {
             list.pages.forEach { page ->
                 if (page.accentInvariantTitle.contains(normalizedQuery, ignoreCase = true) &&
                     seenPages.add(page.lang to page.apiTitle)) {
-                    pageRows.add(ReadingListRow.PageRow(page.toUiModel(), lists.findTitlesForPage(page)))
+                    pageRows.add(ReadingListRow.PageRow(page.toUiModel(), lists.findContainingLists(page)))
                 }
             }
         }
         return listRows + pageRows
     }
 
-    private fun List<ReadingList>.findTitlesForPage(page: ReadingListPage): List<String> {
+    private fun List<ReadingList>.findContainingLists(page: ReadingListPage): List<ContainingList> {
         return filter { list -> list.pages.any { it.lang == page.lang && it.apiTitle == page.apiTitle } }
-            .map { it.title }
+            .map { ContainingList(it.id, it.title) }
     }
 
     private fun MutableList<ReadingList>.removeEmptyDefaultList() {
@@ -235,8 +243,9 @@ data class ReadingListPageUiModel(
  */
 sealed interface ReadingListRow {
     data class ListRow(val list: ReadingListUiModel) : ReadingListRow
-    data class PageRow(val page: ReadingListPageUiModel, val containingLists: List<String>) : ReadingListRow
+    data class PageRow(val page: ReadingListPageUiModel, val containingLists: List<ContainingList>) : ReadingListRow
 }
+data class ContainingList(val id: Long, val title: String)
 
 data class ReadingListsUiState(
     val rows: List<ReadingListRow> = emptyList(),

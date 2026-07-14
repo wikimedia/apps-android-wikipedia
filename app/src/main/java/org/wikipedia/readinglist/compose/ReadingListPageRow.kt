@@ -38,6 +38,7 @@ import org.wikipedia.R
 import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.readinglist.ContainingList
 import org.wikipedia.readinglist.ReadingListPageUiModel
 import org.wikipedia.theme.Theme
 import org.wikipedia.views.imageservice.ImageService
@@ -45,12 +46,12 @@ import org.wikipedia.views.imageservice.ImageService
 @Composable
 fun ReadingListPageRow(
     page: ReadingListPageUiModel,
-    containingLists: List<String>,
+    containingLists: List<ContainingList>,
     modifier: Modifier = Modifier,
     onClick: () -> Unit = {},
     onLongClick: () -> Unit = {},
     onActionClick: () -> Unit = {},
-    onChipClick: (String) -> Unit = {}
+    onChipClick: (Long) -> Unit = {}
 ) {
     Column(
         modifier = modifier
@@ -107,8 +108,8 @@ fun ReadingListPageRow(
                     .horizontalScroll(rememberScrollState()),
                 horizontalArrangement = spacedBy(8.dp)
             ) {
-                containingLists.forEach { title ->
-                    ListChip(title = title, onClick = { onChipClick(title) })
+                containingLists.forEach { list ->
+                    ListChip(title = list.title, onClick = { onChipClick(list.id) })
                 }
             }
         }
@@ -166,7 +167,7 @@ private fun ReadingListPageRowPreview() {
                 apiTitle = "Higgs_boson",
                 offline = false
             ),
-            containingLists = listOf("Physics", "Top read")
+            containingLists = listOf(ContainingList(1, "Physics"), ContainingList(2, "Top read"))
         )
     }
 }

@@ -609,8 +609,9 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
         override fun onLongClick(item: ReadingListPage?): Boolean {
             item?.let {
+                val lists = ReadingListBehaviorsUtil.getListsContainPage(it)
                 ExclusiveBottomSheetPresenter.show(childFragmentManager,
-                        ReadingListItemActionsDialog.newInstance(ReadingListBehaviorsUtil.getListsContainPage(it), it.id, actionMode != null))
+                        ReadingListItemActionsDialog.newInstance(lists[0].title, lists.size, it.id, actionMode != null))
                 return true
             }
             return false

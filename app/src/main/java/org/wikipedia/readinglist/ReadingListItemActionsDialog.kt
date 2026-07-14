@@ -11,7 +11,6 @@ import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.extensions.coroutineScope
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
-import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.ResourceUtil
 
@@ -109,10 +108,10 @@ class ReadingListItemActionsDialog : ExtendedBottomSheetDialogFragment() {
         private const val ARG_READING_LIST_PAGE = "readingListPage"
         private const val ARG_READING_LIST_HAS_ACTION_MODE = "hasActionMode"
 
-        fun newInstance(lists: List<ReadingList>, pageID: Long, hasActionMode: Boolean): ReadingListItemActionsDialog {
+        fun newInstance(readingListName: String, readingListSize: Int, pageID: Long, hasActionMode: Boolean): ReadingListItemActionsDialog {
             return ReadingListItemActionsDialog().apply {
-                arguments = bundleOf(ARG_READING_LIST_NAME to lists[0].title,
-                        ARG_READING_LIST_SIZE to lists.size,
+                arguments = bundleOf(ARG_READING_LIST_NAME to readingListName,
+                        ARG_READING_LIST_SIZE to readingListSize,
                         ARG_READING_LIST_PAGE to pageID,
                         ARG_READING_LIST_HAS_ACTION_MODE to hasActionMode)
             }

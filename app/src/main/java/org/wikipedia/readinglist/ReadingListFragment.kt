@@ -1076,9 +1076,10 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 return false
             }
             item?.let {
+                val lists = if (currentSearchQuery.isNullOrEmpty()) listOf(readingList!!)
+                        else ReadingListBehaviorsUtil.getListsContainPage(it)
                 ExclusiveBottomSheetPresenter.show(childFragmentManager,
-                        ReadingListItemActionsDialog.newInstance(if (currentSearchQuery.isNullOrEmpty()) listOf(readingList!!)
-                        else ReadingListBehaviorsUtil.getListsContainPage(it), it.id, actionMode != null))
+                        ReadingListItemActionsDialog.newInstance(lists[0].title, lists.size, it.id, actionMode != null))
                 return true
             }
             return false

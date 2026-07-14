@@ -52,7 +52,10 @@ fun ReadingListsComposeScreen(
     onRefresh: () -> Unit = {},
     onListClick: (Long) -> Unit = {},
     onListMenuAction: (Long, ReadingListMenuAction) -> Unit = { _, _ -> },
-    onListSelectionChange: (Long) -> Unit = {}
+    onListSelectionChange: (Long) -> Unit = {},
+    onPageClick: (Long) -> Unit = {},
+    onPageLongClick: (Long) -> Unit = {},
+    onPageChipClick: (Long) -> Unit = {}
 ) {
     LaunchedEffect(uiState.onboarding) {
         if (uiState.onboarding == OnboardingState.RecommendedReadingList) {
@@ -84,7 +87,10 @@ fun ReadingListsComposeScreen(
                 onOnboardingAction = onOnboardingAction,
                 onListClick = onListClick,
                 onListMenuAction = onListMenuAction,
-                onListSelectionChange = onListSelectionChange
+                onListSelectionChange = onListSelectionChange,
+                onPageClick = onPageClick,
+                onPageLongClick = onPageLongClick,
+                onPageChipClick = onPageChipClick
             )
         }
     } else {
@@ -96,6 +102,9 @@ fun ReadingListsComposeScreen(
             onListClick = onListClick,
             onListMenuAction = onListMenuAction,
             onListSelectionChange = onListSelectionChange,
+            onPageClick = onPageClick,
+            onPageLongClick = onPageLongClick,
+            onPageChipClick = onPageChipClick,
             modifier = modifier
         )
     }
@@ -110,6 +119,9 @@ private fun ReadingListsContent(
     onListClick: (Long) -> Unit,
     onListMenuAction: (Long, ReadingListMenuAction) -> Unit,
     onListSelectionChange: (Long) -> Unit,
+    onPageClick: (Long) -> Unit,
+    onPageLongClick: (Long) -> Unit,
+    onPageChipClick: (Long) -> Unit,
     modifier: Modifier = Modifier
 ) {
     when {
@@ -132,6 +144,9 @@ private fun ReadingListsContent(
                 onListClick = onListClick,
                 onListMenuAction = onListMenuAction,
                 onListSelectionChange = onListSelectionChange,
+                onPageClick = onPageClick,
+                onPageLongClick = onPageLongClick,
+                onPageChipClick = onPageChipClick,
                 modifier = modifier
             )
         }
@@ -213,6 +228,9 @@ private fun ReadingListsList(
     onListClick: (Long) -> Unit,
     onListMenuAction: (Long, ReadingListMenuAction) -> Unit,
     onListSelectionChange: (Long) -> Unit,
+    onPageClick: (Long) -> Unit,
+    onPageLongClick: (Long) -> Unit,
+    onPageChipClick: (Long) -> Unit,
     modifier: Modifier = Modifier
 ) {
     LazyColumn(modifier = modifier.fillMaxSize()) {
@@ -245,8 +263,9 @@ private fun ReadingListsList(
                 is ReadingListRow.PageRow -> ReadingListPageRow(
                     page = row.page,
                     containingLists = row.containingLists,
-                    onClick = {},
-                    onLongClick = {}
+                    onClick = { onPageClick(row.page.id) },
+                    onLongClick = { onPageLongClick(row.page.id) },
+                    onChipClick = { listId -> onPageChipClick(listId) }
                 )
             }
             HorizontalDivider(
