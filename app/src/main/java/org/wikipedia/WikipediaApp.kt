@@ -160,6 +160,7 @@ class WikipediaApp : Application() {
             apiKey = BuildConfig.BITDRIFT_API_KEY,
             sessionStrategy = SessionStrategy.Fixed(),
         )
+        Logger.setEntityId("demo")
         appStartTime = TimeSource.Monotonic.markNow()
 
         WikiSite.setDefaultBaseUrl(Prefs.mediaWikiBaseUrl)

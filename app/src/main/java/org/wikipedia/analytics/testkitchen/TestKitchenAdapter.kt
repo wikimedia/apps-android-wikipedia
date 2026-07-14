@@ -1,6 +1,8 @@
 package org.wikipedia.analytics.testkitchen
 
 import android.os.Build
+import io.bitdrift.capture.Capture.Logger
+import io.bitdrift.capture.LogLevel
 import org.wikimedia.testkitchen.EventSender
 import org.wikimedia.testkitchen.TestKitchenClient
 import org.wikimedia.testkitchen.config.DestinationEventService
@@ -76,9 +78,21 @@ object TestKitchenAdapter : ClientDataCallback, EventSender {
     }
 
     override suspend fun sendEvents(destinationEventService: DestinationEventService, events: List<Event>) {
+        events.forEach { logToCapture(it) }
         val response = if (ReleaseUtil.isDevRelease) ServiceFactory.getAnalyticsRest(destinationEventService).postEventsTk(events) else
             ServiceFactory.getAnalyticsRest(destinationEventService).postEventsHastyTk(events)
         L.d("${events.size} events sent successfully (${response.code()})")
+    }
+
+    private fun logToCapture(event: Event) {
+        val fields = buildMap {
+            put("instrument_name", event.instrumentName.orEmpty())
+            put("action", event.action.orEmpty())
+            event.interactionData.actionSource?.let { put("action_source", it) }
+            event.interactionData.actionContext?.let { put("action_context", it) }
+            event.interactionData.elementId?.let { put("element_id", it) }
+        }
+        Logger.log(LogLevel.INFO, fields = fields) { "testkitchen_event" }
     }
 
     fun getExperiment(abTest: ABTest): ExperimentImpl {
