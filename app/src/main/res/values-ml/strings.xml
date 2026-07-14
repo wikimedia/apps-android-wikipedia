@@ -8,6 +8,7 @@
 * Path slopu
 * Praveenp
 * Ranjithsiji
+* Shem.iz
 -->
 <resources>
   <string name="app_name_prod">വിക്കിപീഡിയ</string>
@@ -20,10 +21,15 @@
   <string name="search_hint">വിക്കിപീഡിയയിൽ തിരയുക</string>
   <string name="search_hint_voice_search">വോയ്സ് ഇൻപുട്ട് തിരയൽ</string>
   <string name="search_hint_search_languages">ഒരു ഭാഷക്കായി തിരയുക</string>
+  <string name="search_back_button_content_description">തിരിച്ചു പോവുക</string>
+  <string name="search_clear_query_content_description">അന്വേഷണം ക്ലിയർ ചെയ്യുക</string>
+  <string name="search_icon_content_description">തിരയുക</string>
   <string name="filter_hint_filter_my_lists_and_articles">എന്റെ പട്ടികകൾ അരിച്ചെടുക്കുക</string>
   <string name="nav_item_suggested_edits">തിരുത്തുകൾ</string>
+  <string name="nav_item_activity">പ്രവൃത്തി</string>
   <string name="nav_item_more">കൂടുതൽ</string>
   <string name="nav_item_search">തിരയുക</string>
+  <string name="nav_item_contribute">സംഭാവന ചെയ്യുക</string>
   <string name="error_network_error">ഇന്റർനെറ്റുമായി ബന്ധപ്പെടാൻ കഴിയുന്നില്ല.</string>
   <string name="page_error_retry">വീണ്ടും ശ്രമിക്കുക</string>
   <string name="card_offline_error_retry">വീണ്ടും ശ്രമിക്കുക</string>
@@ -33,7 +39,7 @@
   <string name="page_error_back_to_main">പിന്നിലേയ്ക്ക് മടങ്ങുക</string>
   <string name="error_back">പിന്നിലേയ്ക്ക് മടങ്ങുക</string>
   <string name="error_next">അടുത്തത്</string>
-  <string name="menu_clear_all_history" fuzzy="true">നാൾവഴി ശൂന്യമാക്കുക</string>
+  <string name="menu_clear_all_history">വായനാ ചരിത്രം മായ്ക്കുക</string>
   <string name="history_item_deleted">%s ചരിത്രത്തിൽ നിന്ന് നീക്കംചെയ്തു</string>
   <string name="history_items_deleted">ചരിത്രത്തിൽ നിന്ന് നീക്കംചെയ്ത %d ലേഖനങ്ങൾ</string>
   <string name="history_item_delete_undo">തിരസ്ക്കരിക്കുക</string>
@@ -46,7 +52,7 @@
   <string name="wikimedia_commons">വിക്കിമീഡിയ കോമൺസ്</string>
   <string name="wikidata">വിക്കിഡാറ്റ</string>
   <string name="dialog_title_clear_history">ബ്രൗസിങ് ഹിസ്റ്ററി ശൂന്യമാക്കണോ?</string>
-  <string name="dialog_message_clear_history" fuzzy="true">ഇത് താങ്കളുടെ എല്ലാ ബ്രൗസിങ്ങ് ചരിത്രവും ശൂന്യമാക്കും, അതിനുശേഷം നിലവിൽ തുറന്നിരിക്കുന്ന എല്ലാ ടാബുകളും അടയ്ക്കും. താങ്കൾക്ക് ഉറപ്പാണോ?</string>
+  <string name="dialog_message_clear_history">ഇത് നിങ്ങളുടെ എല്ലാ ബ്രൗസിംഗ് ചരിത്രവും ഇല്ലാതാക്കും. നിങ്ങൾക്ക് ഉറപ്പാണോ?</string>
   <string name="dialog_message_clear_history_yes">അതെ</string>
   <string name="dialog_message_clear_history_no">അല്ല</string>
   <string name="share_via">ഇതുവഴി പങ്ക് വെയ്ക്കുക</string>
@@ -59,15 +65,21 @@
   <string name="page_edit_history_filter_by">ഇതനുസരിച്ച് ഫിൽട്ടർ ചെയ്യുക</string>
   <string name="page_edit_history_filter_by_all">എല്ലാ എഡിറ്റുകളും ( %s )</string>
   <string name="page_edit_history_filter_by_user">ഉപയോക്തൃ എഡിറ്റുകൾ ( %s )</string>
-  <string name="page_edit_history_filter_by_anon" fuzzy="true">അനോൺ എഡിറ്റുകൾ ( %s )</string>
+  <string name="page_edit_history_filter_by_anon">രജിസ്റ്റർ ചെയ്യാത്ത തിരുത്തുകൾ (%s)</string>
   <string name="page_edit_history_filter_by_bot">ബോട്ട് എഡിറ്റുകൾ ( %s )</string>
   <string name="page_edit_history_metrics_content_description">%1$s മുതൽ %2$s s വരെയുള്ള മെട്രിക്കുകൾ</string>
+  <string name="page_edit_history_empty_search_message">കൂടുതൽ എഡിറ്റുകൾ കാണാൻ &lt;a href=\"#\"&gt;ഫിൽട്ടറുകൾ&lt;/a&gt; മാറ്റാൻ ശ്രമിക്കുക.</string>
   <string name="menu_page_show_tabs">ടാബുകൾ പ്രദർശിപ്പിക്കുക</string>
   <string name="menu_page_other_languages">ഭാഷ മാറ്റുക</string>
-  <string name="menu_page_find_in_page" fuzzy="true">താളിൽ കണ്ടെത്തുക</string>
+  <string name="menu_page_find_in_page">ലേഖനത്തിൽ കണ്ടെത്തുക</string>
+  <string name="menu_page_add_to_watchlist">നിരീക്ഷണപ്പട്ടികയിലേക്ക് ചേർക്കുക</string>
+  <string name="menu_page_view_talk">സംവാദത്താൾ കാണുക</string>
+  <string name="menu_page_talk_page">സം‌വാദത്താൾ</string>
+  <string name="menu_page_view_edit_history">എഡിറ്റ് ചരിത്രം കാണുക</string>
   <string name="edit_section_find_in_page">താളിൽ കണ്ടെത്തുക</string>
   <string name="menu_page_font_and_theme">ഫോണ്ടും ദൃശ്യരൂപവും</string>
   <string name="menu_page_add_to_list">വായന പട്ടികയിലേക്ക് ചേർക്കുക</string>
+  <string name="menu_page_add_to_default_list">സേവ് ചെയ്യുക</string>
   <string name="feed_card_add_to_list">വായന പട്ടികയിലേക്ക് ചേർക്കുക</string>
   <string name="feed_card_add_to_default_list">സേവ് ചെയ്യുക</string>
   <string name="menu_page_share">കണ്ണി പങ്ക് വെയ്ക്കുക</string>
@@ -79,6 +91,7 @@
   <string name="menu_page_recently_viewed">അടുത്തിടെ കണ്ടത്</string>
   <string name="menu_page_archive">സഞ്ചയിക</string>
   <string name="menu_long_press_open_page">തുറക്കുക</string>
+  <string name="menu_long_press_open_in_places">സ്ഥലങ്ങളിൽ തുറക്കുക</string>
   <string name="menu_long_press_open_in_new_tab">പുതിയ ടാബിൽ തുറക്കുക</string>
   <string name="menu_long_press_copy_page">കണ്ണിയുടെ വിലാസം പകർത്തുക</string>
   <string name="menu_text_select_define">ശുദ്ധീകരിച്ചെടുക്കുക</string>
@@ -103,12 +116,17 @@
   <string name="langlinks_your_wikipedia_languages">താങ്കളുടെ വിക്കിപീഡിയ ഭാഷകൾ</string>
   <string name="menu_save_changes">മാറ്റങ്ങൾ പ്രസിദ്ധീകരിക്കുക</string>
   <string name="edit_saved_successfully">തിരുത്ത് സേവ് ചെയ്തിരിക്കുന്നു!</string>
+  <string name="stub_article_edit_saved_successfully">എഡിറ്റ് പ്രസിദ്ധീകരിച്ചു! മാറ്റങ്ങൾ ദൃശ്യമാകാൻ സമയമെടുത്തേക്കാം.</string>
   <string name="dialog_message_edit_failed">തിരുത്ത് പരാജയപ്പെട്ടു!</string>
   <string name="dialog_message_edit_failed_retry">വീണ്ടും ശ്രമിക്കുക</string>
   <string name="dialog_message_edit_failed_cancel">റദ്ദാക്കുക</string>
   <string name="dialog_message_leaving_edit">താങ്കൾ മാറ്റങ്ങൾ ഇതുവരെ സേവ് ചെയ്തിട്ടില്ല. ഈ താളിൽ നിന്ന് വിട്ടുപോകണമെന്ന് ഉറപ്പാണോ?</string>
   <string name="dialog_message_leaving_edit_leave">പോവുക</string>
   <string name="dialog_message_leaving_edit_stay">പിടിച്ചുവെക്കുക</string>
+  <string name="dialog_confirm_delete_donation_history_title">നീക്കം ചെയ്യുന്നത് സ്ഥിരീകരിക്കുക</string>
+  <string name="dialog_confirm_delete_donation_history_message">ഈ ഉപകരണത്തിൽ നിന്നുള്ള സംഭാവനകൾക്ക് മാത്രമേ ഇത് ബാധകമാകൂ.</string>
+  <string name="dialog_confirm_delete_donation_history_delete">മായ്ക്കുക</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">റദ്ദാക്കുക</string>
   <string name="menu_show_toc">ഉള്ളടക്കപ്പട്ടിക</string>
   <string name="search_no_results_found">ഫലങ്ങളൊന്നും കണ്ടെത്താനായില്ല</string>
   <string name="search_reading_list_no_results">\"%s\" എന്നതിൽ ഫലങ്ങളൊന്നും കണ്ടെത്തിയില്ല</string>
@@ -125,6 +143,9 @@
   <string name="account_creation_password_hint">രഹസ്യവാക്ക്</string>
   <string name="login_2fa_hint" fuzzy="true">ദ്വി-ഘടക സാധൂകരണ കോഡ്</string>
   <string name="login_2fa_other_workflow_error_msg" fuzzy="true">രണ്ട്-ഘടക പ്രാമാണീകരണം ആവശ്യമാണ്! ദയവായി പ്രധാന പ്രവർത്തനത്തിലേക്ക് മടങ്ങി നിങ്ങളുടെ 2FA ടോക്കൺ ഉപയോഗിച്ച് ലോഗിൻ ചെയ്യുക, തുടർന്ന് വീണ്ടും ശ്രമിക്കുക.</string>
+  <string name="login_email_auth_hint">ഇമെയിൽ പരിശോധനാ കോഡ്</string>
+  <string name="login_email_auth_other_workflow_error_msg">ഇമെയിൽ പരിശോധന ആവശ്യമാണ്! പ്രധാന സ്ക്രീനിൽ നിന്ന് ലോഗിൻ ചെയ്ത് നിങ്ങളുടെ ഇമെയിൽ പരിശോധനാ കോഡ് നൽകുക.</string>
+  <string name="login_background_error_msg">വീണ്ടും ലോഗിൻ ചെയ്യാൻ കഴിയുന്നില്ല. പ്രധാന സ്‌ക്രീനിലേക്ക് തിരികെ പോയി സ്വമേധയാ ലോഗിൻ ചെയ്യുക.</string>
   <string name="onboarding_card_login">പ്രവേശിക്കുക</string>
   <string name="page_editing_login">പ്രവേശിക്കുക</string>
   <string name="reading_lists_sync_login">പ്രവേശിക്കുക</string>
@@ -145,8 +166,11 @@
   <string name="logged_out_in_background_dialog">നിങ്ങൾ വിക്കിപീഡിയയിൽ നിന്ന് ലോഗ് ഔട്ട് ചെയ്തു. നിങ്ങൾക്ക് വീണ്ടും ലോഗിൻ ചെയ്യാൻ താൽപ്പര്യമുണ്ടോ?</string>
   <string name="logged_out_in_background_login">പ്രവേശിക്കുക</string>
   <string name="logged_out_in_background_cancel">റദ്ദാക്കുക</string>
+  <string name="account_vanish_request_title">അക്കൗണ്ട് അപ്രത്യക്ഷമാക്കുക</string>
+  <string name="account_vanish_request_confirm_title">അക്കൌണ്ട് മുന്നറിയിപ്പ് അപ്രത്യക്ഷമാക്കുക</string>
   <string name="history_empty_title">അടുത്തിടെ കണ്ട ലേഖനങ്ങൾ ഇല്ല</string>
   <string name="history_empty_message">താങ്കൾ ഇവിടെ വായിക്കുന്നതെന്താണെന്ന് പിൻതുടരുക.</string>
+  <string name="history_offline_articles_toast">ചരിത്രത്തിലെ ചില ലേഖനങ്ങൾ ഓഫ്‌ലൈനിൽ ആയിരിക്കുമ്പോൾ കാണാൻ കഴിഞ്ഞേക്കില്ല.</string>
   <string name="search_empty_message">സ്വതന്ത്ര സർവ്വവിജ്ഞാനകോശം താങ്കളുടെ ഭാഷയിൽ വായിക്കുകയും തിരയുകയും ചെയ്യുക</string>
   <string name="search_empty_message_multilingual_upgrade">കൂടുതൽ ഭാഷകളിൽ വിക്കിപീഡിയയിൽ തിരയുക</string>
   <string name="delete_selected_items">തിരഞ്ഞെടുത്ത ഇനങ്ങൾ മായ്ക്കുക</string>
@@ -160,10 +184,11 @@
   <string name="dialog_create_account_checking_progress">ഉറപ്പാക്കുന്നു</string>
   <string name="create_account_email_hint">ഇമെയിൽ (നിർബന്ധമില്ല)</string>
   <string name="create_account_password_repeat_hint">രഹസ്യവാക്ക് ആവർത്തിക്കുക</string>
+  <string name="create_account_password_is_username">പാസ്‌വേഡ് ഉപയോക്തൃനാമത്തിന് സമാനമായിരിക്കരുത്</string>
   <string name="create_account_passwords_mismatch_error">രഹസ്യവാക്കുകൾ ഒത്തുപോകുന്നില്ല</string>
   <string name="create_account_email_error">അസാധുവായ ഇമെയിൽ വിലാസം.</string>
   <string name="create_account_username_error">ഉപയോക്തൃനാമത്തിൽ അനുവദനീയമല്ലാത്ത അക്ഷരങ്ങൾ</string>
-  <string name="create_account_password_error" fuzzy="true">രഹസ്യവാക്ക് അസാധുവാണ്</string>
+  <string name="create_account_password_error">പാസ്‌വേഡ് കുറഞ്ഞത് 8 പ്രതീകങ്ങളെങ്കിലും ആയിരിക്കണം</string>
   <string name="create_account_generic_error">അംഗത്വം സൃഷ്ടിക്കാൻ കഴിഞ്ഞില്ല</string>
   <string name="create_account_next">അടുത്തത്</string>
   <string name="email_recommendation_dialog_title">ഇമെയിൽ വിലാസമില്ലാതെ അക്കൗണ്ട് ഉണ്ടാക്കണമോ?</string>
@@ -514,8 +539,8 @@
   <string name="custom_date_picker_dialog_cancel_button_text">റദ്ദാക്കുക</string>
   <string name="on_this_day_game_entry_dialog_title">പരിചയപ്പെടുത്തുന്നു</string>
   <string name="on_this_day_game_entry_dialog_subtitle">വിക്കിപീഡിയാ കളികൾ</string>
-  <string name="on_this_day_game_entry_dialog_button">ഇന്നത്തെ കളി കളിക്കുക</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Explore feed-ൽ വിക്കിപീഡിയാ കളികൾ ലഭ്യമാണ്.</string>
+  <string name="on_this_day_game_entry_dialog_button" fuzzy="true">ഇന്നത്തെ കളി കളിക്കുക</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message" fuzzy="true">Explore feed-ൽ വിക്കിപീഡിയാ കളികൾ ലഭ്യമാണ്.</string>
   <string name="on_this_day_game_title">എന്താണ് ആദ്യം വന്നത് ?</string>
   <string name="on_this_day_game_dialog_button">കളിക്കുക</string>
   <string name="on_this_day_game_score">സ്കോർ: %d</string>

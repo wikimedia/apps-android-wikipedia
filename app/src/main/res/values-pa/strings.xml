@@ -96,9 +96,9 @@
   <string name="edit_section_find_in_page">ਸਫ਼ੇ ਵਿੱਚ ਲੱਭੋ</string>
   <string name="menu_page_font_and_theme">ਅੱਖਰ ਅਤੇ ਵਿਸ਼ਾ-ਵਸਤੂ</string>
   <string name="menu_page_add_to_list">ਪੜ੍ਹਨ ਵਾਲੀ ਸੂਚੀ \'ਚ ਜੋੜੋ</string>
-  <string name="menu_page_add_to_default_list">ਸੰਭਾਲੋ</string>
+  <string name="menu_page_add_to_default_list">ਸਾਂਭੋ</string>
   <string name="feed_card_add_to_list">ਪੜ੍ਹਨ ਵਾਲੀ ਸੂਚੀ \'ਚ ਜੋੜੋ</string>
-  <string name="feed_card_add_to_default_list">ਸੰਭਾਲੋ</string>
+  <string name="feed_card_add_to_default_list">ਸਾਂਭੋ</string>
   <string name="menu_page_share">ਕੜੀ ਸਾਂਝੀ ਕਰੋ</string>
   <string name="menu_article_share">ਲੇਖ ਸਾਂਝਾ ਕਰੋ</string>
   <string name="menu_page_article_share">ਸਾਂਝਾ ਕਰੋ</string>
@@ -260,7 +260,7 @@
   <string name="about_libraries_heading">ਵਰਤੀਆਂ ਲਾਇਬ੍ਰੇਰੀਆਂ</string>
   <string name="about_contributors_heading">ਯੋਗਦਾਨੀ</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;ਟੀਮ ਸਫ਼ਾ&lt;/a&gt;</string>
-  <string name="about_translators_heading">ਤਰਜਮੇਕਾਰ</string>
+  <string name="about_translators_heading">ਉਲਥਾਕਾਰ</string>
   <string name="about_translators_translatewiki">ਇਸ ਐਪ ਦਾ ਤਰਜਮਾ ਸਵੈ-ਸੇਵੀ ਤਰਜਮਾਕਾਰਾਂ ਵੱਲੋਂ &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; ਉੱਤੇ ਕੀਤਾ ਗਿਆ ਸੀ।</string>
   <string name="about_app_license_heading">ਲਸੰਸ</string>
   <string name="about_app_license">ਸਰੋਤ ਕੋਡ &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;ਅਪਾਚੇ 2.0 ਲਸੰਸ&lt;/a&gt; ਹੇਠ &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;ਗਿਟਹਬ&lt;/a&gt; ਉੱਤੇ ਉਪਲਬਧ ਹੈ। ਜਦੋਂ ਤੱਕ ਹੋਰ ਨਿਰਧਾਰਿਤ ਨਹੀਂ ਕੀਤਾ ਜਾਂਦਾ, ਇਹ ਸਮੱਗਰੀ &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; ਦੇ ਤਹਿਤ ਉਪਲਬਧ ਹੈ।</string>
@@ -305,7 +305,7 @@
   <string name="find_next">ਅੱਗੇ ਲੱਭੋ</string>
   <string name="find_previous">ਪਿੱਛੇ ਲੱਭੋ</string>
   <string name="find_first_occurence">ਇਹ ਪਹਿਲੀ ਘਟਨਾ ਹੈ</string>
-  <string name="find_last_occurence">ਇਹ ਆਖਰਲੀ ਘਟਨਾ ਹੈ</string>
+  <string name="find_last_occurence">ਇਹ ਅਖ਼ੀਰਲੀ ਘਟਨਾ ਏ</string>
   <string name="article_opened_in_background_tab">ਲੇਖ ਨੂੰ ਇੱਕ ਪਿਛੋਕਡ਼ ਟੈਬ ਵਿੱਚ ਖੋਲ੍ਹਿਆ ਗਿਆ ਹੈ।</string>
   <string name="abusefilter_title_warn">ਇਹ ਇੱਕ ਗੈਰ-ਰਚਨਾਤਮਕ ਸੋਧ ਜਾਪਦੀ ਹੈ। ਕੀ ਤੁਸੀਂ ਯਕੀਨੀ ਤੌਰ \'ਤੇ ਇਸ ਨੂੰ ਛਾਪਣਾ ਚਾਹੁੰਦੇ ਹੋ?</string>
   <string name="abusefilter_title_disallow">ਤੁਸੀਂ ਇਸ ਸੰਪਾਦਨ ਨੂੰ ਛਾਪ ਨਹੀਂ ਸਕਦੇ। ਕਿਰਪਾ ਕਰਕੇ ਵਾਪਸ ਜਾਓ ਅਤੇ ਇਸਨੂੰ ਬਦਲੋ।</string>
@@ -414,7 +414,7 @@
   <string name="link_preview_dialog_saved_button">ਸੰਭਾਲਿਆ</string>
   <string name="link_preview_dialog_share_button">ਸਾਂਝਾ ਕਰੋ</string>
   <string name="link_preview_stub_placeholder_text">ਇਹ ਲੇਖ ਇੱਕ ਟੁੰਠ ਹੈ, ਜਿਸਦਾ ਮਤਲਬ ਹੈ ਕਿ ਲੇਖ ਵਿੱਚ ਝਲਕ ਬਣਾਉਣ ਲਈ ਲੋੜੀਂਦੀ ਸਮੱਗਰੀ ਨਹੀਂ ਹੈ। ਹਾਲਾਂਕਿ, ਤੁਸੀਂ ਇਸਨੂੰ ਬਦਲ ਸਕਦੇ ਹੋ।</string>
-  <string name="error_page_does_not_exist">ਇਹ ਸਫ਼ਾ ਹਾਲੇ ਮੌਜੂਦ ਨਹੀਂ ਹੈ</string>
+  <string name="error_page_does_not_exist">ਇਹ ਵਰਕਾ ਹਾਲੇ ਹੋਂਦ ਵਿੱਚ ਨਹੀਂ ਏ</string>
   <string name="error_user_page_does_not_exist">ਵਿਕੀਪੀਡੀਆ ਕੋਲ ਇਸ ਸਹੀ ਨਾਮ ਵਾਲਾ ਕੋਈ &lt;a href=\"%1$s \"&gt;ਵਰਤੋਂਕਾਰ ਸਫ਼ਾ&lt;/a&gt; ਨਹੀਂ ਹੈ। ਆਮ ਤੌਰ \'ਤੇ, ਇਹ ਸਫ਼ਾ &lt;b&gt;%2$s&lt;/b&gt; ਵੱਲੋਂ ਬਣਾਇਆ ਅਤੇ ਸੋਧਿਆ ਜਾਣਾ ਚਾਹੀਦਾ ਹੈ। ਜੇਕਰ ਸ਼ੱਕ ਹੈ, ਤਾਂ ਕਿਰਪਾ ਕਰਕੇ ਪੁਸ਼ਟੀ ਕਰੋ ਕਿ \" %3$s \" ਮੌਜੂਦ ਹੈ।</string>
   <string name="view_wiki_error_message_offline">ਇੰਟਰਨੈਟ ਨਾਲ ਕਨੈਕਟ ਨਹੀਂ ਹੋ ਸਕਦੇ</string>
   <string name="view_wiki_error_message_timeout">ਵਿਕੀਪੀਡੀਆ ਨਾਲ ਜੁੜਿਆ ਨਹੀਂ ਜਾ ਸਕਦਾ। ਆਪਣੇ ਨੈੱਟਵਰਕ ਕਨੈਕਸ਼ਨ ਦੀ ਜਾਂਚ ਕਰੋ, ਜਾਂ ਬਾਅਦ ਵਿੱਚ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
@@ -449,7 +449,7 @@
   </plurals>
   <string name="temp_account_anon_ip_edit_status">&lt;b&gt;ਤੁਸੀਂ ਦਾਖ਼ਲ ਨਹੀਂ ਹੋ।&lt;/b&gt; ਇੱਕ ਵਾਰ ਜਦੋਂ ਤੁਸੀਂ ਇੱਕ ਸੋਧ ਕਰਦੇ ਹੋ, ਤਾਂ ਤੁਹਾਡਾ IP ਪਤਾ ਤੁਹਾਡਿਆਂ ਸੋਧਾਂ ਨਾਲ ਜੁੜ ਜਾਵੇਗਾ।</string>
   <string name="temp_account_anon_edit_status">&lt;b&gt;ਤੁਸੀਂ ਦਾਖ਼ਲ ਨਹੀਂ ਹੋ।&lt;/b&gt; ਇੱਕ ਵਾਰ ਜਦੋਂ ਤੁਸੀਂ ਸੋਧ ਕਰਦੇ ਹੋ, ਤਾਂ ਤੁਹਾਡੀ ਨਿੱਜਤਾ ਦੀ ਰੱਖਿਆ ਲਈ ਤੁਹਾਡੇ ਲਈ ਇੱਕ ਅਸਥਾਈ ਖਾਤਾ ਬਣਾਇਆ ਜਾਵੇਗਾ। &lt;a href=\"%1$s\"&gt;ਹੋਰ ਜਾਣੋ&lt;/a&gt;</string>
-  <string name="temp_account_edit_status">&lt;b&gt;ਤੁਸੀਂ ਇੱਕ ਅਸਥਾਈ ਖਾਤੇ ਦੀ ਵਰਤੋਂ ਕਰ ਰਹੇ ਹੋ।&lt;/b&gt; ਤੁਹਾਡਾ ਸੋਧ %1$s ਨਾਲ ਸਬੰਧਿਤ ਹੋਵੇਗਾ। &lt;a href=\"%2$s\"&gt;ਹੋਰ ਜਾਣੋ&lt;/a&gt; ।</string>
+  <string name="temp_account_edit_status">&lt;b&gt;ਤੁਸੀਂ ਇੱਕ ਆਰਜੀ ਖਾਤੇ ਦੀ ਵਰਤੋਂ ਕਰ ਰਹੇ ਹੋ।&lt;/b&gt; ਤੁਹਾਡਾ ਸੋਧ %1$s ਨਾਲ ਸਬੰਧਿਤ ਹੋਵੇਗਾ। &lt;a href=\"%2$s\"&gt;ਹੋਰ ਜਾਣੋ&lt;/a&gt; ।</string>
   <string name="temp_account_login_status">&lt;b&gt;ਤੁਸੀਂ ਇਸ ਵੇਲੇ ਇੱਕ ਆਰਜ਼ੀ ਖਾਤੇ ਦੀ ਵਰਤੋਂ ਕਰ ਰਹੇ ਹੋ। &lt;/b&gt; ਜਦੋਂ ਤੁਸੀਂ ਦਾਖ਼ਲ ਹੁੰਦੇ ਹੋ ਤਾਂ ਅਸਥਾਈ ਖਾਤੇ %1$s ਨਾਲ ਕੀਤੇ ਗਏ ਸੋਧ ਤੁਹਾਡੇ ਸਥਾਈ ਖਾਤੇ ਵਿੱਚ ਨਹੀਂ ਜਾਣਗੇ। ਹੋਰ ਲਾਭਾਂ ਦੇ ਨਾਲ-ਨਾਲ ਆਪਣੇ ਵਰਤੋਂਕਾਰ ਨਾਂ \'ਤੇ ਸਿਹਰਾ ਪ੍ਰਾਪਤ ਕਰਨ ਲਈ ਦਾਖ਼ਲ ਹੋਵੋ ਜਾਂ ਖਾਤਾ ਬਣਾਓ।</string>
   <string name="temp_account_end_session">ਅਜਲਾਸ ਖਤਮ ਕਰੋ</string>
   <string name="temp_account_end_session_confirm">ਇਹ ਤੁਹਾਨੂੰ ਤੁਹਾਡੇ ਅਸਥਾਈ ਖਾਤੇ ਤੋਂ ਬਾਹਰ ਕੱਢ ਦੇਵੇਗਾ। ਕੀ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਣਾ ਚਾਹੁੰਦੇ ਹੋ?</string>
@@ -527,9 +527,9 @@
     <item quantity="one">%d ਲੇਖ ਹਟਾਇਆ ਗਿਆ</item>
     <item quantity="other"> ਸੂਚੀ ਵਿੱਚੋਂ %d ਲੇਖ ਹਟਾਏ ਗਏ</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%s ਤੋਂ %d ਲੇਖ ਹਟਾਇਆ ਗਿਆ</item>
-    <item quantity="other">%s ਤੋਂ %d ਲੇਖ ਹਟਾਏ ਗਏ</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">%2$s ਤੋਂ %1$d ਲੇਖ ਹਟਾਇਆ ਗਿਆ</item>
+    <item quantity="other">%2$s ਤੋਂ %1$d ਲੇਖ ਹਟਾਏ ਗਏ</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d ਸੂਚੀ ਮਿਟਾਈ ਗਈ</item>
@@ -743,7 +743,7 @@
   <string name="view_main_page_card_title">ਵਿਕੀਪੀਡੀਆ \'ਤੇ ਅੱਜ</string>
   <string name="view_main_page_card_action">ਮੁੱਖ ਸਫ਼ਾ ਵੇਖੋ</string>
   <string name="view_featured_image_card_title">ਦਿਨ ਦੀ ਤਸਵੀਰ</string>
-  <string name="view_featured_image_card_download">ਡਾਊਨਲੋਡ</string>
+  <string name="view_featured_image_card_download">ਲਾਹੋ</string>
   <string name="view_featured_image_card_share">ਸਾਂਝਾ ਕਰੋ</string>
   <string name="menu_feed_card_dismiss">ਇਸ ਕਾਰਡ ਨੂੰ ਓਹਲੇ ਕਰੋ</string>
   <string name="menu_feed_card_dismissed">ਕਾਰਡ ਲੁਕਾਇਆ</string>
@@ -1011,7 +1011,7 @@
   <string name="image_recommendation_reject_low_quality">ਚਿੱਤਰ ਘੱਟ ਗੁਣਵੱਤਾ ਵਾਲਾ ਹੈ</string>
   <string name="image_recommendation_reject_dont_know">ਮੈ ਇਹ ਵਿਸ਼ਾ ਨਹੀਂ ਜਾਣਦਾ</string>
   <string name="image_recommendation_reject_other">ਹੋਰ</string>
-  <string name="image_recommendation_reject_submit">ਭੇਜੋ</string>
+  <string name="image_recommendation_reject_submit">ਹਵਾਲੇ ਕਰੋ</string>
   <string name="image_recommendation_tooltip_main">ਸੁਝਾਏ ਗਏ ਸੋਧਾਂ ਵਿੱਚ ਲੇਖਾਂ ਵਿੱਚੋਂ ਗੁੰਮ ਹੋਈਆਂ ਤਸਵੀਰਾਂ ਸ਼ਾਮਲ ਕਰੋ</string>
   <string name="image_recommendation_onboarding_1">ਤਸਵੀਰਾਂ ਲੋਕਾਂ ਨੂੰ ਸਮਝਣ ਵਿੱਚ ਮਦਦ ਕਰਦੀਆਂ ਹਨ, ਪਰ ਬਹੁਤ ਸਾਰੇ ਲੇਖਾਂ ਵਿੱਚ ਇਹ ਨਹੀਂ ਹਨ।</string>
   <string name="image_recommendation_onboarding_2">ਤੁਸੀਂ ਫੈਸਲਾ ਕਰੋਗੇ ਕਿ ਸੁਝਾਏ ਚਿੱਤਰ ਨੂੰ ਵਿਕੀਪੀਡੀਆ ਲੇਖ ਵਿੱਚ ਰੱਖਿਆ ਜਾਣਾ ਚਾਹੀਦਾ ਹੈ।</string>
@@ -1050,7 +1050,7 @@
     <item quantity="one">ਪਿਛਲੇ ਮਹੀਨੇ ਸੋਧ</item>
     <item quantity="other">ਪਿਛਲੇ ਮਹੀਨੇ ਸੋਧਾਂ</item>
   </plurals>
-  <string name="activity_tab_impact_all_time">ਕੁੱਲ ਸਮੇਂ ਦਾ ਅਸਰ</string>
+  <string name="activity_tab_impact_all_time">ਹੁਣ ਤੱਕ ਦੇ ਸਮੇਂ ਦਾ ਅਸਰ</string>
   <plurals name="activity_tab_impact_total_edits">
     <item quantity="one">ਕੁੱਲ ਸੋਧ</item>
     <item quantity="other">ਕੁੱਲ ਸੋਧਾਂ</item>
@@ -1076,7 +1076,7 @@
   <string name="activity_tab_customize_screen_time_spent_switch_title">ਪੜ੍ਹਨ ਵਿੱਚ ਬਿਤਾਇਆ ਸਮਾਂ</string>
   <string name="activity_tab_customize_screen_reading_insights_switch_title">ਪੜ੍ਹਨ ਦਿਆਂ ਅੰਦਰੂਨੀ-ਝਾਤਾਂ</string>
   <string name="activity_tab_customize_screen_editing_insights_switch_title">ਸੋਧ-ਕਾਰਜ ਦਿਆਂ ਅੰਦਰੂਨੀ-ਝਾਤਾਂ</string>
-  <string name="activity_tab_customize_screen_impact_switch_title">ਕੁੱਲ ਸਮੇਂ ਦਾ ਅਸਰ</string>
+  <string name="activity_tab_customize_screen_impact_switch_title">ਹੁਣ ਤੱਕ ਦੇ ਸਮੇਂ ਦਾ ਅਸਰ</string>
   <string name="activity_tab_customize_screen_games_switch_title">ਖੇਡ ਅੰਕੜੇ</string>
   <string name="activity_tab_customize_screen_donations_switch_title">ਐਪ ਵਿੱਚ ਆਖਰੀ ਦਾਨ</string>
   <string name="activity_tab_timeline_today">ਅੱਜ</string>
@@ -1102,7 +1102,7 @@
   <string name="onboarding_explore_title">ਖੋਜ ਕਰਨ ਦੇ ਨਵੇਂ ਤਰੀਕੇ</string>
   <string name="onboarding_reading_list_sync_title">ਸਮਕਾਲੀਕਰਨ ਨਾਲ ਪਡ਼੍ਹਨਵਾਲੀ ਸੂਚੀਆਂ</string>
   <string name="onboarding_data_privacy_title">ਡਾਟਾ ਅਤੇ ਨਿੱਜਤਾ</string>
-  <string name="onboarding_data_privacy_text">ਸਾਡਾ ਮੰਨਣਾ ਹੈ ਕਿ ਤੁਹਾਨੂੰ ਮੁਫਤ ਗਿਆਨ ਲਹਿਰ ਵਿੱਚ ਹਿੱਸਾ ਲੈਣ ਲਈ ਨਿੱਜੀ ਜਾਣਕਾਰੀ ਪ੍ਰਦਾਨ ਕਰਨ ਦੀ ਲੋੜ ਨਹੀਂ ਹੋਣੀ ਚਾਹੀਦੀ। ਇਸ ਐਪ ਲਈ ਇਕੱਤਰ ਕੀਤਾ ਗਿਆ ਵਰਤੋਂ ਡੇਟਾ ਗੁਮਨਾਮ ਹੈ। ਸਾਡੀ &lt;a href=\"#privacy\"&gt;ਪਰਦੇਦਾਰੀ ਨੀਤੀ&lt;/a&gt; ਅਤੇ &lt;a href=\"#termsOfUse\"&gt;ਵਰਤੋਂ ਦੀਆਂ ਸ਼ਰਤਾਂ&lt;/a&gt; ਬਾਰੇ ਹੋਰ ਜਾਣੋ।</string>
+  <string name="onboarding_data_privacy_text" fuzzy="true">ਸਾਡਾ ਮੰਨਣਾ ਹੈ ਕਿ ਤੁਹਾਨੂੰ ਮੁਫਤ ਗਿਆਨ ਲਹਿਰ ਵਿੱਚ ਹਿੱਸਾ ਲੈਣ ਲਈ ਨਿੱਜੀ ਜਾਣਕਾਰੀ ਪ੍ਰਦਾਨ ਕਰਨ ਦੀ ਲੋੜ ਨਹੀਂ ਹੋਣੀ ਚਾਹੀਦੀ। ਇਸ ਐਪ ਲਈ ਇਕੱਤਰ ਕੀਤਾ ਗਿਆ ਵਰਤੋਂ ਡੇਟਾ ਗੁਮਨਾਮ ਹੈ। ਸਾਡੀ &lt;a href=\"#privacy\"&gt;ਪਰਦੇਦਾਰੀ ਨੀਤੀ&lt;/a&gt; ਅਤੇ &lt;a href=\"#termsOfUse\"&gt;ਵਰਤੋਂ ਦੀਆਂ ਸ਼ਰਤਾਂ&lt;/a&gt; ਬਾਰੇ ਹੋਰ ਜਾਣੋ।</string>
   <string name="onboarding_analytics_switch_title">ਵਰਤੋਂ ਡਾਟਾ ਭੇਜੋ</string>
   <string name="onboarding_got_it">ਸਮਝ ਲਿਆ</string>
   <string name="onboarding_multilingual_secondary_text">ਸਾਨੂੰ ਤੁਹਾਡੀ ਜੰਤਰ \'ਤੇ ਹੇਠ ਲਿਖੀਆਂ ਚੀਜ਼ਾਂ ਮਿਲੀਆਂ ਹਨ:</string>
@@ -1291,7 +1291,7 @@
   <string name="thank_label">ਧੰਨਵਾਦ</string>
   <string name="view_user_page">ਵਰਤੋਂਕਾਰ ਸਫ਼ਾ ਵੇਖੋ</string>
   <string name="thank_dialog_title_text">ਜਨਤਕ ਤੌਰ \'ਤੇ\' ਧੰਨਵਾਦ \'ਭੇਜੋ</string>
-  <string name="thank_dialog_positive_button_text">ਧੰਨਵਾਦ ਭੇਜੋ</string>
+  <string name="thank_dialog_positive_button_text">ਧੰਨਵਾਦ ਘੱਲੋ</string>
   <string name="thank_dialog_negative_button_text">ਰੱਦ ਕਰੋ</string>
   <string name="thank_success_message">ਤੁਹਾਡਾ \'ਧੰਨਵਾਦ\' %s ਨੂੰ ਭੇਜਿਆ ਗਿਆ ਸੀ 👍</string>
   <string name="menu_option_view_user_profile">ਵਰਤੋਂਕਾਰ ਸਫ਼ਾ ਵੇਖੋ</string>
@@ -1552,9 +1552,13 @@
   <string name="survey_dialog_general_maybe">ਸ਼ਾਇਦ</string>
   <string name="survey_dialog_input_hint">ਵਾਧੂ ਸੁਝਾਅ</string>
   <string name="survey_dialog_submitted_snackbar">ਸੁਝਾਅ ਜਮ੍ਹਾਂ ਕੀਤਾ ਗਿਆ। ਤੁਹਾਡਾ ਧੰਨਵਾਦ!</string>
+  <string name="games_hub_activity_title">ਖੇਡਾਂ</string>
+  <string name="games_hub_activity_games_unavailable_message_learn_more_action">ਹੋਰ ਜਾਣੋ</string>
+  <string name="games_hub_activity_overflow_view_game_stats">ਖੇਡ ਦੇ ਅੰਕੜੇ ਵੇਖੋ</string>
+  <string name="games_hub_activity_overflow_learn_more">ਹੋਰ ਸਿੱਖੋ</string>
   <string name="on_this_day_game_entry_dialog_title">ਪੇਸ਼ ਕੀਤਾ ਜਾ ਰਿਹਾ ਏ</string>
   <string name="on_this_day_game_entry_dialog_subtitle">ਵਿਕੀਪੀਡੀਆ ਖੇਡਾਂ</string>
-  <string name="on_this_day_game_entry_dialog_button">ਅੱਜ ਦੀ ਖੇਡ ਖੇਡੋ</string>
+  <string name="on_this_day_game_entry_dialog_button">ਖੇਡੋ</string>
   <string name="on_this_day_game_title">ਕਿਹੜਾ ਪਹਿਲਾਂ ਆਇਆ?</string>
   <string name="on_this_day_game_dialog_button">ਖੇਡੋ</string>
   <string name="on_this_day_game_splash_message">ਅੰਦਾਜ਼ਾ ਲਗਾਓ ਕਿ ਇਤਿਹਾਸ ਵਿੱਚ ਇਸ ਦਿਨ ਕਿਹੜੀ ਘਟਨਾ ਸਭ ਤੋਂ ਪਹਿਲਾਂ ਵਾਪਰੀ ਸੀ।</string>
@@ -1563,13 +1567,9 @@
   <string name="on_this_day_game_incorrect">ਗਲਤ!</string>
   <string name="on_this_day_game_next">ਅਗਲਾ ਸਵਾਲ</string>
   <string name="on_this_day_game_finish">ਅੰਤਮ ਨਤੀਜੇ</string>
-  <string name="on_this_day_game_share_button">ਸਾਂਝਾ ਕਰੋ</string>
-  <string name="on_this_day_game_pause_title">ਖੇਡ ਨੂੰ ਰੋਕਣਾ ਹੈ?</string>
-  <string name="on_this_day_game_pause_negative">ਖੇਡਦੇ ਰਹੋ</string>
-  <string name="on_this_day_game_pause_positive">ਸਮਝ ਲਿਆ</string>
+  <string name="on_this_day_game_share_button" fuzzy="true">ਸਾਂਝਾ ਕਰੋ</string>
   <string name="on_this_day_game_feed_entry_card_heading">ਵਿਕੀਪੀਡੀਆ ਖੇਡਾਂ</string>
   <string name="on_this_day_game_feed_entry_card_title">ਕਿਹੜਾ ਪਹਿਲਾਂ ਆਇਆ?</string>
-  <string name="on_this_day_game_feed_entry_card_subtitle">ਅੰਦਾਜ਼ਾ ਲਗਾਓ ਕਿ ਇਤਿਹਾਸ ਵਿੱਚ ਇਸ ਦਿਨ ਕਿਹੜੀ ਘਟਨਾ ਸਭ ਤੋਂ ਪਹਿਲਾਂ ਵਾਪਰੀ ਸੀ।</string>
   <string name="on_this_day_game_your_stats">ਤੁਹਾਡੇ ਅੰਕੜੇ</string>
   <plurals name="on_this_day_game_stats_games_played">
     <item quantity="one">ਖੇਡ ਖੇਡੀ ਗਈ</item>
@@ -1591,9 +1591,14 @@
   <string name="on_this_day_game_notification_turned_on_snackbar_message">ਖੇਡ ਸੂਚਨਾਵਾਂ ਚਾਲੂ ਹਨ।</string>
   <string name="on_this_day_game_report_email_subject">ਮੁੱਦੇ ਦੀ ਇਤਲਾਹ - ਵਿਕੀਪੀਡੀਆ ਖੇਡਾਂ</string>
   <string name="on_this_day_game_notification_undo">ਰੱਦ ਕਰੋ</string>
+  <string name="on_this_day_game_play_today_btn_text">ਅੱਜ ਦੀ ਖੇਡ ਖੇਡੋ</string>
   <string name="on_this_day_game_continue_playing_btn_text">ਖੇਡਣਾ ਜਾਰੀ ਰੱਖੋ</string>
   <string name="on_this_day_game_sound_on">ਆਵਾਜ਼ ਚਾਲੂ ਕਰੋ</string>
   <string name="on_this_day_game_sound_off">ਆਵਾਜ਼ ਬੰਦ ਕਰੋ</string>
+  <string name="on_this_day_game_more_label">ਹੋਰ</string>
+  <string name="on_this_day_game_card_archive_label">ਪੁਰਾਲੇਖ</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_button">ਦਾਖ਼ਲ ਹੋਵੋ</string>
+  <string name="wikipedia_games_title">ਵਿਕੀਪੀਡੀਆ ਖੇਡਾਂ</string>
   <string name="year_in_review_learn_more">ਹੋਰ ਜਾਣੋ</string>
   <string name="year_in_review_get_started">ਸ਼ੁਰੂ ਕਰੋ</string>
   <string name="year_in_review_navigate_left">ਖੱਬੇ ਪਾਸੇ ਜਾਓ</string>
@@ -1684,7 +1689,4 @@
   <string name="donation_reminders_experiment_label">ਤਜਰਬਾ</string>
   <string name="donation_reminders_settings_learn_more_button">ਹੋਰ ਜਾਣੋ</string>
   <string name="donation_reminders_settings_report_button">ਵਿਸ਼ੇਸ਼ਤਾ ਨਾਲ ਸਮੱਸਿਆ</string>
-  <string name="explore_feed_survey_dialog_title">ਖੋਜ ਨੂੰ ਬਿਹਤਰ ਬਣਾਉਣ ਵਿੱਚ ਸਾਡੀ ਮਦਦ ਕਰੋ</string>
-  <string name="explore_feed_survey_dialog_positive_button_label">ਸਰਵੇਖਣ ਲਵੋ</string>
-  <string name="explore_feed_survey_dialog_negative_button_label">ਨਹੀਂ ਧੰਨਵਾਦ</string>
 </resources>

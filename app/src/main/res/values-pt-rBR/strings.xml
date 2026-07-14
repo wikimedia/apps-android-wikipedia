@@ -54,6 +54,7 @@
 * Walesson
 * Webysther
 * Welerson98
+* Wrai
 * YuriNikolai
 -->
 <resources>
@@ -222,7 +223,7 @@
   <string name="logout_prompt">Isso será feito em todos os dispositivos em que você está conectado. Deseja continuar?</string>
   <string name="logout_dialog_cancel_button_text">Cancelar</string>
   <string name="logged_out_in_background_title">Desconectado</string>
-  <string name="logged_out_in_background_dialog">Você foi desconectado da Wikipedia. Gostaria de entrar novamente?</string>
+  <string name="logged_out_in_background_dialog">Você foi desconectado da Wikipédia. Gostaria de entrar novamente?</string>
   <string name="logged_out_in_background_login">Entrar</string>
   <string name="logged_out_in_background_cancel">Cancelar</string>
   <string name="account_vanish_request_title">Conta abandonada</string>
@@ -237,7 +238,7 @@
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÉDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nome de usuário</string>
   <string name="login_dont_have_account">Não possui uma conta?</string>
-  <string name="login_join_wikipedia">Junte-se à Wikipedia</string>
+  <string name="login_join_wikipedia">Junte-se à Wikipédia</string>
   <string name="login_forgot_password">Esqueceu sua senha?</string>
   <string name="create_account_already_have">Já tem uma conta?</string>
   <string name="create_account_activity_title">Criar uma conta</string>
@@ -293,6 +294,7 @@
   <string name="about_description">Sobre o aplicativo da Wikipédia</string>
   <string name="privacy_policy_description">Política de privacidade</string>
   <string name="terms_of_use_description">Termos de uso</string>
+  <string name="legal_safety_contacts_description">Contatos jurídicos e de segurança</string>
   <string name="about_wikipedia_url">https://pt.wikipedia.org/wiki/Wikipédia:Sobre_a_Wikipédia</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/pt-br</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/pt-br#Offline_reading_and_data</string>
@@ -306,7 +308,7 @@
   <string name="about_translators_heading">Tradutores</string>
   <string name="about_translators_translatewiki">Este aplicativo foi traduzido pelos tradutores voluntários na &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licença</string>
-  <string name="about_app_license">Código-fonte disponível em &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sob a &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Licença Apache 2.0&lt;/a&gt;. A menos que especificado, o conteúdo é disponibilizado sob a &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Licença Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license">Código-fonte disponível no &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sob a &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Licença Apache 2.0&lt;/a&gt;. A menos que especificado, o conteúdo é disponibilizado sob a &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Licença Creative Commons Atribuição-CompartilhaIgual&lt;/a&gt;.</string>
   <string name="about_wmf">Um produto da &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Sobre</string>
   <string name="about_logo_content_description">Logotipo de globo em formato de quebra-cabeça da Wikipédia</string>
@@ -437,8 +439,10 @@
   <string name="button_get_directions">Obter itinerário</string>
   <string name="error_no_maps_app">Não foi possível encontrar aplicativos que forneceçam rotas.</string>
   <string name="preference_title_customize_explore_feed">Feed de Explorar</string>
+  <string name="preference_title_customize_home_feed">Feed inicial</string>
   <string name="preference_title_show_link_previews">Mostrar pré-visualização de ligações</string>
   <string name="preference_summary_customize_explore_feed">Personalizar o feed de Explorar</string>
+  <string name="preference_summary_customize_home_feed">Personalize seu feed inicial</string>
   <string name="preference_summary_show_link_previews">Mostra uma rápida pré-visualização dos artigos correspondentes ao tocar em ligações.</string>
   <string name="preference_title_collapse_tables">Recolher tabelas</string>
   <string name="preference_summary_collapse_tables">Recolher tabelas automaticamente em artigos, como infoboxes, referências e notas.</string>
@@ -463,7 +467,7 @@
   <string name="link_preview_dialog_share_button">Compartilhar</string>
   <string name="link_preview_stub_placeholder_text">Este artigo é um esboço, o que significa que não há conteúdo suficiente no artigo para gerar uma visualização. No entanto, você pode mudar isso.</string>
   <string name="error_page_does_not_exist">Esta página não existe</string>
-  <string name="error_user_page_does_not_exist">A Wikipedia não tem uma &lt;a href=\"%1$s\"&gt;página de usuário&lt;/a&gt; com este nome exato. Em geral, esta página deve ser criada e editada por &lt;b&gt;%2$s&lt;/b&gt;. Em caso de dúvida, verifique se \"%3$s\" existe.</string>
+  <string name="error_user_page_does_not_exist">A Wikipédia não tem uma &lt;a href=\"%1$s\"&gt;página de usuário&lt;/a&gt; com este nome exato. Em geral, esta página deve ser criada e editada por &lt;b&gt;%2$s&lt;/b&gt;. Em caso de dúvida, verifique se “%3$s” existe.</string>
   <string name="view_wiki_error_message_offline">Não foi possível conectar-se à Internet</string>
   <string name="view_wiki_error_message_timeout">Não foi possível conectar-se à Wikipédia. Verifique sua conexão de rede ou tente novamente mais tarde</string>
   <string name="reference_title">Referência %s</string>
@@ -597,8 +601,8 @@
     <item quantity="other">%d artigos removidos da lista</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d artigo removido de %s</item>
-    <item quantity="other">%d artigos removidos de %s</item>
+    <item quantity="one">%1$d artigo removido de %2$s</item>
+    <item quantity="other">%1$d artigos removidos de %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d lista excluída</item>
@@ -607,8 +611,8 @@
   <string name="reading_lists_default_list_delete_message">A lista padrão (%s) não pode ser excluída</string>
   <string name="reading_lists_default_plus_one_list_delete_message">%1$s deletada. A lista padrão (%2$s) não pode ser excluída.</string>
   <string name="reading_lists_default_plus_many_lists_delete_message">Listas excluídas. A lista padrão (%s) não pode ser excluída.</string>
-  <string name="single_list_json_file_name">%s (Wikipedia reading list).json</string>
-  <string name="multiple_lists_json_file_name">lista de leitura da wikipedia (%s e mais).json</string>
+  <string name="single_list_json_file_name">%s (lista de leitura da Wikipédia).json</string>
+  <string name="multiple_lists_json_file_name">Listas de leitura da Wikipédia (%s e mais).json</string>
   <string name="reading_list_items_deleted">%d artigos removidos da lista</string>
   <string name="reading_lists_item_deleted">%s removido das listas</string>
   <string name="reading_list_item_delete_undo">Desfazer</string>
@@ -848,9 +852,11 @@
   <string name="view_random_article_card_title">Artigo aleatório</string>
   <string name="view_random_article_card_action">Mais artigos aleatórios</string>
   <string name="view_top_read_card_title">Mais lidos</string>
+  <string name="view_top_read_card_description">O que está em alta hoje na Wikipédia</string>
   <string name="view_top_read_card_action">Mais principais leituras</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d k</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
+  <string name="view_top_read_card_pageviews_views_suffix">visualizações</string>
   <string name="view_next_random_article">Carregar outro artigo aleatório</string>
   <string name="view_main_page_card_title">Hoje na Wikipédia</string>
   <string name="view_main_page_card_action">Ver página principal</string>
@@ -884,18 +890,18 @@
   <string name="feed_item_type_news">Artigos sobre eventos atuais</string>
   <string name="feed_item_type_on_this_day">Eventos na história neste dia</string>
   <string name="feed_item_type_because_you_read">Sugestões baseadas em um artigo recentemente lido do seu histórico</string>
-  <string name="feed_item_type_featured_article">Artigo divulgado diariamente na Wikipedia</string>
+  <string name="feed_item_type_featured_article">Artigo em destaque de hoje na Wikipédia</string>
   <string name="feed_item_type_trending">Artigos mais vistos diariamente</string>
   <string name="feed_item_type_featured_image">Imagem em destaque na Wikimedia Commons</string>
   <string name="feed_item_type_main_page">Página principal da Wikipédia com conteúdo destacado diariamente</string>
   <string name="feed_item_type_randomizer">Gerar artigos aleatórios para ler</string>
   <string name="feed_item_type_suggested_edits">Sugestões de adição de conteúdo à Wikipédia</string>
   <string name="feed_item_type_places">Artigos próximos com base na localização atual</string>
-  <string name="feed_empty_message">Não há nada no seu feed de Explorar</string>
+  <string name="feed_empty_message">Não há nada no seu feed inicial</string>
   <string name="feed_configure_onboarding_action">Personalizar</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Cancelar</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Personalize seu feed de Explorar&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Agora você pode escolher o que mostrar em seu feed, e também priorizar seus tipos de conteúdo favoritos.</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Personalize seu feed inicial&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Agora você pode escolher o que mostrar em seu feed, e também priorizar seus tipos de conteúdo favoritos.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Cancelar</string>
   <string name="feed_accessibility_card_text">Você atingiu a parte inferior do feed.</string>
@@ -952,7 +958,7 @@
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Legenda da imagem publicada! (%s)</string>
   <string name="description_edit_success_saved_image_tags_snackbar">Marcações de imagem publicadas!</string>
   <string name="description_edit_success_se_general_feed_link_snackbar">Gostou? Ajude-nos a adicionar mais.</string>
-  <string name="description_edit_success_encouragement">Você acabou de tornar a Wikipedia melhor para todos</string>
+  <string name="description_edit_success_encouragement">Você acabou de tornar a Wikipédia melhor para todos</string>
   <string name="description_edit_success_done">Concluído</string>
   <string name="description_edit_success_did_you_know">Você sabia?</string>
   <string name="description_edit_success_article_edit_hint">Você também pode editar artigos dentro desta aplicação. Tente corrigir erros tipográficos e frases pequenas clicando no ícone ^1 da próxima vez</string>
@@ -1043,7 +1049,7 @@
   <string name="suggested_edits_image_tags_publishing">Publicando</string>
   <string name="suggested_edits_image_tags_published">Publicados</string>
   <string name="suggested_edits_image_tags_onboarding_title">A marcação de imagens facilita a localização.</string>
-  <string name="suggested_edits_image_tags_onboarding_text">Ao adicionar marcações de imagem, você ajudará a facilitar a pesquisa de imagens no Commons, o repositório gratuito de imagens de licença que a Wikipedia usa para imagens em seus artigos.</string>
+  <string name="suggested_edits_image_tags_onboarding_text">Ao adicionar marcações de imagem, você ajudará a facilitar a pesquisa de imagens no Commons, o repositório gratuito de imagens de licença que a Wikipédia usa para imagens em seus artigos.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Somente as marcações que você escolher serão adicionadas às imagens.</string>
   <string name="suggested_edits_image_tags_task_detail">Adicione etiquetas personalizadas a uma imagem para facilitar a localização.</string>
   <string name="suggested_edits_image_tags_choose">Adicionar ou escolher marcações correspondentes</string>
@@ -1153,7 +1159,7 @@
     <item quantity="other">Você adicionou %d caracteres</item>
   </plurals>
   <string name="suggested_edits_image_recommendations_task_title">Imagem do artigo:</string>
-  <string name="suggested_edits_image_recommendations_task_detail">Adicione imagens sugeridas aos artigos da Wikipedia para melhorar a compreensão.</string>
+  <string name="suggested_edits_image_recommendations_task_detail">Adicione imagens sugeridas aos artigos da Wikipédia para melhorar a compreensão.</string>
   <string name="image_recommendation_task_instruction">Você adicionaria esta imagem ao artigo?</string>
   <string name="image_recommendation_tutorial">Tutorial</string>
   <string name="image_recommendation_accept">Sim</string>
@@ -1193,7 +1199,7 @@
   <string name="activity_tab_monthly_articles_read">Artigos lidos este mês</string>
   <string name="activity_tab_monthly_articles_saved">Artigos salvos este mês</string>
   <string name="activity_tab_monthly_top_categories">Categorias mais lidas este mês</string>
-  <string name="activity_tab_explore_wikipedia">Descubra através da Wikipedia</string>
+  <string name="activity_tab_explore_wikipedia">Descubra através da Wikipédia</string>
   <string name="activity_tab_discover_encourage">Procurando algo novo para ler?</string>
   <string name="activity_tab_donation_unknown">Desconhecido</string>
   <string name="activity_tab_donation_last_donation">&lt;b&gt;Última doação&lt;/b&gt; no aplicativo</string>
@@ -1205,7 +1211,7 @@
   <string name="activity_tab_menu_feedback">Problema com a funcionalidade</string>
   <string name="activity_tab_menu_info">Saber mais</string>
   <string name="activity_tab_menu_customize">Personalizar</string>
-  <string name="activity_tab_menu_customize_description" fuzzy="true">As informações da guia Atividade são baseadas no idioma principal definido nas configurações e utilizam dados locais, com exceção das edições que são públicas.</string>
+  <string name="activity_tab_menu_customize_description">As informações sobre leitura são baseadas nos idiomas do aplicativo definidos nas configurações, enquanto as informações sobre edição se limitam ao idioma principal do aplicativo. Essas informações utilizam dados locais, com exceção das edições, que são públicas.</string>
   <string name="activity_tab_highlights">Destaques</string>
   <string name="activity_tab_customize_screen_reading_history_switch_title">Histórico de leitura</string>
   <string name="activity_tab_impact">Seu impacto</string>
@@ -1214,6 +1220,10 @@
   <plurals name="activity_tab_impact_edits_this_month">
     <item quantity="one">edição deste mês</item>
     <item quantity="other">edições deste mês</item>
+  </plurals>
+  <plurals name="activity_tab_impact_edits_last_month">
+    <item quantity="one">edição mês passado</item>
+    <item quantity="other">edições mês passado</item>
   </plurals>
   <string name="activity_tab_impact_all_time">Impacto de todos os tempos</string>
   <plurals name="activity_tab_impact_total_edits">
@@ -1245,6 +1255,7 @@
   <string name="activity_tab_customize_screen_games_switch_title">Estatísticas do jogo</string>
   <string name="activity_tab_customize_screen_donations_switch_title">Última doação no aplicativo</string>
   <string name="activity_tab_customize_screen_timeline_switch_title">Linha do tempo do comportamento</string>
+  <string name="activity_tab_customize_screen_no_modules_message">Os módulos de atividades estão desativados. &lt;a href=\"\"#&gt;Ative-os&lt;/a&gt; para ver as atualizações nesta guia.</string>
   <string name="activity_tab_timeline_today">Hoje</string>
   <string name="activity_tab_timeline_yesterday">Ontem</string>
   <string name="activity_tab_timeline_empty_state_title">Nada para mostrar</string>
@@ -1260,6 +1271,8 @@
   <string name="activity_tab_onboarding_stay_in_control_title">Mantenha o controle</string>
   <string name="activity_tab_onboarding_stay_in_control_message">Escolha quais módulos para mostrar. Todos os dados pessoais permanecem privados no seu dispositivo e o histórico de navegação pode ser apagado a qualquer momento.</string>
   <string name="edits_screen_what_is_title">Edição no aplicativo da Wikipédia</string>
+  <string name="edits_screen_what_is_body">Não sabe por onde começar a editar? Experimente as Edições sugeridas, um recurso que oferece oportunidades para fazer contribuições pequenas, mas essenciais, à Wikipédia. Como alternativa, acesse diretamente um artigo de seu interesse e faça uma alteração usando o wikitexto.</string>
+  <string name="activity_tab_snackbar_label">As estatísticas do jogo são exibidas no seu idioma principal.</string>
   <string name="file_page_activity_title">Página do arquivo</string>
   <string name="file_page_add_image_caption_button">Adicionar legenda à imagem</string>
   <string name="file_page_add_image_tags_button">Adicionar marcações de imagem</string>
@@ -1279,16 +1292,24 @@
   <string name="onboarding_get_started">Começar</string>
   <string name="onboarding_maybe_later">Talvez mais tarde</string>
   <string name="onboarding_explore_title">Novas maneiras de explorar</string>
-  <string name="onboarding_explore_text">Mergulhe no buraco de coelho da Wikipédia com um feed de Explorar em constante atualização. &lt;br/&gt; &lt;b&gt;Customizar&lt;/b&gt; Personalize o feed de acordo com seus interesses – seja aprendendo sobre eventos históricos em &lt;b&gt;Neste dia&lt;/b&gt;, ou rolando os dados com &lt;b&gt;Aleatório&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text">Mergulhe no buraco de coelho da Wikipédia com um feed inicial em constante atualização. &lt;br/&gt; &lt;b&gt;Customizar&lt;/b&gt; Personalize o feed de acordo com seus interesses – seja aprendendo sobre eventos históricos em &lt;b&gt;Neste dia&lt;/b&gt;, ou rolando os dados com &lt;b&gt;Aleatório&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Listas de leitura com sincronização</string>
   <string name="onboarding_reading_list_sync_text_v2">Você pode criar listas de leitura dos artigos que deseja ler mais tarde, mesmo quando estiver sem acesso à Internet. &lt;br/&gt;Entre na sua conta da Wikipédia para sincronizar as suas listas de leitura. &lt;a href=\"#login\"&gt;Junte-se à Wikipédia&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Dados e privadade</string>
-  <string name="onboarding_data_privacy_text">Acreditamos que você não precisa fornecer informações pessoais para participar do movimento do conhecimento livre. Os dados de uso coletados para este aplicativo são anônimos. Saiba mais sobre nossa &lt;a href=\"#privacy\"&gt;política de privacidade&lt;/a&gt; e nossos &lt;a href=\"#termsOfUse\"&gt;termos de uso&lt;/a&gt;.</string>
+  <string name="onboarding_data_privacy_text">Acreditamos que você não precisa fornecer informações pessoais para participar do movimento do conhecimento livre. Os dados de uso coletados para este aplicativo são anônimos.&lt;br/&gt;&lt;br/&gt;Saiba mais sobre nossa &lt;a href=\"#privacy\"&gt;política de privacidade&lt;/a&gt; e nossos &lt;a href=\"#termsOfUse\"&gt;termos de uso&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Enviar dados de uso</string>
   <string name="onboarding_got_it">Entendi</string>
   <string name="onboarding_multilingual_secondary_text">Encontramos os seguintes no seu dispositivo:</string>
   <string name="onboarding_multilingual_add_language_text">Acrescentar ou editar idiomas</string>
   <string name="onboarding_welcome_title_v2">A Enciclopédia Livre\n... em mais de 300 idiomas</string>
+  <string name="onboarding_next">Próximo</string>
+  <string name="onboarding_fresh_install_knowledge_title">Todo o conhecimento do mundo</string>
+  <string name="onboarding_fresh_install_knowledge_text">A Wikipédia é uma enciclopédia online gratuita com 65 milhões de artigos escritos e mantidos de forma colaborativa em mais de 300 idiomas por uma comunidade de voluntários.</string>
+  <string name="onboarding_fresh_install_knowledge_learn_more">Saiba mais sobre a Wikipédia</string>
+  <string name="onboarding_app_languages_title">Ler em mais de 300 idiomas</string>
+  <string name="onboarding_app_languages_text">Identificamos os seguintes idiomas no seu dispositivo:</string>
+  <string name="onboarding_app_languages_primary">Principal</string>
+  <string name="onboarding_app_languages_add_button">Adicione ou edite seus idiomas</string>
   <string name="app_shortcuts_random">Aleatório</string>
   <string name="app_shortcuts_continue_reading">Continue lendo</string>
   <string name="app_shortcuts_search">Pesquisar</string>
@@ -1318,9 +1339,9 @@
     <item quantity="one">Remover o idioma selecionado?</item>
     <item quantity="other">Remover idiomas selecionados?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Você só verá o conteúdo no Feed de explorar e os filtros de pesquisa rápida para os idiomas restantes da Wikipédia.</string>
+  <string name="wikipedia_languages_remove_dialog_content">Você só verá o conteúdo no Feed inicial e os filtros de pesquisa rápida para os idiomas restantes da Wikipédia.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Não é possível remover todos os idiomas</string>
-  <string name="wikipedia_languages_remove_warning_dialog_content">Mantenha pelo menos um idioma do Wikipedia para pesquisar e ler conteúdo.</string>
+  <string name="wikipedia_languages_remove_warning_dialog_content">Mantenha pelo menos um idioma da Wikipédia para pesquisar e ler conteúdo.</string>
   <string name="more_language_options">mais</string>
   <string name="add_wikipedia_languages_text">Adicionar idiomas da Wikipédia</string>
   <string name="remove_language_dialog_cancel_button_text">Cancelar</string>
@@ -1465,7 +1486,7 @@
   <string name="talk_list_item_swipe_mark_as_read">Ler</string>
   <string name="talk_list_item_swipe_mark_as_unread">Não lidas</string>
   <string name="talk_login_to_subscribe_dialog_title">Entre para se inscrever nos tópicos</string>
-  <string name="talk_login_to_subscribe_dialog_content">As inscrições de tópicos permitirão que você receba notificações sobre novos comentários neste tópico. Por favor, crie uma conta ou faça login na sua conta da Wikipedia para se inscrever em um tópico.</string>
+  <string name="talk_login_to_subscribe_dialog_content">As inscrições em tópicos permitirão que você receba notificações sobre novos comentários neste tópico. Crie uma conta ou entre na sua conta da Wikipédia para se inscrever em um tópico.</string>
   <string name="talk_archived_title">Arquivo de conversas: %s</string>
   <string name="menu_option_share_talk_discussion">Compartilhar discussão</string>
   <string name="menu_option_share_talk_page">Compartilhar página de discussão</string>
@@ -1728,6 +1749,7 @@
   <string name="patroller_diff_feedback_dialog_feedback_title">Como podemos melhorar a funcionalidade?</string>
   <string name="patroller_diff_menu_edit_history_title">Histórico de edições do artigo</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Comentários</string>
+  <string name="patroller_diff_feedback_tooltip">Toque no menu de overflow para enviar comentários a qualquer momento em \'Problema com recurso\'.</string>
   <string name="patroller_saved_message_title_vandalism">Aviso de vandalismo</string>
   <string name="patroller_saved_message_title_editing_tests">Testes de edição</string>
   <string name="patroller_saved_message_title_npov">Ponto de vista neutro</string>
@@ -1760,7 +1782,7 @@
   <string name="email_report_patroller_tasks_subject">Relatório de problema - Funcionalidade \"Patrulha de edições\"</string>
   <string name="email_report_patroller_tasks_body">Encontrei um problema com a funcionalidade \"Patrulha de edições\":\n- [Descrever o problema específico]\n\nO comportamento que gostaria de ver é:\n- [Descrever a solução proposta]\n\n[Capturas de ecrã ou hiperligações]</string>
   <string name="donation_campaign_maybe_later_snackbar">Vamos exibir outro lembrete amanhã.</string>
-  <string name="donation_campaign_donated_snackbar" fuzzy="true">Obrigado, prezado(a) apoiador(a)! Sua generosidade ajuda a manter a Wikipédia e seus projetos irmãos prosperando.</string>
+  <string name="donation_campaign_donated_snackbar">Obrigado, caro doador! Sua generosidade ajuda a manter a Wikipédia e outros projetos de conhecimento livre em pleno funcionamento.</string>
   <string name="donation_campaign_go_back_button">Voltar</string>
   <string name="menu_single_webview_open_external">Abrir no navegador do sistema</string>
   <string name="donate_gpay_dialog_title">Doar com o Google Pay?</string>
@@ -1768,6 +1790,7 @@
   <string name="donate_gpay_dialog_pay_button">Doar com o Google Pay</string>
   <string name="donate_gpay_dialog_other_button">Outro método de pagamento</string>
   <string name="donate_gpay_activity_title">Escolha um valor</string>
+  <string name="donate_gpay_activity_title_with_currency">Selecione um valor (%s)</string>
   <string name="donate_gpay_check_transaction_fee">Gostaria de acrescentar %s para cobrir as taxas operacionais para que vocês possam receber 100%% da minha doação.</string>
   <string name="donate_gpay_check_recurring">Fazer uma doação mensal recorrente.</string>
   <string name="donate_gpay_check_send_email">Sim, a Wikimedia Foundation pode me mandar um e-mail ocasionalmente.</string>
@@ -1778,7 +1801,8 @@
   <string name="donate_gpay_help_other_ways">Outras formas de doar</string>
   <string name="donate_gpay_help_faq">Perguntas mais frequentes</string>
   <string name="donate_gpay_help_tax">Informações sobre dedutibilidade fiscal</string>
-  <string name="donation_history_deleted_message_snackbar" fuzzy="true">Histórico do doador excluído</string>
+  <string name="donation_history_deleted_message_snackbar">Histórico de doações apagado.</string>
+  <string name="donation_history_no_history_message_snackbar">Você não tem histórico de doações para limpar.</string>
   <string name="places_title">Lugares</string>
   <string name="places_permissions_denied">É necessária a permissão de localização para ver a sua localização no mapa. Tente novamente, por favor.</string>
   <string name="places_search_hint">Procurar lugares</string>
@@ -1808,10 +1832,15 @@
   <string name="survey_dialog_general_maybe">Talvez</string>
   <string name="survey_dialog_input_hint">Comentários adicionais</string>
   <string name="survey_dialog_submitted_snackbar">Comentário enviado. Obrigado!</string>
+  <string name="games_hub_activity_title">Jogos</string>
+  <string name="games_hub_activity_games_unavailable_message">Ainda não há jogos disponíveis neste idioma! Os jogos usam conteúdo criado por editores voluntários da Wikipédia de cada idioma.</string>
+  <string name="games_hub_activity_games_unavailable_message_learn_more_action">Saiba mais</string>
+  <string name="games_hub_activity_overflow_view_game_stats">Ver estatísticas do jogo</string>
+  <string name="games_hub_activity_overflow_learn_more">Saiba mais</string>
   <string name="on_this_day_game_entry_dialog_title">Apresentando</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Wikipédia jogos</string>
-  <string name="on_this_day_game_entry_dialog_button">Jogue o jogo de hoje</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipédia Jogos estão disponíveis no feed Explorar. Apresentando</string>
+  <string name="on_this_day_game_entry_dialog_button">Jogar</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipédia Jogos estão disponíveis no Hub de Jogos, que pode ser encontrado no menu MAIS.</string>
   <string name="on_this_day_game_title">O que veio primeiro?</string>
   <string name="on_this_day_game_dialog_button">Jogar</string>
   <string name="on_this_day_game_splash_message">Adivinhe qual evento ocorreu primeiro neste dia na história.</string>
@@ -1823,14 +1852,9 @@
   <string name="on_this_day_game_point">+1 ponto</string>
   <string name="on_this_day_game_next">Próxima pergunta</string>
   <string name="on_this_day_game_finish">Resultado final</string>
-  <string name="on_this_day_game_share_button">Compartilhar</string>
-  <string name="on_this_day_game_pause_title">Pausar jogo?</string>
-  <string name="on_this_day_game_pause_body">Seu progresso será salvo no final do dia. Você pode encontrar o jogo no seu feed Explorar.</string>
-  <string name="on_this_day_game_pause_negative">Continue jogando</string>
-  <string name="on_this_day_game_pause_positive">Entendi</string>
+  <string name="on_this_day_game_share_button">Compartilhar pontuação</string>
   <string name="on_this_day_game_feed_entry_card_heading">Wikipédia jogos</string>
   <string name="on_this_day_game_feed_entry_card_title">O que veio primeiro?</string>
-  <string name="on_this_day_game_feed_entry_card_subtitle">Adivinhe qual evento ocorreu primeiro neste dia na história.</string>
   <string name="on_this_day_game_result">Você pontuou %1$d/%2$d.</string>
   <string name="on_this_day_game_next_in">Próximo jogo em %s</string>
   <string name="on_this_day_game_your_stats">Suas estatísticas</string>
@@ -1841,7 +1865,7 @@
   <string name="on_this_day_game_stats_average_score">Pontuação média</string>
   <string name="on_this_day_game_stats_streak">Sequência atual</string>
   <string name="on_this_day_game_result_subtitle">Artigos mencionados no jogo de hoje</string>
-  <string name="on_this_day_game_completed_message">Obrigado por jogar. Um novo jogo de “O que veio primeiro?” está disponível diariamente no feed Explorar.</string>
+  <string name="on_this_day_game_completed_message">Obrigado por jogar. Um novo jogo de \"O que veio primeiro?\" está disponível diariamente no feed inicial.</string>
   <string name="on_this_day_game_menu_notifications">Notificações do jogo</string>
   <string name="on_this_day_game_menu_info">Saiba mais</string>
   <string name="on_this_day_game_menu_feedback">Problema com a funcionalidade</string>
@@ -1863,7 +1887,7 @@
   <string name="on_this_day_game_report_email_subject">Relatório de problemas - Wikipédia jogos</string>
   <string name="on_this_day_game_report_email_body">Encontrei um problema com o recurso de jogos da Wikipédia:\n- [Descreva o problema específico]\n\nO comportamento que gostaria de ver é:\n- [Descreva a solução proposta]</string>
   <string name="on_this_day_game_notification_undo">Desfazer</string>
-  <string name="on_this_day_game_share_link_message">Estou jogando \"O que veio primeiro?\", um jogo diário de perguntas e respostas no aplicativo Wikipedia para Android %s</string>
+  <string name="on_this_day_game_share_link_message">Estou jogando “O que veio primeiro?”, um jogo diário de perguntas e respostas no aplicativo da Wikipédia para Android %s</string>
   <string name="on_this_day_game_share_screen_title">Hoje, obtive uma pontuação de %1$d/%2$d em \n\"O que veio primeiro?\".</string>
   <string name="on_this_day_game_share_screen_subtitle">Os tópicos incluíram:</string>
   <string name="on_this_day_game_archive_calendar_title">Escolha um jogo por data para jogar.</string>
@@ -1873,9 +1897,21 @@
   <string name="on_this_day_game_archive_btn_text">Jogar arquivo</string>
   <string name="on_this_day_game_review_results_btn_text">Ver resultados</string>
   <string name="on_this_day_game_score_message">Você marcou %1$d/%2$d no jogo de hoje.</string>
+  <string name="on_this_day_game_play_today_btn_text">Jogar jogo de hoje</string>
   <string name="on_this_day_game_continue_playing_btn_text">Continuar jogando</string>
   <string name="on_this_day_game_sound_on">Ativar som</string>
   <string name="on_this_day_game_sound_off">Desativar som</string>
+  <string name="on_this_day_game_more_label">Mais</string>
+  <string name="on_this_day_game_card_progress_label">Você está na pergunta %d. Continue tentando adivinhar qual evento ocorreu primeiro neste dia na história.</string>
+  <string name="on_this_day_game_card_progress_short_label">Você está na pergunta %d.</string>
+  <string name="on_this_day_game_explore_feed_card_score_message">Você marcou %1$d/%2$d no jogo de hoje. Próximo jogo em %3$s</string>
+  <string name="on_this_day_game_explore_feed_card_score_short_message">Você marcou %1$d/%2$d no jogo de hoje.</string>
+  <string name="on_this_day_game_card_archive_label">Arquivo</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_button">Entrar</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_title">Entre para ver suas estatísticas de jogo</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_description">Veja suas sequências, pontuações e muito mais</string>
+  <string name="wikipedia_games_title">Wikipédia jogos</string>
+  <string name="wikipedia_games_subtitle">Jogos diários de perguntas e respostas baseados no conteúdo da Wikipédia.</string>
   <string name="year_in_review_learn_more">Saiba mais</string>
   <string name="year_in_review_get_started">Começar</string>
   <string name="year_in_review_topbar_w_icon">Ícone W da Wikipédia</string>
@@ -1892,6 +1928,7 @@
   <string name="year_in_review_get_started_later">Você pode acessar sua retrospectiva do ano mais tarde no menu Mais.</string>
   <string name="year_in_review_survey_title">Ajude a melhorar o resumo do ano</string>
   <string name="year_in_review_survey_subtitle">Você está satisfeito com este recurso?</string>
+  <string name="year_in_review_reading_list_survey_title">Ajude a melhorar a lista de leitura de Resumo do ano %d.</string>
   <string name="year_in_review_reading_list_survey_subtitle">Você está satisfeito com sua lista de leitura?</string>
   <string name="year_in_review_survey_very_satisfied">Muito satisfeito</string>
   <string name="year_in_review_survey_satisfied">Satisfeito(a)</string>
@@ -1922,6 +1959,7 @@
   <string name="year_in_review_slide_app_icon_donor_and_editor">um doador e editor</string>
   <string name="year_in_review_slide_geo_headline">Os artigos que você leu são os mais próximos de %s</string>
   <string name="year_in_review_login_dialog_title">Entrar para personalização?</string>
+  <string name="year_in_review_login_dialog_body">Entrar, você terá acesso a informações personalizadas. Você ainda pode ver as informações gerais sem fazer login.</string>
   <string name="year_in_review_login_dialog_positive">Entrar / Cadastrar-se na Wikipédia</string>
   <string name="year_in_review_login_dialog_negative">Continuar sem entrar</string>
   <plurals name="year_in_review_slide_top_articles_headline">
@@ -1966,6 +2004,10 @@
     <item quantity="other">Edições no aplicativo</item>
   </plurals>
   <string name="year_in_review_highlights_logged_out_non_en_wikipedia_edited_title">Com que frequência a Wikipédia foi editada</string>
+  <plurals name="year_in_review_highlights_logged_in_minutes_read_title">
+    <item quantity="one">Minuto lido</item>
+    <item quantity="other">Minutos lidos</item>
+  </plurals>
   <string name="year_in_review_highlights_logged_in_favorite_day_title">Dia favorito para ler</string>
   <plurals name="year_in_review_highlights_logged_in_articles_read_title">
     <item quantity="one">Artigo lido</item>
@@ -1979,7 +2021,7 @@
   <string name="year_in_review_highlights_logo_description">Logotipo da Wikipédia</string>
   <string name="recommended_reading_list_title">Descobrir</string>
   <string name="recommended_reading_list_onboarding_card_title">Descubra artigos selecionados especialmente para você</string>
-  <string name="recommended_reading_list_onboarding_card_message">Sua lista semanal de artigos da Wikipedia selecionados especialmente para você.</string>
+  <string name="recommended_reading_list_onboarding_card_message">Sua lista de leitura semanal de artigos da Wikipédia, selecionados especialmente para você.</string>
   <string name="recommended_reading_list_onboarding_card_new">Novo!</string>
   <string name="recommended_reading_list_onboarding_card_positive_button">Começar</string>
   <string name="recommended_reading_list_onboarding_card_negative_button">Não, obrigado</string>
@@ -2021,7 +2063,7 @@
   <string name="recommended_reading_list_settings_section_header">Recomendações</string>
   <string name="recommended_reading_list_settings_title">Configuração do Descobrir</string>
   <string name="recommended_reading_list_settings_toggle">Lista de leitura de Descobrir</string>
-  <string name="recommended_reading_list_settings_toggle_disable_message">O Descobrir está desativado. A Wikipedia não recomendará artigos para você ler.</string>
+  <string name="recommended_reading_list_settings_toggle_disable_message">O Descobrir está desativado. A Wikipédia não recomendará artigos para você ler.</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_title">Desativar o Descobrir?</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_message">Se você desativar o Descobrir, deixará de receber %s recomendações de leitura da Wikipédia.</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">Desativar</string>
@@ -2057,7 +2099,7 @@
   <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Não, manter ativado</string>
   <string name="recommended_reading_list_notification_title">Sua lista de leitura do Descobrir %s está pronta.</string>
   <string name="recommended_reading_list_notification_subtitle">Toque para ver suas recomendações mais recentes.</string>
-  <string name="recommended_reading_list_settings_notification_subtitle_enable">Quando o seu Descobrir for atualizado, a Wikipedia enviará uma notificação.</string>
+  <string name="recommended_reading_list_settings_notification_subtitle_enable">Quando o seu Descobrir for atualizado, a Wikipédia enviará uma notificação.</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">O Descobrir está ativado. A Wikipédia irá recomendar artigos para você ler.</string>
   <string name="donation_reminders_prompt_dismiss_snackbar">Os lembretes de doação podem ser modificados a qualquer momento em Configurações.</string>
   <string name="donation_settings_section_header">Doações</string>
@@ -2092,9 +2134,221 @@
   <string name="donation_reminders_experiment_label">EXPERIMENTO</string>
   <string name="donation_reminders_settings_learn_more_button">Saiba mais</string>
   <string name="donation_reminders_settings_report_button">Problema com a funcionalidade</string>
+  <string name="donation_reminders_settings_report_email_subject">Relatório de Problemas – Lembretes de Doações</string>
   <string name="donation_reminders_snackbar_modify_button_label">Modificar</string>
-  <string name="explore_feed_survey_dialog_title">Ajude-nos a melhorar o feed de Explorar</string>
-  <string name="explore_feed_survey_dialog_message">Responda a uma breve pesquisa sobre o feed Explorar. Seus comentários ajudarão a moldar as próximas melhorias do aplicativo.</string>
-  <string name="explore_feed_survey_dialog_positive_button_label">Participar da pesquisa</string>
-  <string name="explore_feed_survey_dialog_negative_button_label">Não, obrigado</string>
+  <string name="hybrid_search_search_hint">Pesquise ou pergunte qualquer coisa</string>
+  <string name="hybrid_search_article_search_hint">Pergunte sobre %s</string>
+  <string name="hybrid_search_suggestion_title">Procurar por:</string>
+  <string name="hybrid_search_onboarding_learn_more">Saiba mais</string>
+  <string name="hybrid_search_onboarding_search_title"> Faça perguntas, obtenha respostas</string>
+  <string name="hybrid_search_onboarding_search_description">Este recurso experimental entende linguagem natural. Em vez de pesquisar por palavras-chave, descreva o que você quer saber.</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_title">Recurso beta</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_description">Disponível por tempo limitado durante este experimento.</string>
+  <string name="hybrid_search_beta_tag">Beta</string>
+  <string name="hybrid_search_experimental_feature_switch_label">Participar do experimento</string>
+  <string name="hybrid_search_onboarding_search_example_title">Precisa de inspiração?</string>
+  <string name="hybrid_search_onboarding_search_example_description">Use um dos exemplos de pesquisa abaixo.</string>
+  <string name="hybrid_search_onboarding_opt_out_toast_message">Você optou por não participar do experimento.</string>
+  <string name="hybrid_search_onboarding_search_example_query_pluto_as_planet">Quando Plutão deixou de ser considerado um planeta?</string>
+  <string name="hybrid_search_onboarding_search_example_query_first_olympics">primeira olimpíada</string>
+  <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">RNA vs. DNA</string>
+  <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Por que as pessoas colocam abacaxi na pizza?</string>
+  <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Quais são as maiores cidades da Europa?</string>
+  <string name="hybrid_search_onboarding_screen_title">Uma nova forma de pesquisar</string>
+  <string name="hybrid_search_results_header_description">Extraídos de artigos da Wikipédia escritos por humanos</string>
+  <string name="hybrid_search_results_rate_label">Avaliar esse recurso</string>
+  <string name="hybrid_search_results_rated_label">Avaliado</string>
+  <string name="hybrid_search_results_rate_thumb_up">Dê um joinha!</string>
+  <string name="hybrid_search_results_rate_thumb_down">Dê um voto negativo.</string>
+  <string name="hybrid_lexical_search_results_empty">Nenhum título de artigo corresponde a esta consulta.</string>
+  <string name="hybrid_search_results_empty">A pesquisa avançada está temporariamente indisponível.</string>
+  <string name="hybrid_search_no_results_header">Sem resultados</string>
+  <string name="hybrid_search_no_results_description">Este tópico não está retornando trechos de artigos no momento. Aqui estão algumas coisas que você pode tentar:</string>
+  <string name="hybrid_search_no_results_suggestion_rephrase_text">Reformular sua pesquisa</string>
+  <string name="hybrid_search_no_results_suggestion_try_related_topic">Experimente um tópico relacionado</string>
+  <string name="hybrid_search_error_message">Algo deu errado. Por favor, tente novamente mais tarde.</string>
+  <string name="hybrid_search_who_is_prefix">Quem é %s?</string>
+  <string name="hybrid_search_turn_off_experiment_label">Desative esta experiência</string>
+  <string name="reading_challenge_widget_name">Desafio de leitura</string>
+  <string name="reading_challenge_onboarding_header">Comemore o 25º aniversário da Wikipédia participando do desafio de leitura de 25 dias!</string>
+  <string name="reading_challenge_onboarding_read_title">Leia um artigo por dia durante 25 dias</string>
+  <string name="reading_challenge_onboarding_read_description">Participe do desafio a qualquer momento entre 1º e 31 de maio e complete os 25 dias no seu próprio ritmo.</string>
+  <string name="reading_challenge_onboarding_read_subtitle">Participe do desafio a qualquer momento entre %1$s e %2$s e complete os 25 dias no seu próprio ritmo.</string>
+  <string name="reading_challenge_onboarding_win_title">Ganhe prêmios</string>
+  <string name="reading_challenge_onboarding_win_description">Complete uma sequência de leitura de 25 dias enquanto o desafio estiver ativo para ganhar prêmios especiais.</string>
+  <string name="reading_challenge_onboarding_install_title">Instale o widget</string>
+  <string name="reading_challenge_onboarding_install_description">Receba lembretes úteis e motivação com o nosso adorável mascote de aniversário, o Bebê Globo.</string>
+  <string name="reading_challenge_onboarding_note">Seu histórico de leitura é mantido protegido. As informações de leitura são calculadas usando dados armazenados localmente no seu dispositivo.</string>
+  <string name="reading_challenge_onboarding_learn_more_button">Saiba mais</string>
+  <string name="reading_challenge_onboarding_join_button">Participe do desafio</string>
+  <string name="reading_challenge_onboarding_prompt_title">Entre para participar do desafio</string>
+  <string name="reading_challenge_onboarding_prompt_message">Entre ou crie uma conta para acompanhar seu progresso no desafio de leitura.</string>
+  <string name="reading_challenge_onboarding_prompt_no_thanks">Não, obrigado</string>
+  <string name="reading_challenge_onboarding_prompt_login">Entrar / Cadastrar-se na Wikipédia</string>
+  <string name="reading_challenge_install_prompt_title">Instale o widget do desafio de leitura de 25 dias</string>
+  <string name="reading_challenge_install_prompt_message">O Bebê Globo está torcendo por você. Adicione o widget do Desafio de Leitura para acompanhar seu progresso diretamente da tela inicial.</string>
+  <string name="reading_challenge_install_prompt_got_it">Entendi</string>
+  <string name="reading_challenge_install_prompt_add">Adicionar</string>
+  <string name="search_widget_install_prompt_title">Uma maneira mais rápida de pesquisar</string>
+  <string name="search_widget_install_prompt_message">Instale o widget de pesquisa da Wikipédia para ter acesso imediato ao conhecimento diretamente da sua tela inicial.</string>
+  <string name="search_widget_install_prompt_add">Adicionar</string>
+  <string name="search_widget_install_prompt_got_it">Entendi</string>
+  <string name="reading_challenge_widget_explore_button">Explorar</string>
+  <string name="reading_challenge_widget_explore_wikipedia_button">Explora Wikipédia</string>
+  <string name="reading_challenge_widget_join_challenge_button">Participe do desafio</string>
+  <string name="reading_challenge_widget_join_the_challenge_button">Participar do desafio</string>
+  <string name="reading_challenge_widget_search_button">Pesquisar</string>
+  <string name="reading_challenge_widget_random_button">Aleatório</string>
+  <string name="reading_challenge_widget_collect_prize_button">Receber o prêmio</string>
+  <string name="reading_challenge_widget_collect_your_prize_button">Venha buscar o seu prêmio!</string>
+  <string name="reading_challenge_widget_not_live_title">Prepare-se para ler</string>
+  <string name="reading_challenge_widget_not_live_description">Um desafio de leitura de 25 dias está a caminho.</string>
+  <string name="reading_challenge_widget_not_opted_in_title">Preparar, apontar, ler!</string>
+  <string name="reading_challenge_widget_not_opted_in_description">Participe do desafio de 25 dias e ganhe prêmios especiais.</string>
+  <plurals name="reading_challenge_small_widget_streak">
+    <item quantity="one">%d dia</item>
+    <item quantity="other">%d dias</item>
+  </plurals>
+  <plurals name="reading_challenge_small_widget_streak_final">
+    <item quantity="one">%1$d de %2$d</item>
+    <item quantity="other">%1$d de %2$d</item>
+  </plurals>
+  <plurals name="reading_challenge_small_widget_streak_final_large">
+    <item quantity="one">%1$d de %2$d dia</item>
+    <item quantity="other">%1$d de %2$d dias</item>
+  </plurals>
+  <string name="reading_challenge_not_read_today_description">Não deixe o dia de hoje passar em branco, mantenha sua sequência.</string>
+  <string name="reading_challenge_streak_ongoing_title">Desafio de leitura de 25 dias</string>
+  <string name="reading_challenge_widget_reminder_dont_let_today_drift">Não deixe o dia de hoje passar em vão; sua sequência de leitura está esperando por você.</string>
+  <string name="reading_challenge_widget_reminder_before_day_snoozes">Antes que o dia chegue ao fim…    ainda dá tempo de aprender alguma coisa.</string>
+  <string name="reading_challenge_widget_reminder_small_bit_counts">Mesmo que seja só um pouquinho, a leitura conta para a sua meta.</string>
+  <string name="reading_challenge_widget_reminder_one_article_away">Falta apenas um artigo para completar sua sequência.</string>
+  <string name="reading_challenge_widget_reminder_jump_in_anytime">Venha dar uma lida a qualquer hora hoje.</string>
+  <string name="reading_challenge_widget_reminder_quiet_reading_moment">Um momento de leitura tranquila?</string>
+  <string name="reading_challenge_widget_reminder_keep_curiosity_going">Mantenha a curiosidade viva.</string>
+  <string name="reading_challenge_widget_enrolled_not_started_title">Preparar, apontar, ler!</string>
+  <string name="reading_challenge_widget_enrolled_not_started_subtitle">Comece a trabalhar para alcançar uma sequência de 25 dias!</string>
+  <string name="reading_challenge_widget_start_reading_challenge_title">Comece seu desafio de leitura.</string>
+  <string name="reading_challenge_widget_start_reading_challenge_subtitle">Toda sequência começa em algum lugar</string>
+  <string name="reading_challenge_widget_start_spin_up_new_streak_title">Vamos começar uma nova sequência?</string>
+  <string name="reading_challenge_widget_start_spin_up_new_streak_subtitle">Leia um artigo para começar.</string>
+  <string name="reading_challenge_widget_start_fresh_start_title">Um novo começo.</string>
+  <string name="reading_challenge_widget_start_fresh_start_subtitle">Falta apenas um artigo para completar sua sequência.</string>
+  <string name="reading_challenge_widget_concluded_incomplete">Desafio concluído</string>
+  <string name="reading_challenge_widget_concluded_complete">Você conseguiu!</string>
+  <string name="reading_challenge_widget_reward_title">A curiosidade fica bem em você! 🛍️</string>
+  <string name="reading_challenge_widget_reward_body">Comemore a conclusão do desafio com 15%% de desconto na Loja da Wikipédia</string>
+  <string name="reading_challenge_widget_reward_button_label">Ganhe 15%% de desconto na loja</string>
+  <string name="explore_feed_new_update_prompt_title">O Explore agora é a Página Inicial, com um novo visual</string>
+  <string name="explore_feed_new_update_prompt_new_name_title">Um novo nome</string>
+  <string name="explore_feed_new_update_prompt_new_name_description">O feed Explorar agora se chama Iniciar, no mesmo lugar de antes.</string>
+  <string name="explore_feed_new_update_prompt_two_ways_title">Seu feed, de duas maneiras</string>
+  <string name="explore_feed_new_update_prompt_two_ways_description">Descubra artigos personalizados de acordo com seus interesses na seção Para você ou explore os melhores conteúdos editoriais da Wikipédia na seção Comunidade.</string>
+  <string name="explore_feed_new_update_prompt_control_title">Mantenha o controle</string>
+  <string name="explore_feed_new_update_prompt_control_description">Cada recomendação explica exatamente por que está lá. Você pode atualizar suas preferências a qualquer momento em Configurações.</string>
+  <string name="explore_feed_new_update_prompt_language_title">Cada idioma, totalmente personalizado</string>
+  <string name="explore_feed_new_update_prompt_language_description">Lê em vários idiomas? Cada um tem sua própria experiência. Basta alternar e seu novo feed estará pronto.</string>
+  <string name="explore_feed_new_update_prompt_primary_button_text">Personalize o meu feed</string>
+  <string name="explore_feed_customize_interests">Personalizar interesses</string>
+  <string name="explore_feed_customize_discover">Personalizar Descobrir</string>
+  <string name="explore_feed_new_update_prompt_secondary_button_text">Configurar isso para mim</string>
+  <string name="explore_feed_building_text">Vamos montar o seu feed…</string>
+  <string name="explore_feed_community_tab_label">Comunidade</string>
+  <string name="explore_feed_for_you_tab_label">Para você</string>
+  <string name="explore_feed_date_today">Hoje - %s</string>
+  <string name="explore_feed_load_previous_day_label">Carregar dados do dia anterior</string>
+  <string name="explore_feed_from_reading_list">Da sua lista de leitura</string>
+  <string name="explore_feed_because_of_interest">Devido ao seu interesse: %s</string>
+  <string name="explore_feed_onboarding_curiosity_title">Siga sua curiosidade</string>
+  <string name="explore_feed_onboarding_curiosity_description">Selecione os tópicos que lhe interessam e personalizaremos seu feed.\n\nColetamos uma quantidade mínima de dados, que são anonimizados.</string>
+  <string name="explore_feed_deselect_all_button_label">Desmarcar todos</string>
+  <string name="explore_feed_potd_subtitle">Imagens do dia na Wikimedia Commons, selecionadas por colaboradores voluntários</string>
+  <string name="explore_feed_featured_article_subtitle">Os artigos em destaque são alguns dos artigos de maior qualidade da Wikipédia, selecionados diariamente pelos editores</string>
+  <string name="explore_feed_preference_selection_screen_title">O que você gostaria de ver primeiro?</string>
+  <string name="explore_feed_preference_community_content_title">Conteúdo relacionado à comunidade</string>
+  <string name="explore_feed_preference_personalized_content_title">Conteúdo personalizado</string>
+  <string name="explore_feed_in_the_news_subtitle">Artigos que foram substancialmente atualizados para refletir eventos recentes ou atuais de grande interesse</string>
+  <string name="explore_feed_on_this_day_subtitle">Descubra os acontecimentos históricos deste dia</string>
+  <string name="explore_feed_community_disclaimer">Conteúdo e recursos selecionados pela comunidade Wikimedia e sobre ela</string>
+  <string name="explore_feed_community_load_more_label">Veja conteúdos anteriores da comunidade</string>
+  <string name="explore_feed_manage_languages_label">Gerenciar idiomas</string>
+  <string name="explore_feed_header_overflow_hide_module_label">Ocultar módulo</string>
+  <string name="explore_feed_header_overflow_hide_module_message">Módulo oculto.</string>
+  <string name="explore_feed_header_overflow_hide_module_message_action">Desfazer</string>
+  <string name="explore_feed_personalized_preference_empty_state_text">Você precisa adicionar interesses para ver recomendações de conteúdo personalizadas. Você pode fazer isso nas etapas anteriores ou mais tarde em Configurações.</string>
+  <string name="explore_feed_because_you_read">Porque você leu: %s</string>
+  <string name="explore_feed_swipe_to_explore_prompt_title">Deslize para explorar</string>
+  <string name="explore_feed_swipe_to_explore_prompt_message">Deslize para cima para navegar entre os tópicos ou deslize para os lados para explorar conteúdos relacionados.</string>
+  <string name="home_feed_settings_title">Personalize seu feed inicial</string>
+  <string name="home_feed_settings_default_view_title">Visualização padrão do feed</string>
+  <string name="home_feed_settings_default_view_subtitle">Escolha qual feed será exibido primeiro ao abrir o aplicativo</string>
+  <string name="home_feed_settings_default_view_confirm">Essa alteração entrará em vigor na próxima vez que você abrir o aplicativo.</string>
+  <string name="home_feed_settings_whats_driving_title">O que está aparecendo no seu feed</string>
+  <string name="home_feed_settings_modules_title">Módulos</string>
+  <string name="home_feed_settings_community_subtitle">Ativar ou desativar os módulos do feed \"Comunidade\"</string>
+  <string name="home_feed_settings_for_you_subtitle">Ativar ou desativar os módulos do feed \"Para você\"</string>
+  <string name="home_feed_settings_whats_driving_subtitle">Tópicos e artigos que moldam o seu conteúdo</string>
+  <string name="home_feed_settings_community_modules_description">Desativar um módulo o oculta do seu feed da Comunidade. Você pode reativá-lo aqui a qualquer momento. Alguns módulos podem não estar disponíveis no seu idioma.</string>
+  <string name="home_feed_settings_for_you_modules_description">Desativar um módulo o oculta do seu feed \"Para você\"”. Você pode reativá-lo aqui a qualquer momento.</string>
+  <string name="home_feed_settings_based_on_interest_title">Com base nos seus interesses</string>
+  <string name="home_feed_settings_based_on_interest_subtitle">Artigos personalizados de acordo com os tópicos que você escolheu.&lt;br /&gt;&lt;a href=\"#drivingFeed\"&gt;O que está alimentando seu feed&lt;/a&gt;</string>
+  <string name="home_feed_settings_because_you_read_subtitle">Sugestões com base em um artigo recente do seu histórico</string>
+  <string name="home_feed_settings_continue_reading_title">Continue lendo</string>
+  <string name="home_feed_settings_continue_reading_subtitle">Volte aos artigos que você não terminou de ler</string>
+  <string name="home_feed_did_you_know_title">Você sabia?</string>
+  <string name="home_feed_did_you_know_subtitle">Curiosidades extraídas de artigos selecionados por editores voluntários</string>
+  <string name="home_feed_did_you_know_more_label">Você sabia que...</string>
+  <string name="home_feed_settings_community_empty_dialog_title">Seu feed da Comunidade estará vazio</string>
+  <string name="home_feed_settings_for_you_empty_dialog_title">Seu feed \"Para você\" estará vazio</string>
+  <string name="home_feed_settings_empty_dialog_text">Ative pelo menos um módulo para visualizar o conteúdo.</string>
+  <string name="home_feed_settings_empty_dialog_positive">Continuar mesmo assim</string>
+  <string name="home_feed_screen_empty_state_label">Seu feed está vazio</string>
+  <string name="home_feed_community_screen_all_modules_disabled_description">Ative os módulos &lt;b&gt;Comunidade&lt;/b&gt; para começar a ver conteúdos selecionados pela comunidade Wikimedia e sobre ela.</string>
+  <string name="home_feed_for_you_screen_all_modules_disabled_description">Ative os módulos &lt;b&gt;Para você&lt;/b&gt; para começar a ver conteúdo com base nas suas preferências.</string>
+  <string name="home_feed_screen_all_modules_disabled_btn_label">Gerenciar módulos</string>
+  <string name="home_feed_for_you_screen_empty_title">Seu feed está vazio no momento</string>
+  <string name="home_feed_for_you_screen_empty_description">Seu feed \"Para você\" será preenchido com artigos personalizados à medida que você for navegando.</string>
+  <string name="home_feed_for_you_screen_empty_ways_to_start">Formas de começar:</string>
+  <string name="home_feed_for_you_screen_empty_add_interests">Adicione &lt;a href=\"#add_interests\"&gt;alguns interesses&lt;/a&gt;</string>
+  <string name="home_feed_for_you_screen_empty_see_community">Veja o que está acontecendo na &lt;a href=\"#community_tab\"&gt;comunidade&lt;/a&gt;</string>
+  <string name="home_feed_update_tooltip1">Novidade: as seções \"Artigo aleatório\" e \"Locais de interesse\" estão disponíveis na seção \"Para você\", e \"Você sabia?\" está na aba \"Comunidade\".</string>
+  <string name="home_feed_random_title">Aleatório</string>
+  <string name="home_feed_random_subtitle">Artigo aleatório para despertar sua curiosidade</string>
+  <string name="home_feed_random_shuffle_button">Aleatório</string>
+  <string name="home_feed_settings_feed_configuration_description">Esses tópicos e artigos determinam o que aparece no seu feed \"Para você\". Remova aqueles que você não deseja mais ver ou adicione novos interesses.</string>
+  <string name="home_feed_settings_feed_configuration_interest_title">Seus interesses</string>
+  <string name="home_feed_settings_feed_configuration_interest_subtitle">Edite seus tópicos de interesse</string>
+  <string name="home_feed_settings_feed_configuration_location_title">Sua localização</string>
+  <string name="home_feed_settings_feed_configuration_location_subtitle">Atualize sua localização nos Locais para ver artigos nas proximidades</string>
+  <string name="home_feed_settings_feed_configuration_empty_interest_subtitle">Sua lista de interesses está vazia. Adicione algo que te desperte a curiosidade.</string>
+  <string name="home_feed_settings_feed_configuration_reading_history_title">Histórico de leitura</string>
+  <string name="home_feed_settings_feed_configuration_reading_history_subtitle">Veja os artigos que leu recentemente</string>
+  <string name="home_feed_settings_feed_configuration_empty_reading_history_subtitle">Seu histórico de leitura está vazio. Comece a explorar artigos para gerar recomendações personalizadas.</string>
+  <string name="home_feed_settings_feed_configuration_languages_title">Idiomas</string>
+  <string name="home_feed_settings_feed_configuration_languages_subtitle">Edite seus idiomas preferidos</string>
+  <string name="home_feed_settings_feed_configuration_interests_updated_message">Interesses atualizados. Atualize seu feed para ver as novidades.</string>
+  <string name="home_feed_places_of_interest_cta_title">Histórias de lugares que você adora</string>
+  <string name="home_feed_places_of_interest_cta_description">Atualize sua localização nos Locais para ver artigos nas proximidades</string>
+  <string name="home_feed_places_of_interest_cta_button">Ir para Locais</string>
+  <string name="home_feed_settings_places_of_interest_title">Lugares de interesse</string>
+  <string name="home_feed_settings_places_of_interest_subtitle">Artigos próximos à sua última localização nos Locais</string>
+  <string name="home_feed_settings_games_title">Jogos</string>
+  <string name="home_feed_settings_games_subtitle">Jogos diários baseados no conteúdo da Wikipédia</string>
+  <string name="home_feed_settings_discover_title">Descubra as recomendações</string>
+  <string name="home_feed_settings_discover_subtitle">Artigos da sua lista de leitura do Descobrir</string>
+  <string name="home_feed_discover_cta_title">Do Descobrir</string>
+  <string name="home_feed_discover_cta_description">Conheça novos assuntos, selecionados especialmente para você. Escolha entre atualizações diárias, semanais ou mensais.</string>
+  <string name="home_feed_discover_cta_button">Ativar a lista de leitura Descobrir</string>
+  <string name="home_feed_discover_card_footer">Do Descobrir • Atualizações %s</string>
+  <string name="home_feed_discover_see_all_title">Ainda há muito mais para descobrir</string>
+  <string name="home_feed_discover_see_all_description">Sua lista de leitura personalizada tem mais histórias escolhidas especialmente para você.</string>
+  <string name="home_feed_discover_see_all_button">Explore todas as recomendações</string>
+  <string name="home_feed_places_of_interest_card_footer">%1$s • Com base na sua localização nos Locais</string>
+  <string name="home_feed_for_you_screen_end_of_feed_title">Por hoje é só!</string>
+  <string name="home_feed_for_you_screen_end_of_feed_description">Volte amanhã para encontrar novos artigos personalizados para você.</string>
+  <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Formas de continuar aprendendo:</string>
+  <string name="home_feed_for_you_screen_end_of_feed_add_interests">Adicionar &lt;a href=\"#add_interests\"&gt;novos interesses&lt;/a&gt;</string>
+  <string name="home_feed_games_module_cta_prompt_title">Quer jogar mais jogos?</string>
+  <string name="home_feed_games_module_cta_prompt_subtitle">Acesse a central de jogos</string>
+  <string name="home_feed_games_module_cta_prompt_button_text">Central de jogos</string>
 </resources>

@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* Ayaat123
+-->
 <resources>
   <string name="app_name_prod">وِکیٖپیٖڈیا</string>
   <string name="app_name_beta">وِکیٖپیٖڈیا آزمائشی</string>
@@ -104,7 +107,7 @@
   <string name="edit_save_action_license_logged_in" fuzzy="true">شایعہ کرنس پؠٹھ، چھوٗ تۄٚہہِ &lt;a href=\"%1$s\"&gt;شرٲئطہِ استعمالس&lt;/a&gt;سٕتی مُتفِق تہٕ اٹل طورس پؠٹھ پنٕنی شموٗلِیَت &lt;a href=\"%2$s\"&gt;یتھ تحت اقرار کران&lt;/a&gt;</string>
   <string name="edit_save_action_license_anon" fuzzy="true">شایعہ کرنس پؠٹھ، چھو توٚہہِ &lt;a href=\"%1$s\"&gt;شرٲئطہِ استعمال اقرار کرٕنی&lt;/a&gt;، تہٕ اٹل طورس پؠٹھ پنٕنی شموٗلِیَت &lt;a href=\"%2$s/\"&gt;یتھ اِجازت نامس تاحت مانٕنی&lt;/a&gt;. ایڑِٹٕز یِن تُہنٛدس ڈِوایسٕکس IP پتاہ ہَس کُن مَنسوٗب کرنہٕ. اگر تۄٚہہِ &lt;a href=\"https://#login\"&gt;دٲخل گژھیوٚ&lt;/a&gt;، توٚہہِ مِلیو زیادٕ رازدأری.</string>
   <string name="edit_anon_warning">ایڑِٹ یِنی تُہنٛدِ ڈِوایسٕکی IP پتاہ ہَس کُن مَنسوٗب کرنہٕ. اگر تُہہ &lt;a href=\"https://#login\"&gt;توٚہہِ گژھیو زیادٕ حفاظت فراہم.&lt;/a&gt;</string>
-  <string name="preference_title_language">وِکیٖپیٖڈیا زَبانٕ</string>
+  <string name="preference_title_language">وِکیٖپیٖڈیا زَبانہٕ</string>
   <string name="langlinks_filter_hint">ژھانٛڈُن</string>
   <string name="langlinks_empty">یہِ صَفہٕ چھُ نہٕ باقیَن زَبانَن مَنٛز دٕستِیاب۔</string>
   <string name="langlinks_no_match">کٔہٲنی تہِ زبان مِلے نہٕ</string>
@@ -178,7 +181,7 @@
   <string name="create_account_generic_error">کھاتہٕ ہؠکہِ نہٕ بٕنِتھ</string>
   <string name="create_account_next">اَمہِ پتہٕ</string>
   <string name="email_recommendation_dialog_title">کھاتہٕ بنأوِو مگر برقی خط وغٲر؟</string>
-  <string name="email_recommendation_message">اَہَم! تِکیٛازِ کھاتہٕ ریکوری خٲطرٕ چُھ ای میلٕچ ضرورت۔</string>
+  <string name="email_recommendation_message">اَہَم! تِکیٛازِ کھاتہٕ ریکوری خٲطرٕ چھُ ای میلٕچ ضرورت۔</string>
   <string name="email_recommendation_dialog_create_without_email_action">برقی خط وغٲر تھٲوِو جٲری</string>
   <string name="email_recommendation_dialog_create_with_email_action">برقی خط کٕریٚو شٲمل</string>
   <string name="create_account_button">کھاتہٕ بَنٲیو</string>
@@ -341,7 +344,7 @@
   <string name="article_header_edit_lead_section">ایڑِٹ تعارُف</string>
   <string name="color_theme_select">مرکزی خیال</string>
   <string name="color_theme_light">گاش</string>
-  <string name="color_theme_dark">پوٗشیٖدٕ/اَنہِ گۄٚٹ</string>
+  <string name="color_theme_dark">کرٛؠہنراوُن/اَنہِ گۆٹ</string>
   <string name="color_theme_black">ککرہُن</string>
   <string name="color_theme_sepia">سِیٖپِیا</string>
   <string name="color_theme_test_title">سادٕ متن</string>
@@ -364,7 +367,7 @@
   <string name="reading_list_article_moved_to_named">موٗوٕڈ %1$s تا %2$s</string>
   <string name="reading_list_article_already_exists_message">سورٕے ٹھیٖک! %1$s چھُ جمع تھأوتھ %2$s.</string>
   <string name="reading_list_articles_already_exist_message">سورٕے ٹھیٖک! %s چھُ جمع تھأوتھ سأری مَضموٗن.</string>
-  <string name="reading_list_added_view_button">فِہرِست وُچُھو</string>
+  <string name="reading_list_added_view_button">فِہرِست وُچھُو</string>
   <string name="reading_list_add_to_list_button">فِہرِستِ منٛز کٕریٚو جمع</string>
   <string name="reading_list_sort">چھانٛٹ دِنی</string>
   <string name="reading_list_sort_ellipsis">چھانٛٹ دِنی بمُطٲبق...</string>
@@ -389,7 +392,7 @@
   <string name="reading_list_item_delete_undo">رَد کٕرو</string>
   <string name="reading_list_deleted">%s آو ہَٹاونہٕ</string>
   <string name="saved_list_empty_title">وۄنی روٗد نہٕ کانٛہہ تہِ مَحفوٗظ صَفہٕ</string>
-  <string name="reading_list_article_offline">آفلاین چُھ مَیَسر</string>
+  <string name="reading_list_article_offline">آفلاین چھُ مَیَسر</string>
   <string name="reading_list_select_item">مُنتَخٕب کٔرِو</string>
   <string name="reading_lists_login_button">وِکیٖپیٖڈیاہَس منٛز دٲخل گژھُن / شٲمل گژھُن</string>
   <string name="reading_lists_ignore_button">وُنہِ نہٕ</string>
@@ -460,7 +463,7 @@
   <string name="notifications_swipe_action_read">پرُن</string>
   <string name="notifications_swipe_action_unread">نَہ پَرُن</string>
   <string name="notifications_menu_check_all">سأری چیٖز وُچھیوٚ</string>
-  <string name="notifications_menu_uncheck_all">سأری چیٖز مَہ وُچُھو</string>
+  <string name="notifications_menu_uncheck_all">سأری چیٖز مَہ وُچھُو</string>
   <string name="notifications_wiki_filter_header">وِکیٖ فِلٹر</string>
   <string name="notifications_type_filter_header">فِلٹر قٕسم</string>
   <string name="notifications_all_wikis_text" fuzzy="true">سأری \"وِکیٖ\"</string>
@@ -588,7 +591,7 @@
   <string name="languages_list_activity_title">زبانہٕ کٕریٚو جمع/ایٚڈ</string>
   <string name="languages_list_suggested_text">تَجویٖز دار</string>
   <string name="languages_list_all_text">تَمام زَبانہٕ</string>
-  <string name="wikipedia_languages_title">وِکیٖپیٖڈیا زَبانٕ</string>
+  <string name="wikipedia_languages_title">وِکیٖپیٖڈیا زَبانہٕ</string>
   <string name="wikipedia_languages_your_languages_text">تُہنٛز زبانہٕ</string>
   <string name="wikipedia_languages_add_language_text">زبانہٕ کٕریٚو جمع/ایٚڈ</string>
   <string name="wikipedia_languages_remove_text">زَبان ہَٹٲوِو</string>
@@ -664,7 +667,7 @@
   <string name="talk_user_title">کَتھ: %s</string>
   <string name="talk_new_topic">نٔو موضوٗع</string>
   <string name="talk_new_topic_submitted">موضوٗع آو شایَع کَرنہٕ.</string>
-  <string name="talk_page_empty">یِہ بَحَث صَفہٕ چھُ خٲلی۔</string>
+  <string name="talk_page_empty">یہِ بَحَث صَفہٕ چھُ خٲلی۔</string>
   <string name="talk_add_reply">جَوآب</string>
   <string name="talk_no_subject">(بے موضوع)</string>
   <string name="talk_snackbar_undo">رَد کٔرِو</string>
@@ -718,7 +721,7 @@
   <string name="thank_success_message">تُہُنٛد \'شُکرِیا\' آو صٲرف %s سوزنہٕ</string>
   <string name="menu_option_view_user_profile">صٲرفہٕ سُنٛد صَفہٕ وُچھو</string>
   <string name="menu_option_view_user_talk">بَحَث صَفہٕ وُچھِو</string>
-  <string name="menu_option_view_user_contributions">صأرفہٕ سٕنٛدی شراکتھ وُچُھو</string>
+  <string name="menu_option_view_user_contributions">صأرفہٕ سٕنٛدؠ شِرکَت وُچھُو</string>
   <string name="revision_diff_from">پؠٹھ:</string>
   <string name="revision_diff_to">تام:</string>
   <string name="revision_diff_line_num">سٕتٕر %d</string>

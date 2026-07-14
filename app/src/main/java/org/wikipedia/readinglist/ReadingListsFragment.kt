@@ -52,7 +52,6 @@ import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentReadingListsBinding
 import org.wikipedia.events.ArticleSavedOrDeletedEvent
 import org.wikipedia.events.NewRecommendedReadingListEvent
-import org.wikipedia.feed.FeedFragment
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.main.MainActivity
@@ -83,7 +82,6 @@ import org.wikipedia.views.MultiSelectActionModeCallback
 import org.wikipedia.views.MultiSelectActionModeCallback.Companion.isTagType
 import org.wikipedia.views.PageItemView
 import org.wikipedia.views.ReadingListsOverflowView
-import org.wikipedia.yearinreview.YearInReviewViewModel
 
 class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, ReadingListItemActionsDialog.Callback {
     private var _binding: FragmentReadingListsBinding? = null
@@ -805,9 +803,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     }
 
     private fun maybeShowPreviewSavedReadingListsSnackbar() {
-        val yirReadingListTitle = requireContext().getString(R.string.year_in_review_reading_list_title, YearInReviewViewModel.YIR_YEAR)
-        val isReadingListCreatedFromYir = recentPreviewSavedReadingList?.listTitle?.equals(yirReadingListTitle, ignoreCase = true) == true
-        if (shouldShowImportedSnackbar && !isReadingListCreatedFromYir) {
+        if (shouldShowImportedSnackbar) {
             ReadingListsAnalyticsHelper.logReceiveFinish(requireContext(), recentPreviewSavedReadingList)
             FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.reading_lists_preview_saved_snackbar))
                 .setAction(R.string.suggested_edits_article_cta_snackbar_action) {
@@ -863,8 +859,8 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             binding.onboardingView.setMessageText(getString(R.string.reading_lists_login_reminder_text))
             binding.onboardingView.setImageResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.sync_reading_list_prompt_drawable), true)
             binding.onboardingView.setPositiveButton(R.string.reading_lists_login_button, {
-                if (isAdded && requireParentFragment() is FeedFragment.Callback) {
-                    (requireParentFragment() as FeedFragment.Callback).onLoginRequested()
+                if (isAdded && requireParentFragment() is MainFragment) {
+                    (requireParentFragment() as MainFragment).onLoginRequested()
                 }
             }, true)
             binding.onboardingView.setNegativeButton(R.string.reading_lists_ignore_button, {

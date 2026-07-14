@@ -18,6 +18,7 @@
 * SaldırganSincap
 * Stress 043
 * Tofeiku
+* Wrai
 -->
 <resources>
   <string name="app_name_prod">Wikipedia</string>
@@ -243,6 +244,7 @@
   <string name="about_description">Tentang aplikasi Wikipedia</string>
   <string name="privacy_policy_description">Dasar privasi</string>
   <string name="terms_of_use_description">Syarat-syarat penggunaan</string>
+  <string name="legal_safety_contacts_description">Maklumat hubungan Perundangan &amp; Keselamatan</string>
   <string name="about_wikipedia_url">https://ms.wikipedia.org/wiki/Wikipedia:Perihal</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
@@ -273,8 +275,8 @@
   <string name="edit_warn">Ingatkan</string>
   <string name="edit_zoom_in">Zum dekat</string>
   <string name="edit_zoom_out">Zum jauh</string>
-  <string name="edit_summary_tag_typo">Memperbaiki ejaan</string>
-  <string name="edit_summary_tag_grammar">Memperbaiki tatabahasa</string>
+  <string name="edit_summary_tag_typo">Memperbaik ejaan</string>
+  <string name="edit_summary_tag_grammar">Memperbaik tatabahasa</string>
   <string name="edit_summary_tag_links">Membubuh pautan</string>
   <string name="edit_summary_tag_other">Lain-lain</string>
   <string name="edit_summary_tag_other_hint">Cara-cara lain anda menambah baik halaman</string>
@@ -640,7 +642,7 @@
   <string name="preference_summary_notification_system">Pesanan dari sistem</string>
   <string name="preference_title_notification_milestone">Pencapaian</string>
   <string name="preference_summary_notification_milestone">Tuntutan suntingan tertentu telah dicapai</string>
-  <string name="preference_title_notification_thanks">Terima kasih</string>
+  <string name="preference_title_notification_thanks">Penghargaan</string>
   <string name="preference_summary_notification_thanks">Seseorang berterima kasih untuk suntingan anda</string>
   <string name="preference_title_notification_revert">Balikkan</string>
   <string name="preference_summary_notification_revert">Salah satu sumbangan anda telah diundurkan</string>
@@ -715,11 +717,11 @@
   <string name="feed_item_type_main_page">Halaman utama Wikipedia dengan kandungan pilihan harian</string>
   <string name="feed_item_type_randomizer">Menjana rencana rawak untuk dibaca</string>
   <string name="feed_item_type_suggested_edits">Cadangan untuk menambah kandungan ke Wikipedia</string>
-  <string name="feed_empty_message">Tiada apa-apa pada suapan Jelajah anda</string>
+  <string name="feed_empty_message" fuzzy="true">Tiada apa-apa pada suapan Jelajah anda</string>
   <string name="feed_configure_onboarding_action">Ubah suai</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Batal</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Ubahsuai suapan Jelajah anda&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Anda kini boleh memilih apa yang akan dipaparkan pada suapan anda, dan juga mengutamakan jenis kandungan kegemaran anda.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Ubahsuai suapan Jelajah anda&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Anda kini boleh memilih apa yang akan dipaparkan pada suapan anda, dan juga mengutamakan jenis kandungan kegemaran anda.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Batal</string>
   <string name="feed_accessibility_card_load_more_button">Muatkan lagi</string>
@@ -799,7 +801,7 @@
   <string name="suggested_edits_task_image_caption_edit_disable_text">Dikunci sehingga anda telah menyunting %d kapsyen imej</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Dikunci sehingga anda telah menyunting %d penerangan rencana (disahkan)</string>
   <string name="suggested_edits_task_multilingual_negative">Bukan untuk saya</string>
-  <string name="suggested_edits_task_multilingual_positive">Tambahkan bahasa</string>
+  <string name="suggested_edits_task_multilingual_positive">Tambah bahasa</string>
   <string name="suggested_edits_image_caption_summary_title_image">Fail</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Seniman</string>
   <string name="suggested_edits_image_caption_summary_title_author">Penulis</string>
@@ -882,7 +884,7 @@
   <string name="onboarding_get_started">Memulakan</string>
   <string name="onboarding_maybe_later">Lain kalilah</string>
   <string name="onboarding_explore_title">Cara baru untuk diterokai</string>
-  <string name="onboarding_explore_text">Dengarkan lubang kelinci Wikipedia dengan mengemas kini suapan Jelajah secara berterusan. &lt;br/&gt; &lt;b&gt;Ubahsuai&lt;/b&gt; suapan untuk minat anda – sama ada pembelajaran tentang peristiwa sejarah &lt;b&gt;Pada hari ini&lt;/b&gt;, atau membaling dadu dengan &lt;b&gt;Rawak&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Dengarkan lubang kelinci Wikipedia dengan mengemas kini suapan Jelajah secara berterusan. &lt;br/&gt; &lt;b&gt;Ubahsuai&lt;/b&gt; suapan untuk minat anda – sama ada pembelajaran tentang peristiwa sejarah &lt;b&gt;Pada hari ini&lt;/b&gt;, atau membaling dadu dengan &lt;b&gt;Rawak&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Senarai bacaan dengan penyegerakan</string>
   <string name="onboarding_reading_list_sync_text_v2">Anda boleh membuat senarai bacaan dari artikel yang ingin dibaca kemudian, walaupun semasa anda berada di luar talian. &lt;br/&gt;Log masuk ke akaun Wikipedia anda untuk menyegerakkan senarai bacaan anda. &lt;a href=\"#login\"&gt;Sertai Wikipedia&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Hantar data penggunaan</string>
@@ -905,19 +907,19 @@
     <item quantity="other">%d tahun lepas</item>
   </plurals>
   <string name="on_this_day_back_to_future">Kembali ke masa depan</string>
-  <string name="languages_list_activity_title">Tambahkan bahasa</string>
+  <string name="languages_list_activity_title">Tambah bahasa</string>
   <string name="languages_list_suggested_text">Disyorkan</string>
   <string name="languages_list_all_text">Semua bahasa</string>
   <string name="wikipedia_languages_title">Bahasa Wikipedia</string>
   <string name="wikipedia_languages_your_languages_text">Bahasa anda</string>
-  <string name="wikipedia_languages_add_language_text">Tambahkan bahasa</string>
+  <string name="wikipedia_languages_add_language_text">Tambah bahasa</string>
   <string name="wikipedia_languages_remove_text">Buang bahasa</string>
   <string name="wikipedia_languages_remove_action_mode_title">Buang bahasa</string>
   <plurals name="wikipedia_languages_remove_dialog_title">
     <item quantity="one">Buang bahasa yang dipilih?</item>
     <item quantity="other">Buang bahasa yang dipilih?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Anda hanya akan melihat kandungan pada suapan Teroka dan penapis carian pantas untuk bahasa Wikipedia yang masih ada.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Anda hanya akan melihat kandungan pada suapan Teroka dan penapis carian pantas untuk bahasa Wikipedia yang masih ada.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Tidak dapat membuang semua bahasa</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Pastikan sekurang-kurangnya satu bahasa Wikipedia yang boleh digunakan untuk mencari dan membaca kandungan.</string>
   <string name="more_language_options">lagi</string>
@@ -998,7 +1000,7 @@
   <string name="menu_option_user_page">Laman pengguna %s</string>
   <string name="talk_menu_copy_text">Salin teks</string>
   <string name="watchlist_details_watch_label">Pantau</string>
-  <string name="thank_label">Terima kasih</string>
+  <string name="thank_label">Hargai</string>
   <string name="view_user_page">Lihat laman pengguna</string>
   <string name="thank_dialog_title_text">Hantar \'Terima kasih\' secara terbuka</string>
   <string name="thank_dialog_positive_button_text">Ucap terima kasih</string>
@@ -1086,7 +1088,6 @@
   <string name="survey_dialog_general_no">Tidak</string>
   <string name="survey_dialog_input_hint">Maklum balas tambahan</string>
   <string name="on_this_day_game_point">+1 mata</string>
-  <string name="on_this_day_game_pause_negative">Teruskan bermain</string>
   <string name="on_this_day_game_feed_entry_card_heading">Permainan Wikipedia</string>
   <string name="year_in_review_donate">Derma</string>
   <string name="recommended_reading_list_page_snackbar_day">Hari</string>
@@ -1100,4 +1101,66 @@
   <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">Setiap minggu</string>
   <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">Setiap bulan</string>
   <string name="recommended_reading_list_settings_notifications_title">Pemberitahuan</string>
+  <string name="reading_challenge_widget_name">Cabaran Membaca</string>
+  <string name="reading_challenge_onboarding_header">Raikan hari jadi ke-25 Wikipedia dengan menyertai cabaran membaca selama 25 hari!</string>
+  <string name="reading_challenge_onboarding_read_title">Baca 1 laman rencana setiap hari selama 25 hari</string>
+  <string name="reading_challenge_onboarding_read_subtitle">Sertai cabaran ini pada bila-bila masa antara %1$s hingga %2$s, dan lengkapkan 25 hari mengikut jadual anda sendiri.</string>
+  <string name="reading_challenge_onboarding_win_title">Menangkan hadiahnya</string>
+  <string name="reading_challenge_onboarding_win_description">Lengkapkan cabaran membaca selama 25 hari berturutan untuk memenangkan hadiah yang istimewa.</string>
+  <string name="reading_challenge_onboarding_install_title">Pasang perkakas pengingat</string>
+  <string name="reading_challenge_onboarding_install_description">Dapatkan pengingat dan motivasi dengan maskot hari jadi kami yang comel, Baby Globe.</string>
+  <string name="reading_challenge_onboarding_note">Sejarah bacaan anda kekal terlindungi. Analisis mengenai bacaan dikira menggunakan data yang disimpan pada peranti Anda secara tempatan.</string>
+  <string name="reading_challenge_onboarding_learn_more_button">Ketahui lebih lanjut</string>
+  <string name="reading_challenge_onboarding_join_button">Sertai cabaran ini</string>
+  <string name="reading_challenge_onboarding_prompt_title">Log masuk untuk menyertai cabaran</string>
+  <string name="reading_challenge_onboarding_prompt_message">Log masuk atau cipta akaun untuk menjejaki kemajuan anda dalam cabaran membaca.</string>
+  <string name="reading_challenge_onboarding_prompt_no_thanks">Tidak, terima kasih</string>
+  <string name="reading_challenge_onboarding_prompt_login">Log masuk / Sertai Wikipedia</string>
+  <string name="reading_challenge_install_prompt_title">Pasang widget Cabaran Membaca 25 Hari</string>
+  <string name="reading_challenge_install_prompt_message">Baby Globe menyokong anda. Tambahkan widget Cabaran Membaca untuk menjejaki kemajuan terus dari skrin utama.</string>
+  <string name="reading_challenge_install_prompt_got_it">Faham</string>
+  <string name="reading_challenge_install_prompt_add">Tambah</string>
+  <string name="reading_challenge_widget_explore_button">Terokai</string>
+  <string name="reading_challenge_widget_explore_wikipedia_button">Terokai Wikipedia</string>
+  <string name="reading_challenge_widget_join_challenge_button">Sertai cabaran</string>
+  <string name="reading_challenge_widget_join_the_challenge_button">Sertai cabaran ini</string>
+  <string name="reading_challenge_widget_search_button">Cari</string>
+  <string name="reading_challenge_widget_random_button">Rawak</string>
+  <string name="reading_challenge_widget_collect_prize_button">Tuntut hadiah</string>
+  <string name="reading_challenge_widget_collect_your_prize_button">Tuntut hadiah anda!</string>
+  <string name="reading_challenge_widget_not_live_title">Bersedia untuk membaca</string>
+  <string name="reading_challenge_widget_not_live_description">Cabaran membaca 25 hari akan bermula tidak lama lagi.</string>
+  <string name="reading_challenge_widget_not_opted_in_title">Sedia, mula, baca!</string>
+  <string name="reading_challenge_widget_not_opted_in_description">Sertai cabaran 25 hari dan buka ganjaran istimewa.</string>
+  <plurals name="reading_challenge_small_widget_streak">
+    <item quantity="other">%d hari</item>
+  </plurals>
+  <plurals name="reading_challenge_small_widget_streak_final">
+    <item quantity="other">%1$d daripada %2$d</item>
+  </plurals>
+  <plurals name="reading_challenge_small_widget_streak_final_large">
+    <item quantity="other">%1$d daripada %2$d hari</item>
+  </plurals>
+  <string name="reading_challenge_not_read_today_description">Jangan biarkan hari ini berlalu begitu sahaja, selamatkan rentak anda.</string>
+  <string name="reading_challenge_streak_ongoing_title">Lencana Cabaran 25 Hari</string>
+  <string name="reading_challenge_widget_reminder_dont_let_today_drift">Jangan biarkan hari ini berlalu begitu sahaja, streak bacaan anda sedang menunggu.</string>
+  <string name="reading_challenge_widget_reminder_before_day_snoozes">Masih ada masa untuk belajar sesuatu…\nsebelum hari berakhir.</string>
+  <string name="reading_challenge_widget_reminder_small_bit_counts">Walaupun sedikit, bacaan tetap menyumbang kepada matlamat anda.</string>
+  <string name="reading_challenge_widget_reminder_one_article_away">Streak anda hanya selangkah lagi.</string>
+  <string name="reading_challenge_widget_reminder_jump_in_anytime">Mulakan bacaan pada bila-bila masa hari ini.</string>
+  <string name="reading_challenge_widget_reminder_quiet_reading_moment">Momen membaca yang tenang?</string>
+  <string name="reading_challenge_widget_reminder_keep_curiosity_going">Teruskan rasa ingin tahu anda.</string>
+  <string name="reading_challenge_widget_enrolled_not_started_title">Sedia, mula, baca!</string>
+  <string name="reading_challenge_widget_enrolled_not_started_subtitle">Mula berusaha ke arah rentetan 25 hari!</string>
+  <string name="reading_challenge_widget_start_reading_challenge_title">Mulakan cabaran membaca anda.</string>
+  <string name="reading_challenge_widget_start_reading_challenge_subtitle">Setiap streak bermula dari satu langkah</string>
+  <string name="reading_challenge_widget_start_spin_up_new_streak_title">Mulakan streak baharu? Baca satu artikel untuk bermula.</string>
+  <string name="reading_challenge_widget_start_spin_up_new_streak_subtitle">Baca satu artikel untuk bermula.</string>
+  <string name="reading_challenge_widget_start_fresh_start_title">Permulaan baharu.</string>
+  <string name="reading_challenge_widget_start_fresh_start_subtitle">Streak anda hanya selangkah lagi.</string>
+  <string name="reading_challenge_widget_concluded_incomplete">Cabaran Tamat</string>
+  <string name="reading_challenge_widget_concluded_complete">Anda berjaya!</string>
+  <string name="reading_challenge_widget_reward_title">Rasa ingin tahu memang sesuai dengan anda! 🛍️</string>
+  <string name="reading_challenge_widget_reward_body">Raikan kejayaan menamatkan cabaran dengan diskaun 15%% di Kedai Wikipedia.</string>
+  <string name="reading_challenge_widget_reward_button_label">Dapatkan diskaun 15%% di kedai</string>
 </resources>

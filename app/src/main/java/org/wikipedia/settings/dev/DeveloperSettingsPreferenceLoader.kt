@@ -3,6 +3,7 @@ package org.wikipedia.settings.dev
 import android.content.DialogInterface
 import android.content.Intent
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.preference.ListPreference
 import androidx.preference.Preference
@@ -18,10 +19,12 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.donate.donationreminder.DonationReminderConfig
+import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
 import org.wikipedia.games.onthisday.OnThisDayGameNotificationManager
 import org.wikipedia.games.onthisday.OnThisDayGameNotificationState
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
+import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingListPage
@@ -30,9 +33,11 @@ import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequen
 import org.wikipedia.settings.BasePreferenceLoader
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.dev.playground.CategoryDeveloperPlayGround
+import org.wikipedia.settings.dev.playground.ReadingChallengePlayGroundDialog
 import org.wikipedia.setupLeakCanary
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.StringUtil.fromHtml
 import org.wikipedia.yearinreview.YearInReviewSurveyState
 
@@ -200,11 +205,6 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             setupLeakCanary()
             true
         }
-        findPreference(R.string.preference_key_otd_game_state).onPreferenceClickListener = Preference.OnPreferenceClickListener {
-            Prefs.otdGameState = ""
-            Toast.makeText(activity, "Game reset.", Toast.LENGTH_SHORT).show()
-            true
-        }
         findPreference(R.string.preferences_developer_otd_show_notification).onPreferenceClickListener = Preference.OnPreferenceClickListener {
             OnThisDayGameNotificationManager.showNotification(activity)
             true
@@ -272,6 +272,30 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             Prefs.eventPlatformIntakeUriOverride = selectedState
             findPreference(R.string.preference_key_event_platform_intake_base_uri).summary = selectedState
             true
+        }
+        findPreference(R.string.preference_key_reading_challenge_widgets).apply {
+            isVisible = ReleaseUtil.isPreProdRelease
+            onPreferenceClickListener = Preference.OnPreferenceClickListener {
+                ExclusiveBottomSheetPresenter.show((activity as AppCompatActivity).supportFragmentManager, ReadingChallengePlayGroundDialog())
+                true
+            }
+        }
+        (findPreference(R.string.preference_key_home_preference_selection) as ListPreference).apply {
+            value = Prefs.homePreferenceSelection.name
+            val states = HomePreferenceType.entries
+            val names = states.map { it.name }.toTypedArray()
+            entries = names
+            entryValues = names
+            setOnPreferenceChangeListener { _, newValue ->
+                val selectedState = newValue as String
+                val source = when (selectedState) {
+                    "COMMUNITY" -> HomePreferenceType.COMMUNITY
+                    "PERSONALIZED" -> HomePreferenceType.PERSONALIZED
+                    else -> HomePreferenceType.COMMUNITY
+                }
+                Prefs.homePreferenceSelection = source
+                true
+            }
         }
     }
 

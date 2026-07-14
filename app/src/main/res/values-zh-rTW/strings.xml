@@ -16,9 +16,11 @@
 * LNDDYL
 * Lakejason0
 * Liuxinyu970226
+* LowensteinYang
 * Madeleinemcc
 * Mikepanhu
 * MuratTheTurkish
+* Peterxy
 * Peterxy12
 * Reke
 * Sanmosa
@@ -84,8 +86,8 @@
   <string name="dialog_message_clear_history">這樣做會刪除您所有的瀏覽記錄，您確定嗎？</string>
   <string name="dialog_message_clear_history_yes">是</string>
   <string name="dialog_message_clear_history_no">否</string>
-  <string name="share_via">共用方式</string>
-  <string name="image_share_via">共用方式</string>
+  <string name="share_via">共用，是透過</string>
+  <string name="image_share_via">共用，是透過</string>
   <string name="search_redirect_from">重新導向自%s</string>
   <string name="page_edit_history_activity_title">修訂紀錄：%s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;小&lt;/b&gt;%s</string>
@@ -276,6 +278,7 @@
   <string name="about_description">關於維基百科應用程式</string>
   <string name="privacy_policy_description">隱私權政策</string>
   <string name="terms_of_use_description">使用條款</string>
+  <string name="legal_safety_contacts_description">法律與安全聯絡人</string>
   <string name="about_wikipedia_url">https://zh.wikipedia.org/wiki/Wikipedia:關於</string>
   <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/zh#Offline_reading_and_data</string>
@@ -421,8 +424,10 @@
   <string name="button_get_directions">取得路線</string>
   <string name="error_no_maps_app">無法找到任何提供路線的應用程式。</string>
   <string name="preference_title_customize_explore_feed">探索摘要</string>
+  <string name="preference_title_customize_home_feed">首頁摘要</string>
   <string name="preference_title_show_link_previews">顯示連結預覽</string>
   <string name="preference_summary_customize_explore_feed">自訂探索摘要</string>
+  <string name="preference_summary_customize_home_feed">自訂您的首頁摘要</string>
   <string name="preference_summary_show_link_previews">在輕觸連結時，顯示條目的快速預覽。</string>
   <string name="preference_title_collapse_tables">折疊表格</string>
   <string name="preference_summary_collapse_tables">自動折疊在條目裡的表格，例如像是資訊框、參考資料、註解等等。</string>
@@ -581,8 +586,8 @@
     <item quantity="other">從清單移除 %d 個條目</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">已從%s移除 %d 個條目</item>
-    <item quantity="other">已從%s移除 %d 個條目</item>
+    <item quantity="one">已從%2$s移除 %1$d 個條目</item>
+    <item quantity="other">已從%2$s移除 %1$d 個條目</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">已刪除 %d 個清單</item>
@@ -831,9 +836,11 @@
   <string name="view_random_article_card_title">隨機條目</string>
   <string name="view_random_article_card_action">更多隨機條目</string>
   <string name="view_top_read_card_title">最多人閱讀</string>
+  <string name="view_top_read_card_description">今日維基百科上的熱門話題是什麼？</string>
   <string name="view_top_read_card_action">更多被閱讀最多次的條目</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d k</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
+  <string name="view_top_read_card_pageviews_views_suffix">瀏覽次數</string>
   <string name="view_next_random_article">載入另一個隨機條目</string>
   <string name="view_main_page_card_title">維基百科今日焦點</string>
   <string name="view_main_page_card_action">檢視主頁面</string>
@@ -874,11 +881,11 @@
   <string name="feed_item_type_randomizer">產生隨機條目來閱讀</string>
   <string name="feed_item_type_suggested_edits">添加內容到維基百科的建議</string>
   <string name="feed_item_type_places">基於目前位置附近的相關條目</string>
-  <string name="feed_empty_message">您的探索摘要內無任何內容</string>
+  <string name="feed_empty_message">您的首頁摘要內無任何內容</string>
   <string name="feed_configure_onboarding_action">自訂</string>
   <string name="customize_lang_selection_dialog_ok_button_text">確認</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">取消</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;自訂您的探索摘要&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;您現在可在您的摘要內挑選出所要顯示內容，並且可以排序您所喜愛的內容種類。</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;自訂您的首頁摘要&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;您現在可在您的摘要內挑選出所要顯示內容，並且可以排序您所喜愛的內容種類。</string>
   <string name="feed_lang_selection_dialog_ok_button_text">確認</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">取消</string>
   <string name="feed_accessibility_card_text">您已達到摘要下端。</string>
@@ -1254,6 +1261,7 @@
   <string name="activity_tab_onboarding_stay_in_control_message">選擇要顯示的模組。所有個人資料在您的裝置上都會保持隱私，並且可以隨時清除瀏覽紀錄。</string>
   <string name="edits_screen_what_is_title">在維基百科應用程式中編輯</string>
   <string name="edits_screen_what_is_body">不確定從哪裡開始編輯嗎？請試試「建議編輯」，這功能可讓您有機會為維基百科做出變動不多；但至關重要的貢獻。或者，您也可以直接前往您感興趣的條目，使用 wikitext 進行修改。</string>
+  <string name="activity_tab_snackbar_label">遊戲統計資料會以您的首選語言來顯示。</string>
   <string name="file_page_activity_title">檔案頁面</string>
   <string name="file_page_add_image_caption_button">新增圖片說明</string>
   <string name="file_page_add_image_tags_button">新增圖片標籤</string>
@@ -1273,16 +1281,24 @@
   <string name="onboarding_get_started">開始</string>
   <string name="onboarding_maybe_later">稍後再說</string>
   <string name="onboarding_explore_title">「探索」頁的新樣貌</string>
-  <string name="onboarding_explore_text">時常更新的「探索」頁，讓您沉迷於維基百科而無法自拔。&lt;br/&gt;依照您的喜好，&lt;b&gt;自訂&lt;/b&gt;首頁內容。您可以從「&lt;b&gt;歷史上的今天&lt;/b&gt;」瞭解歷史事件，也可以使用「&lt;b&gt;隨機&lt;/b&gt;」碰碰運氣。</string>
+  <string name="onboarding_explore_text">透過不斷更新的首頁feed，深入探索維基百科的奇妙世界。&lt;br/&gt;依照您的喜好，&lt;b&gt;自訂&lt;/b&gt;首頁內容。您可以從「&lt;b&gt;歷史上的今天&lt;/b&gt;」瞭解歷史事件，也可以使用「&lt;b&gt;隨機&lt;/b&gt;」碰碰運氣。</string>
   <string name="onboarding_reading_list_sync_title">閱讀清單同步更新</string>
   <string name="onboarding_reading_list_sync_text_v2">對於想要稍後閱讀的條目，您可以建立閱讀清單，即使在離線時也可使用。&lt;br/&gt;登入維基百科帳號後方可同步閱讀清單。&lt;a href=\"#login\"&gt;加入維基百科&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">資料及隱私權</string>
-  <string name="onboarding_data_privacy_text">我們認為您不必提供個人資訊，即可參與自由的知識運動。此應用程式以匿名方式收集使用資料。詳細了解我們的&lt;a href=\"#privacy\"&gt;隱私權政策&lt;/a&gt;和&lt;a href=\"#termsOfUse\"&gt;使用條款&lt;/a&gt;。</string>
+  <string name="onboarding_data_privacy_text">我們認為您不必提供個人資訊，即可參與自由的知識運動。此應用程式以匿名方式收集使用資料。&lt;br/&gt;&lt;br/&gt;詳細了解我們的&lt;a href=\"#privacy\"&gt;隱私權政策&lt;/a&gt;和&lt;a href=\"#termsOfUse\"&gt;使用條款&lt;/a&gt;。</string>
   <string name="onboarding_analytics_switch_title">傳送使用情況資料</string>
   <string name="onboarding_got_it">了解</string>
   <string name="onboarding_multilingual_secondary_text">我們在您的裝置上找到以下語言：</string>
   <string name="onboarding_multilingual_add_language_text">新增或編輯語言</string>
   <string name="onboarding_welcome_title_v2">自由的百科全書\n…超過 300 種可用的語言版本</string>
+  <string name="onboarding_next">下一個</string>
+  <string name="onboarding_fresh_install_knowledge_title">全世界的知識</string>
+  <string name="onboarding_fresh_install_knowledge_text">維基百科是自由的線上百科全書，擁有 6500 萬篇條目，由志工社群以 300 多種語言協作編寫與維護。</string>
+  <string name="onboarding_fresh_install_knowledge_learn_more">了解更多關於維基百科</string>
+  <string name="onboarding_app_languages_title">提供超過 300 種語言的閱讀版本</string>
+  <string name="onboarding_app_languages_text">我們注意到在您的裝置上有以下語言：</string>
+  <string name="onboarding_app_languages_primary">首選</string>
+  <string name="onboarding_app_languages_add_button">新增或編輯您的語言</string>
   <string name="app_shortcuts_random">隨機</string>
   <string name="app_shortcuts_continue_reading">繼續閱讀</string>
   <string name="app_shortcuts_search">搜尋</string>
@@ -1312,7 +1328,7 @@
     <item quantity="one">移除所選語言？</item>
     <item quantity="other">移除所選語言？</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">您僅能查看在探索摘要的內容，與快速搜尋其餘維基百科語言的篩選器。</string>
+  <string name="wikipedia_languages_remove_dialog_content">您只能在首頁摘要和快速搜尋篩選器中看到剩餘維基百科語言的內容。</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">無法移除所有語言</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">請保留至少一種用在搜尋與閱讀內容的維基語言。</string>
   <string name="more_language_options">更多</string>
@@ -1792,6 +1808,8 @@
   <string name="places_empty_message_snackbar">附近沒有條目。請嘗試縮小並移動地圖。</string>
   <string name="survey_dialog_title">協助我們改善討論頁</string>
   <string name="survey_dialog_message">您滿意這個功能嗎？</string>
+  <string name="home_feed_survey_title">協助改善首頁</string>
+  <string name="home_feed_survey_message">您對「社群」和「為您推薦」的摘要內容滿意嗎？</string>
   <string name="survey_dialog_option_satisfied">滿意</string>
   <string name="survey_dialog_option_neutral">普通</string>
   <string name="survey_dialog_option_unsatisfied">不滿意</string>
@@ -1805,10 +1823,15 @@
   <string name="survey_dialog_general_maybe">也許</string>
   <string name="survey_dialog_input_hint">額外回饋</string>
   <string name="survey_dialog_submitted_snackbar">意見回饋提交成功。謝謝！</string>
+  <string name="games_hub_activity_title">遊戲</string>
+  <string name="games_hub_activity_games_unavailable_message">目前還沒有該語言的遊戲！遊戲內容皆由各語言的維基百科志工編輯創作。</string>
+  <string name="games_hub_activity_games_unavailable_message_learn_more_action">了解更多</string>
+  <string name="games_hub_activity_overflow_view_game_stats">查看遊戲統計數據</string>
+  <string name="games_hub_activity_overflow_learn_more">了解更多</string>
   <string name="on_this_day_game_entry_dialog_title">介紹</string>
   <string name="on_this_day_game_entry_dialog_subtitle">維基百科遊戲</string>
-  <string name="on_this_day_game_entry_dialog_button">遊玩今天的遊戲</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">維基百科遊戲可在探索摘要中取得。</string>
+  <string name="on_this_day_game_entry_dialog_button">玩遊戲</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message">維基百科遊戲可在「遊戲中心」中找到，其位於「更多」選單中。</string>
   <string name="on_this_day_game_title">猜先後</string>
   <string name="on_this_day_game_dialog_button">遊玩</string>
   <string name="on_this_day_game_splash_message">猜猜歷史上的這一天最先發生的事件是什麼。</string>
@@ -1820,14 +1843,9 @@
   <string name="on_this_day_game_point">+1 分</string>
   <string name="on_this_day_game_next">下一個問題</string>
   <string name="on_this_day_game_finish">最終結果</string>
-  <string name="on_this_day_game_share_button">分享</string>
-  <string name="on_this_day_game_pause_title">暫停遊戲？</string>
-  <string name="on_this_day_game_pause_body">您的進度會在當天內保存。您可以在探索摘要中找到該遊戲。</string>
-  <string name="on_this_day_game_pause_negative">繼續遊玩</string>
-  <string name="on_this_day_game_pause_positive">了解</string>
+  <string name="on_this_day_game_share_button">分享分數</string>
   <string name="on_this_day_game_feed_entry_card_heading">維基百科遊戲</string>
   <string name="on_this_day_game_feed_entry_card_title">猜先後</string>
-  <string name="on_this_day_game_feed_entry_card_subtitle">猜猜歷史上的這一天最先發生的事件是什麼。</string>
   <string name="on_this_day_game_result">您的得分 %1$d/%2$d。</string>
   <string name="on_this_day_game_next_in">下一個遊戲會在 %s 開始</string>
   <string name="on_this_day_game_your_stats">您的狀態</string>
@@ -1838,7 +1856,7 @@
   <string name="on_this_day_game_stats_average_score">平均分數</string>
   <string name="on_this_day_game_stats_streak">目前連勝</string>
   <string name="on_this_day_game_result_subtitle">今天遊戲中引用到的條目</string>
-  <string name="on_this_day_game_completed_message">感謝您的遊玩。新的「猜先後」遊戲每日會在探索摘要中提供。</string>
+  <string name="on_this_day_game_completed_message">感謝您的參與。現在每日都會在首頁摘要上出現新的「猜先後」遊戲。</string>
   <string name="on_this_day_game_menu_notifications">遊戲通知</string>
   <string name="on_this_day_game_menu_info">了解更多</string>
   <string name="on_this_day_game_menu_feedback">功能問題</string>
@@ -1868,11 +1886,20 @@
   <string name="on_this_day_game_continue_btn_text">繼續今天的遊戲</string>
   <string name="on_this_day_game_current_progress_message">您目前在問題 %d。</string>
   <string name="on_this_day_game_archive_btn_text">遊玩舊檔</string>
-  <string name="on_this_day_game_review_results_btn_text">查看結果</string>
+  <string name="on_this_day_game_review_results_btn_text">檢閱結果</string>
   <string name="on_this_day_game_score_message">您在今天的遊戲答對了 %1$d 題（全部 %2$d 題）。</string>
+  <string name="on_this_day_game_play_today_btn_text">遊玩今天的遊戲</string>
   <string name="on_this_day_game_continue_playing_btn_text">繼續遊玩</string>
   <string name="on_this_day_game_sound_on">打開音效</string>
   <string name="on_this_day_game_sound_off">關閉音效</string>
+  <string name="on_this_day_game_more_label">更多</string>
+  <string name="on_this_day_game_card_progress_short_label">您目前在問題 %d。</string>
+  <string name="on_this_day_game_card_archive_label">舊檔</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_button">登入</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_title">登入來查看您的遊戲統計數據</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_description">查看您的連續紀錄、得分等</string>
+  <string name="wikipedia_games_title">維基百科遊戲</string>
+  <string name="wikipedia_games_subtitle">基於維基百科內容的每日問答遊戲。</string>
   <string name="year_in_review_learn_more">了解更多</string>
   <string name="year_in_review_get_started">開始</string>
   <string name="year_in_review_topbar_w_icon">維基百科 W 圖示</string>
@@ -2240,8 +2267,165 @@
   <string name="donation_reminders_settings_report_email_subject">問題報告 - 捐款提醒</string>
   <string name="donation_reminders_settings_report_email_body">我遇到了維基百科捐款提醒功能的問題：\n- [描述具體問題]\n- [截圖或連結]\n\n我預期看到的結果是：\n- [描述建議的解決方案]</string>
   <string name="donation_reminders_snackbar_modify_button_label">修改</string>
-  <string name="explore_feed_survey_dialog_title">協助我們改進探索功能</string>
-  <string name="explore_feed_survey_dialog_message">請填寫一份關於探索摘要的簡短問卷。您的回饋將有助於我們改善往後的應用程式。</string>
-  <string name="explore_feed_survey_dialog_positive_button_label">參加調查</string>
-  <string name="explore_feed_survey_dialog_negative_button_label">不用了，謝謝</string>
+  <string name="hybrid_search_search_hint">搜尋或提問任何內容</string>
+  <string name="hybrid_search_article_search_hint">詢問關於條目%s</string>
+  <string name="hybrid_search_suggestion_title">搜尋：</string>
+  <string name="hybrid_search_onboarding_learn_more">了解更多</string>
+  <string name="hybrid_search_onboarding_search_title">提出問題，獲得答案</string>
+  <string name="hybrid_search_onboarding_search_description">此實驗性功能可理解自然語言。可不用搜尋關鍵字，只需描述您要的內容即可。</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_title">測試功能</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_description">僅在本次實驗期間的有限時間內可用。</string>
+  <string name="hybrid_search_beta_tag">測試版</string>
+  <string name="hybrid_search_experimental_feature_switch_label">加入實驗</string>
+  <string name="hybrid_search_onboarding_search_example_title">需要靈感嗎？</string>
+  <string name="hybrid_search_onboarding_search_example_description">請使用以下搜尋範例之一。</string>
+  <string name="hybrid_search_onboarding_opt_out_toast_message">您已選擇退出實驗。</string>
+  <string name="hybrid_search_onboarding_search_example_query_pluto_as_planet">冥王星何時從行星名單裡移除？</string>
+  <string name="hybrid_search_onboarding_search_example_query_first_olympics">第一屆奧運</string>
+  <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">RNA 與 DNA</string>
+  <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">為什麼人們要在披薩上加鳳梨？</string>
+  <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">歐洲最大的城市有哪些？</string>
+  <string name="hybrid_search_onboarding_screen_title">一種新的搜尋方式</string>
+  <string name="hybrid_search_results_header_description">來源出自人工撰寫的維基百科條目</string>
+  <string name="hybrid_search_results_rate_label">評價此結果</string>
+  <string name="hybrid_search_results_rated_label">已評價</string>
+  <string name="hybrid_search_results_rate_thumb_up">很棒</string>
+  <string name="hybrid_search_results_rate_thumb_down">不好</string>
+  <string name="hybrid_lexical_search_results_empty">沒有任何條目的標題符合此查詢。</string>
+  <string name="hybrid_search_results_empty">增強搜尋功能暫時無法使用。</string>
+  <string name="hybrid_search_no_results_header">沒有結果</string>
+  <string name="hybrid_search_no_results_description">此主題目前無法回傳條目摘錄。您可以嘗試以下方法：</string>
+  <string name="hybrid_search_no_results_suggestion_rephrase_text">重新表達您的搜尋</string>
+  <string name="hybrid_search_no_results_suggestion_try_related_topic">嘗試相關主題</string>
+  <string name="hybrid_search_error_message">發生錯誤。請稍後再試。</string>
+  <string name="hybrid_search_who_is_prefix">%s是誰？</string>
+  <string name="hybrid_search_turn_off_experiment_label">關閉此實驗</string>
+  <string name="reading_challenge_widget_name">閱讀挑戰</string>
+  <string name="reading_challenge_onboarding_header">參與為期 25 天的閱讀挑戰，來慶祝維基百科 25 週年！</string>
+  <string name="reading_challenge_onboarding_read_title">每天讀 1 篇條目，持續 25 天</string>
+  <string name="reading_challenge_onboarding_read_subtitle">在%1$s至%2$s期間可隨時參與挑戰，可按照自己的時間來完成 25 天的挑戰。</string>
+  <string name="reading_challenge_onboarding_win_title">贏得獎品</string>
+  <string name="reading_challenge_onboarding_win_description">在挑戰活動期間完成連續 25 天的閱讀，即可贏得特別獎品。</string>
+  <string name="reading_challenge_onboarding_learn_more_button">了解更多</string>
+  <string name="reading_challenge_onboarding_join_button">參與挑戰</string>
+  <string name="reading_challenge_onboarding_prompt_title">登入來參與挑戰</string>
+  <string name="reading_challenge_onboarding_prompt_message">登入或建立帳號來追蹤您的閱讀挑戰進度。</string>
+  <string name="reading_challenge_onboarding_prompt_no_thanks">不用了，謝謝</string>
+  <string name="reading_challenge_onboarding_prompt_login">登入/加入維基百科</string>
+  <string name="reading_challenge_install_prompt_title">安裝連續 25 天閱讀挑戰的小工具</string>
+  <string name="reading_challenge_install_prompt_got_it">了解</string>
+  <string name="reading_challenge_install_prompt_add">新增</string>
+  <string name="search_widget_install_prompt_title">更快速的搜尋方式</string>
+  <string name="search_widget_install_prompt_add">新增</string>
+  <string name="search_widget_install_prompt_got_it">了解</string>
+  <string name="reading_challenge_widget_explore_button">探索</string>
+  <string name="reading_challenge_widget_explore_wikipedia_button">探索維基百科</string>
+  <string name="reading_challenge_widget_join_challenge_button">參與挑戰</string>
+  <string name="reading_challenge_widget_join_the_challenge_button">參與挑戰</string>
+  <string name="reading_challenge_widget_search_button">搜尋</string>
+  <string name="reading_challenge_widget_random_button">隨機</string>
+  <string name="reading_challenge_widget_not_live_title">準備閱讀</string>
+  <string name="reading_challenge_widget_not_opted_in_title">預備，就位，開始閱讀！</string>
+  <plurals name="reading_challenge_small_widget_streak">
+    <item quantity="one">%d 天</item>
+    <item quantity="other">%d 天</item>
+  </plurals>
+  <string name="reading_challenge_not_read_today_description">別讓今日白白流逝，請保有您的連勝紀錄。</string>
+  <string name="reading_challenge_streak_ongoing_title">25 天閱讀挑戰</string>
+  <string name="reading_challenge_widget_reminder_dont_let_today_drift">別讓今日白白流逝，您的連續閱讀紀錄在等著您。</string>
+  <string name="reading_challenge_widget_reminder_jump_in_anytime">今日隨時都可跳回閱讀。</string>
+  <string name="reading_challenge_widget_reminder_quiet_reading_moment">寧靜的閱讀時刻？</string>
+  <string name="reading_challenge_widget_reminder_keep_curiosity_going">保持您的好奇心。</string>
+  <string name="reading_challenge_widget_enrolled_not_started_title">預備，就位，開始閱讀！</string>
+  <string name="reading_challenge_widget_enrolled_not_started_subtitle">開始努力邁向連續 25 天閱讀！</string>
+  <string name="reading_challenge_widget_start_reading_challenge_title">開始你的閱讀挑戰。</string>
+  <string name="reading_challenge_widget_start_spin_up_new_streak_title">再創新的連續紀錄？</string>
+  <string name="reading_challenge_widget_start_spin_up_new_streak_subtitle">閱讀一篇條目即可開始。</string>
+  <string name="reading_challenge_widget_start_fresh_start_title">全新開始。</string>
+  <string name="reading_challenge_widget_start_fresh_start_subtitle">您的連續紀錄只需一篇條目。</string>
+  <string name="reading_challenge_widget_concluded_complete">您做到了！</string>
+  <string name="reading_challenge_widget_reward_body">完成挑戰即可享有維基百科商城的 15%% 折扣。</string>
+  <string name="reading_challenge_widget_reward_button_label">商城購物可享 15%% 折扣</string>
+  <string name="explore_feed_new_update_prompt_new_name_title">新名稱</string>
+  <string name="explore_feed_new_update_prompt_control_title">保持掌控</string>
+  <string name="explore_feed_new_update_prompt_language_title">每種語言，完整個人化</string>
+  <string name="explore_feed_new_update_prompt_primary_button_text">自訂我的摘要</string>
+  <string name="explore_feed_customize_interests">自訂興趣</string>
+  <string name="explore_feed_new_update_prompt_secondary_button_text">請幫我設定</string>
+  <string name="explore_feed_building_text">讓我們一起打造您的摘要…</string>
+  <string name="explore_feed_community_tab_label">社群</string>
+  <string name="explore_feed_for_you_tab_label">為您推薦</string>
+  <string name="explore_feed_date_today">今日 - %s</string>
+  <string name="explore_feed_load_previous_day_label">載入前一天</string>
+  <string name="explore_feed_from_reading_list">來自您的閱讀清單</string>
+  <string name="explore_feed_because_of_interest">因為您對此感興趣：%s</string>
+  <string name="explore_feed_deselect_all_button_label">全不選</string>
+  <string name="explore_feed_potd_subtitle">維基共享資源每日圖片，由志工貢獻者精選</string>
+  <string name="explore_feed_featured_article_subtitle">典範條目是維基百科上內容最好的條目，由編者每日精選。</string>
+  <string name="explore_feed_preference_selection_screen_title">您想先看什麼？</string>
+  <string name="explore_feed_preference_community_content_title">社群相關內容</string>
+  <string name="explore_feed_preference_personalized_content_title">個人化內容</string>
+  <string name="explore_feed_community_disclaimer">由維基媒體社群所選與維基媒體社群相關的內容和資源</string>
+  <string name="explore_feed_community_load_more_label">查看先前的社群內容</string>
+  <string name="explore_feed_manage_languages_label">管理語言</string>
+  <string name="explore_feed_header_overflow_hide_module_label">隱藏模組</string>
+  <string name="explore_feed_header_overflow_hide_module_message">模組已隱藏。</string>
+  <string name="explore_feed_because_you_read">因為您曾閱讀過：%s</string>
+  <string name="explore_feed_swipe_to_explore_prompt_title">滑動瀏覽</string>
+  <string name="home_feed_settings_title">自訂您的首頁摘要</string>
+  <string name="home_feed_settings_default_view_title">預設摘要檢視</string>
+  <string name="home_feed_settings_modules_title">模組</string>
+  <string name="home_feed_settings_community_subtitle">啟用或停用「社群」摘要模組</string>
+  <string name="home_feed_settings_for_you_subtitle">啟用或停用「為您推薦」摘要模組</string>
+  <string name="home_feed_settings_based_on_interest_title">根據您的興趣</string>
+  <string name="home_feed_settings_based_on_interest_subtitle">根據您選擇的主題所撰寫的條目。&lt;br /&gt;&lt;a href=\"#drivingFeed\"&gt;是什麼驅動著您的摘要&lt;/a&gt;</string>
+  <string name="home_feed_settings_because_you_read_subtitle">基於在您的歷史紀錄裡的近期條目，所提出的建議</string>
+  <string name="home_feed_settings_continue_reading_title">繼續閱讀</string>
+  <string name="home_feed_settings_continue_reading_subtitle">跳回到您尚未看完的條目</string>
+  <string name="home_feed_did_you_know_title">您知道嗎？</string>
+  <string name="home_feed_did_you_know_subtitle">由志工編輯者精選條目裡的趣聞</string>
+  <string name="home_feed_did_you_know_more_label">更多的您知道嗎</string>
+  <string name="home_feed_settings_community_empty_dialog_title">您的社群摘要會是空的。</string>
+  <string name="home_feed_settings_for_you_empty_dialog_title">您的「為您推薦」摘要會是空的。</string>
+  <string name="home_feed_settings_empty_dialog_text">至少啟用一個模組才能查看內容。</string>
+  <string name="home_feed_settings_empty_dialog_positive">仍要繼續</string>
+  <string name="home_feed_screen_empty_state_label">您的摘要為空。</string>
+  <string name="home_feed_community_screen_all_modules_disabled_description">啟用&lt;b&gt;社群&lt;/b&gt;模組，即可開始查看由維基媒體社群所策劃和關於維基媒體社群的內容。</string>
+  <string name="home_feed_for_you_screen_all_modules_disabled_description">開啟&lt;b&gt;為您推薦&lt;/b&gt;模組即可開始查看根據您的偏好設定呈現出的內容。</string>
+  <string name="home_feed_screen_all_modules_disabled_btn_label">管理模組</string>
+  <string name="home_feed_for_you_screen_empty_title">您的摘要目前為空</string>
+  <string name="home_feed_for_you_screen_empty_ways_to_start">入門方法：</string>
+  <string name="home_feed_for_you_screen_empty_add_interests">增加&lt;a href=\"#add_interests\"&gt;一些興趣&lt;/a&gt;</string>
+  <string name="home_feed_for_you_screen_empty_see_community">看看&lt;a href=\"#community_tab\"&gt;社群&lt;/a&gt;裡發生了什麼</string>
+  <string name="home_feed_random_title">隨機</string>
+  <string name="home_feed_random_subtitle">激發您好奇心的隨機條目</string>
+  <string name="home_feed_random_shuffle_button">抽出條目</string>
+  <string name="home_feed_settings_feed_configuration_interest_title">您的興趣</string>
+  <string name="home_feed_settings_feed_configuration_interest_subtitle">編輯您感興趣的主題</string>
+  <string name="home_feed_settings_feed_configuration_location_title">你的位置</string>
+  <string name="home_feed_settings_feed_configuration_location_subtitle">更新您所在的位置來查看與周遭相關的條目</string>
+  <string name="home_feed_settings_feed_configuration_empty_interest_subtitle">您的興趣清單為空，請添加一些您好奇的事物。</string>
+  <string name="home_feed_settings_feed_configuration_reading_history_title">閱讀歷史</string>
+  <string name="home_feed_settings_feed_configuration_reading_history_subtitle">瀏覽您最近閱讀的條目</string>
+  <string name="home_feed_settings_feed_configuration_languages_title">語言</string>
+  <string name="home_feed_settings_feed_configuration_languages_subtitle">挑選您的偏好語言</string>
+  <string name="home_feed_settings_feed_configuration_interests_updated_message">您的喜好已更新。請重新整理頁面查看更新。</string>
+  <string name="home_feed_places_of_interest_cta_title">來自您所愛地點的故事</string>
+  <string name="home_feed_places_of_interest_cta_description">條目將根據您上次瀏覽過的地點顯示出。請參訪地點分頁並選擇一個位置。</string>
+  <string name="home_feed_places_of_interest_cta_button">前往地點</string>
+  <string name="home_feed_settings_places_of_interest_subtitle">靠近您上次所在位置附近的條目</string>
+  <string name="home_feed_settings_games_title">遊戲</string>
+  <string name="home_feed_settings_games_subtitle">基於維基百科內容的每日遊戲</string>
+  <string name="home_feed_settings_discover_title">探索推薦</string>
+  <string name="home_feed_discover_cta_description">了解我們為您精心挑選的新主題。您可以選擇每日、每週、或是每月更新。</string>
+  <string name="home_feed_discover_see_all_button">瀏覽所有推薦</string>
+  <string name="home_feed_for_you_screen_end_of_feed_title">以上是今日的內容！</string>
+  <string name="home_feed_for_you_screen_end_of_feed_description">明日再來即可閱讀精心為您挑選的新條目。</string>
+  <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">持續學習的方法：</string>
+  <string name="home_feed_for_you_screen_end_of_feed_add_interests">增加&lt;a href=\"#add_interests\"&gt;新的興趣&lt;/a&gt;</string>
+  <string name="randomizer_shake_prompt_title">搖晃來隨機抽出條目</string>
+  <string name="randomizer_shake_prompt_message">搖晃一下您的裝置，即可跳到一篇隨機條目來發現意想不到的內容。</string>
+  <string name="home_feed_games_module_cta_prompt_title">想玩更多遊戲嗎？</string>
+  <string name="home_feed_games_module_cta_prompt_subtitle">前往遊戲中心</string>
+  <string name="home_feed_games_module_cta_prompt_button_text">遊戲中心</string>
 </resources>

@@ -27,7 +27,7 @@
   <string name="nav_item_more">Болей</string>
   <string name="nav_item_search">Шукаць</string>
   <string name="nav_item_contribute">Зрабіць унёсак</string>
-  <string name="error_network_error">Не атрымліваецца далучыцца да Інтэрнэту.</string>
+  <string name="error_network_error">Не ўдаецца далучыцца да Інтэрнэту.</string>
   <string name="page_error_retry">Паспрабаваць ізноў</string>
   <string name="card_offline_error_retry">Паўтарыць</string>
   <string name="storage_access_error_retry">Паўтарыць</string>
@@ -143,7 +143,7 @@
   <string name="search_reading_lists_no_results">У сьпісах чытаньня вынікаў ня знойдзена</string>
   <string name="search_history_no_results">У гісторыі вынікаў ня знойдзена</string>
   <string name="edit_section_captcha_message">Каб найлепшым чынам дапамагчы нам абараніцца ад аўтаматычнага спаму, калі ласка, увядзіце словы, якія паданыя ніжэй</string>
-  <string name="edit_section_captcha_request_an_account_message">На бачыце выявы? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Падайце запыт на ўліковы рахунак&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">На бачыце выявы? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Падайце запыт на рахунак&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Паўтарыце словы зьверху</string>
   <string name="title_captcha">Увядзіце сымбалі з малюнку</string>
   <string name="edit_section_captcha_reload">Націсьніце малюнак для абнаўленьня</string>
@@ -172,7 +172,7 @@
   <string name="logout_prompt">Вы выйдзеце з усіх прыладаў, на якіх у дадзены момант зарэгістраваныя. Хочаце працягнуць?</string>
   <string name="logout_dialog_cancel_button_text">Скасаваць</string>
   <string name="logged_out_in_background_title">Вы выйшлі з сыстэмы</string>
-  <string name="logged_out_in_background_dialog">Вы выйшлі з уліковага запісу Вікіпэдыі. Жадаеце ўвайсьці зноўку?</string>
+  <string name="logged_out_in_background_dialog">Вы выйшлі з рахунку Вікіпэдыі. Жадаеце ўвайсьці зноўку?</string>
   <string name="logged_out_in_background_login">Увайсьці</string>
   <string name="logged_out_in_background_cancel">Скасаваць</string>
   <string name="history_empty_title">Няма нядаўна прагледжаных артыкулаў</string>
@@ -183,11 +183,11 @@
   <string name="delete_selected_items">Выдаліць выбраныя элемэнты</string>
   <string name="wp_stylized">&lt;big&gt;В&lt;/big&gt;ІКІПЭДЫ&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Імя ўдзельніка</string>
-  <string name="login_dont_have_account">Ня маеце ўліковага запісу?</string>
+  <string name="login_dont_have_account">Няма рахунку?</string>
   <string name="login_join_wikipedia">Далучайцеся да Вікіпэдыі</string>
   <string name="login_forgot_password">Забылі пароль?</string>
-  <string name="create_account_already_have">Ужо маеце ўліковы запіс?</string>
-  <string name="create_account_activity_title">Стварыць уліковы запіс</string>
+  <string name="create_account_already_have">Ужо ёсць рахунак?</string>
+  <string name="create_account_activity_title">Стварыць рахунак</string>
   <string name="dialog_create_account_checking_progress">Праверка</string>
   <string name="create_account_email_hint">Адрас электроннай пошты (не абавязкова)</string>
   <string name="create_account_password_repeat_hint">Паўтарыць пароль</string>
@@ -196,36 +196,37 @@
   <string name="create_account_email_error">Няслушны адрас электроннай пошты</string>
   <string name="create_account_username_error">Недапушчальныя сымбалі ў імені ўдзельніка</string>
   <string name="create_account_password_error">Пароль мусіць мець прынамсі 8 сымбалеў</string>
-  <string name="create_account_generic_error">Немагчыма стварыць уліковы запіс</string>
+  <string name="create_account_generic_error">Немагчыма стварыць рахунак</string>
   <string name="create_account_next">Далей</string>
-  <string name="email_recommendation_dialog_title">Стварыць уліковы запіс без э-пошты?</string>
-  <string name="create_account_button">Стварыць уліковы запіс</string>
+  <string name="email_recommendation_dialog_title">Стварыць рахунак без э-пошты?</string>
+  <string name="create_account_button">Стварыць рахунак</string>
   <string name="preferences_general_heading">Агульныя</string>
+  <string name="preferences_account_heading">Уліковы запіс</string>
   <string name="wikipedia_app_faq">Частыя пытаньні па дастасаваньню Вікіпэдыя</string>
-  <string name="send_feedback">Дастаць водгук пра дастасаваньне</string>
-  <string name="create_account_account_created_toast">Рахунак створаны!</string>
+  <string name="send_feedback">Даслаць водгук пра аплікацыю</string>
+  <string name="create_account_account_created_toast">Уліковы запіс створаны!</string>
   <string name="preferences_heading_data_usage">Выкарыстаньне зьвестак</string>
   <string name="preferences_heading_experimental">Экспэрымэнтальныя</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Выдаліць сынхранізаваныя сьпісы чытаньня з „%s“?</string>
   <string name="preference_title_auto_upload_crash_reports">Дасылаць справаздачы пра памылкі</string>
   <string name="preference_summary_auto_upload_crash_reports">Дазволіць аўтаматычна дасылаць паведамленьні пра памылкі ў пабочны сэрвіс-правайдэр, каб мы маглі праглядаць зьвесткі пра памылку, што дазволіць нам хутчэй выправіць яе.</string>
   <string name="editing_error_spamblacklist">Выяўленыя спасылкі на заблякаваныя дамэны (%s). Калі ласка, выдаліце іх і праспрабуйце зноў.</string>
-  <string name="error_can_not_process_link">Не атрымалася адлюстраваць гэтую спасылку</string>
+  <string name="error_can_not_process_link">Не ўдалося паказаць гэтую спасылку</string>
   <string name="page_protected_autoconfirmed">Гэтая старонка была часткова абароненая.</string>
   <string name="page_protected_sysop">Гэтая старонка была поўнасьцю абароненая.</string>
-  <string name="page_protected_other">Гэтая старонка была абароненая на наступных узроўнях: %s</string>
+  <string name="page_protected_other">Гэтая старонка была абароненая на наступных роўнях: %s</string>
   <string name="page_protected_can_not_edit">Выбачайце, ваш рахунак мае недастаткова правоў, каб рэдагаваць цяпер гэтую старонку.</string>
   <string name="page_protected_can_not_edit_title">Гэтая старонка абароненая</string>
   <string name="settings_item_preferences">Налады</string>
   <string name="settings_activity_title">Налады</string>
-  <string name="about_description">Пра дастасаваньне Вікіпэдыя</string>
-  <string name="privacy_policy_description">Правілы адносна прыватнасьці</string>
-  <string name="terms_of_use_description">Умовы выкарыстаньня</string>
+  <string name="about_description">Пра аплікацыю Вікіпэдыя</string>
+  <string name="privacy_policy_description">Палітыка прыватнасьці</string>
+  <string name="terms_of_use_description">Умовы ўжываньня</string>
   <string name="about_wikipedia_url">https://be-tarask.wikipedia.org/wiki/Вікіпэдыя:Пра_Вікіпэдыю</string>
   <string name="about_libraries_heading">Выкарастаныя бібліятэкі</string>
   <string name="about_contributors_heading">Аўтары</string>
-  <string name="about_translators_heading">Перакладчыкі</string>
-  <string name="about_translators_translatewiki">Гэтае дастасаваньне было перакладзеная дабраахвотнікамі на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
+  <string name="about_translators_heading">Перакладнікі</string>
+  <string name="about_translators_translatewiki">Гэтая аплікацыя была перакладзеная дабраахвотнікамі на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Ліцэнзія</string>
   <string name="about_app_license">Крынічны код даступны на &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; пад &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;ліцэнзіяй Apache 2.0&lt;/a&gt;. Калі не пазначана іншае, зьмест даступны пад &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;ліцэнзіяй Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Прадукт &lt;a href=\"https://wikimediafoundation.org/\"&gt;фундацыі «Вікімэдыя»&lt;/a&gt;</string>
@@ -272,7 +273,7 @@
   <string name="clear_recent_searches_confirm">Вы ўпэўнены, што жадаеце ачысьціць Вашую гісторыю пошуку?</string>
   <string name="clear_recent_searches_confirm_yes">Так</string>
   <string name="clear_recent_searches_confirm_no">Не</string>
-  <string name="error_browser_not_found">Не атрымалася адчыніць ўэб-старонку (ня знойдзены ўэб-браўзэр).</string>
+  <string name="error_browser_not_found">Не ўдалося адчыніць ўэб-старонку (ня знойдзены ўэб-браўзэр).</string>
   <string name="table_infobox">Хуткія факты</string>
   <string name="table_other">Болей зьвестак</string>
   <string name="table_close">Закрыць</string>
@@ -285,17 +286,17 @@
   <string name="dialog_close_description">Закрыць</string>
   <string name="preference_title_show_images">Паказаць выявы</string>
   <string name="preference_summary_show_images">Уключэньне ці выключэньне загрузкі выяваў на старонках. Выключыце гэтую магчымасьць, калі Вашае інтэрнэт-злучэньне павольнае ці калі ў Вас абмежаваны тарыфны плян.</string>
-  <string name="preference_title_download_only_over_wifi">Загружаць толькі па Wi-Fi</string>
-  <string name="dialog_title_download_only_over_wifi">Пацьвердзіць загрузку па мабільнай сетцы?</string>
+  <string name="preference_title_download_only_over_wifi">Сьцягваць толькі праз Wi-Fi</string>
+  <string name="dialog_title_download_only_over_wifi">Пацьвердзіць сьцягваньне праз мабільную сетку?</string>
   <string name="read_more_section">Даведацца болей</string>
   <string name="menu_gallery_visit_image_page">Перайсьці на старонку файла</string>
-  <string name="gallery_error_draw_failed">Не атрымалася вывесьці выяву.</string>
+  <string name="gallery_error_draw_failed">Не ўдалося вывесьці выяву.</string>
   <string name="license_title">Ліцэнзія для %s</string>
   <string name="gallery_menu_share">Падзяліцца</string>
-  <string name="gallery_share_error">Не атрымалася падзяліцца выявай: %s</string>
-  <string name="gallery_save_progress">Загрузка файлу…</string>
+  <string name="gallery_share_error">Не ўдалося падзяліцца выявай: %s</string>
+  <string name="gallery_save_progress">Сьцягваньне файлу…</string>
   <string name="gallery_save_success">Файл захаваны.</string>
-  <string name="gallery_error_video_failed">Не атрымалася прайграць відэа.</string>
+  <string name="gallery_error_video_failed">Не ўдалося прайграць відэа.</string>
   <string name="gallery_save_image_write_permission_rationale">Для захаваньня выяваў неабходны дазвол на запіс у сховішча вашай прылады.</string>
   <string name="err_cannot_save_file">Немагчыма захаваць файл</string>
   <string name="expand_refs">Націсьніце каб развярнуць</string>
@@ -319,7 +320,7 @@
   <string name="address_copied">Адрас скапіраваны ў буфэр абмену.</string>
   <string name="text_copied">Тэкст скапіяваны ў буфэр абмену.</string>
   <string name="button_continue_to_article">Чытаць артыкул</string>
-  <string name="link_preview_disambiguation_description">Гэтая назва датычыцца некалькіх старонак:</string>
+  <string name="link_preview_disambiguation_description">Гэтая назва датычна больш ніж адной старонцы:</string>
   <string name="button_get_directions">Атрымаць накіраваньні</string>
   <string name="error_no_maps_app">Немагчыма знайсьці дастасаваньняў якія падаюць накіраваньні.</string>
   <string name="preference_title_show_link_previews">Паказваць вытрымкі па спасылках</string>
@@ -336,7 +337,7 @@
   <string name="error_blocked_expiry">Сканчэньне блёку: %s</string>
   <string name="error_blocked_id">Ідэнтыфікатар блёку: %s</string>
   <string name="crash_report_activity_title">Памылка праграмы</string>
-  <string name="crash_report_relaunch_or_quit">На жаль, у прыкладаньні Вікіпэдыі адбылася памылка, і яно было закрытае.\n\nХочаце пачаць ізноў ці выйсьці?</string>
+  <string name="crash_report_relaunch_or_quit">На жаль, у аплікацыі Вікіпэдыі адбылася памылка, і яно было закрытае.\n\nХочаце пачаць ізноў ці выйсьці?</string>
   <string name="crash_report_relaunch">Перазапусьціць</string>
   <string name="crash_report_quit">Выйсьці</string>
   <string name="article_menu_bar_language_button">Мова</string>
@@ -348,7 +349,7 @@
   <string name="color_theme_select">Афармленьне</string>
   <string name="color_theme_light">Сьветлае</string>
   <string name="color_theme_dark">Цёмнае</string>
-  <string name="text_size_percent_default">%s (дапомна)</string>
+  <string name="text_size_percent_default">%s (перадвызначана)</string>
   <string name="text_style_title">Шрыфт</string>
   <string name="theme_category_reading">Чытаньне</string>
   <string name="reading_focus_mode">Рэжым факусаваньня чытаньня</string>
@@ -364,11 +365,16 @@
     <item quantity="many">%1$d артыкулаў, %2$.2f МБ</item>
     <item quantity="other">%1$d артыкулаў, %2$.2f МБ</item>
   </plurals>
+  <string name="reading_list_sort">Сартаваць</string>
+  <string name="reading_list_sort_ellipsis">Сартаваць паводле…</string>
   <string name="reading_list_name_hint">Назва гэтага сьпісу</string>
   <string name="reading_list_description_hint">Апісаньне (неабавязкова)</string>
-  <string name="reading_lists_sync_reminder_text">Артыкулы, захаваныя ў сьпісы чытаньня, цяпер можна сынхранізаваць з вашым уліковым запісам Вікіпэдыі. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Даведацца болей&lt;/a&gt;</string>
+  <string name="reading_list_select_item">Выбраць</string>
+  <string name="reading_lists_sync_reminder_text">Артыкулы, захаваныя ў сьпісы чытаньня, цяпер можна сынхранізаваць з вашым рахункам Вікіпэдыі. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Даведацца болей&lt;/a&gt;</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Скасаваць</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Увайсьці</string>
   <string name="reading_list_saved_list_rename">%1$s (створана ўдзельнікам)</string>
+  <string name="reading_lists_menu_sort_by">Сартаваць паводле</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">Добра</string>
   <string name="reading_list_delete_dialog_ok_button_text">Добра</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">Скасаваць</string>
@@ -376,11 +382,36 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Скасаваць</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Скасаваць</string>
   <string name="reading_list_split_dialog_ok_button_text">Добра</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Скасаваць</string>
   <string name="user_option_sync_label">Налады</string>
+  <string name="notification_syncing_cancel_button">Скасаваць</string>
+  <string name="notifications_poll_enable_positive">Увамкнуць</string>
+  <string name="view_featured_image_card_download">Сьцягнуць</string>
   <string name="view_continue_reading_card_subtitle_today">сёньня</string>
+  <string name="customize_lang_selection_dialog_cancel_button_text">Скасаваць</string>
+  <string name="feed_lang_selection_dialog_cancel_button_text">Скасаваць</string>
+  <string name="feed_accessibility_card_load_more_button">Ладаваць болей</string>
   <string name="feed_language_variants_removal_secondary_dialog_title">Калі ласка, абнавіце свае дадатковыя мовы</string>
   <string name="description_edit_save">Апублікаваць</string>
+  <string name="description_edit_cancel_hint">Скасаваць</string>
+  <string name="customize_toolbar_category_toolbar">Панэль інструмэнтаў</string>
+  <string name="suggested_edits_activity_title">Рэдагаваць</string>
+  <string name="suggested_edits_image_preview_dialog_tags">Тэґі</string>
+  <string name="description_edit_login_cancel_button_text">Скасаваць</string>
+  <string name="remove_language_dialog_cancel_button_text">Скасаваць</string>
+  <string name="account_editing_blocked_dialog_cancel_button_text">Скасаваць</string>
+  <string name="text_input_dialog_cancel_button_text">Скасаваць</string>
+  <string name="custom_date_picker_dialog_cancel_button_text">Скасаваць</string>
+  <string name="talk_warn_save_dialog_cancel">Скасаваць</string>
+  <string name="talk_overflow_sort_by">Сартаваць паводле</string>
   <string name="menu_option_edit_source">Рэдагаваць код</string>
-  <string name="patroller_diff_tooltip_two">Намер прадказвае імавернасьць добрасумленнага захаваньня праўкі.</string>
+  <string name="thank_dialog_negative_button_text">Скасаваць</string>
+  <string name="watchlist_expiry_dialog_permanent">Заўсёдна</string>
+  <string name="talk_templates_new_message_dialog_cancel">Скасаваць</string>
+  <string name="patroller_diff_tooltip_two">Намер прадказвае імавернасьць добрасумленнага захаваньня рэдагаваньня.</string>
+  <string name="talk_templates_menu_edit_title">Рэдагаваць</string>
+  <string name="places_toggle_buttons_map">Мапа</string>
   <string name="places_card_action">Болей месцаў побач</string>
+  <string name="survey_dialog_cancel">Скасаваць</string>
+  <string name="year_in_review_survey_cancel">Скасаваць</string>
 </resources>

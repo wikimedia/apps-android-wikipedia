@@ -12,6 +12,7 @@
 * Debeet
 * Devwebtel
 * Expert3222
+* G3raltJJ
 * IOIOI
 * InternerowyGołąb
 * Kareyac
@@ -61,6 +62,7 @@
   <string name="search_icon_content_description">Szukaj</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtruj moją listę</string>
   <string name="nav_item_suggested_edits">Edycje</string>
+  <string name="nav_item_activity">Aktywność</string>
   <string name="nav_item_more">Więcej</string>
   <string name="nav_item_search">Szukaj</string>
   <string name="nav_item_contribute">Wnieś swój wkład</string>
@@ -73,7 +75,7 @@
   <string name="page_error_back_to_main">Wróć</string>
   <string name="error_back">Wróć</string>
   <string name="error_next">Dalej</string>
-  <string name="menu_clear_all_history" fuzzy="true">Wyczyść historię</string>
+  <string name="menu_clear_all_history">Wyczyść historię przeglądania</string>
   <string name="history_item_deleted">Usunięto %s z historii</string>
   <string name="history_items_deleted">%d artykułów usunięto z historii</string>
   <string name="history_item_delete_undo">Cofnij</string>
@@ -86,7 +88,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidane</string>
   <string name="dialog_title_clear_history">Wyczyść historię przeglądania</string>
-  <string name="dialog_message_clear_history" fuzzy="true">Nastąpi usunięcie całej historii odwiedzin stron oraz zamknięcie otwartych kart. Kontynuować?</string>
+  <string name="dialog_message_clear_history">Spowoduje to usunięcie całej historii przeglądania. Jesteś pewien?</string>
   <string name="dialog_message_clear_history_yes">Tak</string>
   <string name="dialog_message_clear_history_no">Nie</string>
   <string name="share_via">Udostępnij przez</string>
@@ -196,6 +198,7 @@
   <string name="login_2fa_other_workflow_error_msg">Wymagane jest uwierzytelnianie dwuskładnikowe! Zaloguj się z ekranu głównego i wprowadź kod z tokena 2FA.</string>
   <string name="login_email_auth_hint">Kod weryfikacyjny z e-mail</string>
   <string name="login_email_auth_other_workflow_error_msg">Wymagana weryfikacja e-maila! Zaloguj się z ekranu głównego i wprowadź swój kod weryfikacyjny adresu e-mail.</string>
+  <string name="login_background_error_msg">Nie można się ponownie zalogować. Wróć do ekranu głównego i zaloguj się ręcznie.</string>
   <string name="onboarding_card_login">Zaloguj się</string>
   <string name="page_editing_login">Zaloguj się</string>
   <string name="reading_lists_sync_login">Zaloguj się</string>
@@ -431,6 +434,7 @@
   <string name="preference_title_customize_explore_feed">Kanał Eksploruj</string>
   <string name="preference_title_show_link_previews">Pokaż podgląd linków</string>
   <string name="preference_summary_customize_explore_feed">Dostosuj kanał Eksploruj</string>
+  <string name="preference_summary_customize_home_feed">Dostosuj swój kanał główny</string>
   <string name="preference_summary_show_link_previews">Pokaż szybki podgląd artykułów po kliknięciu na linki.</string>
   <string name="preference_title_collapse_tables">Zwiń tabele</string>
   <string name="preference_summary_collapse_tables">Automatyczne zwinięcie w artykułach tabel, takich jak infoboksy, odnośniki i uwagi.</string>
@@ -603,11 +607,11 @@
     <item quantity="many">Usunięto %d artykułów z listy</item>
     <item quantity="other">Usunięto %d artykułów z listy</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">Usunięto %d artykuł z listy %s</item>
-    <item quantity="few">Usunięto %d artykuły z listy %s</item>
-    <item quantity="many">Usunięto %d artykułów z listy %s</item>
-    <item quantity="other">Usunięto %d artykułów z listy %s</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">Usunięto %1$d artykuł z listy %2$s</item>
+    <item quantity="few">Usunięto %1$d artykuły z listy %2$s</item>
+    <item quantity="many">Usunięto %1$d artykułów z listy %2$s</item>
+    <item quantity="other">Usunięto %1$d artykułów z listy %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">Usunięto %d listę</item>
@@ -900,11 +904,11 @@
   <string name="feed_item_type_randomizer">Wylosuj artykuł do przeczytania</string>
   <string name="feed_item_type_suggested_edits">Sugestie dotyczące dodania treści do Wikipedii</string>
   <string name="feed_item_type_places">Artykuły w pobliżu na podstawie bieżącej lokalizacji</string>
-  <string name="feed_empty_message">W Twoim kanale Eksploruj nie ma nic</string>
+  <string name="feed_empty_message">Twój kanał główny jest pusty</string>
   <string name="feed_configure_onboarding_action">Dostosuj</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Anuluj</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt; Dostosuj swój kanał Eksploruj &lt;/strong&gt; &lt;br/&gt; &lt;br/&gt; Możesz teraz wybrać, co ma być wyświetlane w kanale, a także ustalić priorytet ulubionych rodzajów treści.</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt; Dostosuj swój kanał główny &lt;/strong&gt; &lt;br/&gt; &lt;br/&gt; Możesz teraz wybrać, co ma być wyświetlane w kanale, a także ustalić priorytet ulubionych rodzajów treści.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Anuluj</string>
   <string name="feed_accessibility_card_text">Dotarłeś do dolnej części kanału.</string>
@@ -981,6 +985,7 @@
   <string name="customize_toolbar_reset_to_default_button">Przywróć ustawienia domyślne</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">Przytrzymaj ikonę przeciągania, aby przenieść element</string>
   <string name="customize_toolbar_item_default_tooltip">Naciśnij i przeciągnij element, aby zmienić jego położenie</string>
+  <string name="suggested_edits_activity_title">Edytuj</string>
   <string name="suggested_edits_describe_articles">Opisz artykuły</string>
   <string name="suggested_edits_caption_images">Podpisz obrazy</string>
   <string name="suggested_edits_tag_images">Dodaj znaczniki do obrazów</string>
@@ -1212,6 +1217,19 @@
   <string name="edit_summary_added_caption">Dodano podpis</string>
   <string name="edit_summary_added_image_and_caption">Dodano obraz i podpis</string>
   <string name="edit_published_view">Podgląd</string>
+  <string name="activity_tab_monthly_top_categories">Najczęściej czytane kategorie w tym miesiącu</string>
+  <string name="activity_tab_explore_wikipedia">Odkryj przez Wikipedię</string>
+  <string name="activity_tab_discover_encourage">Szukasz czegoś nowego do czytania?</string>
+  <string name="activity_tab_donation_unknown">Nieznane</string>
+  <string name="activity_tab_menu_info">Dowiedz się więcej</string>
+  <string name="activity_tab_menu_customize">Dostosuj</string>
+  <string name="activity_tab_customize_screen_time_spent_switch_title">Czas spędzony na czytaniu</string>
+  <string name="activity_tab_timeline_today">Dzisiaj</string>
+  <string name="activity_tab_timeline_yesterday">Wczoraj</string>
+  <string name="activity_tab_timeline_empty_state_title">Nic do pokazania</string>
+  <string name="activity_tab_timeline_empty_state_message">Zacznij czytać i edytować, aby zbudować swoją historię</string>
+  <string name="activity_tab_timeline_view_changes_button">Pokaż zmiany</string>
+  <string name="activity_tab_onboarding_reading_patterns_title">Wzorce czytania</string>
   <string name="file_page_activity_title">Strona pliku</string>
   <string name="file_page_add_image_caption_button">Dodaj podpis obrazu</string>
   <string name="file_page_add_image_tags_button">Dodaj tagi obrazu</string>
@@ -1231,16 +1249,17 @@
   <string name="onboarding_get_started">Rozpocznij edycję</string>
   <string name="onboarding_maybe_later">Może później</string>
   <string name="onboarding_explore_title">Nowe metody eksploracji</string>
-  <string name="onboarding_explore_text">Zanurkuj w króliczej norze Wikipedii, ze stale aktualizowanym kanałem Eksploruj.&lt;br/&gt;&lt;b&gt;Dostosuj&lt;/b&gt; źródła do swoich zainteresowań - niezależnie od tego, czy chodzi o wydarzenia historyczne &lt;b&gt;Tego dnia&lt;/b&gt;, czy rzut kostką za pomocą &lt;b&gt;Losowego artykułu&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text">Zanurkuj w króliczej norze Wikipedii, ze stale aktualizowaną stroną główną.&lt;br/&gt;&lt;b&gt;Dostosuj&lt;/b&gt; źródła do swoich zainteresowań - niezależnie od tego, czy chodzi o wydarzenia historyczne &lt;b&gt;Tego dnia&lt;/b&gt;, czy rzut kostką za pomocą &lt;b&gt;Losowego artykułu&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Synchronizacja list do przeczytania</string>
   <string name="onboarding_reading_list_sync_text_v2">Możesz tworzyć listy do czytania z artykułów, które chcesz przeczytać później, nawet gdy jesteś offline. &lt;br/&gt; Zaloguj się do swojego konta w Wikipedii, aby zsynchronizować listy czytelnicze. &lt;a href=\"#login\"&gt; Dołącz do Wikipedii &lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Dane i prywatność</string>
-  <string name="onboarding_data_privacy_text">Uważamy, że do udziału w inicjatywie wolnej wiedzy nie powinno się wymagać podawania danych osobowych. Wszystkie dane dotyczące użytkowania zbierane dla tej aplikacji są anonimowe. Dowiedz się więcej o naszej &lt;a href=\"#privacy\"&gt;polityce prywatności&lt;/a&gt; oraz &lt;a href=\"#termsOfUse\"&gt;warunkach użytkowania&lt;/a&gt;.</string>
+  <string name="onboarding_data_privacy_text">Uważamy, że do udziału w inicjatywie wolnej wiedzy nie powinno się wymagać podawania danych osobowych. Wszystkie dane dotyczące użytkowania zbierane dla tej aplikacji są anonimowe. &lt;br/&gt;&lt;br/&gt; Dowiedz się więcej o naszej &lt;a href=\"#privacy\"&gt;polityce prywatności&lt;/a&gt; oraz &lt;a href=\"#termsOfUse\"&gt;warunkach użytkowania&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Wyślij używane dane</string>
   <string name="onboarding_got_it">Wszystko jasne</string>
   <string name="onboarding_multilingual_secondary_text">Znaleźliśmy następujące na twoim urządzeniu:</string>
   <string name="onboarding_multilingual_add_language_text">Dodaj lub edytuj języki</string>
   <string name="onboarding_welcome_title_v2">Wolna encyklopedia\n...w prawie 300 językach</string>
+  <string name="onboarding_next">Następny</string>
   <string name="app_shortcuts_random">Losowa strona</string>
   <string name="app_shortcuts_continue_reading">Czytaj dalej</string>
   <string name="app_shortcuts_search">Szukaj</string>
@@ -1274,7 +1293,7 @@
     <item quantity="many">Usunąć wybrane języki?</item>
     <item quantity="other">Usunąć wybrane języki?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Zobaczysz tylko zawartość w kanale Eksploruj i filtry szybkiego wyszukiwania dla pozostałych języków Wikipedii.</string>
+  <string name="wikipedia_languages_remove_dialog_content">Zobaczysz tylko zawartość na kanale głównym i filtry szybkiego wyszukiwania dla pozostałych języków Wikipedii.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Nie można usunąć wszystkich języków</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Zachowaj przynajmniej jeden język Wikipedii, z którego można wyszukiwać i czytać treści.</string>
   <string name="more_language_options">więcej</string>
@@ -1365,6 +1384,7 @@
   <string name="talk_warn_save_dialog_publish">Opublikuj</string>
   <string name="talk_warn_save_dialog_cancel">Anuluj</string>
   <string name="talk_warn_save_dialog_dont_save">Nie zapisuj</string>
+  <string name="talk_warn_saved_messages">Zapisane wiadomości</string>
   <string name="talk_page_empty">Ta strona dyskusji jest pusta</string>
   <string name="talk_add_reply">Odpowiedz</string>
   <string name="talk_no_subject">(Bez tematu)</string>
@@ -1702,8 +1722,8 @@
   <string name="survey_dialog_submitted_snackbar">Opinia została przesłana. Dziękujemy!</string>
   <string name="on_this_day_game_entry_dialog_title">Przedstawiamy</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Gry Wikipedii</string>
-  <string name="on_this_day_game_entry_dialog_button">Zagraj w dzisiejszą grę</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Gry Wikipedii są dostępne w sekcji Eksploruj.</string>
+  <string name="on_this_day_game_entry_dialog_button" fuzzy="true">Zagraj w dzisiejszą grę</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message" fuzzy="true">Gry Wikipedii są dostępne w sekcji Eksploruj.</string>
   <string name="on_this_day_game_title">Co było pierwsze?</string>
   <string name="on_this_day_game_dialog_button">Zagraj</string>
   <string name="on_this_day_game_splash_message">Zgadnij, które wydarzenie miało miejsce jako pierwsze tego dnia w historii.</string>
@@ -1714,12 +1734,8 @@
   <string name="on_this_day_game_point">+1 punkt</string>
   <string name="on_this_day_game_next">Następne pytanie</string>
   <string name="on_this_day_game_finish">Końcowy wynik</string>
-  <string name="on_this_day_game_pause_title">Wstrzymać grę?</string>
-  <string name="on_this_day_game_pause_negative">Kontynuuj grę</string>
-  <string name="on_this_day_game_pause_positive">Rozumiem</string>
   <string name="on_this_day_game_feed_entry_card_heading">Gry Wikipedii</string>
   <string name="on_this_day_game_feed_entry_card_title" fuzzy="true">Co było pierwsze?</string>
-  <string name="on_this_day_game_feed_entry_card_subtitle">Zgadnij, które wydarzenie miało miejsce jako pierwsze tego dnia w historii.</string>
   <string name="on_this_day_game_result">Zdobyłeś %1$d/%2$d.</string>
   <string name="on_this_day_game_next_in">Następna gra za %s</string>
   <string name="on_this_day_game_your_stats">Twoje statystyki</string>
@@ -1748,4 +1764,6 @@
   <string name="on_this_day_game_report_email_body">Napotkałem(-am) problem z funkcją gier Wikipedii:\n- [Opisz konkretny problem]\n\nOczekiwane działanie:\n- [Opisz proponowane rozwiązanie]</string>
   <string name="on_this_day_game_notification_undo">Cofnij</string>
   <string name="on_this_day_game_share_link_message">Gram w „Co było pierwsze?”, codzienną grę z ciekawostkami w aplikacji Wikipedia na Androida. Dołącz do mnie: %s</string>
+  <string name="randomizer_shake_prompt_title">Potrząśnij, aby losowo wybrać artykuł</string>
+  <string name="randomizer_shake_prompt_message">Potrząśnij urządzeniem, aby przejść do losowego artykułu i trafić na coś niespodziewanego.</string>
 </resources>

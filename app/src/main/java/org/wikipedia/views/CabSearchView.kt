@@ -51,6 +51,10 @@ class CabSearchView(
         searchCloseBtn.imageTintList = ResourceUtil.getThemedColorStateList(context, R.attr.placeholder_color)
     }
 
+    fun setCloseButtonClickListener(listener: OnClickListener) {
+        searchCloseBtn.setOnClickListener(listener)
+    }
+
     private class PlainTextInputFilter : InputFilter {
         override fun filter(source: CharSequence, start: Int, end: Int, dest: Spanned,
                             dstart: Int, dend: Int): CharSequence {

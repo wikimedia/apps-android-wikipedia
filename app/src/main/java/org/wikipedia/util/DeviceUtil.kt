@@ -1,6 +1,7 @@
 package org.wikipedia.util
 
 import android.app.Activity
+import android.appwidget.AppWidgetManager
 import android.content.Context
 import android.content.res.Configuration
 import android.content.res.Resources
@@ -17,8 +18,6 @@ import android.view.inputmethod.InputMethodManager
 import androidx.activity.enableEdgeToEdge
 import androidx.annotation.ColorInt
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.appbar.MaterialToolbar
@@ -30,6 +29,10 @@ object DeviceUtil {
     private inline val Window.insetsControllerCompat
         get() = WindowCompat.getInsetsController(this, decorView)
 
+    fun showSoftKeyboard(activity: Activity) {
+        activity.window.insetsControllerCompat.show(WindowInsetsCompat.Type.ime())
+    }
+
     fun showSoftKeyboard(view: View) {
         (view.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager)
                 .showSoftInput(view, InputMethodManager.SHOW_IMPLICIT)
@@ -40,7 +43,8 @@ object DeviceUtil {
     }
 
     fun hideSoftKeyboard(view: View) {
-        ViewCompat.getWindowInsetsController(view)?.hide(WindowInsetsCompat.Type.ime())
+        (view.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager)
+            .hideSoftInputFromWindow(view.windowToken, 0)
     }
 
     fun isHardKeyboardAttached(resources: Resources): Boolean {
@@ -49,16 +53,14 @@ object DeviceUtil {
                 resources.configuration.keyboard != Configuration.KEYBOARD_NOKEYS)
     }
 
-    fun setLightSystemUiVisibility(activity: Activity) {
-        // this make the system recognizes the status bar light and will make status bar icons become visible
-        // if the theme is not dark
-        activity.window.insetsControllerCompat.isAppearanceLightStatusBars = !WikipediaApp.instance.currentTheme.isDark
+    fun setLightSystemUiVisibility(activity: Activity, light: Boolean = !WikipediaApp.instance.currentTheme.isDark) {
+        activity.window.insetsControllerCompat.isAppearanceLightStatusBars = light
+        activity.window.insetsControllerCompat.isAppearanceLightNavigationBars = light
     }
 
     fun setNavigationBarColor(window: Window, @ColorInt color: Int) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val isDarkThemeOrDarkBackground = WikipediaApp.instance.currentTheme.isDark ||
-                    color == ContextCompat.getColor(window.context, android.R.color.black)
+            val isDarkThemeOrDarkBackground = WikipediaApp.instance.currentTheme.isDark || color == Color.BLACK
             window.navigationBarColor = color
             window.insetsControllerCompat.isAppearanceLightNavigationBars = !isDarkThemeOrDarkBackground
         }
@@ -120,4 +122,11 @@ object DeviceUtil {
             // TODO: add more logic if other accessibility tools have different settings.
             return am.isEnabled && am.isTouchExplorationEnabled
         }
+
+    val areWidgetsSupported: Boolean
+        get() = AppWidgetManager.getInstance(WikipediaApp.instance) != null
+
+    val isPinWidgetSupported: Boolean
+        get() = Build.VERSION.SDK_INT >= Build.VERSION_CODES.O &&
+                AppWidgetManager.getInstance(WikipediaApp.instance)?.isRequestPinAppWidgetSupported == true
 }

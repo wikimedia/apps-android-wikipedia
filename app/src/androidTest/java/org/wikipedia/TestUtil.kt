@@ -98,8 +98,7 @@ object TestUtil {
 
         device.executeShellCommand("su 0 settings put global airplane_mode_on " + if (enabled) "1" else "0")
         device.executeShellCommand("su 0 am broadcast -a android.intent.action.AIRPLANE_MODE")
-         */
-        /*
+
         Extremely hacky:
 
         device.openNotification()

@@ -1,8 +1,8 @@
 package org.wikipedia.captcha
 
 import kotlinx.coroutines.runBlocking
-import org.hamcrest.MatcherAssert
-import org.hamcrest.Matchers
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotNull
 import org.junit.Test
 import org.wikipedia.test.MockRetrofitTest
 
@@ -14,7 +14,7 @@ class CaptchaClientTest : MockRetrofitTest() {
         runBlocking {
             getNewCaptcha()
         }.run {
-            MatcherAssert.assertThat(captchaId, Matchers.`is`("1572672319"))
+            assertEquals("1572672319", captchaId)
         }
     }
 
@@ -26,7 +26,7 @@ class CaptchaClientTest : MockRetrofitTest() {
             try {
                 getNewCaptcha()
             } catch (e: Exception) {
-                MatcherAssert.assertThat(e, Matchers.notNullValue())
+                assertNotNull(e)
             }
         }
     }
@@ -39,7 +39,7 @@ class CaptchaClientTest : MockRetrofitTest() {
             try {
                 getNewCaptcha()
             } catch (e: Exception) {
-                MatcherAssert.assertThat(e, Matchers.notNullValue())
+                assertNotNull(e)
             }
         }
     }
@@ -52,7 +52,7 @@ class CaptchaClientTest : MockRetrofitTest() {
             try {
                 getNewCaptcha()
             } catch (e: Exception) {
-                MatcherAssert.assertThat(e, Matchers.notNullValue())
+                assertNotNull(e)
             }
         }
     }

@@ -131,7 +131,7 @@
   <string name="menu_page_add_to_default_list">Opslaan</string>
   <string name="feed_card_add_to_list">Aan leeslijst toevoegen</string>
   <string name="feed_card_add_to_default_list">Opslaan</string>
-  <string name="menu_page_share">Link delen</string>
+  <string name="menu_page_share">Koppeling delen</string>
   <string name="menu_article_share">Pagina delen</string>
   <string name="menu_page_article_share">Delen</string>
   <string name="menu_page_open_a_new_tab">Een nieuw tabblad openen</string>
@@ -237,7 +237,7 @@
   <string name="create_account_password_repeat_hint">Wachtwoord bevestigen</string>
   <string name="create_account_password_is_username">Wachtwoord mag niet hetzelfde zijn als de gebruikersnaam</string>
   <string name="create_account_passwords_mismatch_error">Wachtwoorden komen niet overeen</string>
-  <string name="create_account_email_error">Ongeldig e-mailadres</string>
+  <string name="create_account_email_error">Onjuist e-mailadres</string>
   <string name="create_account_username_error">Ongeldige tekens in gebruikersnaam</string>
   <string name="create_account_password_error">Het wachtwoord moet ten minste 8 tekens lang zijn.</string>
   <string name="create_account_generic_error">Het was niet mogelijk een account aan te maken</string>
@@ -284,6 +284,7 @@
   <string name="about_description">Over de Wikipedia-app</string>
   <string name="privacy_policy_description">Privacybeleid</string>
   <string name="terms_of_use_description">Gebruiksvoorwaarden</string>
+  <string name="legal_safety_contacts_description">Juridische en veiligheidscontacten</string>
   <string name="about_wikipedia_url">https://nl.wikipedia.org/wiki/Help:Unieke_van_Wikipedia</string>
   <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Privacy_policy</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Terms_of_Use</string>
@@ -331,7 +332,7 @@
   <string name="edit_conflict_title">Bewerkingsconflict</string>
   <string name="edit_conflict_message">Deze pagina is al door een andere gebruiker aangepast en conflicteert met uw bewerking. Kopieer uw wijzigingen, ga terug, ververs de pagina en probeer opnieuw te bewerken.</string>
   <string name="edit_notices">Bewerkingsmeldingen</string>
-  <string name="edit_notices_please_read">Gelieve te lezen alvorens te bewerken</string>
+  <string name="edit_notices_please_read">Lees dit voordat u gaat bewerken</string>
   <string name="edit_notices_show_auto">Automatisch bewerkingsmeldingen weergeven</string>
   <string name="edit_notices_tooltip">Druk op deze knop om bewerkingsmeldingen te zien voor deze pagina.</string>
   <string name="find_next">Volgende zoeken</string>
@@ -369,7 +370,7 @@
   <string name="alpha_update_notification_text">Tik om te downloaden</string>
   <string name="dialog_close_description">Sluiten</string>
   <string name="preference_title_show_images">Afbeeldingen weergeven</string>
-  <string name="preference_summary_show_images">Laden van afbeeldingen in pagina\'s in- of uitschakelen. Schakel deze instelling uit als uw internetverbinding langzaam is, of als u een beperkte hoeveelheid data kunt gebruiken.</string>
+  <string name="preference_summary_show_images">Schakel het laden van afbeeldingen op pagina\'s in of uit. Schakel deze instelling uit als uw internetverbinding traag is of als uw data-abonnement beperkt is.</string>
   <string name="preference_title_download_only_over_wifi">Alleen downloaden via Wi-Fi</string>
   <string name="dialog_title_download_only_over_wifi">Bevestig downloaden via mobiele data</string>
   <string name="dialog_text_download_only_over_wifi">U heeft \"Alleen downloaden via wifi\" ingeschakeld in de instellingen. Wilt u alleen voor deze download toestaan dat uw mobiele data-abonnement wordt gebruikt?</string>
@@ -427,8 +428,10 @@
   <string name="button_get_directions">Routebeschrijving</string>
   <string name="error_no_maps_app">Er zijn geen apps gevonden die routebeschrijvingen bieden.</string>
   <string name="preference_title_customize_explore_feed">Verkennen</string>
+  <string name="preference_title_customize_home_feed">Startpagina</string>
   <string name="preference_title_show_link_previews">Voorvertoningen van koppelingen weergeven</string>
   <string name="preference_summary_customize_explore_feed">De rubrieken op Verkennen aanpassen</string>
+  <string name="preference_summary_customize_home_feed">Personaliseer uw startpagina</string>
   <string name="preference_summary_show_link_previews">Korte voorvertoning weergeven van pagina\'s bij het aanraken van koppelingen.</string>
   <string name="preference_title_collapse_tables">Tabellen inklappen</string>
   <string name="preference_summary_collapse_tables">Tabellen automasch inklappen in pagina\'s zoals infoboxen, referenties en noten.</string>
@@ -439,7 +442,7 @@
   <string name="enable_location_service">Inschakelen</string>
   <string name="location_permissions_enable_prompt">Activeer locatietoestemming om plaatsen nabij u te zien.</string>
   <string name="location_permissions_enable_action">Inschakelen</string>
-  <string name="error_webview_updating">Het Android WebView Systeem is momenteel aan het updaten. Gelieve later nog eens te proberen.</string>
+  <string name="error_webview_updating">Het Android WebView Systeem is momenteel aan het updaten. Probeer het later nog eens.</string>
   <plurals name="multi_items_selected">
     <item quantity="one">%d geselecteerd</item>
     <item quantity="other">%d geselecteerd</item>
@@ -460,21 +463,21 @@
   <string name="reference_list_title">Referenties</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Afbeeldingen dimmen (in donker thema)</string>
   <string name="preference_title_prefer_offline_content">Offline-inhoud de voorkeur geven</string>
-  <string name="preference_summary_prefer_offline_content">Mobiel dataverkeer besparen door offline beschikbare pagina\'s te laden in plaats van steeds de laatste versie op te halen</string>
+  <string name="preference_summary_prefer_offline_content">Mobiel gegevensverkeer besparen door offline beschikbare pagina\'s te laden in plaats van steeds de laatste versie op te halen</string>
   <string name="preference_title_delete_local_donation_history">Donatiegeschiedenis wissen</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Gelijk aan systeemthema</string>
   <string name="page_footer_license_text">De inhoud is beschikbaar onder $1 tenzij anders aangegeven</string>
   <string name="empty_tab_title">Nieuw tabblad</string>
   <string name="menu_save_all_tabs">Alle tabbladen opslaan</string>
   <string name="error_blocked_title">Uw gebruikersnaam of IP adres is geblokkeerd.</string>
-  <string name="error_blocked_by">De blokkering is geactiveerd door &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
+  <string name="error_blocked_by">De blokkade is geactiveerd door &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
   <string name="error_blocked_reason">De gegeven reden is: %s</string>
-  <string name="error_blocked_start">Begindatum van blokkering: %s</string>
-  <string name="error_blocked_expiry">Vervaldatum van blokkering: %s</string>
-  <string name="error_blocked_id">Blokkering ID: %s</string>
-  <string name="error_blocked_footer">U kunt contact opnemen met &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; of met een andere &lt;a href=\"https://nl.wikipedia.org/wiki/Wikipedia:Moderator\"&gt;moderator&lt;/a&gt; voor meer informatie over de blokkering.</string>
+  <string name="error_blocked_start">Begindatum van blokkade: %s</string>
+  <string name="error_blocked_expiry">Vervaldatum van blokkade: %s</string>
+  <string name="error_blocked_id">Blokkade-ID: %s</string>
+  <string name="error_blocked_footer">U kunt contact opnemen met &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; of met een andere &lt;a href=\"https://nl.wikipedia.org/wiki/Wikipedia:Moderator\"&gt;moderator&lt;/a&gt; voor meer informatie over de blokkade.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Werkbalk aanpassen</string>
-  <string name="error_blocked_footer_no_blocker">U kunt contact opnemen met een &lt;a href=\"https://nl.wikipedia.org/wiki/Wikipedia:Moderator\"&gt;moderator&lt;/a&gt; voor meer informatie over de blokkering.</string>
+  <string name="error_blocked_footer_no_blocker">U kunt contact opnemen met een &lt;a href=\"https://nl.wikipedia.org/wiki/Wikipedia:Moderator\"&gt;moderator&lt;/a&gt; voor meer informatie over de blokkade.</string>
   <string name="temp_account_not_logged_in">U bent niet aangemeld</string>
   <string name="temp_account_anon_ip_dialog_body">Zodra u een bewerking doorvoert, wordt uw IP-adres aan uw bewerkingen gekoppeld.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Meld u aan&lt;/a&gt; of &lt;a href=\"https://#createaccount\"&gt;maak een account aan&lt;/a&gt; om naamsvermelding te krijgen voor toekomstige bewerkingen en om toegang te krijgen tot andere functies.</string>
   <string name="temp_account_anon_dialog_body">Nadat u een wijziging hebt aangebracht, wordt er een &lt;b&gt;tijdelijk account&lt;/b&gt; aangemaakt om uw privacy te beschermen. &lt;a href=\"%1$s\"&gt;Meer informatie&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Meld u aan&lt;/a&gt; of &lt;a href=\"https://#createaccount\"&gt;maak een account aan&lt;/a&gt; om onder een zelfgekozen naam bij te dragen en om toegang te krijgen tot meer mogelijkheden.</string>
@@ -533,7 +536,7 @@
   <string name="reading_list_save_to">Naar leeslijst opslaan</string>
   <string name="reading_list_move_to">Naar leeslijst verplaatsen</string>
   <string name="reading_list_create_new">Nieuwe aanmaken</string>
-  <string name="reading_list_title_exists">Leeslijst “%s” bestaan reeds.</string>
+  <string name="reading_list_title_exists">Leeslijst “%s” bestaat al.</string>
   <string name="reading_list_article_added_to_named">%1$s toegevoegd aan %2$s.</string>
   <string name="reading_list_article_added_to_default_list">%s opgeslagen. Wilt u het toevoegen aan een lijst?</string>
   <string name="reading_list_article_moved_to_named">%1$s naar %2$s verplaatst.</string>
@@ -587,8 +590,8 @@
     <item quantity="other">%d pagina\'s verwijderd uit lijst</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d pagina verwijderd uit %s</item>
-    <item quantity="other">%d pagina\'s verwijderd uit %s</item>
+    <item quantity="one">%1$d pagina verwijderd uit %2$s</item>
+    <item quantity="other">%1$d pagina\'s verwijderd uit %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d lijst verwijderd</item>
@@ -745,8 +748,8 @@
   <string name="notifications_activity_title">Meldingen</string>
   <string name="notifications_activity_title_archived">Meldingen (gearchiveerd)</string>
   <string name="notifications_search">Meldingen doorzoeken</string>
-  <string name="notifications_view_unread">Toon ongelezen</string>
-  <string name="notifications_view_archived">Toon gearchiveerd</string>
+  <string name="notifications_view_unread">Ongelezen weergeven</string>
+  <string name="notifications_view_archived">Gearchiveerd weergeven</string>
   <string name="notifications_prefs">Meldingsvoorkeuren</string>
   <string name="notifications_archive">Markeer als gelezen en archiveer</string>
   <plurals name="notification_archive_message">
@@ -777,7 +780,7 @@
   </plurals>
   <string name="watchlist_title">Volglijst</string>
   <string name="preference_title_notification_poll">Ververs meldingen</string>
-  <string name="preference_summary_notification_poll">Sta de app toe data te gebruiken om op de achtergrond te checken op nieuwe meldingen.</string>
+  <string name="preference_summary_notification_poll">Sta de app toe gegevens te gebruiken om op de achtergrond te controleren op nieuwe meldingen.</string>
   <string name="preference_category_notification_types">Meldingtypes in de app</string>
   <string name="preference_title_notification_system">Systeem</string>
   <string name="preference_summary_notification_system">Berichten van systeem</string>
@@ -796,7 +799,7 @@
   <string name="preference_title_notification_email_user">E-mail ontvangen</string>
   <string name="preference_summary_notification_email_user">Iemand heeft u via de wiki een e-mail gestuurd</string>
   <string name="preference_title_notification_user_rights">Wijzigingen in gebruikersrechten</string>
-  <string name="preference_summary_notification_user_rights">Ontvangen wanneer uw gebruikersrechten veranderen</string>
+  <string name="preference_summary_notification_user_rights">Ontvangen wanneer uw gebruikersrechten wijzigen</string>
   <string name="preference_title_notification_article_linked">Koppelingen naar pagina\'s die u hebt aangemaakt</string>
   <string name="preference_summary_notification_article_linked">Ontvangen wanneer een nieuwe koppeling wordt gelegd naar een pagina die u hebt aangemaakt</string>
   <string name="preference_category_push_notifications">Pushmeldingen</string>
@@ -838,9 +841,11 @@
   <string name="view_random_article_card_title">Willekeurige pagina</string>
   <string name="view_random_article_card_action">Meer willekeurige pagina\'s</string>
   <string name="view_top_read_card_title">Meest gelezen</string>
+  <string name="view_top_read_card_description">Wat is er vandaag trending op Wikipedia?</string>
   <string name="view_top_read_card_action">Meer meest gelezen</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d k</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d miljoen</string>
+  <string name="view_top_read_card_pageviews_views_suffix">weergaven</string>
   <string name="view_next_random_article">Nog een willekeurige pagina laden</string>
   <string name="view_main_page_card_title">Vandaag op Wikipedia</string>
   <string name="view_main_page_card_action">Hoofdpagina bekijken</string>
@@ -879,13 +884,13 @@
   <string name="feed_item_type_featured_image">Dagelijkse uitgelichte afbeelding van Wikimedia Commons</string>
   <string name="feed_item_type_main_page">Hoofdpagina van Wikipedia met dagelijkse uitgelichte inhoud</string>
   <string name="feed_item_type_randomizer">Genereert willekeurige pagina\'s om te lezen</string>
-  <string name="feed_item_type_suggested_edits">Voorstellen om content aan Wikipedia toe te voegen</string>
+  <string name="feed_item_type_suggested_edits">Voorstellen om inhoud aan Wikipedia toe te voegen</string>
   <string name="feed_item_type_places">Nabijgelegen pagina\'s op basis van de huidige locatie</string>
-  <string name="feed_empty_message">Er staat niets in uw overzicht Verkennen</string>
+  <string name="feed_empty_message">Er staat niets op uw startpagina.</string>
   <string name="feed_configure_onboarding_action">Aanpassen</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Annuleren</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Uw overzicht Verkennen aanpassen&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;U kunt nu kiezen welke rubrieken u in uw overzicht wilt laten zien en ook prioriteit geven aan uw favoriete soorten inhoud.</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Personaliseer uw startpagina&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;U kunt nu zelf kiezen wat er op uw feed verschijnt en ook uw favoriete soorten inhoud prioriteren.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Annuleren</string>
   <string name="feed_accessibility_card_text">U bent bij het einde aangekomen.</string>
@@ -959,7 +964,7 @@
   <string name="customize_toolbar_category_toolbar">Werkbalk</string>
   <string name="customize_toolbar_category_menu">Menu</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Sleep uw favoriete items hierheen 👋</string>
-  <string name="customize_toolbar_reset_to_default_button">Reset naar standaard</string>
+  <string name="customize_toolbar_reset_to_default_button">Terug naar standaardinstellingen</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">Houd het sleeppictogram ingedrukt om het item te verplaatsen</string>
   <string name="customize_toolbar_item_default_tooltip">Druk op een item en sleep het om het te verplaatsen</string>
   <string name="suggested_edits_activity_title">Bewerken</string>
@@ -1199,7 +1204,7 @@
   <string name="activity_tab_menu_customize_description">Leesinzichten zijn gebaseerd op uw apptalen in de instellingen, en bewerkingsinzichten zijn beperkt tot de primaire taal van uw app. De inzichten maken gebruik van lokale gegevens, met uitzondering van bewerkingen, die openbaar zijn.</string>
   <string name="activity_tab_highlights">Hoogtepunten</string>
   <string name="activity_tab_customize_screen_reading_history_switch_title">Leesgeschiedenis</string>
-  <string name="activity_tab_impact">Uw impact</string>
+  <string name="activity_tab_impact">Uw bijdrage</string>
   <string name="activity_tab_impact_most_viewed">Meest bekeken sinds uw bewerking</string>
   <string name="activity_tab_impact_contributions_this_month">Bijdragen deze maand</string>
   <plurals name="activity_tab_impact_edits_this_month">
@@ -1247,7 +1252,7 @@
   <string name="activity_tab_customize_screen_no_modules_message">De activiteitsmodules zijn uitgeschakeld. &lt;a href=\"#\"&gt;Schakel ze in&lt;/a&gt; om op dit tabblad berichten te zien.</string>
   <string name="activity_tab_timeline_today">Vandaag</string>
   <string name="activity_tab_timeline_yesterday">Gisteren</string>
-  <string name="activity_tab_timeline_empty_state_title">Niets te laten zien</string>
+  <string name="activity_tab_timeline_empty_state_title">Niets om te laten zien</string>
   <string name="activity_tab_timeline_empty_state_message">Begin met lezen en bewerken om uw geschiedenis op te bouwen</string>
   <string name="activity_tab_timeline_view_changes_button">Wijzigingen bekijken</string>
   <string name="activity_tab_onboarding_reading_patterns_title">Leespatronen</string>
@@ -1261,6 +1266,7 @@
   <string name="activity_tab_onboarding_stay_in_control_message">Kies welke modules u wilt weergeven. Alle persoonlijke gegevens blijven privé op uw apparaat staan. U kunt uw browsergeschiedenis op elk moment wissen.</string>
   <string name="edits_screen_what_is_title">Bewerken in de Wikipedia-app</string>
   <string name="edits_screen_what_is_body">Weet u niet waar u moet beginnen met bewerken? Probeer dan ‘Voorgestelde bewerkingen’, een functie waarmee u kleine maar essentiële bijdragen aan Wikipedia kunt doen. U kunt ook direct naar een interessante pagina gaan en een wijziging aanbrengen met behulp van wikitekst.</string>
+  <string name="activity_tab_snackbar_label">Spelstatistieken worden weergegeven voor uw voorkeurstaal.</string>
   <string name="file_page_activity_title">Bestandspagina</string>
   <string name="file_page_add_image_caption_button">Afbeeldingsbijschrift toevoegen</string>
   <string name="file_page_add_image_tags_button">Afbeeldingslabel toevoegen</string>
@@ -1280,16 +1286,24 @@
   <string name="onboarding_get_started">Aan de slag</string>
   <string name="onboarding_maybe_later">Misschien later</string>
   <string name="onboarding_explore_title">Nieuwe manieren om te ontdekken</string>
-  <string name="onboarding_explore_text">Stap in de wereld van Wikipedia met een steeds bijgewerkt overzicht op Verkennen. &lt;br/&gt; Pas het overzicht aan &lt;b&gt;uw interesses&lt;/b&gt; aan – of u nu geïnteresseerd bent in historische gebeurtenissen &lt;b&gt;op deze dag&lt;/b&gt; of het gooien met de dobbelsteen voor een &lt;b&gt;willekeurige pagina&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text">Stap in de wereld van Wikipedia met een continu bijgewerkte startpagina. &lt;br/&gt; Pas het overzicht aan &lt;b&gt;uw interesses&lt;/b&gt; aan – of u nu geïnteresseerd bent in historische gebeurtenissen &lt;b&gt;op deze dag&lt;/b&gt; of het gooien met de dobbelsteen voor een &lt;b&gt;willekeurige pagina&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Leeslijsten met synchronisatie</string>
   <string name="onboarding_reading_list_sync_text_v2">U kunt leeslijsten maken van pagina\'s die u later wilt lezen, ook als u offline bent. &lt;br/&gt;Meld u aan bij uw Wikipedia-account om uw leeslijsten te synchroniseren. &lt;a href=\"#login\"&gt;Bij Wikipedia aanmelden&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Gegevens &amp; privacy</string>
-  <string name="onboarding_data_privacy_text">Wij zijn van mening dat u geen persoonlijke informatie hoeft te verstrekken om deel te nemen aan de vrije kennisbeweging. De gebruiksgegevens die voor deze app worden verzameld, zijn anoniem. Lees meer over ons &lt;a href=\"#privacy\"&gt;privacybeleid&lt;/a&gt; en &lt;a href=\"#termsOfUse\"&gt;onze gebruiksvoorwaarden&lt;/a&gt; .</string>
+  <string name="onboarding_data_privacy_text">Wij zijn van mening dat u geen persoonlijke informatie hoeft te verstrekken om deel te nemen aan de vrije kennisbeweging. De gebruiksgegevens die voor deze app worden verzameld, zijn anoniem. &lt;br/&gt;&lt;br/&gt;Lees meer over ons &lt;a href=\"#privacy\"&gt;privacybeleid&lt;/a&gt; en &lt;a href=\"#termsOfUse\"&gt;onze gebruiksvoorwaarden&lt;/a&gt; .</string>
   <string name="onboarding_analytics_switch_title">Uw gebruiksgegevens verzenden</string>
   <string name="onboarding_got_it">Begrepen</string>
   <string name="onboarding_multilingual_secondary_text">We hebben het volgende gevonden op uw apparaat:</string>
   <string name="onboarding_multilingual_add_language_text">Voeg talen toe of bewerk deze</string>
   <string name="onboarding_welcome_title_v2">De vrije encycopedie\n...in meer dan 300 talen</string>
+  <string name="onboarding_next">Volgende</string>
+  <string name="onboarding_fresh_install_knowledge_title">Alle kennis van de wereld</string>
+  <string name="onboarding_fresh_install_knowledge_text">Wikipedia is een vrije online encyclopedie met 65 miljoen pagina\'s die gezamenlijk zijn geschreven en onderhouden in meer dan 300 talen door een gemeenschap van vrijwilligers.</string>
+  <string name="onboarding_fresh_install_knowledge_learn_more">Lees meer over Wikipedia</string>
+  <string name="onboarding_app_languages_title">Te lezen in meer dan 300 talen</string>
+  <string name="onboarding_app_languages_text">We hebben de volgende talen op uw apparaat gedetecteerd:</string>
+  <string name="onboarding_app_languages_primary">Primair</string>
+  <string name="onboarding_app_languages_add_button">Uw talen toevoegen of bewerken</string>
   <string name="app_shortcuts_random">Willekeurig</string>
   <string name="app_shortcuts_continue_reading">Verder lezen</string>
   <string name="app_shortcuts_search">Zoeken</string>
@@ -1319,7 +1333,7 @@
     <item quantity="one">Geselecteerde taal verwijderen?</item>
     <item quantity="other">Geselecteerde talen verwijderen?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">U ziet alleen inhoud op het overzicht Verkennen en snelle zoekfilters voor de resterende Wikipedia-talen.</string>
+  <string name="wikipedia_languages_remove_dialog_content">U ziet alleen inhoud op de startpagina en in de snelle zoekfilters voor de overige Wikipedia-talen.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Kan niet alle talen verwijderen</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Houd ten minste één Wikipedia-taal waarin u inhoud kunt zoeken en lezen.</string>
   <string name="more_language_options">meer</string>
@@ -1431,7 +1445,7 @@
   <string name="talk_response_submitted">Reactie geplaatst.</string>
   <string name="talk_snackbar_undo">Ongedaan maken</string>
   <string name="talk_last_modified">&lt;b&gt;Laatst bewerkt %1$s&lt;/b&gt; door %2$s</string>
-  <string name="talk_snackbar_survey_text">Bedankt voor het gebruiken van overlegpagina\'s. Zou u ons willen helpen de app te verbeteren, door deel te nemen aan een enquête?</string>
+  <string name="talk_snackbar_survey_text">Bedankt voor het gebruiken van overlegpagina\'s. Zou u ons willen helpen de app te verbeteren, door een vragenlijst in te vullen?</string>
   <string name="talk_snackbar_survey_action_text">Aan de slag</string>
   <string name="talk_share_discussion_subject">Wikipedia - discussie over overlegpagina-onderwerp \"%s\"</string>
   <string name="talk_share_talk_page">Wikipedia - discussies op overlegpagina</string>
@@ -1485,8 +1499,8 @@
   <string name="watchlist_details_prev_edit">Vorige bewerking</string>
   <string name="thank_label">Bedanken</string>
   <string name="view_user_page">Gebruikerspagina bekijken</string>
-  <string name="thank_dialog_title_text">Publiekelijk een bedankje sturen</string>
-  <string name="thank_dialog_text">\'Bedankjes\' zijn een gemakkelijke manier om waardering te tonen voor het werk van een redacteur op Wikipedia. \'Bedankjes\' kunnen niet ongedaan worden gemaakt en zijn openbaar zichtbaar</string>
+  <string name="thank_dialog_title_text">Openbaar een bedankje sturen</string>
+  <string name="thank_dialog_text">\'Bedankjes\' zijn een gemakkelijke manier om waardering te tonen voor het werk van een bewerker op Wikipedia. \'Bedankjes\' kunnen niet ongedaan worden gemaakt en zijn openbaar zichtbaar</string>
   <string name="thank_dialog_positive_button_text">Bedankje sturen</string>
   <string name="thank_dialog_negative_button_text">Annuleren</string>
   <string name="thank_success_message">Uw bedankje is verstuurd naar %s 👍</string>
@@ -1560,7 +1574,7 @@
   <string name="watchlist_filter_contribution_authorship_own">Uw eigen wijzigingen</string>
   <string name="watchlist_filter_contribution_authorship_except_own">Wijzigingen door anderen</string>
   <string name="watchlist_filter_automated_contributions_header">Automatische bijdragen</string>
-  <string name="watchlist_filter_automated_contributions_bot">Bot</string>
+  <string name="watchlist_filter_automated_contributions_bot">Robot</string>
   <string name="watchlist_filter_automated_contributions_human">Mens (geen robot)</string>
   <string name="watchlist_filter_significance_header">Betekenis</string>
   <string name="watchlist_filter_significance_minor">Kleine bewerkingen</string>
@@ -1596,7 +1610,7 @@
   <string name="category_empty">Geen pagina\'s gevonden in deze categorie.</string>
   <string name="subcategory_empty">Geen subcategorieën gevonden in deze categorie.</string>
   <string name="search_namespaces">Naamruimten</string>
-  <string name="revision_initial_none">Geen (dit is de eerste revisie)</string>
+  <string name="revision_initial_none">Geen (dit is de eerste versie)</string>
   <string name="user_contrib_activity_title">Bijdragen van %s</string>
   <string name="archive_empty">Geen gearchiveerde pagina\'s gevonden.</string>
   <string name="user_contrib_filter_ns">Filteren op naamruimte</string>
@@ -1613,7 +1627,7 @@
   <string name="shareable_reading_lists_import_dialog_content">Hoe zou u de lijst willen noemen die met u is gedeeld?</string>
   <string name="shareable_reading_lists_new_indicator">*nieuw*</string>
   <string name="shareable_reading_lists_new_install_dialog_title">Er is een leeslijst met u gedeeld</string>
-  <string name="shareable_reading_lists_new_install_dialog_content">We hebben gemerkt dat er een leeslijst met u is gedeeld. Om deze lijst in de app te bekijken, gaat u terug naar het oorspronkelijke bericht en tikt u nogmaals op de link.</string>
+  <string name="shareable_reading_lists_new_install_dialog_content">We hebben gemerkt dat er een leeslijst met u is gedeeld. Om deze lijst in de app te bekijken, gaat u terug naar het oorspronkelijke bericht en tikt u nogmaals op de koppeling.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Begrepen</string>
   <string name="shareable_reading_lists_new_imported_snackbar">Leeslijst geïmporteerd</string>
   <string name="reading_list_share_menu_label">Delen…</string>
@@ -1678,7 +1692,7 @@
   <string name="patroller_tasks_filters_latest_revisions_latest_revision">Laatste versie</string>
   <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">Niet de laatste versie</string>
   <string name="patroller_tasks_filters_automated_contributions_header">Automatische bijdragen</string>
-  <string name="patroller_tasks_filters_automated_contributions_bot">Bot</string>
+  <string name="patroller_tasks_filters_automated_contributions_bot">Robt</string>
   <string name="patroller_tasks_filters_automated_contributions_human">Mens (geen robot)</string>
   <string name="patroller_tasks_filters_significance_header">Betekenis</string>
   <string name="patroller_tasks_filters_significance_minor">Kleine bewerkingen</string>
@@ -1714,14 +1728,14 @@
   <string name="patroller_tasks_overflow_report">Probleem met functie</string>
   <string name="patroller_tasks_overflow_learn">Meer lezen</string>
   <string name="patroller_onboarding_one_title">Draag bij aan het toezicht op en de goedkeuring van Wikipedia-bewerkingen.</string>
-  <string name="patroller_onboarding_one_content">Verbeter de kwaliteit van Wikipedia-inhoud door een feed met recente bewerkingen actief te beoordelen en andere redacteuren begeleiding, kwaliteitscontrole en aanmoediging te bieden.</string>
-  <string name="patroller_onboarding_two_title">Geef feedback, controleer bewerkingen en onderneem actie op het wijzigingenscherm</string>
+  <string name="patroller_onboarding_one_content">Verbeter de kwaliteit van Wikipedia-inhoud door een feed met recente bewerkingen actief te beoordelen en andere bewerkers begeleiding, kwaliteitscontrole en aanmoediging te bieden.</string>
+  <string name="patroller_onboarding_two_title">Geef terugkoppeling, controleer bewerkingen en voer handelingen uit op het wijzigingenscherm</string>
   <string name="patroller_onboarding_two_thank_title">Bedanken</string>
   <string name="patroller_onboarding_two_thank_content">Ziet u een productieve bewerking? Bedank een gebruiker voor diens bijdrage.</string>
   <string name="patroller_onboarding_two_watch_title">Volgen</string>
   <string name="patroller_onboarding_two_watch_content">Wilt u de bewerkingen van een pagina bijhouden? Voeg die toe aan uw volglijst. Bekijk ze onder ‘Meer’.</string>
   <string name="patroller_onboarding_two_talk_title">Overleg</string>
-  <string name="patroller_onboarding_two_talk_content">Communiceer met andere redacteuren. Bewaar veelgebruikte overlegpagina-berichten of gebruik een sjabloon.</string>
+  <string name="patroller_onboarding_two_talk_content">Communiceer met andere bewerkers. Bewaar veelgebruikte overlegpagina-berichten of gebruik een sjabloon.</string>
   <string name="patroller_onboarding_two_undo_title">Ongedaan maken/terugdraaien</string>
   <string name="patroller_onboarding_two_undo_content">Kies ‘Ongedaan maken’ om een mogelijk schadelijke bewerking ongedaan te maken of terug te draaien.</string>
   <string name="patroller_diff_tooltip_one">Schade voorspelt of een bewerking schade aan een wiki veroorzaakt.</string>
@@ -1741,10 +1755,10 @@
   <string name="patroller_saved_message_title_do_not_censor">Niet censureren</string>
   <string name="patroller_saved_message_title_art_imp">Suggestie voor paginaverbetering</string>
   <string name="patroller_saved_message_body_vandalism">Hallo {{{username}}}, ik heb een of meer van uw [{{{diffLink}}}|recente bijdragen] teruggedraaid omdat ze er niet constructief uitzien. Als u vindt dat ik een fout heb gemaakt of als u vragen hebt, kunt u een bericht achterlaten op [[User talk:{{{senderUserName}}}|mijn overlegpagina]]. Houd er rekening mee dat aanhoudend vandalisme tot beperkingen kan leiden.</string>
-  <string name="patroller_saved_message_body_editing_tests">Hallo {{{username}}}, ik ben blij dat Wikipedia uw aandacht heeft getrokken en dat u hebt willen leren bewerken. Uw bewerkingstest is geslaagd. Maar vergeet niet dat het doel van dit project is om een betrouwbare en volledige encyclopedie te ontwikkelen die iedereen kan raadplegen. Uw bewerking heeft invloed gehad op de inhoud en is daarom verwijderd.\nAls u wilt leren hoe u Wikipedia moet bewerken, staat de [[Wikipedia:Zandbak|zandbak]] tot uw beschikking. Als uw opmerkingen specifiek betrekking hadden op een pagina, is de overlegpagina de juiste plaats.</string>
+  <string name="patroller_saved_message_body_editing_tests">Hallo {{{username}}}, ik ben blij dat Wikipedia uw aandacht heeft getrokken en dat u hebt willen leren bewerken. Uw bewerkingstest is geslaagd. Maar vergeet niet dat het doel van dit project is om een betrouwbare en volledige encyclopedie te ontwikkelen die iedereen kan raadplegen. Uw bewerking heeft invloed gehad op de inhoud en is daarom verwijderd.\nAls u wilt leren hoe u Wikipedia moet bewerken, staat het [[Wikipedia:Zandbak|kladblok]] tot uw beschikking. Als uw opmerkingen specifiek betrekking hadden op een pagina, is de overlegpagina de juiste plaats.</string>
   <string name="patroller_saved_message_body_npov">Hallo {{{username}}}, sommige bijdragen die u hebt geleverd voldoen niet aan de neutraliteit die vereist is door het beleid van deze Wikipedia omtrent het innemen van een [[Wikipedia:NPOV|neutraal standpunt]]. Daarom is bepaalde inhoud aangepast of verwijderd. Wijzig de alinea’s of secties die een eenzijdig standpunt weergeven en vervang ze door een meer neutrale en objectieve tekst, zoals van een encyclopedie kan worden verwacht.</string>
   <string name="patroller_saved_message_body_auto_trans">Hallo {{{username}}}, sommige bijdragen die u hebt geleverd zijn mogelijk machinevertalingen. Daarom zijn ze aangepast of gemarkeerd met een sjabloon. Als er geen verbeteringen aan de pagina worden aangebracht, kunnen ze worden verwijderd.\n\nHebt u ondanks al deze informatie toch nog vragen, laat dan gerust een bericht achter op [[User talk:{{{senderUserName}}}|mijn overlegpagina]]. Laat u niet ontmoedigen door dit kleine voorval. Uw bijdragen zijn erg belangrijk voor Wikipedia.</string>
-  <string name="patroller_saved_message_body_coi_rem">Hallo {{{username}}}, ik waardeer uw medewerking aan Wikipedia. Ik heb echter gemerkt dat u te maken hebt met een [[Wikipedia:Belangenverstrengeling|belangenconflict]]. Een belangenconflict is de onverenigbaarheid tussen de doelstellingen van Wikipedia op het gebied van neutraliteit en betrouwbaarheid enerzijds en de specifieke doelstellingen van bepaalde redacteuren, individuen, entiteiten of bedrijven anderzijds.\n\nAlle bijdragen in de hoofdnaamruimte zijn onderworpen aan het beleid van inhoudscriteria van deze Wikipedia (zie [[Wikipedia:Wat Wikipedia niet is|Wat Wikipedia niet is]]), encyclopedische kwaliteit (zie [[Wikipedia:Verifieerbaarheid|Verifieerbaarheid]] en [[Wikipedia:Geen origineel onderzoek|Geen origineel onderzoek]]), redactionele methode (zie [[Wikipedia:NPOV|Neutraal standpunt]]) en legitimiteit van de inhoud (zie [[Wikipedia:Copyrights|Auteursrechten]]). Van alle redacteuren wordt verwacht dat zij zich aan dit beleid houden bij het maken en beoordelen van inhoud, en dat zij de handelingen van andere redacteuren om ervoor te zorgen dat dit beleid wordt nageleefd respecteren en daarbij uitgaan van goede wil.\n\nAls u met een belangenverstrengeling aan het bewerken bent, moet u het bijbehorende beleid met bijzondere zorg toepassen. Anders kan uw gebruikersaccount worden geblokkeerd. Als u vragen hebt, kunt u gerust contact met mij opnemen via mijn overlegpagina.</string>
+  <string name="patroller_saved_message_body_coi_rem">Hallo {{{username}}}, ik waardeer uw medewerking aan Wikipedia. Ik heb echter gemerkt dat u te maken hebt met een [[Wikipedia:Belangenverstrengeling|belangenconflict]]. Een belangenconflict is de onverenigbaarheid tussen de doelstellingen van Wikipedia op het gebied van neutraliteit en betrouwbaarheid enerzijds en de specifieke doelstellingen van bepaalde bewerkers, individuen, entiteiten of bedrijven anderzijds.\n\nAlle bijdragen in de hoofdnaamruimte zijn onderworpen aan het beleid van inhoudscriteria van deze Wikipedia (zie [[Wikipedia:Wat Wikipedia niet is|Wat Wikipedia niet is]]), encyclopedische kwaliteit (zie [[Wikipedia:Verifieerbaarheid|Verifieerbaarheid]] en [[Wikipedia:Geen origineel onderzoek|Geen origineel onderzoek]]), redactionele methode (zie [[Wikipedia:NPOV|Neutraal standpunt]]) en legitimiteit van de inhoud (zie [[Wikipedia:Copyrights|Auteursrechten]]). Van alle bewerkers wordt verwacht dat zij zich aan dit beleid houden bij het maken en beoordelen van inhoud, en dat zij de handelingen van andere bewerkers om ervoor te zorgen dat dit beleid wordt nageleefd respecteren en daarbij uitgaan van goede wil.\n\nAls u met een belangenverstrengeling aan het bewerken bent, moet u het bijbehorende beleid met bijzondere zorg toepassen. Anders kan uw gebruikersaccount worden geblokkeerd. Als u vragen hebt, kunt u gerust contact met mij opnemen via mijn overlegpagina.</string>
   <string name="patroller_saved_message_body_final_warning">Omdat u meerdere destructieve bewerkingen hebt aangebracht, is dit uw laatste waarschuwing. Als u Wikipedia opnieuw beschadigt, wordt u uitgesloten van het bewerken.</string>
   <string name="patroller_saved_message_body_copy_vio">Het lijkt erop dat uw recente bewerking zonder toestemming auteursrechtelijk beschermd materiaal bevat. Zorg ervoor dat alle inhoud voldoet aan het [[Wikipedia:Copyrights|copyright]]-beleid van Wikipedia om verwijdering te voorkomen.</string>
   <string name="patroller_saved_message_body_edit_summary">Hallo {{{username}}}, het lijkt erop dat u inhoud van Wikipedia hebt verwijderd zonder een bewerkingssamenvatting achter te laten. Laat een bewerkingssamenvatting achter wanneer u inhoud aan Wikipedia toevoegt of verwijdert.</string>
@@ -1812,10 +1826,15 @@
   <string name="survey_dialog_general_maybe">Misschien</string>
   <string name="survey_dialog_input_hint">Aanvullende terugkoppeling</string>
   <string name="survey_dialog_submitted_snackbar">Terugkoppeling ingediend. Dank u wel!</string>
+  <string name="games_hub_activity_title">Spellen</string>
+  <string name="games_hub_activity_games_unavailable_message">Er zijn nog geen spellen beschikbaar in deze taal! De spellen maken gebruik van inhoud die door vrijwillige bewerkers voor de betreffende Wikipedia-pagina\'s is gemaakt.</string>
+  <string name="games_hub_activity_games_unavailable_message_learn_more_action">Meer lezen</string>
+  <string name="games_hub_activity_overflow_view_game_stats">Spelstatistieken bekijken</string>
+  <string name="games_hub_activity_overflow_learn_more">Meer lezen</string>
   <string name="on_this_day_game_entry_dialog_title">Welkom bij</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Wikipedia-spellen</string>
-  <string name="on_this_day_game_entry_dialog_button">Het spel van vandaag spelen</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia-spellen zijn beschikbaar via Verkennen.</string>
+  <string name="on_this_day_game_entry_dialog_button">Spelen</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia-spellen zijn beschikbaar in de Spellenhub, te vinden in het menu MEER.</string>
   <string name="on_this_day_game_title">Wat gebeurde er eerst?</string>
   <string name="on_this_day_game_dialog_button">Spelen</string>
   <string name="on_this_day_game_splash_message">Raad welke gebeurtenis op deze dag in de geschiedenis als eerste plaatsvond.</string>
@@ -1827,16 +1846,11 @@
   <string name="on_this_day_game_point">+1 punt</string>
   <string name="on_this_day_game_next">Volgende vraag</string>
   <string name="on_this_day_game_finish">Eindresultaten</string>
-  <string name="on_this_day_game_share_button">Delen</string>
-  <string name="on_this_day_game_pause_title">Het spel pauzeren?</string>
-  <string name="on_this_day_game_pause_body">Uw voortgang wordt voor de dag opgeslagen. U kunt het spel terugvinden onder Verkennen.</string>
-  <string name="on_this_day_game_pause_negative">Doorspelen</string>
-  <string name="on_this_day_game_pause_positive">Begrepen</string>
+  <string name="on_this_day_game_share_button">Score delen</string>
   <string name="on_this_day_game_feed_entry_card_heading">Wikipedia-spellen</string>
   <string name="on_this_day_game_feed_entry_card_title">Wat gebeurde er eerst?</string>
-  <string name="on_this_day_game_feed_entry_card_subtitle">Raad welke gebeurtenis op deze dag in de geschiedenis als eerste plaatsvond.</string>
   <string name="on_this_day_game_result">U hebt %1$d/%2$d behaald.</string>
-  <string name="on_this_day_game_next_in">Volgend spel in %s</string>
+  <string name="on_this_day_game_next_in">Volgend spel over %s</string>
   <string name="on_this_day_game_your_stats">Uw statistieken</string>
   <plurals name="on_this_day_game_stats_games_played">
     <item quantity="one">spel gespeeld</item>
@@ -1845,7 +1859,7 @@
   <string name="on_this_day_game_stats_average_score">Gemiddelde score</string>
   <string name="on_this_day_game_stats_streak">Huidige reeks</string>
   <string name="on_this_day_game_result_subtitle">Pagina\'s waarnaar in het spel van vandaag wordt verwezen</string>
-  <string name="on_this_day_game_completed_message">Bedankt voor het spelen. Er is iedere dag een nieuw “Wat gebeurde er eerst?”-spel te vinden onder Verkennen.</string>
+  <string name="on_this_day_game_completed_message">Bedankt voor het spelen. Er is iedere dag een nieuw “Wat gebeurde er eerst?”-spel te vinden op de startpagina.</string>
   <string name="on_this_day_game_menu_notifications">Spelmeldingen</string>
   <string name="on_this_day_game_menu_info">Meer lezen</string>
   <string name="on_this_day_game_menu_feedback">Probleem met functie</string>
@@ -1877,9 +1891,21 @@
   <string name="on_this_day_game_archive_btn_text">Archief afspelen</string>
   <string name="on_this_day_game_review_results_btn_text">Resultaten bekijken</string>
   <string name="on_this_day_game_score_message">U hebt %1$d/%2$d gescoord op het spel van vandaag.</string>
+  <string name="on_this_day_game_play_today_btn_text">Spel van de dag spelen</string>
   <string name="on_this_day_game_continue_playing_btn_text">Doorgaan met spelen</string>
   <string name="on_this_day_game_sound_on">Geluid aanzetten</string>
   <string name="on_this_day_game_sound_off">Geluid uitzetten</string>
+  <string name="on_this_day_game_more_label">Meer</string>
+  <string name="on_this_day_game_card_progress_label">U bent bij vraag %d. Blijf raden welke gebeurtenis op deze dag in de geschiedenis als eerste plaatsvond.</string>
+  <string name="on_this_day_game_card_progress_short_label">U bent bij vraag %d.</string>
+  <string name="on_this_day_game_explore_feed_card_score_message">U hebt %1$d/%2$d gescoord in het spel van de dag. Het volgende spel is over %3$s</string>
+  <string name="on_this_day_game_explore_feed_card_score_short_message">U hebt %1$d/%2$d gescoord op het spel van vandaag.</string>
+  <string name="on_this_day_game_card_archive_label">Archief</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_button">Aanmelden</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_title">Meld u aan om uw spelstatistieken te bekijken</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_description">Bekijk uw reeksen, scores en meer</string>
+  <string name="wikipedia_games_title">Wikipedia-spellen</string>
+  <string name="wikipedia_games_subtitle">Dagelijkse spellen gebaseerd op Wikipedia-inhoud.</string>
   <string name="year_in_review_learn_more">Meer lezen</string>
   <string name="year_in_review_get_started">Aan de slag</string>
   <string name="year_in_review_topbar_w_icon">Wikipedia W-pictogram</string>
@@ -1924,8 +1950,8 @@
   <string name="year_in_review_slide_app_icon_body_unlocked">Activeer uw nieuwe apppictogram in de Instellingen onder Apppictogram. Bedankt voor het investeren in de toekomst van de vrije kennis. Uw bijdragen als %1$s in %2$d helpen de weg vrij te maken naar een wereld van vrije informatie. Daarom is nu voor u een eigen bijdragerspictogram ontsloten voor Wikipedia op uw startscherm.</string>
   <string name="year_in_review_slide_app_icon_body_unlock">Wat fijn dat Wikipedia deel uitmaakte van uw jaar %1$d! Ontgrendel met uw bijdragen een speciale beloning in uw Jaaroverzicht %2$d. Dat doet u door &lt;a href=\"%3$s\"&gt;Wikipedia te bewerken&lt;/a&gt; of door vanuit de app te doneren aan de &lt;a href=\"%4$s\"&gt;Wikimedia Foundation&lt;/a&gt;, de non-profitorganisatie erachter. Als Wikipedia dit jaar voor u behulpzaam is geweest, overweeg dan te doneren zodat Wikipedia ook in de toekomst voor iedereen gratis, advertentievrij, betrouwbaar en toegankelijk blijft. Als u ergens anders hebt gedoneerd, stellen we uw steun zeer op prijs.</string>
   <string name="year_in_review_slide_app_icon_donor">donateur</string>
-  <string name="year_in_review_slide_app_icon_editor">redacteur</string>
-  <string name="year_in_review_slide_app_icon_donor_and_editor">donateur en redacteur</string>
+  <string name="year_in_review_slide_app_icon_editor">een bewerker</string>
+  <string name="year_in_review_slide_app_icon_donor_and_editor">donateur en bewerker</string>
   <string name="year_in_review_slide_geo_headline">De pagina\'s die u hebt gelezen staan het dichtst bij %s</string>
   <string name="year_in_review_slide_geo_body">Het land dat het dichtst bij veel pagina\'s die u hebt gelezen ligt, lijkt %1$s te zijn, gebaseerd op pagina\'s als &lt;b&gt;%2$s&lt;/b&gt; en &lt;b&gt;%3$s&lt;/b&gt;.</string>
   <string name="year_in_review_login_dialog_title">Aanmelden voor personalisering?</string>
@@ -1952,8 +1978,8 @@
     <item quantity="other">Uw bewerkingen zijn onlangs meer dan %,d keer bekeken</item>
   </plurals>
   <plurals name="year_in_review_slide_edits_viewed_times_body">
-    <item quantity="one">Lezers over de hele wereld waarderen uw bijdragen. In de afgelopen twee maanden zijn de pagina\'s die u hebt bewerkt in totaal %,d keer bekeken. Dankzij redacteuren zoals u is Wikipedia een gestaag verbeterende, op feiten gebaseerde en betrouwbare kennisbron voor de wereld.</item>
-    <item quantity="other">Lezers over de hele wereld waarderen uw bijdragen. In de afgelopen twee maanden zijn de pagina\'s die u hebt bewerkt in totaal %,d keer bekeken. Dankzij redacteuren zoals u is Wikipedia een gestaag verbeterende, op feiten gebaseerde en betrouwbare kennisbron voor de wereld.</item>
+    <item quantity="one">Lezers over de hele wereld waarderen uw bijdragen. In de afgelopen twee maanden zijn de pagina\'s die u hebt bewerkt in totaal %,d keer bekeken. Dankzij bewerkers zoals u is Wikipedia een gestaag verbeterende, op feiten gebaseerde en betrouwbare kennisbron voor de wereld.</item>
+    <item quantity="other">Lezers over de hele wereld waarderen uw bijdragen. In de afgelopen twee maanden zijn de pagina\'s die u hebt bewerkt in totaal %,d keer bekeken. Dankzij bewerkers zoals u is Wikipedia een gestaag verbeterende, op feiten gebaseerde en betrouwbare kennisbron voor de wereld.</item>
   </plurals>
   <plurals name="year_in_review_slide_edited_per_minute_headline">
     <item quantity="one">Wikipedia werd %,d keer per minuut bewerkt</item>
@@ -1973,17 +1999,17 @@
     <item quantity="other">U hebt %s keer bewerkt</item>
   </plurals>
   <plurals name="year_in_review_slide_edited_times_body">
-    <item quantity="one">Bedankt dat u een van de vrijwillige redacteuren bent die het verschil maakt in Wikimedia-projecten over de hele wereld. Vrijwilligers zoals u hebben %,d wijziging aangebracht in meer dan 300 verschillende taaledities van Wikipedia.</item>
-    <item quantity="other">Bedankt dat u een van de vrijwillige redacteuren bent die het verschil maakt in Wikimedia-projecten over de hele wereld. Vrijwilligers zoals u hebben %,d wijzigingen aangebracht in meer dan 300 verschillende taaledities van Wikipedia.</item>
+    <item quantity="one">Bedankt dat u een van de vrijwillige bewerkers bent die het verschil maakt in Wikimedia-projecten over de hele wereld. Vrijwilligers zoals u hebben %,d wijziging aangebracht in meer dan 300 verschillende taaledities van Wikipedia.</item>
+    <item quantity="other">Bedankt dat u een van de vrijwillige bewerkers bent die het verschil maakt in Wikimedia-projecten over de hele wereld. Vrijwilligers zoals u hebben %,d wijzigingen aangebracht in meer dan 300 verschillende taaledities van Wikipedia.</item>
   </plurals>
   <plurals name="year_in_review_slide_app_edited_times_headline">
-    <item quantity="one">Redacteuren op de officiële Wikipedia-apps hebben %,d bewerking uitgevoerd</item>
-    <item quantity="other">Redacteuren op de officiële Wikipedia-apps hebben %,d bewerkingen uitgevoerd</item>
+    <item quantity="one">Bewerkers op de officiële Wikipedia-apps hebben %,d bewerking uitgevoerd</item>
+    <item quantity="other">Bewerkers op de officiële Wikipedia-apps hebben %,d bewerkingen uitgevoerd</item>
   </plurals>
   <string name="year_in_review_slide_app_edited_times_body">Het hart en de ziel van Wikipedia zijn onze wereldwijde gemeenschap van vrijwillige bijdragers, donateurs en miljarden lezers zoals u – allemaal verenigd om onbeperkte toegang te delen tot betrouwbare informatie.</string>
   <plurals name="year_in_review_slide_english_edited_times_headline">
-    <item quantity="one">Redacteuren hebben dit jaar %,d wijziging aangebracht</item>
-    <item quantity="other">Redacteuren hebben dit jaar %,d wijzigingen aangebracht</item>
+    <item quantity="one">Bewerkers hebben dit jaar %,d wijziging aangebracht</item>
+    <item quantity="other">Bewerkers hebben dit jaar %,d wijzigingen aangebracht</item>
   </plurals>
   <plurals name="year_in_review_slide_english_edited_times_body_first">
     <item quantity="one">Vrijwilligers brachten %,d wijziging aan in meer dan 300 verschillende taaledities van Wikipedia.</item>
@@ -2247,4 +2273,219 @@
   <string name="donation_reminders_settings_report_email_subject">Probleemrapport - Donatieherinneringen</string>
   <string name="donation_reminders_settings_report_email_body">Ik ben een probleem tegengekomen met de functie Donatieherinneringen:\n- [Beschrijf precies het probleem]\n- [Schermafbeelding of koppelingen]\n\nHet gedrag dat ik wil zien is:\n- [Beschrijf de voorgestelde oplossing]</string>
   <string name="donation_reminders_snackbar_modify_button_label">Wijzigen</string>
+  <string name="hybrid_search_search_hint">Zoek of stel een vraag</string>
+  <string name="hybrid_search_article_search_hint">Vragen naar %s</string>
+  <string name="hybrid_search_suggestion_title">Zoeken naar:</string>
+  <string name="hybrid_search_onboarding_learn_more">Meer lezen</string>
+  <string name="hybrid_search_onboarding_search_title">Stel vragen, krijg antwoorden</string>
+  <string name="hybrid_search_onboarding_search_description">Deze experimentele functie begrijpt natuurlijke taal. In plaats van te zoeken op trefwoorden, kunt u beschrijven wat u wilt weten.</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_title">Betafunctie</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_description">Beschikbaar voor een beperkte periode tijdens dit experiment.</string>
+  <string name="hybrid_search_beta_tag">Beta</string>
+  <string name="hybrid_search_experimental_feature_switch_label">Doe mee aan het experiment</string>
+  <string name="hybrid_search_onboarding_search_example_title">Behoefte aa inspiratie?</string>
+  <string name="hybrid_search_onboarding_search_example_description">Gebruik een van de onderstaande zoekvoorbeelden.</string>
+  <string name="hybrid_search_onboarding_opt_out_toast_message">U hebt zich afgemeld voor het experiment.</string>
+  <string name="hybrid_search_onboarding_search_example_query_pluto_as_planet">Wanneer werd Pluto niet langer als planeet vermeld?</string>
+  <string name="hybrid_search_onboarding_search_example_query_first_olympics">eerste Olympische Spelen</string>
+  <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">RNA versus DNA</string>
+  <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Waarom doen mensen ananas op pizza?</string>
+  <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Wat zijn de grootste steden van Europa?</string>
+  <string name="hybrid_search_onboarding_screen_title">Een nieuwe manier om te zoeken</string>
+  <string name="hybrid_search_results_header_description">Afkomstig uit door mensen geschreven Wikipedia-pagina\'s</string>
+  <string name="hybrid_search_results_rate_label">Dit resultaat beoordelen</string>
+  <string name="hybrid_search_results_rated_label">Beoordeeld</string>
+  <string name="hybrid_search_results_rate_thumb_up">Geef een duim omhoog!</string>
+  <string name="hybrid_search_results_rate_thumb_down">Geef een duim omlaag</string>
+  <string name="hybrid_lexical_search_results_empty">Er is geen artikeltitel die overeenkomt met deze zoekopdracht.</string>
+  <string name="hybrid_search_results_empty">De uitgebreide zoekfunctie is tijdelijk niet beschikbaar.</string>
+  <string name="hybrid_search_no_results_header">Geen resultaten</string>
+  <string name="hybrid_search_no_results_description">Dit onderwerp geeft momenteel geen paginafragmenten weer. Hier zijn een paar dingen die u kunt proberen:</string>
+  <string name="hybrid_search_no_results_suggestion_rephrase_text">Herformuleer uw zoekopdracht</string>
+  <string name="hybrid_search_no_results_suggestion_try_related_topic">Probeer een gerelateerd onderwerp</string>
+  <string name="hybrid_search_error_message">Er is iets misgegaan. Probeer het later opnieuw.</string>
+  <string name="hybrid_search_who_is_prefix">Wie is %s?</string>
+  <string name="hybrid_search_turn_off_experiment_label">Dit experiment uit uitschakelen</string>
+  <string name="reading_challenge_widget_name">Leesuitdaging</string>
+  <string name="reading_challenge_onboarding_header">Vier de 25e verjaardag van Wikipedia door mee te doen aan de 25-daagse leesuitdaging!</string>
+  <string name="reading_challenge_onboarding_read_title">Lees één pagina per dag gedurende 25 dagen.</string>
+  <string name="reading_challenge_onboarding_read_description">Doe mee aan de uitdaging tussen 1 mei en 31 mei en voltooi de 25 dagen in uw eigen tempo.</string>
+  <string name="reading_challenge_onboarding_read_subtitle">Doe mee aan de uitdaging tussen %1$s en %2$s en voltooi de 25 dagen in uw eigen tempo.</string>
+  <string name="reading_challenge_onboarding_win_title">Win prijzen</string>
+  <string name="reading_challenge_onboarding_win_description">Voltooi een leesreeks van 25 dagen terwijl de uitdaging loopt om speciale prijzen te winnen.</string>
+  <string name="reading_challenge_onboarding_install_title">Installeer de widget</string>
+  <string name="reading_challenge_onboarding_install_description">Ontvang handige herinneringen en motivatie van onze schattige verjaardagsmascotte Baby Globe.</string>
+  <string name="reading_challenge_onboarding_note">Uw leesgeschiedenis blijft beschermd. De leesinzichten worden berekend op basis van lokaal op uw apparaat opgeslagen gegevens.</string>
+  <string name="reading_challenge_onboarding_learn_more_button">Meer lezen</string>
+  <string name="reading_challenge_onboarding_join_button">Doe mee aan de uitdaging</string>
+  <string name="reading_challenge_onboarding_prompt_title">Meld u aan om deel te nemen aan de uitdaging</string>
+  <string name="reading_challenge_onboarding_prompt_message">Meld u aan of maak een account aan om uw voortgang voor de leesuitdaging bij te houden.</string>
+  <string name="reading_challenge_onboarding_prompt_no_thanks">Nee, bedankt</string>
+  <string name="reading_challenge_onboarding_prompt_login">Aanmelden/Lid worden van Wikipedia</string>
+  <string name="reading_challenge_install_prompt_title">Installeer de widget voor de 25-daagse leesuitdaging</string>
+  <string name="reading_challenge_install_prompt_message">Baby Globe moedigt u aan. Voeg de widget \'Leesuitdaging\' toe om uw voortgang vanaf uw startscherm bij te houden.</string>
+  <string name="reading_challenge_install_prompt_got_it">Begrepen</string>
+  <string name="reading_challenge_install_prompt_add">Toevoegen</string>
+  <string name="search_widget_install_prompt_title">Een manier om sneller te zoeken</string>
+  <string name="search_widget_install_prompt_message">Installeer het zoekwidget voor Wikipedia voor directe toegang tot kennis vanaf uw startscherm</string>
+  <string name="search_widget_install_prompt_add">Toevoegen</string>
+  <string name="search_widget_install_prompt_got_it">Begrepen</string>
+  <string name="reading_challenge_widget_explore_button">Verkennen</string>
+  <string name="reading_challenge_widget_explore_wikipedia_button">Wikipedia verkennen</string>
+  <string name="reading_challenge_widget_join_challenge_button">Meedoen aan de uitdaging</string>
+  <string name="reading_challenge_widget_join_the_challenge_button">Doe mee aan de uitdaging</string>
+  <string name="reading_challenge_widget_search_button">Zoeken</string>
+  <string name="reading_challenge_widget_random_button">Willekeurig</string>
+  <string name="reading_challenge_widget_collect_prize_button">Prijs ophalen</string>
+  <string name="reading_challenge_widget_collect_your_prize_button">Haal uw prijs op!</string>
+  <string name="reading_challenge_widget_not_live_title">Klaar om te lezen?</string>
+  <string name="reading_challenge_widget_not_live_description">Er komt een leesuitdaging van 25 dagen aan.</string>
+  <string name="reading_challenge_widget_not_opted_in_title">Klaar voor de start? Lezen maar!</string>
+  <string name="reading_challenge_widget_not_opted_in_description">Doe mee aan de 25-daagse uitdaging en maak kans op speciale prijzen.</string>
+  <plurals name="reading_challenge_small_widget_streak">
+    <item quantity="one">%d dag</item>
+    <item quantity="other">%d dagen</item>
+  </plurals>
+  <plurals name="reading_challenge_small_widget_streak_final">
+    <item quantity="one">%1$d van %2$d</item>
+    <item quantity="other">%1$d van %2$d</item>
+  </plurals>
+  <plurals name="reading_challenge_small_widget_streak_final_large">
+    <item quantity="one">%1$d van %2$d dag</item>
+    <item quantity="other">%1$d van %2$d dagen</item>
+  </plurals>
+  <string name="reading_challenge_not_read_today_description">Laat deze dag niet voorbijgaan, behoud uw reeks.</string>
+  <string name="reading_challenge_streak_ongoing_title">25-daagse leesuitdaging</string>
+  <string name="reading_challenge_widget_reminder_dont_let_today_drift">Laat deze dag niet voorbijgaan, uw leesreeks wacht op u.</string>
+  <string name="reading_challenge_widget_reminder_before_day_snoozes">Voordat de dag ten einde loopt... is er nog tijd om iets te leren.</string>
+  <string name="reading_challenge_widget_reminder_small_bit_counts">Zelfs een klein beetje lezen telt mee voor uw doel.</string>
+  <string name="reading_challenge_widget_reminder_one_article_away">Uw reeks is slechts één pagina lezen verwijderd.</string>
+  <string name="reading_challenge_widget_reminder_jump_in_anytime">Neem gerust de tijd om vandaag nog wat te lezen.</string>
+  <string name="reading_challenge_widget_reminder_quiet_reading_moment">Een rustig moment om te lezen?</string>
+  <string name="reading_challenge_widget_reminder_keep_curiosity_going">Blijf nieuwsgierig.</string>
+  <string name="reading_challenge_widget_enrolled_not_started_title">Klaar voor de start? Lezen maar!</string>
+  <string name="reading_challenge_widget_enrolled_not_started_subtitle">Begin met het werken aan een reeks van 25 dagen!</string>
+  <string name="reading_challenge_widget_start_reading_challenge_title">Begin uw leesuitdaging.</string>
+  <string name="reading_challenge_widget_start_reading_challenge_subtitle">Elke reeks begint ergens</string>
+  <string name="reading_challenge_widget_start_spin_up_new_streak_title">Een nieuwe reeks beginnen?</string>
+  <string name="reading_challenge_widget_start_spin_up_new_streak_subtitle">Lees één pagina om te beginnen.</string>
+  <string name="reading_challenge_widget_start_fresh_start_title">Een nieuw begin.</string>
+  <string name="reading_challenge_widget_start_fresh_start_subtitle">Uw reeks is slechts één pagina lezen verwijderd.</string>
+  <string name="reading_challenge_widget_concluded_incomplete">Uitdaging afgesloten</string>
+  <string name="reading_challenge_widget_concluded_complete">U hebt het voor elkaar!</string>
+  <string name="reading_challenge_widget_reward_title">Nieuwsgierigheid staat u goed! 🛍️</string>
+  <string name="reading_challenge_widget_reward_body">Vier het voltooien van de uitdaging met 15%% korting in de Wikipedia-winkel.</string>
+  <string name="reading_challenge_widget_reward_button_label">Ontvang 15%% korting in de winkel</string>
+  <string name="explore_feed_new_update_prompt_title">Ontdekken heet nu Startpagina en heeft een nieuw uiterlijk</string>
+  <string name="explore_feed_new_update_prompt_new_name_title">Een nieuwe naam</string>
+  <string name="explore_feed_new_update_prompt_new_name_description">De Verkennen-feed heet nu Startpagina, op dezelfde plek als voorheen.</string>
+  <string name="explore_feed_new_update_prompt_two_ways_title">Uw feed, op twee manieren</string>
+  <string name="explore_feed_new_update_prompt_two_ways_description">Ontdek pagina\'s die zijn afgestemd op uw interesses in \'Voor u\', of blader door de beste redactionele inhoud van Wikipedia in \'Gemeenschap\'.</string>
+  <string name="explore_feed_new_update_prompt_control_title">De touwtjes in handen houden</string>
+  <string name="explore_feed_new_update_prompt_control_description">Bij elke aanbeveling staat precies vermeld waarom deze er is. U kunt uw voorkeuren op elk moment bijwerken in de instellingen.</string>
+  <string name="explore_feed_new_update_prompt_language_title">Elke taal, volledig gepersonaliseerd</string>
+  <string name="explore_feed_new_update_prompt_language_description">Lezen in meerdere talen? Elke taal biedt een eigen ervaring. Schakel eenvoudig over en uw nieuwe feed is direct beschikbaar.</string>
+  <string name="explore_feed_new_update_prompt_primary_button_text">Mijn feed aanpassen</string>
+  <string name="explore_feed_customize_interests">Interesses aanpassen</string>
+  <string name="explore_feed_customize_discover">Ontdekken aanpassen</string>
+  <string name="explore_feed_new_update_prompt_secondary_button_text">Stel het voor me in</string>
+  <string name="explore_feed_building_text">Laten we uw feed samenstellen...</string>
+  <string name="explore_feed_community_tab_label">Gemeenschap</string>
+  <string name="explore_feed_for_you_tab_label">Voor u</string>
+  <string name="explore_feed_date_today">Vandaag - %s</string>
+  <string name="explore_feed_load_previous_day_label">Vorige dag laden</string>
+  <string name="explore_feed_from_reading_list">Uit uw leeslijst</string>
+  <string name="explore_feed_because_of_interest">Vanwege uw interesse: %s</string>
+  <string name="explore_feed_onboarding_curiosity_title">Volg uw nieuwsgierigheid</string>
+  <string name="explore_feed_onboarding_curiosity_description">Selecteer onderwerpen die u interesseren en wij personaliseren uw feed.\n\nWe verzamelen minimale, geanonimiseerde gegevens.</string>
+  <string name="explore_feed_deselect_all_button_label">Alles deselecteren</string>
+  <string name="explore_feed_potd_subtitle">Dagelijkse afbeeldingen op Wikimedia Commons, geselecteerd door vrijwillige bijdragers</string>
+  <string name="explore_feed_featured_article_subtitle">Uitgelichte pagina\'s behoren tot de beste pagina\'s op Wikipedia en worden dagelijks door de redactie geselecteerd</string>
+  <string name="explore_feed_preference_selection_screen_title">Wat wilt u als eerste zien?</string>
+  <string name="explore_feed_preference_community_content_title">Gemeenschapsgerelateerde inhoud</string>
+  <string name="explore_feed_preference_personalized_content_title">Gepersonaliseerde inhoud</string>
+  <string name="explore_feed_in_the_news_subtitle">Pagina\'s die aanzienlijk zijn bijgewerkt om recente of actuele gebeurtenissen van algemeen belang weer te geven.</string>
+  <string name="explore_feed_on_this_day_subtitle">Ontdek historische gebeurtenissen op deze dag</string>
+  <string name="explore_feed_community_disclaimer">Inhoud en bronnen geselecteerd door en over de Wikimedia-gemeenschap</string>
+  <string name="explore_feed_community_load_more_label">Eerdere gemeenschapsinhoud bekijken</string>
+  <string name="explore_feed_manage_languages_label">Talen beheren</string>
+  <string name="explore_feed_header_overflow_hide_module_label">Module verbergen</string>
+  <string name="explore_feed_header_overflow_hide_module_message">Module verborgen.</string>
+  <string name="explore_feed_header_overflow_hide_module_message_action">Ongedaan maken</string>
+  <string name="explore_feed_personalized_preference_empty_state_text">Voeg interesses toe om gepersonaliseerde aanbevelingen voor inhoud te zien. U kunt dit doen in de vorige stappen of later in de instellingen.</string>
+  <string name="explore_feed_because_you_read">Omdat u het volgende hebt gelezen: %s</string>
+  <string name="explore_feed_swipe_to_explore_prompt_title">Veeg om te ontdekken</string>
+  <string name="explore_feed_swipe_to_explore_prompt_message">Veeg omhoog om tussen onderwerpen te schakelen, of zijwaarts om soortgelijke onderwerpen te bekijken.</string>
+  <string name="home_feed_settings_title">Uw startpagina personaliseren</string>
+  <string name="home_feed_settings_default_view_title">Standaardkanaal</string>
+  <string name="home_feed_settings_default_view_subtitle">Kies welk kanaal eerst verschijnt wanneer u de app opent</string>
+  <string name="home_feed_settings_default_view_confirm">Deze wijziging gaat de volgende keer dat u de app opent in.</string>
+  <string name="home_feed_settings_whats_driving_title">Wat is de drijvende kracht achter uw feed?</string>
+  <string name="home_feed_settings_modules_title">Modules</string>
+  <string name="home_feed_settings_community_subtitle">\'Gemeenschap\'-feedmodules in- of uitschakelen.</string>
+  <string name="home_feed_settings_for_you_subtitle">\"Voor u\"-feedmodules in- of uitschakelen</string>
+  <string name="home_feed_settings_whats_driving_subtitle">Onderwerpen en pagina\'s die de basis vormen voor uw inhoud</string>
+  <string name="home_feed_settings_community_modules_description">Als u een module uitschakelt, wordt deze verborgen in uw gemeenschapsfeed. U kunt de module hier op elk gewenst moment weer inschakelen. Sommige modules zijn mogelijk niet beschikbaar in uw taal.</string>
+  <string name="home_feed_settings_for_you_modules_description">Als u een module uitschakelt, wordt deze niet meer weergegeven in de \'Voor jou\'-feed. U kunt de module hier op elk gewenst moment weer inschakelen.</string>
+  <string name="home_feed_settings_based_on_interest_title">Op basis van uw interesses</string>
+  <string name="home_feed_settings_based_on_interest_subtitle">Pagina\'s afgestemd op de onderwerpen die u hebt gekozen.&lt;br /&gt;&lt;a href=\"#drivingFeed\"&gt;Wat is de drijfveer achter uw feed?&lt;/a&gt;</string>
+  <string name="home_feed_settings_because_you_read_subtitle">Suggesties gebaseerd op een recente pagina uit uw geschiedenis.</string>
+  <string name="home_feed_settings_continue_reading_title">Verder lezen</string>
+  <string name="home_feed_settings_continue_reading_subtitle">Verder gaan met pagina\'s die u niet hebt uitgelezen.</string>
+  <string name="home_feed_did_you_know_title">Wist u dat?</string>
+  <string name="home_feed_did_you_know_subtitle">Interessante feiten uit pagina\'s geselecteerd door vrijwillige bewerkers</string>
+  <string name="home_feed_did_you_know_more_label">Meer \"Wist u dat?\"</string>
+  <string name="home_feed_settings_community_empty_dialog_title">Uw gemeenschapsfeed zal leeg zijn.</string>
+  <string name="home_feed_settings_for_you_empty_dialog_title">Uw \"Voor u\"-feed zal leeg zijn.</string>
+  <string name="home_feed_settings_empty_dialog_text">Schakel ten minste één module in om de inhoud te kunnen bekijken.</string>
+  <string name="home_feed_settings_empty_dialog_positive">Toch doorgaan</string>
+  <string name="home_feed_screen_empty_state_label">Uw feed is leeg.</string>
+  <string name="home_feed_community_screen_all_modules_disabled_description">Schakel de &lt;b&gt;gemeenschapsmodules&lt;/b&gt; in om inhoud te bekijken die is samengesteld door en over de Wikimedia-gemeenschap.</string>
+  <string name="home_feed_for_you_screen_all_modules_disabled_description">Schakel de &lt;b&gt;Voor u&lt;/b&gt;-modules in om inhoud te zien die is afgestemd op uw voorkeuren.</string>
+  <string name="home_feed_screen_all_modules_disabled_btn_label">Modules beheren</string>
+  <string name="home_feed_for_you_screen_empty_title">U feed is leeg op dit moment.</string>
+  <string name="home_feed_for_you_screen_empty_description">Uw \"Voor u\"-feed wordt gevuld met gepersonaliseerde pagina\'s terwijl u op verkenning bent.</string>
+  <string name="home_feed_for_you_screen_empty_ways_to_start">Manieren om te beginnen:</string>
+  <string name="home_feed_for_you_screen_empty_add_interests">U kunt &lt;a href=\"#add_interests\"&gt;interesses toevoegen&lt;/a&gt;</string>
+  <string name="home_feed_for_you_screen_empty_see_community">Kijk wat er in de &lt;a href=\"#community_tab\"&gt;gemeenschap&lt;/a&gt; gebeurt</string>
+  <string name="home_feed_update_tooltip1">Nieuw: \"Willekeurige pagina\" en \"Plaatsen in de buurt\" zijn beschikbaar in \"Voor u\" en \"Wist u dat\" is in het tabblad Gemeenschap.</string>
+  <string name="home_feed_random_title">Willekeurig</string>
+  <string name="home_feed_random_subtitle">Een willekeurige pagina om uw nieuwsgierigheid te prikkelen</string>
+  <string name="home_feed_random_shuffle_button">Willekeurig</string>
+  <string name="home_feed_settings_feed_configuration_description">Deze onderwerpen en pagina\'s bepalen wat er in uw \'Voor u\'-feed verschijnt. Verwijder items die u niet meer wilt zien of voeg nieuwe interesses toe.</string>
+  <string name="home_feed_settings_feed_configuration_interest_title">Uw interesses</string>
+  <string name="home_feed_settings_feed_configuration_interest_subtitle">Bewerk de onderwerpen waarin u geïnteresseerd bent</string>
+  <string name="home_feed_settings_feed_configuration_location_title">Uw locatie</string>
+  <string name="home_feed_settings_feed_configuration_location_subtitle">Werk uw locatie bij in Plaatsen om pagina\'s in de buurt te bekijken</string>
+  <string name="home_feed_settings_feed_configuration_empty_interest_subtitle">Uw lijst met interesses is leeg. Voeg iets toe waar u nieuwsgierig naar bent.</string>
+  <string name="home_feed_settings_feed_configuration_reading_history_title">Leesgeschiedenis</string>
+  <string name="home_feed_settings_feed_configuration_reading_history_subtitle">Bekijk uw recent bekeken pagina\'s</string>
+  <string name="home_feed_settings_feed_configuration_empty_reading_history_subtitle">Uw leesgeschiedenis is leeg. Begin met het verkennen van pagina\'s om gepersonaliseerde aanbevelingen te krijgen.</string>
+  <string name="home_feed_settings_feed_configuration_languages_title">Talen</string>
+  <string name="home_feed_settings_feed_configuration_languages_subtitle">Bewerk uw voorkeurstalen</string>
+  <string name="home_feed_settings_feed_configuration_interests_updated_message">Interesses bijgewerkt. Vernieuw uw feed om deze bij te werken.</string>
+  <string name="home_feed_places_of_interest_cta_title">Verhalen van plaatsen waar u van houdt</string>
+  <string name="home_feed_places_of_interest_cta_description">Er worden pagina\'s weergegeven op basis van de laatste door u bekeken plaats. Ga naar het tabblad Plaatsen en selecteer een locatie.</string>
+  <string name="home_feed_places_of_interest_cta_button">Naar Plaatsen gaan</string>
+  <string name="home_feed_settings_places_of_interest_title">Belangwekkende plaatsen</string>
+  <string name="home_feed_settings_places_of_interest_subtitle">Pagina\'s in de buurt van uw laatste locatie in Plaatsen</string>
+  <string name="home_feed_settings_games_title">Spellen</string>
+  <string name="home_feed_settings_games_subtitle">Dagelijkse spelletjes gebaseerd op Wikipedia-inhoud</string>
+  <string name="home_feed_settings_discover_title">Ontdek aanbevelingen</string>
+  <string name="home_feed_settings_discover_subtitle">Artikelen uit uw Ontdekken-leeslijst</string>
+  <string name="home_feed_discover_cta_title">Uit Ontdekken</string>
+  <string name="home_feed_discover_cta_description">Leer over nieuwe onderwerpen, speciaal voor u uitgekozen. Kies tussen dagelijkse, wekelijkse of maandelijkse berichten.</string>
+  <string name="home_feed_discover_cta_button">Leeslijst voor Ontdekken inschakelen</string>
+  <string name="home_feed_discover_card_footer">Uit Ontdekken • Berichten %s</string>
+  <string name="home_feed_discover_see_all_title">Er valt nog meer te ontdekken</string>
+  <string name="home_feed_discover_see_all_description">Uw persoonlijke leeslijst bevat nog meer verhalen die speciaal voor u zijn uitgekozen.</string>
+  <string name="home_feed_discover_see_all_button">Alle aanbevelingen bekijken</string>
+  <string name="home_feed_places_of_interest_card_footer">%1$s • Gebaseerd op uw locatie in Plaatsen</string>
+  <string name="home_feed_for_you_screen_end_of_feed_title">Dat was het voor vandaag!</string>
+  <string name="home_feed_for_you_screen_end_of_feed_description">Kom morgen terug voor gloednieuwe pagina\'s die speciaal voor jou zijn samengesteld.</string>
+  <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Manieren om te blijven leren:</string>
+  <string name="home_feed_for_you_screen_end_of_feed_add_interests">Voeg &lt;a href=\"#add_interests\"&gt;nieuwe interesses&lt;/a&gt; toe</string>
+  <string name="home_feed_games_module_cta_prompt_title">Wilt u nog meer spellen spelen?</string>
+  <string name="home_feed_games_module_cta_prompt_subtitle">Ga naar het spellencentrum</string>
+  <string name="home_feed_games_module_cta_prompt_button_text">Spellencentrum</string>
 </resources>

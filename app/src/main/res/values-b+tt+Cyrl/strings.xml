@@ -36,7 +36,7 @@
   <string name="storage_access_error_retry">Кабатлау</string>
   <string name="article_load_error_retry">Кабатлау</string>
   <string name="offline_load_error_retry">Кабатлау</string>
-  <string name="page_error_back_to_main">Кире</string>
+  <string name="page_error_back_to_main">Артка</string>
   <string name="error_back">Кире кайту</string>
   <string name="error_next">Алга</string>
   <string name="menu_clear_all_history">Карау тарихын чистарт</string>
@@ -50,7 +50,7 @@
   <string name="image_content_description">Сурәт: %s</string>
   <string name="page_content_description">Бит: %s</string>
   <string name="wikimedia_commons">Викиҗыентык</string>
-  <string name="wikidata">Викимәгълүмат</string>
+  <string name="wikidata">Викимәгълүматлар</string>
   <string name="dialog_title_clear_history">Карау тарихын бушату</string>
   <string name="dialog_message_clear_history">Бу сезнең барлык карау тарихыгызны бетерәчәк. Дәвам итәргәме?</string>
   <string name="dialog_message_clear_history_yes">Әйе</string>
@@ -66,7 +66,7 @@
   <string name="page_edit_history_filter_by_all">Барлык төзәтмәләр (%s)</string>
   <string name="page_edit_history_filter_by_user">Кулланучылар төзәтмәләр (%s)</string>
   <string name="page_edit_history_filter_by_anon">Аноним төзәтмәләр (%s)</string>
-  <string name="page_edit_history_filter_by_bot">Бот төзәтмәләре (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Робот төзәтмәләре (%s)</string>
   <string name="page_edit_history_metrics_content_description">%1$s-%2$s кадәрге күрсәткечләр</string>
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="one">%1$d %2$s белән мөхәррирләнә</item>
@@ -82,7 +82,7 @@
   <string name="menu_page_find_in_page">Биттә табу</string>
   <string name="menu_page_add_to_watchlist">Күзәтү исемлегенә өстәргә</string>
   <string name="menu_page_watch">Күзәтү</string>
-  <string name="menu_page_unwatch">Күзәтмәү</string>
+  <string name="menu_page_unwatch">Күзәтүдән алу</string>
   <string name="menu_page_view_talk">Бәхәс битен карау</string>
   <string name="menu_page_talk_page">Бәхәс бите</string>
   <string name="menu_page_view_edit_history">Тарихын карау</string>
@@ -104,7 +104,7 @@
   <string name="menu_page_recently_viewed">Күптән түгел карап чыгарылган</string>
   <string name="menu_page_archive">Архив</string>
   <string name="menu_long_press_open_page">Ачу</string>
-  <string name="menu_long_press_open_in_places">Places коралында ач</string>
+  <string name="menu_long_press_open_in_places">Places коралында ачу</string>
   <string name="menu_long_press_open_in_new_tab">Битне яңа өстәмәдә ачу</string>
   <string name="menu_long_press_copy_page">Сылтама адресыннан күчермә алу</string>
   <string name="menu_text_select_define">Билгеләү</string>
@@ -136,7 +136,7 @@
   <string name="dialog_message_leaving_edit">Үзгәрешләрегез сакланмады әле. Бу битне ташлап китәсегез киләме?</string>
   <string name="dialog_message_leaving_edit_leave">Ташлап китү</string>
   <string name="dialog_message_leaving_edit_stay">Калу</string>
-  <string name="dialog_confirm_delete_donation_history_title">Берерүне раслау</string>
+  <string name="dialog_confirm_delete_donation_history_title">Бетерүне раслау</string>
   <string name="dialog_confirm_delete_donation_history_message">Бу гамәл бу җайланмадан башкарылган акчалата иганәләр өчен генә эшләнеләчәк.</string>
   <string name="dialog_confirm_delete_donation_history_delete">Бетер</string>
   <string name="dialog_confirm_delete_donation_history_cancel">Артка</string>
@@ -168,7 +168,7 @@
   <string name="login_in_progress_dialog_message">Керүегез бара…</string>
   <string name="login_success_toast">Сез кердегез!</string>
   <string name="reset_password_title">Серсүзне язып бирегез</string>
-  <string name="reset_password_description">Сез вакытлы серсүз белән кердегез. Керүегезне төгәлләү өчен биредә яңа серсүзегезне язып бирегез әле.</string>
+  <string name="reset_password_description">Сез вакытлы серсүз белән кердегез. Системага керүегезне тщамалау өчен сез биредә яңа серсүз куярга тиеш.</string>
   <string name="reset_password_hint">Яңа серсүз</string>
   <string name="reset_password_button">Саклау һәм керү</string>
   <string name="preference_title_logout">Чыгу</string>
@@ -233,19 +233,20 @@
   <string name="editing_error_spamblacklist">Блокланган доменнарга (%s) сылтамалар табылды. Зинһар, аларны бетерегез һәм яңадан кабатлап карагыз.</string>
   <string name="history_filter_list_hint">Фильтрлар тарихы</string>
   <string name="error_can_not_process_link">Бу сылтаманы күрсәтеп булмады</string>
-  <string name="page_protected_autoconfirmed">Бу бит өлешчә сакланган.</string>
-  <string name="page_protected_sysop">Бу бит тулысынча сакланган.</string>
-  <string name="page_protected_other">Бу бит түбәндәге дәрәҗәләрдә саклана: %s</string>
-  <string name="page_protected_can_not_edit">Кызганычка каршы,  хәзерге вакытта сезнең хисап язмагызның бу битне мөхәррирләү өчен хокуклары җитәрлек түгел.</string>
-  <string name="page_protected_can_not_edit_anon">Кызганычка каршы, хәзерге вакытта бу битне аноним рәвештә мөхәррирләргә ярамый.</string>
-  <string name="page_protected_can_not_edit_title">Бу бит якланган</string>
-  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Күзәтү исемлегенә өстәргә</string>
+  <string name="page_protected_autoconfirmed">Бу бит үзгәртүләрдән өлешчә сакланган.</string>
+  <string name="page_protected_sysop">Бу бит үзгәртүләрдән тулысынча сакланган.</string>
+  <string name="page_protected_other">Бу бит түбәндәге дәрәҗәләрдә яклана: %s</string>
+  <string name="page_protected_can_not_edit">Кызганычка, хәзерге вакытта хисап язмагызның бу битне мөхәррирләү өчен хокуклары җитәрлек түгел.</string>
+  <string name="page_protected_can_not_edit_anon">Кызганычка, хәзерге вакытта бу битне аноним рәвештә мөхәррирләргә ярамый.</string>
+  <string name="page_protected_can_not_edit_title">Бу бит үзгәртүләрдән сакланган</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Күзәтү исемлегенә өстәү</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Сезне кызыксындырган мәкаләләр белән нәрсә булганын күзәтегез. Мәкаләдәге үзгәрешләрне карау өчен, өстәлмә менюга басыгыз һәм &lt;b&gt;Күзәтү исемлегенә өстәргә&lt;/b&gt;не сайлагыз.</string>
   <string name="settings_item_preferences">Көйләнмәләр</string>
   <string name="settings_activity_title">Көйләнмәләр</string>
   <string name="about_description">Википедия кушымтасы турында</string>
   <string name="privacy_policy_description">Яшеренлек сәясәте</string>
   <string name="terms_of_use_description">Куллану шартлары</string>
+  <string name="legal_safety_contacts_description">Юридик һәм иминлек сораулары буенча элемтә</string>
   <string name="about_wikipedia_url">https://tt.wikipedia.org/wiki/Википедия:Turında</string>
   <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tt#Оффлайнда_уку_һәм_мәгълүматлар</string>
   <string name="about_libraries_heading">Кулланыла торган китапханәләр</string>
@@ -254,7 +255,7 @@
   <string name="about_translators_heading">Тәрҗемәчеләр</string>
   <string name="about_translators_translatewiki">Бу кушымта ирекмәннәр тарафыннан &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; адресы буенча тәрҗемә ителде.</string>
   <string name="about_app_license_heading">Лицензия</string>
-  <string name="about_app_license" fuzzy="true">Башлангыч кодны &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; бүлегендә  &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License\n&lt;/a&gt; карарга була. Әгәр дә башкасы күрсәтелмәсә, эчтәлек  &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License\n&lt;/a&gt; сылтамасы буенча бар.</string>
+  <string name="about_app_license">Башлангыч кодны &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; бүлегендә  &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License\n&lt;/a&gt; карарга була. Әгәр дә башкасы күрсәтелмәсә, эчтәлек  &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License\n&lt;/a&gt; сылтамасы буенча бар.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Викимедиа Фонды&lt;/a&gt; продукты</string>
   <string name="about_activity_title">Кушымта турында</string>
   <string name="about_logo_content_description">Википедиянең puzzle башваткычлы глобус кыяфәтендәге логотибы</string>
@@ -267,7 +268,7 @@
   <string name="edit_how_page_improved">Сез битне ничек яхшырттыгыз?</string>
   <string name="edit_next">Алга таба</string>
   <string name="edit_done">Саклау</string>
-  <string name="edit_preview">Алдан карау</string>
+  <string name="edit_preview">Карап алу</string>
   <string name="edit_undo">Кире кайтару</string>
   <string name="edit_redo">Кабатлау</string>
   <string name="edit_rollback">Кире кайтарырга</string>
@@ -282,7 +283,7 @@
   <string name="edit_zoom_out">Ерагайту</string>
   <string name="edit_summary_tag_typo">Хата төзәтелгән</string>
   <string name="edit_summary_tag_grammar">Грамматика төзәтелгән</string>
-  <string name="edit_summary_tag_links">Сылтамалар өстәлде</string>
+  <string name="edit_summary_tag_links">Сылтамалар өстәлгән</string>
   <string name="edit_summary_tag_other">Башка</string>
   <string name="edit_summary_tag_other_hint">Битне яхшыртуның башка ысуллары</string>
   <string name="edit_summary_added_short_description">Кыска тасвирлама өстәлде</string>
@@ -386,9 +387,11 @@
   <string name="button_get_directions">Юнәлеш алырга</string>
   <string name="error_no_maps_app">Маршрут төзи торган бер генә кушымтаны да табып булмады.</string>
   <string name="preference_title_customize_explore_feed">Лентаны тикшерергә</string>
-  <string name="preference_title_show_link_previews">Сылтамаларны алдан карау</string>
+  <string name="preference_title_customize_home_feed">Шәхси тасма</string>
+  <string name="preference_title_show_link_previews">Сылтамаларны карап алу</string>
   <string name="preference_summary_customize_explore_feed">\"Күзәтү\" лентасын көйләргә</string>
-  <string name="preference_summary_show_link_previews">Сылтамалар буенча күчеп, мәкаләләрне тиз алдан карау</string>
+  <string name="preference_summary_customize_home_feed">Баш битнең тасмасын үзегез өчен көйләгез</string>
+  <string name="preference_summary_show_link_previews">Сылтамалар буенча күчеп, мәкаләләрне тиз карап алу</string>
   <string name="preference_title_collapse_tables">Таблицаларны яшерергә</string>
   <string name="preference_summary_collapse_tables">Мәкаләләрдә мәгълүмат бокслары, сылтамалар һәм искәрмәләр кебек таблица блокларын автомат рәвештә яшерергә.</string>
   <string name="nav_item_donate">Иганә итү</string>
@@ -442,6 +445,7 @@
     <item quantity="one">Хисапъязма %d көннән соң эшләүдән туктыячак.</item>
     <item quantity="other">Хисапъязма %d көннән соң эшләүдән туктаячак.</item>
   </plurals>
+  <string name="temp_account_anon_ip_edit_status">&lt;b&gt;Сез керүне башкармадыгыз.&lt;/b&gt; Үзгәртүләр ясагач, IP адресыгыз төзәтмәләрегез белән бәйләнеләчәк.</string>
   <string name="temp_account_end_session">Сеансны тәмамла</string>
   <string name="temp_account_end_session_confirm">Бу гамәлнең нәтиҗәсендә сез вакытлы хисапъязмагыздан чыгачаксыз. Дәвам итәргә телисезме?</string>
   <string name="crash_report_activity_title">Кушымта хатасы</string>
@@ -470,7 +474,7 @@
   <string name="text_size_percent_default">%s (Программа көйләгән буенча)</string>
   <string name="text_style_title">Шрифт</string>
   <string name="theme_category_reading">Уку</string>
-  <string name="theme_category_editing">Мөхәррирләү</string>
+  <string name="theme_category_editing">Редакторлау</string>
   <string name="reading_focus_mode">Укуның фокуслау режимы</string>
   <string name="reading_focus_mode_detail">Әйләндерү вакытында мөхәррирләү функцияләрен һәм аскы кораллар панелен  яшерә</string>
   <string name="editing_syntax_highlight_label">Синтаксисның аерым төс белән бирелүе</string>
@@ -534,9 +538,9 @@
     <item quantity="one">%d мәкалә исемлектән бетерелгән</item>
     <item quantity="other">%d мәкаләләр исемлектән бетерелгән</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d мәкаләсе бетерелде %s</item>
-    <item quantity="other">%d мәкаләләре бетерелде %s</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">%1$d мәкаләсе бетерелде %2$s</item>
+    <item quantity="other">%1$d мәкаләләре бетерелде %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d исемлек бетерелде</item>
@@ -777,7 +781,7 @@
   <string name="notifications_wiki_filter_header">Вики-сөзгеч</string>
   <string name="notifications_type_filter_header">Сөзгеч төре</string>
   <string name="notifications_all_wikis_text">Барлык викиләр</string>
-  <string name="notifications_all_types_text" fuzzy="true">Барлык \"төрләр\"</string>
+  <string name="notifications_all_types_text">Барлык төрләр</string>
   <string name="notifications_menu_user_talk_page">%s фикер алышу бите</string>
   <string name="notifications_offline_disable_message">Бу функция автоном режимда кулланылмый</string>
   <string name="view_because_you_read_card_title">Укыганнар нигезендә</string>
@@ -785,9 +789,11 @@
   <string name="view_random_article_card_title">Очраклы мәкалә</string>
   <string name="view_random_article_card_action">Күбрәк очраклы мәкаләләр</string>
   <string name="view_top_read_card_title">Иң күп укылган</string>
-  <string name="view_top_read_card_action">Күбрәк популяр мәкаләләр</string>
+  <string name="view_top_read_card_description">Бүген Википедиядә нәрсә популяр</string>
+  <string name="view_top_read_card_action">Башка популяр мәкаләләр</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d мең</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d миллион</string>
+  <string name="view_top_read_card_pageviews_views_suffix">караулар</string>
   <string name="view_next_random_article">Башка очраклы мәкаләне йөкләгез</string>
   <string name="view_main_page_card_title">Бүген Википедиядә</string>
   <string name="view_main_page_card_action">Төп битне карарга</string>
@@ -828,11 +834,11 @@
   <string name="feed_item_type_randomizer">Уку өчен очраклы мәкаләләр булдырыгыз</string>
   <string name="feed_item_type_suggested_edits">Википедиягә эчтәлек өстәү буенча тәкъдимнәр</string>
   <string name="feed_item_type_places">Хәзерге локациягезгә бәйле якындагы мәкаләләр</string>
-  <string name="feed_empty_message">Сезнең \"Тикшеренүләр\" лентасында бернәрсә дә юк</string>
+  <string name="feed_empty_message" fuzzy="true">Сезнең \"Тикшеренүләр\" лентасында бернәрсә дә юк</string>
   <string name="feed_configure_onboarding_action">Көйләргә</string>
   <string name="customize_lang_selection_dialog_ok_button_text">Ярар</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Кире алу</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Үзегезнең тикшеренүләр лентасын көйләгез&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;\nХәзер сез үзегезнең лентада нәрсә күрсәтергә кирәклеген, шулай ук сезнең яраткан эчтәлек төрләре өчен өстенлекләрне сайлый аласыз.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Үзегезнең тикшеренүләр лентасын көйләгез&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;\nХәзер сез үзегезнең лентада нәрсә күрсәтергә кирәклеген, шулай ук сезнең яраткан эчтәлек төрләре өчен өстенлекләрне сайлый аласыз.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">Ярар</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Кире алу</string>
   <string name="feed_accessibility_card_text">Сез лентаның аскы өлешенә барып җиттегез.</string>
@@ -870,6 +876,7 @@
   <string name="description_edit_learn_more">Мәкаләләрнең тасвирламалары турында тулырак</string>
   <string name="description_edit_image_caption_learn_more">Сурәтләргә язмалар турында тулырак</string>
   <string name="description_too_short">Текст бик кыска.</string>
+  <string name="description_too_long">Тасвирламаны кыска итеп язарга тырышыгыз. Укучылар мәкаләнең темасын мөмкин кадәр тизрәк аңларга тиеш.</string>
   <string name="description_ends_with_punctuation">Текст тыныш билгеләре белән тәмамланырга тиеш түгел.</string>
   <string name="description_starts_with_uppercase">Беренче сүз ялгызлык исем булмаса, юл хрефтән башлагыз.</string>
   <string name="description_starts_with_lowercase">Юл хәрефтән башларга тырышмагыз.</string>
@@ -904,6 +911,7 @@
   <string name="customize_toolbar_reset_to_default_button">Программа көйләүләрен кире кайтарыгыз</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">Элементны күчерү өчен, күчерү тамгасын тотып торыгыз.</string>
   <string name="customize_toolbar_item_default_tooltip">Элементның торышын үзгәртү өчен, аңа басыгыз һәм күчерегез</string>
+  <string name="suggested_edits_activity_title">Үзгәртү</string>
   <string name="suggested_edits_describe_articles">Мәкаләләрне тасвирларга</string>
   <string name="suggested_edits_caption_images">Анлатмалы сурәтләр</string>
   <string name="suggested_edits_tag_images">Сурәтләрне теглар белән билгеләгез</string>
@@ -1116,6 +1124,7 @@
   <string name="edit_summary_added_caption">Аңлатма өстәлгән</string>
   <string name="edit_summary_added_image_and_caption">Сурәт һәм аның аңлатма язуы өстәлде</string>
   <string name="edit_published_view">Күрсәт</string>
+  <string name="activity_tab_logged_out_title">Википедия кушымтасында активлыгыгызны карау өчен хисапъязмагызга керегез. Хисапъязмагыз әле булмаса, аны булдырыгыз.</string>
   <string name="activity_tab_on_wikipedia_android">Android өчен Википедиядә</string>
   <string name="activity_tab_weekly_time_spent_hm">%1$d сәг. %2$d мин.</string>
   <string name="activity_tab_weekly_time_spent">Бу атнада укуга сарыф ителгән вакыт</string>
@@ -1130,11 +1139,64 @@
   <string name="activity_tab_game_stats">Уеннар статистикасы</string>
   <string name="activity_tab_game_stats_best_streak">Иң яхшы streak</string>
   <string name="activity_tab_play_wiki_games">WikiGames уеннарын уйнау</string>
+  <string name="activity_tab_report_email_subject">Читенлек турында хәбәрләү — «Активлык» табы</string>
   <string name="activity_tab_menu_feedback">Функция белән проблема</string>
   <string name="activity_tab_menu_info">Күбрәк күрсәт</string>
   <string name="activity_tab_menu_customize">Җайлау</string>
+  <string name="activity_tab_highlights">Төп моментлар</string>
   <string name="activity_tab_customize_screen_reading_history_switch_title">Уку тарихы</string>
   <string name="activity_tab_impact">Кертемегезнең тәэсире</string>
+  <string name="activity_tab_impact_most_viewed">Керткән төзәтмәгездән соң иң күп каралганнары</string>
+  <string name="activity_tab_impact_contributions_this_month">Бу айдагы кертем</string>
+  <plurals name="activity_tab_impact_edits_this_month">
+    <item quantity="one">бу айдагы үзгәрту</item>
+    <item quantity="other">бу айдагы үзгәртүләр</item>
+  </plurals>
+  <plurals name="activity_tab_impact_edits_last_month">
+    <item quantity="one">узган айдагы үзгәртү</item>
+    <item quantity="other">узган айдагы үзгәртүләр</item>
+  </plurals>
+  <string name="activity_tab_impact_all_time">Барлык кертемегезнең тәэсире</string>
+  <plurals name="activity_tab_impact_total_edits">
+    <item quantity="one">төзәтмәләр саны</item>
+    <item quantity="few">төзәтмәләр саны</item>
+    <item quantity="many">төзәтмәләр саны</item>
+    <item quantity="other">төзәтмәләр саны</item>
+  </plurals>
+  <plurals name="activity_tab_impact_thanks">
+    <item quantity="other">рәхмәт әйтү</item>
+  </plurals>
+  <plurals name="activity_tab_impact_best_streak_text">
+    <item quantity="other">%d көн</item>
+  </plurals>
+  <string name="activity_tab_impact_best_streak">Иң яхшы streak</string>
+  <string name="activity_tab_impact_last_edited">Соңгы төзәтмә</string>
+  <string name="activity_tab_impact_suggested_edits_title">Соңгы вакыт дәвамында мәкаләләргә 0 төзәтмә</string>
+  <string name="activity_tab_impact_suggested_edits_message">Сез бу ай дәвамында төзәтмәләр кертмәдегез кебек. Үзегезгә кызык булган темаларга язып, ачык белемнәрне киңәйтегез.</string>
+  <string name="activity_tab_impact_suggested_edits_button">Төзәтмә кертү</string>
+  <string name="activity_tab_impact_recent_activity">Күптән түгелге активлыгыгыз (соңгы 30 көн)</string>
+  <string name="activity_tab_impact_recent_activity_edits">{{PLURAL:$1|Төзәтмә}}</string>
+  <string name="activity_tab_customize_screen_time_spent_switch_title">Укып үткәргән вакытыгыз</string>
+  <string name="activity_tab_customize_screen_reading_insights_switch_title">Укыганнарыгыз турында күбрәк</string>
+  <string name="activity_tab_customize_screen_editing_insights_switch_title">Үзгәртүләр турында күбрәк</string>
+  <string name="activity_tab_customize_screen_impact_switch_title">Барлык кертемегезнең тәэсире</string>
+  <string name="activity_tab_customize_screen_games_switch_title">Уен статистикасы</string>
+  <string name="activity_tab_customize_screen_donations_switch_title">Кушымта эчендә соңгы иганә</string>
+  <string name="activity_tab_customize_screen_timeline_switch_title">Активлык тарихы</string>
+  <string name="activity_tab_customize_screen_no_modules_message">Активлык модульләре сүндерелгән. Бу табта яңартуларны күрү өчен &lt;a href=\"#\"&gt;Аларны кабызыгыз&lt;/a&gt;.</string>
+  <string name="activity_tab_timeline_today">Бүген</string>
+  <string name="activity_tab_timeline_yesterday">Кичә</string>
+  <string name="activity_tab_timeline_empty_state_title">Күрсәтерлек берни дә юк</string>
+  <string name="activity_tab_timeline_empty_state_message">Үз тарихыгызны булдыру өчен укый башлагыз һәм төзәтмәләр кертегез</string>
+  <string name="activity_tab_timeline_view_changes_button">Үзгәрешләрне күрсәтү</string>
+  <string name="activity_tab_onboarding_reading_patterns_title">Нәрсәләр турында укырга яратасыз</string>
+  <string name="activity_tab_onboarding_reading_patterns_message">Укып күпме вакыт уздырганыгызны, вакыт дәвамында нинди мәкаләләрне һәм темаларны караганыгызны күзәтегез.</string>
+  <string name="activity_tab_onboarding_screen_title">«Активлыкны» тәкъдим итәбез</string>
+  <string name="activity_tab_onboarding_impact_title">Кертемнең тәэсире</string>
+  <string name="activity_tab_onboarding_engage_title">Катнашу өчен башка мөмкинлекләр</string>
+  <string name="activity_tab_onboarding_stay_in_control_title">Барысын да контроль астында тотыгыз</string>
+  <string name="edits_screen_what_is_title">Википедия кушымтасы эчендә төзәтмәләр кертү</string>
+  <string name="activity_tab_snackbar_label">Уен статистикасы төп телегез өчен күрсәтелә.</string>
   <string name="file_page_activity_title">Файлның бите</string>
   <string name="file_page_add_image_caption_button">Сурәткә аңлатма өстәргә</string>
   <string name="file_page_add_image_tags_button">Сурәт тегларын өстәргә</string>
@@ -1154,7 +1216,7 @@
   <string name="onboarding_get_started">Башларга</string>
   <string name="onboarding_maybe_later">Бәлки соңрак</string>
   <string name="onboarding_explore_title">Өйрәнүнең яңа ысуллары</string>
-  <string name="onboarding_explore_text">Даими яңартыла торган лента ярдәмендә Википедиянең лабиринтлары буйлап сәяхәт итегез. &lt;br/&gt; лентаны сезнең кызыксынуларыгызга туры килерлек итеп &lt;b&gt;көйләгез&lt;/b&gt; - &lt;b&gt; бу көнне  булган&lt;/b&gt; тарихи вакыйгаларны өйрәнү яисә &lt;/b&gt;уңышка&lt;/b&gt; таяну булсынмы.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Даими яңартыла торган лента ярдәмендә Википедиянең лабиринтлары буйлап сәяхәт итегез. &lt;br/&gt; лентаны сезнең кызыксынуларыгызга туры килерлек итеп &lt;b&gt;көйләгез&lt;/b&gt; - &lt;b&gt; бу көнне  булган&lt;/b&gt; тарихи вакыйгаларны өйрәнү яисә &lt;/b&gt;уңышка&lt;/b&gt; таяну булсынмы.</string>
   <string name="onboarding_reading_list_sync_title">Синхронлаштырылган уку исемлекләре</string>
   <string name="onboarding_reading_list_sync_text_v2">Сез автоном режимда булып та соңрак укырга теләгән мәкаләләрдән уку өчен исемлекләр төзи аласыз.&lt;br/&gt;Үзегезнең уку исемлекләрен синхронлаштыру өчен Википедиядәге хисап язмагызга керегез. &lt;a href=\"#login\"&gt;Википедиягә кушылыгыз&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Мәгълүмат һәм конфиденциальлек</string>
@@ -1163,6 +1225,7 @@
   <string name="onboarding_multilingual_secondary_text">Без сезнең җайланмада түбәндәгеләрне таптык:</string>
   <string name="onboarding_multilingual_add_language_text">Телләрне тулыландыру яки мөхәррирләү</string>
   <string name="onboarding_welcome_title_v2">Ирекле энциклопедия\n..., 300 дән артык телдә</string>
+  <string name="onboarding_next">Алга</string>
   <string name="app_shortcuts_random">Очраклы</string>
   <string name="app_shortcuts_continue_reading">Алга таба укырга</string>
   <string name="app_shortcuts_search">Эзләү</string>
@@ -1192,7 +1255,7 @@
     <item quantity="one">Сайланган телне бетерергәме?</item>
     <item quantity="other">Сайланган телләрне бетерергәме?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Сез Лента өстәмә битендәге эчтәлекне карый һәм Википедиянең бары тик башка тел бүлекләре өчен тиз эзләү фильтрларын куллана аласыз.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Сез Лента өстәмә битендәге эчтәлекне карый һәм Википедиянең бары тик башка тел бүлекләре өчен тиз эзләү фильтрларын куллана аласыз.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Барлык телләрне дә бетерү мөмкин түгел</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Эчтәлекне эзләү һәм уку өчен Википедиянең бер генә телен булса да кулланыгыз.</string>
   <string name="more_language_options">күбрәк</string>
@@ -1225,7 +1288,7 @@
   <string name="wikitext_numbered_list">Санлы исемлек</string>
   <string name="wikitext_template">Калып</string>
   <string name="wikitext_reference">Сылтама</string>
-  <string name="wikitext_preview_link">Алдан карау өчен сылтама</string>
+  <string name="wikitext_preview_link">Карап алу өчен сылтама</string>
   <string name="wikitext_mention_user">Кулланучыны искә алырга</string>
   <string name="insert_media_title">Медиа-файлны куярга</string>
   <string name="insert_media_search_description">Викиҗыентыктан файлны сайлагыз</string>
@@ -1256,11 +1319,14 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">Биеклек</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">нкт</string>
   <string name="insert_media_insert_button">Куярга</string>
+  <string name="templates_search_hint">Калыпларны эзләү</string>
   <string name="templates_insert_button">Кертеп куй</string>
   <string name="templates_param_suggested_value">мәсәлән, %s</string>
   <string name="templates_param_optional_hint">%s (мәҗбүри түгел)</string>
   <string name="templates_param_suggested_hint">%s (киңәш ителә)</string>
   <string name="templates_learn_more_link">Күбрәк күрсәт</string>
+  <string name="templates_description_incomplete">Калыплар кулланучылар тарафыннан ясала һәм тулы тасвирланмаска мөмкин.</string>
+  <string name="templates_description_empty">\"%s\" калыбының әлегә тасвирламасы юк.</string>
   <string name="main_drawer_help">Белешмә</string>
   <string name="main_drawer_login">Википедиягә керү / кушылу</string>
   <string name="main_tooltip_action_button">Башларга</string>
@@ -1351,7 +1417,7 @@
   <string name="watchlist_details_watching_label">Күзәтүче</string>
   <string name="watchlist_details_watch_label">Күзәтү</string>
   <string name="watchlist_details_next_edit">Киләсе төзәтмә</string>
-  <string name="watchlist_details_prev_edit">Алдагы мөхәррирләү</string>
+  <string name="watchlist_details_prev_edit">Алдагы редакторлау</string>
   <string name="thank_label">Рәхмәт</string>
   <string name="view_user_page">Кулланучы битен карарга</string>
   <string name="thank_dialog_title_text">\'Рәхмәт\'не ачык рәвештә юлларга</string>
@@ -1384,10 +1450,10 @@
   <string name="revision_compare_two_only">Бары тик ике редакцияне генә сайларга мөмкин.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Үзгәртергә</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">даими</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">1 атна дәвамында</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">бер ай дәвамында</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">3 ай дәвамында</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">6 ай дәвамында</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 атна</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 ай</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 ай</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 ай</string>
   <string name="watchlist_expiry_dialog_title">Күзәтү исемлегендә вакыт аралыгын сайлагыз</string>
   <string name="watchlist_expiry_dialog_permanent">Даими</string>
   <string name="watchlist_expiry_dialog_one_week">1 атна</string>
@@ -1401,7 +1467,7 @@
   <string name="watchlist_filter_pages">Битләр</string>
   <string name="watchlist_filter_other">Башка</string>
   <string name="watchlist_page_moved">Күчерелгән</string>
-  <string name="watchlist_page_protected">Якланган</string>
+  <string name="watchlist_page_protected">Үзгәртүдән сакланган</string>
   <string name="watchlist_page_deleted">Бетерелде</string>
   <string name="watchlist_filter_title">Күзәтү исемлеге фильтры</string>
   <string name="watchlist_filter_wiki_filter_header">Вики</string>
@@ -1427,7 +1493,7 @@
   <string name="watchlist_filter_user_status_experienced">Тәҗрибәле кулланучылар</string>
   <string name="watchlist_filter_contribution_authorship_header">Кертемнең авторлыгы</string>
   <string name="watchlist_filter_contribution_authorship_own">Сез керткән үзгәрешләр</string>
-  <string name="watchlist_filter_contribution_authorship_except_own">Башка кулланучылар ясаган үзгәрешләр</string>
+  <string name="watchlist_filter_contribution_authorship_except_own">Башка кулланучылар ясаган үзгәртүләр</string>
   <string name="watchlist_filter_automated_contributions_header">Автоматлаштырылган кертемнәр</string>
   <string name="watchlist_filter_automated_contributions_bot">Бот</string>
   <string name="watchlist_filter_automated_contributions_human">Кеше (робот түгел)</string>
@@ -1452,7 +1518,7 @@
     <item quantity="one">%d сөзгеч</item>
     <item quantity="other">%d сөзгеч</item>
   </plurals>
-  <string name="preview_edit_title">Төзәтмәне алдан карау</string>
+  <string name="preview_edit_title">Төзәтмәне карап алу</string>
   <string name="preview_edit_summarize_edit_title">Мөхәррирләүне гомумиләштерергә</string>
   <string name="preview_edit_summarize_edit_hint">Сез бу битне ничек яхшырттыгыз?</string>
   <string name="preview_edit_minor_edit">Бу зур булмаган төзәтмә</string>
@@ -1488,7 +1554,7 @@
   <string name="reading_list_share_menu_label">Уртаклашу…</string>
   <string name="reading_list_share_menu_tooltip">Бу уку өчен исемлекне башкалар белән дә уртаклашыгыз</string>
   <string name="reading_list_share_message_v2">Сәлам! Мин сезнең белән Википедиядәге үземнең уку исемлеге белән уртаклашырга телим.</string>
-  <string name="talk_templates_empty_message" fuzzy="true">Сезнең бернинди кисәтү хәбәрләре сакланмаган.</string>
+  <string name="talk_templates_empty_message">Эшне башлау өчен үзегезнең хәбәрләрегезне булдырыгыз яки &lt;a href=\"#\"&gt;хәбәр мисалларын&lt;/a&gt; кулланыгыз.</string>
   <string name="talk_templates_new_message_title">Яңа хәбәр</string>
   <string name="talk_templates_new_message_subject_hint">Тема</string>
   <string name="talk_templates_new_message_compose_hint">Хәбәр язарга</string>
@@ -1559,9 +1625,13 @@
   <string name="patroller_tasks_filters_contribution_quality_bad_desc">Аеруча хаталы яки зарарлы төзәтмәләрне эзләүдә бик төгәл.</string>
   <string name="patroller_tasks_filters_user_intent_header">Кулланучыларның ниятләрен фаразлау</string>
   <string name="patroller_tasks_filters_user_intent_good">Мөгаен, намуслы</string>
+  <string name="patroller_tasks_filters_user_intent_good_desc">Яхшы ният белән ясаган күпчелек төзәтмәләрне табуның иң төгәл ысулы.</string>
   <string name="patroller_tasks_filters_user_intent_may_problems">Бәлки, намуссызлык</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems_desc">Яман ният белән ясалган күпчелек төзәтмәләрне таба, ләкин төгәллеге түбән була.</string>
   <string name="patroller_tasks_filters_user_intent_likely_problems">Мөгаен, намуссызлык</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems_desc">Яман ният белән ясалган төзәтмәләрне уртача санда таба, ләкин төгәллеге дә уртача була.</string>
   <string name="patroller_tasks_filters_user_intent_bad">Мөгаен, намуссызлык</string>
+  <string name="patroller_tasks_filters_user_intent_bad_desc">Яман ният белән ясалган бары тик иң күренмәле төзәтмәләрне таба, ләкин төгәллеге югары була.</string>
   <string name="patroller_tasks_filters_empty_search_message">Үзгәрешләрне күбрәк күрү өчен %s фильтрны бетерегез</string>
   <plurals name="patroller_tasks_filters_number_of_filters">
     <item quantity="one">%d сөзгеч</item>
@@ -1569,23 +1639,33 @@
   </plurals>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Мәкаләне үзгәртү тарихы</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Кире кайтару тәмамланды</string>
+  <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Сез rollback башкарырга телисезме?</string>
+  <string name="patroller_tasks_patrol_edit_rollback_success">Rollback тәмам</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">Карау</string>
   <string name="patroller_tasks_overflow_report">Функция белән проблема</string>
   <string name="patroller_tasks_overflow_learn">Күбрәк белергә</string>
+  <string name="patroller_onboarding_one_title">Википедиядә керткән төзәтмәләрне тикшерүдә һәм раслауда катнашыгыз.</string>
+  <string name="patroller_onboarding_two_title">Башкаларның эшчәнлекләре турында бәяләү фикерләрен калдырыгыз, төзәтмәләрне күзәтегез һәм тикшерегез, чагыштыру экранында эшләгез.</string>
   <string name="patroller_onboarding_two_thank_title">Рәхмәт</string>
+  <string name="patroller_onboarding_two_thank_content">Файдалы кертемне очраттыгызмы? Катнашучыга ясаган кертеме өчен рәхмәт белдерегез.</string>
   <string name="patroller_onboarding_two_watch_title">Күзәтү</string>
   <string name="patroller_onboarding_two_talk_title">Фикер алыш</string>
   <string name="patroller_onboarding_two_talk_content">Башка төзәтүчеләр белән аралашыгыз. Еш кулланылган битләрне фикер алышу битендә саклагыз яки калыпны кулланыгыз.</string>
   <string name="patroller_onboarding_two_undo_title">Кире кагу/Кире кайтару</string>
+  <string name="patroller_diff_feedback_dialog_feedback_title">Без бу функцияне ничек яхшырта алабыз?</string>
   <string name="patroller_diff_menu_edit_history_title">Мәкаләне үзгәртү тарихы</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Кире элемтә</string>
   <string name="patroller_diff_feedback_tooltip">«Функциясе белән проблема» бүлегендә бәяләмәләрне теләсә кайсы вакытта җибәрү өчен өстәмә менюга басыгыз.</string>
   <string name="patroller_saved_message_title_vandalism">Вандализм турында кисәтү</string>
+  <string name="patroller_saved_message_title_editing_tests">Редакторлауны тестлау</string>
   <string name="patroller_saved_message_title_npov">Нейтраль караш</string>
   <string name="patroller_saved_message_title_auto_trans">Автоматик тәрҗемә</string>
   <string name="patroller_saved_message_title_final_warning">Соңгы кисәтү</string>
   <string name="patroller_saved_message_title_copy_vio">Авторлык хокукларын бозу турында кисәтү</string>
+  <string name="patroller_saved_message_title_edit_summary_reminder">Төзәтмә тасвирламасын калдыру</string>
+  <string name="patroller_saved_message_title_do_not_censor">Цензураны башкармагыз</string>
   <string name="patroller_saved_message_title_art_imp">Мәкаләне яхшырту тәкъдиме</string>
+  <string name="talk_warn_saved_messages_usage_instruction">Хәбәрне көйләү, җибәрү һәм хәбәрләрегездә саклау өчен түбәндәге мисалларны кулланыгыз.</string>
   <string name="talk_templates_menu_edit_title">Үзгәрт</string>
   <string name="data_opt_in_accept">Кабул итү</string>
   <string name="data_opt_in_reject">Баш тартырга</string>
@@ -1597,12 +1677,122 @@
   <string name="donation_campaign_donated_snackbar" fuzzy="true">Иганәгез өчен рәхмәт! Сезнең ярдәм Википедиягә һәм аның тугандаш проектларына чәчәк атарга ярдәм итә.</string>
   <string name="donation_campaign_go_back_button">Кире кайтарга</string>
   <string name="menu_single_webview_open_external">Система браузерында ачарга</string>
+  <string name="donate_gpay_dialog_title">Google Pay аша иганә итәргә телисезме?</string>
+  <string name="donate_gpay_dialog_description">Google Pay аша иганә ясагыз яки башка түләү ысулын сайлагыз.</string>
+  <string name="donate_gpay_dialog_pay_button">Google Pay аша иганә итү</string>
+  <string name="donate_gpay_dialog_other_button">Башка түләү ысулы</string>
+  <string name="donate_gpay_activity_title">Сумманы сайлагыз</string>
+  <string name="donate_gpay_activity_title_with_currency">Сумманы сайлагыз (%s)</string>
+  <string name="donate_gpay_check_recurring">Моны ай саен җибәрелүче иганәгә әйләндерү</string>
+  <string name="donate_gpay_check_send_email">Әйе, Wikimedia Foundation миңа вакыт-вакыт электрон хатлар җибәрә ала.</string>
+  <string name="donate_gpay_minimum_amount">Сумманы сайлагызчы (кимендә %s)</string>
+  <string name="donate_gpay_help_faq">Еш бирелә торган сораулар</string>
+  <string name="places_title">Урыннар</string>
+  <string name="places_permissions_denied">Харитада кайда икәнегезне күрү өчен сездән локациягезне уртаклашуга рөхсәт бирүегез кирәк. Яңадан кабатлагызчы.</string>
+  <string name="places_search_hint">Урыннарны эзләү</string>
+  <string name="places_filter_title">Тел буенча сөзгеч</string>
   <string name="places_toggle_buttons_map">Харита</string>
   <string name="places_toggle_buttons_list">Исемлек</string>
+  <string name="places_card_title">Якындагы урыннар</string>
+  <string name="places_card_action">Якын-тирәдәге башка урыннар</string>
+  <string name="places_card_enable_location_card_button">Локация табуны кабызу</string>
+  <string name="places_card_distance_unknown">Ара билгесез</string>
   <string name="survey_dialog_title">Бу функцияне яхшыртырга ярдәм итегез</string>
   <string name="survey_dialog_message">Сезне бу функция канәгатьләндерәме?</string>
   <string name="survey_dialog_option_satisfied">Канәгатьләндерелгән</string>
   <string name="survey_dialog_option_neutral">Нейтраль</string>
+  <string name="survey_dialog_option_unsatisfied">Канәгать түгел</string>
+  <string name="survey_dialog_option_very_satisfied">Бик канәгать</string>
+  <string name="survey_dialog_option_very_unsatisfied">Бик канәгать түгел</string>
+  <string name="survey_dialog_cancel">Баш тарту</string>
   <string name="survey_dialog_submit">Җибәрү</string>
+  <string name="survey_dialog_next">Алга</string>
+  <string name="survey_dialog_general_yes">Әйе</string>
+  <string name="survey_dialog_general_no">Юк</string>
+  <string name="survey_dialog_general_maybe">Шулайдыр</string>
   <string name="survey_dialog_submitted_snackbar" fuzzy="true">Бәяләмә җибәрелде.</string>
+  <string name="games_hub_activity_title">Уеннар</string>
+  <string name="games_hub_activity_games_unavailable_message">Бу телдә уеннар юк! Уеннарда һәрбер тел бүлегендә волонтер-мөхәррирләр тарафыннан ясалган контент кулланыла.</string>
+  <string name="games_hub_activity_games_unavailable_message_learn_more_action">Күбрәк мәгълүмат</string>
+  <string name="games_hub_activity_overflow_view_game_stats">Уен статисиикасын карау</string>
+  <string name="games_hub_activity_overflow_learn_more">Күбрәк мәгълүмат</string>
+  <string name="on_this_day_game_entry_dialog_title">Кереш</string>
+  <string name="on_this_day_game_entry_dialog_subtitle">Википедия уеннары</string>
+  <string name="on_this_day_game_entry_dialog_button">Уйнау</string>
+  <string name="on_this_day_game_dialog_button">Уйнау</string>
+  <string name="on_this_day_game_submit">Җавапны җибәрү</string>
+  <string name="on_this_day_game_correct">Дөрес!</string>
+  <string name="on_this_day_game_incorrect">Дөрес түгел!</string>
+  <string name="on_this_day_game_point">+1 балл</string>
+  <string name="on_this_day_game_next">Киләсе сорау</string>
+  <string name="on_this_day_game_finish">Финаль нәтиҗә</string>
+  <string name="on_this_day_game_share_button">Нәтиҗәне уртаклашу</string>
+  <string name="on_this_day_game_feed_entry_card_heading">Википедия уеннары</string>
+  <string name="on_this_day_game_feed_entry_card_title">Нәрсә элегрәк булган?</string>
+  <string name="on_this_day_game_your_stats">Статистикагыз</string>
+  <plurals name="on_this_day_game_stats_games_played">
+    <item quantity="other">Уен уйналган</item>
+  </plurals>
+  <string name="on_this_day_game_stats_average_score">Уртача балл</string>
+  <string name="on_this_day_game_stats_streak">Агымдагы серия</string>
+  <string name="on_this_day_game_result_subtitle">Бүгенге уенда телгә алынган мәкаләләр</string>
+  <string name="on_this_day_game_completed_message" fuzzy="true">Уйнавыгыз өчен рәхмәт. Башка «Нәрсә элегрәк булган?» уенын көн саен тасмада табарга була.</string>
+  <string name="on_this_day_game_menu_notifications">Уен искәртүләре</string>
+  <string name="on_this_day_game_menu_info">Күбрәк мәгълүмат</string>
+  <string name="on_this_day_game_menu_feedback">Функция белән проблема</string>
+  <string name="on_this_day_game_article_read_button">Мәкаләне уку</string>
+  <string name="on_this_day_game_article_related_event_title">Бу мәкалә белән бәйле вакыйга</string>
+  <string name="on_this_day_game_article_answer_correct_stats_message">Сез бу сорауга дөрес җавап бирдегез</string>
+  <string name="on_this_day_game_article_answer_incorrect_stats_message">Сез бу сорауга дөрес җавап бирмәдегез</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_title">Уен искәртүләрен сүндерергәме?</string>
+  <string name="on_this_day_game_notification_turned_off_snackbar_message">Уен искәртүләре сүндерелгән.</string>
+  <string name="on_this_day_game_notification_turned_on_snackbar_message">Уен искәртүләре кабызылган.</string>
+  <string name="on_this_day_game_share_screen_subtitle">Темаларны тәшкил итә:</string>
+  <string name="on_this_day_game_archive_btn_text">Архивтагы уеннар</string>
+  <string name="on_this_day_game_review_results_btn_text">Нәтиҗәне карап алу</string>
+  <string name="on_this_day_game_play_today_btn_text">Бүгенге уенны уйнау</string>
+  <string name="on_this_day_game_continue_playing_btn_text">Уйнауны дәвам итү</string>
+  <string name="on_this_day_game_sound_on">Тавышны кабызу</string>
+  <string name="on_this_day_game_sound_off">Тавышны сүндерү</string>
+  <string name="on_this_day_game_more_label">Күбрәк</string>
+  <string name="on_this_day_game_card_progress_label">Сез %d сорауда. Шул көндә нинди тарихи вакыйга булган икәнен табыгыз.</string>
+  <string name="on_this_day_game_card_archive_label">Архив</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_button">Керү</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_title">Уен статистикасын карау өчен керегез</string>
+  <string name="wikipedia_games_title">Википедия уеннары</string>
+  <string name="year_in_review_learn_more">Күбрәк мәгълүмат</string>
+  <string name="year_in_review_get_started">Башлау</string>
+  <string name="year_in_review_topbar_w_icon">Википедиянең W тамгачыгы</string>
+  <string name="year_in_review_navigate_left">Сулга навигация</string>
+  <string name="year_in_review_close">Ябу</string>
+  <string name="year_in_review_share_icon">Уртаклашу тамгачыгы</string>
+  <string name="year_in_review_heart_icon">Йөрәк тамгачыгы</string>
+  <string name="year_in_review_navigate_right">Уңга навигация</string>
+  <string name="year_in_review_donate">Иганә итү</string>
+  <string name="year_in_review_information_icon">Мәгълүмат тамгачыгы</string>
+  <string name="year_in_review_survey_subtitle">Сезне бу функция канәгатьләндерәме?</string>
+  <string name="year_in_review_reading_list_survey_title">«%d ел күзәтүендә» уку исемлеген яхшыртырга булышыгыз.</string>
+  <string name="year_in_review_reading_list_survey_subtitle">Сезнең өчен төзелгән уку исемлегеннән сез канәгатьме?</string>
+  <string name="year_in_review_survey_very_satisfied">Бик канәгать</string>
+  <string name="year_in_review_survey_satisfied">Канәгать</string>
+  <string name="year_in_review_survey_neutral">Нейтраль</string>
+  <string name="year_in_review_survey_unsatisfied">Канәгать түгел</string>
+  <string name="year_in_review_survey_very_unsatisfied">Бик канәгать түгел</string>
+  <string name="year_in_review_survey_placeholder_text">Ниндидер өстәмә фикерләрегез бармы?</string>
+  <string name="year_in_review_survey_cancel">Баш тарту</string>
+  <string name="year_in_review_survey_submit">Җибәрү</string>
+  <string name="year_in_review_disable_title">Сез «Ел күзәтүен» сүндерергә телисезме?</string>
+  <string name="year_in_review_disable_positive_button">Әйе, телим</string>
+  <string name="year_in_review_disable_negative_button">Юк, теләмим</string>
+  <string name="year_in_review_globe_icon">Глобус тамгачыгы</string>
+  <string name="settings_app_icon_title">Кушымта тамгачыгы</string>
+  <string name="year_in_review_slide_top_categories_headline">Сезне иң кызыксындырган төркемнәр</string>
+  <string name="recommended_reading_list_interest_pick_search_hint">Мәкалә эзләү</string>
+  <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">Сезнең өчен булдырылган</string>
+  <string name="recommended_reading_list_page_overflow_customize">Көйләү</string>
+  <string name="recommended_reading_list_page_overflow_about">Бу функция турында</string>
+  <string name="recommended_reading_list_page_snackbar_day">Көн</string>
+  <string name="recommended_reading_list_page_snackbar_week">Атна</string>
+  <string name="recommended_reading_list_page_snackbar_month">Ай</string>
+  <string name="recommended_reading_list_settings_section_header">Тәкъдимнәр</string>
 </resources>

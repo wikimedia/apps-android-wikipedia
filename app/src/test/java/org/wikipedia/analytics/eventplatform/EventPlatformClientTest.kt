@@ -1,17 +1,21 @@
 package org.wikipedia.analytics.eventplatform
 
-import org.hamcrest.CoreMatchers
-import org.hamcrest.MatcherAssert
-import org.hamcrest.Matchers
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertNotNull
+import org.junit.Assert.assertNull
+import org.junit.Assert.assertTrue
 import org.junit.Before
-import org.junit.Ignore
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
+import org.wikimedia.testkitchen.config.DestinationEventService
+import org.wikimedia.testkitchen.config.StreamConfig
+import org.wikimedia.testkitchen.config.StreamConfigCollection
+import org.wikimedia.testkitchen.config.sampling.SampleConfig
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.EventPlatformClient.SamplingController
 import org.wikipedia.dataclient.ServiceFactory.getAnalyticsRest
-import org.wikipedia.dataclient.mwapi.MwStreamConfigsResponse
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.test.TestFileUtil
@@ -29,137 +33,118 @@ class EventPlatformClientTest {
     @Test
     fun testGenerateRandomId() {
         val id = EventPlatformClient.AssociationController.pageViewId
-        MatcherAssert.assertThat(id.length, CoreMatchers.`is`(20))
+        assertEquals(20, id.length)
     }
 
     @Test
     fun testGetStream() {
-        EventPlatformClient.setStreamConfig(StreamConfig("test", null, null))
-        MatcherAssert.assertThat(
-            EventPlatformClient.getStreamConfig("test"), CoreMatchers.`is`(CoreMatchers.notNullValue())
-        )
-        MatcherAssert.assertThat(
-            EventPlatformClient.getStreamConfig("key.does.not.exist"), CoreMatchers.`is`(CoreMatchers.nullValue())
-        )
+        EventPlatformClient.setStreamConfig(StreamConfig().also {
+            it.streamName = "test"
+        })
+        assertNotNull(EventPlatformClient.getStreamConfig("test"))
+        assertNull(EventPlatformClient.getStreamConfig("key.does.not.exist"))
     }
 
     @Test
     fun testEventSerialization() {
         val event = TestAppsEvent("test")
         val serialized = JsonUtil.encodeToString(event)!!
-        MatcherAssert.assertThat(serialized.contains("dt"), CoreMatchers.`is`(true))
-        MatcherAssert.assertThat(serialized.contains("app_session_id"), CoreMatchers.`is`(true))
-        MatcherAssert.assertThat(serialized.contains("app_install_id"), CoreMatchers.`is`(true))
+        assertTrue(serialized.contains("dt"))
+        assertTrue(serialized.contains("app_session_id"))
+        assertTrue(serialized.contains("app_install_id"))
     }
 
     @Test
     fun testAssociationControllerGetPageViewId() {
         val pageViewId = EventPlatformClient.AssociationController.pageViewId
-        MatcherAssert.assertThat(pageViewId.length, CoreMatchers.equalTo(20))
+        assertEquals(20, pageViewId.length)
     }
 
     @Test
     fun testAssociationControllerGetSessionId() {
         val sessionId = EventPlatformClient.AssociationController.sessionId
-        MatcherAssert.assertThat(sessionId.length, CoreMatchers.equalTo(20))
+        assertEquals(20, sessionId.length)
         val persistentSessionId = Prefs.eventPlatformSessionId
-        MatcherAssert.assertThat(persistentSessionId, CoreMatchers.`is`(CoreMatchers.notNullValue()))
-        MatcherAssert.assertThat(persistentSessionId!!.length, CoreMatchers.equalTo(20))
+        assertNotNull(persistentSessionId)
+        assertEquals(20, persistentSessionId!!.length)
     }
 
     @Test
     fun testNeverInSampleIfNoStreamConfig() {
-        MatcherAssert.assertThat(
-            SamplingController.isInSample(TestEvent("not-configured")),
-            CoreMatchers.`is`(false)
-        )
+        assertFalse(SamplingController.isInSample(TestEvent("not-configured")))
     }
 
     @Test
     fun testAlwaysInSampleIfStreamConfiguredButNoSamplingConfig() {
-        EventPlatformClient.setStreamConfig(StreamConfig("configured", null, null))
-        MatcherAssert.assertThat(
-            SamplingController.isInSample(TestEvent("configured")),
-            CoreMatchers.`is`(true)
-        )
+        EventPlatformClient.setStreamConfig(StreamConfig().also {
+            it.streamName = "configured"
+        })
+        assertTrue(SamplingController.isInSample(TestEvent("configured")))
     }
 
     @Test
     fun testAlwaysInSample() {
-        EventPlatformClient.setStreamConfig(
-            StreamConfig("alwaysInSample", SamplingConfig(1.0), null)
-        )
-        MatcherAssert.assertThat(
-            SamplingController.isInSample(TestEvent("alwaysInSample")),
-            CoreMatchers.`is`(true)
-        )
+        EventPlatformClient.setStreamConfig(StreamConfig().also {
+            it.streamName = "alwaysInSample"
+            it.sampleConfig = SampleConfig(1.0)
+        })
+        assertTrue(SamplingController.isInSample(TestEvent("alwaysInSample")))
     }
 
     @Test
     fun testNeverInSample() {
         EventPlatformClient.setStreamConfig(
-            StreamConfig("neverInSample", SamplingConfig(0.0), null)
+            StreamConfig().also {
+                it.streamName = "neverInSample"
+                it.sampleConfig = SampleConfig(0.0)
+            }
         )
-        MatcherAssert.assertThat(
-            SamplingController.isInSample(TestEvent("neverInSample")),
-            CoreMatchers.`is`(false)
-        )
+        assertFalse(SamplingController.isInSample(TestEvent("neverInSample")))
     }
 
     @Test
     fun testSamplingControllerGetSamplingValue() {
-        val deviceVal = SamplingController.getSamplingValue(SamplingConfig.UNIT_DEVICE)
-        MatcherAssert.assertThat(deviceVal, Matchers.greaterThanOrEqualTo(0.0))
-        MatcherAssert.assertThat(deviceVal, Matchers.lessThanOrEqualTo(1.0))
-        val pageViewVal = SamplingController.getSamplingValue(SamplingConfig.UNIT_PAGEVIEW)
-        MatcherAssert.assertThat(pageViewVal, Matchers.greaterThanOrEqualTo(0.0))
-        MatcherAssert.assertThat(pageViewVal, Matchers.lessThanOrEqualTo(1.0))
-        val sessionVal = SamplingController.getSamplingValue(SamplingConfig.UNIT_SESSION)
-        MatcherAssert.assertThat(sessionVal, Matchers.greaterThanOrEqualTo(0.0))
-        MatcherAssert.assertThat(sessionVal, Matchers.lessThanOrEqualTo(1.0))
+        val deviceVal = SamplingController.getSamplingValue(SampleConfig.UNIT_DEVICE)
+        assertTrue(deviceVal >= 0.0)
+        assertTrue(deviceVal <= 1.0)
+        val pageViewVal = SamplingController.getSamplingValue(SampleConfig.UNIT_PAGEVIEW)
+        assertTrue(pageViewVal >= 0.0)
+        assertTrue(pageViewVal <= 1.0)
+        val sessionVal = SamplingController.getSamplingValue(SampleConfig.UNIT_SESSION)
+        assertTrue(sessionVal >= 0.0)
+        assertTrue(sessionVal <= 1.0)
     }
 
     @Test
     fun testSamplingControllerGetSamplingId() {
-        MatcherAssert.assertThat(
-            SamplingController.getSamplingId(SamplingConfig.UNIT_DEVICE), CoreMatchers.`is`(CoreMatchers.notNullValue())
-        )
-        MatcherAssert.assertThat(
-            SamplingController.getSamplingId(SamplingConfig.UNIT_PAGEVIEW), CoreMatchers.`is`(CoreMatchers.notNullValue())
-        )
-        MatcherAssert.assertThat(
-            SamplingController.getSamplingId(SamplingConfig.UNIT_SESSION), CoreMatchers.`is`(CoreMatchers.notNullValue())
-        )
+        assertNotNull(SamplingController.getSamplingId(SampleConfig.UNIT_DEVICE))
+        assertNotNull(SamplingController.getSamplingId(SampleConfig.UNIT_PAGEVIEW))
+        assertNotNull(SamplingController.getSamplingId(SampleConfig.UNIT_SESSION))
     }
 
     @Test
     fun testGetEventService() {
-        val streamConfig = StreamConfig("test", null, DestinationEventService.LOGGING)
-        MatcherAssert.assertThat(
-            getAnalyticsRest(streamConfig),
-            CoreMatchers.`is`(CoreMatchers.notNullValue())
-        )
+        val streamConfig = StreamConfig().also {
+            it.streamName = "test"
+            it.destinationEventService = DestinationEventService.LOGGING
+        }
+        assertNotNull(getAnalyticsRest(streamConfig.destinationEventService))
     }
 
     @Test
     fun testGetEventServiceDefaultDestination() {
-        val streamConfig = StreamConfig("test", null, null)
-        MatcherAssert.assertThat(
-            getAnalyticsRest(streamConfig),
-            CoreMatchers.`is`(CoreMatchers.notNullValue())
-        )
+        val streamConfig = StreamConfig().also {
+            it.streamName = "test"
+        }
+        assertNotNull(getAnalyticsRest(streamConfig.destinationEventService))
     }
 
-    @Ignore("Disabled because of flakiness on CI systems, and only marginally useful.")
     @Test
     fun testStreamConfigMapSerializationDeserialization() {
-        val originalStreamConfigs = JsonUtil.decodeFromString<MwStreamConfigsResponse>(TestFileUtil.readRawFile(STREAM_CONFIGS_RESPONSE))!!.streamConfigs
+        val originalStreamConfigs = JsonUtil.decodeFromString<StreamConfigCollection>(TestFileUtil.readRawFile(STREAM_CONFIGS_RESPONSE))!!.streamConfigs
         Prefs.streamConfigs = originalStreamConfigs
         val restoredStreamConfigs = Prefs.streamConfigs
-        MatcherAssert.assertThat(
-            JsonUtil.encodeToString(restoredStreamConfigs),
-            CoreMatchers.`is`(JsonUtil.encodeToString(originalStreamConfigs))
-        )
+        assertEquals(JsonUtil.encodeToString(originalStreamConfigs), JsonUtil.encodeToString(restoredStreamConfigs))
     }
 
     companion object {

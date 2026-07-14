@@ -250,6 +250,7 @@
     <string name="about_description">About the Wikipedia app</string>
     <string name="privacy_policy_description">Privacy policy</string>
     <string name="terms_of_use_description">Terms of use</string>
+    <string name="legal_safety_contacts_description">Legal and safety contacts</string>
     <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:About</string>
     <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Privacy_policy</string>
     <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
@@ -399,8 +400,10 @@
     <string name="button_get_directions">Get directions</string>
     <string name="error_no_maps_app">Could not find any apps that provide directions.</string>
     <string name="preference_title_customize_explore_feed">Explore feed</string>
+    <string name="preference_title_customize_home_feed">Home feed</string>
     <string name="preference_title_show_link_previews">Show link previews</string>
     <string name="preference_summary_customize_explore_feed">Customize the Explore feed</string>
+    <string name="preference_summary_customize_home_feed">Customize your Home feed</string>
     <string name="preference_summary_show_link_previews">Show a quick preview of articles when tapping on links.</string>
     <string name="preference_title_collapse_tables">Collapse tables</string>
     <string name="preference_summary_collapse_tables">Automatically collapse tables in articles, such as infoboxes, references, and notes.</string>
@@ -572,8 +575,8 @@
         <item quantity="other">%d articles removed from list</item>
     </plurals>
     <plurals name="reading_list_articles_deleted_from_list">
-        <item quantity="one">%d article removed from %s</item>
-        <item quantity="other">%d articles removed from %s</item>
+        <item quantity="one">%1$d article removed from %2$s</item>
+        <item quantity="other">%1$d articles removed from %2$s</item>
     </plurals>
     <plurals name="reading_lists_deleted_message">
         <item quantity="one">%d list deleted</item>
@@ -631,7 +634,7 @@
     <string name="reading_list_turned_sync_off_dialog_settings">Settings</string>
     <string name="reading_list_prompt_turned_sync_on_dialog_title">Turn on reading list sync?</string>
     <string name="reading_list_prompt_turned_sync_on_dialog_text"><![CDATA[Articles saved to reading lists can now be synced to your Wikipedia account. <a href="#faq">Learn more</a>]]></string>
-    <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Don’t show me this again</string>
+    <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Don\'t show me this again</string>
     <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Enable syncing</string>
     <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">No thanks</string>
     <string name="default_reading_list_name">Saved</string>
@@ -832,9 +835,11 @@
     <string name="view_random_article_card_title">Random article</string>
     <string name="view_random_article_card_action">More random articles</string>
     <string name="view_top_read_card_title">Top read</string>
+    <string name="view_top_read_card_description">What is trending today on Wikipedia</string>
     <string name="view_top_read_card_action">More top read</string>
     <string name="view_top_read_card_pageviews_k_suffix">%d k</string>
     <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
+    <string name="view_top_read_card_pageviews_views_suffix">views</string>
     <string name="view_next_random_article">Load another random article</string>
     <string name="view_main_page_card_title">Today on Wikipedia</string>
     <string name="view_main_page_card_action">View main page</string>
@@ -876,11 +881,11 @@
     <string name="feed_item_type_randomizer">Generate random articles to read</string>
     <string name="feed_item_type_suggested_edits">Suggestions to add content to Wikipedia</string>
     <string name="feed_item_type_places">Nearby articles based on the current location</string>
-    <string name="feed_empty_message">There\'s nothing on your Explore feed</string>
+    <string name="feed_empty_message">There\'s nothing on your Home feed</string>
     <string name="feed_configure_onboarding_action">Customize</string>
     <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
     <string name="customize_lang_selection_dialog_cancel_button_text">Cancel</string>
-    <string name="feed_configure_onboarding_text"><![CDATA[<strong>Customize your Explore feed</strong><br /><br />You can now choose what to show on your feed, and also prioritize your favorite types of content.]]></string>
+    <string name="feed_configure_onboarding_text"><![CDATA[<strong>Customize your Home feed</strong><br /><br />You can now choose what to show on your feed, and also prioritize your favorite types of content.]]></string>
     <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
     <string name="feed_lang_selection_dialog_cancel_button_text">Cancel</string>
     <string name="feed_accessibility_card_text">You have reached the bottom of the feed.</string>
@@ -1005,8 +1010,8 @@
     <string name="suggested_edits_task_translate_caption_description">Translate captions into other languages</string>
     <string name="suggested_edits_task_multilingual_title">More tasks for multilingual editors</string>
     <string name="suggested_edits_task_multilingual_description">Translation tasks are available if you read and write in more than one Wikipedia language.</string>
-    <string name="suggested_edits_task_image_caption_edit_disable_text">Locked until you’ve edited %d image captions</string>
-    <string name="suggested_edits_task_translate_description_edit_disable_text">Locked until you’ve edited %d article descriptions (verified)</string>
+    <string name="suggested_edits_task_image_caption_edit_disable_text">Locked until you\'ve edited %d image captions</string>
+    <string name="suggested_edits_task_translate_description_edit_disable_text">Locked until you\'ve edited %d article descriptions (verified)</string>
     <string name="suggested_edits_task_multilingual_negative">Not for me</string>
     <string name="suggested_edits_task_multilingual_positive">Add languages</string>
     <string name="suggested_edits_image_caption_summary_title_image">Image</string>
@@ -1277,6 +1282,7 @@
     <string name="activity_tab_onboarding_stay_in_control_message">Choose which modules to display. All personal data stays private on your device and browsing history can be cleared at anytime.</string>
     <string name="edits_screen_what_is_title">Editing in the Wikipedia app</string>
     <string name="edits_screen_what_is_body">Unsure where to get started with editing? Try Suggested Edits, a feature that creates opportunities to make small but vital contributions to Wikipedia. Alternatively, go directly to an article of interest and make a change using wikitext.</string>
+    <string name="activity_tab_snackbar_label">Game stats are shown for your primary language.</string>
 
     <!-- /Suggested edits -->
 
@@ -1309,16 +1315,24 @@
     <string name="onboarding_get_started">Get started</string>
     <string name="onboarding_maybe_later">Maybe later</string>
     <string name="onboarding_explore_title">New ways to explore</string>
-    <string name="onboarding_explore_text"><![CDATA[Dive down the Wikipedia rabbit hole with a constantly updating Explore feed. <br/> <b>Customize</b> the feed to your interests – whether it’s learning about historical events <b>On this day</b>, or rolling the dice with <b>Random</b>.]]></string>
+    <string name="onboarding_explore_text"><![CDATA[Dive down the Wikipedia rabbit hole with a constantly updating Home feed. <br/> <b>Customize</b> the feed to your interests – whether it\'s learning about historical events <b>On this day</b>, or rolling the dice with <b>Random</b>.]]></string>
     <string name="onboarding_reading_list_sync_title">Reading lists with sync</string>
-    <string name="onboarding_reading_list_sync_text_v2"><![CDATA[You can make reading lists from articles you want to read later, even when you’re offline. <br/>Login to your Wikipedia account to sync your reading lists. <a href="#login">Join Wikipedia</a>]]></string>
+    <string name="onboarding_reading_list_sync_text_v2"><![CDATA[You can make reading lists from articles you want to read later, even when you\'re offline. <br/>Login to your Wikipedia account to sync your reading lists. <a href="#login">Join Wikipedia</a>]]></string>
     <string name="onboarding_data_privacy_title">Data &amp; Privacy</string>
-    <string name="onboarding_data_privacy_text"><![CDATA[We believe that you should not have to provide personal information to participate in the free knowledge movement. Usage data collected for this app is anonymous. Learn more about our <a href="#privacy">privacy policy</a> and <a href="#termsOfUse">terms of use</a>.]]></string>
+    <string name="onboarding_data_privacy_text"><![CDATA[We believe that you should not have to provide personal information to participate in the free knowledge movement. Usage data collected for this app is anonymous.<br/><br/>Learn more about our <a href="#privacy">privacy policy</a> and <a href="#termsOfUse">terms of use</a>.]]></string>
     <string name="onboarding_analytics_switch_title">Send usage data</string>
     <string name="onboarding_got_it">Got it</string>
-    <string name="onboarding_multilingual_secondary_text">We’ve found the following on your device:</string>
+    <string name="onboarding_multilingual_secondary_text">We\'ve found the following on your device:</string>
     <string name="onboarding_multilingual_add_language_text">Add or edit languages</string>
     <string name="onboarding_welcome_title_v2">The Free Encyclopedia\n&#8230;in over 300 languages</string>
+    <string name="onboarding_next">Next</string>
+    <string name="onboarding_fresh_install_knowledge_title">All the world\'s knowledge</string>
+    <string name="onboarding_fresh_install_knowledge_text">Wikipedia is a free online encyclopedia with 65 million articles collaboratively written and maintained in more than 300 languages by a community of volunteers.</string>
+    <string name="onboarding_fresh_install_knowledge_learn_more">Learn more about Wikipedia</string>
+    <string name="onboarding_app_languages_title">Read in more than 300 languages</string>
+    <string name="onboarding_app_languages_text">We\'ve noticed the following languages on your device:</string>
+    <string name="onboarding_app_languages_primary">Primary</string>
+    <string name="onboarding_app_languages_add_button">Add or edit your languages</string>
     <!-- /Onboarding -->
 
     <!-- App Shortcuts -->
@@ -1357,7 +1371,7 @@
         <item quantity="one">Remove selected language?</item>
         <item quantity="other">Remove selected languages?</item>
     </plurals>
-    <string name="wikipedia_languages_remove_dialog_content">You will only see content on the Explore feed and quick search filters for remaining Wikipedia languages.</string>
+    <string name="wikipedia_languages_remove_dialog_content">You will only see content on the Home feed and quick search filters for remaining Wikipedia languages.</string>
     <string name="wikipedia_languages_remove_warning_dialog_title">Can\'t remove all languages</string>
     <string name="wikipedia_languages_remove_warning_dialog_content">Keep at least one Wikipedia language from which to search and read content.</string>
     <string name="more_language_options">more</string>
@@ -1540,7 +1554,7 @@
     <string name="thank_label">Thank</string>
     <string name="view_user_page">View user page</string>
     <string name="thank_dialog_title_text">Publicly send \'Thanks\'</string>
-    <string name="thank_dialog_text">\'Thanks\' are an easy way to show appreciation for an editor\’s work on Wikipedia. \'Thanks\' cannot be undone and are publicly viewable</string>
+    <string name="thank_dialog_text">\'Thanks\' are an easy way to show appreciation for an editor\'s work on Wikipedia. \'Thanks\' cannot be undone and are publicly viewable</string>
     <string name="thank_dialog_positive_button_text">Send thanks</string>
     <string name="thank_dialog_negative_button_text">Cancel</string>
     <string name="thank_success_message">Your \'Thanks\' was sent to %s 👍</string>
@@ -1877,6 +1891,8 @@
     <!-- Survey dialog -->
     <string name="survey_dialog_title">Help us improve this feature</string>
     <string name="survey_dialog_message">Are you satisfied with this feature?</string>
+    <string name="home_feed_survey_title">Help improve Home</string>
+    <string name="home_feed_survey_message">Are you satisfied with the \"Community\" and \"For you\" feeds?</string>
     <string name="survey_dialog_option_satisfied">Satisfied</string>
     <string name="survey_dialog_option_neutral">Neutral</string>
     <string name="survey_dialog_option_unsatisfied">Unsatisfied</string>
@@ -1891,11 +1907,18 @@
     <string name="survey_dialog_input_hint">Additional feedback</string>
     <string name="survey_dialog_submitted_snackbar">Feedback submitted. Thank you!</string>
 
+    <!-- Games Hub -->
+    <string name="games_hub_activity_title">Games</string>
+    <string name="games_hub_activity_games_unavailable_message">No games available in this language yet! Games leverage content created by volunteer editors for each language\'s Wikipedia.</string>
+    <string name="games_hub_activity_games_unavailable_message_learn_more_action">Learn more</string>
+    <string name="games_hub_activity_overflow_view_game_stats">View game stats</string>
+    <string name="games_hub_activity_overflow_learn_more">Learn more</string>
+
     <!-- On this day game -->
     <string name="on_this_day_game_entry_dialog_title">Introducing</string>
     <string name="on_this_day_game_entry_dialog_subtitle">Wikipedia games</string>
-    <string name="on_this_day_game_entry_dialog_button">Play today\'s game</string>
-    <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia games are available on the Explore feed.</string>
+    <string name="on_this_day_game_entry_dialog_button">Play</string>
+    <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia games are available in the Games Hub, found in the MORE menu.</string>
     <string name="on_this_day_game_title">Which came first?</string>
     <string name="on_this_day_game_dialog_button">Play</string>
     <string name="on_this_day_game_splash_message">Guess which event came first on this day in history.</string>
@@ -1907,14 +1930,9 @@
     <string name="on_this_day_game_point">+1 point</string>
     <string name="on_this_day_game_next">Next question</string>
     <string name="on_this_day_game_finish">Final results</string>
-    <string name="on_this_day_game_share_button">Share</string>
-    <string name="on_this_day_game_pause_title">Pause the game?</string>
-    <string name="on_this_day_game_pause_body">Your progress will be saved for the day. You can find the game on your Explore feed.</string>
-    <string name="on_this_day_game_pause_negative">Keep playing</string>
-    <string name="on_this_day_game_pause_positive">Got it</string>
+    <string name="on_this_day_game_share_button">Share score</string>
     <string name="on_this_day_game_feed_entry_card_heading">Wikipedia games</string>
     <string name="on_this_day_game_feed_entry_card_title">Which came first?</string>
-    <string name="on_this_day_game_feed_entry_card_subtitle">Guess which event came first on this day in history.</string>
     <string name="on_this_day_game_result">You scored %1$d/%2$d.</string>
     <string name="on_this_day_game_next_in">Next game in %s</string>
     <string name="on_this_day_game_your_stats">Your stats</string>
@@ -1925,7 +1943,7 @@
     <string name="on_this_day_game_stats_average_score">Average score</string>
     <string name="on_this_day_game_stats_streak">Current streak</string>
     <string name="on_this_day_game_result_subtitle">Articles referenced in today\'s game</string>
-    <string name="on_this_day_game_completed_message">Thank you for playing. A new game of \"Which came first?\" is available daily on the Explore feed.</string>
+    <string name="on_this_day_game_completed_message">Thank you for playing. A new game of \"Which came first?\" is available daily on the Home feed.</string>
     <string name="on_this_day_game_menu_notifications">Game notifications</string>
     <string name="on_this_day_game_menu_info">Learn more</string>
     <string name="on_this_day_game_menu_feedback">Problem with feature</string>
@@ -1957,9 +1975,21 @@
     <string name="on_this_day_game_archive_btn_text">Play the archive</string>
     <string name="on_this_day_game_review_results_btn_text">Review results</string>
     <string name="on_this_day_game_score_message">You scored %1$d/%2$d on today\'s game.</string>
+    <string name="on_this_day_game_play_today_btn_text">Play today\'s game</string>
     <string name="on_this_day_game_continue_playing_btn_text">Continue playing</string>
     <string name="on_this_day_game_sound_on">Turn sound on</string>
     <string name="on_this_day_game_sound_off">Turn sound off</string>
+    <string name="on_this_day_game_more_label">More</string>
+    <string name="on_this_day_game_card_progress_label">You\'re on question %d. Continue guessing which event came first on this day in history.</string>
+    <string name="on_this_day_game_card_progress_short_label">You\'re on question %d.</string>
+    <string name="on_this_day_game_explore_feed_card_score_message">You scored %1$d/%2$d on today\'s game. Next game in %3$s</string>
+    <string name="on_this_day_game_explore_feed_card_score_short_message">You scored %1$d/%2$d on today\'s game.</string>
+    <string name="on_this_day_game_card_archive_label">Archive</string>
+    <string name="on_this_day_game_stats_log_in_prompt_card_button">Log in</string>
+    <string name="on_this_day_game_stats_log_in_prompt_card_title">Log in to view your game stats</string>
+    <string name="on_this_day_game_stats_log_in_prompt_card_description">See your streaks, scores, and more</string>
+    <string name="wikipedia_games_title">Wikipedia games</string>
+    <string name="wikipedia_games_subtitle">Daily trivia games based Wikipedia content.</string>
 
     <!-- Year In Review -->
     <string name="year_in_review_learn_more">Learn more</string>
@@ -2107,8 +2137,8 @@
         <item quantity="other">People spent an estimated %,d hours</item>
     </plurals>
     <plurals name="year_in_review_slide_english_reading_hours_body_second">
-        <item quantity="one">—around %1$,d year!—reading English Wikipedia in %2$d. Wikipedia is there when you want to learn about our changing world, win a bet among friends, or answer a curious child’s question.</item>
-        <item quantity="other">—around %1$,d years!—reading English Wikipedia in %2$d. Wikipedia is there when you want to learn about our changing world, win a bet among friends, or answer a curious child’s question.</item>
+        <item quantity="one">—around %1$,d year!—reading English Wikipedia in %2$d. Wikipedia is there when you want to learn about our changing world, win a bet among friends, or answer a curious child\'s question.</item>
+        <item quantity="other">—around %1$,d years!—reading English Wikipedia in %2$d. Wikipedia is there when you want to learn about our changing world, win a bet among friends, or answer a curious child\'s question.</item>
     </plurals>
     <plurals name="year_in_review_slide_available_languages_headline">
         <item quantity="one">Wikipedia was available in more than %,d language</item>
@@ -2156,7 +2186,7 @@
     </plurals>
     <string name="year_in_review_slide_viewed_articles_times_body">For people around the world, Wikipedia is the first stop when answering a question, looking up information for school or work, or learning a new fact.</string>
     <string name="year_in_review_reading_list_dialog_title">Create your Year in Review %d reading list?</string>
-    <string name="year_in_review_reading_list_dialog_message"><![CDATA[Wikipedia Year in Review will create a reading list of the articles you spent the most time with in %1$d. <a href="%2$s">Learn more</a>]]></string>\
+    <string name="year_in_review_reading_list_dialog_message"><![CDATA[Wikipedia Year in Review will create a reading list of the articles you spent the most time with in %1$d. <a href="%2$s">Learn more</a>]]></string>
     <string name="year_in_review_reading_list_dialog_positive_button_label">Create</string>
     <string name="year_in_review_reading_list_dialog_negative_button_label">No thanks</string>
     <string name="year_in_review_reading_list_title">Year in Review %d</string>
@@ -2333,9 +2363,230 @@
     <string name="donation_reminders_settings_report_email_subject">Issue Report-Donation Reminders</string>
     <string name="donation_reminders_settings_report_email_body">I have encountered a problem with the Donation reminders feature:\n- [Describe specific problem]\n- [Screenshots or links]\n\nThe behavior I would like to see is:\n- [Describe proposed solution]</string>
     <string name="donation_reminders_snackbar_modify_button_label">Modify</string>
-    <string name="explore_feed_survey_dialog_title">Help us improve Explore</string>
-    <string name="explore_feed_survey_dialog_message">Please take a short survey about the Explore feed. Your feedback will help shape upcoming app improvements.</string>
-    <string name="explore_feed_survey_dialog_positive_button_label">Take survey</string>
-    <string name="explore_feed_survey_dialog_negative_button_label">No thanks</string>
 
+    <!-- Hybrid Search -->
+    <string name="hybrid_search_search_hint">Search or ask anything</string>
+    <string name="hybrid_search_article_search_hint">Ask about %s</string>
+    <string name="hybrid_search_suggestion_title">Search for:</string>
+    <string name="hybrid_search_onboarding_learn_more">Learn more</string>
+    <string name="hybrid_search_onboarding_search_title">Ask questions, get answers</string>
+    <string name="hybrid_search_onboarding_search_description">This experimental feature understands natural language. Instead of searching for keywords, describe what you want to know.</string>
+    <string name="hybrid_search_onboarding_opt_in_choice_title">Beta feature</string>
+    <string name="hybrid_search_onboarding_opt_in_choice_description">Available for a limited time during this experiment.</string>
+    <string name="hybrid_search_beta_tag">Beta</string>
+    <string name="hybrid_search_experimental_feature_switch_label">Join experiment</string>
+    <string name="hybrid_search_onboarding_search_example_title">Need inspiration?</string>
+    <string name="hybrid_search_onboarding_search_example_description">Use one of the search examples below.</string>
+    <string name="hybrid_search_onboarding_opt_out_toast_message">You\'ve opted out of the experiment.</string>
+    <string name="hybrid_search_onboarding_search_example_query_pluto_as_planet">When was Pluto unlisted as a planet?</string>
+    <string name="hybrid_search_onboarding_search_example_query_first_olympics">first Olympics</string>
+    <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">RNA vs DNA</string>
+    <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Why do people put pineapple on pizza?</string>
+    <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">What are the biggest cities in Europe?</string>
+    <string name="hybrid_search_onboarding_screen_title">A new way to search</string>
+    <string name="hybrid_search_results_header_description">Sourced from human written Wikipedia articles</string>
+    <string name="hybrid_search_results_rate_label">Rate this result</string>
+    <string name="hybrid_search_results_rated_label">Rated</string>
+    <string name="hybrid_search_results_rate_thumb_up">Rate thumbs up</string>
+    <string name="hybrid_search_results_rate_thumb_down">Rate thumbs down</string>
+    <string name="hybrid_lexical_search_results_empty">No article title matches this query.</string>
+    <string name="hybrid_search_results_empty">Enhanced search is temporarily unavailable.</string>
+    <string name="hybrid_search_no_results_header">No results</string>
+    <string name="hybrid_search_no_results_description">This topic isn\'t returning article excerpts at this moment. Here are some things you can try:</string>
+    <string name="hybrid_search_no_results_suggestion_rephrase_text">Rephrase your search</string>
+    <string name="hybrid_search_no_results_suggestion_try_related_topic">Try a related topic</string>
+    <string name="hybrid_search_error_message">Something went wrong. Please try again later.</string>
+    <string name="hybrid_search_who_is_prefix">Who is %s?</string>
+    <string name="hybrid_search_turn_off_experiment_label">Turn off this experiment</string>
+
+    <!-- Reading challenge   -->
+    <string name="reading_challenge_widget_name">Reading Challenge</string>
+    <string name="reading_challenge_onboarding_header">Celebrate Wikipedia\'s 25th birthday by joining the 25-day reading challenge!</string>
+    <string name="reading_challenge_onboarding_read_title">Read 1 article a day for 25 days</string>
+    <string name="reading_challenge_onboarding_read_description">Join the challenge anytime between 1 May and 31 May, complete your 25 days on your own timeline.</string>
+    <string name="reading_challenge_onboarding_read_subtitle">Join the challenge anytime between %1$s and %2$s, complete your 25 days on your own timeline.</string>
+    <string name="reading_challenge_onboarding_win_title">Win prizes</string>
+    <string name="reading_challenge_onboarding_win_description">Complete a 25-day reading streak while the challenge is live to win special prizes.</string>
+    <string name="reading_challenge_onboarding_install_title">Install the widget</string>
+    <string name="reading_challenge_onboarding_install_description">Get helpful reminders and motivation with our adorable birthday mascot Baby Globe.</string>
+    <string name="reading_challenge_onboarding_note">Your reading history is kept protected. Reading insights are calculated using locally stored data on your device.</string>
+    <string name="reading_challenge_onboarding_learn_more_button">Learn more</string>
+    <string name="reading_challenge_onboarding_join_button">Join the challenge</string>
+    <string name="reading_challenge_onboarding_prompt_title">Log in to join the challenge</string>
+    <string name="reading_challenge_onboarding_prompt_message">Log in or create an account to track your progress towards the reading challenge.</string>
+    <string name="reading_challenge_onboarding_prompt_no_thanks">No thanks</string>
+    <string name="reading_challenge_onboarding_prompt_login">Log in / Join Wikipedia</string>
+    <string name="reading_challenge_install_prompt_title">Install the 25-day reading challenge widget</string>
+    <string name="reading_challenge_install_prompt_message">Baby Globe is cheering you on. Add the Reading Challenge widget to track your progress from your homescreen.</string>
+    <string name="reading_challenge_install_prompt_got_it">Got it</string>
+    <string name="reading_challenge_install_prompt_add">Add</string>
+    <string name="search_widget_install_prompt_title">A Faster way to Search</string>
+    <string name="search_widget_install_prompt_message">Install the Wikipedia Search widget for instant access to knowledge from your home screen.</string>
+    <string name="search_widget_install_prompt_add">Add</string>
+    <string name="search_widget_install_prompt_got_it">Got it</string>
+    <string name="reading_challenge_widget_explore_button">Explore</string>
+    <string name="reading_challenge_widget_explore_wikipedia_button">Explore Wikipedia</string>
+    <string name="reading_challenge_widget_join_challenge_button">Join challenge</string>
+    <string name="reading_challenge_widget_join_the_challenge_button">Join the challenge</string>
+    <string name="reading_challenge_widget_search_button">Search</string>
+    <string name="reading_challenge_widget_random_button">Random</string>
+    <string name="reading_challenge_widget_collect_prize_button">Collect prize</string>
+    <string name="reading_challenge_widget_collect_your_prize_button">Collect your prize!</string>
+    <string name="reading_challenge_widget_not_live_title">Get ready to read</string>
+    <string name="reading_challenge_widget_not_live_description">A 25-day reading challenge is on the way.</string>
+    <string name="reading_challenge_widget_not_opted_in_title">Ready, set, read!</string>
+    <string name="reading_challenge_widget_not_opted_in_description">Join the 25-day challenge and unlock special prizes.</string>
+    <plurals name="reading_challenge_small_widget_streak">
+        <item quantity="one">%d day</item>
+        <item quantity="other">%d days</item>
+    </plurals>
+    <plurals name="reading_challenge_small_widget_streak_final">
+        <item quantity="one">%1$d of %2$d</item>
+        <item quantity="other">%1$d of %2$d</item>
+    </plurals>
+    <plurals name="reading_challenge_small_widget_streak_final_large">
+        <item quantity="one">%1$d of %2$d day</item>
+        <item quantity="other">%1$d of %2$d days</item>
+    </plurals>
+    <string name="reading_challenge_not_read_today_description">Don\'t let today drift by, save your streak.</string>
+    <string name="reading_challenge_streak_ongoing_title">25-day reading challenge</string>
+    <string name="reading_challenge_widget_reminder_dont_let_today_drift">Don\'t let today drift by, your reading streak is waiting.</string>
+    <string name="reading_challenge_widget_reminder_before_day_snoozes">Before the day snoozes away…\there\'s still time to learn something.</string>
+    <string name="reading_challenge_widget_reminder_small_bit_counts">Even a small bit of reading counts towards your goal.</string>
+    <string name="reading_challenge_widget_reminder_one_article_away">Your streak is just one article away.</string>
+    <string name="reading_challenge_widget_reminder_jump_in_anytime">Jump in for some reading anytime today.</string>
+    <string name="reading_challenge_widget_reminder_quiet_reading_moment">Quiet reading moment?</string>
+    <string name="reading_challenge_widget_reminder_keep_curiosity_going">Keep your curiosity going.</string>
+    <string name="reading_challenge_widget_enrolled_not_started_title">Ready, set, read!</string>
+    <string name="reading_challenge_widget_enrolled_not_started_subtitle">Start working towards a 25-day streak!</string>
+    <string name="reading_challenge_widget_start_reading_challenge_title">Start your reading challenge.</string>
+    <string name="reading_challenge_widget_start_reading_challenge_subtitle">Every streak starts somewhere</string>
+    <string name="reading_challenge_widget_start_spin_up_new_streak_title">Spin up a new streak?</string>
+    <string name="reading_challenge_widget_start_spin_up_new_streak_subtitle">Read one article to get started.</string>
+    <string name="reading_challenge_widget_start_fresh_start_title">A fresh start.</string>
+    <string name="reading_challenge_widget_start_fresh_start_subtitle">Your streak is just one article away.</string>
+    <string name="reading_challenge_widget_concluded_incomplete">Challenge concluded</string>
+    <string name="reading_challenge_widget_concluded_complete">You did it!</string>
+    <string name="reading_challenge_widget_reward_title">Curiosity looks good on you! 🛍️</string>
+    <string name="reading_challenge_widget_reward_body">Celebrate completing the challenge with 15%% off at the Wikipedia Store.</string>
+    <string name="reading_challenge_widget_reward_button_label">Get 15%% off at the store</string>
+
+    <!-- New Explore Feed   -->
+    <string name="explore_feed_new_update_prompt_title">Explore is now Home, with a new look</string>
+    <string name="explore_feed_new_update_prompt_new_name_title">A new name</string>
+    <string name="explore_feed_new_update_prompt_new_name_description">The Explore feed is now Home, in the same spot as before.</string>
+    <string name="explore_feed_new_update_prompt_two_ways_title">Your feed, two ways</string>
+    <string name="explore_feed_new_update_prompt_two_ways_description">Discover articles personalized to your interests in For You, or browse Wikipedia\'s best editorial content in Community.</string>
+    <string name="explore_feed_new_update_prompt_control_title">Stay in control</string>
+    <string name="explore_feed_new_update_prompt_control_description">Every recommendation tells you exactly why it\'s there. You can update your preferences anytime in Settings.</string>
+    <string name="explore_feed_new_update_prompt_language_title">Every language, fully personalized</string>
+    <string name="explore_feed_new_update_prompt_language_description">Reading in multiple languages? Each one gets its own experience. Just switch and your new feed is ready.</string>
+    <string name="explore_feed_new_update_prompt_primary_button_text">Customize my feed</string>
+    <string name="explore_feed_customize_interests">Customize interests</string>
+    <string name="explore_feed_customize_discover">Customize Discover</string>
+    <string name="explore_feed_new_update_prompt_secondary_button_text">Set it up for me</string>
+    <string name="explore_feed_building_text">Let\'s build your feed…</string>
+    <string name="explore_feed_community_tab_label">Community</string>
+    <string name="explore_feed_for_you_tab_label">For you</string>
+    <string name="explore_feed_date_today">Today - %s</string>
+    <string name="explore_feed_load_previous_day_label">Load previous day</string>
+    <string name="explore_feed_from_reading_list">From your reading list</string>
+    <string name="explore_feed_because_of_interest">Because of your interest: %s</string>
+    <string name="explore_feed_onboarding_curiosity_title">Follow your curiosity</string>
+    <string name="explore_feed_onboarding_curiosity_description">Select topics that interest you, and we will personalize your feed.\n\nWe collect minimal data that is anonymized.</string>
+    <string name="explore_feed_deselect_all_button_label">Deselect all</string>
+    <string name="explore_feed_potd_subtitle">Daily images on Wikimedia Commons, selected by volunteer contributors</string>
+    <string name="explore_feed_featured_article_subtitle">Featured articles are some of the highest-quality articles on Wikipedia, selected daily by editors</string>
+    <string name="explore_feed_preference_selection_screen_title">What would you like to see first?</string>
+    <string name="explore_feed_preference_community_content_title">Community-related content</string>
+    <string name="explore_feed_preference_personalized_content_title">Personalized content</string>
+    <string name="explore_feed_in_the_news_subtitle">Articles that have been substantially updated to reflect recent or current events of wide interest</string>
+    <string name="explore_feed_on_this_day_subtitle">Discover historical events from this day</string>
+    <string name="explore_feed_community_disclaimer">Content and resources selected by and about the Wikimedia community</string>
+    <string name="explore_feed_community_load_more_label">See past community content</string>
+    <string name="explore_feed_manage_languages_label">Manage languages</string>
+    <string name="explore_feed_header_overflow_hide_module_label">Hide module</string>
+    <string name="explore_feed_header_overflow_hide_module_message">Module hidden.</string>
+    <string name="explore_feed_header_overflow_hide_module_message_action">Undo</string>
+    <string name="explore_feed_personalized_preference_empty_state_text">You need to add interests to see personalized content recommendations. You can do this in the previous steps or later in Settings.</string>
+    <string name="explore_feed_because_you_read">Because you read: %s</string>
+    <string name="explore_feed_swipe_to_explore_prompt_title">Swipe to explore</string>
+    <string name="explore_feed_swipe_to_explore_prompt_message">Swipe up to navigate between topics, or swipe sideways to explore related content.</string>
+    <string name="home_feed_settings_title">Customize your Home feed</string>
+    <string name="home_feed_settings_default_view_title">Default feed view</string>
+    <string name="home_feed_settings_default_view_subtitle">Choose which feed displays first when you open the app</string>
+    <string name="home_feed_settings_default_view_confirm">This change will apply the next time you open the app.</string>
+    <string name="home_feed_settings_whats_driving_title">What\'s driving your feed</string>
+    <string name="home_feed_settings_modules_title">Modules</string>
+    <string name="home_feed_settings_community_subtitle">Turn on or off \"Community\" feed modules</string>
+    <string name="home_feed_settings_for_you_subtitle">Turn on or off \"For you\" feed modules</string>
+    <string name="home_feed_settings_whats_driving_subtitle">Topics and articles shaping your content</string>
+    <string name="home_feed_settings_community_modules_description">Turning off a module hides it from your Community feed. You can re-enable it here at any time. Some modules may not be available in your language.</string>
+    <string name="home_feed_settings_for_you_modules_description">Turning off a module hides it from your \"For you\" feed. You can re-enable it here at any time.</string>
+    <string name="home_feed_settings_based_on_interest_title">Based on your interests</string>
+    <string name="home_feed_settings_based_on_interest_subtitle"><![CDATA[Articles tailored to the topics you chose.<br /><a href="#drivingFeed">What\'s driving your feed</a>]]></string>
+    <string name="home_feed_settings_because_you_read_subtitle">Suggestions based on a recent article from your history</string>
+    <string name="home_feed_settings_continue_reading_title">Continue reading</string>
+    <string name="home_feed_settings_continue_reading_subtitle">Jump back into articles you didn\'t finish</string>
+    <string name="home_feed_did_you_know_title">Did you know?</string>
+    <string name="home_feed_did_you_know_subtitle">Interesting facts from articles selected by volunteer editors</string>
+    <string name="home_feed_did_you_know_more_label">More did you know</string>
+    <string name="home_feed_settings_community_empty_dialog_title">Your Community feed will be empty</string>
+    <string name="home_feed_settings_for_you_empty_dialog_title">Your \"For you\" feed will be empty</string>
+    <string name="home_feed_settings_empty_dialog_text">Turn on at least one module to see content.</string>
+    <string name="home_feed_settings_empty_dialog_positive">Continue anyway</string>
+    <string name="home_feed_screen_empty_state_label">Your feed is empty</string>
+    <string name="home_feed_community_screen_all_modules_disabled_description"><![CDATA[Turn on <b>Community</b> modules to start seeing content curated by and about the Wikimedia community.]]></string>
+    <string name="home_feed_for_you_screen_all_modules_disabled_description"><![CDATA[Turn on the <b>For you</b> modules to start seeing content based on your preferences.]]></string>
+    <string name="home_feed_screen_all_modules_disabled_btn_label">Manage modules</string>
+    <string name="home_feed_for_you_screen_empty_title">Your feed is empty for now</string>
+    <string name="home_feed_for_you_screen_empty_description">Your \"For you\" feed will populate with personalized articles as you explore.</string>
+    <string name="home_feed_for_you_screen_empty_ways_to_start">Ways to get started:</string>
+    <string name="home_feed_for_you_screen_empty_add_interests"><![CDATA[Add <a href="#add_interests">some interests</a>]]></string>
+    <string name="home_feed_for_you_screen_empty_see_community"><![CDATA[See what\'s happening in <a href="#community_tab">community</a>]]></string>
+    <string name="home_feed_update_tooltip1">New: \"Random Article\" and \"Places of Interest\" are available in For You and \"Did You Know\" is in the Community Tab.</string>
+    <string name="home_feed_random_title">Random</string>
+    <string name="home_feed_random_subtitle">Random article to spark your curiosity</string>
+    <string name="home_feed_random_shuffle_button">Shuffle</string>
+    <string name="home_feed_settings_feed_configuration_description">These topics and articles shape what appears in your \"For You\" feed. Remove any you no longer want or add new interests.</string>
+    <string name="home_feed_settings_feed_configuration_interest_title">Your interests</string>
+    <string name="home_feed_settings_feed_configuration_interest_subtitle">Edit your topics of interest</string>
+    <string name="home_feed_settings_feed_configuration_location_title">Your location</string>
+    <string name="home_feed_settings_feed_configuration_location_subtitle">Update your location in Places to see articles nearby</string>
+    <string name="home_feed_settings_feed_configuration_empty_interest_subtitle">Your interests list is empty. Add something you\'re curious about.</string>
+    <string name="home_feed_settings_feed_configuration_reading_history_title">Reading history</string>
+    <string name="home_feed_settings_feed_configuration_reading_history_subtitle">Browse your recently read articles</string>
+    <string name="home_feed_settings_feed_configuration_empty_reading_history_subtitle">Your reading history is empty. Start exploring articles to build personalized recommendations.</string>
+    <string name="home_feed_settings_feed_configuration_languages_title">Languages</string>
+    <string name="home_feed_settings_feed_configuration_languages_subtitle">Edit your preferred languages</string>
+    <string name="home_feed_settings_feed_configuration_interests_updated_message">Interests updated. Refresh your feed to see updates.</string>
+    <string name="home_feed_places_of_interest_cta_title">Stories from places you love</string>
+    <string name="home_feed_places_of_interest_cta_description">Articles will appear based on your last viewed place. Visit the Places tab and select a location.</string>
+    <string name="home_feed_places_of_interest_cta_button">Go to Places</string>
+    <string name="home_feed_settings_places_of_interest_title">Places of interest</string>
+    <string name="home_feed_settings_places_of_interest_subtitle">Articles nearby your last location in Places</string>
+    <string name="home_feed_settings_games_title">Games</string>
+    <string name="home_feed_settings_games_subtitle">Daily games based on Wikipedia content</string>
+    <string name="home_feed_settings_discover_title">Discover recommendations</string>
+    <string name="home_feed_settings_discover_subtitle">Articles from your Discover reading list</string>
+    <string name="home_feed_discover_cta_title">From Discover</string>
+    <string name="home_feed_discover_cta_description">Learn about new topics, picked just for you. Choose between daily, weekly or monthly updates.</string>
+    <string name="home_feed_discover_cta_button">Enable Discover reading list</string>
+    <string name="home_feed_discover_card_footer">From Discover • Updates %s</string>
+    <string name="home_feed_discover_see_all_title">There\'s more to discover</string>
+    <string name="home_feed_discover_see_all_description">Your personalized reading list has more stories picked just for you.</string>
+    <string name="home_feed_discover_see_all_button">Explore all recommendations</string>
+    <string name="home_feed_places_of_interest_card_footer">%1$s • Based on your location in Places</string>
+    <string name="home_feed_for_you_screen_end_of_feed_title">That\'s it for today!</string>
+    <string name="home_feed_for_you_screen_end_of_feed_description">Come back tomorrow to find fresh new articles customized for you.</string>
+    <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Ways to keep learning:</string>
+    <string name="home_feed_for_you_screen_end_of_feed_add_interests"><![CDATA[Add <a href="#add_interests">new interests</a>]]></string>
+    <string name="randomizer_shake_prompt_title">Shake to shuffle</string>
+    <string name="randomizer_shake_prompt_message">Give your device a shake to jump to a random article and discover something unexpected.</string>
+    <string name="home_feed_games_module_cta_prompt_title">Want to play more games?</string>
+    <string name="home_feed_games_module_cta_prompt_subtitle">Go to the games hub</string>
+    <string name="home_feed_games_module_cta_prompt_button_text">Games hub</string>
+
+    <!-- Random Article Widget   -->
+    <string name="random_article_widget_name">Random article</string>
 </resources>

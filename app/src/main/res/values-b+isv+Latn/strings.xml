@@ -2,6 +2,7 @@
 <!-- Authors:
 * IJzeren Jan
 * SaldırganSincap
+* Wrai
 -->
 <resources>
   <string name="app_name_prod">Vikipedija</string>
@@ -146,7 +147,7 @@
   <string name="edit_section_captcha_request_an_account_message">Ne vidite obrazok? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Zaprosite koristničsko konto&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Povtorite slova pokazane vyše</string>
   <string name="title_captcha">Vvedite CAPTCHA</string>
-  <string name="edit_section_captcha_reload">Natisknite CAPTCHA za ponovno včitanje</string>
+  <string name="edit_section_captcha_reload">Nastuknite CAPTCHA za ponovno včitanje</string>
   <string name="nav_item_login">Prijaviti se v Vikipediju</string>
   <string name="login_username_hint">Koristničsko ime</string>
   <string name="login_password_hint">Parola</string>
@@ -244,6 +245,7 @@
   <string name="about_description">O aplikaciji «Vikipedija»</string>
   <string name="privacy_policy_description">Politika privatnosti</string>
   <string name="terms_of_use_description">Uslovja koristanja</string>
+  <string name="legal_safety_contacts_description">Kontakty v oblasti prava i bezpečnosti</string>
   <string name="about_wikipedia_url">https://incubator.wikimedia.org/wiki/Wp/isv/Incubator:O_projektu</string>
   <string name="about_libraries_heading">Izkoristane biblioteky</string>
   <string name="about_contributors_heading">Avtori</string>
@@ -385,14 +387,14 @@
   <string name="redirected_from_snackbar">Prěnapravjeno s «%s»</string>
   <string name="button_get_directions">Dobyti trasu za put</string>
   <string name="error_no_maps_app">Nijedna aplikacija za navigaciju ne najdena.</string>
-  <string name="preference_title_customize_explore_feed">Kanal izslědovanja</string>
+  <string name="preference_title_customize_explore_feed">Kanal «Odkryti»</string>
   <string name="preference_title_show_link_previews">Pokazyvati prědgledy linkov</string>
-  <string name="preference_summary_customize_explore_feed">Prisposobiti kanal izslědovanja</string>
+  <string name="preference_summary_customize_explore_feed">Prisposobiti kanal «Odkryti»</string>
   <string name="preference_summary_show_link_previews">Pokazyvati bystry prědgled člankov pri stukanju na linky.</string>
   <string name="preference_title_collapse_tables">Svinuti tabely</string>
   <string name="preference_summary_collapse_tables">Avtomatično svivaje tabely v člankah, kako napr. infokartky, referencije i primětky.</string>
   <string name="nav_item_donate">Darovati</string>
-  <string name="nav_item_year_in_review">Obzor goda</string>
+  <string name="nav_item_year_in_review">Prěgled goda</string>
   <string name="error_voice_search_not_available">Na žalost, razpoznavanje glasa jest nedostupno.</string>
   <string name="location_service_disabled">Služby za městopoloženje sut izključene.</string>
   <string name="enable_location_service">Vključiti</string>
@@ -562,10 +564,10 @@
     <item quantity="other">%d člankov odstranjenyh iz spiska</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d članok odstranjeny iz spiska %s</item>
-    <item quantity="few">%d članky odstranjene iz spiska %s</item>
-    <item quantity="many">%d člankov odstranjenyh iz spiska %s</item>
-    <item quantity="other">%d člankov odstranjenyh iz spiska %s</item>
+    <item quantity="one">%1$d članok odstranjeny iz spiska %2$s</item>
+    <item quantity="few">%1$d članky odstranjene iz spiska %2$s</item>
+    <item quantity="many">%1$d člankov odstranjenyh iz spiska %2$s</item>
+    <item quantity="other">%1$d člankov odstranjenyh iz spiska %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d spisok odstranjeny</item>
@@ -860,7 +862,7 @@
   <string name="menu_feed_card_edit_card_languages">Praviti jezyky kartok</string>
   <string name="menu_feed_overflow_label">Veče opcij</string>
   <string name="feed_featured_image_share_subject">Izbrany obrazok iz Vikisklada</string>
-  <string name="feed">Odkryvati</string>
+  <string name="feed">Odkryti</string>
   <string name="home">Glavna</string>
   <string name="view_static_card_icon_content_description">Ikonka kartky</string>
   <string name="view_card_news_title">V novinah</string>
@@ -890,12 +892,12 @@
   <string name="feed_item_type_main_page">Glavna stranica Vikipedije s izbranym sodržanjem dnja</string>
   <string name="feed_item_type_randomizer">Generovati slučajne članky za čitanje</string>
   <string name="feed_item_type_suggested_edits">Prědloženja za dodanje sodržanja v Vikipediju</string>
-  <string name="feed_item_type_places">Članky o poblizkyh temah na osnově aktualnoj lokazije</string>
-  <string name="feed_empty_message">V vašem kanalu «Odkryvati» nemaje ničego</string>
+  <string name="feed_item_type_places">Članky o poblizkyh temah na osnově aktualnogo městopoloženja</string>
+  <string name="feed_empty_message" fuzzy="true">V vašem kanalu «Odkryti» nemaje ničego</string>
   <string name="feed_configure_onboarding_action">Prisposobiti</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Anulovati</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Prisposobite svoj kanal «Odkryvati»&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt; Tutčas vy možete izbrati, čto trěba izobražati v vašem kanalu, a takože ustaviti prioritety za vaše ljubime tipy sodržanja.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Prisposobite svoj kanal «Odkryti»&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt; Tutčas vy možete izbrati, čto trěba izobražati v vašem kanalu, a takože ustaviti prioritety za vaše ljubime tipy sodržanja.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Anulovati</string>
   <string name="feed_accessibility_card_text">Vy jeste dosegli konca kanala.</string>
@@ -1215,14 +1217,16 @@
   <string name="activity_tab_discover_encourage">Iščete li něčto novo za čitanje?</string>
   <string name="activity_tab_donation_unknown">Neizvěstno</string>
   <string name="activity_tab_donation_last_donation">&lt;b&gt;Poslědnje darovanje&lt;/b&gt; v aplikaciji</string>
+  <string name="activity_tab_total_edits_all_projects">Totalno čislo pravok po vsim projektam</string>
   <string name="activity_tab_game_stats">Statistika igr</string>
   <string name="activity_tab_game_stats_best_streak">Najlěpša serija</string>
   <string name="activity_tab_play_wiki_games">Igrati v VikiIgry</string>
-  <string name="activity_tab_report_email_subject">Soobčite o problemu – zakladka «Aktivnost»</string>
-  <string name="activity_tab_report_email_body">Ja našel problem s zakladkoju «Aktivnost»:\n- [Opišite konkretny problem]\n\nOčekyvano mnoju povedenje funkcije:\n- [Opišite prědloženo rěšenje]</string>
+  <string name="activity_tab_report_email_subject">Issue report - Activity Tab / Soobčenje o problemu – zakladka «Aktivnost»</string>
+  <string name="activity_tab_report_email_body">I have encountered a problem with Activity Tab feature / Ja jesm našel/našla problem s zakladkoju «Aktivnost»:\n- [Opišite konkretny problem]\n\nThe behavior I would like to see is / Očekyvano mnoju dějanje:\n- [Opišite prědloženo razrěšenje]</string>
   <string name="activity_tab_menu_feedback">Problem s funkcijeju</string>
   <string name="activity_tab_menu_info">Doznati veče</string>
   <string name="activity_tab_menu_customize">Prisposobiti</string>
+  <string name="activity_tab_menu_customize_description">Statistika čitanja jest osnovana na jezykah v nastavjenjah vašej aplikacije, a statistika pravjenja ograničaje se do glavnogo jezyka vašej aplikacije. Statistika upotrěbjaje lokalne dane, s izključenjem pravok, ktore sut občedostupne.</string>
   <string name="activity_tab_highlights">Najvažnějše</string>
   <string name="activity_tab_customize_screen_reading_history_switch_title">Historija čitanja</string>
   <string name="activity_tab_impact">Vaš vliv</string>
@@ -1241,6 +1245,59 @@
     <item quantity="other">pravok v prošlom měsecu</item>
   </plurals>
   <string name="activity_tab_impact_all_time">Vliv za ves čas</string>
+  <plurals name="activity_tab_impact_total_edits">
+    <item quantity="one">pravka vkupno</item>
+    <item quantity="few">pravky vkupno</item>
+    <item quantity="many">pravok vkupno</item>
+    <item quantity="other">pravok vkupno</item>
+  </plurals>
+  <string name="activity_tab_impact_thanks">{{PLULRA|one=poblagodarjenje|few=poblagodarjenja|many=poblagodarjenij|poblagodarjenij}}</string>
+  <plurals name="activity_tab_impact_best_streak_text">
+    <item quantity="one">%d denj</item>
+    <item quantity="few">%d dnja</item>
+    <item quantity="many">%d dnjev</item>
+    <item quantity="other">%d dnjev</item>
+  </plurals>
+  <string name="activity_tab_impact_best_streak">Najlěpša serija</string>
+  <string name="activity_tab_impact_last_edited">Poslědnja pravka</string>
+  <string name="activity_tab_impact_suggested_edits_title">0 pravok v člankah v poslědnjem času</string>
+  <string name="activity_tab_impact_suggested_edits_message">Izgledaje na to, že ne jeste sdělali nijednu pravku v tutom měsecu. Razširjajte svobovno znanje, redaktujuči prědmety, ktore vas interesujut.</string>
+  <string name="activity_tab_impact_suggested_edits_button">Sdělati pravku</string>
+  <string name="activity_tab_impact_recent_activity">Vaša nedavna aktivnost (poslědnje 30 dnjev)</string>
+  <plurals name="activity_tab_impact_recent_activity_edits">
+    <item quantity="one">Pravka</item>
+    <item quantity="few">Pravky</item>
+    <item quantity="many">Pravok</item>
+    <item quantity="other">Pravok</item>
+  </plurals>
+  <plurals name="activity_tab_impact_recent_activity_views">
+    <item quantity="one">Izobraženje člankov, ktore vy jeste izpravili</item>
+    <item quantity="other">Izobraženij člankov, ktore vy jeste izpravili</item>
+  </plurals>
+  <string name="activity_tab_customize_screen_time_spent_switch_title">Čas provedeny čitanjem</string>
+  <string name="activity_tab_customize_screen_reading_insights_switch_title">Statistiky o čitanju</string>
+  <string name="activity_tab_customize_screen_editing_insights_switch_title">Statistiky o pravjenju</string>
+  <string name="activity_tab_customize_screen_impact_switch_title">Vliv za ves čas</string>
+  <string name="activity_tab_customize_screen_games_switch_title">Statistika igr</string>
+  <string name="activity_tab_customize_screen_donations_switch_title">Poslědnje darovanje v aplikaciji</string>
+  <string name="activity_tab_customize_screen_timeline_switch_title">Hronologija povedenja</string>
+  <string name="activity_tab_customize_screen_no_modules_message">Moduly aktivnosti sut izključene. &lt;a href=\"#\"&gt;Vključite je&lt;/a&gt;, da byste uviděli obnovjenja na tutoj vkladkě.</string>
+  <string name="activity_tab_timeline_today">Dnes</string>
+  <string name="activity_tab_timeline_yesterday">Včera</string>
+  <string name="activity_tab_timeline_empty_state_title">Ničego do pokazanja</string>
+  <string name="activity_tab_timeline_empty_state_message">Načnite čitati i redaktovati, da byste iztvorili svoju historiju</string>
+  <string name="activity_tab_timeline_view_changes_button">Pokazati izměny</string>
+  <string name="activity_tab_onboarding_reading_patterns_title">Čitateljske privyčaje</string>
+  <string name="activity_tab_onboarding_reading_patterns_message">Pozrite, koliko časa vy jeste provedli čitanjem i kake članky ili prědmety jeste razvědali v tečenju časa.</string>
+  <string name="activity_tab_onboarding_screen_title">Vvod v aktivnost</string>
+  <string name="activity_tab_onboarding_impact_title">Glavne momenty vašego vliva</string>
+  <string name="activity_tab_onboarding_impact_message">Odkryjte statistiky o vašem vkladku i o obsegu znanja, ktorym vy jeste se podělil</string>
+  <string name="activity_tab_onboarding_engage_title">Veče sposobov dějanja</string>
+  <string name="activity_tab_onboarding_engage_message">Razvědajte statistiky o igrah, zapisanyh člankah i drugyh aktivnostij, ktore povezajut vas ješče glubje s Vikipedijeju.</string>
+  <string name="activity_tab_onboarding_stay_in_control_title">Imajte vse pod kontroloju</string>
+  <string name="activity_tab_onboarding_stay_in_control_message">Izberite, kake moduly vy hočete izobraziti. Vse osobne dane ostanut dověrnymi na vašem aparatu, a historiju prěgleděnyh vami stranic možno jest izčistiti vo vsakom momentu.</string>
+  <string name="edits_screen_what_is_title">Pravjenje v aplikaciji Vikipedije</string>
+  <string name="edits_screen_what_is_body">Ne znajete li, od čego začeti pravjenje? Poprobujte «Prědložene pravky», funkciju, ktora daje možnosti za maly ale važny vklad v Vikipediju. Abo prějdite bezposrědnje do članka o interesujučem vas prědmetu i sdělajte izměny posrědstvom vikiteksta.</string>
   <string name="file_page_activity_title">Stranica fajla</string>
   <string name="file_page_add_image_caption_button">Dodati nadpis obrazka</string>
   <string name="file_page_add_image_tags_button">Dodati značky obrazku</string>
@@ -1251,17 +1308,24 @@
   <string name="description_edit_revert_reason2">vaš vklad izgledal kako eksperiment ili vandalizm.</string>
   <string name="description_edit_revert_history">Ako to vas interesuje, gledite &lt;a href=\"%1$s\"&gt;historiju versij&lt;/a&gt;.</string>
   <string name="description_edit_login_cancel_button_text">Anulovati</string>
+  <string name="offline_read_permission_rationale">Za prěgledanje oflajn jest potrěbno dozvoljenje na dostup do hranilišča vašego aparata.</string>
+  <string name="offline_read_final_rationale">Za koristanje oflajn-biblioteky jest potrěbno dozvoljenje na dostup do hranilišča vašego aparata.</string>
   <string name="onboarding_skip">Prěskočiti</string>
   <string name="onboarding_continue">Prodolžiti</string>
   <string name="onboarding_get_started">Razpočeti</string>
   <string name="onboarding_maybe_later">Može pozdněje</string>
+  <string name="onboarding_explore_title">Nove sposoby izslědovanja</string>
+  <string name="onboarding_explore_text" fuzzy="true">Zanurite se gluboko v Vikipediju s postojanno izměnjajučim kanalom «Odkryti». &lt;br/&gt; &lt;b&gt;Prisposobite&lt;/b&gt; sobě toj kanal svojim po svojim interesam – napriklad, dovědite se o historičnyh sobytjah, ktore odbyli se &lt;b&gt;tutogo dnja&lt;/b&gt;, ili metnite kostku, da byste uviděli &lt;b&gt;slučajny&lt;/b&gt; članok.</string>
+  <string name="onboarding_reading_list_sync_title">Sinhronizacija spiskov za čitanje</string>
+  <string name="onboarding_reading_list_sync_text_v2">Vy možete stvoriti spisky člankov, ktore hočete pročitati pozdněje, daže kogda vy jeste offline.&lt;br/&gt;Prijavite se do svojego konta na Vikipediji, da byste mogli sinhronizovati svoje spisky za čitanje. &lt;a href=\"#login\"&gt;Pristupite v Vikipediju&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Dane i privatnost</string>
-  <string name="onboarding_data_privacy_text">My mnimo, že za vaše učestje v dviženju za svobodno znanje ne jest potrěbno, že vy podate osobne informacije. Vse dane sbirajame za tutu aplikaciju sut anonimne. Gledite &lt;a href=\"#privacy\"&gt;politiku privatnosti&lt;/a&gt; i &lt;a href=\"#termsOfUse\"&gt;uslovja upotrěbjanja&lt;/a&gt; za podrobnosti.</string>
+  <string name="onboarding_data_privacy_text" fuzzy="true">My mnimo, že za vaše učestje v dviženju za svobodno znanje ne jest potrěbno, že vy podate osobne informacije. Vse dane sbirajame za tutu aplikaciju sut anonimne. Gledite &lt;a href=\"#privacy\"&gt;politiku privatnosti&lt;/a&gt; i &lt;a href=\"#termsOfUse\"&gt;uslovja upotrěbjanja&lt;/a&gt; za podrobnosti.</string>
   <string name="onboarding_analytics_switch_title">Odpraviti dane o upotrěbě</string>
   <string name="onboarding_got_it">Razuměju</string>
   <string name="onboarding_multilingual_secondary_text">Na vašem aparatu my jesmo našli slědujuče jezyky:</string>
   <string name="onboarding_multilingual_add_language_text">Dodati ili izměniti jezyky</string>
   <string name="onboarding_welcome_title_v2">Svobodna enciklopedija\n... na veče neželi 300 jezykah</string>
+  <string name="onboarding_next">Dalje</string>
   <string name="app_shortcuts_random">Slučajny članok</string>
   <string name="app_shortcuts_continue_reading">Prodolžiti čitanje</string>
   <string name="app_shortcuts_search">Iskati</string>
@@ -1295,6 +1359,7 @@
     <item quantity="many">Odstraniti izbrane jezyky?</item>
     <item quantity="other">Odstraniti izbrane jezyky?</item>
   </plurals>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Vy samo uvidite sodržanje v kanalu «Odkryti» i filtry brzogo iskanja za ostale jezyky Vikipedije.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Vy ne možete odstraniti vse jezyky</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Ostavite minimalno jedin jezyk Vikipedije za iskanje i čitanje sodržanja.</string>
   <string name="more_language_options">veče</string>
@@ -1365,6 +1430,7 @@
   <string name="templates_learn_more_link">Daljše informacije</string>
   <string name="templates_description_incomplete">Šablony sut stvorjene koristnikami i mogut iměti nepolne opisy.</string>
   <string name="templates_description_empty">Šablon «%s» ješče ne imaje opis.</string>
+  <string name="templates_description_missing_data">V tutom šablonu odsutny jest &lt;a href=\"%1$s\"&gt;TemplateData&lt;/a&gt;, a jegove parametry sut &lt;a href=\"%2$s\"&gt;avtomatično generovane&lt;/a&gt;. Slědovateljno šablon i jegove parametry ne imajut opisy.</string>
   <string name="main_drawer_help">Pomoč</string>
   <string name="main_drawer_login">Prijavite se / prisjedinite se do Vikipedije</string>
   <string name="main_tooltip_action_button">Razpočeti</string>
@@ -1454,6 +1520,8 @@
   <string name="menu_option_find_in_talk_page_topic">Poiskati v temě besědnoj stranice</string>
   <string name="menu_option_copy_link_to_clipboard">Kopirovati link v bufor obměna</string>
   <string name="talk_menu_copy_text">Kopirovati tekst</string>
+  <string name="talk_menu_expand_threads">Razvinuti niti</string>
+  <string name="talk_menu_collapse_threads">Svinuti niti</string>
   <string name="watchlist_details_watching_label">Slědujete</string>
   <string name="watchlist_details_watch_label">Slědovati</string>
   <string name="watchlist_details_next_edit">Slědujuča pravka</string>
@@ -1461,6 +1529,7 @@
   <string name="thank_label">Poblagodariti</string>
   <string name="view_user_page">Pokazati koristničsku stranicu</string>
   <string name="thank_dialog_title_text">Publično odpraviti blagodarnost</string>
+  <string name="thank_dialog_text">«Blagodarjenje» jest legky sposob za izražanje, že cěniš rabotu redaktora v Vikipediji. Blagodarjenje ne možno jest odčiniti i jest vidimo publično.</string>
   <string name="thank_dialog_positive_button_text">Odpraviti blagodarnost</string>
   <string name="thank_dialog_negative_button_text">Anulovati</string>
   <string name="thank_success_message">Vaša blagodarnost jest odpravjena koristniku %s 👍</string>
@@ -1551,6 +1620,7 @@
   <string name="watchlist_filter_reset_button">Resetovati</string>
   <string name="watchlist_search_bar_hint">Poiskanje ili filtrovanje v spisku slědovanyh stranic</string>
   <string name="watchlist_search_bar_filter_hint">Filtr spiska slědovanyh stranic</string>
+  <string name="watchlist_empty_search_message">Nemaje rezultatov, poprobujte udaliti %s, da byste vy uviděli veče.</string>
   <plurals name="watchlist_number_of_filters">
     <item quantity="one">%d filtr</item>
     <item quantity="few">%d filtry</item>
@@ -1570,4 +1640,778 @@
   <string name="category_empty">V tutoj kategoriji ne byl najden nijedin članok.</string>
   <string name="subcategory_empty">V tutoj kategoriji ne byla najdena nijedna podkategorija.</string>
   <string name="search_namespaces">Imenne prostory</string>
+  <string name="revision_initial_none">Ničto (tuto jest prva versija)</string>
+  <string name="user_contrib_activity_title">Vklad koristnika %s</string>
+  <string name="archive_empty">Nenajdena nijedna arhivovana stranica.</string>
+  <string name="user_contrib_filter_ns">Filtrovati po imennomu prostoru</string>
+  <string name="user_contrib_filter_all">Vse imenne prostory</string>
+  <string name="user_contrib_filter_ns_header">Filtr imennogo prostora</string>
+  <string name="namespace_article">Članok</string>
+  <string name="user_contrib_current">nyněšnja versija</string>
+  <string name="media_playback_error">Problem s odigryvanjem mediafajla.</string>
+  <string name="user_contrib_menu_label">Vklad</string>
+  <string name="user_contrib_filter_activity_title">Filtrovati vklad</string>
+  <string name="action_item_view_on_map">Pozrěti na mapě</string>
+  <string name="action_item_view_on_map_unavailable">Geografične koordinaty ne sut dostupne za tutu stranicu</string>
+  <string name="shareable_reading_lists_import_dialog_title">Importovanje děljenogo spiska za čitanje</string>
+  <string name="shareable_reading_lists_import_dialog_content">Kako vy hočete nazvati spisok, ktory byl poděljeny s vami?</string>
+  <string name="shareable_reading_lists_new_indicator">*novy*</string>
+  <string name="shareable_reading_lists_new_install_dialog_title">S vami byl poděljeny spisok za čitanje</string>
+  <string name="shareable_reading_lists_new_install_dialog_content">My jesmo primětili, že s vami byl poděljeny spisok za čitanje. Za uviděnje togo spiska v aplikaciji, povrnite se k izhodnomu soobčenju i ponovno nastuknite link.</string>
+  <string name="shareable_reading_lists_new_install_dialog_got_it">Razuměju</string>
+  <string name="shareable_reading_lists_new_imported_snackbar">Spisok za čitanje jest uspěšno importovany</string>
+  <string name="reading_list_share_menu_label">Poděliti...</string>
+  <string name="reading_list_share_menu_tooltip">Podělite se tutym spiskom za čitanje s drugymi</string>
+  <string name="reading_list_share_message_v2">Zdravo! Ja htěl byh poděliti se svojim spiskom za čitanje v Vikipediji s vami:</string>
+  <string name="talk_templates_empty_message">Stvorite svoje vlastne soobčenja ili načnite od koristanja &lt;a href=\"#\"&gt;prikladnyh soobčenij&lt;/a&gt;.</string>
+  <string name="talk_templates_new_message_title">Novo soobčenje</string>
+  <string name="talk_templates_new_message_subject_hint">Prědmet</string>
+  <string name="talk_templates_new_message_compose_hint">Napisati soobčenje</string>
+  <string name="talk_templates_new_message_save">Zapisati</string>
+  <string name="talk_templates_new_message_dialog_title">Zapisati izměny</string>
+  <string name="talk_templates_new_message_dialog_description">Dodajte zaglavje i zapišite soobčenje.</string>
+  <string name="talk_templates_new_message_dialog_hint">Zaglavje soobčenja</string>
+  <string name="talk_templates_new_message_dialog_save">Zapisati</string>
+  <string name="talk_templates_new_message_dialog_cancel">Anulovati</string>
+  <string name="talk_templates_new_message_dialog_exists">Šablon «%s» uže jestvuje.</string>
+  <string name="talk_templates_new_message_saved">Soobčenje jest zapisano</string>
+  <string name="talk_templates_edit_message_dialog_title">Izpraviti soobčenje</string>
+  <string name="talk_templates_edit_message_dialog_save">Zapisati</string>
+  <string name="talk_templates_edit_message_dialog_delete">Odstraniti</string>
+  <string name="talk_templates_edit_message_updated">Soobčenje jest obnovjeno</string>
+  <string name="talk_templates_menu_remove_message">Odstraniti soobčenje</string>
+  <plurals name="talk_templates_message_delete_description">
+    <item quantity="one">Jeste li vy uvěrjeni, že hočete odstraniti soobčenje iz spiska?</item>
+    <item quantity="other">Jeste li vy uvěrjeni, že hočete odstraniti soobčenja iz spiska?</item>
+  </plurals>
+  <plurals name="talk_templates_message_deleted">
+    <item quantity="one">Soobčenje jest odstranjeno</item>
+    <item quantity="few">Soobčenja sut odstranjene</item>
+    <item quantity="many">Soobčenja sut odstranjene</item>
+    <item quantity="other">Soobčenja sut odstranjene</item>
+  </plurals>
+  <string name="talk_templates_message_title_empty">Zaglavje ne može byti prazdno.</string>
+  <string name="talk_templates_your_messages_tab_title">Vaše soobčenja</string>
+  <string name="talk_templates_example_messages_tab_title">Prikladne soobčenja</string>
+  <string name="patroller_tasks_edits_list_search_hint">Iskati ili filtrovati pravky</string>
+  <string name="patroller_tasks_edits_list_card_tags_text">Značky: %s</string>
+  <string name="patroller_tasks_edits_list_card_tags_text_none">Ničto</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Pokazati koristničsku stranicu</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">Pokazati besědnu stranicu</string>
+  <string name="patroller_tasks_edits_list_card_overflow_user_information">Informacija o koristniku</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Pokazati vklad koristnika</string>
+  <string name="patroller_tasks_edits_list_card_overflow_thank">Poblagodariti</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_title">Informacija o koristniku</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">&lt;b&gt;Koristničko konto od: &lt;/b&gt; %s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Kolikost pravok: &lt;/b&gt; %s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_close">Zakryti</string>
+  <string name="patroller_tasks_filters_title">Filtry</string>
+  <string name="patroller_tasks_filters_reset">Resetovati</string>
+  <string name="patroller_tasks_filters_wiki_filter_header">Viki</string>
+  <string name="patroller_tasks_filters_all_text">Vse</string>
+  <string name="patroller_tasks_filters_user_status_header">Registracija i izkušenost koristnika</string>
+  <string name="patroller_tasks_filters_user_status_unregistered">Neregistrovani</string>
+  <string name="patroller_tasks_filters_user_status_unregistered_desc">Neprijavjeni koristniki.</string>
+  <string name="patroller_tasks_filters_user_status_registered">Registovani</string>
+  <string name="patroller_tasks_filters_user_status_registered_desc">Prijavjeni koristniki.</string>
+  <string name="patroller_tasks_filters_user_status_newcomers">Novoprišelci</string>
+  <string name="patroller_tasks_filters_user_status_newcomers_desc">Registrovani koristniki imajuči menje neželi 10 pravok ili 4 dnjev aktivnosti.</string>
+  <string name="patroller_tasks_filters_user_status_learners">Učeniki</string>
+  <string name="patroller_tasks_filters_user_status_learners_desc">Registrovani koristniki, čijih izkušenje nahodi se medžu «novoprišelcami» i «izkušenymi koristnikami».</string>
+  <string name="patroller_tasks_filters_user_status_experienced">Izkušeni koristniki</string>
+  <string name="patroller_tasks_filters_user_status_experienced_desc">Registrovani koristniki imajuči veče neželi 500 pravok i 30 dnjev aktivnosti.</string>
+  <string name="patroller_tasks_filters_latest_revisions_header">Poslědnje versije</string>
+  <string name="patroller_tasks_filters_latest_revisions_latest_revision">Nyněšnja versija</string>
+  <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">Ne poslědnja versija</string>
+  <string name="patroller_tasks_filters_automated_contributions_header">Avtomatizovane pravky</string>
+  <string name="patroller_tasks_filters_automated_contributions_human">Člověk (ne bot)</string>
+  <string name="patroller_tasks_filters_significance_header">Značenje</string>
+  <string name="patroller_tasks_filters_significance_minor">Male pravky</string>
+  <string name="patroller_tasks_filters_significance_edits">Obyčne pravky</string>
+  <string name="patroller_tasks_filters_contribution_quality_header">Prědskazanja odnosno kakosti vklada</string>
+  <string name="patroller_tasks_filters_contribution_quality_good">Najpravdopodobno dobry</string>
+  <string name="patroller_tasks_filters_contribution_quality_good_desc">Mnogo točny v nahodženju skoro vsih neproblematičnyh pravok.</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems">Mogut byti problematične</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems_desc">Nahodi večinstvo hybnyh ili škodlivyh pravok, ale s menšoju točnostju.</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems">Pravdopodobno problematične</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems_desc">S srědnjeju točnostju nahodi priličnu čest problematičnyh pravok.</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad">Najpravdopodobno problematične</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad_desc">Mnogo točny v nahodženju najočevidno hybnyh ili škodlivyh pravok.</string>
+  <string name="patroller_tasks_filters_user_intent_header">Prědskazanja odnosno naměrov koristnika</string>
+  <string name="patroller_tasks_filters_user_intent_good">Najpravdopodobno s dobrymi naměrami</string>
+  <string name="patroller_tasks_filters_user_intent_good_desc">Mnogo točny v nahodženju skoro vsih pravok sdělanyh s dobrymi naměrami.</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems">Može byti s zlymi naměrami</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems_desc">Nahodi večinstvo pravok, sdělanyh s zlymi naměrami, ale s menšeju točnostju.</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems">Pravdopodobno s zlymi naměrami</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems_desc">S srědnjeju točnostju nahodi priličnu čest pravok sdělanyh s zlymi naměrami.</string>
+  <string name="patroller_tasks_filters_user_intent_bad">Najpravdopodobno s zlymi naměrami</string>
+  <string name="patroller_tasks_filters_user_intent_bad_desc">Mnogo točny v nahodženju pravok, najočevidněje sdělanyh s zlymi naměrami.</string>
+  <string name="patroller_tasks_filters_empty_search_message">Ako vy hočete uviděti veče pravok, poprobujte udaliti %s</string>
+  <plurals name="patroller_tasks_filters_number_of_filters">
+    <item quantity="one">%d filtr</item>
+    <item quantity="few">%d filtry</item>
+    <item quantity="many">%d filtrov</item>
+    <item quantity="other">%d filtrov</item>
+  </plurals>
+  <string name="patroller_tasks_patrol_edit_overflow_edit_history">Historija versij članka</string>
+  <string name="patroller_tasks_patrol_edit_undo_success">Vračanje završeno</string>
+  <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Jeste li uvěrjeni, že hočete to odčiniti?</string>
+  <string name="patroller_tasks_patrol_edit_rollback_success">Brzo odčinjenje završeno</string>
+  <string name="patroller_tasks_patrol_edit_snackbar_view">Izobraziti</string>
+  <string name="patroller_tasks_overflow_report">Problem s funkcijeju</string>
+  <string name="patroller_tasks_overflow_learn">Daljše informacije</string>
+  <string name="patroller_onboarding_one_title">Učestvujte v kontrolovanju i odobrjanju pravok v Vikipediji.</string>
+  <string name="patroller_onboarding_one_content">Ulěpšajte Vikipediju s aktivnym prěgledanjem kanala poslědnjih pravok, davanjem rukovodstva, kontrolovanjem kakosti i pobudžanjem drugyh redaktorov.</string>
+  <string name="patroller_onboarding_two_title">Davajte povratne informacije, slědujte pravky i izpolnjajte dějanja na ekranu razlik medžu versijami</string>
+  <string name="patroller_onboarding_two_thank_title">Poblagodariti</string>
+  <string name="patroller_onboarding_two_thank_content">Vidite li produktivnu pravku? Poblagodarite koristniku za jegov vklad.</string>
+  <string name="patroller_onboarding_two_watch_title">Slědovati</string>
+  <string name="patroller_onboarding_two_watch_content">Hočete li slědovati pravky v člankah? Dodajte je v svoj spisok slědovanyh stranic. Uvidite go v razdělu «Veče».</string>
+  <string name="patroller_onboarding_two_talk_title">Besěda</string>
+  <string name="patroller_onboarding_two_talk_content">Pobesědujte s drugymi redaktorami. Zapišite sobě često upotrěbjane soobčenja na besědnyh stranicah ili koristajte šablon.</string>
+  <string name="patroller_onboarding_two_undo_title">Odčiniti/Povratiti</string>
+  <string name="patroller_onboarding_two_undo_content">Izberite «Odčiniti» za povračenje prědhodnoj versije ili odčinjenje potencialno destruktivnoj pravky.</string>
+  <string name="patroller_diff_tooltip_one">«Škoda» prědskazyvaje, že pravka može poškoditi viki.</string>
+  <string name="patroller_diff_tooltip_two">«Naměr» prědskazyvaje pravodpodobnost, že pravka jest sdělana s dobrymi naměrami.</string>
+  <string name="patroller_diff_feedback_dialog_feedback_title">Kako my možemo ulěpšiti tut funkciju?</string>
+  <string name="patroller_diff_menu_edit_history_title">Historija pravok članka</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">Povratne informacije</string>
+  <string name="patroller_diff_feedback_tooltip">Za poslanje povratnoj informacije, v kakomkoli momentu nastuknite dodatočno menju «Problem s funkcijeu».</string>
+  <string name="patroller_saved_message_title_vandalism">Prěduprědženje o vandalizmu</string>
+  <string name="patroller_saved_message_title_editing_tests">Testne pravky</string>
+  <string name="patroller_saved_message_title_npov">Nevtralna točka zrěnja</string>
+  <string name="patroller_saved_message_title_auto_trans">Avtomatičny prěvod</string>
+  <string name="patroller_saved_message_title_coi_rem">Pripomněnje o konfliktu interesov</string>
+  <string name="patroller_saved_message_title_final_warning">Poslědnje prěduprědženje</string>
+  <string name="patroller_saved_message_title_copy_vio">Prěduprědženje o narušenju avtorskyh prav</string>
+  <string name="patroller_saved_message_title_edit_summary_reminder">Ostaviti opis pravky</string>
+  <string name="patroller_saved_message_title_do_not_censor">Ne cenzurovati</string>
+  <string name="patroller_saved_message_title_art_imp">Prědloženje za ulěpšenje članka</string>
+  <string name="patroller_saved_message_body_vandalism">Zdravo, {{{username}}}! Ja hoču vam soobčiti, že jesm odčinil(a) jednu ili veče vaših [{{{diffLink}}}|poslědnjih pravok], ibo one ne izdavali se konstruktivnymi. Ako po vašemu mněnju to bylo pogrěška ili ako vy imajete pytanja, možete ostaviti poslanje na [[User talk:{{{senderUserName}}}|mojej besědnoj stranici]]. Imajte v vidu, že prodolženy vandalizm može dovesti do ograničenij.</string>
+  <string name="patroller_saved_message_body_editing_tests">Zdravo, {{{username}}}! My mnogo radujemo se, že Vikipedija privlekla vašu uvagu, i že vy interesujete se tym, kako ju praviti. Vaš test byl uspěšny. Jednakože imajte v vidu, že cěljem tutogo projekta jest stvorjenje věrodostojnoj, popolnoj enciklopedije, ktoru vsekto može koristati. Vaša pravka iměla vliv na sodržanje, takto ona byla odčinjena.\nAko vy hočete eksperimentovati s pravjenjem Vikipedije, vy možete upotrěbjati [[Wikipedia:Sandbox|pěskovišče]]. Ako vaše komentare odnosili se konkretno k jednomu članku, pravilno město jest besědna stranica pri tom članku.</string>
+  <string name="patroller_saved_message_body_npov">Zdravo, {{{username}}}! Někoje iz vaših pravok sut nesgodne s trěbovanjami  nevtralnosti, ustanovjenymi v politikě Vikipedije o [[Wikipedia:NPOV|nevtralnoj točkě zrěnja]]. Iz toj pričiny někoja čest iz njih byla izměnjena ili udaljena. Prosimo, izměnite paragrafy ili razděly, ktore prědstavjajut pristrastnu točku zrěnja, i zaměnite je nevtralnějšim i objektivnějšim tekstom, odpovědajučim kriterijam enciklopedije.</string>
+  <string name="patroller_saved_message_body_auto_trans">Zdravo, {{{username}}}! Někoje iz vaših pravok izgledajut na mašinne prěvody. Iz toj pričiny one byli izměnjene ili označene šablonom. Ako v članok ne budut vvedene popravky, on može byti odstranjeny.\n\nAko vy, pomimo tutoj informacije, ješče imajete pytanja, možete ostaviti poslanje na [[User talk:{{{senderUserName}}}|mojej besědnoj stranici]]. Ne obezhrabrite se tutym malym incidentom. Vaš vklad jest mnogo važny za Vikipediju.</string>
+  <string name="patroller_saved_message_body_coi_rem">Zdravo, {{{username}}}! Ja cěnju vašu surabotu v Vikipediji. Jednakože jesm primětil(a), že vy imajete [[Wikipedia:Conflict_of_interest|konflikt interesov]]. Konflikt interesov označaje nekompatitibilnost medžu cěljami Vikipedije v oblasti nevtralnosti i věrodostojnosti po jednoj straně, i osobnymi naměrami oprěděljenyh redaktorov ili osob, organizacij ili kompanij libokakoko roda.\n\nVsaky vklad v glavny imenny prostor podvrgaje se politikě odnosno kriterij za sodržanje tutoj Vikipedije ([[Wikipedia:What_Wikipedia_is_not|čto Vikipedija ne jest]]), enciklopedičnu kakost ([[Wikipedia:Verifiability|prověrimost]] i [[nedopustimost vlastnyh izslědovanij]]). Vsekto, kto publikuje svoj vklad v VIkipediju, povinen jest pridrživati se tutyh pravil pri tvorjenu i ocěnjanju sodržanja, a takože považati drugyh redaktorov i prědpokladati dobre naměry v jihnom dějanju.\n\nAko vy pravite pomimo konflikta interesov, trěba priměnjati odnosnu politiku s osoblivoju sověstnostju. V protivnom slučaju vaše koristničsko konto može byti zablokovano za služenje privatnym cěljam. Ako vy imajete kakekoli pytanja, vy spokojno možete obratiti se k mně na mojej besědnoj stranici.</string>
+  <string name="patroller_saved_message_body_final_warning">Zatože vy jeste sdělali několiko destruktivnyh pravok, tuto bude vaše poslědnje prěduprědženje. Ako vy ješče raz vandalizujete Vikipedije, možnost pravjenja bude vam zablokovana.</string>
+  <string name="patroller_saved_message_body_copy_vio">Izdavaje se, že vaša nedavna pravka bez dozvoljenja sodrživala materialy zaščičene avtorskym pravom. Prosimo, uvěrite se, že vsako sodržanje jest sgodno s politikoju odnosno [[Wikipedia:Copyrights|avtorskyh prav]], da byste izběgali odstranjenja.</string>
+  <string name="patroller_saved_message_body_edit_summary">Zdravo, {{{username}}}! Izgledaje na to, že vy jeste odstranili sodržanje iz Vikipedije, ale ne ostavili opis pravky. Prosimo, kogda vy něčto dodate ili odstranite, vpišite kratky opis svojej pravky.</string>
+  <string name="patroller_saved_message_body_do_not_censor">Zdravo, {{{username}}}, izgledaje na to, že vy jeste odstranili sodržanje bez diskusije na besědnoj stranici pri članku. Prosimo, imajte v vedu, že Vikipedija ne podvrgaje se cenzurě, a sodržanje ne može byti odstranjeno samo za to, že jest sporno. Ako informacija po vašemu mněnju jest pogrěšna, prosimo, poprobujte dovesti k konsensusu na besědnoj stranici članka.</string>
+  <string name="talk_warn_learn_more_label">Informacija o zapolniteljah soobčenij</string>
+  <string name="talk_warn_saved_messages_usage_instruction">Koristajte prikladno soobčenje niže za prisposobjenje, odpravjenje i shranjenje v vaših soobčenjah.</string>
+  <string name="patroller_saved_message_body_art_imp">Zdravo, {{{username}}}! Vaš članok jest odličny početok! Da byste go ješče bolje ulěpšili, pomyslite o možnosti dodanja veče odnosnikov do věrodstojnyh izvorov. To pomože prověriti informaciju i povysi kakost članka. Pročitajte směrnice tutoj Vikipedije o [[Wikipedia:Reliable_sources|věrodostojnyh izvorah]] za podrobnosti.</string>
+  <string name="talk_templates_menu_edit_title">Praviti</string>
+  <string name="data_opt_in_accept">Prijeti</string>
+  <string name="data_opt_in_reject">Odkydnuti</string>
+  <string name="page_issues_title">Problemy s straniceju</string>
+  <string name="generic_release_notes">Dobrne izpravjenja pogrěšek i ulěpšenja</string>
+  <string name="email_report_image_recommendations_subject">Issue Report - Image Recommendations feature / Soobčenje o problemu – funkcija «Prěporučenje obrazkov»</string>
+  <string name="email_report_image_recommendations_body">I have encountered a problem with the Image Recommendations feature / Ja jesm našel/našla problem s funkcijeju «Prěporučenje obrazkov»:\n- [Opišite konkretny problem]\n\nThe behavior I would like to see is / Očekyvano mnoju dějanje:\n- [Opišite prědloženo razrěšenje]</string>
+  <string name="email_report_patroller_tasks_subject">Issue Report- Edit Patrol Feature / Soobčenje o problemu – Funkcija patrolovanja pravok</string>
+  <string name="email_report_patroller_tasks_body">I have encountered a problem with the Edit Patrol feature / Ja jesm našel/našla problem s funkcijeju Patrolovanja pravok:\n- [Opišite konkretny problem]\n\nThe behavior I would like to see is / Očekyvano mnoju dějanje:\n- [Opišite prědloženo razrěšenje]\n\n[Snimky ekrana ili linky]</string>
+  <string name="donation_campaign_maybe_later_snackbar">Zautra my pripomnimo vas ponovno.</string>
+  <string name="donation_campaign_donated_snackbar">Hvala dragy daritelju! Vaša ščedrost pomagaje procvětati Vikipediji i drugym projektam, ktore davajut dostup k svobodnomu znanju.</string>
+  <string name="donation_campaign_go_back_button">Nazad</string>
+  <string name="menu_single_webview_open_external">Otvoriti v sistemnom prěgledaču</string>
+  <string name="donate_gpay_dialog_title">Darovati črěz Google Pay?</string>
+  <string name="donate_gpay_dialog_description">Sdělajte darovanje črěz Google Pay ili izberite drugy sposob plačenja.</string>
+  <string name="donate_gpay_dialog_pay_button">Darovati črěz Google Pay</string>
+  <string name="donate_gpay_dialog_other_button">Drugy sposob plačenja</string>
+  <string name="donate_gpay_activity_title">Izberite sumu</string>
+  <string name="donate_gpay_activity_title_with_currency">Izberite sumu (%s)</string>
+  <string name="donate_gpay_check_transaction_fee">Ja ščedro dodam %s za pokrytje oplat na komisiju, da byste mogli zadržali 100%% mojego darovanja.</string>
+  <string name="donate_gpay_check_recurring">Sdělajte iz togo vsakoměsečno darovanje.</string>
+  <string name="donate_gpay_check_send_email">Da, Fondacija Vikimedija može od časa do časa prisylati mi elektroničnu poštu.</string>
+  <string name="donate_gpay_minimum_amount">Prosimo, izberite sumu (minimalno %s)</string>
+  <string name="donate_gpay_maximum_amount">My me možemo prijmati darovanja na sumu vysšu neželi %s črěz našu aplikaciju. Prosimo, kontaktujte se s našeju družinoju za velike darovanja na adres: benefactors@wikimedia.org.</string>
+  <string name="donate_gpay_success_message">&lt;b&gt;Hvala!&lt;/b&gt; vaša ščedrost za Vikipediju jest mnogo cěnna za nas.</string>
+  <string name="donate_gpay_help_problems">Problemy s darovanjem?</string>
+  <string name="donate_gpay_help_other_ways">Drugy sposoby darovanja</string>
+  <string name="donate_gpay_help_faq">Često postavjene pytanja</string>
+  <string name="donate_gpay_help_tax">Informacija o danočnom uvolnjenju</string>
+  <string name="donation_history_deleted_message_snackbar">Historija darovanij izčiščena.</string>
+  <string name="donation_history_no_history_message_snackbar">Vy ne imajete historiju darovanij za izčiščenje.</string>
+  <string name="places_title">Města</string>
+  <string name="places_permissions_denied">Za uviděnje vašego městopoloženja na mapě potrěbno jest dozvoljenje na městopoloženje. Prosimo, poprobujte ješče raz.</string>
+  <string name="places_search_hint">Iskanje měst</string>
+  <string name="places_filter_title">Filtrovati po jezyku</string>
+  <string name="places_toggle_buttons_map">Mapa</string>
+  <string name="places_toggle_buttons_list">Spisok</string>
+  <string name="places_empty_list">Tuta městnost jest prazdna. Směnšiti &lt;a href=\"#\"&gt;škalu mapy&lt;/a&gt;.</string>
+  <string name="places_card_title">Města poblizu</string>
+  <string name="places_card_action">Veče měst poblizu</string>
+  <string name="places_card_enable_location_card_message">«Města» jest sposob za razvědyvanje Vikipedije na osnově mapy</string>
+  <string name="places_card_enable_location_card_button">Vključiti městopoloženje</string>
+  <string name="places_card_distance_suffix">%s odtud</string>
+  <string name="places_card_distance_unknown">Neznana oddaljenost</string>
+  <string name="places_empty_message_snackbar">Nemaje člankov poblizu. Poprobujte smenšiti škalu i prěsunuti se po mapě.</string>
+  <string name="survey_dialog_title">Pomožite nam ulěpšiti tutu funkciju</string>
+  <string name="survey_dialog_message">Zadovaljaje vam tuta funkcija?</string>
+  <string name="survey_dialog_option_satisfied">Zadovaljaje</string>
+  <string name="survey_dialog_option_neutral">Nevtralno</string>
+  <string name="survey_dialog_option_unsatisfied">Ne zadovaljaje</string>
+  <string name="survey_dialog_option_very_satisfied">Mnogo zadovaljaje</string>
+  <string name="survey_dialog_option_very_unsatisfied">Sovsěm ne zadovaljaje</string>
+  <string name="survey_dialog_cancel">Anulovati</string>
+  <string name="survey_dialog_submit">Odpraviti</string>
+  <string name="survey_dialog_next">Dalje</string>
+  <string name="survey_dialog_general_yes">Da</string>
+  <string name="survey_dialog_general_no">Ne</string>
+  <string name="survey_dialog_general_maybe">Možno</string>
+  <string name="survey_dialog_input_hint">Dodatočne povratne informacije</string>
+  <string name="survey_dialog_submitted_snackbar">Povratna informacija odpravjena. Hvala!</string>
+  <string name="on_this_day_game_entry_dialog_title">Prědstavjenje</string>
+  <string name="on_this_day_game_entry_dialog_subtitle">Igry Vikipedije</string>
+  <string name="on_this_day_game_entry_dialog_button">Igrati</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message" fuzzy="true">Igry Vikipedije sut dostupne v kanalu «Odkryti».</string>
+  <string name="on_this_day_game_title">Čto bylo prvo?</string>
+  <string name="on_this_day_game_dialog_button">Igrati</string>
+  <string name="on_this_day_game_splash_message">Ugadajte, ktoro sobytje slučilo se prvo tutogo dnja v historiji.</string>
+  <string name="on_this_day_game_progress">%1$d iz %2$d</string>
+  <string name="on_this_day_game_score">Rezultat: %d</string>
+  <string name="on_this_day_game_submit">Odpraviti</string>
+  <string name="on_this_day_game_correct">Pravilno!</string>
+  <string name="on_this_day_game_incorrect">Nepravilno!</string>
+  <string name="on_this_day_game_point">+1 bal</string>
+  <string name="on_this_day_game_next">Slědujuče pytanje</string>
+  <string name="on_this_day_game_finish">Konečne rezultaty</string>
+  <string name="on_this_day_game_share_button">Poděliti se rezultatom</string>
+  <string name="on_this_day_game_feed_entry_card_heading">Igry Vikipedije</string>
+  <string name="on_this_day_game_feed_entry_card_title">Čto bylo prvo?</string>
+  <string name="on_this_day_game_result">Vaš rezultat: %1$d/%2$d.</string>
+  <string name="on_this_day_game_next_in">Slědujuča igra za %s</string>
+  <string name="on_this_day_game_your_stats">Vaša statistika</string>
+  <plurals name="on_this_day_game_stats_games_played">
+    <item quantity="one">Izgrana igra</item>
+    <item quantity="few">Igrane igry</item>
+    <item quantity="many">Igrane igry</item>
+    <item quantity="other">Igrane igry</item>
+  </plurals>
+  <string name="on_this_day_game_stats_average_score">Srědnji rezultat</string>
+  <string name="on_this_day_game_stats_streak">Tekuča serija</string>
+  <string name="on_this_day_game_result_subtitle">Članky, izkoristane v dnešnjej igrě</string>
+  <string name="on_this_day_game_completed_message" fuzzy="true">Hvala za igranje. Vsakodnevno na vašem kanalu «Odkryti» jest dostupna nova igra «Čto slučilo se prvo?»</string>
+  <string name="on_this_day_game_menu_notifications">Uvědomjenja ob igrě</string>
+  <string name="on_this_day_game_menu_info">Daljše informacije</string>
+  <string name="on_this_day_game_menu_feedback">Problem s funkcijeju</string>
+  <string name="on_this_day_game_article_read_button">Čitati članok</string>
+  <string name="on_this_day_game_article_related_event_title">Sobytje svezano s tutym člankom</string>
+  <string name="on_this_day_game_article_answer_correct_stats_message">Na tuto pytanje vy jeste odgovorili pravilno</string>
+  <string name="on_this_day_game_article_answer_incorrect_stats_message">Na tuto pytanje vy jeste odgovorili nepravilno</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_title">Izključiti uvědomjenja ob igrě?</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_subtitle">Ako vy izključite uvědomjenja, uže ne budete dostavati vsakodnevne pripomněnja, kogda nova igra bude dostupna.</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_title">Vključiti uvědomjenja ob igrě?</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_subtitle">Uvědomjenja ob igrě vsakodnevno informujut vas, kogda dostupna jest nova igra.</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_positive_btn_label">Ne, ostavi je vključenymi</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_negative_btn_label">Izključiti je</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">Da, vključite je</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">Ostavi je izključenymi</string>
+  <string name="on_this_day_game_notification_turned_off_snackbar_message">Uvědomjenja ob igrě izključene</string>
+  <string name="on_this_day_game_notification_turned_on_snackbar_message">Uvědomjenja ob igrě vključene</string>
+  <string name="on_this_day_game_notification_text">Dnešnja igra «Čto bylo prvo?» jest gotova do igranja.</string>
+  <string name="on_this_day_game_report_email_subject">Issue Report – Wikipedia games / Soobčenje o problemu – Igry Vikipedije</string>
+  <string name="on_this_day_game_report_email_body">I have encountered a problem with the Wikipedia games feature / Ja jesm našel/našla problem s funkcijeju «Igry Vikipedije»:\n- [Opišite konkretny problem]\n\nThe behavior I would like to see is / Očekyvano mnoju dějanje:\n- [Opišite prědloženo razrěšenje]</string>
+  <string name="on_this_day_game_notification_undo">Odčiniti</string>
+  <string name="on_this_day_game_share_link_message">Ja igraju v «Čto bylo prvo?», vsakodnevny kviz na aplikaciji Vikipedije za Android %s</string>
+  <string name="on_this_day_game_share_screen_title">Moj rezultat v dnešnjej igrě \n«Čto bylo prvo?»:\n%1$d/%2$d.</string>
+  <string name="on_this_day_game_share_screen_subtitle">Vključene temy:</string>
+  <string name="on_this_day_game_archive_calendar_title">Izberite igru po datě</string>
+  <string name="on_this_day_game_score_toast_message">V toj denj vaš rezultat byl %1$d/%2$d.</string>
+  <string name="on_this_day_game_continue_btn_text">Prodolžiti dnešnju igru</string>
+  <string name="on_this_day_game_current_progress_message">Vy nahodite se na pytanju %d.</string>
+  <string name="on_this_day_game_archive_btn_text">Igrati arhiv</string>
+  <string name="on_this_day_game_review_results_btn_text">Prěgled rezultatov</string>
+  <string name="on_this_day_game_score_message">Dnes vaš rezultat byl %1$d/%2$d.</string>
+  <string name="on_this_day_game_continue_playing_btn_text">Prodolžiti igru</string>
+  <string name="on_this_day_game_sound_on">Vključiti zvuk</string>
+  <string name="on_this_day_game_sound_off">Izključiti zvuk</string>
+  <string name="year_in_review_learn_more">Daljše informacije</string>
+  <string name="year_in_review_get_started">Razpočeti</string>
+  <string name="year_in_review_topbar_w_icon">Ikonka W Vikipedije</string>
+  <string name="year_in_review_navigate_left">Prějdti vlěvo</string>
+  <string name="year_in_review_close">Zatvoriti</string>
+  <string name="year_in_review_share_icon">Ikonka «Poděliti se»</string>
+  <string name="year_in_review_heart_icon">Ikonka srdca</string>
+  <string name="year_in_review_navigate_right">Prějdti vpravo</string>
+  <string name="year_in_review_donate">Darovati</string>
+  <string name="year_in_review_information_icon">Ikonka informacije</string>
+  <string name="year_in_review_get_started_headline">Odkryjte svoj Prěgled goda na Vikipediji</string>
+  <string name="year_in_review_get_started_bodytext">Prěgledajte statistiky o člankah, ktore vy jeste pročitali v aplikaciji Vikipedije, i o vnesenyh vami pravkah.</string>
+  <string name="year_in_review_get_started_info">Vaša historija čitanja jest zaščičena. Statistiky čitanja sut kalkulovane na osnově danyh shranjenyh lokalno na vašem aparatu.</string>
+  <string name="year_in_review_get_started_later">Vy možete otvoriti svoj Prěgled goda pozdněje v menju «Veče».</string>
+  <string name="year_in_review_survey_title">Pomožite ulěpčiti Prěgled goda</string>
+  <string name="year_in_review_survey_subtitle">Zadovaljaje vam tuta funkcija?</string>
+  <string name="year_in_review_reading_list_survey_title">Pomožite ulěpšiti spisok za čitanje v Prěgledu goda %d.</string>
+  <string name="year_in_review_reading_list_survey_subtitle">Zadovaljaje vam vaš spisok za čitanje?</string>
+  <string name="year_in_review_survey_very_satisfied">Mnogo zadovaljaje</string>
+  <string name="year_in_review_survey_satisfied">Zadovaljaje</string>
+  <string name="year_in_review_survey_neutral">Nevtralno</string>
+  <string name="year_in_review_survey_unsatisfied">Ne zadovaljaje</string>
+  <string name="year_in_review_survey_very_unsatisfied">Sovsěm ne zadovaljaje</string>
+  <string name="year_in_review_survey_placeholder_text">Imajete li někake dodatočne mysli?</string>
+  <string name="year_in_review_survey_cancel">Anulovati</string>
+  <string name="year_in_review_survey_submit">Odpraviti</string>
+  <string name="year_in_review_disable_title">Jeste li vy uvěrjeni, že hočete izključiti Prěgled goda?</string>
+  <string name="year_in_review_disable_positive_button">Ja, zaisto</string>
+  <string name="year_in_review_disable_negative_button">Ne, hvala</string>
+  <string name="year_in_review_setting_subtitle">Ako vy izključite Prěgled goda, vse vaše shranjene personalizovane statistiky budut izčiščene, a funkcija Prěgled goda bude skryta.</string>
+  <string name="year_in_review_screendeck_image_content_description">Izvor obrazka za glavny ekran Prěgleda goda</string>
+  <string name="year_in_review_screenshot_error">Stvorjenje snimka ekrana ne udalo se: %s</string>
+  <string name="year_in_review_share_subject">Moj Prěgled goda v Vikipediji</string>
+  <string name="year_in_review_share_body">Tuto jest moj Prěgled goda v Vikipediji. Stvorjeny s pomočju aplikacije Vikipedije za Android %1$s %2$s</string>
+  <string name="year_in_review_globe_icon">Ikonka globusa</string>
+  <string name="settings_app_icon_title">Ikonka aplikacije</string>
+  <string name="settings_app_icon_subtitle">Korist za učestnika</string>
+  <string name="settings_app_icon_preference_subtitle">Vy imajete dostup k specialnoj ikonkě, ktora oznamenuje vaš vklad črěz aplikaciju Vikipedije v tečenju %d goda. Ona ostane do naslědnogo Prěgleda goda.</string>
+  <string name="settings_app_icon_updated">Ikonka vašej aplikacije jest obnovjena.</string>
+  <string name="year_in_review_slide_app_icon_title_unlocked">Nova ikonka aplikacije jest razblokovana za vaš domašnji ekran</string>
+  <string name="year_in_review_slide_app_icon_title_unlock">Razkryjte nagradu za vaš vklad za slědujuči god!</string>
+  <string name="year_in_review_slide_app_icon_body_unlocked">Aktivujte novu ikonku svojej aplikacije v Nastavjenjah v razdělu «Ikonka aplikacije». Hvala vam, že investujete v budučnost svobodnogo znanja. Vaš vklad kako %1$s v %2$d godu pomagaje proklasti put k světu svobodnoj informacije, a v rezultatu vy jeste razblokovali specialnu ikonku učestnika Vikipedije na vašem domašnjem ekranu.</string>
+  <string name="year_in_review_slide_app_icon_body_unlock">My radujemo se, že Vikipedija byla čest vašego goda %1$d! Razblokujte specialnu nagradu v vašem «Prěgledu goda %2$d» i stanite učestnikom – ili kako &lt;a href=\"%3$s\"&gt;redaktor Vikipedije&lt;/a&gt;, ili kako daritelj &lt;a href=\"%4$s\"&gt;Fondacije Wikimedia&lt;/a&gt;, nekomercialnoj organizacije, ktora stoji za njeju. Ako Vikipedija jest vam upotrěbima, prosimo, razmyslite možnost darovanja, da byste pomogli poddrživati jejnu budučnost kako svobodny, věrodostojny, bezreklamny i občedostupny izvor informacije za vsekogo. Ako vy uže darovali inde, vaša poddržka jest vysoko cěnjena.</string>
+  <string name="year_in_review_slide_app_icon_donor">daritelj</string>
+  <string name="year_in_review_slide_app_icon_editor">redaktor</string>
+  <string name="year_in_review_slide_app_icon_donor_and_editor">daritelj i redaktor</string>
+  <string name="year_in_review_slide_geo_headline">Država najblizša do člankov, ktore vy čitajeje: %s</string>
+  <string name="year_in_review_slide_geo_body">Izdavaje se, že država najblizša do mnogyh pročitanyh vami člankov jest: %1$s, sudeči po člankam kako &lt;b&gt;%2$s&lt;/b&gt; i &lt;b&gt;%3$s&lt;/b&gt;.</string>
+  <string name="year_in_review_login_dialog_title">Prijaviti se za personalizaciju?</string>
+  <string name="year_in_review_login_dialog_body">Prijavjenje se davaje vam dostup k personalizovanym statistikam. Dokolě vy ne jeste prijavjeni, vy možete uviděti obče statistiky.</string>
+  <string name="year_in_review_login_dialog_positive">Prijaviti se / prisjediniti se do Vikipedije</string>
+  <string name="year_in_review_login_dialog_negative">Prodolžiti bez prijavjenja se</string>
+  <plurals name="year_in_review_slide_top_articles_headline">
+    <item quantity="one">Vaš ljubimy članok</item>
+    <item quantity="few">Vaše ljubime članky</item>
+    <item quantity="many">Vaše ljubime članky</item>
+    <item quantity="other">Vaše ljubime članky</item>
+  </plurals>
+  <plurals name="year_in_review_slide_top_articles_body">
+    <item quantity="one">\"Tuto jest članok, ktory vy jeste posětili načestěje v godu %1$d: %2$s</item>
+    <item quantity="few">Tuto sut članky, ktore vy jeste posětili načestěje v godu %1$d: %2$s</item>
+    <item quantity="many">Tuto sut članky, ktore vy jeste posětili načestěje v godu %1$d: %2$s</item>
+    <item quantity="other">Tuto sut članky, ktore vy jeste posětili načestěje v godu %1$d: %2$s</item>
+  </plurals>
+  <string name="year_in_review_slide_top_categories_headline">Vaše najinteresnějše kategorije</string>
+  <string name="year_in_review_slide_top_categories_body">Kategorije grupujut članky s shodnoju tematikoju. V %1$d godu vy jeste mnogokratno posětili članky v slědujučih interesnyh kategorijah: %2$s</string>
+  <string name="year_in_review_slide_most_read_english_articles_headline">Najčitanějše članky anglijskoj Vikipedije</string>
+  <plurals name="year_in_review_slide_most_read_english_articles_body">
+    <item quantity="one">Kogda ljudi hočet poznati naš svět, oni obračajut se k Vikipediji. %1$d najčestěje posěčeny članok anglijskoj Vikipedije byl: %2$s &lt;br /&gt; Pročitajte veče v našem &lt;a href=\"%3$s\"&gt;blogpostu&lt;/a&gt;.</item>
+    <item quantity="few">Kogda ljudi hočet poznati naš svět, oni obračajut se k Vikipediji. %1$d najčestěje posěčene članky angijskoj Vikipedije byli: %2$s &lt;br /&gt; Pročitajte veče v našem &lt;a href=\"%3$s\"&gt;blogpostu&lt;/a&gt;.</item>
+    <item quantity="many">Kogda ljudi hočet poznati naš svět, oni obračajut se k Vikipediji. %1$dajčestěje posěčene članky angijskoj Vikipedije byli: %2$s &lt;br /&gt; Pročitajte veče v našem &lt;a href=\"%3$s\"&gt;blogpostu&lt;/a&gt;.</item>
+    <item quantity="other">Kogda ljudi hočet poznati naš svět, oni obračajut se k Vikipediji. %1$d najčestěje posěčene članky angijskoj Vikipedije byli: %2$s &lt;br /&gt; Pročitajte veče v našem &lt;a href=\"%3$s\"&gt;blogpostu&lt;/a&gt;.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edits_viewed_times_headline">
+    <item quantity="one">Vaša pravka byla prěgleděna ponad %,d-kratno ili veče v poslědnjem času</item>
+    <item quantity="few">Vaše pravky byli prěgleděne ponad %,d-kratno ili veče v poslědnjem času</item>
+    <item quantity="many">Vaše pravky byli prěgleděne ponad %,d-kratno ili veče v poslědnjem času</item>
+    <item quantity="other">Vaše pravky byli prěgleděne ponad %,d-kratno ili veče v poslědnjem času</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edits_viewed_times_body">
+    <item quantity="one">Čitatelji po vsem světu cěnet vaš vklad. V tečenju poslědnjih 2 měsecev izpravjenje vami članky vkupno iměli %,d prěgled. Blagodareči takym redaktoram, kako vy, Vikipedia jest postojanno ulěpšajuči se, věrodostojny i osnovany na faktah izvor znanja za ves svět.</item>
+    <item quantity="few">Čitatelji po vsem světu cěnet vaš vklad. V tečenju poslědnjih 2 měsecev izpravjenje vami članky vkupno iměli %,d prěgledy. Blagodareči takym redaktoram, kako vy, Vikipedia jest postojanno ulěpšajuči se, věrodostojny i osnovany na faktah izvor znanja za ves svět.</item>
+    <item quantity="many">Čitatelji po vsem světu cěnet vaš vklad. V tečenju poslědnjih 2 měsecev izpravjenje vami članky vkupno iměli %,d prěgledov. Blagodareči takym redaktoram, kako vy, Vikipedia jest postojanno ulěpšajuči se, věrodostojny i osnovany na faktah izvor znanja za ves svět.</item>
+    <item quantity="other">Čitatelji po vsem světu cěnet vaš vklad. V tečenju poslědnjih 2 měsecev izpravjenje vami članky vkupno iměli %,d prěgledov. Blagodareči takym redaktoram, kako vy, Vikipedia jest postojanno ulěpšajuči se, věrodostojny i osnovany na faktah izvor znanja za ves svět.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edited_per_minute_headline">
+    <item quantity="one">Vikipedija byla redaktovana %,d raz na minutu</item>
+    <item quantity="few">Vikipedija byla redaktovana %,d razy na minutu</item>
+    <item quantity="many">Vikipedija byla redaktovana %,d razov na minutu</item>
+    <item quantity="other">Vikipedija byla redaktovana %,d razov na minutu</item>
+  </plurals>
+  <string name="year_in_review_slide_edited_per_minute_body">Članky tvoret i ulěpšajut se sutrudničsko na osnově věrodostojnyh izvorov. My vsi imajemo znanje, ktorym možemo poděliti se. &lt;a href=\"%s\"&gt;Dovědte se, kako vy možete učestvovati.&lt;/a&gt;</string>
+  <plurals name="year_in_review_slide_bytes_added_headline">
+    <item quantity="one">Dodany %,d bajt</item>
+    <item quantity="few">Dodane %,d bajty</item>
+    <item quantity="many">Dodanyh %,d bajtov</item>
+    <item quantity="other">Dodanyh %,d bajtov</item>
+  </plurals>
+  <plurals name="year_in_review_slide_bytes_added_body">
+    <item quantity="one">V %1$d godu dobrovoljci dodali %2$,d bajt v anglijsku Vikipediju. Vsa jihna rabota zajedno dovodi k postojanno ulěpšajemomu, věrodostojnomu i osnovanomu na faktah izvoru znanja, ktory davajut světu. My vsi imajemo znanje, ktorym možemo poděliti se. &lt;a href=\"%3$s\"&gt;Dovědte se, kako vy možete učestvovati&lt;/a&gt;.</item>
+    <item quantity="few">V %1$d godu dobrovoljci dodali %2$,d bajty v anglijsku Vikipediju. Vsa jihna rabota zajedno dovodi k postojanno ulěpšajemomu, věrodostojnomu i osnovanomu na faktah izvoru znanja, ktory davajut světu. My vsi imajemo znanje, ktorym možemo poděliti se. &lt;a href=\"%3$s\"&gt;Dovědte se, kako vy možete učestvovati&lt;/a&gt;.</item>
+    <item quantity="many">V %1$d godu dobrovoljci dodali %2$,d bajtov v anglijsku Vikipediju. Vsa jihna rabota zajedno dovodi k postojanno ulěpšajemomu, věrodostojnomu i osnovanomu na faktah izvoru znanja, ktory davajut světu. My vsi imajemo znanje, ktorym možemo poděliti se. &lt;a href=\"%3$s\"&gt;Dovědte se, kako vy možete učestvovati&lt;/a&gt;.</item>
+    <item quantity="other">V %1$d godu dobrovoljci dodali %2$,d bajt v anglijsku Vikipediju. Vsa jihna rabota zajedno dovodi k postojanno ulěpšajemomu, věrodostojnomu i osnovanomu na faktah izvoru znanja, ktory davajut světu. My vsi imajemo znanje, ktorym možemo poděliti se. &lt;a href=\"%3$s\"&gt;Dovědte se, kako vy možete učestvovati&lt;/a&gt;.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edited_times_headline">
+    <item quantity="one">Vy jeste redaktovali %s raz</item>
+    <item quantity="few">Vy jeste redaktovali %s razy</item>
+    <item quantity="many">Vy jeste redaktovali %s razov</item>
+    <item quantity="other">Vy jeste redaktovali %s razov</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edited_times_body">
+    <item quantity="one">Hvala vam, že vy naležite do redaktorov-dobrovoljcev, ktori ostavjajut svoju pečat v Wikimedia-projektah po vsem světu. Dobrovoljci, kako vy, sdělali %,d izměnu v ponad 300 različnyh jezyčnyh izdanjah Vikipedije.</item>
+    <item quantity="few">Hvala vam, že vy naležite do redaktorov-dobrovoljcev, ktori ostavjajut svoju pečat v Wikimedia-projektah po vsem světu. Dobrovoljci, kako vy, sdělali %,d izměny v ponad 300 različnyh jezyčnyh izdanjah Vikipedije.</item>
+    <item quantity="many">Hvala vam, že vy naležite do redaktorov-dobrovoljcev, ktori ostavjajut svoju pečat v Wikimedia-projektah po vsem světu. Dobrovoljci, kako vy, sdělali %,d izměn v ponad 300 različnyh jezyčnyh izdanjah Vikipedije.</item>
+    <item quantity="other">Hvala vam, že vy naležite do redaktorov-dobrovoljcev, ktori ostavjajut svoju pečat v Wikimedia-projektah po vsem světu. Dobrovoljci, kako vy, sdělali %,d izměn v ponad 300 različnyh jezyčnyh izdanjah Vikipedije.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_app_edited_times_headline">
+    <item quantity="one">Redaktori oficialnyh aplikacij Vikipedije sdělali %,d pravku</item>
+    <item quantity="few">Redaktori oficialnyh aplikacij Vikipedije sdělali %,d pravky</item>
+    <item quantity="many">Redaktori oficialnyh aplikacij Vikipedije sdělali %,d pravok</item>
+    <item quantity="other">Redaktori oficialnyh aplikacij Vikipedije sdělali %,d pravok</item>
+  </plurals>
+  <string name="year_in_review_slide_app_edited_times_body">Srdcem i dušeju Vikipedije jest naša vsesvětna občina redaktorov-dobrovoljcev, dariteljev i miliardov čitateljev kako vy – vsi objedinjeni cěljem poděljenja neograničenogo dostupa k věrodostojnoj informaciji.</string>
+  <plurals name="year_in_review_slide_english_edited_times_headline">
+    <item quantity="one">Redaktori sdělali %,d izměnu v tutom godu</item>
+    <item quantity="few">Redaktori sdělali %,d izměny v tutom godu</item>
+    <item quantity="many">Redaktori sdělali %,d izměn v tutom godu</item>
+    <item quantity="other">Redaktori sdělali %,d izměn v tutom godu</item>
+  </plurals>
+  <plurals name="year_in_review_slide_english_edited_times_body_first">
+    <item quantity="one">Dobrovoljci sdělali %,d izměnu v ponad 300 različnyh jezyčnyh izdanjah Vikipedije.</item>
+    <item quantity="few">Dobrovoljci sdělali %,d izměny v ponad 300 različnyh jezyčnyh izdanjah Vikipedije.</item>
+    <item quantity="many">Dobrovoljci sdělali %,d izměn v ponad 300 različnyh jezyčnyh izdanjah Vikipedije.</item>
+    <item quantity="other">Dobrovoljci sdělali %,d izměn v ponad 300 različnyh jezyčnyh izdanjah Vikipedije.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_english_edited_times_body_second">
+    <item quantity="one">V anglijskoj Vikipediji byla sdělana %,d izměna. Vsakodnevno vo vsaku časinu dobrovoljci rabotajut nad ulěpšenjem Vikipedije.</item>
+    <item quantity="few">V anglijskoj Vikipediji byli sdělane %,d izměny. Vsakodnevno vo vsaku časinu dobrovoljci rabotajut nad ulěpšenjem Vikipedije.</item>
+    <item quantity="many">V anglijskoj Vikipediji bylo sdělanyh %,d izměn. Vsakodnevno vo vsaku časinu dobrovoljci rabotajut nad ulěpšenjem Vikipedije.</item>
+    <item quantity="other">V anglijskoj Vikipediji bylo sdělanyh %,d izměn. Vsakodnevno vo vsaku časinu dobrovoljci rabotajut nad ulěpšenjem Vikipedije.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_saved_articles_headline">
+    <item quantity="one">Vy jeste zapisali %,d članok</item>
+    <item quantity="few">Vy jeste zapisali %,d članky</item>
+    <item quantity="many">Vy jeste zapisali %,d člankov</item>
+    <item quantity="other">Vy jeste zapisali %,d člankov</item>
+  </plurals>
+  <plurals name="year_in_review_slide_saved_articles_body">
+    <item quantity="one">Srěd tyh člankov sut &lt;b&gt;%1$s&lt;/b&gt;, &lt;b&gt;%2$s&lt;/b&gt; i &lt;b&gt;%3$s&lt;/b&gt;. Vsaky zapisany članok jest odbitje vaših interesov i pomagaje stvoriti personalizovanu bazu znanja v Vikipediji.&lt;br /&gt;&lt;br /&gt;Aktivni koristniki aplikacije zapisali %4$,d članok v tutom godu.</item>
+    <item quantity="few">Srěd tyh člankov sut &lt;b&gt;%1$s&lt;/b&gt;, &lt;b&gt;%2$s&lt;/b&gt; i &lt;b&gt;%3$s&lt;/b&gt;. Vsaky zapisany članok jest odbitje vaših interesov i pomagaje stvoriti personalizovanu bazu znanja v Vikipediji.&lt;br /&gt;&lt;br /&gt;Aktivni koristniki aplikacije zapisali %4$,d članky v tutom godu.</item>
+    <item quantity="many">Srěd tyh člankov sut &lt;b&gt;%1$s&lt;/b&gt;, &lt;b&gt;%2$s&lt;/b&gt; i &lt;b&gt;%3$s&lt;/b&gt;. Vsaky zapisany članok jest odbitje vaših interesov i pomagaje stvoriti personalizovanu bazu znanja v Vikipediji.&lt;br /&gt;&lt;br /&gt;Aktivni koristniki aplikacije zapisali %4$,d člankov v tutom godu.</item>
+    <item quantity="other">Srěd tyh člankov sut &lt;b&gt;%1$s&lt;/b&gt;, &lt;b&gt;%2$s&lt;/b&gt; i &lt;b&gt;%3$s&lt;/b&gt;. Vsaky zapisany članok jest odbitje vaših interesov i pomagaje stvoriti personalizovanu bazu znanja v Vikipediji.&lt;br /&gt;&lt;br /&gt;Aktivni koristniki aplikacije zapisali %4$,d članok v tutom godu.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_global_saved_articles_headline">
+    <item quantity="one">Koristniki aplikacije iměli %,d zapisany članok</item>
+    <item quantity="few">Koristniki aplikacije iměli %,d zapisane članky</item>
+    <item quantity="many">Koristniki aplikacije iměli %,d zapisanyh člankov</item>
+    <item quantity="other">Koristniki aplikacije iměli %,d zapisanyh člankov</item>
+  </plurals>
+  <string name="year_in_review_slide_global_saved_articles_body">Dodavanje člankov v spisky za čitanje umožnjaje vam dostup k člankam daže, kogda vy jeste oflajn. Vy takože možete prijaviti se i sinhronizovati spisky za čitanje na raznyh aparatah.</string>
+  <string name="year_in_review_slide_reading_patterns_headline">V vašem čitanju sut izrazne zakonoměrnosti</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_time">Ljubimy čas za čitanje</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_day">Ljubimy denj za čitanje</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_month">Měsec, v ktorom vy največe jeste čitali</string>
+  <string name="year_in_review_slide_reading_pattern_morning">Utrom</string>
+  <string name="year_in_review_slide_reading_pattern_midday">V poldenj</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon">V popoldenj</string>
+  <string name="year_in_review_slide_reading_pattern_evening">Večerom</string>
+  <string name="year_in_review_slide_reading_pattern_night">Nočju</string>
+  <string name="year_in_review_slide_reading_pattern_late_night">Pozdno v noči</string>
+  <plurals name="year_in_review_slide_english_reading_hours_headline">
+    <item quantity="one">My jesmo provedli %,d časinu čitajuči</item>
+    <item quantity="few">My jesmo provedli %,d časiny čitajuči</item>
+    <item quantity="many">My jesmo provedli %,d časin čitajuči</item>
+    <item quantity="other">My jesmo provedli %,d časin čitajuči</item>
+  </plurals>
+  <plurals name="year_in_review_slide_english_reading_hours_body_first">
+    <item quantity="one">Ljudi provedli priblizno %,d časinu</item>
+    <item quantity="few">Ljudi provedli priblizno %,d časiny</item>
+    <item quantity="many">Ljudi provedli priblizno %,d časin</item>
+    <item quantity="other">Ljudi provedli priblizno %,d časin</item>
+  </plurals>
+  <plurals name="year_in_review_slide_english_reading_hours_body_second">
+    <item quantity="one">– okolo %1$,d goda – čitajuči anglijsku Vikipediju v %2$d g. Vikipedija služi vam, kogda vy hočete dověděti se veče o našem izměnjajučem světu, izigrati zaklad srěd prijateljev ili odgovoriti na pytanje ljubopytnogo děteta.</item>
+    <item quantity="few">– okolo %1$,d lět – čitajuči anglijsku Vikipediju v %2$d g. Vikipedija služi vam, kogda vy hočete dověděti se veče o našem izměnjajučem světu, izigrati zaklad srěd prijateljev ili odgovoriti na pytanje ljubopytnogo děteta.</item>
+    <item quantity="many">– okolo %1$,d lět – čitajuči anglijsku Vikipediju v %2$d g. Vikipedija služi vam, kogda vy hočete dověděti se veče o našem izměnjajučem světu, izigrati zaklad srěd prijateljev ili odgovoriti na pytanje ljubopytnogo děteta.</item>
+    <item quantity="other">– okolo %1$,d lět – čitajuči anglijsku Vikipediju v %2$d g. Vikipedija služi vam, kogda vy hočete dověděti se veče o našem izměnjajučem světu, izigrati zaklad srěd prijateljev ili odgovoriti na pytanje ljubopytnogo děteta.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_available_languages_headline">
+    <item quantity="one">Vikipedija byla dostupna na ponad %,d jezyku</item>
+    <item quantity="few">Vikipedija byla dostupna na ponad %,d jezykah</item>
+    <item quantity="many">Vikipedija byla dostupna na ponad %,d jezykah</item>
+    <item quantity="other">Vikipedija byla dostupna na ponad %,d jezykah</item>
+  </plurals>
+  <plurals name="year_in_review_slide_available_languages_body_first">
+    <item quantity="one">Vikipedija iměla %,d članok</item>
+    <item quantity="few">Vikipedija iměla %,d članky</item>
+    <item quantity="many">Vikipedija iměla %,d člankov</item>
+    <item quantity="other">Vikipedija iměla %,d člankov</item>
+  </plurals>
+  <plurals name="year_in_review_slide_available_languages_body_second">
+    <item quantity="one">srěd ponad %,d aktivnom jezyku v tutom godu. Vy prisjedinili se do milionov ljudij, ktori razširjajut znanje i izslědyvajut različne temy.</item>
+    <item quantity="few">srěd ponad %,d aktivnyh jezykov v tutom godu. Vy prisjedinili se do milionov ljudij, ktori razširjajut znanje i izslědyvajut različne temy.</item>
+    <item quantity="many">srěd ponad %,d aktivnyh jezykov v tutom godu. Vy prisjedinili se do milionov ljudij, ktori razširjajut znanje i izslědyvajut različne temy.</item>
+    <item quantity="other">srěd ponad %,d aktivnyh jezykov v tutom godu. Vy prisjedinili se do milionov ljudij, ktori razširjajut znanje i izslědyvajut različne temy.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_headline_first">
+    <item quantity="one">Vy jeste provedli %,d minutu</item>
+    <item quantity="few">Vy jeste provedli %,d minuty</item>
+    <item quantity="many">Vy jeste provedli %,d minut</item>
+    <item quantity="other">Vy jeste provedli %,d minut</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_headline_second">
+    <item quantity="one">čitajuči %1$,d članok v %2$d godu</item>
+    <item quantity="few">čitajuči %1$,d članky v %2$d godu</item>
+    <item quantity="many">čitajuči %1$,d člankov v %2$d godu</item>
+    <item quantity="other">čitajuči %1$,d člankov v %2$d godu</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_top">
+    <item quantity="one">Po našej ocěnkě vy naležite do %1$s%% najaktivnějših čitateljev Vikipedije na světu. Srědnjestatističny člověk čitaje %2$,d članok na god.</item>
+    <item quantity="few">Po našej ocěnkě vy naležite do %1$s%% najaktivnějših čitateljev Vikipedije na světu. Srědnjestatističny člověk čitaje %2$,d članky na god.</item>
+    <item quantity="many">Po našej ocěnkě vy naležite do %1$s%% najaktivnějših čitateljev Vikipedije na světu. Srědnjestatističny člověk čitaje %2$,d člankov na god.</item>
+    <item quantity="other">Po našej ocěnkě vy naležite do %1$s%% najaktivnějših čitateljev Vikipedije na světu. Srědnjestatističny člověk čitaje %2$,d člankov na god.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_global_first">
+    <item quantity="one">Vikipedija iměla %,d članok</item>
+    <item quantity="few">Vikipedija iměla %,d članky</item>
+    <item quantity="many">Vikipedija iměla %,d člankov</item>
+    <item quantity="other">Vikipedija iměla %,d člankov</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_global_second">
+    <item quantity="one">srěd ponad %,d aktivnom jezyku v tutom godu. Vy prisjedinili se do milionov ljudij, ktori razširjajut znanje i izslědyvajut različne temy.</item>
+    <item quantity="few">srěd ponad %,d aktivnyh jezykov v tutom godu. Vy prisjedinili se do milionov ljudij, ktori razširjajut znanje i izslědyvajut različne temy.</item>
+    <item quantity="many">srěd ponad %,d aktivnyh jezykov v tutom godu. Vy prisjedinili se do milionov ljudij, ktori razširjajut znanje i izslědyvajut različne temy.</item>
+    <item quantity="other">srěd ponad %,d aktivnyh jezykov v tutom godu. Vy prisjedinili se do milionov ljudij, ktori razširjajut znanje i izslědyvajut različne temy.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_english_first">
+    <item quantity="one">Ljudi provedli priblizno %,d časinu</item>
+    <item quantity="few">Ljudi provedli priblizno %,d časiny</item>
+    <item quantity="many">Ljudi provedli priblizno %,d časin</item>
+    <item quantity="other">Ljudi provedli priblizno %,d časin</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_english_second">
+    <item quantity="one">– okolo %1$,d goda – čitajuči anglijsku Vikipediju v %2$d g.</item>
+    <item quantity="few">– okolo %1$,d lět – čitajuči anglijsku Vikipediju v %2$d g.</item>
+    <item quantity="many">– okolo %1$,d lět – čitajuči anglijsku Vikipediju v %2$d g.</item>
+    <item quantity="other">– okolo %1$,d lět – čitajuči anglijsku Vikipediju v %2$d g.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_viewed_articles_times_headline">
+    <item quantity="one">Koristniki aplikacije prěgleděli članky Vikipedije %,d raz</item>
+    <item quantity="few">Koristniki aplikacije prěgleděli članky Vikipedije %,d razy</item>
+    <item quantity="many">Koristniki aplikacije prěgleděli članky Vikipedije %,d razov</item>
+    <item quantity="other">Koristniki aplikacije prěgleděli članky Vikipedije %,d razov</item>
+  </plurals>
+  <string name="year_in_review_slide_viewed_articles_times_body">Za ljudij po vsem světu Vikipedija jest prvo město, kde iščut odgovor na pytanje, informaciju za školu ili rabotu, ili dobyvajut znanje o někom novom faktu.</string>
+  <string name="year_in_review_reading_list_dialog_title">Stvoriti vaš spisok za čitanje v ramkah Prěgleda goda %d?</string>
+  <string name="year_in_review_reading_list_dialog_message">Prěgled goda Vikipedije stvori spisok za čitanje člankov, na ktoryh vy jeste provedli največe časa v %1$d godu. &lt;a href=\"%2$s\"&gt;Veče informacije&lt;/a&gt;</string>
+  <string name="year_in_review_reading_list_dialog_positive_button_label">Stvoriti</string>
+  <string name="year_in_review_reading_list_dialog_negative_button_label">Ne, hvala.</string>
+  <string name="year_in_review_reading_list_title">Prěgled goda %d</string>
+  <string name="year_in_review_reading_list_description">Stvorjeno za koristnika %1$s. Članky, na ktoryh vy jeste provedli največe časa v %2$d godu.</string>
+  <string name="year_in_review_highlights_thank_you_message">Hvala, že vy jeste provedli svoj god v Vikipedijeju.</string>
+  <string name="year_in_review_highlights_looking_forward_message">S netrpěnjem čekajemo na slědujuči god!</string>
+  <plurals name="year_in_review_highlights_logged_out_en_most_read_title">
+    <item quantity="one">Najčitanějši članok v anglijskoj Vikipediji</item>
+    <item quantity="few">Najčitanějše članky v anglijskoj Vikipediji</item>
+    <item quantity="many">Najčitanějše članky v anglijskoj Vikipediji</item>
+    <item quantity="other">Najčitanějše članky v anglijskoj Vikipediji</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_en_hours_spent_title">
+    <item quantity="one">Časina provedena s čitanjem</item>
+    <item quantity="few">Časiny provedene s čitanjem</item>
+    <item quantity="many">Časiny provedene s čitanjem</item>
+    <item quantity="other">Časiny provedene s čitanjem</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_en_edits_title">
+    <item quantity="one">Izměna sdělana redaktorami</item>
+    <item quantity="few">Izměny sdělane redaktorami</item>
+    <item quantity="many">Izměny sdělane redaktorami</item>
+    <item quantity="other">Izměny sdělane redaktorami</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_non_en_articles_title">
+    <item quantity="one">Kolikost prěgleděnyh člankov</item>
+    <item quantity="few">Kolikost prěgleděnyh člankov</item>
+    <item quantity="many">Kolikost prěgleděnyh člankov</item>
+    <item quantity="other">Kolikost prěgleděnyh člankov</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_non_en_edits_title">
+    <item quantity="one">Pravka sdělana črěz aplikaciju</item>
+    <item quantity="few">Pravky sdělane črěz aplikaciju</item>
+    <item quantity="many">Pravky sdělane črěz aplikaciju</item>
+    <item quantity="other">Pravky sdělane črěz aplikaciju</item>
+  </plurals>
+  <string name="year_in_review_highlights_logged_out_non_en_wikipedia_edited_title">Kako često Vikipedija byla redaktovana</string>
+  <plurals name="year_in_review_highlights_logged_out_non_en_wikipedia_per_minute_label">
+    <item quantity="one">%d raz na minutu</item>
+    <item quantity="few">%d razy na minutu</item>
+    <item quantity="many">%d razov na minutu</item>
+    <item quantity="other">%d razov na minutu</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_most_read_article_title">
+    <item quantity="one">Članok, ktory jesm pročital(a) najčestěje</item>
+    <item quantity="few">Članky, ktore jesm pročital(a) najčestěje</item>
+    <item quantity="many">Članky, ktore jesm pročital(a) najčestěje</item>
+    <item quantity="other">Članky, ktore jesm pročital(a) najčestěje</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_minutes_read_title">
+    <item quantity="one">Minuta provedena čitanjem</item>
+    <item quantity="few">Minuty provedne čitanjem</item>
+    <item quantity="many">Minuty provedne čitanjem</item>
+    <item quantity="other">Minuty provedne čitanjem</item>
+  </plurals>
+  <string name="year_in_review_highlights_logged_in_favorite_day_title">Ljubimy denj za čitanje</string>
+  <plurals name="year_in_review_highlights_logged_in_articles_read_title">
+    <item quantity="one">Pročitany članok</item>
+    <item quantity="few">Pročitane članky</item>
+    <item quantity="many">Pročitane članky</item>
+    <item quantity="other">Pročitane članky</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_articles_interested_categories_title">
+    <item quantity="one">Kategorija, ktora me interesovala</item>
+    <item quantity="few">Kategorije, ktore me interesovali</item>
+    <item quantity="many">Kategorije, ktore me interesovali</item>
+    <item quantity="other">Kategorije, ktore me interesovali</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_total_edits_title">
+    <item quantity="one">Redaktovanje članka</item>
+    <item quantity="few">Redaktovanja člankov</item>
+    <item quantity="many">Redaktovanja člankov</item>
+    <item quantity="other">Redaktovanja člankov</item>
+  </plurals>
+  <string name="year_in_review_highlights_share_button_title">Poděliti se najvažnějšimi momentami</string>
+  <string name="year_in_review_highlights_logo_description">Logotip Vikipedije</string>
+  <string name="recommended_reading_list_title">Odkryjte</string>
+  <string name="recommended_reading_list_onboarding_card_title">Odkryjte članky izbrane specialno za vas</string>
+  <string name="recommended_reading_list_onboarding_card_message">Vaš vsakosedmičny spisok za čitanje člankov Vikipedije, sostavjeny specialno za vas.</string>
+  <string name="recommended_reading_list_onboarding_card_new">Novo!</string>
+  <string name="recommended_reading_list_onboarding_card_positive_button">Razpočeti</string>
+  <string name="recommended_reading_list_onboarding_card_negative_button">Ne, hvala</string>
+  <string name="recommended_reading_list_onboarding_card_negative_snackbar">Za nastavjenje vašego prěporučenogo spiska za čitanje pozdněje, prějdite v Nastavjenja.</string>
+  <string name="recommended_reading_list_interest_source_message">Kako vy hočete, že my sostavimo vaš prěporučeny spisok za čitanje?</string>
+  <string name="recommended_reading_list_interest_source_interests">Dajte mi izbrati na osnově mojih interesov</string>
+  <string name="recommended_reading_list_interest_source_saved">Izberi za mene na osnově zapisanyh mnoju člankov</string>
+  <string name="recommended_reading_list_interest_source_history">Izberi za mene na osnově mojej historije čitanja</string>
+  <string name="recommended_reading_list_interest_pick_title">Čto vas interesuje?</string>
+  <string name="recommended_reading_list_interest_pick_search_hint">Poiskati članok</string>
+  <plurals name="recommended_reading_list_interest_pick_selected_articles">
+    <item quantity="one">Izbrany %d</item>
+    <item quantity="few">Izbrane %d</item>
+    <item quantity="many">Izbranyh %d</item>
+    <item quantity="other">Izbranyh %d</item>
+  </plurals>
+  <string name="recommended_reading_list_interest_select_minimum">Izberite minimalno jedin interes</string>
+  <string name="recommended_reading_list_interest_pick_random_button_content_description">Izberi slučajno</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar">My jesmo slučajno izbrali několiko člankov za vas.</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar_action">Odčiniti</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_title">Jeste li uvěrjeni, že hočete sostaviti svoj izbor slučajnym sposobom?</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_message">Tuto izčisti vaš tekuči izbor i dovede k izbiranju novyh člankov slučajnym sposobom.</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_positive_button">Da, izberite za mene</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_negative_button">Ne trěba</string>
+  <string name="recommended_reading_list_page_subtitle_made_for">Sostavjeno za %s</string>
+  <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">Sostavjeno za vas</string>
+  <plurals name="recommended_reading_list_page_subtitle_articles">
+    <item quantity="one">• %d članok</item>
+    <item quantity="few">• %d članky</item>
+    <item quantity="many">• %d člankov</item>
+    <item quantity="other">• %d ćlankov</item>
+  </plurals>
+  <string name="recommended_reading_list_page_description_daily">Vaš vsakodnevny spisok za čitanje. Dovědte se o novyh temah, izbranyh specialno za vas. Obnovjaje se v polnoč.</string>
+  <string name="recommended_reading_list_page_description_weekly">Vaš vsakosedmičny spisok za čitanje. Dovědte se o novyh temah, izbranyh specialno za vas. Obnovjaje se na početku sedmice.</string>
+  <string name="recommended_reading_list_page_description_monthly">Vaš vsakoměsečny spisok za čitanje. Dovědte se o novyh temah, izbranyh specialno za vas. Obnovjaje se v prvy denj měseca.</string>
+  <string name="recommended_reading_list_page_overflow_customize">Prisposobiti</string>
+  <string name="recommended_reading_list_page_overflow_about">O tutoj funkciji</string>
+  <string name="recommended_reading_list_page_snackbar">«Odkryjte» bude obnovjati se dodanjem %1$d novyh člankov vsaky %2$s. Vaše prěporuky zapisyvajut se lokalno na vašem aparatu.</string>
+  <string name="recommended_reading_list_page_snackbar_action">Nastavjenja funkcije «Odkryjte»</string>
+  <string name="recommended_reading_list_page_snackbar_day">Denj</string>
+  <string name="recommended_reading_list_page_snackbar_week">Sedmica</string>
+  <string name="recommended_reading_list_page_snackbar_month">Měsec</string>
+  <string name="recommended_reading_list_settings_section_header">Prěporuky</string>
+  <string name="recommended_reading_list_settings_title">Nastavjenja «Odkryjte»</string>
+  <string name="recommended_reading_list_settings_toggle">Spisok za čitanje «Odkryjte»</string>
+  <string name="recommended_reading_list_settings_toggle_disable_message">«Odkryjte» jest izključeno. Vikipedija ne bude vam prěporučati članky za čitanje.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_title">Izključiti «Odkryjte»?</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_message">Ako vy izključite «Odkryjte», prěstanete dostavati od Vikipedije %s prěporučenja za čitanje.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">Izključiti</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_negative_button">Ne, ostaviti vključenym</string>
+  <string name="recommended_reading_list_settings_turn_off_snackbar">«Odkryjte» jest izključeno. Vy vsegda možete go vključiti ponovno v svojih nastavjenjah.</string>
+  <string name="recommended_reading_list_settings_articles">člankov</string>
+  <string name="recommended_reading_list_settings_updates_frequency">Obnovjaje se %s</string>
+  <string name="recommended_reading_list_settings_updates_frequency_daily">vsakodnevno</string>
+  <string name="recommended_reading_list_settings_updates_frequency_weekly">vsakosedmično</string>
+  <string name="recommended_reading_list_settings_updates_frequency_monthly">vsakoměsečno</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">Vsaky denj</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">Vsaka sedmica</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">Vsaky měsec</string>
+  <string name="recommended_reading_list_settings_updates_base_title">Kako «Odkryjte» sostavjaje se</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_interests">Na osnově vaših interesov</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_saved">Na osnově zapisanyh vami člankov</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_history">Na osnově vašej historije čitanja</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_title">Izměniti li sposob sostavjanja «Odkryjte»?</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_message">Ako vy izměnite sposob, ktorym «Odkryjte» generuje prěporuky, vaše tekuče prěporuky budut zaměnjene.</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_positive_button">Izměniti</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_negative_button">Ne trěba</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_interests">Vaše prěporuky tutčas sut osnovane na vaših interesah.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_saved">Vaše prěporuky tutčas sut osnovane na zapisanyh vami člankov.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_history">Vaše prěporuky tutčas sut osnovane na vašej historiji čitanja.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_action">Odčiniti</string>
+  <string name="recommended_reading_list_settings_interests">Interesy</string>
+  <string name="recommended_reading_list_settings_notifications_title">Uvědomjenja</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle">Vikipedija ne bude prisylati vam uvědomjenja o obnovjenju «Odkryjte».</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle_disable">Uvědomjenja za «Odkryjte» sut izključene. Vy ne dostanete uvědomjenja o obnovjenju prěporuk..</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_title">Izključiti uvědomjenja?</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_message">Ako vy izključite uvědomjenja, vy dalje ne budete dostavati pripomněnja o obnovjenju prěporuk «Odkryjte».</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Izključiti je</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Ne, ostavi je vključenymi</string>
+  <string name="recommended_reading_list_notification_title">Vaš %s spisok za čitanje «Odkryjte» jest gotovy.</string>
+  <string name="recommended_reading_list_notification_subtitle">Stuknite za uviděnje vaših poslědnjih prěporuk.</string>
+  <string name="recommended_reading_list_settings_notification_subtitle_enable">Kogda vaš spisok «Odkryjte» obnovi se, Vikipedija prišlje vam uvědomjenje.</string>
+  <string name="recommended_reading_list_settings_toggle_enable_message">«Odkryjte» jest vključeno. Vikipedija bude vam prěporučati članky za čitanje.</string>
+  <string name="donation_reminders_prompt_dismiss_snackbar">Pripomněnja o darovanju vy vsegda možete izměniti v svojih nastavjenjah.</string>
+  <string name="donation_settings_section_header">Darovanja</string>
+  <string name="donation_reminders_settings_title">Kako imajemo vam pripomněti?</string>
+  <string name="donation_reminders_settings_option_title">Pripomněnja o darovanju</string>
+  <string name="donation_reminders_settings_thank_you_message">Vaša ščedrost pomagaje procvětati Vikipediji. Nastavite sobě pripomněnje o darovanju na osnově kolikosti pročitanyh vami člankov.</string>
+  <string name="donation_reminders_settings_donation_info">Darovanja idut v fondaciju Wikimedia i prinaležne jej organizacije, ktore s gordostoju gostet Vikipediju i druge projekty za svobodno znanje.</string>
+  <string name="donation_reminders_settings_article_frequency_label">Kogda ja čitaju</string>
+  <string name="donation_reminders_settings_amount_label">Pripomni mene sdělati darovanje</string>
+  <string name="donation_reminders_settings_confirm_btn_label">Potvrditi darovanje</string>
+  <string name="donation_reminders_settings_about_experiment_btn_label">O tutom eksperimentu</string>
+  <string name="donation_reminders_settings_article_frequency_input_suffix_label">članky</string>
+  <string name="donation_reminders_settings_warning_min_amount">Prosimo, vvedite minimalno %s</string>
+  <string name="donation_reminders_settings_warning_max_amount">Dozvoljeny maksimum jest %s</string>
+  <string name="donation_reminders_settings_option_custom">Prisposobjeno...</string>
+  <string name="donation_reminders_snacbkbar_confirmation_label">Hvala! My pripomnimo vam, že podarujete %1$s poslě %2$s pročitanyh člankov v tečenju tutogo eksperimenta.</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title">Vy jeste pročitali %1$s odkogda vy jeste oběčali podarovati %2$s</string>
+  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">Vy jeste pročitali ješče %1$s</string>
+  <string name="donation_reminders_prompt_message">Vy jeste nastavili pripomněnje v %1$s, že budete darovati %3$s za vsake %2$s pročitane vami članky. Jeste li gotovi do izpolnjenja svojego oběčanja za poddržanje Vikipedije?</string>
+  <string name="donation_reminders_prompt_positive_button">Darovati tutčas</string>
+  <string name="donation_reminders_prompt_negative_button">Ne tutčas</string>
+  <string name="donation_reminders_gpay_text">Darovati %s črěz Google Pay</string>
+  <string name="donation_reminders_gpay_different_amount_text">Darovati drugu sumu črěz Google Pay</string>
+  <string name="donation_reminders_settings_description_on">Pripomněnja o darovanju sut vključene. Vikipedija bude vam pripominati, že podarujete %1$s poslě %2$s pročitanyh člankov v tečenju tutogo eksperimenta.</string>
+  <string name="donation_reminders_settings_description_off">Pripomněnja o darovanju sut izključene.</string>
+  <string name="donation_reminders_settings_tooltip_info_label">Kolikost sčisljenyh člankov zapisyvaje se lokalno na vašem aparatu</string>
+  <plurals name="donation_reminders_text_articles">
+    <item quantity="one">%d članok</item>
+    <item quantity="few">%d članky</item>
+    <item quantity="many">%d člankov</item>
+    <item quantity="other">%d ćlankov</item>
+  </plurals>
+  <string name="donation_reminders_settings_no_thanks_btn_label">Ne, hvala</string>
+  <string name="donation_reminders_experiment_label">EKSPERIMENT</string>
+  <string name="donation_reminders_settings_learn_more_button">Daljše informacije</string>
+  <string name="donation_reminders_settings_report_button">Problem s funkcijeju</string>
+  <string name="donation_reminders_settings_report_email_subject">Issue Report – Donation Reminders / Soobčenje o problemu – Pripomněnja o darovanju</string>
+  <string name="donation_reminders_settings_report_email_body">I have encountered a problem with the Donation reminders feature / Ja jesm našel/našla problem s funkcijeju «Pripomněnja o darovanju»:\n- [Opišite konkretny problem]\n- [Snimky ekrana ili linky]\n\nThe behavior I would like to see is / Očekyvano mnoju dějanje:\n- [Opišite prědloženo razrěšenje]</string>
+  <string name="donation_reminders_snackbar_modify_button_label">Izměniti</string>
+  <string name="hybrid_search_search_hint">Poiskati ili zapytati čtokoli</string>
+  <string name="hybrid_search_article_search_hint">Zapytajte o članku %s</string>
+  <string name="hybrid_search_suggestion_title">Poiskati:</string>
+  <string name="hybrid_search_onboarding_learn_more">Daljše informacije</string>
+  <string name="hybrid_search_onboarding_search_title">Stavite pytanja, dobudite odgovory</string>
+  <string name="hybrid_search_onboarding_search_description">Tuta eksperimentalna funkcija razuměje prirodny jezyk. Zaměsto iskanja ključnyh slov, opišite, čto vy hočete znati.</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_title">Beta-funkcija</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_description">Dostupna na ograničny čas v tečenju tutogo eksperimenta.</string>
+  <string name="hybrid_search_beta_tag">Beta</string>
+  <string name="hybrid_search_experimental_feature_switch_label">Prisjedinite se k eksperimentu</string>
+  <string name="hybrid_search_onboarding_search_example_title">Inspiracija potrěbna?</string>
+  <string name="hybrid_search_onboarding_search_example_description">Koristajte jedin iz prikladov poiskov niže.</string>
+  <string name="hybrid_search_onboarding_opt_out_toast_message">Vy jeste rěšili, že ne učestvujete v eksperimentu.</string>
+  <string name="hybrid_search_onboarding_search_example_query_pluto_as_planet">Kogda Pluton byl udaljeny iz spiska planet?</string>
+  <string name="hybrid_search_onboarding_search_example_query_first_olympics">prve olimpijske igry</string>
+  <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">RNA protiv DNA</string>
+  <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Začto ljudi dodavajut ananas do pice?</string>
+  <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Ktore sut največše grady v Evropě?</string>
+  <string name="hybrid_search_onboarding_screen_title">Novy sposob iskanja</string>
+  <string name="hybrid_search_results_header_description">S izvorami iz člankov Vikipedije napisanyh ljudami</string>
+  <string name="hybrid_search_results_rate_label">Ocěnite tutoj rezultat</string>
+  <string name="hybrid_search_results_rated_label">Ocěnjeno</string>
+  <string name="hybrid_search_results_rate_thumb_up">Ocěnka pozitivna</string>
+  <string name="hybrid_search_results_rate_thumb_down">Ocěnka negativna</string>
+  <string name="hybrid_lexical_search_results_empty">Nijedin članok ne imaje zaglavje odpovědajuče tutomu poisku.</string>
+  <string name="hybrid_search_results_empty">Ulěpšeno iskanje dočasno jest nedostupno.</string>
+  <string name="hybrid_search_no_results_header">Ničto ne najdeno</string>
+  <string name="hybrid_search_no_results_description">Tutoj prědmet v tutom momentu ne vračaje fragmenty člankov. Ale vy možete poprobovati slědujuče:</string>
+  <string name="hybrid_search_no_results_suggestion_rephrase_text">Formulujte svoje zapytanje inako</string>
+  <string name="hybrid_search_no_results_suggestion_try_related_topic">Poprobujte drugy prědmet</string>
+  <string name="hybrid_search_error_message">Něčto ne jest v poredku. Prosimo, poprobujte pozdněje.</string>
+  <string name="hybrid_search_who_is_prefix">Kto jest %s?</string>
+  <string name="hybrid_search_turn_off_experiment_label">Izključiti tutoj eksperiment</string>
 </resources>

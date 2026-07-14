@@ -6,6 +6,8 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
+import androidx.room.Upsert
+import kotlinx.coroutines.flow.Flow
 import org.wikipedia.games.PlayTypes
 import java.time.LocalDate
 import java.time.Month
@@ -25,13 +27,17 @@ interface DailyGameHistoryDao {
             "AND year = :year AND month = :month AND day = :day")
     suspend fun findGameHistoryByDate(gameName: Int, language: String, year: Int, month: Int, day: Int): DailyGameHistory?
 
-    @Query("SELECT COUNT(*) FROM DailyGameHistory WHERE gameName = :gameName AND language = :language")
+    @Query("SELECT * FROM DailyGameHistory WHERE gameName = :gameName AND language = :language " +
+            "AND year = :year AND month = :month AND day = :day")
+    fun findGameHistoryByDateFlow(gameName: Int, language: String, year: Int, month: Int, day: Int): Flow<DailyGameHistory?>
+
+    @Query("SELECT COUNT(*) FROM DailyGameHistory WHERE gameName = :gameName AND language = :language AND status = 1")
     suspend fun getTotalGamesPlayed(gameName: Int, language: String): Int
 
-    @Query("SELECT AVG(score) FROM DailyGameHistory WHERE gameName = :gameName AND language = :language")
+    @Query("SELECT AVG(score) FROM DailyGameHistory WHERE gameName = :gameName AND language = :language AND status = 1")
     suspend fun getAverageScore(gameName: Int, language: String): Double?
 
-    @Query("SELECT * FROM DailyGameHistory WHERE gameName = :gameName AND language = :language ORDER BY year DESC, month DESC, day DESC")
+    @Query("SELECT * FROM DailyGameHistory WHERE gameName = :gameName AND language = :language AND status = 1 ORDER BY year DESC, month DESC, day DESC")
     suspend fun getGameHistory(gameName: Int, language: String): List<DailyGameHistory>
 
     @Update
@@ -88,4 +94,7 @@ interface DailyGameHistoryDao {
 
         return maxOf(bestStreak, currentStreak)
     }
+
+    @Upsert
+    suspend fun upsert(dailyGameHistory: DailyGameHistory): Long
 }

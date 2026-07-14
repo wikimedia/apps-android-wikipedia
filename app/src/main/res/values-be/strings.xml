@@ -152,6 +152,7 @@
   <string name="dialog_message_leaving_edit">Унесеныя змены не захаваны. Вы ўпэўнены, што хочаце пакінуць старонку?</string>
   <string name="dialog_message_leaving_edit_leave">Сысці</string>
   <string name="dialog_message_leaving_edit_stay">Застацца</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Скасаваць</string>
   <string name="menu_show_toc">Змест</string>
   <string name="search_no_results_found">Нічога не знойдзена</string>
   <string name="search_reading_list_no_results">Не знойдзена вынікаў у \"%s\"</string>
@@ -500,7 +501,7 @@
   <string name="theme_category_editing">Праўленне</string>
   <string name="reading_focus_mode">Рэжым чытання</string>
   <string name="reading_focus_mode_detail">Схоўвае функцыі рэдагавання і ніжнюю панэль пры прагортцы</string>
-  <string name="editing_syntax_highlight_label">Выдзяленне сінтаксісу</string>
+  <string name="editing_syntax_highlight_label">Вылучэнне сінтаксісу</string>
   <string name="editing_line_numbers_label">Паказаць нумары радкоў</string>
   <string name="editing_monospace_font_label">Выкарыстоўваць монашырынны шрыфт</string>
   <string name="editing_typing_suggestions">Паказваць аўтадапаўненне пры ўводзе</string>
@@ -551,7 +552,7 @@
   <string name="reading_list_menu_delete">Выдаліць спіс</string>
   <string name="reading_list_menu_export">Спіс экспарту</string>
   <string name="reading_list_menu_select">Выбраць</string>
-  <string name="reading_list_menu_unselect">Адмяніць выбар</string>
+  <string name="reading_list_menu_unselect">Скасаваць выбар</string>
   <string name="reading_list_export_write_permission_rationale">Патрабуецца дазвол для запісу ў сховішча прылады, каб мець магчымасць экспартаваць спіс для чытання.</string>
   <string name="reading_list_menu_rename">Рэдагаваць назву/апісанне</string>
   <string name="reading_list_action_menu_remove_from_offline">Выдаліць з файлаў, якія дасяжны па-за сеткай</string>
@@ -571,11 +572,11 @@
     <item quantity="many">%d артыкулаў выдалена са спіса</item>
     <item quantity="other">%d артыкулаў выдалена са спіса</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d артыкул выдалены з %s </item>
-    <item quantity="few">%d артыкулы выдалены з %s</item>
-    <item quantity="many">%d артыкулаў выдалена з %s</item>
-    <item quantity="other">%d артыкулаў выдалена з %s</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">%1$d артыкул выдалены з %2$s </item>
+    <item quantity="few">%1$d артыкулы выдалены з %2$s</item>
+    <item quantity="many">%1$d артыкулаў выдалена з %2$s</item>
+    <item quantity="other">%1$d артыкулаў выдалена з %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d спіс выдалены</item>
@@ -901,11 +902,11 @@
   <string name="feed_item_type_randomizer">Стварыць спіс выпадковых артыкулаў для чытання</string>
   <string name="feed_item_type_suggested_edits">Прапановы па даданні кантэнту ў Вікіпедыю</string>
   <string name="feed_item_type_places">Артыкулы паблізу на аснове бягучага месцазнаходжання</string>
-  <string name="feed_empty_message">У вашай стужцы Агляду нічога няма</string>
+  <string name="feed_empty_message" fuzzy="true">У вашай стужцы Агляду нічога няма</string>
   <string name="feed_configure_onboarding_action">Наладзіць</string>
   <string name="customize_lang_selection_dialog_ok_button_text">Добра</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Скасаваць</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Наладзьце стужку Агляду&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt; Цяпер вы можаце выбраць, што паказаць у вашай стужцы, а таксама расставіць прыярытэты для любімых тыпаў кантэнту.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Наладзьце стужку Агляду&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt; Цяпер вы можаце выбраць, што паказаць у вашай стужцы, а таксама расставіць прыярытэты для любімых тыпаў кантэнту.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">Добра</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Скасаваць</string>
   <string name="feed_accessibility_card_text">Вы дасягнулі канца стужкі</string>
@@ -1224,11 +1225,11 @@
   <string name="onboarding_get_started">Пачаць</string>
   <string name="onboarding_maybe_later">Можа, пазней</string>
   <string name="onboarding_explore_title">Новыя спосабы даследаванняў</string>
-  <string name="onboarding_explore_text">Вандруйце ў прасторах Вікіпедыі з шторазова абнаўляльнай стужкай Агляду. &lt;br/&gt; &lt;b&gt;Наладзьце&lt;/b&gt; стужку адпаведна вашым зацікаўленасцям — няхай гэта будзе вывучэнне гістарычных падзей &lt;b&gt;У гэты дзень&lt;/b&gt;, або шукайце нешта новае з &lt;b&gt;Выпадковым артыкулам&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Вандруйце ў прасторах Вікіпедыі з шторазова абнаўляльнай стужкай Агляду. &lt;br/&gt; &lt;b&gt;Наладзьце&lt;/b&gt; стужку адпаведна вашым зацікаўленасцям — няхай гэта будзе вывучэнне гістарычных падзей &lt;b&gt;У гэты дзень&lt;/b&gt;, або шукайце нешта новае з &lt;b&gt;Выпадковым артыкулам&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Спісы для чытання з сінхранізацыяй</string>
   <string name="onboarding_reading_list_sync_text_v2">Вы можаце складаць спісы для чытання з артыкулаў, якія вы хочаце прачытаць пазней, нават калі вы знаходзіцеся ў пазасеткавым рэжыме. &lt;br/&gt;Увайдзіце ў свой уліковы запіс Вікіпедыі, каб сінхранізаваць свае спісы для чытання. &lt;a href=\"#login\"&gt;Далучайцеся да Вікіпедыі&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Даныя і прыватнасць</string>
-  <string name="onboarding_data_privacy_text">Мы мяркуем, што вы не павінны падаваць персанальныя даныя дзеля ўдзелу ў руху свабодных ведаў. Даныя аб выкарыстанні, якія збіраюцца для гэтай праграмы, з’яўляюцца ананімнымі. Даведайцеся больш у нашай &lt;a href=\"#privacy\"&gt;палітыцы прыватнасці&lt;/a&gt; і &lt;a href=\"#termsOfUse\"&gt;умовах выкарыстання&lt;/a&gt;.</string>
+  <string name="onboarding_data_privacy_text" fuzzy="true">Мы мяркуем, што вы не павінны падаваць персанальныя даныя дзеля ўдзелу ў руху свабодных ведаў. Даныя аб выкарыстанні, якія збіраюцца для гэтай праграмы, з’яўляюцца ананімнымі. Даведайцеся больш у нашай &lt;a href=\"#privacy\"&gt;палітыцы прыватнасці&lt;/a&gt; і &lt;a href=\"#termsOfUse\"&gt;умовах выкарыстання&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Адправіць даныя пра выкарыстанне</string>
   <string name="onboarding_got_it">Зразумела</string>
   <string name="onboarding_multilingual_secondary_text">Мы знайшлі наступнае на вашай прыладзе:</string>
@@ -1266,7 +1267,7 @@
     <item quantity="many">Выдаліць абраныя мовы?.</item>
     <item quantity="other">Выдаліць абраныя мовы?.</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Вы ўбачыце кантэнт толькі ў стужцы Агляду і ў фільтрах хуткага пошуку для астатніх моў Вікіпедыі.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Вы ўбачыце кантэнт толькі ў стужцы Агляду і ў фільтрах хуткага пошуку для астатніх моў Вікіпедыі.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Немагчыма выдаліць усе мовы</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Выкарыстоўвайце хаця б адну мову Вікіпедыі для пошуку і чытання кантэнту.</string>
   <string name="more_language_options">болей</string>
@@ -1456,7 +1457,7 @@
   <string name="revision_diff_paragraph_removed">Абзац выдалены</string>
   <string name="revision_diff_protected">Змены, зробленыя ў гэтай рэдакцыі, не з’яўляюцца агульнадаступнымі.</string>
   <string name="revision_undo_title">Ці вы ўпэўнены, што хочаце адкаціць праўку?</string>
-  <string name="revision_undo_message">Адмена азначае прыбранне зменаў, унесеных адным або некальнікімі рэдагаваннямі.</string>
+  <string name="revision_undo_message">Скасаванне азначае прыбранне зменаў, унесеных адным ці болей рэдагаваннямі.</string>
   <string name="revision_undo_summary_hint">Апісанне (неабавязкова)</string>
   <string name="revision_undo_reason">Падзяліцеся прычынай адкату</string>
   <string name="revision_undo_success">Версія была скасавана.</string>
@@ -1501,12 +1502,12 @@
   <string name="watchlist_filter_user_intent_may_problems">Мажліва дрэнныя намеры</string>
   <string name="watchlist_filter_user_intent_likely_problems">Хутчэй дрэнныя намеры</string>
   <string name="watchlist_filter_user_intent_bad">Найхутчэй дрэнныя намеры</string>
-  <string name="watchlist_filter_user_status_header">Рэгістрацыя ўдзельніка і яго вопыт</string>
+  <string name="watchlist_filter_user_status_header">Рэгістрацыя ўдзельніка і яго досвед</string>
   <string name="watchlist_filter_user_status_unregistered">Незарэгістраваны</string>
   <string name="watchlist_filter_user_status_registered">Зарэгістраваны</string>
   <string name="watchlist_filter_user_status_newcomers">Навічкі</string>
   <string name="watchlist_filter_user_status_learners">Вучні</string>
-  <string name="watchlist_filter_user_status_experienced">Вопытныя ўдзельнікі</string>
+  <string name="watchlist_filter_user_status_experienced">Дасведчаныя ўдзельнікі</string>
   <string name="watchlist_filter_contribution_authorship_header">Аўтарства ўнёску</string>
   <string name="watchlist_filter_contribution_authorship_own">Вашы змены</string>
   <string name="watchlist_filter_contribution_authorship_except_own">Змены іншых удзельнікаў</string>
@@ -1620,7 +1621,7 @@
   <string name="patroller_tasks_filters_reset">Скінуць</string>
   <string name="patroller_tasks_filters_wiki_filter_header">Вікі</string>
   <string name="patroller_tasks_filters_all_text">Усе</string>
-  <string name="patroller_tasks_filters_user_status_header">Рэгістрацыя ўдзельніка і яго вопыт</string>
+  <string name="patroller_tasks_filters_user_status_header">Рэгістрацыя ўдзельніка і яго досвед</string>
   <string name="patroller_tasks_filters_user_status_unregistered">Незарэгістраваны</string>
   <string name="patroller_tasks_filters_user_status_unregistered_desc">Рэдактары, якія не ўвайшлі ў сістэму.</string>
   <string name="patroller_tasks_filters_user_status_registered">Зарэгістраваныя</string>
@@ -1628,8 +1629,8 @@
   <string name="patroller_tasks_filters_user_status_newcomers">Навічкі</string>
   <string name="patroller_tasks_filters_user_status_newcomers_desc">Зарэгістраваныя рэдактары, якія маюць менш за 10 правак за 4 дні актыўнасці.</string>
   <string name="patroller_tasks_filters_user_status_learners">Вучні</string>
-  <string name="patroller_tasks_filters_user_status_learners_desc">Зарэгістраваныя рэдактары, вопыт якіх знаходзіцца паміж «навічкамі» і «вопытнымі ўдзельнікамі».</string>
-  <string name="patroller_tasks_filters_user_status_experienced">Вопытныя ўдзельнікі</string>
+  <string name="patroller_tasks_filters_user_status_learners_desc">Зарэгістраваныя рэдактары, досвед якіх знаходзіцца паміж «навічкамі» і «дасведчанымі ўдзельнікамі».</string>
+  <string name="patroller_tasks_filters_user_status_experienced">Дасведчаныя ўдзельнікі</string>
   <string name="patroller_tasks_filters_user_status_experienced_desc">Зарэгістраваныя рэдактары з больш за 500 правак за 30 дзён актыўнасці.</string>
   <string name="patroller_tasks_filters_latest_revisions_header">Апошнія версіі</string>
   <string name="patroller_tasks_filters_latest_revisions_latest_revision">Апошняя версія</string>
@@ -1681,7 +1682,7 @@
   <string name="patroller_onboarding_two_watch_content">Хочаце адсочваць праўкі артыкулаў? Дадайце ў свой спіс назірання. Праглядзіце яго ў раздзеле \"Яшчэ\".</string>
   <string name="patroller_onboarding_two_talk_title">Абмеркаванне</string>
   <string name="patroller_onboarding_two_talk_content">Камунікуйце з іншымі праўнікамі. Захоўвайце часта выкарыстальныя паведамленні або выкарыстайце шаблон.</string>
-  <string name="patroller_onboarding_two_undo_title">Адмена/Адкат</string>
+  <string name="patroller_onboarding_two_undo_title">Адрабіць/Адкаціць</string>
   <string name="patroller_onboarding_two_undo_content">Выберыце \"Адкаціць\" для скасавання або адкату патэнцыйна разбуральнай праўкі.</string>
   <string name="patroller_diff_tooltip_one">\"Пашкоджанне\" прадказвае, калі праўка прычыняе шкоду ў вікі.</string>
   <string name="patroller_diff_tooltip_two">Намер прадказвае імавернасць добрасумленнага захавання праўкі.</string>
@@ -1763,4 +1764,5 @@
   <string name="survey_dialog_cancel">Скасаваць</string>
   <string name="survey_dialog_submit">Адправіць</string>
   <string name="survey_dialog_submitted_snackbar" fuzzy="true">Водгук адпраўлены.</string>
+  <string name="year_in_review_survey_cancel">Скасаваць</string>
 </resources>

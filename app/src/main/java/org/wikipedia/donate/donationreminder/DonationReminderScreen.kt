@@ -617,7 +617,7 @@ fun DonationHeader(
 }
 
 @Composable
-fun <T : Number>OptionSelector(
+fun <T : Number> OptionSelector(
     title: String,
     option: SelectableOption<T>,
     @DrawableRes headerIcon: Int,

@@ -13,5 +13,12 @@ data class DailyGameHistory(
     var day: Int,
     var score: Int,
     var playType: Int,
-    var gameData: String?
-)
+    var gameData: String?,
+    var status: Int = GAME_IN_PROGRESS,
+    var currentQuestionIndex: Int = 0
+) {
+    companion object {
+        const val GAME_IN_PROGRESS = 0
+        const val GAME_COMPLETED = 1
+    }
+}

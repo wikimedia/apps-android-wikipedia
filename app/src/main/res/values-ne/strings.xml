@@ -8,6 +8,7 @@
 * Nirajan pant
 * Nirjal stha
 * Parbat subedi
+* Pratik11
 * Suniltheblue
 * पर्वत सुबेदी
 * बडा काजी
@@ -634,7 +635,7 @@
   <string name="feed_item_type_randomizer">पढ्नको लागि अनियमित लेखहरू उत्पन्न गर्नुहोस्</string>
   <string name="feed_item_type_suggested_edits">विकिपिडियामा सामग्री थप्न सुझावहरू</string>
   <string name="feed_item_type_places">हालको स्थानमा आधारित नजिकैका लेखहरू</string>
-  <string name="feed_empty_message">तपाईको अन्वेषण फिडमा केही पनि छैन।</string>
+  <string name="feed_empty_message" fuzzy="true">तपाईको अन्वेषण फिडमा केही पनि छैन।</string>
   <string name="feed_configure_onboarding_action">अनुकुलित बनाउनुहोस्</string>
   <string name="customize_lang_selection_dialog_ok_button_text">हुन्छ</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">रद्द गर्नुहोस्</string>
@@ -805,7 +806,7 @@
   <string name="onboarding_get_started">सुरु गर्नुहोस्</string>
   <string name="onboarding_maybe_later">पछि हुनसक्छ</string>
   <string name="onboarding_explore_title">अन्वेषण गर्ने नयाँ तरिका</string>
-  <string name="onboarding_explore_text">अन्वेषण नामक फिडमा विशेष लेख, प्रचलनमा रहेका शीर्षक र अध्ययनसम्बन्धी सुझावहरू फेला पार्नुहोस्।</string>
+  <string name="onboarding_explore_text" fuzzy="true">अन्वेषण नामक फिडमा विशेष लेख, प्रचलनमा रहेका शीर्षक र अध्ययनसम्बन्धी सुझावहरू फेला पार्नुहोस्।</string>
   <string name="onboarding_analytics_switch_title">प्रयोग सम्बन्धी डाटाहरू पठाउने</string>
   <string name="onboarding_got_it">मैले बुझेँ</string>
   <string name="onboarding_multilingual_add_language_text">भाषा थप वा सम्पादन गर्नुहोस्</string>
@@ -1011,6 +1012,10 @@
   <string name="donation_reminders_settings_learn_more_button">थप जान्नुहोस्</string>
   <string name="donation_reminders_settings_report_button">सुविधामा समस्या छ</string>
   <string name="donation_reminders_snackbar_modify_button_label">परिमार्जन गर्नुहोस्</string>
-  <string name="explore_feed_survey_dialog_title">अन्वेषण सुधार गर्न हामीलाई मद्दत गर्नुहोस्</string>
-  <string name="explore_feed_survey_dialog_negative_button_label">पर्दैन, धन्यवाद</string>
+  <string name="home_feed_settings_default_view_confirm">यो परिवर्तन तपाईंले अर्को पटक एप खोल्दा लागू हुनेछ।</string>
+  <string name="home_feed_settings_games_title">खेलहरू</string>
+  <string name="home_feed_settings_games_subtitle">विकिपिडिया सामग्रीमा आधारित दैनिक खेलहरू</string>
+  <string name="home_feed_games_module_cta_prompt_title">थप खेलहरू खेल्न चाहनुहुन्छ?</string>
+  <string name="home_feed_games_module_cta_prompt_subtitle">खेल केन्द्रमा जानुहोस्</string>
+  <string name="home_feed_games_module_cta_prompt_button_text">खेल हब</string>
 </resources>

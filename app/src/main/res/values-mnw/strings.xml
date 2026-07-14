@@ -461,9 +461,9 @@
     <item quantity="one">လိက်ပရေင် %d ပ္တိတ်လဝ် နူ စရင်</item>
     <item quantity="other">လိက်ပရေင် %d ပ္တိတ်လဝ် နူ စရင်</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d လိက်ပရေင်တအ် ပ္တိတ်လဝ် နူ %s</item>
-    <item quantity="other">%d လိက်ပရေင်တအ် ပ္တိတ်လဝ် နူ %s</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">%1$d လိက်ပရေင်တအ် ပ္တိတ်လဝ် နူ %2$s</item>
+    <item quantity="other">%1$d လိက်ပရေင်တအ် ပ္တိတ်လဝ် နူ %2$s</item>
   </plurals>
   <string name="reading_list_items_deleted">%d လိက်ပရေင် ပတိတ်ထောအ် နူစရင်</string>
   <string name="reading_lists_item_deleted">%s ပတိတ်ထောအ် နူ စရင်</string>
@@ -681,11 +681,11 @@
   <string name="feed_item_type_main_page">မုက်လိက် ဂတ ဝဳကဳပဳဒဳယာ နကဵု ပရူမုက်ဂတ လၟေင်တ္ၚဲ</string>
   <string name="feed_item_type_randomizer">ပချဳ လိက်ပရေင် ဂဇျောမ် သွက်ဂွံ ဗှ်</string>
   <string name="feed_item_type_suggested_edits">မကဵုကသပ် သွက်ဂွံ စုတ် ပရူပရာ ပ္ဍဲ ဝဳကဳပဳဒဳယာ</string>
-  <string name="feed_empty_message">ပ္ဍဲ Explore feed ဂှ် မုဟွံမွဲ</string>
+  <string name="feed_empty_message" fuzzy="true">ပ္ဍဲ Explore feed ဂှ် မုဟွံမွဲ</string>
   <string name="feed_configure_onboarding_action">ဖံက်သေဝ်</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">တးပဲါ</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;ပဖံက်သေဝ် ပ္ဍဲ Explore feed မၞး&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;လၟုဟ် မၞးရုဲစှ်ကေတ် အရာလဵု မၞး မိက်ဂွံ ကဵုထ္ၜး ပ္ဍဲ feed မၞး၊ ကေုာံ သီုကဵု ပအဓိက အရာမၞးမဒးဂၞပ်စိုတ် ပ္ဍဲမာတိကာ၊၊</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;ပဖံက်သေဝ် ပ္ဍဲ Explore feed မၞး&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;လၟုဟ် မၞးရုဲစှ်ကေတ် အရာလဵု မၞး မိက်ဂွံ ကဵုထ္ၜး ပ္ဍဲ feed မၞး၊ ကေုာံ သီုကဵု ပအဓိက အရာမၞးမဒးဂၞပ်စိုတ် ပ္ဍဲမာတိကာ၊၊</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">တးပဲါ</string>
   <string name="feed_accessibility_card_text">လိက်စၞောန်သၟဝ်တအ်ဂှ် မၞးဗှ်တုဲရ။</string>
@@ -916,7 +916,7 @@
   <string name="onboarding_get_started">စဂွံရ၊၊</string>
   <string name="onboarding_maybe_later">လက္ကရဴတှေ်</string>
   <string name="onboarding_explore_title">ဂၠာဲ နကဵု နဲကဲတၟိ</string>
-  <string name="onboarding_explore_text">Dive down the Wikipedia rabbit hole with a constantly updating Explore feed. &lt;br/&gt; &lt;b&gt;Customize&lt;/b&gt; the feed to your interests – whether it’s learning about historical events &lt;b&gt;On this day&lt;/b&gt;, or rolling the dice with &lt;b&gt;Random&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Dive down the Wikipedia rabbit hole with a constantly updating Explore feed. &lt;br/&gt; &lt;b&gt;Customize&lt;/b&gt; the feed to your interests – whether it’s learning about historical events &lt;b&gt;On this day&lt;/b&gt;, or rolling the dice with &lt;b&gt;Random&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">စရင် လိက်ဗွဟ် နကဵု ကချဳဓရာင်</string>
   <string name="onboarding_reading_list_sync_text_v2"> ခၞံကၠောန် စရင် လိက်ဗွဟ် နူကဵု လိက်ပရေင် မၞးမိက်ဂွံဗှ် ကာလ မၞးမဂွံအခိင် ၜိုန်ရ မၞးနွံဒၟံင် မ္ၚးလာင်၊၊ &lt;br/&gt;လုပ်လံက်အေန် ပ္ဍဲအကံက် ဝဳကဳပဳဒဳယာ မၞး သွက်ဂွံ ပချဳဓရာင် စရင် လိက်ဗွဟ် မၞး &lt;a href=\"#login\"&gt;လုပ်ပံင်တောဲ ဝဳကဳပဳဒဳယာ&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">ပလံင် တင်ဂၞင် မသုင်စောဲ</string>
@@ -950,7 +950,7 @@
     <item quantity="one">အရေဝ်ဘာသာ မရုဲစှ်လဝ်ဂှ် ပတိတ်ထောအ်ဟာ？</item>
     <item quantity="other">အရေဝ်ဘာသာ မရုဲစှ်လဝ်ဂှ် ပတိတ်ထောအ်ဟာ？</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">သွက်အရေဝ်ဘာသာ ဝဳကဳပဳဒဳယာ သၟေဟ်တအ်ဂှ်၊ မၞး ဂွံဆဵုကေတ် မာတိကာ ပ္ဍဲဒၞာဲမဂၠာဲ ကဵု ဒၞာဲမဂၠာဲဗွဲပရှ်ဟေင်ရ၊၊</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">သွက်အရေဝ်ဘာသာ ဝဳကဳပဳဒဳယာ သၟေဟ်တအ်ဂှ်၊ မၞး ဂွံဆဵုကေတ် မာတိကာ ပ္ဍဲဒၞာဲမဂၠာဲ ကဵု ဒၞာဲမဂၠာဲဗွဲပရှ်ဟေင်ရ၊၊</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">ပတိတ် အရေဝ်ဘာသာ သီုဖအိုတ် ဟွံဂွံ</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">အောန်အိုတ် ဒးစိုတ်လဝ် အရေဝ်ဘာသာ ဝဳကဳပဳဒဳယာ မွဲ နူ ဒၞာဲမာတိကာ သွက်ဂွံဂၠာဲ ကေုာံ သွက်ဂွံဗှ်၊၊</string>
   <string name="more_language_options">ဗွဲမဂလိုင်</string>

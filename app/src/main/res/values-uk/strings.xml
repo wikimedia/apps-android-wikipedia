@@ -16,6 +16,7 @@
 * Ignatgg
 * Ihor.Zinchenko
 * MatviiBohdanFediura
+* MonX94
 * Movses
 * Piramidion
 * SHaran (WMF)
@@ -63,7 +64,7 @@
   <string name="history_item_delete_undo">Скасувати</string>
   <string name="notification_archive_undo">Скасувати</string>
   <string name="app_settings">Налаштування</string>
-  <string name="search_tab_tooltip">Торкніться іконки знову щоб почати вводити пошуковий запит напряму.</string>
+  <string name="search_tab_tooltip">Торкніться іконки знову, щоб почати вводити пошуковий запит напряму.</string>
   <string name="history_list_title">Історія</string>
   <string name="image_content_description">Зображення: %s</string>
   <string name="page_content_description">Сторінка: %s</string>
@@ -84,7 +85,7 @@
   <string name="page_edit_history_filter_by_all">Усі редагування (%s)</string>
   <string name="page_edit_history_filter_by_user">Редагування користувача (%s)</string>
   <string name="page_edit_history_filter_by_anon">Незареєстровані редагування (%s)</string>
-  <string name="page_edit_history_filter_by_bot">Редагування бота (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Редагування ботів (%s)</string>
   <string name="page_edit_history_metrics_content_description">Показники від %1$s до %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="one">%1$d редагування з %2$s</item>
@@ -95,8 +96,8 @@
   <plurals name="edits_since_year_per_wiki">
     <item quantity="one">%1$d редагування від %2$s ( %3$s)</item>
     <item quantity="few">%1$d редагування від %2$s (%3$s)</item>
-    <item quantity="many">%1$d редагування від %2$s (%3$s)</item>
-    <item quantity="other">%1$d редагування від %2$s (%3$s)</item>
+    <item quantity="many">%1$d редагувань від %2$s (%3$s)</item>
+    <item quantity="other">%1$d редагувань від %2$s (%3$s)</item>
   </plurals>
   <string name="page_edit_history_empty_search_message">Спробуйте змінити &lt;a href=\"#\"&gt;фільтри&lt;/a&gt;, щоб побачити більше редагувань</string>
   <string name="menu_page_show_tabs">Показати вкладки</string>
@@ -141,7 +142,7 @@
   <string name="other_languages_indication_text">Читати іншою мовою</string>
   <string name="language_count_link_text">Доступно %d іншими мовами</string>
   <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
-  <string name="edit_save_action_license_logged_in">Зберігаючи, ви погоджуєтеся з &lt;a href=\"%1$s\"&gt;Умовами користування&lt;/a&gt;, та остаточно публікуєте свій внесок під ліцензією &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_logged_in">Зберігаючи, ви погоджуєтеся з &lt;a href=\"%1$s\"&gt;Умовами користування&lt;/a&gt;, та невідклично публікуєте свій внесок під ліцензією &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Зберігаючи, ви погоджуєтеся з &lt;a href=\"%1$s\"&gt;Умовами користування&lt;/a&gt;, та невідклично публікуєте свій внесок під ліцензією &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Редагування будуть пов\'язані з IP-адресою вашого пристрою. Якщо ви &lt;a href=\"https://#login\"&gt;увійдете до системи&lt;/a&gt;, то матимете більше приватності.</string>
   <string name="edit_anon_warning">Редагування будуть приписані ІР-адресі вашого пристрою. Якщо ви &lt;a href=\"https://#login\"&gt;увійдете в систему&lt;/a&gt;, ваші дії будуть більш конфіденційними.</string>
   <string name="preference_title_language">Мови Вікіпедії</string>
@@ -180,14 +181,14 @@
   <string name="login_2fa_hint">Код двофакторної автентифікації</string>
   <string name="login_2fa_other_workflow_error_msg">Необхідна двофакторна автентифікація! Будь ласка, увійдіть в систему з головного екрану і введіть свій токен 2FA.</string>
   <string name="login_email_auth_hint">Код підтвердження електронної пошти</string>
-  <string name="login_email_auth_other_workflow_error_msg">Потрібна перевірка електронної пошти! Увійдіть із головного екрана та введіть код підтвердження електронної пошти.</string>
+  <string name="login_email_auth_other_workflow_error_msg">Потрібно верифікувати електронну пошту! Увійдіть до акаунту із головного екрана та введіть код підтвердження з електронної пошти.</string>
   <string name="login_background_error_msg">Не вдалося повторно ввійти. Поверніться, будь ласка, на головний екран й увійдіть вручну.</string>
   <string name="onboarding_card_login">Увійти</string>
   <string name="page_editing_login">Увійти</string>
   <string name="reading_lists_sync_login">Увійти до системи</string>
   <string name="create_account_login">Увійти до системи</string>
   <string name="menu_login">Увійти</string>
-  <string name="login_activity_title">Вхід</string>
+  <string name="login_activity_title">Увійти</string>
   <string name="login_in_progress_dialog_message">Входимо до системи…</string>
   <string name="login_success_toast">Ви ввійшли!</string>
   <string name="reset_password_title">Встановіть пароль</string>
@@ -204,7 +205,7 @@
   <string name="logged_out_in_background_cancel">Скасувати</string>
   <string name="account_vanish_request_title">Знищити обліковий запис</string>
   <string name="account_vanish_request_confirm_title">Попередження про знищення облікового запису</string>
-  <string name="account_vanish_request_confirm">Зникнення є &lt;b&gt;останнім заходом&lt;/b&gt;, і його слід використовувати &lt;b&gt;лише тоді, коли ви хочете назавжди припинити редагування&lt;/b&gt;, а також щоб приховати якомога більше своїх минулих зв\'язків.&lt;br/&gt;&lt;br/&gt;Вилучення облікового запису у Вікіпедії робиться шляхом зміни імені вашого облікового запису, щоб інші не могли розпізнати ваші внески; це називають зникненням облікового запису. &lt;b&gt;Зникнення не гарантує повної анонімності і не вилучає внесок у проєкти&lt;/b&gt;.</string>
+  <string name="account_vanish_request_confirm">Зникнення є &lt;b&gt;крайнім заходом&lt;/b&gt;, і його слід використовувати &lt;b&gt;лише тоді, коли ви хочете назавжди припинити редагування&lt;/b&gt;, а також щоб приховати якомога більше своїх минулих зв\'язків.&lt;br/&gt;&lt;br/&gt;Вилучення облікового запису у Вікіпедії робиться шляхом зміни імені вашого облікового запису, щоб інші не могли розпізнати ваші внески; це називають зникненням облікового запису. &lt;b&gt;Зникнення не гарантує повної анонімності і не вилучає внесок у проєкти&lt;/b&gt;.</string>
   <string name="history_empty_title">Немає нещодавно відвіданих сторінок</string>
   <string name="history_empty_message">Відстежувати те, що ви вже читали тут.</string>
   <string name="history_offline_articles_toast">Деякі статті в історії можуть бути недоступними в режимі офлайн.</string>
@@ -226,10 +227,10 @@
   <string name="create_account_email_error">Неправильна адреса електронної пошти</string>
   <string name="create_account_username_error">Недійсні символи в імені користувача.</string>
   <string name="create_account_password_error">Пароль мусить мати не менше 8 символів</string>
-  <string name="create_account_generic_error">Неможливо створити обліковий запис</string>
+  <string name="create_account_generic_error">Не вийшло створити обліковий запис</string>
   <string name="create_account_next">Далі</string>
   <string name="email_recommendation_dialog_title">Створити обліковий запис без електронної адреси?</string>
-  <string name="email_recommendation_dialog_message">Хоча вказування адреси електронної пошти не є обов\'язковим, дуже рекомендуємо її вказати, оскільки вона необхідна для відновлення пароля в разі його втрати.</string>
+  <string name="email_recommendation_dialog_message">Хоча вказування адреси електронної пошти не є обов\'язковим, &lt;b&gt;дуже рекомендуємо&lt;/b&gt; її вказати, оскільки вона необхідна для відновлення пароля в разі його втрати.</string>
   <string name="email_recommendation_message">Рекомендовано, оскільки електронна пошта обов\'язкова для відновлення облікового запису.</string>
   <string name="email_recommendation_dialog_create_without_email_action">Продовжити без електронної пошти</string>
   <string name="email_recommendation_dialog_create_with_email_action">Додати електронну пошту</string>
@@ -270,6 +271,7 @@
   <string name="about_description">Про додаток Вікіпедії</string>
   <string name="privacy_policy_description">Політика конфіденційності</string>
   <string name="terms_of_use_description">Умови використання</string>
+  <string name="legal_safety_contacts_description">Контакти з юридичних і безпекових питань</string>
   <string name="about_wikipedia_url">https://uk.wikipedia.org/wiki/Вікіпедія:Про</string>
   <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Privacy_policy</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/uk</string>
@@ -418,15 +420,17 @@
   <string name="button_get_directions">Прокласти маршрут</string>
   <string name="error_no_maps_app">Не вдалося знайти жодної програми, яка прокладала б маршрут.</string>
   <string name="preference_title_customize_explore_feed">Стрічка</string>
+  <string name="preference_title_customize_home_feed">Головна стрічка</string>
   <string name="preference_title_show_link_previews">Показувати попередній перегляд посилань</string>
   <string name="preference_summary_customize_explore_feed">Налаштувати стрічку</string>
+  <string name="preference_summary_customize_home_feed">Налаштувати свою головну стрічку</string>
   <string name="preference_summary_show_link_previews">Показувати попередній перегляд статей при натисненні на посилання.</string>
   <string name="preference_title_collapse_tables">Згорнути таблиці</string>
   <string name="preference_summary_collapse_tables">Автоматично згортати табличні блоки (інфобокси, примітки, коментарі тощо).</string>
   <string name="nav_item_donate">Пожертвувати</string>
   <string name="nav_item_year_in_review">Огляд року</string>
   <string name="error_voice_search_not_available">На жаль, розпізнавання голосу не підтримується.</string>
-  <string name="location_service_disabled">Служби локалізації вимкнені.</string>
+  <string name="location_service_disabled">Служби визначення місцезнаходження вимкнено.</string>
   <string name="enable_location_service">Увімкнути</string>
   <string name="location_permissions_enable_prompt">Надайте дозвіл на визначення розташування, щоб мати змогу побачити місця поблизу.</string>
   <string name="location_permissions_enable_action">Увімкнути</string>
@@ -594,10 +598,10 @@
     <item quantity="other">%d статей вилучено зі списку</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d статтю вилучено з %s</item>
-    <item quantity="few">%d статті вилучено з %s</item>
-    <item quantity="many">%d статей вилучено з %s</item>
-    <item quantity="other">%d статей вилучено з %s</item>
+    <item quantity="one">%1$d статтю вилучено з %2$s</item>
+    <item quantity="few">%1$d статті вилучено з %2$s</item>
+    <item quantity="many">%1$d статей вилучено з %2$s</item>
+    <item quantity="other">%1$d статей вилучено з %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d список вилучено</item>
@@ -879,9 +883,11 @@
   <string name="view_random_article_card_title">Випадкова стаття</string>
   <string name="view_random_article_card_action">Більше випадкових статей</string>
   <string name="view_top_read_card_title">Найчитаніше</string>
+  <string name="view_top_read_card_description">Що сьогодні популярне у Вікіпедії</string>
   <string name="view_top_read_card_action">Більше найчитанішого</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d тис.</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d млн</string>
+  <string name="view_top_read_card_pageviews_views_suffix">переглядів</string>
   <string name="view_next_random_article">Завантажити іншу випадкову статтю</string>
   <string name="view_main_page_card_title">Сьогодні у Вікіпедії</string>
   <string name="view_main_page_card_action">Переглянути головну сторінку</string>
@@ -923,12 +929,12 @@
   <string name="feed_item_type_main_page">Головна сторінка Вікіпедії з денним вибраним контентом</string>
   <string name="feed_item_type_randomizer">Згенерувати випадкові статті до читання</string>
   <string name="feed_item_type_suggested_edits">Пропозиції додати контент у Вікіпедію</string>
-  <string name="feed_item_type_places">Статті поблизу на основі поточного місцезнаходження</string>
-  <string name="feed_empty_message">У вашій стрічці нічого немає</string>
+  <string name="feed_item_type_places">Статті поблизу на основі поточного розташування</string>
+  <string name="feed_empty_message">У вашій головній стрічці нічого немає</string>
   <string name="feed_configure_onboarding_action">Налаштувати</string>
   <string name="customize_lang_selection_dialog_ok_button_text">Гаразд</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Скасувати</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Налаштуйте свою стрічку&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Ви можете вибрати, що показувати у своїй стрічці, і налаштувати пріоритетність улюблених типів матеріалів.</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Налаштуйте свою головну стрічку&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Ви можете вибрати, що показувати у своїй стрічці і налаштувати пріоритет улюблених типів матеріалів.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">Гаразд</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Скасувати</string>
   <string name="feed_accessibility_card_text">Ви досягли кінця стрічки.</string>
@@ -1103,7 +1109,7 @@
   <string name="suggested_edits_gate_message">Вибачте, %s, щоб скористатися цією функцією, ви маєте зробити хоча б три редагування безпосередньо в статті.</string>
   <string name="suggested_edits_editing_tips_link_text">Редагування порад</string>
   <string name="suggested_edits_help_page_link_text">Довідка з «Пропонованих редагувань»</string>
-  <string name="suggested_edits_edit_streak_label_text">Страйк редагувань</string>
+  <string name="suggested_edits_edit_streak_label_text">Серія редагувань</string>
   <string name="suggested_edits_views_label_text">Перегляди</string>
   <string name="suggested_edits_quality_label_text">Якість редагувань</string>
   <string name="suggested_edits_quality_perfect_text">Ідеально</string>
@@ -1320,7 +1326,7 @@
   <string name="activity_tab_customize_screen_editing_insights_switch_title">Статистика редагування</string>
   <string name="activity_tab_customize_screen_impact_switch_title">Вплив за весь час</string>
   <string name="activity_tab_customize_screen_games_switch_title">Статистика гри</string>
-  <string name="activity_tab_customize_screen_donations_switch_title">Минуле пожертвування в застосунку</string>
+  <string name="activity_tab_customize_screen_donations_switch_title">Минула пожертва в застосунку</string>
   <string name="activity_tab_customize_screen_timeline_switch_title">Хронологія поведінки</string>
   <string name="activity_tab_customize_screen_no_modules_message">Модулі активності вимкнено. &lt;a href=\"#\"&gt;Увімкніть їх&lt;/a&gt;, щоб переглядати оновлення на цій вкладці.</string>
   <string name="activity_tab_timeline_today">Сьогодні</string>
@@ -1339,6 +1345,7 @@
   <string name="activity_tab_onboarding_stay_in_control_message">Виберіть, які модулі відображати. Усі персональні дані залишаються конфіденційними на вашому пристрої, а історію переглядів можна очистити будь-коли.</string>
   <string name="edits_screen_what_is_title">Редагування у застосунку Вікіпедії</string>
   <string name="edits_screen_what_is_body">Не знаєте, з чого почати редагування? Спробуйте «Пропоновані редагування» — функцію, яка дає змогу робити невеликий, але важливий внесок у Вікіпедію. Або ж перейдіть безпосередньо до статті, яка вас цікавить, і внесіть зміни за допомогою вікітексту.</string>
+  <string name="activity_tab_snackbar_label">Статистика гри відображається для вашої основної мови.</string>
   <string name="file_page_activity_title">Сторінка файлу</string>
   <string name="file_page_add_image_caption_button">Додати підпис зображення</string>
   <string name="file_page_add_image_tags_button">Додайте теги зображень</string>
@@ -1358,16 +1365,24 @@
   <string name="onboarding_get_started">Розпочати</string>
   <string name="onboarding_maybe_later">Можливо, пізніше</string>
   <string name="onboarding_explore_title">Пізнаємо по-новому</string>
-  <string name="onboarding_explore_text">Пірнайте у кролячу нору Вікіпедії, гортаючи постійно оновлювану стрічку. &lt;br/&gt; &lt;b&gt;Налаштуйте&lt;/b&gt; стрічку за своїми інтересами — можете дізнаватися про історичні події &lt;b&gt;Цього дня&lt;/b&gt; або покластися на &lt;b&gt;Випадкові&lt;/b&gt; статті.</string>
+  <string name="onboarding_explore_text">Пірнайте у кролячу нору Вікіпедії, гортаючи постійно оновлювану головну стрічку. &lt;br/&gt; &lt;b&gt;Налаштуйте&lt;/b&gt; стрічку за своїми інтересами — можете дізнаватися про історичні події &lt;b&gt;Цього дня&lt;/b&gt; або покластися на &lt;b&gt;Випадкові&lt;/b&gt; статті.</string>
   <string name="onboarding_reading_list_sync_title">Синхронізовані читальні списки</string>
   <string name="onboarding_reading_list_sync_text_v2">Ви можете укладати списки читання зі статей, які хочете почитати пізніше, навіть коли ви офлайн. &lt;br/&gt;Увійдіть у свій обліковий запис Вікіпедії, щоб синхронізувати свої списки читання. &lt;a href=\"#login\"&gt;Увійти у Вікіпедію&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Дані та конфіденційність</string>
-  <string name="onboarding_data_privacy_text">Ми вважаємо, що у вас має бути можливість брати участь у русі вільних знань, не надаючи персональної інформації. Дані про використання, які збирає ця програмка, є анонімними. Дізнайтеся більше про нашу &lt;a href=\"#privacy\"&gt;політику приватності&lt;/a&gt; та &lt;a href=\"#termsOfUse\"&gt;умови використання&lt;/a&gt;.</string>
+  <string name="onboarding_data_privacy_text">Ми вважаємо, що у вас має бути можливість брати участь у русі вільних знань, не надаючи персональної інформації. Дані про використання, які збирає ця програмка, є анонімними.&lt;br/&gt;&lt;br/&gt;Дізнайтеся більше про нашу &lt;a href=\"#privacy\"&gt;політику приватності&lt;/a&gt; та &lt;a href=\"#termsOfUse\"&gt;умови використання&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Надсилати дані використання</string>
   <string name="onboarding_got_it">Зрозуміло</string>
   <string name="onboarding_multilingual_secondary_text">Ми знайшли такі мови на Вашому пристрої:</string>
   <string name="onboarding_multilingual_add_language_text">Додати або редагувати мови</string>
   <string name="onboarding_welcome_title_v2">Вільна енциклопедія\n…понад 300 мовами</string>
+  <string name="onboarding_next">Далі</string>
+  <string name="onboarding_fresh_install_knowledge_title">Усі знання світу</string>
+  <string name="onboarding_fresh_install_knowledge_text">Вікіпедія — це безкоштовна інтернет-енциклопедія з 65 мільйонами статей, що написані та підтримуються понад 300 мовами спільнотою волонтерів.</string>
+  <string name="onboarding_fresh_install_knowledge_learn_more">Дізнайтеся більше про Вікіпедію</string>
+  <string name="onboarding_app_languages_title">Читайте понад 300 мовами</string>
+  <string name="onboarding_app_languages_text">Ми знайшли такі мови на вашому пристрої:</string>
+  <string name="onboarding_app_languages_primary">Основна</string>
+  <string name="onboarding_app_languages_add_button">Додати або редагувати ваші мови</string>
   <string name="app_shortcuts_random">Випадкова</string>
   <string name="app_shortcuts_continue_reading">Продовжити читання</string>
   <string name="app_shortcuts_search">Пошук</string>
@@ -1401,7 +1416,7 @@
     <item quantity="many">Вилучити обрані мови?</item>
     <item quantity="other">Вилучити обрані мови?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Ви будете бачити вміст у стрічці та фільтрах швидкого пошуку тими мовами Вікіпедії, що залишилися.</string>
+  <string name="wikipedia_languages_remove_dialog_content">Ви будете бачити вміст у головній стрічці та фільтрах швидкого пошуку тими мовами Вікіпедії, що залишилися.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Неможливо вилучити усі мови</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Залиште хоча б одну мову Вікіпедії, якою шукатимете й читатимете матеріали.</string>
   <string name="more_language_options">більше</string>
@@ -1478,7 +1493,7 @@
   <string name="main_drawer_login">Увійти до Вікіпедії</string>
   <string name="main_tooltip_action_button">Розпочати</string>
   <string name="main_tooltip_watchlist_title">Список спостереження</string>
-  <string name="main_tooltip_watchlist_text">Статті та сторінки, які ви раніше додали до свого списку спостереження, можна знайти в меню Більше, в пункті &lt;b&gt;Список спостереження&lt;/b&gt;.</string>
+  <string name="main_tooltip_watchlist_text">Знайдіть статті та сторінки, які ви раніше додали до свого списку спостереження, у меню «Більше» в розділі &lt;b&gt;«Список спостереження»&lt;/b&gt;.</string>
   <string name="custom_date_picker_dialog_ok_button_text">Гаразд</string>
   <string name="text_input_dialog_ok_button_text">Гаразд</string>
   <string name="text_input_dialog_cancel_button_text">Назад</string>
@@ -1675,7 +1690,7 @@
   <string name="preview_edit_summarize_edit_title">Резюмуйте правку</string>
   <string name="preview_edit_summarize_edit_hint">Як Ви поліпшили цю сторінку?</string>
   <string name="preview_edit_minor_edit">Це незначна зміна</string>
-  <string name="preview_edit_watch_this_page">Перегляньте цю сторінку</string>
+  <string name="preview_edit_watch_this_page">Спостерігати за цією сторінкою</string>
   <string name="preview_edit_learn_more">Докладніше про опис редагування</string>
   <string name="action_item_categories">Категорії</string>
   <string name="page_no_categories">Ця сторінка не належить до жодної категорії.</string>
@@ -1894,6 +1909,8 @@
   <string name="places_empty_message_snackbar">Немає статей поблизу. Спробуйте зменшити масштаб і перемістити карту.</string>
   <string name="survey_dialog_title">Допоможіть нам покращити Talk Pages</string>
   <string name="survey_dialog_message">Ви задоволені цією функцією?</string>
+  <string name="home_feed_survey_title">Допоможіть покращити головну стрічку</string>
+  <string name="home_feed_survey_message">Чи задоволені ви стрічками «Спільнота» та «Для вас»?</string>
   <string name="survey_dialog_option_satisfied">Задоволений/а</string>
   <string name="survey_dialog_option_neutral">Нейтрально</string>
   <string name="survey_dialog_option_unsatisfied">Незадоволений/а</string>
@@ -1907,10 +1924,15 @@
   <string name="survey_dialog_general_maybe">Можливо</string>
   <string name="survey_dialog_input_hint">Додатковий відгук</string>
   <string name="survey_dialog_submitted_snackbar">Відгук надіслано. Дякуємо!</string>
+  <string name="games_hub_activity_title">Ігри</string>
+  <string name="games_hub_activity_games_unavailable_message">Цією мовою поки що немає ігор! Ігри використовують контент, створений редакторами-волонтерами для Вікіпедії кожною мовою.</string>
+  <string name="games_hub_activity_games_unavailable_message_learn_more_action">Дізнатися більше</string>
+  <string name="games_hub_activity_overflow_view_game_stats">Переглянути статистику гри</string>
+  <string name="games_hub_activity_overflow_learn_more">Дізнатися більше</string>
   <string name="on_this_day_game_entry_dialog_title">Знайомтеся</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Ігри Вікіпедії</string>
-  <string name="on_this_day_game_entry_dialog_button">Грати сьогоднішню гру</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Ігри Вікіпедії доступні у стрічці.</string>
+  <string name="on_this_day_game_entry_dialog_button">Грати</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message">Ігри Вікіпедії доступні в Ігровому центрі, який знаходиться у меню «Більше».</string>
   <string name="on_this_day_game_title">Що було першим?</string>
   <string name="on_this_day_game_dialog_button">Грати</string>
   <string name="on_this_day_game_splash_message">Вгадайте, яка подія цього дня в історії відбулася першою.</string>
@@ -1922,14 +1944,9 @@
   <string name="on_this_day_game_point">+1 бал</string>
   <string name="on_this_day_game_next">Наступне запитання</string>
   <string name="on_this_day_game_finish">Остаточний результат</string>
-  <string name="on_this_day_game_share_button">Поділитися</string>
-  <string name="on_this_day_game_pause_title">Призупинити гру?</string>
-  <string name="on_this_day_game_pause_body">Ваш прогрес буде збережено. Ви можете знайти гру у своїй стрічці.</string>
-  <string name="on_this_day_game_pause_negative">Продовжити грати</string>
-  <string name="on_this_day_game_pause_positive">Зрозуміло</string>
+  <string name="on_this_day_game_share_button">Поділитися результатом</string>
   <string name="on_this_day_game_feed_entry_card_heading">Ігри Вікіпедії</string>
   <string name="on_this_day_game_feed_entry_card_title">Що було першим?</string>
-  <string name="on_this_day_game_feed_entry_card_subtitle">Вгадайте, яка подія цього дня в історії відбулася першою.</string>
   <string name="on_this_day_game_result">Ваш рахунок — %1$d/%2$d.</string>
   <string name="on_this_day_game_next_in">Наступна гра через %s</string>
   <string name="on_this_day_game_your_stats">Ваша статистика</string>
@@ -1942,7 +1959,7 @@
   <string name="on_this_day_game_stats_average_score">Середній рахунок</string>
   <string name="on_this_day_game_stats_streak">Поточна серія</string>
   <string name="on_this_day_game_result_subtitle">Статті, використані у сьогоднішній грі</string>
-  <string name="on_this_day_game_completed_message">Дякуємо за гру. Нова гра «Що було першим?» доступна у стрічці щодня.</string>
+  <string name="on_this_day_game_completed_message">Дякуємо за гру. Нова гра «Що було першим?» доступна у головній стрічці щодня.</string>
   <string name="on_this_day_game_menu_notifications">Ігрові сповіщення</string>
   <string name="on_this_day_game_menu_info">Дізнатися більше</string>
   <string name="on_this_day_game_menu_feedback">Проблема з функцією</string>
@@ -1974,9 +1991,21 @@
   <string name="on_this_day_game_archive_btn_text">Відграти архів</string>
   <string name="on_this_day_game_review_results_btn_text">Переглянути результати</string>
   <string name="on_this_day_game_score_message">Ваш результат сьогодні — %1$d/%2$d.</string>
+  <string name="on_this_day_game_play_today_btn_text">Зіграти сьогоднішню гру</string>
   <string name="on_this_day_game_continue_playing_btn_text">Продовжити гру</string>
   <string name="on_this_day_game_sound_on">Увімкнути звук</string>
   <string name="on_this_day_game_sound_off">Вимкнути звук</string>
+  <string name="on_this_day_game_more_label">Ще</string>
+  <string name="on_this_day_game_card_progress_label">Ви на питанні %d. Продовжуйте вгадувати, яка подія відбулася першою в цей день в історії.</string>
+  <string name="on_this_day_game_card_progress_short_label">Ви на питанні %d.</string>
+  <string name="on_this_day_game_explore_feed_card_score_message">Ви набрали %1$d/%2$d очок у сьогоднішній грі. Наступна гра через %3$s</string>
+  <string name="on_this_day_game_explore_feed_card_score_short_message">Ваш результат сьогодні — %1$d/%2$d.</string>
+  <string name="on_this_day_game_card_archive_label">Архів</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_button">Увійти</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_title">Увійдіть, щоб переглянути статистику гри</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_description">Дивіться свої серії, результати та інше</string>
+  <string name="wikipedia_games_title">Ігри Вікіпедії</string>
+  <string name="wikipedia_games_subtitle">Щоденні вікторини на основі контенту Вікіпедії.</string>
   <string name="year_in_review_learn_more">Дізнатися більше</string>
   <string name="year_in_review_get_started">Розпочати</string>
   <string name="year_in_review_topbar_w_icon">Іконка W Вікіпедії</string>
@@ -2434,8 +2463,227 @@
   <string name="donation_reminders_settings_report_email_subject">Звіт про проблему – Нагадування про пожертву</string>
   <string name="donation_reminders_settings_report_email_body">У мене виникла проблема з функцією Нагадування про пожертву:\n- [Опишіть конкретну проблему]\n- [Скриншоти чи посилання]\n\nОчікувана мною поведінка функції:\n- [Опишіть запропоноване рішення]</string>
   <string name="donation_reminders_snackbar_modify_button_label">Змінити</string>
-  <string name="explore_feed_survey_dialog_title">Допоможіть нам покращити стрічку</string>
-  <string name="explore_feed_survey_dialog_message">Будь ласка, пройдіть коротке опитування щодо стрічки. Ваш відгук допоможе нам удосконалити програмку в майбутньому.</string>
-  <string name="explore_feed_survey_dialog_positive_button_label">Пройти опитування</string>
-  <string name="explore_feed_survey_dialog_negative_button_label">Ні, дякую</string>
+  <string name="hybrid_search_search_hint">Шукайте або запитуйте що завгодно</string>
+  <string name="hybrid_search_article_search_hint">Запитайте про %s</string>
+  <string name="hybrid_search_suggestion_title">Шукати:</string>
+  <string name="hybrid_search_onboarding_learn_more">Дізнатися більше</string>
+  <string name="hybrid_search_onboarding_search_title">Ставте запитання, отримуйте відповіді</string>
+  <string name="hybrid_search_onboarding_search_description">Ця експериментальна функція розуміє природну мову. Замість пошуку за ключовими словами, опишіть те, що ви хочете знати.</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_title">Бета-функція</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_description">Доступно протягом обмеженого часу під час цього експерименту.</string>
+  <string name="hybrid_search_beta_tag">Бета</string>
+  <string name="hybrid_search_experimental_feature_switch_label">Приєднатися до експерименту</string>
+  <string name="hybrid_search_onboarding_search_example_title">Потрібне натхнення?</string>
+  <string name="hybrid_search_onboarding_search_example_description">Скористайтеся одним із наведених нижче прикладів пошуку.</string>
+  <string name="hybrid_search_onboarding_opt_out_toast_message">Ви відмовилися від експерименту.</string>
+  <string name="hybrid_search_onboarding_search_example_query_pluto_as_planet">Коли Плутон був виключений зі списку планет?</string>
+  <string name="hybrid_search_onboarding_search_example_query_first_olympics">перші Олімпійські ігри</string>
+  <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">РНК чи ДНК</string>
+  <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Чому люди кладуть ананас на піцу?</string>
+  <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Які найбільші міста в Європі?</string>
+  <string name="hybrid_search_onboarding_screen_title">Новий спосіб пошуку</string>
+  <string name="hybrid_search_results_header_description">Взято зі статей Вікіпедії, створених людьми</string>
+  <string name="hybrid_search_results_rate_label">Оцініть цей результат</string>
+  <string name="hybrid_search_results_rated_label">Оцінено</string>
+  <string name="hybrid_search_results_rate_thumb_up">Оцінка «палець вгору»</string>
+  <string name="hybrid_search_results_rate_thumb_down">Оцінка «палець униз»</string>
+  <string name="hybrid_lexical_search_results_empty">Жодна назва статті не відповідає цьому запиту.</string>
+  <string name="hybrid_search_results_empty">Розширений пошук тимчасово недоступний.</string>
+  <string name="hybrid_search_no_results_header">Немає результатів</string>
+  <string name="hybrid_search_no_results_description">Наразі ця тема не повертає уривки статей. Ось що ви можете спробувати:</string>
+  <string name="hybrid_search_no_results_suggestion_rephrase_text">Перефразуйте свій пошуковий запит</string>
+  <string name="hybrid_search_no_results_suggestion_try_related_topic">Спробуйте пов\'язану тему</string>
+  <string name="hybrid_search_error_message">Щось пішло не так. Будь ласка, спробуйте ще раз пізніше.</string>
+  <string name="hybrid_search_who_is_prefix">Хто такі %s?</string>
+  <string name="hybrid_search_turn_off_experiment_label">Вимкнути цей експеримент</string>
+  <string name="reading_challenge_widget_name">Читацький виклик</string>
+  <string name="reading_challenge_onboarding_header">Відсвяткуйте 25-річчя Вікіпедії, приєднавшись до 25-денного читацького виклику!</string>
+  <string name="reading_challenge_onboarding_read_title">Читайте 1 статтю щодня упродовж 25 днів</string>
+  <string name="reading_challenge_onboarding_read_description">Приєднуйтесь до виклику будь-коли з 1 по 31 травня, завершіть свої 25 днів за власним графіком.</string>
+  <string name="reading_challenge_onboarding_read_subtitle">Приєднуйтесь до виклику будь-коли між %1$s та %2$s, завершіть свої 25 днів за власним графіком.</string>
+  <string name="reading_challenge_onboarding_win_title">Вигравайте призи</string>
+  <string name="reading_challenge_onboarding_win_description">Завершіть 25-денну серію читання, поки триває виклик, щоб виграти спеціальні призи.</string>
+  <string name="reading_challenge_onboarding_install_title">Встановіть віджет</string>
+  <string name="reading_challenge_onboarding_install_description">Отримуйте корисні нагадування та мотивацію від нашого чарівного талісмана дня народження Малюка Глобуса.</string>
+  <string name="reading_challenge_onboarding_note">Ваша історія читання захищена. Статистика читання розраховується на основі даних, що зберігаються локально на вашому пристрої.</string>
+  <string name="reading_challenge_onboarding_learn_more_button">Дізнатися більше</string>
+  <string name="reading_challenge_onboarding_join_button">Приєднуйтесь до виклику</string>
+  <string name="reading_challenge_onboarding_prompt_title">Увійдіть, щоб приєднатися до виклику</string>
+  <string name="reading_challenge_onboarding_prompt_message">Увійдіть або створіть обліковий запис, щоб відстежувати свій прогрес у виконанні читацького виклику.</string>
+  <string name="reading_challenge_onboarding_prompt_no_thanks">Ні, дякую</string>
+  <string name="reading_challenge_onboarding_prompt_login">Увійти / приєднатися до Вікіпедії</string>
+  <string name="reading_challenge_install_prompt_title">Встановити віджет 25-денного читацького виклику</string>
+  <string name="reading_challenge_install_prompt_message">Малюк Глобус підтримує вас. Додайте віджет читацького виклику, щоб відстежувати свій прогрес на головному екрані.</string>
+  <string name="reading_challenge_install_prompt_got_it">Зрозуміло</string>
+  <string name="reading_challenge_install_prompt_add">Додати</string>
+  <string name="search_widget_install_prompt_title">Швидший спосіб пошуку</string>
+  <string name="search_widget_install_prompt_message">Встановіть віджет пошуку у вікіпедії для миттєвого доступу до знань з головного екрана.</string>
+  <string name="search_widget_install_prompt_add">Додати</string>
+  <string name="search_widget_install_prompt_got_it">Зрозуміло</string>
+  <string name="reading_challenge_widget_explore_button">Дослідити</string>
+  <string name="reading_challenge_widget_explore_wikipedia_button">Дослідити Вікіпедію</string>
+  <string name="reading_challenge_widget_join_challenge_button">Приєднатися до виклику</string>
+  <string name="reading_challenge_widget_join_the_challenge_button">Приєднатися до виклику</string>
+  <string name="reading_challenge_widget_search_button">Пошук</string>
+  <string name="reading_challenge_widget_random_button">Випадково</string>
+  <string name="reading_challenge_widget_collect_prize_button">Отримати приз</string>
+  <string name="reading_challenge_widget_collect_your_prize_button">Заберіть свій приз!</string>
+  <string name="reading_challenge_widget_not_live_title">Приготуйтеся до читання</string>
+  <string name="reading_challenge_widget_not_live_description">25-денний читацький виклик вже на підході.</string>
+  <string name="reading_challenge_widget_not_opted_in_title">На старт, увага, читайте!</string>
+  <string name="reading_challenge_widget_not_opted_in_description">Приєднуйтесь до 25-денного виклику та отримуйте спеціальні призи.</string>
+  <plurals name="reading_challenge_small_widget_streak">
+    <item quantity="one">%d день</item>
+    <item quantity="few">%d дні</item>
+    <item quantity="many">%d днів</item>
+    <item quantity="other">%d днів</item>
+  </plurals>
+  <plurals name="reading_challenge_small_widget_streak_final">
+    <item quantity="one">%1$d з %2$d</item>
+    <item quantity="few">%1$d з %2$d</item>
+    <item quantity="many">%1$d з %2$d</item>
+    <item quantity="other">%1$d з %2$d</item>
+  </plurals>
+  <plurals name="reading_challenge_small_widget_streak_final_large">
+    <item quantity="one">%1$d з %2$d дня</item>
+    <item quantity="few">%1$d з %2$d днів</item>
+    <item quantity="many">%1$d з %2$d днів</item>
+    <item quantity="other">%1$d з %2$d днів</item>
+  </plurals>
+  <string name="reading_challenge_not_read_today_description">Не проходьте повз, збережіть свою серію.</string>
+  <string name="reading_challenge_streak_ongoing_title">25-денний читацький виклик</string>
+  <string name="reading_challenge_widget_reminder_dont_let_today_drift">Не проходьте повз, ваша читацька серія чекає.</string>
+  <string name="reading_challenge_widget_reminder_before_day_snoozes">Перш ніж день задрімає… ще є час чогось навчитися.</string>
+  <string name="reading_challenge_widget_reminder_small_bit_counts">Навіть невелика кількість прочитаного зараховується для досягнення вашої мети.</string>
+  <string name="reading_challenge_widget_reminder_one_article_away">Ваша серія всього за одну статтю від вас.</string>
+  <string name="reading_challenge_widget_reminder_jump_in_anytime">Заходьте почитати будь-коли сьогодні.</string>
+  <string name="reading_challenge_widget_reminder_quiet_reading_moment">Тиха хвилинка читання?</string>
+  <string name="reading_challenge_widget_reminder_keep_curiosity_going">Підгодовуйте свою цікавість.</string>
+  <string name="reading_challenge_widget_enrolled_not_started_title">На старт, увага, читайте!</string>
+  <string name="reading_challenge_widget_enrolled_not_started_subtitle">Почніть працювати над 25-денною серією!</string>
+  <string name="reading_challenge_widget_start_reading_challenge_title">Розпочніть свій читацький виклик.</string>
+  <string name="reading_challenge_widget_start_reading_challenge_subtitle">Кожна серія десь починається</string>
+  <string name="reading_challenge_widget_start_spin_up_new_streak_title">Розпочати нову серію?</string>
+  <string name="reading_challenge_widget_start_spin_up_new_streak_subtitle">Для початку прочитайте одну статтю.</string>
+  <string name="reading_challenge_widget_start_fresh_start_title">Новий початок.</string>
+  <string name="reading_challenge_widget_start_fresh_start_subtitle">Ваша серія всього за одну статтю від вас.</string>
+  <string name="reading_challenge_widget_concluded_incomplete">Виклик завершено</string>
+  <string name="reading_challenge_widget_concluded_complete">Ви це зробили!</string>
+  <string name="reading_challenge_widget_reward_title">Допитливість вам пасує! 🛍️</string>
+  <string name="reading_challenge_widget_reward_body">Відсвяткуйте виконання завдання зі знижкою 15%% у магазині Вікіпедії.</string>
+  <string name="reading_challenge_widget_reward_button_label">Отримайте знижку 15%% у магазині</string>
+  <string name="explore_feed_new_update_prompt_title">Стрічка «Дослідити» тепер називається «Головна» і має новий вигляд</string>
+  <string name="explore_feed_new_update_prompt_new_name_title">Нова назва</string>
+  <string name="explore_feed_new_update_prompt_new_name_description">Стрічка «Дослідити» тепер називається «Головна», і розташована у тому самому місці.</string>
+  <string name="explore_feed_new_update_prompt_two_ways_title">Ваша стрічка, два шляхи</string>
+  <string name="explore_feed_new_update_prompt_two_ways_description">Відкрийте для себе статті, персоналізовані відповідно до ваших інтересів, у розділі «Для вас» або перегляньте найкращий контент Вікіпедії у розділі «Спільнота».</string>
+  <string name="explore_feed_new_update_prompt_control_title">Контролюйте ситуацію</string>
+  <string name="explore_feed_new_update_prompt_control_description">У кожній рекомендації чітко пояснюється, чому вона там є. Ви можете будь-коли оновити свої побажання в налаштуваннях.</string>
+  <string name="explore_feed_new_update_prompt_language_title">Кожна мова, повністю персоналізована</string>
+  <string name="explore_feed_new_update_prompt_language_description">Читаєте кількома мовами? Кожна з них дає інший досвід. Просто перемкніться, і ваша нова стрічка готова.</string>
+  <string name="explore_feed_new_update_prompt_primary_button_text">Налаштувати мою стрічку</string>
+  <string name="explore_feed_customize_interests">Налаштувати інтереси</string>
+  <string name="explore_feed_customize_discover">Налаштувати рекомендації</string>
+  <string name="explore_feed_new_update_prompt_secondary_button_text">Налаштуйте це для мене</string>
+  <string name="explore_feed_building_text">Створімо вашу стрічку…</string>
+  <string name="explore_feed_community_tab_label">Спільнота</string>
+  <string name="explore_feed_for_you_tab_label">Для вас</string>
+  <string name="explore_feed_date_today">Сьогодні %s</string>
+  <string name="explore_feed_load_previous_day_label">Завантажити попередній день</string>
+  <string name="explore_feed_from_reading_list">З вашого списку читання</string>
+  <string name="explore_feed_because_of_interest">Тому що у вас є інтерес: %s</string>
+  <string name="explore_feed_onboarding_curiosity_title">Слідуйте за своєю цікавістю</string>
+  <string name="explore_feed_onboarding_curiosity_description">Оберіть теми, які вас цікавлять, і ми персоналізуємо вашу стрічку.\n\nМи збираємо мінімальну кількість даних, які анонімізуються.</string>
+  <string name="explore_feed_deselect_all_button_label">Скинути усе</string>
+  <string name="explore_feed_potd_subtitle">Щоденні зображення у Вікісховищі, відібрані дописувачами-волонтерами</string>
+  <string name="explore_feed_featured_article_subtitle">Вибрані статті — це одні з найякісніших статей Вікіпедії, які щодня відбирають редактори.</string>
+  <string name="explore_feed_preference_selection_screen_title">Що б ви хотіли побачити першим?</string>
+  <string name="explore_feed_preference_community_content_title">Вміст, пов\'язаний зі спільнотою</string>
+  <string name="explore_feed_preference_personalized_content_title">Персоналізований вміст</string>
+  <string name="explore_feed_in_the_news_subtitle">Статті, які були суттєво оновлені, щоб відобразити нещодавні або поточні події, що становлять широкий інтерес</string>
+  <string name="explore_feed_on_this_day_subtitle">Відкрийте для себе історичні події цього дня</string>
+  <string name="explore_feed_community_disclaimer">Контент та ресурси, відібрані спільнотою Вікімедіа та про неї</string>
+  <string name="explore_feed_community_load_more_label">Переглянути давніший контент спільноти</string>
+  <string name="explore_feed_manage_languages_label">Керування мовами</string>
+  <string name="explore_feed_header_overflow_hide_module_label">Приховати модуль</string>
+  <string name="explore_feed_header_overflow_hide_module_message">Модуль приховано.</string>
+  <string name="explore_feed_header_overflow_hide_module_message_action">Скасувати</string>
+  <string name="explore_feed_personalized_preference_empty_state_text">Щоб переглядати персоналізовані рекомендації щодо контенту, потрібно додати інтереси. Ви можете зробити це на попередніх кроках або пізніше в налаштуваннях.</string>
+  <string name="explore_feed_because_you_read">Оскільки Ви читали: %s</string>
+  <string name="explore_feed_swipe_to_explore_prompt_title">Проведіть пальцем, щоб дослідити</string>
+  <string name="explore_feed_swipe_to_explore_prompt_message">Проведіть пальцем угору, щоб перейти до іншої теми, або убік, щоб переглянути пов\'язаний контент.</string>
+  <string name="home_feed_settings_title">Налаштуйте свою головну стрічку</string>
+  <string name="home_feed_settings_default_view_title">Стандартний вигляд стрічки</string>
+  <string name="home_feed_settings_default_view_subtitle">Виберіть, яку стрічку відображати першою під час відкриття програми</string>
+  <string name="home_feed_settings_default_view_confirm">Ця зміна набуде чинності наступного разу, коли ви відкриєте програмку.</string>
+  <string name="home_feed_settings_whats_driving_title">Що впливає на вашу стрічку</string>
+  <string name="home_feed_settings_modules_title">Модулі</string>
+  <string name="home_feed_settings_community_subtitle">Увімкнути чи вимкнути модулі стрічки «Спільнота»</string>
+  <string name="home_feed_settings_for_you_subtitle">Увімкнути чи вимкнути модулі стрічки «Для вас»</string>
+  <string name="home_feed_settings_whats_driving_subtitle">Теми та статті, що формують ваш контент</string>
+  <string name="home_feed_settings_community_modules_description">Вимкнення модуля приховує його у вашій стрічці спільноти. Ви можете будь-коли знову ввімкнути його тут. Деякі модулі можуть бути недоступні вашою мовою.</string>
+  <string name="home_feed_settings_for_you_modules_description">Вимкнення модуля приховує його у вашій стрічці «Для вас». Ви можете будь-коли знову ввімкнути його тут.</string>
+  <string name="home_feed_settings_based_on_interest_title">На основі ваших інтересів</string>
+  <string name="home_feed_settings_based_on_interest_subtitle">Статті, підібрані під обрані вами теми.&lt;br /&gt;&lt;a href=\"#drivingFeed\"&gt;Що впливає на вашу стрічку&lt;/a&gt;</string>
+  <string name="home_feed_settings_because_you_read_subtitle">Пропозиції на основі недавньої статті з вашої історії</string>
+  <string name="home_feed_settings_continue_reading_title">Продовжити читання</string>
+  <string name="home_feed_settings_continue_reading_subtitle">Поверніться до статей, які ви не дочитали до кінця</string>
+  <string name="home_feed_did_you_know_title">Чи знаєте ви?</string>
+  <string name="home_feed_did_you_know_subtitle">Цікаві факти зі статей, відібраних редакторами-волонтерами</string>
+  <string name="home_feed_did_you_know_more_label">Більше \"Чи знаєте ви?\"</string>
+  <string name="home_feed_settings_community_empty_dialog_title">Ваша стрічка «Спільнота» буде порожньою</string>
+  <string name="home_feed_settings_for_you_empty_dialog_title">Ваша стрічка «Для вас» буде порожньою</string>
+  <string name="home_feed_settings_empty_dialog_text">Увімкніть хоча б один модуль, щоб бачити вміст.</string>
+  <string name="home_feed_settings_empty_dialog_positive">Все одно продовжити</string>
+  <string name="home_feed_screen_empty_state_label">Ваша стрічка порожня</string>
+  <string name="home_feed_community_screen_all_modules_disabled_description">Увімкніть модулі стрічки &lt;b&gt;«Спільнота»&lt;/b&gt;, щоб почати переглядати контент від спільноти Вікімедіа та про неї.</string>
+  <string name="home_feed_for_you_screen_all_modules_disabled_description">Увімкніть модулі &lt;b&gt;«Для вас»&lt;/b&gt;, щоб почати переглядати контент на основі ваших уподобань.</string>
+  <string name="home_feed_screen_all_modules_disabled_btn_label">Керування модулями</string>
+  <string name="home_feed_for_you_screen_empty_title">Ваша стрічка наразі порожня</string>
+  <string name="home_feed_for_you_screen_empty_description">Ваша стрічка «Для вас» заповнюватиметься персоналізованими статтями по ходу читання.</string>
+  <string name="home_feed_for_you_screen_empty_ways_to_start">Способи початку:</string>
+  <string name="home_feed_for_you_screen_empty_add_interests">Додайте &lt;a href=\"#add_interests\"&gt;кілька уподобань&lt;/a&gt;</string>
+  <string name="home_feed_for_you_screen_empty_see_community">Дивіться, що відбувається у &lt;a href=\"#community_tab\"&gt;спільноті&lt;/a&gt;</string>
+  <string name="home_feed_update_tooltip1">Нове: «Випадкова стаття» та «Цікаві місця» доступні у розділі «Для вас», а «Чи знаєте ви?» — у вкладці «Спільнота».</string>
+  <string name="home_feed_random_title">Випадкові</string>
+  <string name="home_feed_random_subtitle">Випадкова стаття, щоб викликати вашу цікавість</string>
+  <string name="home_feed_random_shuffle_button">Перемішати</string>
+  <string name="home_feed_settings_feed_configuration_description">Ці теми та статті впливають на те, що відображається у вашій стрічці «Для вас». Видаліть ті, які вам більше не потрібні, або додайте нові інтереси.</string>
+  <string name="home_feed_settings_feed_configuration_interest_title">Ваші інтереси</string>
+  <string name="home_feed_settings_feed_configuration_interest_subtitle">Редагуйте теми ваших зацікавлень</string>
+  <string name="home_feed_settings_feed_configuration_location_title">Ваше місце розташування</string>
+  <string name="home_feed_settings_feed_configuration_location_subtitle">Оновіть своє розташування в Місцях, щоб переглянути статті поблизу</string>
+  <string name="home_feed_settings_feed_configuration_empty_interest_subtitle">Ваш список інтересів порожній. Додайте щось, що вас цікавить.</string>
+  <string name="home_feed_settings_feed_configuration_reading_history_title">Історія читання</string>
+  <string name="home_feed_settings_feed_configuration_reading_history_subtitle">Перегляньте нещодавно прочитані статті</string>
+  <string name="home_feed_settings_feed_configuration_empty_reading_history_subtitle">Ваша історія читання порожня. Почніть переглядати статті, щоб напрацювати персоналізовані рекомендації.</string>
+  <string name="home_feed_settings_feed_configuration_languages_title">Мови</string>
+  <string name="home_feed_settings_feed_configuration_languages_subtitle">Редагувати свої бажані мови</string>
+  <string name="home_feed_settings_feed_configuration_interests_updated_message">Інтереси оновлено. Оновіть свою стрічку, щоб переглянути оновлення.</string>
+  <string name="home_feed_places_of_interest_cta_title">Історії з місць, які ви любите</string>
+  <string name="home_feed_places_of_interest_cta_description">Статті з’являтимуться на основі останнього переглянутого вами місця. Перейдіть на вкладку «Місця» та виберіть потрібне розташування.</string>
+  <string name="home_feed_places_of_interest_cta_button">Перейти до Місць</string>
+  <string name="home_feed_settings_places_of_interest_title">Цікаві місця</string>
+  <string name="home_feed_settings_places_of_interest_subtitle">Статті поблизу вашого останнього розташування в Місцях</string>
+  <string name="home_feed_settings_games_title">Ігри</string>
+  <string name="home_feed_settings_games_subtitle">Щоденні ігри на основі контенту Вікіпедії</string>
+  <string name="home_feed_settings_discover_title">Відкрийте для себе рекомендації</string>
+  <string name="home_feed_settings_discover_subtitle">Статті з вашого списку читання в «Дослідити»</string>
+  <string name="home_feed_discover_cta_title">З «Дослідити»</string>
+  <string name="home_feed_discover_cta_description">Дізнавайтеся про нові теми, підібрані спеціально для вас. Вибирайте щоденні, щотижневі або щомісячні оновлення.</string>
+  <string name="home_feed_discover_cta_button">Увімкнути рекомендований список читання</string>
+  <string name="home_feed_discover_card_footer">З «Дослідити» • Оновлення %s</string>
+  <string name="home_feed_discover_see_all_title">Ще є що відкрити</string>
+  <string name="home_feed_discover_see_all_description">У вашому персоналізованому списку читання є більше історій, підібраних спеціально для вас.</string>
+  <string name="home_feed_discover_see_all_button">Переглянути всі рекомендації</string>
+  <string name="home_feed_places_of_interest_card_footer">%1$s • На основі вашого розташування в Місцях</string>
+  <string name="home_feed_for_you_screen_end_of_feed_title">На сьогодні все!</string>
+  <string name="home_feed_for_you_screen_end_of_feed_description">Заходьте завтра, щоб знайти нові статті, підготовлені спеціально для вас.</string>
+  <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Способи продовження навчання:</string>
+  <string name="home_feed_for_you_screen_end_of_feed_add_interests">Додайте &lt;a href=\"#add_interests\"&gt;нові інтереси&lt;/a&gt;</string>
+  <string name="randomizer_shake_prompt_title">Струсіть, щоб перемішати</string>
+  <string name="randomizer_shake_prompt_message">Струсіть свій пристрій, щоб перейти до випадкової статті та відкрити для себе щось несподіване.</string>
+  <string name="home_feed_games_module_cta_prompt_title">Хочете зіграти більше ігор?</string>
+  <string name="home_feed_games_module_cta_prompt_subtitle">Перейдіть до хабу ігор</string>
+  <string name="home_feed_games_module_cta_prompt_button_text">Хаб ігор</string>
 </resources>

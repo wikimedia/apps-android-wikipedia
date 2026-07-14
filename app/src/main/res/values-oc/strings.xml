@@ -23,10 +23,15 @@
   <string name="search_hint">Recercar dins Wikipèdia</string>
   <string name="search_hint_voice_search">Recèrca vocala</string>
   <string name="search_hint_search_languages">Recercar una lenga</string>
+  <string name="search_back_button_content_description">Retorn</string>
+  <string name="search_clear_query_content_description">Escafar la requista</string>
+  <string name="search_icon_content_description">Cercar</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtrar mei listas</string>
   <string name="nav_item_suggested_edits">Modificar</string>
+  <string name="nav_item_activity">Activitat</string>
   <string name="nav_item_more">Mai…</string>
   <string name="nav_item_search">Recercar</string>
+  <string name="nav_item_contribute">Contribuïr</string>
   <string name="error_network_error">Impossible de se connectar a Internet.</string>
   <string name="page_error_retry">Ensajar tornarmai</string>
   <string name="card_offline_error_retry">Tornar assajar</string>
@@ -36,7 +41,7 @@
   <string name="page_error_back_to_main">Tornar en arrièr</string>
   <string name="error_back">Tornar en arrier</string>
   <string name="error_next">Seguent</string>
-  <string name="menu_clear_all_history" fuzzy="true">Voidar l\'istoric</string>
+  <string name="menu_clear_all_history">Escafar l’istoric de navigacion</string>
   <string name="history_item_deleted">%s suprimit de la lista</string>
   <string name="history_items_deleted">%d articles eliminats de l\'istoric</string>
   <string name="history_item_delete_undo">Anullar</string>
@@ -45,22 +50,37 @@
   <string name="search_tab_tooltip">Tornatz tocar l\'icòna per començar a escriure un tèrme de recèrca.</string>
   <string name="history_list_title">Istoric</string>
   <string name="image_content_description">Imatge %s</string>
+  <string name="page_content_description">Pagina : %s</string>
   <string name="wikimedia_commons">Wikimèdia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Escafar l’istoric de navigacion</string>
-  <string name="dialog_message_clear_history" fuzzy="true">Aquò suprimirà tot l’istoric de navigacion, e tamparà totes los onglets dobèrts actualament. Sètz segur ?</string>
+  <string name="dialog_message_clear_history">Aquò suprimirà tot l’istoric de navigacion. Sètz segur ?</string>
   <string name="dialog_message_clear_history_yes">Òc</string>
   <string name="dialog_message_clear_history_no">Non</string>
   <string name="share_via">Partejar via</string>
   <string name="image_share_via">Partejar per</string>
   <string name="search_redirect_from">Redirigit dempuèi %s</string>
+  <string name="page_edit_history_activity_title">Istoric dei versions : %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">Resumit d\'edicion vuege</string>
+  <string name="page_edit_history_filter_by">Filtrar per</string>
+  <string name="page_edit_history_filter_by_all">Totei lei contribucions (%s)</string>
+  <string name="page_edit_history_filter_by_user">Contribucions de l\'utilizaire (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Contribucions non enregistradas (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Contribucion de bòts (%s)</string>
+  <string name="page_edit_history_metrics_content_description">Metricas de %1$s a %2$s</string>
   <string name="menu_page_show_tabs">Afichar los onglets</string>
   <string name="menu_page_other_languages">Cambiar de lenga</string>
   <string name="menu_page_find_in_page">Recercar dins la pagina</string>
   <string name="menu_page_add_to_watchlist">Apondre a la lista de seguit</string>
+  <string name="menu_page_watch">Seguir</string>
+  <string name="menu_page_unwatch">Arrestar de seguir</string>
   <string name="menu_page_view_talk">Mòstra la pagina de discussion</string>
+  <string name="menu_page_talk_page">Pagina de discussion</string>
   <string name="menu_page_view_edit_history">Monstrar l\'istoric de modificacions</string>
+  <string name="menu_page_edit_history">Istoric</string>
   <string name="menu_page_remove_from_watchlist">Suprimir de la lista de seguit</string>
+  <string name="menu_page_watched">Seguit</string>
   <string name="edit_section_find_in_page">Cercar dins la pagina</string>
   <string name="menu_page_font_and_theme">Modificar la poliça e lo tèma</string>
   <string name="menu_page_add_to_list">Apondre a la lista de lectura</string>
@@ -68,6 +88,13 @@
   <string name="feed_card_add_to_list">Apondre a la lista de lectura</string>
   <string name="feed_card_add_to_default_list">Sauvar</string>
   <string name="menu_page_share">Partejar lo ligam</string>
+  <string name="menu_article_share">Partejar l\'article</string>
+  <string name="menu_page_article_share">Partejar</string>
+  <string name="menu_page_open_a_new_tab">Durbir dins un onglet novèu</string>
+  <string name="menu_page_new_tab">Onglet novèu</string>
+  <string name="menu_page_reading_lists">Listas de lectura</string>
+  <string name="menu_page_recently_viewed">Recentament vist</string>
+  <string name="menu_page_archive">Archius</string>
   <string name="menu_long_press_open_page">Dobrir</string>
   <string name="menu_long_press_open_in_new_tab">Dobrir dins un onglet novèl</string>
   <string name="menu_long_press_copy_page">Copiar l\'adreça del ligam</string>
@@ -75,19 +102,22 @@
   <string name="on_this_day_page_share">Partejar</string>
   <string name="reading_list_page_share">Partejar</string>
   <string name="menu_text_select_edit_here">Editar aiçí</string>
+  <string name="menu_edit_article">Modificar l\'article</string>
   <string name="last_updated_text">Darrièra modificacion lo %s</string>
   <string name="talk_page_link_text">Veire la pagina de discussion</string>
   <string name="edit_history_link_text">Afichar l\'istoric de las modificacions</string>
   <string name="map_view_link_text">Afichar sus una carta</string>
   <string name="other_languages_indication_text">Legir dins una autra lenga</string>
   <string name="language_count_link_text">Disponible dins %d autrei lengas</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">En enregistrant, acceptatz las &lt;a href=\"%1$s\"&gt;Condicions d’utilizacion&lt;/a&gt;, e plaçatz de faiçon irrevocabla vòstras contribucions jos la licéncia &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon" fuzzy="true">En enregistrant, acceptatz las &lt;a href=\"%1$s\"&gt;Condicions d’utilizacion&lt;/a&gt;, e plaçatz de faiçon irrevocabla vòstras contribucions jos la licéncia &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Las modificacions seràn atribuidas a l’adreça IP de vòstre equipament. Se &lt;a href=\"https://#login\"&gt;vos connectatz&lt;/a&gt;, auretz mai de confidencialitat.</string>
+  <string name="edit_save_action_license_logged_in">En enregistrant, acceptatz las &lt;a href=\"%1$s\"&gt;Condicions d’utilizacion&lt;/a&gt;, e plaçatz de faiçon irrevocabla vòstras contribucions jos la licéncia &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">En enregistrant, acceptatz las &lt;a href=\"%1$s\"&gt;Condicions d’utilizacion&lt;/a&gt;, e plaçatz de faiçon irrevocabla vòstras contribucions jos la licéncia &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Las modificacions seràn atribuidas a l’adreça IP de vòstre equipament. Se &lt;a href=\"https://#login\"&gt;vos connectatz&lt;/a&gt;, auretz mai de confidencialitat.</string>
+  <string name="edit_anon_warning">Lei contribucions seràn atribuïdas a l\'adreiça IP dau vòstre dispositiu. Se &lt;a href=\"https://#login\"&gt;log in&lt;/a&gt;, auriatz mai de confidencialitat</string>
   <string name="preference_title_language">Lengas de Wikipèdia</string>
   <string name="langlinks_filter_hint">Recercar</string>
   <string name="langlinks_empty">Aquesta pagina es pas disponibla dins d’autras lengas</string>
   <string name="langlinks_no_match">Cap de lenga pas trobat que corresponda a vòstra requèsta.</string>
   <string name="langlinks_activity_title">Autras lengas</string>
+  <string name="langlinks_your_wikipedia_languages">Lei vòstrei lengas de wikipèdia</string>
   <string name="menu_save_changes">Publicar las modificacions</string>
   <string name="edit_saved_successfully">Modificacion publicada !</string>
   <string name="dialog_message_edit_failed">Fracàs de l’enregistrament !</string>
@@ -96,6 +126,10 @@
   <string name="dialog_message_leaving_edit">Lei vòstrei modificacions son pas encara publicadas. Siatz segur de voler quitar aquela pagina ?</string>
   <string name="dialog_message_leaving_edit_leave">Quitar</string>
   <string name="dialog_message_leaving_edit_stay">Demorar</string>
+  <string name="dialog_confirm_delete_donation_history_title">Confirmar l\'accion</string>
+  <string name="dialog_confirm_delete_donation_history_message">Aquò s\'aplicarà solament ai dons fachs a partir d\'aquel aparelh.</string>
+  <string name="dialog_confirm_delete_donation_history_delete">Escafar</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Annular</string>
   <string name="menu_show_toc">Ensenhador</string>
   <string name="search_no_results_found">Cap de resultat pas trobat</string>
   <string name="search_reading_list_no_results">Ges de resultat trobat dins %s</string>
@@ -110,7 +144,8 @@
   <string name="login_username_hint">Nom d\'utilizaire</string>
   <string name="login_password_hint">Senhal</string>
   <string name="account_creation_password_hint">Senhau</string>
-  <string name="login_2fa_hint" fuzzy="true">Còdi d\'autenticación de dos factors</string>
+  <string name="login_2fa_hint">Còdi d\'autenticación de dos factors</string>
+  <string name="login_2fa_other_workflow_error_msg">Còdi d\'autentificacion de dos factors demandat ! Mercé de vos connectar a partir de l\'ecran principau e d\'intrar lo còdi dau vòstre token 2FA.</string>
   <string name="onboarding_card_login">Connexion</string>
   <string name="page_editing_login">Connexion</string>
   <string name="reading_lists_sync_login">Connexion</string>
@@ -321,4 +356,14 @@
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">per 1 mes</string>
   <string name="watchlist_expiry_dialog_one_month">1 mes</string>
   <string name="page_issues_title">Problèmas de la pagina</string>
+  <string name="explore_feed_customize_discover">Personalizar la descubèrta</string>
+  <string name="home_feed_settings_discover_title">Descubrir lei recomandacions</string>
+  <string name="home_feed_settings_discover_subtitle">Articles de vòstra lista de lectura Descubèrta</string>
+  <string name="home_feed_discover_cta_title">De Descobrir</string>
+  <string name="home_feed_discover_cta_description">Aprendre de subjèctes novèus, chausits per vos. Chausir entre leis actualizacions quotidianas, setmanieras o mesadieras.</string>
+  <string name="home_feed_discover_cta_button">Activar la lista de lectura de descubèrta</string>
+  <string name="home_feed_discover_card_footer">De Descubrir • Actualizacions %s</string>
+  <string name="home_feed_discover_see_all_title">I a mai de descubrir</string>
+  <string name="home_feed_discover_see_all_description">Vòstra lista de lectura personalizada a mai d\'istòrias chausidas per vos.</string>
+  <string name="home_feed_discover_see_all_button">Exploratz totei lei recomandacions</string>
 </resources>

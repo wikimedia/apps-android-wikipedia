@@ -115,4 +115,10 @@ object LanguageUtil {
     fun formatLangCodeForButton(languageCode: String): String {
         return languageCode.replace("-", "-\n")
     }
+
+    fun getSupportedLanguageCodes(list: List<String>): List<String> {
+        return list.flatMap { langCode ->
+            WikipediaApp.instance.languageState.getLanguageVariants(langCode) ?: listOf(langCode)
+        }
+    }
 }
