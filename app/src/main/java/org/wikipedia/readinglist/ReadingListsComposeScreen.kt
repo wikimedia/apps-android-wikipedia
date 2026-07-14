@@ -14,6 +14,9 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.pulltorefresh.PullToRefreshBox
+import androidx.compose.material3.pulltorefresh.PullToRefreshDefaults.Indicator
+import androidx.compose.material3.pulltorefresh.rememberPullToRefreshState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
@@ -40,7 +43,13 @@ import org.wikipedia.util.StringUtil
 fun ReadingListsComposeScreen(
     uiState: ReadingListsUiState,
     modifier: Modifier = Modifier,
-    onOnboardingAction: (OnboardingAction) -> Unit = {}
+    isRefreshing: Boolean = false,
+    pullToRefreshEnabled: Boolean = true,
+    onOnboardingAction: (OnboardingAction) -> Unit = {},
+    onRefresh: () -> Unit = {},
+    onListClick: (Long) -> Unit = {},
+    onListLongClick: (Long) -> Unit = {},
+    onListSelectionChange: (Long) -> Unit = {}
 ) {
     LaunchedEffect(uiState.onboarding) {
         if (uiState.onboarding == OnboardingState.RecommendedReadingList) {
@@ -48,33 +57,74 @@ fun ReadingListsComposeScreen(
         }
     }
 
-    when (val content = uiState.content) {
-        is ReadingListsUiState.Content.Loading -> {
-            // TODO migration: show loading indicator
-        }
-        is ReadingListsUiState.Content.Error -> {
-            // TODO migration: show error message
-        }
-        is ReadingListsUiState.Content.Success -> when {
-            content.rows.isEmpty() && uiState.searchQuery.isNullOrEmpty() &&
-                uiState.onboarding == OnboardingState.None -> {
-                EmptyReadingLists(modifier = modifier)
-            }
-            content.rows.isEmpty() && !uiState.searchQuery.isNullOrEmpty() -> {
-                SearchEmptyView(
-                    modifier = modifier.fillMaxSize(),
-                    emptyTexTitle = stringResource(R.string.search_reading_lists_no_results)
+    if (pullToRefreshEnabled) {
+        val pullToRefreshState = rememberPullToRefreshState()
+        PullToRefreshBox(
+            modifier = modifier.fillMaxSize(),
+            state = pullToRefreshState,
+            isRefreshing = isRefreshing,
+            onRefresh = onRefresh,
+            indicator = {
+                Indicator(
+                    modifier = Modifier.align(Alignment.TopCenter),
+                    isRefreshing = isRefreshing,
+                    containerColor = WikipediaTheme.colors.paperColor,
+                    color = WikipediaTheme.colors.progressiveColor,
+                    state = pullToRefreshState
                 )
             }
+        ) {
+            ReadingListsContent(
+                uiState = uiState,
+                onOnboardingAction = onOnboardingAction,
+                onListClick = onListClick,
+                onListLongClick = onListLongClick,
+                onListSelectionChange = onListSelectionChange
+            )
+        }
+    } else {
+        ReadingListsContent(
+            uiState = uiState,
+            onOnboardingAction = onOnboardingAction,
+            onListClick = onListClick,
+            onListLongClick = onListLongClick,
+            onListSelectionChange = onListSelectionChange,
+            modifier = modifier
+        )
+    }
+}
 
-            else -> {
-                ReadingListsList(
-                    rows = content.rows,
-                    onboarding = uiState.onboarding,
-                    onOnboardingAction = onOnboardingAction,
-                    modifier = modifier
-                )
-            }
+@Composable
+private fun ReadingListsContent(
+    uiState: ReadingListsUiState,
+    onOnboardingAction: (OnboardingAction) -> Unit,
+    onListClick: (Long) -> Unit,
+    onListLongClick: (Long) -> Unit,
+    onListSelectionChange: (Long) -> Unit,
+    modifier: Modifier = Modifier
+) {
+    when {
+        uiState.rows.isEmpty() && uiState.searchQuery.isNullOrEmpty() && uiState.onboarding == OnboardingState.None -> {
+            EmptyReadingLists(modifier = modifier)
+        }
+        uiState.rows.isEmpty() && !uiState.searchQuery.isNullOrEmpty() -> {
+            SearchEmptyView(
+                modifier = modifier.fillMaxSize(),
+                emptyTexTitle = stringResource(R.string.search_reading_lists_no_results)
+            )
+        }
+        else -> {
+            ReadingListsList(
+                rows = uiState.rows,
+                onboarding = uiState.onboarding,
+                onOnboardingAction = onOnboardingAction,
+                isSelectionMode = uiState.isSelectionMode,
+                selectedListIds = uiState.selectedListIds,
+                onListClick = onListClick,
+                onListLongClick = onListLongClick,
+                onListSelectionChange = onListSelectionChange,
+                modifier = modifier
+            )
         }
     }
 }
@@ -149,6 +199,11 @@ private fun ReadingListsList(
     rows: List<ReadingListRow>,
     onboarding: OnboardingState,
     onOnboardingAction: (OnboardingAction) -> Unit,
+    isSelectionMode: Boolean,
+    selectedListIds: Set<Long>,
+    onListClick: (Long) -> Unit,
+    onListLongClick: (Long) -> Unit,
+    onListSelectionChange: (Long) -> Unit,
     modifier: Modifier = Modifier
 ) {
     LazyColumn(modifier = modifier.fillMaxSize()) {
@@ -172,8 +227,11 @@ private fun ReadingListsList(
             when (row) {
                 is ReadingListRow.ListRow -> ReadingListRow(
                     list = row.list,
-                    onClick = {},
-                    onLongClick = {}
+                    isSelectionMode = isSelectionMode,
+                    isSelected = row.list.id in selectedListIds,
+                    onSelectionChange = { onListSelectionChange(row.list.id) },
+                    onClick = { onListClick(row.list.id) },
+                    onLongClick = { onListLongClick(row.list.id) }
                 )
                 is ReadingListRow.PageRow -> ReadingListPageRow(
                     page = row.page,
@@ -229,11 +287,9 @@ private fun ReadingListsComposeScreenPreview() {
     ) {
         ReadingListsComposeScreen(
             uiState = ReadingListsUiState(
-                content = ReadingListsUiState.Content.Success(
-                    listOf(
-                        ReadingListRow.ListRow(ReadingListUiModel(id = 1, title = "Default", description = null, isDefault = true, totalPages = 3, sizeBytesFromPages = 0)),
-                        ReadingListRow.ListRow(ReadingListUiModel(id = 2, title = "Physics", description = "reading", isDefault = false, totalPages = 12, sizeBytesFromPages = 1240000))
-                    )
+                rows = listOf(
+                    ReadingListRow.ListRow(ReadingListUiModel(id = 1, title = "Default", description = null, isDefault = true, totalPages = 3, sizeBytesFromPages = 0)),
+                    ReadingListRow.ListRow(ReadingListUiModel(id = 2, title = "Physics", description = "reading", isDefault = false, totalPages = 12, sizeBytesFromPages = 1240000))
                 )
             )
         )
@@ -245,7 +301,7 @@ private fun ReadingListsComposeScreenPreview() {
 private fun ReadingListsEmptyPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         ReadingListsComposeScreen(
-            uiState = ReadingListsUiState(content = ReadingListsUiState.Content.Success(emptyList()))
+            uiState = ReadingListsUiState()
         )
     }
 }
@@ -256,10 +312,8 @@ private fun ReadingListsOnboardingPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         ReadingListsComposeScreen(
             uiState = ReadingListsUiState(
-                content = ReadingListsUiState.Content.Success(
-                    listOf(
-                        ReadingListRow.ListRow(ReadingListUiModel(id = 2, title = "Physics", description = "reading", isDefault = false, totalPages = 12, sizeBytesFromPages = 1240000))
-                    )
+                rows = listOf(
+                    ReadingListRow.ListRow(ReadingListUiModel(id = 2, title = "Physics", description = "reading", isDefault = false, totalPages = 12, sizeBytesFromPages = 1240000))
                 ),
                 onboarding = OnboardingState.RecommendedReadingList
             )

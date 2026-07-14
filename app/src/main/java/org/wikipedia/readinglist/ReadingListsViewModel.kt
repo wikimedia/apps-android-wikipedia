@@ -6,7 +6,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.stateIn
@@ -22,31 +22,38 @@ import org.wikipedia.settings.RemoteConfig
 class ReadingListsViewModel : ViewModel() {
     private val searchQuery = MutableStateFlow<String?>(null)
     private val searchActive = MutableStateFlow(false)
+    private val selectionState = MutableStateFlow(ReadingListsSelectionState())
+
+    private val _isRefreshing = MutableStateFlow(false)
+    val isRefreshing: StateFlow<Boolean> = _isRefreshing.asStateFlow()
 
     val uiState: StateFlow<ReadingListsUiState> =
         combine(
             AppDatabase.instance.readingListDao().getListsWithPagesFlow(),
             searchQuery,
             searchActive,
+            selectionState,
             Prefs.observeKeys(
                 R.string.preference_key_recommended_reading_list_onboarding_shown,
                 R.string.preference_key_sync_reading_lists,
                 R.string.preference_key_reading_list_sync_reminder_enabled,
-                R.string.preference_key_reading_list_login_reminder_enabled
+                R.string.preference_key_reading_list_login_reminder_enabled,
+                R.string.preference_key_reading_list_sort_mode
             )
-        ) { relations, query, isSearchActive, _ ->
+        ) { relations, query, isSearchActive, selection, _ ->
             ReadingListsUiState(
-                content = ReadingListsUiState.Content.Success(buildRows(relations, query)),
+                rows = buildRows(relations, query),
                 searchQuery = query,
-                onboarding = resolveOnboardingState(query, isSearchActive)
+                onboarding = resolveOnboardingState(query, isSearchActive),
+                isSelectionMode = selection.enabled,
+                selectedListIds = selection.selectedListIds
             )
         }
-            .catch { emit(ReadingListsUiState(content = ReadingListsUiState.Content.Error(it))) }
             .flowOn(Dispatchers.IO)
             .stateIn(
                 scope = viewModelScope,
                 started = SharingStarted.WhileSubscribed(STOP_TIMEOUT_MILLIS),
-                initialValue = ReadingListsUiState(content = ReadingListsUiState.Content.Loading)
+                initialValue = ReadingListsUiState()
             )
 
     fun setSearchQuery(query: String?) {
@@ -55,6 +62,49 @@ class ReadingListsViewModel : ViewModel() {
 
     fun setSearchActive(active: Boolean) {
         searchActive.value = active
+    }
+
+    fun setRefreshing(refreshing: Boolean) {
+        _isRefreshing.value = refreshing
+    }
+
+    fun setSelectionMode(enabled: Boolean) {
+        selectionState.value = ReadingListsSelectionState(enabled = enabled)
+    }
+
+    fun toggleListSelection(listId: Long) {
+        val selectedListIds = selectionState.value.selectedListIds.toMutableSet()
+        if (!selectedListIds.add(listId)) {
+            selectedListIds.remove(listId)
+        }
+        selectionState.value = ReadingListsSelectionState(
+            enabled = true,
+            selectedListIds = selectedListIds
+        )
+    }
+
+    fun selectAllLists() {
+        selectionState.value = ReadingListsSelectionState(
+            enabled = true,
+            selectedListIds = uiState.value.rows.filterIsInstance<ReadingListRow.ListRow>()
+                .mapTo(mutableSetOf()) { it.list.id }
+        )
+    }
+
+    fun clearListSelection() {
+        selectionState.value = selectionState.value.copy(selectedListIds = emptySet())
+    }
+
+    fun setSortMode(sortMode: Int) {
+        Prefs.setReadingListSortMode(
+            when (sortMode) {
+                ReadingList.SORT_BY_NAME_DESC,
+                ReadingList.SORT_BY_RECENT_DESC,
+                ReadingList.SORT_BY_RECENT_ASC,
+                ReadingList.SORT_BY_NAME_ASC -> sortMode
+                else -> ReadingList.SORT_BY_NAME_ASC
+            }
+        )
     }
 
     private fun resolveOnboardingState(query: String?, isSearchActive: Boolean): OnboardingState {
@@ -161,8 +211,7 @@ class ReadingListsViewModel : ViewModel() {
 }
 
 /**
- * Immutable snapshot of a reading list for rendering, used for [ReadingListRow.ListRow]
- * and [ReadingListsUiState.Content.Success].
+ * Immutable snapshot of a reading list for rendering, used for [ReadingListRow.ListRow].
  */
 data class ReadingListUiModel(
     val id: Long,
@@ -195,23 +244,18 @@ sealed interface ReadingListRow {
     data class PageRow(val page: ReadingListPageUiModel, val containingLists: List<String>) : ReadingListRow
 }
 
-/**
- * UI state for the [ReadingListsComposeScreen].
- * [Content] represents the core data state, which can only be Loading, Success, or Error.
- * The outer class wraps [Content] so we can safely add independent UI states on top
- * (like a search query or a pull-to-refresh spinner) without overriding the core data.
- */
 data class ReadingListsUiState(
-    val content: Content,
+    val rows: List<ReadingListRow> = emptyList(),
     val searchQuery: String? = null,
-    val onboarding: OnboardingState = OnboardingState.None
-) {
-    sealed interface Content {
-        data object Loading : Content
-        data class Success(val rows: List<ReadingListRow>) : Content
-        data class Error(val throwable: Throwable) : Content
-    }
-}
+    val onboarding: OnboardingState = OnboardingState.None,
+    val isSelectionMode: Boolean = false,
+    val selectedListIds: Set<Long> = emptySet()
+)
+
+private data class ReadingListsSelectionState(
+    val enabled: Boolean = false,
+    val selectedListIds: Set<Long> = emptySet()
+)
 
 sealed interface OnboardingState {
     data object None : OnboardingState

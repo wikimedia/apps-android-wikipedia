@@ -1,33 +1,63 @@
 package org.wikipedia.readinglist
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.platform.ComposeView
+import androidx.core.graphics.ColorUtils
+import androidx.core.text.buildSpannedString
+import androidx.core.text.color
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import org.wikipedia.R
+import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.compose.theme.BaseTheme
+import org.wikipedia.concurrency.FlowEventBus
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.main.MainActivity
 import org.wikipedia.main.MainFragment
+import org.wikipedia.page.ExclusiveBottomSheetPresenter
+import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingActivity
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
+import org.wikipedia.readinglist.sync.ReadingListSyncEvent
 import org.wikipedia.settings.Prefs
+import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.log.L
+import org.wikipedia.views.MultiSelectActionModeCallback
 import org.wikipedia.views.ReadingListsOverflowView
 
-class ReadingListsComposeFragment : Fragment() {
+class ReadingListsComposeFragment : Fragment(), SortReadingListsDialog.Callback {
 
     private val viewModel: ReadingListsViewModel by viewModels()
+    private var actionMode: ActionMode? = null
+
+    private val filePickerLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == AppCompatActivity.RESULT_OK) {
+            result.data?.data?.let(::importReadingLists)
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,12 +68,52 @@ class ReadingListsComposeFragment : Fragment() {
             setContent {
                 BaseTheme {
                     val uiState by viewModel.uiState.collectAsState()
+                    val isRefreshing by viewModel.isRefreshing.collectAsState()
                     ReadingListsComposeScreen(
                         uiState = uiState,
-                        onOnboardingAction = ::onOnboardingAction
+                        isRefreshing = isRefreshing,
+                        pullToRefreshEnabled = !RemoteConfig.config.disableReadingListSync,
+                        onOnboardingAction = ::onOnboardingAction,
+                        onRefresh = ::onRefresh,
+                        onListClick = ::onListClick,
+                        onListLongClick = ::onListLongClick,
+                        onListSelectionChange = ::toggleListSelection
                     )
                 }
             }
+        }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.CREATED) {
+                FlowEventBus.events.collectLatest { event ->
+                    // The list itself updates reactively via the DB flow; this just stops the spinner.
+                    if (event is ReadingListSyncEvent) {
+                        viewModel.setRefreshing(false)
+                    }
+                }
+            }
+        }
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.uiState.collect {
+                    actionMode?.invalidate()
+                }
+            }
+        }
+    }
+
+    private fun onRefresh() {
+        viewModel.setRefreshing(true)
+        if (!AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount) {
+            ReadingListSyncBehaviorDialogs.promptLogInToSyncDialog(requireActivity())
+            viewModel.setRefreshing(false)
+        } else {
+            Prefs.isReadingListSyncEnabled = true
+            ReadingListSyncAdapter.manualSyncWithForce()
         }
     }
 
@@ -81,6 +151,11 @@ class ReadingListsComposeFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         requireActivity().invalidateOptionsMenu()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        actionMode?.finish()
     }
 
     // Search action mode
@@ -128,17 +203,205 @@ class ReadingListsComposeFragment : Fragment() {
         )
     }
 
-    // TODO migration: implement these against the Compose list + ViewModel once they exist.
     private val overflowCallback = object : ReadingListsOverflowView.Callback {
-        override fun sortByClick() {}
+        override fun sortByClick() {
+            ExclusiveBottomSheetPresenter.show(
+                childFragmentManager,
+                SortReadingListsDialog.newInstance(
+                    Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC)
+                )
+            )
+        }
 
-        override fun createNewListClick() {}
+        override fun createNewListClick() {
+            val existingTitles = viewModel.uiState.value.rows
+                .filterIsInstance<ReadingListRow.ListRow>()
+                .map { it.list.title }
+            ReadingListTitleDialog.readingListTitleDialog(
+                activity = requireActivity(),
+                title = getString(R.string.reading_list_name_sample),
+                description = "",
+                otherTitles = existingTitles,
+                callback = object : ReadingListTitleDialog.Callback {
+                    override fun onSuccess(text: String, description: String) {
+                        viewLifecycleOwner.lifecycleScope.launch(
+                            CoroutineExceptionHandler { _, throwable -> L.w(throwable) }
+                        ) {
+                            AppDatabase.instance.readingListDao().createList(text, description)
+                        }
+                    }
+                }
+            ).show()
+        }
 
-        override fun importNewList() {}
+        override fun importNewList() {
+            val intent = Intent(Intent.ACTION_GET_CONTENT).apply { type = "application/json" }
+            val filePickerIntent = Intent.createChooser(intent, getString(R.string.reading_lists_import_file_picker_title))
+            filePickerLauncher.launch(filePickerIntent)
+        }
 
-        override fun selectListClick() {}
+        override fun selectListClick() {
+            beginMultiSelect()
+        }
 
-        override fun refreshClick() {}
+        override fun refreshClick() {
+            onRefresh()
+        }
+    }
+
+    override fun onSortOptionClick(position: Int) {
+        viewModel.setSortMode(position)
+    }
+
+    private fun importReadingLists(uri: android.net.Uri) {
+        requireActivity().contentResolver.openInputStream(uri)?.use { inputStream ->
+            val input = inputStream.bufferedReader().use { it.readText() }
+            ReadingListsExportImportHelper.importLists(requireActivity() as AppCompatActivity, input)
+        }
+    }
+
+    private fun onListClick(listId: Long) {
+        if (actionMode != null) {
+            toggleListSelection(listId)
+            return
+        }
+        viewLifecycleOwner.lifecycleScope.launch {
+            AppDatabase.instance.readingListDao().getListById(listId, true)?.let { list ->
+                RecommendedReadingListEvent.submit("open_list_click", "rrl_saved")
+                startActivity(ReadingListActivity.newIntent(requireContext(), list))
+            }
+        }
+    }
+
+    private fun onListLongClick(listId: Long) {
+        // TODO migration: show full context menu like XML version
+    }
+
+    private fun toggleListSelection(listId: Long) {
+        viewModel.toggleListSelection(listId)
+    }
+
+    private fun beginMultiSelect() {
+        if (actionMode == null) {
+            viewModel.setSelectionMode(true)
+            actionMode = (requireActivity() as AppCompatActivity)
+                .startSupportActionMode(multiSelectModeCallback)
+        }
+    }
+
+    private val multiSelectModeCallback = object : MultiSelectActionModeCallback() {
+        override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
+            super.onCreateActionMode(mode, menu)
+            mode.menuInflater.inflate(R.menu.menu_action_mode_reading_lists, menu)
+            actionMode = mode
+            val deleteItem = menu.findItem(R.id.menu_delete_selected)
+            deleteItem.isEnabled = false
+            return true
+        }
+
+        override fun onPrepareActionMode(mode: ActionMode, menu: Menu): Boolean {
+            val uiState = viewModel.uiState.value
+            val selectedLists = uiState.rows.filterIsInstance<ReadingListRow.ListRow>()
+                .filter { it.list.id in uiState.selectedListIds }
+            val allListIds = uiState.rows.filterIsInstance<ReadingListRow.ListRow>()
+                .map { it.list.id }
+            val allSelected = allListIds.isNotEmpty() && uiState.selectedListIds.containsAll(allListIds)
+            val onlyDefaultSelected = selectedLists.size == 1 && selectedLists.single().list.isDefault
+
+            mode.title = if (selectedLists.isEmpty()) "" else {
+                getString(R.string.multi_select_items_selected, selectedLists.size)
+            }
+            val fullOpacity = 255
+            val halfOpacity = 80
+            menu.findItem(R.id.menu_delete_selected).apply {
+                isEnabled = selectedLists.isNotEmpty() && !onlyDefaultSelected
+                icon?.alpha = if (selectedLists.isEmpty() || onlyDefaultSelected) halfOpacity else fullOpacity
+            }
+            menu.findItem(R.id.menu_export_selected).apply {
+                isEnabled = selectedLists.isNotEmpty()
+                val exportColor = ResourceUtil.getThemedColor(requireContext(), R.attr.progressive_color)
+                title = buildSpannedString {
+                    color(ColorUtils.setAlphaComponent(exportColor, if (selectedLists.isEmpty()) halfOpacity else fullOpacity)) {
+                        append(getString(R.string.reading_lists_action_menu_export_lists))
+                    }
+                }
+            }
+            menu.findItem(R.id.menu_select).apply {
+                setIcon(when {
+                    selectedLists.isEmpty() -> R.drawable.ic_outline_library_add_check_24
+                    allSelected -> R.drawable.ic_deselect_all
+                    else -> R.drawable.ic_select_indeterminate
+                })
+                title = when {
+                    selectedLists.isEmpty() -> getString(R.string.notifications_menu_check_all)
+                    allSelected -> getString(R.string.notifications_menu_uncheck_all)
+                    else -> ""
+                }
+            }
+            return true
+        }
+
+        override fun onActionItemClicked(mode: ActionMode, menuItem: MenuItem): Boolean {
+            return when (menuItem.itemId) {
+                R.id.menu_delete_selected -> {
+                    deleteSelectedLists()
+                    true
+                }
+                R.id.menu_export_selected -> {
+                    exportSelectedLists()
+                    true
+                }
+                R.id.menu_select -> {
+                    val uiState = viewModel.uiState.value
+                    val allListIds = uiState.rows.filterIsInstance<ReadingListRow.ListRow>()
+                        .map { it.list.id }
+                    if (allListIds.isNotEmpty() && uiState.selectedListIds.containsAll(allListIds)) {
+                        viewModel.clearListSelection()
+                    } else {
+                        viewModel.selectAllLists()
+                    }
+                    true
+                }
+                else -> super.onActionItemClicked(mode, menuItem)
+            }
+        }
+
+        override fun onDeleteSelected() {
+            deleteSelectedLists()
+        }
+
+        override fun onDestroyActionMode(mode: ActionMode) {
+            viewModel.setSelectionMode(false)
+            actionMode = null
+            super.onDestroyActionMode(mode)
+        }
+    }
+
+    private fun deleteSelectedLists() {
+        val selectedIds = viewModel.uiState.value.selectedListIds
+        viewLifecycleOwner.lifecycleScope.launch {
+            val lists = AppDatabase.instance.readingListDao().getAllLists()
+                .filter { it.id in selectedIds }
+            if (lists.isEmpty()) {
+                return@launch
+            }
+            ReadingListBehaviorsUtil.deleteReadingLists(requireActivity(), lists) {
+                ReadingListBehaviorsUtil.showDeleteListsUndoSnackbar(requireActivity(), lists) {}
+                actionMode?.finish()
+            }
+        }
+    }
+
+    private fun exportSelectedLists() {
+        val selectedIds = viewModel.uiState.value.selectedListIds
+        viewLifecycleOwner.lifecycleScope.launch {
+            val lists = AppDatabase.instance.readingListDao().getAllLists()
+                .filter { it.id in selectedIds }
+            if (lists.isNotEmpty()) {
+                ReadingListsExportImportHelper.exportLists(requireActivity() as BaseActivity, lists)
+                actionMode?.finish()
+            }
+        }
     }
 
     companion object {

@@ -12,6 +12,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Checkbox
+import androidx.compose.material3.CheckboxDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -33,6 +35,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
 import org.wikipedia.R
+import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.readinglist.ReadingListUiModel
@@ -43,6 +46,9 @@ import org.wikipedia.views.imageservice.ImageService
 fun ReadingListRow(
     list: ReadingListUiModel,
     modifier: Modifier = Modifier,
+    isSelectionMode: Boolean = false,
+    isSelected: Boolean = false,
+    onSelectionChange: () -> Unit = {},
     onClick: () -> Unit = {},
     onLongClick: () -> Unit = {}
 ) {
@@ -52,6 +58,19 @@ fun ReadingListRow(
             .combinedClickable(onClick = onClick, onLongClick = onLongClick)
             .padding(horizontal = 16.dp, vertical = 16.dp)
     ) {
+        if (isSelectionMode) {
+            Checkbox(
+                checked = isSelected,
+                onCheckedChange = { onSelectionChange() },
+                colors = CheckboxDefaults.colors(
+                    checkedColor = ComposeColors.Blue600,
+                    uncheckedColor = WikipediaTheme.colors.primaryColor,
+                ),
+                modifier = Modifier
+                    .align(Alignment.Top)
+                    .padding(end = 16.dp)
+            )
+        }
         Column(modifier = Modifier.weight(1f)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Text(
