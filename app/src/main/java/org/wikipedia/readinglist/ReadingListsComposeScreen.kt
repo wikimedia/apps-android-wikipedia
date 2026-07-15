@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.HorizontalDivider
@@ -287,9 +288,20 @@ private fun ReadingListsList(
     onDiscoverCardClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    LazyColumn(modifier = modifier.fillMaxSize()) {
+    val listState = rememberLazyListState()
+
+    LaunchedEffect(onboarding) {
         if (onboarding != OnboardingState.None) {
-            item(key = "onboarding") {
+            listState.animateScrollToItem(0)
+        }
+    }
+
+    LazyColumn(
+        modifier = modifier.fillMaxSize(),
+        state = listState
+    ) {
+        if (onboarding != OnboardingState.None) {
+            item(key = onboarding.toString()) {
                 OnboardingCard(
                     state = onboarding,
                     onAction = onOnboardingAction

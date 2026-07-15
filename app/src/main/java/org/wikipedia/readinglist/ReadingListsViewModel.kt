@@ -25,6 +25,7 @@ class ReadingListsViewModel : ViewModel() {
     private val searchQuery = MutableStateFlow<String?>(null)
     private val searchActive = MutableStateFlow(false)
     private val recentPreviewSavedState = MutableStateFlow(RecentPreviewSavedState())
+    private val accountState = MutableStateFlow(readAccountState())
 
     private val _isRefreshing = MutableStateFlow(false)
     val isRefreshing: StateFlow<Boolean> = _isRefreshing.asStateFlow()
@@ -49,16 +50,18 @@ class ReadingListsViewModel : ViewModel() {
                 R.string.preference_key_recommended_reading_list_source,
                 R.string.preference_key_recommended_reading_list_update_frequency
             ),
-            recentPreviewSavedState
-        ) { relations, query, isSearchActive, _, previewSavedState ->
+            combine(recentPreviewSavedState, accountState) { previewSavedState, accountState ->
+                previewSavedState to accountState
+            }
+        ) { relations, query, isSearchActive, _, (previewSavedState, accountState) ->
             val isSearching = isSearchActive || !query.isNullOrEmpty()
             ReadingListsUiState(
                 rows = buildRows(relations, query, previewSavedState.newBadgeListId),
                 listCount = relations.size,
                 searchQuery = query,
-                onboarding = resolveOnboardingState(query, isSearchActive),
+                onboarding = resolveOnboardingState(query, isSearchActive, accountState),
                 // will remove discover card while in search mode
-                discoverCard = if (isSearching) null else buildDiscoverCard(),
+                discoverCard = if (isSearching) null else buildDiscoverCard(accountState),
                 pendingPreviewSavedListId = previewSavedState.pendingSnackbarListId
             )
         }
@@ -79,6 +82,10 @@ class ReadingListsViewModel : ViewModel() {
 
     fun setRefreshing(refreshing: Boolean) {
         _isRefreshing.value = refreshing
+    }
+
+    fun refreshAccountState() {
+        accountState.value = readAccountState()
     }
 
     fun setSelectionMode(enabled: Boolean) {
@@ -154,7 +161,11 @@ class ReadingListsViewModel : ViewModel() {
         )
     }
 
-    private fun resolveOnboardingState(query: String?, isSearchActive: Boolean): OnboardingState {
+    private fun resolveOnboardingState(
+        query: String?,
+        isSearchActive: Boolean,
+        accountState: ReadingListsAccountState
+    ): OnboardingState {
         if (isSearchActive || !query.isNullOrEmpty()) {
             return OnboardingState.None
         }
@@ -162,11 +173,11 @@ class ReadingListsViewModel : ViewModel() {
             !Prefs.isRecommendedReadingListOnboardingShown -> {
                 OnboardingState.RecommendedReadingList
             }
-            (AccountUtil.isLoggedIn && !AccountUtil.isTemporaryAccount) && !Prefs.isReadingListSyncEnabled &&
+            (accountState.isLoggedIn && !accountState.isTemporaryAccount) && !Prefs.isReadingListSyncEnabled &&
                     Prefs.isReadingListSyncReminderEnabled && !RemoteConfig.config.disableReadingListSync -> {
                 OnboardingState.SyncReminder
             }
-            (!AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount) && Prefs.isReadingListLoginReminderEnabled &&
+            (!accountState.isLoggedIn || accountState.isTemporaryAccount) && Prefs.isReadingListLoginReminderEnabled &&
                     !RemoteConfig.config.disableReadingListSync -> {
                 OnboardingState.LoginReminder
             }
@@ -174,7 +185,7 @@ class ReadingListsViewModel : ViewModel() {
         }
     }
 
-    private suspend fun buildDiscoverCard(): RecommendedReadingListCard? {
+    private suspend fun buildDiscoverCard(accountState: ReadingListsAccountState): RecommendedReadingListCard? {
         if (!RecommendedReadingListHelper.readyToGenerateList()) {
             return null
         }
@@ -185,9 +196,17 @@ class ReadingListsViewModel : ViewModel() {
         return RecommendedReadingListCard(
             images = recommendedPages.mapNotNull { it.thumbUrl },
             isNewListGenerated = Prefs.isNewRecommendedReadingListGenerated,
-            isUserLoggedIn = AccountUtil.isLoggedIn,
-            userName = AccountUtil.userName,
+            isUserLoggedIn = accountState.isLoggedIn,
+            userName = accountState.userName,
             updateFrequency = Prefs.recommendedReadingListUpdateFrequency
+        )
+    }
+
+    private fun readAccountState(): ReadingListsAccountState {
+        return ReadingListsAccountState(
+            isLoggedIn = AccountUtil.isLoggedIn,
+            isTemporaryAccount = AccountUtil.isTemporaryAccount,
+            userName = AccountUtil.userName
         )
     }
 
@@ -328,6 +347,12 @@ data class RecommendedReadingListCard(
 data class ReadingListsSelectionState(
     val enabled: Boolean = false,
     val selectedListIds: Set<Long> = emptySet()
+)
+
+private data class ReadingListsAccountState(
+    val isLoggedIn: Boolean,
+    val isTemporaryAccount: Boolean,
+    val userName: String
 )
 
 sealed interface OnboardingState {

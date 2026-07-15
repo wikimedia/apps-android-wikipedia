@@ -39,6 +39,9 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.database.AppDatabase
+import org.wikipedia.events.LoggedInEvent
+import org.wikipedia.events.LoggedOutEvent
+import org.wikipedia.events.LoggedOutInBackgroundEvent
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.main.MainActivity
@@ -71,6 +74,11 @@ class ReadingListsComposeFragment : Fragment(), SortReadingListsDialog.Callback,
         if (result.resultCode == AppCompatActivity.RESULT_OK) {
             result.data?.data?.let(::importReadingLists)
         }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        RecommendedReadingListEvent.submit("impression", "rrl_saved")
     }
 
     override fun onCreateView(
@@ -111,9 +119,12 @@ class ReadingListsComposeFragment : Fragment(), SortReadingListsDialog.Callback,
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.CREATED) {
                 FlowEventBus.events.collectLatest { event ->
-                    // The list itself updates reactively via the DB flow; this just stops the spinner.
-                    if (event is ReadingListSyncEvent) {
-                        viewModel.setRefreshing(false)
+                    when (event) {
+                        // The list itself updates reactively via the DB flow; this just stops the spinner.
+                        is ReadingListSyncEvent -> viewModel.setRefreshing(false)
+                        is LoggedInEvent,
+                        is LoggedOutEvent,
+                        is LoggedOutInBackgroundEvent -> viewModel.refreshAccountState()
                     }
                 }
             }
@@ -233,8 +244,10 @@ class ReadingListsComposeFragment : Fragment(), SortReadingListsDialog.Callback,
 
     override fun onResume() {
         super.onResume()
+        viewModel.refreshAccountState()
         viewModel.refreshRecentPreviewSavedList()
         maybeDeleteListFromIntent()
+        ReadingListsAnalyticsHelper.logListsShown(requireContext(), viewModel.uiState.value.rows.size)
         requireActivity().invalidateOptionsMenu()
     }
 
