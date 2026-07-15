@@ -161,14 +161,14 @@ private fun EventRow(
         } else {
             Box(
                 modifier = Modifier
-                    .padding(start = 16.dp, top = 24.dp)
-                    .size(11.dp)
-                    .background(WikipediaTheme.colors.backgroundColor)
-                    .padding(3.dp)
+                    .padding(start = 16.dp, top = 16.dp)
+                    .size(width = 11.dp, height = 26.dp)
+                    .background(WikipediaTheme.colors.backgroundColor),
+                contentAlignment = Alignment.Center
             ) {
                 Box(
                     modifier = Modifier
-                        .fillMaxSize()
+                        .size(8.dp)
                         .clip(CircleShape)
                         .background(WikipediaTheme.colors.progressiveColor)
                 )
