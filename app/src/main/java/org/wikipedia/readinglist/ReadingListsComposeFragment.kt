@@ -42,6 +42,7 @@ import org.wikipedia.database.AppDatabase
 import org.wikipedia.events.LoggedInEvent
 import org.wikipedia.events.LoggedOutEvent
 import org.wikipedia.events.LoggedOutInBackgroundEvent
+import org.wikipedia.events.PageDownloadEvent
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.main.MainActivity
@@ -125,6 +126,7 @@ class ReadingListsComposeFragment : Fragment(), SortReadingListsDialog.Callback,
                         is LoggedInEvent,
                         is LoggedOutEvent,
                         is LoggedOutInBackgroundEvent -> viewModel.refreshAccountState()
+                        is PageDownloadEvent -> viewModel.updatePageDownloadProgress(event.page)
                     }
                 }
             }
@@ -374,6 +376,7 @@ class ReadingListsComposeFragment : Fragment(), SortReadingListsDialog.Callback,
         }
     }
 
+    // ListRow onLongClick actions
     private fun onListMenuAction(listId: Long, action: ReadingListMenuAction) {
         viewLifecycleOwner.lifecycleScope.launch {
             val list = AppDatabase.instance.readingListDao().getListWithPagesById(listId)?.toReadingList() ?: return@launch
@@ -430,7 +433,6 @@ class ReadingListsComposeFragment : Fragment(), SortReadingListsDialog.Callback,
         )
     }
 
-    // TODO migration: add downloadProgress UI
     private fun onToggleOfflineClick(pageId: Long) {
         viewLifecycleOwner.lifecycleScope.launch {
             val page = AppDatabase.instance.readingListPageDao().getPageById(pageId) ?: return@launch
@@ -441,8 +443,9 @@ class ReadingListsComposeFragment : Fragment(), SortReadingListsDialog.Callback,
             if (page.saving) {
                 Toast.makeText(requireContext(), R.string.reading_list_article_save_in_progress, Toast.LENGTH_LONG).show()
             } else {
-                // List refresh happens reactively via the DB flow, so the callback is empty.
-                ReadingListBehaviorsUtil.toggleOffline(requireActivity(), page) {}
+                ReadingListBehaviorsUtil.toggleOffline(requireActivity(), page) {
+                    viewModel.updatePageDownloadProgress(page)
+                }
             }
         }
     }
@@ -462,7 +465,9 @@ class ReadingListsComposeFragment : Fragment(), SortReadingListsDialog.Callback,
     override fun onToggleItemOffline(pageId: Long) {
         viewLifecycleOwner.lifecycleScope.launch {
             val page = AppDatabase.instance.readingListPageDao().getPageById(pageId) ?: return@launch
-            ReadingListBehaviorsUtil.togglePageOffline(requireActivity(), page) {}
+            ReadingListBehaviorsUtil.togglePageOffline(requireActivity(), page) {
+                viewModel.updatePageDownloadProgress(page)
+            }
         }
     }
 

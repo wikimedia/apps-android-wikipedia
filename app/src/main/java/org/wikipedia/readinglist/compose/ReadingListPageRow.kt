@@ -1,11 +1,11 @@
 package org.wikipedia.readinglist.compose
 
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement.spacedBy
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -15,6 +15,8 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.SuggestionChip
 import androidx.compose.material3.SuggestionChipDefaults
@@ -22,6 +24,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.painter.ColorPainter
 import androidx.compose.ui.layout.ContentScale
@@ -59,7 +62,11 @@ fun ReadingListPageRow(
             .padding(horizontal = 16.dp, vertical = 16.dp)
     ) {
         Row(verticalAlignment = Alignment.Top) {
-            Column(modifier = Modifier.weight(1f)) {
+            Column(
+                modifier = Modifier
+                    .weight(1f)
+                    .alpha(if (page.isAvailable) 1f else 0.5f)
+            ) {
                 HtmlText(
                     text = page.title,
                     color = WikipediaTheme.colors.primaryColor,
@@ -83,21 +90,43 @@ fun ReadingListPageRow(
                 }
             }
 
-            // Offline/download action: shown when the article isn't saved offline
-            if (!page.offline) {
+            if (!page.offline || page.saving) {
                 Spacer(modifier = Modifier.width(16.dp))
-                Image(
-                    painter = painterResource(R.drawable.ic_download_circle_gray_24dp),
-                    contentDescription = stringResource(R.string.reading_list_article_make_offline),
+                Box(
                     modifier = Modifier
                         .align(Alignment.CenterVertically)
-                        .size(24.dp)
-                        .clickable(onClick = onToggleOfflineClick)
-                )
+                        .size(32.dp)
+                        .clickable(onClick = onToggleOfflineClick),
+                    contentAlignment = Alignment.Center
+                ) {
+                    if (page.downloadProgress in 1 until 100) {
+                        CircularProgressIndicator(
+                            progress = { page.downloadProgress / 100f },
+                            modifier = Modifier.size(28.dp),
+                            color = WikipediaTheme.colors.progressiveColor,
+                            trackColor = WikipediaTheme.colors.borderColor,
+                            strokeWidth = 3.dp
+                        )
+                    } else {
+                        Icon(
+                            painter = painterResource(
+                                if (page.saving) R.drawable.ic_download_in_progress
+                                else R.drawable.ic_download_circle_gray_24dp
+                            ),
+                            contentDescription = stringResource(R.string.reading_list_article_make_offline),
+                            tint = if (page.saving) WikipediaTheme.colors.progressiveColor
+                            else WikipediaTheme.colors.placeholderColor,
+                            modifier = Modifier.size(24.dp)
+                        )
+                    }
+                }
             }
 
             Spacer(modifier = Modifier.width(16.dp))
-            ArticleThumbnail(page.thumbUrl)
+            ArticleThumbnail(
+                thumbUrl = page.thumbUrl,
+                modifier = Modifier.alpha(if (page.isAvailable) 1f else 0.5f)
+            )
         }
 
         // Containing-list chips span the full width below the top row.
@@ -164,8 +193,35 @@ private fun ReadingListPageRowPreview() {
                 description = "Elementary particle in the Standard Model of physics",
                 thumbUrl = null,
                 lang = "en",
-                apiTitle = "Higgs_boson",
-                offline = false
+                apiTitle = "Random",
+                offline = true,
+                saving = true,
+                downloadProgress = 42,
+                isAvailable = false
+            ),
+            containingLists = listOf(ContainingList(1, "Physics"), ContainingList(2, "Top read"))
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun ReadingListPageRowOfflinePreview() {
+    BaseTheme(
+        currentTheme = Theme.LIGHT
+    ) {
+        ReadingListPageRow(
+            page = ReadingListPageUiModel(
+                id = 2,
+                title = "Test2",
+                description = "Available offline",
+                thumbUrl = null,
+                lang = "en",
+                apiTitle = "Test2",
+                offline = true,
+                saving = false,
+                downloadProgress = 0,
+                isAvailable = true
             ),
             containingLists = listOf(ContainingList(1, "Physics"), ContainingList(2, "Top read"))
         )

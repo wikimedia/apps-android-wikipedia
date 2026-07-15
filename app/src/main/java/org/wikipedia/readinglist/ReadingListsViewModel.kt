@@ -12,6 +12,7 @@ import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.stateIn
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.readinglist.database.ReadingList
@@ -26,6 +27,7 @@ class ReadingListsViewModel : ViewModel() {
     private val searchActive = MutableStateFlow(false)
     private val recentPreviewSavedState = MutableStateFlow(RecentPreviewSavedState())
     private val accountState = MutableStateFlow(readAccountState())
+    private val pageDownloadProgress = MutableStateFlow<Map<Long, Int>>(emptyMap())
 
     private val _isRefreshing = MutableStateFlow(false)
     val isRefreshing: StateFlow<Boolean> = _isRefreshing.asStateFlow()
@@ -33,36 +35,48 @@ class ReadingListsViewModel : ViewModel() {
     private val _selectionState = MutableStateFlow(ReadingListsSelectionState())
     val selectionState: StateFlow<ReadingListsSelectionState> = _selectionState.asStateFlow()
 
+    private val readingListsContentState = combine(
+        AppDatabase.instance.readingListDao().getListsWithPagesFlow(),
+        searchQuery,
+        recentPreviewSavedState,
+        pageDownloadProgress,
+        Prefs.observeKeys(R.string.preference_key_reading_list_sort_mode)
+    ) { relations, query, previewSavedState, downloadProgress, _ ->
+        ReadingListsUiState(
+            rows = buildRows(
+                relations,
+                query,
+                previewSavedState.newBadgeListId,
+                downloadProgress
+            ),
+            listCount = relations.size,
+            searchQuery = query,
+            pendingPreviewSavedListId = previewSavedState.pendingSnackbarListId
+        )
+    }
+
     val uiState: StateFlow<ReadingListsUiState> =
         combine(
-            AppDatabase.instance.readingListDao().getListsWithPagesFlow(),
-            searchQuery,
+            readingListsContentState,
             searchActive,
+            accountState,
             Prefs.observeKeys(
                 R.string.preference_key_recommended_reading_list_onboarding_shown,
                 R.string.preference_key_sync_reading_lists,
                 R.string.preference_key_reading_list_sync_reminder_enabled,
                 R.string.preference_key_reading_list_login_reminder_enabled,
-                R.string.preference_key_reading_list_sort_mode,
                 R.string.preference_key_recommended_reading_list_enabled,
                 R.string.preference_key_recommended_reading_list_new_list_generated,
                 R.string.preference_key_recommended_reading_list_articles_number,
                 R.string.preference_key_recommended_reading_list_source,
                 R.string.preference_key_recommended_reading_list_update_frequency
-            ),
-            combine(recentPreviewSavedState, accountState) { previewSavedState, accountState ->
-                previewSavedState to accountState
-            }
-        ) { relations, query, isSearchActive, _, (previewSavedState, accountState) ->
-            val isSearching = isSearchActive || !query.isNullOrEmpty()
-            ReadingListsUiState(
-                rows = buildRows(relations, query, previewSavedState.newBadgeListId),
-                listCount = relations.size,
-                searchQuery = query,
-                onboarding = resolveOnboardingState(query, isSearchActive, accountState),
+            )
+        ) { contentState, isSearchActive, accountState, _ ->
+            val isSearching = isSearchActive || !contentState.searchQuery.isNullOrEmpty()
+            contentState.copy(
+                onboarding = resolveOnboardingState(contentState.searchQuery, isSearchActive, accountState),
                 // will remove discover card while in search mode
-                discoverCard = if (isSearching) null else buildDiscoverCard(accountState),
-                pendingPreviewSavedListId = previewSavedState.pendingSnackbarListId
+                discoverCard = if (isSearching) null else buildDiscoverCard(accountState)
             )
         }
             .flowOn(Dispatchers.IO)
@@ -86,6 +100,10 @@ class ReadingListsViewModel : ViewModel() {
 
     fun refreshAccountState() {
         accountState.value = readAccountState()
+    }
+
+    fun updatePageDownloadProgress(page: ReadingListPage) {
+        pageDownloadProgress.value += (page.id to page.downloadProgress)
     }
 
     fun setSelectionMode(enabled: Boolean) {
@@ -210,7 +228,12 @@ class ReadingListsViewModel : ViewModel() {
         )
     }
 
-    private fun buildRows(relations: List<ReadingListWithPages>, query: String?, recentPreviewSavedId: Long?): List<ReadingListRow> {
+    private fun buildRows(
+        relations: List<ReadingListWithPages>,
+        query: String?,
+        recentPreviewSavedId: Long?,
+        downloadProgress: Map<Long, Int>
+    ): List<ReadingListRow> {
         // toReadingList() drops pages queued for deletion (Room @Relation can't filter children in SQL);
         // after that we sort and check for the empty default list.
         val lists = relations.map { it.toReadingList() }.toMutableList()
@@ -221,12 +244,17 @@ class ReadingListsViewModel : ViewModel() {
             return lists.map { ReadingListRow.ListRow(it.toUiModel(recentPreviewSavedId)) }
         }
 
-        return buildSearchRows(lists, query, recentPreviewSavedId)
+        return buildSearchRows(lists, query, recentPreviewSavedId, downloadProgress)
     }
 
     // matches lists first (in order), then matches pages across all lists
     // filters out duplicates by lang + apiTitle and also finds all titles a page is contained in for chips display.
-    private fun buildSearchRows(lists: List<ReadingList>, query: String, recentPreviewSavedId: Long?): List<ReadingListRow> {
+    private fun buildSearchRows(
+        lists: List<ReadingList>,
+        query: String,
+        recentPreviewSavedId: Long?,
+        downloadProgress: Map<Long, Int>
+    ): List<ReadingListRow> {
         val normalizedQuery = StringUtils.stripAccents(query)
         val listRows = mutableListOf<ReadingListRow>()
         val pageRows = mutableListOf<ReadingListRow>()
@@ -239,7 +267,7 @@ class ReadingListsViewModel : ViewModel() {
             list.pages.forEach { page ->
                 if (page.accentInvariantTitle.contains(normalizedQuery, ignoreCase = true) &&
                     seenPages.add(page.lang to page.apiTitle)) {
-                    pageRows.add(ReadingListRow.PageRow(page.toUiModel(), lists.findContainingLists(page)))
+                    pageRows.add(ReadingListRow.PageRow(page.toUiModel(downloadProgress[page.id] ?: 0), lists.findContainingLists(page)))
                 }
             }
         }
@@ -270,7 +298,8 @@ class ReadingListsViewModel : ViewModel() {
         )
     }
 
-    private fun ReadingListPage.toUiModel(): ReadingListPageUiModel {
+    private fun ReadingListPage.toUiModel(downloadProgress: Int): ReadingListPageUiModel {
+        val saving = saving
         return ReadingListPageUiModel(
             id = id,
             title = displayTitle,
@@ -278,7 +307,10 @@ class ReadingListsViewModel : ViewModel() {
             thumbUrl = thumbUrl,
             lang = lang,
             apiTitle = apiTitle,
-            offline = offline
+            offline = offline,
+            saving = saving,
+            downloadProgress = downloadProgress,
+            isAvailable = WikipediaApp.instance.isOnline || (offline && !saving)
         )
     }
 
@@ -309,7 +341,10 @@ data class ReadingListPageUiModel(
     val thumbUrl: String?,
     val lang: String,
     val apiTitle: String,
-    val offline: Boolean
+    val offline: Boolean,
+    val saving: Boolean,
+    val downloadProgress: Int,
+    val isAvailable: Boolean
 )
 
 /**
