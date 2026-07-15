@@ -6,7 +6,7 @@ import org.wikipedia.activitytab.ActivityTabFragment
 import org.wikipedia.feed.HomeFragment
 import org.wikipedia.history.HistoryFragment
 import org.wikipedia.model.EnumCode
-import org.wikipedia.readinglist.ReadingListsComposeFragment
+import org.wikipedia.readinglist.ReadingListsFragment
 
 enum class NavTab(val text: Int, val id: Int, val icon: Int) : EnumCode {
 
@@ -17,7 +17,7 @@ enum class NavTab(val text: Int, val id: Int, val icon: Int) : EnumCode {
     },
     READING_LISTS(R.string.nav_item_saved, R.id.nav_tab_reading_lists, R.drawable.selector_nav_saved) {
         override fun newInstance(): Fragment {
-            return ReadingListsComposeFragment.newInstance()
+            return ReadingListsFragment.newInstance()
         }
     },
     SEARCH(R.string.nav_item_search, R.id.nav_tab_search, R.drawable.selector_nav_search) {

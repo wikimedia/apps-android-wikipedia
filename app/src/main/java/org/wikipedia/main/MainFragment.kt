@@ -70,7 +70,7 @@ import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.places.PlacesActivity
 import org.wikipedia.random.RandomActivity
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
-import org.wikipedia.readinglist.ReadingListsComposeFragment
+import org.wikipedia.readinglist.ReadingListsFragment
 import org.wikipedia.readinglist.RemoveFromReadingListsDialog
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.search.SearchActivity
@@ -282,13 +282,13 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
         val fragment = currentFragment
         return when (menuItem.itemId) {
             R.id.menu_search_lists -> {
-                if (fragment is ReadingListsComposeFragment) {
+                if (fragment is ReadingListsFragment) {
                     fragment.startSearchActionMode()
                 }
                 true
             }
             R.id.menu_overflow_button -> {
-                if (fragment is ReadingListsComposeFragment) {
+                if (fragment is ReadingListsFragment) {
                     fragment.showReadingListsOverflowMenu()
                 }
                 true
@@ -298,8 +298,8 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
     }
 
     override fun onPrepareMenu(menu: Menu) {
-        menu.findItem(R.id.menu_search_lists).isVisible = currentFragment is ReadingListsComposeFragment
-        menu.findItem(R.id.menu_overflow_button).isVisible = currentFragment is ReadingListsComposeFragment
+        menu.findItem(R.id.menu_search_lists).isVisible = currentFragment is ReadingListsFragment
+        menu.findItem(R.id.menu_overflow_button).isVisible = currentFragment is ReadingListsFragment
 
         val tabsItem = menu.findItem(R.id.menu_tabs)
         if (WikipediaApp.instance.tabCount < 1 || currentFragment is SuggestedEditsTasksFragment) {

@@ -49,7 +49,9 @@ import org.wikipedia.main.MainActivity
 import org.wikipedia.main.MainFragment
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
+import org.wikipedia.readinglist.compose.OnboardingAction
 import org.wikipedia.readinglist.compose.ReadingListMenuAction
+import org.wikipedia.readinglist.compose.ReadingListsScreen
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingActivity
@@ -66,7 +68,7 @@ import org.wikipedia.views.MultiSelectActionModeCallback
 import org.wikipedia.views.MultiSelectActionModeCallback.Companion.isTagType
 import org.wikipedia.views.ReadingListsOverflowView
 
-class ReadingListsComposeFragment : Fragment(), SortReadingListsDialog.Callback, ReadingListItemActionsDialog.Callback {
+class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, ReadingListItemActionsDialog.Callback {
 
     private val viewModel: ReadingListsViewModel by viewModels()
     private var actionMode: ActionMode? = null
@@ -93,7 +95,7 @@ class ReadingListsComposeFragment : Fragment(), SortReadingListsDialog.Callback,
                     val uiState by viewModel.uiState.collectAsState()
                     val isRefreshing by viewModel.isRefreshing.collectAsState()
                     val selectionState by viewModel.selectionState.collectAsState()
-                    ReadingListsComposeScreen(
+                    ReadingListsScreen(
                         uiState = uiState,
                         isRefreshing = isRefreshing,
                         pullToRefreshEnabled = !RemoteConfig.config.disableReadingListSync,
@@ -640,8 +642,8 @@ class ReadingListsComposeFragment : Fragment(), SortReadingListsDialog.Callback,
     }
 
     companion object {
-        fun newInstance(): ReadingListsComposeFragment {
-            return ReadingListsComposeFragment()
+        fun newInstance(): ReadingListsFragment {
+            return ReadingListsFragment()
         }
     }
 }

@@ -1,4 +1,4 @@
-package org.wikipedia.readinglist
+package org.wikipedia.readinglist.compose
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -36,16 +36,19 @@ import org.wikipedia.compose.components.MessageCard
 import org.wikipedia.compose.components.SearchEmptyView
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
-import org.wikipedia.readinglist.compose.ReadingListMenuAction
-import org.wikipedia.readinglist.compose.ReadingListPageRow
-import org.wikipedia.readinglist.compose.ReadingListRow
+import org.wikipedia.readinglist.OnboardingState
+import org.wikipedia.readinglist.ReadingListRow
+import org.wikipedia.readinglist.ReadingListUiModel
+import org.wikipedia.readinglist.ReadingListsUiState
+import org.wikipedia.readinglist.RecommendedReadingListCard
+import org.wikipedia.readinglist.RecommendedReadingListDiscoverCardView
 import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 
 @Composable
-fun ReadingListsComposeScreen(
+fun ReadingListsScreen(
     uiState: ReadingListsUiState,
     modifier: Modifier = Modifier,
     isRefreshing: Boolean = false,
@@ -384,15 +387,33 @@ private fun EmptyReadingLists(modifier: Modifier = Modifier) {
 
 @Preview
 @Composable
-private fun ReadingListsComposeScreenPreview() {
+private fun ReadingListsScreenPreview() {
     BaseTheme(
         currentTheme = Theme.LIGHT
     ) {
-        ReadingListsComposeScreen(
+        ReadingListsScreen(
             uiState = ReadingListsUiState(
                 rows = listOf(
-                    ReadingListRow.ListRow(ReadingListUiModel(id = 1, title = "Default", description = null, isDefault = true, totalPages = 3, sizeBytesFromPages = 0)),
-                    ReadingListRow.ListRow(ReadingListUiModel(id = 2, title = "Physics", description = "reading", isDefault = false, totalPages = 12, sizeBytesFromPages = 1240000))
+                    ReadingListRow.ListRow(
+                        ReadingListUiModel(
+                            id = 1,
+                            title = "Default",
+                            description = null,
+                            isDefault = true,
+                            totalPages = 3,
+                            sizeBytesFromPages = 0
+                        )
+                    ),
+                    ReadingListRow.ListRow(
+                        ReadingListUiModel(
+                            id = 2,
+                            title = "Physics",
+                            description = "reading",
+                            isDefault = false,
+                            totalPages = 12,
+                            sizeBytesFromPages = 1240000
+                        )
+                    )
                 )
             )
         )
@@ -403,7 +424,7 @@ private fun ReadingListsComposeScreenPreview() {
 @Composable
 private fun ReadingListsEmptyPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
-        ReadingListsComposeScreen(
+        ReadingListsScreen(
             uiState = ReadingListsUiState()
         )
     }
@@ -413,10 +434,19 @@ private fun ReadingListsEmptyPreview() {
 @Composable
 private fun ReadingListsOnboardingPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
-        ReadingListsComposeScreen(
+        ReadingListsScreen(
             uiState = ReadingListsUiState(
                 rows = listOf(
-                    ReadingListRow.ListRow(ReadingListUiModel(id = 2, title = "Physics", description = "reading", isDefault = false, totalPages = 12, sizeBytesFromPages = 1240000))
+                    ReadingListRow.ListRow(
+                        ReadingListUiModel(
+                            id = 2,
+                            title = "Physics",
+                            description = "reading",
+                            isDefault = false,
+                            totalPages = 12,
+                            sizeBytesFromPages = 1240000
+                        )
+                    )
                 ),
                 onboarding = OnboardingState.RecommendedReadingList
             )
@@ -428,10 +458,19 @@ private fun ReadingListsOnboardingPreview() {
 @Composable
 private fun ReadingListsDiscoverCardPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
-        ReadingListsComposeScreen(
+        ReadingListsScreen(
             uiState = ReadingListsUiState(
                 rows = listOf(
-                    ReadingListRow.ListRow(ReadingListUiModel(id = 2, title = "Physics", description = "reading", isDefault = false, totalPages = 12, sizeBytesFromPages = 1240000))
+                    ReadingListRow.ListRow(
+                        ReadingListUiModel(
+                            id = 2,
+                            title = "Physics",
+                            description = "reading",
+                            isDefault = false,
+                            totalPages = 12,
+                            sizeBytesFromPages = 1240000
+                        )
+                    )
                 ),
                 discoverCard = RecommendedReadingListCard(
                     images = emptyList(),
