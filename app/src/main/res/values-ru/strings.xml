@@ -22,6 +22,7 @@
 * Firapinch
 * FobosD
 * Helpau
+* HyoerFlint
 * Iluvatar
 * Infovarius
 * Iniquity
@@ -2721,4 +2722,6 @@
   <string name="home_feed_places_of_interest_card_footer">%1$s • На основе вашего местоположения в разделе «Места»</string>
   <string name="home_feed_for_you_screen_end_of_feed_title">На сегодня всё!</string>
   <string name="home_feed_for_you_screen_end_of_feed_description">Заходите завтра, чтобы найти новые статьи, подобранные специально для вас.</string>
+  <string name="randomizer_shake_prompt_title">Потрясите, чтобы перемешать</string>
+  <string name="randomizer_shake_prompt_message">Потрясите устройство, чтобы открыть случайную статью и открыть что-то неожиданное.</string>
 </resources>

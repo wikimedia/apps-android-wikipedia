@@ -1899,6 +1899,8 @@
     <!-- Survey dialog -->
     <string name="survey_dialog_title">Help us improve this feature</string>
     <string name="survey_dialog_message">Are you satisfied with this feature?</string>
+    <string name="home_feed_survey_title">Help improve Home</string>
+    <string name="home_feed_survey_message">Are you satisfied with the \"Community\" and \"For you\" feeds?</string>
     <string name="survey_dialog_option_satisfied">Satisfied</string>
     <string name="survey_dialog_option_neutral">Neutral</string>
     <string name="survey_dialog_option_unsatisfied">Unsatisfied</string>
@@ -2587,7 +2589,12 @@
     <string name="home_feed_for_you_screen_end_of_feed_description">Come back tomorrow to find fresh new articles customized for you.</string>
     <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Ways to keep learning:</string>
     <string name="home_feed_for_you_screen_end_of_feed_add_interests"><![CDATA[Add <a href="#add_interests">new interests</a>]]></string>
+    <string name="randomizer_shake_prompt_title">Shake to shuffle</string>
+    <string name="randomizer_shake_prompt_message">Give your device a shake to jump to a random article and discover something unexpected.</string>
     <string name="home_feed_games_module_cta_prompt_title">Want to play more games?</string>
     <string name="home_feed_games_module_cta_prompt_subtitle">Go to the games hub</string>
     <string name="home_feed_games_module_cta_prompt_button_text">Games hub</string>
+
+    <!-- Random Article Widget   -->
+    <string name="random_article_widget_name">Random article</string>
 </resources>

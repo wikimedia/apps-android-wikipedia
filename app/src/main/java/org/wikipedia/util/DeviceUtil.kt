@@ -1,6 +1,7 @@
 package org.wikipedia.util
 
 import android.app.Activity
+import android.appwidget.AppWidgetManager
 import android.content.Context
 import android.content.res.Configuration
 import android.content.res.Resources
@@ -121,4 +122,11 @@ object DeviceUtil {
             // TODO: add more logic if other accessibility tools have different settings.
             return am.isEnabled && am.isTouchExplorationEnabled
         }
+
+    val areWidgetsSupported: Boolean
+        get() = AppWidgetManager.getInstance(WikipediaApp.instance) != null
+
+    val isPinWidgetSupported: Boolean
+        get() = Build.VERSION.SDK_INT >= Build.VERSION_CODES.O &&
+                AppWidgetManager.getInstance(WikipediaApp.instance)?.isRequestPinAppWidgetSupported == true
 }

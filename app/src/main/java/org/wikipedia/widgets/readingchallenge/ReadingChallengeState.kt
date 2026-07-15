@@ -31,6 +31,10 @@ sealed interface ReadingChallengeState {
 
     // State 5: Challenge Remove
     object ChallengeRemoved : ReadingChallengeState
+
+    // Temporary post-challenge transition state. Once the Reading Challenge widget is removed,
+    // Random Article will have its own widget implementation and this state can be deleted.
+    object RandomArticle : ReadingChallengeState
 }
 
 data class ReadingChallengeUserData(
@@ -38,5 +42,6 @@ data class ReadingChallengeUserData(
     val enabled: Boolean,
     val currentStreak: Int,
     val hasReadToday: Boolean,
-    val hasActiveStreak: Boolean
+    val hasActiveStreak: Boolean,
+    val isNewUser: Boolean = false
 )

@@ -1792,6 +1792,8 @@
   <string name="places_empty_message_snackbar">Nincsenek közeli cikkek. Próbáld kicsinyíteni és mozgatni a térképet.</string>
   <string name="survey_dialog_title">Segíts a funkció fejlesztésében!</string>
   <string name="survey_dialog_message">Elégedett vagy ezzel a funkcióval?</string>
+  <string name="home_feed_survey_title">Segíts jobbá tenni a Kezdőlapot</string>
+  <string name="home_feed_survey_message">Elégedett vagy a „Közösség” és a „Neked” hírfolyamokkal?</string>
   <string name="survey_dialog_option_satisfied">Elégedett</string>
   <string name="survey_dialog_option_neutral">Semleges</string>
   <string name="survey_dialog_option_unsatisfied">Elégedetlen</string>
@@ -2397,6 +2399,7 @@
   <string name="home_feed_settings_title">A Kezdőlap hírfolyamod személyre szabása</string>
   <string name="home_feed_settings_default_view_title">Alapértelmezett hírfolyamnézet</string>
   <string name="home_feed_settings_default_view_subtitle">Válaszd ki, melyik hírfolyam jelenjen meg elsőként az alkalmazás megnyitásakor</string>
+  <string name="home_feed_settings_default_view_confirm">A módosítás az alkalmazás következő megnyitásakor lép életbe.</string>
   <string name="home_feed_settings_whats_driving_title">Mi alakítja a hírfolyamodat</string>
   <string name="home_feed_settings_modules_title">Modulok</string>
   <string name="home_feed_settings_community_subtitle">A „Közösség” hírfolyam moduljainak be- vagy kikapcsolása</string>
@@ -2446,6 +2449,8 @@
   <string name="home_feed_places_of_interest_cta_button">Ugrás a Helyek lapra</string>
   <string name="home_feed_settings_places_of_interest_title">Érdekes helyek</string>
   <string name="home_feed_settings_places_of_interest_subtitle">Szócikkek a Helyekben legutóbb megtekintett helyed közeléből</string>
+  <string name="home_feed_settings_games_title">Játékok</string>
+  <string name="home_feed_settings_games_subtitle">Napi játékok Wikipédia-tartalmak alapján</string>
   <string name="home_feed_settings_discover_title">Felfedezési ajánlások</string>
   <string name="home_feed_settings_discover_subtitle">Cikkek a Felfedezés olvasási listádról</string>
   <string name="home_feed_discover_cta_title">A Felfedezésből</string>
@@ -2460,4 +2465,9 @@
   <string name="home_feed_for_you_screen_end_of_feed_description">Gyere vissza holnap új, személyre szabott szócikkekért.</string>
   <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">További felfedeznivalók:</string>
   <string name="home_feed_for_you_screen_end_of_feed_add_interests">Adj hozzá &lt;a href=\"#add_interests\"&gt;új érdeklődési köröket&lt;/a&gt;</string>
+  <string name="randomizer_shake_prompt_title">Rázd meg a keveréshez</string>
+  <string name="randomizer_shake_prompt_message">Rázd meg az eszközödet, hogy egy véletlenszerű szócikkre ugorj, és valami váratlant fedezz fel.</string>
+  <string name="home_feed_games_module_cta_prompt_title">Szeretnél még több játékot kipróbálni?</string>
+  <string name="home_feed_games_module_cta_prompt_subtitle">Ugrás a játékközpontba</string>
+  <string name="home_feed_games_module_cta_prompt_button_text">Játékközpont</string>
 </resources>
