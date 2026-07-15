@@ -158,7 +158,6 @@ private fun EventRow(
                         .background(WikipediaTheme.colors.progressiveColor)
                 )
             }
-
         } else {
             Box(
                 modifier = Modifier
