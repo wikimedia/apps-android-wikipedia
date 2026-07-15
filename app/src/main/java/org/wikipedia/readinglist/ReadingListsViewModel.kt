@@ -24,6 +24,7 @@ import org.wikipedia.settings.RemoteConfig
 class ReadingListsViewModel : ViewModel() {
     private val searchQuery = MutableStateFlow<String?>(null)
     private val searchActive = MutableStateFlow(false)
+    private val recentPreviewSavedState = MutableStateFlow(RecentPreviewSavedState())
 
     private val _isRefreshing = MutableStateFlow(false)
     val isRefreshing: StateFlow<Boolean> = _isRefreshing.asStateFlow()
@@ -47,16 +48,18 @@ class ReadingListsViewModel : ViewModel() {
                 R.string.preference_key_recommended_reading_list_articles_number,
                 R.string.preference_key_recommended_reading_list_source,
                 R.string.preference_key_recommended_reading_list_update_frequency
-            )
-        ) { relations, query, isSearchActive, _ ->
+            ),
+            recentPreviewSavedState
+        ) { relations, query, isSearchActive, _, previewSavedState ->
             val isSearching = isSearchActive || !query.isNullOrEmpty()
             ReadingListsUiState(
-                rows = buildRows(relations, query),
+                rows = buildRows(relations, query, previewSavedState.newBadgeListId),
                 listCount = relations.size,
                 searchQuery = query,
                 onboarding = resolveOnboardingState(query, isSearchActive),
                 // will remove discover card while in search mode
-                discoverCard = if (isSearching) null else buildDiscoverCard()
+                discoverCard = if (isSearching) null else buildDiscoverCard(),
+                pendingPreviewSavedListId = previewSavedState.pendingSnackbarListId
             )
         }
             .flowOn(Dispatchers.IO)
@@ -103,6 +106,32 @@ class ReadingListsViewModel : ViewModel() {
 
     fun clearListSelection() {
         _selectionState.value = _selectionState.value.copy(selectedListIds = emptySet())
+    }
+
+    fun refreshRecentPreviewSavedList() {
+        val receivedListId = Prefs.readingListRecentReceivedId
+        if (receivedListId == -1L || recentPreviewSavedState.value.newBadgeListId != null) {
+            return
+        }
+        recentPreviewSavedState.value = RecentPreviewSavedState(
+            pendingSnackbarListId = receivedListId,
+            newBadgeListId = receivedListId
+        )
+    }
+
+    fun consumePreviewSavedSnackbar(listId: Long) {
+        val currentState = recentPreviewSavedState.value
+        if (currentState.pendingSnackbarListId != listId) {
+            return
+        }
+        Prefs.receiveReadingListsData = null
+        Prefs.readingListRecentReceivedId = -1L
+        recentPreviewSavedState.value = currentState.copy(pendingSnackbarListId = null)
+    }
+
+    fun clearRecentPreviewSavedList() {
+        Prefs.readingListRecentReceivedId = -1L
+        recentPreviewSavedState.value = RecentPreviewSavedState()
     }
 
     fun containingLists(pageId: Long): List<ContainingList> {
@@ -162,7 +191,7 @@ class ReadingListsViewModel : ViewModel() {
         )
     }
 
-    private fun buildRows(relations: List<ReadingListWithPages>, query: String?): List<ReadingListRow> {
+    private fun buildRows(relations: List<ReadingListWithPages>, query: String?, recentPreviewSavedId: Long?): List<ReadingListRow> {
         // toReadingList() drops pages queued for deletion (Room @Relation can't filter children in SQL);
         // after that we sort and check for the empty default list.
         val lists = relations.map { it.toReadingList() }.toMutableList()
@@ -170,15 +199,15 @@ class ReadingListsViewModel : ViewModel() {
         if (query.isNullOrEmpty()) {
             ReadingList.sort(lists, Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC))
             lists.removeEmptyDefaultList()
-            return lists.map { ReadingListRow.ListRow(it.toUiModel()) }
+            return lists.map { ReadingListRow.ListRow(it.toUiModel(recentPreviewSavedId)) }
         }
 
-        return buildSearchRows(lists, query)
+        return buildSearchRows(lists, query, recentPreviewSavedId)
     }
 
     // matches lists first (in order), then matches pages across all lists
     // filters out duplicates by lang + apiTitle and also finds all titles a page is contained in for chips display.
-    private fun buildSearchRows(lists: List<ReadingList>, query: String): List<ReadingListRow> {
+    private fun buildSearchRows(lists: List<ReadingList>, query: String, recentPreviewSavedId: Long?): List<ReadingListRow> {
         val normalizedQuery = StringUtils.stripAccents(query)
         val listRows = mutableListOf<ReadingListRow>()
         val pageRows = mutableListOf<ReadingListRow>()
@@ -186,7 +215,7 @@ class ReadingListsViewModel : ViewModel() {
 
         lists.forEach { list ->
             if (list.accentInvariantTitle.contains(normalizedQuery, ignoreCase = true)) {
-                listRows.add(ReadingListRow.ListRow(list.toUiModel()))
+                listRows.add(ReadingListRow.ListRow(list.toUiModel(recentPreviewSavedId)))
             }
             list.pages.forEach { page ->
                 if (page.accentInvariantTitle.contains(normalizedQuery, ignoreCase = true) &&
@@ -209,7 +238,7 @@ class ReadingListsViewModel : ViewModel() {
         }
     }
 
-    private fun ReadingList.toUiModel(): ReadingListUiModel {
+    private fun ReadingList.toUiModel(recentPreviewSavedId: Long?): ReadingListUiModel {
         return ReadingListUiModel(
             id = id,
             title = title,
@@ -218,8 +247,7 @@ class ReadingListsViewModel : ViewModel() {
             totalPages = pages.size,
             sizeBytesFromPages = sizeBytesFromPages,
             thumbUrls = pages.mapNotNull { it.thumbUrl }.filterNot { it.isEmpty() },
-            // TODO migration: wire the "new import" indicator once recentPreviewSavedReadingList is ported.
-            isNew = false
+            isNew = id == recentPreviewSavedId
         )
     }
 
@@ -280,7 +308,13 @@ data class ReadingListsUiState(
     val listCount: Int = 0,
     val searchQuery: String? = null,
     val onboarding: OnboardingState = OnboardingState.None,
-    val discoverCard: RecommendedReadingListCard? = null
+    val discoverCard: RecommendedReadingListCard? = null,
+    val pendingPreviewSavedListId: Long? = null
+)
+
+data class RecentPreviewSavedState(
+    val pendingSnackbarListId: Long? = null,
+    val newBadgeListId: Long? = null
 )
 
 data class RecommendedReadingListCard(

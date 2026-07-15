@@ -33,6 +33,7 @@ import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
 import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.compose.theme.BaseTheme
@@ -134,6 +135,23 @@ class ReadingListsComposeFragment : Fragment(), SortReadingListsDialog.Callback,
                     .collect(::maybeShowListLimitMessage)
             }
         }
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.RESUMED) {
+                viewModel.uiState
+                    .map { state ->
+                        state.pendingPreviewSavedListId?.takeIf { id ->
+                            state.rows.any {
+                                it is ReadingListRow.ListRow && it.list.id == id
+                            }
+                        }
+                    }
+                    .distinctUntilChanged()
+                    .collect { listId ->
+                        listId?.let { maybeShowPreviewSavedReadingListsSnackbar(it) }
+                    }
+            }
+        }
     }
 
     private fun onRefresh() {
@@ -154,6 +172,18 @@ class ReadingListsComposeFragment : Fragment(), SortReadingListsDialog.Callback,
                 getString(R.string.reading_lists_limit_message)
             ).show()
         }
+    }
+
+    private suspend fun maybeShowPreviewSavedReadingListsSnackbar(listId: Long) {
+        val list = AppDatabase.instance.readingListDao().getListWithPagesById(listId)?.toReadingList() ?: return
+        ReadingListsAnalyticsHelper.logReceiveFinish(requireContext(), list)
+        FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.reading_lists_preview_saved_snackbar))
+            .setAction(R.string.suggested_edits_article_cta_snackbar_action) {
+                viewModel.clearRecentPreviewSavedList()
+                startActivity(ReadingListActivity.newIntent(requireContext(), list))
+            }
+            .show()
+        viewModel.consumePreviewSavedSnackbar(listId)
     }
 
     private fun maybeDeleteListFromIntent() {
@@ -203,6 +233,7 @@ class ReadingListsComposeFragment : Fragment(), SortReadingListsDialog.Callback,
 
     override fun onResume() {
         super.onResume()
+        viewModel.refreshRecentPreviewSavedList()
         maybeDeleteListFromIntent()
         requireActivity().invalidateOptionsMenu()
     }
@@ -321,6 +352,7 @@ class ReadingListsComposeFragment : Fragment(), SortReadingListsDialog.Callback,
             toggleListSelection(listId)
             return
         }
+        viewModel.clearRecentPreviewSavedList()
         viewLifecycleOwner.lifecycleScope.launch {
             AppDatabase.instance.readingListDao().getListById(listId, true)?.let { list ->
                 RecommendedReadingListEvent.submit("open_list_click", "rrl_saved")

@@ -5,6 +5,8 @@ import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement.spacedBy
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -49,6 +51,7 @@ import org.wikipedia.readinglist.ReadingListUiModel
 import org.wikipedia.theme.Theme
 import org.wikipedia.views.imageservice.ImageService
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun ReadingListRow(
     list: ReadingListUiModel,
@@ -80,7 +83,7 @@ fun ReadingListRow(
             )
         }
         Column(modifier = Modifier.weight(1f)) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
+              FlowRow(itemVerticalAlignment = Alignment.CenterVertically) {
                 Text(
                     text = list.title,
                     color = WikipediaTheme.colors.primaryColor,

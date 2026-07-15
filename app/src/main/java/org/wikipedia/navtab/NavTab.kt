@@ -17,7 +17,7 @@ enum class NavTab(val text: Int, val id: Int, val icon: Int) : EnumCode {
     },
     READING_LISTS(R.string.nav_item_saved, R.id.nav_tab_reading_lists, R.drawable.selector_nav_saved) {
         override fun newInstance(): Fragment {
-            return ReadingListsFragment.newInstance()
+            return ReadingListsComposeFragment.newInstance()
         }
     },
     SEARCH(R.string.nav_item_search, R.id.nav_tab_search, R.drawable.selector_nav_search) {
@@ -28,7 +28,7 @@ enum class NavTab(val text: Int, val id: Int, val icon: Int) : EnumCode {
     // TODO migration: revert this back once migration is completed, repurposed this for Compose rewrite so that we can compare side by side with XML readingLists
     EDITS(R.string.nav_item_saved_compose, R.id.nav_tab_edits, R.drawable.selector_nav_saved) {
         override fun newInstance(): Fragment {
-            return ReadingListsComposeFragment.newInstance()
+            return ReadingListsFragment.newInstance()
         }
     },
     MORE(R.string.nav_item_more, R.id.nav_tab_more, R.drawable.ic_menu_white_24dp) {
