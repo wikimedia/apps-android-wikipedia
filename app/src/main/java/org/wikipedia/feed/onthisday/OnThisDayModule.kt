@@ -31,6 +31,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalContext
@@ -45,6 +46,7 @@ import androidx.compose.ui.unit.min
 import coil3.compose.AsyncImage
 import org.wikipedia.R
 import org.wikipedia.compose.components.HtmlText
+import org.wikipedia.compose.extensions.pulse
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
@@ -147,18 +149,25 @@ private fun EventRow(
         if (isFirst) {
             Box(
                 modifier = Modifier
-                    .padding(start = 16.dp, top = 8.dp)
-                    .size(12.dp)
-                    .clip(CircleShape)
-                    .background(WikipediaTheme.colors.progressiveColor)
-            )
+                    .padding(start = 16.dp, top = 4.dp)
+                    .size(12.dp, 20.dp)
+                    .background(WikipediaTheme.colors.backgroundColor)
+                    .padding(vertical = 4.dp)
+            ) {
+                Box(
+                    modifier = Modifier
+                        .size(12.dp)
+                        .clip(CircleShape)
+                        .background(WikipediaTheme.colors.progressiveColor)
+                )
+            }
+
         } else {
             Box(
                 modifier = Modifier
                     .padding(start = 16.dp, top = 24.dp)
                     .size(11.dp)
-                    .clip(CircleShape)
-                    .border(1.dp, WikipediaTheme.colors.progressiveColor, CircleShape)
+                    .background(WikipediaTheme.colors.backgroundColor)
                     .padding(3.dp)
             ) {
                 Box(
