@@ -98,21 +98,9 @@ object ReadingListBehaviorsUtil {
             return
         }
         if (showDialog) {
-            MaterialAlertDialogBuilder(activity)
-                    .setMessage(activity.getString(R.string.reading_list_delete_confirm, readingList.title))
-                    .setPositiveButton(R.string.reading_list_delete_dialog_ok_button_text) { _, _ ->
-                        MainScope().launch(exceptionHandler) {
-                            AppDatabase.instance.readingListDao().deleteList(readingList)
-                            AppDatabase.instance.readingListPageDao()
-                                .markPagesForDeletion(readingList, readingList.pages, false)
-                            if (!activity.isStarted) {
-                                return@launch
-                            }
-                            callback.onCompleted()
-                        }
-                    }
-                    .setNegativeButton(R.string.reading_list_delete_dialog_cancel_button_text, null)
-                    .show()
+            confirmDeleteReadingList(activity, readingList) {
+                deleteReadingList(activity, readingList, false, callback)
+            }
         } else {
             MainScope().launch(exceptionHandler) {
                 AppDatabase.instance.readingListDao().deleteList(readingList)
@@ -124,6 +112,19 @@ object ReadingListBehaviorsUtil {
                 callback.onCompleted()
             }
         }
+    }
+
+    fun confirmDeleteReadingList(activity: Activity, readingList: ReadingList?, callback: Callback) {
+        if (readingList == null) {
+            return
+        }
+        MaterialAlertDialogBuilder(activity)
+            .setMessage(activity.getString(R.string.reading_list_delete_confirm, readingList.title))
+            .setPositiveButton(R.string.reading_list_delete_dialog_ok_button_text) { _, _ ->
+                callback.onCompleted()
+            }
+            .setNegativeButton(R.string.reading_list_delete_dialog_cancel_button_text, null)
+            .show()
     }
 
     fun deleteReadingLists(activity: Activity, readingLists: List<ReadingList>, callback: Callback) {

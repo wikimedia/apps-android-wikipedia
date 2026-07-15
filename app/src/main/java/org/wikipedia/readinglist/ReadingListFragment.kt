@@ -710,7 +710,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
     private fun delete() {
         readingList?.let {
-            ReadingListBehaviorsUtil.deleteReadingList(requireActivity(), it, true) {
+            ReadingListBehaviorsUtil.confirmDeleteReadingList(requireActivity(), it) {
                 startActivity(MainActivity.newIntent(requireActivity()).putExtra(Constants.INTENT_EXTRA_DELETE_READING_LIST, it.title))
                 requireActivity().finish()
             }

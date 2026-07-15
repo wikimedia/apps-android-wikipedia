@@ -8,6 +8,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
@@ -25,7 +26,10 @@ import androidx.lifecycle.repeatOnLifecycle
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
+import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
@@ -48,6 +52,7 @@ import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
+import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
@@ -91,7 +96,9 @@ class ReadingListsComposeFragment : Fragment(), SortReadingListsDialog.Callback,
                         onListSelectionChange = ::toggleListSelection,
                         onPageClick = ::onPageClick,
                         onPageLongClick = ::onPageLongClick,
-                        onPageChipClick = ::onPageChipClick
+                        onPageChipClick = ::onPageChipClick,
+                        onPageToggleOfflineClick = ::onToggleOfflineClick,
+                        onDiscoverCardClick = ::onDiscoverCardClick
                     )
                 }
             }
@@ -118,6 +125,15 @@ class ReadingListsComposeFragment : Fragment(), SortReadingListsDialog.Callback,
                 }
             }
         }
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.RESUMED) {
+                viewModel.uiState
+                    .map { it.listCount >= Constants.MAX_READING_LISTS_LIMIT }
+                    .distinctUntilChanged()
+                    .collect(::maybeShowListLimitMessage)
+            }
+        }
     }
 
     private fun onRefresh() {
@@ -128,6 +144,29 @@ class ReadingListsComposeFragment : Fragment(), SortReadingListsDialog.Callback,
         } else {
             Prefs.isReadingListSyncEnabled = true
             ReadingListSyncAdapter.manualSyncWithForce()
+        }
+    }
+
+    private fun maybeShowListLimitMessage(atLimit: Boolean) {
+        if (atLimit && actionMode == null) {
+            FeedbackUtil.makeSnackbar(
+                requireActivity(),
+                getString(R.string.reading_lists_limit_message)
+            ).show()
+        }
+    }
+
+    private fun maybeDeleteListFromIntent() {
+        val intent = requireActivity().intent
+        val titleToDelete = intent.getStringExtra(Constants.INTENT_EXTRA_DELETE_READING_LIST) ?: return
+        intent.removeExtra(Constants.INTENT_EXTRA_DELETE_READING_LIST)
+        viewLifecycleOwner.lifecycleScope.launch {
+            val dao = AppDatabase.instance.readingListDao()
+            val listId = dao.getListsWithoutContents().firstOrNull { it.title == titleToDelete }?.id ?: return@launch
+            val list = dao.getListWithPagesById(listId)?.toReadingList() ?: return@launch
+            ReadingListBehaviorsUtil.deleteReadingList(requireActivity(), list, false) {
+                ReadingListBehaviorsUtil.showDeleteListUndoSnackbar(requireActivity(), list) {}
+            }
         }
     }
 
@@ -164,6 +203,7 @@ class ReadingListsComposeFragment : Fragment(), SortReadingListsDialog.Callback,
 
     override fun onResume() {
         super.onResume()
+        maybeDeleteListFromIntent()
         requireActivity().invalidateOptionsMenu()
     }
 
@@ -343,6 +383,27 @@ class ReadingListsComposeFragment : Fragment(), SortReadingListsDialog.Callback,
             childFragmentManager,
             ReadingListItemActionsDialog.newInstance(containingLists.first().title, containingLists.size, pageId, actionMode != null)
         )
+    }
+
+    // TODO migration: add downloadProgress UI
+    private fun onToggleOfflineClick(pageId: Long) {
+        viewLifecycleOwner.lifecycleScope.launch {
+            val page = AppDatabase.instance.readingListPageDao().getPageById(pageId) ?: return@launch
+            if (Prefs.isDownloadOnlyOverWiFiEnabled && !DeviceUtil.isOnWiFi &&
+                page.status == ReadingListPage.STATUS_QUEUE_FOR_SAVE) {
+                page.offline = false
+            }
+            if (page.saving) {
+                Toast.makeText(requireContext(), R.string.reading_list_article_save_in_progress, Toast.LENGTH_LONG).show()
+            } else {
+                // List refresh happens reactively via the DB flow, so the callback is empty.
+                ReadingListBehaviorsUtil.toggleOffline(requireActivity(), page) {}
+            }
+        }
+    }
+
+    private fun onDiscoverCardClick() {
+        startActivity(ReadingListActivity.newIntent(requireActivity(), ReadingListMode.RECOMMENDED))
     }
 
     private fun onPageChipClick(listId: Long) {

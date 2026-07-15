@@ -1,6 +1,8 @@
 package org.wikipedia.readinglist
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -36,6 +38,7 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.readinglist.compose.ReadingListMenuAction
 import org.wikipedia.readinglist.compose.ReadingListPageRow
 import org.wikipedia.readinglist.compose.ReadingListRow
+import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
@@ -55,7 +58,9 @@ fun ReadingListsComposeScreen(
     onListSelectionChange: (Long) -> Unit = {},
     onPageClick: (Long) -> Unit = {},
     onPageLongClick: (Long) -> Unit = {},
-    onPageChipClick: (Long) -> Unit = {}
+    onPageChipClick: (Long) -> Unit = {},
+    onPageToggleOfflineClick: (Long) -> Unit = {},
+    onDiscoverCardClick: () -> Unit = {}
 ) {
     LaunchedEffect(uiState.onboarding) {
         if (uiState.onboarding == OnboardingState.RecommendedReadingList) {
@@ -90,7 +95,9 @@ fun ReadingListsComposeScreen(
                 onListSelectionChange = onListSelectionChange,
                 onPageClick = onPageClick,
                 onPageLongClick = onPageLongClick,
-                onPageChipClick = onPageChipClick
+                onPageChipClick = onPageChipClick,
+                onPageToggleOfflineClick = onPageToggleOfflineClick,
+                onDiscoverCardClick = onDiscoverCardClick
             )
         }
     } else {
@@ -105,6 +112,8 @@ fun ReadingListsComposeScreen(
             onPageClick = onPageClick,
             onPageLongClick = onPageLongClick,
             onPageChipClick = onPageChipClick,
+            onPageToggleOfflineClick = onPageToggleOfflineClick,
+            onDiscoverCardClick = onDiscoverCardClick,
             modifier = modifier
         )
     }
@@ -122,10 +131,13 @@ private fun ReadingListsContent(
     onPageClick: (Long) -> Unit,
     onPageLongClick: (Long) -> Unit,
     onPageChipClick: (Long) -> Unit,
+    onPageToggleOfflineClick: (Long) -> Unit,
+    onDiscoverCardClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     when {
-        uiState.rows.isEmpty() && uiState.searchQuery.isNullOrEmpty() && uiState.onboarding == OnboardingState.None -> {
+        uiState.rows.isEmpty() && uiState.searchQuery.isNullOrEmpty() &&
+            uiState.onboarding == OnboardingState.None && uiState.discoverCard == null -> {
             EmptyReadingLists(modifier = modifier)
         }
         uiState.rows.isEmpty() && !uiState.searchQuery.isNullOrEmpty() -> {
@@ -138,6 +150,7 @@ private fun ReadingListsContent(
             ReadingListsList(
                 rows = uiState.rows,
                 onboarding = uiState.onboarding,
+                discoverCard = uiState.discoverCard,
                 onOnboardingAction = onOnboardingAction,
                 isSelectionMode = isSelectionMode,
                 selectedListIds = selectedListIds,
@@ -147,6 +160,8 @@ private fun ReadingListsContent(
                 onPageClick = onPageClick,
                 onPageLongClick = onPageLongClick,
                 onPageChipClick = onPageChipClick,
+                onPageToggleOfflineClick = onPageToggleOfflineClick,
+                onDiscoverCardClick = onDiscoverCardClick,
                 modifier = modifier
             )
         }
@@ -208,6 +223,42 @@ private fun OnboardingCard(
     }
 }
 
+@Composable
+private fun DiscoverCard(
+    card: RecommendedReadingListCard,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    val subtitle = if (card.isUserLoggedIn) {
+        stringResource(R.string.recommended_reading_list_page_subtitle_made_for, "<b>${card.userName}</b>")
+    } else {
+        stringResource(R.string.recommended_reading_list_page_logged_out_subtitle_made_for_you)
+    }
+    val description = stringResource(
+        when (card.updateFrequency) {
+            RecommendedReadingListUpdateFrequency.DAILY -> R.string.recommended_reading_list_page_description_daily
+            RecommendedReadingListUpdateFrequency.WEEKLY -> R.string.recommended_reading_list_page_description_weekly
+            RecommendedReadingListUpdateFrequency.MONTHLY -> R.string.recommended_reading_list_page_description_monthly
+        }
+    )
+    Box(modifier = modifier
+        .padding(16.dp)
+    ) {
+        RecommendedReadingListDiscoverCardView(
+            modifier = Modifier
+                .clickable(onClick = onClick)
+                .padding(16.dp),
+            title = stringResource(R.string.recommended_reading_list_title),
+            subtitleIcon = R.drawable.ic_wikipedia_w,
+            subtitle = subtitle,
+            description = description,
+            images = card.images,
+            isNewListGenerated = card.isNewListGenerated,
+            isUserLoggedIn = card.isUserLoggedIn
+        )
+    }
+}
+
 sealed interface OnboardingAction {
     data object RecommendedShown : OnboardingAction
     data object RecommendedAccept : OnboardingAction
@@ -222,6 +273,7 @@ sealed interface OnboardingAction {
 private fun ReadingListsList(
     rows: List<ReadingListRow>,
     onboarding: OnboardingState,
+    discoverCard: RecommendedReadingListCard?,
     onOnboardingAction: (OnboardingAction) -> Unit,
     isSelectionMode: Boolean,
     selectedListIds: Set<Long>,
@@ -231,6 +283,8 @@ private fun ReadingListsList(
     onPageClick: (Long) -> Unit,
     onPageLongClick: (Long) -> Unit,
     onPageChipClick: (Long) -> Unit,
+    onPageToggleOfflineClick: (Long) -> Unit,
+    onDiscoverCardClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     LazyColumn(modifier = modifier.fillMaxSize()) {
@@ -239,6 +293,14 @@ private fun ReadingListsList(
                 OnboardingCard(
                     state = onboarding,
                     onAction = onOnboardingAction
+                )
+            }
+        }
+        if (discoverCard != null) {
+            item(key = "discover") {
+                DiscoverCard(
+                    card = discoverCard,
+                    onClick = onDiscoverCardClick
                 )
             }
         }
@@ -265,6 +327,7 @@ private fun ReadingListsList(
                     containingLists = row.containingLists,
                     onClick = { onPageClick(row.page.id) },
                     onLongClick = { onPageLongClick(row.page.id) },
+                    onToggleOfflineClick = { onPageToggleOfflineClick(row.page.id) },
                     onChipClick = { listId -> onPageChipClick(listId) }
                 )
             }
@@ -344,6 +407,27 @@ private fun ReadingListsOnboardingPreview() {
                     ReadingListRow.ListRow(ReadingListUiModel(id = 2, title = "Physics", description = "reading", isDefault = false, totalPages = 12, sizeBytesFromPages = 1240000))
                 ),
                 onboarding = OnboardingState.RecommendedReadingList
+            )
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun ReadingListsDiscoverCardPreview() {
+    BaseTheme(currentTheme = Theme.LIGHT) {
+        ReadingListsComposeScreen(
+            uiState = ReadingListsUiState(
+                rows = listOf(
+                    ReadingListRow.ListRow(ReadingListUiModel(id = 2, title = "Physics", description = "reading", isDefault = false, totalPages = 12, sizeBytesFromPages = 1240000))
+                ),
+                discoverCard = RecommendedReadingListCard(
+                    images = emptyList(),
+                    isNewListGenerated = true,
+                    isUserLoggedIn = true,
+                    userName = "Wikipedian",
+                    updateFrequency = RecommendedReadingListUpdateFrequency.WEEKLY
+                )
             )
         )
     }

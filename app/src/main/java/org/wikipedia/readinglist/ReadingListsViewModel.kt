@@ -17,6 +17,8 @@ import org.wikipedia.database.AppDatabase
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.database.ReadingListWithPages
+import org.wikipedia.readinglist.recommended.RecommendedReadingListHelper
+import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
 class ReadingListsViewModel : ViewModel() {
@@ -39,13 +41,22 @@ class ReadingListsViewModel : ViewModel() {
                 R.string.preference_key_sync_reading_lists,
                 R.string.preference_key_reading_list_sync_reminder_enabled,
                 R.string.preference_key_reading_list_login_reminder_enabled,
-                R.string.preference_key_reading_list_sort_mode
+                R.string.preference_key_reading_list_sort_mode,
+                R.string.preference_key_recommended_reading_list_enabled,
+                R.string.preference_key_recommended_reading_list_new_list_generated,
+                R.string.preference_key_recommended_reading_list_articles_number,
+                R.string.preference_key_recommended_reading_list_source,
+                R.string.preference_key_recommended_reading_list_update_frequency
             )
         ) { relations, query, isSearchActive, _ ->
+            val isSearching = isSearchActive || !query.isNullOrEmpty()
             ReadingListsUiState(
                 rows = buildRows(relations, query),
+                listCount = relations.size,
                 searchQuery = query,
-                onboarding = resolveOnboardingState(query, isSearchActive)
+                onboarding = resolveOnboardingState(query, isSearchActive),
+                // will remove discover card while in search mode
+                discoverCard = if (isSearching) null else buildDiscoverCard()
             )
         }
             .flowOn(Dispatchers.IO)
@@ -132,6 +143,23 @@ class ReadingListsViewModel : ViewModel() {
             }
             else -> OnboardingState.None
         }
+    }
+
+    private suspend fun buildDiscoverCard(): RecommendedReadingListCard? {
+        if (!RecommendedReadingListHelper.readyToGenerateList()) {
+            return null
+        }
+        val recommendedPages = AppDatabase.instance.recommendedPageDao().getNewRecommendedPages()
+        if (recommendedPages.isEmpty()) {
+            return null
+        }
+        return RecommendedReadingListCard(
+            images = recommendedPages.mapNotNull { it.thumbUrl },
+            isNewListGenerated = Prefs.isNewRecommendedReadingListGenerated,
+            isUserLoggedIn = AccountUtil.isLoggedIn,
+            userName = AccountUtil.userName,
+            updateFrequency = Prefs.recommendedReadingListUpdateFrequency
+        )
     }
 
     private fun buildRows(relations: List<ReadingListWithPages>, query: String?): List<ReadingListRow> {
@@ -249,8 +277,18 @@ data class ContainingList(val id: Long, val title: String)
 
 data class ReadingListsUiState(
     val rows: List<ReadingListRow> = emptyList(),
+    val listCount: Int = 0,
     val searchQuery: String? = null,
-    val onboarding: OnboardingState = OnboardingState.None
+    val onboarding: OnboardingState = OnboardingState.None,
+    val discoverCard: RecommendedReadingListCard? = null
+)
+
+data class RecommendedReadingListCard(
+    val images: List<String>,
+    val isNewListGenerated: Boolean,
+    val isUserLoggedIn: Boolean,
+    val userName: String,
+    val updateFrequency: RecommendedReadingListUpdateFrequency
 )
 
 data class ReadingListsSelectionState(

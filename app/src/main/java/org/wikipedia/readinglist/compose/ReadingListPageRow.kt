@@ -50,7 +50,7 @@ fun ReadingListPageRow(
     modifier: Modifier = Modifier,
     onClick: () -> Unit = {},
     onLongClick: () -> Unit = {},
-    onActionClick: () -> Unit = {},
+    onToggleOfflineClick: () -> Unit = {},
     onChipClick: (Long) -> Unit = {}
 ) {
     Column(
@@ -92,7 +92,7 @@ fun ReadingListPageRow(
                     modifier = Modifier
                         .align(Alignment.CenterVertically)
                         .size(24.dp)
-                        .clickable(onClick = onActionClick)
+                        .clickable(onClick = onToggleOfflineClick)
                 )
             }
 
