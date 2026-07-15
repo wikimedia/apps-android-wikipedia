@@ -263,7 +263,6 @@ class ReadingListsComposeFragment : Fragment(), SortReadingListsDialog.Callback,
         (requireActivity() as AppCompatActivity).startSupportActionMode(searchActionModeCallback)
     }
 
-    // TODO migration: filter the list based on the search query
     private val searchActionModeCallback = object : SearchActionModeCallback() {
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
             actionMode = mode

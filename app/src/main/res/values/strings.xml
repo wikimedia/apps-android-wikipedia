@@ -18,8 +18,6 @@
     <string name="filter_hint_filter_my_lists_and_articles">Filter my lists</string>
     <string name="nav_item_suggested_edits">Edits</string>
     <string name="nav_item_activity">Activity</string>
-    <!-- TODO migration: remove nav_item_saved_compose  -->
-    <string name="nav_item_saved_compose">Saved ✦</string>
     <string name="nav_item_more">More</string>
     <string name="nav_item_search">Search</string>
     <string name="nav_item_contribute">Contribute</string>

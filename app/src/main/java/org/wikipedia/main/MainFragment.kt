@@ -39,6 +39,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.activitytab.ActivityTabFragment
+import org.wikipedia.activitytab.ActivityTabOnboardingActivity
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
@@ -70,7 +71,6 @@ import org.wikipedia.places.PlacesActivity
 import org.wikipedia.random.RandomActivity
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.ReadingListsComposeFragment
-import org.wikipedia.readinglist.ReadingListsFragment
 import org.wikipedia.readinglist.RemoveFromReadingListsDialog
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.search.SearchActivity
@@ -175,12 +175,11 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
         binding.mainNavTabLayout.setOnItemSelectedListener { item ->
             navTabBackStack.clear()
             if (item.order == NavTab.EDITS.code()) {
-                // TODO migration: disabling this, once migration for readingLists to Jetpack Compose is complete will uncomment this
-//                if (!Prefs.isActivityTabOnboardingShown) {
-//                    activityTabOnboardingLauncher.launch(ActivityTabOnboardingActivity.newIntent(requireContext()))
-//                    binding.mainNavTabLayout.setOverlayDot(NavTab.EDITS, false)
-//                    return@setOnItemSelectedListener false
-//                }
+                if (!Prefs.isActivityTabOnboardingShown) {
+                    activityTabOnboardingLauncher.launch(ActivityTabOnboardingActivity.newIntent(requireContext()))
+                    binding.mainNavTabLayout.setOverlayDot(NavTab.EDITS, false)
+                    return@setOnItemSelectedListener false
+                }
             }
             if (item.order == NavTab.MORE.code()) {
                 ExclusiveBottomSheetPresenter.show(childFragmentManager, MenuNavTabDialog.newInstance())
@@ -199,8 +198,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
             true
         }
 
-        // TODO migration: disabling this, once migration for readingLists to Jetpack Compose is complete will uncomment this
-        // binding.mainNavTabLayout.setOverlayDot(NavTab.EDITS, !Prefs.isActivityTabOnboardingShown)
+        binding.mainNavTabLayout.setOverlayDot(NavTab.EDITS, !Prefs.isActivityTabOnboardingShown)
 
         maybeShowFeedNewModulesTooltip()
         Prefs.incrementExploreFeedVisitCount()
@@ -286,15 +284,11 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
             R.id.menu_search_lists -> {
                 if (fragment is ReadingListsComposeFragment) {
                     fragment.startSearchActionMode()
-                } else if (fragment is ReadingListsFragment) {
-                    fragment.startSearchActionMode()
                 }
                 true
             }
             R.id.menu_overflow_button -> {
                 if (fragment is ReadingListsComposeFragment) {
-                    fragment.showReadingListsOverflowMenu()
-                } else if (fragment is ReadingListsFragment) {
                     fragment.showReadingListsOverflowMenu()
                 }
                 true
@@ -304,8 +298,8 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
     }
 
     override fun onPrepareMenu(menu: Menu) {
-        menu.findItem(R.id.menu_search_lists).isVisible = currentFragment is ReadingListsFragment || currentFragment is ReadingListsComposeFragment
-        menu.findItem(R.id.menu_overflow_button).isVisible = currentFragment is ReadingListsFragment || currentFragment is ReadingListsComposeFragment
+        menu.findItem(R.id.menu_search_lists).isVisible = currentFragment is ReadingListsComposeFragment
+        menu.findItem(R.id.menu_overflow_button).isVisible = currentFragment is ReadingListsComposeFragment
 
         val tabsItem = menu.findItem(R.id.menu_tabs)
         if (WikipediaApp.instance.tabCount < 1 || currentFragment is SuggestedEditsTasksFragment) {
@@ -567,7 +561,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
 
     private fun refreshContents() {
         when (val fragment = currentFragment) {
-            is ReadingListsFragment -> fragment.updateLists()
             is HistoryFragment -> fragment.refresh()
             is SuggestedEditsTasksFragment -> fragment.refreshContents()
         }

@@ -63,7 +63,6 @@
   <string name="filter_hint_filter_my_lists_and_articles">Hint text for filtering the set of reading lists or pages in a single reading list</string>
   <string name="nav_item_suggested_edits">Navigation menu item label for suggested edits.\n\n{{Identical|Suggested edits}}</string>
   <string name="nav_item_activity">Navigation menu item label for the user\'s activity.</string>
-  <string name="nav_item_saved_compose">Navigation menu item label for saved pages, used during the Compose migration.</string>
   <string name="nav_item_more">Navigation menu item label for accessing menu items.\n{{identical|More}}</string>
   <string name="nav_item_search">Navigation menu item label for search.\n\n{{Identical|Search}}</string>
   <string name="nav_item_contribute">Navigation menu item label for contribute.\n\n{{Identical|Contribute}}</string>
