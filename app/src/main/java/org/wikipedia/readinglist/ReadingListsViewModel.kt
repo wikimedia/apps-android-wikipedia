@@ -3,11 +3,14 @@ package org.wikipedia.readinglist
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.debounce
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.stateIn
 import org.apache.commons.lang3.StringUtils
@@ -22,8 +25,12 @@ import org.wikipedia.readinglist.recommended.RecommendedReadingListHelper
 import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
+@OptIn(FlowPreview::class)
 class ReadingListsViewModel : ViewModel() {
     private val searchQuery = MutableStateFlow<String?>(null)
+    private val debouncedSearchQuery = searchQuery
+        .debounce { query -> if (query.isNullOrEmpty()) 0L else SEARCH_DEBOUNCE_MILLIS }
+        .distinctUntilChanged()
     private val searchActive = MutableStateFlow(false)
     private val recentPreviewSavedState = MutableStateFlow(RecentPreviewSavedState())
     private val accountState = MutableStateFlow(readAccountState())
@@ -37,7 +44,7 @@ class ReadingListsViewModel : ViewModel() {
 
     private val readingListsContentState = combine(
         AppDatabase.instance.readingListDao().getListsWithPagesFlow(),
-        searchQuery,
+        debouncedSearchQuery,
         recentPreviewSavedState,
         pageDownloadProgress,
         Prefs.observeKeys(R.string.preference_key_reading_list_sort_mode)
@@ -247,8 +254,8 @@ class ReadingListsViewModel : ViewModel() {
         return buildSearchRows(lists, query, recentPreviewSavedId, downloadProgress)
     }
 
-    // matches lists first (in order), then matches pages across all lists
-    // filters out duplicates by lang + apiTitle and also finds all titles a page is contained in for chips display.
+    // Build list rows first, then page rows from all lists.
+    // Use lang + API title to avoid showing the same page more than once.
     private fun buildSearchRows(
         lists: List<ReadingList>,
         query: String,
@@ -259,7 +266,20 @@ class ReadingListsViewModel : ViewModel() {
         val listRows = mutableListOf<ReadingListRow>()
         val pageRows = mutableListOf<ReadingListRow>()
         val seenPages = mutableSetOf<Pair<String, String>>()
+        val containingListsByPage = mutableMapOf<Pair<String, String>, MutableList<ContainingList>>()
 
+        // First, build a map of lang + API title to the lists containing each page.
+        // This avoids searching all lists again for every matching page.
+        lists.forEach { list ->
+            val containingList = ContainingList(list.id, list.title)
+            list.pages.forEach { page ->
+                containingListsByPage.getOrPut(page.lang to page.apiTitle) { mutableListOf() }
+                    .add(containingList)
+            }
+        }
+
+        // Iterate the lists again and build the matching list rows and page rows.
+        // Use the map to find the containing list titles for each page row.
         lists.forEach { list ->
             if (list.accentInvariantTitle.contains(normalizedQuery, ignoreCase = true)) {
                 listRows.add(ReadingListRow.ListRow(list.toUiModel(recentPreviewSavedId)))
@@ -267,16 +287,16 @@ class ReadingListsViewModel : ViewModel() {
             list.pages.forEach { page ->
                 if (page.accentInvariantTitle.contains(normalizedQuery, ignoreCase = true) &&
                     seenPages.add(page.lang to page.apiTitle)) {
-                    pageRows.add(ReadingListRow.PageRow(page.toUiModel(downloadProgress[page.id] ?: 0), lists.findContainingLists(page)))
+                    pageRows.add(
+                        ReadingListRow.PageRow(
+                            page.toUiModel(downloadProgress[page.id] ?: 0),
+                            containingListsByPage[page.lang to page.apiTitle].orEmpty()
+                        )
+                    )
                 }
             }
         }
         return listRows + pageRows
-    }
-
-    private fun List<ReadingList>.findContainingLists(page: ReadingListPage): List<ContainingList> {
-        return filter { list -> list.pages.any { it.lang == page.lang && it.apiTitle == page.apiTitle } }
-            .map { ContainingList(it.id, it.title) }
     }
 
     private fun MutableList<ReadingList>.removeEmptyDefaultList() {
@@ -316,6 +336,7 @@ class ReadingListsViewModel : ViewModel() {
 
     companion object {
         private const val STOP_TIMEOUT_MILLIS = 5000L
+        private const val SEARCH_DEBOUNCE_MILLIS = 150L
     }
 }
 
