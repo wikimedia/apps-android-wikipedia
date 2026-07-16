@@ -1813,6 +1813,8 @@
   <string name="places_empty_message_snackbar">Er zijn geen pagina\'s in de buurt. Probeer uit te zoomen en de kaart te verplaatsen.</string>
   <string name="survey_dialog_title">Help ons deze functie te verbeteren</string>
   <string name="survey_dialog_message">Bent u tevreden over deze functie?</string>
+  <string name="home_feed_survey_title">Help mee de Startpagina te verbeteren</string>
+  <string name="home_feed_survey_message">Bent u tevreden met de feeds \"Gemeenschap\" en \"Voor u\"?</string>
   <string name="survey_dialog_option_satisfied">Tevreden</string>
   <string name="survey_dialog_option_neutral">Neutraal</string>
   <string name="survey_dialog_option_unsatisfied">Niet tevreden</string>
@@ -2485,7 +2487,10 @@
   <string name="home_feed_for_you_screen_end_of_feed_description">Kom morgen terug voor gloednieuwe pagina\'s die speciaal voor jou zijn samengesteld.</string>
   <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Manieren om te blijven leren:</string>
   <string name="home_feed_for_you_screen_end_of_feed_add_interests">Voeg &lt;a href=\"#add_interests\"&gt;nieuwe interesses&lt;/a&gt; toe</string>
+  <string name="randomizer_shake_prompt_title">Schudden om te wisselen</string>
+  <string name="randomizer_shake_prompt_message">Schud uw apparaat om naar een willekeurige pagina te springen en iets onverwachts te ontdekken.</string>
   <string name="home_feed_games_module_cta_prompt_title">Wilt u nog meer spellen spelen?</string>
   <string name="home_feed_games_module_cta_prompt_subtitle">Ga naar het spellencentrum</string>
   <string name="home_feed_games_module_cta_prompt_button_text">Spellencentrum</string>
+  <string name="random_article_widget_name">Willekeurige pagina</string>
 </resources>
