@@ -25,6 +25,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -56,6 +57,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.views.imageservice.ImageService
+import kotlinx.coroutines.launch
 
 enum class CardVariation {
     VARIATION_IMAGE_WITH_EXTRACT,
@@ -67,7 +69,7 @@ enum class CardVariation {
 fun ForYouCardContent(
     wikiSite: WikiSite,
     title: PageTitle,
-    isInReadingList: Boolean = false,
+    resolveSavedState: suspend (PageTitle) -> Boolean = { false },
     variation: CardVariation = CardVariation.VARIATION_IMAGE_WITH_EXTRACT,
     backgroundColorIndex: Int = 0,
     module: ForYouModule? = null,
@@ -84,7 +86,10 @@ fun ForYouCardContent(
     onCustomizeClick: () -> Unit = {}
 ) {
     val context = LocalContext.current
+    val scope = rememberCoroutineScope()
     var overflowMenuExpanded by remember { mutableStateOf(false) }
+    // Resolved on demand when the overflow button is tapped, so we never query the whole feed up front.
+    var isInReadingList by remember { mutableStateOf(false) }
     val showSpaceForPagerDots = (module?.cards?.size ?: 0) > 1
 
     Box(
@@ -173,7 +178,10 @@ fun ForYouCardContent(
                             IconButton(
                                 modifier = Modifier.size(48.dp),
                                 onClick = {
-                                    overflowMenuExpanded = true
+                                    scope.launch {
+                                        isInReadingList = resolveSavedState(title)
+                                        overflowMenuExpanded = true
+                                    }
                                 }
                             ) {
                                 Icon(
@@ -273,7 +281,10 @@ fun ForYouCardContent(
                         IconButton(
                             modifier = Modifier.size(48.dp),
                             onClick = {
-                                overflowMenuExpanded = true
+                                scope.launch {
+                                    isInReadingList = resolveSavedState(title)
+                                    overflowMenuExpanded = true
+                                }
                             }
                         ) {
                             Icon(

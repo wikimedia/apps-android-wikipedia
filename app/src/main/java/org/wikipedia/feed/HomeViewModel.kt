@@ -377,7 +377,8 @@ class HomeViewModel : ViewModel() {
     private val _tabsState = MutableStateFlow(TabsState(WikipediaApp.instance.tabCount, pulse = false))
     val tabsState = _tabsState.asStateFlow()
 
-    // Holds the API titles of articles currently in the feed, to be queried whether they are saved in a reading list.
+    // Holds the API titles of Community-tab articles currently in the feed, to be queried whether they are saved in a reading list.
+    // The "For you" tab does not contribute here; its cards resolve saved state lazily on overflow-menu tap (see resolveForYouSavedState in HomeFragment).
     private val _savedInReadingApiTitles = MutableStateFlow<List<String>>(emptyList())
 
     // Derives saved state by asking Room only about those titles that we want to monitor.
@@ -571,20 +572,6 @@ class HomeViewModel : ViewModel() {
                 isLoadingMore = false,
                 error = null
             )
-
-            _savedInReadingApiTitles.value = _forYouState.value.modules
-                .flatMap { it.cards }
-                .mapNotNull {
-                    when (it) {
-                        is BasedOnInterestCard -> it.title.prefixedText
-                        is ContinueReadingCard -> it.title.prefixedText
-                        is BecauseYouReadCard -> it.title.prefixedText
-                        is DiscoverCard -> it.title.prefixedText
-                        is PlacesOfInterestCard -> it.title.prefixedText
-                        is RandomCard -> it.title.prefixedText
-                        else -> null
-                    }
-                }
         }
     }
 

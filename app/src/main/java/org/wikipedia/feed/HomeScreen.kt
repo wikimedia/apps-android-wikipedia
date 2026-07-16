@@ -55,6 +55,7 @@ import org.wikipedia.compose.extensions.pulse
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.page.PageTitle
 import org.wikipedia.extensions.getString
 import org.wikipedia.feed.model.Card
 import org.wikipedia.language.AppLanguageState
@@ -72,6 +73,7 @@ fun HomeScreen(
     forYouContentState: ForYouContentState,
     overflowMenuState: PageOverflowMenuViewModel.PageOverflowMenuState? = null,
     savedInReadingListTitles: Set<String> = emptySet(),
+    resolveForYouSavedState: suspend (PageTitle) -> Boolean = { false },
     tabsState: TabsState,
     notificationBellState: NotificationBellState,
     onAction: (HomeAction) -> Unit = {}
@@ -144,7 +146,7 @@ fun HomeScreen(
                         topInset = topInset,
                         state = forYouContentState,
                         wikiSite = wikiSite,
-                        savedInReadingListTitles = savedInReadingListTitles,
+                        resolveSavedState = resolveForYouSavedState,
                         onAction = onAction
                     )
 

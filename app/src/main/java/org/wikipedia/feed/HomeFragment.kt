@@ -125,6 +125,9 @@ class HomeFragment : Fragment() {
                         forYouContentState = forYouContentState,
                         overflowMenuState = pageOverflowMenuViewModel.pageOverflowMenuState,
                         savedInReadingListTitles = viewModel.savedInReadingListTitles.collectAsState().value,
+                        resolveForYouSavedState = { title ->
+                            AppDatabase.instance.readingListPageDao().findPageInAnyList(title) != null
+                        },
                         tabsState = tabsState,
                         notificationBellState = notificationState,
                         onAction = { handleHomeAction(it, wikiSite, selectedTab) }

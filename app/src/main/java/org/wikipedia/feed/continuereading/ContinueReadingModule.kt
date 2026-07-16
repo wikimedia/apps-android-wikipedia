@@ -26,7 +26,7 @@ fun ContinueReadingModule(
     modifier: Modifier = Modifier,
     wikiSite: WikiSite,
     module: ForYouModule.ContinueReading,
-    savedInReadingListTitles: Set<String> = emptySet(),
+    resolveSavedState: suspend (PageTitle) -> Boolean = { false },
     onPageClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
     onPageBookmarkClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
     onPageShareClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
@@ -48,7 +48,7 @@ fun ContinueReadingModule(
         ForYouCardContent(
             wikiSite = wikiSite,
             title = card.title,
-            isInReadingList = savedInReadingListTitles.contains(card.title.prefixedText),
+            resolveSavedState = resolveSavedState,
             variation = CardVariation.entries[pageIndex % CardVariation.entries.size],
             backgroundColorIndex = backgroundColorIndex + pageIndex,
             module = module,
