@@ -44,6 +44,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.compose.components.FadeInAsyncImage
@@ -57,7 +58,6 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.views.imageservice.ImageService
-import kotlinx.coroutines.launch
 
 enum class CardVariation {
     VARIATION_IMAGE_WITH_EXTRACT,

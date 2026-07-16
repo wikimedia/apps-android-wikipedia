@@ -55,14 +55,13 @@ import org.wikipedia.compose.extensions.pulse
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.page.PageTitle
 import org.wikipedia.extensions.getString
 import org.wikipedia.feed.model.Card
 import org.wikipedia.language.AppLanguageState
 import org.wikipedia.main.MainActivity
+import org.wikipedia.page.PageTitle
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DimenUtil
-import kotlin.collections.orEmpty
 
 @Composable
 fun HomeScreen(
