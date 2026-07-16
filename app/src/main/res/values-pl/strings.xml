@@ -277,7 +277,7 @@
   <string name="page_protected_autoconfirmed">Ta strona jest częściowo zabezpieczona.</string>
   <string name="page_protected_sysop">Ta strona jest całkowicie zabezpieczona.</string>
   <string name="page_protected_other">Ta strona została zabezpieczona do następujących poziomów: %s</string>
-  <string name="page_protected_can_not_edit">Przepraszamy, twoje konto nie ma w tej chwili wystarczających uprawnień do edycji tej strony.</string>
+  <string name="page_protected_can_not_edit">Przepraszamy, Twoje konto nie ma w tej chwili wystarczających uprawnień do edycji tej strony.</string>
   <string name="page_protected_can_not_edit_anon">Niestety, tej strony nie można obecnie edytować anonimowo.</string>
   <string name="page_protected_can_not_edit_title">Ta strona jest zabezpieczona</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Dodaj do listy obserwowanych</string>
@@ -1068,7 +1068,7 @@
   <string name="suggested_edits_image_tags_add_tag">Dodaj znacznik</string>
   <string name="suggested_edits_image_tags_exit_dialog_message">Nieopublikowane znaczniki nie zostaną zapisane</string>
   <string name="suggested_edits_image_zoom_tooltip">Uszczypnij, aby powiększyć ten obraz.</string>
-  <string name="suggested_edits_encouragement_message">%s, dziękujemy za twoje edycje. Poniżej możesz znaleźć więcej sposobów aby rozwijać Wikipedię.</string>
+  <string name="suggested_edits_encouragement_message">%s, dziękujemy za Twoje edycje. Poniżej możesz znaleźć więcej sposobów, aby rozwijać Wikipedię.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Witaj %s&lt;/b&gt;, poniżej znajdziesz kilka szybkich i łatwych sposobów na ulepszanie Wikipedii. Zauważysz różnicę, jaką robisz, gdy tylko zaczniesz. Miłej edycji!</string>
   <string name="suggested_edits_image_captions_task_detail">Opisz obraz, aby pomóc czytelnikom zrozumieć jego znaczenie i kontekst.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Podsumuj artykuł, aby pomóc czytelnikom zrozumieć temat na pierwszy rzut oka.</string>
@@ -1237,7 +1237,7 @@
   <string name="description_edit_revert_subtitle">Dziękujemy za edytowanie Wikipedii!</string>
   <string name="description_edit_revert_intro">Wiemy, że starałeś się jak najlepiej, ale jeden z recenzentów miał obawy. Możliwe przyczyny cofnięcia edycji obejmują:</string>
   <string name="description_edit_revert_reason1">Twój wkład nie był zgodny z jedną z &lt;a href=\"%1$s\"&gt; wytycznych &lt;/a&gt;.</string>
-  <string name="description_edit_revert_reason2">twój wpis wyglądał na eksperyment lub wandalizm.</string>
+  <string name="description_edit_revert_reason2">Twój wpis wyglądał na eksperyment lub wandalizm.</string>
   <string name="description_edit_revert_history">Jeśli Cię to interesuje, zobacz &lt;a href=\"%1$s\"&gt;historię edycji&lt;/a&gt;.</string>
   <string name="description_edit_login_cancel_button_text">Anuluj</string>
   <string name="offline_read_permission_rationale">Pozwolenie na dostęp do pamięci masowej na urządzeniu jest wymagane do przeglądania w trybie offline.</string>
@@ -1400,7 +1400,7 @@
   <string name="talk_snackbar_survey_action_text">Rozpocznij</string>
   <string name="talk_share_discussion_subject">Wikipedia - dyskusja na temat strony dyskusji \"%s\"</string>
   <string name="talk_share_talk_page">Wikipedia - dyskusje na stronie rozmowy</string>
-  <string name="talk_edit_disclaimer">To jest strona dyskusji. Przestrzegaj wytycznych dotyczących strony dyskusji i pamiętaj, aby podpisywać swoje wpisy, wpisując cztery tyldy: ~~~~ podczas umieszczania wpisu przy użyciu wikitekstu.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines\"&gt;Wikipedia:Wytyczne dotyczące strony dyskusji&lt;/a&gt;</string>
+  <string name="talk_edit_disclaimer">To jest strona dyskusji. Przestrzegaj wytycznych dotyczących strony dyskusji i pamiętaj, aby podpisywać swoje wpisy, wpisując cztery tyldy: ~~~~ podczas umieszczania wpisu przy użyciu wikikodu.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines\"&gt;Wikipedia:Wytyczne dotyczące strony dyskusji&lt;/a&gt;</string>
   <string name="talk_search_hint">Przeszukuj wiadomości</string>
   <string name="talk_search_topics_hint">Szukaj tematów</string>
   <string name="talk_search_find_in_talk_topics_hint">Znajdź w temacie strony dyskusji</string>

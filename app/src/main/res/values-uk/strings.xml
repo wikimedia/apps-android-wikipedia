@@ -2686,4 +2686,5 @@
   <string name="home_feed_games_module_cta_prompt_title">Хочете зіграти більше ігор?</string>
   <string name="home_feed_games_module_cta_prompt_subtitle">Перейдіть до хабу ігор</string>
   <string name="home_feed_games_module_cta_prompt_button_text">Хаб ігор</string>
+  <string name="random_article_widget_name">Випадкова стаття</string>
 </resources>
