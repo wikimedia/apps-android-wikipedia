@@ -2683,7 +2683,7 @@
   <string name="home_feed_settings_continue_reading_title">Продолжить чтение</string>
   <string name="home_feed_settings_continue_reading_subtitle">Вернитесь к статьям, которые вы не дочитали.</string>
   <string name="home_feed_did_you_know_title">Знаете ли вы?</string>
-  <string name="home_feed_did_you_know_subtitle">Интересные факты из статей, отобранные редакторами-волонтёрами.</string>
+  <string name="home_feed_did_you_know_subtitle">Интересные факты из новых статей, отобранные википедистами</string>
   <string name="home_feed_did_you_know_more_label">Больше интересных фактов</string>
   <string name="home_feed_settings_community_empty_dialog_title">Ваша лента «Сообщество» будет пустой.</string>
   <string name="home_feed_settings_for_you_empty_dialog_title">Ваша лента «Для вас» будет пустой.</string>

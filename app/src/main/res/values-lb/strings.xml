@@ -2189,4 +2189,5 @@
   <string name="home_feed_for_you_screen_end_of_feed_add_interests">Setzt &lt;a href=\"#add_interests\"&gt;nei Interessen&lt;/a&gt; derbäi</string>
   <string name="randomizer_shake_prompt_message">Rëselt Ären Apparat, fir op en zoufällegen Artikel ze geroden an eppes Onerwaartes ze léieren.</string>
   <string name="home_feed_games_module_cta_prompt_title">Wëllt Dir nach méi Spiller spillen?</string>
+  <string name="random_article_widget_name">Zoufällegen Artikel</string>
 </resources>
