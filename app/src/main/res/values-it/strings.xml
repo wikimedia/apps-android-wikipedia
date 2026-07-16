@@ -42,6 +42,7 @@
 * Marty5550
 * Mattiz6276
 * McDutchie
+* Moliseforever
 * Nastoshka
 * Nemo bis
 * Neonsn0w
@@ -861,6 +862,7 @@
   <string name="view_random_article_card_title">Voce a caso</string>
   <string name="view_random_article_card_action">Un\'altra pagina a caso</string>
   <string name="view_top_read_card_title">Tendenze</string>
+  <string name="view_top_read_card_description">Cos\'è in tendenza oggi su Wikipedia</string>
   <string name="view_top_read_card_action">Altre tendenze</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d mila</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
@@ -1258,6 +1260,7 @@
   </plurals>
   <string name="activity_tab_customize_screen_time_spent_switch_title">Tempo passato a leggere</string>
   <string name="activity_tab_customize_screen_reading_insights_switch_title">Statistiche sulla lettura</string>
+  <string name="activity_tab_customize_screen_editing_insights_switch_title">Statistiche di modifica</string>
   <string name="activity_tab_customize_screen_impact_switch_title">Impatto dall\'inizio</string>
   <string name="activity_tab_customize_screen_games_switch_title">Statistiche di gioco</string>
   <string name="activity_tab_customize_screen_donations_switch_title">Ultima donazione nell\'app</string>
@@ -1270,7 +1273,10 @@
   <string name="activity_tab_onboarding_reading_patterns_title">Schemi di lettura</string>
   <string name="activity_tab_onboarding_reading_patterns_message">Scopri quanto tempo hai dedicato alla lettura e quali voci o argomenti hai approfondito nel tempo.</string>
   <string name="activity_tab_onboarding_impact_message">Scopri informazioni sui tuoi contributi e sulla portata della conoscenza che hai condiviso.</string>
+  <string name="activity_tab_onboarding_engage_title">Altri modi per interagire</string>
+  <string name="activity_tab_onboarding_engage_message">Esplora le statistiche relative a giochi, voci salvate e altre attività che ti consentono di entrare di più in contatto con Wikipedia.</string>
   <string name="activity_tab_onboarding_stay_in_control_title">Mantieni il controllo</string>
+  <string name="activity_tab_onboarding_stay_in_control_message">Scegli quali moduli visualizzare. Tutti i dati personali rimangono privati sul tuo dispositivo e la cronologia di navigazione può essere cancellata in qualsiasi momento.</string>
   <string name="edits_screen_what_is_title">Modifica nell\'app Wikipedia</string>
   <string name="edits_screen_what_is_body">Non sai da dove iniziare con le modifiche? Prova \"Modifiche suggerite\", una funzionalità che offre l\'opportunità di apportare piccoli ma importanti contributi a Wikipedia. In alternativa, vai direttamente a una voce di tuo interesse e apporta una modifica tramite il wikitesto.</string>
   <string name="activity_tab_snackbar_label">Le statistiche di gioco vengono visualizzate nella tua lingua principale.</string>
@@ -1305,6 +1311,12 @@
   <string name="onboarding_welcome_title_v2">L\'enciclopedia libera\n…in più di 300 lingue</string>
   <string name="onboarding_next">Successivo</string>
   <string name="onboarding_fresh_install_knowledge_title">Tutta la conoscenza del mondo</string>
+  <string name="onboarding_fresh_install_knowledge_text">Wikipedia è un\'enciclopedia online gratuita con 65 milioni di voci, scritte e aggiornate in modo collaborativo in oltre 300 lingue da una comunità di volontari.</string>
+  <string name="onboarding_fresh_install_knowledge_learn_more">Ulteriori informazioni su Wikipedia</string>
+  <string name="onboarding_app_languages_title">Leggi in oltre 300 lingue</string>
+  <string name="onboarding_app_languages_text">Abbiamo rilevato le seguenti lingue sul tuo dispositivo:</string>
+  <string name="onboarding_app_languages_primary">Primaria</string>
+  <string name="onboarding_app_languages_add_button">Aggiungi o modifica le tue lingue</string>
   <string name="app_shortcuts_random">Casuale</string>
   <string name="app_shortcuts_continue_reading">Continua a leggere</string>
   <string name="app_shortcuts_search">Cerca</string>
@@ -1814,6 +1826,8 @@
   <string name="places_empty_message_snackbar">Non ci sono voci nelle vicinanze. Prova a ridurre lo zoom e muovere la mappa.</string>
   <string name="survey_dialog_title">Aiutaci a migliorare le pagine di discussione</string>
   <string name="survey_dialog_message">Sei soddisfatto di questa funzionalità?</string>
+  <string name="home_feed_survey_title">Aiuta a migliorare la Pagina principale</string>
+  <string name="home_feed_survey_message">Sei soddisfatto dei feed \"Comunità\" e \"Per te\"?</string>
   <string name="survey_dialog_option_satisfied">Soddisfatto</string>
   <string name="survey_dialog_option_neutral">Neutrale</string>
   <string name="survey_dialog_option_unsatisfied">Non soddisfatto</string>
@@ -1920,6 +1934,7 @@
   <string name="year_in_review_get_started_headline">Esplora il tuo Anno in Rassegna su Wikipedia</string>
   <string name="year_in_review_get_started_bodytext">Visualizza informazioni su quali voci hai letto sull\'app Wikipedia, e sulle modifiche che hai fatto.</string>
   <string name="year_in_review_get_started_info">La cronologia di lettura è protetta. Le statistiche di lettura vengono calcolate utilizzando i dati memorizzati localmente sul dispositivo.</string>
+  <string name="year_in_review_get_started_later">Potrai accedere al tuo riepilogo annuale in un secondo momento, tramite il menu Altro.</string>
   <string name="year_in_review_survey_title">Aiutaci a migliorare l\'Anno in Rassenga</string>
   <string name="year_in_review_survey_subtitle">Sei soddisfatto di questa funzionalità?</string>
   <string name="year_in_review_reading_list_survey_title">Aiutaci a migliorare l\'elenco di lettura dell\'Anno in Rassegna %d.</string>
@@ -2195,6 +2210,8 @@
   <string name="home_feed_random_subtitle">Una voce a caso per stuzzicare la tua curiosità</string>
   <string name="home_feed_random_shuffle_button">Mescola</string>
   <string name="home_feed_settings_feed_configuration_interests_updated_message">Interessi aggiornati. Aggiorna il feed per vedere gli aggiornamenti.</string>
+  <string name="home_feed_settings_games_title">Giochi</string>
   <string name="home_feed_discover_cta_description">Scopri nuovi argomenti, selezionati appositamente per te. Scegli tra aggiornamenti giornalieri, settimanali o mensili.</string>
   <string name="home_feed_discover_see_all_description">Il tuo elenco di lettura personalizzato ha altre storie selezionate appositamente per te.</string>
+  <string name="randomizer_shake_prompt_title">Scuoti per mescolare</string>
 </resources>

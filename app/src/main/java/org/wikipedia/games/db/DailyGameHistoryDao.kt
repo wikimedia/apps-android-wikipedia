@@ -7,6 +7,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
 import androidx.room.Upsert
+import kotlinx.coroutines.flow.Flow
 import org.wikipedia.games.PlayTypes
 import java.time.LocalDate
 import java.time.Month
@@ -25,6 +26,10 @@ interface DailyGameHistoryDao {
     @Query("SELECT * FROM DailyGameHistory WHERE gameName = :gameName AND language = :language " +
             "AND year = :year AND month = :month AND day = :day")
     suspend fun findGameHistoryByDate(gameName: Int, language: String, year: Int, month: Int, day: Int): DailyGameHistory?
+
+    @Query("SELECT * FROM DailyGameHistory WHERE gameName = :gameName AND language = :language " +
+            "AND year = :year AND month = :month AND day = :day")
+    fun findGameHistoryByDateFlow(gameName: Int, language: String, year: Int, month: Int, day: Int): Flow<DailyGameHistory?>
 
     @Query("SELECT COUNT(*) FROM DailyGameHistory WHERE gameName = :gameName AND language = :language AND status = 1")
     suspend fun getTotalGamesPlayed(gameName: Int, language: String): Int

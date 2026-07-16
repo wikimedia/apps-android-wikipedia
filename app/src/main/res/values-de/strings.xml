@@ -443,10 +443,10 @@
   <string name="button_get_directions">Richtungen abrufen</string>
   <string name="error_no_maps_app">Es konnten keine Apps gefunden werden, die Richtungen zur Verfügung stellen.</string>
   <string name="preference_title_customize_explore_feed">Entdecken-Feed</string>
-  <string name="preference_title_customize_home_feed">Home-Feed</string>
+  <string name="preference_title_customize_home_feed">Startseite</string>
   <string name="preference_title_show_link_previews">Vorschaubilder von Links anzeigen</string>
   <string name="preference_summary_customize_explore_feed">Den Entdecken-Feed anpassen</string>
-  <string name="preference_summary_customize_home_feed">Passe deinen Home-Feed an</string>
+  <string name="preference_summary_customize_home_feed">Passe deine Startseite an</string>
   <string name="preference_summary_show_link_previews">Zeigt eine schnelle Vorschau von Artikeln beim Antippen von Links.</string>
   <string name="preference_title_collapse_tables">Tabellen einklappen</string>
   <string name="preference_summary_collapse_tables">Tabellen in Artikeln wie Infoboxen, Einzelnachweise und Anmerkungen automatisch einklappen.</string>
@@ -604,7 +604,7 @@
     <item quantity="one">%d Artikel aus Liste entfernt</item>
     <item quantity="other">%d Artikel aus Liste entfernt</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+  <plurals name="reading_list_articles_deleted_from_list">
     <item quantity="one">%1$d Artikel entfernt von %2$s</item>
     <item quantity="other">%1$d Artikel entfernt von %2$s</item>
   </plurals>
@@ -901,11 +901,11 @@
   <string name="feed_item_type_randomizer">Zufällige Artikel zum Lesen erzeugen</string>
   <string name="feed_item_type_suggested_edits">Vorschläge zum Hinzufügen von Inhalten zu Wikipedia</string>
   <string name="feed_item_type_places">Artikel in der Nähe basierend auf dem aktuellen Standort</string>
-  <string name="feed_empty_message">In deinem Start-Feed ist nichts vorhanden</string>
+  <string name="feed_empty_message">In deinem Startseiten-Feed ist nichts vorhanden</string>
   <string name="feed_configure_onboarding_action">Anpassen</string>
   <string name="customize_lang_selection_dialog_ok_button_text">Okay</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Abbrechen</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Passe deinen Home-Feed an&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Du kannst jetzt auswählen, was auf deinem Feed angezeigt werden soll, und außerdem deine Lieblingsinhalte priorisieren.</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Passe deinen Startseiten-Feed an&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Du kannst jetzt auswählen, was auf deinem Feed angezeigt werden soll, und außerdem deine Lieblingsinhalte priorisieren.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">Okay</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Abbrechen</string>
   <string name="feed_accessibility_card_text">Du hast das Ende des Feeds erreicht.</string>
@@ -1301,7 +1301,7 @@
   <string name="onboarding_get_started">Anfangen</string>
   <string name="onboarding_maybe_later">Vielleicht später</string>
   <string name="onboarding_explore_title">Neue Wege zum Entdecken</string>
-  <string name="onboarding_explore_text">Tauche mit einem ständig aktualisierten Start-Feed tief in die Welt von Wikipedia ein. &lt;br/&gt; &lt;b&gt;Passe&lt;/b&gt; den Feed an deine Interessen an – ob du etwas über historische Ereignisse &lt;b&gt;An diesem Tag&lt;/b&gt; lernst oder mit &lt;b&gt;Zufällig&lt;/b&gt; dein Glück versuchst.</string>
+  <string name="onboarding_explore_text">Tauche mit einem ständig aktualisierten Startseiten-Feed tief in die Welt von Wikipedia ein. &lt;br/&gt; &lt;b&gt;Passe&lt;/b&gt; den Feed an deine Interessen an – ob du etwas über historische Ereignisse &lt;b&gt;An diesem Tag&lt;/b&gt; lernst oder mit &lt;b&gt;Zufällig&lt;/b&gt; dein Glück versuchst.</string>
   <string name="onboarding_reading_list_sync_title">Leselisten mit Synchronisierung</string>
   <string name="onboarding_reading_list_sync_text_v2">Du kannst Leselisten von Artikeln erstellen, die du später lesen möchtest, auch wenn du offline bist. &lt;br/&gt;Melde dich bei deinem Wikipedia-Benutzerkonto an, um deine Leselisten zu synchronisieren. &lt;a href=\"#login\"&gt;Wikipedia beitreten&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Daten &amp; Privatsphäre</string>
@@ -1348,7 +1348,7 @@
     <item quantity="one">Ausgewählte Sprache entfernen?</item>
     <item quantity="other">Ausgewählte Sprachen entfernen?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Du wirst nur die Inhalte im Home-Feed und Schnellsuchfilter für die verbleibenden Wikipedia-Sprachen sehen.</string>
+  <string name="wikipedia_languages_remove_dialog_content">Du wirst nur die Inhalte im Startseiten-Feed und Schnellsuchfilter für die verbleibenden Wikipedia-Sprachen sehen.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Es konnten nicht alle Sprachen entfernt werden</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Mindestens eine Wikipedia-Sprache für die Suche und das Lesen von Inhalten behalten.</string>
   <string name="more_language_options">mehr</string>
@@ -1828,6 +1828,8 @@
   <string name="places_empty_message_snackbar">Es sind keine Artikel in der Nähe vorhanden. Versuchen Sie, die Karte zu verkleinern und zu verschieben.</string>
   <string name="survey_dialog_title">Hilf uns, die Diskussions-Seiten zu verbessern</string>
   <string name="survey_dialog_message">Bist du mit dieser Funktion zufrieden?</string>
+  <string name="home_feed_survey_title">Hilf mit, die Startseite zu verbessern</string>
+  <string name="home_feed_survey_message">Bist du mit den Feeds „Community“ und „Für dich“ zufrieden?</string>
   <string name="survey_dialog_option_satisfied">Zufrieden</string>
   <string name="survey_dialog_option_neutral">Neutral</string>
   <string name="survey_dialog_option_unsatisfied">Unzufrieden</string>
@@ -1850,7 +1852,7 @@
   <string name="on_this_day_game_entry_dialog_subtitle">Wikipedia-Spiele</string>
   <string name="on_this_day_game_entry_dialog_button">Spielen</string>
   <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia-Spiele findest du im Spielebereich im Menü „Mehr“.</string>
-  <string name="on_this_day_game_title">Was war zuerst?</string>
+  <string name="on_this_day_game_title">Was war zuerst da?</string>
   <string name="on_this_day_game_dialog_button">Spielen</string>
   <string name="on_this_day_game_splash_message">Raten Sie, welches Ereignis an diesem Tag in der Geschichte zuerst stattgefunden hat.</string>
   <string name="on_this_day_game_progress">%1$d von %2$d</string>
@@ -1863,7 +1865,7 @@
   <string name="on_this_day_game_finish">Endergebnisse</string>
   <string name="on_this_day_game_share_button">Score teilen</string>
   <string name="on_this_day_game_feed_entry_card_heading">Wikipedia-Spiele</string>
-  <string name="on_this_day_game_feed_entry_card_title">Was war zuerst?</string>
+  <string name="on_this_day_game_feed_entry_card_title">Was war zuerst da?</string>
   <string name="on_this_day_game_result">Sie haben %1$d von %2$d erzielt.</string>
   <string name="on_this_day_game_next_in">Nächstes Spiel in %s</string>
   <string name="on_this_day_game_your_stats">Ihre Statistiken</string>
@@ -1874,7 +1876,7 @@
   <string name="on_this_day_game_stats_average_score">Durchschnitts-Punktzahl</string>
   <string name="on_this_day_game_stats_streak">Gegenwärtige Serie</string>
   <string name="on_this_day_game_result_subtitle">Im heutigen Spiel referenzierte Artikel</string>
-  <string name="on_this_day_game_completed_message">Danke fürs Spielen. Ein neues „Was war zuerst?“-Spiel steht täglich im Start-Feed bereit.</string>
+  <string name="on_this_day_game_completed_message">Danke fürs Spielen. Ein neues „Was war zuerst da?“-Spiel steht täglich auf der Startseite bereit.</string>
   <string name="on_this_day_game_menu_notifications">Spielbenachrichtigungen</string>
   <string name="on_this_day_game_menu_info">Mehr erfahren</string>
   <string name="on_this_day_game_menu_feedback">Problem mit der Funktion</string>
@@ -1897,7 +1899,7 @@
   <string name="on_this_day_game_report_email_body">Ich habe ein Problem mit der Funktion „Wikipedia-Spiele“ festgestellt:\n- [Beschreiben Sie das spezifische Problem]\n\nDas Verhalten, das ich gerne sehen würde, ist:\n- [Beschreiben Sie die vorgeschlagene Lösung]</string>
   <string name="on_this_day_game_notification_undo">Widerrufen</string>
   <string name="on_this_day_game_share_link_message">Ich spiele „Was war zuerst da?“, ein tägliches Quiz-Spiel in der Wikipedia-Android-App %s</string>
-  <string name="on_this_day_game_share_screen_title">Ich habe heute %1$d/%2$d bei „Was war zuerst?“ erreicht.</string>
+  <string name="on_this_day_game_share_screen_title">Ich habe heute %1$d/%2$d bei „Was war zuerst da?“ erreicht.</string>
   <string name="on_this_day_game_share_screen_subtitle">Themen:</string>
   <string name="on_this_day_game_archive_calendar_title">Wählen Sie nach Datum ein Spiel zum Spielen aus.</string>
   <string name="on_this_day_game_score_toast_message">Sie haben an diesem Tag %1$d/%2$d erzielt.</string>
@@ -2402,6 +2404,7 @@
   <string name="explore_feed_new_update_prompt_language_description">Jede Sprache, vollständig personalisiert</string>
   <string name="explore_feed_new_update_prompt_primary_button_text">Feed anpassen</string>
   <string name="explore_feed_customize_interests">Interessen anpassen</string>
+  <string name="explore_feed_customize_discover">Entdecken anpassen</string>
   <string name="explore_feed_new_update_prompt_secondary_button_text">Für mich einrichten</string>
   <string name="explore_feed_building_text">Wir erstellen deinen Feed…</string>
   <string name="explore_feed_community_tab_label">Gemeinschaft</string>
@@ -2429,8 +2432,11 @@
   <string name="explore_feed_personalized_preference_empty_state_text">Du musst Interessen hinzufügen, um personalisierte Inhaltsempfehlungen zu sehen. Das kannst du in den vorherigen Schritten oder später in den Einstellungen tun.</string>
   <string name="explore_feed_because_you_read">Weil du gelesen hast: %s</string>
   <string name="explore_feed_swipe_to_explore_prompt_title">Wischen zum Entdecken</string>
-  <string name="explore_feed_swipe_to_explore_prompt_message" fuzzy="true">Wische nach unten, um zwischen Themen zu wechseln, oder zur Seite, um verwandte Inhalte zu entdecken.</string>
-  <string name="home_feed_settings_title" fuzzy="true">Start-Feed anpassen</string>
+  <string name="explore_feed_swipe_to_explore_prompt_message">Wische nach oben, um zwischen Themen zu wechseln, oder zur Seite, um verwandte Inhalte zu entdecken.</string>
+  <string name="home_feed_settings_title">Startseite anpassen</string>
+  <string name="home_feed_settings_default_view_title">Standard-Feed-Ansicht</string>
+  <string name="home_feed_settings_default_view_subtitle">Wähle, welcher Feed beim Öffnen der App zuerst angezeigt wird</string>
+  <string name="home_feed_settings_default_view_confirm">Diese Änderung wird beim nächsten Öffnen der App wirksam.</string>
   <string name="home_feed_settings_whats_driving_title">Was deinen Feed bestimmt</string>
   <string name="home_feed_settings_modules_title">Module</string>
   <string name="home_feed_settings_community_subtitle">Module des „Gemeinschaft“-Feeds ein- oder ausschalten</string>
@@ -2480,9 +2486,23 @@
   <string name="home_feed_places_of_interest_cta_button">Orte öffnen</string>
   <string name="home_feed_settings_places_of_interest_title">Interessante Orte</string>
   <string name="home_feed_settings_places_of_interest_subtitle">Artikel in der Nähe deines letzten Standorts unter „Orte“</string>
+  <string name="home_feed_settings_games_title">Spiele</string>
+  <string name="home_feed_settings_games_subtitle">Tägliche Spiele auf Basis von Wikipedia-Inhalten</string>
+  <string name="home_feed_settings_discover_title">Entdecken-Empfehlungen</string>
+  <string name="home_feed_settings_discover_subtitle">Artikel aus deiner Entdecken-Leseliste</string>
+  <string name="home_feed_discover_cta_title">Aus Entdecken</string>
+  <string name="home_feed_discover_cta_description">Erfahre mehr über neue Themen, speziell für dich ausgewählt. Wähle zwischen täglichen, wöchentlichen oder monatlichen Updates.</string>
+  <string name="home_feed_discover_cta_button">Entdecken-Leseliste aktivieren</string>
+  <string name="home_feed_discover_card_footer">Aus Entdecken • Aktualisiert %s</string>
+  <string name="home_feed_discover_see_all_title">Es gibt mehr zu entdecken</string>
+  <string name="home_feed_discover_see_all_description">Deine personalisierte Leseliste enthält weitere Geschichten, speziell für dich ausgewählt.</string>
+  <string name="home_feed_discover_see_all_button">Alle Empfehlungen erkunden</string>
   <string name="home_feed_places_of_interest_card_footer">%1$s • Basierend auf deinem Standort unter „Orte“</string>
   <string name="home_feed_for_you_screen_end_of_feed_title">Das war’s für heute!</string>
   <string name="home_feed_for_you_screen_end_of_feed_description">Komm morgen wieder für frische, auf dich zugeschnittene Artikel.</string>
   <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">So lernst du weiter:</string>
   <string name="home_feed_for_you_screen_end_of_feed_add_interests">Füge &lt;a href=\"#add_interests\"&gt;neue Interessen&lt;/a&gt; hinzu</string>
+  <string name="home_feed_games_module_cta_prompt_title">Lust auf mehr Spiele?</string>
+  <string name="home_feed_games_module_cta_prompt_subtitle">Zum Spiele-Hub</string>
+  <string name="home_feed_games_module_cta_prompt_button_text">Spiele-Hub</string>
 </resources>

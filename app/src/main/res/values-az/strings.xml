@@ -1768,6 +1768,8 @@
   <string name="places_empty_message_snackbar">Yaxınlıqda məqalə yoxdur. Xəritəni böyütməyi və hərəkət etdirməyi yoxlayın.</string>
   <string name="survey_dialog_title">Bu funksiyanı təkmilləşdirməkdə bizə kömək edin</string>
   <string name="survey_dialog_message">Bu funksiya sizi qane edirmi?</string>
+  <string name="home_feed_survey_title">Ana səhifəni təkmilləşdirməyə kömək et</string>
+  <string name="home_feed_survey_message">\"İcma\" və \"Sizin üçün\" lentlərindən razısınızmı?</string>
   <string name="survey_dialog_option_satisfied">Razıyam</string>
   <string name="survey_dialog_option_neutral">Neytral</string>
   <string name="survey_dialog_option_unsatisfied">Razı deyiləm</string>
@@ -2374,6 +2376,7 @@
   <string name="home_feed_settings_title">Ana səhifə lentinizi fərdiləşdirin</string>
   <string name="home_feed_settings_default_view_title">Defolt lent görünüşü</string>
   <string name="home_feed_settings_default_view_subtitle">Tətbiqi açdığınız zaman hansı lentin ilk göstəriləcəyini seçin</string>
+  <string name="home_feed_settings_default_view_confirm">Bu dəyişiklik növbəti dəfə tətbiqi açdığınız zaman tətbiq olunacaq.</string>
   <string name="home_feed_settings_whats_driving_title">Lentinizi nə idarə edir</string>
   <string name="home_feed_settings_modules_title">Modullar</string>
   <string name="home_feed_settings_community_subtitle">\"İcma\" lent modullarını aktivləşdirin və ya söndürün</string>
@@ -2423,6 +2426,8 @@
   <string name="home_feed_places_of_interest_cta_button">Məkanlara get</string>
   <string name="home_feed_settings_places_of_interest_title">Maraqlı yerlər</string>
   <string name="home_feed_settings_places_of_interest_subtitle">Yerlərdə son yerinizə yaxın məqalələr</string>
+  <string name="home_feed_settings_games_title">Oyunlar</string>
+  <string name="home_feed_settings_games_subtitle">Vikipediya məzmununa əsaslanan gündəlik oyunlar</string>
   <string name="home_feed_settings_discover_title">Kəşf tövsiyələri</string>
   <string name="home_feed_settings_discover_subtitle">Kəşf edilmiş oxuma siyahınızdan məqalələr</string>
   <string name="home_feed_discover_cta_title">Kəşf etdən</string>
@@ -2437,4 +2442,7 @@
   <string name="home_feed_for_you_screen_end_of_feed_description">Sabah sizin üçün fərdiləşdirilmiş yeni məqalələr tapmaq üçün yenə gəlin.</string>
   <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Öyrənməyə davam etmək yolları:</string>
   <string name="home_feed_for_you_screen_end_of_feed_add_interests">&lt;a href=\"#add_interests\"&gt;Yeni maraqlar&lt;/a&gt; əlavə et</string>
+  <string name="home_feed_games_module_cta_prompt_title">Daha çox oyun oynamaq istəyirsiniz?</string>
+  <string name="home_feed_games_module_cta_prompt_subtitle">Oyun mərkəzinə get</string>
+  <string name="home_feed_games_module_cta_prompt_button_text">Oyun mərkəzi</string>
 </resources>

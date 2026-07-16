@@ -60,6 +60,22 @@ class RandomizerAction : ActionCallback {
     }
 }
 
+// Separate from RandomizerAction so this can report the Random Article widget type.
+// Avoids extra Glance action parameter plumbing and keeps the future standalone Random Article widget transition simpler.
+class RandomArticleWidgetAction : ActionCallback {
+    override suspend fun onAction(
+        context: Context,
+        glanceId: GlanceId,
+        parameters: ActionParameters
+    ) {
+        context.startActivity(
+            RandomActivity.newIntent(context, WikipediaApp.instance.wikiSite, InvokeSource.WIDGET)
+                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                .putExtra(Constants.INTENT_WIDGET_TYPE, WidgetTypes.RANDOM_ARTICLE.value)
+        )
+    }
+}
+
 class ChallengeRewardAction : ActionCallback {
     override suspend fun onAction(
         context: Context,

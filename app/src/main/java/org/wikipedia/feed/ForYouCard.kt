@@ -354,8 +354,8 @@ fun ForYouCardDropdownMenu(
     wikiSite: WikiSite,
     isInReadingList: Boolean = false,
     onDismiss: () -> Unit = {},
-    onShareClick: () -> Unit = {},
-    onSaveClick: () -> Unit = {},
+    onShareClick: (() -> Unit)? = {},
+    onSaveClick: (() -> Unit)? = {},
     onHideCardClick: () -> Unit = {},
     onHideModuleClick: () -> Unit = {},
     @StringRes customizeMenuText: Int = R.string.explore_feed_customize_interests,
@@ -368,48 +368,54 @@ fun ForYouCardDropdownMenu(
         onDismissRequest = onDismiss,
         containerColor = WikipediaTheme.colors.paperColor
     ) {
-        DropdownMenuItem(
-            leadingIcon = {
-                Icon(
-                    painter = painterResource(R.drawable.ic_share),
-                    contentDescription = null,
-                    tint = WikipediaTheme.colors.secondaryColor,
-                    modifier = Modifier.size(24.dp)
-                )
-            },
-            text = {
-                Text(
-                    text = context.getString(wikiSite.languageCode, R.string.menu_page_article_share),
-                    style = MaterialTheme.typography.bodyLarge,
-                    color = WikipediaTheme.colors.primaryColor
-                )
-            },
-            onClick = {
-                onShareClick()
-                onDismiss()
-            }
-        )
-        DropdownMenuItem(
-            leadingIcon = {
-                Icon(
-                    painter = painterResource(if (isInReadingList) R.drawable.ic_bookmark_white_24dp else R.drawable.ic_bookmark_border_white_24dp),
-                    contentDescription = null,
-                    tint = WikipediaTheme.colors.secondaryColor,
-                    modifier = Modifier.size(24.dp)
-                )
-            },
-            text = {
-                Text(
-                    text = context.getString(wikiSite.languageCode, if (isInReadingList) R.string.reading_list_remove_from_lists else R.string.menu_page_add_to_default_list),
-                    style = MaterialTheme.typography.bodyLarge,
-                    color = WikipediaTheme.colors.primaryColor
-                )
-            },
-            onClick = {
-                onSaveClick()
-                onDismiss()
-            }
-        )
+        if (onShareClick != null) {
+            DropdownMenuItem(
+                leadingIcon = {
+                    Icon(
+                        painter = painterResource(R.drawable.ic_share),
+                        contentDescription = null,
+                        tint = WikipediaTheme.colors.secondaryColor,
+                        modifier = Modifier.size(24.dp)
+                    )
+                },
+                text = {
+                    Text(
+                        text = context.getString(wikiSite.languageCode, R.string.menu_page_article_share),
+                        style = MaterialTheme.typography.bodyLarge,
+                        color = WikipediaTheme.colors.primaryColor
+                    )
+                },
+                onClick = {
+                    onShareClick()
+                    onDismiss()
+                }
+            )
+        }
+
+        if (onSaveClick != null) {
+            DropdownMenuItem(
+                leadingIcon = {
+                    Icon(
+                        painter = painterResource(R.drawable.ic_bookmark_border_white_24dp),
+                        contentDescription = null,
+                        tint = WikipediaTheme.colors.secondaryColor,
+                        modifier = Modifier.size(24.dp)
+                    )
+                },
+                text = {
+                    Text(
+                        text = context.getString(wikiSite.languageCode, R.string.menu_page_add_to_default_list),
+                        style = MaterialTheme.typography.bodyLarge,
+                        color = WikipediaTheme.colors.primaryColor
+                    )
+                },
+                onClick = {
+                    onSaveClick()
+                    onDismiss()
+                }
+            )
+        }
+
         DropdownMenuItem(
             leadingIcon = {
                 Icon(
