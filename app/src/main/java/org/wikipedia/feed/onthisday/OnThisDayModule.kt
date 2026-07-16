@@ -145,8 +145,8 @@ private fun EventRow(
         if (isFirst) {
             Box(
                 modifier = Modifier
-                    .padding(start = 16.dp, top = 2.dp)
-                    .size(12.dp, 24.dp)
+                    .padding(start = 16.dp, top = 4.dp)
+                    .size(12.dp, 20.dp)
                     .background(WikipediaTheme.colors.backgroundColor),
                 contentAlignment = Alignment.Center
             ) {
