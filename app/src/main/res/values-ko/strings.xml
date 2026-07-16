@@ -2389,4 +2389,5 @@
   <string name="home_feed_games_module_cta_prompt_title">더 많은 게임을 원하시나요?</string>
   <string name="home_feed_games_module_cta_prompt_subtitle">게임 허브로 이동</string>
   <string name="home_feed_games_module_cta_prompt_button_text">게임 허브</string>
+  <string name="random_article_widget_name">무작위 문서</string>
 </resources>
