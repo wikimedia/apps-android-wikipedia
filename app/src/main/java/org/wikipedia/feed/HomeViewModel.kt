@@ -338,6 +338,10 @@ class HomeViewModel : ViewModel() {
                 )
                 .map { it.toSet() }
         }
+        .catch {
+            L.e(it)
+            emit(emptySet())
+        }
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(MAX_STOP_TIMEOUT_MILLIS), emptySet())
 
     private val communityHandler = CoroutineExceptionHandler { _, throwable ->
