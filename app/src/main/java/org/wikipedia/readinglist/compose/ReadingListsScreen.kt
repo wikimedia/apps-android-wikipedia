@@ -293,8 +293,8 @@ private fun ReadingListsList(
 ) {
     val listState = rememberLazyListState()
 
-    LaunchedEffect(onboarding) {
-        if (onboarding != OnboardingState.None) {
+    LaunchedEffect(onboarding, discoverCard) {
+        if (onboarding != OnboardingState.None || discoverCard != null) {
             listState.animateScrollToItem(0)
         }
     }

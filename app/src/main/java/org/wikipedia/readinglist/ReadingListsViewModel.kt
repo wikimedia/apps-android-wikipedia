@@ -21,7 +21,6 @@ import org.wikipedia.database.AppDatabase
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.database.ReadingListWithPages
-import org.wikipedia.readinglist.recommended.RecommendedReadingListHelper
 import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
@@ -62,6 +61,34 @@ class ReadingListsViewModel : ViewModel() {
         )
     }
 
+    private val recommendationPreferenceChanges = Prefs.observeKeys(
+        R.string.preference_key_recommended_reading_list_enabled,
+        R.string.preference_key_recommended_reading_list_new_list_generated,
+        R.string.preference_key_recommended_reading_list_articles_number,
+        R.string.preference_key_recommended_reading_list_source,
+        R.string.preference_key_recommended_reading_list_update_frequency
+    )
+
+    private val discoverCard = combine(
+        AppDatabase.instance.recommendedPageDao().getNewRecommendedPagesFlow(),
+        recommendationPreferenceChanges,
+        accountState
+    ) { recommendedPages, _, accountState ->
+        if (!Prefs.isRecommendedReadingListEnabled || recommendedPages.isEmpty()) {
+            null
+        } else {
+            RecommendedReadingListCard(
+                images = recommendedPages.mapNotNull { it.thumbUrl },
+                isNewListGenerated = Prefs.isNewRecommendedReadingListGenerated,
+                isUserLoggedIn = accountState.isLoggedIn,
+                userName = accountState.userName,
+                updateFrequency = Prefs.recommendedReadingListUpdateFrequency
+            )
+        }
+    }
+        .distinctUntilChanged()
+        .flowOn(Dispatchers.IO)
+
     val uiState: StateFlow<ReadingListsUiState> =
         combine(
             readingListsContentState,
@@ -71,19 +98,15 @@ class ReadingListsViewModel : ViewModel() {
                 R.string.preference_key_recommended_reading_list_onboarding_shown,
                 R.string.preference_key_sync_reading_lists,
                 R.string.preference_key_reading_list_sync_reminder_enabled,
-                R.string.preference_key_reading_list_login_reminder_enabled,
-                R.string.preference_key_recommended_reading_list_enabled,
-                R.string.preference_key_recommended_reading_list_new_list_generated,
-                R.string.preference_key_recommended_reading_list_articles_number,
-                R.string.preference_key_recommended_reading_list_source,
-                R.string.preference_key_recommended_reading_list_update_frequency
-            )
-        ) { contentState, isSearchActive, accountState, _ ->
+                R.string.preference_key_reading_list_login_reminder_enabled
+            ),
+            discoverCard
+        ) { contentState, isSearchActive, accountState, _, discoverCard ->
             val isSearching = isSearchActive || !contentState.searchQuery.isNullOrEmpty()
             contentState.copy(
                 onboarding = resolveOnboardingState(contentState.searchQuery, isSearchActive, accountState),
                 // will remove discover card while in search mode
-                discoverCard = if (isSearching) null else buildDiscoverCard(accountState)
+                discoverCard = discoverCard.takeUnless { isSearching }
             )
         }
             .flowOn(Dispatchers.IO)
@@ -208,23 +231,6 @@ class ReadingListsViewModel : ViewModel() {
             }
             else -> OnboardingState.None
         }
-    }
-
-    private suspend fun buildDiscoverCard(accountState: ReadingListsAccountState): RecommendedReadingListCard? {
-        if (!RecommendedReadingListHelper.readyToGenerateList()) {
-            return null
-        }
-        val recommendedPages = AppDatabase.instance.recommendedPageDao().getNewRecommendedPages()
-        if (recommendedPages.isEmpty()) {
-            return null
-        }
-        return RecommendedReadingListCard(
-            images = recommendedPages.mapNotNull { it.thumbUrl },
-            isNewListGenerated = Prefs.isNewRecommendedReadingListGenerated,
-            isUserLoggedIn = accountState.isLoggedIn,
-            userName = accountState.userName,
-            updateFrequency = Prefs.recommendedReadingListUpdateFrequency
-        )
     }
 
     private fun readAccountState(): ReadingListsAccountState {
