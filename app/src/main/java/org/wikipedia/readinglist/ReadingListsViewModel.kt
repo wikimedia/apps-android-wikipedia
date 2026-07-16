@@ -49,6 +49,7 @@ class ReadingListsViewModel : ViewModel() {
         Prefs.observeKeys(R.string.preference_key_reading_list_sort_mode)
     ) { relations, query, previewSavedState, downloadProgress, _ ->
         ReadingListsUiState(
+            isLoading = false,
             rows = buildRows(
                 relations,
                 query,
@@ -385,6 +386,7 @@ sealed interface ReadingListRow {
 data class ContainingList(val id: Long, val title: String)
 
 data class ReadingListsUiState(
+    val isLoading: Boolean = true,
     val rows: List<ReadingListRow> = emptyList(),
     val listCount: Int = 0,
     val searchQuery: String? = null,

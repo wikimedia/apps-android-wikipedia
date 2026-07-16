@@ -14,6 +14,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -140,6 +141,16 @@ private fun ReadingListsContent(
     modifier: Modifier = Modifier
 ) {
     when {
+        uiState.isLoading -> {
+            Box(
+                modifier = modifier.fillMaxSize(),
+                contentAlignment = Alignment.Center
+            ) {
+                CircularProgressIndicator(
+                    color = WikipediaTheme.colors.progressiveColor
+                )
+            }
+        }
         uiState.rows.isEmpty() && uiState.searchQuery.isNullOrEmpty() &&
             uiState.onboarding == OnboardingState.None && uiState.discoverCard == null -> {
             EmptyReadingLists(modifier = modifier)
@@ -393,6 +404,7 @@ private fun ReadingListsScreenPreview() {
     ) {
         ReadingListsScreen(
             uiState = ReadingListsUiState(
+                isLoading = false,
                 rows = listOf(
                     ReadingListRow.ListRow(
                         ReadingListUiModel(
@@ -425,7 +437,7 @@ private fun ReadingListsScreenPreview() {
 private fun ReadingListsEmptyPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         ReadingListsScreen(
-            uiState = ReadingListsUiState()
+            uiState = ReadingListsUiState(isLoading = false)
         )
     }
 }
@@ -436,6 +448,7 @@ private fun ReadingListsOnboardingPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         ReadingListsScreen(
             uiState = ReadingListsUiState(
+                isLoading = false,
                 rows = listOf(
                     ReadingListRow.ListRow(
                         ReadingListUiModel(
@@ -460,6 +473,7 @@ private fun ReadingListsDiscoverCardPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         ReadingListsScreen(
             uiState = ReadingListsUiState(
+                isLoading = false,
                 rows = listOf(
                     ReadingListRow.ListRow(
                         ReadingListUiModel(
