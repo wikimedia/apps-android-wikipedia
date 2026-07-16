@@ -37,6 +37,7 @@ fun RandomModule(
     modifier: Modifier = Modifier,
     wikiSite: WikiSite,
     module: ForYouModule.Random,
+    savedInReadingListTitles: Set<String> = emptySet(),
     onPageClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
     onPageBookmarkClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
     onPageShareClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
@@ -58,6 +59,7 @@ fun RandomModule(
         ForYouCardContent(
             wikiSite = wikiSite,
             title = card.title,
+            isInReadingList = savedInReadingListTitles.contains(card.title.prefixedText),
             module = module,
             card = module.cards[page],
             footerText = context.getString(wikiSite.languageCode, R.string.view_random_article_card_title),

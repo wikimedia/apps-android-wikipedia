@@ -85,6 +85,7 @@ fun DiscoverArticlesModule(
     wikiSite: WikiSite,
     module: ForYouModule.Discover,
     @StringRes updateFrequency: Int,
+    savedInReadingListTitles: Set<String> = emptySet(),
     onPageClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
     onPageBookmarkClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
     onPageShareClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
@@ -114,6 +115,7 @@ fun DiscoverArticlesModule(
                 ForYouCardContent(
                     wikiSite = wikiSite,
                     title = card.title,
+                    isInReadingList = savedInReadingListTitles.contains(card.title.prefixedText),
                     module = module,
                     card = card,
                     footerIcon = painterResource(R.drawable.ic_lightbulb_24dp),

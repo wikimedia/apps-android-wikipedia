@@ -78,6 +78,7 @@ fun ForYouContentTab(
     state: ForYouContentState,
     topInset: Int,
     wikiSite: WikiSite,
+    savedInReadingListTitles: Set<String> = emptySet(),
     onAction: (HomeAction) -> Unit = {}
 ) {
     when {
@@ -171,6 +172,7 @@ fun ForYouContentTab(
                                 topInset = topInset,
                                 viewPortHeight = viewportHeight,
                                 wikiSite = wikiSite,
+                                savedInReadingListTitles = savedInReadingListTitles,
                                 onAction = onAction
                             )
                         }
@@ -221,6 +223,7 @@ fun ForYouContentTab(
                                 topInset = topInset,
                                 viewPortHeight = viewportHeight,
                                 wikiSite = wikiSite,
+                                savedInReadingListTitles = savedInReadingListTitles,
                                 onAction = onAction,
                                 onCardImpression = { _, _ -> }
                             )
@@ -238,6 +241,7 @@ private fun LazyListScope.forYouModuleItem(
     topInset: Int,
     viewPortHeight: Dp,
     wikiSite: WikiSite,
+    savedInReadingListTitles: Set<String>,
     onAction: (HomeAction) -> Unit,
     onCardImpression: (card: Card, index: Int) -> Unit = { card, index -> onAction(HomeAction.CardImpression(card, index)) }
 ) {
@@ -251,6 +255,7 @@ private fun LazyListScope.forYouModuleItem(
                         .height(viewPortHeight),
                     wikiSite = wikiSite,
                     module = module,
+                    savedInReadingListTitles = savedInReadingListTitles,
                     onPageClick = { card, entry -> onAction(HomeAction.PageClick(card, entry)) },
                     onPageShareClick = { card, entry -> onAction(HomeAction.PageShareClick(card, entry)) },
                     onPageBookmarkClick = { card, entry -> onAction(HomeAction.PageBookmarkClick(card, entry)) },
@@ -269,6 +274,7 @@ private fun LazyListScope.forYouModuleItem(
                         .height(viewPortHeight),
                     wikiSite = wikiSite,
                     module = module,
+                    savedInReadingListTitles = savedInReadingListTitles,
                     onPageClick = { card, entry -> onAction(HomeAction.PageClick(card, entry)) },
                     onPageShareClick = { card, entry -> onAction(HomeAction.PageShareClick(card, entry)) },
                     onPageBookmarkClick = { card, entry -> onAction(HomeAction.PageBookmarkClick(card, entry)) },
@@ -287,6 +293,7 @@ private fun LazyListScope.forYouModuleItem(
                         .height(viewPortHeight),
                     wikiSite = wikiSite,
                     module = module,
+                    savedInReadingListTitles = savedInReadingListTitles,
                     onPageClick = { card, entry -> onAction(HomeAction.PageClick(card, entry)) },
                     onPageShareClick = { card, entry -> onAction(HomeAction.PageShareClick(card, entry)) },
                     onPageBookmarkClick = { card, entry -> onAction(HomeAction.PageBookmarkClick(card, entry)) },
@@ -331,6 +338,7 @@ private fun LazyListScope.forYouModuleItem(
                                 .height(viewPortHeight),
                             wikiSite = wikiSite,
                             module = module,
+                            savedInReadingListTitles = savedInReadingListTitles,
                             onPageClick = { card, entry -> onAction(HomeAction.PageClick(card, entry)) },
                             onPageShareClick = { card, entry -> onAction(HomeAction.PageShareClick(card, entry)) },
                             onPageBookmarkClick = { card, entry -> onAction(HomeAction.PageBookmarkClick(card, entry)) },
@@ -378,6 +386,7 @@ private fun LazyListScope.forYouModuleItem(
                             topInset = topInset,
                             wikiSite = wikiSite,
                             module = module,
+                            savedInReadingListTitles = savedInReadingListTitles,
                             updateFrequency = module.updateFrequency.displayStringRes,
                             onPageClick = { card, entry -> onAction(HomeAction.PageClick(card, entry)) },
                             onPageShareClick = { card, entry -> onAction(HomeAction.PageShareClick(card, entry)) },
@@ -433,6 +442,7 @@ private fun LazyListScope.forYouModuleItem(
                         .height(viewPortHeight),
                     wikiSite = wikiSite,
                     module = module,
+                    savedInReadingListTitles = savedInReadingListTitles,
                     onPageClick = { card, entry -> onAction(HomeAction.PageClick(card, entry)) },
                     onPageShareClick = { card, entry -> onAction(HomeAction.PageShareClick(card, entry)) },
                     onPageBookmarkClick = { card, entry -> onAction(HomeAction.PageBookmarkClick(card, entry)) },

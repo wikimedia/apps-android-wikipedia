@@ -133,6 +133,7 @@ fun HomeScreen(
                             wikiSite = wikiSite,
                             state = communityContentState,
                             overflowMenuState = overflowMenuState,
+                            savedInReadingListTitles = savedInReadingListTitles,
                             onAction = onAction
                         )
                     }
@@ -143,6 +144,7 @@ fun HomeScreen(
                         topInset = topInset,
                         state = forYouContentState,
                         wikiSite = wikiSite,
+                        savedInReadingListTitles = savedInReadingListTitles,
                         onAction = onAction
                     )
 

@@ -49,6 +49,7 @@ fun CommunityContentTab(
     wikiSite: WikiSite,
     state: CommunityContentState,
     overflowMenuState: PageOverflowMenuViewModel.PageOverflowMenuState? = null,
+    savedInReadingListTitles: Set<String> = emptySet(),
     onAction: (HomeAction) -> Unit = {}
 ) {
     when {

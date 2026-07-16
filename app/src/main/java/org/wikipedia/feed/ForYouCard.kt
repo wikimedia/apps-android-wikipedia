@@ -396,7 +396,7 @@ fun ForYouCardDropdownMenu(
             DropdownMenuItem(
                 leadingIcon = {
                     Icon(
-                        painter = painterResource(R.drawable.ic_bookmark_border_white_24dp),
+                        painter = painterResource(if (isInReadingList) R.drawable.ic_bookmark_white_24dp else R.drawable.ic_bookmark_border_white_24dp),
                         contentDescription = null,
                         tint = WikipediaTheme.colors.secondaryColor,
                         modifier = Modifier.size(24.dp)
@@ -404,7 +404,7 @@ fun ForYouCardDropdownMenu(
                 },
                 text = {
                     Text(
-                        text = context.getString(wikiSite.languageCode, R.string.menu_page_add_to_default_list),
+                        text = context.getString(wikiSite.languageCode, if (isInReadingList) R.string.reading_list_remove_from_lists else R.string.menu_page_add_to_default_list),
                         style = MaterialTheme.typography.bodyLarge,
                         color = WikipediaTheme.colors.primaryColor
                     )

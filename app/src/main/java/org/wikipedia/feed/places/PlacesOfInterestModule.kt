@@ -55,6 +55,7 @@ fun PlacesOfInterestArticlesModule(
     modifier: Modifier = Modifier,
     wikiSite: WikiSite,
     module: ForYouModule.PlacesOfInterest,
+    savedInReadingListTitles: Set<String> = emptySet(),
     onPageClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
     onPageBookmarkClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
     onPageShareClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
@@ -74,6 +75,7 @@ fun PlacesOfInterestArticlesModule(
         ForYouCardContent(
             wikiSite = wikiSite,
             title = card.title,
+            isInReadingList = savedInReadingListTitles.contains(card.title.prefixedText),
             module = module,
             card = card,
             footerIcon = painterResource(R.drawable.ic_location_on_24dp),
