@@ -478,7 +478,7 @@ class HomeViewModel : ViewModel() {
             val age = nextCommunityAge
             val date = LocalDate.now().minusDays(nextCommunityAge.toLong())
             val content = ServiceFactory.getRest(wikiSite.value)
-                .getFeedFeatured(date.year.toString(), "%02d".format(date.monthValue), "%02d".format(date.dayOfMonth), wikiSite.value.languageCode)
+                .getFeedFeatured(date.year.toString(), "%02d".format(Locale.ROOT, date.monthValue), "%02d".format(Locale.ROOT, date.dayOfMonth), wikiSite.value.languageCode)
 
             // Construct Card objects based on the day's content
             val cardsForDay = buildList<Card> {
