@@ -2328,4 +2328,6 @@
   <string name="home_feed_games_module_cta_prompt_subtitle">Subtitle for the prompt card in the Games module directing the user to the Games hub.</string>
   <string name="home_feed_games_module_cta_prompt_button_text">Button text on the Games module prompt card that navigates the user to the Games hub.</string>
   <string name="random_article_widget_name">Display name for the Random Article home screen widget.</string>
+    <string name="reading_lists_tab_all_articles">Label for the tab in the Saved screen that shows every saved article across all reading lists.</string>
+    <string name="reading_lists_tab_collections">Label for the tab in the Saved screen that shows the user\'s reading lists (collections).</string>
 </resources>

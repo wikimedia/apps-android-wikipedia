@@ -2589,4 +2589,8 @@
 
     <!-- Random Article Widget   -->
     <string name="random_article_widget_name">Random article</string>
+
+    <!-- Reading Lists   -->
+    <string name="reading_lists_tab_all_articles">All articles</string>
+    <string name="reading_lists_tab_collections">Collections</string>
 </resources>

@@ -101,6 +101,8 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                         pullToRefreshEnabled = !RemoteConfig.config.disableReadingListSync,
                         isSelectionMode = selectionState.enabled,
                         selectedListIds = selectionState.selectedListIds,
+                        selectedTab = uiState.selectedTab,
+                        onSelectTab = viewModel::setSelectedTab,
                         onOnboardingAction = ::onOnboardingAction,
                         onRefresh = ::onRefresh,
                         onListClick = ::onListClick,
