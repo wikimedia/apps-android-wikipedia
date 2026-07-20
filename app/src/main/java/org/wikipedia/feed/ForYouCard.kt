@@ -25,6 +25,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -43,6 +44,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.compose.components.FadeInAsyncImage
@@ -67,6 +69,7 @@ enum class CardVariation {
 fun ForYouCardContent(
     wikiSite: WikiSite,
     title: PageTitle,
+    resolveSavedState: suspend (PageTitle) -> Boolean = { false },
     variation: CardVariation = CardVariation.VARIATION_IMAGE_WITH_EXTRACT,
     backgroundColorIndex: Int = 0,
     module: ForYouModule? = null,
@@ -83,7 +86,10 @@ fun ForYouCardContent(
     onCustomizeClick: () -> Unit = {}
 ) {
     val context = LocalContext.current
+    val scope = rememberCoroutineScope()
     var overflowMenuExpanded by remember { mutableStateOf(false) }
+    // Resolved on demand when the overflow button is tapped, so we never query the whole feed up front.
+    var isInReadingList by remember { mutableStateOf(false) }
     val showSpaceForPagerDots = (module?.cards?.size ?: 0) > 1
 
     Box(
@@ -172,7 +178,10 @@ fun ForYouCardContent(
                             IconButton(
                                 modifier = Modifier.size(48.dp),
                                 onClick = {
-                                    overflowMenuExpanded = true
+                                    scope.launch {
+                                        isInReadingList = resolveSavedState(title)
+                                        overflowMenuExpanded = true
+                                    }
                                 }
                             ) {
                                 Icon(
@@ -188,6 +197,7 @@ fun ForYouCardContent(
                             ForYouCardDropdownMenu(
                                 expanded = overflowMenuExpanded,
                                 wikiSite = wikiSite,
+                                isInReadingList = isInReadingList,
                                 onDismiss = { overflowMenuExpanded = false },
                                 onShareClick = {
                                     onShareClick(title)
@@ -271,7 +281,10 @@ fun ForYouCardContent(
                         IconButton(
                             modifier = Modifier.size(48.dp),
                             onClick = {
-                                overflowMenuExpanded = true
+                                scope.launch {
+                                    isInReadingList = resolveSavedState(title)
+                                    overflowMenuExpanded = true
+                                }
                             }
                         ) {
                             Icon(
@@ -287,6 +300,7 @@ fun ForYouCardContent(
                         ForYouCardDropdownMenu(
                             expanded = overflowMenuExpanded,
                             wikiSite = wikiSite,
+                            isInReadingList = isInReadingList,
                             onDismiss = { overflowMenuExpanded = false },
                             onShareClick = {
                                 onShareClick(title)
@@ -349,6 +363,7 @@ fun ForYouCardContent(
 fun ForYouCardDropdownMenu(
     expanded: Boolean,
     wikiSite: WikiSite,
+    isInReadingList: Boolean = false,
     onDismiss: () -> Unit = {},
     onShareClick: (() -> Unit)? = {},
     onSaveClick: (() -> Unit)? = {},
@@ -392,7 +407,7 @@ fun ForYouCardDropdownMenu(
             DropdownMenuItem(
                 leadingIcon = {
                     Icon(
-                        painter = painterResource(R.drawable.ic_bookmark_border_white_24dp),
+                        painter = painterResource(if (isInReadingList) R.drawable.ic_bookmark_white_24dp else R.drawable.ic_bookmark_border_white_24dp),
                         contentDescription = null,
                         tint = WikipediaTheme.colors.secondaryColor,
                         modifier = Modifier.size(24.dp)
@@ -400,7 +415,7 @@ fun ForYouCardDropdownMenu(
                 },
                 text = {
                     Text(
-                        text = context.getString(wikiSite.languageCode, R.string.menu_page_add_to_default_list),
+                        text = context.getString(wikiSite.languageCode, if (isInReadingList) R.string.reading_list_remove_from_lists else R.string.menu_page_add_to_default_list),
                         style = MaterialTheme.typography.bodyLarge,
                         color = WikipediaTheme.colors.primaryColor
                     )

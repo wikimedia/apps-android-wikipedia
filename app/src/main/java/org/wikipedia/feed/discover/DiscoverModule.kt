@@ -49,6 +49,7 @@ import org.wikipedia.feed.model.DiscoverCard
 import org.wikipedia.feed.model.ForYouCard
 import org.wikipedia.feed.model.SeeAllRecommendationCard
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.page.PageTitle
 import org.wikipedia.theme.Theme
 
 private val discoverPromptImageUrls = listOf(
@@ -85,6 +86,7 @@ fun DiscoverArticlesModule(
     wikiSite: WikiSite,
     module: ForYouModule.Discover,
     @StringRes updateFrequency: Int,
+    resolveSavedState: suspend (PageTitle) -> Boolean = { false },
     onPageClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
     onPageBookmarkClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
     onPageShareClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
@@ -114,6 +116,7 @@ fun DiscoverArticlesModule(
                 ForYouCardContent(
                     wikiSite = wikiSite,
                     title = card.title,
+                    resolveSavedState = resolveSavedState,
                     module = module,
                     card = card,
                     footerIcon = painterResource(R.drawable.ic_lightbulb_24dp),
