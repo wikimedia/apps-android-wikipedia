@@ -2593,4 +2593,6 @@
     <!-- Reading Lists   -->
     <string name="reading_lists_tab_all_articles">All articles</string>
     <string name="reading_lists_tab_collections">Collections</string>
+    <string name="reading_lists_search_saved_articles">Search saved articles</string>
+    <string name="reading_lists_search_collections">Search collections</string>
 </resources>

@@ -156,11 +156,19 @@ private fun ListChip(title: String, onClick: () -> Unit, modifier: Modifier = Mo
                 maxLines = 1
             )
         },
+        icon = {
+            Icon(
+                painter = painterResource(R.drawable.ic_bookmark_white_24dp),
+                contentDescription = null,
+                modifier = Modifier.size(18.dp)
+            )
+        },
         colors = SuggestionChipDefaults.suggestionChipColors(
-            containerColor = WikipediaTheme.colors.borderColor,
-            labelColor = WikipediaTheme.colors.primaryColor
+            containerColor = WikipediaTheme.colors.paperColor,
+            labelColor = WikipediaTheme.colors.secondaryColor,
+            iconContentColor = WikipediaTheme.colors.secondaryColor
         ),
-        border = BorderStroke(width = 1.dp, color = WikipediaTheme.colors.primaryColor.copy(alpha = 0.5f)),
+        border = BorderStroke(width = 1.dp, color = WikipediaTheme.colors.borderColor),
         modifier = modifier
     )
 }

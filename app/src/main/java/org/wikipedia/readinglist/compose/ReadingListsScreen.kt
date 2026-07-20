@@ -87,11 +87,13 @@ fun ReadingListsScreen(
     }
 
     Column(modifier = modifier.fillMaxSize()) {
-        SavedTabBar(
-            selectedTab = selectedTab,
-            showCollectionsBadge = showCollectionsBadge,
-            onSelectTab = onSelectTab
-        )
+        if (!uiState.isSearchActive) {
+            SavedTabBar(
+                selectedTab = selectedTab,
+                showCollectionsBadge = showCollectionsBadge,
+                onSelectTab = onSelectTab
+            )
+        }
 
         if (pullToRefreshEnabled) {
             val pullToRefreshState = rememberPullToRefreshState()

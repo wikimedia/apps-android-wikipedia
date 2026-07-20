@@ -124,6 +124,7 @@ class ReadingListsViewModel : ViewModel() {
             // Right now adding Onboarding and the discover card only to the Collections tab
             val isCollections = contentState.selectedTab == SavedTab.COLLECTIONS
             contentState.copy(
+                isSearchActive = isSearchActive,
                 onboarding = if (isCollections) {
                     resolveOnboardingState(contentState.searchQuery, isSearchActive, accountState)
                 } else {
@@ -279,7 +280,7 @@ class ReadingListsViewModel : ViewModel() {
         val lists = relations.map { it.toReadingList() }.toMutableList()
 
         if (!query.isNullOrEmpty()) {
-            return buildSearchRows(lists, query, recentPreviewSavedId, downloadProgress)
+            return buildSearchRows(lists, tab, query, recentPreviewSavedId, downloadProgress)
         }
 
         return when (tab) {
@@ -297,20 +298,20 @@ class ReadingListsViewModel : ViewModel() {
         return lists.map { ReadingListRow.ListRow(it.toUiModel(recentPreviewSavedId)) }
     }
 
-    // filters the list rows first with stripAccents from the list and ReadingList title
-    // then creates list of ListRow and PageRow for the search results
     private fun buildSearchRows(
         lists: List<ReadingList>,
+        tab: SavedTab,
         query: String,
         recentPreviewSavedId: Long?,
         downloadProgress: Map<Long, Int>
     ): List<ReadingListRow> {
         val normalizedQuery = StringUtils.stripAccents(query)
-        val listRows = lists
-            .filter { it.accentInvariantTitle.contains(normalizedQuery, ignoreCase = true) }
-            .map { ReadingListRow.ListRow(it.toUiModel(recentPreviewSavedId)) }
-        val pageRows = buildArticleRows(lists, downloadProgress, normalizedQuery)
-        return listRows + pageRows
+        return when (tab) {
+            SavedTab.COLLECTIONS -> lists
+                .filter { it.accentInvariantTitle.contains(normalizedQuery, ignoreCase = true) }
+                .map { ReadingListRow.ListRow(it.toUiModel(recentPreviewSavedId)) }
+            SavedTab.ALL_ARTICLES -> buildArticleRows(lists, downloadProgress, normalizedQuery)
+        }
     }
 
     /**
@@ -434,10 +435,11 @@ data class ContainingList(val id: Long, val title: String)
 
 data class ReadingListsUiState(
     val isLoading: Boolean = true,
+    val isSearchActive: Boolean = false,
     val rows: List<ReadingListRow> = emptyList(),
     val listCount: Int = 0,
     val searchQuery: String? = null,
-    val selectedTab: SavedTab = SavedTab.COLLECTIONS,
+    val selectedTab: SavedTab = SavedTab.ALL_ARTICLES,
     val onboarding: OnboardingState = OnboardingState.None,
     val discoverCard: RecommendedReadingListCard? = null,
     val pendingPreviewSavedListId: Long? = null
