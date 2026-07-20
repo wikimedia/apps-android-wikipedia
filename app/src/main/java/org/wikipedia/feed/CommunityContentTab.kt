@@ -49,6 +49,7 @@ fun CommunityContentTab(
     wikiSite: WikiSite,
     state: CommunityContentState,
     overflowMenuState: PageOverflowMenuViewModel.PageOverflowMenuState? = null,
+    savedInReadingListTitles: Set<String> = emptySet(),
     onAction: (HomeAction) -> Unit = {}
 ) {
     when {
@@ -104,6 +105,7 @@ fun CommunityContentTab(
                                     FeaturedArticleModule(
                                         wikiSite = wikiSite,
                                         card.page,
+                                        isInReadingList = savedInReadingListTitles.contains(card.page.apiTitle),
                                         onPageClick = {
                                             onAction(HomeAction.PageClick(card,
                                                 it.getHistoryEntry(
