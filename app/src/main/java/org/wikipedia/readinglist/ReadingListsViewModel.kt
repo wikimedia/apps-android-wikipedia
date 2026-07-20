@@ -125,11 +125,7 @@ class ReadingListsViewModel : ViewModel() {
             val isCollections = contentState.selectedTab == SavedTab.COLLECTIONS
             contentState.copy(
                 isSearchActive = isSearchActive,
-                onboarding = if (isCollections) {
-                    resolveOnboardingState(contentState.searchQuery, isSearchActive, accountState)
-                } else {
-                    OnboardingState.None
-                },
+                onboarding = resolveOnboardingState(contentState.selectedTab, contentState.searchQuery, isSearchActive, accountState),
                 discoverCard = discoverCard.takeIf { isCollections && !isSearching }
             )
         }
@@ -238,6 +234,7 @@ class ReadingListsViewModel : ViewModel() {
     }
 
     private fun resolveOnboardingState(
+        selectedTab: SavedTab,
         query: String?,
         isSearchActive: Boolean,
         accountState: ReadingListsAccountState
@@ -245,19 +242,26 @@ class ReadingListsViewModel : ViewModel() {
         if (isSearchActive || !query.isNullOrEmpty()) {
             return OnboardingState.None
         }
-        return when {
-            !Prefs.isRecommendedReadingListOnboardingShown -> {
-                OnboardingState.RecommendedReadingList
+
+        return when (selectedTab) {
+            SavedTab.ALL_ARTICLES -> when {
+                accountState.isLoggedIn && !accountState.isTemporaryAccount && !Prefs.isReadingListSyncEnabled &&
+                        Prefs.isReadingListSyncReminderEnabled && !RemoteConfig.config.disableReadingListSync -> {
+                    OnboardingState.SyncReminder
+                }
+                (!accountState.isLoggedIn || accountState.isTemporaryAccount) && Prefs.isReadingListLoginReminderEnabled &&
+                        !RemoteConfig.config.disableReadingListSync -> {
+                    OnboardingState.LoginReminder
+                }
+                else -> OnboardingState.None
             }
-            (accountState.isLoggedIn && !accountState.isTemporaryAccount) && !Prefs.isReadingListSyncEnabled &&
-                    Prefs.isReadingListSyncReminderEnabled && !RemoteConfig.config.disableReadingListSync -> {
-                OnboardingState.SyncReminder
+            SavedTab.COLLECTIONS -> {
+                if (!Prefs.isRecommendedReadingListOnboardingShown) {
+                    OnboardingState.RecommendedReadingList
+                } else {
+                    OnboardingState.None
+                }
             }
-            (!accountState.isLoggedIn || accountState.isTemporaryAccount) && Prefs.isReadingListLoginReminderEnabled &&
-                    !RemoteConfig.config.disableReadingListSync -> {
-                OnboardingState.LoginReminder
-            }
-            else -> OnboardingState.None
         }
     }
 
