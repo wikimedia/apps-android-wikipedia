@@ -823,7 +823,7 @@
   <string name="notifications_menu_check_all">علامت‌گذاری تمامی موارد</string>
   <string name="notifications_menu_uncheck_all">عدم علامت‌گذاری تمامی موارد</string>
   <string name="notifications_wiki_filter_header">پالایهٔ ویکی</string>
-  <string name="notifications_type_filter_header">پالایهٔ نوع</string>
+  <string name="notifications_type_filter_header">نوع پالایه</string>
   <string name="notifications_all_wikis_text">تمام ویکی‌ها</string>
   <string name="notifications_all_types_text">تمام انواع</string>
   <string name="notifications_menu_user_talk_page">صفحهٔ بحث %s</string>
@@ -940,8 +940,8 @@
   <string name="description_edit_success_se_general_feed_link_snackbar">لذت بردید؟ برای افزودن مطالب بیشتر کمک کنید.</string>
   <string name="description_edit_success_encouragement">شما ویکی‌پدیا را برای همه بهتر کردید</string>
   <string name="description_edit_success_done">انجام شد</string>
-  <string name="description_edit_success_did_you_know">آیا می‌دانستید که؟</string>
-  <string name="description_edit_success_article_edit_hint">شما با این اپلیکیشن می‌توانید مقالات را ویرایش کنید. با کلیک بر روی آیکون ^1 می‌توانید غلط‌های تایپی و املایی و نوشتاری را برطرف کنید.</string>
+  <string name="description_edit_success_did_you_know">آیا می‌دانستید؟</string>
+  <string name="description_edit_success_article_edit_hint">شما با این برنامه می‌توانید مقالات را ویرایش کنید.دفعه بعد با کلیک بر روی نماد ^1 می‌توانید غلط‌های املایی و جملات کوچک را برطرف کنید.</string>
   <string name="description_edit_tutorial_title_descriptions">توصیفات مقاله</string>
   <string name="description_edit_tutorial_title_descriptions_summary">مقاله را برای مطالعهٔ سریع‌تر خواننده‌ها خلاصه کنید.</string>
   <string name="description_edit_tutorial_keep_it_short">کوتاه نگهداشتن</string>
@@ -1117,6 +1117,7 @@
   <string name="suggested_edits_article_descriptions_dialog_title">توضیحات پیشنهادی</string>
   <string name="suggested_edits_descriptions_report_dialog_title">چه چیزی را می‌خواهید گزارش کنید؟</string>
   <string name="suggested_edits_descriptions_not_enough_info_suggestion">اطلاعات کافی نیست</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">نمی‌توان توصیفات پیشنهادی را مشاهده کرد</string>
   <string name="suggested_edits_inappropriate_suggestion">پیشنهاد نامناسب</string>
   <string name="suggested_edits_do_not_understand_suggestion">متوجه وظیفه نمی‌شوم</string>
   <string name="suggested_edits_report_suggestion">گزارش</string>
@@ -1410,6 +1411,7 @@
   <string name="talk_warn">هشدار</string>
   <string name="talk_warn_save_dialog_title">ذخیرهٔ تغییرات؟</string>
   <string name="talk_warn_save_dialog_message">ذخیره به عنوان یک پیام جدید</string>
+  <string name="talk_warn_save_dialog_existing_new_message">ذخیره به عنوان یک پیام جدید در فهرست</string>
   <string name="talk_warn_save_dialog_existing_update_message">به‌روزرسانی پیام موجود</string>
   <string name="talk_warn_save_dialog_hint">عنوان پیام</string>
   <string name="talk_warn_save_dialog_publish">انتشار</string>
@@ -1505,7 +1507,7 @@
   <string name="revision_diff_paragraph_added">پاراگراف اضافه شد</string>
   <string name="revision_diff_paragraph_removed">بند حذف شد</string>
   <string name="revision_diff_protected">تغییرات ایجاد شده در این ویرایش به صورت عمومی قابل دسترسی نیستند.</string>
-  <string name="revision_undo_title">آیا از خنثی‌سازی این ویرایش اطمینان دارید؟</string>
+  <string name="revision_undo_title">آیا از واگردانی این ویرایش اطمینان دارید؟</string>
   <string name="revision_undo_message">واگردانی به معنای برگرداندن اثرات یک یا چند ویرایش است.</string>
   <string name="revision_undo_summary_hint">خلاصه (اختیاری)</string>
   <string name="revision_undo_reason">دلیل بازگردانی را به اشتراک بگذارید</string>
@@ -1557,6 +1559,7 @@
   <string name="watchlist_filter_user_status_newcomers">تازه‌واردها</string>
   <string name="watchlist_filter_user_status_learners">آموزندگان</string>
   <string name="watchlist_filter_user_status_experienced">کاربران باتجربه</string>
+  <string name="watchlist_filter_contribution_authorship_header">سهم نویسندگی</string>
   <string name="watchlist_filter_contribution_authorship_own">تغییرات توسط شما</string>
   <string name="watchlist_filter_contribution_authorship_except_own">تغییرات توسط دیگران</string>
   <string name="watchlist_filter_automated_contributions_header">مشارکت‌های خودکار</string>
@@ -1578,6 +1581,7 @@
   <string name="watchlist_filter_reset_button">بازنشانی</string>
   <string name="watchlist_search_bar_hint">جستجو یا پالایش کردن فهرست پیگیری</string>
   <string name="watchlist_search_bar_filter_hint">پالایش فهرست پیگیری</string>
+  <string name="watchlist_empty_search_message">نتیجه‌ای حاصل نشد، سعی کنید %s را حذف کنید تا نتایج بیشتری ببینید.</string>
   <plurals name="watchlist_number_of_filters">
     <item quantity="one">%d پالایه</item>
     <item quantity="other">%d پالایه</item>
@@ -1607,6 +1611,7 @@
   <string name="user_contrib_menu_label">مشارکت‌ها</string>
   <string name="user_contrib_filter_activity_title">پالایش مشارکت‌ها</string>
   <string name="action_item_view_on_map">مشاهده در نقشه</string>
+  <string name="action_item_view_on_map_unavailable">مختصات جغرافیایی برای این صفحه در دسترس نیست</string>
   <string name="shareable_reading_lists_import_dialog_title">درون‌ریزی فهرست مطالعه به اشتراک گذاشته شده</string>
   <string name="shareable_reading_lists_import_dialog_content">تمایل دارید نام این فهرست که با شما به اشتراک گذاشته شده را چه بگذارید؟</string>
   <string name="shareable_reading_lists_new_indicator">*جدید*</string>
@@ -1803,7 +1808,7 @@
   <string name="on_this_day_game_entry_dialog_snackbar_message">بازی‌های ویکی‌پدیا در بخش مرکز بازی‌ها که در منوی بیشتر قرار دارد، در دسترس هستند.</string>
   <string name="on_this_day_game_title">کدام اول اتفاق افتاد؟</string>
   <string name="on_this_day_game_dialog_button">بازی کن</string>
-  <string name="on_this_day_game_splash_message">حدس بزنید کدام رویداد در این روز از تاریخ اول رخ داده است.</string>
+  <string name="on_this_day_game_splash_message">حدس بزنید کدام رویداد در این روز از تاریخ ابتدا رخ داده است.</string>
   <string name="on_this_day_game_progress">%1$d از %2$d</string>
   <string name="on_this_day_game_score">امتیاز: %d</string>
   <string name="on_this_day_game_submit">ارسال</string>
@@ -1835,26 +1840,36 @@
   <string name="on_this_day_game_article_answer_incorrect_stats_message">این سوال رو اشتباه جواب دادی</string>
   <string name="on_this_day_game_turn_off_notification_dialog_title">غیرفعال کردن اعلان‌های بازی؟</string>
   <string name="on_this_day_game_turn_on_notification_dialog_title">فعال کردن اعلان‌های بازی؟</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_subtitle">اعلان‌های بازی روزانه به شما اطلاع می‌دهند که یک بازی جدید برای انجام در دسترس است.</string>
   <string name="on_this_day_game_turn_off_notification_dialog_positive_btn_label">نه، آنها را فعال نگهدار</string>
   <string name="on_this_day_game_turn_off_notification_dialog_negative_btn_label">آنها را غیرفعال کن</string>
   <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">بله، آنها را فعال کن</string>
   <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">آنها را غیرفعال نگهدار</string>
   <string name="on_this_day_game_notification_turned_off_snackbar_message">اعلان‌های بازی غیرفعال</string>
   <string name="on_this_day_game_notification_turned_on_snackbar_message">اعلان‌های بازی فعال</string>
+  <string name="on_this_day_game_notification_text">بازی امروز «کدام اول اتفاق افتاد؟» آماده است.</string>
   <string name="on_this_day_game_report_email_subject">گزارش مشکل - بازی‌های ویکی‌پدیا</string>
   <string name="on_this_day_game_report_email_body">من در ویژگی بازی‌های ویکی‌پدیا با مشکلی مواجه شده‌ام:\n- [مشکل خاص را شرح دهید]\n\nرفتاری که می‌خواهم ببینم این است:\n- [راه حل پیشنهادی را شرح دهید]</string>
   <string name="on_this_day_game_notification_undo">خنثی‌سازی</string>
+  <string name="on_this_day_game_share_link_message">من در حال بازی «کدام اول اتفاق افتاد؟» هستم، یک بازی اطلاعات عمومی روزانه در برنامهٔ اندروید ویکی‌پدیا %s</string>
+  <string name="on_this_day_game_share_screen_title">من امروز %1$d/%2$d امتیاز در «کدام اول اتفاق افتاد؟» گرفتم.</string>
   <string name="on_this_day_game_share_screen_subtitle">موضوعات شامل:</string>
   <string name="on_this_day_game_archive_calendar_title">یک بازی را بر اساس تاریخ برای بازی انتخاب کنید.</string>
+  <string name="on_this_day_game_score_toast_message">شما امروز %1$d/%2$d امتیاز گرفتید.</string>
   <string name="on_this_day_game_continue_btn_text">ادامهٔ بازی امروز</string>
+  <string name="on_this_day_game_current_progress_message">شما در سوال %d هستید.</string>
   <string name="on_this_day_game_archive_btn_text">بازی کردن بایگانی</string>
   <string name="on_this_day_game_review_results_btn_text">بررسی نتایج</string>
+  <string name="on_this_day_game_score_message">شما در بازی امروز %1$d/%2$d امتیاز گرفتید.</string>
   <string name="on_this_day_game_play_today_btn_text">بازی امروز را انجام دهید</string>
   <string name="on_this_day_game_continue_playing_btn_text">ادامه دادن به بازی</string>
   <string name="on_this_day_game_sound_on">صدا را روشن کن</string>
   <string name="on_this_day_game_sound_off">صدا را خاموش کن</string>
   <string name="on_this_day_game_more_label">بیشتر</string>
   <string name="on_this_day_game_card_progress_label">شما در سوال %d هستید. به حدس زدن اینکه کدام رویداد در این روز در تاریخ ابتدا رخ داده است، ادامه دهید.</string>
+  <string name="on_this_day_game_card_progress_short_label">شما در سوال %d هستید.</string>
+  <string name="on_this_day_game_explore_feed_card_score_message">شما در بازی امروز %1$d/%2$d امتیاز گرفتید. تا بازی بعدی %3$s</string>
+  <string name="on_this_day_game_explore_feed_card_score_short_message">شما در بازی امروز %1$d/%2$d امتیاز گرفتید.</string>
   <string name="on_this_day_game_card_archive_label">بایگانی</string>
   <string name="on_this_day_game_stats_log_in_prompt_card_button">ورود</string>
   <string name="on_this_day_game_stats_log_in_prompt_card_title">برای مشاهده آمار بازی خود، وارد شوید</string>
@@ -1863,8 +1878,11 @@
   <string name="wikipedia_games_subtitle">بازی‌های روزانه بر اساس محتوای ویکی‌پدیا</string>
   <string name="year_in_review_learn_more">اطلاعات بیشتر</string>
   <string name="year_in_review_get_started">شروع کنید</string>
+  <string name="year_in_review_navigate_left">پیمایش به چپ</string>
   <string name="year_in_review_close">بستن</string>
+  <string name="year_in_review_navigate_right">پیمایش به راست</string>
   <string name="year_in_review_donate">کمک مالی</string>
+  <string name="year_in_review_get_started_bodytext">آماری درباره مقالاتی که در برنامه ویکی‌پدیا خوانده‌اید و ویرایش‌هایی که انجام داده‌اید، مشاهده کنید.</string>
   <string name="year_in_review_get_started_info">سابقهٔ مطالعه شما محافظت می‌شود. بینش‌های مطالعه با استفاده از داده‌های ذخیره شده محلی در دستگاه شما محاسبه می‌شود.</string>
   <string name="year_in_review_survey_title">به بهبود مرور سال کمک کنید</string>
   <string name="year_in_review_survey_subtitle">آیا از این ویژگی رضایت دارید؟</string>
@@ -1874,6 +1892,7 @@
   <string name="year_in_review_survey_neutral">خنثی</string>
   <string name="year_in_review_survey_unsatisfied">ناراضی</string>
   <string name="year_in_review_survey_very_unsatisfied">خیلی ناراضی</string>
+  <string name="year_in_review_survey_placeholder_text">نظر دیگری دارید؟</string>
   <string name="year_in_review_survey_cancel">لغو</string>
   <string name="year_in_review_survey_submit">ثبت</string>
   <string name="year_in_review_disable_title">آیا مطمئنید که می‌خواهید «مرور سال» را غیرفعال کنید؟</string>
@@ -1900,10 +1919,15 @@
   <string name="year_in_review_slide_reading_pattern_evening">عصر</string>
   <string name="year_in_review_slide_reading_pattern_night">شب</string>
   <string name="year_in_review_slide_reading_pattern_late_night">نیمه شب</string>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_global_first">
+    <item quantity="one">ویکی‌پدیا %,d مقاله داشت</item>
+    <item quantity="other">ویکی‌پدیا %,d مقاله داشت</item>
+  </plurals>
   <string name="year_in_review_reading_list_dialog_title">فهرست مطالعه‌ی مرور سال %d خود را ایجاد کنید؟</string>
   <string name="year_in_review_reading_list_dialog_positive_button_label">ایجاد</string>
   <string name="year_in_review_reading_list_dialog_negative_button_label">نه ممنون</string>
   <string name="year_in_review_reading_list_title">مرور سال %d</string>
+  <string name="year_in_review_reading_list_description">ساخته‌شده برای %1$s. مقالاتی که بیشترین وقت خود را در سال %2$d با آنها گذرانده‌اید.</string>
   <string name="year_in_review_highlights_thank_you_message">از اینکه یک سال را با ویکی‌پدیا گذراندید، سپاسگزاریم.</string>
   <string name="year_in_review_highlights_looking_forward_message">ما مشتاقانه منتظر سال آینده هستیم!</string>
   <string name="year_in_review_highlights_logged_out_non_en_wikipedia_edited_title">ویکی‌پدیا چند وقت یکبار ویرایش شده است؟</string>
@@ -1944,7 +1968,7 @@
   <string name="recommended_reading_list_interest_pick_random_dialog_positive_button">بله، برام انتخاب کن</string>
   <string name="recommended_reading_list_interest_pick_random_dialog_negative_button">خیر</string>
   <string name="recommended_reading_list_page_subtitle_made_for">ساخته‌شده برای %s</string>
-  <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">برای تو ساخته شده</string>
+  <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">ساخته‌شده برای تو</string>
   <plurals name="recommended_reading_list_page_subtitle_articles">
     <item quantity="one">• %d مقاله</item>
     <item quantity="other">• %d مقاله</item>
@@ -2084,6 +2108,7 @@
   <string name="reading_challenge_install_prompt_got_it">فهمیدم</string>
   <string name="reading_challenge_install_prompt_add">افزودن</string>
   <string name="search_widget_install_prompt_title">راه سریعتر برای جستجو</string>
+  <string name="search_widget_install_prompt_message">برای دسترسی سریع به دانش از صفحه اصلی خود، ابزار جستجوی ویکی‌پدیا را نصب کنید.</string>
   <string name="search_widget_install_prompt_add">افزودن</string>
   <string name="search_widget_install_prompt_got_it">فهمیدم</string>
   <string name="reading_challenge_widget_explore_button">مرور</string>
@@ -2233,4 +2258,5 @@
   <string name="home_feed_games_module_cta_prompt_title">می‌خواهید بازی‌های بیشتری انجام دهید؟</string>
   <string name="home_feed_games_module_cta_prompt_subtitle">به مرکز بازی‌ها بروید</string>
   <string name="home_feed_games_module_cta_prompt_button_text">مرکز بازی‌ها</string>
+  <string name="random_article_widget_name">مقالهٔ تصادفی</string>
 </resources>

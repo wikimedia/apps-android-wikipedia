@@ -10,6 +10,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.StringUtil
 import java.time.LocalDate
+import java.util.Locale
 
 class HomePreferenceRepository(
     private val context: Context,
@@ -21,8 +22,8 @@ class HomePreferenceRepository(
 
         val response = ServiceFactory.getRest(wikiSite).getFeedFeatured(
             year = currentDate.year.toString(),
-            month = "%02d".format(currentDate.monthValue),
-            day = "%02d".format(currentDate.dayOfMonth),
+            month = "%02d".format(Locale.ROOT, currentDate.monthValue),
+            day = "%02d".format(Locale.ROOT, currentDate.dayOfMonth),
             lang = wikiSite.languageCode
         )
 
