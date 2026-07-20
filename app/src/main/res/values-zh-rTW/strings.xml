@@ -2352,6 +2352,7 @@
   <string name="explore_feed_new_update_prompt_language_title">每種語言，完整個人化</string>
   <string name="explore_feed_new_update_prompt_primary_button_text">自訂我的摘要</string>
   <string name="explore_feed_customize_interests">自訂興趣</string>
+  <string name="explore_feed_customize_discover">自訂探索功能</string>
   <string name="explore_feed_new_update_prompt_secondary_button_text">請幫我設定</string>
   <string name="explore_feed_building_text">讓我們一起打造您的摘要…</string>
   <string name="explore_feed_community_tab_label">社群</string>
@@ -2366,6 +2367,7 @@
   <string name="explore_feed_preference_selection_screen_title">您想先看什麼？</string>
   <string name="explore_feed_preference_community_content_title">社群相關內容</string>
   <string name="explore_feed_preference_personalized_content_title">個人化內容</string>
+  <string name="explore_feed_on_this_day_subtitle">探索發生在今天日期的歷史事件</string>
   <string name="explore_feed_community_disclaimer">由維基媒體社群所選與維基媒體社群相關的內容和資源</string>
   <string name="explore_feed_community_load_more_label">查看先前的社群內容</string>
   <string name="explore_feed_manage_languages_label">管理語言</string>
@@ -2418,7 +2420,12 @@
   <string name="home_feed_settings_games_title">遊戲</string>
   <string name="home_feed_settings_games_subtitle">基於維基百科內容的每日遊戲</string>
   <string name="home_feed_settings_discover_title">探索推薦</string>
+  <string name="home_feed_settings_discover_subtitle">來自您的探索閱讀清單的條目</string>
+  <string name="home_feed_discover_cta_title">來自探索功能</string>
   <string name="home_feed_discover_cta_description">了解我們為您精心挑選的新主題。您可以選擇每日、每週、或是每月更新。</string>
+  <string name="home_feed_discover_cta_button">啟用探索閱讀清單</string>
+  <string name="home_feed_discover_card_footer">來自探索功能 • 更新頻率：%s</string>
+  <string name="home_feed_discover_see_all_title">還有更多值得去探索的內容</string>
   <string name="home_feed_discover_see_all_button">瀏覽所有推薦</string>
   <string name="home_feed_for_you_screen_end_of_feed_title">以上是今日的內容！</string>
   <string name="home_feed_for_you_screen_end_of_feed_description">明日再來即可閱讀精心為您挑選的新條目。</string>
@@ -2429,4 +2436,5 @@
   <string name="home_feed_games_module_cta_prompt_title">想玩更多遊戲嗎？</string>
   <string name="home_feed_games_module_cta_prompt_subtitle">前往遊戲中心</string>
   <string name="home_feed_games_module_cta_prompt_button_text">遊戲中心</string>
+  <string name="random_article_widget_name">隨機條目</string>
 </resources>
