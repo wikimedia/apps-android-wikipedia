@@ -24,6 +24,12 @@ import org.wikipedia.readinglist.database.ReadingListWithPages
 import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
+
+enum class SavedTab {
+    ALL_ARTICLES,
+    COLLECTIONS
+}
+
 @OptIn(FlowPreview::class)
 class ReadingListsViewModel : ViewModel() {
     private val searchQuery = MutableStateFlow<String?>(null)
@@ -31,6 +37,14 @@ class ReadingListsViewModel : ViewModel() {
         .debounce { query -> if (query.isNullOrEmpty()) 0L else SEARCH_DEBOUNCE_MILLIS }
         .distinctUntilChanged()
     private val searchActive = MutableStateFlow(false)
+    private val selectedTab = MutableStateFlow(SavedTab.ALL_ARTICLES)
+
+    // Combine the debounced search query and selected tab into a single state flow representing the current content mode.
+    // this reduces the number of flows needed in the main combine() call for uiState
+    private val contentMode = combine(debouncedSearchQuery, selectedTab) { query, tab ->
+        ContentMode(query, tab)
+    }.distinctUntilChanged()
+
     private val recentPreviewSavedState = MutableStateFlow(RecentPreviewSavedState())
     private val accountState = MutableStateFlow(readAccountState())
     private val pageDownloadProgress = MutableStateFlow<Map<Long, Int>>(emptyMap())
@@ -43,21 +57,23 @@ class ReadingListsViewModel : ViewModel() {
 
     private val readingListsContentState = combine(
         AppDatabase.instance.readingListDao().getListsWithPagesFlow(),
-        debouncedSearchQuery,
+        contentMode,
         recentPreviewSavedState,
         pageDownloadProgress,
         Prefs.observeKeys(R.string.preference_key_reading_list_sort_mode)
-    ) { relations, query, previewSavedState, downloadProgress, _ ->
+    ) { relations, mode, previewSavedState, downloadProgress, _ ->
         ReadingListsUiState(
             isLoading = false,
             rows = buildRows(
                 relations,
-                query,
+                mode.tab,
+                mode.query,
                 previewSavedState.newBadgeListId,
                 downloadProgress
             ),
             listCount = relations.size,
-            searchQuery = query,
+            searchQuery = mode.query,
+            selectedTab = mode.tab,
             pendingPreviewSavedListId = previewSavedState.pendingSnackbarListId
         )
     }
@@ -104,10 +120,13 @@ class ReadingListsViewModel : ViewModel() {
             discoverCard
         ) { contentState, isSearchActive, accountState, _, discoverCard ->
             val isSearching = isSearchActive || !contentState.searchQuery.isNullOrEmpty()
+            // TODO: confirm with product
+            // Right now adding Onboarding and the discover card only to the Collections tab
+            val isCollections = contentState.selectedTab == SavedTab.COLLECTIONS
             contentState.copy(
-                onboarding = resolveOnboardingState(contentState.searchQuery, isSearchActive, accountState),
-                // will remove discover card while in search mode
-                discoverCard = discoverCard.takeUnless { isSearching }
+                isSearchActive = isSearchActive,
+                onboarding = resolveOnboardingState(contentState.selectedTab, contentState.searchQuery, isSearchActive, accountState),
+                discoverCard = discoverCard.takeIf { isCollections && !isSearching }
             )
         }
             .flowOn(Dispatchers.IO)
@@ -119,6 +138,10 @@ class ReadingListsViewModel : ViewModel() {
 
     fun setSearchQuery(query: String?) {
         searchQuery.value = query
+    }
+
+    fun setSelectedTab(tab: SavedTab) {
+        selectedTab.value = tab
     }
 
     fun setSearchActive(active: Boolean) {
@@ -211,6 +234,7 @@ class ReadingListsViewModel : ViewModel() {
     }
 
     private fun resolveOnboardingState(
+        selectedTab: SavedTab,
         query: String?,
         isSearchActive: Boolean,
         accountState: ReadingListsAccountState
@@ -218,19 +242,26 @@ class ReadingListsViewModel : ViewModel() {
         if (isSearchActive || !query.isNullOrEmpty()) {
             return OnboardingState.None
         }
-        return when {
-            !Prefs.isRecommendedReadingListOnboardingShown -> {
-                OnboardingState.RecommendedReadingList
+
+        return when (selectedTab) {
+            SavedTab.ALL_ARTICLES -> when {
+                accountState.isLoggedIn && !accountState.isTemporaryAccount && !Prefs.isReadingListSyncEnabled &&
+                        Prefs.isReadingListSyncReminderEnabled && !RemoteConfig.config.disableReadingListSync -> {
+                    OnboardingState.SyncReminder
+                }
+                (!accountState.isLoggedIn || accountState.isTemporaryAccount) && Prefs.isReadingListLoginReminderEnabled &&
+                        !RemoteConfig.config.disableReadingListSync -> {
+                    OnboardingState.LoginReminder
+                }
+                else -> OnboardingState.None
             }
-            (accountState.isLoggedIn && !accountState.isTemporaryAccount) && !Prefs.isReadingListSyncEnabled &&
-                    Prefs.isReadingListSyncReminderEnabled && !RemoteConfig.config.disableReadingListSync -> {
-                OnboardingState.SyncReminder
+            SavedTab.COLLECTIONS -> {
+                if (!Prefs.isRecommendedReadingListOnboardingShown) {
+                    OnboardingState.RecommendedReadingList
+                } else {
+                    OnboardingState.None
+                }
             }
-            (!accountState.isLoggedIn || accountState.isTemporaryAccount) && Prefs.isReadingListLoginReminderEnabled &&
-                    !RemoteConfig.config.disableReadingListSync -> {
-                OnboardingState.LoginReminder
-            }
-            else -> OnboardingState.None
         }
     }
 
@@ -244,39 +275,62 @@ class ReadingListsViewModel : ViewModel() {
 
     private fun buildRows(
         relations: List<ReadingListWithPages>,
+        tab: SavedTab,
         query: String?,
         recentPreviewSavedId: Long?,
         downloadProgress: Map<Long, Int>
     ): List<ReadingListRow> {
-        // toReadingList() drops pages queued for deletion (Room @Relation can't filter children in SQL);
-        // after that we sort and check for the empty default list.
+        // toReadingList() drops pages queued for deletion (Room @Relation can't filter children in SQL)
         val lists = relations.map { it.toReadingList() }.toMutableList()
 
-        if (query.isNullOrEmpty()) {
-            ReadingList.sort(lists, Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC))
-            lists.removeEmptyDefaultList()
-            return lists.map { ReadingListRow.ListRow(it.toUiModel(recentPreviewSavedId)) }
+        if (!query.isNullOrEmpty()) {
+            return buildSearchRows(lists, tab, query, recentPreviewSavedId, downloadProgress)
         }
 
-        return buildSearchRows(lists, query, recentPreviewSavedId, downloadProgress)
+        return when (tab) {
+            SavedTab.COLLECTIONS -> buildCollectionsRows(lists, recentPreviewSavedId)
+            SavedTab.ALL_ARTICLES -> buildArticleRows(lists, downloadProgress)
+        }
     }
 
-    // Build list rows first, then page rows from all lists.
-    // Use lang + API title to avoid showing the same page more than once.
+    private fun buildCollectionsRows(
+        lists: MutableList<ReadingList>,
+        recentPreviewSavedId: Long?
+    ): List<ReadingListRow> {
+        ReadingList.sort(lists, Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC))
+        lists.removeEmptyDefaultList()
+        return lists.map { ReadingListRow.ListRow(it.toUiModel(recentPreviewSavedId)) }
+    }
+
     private fun buildSearchRows(
         lists: List<ReadingList>,
+        tab: SavedTab,
         query: String,
         recentPreviewSavedId: Long?,
         downloadProgress: Map<Long, Int>
     ): List<ReadingListRow> {
         val normalizedQuery = StringUtils.stripAccents(query)
-        val listRows = mutableListOf<ReadingListRow>()
-        val pageRows = mutableListOf<ReadingListRow>()
-        val seenPages = mutableSetOf<Pair<String, String>>()
-        val containingListsByPage = mutableMapOf<Pair<String, String>, MutableList<ContainingList>>()
+        return when (tab) {
+            SavedTab.COLLECTIONS -> lists
+                .filter { it.accentInvariantTitle.contains(normalizedQuery, ignoreCase = true) }
+                .map { ReadingListRow.ListRow(it.toUiModel(recentPreviewSavedId)) }
+            SavedTab.ALL_ARTICLES -> buildArticleRows(lists, downloadProgress, normalizedQuery)
+        }
+    }
 
-        // First, build a map of lang + API title to the lists containing each page.
-        // This avoids searching all lists again for every matching page.
+    /**
+     * Every saved article across [lists] as [ReadingListRow.PageRow]s, de-duplicated by lang + API
+     * title so an article on multiple lists appears once, annotated with the lists that contain it.
+     * When [titleFilter] is non-null, only articles whose title contains it (accent-insensitive) are kept.
+     */
+    private fun buildArticleRows(
+        lists: List<ReadingList>,
+        downloadProgress: Map<Long, Int>,
+        titleFilter: String? = null
+    ): List<ReadingListRow.PageRow> {
+        // Map each article (lang + API title) to the lists that contain it, so we resolve the
+        // containing lists once instead of re-scanning every list per article.
+        val containingListsByPage = mutableMapOf<Pair<String, String>, MutableList<ContainingList>>()
         lists.forEach { list ->
             val containingList = ContainingList(list.id, list.title)
             list.pages.forEach { page ->
@@ -285,15 +339,13 @@ class ReadingListsViewModel : ViewModel() {
             }
         }
 
-        // Iterate the lists again and build the matching list rows and page rows.
-        // Use the map to find the containing list titles for each page row.
+        val seenPages = mutableSetOf<Pair<String, String>>()
+        val pageRows = mutableListOf<ReadingListRow.PageRow>()
         lists.forEach { list ->
-            if (list.accentInvariantTitle.contains(normalizedQuery, ignoreCase = true)) {
-                listRows.add(ReadingListRow.ListRow(list.toUiModel(recentPreviewSavedId)))
-            }
             list.pages.forEach { page ->
-                if (page.accentInvariantTitle.contains(normalizedQuery, ignoreCase = true) &&
-                    seenPages.add(page.lang to page.apiTitle)) {
+                val matches = titleFilter == null ||
+                    page.accentInvariantTitle.contains(titleFilter, ignoreCase = true)
+                if (matches && seenPages.add(page.lang to page.apiTitle)) {
                     pageRows.add(
                         ReadingListRow.PageRow(
                             page.toUiModel(downloadProgress[page.id] ?: 0),
@@ -303,7 +355,7 @@ class ReadingListsViewModel : ViewModel() {
                 }
             }
         }
-        return listRows + pageRows
+        return pageRows
     }
 
     private fun MutableList<ReadingList>.removeEmptyDefaultList() {
@@ -387,12 +439,19 @@ data class ContainingList(val id: Long, val title: String)
 
 data class ReadingListsUiState(
     val isLoading: Boolean = true,
+    val isSearchActive: Boolean = false,
     val rows: List<ReadingListRow> = emptyList(),
     val listCount: Int = 0,
     val searchQuery: String? = null,
+    val selectedTab: SavedTab = SavedTab.ALL_ARTICLES,
     val onboarding: OnboardingState = OnboardingState.None,
     val discoverCard: RecommendedReadingListCard? = null,
     val pendingPreviewSavedListId: Long? = null
+)
+
+private data class ContentMode(
+    val query: String?,
+    val tab: SavedTab
 )
 
 data class RecentPreviewSavedState(

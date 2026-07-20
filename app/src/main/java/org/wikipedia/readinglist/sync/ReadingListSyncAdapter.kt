@@ -538,8 +538,14 @@ class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : Corou
             }
         }
 
-        fun manualSyncWithForce() {
-            manualSync(bundleOf(SYNC_EXTRAS_FORCE_FULL_SYNC to true))
+        fun manualSyncWithForce(fromRefresh: Boolean = false) {
+            val extras = bundleOf(SYNC_EXTRAS_FORCE_FULL_SYNC to true)
+            // Pull-to-refresh needs the REFRESHING flag so a ReadingListSyncEvent is emitted on
+            // completion to dismiss the refresh spinner.
+            if (fromRefresh) {
+                extras.putBoolean(SYNC_EXTRAS_REFRESHING, true)
+            }
+            manualSync(extras)
         }
 
         fun manualSyncWithRefresh() {

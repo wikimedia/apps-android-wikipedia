@@ -101,6 +101,8 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                         pullToRefreshEnabled = !RemoteConfig.config.disableReadingListSync,
                         isSelectionMode = selectionState.enabled,
                         selectedListIds = selectionState.selectedListIds,
+                        selectedTab = uiState.selectedTab,
+                        onSelectTab = ::onSelectTab,
                         onOnboardingAction = ::onOnboardingAction,
                         onRefresh = ::onRefresh,
                         onListClick = ::onListClick,
@@ -176,7 +178,10 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             viewModel.setRefreshing(false)
         } else {
             Prefs.isReadingListSyncEnabled = true
-            ReadingListSyncAdapter.manualSyncWithForce()
+            // TODO: Change this back to the less forceful manualSyncWithRefresh() when the
+            // service-side endpoint is fixed.
+            // https://phabricator.wikimedia.org/T351149
+            ReadingListSyncAdapter.manualSyncWithForce(fromRefresh = true)
         }
     }
 
@@ -265,6 +270,20 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         (requireActivity() as AppCompatActivity).startSupportActionMode(searchActionModeCallback)
     }
 
+    private fun onSelectTab(tab: SavedTab) {
+        viewModel.setSelectedTab(tab)
+        searchActionModeCallback.updateSearchHint(getSearchHint(tab))
+    }
+
+    private fun getSearchHint(tab: SavedTab): String {
+        return getString(
+            when (tab) {
+                SavedTab.ALL_ARTICLES -> R.string.reading_lists_search_saved_articles
+                SavedTab.COLLECTIONS -> R.string.reading_lists_search_collections
+            }
+        )
+    }
+
     private val searchActionModeCallback = object : SearchActionModeCallback() {
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
             actionMode = mode
@@ -290,7 +309,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
 
         override fun getSearchHintString(): String {
-            return getString(R.string.filter_hint_filter_my_lists_and_articles)
+            return getSearchHint(viewModel.uiState.value.selectedTab)
         }
 
         override fun getParentContext(): Context {
