@@ -1819,6 +1819,8 @@
   <string name="places_empty_message_snackbar">Não há artigos próximos. Tente diminuir o zoom e mover o mapa.</string>
   <string name="survey_dialog_title">Ajude-nos a melhorar este recurso</string>
   <string name="survey_dialog_message">Você está satisfeito com este recurso?</string>
+  <string name="home_feed_survey_title">Ajude a melhorar o Início</string>
+  <string name="home_feed_survey_message">Você está satisfeito com os feeds \"Comunidade\" e \"Para você\"?</string>
   <string name="survey_dialog_option_satisfied">Satisfeito(a)</string>
   <string name="survey_dialog_option_neutral">Neutro(a)</string>
   <string name="survey_dialog_option_unsatisfied">Insatisfeito(a)</string>
@@ -2348,6 +2350,7 @@
   <string name="home_feed_for_you_screen_end_of_feed_description">Volte amanhã para encontrar novos artigos personalizados para você.</string>
   <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Formas de continuar aprendendo:</string>
   <string name="home_feed_for_you_screen_end_of_feed_add_interests">Adicionar &lt;a href=\"#add_interests\"&gt;novos interesses&lt;/a&gt;</string>
+  <string name="randomizer_shake_prompt_title">Agite para embaralhar</string>
   <string name="home_feed_games_module_cta_prompt_title">Quer jogar mais jogos?</string>
   <string name="home_feed_games_module_cta_prompt_subtitle">Acesse a central de jogos</string>
   <string name="home_feed_games_module_cta_prompt_button_text">Central de jogos</string>

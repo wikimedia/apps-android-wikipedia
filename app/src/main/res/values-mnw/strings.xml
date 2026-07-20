@@ -736,6 +736,7 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">ခိုဟ်အိုတ် မွဲပၞောန် နွံစ မလိက် အကြာ ၂ မ ကဵု ၁၂ မ</string>
   <string name="description_edit_tutorial_button_label_start_editing">စ ပလေဝ်ဒါန်</string>
   <string name="description_edit_tutorial_promise">နကဵု မစဟီု၊ အဲဒုင်ဝှဲ ဒဒှ်ရ အဲဟွံပလီု (ဝါ) ဟွံသုင်စောဲ လပါ်ပရေအ် လိက်ဏအ်ရ၊၊</string>
+  <string name="customize_toolbar_reset_to_default_button">မကလေၚ်နကဵုအတိုၚ်မူလ</string>
   <string name="suggested_edits_describe_articles">ချူဗၟံက်ပရူ လိက်ပရေင်ဂမၠိုင်</string>
   <string name="suggested_edits_caption_images">စုတ်လိက် ဗီုရုပ်ဂမၠိုင်</string>
   <string name="suggested_edits_tag_images">စင် ဗီုရုပ်</string>
