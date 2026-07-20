@@ -3,14 +3,12 @@ package org.wikipedia.feed.onthisday
 import android.content.Context
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -147,23 +145,29 @@ private fun EventRow(
         if (isFirst) {
             Box(
                 modifier = Modifier
-                    .padding(start = 16.dp, top = 8.dp)
-                    .size(12.dp)
-                    .clip(CircleShape)
-                    .background(WikipediaTheme.colors.progressiveColor)
-            )
-        } else {
-            Box(
-                modifier = Modifier
-                    .padding(start = 16.dp, top = 24.dp)
-                    .size(11.dp)
-                    .clip(CircleShape)
-                    .border(1.dp, WikipediaTheme.colors.progressiveColor, CircleShape)
-                    .padding(3.dp)
+                    .padding(start = 16.dp, top = 4.dp)
+                    .size(12.dp, 20.dp)
+                    .background(WikipediaTheme.colors.backgroundColor),
+                contentAlignment = Alignment.Center
             ) {
                 Box(
                     modifier = Modifier
-                        .fillMaxSize()
+                        .size(12.dp)
+                        .clip(CircleShape)
+                        .background(WikipediaTheme.colors.progressiveColor)
+                )
+            }
+        } else {
+            Box(
+                modifier = Modifier
+                    .padding(start = 16.dp, top = 16.dp)
+                    .size(width = 11.dp, height = 26.dp)
+                    .background(WikipediaTheme.colors.backgroundColor),
+                contentAlignment = Alignment.Center
+            ) {
+                Box(
+                    modifier = Modifier
+                        .size(8.dp)
                         .clip(CircleShape)
                         .background(WikipediaTheme.colors.progressiveColor)
                 )
