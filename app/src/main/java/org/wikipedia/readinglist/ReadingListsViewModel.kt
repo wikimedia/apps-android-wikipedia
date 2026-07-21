@@ -352,34 +352,34 @@ class ReadingListsViewModel : ViewModel() {
         lists: List<ReadingList>,
         titleFilter: String? = null
     ): List<ReadingListRow.PageRow> {
-        // Map each article (lang + API title) to the lists that contain it, so we resolve the
-        // containing lists once instead of re-scanning every list per article.
-        val containingListsByPage = mutableMapOf<Pair<String, String>, MutableList<ContainingList>>()
-        lists.forEach { list ->
-            val containingList = ContainingList(list.id, list.title)
-            list.pages.forEach { page ->
-                containingListsByPage.getOrPut(page.lang to page.apiTitle) { mutableListOf() }
-                    .add(containingList)
-            }
-        }
-
-        val seenPages = mutableSetOf<Pair<String, String>>()
-        val pageRows = mutableListOf<ReadingListRow.PageRow>()
+        val selectedArticles = linkedMapOf<Pair<String, String>, ArticleRowData>()
         lists.forEach { list ->
             list.pages.forEach { page ->
                 val matches = titleFilter == null ||
                     page.accentInvariantTitle.contains(titleFilter, ignoreCase = true)
-                if (matches && seenPages.add(page.lang to page.apiTitle)) {
-                    pageRows.add(
-                        ReadingListRow.PageRow(
-                            page.toUiModel(),
-                            containingListsByPage[page.lang to page.apiTitle].orEmpty()
-                        )
-                    )
+                if (matches) {
+                    selectedArticles.getOrPut(page.lang to page.apiTitle) { ArticleRowData(page) }
                 }
             }
         }
-        return pageRows
+
+        if (selectedArticles.isEmpty()) {
+            return emptyList()
+        }
+
+        lists.forEach { list ->
+            val containingList = ContainingList(list.id, list.title)
+            list.pages.forEach { page ->
+                selectedArticles[page.lang to page.apiTitle]?.containingLists?.add(containingList)
+            }
+        }
+
+        return selectedArticles.values.map { article ->
+            ReadingListRow.PageRow(
+                article.page.toUiModel(),
+                article.containingLists
+            )
+        }
     }
 
     private fun MutableList<ReadingList>.removeEmptyDefaultList() {
@@ -476,6 +476,11 @@ data class ReadingListsUiState(
 private data class ContentMode(
     val query: String?,
     val tab: SavedTab
+)
+
+private data class ArticleRowData(
+    val page: ReadingListPage,
+    val containingLists: MutableList<ContainingList> = mutableListOf()
 )
 
 data class RecentPreviewSavedState(
