@@ -320,8 +320,10 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     // Overflow menu
     fun showReadingListsOverflowMenu() {
         ReadingListsOverflowView(requireContext()).show(
-            (requireActivity() as MainActivity).getToolbar()
-                .findViewById(R.id.menu_overflow_button), overflowCallback
+            anchorView = (requireActivity() as MainActivity).getToolbar()
+                .findViewById(R.id.menu_overflow_button),
+            callback = overflowCallback,
+            showCollectionActions = viewModel.uiState.value.selectedTab == SavedTab.COLLECTIONS
         )
     }
 
