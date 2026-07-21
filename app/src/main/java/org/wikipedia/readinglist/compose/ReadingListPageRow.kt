@@ -51,6 +51,7 @@ fun ReadingListPageRow(
     page: ReadingListPageUiModel,
     containingLists: List<ContainingList>,
     modifier: Modifier = Modifier,
+    downloadProgress: Int = 0,
     onClick: () -> Unit = {},
     onLongClick: () -> Unit = {},
     onToggleOfflineClick: () -> Unit = {},
@@ -99,9 +100,9 @@ fun ReadingListPageRow(
                         .clickable(onClick = onToggleOfflineClick),
                     contentAlignment = Alignment.Center
                 ) {
-                    if (page.downloadProgress in 1 until 100) {
+                    if (downloadProgress in 1 until 100) {
                         CircularProgressIndicator(
-                            progress = { page.downloadProgress / 100f },
+                            progress = { downloadProgress / 100f },
                             modifier = Modifier.size(28.dp),
                             color = WikipediaTheme.colors.progressiveColor,
                             trackColor = WikipediaTheme.colors.borderColor,
@@ -204,9 +205,9 @@ private fun ReadingListPageRowPreview() {
                 apiTitle = "Random",
                 offline = true,
                 saving = true,
-                downloadProgress = 42,
                 isAvailable = false
             ),
+            downloadProgress = 42,
             containingLists = listOf(ContainingList(1, "Physics"), ContainingList(2, "Top read"))
         )
     }
@@ -228,7 +229,6 @@ private fun ReadingListPageRowOfflinePreview() {
                 apiTitle = "Test2",
                 offline = true,
                 saving = false,
-                downloadProgress = 0,
                 isAvailable = true
             ),
             containingLists = listOf(ContainingList(1, "Physics"), ContainingList(2, "Top read"))

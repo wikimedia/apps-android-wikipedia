@@ -12,7 +12,10 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.flow.sample
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.flow.update
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -24,6 +27,7 @@ import org.wikipedia.readinglist.database.ReadingListWithPages
 import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
+import kotlin.time.Duration.Companion.milliseconds
 
 enum class SavedTab {
     ALL_ARTICLES,
@@ -59,17 +63,15 @@ class ReadingListsViewModel : ViewModel() {
         AppDatabase.instance.readingListDao().getListsWithPagesFlow(),
         contentMode,
         recentPreviewSavedState,
-        pageDownloadProgress,
         Prefs.observeKeys(R.string.preference_key_reading_list_sort_mode)
-    ) { relations, mode, previewSavedState, downloadProgress, _ ->
+    ) { relations, mode, previewSavedState, _ ->
         ReadingListsUiState(
             isLoading = false,
             rows = buildRows(
                 relations,
                 mode.tab,
                 mode.query,
-                previewSavedState.newBadgeListId,
-                downloadProgress
+                previewSavedState.newBadgeListId
             ),
             listCount = relations.size,
             searchQuery = mode.query,
@@ -77,6 +79,25 @@ class ReadingListsViewModel : ViewModel() {
             pendingPreviewSavedListId = previewSavedState.pendingSnackbarListId
         )
     }
+
+    // SavedPageSyncService emits PageDownloadEvent which updates downloadProgress in ReadingListPage during a sync
+    // this only exposes the presentation state of the download progress for visible article rows,
+    // which avoids expensive row-building combine above on each update
+    private val contentStateWithDownloadProgress = combine(
+        readingListsContentState,
+        pageDownloadProgress
+            .sample(PROGRESS_SAMPLE_MILLIS.milliseconds)
+            .onStart { emit(pageDownloadProgress.value) }
+            .distinctUntilChanged()
+    ) { contentState, downloadProgress ->
+        contentState.copy(
+            pageDownloadProgress = if (contentState.selectedTab == SavedTab.ALL_ARTICLES) {
+                downloadProgress
+            } else {
+                emptyMap()
+            }
+        )
+    }.distinctUntilChanged()
 
     private val recommendationPreferenceChanges = Prefs.observeKeys(
         R.string.preference_key_recommended_reading_list_enabled,
@@ -108,7 +129,7 @@ class ReadingListsViewModel : ViewModel() {
 
     val uiState: StateFlow<ReadingListsUiState> =
         combine(
-            readingListsContentState,
+            contentStateWithDownloadProgress,
             searchActive,
             accountState,
             Prefs.observeKeys(
@@ -157,7 +178,13 @@ class ReadingListsViewModel : ViewModel() {
     }
 
     fun updatePageDownloadProgress(page: ReadingListPage) {
-        pageDownloadProgress.value += (page.id to page.downloadProgress)
+        pageDownloadProgress.update { progressByPageId ->
+            if (progressByPageId[page.id] == page.downloadProgress) {
+                progressByPageId
+            } else {
+                progressByPageId + (page.id to page.downloadProgress)
+            }
+        }
     }
 
     fun setSelectionMode(enabled: Boolean) {
@@ -277,19 +304,18 @@ class ReadingListsViewModel : ViewModel() {
         relations: List<ReadingListWithPages>,
         tab: SavedTab,
         query: String?,
-        recentPreviewSavedId: Long?,
-        downloadProgress: Map<Long, Int>
+        recentPreviewSavedId: Long?
     ): List<ReadingListRow> {
         // toReadingList() drops pages queued for deletion (Room @Relation can't filter children in SQL)
         val lists = relations.map { it.toReadingList() }.toMutableList()
 
         if (!query.isNullOrEmpty()) {
-            return buildSearchRows(lists, tab, query, recentPreviewSavedId, downloadProgress)
+            return buildSearchRows(lists, tab, query, recentPreviewSavedId)
         }
 
         return when (tab) {
             SavedTab.COLLECTIONS -> buildCollectionsRows(lists, recentPreviewSavedId)
-            SavedTab.ALL_ARTICLES -> buildArticleRows(lists, downloadProgress)
+            SavedTab.ALL_ARTICLES -> buildArticleRows(lists)
         }
     }
 
@@ -306,15 +332,14 @@ class ReadingListsViewModel : ViewModel() {
         lists: List<ReadingList>,
         tab: SavedTab,
         query: String,
-        recentPreviewSavedId: Long?,
-        downloadProgress: Map<Long, Int>
+        recentPreviewSavedId: Long?
     ): List<ReadingListRow> {
         val normalizedQuery = StringUtils.stripAccents(query)
         return when (tab) {
             SavedTab.COLLECTIONS -> lists
                 .filter { it.accentInvariantTitle.contains(normalizedQuery, ignoreCase = true) }
                 .map { ReadingListRow.ListRow(it.toUiModel(recentPreviewSavedId)) }
-            SavedTab.ALL_ARTICLES -> buildArticleRows(lists, downloadProgress, normalizedQuery)
+            SavedTab.ALL_ARTICLES -> buildArticleRows(lists, normalizedQuery)
         }
     }
 
@@ -325,7 +350,6 @@ class ReadingListsViewModel : ViewModel() {
      */
     private fun buildArticleRows(
         lists: List<ReadingList>,
-        downloadProgress: Map<Long, Int>,
         titleFilter: String? = null
     ): List<ReadingListRow.PageRow> {
         // Map each article (lang + API title) to the lists that contain it, so we resolve the
@@ -348,7 +372,7 @@ class ReadingListsViewModel : ViewModel() {
                 if (matches && seenPages.add(page.lang to page.apiTitle)) {
                     pageRows.add(
                         ReadingListRow.PageRow(
-                            page.toUiModel(downloadProgress[page.id] ?: 0),
+                            page.toUiModel(),
                             containingListsByPage[page.lang to page.apiTitle].orEmpty()
                         )
                     )
@@ -377,7 +401,7 @@ class ReadingListsViewModel : ViewModel() {
         )
     }
 
-    private fun ReadingListPage.toUiModel(downloadProgress: Int): ReadingListPageUiModel {
+    private fun ReadingListPage.toUiModel(): ReadingListPageUiModel {
         val saving = saving
         return ReadingListPageUiModel(
             id = id,
@@ -388,7 +412,6 @@ class ReadingListsViewModel : ViewModel() {
             apiTitle = apiTitle,
             offline = offline,
             saving = saving,
-            downloadProgress = downloadProgress,
             isAvailable = WikipediaApp.instance.isOnline || (offline && !saving)
         )
     }
@@ -396,6 +419,7 @@ class ReadingListsViewModel : ViewModel() {
     companion object {
         private const val STOP_TIMEOUT_MILLIS = 5000L
         private const val SEARCH_DEBOUNCE_MILLIS = 150L
+        private const val PROGRESS_SAMPLE_MILLIS = 150L
     }
 }
 
@@ -423,7 +447,6 @@ data class ReadingListPageUiModel(
     val apiTitle: String,
     val offline: Boolean,
     val saving: Boolean,
-    val downloadProgress: Int,
     val isAvailable: Boolean
 )
 
@@ -441,6 +464,7 @@ data class ReadingListsUiState(
     val isLoading: Boolean = true,
     val isSearchActive: Boolean = false,
     val rows: List<ReadingListRow> = emptyList(),
+    val pageDownloadProgress: Map<Long, Int> = emptyMap(),
     val listCount: Int = 0,
     val searchQuery: String? = null,
     val selectedTab: SavedTab = SavedTab.ALL_ARTICLES,

@@ -254,6 +254,7 @@ private fun ReadingListsContent(
         else -> {
             ReadingListsList(
                 rows = uiState.rows,
+                pageDownloadProgress = uiState.pageDownloadProgress,
                 onboarding = uiState.onboarding,
                 discoverCard = uiState.discoverCard,
                 onOnboardingAction = onOnboardingAction,
@@ -377,6 +378,7 @@ sealed interface OnboardingAction {
 @Composable
 private fun ReadingListsList(
     rows: List<ReadingListRow>,
+    pageDownloadProgress: Map<Long, Int>,
     onboarding: OnboardingState,
     discoverCard: RecommendedReadingListCard?,
     onOnboardingAction: (OnboardingAction) -> Unit,
@@ -440,6 +442,7 @@ private fun ReadingListsList(
                 )
                 is ReadingListRow.PageRow -> ReadingListPageRow(
                     page = row.page,
+                    downloadProgress = pageDownloadProgress[row.page.id] ?: 0,
                     containingLists = row.containingLists,
                     onClick = { onPageClick(row.page.id) },
                     onLongClick = { onPageLongClick(row.page.id) },
