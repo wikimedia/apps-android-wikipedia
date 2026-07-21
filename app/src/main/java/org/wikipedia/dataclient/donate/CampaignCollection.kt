@@ -16,7 +16,7 @@ import java.time.LocalDateTime
 
 object CampaignCollection {
 
-    private const val CAMPAIGN_VERSION = 2
+    private const val CAMPAIGN_VERSION = 3
     private const val CAMPAIGN_PLATFORM = "Android"
 
     private const val CAMPAIGNS_URL = "https://donate.wikimedia.org/wiki/MediaWiki:AppsCampaignConfig.json?action=raw"
