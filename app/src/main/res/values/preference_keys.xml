@@ -123,6 +123,8 @@
     <string name="preference_key_excluded_type_codes_notification" translatable="false">filterNotificationExcludedTypeCodes</string>
     <string name="preference_key_auto_show_edit_notices" translatable="false">autoShowEditNotices</string>
     <string name="preference_key_edit_notices_tooltip_shown" translatable="false">editNoticesTooltipShown</string>
+    <string name="preference_key_editor_mode_choice" translatable="false">editorModeChoice</string>
+    <string name="preference_key_editor_mode_choice_show_dialog" translatable="false">editorModeChoiceShowDialog</string>
     <string name="preference_key_customize_toolbar_tooltip" translatable="false">showCustomizeToolbarTooltip</string>
     <string name="preference_key_customize_toolbar_order" translatable="false">customizeToolbarOrder</string>
     <string name="preference_key_customize_toolbar_menu_order" translatable="false">customizeToolbarMenuOrder</string>

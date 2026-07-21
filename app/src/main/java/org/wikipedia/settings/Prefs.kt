@@ -24,6 +24,7 @@ import org.wikipedia.analytics.eventplatform.AppSessionEvent
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.donate.DonationResult
 import org.wikipedia.donate.donationreminder.DonationReminderConfig
+import org.wikipedia.edit.EDITOR_CHOICE_VE
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
 import org.wikipedia.games.onthisday.OnThisDayGameNotificationState
 import org.wikipedia.json.JsonUtil
@@ -622,6 +623,14 @@ object Prefs {
     var editTypingSuggestionsEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_edit_typing_suggestions, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_edit_typing_suggestions, value)
+
+    var editorModeChoice
+        get() = PrefsIoUtil.getInt(R.string.preference_key_editor_mode_choice, EDITOR_CHOICE_VE)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_editor_mode_choice, value)
+
+    var editorModeChoiceShowDialog
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_editor_mode_choice_show_dialog, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_editor_mode_choice_show_dialog, value)
 
     val useUrlShortenerForSharing
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_lists_share_url_shorten, false)

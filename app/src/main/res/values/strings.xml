@@ -306,6 +306,14 @@
     <string name="edit_notices_please_read">Please read before editing</string>
     <string name="edit_notices_show_auto">Show edit notices automatically</string>
     <string name="edit_notices_tooltip">Tap this button to view edit notices for this article.</string>
+    <string name="editor_select_dialog_title">How would you like to edit?</string>
+    <string name="editor_select_dialog_subtitle">The visual editor is the easiest way to make changes, and is recommended for newcomers.</string>
+    <string name="editor_select_dialog_ve_title">Edit with the visual editor</string>
+    <string name="editor_select_dialog_ve_subtitle">Ideal for newcomers</string>
+    <string name="editor_select_dialog_source_title">Edit with the source editor</string>
+    <string name="editor_select_dialog_source_subtitle">Ideal for advanced editors</string>
+    <string name="editor_select_dialog_dont_show_again">Don\'t show me this again</string>
+    <string name="editor_select_dialog_continue">Continue</string>
     <string name="find_next">Find next</string>
     <string name="find_previous">Find previous</string>
     <string name="find_first_occurence">This is the first occurrence</string>

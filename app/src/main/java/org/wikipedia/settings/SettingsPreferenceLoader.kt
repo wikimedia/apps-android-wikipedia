@@ -18,6 +18,8 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.donate.DonateUtil
 import org.wikipedia.donate.donationreminder.DonationReminderActivity
 import org.wikipedia.donate.donationreminder.DonationReminderHelper
+import org.wikipedia.edit.EDITOR_CHOICE_VE
+import org.wikipedia.edit.showEditorChoiceDialog
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingActivity
@@ -55,6 +57,16 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
             it.setSummary(WikipediaApp.instance.currentTheme.nameId)
             it.onPreferenceClickListener = Preference.OnPreferenceClickListener {
                 activity.startActivity(ThemeFittingRoomActivity.newIntent(activity))
+                true
+            }
+        }
+        findPreference(R.string.preference_key_editor_mode_choice).let { pref ->
+            pref.setSummary(if (Prefs.editorModeChoice == EDITOR_CHOICE_VE) R.string.editor_select_dialog_ve_title else R.string.editor_select_dialog_source_title)
+            pref.onPreferenceClickListener = Preference.OnPreferenceClickListener {
+                showEditorChoiceDialog(activity, allowShowAgainCheckbox = false) { editorChoice, _ ->
+                    Prefs.editorModeChoice = editorChoice
+                    pref.setSummary(if (editorChoice == EDITOR_CHOICE_VE) R.string.editor_select_dialog_ve_title else R.string.editor_select_dialog_source_title)
+                }
                 true
             }
         }
