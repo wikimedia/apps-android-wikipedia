@@ -84,8 +84,8 @@ object CampaignCollection {
             .replace("\$formattedId;", getFormattedCampaignId(campaignId))
             .replace("\$country;", GeoUtil.geoIPCountry.orEmpty())
             .replace("\$language;", WikipediaApp.instance.appOrSystemLanguageCode)
-            .replace("\$appVersion", BuildConfig.VERSION_NAME)
-            .replace("\$appInstallId", WikipediaApp.instance.appInstallID)
+            .replace("\$appVersion;", BuildConfig.VERSION_NAME)
+            .replace("\$appInstallId;", WikipediaApp.instance.appInstallID)
     }
 
     @Serializable
