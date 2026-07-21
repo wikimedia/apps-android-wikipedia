@@ -6,6 +6,7 @@ import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.decodeFromJsonElement
 import okhttp3.Request
+import org.wikipedia.BuildConfig
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.donate.DonationResult
@@ -83,6 +84,8 @@ object CampaignCollection {
             .replace("\$formattedId;", getFormattedCampaignId(campaignId))
             .replace("\$country;", GeoUtil.geoIPCountry.orEmpty())
             .replace("\$language;", WikipediaApp.instance.appOrSystemLanguageCode)
+            .replace("\$appVersion", BuildConfig.VERSION_NAME)
+            .replace("\$appInstallId", WikipediaApp.instance.appInstallID)
     }
 
     @Serializable
