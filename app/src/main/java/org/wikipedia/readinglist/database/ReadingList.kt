@@ -66,11 +66,15 @@ class ReadingList(
         const val SORT_BY_RECENT_DESC = 3
 
         fun sort(list: ReadingList, sortMode: Int) {
+            sortPages(list.pages, sortMode)
+        }
+
+        fun sortPages(pages: MutableList<ReadingListPage>, sortMode: Int) {
             when (sortMode) {
-                SORT_BY_NAME_ASC -> list.pages.sortWith { lhs: ReadingListPage, rhs: ReadingListPage -> lhs.accentInvariantTitle.compareTo(rhs.accentInvariantTitle, true) }
-                SORT_BY_NAME_DESC -> list.pages.sortWith { lhs: ReadingListPage, rhs: ReadingListPage -> rhs.accentInvariantTitle.compareTo(lhs.accentInvariantTitle, true) }
-                SORT_BY_RECENT_ASC -> list.pages.sortWith { lhs: ReadingListPage, rhs: ReadingListPage -> lhs.mtime.compareTo(rhs.mtime) }
-                SORT_BY_RECENT_DESC -> list.pages.sortWith { lhs: ReadingListPage, rhs: ReadingListPage -> rhs.mtime.compareTo(lhs.mtime) }
+                SORT_BY_NAME_ASC -> pages.sortWith { lhs: ReadingListPage, rhs: ReadingListPage -> lhs.accentInvariantTitle.compareTo(rhs.accentInvariantTitle, true) }
+                SORT_BY_NAME_DESC -> pages.sortWith { lhs: ReadingListPage, rhs: ReadingListPage -> rhs.accentInvariantTitle.compareTo(lhs.accentInvariantTitle, true) }
+                SORT_BY_RECENT_ASC -> pages.sortWith { lhs: ReadingListPage, rhs: ReadingListPage -> lhs.mtime.compareTo(rhs.mtime) }
+                SORT_BY_RECENT_DESC -> pages.sortWith { lhs: ReadingListPage, rhs: ReadingListPage -> rhs.mtime.compareTo(lhs.mtime) }
             }
         }
 

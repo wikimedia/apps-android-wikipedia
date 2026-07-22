@@ -332,7 +332,8 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             ExclusiveBottomSheetPresenter.show(
                 childFragmentManager,
                 SortReadingListsDialog.newInstance(
-                    Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC)
+                    sortOption = getSortOption(),
+                    sortArticles = viewModel.uiState.value.selectedTab == SavedTab.ALL_ARTICLES
                 )
             )
         }
@@ -375,6 +376,13 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     override fun onSortOptionClick(position: Int) {
         viewModel.setSortMode(position)
+    }
+
+    private fun getSortOption(): Int {
+        return when (viewModel.uiState.value.selectedTab) {
+            SavedTab.ALL_ARTICLES -> Prefs.getReadingListPageSortMode(ReadingList.SORT_BY_NAME_ASC)
+            SavedTab.COLLECTIONS -> Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC)
+        }
     }
 
     private fun importReadingLists(uri: android.net.Uri) {

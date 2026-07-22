@@ -255,6 +255,7 @@ private fun ReadingListsContent(
             ReadingListsList(
                 rows = uiState.rows,
                 pageDownloadProgress = uiState.pageDownloadProgress,
+                sortMode = uiState.sortMode,
                 onboarding = uiState.onboarding,
                 discoverCard = uiState.discoverCard,
                 onOnboardingAction = onOnboardingAction,
@@ -379,6 +380,7 @@ sealed interface OnboardingAction {
 private fun ReadingListsList(
     rows: List<ReadingListRow>,
     pageDownloadProgress: Map<Long, Int>,
+    sortMode: Int,
     onboarding: OnboardingState,
     discoverCard: RecommendedReadingListCard?,
     onOnboardingAction: (OnboardingAction) -> Unit,
@@ -426,8 +428,8 @@ private fun ReadingListsList(
             items = rows,
             key = { row ->
                 when (row) {
-                    is ReadingListRow.ListRow -> "list-${row.list.id}"
-                    is ReadingListRow.PageRow -> "page-${row.page.id}"
+                    is ReadingListRow.ListRow -> "list-$sortMode-${row.list.id}"
+                    is ReadingListRow.PageRow -> "page-$sortMode-${row.page.id}"
                 }
             }
         ) { row ->

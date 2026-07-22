@@ -63,19 +63,28 @@ class ReadingListsViewModel : ViewModel() {
         AppDatabase.instance.readingListDao().getListsWithPagesFlow(),
         contentMode,
         recentPreviewSavedState,
-        Prefs.observeKeys(R.string.preference_key_reading_list_sort_mode)
+        Prefs.observeKeys(
+            R.string.preference_key_reading_list_sort_mode,
+            R.string.preference_key_reading_list_page_sort_mode
+        )
     ) { relations, mode, previewSavedState, _ ->
+        val sortMode = when (mode.tab) {
+            SavedTab.ALL_ARTICLES -> Prefs.getReadingListPageSortMode(ReadingList.SORT_BY_NAME_ASC)
+            SavedTab.COLLECTIONS -> Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC)
+        }
         ReadingListsUiState(
             isLoading = false,
             rows = buildRows(
                 relations,
                 mode.tab,
                 mode.query,
-                previewSavedState.newBadgeListId
+                previewSavedState.newBadgeListId,
+                sortMode
             ),
             listCount = relations.size,
             searchQuery = mode.query,
             selectedTab = mode.tab,
+            sortMode = sortMode,
             pendingPreviewSavedListId = previewSavedState.pendingSnackbarListId
         )
     }
@@ -249,15 +258,10 @@ class ReadingListsViewModel : ViewModel() {
     }
 
     fun setSortMode(sortMode: Int) {
-        Prefs.setReadingListSortMode(
-            when (sortMode) {
-                ReadingList.SORT_BY_NAME_DESC,
-                ReadingList.SORT_BY_RECENT_DESC,
-                ReadingList.SORT_BY_RECENT_ASC,
-                ReadingList.SORT_BY_NAME_ASC -> sortMode
-                else -> ReadingList.SORT_BY_NAME_ASC
-            }
-        )
+        when (selectedTab.value) {
+            SavedTab.ALL_ARTICLES -> Prefs.setReadingListPageSortMode(sortMode)
+            SavedTab.COLLECTIONS -> Prefs.setReadingListSortMode(sortMode)
+        }
     }
 
     private fun resolveOnboardingState(
@@ -304,7 +308,8 @@ class ReadingListsViewModel : ViewModel() {
         relations: List<ReadingListWithPages>,
         tab: SavedTab,
         query: String?,
-        recentPreviewSavedId: Long?
+        recentPreviewSavedId: Long?,
+        sortMode: Int
     ): List<ReadingListRow> {
         // toReadingList() drops pages queued for deletion (Room @Relation can't filter children in SQL)
         val lists = relations.map { it.toReadingList() }.toMutableList()
@@ -314,16 +319,17 @@ class ReadingListsViewModel : ViewModel() {
         }
 
         return when (tab) {
-            SavedTab.COLLECTIONS -> buildCollectionsRows(lists, recentPreviewSavedId)
-            SavedTab.ALL_ARTICLES -> buildArticleRows(lists)
+            SavedTab.COLLECTIONS -> buildCollectionsRows(lists, recentPreviewSavedId, sortMode)
+            SavedTab.ALL_ARTICLES -> buildArticleRows(lists, sortMode = sortMode)
         }
     }
 
     private fun buildCollectionsRows(
         lists: MutableList<ReadingList>,
-        recentPreviewSavedId: Long?
+        recentPreviewSavedId: Long?,
+        sortMode: Int
     ): List<ReadingListRow> {
-        ReadingList.sort(lists, Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC))
+        ReadingList.sort(lists, sortMode)
         lists.removeEmptyDefaultList()
         return lists.map { ReadingListRow.ListRow(it.toUiModel(recentPreviewSavedId)) }
     }
@@ -350,7 +356,8 @@ class ReadingListsViewModel : ViewModel() {
      */
     private fun buildArticleRows(
         lists: List<ReadingList>,
-        titleFilter: String? = null
+        titleFilter: String? = null,
+        sortMode: Int? = null
     ): List<ReadingListRow.PageRow> {
         val selectedArticles = linkedMapOf<Pair<String, String>, ArticleRowData>()
         lists.forEach { list ->
@@ -374,9 +381,13 @@ class ReadingListsViewModel : ViewModel() {
             }
         }
 
-        return selectedArticles.values.map { article ->
+        val orderedPages = selectedArticles.values.mapTo(mutableListOf()) { it.page }
+        sortMode?.let { ReadingList.sortPages(orderedPages, it) }
+
+        return orderedPages.map { page ->
+            val article = selectedArticles.getValue(page.lang to page.apiTitle)
             ReadingListRow.PageRow(
-                article.page.toUiModel(),
+                page.toUiModel(),
                 article.containingLists
             )
         }
@@ -468,6 +479,7 @@ data class ReadingListsUiState(
     val listCount: Int = 0,
     val searchQuery: String? = null,
     val selectedTab: SavedTab = SavedTab.ALL_ARTICLES,
+    val sortMode: Int = ReadingList.SORT_BY_NAME_ASC,
     val onboarding: OnboardingState = OnboardingState.None,
     val discoverCard: RecommendedReadingListCard? = null,
     val pendingPreviewSavedListId: Long? = null
