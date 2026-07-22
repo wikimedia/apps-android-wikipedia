@@ -9,10 +9,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.ComposeView
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.fragment.compose.content
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -37,19 +37,179 @@ import org.wikipedia.util.UiState
 import org.wikipedia.util.UriUtil
 
 class SearchResultsFragment : Fragment() {
-
-    private var composeView: ComposeView? = null
     private val viewModel: SearchResultsViewModel by viewModels()
     var showHybridSearch by mutableStateOf(false)
 
-    val isShowing get() = composeView?.visibility == View.VISIBLE
+    val isShowing get() = view?.visibility == View.VISIBLE
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) = content {
+        BaseTheme {
+            if (showHybridSearch && viewModel.isHybridSearchExperimentOn) {
+                HybridSearchResultsScreen(
+                    viewModel = viewModel,
+                    modifier = Modifier.fillMaxSize(),
+                    onNavigateToTitle = { result, inNewTab, position, location ->
+                        requireActivity().instrument?.submitInteraction(
+                            "search_result_click",
+                            elementId = "lexical_search_result",
+                            pageData = TestKitchenAdapter.getPageData(result.pageTitle),
+                            actionContext = viewModel.getHybridEventActionContext(result)
+                        )
+                        callback()?.navigateToTitle(result.pageTitle, inNewTab, position, location)
+                    },
+                    onSemanticCardImpression = { result ->
+                        requireActivity().instrument?.submitInteraction(
+                            "impression",
+                            elementId = "semantic_search_card",
+                            pageData = TestKitchenAdapter.getPageData(result.pageTitle),
+                            actionContext = viewModel.getHybridEventActionContext(result)
+                        )
+                    },
+                    onSemanticItemClick = { result, title, inNewTab, fromSnippetLink, position, location ->
+                        requireActivity().instrument?.submitInteraction(
+                            "search_result_click",
+                            elementId = if (fromSnippetLink) "semantic_search_link" else "semantic_search_result",
+                            pageData = TestKitchenAdapter.getPageData(title),
+                            actionContext = viewModel.getHybridEventActionContext(result)
+                        )
+                        callback()?.navigateToTitle(title, inNewTab, position, location)
+                    },
+                    onItemLongClick = { view, searchResult, position ->
+                        val entry = HistoryEntry(searchResult.pageTitle, HistoryEntry.SOURCE_SEARCH)
+                        LongPressMenu(
+                            view,
+                            callback = SearchResultLongPressHandler(callback(), position)
+                        ).show(entry)
+                    },
+                    onInfoClick = {
+                        requireActivity().instrument?.submitInteraction(
+                            "click",
+                            elementId = "learn_more"
+                        )
 
+                        UriUtil.visitInExternalBrowser(
+                            requireActivity(),
+                            getString(R.string.hybrid_search_info_link).toUri()
+                        )
+                    },
+                    onTurnOffExperimentClick = {
+                        requireActivity().instrument?.submitInteraction(
+                            "click",
+                            elementId = "hybrid_search_opt_out"
+                        )
+
+                        Prefs.isHybridSearchEnabled = false
+                        showHybridSearch = false
+                        callback()?.setSearchText(StringUtil.fromHtml(it).toString())
+                    },
+                    onCloseSearch = { requireActivity().finish() },
+                    onRetrySearch = {
+                        viewModel.refreshSearchResults()
+                    },
+                    onLoading = { enabled ->
+                        callback()?.onSearchProgressBar(enabled)
+                    },
+                    onRatingClick = { isPositive, result ->
+                        requireActivity().instrument?.submitInteraction(
+                            "click",
+                            elementId = if (isPositive) "thumb_up" else "thumb_down",
+                            pageData = TestKitchenAdapter.getPageData(result.pageTitle),
+                            actionContext = viewModel.getHybridEventActionContext(result)
+                        )
+                    },
+                    onLexicalResultsEmpty = {
+                        requireActivity().instrument?.submitInteraction(
+                            "search_error", actionSubtype = "lexical_search_error",
+                            actionContext = mapOf("error" to getString(R.string.hybrid_lexical_search_results_empty))
+                        )
+
+                        FeedbackUtil.showMessage(
+                            requireActivity(),
+                            R.string.hybrid_lexical_search_results_empty
+                        )
+                    },
+                    onSemanticResultsEmpty = {
+                        requireActivity().instrument?.submitInteraction(
+                            "search_error", actionSubtype = "semantic_search_error",
+                            actionContext = mapOf("error" to getString(R.string.hybrid_search_results_empty))
+                        )
+
+                        FeedbackUtil.showMessage(
+                            requireActivity(),
+                            R.string.hybrid_search_results_empty
+                        )
+                    },
+                    onError = {
+                        requireActivity().instrument?.submitInteraction(
+                            "search_error",
+                            actionContext = mapOf("error" to it.message.orEmpty())
+                        )
+                    }
+                )
+            } else {
+                SearchResultsScreen(
+                    viewModel = viewModel,
+                    modifier = Modifier.fillMaxSize(),
+                    onNavigateToTitle = { result, inNewTab, position, location ->
+
+                        requireActivity().instrument?.submitInteraction(
+                            "search_result_click",
+                            pageData = TestKitchenAdapter.getPageData(result.pageTitle),
+                            actionContext = viewModel.getStandardEventActionContext(result)
+                        )
+
+                        callback()?.navigateToTitle(result.pageTitle, inNewTab, position, location)
+                    },
+                    onItemLongClick = { view, searchResult, position ->
+                        val entry =
+                            HistoryEntry(searchResult.pageTitle, HistoryEntry.SOURCE_SEARCH)
+                        LongPressMenu(
+                            view,
+                            callback = SearchResultLongPressHandler(callback(), position)
+                        ).show(entry)
+                    },
+                    onSemanticSearchClick = { result, query, isSuggestion ->
+
+                        if (isSuggestion) {
+                            requireActivity().instrument?.submitInteraction(
+                                "click",
+                                elementId = "semantic_search_explicit",
+                                actionContext = viewModel.getStandardEventActionContext()
+                            )
+                        } else {
+                            requireActivity().instrument?.submitInteraction(
+                                "search_result_click",
+                                actionContext = viewModel.getStandardEventActionContext(result)
+                            )
+                        }
+
+                        callback()?.setSearchText(StringUtil.fromHtml(query).toString())
+                        showHybridSearch = true
+                        DeviceUtil.hideSoftKeyboard(requireActivity())
+                    },
+                    onCloseSearch = { requireActivity().finish() },
+                    onRetrySearch = {
+                        viewModel.refreshSearchResults()
+                    },
+                    onLanguageClick = { position ->
+                        if (isAdded && position >= 0) {
+                            (requireParentFragment() as SearchFragment).setUpLanguageScroll(
+                                position
+                            )
+                        }
+                    },
+                    onLoading = { enabled ->
+                        callback()?.onSearchProgressBar(enabled)
+                    },
+                    onNoResults = {
+                        DeviceUtil.showSoftKeyboard(requireActivity())
+                    }
+                )
+            }
+        }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.searchTermForLogging.collectLatest { query ->
@@ -91,152 +251,14 @@ class SearchResultsFragment : Fragment() {
                 }
             }
         }
-
-        return ComposeView(requireActivity()).apply {
-            composeView = this
-            setContent {
-                BaseTheme {
-                    if (showHybridSearch && viewModel.isHybridSearchExperimentOn) {
-                        HybridSearchResultsScreen(
-                            viewModel = viewModel,
-                            modifier = Modifier.fillMaxSize(),
-                            onNavigateToTitle = { result, inNewTab, position, location ->
-                                requireActivity().instrument?.submitInteraction("search_result_click",
-                                    elementId = "lexical_search_result",
-                                    pageData = TestKitchenAdapter.getPageData(result.pageTitle),
-                                    actionContext = viewModel.getHybridEventActionContext(result)
-                                )
-                                callback()?.navigateToTitle(result.pageTitle, inNewTab, position, location)
-                            },
-                            onSemanticCardImpression = { result ->
-                                requireActivity().instrument?.submitInteraction("impression",
-                                    elementId = "semantic_search_card",
-                                    pageData = TestKitchenAdapter.getPageData(result.pageTitle),
-                                    actionContext = viewModel.getHybridEventActionContext(result)
-                                )
-                            },
-                            onSemanticItemClick = { result, title, inNewTab, fromSnippetLink, position, location ->
-                                requireActivity().instrument?.submitInteraction("search_result_click",
-                                    elementId = if (fromSnippetLink) "semantic_search_link" else "semantic_search_result",
-                                    pageData = TestKitchenAdapter.getPageData(title),
-                                    actionContext = viewModel.getHybridEventActionContext(result)
-                                )
-                                callback()?.navigateToTitle(title, inNewTab, position, location)
-                            },
-                            onItemLongClick = { view, searchResult, position ->
-                                val entry = HistoryEntry(searchResult.pageTitle, HistoryEntry.SOURCE_SEARCH)
-                                LongPressMenu(view, callback = SearchResultLongPressHandler(callback(), position)).show(entry)
-                            },
-                            onInfoClick = {
-                                requireActivity().instrument?.submitInteraction("click", elementId = "learn_more")
-
-                                UriUtil.visitInExternalBrowser(requireActivity(), getString(R.string.hybrid_search_info_link).toUri())
-                            },
-                            onTurnOffExperimentClick = {
-                                requireActivity().instrument?.submitInteraction("click", elementId = "hybrid_search_opt_out")
-
-                                Prefs.isHybridSearchEnabled = false
-                                showHybridSearch = false
-                                callback()?.setSearchText(StringUtil.fromHtml(it).toString())
-                            },
-                            onCloseSearch = { requireActivity().finish() },
-                            onRetrySearch = {
-                                viewModel.refreshSearchResults()
-                            },
-                            onLoading = { enabled ->
-                                callback()?.onSearchProgressBar(enabled)
-                            },
-                            onRatingClick = { isPositive, result ->
-                                requireActivity().instrument?.submitInteraction("click",
-                                    elementId = if (isPositive) "thumb_up" else "thumb_down",
-                                    pageData = TestKitchenAdapter.getPageData(result.pageTitle),
-                                    actionContext = viewModel.getHybridEventActionContext(result)
-                                )
-                            },
-                            onLexicalResultsEmpty = {
-                                requireActivity().instrument?.submitInteraction("search_error", actionSubtype = "lexical_search_error",
-                                    actionContext = mapOf("error" to getString(R.string.hybrid_lexical_search_results_empty))
-                                )
-
-                                FeedbackUtil.showMessage(requireActivity(), R.string.hybrid_lexical_search_results_empty)
-                            },
-                            onSemanticResultsEmpty = {
-                                requireActivity().instrument?.submitInteraction("search_error", actionSubtype = "semantic_search_error",
-                                    actionContext = mapOf("error" to getString(R.string.hybrid_search_results_empty))
-                                )
-
-                                FeedbackUtil.showMessage(requireActivity(), R.string.hybrid_search_results_empty)
-                            },
-                            onError = {
-                                requireActivity().instrument?.submitInteraction("search_error", actionContext = mapOf("error" to it.message.orEmpty()))
-                            }
-                        )
-                    } else {
-                        SearchResultsScreen(
-                            viewModel = viewModel,
-                            modifier = Modifier.fillMaxSize(),
-                            onNavigateToTitle = { result, inNewTab, position, location ->
-
-                                requireActivity().instrument?.submitInteraction("search_result_click",
-                                    pageData = TestKitchenAdapter.getPageData(result.pageTitle),
-                                    actionContext = viewModel.getStandardEventActionContext(result)
-                                )
-
-                                callback()?.navigateToTitle(result.pageTitle, inNewTab, position, location)
-                            },
-                            onItemLongClick = { view, searchResult, position ->
-                                val entry =
-                                    HistoryEntry(searchResult.pageTitle, HistoryEntry.SOURCE_SEARCH)
-                                LongPressMenu(
-                                    view,
-                                    callback = SearchResultLongPressHandler(callback(), position)
-                                ).show(entry)
-                            },
-                            onSemanticSearchClick = { result, query, isSuggestion ->
-
-                                if (isSuggestion) {
-                                    requireActivity().instrument?.submitInteraction("click",
-                                        elementId = "semantic_search_explicit", actionContext = viewModel.getStandardEventActionContext())
-                                } else {
-                                    requireActivity().instrument?.submitInteraction("search_result_click",
-                                        actionContext = viewModel.getStandardEventActionContext(result)
-                                    )
-                                }
-
-                                callback()?.setSearchText(StringUtil.fromHtml(query).toString())
-                                showHybridSearch = true
-                                DeviceUtil.hideSoftKeyboard(requireActivity())
-                            },
-                            onCloseSearch = { requireActivity().finish() },
-                            onRetrySearch = {
-                                viewModel.refreshSearchResults()
-                            },
-                            onLanguageClick = { position ->
-                                if (isAdded && position >= 0) {
-                                    (requireParentFragment() as SearchFragment).setUpLanguageScroll(
-                                        position
-                                    )
-                                }
-                            },
-                            onLoading = { enabled ->
-                                callback()?.onSearchProgressBar(enabled)
-                            },
-                            onNoResults = {
-                                DeviceUtil.showSoftKeyboard(requireActivity())
-                            }
-                        )
-                    }
-                }
-            }
-        }
     }
 
     fun show() {
-        composeView?.visibility = View.VISIBLE
+        view?.visibility = View.VISIBLE
     }
 
     fun hide() {
-        composeView?.visibility = View.GONE
+        view?.visibility = View.GONE
     }
 
     fun startSearch(term: String?, force: Boolean, resetHybridSearch: Boolean = false) {
@@ -269,9 +291,4 @@ class SearchResultsFragment : Fragment() {
     private val searchLanguageCode
         get() =
             if (isAdded) (requireParentFragment() as SearchFragment).searchLanguageCode else WikipediaApp.instance.languageState.appLanguageCode
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        composeView = null
-    }
 }

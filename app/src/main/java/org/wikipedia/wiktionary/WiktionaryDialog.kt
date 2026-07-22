@@ -2,11 +2,11 @@ package org.wikipedia.wiktionary
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.platform.LocalView
 import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
+import androidx.fragment.compose.content
 import org.wikipedia.Constants
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.compose.theme.BaseTheme
@@ -22,16 +22,11 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
 
     private val viewModel: WiktionaryViewModel by viewModels()
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View {
-        return ComposeView(requireContext()).apply {
-            this.setLayoutDirectionByLang(viewModel.pageTitle.wikiSite.languageCode)
-            setContent {
-                BaseTheme {
-                    WiktionaryDialogScreen(viewModel) {
-                        maybeShowNewDialogForLink(it)
-                    }
-                }
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) = content {
+        LocalView.current.setLayoutDirectionByLang(viewModel.pageTitle.wikiSite.languageCode)
+        BaseTheme {
+            WiktionaryDialogScreen(viewModel) {
+                maybeShowNewDialogForLink(it)
             }
         }
     }

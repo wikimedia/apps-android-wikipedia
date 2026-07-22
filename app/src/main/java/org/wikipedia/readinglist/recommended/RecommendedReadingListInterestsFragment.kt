@@ -49,7 +49,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
@@ -62,6 +61,7 @@ import androidx.compose.ui.unit.sp
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.fragment.compose.content
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
@@ -96,9 +96,62 @@ class RecommendedReadingListInterestsFragment : Fragment() {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        super.onCreateView(inflater, container, savedInstanceState)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) = content {
+        BaseTheme {
+            RecommendedReadingListInterestsScreen(
+                uiState = viewModel.uiState.collectAsState().value,
+                fromSettings = viewModel.fromSettings,
+                onCloseClick = {
+                    if (viewModel.fromSettings) {
+                        viewModel.commitSelection()
+                        requireActivity().setResult(RESULT_OK)
+                        requireActivity().finish()
+                    } else {
+                        requireActivity().supportFragmentManager.popBackStack()
+                    }
+                },
+                onNextClick = {
+                    viewModel.commitSelection()
+                    Prefs.isRecommendedReadingListEnabled = true
+                    startActivity(
+                        ReadingListActivity.newIntent(
+                            requireContext(),
+                            readingListMode = ReadingListMode.RECOMMENDED
+                        )
+                    )
+                    requireActivity().finish()
+                },
+                wikiErrorClickEvents = WikiErrorClickEvents(
+                    backClickListener = {
+                        requireActivity().finish()
+                    },
+                    retryClickListener = {
+                        viewModel.loadItems()
+                    }
+                ),
+                onSearchClick = {
+                    val intent = SearchActivity.newIntent(
+                        requireActivity(),
+                        Constants.InvokeSource.READING_LIST_ACTIVITY,
+                        null,
+                        returnLink = true
+                    )
+                    searchLauncher.launch(intent)
+                },
+                onItemClick = {
+                    viewModel.toggleSelection(it)
+                },
+                onRandomizeClick = { listState ->
+                    viewModel.randomizeSelection()
+                    lifecycleScope.launch {
+                        listState.scrollToItem(0)
+                    }
+                }
+            )
+        }
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         viewModel.randomizeEvent.observe(viewLifecycleOwner) { state ->
             if (state.fromRandomize) {
                 FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.recommended_reading_list_interest_pick_random_snackbar))
@@ -110,53 +163,6 @@ class RecommendedReadingListInterestsFragment : Fragment() {
         }
 
         RecommendedReadingListEvent.submit("impression", "rrl_interests_select")
-
-        return ComposeView(requireContext()).apply {
-            setContent {
-                BaseTheme {
-                    RecommendedReadingListInterestsScreen(
-                        uiState = viewModel.uiState.collectAsState().value,
-                        fromSettings = viewModel.fromSettings,
-                        onCloseClick = {
-                            if (viewModel.fromSettings) {
-                                viewModel.commitSelection()
-                                requireActivity().setResult(RESULT_OK)
-                                requireActivity().finish()
-                            } else {
-                                requireActivity().supportFragmentManager.popBackStack()
-                            }
-                        },
-                        onNextClick = {
-                            viewModel.commitSelection()
-                            Prefs.isRecommendedReadingListEnabled = true
-                            startActivity(ReadingListActivity.newIntent(requireContext(), readingListMode = ReadingListMode.RECOMMENDED))
-                            requireActivity().finish()
-                        },
-                        wikiErrorClickEvents = WikiErrorClickEvents(
-                            backClickListener = {
-                                requireActivity().finish()
-                            },
-                            retryClickListener = {
-                                viewModel.loadItems()
-                            }
-                        ),
-                        onSearchClick = {
-                            val intent = SearchActivity.newIntent(requireActivity(), Constants.InvokeSource.READING_LIST_ACTIVITY, null, returnLink = true)
-                            searchLauncher.launch(intent)
-                        },
-                        onItemClick = {
-                            viewModel.toggleSelection(it)
-                        },
-                        onRandomizeClick = { listState ->
-                            viewModel.randomizeSelection()
-                            lifecycleScope.launch {
-                                listState.scrollToItem(0)
-                            }
-                        }
-                    )
-                }
-            }
-        }
     }
 
     companion object {

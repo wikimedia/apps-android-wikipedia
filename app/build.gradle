@@ -183,7 +183,7 @@ dependencies {
     implementation libs.core.ktx
     implementation libs.browser
     implementation libs.constraintlayout
-    implementation libs.fragment.ktx
+    implementation libs.fragment.compose
     implementation libs.paging.runtime.ktx
     implementation libs.palette.ktx
     implementation libs.preference.ktx

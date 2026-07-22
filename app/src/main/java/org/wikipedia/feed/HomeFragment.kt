@@ -3,7 +3,6 @@ package org.wikipedia.feed
 import android.app.Activity.RESULT_OK
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
@@ -14,11 +13,11 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.fragment.compose.content
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants.InvokeSource
@@ -101,60 +100,52 @@ class HomeFragment : Fragment() {
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        return ComposeView(requireActivity()).apply {
-            setContent {
-                val selectedTab by viewModel.selectedTab.collectAsState()
-                val wikiSite by viewModel.wikiSite.collectAsState()
-                val tabsState by viewModel.tabsState.collectAsState()
-                val notificationState by viewModel.unreadCount.collectAsState()
-                val forYouContentState by viewModel.forYouState.collectAsState()
-                val communityContentState by viewModel.communityState.collectAsState()
-                var swipeToExplorePromptShown by remember { mutableStateOf(Prefs.isHomeSwipeToExplorePromptShown) }
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) = content {
+        val selectedTab by viewModel.selectedTab.collectAsState()
+        val wikiSite by viewModel.wikiSite.collectAsState()
+        val tabsState by viewModel.tabsState.collectAsState()
+        val notificationState by viewModel.unreadCount.collectAsState()
+        val forYouContentState by viewModel.forYouState.collectAsState()
+        val communityContentState by viewModel.communityState.collectAsState()
+        var swipeToExplorePromptShown by remember { mutableStateOf(Prefs.isHomeSwipeToExplorePromptShown) }
 
-                BaseTheme(currentTheme = if (selectedTab == HomeTab.FOR_YOU) Theme.BLACK else WikipediaApp.instance.currentTheme) {
-                    HomeScreen(
-                        wikiSite = wikiSite,
-                        languageState = WikipediaApp.instance.languageState,
-                        selectedTab = selectedTab,
-                        communityContentState = communityContentState,
-                        forYouContentState = forYouContentState,
-                        overflowMenuState = pageOverflowMenuViewModel.pageOverflowMenuState,
-                        savedInReadingListTitles = viewModel.savedInReadingListTitles.collectAsState().value,
-                        resolveForYouSavedState = { title ->
-                            AppDatabase.instance.readingListPageDao().findPageInAnyList(title) != null
-                        },
-                        tabsState = tabsState,
-                        notificationBellState = notificationState,
-                        onAction = { handleHomeAction(it, wikiSite, selectedTab) }
-                    )
+        BaseTheme(currentTheme = if (selectedTab == HomeTab.FOR_YOU) Theme.BLACK else WikipediaApp.instance.currentTheme) {
+            HomeScreen(
+                wikiSite = wikiSite,
+                languageState = WikipediaApp.instance.languageState,
+                selectedTab = selectedTab,
+                communityContentState = communityContentState,
+                forYouContentState = forYouContentState,
+                overflowMenuState = pageOverflowMenuViewModel.pageOverflowMenuState,
+                savedInReadingListTitles = viewModel.savedInReadingListTitles.collectAsState().value,
+                resolveForYouSavedState = { title ->
+                    AppDatabase.instance.readingListPageDao().findPageInAnyList(title) != null
+                },
+                tabsState = tabsState,
+                notificationBellState = notificationState,
+                onAction = { handleHomeAction(it, wikiSite, selectedTab) }
+            )
 
-                    if (selectedTab == HomeTab.FOR_YOU && !swipeToExplorePromptShown && forYouContentState.modules.isNotEmpty()) {
-                        val dismissSwipePrompt = {
-                            swipeToExplorePromptShown = true
-                            Prefs.isHomeSwipeToExplorePromptShown = true
-                        }
-                        WikipediaAlertDialog(
-                            title = stringResource(R.string.explore_feed_swipe_to_explore_prompt_title),
-                            titleModifier = Modifier.fillMaxWidth(),
-                            message = stringResource(R.string.explore_feed_swipe_to_explore_prompt_message),
-                            image = {
-                                Image(
-                                    painter = painterResource(R.drawable.swipe_gesture_illustration),
-                                    contentDescription = null,
-                                    modifier = Modifier.fillMaxWidth()
-                                )
-                            },
-                            confirmButtonText = stringResource(R.string.onboarding_got_it),
-                            onDismissRequest = dismissSwipePrompt,
-                            onConfirmButtonClick = dismissSwipePrompt
-                        )
-                    }
+            if (selectedTab == HomeTab.FOR_YOU && !swipeToExplorePromptShown && forYouContentState.modules.isNotEmpty()) {
+                val dismissSwipePrompt = {
+                    swipeToExplorePromptShown = true
+                    Prefs.isHomeSwipeToExplorePromptShown = true
                 }
+                WikipediaAlertDialog(
+                    title = stringResource(R.string.explore_feed_swipe_to_explore_prompt_title),
+                    titleModifier = Modifier.fillMaxWidth(),
+                    message = stringResource(R.string.explore_feed_swipe_to_explore_prompt_message),
+                    image = {
+                        Image(
+                            painter = painterResource(R.drawable.swipe_gesture_illustration),
+                            contentDescription = null,
+                            modifier = Modifier.fillMaxWidth()
+                        )
+                    },
+                    confirmButtonText = stringResource(R.string.onboarding_got_it),
+                    onDismissRequest = dismissSwipePrompt,
+                    onConfirmButtonClick = dismissSwipePrompt
+                )
             }
         }
     }

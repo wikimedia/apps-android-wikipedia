@@ -5,7 +5,6 @@ import android.content.ComponentName
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.fillMaxSize
@@ -15,10 +14,10 @@ import androidx.compose.material3.Text
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.fragment.compose.content
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
@@ -34,60 +33,55 @@ class SearchWidgetInstallDialog : ExtendedBottomSheetDialogFragment(startExpande
     private val instrument = TestKitchenAdapter.client.getInstrument("apps-widgetsearch")
         .setDefaultActionSource("widget_search_install")
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) = content {
         instrument.submitInteraction(action = "impression")
         Prefs.searchWidgetInstallPromptShown = true
 
-        return ComposeView(requireContext()).apply {
-            setContent {
-                BaseTheme {
-                    InstallWidgetScreen(
-                        title = stringResource(R.string.search_widget_install_prompt_title),
-                        message = stringResource(R.string.search_widget_install_prompt_message),
-                        onCloseClick = {
-                            instrument.submitInteraction(action = "click", elementId = "install_close")
-                            dismiss()
-                        },
-                        previewContent = {
-                            Image(
-                                modifier = Modifier.fillMaxSize(),
-                                contentScale = ContentScale.FillWidth,
-                                painter = painterResource(id = R.drawable.reading_challenge_blur_background),
-                                contentDescription = null
-                            )
-                            Image(
-                                modifier = Modifier
-                                    .align(Alignment.Center)
-                                    .padding(vertical = 24.dp),
-                                contentScale = ContentScale.FillWidth,
-                                painter = painterResource(id = R.drawable.widget_search),
-                                contentDescription = null
-                            )
-                        },
-                        bottomContent = {
-                            val pinSupported = DeviceUtil.isPinWidgetSupported
-                            AppButton(
-                                modifier = Modifier.fillMaxWidth(),
-                                onClick = {
-                                    if (pinSupported) {
-                                        instrument.submitInteraction(action = "click", elementId = "install_add")
-                                        requestToPinWidget(requireContext())
-                                    }
-                                    dismiss()
-                                }
-                            ) {
-                                Text(
-                                    text = stringResource(
-                                        if (pinSupported) R.string.search_widget_install_prompt_add
-                                        else R.string.search_widget_install_prompt_got_it
-                                    )
-                                )
-                            }
-                        }
+        BaseTheme {
+            InstallWidgetScreen(
+                title = stringResource(R.string.search_widget_install_prompt_title),
+                message = stringResource(R.string.search_widget_install_prompt_message),
+                onCloseClick = {
+                    instrument.submitInteraction(action = "click", elementId = "install_close")
+                    dismiss()
+                },
+                previewContent = {
+                    Image(
+                        modifier = Modifier.fillMaxSize(),
+                        contentScale = ContentScale.FillWidth,
+                        painter = painterResource(id = R.drawable.reading_challenge_blur_background),
+                        contentDescription = null
                     )
+                    Image(
+                        modifier = Modifier
+                            .align(Alignment.Center)
+                            .padding(vertical = 24.dp),
+                        contentScale = ContentScale.FillWidth,
+                        painter = painterResource(id = R.drawable.widget_search),
+                        contentDescription = null
+                    )
+                },
+                bottomContent = {
+                    val pinSupported = DeviceUtil.isPinWidgetSupported
+                    AppButton(
+                        modifier = Modifier.fillMaxWidth(),
+                        onClick = {
+                            if (pinSupported) {
+                                instrument.submitInteraction(action = "click", elementId = "install_add")
+                                requestToPinWidget(requireContext())
+                            }
+                            dismiss()
+                        }
+                    ) {
+                        Text(
+                            text = stringResource(
+                                if (pinSupported) R.string.search_widget_install_prompt_add
+                                else R.string.search_widget_install_prompt_got_it
+                            )
+                        )
+                    }
                 }
-            }
+            )
         }
     }
 
