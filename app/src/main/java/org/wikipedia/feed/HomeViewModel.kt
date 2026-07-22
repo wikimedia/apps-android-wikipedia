@@ -377,6 +377,30 @@ class HomeViewModel : ViewModel() {
     private val _tabsState = MutableStateFlow(TabsState(WikipediaApp.instance.tabCount, pulse = false))
     val tabsState = _tabsState.asStateFlow()
 
+    // Holds the API titles of Community-tab articles currently in the feed, to be queried whether they are saved in a reading list.
+    // The "For you" tab does not contribute here; its cards resolve saved state lazily on overflow-menu tap (see resolveForYouSavedState in HomeFragment).
+    private val _savedInReadingApiTitles = MutableStateFlow<List<String>>(emptyList())
+
+    // Derives saved state by asking Room only about those titles that we want to monitor.
+    // flatMapLatest restarts the DB observation whenever _savedInReadingApiTitles changes.
+    @OptIn(ExperimentalCoroutinesApi::class)
+    val savedInReadingListTitles: StateFlow<Set<String>> = _savedInReadingApiTitles
+        .flatMapLatest { titles ->
+            if (titles.isEmpty()) flowOf(emptySet())
+            else AppDatabase.instance.readingListPageDao()
+                .observeSavedApiTitles(
+                    wikiSite.value.languageCode,
+                    titles,
+                    ReadingListPage.STATUS_QUEUE_FOR_DELETE
+                )
+                .map { it.toSet() }
+        }
+        .catch {
+            L.e(it)
+            emit(emptySet())
+        }
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(MAX_STOP_TIMEOUT_MILLIS), emptySet())
+
     private val communityHandler = CoroutineExceptionHandler { _, throwable ->
         _communityState.value = _communityState.value.copy(
             isInitialLoading = false,
@@ -478,7 +502,7 @@ class HomeViewModel : ViewModel() {
             val age = nextCommunityAge
             val date = LocalDate.now().minusDays(nextCommunityAge.toLong())
             val content = ServiceFactory.getRest(wikiSite.value)
-                .getFeedFeatured(date.year.toString(), "%02d".format(date.monthValue), "%02d".format(date.dayOfMonth), wikiSite.value.languageCode)
+                .getFeedFeatured(date.year.toString(), "%02d".format(Locale.ROOT, date.monthValue), "%02d".format(Locale.ROOT, date.dayOfMonth), wikiSite.value.languageCode)
 
             // Construct Card objects based on the day's content
             val cardsForDay = buildList<Card> {
@@ -515,6 +539,9 @@ class HomeViewModel : ViewModel() {
                 error = null,
                 canLoadMore = true
             )
+
+            _savedInReadingApiTitles.value = _communityState.value.cards.filterIsInstance<FeaturedArticleCard>()
+                .map { it.page.apiTitle }
         }
     }
 

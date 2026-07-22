@@ -55,6 +55,7 @@ fun PlacesOfInterestArticlesModule(
     modifier: Modifier = Modifier,
     wikiSite: WikiSite,
     module: ForYouModule.PlacesOfInterest,
+    resolveSavedState: suspend (PageTitle) -> Boolean = { false },
     onPageClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
     onPageBookmarkClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
     onPageShareClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
@@ -74,6 +75,7 @@ fun PlacesOfInterestArticlesModule(
         ForYouCardContent(
             wikiSite = wikiSite,
             title = card.title,
+            resolveSavedState = resolveSavedState,
             module = module,
             card = card,
             footerIcon = painterResource(R.drawable.ic_location_on_24dp),

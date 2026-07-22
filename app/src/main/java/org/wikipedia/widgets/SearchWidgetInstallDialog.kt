@@ -3,7 +3,6 @@ package org.wikipedia.widgets
 import android.appwidget.AppWidgetManager
 import android.content.ComponentName
 import android.content.Context
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -27,6 +26,7 @@ import org.wikipedia.compose.components.InstallWidgetScreen
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.DeviceUtil
 
 class SearchWidgetInstallDialog : ExtendedBottomSheetDialogFragment(startExpanded = true) {
 
@@ -62,7 +62,7 @@ class SearchWidgetInstallDialog : ExtendedBottomSheetDialogFragment(startExpande
                     )
                 },
                 bottomContent = {
-                    val pinSupported = pinWidgetSupported()
+                    val pinSupported = DeviceUtil.isPinWidgetSupported
                     AppButton(
                         modifier = Modifier.fillMaxWidth(),
                         onClick = {
@@ -85,14 +85,9 @@ class SearchWidgetInstallDialog : ExtendedBottomSheetDialogFragment(startExpande
         }
     }
 
-    private fun pinWidgetSupported(): Boolean {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.O &&
-                AppWidgetManager.getInstance(requireContext()).isRequestPinAppWidgetSupported
-    }
-
     private fun requestToPinWidget(context: Context) {
-        if (pinWidgetSupported()) {
-            AppWidgetManager.getInstance(context).requestPinAppWidget(
+        if (DeviceUtil.isPinWidgetSupported) {
+            AppWidgetManager.getInstance(context)?.requestPinAppWidget(
                 ComponentName(context, WidgetProviderSearch::class.java), null, null
             )
         }
@@ -101,9 +96,9 @@ class SearchWidgetInstallDialog : ExtendedBottomSheetDialogFragment(startExpande
     companion object {
         fun isWidgetInstalled(): Boolean {
             val context = WikipediaApp.instance
-            return AppWidgetManager.getInstance(context).getAppWidgetIds(
+            return (AppWidgetManager.getInstance(context)?.getAppWidgetIds(
                 ComponentName(context, WidgetProviderSearch::class.java)
-            ).isNotEmpty()
+            ) ?: intArrayOf()).isNotEmpty()
         }
     }
 }

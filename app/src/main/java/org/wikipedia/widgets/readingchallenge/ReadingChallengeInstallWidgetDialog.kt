@@ -5,7 +5,6 @@ import android.appwidget.AppWidgetManager
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -37,6 +36,7 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.DeviceUtil
 
 class ReadingChallengeInstallWidgetDialog : ExtendedBottomSheetDialogFragment(startExpanded = true) {
 
@@ -84,13 +84,16 @@ class ReadingChallengeInstallWidgetDialog : ExtendedBottomSheetDialogFragment(st
                     )
                 },
                 bottomContent = {
-                    if (pinWidgetSupported()) {
+                    if (DeviceUtil.isPinWidgetSupported) {
                         TwoButtonBottomBar(
                             modifier = Modifier.fillMaxWidth(),
                             primaryButtonText = stringResource(R.string.reading_challenge_install_prompt_add),
                             secondaryButtonText = stringResource(R.string.reading_challenge_install_prompt_got_it),
                             onPrimaryOnClick = {
-                                instrument.submitInteraction(action = "click", elementId = "install_add")
+                                instrument.submitInteraction(
+                                    action = "click",
+                                    elementId = "install_add"
+                                )
                                 requestToPinWidget(requireContext())
                                 dismiss()
                             },
@@ -117,19 +120,14 @@ class ReadingChallengeInstallWidgetDialog : ExtendedBottomSheetDialogFragment(st
         }
     }
 
-    private fun pinWidgetSupported(): Boolean {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.O &&
-                AppWidgetManager.getInstance(requireContext()).isRequestPinAppWidgetSupported
-    }
-
     private fun requestToPinWidget(context: Context) {
-        if (pinWidgetSupported()) {
+        if (DeviceUtil.isPinWidgetSupported) {
             val successCallback = PendingIntent.getBroadcast(
                 context, 0,
                 Intent(context, ReadingChallengeWidgetReceiver::class.java),
                 PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
             )
-            AppWidgetManager.getInstance(context).requestPinAppWidget(ComponentName(context, ReadingChallengeWidgetReceiver::class.java), null, successCallback)
+            AppWidgetManager.getInstance(context)?.requestPinAppWidget(ComponentName(context, ReadingChallengeWidgetReceiver::class.java), null, successCallback)
         }
     }
 }

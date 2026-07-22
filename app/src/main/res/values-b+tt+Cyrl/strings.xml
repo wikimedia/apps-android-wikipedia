@@ -30,7 +30,7 @@
   <string name="nav_item_more">Тагын</string>
   <string name="nav_item_search">Эзләү</string>
   <string name="nav_item_contribute">Кертем</string>
-  <string name="error_network_error">Интернетка тоташтырып булмый.</string>
+  <string name="error_network_error">Интернетка тоташып булмый</string>
   <string name="page_error_retry">Кабатлау</string>
   <string name="card_offline_error_retry">Кабатлау</string>
   <string name="storage_access_error_retry">Кабатлау</string>
@@ -39,7 +39,7 @@
   <string name="page_error_back_to_main">Артка</string>
   <string name="error_back">Кире кайту</string>
   <string name="error_next">Алга</string>
-  <string name="menu_clear_all_history">Карау тарихын чистарт</string>
+  <string name="menu_clear_all_history">Карау тарихын чистарту</string>
   <string name="history_item_deleted">«%s» мәкаләсе карау тарихыннан бетерелгән</string>
   <string name="history_items_deleted">%d мәкалә карау тарихыннан бетерелгән</string>
   <string name="history_item_delete_undo">Кире кайтару</string>
@@ -60,39 +60,39 @@
   <string name="search_redirect_from">%s битеннән юнәлтелде</string>
   <string name="page_edit_history_activity_title">Үзгәрешләр тарихы: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;м&lt;/b&gt; %s</string>
-  <string name="page_edit_history_comment_placeholder">Мөхәррирләүнең эчтәлеге буш</string>
+  <string name="page_edit_history_comment_placeholder">Төзәтмәнең аңлатмасы буш</string>
   <string name="page_edit_history_search_or_filter_edits_hint">Төзәтмәләрне эзләү яки фильтрлау</string>
   <string name="page_edit_history_filter_by">... буенча фильтрлау:</string>
   <string name="page_edit_history_filter_by_all">Барлык төзәтмәләр (%s)</string>
-  <string name="page_edit_history_filter_by_user">Кулланучылар төзәтмәләр (%s)</string>
+  <string name="page_edit_history_filter_by_user">Кулланучылар төзәтмәләре (%s)</string>
   <string name="page_edit_history_filter_by_anon">Аноним төзәтмәләр (%s)</string>
   <string name="page_edit_history_filter_by_bot">Робот төзәтмәләре (%s)</string>
-  <string name="page_edit_history_metrics_content_description">%1$s-%2$s кадәрге күрсәткечләр</string>
+  <string name="page_edit_history_metrics_content_description">%1$s-%2$s дәверендәге күрсәткечләр</string>
   <plurals name="page_edit_history_article_edits_since_year">
-    <item quantity="one">%1$d %2$s белән мөхәррирләнә</item>
-    <item quantity="other">%1$d  %2$s белән мөхәррирләнә</item>
+    <item quantity="one">%1$d %2$s белән редакторлана</item>
+    <item quantity="other">%1$d  %2$s белән редакторлана</item>
   </plurals>
   <plurals name="edits_since_year_per_wiki">
-    <item quantity="one">%1$d %2$s (%3$s) белән мөхәррирләнә</item>
-    <item quantity="other">%1$d  %2$s (%3$s) белән мөхәррирләнә</item>
+    <item quantity="one">%1$d %2$s (%3$s) белән редакторлана</item>
+    <item quantity="other">%1$d  %2$s (%3$s) белән редакторлана</item>
   </plurals>
   <string name="page_edit_history_empty_search_message">Үзгәрешләрне күбрәк күрү өчен href=\"#\"&gt;фильтрлар&lt;/a&gt;ны үзгәртеп карагыз.</string>
   <string name="menu_page_show_tabs">Өстәмәләрне курсәтү</string>
   <string name="menu_page_other_languages">Телне сайлау</string>
   <string name="menu_page_find_in_page">Биттә табу</string>
-  <string name="menu_page_add_to_watchlist">Күзәтү исемлегенә өстәргә</string>
+  <string name="menu_page_add_to_watchlist">Күзәтү исемлегенә өстәү</string>
   <string name="menu_page_watch">Күзәтү</string>
   <string name="menu_page_unwatch">Күзәтүдән алу</string>
   <string name="menu_page_view_talk">Бәхәс битен карау</string>
   <string name="menu_page_talk_page">Бәхәс бите</string>
   <string name="menu_page_view_edit_history">Тарихын карау</string>
   <string name="menu_page_edit_history">Үзгәртү тарихы</string>
-  <string name="menu_page_remove_from_watchlist">Күзәтү исемлегеннән алып атырга</string>
+  <string name="menu_page_remove_from_watchlist">Күзәтү исемлегеннән алып ату</string>
   <string name="menu_page_watched">Күзәтелә</string>
   <string name="edit_section_find_in_page">Биттә табу</string>
   <string name="menu_page_font_and_theme">Шрифтны һәм бизәлешне үзгәртү</string>
   <string name="menu_page_add_to_list">Уку исемлегенә өстәү</string>
-  <string name="menu_page_add_to_default_list">Сакларга</string>
+  <string name="menu_page_add_to_default_list">Саклау</string>
   <string name="feed_card_add_to_list">Уку исемлегенә өстәү</string>
   <string name="feed_card_add_to_default_list">Саклау</string>
   <string name="menu_page_share">Сылтаманы уртаклашу</string>
@@ -118,6 +118,7 @@
   <string name="map_view_link_text">Харитада карау</string>
   <string name="other_languages_indication_text">Башка телдә уку</string>
   <string name="language_count_link_text">Башка %d телдә укып була</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">Үзгәрешләрне саклап, &lt;a href=\"%1$s\"&gt;Куллану шартлары&lt;/a&gt; белән ризалашасыз һәм үз материалларыгызны &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; лицензиясе нигезендә кире кайтарылмаслык итеп бастырасыз.</string>
   <string name="edit_save_action_license_anon">Үзгәрешләрне саклап, &lt;a href=\"%1$s\"&gt;Куллану шартлары&lt;/a&gt; белән ризалашасыз һәм үз материалларыыгызны &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; лицензиясе нигезендә кире кайтарылмаслык итеп бастырсыз. Үзгәрешләр җайланмагызның IP-адресына бәйле булачак. Әгәр дә &lt;a href=\"https://#login\"&gt;системага керсәгез&lt;/a&gt; конфиденциальлегегез күбрәк булачак.</string>
   <string name="edit_anon_warning">Үзгәрешләр сезнең җайланманың IP-адресына бәйле булачак. Әгәр дә &lt;a href=\"https://#login\"&gt;системага керсәгез&lt;/a&gt;,  конфиденциальлегегез күбрәк булачак.</string>
@@ -126,8 +127,8 @@
   <string name="langlinks_empty">Бу битне башка телләрдә укып булмый.</string>
   <string name="langlinks_no_match">Телләр табылмаган</string>
   <string name="langlinks_activity_title">Башка телләр</string>
-  <string name="langlinks_your_wikipedia_languages">Википедия телләрегез</string>
-  <string name="menu_save_changes">Үзгәрешләрне саклау</string>
+  <string name="langlinks_your_wikipedia_languages">Википедиягез телләре</string>
+  <string name="menu_save_changes">Үзгәртүләрне саклау</string>
   <string name="edit_saved_successfully">Төзәтмә сакланган!</string>
   <string name="stub_article_edit_saved_successfully">Үзгәртү кертелде! Аның сафка керүе өчен күпмедер вакыт кирәгергә мөмкин.</string>
   <string name="dialog_message_edit_failed">Үзгәртү хатасы!</string>
@@ -148,7 +149,7 @@
   <string name="edit_section_captcha_message">Автомат спамнан саклану өчен, түбәндәге сүзләрне кертегез.</string>
   <string name="edit_section_captcha_request_an_account_message">Сурәт күренмиме? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Хисап язмасын соратырга&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Өстә күрсәтелгән сүзләрне кабатлагыз</string>
-  <string name="title_captcha">CAPTCHAны кертегез</string>
+  <string name="title_captcha">CAPTCHA\'ны кертегез</string>
   <string name="edit_section_captcha_reload">Яңадан йөкләү өчен CAPTCHAга басыгыз.</string>
   <string name="nav_item_login">Википедиягә керү</string>
   <string name="login_username_hint">Кулланучы исеме</string>
@@ -179,7 +180,7 @@
   <string name="logged_out_in_background_dialog">Сез Википедиядән чыктыгыз. Яңадан системага керергә телисезме?</string>
   <string name="logged_out_in_background_login">Керү</string>
   <string name="logged_out_in_background_cancel">Кире алу</string>
-  <string name="account_vanish_request_title">Хисапъязманы бетер</string>
+  <string name="account_vanish_request_title">Хисапъязманы бетерү</string>
   <string name="account_vanish_request_confirm_title">Хисапъязманы бетерү турында кисәтү</string>
   <string name="history_empty_title">Күптән түгел генә каралган мәкаләләр юк.</string>
   <string name="history_empty_message">Монда укыганнарыгызны күзәтеп торыгыз.</string>
@@ -199,26 +200,26 @@
   <string name="create_account_password_repeat_hint">Серсүзне кабатлагыз</string>
   <string name="create_account_password_is_username">Серсүз кулланучы исеме белән туры килә алмый</string>
   <string name="create_account_passwords_mismatch_error">Серсүзләр туры килмиләр</string>
-  <string name="create_account_email_error">Яраксыз электрон почта адресы</string>
+  <string name="create_account_email_error">Электрон почта адресы яраксыз</string>
   <string name="create_account_username_error">Кулланучы исемендә рөхсәт ителмәгән символлар</string>
   <string name="create_account_password_error">Серсүз ким дигәндә 8 символдан торырга тиеш</string>
-  <string name="create_account_generic_error">Хисап язмасын төзеп булмады</string>
+  <string name="create_account_generic_error">Хисапъязманы төзеп булмады</string>
   <string name="create_account_next">Алга таба</string>
-  <string name="email_recommendation_dialog_title">Хисап язмасын электрон почта адресыннан башка төзергәме?</string>
+  <string name="email_recommendation_dialog_title">Хисапъязманы электрон почта адресыннан башка төзергәме?</string>
   <string name="email_recommendation_dialog_message">Электрон почта адресы мәҗбүри булмаса да, без аны &lt;b&gt;катгый рәвештә кулланырга киңәш итәбез&lt;/b&gt;, чөнки әгәр дә сез үзегезнең серсүзегезне кайчан да булса югалтсагыз, электрон почта адресы хисап язмасын торгызу өчен кирәк.</string>
   <string name="email_recommendation_message">Бу тәкъдим ителә, чөнки хисап язмасын торгызу өчен электрон хат таләп ителә.</string>
-  <string name="email_recommendation_dialog_create_without_email_action">Электрон почтадан башка дәвам итәргә</string>
-  <string name="email_recommendation_dialog_create_with_email_action">Электрон почта адресын өстәргә</string>
-  <string name="create_account_button">Хисап язмасын булдырырга</string>
+  <string name="email_recommendation_dialog_create_without_email_action">Электрон почтадан башка дәвам итү</string>
+  <string name="email_recommendation_dialog_create_with_email_action">Электрон почта адресын өстәү</string>
+  <string name="create_account_button">Хисапъязманы булдыру</string>
   <string name="create_account_name_unavailable">\"%s\" кулланучының исеме укылмый. Зинһар, башка исем сайлагыз.</string>
-  <string name="create_account_ip_block_message">Гафу итегез, хәзерге вакытта сезнең IP-адресыгыз яңа хисап язмалары булдыру өчен блокланган.</string>
+  <string name="create_account_ip_block_message">Гафу итегез, хәзерге вакытта сезнең IP-адресыгыз яңа хисапъязмаларны булдыру өчен блокланган.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:Мин блокланган</string>
   <string name="create_account_ip_block_details">Тулырак</string>
   <string name="preferences_general_heading">Гомуми</string>
   <string name="preferences_account_heading">Хисапъязма</string>
   <string name="wikipedia_app_faq">Википедия кушымтасы турында еш бирелә торган сораулар</string>
   <string name="send_feedback">Кушымта турында фикер белдерергә</string>
-  <string name="create_account_account_created_toast">Хисап язмасы булдырылды!</string>
+  <string name="create_account_account_created_toast">Хисапъязма булдырылды!</string>
   <string name="preferences_heading_syncing">Синхронлаштыру</string>
   <string name="preferences_heading_data_usage">Мәгълүматларны куллану</string>
   <string name="preferences_heading_experimental">Эксперименталь</string>
@@ -246,6 +247,7 @@
   <string name="about_description">Википедия кушымтасы турында</string>
   <string name="privacy_policy_description">Яшеренлек сәясәте</string>
   <string name="terms_of_use_description">Куллану шартлары</string>
+  <string name="legal_safety_contacts_description">Юридик һәм иминлек сораулары буенча элемтә</string>
   <string name="about_wikipedia_url">https://tt.wikipedia.org/wiki/Википедия:Turında</string>
   <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tt#Оффлайнда_уку_һәм_мәгълүматлар</string>
   <string name="about_libraries_heading">Кулланыла торган китапханәләр</string>
@@ -386,8 +388,10 @@
   <string name="button_get_directions">Юнәлеш алырга</string>
   <string name="error_no_maps_app">Маршрут төзи торган бер генә кушымтаны да табып булмады.</string>
   <string name="preference_title_customize_explore_feed">Лентаны тикшерергә</string>
+  <string name="preference_title_customize_home_feed">Шәхси тасма</string>
   <string name="preference_title_show_link_previews">Сылтамаларны карап алу</string>
   <string name="preference_summary_customize_explore_feed">\"Күзәтү\" лентасын көйләргә</string>
+  <string name="preference_summary_customize_home_feed">Баш битнең тасмасын үзегез өчен көйләгез</string>
   <string name="preference_summary_show_link_previews">Сылтамалар буенча күчеп, мәкаләләрне тиз карап алу</string>
   <string name="preference_title_collapse_tables">Таблицаларны яшерергә</string>
   <string name="preference_summary_collapse_tables">Мәкаләләрдә мәгълүмат бокслары, сылтамалар һәм искәрмәләр кебек таблица блокларын автомат рәвештә яшерергә.</string>
@@ -786,9 +790,11 @@
   <string name="view_random_article_card_title">Очраклы мәкалә</string>
   <string name="view_random_article_card_action">Күбрәк очраклы мәкаләләр</string>
   <string name="view_top_read_card_title">Иң күп укылган</string>
+  <string name="view_top_read_card_description">Бүген Википедиядә нәрсә популяр</string>
   <string name="view_top_read_card_action">Башка популяр мәкаләләр</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d мең</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d миллион</string>
+  <string name="view_top_read_card_pageviews_views_suffix">караулар</string>
   <string name="view_next_random_article">Башка очраклы мәкаләне йөкләгез</string>
   <string name="view_main_page_card_title">Бүген Википедиядә</string>
   <string name="view_main_page_card_action">Төп битне карарга</string>

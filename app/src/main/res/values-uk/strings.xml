@@ -930,11 +930,11 @@
   <string name="feed_item_type_randomizer">Згенерувати випадкові статті до читання</string>
   <string name="feed_item_type_suggested_edits">Пропозиції додати контент у Вікіпедію</string>
   <string name="feed_item_type_places">Статті поблизу на основі поточного розташування</string>
-  <string name="feed_empty_message">У вашій стрічці нічого немає</string>
+  <string name="feed_empty_message">У вашій головній стрічці нічого немає</string>
   <string name="feed_configure_onboarding_action">Налаштувати</string>
   <string name="customize_lang_selection_dialog_ok_button_text">Гаразд</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Скасувати</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Налаштуйте свою стрічку&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Ви можете вибрати, що показувати у своїй стрічці і налаштувати пріоритетність улюблених типів матеріалів.</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Налаштуйте свою головну стрічку&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Ви можете вибрати, що показувати у своїй стрічці і налаштувати пріоритет улюблених типів матеріалів.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">Гаразд</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Скасувати</string>
   <string name="feed_accessibility_card_text">Ви досягли кінця стрічки.</string>
@@ -1365,7 +1365,7 @@
   <string name="onboarding_get_started">Розпочати</string>
   <string name="onboarding_maybe_later">Можливо, пізніше</string>
   <string name="onboarding_explore_title">Пізнаємо по-новому</string>
-  <string name="onboarding_explore_text">Пірнайте у кролячу нору Вікіпедії, гортаючи постійно оновлювану стрічку. &lt;br/&gt; &lt;b&gt;Налаштуйте&lt;/b&gt; стрічку за своїми інтересами — можете дізнаватися про історичні події &lt;b&gt;Цього дня&lt;/b&gt; або покластися на &lt;b&gt;Випадкові&lt;/b&gt; статті.</string>
+  <string name="onboarding_explore_text">Пірнайте у кролячу нору Вікіпедії, гортаючи постійно оновлювану головну стрічку. &lt;br/&gt; &lt;b&gt;Налаштуйте&lt;/b&gt; стрічку за своїми інтересами — можете дізнаватися про історичні події &lt;b&gt;Цього дня&lt;/b&gt; або покластися на &lt;b&gt;Випадкові&lt;/b&gt; статті.</string>
   <string name="onboarding_reading_list_sync_title">Синхронізовані читальні списки</string>
   <string name="onboarding_reading_list_sync_text_v2">Ви можете укладати списки читання зі статей, які хочете почитати пізніше, навіть коли ви офлайн. &lt;br/&gt;Увійдіть у свій обліковий запис Вікіпедії, щоб синхронізувати свої списки читання. &lt;a href=\"#login\"&gt;Увійти у Вікіпедію&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Дані та конфіденційність</string>
@@ -1416,7 +1416,7 @@
     <item quantity="many">Вилучити обрані мови?</item>
     <item quantity="other">Вилучити обрані мови?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Ви будете бачити вміст у стрічці та фільтрах швидкого пошуку тими мовами Вікіпедії, що залишилися.</string>
+  <string name="wikipedia_languages_remove_dialog_content">Ви будете бачити вміст у головній стрічці та фільтрах швидкого пошуку тими мовами Вікіпедії, що залишилися.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Неможливо вилучити усі мови</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Залиште хоча б одну мову Вікіпедії, якою шукатимете й читатимете матеріали.</string>
   <string name="more_language_options">більше</string>
@@ -1909,6 +1909,8 @@
   <string name="places_empty_message_snackbar">Немає статей поблизу. Спробуйте зменшити масштаб і перемістити карту.</string>
   <string name="survey_dialog_title">Допоможіть нам покращити Talk Pages</string>
   <string name="survey_dialog_message">Ви задоволені цією функцією?</string>
+  <string name="home_feed_survey_title">Допоможіть покращити головну стрічку</string>
+  <string name="home_feed_survey_message">Чи задоволені ви стрічками «Спільнота» та «Для вас»?</string>
   <string name="survey_dialog_option_satisfied">Задоволений/а</string>
   <string name="survey_dialog_option_neutral">Нейтрально</string>
   <string name="survey_dialog_option_unsatisfied">Незадоволений/а</string>
@@ -1957,7 +1959,7 @@
   <string name="on_this_day_game_stats_average_score">Середній рахунок</string>
   <string name="on_this_day_game_stats_streak">Поточна серія</string>
   <string name="on_this_day_game_result_subtitle">Статті, використані у сьогоднішній грі</string>
-  <string name="on_this_day_game_completed_message">Дякуємо за гру. Нова гра «Що було першим?» доступна у стрічці щодня.</string>
+  <string name="on_this_day_game_completed_message">Дякуємо за гру. Нова гра «Що було першим?» доступна у головній стрічці щодня.</string>
   <string name="on_this_day_game_menu_notifications">Ігрові сповіщення</string>
   <string name="on_this_day_game_menu_info">Дізнатися більше</string>
   <string name="on_this_day_game_menu_feedback">Проблема з функцією</string>
@@ -2570,9 +2572,9 @@
   <string name="reading_challenge_widget_reward_title">Допитливість вам пасує! 🛍️</string>
   <string name="reading_challenge_widget_reward_body">Відсвяткуйте виконання завдання зі знижкою 15%% у магазині Вікіпедії.</string>
   <string name="reading_challenge_widget_reward_button_label">Отримайте знижку 15%% у магазині</string>
-  <string name="explore_feed_new_update_prompt_title">Стрічка «Дослідити» тепер називається «Домашня» і має новий вигляд</string>
+  <string name="explore_feed_new_update_prompt_title">Стрічка «Дослідити» тепер називається «Головна» і має новий вигляд</string>
   <string name="explore_feed_new_update_prompt_new_name_title">Нова назва</string>
-  <string name="explore_feed_new_update_prompt_new_name_description">Стрічка «Дослідити» тепер називається «Домашня», і розташована там же.</string>
+  <string name="explore_feed_new_update_prompt_new_name_description">Стрічка «Дослідити» тепер називається «Головна», і розташована у тому самому місці.</string>
   <string name="explore_feed_new_update_prompt_two_ways_title">Ваша стрічка, два шляхи</string>
   <string name="explore_feed_new_update_prompt_two_ways_description">Відкрийте для себе статті, персоналізовані відповідно до ваших інтересів, у розділі «Для вас» або перегляньте найкращий контент Вікіпедії у розділі «Спільнота».</string>
   <string name="explore_feed_new_update_prompt_control_title">Контролюйте ситуацію</string>
@@ -2679,7 +2681,10 @@
   <string name="home_feed_for_you_screen_end_of_feed_description">Заходьте завтра, щоб знайти нові статті, підготовлені спеціально для вас.</string>
   <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Способи продовження навчання:</string>
   <string name="home_feed_for_you_screen_end_of_feed_add_interests">Додайте &lt;a href=\"#add_interests\"&gt;нові інтереси&lt;/a&gt;</string>
+  <string name="randomizer_shake_prompt_title">Струсіть, щоб перемішати</string>
+  <string name="randomizer_shake_prompt_message">Струсіть свій пристрій, щоб перейти до випадкової статті та відкрити для себе щось несподіване.</string>
   <string name="home_feed_games_module_cta_prompt_title">Хочете зіграти більше ігор?</string>
   <string name="home_feed_games_module_cta_prompt_subtitle">Перейдіть до хабу ігор</string>
   <string name="home_feed_games_module_cta_prompt_button_text">Хаб ігор</string>
+  <string name="random_article_widget_name">Випадкова стаття</string>
 </resources>
