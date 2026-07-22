@@ -34,14 +34,14 @@ class EditAttemptStepEvent(private val event: EditAttemptStepInteractionEvent) :
         }
 
         fun logSaveSuccess(pageTitle: PageTitle, revisionId: Long, editorInterface: String = INTERFACE_WIKITEXT) {
-            submitEditAttemptEvent("saveSuccess", editorInterface, pageTitle)
+            submitEditAttemptEvent("saveSuccess", editorInterface, pageTitle, revisionId)
         }
 
         fun logSaveFailure(pageTitle: PageTitle, editorInterface: String = INTERFACE_WIKITEXT) {
             submitEditAttemptEvent("saveFailure", editorInterface, pageTitle)
         }
 
-        private fun submitEditAttemptEvent(action: String, editorInterface: String, pageTitle: PageTitle, revisionId: Long = 0) {
+        private fun submitEditAttemptEvent(action: String, editorInterface: String, pageTitle: PageTitle, revisionId: Long? = null) {
             EventPlatformClient.submit(EditAttemptStepEvent(EditAttemptStepInteractionEvent(action,
                 WikipediaApp.instance.appInstallID, "", editorInterface,
                 INTEGRATION_ID, "", WikipediaApp.instance.getString(R.string.device_type).lowercase(), 0, getUserIdForWikiSite(pageTitle.wikiSite),
@@ -71,5 +71,5 @@ class EditAttemptStepInteractionEvent(private val action: String,
                                       private val version: Int,
                                       private val page_title: String,
                                       private val page_ns: Int,
-                                      private val revision_id: Long,
+                                      private val revision_id: Long?,
                                       private val wiki: String)
