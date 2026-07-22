@@ -2595,4 +2595,14 @@
     <string name="reading_lists_tab_collections">Collections</string>
     <string name="reading_lists_search_saved_articles">Search saved articles</string>
     <string name="reading_lists_search_collections">Search collections</string>
+    <string name="reading_lists_remove_articles_confirm_dialog_title">Remove saved articles?</string>
+    <string name="reading_lists_remove_articles_confirm_button">Remove</string>
+    <plurals name="reading_lists_remove_articles_confirm_dialog_message">
+        <item quantity="one">This article will be removed from all associated collections.</item>
+        <item quantity="other">These %d articles will be removed from all associated collections.</item>
+    </plurals>
+    <plurals name="reading_lists_articles_removed_from_collections">
+        <item quantity="one">Article removed from all associated collections.</item>
+        <item quantity="other">%d articles removed from all associated collections.</item>
+    </plurals>
 </resources>

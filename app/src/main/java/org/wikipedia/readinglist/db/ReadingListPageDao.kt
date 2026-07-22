@@ -192,6 +192,16 @@ interface ReadingListPageDao {
     }
 
     @Transaction
+    suspend fun markPagesForDeletionFromLists(lists: List<ReadingList>) {
+        val pages = lists.flatMap { it.pages }
+        pages.forEach { it.status = ReadingListPage.STATUS_QUEUE_FOR_DELETE }
+        updateReadingListPages(pages)
+        ReadingListSyncAdapter.manualSyncWithDeletePages(lists)
+        FlowEventBus.post(ArticleSavedOrDeletedEvent(false, *pages.toTypedArray()))
+        SavedPageSyncService.enqueue()
+    }
+
+    @Transaction
     suspend fun markPagesForOffline(pages: List<ReadingListPage>, offline: Boolean, forcedSave: Boolean) {
         val updatedPages = pages.map {
             if (it.offline != offline || !forcedSave) {

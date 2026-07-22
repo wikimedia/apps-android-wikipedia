@@ -685,6 +685,10 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
         override fun onActionItemClicked(mode: ActionMode, menuItem: MenuItem): Boolean {
             return when (menuItem.itemId) {
+                R.id.menu_delete_selected -> {
+                    onDeleteSelected()
+                    true
+                }
                 R.id.menu_remove_from_offline -> {
                     updateSelectedPagesOffline(saveForOffline = false)
                     true
@@ -701,7 +705,9 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             }
         }
 
-        override fun onDeleteSelected() = Unit
+        override fun onDeleteSelected() {
+            deleteSelectedPages()
+        }
 
         override fun onDestroyActionMode(mode: ActionMode) {
             viewModel.setSelectionMode(false)
@@ -743,6 +749,45 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 dismissListener = DialogInterface.OnDismissListener { actionMode?.finish() }
             }
             ExclusiveBottomSheetPresenter.show(childFragmentManager, dialog)
+        }
+    }
+
+    /**
+     * produces a list of [ReadingList] containing only the selected pages to delete from each list.
+     * This is needed because the selection state only contains page IDs.
+     */
+    private fun deleteSelectedPages() {
+        val selectedPageIds = viewModel.selectionState.value.selectedPageIds
+        val selectedRows = viewModel.uiState.value.rows
+            .asSequence()
+            .filterIsInstance<ReadingListRow.PageRow>()
+            .filter { it.page.id in selectedPageIds }
+            .toList()
+        val selectedPageKeys = selectedRows.mapTo(mutableSetOf()) { it.page.lang to it.page.apiTitle }
+        val containingListIds = selectedRows.flatMapTo(mutableSetOf()) { row ->
+            row.containingLists.map { it.id }
+        }
+        if (selectedRows.isEmpty() || containingListIds.isEmpty()) {
+            return
+        }
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            val readingLists = mutableListOf<ReadingList>()
+            val relations = AppDatabase.instance.readingListDao().getListsWithPagesByIds(containingListIds)
+            relations.forEach { relation ->
+                val pagesToDelete = relation.pages.filter { page ->
+                    page.status != ReadingListPage.STATUS_QUEUE_FOR_DELETE && (page.lang to page.apiTitle) in selectedPageKeys
+                }
+                if (pagesToDelete.isNotEmpty()) {
+                    relation.list.pages.clear()
+                    relation.list.pages.addAll(pagesToDelete)
+                    readingLists.add(relation.list)
+                }
+            }
+
+            ReadingListBehaviorsUtil.deletePagesFromLists(requireActivity(), selectedRows.size, readingLists, {}) {
+                actionMode?.finish()
+            }
         }
     }
 

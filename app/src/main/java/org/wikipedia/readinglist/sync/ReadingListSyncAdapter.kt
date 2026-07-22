@@ -538,6 +538,17 @@ class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : Corou
             }
         }
 
+        fun manualSyncWithDeletePages(lists: List<ReadingList>) {
+            val ids = lists.flatMapTo(mutableSetOf()) { list ->
+                createIdsForDeletion(list, list.pages.toSet())
+            }
+
+            if (ids.isNotEmpty()) {
+                Prefs.addReadingListPagesDeletedIds(ids)
+                manualSync()
+            }
+        }
+
         fun manualSyncWithForce(fromRefresh: Boolean = false) {
             val extras = bundleOf(SYNC_EXTRAS_FORCE_FULL_SYNC to true)
             // Pull-to-refresh needs the REFRESHING flag so a ReadingListSyncEvent is emitted on
