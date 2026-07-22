@@ -42,6 +42,9 @@ interface ReadingListPageDao {
     @Query("SELECT * FROM ReadingListPage WHERE id = :id")
     suspend fun getPageById(id: Long): ReadingListPage?
 
+    @Query("SELECT * FROM ReadingListPage WHERE id IN (:ids)")
+    suspend fun getPagesByIds(ids: Set<Long>): List<ReadingListPage>
+
     @Query("SELECT * FROM ReadingListPage WHERE status = :status AND offline = :offline")
     suspend fun getPagesByStatus(status: Long, offline: Boolean): List<ReadingListPage>
 

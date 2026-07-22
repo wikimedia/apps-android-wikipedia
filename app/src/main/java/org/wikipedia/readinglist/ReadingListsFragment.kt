@@ -1,6 +1,7 @@
 package org.wikipedia.readinglist
 
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -101,6 +102,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                         pullToRefreshEnabled = !RemoteConfig.config.disableReadingListSync,
                         isSelectionMode = selectionState.enabled,
                         selectedListIds = selectionState.selectedListIds,
+                        selectedPageIds = selectionState.selectedPageIds,
                         selectedTab = uiState.selectedTab,
                         onSelectTab = ::onSelectTab,
                         onOnboardingAction = ::onOnboardingAction,
@@ -108,6 +110,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                         onListClick = ::onListClick,
                         onListMenuAction = ::onListMenuAction,
                         onListSelectionChange = ::toggleListSelection,
+                        onPageSelectionChange = ::togglePageSelection,
                         onPageClick = ::onPageClick,
                         onPageLongClick = ::onPageLongClick,
                         onPageChipClick = ::onPageChipClick,
@@ -271,6 +274,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     }
 
     private fun onSelectTab(tab: SavedTab) {
+        actionMode?.takeIf(::isTagType)?.finish()
         viewModel.setSelectedTab(tab)
         searchActionModeCallback.updateSearchHint(getSearchHint(tab))
     }
@@ -444,6 +448,10 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     }
 
     private fun onPageClick(pageId: Long) {
+        if (isTagType(actionMode)) {
+            togglePageSelection(pageId)
+            return
+        }
         viewLifecycleOwner.lifecycleScope.launch {
             val page = AppDatabase.instance.readingListPageDao().getPageById(pageId) ?: return@launch
             val entry = HistoryEntry(ReadingListPage.toPageTitle(page), HistoryEntry.SOURCE_READING_LIST)
@@ -459,7 +467,13 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
         ExclusiveBottomSheetPresenter.show(
             childFragmentManager,
-            ReadingListItemActionsDialog.newInstance(containingLists.first().title, containingLists.size, pageId, actionMode != null)
+            ReadingListItemActionsDialog.newInstance(
+                containingLists.first().title,
+                containingLists.size,
+                pageId,
+                actionMode != null,
+                showMoveAction = false
+            )
         )
     }
 
@@ -529,7 +543,8 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     }
 
     override fun onSelectItem(pageId: Long) {
-        // ignore
+        beginMultiSelect()
+        togglePageSelection(pageId)
     }
 
     override fun onDeleteItem(pageId: Long) {
@@ -547,15 +562,23 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         viewModel.toggleListSelection(listId)
     }
 
+    private fun togglePageSelection(pageId: Long) {
+        viewModel.togglePageSelection(pageId)
+    }
+
     private fun beginMultiSelect() {
         if (!isTagType(actionMode)) {
             viewModel.setSelectionMode(true)
+            val callback = when (viewModel.uiState.value.selectedTab) {
+                SavedTab.ALL_ARTICLES -> articleSelectionCallback
+                SavedTab.COLLECTIONS -> collectionSelectionCallback
+            }
             actionMode = (requireActivity() as AppCompatActivity)
-                .startSupportActionMode(multiSelectModeCallback)
+                .startSupportActionMode(callback)
         }
     }
 
-    private val multiSelectModeCallback = object : MultiSelectActionModeCallback() {
+    private val collectionSelectionCallback = object : MultiSelectActionModeCallback() {
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
             super.onCreateActionMode(mode, menu)
             mode.menuInflater.inflate(R.menu.menu_action_mode_reading_lists, menu)
@@ -640,6 +663,86 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             viewModel.setSelectionMode(false)
             actionMode = null
             super.onDestroyActionMode(mode)
+        }
+    }
+
+    private val articleSelectionCallback = object : MultiSelectActionModeCallback() {
+        override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
+            super.onCreateActionMode(mode, menu)
+            mode.menuInflater.inflate(R.menu.menu_action_mode_reading_list, menu)
+            menu.findItem(R.id.menu_move_to_another_list).isVisible = false
+            actionMode = mode
+            return true
+        }
+
+        override fun onPrepareActionMode(mode: ActionMode, menu: Menu): Boolean {
+            val selectedPageCount = viewModel.selectionState.value.selectedPageIds.size
+            mode.title = if (selectedPageCount == 0) "" else {
+                getString(R.string.multi_select_items_selected, selectedPageCount)
+            }
+            return true
+        }
+
+        override fun onActionItemClicked(mode: ActionMode, menuItem: MenuItem): Boolean {
+            return when (menuItem.itemId) {
+                R.id.menu_remove_from_offline -> {
+                    updateSelectedPagesOffline(saveForOffline = false)
+                    true
+                }
+                R.id.menu_save_for_offline -> {
+                    updateSelectedPagesOffline(saveForOffline = true)
+                    true
+                }
+                R.id.menu_add_to_another_list -> {
+                    addSelectedPagesToList()
+                    true
+                }
+                else -> super.onActionItemClicked(mode, menuItem)
+            }
+        }
+
+        override fun onDeleteSelected() = Unit
+
+        override fun onDestroyActionMode(mode: ActionMode) {
+            viewModel.setSelectionMode(false)
+            actionMode = null
+            super.onDestroyActionMode(mode)
+        }
+    }
+
+    private fun updateSelectedPagesOffline(saveForOffline: Boolean) {
+        val selectedPageIds = viewModel.selectionState.value.selectedPageIds
+        viewLifecycleOwner.lifecycleScope.launch {
+            val pages = AppDatabase.instance.readingListPageDao().getPagesByIds(selectedPageIds)
+            if (pages.isEmpty()) {
+                return@launch
+            }
+            if (saveForOffline) {
+                ReadingListBehaviorsUtil.savePagesForOffline(requireActivity(), pages) {
+                    actionMode?.finish()
+                }
+            } else {
+                ReadingListBehaviorsUtil.removePagesFromOffline(requireActivity(), pages) {
+                    actionMode?.finish()
+                }
+            }
+        }
+    }
+
+    private fun addSelectedPagesToList() {
+        val selectedPageIds = viewModel.selectionState.value.selectedPageIds
+        viewLifecycleOwner.lifecycleScope.launch {
+            val titles = AppDatabase.instance.readingListPageDao()
+                .getPagesByIds(selectedPageIds)
+                .distinctBy { it.lang to it.apiTitle }
+                .map { ReadingListPage.toPageTitle(it) }
+            if (titles.isEmpty()) {
+                return@launch
+            }
+            val dialog = AddToReadingListDialog.newInstance(titles, InvokeSource.READING_LIST_ACTIVITY).apply {
+                dismissListener = DialogInterface.OnDismissListener { actionMode?.finish() }
+            }
+            ExclusiveBottomSheetPresenter.show(childFragmentManager, dialog)
         }
     }
 

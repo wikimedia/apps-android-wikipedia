@@ -15,6 +15,8 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Checkbox
+import androidx.compose.material3.CheckboxDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -38,6 +40,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
 import org.wikipedia.R
+import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
@@ -52,6 +55,9 @@ fun ReadingListPageRow(
     containingLists: List<ContainingList>,
     modifier: Modifier = Modifier,
     downloadProgress: Int = 0,
+    isSelectionMode: Boolean = false,
+    isSelected: Boolean = false,
+    onSelectionChange: () -> Unit = {},
     onClick: () -> Unit = {},
     onLongClick: () -> Unit = {},
     onToggleOfflineClick: () -> Unit = {},
@@ -59,10 +65,24 @@ fun ReadingListPageRow(
 ) {
     Column(
         modifier = modifier
-            .combinedClickable(onClick = onClick, onLongClick = onLongClick)
+            .combinedClickable(
+                onClick = if (isSelectionMode) onSelectionChange else onClick,
+                onLongClick = if (isSelectionMode) onSelectionChange else onLongClick
+            )
             .padding(horizontal = 16.dp, vertical = 16.dp)
     ) {
         Row(verticalAlignment = Alignment.Top) {
+            if (isSelectionMode) {
+                Checkbox(
+                    checked = isSelected,
+                    onCheckedChange = { onSelectionChange() },
+                    colors = CheckboxDefaults.colors(
+                        checkedColor = ComposeColors.Blue600,
+                        uncheckedColor = WikipediaTheme.colors.primaryColor
+                    ),
+                    modifier = Modifier.padding(end = 16.dp)
+                )
+            }
             Column(
                 modifier = Modifier
                     .weight(1f)
@@ -91,7 +111,7 @@ fun ReadingListPageRow(
                 }
             }
 
-            if (!page.offline || page.saving) {
+            if (!isSelectionMode && (!page.offline || page.saving)) {
                 Spacer(modifier = Modifier.width(16.dp))
                 Box(
                     modifier = Modifier
@@ -139,7 +159,12 @@ fun ReadingListPageRow(
                 horizontalArrangement = spacedBy(8.dp)
             ) {
                 containingLists.forEach { list ->
-                    ListChip(title = list.title, onClick = { onChipClick(list.id) })
+                    ListChip(
+                        title = list.title,
+                        onClick = {
+                            if (isSelectionMode) onSelectionChange() else onChipClick(list.id)
+                        }
+                    )
                 }
             }
         }
@@ -232,6 +257,31 @@ private fun ReadingListPageRowOfflinePreview() {
                 isAvailable = true
             ),
             containingLists = listOf(ContainingList(1, "Physics"), ContainingList(2, "Top read"))
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun ReadingListPageRowSelectedPreview() {
+    BaseTheme(
+        currentTheme = Theme.LIGHT
+    ) {
+        ReadingListPageRow(
+            page = ReadingListPageUiModel(
+                id = 3,
+                title = "Selected article",
+                description = "Article selected from All articles",
+                thumbUrl = null,
+                lang = "en",
+                apiTitle = "Selected_article",
+                offline = false,
+                saving = false,
+                isAvailable = true
+            ),
+            containingLists = listOf(ContainingList(1, "Saved pages")),
+            isSelectionMode = true,
+            isSelected = true
         )
     }
 }

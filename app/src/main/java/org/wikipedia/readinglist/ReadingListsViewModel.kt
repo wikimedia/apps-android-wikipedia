@@ -211,6 +211,17 @@ class ReadingListsViewModel : ViewModel() {
         )
     }
 
+    fun togglePageSelection(pageId: Long) {
+        val selectedPageIds = _selectionState.value.selectedPageIds.toMutableSet()
+        if (!selectedPageIds.add(pageId)) {
+            selectedPageIds.remove(pageId)
+        }
+        _selectionState.value = ReadingListsSelectionState(
+            enabled = true,
+            selectedPageIds = selectedPageIds
+        )
+    }
+
     fun selectAllLists() {
         _selectionState.value = ReadingListsSelectionState(
             enabled = true,
@@ -510,7 +521,8 @@ data class RecommendedReadingListCard(
 
 data class ReadingListsSelectionState(
     val enabled: Boolean = false,
-    val selectedListIds: Set<Long> = emptySet()
+    val selectedListIds: Set<Long> = emptySet(),
+    val selectedPageIds: Set<Long> = emptySet()
 )
 
 private data class ReadingListsAccountState(
