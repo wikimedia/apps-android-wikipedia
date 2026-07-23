@@ -1141,7 +1141,7 @@
   <string name="edit_summary_added_image_and_caption">Şəkil və başlıq əlavə edildi</string>
   <string name="edit_published_view">Bax</string>
   <string name="activity_tab_logged_out_title">Wikipedia tətbiqində fəaliyyətinizə baxmaq üçün daxil olun və ya hesab yaradın</string>
-  <string name="activity_tab_user_reading" fuzzy="true">$1 istifadəçisinin oxuduqları</string>
+  <string name="activity_tab_user_reading">%s istifadəçisinin oxuduqları</string>
   <string name="activity_tab_on_wikipedia_android">Wikipedia Android-də</string>
   <string name="activity_tab_weekly_time_spent_hm">%1$ds %2$dd</string>
   <string name="activity_tab_weekly_time_spent">Bu həftə oxumağa sərf olunan vaxt</string>

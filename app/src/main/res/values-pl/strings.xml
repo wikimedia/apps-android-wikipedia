@@ -1260,7 +1260,7 @@
   <string name="edit_summary_added_image_and_caption">Dodano obraz i podpis</string>
   <string name="edit_published_view">Podgląd</string>
   <string name="activity_tab_logged_out_title">Zaloguj się lub utwórz konto, aby wyświetlić swoją aktywność w aplikacji Wikipedii</string>
-  <string name="activity_tab_user_reading" fuzzy="true">Twoje statystyki czytania</string>
+  <string name="activity_tab_user_reading">Twoje statystyki czytania %s</string>
   <string name="activity_tab_on_wikipedia_android">w aplikacji Wikipedia na Androida</string>
   <string name="activity_tab_weekly_time_spent_hm">%1$d godz. %2$d min</string>
   <string name="activity_tab_weekly_time_spent">Czas spędzony na czytaniu w tym tygodniu</string>
