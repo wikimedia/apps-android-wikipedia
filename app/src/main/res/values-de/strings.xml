@@ -53,6 +53,7 @@
 * Umherirrender
 * Umlaut
 * Vogone
+* Volvox
 * Wangombe
 * Wnme
 * Wolfdietmann
@@ -1963,7 +1964,7 @@
   <string name="settings_app_icon_preference_subtitle">Du hast Zugriff auf ein benutzerdefiniertes Symbol, das deine %d Beiträge zur Wikipedia in der App feiert. Es bleibt bis zum nächsten Jahresrückblick verfügbar.</string>
   <string name="settings_app_icon_updated">Dein App-Symbol wurde aktualisiert.</string>
   <string name="year_in_review_slide_app_icon_title_unlocked">Neues App-Symbol für deinen Startbildschirm freigeschaltet</string>
-  <string name="year_in_review_slide_app_icon_title_unlock">Schalte deine Auszeichnung als Beitragender fär das nächste Jahr frei!</string>
+  <string name="year_in_review_slide_app_icon_title_unlock">Schalte deine Auszeichnung als Beitragender für das nächste Jahr frei!</string>
   <string name="year_in_review_slide_app_icon_body_unlocked">Aktiviere dein neues App-Symbol in den Einstellungen unter dem App-Symbol. Vielen Dank für deinen Beitrag zur Zukunft des freien Wissens. Deine %1$s-Beiträge im Jahr %2$d tragen dazu bei, den Weg zu einer Welt freier Informationen zu ebnen, und als Anerkennung hast du ein benutzerdefiniertes Symbol für Beitragende der Wikipedia für deinen Startbildschirm freigeschaltet.</string>
   <string name="year_in_review_slide_app_icon_body_unlock">Wir freuen uns, dass Wikipedia Teil deines Jahres %1$d war! Schalte eine besondere Belohnung in deinem Jahresrückblick %2$d frei, indem du selbst beiträgst – sei es durch das &lt;a href=\"%3$s\"&gt;Bearbeiten der Wikipedia&lt;/a&gt; oder durch eine Spende an die &lt;a href=\"%4$s\"&gt;Wikimedia Foundation&lt;/a&gt;, die gemeinnützige Organisation dahinter. Wenn Wikipedia für dich nützlich ist, unterstütze bitte die Zukunft der Plattform mit einer Spende, damit sie weiterhin kostenlos, werbefrei, vertrauenswürdig und für alle zugänglich bleibt. Falls du bereits anderweitig gespendet hast, danken wir dir herzlich für deine Unterstützung.</string>
   <string name="year_in_review_slide_app_icon_donor">ein Spender</string>

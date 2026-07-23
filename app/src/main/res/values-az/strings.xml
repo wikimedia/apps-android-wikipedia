@@ -1141,7 +1141,7 @@
   <string name="edit_summary_added_image_and_caption">Şəkil və başlıq əlavə edildi</string>
   <string name="edit_published_view">Bax</string>
   <string name="activity_tab_logged_out_title">Wikipedia tətbiqində fəaliyyətinizə baxmaq üçün daxil olun və ya hesab yaradın</string>
-  <string name="activity_tab_user_reading">%s istifadəçisinin oxuduqları</string>
+  <string name="activity_tab_user_reading" fuzzy="true">$1 istifadəçisinin oxuduqları</string>
   <string name="activity_tab_on_wikipedia_android">Wikipedia Android-də</string>
   <string name="activity_tab_weekly_time_spent_hm">%1$ds %2$dd</string>
   <string name="activity_tab_weekly_time_spent">Bu həftə oxumağa sərf olunan vaxt</string>
@@ -2442,7 +2442,10 @@
   <string name="home_feed_for_you_screen_end_of_feed_description">Sabah sizin üçün fərdiləşdirilmiş yeni məqalələr tapmaq üçün yenə gəlin.</string>
   <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Öyrənməyə davam etmək yolları:</string>
   <string name="home_feed_for_you_screen_end_of_feed_add_interests">&lt;a href=\"#add_interests\"&gt;Yeni maraqlar&lt;/a&gt; əlavə et</string>
+  <string name="randomizer_shake_prompt_title">Qarışdırmaq üçün silkələ</string>
+  <string name="randomizer_shake_prompt_message">Təsadüfi bir məqaləyə keçmək və gözlənilməz bir şey kəşf etmək üçün cihazınızı silkələyin.</string>
   <string name="home_feed_games_module_cta_prompt_title">Daha çox oyun oynamaq istəyirsiniz?</string>
   <string name="home_feed_games_module_cta_prompt_subtitle">Oyun mərkəzinə get</string>
   <string name="home_feed_games_module_cta_prompt_button_text">Oyun mərkəzi</string>
+  <string name="random_article_widget_name">Təsadüfi məqalə</string>
 </resources>
