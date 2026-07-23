@@ -561,7 +561,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
 
     private fun refreshContents() {
         when (val fragment = currentFragment) {
-            is ReadingListsFragment -> fragment.updateLists()
             is HistoryFragment -> fragment.refresh()
             is SuggestedEditsTasksFragment -> fragment.refreshContents()
         }

@@ -98,21 +98,9 @@ object ReadingListBehaviorsUtil {
             return
         }
         if (showDialog) {
-            MaterialAlertDialogBuilder(activity)
-                    .setMessage(activity.getString(R.string.reading_list_delete_confirm, readingList.title))
-                    .setPositiveButton(R.string.reading_list_delete_dialog_ok_button_text) { _, _ ->
-                        MainScope().launch(exceptionHandler) {
-                            AppDatabase.instance.readingListDao().deleteList(readingList)
-                            AppDatabase.instance.readingListPageDao()
-                                .markPagesForDeletion(readingList, readingList.pages, false)
-                            if (!activity.isStarted) {
-                                return@launch
-                            }
-                            callback.onCompleted()
-                        }
-                    }
-                    .setNegativeButton(R.string.reading_list_delete_dialog_cancel_button_text, null)
-                    .show()
+            confirmDeleteReadingList(activity, readingList) {
+                deleteReadingList(activity, readingList, false, callback)
+            }
         } else {
             MainScope().launch(exceptionHandler) {
                 AppDatabase.instance.readingListDao().deleteList(readingList)
@@ -124,6 +112,19 @@ object ReadingListBehaviorsUtil {
                 callback.onCompleted()
             }
         }
+    }
+
+    fun confirmDeleteReadingList(activity: Activity, readingList: ReadingList?, callback: Callback) {
+        if (readingList == null) {
+            return
+        }
+        MaterialAlertDialogBuilder(activity)
+            .setMessage(activity.getString(R.string.reading_list_delete_confirm, readingList.title))
+            .setPositiveButton(R.string.reading_list_delete_dialog_ok_button_text) { _, _ ->
+                callback.onCompleted()
+            }
+            .setNegativeButton(R.string.reading_list_delete_dialog_cancel_button_text, null)
+            .show()
     }
 
     fun deleteReadingLists(activity: Activity, readingLists: List<ReadingList>, callback: Callback) {
@@ -168,6 +169,49 @@ object ReadingListBehaviorsUtil {
                 callback.onCompleted()
             }
         }
+    }
+
+    fun deletePagesFromLists(activity: Activity, selectedArticleCount: Int, lists: List<ReadingList>, snackbarCallback: SnackbarCallback, callback: Callback) {
+        val listToDelete = lists.filter { it.pages.isNotEmpty() }
+        if (selectedArticleCount == 0 || listToDelete.isEmpty()) {
+            return
+        }
+        MaterialAlertDialogBuilder(activity)
+            .setTitle(R.string.reading_lists_remove_articles_confirm_dialog_title)
+            .setMessage(activity.resources.getQuantityString(R.plurals.reading_lists_remove_articles_confirm_dialog_message, selectedArticleCount, selectedArticleCount))
+            .setPositiveButton(R.string.reading_lists_remove_articles_confirm_button) { _, _ ->
+                MainScope().launch(exceptionHandler) {
+                    AppDatabase.instance.readingListPageDao().markPagesForDeletionFromLists(listToDelete)
+                    if (!activity.isStarted) {
+                        return@launch
+                    }
+                    showDeletePagesFromListsUndoSnackbar(activity, selectedArticleCount, listToDelete, snackbarCallback)
+                    callback.onCompleted()
+                }
+            }
+            .setNegativeButton(R.string.reading_list_delete_dialog_cancel_button_text, null)
+            .show()
+    }
+
+    private fun showDeletePagesFromListsUndoSnackbar(activity: Activity, selectedArticleCount: Int, lists: List<ReadingList>, callback: SnackbarCallback) {
+        val message = activity.resources.getQuantityString(R.plurals.reading_lists_articles_removed_from_collections, selectedArticleCount, selectedArticleCount)
+        FeedbackUtil.makeSnackbar(activity, message)
+            .setAction(R.string.reading_list_item_delete_undo) {
+                MainScope().launch(exceptionHandler) {
+                    lists.forEach { list ->
+                        val restoredPages = list.pages.map { page ->
+                            ReadingListPage(ReadingListPage.toPageTitle(page))
+                        }
+                        AppDatabase.instance.readingListPageDao()
+                            .addPagesToList(list, restoredPages, true)
+                    }
+                    if (!activity.isStarted) {
+                        return@launch
+                    }
+                    callback.onUndoDeleteClicked()
+                }
+            }
+            .show()
     }
 
     fun updateReadingListPage(item: ReadingListPage) {

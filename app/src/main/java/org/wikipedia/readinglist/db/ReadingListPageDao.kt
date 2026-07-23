@@ -42,6 +42,9 @@ interface ReadingListPageDao {
     @Query("SELECT * FROM ReadingListPage WHERE id = :id")
     suspend fun getPageById(id: Long): ReadingListPage?
 
+    @Query("SELECT * FROM ReadingListPage WHERE id IN (:ids)")
+    suspend fun getPagesByIds(ids: Set<Long>): List<ReadingListPage>
+
     @Query("SELECT * FROM ReadingListPage WHERE status = :status AND offline = :offline")
     suspend fun getPagesByStatus(status: Long, offline: Boolean): List<ReadingListPage>
 
@@ -184,6 +187,16 @@ interface ReadingListPageDao {
         if (queueForSync) {
             ReadingListSyncAdapter.manualSyncWithDeletePages(list, pages)
         }
+        FlowEventBus.post(ArticleSavedOrDeletedEvent(false, *pages.toTypedArray()))
+        SavedPageSyncService.enqueue()
+    }
+
+    @Transaction
+    suspend fun markPagesForDeletionFromLists(lists: List<ReadingList>) {
+        val pages = lists.flatMap { it.pages }
+        pages.forEach { it.status = ReadingListPage.STATUS_QUEUE_FOR_DELETE }
+        updateReadingListPages(pages)
+        ReadingListSyncAdapter.manualSyncWithDeletePages(lists)
         FlowEventBus.post(ArticleSavedOrDeletedEvent(false, *pages.toTypedArray()))
         SavedPageSyncService.enqueue()
     }
