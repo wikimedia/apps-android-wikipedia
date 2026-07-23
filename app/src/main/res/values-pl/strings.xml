@@ -1993,7 +1993,7 @@
   <string name="on_this_day_game_report_email_body">Problem dotyczy funkcji gier Wikipedii:\n- [Opisz szczegółowo problem]\n\nOczekuję, że funkcja będzie działać w następujący sposób:\n- [Opisz proponowane rozwiązanie]</string>
   <string name="on_this_day_game_notification_undo">Cofnij</string>
   <string name="on_this_day_game_share_link_message">Gram w „Co było pierwsze?”, codzienną grę z ciekawostkami w aplikacji Wikipedia na Androida. Dołącz do mnie: %s</string>
-  <string name="on_this_day_game_share_screen_title">Mój dzisiejszy wynik\nw „Co było pierwsze?”\nto %1$d/\\%2$d.</string>
+  <string name="on_this_day_game_share_screen_title">Mój dzisiejszy wynik\nw „Co było pierwsze?”\nto %1$d/%2$d.</string>
   <string name="on_this_day_game_share_screen_subtitle">Wśród tematów znalazły się:</string>
   <string name="on_this_day_game_archive_calendar_title">Wybierz grę według daty, aby w nią zagrać.</string>
   <string name="on_this_day_game_score_toast_message">Twój wynik w tym dniu wyniósł %1$d/%2$d.</string>
