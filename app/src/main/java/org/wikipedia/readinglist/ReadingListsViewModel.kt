@@ -234,6 +234,18 @@ class ReadingListsViewModel : ViewModel() {
         _selectionState.value = _selectionState.value.copy(selectedListIds = emptySet())
     }
 
+    fun selectAllPages() {
+        _selectionState.value = ReadingListsSelectionState(
+            enabled = true,
+            selectedPageIds = uiState.value.rows.filterIsInstance<ReadingListRow.PageRow>()
+                .mapTo(mutableSetOf()) { it.page.id }
+        )
+    }
+
+    fun clearPageSelection() {
+        _selectionState.value = _selectionState.value.copy(selectedPageIds = emptySet())
+    }
+
     fun refreshRecentPreviewSavedList() {
         val receivedListId = Prefs.readingListRecentReceivedId
         if (receivedListId == -1L || recentPreviewSavedState.value.newBadgeListId != null) {

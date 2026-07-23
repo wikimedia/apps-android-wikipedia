@@ -659,16 +659,36 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     private val articleSelectionCallback = object : MultiSelectActionModeCallback() {
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
             super.onCreateActionMode(mode, menu)
-            mode.menuInflater.inflate(R.menu.menu_action_mode_reading_list, menu)
-            menu.findItem(R.id.menu_move_to_another_list).isVisible = false
+            mode.menuInflater.inflate(R.menu.menu_action_mode_reading_list_articles, menu)
             actionMode = mode
             return true
         }
 
         override fun onPrepareActionMode(mode: ActionMode, menu: Menu): Boolean {
-            val selectedPageCount = viewModel.selectionState.value.selectedPageIds.size
-            mode.title = if (selectedPageCount == 0) "" else {
-                getString(R.string.multi_select_items_selected, selectedPageCount)
+            val selectedIds = viewModel.selectionState.value.selectedPageIds
+            val allPageIds = viewModel.uiState.value.rows
+                .filterIsInstance<ReadingListRow.PageRow>()
+                .map { it.page.id }
+            val allSelected = allPageIds.isNotEmpty() && selectedIds.containsAll(allPageIds)
+
+            mode.title = if (selectedIds.isEmpty()) "" else {
+                getString(R.string.multi_select_items_selected, selectedIds.size)
+            }
+            menu.findItem(R.id.menu_delete_selected).apply {
+                isEnabled = selectedIds.isNotEmpty()
+                icon?.alpha = if (selectedIds.isEmpty()) 80 else 255
+            }
+            menu.findItem(R.id.menu_select).apply {
+                setIcon(when {
+                    selectedIds.isEmpty() -> R.drawable.ic_outline_library_add_check_24
+                    allSelected -> R.drawable.ic_deselect_all
+                    else -> R.drawable.ic_select_indeterminate
+                })
+                title = when {
+                    selectedIds.isEmpty() -> getString(R.string.notifications_menu_check_all)
+                    allSelected -> getString(R.string.notifications_menu_uncheck_all)
+                    else -> ""
+                }
             }
             return true
         }
@@ -689,6 +709,18 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 }
                 R.id.menu_add_to_another_list -> {
                     addSelectedPagesToList()
+                    true
+                }
+                R.id.menu_select -> {
+                    val allPageIds = viewModel.uiState.value.rows
+                        .filterIsInstance<ReadingListRow.PageRow>()
+                        .map { it.page.id }
+                    val selectedIds = viewModel.selectionState.value.selectedPageIds
+                    if (allPageIds.isNotEmpty() && selectedIds.containsAll(allPageIds)) {
+                        viewModel.clearPageSelection()
+                    } else {
+                        viewModel.selectAllPages()
+                    }
                     true
                 }
                 else -> super.onActionItemClicked(mode, menuItem)
