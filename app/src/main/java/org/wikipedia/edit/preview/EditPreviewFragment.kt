@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebView
+import androidx.core.net.toUri
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -30,6 +31,7 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.LinkHandler
+import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.PageViewModel
@@ -168,6 +170,15 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
     fun hide() {
         binding.editPreviewContainer.isVisible = false
         requireActivity().invalidateOptionsMenu()
+    }
+
+    fun showHCaptchaDisclaimer(text: CharSequence) {
+        val binding = _binding ?: return
+        binding.hCaptchaDisclaimer.text = text
+        binding.hCaptchaDisclaimer.movementMethod = LinkMovementMethodExt { url: String ->
+            UriUtil.visitInExternalBrowser(requireContext(), url.toUri())
+        }
+        binding.hCaptchaDisclaimer.isVisible = text.isNotEmpty()
     }
 
     private fun callback(): Callback {
