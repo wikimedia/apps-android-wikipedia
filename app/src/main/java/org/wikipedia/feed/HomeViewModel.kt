@@ -10,6 +10,9 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -644,129 +647,162 @@ class HomeViewModel : ViewModel() {
         // --- Interests ---
 
         val interestTopics = AppDatabase.instance.topicInterestDao().getAllRandom().distinctBy { it.topicId }.take(5)
-        interestTopics.forEachIndexed { index, topic ->
-            val articleTopic = ArticleTopics.all.find { it.topicId == topic.topicId }
-            val entries = ServiceFactory.get(wikiSite.value).getArticlesByTopic(
-                "articletopic:" + (articleTopic?.queryTopicId ?: topic.topicId) + "^95",
-                limit = 20,
-                profile = "classic_noboostlinks",
-                sort = "random"
-            )
-                .query?.pages
-                ?.filter { it.pageProps?.disambiguation == null } // Filter out disambiguation pages
-                ?.sortedBy { it.index } // Sort by index, as reported by the API
-                ?.sortedBy { it.thumbUrl().isNullOrEmpty() } // Sort by whether it has a thumbnail
-                ?.map { page ->
-                    PageTitle(
-                        text = page.title,
-                        wiki = wikiSite.value,
-                        thumbUrl = page.thumbUrl(),
-                        description = page.description,
-                        displayText = page.displayTitle(wikiSite.value.languageCode),
-                    ).also {
-                        if (!page.sectionTitle.isNullOrEmpty()) it.fragment = StringUtil.addUnderscores(page.sectionTitle)
-                        it.extract = page.extract
-                    }
-                }.orEmpty().map {
-                    // TODO: filter items that have already been suggested.
-                    BasedOnInterestCard(it, interestTopic = topic)
-                }.filterNot { hiddenCards.contains(it.hideKey) }.take(4)
-
-            if (entries.isNotEmpty()) {
-                modules.add(ForYouModule.BasedOnInterest(age, index, entries))
+        val interestTopicCalls = interestTopics.map { topic ->
+            coroutineScope {
+                async {
+                    val articleTopic = ArticleTopics.all.find { it.topicId == topic.topicId }
+                    ServiceFactory.get(wikiSite.value).getArticlesByTopic(
+                        "articletopic:" + (articleTopic?.queryTopicId ?: topic.topicId) + "^95",
+                        limit = 20,
+                        profile = "classic_noboostlinks",
+                        sort = "random"
+                    )
+                        .query?.pages
+                        ?.filter { it.pageProps?.disambiguation == null } // Filter out disambiguation pages
+                        ?.sortedBy { it.index } // Sort by index, as reported by the API
+                        ?.sortedBy { it.thumbUrl().isNullOrEmpty() } // Sort by whether it has a thumbnail
+                        ?.map { page ->
+                            PageTitle(
+                                text = page.title,
+                                wiki = wikiSite.value,
+                                thumbUrl = page.thumbUrl(),
+                                description = page.description,
+                                displayText = page.displayTitle(wikiSite.value.languageCode),
+                            ).also {
+                                if (!page.sectionTitle.isNullOrEmpty()) it.fragment = StringUtil.addUnderscores(page.sectionTitle)
+                                it.extract = page.extract
+                            }
+                        }.orEmpty().map {
+                            // TODO: filter items that have already been suggested.
+                            BasedOnInterestCard(it, interestTopic = topic)
+                        }.filterNot { hiddenCards.contains(it.hideKey) }.take(4)
+                }
             }
         }
-        val interestArticles = AppDatabase.instance.articleInterestDao().getAllRandom(wikiSite.value.languageCode).take(5)
-        interestArticles.forEachIndexed { index, article ->
-            val searchTerm = StringUtil.removeUnderscores(article.apiTitle)
-            val entries = ServiceFactory.get(wikiSite.value).searchMoreLike("morelike:$searchTerm", 10, 10)
-                .query?.pages?.filter { it.title != searchTerm && it.title != MainPageNameData.valueFor(wikiSite.value.languageCode) }?.map { page ->
-                    PageTitle(
-                        text = page.title,
-                        wiki = wikiSite.value,
-                        thumbUrl = page.thumbUrl(),
-                        description = page.description,
-                        displayText = page.displayTitle(wikiSite.value.languageCode),
-                    ).also {
-                        if (!page.sectionTitle.isNullOrEmpty()) it.fragment = StringUtil.addUnderscores(page.sectionTitle)
-                        it.extract = page.extract
-                    }
-                }.orEmpty().map {
-                    // TODO: filter items that have already been suggested.
-                    BasedOnInterestCard(it, interestArticle = article)
-                }.filterNot { hiddenCards.contains(it.hideKey) }.take(4)
 
-            if (entries.isNotEmpty()) {
-                modules.add(ForYouModule.BasedOnInterest(age, index, entries))
+        val interestArticles = AppDatabase.instance.articleInterestDao().getAllRandom(wikiSite.value.languageCode).take(5)
+        val interestArticleCalls = interestArticles.map { article ->
+            coroutineScope {
+                async {
+                    val searchTerm = StringUtil.removeUnderscores(article.apiTitle)
+                    ServiceFactory.get(wikiSite.value).searchMoreLike("morelike:$searchTerm", 10, 10)
+                        .query?.pages?.filter { it.title != searchTerm && it.title != MainPageNameData.valueFor(wikiSite.value.languageCode) }?.map { page ->
+                            PageTitle(
+                                text = page.title,
+                                wiki = wikiSite.value,
+                                thumbUrl = page.thumbUrl(),
+                                description = page.description,
+                                displayText = page.displayTitle(wikiSite.value.languageCode),
+                            ).also {
+                                if (!page.sectionTitle.isNullOrEmpty()) it.fragment = StringUtil.addUnderscores(page.sectionTitle)
+                                it.extract = page.extract
+                            }
+                        }.orEmpty().map {
+                            // TODO: filter items that have already been suggested.
+                            BasedOnInterestCard(it, interestArticle = article)
+                        }.filterNot { hiddenCards.contains(it.hideKey) }.take(4)
+                }
             }
         }
 
         // --- Because you read ---
 
-        val becauseYouReadCards = buildList {
-            val lastReadEntries = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(age + 1, 30, wikiSite.value.languageCode)
-            if (lastReadEntries.size > age) {
-                val entry = lastReadEntries[age]
-                val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(wikiSite.value.languageCode).isNullOrEmpty()
-                val searchTerm = StringUtil.removeUnderscores(entry.title.prefixedText)
+        val becauseYouReadDeferred = coroutineScope {
+            async {
+                buildList {
+                    val lastReadEntries = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(age + 1, 30, wikiSite.value.languageCode)
+                    if (lastReadEntries.size > age) {
+                        val entry = lastReadEntries[age]
+                        val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(wikiSite.value.languageCode).isNullOrEmpty()
+                        val searchTerm = StringUtil.removeUnderscores(entry.title.prefixedText)
 
-                var moreLikeMaxAge = 86400
-                if (hasParentLanguageCode) {
-                    moreLikeMaxAge = 0
-                }
-                val moreLikeResponse = ServiceFactory.get(entry.title.wikiSite).searchMoreLike("morelike:$searchTerm",
-                    Constants.SUGGESTION_REQUEST_ITEMS * 2, Constants.SUGGESTION_REQUEST_ITEMS * 2, sMaxAge = moreLikeMaxAge, maxAge = moreLikeMaxAge)
+                        var moreLikeMaxAge = 86400
+                        if (hasParentLanguageCode) {
+                            moreLikeMaxAge = 0
+                        }
+                        val moreLikeResponse = ServiceFactory.get(entry.title.wikiSite).searchMoreLike("morelike:$searchTerm",
+                            Constants.SUGGESTION_REQUEST_ITEMS * 2, Constants.SUGGESTION_REQUEST_ITEMS * 2, sMaxAge = moreLikeMaxAge, maxAge = moreLikeMaxAge)
 
-                val relatedPages = moreLikeResponse.query?.pages?.filter { it.title != searchTerm && it.title != MainPageNameData.valueFor(entry.title.wikiSite.languageCode) }?.map {
-                    PageSummary(it.displayTitle(wikiSite.value.languageCode), it.title, it.description, it.extract, it.thumbUrl(), wikiSite.value.languageCode)
-                }?.take(Constants.SUGGESTION_REQUEST_ITEMS)
+                        val relatedPages = moreLikeResponse.query?.pages?.filter { it.title != searchTerm && it.title != MainPageNameData.valueFor(entry.title.wikiSite.languageCode) }?.map {
+                            PageSummary(it.displayTitle(wikiSite.value.languageCode), it.title, it.description, it.extract, it.thumbUrl(), wikiSite.value.languageCode)
+                        }?.take(Constants.SUGGESTION_REQUEST_ITEMS)
 
-                addAll(relatedPages?.map {
-                    BecauseYouReadCard(it.getPageTitle(wikiSite.value), entry.title.displayText)
-                } ?: emptyList())
+                        addAll(relatedPages?.map {
+                            BecauseYouReadCard(it.getPageTitle(wikiSite.value), entry.title.displayText)
+                        } ?: emptyList())
+                    }
+                }.filterNot { hiddenCards.contains(it.hideKey) }.take(4)
             }
-        }.filterNot { hiddenCards.contains(it.hideKey) }.take(4)
-
-        if (becauseYouReadCards.isNotEmpty()) {
-            // The index for this module is always 0 because there is always a single instance of this module, per age.
-            modules.add(ForYouModule.BecauseYouRead(age, 0, becauseYouReadCards))
         }
 
         // --- Continue reading ---
 
-        val continueReadingCards = buildList {
-            val lastReadEntries = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(age + 1, 30, wikiSite.value.languageCode)
-            if (lastReadEntries.size > age) {
-                add(ContinueReadingCard(lastReadEntries[age].title, HistoryEntry.SOURCE_HISTORY))
-            }
-            AppDatabase.instance.readingListPageDao().getMostRecentSavedPagesByLang(wikiSite.value.languageCode, 10).take(2)
-                .forEach {
-                    add(ContinueReadingCard(ReadingListPage.toPageTitle(it), HistoryEntry.SOURCE_READING_LIST))
-                }
-        }.filterNot { hiddenCards.contains(it.hideKey) }.take(4)
-        if (continueReadingCards.isNotEmpty()) {
-            ServiceFactory.get(wikiSite.value).getInfoWithExtractsByPageTitles(continueReadingCards.map { it.title.prefixedText }.fastJoinToString("|"))
-                .query?.pages?.forEach { page ->
-                    continueReadingCards.find { it.title.prefixedText == StringUtil.addUnderscores(page.title) }?.let {
-                        it.title.description = page.description
-                        it.title.thumbUrl = page.thumbUrl()
-                        it.title.displayText = page.displayTitle(wikiSite.value.languageCode)
-                        it.title.extract = page.extract
+        val continueReadingDeferred = coroutineScope {
+            async {
+                val continueReadingCards = buildList {
+                    val lastReadEntries = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(age + 1, 30, wikiSite.value.languageCode)
+                    if (lastReadEntries.size > age) {
+                        add(ContinueReadingCard(lastReadEntries[age].title, HistoryEntry.SOURCE_HISTORY))
                     }
+                    AppDatabase.instance.readingListPageDao().getMostRecentSavedPagesByLang(wikiSite.value.languageCode, 10).take(2)
+                        .forEach {
+                            add(ContinueReadingCard(ReadingListPage.toPageTitle(it), HistoryEntry.SOURCE_READING_LIST))
+                        }
+                }.filterNot { hiddenCards.contains(it.hideKey) }.take(4)
+                if (continueReadingCards.isNotEmpty()) {
+                    ServiceFactory.get(wikiSite.value).getInfoWithExtractsByPageTitles(continueReadingCards.map { it.title.prefixedText }.fastJoinToString("|"))
+                        .query?.pages?.forEach { page ->
+                            continueReadingCards.find { it.title.prefixedText == StringUtil.addUnderscores(page.title) }?.let {
+                                it.title.description = page.description
+                                it.title.thumbUrl = page.thumbUrl()
+                                it.title.displayText = page.displayTitle(wikiSite.value.languageCode)
+                                it.title.extract = page.extract
+                            }
+                        }
                 }
-        }
-        if (continueReadingCards.isNotEmpty()) {
-            // The index for this module is always 0 because there is always a single instance of this module, per age.
-            modules.add(ForYouModule.ContinueReading(age, 0, continueReadingCards))
+                continueReadingCards
+            }
         }
 
         // --- Random article ---
 
-        val random = ServiceFactory.getRest(wikiSite.value).getRandomSummary()
-        val randomCard = RandomCard(random.getPageTitle(wikiSite.value))
-        if (!hiddenCards.contains(randomCard.hideKey)) {
-            // The index for this module is always 0 because there is always a single instance of this module, per age.
-            modules.add(ForYouModule.Random(age, 0, listOf(randomCard)))
+        val randomDeferred = coroutineScope {
+            async {
+                val random = ServiceFactory.getRest(wikiSite.value).getRandomSummary()
+                RandomCard(random.getPageTitle(wikiSite.value))
+            }
+        }
+
+        // Combine all the deferred results and add them to the modules list if they have content.
+
+        interestTopicCalls.awaitAll().forEachIndexed { index, entries ->
+            if (entries.isNotEmpty()) {
+                modules.add(ForYouModule.BasedOnInterest(age, index, entries))
+            }
+        }
+        interestArticleCalls.awaitAll().forEachIndexed { index, entries ->
+            if (entries.isNotEmpty()) {
+                modules.add(ForYouModule.BasedOnInterest(age, index, entries))
+            }
+        }
+
+        becauseYouReadDeferred.await().let {
+            if (it.isNotEmpty()) {
+                // The index for this module is always 0 because there is always a single instance of this module, per age.
+                modules.add(ForYouModule.BecauseYouRead(age, 0, it))
+            }
+        }
+        continueReadingDeferred.await().let {
+            if (it.isNotEmpty()) {
+                // The index for this module is always 0 because there is always a single instance of this module, per age.
+                modules.add(ForYouModule.ContinueReading(age, 0, it))
+            }
+        }
+        randomDeferred.await().let { randomCard ->
+            if (!hiddenCards.contains(randomCard.hideKey)) {
+                // The index for this module is always 0 because there is always a single instance of this module, per age.
+                modules.add(ForYouModule.Random(age, 0, listOf(randomCard)))
+            }
         }
 
         forYouCollectionSaved = ForYouCollectionSaved(
