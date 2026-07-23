@@ -22,6 +22,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.ColorPainter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextLinkStyles
@@ -65,6 +66,7 @@ fun FeaturedImageModule(
         Box(
             modifier = Modifier
                 .fillMaxWidth().padding(bottom = 24.dp)
+                .testTag(FeaturedImageModuleTestTags.CARD)
                 .clickable {
                     onClick(card)
                 }
@@ -87,7 +89,7 @@ fun FeaturedImageModule(
             ) {
                 IconButton(
                     onClick = { onDownloadClick(card) },
-                    modifier = Modifier.size(48.dp)
+                    modifier = Modifier.size(48.dp).testTag(FeaturedImageModuleTestTags.DOWNLOAD_BUTTON)
                 ) {
                     Box(
                         modifier = Modifier
@@ -108,7 +110,7 @@ fun FeaturedImageModule(
                 }
                 IconButton(
                     onClick = { onShareClick(card) },
-                    modifier = Modifier.size(48.dp)
+                    modifier = Modifier.size(48.dp).testTag(FeaturedImageModuleTestTags.SHARE_BUTTON)
                 ) {
                     Box(
                         modifier = Modifier
@@ -211,6 +213,12 @@ fun FeaturedImageModule(
             }
         }
     }
+}
+
+object FeaturedImageModuleTestTags {
+    const val CARD = "featured_image_card"
+    const val DOWNLOAD_BUTTON = "featured_image_download_button"
+    const val SHARE_BUTTON = "featured_image_share_button"
 }
 
 @Preview(showBackground = true)

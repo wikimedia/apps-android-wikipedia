@@ -28,6 +28,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.boundsInRoot
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -95,7 +96,9 @@ fun CommunityModuleContainer(
                 }
                 Box {
                     IconButton(
-                        modifier = Modifier.size(48.dp),
+                        modifier = Modifier
+                            .size(48.dp)
+                            .testTag(CommunityModuleTestTags.overflowButton(titleResId)),
                         onClick = {
                             expanded = true
                         }
@@ -114,6 +117,7 @@ fun CommunityModuleContainer(
                         containerColor = WikipediaTheme.colors.paperColor
                     ) {
                         DropdownMenuItem(
+                            modifier = Modifier.testTag(CommunityModuleTestTags.hideCardItem(titleResId)),
                             leadingIcon = {
                                 Icon(
                                     painter = painterResource(R.drawable.ic_no_sim_24dp),
@@ -135,6 +139,7 @@ fun CommunityModuleContainer(
                             }
                         )
                         DropdownMenuItem(
+                            modifier = Modifier.testTag(CommunityModuleTestTags.hideModuleItem(titleResId)),
                             leadingIcon = {
                                 Icon(
                                     painter = painterResource(R.drawable.ic_visibility_off_24dp),
@@ -167,6 +172,12 @@ fun CommunityModuleContainer(
         }
         content()
     }
+}
+
+object CommunityModuleTestTags {
+    fun overflowButton(titleResId: Int): String = "community_module_overflow_$titleResId"
+    fun hideCardItem(titleResId: Int): String = "community_module_hide_card_$titleResId"
+    fun hideModuleItem(titleResId: Int): String = "community_module_hide_module_$titleResId"
 }
 
 @Preview
