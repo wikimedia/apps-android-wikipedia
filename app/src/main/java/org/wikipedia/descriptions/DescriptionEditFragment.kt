@@ -187,7 +187,7 @@ class DescriptionEditFragment : Fragment() {
                                             editSucceeded -> {
                                                 AnonymousNotificationHelper.onEditSubmitted()
                                                 viewModel.waitForRevisionUpdate(newRevId)
-                                                EditAttemptStepEvent.logSaveSuccess(viewModel.pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
+                                                EditAttemptStepEvent.logSaveSuccess(viewModel.pageTitle, newRevId, EditAttemptStepEvent.INTERFACE_OTHER)
                                                 analyticsHelper.logSuccess(requireContext(), viewModel.pageTitle, newRevId)
                                                 ImageRecommendationsEvent.logEditSuccess(viewModel.action, viewModel.pageTitle.wikiSite.languageCode, newRevId)
                                             }
@@ -217,7 +217,7 @@ class DescriptionEditFragment : Fragment() {
                                             requireView().postDelayed(successRunnable, TimeUnit.SECONDS.toMillis(4))
                                             analyticsHelper.logSuccess(requireContext(), viewModel.pageTitle, revId)
                                             ImageRecommendationsEvent.logEditSuccess(viewModel.action, viewModel.pageTitle.wikiSite.languageCode, revId)
-                                            EditAttemptStepEvent.logSaveSuccess(viewModel.pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
+                                            EditAttemptStepEvent.logSaveSuccess(viewModel.pageTitle, revId, EditAttemptStepEvent.INTERFACE_OTHER)
                                         } else {
                                             editFailed(RuntimeException("Received unrecognized description edit response"), true)
                                         }
