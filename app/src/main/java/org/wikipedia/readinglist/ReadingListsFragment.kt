@@ -13,7 +13,6 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.platform.ComposeView
 import androidx.core.graphics.ColorUtils
@@ -22,14 +21,18 @@ import androidx.core.text.color
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -93,9 +96,9 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         return ComposeView(requireContext()).apply {
             setContent {
                 BaseTheme {
-                    val uiState by viewModel.uiState.collectAsState()
-                    val isRefreshing by viewModel.isRefreshing.collectAsState()
-                    val selectionState by viewModel.selectionState.collectAsState()
+                    val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+                    val isRefreshing by viewModel.isRefreshing.collectAsStateWithLifecycle()
+                    val selectionState by viewModel.selectionState.collectAsStateWithLifecycle()
                     ReadingListsScreen(
                         uiState = uiState,
                         isRefreshing = isRefreshing,
@@ -103,14 +106,13 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                         isSelectionMode = selectionState.enabled,
                         selectedListIds = selectionState.selectedListIds,
                         selectedPageIds = selectionState.selectedPageIds,
-                        selectedTab = uiState.selectedTab,
                         onSelectTab = ::onSelectTab,
                         onOnboardingAction = ::onOnboardingAction,
                         onRefresh = ::onRefresh,
                         onListClick = ::onListClick,
                         onListMenuAction = ::onListMenuAction,
-                        onListSelectionChange = ::toggleListSelection,
-                        onPageSelectionChange = ::togglePageSelection,
+                        onListSelectionChange = viewModel::toggleListSelection,
+                        onPageSelectionChange = viewModel::togglePageSelection,
                         onPageClick = ::onPageClick,
                         onPageLongClick = ::onPageLongClick,
                         onPageChipClick = ::onPageChipClick,
@@ -149,27 +151,28 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.RESUMED) {
-                viewModel.uiState
-                    .map { it.listCount >= Constants.MAX_READING_LISTS_LIMIT }
-                    .distinctUntilChanged()
-                    .collect(::maybeShowListLimitMessage)
-            }
-        }
-
-        viewLifecycleOwner.lifecycleScope.launch {
-            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.RESUMED) {
-                viewModel.uiState
-                    .map { state ->
-                        state.pendingPreviewSavedListId?.takeIf { id ->
-                            state.rows.any {
-                                it is ReadingListRow.ListRow && it.list.id == id
+                launch {
+                    val initialState = viewModel.uiState.first { !it.isLoading }
+                    ReadingListsAnalyticsHelper.logListsShown(requireContext(), initialState.listCount)
+                    viewModel.uiState
+                        .map { it.listCount >= Constants.MAX_READING_LISTS_LIMIT }
+                        .distinctUntilChanged()
+                        .collect(::maybeShowListLimitMessage)
+                }
+                launch {
+                    viewModel.uiState
+                        .map { state ->
+                            state.pendingPreviewSavedListId?.takeIf { id ->
+                                state.rows.any {
+                                    it is ReadingListRow.ListRow && it.list.id == id
+                                }
                             }
                         }
-                    }
-                    .distinctUntilChanged()
-                    .collect { listId ->
-                        listId?.let { maybeShowPreviewSavedReadingListsSnackbar(it) }
-                    }
+                        .distinctUntilChanged()
+                        .collect { listId ->
+                            listId?.let { maybeShowPreviewSavedReadingListsSnackbar(it) }
+                        }
+                }
             }
         }
     }
@@ -259,7 +262,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         viewModel.refreshAccountState()
         viewModel.refreshRecentPreviewSavedList()
         maybeDeleteListFromIntent()
-        ReadingListsAnalyticsHelper.logListsShown(requireContext(), viewModel.uiState.value.rows.size)
         requireActivity().invalidateOptionsMenu()
     }
 
@@ -336,7 +338,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             ExclusiveBottomSheetPresenter.show(
                 childFragmentManager,
                 SortReadingListsDialog.newInstance(
-                    sortOption = getSortOption(),
+                    sortOption = viewModel.uiState.value.sortMode,
                     sortArticles = viewModel.uiState.value.selectedTab == SavedTab.ALL_ARTICLES
                 )
             )
@@ -382,23 +384,19 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         viewModel.setSortMode(position)
     }
 
-    private fun getSortOption(): Int {
-        return when (viewModel.uiState.value.selectedTab) {
-            SavedTab.ALL_ARTICLES -> Prefs.getReadingListPageSortMode(ReadingList.SORT_BY_NAME_ASC)
-            SavedTab.COLLECTIONS -> Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC)
-        }
-    }
-
     private fun importReadingLists(uri: android.net.Uri) {
-        requireActivity().contentResolver.openInputStream(uri)?.use { inputStream ->
-            val input = inputStream.bufferedReader().use { it.readText() }
+        val contentResolver = requireContext().contentResolver
+        viewLifecycleOwner.lifecycleScope.launch {
+            val input = withContext(Dispatchers.IO) {
+                contentResolver.openInputStream(uri)?.bufferedReader()?.use { it.readText() }
+            } ?: return@launch
             ReadingListsExportImportHelper.importLists(requireActivity() as AppCompatActivity, input)
         }
     }
 
     private fun onListClick(listId: Long) {
         if (isTagType(actionMode)) {
-            toggleListSelection(listId)
+            viewModel.toggleListSelection(listId)
             return
         }
         viewModel.clearRecentPreviewSavedList()
@@ -438,7 +436,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 }
                 ReadingListMenuAction.Select -> {
                     beginMultiSelect()
-                    toggleListSelection(listId)
+                    viewModel.toggleListSelection(listId)
                 }
                 ReadingListMenuAction.Share -> {
                     ReadingListsShareHelper.shareReadingList(requireActivity() as AppCompatActivity, list)
@@ -449,11 +447,10 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     private fun onPageClick(pageId: Long) {
         if (isTagType(actionMode)) {
-            togglePageSelection(pageId)
+            viewModel.togglePageSelection(pageId)
             return
         }
-        viewLifecycleOwner.lifecycleScope.launch {
-            val page = AppDatabase.instance.readingListPageDao().getPageById(pageId) ?: return@launch
+        launchWithPage(pageId) { page ->
             val entry = HistoryEntry(ReadingListPage.toPageTitle(page), HistoryEntry.SOURCE_READING_LIST)
             ReadingListBehaviorsUtil.updateReadingListPage(page)
             startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.title))
@@ -478,8 +475,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     }
 
     private fun onToggleOfflineClick(pageId: Long) {
-        viewLifecycleOwner.lifecycleScope.launch {
-            val page = AppDatabase.instance.readingListPageDao().getPageById(pageId) ?: return@launch
+        launchWithPage(pageId) { page ->
             if (Prefs.isDownloadOnlyOverWiFiEnabled && !DeviceUtil.isOnWiFi &&
                 page.status == ReadingListPage.STATUS_QUEUE_FOR_SAVE) {
                 page.offline = false
@@ -507,8 +503,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     // PageRow OnLongClick ReadingListItemActionsDialog Callbacks
     override fun onToggleItemOffline(pageId: Long) {
-        viewLifecycleOwner.lifecycleScope.launch {
-            val page = AppDatabase.instance.readingListPageDao().getPageById(pageId) ?: return@launch
+        launchWithPage(pageId) { page ->
             ReadingListBehaviorsUtil.togglePageOffline(requireActivity(), page) {
                 viewModel.updatePageDownloadProgress(page)
             }
@@ -516,15 +511,13 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     }
 
     override fun onShareItem(pageId: Long) {
-        viewLifecycleOwner.lifecycleScope.launch {
-            val page = AppDatabase.instance.readingListPageDao().getPageById(pageId) ?: return@launch
+        launchWithPage(pageId) { page ->
             ShareUtil.shareText(requireActivity(), ReadingListPage.toPageTitle(page))
         }
     }
 
     override fun onAddItemToOther(pageId: Long) {
-        viewLifecycleOwner.lifecycleScope.launch {
-            val page = AppDatabase.instance.readingListPageDao().getPageById(pageId) ?: return@launch
+        launchWithPage(pageId) { page ->
             ExclusiveBottomSheetPresenter.show(
                 childFragmentManager,
                 AddToReadingListDialog.newInstance(ReadingListPage.toPageTitle(page), InvokeSource.READING_LIST_ACTIVITY)
@@ -533,8 +526,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     }
 
     override fun onMoveItemToOther(pageId: Long) {
-        viewLifecycleOwner.lifecycleScope.launch {
-            val page = AppDatabase.instance.readingListPageDao().getPageById(pageId) ?: return@launch
+        launchWithPage(pageId) { page ->
             ExclusiveBottomSheetPresenter.show(
                 childFragmentManager,
                 MoveToReadingListDialog.newInstance(page.listId, ReadingListPage.toPageTitle(page), InvokeSource.READING_LIST_ACTIVITY)
@@ -544,12 +536,11 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     override fun onSelectItem(pageId: Long) {
         beginMultiSelect()
-        togglePageSelection(pageId)
+        viewModel.togglePageSelection(pageId)
     }
 
     override fun onDeleteItem(pageId: Long) {
-        viewLifecycleOwner.lifecycleScope.launch {
-            val page = AppDatabase.instance.readingListPageDao().getPageById(pageId) ?: return@launch
+        launchWithPage(pageId) { page ->
             val lists = AppDatabase.instance.readingListDao()
                 .getListsByIds(viewModel.containingLists(pageId).mapTo(mutableSetOf()) { it.id })
             if (lists.isNotEmpty()) {
@@ -558,12 +549,11 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
     }
 
-    private fun toggleListSelection(listId: Long) {
-        viewModel.toggleListSelection(listId)
-    }
-
-    private fun togglePageSelection(pageId: Long) {
-        viewModel.togglePageSelection(pageId)
+    private fun launchWithPage(pageId: Long, action: suspend (ReadingListPage) -> Unit) {
+        viewLifecycleOwner.lifecycleScope.launch {
+            val page = AppDatabase.instance.readingListPageDao().getPageById(pageId) ?: return@launch
+            action(page)
+        }
     }
 
     private fun beginMultiSelect() {

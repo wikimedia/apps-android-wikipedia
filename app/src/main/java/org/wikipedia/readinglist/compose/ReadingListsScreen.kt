@@ -67,7 +67,6 @@ fun ReadingListsScreen(
     isSelectionMode: Boolean = false,
     selectedListIds: Set<Long> = emptySet(),
     selectedPageIds: Set<Long> = emptySet(),
-    selectedTab: SavedTab = SavedTab.ALL_ARTICLES,
     showCollectionsBadge: Boolean = false,
     onSelectTab: (SavedTab) -> Unit = {},
     onOnboardingAction: (OnboardingAction) -> Unit = {},
@@ -91,7 +90,7 @@ fun ReadingListsScreen(
     Column(modifier = modifier.fillMaxSize()) {
         if (!uiState.isSearchActive && !isSelectionMode) {
             SavedTabBar(
-                selectedTab = selectedTab,
+                selectedTab = uiState.selectedTab,
                 showCollectionsBadge = showCollectionsBadge,
                 onSelectTab = onSelectTab
             )
@@ -513,10 +512,10 @@ private fun ReadingListsScreenPreview() {
         currentTheme = Theme.LIGHT
     ) {
         ReadingListsScreen(
-            selectedTab = SavedTab.COLLECTIONS,
             showCollectionsBadge = true,
             uiState = ReadingListsUiState(
                 isLoading = false,
+                selectedTab = SavedTab.COLLECTIONS,
                 rows = listOf(
                     ReadingListRow.ListRow(
                         ReadingListUiModel(
@@ -551,7 +550,6 @@ private fun ReadingListsScreenAllArticlesTabPreview() {
         currentTheme = Theme.LIGHT
     ) {
         ReadingListsScreen(
-            selectedTab = SavedTab.ALL_ARTICLES,
             showCollectionsBadge = true,
             uiState = ReadingListsUiState(
                 isLoading = false,
@@ -587,9 +585,9 @@ private fun ReadingListsEmptyPreview() {
 private fun ReadingListsOnboardingPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         ReadingListsScreen(
-            selectedTab = SavedTab.COLLECTIONS,
             uiState = ReadingListsUiState(
                 isLoading = false,
+                selectedTab = SavedTab.COLLECTIONS,
                 rows = listOf(
                     ReadingListRow.ListRow(
                         ReadingListUiModel(
@@ -613,10 +611,10 @@ private fun ReadingListsOnboardingPreview() {
 private fun ReadingListsDiscoverCardPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         ReadingListsScreen(
-            selectedTab = SavedTab.COLLECTIONS,
             showCollectionsBadge = true,
             uiState = ReadingListsUiState(
                 isLoading = false,
+                selectedTab = SavedTab.COLLECTIONS,
                 rows = listOf(
                     ReadingListRow.ListRow(
                         ReadingListUiModel(
