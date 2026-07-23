@@ -1673,14 +1673,18 @@
   <string name="places_card_distance_suffix">%s daleko</string>
   <string name="places_card_distance_unknown">Neznámá vzdálenost</string>
   <string name="survey_dialog_message">Jste s touto funkcí spokojen(a)?</string>
+  <string name="home_feed_survey_title">Pomozte vylepšit Domovskou stránku</string>
   <string name="survey_dialog_option_satisfied">Spokojen(a)</string>
   <string name="survey_dialog_option_neutral">Neutrální</string>
   <string name="survey_dialog_option_unsatisfied">Nespokojen(a)</string>
   <string name="survey_dialog_option_very_satisfied">Velmi spokojen(a)</string>
   <string name="survey_dialog_option_very_unsatisfied">Velmi nespokojen(a)</string>
+  <string name="survey_dialog_cancel">Zrušit</string>
+  <string name="survey_dialog_submit">Odeslat</string>
   <string name="survey_dialog_general_yes">Ano</string>
   <string name="survey_dialog_general_no">Ne</string>
   <string name="survey_dialog_input_hint">Další zpětná vazba</string>
+  <string name="survey_dialog_submitted_snackbar">Zpětná vazba odeslána. Děkujeme!</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Hry na Wikipedii</string>
   <string name="on_this_day_game_entry_dialog_button" fuzzy="true">Hrát dnešní hru</string>
   <string name="on_this_day_game_title">Co se stalo dříve?</string>
@@ -1715,6 +1719,7 @@
   <string name="year_in_review_get_started_headline">Prozkoumejte svůj Rok na Wikipedii</string>
   <string name="year_in_review_get_started_bodytext">Zobrazte přehled článků, které jste četli v aplikaci Wikipedia, a editací, které jste provedli.</string>
   <string name="year_in_review_get_started_info">Vaše historie čtení je chráněna. Statistiky čtení se vypočítávají na základě dat uložených lokálně ve vašem zařízení.</string>
+  <string name="year_in_review_survey_cancel">Zrušit</string>
   <string name="year_in_review_share_subject">Můj rok na Wikipedii</string>
   <string name="year_in_review_share_body">Tady je Můj rok na Wikipedii. Vytvořeno pomocí aplikace Wikipedie pro Android %1$s %2$s</string>
   <plurals name="year_in_review_slide_top_articles_headline">
@@ -1788,10 +1793,16 @@
   <string name="donation_reminders_prompt_negative_button">Teď ne</string>
   <string name="donation_reminders_gpay_text">Darovat %s přes Google Pay</string>
   <string name="donation_reminders_gpay_different_amount_text">Darovat jinou částku pomocí Google Pay</string>
+  <string name="search_widget_install_prompt_title">Rychlejší způsob hledání</string>
+  <string name="search_widget_install_prompt_message">Nainstalujte si widget vyhledávání na Wikipedii, abyste měli okamžitý přístup k informacím z domovské obrazovky.</string>
   <string name="explore_feed_customize_interests">Přizpůsobit zájmy</string>
   <string name="explore_feed_community_tab_label">Komunita</string>
   <string name="explore_feed_for_you_tab_label">Pro vás</string>
+  <string name="explore_feed_date_today">Dnes - %s</string>
   <string name="explore_feed_deselect_all_button_label">Zrušit celý výběr</string>
+  <string name="explore_feed_potd_subtitle">Denní obrázky na Wikimedia Commons, vybrané dobrovolnými přispěvateli</string>
+  <string name="explore_feed_featured_article_subtitle">Doporučené články patří mezi nejkvalitnější články na Wikipedii, které denně vybírají redaktoři</string>
+  <string name="explore_feed_on_this_day_subtitle">Objevte historické události z tohoto dne</string>
   <string name="explore_feed_community_disclaimer">Obsah a zdroje vybrané komunitou Wikimedia a týkající se této komunity</string>
   <string name="explore_feed_community_load_more_label">Prohlédnout minulý obsah komunity</string>
   <string name="explore_feed_manage_languages_label">Spravovat jazyky</string>

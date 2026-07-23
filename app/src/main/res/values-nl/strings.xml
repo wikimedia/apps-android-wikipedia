@@ -2428,7 +2428,7 @@
   <string name="home_feed_settings_for_you_subtitle">\"Voor u\"-feedmodules in- of uitschakelen</string>
   <string name="home_feed_settings_whats_driving_subtitle">Onderwerpen en pagina\'s die de basis vormen voor uw inhoud</string>
   <string name="home_feed_settings_community_modules_description">Als u een module uitschakelt, wordt deze verborgen in uw gemeenschapsfeed. U kunt de module hier op elk gewenst moment weer inschakelen. Sommige modules zijn mogelijk niet beschikbaar in uw taal.</string>
-  <string name="home_feed_settings_for_you_modules_description">Als u een module uitschakelt, wordt deze niet meer weergegeven in de \'Voor jou\'-feed. U kunt de module hier op elk gewenst moment weer inschakelen.</string>
+  <string name="home_feed_settings_for_you_modules_description">Als u een module uitschakelt, wordt deze niet meer weergegeven in de \'Voor u\'-feed. U kunt de module hier op elk gewenst moment weer inschakelen.</string>
   <string name="home_feed_settings_based_on_interest_title">Op basis van uw interesses</string>
   <string name="home_feed_settings_based_on_interest_subtitle">Pagina\'s afgestemd op de onderwerpen die u hebt gekozen.&lt;br /&gt;&lt;a href=\"#drivingFeed\"&gt;Wat is de drijfveer achter uw feed?&lt;/a&gt;</string>
   <string name="home_feed_settings_because_you_read_subtitle">Suggesties gebaseerd op een recente pagina uit uw geschiedenis.</string>
@@ -2484,7 +2484,7 @@
   <string name="home_feed_discover_see_all_button">Alle aanbevelingen bekijken</string>
   <string name="home_feed_places_of_interest_card_footer">%1$s • Gebaseerd op uw locatie in Plaatsen</string>
   <string name="home_feed_for_you_screen_end_of_feed_title">Dat was het voor vandaag!</string>
-  <string name="home_feed_for_you_screen_end_of_feed_description">Kom morgen terug voor gloednieuwe pagina\'s die speciaal voor jou zijn samengesteld.</string>
+  <string name="home_feed_for_you_screen_end_of_feed_description">Kom morgen terug voor gloednieuwe pagina\'s die speciaal voor u zijn samengesteld.</string>
   <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Manieren om te blijven leren:</string>
   <string name="home_feed_for_you_screen_end_of_feed_add_interests">Voeg &lt;a href=\"#add_interests\"&gt;nieuwe interesses&lt;/a&gt; toe</string>
   <string name="randomizer_shake_prompt_title">Schudden om te wisselen</string>
