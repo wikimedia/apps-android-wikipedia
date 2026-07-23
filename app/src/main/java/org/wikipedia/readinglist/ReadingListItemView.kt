@@ -127,9 +127,6 @@ class ReadingListItemView(context: Context, attrs: AttributeSet? = null) : Const
         FeedbackUtil.setButtonTooltip(binding.itemShareButton, binding.itemOverflowMenu, binding.itemNotificationButton, binding.itemSaveToListButton)
     }
 
-    // TODO mark for comparision
-    // this function is used for list and detailed view, and also for recommended reading list view
-    // isDetailView determines if this is the list view (collections) or the detailed view (with articles)
     fun setReadingList(readingList: ReadingList, description: Description,
                        selectMode: Boolean = false, newImport: Boolean = false) {
         this.readingList = readingList
@@ -155,7 +152,6 @@ class ReadingListItemView(context: Context, attrs: AttributeSet? = null) : Const
         TextViewCompat.setTextAppearance(binding.itemTitle, id)
     }
 
-    // TODO mark for comparision
     fun setSearchQuery(searchQuery: String?) {
         // highlight search term within the text
         StringUtil.boldenKeywordText(binding.itemTitle, binding.itemTitle.text.toString(), searchQuery)
@@ -215,7 +211,6 @@ class ReadingListItemView(context: Context, attrs: AttributeSet? = null) : Const
         }
     }
 
-    // TODO mark for comparision
     private fun updateDetails(showCheckBoxes: Boolean) {
         readingList?.let {
             binding.defaultListEmptyImage.isVisible = it.isDefault && it.pages.isEmpty() && binding.itemImage1.isVisible
@@ -238,7 +233,6 @@ class ReadingListItemView(context: Context, attrs: AttributeSet? = null) : Const
         }
     }
 
-    // TODO mark for comparision
     private fun updateThumbnails() {
         readingList?.let {
             clearThumbnails()
@@ -250,7 +244,6 @@ class ReadingListItemView(context: Context, attrs: AttributeSet? = null) : Const
         }
     }
 
-    // TODO mark for comparision
     private fun buildStatisticalSummaryText(readingList: ReadingList): String {
         val totalListSize = statsTextListSize(readingList)
         return if (totalListSize > 0) resources.getQuantityString(R.plurals.format_reading_list_statistical_summary,
@@ -259,7 +252,6 @@ class ReadingListItemView(context: Context, attrs: AttributeSet? = null) : Const
             readingList.pages.size, readingList.pages.size)
     }
 
-    // TODO mark for comparision
     private fun buildStatisticalDetailText(readingList: ReadingList): String {
         val totalListSize = statsTextListSize(readingList)
         return if (totalListSize > 0) resources.getQuantityString(R.plurals.format_reading_list_statistical_detail,
@@ -268,12 +260,10 @@ class ReadingListItemView(context: Context, attrs: AttributeSet? = null) : Const
             readingList.pages.size, readingList.numPagesOffline, readingList.pages.size)
     }
 
-    // TODO mark for comparision
     private fun statsTextListSize(readingList: ReadingList): Float {
         return readingList.sizeBytesFromPages / 1.coerceAtLeast(resources.getInteger(R.integer.reading_list_item_size_bytes_per_unit)).toFloat()
     }
 
-    // TODO mark for comparision
     private fun showOverflowMenu(
         isLongPress: Boolean,
         readingList: ReadingList,
