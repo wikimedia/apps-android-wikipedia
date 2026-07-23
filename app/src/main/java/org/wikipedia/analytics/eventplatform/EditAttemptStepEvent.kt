@@ -71,5 +71,5 @@ class EditAttemptStepInteractionEvent(private val action: String,
                                       private val version: Int,
                                       private val page_title: String,
                                       private val page_ns: Int,
-                                      private val revision_id: Long?,
+                                      private val revision_id: Long? = null,
                                       private val wiki: String)
