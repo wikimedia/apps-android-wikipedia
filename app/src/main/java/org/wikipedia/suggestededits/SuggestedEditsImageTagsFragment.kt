@@ -147,8 +147,8 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                         when (it) {
                             is Resource.Success -> {
                                 if (it.data != null) {
-                                    pageTitle?.let {
-                                        EditAttemptStepEvent.logSaveSuccess(it, EditAttemptStepEvent.INTERFACE_OTHER)
+                                    pageTitle?.let { title ->
+                                        EditAttemptStepEvent.logSaveSuccess(title, it.data.lastRevId, EditAttemptStepEvent.INTERFACE_OTHER)
                                     }
                                 }
                                 publishSuccess = true

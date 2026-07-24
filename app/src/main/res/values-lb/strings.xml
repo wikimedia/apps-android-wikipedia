@@ -78,7 +78,7 @@
   <string name="menu_page_show_tabs">Tabs weisen</string>
   <string name="menu_page_other_languages">Sprooch wiesselen</string>
   <string name="menu_page_find_in_page">Am Artikel sichen</string>
-  <string name="menu_page_add_to_watchlist">Op d\'Iwwerwaachungslëscht derbäisetzen</string>
+  <string name="menu_page_add_to_watchlist">Op d\'Iwwerwaachungslëscht setzen</string>
   <string name="menu_page_watch">Iwwerwaachen</string>
   <string name="menu_page_unwatch">Net méi iwwerwaachen</string>
   <string name="menu_page_view_talk">Diskussiounssäit weisen</string>
@@ -236,7 +236,7 @@
   <string name="page_protected_can_not_edit">Pardon, Äre Benotzerkont huet net genuch Rechter fir dës Säit elo z\'änneren.</string>
   <string name="page_protected_can_not_edit_anon">Leider kann dës Säit zu dësem Zäitpunkt net anonym geännert ginn.</string>
   <string name="page_protected_can_not_edit_title">Dës Säit ass gespaart</string>
-  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Op d\'Iwwerwaachungslëscht derbäisetzen</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Op d\'Iwwerwaachungslëscht setzen</string>
   <string name="settings_item_preferences">Astellungen</string>
   <string name="settings_activity_title">Astellungen</string>
   <string name="about_description">Iwwer d\'Wikipedia-App</string>
@@ -491,7 +491,7 @@
   <string name="reading_list_article_already_exists_message">Alles an der Rei! %2$s ass schonn op %1$s.</string>
   <string name="reading_list_articles_already_exist_message">Alles an der Rei! %s enthält schonn all Artikelen.</string>
   <string name="reading_list_added_view_button">Lëscht weisen</string>
-  <string name="reading_list_add_to_list_button">Op d\'Lëscht derbäisetzen</string>
+  <string name="reading_list_add_to_list_button">Op d\'Lëscht setzen</string>
   <plurals name="format_reading_list_statistical_summary_without_size">
     <item quantity="one">1 Artikel</item>
     <item quantity="other">%d Artikelen</item>
@@ -525,7 +525,7 @@
   <string name="reading_list_action_menu_save_for_offline">Fir offline späicheren</string>
   <string name="reading_list_action_menu_remove_all_from_offline">All aus der Offline-Lëscht eraushuelen</string>
   <string name="reading_list_action_menu_save_all_for_offline">All fir offline späicheren</string>
-  <string name="reading_list_action_menu_add_to_another_list">Op eng aner Lëscht derbäisetzen</string>
+  <string name="reading_list_action_menu_add_to_another_list">Op eng aner Lëscht setzen</string>
   <string name="reading_list_action_menu_move_to_another_list">Op eng aner Lëscht réckelen</string>
   <string name="reading_list_name_sample">Meng Lieslëscht</string>
   <string name="reading_list_name_hint">Numm vun dëser Lëscht</string>
@@ -1794,6 +1794,7 @@
   <string name="year_in_review_share_body">Hei ass mäi Wikipedia-Joresréckbléck. Mat der Wikipedia-Android-App erstallt %1$s %2$s</string>
   <string name="year_in_review_globe_icon">Globussymbol</string>
   <string name="settings_app_icon_title">App-Symbol</string>
+  <string name="settings_app_icon_subtitle">Virdeeler fir Contributeuren</string>
   <string name="settings_app_icon_updated">Äert App-Symbol gouf aktualiséiert.</string>
   <string name="year_in_review_slide_app_icon_title_unlocked">Neit App-Symbol fir Äre Startbildschierm fräigeschalt</string>
   <string name="year_in_review_login_dialog_positive">Aloggen / Bei Wikipedia matmaachen</string>
@@ -1819,7 +1820,7 @@
     <item quantity="other">Dir hutt %,d Artikele gespäichert</item>
   </plurals>
   <string name="year_in_review_slide_global_saved_articles_body">Wann Dir Artikelen op Lieslëschte setzt, kënnt Dir och dann op d\'Artikelen zougräifen, wann Dir offline sidd. Dir kënnt Iech och aloggen, fir Lieslëschten tëscht verschiddenen Apparater ze synchroniséieren.</string>
-  <string name="year_in_review_slide_reading_patterns_headline">Du hutt kloer Liesmusteren</string>
+  <string name="year_in_review_slide_reading_patterns_headline">Dier hutt kloer Liesmusteren</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">Liblingszäit fir ze liesen</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">Liblingsdag fir ze liesen</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_month">Mount, an deem Dir am meeschte gelies hutt</string>
@@ -2116,7 +2117,7 @@
   <string name="explore_feed_header_overflow_hide_module_label">Modul verstoppen</string>
   <string name="explore_feed_header_overflow_hide_module_message">Modul verstoppt.</string>
   <string name="explore_feed_header_overflow_hide_module_message_action">Réckgängeg</string>
-  <string name="explore_feed_personalized_preference_empty_state_text">Dir musst Interessen derbäisetzen, fir personaliséiert Recommandatioune fir Contenu ze kréien. Dir kënnt dat ënnert de virege Schrëtter maachen oder méi spéit an den Astellungen.</string>
+  <string name="explore_feed_personalized_preference_empty_state_text">Dir musst Interessen derbäisetzen, fir personaliséiert Recommandatioune fir Contenu ze kréien. Dir kënnt dat an de virege Schrëtter maachen oder méi spéit an den Astellungen.</string>
   <string name="explore_feed_because_you_read">Well Dir gelies hutt: %s</string>
   <string name="home_feed_settings_title">Äre Start-Feed upassen</string>
   <string name="home_feed_settings_default_view_title">Standard-Feed</string>
