@@ -509,7 +509,7 @@ class HomeViewModel : ViewModel() {
                 .getFeedFeatured(date.year.toString(), "%02d".format(Locale.ROOT, date.monthValue), "%02d".format(Locale.ROOT, date.dayOfMonth), wikiSite.value.languageCode)
 
             // Construct Card objects based on the day's content
-            val cardsForDay = buildList<Card> {
+            val cardsForDay = buildList {
                 content.tfa?.let {
                     add(FeaturedArticleCard(it, age, wikiSite.value))
                 }
@@ -645,11 +645,11 @@ class HomeViewModel : ViewModel() {
         }
         L.d("Loading modules from network...")
 
-        // --- Interests ---
+        coroutineScope {
+            // --- Interests ---
 
-        val interestTopics = AppDatabase.instance.topicInterestDao().getAllRandom().distinctBy { it.topicId }.take(5)
-        val interestTopicCalls = interestTopics.map { topic ->
-            coroutineScope {
+            val interestTopics = AppDatabase.instance.topicInterestDao().getAllRandom().distinctBy { it.topicId }.take(5)
+            val interestTopicCalls = interestTopics.map { topic ->
                 async {
                     val articleTopic = ArticleTopics.all.find { it.topicId == topic.topicId }
                     InterestSelectionRepository.getArticlesByTopic(wikiSite.value, articleTopic?.queryTopicId ?: topic.topicId).map {
@@ -658,11 +658,9 @@ class HomeViewModel : ViewModel() {
                     }.filterNot { hiddenCards.contains(it.hideKey) }.take(4)
                 }
             }
-        }
 
-        val interestArticles = AppDatabase.instance.articleInterestDao().getAllRandom(wikiSite.value.languageCode).take(5)
-        val interestArticleCalls = interestArticles.map { article ->
-            coroutineScope {
+            val interestArticles = AppDatabase.instance.articleInterestDao().getAllRandom(wikiSite.value.languageCode).take(5)
+            val interestArticleCalls = interestArticles.map { article ->
                 async {
                     val searchTerm = StringUtil.removeUnderscores(article.apiTitle)
                     ServiceFactory.get(wikiSite.value).searchMoreLike("morelike:$searchTerm", 10, 10)
@@ -683,12 +681,10 @@ class HomeViewModel : ViewModel() {
                         }.filterNot { hiddenCards.contains(it.hideKey) }.take(4)
                 }
             }
-        }
 
-        // --- Because you read ---
+            // --- Because you read ---
 
-        val becauseYouReadDeferred = coroutineScope {
-            async {
+            val becauseYouReadDeferred = async {
                 buildList {
                     val lastReadEntries = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(age + 1, 30, wikiSite.value.languageCode)
                     if (lastReadEntries.size > age) {
@@ -713,12 +709,10 @@ class HomeViewModel : ViewModel() {
                     }
                 }.filterNot { hiddenCards.contains(it.hideKey) }.take(4)
             }
-        }
 
-        // --- Continue reading ---
+            // --- Continue reading ---
 
-        val continueReadingDeferred = coroutineScope {
-            async {
+            val continueReadingDeferred = async {
                 val continueReadingCards = buildList {
                     val lastReadEntries = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(age + 1, 30, wikiSite.value.languageCode)
                     if (lastReadEntries.size > age) {
@@ -742,46 +736,43 @@ class HomeViewModel : ViewModel() {
                 }
                 continueReadingCards
             }
-        }
 
-        // --- Random article ---
+            // --- Random article ---
 
-        val randomDeferred = coroutineScope {
-            async {
+            val randomDeferred = async {
                 val random = ServiceFactory.getRest(wikiSite.value).getRandomSummary()
                 RandomCard(random.getPageTitle(wikiSite.value))
             }
-        }
 
-        // Combine all the deferred results and add them to the modules list if they have content.
+            // Combine all the deferred results and add them to the modules list if they have content.
 
-        interestTopicCalls.awaitAll().forEachIndexed { index, entries ->
-            if (entries.isNotEmpty()) {
-                modules.add(ForYouModule.BasedOnInterest(age, index, entries))
+            interestTopicCalls.awaitAll().forEachIndexed { index, entries ->
+                if (entries.isNotEmpty()) {
+                    modules.add(ForYouModule.BasedOnInterest(age, index, entries))
+                }
             }
-        }
-        interestArticleCalls.awaitAll().forEachIndexed { index, entries ->
-            if (entries.isNotEmpty()) {
-                modules.add(ForYouModule.BasedOnInterest(age, index, entries))
+            interestArticleCalls.awaitAll().forEachIndexed { index, entries ->
+                if (entries.isNotEmpty()) {
+                    modules.add(ForYouModule.BasedOnInterest(age, index, entries))
+                }
             }
-        }
-
-        becauseYouReadDeferred.await().let {
-            if (it.isNotEmpty()) {
-                // The index for this module is always 0 because there is always a single instance of this module, per age.
-                modules.add(ForYouModule.BecauseYouRead(age, 0, it))
+            becauseYouReadDeferred.await().let {
+                if (it.isNotEmpty()) {
+                    // The index for this module is always 0 because there is always a single instance of this module, per age.
+                    modules.add(ForYouModule.BecauseYouRead(age, 0, it))
+                }
             }
-        }
-        continueReadingDeferred.await().let {
-            if (it.isNotEmpty()) {
-                // The index for this module is always 0 because there is always a single instance of this module, per age.
-                modules.add(ForYouModule.ContinueReading(age, 0, it))
+            continueReadingDeferred.await().let {
+                if (it.isNotEmpty()) {
+                    // The index for this module is always 0 because there is always a single instance of this module, per age.
+                    modules.add(ForYouModule.ContinueReading(age, 0, it))
+                }
             }
-        }
-        randomDeferred.await().let { randomCard ->
-            if (!hiddenCards.contains(randomCard.hideKey)) {
-                // The index for this module is always 0 because there is always a single instance of this module, per age.
-                modules.add(ForYouModule.Random(age, 0, listOf(randomCard)))
+            randomDeferred.await().let { randomCard ->
+                if (!hiddenCards.contains(randomCard.hideKey)) {
+                    // The index for this module is always 0 because there is always a single instance of this module, per age.
+                    modules.add(ForYouModule.Random(age, 0, listOf(randomCard)))
+                }
             }
         }
 
