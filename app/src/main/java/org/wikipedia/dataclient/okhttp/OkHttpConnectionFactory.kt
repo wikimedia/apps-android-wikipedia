@@ -3,6 +3,7 @@ package org.wikipedia.dataclient.okhttp
 import android.os.Build
 import okhttp3.Cache
 import okhttp3.CacheControl
+import okhttp3.Dispatcher
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import okhttp3.tls.HandshakeCertificates
@@ -28,6 +29,7 @@ object OkHttpConnectionFactory {
 
     private fun createClient(): OkHttpClient {
         val builder = OkHttpClient.Builder()
+                .dispatcher(Dispatcher().apply { maxRequestsPerHost = 10 })
                 .cookieJar(SharedPreferenceCookieManager.instance)
                 .cache(NET_CACHE)
                 .readTimeout(DEFAULT_READ_TIMEOUT_SEC, TimeUnit.SECONDS)
