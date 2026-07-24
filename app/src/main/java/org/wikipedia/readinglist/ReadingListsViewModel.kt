@@ -287,6 +287,77 @@ class ReadingListsViewModel : ViewModel() {
         }
     }
 
+    suspend fun loadReadingListWithPagesById(listId: Long): ReadingList? {
+        return AppDatabase.instance.readingListDao().getListWithPagesById(listId)?.toReadingList()
+    }
+
+    suspend fun loadReadingListsWithPagesByIds(listIds: Set<Long>): List<ReadingList> {
+        return AppDatabase.instance.readingListDao().getListsWithPagesByIds(listIds)
+            .map { it.toReadingList() }
+    }
+
+    suspend fun getReadingListsWithoutContents(): List<ReadingList> {
+        return AppDatabase.instance.readingListDao().getListsWithoutContents()
+    }
+
+    suspend fun getReadingListsByIds(listIds: Set<Long>): List<ReadingList> {
+        return AppDatabase.instance.readingListDao().getListsByIds(listIds)
+    }
+
+    suspend fun createReadingList(title: String, description: String) {
+        AppDatabase.instance.readingListDao().createList(title, description)
+    }
+
+    suspend fun getPageById(pageId: Long): ReadingListPage? {
+        return AppDatabase.instance.readingListPageDao().getPageById(pageId)
+    }
+
+    suspend fun getPagesByIds(pageIds: Set<Long>): List<ReadingListPage> {
+        return AppDatabase.instance.readingListPageDao().getPagesByIds(pageIds)
+    }
+
+    /**
+     * Produces lists containing only the selected pages that should be deleted from each list.
+     * This is needed because selection state contains page IDs, while deletion operates on lists.
+     */
+    suspend fun prepareSelectedPagesForDeletion(): SelectedPagesDeletion? {
+        val selectedPageIds = selectionState.value.selectedPageIds
+        val selectedRows = uiState.value.rows
+            .asSequence()
+            .filterIsInstance<ReadingListRow.PageRow>()
+            .filter { it.page.id in selectedPageIds }
+            .toList()
+        if (selectedRows.isEmpty()) {
+            return null
+        }
+
+        val selectedPageKeys = selectedRows.mapTo(mutableSetOf()) { it.page.lang to it.page.apiTitle }
+        val containingListIds = selectedRows.flatMapTo(mutableSetOf()) { row ->
+            row.containingLists.map { it.id }
+        }
+        if (containingListIds.isEmpty()) {
+            return null
+        }
+
+        val readingLists = mutableListOf<ReadingList>()
+        AppDatabase.instance.readingListDao().getListsWithPagesByIds(containingListIds).forEach { relation ->
+            val pagesToDelete = relation.pages.filter { page ->
+                page.status != ReadingListPage.STATUS_QUEUE_FOR_DELETE &&
+                    (page.lang to page.apiTitle) in selectedPageKeys
+            }
+            if (pagesToDelete.isNotEmpty()) {
+                relation.list.pages.clear()
+                relation.list.pages.addAll(pagesToDelete)
+                readingLists.add(relation.list)
+            }
+        }
+
+        return SelectedPagesDeletion(
+            selectedPageCount = selectedRows.size,
+            readingLists = readingLists
+        )
+    }
+
     private fun resolveOnboardingState(
         selectedTab: SavedTab,
         query: String?,
@@ -535,6 +606,11 @@ data class ReadingListsSelectionState(
     val enabled: Boolean = false,
     val selectedListIds: Set<Long> = emptySet(),
     val selectedPageIds: Set<Long> = emptySet()
+)
+
+data class SelectedPagesDeletion(
+    val selectedPageCount: Int,
+    val readingLists: List<ReadingList>
 )
 
 private data class ReadingListsAccountState(

@@ -42,7 +42,6 @@ import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.concurrency.FlowEventBus
-import org.wikipedia.database.AppDatabase
 import org.wikipedia.events.LoggedInEvent
 import org.wikipedia.events.LoggedOutEvent
 import org.wikipedia.events.LoggedOutInBackgroundEvent
@@ -56,7 +55,6 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.readinglist.compose.OnboardingAction
 import org.wikipedia.readinglist.compose.ReadingListMenuAction
 import org.wikipedia.readinglist.compose.ReadingListsScreen
-import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingActivity
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
@@ -201,7 +199,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     }
 
     private suspend fun maybeShowPreviewSavedReadingListsSnackbar(listId: Long) {
-        val list = AppDatabase.instance.readingListDao().getListWithPagesById(listId)?.toReadingList() ?: return
+        val list = viewModel.loadReadingListWithPagesById(listId) ?: return
         ReadingListsAnalyticsHelper.logReceiveFinish(requireContext(), list)
         FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.reading_lists_preview_saved_snackbar))
             .setAction(R.string.suggested_edits_article_cta_snackbar_action) {
@@ -217,9 +215,9 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         val titleToDelete = intent.getStringExtra(Constants.INTENT_EXTRA_DELETE_READING_LIST) ?: return
         intent.removeExtra(Constants.INTENT_EXTRA_DELETE_READING_LIST)
         viewLifecycleOwner.lifecycleScope.launch {
-            val dao = AppDatabase.instance.readingListDao()
-            val listId = dao.getListsWithoutContents().firstOrNull { it.title == titleToDelete }?.id ?: return@launch
-            val list = dao.getListWithPagesById(listId)?.toReadingList() ?: return@launch
+            val listId = viewModel.getReadingListsWithoutContents()
+                .firstOrNull { it.title == titleToDelete }?.id ?: return@launch
+            val list = viewModel.loadReadingListWithPagesById(listId) ?: return@launch
             ReadingListBehaviorsUtil.deleteReadingList(requireActivity(), list, false) {
                 ReadingListBehaviorsUtil.showDeleteListUndoSnackbar(requireActivity(), list) {}
             }
@@ -358,7 +356,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                         viewLifecycleOwner.lifecycleScope.launch(
                             CoroutineExceptionHandler { _, throwable -> L.w(throwable) }
                         ) {
-                            AppDatabase.instance.readingListDao().createList(text, description)
+                            viewModel.createReadingList(text, description)
                         }
                     }
                 }
@@ -401,17 +399,16 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
         viewModel.clearRecentPreviewSavedList()
         viewLifecycleOwner.lifecycleScope.launch {
-            AppDatabase.instance.readingListDao().getListById(listId, true)?.let { list ->
-                RecommendedReadingListEvent.submit("open_list_click", "rrl_saved")
-                startActivity(ReadingListActivity.newIntent(requireContext(), list))
-            }
+            val list = viewModel.loadReadingListWithPagesById(listId) ?: return@launch
+            RecommendedReadingListEvent.submit("open_list_click", "rrl_saved")
+            startActivity(ReadingListActivity.newIntent(requireContext(), list))
         }
     }
 
     // ListRow onLongClick actions
     private fun onListMenuAction(listId: Long, action: ReadingListMenuAction) {
         viewLifecycleOwner.lifecycleScope.launch {
-            val list = AppDatabase.instance.readingListDao().getListWithPagesById(listId)?.toReadingList() ?: return@launch
+            val list = viewModel.loadReadingListWithPagesById(listId) ?: return@launch
             // List refresh happens reactively via the DB flow, so these callbacks don't call updateLists.
             when (action) {
                 ReadingListMenuAction.Rename -> {
@@ -496,7 +493,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     private fun onPageChipClick(listId: Long) {
         viewLifecycleOwner.lifecycleScope.launch {
-            val list = AppDatabase.instance.readingListDao().getListWithPagesById(listId)?.toReadingList() ?: return@launch
+            val list = viewModel.loadReadingListWithPagesById(listId) ?: return@launch
             startActivity(ReadingListActivity.newIntent(requireContext(), list))
         }
     }
@@ -541,8 +538,9 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     override fun onDeleteItem(pageId: Long) {
         launchWithPage(pageId) { page ->
-            val lists = AppDatabase.instance.readingListDao()
-                .getListsByIds(viewModel.containingLists(pageId).mapTo(mutableSetOf()) { it.id })
+            val lists = viewModel.getReadingListsByIds(
+                viewModel.containingLists(pageId).mapTo(mutableSetOf()) { it.id }
+            )
             if (lists.isNotEmpty()) {
                  ReadingListBehaviorsUtil.deletePages(requireActivity(), lists, page, {}) {}
             }
@@ -551,7 +549,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     private fun launchWithPage(pageId: Long, action: suspend (ReadingListPage) -> Unit) {
         viewLifecycleOwner.lifecycleScope.launch {
-            val page = AppDatabase.instance.readingListPageDao().getPageById(pageId) ?: return@launch
+            val page = viewModel.getPageById(pageId) ?: return@launch
             action(page)
         }
     }
@@ -741,7 +739,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     private fun updateSelectedPagesOffline(saveForOffline: Boolean) {
         val selectedPageIds = viewModel.selectionState.value.selectedPageIds
         viewLifecycleOwner.lifecycleScope.launch {
-            val pages = AppDatabase.instance.readingListPageDao().getPagesByIds(selectedPageIds)
+            val pages = viewModel.getPagesByIds(selectedPageIds)
             if (pages.isEmpty()) {
                 return@launch
             }
@@ -760,8 +758,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     private fun addSelectedPagesToList() {
         val selectedPageIds = viewModel.selectionState.value.selectedPageIds
         viewLifecycleOwner.lifecycleScope.launch {
-            val titles = AppDatabase.instance.readingListPageDao()
-                .getPagesByIds(selectedPageIds)
+            val titles = viewModel.getPagesByIds(selectedPageIds)
                 .distinctBy { it.lang to it.apiTitle }
                 .map { ReadingListPage.toPageTitle(it) }
             if (titles.isEmpty()) {
@@ -774,40 +771,15 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
     }
 
-    /**
-     * produces a list of [ReadingList] containing only the selected pages to delete from each list.
-     * This is needed because the selection state only contains page IDs.
-     */
     private fun deleteSelectedPages() {
-        val selectedPageIds = viewModel.selectionState.value.selectedPageIds
-        val selectedRows = viewModel.uiState.value.rows
-            .asSequence()
-            .filterIsInstance<ReadingListRow.PageRow>()
-            .filter { it.page.id in selectedPageIds }
-            .toList()
-        val selectedPageKeys = selectedRows.mapTo(mutableSetOf()) { it.page.lang to it.page.apiTitle }
-        val containingListIds = selectedRows.flatMapTo(mutableSetOf()) { row ->
-            row.containingLists.map { it.id }
-        }
-        if (selectedRows.isEmpty() || containingListIds.isEmpty()) {
-            return
-        }
-
         viewLifecycleOwner.lifecycleScope.launch {
-            val readingLists = mutableListOf<ReadingList>()
-            val relations = AppDatabase.instance.readingListDao().getListsWithPagesByIds(containingListIds)
-            relations.forEach { relation ->
-                val pagesToDelete = relation.pages.filter { page ->
-                    page.status != ReadingListPage.STATUS_QUEUE_FOR_DELETE && (page.lang to page.apiTitle) in selectedPageKeys
-                }
-                if (pagesToDelete.isNotEmpty()) {
-                    relation.list.pages.clear()
-                    relation.list.pages.addAll(pagesToDelete)
-                    readingLists.add(relation.list)
-                }
-            }
-
-            ReadingListBehaviorsUtil.deletePagesFromLists(requireActivity(), selectedRows.size, readingLists, {}) {
+            val deletion = viewModel.prepareSelectedPagesForDeletion() ?: return@launch
+            ReadingListBehaviorsUtil.deletePagesFromLists(
+                requireActivity(),
+                deletion.selectedPageCount,
+                deletion.readingLists,
+                {}
+            ) {
                 actionMode?.finish()
             }
         }
@@ -816,8 +788,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     private fun deleteSelectedLists() {
         val selectedIds = viewModel.selectionState.value.selectedListIds
         viewLifecycleOwner.lifecycleScope.launch {
-            val lists = AppDatabase.instance.readingListDao().getListsWithPagesByIds(selectedIds)
-                .map { it.toReadingList() }
+            val lists = viewModel.loadReadingListsWithPagesByIds(selectedIds)
             if (lists.isEmpty()) {
                 return@launch
             }
@@ -831,8 +802,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     private fun exportSelectedLists() {
         val selectedIds = viewModel.selectionState.value.selectedListIds
         viewLifecycleOwner.lifecycleScope.launch {
-            val lists = AppDatabase.instance.readingListDao().getListsWithPagesByIds(selectedIds)
-                .map { it.toReadingList() }
+            val lists = viewModel.loadReadingListsWithPagesByIds(selectedIds)
             if (lists.isNotEmpty()) {
                 ReadingListsExportImportHelper.exportLists(requireActivity() as BaseActivity, lists)
                 actionMode?.finish()
