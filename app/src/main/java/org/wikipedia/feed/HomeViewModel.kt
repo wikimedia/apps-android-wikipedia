@@ -61,6 +61,7 @@ import org.wikipedia.feed.model.WikiGameCard
 import org.wikipedia.feed.news.NewsCard
 import org.wikipedia.feed.onthisday.OnThisDayCard
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
+import org.wikipedia.feed.personalization.interest.InterestSelectionRepository
 import org.wikipedia.feed.topread.TopReadCard
 import org.wikipedia.feed.wikigames.WikiGame
 import org.wikipedia.games.WikiGames
@@ -651,31 +652,10 @@ class HomeViewModel : ViewModel() {
             coroutineScope {
                 async {
                     val articleTopic = ArticleTopics.all.find { it.topicId == topic.topicId }
-                    ServiceFactory.get(wikiSite.value).getArticlesByTopic(
-                        "articletopic:" + (articleTopic?.queryTopicId ?: topic.topicId) + "^95",
-                        limit = 20,
-                        profile = "classic_noboostlinks",
-                        sort = "random"
-                    )
-                        .query?.pages
-                        ?.filter { it.pageProps?.disambiguation == null } // Filter out disambiguation pages
-                        ?.sortedBy { it.index } // Sort by index, as reported by the API
-                        ?.sortedBy { it.thumbUrl().isNullOrEmpty() } // Sort by whether it has a thumbnail
-                        ?.map { page ->
-                            PageTitle(
-                                text = page.title,
-                                wiki = wikiSite.value,
-                                thumbUrl = page.thumbUrl(),
-                                description = page.description,
-                                displayText = page.displayTitle(wikiSite.value.languageCode),
-                            ).also {
-                                if (!page.sectionTitle.isNullOrEmpty()) it.fragment = StringUtil.addUnderscores(page.sectionTitle)
-                                it.extract = page.extract
-                            }
-                        }.orEmpty().map {
-                            // TODO: filter items that have already been suggested.
-                            BasedOnInterestCard(it, interestTopic = topic)
-                        }.filterNot { hiddenCards.contains(it.hideKey) }.take(4)
+                    InterestSelectionRepository.getArticlesByTopic(wikiSite.value, articleTopic?.queryTopicId ?: topic.topicId).map {
+                        // TODO: filter items that have already been suggested.
+                        BasedOnInterestCard(it, interestTopic = topic)
+                    }.filterNot { hiddenCards.contains(it.hideKey) }.take(4)
                 }
             }
         }
