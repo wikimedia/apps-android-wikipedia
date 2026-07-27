@@ -693,6 +693,14 @@
   <string name="reading_lists_import_failure_message">درون‌ریزی فهرست‌های مطالعه شکست خورد</string>
   <string name="reading_lists_export_select_lists_message">فهرست(هایی) را برای برون‌بری انتخاب کنید</string>
   <string name="reading_lists_export_completed_message">فهرست(های) مطالعه برون‌بری شد</string>
+  <plurals name="reading_list_export_failed_message">
+    <item quantity="one">برون‌ریزی فهرست مطالعه ناموفق بود</item>
+    <item quantity="other">برون‌ریزی فهرست‌های مطالعه ناموفق بود</item>
+  </plurals>
+  <plurals name="reading_list_import_success_message">
+    <item quantity="one">فهرست مطالعه دورن‌ریزی شد</item>
+    <item quantity="other">فهرست‌های مطالعه درون‌ریزی شد</item>
+  </plurals>
   <string name="reading_lists_preview_header_title">فهرست همرسانی‌شده</string>
   <string name="reading_lists_preview_save_button">ذخیره</string>
   <string name="reading_lists_preview_save_dialog_title">ذخیرهٔ فهرست</string>
@@ -1192,6 +1200,7 @@
   <string name="activity_tab_menu_feedback">مشکل با ویژگی</string>
   <string name="activity_tab_menu_info">اطلاعات بیشتر</string>
   <string name="activity_tab_menu_customize">سفارشی‌سازی</string>
+  <string name="activity_tab_menu_customize_description">بینش‌های مطالعه بر اساس زبان‌های برنامه شما در تنظیمات است و بینش‌های ویرایش محدود به زبان اصلی برنامه شما است. اطلاعات بینش از داده‌های محلی استفاده می‌کنند، به استثنای ویرایش‌هایی که عمومی هستند.</string>
   <string name="activity_tab_highlights">نکات برجسته</string>
   <string name="activity_tab_customize_screen_reading_history_switch_title">تاریخچهٔ مطالعه</string>
   <string name="activity_tab_impact">اثرگذاری شما</string>
@@ -1395,6 +1404,7 @@
   <string name="templates_learn_more_link">اطلاعات بیشتر</string>
   <string name="templates_description_incomplete">الگوها توسط کاربر ایجاد می‌شوند و ممکن است توضیحات کاملی نداشته باشند.</string>
   <string name="templates_description_empty">الگوی \"%s\" هنوز توضیحی ندارد.</string>
+  <string name="templates_description_missing_data">این الگو فاقد &lt;a href=\"%1$s\"&gt;الگوداده&lt;/a&gt; است و پارامترهای آن به صورت &lt;a href=\"%2$s\"&gt;خودکار تولید شده‌اند&lt;/a&gt;. در نتیجه، الگو و پارامترهای آن فاقد توضیحات هستند.</string>
   <string name="main_drawer_help">راهنما</string>
   <string name="main_drawer_login">ورود / پیوستن به ویکی‌پدیا</string>
   <string name="main_tooltip_action_button">شروع کن</string>
@@ -1639,6 +1649,10 @@
   <string name="talk_templates_edit_message_dialog_delete">حذف</string>
   <string name="talk_templates_edit_message_updated">پیام به روز شد</string>
   <string name="talk_templates_menu_remove_message">حذف پیام</string>
+  <plurals name="talk_templates_message_delete_description">
+    <item quantity="one">آیا مطمئنید که می‌خواهید پیام را از فهرست حذف کنید؟</item>
+    <item quantity="other">آیا مطمئنید که می‌خواهید پیام‌ها را از فهرست حذف کنید؟</item>
+  </plurals>
   <plurals name="talk_templates_message_deleted">
     <item quantity="one">پیام حذف شده است</item>
     <item quantity="other">پیام حذف شده است</item>
@@ -1688,6 +1702,7 @@
   <string name="patroller_tasks_filters_contribution_quality_may_problems">شاید مشکلاتی داشته باشد</string>
   <string name="patroller_tasks_filters_contribution_quality_may_problems_desc">بیشتر ویرایش‌های مشکل‌دار یا مخرب را پیدا می‌کند اما دقت کمتری دارد.</string>
   <string name="patroller_tasks_filters_contribution_quality_likely_problems">احتمالاً مشکلاتی دارد</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems_desc">با دقت متوسط، به عنوان ویرایش‌های مسئله‌دار با سطحی متوسط شناسایی می‌کند.</string>
   <string name="patroller_tasks_filters_contribution_quality_bad">به احتمال خیلی زیاد مشکلاتی دارد</string>
   <string name="patroller_tasks_filters_contribution_quality_bad_desc">در کشف ویرایش‌های به وضوح مشکل‌دار یا مخرب، دقت بسیار بالایی دارد.</string>
   <string name="patroller_tasks_filters_user_intent_header">پیش‌بینی نیت کاربر</string>
@@ -1696,6 +1711,7 @@
   <string name="patroller_tasks_filters_user_intent_may_problems">شاید حسن نیت نداشته باشد</string>
   <string name="patroller_tasks_filters_user_intent_may_problems_desc">بیشتر ویرایش‌های فاقد حسن نیت را شناسایی می‌کند اما دقت پایینی دارد.</string>
   <string name="patroller_tasks_filters_user_intent_likely_problems">احتمالاً حسن نیت ندارد</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems_desc">با دقت متوسط، به عنوان ویرایش‌های سوءنیت‌دار با سطحی متوسط شناسایی می‌کند.</string>
   <string name="patroller_tasks_filters_user_intent_bad">به احتمال خیلی زیاد حسن نیت ندارد</string>
   <string name="patroller_tasks_filters_user_intent_bad_desc">در پیداکردن تقریباً تمام ویرایش‌های فاقد حسن نیت، دقت بسیار بالایی دارد.</string>
   <string name="patroller_tasks_filters_empty_search_message">برای مشاهدهٔ ویرایش‌های بیشتر، %s را حذف کنید</string>
@@ -1712,10 +1728,13 @@
   <string name="patroller_tasks_overflow_learn">اطلاعات بیشتر</string>
   <string name="patroller_onboarding_one_title">در نظارت و تأیید ویرایش‌های ویکی‌پدیا مشارکت کنید.</string>
   <string name="patroller_onboarding_one_content">کیفیت محتوای ویکی‌پدیا را با بررسی فعال فهرستی از ویرایش‌های اخیر و ارائه راهنمایی، کنترل کیفیت و تشویق سایر ویرایشگران افزایش دهید.</string>
+  <string name="patroller_onboarding_two_title">ارائه بازخورد، پایش ویرایش‌ها و انجام اقدامات در صفحهٔ نمایش تفاوت‌ها</string>
   <string name="patroller_onboarding_two_thank_title">تشکر</string>
   <string name="patroller_onboarding_two_thank_content">ویرایش سازنده‌ای می‌بینید؟ از  کاربر برای مشارکت‌شان تشکر کنید</string>
   <string name="patroller_onboarding_two_watch_title">پیگیری</string>
+  <string name="patroller_onboarding_two_watch_content">می‌خواهید ویرایش‌های مقاله را پیگیری کنید؟ آن را به فهرست پیگیری خود اضافه کنید. آن را در قسمت «بیشتر» مشاهده کنید.</string>
   <string name="patroller_onboarding_two_talk_title">بحث</string>
+  <string name="patroller_onboarding_two_talk_content">با دیگر ویرایشگران ارتباط برقرار کنید. پیام‌های رایج در صفحهٔ بحث را ذخیره کنید یا از یک الگو استفاده کنید.</string>
   <string name="patroller_onboarding_two_undo_title">خنثی‌سازی/واگردانی</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">چگونه می‌توانیم ویژگی را بهبود ببخشیم؟</string>
   <string name="patroller_diff_menu_edit_history_title">تاریخچهٔ ویرایش مقاله</string>
@@ -2206,7 +2225,7 @@
   <string name="home_feed_settings_community_empty_dialog_title">محتوای انجمن شما خالی خواهد بود</string>
   <string name="home_feed_settings_for_you_empty_dialog_title">محتوای «برای شما» تو خالی خواهد بود</string>
   <string name="home_feed_settings_empty_dialog_text">برای دیدن محتوا، حداقل یکی از پودمان‌ها را فعال کنید.</string>
-  <string name="home_feed_settings_empty_dialog_positive">با وجود ادامه بده</string>
+  <string name="home_feed_settings_empty_dialog_positive">با این وجود ادامه بده</string>
   <string name="home_feed_screen_empty_state_label">محتوای شما خالی است</string>
   <string name="home_feed_community_screen_all_modules_disabled_description">پودمان‌های &lt;b&gt;جامعه&lt;/b&gt; را فعال کنید تا محتوای گردآوری‌شده و مربوط به جامعه ویکی‌مدیا را مشاهده کنید.</string>
   <string name="home_feed_for_you_screen_all_modules_disabled_description">برای مشاهدهٔ محتوا بر اساس ترجیحات خود، پودمان‌های &lt;b&gt;برای شما&lt;/b&gt; را فعال کنید.</string>

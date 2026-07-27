@@ -26,10 +26,14 @@
   <string name="search_hint">ဝီကီပီးဒီးယားထဲတွင် ရှာဖွေပါ</string>
   <string name="search_hint_voice_search">အသံထည့်သွင်းရှာဖွေရေး</string>
   <string name="search_hint_search_languages">ဘာသာစကားတစ်ခုအတွက် ရှာဖွေရန်</string>
+  <string name="search_back_button_content_description">နောက်သို့ ပြန်သွားရန်</string>
+  <string name="search_icon_content_description">ရှာဖွေရန်</string>
   <string name="filter_hint_filter_my_lists_and_articles">မိမိ၏စာရင်းများ စစ်ထုတ်ရန်</string>
   <string name="nav_item_suggested_edits">တည်းဖြတ်မှုများ</string>
+  <string name="nav_item_activity">လှုပ်ရှားမှု</string>
   <string name="nav_item_more">ပို၍</string>
   <string name="nav_item_search">ရှာဖွေရန်</string>
+  <string name="nav_item_contribute">ပံ့ပိုးရန်</string>
   <string name="error_network_error">အင်တာနက်သို့ ချိတ်ဆက်နိုင်ခြင်း မရှိပါ။</string>
   <string name="page_error_retry">ပြန်လုပ်</string>
   <string name="card_offline_error_retry">ပြန်လုပ်</string>
@@ -60,7 +64,7 @@
   <string name="page_edit_history_comment_placeholder">တည်းဖြတ်မှု အကျဉ်းချုပ်ကို ဗလာပြုလုပ်ရန်</string>
   <string name="page_edit_history_filter_by_all">တည်းဖြတ်မှုများအားလုံး (%s)</string>
   <string name="page_edit_history_filter_by_user">အသုံးပြုသူ တည်းဖြတ်မှုများ (%s)</string>
-  <string name="page_edit_history_filter_by_anon" fuzzy="true">အမည်မသိ တည်းဖြတ်မှုများ (%s)</string>
+  <string name="page_edit_history_filter_by_anon">မှတ်ပုံတင်မထားသော တည်းဖြတ်မှုများ ( %s )</string>
   <string name="page_edit_history_filter_by_bot">ဘော့ တည်ဖြတ်မှုများ (%s)</string>
   <string name="menu_page_show_tabs">tab များကို ပြရန်</string>
   <string name="menu_page_other_languages">ဘာသာစကား ပြောင်းလဲရန်</string>
@@ -118,6 +122,10 @@
   <string name="dialog_message_leaving_edit">သင့်ပြောင်းလဲမှုများအား မသိမ်းရသေးပါ။ ဤစာမျက်နှာမှ ထွက်ခွာမည်ဆိုတာ သေချာပါသလား?</string>
   <string name="dialog_message_leaving_edit_leave">ထွက်ခွာရန်</string>
   <string name="dialog_message_leaving_edit_stay">နေရန်</string>
+  <string name="dialog_confirm_delete_donation_history_title">ဖျက်ခြင်းကို အတည်ပြုပါ</string>
+  <string name="dialog_confirm_delete_donation_history_message">ဤကိရိယာမှ ပြုလုပ်သော လှူဒါန်းမှုများအတွက်သာ ၎င်းသည် အကျုံးဝင်ပါမည်။</string>
+  <string name="dialog_confirm_delete_donation_history_delete">ဖျက်ရန်</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">မလုပ်တော့ပါ</string>
   <string name="menu_show_toc">မာတိကာ</string>
   <string name="search_no_results_found">မည်သည့်ရလဒ်မျှ မရပါ</string>
   <string name="search_reading_list_no_results">\"%s\" ထဲတွင် ရလဒ် မတွေ့ပါ</string>
@@ -134,6 +142,7 @@
   <string name="account_creation_password_hint">စကားဝှက်</string>
   <string name="login_2fa_hint" fuzzy="true">၂ ဆင့်အတည်ပြု လျှို့ဝှက်နံပါတ်</string>
   <string name="login_2fa_other_workflow_error_msg" fuzzy="true">နှစ်ဆင့်ခံလုံခြုံရေးစနစ် လိုအပ်တယ်!  ကျေးဇူးပြု၍ အဓိကလုပ်ဆောင်မှုသို့ပြန်သွားပါ၊ သင်၏ 2FA အမှတ်အသားဖြင့်လော့ဂ်အင်လုပ်ပါ၊ ပြီးနောက်ပြန်လည်ကြိုးစားပါ။</string>
+  <string name="login_email_auth_hint">အီးမေးလ် အတည်ပြုကုဒ်</string>
   <string name="onboarding_card_login">အကောင့်ဝင်ရန်</string>
   <string name="page_editing_login">အကောင့်ဝင်ရန်</string>
   <string name="reading_lists_sync_login">အကောင့်ဝင်ရန်</string>
@@ -352,6 +361,7 @@
   <string name="preference_title_collapse_tables">ဇယားများ ချဲ့ရန်</string>
   <string name="preference_summary_collapse_tables">ဆောင်းပါးများရှိ infobox များ၊ အကိုးအကားများနှင့် မှတ်စုများကဲ့သို့သော ဇယားများကို အလိုအလျောက် ချဲ့ကားစေမည်</string>
   <string name="nav_item_donate">လှူဒါန်း​ရန်</string>
+  <string name="nav_item_year_in_review">တစ်နှစ်တာ ပြန်လည်သုံးသပ်ချက်</string>
   <string name="error_voice_search_not_available">စိတ်မကောင်းပါ။ အသံမှတ်သားခိုင်းစေခြင်း မရရှိနိုင်ပါ။</string>
   <string name="location_service_disabled">တည်နေရာဝန်ဆောင်မှုများ ပိတ်ထားသည်။</string>
   <string name="enable_location_service">လုပ်ဆောင်ပါ</string>
@@ -385,6 +395,9 @@
   <string name="error_blocked_id">ပိတ်ပင်မှုအိုင်ဒီ- %s</string>
   <string name="error_blocked_footer">&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; ကို ဆက်သွယ်နိုင်သည် သို့မဟုတ် ပိတ်ပင်မှုအကြောင်းဆွေးနွေးရန် အခြား&lt;a href=\"https://my.wikipedia.org/wiki/ဝီကီပီးဒီးယား:Administrators\"&gt;စီမံခန့်ခွဲသူ&lt;/a&gt;ကိုဆက်သွယ်နိုင်ပါသည်။</string>
   <string name="error_blocked_footer_no_blocker">ပိတ်ပင်မှုအကြောင်းဆွေးနွေးရန် &lt;a href=\"https://my.wikipedia.org/wiki/ဝီကီပီးဒီးယား:Administrators\"&gt;စီမံခန့်ခွဲသူ&lt;/a&gt;ကိုဆက်သွယ်နိုင်ပါသည်။</string>
+  <string name="temp_account_not_logged_in">သင်သည် အကောင့်သို့ မဝင်ထားပါ။</string>
+  <string name="temp_account_dialog_ok">သဘောပေါက်ပြီ</string>
+  <string name="temp_account_using_title">သင်သည် ယာယီအကောင့်ကို အသုံးပြုနေပါသည်</string>
   <string name="crash_report_activity_title">အပလီကေးရှင်း အမှား</string>
   <string name="crash_report_relaunch_or_quit">ကျွန်ုပ်တို့ စိတ်မကောင်းပါ၊ ဝီကီပီးဒီးယားအက်ပ်သည် အမှားတစ်ခု တွေ့ကြုံရပြီး ပိတ်သွားပါသည်။\n\nပြန်စမည်လော ထွက်မည်လော?</string>
   <string name="crash_report_relaunch">ပြန်စရန်</string>
@@ -603,6 +616,7 @@
   <string name="preference_title_notification_email_user">အီးမေးလ် လက်ခံရရှိသည်</string>
   <string name="preference_summary_notification_email_user">တစုံတယောက်က သင့်ထံ ဝီကီမှ အီးမေးလ်ပို့လိုက်သည်</string>
   <string name="preference_title_notification_user_rights">အသုံးပြုသူအခွင့်ရေး ပြောင်းလဲမှုများ</string>
+  <string name="preference_title_notification_article_linked">သင်ဖန်တီးထားသော ဆောင်းပါးများသို့ လင့်ခ်များ</string>
   <string name="preference_category_display_settings">ပြသမှု အပြင်အဆင်များ</string>
   <string name="preference_title_hide_read_notifications">ဖတ်ပြီးသားအသိပေးချက်များကို ဝှက်ရန်</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">ဝီကီပီးဒီးယား</string>
@@ -669,6 +683,7 @@
   <string name="feed_lang_selection_dialog_ok_button_text">အိုကေ</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">မလုပ်တော့ပါ</string>
   <string name="feed_accessibility_card_load_more_button">ပိုမိုခေါ်ယူရန်</string>
+  <string name="feed_language_variants_removal_dialog_save">သိမ်းဆည်းပါ</string>
   <string name="description_edit_text_hint">ဆောင်းပါးဖော်ပြချက်</string>
   <string name="description_edit_article_description_label">ဆောင်းပါး</string>
   <string name="description_edit_translate_article_description_label_per_language">ဆောင်းပါး ဖော်ပြချက် (%s)</string>
@@ -715,6 +730,7 @@
   <string name="description_edit_tutorial_machine_suggestions_title">စက်အကြံပြုချက်များ</string>
   <string name="customize_toolbar_category_menu">မီးနူး</string>
   <string name="customize_toolbar_reset_to_default_button">နဂိုအတိုင်း ပြန်သွားရန်</string>
+  <string name="suggested_edits_activity_title">ပြင်ဆင်ရန်</string>
   <string name="suggested_edits_describe_articles">ဆောင်းပါးများ ဖော်ပြရန်</string>
   <string name="suggested_edits_caption_images">ရုပ်ပုံများကို ပုံစံသတ်မှတ်ရန်</string>
   <string name="suggested_edits_edit_patrol_review">ပြန်လည်ဆန်းစစ်</string>
@@ -812,7 +828,7 @@
   <string name="suggested_edits_ip_blocked_title">အိုင်ပီ ပိတ်ဆို့ထားသည်</string>
   <string name="suggested_edits_last_edited">နောက်ဆုံး တည်းဖြတ်ခဲ့သည်</string>
   <string name="suggested_edits_last_edited_never">ဘယ်သောအခါမျှ</string>
-  <string name="suggested_edits_task_new" fuzzy="true">အသစ်</string>
+  <string name="suggested_edits_task_new">အသစ်</string>
   <string name="suggested_edits_cc0_notice">ထုတ်ဝေလိုက်ခြင်းအားဖြင့် သင်သည် &lt;a href=\"%1$s\"&gt;သုံးစွဲမှု သဘောတူညီချက်&lt;/a&gt;အား &lt;a href=\"%2$s\"&gt;CC0 လိုင်စင်&lt;/a&gt;ဖြင့် ဖြန့်ချိမည်ဖြစ်ကြောင်း သဘောတူပြီးဖြစ်ရမည်။</string>
   <string name="suggested_edits_reactivation_notification_title">အကြံပြုထားသော ပြင်ဆင်မှုများ</string>
   <string name="suggested_edits_reactivation_notification_stage_one">ဝီကီပီးဒီယားမှာ တည်းဖြတ်ပေးလို့ ကျေးဇူးတင်ပါတယ်၊ သင် ချန်ထားတဲ့နေရာကနေ ဘာဖြစ်လို့ ပြန်မစရမှာလဲ?</string>
@@ -833,9 +849,39 @@
   <string name="suggested_edits_descriptions_not_enough_info_suggestion">လုံလောက်မှုမရှိသော သတင်းအချက်အလက်</string>
   <string name="suggested_edits_report_suggestion">အစီရင်ခံရန်</string>
   <string name="suggested_edits_contribution_diff_count_text">{{ဗဟုဝုစ်ကိန်း|တစ်=%1$s သွင်ပြင်လက္ခဏာ|%1$s သွင်ပြင်လက္ခဏာများ}}</string>
+  <string name="suggested_edits_image_recommendations_task_title">ဆောင်းပါးပုံများ</string>
+  <string name="suggested_edits_image_recommendations_task_detail">နားလည်မှု ပိုမိုကောင်းမွန်စေရန်အတွက် ဝီကီပီးဒီးယားဆောင်းပါးများတွင် အကြံပြုထားသော ရုပ်ပုံများကို ထည့်ပါ။</string>
+  <string name="image_recommendation_task_instruction">ဒီပုံကို ဆောင်းပါးထဲ ထည့်ချင်ပါသလား</string>
+  <string name="image_recommendation_tutorial">သင်ခန်းစာ</string>
+  <string name="image_recommendation_accept">လုပ်မည်</string>
+  <string name="image_recommendation_reject">မလုပ်ပါ</string>
+  <string name="image_recommendation_notsure">မသေချာပါ</string>
+  <string name="image_recommendation_reject_title">ငြင်းပယ်ခံရသည့် အကြောင်းရင်း</string>
   <string name="image_recommendation_reject_other">အခြား</string>
   <string name="image_recommendation_reject_submit">ထည့်သွင်းရန်</string>
   <string name="image_recommendation_tooltip_next">ရှေ့</string>
+  <string name="edit_summary_added_image">ပုံထည့်ရန်</string>
+  <string name="edit_summary_added_caption">ပုံစာတစ်ခု ပေါင်းထည့်ရန်</string>
+  <string name="edit_summary_added_image_and_caption">ပုံနှင့် စာတန်းထည့်ထားသည်</string>
+  <string name="edit_published_view">ကြည့်ရန်</string>
+  <string name="activity_tab_logged_out_title">ဝီကီပီးဒီးယားအက်ပ်တွင် သင့်လုပ်ဆောင်ချက်ကိုကြည့်ရှုရန် လော့ဂ်အင်ဝင်ပါ သို့မဟုတ် အကောင့်တစ်ခုဖန်တီးပါ</string>
+  <string name="activity_tab_on_wikipedia_android">ဝီကီပီးဒီးယား အန်းဒရွိုက်တွင်</string>
+  <string name="activity_tab_menu_info">ပိုမို လေ့လာရန်</string>
+  <string name="activity_tab_menu_customize">စိတ်ကြိုက်ပြင်ဆင်ရန်</string>
+  <string name="activity_tab_menu_customize_description">စာဖတ်ခြင်းဆိုင်ရာ အတွေးအမြင်များသည် ဆက်တင်များရှိ သင့်အက်ပ်ဘာသာစကားများအပေါ် အခြေခံထားပြီး တည်းဖြတ်ခြင်းဆိုင်ရာ အတွေးအမြင်များသည် သင့်ပင်မအက်ပ်ဘာသာစကားအတွက်သာ ကန့်သတ်ထားသည်။ အတွေးအမြင်များသည် အများသူငှာကြည့်ရှုနိုင်သော တည်းဖြတ်မှုများမှလွဲ၍ ဒေသတွင်းဒေတာများကို အသုံးပြုပါသည်။</string>
+  <string name="activity_tab_highlights">အဓိကအချက်များ</string>
+  <string name="activity_tab_impact">သင်၏ အကျိုးသက်ရောက်မှု</string>
+  <string name="activity_tab_impact_most_viewed">သင်တည်းဖြတ်ပြီးကတည်းက အများဆုံးကြည့်ရှုခံရသည်</string>
+  <string name="activity_tab_impact_contributions_this_month">ယခုလအတွက် ပံ့ပိုးမှုများ</string>
+  <string name="activity_tab_impact_all_time">တချိန်လုံး သက်ရောက်မှု</string>
+  <string name="activity_tab_impact_suggested_edits_title">မကြာသေးမီက ဆောင်းပါးများကို တည်းဖြတ်မှု 0 ခု</string>
+  <string name="activity_tab_impact_suggested_edits_message">ဒီလမှာ သင်ပြင်ဆင်မှု မလုပ်ရသေးပုံပေါ်ပါတယ်။ သင်စိတ်ဝင်စားတဲ့ အကြောင်းအရာတွေကို တည်းဖြတ်ခြင်းဖြင့် အခမဲ့ဗဟုသုတကို တိုးချဲ့လိုက်ပါ။</string>
+  <string name="activity_tab_impact_suggested_edits_button">တည်းဖြတ်မှုတစ်ခု ပြုလုပ်ပါ</string>
+  <string name="activity_tab_impact_recent_activity">သင်၏ မကြာသေးမီက လုပ်ဆောင်ချက် (ပြီးခဲ့သော ၃၀ ရက်)</string>
+  <string name="activity_tab_customize_screen_impact_switch_title">တချိန်လုံး သက်ရောက်မှု</string>
+  <string name="activity_tab_timeline_today">ယနေ့</string>
+  <string name="activity_tab_timeline_yesterday">မနေ့က</string>
+  <string name="activity_tab_timeline_empty_state_title">ပြစရာ မရှိပါ</string>
   <string name="file_page_activity_title">ဖိုင်စာမျက်နှာ</string>
   <string name="file_page_add_image_caption_button">ရုပ်ပုံ ပုံစာ ပေါင်းထည့်ရန်</string>
   <string name="file_page_edit_button_content_description">တည်းဖြတ်မှု %s</string>
@@ -1038,13 +1084,18 @@
   <string name="user_contrib_menu_label">ဆောင်ရွက်ချက်များ</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">သဘောပေါက်ပြီ</string>
   <string name="reading_list_share_menu_label">မျှဝေ...</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_page">အသုံးပြုသူ၏ စာမျက်နှာကို ကြည့်ရန်</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">ဆွေးနွေးချက်စာမျက်နှာကို ကြည့်ရန်</string>
   <string name="patroller_tasks_edits_list_card_overflow_user_information">အသုံးပြုသူ သတင်းအချက်အလက်</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">အသုံးပြုသူများ၏ ပံ့ပိုးမှုများကို ကြည့်ရန်</string>
+  <string name="patroller_tasks_edits_list_card_overflow_thank">ကျေးဇူးတင်</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_title">အသုံးပြုသူ သတင်းအချက်အလက်</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">ပိတ်ရန်</string>
   <string name="patroller_tasks_filters_user_status_unregistered">မှတ်ပုံမတင်ထားသူ</string>
   <string name="patroller_tasks_filters_user_status_registered">မှတ်ပုံတင်ထားသူ</string>
   <string name="patroller_tasks_filters_user_status_experienced">အတွေ့အကြုံရှိ အသုံးပြုသူများ</string>
   <string name="patroller_tasks_filters_significance_minor">အရေးမကြီးသည့် တည်းဖြတ်မှုများ</string>
+  <string name="patroller_tasks_filters_significance_edits">အရေးမကြီး မဟုတ်သော တည်းဖြတ်မှုများ</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">ဆောင်းပါး တည်းဖြတ်မှုမှတ်တမ်း</string>
   <string name="patroller_tasks_overflow_learn">ပိုမို လေ့လာရန်</string>
   <string name="patroller_diff_feedback_dialog_input_hint">အကြံပေးရန်</string>
@@ -1054,4 +1105,18 @@
   <string name="survey_dialog_cancel">မလုပ်တော့ပါ</string>
   <string name="survey_dialog_submit">ထည့်သွင်းရန်</string>
   <string name="survey_dialog_submitted_snackbar" fuzzy="true">အကြံပြုချက် တင်သွင်းခဲ့သည်။</string>
+  <string name="year_in_review_slide_reading_pattern_morning">မနက်ခင်း</string>
+  <string name="year_in_review_slide_reading_pattern_midday">နေ့လယ်ပိုင်း</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon">နေ့လည်ခင်း</string>
+  <string name="year_in_review_slide_reading_pattern_evening">ညနေခင်း</string>
+  <string name="year_in_review_slide_reading_pattern_night">ည</string>
+  <string name="year_in_review_slide_reading_pattern_late_night">ညဉ့်နက်ချိန်</string>
+  <string name="recommended_reading_list_settings_updates_frequency_daily">နေ့စဉ်</string>
+  <string name="recommended_reading_list_settings_updates_frequency_weekly">အပတ်စဉ်</string>
+  <string name="recommended_reading_list_settings_updates_frequency_monthly">လစဉ်</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">နေ့တိုင်း</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">ရက်သတ္တပတ်တိုင်း</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">လတိုင်း</string>
+  <string name="reading_challenge_onboarding_learn_more_button">ပိုမို လေ့လာရန်</string>
+  <string name="reading_challenge_onboarding_prompt_login">ဝီကီပီးဒီးယားသို့ လော့ဂ်အင် / ပါဝင်ရန်</string>
 </resources>
