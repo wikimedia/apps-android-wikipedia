@@ -650,7 +650,7 @@ class HomeViewModel : ViewModel() {
 
             val interestTopics = AppDatabase.instance.topicInterestDao().getAllRandom().distinctBy { it.topicId }.take(5)
             val interestTopicCalls = interestTopics.map { topic ->
-                async {
+                async(Dispatchers.IO) {
                     val articleTopic = ArticleTopics.all.find { it.topicId == topic.topicId }
                     InterestSelectionRepository.getArticlesByTopic(wikiSite.value, articleTopic?.queryTopicId ?: topic.topicId).map {
                         // TODO: filter items that have already been suggested.
@@ -661,7 +661,7 @@ class HomeViewModel : ViewModel() {
 
             val interestArticles = AppDatabase.instance.articleInterestDao().getAllRandom(wikiSite.value.languageCode).take(5)
             val interestArticleCalls = interestArticles.map { article ->
-                async {
+                async(Dispatchers.IO) {
                     val searchTerm = StringUtil.removeUnderscores(article.apiTitle)
                     ServiceFactory.get(wikiSite.value).searchMoreLike("morelike:$searchTerm", 10, 10)
                         .query?.pages?.filter { it.title != searchTerm && it.title != MainPageNameData.valueFor(wikiSite.value.languageCode) }?.map { page ->
@@ -684,7 +684,7 @@ class HomeViewModel : ViewModel() {
 
             // --- Because you read ---
 
-            val becauseYouReadDeferred = async {
+            val becauseYouReadDeferred = async(Dispatchers.IO) {
                 buildList {
                     val lastReadEntries = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(age + 1, 30, wikiSite.value.languageCode)
                     if (lastReadEntries.size > age) {
@@ -712,7 +712,7 @@ class HomeViewModel : ViewModel() {
 
             // --- Continue reading ---
 
-            val continueReadingDeferred = async {
+            val continueReadingDeferred = async(Dispatchers.IO) {
                 val continueReadingCards = buildList {
                     val lastReadEntries = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(age + 1, 30, wikiSite.value.languageCode)
                     if (lastReadEntries.size > age) {
@@ -739,7 +739,7 @@ class HomeViewModel : ViewModel() {
 
             // --- Random article ---
 
-            val randomDeferred = async {
+            val randomDeferred = async(Dispatchers.IO) {
                 val random = ServiceFactory.getRest(wikiSite.value).getRandomSummary()
                 RandomCard(random.getPageTitle(wikiSite.value))
             }
