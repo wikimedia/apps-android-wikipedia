@@ -324,7 +324,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     }
 
     fun isAllArticlesSelected(): Boolean {
-        return viewModel.uiState.value.selectedTab == SavedTab.ALL_ARTICLES
+        return viewModel.isSelectedTab(SavedTab.ALL_ARTICLES)
     }
 
     fun showReadingListsFilterMenu() {
@@ -333,7 +333,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
         ReadingListsAllArticlesFilterOverflowView(requireContext()).show(
             anchorView = (requireActivity() as MainActivity).getToolbar()
-                .findViewById(R.id.menu_filter_reading_list_articles),
+                .findViewById(R.id.menu_filter_reading_lists_articles),
             selectedOption = viewModel.getSelectedArticleFilter(),
             callback = viewModel::setArticleFilter
         )

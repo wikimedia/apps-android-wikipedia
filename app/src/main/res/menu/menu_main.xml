@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="AlwaysShowAction">
     <item
-        android:id="@+id/menu_filter_reading_list_articles"
+        android:id="@+id/menu_filter_reading_lists_articles"
         android:icon="@drawable/ic_filter_list_24"
         android:title="@string/reading_lists_filter_content_description"
         android:visible="false"

@@ -182,6 +182,10 @@ class ReadingListsViewModel : ViewModel() {
         selectedTab.value = tab
     }
 
+    fun isSelectedTab(tab: SavedTab): Boolean {
+        return selectedTab.value == tab
+    }
+
     fun setArticleFilter(filter: SavedArticleFilter) {
         selectedArticleFilter.value = filter
     }
