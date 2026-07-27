@@ -23,30 +23,6 @@ class InterestSelectionRepository(
     private val readingListPageDao: ReadingListPageDao,
     val wikiSite: WikiSite
 ) {
-
-    suspend fun getArticlesByTopic(topic: String): List<PageTitle> {
-        val response = ServiceFactory.get(wikiSite).getArticlesByTopic(
-            "articletopic:$topic^95",
-            limit = 20,
-            profile = "classic_noboostlinks",
-            sort = "random"
-        )
-        val pageList = response.query?.pages
-            ?.filter { it.pageProps?.disambiguation == null } // Filter out disambiguation pages
-            ?.sortedBy { it.index } // Sort by index, as reported by the API
-            ?.sortedBy { it.thumbUrl().isNullOrEmpty() } // Sort by whether it has a thumbnail
-            ?.map { page ->
-                PageTitle(
-                    text = page.title,
-                    wiki = wikiSite,
-                    thumbUrl = page.thumbUrl(),
-                    description = page.description,
-                    displayText = page.displayTitle(wikiSite.languageCode)
-                )
-            } ?: emptyList()
-        return pageList
-    }
-
     suspend fun loadInitialArticles(): List<PageTitle> {
         val maxItems = 20
         val results = mutableListOf<PageTitle>()
@@ -146,5 +122,32 @@ class InterestSelectionRepository(
     suspend fun deleteAllInterests() {
         interestTopicDao.deleteAll()
         interestArticleDao.deleteAll()
+    }
+
+    companion object {
+        suspend fun getArticlesByTopic(wikiSite: WikiSite, topic: String): List<PageTitle> {
+            return ServiceFactory.get(wikiSite).getArticlesByTopic(
+                "articletopic:$topic^95",
+                limit = 20,
+                profile = "classic_noboostlinks",
+                sort = "random"
+            )
+                .query?.pages
+                ?.filter { it.pageProps?.disambiguation == null } // Filter out disambiguation pages
+                ?.sortedBy { it.index } // Sort by index, as reported by the API
+                ?.sortedBy { it.thumbUrl().isNullOrEmpty() } // Sort by whether it has a thumbnail
+                ?.map { page ->
+                    PageTitle(
+                        text = page.title,
+                        wiki = wikiSite,
+                        thumbUrl = page.thumbUrl(),
+                        description = page.description,
+                        displayText = page.displayTitle(wikiSite.languageCode)
+                    ).also {
+                        if (!page.sectionTitle.isNullOrEmpty()) it.fragment = StringUtil.addUnderscores(page.sectionTitle)
+                        it.extract = page.extract
+                    }
+                } ?: emptyList()
+        }
     }
 }
