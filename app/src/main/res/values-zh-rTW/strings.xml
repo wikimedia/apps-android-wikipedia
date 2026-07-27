@@ -1190,7 +1190,7 @@
   <string name="activity_tab_donation_last_donation">應用程式裡的&lt;b&gt;最後一次捐款&lt;/b&gt;</string>
   <string name="activity_tab_total_edits_all_projects">跨專案總編輯數</string>
   <string name="activity_tab_game_stats">遊戲統計數據</string>
-  <string name="activity_tab_game_stats_best_streak">最長連續時間</string>
+  <string name="activity_tab_game_stats_best_streak">最長連勝</string>
   <string name="activity_tab_play_wiki_games">遊玩 WikiGames</string>
   <string name="activity_tab_report_email_subject">問題報告 - 活動分頁</string>
   <string name="activity_tab_report_email_body">我遇到了活動分頁功能的問題：\n- [描述具體問題]\n\n我預期看到的結果是：\n- [描述建議的解決方案]</string>
