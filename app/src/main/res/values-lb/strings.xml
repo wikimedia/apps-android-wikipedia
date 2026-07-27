@@ -366,7 +366,7 @@
   <string name="tool_tip_toc_title">Inhaltsverzeechnes-Schnellzougrëff</string>
   <string name="error_response_malformed">D\'Äntwert vum Server war net richteg formatéiert.</string>
   <string name="error_unknown">Et ass en onbekannte Feller geschitt.</string>
-  <string name="format_error_server_message">Message: \"%s\"</string>
+  <string name="format_error_server_message">Message: „%s“</string>
   <string name="address_copied">Adress an den Tëschespäicher kopéiert.</string>
   <string name="text_copied">Text an den Tëschespäicher kopéiert.</string>
   <string name="button_continue_to_article">Artikel liesen</string>
@@ -952,7 +952,7 @@
   <string name="suggested_edits_feed_card_title">Ännerungsvirschléi</string>
   <string name="suggested_edits_feed_card_add_description_button">Artikelbeschreiwungen derbäisetzen</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Artikelbeschreiwungen derbäisetzen (%s)</string>
-  <string name="suggested_edits_tasks_onboarding_get_started">Fänkt un</string>
+  <string name="suggested_edits_tasks_onboarding_get_started">Ufänken</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Bildbeschrëftung (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Fichier</string>
   <string name="suggested_edits_image_preview_dialog_file_commons">Fichier vu Wikimedia Commons</string>
@@ -1206,8 +1206,8 @@
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
   <string name="onboarding_skip">Iwwersprangen</string>
-  <string name="onboarding_continue">Virufueren</string>
-  <string name="onboarding_get_started">Fänkt un</string>
+  <string name="onboarding_continue">Weider</string>
+  <string name="onboarding_get_started">Ufänken</string>
   <string name="onboarding_maybe_later">Villäicht méi spéit</string>
   <string name="onboarding_explore_title">Nei Manéiere fir z\'entdecken</string>
   <string name="onboarding_reading_list_sync_title">Lieslëschte mat Synchronisatioun</string>
@@ -1320,7 +1320,7 @@
   <string name="templates_description_missing_data">Bei dëser Schabloun feelen d\'&lt;a href=\"%1$s\"&gt;TemplateData&lt;/a&gt; an hir Parametere goufen &lt;a href=\"%2$s\"&gt;automatesch generéiert&lt;/a&gt;. Dohier feelen d\'Beschreiwunge fir d\'Schabloun an hir Parameteren.</string>
   <string name="main_drawer_help">Hëllef</string>
   <string name="main_drawer_login">Aloggen / bei Wikipedia matmaachen</string>
-  <string name="main_tooltip_action_button">Fänkt un</string>
+  <string name="main_tooltip_action_button">Ufänken</string>
   <string name="main_tooltip_watchlist_title">Iwwerwaachungslëscht</string>
   <string name="main_tooltip_watchlist_text">Fannt Artikelen a Säiten, déi Dir schonn op Är Iwwerwaachungslëscht gesat hutt, am Méi-Menü ënner &lt;b&gt;Iwwerwaachungslëscht&lt;/b&gt;.</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
@@ -1358,7 +1358,7 @@
   <string name="talk_snackbar_undo">Réckgängeg maachen</string>
   <string name="talk_last_modified">&lt;b&gt;Fir d\'lescht geännert %1$s&lt;/b&gt; vum %2$s</string>
   <string name="talk_snackbar_survey_text">Merci, datt Dir Diskussiounssäite benotzt. Wëllt Dir eis hëllefen d\'App ze verbesseren, andeems Dir bei enger Ëmfro matmaacht?</string>
-  <string name="talk_snackbar_survey_action_text">Fänkt un</string>
+  <string name="talk_snackbar_survey_action_text">Ufänken</string>
   <string name="talk_share_talk_page">Wikipedia – Diskussiounen op der Diskussiounssäit</string>
   <string name="talk_search_hint">An de Message sichen</string>
   <string name="talk_search_topics_hint">Sujete sichen</string>
@@ -1424,7 +1424,9 @@
   <string name="revision_diff_line_removed">Zeil ewechgeholl</string>
   <string name="revision_diff_paragraph_added">Abschnitt derbäigesat</string>
   <string name="revision_diff_paragraph_removed">Abschnitt ewechgeholl</string>
+  <string name="revision_diff_protected">D\'Ännerungen, déi an dëser Versioun gemaach goufen, sinn net ëffentlech zougänglech.</string>
   <string name="revision_undo_title">Sidd Dir sécher, datt Dir dës Ännerung réckgängeg maache wëllt?</string>
+  <string name="revision_undo_message">Réckgängeg maachen heescht, d\'Effekter vun enger oder méi Ännerunge réckgängeg ze maachen.</string>
   <string name="revision_undo_summary_hint">Resümmee (fakultativ)</string>
   <string name="revision_undo_reason">Gitt wgl. de Grond u fir dës Ännerung réckgängeg ze maachen</string>
   <string name="revision_undo_success">D\'Versioun gouf réckgängeg gemaach.</string>
@@ -1478,7 +1480,7 @@
   <string name="watchlist_filter_automated_contributions_header">Automatiséiert Kontributiounen</string>
   <string name="watchlist_filter_automated_contributions_bot">Bot</string>
   <string name="watchlist_filter_automated_contributions_human">Mënsch (kee Bot)</string>
-  <string name="watchlist_filter_significance_header">Bedeitung</string>
+  <string name="watchlist_filter_significance_header">Gréisst</string>
   <string name="watchlist_filter_significance_minor">Kleng Ännerungen</string>
   <string name="watchlist_filter_significance_edits">Net-kleng Ännerungen</string>
   <string name="watchlist_filter_latest_revisions_header">Lescht Versiounen</string>
@@ -1489,6 +1491,7 @@
   <string name="watchlist_filter_type_of_change_page_creations">Säit ugeluecht</string>
   <string name="watchlist_filter_type_of_change_category_changes">Kategorienännerungen</string>
   <string name="watchlist_filter_type_of_change_wikidata_edits">Wikidata-Ännerungen</string>
+  <string name="watchlist_filter_type_of_change_logged_actions">Geloggten Aktiounen</string>
   <string name="watchlist_filter_type_of_change_new_users">Nei Benotzer</string>
   <string name="watchlist_filter_reset_button">Zerécksetzen</string>
   <string name="watchlist_search_bar_hint">Iwwerwaachungslëscht duerchsichen oder filteren</string>
@@ -1498,7 +1501,8 @@
     <item quantity="one">%d Filter</item>
     <item quantity="other">%d Filteren</item>
   </plurals>
-  <string name="preview_edit_summarize_edit_title">Resuméiert d\'Ännerung</string>
+  <string name="preview_edit_title">Virschau vun der Ännerung</string>
+  <string name="preview_edit_summarize_edit_title">Ännerung resüméieren</string>
   <string name="preview_edit_summarize_edit_hint">Wéi hutt Dir dës Säit verbessert?</string>
   <string name="preview_edit_minor_edit">Dëst ass eng kleng Ännerung</string>
   <string name="preview_edit_watch_this_page">Dës Säit iwwerwaachen</string>
@@ -1533,6 +1537,7 @@
   <string name="reading_list_share_menu_label">Deelen...</string>
   <string name="reading_list_share_menu_tooltip">Dës Lieslëscht mat aneren deelen</string>
   <string name="reading_list_share_message_v2">Moien! Ech géif gäre meng Wikipedia-Lieslëscht mat Iech deelen:</string>
+  <string name="talk_templates_empty_message">Leet Är eege Messagen un oder benotzt &lt;a href=\"#\"&gt;Beispillmessagë&lt;/a&gt; fir unzefänken.</string>
   <string name="talk_templates_new_message_title">Neie Message</string>
   <string name="talk_templates_new_message_subject_hint">Sujet</string>
   <string name="talk_templates_new_message_compose_hint">Message schreiwen</string>
@@ -1593,15 +1598,15 @@
   <string name="patroller_tasks_filters_automated_contributions_header">Automatiséiert Kontributiounen</string>
   <string name="patroller_tasks_filters_automated_contributions_bot">Bot</string>
   <string name="patroller_tasks_filters_automated_contributions_human">Mënsch (kee Bot)</string>
-  <string name="patroller_tasks_filters_significance_header">Bedeitung</string>
+  <string name="patroller_tasks_filters_significance_header">Gréisst</string>
   <string name="patroller_tasks_filters_significance_minor">Kleng Ännerungen</string>
   <string name="patroller_tasks_filters_significance_edits">Net-kleng Ännerungen</string>
-  <string name="patroller_tasks_filters_contribution_quality_header">Prognose vun der Qualitéit vun Ännerungen</string>
+  <string name="patroller_tasks_filters_contribution_quality_header">Prognose vun der Kontributiounsqualitéit</string>
   <string name="patroller_tasks_filters_contribution_quality_good">Héchstwarscheinlech gutt</string>
   <string name="patroller_tasks_filters_contribution_quality_may_problems">Kéint Problemer hunn</string>
   <string name="patroller_tasks_filters_contribution_quality_likely_problems">Huet warscheinlech Problemer</string>
   <string name="patroller_tasks_filters_contribution_quality_bad">Huet héchstwarscheinlech Problemer</string>
-  <string name="patroller_tasks_filters_user_intent_header">Prognos iwwer d\'Absicht vum Benotzer</string>
+  <string name="patroller_tasks_filters_user_intent_header">Prognosen iwwer d\'Absicht vum Benotzer</string>
   <string name="patroller_tasks_filters_user_intent_good">Héchstwarscheinlech gutt Absicht</string>
   <string name="patroller_tasks_filters_user_intent_may_problems">Villäicht schlecht Absicht</string>
   <string name="patroller_tasks_filters_user_intent_likely_problems">Warscheinlech schlecht Absicht</string>
@@ -1611,24 +1616,39 @@
     <item quantity="one">%d Filter</item>
     <item quantity="other">%d Filteren</item>
   </plurals>
+  <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Sidd Dir sécher, datt Dir zerécksetze wëllt?</string>
+  <string name="patroller_tasks_patrol_edit_rollback_success">Zerécksetzen ofgeschloss</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">Weisen</string>
-  <string name="patroller_tasks_overflow_report">Problemer mat det Funktioun</string>
+  <string name="patroller_tasks_overflow_report">Problemer mat der Funktioun</string>
   <string name="patroller_tasks_overflow_learn">Fir méi ze wëssen</string>
+  <string name="patroller_onboarding_one_title">Drot zum Iwwerpréiwen an Approuvéiere vu Wikipedia-Ännerunge bäi.</string>
+  <string name="patroller_onboarding_one_content">Verbessert d\'Qualitéit vum Contenu op Wikipedia, andeems Dir aktiv de Feed vun de rezenten Ännerungen nokuckt an aneren Editeuren Orientéieung, Qualitéitskontroll an Encouragement bitt.</string>
+  <string name="patroller_onboarding_two_title">Gitt Feedback, iwwerwaacht Ännerungen an huelt um Écran mat de Versiounsënnerscheeder déi néideg Moossnamen</string>
   <string name="patroller_onboarding_two_thank_title">Merci</string>
   <string name="patroller_onboarding_two_thank_content">Dir gesitt eng produktiv Ännerung? Sot dem Benotzer Merci fir seng Kontributioun.</string>
   <string name="patroller_onboarding_two_watch_title">Iwwerwaachen</string>
   <string name="patroller_onboarding_two_watch_content">Wëllt Dir d\'Ännerungen un engem Artikel suivéieren? Setzt en op Är Iwwerwaachungslëscht. Dir fannt se ënner „Méi“.</string>
   <string name="patroller_onboarding_two_talk_title">Diskussioun</string>
+  <string name="patroller_onboarding_two_talk_content">Kommunizéiert mat aneren Editeuren. Späichert dacks op Diskussiounssäite benotzte Messagen oder benotzt eng Schabloun.</string>
+  <string name="patroller_onboarding_two_undo_title">Réckgängeg maachen/Zerécksetzen</string>
+  <string name="patroller_onboarding_two_undo_content">Wielt „Réckgängeg maachen“ fir eng potenziell schiedlech Ännerung réckgängeg ze maachen oder zeréckzesetzen.</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Wéi kënne mir d\'Funktioun verbesseren?</string>
+  <string name="patroller_diff_menu_edit_history_title">Historique vun den Artikelännerungen</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Feedback</string>
   <string name="patroller_saved_message_title_vandalism">Vandalismuswarnung</string>
   <string name="patroller_saved_message_title_editing_tests">Testännerungen</string>
   <string name="patroller_saved_message_title_npov">Neutrale Standpunkt</string>
   <string name="patroller_saved_message_title_auto_trans">Automatesch Iwwersetzung</string>
+  <string name="patroller_saved_message_title_coi_rem">Erënnerung iwwer Interessenskonflikter</string>
   <string name="patroller_saved_message_title_final_warning">Lescht Warnung</string>
-  <string name="patroller_saved_message_title_edit_summary_reminder">Schreift e Resümmee vun der Ännerung</string>
+  <string name="patroller_saved_message_title_copy_vio">Warnung wéinst Urheberrechtsverletzung</string>
+  <string name="patroller_saved_message_title_edit_summary_reminder">E Resümmee vun der Ännerung schreiwen</string>
   <string name="patroller_saved_message_title_do_not_censor">Net zenséieren</string>
-  <string name="patroller_saved_message_title_art_imp">Artikelverbesserungsvirschlag</string>
+  <string name="patroller_saved_message_title_art_imp">Verbesserungsvirschlag fir een Artikel</string>
+  <string name="patroller_saved_message_body_vandalism">Moie(n) {{{username}}}, ech wollt der Bescheed soen, datt ech eng oder méi vun denge [{{{diffLink}}}|rezente Kontributioune] réckgängeg gemaach hunn, well se mer net konstruktiv schéngen. Wann s de mengs, datt ech e Feeler gemaach hunn, oder wann s de Froen hues, kanns de mer e Message op [[User talk:{{{senderUserName}}}|meng Diskussiounssäit]] schreiwen. Denk wgl. drun, datt Vandalismus mat der Zäit zu Aschränkunge féiere kann.</string>
+  <string name="talk_warn_learn_more_label">Méi iwwer Platzhalter a Messagë gewuer ginn</string>
+  <string name="talk_warn_saved_messages_usage_instruction">Benotzt ee vun de Beispillmessagen ënnen, fir en unzepassen, ze verschécken an ënner Äre Messagen ze späicheren.</string>
+  <string name="patroller_saved_message_body_art_imp">Moie(n) {{{username}}}. Däin Artikel ass e gudden Ufank! Fir en nach besser ze maachen, kanns de Referenzen op zouverlässeg Sourcen derbäisetzen. Dat hëlleft beim Iwwerpréiwe vun den Informatiounen an erhéicht d\'Qualitéit vum Artikel. Fir méi Detailer, kuck der d\'Richtlinn fir [[Wikipedia:Verifizéierbarkeet|Verifizéierbarkeet]] op dëser Wikipedia un.</string>
   <string name="talk_templates_menu_edit_title">Änneren</string>
   <string name="data_opt_in_accept">Akzeptéieren</string>
   <string name="data_opt_in_reject">Refuséieren</string>
