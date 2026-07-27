@@ -44,6 +44,7 @@
 * Warchlak
 * Wojtas
 * Woytecr
+* Wrai
 * XnIcRaM
 -->
 <resources>
@@ -144,7 +145,7 @@
   <string name="menu_page_recently_viewed">Ostatnio oglądane</string>
   <string name="menu_page_archive">Archiwum</string>
   <string name="menu_long_press_open_page">Otwórz</string>
-  <string name="menu_long_press_open_in_places">Otwórz w Miejscach</string>
+  <string name="menu_long_press_open_in_places">Otwórz w zakładce Miejsca</string>
   <string name="menu_long_press_open_in_new_tab">Otwórz w nowej karcie</string>
   <string name="menu_long_press_copy_page">Kopiuj link</string>
   <string name="menu_text_select_define">Definicja</string>
@@ -490,7 +491,7 @@
   <string name="error_blocked_footer_no_blocker">Możesz skontaktować się z &lt;a href=\"https://pl.wikipedia.org/wiki/Wikipedia:Administratorzy\"&gt;administratorem&lt;/a&gt;, aby omówić blokadę.</string>
   <string name="temp_account_not_logged_in">Nie zalogowano się</string>
   <string name="temp_account_anon_ip_dialog_body">Po wprowadzeniu zmian Twój adres IP będzie widoczny publicznie przy Twoich edycjach.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Zaloguj się&lt;/a&gt; lub &lt;a href=\"https://#createaccount\"&gt;załóż konto&lt;/a&gt;, aby Twoje działania były przypisane do konta oraz aby odblokować dodatkowe funkcje.</string>
-  <string name="temp_account_anon_dialog_body">Po wprowadzeniu zmian zostanie dla Ciebie utworzone &lt;b&gt;tymczasowe konto&lt;/b&gt;, aby chronić Twoją prywatność. &lt;a href=\"%1$s\"&gt;Dowiedz się więcej&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Zaloguj się&lt;/a&gt; lub &lt;a href=\"https://#createaccount\"&gt;załóż konto&lt;/a&gt;, aby Twoje edycje były przypisane do Twojego konta oraz aby odblokować dodatkowe funkcje.</string>
+  <string name="temp_account_anon_dialog_body">Po wprowadzeniu zmian zostanie dla Ciebie utworzone &lt;b&gt;tymczasowe konto&lt;/b&gt;, aby chronić Twoją prywatność. &lt;a href=\"%1$s\"&gt;Dowiedz się więcej&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Zaloguj się&lt;/a&gt; lub &lt;a href=\"https://#createaccount\"&gt;utwórz konto&lt;/a&gt;, aby Twoje edycje były przypisane do Twojego konta oraz aby odblokować dodatkowe funkcje.</string>
   <string name="temp_account_temp_dialog_body">Twoja edycja zostanie przypisana do %1$s. Twój adres IP będzie widoczny dla administratorów.&lt;br /&gt;&lt;br /&gt;Jeśli &lt;a href=\"https://#login\"&gt;zalogujesz się&lt;/a&gt; lub &lt;a href=\"https://#createaccount\"&gt;założysz konto&lt;/a&gt;, Twoje zmiany będą przypisane do wybranej przez Ciebie nazwy, a dodatkowo odblokujesz inne korzyści.</string>
   <string name="temp_account_dialog_ok">Rozumiem</string>
   <string name="temp_account_using_title">Korzystasz z konta tymczasowego</string>
@@ -913,7 +914,7 @@
   <string name="menu_feed_card_dismissed">Ukryto kartę.</string>
   <string name="menu_feed_card_edit_card_languages">Edytuj języki kart</string>
   <string name="menu_feed_overflow_label">Więcej opcji</string>
-  <string name="feed_featured_image_share_subject">Wyróżniony obraz z Wikimedia Commons</string>
+  <string name="feed_featured_image_share_subject">Ilustracja na medal z Wikimedia Commons</string>
   <string name="feed">Odkrywaj</string>
   <string name="home">Strona główna</string>
   <string name="view_static_card_icon_content_description">Ikona karty</string>
@@ -928,7 +929,7 @@
   <string name="view_continue_reading_card_subtitle_read_date">Przeczytano %s</string>
   <string name="view_announcement_card_negative_action">Nie, dziękuję</string>
   <string name="view_offline_card_text">Treści nie można załadować w trybie offline.</string>
-  <string name="view_featured_article_card_title">Wyróżniony artykuł</string>
+  <string name="view_featured_article_card_title">Artykuł na medal</string>
   <string name="view_static_card_save_button_label">Zapisz</string>
   <string name="feed_configure_activity_title">Dostosuj kanał</string>
   <string name="feed_configure_menu_reset">Przywróć widok domyślny</string>
@@ -938,9 +939,9 @@
   <string name="feed_item_type_news">Artykuły dotyczące bieżących wydarzeniach</string>
   <string name="feed_item_type_on_this_day">Wydarzenia historyczne, które miały miejsce w tym dniu</string>
   <string name="feed_item_type_because_you_read">Propozycje w oparciu o ostatnio przeczytany artykuł z Twojej historii</string>
-  <string name="feed_item_type_featured_article">Codzienny wyróżniony artykuł w Wikipedii</string>
+  <string name="feed_item_type_featured_article">Codzienny artykuł na medal w Wikipedii</string>
   <string name="feed_item_type_trending">Najczęściej czytane artykuły dnia</string>
-  <string name="feed_item_type_featured_image">Codzienny wyróżniony obraz z Wikimedia Commons</string>
+  <string name="feed_item_type_featured_image">Codzienna ilustracja na medal z Wikimedia Commons</string>
   <string name="feed_item_type_main_page">Strona główna Wikipedii zawierająca dzienną wyróżnioną treść</string>
   <string name="feed_item_type_randomizer">Wylosuj artykuł do przeczytania</string>
   <string name="feed_item_type_suggested_edits">Sugestie dodania treści do Wikipedii</string>
@@ -1260,7 +1261,7 @@
   <string name="edit_summary_added_image_and_caption">Dodano obraz i podpis</string>
   <string name="edit_published_view">Podgląd</string>
   <string name="activity_tab_logged_out_title">Zaloguj się lub utwórz konto, aby wyświetlić swoją aktywność w aplikacji Wikipedii</string>
-  <string name="activity_tab_user_reading">Twoje statystyki czytania %s</string>
+  <string name="activity_tab_user_reading">Twoje statystyki czytania na koncie %s</string>
   <string name="activity_tab_on_wikipedia_android">w aplikacji Wikipedia na Androida</string>
   <string name="activity_tab_weekly_time_spent_hm">%1$d godz. %2$d min</string>
   <string name="activity_tab_weekly_time_spent">Czas spędzony na czytaniu w tym tygodniu</string>
@@ -1332,7 +1333,7 @@
   <plurals name="activity_tab_impact_recent_activity_views">
     <item quantity="one">odsłona edytowanych przez Ciebie artykułów</item>
     <item quantity="few">odsłony edytowanych przez Ciebie artykułów</item>
-    <item quantity="many">odsłono edytowanych przez Ciebie artykułów</item>
+    <item quantity="many">odsłon edytowanych przez Ciebie artykułów</item>
     <item quantity="other">odsłony edytowanych przez Ciebie artykułów</item>
   </plurals>
   <string name="activity_tab_customize_screen_time_spent_switch_title">Czas spędzony na czytaniu</string>
@@ -1349,8 +1350,8 @@
   <string name="activity_tab_timeline_empty_state_message">Zacznij czytać i edytować artykuły, aby stworzyć historię swojej aktywności</string>
   <string name="activity_tab_timeline_view_changes_button">Pokaż zmiany</string>
   <string name="activity_tab_onboarding_reading_patterns_title">Nawyki czytelnicze</string>
-  <string name="activity_tab_onboarding_reading_patterns_message">Sprawdź, ile czasu spędzasz na czytaniu oraz jakie artykuły i tematy przyciągały Twoją uwagę na przestrzeni czasu</string>
-  <string name="activity_tab_onboarding_screen_title">Przedstawiamy funkcję „Aktywność”</string>
+  <string name="activity_tab_onboarding_reading_patterns_message">Sprawdź, ile czasu spędzasz na czytaniu oraz jakie artykuły i tematy przyciągały Twoją uwagę na przestrzeni czasu.</string>
+  <string name="activity_tab_onboarding_screen_title">Przedstawiamy sekcję „Aktywność”</string>
   <string name="activity_tab_onboarding_impact_title">Twój wpływ</string>
   <string name="activity_tab_onboarding_impact_message">Zobacz podsumowanie swojego wkładu i zobacz, do ilu osób docierają tworzone przez Ciebie treści.</string>
   <string name="activity_tab_onboarding_engage_title">Więcej sposobów na zaangażowanie</string>
@@ -1395,7 +1396,7 @@
   <string name="onboarding_fresh_install_knowledge_learn_more">Dowiedz się więcej o Wikipedii</string>
   <string name="onboarding_app_languages_title">Czytaj w ponad 300 językach</string>
   <string name="onboarding_app_languages_text">Na Twoim urządzeniu znaleźliśmy następujące języki:</string>
-  <string name="onboarding_app_languages_primary">Główny</string>
+  <string name="onboarding_app_languages_primary">główny</string>
   <string name="onboarding_app_languages_add_button">Dodaj lub edytuj języki</string>
   <string name="app_shortcuts_random">Losowa strona</string>
   <string name="app_shortcuts_continue_reading">Czytaj dalej</string>
@@ -1535,7 +1536,7 @@
   <string name="talk_no_subject">(Bez tematu)</string>
   <string name="talk_reply_subject">Temat</string>
   <string name="talk_reply_hint">Utwórz odpowiedź</string>
-  <string name="talk_message_hint">Utwórz wiadomość</string>
+  <string name="talk_message_hint">Treść wiadomości</string>
   <string name="talk_message_empty">Pole wiadomości nie może być puste.</string>
   <string name="talk_subject_empty">Pole tematu nie może być puste.</string>
   <string name="talk_subject_duplicate">Temat o takiej nazwie już istnieje. Spróbuj wybrać inny.</string>
@@ -1546,7 +1547,7 @@
   <string name="talk_snackbar_survey_action_text">Rozpocznij</string>
   <string name="talk_share_discussion_subject">Wikipedia – dyskusja na stronie dyskusji w wątku „%s”</string>
   <string name="talk_share_talk_page">Wikipedia – dyskusje na stronie dyskusji</string>
-  <string name="talk_edit_disclaimer">To jest strona dyskusji. Przestrzegaj wytycznych dotyczących strony dyskusji i pamiętaj, aby podpisywać swoje wpisy, wpisując cztery tyldy: ~~~~, gdy publikujesz przy użyciu wikikodu.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://pl.wikipedia.org/wiki/Pomoc:Strona_dyskusji\"&gt;Więcej o stronach dyskusji&lt;/a&gt;</string>
+  <string name="talk_edit_disclaimer">To jest strona dyskusji. Przestrzegaj wytycznych dotyczących stron dyskusji i pamiętaj, aby podpisywać swoje wpisy, wpisując cztery tyldy: ~~~~, gdy publikujesz przy użyciu wikikodu.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://pl.wikipedia.org/wiki/Pomoc:Strona_dyskusji\"&gt;Więcej o stronach dyskusji&lt;/a&gt;</string>
   <string name="talk_search_hint">Szukaj wiadomości</string>
   <string name="talk_search_topics_hint">Szukaj wątków</string>
   <string name="talk_search_find_in_talk_topics_hint">Znajdź w tym wątku</string>
@@ -1610,8 +1611,8 @@
   <string name="menu_option_view_user_contributions">Wyświetl wkład użytkownika</string>
   <string name="revision_diff_compare">Porównaj wersje</string>
   <string name="revision_diff_compare_title">Porównaj wersje: %s</string>
-  <string name="revision_diff_from">Wersja od:</string>
-  <string name="revision_diff_to">Wersja do:</string>
+  <string name="revision_diff_from">Od:</string>
+  <string name="revision_diff_to">Do:</string>
   <string name="revision_diff_line_num">Linia %d</string>
   <string name="revision_diff_lines_from_to">Linie %1$d–%2$d</string>
   <string name="revision_diff_line_added">Dodano linię</string>
@@ -1648,7 +1649,7 @@
   <string name="watchlist_filter_other">Inne</string>
   <string name="watchlist_page_moved">Przeniesiona</string>
   <string name="watchlist_page_protected">Zabezpieczona</string>
-  <string name="watchlist_page_deleted">Usunięta</string>
+  <string name="watchlist_page_deleted">Usunięto</string>
   <string name="watchlist_filter_title">Filtruj listę obserwowanych</string>
   <string name="watchlist_filter_wiki_filter_header">Filtruj według wiki</string>
   <string name="watchlist_filter_all_text">Wszystko</string>
@@ -1663,7 +1664,7 @@
   <string name="watchlist_filter_user_intent_header">Ocena intencji użytkownika</string>
   <string name="watchlist_filter_user_intent_good">Najprawdopodobniej w dobrej wierze</string>
   <string name="watchlist_filter_user_intent_may_problems">Być może w złej wierze</string>
-  <string name="watchlist_filter_user_intent_likely_problems">Najprawdopodobniej w złej wierze</string>
+  <string name="watchlist_filter_user_intent_likely_problems">Prawdopodobnie w złej wierze</string>
   <string name="watchlist_filter_user_intent_bad">Najprawdopodobniej w złej wierze</string>
   <string name="watchlist_filter_user_status_header">Zarejestrowanie użytkownika i doświadczenie</string>
   <string name="watchlist_filter_user_status_unregistered">Niezarejestrowany</string>
@@ -1738,7 +1739,7 @@
   <string name="talk_templates_empty_message">Aby rozpocząć, utwórz własne wiadomości lub skorzystaj z &lt;a href=\"#\"&gt;przykładowych wiadomości&lt;/a&gt;.</string>
   <string name="talk_templates_new_message_title">Nowa wiadomość</string>
   <string name="talk_templates_new_message_subject_hint">Tytuł</string>
-  <string name="talk_templates_new_message_compose_hint">Utwórz wiadomość</string>
+  <string name="talk_templates_new_message_compose_hint">Treść wiadomości</string>
   <string name="talk_templates_new_message_save">Zapisz</string>
   <string name="talk_templates_new_message_dialog_title">Zapisz zmiany</string>
   <string name="talk_templates_new_message_dialog_description">Dodaj tytuł i zapisz wiadomość.</string>
@@ -1816,7 +1817,7 @@
   <string name="patroller_tasks_filters_user_intent_good_desc">Wysoka trafność w wyszukiwaniu większości edycji w dobrej wierze.</string>
   <string name="patroller_tasks_filters_user_intent_may_problems">Być może w złej wierze</string>
   <string name="patroller_tasks_filters_user_intent_may_problems_desc">Wyszukuje większość edycji wykonywanych w złej wierze, ale z mniejszą dokładnością.</string>
-  <string name="patroller_tasks_filters_user_intent_likely_problems">Najprawdopodobniej w złej wierze</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems">Pawdopodobnie w złej wierze</string>
   <string name="patroller_tasks_filters_user_intent_likely_problems_desc">Ze średnią dokładnością wykrywa średnią część edycji dokonanych w złej wierze.</string>
   <string name="patroller_tasks_filters_user_intent_bad">Najprawdopodobniej w złej wierze</string>
   <string name="patroller_tasks_filters_user_intent_bad_desc">Bardzo wysoka trafność w wyszukiwaniu większości oczywistych edycji ze złymi zamiarami.</string>
@@ -1840,7 +1841,7 @@
   <string name="patroller_onboarding_two_thank_title">Podziękuj</string>
   <string name="patroller_onboarding_two_thank_content">Widzisz wartościową edycję? Podziękuj użytkownikowi za jego wkład.</string>
   <string name="patroller_onboarding_two_watch_title">Obserwuj</string>
-  <string name="patroller_onboarding_two_watch_content">Chcesz śledzić zmiany w artykule? Dodaj go do listy obserwowanych. Znajdziesz ją w sekcji „Więcej”.</string>
+  <string name="patroller_onboarding_two_watch_content">Chcesz śledzić zmiany w artykule? Dodaj go do listy obserwowanych. Znajdziesz ją w menu „Więcej”.</string>
   <string name="patroller_onboarding_two_talk_title">Dyskusja</string>
   <string name="patroller_onboarding_two_talk_content">Komunikuj się z innymi edytującymi. Zapisuj często używane wiadomości lub korzystaj z szablonów stron dyskusji.</string>
   <string name="patroller_onboarding_two_undo_title">Cofnij/wycofaj</string>
@@ -1886,9 +1887,9 @@
   <string name="donation_campaign_donated_snackbar">Dziękujemy, drogi Darczyńco! Dzięki Twojej hojności Wikipedia i inne projekty wolnej wiedzy mogą się stale rozwijać.</string>
   <string name="donation_campaign_go_back_button">Wróć</string>
   <string name="menu_single_webview_open_external">Otwórz w przeglądarce systemowej</string>
-  <string name="donate_gpay_dialog_title">Przekazać darowiznę za pomocą usługi Google Pay?</string>
-  <string name="donate_gpay_dialog_description">Przekaż darowiznę za pomocą usługi Google Pay lub wybierz inną metodę płatności.</string>
-  <string name="donate_gpay_dialog_pay_button">Przekaż darowiznę za pomocą usługi Google Pay</string>
+  <string name="donate_gpay_dialog_title">Przekazać darowiznę przez Google Pay?</string>
+  <string name="donate_gpay_dialog_description">Przekaż darowiznę przez Google Pay lub wybierz inną metodę płatności.</string>
+  <string name="donate_gpay_dialog_pay_button">Przekaż darowiznę przez Google Pay</string>
   <string name="donate_gpay_dialog_other_button">Inne metody płatności</string>
   <string name="donate_gpay_activity_title">Wybierz kwotę</string>
   <string name="donate_gpay_activity_title_with_currency">Wybierz kwotę (w %s)</string>
@@ -1950,8 +1951,8 @@
   <string name="on_this_day_game_progress">%1$d z %2$d</string>
   <string name="on_this_day_game_score">Wynik: %d</string>
   <string name="on_this_day_game_submit">Zatwierdź</string>
-  <string name="on_this_day_game_correct">Prawidłowo!</string>
-  <string name="on_this_day_game_incorrect">Nieprawidłowo!</string>
+  <string name="on_this_day_game_correct">Zgadza się!</string>
+  <string name="on_this_day_game_incorrect">Nie tym razem!</string>
   <string name="on_this_day_game_point">+1 punkt</string>
   <string name="on_this_day_game_next">Następne pytanie</string>
   <string name="on_this_day_game_finish">Końcowy wynik</string>
@@ -2068,11 +2069,624 @@
   <string name="year_in_review_login_dialog_body">Zalogowanie się zapewnia dostęp do spersonalizowanych statystyk. Bez logowania nadal możesz przeglądać ogólne statystyki.</string>
   <string name="year_in_review_login_dialog_positive">Zaloguj się / dołącz do Wikipedii</string>
   <string name="year_in_review_login_dialog_negative">Kontynuuj bez logowania</string>
+  <plurals name="year_in_review_slide_top_articles_headline">
+    <item quantity="one">Twój najpopularniejsze artykuł</item>
+    <item quantity="few">Twoje najpopularniejsze artykuły</item>
+    <item quantity="many">Twoje najpopularniejsze artykuły</item>
+    <item quantity="other">Twoje najpopularniejsze artykuły</item>
+  </plurals>
+  <plurals name="year_in_review_slide_top_articles_body">
+    <item quantity="one">Oto najczęściej odwiedzany przez Ciebie artykuł w %1$d roku: %2$s</item>
+    <item quantity="few">Oto najczęściej odwiedzane przez Ciebie artykuły w %1$d roku: %2$s</item>
+    <item quantity="many">Oto najczęściej odwiedzane przez Ciebie artykuły w %1$d roku: %2$s</item>
+    <item quantity="other">Oto najczęściej odwiedzane przez Ciebie artykuły w %1$d roku: %2$s</item>
+  </plurals>
+  <string name="year_in_review_slide_top_categories_headline">Twoje najpopularniejsze kategorie</string>
+  <string name="year_in_review_slide_top_categories_body">Kategorie grupują artykuły o podobnej tematyce. W %1$d roku najbardziej interesowały Cię artykuły z następujących kategorii: %2$s</string>
+  <string name="year_in_review_slide_most_read_english_articles_headline">Najczęściej czytane artykuły w angielskiej Wikipedii</string>
+  <plurals name="year_in_review_slide_most_read_english_articles_body">
+    <item quantity="one">Kiedy ludzie chcą dowiedzieć się czegoś o świecie, sięgają po Wikipedię. Oto najczęściej odwiedzany artykuł w angielskiej Wikipedii: %2$s &lt;br /&gt;Dowiedz się więcej z &lt;a href=\"%3$s\"&gt;naszego wpisu na blogu&lt;/a&gt;.</item>
+    <item quantity="few">Kiedy ludzie chcą dowiedzieć się czegoś o świecie, sięgają po Wikipedię. Oto %1$d najczęściej odwiedzanych artykułów w angielskiej Wikipedii: %2$s &lt;br /&gt;Dowiedz się więcej z &lt;a href=\"%3$s\"&gt;naszego wpisu na blogu&lt;/a&gt;.</item>
+    <item quantity="many">Kiedy ludzie chcą dowiedzieć się czegoś o świecie, sięgają po Wikipedię. Oto %1$d najczęściej odwiedzanych artykułów w angielskiej Wikipedii: %2$s &lt;br /&gt;Dowiedz się więcej z &lt;a href=\"%3$s\"&gt;naszego wpisu na blogu&lt;/a&gt;.</item>
+    <item quantity="other">Kiedy ludzie chcą dowiedzieć się czegoś o świecie, sięgają po Wikipedię. Oto %1$d najczęściej odwiedzanych artykułów w angielskiej Wikipedii: %2$s &lt;br /&gt;Dowiedz się więcej z &lt;a href=\"%3$s\"&gt;naszego wpisu na blogu&lt;/a&gt;.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edits_viewed_times_headline">
+    <item quantity="one">Twoja edycja została ostatnio wyświetlona ponad %,d razy</item>
+    <item quantity="few">Twoje edycje zostały ostatnio wyświetlone ponad %,d razy</item>
+    <item quantity="many">Twoje edycje zostały ostatnio wyświetlone ponad %,d razy</item>
+    <item quantity="other">Twoje edycje zostały ostatnio wyświetlone ponad %,d razy</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edits_viewed_times_body">
+    <item quantity="one">Osoby korzystające z Wikipedii na całym świecie doceniają Twój wkład. W ciągu ostatnich dwóch miesięcy edytowane przez Ciebie artykuły odnotowały łącznie %,d odsłonę. Dzięki takim osobom jak Ty Wikipedia jest stale rozwijanym, rzetelnym i opartym na faktach źródłem wiedzy dla całego świata.</item>
+    <item quantity="few">Osoby korzystające z Wikipedii na całym świecie doceniają Twój wkład. W ciągu ostatnich dwóch miesięcy edytowane przez Ciebie artykuły odnotowały łącznie %,d odsłony. Dzięki takim osobom jak Ty Wikipedia jest stale rozwijanym, rzetelnym i opartym na faktach źródłem wiedzy dla całego świata.</item>
+    <item quantity="many">Osoby korzystające z Wikipedii na całym świecie doceniają Twój wkład. W ciągu ostatnich dwóch miesięcy edytowane przez Ciebie artykuły odnotowały łącznie %,d odsłon. Dzięki takim osobom jak Ty Wikipedia jest stale rozwijanym, rzetelnym i opartym na faktach źródłem wiedzy dla całego świata.</item>
+    <item quantity="other">Osoby korzystające z Wikipedii na całym świecie doceniają Twój wkład. W ciągu ostatnich dwóch miesięcy edytowane przez Ciebie artykuły odnotowały łącznie %,d odsłony. Dzięki takim osobom jak Ty Wikipedia jest stale rozwijanym, rzetelnym i opartym na faktach źródłem wiedzy dla całego świata.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edited_per_minute_headline">
+    <item quantity="one">Wikipedia była edytowana średnio raz na minutę</item>
+    <item quantity="few">Wikipedia była edytowana średnio %,d razy na minutę</item>
+    <item quantity="many">Wikipedia była edytowana średnio %,d razy na minutę</item>
+    <item quantity="other">Wikipedia była edytowana średnio %,d razy na minutę</item>
+  </plurals>
+  <string name="year_in_review_slide_edited_per_minute_body">Artykuły są tworzone i doskonalone wspólnie w oparciu o wiarygodne źródła. Każdy z nas ma wiedzę, którą może się podzielić – &lt;a href=\"%s\"&gt;dowiedz się, jak możesz się do nas przyłączyć.&lt;/a&gt;</string>
+  <plurals name="year_in_review_slide_bytes_added_headline">
+    <item quantity="one">Dodano %,d bajt</item>
+    <item quantity="few">Dodano %,d bajty</item>
+    <item quantity="many">Dodano %,d bajtów</item>
+    <item quantity="other">Dodano %,d bajta</item>
+  </plurals>
+  <plurals name="year_in_review_slide_bytes_added_body">
+    <item quantity="one">W %1$d roku osoby zaangażowane w projekt dodały do angielskiej Wikipedii %2$,d bajt tekstu. Efektem ich wspólnej pracy jest stale ulepszane, rzetelne i oparte na faktach źródło wiedzy dostępne dla całego świata. Każdy z nas ma wiedzę, którą może się podzielić – &lt;a href=\"%3$s\"&gt;dowiedz się, jak możesz się do nas przyłączyć.&lt;/a&gt;</item>
+    <item quantity="few">W %1$d roku osoby zaangażowane w projekt dodały do angielskiej Wikipedii %2$,d bajty tekstu. Efektem ich wspólnej pracy jest stale ulepszane, rzetelne i oparte na faktach źródło wiedzy dostępne dla całego świata. Każdy z nas ma wiedzę, którą może się podzielić – &lt;a href=\"%3$s\"&gt;dowiedz się, jak możesz się do nas przyłączyć.</item>
+    <item quantity="many">W %1$d roku osoby zaangażowane w projekt dodały do angielskiej Wikipedii %2$,d bajtów tekstu. Efektem ich wspólnej pracy jest stale ulepszane, rzetelne i oparte na faktach źródło wiedzy dostępne dla całego świata. Każdy z nas ma wiedzę, którą może się podzielić – &lt;a href=\"%3$s\"&gt;dowiedz się, jak możesz się do nas przyłączyć.</item>
+    <item quantity="other">W %1$d roku osoby zaangażowane w projekt dodały do angielskiej Wikipedii %2$,d bajta tekstu. Efektem ich wspólnej pracy jest stale ulepszane, rzetelne i oparte na faktach źródło wiedzy dostępne dla całego świata. Każdy z nas ma wiedzę, którą może się podzielić – &lt;a href=\"%3$s\"&gt;dowiedz się, jak możesz się do nas przyłączyć.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edited_times_headline">
+    <item quantity="one">Udało Ci się dokonać jedną zmianę</item>
+    <item quantity="few">Udało Ci się dokonać %s zmiany</item>
+    <item quantity="many">Udało Ci się dokonać %s zmian</item>
+    <item quantity="other">Udało Ci się dokonać %s zmiany</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edited_times_body">
+    <item quantity="one">Dziękujemy za to, że jesteś jedną z wielu osób aktywnie uczestniczących w projektach Wikimedia na całym świecie. Dzięki takim osobom jak Ty udało się dokonać jedną zmianę w ponad 300 różnych wersjach językowych Wikipedii.</item>
+    <item quantity="few">Dziękujemy za to, że jesteś jedną z wielu osób aktywnie uczestniczących w projektach Wikimedia na całym świecie. Dzięki takim osobom jak Ty udało się dokonać %,d zmiany w ponad 300 różnych wersjach językowych Wikipedii.</item>
+    <item quantity="many">Dziękujemy za to, że jesteś jedną z wielu osób aktywnie uczestniczących w projektach Wikimedia na całym świecie. Dzięki takim osobom jak Ty udało się dokonać %,d zmian w ponad 300 różnych wersjach językowych Wikipedii.</item>
+    <item quantity="other">Dziękujemy za to, że jesteś jedną z wielu osób aktywnie uczestniczących w projektach Wikimedia na całym świecie. Dzięki takim osobom jak Ty udało się dokonać %,d zmiany w ponad 300 różnych wersjach językowych Wikipedii.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_app_edited_times_headline">
+    <item quantity="one">Redaktorzy korzystający z oficjalnych aplikacji Wikipedii dokonali jedną edycję</item>
+    <item quantity="few">Redaktorzy korzystający z oficjalnych aplikacji Wikipedii dokonali %,d edycje</item>
+    <item quantity="many">Redaktorzy korzystający z oficjalnych aplikacji Wikipedii dokonali %,d edycji</item>
+    <item quantity="other">Redaktorzy korzystający z oficjalnych aplikacji Wikipedii dokonali %,d edycji</item>
+  </plurals>
+  <string name="year_in_review_slide_app_edited_times_body">Sercem i duszą Wikipedii jest nasza globalna społeczność wolontariuszy, darczyńców oraz miliardów czytających takich jak Ty – połączonych wspólnym celem, jakim jest zapewnienie nieograniczonego dostępu do rzetelnych informacji.</string>
+  <plurals name="year_in_review_slide_english_edited_times_headline">
+    <item quantity="one">W tym roku redaktorzy dokonali jedną zmianę</item>
+    <item quantity="few">W tym roku redaktorzy dokonali %,d zmiany</item>
+    <item quantity="many">W tym roku redaktorzy dokonali %,d zmian</item>
+    <item quantity="other">W tym roku redaktorzy dokonali %,d zmiany</item>
+  </plurals>
+  <string name="year_in_review_slide_english_edited_times_body_first">{{PLURAL|one=Wolontariusze dokonali jedną zmianę w ponad 300 różnych wersjach językowych Wikipedii.|few=Wolontariusze dokonali %,d zmiany w ponad 300 różnych wersjach językowych Wikipedii.|many=Wolontariusze dokonali %,d zmian w ponad 300 różnych wersjach językowych Wikipedii.|Wolontariusze dokonali %,d zmiany w ponad 300 różnych wersjach językowych Wikipedii.}</string>
+  <plurals name="year_in_review_slide_english_edited_times_body_second">
+    <item quantity="one">W angielskiej Wikipedii dokonano jedną zmianę. Każdą godzinę każdego dnia wolontariusze pracują nad ulepszaniem Wikipedii.</item>
+    <item quantity="few">W angielskiej Wikipedii dokonano %,d zmiany. Każdą godzinę każdego dnia wolontariusze pracują nad ulepszaniem Wikipedii.</item>
+    <item quantity="many">W angielskiej Wikipedii dokonano %,d zmian. Każdą godzinę każdego dnia wolontariusze pracują nad ulepszaniem Wikipedii.</item>
+    <item quantity="other">W angielskiej Wikipedii dokonano %,d zmiany. Każdą godzinę każdego dnia wolontariusze pracują nad ulepszaniem Wikipedii.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_saved_articles_headline">
+    <item quantity="one">Udało Ci się zapisać jeden artykuł</item>
+    <item quantity="few">Udało Ci się zapisać %,d artykuły</item>
+    <item quantity="many">Udało Ci się zapisać %,d artykułów</item>
+    <item quantity="other">Udało Ci się zapisać %,d artykułu</item>
+  </plurals>
+  <plurals name="year_in_review_slide_saved_articles_body">
+    <item quantity="one">Wśród nich znalazły się między innymi &lt;b&gt;%1$s&lt;/b&gt;, &lt;b&gt;%2$s&lt;/b&gt; oraz &lt;b&gt;%3$s&lt;/b&gt;. Każdy zapisany artykuł odzwierciedla Twoje zainteresowania i pomaga budować spersonalizowaną bazę wiedzy w Wikipedii.&lt;br /&gt;&lt;br /&gt;Aktywne osoby korzystające z aplikacji zapisały w tym roku łącznie jeden artykuł.</item>
+    <item quantity="few">Wśród nich znalazły się między innymi &lt;b&gt;%1$s&lt;/b&gt;, &lt;b&gt;%2$s&lt;/b&gt; oraz &lt;b&gt;%3$s&lt;/b&gt;. Każdy zapisany artykuł odzwierciedla Twoje zainteresowania i pomaga budować spersonalizowaną bazę wiedzy w Wikipedii.&lt;br /&gt;&lt;br /&gt;Aktywne osoby korzystające z aplikacji zapisały w tym roku łącznie %4$,d artykuły.</item>
+    <item quantity="many">Wśród nich znalazły się między innymi &lt;b&gt;%1$s&lt;/b&gt;, &lt;b&gt;%2$s&lt;/b&gt; oraz &lt;b&gt;%3$s&lt;/b&gt;. Każdy zapisany artykuł odzwierciedla Twoje zainteresowania i pomaga budować spersonalizowaną bazę wiedzy w Wikipedii.&lt;br /&gt;&lt;br /&gt;Aktywne osoby korzystające z aplikacji zapisały w tym roku łącznie %4$,d artykułów.</item>
+    <item quantity="other">Wśród nich znalazły się między innymi &lt;b&gt;%1$s&lt;/b&gt;, &lt;b&gt;%2$s&lt;/b&gt; oraz &lt;b&gt;%3$s&lt;/b&gt;. Każdy zapisany artykuł odzwierciedla Twoje zainteresowania i pomaga budować spersonalizowaną bazę wiedzy w Wikipedii.&lt;br /&gt;&lt;br /&gt;Aktywne osoby korzystające z aplikacji zapisały w tym roku łącznie %4$,d artykułu.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_global_saved_articles_headline">
+    <item quantity="one">Osoby korzystające z aplikacji zapisały w tym roku jeden artykuł.</item>
+    <item quantity="few">Osoby korzystające z aplikacji zapisały w tym roku %,d artykuły.</item>
+    <item quantity="many">Osoby korzystające z aplikacji zapisały w tym roku %,d artykułów.</item>
+    <item quantity="other">Osoby korzystające z aplikacji zapisały w tym roku %,d artykułu.</item>
+  </plurals>
+  <string name="year_in_review_slide_global_saved_articles_body">Dodawanie artykułów do listy do przeczytania umożliwia dostęp do nich nawet gdy nie masz połączenia z Internetem. Możesz też zalogować się, aby zsynchronizować listy do przeczytania na różnych urządzeniach.</string>
+  <string name="year_in_review_slide_reading_patterns_headline">Masz wyraźne nawyki czytelnicze</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_time">Ulubiona pora na czytanie</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_day">Ulubiony dzień na czytanie</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_month">Miesiąc z największą liczbą przeczytanych artykułów</string>
+  <string name="year_in_review_slide_reading_pattern_morning">Rano</string>
+  <string name="year_in_review_slide_reading_pattern_midday">W południe</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon">Po południu</string>
+  <string name="year_in_review_slide_reading_pattern_evening">Wieczorem</string>
+  <string name="year_in_review_slide_reading_pattern_night">W nocy</string>
+  <string name="year_in_review_slide_reading_pattern_late_night">Późną nocą</string>
+  <plurals name="year_in_review_slide_english_reading_hours_headline">
+    <item quantity="one">Spędziliśmy godzinę na czytaniu</item>
+    <item quantity="few">Spędziliśmy %,d godziny na czytaniu</item>
+    <item quantity="many">Spędziliśmy %,d godzin na czytaniu</item>
+    <item quantity="other">Spędziliśmy %,d godziny na czytaniu</item>
+  </plurals>
+  <plurals name="year_in_review_slide_english_reading_hours_body_first">
+    <item quantity="one">Inne osoby spędziły szacunkowo jedną godzinę</item>
+    <item quantity="few">Inne osoby spędziły szacunkowo %,d godziny</item>
+    <item quantity="many">Inne osoby spędziły szacunkowo %,d godzin</item>
+    <item quantity="other">Inne osoby spędziły szacunkowo %,d godziny</item>
+  </plurals>
+  <plurals name="year_in_review_slide_english_reading_hours_body_second">
+    <item quantity="one">— czyli około %1$,d roku! — na czytaniu angielskiej Wikipedii w %2$d roku. Wikipedia jest zawsze pod ręką, gdy chcesz dowiedzieć się czegoś o naszym zmieniającym się świecie, wygrać zakład ze znajomymi lub odpowiedzieć na pytanie ciekawskiego dziecka.</item>
+    <item quantity="few">— czyli około %1$,d lata! — na czytaniu angielskiej Wikipedii w %2$d roku. Wikipedia jest zawsze pod ręką, gdy chcesz dowiedzieć się czegoś o naszym zmieniającym się świecie, wygrać zakład ze znajomymi lub odpowiedzieć na pytanie ciekawskiego dziecka.</item>
+    <item quantity="many">— czyli około %1$,d lat! — na czytaniu angielskiej Wikipedii w %2$d roku. Wikipedia jest zawsze pod ręką, gdy chcesz dowiedzieć się czegoś o naszym zmieniającym się świecie, wygrać zakład ze znajomymi lub odpowiedzieć na pytanie ciekawskiego dziecka.</item>
+    <item quantity="other"> — czyli około %1$,d roku! — na czytaniu angielskiej Wikipedii w %2$d roku. Wikipedia jest zawsze pod ręką, gdy chcesz dowiedzieć się czegoś o naszym zmieniającym się świecie, wygrać zakład ze znajomymi lub odpowiedzieć na pytanie ciekawskiego dziecka.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_available_languages_headline">
+    <item quantity="one">Wikipedia była dostępna w ponad %,d języku</item>
+    <item quantity="few">Wikipedia była dostępna w ponad %,d językach</item>
+    <item quantity="many">Wikipedia była dostępna w ponad %,d językach</item>
+    <item quantity="other">Wikipedia była dostępna w ponad %,d języku</item>
+  </plurals>
+  <plurals name="year_in_review_slide_available_languages_body_first">
+    <item quantity="one">Wikipedia miała w tym roku jeden artykuł</item>
+    <item quantity="few">Wikipedia miała w tym roku %,d artykuły</item>
+    <item quantity="many">Wikipedia miała w tym roku %,d artykułów</item>
+    <item quantity="other">Wikipedia miała w tym roku %,d artykułu</item>
+  </plurals>
+  <plurals name="year_in_review_slide_available_languages_body_second">
+    <item quantity="one">w ponad jednym aktywnym języku. Dołączasz do milionów osób poszerzających wiedzę i odkrywających różnorodne tematy.</item>
+    <item quantity="few">w ponad %,d aktywnych językach. Dołączasz do milionów osób poszerzających wiedzę i odkrywających różnorodne tematy.</item>
+    <item quantity="many">w ponad %,d aktywnych językach. Dołączasz do milionów osób poszerzających wiedzę i odkrywających różnorodne tematy.</item>
+    <item quantity="other">w ponad %,d aktywnym języku. Dołączasz do milionów osób poszerzających wiedzę i odkrywających różnorodne tematy.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_headline_first">
+    <item quantity="one">Udało Ci się poświęcić jedną minutę</item>
+    <item quantity="few">Udało Ci się poświęcić %,d minuty</item>
+    <item quantity="many">Udało Ci się poświęcić %,d minut</item>
+    <item quantity="other">Udało Ci się poświęcić %,d minuty</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_headline_second">
+    <item quantity="one">na przeczytanie jednego artykułu w %2$d roku</item>
+    <item quantity="few">na przeczytanie %1$,d artykułów w %2$d roku</item>
+    <item quantity="many">na przeczytanie %1$,d artykułów w %2$d roku</item>
+    <item quantity="other">na przeczytanie %1$,d artykułu w %2$d roku</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_top">
+    <item quantity="one">Szacujemy, że plasuje Cię to w w gronie %1$s%% najaktywniejszych czytelników Wikipedii na całym świecie. Przeciętna osoba czyta jeden artykuł rocznie.</item>
+    <item quantity="few">Szacujemy, że plasuje Cię to w w gronie %1$s%% najaktywniejszych czytelników Wikipedii na całym świecie. Przeciętna osoba czyta %2$,d artykuły rocznie.</item>
+    <item quantity="many">Szacujemy, że plasuje Cię to w w gronie %1$s%% najaktywniejszych czytelników Wikipedii na całym świecie. Przeciętna osoba czyta %2$,d artykułów rocznie.</item>
+    <item quantity="other">Szacujemy, że plasuje Cię to w w gronie %1$s%% najaktywniejszych czytelników Wikipedii na całym świecie. Przeciętna osoba czyta %2$,d artykułu rocznie.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_global_first">
+    <item quantity="one">Wikipedia miała w tym roku jeden artykuł</item>
+    <item quantity="few">Wikipedia miała w tym roku %,d artykuły</item>
+    <item quantity="many">Wikipedia miała w tym roku %,d artykułów</item>
+    <item quantity="other">Wikipedia miała w tym roku %,d artykułu</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_global_second">
+    <item quantity="one">w ponad jednym aktywnym języku. Dołączasz do milionów osób poszerzających wiedzę i odkrywających różnorodne tematy.</item>
+    <item quantity="few">w ponad %,d aktywnych językach. Dołączasz do milionów osób poszerzających wiedzę i odkrywających różnorodne tematy.</item>
+    <item quantity="many">w ponad %,d aktywnych językach. Dołączasz do milionów osób poszerzających wiedzę i odkrywających różnorodne tematy.</item>
+    <item quantity="other">w ponad %,d aktywnym języku. Dołączasz do milionów osób poszerzających wiedzę i odkrywających różnorodne tematy.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_english_first">
+    <item quantity="one">Inne osoby spędziły szacunkowo jedną godzinę</item>
+    <item quantity="few">Inne osoby spędziły szacunkowo %,d godziny</item>
+    <item quantity="many">Inne osoby spędziły szacunkowo %,d godzin</item>
+    <item quantity="other">Inne osoby spędziły szacunkowo %,d godziny</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_english_second">
+    <item quantity="one">— czyli około %1$,d roku! — na czytaniu angielskiej Wikipedii w %2$d roku.</item>
+    <item quantity="few">— czyli około %1$,d lata! — na czytaniu angielskiej Wikipedii w %2$d roku.</item>
+    <item quantity="many">— czyli około %1$,d lat! — na czytaniu angielskiej Wikipedii w %2$d roku.</item>
+    <item quantity="other"> — czyli około %1$,d roku! — na czytaniu angielskiej Wikipedii w %2$d roku.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_viewed_articles_times_headline">
+    <item quantity="one">Osoby korzystające z aplikacji przeczytały jeden artykuł z Wikipedii.</item>
+    <item quantity="few">Osoby korzystające z aplikacji przeczytały %,d artykuły z Wikipedii.</item>
+    <item quantity="many">Osoby korzystające z aplikacji przeczytały %,d artykułów z Wikipedii.</item>
+    <item quantity="other">Osoby korzystające z aplikacji przeczytały %,d artykułu z Wikipedii.</item>
+  </plurals>
+  <string name="year_in_review_slide_viewed_articles_times_body">Dla ludzi na całym świecie Wikipedia jest pierwszym miejscem, do którego sięgają, gdy chcą znaleźć odpowiedź na nurtujące ich pytanie, poszukać informacji do wykorzystania w szkole lub w pracy albo dowiedzieć się czegoś nowego.</string>
+  <string name="year_in_review_reading_list_dialog_title">Utworzyć listę do przeczytania w ramach podsumowania roku %d?</string>
+  <string name="year_in_review_reading_list_dialog_message">W ramach podsumowania roku w Wikipedii zostanie utworzona lista artykułów czytanych przez Ciebie najdłużej w %1$d roku. &lt;a href=\"%2$s\"&gt;Dowiedz się więcej&lt;/a&gt;</string>
+  <string name="year_in_review_reading_list_dialog_positive_button_label">Utwórz</string>
+  <string name="year_in_review_reading_list_dialog_negative_button_label">Nie, dziękuję</string>
+  <string name="year_in_review_reading_list_title">Podsumowanie roku %d</string>
+  <string name="year_in_review_reading_list_description">Przygotowana dla %1$s. Artykuły czytane przez Ciebie najdłużej w %2$d roku.</string>
+  <string name="year_in_review_highlights_thank_you_message">Dziękujemy za spędzenie tego roku z Wikipedią.</string>
+  <string name="year_in_review_highlights_looking_forward_message">Nie możemy się doczekać przyszłego roku!</string>
+  <plurals name="year_in_review_highlights_logged_out_en_most_read_title">
+    <item quantity="one">Najczęściej czytany artykuł w angielskiej Wikipedii</item>
+    <item quantity="few">Najczęściej czytane artykuły w angielskiej Wikipedii</item>
+    <item quantity="many">Najczęściej czytane artykuły w angielskiej Wikipedii</item>
+    <item quantity="other">Najczęściej czytane artykuły w angielskiej Wikipedii</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_en_hours_spent_title">
+    <item quantity="one">Liczba godzin spędzonych na czytaniu</item>
+    <item quantity="few">Liczba godzin spędzonych na czytaniu</item>
+    <item quantity="many">Liczba godzin spędzonych na czytaniu</item>
+    <item quantity="other">Liczba godzin spędzonych na czytaniu</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_en_edits_title">
+    <item quantity="one">Liczba edycji dokonanych przez redaktorów</item>
+    <item quantity="few">Liczba zmian dokonanych przez redaktorów</item>
+    <item quantity="many">Liczba zmian dokonanych przez redaktorów</item>
+    <item quantity="other">Liczba edycji dokonanych przez redaktorów</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_non_en_articles_title">
+    <item quantity="one">Liczba przeglądanych artykułów</item>
+    <item quantity="few">Liczba przeglądanych artykułów</item>
+    <item quantity="many">Liczba przeglądanych artykułów</item>
+    <item quantity="other">Liczba przeglądanych artykułów</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_non_en_edits_title">
+    <item quantity="one">Liczba edycji wykonanych w aplikacji</item>
+    <item quantity="few">Liczba edycji wykonanych w aplikacji</item>
+    <item quantity="many">Liczba edycji wykonanych w aplikacji</item>
+    <item quantity="other">Liczba edycji wykonanych w aplikacji</item>
+  </plurals>
+  <string name="year_in_review_highlights_logged_out_non_en_wikipedia_edited_title">Jak często edytowano Wikipedię?</string>
+  <plurals name="year_in_review_highlights_logged_out_non_en_wikipedia_per_minute_label">
+    <item quantity="one">Raz na minutę</item>
+    <item quantity="few">%d razy na minutę</item>
+    <item quantity="many">%d razy na minutę</item>
+    <item quantity="other">%d razy na minutę</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_most_read_article_title">
+    <item quantity="one">Najczęściej czytany przeze mnie artykuł</item>
+    <item quantity="few">Najczęściej czytane przeze mnie artykuły</item>
+    <item quantity="many">Najczęściej czytane przeze mnie artykuły</item>
+    <item quantity="other">Najczęściej czytane przeze mnie artykuły</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_minutes_read_title">
+    <item quantity="one">Minuty spędzone na czytaniu</item>
+    <item quantity="few">Minuty spędzone na czytaniu</item>
+    <item quantity="many">Minuty spędzone na czytaniu</item>
+    <item quantity="other">Minuty spędzone na czytaniu</item>
+  </plurals>
+  <string name="year_in_review_highlights_logged_in_favorite_day_title">Ulubiony dzień na czytanie</string>
+  <plurals name="year_in_review_highlights_logged_in_articles_read_title">
+    <item quantity="one">Przeczytanych artykułów</item>
+    <item quantity="few">Przeczytanych artykułów</item>
+    <item quantity="many">Przeczytanych artykułów</item>
+    <item quantity="other">Przeczytanych artykułów</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_articles_interested_categories_title">
+    <item quantity="one">Kategorie, które mnie zainteresowała</item>
+    <item quantity="few">Kategorie, które mnie zainteresowały</item>
+    <item quantity="many">Kategorie, które mnie zainteresowały</item>
+    <item quantity="other">Kategorie, które mnie zainteresowały</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_total_edits_title">
+    <item quantity="one">Liczba edycji</item>
+    <item quantity="few">Liczba edycji</item>
+    <item quantity="many">Liczba edycji</item>
+    <item quantity="other">Liczba edycji</item>
+  </plurals>
+  <string name="year_in_review_highlights_share_button_title">Udostępnij podsumowanie</string>
+  <string name="year_in_review_highlights_logo_description">Logo Wikipedii</string>
+  <string name="recommended_reading_list_title">Odkrywaj</string>
+  <string name="recommended_reading_list_onboarding_card_title">Odkryj artykuły wybrane specjalnie dla Ciebie</string>
+  <string name="recommended_reading_list_onboarding_card_message">Twoja cotygodniowa lista artykułów z Wikipedii, przygotowana specjalnie dla Ciebie.</string>
+  <string name="recommended_reading_list_onboarding_card_new">Nowa!</string>
+  <string name="recommended_reading_list_onboarding_card_positive_button">Rozpocznij</string>
+  <string name="recommended_reading_list_onboarding_card_negative_button">Nie, dziękuję</string>
+  <string name="recommended_reading_list_onboarding_card_negative_snackbar">Aby skonfigurować listę polecanych artykułów, przejdź do ustawień.</string>
+  <string name="recommended_reading_list_interest_source_message">Jak przygotować Twoją listę polecanych artykułów?</string>
+  <string name="recommended_reading_list_interest_source_interests">Wybiorę na podstawie moich zainteresowań</string>
+  <string name="recommended_reading_list_interest_source_saved">Wybierz za mnie na podstawie zapisanych artykułów</string>
+  <string name="recommended_reading_list_interest_source_history">Wybierz za mnie na podstawie historii przeglądania</string>
+  <string name="recommended_reading_list_interest_pick_title">Czym się interesujesz?</string>
+  <string name="recommended_reading_list_interest_pick_search_hint">Wyszukaj artykuł</string>
+  <plurals name="recommended_reading_list_interest_pick_selected_articles">
+    <item quantity="one">%d wybrany</item>
+    <item quantity="few">%d wybrane</item>
+    <item quantity="many">%d wybranych</item>
+    <item quantity="other">%d wybranego</item>
+  </plurals>
+  <string name="recommended_reading_list_interest_select_minimum">Wybierz co najmniej jeden artykuł</string>
+  <string name="recommended_reading_list_interest_pick_random_button_content_description">Wybierz losowo</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar">Wybraliśmy dla Ciebie losowo kilka artykułów.</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar_action">Cofnij</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_title">Czy na pewno chcesz wylosować swoje zainteresowania?</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_message">Spowoduje to usunięcie aktualnych zaznaczeń i losowe wybranie nowych artykułów.</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_positive_button">Tak, wybierz za mnie</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_negative_button">Anuluj</string>
+  <string name="recommended_reading_list_page_subtitle_made_for">Przygotowana dla %s</string>
+  <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">Przygotowana dla Ciebie</string>
+  <plurals name="recommended_reading_list_page_subtitle_articles">
+    <item quantity="one">• $d artykuł</item>
+    <item quantity="few">• %d artykuły</item>
+    <item quantity="many">• %d artykułów</item>
+    <item quantity="other">• %d artykułu</item>
+  </plurals>
+  <string name="recommended_reading_list_page_description_daily">Twoja codzienna lista artykułów do przeczytania. Poznaj nowe tematy, przygotowane specjalnie dla Ciebie. Aktualizuje się o północy.</string>
+  <string name="recommended_reading_list_page_description_weekly">Twoja cotygodniowa lista artykułów do przeczytania. Poznaj nowe tematy, przygotowane specjalnie dla Ciebie. Aktualizuje się na początku tygodnia.</string>
+  <string name="recommended_reading_list_page_description_monthly">Twoja comiesięczna lista artykułów do przeczytania. Poznaj nowe tematy, przygotowane specjalnie dla Ciebie. Aktualizuje się pierwszego dnia każdego miesiąca.</string>
+  <string name="recommended_reading_list_page_overflow_customize">Dostosuj</string>
+  <string name="recommended_reading_list_page_overflow_about">O tej funkcji</string>
+  <string name="recommended_reading_list_page_snackbar">Sekcja „Odkrywaj” będzie %1$d uzupełniana o %2$s nowych artykułów. Twoje rekomendacje są zapisywane lokalnie na Twoim urządzeniu.</string>
+  <string name="recommended_reading_list_page_snackbar_action">Dostosuj funkcję „Odkrywaj”</string>
+  <string name="recommended_reading_list_page_snackbar_day">codziennie</string>
+  <string name="recommended_reading_list_page_snackbar_week">co tydzień</string>
+  <string name="recommended_reading_list_page_snackbar_month">co miesiąc</string>
+  <string name="recommended_reading_list_settings_section_header">Rekomendacje</string>
+  <string name="recommended_reading_list_settings_title">Ustawienia funkcji „Odkrywaj”</string>
+  <string name="recommended_reading_list_settings_toggle">Lista polecanych artykułów</string>
+  <string name="recommended_reading_list_settings_toggle_disable_message">Funkcja „Odkrywaj” jest wyłączona. Wikipedia nie będzie Ci polecać artykułów do przeczytania.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_title">Wyłączyć funkcję „Odkrywaj”</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_message">Jeśli wyłączysz funkcję „Odkrywaj”, przestaniesz otrzymywać %s listę polecanych artykułów z Wikipedii.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">Wyłącz ją</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_negative_button">Nie, pozostaw włączoną</string>
+  <string name="recommended_reading_list_settings_turn_off_snackbar">Funkcja „Odkrywaj” została wyłączona. Możesz w dowolnym momencie włączyć ją ponownie w ustawieniach.</string>
+  <string name="recommended_reading_list_settings_articles">artykułów</string>
+  <string name="recommended_reading_list_settings_updates_frequency">Aktualizacje %s</string>
+  <string name="recommended_reading_list_settings_updates_frequency_daily">codziennie</string>
+  <string name="recommended_reading_list_settings_updates_frequency_weekly">co tydzień</string>
+  <string name="recommended_reading_list_settings_updates_frequency_monthly">co miesiąc</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">Codziennie</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">Co tydzień</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">Co miesiąc</string>
+  <string name="recommended_reading_list_settings_updates_base_title">Jak działa funkcja „Odkrywaj”</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_interests">Na podstawie moich zainteresowań</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_saved">Na podstawie moich zapisanych artykułów</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_history">Na podstawie mojej historii przeglądania</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_title">Dostosować działanie funkcji „Odkrywaj”?</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_message">Jeśli dostosujesz sposób tworzenia rekomendacji przez funkcję „Odkrywaj”, Twoje aktualne rekomendacje zostaną zastąpione.</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_positive_button">Dostosuj</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_negative_button">Anuluj</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_interests">Rekomendacje są teraz dostosowane do Twoich zainteresowań.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_saved">Rekomendacje są teraz dostosowane do Twoich zapisanych artykułów.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_history">Rekomendacje są teraz dostosowane do Twojej historii prezglądania.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_action">Cofnij</string>
+  <string name="recommended_reading_list_settings_interests">Zainteresowania</string>
+  <string name="recommended_reading_list_settings_notifications_title">Powiadomienia</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle">Wikipedia nie będzie wysyłać Ci powiadomień, gdy funkcja „Odkrywaj” zostanie zaktualizowana.</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle_disable">Powiadomienia dotyczące funkcji „Odkrywaj” są wyłączone. Nie będziesz otrzymywać powiadomień, gdy funkcja „Odkrywaj” zostanie zaktualizowana.</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_title">Wyłączyć powiadomienia?</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_message">Jeśli wyłączysz powiadomienia, nie będziesz już otrzymywać przypomnień o aktualizacjach funkcji „Odkrywaj”.</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Wyłącz je</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Nie, pozostaw je włączone</string>
+  <string name="recommended_reading_list_notification_title">Twoja lista polecanych artykułów aktualizowana %s jest już gotowa.</string>
+  <string name="recommended_reading_list_notification_subtitle">Kliknij, aby zobaczyć najnowsze rekomendacje.</string>
+  <string name="recommended_reading_list_settings_notification_subtitle_enable">Gdy funkcja „Odkrywaj” zostanie zaktualizowana, Wikipedia wyśle Ci powiadomienie.</string>
+  <string name="recommended_reading_list_settings_toggle_enable_message">Funkcja „Odkrywaj” jest włączona. Wikipedia będzie Ci polecać artykuły do przeczytania.</string>
+  <string name="donation_reminders_prompt_dismiss_snackbar">Przypomnienia o darowiznach można zmienić w dowolnym momencie w ustawieniach.</string>
+  <string name="donation_settings_section_header">Darowizny</string>
+  <string name="donation_reminders_settings_title">Jak mamy Ci przypominać?</string>
+  <string name="donation_reminders_settings_option_title">Przypomnienia o darowiznach</string>
+  <string name="donation_reminders_settings_thank_you_message">Twoja hojność pomaga Wikipedii się rozwijać. Skonfiguruj przypomnienia o darowiznach na podstawie liczby przeczytanych artykułów.</string>
+  <string name="donation_reminders_settings_donation_info">Darowizny trafiają do Wikimedia Foundation i jej podmiotów stowarzyszonych, które z dumą prowadzą Wikipedię i inne projekty zapewniające swobodny dostęp do wiedzy.</string>
+  <string name="donation_reminders_settings_article_frequency_label">Kiedy przeczytam</string>
+  <string name="donation_reminders_settings_amount_label">Przypomnij mi o przekazaniu</string>
+  <string name="donation_reminders_settings_confirm_btn_label">Potwierdź przypomnienie</string>
+  <string name="donation_reminders_settings_about_experiment_btn_label">O tym eksperymencie</string>
+  <string name="donation_reminders_settings_article_frequency_input_suffix_label">artykułów</string>
+  <string name="donation_reminders_settings_warning_min_amount">Wpisz co najmniej %s</string>
+  <string name="donation_reminders_settings_warning_max_amount">Dopuszczalna maksymalna kwota to %s</string>
+  <string name="donation_reminders_settings_option_custom">Niestandardowa…</string>
+  <string name="donation_reminders_snacbkbar_confirmation_label">Dziękujemy! Przypomnimy Ci o przekazaniu darowizny w wysokości %1$s, gdy przeczytasz %2$s w trakcie trwania tego eksperymentu.</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title">Liczba przeczytanych artykułów od momentu zadeklarowania darowizny w wysokości %1$s: %2$s.</string>
+  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">Kolejne %1$s już przeczytane.</string>
+  <string name="donation_reminders_prompt_message">W dniu %1$s ustawiono przypomnienia o darowiznach w wysokości %3$s za każde przeczytane %2$s. Czy chcesz podtrzymać swoją obietnicę wsparcia Wikipedii?</string>
+  <string name="donation_reminders_prompt_positive_button">Przekaż teraz</string>
+  <string name="donation_reminders_prompt_negative_button">Nie teraz</string>
+  <string name="donation_reminders_gpay_text">Przekaż darowiznę w wysokości %s przez Google Pay</string>
+  <string name="donation_reminders_gpay_different_amount_text">Przekaż darowiznę w innej wysokości przez Google Pay</string>
+  <string name="donation_reminders_settings_description_on">Przypomnienia o darowiznach są włączone. Wikipedia będzie przypominać Ci o przekazaniu darowizny w wysokości %1$s za każde przeczytane %2$s w trakcie trwania tego eksperymentu.</string>
+  <string name="donation_reminders_settings_description_off">Przypomnienia o darowiznach są wyłączone.</string>
+  <string name="donation_reminders_settings_tooltip_info_label">Liczba przeczytanych artykułów jest zapisywana lokalnie na Twoim urządzeniu</string>
+  <plurals name="donation_reminders_text_articles">
+    <item quantity="one">1 artykuł</item>
+    <item quantity="few">%d artykuły</item>
+    <item quantity="many">%d artykułów</item>
+    <item quantity="other">%d artykułu</item>
+  </plurals>
+  <string name="donation_reminders_settings_no_thanks_btn_label">Nie, dziękuję</string>
+  <string name="donation_reminders_experiment_label">EKSPERYMENT</string>
+  <string name="donation_reminders_settings_learn_more_button">Dowiedz się więcej</string>
+  <string name="donation_reminders_settings_report_button">Zgłoś problem z funkcją</string>
+  <string name="donation_reminders_settings_report_email_subject">Zgłoszenie problemu – funkcja przypominania o darowiznach</string>
+  <string name="donation_reminders_settings_report_email_body">Problem dotyczy funkcji przypominania o darowiznach:\n- [Opisz szczegółowo problem]\n- [Załącz zrzuty ekranu lub linki]\n\nOczekuję, że funkcja będzie działać w następujący sposób:\n- [Opisz proponowane rozwiązanie]</string>
+  <string name="donation_reminders_snackbar_modify_button_label">Zmień</string>
+  <string name="hybrid_search_search_hint">Wyszukaj lub zapytaj o cokolwiek</string>
+  <string name="hybrid_search_article_search_hint">Zapytaj o %s</string>
+  <string name="hybrid_search_suggestion_title">Wyszukaj:</string>
+  <string name="hybrid_search_onboarding_learn_more">Dowiedz się więcej</string>
+  <string name="hybrid_search_onboarding_search_title">Zadawaj pytania, uzyskuj odpowiedzi</string>
+  <string name="hybrid_search_onboarding_search_description">Ta funkcja eksperymentalna rozumie język naturalny. Zamiast wyszukiwać słowa kluczowe, opisz, co chcesz wiedzieć.</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_title">Funkcja eksperymentalna</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_description">Dostępna przez ograniczony czas w ramach tego eksperymentu.</string>
+  <string name="hybrid_search_beta_tag">Beta</string>
+  <string name="hybrid_search_experimental_feature_switch_label">Dołącz do eksperymentu</string>
+  <string name="hybrid_search_onboarding_search_example_title">Potrzebujesz inspiracji?</string>
+  <string name="hybrid_search_onboarding_search_example_description">Skorzystaj z jednego z poniższych przykładów.</string>
+  <string name="hybrid_search_onboarding_opt_out_toast_message">Nie bierzesz udziału w eksperymencie.</string>
+  <string name="hybrid_search_onboarding_search_example_query_pluto_as_planet">Kiedy Pluton stracił status planety?</string>
+  <string name="hybrid_search_onboarding_search_example_query_first_olympics">pierwsze igrzyska olimpijskie</string>
+  <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">RNA a DNA</string>
+  <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Dlaczego ludzie dodają ananasa do pizzy?</string>
+  <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Jakie są największe miasta w Europie?</string>
+  <string name="hybrid_search_onboarding_screen_title">Wyszukuj po nowemu</string>
+  <string name="hybrid_search_results_header_description">Na podstawie artykułów z Wikipedii napisanych przez ludzi</string>
+  <string name="hybrid_search_results_rate_label">Oceń ten wynik</string>
+  <string name="hybrid_search_results_rated_label">Oceniono</string>
+  <string name="hybrid_search_results_rate_thumb_up">Oceń pozytywnie</string>
+  <string name="hybrid_search_results_rate_thumb_down">Oceń negatywnie</string>
+  <string name="hybrid_lexical_search_results_empty">Nie znaleziono żadnego tytułu artykułu pasującego do tego zapytania.</string>
+  <string name="hybrid_search_results_empty">Wyszukiwanie rozszerzone jest chwilowo niedostępne.</string>
+  <string name="hybrid_search_no_results_header">Brak wyników</string>
+  <string name="hybrid_search_no_results_description">Ten temat nie zwraca obecnie żadnych fragmentów artykułów. Oto kilka rzeczy, które możesz spróbować:</string>
+  <string name="hybrid_search_no_results_suggestion_rephrase_text">sformułuj zapytanie inaczej,</string>
+  <string name="hybrid_search_no_results_suggestion_try_related_topic">spróbuj wpisać powiązany temat.</string>
+  <string name="hybrid_search_error_message">Coś poszło nie tak. Spróbuj ponownie później.</string>
+  <string name="hybrid_search_who_is_prefix">Kim jest %s?</string>
+  <string name="hybrid_search_turn_off_experiment_label">Wyłącz ten eksperyment</string>
+  <string name="reading_challenge_widget_name">Wyzwanie czytelnicze</string>
+  <string name="reading_challenge_onboarding_header">Świętuj 25. urodziny Wikipedii, dołączając do 25-dniowego wyzwania czytelniczego!</string>
+  <string name="reading_challenge_onboarding_read_title">Przeczytaj co najmniej 1 artykuł dziennie przez 25 dni</string>
+  <string name="reading_challenge_onboarding_read_description">Dołącz do wyzwania w dowolnym momencie w okresie od 1 do 31 maja i osiągnij cel 25 dni w swoim własnym tempie.</string>
+  <string name="reading_challenge_onboarding_read_subtitle">Dołącz do wyzwania w dowolnym momencie w okresie od %1$s do %2$s i osiągnij cel 25 dni w swoim własnym tempie.</string>
+  <string name="reading_challenge_onboarding_win_title">Wygraj nagrody</string>
+  <string name="reading_challenge_onboarding_win_description">Ukończ serię 25 dni czytania w trakcie trwania wyzwania, aby wygrać specjalne nagrody.</string>
+  <string name="reading_challenge_onboarding_install_title">Zainstaluj widżet</string>
+  <string name="reading_challenge_onboarding_install_description">Otrzymuj przypominajki i wsparcie od naszej uroczej urodzinowej maskotki – Baby Globe.</string>
+  <string name="reading_challenge_onboarding_note">Twoja historia przeglądania jest przechowywana bezpiecznie. Statystyki czytania są obliczane na podstawie danych przechowywanych lokalnie na Twoim urządzeniu.</string>
+  <string name="reading_challenge_onboarding_learn_more_button">Dowiedz się więcej</string>
+  <string name="reading_challenge_onboarding_join_button">Dołącz do wyzwania</string>
+  <string name="reading_challenge_onboarding_prompt_title">Zaloguj się, aby dołączyć do wyzwania</string>
+  <string name="reading_challenge_onboarding_prompt_message">Zaloguj się lub utwórz konto, aby śledzić swój postęp w wyzwaniu czytelniczym.</string>
+  <string name="reading_challenge_onboarding_prompt_no_thanks">Nie, dziękuję</string>
+  <string name="reading_challenge_onboarding_prompt_login">Zaloguj się / dołącz do Wikipedii</string>
+  <string name="reading_challenge_install_prompt_title">Zainstaluj widżet 25-dniowego wyzwania czytelniczego</string>
+  <string name="reading_challenge_install_prompt_message">Baby Globe kibicuje Ci! Dodaj widżet „Wyzwanie czytelnicze”, aby śledzić swój postęp z poziomu ekranu głównego Twojego urządzenia.</string>
+  <string name="reading_challenge_install_prompt_got_it">Jasne</string>
+  <string name="reading_challenge_install_prompt_add">Dodaj</string>
+  <string name="search_widget_install_prompt_title">Szybszy sposób wyszukiwania</string>
+  <string name="search_widget_install_prompt_message">Zainstaluj widżet wyszukiwania Wikipedii, aby uzyskać natychmiastowy dostęp do wiedzy bezpośrednio z ekranu głównego Twojego urządzenia.</string>
+  <string name="search_widget_install_prompt_add">Dodaj</string>
+  <string name="search_widget_install_prompt_got_it">Jasne</string>
+  <string name="reading_challenge_widget_explore_button">Odkrywaj</string>
+  <string name="reading_challenge_widget_explore_wikipedia_button">Przeglądaj Wikipedię</string>
+  <string name="reading_challenge_widget_join_challenge_button">Dołącz do wyzwania</string>
+  <string name="reading_challenge_widget_join_the_challenge_button">Dołącz do wyzwania</string>
+  <string name="reading_challenge_widget_search_button">Szukaj</string>
+  <string name="reading_challenge_widget_random_button">Losowy artykuł</string>
+  <string name="reading_challenge_widget_collect_prize_button">Odbierz nagrodę</string>
+  <string name="reading_challenge_widget_collect_your_prize_button">Odbierz swoją nagrodę!</string>
+  <string name="reading_challenge_widget_not_live_title">Przygotuj się do czytania</string>
+  <string name="reading_challenge_widget_not_live_description">Zbliża się 25-dniowe wyzwanie czytelnicze.</string>
+  <string name="reading_challenge_widget_not_opted_in_title">Do czytania, gotowi, start!</string>
+  <string name="reading_challenge_widget_not_opted_in_description">Dołącz do 25-dniowego wyzwania i odblokuj specjalne nagrody.</string>
+  <plurals name="reading_challenge_small_widget_streak">
+    <item quantity="one">%d dzień</item>
+    <item quantity="few">%d dni</item>
+    <item quantity="many">%d dni</item>
+    <item quantity="other">%d dnia</item>
+  </plurals>
+  <plurals name="reading_challenge_small_widget_streak_final">
+    <item quantity="one">%1$d z %2$d</item>
+    <item quantity="few">%1$d z %2$d</item>
+    <item quantity="many">%1$d z %2$d</item>
+    <item quantity="other">%1$d z %2$d</item>
+  </plurals>
+  <plurals name="reading_challenge_small_widget_streak_final_large">
+    <item quantity="one">%1$d z %2$d dnia</item>
+    <item quantity="few">%1$d z %2$d dni</item>
+    <item quantity="many">%1$d z %2$d dni</item>
+    <item quantity="other">%1$d z %2$d dnia</item>
+  </plurals>
+  <string name="reading_challenge_not_read_today_description">Nie zmarnuj dzisiejszego dnia, utrzymaj swoją serię.</string>
+  <string name="reading_challenge_streak_ongoing_title">25-dniowe wyzwanie czytelnicze</string>
+  <string name="reading_challenge_widget_reminder_dont_let_today_drift">Nie zmarnuj dzisiejszego dnia, Twoja seria czytania czeka.</string>
+  <string name="reading_challenge_widget_reminder_before_day_snoozes">Zanim dzień dobiegnie końca…	wciąż jest czas, by się czegoś nauczyć.</string>
+  <string name="reading_challenge_widget_reminder_small_bit_counts">Nawet krótka lektura liczy się do Twojego celu.</string>
+  <string name="reading_challenge_widget_reminder_one_article_away">Od serii dzieli Cię tylko jeden artykuł.</string>
+  <string name="reading_challenge_widget_reminder_quiet_reading_moment">Chwila na spokojną lekturę?</string>
+  <string name="reading_challenge_widget_reminder_keep_curiosity_going">Nie gaś swojej ciekawości.</string>
+  <string name="reading_challenge_widget_enrolled_not_started_title">Do czytania, gotowi, start!</string>
+  <string name="reading_challenge_widget_enrolled_not_started_subtitle">Zacznij zmierzać ku 25-dniowej serii!</string>
+  <string name="reading_challenge_widget_start_reading_challenge_title">Rozpocznij swoje wyzwanie czytelnicze.</string>
+  <string name="reading_challenge_widget_start_reading_challenge_subtitle">Każda seria gdzieś się zaczyna</string>
+  <string name="reading_challenge_widget_start_spin_up_new_streak_title">Rozpocząć nową serię?</string>
+  <string name="reading_challenge_widget_start_spin_up_new_streak_subtitle">Przeczytaj jeden artykuł, aby zacząć.</string>
+  <string name="reading_challenge_widget_start_fresh_start_title">Nowy początek.</string>
+  <string name="reading_challenge_widget_start_fresh_start_subtitle">Do Twojej serii brakuje już tylko jednego artykułu.</string>
+  <string name="reading_challenge_widget_concluded_incomplete">Wyzwanie zakończone</string>
+  <string name="reading_challenge_widget_concluded_complete">Udało Ci się!</string>
+  <string name="explore_feed_new_update_prompt_title">Sekcja „Odkrywaj” to teraz „Strona główna” – w nowej odsłonie</string>
+  <string name="explore_feed_new_update_prompt_new_name_title">Nowa nazwa</string>
+  <string name="explore_feed_new_update_prompt_new_name_description">Kanał „Odkrywaj” zmienił nazwę na „Strona główna”. Znajdziesz go w tym samym miejscu.</string>
+  <string name="explore_feed_new_update_prompt_two_ways_title">Jeden kanał, dwa sposoby przeglądania</string>
+  <string name="explore_feed_new_update_prompt_two_ways_description">Odkrywaj artykuły dopasowane do Twoich zainteresowań w zakładce „Dla Ciebie” lub przeglądaj najlepsze treści wybrane przez innych w zakładce „Społeczność”.</string>
+  <string name="explore_feed_new_update_prompt_control_title">Pełna kontrola</string>
+  <string name="explore_feed_new_update_prompt_control_description">Przy każdej rekomendacji dowiesz się, dlaczego się tu znalazła. Swoje preferencje możesz zmienić w dowolnym momencie w ustawieniach.</string>
+  <string name="explore_feed_new_update_prompt_language_title">Pełna personalizacja dla każdego języka</string>
+  <string name="explore_feed_new_update_prompt_language_description">Czytasz w wielu językach? Każdy ma własny spersonalizowany kanał. Po prostu przełącz język i gotowe.</string>
+  <string name="explore_feed_new_update_prompt_primary_button_text">Dostosuj mój kanał</string>
+  <string name="explore_feed_customize_interests">Dostosuj zainteresowania</string>
+  <string name="explore_feed_customize_discover">Dostosuj sekcję „Odkrywaj”</string>
+  <string name="explore_feed_new_update_prompt_secondary_button_text">Skonfiguruj za mnie</string>
+  <string name="explore_feed_building_text">Tworzenie Twojego kanału…</string>
   <string name="explore_feed_community_tab_label">Społeczność</string>
   <string name="explore_feed_for_you_tab_label">Dla Ciebie</string>
+  <string name="explore_feed_date_today">Dzisiaj – %s</string>
+  <string name="explore_feed_load_previous_day_label">Wczytaj poprzedni dzień</string>
+  <string name="explore_feed_from_reading_list">Z Twojej listy do przeczytania</string>
+  <string name="explore_feed_because_of_interest">Na podstawie Twojego zainteresowania: %s</string>
+  <string name="explore_feed_onboarding_curiosity_title">Podążaj za swoją ciekawością</string>
+  <string name="explore_feed_onboarding_curiosity_description">Wybierz interesujące Cię tematy, a my spersonalizujemy Twój kanał.\n\nGromadzimy minimalną ilość danych, które są w pełni anonimizowane.</string>
+  <string name="explore_feed_deselect_all_button_label">Odznacz wszystko</string>
+  <string name="explore_feed_potd_subtitle">Codzienne ilustracje z Wikimedia Commons, wybierane przez wolontariuszy</string>
+  <string name="explore_feed_featured_article_subtitle">Artykuły na medal to jedne z najwyższej jakości haseł w Wikipedii, wybierane codziennie przez innych</string>
+  <string name="explore_feed_preference_selection_screen_title">Co chcesz zobaczyć w pierwszej kolejności?</string>
+  <string name="explore_feed_preference_community_content_title">Treści społecznościowe</string>
+  <string name="explore_feed_preference_personalized_content_title">Treści spersonalizowane</string>
+  <string name="explore_feed_in_the_news_subtitle">Artykuły znacznie zaktualizowane o bieżące wydarzenia budzące szerokie zainteresowanie</string>
+  <string name="explore_feed_on_this_day_subtitle">Odkryj wydarzenia historyczne z tego dnia</string>
+  <string name="explore_feed_community_disclaimer">Treści i zasoby wybrane przez społeczność Wikimediów oraz jej dotyczące</string>
+  <string name="explore_feed_community_load_more_label">Zobacz wcześniejsze treści społeczności</string>
+  <string name="explore_feed_manage_languages_label">Zarządzaj językami</string>
+  <string name="explore_feed_header_overflow_hide_module_label">Ukryj moduł</string>
+  <string name="explore_feed_header_overflow_hide_module_message">Ukryto moduł.</string>
+  <string name="explore_feed_header_overflow_hide_module_message_action">Cofnij</string>
+  <string name="explore_feed_personalized_preference_empty_state_text">Dodaj zainteresowania, aby zobaczyć spersonalizowane rekomendacje treści. Możesz to zrobić w poprzednich krokach lub później w ustawieniach.</string>
+  <string name="explore_feed_because_you_read">Po przeczytaniu: %s</string>
+  <string name="explore_feed_swipe_to_explore_prompt_title">Przesuń, aby odkrywać</string>
+  <string name="explore_feed_swipe_to_explore_prompt_message">Przesuń w górę, aby przechodzić między tematami, lub w bok, aby odkrywać powiązane treści.</string>
+  <string name="home_feed_settings_title">Dostosuj stronę główną</string>
+  <string name="home_feed_settings_default_view_title">Domyślny widok kanału</string>
+  <string name="home_feed_settings_default_view_subtitle">Wybierz, który kanał będzie się wyświetlał jako pierwszy po otwarciu aplikacji</string>
+  <string name="home_feed_settings_default_view_confirm">Zmiana zostanie zastosowana przy następnym otwarciu aplikacji.</string>
+  <string name="home_feed_settings_whats_driving_title">Co kształtuje Twój kanał</string>
+  <string name="home_feed_settings_modules_title">Moduły</string>
+  <string name="home_feed_settings_community_subtitle">Włącz lub wyłącz moduły kanału „Społeczność”</string>
+  <string name="home_feed_settings_for_you_subtitle">Włącz lub wyłącz moduły kanału „Dla Ciebie”</string>
+  <string name="home_feed_settings_whats_driving_subtitle">Tematy i artykuły wpływające na Twoje treści</string>
+  <string name="home_feed_settings_community_modules_description">Wyłączenie modułu ukryje go w kanale „Społeczność”. Możesz go włączyć ponownie w dowolnym momencie. Niektóre moduły mogą nie być dostępne w Twoim języku.</string>
+  <string name="home_feed_settings_for_you_modules_description">Wyłączenie modułu ukryje go w kanale „Dla Ciebie”. Możesz go włączyć ponownie w dowolnym momencie.</string>
+  <string name="home_feed_settings_based_on_interest_title">Na podstawie Twoich zainteresowań</string>
+  <string name="home_feed_settings_based_on_interest_subtitle">Artykuły dopasowane do wybranych tematów.&lt;br /&gt;&lt;a href=\"#drivingFeed\"&gt;Co kształtuje Twój kanał&lt;/a&gt;</string>
+  <string name="home_feed_settings_because_you_read_subtitle">Propozycje na podstawie ostatnio czytanego artykułu z historii</string>
+  <string name="home_feed_settings_continue_reading_title">Czytaj dalej</string>
+  <string name="home_feed_settings_continue_reading_subtitle">Wróć do niedokończonych artykułów</string>
+  <string name="home_feed_did_you_know_title">Czy wiesz…</string>
+  <string name="home_feed_did_you_know_subtitle">Ciekawostki z artykułów wybranych przez wolontariuszy</string>
+  <string name="home_feed_did_you_know_more_label">Więcej ciekawostek</string>
+  <string name="home_feed_settings_community_empty_dialog_title">Twój kanał „Społeczność” będzie pusty</string>
+  <string name="home_feed_settings_for_you_empty_dialog_title">Twój kanał „Dla Ciebie” będzie pusty</string>
+  <string name="home_feed_settings_empty_dialog_text">Włącz co najmniej jeden moduł, aby zobaczyć treści.</string>
+  <string name="home_feed_settings_empty_dialog_positive">Kontynuuj mimo to</string>
+  <string name="home_feed_screen_empty_state_label">Twój kanał jest pusty</string>
+  <string name="home_feed_community_screen_all_modules_disabled_description">Włącz moduły &lt;b&gt;Społeczność&lt;/b&gt;, aby zobaczyć treści przygotowane przez społeczność Wikimediów i jej dotyczące.</string>
+  <string name="home_feed_for_you_screen_all_modules_disabled_description">Włącz moduły &lt;b&gt;Dla Ciebie&lt;/b&gt;, aby zacząć przeglądać treści dopasowane do Twoich preferencji.</string>
+  <string name="home_feed_screen_all_modules_disabled_btn_label">Zarządzaj modułami</string>
+  <string name="home_feed_for_you_screen_empty_title">Twój kanał jest na razie pusty</string>
+  <string name="home_feed_for_you_screen_empty_description">W miarę korzystania z aplikacji Twój kanał „Dla Ciebie” będzie się wypełniać spersonalizowanymi artykułami.</string>
+  <string name="home_feed_for_you_screen_empty_ways_to_start">Jak zacząć:</string>
+  <string name="home_feed_for_you_screen_empty_add_interests">Dodaj &lt;a href=\"#add_interests\"&gt;kilka zainteresowań&lt;/a&gt;</string>
+  <string name="home_feed_for_you_screen_empty_see_community">Zobacz, co dzieje się w &lt;a href=\"#community_tab\"&gt;społeczności&lt;/a&gt;</string>
+  <string name="home_feed_update_tooltip1">Nowość: funkcje „Losowy artykuł” i „Miejsca w pobliżu” są dostępne w sekcji „Dla Ciebie”, a moduł „Czy wiesz…” znajduje się w zakładce „Społeczność”.</string>
+  <string name="home_feed_random_title">Losowy artykuł</string>
+  <string name="home_feed_random_subtitle">Losowy artykuł, który rozbudzi Twoją ciekawość</string>
+  <string name="home_feed_random_shuffle_button">Losuj inne</string>
+  <string name="home_feed_settings_feed_configuration_description">Te tematy i artykuły wpływają na to, co pojawia się w sekcji „Dla Ciebie”. Usuń te, których już nie chcesz, lub dodaj nowe zainteresowania.</string>
+  <string name="home_feed_settings_feed_configuration_interest_title">Twoje zainteresowania</string>
+  <string name="home_feed_settings_feed_configuration_interest_subtitle">Edytuj wybrane tematy zainteresowań</string>
+  <string name="home_feed_settings_feed_configuration_location_title">Twoja lokalizacja</string>
+  <string name="home_feed_settings_feed_configuration_location_subtitle">Zaktualizuj swoją lokalizację w zakładce Miejsca, aby zobaczyć artykuły w pobliżu</string>
+  <string name="home_feed_settings_feed_configuration_empty_interest_subtitle">Twoja lista zainteresowań jest pusta. Dodaj temat, który Cię interesuje.</string>
   <string name="home_feed_settings_feed_configuration_reading_history_title">Historia przeglądania</string>
-  <string name="randomizer_shake_prompt_title">Potrząśnij, aby losowo wybrać artykuł</string>
+  <string name="home_feed_settings_feed_configuration_reading_history_subtitle">Przeglądaj ostatnio przeczytane artykuły</string>
+  <string name="home_feed_settings_feed_configuration_empty_reading_history_subtitle">Twoja historia przeglądania jest pusta. Zacznij czytać artykuły, aby zbudować spersonalizowane rekomendacje.</string>
+  <string name="home_feed_settings_feed_configuration_languages_title">Języki</string>
+  <string name="home_feed_settings_feed_configuration_languages_subtitle">Edytuj preferowane języki</string>
+  <string name="home_feed_settings_feed_configuration_interests_updated_message">Zaktualizowano zainteresowania. Odśwież kanał, aby zobaczyć zmiany.</string>
+  <string name="home_feed_places_of_interest_cta_title">Artykuły z miejsc, które uwielbiasz</string>
+  <string name="home_feed_places_of_interest_cta_description">Artykuły będą się pojawiać na podstawie ostatnio przeglądanego miejsca. Przejdź do zakładki Miejsca i wybierz lokalizację.</string>
+  <string name="home_feed_places_of_interest_cta_button">Przejdź do zakładki Miejsca</string>
+  <string name="home_feed_settings_places_of_interest_title">Miejsca w pobliżu</string>
+  <string name="home_feed_settings_places_of_interest_subtitle">Artykuły w pobliżu Twojej ostatniej lokalizacji z zakładki Miejsca</string>
+  <string name="home_feed_settings_games_title">Gry</string>
+  <string name="home_feed_settings_games_subtitle">Codzienne gry oparte na treściach z Wikipedii</string>
+  <string name="home_feed_settings_discover_title">Rekomendacje z sekcji „Odkrywaj”</string>
+  <string name="home_feed_settings_discover_subtitle">Artykuły z Twojej listy polecanych artykułów</string>
+  <string name="home_feed_discover_cta_title">Z sekcji „Odkrywaj”</string>
+  <string name="home_feed_discover_cta_description">Poznawaj nowe tematy przygotowane specjalnie dla Ciebie. Wybierz aktualizacje codzienne, cotygodniowe lub comiesięczne.</string>
+  <string name="home_feed_discover_cta_button">Włącz listę polecanych artykułów</string>
+  <string name="home_feed_discover_card_footer">Z sekcji „Odkrywaj” • Aktualizacje %s</string>
+  <string name="home_feed_discover_see_all_title">Jest więcej do odkrycia</string>
+  <string name="home_feed_discover_see_all_description">Twój spersonalizowany kanał zawiera więcej artykułów przygotowanych specjalnie dla Ciebie.</string>
+  <string name="home_feed_discover_see_all_button">Przeglądaj wszystkie rekomendacje</string>
+  <string name="home_feed_places_of_interest_card_footer">%1$s • Na podstawie Twojej lokalizacji w zakładce Miejsca</string>
+  <string name="home_feed_for_you_screen_end_of_feed_title">To już wszystko na dziś!</string>
+  <string name="home_feed_for_you_screen_end_of_feed_description">Wróć jutro, aby zobaczyć nowe, spersonalizowane artykuły.</string>
+  <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Sposoby na dalszą naukę:</string>
+  <string name="home_feed_for_you_screen_end_of_feed_add_interests">Dodaj &lt;a href=\"#add_interests\"&gt;nowe zainteresowania&lt;/a&gt;</string>
+  <string name="randomizer_shake_prompt_title">Potrząśnij, aby wylosować artykuł</string>
   <string name="randomizer_shake_prompt_message">Potrząśnij urządzeniem, aby przejść do losowego artykułu i trafić na coś niespodziewanego.</string>
+  <string name="home_feed_games_module_cta_prompt_title">Chcesz zagrać w więcej gier?</string>
   <string name="home_feed_games_module_cta_prompt_subtitle">Przejdź do centrum gier</string>
   <string name="home_feed_games_module_cta_prompt_button_text">Centrum gier</string>
+  <string name="random_article_widget_name">Losowy artykuł</string>
 </resources>
