@@ -150,8 +150,6 @@ class ReadingListsViewModel : ViewModel() {
             discoverCard
         ) { contentState, isSearchActive, accountState, _, discoverCard ->
             val isSearching = isSearchActive || !contentState.searchQuery.isNullOrEmpty()
-            // TODO: confirm with product
-            // Right now adding Onboarding and the discover card only to the Collections tab
             val isCollections = contentState.selectedTab == SavedTab.COLLECTIONS
             contentState.copy(
                 isSearchActive = isSearchActive,
