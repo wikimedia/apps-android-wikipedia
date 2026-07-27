@@ -2167,9 +2167,9 @@
   </plurals>
   <plurals name="year_in_review_slide_global_saved_articles_headline">
     <item quantity="one">Osoby korzystające z aplikacji zapisały w tym roku jeden artykuł.</item>
-    <item quantity="few">Osoby korzystające z aplikacji zapisały w tym roku %4$,d artykuły.</item>
-    <item quantity="many">Osoby korzystające z aplikacji zapisały w tym roku %4$,d artykułów.</item>
-    <item quantity="other">Osoby korzystające z aplikacji zapisały w tym roku %4$,d artykułu.</item>
+    <item quantity="few">Osoby korzystające z aplikacji zapisały w tym roku %,d artykuły.</item>
+    <item quantity="many">Osoby korzystające z aplikacji zapisały w tym roku %,d artykułów.</item>
+    <item quantity="other">Osoby korzystające z aplikacji zapisały w tym roku %,d artykułu.</item>
   </plurals>
   <string name="year_in_review_slide_global_saved_articles_body">Dodawanie artykułów do listy do przeczytania umożliwia dostęp do nich nawet gdy nie masz połączenia z Internetem. Możesz też zalogować się, aby zsynchronizować listy do przeczytania na różnych urządzeniach.</string>
   <string name="year_in_review_slide_reading_patterns_headline">Masz wyraźne nawyki czytelnicze</string>
