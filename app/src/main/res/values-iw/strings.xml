@@ -2185,4 +2185,5 @@
   <string name="home_feed_games_module_cta_prompt_title">רוצה לשחק משחקים נוספים?</string>
   <string name="home_feed_games_module_cta_prompt_subtitle">מעבר למרכז המשחקים</string>
   <string name="home_feed_games_module_cta_prompt_button_text">מרכז המשחקים</string>
+  <string name="random_article_widget_name">ערך אקראי</string>
 </resources>

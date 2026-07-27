@@ -2214,4 +2214,5 @@
   <string name="home_feed_discover_cta_description">Scopri nuovi argomenti, selezionati appositamente per te. Scegli tra aggiornamenti giornalieri, settimanali o mensili.</string>
   <string name="home_feed_discover_see_all_description">Il tuo elenco di lettura personalizzato ha altre storie selezionate appositamente per te.</string>
   <string name="randomizer_shake_prompt_title">Scuoti per mescolare</string>
+  <string name="random_article_widget_name">Voce a caso</string>
 </resources>
