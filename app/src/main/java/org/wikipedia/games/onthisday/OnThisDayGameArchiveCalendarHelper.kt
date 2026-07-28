@@ -19,19 +19,17 @@ import org.wikipedia.database.AppDatabase
 import org.wikipedia.games.WikiGames
 import org.wikipedia.games.onthisday.OnThisDayGameViewModel.Companion.dateReleasedForLang
 import org.wikipedia.util.log.L
+import java.time.Instant
 import java.time.LocalDate
 import java.time.ZoneId
-import java.time.ZoneOffset
-import java.util.Calendar
-import java.util.Date
-import java.util.TimeZone
+import java.time.temporal.ChronoUnit
 
 class OnThisDayGameArchiveCalendarHelper(
     private val fragment: Fragment,
     private var languageCode: String,
     private val onDateSelected: (LocalDate) -> Unit
 ) {
-    private var scoreData: Map<Long, Int> = emptyMap()
+    private var scoreData: Map<LocalDate, Int> = emptyMap()
 
     private val fragmentLifecycleCallbacks = object : FragmentManager.FragmentLifecycleCallbacks() {
         @SuppressLint("RestrictedApi")
@@ -52,16 +50,13 @@ class OnThisDayGameArchiveCalendarHelper(
     fun show() {
         fragment.lifecycleScope.launch {
             val startDateBasedOnLanguage = WikiGames.WHICH_CAME_FIRST.supportLanguages.associateWith { dateReleasedForLang(it) }
-            val localDate = startDateBasedOnLanguage[languageCode]
-            val startDate = Date.from(localDate?.atStartOfDay(ZoneId.systemDefault())?.toInstant())
+            val localDate = startDateBasedOnLanguage[languageCode]!!
             scoreData = getDataForArchiveCalendar(language = languageCode)
             showArchiveCalendar(
-                startDate,
-                Date(),
+                localDate,
+                LocalDate.now(),
                 scoreData,
-                onDateSelected = { selectedDateInMillis ->
-                    handleDateSelection(selectedDateInMillis)
-                }
+                onDateSelected = ::handleDateSelection
             )
         }
     }
@@ -78,17 +73,20 @@ class OnThisDayGameArchiveCalendarHelper(
         fragment.childFragmentManager.unregisterFragmentLifecycleCallbacks(fragmentLifecycleCallbacks)
     }
 
-    private fun showArchiveCalendar(startDate: Date, endDate: Date, scoreData: Map<Long, Int>, onDateSelected: (Long) -> Unit) {
-        val startTimeInMillis = startDate.time
-        val endTimeInMillis = endDate.time
+    private fun showArchiveCalendar(startDate: LocalDate, endDate: LocalDate, scoreData: Map<LocalDate, Int>, onDateSelected: (Long) -> Unit) {
+        val zoneId = ZoneId.systemDefault()
+        val startInstant = startDate.atStartOfDay(zoneId).toInstant()
+        val endTime = endDate.atStartOfDay(zoneId).toInstant().toEpochMilli()
         val calendarConstraints = CalendarConstraints.Builder()
-            .setStart(startDate.time)
-            .setEnd(endTimeInMillis)
+            .setStart(startInstant.toEpochMilli())
+            .setEnd(endTime)
             .setValidator(
                 CompositeDateValidator.allOf(
                     listOf(
-                        DateValidatorPointForward.from(startTimeInMillis - (24 * 60 * 60 * 1000)),
-                        DateValidatorPointBackward.before(endTimeInMillis)
+                        DateValidatorPointForward.from(
+                            startInstant.minus(1, ChronoUnit.DAYS).toEpochMilli()
+                        ),
+                        DateValidatorPointBackward.before(endTime)
                     )
                 )
             )
@@ -105,44 +103,32 @@ class OnThisDayGameArchiveCalendarHelper(
                 )
             )
             .setCalendarConstraints(calendarConstraints)
-            .setSelection(endTimeInMillis)
+            .setSelection(endTime)
             .build()
             .apply {
-                addOnPositiveButtonClickListener { selectedDateInMillis ->
-                    onDateSelected(selectedDateInMillis)
-                }
+                addOnPositiveButtonClickListener(onDateSelected)
             }
 
         datePicker.show(fragment.childFragmentManager, "datePicker")
     }
 
     private fun handleDateSelection(selectedDateInMillis: Long) {
-        val calendar = Calendar.getInstance(TimeZone.getTimeZone(ZoneOffset.UTC))
-        calendar.timeInMillis = selectedDateInMillis
-        val year = calendar.get(Calendar.YEAR)
-        val month = calendar.get(Calendar.MONTH) + 1
-        val day = calendar.get(Calendar.DAY_OF_MONTH)
-        val scoreDataKey = DateDecorator.getDateKey(year, month, day)
-        if (scoreData[scoreDataKey] != null) {
+        val selectedDate = LocalDate.ofInstant(Instant.ofEpochMilli(selectedDateInMillis), ZoneId.systemDefault())
+        if (scoreData[selectedDate] != null) {
             return
         }
         WikiGamesEvent.submit("date_select", "game_play", slideName = "archive_calendar")
-        onDateSelected(LocalDate.of(year, month, day))
+        onDateSelected(selectedDate)
     }
 
-    private fun maybeShowToastForDate(selectedDateInMillis: Long, scoreData: Map<Long, Int>) {
-        val calendar = Calendar.getInstance(TimeZone.getTimeZone(ZoneOffset.UTC))
-        calendar.timeInMillis = selectedDateInMillis
-        val year = calendar.get(Calendar.YEAR)
-        val month = calendar.get(Calendar.MONTH)
-        val day = calendar.get(Calendar.DAY_OF_MONTH)
-        val scoreDataKey = DateDecorator.getDateKey(year, month + 1, day)
-        if (scoreData[scoreDataKey] != null) {
+    private fun maybeShowToastForDate(selectedDateInMillis: Long, scoreData: Map<LocalDate, Int>) {
+        val selectedDate = LocalDate.ofInstant(Instant.ofEpochMilli(selectedDateInMillis), ZoneId.systemDefault())
+        if (scoreData[selectedDate] != null) {
             Toast.makeText(
                 fragment.requireContext(),
                 fragment.getString(
                     R.string.on_this_day_game_score_toast_message,
-                    scoreData[scoreDataKey],
+                    scoreData[selectedDate],
                     OnThisDayGameViewModel.MAX_QUESTIONS
                 ), Toast.LENGTH_SHORT
             ).show()
@@ -160,12 +146,8 @@ class OnThisDayGameArchiveCalendarHelper(
         return null
     }
 
-    private suspend fun getDataForArchiveCalendar(gameName: Int = WikiGames.WHICH_CAME_FIRST.ordinal, language: String): Map<Long, Int> {
+    private suspend fun getDataForArchiveCalendar(gameName: Int = WikiGames.WHICH_CAME_FIRST.ordinal, language: String): Map<LocalDate, Int> {
         val history = AppDatabase.instance.dailyGameHistoryDao().getGameHistory(gameName, language)
-        val map = history.associate {
-            val scoreKey = DateDecorator.getDateKey(it.year, it.month, it.day)
-            scoreKey to it.score
-        }
-        return map
+        return history.associate { it.date to it.score }
     }
 }
