@@ -37,6 +37,7 @@ import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
 import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
 import org.wikipedia.auth.AccountUtil
@@ -425,6 +426,10 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     // ListRow onLongClick actions
     private fun onListMenuAction(listId: Long, action: ReadingListMenuAction) {
+        BreadCrumbLogEvent.logClick(
+            requireContext(),
+            resources.getResourceEntryName(action.breadcrumbId())
+        )
         viewLifecycleOwner.lifecycleScope.launch {
             val list = viewModel.loadReadingListWithPagesById(listId) ?: return@launch
             // List refresh happens reactively via the DB flow, so these callbacks don't call updateLists.
@@ -457,6 +462,18 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                     ReadingListsShareHelper.shareReadingList(requireActivity() as AppCompatActivity, list)
                 }
             }
+        }
+    }
+
+    private fun ReadingListMenuAction.breadcrumbId(): Int {
+        return when (this) {
+            ReadingListMenuAction.Rename -> R.id.menu_reading_list_rename
+            ReadingListMenuAction.Delete -> R.id.menu_reading_list_delete
+            ReadingListMenuAction.SaveAllOffline -> R.id.menu_reading_list_save_all_offline
+            ReadingListMenuAction.RemoveAllOffline -> R.id.menu_reading_list_remove_all_offline
+            ReadingListMenuAction.Export -> R.id.menu_reading_list_export
+            ReadingListMenuAction.Select -> R.id.menu_reading_list_select
+            ReadingListMenuAction.Share -> R.id.menu_reading_list_share
         }
     }
 

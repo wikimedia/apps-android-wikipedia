@@ -50,6 +50,7 @@
 * Teles
 * TheEduGobi
 * Trooper57
+* Vickvvy
 * Vinickw
 * Walesson
 * Webysther
@@ -2354,4 +2355,5 @@
   <string name="home_feed_games_module_cta_prompt_title">Quer jogar mais jogos?</string>
   <string name="home_feed_games_module_cta_prompt_subtitle">Acesse a central de jogos</string>
   <string name="home_feed_games_module_cta_prompt_button_text">Central de jogos</string>
+  <string name="random_article_widget_name">Artigo aleatório</string>
 </resources>
