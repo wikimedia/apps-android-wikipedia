@@ -85,6 +85,7 @@ class ReadingListsViewModel : ViewModel() {
             searchQuery = mode.query,
             selectedTab = mode.tab,
             sortMode = sortMode,
+            showCollectionsBadge = previewSavedState.newBadgeListId != null,
             pendingPreviewSavedListId = previewSavedState.pendingSnackbarListId
         )
     }
@@ -572,6 +573,7 @@ data class ReadingListsUiState(
     val searchQuery: String? = null,
     val selectedTab: SavedTab = SavedTab.ALL_ARTICLES,
     val sortMode: Int = ReadingList.SORT_BY_NAME_ASC,
+    val showCollectionsBadge: Boolean = false,
     val onboarding: OnboardingState = OnboardingState.None,
     val discoverCard: RecommendedReadingListCard? = null,
     val pendingPreviewSavedListId: Long? = null

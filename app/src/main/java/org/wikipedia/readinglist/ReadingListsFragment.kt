@@ -105,6 +105,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                         isSelectionMode = selectionState.enabled,
                         selectedListIds = selectionState.selectedListIds,
                         selectedPageIds = selectionState.selectedPageIds,
+                        showCollectionsBadge = uiState.showCollectionsBadge,
                         onSelectTab = ::onSelectTab,
                         onOnboardingAction = ::onOnboardingAction,
                         onRefresh = ::onRefresh,
