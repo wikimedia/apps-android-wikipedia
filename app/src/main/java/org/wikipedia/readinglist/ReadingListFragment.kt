@@ -488,7 +488,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             // TODO: Change this back to the less forceful manualSyncWithRefresh() when the
             // service-side endpoint is fixed.
             // https://phabricator.wikimedia.org/T351149
-            ReadingListSyncAdapter.manualSyncWithForce()
+            ReadingListSyncAdapter.manualSyncWithForce(fromRefresh = true)
         }
     }
 
