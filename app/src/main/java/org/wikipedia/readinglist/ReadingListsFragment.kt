@@ -106,6 +106,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                         isSelectionMode = selectionState.enabled,
                         selectedListIds = selectionState.selectedListIds,
                         selectedPageIds = selectionState.selectedPageIds,
+                        showCollectionsBadge = uiState.showCollectionsBadge,
                         onSelectTab = ::onSelectTab,
                         onOnboardingAction = ::onOnboardingAction,
                         onRefresh = ::onRefresh,
@@ -260,6 +261,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     override fun onResume() {
         super.onResume()
+        onSelectTab(SavedTab.ALL_ARTICLES)
         viewModel.refreshAccountState()
         viewModel.refreshRecentPreviewSavedList()
         maybeDeleteListFromIntent()
