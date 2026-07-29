@@ -57,7 +57,6 @@ import org.wikipedia.descriptions.DescriptionEditSuccessActivity
 import org.wikipedia.edit.EDITOR_CHOICE_VE
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.edit.EditSectionActivity
-import org.wikipedia.edit.EditSectionViewModel
 import org.wikipedia.edit.showEditorChoiceDialog
 import org.wikipedia.events.ArticleSavedOrDeletedEvent
 import org.wikipedia.events.ChangeTextSizeEvent
@@ -493,7 +492,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         val launchEditor = {
             if (Prefs.editorModeChoice == EDITOR_CHOICE_VE) {
                 UriUtil.visitInExternalBrowser(this, (title.uri + "?veaction=edit&section=$sectionId&returntoapp=1").toUri())
-                //startActivity(SingleWebViewActivity.newIntent(this, title.uri + "?veaction=edit&section=$sectionId"))
+                // startActivity(SingleWebViewActivity.newIntent(this, title.uri + "?veaction=edit&section=$sectionId"))
             } else {
                 requestEditSectionLauncher.launch(EditSectionActivity.newIntent(this, sectionId, sectionAnchor, title, InvokeSource.PAGE_ACTIVITY, highlightText))
             }
@@ -556,7 +555,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                                 L.e(t)
                             }) {
                                 // TODO!
-                                //EditSectionViewModel.retryUntilNewRevision(pageFragment.title!!, revision)
+                                // EditSectionViewModel.retryUntilNewRevision(pageFragment.title!!, revision)
                                 FeedbackUtil.showMessage(this@PageActivity, R.string.edit_saved_successfully)
                             }
                         } else {
