@@ -2459,4 +2459,5 @@
   <string name="home_feed_games_module_cta_prompt_title">Сакате повеќе игри?</string>
   <string name="home_feed_games_module_cta_prompt_subtitle">Одете на центарот за игри</string>
   <string name="home_feed_games_module_cta_prompt_button_text">Центар за игри</string>
+  <string name="random_article_widget_name">Случајна статија</string>
 </resources>

@@ -1719,7 +1719,7 @@
   <string name="patroller_diff_tooltip_two">Hensigt forudsiger sandsynligheden for, at en redigering bliver gemt med gode hensigter.</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Hvordan kan vi forbedre funktionen?</string>
   <string name="patroller_diff_menu_edit_history_title">Artiklens redigeringshistorik</string>
-  <string name="patroller_diff_feedback_dialog_input_hint">Feedback</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">Tilbagemelding</string>
   <string name="patroller_diff_feedback_tooltip">Tryk på overløbsmenuen for at sende tilbagemelding når som helst under \'Problem med funktion\'.</string>
   <string name="patroller_saved_message_title_vandalism">Advarsel om muligt hærværk</string>
   <string name="patroller_saved_message_title_editing_tests">Redigering af tests</string>
@@ -2469,4 +2469,5 @@
   <string name="home_feed_games_module_cta_prompt_title">Vil du spille flere spil?</string>
   <string name="home_feed_games_module_cta_prompt_subtitle">Gå til spilhubben</string>
   <string name="home_feed_games_module_cta_prompt_button_text">Spilhub</string>
+  <string name="random_article_widget_name">Tilfældig artikel</string>
 </resources>

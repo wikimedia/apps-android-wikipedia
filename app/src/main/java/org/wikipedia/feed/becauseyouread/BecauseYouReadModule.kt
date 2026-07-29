@@ -26,6 +26,7 @@ fun BecauseYouReadModule(
     modifier: Modifier = Modifier,
     wikiSite: WikiSite,
     module: ForYouModule.BecauseYouRead,
+    resolveSavedState: suspend (PageTitle) -> Boolean = { false },
     onPageClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
     onPageBookmarkClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
     onPageShareClick: (card: Card, historyEntry: HistoryEntry) -> Unit = { _, _ -> },
@@ -47,6 +48,7 @@ fun BecauseYouReadModule(
         ForYouCardContent(
             wikiSite = wikiSite,
             title = card.title,
+            resolveSavedState = resolveSavedState,
             variation = CardVariation.entries[page % CardVariation.entries.size],
             backgroundColorIndex = backgroundColorIndex + page,
             module = module,

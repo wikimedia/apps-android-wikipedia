@@ -493,7 +493,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
 
         binding.progressBar.visibility = View.GONE
         setSaveButtonEnabled(true)
-        EditAttemptStepEvent.logSaveSuccess(viewModel.pageTitle)
+        EditAttemptStepEvent.logSaveSuccess(viewModel.pageTitle, newRevision)
 
         Intent().let {
             it.putExtra(RESULT_NEW_REVISION_ID, newRevision)

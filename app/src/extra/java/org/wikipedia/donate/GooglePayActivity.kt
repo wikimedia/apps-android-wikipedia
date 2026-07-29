@@ -104,8 +104,15 @@ class GooglePayActivity : BaseActivity() {
                                 finish()
                             }
                             is Resource.Success -> {
-                                DonorExperienceEvent.logAction("impression", "googlepay_initiated", campaignId = campaignId)
-                                onContentsReceived(resource.data)
+                                try {
+                                    onContentsReceived(resource.data)
+                                    DonorExperienceEvent.logAction("impression", "googlepay_initiated", campaignId = campaignId)
+                                } catch (_: IllegalStateException) {
+                                    // An IllegalStateException could happen on certain devices if Google Pay is not fully set up or supported.
+                                    // In this case, fall back to an external link for donation.
+                                    DonateDialog.launchDonateLink(this@GooglePayActivity, url = intent.getStringExtra(DonateDialog.ARG_DONATE_URL))
+                                    finish()
+                                }
                             }
                             is GooglePayViewModel.DonateSuccess -> {
                                 DonorExperienceEvent.logAction("impression", "gpay_processed", campaignId = campaignId)

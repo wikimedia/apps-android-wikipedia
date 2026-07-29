@@ -1874,7 +1874,7 @@
   <string name="on_this_day_game_entry_dialog_subtitle">Jeux de Wikipédia</string>
   <string name="on_this_day_game_entry_dialog_button">Jouer</string>
   <string name="on_this_day_game_entry_dialog_snackbar_message">Les jeux Wikipédia sont disponibles dans la Centrale des jeux, accessible dans le menu PLUS.</string>
-  <string name="on_this_day_game_title">Qu\'est-ce qui est venu en premier ?</string>
+  <string name="on_this_day_game_title">Le plus ancien ?</string>
   <string name="on_this_day_game_dialog_button">Lecture</string>
   <string name="on_this_day_game_splash_message">Devinez quel événement s’est produit en premier ce jour-là dans l’histoire.</string>
   <string name="on_this_day_game_progress">%1$d sur %2$d</string>
@@ -1887,7 +1887,7 @@
   <string name="on_this_day_game_finish">Résultats finaux</string>
   <string name="on_this_day_game_share_button">Partager</string>
   <string name="on_this_day_game_feed_entry_card_heading">Jeux de Wikipédia</string>
-  <string name="on_this_day_game_feed_entry_card_title">Qu\'est-ce qui est venu en premier ?</string>
+  <string name="on_this_day_game_feed_entry_card_title">Le plus ancien ?</string>
   <string name="on_this_day_game_result">Vous avez marqué %1$d/%2$d.</string>
   <string name="on_this_day_game_next_in">Prochain jeu dans %s</string>
   <string name="on_this_day_game_your_stats">Vos statistiques</string>

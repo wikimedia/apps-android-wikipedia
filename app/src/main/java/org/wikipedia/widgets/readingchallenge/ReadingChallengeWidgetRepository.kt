@@ -13,9 +13,13 @@ import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.distinctUntilChanged
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.eventplatform.DailyStatsEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.DeviceUtil
+import java.time.Instant
 import java.time.LocalDate
+import java.time.ZoneId
 import java.time.temporal.ChronoUnit
 
 class ReadingChallengeWidgetRepository(private val context: Context) {
@@ -54,8 +58,14 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
     }
 
     fun resolveState(userData: ReadingChallengeUserData): ReadingChallengeState {
+        // After REMOVE_DATE the widget will transition to Random widget
         if (userData.currentDate.isAfter(REMOVE_DATE)) {
-            return ReadingChallengeState.ChallengeRemoved
+            return ReadingChallengeState.RandomArticle
+        }
+
+        // New users will immediately go to the Random Article widget.
+        if (userData.isNewUser) {
+            return ReadingChallengeState.RandomArticle
         }
 
         if (userData.currentDate.isBefore(START_DATE)) {
@@ -108,9 +118,19 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
                 enabled = Prefs.readingChallengeEnrolled,
                 currentStreak = Prefs.readingChallengeStreak,
                 hasReadToday = hasReadToday(currentDate),
-                hasActiveStreak = hasActiveStreak(currentDate)
+                hasActiveStreak = hasActiveStreak(currentDate),
+                isNewUser = isNewUser()
             )
         )
+    }
+
+    // Users who installs the app after the challenge end date will be
+    // immediately transitioned to the Random Article widget.
+    fun isNewUser(): Boolean {
+        val installDate = Instant.ofEpochMilli(DailyStatsEvent.getInstallTime(context))
+            .atZone(ZoneId.systemDefault())
+            .toLocalDate()
+        return installDate.isAfter(END_DATE)
     }
 
     fun hasActiveStreak(currentDate: LocalDate): Boolean {
@@ -159,16 +179,16 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
         const val READING_CHALLENGE_START_DATE = "2026-05-11"
         val START_DATE get() = LocalDate.parse(Prefs.readingChallengeStartDate.ifEmpty { READING_CHALLENGE_START_DATE })
         val END_DATE get() = LocalDate.parse(Prefs.readingChallengeEndDate.ifEmpty { READING_CHALLENGE_END_DATE })
-        private val REMOVE_DATE = LocalDate.of(2026, 7, 27)
+        private val REMOVE_DATE = LocalDate.of(2026, 7, 28)
 
         private val isChallengeActive: Boolean
             get() = !LocalDate.now().isBefore(START_DATE) && !LocalDate.now().isAfter(END_DATE)
 
         fun isWidgetInstalled(): Boolean {
             val context = WikipediaApp.instance
-            val ids = AppWidgetManager.getInstance(context).getAppWidgetIds(
+            val ids = AppWidgetManager.getInstance(context)?.getAppWidgetIds(
                 ComponentName(context, ReadingChallengeWidgetReceiver::class.java)
-            )
+            ) ?: intArrayOf()
             return ids.isNotEmpty()
         }
 
@@ -177,7 +197,7 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
         }
 
         fun shouldShowWidgetInstallDialog(): Boolean {
-            return Prefs.readingChallengeOnboardingShown && !Prefs.readingChallengeInstallPromptShown &&
+            return DeviceUtil.areWidgetsSupported && Prefs.readingChallengeOnboardingShown && !Prefs.readingChallengeInstallPromptShown &&
                     Prefs.readingChallengeEnrolled && AccountUtil.isLoggedIn && isChallengeActive && !isWidgetInstalled()
         }
 

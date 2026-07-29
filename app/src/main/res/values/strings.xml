@@ -2586,4 +2586,7 @@
     <string name="home_feed_games_module_cta_prompt_title">Want to play more games?</string>
     <string name="home_feed_games_module_cta_prompt_subtitle">Go to the games hub</string>
     <string name="home_feed_games_module_cta_prompt_button_text">Games hub</string>
+
+    <!-- Random Article Widget   -->
+    <string name="random_article_widget_name">Random article</string>
 </resources>
