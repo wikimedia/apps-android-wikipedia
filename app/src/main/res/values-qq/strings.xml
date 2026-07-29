@@ -2344,4 +2344,5 @@
     <string name="reading_lists_filter_not_in_collection">Label for filtering the All articles tab to show articles that have not been added to a custom collection.</string>
     <string name="reading_lists_search_saved_articles">Hint text for searching saved article titles in the All articles tab.</string>
     <string name="reading_lists_search_collections">Hint text for searching reading list titles in the Collections tab.</string>
+    <string name="reading_lists_update_tooltip">Tooltip shown to inform users that reading lists have been renamed to collections.</string>
 </resources>

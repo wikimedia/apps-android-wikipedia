@@ -2607,4 +2607,5 @@
         <item quantity="one">Article removed from all associated collections.</item>
         <item quantity="other">%d articles removed from all associated collections.</item>
     </plurals>
+    <string name="reading_lists_update_tooltip">Reading lists are now called collections.</string>
 </resources>

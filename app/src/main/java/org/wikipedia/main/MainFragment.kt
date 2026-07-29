@@ -97,6 +97,7 @@ import org.wikipedia.yearinreview.YearInReviewDialog
 import org.wikipedia.yearinreview.YearInReviewOnboardingActivity
 import org.wikipedia.yearinreview.YearInReviewViewModel
 import java.io.File
+import java.time.LocalDate
 import java.util.concurrent.TimeUnit
 
 class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragment.Callback, MenuNavTabDialog.Callback, ActivityTabFragment.Callback {
@@ -201,6 +202,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
         binding.mainNavTabLayout.setOverlayDot(NavTab.EDITS, !Prefs.isActivityTabOnboardingShown)
 
         maybeShowFeedNewModulesTooltip()
+        maybeShowReadingListsUpdateTooltip()
         Prefs.incrementExploreFeedVisitCount()
 
         notificationButtonView = NotificationButtonView(requireActivity())
@@ -597,6 +599,28 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
             binding.root.post {
                 if (isAdded) {
                     FeedbackUtil.showTooltip(requireActivity(), binding.mainNavTabLayout.findViewById(NavTab.HOME.id), getString(R.string.home_feed_update_tooltip1), aboveOrBelow = true, autoDismiss = false, showDismissButton = true)
+                }
+            }
+        }
+    }
+
+    private fun maybeShowReadingListsUpdateTooltip() {
+        val endDate = LocalDate.of(2026, 9, 15)
+        // Only show the tooltip to existing users and expire after September 15, 2026
+        if (Prefs.exploreFeedVisitCount == 0) {
+            Prefs.isReadingListsUpdateTooltipShown = true
+        } else if (!Prefs.isReadingListsUpdateTooltipShown && !LocalDate.now().isAfter(endDate)) {
+            Prefs.isReadingListsUpdateTooltipShown = true
+            binding.root.post {
+                if (isAdded) {
+                    FeedbackUtil.showTooltip(
+                        requireActivity(),
+                        binding.mainNavTabLayout.findViewById(NavTab.READING_LISTS.id),
+                        getString(R.string.reading_lists_update_tooltip),
+                        aboveOrBelow = true,
+                        autoDismiss = false,
+                        showDismissButton = true
+                    )
                 }
             }
         }
