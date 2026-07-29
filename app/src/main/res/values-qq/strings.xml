@@ -181,6 +181,8 @@
   <string name="search_no_results_found">Message shown to user when no search results are found for a string</string>
   <string name="search_reading_list_no_results">Message shown when there are no pages in the current reading list that match the specified search term. The %s symbol is replaced with the name of the reading list.</string>
   <string name="search_reading_lists_no_results">Message shown when there are no reading lists whose name matches the specified search term.</string>
+  <string name="search_all_articles_no_results">Message shown when no saved articles in the All articles tab match the search term.</string>
+  <string name="search_collections_no_results">Message shown when no collections in the Collections tab match the search term.</string>
   <string name="search_history_no_results">Message shown when there are no history entries that match the specified search term.</string>
   <string name="edit_section_captcha_message">A label for the CAPTCHA screen.</string>
   <string name="edit_section_captcha_request_an_account_message">Text informing the user that there is an alternate way to create an account, if in case the user cannot read the captcha, with a link to the page to request an account.</string>
@@ -2344,5 +2346,8 @@
     <string name="reading_lists_filter_not_in_collection">Label for filtering the All articles tab to show articles that have not been added to a custom collection.</string>
     <string name="reading_lists_search_saved_articles">Hint text for searching saved article titles in the All articles tab.</string>
     <string name="reading_lists_search_collections">Hint text for searching reading list titles in the Collections tab.</string>
+    <string name="reading_lists_empty_collections_title">Title shown in the empty state of the Collections tab when the user has no collections.</string>
+    <string name="reading_lists_empty_collections_description">Description shown in the empty state of the Collections tab explaining how collections can organize saved articles.</string>
+    <string name="reading_lists_create_new_collection">Button label for creating a collection from the empty state of the Collections tab.</string>
     <string name="reading_lists_update_tooltip">Tooltip shown to inform users that reading lists have been renamed to collections.</string>
 </resources>

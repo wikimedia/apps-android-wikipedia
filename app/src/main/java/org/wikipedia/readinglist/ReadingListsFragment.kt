@@ -117,7 +117,8 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                         onPageLongClick = ::onPageLongClick,
                         onPageChipClick = ::onPageChipClick,
                         onPageToggleOfflineClick = ::onToggleOfflineClick,
-                        onDiscoverCardClick = ::onDiscoverCardClick
+                        onDiscoverCardClick = ::onDiscoverCardClick,
+                        onCreateCollectionClick = overflowCallback::createNewListClick
                     )
                 }
             }
