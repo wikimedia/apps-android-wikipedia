@@ -66,6 +66,7 @@ Classes and packages are organized roughly by "feature":
 ### Miscellaneous
 
 - SharedPreferences are encapsulated in `settings/Prefs.kt`. If adding a new preference, follow the pattern in that file.
+  - For any preference that must be observed reactively, use DataStore instead of `Prefs.kt`, following the pattern in `settings/SettingsRepository.kt`, which exposes each preference as a `Flow` and writes with `dataStore.edit { }`. If the preference already exists and is used in many places, don't migrate it: observe it with `Prefs.observeKeys(...)`, which emits once on subscription and again whenever any of the given keys changes. See `feed/HomeViewModel.kt` for an example.
 - When setting up an A/B test for any feature, subclass from `analytics/ABTest.kt`, which automatically assigns the current user into a test bucket.
 
 ## Code conventions
@@ -76,6 +77,8 @@ Classes and packages are organized roughly by "feature":
   - Whenever possible, use the components and extensions found in the `compose/` directory (`compose/components/`, `compose/extensions/`, `compose/theme/`).
   - Important: for Text composables that might display HTML text from spannable CharSequence strings (bold, italic, etc), use our `compose/components/HtmlText` composable instead of the standard Text() composable.
   - For new Composable, create at least one `Preview` function that showcases the corresponding composable.
+  - When migrating existing XML layouts to Compose, do NOT eyeball text sizes. Look up the `style="@style/..."` that the layout references in `app/src/main/res/values/styles.xml`, and map its `textSize`, `lineHeight`, `textStyle` and `fontFamily` to the closest `MaterialTheme.typography` token, using `.copy(...)` for whatever the token doesn't match. For example `@style/H2` is 20sp bold with a 28sp line height, so it becomes `MaterialTheme.typography.titleLarge.copy(fontSize = 20.sp, fontWeight = FontWeight.Bold)`.
+    - Dot-named styles like `H2.AppBar` and `H4.Label` implicitly inherit from their prefix (`H2`, `H4`) and only list what they override, so map the parent style first and `.copy(...)` the overridden attributes on top unless the style sets an explicit `parent`, which wins over the name. A `textColor` in a style is not part of the typography mapping; take it from `LocalWikipediaColor.current`.
 - ALWAYS prefer self-documenting names of variables, functions, and fields. Don't write redundant comments that explain what the next line does.
 - Avoid using deprecated APIs and classes in new code whenever possible.
 - Avoid using reflection, unless all other options are exhausted.
