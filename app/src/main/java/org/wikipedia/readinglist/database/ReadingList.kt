@@ -91,44 +91,5 @@ class ReadingList(
                 lists.add(0, it)
             }
         }
-
-        fun sortGenericList(lists: MutableList<Any>, sortMode: Int) {
-            when (sortMode) {
-                SORT_BY_NAME_ASC -> lists.sortWith { lhs: Any?, rhs: Any? ->
-                    if (lhs is ReadingList && rhs is ReadingList) {
-                        lhs.accentInvariantTitle.compareTo(rhs.accentInvariantTitle, true)
-                    } else {
-                        0
-                    }
-                }
-                SORT_BY_NAME_DESC -> lists.sortWith { lhs: Any?, rhs: Any? ->
-                    if (lhs is ReadingList && rhs is ReadingList) {
-                        rhs.accentInvariantTitle.compareTo(lhs.accentInvariantTitle, true)
-                    } else {
-                        0
-                    }
-                }
-                SORT_BY_RECENT_ASC -> lists.sortWith { lhs: Any?, rhs: Any? ->
-                    if (lhs is ReadingList && rhs is ReadingList) {
-                        rhs.mtime.compareTo(lhs.mtime)
-                    } else {
-                        0
-                    }
-                }
-                SORT_BY_RECENT_DESC -> lists.sortWith { lhs: Any?, rhs: Any? ->
-                    if (lhs is ReadingList && rhs is ReadingList) {
-                        lhs.mtime.compareTo(rhs.mtime)
-                    } else {
-                        0
-                    }
-                }
-            }
-
-            // make the Default list sticky on top, regardless of sorting.
-            lists.firstOrNull { it is ReadingList && it.isDefault }?.let {
-                lists.remove(it)
-                lists.add(0, it)
-            }
-        }
     }
 }

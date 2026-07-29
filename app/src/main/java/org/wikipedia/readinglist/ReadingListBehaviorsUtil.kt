@@ -496,9 +496,6 @@ object ReadingListBehaviorsUtil {
         coroutineScope.launch(exceptionHandler) {
             allReadingLists = AppDatabase.instance.readingListDao().getAllLists()
             val list = withContext(Dispatchers.IO) { applySearchQuery(searchQuery, allReadingLists) }
-            if (searchQuery.isNullOrEmpty()) {
-                ReadingList.sortGenericList(list, Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC))
-            }
             callback.onCompleted(list)
         }
     }
