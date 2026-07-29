@@ -25,7 +25,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -33,6 +32,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
+import androidx.fragment.compose.content
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -60,21 +60,17 @@ class WatchlistExpiryDialog : ExtendedBottomSheetDialogFragment() {
     private val expiryList = listOf(WatchlistExpiry.NEVER, WatchlistExpiry.ONE_WEEK, WatchlistExpiry.ONE_MONTH,
             WatchlistExpiry.THREE_MONTH, WatchlistExpiry.SIX_MONTH)
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        return ComposeView(requireContext()).apply {
-            setContent {
-                BaseTheme {
-                    WatchlistExpiryDialogView(
-                        modifier = Modifier
-                            .background(WikipediaTheme.colors.paperColor),
-                        expiryList = expiryList,
-                        selectedWatchListTime = WatchlistExpiry.NEVER,
-                        onExpiryItemSelected = {
-                            viewModel.changeExpiry(it)
-                        }
-                    )
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) = content {
+        BaseTheme {
+            WatchlistExpiryDialogView(
+                modifier = Modifier
+                    .background(WikipediaTheme.colors.paperColor),
+                expiryList = expiryList,
+                selectedWatchListTime = WatchlistExpiry.NEVER,
+                onExpiryItemSelected = {
+                    viewModel.changeExpiry(it)
                 }
-            }
+            )
         }
     }
 
