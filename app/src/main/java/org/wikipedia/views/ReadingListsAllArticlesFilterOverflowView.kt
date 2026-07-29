@@ -54,6 +54,9 @@ class ReadingListsAllArticlesFilterOverflowView(context: Context) : FrameLayout(
 
     private fun updateSelectedOption(option: SavedArticleFilter) {
         binding.filterAllArticlesSelected.isVisible = option == SavedArticleFilter.ALL_ARTICLES
+        binding.filterAllArticlesSelected.isSelected = option == SavedArticleFilter.ALL_ARTICLES
+
         binding.filterNotInCollectionSelected.isVisible = option == SavedArticleFilter.NOT_IN_COLLECTION
+        binding.filterNotInCollectionSelected.isSelected = option == SavedArticleFilter.NOT_IN_COLLECTION
     }
 }

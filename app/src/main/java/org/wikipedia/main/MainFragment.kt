@@ -201,8 +201,9 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
 
         binding.mainNavTabLayout.setOverlayDot(NavTab.EDITS, !Prefs.isActivityTabOnboardingShown)
 
-        maybeShowFeedNewModulesTooltip()
+        // Check this first because the Feed tooltip marks its preference before posting its UI.
         maybeShowReadingListsUpdateTooltip()
+        maybeShowFeedNewModulesTooltip()
         Prefs.incrementExploreFeedVisitCount()
 
         notificationButtonView = NotificationButtonView(requireActivity())
@@ -609,7 +610,9 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
         // Only show the tooltip to existing users and expire after September 15, 2026
         if (Prefs.exploreFeedVisitCount == 0) {
             Prefs.isReadingListsUpdateTooltipShown = true
-        } else if (!Prefs.isReadingListsUpdateTooltipShown && !LocalDate.now().isAfter(endDate)) {
+        } else if (Prefs.isHomeFeedUpdateTooltipShown &&
+                !Prefs.isReadingListsUpdateTooltipShown &&
+                !LocalDate.now().isAfter(endDate)) {
             Prefs.isReadingListsUpdateTooltipShown = true
             binding.root.post {
                 if (isAdded) {
