@@ -364,24 +364,25 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
 
         override fun createNewListClick() {
-            val existingTitles = viewModel.uiState.value.rows
-                .filterIsInstance<ReadingListRow.ListRow>()
-                .map { it.list.title }
-            ReadingListTitleDialog.readingListTitleDialog(
-                activity = requireActivity(),
-                title = getString(R.string.reading_list_name_sample),
-                description = "",
-                otherTitles = existingTitles,
-                callback = object : ReadingListTitleDialog.Callback {
-                    override fun onSuccess(text: String, description: String) {
-                        viewLifecycleOwner.lifecycleScope.launch(
-                            CoroutineExceptionHandler { _, throwable -> L.w(throwable) }
-                        ) {
-                            viewModel.createReadingList(text, description)
+            viewLifecycleOwner.lifecycleScope.launch {
+                val existingTitles = viewModel.getReadingListsWithoutContents()
+                    .map { it.title }
+                ReadingListTitleDialog.readingListTitleDialog(
+                    activity = requireActivity(),
+                    title = getString(R.string.reading_list_name_sample),
+                    description = "",
+                    otherTitles = existingTitles,
+                    callback = object : ReadingListTitleDialog.Callback {
+                        override fun onSuccess(text: String, description: String) {
+                            viewLifecycleOwner.lifecycleScope.launch(
+                                CoroutineExceptionHandler { _, throwable -> L.w(throwable) }
+                            ) {
+                                viewModel.createReadingList(text, description)
+                            }
                         }
                     }
-                }
-            ).show()
+                ).show()
+            }
         }
 
         override fun importNewList() {
