@@ -23,8 +23,7 @@ object CustomTabsUtil {
                 .build()
                 .launchUrl(context, url.toUri())
         } catch (_: ActivityNotFoundException) {
-            Toast.makeText(context, context.getString(R.string.error_browser_not_found),
-                Toast.LENGTH_LONG).show()
+            Toast.makeText(context, R.string.error_browser_not_found, Toast.LENGTH_LONG).show()
         }
     }
 }
