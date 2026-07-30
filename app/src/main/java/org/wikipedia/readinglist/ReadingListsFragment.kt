@@ -56,7 +56,6 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.readinglist.compose.OnboardingAction
 import org.wikipedia.readinglist.compose.ReadingListMenuAction
 import org.wikipedia.readinglist.compose.ReadingListsScreen
-import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingActivity
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
@@ -260,7 +259,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     override fun onResume() {
         super.onResume()
-        onSelectTab(SavedTab.ALL_ARTICLES)
         viewModel.refreshAccountState()
         viewModel.refreshRecentPreviewSavedList()
         maybeDeleteListFromIntent()
@@ -337,13 +335,11 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     private val overflowCallback = object : ReadingListsOverflowView.Callback {
         override fun sortByClick() {
-            val uiState = viewModel.uiState.value
-            val sortArticles = uiState.selectedTab == SavedTab.ALL_ARTICLES
             ExclusiveBottomSheetPresenter.show(
                 childFragmentManager,
                 SortReadingListsDialog.newInstance(
-                    sortOption = if (sortArticles) mapArticleSortOption(uiState.sortMode) else uiState.sortMode,
-                    sortArticles = sortArticles
+                    sortOption = viewModel.uiState.value.sortMode,
+                    sortArticles = viewModel.uiState.value.selectedTab == SavedTab.ALL_ARTICLES
                 )
             )
         }
@@ -385,23 +381,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     }
 
     override fun onSortOptionClick(position: Int) {
-        viewModel.setSortMode(
-            if (viewModel.uiState.value.selectedTab == SavedTab.ALL_ARTICLES) {
-                mapArticleSortOption(position)
-            } else {
-                position
-            }
-        )
-    }
-
-    // Flip the date sort mode to match the article sort dialog order without changing the order in
-    // [ReadingList.SORT_BY_RECENT_ASC] and [ReadingList.SORT_BY_RECENT_DESC]
-    private fun mapArticleSortOption(value: Int): Int {
-        return when (value) {
-            ReadingList.SORT_BY_RECENT_ASC -> ReadingList.SORT_BY_RECENT_DESC
-            ReadingList.SORT_BY_RECENT_DESC -> ReadingList.SORT_BY_RECENT_ASC
-            else -> value
-        }
+        viewModel.setSortMode(position)
     }
 
     private fun importReadingLists(uri: android.net.Uri) {

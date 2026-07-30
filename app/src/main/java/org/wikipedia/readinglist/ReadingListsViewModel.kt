@@ -475,7 +475,7 @@ class ReadingListsViewModel : ViewModel() {
         }
 
         val orderedPages = selectedArticles.values.mapTo(mutableListOf()) { it.page }
-        sortMode?.let { ReadingList.sortPages(orderedPages, it) }
+        sortMode?.let { sortArticles(orderedPages, it) }
 
         return orderedPages.map { page ->
             val article = selectedArticles.getValue(page.lang to page.apiTitle)
@@ -483,6 +483,15 @@ class ReadingListsViewModel : ViewModel() {
                 page.toUiModel(),
                 article.containingLists
             )
+        }
+    }
+
+    private fun sortArticles(pages: MutableList<ReadingListPage>, sortMode: Int) {
+        when (sortMode) {
+            ReadingList.SORT_BY_NAME_ASC -> pages.sortWith { lhs: ReadingListPage, rhs: ReadingListPage -> lhs.accentInvariantTitle.compareTo(rhs.accentInvariantTitle, true) }
+            ReadingList.SORT_BY_NAME_DESC -> pages.sortWith { lhs: ReadingListPage, rhs: ReadingListPage -> rhs.accentInvariantTitle.compareTo(lhs.accentInvariantTitle, true) }
+            ReadingList.SORT_BY_RECENT_ASC -> pages.sortWith { lhs: ReadingListPage, rhs: ReadingListPage -> rhs.mtime.compareTo(lhs.mtime) }
+            ReadingList.SORT_BY_RECENT_DESC -> pages.sortWith { lhs: ReadingListPage, rhs: ReadingListPage -> lhs.mtime.compareTo(rhs.mtime) }
         }
     }
 
