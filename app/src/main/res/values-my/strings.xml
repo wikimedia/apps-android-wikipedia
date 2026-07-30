@@ -292,6 +292,8 @@
   <string name="widget_name_featured_page">ဝီကီပီးဒီးယား မျက်နှာဖုံးဆောင်းပါး</string>
   <string name="widget_title_featured_page">ယနေ့ အထူးဆောင်းပါး:</string>
   <string name="widget_name_search">ဝီကီပီးဒီးယားမှာ ရှာဖွေ</string>
+  <string name="widget_description_search">ဝီကီပီးဒီးယားကို ရှာဖွေရန် အမြန်ဆုံးနည်းလမ်း</string>
+  <string name="widget_description_featured_page">ဝီကီပီးဒီးယားမှာ ပေးထားတဲ့ အကောင်းဆုံးဆောင်းပါးတွေ</string>
   <string name="wiktionary_no_definitions_found">အဓိပ္ပာယ်ဖွင့်ဆိုချက် မတွေ့ပါ။</string>
   <string name="alpha_update_notification_title">စမ်းသပ်သုံးစွဲမှု အသစ်ရယူနိုင်ပါပြီ</string>
   <string name="alpha_update_notification_text">တို့ထိခြင်းဖြင့် ရယူပါ</string>
