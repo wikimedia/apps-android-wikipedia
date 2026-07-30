@@ -261,7 +261,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     override fun onResume() {
         super.onResume()
-        onSelectTab(SavedTab.ALL_ARTICLES)
         viewModel.refreshAccountState()
         viewModel.refreshRecentPreviewSavedList()
         maybeDeleteListFromIntent()

@@ -66,15 +66,11 @@ class ReadingList(
         const val SORT_BY_RECENT_DESC = 3
 
         fun sort(list: ReadingList, sortMode: Int) {
-            sortPages(list.pages, sortMode)
-        }
-
-        fun sortPages(pages: MutableList<ReadingListPage>, sortMode: Int) {
             when (sortMode) {
-                SORT_BY_NAME_ASC -> pages.sortWith { lhs: ReadingListPage, rhs: ReadingListPage -> lhs.accentInvariantTitle.compareTo(rhs.accentInvariantTitle, true) }
-                SORT_BY_NAME_DESC -> pages.sortWith { lhs: ReadingListPage, rhs: ReadingListPage -> rhs.accentInvariantTitle.compareTo(lhs.accentInvariantTitle, true) }
-                SORT_BY_RECENT_ASC -> pages.sortWith { lhs: ReadingListPage, rhs: ReadingListPage -> lhs.mtime.compareTo(rhs.mtime) }
-                SORT_BY_RECENT_DESC -> pages.sortWith { lhs: ReadingListPage, rhs: ReadingListPage -> rhs.mtime.compareTo(lhs.mtime) }
+                SORT_BY_NAME_ASC -> list.pages.sortWith { lhs: ReadingListPage, rhs: ReadingListPage -> lhs.accentInvariantTitle.compareTo(rhs.accentInvariantTitle, true) }
+                SORT_BY_NAME_DESC -> list.pages.sortWith { lhs: ReadingListPage, rhs: ReadingListPage -> rhs.accentInvariantTitle.compareTo(lhs.accentInvariantTitle, true) }
+                SORT_BY_RECENT_ASC -> list.pages.sortWith { lhs: ReadingListPage, rhs: ReadingListPage -> lhs.mtime.compareTo(rhs.mtime) }
+                SORT_BY_RECENT_DESC -> list.pages.sortWith { lhs: ReadingListPage, rhs: ReadingListPage -> rhs.mtime.compareTo(lhs.mtime) }
             }
         }
 
@@ -87,45 +83,6 @@ class ReadingList(
             }
             // make the Default list sticky on top, regardless of sorting.
             lists.firstOrNull { it.isDefault }?.let {
-                lists.remove(it)
-                lists.add(0, it)
-            }
-        }
-
-        fun sortGenericList(lists: MutableList<Any>, sortMode: Int) {
-            when (sortMode) {
-                SORT_BY_NAME_ASC -> lists.sortWith { lhs: Any?, rhs: Any? ->
-                    if (lhs is ReadingList && rhs is ReadingList) {
-                        lhs.accentInvariantTitle.compareTo(rhs.accentInvariantTitle, true)
-                    } else {
-                        0
-                    }
-                }
-                SORT_BY_NAME_DESC -> lists.sortWith { lhs: Any?, rhs: Any? ->
-                    if (lhs is ReadingList && rhs is ReadingList) {
-                        rhs.accentInvariantTitle.compareTo(lhs.accentInvariantTitle, true)
-                    } else {
-                        0
-                    }
-                }
-                SORT_BY_RECENT_ASC -> lists.sortWith { lhs: Any?, rhs: Any? ->
-                    if (lhs is ReadingList && rhs is ReadingList) {
-                        rhs.mtime.compareTo(lhs.mtime)
-                    } else {
-                        0
-                    }
-                }
-                SORT_BY_RECENT_DESC -> lists.sortWith { lhs: Any?, rhs: Any? ->
-                    if (lhs is ReadingList && rhs is ReadingList) {
-                        lhs.mtime.compareTo(rhs.mtime)
-                    } else {
-                        0
-                    }
-                }
-            }
-
-            // make the Default list sticky on top, regardless of sorting.
-            lists.firstOrNull { it is ReadingList && it.isDefault }?.let {
                 lists.remove(it)
                 lists.add(0, it)
             }
