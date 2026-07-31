@@ -2605,4 +2605,8 @@
         <item quantity="one">Article removed from all associated collections.</item>
         <item quantity="other">%d articles removed from all associated collections.</item>
     </plurals>
+    <string name="reading_lists_save_sheet_empty_title">Collect the articles you love</string>
+    <string name="reading_lists_save_sheet_empty_message">Save articles in collections.</string>
+    <string name="reading_lists_save_sheet_empty_action">Start a collection</string>
+    <string name="reading_lists_save_sheet_create">Create</string>
 </resources>

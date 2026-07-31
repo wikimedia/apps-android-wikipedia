@@ -19,8 +19,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
-import kotlinx.coroutines.launch
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -56,12 +54,13 @@ import org.wikipedia.main.MainActivity
 import org.wikipedia.main.MainFragment
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.notifications.NotificationActivity
+import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.places.PlacesActivity
 import org.wikipedia.random.RandomActivity
 import org.wikipedia.readinglist.ReadingListActivity
-import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.ReadingListMode
+import org.wikipedia.readinglist.SaveArticleSheetDialog
 import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingActivity
 import org.wikipedia.readinglist.recommended.RecommendedReadingListSettingsActivity
 import org.wikipedia.settings.Prefs
@@ -253,15 +252,20 @@ class HomeFragment : Fragment() {
             }
             is HomeAction.PageBookmarkClick -> {
                 instrument.submitInteraction("click", actionSource = action.card.javaClass.simpleName, elementId = "article_save", pageData = TestKitchenAdapter.getPageData(pageTitle = action.historyEntry.title))
-                lifecycleScope.launch {
-                    val page = AppDatabase.instance.readingListPageDao().findPageInAnyList(action.historyEntry.title)
-                    val list = AppDatabase.instance.readingListDao().getListById(page?.listId ?: -1)
-                    if (list == null || page == null) {
-                        ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), action.historyEntry.title, true, InvokeSource.FEED)
-                    } else {
-                        ReadingListBehaviorsUtil.deletePages(requireActivity(), listOf(list), page, {}, {})
-                    }
-                }
+                // TODO: showing the new save sheet here to test. Restore the block below before merging.
+                ExclusiveBottomSheetPresenter.show(
+                    childFragmentManager,
+                    SaveArticleSheetDialog.newInstance(action.historyEntry.title)
+                )
+                // lifecycleScope.launch {
+                //     val page = AppDatabase.instance.readingListPageDao().findPageInAnyList(action.historyEntry.title)
+                //     val list = AppDatabase.instance.readingListDao().getListById(page?.listId ?: -1)
+                //     if (list == null || page == null) {
+                //         ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), action.historyEntry.title, true, InvokeSource.FEED)
+                //     } else {
+                //         ReadingListBehaviorsUtil.deletePages(requireActivity(), listOf(list), page, {}, {})
+                //     }
+                // }
             }
             is HomeAction.PageShareClick -> {
                 instrument.submitInteraction("click", actionSource = action.card.javaClass.simpleName, elementId = "article_share", pageData = TestKitchenAdapter.getPageData(pageTitle = action.historyEntry.title))
