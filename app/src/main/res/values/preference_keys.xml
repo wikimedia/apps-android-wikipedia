@@ -229,4 +229,5 @@
     <string name="preference_key_search_widget_install_prompt_shown" translatable="false">searchWidgetInstallPromptShown</string>
     <string name="preference_key_randomizer_shake_prompt_shown" translatable="false">randomizerShakePromptShown</string>
     <string name="preference_key_home_feed_survey_shown" translatable="false">homeFeedSurveyShown</string>
+    <string name="preference_key_visual_editor_enabled" translatable="false">visualEditorIsEnabled</string>
 </resources>

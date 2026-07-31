@@ -611,4 +611,11 @@
             android:title="@string/preference_key_randomizer_shake_prompt_shown"/>
     </PreferenceCategory>
 
+    <PreferenceCategory android:title="Visual Editor">
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_visual_editor_enabled"
+            android:title="@string/preference_key_visual_editor_enabled"/>
+
+    </PreferenceCategory>
+
 </PreferenceScreen>
