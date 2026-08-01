@@ -5,6 +5,8 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -39,6 +41,7 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
+import java.nio.file.WatchEvent
 
 const val EDITOR_CHOICE_VE = 0
 const val EDITOR_CHOICE_SOURCE = 1
@@ -182,10 +185,14 @@ private fun EditorOption(
                 onClick = onClick,
                 role = Role.RadioButton
             )
-            .padding(16.dp),
+            .height(88.dp)
+            .padding(horizontal = 16.dp, vertical = 12.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Column(modifier = Modifier.weight(1f)) {
+        Column(modifier = Modifier
+            .weight(1f)
+            .fillMaxHeight()
+        ) {
             Text(
                 text = title,
                 style = MaterialTheme.typography.bodyLarge,
@@ -197,14 +204,22 @@ private fun EditorOption(
                 color = WikipediaTheme.colors.secondaryColor
             )
         }
-        RadioButton(
-            selected = selected,
-            onClick = null,
-            colors = RadioButtonDefaults.colors(
-                selectedColor = WikipediaTheme.colors.progressiveColor,
-                unselectedColor = WikipediaTheme.colors.secondaryColor,
+
+        Spacer(modifier = Modifier.width(16.dp))
+
+        Column(
+            verticalArrangement = Arrangement.Top,
+            modifier = Modifier.fillMaxHeight()
+        ) {
+            RadioButton(
+                selected = selected,
+                onClick = null,
+                colors = RadioButtonDefaults.colors(
+                    selectedColor = WikipediaTheme.colors.progressiveColor,
+                    unselectedColor = WikipediaTheme.colors.secondaryColor,
+                )
             )
-        )
+        }
     }
 }
 
