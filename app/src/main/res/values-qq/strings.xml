@@ -341,7 +341,6 @@
   <string name="edit_notices_show_auto">Label for checkbox that enables showing edit notices automatically when entering the editing workflow.\n\nThe words \"edit notices\" must be translated consistently with {{msg-wm|Wikipedia-android-strings-edit notices}}.</string>
   <string name="edit_notices_tooltip">Text for a tooltip that points to the button for displaying edit notices.</string>
   <string name="editor_select_dialog_title">Title of popup dialog asking the user how they want to edit the article.</string>
-  <string name="editor_select_dialog_subtitle">Explanation of popup dialog asking the user how they want to edit the article.</string>
   <string name="editor_select_dialog_ve_title">Title of checkbox selection for editing with VisualEditor.</string>
   <string name="editor_select_dialog_ve_subtitle">Subtitle of checkbox selection for editing with VisualEditor.</string>
   <string name="editor_select_dialog_source_title">Title of checkbox selection for editing with the native wikitext editor.</string>

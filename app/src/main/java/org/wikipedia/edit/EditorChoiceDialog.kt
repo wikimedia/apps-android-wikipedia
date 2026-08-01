@@ -89,15 +89,6 @@ private fun EditorChoiceContent(
             color = WikipediaTheme.colors.primaryColor
         )
 
-        Spacer(modifier = Modifier.height(16.dp))
-
-        Text(
-            modifier = Modifier.padding(horizontal = 24.dp),
-            text = stringResource(R.string.editor_select_dialog_subtitle),
-            style = MaterialTheme.typography.bodyMedium,
-            color = WikipediaTheme.colors.secondaryColor
-        )
-
         Spacer(modifier = Modifier.height(24.dp))
 
         Column(modifier = Modifier.selectableGroup()) {
@@ -153,7 +144,9 @@ private fun EditorChoiceContent(
         Spacer(modifier = Modifier.height(8.dp))
 
         Row(
-            modifier = Modifier.fillMaxWidth().padding(horizontal = 24.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 24.dp),
             horizontalArrangement = Arrangement.End,
             verticalAlignment = Alignment.CenterVertically
         ) {
