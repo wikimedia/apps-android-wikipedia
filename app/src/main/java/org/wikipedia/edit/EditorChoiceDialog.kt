@@ -84,15 +84,13 @@ private fun EditorChoiceContent(
     var selectedEditor by remember { mutableIntStateOf(initialChoice) }
     var dontShowAgain by remember { mutableStateOf(false) }
 
-    Column(modifier = Modifier.padding(top = 24.dp, bottom = 24.dp)) {
+    Column(modifier = Modifier.padding(vertical = 4.dp)) {
         Text(
-            modifier = Modifier.padding(horizontal = 24.dp),
+            modifier = Modifier.padding(horizontal = 16.dp, vertical = 24.dp),
             text = stringResource(R.string.editor_select_dialog_title),
             style = MaterialTheme.typography.headlineSmall,
             color = WikipediaTheme.colors.primaryColor
         )
-
-        Spacer(modifier = Modifier.height(24.dp))
 
         Column(modifier = Modifier.selectableGroup()) {
             EditorOption(
@@ -149,7 +147,7 @@ private fun EditorChoiceContent(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 24.dp),
+                .padding(start = 16.dp, end = 24.dp, top = 20.dp, bottom = 20.dp),
             horizontalArrangement = Arrangement.End,
             verticalAlignment = Alignment.CenterVertically
         ) {
