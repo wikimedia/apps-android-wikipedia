@@ -55,6 +55,7 @@ import org.wikipedia.readinglist.ReadingListUiModel
 import org.wikipedia.readinglist.ReadingListsUiState
 import org.wikipedia.readinglist.RecommendedReadingListCard
 import org.wikipedia.readinglist.RecommendedReadingListDiscoverCardView
+import org.wikipedia.readinglist.SavedArticleFilter
 import org.wikipedia.readinglist.SavedTab
 import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
 import org.wikipedia.theme.Theme
@@ -257,9 +258,12 @@ private fun ReadingListsContent(
         }
         uiState.rows.isEmpty() && uiState.searchQuery.isNullOrEmpty() &&
             uiState.onboarding == OnboardingState.None && uiState.discoverCard == null -> {
+            val allSavedArticlesAreInCollections = uiState.selectedTab == SavedTab.ALL_ARTICLES &&
+                    uiState.selectedArticleFilter == SavedArticleFilter.NOT_IN_COLLECTION && uiState.hasSavedArticles
             EmptyReadingLists(
                 modifier = modifier,
                 selectedTab = uiState.selectedTab,
+                allSavedArticlesAreInCollections = allSavedArticlesAreInCollections,
                 onCreateCollectionClick = onCreateCollectionClick
             )
         }
@@ -493,16 +497,24 @@ private fun ReadingListsList(
 @Composable
 private fun EmptyReadingLists(
     selectedTab: SavedTab,
+    allSavedArticlesAreInCollections: Boolean,
     modifier: Modifier = Modifier,
     onCreateCollectionClick: () -> Unit = {}
 ) {
     val title = when (selectedTab) {
-        SavedTab.ALL_ARTICLES -> stringResource(R.string.saved_list_empty_title)
+        SavedTab.ALL_ARTICLES -> stringResource(
+            if (allSavedArticlesAreInCollections) {
+                R.string.reading_lists_empty_not_in_collection_title
+            } else {
+                R.string.saved_list_empty_title
+            }
+        )
         SavedTab.COLLECTIONS -> stringResource(R.string.reading_lists_empty_collections_title)
     }
-    val description = when (selectedTab) {
-        SavedTab.ALL_ARTICLES -> stringResource(R.string.reading_lists_empty_message)
-        SavedTab.COLLECTIONS -> stringResource(R.string.reading_lists_empty_collections_description)
+    val description = when {
+        allSavedArticlesAreInCollections -> null
+        selectedTab == SavedTab.ALL_ARTICLES -> stringResource(R.string.reading_lists_empty_message)
+        else -> stringResource(R.string.reading_lists_empty_collections_description)
     }
     Column(
         modifier = modifier
@@ -518,15 +530,17 @@ private fun EmptyReadingLists(
             style = MaterialTheme.typography.titleSmall,
             textAlign = TextAlign.Center
         )
-        Spacer(modifier = Modifier.size(8.dp))
-        Text(
-            text = description,
-            color = WikipediaTheme.colors.secondaryColor,
-            style = MaterialTheme.typography.bodyMedium.copy(
-                letterSpacing = 0.25.sp,
-            ),
-            textAlign = TextAlign.Center
-        )
+        description?.let {
+            Spacer(modifier = Modifier.size(8.dp))
+            Text(
+                text = it,
+                color = WikipediaTheme.colors.secondaryColor,
+                style = MaterialTheme.typography.bodyMedium.copy(
+                    letterSpacing = 0.25.sp,
+                ),
+                textAlign = TextAlign.Center
+            )
+        }
         if (selectedTab == SavedTab.COLLECTIONS) {
             Button(
                 modifier = Modifier

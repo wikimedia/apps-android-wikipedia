@@ -23,7 +23,6 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
-import org.wikipedia.readinglist.database.ReadingListWithPages
 import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
@@ -78,16 +77,20 @@ class ReadingListsViewModel : ViewModel() {
             SavedTab.ALL_ARTICLES -> Prefs.getReadingListPageSortMode(ReadingList.SORT_BY_NAME_ASC)
             SavedTab.COLLECTIONS -> Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC)
         }
+        // toReadingList() drops pages queued for deletion (Room @Relation can't filter children in SQL)
+        val lists = relations.map { it.toReadingList() }.toMutableList()
+        val hasSavedArticles = lists.any { it.pages.isNotEmpty() }
         ReadingListsUiState(
             isLoading = false,
             rows = buildRows(
-                relations,
+                lists,
                 mode.tab,
                 mode.query,
                 mode.articleFilter,
                 previewSavedState.newBadgeListId,
                 sortMode
             ),
+            hasSavedArticles = hasSavedArticles,
             listCount = relations.size,
             searchQuery = mode.query,
             selectedTab = mode.tab,
@@ -418,23 +421,20 @@ class ReadingListsViewModel : ViewModel() {
     }
 
     private fun buildRows(
-        relations: List<ReadingListWithPages>,
+        allLists: MutableList<ReadingList>,
         tab: SavedTab,
         query: String?,
         articleFilter: SavedArticleFilter,
         recentPreviewSavedId: Long?,
         sortMode: Int
     ): List<ReadingListRow> {
-        // toReadingList() drops pages queued for deletion (Room @Relation can't filter children in SQL)
-        val lists = relations.map { it.toReadingList() }.toMutableList()
-
         if (!query.isNullOrEmpty()) {
-            return buildSearchRows(lists, tab, query, articleFilter, recentPreviewSavedId)
+            return buildSearchRows(allLists, tab, query, articleFilter, recentPreviewSavedId)
         }
 
         return when (tab) {
-            SavedTab.COLLECTIONS -> buildCollectionsRows(lists, recentPreviewSavedId, sortMode)
-            SavedTab.ALL_ARTICLES -> buildArticleRows(lists, articleFilter = articleFilter, sortMode = sortMode)
+            SavedTab.COLLECTIONS -> buildCollectionsRows(allLists, recentPreviewSavedId, sortMode)
+            SavedTab.ALL_ARTICLES -> buildArticleRows(allLists, articleFilter = articleFilter, sortMode = sortMode)
         }
     }
 
@@ -607,6 +607,7 @@ data class ReadingListsUiState(
     val isLoading: Boolean = true,
     val isSearchActive: Boolean = false,
     val rows: List<ReadingListRow> = emptyList(),
+    val hasSavedArticles: Boolean = false,
     val pageDownloadProgress: Map<Long, Int> = emptyMap(),
     val listCount: Int = 0,
     val searchQuery: String? = null,

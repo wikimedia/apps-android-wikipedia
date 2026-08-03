@@ -2344,6 +2344,7 @@
     <string name="reading_lists_tab_collections">Label for the tab in the Saved screen that shows the user\'s reading lists (collections).</string>
     <string name="reading_lists_filter_content_description">Accessibility label for the toolbar button that opens the saved-article filter menu.</string>
     <string name="reading_lists_filter_not_in_collection">Label for filtering the All articles tab to show articles that have not been added to a custom collection.</string>
+    <string name="reading_lists_empty_not_in_collection_title">Title shown when the Not in a collection filter has no results because every saved article belongs to a collection.</string>
     <string name="reading_lists_search_saved_articles">Hint text for searching saved article titles in the All articles tab.</string>
     <string name="reading_lists_search_collections">Hint text for searching reading list titles in the Collections tab.</string>
     <string name="reading_lists_empty_collections_title">Title shown in the empty state of the Collections tab when the user has no collections.</string>
