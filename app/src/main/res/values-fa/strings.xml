@@ -1177,7 +1177,7 @@
   <string name="suggested_edits_report_feature_subject">مشکل با اصطلاحات در ویرایش پیشنهادی</string>
   <string name="edit_summary_added_image">تصویر اضافه شده</string>
   <string name="edit_summary_added_caption">برنگاشت افزوده شد</string>
-  <string name="edit_summary_added_image_and_caption">تصویر و کپشن اضافه شد</string>
+  <string name="edit_summary_added_image_and_caption">تصویر و برنگاشت اضافه شد</string>
   <string name="edit_published_view">مشاهده</string>
   <string name="activity_tab_logged_out_title">برای مشاهدهٔ فعالیت خود در برنامه ویکی‌پدیا، وارد شوید یا یک حساب کاربری ایجاد کنید</string>
   <string name="activity_tab_user_reading">مطالعهٔ %s</string>
