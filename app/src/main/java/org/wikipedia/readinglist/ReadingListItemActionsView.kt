@@ -52,11 +52,17 @@ class ReadingListItemActionsView : LinearLayout {
         }
     }
 
-    fun setState(pageTitle: String, removeFromListText: String, offline: Boolean, hasActionMode: Boolean) {
+    fun setState(
+        pageTitle: String,
+        removeFromListText: String,
+        offline: Boolean,
+        hasActionMode: Boolean,
+        showMoveAction: Boolean
+    ) {
         binding.readingListItemOfflineSwitch.isChecked = offline
         binding.readingListItemTitle.text = StringUtil.fromHtml(pageTitle)
         binding.readingListItemRemoveText.text = removeFromListText
         binding.readingListItemSelect.visibility = if (hasActionMode) GONE else VISIBLE
-        binding.readingListItemMoveToOther.visibility = if (hasActionMode) GONE else VISIBLE
+        binding.readingListItemMoveToOther.visibility = if (hasActionMode || !showMoveAction) GONE else VISIBLE
     }
 }

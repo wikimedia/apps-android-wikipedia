@@ -9,6 +9,8 @@ import org.wikipedia.views.SearchActionProvider
 
 abstract class SearchActionModeCallback : ActionMode.Callback {
 
+    private var searchActionProvider: SearchActionProvider? = null
+
     protected abstract fun getSearchHintString(): String
     protected abstract fun onQueryChange(s: String)
     protected abstract fun getParentContext(): Context
@@ -17,7 +19,8 @@ abstract class SearchActionModeCallback : ActionMode.Callback {
         mode.tag = ACTION_MODE_TAG
         val menuItem = menu.add(getSearchHintString())
         // Manually setup a action provider to be able to adjust the left margin of the search field.
-        MenuItemCompat.setActionProvider(menuItem, SearchActionProvider(getParentContext(), getSearchHintString()) { onQueryChange(it) })
+        searchActionProvider = SearchActionProvider(getParentContext(), getSearchHintString()) { onQueryChange(it) }
+        MenuItemCompat.setActionProvider(menuItem, searchActionProvider)
         return true
     }
 
@@ -30,6 +33,11 @@ abstract class SearchActionModeCallback : ActionMode.Callback {
     }
 
     override fun onDestroyActionMode(mode: ActionMode) {
+        searchActionProvider = null
+    }
+
+    fun updateSearchHint(searchHint: String) {
+        searchActionProvider?.setSearchHint(searchHint)
     }
 
     companion object {
