@@ -195,7 +195,7 @@ private fun EditorOption(
             .weight(1f)
             .fillMaxHeight()
         ) {
-            if(shouldShowOpenInNewIcon) {
+            if (shouldShowOpenInNewIcon) {
                 Row (
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(8.dp)
