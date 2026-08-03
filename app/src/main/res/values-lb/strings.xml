@@ -1114,6 +1114,7 @@
   <string name="activity_tab_logged_out_title">Loggt Iech an oder leet e Kont un, fir Är Aktivitéit an der Wikipedia-App ze gesinn</string>
   <string name="activity_tab_user_reading">Lektür vum %s</string>
   <string name="activity_tab_on_wikipedia_android">an der Wikipedia-App</string>
+  <string name="activity_tab_weekly_time_spent_hm">%1$d h %2$d min</string>
   <string name="activity_tab_weekly_time_spent">Lieszäit dës Woch</string>
   <string name="activity_tab_monthly_articles_read">Artikelen, déi dëse Mount gelies goufen</string>
   <string name="activity_tab_monthly_articles_saved">Artikelen, déi dëse Mount gespäichert goufen</string>
@@ -1218,6 +1219,7 @@
   <string name="onboarding_multilingual_secondary_text">Mir hunn déi follgend op Ärem Apparat fonnt:</string>
   <string name="onboarding_multilingual_add_language_text">Sproochen derbäisetzen oder änneren</string>
   <string name="onboarding_welcome_title_v2">Déi fräi Enzyklopedie\n... a méi wéi 300 Sproochen</string>
+  <string name="onboarding_next">Weider</string>
   <string name="onboarding_fresh_install_knowledge_learn_more">Méi iwwer Wikipedia gewuer ginn</string>
   <string name="onboarding_app_languages_text">Op Ärem Apparat hu mir déi follgend Sprooche fonnt:</string>
   <string name="app_shortcuts_random">Zoufall</string>
@@ -1817,6 +1819,10 @@
   <string name="settings_app_icon_subtitle">Virdeeler fir Contributeuren</string>
   <string name="settings_app_icon_updated">Äert App-Symbol gouf aktualiséiert.</string>
   <string name="year_in_review_slide_app_icon_title_unlocked">Neit App-Symbol fir Äre Startbildschierm fräigeschalt</string>
+  <string name="year_in_review_slide_app_icon_body_unlocked">Aktivéiert Äert neit App-Symbol an den Astellungen ënner „App-Symbol“. Merci fir Ären Investissement an d\'Zukunft vum fräie Wëssen. Är Kontributiounen als %1$s op %2$d droen dozou bäi, dee Wee a Richtung vun enger Welt voller fräier Informatiounen fräizemaachen, an dofir hutt Dir e personaliséiert Symbol fir Wikipedia-Contributeure fir Äre Startbildschierm fräigeschalt.</string>
+  <string name="year_in_review_slide_app_icon_donor">Donateur</string>
+  <string name="year_in_review_slide_app_icon_editor">Editeur</string>
+  <string name="year_in_review_slide_app_icon_donor_and_editor">Donateur an Editeur</string>
   <string name="year_in_review_login_dialog_positive">Aloggen / Bei Wikipedia matmaachen</string>
   <string name="year_in_review_login_dialog_negative">Virufueren ouni anzeloggen</string>
   <plurals name="year_in_review_slide_top_articles_headline">
@@ -1853,6 +1859,14 @@
   <plurals name="year_in_review_slide_english_reading_hours_headline">
     <item quantity="one">Mir hunn %,d Stonn mat Liese verbruecht</item>
     <item quantity="other">Mir hu(nn) %,d Stonne mat Liese verbruecht</item>
+  </plurals>
+  <plurals name="year_in_review_slide_available_languages_body_first">
+    <item quantity="one">Wikipedia hat %,d Artikel</item>
+    <item quantity="other">Wikipedia hat %,d Artikelen</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_global_first">
+    <item quantity="one">Wikipedia hat %,d Artikel</item>
+    <item quantity="other">Wikipedia hat %,d Artikelen</item>
   </plurals>
   <string name="year_in_review_reading_list_dialog_title">Är Lieslëscht fir de Joresréckbléck %d uleeën?</string>
   <string name="year_in_review_reading_list_dialog_message">De Wikipedia-Joresréckbléck leet eng Lieslëscht u mat den Artikelen, op deenen Dir %1$d am meeschten Zäit verbruecht hutt. &lt;a href=\"%2$s\"&gt;Méi gewuer ginn&lt;/a&gt;</string>
