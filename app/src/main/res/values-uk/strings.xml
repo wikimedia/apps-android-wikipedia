@@ -661,7 +661,7 @@
   <string name="reading_list_turned_sync_off_dialog_text">Синхронізацію читальних списків вимкнено для Вашого облікового запису, тож списки статей на пристроях, з яких Ви входите в систему, більше не оновлюватимуться. Увімкніть синхронізацію читальних списків у налаштуваннях.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">Готово</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Налаштування</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_title">Увімкнути синхронізацію читальних списків?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">Увімкнути синхронізацію списків читання?</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_text">Статті, збережені у списки читання, тепер можна синхронізувати зі своїм обліковим записом у Вікіпедії. &lt;a href=\"#faq\"&gt;Дізнатися більше&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Не показувати цього знову</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Увімкнути синхронізацію</string>
