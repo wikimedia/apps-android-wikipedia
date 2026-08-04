@@ -207,6 +207,7 @@ private fun EditorOption(
 
                     Icon(
                         painter = painterResource(R.drawable.ic_open_in_new_black_24px),
+                        tint = WikipediaTheme.colors.primaryColor,
                         contentDescription = stringResource(R.string.editor_select_icon_ve_title),
                         modifier = Modifier.size(20.dp)
                     )
