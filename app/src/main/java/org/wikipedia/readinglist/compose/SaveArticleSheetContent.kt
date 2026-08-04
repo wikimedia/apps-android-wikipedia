@@ -16,8 +16,9 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.BottomSheetDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -50,23 +51,27 @@ import org.wikipedia.readinglist.SaveCollectionUiModel
 import org.wikipedia.theme.Theme
 import org.wikipedia.views.imageservice.ImageService
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SaveArticleSheetContent(
     article: SaveArticleUiModel,
     collections: List<SaveCollectionUiModel>,
     modifier: Modifier = Modifier,
-    onArticleSaveClick: () -> Unit = {},
+    onArticleHeaderClick: () -> Unit = {},
     onCreateCollectionClick: () -> Unit = {},
-    onCollectionClick: (Long) -> Unit = {}
+    onCollectionRowClick: (Long) -> Unit = {}
 ) {
     Column(
         modifier = modifier
             .fillMaxWidth()
     ) {
-        DragHandle()
+        BottomSheetDefaults.DragHandle(
+            modifier = Modifier.align(Alignment.CenterHorizontally),
+            color = WikipediaTheme.colors.inactiveColor
+        )
         ArticleHeader(
             article = article,
-            onSaveClick = onArticleSaveClick
+            onClick = onArticleHeaderClick
         )
         HorizontalDivider(
             color = WikipediaTheme.colors.borderColor,
@@ -87,7 +92,7 @@ fun SaveArticleSheetContent(
                     ) { collection ->
                         CollectionRow(
                             collection = collection,
-                            onClick = { onCollectionClick(collection.id) }
+                            onClick = { onCollectionRowClick(collection.id) }
                         )
                     }
                 }
@@ -97,26 +102,9 @@ fun SaveArticleSheetContent(
 }
 
 @Composable
-private fun DragHandle(modifier: Modifier = Modifier) {
-    Box(
-        modifier = modifier
-            .fillMaxWidth()
-            .padding(vertical = 12.dp),
-        contentAlignment = Alignment.Center
-    ) {
-        Box(
-            modifier = Modifier
-                .size(width = 32.dp, height = 4.dp)
-                .clip(CircleShape)
-                .background(WikipediaTheme.colors.inactiveColor)
-        )
-    }
-}
-
-@Composable
 private fun ArticleHeader(
     article: SaveArticleUiModel,
-    onSaveClick: () -> Unit,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     Row(
@@ -156,7 +144,7 @@ private fun ArticleHeader(
         Box(
             modifier = Modifier
                 .size(32.dp)
-                .clickable(onClick = onSaveClick),
+                .clickable(onClick = onClick),
             contentAlignment = Alignment.Center
         ) {
             Icon(
