@@ -206,16 +206,12 @@ private fun EditorOption(
                         color = WikipediaTheme.colors.primaryColor
                     )
 
-                    IconButton(
-                        onClick = { }, // TODO: wire up this click
-                        modifier = Modifier
-                            .size(15.dp)
-                    ) {
-                        Icon(
-                            painter = painterResource(R.drawable.ic_open_in_new_black_24px),
-                            contentDescription = "icon",
-                        )
-                    }
+                    Icon(
+                        painter = painterResource(R.drawable.ic_open_in_new_black_24px),
+                        contentDescription = "icon",
+                        modifier = Modifier.size(20.dp)
+                    )
+
                 }
             } else {
                 Text(
