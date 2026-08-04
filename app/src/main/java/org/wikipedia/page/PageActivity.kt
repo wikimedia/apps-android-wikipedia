@@ -491,7 +491,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     override fun onPageRequestEditSection(sectionId: Int, sectionAnchor: String?, title: PageTitle, highlightText: String?) {
         val launchEditor = {
             if (Prefs.editorModeChoice == EDITOR_CHOICE_VE && Prefs.visualEditorEnabled) {
-                UriUtil.visitInExternalBrowser(this, title.getWebApiUrl("?veaction=edit&section=$sectionId&returntoapp=1").toUri())
+                UriUtil.visitInExternalBrowser(this, (title.uri + "?veaction=edit&section=$sectionId&returntoapp=1").toUri())
                 // startActivity(SingleWebViewActivity.newIntent(this, title.uri + "?veaction=edit&section=$sectionId"))
             } else {
                 requestEditSectionLauncher.launch(EditSectionActivity.newIntent(this, sectionId, sectionAnchor, title, InvokeSource.PAGE_ACTIVITY, highlightText))
@@ -540,10 +540,20 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         }
         if (Intent.ACTION_VIEW == intent.action && intent.data != null) {
             var uri = intent.data!!
+            uri.getQueryParameter("veaction")?.let {
+                if (it == "edit") {
+                    val title = PageTitle.titleForUri(uri, WikiSite(uri))
+                    val sectionId = uri.getQueryParameter("section")?.toIntOrNull() ?: 0
+                    // If the link is a VisualEditor edit link, then we should open it in an external browser.
+                    UriUtil.visitInExternalBrowser(this, title.getWebApiUrl("?veaction=edit&section=$sectionId&returntoapp=1").toUri())
+                    return
+                }
+            }
             TestKitchenAdapter.client.getInstrument("apps-open")
                 .submitInteraction(action = "app_open", actionSource = "external_link")
 
             if (uri.scheme == "wikipedia") {
+
                 uri = uri.buildUpon().scheme(WikiSite.DEFAULT_SCHEME).build()
 
                 // TODO: move this to a more appropriate spot.
