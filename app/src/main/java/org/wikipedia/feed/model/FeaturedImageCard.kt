@@ -1,7 +1,7 @@
-package org.wikipedia.feed.image
+package org.wikipedia.feed.model
 
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.feed.model.WikiSiteCard
+import org.wikipedia.feed.image.FeaturedImage
 import org.wikipedia.settings.homefeed.CommunityModuleType
 
 class FeaturedImageCard(

@@ -1,8 +1,7 @@
-package org.wikipedia.feed.featured
+package org.wikipedia.feed.model
 
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
-import org.wikipedia.feed.model.WikiSiteCard
 import org.wikipedia.settings.homefeed.CommunityModuleType
 
 open class FeaturedArticleCard(
