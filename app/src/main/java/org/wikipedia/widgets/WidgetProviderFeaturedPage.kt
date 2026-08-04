@@ -92,7 +92,7 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
         private var lastServerUpdateMillis = 0L
 
         fun forceUpdateWidget(context: Context, pageTitle: PageTitle? = null) {
-            val appWidgetManager = AppWidgetManager.getInstance(context.applicationContext)
+            val appWidgetManager = AppWidgetManager.getInstance(context.applicationContext) ?: return
             val ids = appWidgetManager.getAppWidgetIds(ComponentName(context.applicationContext, WidgetProviderFeaturedPage::class.java))
             ids.forEach { id ->
                 val options = appWidgetManager.getAppWidgetOptions(id)

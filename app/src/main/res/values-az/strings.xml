@@ -10,6 +10,7 @@
 * Verman1
 * Vesely35
 * Wertuose
+* Wrai
 * Şeyx Şamil
 * Əkrəm
 * Əkrəm Cəfər
@@ -1768,6 +1769,8 @@
   <string name="places_empty_message_snackbar">Yaxınlıqda məqalə yoxdur. Xəritəni böyütməyi və hərəkət etdirməyi yoxlayın.</string>
   <string name="survey_dialog_title">Bu funksiyanı təkmilləşdirməkdə bizə kömək edin</string>
   <string name="survey_dialog_message">Bu funksiya sizi qane edirmi?</string>
+  <string name="home_feed_survey_title">Ana səhifəni təkmilləşdirməyə kömək et</string>
+  <string name="home_feed_survey_message">\"İcma\" və \"Sizin üçün\" lentlərindən razısınızmı?</string>
   <string name="survey_dialog_option_satisfied">Razıyam</string>
   <string name="survey_dialog_option_neutral">Neytral</string>
   <string name="survey_dialog_option_unsatisfied">Razı deyiləm</string>
@@ -2440,7 +2443,10 @@
   <string name="home_feed_for_you_screen_end_of_feed_description">Sabah sizin üçün fərdiləşdirilmiş yeni məqalələr tapmaq üçün yenə gəlin.</string>
   <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Öyrənməyə davam etmək yolları:</string>
   <string name="home_feed_for_you_screen_end_of_feed_add_interests">&lt;a href=\"#add_interests\"&gt;Yeni maraqlar&lt;/a&gt; əlavə et</string>
+  <string name="randomizer_shake_prompt_title">Qarışdırmaq üçün silkələ</string>
+  <string name="randomizer_shake_prompt_message">Təsadüfi bir məqaləyə keçmək və gözlənilməz bir şey kəşf etmək üçün cihazınızı silkələyin.</string>
   <string name="home_feed_games_module_cta_prompt_title">Daha çox oyun oynamaq istəyirsiniz?</string>
   <string name="home_feed_games_module_cta_prompt_subtitle">Oyun mərkəzinə get</string>
   <string name="home_feed_games_module_cta_prompt_button_text">Oyun mərkəzi</string>
+  <string name="random_article_widget_name">Təsadüfi məqalə</string>
 </resources>

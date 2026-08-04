@@ -36,14 +36,14 @@ class HCaptchaHelper(
 
     private val dialogCancelableRunnable = MakeHCaptchaDialogCancelable()
 
-    fun show() {
+    fun show(siteKey: String? = null) {
         if (hCaptcha == null) {
             val config = RemoteConfig.config.androidv1?.hCaptcha ?: configDefault
             hCaptcha = HCaptcha.getClient(activity)
             hCaptcha?.setup(
                 HCaptchaConfig.builder()
                     .theme(if (WikipediaApp.instance.currentTheme.isDark) HCaptchaTheme.DARK else HCaptchaTheme.LIGHT)
-                    .siteKey(config.siteKey)
+                    .siteKey(siteKey ?: config.siteKey)
                     .host(config.baseURL.toUri().host)
                     .jsSrc(config.jsSrc)
                     .endpoint(config.endpoint)

@@ -102,6 +102,25 @@ fun ReadingChallengeSmallWidgetContent(
                 mainImageResId = R.drawable.wp25_babyglobe_reading
             )
         }
+        ReadingChallengeState.RandomArticle -> {
+            val combination = WidgetCombinations.streakOngoing.forToday(enrollmentDate = enrollmentDate)
+            SmallWidget(
+                modifier = GlanceModifier
+                    .fillMaxSize()
+                    .padding(vertical = 12.dp, horizontal = 16.dp)
+                    .clickable(onClick = actionRunCallback<RandomArticleWidgetAction>()),
+                mainImageResId = combination.iconResId,
+                backgroundColor = combination.backgroundColor,
+                bottomContent = {
+                    WidgetButton(
+                        text = context.getString(R.string.reading_challenge_widget_random_button),
+                        backgroundColor = combination.contentColor,
+                        contentColor = combination.backgroundColor,
+                        action = actionRunCallback<RandomArticleWidgetAction>()
+                    )
+                }
+            )
+        }
         ReadingChallengeState.EnrolledNotStarted -> {
             val combination = WidgetCombinations.enrolledNotStarted.forToday(enrollmentDate = enrollmentDate)
             SmallWidget(
@@ -342,6 +361,21 @@ fun SmallWidgetNotEnrolledTierBoundariesPreview() {
 fun SmallWidgetEnrolledNotStartedTierBoundariesPreview() {
     ReadingChallengeSmallWidgetContent(
         state = ReadingChallengeState.EnrolledNotStarted,
+        enrollmentDate = LocalDate.now()
+    )
+}
+
+// RandomArticle: centered mascot + single CTA, whole widget opens the randomizer
+@OptIn(ExperimentalGlancePreviewApi::class)
+@Preview(widthDp = 184, heightDp = 130)
+@Preview(widthDp = 130, heightDp = 200)
+@Preview(widthDp = 184, heightDp = 160)
+@Preview(widthDp = 200, heightDp = 200)
+@Preview(widthDp = 250, heightDp = 250)
+@Composable
+fun SmallWidgetRandomArticleTierBoundariesPreview() {
+    ReadingChallengeSmallWidgetContent(
+        state = ReadingChallengeState.RandomArticle,
         enrollmentDate = LocalDate.now()
     )
 }

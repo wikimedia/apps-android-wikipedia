@@ -60,6 +60,7 @@ import org.wikipedia.extensions.getString
 import org.wikipedia.feed.model.Card
 import org.wikipedia.language.AppLanguageState
 import org.wikipedia.main.MainActivity
+import org.wikipedia.page.PageTitle
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DimenUtil
 
@@ -71,6 +72,8 @@ fun HomeScreen(
     communityContentState: CommunityContentState,
     forYouContentState: ForYouContentState,
     overflowMenuState: PageOverflowMenuViewModel.PageOverflowMenuState? = null,
+    savedInReadingListTitles: Set<String> = emptySet(),
+    resolveForYouSavedState: suspend (PageTitle) -> Boolean = { false },
     tabsState: TabsState,
     notificationBellState: NotificationBellState,
     onAction: (HomeAction) -> Unit = {}
@@ -132,6 +135,7 @@ fun HomeScreen(
                             wikiSite = wikiSite,
                             state = communityContentState,
                             overflowMenuState = overflowMenuState,
+                            savedInReadingListTitles = savedInReadingListTitles,
                             onAction = onAction
                         )
                     }
@@ -142,6 +146,7 @@ fun HomeScreen(
                         topInset = topInset,
                         state = forYouContentState,
                         wikiSite = wikiSite,
+                        resolveSavedState = resolveForYouSavedState,
                         onAction = onAction
                     )
 

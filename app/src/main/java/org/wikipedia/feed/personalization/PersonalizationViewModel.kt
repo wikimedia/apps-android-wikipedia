@@ -228,7 +228,7 @@ class PersonalizationViewModel(
         }) {
             state.update { it.copy(articlesLoading = true, articlesError = null) }
 
-            val articles = interestSelectionRepository.getArticlesByTopic(topic.topic.queryTopicId)
+            val articles = InterestSelectionRepository.getArticlesByTopic(interestSelectionRepository.wikiSite, topic.topic.queryTopicId)
             val previewContent = HomePreferenceContent.fromPageTitles(pageTitles = articles, topic = topic)
             state.update { current ->
                 val newArticles = (current.selectedArticles.toList() + articles).distinct()

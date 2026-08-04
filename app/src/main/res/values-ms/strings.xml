@@ -7,6 +7,7 @@
 * Cooltey
 * CyberTroopers
 * Dbrant
+* EmpAhmadK
 * Envlh
 * Hakimi97
 * Izing
@@ -31,9 +32,12 @@
   <string name="search_hint">Cari dalam Wikipedia</string>
   <string name="search_hint_voice_search">Carian input suara</string>
   <string name="search_hint_search_languages">Cari bahasa</string>
+  <string name="search_back_button_content_description">Kembali</string>
+  <string name="search_clear_query_content_description">Padam pertanyaan</string>
   <string name="search_icon_content_description">Cari</string>
   <string name="filter_hint_filter_my_lists_and_articles">Tapis senarai saya</string>
   <string name="nav_item_suggested_edits">Suntingan</string>
+  <string name="nav_item_activity">Kegiatan</string>
   <string name="nav_item_more">Lagi</string>
   <string name="nav_item_search">Cari</string>
   <string name="nav_item_contribute">Sumbangkan</string>
@@ -46,7 +50,7 @@
   <string name="page_error_back_to_main">Kembali</string>
   <string name="error_back">Kembali</string>
   <string name="error_next">Seterusnya</string>
-  <string name="menu_clear_all_history" fuzzy="true">Padamkan sejarah</string>
+  <string name="menu_clear_all_history">Padam sejarah bacaan</string>
   <string name="history_item_deleted">%s dihapus dari sejarah</string>
   <string name="history_items_deleted">%d rencana dipadamkan dari sejarah</string>
   <string name="history_item_delete_undo">Nyahbuat</string>
@@ -59,7 +63,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Padamkan sejarah pelayaran</string>
-  <string name="dialog_message_clear_history" fuzzy="true">Ini akan menghapuskan kesemua sejarah pelayaran anda serta menutup sebarang tab yang masih terbuka. Adakah anda pasti?</string>
+  <string name="dialog_message_clear_history">Ini akan memadam kesemua sejarah pelayaran. Adakah anda pasti?</string>
   <string name="dialog_message_clear_history_yes">Ya</string>
   <string name="dialog_message_clear_history_no">Tidak</string>
   <string name="share_via">Sebarkan melalui</string>
@@ -141,6 +145,10 @@
   <string name="dialog_message_leaving_edit">Suntingan anda belum diterbitkan. Betulkah anda mahu meninggalkan laman ini?</string>
   <string name="dialog_message_leaving_edit_leave">Pergi</string>
   <string name="dialog_message_leaving_edit_stay">Kekal di sini</string>
+  <string name="dialog_confirm_delete_donation_history_title">Sahkan pemadaman</string>
+  <string name="dialog_confirm_delete_donation_history_message">Ini hanya terpakai untuk derma yang dibuat menggunakan peranti ini.</string>
+  <string name="dialog_confirm_delete_donation_history_delete">Hapus</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Batal</string>
   <string name="menu_show_toc">Jadual Isi Kandungan</string>
   <string name="search_no_results_found">Tiada hasil carian</string>
   <string name="search_reading_list_no_results">Tiada hasil ditemui dalam \"%s\"</string>
@@ -157,6 +165,9 @@
   <string name="account_creation_password_hint">Kata laluan</string>
   <string name="login_2fa_hint">Kod Pengesahan Dwifaktor</string>
   <string name="login_2fa_other_workflow_error_msg">Pengesahan dua faktor diperlukan! Sila log masuk daripada skrin utama, dan masukkan kod daripada token 2FA anda.</string>
+  <string name="login_email_auth_hint">Kod pengesahan e-mel</string>
+  <string name="login_email_auth_other_workflow_error_msg">Pengesahan e-mel diperlukan! Sila log masuk melalui skrin utama, dan masukkan kod pengesahan e-mel anda.</string>
+  <string name="login_background_error_msg">Gagal melog masuk semula. Sila kembali ke skrin utama dan log masuk secara manual.</string>
   <string name="onboarding_card_login">Log masuk</string>
   <string name="page_editing_login">Log masuk</string>
   <string name="reading_lists_sync_login">Log masuk</string>

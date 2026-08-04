@@ -15,7 +15,7 @@ class HybridSearchAbCTest : ABTest("apps_hybridsearch", GROUP_SIZE_3) {
     }
 
     fun isTestActive(): Boolean {
-        return RemoteConfig.config.androidv1?.hybridSearchEnabled ?: true
+        return RemoteConfig.config.androidv1?.hybridSearchEnabled ?: false
     }
 
     fun isTestGroupUser(): Boolean {

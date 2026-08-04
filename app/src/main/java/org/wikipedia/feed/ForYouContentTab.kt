@@ -71,6 +71,7 @@ import org.wikipedia.feed.places.PlacesOfInterestArticlesModule
 import org.wikipedia.feed.places.PlacesOfInterestLocationPromptModule
 import org.wikipedia.feed.random.RandomModule
 import org.wikipedia.feed.wikigames.GamesModule
+import org.wikipedia.page.PageTitle
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.L10nUtil
 
@@ -79,6 +80,7 @@ fun ForYouContentTab(
     state: ForYouContentState,
     topInset: Int,
     wikiSite: WikiSite,
+    resolveSavedState: suspend (PageTitle) -> Boolean = { false },
     onAction: (HomeAction) -> Unit = {}
 ) {
     when {
@@ -173,6 +175,7 @@ fun ForYouContentTab(
                                 topInset = topInset,
                                 viewPortHeight = viewportHeight,
                                 wikiSite = wikiSite,
+                                resolveSavedState = resolveSavedState,
                                 onAction = onAction
                             )
                         }
@@ -223,6 +226,7 @@ fun ForYouContentTab(
                                 topInset = topInset,
                                 viewPortHeight = viewportHeight,
                                 wikiSite = wikiSite,
+                                resolveSavedState = resolveSavedState,
                                 onAction = onAction,
                                 onCardImpression = { _, _ -> }
                             )
@@ -240,6 +244,7 @@ private fun LazyListScope.forYouModuleItem(
     topInset: Int,
     viewPortHeight: Dp,
     wikiSite: WikiSite,
+    resolveSavedState: suspend (PageTitle) -> Boolean,
     onAction: (HomeAction) -> Unit,
     onCardImpression: (card: Card, index: Int) -> Unit = { card, index -> onAction(HomeAction.CardImpression(card, index)) }
 ) {
@@ -253,6 +258,7 @@ private fun LazyListScope.forYouModuleItem(
                         .height(viewPortHeight),
                     wikiSite = wikiSite,
                     module = module,
+                    resolveSavedState = resolveSavedState,
                     onPageClick = { card, entry -> onAction(HomeAction.PageClick(card, entry)) },
                     onPageShareClick = { card, entry -> onAction(HomeAction.PageShareClick(card, entry)) },
                     onPageBookmarkClick = { card, entry -> onAction(HomeAction.PageBookmarkClick(card, entry)) },
@@ -271,6 +277,7 @@ private fun LazyListScope.forYouModuleItem(
                         .height(viewPortHeight),
                     wikiSite = wikiSite,
                     module = module,
+                    resolveSavedState = resolveSavedState,
                     onPageClick = { card, entry -> onAction(HomeAction.PageClick(card, entry)) },
                     onPageShareClick = { card, entry -> onAction(HomeAction.PageShareClick(card, entry)) },
                     onPageBookmarkClick = { card, entry -> onAction(HomeAction.PageBookmarkClick(card, entry)) },
@@ -289,6 +296,7 @@ private fun LazyListScope.forYouModuleItem(
                         .height(viewPortHeight),
                     wikiSite = wikiSite,
                     module = module,
+                    resolveSavedState = resolveSavedState,
                     onPageClick = { card, entry -> onAction(HomeAction.PageClick(card, entry)) },
                     onPageShareClick = { card, entry -> onAction(HomeAction.PageShareClick(card, entry)) },
                     onPageBookmarkClick = { card, entry -> onAction(HomeAction.PageBookmarkClick(card, entry)) },
@@ -333,6 +341,7 @@ private fun LazyListScope.forYouModuleItem(
                                 .height(viewPortHeight),
                             wikiSite = wikiSite,
                             module = module,
+                            resolveSavedState = resolveSavedState,
                             onPageClick = { card, entry -> onAction(HomeAction.PageClick(card, entry)) },
                             onPageShareClick = { card, entry -> onAction(HomeAction.PageShareClick(card, entry)) },
                             onPageBookmarkClick = { card, entry -> onAction(HomeAction.PageBookmarkClick(card, entry)) },
@@ -380,6 +389,7 @@ private fun LazyListScope.forYouModuleItem(
                             topInset = topInset,
                             wikiSite = wikiSite,
                             module = module,
+                            resolveSavedState = resolveSavedState,
                             updateFrequency = module.updateFrequency.displayStringRes,
                             onPageClick = { card, entry -> onAction(HomeAction.PageClick(card, entry)) },
                             onPageShareClick = { card, entry -> onAction(HomeAction.PageShareClick(card, entry)) },
@@ -435,6 +445,7 @@ private fun LazyListScope.forYouModuleItem(
                         .height(viewPortHeight),
                     wikiSite = wikiSite,
                     module = module,
+                    resolveSavedState = resolveSavedState,
                     onPageClick = { card, entry -> onAction(HomeAction.PageClick(card, entry)) },
                     onPageShareClick = { card, entry -> onAction(HomeAction.PageShareClick(card, entry)) },
                     onPageBookmarkClick = { card, entry -> onAction(HomeAction.PageBookmarkClick(card, entry)) },
