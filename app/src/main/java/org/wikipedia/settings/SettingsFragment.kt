@@ -60,6 +60,7 @@ class SettingsFragment : PreferenceLoaderFragment(), MenuProvider {
         preferenceLoader.updateLanguagePrefSummary()
         preferenceLoader.updateRecommendedReadingListSummary()
         preferenceLoader.updateDonationRemindersDescription()
+        preferenceLoader.updateVisualEditorSettingScreenVisibility()
         DonationReminderHelper.maybeShowSettingSnackbar(requireActivity())
         requireActivity().invalidateOptionsMenu()
     }
