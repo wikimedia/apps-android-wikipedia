@@ -308,7 +308,7 @@
     <string name="edit_notices_tooltip">Tap this button to view edit notices for this article.</string>
     <string name="editor_select_dialog_title">Choose how to edit</string>
     <string name="editor_select_dialog_ve_title">Visual editing</string>
-    <string name="editor_select_dialog_ve_subtitle">Make changes directly to the page you see. Opens in you browser.</string>
+    <string name="editor_select_dialog_ve_subtitle">Make changes directly to the page you see. Opens in your browser.</string>
     <string name="editor_select_dialog_source_title">Source editing</string>
     <string name="editor_select_dialog_source_subtitle">Make changes using markup. Stays in the app.</string>
     <string name="editor_select_dialog_dont_show_again">Don\'t show me this again. This default can be changed later in Settings.</string>
