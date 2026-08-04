@@ -204,7 +204,6 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
         }
     }
 
-
     private inner class SyncReadingListsListener : Preference.OnPreferenceChangeListener {
         override fun onPreferenceChange(preference: Preference, newValue: Any): Boolean {
             if (AccountUtil.isLoggedIn) {
