@@ -208,10 +208,9 @@ private fun EditorOption(
 
                     Icon(
                         painter = painterResource(R.drawable.ic_open_in_new_black_24px),
-                        contentDescription = "icon",
+                        contentDescription = stringResource(R.string.editor_select_icon_ve_title),
                         modifier = Modifier.size(20.dp)
                     )
-
                 }
             } else {
                 Text(

@@ -313,6 +313,7 @@
     <string name="editor_select_dialog_source_subtitle">Make changes using markup. Stays in the app.</string>
     <string name="editor_select_dialog_dont_show_again">Don\'t show me this again. This default can be changed later in Settings.</string>
     <string name="editor_select_dialog_continue">Continue</string>
+    <string name="editor_select_icon_ve_title">Open in new icon for the visual editor selection</string>
     <string name="find_next">Find next</string>
     <string name="find_previous">Find previous</string>
     <string name="find_first_occurence">This is the first occurrence</string>
