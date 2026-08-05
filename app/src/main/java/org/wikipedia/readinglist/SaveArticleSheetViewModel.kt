@@ -74,6 +74,7 @@ class SaveArticleSheetViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
             ),
             collections = readingLists
                 .filterNot { it.isDefault }
+                .sortedWith(compareByDescending<ReadingList> { it.mtime }.thenByDescending { it.id })
                 .map { list -> list.toCollectionUiModel(title) },
             isLoading = false
         )
@@ -132,7 +133,26 @@ class SaveArticleSheetViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
     }
 
     fun toggleArticleSaved() {
-        // TODO
+        viewModelScope.launch(exceptionHandler) {
+            val lists = getListsContainingArticle()
+            when {
+                lists.isEmpty() -> {
+                    val defaultList = AppDatabase.instance.readingListDao().getDefaultList()
+                    AppDatabase.instance.readingListPageDao()
+                        .addPagesToListIfNotExist(defaultList, listOf(savedPageTitle.value))
+                }
+                lists.any { !it.isDefault } -> {
+                    _events.emit(SaveArticleSheetEvent.ShowUnsaveConfirmation)
+                }
+                else -> removeArticleFromLists(lists)
+            }
+        }
+    }
+
+    fun confirmUnsaveArticle() {
+        viewModelScope.launch(exceptionHandler) {
+            removeArticleFromLists(getListsContainingArticle())
+        }
     }
 
     fun requestNewCollection() {
@@ -157,7 +177,36 @@ class SaveArticleSheetViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
     }
 
     fun toggleArticleInCollection(collectionId: Long) {
-        // TODO
+        viewModelScope.launch(exceptionHandler) {
+            val list = AppDatabase.instance.readingListDao().getListWithPagesById(collectionId)?.toReadingList() ?: return@launch
+            list.pages.firstOrNull { it.isSameArticle(savedPageTitle.value) }?.let { page ->
+                AppDatabase.instance.readingListPageDao().markPagesForDeletion(list, listOf(page))
+                return@launch
+            }
+            if (list.pages.size >= Constants.MAX_READING_LIST_ARTICLE_LIMIT) {
+                _events.emit(SaveArticleSheetEvent.CollectionArticleLimitReached(list))
+                return@launch
+            }
+
+            val addedTitles = AppDatabase.instance.readingListPageDao().addPagesToListIfNotExist(list, listOf(savedPageTitle.value))
+            if (addedTitles.isNotEmpty()) {
+                _events.emit(SaveArticleSheetEvent.ArticleAddedToCollection(list))
+            }
+        }
+    }
+
+    private suspend fun getListsContainingArticle(): List<ReadingList> {
+        val pages = AppDatabase.instance.readingListPageDao().getAllPageOccurrences(savedPageTitle.value)
+        if (pages.isEmpty()) {
+            return emptyList()
+        }
+        return AppDatabase.instance.readingListDao().getListsFromPageOccurrences(pages)
+    }
+
+    private suspend fun removeArticleFromLists(lists: List<ReadingList>) {
+        if (lists.isNotEmpty()) {
+            AppDatabase.instance.readingListPageDao().markPagesForDeletionFromLists(lists)
+        }
     }
 
     companion object {
@@ -168,6 +217,8 @@ class SaveArticleSheetViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
 sealed interface SaveArticleSheetEvent {
     data class ShowCreateCollectionDialog(val existingTitles: List<String>) : SaveArticleSheetEvent
     data class ArticleAddedToCollection(val list: ReadingList) : SaveArticleSheetEvent
+    data class CollectionArticleLimitReached(val list: ReadingList) : SaveArticleSheetEvent
+    data object ShowUnsaveConfirmation : SaveArticleSheetEvent
     data object ListLimitReached : SaveArticleSheetEvent
 }
 

@@ -12,6 +12,8 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -19,10 +21,11 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.compose.SaveArticleSheetContent
+import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
 
-class SaveArticleSheetDialog : ExtendedBottomSheetDialogFragment(startExpanded = true) {
+class SaveArticleSheetDialog : ExtendedBottomSheetDialogFragment() {
 
     private val viewModel: SaveArticleSheetViewModel by viewModels()
 
@@ -41,6 +44,17 @@ class SaveArticleSheetDialog : ExtendedBottomSheetDialogFragment(startExpanded =
                     )
                 }
             }
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        BottomSheetBehavior.from(requireView().parent as View).apply {
+            peekHeight = minOf(
+                DimenUtil.roundedDpToPx(DimenUtil.getDimension(R.dimen.saveArticleSheetPeekHeight)),
+                (DimenUtil.displayHeightPx * MAX_PEEK_HEIGHT_RATIO).toInt()
+            )
+            state = BottomSheetBehavior.STATE_COLLAPSED
         }
     }
 
@@ -72,6 +86,19 @@ class SaveArticleSheetDialog : ExtendedBottomSheetDialogFragment(startExpanded =
                 }.show()
                 dismiss()
             }
+            is SaveArticleSheetEvent.CollectionArticleLimitReached -> {
+                FeedbackUtil.makeSnackbar(
+                    requireActivity(),
+                    getString(
+                        R.string.reading_list_article_limit_message,
+                        event.list.title,
+                        Constants.MAX_READING_LIST_ARTICLE_LIMIT
+                    )
+                ).show()
+            }
+            SaveArticleSheetEvent.ShowUnsaveConfirmation -> {
+                showUnsaveArticleConfirmationDialog()
+            }
             SaveArticleSheetEvent.ListLimitReached -> {
                 val activity = requireActivity()
                 dismiss()
@@ -81,6 +108,23 @@ class SaveArticleSheetDialog : ExtendedBottomSheetDialogFragment(startExpanded =
                 ).show()
             }
         }
+    }
+
+    private fun showUnsaveArticleConfirmationDialog() {
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle(R.string.reading_lists_remove_articles_confirm_dialog_title)
+            .setMessage(
+                resources.getQuantityString(
+                    R.plurals.reading_lists_remove_articles_confirm_dialog_message,
+                    1,
+                    1
+                )
+            )
+            .setPositiveButton(R.string.reading_lists_remove_articles_confirm_button) { _, _ ->
+                viewModel.confirmUnsaveArticle()
+            }
+            .setNegativeButton(R.string.reading_list_delete_dialog_cancel_button_text, null)
+            .show()
     }
 
     private fun showCreateCollectionDialog(existingTitles: List<String>) {
@@ -98,6 +142,8 @@ class SaveArticleSheetDialog : ExtendedBottomSheetDialogFragment(startExpanded =
     }
 
     companion object {
+        private const val MAX_PEEK_HEIGHT_RATIO = 0.75f
+
         fun newInstance(pageTitle: PageTitle): SaveArticleSheetDialog {
             return SaveArticleSheetDialog().apply {
                 arguments = bundleOf(Constants.ARG_TITLE to pageTitle)
