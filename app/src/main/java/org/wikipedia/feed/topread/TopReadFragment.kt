@@ -16,6 +16,7 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.databinding.FragmentMostReadBinding
 import org.wikipedia.extensions.setLayoutDirectionByLang
+import org.wikipedia.feed.model.TopReadCard
 import org.wikipedia.feed.view.ListItemView
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageActivity

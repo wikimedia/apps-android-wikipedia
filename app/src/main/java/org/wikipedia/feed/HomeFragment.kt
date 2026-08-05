@@ -31,22 +31,22 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.didyouknow.DidYouKnowActivity
-import org.wikipedia.feed.didyouknow.DidYouKnowCard
 import org.wikipedia.feed.model.Card
+import org.wikipedia.feed.model.DidYouKnowCard
 import org.wikipedia.feed.model.DiscoverCard
 import org.wikipedia.feed.model.EmptyCommunityCard
 import org.wikipedia.feed.model.EmptyForYouCard
 import org.wikipedia.feed.model.GamesModulePromptCard
+import org.wikipedia.feed.model.OnThisDayCard
 import org.wikipedia.feed.model.PlacesOfInterestLocationPromptCard
+import org.wikipedia.feed.model.TopReadCard
 import org.wikipedia.feed.model.WikiGameCard
 import org.wikipedia.feed.onboarding.ExploreFeedUpdatePromptActivity
 import org.wikipedia.feed.onthisday.OnThisDayActivity
-import org.wikipedia.feed.onthisday.OnThisDayCard
 import org.wikipedia.feed.personalization.PersonalizationActivity
 import org.wikipedia.feed.personalization.PersonalizationActivity.Companion.RESULT_INTERESTS_UPDATED
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
 import org.wikipedia.feed.topread.TopReadArticlesActivity
-import org.wikipedia.feed.topread.TopReadCard
 import org.wikipedia.feed.wikigames.OnThisDayCardGameState
 import org.wikipedia.feed.wikigames.WikiGame
 import org.wikipedia.games.GamesHubActivity
@@ -363,7 +363,9 @@ class HomeFragment : Fragment() {
                 when (val card = action.card) {
                     is TopReadCard -> {
                         instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, elementId = "more_top_read")
-                        startActivity(TopReadArticlesActivity.newIntent(requireActivity(), TopReadCard(card.articles, card.age, wikiSite)))
+                        startActivity(TopReadArticlesActivity.newIntent(requireActivity(),
+                            TopReadCard(card.articles, card.age, wikiSite)
+                        ))
                     }
                     is OnThisDayCard -> {
                         instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, elementId = "more_on_this_day")
