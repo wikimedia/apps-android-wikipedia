@@ -539,6 +539,15 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         }
         if (Intent.ACTION_VIEW == intent.action && intent.data != null) {
             var uri = intent.data!!
+            uri.getQueryParameter("veaction")?.let {
+                if (it == "edit") {
+                    val title = PageTitle.titleForUri(uri, WikiSite(uri))
+                    val sectionId = uri.getQueryParameter("section")?.toIntOrNull() ?: 0
+                    // If the link is a VisualEditor edit link, then we should open it in an external browser.
+                    UriUtil.visitInExternalBrowser(this, title.getWebApiUrl("veaction=edit&section=$sectionId&returntoapp=1").toUri())
+                    return
+                }
+            }
             TestKitchenAdapter.client.getInstrument("apps-open")
                 .submitInteraction(action = "app_open", actionSource = "external_link")
 
