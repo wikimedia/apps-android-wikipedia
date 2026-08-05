@@ -28,6 +28,7 @@ class ListItemView(context: Context, attrs: AttributeSet? = null) : ConstraintLa
         fun onSelectPage(title: PageTitle, entry: HistoryEntry, sharedElements: Array<Pair<View, String>>)
         fun onAddPageToList(entry: HistoryEntry, addToDefault: Boolean)
         fun onMovePageToList(sourceReadingListId: Long, entry: HistoryEntry)
+        fun onRemovePageFromList(entry: HistoryEntry)
     }
 
     private val binding = ViewListItemBinding.inflate(LayoutInflater.from(context), this)
@@ -78,6 +79,10 @@ class ListItemView(context: Context, attrs: AttributeSet? = null) : ConstraintLa
                     page?.let {
                         callback?.onMovePageToList(it.listId, entry)
                     }
+                }
+
+                override fun onRemoveRequest(entry: HistoryEntry) {
+                    callback?.onRemovePageFromList(entry)
                 }
             }).show(historyEntry)
             false

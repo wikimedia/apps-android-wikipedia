@@ -54,7 +54,6 @@ import org.wikipedia.main.MainActivity
 import org.wikipedia.main.MainFragment
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.notifications.NotificationActivity
-import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.places.PlacesActivity
 import org.wikipedia.random.RandomActivity
@@ -252,20 +251,7 @@ class HomeFragment : Fragment() {
             }
             is HomeAction.PageBookmarkClick -> {
                 instrument.submitInteraction("click", actionSource = action.card.javaClass.simpleName, elementId = "article_save", pageData = TestKitchenAdapter.getPageData(pageTitle = action.historyEntry.title))
-                // TODO: showing the new save sheet here to test. Restore the block below before merging.
-                ExclusiveBottomSheetPresenter.show(
-                    childFragmentManager,
-                    SaveArticleSheetDialog.newInstance(action.historyEntry.title)
-                )
-                // lifecycleScope.launch {
-                //     val page = AppDatabase.instance.readingListPageDao().findPageInAnyList(action.historyEntry.title)
-                //     val list = AppDatabase.instance.readingListDao().getListById(page?.listId ?: -1)
-                //     if (list == null || page == null) {
-                //         ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), action.historyEntry.title, true, InvokeSource.FEED)
-                //     } else {
-                //         ReadingListBehaviorsUtil.deletePages(requireActivity(), listOf(list), page, {}, {})
-                //     }
-                // }
+                SaveArticleSheetDialog.show(childFragmentManager, action.historyEntry.title)
             }
             is HomeAction.PageShareClick -> {
                 instrument.submitInteraction("click", actionSource = action.card.javaClass.simpleName, elementId = "article_share", pageData = TestKitchenAdapter.getPageData(pageTitle = action.historyEntry.title))

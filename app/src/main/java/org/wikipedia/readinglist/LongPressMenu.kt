@@ -1,9 +1,7 @@
 package org.wikipedia.readinglist
 
 import android.content.ContextWrapper
-import android.icu.text.ListFormatter
 import android.location.Location
-import android.os.Build
 import android.view.Gravity
 import android.view.MenuItem
 import android.view.View
@@ -38,7 +36,7 @@ class LongPressMenu(
         fun onOpenInPlaces(entry: HistoryEntry, location: Location) {}
         fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean)
         fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry)
-        fun onRemoveRequest() {}
+        fun onRemoveRequest(entry: HistoryEntry)
         fun onShareRequest() {}
     }
 
@@ -97,26 +95,6 @@ class LongPressMenu(
         }
     }
 
-    private fun deleteOrShowDialog() {
-        listsContainingPage?.let { list ->
-            RemoveFromReadingListsDialog(list).deleteOrShowDialog(getActivity()) { readingLists, _ ->
-                entry?.let {
-                    if (!getActivity().isDestroyed) {
-                        val readingListNames = readingLists.map { readingList -> readingList.title }.run {
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                                ListFormatter.getInstance().format(this)
-                            } else {
-                                joinToString(separator = ", ")
-                            }
-                        }
-                        FeedbackUtil.showMessage(getActivity(), getActivity().getString(R.string.reading_list_item_deleted_from_list,
-                                        it.title.displayText, readingListNames))
-                    }
-                }
-            }
-        }
-    }
-
     private fun getActivity(): AppCompatActivity {
         return (if (anchorView.context !is AppCompatActivity && anchorView.context is ContextWrapper) {
             (anchorView.context as ContextWrapper).baseContext
@@ -161,8 +139,7 @@ class LongPressMenu(
                 }
                 R.id.menu_long_press_remove_from_lists -> {
                     sendPlacesEvent("remove_from_list_click")
-                    deleteOrShowDialog()
-                    callback?.onRemoveRequest()
+                    entry?.let { callback?.onRemoveRequest(it) }
                     true
                 }
                 R.id.menu_long_press_share_page -> {

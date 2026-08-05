@@ -31,6 +31,7 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.places.PlacesActivity
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
+import org.wikipedia.readinglist.SaveArticleSheetDialog
 import org.wikipedia.search.db.RecentSearch
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
@@ -249,11 +250,15 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
     }
 
     override fun onSearchAddPageToList(entry: HistoryEntry, addToDefault: Boolean) {
-        ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), entry.title, addToDefault, InvokeSource.SEARCH)
+        SaveArticleSheetDialog.show(childFragmentManager, entry.title)
     }
 
     override fun onSearchMovePageToList(sourceReadingListId: Long, entry: HistoryEntry) {
         ReadingListBehaviorsUtil.moveToList(requireActivity(), sourceReadingListId, entry.title, InvokeSource.SEARCH)
+    }
+
+    override fun onSearchRemovePageFromList(entry: HistoryEntry) {
+        SaveArticleSheetDialog.show(childFragmentManager, entry.title)
     }
 
     override fun onSearchProgressBar(enabled: Boolean) {

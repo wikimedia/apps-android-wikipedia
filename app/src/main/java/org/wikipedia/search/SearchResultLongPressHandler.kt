@@ -26,4 +26,8 @@ class SearchResultLongPressHandler(
             callback?.onSearchMovePageToList(page!!.listId, entry)
         }
     }
+
+    override fun onRemoveRequest(entry: HistoryEntry) {
+        callback?.onSearchRemovePageFromList(entry)
+    }
 }

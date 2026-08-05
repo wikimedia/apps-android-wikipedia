@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.platform.ComposeView
 import androidx.core.os.bundleOf
+import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -18,6 +20,7 @@ import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.compose.theme.BaseTheme
+import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.compose.SaveArticleSheetContent
@@ -144,7 +147,15 @@ class SaveArticleSheetDialog : ExtendedBottomSheetDialogFragment() {
     companion object {
         private const val MAX_PEEK_HEIGHT_RATIO = 0.75f
 
-        fun newInstance(pageTitle: PageTitle): SaveArticleSheetDialog {
+        fun show(fragmentManager: FragmentManager, pageTitle: PageTitle) {
+            ExclusiveBottomSheetPresenter.show(fragmentManager, newInstance(pageTitle))
+        }
+
+        fun show(activity: FragmentActivity, pageTitle: PageTitle) {
+            show(activity.supportFragmentManager, pageTitle)
+        }
+
+        private fun newInstance(pageTitle: PageTitle): SaveArticleSheetDialog {
             return SaveArticleSheetDialog().apply {
                 arguments = bundleOf(Constants.ARG_TITLE to pageTitle)
             }

@@ -24,6 +24,7 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
+import org.wikipedia.readinglist.SaveArticleSheetDialog
 import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
@@ -123,11 +124,15 @@ class NewsFragment : Fragment() {
         }
 
         override fun onAddPageToList(entry: HistoryEntry, addToDefault: Boolean) {
-            ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), entry.title, addToDefault, InvokeSource.NEWS_ACTIVITY)
+            SaveArticleSheetDialog.show(childFragmentManager, entry.title)
         }
 
         override fun onMovePageToList(sourceReadingListId: Long, entry: HistoryEntry) {
             ReadingListBehaviorsUtil.moveToList(requireActivity(), sourceReadingListId, entry.title, InvokeSource.NEWS_ACTIVITY)
+        }
+
+        override fun onRemovePageFromList(entry: HistoryEntry) {
+            SaveArticleSheetDialog.show(childFragmentManager, entry.title)
         }
     }
 

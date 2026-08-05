@@ -6,7 +6,6 @@ import android.app.ActivityOptions
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.icu.text.ListFormatter
 import android.os.Build
 import android.os.Bundle
 import android.speech.RecognizerIntent
@@ -69,9 +68,8 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.places.PlacesActivity
 import org.wikipedia.random.RandomActivity
-import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.ReadingListsFragment
-import org.wikipedia.readinglist.RemoveFromReadingListsDialog
+import org.wikipedia.readinglist.SaveArticleSheetDialog
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.search.SearchActivity
 import org.wikipedia.search.SearchFragment
@@ -386,26 +384,15 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
     }
 
     fun onFeedAddPageToList(entry: HistoryEntry, addToDefault: Boolean) {
-        ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), entry.title, addToDefault, InvokeSource.FEED)
+        SaveArticleSheetDialog.show(childFragmentManager, entry.title)
     }
 
     fun onFeedMovePageToList(sourceReadingListId: Long, entry: HistoryEntry) {
-        ReadingListBehaviorsUtil.moveToList(requireActivity(), sourceReadingListId, entry.title, InvokeSource.FEED)
+        SaveArticleSheetDialog.show(childFragmentManager, entry.title)
     }
 
     fun onFeedRemovePageFromList(entry: HistoryEntry, lists: List<ReadingList>) {
-        RemoveFromReadingListsDialog(lists).deleteOrShowDialog(requireActivity()) { readingLists, _ ->
-            if (!requireActivity().isDestroyed) {
-                val names = readingLists.map { it.title }.run {
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                        ListFormatter.getInstance().format(this)
-                    } else {
-                        joinToString(separator = ", ")
-                    }
-                }
-                FeedbackUtil.showMessage(requireActivity(), getString(R.string.reading_list_item_deleted_from_list, entry.title.displayText, names))
-            }
-        }
+        SaveArticleSheetDialog.show(childFragmentManager, entry.title)
     }
 
     fun onFeedSharePage(entry: HistoryEntry) {

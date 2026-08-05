@@ -48,6 +48,7 @@ import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
+import org.wikipedia.readinglist.SaveArticleSheetDialog
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
@@ -358,9 +359,12 @@ class OnThisDayGameResultFragment : OnThisDayGameBaseFragment(), OnThisDayGameAr
                     }
 
                     override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
-                        viewModel.savedPages.add(page)
                         WikiGamesEvent.submit("save_click", "game_play", slideName = viewModel.getCurrentScreenName(), isArchive = viewModel.isArchiveGame)
-                        ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), pageTitle, addToDefault, InvokeSource.ON_THIS_DAY_GAME_ACTIVITY)
+                        SaveArticleSheetDialog.show(childFragmentManager, pageTitle)
+                    }
+
+                    override fun onRemoveRequest(entry: HistoryEntry) {
+                        SaveArticleSheetDialog.show(childFragmentManager, pageTitle)
                     }
 
                     override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
@@ -368,11 +372,6 @@ class OnThisDayGameResultFragment : OnThisDayGameBaseFragment(), OnThisDayGameAr
                             ReadingListBehaviorsUtil.moveToList(requireActivity(), page.listId, pageTitle, InvokeSource.ON_THIS_DAY_GAME_ACTIVITY)
                         }
                     }
-                    override fun onRemoveRequest() {
-                        super.onRemoveRequest()
-                        viewModel.savedPages.remove(page)
-                    }
-
                     override fun onShareRequest() {
                         WikiGamesEvent.submit("share_click", "game_play", slideName = viewModel.getCurrentScreenName(), isArchive = viewModel.isArchiveGame)
                         super.onShareRequest()

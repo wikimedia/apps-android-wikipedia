@@ -15,6 +15,7 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageActivity
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
+import org.wikipedia.readinglist.SaveArticleSheetDialog
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
@@ -97,13 +98,17 @@ class OnThisDayPagesViewHolder(
                 }
 
                 override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
-                    ReadingListBehaviorsUtil.addToDefaultList(activity, entry.title, addToDefault, Constants.InvokeSource.ON_THIS_DAY_ACTIVITY)
+                    SaveArticleSheetDialog.show(activity, entry.title)
                 }
 
                 override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
                     page?.let {
                         ReadingListBehaviorsUtil.moveToList(activity, it.listId, entry.title, Constants.InvokeSource.ON_THIS_DAY_ACTIVITY)
                     }
+                }
+
+                override fun onRemoveRequest(entry: HistoryEntry) {
+                    SaveArticleSheetDialog.show(activity, entry.title)
                 }
             }).show(entry)
         }
