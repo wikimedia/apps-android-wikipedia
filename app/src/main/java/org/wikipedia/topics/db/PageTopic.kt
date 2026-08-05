@@ -19,8 +19,8 @@ data class PageTopic(
     companion object {
         const val MAX_TOPICS_PER_PAGE = 5
 
-        fun fromMetadata(entry: HistoryEntry, topics: List<PageMetadata.Topic>?): List<PageTopic> {
-            return topics.orEmpty()
+        fun fromMetadata(entry: HistoryEntry, topics: List<PageMetadata.Topic>): List<PageTopic> {
+            return topics
                 .filter { !it.topic.isNullOrEmpty() }
                 .sortedByDescending { it.score }
                 .distinctBy { it.topic }

@@ -782,10 +782,14 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             callback()?.onPageLoadComplete()
 
             JsonUtil.decodeFromElement<PageMetadata>(payload)?.let { metadata ->
+                // Persist the list of topics for this article.
+                // TODO: do something with the other bits of metadata?
                 model.curEntry?.let { entry ->
-                    MainScope().launch(CoroutineExceptionHandler { _, throwable -> L.e(throwable) }) {
-                        AppDatabase.instance.pageTopicDao()
-                            .upsertForPage(entry, PageTopic.fromMetadata(entry, metadata.topics))
+                    if (metadata.topics.isNotEmpty()) {
+                        MainScope().launch(CoroutineExceptionHandler { _, t -> L.e(t) }) {
+                            AppDatabase.instance.pageTopicDao()
+                                .upsertForPage(entry, PageTopic.fromMetadata(entry, metadata.topics))
+                        }
                     }
                 }
             }

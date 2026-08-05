@@ -8,7 +8,7 @@ class PageMetadata(
     val pageId: Long = 0,
     val modified: String? = null,
     val leadImage: LeadImage? = null,
-    val topics: List<Topic>? = emptyList()
+    val topics: List<Topic> = emptyList()
 ) {
     @Serializable
     class Topic(
