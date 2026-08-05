@@ -1,8 +1,7 @@
-package org.wikipedia.feed.news
+package org.wikipedia.feed.model
 
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.feed.model.UtcDate
-import org.wikipedia.feed.model.WikiSiteCard
+import org.wikipedia.feed.news.NewsItem
 import org.wikipedia.settings.homefeed.CommunityModuleType
 import java.util.concurrent.TimeUnit
 

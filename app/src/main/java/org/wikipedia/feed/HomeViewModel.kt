@@ -43,26 +43,26 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.events.NewRecommendedReadingListEvent
-import org.wikipedia.feed.dayheader.DayHeaderCard
-import org.wikipedia.feed.didyouknow.DidYouKnowCard
-import org.wikipedia.feed.featured.FeaturedArticleCard
-import org.wikipedia.feed.image.FeaturedImageCard
 import org.wikipedia.feed.model.BasedOnInterestCard
 import org.wikipedia.feed.model.BecauseYouReadCard
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.ContinueReadingCard
+import org.wikipedia.feed.model.DayHeaderCard
+import org.wikipedia.feed.model.DidYouKnowCard
 import org.wikipedia.feed.model.DiscoverCard
+import org.wikipedia.feed.model.FeaturedArticleCard
+import org.wikipedia.feed.model.FeaturedImageCard
 import org.wikipedia.feed.model.ForYouCard
 import org.wikipedia.feed.model.GamesModulePromptCard
+import org.wikipedia.feed.model.NewsCard
+import org.wikipedia.feed.model.OnThisDayCard
 import org.wikipedia.feed.model.PlacesOfInterestCard
 import org.wikipedia.feed.model.RandomCard
 import org.wikipedia.feed.model.SeeAllRecommendationCard
+import org.wikipedia.feed.model.TopReadCard
 import org.wikipedia.feed.model.WikiGameCard
-import org.wikipedia.feed.news.NewsCard
-import org.wikipedia.feed.onthisday.OnThisDayCard
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
 import org.wikipedia.feed.personalization.interest.InterestSelectionRepository
-import org.wikipedia.feed.topread.TopReadCard
 import org.wikipedia.feed.wikigames.WikiGame
 import org.wikipedia.games.WikiGames
 import org.wikipedia.games.db.DailyGameHistory
@@ -700,11 +700,21 @@ class HomeViewModel : ViewModel() {
                             Constants.SUGGESTION_REQUEST_ITEMS * 2, Constants.SUGGESTION_REQUEST_ITEMS * 2, sMaxAge = moreLikeMaxAge, maxAge = moreLikeMaxAge)
 
                         val relatedPages = moreLikeResponse.query?.pages?.filter { it.title != searchTerm && it.title != MainPageNameData.valueFor(entry.title.wikiSite.languageCode) }?.map {
-                            PageSummary(it.displayTitle(wikiSite.value.languageCode), it.title, it.description, it.extract, it.thumbUrl(), wikiSite.value.languageCode)
+                            PageSummary(
+                                it.displayTitle(wikiSite.value.languageCode),
+                                it.title,
+                                it.description,
+                                it.extract,
+                                it.thumbUrl(),
+                                wikiSite.value.languageCode
+                            )
                         }?.take(Constants.SUGGESTION_REQUEST_ITEMS)
 
                         addAll(relatedPages?.map {
-                            BecauseYouReadCard(it.getPageTitle(wikiSite.value), entry.title.displayText)
+                            BecauseYouReadCard(
+                                it.getPageTitle(wikiSite.value),
+                                entry.title.displayText
+                            )
                         } ?: emptyList())
                     }
                 }.filterNot { hiddenCards.contains(it.hideKey) }.take(4)
@@ -716,11 +726,21 @@ class HomeViewModel : ViewModel() {
                 val continueReadingCards = buildList {
                     val lastReadEntries = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(age + 1, 30, wikiSite.value.languageCode)
                     if (lastReadEntries.size > age) {
-                        add(ContinueReadingCard(lastReadEntries[age].title, HistoryEntry.SOURCE_HISTORY))
+                        add(
+                            ContinueReadingCard(
+                                lastReadEntries[age].title,
+                                HistoryEntry.SOURCE_HISTORY
+                            )
+                        )
                     }
                     AppDatabase.instance.readingListPageDao().getMostRecentSavedPagesByLang(wikiSite.value.languageCode, 10).take(2)
                         .forEach {
-                            add(ContinueReadingCard(ReadingListPage.toPageTitle(it), HistoryEntry.SOURCE_READING_LIST))
+                            add(
+                                ContinueReadingCard(
+                                    ReadingListPage.toPageTitle(it),
+                                    HistoryEntry.SOURCE_READING_LIST
+                                )
+                            )
                         }
                 }.filterNot { hiddenCards.contains(it.hideKey) }.take(4)
                 if (continueReadingCards.isNotEmpty()) {
@@ -855,7 +875,12 @@ class HomeViewModel : ViewModel() {
     private suspend fun buildGameModule(supportedGames: List<WikiGames>): ForYouModule.Games {
         val today = LocalDate.now()
         val gameCards = supportedGames
-            .mapNotNull { buildWikiGame(it, today)?.let { game -> WikiGameCard(game, today.toString()) } }
+            .mapNotNull { buildWikiGame(it, today)?.let { game ->
+                WikiGameCard(
+                    game,
+                    today.toString()
+                )
+            } }
         val cards = gameCards + GamesModulePromptCard()
 
         return ForYouModule.Games(age = 0, index = 0, cards = cards)
