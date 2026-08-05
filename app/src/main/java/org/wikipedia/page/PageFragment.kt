@@ -39,6 +39,7 @@ import com.google.android.material.textview.MaterialTextView
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
+import kotlinx.serialization.json.decodeFromJsonElement
 import kotlinx.serialization.json.float
 import kotlinx.serialization.json.jsonArray
 import kotlinx.serialization.json.jsonObject
@@ -772,13 +773,19 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
         bridge.addListener("link", linkHandler)
         bridge.addListener("setup") { _, _ -> onPageSetupEvent() }
-        bridge.addListener("final_setup") { _, _ ->
+        bridge.addListener("final_setup") { _, payload ->
             if (!isAdded) {
                 return@addListener
             }
             bridge.onPcsReady()
             articleInteractionEvent?.logLoaded()
             callback()?.onPageLoadComplete()
+
+            val pageMetadata = JsonUtil.decodeFromElement<PageMetadata>(payload)
+            pageMetadata?.let {
+                // TODO: do something with the metadata!
+                L.d(">>> Article topics: " + pageMetadata.topics)
+            }
 
             // do we have a URL fragment to scroll to?
             model.title?.let { prevTitle ->
@@ -801,7 +808,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             if (!isAdded) {
                 return@addListener
             }
-            references = JsonUtil.decodeFromString(messagePayload.toString())
+            references = JsonUtil.decodeFromElement<PageReferences>(messagePayload)
             references?.let {
                 if (it.referencesGroup.isNotEmpty()) {
                     showBottomSheet(ReferenceDialog())
