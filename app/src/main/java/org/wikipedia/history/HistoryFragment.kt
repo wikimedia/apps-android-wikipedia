@@ -466,6 +466,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
                         AppDatabase.instance.historyEntryDao().deleteAll()
                         AppDatabase.instance.pageImagesDao().deleteAll()
                         AppDatabase.instance.categoryDao().deleteAll()
+                        AppDatabase.instance.pageTopicDao().deleteAll()
                         action()
                     }
                 }

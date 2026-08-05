@@ -39,7 +39,6 @@ import com.google.android.material.textview.MaterialTextView
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
-import kotlinx.serialization.json.decodeFromJsonElement
 import kotlinx.serialization.json.float
 import kotlinx.serialization.json.jsonArray
 import kotlinx.serialization.json.jsonObject
@@ -103,6 +102,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.theme.ThemeChooserDialog
+import org.wikipedia.topics.db.PageTopic
 import org.wikipedia.util.ActiveTimer
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
@@ -781,10 +781,13 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             articleInteractionEvent?.logLoaded()
             callback()?.onPageLoadComplete()
 
-            val pageMetadata = JsonUtil.decodeFromElement<PageMetadata>(payload)
-            pageMetadata?.let {
-                // TODO: do something with the metadata!
-                L.d(">>> Article topics: " + pageMetadata.topics)
+            JsonUtil.decodeFromElement<PageMetadata>(payload)?.let { metadata ->
+                model.curEntry?.let { entry ->
+                    MainScope().launch(CoroutineExceptionHandler { _, throwable -> L.e(throwable) }) {
+                        AppDatabase.instance.pageTopicDao()
+                            .upsertForPage(entry, PageTopic.fromMetadata(entry, metadata.topics))
+                    }
+                }
             }
 
             // do we have a URL fragment to scroll to?
