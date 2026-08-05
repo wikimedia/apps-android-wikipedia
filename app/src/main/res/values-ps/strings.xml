@@ -1782,6 +1782,8 @@
   <string name="places_empty_message_snackbar">هېڅ څېرمه ليکنې نشته. د لرليدنې او نخشې لېږدولو هڅه وکړئ.</string>
   <string name="survey_dialog_title">د دې ځانگړنې په ښه‌کولو کې له موږ سره مرسته وکړئ</string>
   <string name="survey_dialog_message">ايا تاسو له دې ځانگړنې خوښ ياست؟</string>
+  <string name="home_feed_survey_title">د کور ښه کولو کې مرسته وکړئ</string>
+  <string name="home_feed_survey_message">ايا تاسو د \"ټولنې\" او \"ستاسو لپاره\" کتنمخونو څخه خوښ ياست؟</string>
   <string name="survey_dialog_option_satisfied">ډاډمن</string>
   <string name="survey_dialog_option_neutral">بې‌پرې</string>
   <string name="survey_dialog_option_unsatisfied">ناډاډه</string>
@@ -2420,6 +2422,7 @@
   <string name="home_feed_update_tooltip1">نوی: \"ناڅاپي ليکنه\" او \"خواپورې ځايونه\" ستاسو لپاره شتون لري او په \"ايا پوهېدې\" ټولنې نښکه کې دي.</string>
   <string name="home_feed_random_title">ناټاکلی</string>
   <string name="home_feed_random_subtitle">ستاسو د تجسس راپارولو لپاره ناڅاپي ليکنه</string>
+  <string name="home_feed_random_shuffle_button">ناڅاپي</string>
   <string name="home_feed_settings_feed_configuration_description">دا سکالوگانې او ليکنې د \"ستاسو لپاره\" په کتمنخ کې ښودل شوي مواد جوړوي. هغه څه لرې کړئ چې تاسو يې نور نه غواړئ يا نوې لېوالتياوې ورگډې کړئ.</string>
   <string name="home_feed_settings_feed_configuration_interest_title">ستاسو لېوالتياوې</string>
   <string name="home_feed_settings_feed_configuration_interest_subtitle">خپل د لېوالتيا سکالوگانې سمول</string>
@@ -2453,7 +2456,10 @@
   <string name="home_feed_for_you_screen_end_of_feed_description">سبا بېرته راوگرځئ؛ ترڅو تازه نوې ليکنې ومومئ چې ستاسو لپاره ترتيب شوې وي.</string>
   <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">د زده کړې دوام لپاره لارې:</string>
   <string name="home_feed_for_you_screen_end_of_feed_add_interests">نوې &lt;a href=\"#add_interests\"&gt;لېوالتياوې&lt;/a&gt; ورگډول</string>
+  <string name="randomizer_shake_prompt_title">ناڅاپي کتلو لپاره يې وخوځوئ</string>
+  <string name="randomizer_shake_prompt_message">خپل سولگر ته ټکان ورکړئ؛ ترڅو يوې ناڅاپي ليکنې ته لاړ شئ او يو څه نه‌تمه‌کېدونکي ومومئ.</string>
   <string name="home_feed_games_module_cta_prompt_title">غواړې نورې لوبې ولوبوې؟</string>
   <string name="home_feed_games_module_cta_prompt_subtitle">لوبځي ته ورشه</string>
   <string name="home_feed_games_module_cta_prompt_button_text">لوبځی</string>
+  <string name="random_article_widget_name">ناټاکلې ليکنه</string>
 </resources>

@@ -2352,6 +2352,7 @@
   <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Formas de continuar aprendendo:</string>
   <string name="home_feed_for_you_screen_end_of_feed_add_interests">Adicionar &lt;a href=\"#add_interests\"&gt;novos interesses&lt;/a&gt;</string>
   <string name="randomizer_shake_prompt_title">Agite para embaralhar</string>
+  <string name="randomizer_shake_prompt_message">Agite seu dispositivo para acessar um artigo aleatório e descobrir algo inesperado.</string>
   <string name="home_feed_games_module_cta_prompt_title">Quer jogar mais jogos?</string>
   <string name="home_feed_games_module_cta_prompt_subtitle">Acesse a central de jogos</string>
   <string name="home_feed_games_module_cta_prompt_button_text">Central de jogos</string>
