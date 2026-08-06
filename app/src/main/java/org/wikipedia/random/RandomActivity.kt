@@ -39,7 +39,6 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.SaveArticleSheetDialog
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
-import org.wikipedia.util.FeedbackUtil
 
 class RandomActivity : BaseActivity() {
 

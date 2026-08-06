@@ -8,14 +8,21 @@ import androidx.core.os.bundleOf
 import androidx.core.view.isInvisible
 import androidx.core.widget.TextViewCompat
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
-import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.commons.FilePageActivity
+import org.wikipedia.concurrency.FlowEventBus
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.DialogOnThisDayGameArticleBinding
 import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.events.ArticleSavedOrDeletedEvent
 import org.wikipedia.extensions.parcelable
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
@@ -32,14 +39,12 @@ import org.wikipedia.views.AllowSnackbarOverBottomSheet
 import org.wikipedia.views.ViewUtil
 
 class OnThisDayGameArticleBottomSheet : ExtendedBottomSheetDialogFragment(), AllowSnackbarOverBottomSheet {
-    fun interface Callback {
-        fun onPageBookmarkChanged(page: PageSummary)
-    }
 
     private var _binding: DialogOnThisDayGameArticleBinding? = null
     private val binding get() = _binding!!
     private val viewModel: OnThisDayGameViewModel by activityViewModels()
     private lateinit var pageSummary: PageSummary
+    private val pageTitle get() = pageSummary.getPageTitle(viewModel.wikiSite)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -98,12 +103,9 @@ class OnThisDayGameArticleBottomSheet : ExtendedBottomSheetDialogFragment(), All
         TextViewCompat.setCompoundDrawableTintList(binding.answerStatus, answerIconTintList)
         binding.answerStatus.text = getString(answerText)
 
-        val isSaved = viewModel.savedPages.contains(pageSummary)
-        val bookmarkResource = if (isSaved) R.drawable.ic_bookmark_white_24dp else R.drawable.ic_bookmark_border_white_24dp
-        binding.saveButton.setImageResource(bookmarkResource)
         binding.saveButton.setOnClickListener {
             WikiGamesEvent.submit("save_click", "game_play", slideName = "game_end_article", isArchive = viewModel.isArchiveGame)
-            onBookmarkIconClick(pageSummary)
+            SaveArticleSheetDialog.show(childFragmentManager, pageTitle)
         }
         binding.shareButton.setOnClickListener {
             WikiGamesEvent.submit("share_click", "game_play", slideName = "game_end_article", isArchive = viewModel.isArchiveGame)
@@ -118,13 +120,25 @@ class OnThisDayGameArticleBottomSheet : ExtendedBottomSheetDialogFragment(), All
         return binding.root
     }
 
-    private fun onBookmarkIconClick(pageSummary: PageSummary) {
-        val pageTitle = pageSummary.getPageTitle(viewModel.wikiSite)
-        SaveArticleSheetDialog.show(parentFragmentManager, pageTitle)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                updateSaveButton()
+                FlowEventBus.events.collectLatest { event ->
+                    if (event is ArticleSavedOrDeletedEvent) {
+                        updateSaveButton()
+                    }
+                }
+            }
+        }
     }
 
-    private fun callback(): Callback? {
-        return getCallback(this@OnThisDayGameArticleBottomSheet, Callback::class.java)
+    private suspend fun updateSaveButton() {
+        val isSaved = AppDatabase.instance.readingListPageDao().findPageInAnyList(pageTitle) != null
+        _binding?.saveButton?.setImageResource(
+            if (isSaved) R.drawable.ic_bookmark_white_24dp else R.drawable.ic_bookmark_border_white_24dp
+        )
     }
 
     companion object {

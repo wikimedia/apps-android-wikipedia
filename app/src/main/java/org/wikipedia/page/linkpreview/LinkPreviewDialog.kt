@@ -76,7 +76,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     private val menuListener = PopupMenu.OnMenuItemClickListener { item ->
         return@OnMenuItemClickListener when (item.itemId) {
             R.id.menu_link_preview_add_to_list -> {
-                doAddToList()
+                showSaveArticleSheet()
                 true
             }
             R.id.menu_link_preview_share_page -> {
@@ -293,15 +293,11 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     }
 
     override fun onAddToList() {
-        doAddToList()
+        showSaveArticleSheet()
     }
 
     override fun onDismiss() {
         dismiss()
-    }
-
-    private fun doAddToList() {
-        SaveArticleSheetDialog.show(parentFragmentManager, viewModel.pageTitle)
     }
 
     private fun showSaveArticleSheet() {

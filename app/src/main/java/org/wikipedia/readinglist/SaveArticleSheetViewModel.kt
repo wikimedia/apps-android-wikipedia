@@ -94,8 +94,11 @@ class SaveArticleSheetViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
 
     private fun saveArticle() {
         viewModelScope.launch(exceptionHandler) {
-            savedPageTitle.value = resolveRedirect(pageTitle)
             val pageDao = AppDatabase.instance.readingListPageDao()
+            if (pageDao.findPageInAnyList(pageTitle) != null) {
+                return@launch
+            }
+            savedPageTitle.value = resolveRedirect(pageTitle)
             if (pageDao.findPageInAnyList(savedPageTitle.value) == null) {
                 val defaultList = AppDatabase.instance.readingListDao().getDefaultList()
                 pageDao.addPagesToListIfNotExist(defaultList, listOf(savedPageTitle.value))

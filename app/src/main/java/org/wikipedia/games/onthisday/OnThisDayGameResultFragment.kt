@@ -68,7 +68,7 @@ import java.time.MonthDay
 import java.time.format.DateTimeFormatter
 import java.util.Locale
 
-class OnThisDayGameResultFragment : OnThisDayGameBaseFragment(), OnThisDayGameArticleBottomSheet.Callback {
+class OnThisDayGameResultFragment : OnThisDayGameBaseFragment() {
     private var _binding: FragmentOnThisDayGameResultBinding? = null
     val binding get() = _binding!!
 
@@ -390,12 +390,6 @@ class OnThisDayGameResultFragment : OnThisDayGameBaseFragment(), OnThisDayGameAr
         override fun onClick(v: View) {
             WikiGamesEvent.submit("select_click", "game_play", slideName = viewModel.getCurrentScreenName(), isArchive = viewModel.isArchiveGame)
             ExclusiveBottomSheetPresenter.show(childFragmentManager, OnThisDayGameArticleBottomSheet.newInstance(page))
-        }
-    }
-
-    override fun onPageBookmarkChanged(page: PageSummary) {
-        (binding.resultArticlesList.adapter as? RecyclerViewAdapter)?.pages?.find { it.apiTitle == page.apiTitle }?.let {
-            binding.resultArticlesList.adapter?.notifyItemChanged(viewModel.getArticlesMentioned().indexOf(it))
         }
     }
 
