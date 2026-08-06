@@ -593,16 +593,6 @@
     <item quantity="one">Message shown when one article is removed from a reading list.</item>
     <item quantity="other">Message shown when multiple articles are removed from a reading list. The \"%d\" symbol is replaced with the number of articles removed.</item>
   </plurals>
-  <string name="reading_lists_remove_articles_confirm_dialog_title">Title of the confirmation dialog shown before removing saved articles from all associated collections.</string>
-  <plurals name="reading_lists_remove_articles_confirm_dialog_message">
-    <item quantity="one">Confirmation message explaining that the selected article will be removed from all associated collections.</item>
-    <item quantity="other">Confirmation message explaining that the selected articles will be removed from all associated collections. The \"%d\" symbol is replaced with the number of selected articles.</item>
-  </plurals>
-  <string name="reading_lists_remove_articles_confirm_button">Label for the button that confirms removing the selected saved articles from all associated collections.</string>
-  <plurals name="reading_lists_articles_removed_from_collections">
-    <item quantity="one">Message shown after one article is removed from all associated collections.</item>
-    <item quantity="other">Message shown after multiple articles are removed from all associated collections. The \"%d\" symbol is replaced with the number of articles removed.</item>
-  </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
     <item quantity="one">Message shown when one article is removed from a reading list.The \"%1$d\" symbol is replaced with the number of articles removed.The \"%2$s\" symbol is replaced with the reading list name.</item>
     <item quantity="other">Message shown when multiple articles are removed from a reading list. The \"%1$d\" symbol is replaced with the number of articles removed.The \"%2$s\" symbol is replaced with the reading list name.</item>
@@ -2340,15 +2330,25 @@
   <string name="home_feed_games_module_cta_prompt_subtitle">Subtitle for the prompt card in the Games module directing the user to the Games hub.</string>
   <string name="home_feed_games_module_cta_prompt_button_text">Button text on the Games module prompt card that navigates the user to the Games hub.</string>
   <string name="random_article_widget_name">Display name for the Random Article home screen widget.</string>
-    <string name="reading_lists_tab_all_articles">Label for the tab in the Saved screen that shows every saved article across all reading lists.</string>
-    <string name="reading_lists_tab_collections">Label for the tab in the Saved screen that shows the user\'s reading lists (collections).</string>
+  <string name="reading_lists_tab_all_articles">Label for the tab in the Saved screen that shows every saved article across all reading lists.</string>
+  <string name="reading_lists_tab_collections">Label for the tab in the Saved screen that shows the user\'s reading lists (collections).</string>
     <string name="reading_lists_filter_content_description">Accessibility label for the toolbar button that opens the saved-article filter menu.</string>
     <string name="reading_lists_filter_not_in_collection">Label for filtering the All articles tab to show articles that have not been added to a custom collection.</string>
     <string name="reading_lists_empty_not_in_collection_title">Title shown when the Not in a collection filter has no results because every saved article belongs to a collection.</string>
     <string name="reading_lists_search_saved_articles">Hint text for searching saved article titles in the All articles tab.</string>
-    <string name="reading_lists_search_collections">Hint text for searching reading list titles in the Collections tab.</string>
+  <string name="reading_lists_search_collections">Hint text for searching reading list titles in the Collections tab.</string>
     <string name="reading_lists_empty_collections_title">Title shown in the empty state of the Collections tab when the user has no collections.</string>
     <string name="reading_lists_empty_collections_description">Description shown in the empty state of the Collections tab explaining how collections can organize saved articles.</string>
     <string name="reading_lists_create_new_collection">Button label for creating a collection from the empty state of the Collections tab.</string>
     <string name="reading_lists_update_tooltip">Tooltip shown to inform users that reading lists have been renamed to collections.</string>
+    <string name="reading_lists_remove_articles_confirm_dialog_title">Title of the confirmation dialog shown before removing saved articles from all associated collections.</string>
+  <string name="reading_lists_remove_articles_confirm_button">Label for the button that confirms removing the selected saved articles from all associated collections.</string>
+  <plurals name="reading_lists_remove_articles_confirm_dialog_message">
+    <item quantity="one">Confirmation message explaining that the selected article will be removed from all associated collections.</item>
+    <item quantity="other">Confirmation message explaining that the selected articles will be removed from all associated collections. The \"%d\" symbol is replaced with the number of selected articles.</item>
+  </plurals>
+  <plurals name="reading_lists_articles_removed_from_collections">
+    <item quantity="one">Message shown after one article is removed from all associated collections.</item>
+    <item quantity="other">Message shown after multiple articles are removed from all associated collections. The \"%d\" symbol is replaced with the number of articles removed.</item>
+  </plurals>
 </resources>
