@@ -25,24 +25,23 @@ import org.wikipedia.compose.components.menu.PageOverflowMenuViewModel
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.extensions.getString
-import org.wikipedia.feed.dayheader.DayHeaderCard
-import org.wikipedia.feed.didyouknow.DidYouKnowCard
 import org.wikipedia.feed.didyouknow.DidYouKnowModule
-import org.wikipedia.feed.featured.FeaturedArticleCard
 import org.wikipedia.feed.featured.FeaturedArticleModule
-import org.wikipedia.feed.image.FeaturedImageCard
 import org.wikipedia.feed.image.FeaturedImageModule
+import org.wikipedia.feed.model.DayHeaderCard
+import org.wikipedia.feed.model.DidYouKnowCard
 import org.wikipedia.feed.model.EmptyCommunityCard
-import org.wikipedia.feed.news.NewsCard
+import org.wikipedia.feed.model.FeaturedArticleCard
+import org.wikipedia.feed.model.FeaturedImageCard
+import org.wikipedia.feed.model.NewsCard
+import org.wikipedia.feed.model.OnThisDayCard
+import org.wikipedia.feed.model.TopReadCard
 import org.wikipedia.feed.news.NewsModule
-import org.wikipedia.feed.onthisday.OnThisDayCard
 import org.wikipedia.feed.onthisday.OnThisDayModule
-import org.wikipedia.feed.topread.TopReadCard
 import org.wikipedia.feed.topread.TopReadModule
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.util.L10nUtil
 import java.time.LocalDate
-import kotlin.collections.orEmpty
 
 @Composable
 fun CommunityContentTab(
