@@ -47,7 +47,7 @@
   <string name="history_list_title">Versiounen</string>
   <string name="image_content_description">Bild: %s</string>
   <string name="page_content_description">Säit: %s</string>
-  <string name="wikimedia_commons">Wikimedia-Commons</string>
+  <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Browsing-Historique läschen</string>
   <string name="dialog_message_clear_history">Doduerch gëtt Äre kompletten Browsing-Historique geläscht. Sidd Dir sécher?</string>
@@ -378,7 +378,7 @@
   <string name="page_offline_notice_add_to_reading_list">Hiweis: Setzt den Artikel op eng Lieslëscht an da gëtt en automatesch erofgelueden, soubal Dir erëm online sidd.</string>
   <string name="page_offline_notice_last_date">Dir liest eng offline Versioun vun dësem Artikel, déi de(n) %s gespäichert gouf.</string>
   <string name="redirected_from_snackbar">Virugeleet vu(n) „%s”</string>
-  <string name="button_get_directions">Richtunge kréien</string>
+  <string name="button_get_directions">Navigéieren</string>
   <string name="error_no_maps_app">Et konnte keng Appe fonnt ginn déi Richtungen zur Verfügung stellen.</string>
   <string name="preference_title_customize_explore_feed">„Entdecken“-Feed</string>
   <string name="preference_title_customize_home_feed">Start-Feed</string>
@@ -2225,4 +2225,9 @@
   <string name="randomizer_shake_prompt_message">Rëselt Ären Apparat, fir op en zoufällegen Artikel ze geroden an eppes Onerwaartes ze léieren.</string>
   <string name="home_feed_games_module_cta_prompt_title">Wëllt Dir nach méi Spiller spillen?</string>
   <string name="random_article_widget_name">Zoufällegen Artikel</string>
+  <string name="reading_lists_tab_all_articles">All d\'Artikelen</string>
+  <string name="reading_lists_tab_collections">Sammlungen</string>
+  <string name="reading_lists_search_saved_articles">An de gespäicherten Artikele sichen</string>
+  <string name="reading_lists_search_collections">An de Sammlunge sichen</string>
+  <string name="reading_lists_remove_articles_confirm_dialog_title">Gespäichert Artikelen ewechhuelen?</string>
 </resources>

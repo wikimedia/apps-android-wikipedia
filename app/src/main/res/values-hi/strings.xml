@@ -1577,4 +1577,5 @@
   <string name="donation_reminders_settings_article_frequency_input_suffix_label">लेख</string>
   <string name="donation_reminders_prompt_negative_button">अभी नहीं</string>
   <string name="home_feed_did_you_know_title">क्या आप जानते हैं?</string>
+  <string name="reading_lists_remove_articles_confirm_button">हटाएँ</string>
 </resources>

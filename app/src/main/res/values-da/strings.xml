@@ -2470,4 +2470,18 @@
   <string name="home_feed_games_module_cta_prompt_subtitle">Gå til spilhubben</string>
   <string name="home_feed_games_module_cta_prompt_button_text">Spilhub</string>
   <string name="random_article_widget_name">Tilfældig artikel</string>
+  <string name="reading_lists_tab_all_articles">Alle artikler</string>
+  <string name="reading_lists_tab_collections">Samlinger</string>
+  <string name="reading_lists_search_saved_articles">Søg i gemte artikler</string>
+  <string name="reading_lists_search_collections">Søg i samlinger</string>
+  <string name="reading_lists_remove_articles_confirm_dialog_title">Fjern gemte artikler?</string>
+  <string name="reading_lists_remove_articles_confirm_button">Fjern</string>
+  <plurals name="reading_lists_remove_articles_confirm_dialog_message">
+    <item quantity="one">Denne artikel vil blive fjernet fra alle tilknyttede samlinger.</item>
+    <item quantity="other">Disse %d artikler vil blive fjernet fra alle tilknyttede samlinger.</item>
+  </plurals>
+  <plurals name="reading_lists_articles_removed_from_collections">
+    <item quantity="one">Artikel fjernet fra alle tilknyttede samlinger.</item>
+    <item quantity="other">%d artikler fjernet fra alle tilknyttede samlinger.</item>
+  </plurals>
 </resources>
