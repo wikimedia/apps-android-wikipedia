@@ -19,6 +19,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
+import kotlin.time.Duration.Companion.milliseconds
 
 class EditSectionViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
@@ -139,7 +140,7 @@ class EditSectionViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             var retry = 0
             var revision = -1L
             while (revision < newRevision && retry < maxRetries) {
-                delay(2000)
+                delay(2000.milliseconds)
                 val pageSummaryResponse = ServiceFactory.getRest(pageTitle.wikiSite)
                     .getPageSummary(pageTitle.prefixedText, cacheControl = OkHttpConnectionFactory.CACHE_CONTROL_FORCE_NETWORK.toString())
                 revision = pageSummaryResponse.revision
