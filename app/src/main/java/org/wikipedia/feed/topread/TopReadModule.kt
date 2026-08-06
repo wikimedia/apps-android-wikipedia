@@ -24,6 +24,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -79,6 +80,7 @@ fun TopReadModule(
                 TopReadItem(
                     context = context,
                     wikiSite = wikiSite,
+                    index = index,
                     rank = index + 1,
                     isTrendingUp = isTrendingUp,
                     pageSummary = article,
@@ -92,7 +94,8 @@ fun TopReadModule(
         TextButton(
             modifier = Modifier
                 .align(Alignment.End)
-                .padding(bottom = 16.dp),
+                .padding(bottom = 16.dp)
+                .testTag(TopReadModuleTestTags.FOOTER_BUTTON),
             onClick = onFooterClick
         ) {
             Text(
@@ -115,6 +118,7 @@ fun TopReadModule(
 fun TopReadItem(
     context: Context,
     wikiSite: WikiSite,
+    index: Int,
     rank: Int,
     isTrendingUp: Boolean,
     pageSummary: PageSummary,
@@ -124,6 +128,7 @@ fun TopReadItem(
 ) {
     Column(
         modifier = Modifier.fillMaxWidth()
+            .testTag(TopReadModuleTestTags.item(index))
             .clickable(onClick = {
                 onClick(pageSummary)
             })
@@ -215,6 +220,7 @@ fun TopReadItem(
                     .size(48.dp)
             ) {
                 IconButton(
+                    modifier = Modifier.testTag(TopReadModuleTestTags.overflowButton(index)),
                     onClick = {
                         onPageOverflowClick(pageSummary)
                     },
@@ -233,6 +239,13 @@ fun TopReadItem(
             }
         }
     }
+}
+
+object TopReadModuleTestTags {
+    const val FOOTER_BUTTON = "top_read_footer_button"
+
+    fun item(index: Int): String = "top_read_item_$index"
+    fun overflowButton(index: Int): String = "top_read_overflow_button_$index"
 }
 
 @Preview(showBackground = true)

@@ -62,6 +62,11 @@ Classes and packages are organized roughly by "feature":
 - WorkManager (`work-runtime-ktx`) for background/recurring tasks in `recurring/`.
 - JUnit and Robolectric for unit tests; MockK for mocking.
 - Espresso for instrumented tests.
+  - For end-to-end, no-mock Compose tests that drive a real Activity against the live network, use the
+    `base/livedata/` framework (`LiveDataComposeTest` + `ComposeRobot`). The `live-data-e2e-test` skill
+    (`.claude/skills/live-data-e2e-test/`) has the full recipe and rules; reference impls:
+    `HomeFeedLiveDataTest` + `HomeFeedRobot` + `FeedContract` (single screen) and
+    `ArticleSearchJourneyLiveDataTest` (cross-Activity).
 
 ### Miscellaneous
 
