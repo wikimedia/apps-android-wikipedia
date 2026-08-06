@@ -245,7 +245,7 @@ private fun EditorOption(
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 private fun EditorChoiceDialogPreview() {
     BaseTheme(
