@@ -298,7 +298,13 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
     }
 
     override fun onPrepareMenu(menu: Menu) {
-        menu.findItem(R.id.menu_search_lists).isVisible = currentFragment is ReadingListsFragment
+        menu.findItem(R.id.menu_search_lists).apply {
+            isVisible = currentFragment is ReadingListsFragment
+            // The search icon belongs to the tabbed Saved screen; without it this is still a filter.
+            if (!Prefs.isReadingListsTabsEnabled) {
+                setIcon(R.drawable.ic_filter_list_24)
+            }
+        }
         menu.findItem(R.id.menu_overflow_button).isVisible = currentFragment is ReadingListsFragment
 
         val tabsItem = menu.findItem(R.id.menu_tabs)

@@ -273,6 +273,8 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             findPreference(R.string.preference_key_event_platform_intake_base_uri).summary = selectedState
             true
         }
+        findPreference(R.string.preference_key_reading_lists_tabs_enabled).isVisible = ReleaseUtil.isPreBetaRelease
+
         findPreference(R.string.preference_key_reading_challenge_widgets).apply {
             isVisible = ReleaseUtil.isPreProdRelease
             onPreferenceClickListener = Preference.OnPreferenceClickListener {

@@ -38,6 +38,7 @@ import org.wikipedia.theme.Theme.Companion.fallback
 import org.wikipedia.util.DateUtil.dbDateFormat
 import org.wikipedia.util.DateUtil.dbDateParse
 import org.wikipedia.util.ReleaseUtil.isDevRelease
+import org.wikipedia.util.ReleaseUtil.isPreBetaRelease
 import org.wikipedia.util.StringUtil
 import org.wikipedia.watchlist.WatchlistFilterTypes
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetRepository
@@ -848,6 +849,12 @@ object Prefs {
     var isRecommendedReadingListEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_recommended_reading_list_enabled, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_recommended_reading_list_enabled, value)
+
+    // Gates the "All articles"/"Collections" tabs on the Saved screen. Off in beta and production
+    // until the experience is ready to ship, which falls the screen back to a single list of collections.
+    var isReadingListsTabsEnabled
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_lists_tabs_enabled, isPreBetaRelease)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_lists_tabs_enabled, value)
 
     var recommendedReadingListArticlesNumber
         get() = PrefsIoUtil.getInt(R.string.preference_key_recommended_reading_list_articles_number, 5)

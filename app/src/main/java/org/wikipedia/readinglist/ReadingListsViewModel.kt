@@ -41,7 +41,11 @@ class ReadingListsViewModel : ViewModel() {
         .debounce { query -> if (query.isNullOrEmpty()) 0L else SEARCH_DEBOUNCE_MILLIS }
         .distinctUntilChanged()
     private val searchActive = MutableStateFlow(false)
-    private val selectedTab = MutableStateFlow(SavedTab.ALL_ARTICLES)
+
+    private val tabsEnabled get() = Prefs.isReadingListsTabsEnabled
+    private val selectedTab = MutableStateFlow(
+        if (tabsEnabled) SavedTab.ALL_ARTICLES else SavedTab.COLLECTIONS
+    )
 
     // Combine the debounced search query and selected tab into a single state flow representing the current content mode.
     // this reduces the number of flows needed in the main combine() call for uiState
@@ -100,8 +104,9 @@ class ReadingListsViewModel : ViewModel() {
             .onStart { emit(pageDownloadProgress.value) }
             .distinctUntilChanged()
     ) { contentState, downloadProgress ->
+        // Without tabs, article rows only appear in search results, but they still show progress there.
         contentState.copy(
-            pageDownloadProgress = if (contentState.selectedTab == SavedTab.ALL_ARTICLES) {
+            pageDownloadProgress = if (!tabsEnabled || contentState.selectedTab == SavedTab.ALL_ARTICLES) {
                 downloadProgress
             } else {
                 emptyMap()
@@ -162,7 +167,7 @@ class ReadingListsViewModel : ViewModel() {
             .stateIn(
                 scope = viewModelScope,
                 started = SharingStarted.WhileSubscribed(STOP_TIMEOUT_MILLIS),
-                initialValue = ReadingListsUiState()
+                initialValue = ReadingListsUiState(selectedTab = selectedTab.value)
             )
 
     fun setSearchQuery(query: String?) {
@@ -367,25 +372,30 @@ class ReadingListsViewModel : ViewModel() {
             return OnboardingState.None
         }
 
+        val recommendedState = if (!Prefs.isRecommendedReadingListOnboardingShown) {
+            OnboardingState.RecommendedReadingList
+        } else {
+            OnboardingState.None
+        }
+        val reminderState = when {
+            accountState.isLoggedIn && !accountState.isTemporaryAccount && !Prefs.isReadingListSyncEnabled &&
+                    Prefs.isReadingListSyncReminderEnabled && !RemoteConfig.config.disableReadingListSync -> {
+                OnboardingState.SyncReminder
+            }
+            (!accountState.isLoggedIn || accountState.isTemporaryAccount) && Prefs.isReadingListLoginReminderEnabled &&
+                    !RemoteConfig.config.disableReadingListSync -> {
+                OnboardingState.LoginReminder
+            }
+            else -> OnboardingState.None
+        }
+        // show all dialogs when tabs are disabled
+        if (!tabsEnabled) {
+            return if (recommendedState != OnboardingState.None) recommendedState else reminderState
+        }
+
         return when (selectedTab) {
-            SavedTab.ALL_ARTICLES -> when {
-                accountState.isLoggedIn && !accountState.isTemporaryAccount && !Prefs.isReadingListSyncEnabled &&
-                        Prefs.isReadingListSyncReminderEnabled && !RemoteConfig.config.disableReadingListSync -> {
-                    OnboardingState.SyncReminder
-                }
-                (!accountState.isLoggedIn || accountState.isTemporaryAccount) && Prefs.isReadingListLoginReminderEnabled &&
-                        !RemoteConfig.config.disableReadingListSync -> {
-                    OnboardingState.LoginReminder
-                }
-                else -> OnboardingState.None
-            }
-            SavedTab.COLLECTIONS -> {
-                if (!Prefs.isRecommendedReadingListOnboardingShown) {
-                    OnboardingState.RecommendedReadingList
-                } else {
-                    OnboardingState.None
-                }
-            }
+            SavedTab.ALL_ARTICLES -> reminderState
+            SavedTab.COLLECTIONS -> recommendedState
         }
     }
 
@@ -434,10 +444,16 @@ class ReadingListsViewModel : ViewModel() {
         recentPreviewSavedId: Long?
     ): List<ReadingListRow> {
         val normalizedQuery = StringUtils.stripAccents(query)
+        val matchingListRows = lists
+            .filter { it.accentInvariantTitle.contains(normalizedQuery, ignoreCase = true) }
+            .map { ReadingListRow.ListRow(it.toUiModel(recentPreviewSavedId)) }
+
+        if (!tabsEnabled) {
+            return matchingListRows + buildArticleRows(lists, normalizedQuery)
+        }
+
         return when (tab) {
-            SavedTab.COLLECTIONS -> lists
-                .filter { it.accentInvariantTitle.contains(normalizedQuery, ignoreCase = true) }
-                .map { ReadingListRow.ListRow(it.toUiModel(recentPreviewSavedId)) }
+            SavedTab.COLLECTIONS -> matchingListRows
             SavedTab.ALL_ARTICLES -> buildArticleRows(lists, normalizedQuery)
         }
     }
