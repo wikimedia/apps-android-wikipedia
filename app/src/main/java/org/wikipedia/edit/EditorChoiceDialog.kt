@@ -44,6 +44,8 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
 import androidx.annotation.StringRes
+import org.wikipedia.R
+import kotlin.Boolean
 
 const val EDITOR_CHOICE_VE = 0
 const val EDITOR_CHOICE_SOURCE = 1
