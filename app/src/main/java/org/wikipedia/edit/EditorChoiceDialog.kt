@@ -43,9 +43,17 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
+import androidx.annotation.StringRes
 
 const val EDITOR_CHOICE_VE = 0
 const val EDITOR_CHOICE_SOURCE = 1
+
+data class EditorChoiceDialogConfig(
+    @param:StringRes val dialogTitle: Int,
+    @param:StringRes val confirmButtonText: Int,
+    val allowShowIcon: Boolean,
+    val allowShowAgainCheckbox: Boolean,
+)
 
 fun showEditorChoiceDialog(
     context: Context,
