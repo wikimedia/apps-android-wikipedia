@@ -497,7 +497,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
             }
         }
         if (Prefs.editorModeChoiceShowDialog && Prefs.visualEditorEnabled) {
-            showEditorChoiceDialog(this) { editorChoice, dontShowAgain ->
+            showEditorChoiceDialog(this, false) { editorChoice, dontShowAgain ->
                 Prefs.editorModeChoice = editorChoice
                 Prefs.editorModeChoiceShowDialog = !dontShowAgain
                 launchEditor()

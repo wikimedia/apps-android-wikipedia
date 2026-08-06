@@ -44,7 +44,6 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
 import androidx.annotation.StringRes
-import org.wikipedia.R
 import kotlin.Boolean
 
 const val EDITOR_CHOICE_VE = 0
@@ -59,9 +58,26 @@ data class EditorChoiceDialogConfig(
 
 fun showEditorChoiceDialog(
     context: Context,
-    allowShowAgainCheckbox: Boolean = true,
+    isSettingsScreen: Boolean,
     onResult: (editorChoice: Int, dontShowAgain: Boolean) -> Unit
 ) {
+
+    val dialogConfig: EditorChoiceDialogConfig = if(!isSettingsScreen) {
+        EditorChoiceDialogConfig(
+            dialogTitle = R.string.editor_select_dialog_title,
+            confirmButtonText = R.string.editor_select_dialog_continue,
+            allowShowIcon = true,
+            allowShowAgainCheckbox = true
+        )
+    } else {
+        EditorChoiceDialogConfig(
+            dialogTitle = R.string.editor_select_dialog_title_settings_screen,
+            confirmButtonText = R.string.editor_select_confirm_btn_settings_screen,
+            allowShowIcon = false,
+            allowShowAgainCheckbox = false
+        )
+    }
+
     val composeView = ComposeView(context)
 
     MaterialAlertDialogBuilder(context)
@@ -72,7 +88,7 @@ fun showEditorChoiceDialog(
                 BaseTheme {
                     EditorChoiceContent(
                         initialChoice = Prefs.editorModeChoice,
-                        allowShowAgainCheckbox,
+                        dialogConfigData = dialogConfig,
                         onCancel = { dialog.dismiss() },
                         onContinue = { editorChoice, dontShowAgain ->
                             onResult(editorChoice, dontShowAgain)
@@ -88,7 +104,7 @@ fun showEditorChoiceDialog(
 @Composable
 private fun EditorChoiceContent(
     initialChoice: Int,
-    allowShowAgainCheckbox: Boolean = true,
+    dialogConfigData: EditorChoiceDialogConfig,
     onCancel: () -> Unit = {},
     onContinue: (editorChoice: Int, dontShowAgain: Boolean) -> Unit = { _, _ -> }
 ) {
@@ -98,7 +114,7 @@ private fun EditorChoiceContent(
     Column(modifier = Modifier.padding(vertical = 4.dp)) {
         Text(
             modifier = Modifier.padding(horizontal = 16.dp, vertical = 24.dp),
-            text = stringResource(R.string.editor_select_dialog_title),
+            text = stringResource(dialogConfigData.dialogTitle),
             style = MaterialTheme.typography.headlineSmall,
             color = WikipediaTheme.colors.primaryColor
         )
@@ -109,7 +125,7 @@ private fun EditorChoiceContent(
                 subtitle = stringResource(R.string.editor_select_dialog_ve_subtitle),
                 selected = selectedEditor == EDITOR_CHOICE_VE,
                 onClick = { selectedEditor = EDITOR_CHOICE_VE },
-                shouldShowOpenInNewIcon = true
+                shouldShowOpenInNewIcon = dialogConfigData.allowShowIcon
             )
 
             HorizontalDivider(
@@ -125,7 +141,7 @@ private fun EditorChoiceContent(
             )
         }
 
-        if (allowShowAgainCheckbox) {
+        if (dialogConfigData.allowShowAgainCheckbox) {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier
@@ -174,7 +190,7 @@ private fun EditorChoiceContent(
             AppButton(
                 onClick = { onContinue(selectedEditor, dontShowAgain) },
             ) {
-                Text(stringResource(R.string.editor_select_dialog_continue))
+                Text(stringResource(dialogConfigData.confirmButtonText))
             }
         }
     }
@@ -257,10 +273,36 @@ private fun EditorOption(
 
 @Preview
 @Composable
-private fun EditorChoiceDialogPreview() {
+private fun EditorChoiceDialogNonSettingsScreenPreview() {
     BaseTheme(
         currentTheme = Theme.LIGHT
     ) {
-        EditorChoiceContent(initialChoice = EDITOR_CHOICE_SOURCE)
+        EditorChoiceContent(
+            initialChoice = EDITOR_CHOICE_SOURCE,
+            dialogConfigData = EditorChoiceDialogConfig(
+                dialogTitle = R.string.editor_select_dialog_title,
+                confirmButtonText = R.string.editor_select_dialog_continue,
+                allowShowIcon = true,
+                allowShowAgainCheckbox = true
+            ),
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun EditorChoiceDialogSettingsScreenPreview() {
+    BaseTheme(
+        currentTheme = Theme.LIGHT
+    ) {
+        EditorChoiceContent(
+            initialChoice = EDITOR_CHOICE_SOURCE,
+            EditorChoiceDialogConfig(
+                dialogTitle = R.string.editor_select_dialog_title_settings_screen,
+                confirmButtonText = R.string.editor_select_confirm_btn_settings_screen,
+                allowShowIcon = false,
+                allowShowAgainCheckbox = false
+            )
+        )
     }
 }
