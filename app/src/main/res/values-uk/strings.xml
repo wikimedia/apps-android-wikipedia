@@ -2697,12 +2697,12 @@
     <item quantity="one">Цю статтю буде видалено з усіх пов’язаних колекцій.</item>
     <item quantity="few">Ці %d статті будуть видалені з усіх пов’язаних колекцій.</item>
     <item quantity="many">Ці %d статей будуть видалені з усіх пов’язаних колекцій.</item>
-    <item quantity="other"/>
+    <item quantity="other">Ці %d статей будуть видалені з усіх пов’язаних колекцій.</item>
   </plurals>
   <plurals name="reading_lists_articles_removed_from_collections">
     <item quantity="one">Статтю видалено з усіх пов’язаних колекцій.</item>
     <item quantity="few">%d статті видалено з усіх пов’язаних колекцій.</item>
     <item quantity="many">%d статей видалено з усіх пов’язаних колекцій.</item>
-    <item quantity="other"/>
+    <item quantity="other">%d статей видалено з усіх пов’язаних колекцій.</item>
   </plurals>
 </resources>
