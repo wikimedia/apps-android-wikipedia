@@ -388,7 +388,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
             binding.editSectionCaptchaContainer.visibility = View.VISIBLE
             captchaHandler.handleCaptcha(null, result)
         } else {
-            EditAttemptStepEvent.logSaveFailure(viewModel.pageTitle)
+            EditAttemptStepEvent.logAbort(viewModel.pageTitle)
             // Expand to do everything.
             onEditFailure(Throwable())
         }
@@ -765,6 +765,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
             val alert = MaterialAlertDialogBuilder(this)
             alert.setMessage(getString(R.string.edit_abandon_confirm))
             alert.setPositiveButton(getString(R.string.edit_abandon_confirm_yes)) { dialog, _ ->
+                EditAttemptStepEvent.logAbort(viewModel.pageTitle)
                 dialog.dismiss()
                 action()
             }
