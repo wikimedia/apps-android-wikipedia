@@ -19,6 +19,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -26,24 +28,25 @@ import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.compose.components.WikipediaAlertDialog
 import org.wikipedia.compose.components.menu.PageOverflowMenuViewModel
 import org.wikipedia.compose.theme.BaseTheme
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.didyouknow.DidYouKnowActivity
-import org.wikipedia.feed.didyouknow.DidYouKnowCard
 import org.wikipedia.feed.model.Card
+import org.wikipedia.feed.model.DidYouKnowCard
 import org.wikipedia.feed.model.DiscoverCard
 import org.wikipedia.feed.model.EmptyCommunityCard
 import org.wikipedia.feed.model.EmptyForYouCard
 import org.wikipedia.feed.model.GamesModulePromptCard
+import org.wikipedia.feed.model.OnThisDayCard
 import org.wikipedia.feed.model.PlacesOfInterestLocationPromptCard
+import org.wikipedia.feed.model.TopReadCard
 import org.wikipedia.feed.model.WikiGameCard
 import org.wikipedia.feed.onboarding.ExploreFeedUpdatePromptActivity
 import org.wikipedia.feed.onthisday.OnThisDayActivity
-import org.wikipedia.feed.onthisday.OnThisDayCard
 import org.wikipedia.feed.personalization.PersonalizationActivity
 import org.wikipedia.feed.personalization.PersonalizationActivity.Companion.RESULT_INTERESTS_UPDATED
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
 import org.wikipedia.feed.topread.TopReadArticlesActivity
-import org.wikipedia.feed.topread.TopReadCard
 import org.wikipedia.feed.wikigames.OnThisDayCardGameState
 import org.wikipedia.feed.wikigames.WikiGame
 import org.wikipedia.games.GamesHubActivity
@@ -57,6 +60,7 @@ import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.places.PlacesActivity
 import org.wikipedia.random.RandomActivity
 import org.wikipedia.readinglist.ReadingListActivity
+import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.ReadingListMode
 import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingActivity
 import org.wikipedia.readinglist.recommended.RecommendedReadingListSettingsActivity
@@ -120,6 +124,10 @@ class HomeFragment : Fragment() {
                         communityContentState = communityContentState,
                         forYouContentState = forYouContentState,
                         overflowMenuState = pageOverflowMenuViewModel.pageOverflowMenuState,
+                        savedInReadingListTitles = viewModel.savedInReadingListTitles.collectAsState().value,
+                        resolveForYouSavedState = { title ->
+                            AppDatabase.instance.readingListPageDao().findPageInAnyList(title) != null
+                        },
                         tabsState = tabsState,
                         notificationBellState = notificationState,
                         onAction = { handleHomeAction(it, wikiSite, selectedTab) }
@@ -245,7 +253,15 @@ class HomeFragment : Fragment() {
             }
             is HomeAction.PageBookmarkClick -> {
                 instrument.submitInteraction("click", actionSource = action.card.javaClass.simpleName, elementId = "article_save", pageData = TestKitchenAdapter.getPageData(pageTitle = action.historyEntry.title))
-                (parentFragment as? MainFragment)?.onFeedAddPageToList(action.historyEntry, true)
+                lifecycleScope.launch {
+                    val page = AppDatabase.instance.readingListPageDao().findPageInAnyList(action.historyEntry.title)
+                    val list = AppDatabase.instance.readingListDao().getListById(page?.listId ?: -1)
+                    if (list == null || page == null) {
+                        ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), action.historyEntry.title, true, InvokeSource.FEED)
+                    } else {
+                        ReadingListBehaviorsUtil.deletePages(requireActivity(), listOf(list), page, {}, {})
+                    }
+                }
             }
             is HomeAction.PageShareClick -> {
                 instrument.submitInteraction("click", actionSource = action.card.javaClass.simpleName, elementId = "article_share", pageData = TestKitchenAdapter.getPageData(pageTitle = action.historyEntry.title))
@@ -347,7 +363,9 @@ class HomeFragment : Fragment() {
                 when (val card = action.card) {
                     is TopReadCard -> {
                         instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, elementId = "more_top_read")
-                        startActivity(TopReadArticlesActivity.newIntent(requireActivity(), TopReadCard(card.articles, card.age, wikiSite)))
+                        startActivity(TopReadArticlesActivity.newIntent(requireActivity(),
+                            TopReadCard(card.articles, card.age, wikiSite)
+                        ))
                     }
                     is OnThisDayCard -> {
                         instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, elementId = "more_on_this_day")

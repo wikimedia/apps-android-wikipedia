@@ -189,11 +189,12 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
         viewModel.undoEditResponse.observe(viewLifecycleOwner) {
             binding.progressBar.isVisible = false
             if (it is Resource.Success) {
-                EditAttemptStepEvent.logSaveSuccess(viewModel.pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
+                val revisionId = it.data.edit!!.newRevId
+                EditAttemptStepEvent.logSaveSuccess(viewModel.pageTitle, revisionId, EditAttemptStepEvent.INTERFACE_OTHER)
                 setLoadingState()
-                viewModel.getRevisionDetails(it.data.edit!!.newRevId)
+                viewModel.getRevisionDetails(revisionId)
                 sendPatrollerExperienceEvent("undo_success", "pt_edit",
-                    PatrollerExperienceEvent.getActionDataString(it.data.edit.newRevId))
+                    PatrollerExperienceEvent.getActionDataString(revisionId))
                 showUndoSnackbar()
                 callback()?.onUndoSuccess()
             } else if (it is Resource.Error) {
@@ -216,11 +217,12 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
         viewModel.rollbackResponse.observe(viewLifecycleOwner) {
             binding.progressBar.isVisible = false
             if (it is Resource.Success) {
-                EditAttemptStepEvent.logSaveSuccess(viewModel.pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
+                val revisionId = it.data.rollback?.revision ?: 0
+                EditAttemptStepEvent.logSaveSuccess(viewModel.pageTitle, revisionId, EditAttemptStepEvent.INTERFACE_OTHER)
                 setLoadingState()
-                viewModel.getRevisionDetails(it.data.rollback?.revision ?: 0)
+                viewModel.getRevisionDetails(revisionId)
                 sendPatrollerExperienceEvent("rollback_success", "pt_edit",
-                    PatrollerExperienceEvent.getActionDataString(it.data.rollback?.revision ?: 0))
+                    PatrollerExperienceEvent.getActionDataString(revisionId))
                 showRollbackSnackbar()
                 callback()?.onRollbackSuccess()
             } else if (it is Resource.Error) {

@@ -2470,4 +2470,19 @@
   <string name="home_feed_games_module_cta_prompt_title">Szeretnél még több játékot kipróbálni?</string>
   <string name="home_feed_games_module_cta_prompt_subtitle">Ugrás a játékközpontba</string>
   <string name="home_feed_games_module_cta_prompt_button_text">Játékközpont</string>
+  <string name="random_article_widget_name">Szócikk találomra</string>
+  <string name="reading_lists_tab_all_articles">Minden szócikk</string>
+  <string name="reading_lists_tab_collections">Gyűjtemények</string>
+  <string name="reading_lists_search_saved_articles">Keresés a mentett szócikkeidben</string>
+  <string name="reading_lists_search_collections">Gyűjtemények keresése</string>
+  <string name="reading_lists_remove_articles_confirm_dialog_title">Eltávolítod a mentett szócikkeket?</string>
+  <string name="reading_lists_remove_articles_confirm_button">Eltávolítás</string>
+  <plurals name="reading_lists_remove_articles_confirm_dialog_message">
+    <item quantity="one">Ez a szócikk minden kapcsolódó gyűjteményből el lesz távolítva.</item>
+    <item quantity="other">Ez a(z) %d szócikk minden kapcsolódó gyűjteményből el lesz távolítva.</item>
+  </plurals>
+  <plurals name="reading_lists_articles_removed_from_collections">
+    <item quantity="one">A szócikket eltávolítottuk minden kapcsolódó gyűjteményből.</item>
+    <item quantity="other">A(z) %d szócikket eltávolítottuk minden kapcsolódó gyűjteményből.</item>
+  </plurals>
 </resources>

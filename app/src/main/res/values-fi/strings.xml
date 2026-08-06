@@ -2395,7 +2395,16 @@
   <string name="home_feed_for_you_screen_end_of_feed_description">Tule takaisin huomenna löytääksesi uusia, sinulle räätälöityjä artikkeleita.</string>
   <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Keinoja jatkaa oppimista:</string>
   <string name="home_feed_for_you_screen_end_of_feed_add_interests">Lisää &lt;a href=\"#add_interests\"&gt;uusia kiinnostuksen kohteita&lt;/a&gt;</string>
+  <string name="randomizer_shake_prompt_title">Ravista sekoittaaksesi</string>
+  <string name="randomizer_shake_prompt_message">Ravista laitettasi siirtyäksesi satunnaiseen artikkeliin ja löytääksesi jotain odottamatonta.</string>
   <string name="home_feed_games_module_cta_prompt_title">Haluatko pelata lisää pelejä?</string>
   <string name="home_feed_games_module_cta_prompt_subtitle">Siirry Pelikeskukseen</string>
   <string name="home_feed_games_module_cta_prompt_button_text">Pelikeskus</string>
+  <string name="random_article_widget_name">Satunnainen artikkeli</string>
+  <string name="reading_lists_tab_all_articles">Kaikki artikkelit</string>
+  <string name="reading_lists_tab_collections">Kokoelmat</string>
+  <string name="reading_lists_search_saved_articles">Hae tallennetuista artikkeleista</string>
+  <string name="reading_lists_search_collections">Hae kokoelmiasta</string>
+  <string name="reading_lists_remove_articles_confirm_dialog_title">Poista tallennetut artikkelit?</string>
+  <string name="reading_lists_remove_articles_confirm_button">Poista</string>
 </resources>

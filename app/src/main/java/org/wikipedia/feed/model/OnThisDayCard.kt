@@ -1,7 +1,7 @@
-package org.wikipedia.feed.onthisday
+package org.wikipedia.feed.model
 
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.feed.model.WikiSiteCard
+import org.wikipedia.feed.onthisday.OnThisDay
 import org.wikipedia.settings.homefeed.CommunityModuleType
 import org.wikipedia.util.DateUtil
 import java.util.Calendar

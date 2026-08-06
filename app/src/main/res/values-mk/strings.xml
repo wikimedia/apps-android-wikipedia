@@ -2459,4 +2459,19 @@
   <string name="home_feed_games_module_cta_prompt_title">Сакате повеќе игри?</string>
   <string name="home_feed_games_module_cta_prompt_subtitle">Одете на центарот за игри</string>
   <string name="home_feed_games_module_cta_prompt_button_text">Центар за игри</string>
+  <string name="random_article_widget_name">Случајна статија</string>
+  <string name="reading_lists_tab_all_articles">Сите статии</string>
+  <string name="reading_lists_tab_collections">Збирки</string>
+  <string name="reading_lists_search_saved_articles">Пребарај по зачувани статиии</string>
+  <string name="reading_lists_search_collections">Пребарај по збирки</string>
+  <string name="reading_lists_remove_articles_confirm_dialog_title">Да ги отстранам зачуваните статии?</string>
+  <string name="reading_lists_remove_articles_confirm_button">Отстрани</string>
+  <plurals name="reading_lists_remove_articles_confirm_dialog_message">
+    <item quantity="one">Оваа страница ќе биде отстранета од сите поврзани збирки.</item>
+    <item quantity="other">Овие %d статии ќе бидат отстранети од сите поврзани збирки.</item>
+  </plurals>
+  <plurals name="reading_lists_articles_removed_from_collections">
+    <item quantity="one">Отстранета статија од сите поврзани збирки.</item>
+    <item quantity="other">Отстарнети %d статии од сите поврзани збирки.</item>
+  </plurals>
 </resources>

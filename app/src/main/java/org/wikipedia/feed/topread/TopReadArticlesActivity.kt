@@ -6,6 +6,7 @@ import android.os.Bundle
 import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.extensions.parcelableExtra
+import org.wikipedia.feed.model.TopReadCard
 import org.wikipedia.util.DateUtil
 
 class TopReadArticlesActivity : SingleFragmentActivity<TopReadFragment>() {

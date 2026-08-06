@@ -893,11 +893,11 @@
   <string name="feed_item_type_randomizer">Generovati slučajne članky za čitanje</string>
   <string name="feed_item_type_suggested_edits">Prědloženja za dodanje sodržanja v Vikipediju</string>
   <string name="feed_item_type_places">Članky o poblizkyh temah na osnově aktualnogo městopoloženja</string>
-  <string name="feed_empty_message" fuzzy="true">V vašem kanalu «Odkryti» nemaje ničego</string>
+  <string name="feed_empty_message">V vašem glavnom kanalu nemaje ničego</string>
   <string name="feed_configure_onboarding_action">Prisposobiti</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Anulovati</string>
-  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Prisposobite svoj kanal «Odkryti»&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt; Tutčas vy možete izbrati, čto trěba izobražati v vašem kanalu, a takože ustaviti prioritety za vaše ljubime tipy sodržanja.</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Prisposobite svoj glavny kanal&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt; Tutčas vy možete izbrati, čto trěba izobražati v vašem kanalu, a takože ustaviti prioritety za vaše ljubime tipy sodržanja.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Anulovati</string>
   <string name="feed_accessibility_card_text">Vy jeste dosegli konca kanala.</string>
@@ -1315,11 +1315,11 @@
   <string name="onboarding_get_started">Razpočeti</string>
   <string name="onboarding_maybe_later">Može pozdněje</string>
   <string name="onboarding_explore_title">Nove sposoby izslědovanja</string>
-  <string name="onboarding_explore_text" fuzzy="true">Zanurite se gluboko v Vikipediju s postojanno izměnjajučim kanalom «Odkryti». &lt;br/&gt; &lt;b&gt;Prisposobite&lt;/b&gt; sobě toj kanal svojim po svojim interesam – napriklad, dovědite se o historičnyh sobytjah, ktore odbyli se &lt;b&gt;tutogo dnja&lt;/b&gt;, ili metnite kostku, da byste uviděli &lt;b&gt;slučajny&lt;/b&gt; članok.</string>
+  <string name="onboarding_explore_text">Zanurite se gluboko v Vikipediju s postojanno izměnjajučim se glavnym kanalom. &lt;br/&gt; &lt;b&gt;Prisposobite&lt;/b&gt; sobě toj kanal po svojim interesam – napriklad, dovědite se o historičnyh sobytjah, ktore odbyli se &lt;b&gt;tutogo dnja&lt;/b&gt;, ili metnite kostku, da byste uviděli &lt;b&gt;slučajny&lt;/b&gt; članok.</string>
   <string name="onboarding_reading_list_sync_title">Sinhronizacija spiskov za čitanje</string>
   <string name="onboarding_reading_list_sync_text_v2">Vy možete stvoriti spisky člankov, ktore hočete pročitati pozdněje, daže kogda vy jeste offline.&lt;br/&gt;Prijavite se do svojego konta na Vikipediji, da byste mogli sinhronizovati svoje spisky za čitanje. &lt;a href=\"#login\"&gt;Pristupite v Vikipediju&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Dane i privatnost</string>
-  <string name="onboarding_data_privacy_text" fuzzy="true">My mnimo, že za vaše učestje v dviženju za svobodno znanje ne jest potrěbno, že vy podate osobne informacije. Vse dane sbirajame za tutu aplikaciju sut anonimne. Gledite &lt;a href=\"#privacy\"&gt;politiku privatnosti&lt;/a&gt; i &lt;a href=\"#termsOfUse\"&gt;uslovja upotrěbjanja&lt;/a&gt; za podrobnosti.</string>
+  <string name="onboarding_data_privacy_text">My mnimo, že za vaše učestje v dviženju za svobodno znanje ne jest potrěbno, že vy podate osobne informacije. Vse dane sbirajame za tutu aplikaciju sut anonimne.&lt;br/&gt;&lt;br/&gt;Gledite &lt;a href=\"#privacy\"&gt;politiku privatnosti&lt;/a&gt; i &lt;a href=\"#termsOfUse\"&gt;uslovja upotrěbjanja&lt;/a&gt; za podrobnosti.</string>
   <string name="onboarding_analytics_switch_title">Odpraviti dane o upotrěbě</string>
   <string name="onboarding_got_it">Razuměju</string>
   <string name="onboarding_multilingual_secondary_text">Na vašem aparatu my jesmo našli slědujuče jezyky:</string>
@@ -1359,7 +1359,7 @@
     <item quantity="many">Odstraniti izbrane jezyky?</item>
     <item quantity="other">Odstraniti izbrane jezyky?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Vy samo uvidite sodržanje v kanalu «Odkryti» i filtry brzogo iskanja za ostale jezyky Vikipedije.</string>
+  <string name="wikipedia_languages_remove_dialog_content">Vy samo uvidite sodržanje v glavnom kanalu i filtry brzogo iskanja za ostale jezyky Vikipedije.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Vy ne možete odstraniti vse jezyky</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Ostavite minimalno jedin jezyk Vikipedije za iskanje i čitanje sodržanja.</string>
   <string name="more_language_options">veče</string>
@@ -1862,7 +1862,7 @@
   <string name="on_this_day_game_entry_dialog_title">Prědstavjenje</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Igry Vikipedije</string>
   <string name="on_this_day_game_entry_dialog_button">Igrati</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message" fuzzy="true">Igry Vikipedije sut dostupne v kanalu «Odkryti».</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message">Igry Vikipedije sut dostupne v Games Hub, v menju VEČE.</string>
   <string name="on_this_day_game_title">Čto bylo prvo?</string>
   <string name="on_this_day_game_dialog_button">Igrati</string>
   <string name="on_this_day_game_splash_message">Ugadajte, ktoro sobytje slučilo se prvo tutogo dnja v historiji.</string>
@@ -1889,7 +1889,7 @@
   <string name="on_this_day_game_stats_average_score">Srědnji rezultat</string>
   <string name="on_this_day_game_stats_streak">Tekuča serija</string>
   <string name="on_this_day_game_result_subtitle">Članky, izkoristane v dnešnjej igrě</string>
-  <string name="on_this_day_game_completed_message" fuzzy="true">Hvala za igranje. Vsakodnevno na vašem kanalu «Odkryti» jest dostupna nova igra «Čto slučilo se prvo?»</string>
+  <string name="on_this_day_game_completed_message">Hvala za igranje. Vsakodnevno na vašem glavnom kanalu jest dostupna nova igra «Čto slučilo se prvo?»</string>
   <string name="on_this_day_game_menu_notifications">Uvědomjenja ob igrě</string>
   <string name="on_this_day_game_menu_info">Daljše informacije</string>
   <string name="on_this_day_game_menu_feedback">Problem s funkcijeju</string>

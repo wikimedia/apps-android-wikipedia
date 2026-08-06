@@ -661,7 +661,7 @@
   <string name="reading_list_turned_sync_off_dialog_text">Синхронізацію читальних списків вимкнено для Вашого облікового запису, тож списки статей на пристроях, з яких Ви входите в систему, більше не оновлюватимуться. Увімкніть синхронізацію читальних списків у налаштуваннях.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">Готово</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Налаштування</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_title">Увімкнути синхронізацію читальних списків?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">Увімкнути синхронізацію списків читання?</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_text">Статті, збережені у списки читання, тепер можна синхронізувати зі своїм обліковим записом у Вікіпедії. &lt;a href=\"#faq\"&gt;Дізнатися більше&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Не показувати цього знову</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Увімкнути синхронізацію</string>
@@ -2686,4 +2686,23 @@
   <string name="home_feed_games_module_cta_prompt_title">Хочете зіграти більше ігор?</string>
   <string name="home_feed_games_module_cta_prompt_subtitle">Перейдіть до хабу ігор</string>
   <string name="home_feed_games_module_cta_prompt_button_text">Хаб ігор</string>
+  <string name="random_article_widget_name">Випадкова стаття</string>
+  <string name="reading_lists_tab_all_articles">Усі статті</string>
+  <string name="reading_lists_tab_collections">Колекції</string>
+  <string name="reading_lists_search_saved_articles">Пошук збережених статей</string>
+  <string name="reading_lists_search_collections">Пошук колекцій</string>
+  <string name="reading_lists_remove_articles_confirm_dialog_title">Вилучити збережені статті?</string>
+  <string name="reading_lists_remove_articles_confirm_button">Вилучити</string>
+  <plurals name="reading_lists_remove_articles_confirm_dialog_message">
+    <item quantity="one">Цю статтю буде видалено з усіх пов’язаних колекцій.</item>
+    <item quantity="few">Ці %d статті будуть видалені з усіх пов’язаних колекцій.</item>
+    <item quantity="many">Ці %d статей будуть видалені з усіх пов’язаних колекцій.</item>
+    <item quantity="other">Ці %d статей будуть видалені з усіх пов’язаних колекцій.</item>
+  </plurals>
+  <plurals name="reading_lists_articles_removed_from_collections">
+    <item quantity="one">Статтю видалено з усіх пов’язаних колекцій.</item>
+    <item quantity="few">%d статті видалено з усіх пов’язаних колекцій.</item>
+    <item quantity="many">%d статей видалено з усіх пов’язаних колекцій.</item>
+    <item quantity="other">%d статей видалено з усіх пов’язаних колекцій.</item>
+  </plurals>
 </resources>

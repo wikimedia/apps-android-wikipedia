@@ -658,7 +658,7 @@
     <item quantity="many">Статей удалено из списка: %d</item>
     <item quantity="other">Статей удалено из списка: %d</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+  <plurals name="reading_list_articles_deleted_from_list">
     <item quantity="one">Статей удалено из %2$s: %1$d</item>
     <item quantity="few">Статей удалено из %2$s: %1$d</item>
     <item quantity="many">Статей удалено из %2$s: %1$d</item>
@@ -1969,6 +1969,8 @@
   <string name="places_empty_message_snackbar">Здесь нет статей о местах поблизости. Попробуйте уменьшить масштаб и переместиться по карте.</string>
   <string name="survey_dialog_title">Помогите нам улучшить эту функцию</string>
   <string name="survey_dialog_message">Вы довольны этой функцией?</string>
+  <string name="home_feed_survey_title">Помогите улучшить главную страницу</string>
+  <string name="home_feed_survey_message">Удовлетворены ли вы лентами «Сообщество» и «Для вас»?</string>
   <string name="survey_dialog_option_satisfied">Доволен</string>
   <string name="survey_dialog_option_neutral">Воздержусь</string>
   <string name="survey_dialog_option_unsatisfied">Недоволен</string>
@@ -2641,6 +2643,7 @@
   <string name="explore_feed_new_update_prompt_language_description">Читаете на нескольких языках? Для каждого языка — свой отдельный опыт. Просто переключитесь, и ваша новая лента будет готова.</string>
   <string name="explore_feed_new_update_prompt_primary_button_text">Настроить мою ленту</string>
   <string name="explore_feed_customize_interests">Настройте интересы</string>
+  <string name="explore_feed_customize_discover">Настроить «Открытия»</string>
   <string name="explore_feed_new_update_prompt_secondary_button_text">Настройте за меня</string>
   <string name="explore_feed_building_text">Давайте создадим вашу ленту…</string>
   <string name="explore_feed_community_tab_label">Сообщество</string>
@@ -2668,8 +2671,11 @@
   <string name="explore_feed_personalized_preference_empty_state_text">Добавьте свои интересы, чтобы получать персональные рекомендации. Вы можете сделать это на предыдущих шагах или позже в настройках.</string>
   <string name="explore_feed_because_you_read">Потому что вы читали: %s</string>
   <string name="explore_feed_swipe_to_explore_prompt_title">Смахните, чтобы посмотреть больше</string>
-  <string name="explore_feed_swipe_to_explore_prompt_message" fuzzy="true">Смахните вниз, чтобы перейти к другой теме, или в сторону, чтобы посмотреть связанный контент.</string>
-  <string name="home_feed_settings_title" fuzzy="true">Настройка ленты главной страницы</string>
+  <string name="explore_feed_swipe_to_explore_prompt_message">Смахните вверх, чтобы перейти к другой теме, или в сторону, чтобы посмотреть связанный контент.</string>
+  <string name="home_feed_settings_title">Настройка ленты главной страницы</string>
+  <string name="home_feed_settings_default_view_title">Вид ленты по умолчанию</string>
+  <string name="home_feed_settings_default_view_subtitle">Выберите, какая лента будет отображаться первой при открытии приложения.</string>
+  <string name="home_feed_settings_default_view_confirm">Изменения будут применены при следующем открытии приложения.</string>
   <string name="home_feed_settings_whats_driving_title">Что формирует вашу ленту</string>
   <string name="home_feed_settings_modules_title">Модули</string>
   <string name="home_feed_settings_community_subtitle">Включайте или отключайте модули вкладки «Сообщество».</string>
@@ -2683,12 +2689,12 @@
   <string name="home_feed_settings_continue_reading_title">Продолжить чтение</string>
   <string name="home_feed_settings_continue_reading_subtitle">Вернитесь к статьям, которые вы не дочитали.</string>
   <string name="home_feed_did_you_know_title">Знаете ли вы?</string>
-  <string name="home_feed_did_you_know_subtitle">Интересные факты из статей, отобранные редакторами-волонтёрами.</string>
+  <string name="home_feed_did_you_know_subtitle">Интересные факты из новых статей, отобранные википедистами</string>
   <string name="home_feed_did_you_know_more_label">Больше интересных фактов</string>
   <string name="home_feed_settings_community_empty_dialog_title">Ваша лента «Сообщество» будет пустой.</string>
   <string name="home_feed_settings_for_you_empty_dialog_title">Ваша лента «Для вас» будет пустой.</string>
   <string name="home_feed_settings_empty_dialog_text">Включите хотя бы один модуль, чтобы просмотреть содержимое.</string>
-  <string name="home_feed_settings_empty_dialog_positive">Все равно продолжить</string>
+  <string name="home_feed_settings_empty_dialog_positive">Всё равно продолжить</string>
   <string name="home_feed_screen_empty_state_label">Ваша лента пуста</string>
   <string name="home_feed_community_screen_all_modules_disabled_description">Включите модули &lt;b&gt;«Сообщество»&lt;/b&gt;, чтобы получать материалы, отобранные сообществом Викимедиа и посвящённые ему.</string>
   <string name="home_feed_for_you_screen_all_modules_disabled_description">Включите модули &lt;b&gt;«Для вас»&lt;/b&gt;, чтобы получать материалы на основе ваших предпочтений.</string>
@@ -2719,9 +2725,26 @@
   <string name="home_feed_places_of_interest_cta_button">Перейти в раздел «Места»</string>
   <string name="home_feed_settings_places_of_interest_title">Интересные места</string>
   <string name="home_feed_settings_places_of_interest_subtitle">Статьи рядом с вашим последним местоположением в разделе «Места».</string>
+  <string name="home_feed_settings_games_title">Игры</string>
+  <string name="home_feed_settings_games_subtitle">Ежедневные игры по материалам Википедии</string>
+  <string name="home_feed_settings_discover_title">Рекомендации из «Открытий»</string>
+  <string name="home_feed_settings_discover_subtitle">Статьи из вашего списка для чтения «Открытий»</string>
+  <string name="home_feed_discover_cta_title">Из «Открытий»</string>
+  <string name="home_feed_discover_cta_description">Изучайте новые темы, подобранные специально для вас. Выберите обновления раз в день, в неделю или в месяц.</string>
+  <string name="home_feed_discover_cta_button">Включить список для чтения «Открытий»</string>
+  <string name="home_feed_discover_card_footer">Из «Открытий» • %s обновлено</string>
+  <string name="home_feed_discover_see_all_title">Впереди ещё больше открытий</string>
+  <string name="home_feed_discover_see_all_description">В персональном списке для чтения больше историй, подобранных специально для вас.</string>
+  <string name="home_feed_discover_see_all_button">Изучите все рекомендации</string>
   <string name="home_feed_places_of_interest_card_footer">%1$s • На основе вашего местоположения в разделе «Места»</string>
   <string name="home_feed_for_you_screen_end_of_feed_title">На сегодня всё!</string>
   <string name="home_feed_for_you_screen_end_of_feed_description">Заходите завтра, чтобы найти новые статьи, подобранные специально для вас.</string>
+  <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Способы продолжить изучение:</string>
+  <string name="home_feed_for_you_screen_end_of_feed_add_interests">Добавьте &lt;a href=\"#add_interests\"&gt;новые интересы&lt;/a&gt;</string>
   <string name="randomizer_shake_prompt_title">Потрясите, чтобы перемешать</string>
   <string name="randomizer_shake_prompt_message">Потрясите устройство, чтобы открыть случайную статью и открыть что-то неожиданное.</string>
+  <string name="home_feed_games_module_cta_prompt_title">Хотите сыграть ещё?</string>
+  <string name="home_feed_games_module_cta_prompt_subtitle">Перейдите во вкладку «Игры»</string>
+  <string name="home_feed_games_module_cta_prompt_button_text">Вкладка «Игры»</string>
+  <string name="random_article_widget_name">Случайная статья</string>
 </resources>
