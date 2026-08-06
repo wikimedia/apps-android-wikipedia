@@ -813,10 +813,6 @@ object Prefs {
         get() = PrefsIoUtil.getInt(R.string.preference_key_otd_game_num_questions, 5)
         set(value) = PrefsIoUtil.setInt(R.string.preference_key_otd_game_num_questions, value)
 
-    var otdEntryDialogShown
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_otd_entry_dialog_shown, false)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_otd_entry_dialog_shown, value)
-
     var otdGameFirstPlayedShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_otd_game_first_played_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_otd_game_first_played_shown, value)

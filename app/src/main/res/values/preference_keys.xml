@@ -171,7 +171,6 @@
     <string name="preference_key_otd_last_played_date" translatable="false">otdLastPlayedDate</string>
     <string name="preference_key_otd_game_date_override" translatable="false">otdGameDateOverride</string>
     <string name="preference_key_otd_game_num_questions" translatable="false">otdGameNumQuestions</string>
-    <string name="preference_key_otd_entry_dialog_shown" translatable="false">otdEntryDialogShown</string>
     <string name="preference_key_otd_notification_state" translatable="false">otdNotificationState</string>
     <string name="preference_key_otd_game_first_played_shown" translatable="false">otdGameFirstPlayedShown</string>
     <string name="preference_key_impact_last_query_time" translatable="false">impactLastQueryTime</string>
