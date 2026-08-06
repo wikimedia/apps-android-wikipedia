@@ -1388,7 +1388,7 @@
   <string name="insert_media_advanced_settings_image_type_frameless">بدون قاب</string>
   <string name="insert_media_advanced_settings_image_type_frame">قاب</string>
   <string name="insert_media_advanced_settings_image_type_basic">ابتدائی</string>
-  <string name="insert_media_advanced_settings_image_type_tip">می ةوانید مشخص کنید که آیتم رسانه چگونه در صفحه نمایش داده شود. این مورد برای حالت بندانگشتی است که شامل همه موارد و همه صفحات می‌شود.</string>
+  <string name="insert_media_advanced_settings_image_type_tip">می توانید مشخص کنید که آیتم رسانه چگونه در صفحه نمایش داده شود. این مورد برای حالت بندانگشتی است که شامل همه موارد و همه صفحات می‌شود.</string>
   <string name="insert_media_advanced_settings_image_size">اندازهٔ تصویر</string>
   <string name="insert_media_advanced_settings_image_size_default">پیش‌فرض</string>
   <string name="insert_media_advanced_settings_image_size_custom">سفارشی</string>

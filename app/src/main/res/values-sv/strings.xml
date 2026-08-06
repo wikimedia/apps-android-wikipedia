@@ -2471,4 +2471,18 @@
   <string name="home_feed_games_module_cta_prompt_subtitle">Gå till spelhubben</string>
   <string name="home_feed_games_module_cta_prompt_button_text">Spelhubben</string>
   <string name="random_article_widget_name">Slumpartikel</string>
+  <string name="reading_lists_tab_all_articles">Alla artiklar</string>
+  <string name="reading_lists_tab_collections">Samlingar</string>
+  <string name="reading_lists_search_saved_articles">Sök i sparade artiklar</string>
+  <string name="reading_lists_search_collections">Sök i samlingar</string>
+  <string name="reading_lists_remove_articles_confirm_dialog_title">Ta bort sparade artiklar?</string>
+  <string name="reading_lists_remove_articles_confirm_button">Ta bort</string>
+  <plurals name="reading_lists_remove_articles_confirm_dialog_message">
+    <item quantity="one">Denna artikel kommer att tas bort från alla associerade samlingar.</item>
+    <item quantity="other">Dessa %d artiklar kommer att tas bort från alla associerade samlingar.</item>
+  </plurals>
+  <plurals name="reading_lists_articles_removed_from_collections">
+    <item quantity="one">Artikel togs bort från alla associerade samlingar.</item>
+    <item quantity="other">%d artiklar togs bort från alla associerade samlingar.</item>
+  </plurals>
 </resources>
