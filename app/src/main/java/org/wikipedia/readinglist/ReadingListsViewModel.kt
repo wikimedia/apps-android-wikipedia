@@ -104,7 +104,7 @@ class ReadingListsViewModel : ViewModel() {
             .onStart { emit(pageDownloadProgress.value) }
             .distinctUntilChanged()
     ) { contentState, downloadProgress ->
-        // Without tabs, article rows only appear in search results, but they still show progress there.
+        // Without tabs, article rows only appear in search results, where they will show progress bar.
         contentState.copy(
             pageDownloadProgress = if (!tabsEnabled || contentState.selectedTab == SavedTab.ALL_ARTICLES) {
                 downloadProgress

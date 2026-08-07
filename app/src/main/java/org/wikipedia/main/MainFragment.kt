@@ -300,7 +300,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
     override fun onPrepareMenu(menu: Menu) {
         menu.findItem(R.id.menu_search_lists).apply {
             isVisible = currentFragment is ReadingListsFragment
-            // The search icon belongs to the tabbed Saved screen; without it this is still a filter.
+            // When tabs are disabled, this icon is filter icon
             if (!Prefs.isReadingListsTabsEnabled) {
                 setIcon(R.drawable.ic_filter_list_24)
             }
