@@ -1,6 +1,7 @@
 package org.wikipedia.edit
 
 import android.content.Context
+import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -43,8 +44,6 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
-import androidx.annotation.StringRes
-import kotlin.Boolean
 
 const val EDITOR_CHOICE_VE = 0
 const val EDITOR_CHOICE_SOURCE = 1
@@ -62,7 +61,7 @@ fun showEditorChoiceDialog(
     onResult: (editorChoice: Int, dontShowAgain: Boolean) -> Unit
 ) {
 
-    val dialogConfig: EditorChoiceDialogConfig = if(!isSettingsScreen) {
+    val dialogConfig: EditorChoiceDialogConfig = if (!isSettingsScreen) {
         EditorChoiceDialogConfig(
             dialogTitle = R.string.editor_select_dialog_title,
             confirmButtonText = R.string.editor_select_dialog_continue,
