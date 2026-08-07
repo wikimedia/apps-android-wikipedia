@@ -1,9 +1,9 @@
-package org.wikipedia.feed.didyouknow
+package org.wikipedia.feed.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.feed.model.Card
+import org.wikipedia.feed.didyouknow.DidYouKnowItem
 import org.wikipedia.settings.homefeed.CommunityModuleType
 
 @Parcelize

@@ -1,9 +1,9 @@
-package org.wikipedia.feed.topread
+package org.wikipedia.feed.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.feed.model.Card
+import org.wikipedia.feed.topread.TopRead
 import org.wikipedia.settings.homefeed.CommunityModuleType
 
 @Parcelize

@@ -2449,4 +2449,18 @@
   <string name="home_feed_games_module_cta_prompt_subtitle">Oyun mərkəzinə get</string>
   <string name="home_feed_games_module_cta_prompt_button_text">Oyun mərkəzi</string>
   <string name="random_article_widget_name">Təsadüfi məqalə</string>
+  <string name="reading_lists_tab_all_articles">Bütün məqalələr</string>
+  <string name="reading_lists_tab_collections">Kolleksiyalar</string>
+  <string name="reading_lists_search_saved_articles">Saxlanmış məqalələrdə axtar</string>
+  <string name="reading_lists_search_collections">Kolleksiyalarda axtar</string>
+  <string name="reading_lists_remove_articles_confirm_dialog_title">Yadda saxlanılan məqalələr silinsin?</string>
+  <string name="reading_lists_remove_articles_confirm_button">Sil</string>
+  <plurals name="reading_lists_remove_articles_confirm_dialog_message">
+    <item quantity="one">Bu məqalə bütün əlaqəli kolleksiyalardan silinəcək.</item>
+    <item quantity="other">Bu %d məqalə bütün əlaqəli kolleksiyalardan silinəcək.</item>
+  </plurals>
+  <plurals name="reading_lists_articles_removed_from_collections">
+    <item quantity="one">Məqalə bütün əlaqəli kolleksiyalardan silindi.</item>
+    <item quantity="other">%d məqalə bütün əlaqəli kolleksiyalardan silindi.</item>
+  </plurals>
 </resources>

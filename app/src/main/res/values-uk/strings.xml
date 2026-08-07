@@ -2687,4 +2687,22 @@
   <string name="home_feed_games_module_cta_prompt_subtitle">Перейдіть до хабу ігор</string>
   <string name="home_feed_games_module_cta_prompt_button_text">Хаб ігор</string>
   <string name="random_article_widget_name">Випадкова стаття</string>
+  <string name="reading_lists_tab_all_articles">Усі статті</string>
+  <string name="reading_lists_tab_collections">Колекції</string>
+  <string name="reading_lists_search_saved_articles">Пошук збережених статей</string>
+  <string name="reading_lists_search_collections">Пошук колекцій</string>
+  <string name="reading_lists_remove_articles_confirm_dialog_title">Вилучити збережені статті?</string>
+  <string name="reading_lists_remove_articles_confirm_button">Вилучити</string>
+  <plurals name="reading_lists_remove_articles_confirm_dialog_message">
+    <item quantity="one">Цю статтю буде видалено з усіх пов’язаних колекцій.</item>
+    <item quantity="few">Ці %d статті будуть видалені з усіх пов’язаних колекцій.</item>
+    <item quantity="many">Ці %d статей будуть видалені з усіх пов’язаних колекцій.</item>
+    <item quantity="other">Ці %d статей будуть видалені з усіх пов’язаних колекцій.</item>
+  </plurals>
+  <plurals name="reading_lists_articles_removed_from_collections">
+    <item quantity="one">Статтю видалено з усіх пов’язаних колекцій.</item>
+    <item quantity="few">%d статті видалено з усіх пов’язаних колекцій.</item>
+    <item quantity="many">%d статей видалено з усіх пов’язаних колекцій.</item>
+    <item quantity="other">%d статей видалено з усіх пов’язаних колекцій.</item>
+  </plurals>
 </resources>
