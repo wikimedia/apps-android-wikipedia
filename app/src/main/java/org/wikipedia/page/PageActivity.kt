@@ -57,6 +57,7 @@ import org.wikipedia.descriptions.DescriptionEditSuccessActivity
 import org.wikipedia.edit.EDITOR_CHOICE_VE
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.edit.EditSectionActivity
+import org.wikipedia.edit.EditSectionViewModel
 import org.wikipedia.edit.showEditorChoiceDialog
 import org.wikipedia.events.ArticleSavedOrDeletedEvent
 import org.wikipedia.events.ChangeTextSizeEvent
@@ -128,11 +129,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                 }).show()
 
             // and reload the page...
-            pageFragment.model.title?.let { title ->
-                pageFragment.model.curEntry?.let { entry ->
-                    pageFragment.loadPage(title, entry, pushBackStack = false, squashBackstack = false, isRefresh = true)
-                }
-            }
+            pageFragment.refreshPage()
         }
     }
 
@@ -563,8 +560,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                             lifecycleScope.launch(CoroutineExceptionHandler { _, t ->
                                 L.e(t)
                             }) {
-                                // TODO!
-                                // EditSectionViewModel.retryUntilNewRevision(pageFragment.title!!, revision)
+                                EditSectionViewModel.retryUntilNewRevision(pageFragment.title!!, revision)
+                                pageFragment.refreshPage()
                                 FeedbackUtil.showMessage(this@PageActivity, R.string.edit_saved_successfully)
                             }
                         } else {

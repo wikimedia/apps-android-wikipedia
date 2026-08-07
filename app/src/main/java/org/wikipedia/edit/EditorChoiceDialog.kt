@@ -12,8 +12,10 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.selection.selectableGroup
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.CheckboxDefaults
 import androidx.compose.material3.HorizontalDivider
@@ -79,7 +81,7 @@ fun showEditorChoiceDialog(
 
     val composeView = ComposeView(context)
 
-    MaterialAlertDialogBuilder(context)
+    val dialog = MaterialAlertDialogBuilder(context)
         .setView(composeView)
         .create()
         .also { dialog ->
@@ -95,9 +97,9 @@ fun showEditorChoiceDialog(
                         }
                     )
                 }
-            }
-            dialog.show()
+            )
         }
+    }
 }
 
 @Composable
@@ -110,7 +112,11 @@ private fun EditorChoiceContent(
     var selectedEditor by remember { mutableIntStateOf(initialChoice) }
     var dontShowAgain by remember { mutableStateOf(false) }
 
-    Column(modifier = Modifier.padding(vertical = 4.dp)) {
+    Column(
+        modifier = Modifier
+            .padding(vertical = 4.dp)
+            .verticalScroll(rememberScrollState())
+    ) {
         Text(
             modifier = Modifier.padding(horizontal = 16.dp, vertical = 24.dp),
             text = stringResource(dialogConfigData.dialogTitle),
@@ -270,7 +276,7 @@ private fun EditorOption(
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 private fun EditorChoiceDialogNonSettingsScreenPreview() {
     BaseTheme(
