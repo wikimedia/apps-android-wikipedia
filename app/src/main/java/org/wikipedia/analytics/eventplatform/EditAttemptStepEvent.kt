@@ -41,6 +41,10 @@ class EditAttemptStepEvent(private val event: EditAttemptStepInteractionEvent) :
             submitEditAttemptEvent("saveFailure", editorInterface, pageTitle)
         }
 
+        fun logAbort(pageTitle: PageTitle, editorInterface: String = INTERFACE_WIKITEXT) {
+            submitEditAttemptEvent("abort", editorInterface, pageTitle)
+        }
+
         private fun submitEditAttemptEvent(action: String, editorInterface: String, pageTitle: PageTitle, revisionId: Long? = null) {
             EventPlatformClient.submit(EditAttemptStepEvent(EditAttemptStepInteractionEvent(action,
                 WikipediaApp.instance.appInstallID, "", editorInterface,
