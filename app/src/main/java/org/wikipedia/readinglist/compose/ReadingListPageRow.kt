@@ -178,7 +178,7 @@ private fun ListChip(title: String, onClick: () -> Unit, modifier: Modifier = Mo
         label = {
             Text(
                 text = title,
-                style = MaterialTheme.typography.bodyMedium,
+                style = MaterialTheme.typography.labelLarge,
                 maxLines = 1
             )
         },
