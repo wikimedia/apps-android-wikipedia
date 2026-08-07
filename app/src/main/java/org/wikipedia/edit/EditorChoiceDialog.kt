@@ -53,8 +53,7 @@ const val EDITOR_CHOICE_SOURCE = 1
 data class EditorChoiceDialogConfig(
     @param:StringRes val dialogTitle: Int,
     @param:StringRes val confirmButtonText: Int,
-    val allowShowIcon: Boolean,
-    val allowShowAgainCheckbox: Boolean,
+    val isInSettingsScreen: Boolean
 )
 
 fun showEditorChoiceDialog(
@@ -63,19 +62,17 @@ fun showEditorChoiceDialog(
     onResult: (editorChoice: Int, dontShowAgain: Boolean) -> Unit
 ) {
 
-    val dialogConfig = if (!isSettingsScreen) {
-        EditorChoiceDialogConfig(
-            dialogTitle = R.string.editor_select_dialog_title,
-            confirmButtonText = R.string.editor_select_dialog_continue,
-            allowShowIcon = true,
-            allowShowAgainCheckbox = true
-        )
-    } else {
+    val dialogConfig = if (isSettingsScreen) {
         EditorChoiceDialogConfig(
             dialogTitle = R.string.editor_select_dialog_title_settings_screen,
             confirmButtonText = R.string.editor_select_save_btn_settings_screen,
-            allowShowIcon = false,
-            allowShowAgainCheckbox = false
+            true
+        )
+    } else {
+        EditorChoiceDialogConfig(
+            dialogTitle = R.string.editor_select_dialog_title,
+            confirmButtonText = R.string.editor_select_dialog_continue,
+            false
         )
     }
 
@@ -128,7 +125,7 @@ private fun EditorChoiceContent(
                 subtitle = stringResource(R.string.editor_select_dialog_ve_subtitle),
                 selected = selectedEditor == EDITOR_CHOICE_VE,
                 onClick = { selectedEditor = EDITOR_CHOICE_VE },
-                shouldShowOpenInNewIcon = dialogConfigData.allowShowIcon
+                shouldShowOpenInNewIcon = !dialogConfigData.isInSettingsScreen
             )
 
             HorizontalDivider(
@@ -144,7 +141,7 @@ private fun EditorChoiceContent(
             )
         }
 
-        if (dialogConfigData.allowShowAgainCheckbox) {
+        if (!dialogConfigData.isInSettingsScreen) {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier
@@ -285,8 +282,7 @@ private fun EditorChoiceDialogNonSettingsScreenPreview() {
             dialogConfigData = EditorChoiceDialogConfig(
                 dialogTitle = R.string.editor_select_dialog_title,
                 confirmButtonText = R.string.editor_select_dialog_continue,
-                allowShowIcon = true,
-                allowShowAgainCheckbox = true
+                isInSettingsScreen = false
             ),
         )
     }
@@ -303,8 +299,7 @@ private fun EditorChoiceDialogSettingsScreenPreview() {
             EditorChoiceDialogConfig(
                 dialogTitle = R.string.editor_select_dialog_title_settings_screen,
                 confirmButtonText = R.string.editor_select_save_btn_settings_screen,
-                allowShowIcon = false,
-                allowShowAgainCheckbox = false
+                isInSettingsScreen = true
             )
         )
     }
