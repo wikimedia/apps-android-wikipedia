@@ -47,9 +47,7 @@ import org.wikipedia.login.LoginActivity
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.readinglist.LongPressMenu
-import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.SaveArticleSheetDialog
-import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
@@ -358,20 +356,11 @@ class OnThisDayGameResultFragment : OnThisDayGameBaseFragment() {
                         startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.title))
                     }
 
-                    override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
+                    override fun onSaveRequest(entry: HistoryEntry) {
                         WikiGamesEvent.submit("save_click", "game_play", slideName = viewModel.getCurrentScreenName(), isArchive = viewModel.isArchiveGame)
                         SaveArticleSheetDialog.show(childFragmentManager, pageTitle)
                     }
 
-                    override fun onRemoveRequest(entry: HistoryEntry) {
-                        SaveArticleSheetDialog.show(childFragmentManager, pageTitle)
-                    }
-
-                    override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
-                        page?.let {
-                            ReadingListBehaviorsUtil.moveToList(requireActivity(), page.listId, pageTitle, InvokeSource.ON_THIS_DAY_GAME_ACTIVITY)
-                        }
-                    }
                     override fun onShareRequest() {
                         WikiGamesEvent.submit("share_click", "game_play", slideName = viewModel.getCurrentScreenName(), isArchive = viewModel.isArchiveGame)
                         super.onShareRequest()

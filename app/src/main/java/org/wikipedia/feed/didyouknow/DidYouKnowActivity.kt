@@ -73,13 +73,7 @@ class DidYouKnowActivity : BaseActivity() {
                             onOpenInNewTab = { entry ->
                                 startActivity(PageActivity.newIntentForNewTab(this, entry, entry.title))
                             },
-                            onAddRequest = { entry, addToDefault ->
-                                SaveArticleSheetDialog.show(this, entry.title)
-                            },
-                            onMoveRequest = { id, entry ->
-                                SaveArticleSheetDialog.show(this, entry.title)
-                            },
-                            onRemoveRequest = { entry, lists ->
+                            onSaveRequest = { entry ->
                                 SaveArticleSheetDialog.show(this, entry.title)
                             },
                             onShareRequest = { entry ->

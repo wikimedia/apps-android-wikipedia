@@ -81,9 +81,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.readinglist.LongPressMenu
-import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.SaveArticleSheetDialog
-import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.search.SearchActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DeviceUtil
@@ -791,17 +789,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
                     onLinkPreviewLoadPage(entry.title, entry, true)
                 }
 
-                override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
-                    SaveArticleSheetDialog.show(childFragmentManager, entry.title)
-                }
-
-                override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
-                    page?.let {
-                        ReadingListBehaviorsUtil.moveToList(requireActivity(), it.listId, entry.title, Constants.InvokeSource.PLACES)
-                    }
-                }
-
-                override fun onRemoveRequest(entry: HistoryEntry) {
+                override fun onSaveRequest(entry: HistoryEntry) {
                     SaveArticleSheetDialog.show(childFragmentManager, entry.title)
                 }
             }).show(entry)

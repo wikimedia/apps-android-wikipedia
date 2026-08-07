@@ -2,7 +2,6 @@ package org.wikipedia.search
 
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.readinglist.LongPressMenu
-import org.wikipedia.readinglist.database.ReadingListPage
 
 class SearchResultLongPressHandler(
     private val callback: SearchResultCallback?,
@@ -17,17 +16,7 @@ class SearchResultLongPressHandler(
         callback?.navigateToTitle(entry.title, true, lastPositionRequested)
     }
 
-    override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
-        callback?.onSearchAddPageToList(entry, addToDefault)
-    }
-
-    override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
-        page.let {
-            callback?.onSearchMovePageToList(page!!.listId, entry)
-        }
-    }
-
-    override fun onRemoveRequest(entry: HistoryEntry) {
-        callback?.onSearchRemovePageFromList(entry)
+    override fun onSaveRequest(entry: HistoryEntry) {
+        callback?.onSearchSavePage(entry)
     }
 }

@@ -14,9 +14,7 @@ import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageActivity
 import org.wikipedia.readinglist.LongPressMenu
-import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.SaveArticleSheetDialog
-import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
@@ -97,17 +95,7 @@ class OnThisDayPagesViewHolder(
                     FeedbackUtil.showMessage(activity, R.string.article_opened_in_background_tab)
                 }
 
-                override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
-                    SaveArticleSheetDialog.show(activity, entry.title)
-                }
-
-                override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
-                    page?.let {
-                        ReadingListBehaviorsUtil.moveToList(activity, it.listId, entry.title, Constants.InvokeSource.ON_THIS_DAY_ACTIVITY)
-                    }
-                }
-
-                override fun onRemoveRequest(entry: HistoryEntry) {
+                override fun onSaveRequest(entry: HistoryEntry) {
                     SaveArticleSheetDialog.show(activity, entry.title)
                 }
             }).show(entry)

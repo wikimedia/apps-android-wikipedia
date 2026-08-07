@@ -274,17 +274,9 @@ class HomeFragment : Fragment() {
                         (parentFragment as? MainFragment)?.onFeedSelectPage(entry, true)
                         viewModel.updateTabCount(true)
                     },
-                    onAddRequest = { entry, addToDefault ->
+                    onSaveRequest = { entry ->
                         instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_item_overflow", elementId = "article_save", pageData = TestKitchenAdapter.getPageData(pageTitle = entry.title))
-                        (parentFragment as? MainFragment)?.onFeedAddPageToList(entry, addToDefault)
-                    },
-                    onMoveRequest = { id, entry ->
-                        instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_item_overflow", elementId = "article_move", pageData = TestKitchenAdapter.getPageData(pageTitle = entry.title))
-                        (parentFragment as? MainFragment)?.onFeedMovePageToList(id, entry)
-                    },
-                    onRemoveRequest = { entry, lists ->
-                        instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_item_overflow", elementId = "article_remove", pageData = TestKitchenAdapter.getPageData(pageTitle = entry.title))
-                        (parentFragment as? MainFragment)?.onFeedRemovePageFromList(entry, lists)
+                        (parentFragment as? MainFragment)?.onFeedSavePage(entry)
                     },
                     onShareRequest = { entry ->
                         instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_item_overflow", elementId = "article_share", pageData = TestKitchenAdapter.getPageData(pageTitle = entry.title))

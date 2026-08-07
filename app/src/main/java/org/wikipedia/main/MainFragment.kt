@@ -70,7 +70,6 @@ import org.wikipedia.places.PlacesActivity
 import org.wikipedia.random.RandomActivity
 import org.wikipedia.readinglist.ReadingListsFragment
 import org.wikipedia.readinglist.SaveArticleSheetDialog
-import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.search.SearchActivity
 import org.wikipedia.search.SearchFragment
 import org.wikipedia.settings.Prefs
@@ -383,15 +382,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
         }
     }
 
-    fun onFeedAddPageToList(entry: HistoryEntry, addToDefault: Boolean) {
-        SaveArticleSheetDialog.show(childFragmentManager, entry.title)
-    }
-
-    fun onFeedMovePageToList(sourceReadingListId: Long, entry: HistoryEntry) {
-        SaveArticleSheetDialog.show(childFragmentManager, entry.title)
-    }
-
-    fun onFeedRemovePageFromList(entry: HistoryEntry, lists: List<ReadingList>) {
+    fun onFeedSavePage(entry: HistoryEntry) {
         SaveArticleSheetDialog.show(childFragmentManager, entry.title)
     }
 
