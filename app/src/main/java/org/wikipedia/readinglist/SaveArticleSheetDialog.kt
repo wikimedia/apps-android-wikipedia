@@ -24,6 +24,7 @@ import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.compose.SaveArticleSheetContent
+import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
@@ -89,6 +90,30 @@ class SaveArticleSheetDialog : ExtendedBottomSheetDialogFragment() {
                 }.show()
                 dismiss()
             }
+            is SaveArticleSheetEvent.ArticleRemovedFromCollection -> {
+                val activity = requireActivity()
+                FeedbackUtil.makeSnackbar(
+                    activity,
+                    activity.getString(
+                        R.string.reading_list_item_deleted_from_list,
+                        StringUtil.fromHtml(viewModel.pageTitle.displayText),
+                        event.list.title
+                    )
+                ).show()
+                dismiss()
+            }
+            SaveArticleSheetEvent.ArticleRemovedFromAllCollections -> {
+                val activity = requireActivity()
+                FeedbackUtil.makeSnackbar(
+                    activity,
+                    resources.getQuantityString(
+                        R.plurals.reading_lists_articles_removed_from_collections,
+                        1,
+                        1
+                    )
+                ).show()
+                dismiss()
+            }
             is SaveArticleSheetEvent.CollectionArticleLimitReached -> {
                 FeedbackUtil.makeSnackbar(
                     requireActivity(),
@@ -99,8 +124,11 @@ class SaveArticleSheetDialog : ExtendedBottomSheetDialogFragment() {
                     )
                 ).show()
             }
-            SaveArticleSheetEvent.ShowUnsaveConfirmation -> {
-                showUnsaveArticleConfirmationDialog()
+            is SaveArticleSheetEvent.ShowUnsaveConfirmation -> {
+                showUnsaveArticleConfirmationDialog(event.lists)
+            }
+            SaveArticleSheetEvent.Dismiss -> {
+                dismiss()
             }
             SaveArticleSheetEvent.ListLimitReached -> {
                 val activity = requireActivity()
@@ -113,7 +141,7 @@ class SaveArticleSheetDialog : ExtendedBottomSheetDialogFragment() {
         }
     }
 
-    private fun showUnsaveArticleConfirmationDialog() {
+    private fun showUnsaveArticleConfirmationDialog(lists: List<ReadingList>) {
         MaterialAlertDialogBuilder(requireContext())
             .setTitle(R.string.reading_lists_remove_articles_confirm_dialog_title)
             .setMessage(
@@ -124,7 +152,7 @@ class SaveArticleSheetDialog : ExtendedBottomSheetDialogFragment() {
                 )
             )
             .setPositiveButton(R.string.reading_lists_remove_articles_confirm_button) { _, _ ->
-                viewModel.confirmUnsaveArticle()
+                viewModel.confirmUnsaveArticle(lists)
             }
             .setNegativeButton(R.string.reading_list_delete_dialog_cancel_button_text, null)
             .show()

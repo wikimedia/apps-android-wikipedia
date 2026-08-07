@@ -143,18 +143,24 @@ class SaveArticleSheetViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
                     val defaultList = AppDatabase.instance.readingListDao().getDefaultList()
                     AppDatabase.instance.readingListPageDao()
                         .addPagesToListIfNotExist(defaultList, listOf(savedPageTitle.value))
+                    _events.emit(SaveArticleSheetEvent.Dismiss)
                 }
                 lists.any { !it.isDefault } -> {
-                    _events.emit(SaveArticleSheetEvent.ShowUnsaveConfirmation)
+                    _events.emit(SaveArticleSheetEvent.ShowUnsaveConfirmation(lists))
                 }
-                else -> removeArticleFromLists(lists)
+                else -> {
+                    // removes from default list only
+                    removeArticleFromLists(lists)
+                    _events.emit(SaveArticleSheetEvent.Dismiss)
+                }
             }
         }
     }
 
-    fun confirmUnsaveArticle() {
+    fun confirmUnsaveArticle(lists: List<ReadingList>) {
         viewModelScope.launch(exceptionHandler) {
-            removeArticleFromLists(getListsContainingArticle())
+            removeArticleFromLists(lists)
+            _events.emit(SaveArticleSheetEvent.ArticleRemovedFromAllCollections)
         }
     }
 
@@ -182,8 +188,10 @@ class SaveArticleSheetViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
     fun toggleArticleInCollection(collectionId: Long) {
         viewModelScope.launch(exceptionHandler) {
             val list = AppDatabase.instance.readingListDao().getListWithPagesById(collectionId)?.toReadingList() ?: return@launch
+            // first checks if the article is already in the list, and if so, remove it
             list.pages.firstOrNull { it.isSameArticle(savedPageTitle.value) }?.let { page ->
                 AppDatabase.instance.readingListPageDao().markPagesForDeletion(list, listOf(page))
+                _events.emit(SaveArticleSheetEvent.ArticleRemovedFromCollection(list))
                 return@launch
             }
             if (list.pages.size >= Constants.MAX_READING_LIST_ARTICLE_LIMIT) {
@@ -221,8 +229,12 @@ sealed interface SaveArticleSheetEvent {
     data class ShowCreateCollectionDialog(val existingTitles: List<String>) : SaveArticleSheetEvent
     data class ArticleAddedToCollection(val list: ReadingList) : SaveArticleSheetEvent
     data class CollectionArticleLimitReached(val list: ReadingList) : SaveArticleSheetEvent
-    data object ShowUnsaveConfirmation : SaveArticleSheetEvent
+    data class ArticleRemovedFromCollection(val list: ReadingList) : SaveArticleSheetEvent
+    data object ArticleRemovedFromAllCollections : SaveArticleSheetEvent
+    data class ShowUnsaveConfirmation(val lists: List<ReadingList>) : SaveArticleSheetEvent
     data object ListLimitReached : SaveArticleSheetEvent
+
+    data object Dismiss : SaveArticleSheetEvent
 }
 
 /** The article the sheet was opened for, shown pinned at the top. */
