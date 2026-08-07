@@ -63,7 +63,7 @@ fun showEditorChoiceDialog(
     onResult: (editorChoice: Int, dontShowAgain: Boolean) -> Unit
 ) {
 
-    val dialogConfig: EditorChoiceDialogConfig = if (!isSettingsScreen) {
+    val dialogConfig = if (!isSettingsScreen) {
         EditorChoiceDialogConfig(
             dialogTitle = R.string.editor_select_dialog_title,
             confirmButtonText = R.string.editor_select_dialog_continue,
