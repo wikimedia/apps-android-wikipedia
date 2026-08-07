@@ -83,19 +83,17 @@ fun showEditorChoiceDialog(
 
     val dialog = MaterialAlertDialogBuilder(context)
         .setView(composeView)
-        .create()
-        .also { dialog ->
-            composeView.setContent {
-                BaseTheme {
-                    EditorChoiceContent(
-                        initialChoice = Prefs.editorModeChoice,
-                        dialogConfigData = dialogConfig,
-                        onCancel = { dialog.dismiss() },
-                        onContinue = { editorChoice, dontShowAgain ->
-                            onResult(editorChoice, dontShowAgain)
-                            dialog.dismiss()
-                        }
-                    )
+        .show()
+
+    composeView.setContent {
+        BaseTheme {
+            EditorChoiceContent(
+                initialChoice = Prefs.editorModeChoice,
+                dialogConfigData = dialogConfig,
+                onCancel = { dialog.dismiss() },
+                onContinue = { editorChoice, dontShowAgain ->
+                    onResult(editorChoice, dontShowAgain)
+                    dialog.dismiss()
                 }
             )
         }
