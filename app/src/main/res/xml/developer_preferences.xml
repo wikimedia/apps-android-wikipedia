@@ -325,6 +325,10 @@
             android:key="@string/preference_key_temp_account_create_day"
             android:title="@string/preference_key_temp_account_create_day" />
 
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_editor_mode_choice_show_dialog"
+            android:title="Show editor preference dialog" />
+
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/preferences_developer_reading_list_category">
@@ -605,6 +609,13 @@
         <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_randomizer_shake_prompt_shown"
             android:title="@string/preference_key_randomizer_shake_prompt_shown"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Visual Editor">
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_visual_editor_enabled"
+            android:title="@string/preference_key_visual_editor_enabled"/>
+
     </PreferenceCategory>
 
 </PreferenceScreen>
