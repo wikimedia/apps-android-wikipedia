@@ -159,6 +159,7 @@ data class WikiSite(
                 AppLanguageLookUpTable.BELARUSIAN_LEGACY_LANGUAGE_CODE -> AppLanguageLookUpTable.BELARUSIAN_TARASK_LANGUAGE_CODE // T111853
                 AppLanguageLookUpTable.CHINESE_LEGACY_YUE_LANGUAGE_CODE -> AppLanguageLookUpTable.CHINESE_YUE_LANGUAGE_CODE
                 AppLanguageLookUpTable.CHINESE_CLASSICAL_LANGUAGE_CODE -> AppLanguageLookUpTable.CHINESE_CLASSICAL_LEGACY_LANGUAGE_CODE
+                AppLanguageLookUpTable.CHINESE_MIN_NAN_LANGUAGE_CODE -> AppLanguageLookUpTable.CHINESE_MIN_NAN_LEGACY_LANGUAGE_CODE
                 else -> languageCode
             }
         }
