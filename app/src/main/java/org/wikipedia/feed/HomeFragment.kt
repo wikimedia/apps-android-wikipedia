@@ -32,11 +32,14 @@ import org.wikipedia.feed.didyouknow.DidYouKnowActivity
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.DidYouKnowCard
 import org.wikipedia.feed.model.DiscoverCard
+import org.wikipedia.feed.model.DiscoverEnablePromptCard
 import org.wikipedia.feed.model.EmptyCommunityCard
 import org.wikipedia.feed.model.EmptyForYouCard
 import org.wikipedia.feed.model.GamesModulePromptCard
 import org.wikipedia.feed.model.OnThisDayCard
 import org.wikipedia.feed.model.PlacesOfInterestLocationPromptCard
+import org.wikipedia.feed.model.RandomCard
+import org.wikipedia.feed.model.SeeAllRecommendationCard
 import org.wikipedia.feed.model.TopReadCard
 import org.wikipedia.feed.model.WikiGameCard
 import org.wikipedia.feed.onboarding.ExploreFeedUpdatePromptActivity
@@ -374,7 +377,7 @@ class HomeFragment : Fragment() {
                 requireActivity().startActivity(intent)
             }
             HomeAction.ShuffleClick -> {
-                instrument.submitInteraction("click", elementId = "random_card_shuffle_button")
+                instrument.submitInteraction("click", actionSource = RandomCard::class.java.simpleName, elementId = "random_card_shuffle_button")
                 startActivity(RandomActivity.newIntent(requireActivity(), wikiSite, InvokeSource.FEED))
             }
             HomeAction.PlacesTeaserClick -> {
@@ -382,11 +385,11 @@ class HomeFragment : Fragment() {
                 requireActivity().startActivity(PlacesActivity.newIntent(requireContext()))
             }
             HomeAction.DiscoverTeaserClick -> {
-                instrument.submitInteraction("click", elementId = "enable_discover_reading_list_button")
+                instrument.submitInteraction("click", actionSource = DiscoverEnablePromptCard::class.java.simpleName, elementId = "enable_discover_reading_list_button")
                 requireActivity().startActivity(RecommendedReadingListOnboardingActivity.newIntent(requireContext()))
             }
             HomeAction.SeeAllRecommendationsClick -> {
-                instrument.submitInteraction("click", elementId = "explore_all_recommendations_button")
+                instrument.submitInteraction("click", actionSource = SeeAllRecommendationCard::class.java.simpleName, elementId = "explore_all_recommendations_button")
                 startActivity(ReadingListActivity.newIntent(requireContext(), readingListMode = ReadingListMode.RECOMMENDED))
             }
             is HomeAction.GameActionClick -> {
