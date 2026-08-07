@@ -2342,4 +2342,8 @@
     <item quantity="one">Message shown after one article is removed from all associated collections.</item>
     <item quantity="other">Message shown after multiple articles are removed from all associated collections. The \"%d\" symbol is replaced with the number of articles removed.</item>
   </plurals>
+    <string name="reading_lists_save_sheet_empty_title">Title of the empty state in the bottom sheet for saving an article, shown when the user has no collections yet.</string>
+    <string name="reading_lists_save_sheet_empty_message">Message below the empty state title in the bottom sheet for saving an article, explaining that articles are saved into collections.</string>
+    <string name="reading_lists_save_sheet_empty_action">Button text in the empty state of the bottom sheet for saving an article, which creates the user\'s first collection.</string>
+    <string name="reading_lists_save_sheet_create">Text of the action beside the Collections heading in the bottom sheet for saving an article, which creates a new collection.</string>
 </resources>

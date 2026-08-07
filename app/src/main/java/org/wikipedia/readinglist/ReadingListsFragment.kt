@@ -533,10 +533,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     override fun onAddItemToOther(pageId: Long) {
         launchWithPage(pageId) { page ->
-            ExclusiveBottomSheetPresenter.show(
-                childFragmentManager,
-                AddToReadingListDialog.newInstance(ReadingListPage.toPageTitle(page), InvokeSource.READING_LIST_ACTIVITY)
-            )
+            SaveArticleSheetDialog.show(childFragmentManager, ReadingListPage.toPageTitle(page))
         }
     }
 

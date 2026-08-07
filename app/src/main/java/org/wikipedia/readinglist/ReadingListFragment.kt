@@ -748,8 +748,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
     override fun onAddItemToOther(pageId: Long) {
         val page = getPageById(pageId) ?: return
-        ExclusiveBottomSheetPresenter.show(childFragmentManager,
-                AddToReadingListDialog.newInstance(ReadingListPage.toPageTitle(page), InvokeSource.READING_LIST_ACTIVITY))
+        SaveArticleSheetDialog.show(childFragmentManager, ReadingListPage.toPageTitle(page))
     }
 
     override fun onMoveItemToOther(pageId: Long) {
@@ -1095,7 +1094,8 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 val lists = if (currentSearchQuery.isNullOrEmpty()) listOf(readingList!!)
                         else ReadingListBehaviorsUtil.getListsContainPage(it)
                 ExclusiveBottomSheetPresenter.show(childFragmentManager,
-                        ReadingListItemActionsDialog.newInstance(lists[0].title, lists.size, it.id, actionMode != null))
+                        ReadingListItemActionsDialog.newInstance(lists[0].title, lists.size, it.id, actionMode != null,
+                            showMoveAction = false))
                 return true
             }
             return false

@@ -3,8 +3,6 @@ package org.wikipedia.random
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
-import android.icu.text.ListFormatter
-import android.os.Build
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
@@ -32,18 +30,15 @@ import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.compose.components.WikipediaAlertDialog
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.concurrency.FlowEventBus
-import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.ArticleSavedOrDeletedEvent
 import org.wikipedia.extensions.instrument
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
-import org.wikipedia.readinglist.ReadingListBehaviorsUtil
-import org.wikipedia.readinglist.RemoveFromReadingListsDialog
+import org.wikipedia.readinglist.SaveArticleSheetDialog
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
-import org.wikipedia.util.FeedbackUtil
 
 class RandomActivity : BaseActivity() {
 
@@ -112,30 +107,7 @@ class RandomActivity : BaseActivity() {
 
     private fun onSaveClick(title: PageTitle) {
         instrument?.submitInteraction("click", elementId = "article_save", pageData = TestKitchenAdapter.getPageData(pageTitle = title))
-        if (viewModel.saveButtonState) {
-            lifecycleScope.launch {
-                val lists = AppDatabase.instance.readingListDao().getListsFromPageOccurrences(AppDatabase.instance.readingListPageDao().getAllPageOccurrences(title))
-                if (lists.isEmpty()) {
-                    return@launch
-                }
-                RemoveFromReadingListsDialog(lists).deleteOrShowDialog(this@RandomActivity) { readingLists, _ ->
-                    if (!this@RandomActivity.isDestroyed) {
-                        val names = readingLists.map { it.title }.run {
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                                ListFormatter.getInstance().format(this)
-                            } else {
-                                joinToString(separator = ", ")
-                            }
-                        }
-                        FeedbackUtil.showMessage(this@RandomActivity, getString(R.string.reading_list_item_deleted_from_list, title.displayText, names))
-                    }
-                }
-            }
-        } else {
-            ReadingListBehaviorsUtil.addToDefaultList(this, title, true, InvokeSource.RANDOM_ACTIVITY) {
-                viewModel.updateSaveState(title)
-            }
-        }
+        SaveArticleSheetDialog.show(this, title)
     }
 
     companion object {
