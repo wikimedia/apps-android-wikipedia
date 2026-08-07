@@ -73,7 +73,7 @@ fun showEditorChoiceDialog(
     } else {
         EditorChoiceDialogConfig(
             dialogTitle = R.string.editor_select_dialog_title_settings_screen,
-            confirmButtonText = R.string.editor_select_confirm_btn_settings_screen,
+            confirmButtonText = R.string.editor_select_save_btn_settings_screen,
             allowShowIcon = false,
             allowShowAgainCheckbox = false
         )
@@ -91,7 +91,7 @@ fun showEditorChoiceDialog(
                 initialChoice = Prefs.editorModeChoice,
                 dialogConfigData = dialogConfig,
                 onCancel = { dialog.dismiss() },
-                onContinue = { editorChoice, dontShowAgain ->
+                onConfirm = { editorChoice, dontShowAgain ->
                     onResult(editorChoice, dontShowAgain)
                     dialog.dismiss()
                 }
@@ -105,7 +105,7 @@ private fun EditorChoiceContent(
     initialChoice: Int,
     dialogConfigData: EditorChoiceDialogConfig,
     onCancel: () -> Unit = {},
-    onContinue: (editorChoice: Int, dontShowAgain: Boolean) -> Unit = { _, _ -> }
+    onConfirm: (editorChoice: Int, dontShowAgain: Boolean) -> Unit = { _, _ -> }
 ) {
     var selectedEditor by remember { mutableIntStateOf(initialChoice) }
     var dontShowAgain by remember { mutableStateOf(false) }
@@ -191,7 +191,7 @@ private fun EditorChoiceContent(
             }
             Spacer(modifier = Modifier.width(8.dp))
             AppButton(
-                onClick = { onContinue(selectedEditor, dontShowAgain) },
+                onClick = { onConfirm(selectedEditor, dontShowAgain) },
             ) {
                 Text(stringResource(dialogConfigData.confirmButtonText))
             }
@@ -302,7 +302,7 @@ private fun EditorChoiceDialogSettingsScreenPreview() {
             initialChoice = EDITOR_CHOICE_SOURCE,
             EditorChoiceDialogConfig(
                 dialogTitle = R.string.editor_select_dialog_title_settings_screen,
-                confirmButtonText = R.string.editor_select_confirm_btn_settings_screen,
+                confirmButtonText = R.string.editor_select_save_btn_settings_screen,
                 allowShowIcon = false,
                 allowShowAgainCheckbox = false
             )
