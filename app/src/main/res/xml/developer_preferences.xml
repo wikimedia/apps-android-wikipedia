@@ -239,6 +239,12 @@
             android:title="@string/preferences_developer_crash_title"
             android:summary="@string/preferences_developer_crash_summary" />
 
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_reading_lists_tabs_enabled"
+            android:defaultValue="true"
+            android:title="Show the &quot;All articles&quot;/&quot;Collections&quot; tabs on the Saved screen. Off by default in beta and production." />
+
+
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/preferences_developer_onboarding_heading">
