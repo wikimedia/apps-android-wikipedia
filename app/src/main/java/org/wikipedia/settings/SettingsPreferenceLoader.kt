@@ -65,7 +65,7 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
             findPreference(R.string.preference_key_editor_mode_choice).let { pref ->
                 pref.setSummary(if (Prefs.editorModeChoice == EDITOR_CHOICE_VE) R.string.editor_select_dialog_ve_title else R.string.editor_select_dialog_source_title)
                 pref.onPreferenceClickListener = Preference.OnPreferenceClickListener {
-                    showEditorChoiceDialog(activity, allowShowAgainCheckbox = false) { editorChoice, _ ->
+                    showEditorChoiceDialog(activity, isSettingsScreen = true) { editorChoice, _ ->
                         Prefs.editorModeChoice = editorChoice
                         pref.setSummary(if (editorChoice == EDITOR_CHOICE_VE) R.string.editor_select_dialog_ve_title else R.string.editor_select_dialog_source_title)
                     }
