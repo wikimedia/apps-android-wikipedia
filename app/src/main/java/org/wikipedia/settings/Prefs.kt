@@ -850,10 +850,8 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_recommended_reading_list_enabled, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_recommended_reading_list_enabled, value)
 
-    // Gates the "All articles"/"Collections" tabs on the Saved screen. Off in beta and production
-    // until the experience is ready to ship, which falls the screen back to a single list of collections.
     var isReadingListsTabsEnabled
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_lists_tabs_enabled, isPreBetaRelease)
+        get() = isPreBetaRelease && PrefsIoUtil.getBoolean(R.string.preference_key_reading_lists_tabs_enabled, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_lists_tabs_enabled, value)
 
     var recommendedReadingListArticlesNumber
