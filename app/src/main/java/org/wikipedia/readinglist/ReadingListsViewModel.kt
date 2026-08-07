@@ -158,7 +158,8 @@ class ReadingListsViewModel : ViewModel() {
             contentState.copy(
                 isSearchActive = isSearchActive,
                 onboarding = resolveOnboardingState(contentState.selectedTab, contentState.searchQuery, isSearchActive, accountState),
-                discoverCard = discoverCard.takeIf { isCollections && !isSearching }
+                discoverCard = discoverCard.takeIf { isCollections && !isSearching },
+                showCollectionsBadge = contentState.showCollectionsBadge || discoverCard?.isNewListGenerated == true
             )
         }
             .flowOn(Dispatchers.IO)
