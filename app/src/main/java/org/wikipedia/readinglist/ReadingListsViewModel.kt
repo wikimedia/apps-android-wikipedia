@@ -50,6 +50,9 @@ class ReadingListsViewModel : ViewModel() {
     }.distinctUntilChanged()
 
     private val recentPreviewSavedState = MutableStateFlow(RecentPreviewSavedState())
+    val hasRecentPreviewSavedReadingList
+        get() = recentPreviewSavedState.value.newBadgeListId != null
+
     private val accountState = MutableStateFlow(readAccountState())
     private val pageDownloadProgress = MutableStateFlow<Map<Long, Int>>(emptyMap())
 
@@ -155,7 +158,8 @@ class ReadingListsViewModel : ViewModel() {
             contentState.copy(
                 isSearchActive = isSearchActive,
                 onboarding = resolveOnboardingState(contentState.selectedTab, contentState.searchQuery, isSearchActive, accountState),
-                discoverCard = discoverCard.takeIf { isCollections && !isSearching }
+                discoverCard = discoverCard.takeIf { isCollections && !isSearching },
+                showCollectionsBadge = contentState.showCollectionsBadge || discoverCard?.isNewListGenerated == true
             )
         }
             .flowOn(Dispatchers.IO)
@@ -299,10 +303,6 @@ class ReadingListsViewModel : ViewModel() {
         return AppDatabase.instance.readingListDao().getListsWithoutContents()
     }
 
-    suspend fun getReadingListsByIds(listIds: Set<Long>): List<ReadingList> {
-        return AppDatabase.instance.readingListDao().getListsByIds(listIds)
-    }
-
     suspend fun createReadingList(title: String, description: String) {
         AppDatabase.instance.readingListDao().createList(title, description)
     }
@@ -315,16 +315,11 @@ class ReadingListsViewModel : ViewModel() {
         return AppDatabase.instance.readingListPageDao().getPagesByIds(pageIds)
     }
 
-    /**
-     * Produces lists containing only the selected pages that should be deleted from each list.
-     * This is needed because selection state contains page IDs, while deletion operates on lists.
-     */
-    suspend fun prepareSelectedPagesForDeletion(): SelectedPagesDeletion? {
-        val selectedPageIds = selectionState.value.selectedPageIds
+    suspend fun prepareSelectedPagesForDeletion(pageIds: Set<Long> = selectionState.value.selectedPageIds): SelectedPagesDeletion? {
         val selectedRows = uiState.value.rows
             .asSequence()
             .filterIsInstance<ReadingListRow.PageRow>()
-            .filter { it.page.id in selectedPageIds }
+            .filter { it.page.id in pageIds }
             .toList()
         if (selectedRows.isEmpty()) {
             return null
