@@ -64,7 +64,7 @@ fun showEditorChoiceDialog(
 
     val dialogConfig = if (isSettingsScreen) {
         EditorChoiceDialogConfig(
-            dialogTitle = R.string.editor_select_dialog_title_settings_screen,
+            dialogTitle = R.string.editor_select_title_settings_screen,
             confirmButtonText = R.string.editor_select_save_btn_settings_screen,
             true
         )
@@ -297,7 +297,7 @@ private fun EditorChoiceDialogSettingsScreenPreview() {
         EditorChoiceContent(
             initialChoice = EDITOR_CHOICE_SOURCE,
             EditorChoiceDialogConfig(
-                dialogTitle = R.string.editor_select_dialog_title_settings_screen,
+                dialogTitle = R.string.editor_select_title_settings_screen,
                 confirmButtonText = R.string.editor_select_save_btn_settings_screen,
                 isInSettingsScreen = true
             )
