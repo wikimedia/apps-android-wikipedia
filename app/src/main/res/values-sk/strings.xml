@@ -2685,4 +2685,22 @@
   <string name="home_feed_games_module_cta_prompt_subtitle">Prejdite do centra hier</string>
   <string name="home_feed_games_module_cta_prompt_button_text">Centrum hier</string>
   <string name="random_article_widget_name">Náhodný článok</string>
+  <string name="reading_lists_tab_all_articles">Všetky články</string>
+  <string name="reading_lists_tab_collections">Zbierky</string>
+  <string name="reading_lists_search_saved_articles">Hľadať v uložených článkoch</string>
+  <string name="reading_lists_search_collections">Hľadať v zbierkach</string>
+  <string name="reading_lists_remove_articles_confirm_dialog_title">Odstrániť uložené články?</string>
+  <string name="reading_lists_remove_articles_confirm_button">Odstrániť</string>
+  <plurals name="reading_lists_remove_articles_confirm_dialog_message">
+    <item quantity="one">Tento článok bude odstránený zo všetkých asociovaných zbierok.</item>
+    <item quantity="few">Tieto %d články budú odstránené zo všetkých asociovaných zbierok.</item>
+    <item quantity="many">Týchto %d článkov bude odstránených zo všetkých asociovaných zbierok.</item>
+    <item quantity="other">Týchto %d článkov bude odstránených zo všetkých asociovaných zbierok.</item>
+  </plurals>
+  <plurals name="reading_lists_articles_removed_from_collections">
+    <item quantity="one">Článok bol odstránený zo všetkých asociovaných zbierok.</item>
+    <item quantity="few">%d články boli odstránené zo všetkých asociovaných zbierok.</item>
+    <item quantity="many">%d článkov bolo odstránených zo všetkých asociovaných zbierok.</item>
+    <item quantity="other">%d článkov bolo odstránených zo všetkých asociovaných zbierok.</item>
+  </plurals>
 </resources>

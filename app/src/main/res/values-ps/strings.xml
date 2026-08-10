@@ -2462,4 +2462,10 @@
   <string name="home_feed_games_module_cta_prompt_subtitle">لوبځي ته ورشه</string>
   <string name="home_feed_games_module_cta_prompt_button_text">لوبځی</string>
   <string name="random_article_widget_name">ناټاکلې ليکنه</string>
+  <string name="reading_lists_tab_all_articles">ټولې ليکنې</string>
+  <string name="reading_lists_tab_collections">ټولگې</string>
+  <string name="reading_lists_search_saved_articles">خوندي‌شوې ليکنې پلټل</string>
+  <string name="reading_lists_search_collections">ټولگې پلټل</string>
+  <string name="reading_lists_remove_articles_confirm_dialog_title">خوندي‌شوې ليکنې لرې‌کول</string>
+  <string name="reading_lists_remove_articles_confirm_button">لرې‌کول</string>
 </resources>
