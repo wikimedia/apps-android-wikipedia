@@ -2396,4 +2396,10 @@
   <string name="reading_lists_search_collections">모음집 검색</string>
   <string name="reading_lists_remove_articles_confirm_dialog_title">저장된 문서를 삭제하시겠습니까?</string>
   <string name="reading_lists_remove_articles_confirm_button">제거</string>
+  <plurals name="reading_lists_remove_articles_confirm_dialog_message">
+    <item quantity="other">이 문서 %d개가 모든 관련 컬렉션에서 제거됩니다.</item>
+  </plurals>
+  <plurals name="reading_lists_articles_removed_from_collections">
+    <item quantity="other">문서 %d가 관련된 모든 컬렉션에서 제거되었습니다.</item>
+  </plurals>
 </resources>
