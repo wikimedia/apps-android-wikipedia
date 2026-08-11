@@ -54,6 +54,7 @@ import org.wikipedia.feed.model.FeaturedArticleCard
 import org.wikipedia.feed.model.FeaturedImageCard
 import org.wikipedia.feed.model.ForYouCard
 import org.wikipedia.feed.model.GamesModulePromptCard
+import org.wikipedia.feed.model.NewWithinInterestCard
 import org.wikipedia.feed.model.NewsCard
 import org.wikipedia.feed.model.OnThisDayCard
 import org.wikipedia.feed.model.PlacesOfInterestCard
@@ -105,6 +106,16 @@ sealed class ForYouModule {
 
     @Serializable
     data class BasedOnInterest(
+        override val age: Int,
+        override val index: Int,
+        override val cards: List<ForYouCard>
+    ) : ForYouModule() {
+        override fun withCards(cards: List<ForYouCard>): ForYouModule = copy(cards = cards)
+        override fun moduleKey(): String = ForYouModuleType.BASED_ON_INTEREST.name
+    }
+
+    @Serializable
+    data class NewWithinInterest(
         override val age: Int,
         override val index: Int,
         override val cards: List<ForYouCard>
@@ -659,6 +670,16 @@ class HomeViewModel : ViewModel() {
                 }
             }
 
+            val newWithinInterestTopics = AppDatabase.instance.topicInterestDao().getAllRandom().distinctBy { it.topicId }.take(4)
+            val newWithinInterestTopicCalls = newWithinInterestTopics.map { topic ->
+                async(Dispatchers.IO) {
+                    val articleTopic = ArticleTopics.all.find { it.topicId == topic.topicId }
+                    val titles = InterestSelectionRepository.getNewArticlesWithinTopic(wikiSite.value, articleTopic?.queryTopicId ?: topic.topicId)
+                    listOf(NewWithinInterestCard(titles, interestTopic = topic))
+                        .filterNot { hiddenCards.contains(it.hideKey) }
+                }
+            }
+
             val interestArticles = AppDatabase.instance.articleInterestDao().getAllRandom(wikiSite.value.languageCode).take(5)
             val interestArticleCalls = interestArticles.map { article ->
                 async(Dispatchers.IO) {
@@ -792,6 +813,11 @@ class HomeViewModel : ViewModel() {
                 if (!hiddenCards.contains(randomCard.hideKey)) {
                     // The index for this module is always 0 because there is always a single instance of this module, per age.
                     modules.add(ForYouModule.Random(age, 0, listOf(randomCard)))
+                }
+            }
+            newWithinInterestTopicCalls.awaitAll().forEachIndexed { index, entries ->
+                if (entries.isNotEmpty()) {
+                    modules.add(ForYouModule.NewWithinInterest(age, index, entries))
                 }
             }
         }
