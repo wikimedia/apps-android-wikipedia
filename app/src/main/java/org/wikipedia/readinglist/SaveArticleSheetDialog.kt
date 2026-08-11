@@ -32,6 +32,11 @@ import org.wikipedia.util.StringUtil
 class SaveArticleSheetDialog : ExtendedBottomSheetDialogFragment() {
 
     private val viewModel: SaveArticleSheetViewModel by viewModels()
+    private val collapsedSheetPeekHeightPx
+        get() = minOf(
+            DimenUtil.roundedDpToPx(DimenUtil.getDimension(R.dimen.saveArticleSheetPeekHeight)),
+            (DimenUtil.displayHeightPx * MAX_PEEK_HEIGHT_RATIO).toInt()
+        )
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
@@ -42,6 +47,7 @@ class SaveArticleSheetDialog : ExtendedBottomSheetDialogFragment() {
                     SaveArticleSheetContent(
                         article = uiState.article,
                         collections = uiState.collections,
+                        collapsedSheetPeekHeightPx = collapsedSheetPeekHeightPx.toFloat(),
                         onArticleHeaderClick = viewModel::toggleArticleSaved,
                         onCreateCollectionClick = viewModel::requestNewCollection,
                         onCollectionRowClick = viewModel::toggleArticleInCollection
@@ -54,10 +60,7 @@ class SaveArticleSheetDialog : ExtendedBottomSheetDialogFragment() {
     override fun onStart() {
         super.onStart()
         BottomSheetBehavior.from(requireView().parent as View).apply {
-            peekHeight = minOf(
-                DimenUtil.roundedDpToPx(DimenUtil.getDimension(R.dimen.saveArticleSheetPeekHeight)),
-                (DimenUtil.displayHeightPx * MAX_PEEK_HEIGHT_RATIO).toInt()
-            )
+            peekHeight = collapsedSheetPeekHeightPx
             state = BottomSheetBehavior.STATE_COLLAPSED
         }
     }

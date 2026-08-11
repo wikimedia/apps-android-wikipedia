@@ -29,12 +29,18 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.painter.ColorPainter
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.layout.onGloballyPositioned
+import androidx.compose.ui.layout.positionInRoot
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.rememberNestedScrollInteropConnection
 import androidx.compose.ui.res.painterResource
@@ -64,6 +70,7 @@ fun SaveArticleSheetContent(
     article: SaveArticleUiModel,
     collections: List<SaveCollectionUiModel>,
     modifier: Modifier = Modifier,
+    collapsedSheetPeekHeightPx: Float = Float.MAX_VALUE,
     onArticleHeaderClick: () -> Unit = {},
     onCreateCollectionClick: () -> Unit = {},
     onCollectionRowClick: (Long) -> Unit = {}
@@ -100,13 +107,20 @@ fun SaveArticleSheetContent(
             } else {
                 CollectionsHeader(onCreateClick = onCreateCollectionClick)
                 val listState = rememberLazyListState()
+                var hasHiddenContent by remember { mutableStateOf(false) }
                 LazyColumn(
                     state = listState,
                     contentPadding = PaddingValues(bottom = 16.dp),
                     modifier = Modifier
+                        .onGloballyPositioned { coordinates ->
+                            val visibleHeight = collapsedSheetPeekHeightPx - coordinates.positionInRoot().y
+                            val listHeight = coordinates.size.height.toFloat()
+                            hasHiddenContent = listHeight > visibleHeight + OVERFLOW_TOLERANCE_PX
+                        }
                         .autoHidingLazyColumnScrollbar(
                             state = listState,
-                            color = WikipediaTheme.colors.inactiveColor
+                            color = WikipediaTheme.colors.inactiveColor,
+                            hasHiddenContent = hasHiddenContent
                         )
                 ) {
                     items(
@@ -123,6 +137,8 @@ fun SaveArticleSheetContent(
         }
     }
 }
+
+private const val OVERFLOW_TOLERANCE_PX = 1f
 
 @Composable
 private fun ArticleHeader(

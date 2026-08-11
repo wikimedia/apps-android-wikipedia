@@ -133,27 +133,38 @@ fun Modifier.shimmerEffect(
 fun Modifier.lazyColumnScrollbar(
     state: LazyListState,
     color: Color,
-    thumbHeight: Dp = 48.dp
+    thumbHeight: Dp = 48.dp,
+    hasHiddenContent: Boolean = false
 ): Modifier = drawWithContent {
     drawContent()
     val info = state.layoutInfo
-    val visibleItems = info.visibleItemsInfo
-    if (visibleItems.isNotEmpty() && (state.canScrollForward || state.canScrollBackward)) {
-        val viewportHeight = size.height
-        val fixedThumbHeight = thumbHeight.toPx()
+    val listCanScroll = state.canScrollForward || state.canScrollBackward
+    if (info.visibleItemsInfo.isNotEmpty() && (hasHiddenContent || listCanScroll)) {
+        val indicatorState = state.scrollIndicatorState
+        val trackHeight = size.height
+        val minimumThumbHeight = thumbHeight.toPx().coerceAtMost(trackHeight)
+        val contentSize = indicatorState?.contentSize?.toFloat() ?: 0f
+        val viewportSize = indicatorState?.viewportSize?.toFloat() ?: 0f
+        val scrollOffset = indicatorState?.scrollOffset?.toFloat() ?: 0f
+        val scrollRange = (contentSize - viewportSize).coerceAtLeast(0f)
 
-        val firstItem = visibleItems.first()
-        val itemSize = firstItem.size.coerceAtLeast(1)
-        val estimatedTotalHeight = itemSize * info.totalItemsCount
-        val currentOffset = firstItem.index * itemSize - firstItem.offset
-        val maxOffset = (estimatedTotalHeight - viewportHeight).coerceAtLeast(1f)
-        val scrollFraction = (currentOffset.toFloat() / maxOffset).coerceIn(0f, 1f)
-        val thumbOffset = scrollFraction * (viewportHeight - fixedThumbHeight)
+        val actualThumbHeight = if (listCanScroll && contentSize > 0f) {
+            (trackHeight * viewportSize / contentSize)
+                .coerceIn(minimumThumbHeight, trackHeight)
+        } else {
+            minimumThumbHeight
+        }
+        val scrollFraction = if (listCanScroll && scrollRange > 0f) {
+            (scrollOffset / scrollRange).coerceIn(0f, 1f)
+        } else {
+            0f
+        }
+        val thumbOffset = scrollFraction * (trackHeight - actualThumbHeight)
 
         drawRoundRect(
             color = color,
             topLeft = Offset(size.width - 4.dp.toPx(), thumbOffset),
-            size = Size(4.dp.toPx(), fixedThumbHeight),
+            size = Size(4.dp.toPx(), actualThumbHeight),
             cornerRadius = CornerRadius(2.dp.toPx())
         )
     }
@@ -161,22 +172,26 @@ fun Modifier.lazyColumnScrollbar(
 
 /**
  * A [lazyColumnScrollbar] that shows itself while the list is being scrolled and fades out once
- * the user has been idle for [hideDelayMillis]. It also shows briefly when it first appears,
- * so users know that there’s a scrollbar.
+ * the user has been idle for [hideDelayMillis]. It also shows briefly when the list can scroll or
+ * when the content is hidden below the bottom sheet [hasHiddenContent].
  */
 fun Modifier.autoHidingLazyColumnScrollbar(
     state: LazyListState,
     color: Color,
     thumbHeight: Dp = 120.dp,
     hideDelayMillis: Long = 1000L,
-    fadeDurationMillis: Int = 250
+    fadeDurationMillis: Int = 250,
+    hasHiddenContent: Boolean = false
 ): Modifier = composed {
-    var visible by remember { mutableStateOf(true) }
-    LaunchedEffect(state, hideDelayMillis) {
-        snapshotFlow { state.isScrollInProgress }.collectLatest { isScrolling ->
-            if (isScrolling) {
-                visible = true
-            } else {
+    var visible by remember { mutableStateOf(false) }
+    LaunchedEffect(state, hideDelayMillis, hasHiddenContent) {
+        snapshotFlow {
+            val shouldShowScrollbar =
+                hasHiddenContent || state.canScrollForward || state.canScrollBackward
+            state.isScrollInProgress to shouldShowScrollbar
+        }.collectLatest { (isScrolling, shouldShowScrollbar) ->
+            visible = shouldShowScrollbar
+            if (visible && !isScrolling) {
                 delay(hideDelayMillis.milliseconds)
                 visible = false
             }
@@ -194,7 +209,8 @@ fun Modifier.autoHidingLazyColumnScrollbar(
         lazyColumnScrollbar(
             state = state,
             color = color.copy(alpha = color.alpha * alpha),
-            thumbHeight = thumbHeight
+            thumbHeight = thumbHeight,
+            hasHiddenContent = hasHiddenContent
         )
     }
 }
