@@ -746,15 +746,9 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         ShareUtil.shareText(requireContext(), ReadingListPage.toPageTitle(page))
     }
 
-    override fun onAddItemToOther(pageId: Long) {
+    override fun onManageCollections(pageId: Long) {
         val page = getPageById(pageId) ?: return
         SaveArticleSheetDialog.show(childFragmentManager, ReadingListPage.toPageTitle(page))
-    }
-
-    override fun onMoveItemToOther(pageId: Long) {
-        val page = getPageById(pageId) ?: return
-        ExclusiveBottomSheetPresenter.show(childFragmentManager,
-                MoveToReadingListDialog.newInstance(readingListId, ReadingListPage.toPageTitle(page), InvokeSource.READING_LIST_ACTIVITY))
     }
 
     override fun onSelectItem(pageId: Long) {
@@ -1092,10 +1086,16 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             }
             item?.let {
                 val lists = if (currentSearchQuery.isNullOrEmpty()) listOf(readingList!!)
-                        else ReadingListBehaviorsUtil.getListsContainPage(it)
+                else ReadingListBehaviorsUtil.getListsContainPage(it)
+
                 ExclusiveBottomSheetPresenter.show(childFragmentManager,
-                        ReadingListItemActionsDialog.newInstance(lists[0].title, lists.size, it.id, actionMode != null,
-                            showMoveAction = false))
+                        ReadingListItemActionsDialog.newInstance(
+                            lists[0].title,
+                            lists.size,
+                            it.id,
+                            actionMode != null,
+                            lists.count { list -> !list.isDefault }
+                        ))
                 return true
             }
             return false

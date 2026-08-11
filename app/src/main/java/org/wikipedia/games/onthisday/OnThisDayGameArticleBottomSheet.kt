@@ -105,7 +105,7 @@ class OnThisDayGameArticleBottomSheet : ExtendedBottomSheetDialogFragment(), All
 
         binding.saveButton.setOnClickListener {
             WikiGamesEvent.submit("save_click", "game_play", slideName = "game_end_article", isArchive = viewModel.isArchiveGame)
-            SaveArticleSheetDialog.show(childFragmentManager, pageTitle)
+            SaveArticleSheetDialog.show(parentFragmentManager, pageTitle)
         }
         binding.shareButton.setOnClickListener {
             WikiGamesEvent.submit("share_click", "game_play", slideName = "game_end_article", isArchive = viewModel.isArchiveGame)
