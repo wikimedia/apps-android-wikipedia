@@ -300,10 +300,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
     override fun onPrepareMenu(menu: Menu) {
         menu.findItem(R.id.menu_search_lists).apply {
             isVisible = currentFragment is ReadingListsFragment
-            // When tabs are disabled, this icon is filter icon
-            if (!Prefs.isReadingListsTabsEnabled) {
-                setIcon(R.drawable.ic_filter_list_24)
-            }
         }
         menu.findItem(R.id.menu_overflow_button).isVisible = currentFragment is ReadingListsFragment
 

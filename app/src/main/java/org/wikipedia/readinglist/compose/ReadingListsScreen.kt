@@ -67,7 +67,6 @@ fun ReadingListsScreen(
     isSelectionMode: Boolean = false,
     selectedListIds: Set<Long> = emptySet(),
     selectedPageIds: Set<Long> = emptySet(),
-    showTabBar: Boolean = true,
     showCollectionsBadge: Boolean = false,
     onSelectTab: (SavedTab) -> Unit = {},
     onOnboardingAction: (OnboardingAction) -> Unit = {},
@@ -89,7 +88,7 @@ fun ReadingListsScreen(
     }
 
     Column(modifier = modifier.fillMaxSize()) {
-        if (showTabBar && !uiState.isSearchActive && !isSelectionMode) {
+        if (!uiState.isSearchActive && !isSelectionMode) {
             SavedTabBar(
                 selectedTab = uiState.selectedTab,
                 showCollectionsBadge = showCollectionsBadge,
@@ -557,45 +556,6 @@ private fun ReadingListsScreenAllArticlesTabPreview() {
             uiState = ReadingListsUiState(
                 isLoading = false,
                 rows = listOf(
-                    ReadingListRow.ListRow(
-                        ReadingListUiModel(
-                            id = 2,
-                            title = "Physics",
-                            description = "reading",
-                            isDefault = false,
-                            totalPages = 12,
-                            sizeBytesFromPages = 1240000
-                        )
-                    )
-                )
-            )
-        )
-    }
-}
-
-@Preview
-@Composable
-private fun ReadingListsScreenTabsDisabledPreview() {
-    BaseTheme(
-        currentTheme = Theme.LIGHT
-    ) {
-        ReadingListsScreen(
-            showTabBar = false,
-            uiState = ReadingListsUiState(
-                isLoading = false,
-                selectedTab = SavedTab.COLLECTIONS,
-                onboarding = OnboardingState.RecommendedReadingList,
-                rows = listOf(
-                    ReadingListRow.ListRow(
-                        ReadingListUiModel(
-                            id = 1,
-                            title = "Default",
-                            description = null,
-                            isDefault = true,
-                            totalPages = 3,
-                            sizeBytesFromPages = 0
-                        )
-                    ),
                     ReadingListRow.ListRow(
                         ReadingListUiModel(
                             id = 2,

@@ -105,7 +105,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                         isSelectionMode = selectionState.enabled,
                         selectedListIds = selectionState.selectedListIds,
                         selectedPageIds = selectionState.selectedPageIds,
-                        showTabBar = Prefs.isReadingListsTabsEnabled,
                         showCollectionsBadge = uiState.showCollectionsBadge,
                         onSelectTab = ::onSelectTab,
                         onOnboardingAction = ::onOnboardingAction,
@@ -283,9 +282,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     }
 
     private fun getSearchHint(tab: SavedTab): String {
-        if (!Prefs.isReadingListsTabsEnabled) {
-            return getString(R.string.filter_hint_filter_my_lists_and_articles)
-        }
         return getString(
             when (tab) {
                 SavedTab.ALL_ARTICLES -> R.string.reading_lists_search_saved_articles
