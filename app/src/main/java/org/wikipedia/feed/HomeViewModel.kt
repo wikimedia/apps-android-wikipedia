@@ -676,7 +676,7 @@ class HomeViewModel : ViewModel() {
                     val articleTopic = ArticleTopics.all.find { it.topicId == topic.topicId }
                     val titles = InterestSelectionRepository.getNewArticlesWithinTopic(wikiSite.value, articleTopic?.queryTopicId ?: topic.topicId)
                     listOf(NewWithinInterestCard(titles, interestTopic = topic))
-                        .filterNot { hiddenCards.contains(it.hideKey) }
+                        .filterNot { it.titles.isEmpty() || hiddenCards.contains(it.hideKey) }
                 }
             }
 
@@ -815,9 +815,9 @@ class HomeViewModel : ViewModel() {
                     modules.add(ForYouModule.Random(age, 0, listOf(randomCard)))
                 }
             }
-            newWithinInterestTopicCalls.awaitAll().forEachIndexed { index, entries ->
+            newWithinInterestTopicCalls.awaitAll().filter { it.isNotEmpty() }.flatten().let { entries ->
                 if (entries.isNotEmpty()) {
-                    modules.add(ForYouModule.NewWithinInterest(age, index, entries))
+                    modules.add(ForYouModule.NewWithinInterest(age, 0, entries))
                 }
             }
         }

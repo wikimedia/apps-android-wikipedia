@@ -62,6 +62,7 @@ import org.wikipedia.feed.continuereading.ContinueReadingModule
 import org.wikipedia.feed.discover.DiscoverArticlesModule
 import org.wikipedia.feed.discover.DiscoverEnablePromptModule
 import org.wikipedia.feed.interests.BasedOnInterestModule
+import org.wikipedia.feed.interests.NewWithinInterestModule
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.DiscoverEnablePromptCard
 import org.wikipedia.feed.model.EmptyForYouCard
@@ -260,6 +261,23 @@ private fun LazyListScope.forYouModuleItem(
                     onPageClick = { card, entry -> onAction(HomeAction.PageClick(card, entry)) },
                     onPageShareClick = { card, entry -> onAction(HomeAction.PageShareClick(card, entry)) },
                     onPageBookmarkClick = { card, entry -> onAction(HomeAction.PageBookmarkClick(card, entry)) },
+                    onHideCardClick = { module, card -> onAction(HomeAction.HideForYouCard(module, card)) },
+                    onHideModuleClick = { onAction(HomeAction.HideModule(module.moduleKey())) },
+                    onCardInView = { onCardImpression(it, index) },
+                    onCustomizeClick = { onAction(HomeAction.CustomizeClick(it)) }
+                )
+            }
+        }
+        is ForYouModule.NewWithinInterest -> {
+            item(key = key) {
+                NewWithinInterestModule(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(viewPortHeight),
+                    topInset = topInset,
+                    wikiSite = wikiSite,
+                    module = module,
+                    onPageClick = { card, entry -> onAction(HomeAction.PageClick(card, entry)) },
                     onHideCardClick = { module, card -> onAction(HomeAction.HideForYouCard(module, card)) },
                     onHideModuleClick = { onAction(HomeAction.HideModule(module.moduleKey())) },
                     onCardInView = { onCardImpression(it, index) },
