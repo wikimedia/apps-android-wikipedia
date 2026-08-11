@@ -2493,4 +2493,18 @@
   <string name="home_feed_games_module_cta_prompt_subtitle">Ga naar het spellencentrum</string>
   <string name="home_feed_games_module_cta_prompt_button_text">Spellencentrum</string>
   <string name="random_article_widget_name">Willekeurige pagina</string>
+  <string name="reading_lists_tab_all_articles">Alle pagina\'s</string>
+  <string name="reading_lists_tab_collections">Verzamelingen</string>
+  <string name="reading_lists_search_saved_articles">Opgeslagen pagina\'s doorzoeken</string>
+  <string name="reading_lists_search_collections">Verzamelingen doorzoeken</string>
+  <string name="reading_lists_remove_articles_confirm_dialog_title">Opgeslagen pagina\'s verwijderen?</string>
+  <string name="reading_lists_remove_articles_confirm_button">Verwijderen</string>
+  <plurals name="reading_lists_remove_articles_confirm_dialog_message">
+    <item quantity="one">Deze pagina wordt verwijderd uit alle bijbehorende verzamelingen.</item>
+    <item quantity="other">Deze %d pagina\'s worden verwijderd uit alle bijbehorende verzamelingen.</item>
+  </plurals>
+  <plurals name="reading_lists_articles_removed_from_collections">
+    <item quantity="one">Pagina verwijderd uit alle bijbehorende verzamelingen.</item>
+    <item quantity="other">%d pagina\'s verwijderd uit alle bijbehorende verzamelingen.</item>
+  </plurals>
 </resources>
