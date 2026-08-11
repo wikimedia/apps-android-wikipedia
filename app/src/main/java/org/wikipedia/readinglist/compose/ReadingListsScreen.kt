@@ -15,7 +15,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
@@ -455,15 +455,15 @@ private fun ReadingListsList(
                 )
             }
         }
-        items(
+        itemsIndexed(
             items = rows,
-            key = { row ->
+            key = { _, row ->
                 when (row) {
                     is ReadingListRow.ListRow -> "list-$sortMode-${row.list.id}"
                     is ReadingListRow.PageRow -> "page-$sortMode-${row.page.id}"
                 }
             }
-        ) { row ->
+        ) { index, row ->
             when (row) {
                 is ReadingListRow.ListRow -> ReadingListRow(
                     list = row.list,
@@ -486,10 +486,12 @@ private fun ReadingListsList(
                     onChipClick = { listId -> onPageChipClick(listId) }
                 )
             }
-            HorizontalDivider(
-                color = WikipediaTheme.colors.borderColor,
-                thickness = 0.5.dp
-            )
+            if (index < rows.lastIndex) {
+                HorizontalDivider(
+                    color = WikipediaTheme.colors.borderColor,
+                    thickness = 0.5.dp
+                )
+            }
         }
     }
 }
