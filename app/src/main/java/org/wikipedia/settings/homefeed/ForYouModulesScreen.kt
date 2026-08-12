@@ -21,6 +21,10 @@ enum class ForYouModuleType(
     @param:StringRes val title: Int,
     @param:StringRes val subtitle: Int,
 ) {
+    NEW_WITHIN_INTEREST(
+        title = R.string.home_feed_new_within_interest_title,
+        subtitle = R.string.home_feed_new_within_interest_subtitle
+    ),
     BASED_ON_INTEREST(
         title = R.string.home_feed_settings_based_on_interest_title,
         subtitle = R.string.home_feed_settings_based_on_interest_subtitle
@@ -48,10 +52,6 @@ enum class ForYouModuleType(
     GAMES(
         title = R.string.home_feed_settings_games_title,
         subtitle = R.string.home_feed_settings_games_subtitle
-    ),
-    NEW_WITHIN_INTEREST(
-        title = R.string.home_feed_new_within_interest_title,
-        subtitle = R.string.home_feed_new_within_interest_subtitle
     );
 
     fun toEntry() = ToggleSettingItem(title, subtitle, name)

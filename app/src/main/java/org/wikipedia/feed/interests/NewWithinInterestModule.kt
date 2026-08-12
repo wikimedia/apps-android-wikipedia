@@ -131,7 +131,7 @@ private fun NewWithinInterestCardContent(
             Text(
                 modifier = Modifier.weight(1f),
                 text = title,
-                color = WikipediaTheme.colors.primaryColor,
+                color = Color.White,
                 style = MaterialTheme.typography.titleLarge,
                 maxLines = 2,
                 overflow = TextOverflow.Ellipsis
@@ -141,7 +141,7 @@ private fun NewWithinInterestCardContent(
                     Icon(
                         painter = painterResource(R.drawable.ic_more_vert_white_24dp),
                         contentDescription = context.getString(wikiSite.languageCode, R.string.menu_feed_overflow_label),
-                        tint = WikipediaTheme.colors.primaryColor,
+                        tint = Color.White,
                         modifier = Modifier.size(24.dp)
                     )
                 }
