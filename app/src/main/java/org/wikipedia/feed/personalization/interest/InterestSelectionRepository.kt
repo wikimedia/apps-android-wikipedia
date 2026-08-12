@@ -154,10 +154,14 @@ class InterestSelectionRepository(
             return ServiceFactory.get(wikiSite).getArticlesByTopic(
                 "articletopic:$topic",
                 limit = 50,
-                sort = "create_timestamp_desc"
+                sort = "create_timestamp_desc",
+                prop = if (wikiSite.languageCode == "en") "description|pageimages|pageprops|info|extracts|isreviewed" else "description|pageimages|pageprops|info|extracts"
             )
                 .query?.pages
                 ?.filter { it.pageProps?.disambiguation == null } // Filter out disambiguation pages
+                ?.filter {
+                    wikiSite.languageCode != "en" || it.isReviewed
+                }
                 ?.sortedBy { it.index } // Sort by index, as reported by the API
                 ?.sortedBy { it.thumbUrl().isNullOrEmpty() } // Sort by whether it has a thumbnail
                 ?.map { page ->
