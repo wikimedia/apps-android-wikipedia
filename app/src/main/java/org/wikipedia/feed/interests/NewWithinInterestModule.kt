@@ -60,8 +60,6 @@ import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.views.imageservice.ImageService
 import kotlin.math.abs
 
-private const val MAX_ARTICLES_PER_CARD = 4
-
 @Composable
 fun NewWithinInterestModule(
     modifier: Modifier = Modifier,
@@ -88,8 +86,9 @@ fun NewWithinInterestModule(
 
         NewWithinInterestCardContent(
             wikiSite = wikiSite,
-            titles = card.titles.take(MAX_ARTICLES_PER_CARD),
-            title = context.getString(wikiSite.languageCode, R.string.home_feed_new_within_interest_title, topicName),
+            titles = card.titles.take(4),
+            title = context.getString(wikiSite.languageCode, R.string.home_feed_new_within_interest_card_title,
+                if (wikiSite.languageCode == "en") topicName.lowercase() else topicName),
             backgroundColor = colorResource(noImageCardBackgroundColors[(backgroundColorIndex + pageIndex) % noImageCardBackgroundColors.size]),
             topInset = topInset,
             bottomSpacing = if (module.cards.size > 1) 40.dp else 16.dp,
@@ -231,7 +230,7 @@ private fun NewWithinInterestArticleCard(
 @Composable
 private fun NewWithinInterestModulePreview() {
     val card = NewWithinInterestCard(
-        titles = List(MAX_ARTICLES_PER_CARD) { PageTitle.preview() },
+        titles = List(4) { PageTitle.preview() },
         interestTopic = InterestTopic("sports")
     )
     BaseTheme(currentTheme = Theme.BLACK) {
@@ -248,7 +247,7 @@ private fun NewWithinInterestModulePreview() {
 @Composable
 private fun NewWithinInterestModulePreviewNoImage() {
     val card = NewWithinInterestCard(
-        titles = List(MAX_ARTICLES_PER_CARD) { PageTitle.preview(withThumbnail = false) },
+        titles = List(4) { PageTitle.preview(withThumbnail = false) },
         interestTopic = InterestTopic("sports")
     )
     BaseTheme(currentTheme = Theme.BLACK) {

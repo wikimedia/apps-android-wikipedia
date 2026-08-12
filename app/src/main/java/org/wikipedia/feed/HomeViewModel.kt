@@ -43,6 +43,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.events.NewRecommendedReadingListEvent
+import org.wikipedia.feed.interests.NewWithinInterestABTest
 import org.wikipedia.feed.model.BasedOnInterestCard
 import org.wikipedia.feed.model.BecauseYouReadCard
 import org.wikipedia.feed.model.Card
@@ -121,7 +122,7 @@ sealed class ForYouModule {
         override val cards: List<ForYouCard>
     ) : ForYouModule() {
         override fun withCards(cards: List<ForYouCard>): ForYouModule = copy(cards = cards)
-        override fun moduleKey(): String = ForYouModuleType.BASED_ON_INTEREST.name
+        override fun moduleKey(): String = ForYouModuleType.NEW_WITHIN_INTEREST.name
     }
 
     @Serializable
@@ -670,7 +671,9 @@ class HomeViewModel : ViewModel() {
                 }
             }
 
-            val newWithinInterestTopics = AppDatabase.instance.topicInterestDao().getAllRandom().distinctBy { it.topicId }.take(4)
+            val newWithinInterestTopics = if (NewWithinInterestABTest().isTestGroupUser())
+                AppDatabase.instance.topicInterestDao().getAllRandom().distinctBy { it.topicId }.take(4)
+            else emptyList()
             val newWithinInterestTopicCalls = newWithinInterestTopics.map { topic ->
                 async(Dispatchers.IO) {
                     val articleTopic = ArticleTopics.all.find { it.topicId == topic.topicId }

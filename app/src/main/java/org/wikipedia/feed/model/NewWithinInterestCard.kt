@@ -11,7 +11,6 @@ class NewWithinInterestCard(
 ) : ForYouCard() {
 
     override fun dismissHashCode(): Int {
-        // TODO: is this right?
-        return titles.hashCode()
+        return titles.sumOf { it.hashCode() }
     }
 }
