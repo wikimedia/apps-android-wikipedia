@@ -1,6 +1,6 @@
 ---
 name: code-review
-description: Review pull requests for correctness, regressions, and architecture problems.
+description: Review pull requests for correctness, regressions, and architecture problems. Use when conducting a pull request code review.
 ---
 
 First understand what the pull request is trying to change and how it should behave.
