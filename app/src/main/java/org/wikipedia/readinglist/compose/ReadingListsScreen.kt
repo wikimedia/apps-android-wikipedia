@@ -15,7 +15,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
@@ -67,6 +67,7 @@ fun ReadingListsScreen(
     isSelectionMode: Boolean = false,
     selectedListIds: Set<Long> = emptySet(),
     selectedPageIds: Set<Long> = emptySet(),
+    showTabBar: Boolean = true,
     showCollectionsBadge: Boolean = false,
     onSelectTab: (SavedTab) -> Unit = {},
     onOnboardingAction: (OnboardingAction) -> Unit = {},
@@ -88,7 +89,7 @@ fun ReadingListsScreen(
     }
 
     Column(modifier = modifier.fillMaxSize()) {
-        if (!uiState.isSearchActive && !isSelectionMode) {
+        if (showTabBar && !uiState.isSearchActive && !isSelectionMode) {
             SavedTabBar(
                 selectedTab = uiState.selectedTab,
                 showCollectionsBadge = showCollectionsBadge,
@@ -435,15 +436,15 @@ private fun ReadingListsList(
                 )
             }
         }
-        items(
+        itemsIndexed(
             items = rows,
-            key = { row ->
+            key = { _, row ->
                 when (row) {
                     is ReadingListRow.ListRow -> "list-$sortMode-${row.list.id}"
                     is ReadingListRow.PageRow -> "page-$sortMode-${row.page.id}"
                 }
             }
-        ) { row ->
+        ) { index, row ->
             when (row) {
                 is ReadingListRow.ListRow -> ReadingListRow(
                     list = row.list,
@@ -466,10 +467,12 @@ private fun ReadingListsList(
                     onChipClick = { listId -> onPageChipClick(listId) }
                 )
             }
-            HorizontalDivider(
-                color = WikipediaTheme.colors.borderColor,
-                thickness = 0.5.dp
-            )
+            if (index < rows.lastIndex) {
+                HorizontalDivider(
+                    color = WikipediaTheme.colors.borderColor,
+                    thickness = 0.5.dp
+                )
+            }
         }
     }
 }
@@ -554,6 +557,45 @@ private fun ReadingListsScreenAllArticlesTabPreview() {
             uiState = ReadingListsUiState(
                 isLoading = false,
                 rows = listOf(
+                    ReadingListRow.ListRow(
+                        ReadingListUiModel(
+                            id = 2,
+                            title = "Physics",
+                            description = "reading",
+                            isDefault = false,
+                            totalPages = 12,
+                            sizeBytesFromPages = 1240000
+                        )
+                    )
+                )
+            )
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun ReadingListsScreenTabsDisabledPreview() {
+    BaseTheme(
+        currentTheme = Theme.LIGHT
+    ) {
+        ReadingListsScreen(
+            showTabBar = false,
+            uiState = ReadingListsUiState(
+                isLoading = false,
+                selectedTab = SavedTab.COLLECTIONS,
+                onboarding = OnboardingState.RecommendedReadingList,
+                rows = listOf(
+                    ReadingListRow.ListRow(
+                        ReadingListUiModel(
+                            id = 1,
+                            title = "Default",
+                            description = null,
+                            isDefault = true,
+                            totalPages = 3,
+                            sizeBytesFromPages = 0
+                        )
+                    ),
                     ReadingListRow.ListRow(
                         ReadingListUiModel(
                             id = 2,
