@@ -389,6 +389,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
             binding.editSectionCaptchaContainer.visibility = View.VISIBLE
             captchaHandler.handleCaptcha(null, result)
         } else {
+            // Expand to do everything.
             onEditFailure(Throwable())
         }
     }
