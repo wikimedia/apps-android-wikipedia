@@ -388,18 +388,22 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
             binding.editSectionCaptchaContainer.visibility = View.VISIBLE
             captchaHandler.handleCaptcha(null, result)
         } else {
-            EditAttemptStepEvent.logAbort(viewModel.pageTitle)
             // Expand to do everything.
-            onEditFailure(Throwable())
+            onEditFailure(Throwable(), false)
         }
     }
 
-    private fun onEditFailure(caught: Throwable) {
+    private fun onEditFailure(caught: Throwable, shouldLogAbort: Boolean = true) {
         showProgressBar(false)
         if (caught is MwException) {
             handleEditingException(caught)
         } else {
             showRetryDialog(caught)
+        }
+        if (shouldLogAbort) {
+            EditAttemptStepEvent.logAbort(viewModel.pageTitle)
+        } else {
+            EditAttemptStepEvent.logSaveFailure(viewModel.pageTitle)
         }
         L.e(caught)
     }
