@@ -45,6 +45,7 @@ import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
 import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.concurrency.FlowEventBus
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentReadingListBinding
 import org.wikipedia.events.NewRecommendedReadingListEvent
 import org.wikipedia.events.PageDownloadEvent
@@ -1085,17 +1086,20 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 return false
             }
             item?.let {
-                val lists = if (currentSearchQuery.isNullOrEmpty()) listOf(readingList!!)
-                else ReadingListBehaviorsUtil.getListsContainPage(it)
+                viewLifecycleOwner.lifecycleScope.launch {
+                    val pages = AppDatabase.instance.readingListPageDao().getAllPageOccurrences(ReadingListPage.toPageTitle(it))
+                    val listsContainingPage = AppDatabase.instance.readingListDao().getListsFromPageOccurrences(pages)
+                    val listsToRemoveFrom = if (currentSearchQuery.isNullOrEmpty()) listOf(readingList!!) else listsContainingPage
 
-                ExclusiveBottomSheetPresenter.show(childFragmentManager,
-                        ReadingListItemActionsDialog.newInstance(
-                            lists[0].title,
-                            lists.size,
-                            it.id,
-                            actionMode != null,
-                            lists.count { list -> !list.isDefault }
-                        ))
+                    ExclusiveBottomSheetPresenter.show(childFragmentManager,
+                            ReadingListItemActionsDialog.newInstance(
+                                listsToRemoveFrom[0].title,
+                                listsToRemoveFrom.size,
+                                it.id,
+                                actionMode != null,
+                                listsContainingPage.count { list -> !list.isDefault }
+                            ))
+                }
                 return true
             }
             return false

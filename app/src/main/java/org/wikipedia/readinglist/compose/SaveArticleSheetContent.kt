@@ -20,6 +20,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.BottomSheetDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -46,6 +47,7 @@ import androidx.compose.ui.platform.rememberNestedScrollInteropConnection
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
@@ -179,7 +181,9 @@ private fun ArticleHeader(
             }
         }
 
-        Thumbnail(thumbUrl = article.thumbUrl)
+        if (article.thumbUrl != null) {
+            Thumbnail(thumbUrl = article.thumbUrl)
+        }
 
         Box(
             modifier = Modifier
@@ -192,7 +196,8 @@ private fun ArticleHeader(
                     if (article.isSaved) R.drawable.ic_bookmark_white_24dp
                     else R.drawable.ic_bookmark_border_white_24dp
                 ),
-                contentDescription = null,
+                contentDescription = if (article.isSaved) stringResource(R.string.link_preview_dialog_saved_button)
+                else stringResource(R.string.feed_card_add_to_default_list),
                 tint = WikipediaTheme.colors.primaryColor,
                 modifier = Modifier.size(24.dp)
             )
@@ -287,7 +292,11 @@ private fun CollectionRow(
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .clickable(onClick = onClick)
+            .toggleable(
+                value = collection.containsArticle,
+                role = Role.Checkbox,
+                onValueChange = { onClick() }
+            )
             .padding(16.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(12.dp)
@@ -316,7 +325,6 @@ private fun CollectionRow(
 
         Thumbnail(thumbUrl = collection.thumbUrl)
 
-        // Not separately clickable: the whole row is the toggle, so the icon only reports state.
         Box(
             modifier = Modifier.size(32.dp),
             contentAlignment = Alignment.Center
