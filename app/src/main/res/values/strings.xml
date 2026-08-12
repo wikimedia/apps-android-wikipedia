@@ -314,6 +314,8 @@
     <string name="editor_select_dialog_dont_show_again">Don\'t show me this again. This default can be changed later in Settings.</string>
     <string name="editor_select_dialog_continue">Continue</string>
     <string name="editor_select_icon_ve_title">Open in external browser icon</string>
+    <string name="editor_select_title_settings_screen">Editing preference</string>
+    <string name="editor_select_save_btn_settings_screen">Save</string>
     <string name="find_next">Find next</string>
     <string name="find_previous">Find previous</string>
     <string name="find_first_occurence">This is the first occurrence</string>
