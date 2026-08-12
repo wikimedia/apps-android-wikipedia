@@ -358,7 +358,7 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
     private class TestException(message: String?) : RuntimeException(message)
 
     companion object {
-        private const val TEXT_OF_TEST_READING_LIST = "Test reading list"
-        private const val TEXT_OF_READING_LIST = "Reading list"
+        private const val TEXT_OF_TEST_READING_LIST = "Test collection"
+        private const val TEXT_OF_READING_LIST = "Collection"
     }
 }

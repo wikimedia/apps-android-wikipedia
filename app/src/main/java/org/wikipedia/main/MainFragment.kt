@@ -295,7 +295,9 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
     }
 
     override fun onPrepareMenu(menu: Menu) {
-        menu.findItem(R.id.menu_search_lists).isVisible = currentFragment is ReadingListsFragment
+        menu.findItem(R.id.menu_search_lists).apply {
+            isVisible = currentFragment is ReadingListsFragment
+        }
         menu.findItem(R.id.menu_overflow_button).isVisible = currentFragment is ReadingListsFragment
 
         val tabsItem = menu.findItem(R.id.menu_tabs)

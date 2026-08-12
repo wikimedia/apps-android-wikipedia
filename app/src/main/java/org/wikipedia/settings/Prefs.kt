@@ -848,7 +848,6 @@ object Prefs {
     var isRecommendedReadingListEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_recommended_reading_list_enabled, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_recommended_reading_list_enabled, value)
-
     var recommendedReadingListArticlesNumber
         get() = PrefsIoUtil.getInt(R.string.preference_key_recommended_reading_list_articles_number, 5)
         set(value) = PrefsIoUtil.setInt(R.string.preference_key_recommended_reading_list_articles_number, value)
