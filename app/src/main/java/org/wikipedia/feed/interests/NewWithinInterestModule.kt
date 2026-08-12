@@ -28,11 +28,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.painter.BrushPainter
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.layout.Placeable
+import androidx.compose.ui.layout.SubcomposeLayout
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
@@ -158,12 +161,49 @@ private fun NewWithinInterestCardContent(
             }
         }
 
-        titles.forEach { pageTitle ->
+        FittingColumn(
+            modifier = Modifier.weight(1f, fill = false),
+            itemCount = titles.size,
+            spacing = 16.dp
+        ) { index ->
+            val pageTitle = titles[index]
             NewWithinInterestArticleCard(
-                modifier = Modifier.weight(1f),
                 title = pageTitle,
                 onClick = { onPageClick(pageTitle) }
             )
+        }
+    }
+}
+
+@Composable
+private fun FittingColumn(
+    modifier: Modifier = Modifier,
+    itemCount: Int,
+    spacing: Dp,
+    itemContent: @Composable (index: Int) -> Unit
+) {
+    SubcomposeLayout(modifier = modifier) { constraints ->
+        val spacingPx = spacing.roundToPx()
+        val itemConstraints = constraints.copy(minHeight = 0, maxHeight = Constraints.Infinity)
+        val placeables = mutableListOf<Placeable>()
+        var totalHeight = 0
+
+        for (index in 0 until itemCount) {
+            val placeable = subcompose(index) { itemContent(index) }.first().measure(itemConstraints)
+            val heightWithItem = totalHeight + placeable.height + if (index == 0) 0 else spacingPx
+            if (heightWithItem > constraints.maxHeight) {
+                break
+            }
+            placeables.add(placeable)
+            totalHeight = heightWithItem
+        }
+
+        layout(constraints.maxWidth, totalHeight.coerceAtLeast(constraints.minHeight)) {
+            var y = 0
+            placeables.forEach { placeable ->
+                placeable.placeRelative(0, y)
+                y += placeable.height + spacingPx
+            }
         }
     }
 }
@@ -184,10 +224,9 @@ private fun NewWithinInterestArticleCard(
     ) {
         Row(
             modifier = Modifier
-                .fillMaxSize()
-                .padding(start = 16.dp, top = 8.dp, end = 16.dp, bottom = 8.dp),
-            horizontalArrangement = Arrangement.spacedBy(16.dp),
-            verticalAlignment = Alignment.CenterVertically
+                .fillMaxWidth()
+                .padding(16.dp),
+            horizontalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             Column(
                 modifier = Modifier.weight(1f),
