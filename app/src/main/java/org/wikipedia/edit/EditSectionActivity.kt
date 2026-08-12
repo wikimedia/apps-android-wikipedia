@@ -244,6 +244,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
                                 }
                             }
                             is Resource.Error -> {
+                                EditAttemptStepEvent.logAbort(viewModel.pageTitle)
                                 showProgressBar(false)
                                 showError(it.throwable)
                             }
@@ -388,22 +389,17 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
             binding.editSectionCaptchaContainer.visibility = View.VISIBLE
             captchaHandler.handleCaptcha(null, result)
         } else {
-            // Expand to do everything.
-            onEditFailure(Throwable(), false)
+            onEditFailure(Throwable())
         }
     }
 
-    private fun onEditFailure(caught: Throwable, shouldLogAbort: Boolean = true) {
+    private fun onEditFailure(caught: Throwable) {
+        EditAttemptStepEvent.logSaveFailure(viewModel.pageTitle)
         showProgressBar(false)
         if (caught is MwException) {
             handleEditingException(caught)
         } else {
             showRetryDialog(caught)
-        }
-        if (shouldLogAbort) {
-            EditAttemptStepEvent.logAbort(viewModel.pageTitle)
-        } else {
-            EditAttemptStepEvent.logSaveFailure(viewModel.pageTitle)
         }
         L.e(caught)
     }
