@@ -66,13 +66,13 @@ fun showEditorChoiceDialog(
         EditorChoiceDialogConfig(
             dialogTitle = R.string.editor_select_title_settings_screen,
             confirmButtonText = R.string.editor_select_save_btn_settings_screen,
-            true
+            isInSettingsScreen = true
         )
     } else {
         EditorChoiceDialogConfig(
             dialogTitle = R.string.editor_select_dialog_title,
             confirmButtonText = R.string.editor_select_dialog_continue,
-            false
+            isInSettingsScreen = false
         )
     }
 
