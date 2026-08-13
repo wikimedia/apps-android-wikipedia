@@ -40,8 +40,8 @@ interface PageTopicDao {
     @Query("SELECT HistoryEntry.*, PageImage.imageName, PageImage.description, PageImage.geoLat, PageImage.geoLon, PageImage.timeSpentSec FROM HistoryEntry" +
             "  INNER JOIN PageTopic ON (HistoryEntry.lang = PageTopic.lang AND HistoryEntry.namespace = PageTopic.namespace AND HistoryEntry.apiTitle = PageTopic.apiTitle)" +
             "  LEFT OUTER JOIN PageImage ON (HistoryEntry.lang = PageImage.lang AND HistoryEntry.namespace = PageImage.namespace AND HistoryEntry.apiTitle = PageImage.apiTitle)" +
-            "  INNER JOIN (SELECT lang, apiTitle, MAX(timestamp) AS max_timestamp FROM HistoryEntry GROUP BY lang, apiTitle) LatestEntries" +
-            "    ON (HistoryEntry.lang = LatestEntries.lang AND HistoryEntry.apiTitle = LatestEntries.apiTitle AND HistoryEntry.timestamp = LatestEntries.max_timestamp)" +
+            "  INNER JOIN (SELECT lang, namespace, apiTitle, MAX(timestamp) AS max_timestamp FROM HistoryEntry WHERE timestamp BETWEEN :startMillis AND :endMillis GROUP BY lang, namespace, apiTitle) LatestEntries" +
+            "    ON (HistoryEntry.lang = LatestEntries.lang AND HistoryEntry.namespace = LatestEntries.namespace AND HistoryEntry.apiTitle = LatestEntries.apiTitle AND HistoryEntry.timestamp = LatestEntries.max_timestamp)" +
             "  WHERE PageTopic.topic = :topic AND HistoryEntry.timestamp BETWEEN :startMillis AND :endMillis" +
             "  ORDER BY HistoryEntry.timestamp DESC LIMIT :limit")
     @RewriteQueriesToDropUnusedColumns
