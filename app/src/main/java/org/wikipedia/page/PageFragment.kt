@@ -101,6 +101,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.theme.ThemeChooserDialog
+import org.wikipedia.topics.db.PageTopic
 import org.wikipedia.util.ActiveTimer
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
@@ -771,13 +772,26 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
         bridge.addListener("link", linkHandler)
         bridge.addListener("setup") { _, _ -> onPageSetupEvent() }
-        bridge.addListener("final_setup") { _, _ ->
+        bridge.addListener("final_setup") { _, payload ->
             if (!isAdded) {
                 return@addListener
             }
             bridge.onPcsReady()
             articleInteractionEvent?.logLoaded()
             callback()?.onPageLoadComplete()
+
+            JsonUtil.decodeFromElement<PageMetadata>(payload)?.let { metadata ->
+                // Persist the list of topics for this article.
+                // TODO: do something with the other bits of metadata?
+                model.curEntry?.let { entry ->
+                    if (metadata.topics.isNotEmpty()) {
+                        MainScope().launch(CoroutineExceptionHandler { _, t -> L.e(t) }) {
+                            AppDatabase.instance.pageTopicDao()
+                                .upsertForPage(entry, PageTopic.fromMetadata(entry, metadata.topics))
+                        }
+                    }
+                }
+            }
 
             // do we have a URL fragment to scroll to?
             model.title?.let { prevTitle ->
@@ -800,7 +814,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             if (!isAdded) {
                 return@addListener
             }
-            references = JsonUtil.decodeFromString(messagePayload.toString())
+            references = JsonUtil.decodeFromElement<PageReferences>(messagePayload)
             references?.let {
                 if (it.referencesGroup.isNotEmpty()) {
                     showBottomSheet(ReferenceDialog())
