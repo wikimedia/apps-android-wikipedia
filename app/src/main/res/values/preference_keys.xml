@@ -223,7 +223,6 @@
     <string name="preference_key_home_preference_selection" translatable="false">exploreFeedPreferenceSelection</string>
     <string name="preference_key_home_for_you_modules_today" translatable="false">homeForYouModulesToday</string>
     <string name="preference_key_home_swipe_to_explore_prompt_shown" translatable="false">homeSwipeToExplorePromptShown</string>
-    <string name="preference_key_home_feed_update_tooltip_shown" translatable="false">homeFeedUpdateTooltipShown</string>
     <string name="preference_key_search_widget_install_prompt_shown" translatable="false">searchWidgetInstallPromptShown</string>
     <string name="preference_key_randomizer_shake_prompt_shown" translatable="false">randomizerShakePromptShown</string>
     <string name="preference_key_home_feed_survey_shown" translatable="false">homeFeedSurveyShown</string>

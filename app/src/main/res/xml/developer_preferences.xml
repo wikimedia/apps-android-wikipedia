@@ -592,9 +592,6 @@
             android:key="@string/preference_key_home_swipe_to_explore_prompt_shown"
             android:title="@string/preference_key_home_swipe_to_explore_prompt_shown"/>
         <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_home_feed_update_tooltip_shown"
-            android:title="@string/preference_key_home_feed_update_tooltip_shown"/>
-        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_home_feed_survey_shown"
             android:title="@string/preference_key_home_feed_survey_shown"/>
         <org.wikipedia.settings.SwitchPreferenceMultiLine
