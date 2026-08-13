@@ -40,9 +40,9 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.SuggestionsActivity
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.InstrumentationViewModel
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.Resource
-import org.wikipedia.util.InstrumentationViewModel
 import org.wikipedia.util.log.L
 import org.wikipedia.views.SuggestedArticleDescriptionsDialog
 import java.io.IOException
@@ -56,7 +56,7 @@ class DescriptionEditFragment : Fragment() {
     }
 
     private val viewModel: DescriptionEditViewModel by activityViewModels()
-    private val instrumentationViewModel : InstrumentationViewModel by activityViewModels()
+    private val instrumentationViewModel: InstrumentationViewModel by activityViewModels()
     private var _binding: FragmentDescriptionEditBinding? = null
     val binding get() = _binding!!
 
