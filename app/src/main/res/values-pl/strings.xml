@@ -2689,4 +2689,22 @@
   <string name="home_feed_games_module_cta_prompt_subtitle">Przejdź do centrum gier</string>
   <string name="home_feed_games_module_cta_prompt_button_text">Centrum gier</string>
   <string name="random_article_widget_name">Losowy artykuł</string>
+  <string name="reading_lists_tab_all_articles">Wszystkie artykuły</string>
+  <string name="reading_lists_tab_collections">Listy</string>
+  <string name="reading_lists_search_saved_articles">Wyszukaj zapisane artykuły</string>
+  <string name="reading_lists_search_collections">Wyszukaj listy</string>
+  <string name="reading_lists_remove_articles_confirm_dialog_title">Usunąć zapisane artykuły?</string>
+  <string name="reading_lists_remove_articles_confirm_button">Usuń</string>
+  <plurals name="reading_lists_remove_articles_confirm_dialog_message">
+    <item quantity="one">Ten artykuł zostanie usunięty ze wszystkich powiązanych lisy.</item>
+    <item quantity="few">Te %d artykuły zostaną usunięte ze wszystkich powiązanych list.</item>
+    <item quantity="many">Te %d artykułów zostanie usuniętych ze wszystkich powiązanych list.</item>
+    <item quantity="other">Te %d artykułu zostanie usunięte ze wszystkich powiązanych list.</item>
+  </plurals>
+  <plurals name="reading_lists_articles_removed_from_collections">
+    <item quantity="one">Usunięto artykuł ze wszystkich powiązanych list.</item>
+    <item quantity="few">Usunięto %d artykuły ze wszystkich powiązanych list.</item>
+    <item quantity="many">Usunięto %d artykułów ze wszystkich powiązanych list.</item>
+    <item quantity="other">Usunięto %d artykułu ze wszystkich powiązanych list.</item>
+  </plurals>
 </resources>

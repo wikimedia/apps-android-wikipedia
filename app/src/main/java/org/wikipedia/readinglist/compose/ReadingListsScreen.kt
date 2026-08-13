@@ -15,7 +15,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
@@ -36,14 +36,12 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.wikipedia.R
 import org.wikipedia.compose.components.MessageCard
-import org.wikipedia.compose.components.SearchEmptyView
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.readinglist.OnboardingState
@@ -67,6 +65,7 @@ fun ReadingListsScreen(
     isSelectionMode: Boolean = false,
     selectedListIds: Set<Long> = emptySet(),
     selectedPageIds: Set<Long> = emptySet(),
+    showTabBar: Boolean = true,
     showCollectionsBadge: Boolean = false,
     onSelectTab: (SavedTab) -> Unit = {},
     onOnboardingAction: (OnboardingAction) -> Unit = {},
@@ -88,7 +87,7 @@ fun ReadingListsScreen(
     }
 
     Column(modifier = modifier.fillMaxSize()) {
-        if (!uiState.isSearchActive && !isSelectionMode) {
+        if (showTabBar && !uiState.isSearchActive && !isSelectionMode) {
             SavedTabBar(
                 selectedTab = uiState.selectedTab,
                 showCollectionsBadge = showCollectionsBadge,
@@ -250,12 +249,16 @@ private fun ReadingListsContent(
         }
         uiState.rows.isEmpty() && uiState.searchQuery.isNullOrEmpty() &&
             uiState.onboarding == OnboardingState.None && uiState.discoverCard == null -> {
-            EmptyReadingLists(modifier = modifier)
+            EmptyReadingLists(
+                selectedTab = uiState.selectedTab,
+                modifier = modifier
+            )
         }
         uiState.rows.isEmpty() && !uiState.searchQuery.isNullOrEmpty() -> {
-            SearchEmptyView(
-                modifier = modifier.fillMaxSize(),
-                emptyTexTitle = stringResource(R.string.search_reading_lists_no_results)
+            EmptyReadingLists(
+                selectedTab = uiState.selectedTab,
+                searchQuery = uiState.searchQuery,
+                modifier = modifier
             )
         }
         else -> {
@@ -435,15 +438,15 @@ private fun ReadingListsList(
                 )
             }
         }
-        items(
+        itemsIndexed(
             items = rows,
-            key = { row ->
+            key = { _, row ->
                 when (row) {
                     is ReadingListRow.ListRow -> "list-$sortMode-${row.list.id}"
                     is ReadingListRow.PageRow -> "page-$sortMode-${row.page.id}"
                 }
             }
-        ) { row ->
+        ) { index, row ->
             when (row) {
                 is ReadingListRow.ListRow -> ReadingListRow(
                     list = row.list,
@@ -466,16 +469,33 @@ private fun ReadingListsList(
                     onChipClick = { listId -> onPageChipClick(listId) }
                 )
             }
-            HorizontalDivider(
-                color = WikipediaTheme.colors.borderColor,
-                thickness = 0.5.dp
-            )
+            if (index < rows.lastIndex) {
+                HorizontalDivider(
+                    color = WikipediaTheme.colors.borderColor,
+                    thickness = 0.5.dp
+                )
+            }
         }
     }
 }
 
 @Composable
-private fun EmptyReadingLists(modifier: Modifier = Modifier) {
+private fun EmptyReadingLists(
+    selectedTab: SavedTab,
+    modifier: Modifier = Modifier,
+    searchQuery: String? = null
+) {
+    val query = searchQuery.orEmpty()
+    val title = when {
+        query.isEmpty() -> stringResource(R.string.saved_list_empty_title)
+        selectedTab == SavedTab.ALL_ARTICLES -> stringResource(R.string.reading_lists_search_empty_articles_title)
+        else -> stringResource(R.string.reading_lists_search_empty_collections_title)
+    }
+    val description = when {
+        query.isEmpty() -> stringResource(R.string.reading_lists_empty_message)
+        selectedTab == SavedTab.ALL_ARTICLES -> stringResource(R.string.reading_lists_search_empty_articles_message, query)
+        else -> stringResource(R.string.reading_lists_search_empty_collections_message, query)
+    }
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -485,22 +505,30 @@ private fun EmptyReadingLists(modifier: Modifier = Modifier) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = stringResource(R.string.saved_list_empty_title),
+            text = title,
             color = WikipediaTheme.colors.primaryColor,
-            style = MaterialTheme.typography.titleLarge.copy(
-                fontSize = 20.sp,
-                fontWeight = FontWeight.Bold
-            ),
+            style = MaterialTheme.typography.titleSmall,
             textAlign = TextAlign.Center
         )
         Spacer(modifier = Modifier.size(12.dp))
         Text(
-            text = stringResource(R.string.reading_lists_empty_message),
+            text = description,
             color = WikipediaTheme.colors.secondaryColor,
-            style = MaterialTheme.typography.bodyLarge.copy(
-                letterSpacing = 0.15.sp,
+            style = MaterialTheme.typography.bodyMedium.copy(
+                letterSpacing = 0.25.sp,
             ),
             textAlign = TextAlign.Center
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun EmptyReadingListsSearchPreview() {
+    BaseTheme(currentTheme = Theme.LIGHT) {
+        EmptyReadingLists(
+            selectedTab = SavedTab.ALL_ARTICLES,
+            searchQuery = "Einstein"
         )
     }
 }
@@ -554,6 +582,45 @@ private fun ReadingListsScreenAllArticlesTabPreview() {
             uiState = ReadingListsUiState(
                 isLoading = false,
                 rows = listOf(
+                    ReadingListRow.ListRow(
+                        ReadingListUiModel(
+                            id = 2,
+                            title = "Physics",
+                            description = "reading",
+                            isDefault = false,
+                            totalPages = 12,
+                            sizeBytesFromPages = 1240000
+                        )
+                    )
+                )
+            )
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun ReadingListsScreenTabsDisabledPreview() {
+    BaseTheme(
+        currentTheme = Theme.LIGHT
+    ) {
+        ReadingListsScreen(
+            showTabBar = false,
+            uiState = ReadingListsUiState(
+                isLoading = false,
+                selectedTab = SavedTab.COLLECTIONS,
+                onboarding = OnboardingState.RecommendedReadingList,
+                rows = listOf(
+                    ReadingListRow.ListRow(
+                        ReadingListUiModel(
+                            id = 1,
+                            title = "Default",
+                            description = null,
+                            isDefault = true,
+                            totalPages = 3,
+                            sizeBytesFromPages = 0
+                        )
+                    ),
                     ReadingListRow.ListRow(
                         ReadingListUiModel(
                             id = 2,

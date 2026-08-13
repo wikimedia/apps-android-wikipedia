@@ -25,6 +25,7 @@
 * Havadar-hvac
 * Jeeputer
 * Kourosh
+* LProfo
 * Ladsgroup
 * Leyth
 * LordProfo
@@ -1388,7 +1389,7 @@
   <string name="insert_media_advanced_settings_image_type_frameless">بدون قاب</string>
   <string name="insert_media_advanced_settings_image_type_frame">قاب</string>
   <string name="insert_media_advanced_settings_image_type_basic">ابتدائی</string>
-  <string name="insert_media_advanced_settings_image_type_tip">می ةوانید مشخص کنید که آیتم رسانه چگونه در صفحه نمایش داده شود. این مورد برای حالت بندانگشتی است که شامل همه موارد و همه صفحات می‌شود.</string>
+  <string name="insert_media_advanced_settings_image_type_tip">می توانید مشخص کنید که آیتم رسانه چگونه در صفحه نمایش داده شود. این مورد برای حالت بندانگشتی است که شامل همه موارد و همه صفحات می‌شود.</string>
   <string name="insert_media_advanced_settings_image_size">اندازهٔ تصویر</string>
   <string name="insert_media_advanced_settings_image_size_default">پیش‌فرض</string>
   <string name="insert_media_advanced_settings_image_size_custom">سفارشی</string>
@@ -2278,4 +2279,10 @@
   <string name="home_feed_games_module_cta_prompt_subtitle">به مرکز بازی‌ها بروید</string>
   <string name="home_feed_games_module_cta_prompt_button_text">مرکز بازی‌ها</string>
   <string name="random_article_widget_name">مقالهٔ تصادفی</string>
+  <string name="reading_lists_tab_all_articles">همهٔ مقالات</string>
+  <string name="reading_lists_tab_collections">مجموعه‌ها</string>
+  <string name="reading_lists_search_saved_articles">جستجو در مقالات ذخیره‌شده</string>
+  <string name="reading_lists_search_collections">جستجوی مجموعه‌ها</string>
+  <string name="reading_lists_remove_articles_confirm_dialog_title">مقالات ذخیره‌شده حذف شوند؟</string>
+  <string name="reading_lists_remove_articles_confirm_button">حذف</string>
 </resources>

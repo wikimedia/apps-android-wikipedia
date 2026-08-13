@@ -197,6 +197,7 @@
     <string name="preference_key_recommended_reading_list_notification_simulator" translatable="false">recommendedReadingListNotificationSimulator</string>
     <string name="preference_key_recommended_reading_list_new_list_generated" translatable="false">recommendedReadingListNewListGenerated</string>
     <string name="preference_key_recommended_reading_list_reset" translatable="false">recommendedReadingListReset</string>
+    <string name="preference_key_reading_lists_tabs_enabled" translatable="false">readingListsTabsEnabled</string>
     <string name="preference_key_donation_reminder_config" translatable="false">donationReminderConfig</string>
     <string name="preference_key_donation_reminders" translatable="false">donationReminder</string>
     <string name="preference_key_donation_reminders_dev_reset" translatable="false">donationReminderDevReset</string>

@@ -43,6 +43,7 @@ import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.concurrency.FlowEventBus
+import org.wikipedia.events.ArticleSavedOrDeletedEvent
 import org.wikipedia.events.LoggedInEvent
 import org.wikipedia.events.LoggedOutEvent
 import org.wikipedia.events.LoggedOutInBackgroundEvent
@@ -105,6 +106,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                         isSelectionMode = selectionState.enabled,
                         selectedListIds = selectionState.selectedListIds,
                         selectedPageIds = selectionState.selectedPageIds,
+                        showTabBar = Prefs.isReadingListsTabsEnabled,
                         showCollectionsBadge = uiState.showCollectionsBadge,
                         onSelectTab = ::onSelectTab,
                         onOnboardingAction = ::onOnboardingAction,
@@ -136,6 +138,12 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                         is LoggedOutEvent,
                         is LoggedOutInBackgroundEvent -> viewModel.refreshAccountState()
                         is PageDownloadEvent -> viewModel.updatePageDownloadProgress(event.page)
+                        is ArticleSavedOrDeletedEvent -> {
+                            if (event.isAdded && Prefs.readingListsPageSaveCount < SAVE_COUNT_LIMIT) {
+                                showReadingListsSyncDialog()
+                                Prefs.readingListsPageSaveCount += 1
+                            }
+                        }
                     }
                 }
             }
@@ -174,6 +182,17 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                         }
                 }
             }
+        }
+    }
+
+    private fun showReadingListsSyncDialog() {
+        if (Prefs.isReadingListSyncEnabled) {
+            return
+        }
+        if (AccountUtil.isLoggedIn) {
+            ReadingListSyncBehaviorDialogs.promptEnableSyncDialog(requireActivity())
+        } else if (!viewModel.hasRecentPreviewSavedReadingList) {
+            ReadingListSyncBehaviorDialogs.promptLogInToSyncDialog(requireActivity())
         }
     }
 
@@ -282,6 +301,9 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     }
 
     private fun getSearchHint(tab: SavedTab): String {
+        if (!Prefs.isReadingListsTabsEnabled) {
+            return getString(R.string.filter_hint_filter_my_lists_and_articles)
+        }
         return getString(
             when (tab) {
                 SavedTab.ALL_ARTICLES -> R.string.reading_lists_search_saved_articles
@@ -555,13 +577,14 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     }
 
     override fun onDeleteItem(pageId: Long) {
-        launchWithPage(pageId) { page ->
-            val lists = viewModel.getReadingListsByIds(
-                viewModel.containingLists(pageId).mapTo(mutableSetOf()) { it.id }
-            )
-            if (lists.isNotEmpty()) {
-                 ReadingListBehaviorsUtil.deletePages(requireActivity(), lists, page, {}) {}
-            }
+        viewLifecycleOwner.lifecycleScope.launch {
+            val deletion = viewModel.prepareSelectedPagesForDeletion(setOf(pageId)) ?: return@launch
+            ReadingListBehaviorsUtil.deletePagesFromLists(
+                requireActivity(),
+                deletion.selectedPageCount,
+                deletion.readingLists,
+                {}
+            ) {}
         }
     }
 
@@ -829,6 +852,8 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     }
 
     companion object {
+        private const val SAVE_COUNT_LIMIT = 3
+
         fun newInstance(): ReadingListsFragment {
             return ReadingListsFragment()
         }

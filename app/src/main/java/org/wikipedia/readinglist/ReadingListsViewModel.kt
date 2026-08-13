@@ -41,7 +41,11 @@ class ReadingListsViewModel : ViewModel() {
         .debounce { query -> if (query.isNullOrEmpty()) 0L else SEARCH_DEBOUNCE_MILLIS }
         .distinctUntilChanged()
     private val searchActive = MutableStateFlow(false)
-    private val selectedTab = MutableStateFlow(SavedTab.ALL_ARTICLES)
+
+    private val tabsEnabled get() = Prefs.isReadingListsTabsEnabled
+    private val selectedTab = MutableStateFlow(
+        if (tabsEnabled) SavedTab.ALL_ARTICLES else SavedTab.COLLECTIONS
+    )
 
     // Combine the debounced search query and selected tab into a single state flow representing the current content mode.
     // this reduces the number of flows needed in the main combine() call for uiState
@@ -50,6 +54,9 @@ class ReadingListsViewModel : ViewModel() {
     }.distinctUntilChanged()
 
     private val recentPreviewSavedState = MutableStateFlow(RecentPreviewSavedState())
+    val hasRecentPreviewSavedReadingList
+        get() = recentPreviewSavedState.value.newBadgeListId != null
+
     private val accountState = MutableStateFlow(readAccountState())
     private val pageDownloadProgress = MutableStateFlow<Map<Long, Int>>(emptyMap())
 
@@ -100,8 +107,9 @@ class ReadingListsViewModel : ViewModel() {
             .onStart { emit(pageDownloadProgress.value) }
             .distinctUntilChanged()
     ) { contentState, downloadProgress ->
+        // Without tabs, article rows only appear in search results, where they will show progress bar.
         contentState.copy(
-            pageDownloadProgress = if (contentState.selectedTab == SavedTab.ALL_ARTICLES) {
+            pageDownloadProgress = if (!tabsEnabled || contentState.selectedTab == SavedTab.ALL_ARTICLES) {
                 downloadProgress
             } else {
                 emptyMap()
@@ -155,14 +163,15 @@ class ReadingListsViewModel : ViewModel() {
             contentState.copy(
                 isSearchActive = isSearchActive,
                 onboarding = resolveOnboardingState(contentState.selectedTab, contentState.searchQuery, isSearchActive, accountState),
-                discoverCard = discoverCard.takeIf { isCollections && !isSearching }
+                discoverCard = discoverCard.takeIf { isCollections && !isSearching },
+                showCollectionsBadge = contentState.showCollectionsBadge || discoverCard?.isNewListGenerated == true
             )
         }
             .flowOn(Dispatchers.IO)
             .stateIn(
                 scope = viewModelScope,
                 started = SharingStarted.WhileSubscribed(STOP_TIMEOUT_MILLIS),
-                initialValue = ReadingListsUiState()
+                initialValue = ReadingListsUiState(selectedTab = selectedTab.value)
             )
 
     fun setSearchQuery(query: String?) {
@@ -299,10 +308,6 @@ class ReadingListsViewModel : ViewModel() {
         return AppDatabase.instance.readingListDao().getListsWithoutContents()
     }
 
-    suspend fun getReadingListsByIds(listIds: Set<Long>): List<ReadingList> {
-        return AppDatabase.instance.readingListDao().getListsByIds(listIds)
-    }
-
     suspend fun createReadingList(title: String, description: String) {
         AppDatabase.instance.readingListDao().createList(title, description)
     }
@@ -315,16 +320,11 @@ class ReadingListsViewModel : ViewModel() {
         return AppDatabase.instance.readingListPageDao().getPagesByIds(pageIds)
     }
 
-    /**
-     * Produces lists containing only the selected pages that should be deleted from each list.
-     * This is needed because selection state contains page IDs, while deletion operates on lists.
-     */
-    suspend fun prepareSelectedPagesForDeletion(): SelectedPagesDeletion? {
-        val selectedPageIds = selectionState.value.selectedPageIds
+    suspend fun prepareSelectedPagesForDeletion(pageIds: Set<Long> = selectionState.value.selectedPageIds): SelectedPagesDeletion? {
         val selectedRows = uiState.value.rows
             .asSequence()
             .filterIsInstance<ReadingListRow.PageRow>()
-            .filter { it.page.id in selectedPageIds }
+            .filter { it.page.id in pageIds }
             .toList()
         if (selectedRows.isEmpty()) {
             return null
@@ -367,25 +367,30 @@ class ReadingListsViewModel : ViewModel() {
             return OnboardingState.None
         }
 
+        val recommendedState = if (!Prefs.isRecommendedReadingListOnboardingShown) {
+            OnboardingState.RecommendedReadingList
+        } else {
+            OnboardingState.None
+        }
+        val reminderState = when {
+            accountState.isLoggedIn && !accountState.isTemporaryAccount && !Prefs.isReadingListSyncEnabled &&
+                    Prefs.isReadingListSyncReminderEnabled && !RemoteConfig.config.disableReadingListSync -> {
+                OnboardingState.SyncReminder
+            }
+            (!accountState.isLoggedIn || accountState.isTemporaryAccount) && Prefs.isReadingListLoginReminderEnabled &&
+                    !RemoteConfig.config.disableReadingListSync -> {
+                OnboardingState.LoginReminder
+            }
+            else -> OnboardingState.None
+        }
+        // show all dialogs when tabs are disabled
+        if (!tabsEnabled) {
+            return if (recommendedState != OnboardingState.None) recommendedState else reminderState
+        }
+
         return when (selectedTab) {
-            SavedTab.ALL_ARTICLES -> when {
-                accountState.isLoggedIn && !accountState.isTemporaryAccount && !Prefs.isReadingListSyncEnabled &&
-                        Prefs.isReadingListSyncReminderEnabled && !RemoteConfig.config.disableReadingListSync -> {
-                    OnboardingState.SyncReminder
-                }
-                (!accountState.isLoggedIn || accountState.isTemporaryAccount) && Prefs.isReadingListLoginReminderEnabled &&
-                        !RemoteConfig.config.disableReadingListSync -> {
-                    OnboardingState.LoginReminder
-                }
-                else -> OnboardingState.None
-            }
-            SavedTab.COLLECTIONS -> {
-                if (!Prefs.isRecommendedReadingListOnboardingShown) {
-                    OnboardingState.RecommendedReadingList
-                } else {
-                    OnboardingState.None
-                }
-            }
+            SavedTab.ALL_ARTICLES -> reminderState
+            SavedTab.COLLECTIONS -> recommendedState
         }
     }
 
@@ -434,10 +439,16 @@ class ReadingListsViewModel : ViewModel() {
         recentPreviewSavedId: Long?
     ): List<ReadingListRow> {
         val normalizedQuery = StringUtils.stripAccents(query)
+        val matchingListRows = lists
+            .filter { it.accentInvariantTitle.contains(normalizedQuery, ignoreCase = true) }
+            .map { ReadingListRow.ListRow(it.toUiModel(recentPreviewSavedId)) }
+
+        if (!tabsEnabled) {
+            return matchingListRows + buildArticleRows(lists, normalizedQuery)
+        }
+
         return when (tab) {
-            SavedTab.COLLECTIONS -> lists
-                .filter { it.accentInvariantTitle.contains(normalizedQuery, ignoreCase = true) }
-                .map { ReadingListRow.ListRow(it.toUiModel(recentPreviewSavedId)) }
+            SavedTab.COLLECTIONS -> matchingListRows
             SavedTab.ALL_ARTICLES -> buildArticleRows(lists, normalizedQuery)
         }
     }
