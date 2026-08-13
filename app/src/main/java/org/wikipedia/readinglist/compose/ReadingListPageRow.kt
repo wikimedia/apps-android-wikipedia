@@ -107,13 +107,14 @@ fun ReadingListPageRow(
                 )
             }
 
-            if (containingLists.isNotEmpty()) {
+            val customLists = containingLists.filterNot { it.isDefault }
+            if (customLists.isNotEmpty()) {
                 FlowRow(
                     modifier = Modifier.padding(top = 8.dp),
                     horizontalArrangement = spacedBy(8.dp),
                     verticalArrangement = spacedBy(8.dp)
                 ) {
-                    containingLists.forEach { list ->
+                    customLists.forEach { list ->
                         ListChip(
                             title = list.title,
                             onClick = {
@@ -162,26 +163,6 @@ fun ReadingListPageRow(
             thumbUrl = page.thumbUrl,
             modifier = Modifier.alpha(if (page.isAvailable) 1f else 0.5f)
         )
-
-        // Containing-list chips span the full width below the top row.
-        val customLists = containingLists.filterNot { it.isDefault }
-        if (customLists.isNotEmpty()) {
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .horizontalScroll(rememberScrollState()),
-                horizontalArrangement = spacedBy(8.dp)
-            ) {
-                customLists.forEach { list ->
-                    ListChip(
-                        title = list.title,
-                        onClick = {
-                            if (isSelectionMode) onSelectionChange() else onChipClick(list.id)
-                        }
-                    )
-                }
-            }
-        }
     }
 }
 

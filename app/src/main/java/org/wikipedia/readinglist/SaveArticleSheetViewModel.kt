@@ -75,8 +75,7 @@ class SaveArticleSheetViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
             collections = readingLists
                 .filterNot { it.isDefault }
                 .sortedWith(compareByDescending<ReadingList> { it.mtime }.thenByDescending { it.id })
-                .map { list -> list.toCollectionUiModel(title) },
-            isLoading = false
+                .map { list -> list.toCollectionUiModel(title) }
         )
     }
 
@@ -257,6 +256,5 @@ data class SaveCollectionUiModel(
 
 data class SaveArticleSheetUiState(
     val article: SaveArticleUiModel,
-    val collections: List<SaveCollectionUiModel> = emptyList(),
-    val isLoading: Boolean = true
+    val collections: List<SaveCollectionUiModel> = emptyList()
 )
