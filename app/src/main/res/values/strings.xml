@@ -591,8 +591,12 @@
     <string name="reading_lists_item_deleted">%s removed from lists</string>
     <string name="reading_list_item_delete_undo">Undo</string>
     <string name="reading_list_deleted">%s deleted</string>
-    <string name="saved_list_empty_title">No saved pages yet</string>
+    <string name="saved_list_empty_title">No saved articles yet</string>
     <string name="reading_lists_empty_message">Add articles to a list for reading later, even when you\'re offline.</string>
+    <string name="reading_lists_search_empty_articles_title">No saved articles found</string>
+    <string name="reading_lists_search_empty_articles_message">We couldn\'t find “%s” in your saved articles.</string>
+    <string name="reading_lists_search_empty_collections_title">No collections found</string>
+    <string name="reading_lists_search_empty_collections_message">We couldn\'t find “%s” in your collections.</string>
     <string name="reading_list_empty">You have no articles added to this list.</string>
     <string name="reading_list_article_offline">Available offline</string>
     <string name="reading_list_article_make_offline">Make this article available offline</string>
@@ -2586,4 +2590,20 @@
 
     <!-- Random Article Widget   -->
     <string name="random_article_widget_name">Random article</string>
+
+    <!-- Reading Lists   -->
+    <string name="reading_lists_tab_all_articles">All articles</string>
+    <string name="reading_lists_tab_collections">Collections</string>
+    <string name="reading_lists_search_saved_articles">Search saved articles</string>
+    <string name="reading_lists_search_collections">Search collections</string>
+    <string name="reading_lists_remove_articles_confirm_dialog_title">Remove saved articles?</string>
+    <string name="reading_lists_remove_articles_confirm_button">Remove</string>
+    <plurals name="reading_lists_remove_articles_confirm_dialog_message">
+        <item quantity="one">This article will be removed from all associated collections.</item>
+        <item quantity="other">These %d articles will be removed from all associated collections.</item>
+    </plurals>
+    <plurals name="reading_lists_articles_removed_from_collections">
+        <item quantity="one">Article removed from all associated collections.</item>
+        <item quantity="other">%d articles removed from all associated collections.</item>
+    </plurals>
 </resources>

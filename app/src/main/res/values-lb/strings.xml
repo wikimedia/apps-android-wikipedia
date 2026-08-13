@@ -47,7 +47,7 @@
   <string name="history_list_title">Versiounen</string>
   <string name="image_content_description">Bild: %s</string>
   <string name="page_content_description">Säit: %s</string>
-  <string name="wikimedia_commons">Wikimedia-Commons</string>
+  <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Browsing-Historique läschen</string>
   <string name="dialog_message_clear_history">Doduerch gëtt Äre kompletten Browsing-Historique geläscht. Sidd Dir sécher?</string>
@@ -256,7 +256,7 @@
   <string name="about_wmf">E Produkt vun der &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Iwwer</string>
   <string name="about_logo_content_description">Wikipedia-Puzzle-Globus-Logo</string>
-  <string name="edit_abandon_confirm">D\'Säit gouf geännert. Sidd Dir sécher, datt Dir erausgoe wëllt ouni Är Ännerungen ze späicheren?</string>
+  <string name="edit_abandon_confirm">D\'Säit gouf geännert. Sidd Dir sécher, datt Dir erausgoe wëllt, ouni Är Ännerungen ze späicheren?</string>
   <string name="edit_abandon_confirm_yes">Jo</string>
   <string name="edit_abandon_confirm_no">Nee</string>
   <string name="user_blocked_from_editing_title">Gespaart</string>
@@ -378,7 +378,7 @@
   <string name="page_offline_notice_add_to_reading_list">Hiweis: Setzt den Artikel op eng Lieslëscht an da gëtt en automatesch erofgelueden, soubal Dir erëm online sidd.</string>
   <string name="page_offline_notice_last_date">Dir liest eng offline Versioun vun dësem Artikel, déi de(n) %s gespäichert gouf.</string>
   <string name="redirected_from_snackbar">Virugeleet vu(n) „%s”</string>
-  <string name="button_get_directions">Richtunge kréien</string>
+  <string name="button_get_directions">Navigéieren</string>
   <string name="error_no_maps_app">Et konnte keng Appe fonnt ginn déi Richtungen zur Verfügung stellen.</string>
   <string name="preference_title_customize_explore_feed">„Entdecken“-Feed</string>
   <string name="preference_title_customize_home_feed">Start-Feed</string>
@@ -480,6 +480,7 @@
   <string name="editing_syntax_highlight_label">Ervirhiewe vun der Syntax</string>
   <string name="editing_line_numbers_label">Zeilennummere weisen</string>
   <string name="editing_monospace_font_label">Monospace-Schrëftaart benotzen</string>
+  <string name="editing_typing_suggestions">Tippvirschléi weisen</string>
   <string name="nav_item_saved">Gespäichert</string>
   <string name="reading_list_save_to">Op d\'Lieslëscht setzen</string>
   <string name="reading_list_move_to">Op d\'Lieslëscht réckelen</string>
@@ -977,7 +978,7 @@
   <string name="suggested_edits_image_tags">Bildmarkéierungen</string>
   <string name="suggested_edits_image_tags_publishing">Verëffentlechen</string>
   <string name="suggested_edits_image_tags_published">Verëffentlecht</string>
-  <string name="suggested_edits_image_tags_onboarding_title">D\'Markéiere vu Biller mécht et méi einfach fir se erëmzefannen.</string>
+  <string name="suggested_edits_image_tags_onboarding_title">D\'Markéiere vu Biller mécht et méi einfach, fir se erëmzefannen.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Nëmmen d\'Markéierungen, déi Dir auswielt, gi bei d\'Biller derbäigesat.</string>
   <string name="suggested_edits_image_tags_task_detail">Setzt benotzerdefinéiert Markéierunge bei Biller derbäi, fir datt se méi liicht erëmzefanne sinn.</string>
   <string name="suggested_edits_image_tags_choose">Passend Markéierungen derbäisetzen oder auswielen</string>
@@ -1114,6 +1115,7 @@
   <string name="activity_tab_logged_out_title">Loggt Iech an oder leet e Kont un, fir Är Aktivitéit an der Wikipedia-App ze gesinn</string>
   <string name="activity_tab_user_reading">Lektür vum %s</string>
   <string name="activity_tab_on_wikipedia_android">an der Wikipedia-App</string>
+  <string name="activity_tab_weekly_time_spent_hm">%1$d h %2$d min</string>
   <string name="activity_tab_weekly_time_spent">Lieszäit dës Woch</string>
   <string name="activity_tab_monthly_articles_read">Artikelen, déi dëse Mount gelies goufen</string>
   <string name="activity_tab_monthly_articles_saved">Artikelen, déi dëse Mount gespäichert goufen</string>
@@ -1218,8 +1220,14 @@
   <string name="onboarding_multilingual_secondary_text">Mir hunn déi follgend op Ärem Apparat fonnt:</string>
   <string name="onboarding_multilingual_add_language_text">Sproochen derbäisetzen oder änneren</string>
   <string name="onboarding_welcome_title_v2">Déi fräi Enzyklopedie\n... a méi wéi 300 Sproochen</string>
+  <string name="onboarding_next">Weider</string>
+  <string name="onboarding_fresh_install_knowledge_title">D\'Wësse vun der ganzer Welt</string>
+  <string name="onboarding_fresh_install_knowledge_text">Wikipedia ass eng fräi Online-Enzyklopedie mat 65 Milliounen Artikelen, déi vun enger Communautéit vu Fräiwëllegen op méi wéi 300 Sprooche kollaborativ geschriwwen an a Stand gehale ginn.</string>
   <string name="onboarding_fresh_install_knowledge_learn_more">Méi iwwer Wikipedia gewuer ginn</string>
+  <string name="onboarding_app_languages_title">Liest op méi wéi 300 Sproochen</string>
   <string name="onboarding_app_languages_text">Op Ärem Apparat hu mir déi follgend Sprooche fonnt:</string>
+  <string name="onboarding_app_languages_primary">Primär</string>
+  <string name="onboarding_app_languages_add_button">Är Sproochen derbäisetzen oder änneren</string>
   <string name="app_shortcuts_random">Zoufall</string>
   <string name="app_shortcuts_continue_reading">Virufuere mat Liesen</string>
   <string name="app_shortcuts_search">Sichen</string>
@@ -1603,19 +1611,29 @@
   <string name="patroller_tasks_filters_significance_edits">Net-kleng Ännerungen</string>
   <string name="patroller_tasks_filters_contribution_quality_header">Prognose vun der Kontributiounsqualitéit</string>
   <string name="patroller_tasks_filters_contribution_quality_good">Héchstwarscheinlech gutt</string>
+  <string name="patroller_tasks_filters_contribution_quality_good_desc">Ganz genee fir bal all Ännerungen ouni Problemer ze fannen.</string>
   <string name="patroller_tasks_filters_contribution_quality_may_problems">Kéint Problemer hunn</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems_desc">Fënnt déi meeschte feelerhaft oder schiedlech Ännerungen, mee mat méi enger niddreger Genauegkeet.</string>
   <string name="patroller_tasks_filters_contribution_quality_likely_problems">Huet warscheinlech Problemer</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems_desc">Fënnt mat mëttlerer Genauegkeet e mëttleren Undeel vu problemateschen Ännerungen.</string>
   <string name="patroller_tasks_filters_contribution_quality_bad">Huet héchstwarscheinlech Problemer</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad_desc">Immens genee fir déi offensichtlechst feelerhaft oder schiedlech Ännerungen ze fannen.</string>
   <string name="patroller_tasks_filters_user_intent_header">Prognosen iwwer d\'Absicht vum Benotzer</string>
   <string name="patroller_tasks_filters_user_intent_good">Héchstwarscheinlech gutt Absicht</string>
+  <string name="patroller_tasks_filters_user_intent_good_desc">Ganz genee fir bal all Ännerungen ze fannen, déi mat gudder Absicht gemaach goufen.</string>
   <string name="patroller_tasks_filters_user_intent_may_problems">Villäicht schlecht Absicht</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems_desc">Fënnt déi meescht Ännerungen, déi mat schlechter Absicht gemaach goufen, mee mat méi enger niddreger Genauegkeet.</string>
   <string name="patroller_tasks_filters_user_intent_likely_problems">Warscheinlech schlecht Absicht</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems_desc">Fënnt mat mëttlerer Genauegkeet e mëttleren Undeel vun Ännerungen, déi mat schlechter Absicht gemaach goufen.</string>
   <string name="patroller_tasks_filters_user_intent_bad">Héchstwarscheinlech schlecht Absicht</string>
+  <string name="patroller_tasks_filters_user_intent_bad_desc">Immens genee fir déi offensichtlechst Ännerungen, déi mat schlechter Absicht gemaach goufen, ze fannen.</string>
   <string name="patroller_tasks_filters_empty_search_message">Probéiert fir %s ewechzehuele fir méi Ännerungen ugewisen ze kréien</string>
   <plurals name="patroller_tasks_filters_number_of_filters">
     <item quantity="one">%d Filter</item>
     <item quantity="other">%d Filteren</item>
   </plurals>
+  <string name="patroller_tasks_patrol_edit_overflow_edit_history">Historique vun den Artikelännerungen</string>
+  <string name="patroller_tasks_patrol_edit_undo_success">Zerécksetzen ofgeschloss</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Sidd Dir sécher, datt Dir zerécksetze wëllt?</string>
   <string name="patroller_tasks_patrol_edit_rollback_success">Zerécksetzen ofgeschloss</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">Weisen</string>
@@ -1817,6 +1835,10 @@
   <string name="settings_app_icon_subtitle">Virdeeler fir Contributeuren</string>
   <string name="settings_app_icon_updated">Äert App-Symbol gouf aktualiséiert.</string>
   <string name="year_in_review_slide_app_icon_title_unlocked">Neit App-Symbol fir Äre Startbildschierm fräigeschalt</string>
+  <string name="year_in_review_slide_app_icon_body_unlocked">Aktivéiert Äert neit App-Symbol an den Astellungen ënner „App-Symbol“. Merci fir Ären Investissement an d\'Zukunft vum fräie Wëssen. Är Kontributiounen als %1$s op %2$d droen dozou bäi, dee Wee a Richtung vun enger Welt voller fräier Informatiounen fräizemaachen, an dofir hutt Dir e personaliséiert Symbol fir Wikipedia-Contributeure fir Äre Startbildschierm fräigeschalt.</string>
+  <string name="year_in_review_slide_app_icon_donor">Donateur</string>
+  <string name="year_in_review_slide_app_icon_editor">Editeur</string>
+  <string name="year_in_review_slide_app_icon_donor_and_editor">Donateur an Editeur</string>
   <string name="year_in_review_login_dialog_positive">Aloggen / Bei Wikipedia matmaachen</string>
   <string name="year_in_review_login_dialog_negative">Virufueren ouni anzeloggen</string>
   <plurals name="year_in_review_slide_top_articles_headline">
@@ -1853,6 +1875,14 @@
   <plurals name="year_in_review_slide_english_reading_hours_headline">
     <item quantity="one">Mir hunn %,d Stonn mat Liese verbruecht</item>
     <item quantity="other">Mir hu(nn) %,d Stonne mat Liese verbruecht</item>
+  </plurals>
+  <plurals name="year_in_review_slide_available_languages_body_first">
+    <item quantity="one">Wikipedia hat %,d Artikel</item>
+    <item quantity="other">Wikipedia hat %,d Artikelen</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_global_first">
+    <item quantity="one">Wikipedia hat %,d Artikel</item>
+    <item quantity="other">Wikipedia hat %,d Artikelen</item>
   </plurals>
   <string name="year_in_review_reading_list_dialog_title">Är Lieslëscht fir de Joresréckbléck %d uleeën?</string>
   <string name="year_in_review_reading_list_dialog_message">De Wikipedia-Joresréckbléck leet eng Lieslëscht u mat den Artikelen, op deenen Dir %1$d am meeschten Zäit verbruecht hutt. &lt;a href=\"%2$s\"&gt;Méi gewuer ginn&lt;/a&gt;</string>
@@ -2211,4 +2241,18 @@
   <string name="randomizer_shake_prompt_message">Rëselt Ären Apparat, fir op en zoufällegen Artikel ze geroden an eppes Onerwaartes ze léieren.</string>
   <string name="home_feed_games_module_cta_prompt_title">Wëllt Dir nach méi Spiller spillen?</string>
   <string name="random_article_widget_name">Zoufällegen Artikel</string>
+  <string name="reading_lists_tab_all_articles">All d\'Artikelen</string>
+  <string name="reading_lists_tab_collections">Sammlungen</string>
+  <string name="reading_lists_search_saved_articles">An de gespäicherten Artikele sichen</string>
+  <string name="reading_lists_search_collections">An de Sammlunge sichen</string>
+  <string name="reading_lists_remove_articles_confirm_dialog_title">Gespäichert Artikelen eraushuelen?</string>
+  <string name="reading_lists_remove_articles_confirm_button">Eraushuelen</string>
+  <plurals name="reading_lists_remove_articles_confirm_dialog_message">
+    <item quantity="one">Dësen Artikel gëtt aus allen zougehéierege Sammlungen erausgeholl.</item>
+    <item quantity="other">Dës %d Artikele ginn aus allen zougehéierege Sammlungen erausgeholl.</item>
+  </plurals>
+  <plurals name="reading_lists_articles_removed_from_collections">
+    <item quantity="one">Artikel aus allen zougehéierege Sammlungen erausgeholl.</item>
+    <item quantity="other">%d Artikelen aus allen zougehéierege Sammlungen erausgeholl.</item>
+  </plurals>
 </resources>

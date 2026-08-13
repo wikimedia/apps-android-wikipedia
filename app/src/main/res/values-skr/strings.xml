@@ -769,4 +769,8 @@
   <string name="reading_challenge_widget_random_button">بے ترتیبا</string>
   <string name="reading_challenge_widget_collect_prize_button">انعام وصول کرو</string>
   <string name="explore_feed_community_tab_label">برادری</string>
+  <string name="reading_lists_tab_all_articles">سارے مضمون</string>
+  <string name="reading_lists_tab_collections">مجموعے</string>
+  <string name="reading_lists_search_collections">مجموعیاں دی ڳول</string>
+  <string name="reading_lists_remove_articles_confirm_button">ہٹاؤ</string>
 </resources>

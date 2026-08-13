@@ -2,6 +2,8 @@ package org.wikipedia.compose.components
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -9,6 +11,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
@@ -18,14 +21,20 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextLinkStyles
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
@@ -53,8 +62,12 @@ fun WikiCard(
     }
 
     Card(
-        modifier = modifier,
-        elevation = CardDefaults.cardElevation(defaultElevation = cardElevation),
+        modifier = modifier.shadow(
+            elevation = cardElevation,
+            shape = shape,
+            ambientColor = ComposeColors.Gray300,
+            spotColor = ComposeColors.Gray300
+        ),
         colors = colors,
         border = border,
         shape = shape
@@ -74,6 +87,7 @@ fun WikiCard(
 @Composable
 fun MessageCard(
     modifier: Modifier = Modifier,
+    label: String? = null,
     title: String? = null,
     message: String,
     imageRes: Int? = null,
@@ -94,8 +108,14 @@ fun MessageCard(
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(16.dp)
+                    .padding(start = 16.dp, end = 16.dp, top = 16.dp, bottom = 8.dp)
             ) {
+                if (!label.isNullOrEmpty()) {
+                    MessageCardLabel(
+                        text = label
+                    )
+                }
+
                 if (imageRes != null) {
                     Image(
                         painter = painterResource(id = imageRes),
@@ -109,16 +129,17 @@ fun MessageCard(
                 if (title != null) {
                     Text(
                         text = title,
-                        style = MaterialTheme.typography.titleLarge,
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 20.sp,
+                        lineHeight = 28.sp,
                         color = WikipediaTheme.colors.primaryColor,
                         modifier = Modifier.padding(bottom = 12.dp)
                     )
                 }
 
                 HtmlText(
-                    modifier = Modifier.padding(bottom = 12.dp),
                     text = message,
-                    style = MaterialTheme.typography.bodyMedium,
+                    style = MaterialTheme.typography.bodyLarge,
                     color = WikipediaTheme.colors.secondaryColor,
                     linkStyle = TextLinkStyles(
                         style = SpanStyle(
@@ -140,23 +161,50 @@ fun MessageCard(
                             contentColor = WikipediaTheme.colors.progressiveColor
                         ) {
                             Text(
-                                text = positiveButtonText
+                                text = positiveButtonText,
+                                fontSize = 16.sp,
                             )
                         }
                     }
 
                     if (!negativeButtonText.isNullOrEmpty()) {
                         AppTextButton(
+                            contentColor = WikipediaTheme.colors.placeholderColor,
                             onClick = { onNegativeButtonClick?.invoke() }
                         ) {
                             Text(
-                                text = negativeButtonText
+                                text = negativeButtonText,
+                                fontSize = 16.sp,
                             )
                         }
                     }
                 }
             }
         }
+    }
+}
+
+@Composable
+private fun MessageCardLabel(
+    text: String,
+    modifier: Modifier = Modifier
+) {
+    val chipShape = RoundedCornerShape(percent = 25)
+    Box(
+        modifier = modifier
+            .height(24.dp)
+            .clip(chipShape)
+            .background(color = WikipediaTheme.colors.backgroundColor)
+            .border(width = 1.dp, color = WikipediaTheme.colors.borderColor, shape = chipShape)
+            .padding(horizontal = 8.dp),
+        contentAlignment = Alignment.Center
+    ) {
+        Text(
+            text = text.uppercase(),
+            style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.Bold),
+            color = WikipediaTheme.colors.primaryColor,
+            maxLines = 1
+        )
     }
 }
 
@@ -212,6 +260,7 @@ private fun MessageCardPreview() {
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(8.dp),
+            label = "New",
             title = "Title text",
             message = "Message text",
             positiveButtonText = "Positive button",

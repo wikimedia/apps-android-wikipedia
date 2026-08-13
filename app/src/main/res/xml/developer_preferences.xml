@@ -366,6 +366,11 @@
             android:key="@string/preference_key_reading_lists_share_tooltip_shown"
             android:title="@string/preference_key_reading_lists_share_tooltip_shown" />
 
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_reading_lists_tabs_enabled"
+            android:title="@string/preference_key_reading_lists_tabs_enabled"
+            android:summary="Show the 'All articles'/ 'Collections' tabs on the Saved screen. Disabled in beta and production." />
+
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/preferences_developer_suggested_edits_category">

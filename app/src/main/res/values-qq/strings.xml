@@ -610,6 +610,10 @@
   <string name="reading_list_deleted">Message shown when a reading list is deleted. The \"%s\" symbol is replaced with the name of the list.</string>
   <string name="saved_list_empty_title">Title message shown when there are no articles in saved list.</string>
   <string name="reading_lists_empty_message">Descriptive message that explains the benefits of reading lists, and the location of the button to add an article to a reading list.</string>
+  <string name="reading_lists_search_empty_articles_title">Title shown on the "All articles" tab of the Saved screen when a search returns no matching saved articles.</string>
+  <string name="reading_lists_search_empty_articles_message">Message shown on the "All articles" tab of the Saved screen when a search returns no matching saved articles. The "%s" symbol is replaced with the term the user searched for.</string>
+  <string name="reading_lists_search_empty_collections_title">Title shown on the "Collections" tab of the Saved screen when a search returns no matching collections.</string>
+  <string name="reading_lists_search_empty_collections_message">Message shown on the "Collections" tab of the Saved screen when a search returns no matching collections. The "%s" symbol is replaced with the term the user searched for.</string>
   <string name="reading_list_empty">Message shown when a reading list does not contain any articles.</string>
   <string name="reading_list_article_offline">Label for a toggle switch to make a reading list article available offline or online.</string>
   <string name="reading_list_article_make_offline">Hint for button that makes a reading list article available for offline use.</string>
@@ -2325,4 +2329,18 @@
   <string name="home_feed_games_module_cta_prompt_subtitle">Subtitle for the prompt card in the Games module directing the user to the Games hub.</string>
   <string name="home_feed_games_module_cta_prompt_button_text">Button text on the Games module prompt card that navigates the user to the Games hub.</string>
   <string name="random_article_widget_name">Display name for the Random Article home screen widget.</string>
+  <string name="reading_lists_tab_all_articles">Label for the tab in the Saved screen that shows every saved article across all reading lists.</string>
+  <string name="reading_lists_tab_collections">Label for the tab in the Saved screen that shows the user\'s reading lists (collections).</string>
+  <string name="reading_lists_search_saved_articles">Hint text for searching saved article titles in the All articles tab.</string>
+  <string name="reading_lists_search_collections">Hint text for searching reading list titles in the Collections tab.</string>
+  <string name="reading_lists_remove_articles_confirm_dialog_title">Title of the confirmation dialog shown before removing saved articles from all associated collections.</string>
+  <string name="reading_lists_remove_articles_confirm_button">Label for the button that confirms removing the selected saved articles from all associated collections.</string>
+  <plurals name="reading_lists_remove_articles_confirm_dialog_message">
+    <item quantity="one">Confirmation message explaining that the selected article will be removed from all associated collections.</item>
+    <item quantity="other">Confirmation message explaining that the selected articles will be removed from all associated collections. The \"%d\" symbol is replaced with the number of selected articles.</item>
+  </plurals>
+  <plurals name="reading_lists_articles_removed_from_collections">
+    <item quantity="one">Message shown after one article is removed from all associated collections.</item>
+    <item quantity="other">Message shown after multiple articles are removed from all associated collections. The \"%d\" symbol is replaced with the number of articles removed.</item>
+  </plurals>
 </resources>

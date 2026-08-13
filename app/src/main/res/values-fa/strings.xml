@@ -25,6 +25,7 @@
 * Havadar-hvac
 * Jeeputer
 * Kourosh
+* LProfo
 * Ladsgroup
 * Leyth
 * LordProfo
@@ -1177,7 +1178,7 @@
   <string name="suggested_edits_report_feature_subject">مشکل با اصطلاحات در ویرایش پیشنهادی</string>
   <string name="edit_summary_added_image">تصویر اضافه شده</string>
   <string name="edit_summary_added_caption">برنگاشت افزوده شد</string>
-  <string name="edit_summary_added_image_and_caption">تصویر و کپشن اضافه شد</string>
+  <string name="edit_summary_added_image_and_caption">تصویر و برنگاشت اضافه شد</string>
   <string name="edit_published_view">مشاهده</string>
   <string name="activity_tab_logged_out_title">برای مشاهدهٔ فعالیت خود در برنامه ویکی‌پدیا، وارد شوید یا یک حساب کاربری ایجاد کنید</string>
   <string name="activity_tab_user_reading">مطالعهٔ %s</string>
@@ -1388,7 +1389,7 @@
   <string name="insert_media_advanced_settings_image_type_frameless">بدون قاب</string>
   <string name="insert_media_advanced_settings_image_type_frame">قاب</string>
   <string name="insert_media_advanced_settings_image_type_basic">ابتدائی</string>
-  <string name="insert_media_advanced_settings_image_type_tip">می ةوانید مشخص کنید که آیتم رسانه چگونه در صفحه نمایش داده شود. این مورد برای حالت بندانگشتی است که شامل همه موارد و همه صفحات می‌شود.</string>
+  <string name="insert_media_advanced_settings_image_type_tip">می توانید مشخص کنید که آیتم رسانه چگونه در صفحه نمایش داده شود. این مورد برای حالت بندانگشتی است که شامل همه موارد و همه صفحات می‌شود.</string>
   <string name="insert_media_advanced_settings_image_size">اندازهٔ تصویر</string>
   <string name="insert_media_advanced_settings_image_size_default">پیش‌فرض</string>
   <string name="insert_media_advanced_settings_image_size_custom">سفارشی</string>
@@ -2188,7 +2189,7 @@
   <string name="explore_feed_deselect_all_button_label">عدم انتخاب همه</string>
   <string name="explore_feed_potd_subtitle">تصاویر روزانه در ویکی‌انبار، انتخاب شده توسط مشارکت‌کنندگان داوطلب</string>
   <string name="explore_feed_featured_article_subtitle">مقالات برگزیده، برخی از باکیفیت‌ترین مقالات ویکی‌پدیا هستند که روزانه توسط ویرایشگران انتخاب می‌شوند.</string>
-  <string name="explore_feed_preference_selection_screen_title">دوست دارید اول چی ببینید؟</string>
+  <string name="explore_feed_preference_selection_screen_title">دوست دارید اول کدام را ببینید؟</string>
   <string name="explore_feed_preference_community_content_title">محتوای مرتبط با جامعه</string>
   <string name="explore_feed_preference_personalized_content_title">محتوای شخصی‌سازی‌شده</string>
   <string name="explore_feed_in_the_news_subtitle">مقالاتی که به‌طور اساسی به‌روزرسانی شده‌اند تا رویدادهای اخیر یا جاری مورد علاقه‌ی عموم را منعکس کنند</string>
@@ -2278,4 +2279,10 @@
   <string name="home_feed_games_module_cta_prompt_subtitle">به مرکز بازی‌ها بروید</string>
   <string name="home_feed_games_module_cta_prompt_button_text">مرکز بازی‌ها</string>
   <string name="random_article_widget_name">مقالهٔ تصادفی</string>
+  <string name="reading_lists_tab_all_articles">همهٔ مقالات</string>
+  <string name="reading_lists_tab_collections">مجموعه‌ها</string>
+  <string name="reading_lists_search_saved_articles">جستجو در مقالات ذخیره‌شده</string>
+  <string name="reading_lists_search_collections">جستجوی مجموعه‌ها</string>
+  <string name="reading_lists_remove_articles_confirm_dialog_title">مقالات ذخیره‌شده حذف شوند؟</string>
+  <string name="reading_lists_remove_articles_confirm_button">حذف</string>
 </resources>

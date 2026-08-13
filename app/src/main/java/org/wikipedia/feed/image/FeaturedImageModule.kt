@@ -36,6 +36,7 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.extensions.getString
 import org.wikipedia.feed.CommunityModuleContainer
+import org.wikipedia.feed.model.FeaturedImageCard
 import org.wikipedia.theme.Theme
 import org.wikipedia.views.imageservice.ImageService
 

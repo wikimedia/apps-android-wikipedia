@@ -20,7 +20,9 @@
 * SHaran (WMF)
 * SZ475
 * Strainu
+* TiberiuFr25
 * Trotinel Iftode
+* Vellion Eagle
 * WebSourceContentRO
 * Wintereu
 -->
@@ -149,7 +151,7 @@
   <string name="dialog_message_edit_failed">Salvarea nu a reușit!</string>
   <string name="dialog_message_edit_failed_retry">Reîncercare</string>
   <string name="dialog_message_edit_failed_cancel">Revocare</string>
-  <string name="dialog_message_leaving_edit">Modificările dumnevoastră nu au fost încă salvate. Sigur doriți să părăsiți această pagină?</string>
+  <string name="dialog_message_leaving_edit">Modificările dumneavoastră nu au fost încă salvate. Sigur doriți să părăsiți această pagină?</string>
   <string name="dialog_message_leaving_edit_leave">Părăsește</string>
   <string name="dialog_message_leaving_edit_stay">Rămâi</string>
   <string name="dialog_confirm_delete_donation_history_title">Confirmați ștergerea</string>
@@ -263,6 +265,7 @@
   <string name="about_description">Despre aplicația Wikipedia</string>
   <string name="privacy_policy_description">Politica de confidențialitate</string>
   <string name="terms_of_use_description">Termeni de utilizare</string>
+  <string name="legal_safety_contacts_description">Contacte juridice și de siguranță</string>
   <string name="about_wikipedia_url">https://ro.wikipedia.org/wiki/Wikipedia:Despre_Wikipedia</string>
   <string name="privacy_policy_url">https\n://foundation.wikimedia.org/wiki/Special:MyLanguage/Privacy_policy</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Terms_of_Use</string>
@@ -408,8 +411,10 @@
   <string name="button_get_directions">Indicații de orientare</string>
   <string name="error_no_maps_app">Nu s-a găsit nicio aplicație care să ofere indicații de orientare.</string>
   <string name="preference_title_customize_explore_feed">Explorare Flux</string>
+  <string name="preference_title_customize_home_feed">Flux principal</string>
   <string name="preference_title_show_link_previews">Afișează previzualizarea legăturilor</string>
   <string name="preference_summary_customize_explore_feed">Personalizează Explore Feed</string>
+  <string name="preference_summary_customize_home_feed">Personalizează-ți fluxul principal</string>
   <string name="preference_summary_show_link_previews">Se afișează o previzualizare rapidă a articolelor atunci când apăsați pe legături.</string>
   <string name="preference_title_collapse_tables">Ascunde tabele</string>
   <string name="preference_summary_collapse_tables">Ascunde automat tabele în articole, cum ar fi infocasete, referințe și note.</string>
@@ -460,9 +465,23 @@
   <string name="temp_account_not_logged_in">Nu sunteți autentificat</string>
   <string name="temp_account_anon_ip_dialog_body">Odată ce faceți o editare, adresa dvs. IP va fi asociată cu editările dvs.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Autentificați-vă&lt;/a&gt; sau &lt;a href=\"https://#createaccount\"&gt;creați un cont&lt;/a&gt; pentru a primi credit pentru editările viitoare și pentru a accesa alte funcționalități.</string>
   <string name="temp_account_anon_dialog_body">Odată ce faceți o editare, un &lt;b&gt;cont temporar&lt;/b&gt; va fi creat pentru dvs. pentru a vă proteja confidențialitatea. &lt;a href=\"%1$s\"&gt;Află mai multe&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Autentificați-vă&lt;/a&gt; sau &lt;a href=\"https://#createaccount\"&gt;Creați-vă un cont&lt;/a&gt; pentru a primi credit pentru modificările viitoare și pentru a accesa alte funcționalități.</string>
+  <string name="temp_account_temp_dialog_body">Editarea ta va fi atribuită contului %1$s . Adresa ta IP va fi vizibilă administratorilor.&lt;br /&gt;&lt;br /&gt;Dacă te &lt;a href=\"https://#login\"&gt;conectezi&lt;/a&gt; sau îți &lt;a href=\"https://#createaccount\"&gt;creezi un cont&lt;/a&gt;, modificările tale vor fi atribuite unui nume pe care îl poți alege. Crearea unui cont poate avea și alte beneficii.</string>
   <string name="temp_account_dialog_ok">Am înțeles</string>
   <string name="temp_account_using_title">Dvs. utilizați un cont temporar</string>
   <string name="temp_account_dialog_discard">Anulați modificările și conectați-vă</string>
+  <plurals name="temp_account_created">
+    <item quantity="one">Contul temporar %1$s a fost creat în urma publicării editării tale. Acesta va expira într-o zi.</item>
+    <item quantity="few">Contul temporar %1$s a fost creat în urma publicării editării tale. Acesta va expira în %2$d zile.</item>
+    <item quantity="other">Contul temporar %1$s a fost creat în urma publicării editării tale. Acesta va expira în %2$d de zile.</item>
+  </plurals>
+  <plurals name="temp_account_expiry">
+    <item quantity="one">Contul va expira într-o zi.</item>
+    <item quantity="few">Contul va expira în %d zile.</item>
+    <item quantity="other">Contul va expira în %d de zile.</item>
+  </plurals>
+  <string name="temp_account_anon_ip_edit_status">&lt;b&gt;Nu ești conectat.&lt;/b&gt; După ce faci o modificare, adresa ta IP va rămâne asociată modificărilor tale.</string>
+  <string name="temp_account_anon_edit_status">&lt;b&gt;Nu ești conectat.&lt;/b&gt; După ce faci o modificare, îți va fi creat un cont temporar pentru a-ți proteja confidențialitatea. &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Află mai multe&lt;/a&gt;</string>
+  <string name="temp_account_edit_status">&lt;b&gt;Folosești un cont temporar.&lt;/b&gt; Editarea ta va fi atribuită contului %1$s. &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s \"&gt;Află mai multe&lt;/a&gt;.</string>
   <string name="crash_report_activity_title">Eroare aplicație</string>
   <string name="crash_report_relaunch_or_quit">Ne pare rău, aplicația Wikipedia a întâmpinat o eroare și nu mai funcționează.\n\nDoriți să o reporniți sau să o închideți?</string>
   <string name="crash_report_relaunch">Repornește</string>

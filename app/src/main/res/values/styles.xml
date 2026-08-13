@@ -8,6 +8,7 @@
 
         <item name="toolbarStyle">@style/ToolbarStyle</item>
         <item name="actionModeStyle">@style/ActionModeStyle</item>
+        <item name="actionBarPopupTheme">@style/ActionBarTheme</item>
 
         <item name="materialButtonStyle">@style/App.Button</item>
 

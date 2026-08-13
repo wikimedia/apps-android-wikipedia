@@ -927,7 +927,7 @@
   <string name="description_edit_success_se_general_feed_link_snackbar">Tyckte du om det? Hjälp oss lägga till fler.</string>
   <string name="description_edit_success_encouragement">Du gjorde precis Wikipedia bättre för alla</string>
   <string name="description_edit_success_done">Klar</string>
-  <string name="description_edit_success_did_you_know">Visste du att?</string>
+  <string name="description_edit_success_did_you_know">Visste du att...</string>
   <string name="description_edit_success_article_edit_hint">Du kan även redigera artiklar i denna app. Prova att korrigera stavfel och små meningar genom att klicka på ikonen ^1 nästa gång</string>
   <string name="description_edit_tutorial_title_descriptions">Titelbeskrivningar</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Sammanfattar en artikel för att hjälpa läsare förstå ämnet med ett ögonkast</string>
@@ -1791,6 +1791,8 @@
   <string name="places_empty_message_snackbar">Det finns inga närliggande artiklar. Testa att zooma ut och flytta kartan.</string>
   <string name="survey_dialog_title">Hjälp oss att förbättra denna funktion</string>
   <string name="survey_dialog_message">Är du nöjd med denna funktion?</string>
+  <string name="home_feed_survey_title">Hjälp till att förbättra Hem</string>
+  <string name="home_feed_survey_message">Är du nöjd med flödena \"Gemenskap\" och \"För dig\"?</string>
   <string name="survey_dialog_option_satisfied">Nöjd</string>
   <string name="survey_dialog_option_neutral">Neutral</string>
   <string name="survey_dialog_option_unsatisfied">Inte nöjd</string>
@@ -2176,7 +2178,7 @@
   <string name="recommended_reading_list_page_snackbar_month">Månad</string>
   <string name="recommended_reading_list_settings_section_header">Rekommendationer</string>
   <string name="recommended_reading_list_settings_title">Upptäck inställningar</string>
-  <string name="recommended_reading_list_settings_toggle">Upptäck-läslista</string>
+  <string name="recommended_reading_list_settings_toggle">Läslista i upptäck</string>
   <string name="recommended_reading_list_settings_toggle_disable_message">Upptäck är avslaget. Wikipedia kommer inte rekommendera artiklar att läsa till dig.</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_title">Stäng av Upptäck?</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_message">Om du stänger av Upptäck kommer du inte längre att få %s läsrekommendationer från Wikipedia.</string>
@@ -2211,7 +2213,7 @@
   <string name="recommended_reading_list_settings_notifications_dialog_message">Om du stänger av aviseringar får du inte längre påminnelser när Upptäck uppdateras.</string>
   <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Stäng av dem</string>
   <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Nej, behåll dem på</string>
-  <string name="recommended_reading_list_notification_title">Din %s Upptäck-läslista är redo.</string>
+  <string name="recommended_reading_list_notification_title">Din %s läslista i upptäck är redo.</string>
   <string name="recommended_reading_list_notification_subtitle">Tryck för att se dina senaste rekommendationer.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">När din Upptäck uppdateras kommer Wikipedia skicka en rekommendation till dig.</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">Upptäck är påslaget. Wikipedia kommer rekommendera artiklar att läsa till dig.</string>
@@ -2304,6 +2306,10 @@
   <string name="reading_challenge_install_prompt_message">Baby Globe hejar på dig. Lägg till widgeten för läsutmaningen och följ dina framsteg från din startskärm.</string>
   <string name="reading_challenge_install_prompt_got_it">Jag förstår</string>
   <string name="reading_challenge_install_prompt_add">Lägg till</string>
+  <string name="search_widget_install_prompt_title">Ett snabbare sätt att söka</string>
+  <string name="search_widget_install_prompt_message">Installera Wikipedias sökwidget för omedelbar åtkomst till kunskap från din startskärm.</string>
+  <string name="search_widget_install_prompt_add">Lägg till</string>
+  <string name="search_widget_install_prompt_got_it">Jag förstår</string>
   <string name="reading_challenge_widget_explore_button">Utforska</string>
   <string name="reading_challenge_widget_explore_wikipedia_button">Utforska Wikipedia</string>
   <string name="reading_challenge_widget_join_challenge_button">Delta i utmaning</string>
@@ -2361,6 +2367,7 @@
   <string name="explore_feed_new_update_prompt_language_description">Läser du på flera språk? Var och ett får sin egen upplevelse. Du behöver bara byta så är ditt nya flöde redo.</string>
   <string name="explore_feed_new_update_prompt_primary_button_text">Anpassa mitt flöde</string>
   <string name="explore_feed_customize_interests">Anpassa intressen</string>
+  <string name="explore_feed_customize_discover">Anpassa Upptäck</string>
   <string name="explore_feed_new_update_prompt_secondary_button_text">Ställ iordning det åt mig</string>
   <string name="explore_feed_building_text">Nu bygger vi ditt flöde…</string>
   <string name="explore_feed_community_tab_label">Gemenskap</string>
@@ -2388,8 +2395,11 @@
   <string name="explore_feed_personalized_preference_empty_state_text">Du måste lägga till intressen för att se anpassade innehållsrekommendationer. Du kan göra detta i föregående steg eller senare i Inställningar.</string>
   <string name="explore_feed_because_you_read">Eftersom du läste: %s</string>
   <string name="explore_feed_swipe_to_explore_prompt_title">Svep för att utforska</string>
-  <string name="explore_feed_swipe_to_explore_prompt_message" fuzzy="true">Svep nedåt för att navigera mellan ämnen eller svep i sidled för att utforska relaterat innehåll.</string>
-  <string name="home_feed_settings_title" fuzzy="true">Anpassa hemflödet</string>
+  <string name="explore_feed_swipe_to_explore_prompt_message">Svep uppåt för att navigera mellan ämnen eller svep i sidled för att utforska relaterat innehåll.</string>
+  <string name="home_feed_settings_title">Anpassa ditt hemflöde</string>
+  <string name="home_feed_settings_default_view_title">Standardvy för flöde</string>
+  <string name="home_feed_settings_default_view_subtitle">Välj vilket flöde som ska visas först när du öppnar appen</string>
+  <string name="home_feed_settings_default_view_confirm">Denna ändring gäller nästa gång du öppnar appen.</string>
   <string name="home_feed_settings_whats_driving_title">Vad som driver ditt flöde</string>
   <string name="home_feed_settings_modules_title">Moduler</string>
   <string name="home_feed_settings_community_subtitle">Aktivera eller inaktivera flödesmodulerna i \"Gemenskap\"</string>
@@ -2402,12 +2412,15 @@
   <string name="home_feed_settings_because_you_read_subtitle">Förslag baserade på en nyligen läst artikel från din historik</string>
   <string name="home_feed_settings_continue_reading_title">Fortsätt läsa</string>
   <string name="home_feed_settings_continue_reading_subtitle">Hoppa tillbaka till artiklar du inte slutförde</string>
+  <string name="home_feed_did_you_know_title">Visste du att...</string>
+  <string name="home_feed_did_you_know_subtitle">Intressanta fakta från artiklar utvalda av frivilliga redigerare</string>
+  <string name="home_feed_did_you_know_more_label">Mer från \"Visste du att...\"</string>
   <string name="home_feed_settings_community_empty_dialog_title">Ditt gemenskapsflöde kommer att bli tomt.</string>
   <string name="home_feed_settings_for_you_empty_dialog_title">Ditt \"För dig\"-flöde kommer att bli tomt.</string>
   <string name="home_feed_settings_empty_dialog_text">Aktivera minst en modul för att se innehåll.</string>
   <string name="home_feed_settings_empty_dialog_positive">Fortsätt ändå</string>
   <string name="home_feed_screen_empty_state_label">Ditt flöde är tomt</string>
-  <string name="home_feed_community_screen_all_modules_disabled_description" fuzzy="true">Aktivera modulerna i &lt;b&gt;Från gemenskapen&lt;/b&gt; för att börja få innehåll som har valts ut av bidragsgivare inom Wikimedia-rörelsen.</string>
+  <string name="home_feed_community_screen_all_modules_disabled_description">Aktivera moduler i &lt;b&gt;Gemenskap&lt;/b&gt; för att börja få innehåll som har valts ut av och om Wikimedia-rörelsen.</string>
   <string name="home_feed_for_you_screen_all_modules_disabled_description">Aktivera modulerna i &lt;b&gt;För dig&lt;/b&gt; för att börja få innehåll baserat på dina preferenser.</string>
   <string name="home_feed_screen_all_modules_disabled_btn_label">Hantera moduler</string>
   <string name="home_feed_for_you_screen_empty_title">Ditt flöde är tomt för tillfället</string>
@@ -2415,9 +2428,15 @@
   <string name="home_feed_for_you_screen_empty_ways_to_start">Sätt att komma igång:</string>
   <string name="home_feed_for_you_screen_empty_add_interests">Lägg till &lt;a href=\"#add_interests\"&gt;några intressen&lt;/a&gt;</string>
   <string name="home_feed_for_you_screen_empty_see_community">Se vad som händer i &lt;a href=\"#community_tab\"&gt;gemenskapen&lt;/a&gt;</string>
+  <string name="home_feed_update_tooltip1">Nyhet: \"Slumpartikel\" och \"Sevärdheter\" finns i \"För dig\" samt \"Visste du att\" finns i gemenskapsfliken.</string>
+  <string name="home_feed_random_title">Slumpartikel</string>
+  <string name="home_feed_random_subtitle">Slumpartikel för att väcka din nyfikenhet</string>
+  <string name="home_feed_random_shuffle_button">Blanda</string>
   <string name="home_feed_settings_feed_configuration_description">Dessa ämnen och artiklar formar vad som visas i ditt flöde \"För dig\". Ta bort de du inte längre vill ha eller lägg till nya intressen.</string>
   <string name="home_feed_settings_feed_configuration_interest_title">Dina intressen</string>
   <string name="home_feed_settings_feed_configuration_interest_subtitle">Redigera dina intresseämnen</string>
+  <string name="home_feed_settings_feed_configuration_location_title">Din position</string>
+  <string name="home_feed_settings_feed_configuration_location_subtitle">Uppdatera din plats i \"Platser\" för att se artiklar i närheten</string>
   <string name="home_feed_settings_feed_configuration_empty_interest_subtitle">Din intresselista är tom. Lägg till något du är nyfiken på.</string>
   <string name="home_feed_settings_feed_configuration_reading_history_title">Läshistorik</string>
   <string name="home_feed_settings_feed_configuration_reading_history_subtitle">Bläddra bland dina nyligen lästa artiklar</string>
@@ -2425,4 +2444,45 @@
   <string name="home_feed_settings_feed_configuration_languages_title">Språk</string>
   <string name="home_feed_settings_feed_configuration_languages_subtitle">Redigera dina föredragna språk</string>
   <string name="home_feed_settings_feed_configuration_interests_updated_message">Intressen har uppdaterats. Ladda om ditt flöde för att se uppdateringar.</string>
+  <string name="home_feed_places_of_interest_cta_title">Berättelser från platser du älskar</string>
+  <string name="home_feed_places_of_interest_cta_description">Artiklar visas baserat på din senast visade plats. Gå till fliken Platser och välj en plats.</string>
+  <string name="home_feed_places_of_interest_cta_button">Gå till platser</string>
+  <string name="home_feed_settings_places_of_interest_title">Sevärdheter</string>
+  <string name="home_feed_settings_places_of_interest_subtitle">Artiklar i närheten av din senaste plats i Platser</string>
+  <string name="home_feed_settings_games_title">Spel</string>
+  <string name="home_feed_settings_games_subtitle">Dagliga spel baserade på Wikipedia-innehåll</string>
+  <string name="home_feed_settings_discover_title">Upptäck rekommendationer</string>
+  <string name="home_feed_settings_discover_subtitle">Artiklar från din läslista i Upptäck</string>
+  <string name="home_feed_discover_cta_title">Från Upptäck</string>
+  <string name="home_feed_discover_cta_description">Läs om nya ämnen som är utvalda just för dig. Välj mellan dagliga, veckovisa eller månatliga uppdateringar.</string>
+  <string name="home_feed_discover_cta_button">Aktivera läslistan i Upptäck</string>
+  <string name="home_feed_discover_card_footer">Från Upptäck • Uppdateras %s</string>
+  <string name="home_feed_discover_see_all_title">Det finns mer att upptäcka</string>
+  <string name="home_feed_discover_see_all_description">Din personliga läslista har fler berättelser som är utvalda just för dig.</string>
+  <string name="home_feed_discover_see_all_button">Utforska alla rekommendationer</string>
+  <string name="home_feed_places_of_interest_card_footer">%1$s • Baserat på din plats i Platser</string>
+  <string name="home_feed_for_you_screen_end_of_feed_title">Det var allt för idag!</string>
+  <string name="home_feed_for_you_screen_end_of_feed_description">Kom tillbaka imorgon för att hitta nya artiklar som är anpassade för dig.</string>
+  <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Sätt att fortsätta lära sig:</string>
+  <string name="home_feed_for_you_screen_end_of_feed_add_interests">Lägg till &lt;a href=\"#add_interests\"&gt;några intressen&lt;/a&gt;</string>
+  <string name="randomizer_shake_prompt_title">Skaka för att blanda</string>
+  <string name="randomizer_shake_prompt_message">Skaka enheten för att hoppa till en slumpartikel och upptäcka något oväntat.</string>
+  <string name="home_feed_games_module_cta_prompt_title">Vill du spela fler spel?</string>
+  <string name="home_feed_games_module_cta_prompt_subtitle">Gå till spelhubben</string>
+  <string name="home_feed_games_module_cta_prompt_button_text">Spelhubben</string>
+  <string name="random_article_widget_name">Slumpartikel</string>
+  <string name="reading_lists_tab_all_articles">Alla artiklar</string>
+  <string name="reading_lists_tab_collections">Samlingar</string>
+  <string name="reading_lists_search_saved_articles">Sök i sparade artiklar</string>
+  <string name="reading_lists_search_collections">Sök i samlingar</string>
+  <string name="reading_lists_remove_articles_confirm_dialog_title">Ta bort sparade artiklar?</string>
+  <string name="reading_lists_remove_articles_confirm_button">Ta bort</string>
+  <plurals name="reading_lists_remove_articles_confirm_dialog_message">
+    <item quantity="one">Denna artikel kommer att tas bort från alla associerade samlingar.</item>
+    <item quantity="other">Dessa %d artiklar kommer att tas bort från alla associerade samlingar.</item>
+  </plurals>
+  <plurals name="reading_lists_articles_removed_from_collections">
+    <item quantity="one">Artikel togs bort från alla associerade samlingar.</item>
+    <item quantity="other">%d artiklar togs bort från alla associerade samlingar.</item>
+  </plurals>
 </resources>
