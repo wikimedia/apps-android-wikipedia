@@ -46,7 +46,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.wikipedia.R
 import org.wikipedia.compose.components.MessageCard
-import org.wikipedia.compose.components.SearchEmptyView
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.readinglist.OnboardingState
@@ -268,14 +267,10 @@ private fun ReadingListsContent(
             )
         }
         uiState.rows.isEmpty() && !uiState.searchQuery.isNullOrEmpty() -> {
-            SearchEmptyView(
-                modifier = modifier.fillMaxSize(),
-                emptyTexTitle = stringResource(
-                    when (uiState.selectedTab) {
-                        SavedTab.ALL_ARTICLES -> R.string.search_all_articles_no_results
-                        SavedTab.COLLECTIONS -> R.string.search_collections_no_results
-                    }
-                )
+            EmptyReadingLists(
+                selectedTab = uiState.selectedTab,
+                searchQuery = uiState.searchQuery,
+                modifier = modifier
             )
         }
         else -> {
@@ -501,22 +496,25 @@ private fun EmptyReadingLists(
     selectedTab: SavedTab,
     allSavedArticlesAreInCollections: Boolean,
     modifier: Modifier = Modifier,
+    searchQuery: String? = null,
     onCreateCollectionClick: () -> Unit = {}
 ) {
-    val title = when (selectedTab) {
-        SavedTab.ALL_ARTICLES -> stringResource(
+    val query = searchQuery.orEmpty()
+    val title = when {
+        query.isEmpty() -> stringResource(R.string.saved_list_empty_title)
+        selectedTab == SavedTab.ALL_ARTICLES -> stringResource(
             if (allSavedArticlesAreInCollections) {
                 R.string.reading_lists_empty_not_in_collection_title
             } else {
                 R.string.saved_list_empty_title
-            }
-        )
-        SavedTab.COLLECTIONS -> stringResource(R.string.reading_lists_empty_collections_title)
+            })
+        else -> stringResource(R.string.reading_lists_search_empty_collections_title)
     }
     val description = when {
         allSavedArticlesAreInCollections -> null
-        selectedTab == SavedTab.ALL_ARTICLES -> stringResource(R.string.reading_lists_empty_message)
-        else -> stringResource(R.string.reading_lists_empty_collections_description)
+        query.isEmpty() -> stringResource(R.string.reading_lists_empty_message)
+        selectedTab == SavedTab.ALL_ARTICLES -> stringResource(R.string.reading_lists_search_empty_articles_message, query)
+        else -> stringResource(R.string.reading_lists_search_empty_collections_message, query)
     }
     Column(
         modifier = modifier
@@ -533,9 +531,9 @@ private fun EmptyReadingLists(
             textAlign = TextAlign.Center
         )
         description?.let {
-            Spacer(modifier = Modifier.size(8.dp))
+            Spacer(modifier = Modifier.size(12.dp))
             Text(
-                text = it,
+                text = description,
                 color = WikipediaTheme.colors.secondaryColor,
                 style = MaterialTheme.typography.bodyMedium.copy(
                     letterSpacing = 0.25.sp,
@@ -564,6 +562,17 @@ private fun EmptyReadingLists(
                 )
             }
         }
+    }
+}
+
+@Preview
+@Composable
+private fun EmptyReadingListsSearchPreview() {
+    BaseTheme(currentTheme = Theme.LIGHT) {
+        EmptyReadingLists(
+            selectedTab = SavedTab.ALL_ARTICLES,
+            searchQuery = "Einstein"
+        )
     }
 }
 
