@@ -11,9 +11,9 @@
                 android:title="@string/preference_title_language">
         </org.wikipedia.settings.PreferenceMultiLine>
         <org.wikipedia.settings.PreferenceMultiLine
-            android:key="@string/preference_key_customize_explore_feed"
-            android:summary="@string/preference_summary_customize_explore_feed"
-            android:title="@string/preference_title_customize_explore_feed" />
+            android:key="@string/preference_key_customize_home_feed"
+            android:summary="@string/preference_summary_customize_home_feed"
+            android:title="@string/preference_title_customize_home_feed" />
         <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_year_in_review_is_enabled"
             android:defaultValue="true"

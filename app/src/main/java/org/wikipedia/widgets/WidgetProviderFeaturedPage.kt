@@ -79,6 +79,7 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
             val pendingIntent = PendingIntentCompat.getActivity(context, 1,
                 PageActivity.newIntentForNewTab(context, historyEntry, historyEntry.title)
                     .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, Constants.InvokeSource.WIDGET)
+                    .putExtra(Constants.INTENT_WIDGET_TYPE, WidgetTypes.FEATURED_ARTICLE.value)
                     .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK),
                     PendingIntent.FLAG_UPDATE_CURRENT, false)
 
@@ -91,7 +92,7 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
         private var lastServerUpdateMillis = 0L
 
         fun forceUpdateWidget(context: Context, pageTitle: PageTitle? = null) {
-            val appWidgetManager = AppWidgetManager.getInstance(context.applicationContext)
+            val appWidgetManager = AppWidgetManager.getInstance(context.applicationContext) ?: return
             val ids = appWidgetManager.getAppWidgetIds(ComponentName(context.applicationContext, WidgetProviderFeaturedPage::class.java))
             ids.forEach { id ->
                 val options = appWidgetManager.getAppWidgetOptions(id)

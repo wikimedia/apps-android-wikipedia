@@ -36,13 +36,14 @@ class SearchTest : BaseTest<MainActivity>(
         systemRobot
             .disableDarkMode(context)
             .clickOnSystemDialogWithText("Allow")
-        homeScreenRobot
-            .clickSearchContainer()
+        // TODO: update steps
+        // navigate to search screen from home screen
+
         searchRobot
             .typeTextInView(SEARCH_TERM)
             .verifySearchResult(ARTICLE_TITLE)
-            .assertColorOfTitleInTheSearchList(position = 0, theme = Theme.LIGHT)
-            .assertColorOfTitleInTheSearchList(position = 1, theme = Theme.LIGHT)
+            .assertColorOfTitleInTheSearchList(context = context, position = 0, theme = Theme.LIGHT)
+            .assertColorOfTitleInTheSearchList(context = context, position = 1, theme = Theme.LIGHT)
             .clickOnItemFromSearchList(0)
             .pressBack()
             .navigateUp()

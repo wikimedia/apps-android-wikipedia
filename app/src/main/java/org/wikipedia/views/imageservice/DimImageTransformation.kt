@@ -16,7 +16,7 @@ class DimImageTransformation : Transformation(), ImageTransformer {
         val result = if (input.isMutable) input else input.copy(input.config ?: android.graphics.Bitmap.Config.ARGB_8888, true)
         if (WikipediaApp.instance.currentTheme.isDark && Prefs.dimDarkModeImages) {
             result.applyCanvas {
-                drawPaint(Paint().apply { color = Color.argb(100, 0, 0, 0) })
+                drawPaint(Paint().apply { color = Color.argb(51, 0, 0, 0) })
             }
         }
         return result

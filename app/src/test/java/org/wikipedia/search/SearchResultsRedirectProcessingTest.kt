@@ -1,7 +1,6 @@
 package org.wikipedia.search
 
-import org.hamcrest.MatcherAssert
-import org.hamcrest.Matchers
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 import org.wikipedia.dataclient.mwapi.MwQueryResult
@@ -18,19 +17,19 @@ class SearchResultsRedirectProcessingTest {
     @Test
     fun testRedirectHandling() {
         val pages = result.pages!!
-        MatcherAssert.assertThat(pages.size, Matchers.`is`(2))
-        MatcherAssert.assertThat(pages[0].title, Matchers.`is`("Narthecium#Foo"))
-        MatcherAssert.assertThat(pages[0].redirectFrom, Matchers.`is`("Abama"))
-        MatcherAssert.assertThat(pages[1].title, Matchers.`is`("Amitriptyline"))
-        MatcherAssert.assertThat(pages[1].redirectFrom, Matchers.`is`("Abamax"))
+        assertEquals(2, pages.size)
+        assertEquals("Narthecium#Foo", pages[0].title)
+        assertEquals("Abama", pages[0].redirectFrom)
+        assertEquals("Amitriptyline", pages[1].title)
+        assertEquals("Abamax", pages[1].redirectFrom)
     }
 
     @Test
     fun testConvertTitleHandling() {
         val pages = result.pages!!
-        MatcherAssert.assertThat(pages.size, Matchers.`is`(2))
-        MatcherAssert.assertThat(pages[0].title, Matchers.`is`("Narthecium#Foo"))
-        MatcherAssert.assertThat(pages[0].convertedFrom, Matchers.`is`("NotNarthecium"))
+        assertEquals(2, pages.size)
+        assertEquals("Narthecium#Foo", pages[0].title)
+        assertEquals("NotNarthecium", pages[0].convertedFrom)
     }
 
     private val queryJson = """{

@@ -64,6 +64,12 @@ class AppLanguageLookUpTable(context: Context) {
                 BELARUSIAN_TARASK_LANGUAGE_CODE -> {
                     name = localizedNames.getOrNull(indexOfCode(BELARUSIAN_LEGACY_LANGUAGE_CODE))
                 }
+                CHINESE_CLASSICAL_LANGUAGE_CODE -> {
+                    name = localizedNames.getOrNull(indexOfCode(CHINESE_CLASSICAL_LEGACY_LANGUAGE_CODE))
+                }
+                CHINESE_MIN_NAN_LANGUAGE_CODE -> {
+                    name = localizedNames.getOrNull(indexOfCode(CHINESE_MIN_NAN_LEGACY_LANGUAGE_CODE))
+                }
             }
         }
         return name
@@ -114,6 +120,10 @@ class AppLanguageLookUpTable(context: Context) {
         const val CHINESE_LANGUAGE_CODE = "zh"
         const val NORWEGIAN_LEGACY_LANGUAGE_CODE = "no"
         const val NORWEGIAN_BOKMAL_LANGUAGE_CODE = "nb"
+        const val CHINESE_CLASSICAL_LANGUAGE_CODE = "lzh"
+        const val CHINESE_MIN_NAN_LANGUAGE_CODE = "nan"
+        const val CHINESE_CLASSICAL_LEGACY_LANGUAGE_CODE = "zh-classical"
+        const val CHINESE_MIN_NAN_LEGACY_LANGUAGE_CODE = "zh-min-nan"
         const val BELARUSIAN_LEGACY_LANGUAGE_CODE = "be-x-old"
         const val BELARUSIAN_TARASK_LANGUAGE_CODE = "be-tarask"
         const val TEST_LANGUAGE_CODE = "test"

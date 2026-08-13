@@ -503,8 +503,8 @@
     <item quantity="other">%d оагӀув дӀаяьккхай листама чура</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d лустам дӀабаьккхаб %s яха чура</item>
-    <item quantity="other">%d лустам дӀабаьккхаб %s яха чура</item>
+    <item quantity="one">%1$d лустам дӀабаьккхаб %2$s яха чура</item>
+    <item quantity="other">%1$d лустам дӀабаьккхаб %2$s яха чура</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d листам дӀабаьккхаб</item>
@@ -796,11 +796,11 @@
   <string name="feed_item_type_main_page">Википеден керттера лустам</string>
   <string name="feed_item_type_randomizer">ТӀехьагӀа еша дӀаяхка мегаргйола ца ховш нийсъенна статьяш хьагойта езий?</string>
   <string name="feed_item_type_suggested_edits">ОагӀонех лаьцар тоаде йиш я.</string>
-  <string name="feed_empty_message">Хьа лента даьсса да</string>
+  <string name="feed_empty_message" fuzzy="true">Хьа лента даьсса да</string>
   <string name="feed_configure_onboarding_action">Оттамаш де</string>
   <string name="customize_lang_selection_dialog_ok_button_text">ХӀАЪА</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Эшац</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Хьатоаде хьай лента&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;ХӀанз хьа харжа аьттув ба фу гойташ хургда а хьа лента тӀа, цу юкъера хьайна дукхагӀа эшаш дар малагӀа да а.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Хьатоаде хьай лента&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;ХӀанз хьа харжа аьттув ба фу гойташ хургда а хьа лента тӀа, цу юкъера хьайна дукхагӀа эшаш дар малагӀа да а.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">ХӀАЪА</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">ЭШАЦ</string>
   <string name="feed_accessibility_card_text">Лентай чаккхенга кхаьчар хьо.</string>
@@ -1066,7 +1066,7 @@
   <string name="onboarding_get_started">ДӀадоладе</string>
   <string name="onboarding_maybe_later">ТӀехьагӀа мег</string>
   <string name="onboarding_explore_title">Тахкара керда наькъаш</string>
-  <string name="onboarding_explore_text">Википеде гӀолла лела хьайна даим кердадувлача лентах пайда а эцаш. &lt;br/&gt;&lt;b&gt;Оттамаш&lt;/b&gt; де йиш цу лента тӀа хьай хьашт дар цо гойтаргдолаш — &lt;b&gt;укх дийнахьа&lt;/b&gt; тархьаре хинна хӀамаш е &lt;b&gt;ца ховш нийсъенна&lt;/b&gt; оагӀонаш.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Википеде гӀолла лела хьайна даим кердадувлача лентах пайда а эцаш. &lt;br/&gt;&lt;b&gt;Оттамаш&lt;/b&gt; де йиш цу лента тӀа хьай хьашт дар цо гойтаргдолаш — &lt;b&gt;укх дийнахьа&lt;/b&gt; тархьаре хинна хӀамаш е &lt;b&gt;ца ховш нийсъенна&lt;/b&gt; оагӀонаш.</string>
   <string name="onboarding_reading_list_sync_title">Дешарá дола листамаш синхронизацеца</string>
   <string name="onboarding_reading_list_sync_text_v2">Хье офлайн вале/яле а, тӀехьагӀа хьайна еша безам болча оагӀонех дешара листамаш хьаде йиш я хьа. &lt;br/&gt;Хьай аккаунтаца авторизаци е, хьай дешара листамашта синхронизаци ергйолаш. &lt;a href=\"#login\"&gt;Хьахоттале Википедех&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Пайда эцарах отчёташ дӀаахийта</string>
@@ -1106,7 +1106,7 @@
     <item quantity="many">ДӀабаккха хьахержа дола метташ?</item>
     <item quantity="other">ДӀабаккха хьахержа дола метташ?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Википеден кхыдолча меттала йолча разделашка мара вӀаштехьа хургдац хьа Лента яхача вкладка тӀа долчунга хьажа а сиха лахара фильтраш лелае а.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Википеден кхыдолча меттала йолча разделашка мара вӀаштехьа хургдац хьа Лента яхача вкладка тӀа долчунга хьажа а сиха лахара фильтраш лелае а.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Деррига метташ дӀадаха йиш яц</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Цхьа мотт мукъагӀа бита бéза хьа, дéша а лаха а йиш хургйолаш</string>
   <string name="more_language_options">кхы а да метташ</string>

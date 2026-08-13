@@ -572,11 +572,11 @@
     <item quantity="few">%d članki odstranjeni s seznama</item>
     <item quantity="other">%d člankov odstranjenih s seznama</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d članek odstranjen s seznama %s</item>
-    <item quantity="two">%d članka odstranjena s seznama %s</item>
-    <item quantity="few">%d članki odstranjeni s seznama %s</item>
-    <item quantity="other">%d člankov odstranjenih s seznama %s</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">%1$d članek odstranjen s seznama %2$s</item>
+    <item quantity="two">%1$d članka odstranjena s seznama %2$s</item>
+    <item quantity="few">%1$d članki odstranjeni s seznama %2$s</item>
+    <item quantity="other">%1$d člankov odstranjenih s seznama %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d seznam izbrisan</item>
@@ -903,11 +903,11 @@
   <string name="feed_item_type_randomizer">Prikazuje naključne članke za branje</string>
   <string name="feed_item_type_suggested_edits">Predlogi za dodajanje vsebine v Wikipedijo</string>
   <string name="feed_item_type_places">Članki v bližini glede na trenutno lokacijo</string>
-  <string name="feed_empty_message">V vašem viru Raziskovanje ni ničesar</string>
+  <string name="feed_empty_message" fuzzy="true">V vašem viru Raziskovanje ni ničesar</string>
   <string name="feed_configure_onboarding_action">Prilagodi</string>
   <string name="customize_lang_selection_dialog_ok_button_text">V redu</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Prekliči</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Prilagodite si svoj vir Raziskuj&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Izberete lahko, kaj želite v viru videti, in določite tudi najljubše vrste vsebine.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Prilagodite si svoj vir Raziskuj&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Izberete lahko, kaj želite v viru videti, in določite tudi najljubše vrste vsebine.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">V redu</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Prekliči</string>
   <string name="feed_accessibility_card_text">Dosegli ste dno vira.</string>
@@ -1236,11 +1236,11 @@
   <string name="onboarding_get_started">Začni</string>
   <string name="onboarding_maybe_later">Mogoče pozneje</string>
   <string name="onboarding_explore_title">Novi načini raziskovanja</string>
-  <string name="onboarding_explore_text">Vstopite v zajčjo luknjo Wikipedije z neprestanim posodabljanjem vira raziskovanja. &lt;br/&gt; &lt;b&gt;Prilagodite&lt;/b&gt; vir svojim zanimanjem – pa naj bodo to zgodovinski dogodki &lt;b&gt;Na današnji dan&lt;/b&gt; ali metanje kocke z možnostjo &lt;b&gt;Naključno&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Vstopite v zajčjo luknjo Wikipedije z neprestanim posodabljanjem vira raziskovanja. &lt;br/&gt; &lt;b&gt;Prilagodite&lt;/b&gt; vir svojim zanimanjem – pa naj bodo to zgodovinski dogodki &lt;b&gt;Na današnji dan&lt;/b&gt; ali metanje kocke z možnostjo &lt;b&gt;Naključno&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Bralni seznami s sinhroniziranjem</string>
   <string name="onboarding_reading_list_sync_text_v2">Ustvarjate lahko bralne sezname člankov, ki jih želite prebrati pozneje, tudi če niste povezani na splet. &lt;br/&gt;Za sinhroniziranje bralnih seznamov se prijavite v svoj račun v Wikipediji. &lt;a href=\"#login\"&gt;Pridružite se Wikipediji&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Podatki in zasebnost</string>
-  <string name="onboarding_data_privacy_text">Menimo, da vam za sodelovanje v gibanju svobodnega znanja ne bi bilo treba posredovati osebnih podatkov. Podatki o uporabi, zbrani za to aplikacijo, so anonimni. Preberite več o naši &lt;a href=\"#privacy\"&gt;politiki zasebnosti&lt;/a&gt; in &lt;a href=\"#termsOfUse\"&gt;pogojih uporabe&lt;/a&gt;.</string>
+  <string name="onboarding_data_privacy_text" fuzzy="true">Menimo, da vam za sodelovanje v gibanju svobodnega znanja ne bi bilo treba posredovati osebnih podatkov. Podatki o uporabi, zbrani za to aplikacijo, so anonimni. Preberite več o naši &lt;a href=\"#privacy\"&gt;politiki zasebnosti&lt;/a&gt; in &lt;a href=\"#termsOfUse\"&gt;pogojih uporabe&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Pošiljaj podatke o uporabi</string>
   <string name="onboarding_got_it">Razumem</string>
   <string name="onboarding_multilingual_secondary_text">Na vaši napravi smo našli naslednje:</string>
@@ -1279,7 +1279,7 @@
     <item quantity="few">Odstranim izbrane jezike</item>
     <item quantity="other">Odstranim izbrane jezike?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">V viru Raziskovanje in hitrih filtrih iskanja boste videli samo vsebino za preostale jezike Wikipedije.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">V viru Raziskovanje in hitrih filtrih iskanja boste videli samo vsebino za preostale jezike Wikipedije.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Ne morem odstraniti vseh jezikov</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Ohranite vsaj en jezik Wikipedije, v katerem lahko pregledujete in berete vsebino.</string>
   <string name="more_language_options">več</string>
@@ -1785,8 +1785,8 @@
   <string name="survey_dialog_submitted_snackbar">Povratne informacije so poslane. Hvalaǃ</string>
   <string name="on_this_day_game_entry_dialog_title">Predstavljamo</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Igre Wikipedije</string>
-  <string name="on_this_day_game_entry_dialog_button">Igraj današnjo igro</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Igre Wikipedije so na voljo v viru Raziskuj</string>
+  <string name="on_this_day_game_entry_dialog_button" fuzzy="true">Igraj današnjo igro</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message" fuzzy="true">Igre Wikipedije so na voljo v viru Raziskuj</string>
   <string name="on_this_day_game_title">Kateri je bil prvi?</string>
   <string name="on_this_day_game_dialog_button">Igraj</string>
   <string name="on_this_day_game_splash_message">Uganite, kateri dogodek na današnji dan se je zgodil prvi v zgodovini.</string>
@@ -1797,13 +1797,8 @@
   <string name="on_this_day_game_point">+1 točka</string>
   <string name="on_this_day_game_next">Naslednje vprašanje</string>
   <string name="on_this_day_game_finish">Končni rezultati</string>
-  <string name="on_this_day_game_pause_title">Premor igre?</string>
-  <string name="on_this_day_game_pause_body">Vaš napredek bo shranjen za ta dan. Igro najdete v viru Raziskuj.</string>
-  <string name="on_this_day_game_pause_negative">Igraj naprej</string>
-  <string name="on_this_day_game_pause_positive">Razumem</string>
   <string name="on_this_day_game_feed_entry_card_heading">Igre Wikipedije</string>
   <string name="on_this_day_game_feed_entry_card_title">Kateri je bil prvi?</string>
-  <string name="on_this_day_game_feed_entry_card_subtitle">Uganite, kateri dogodek na današnji dan se je zgodil prvi v zgodovini.</string>
   <string name="on_this_day_game_result">Vaš rezultat: %1$d/%2$d.</string>
   <string name="on_this_day_game_next_in">Naslednja igra v %s</string>
   <string name="on_this_day_game_your_stats">Vaša statistika</string>
@@ -1816,7 +1811,7 @@
   <string name="on_this_day_game_stats_average_score">Povprečna ocena</string>
   <string name="on_this_day_game_stats_streak">Trenutni niz</string>
   <string name="on_this_day_game_result_subtitle">Članki, ki so vključeni v današnjo igro</string>
-  <string name="on_this_day_game_completed_message">Hvala za igranje. Nova igra »Kaj se je zgodilo najprej?« je vsak dan na voljo na zavihku Raziskuj.</string>
+  <string name="on_this_day_game_completed_message" fuzzy="true">Hvala za igranje. Nova igra »Kaj se je zgodilo najprej?« je vsak dan na voljo na zavihku Raziskuj.</string>
   <string name="on_this_day_game_menu_notifications">Obvestila igre</string>
   <string name="on_this_day_game_menu_info">Več o tem</string>
   <string name="on_this_day_game_menu_feedback">Težava z možnostjo</string>
@@ -1839,4 +1834,5 @@
   <string name="on_this_day_game_report_email_body">Naletel_a sem na težavo z možnostjo iger Wikipedije:\n– [Opišite specifično težavo]\n\nVedenje, ki bi ga rad_a videl_a, je:\n– [Opišite predlagano rešitev]</string>
   <string name="on_this_day_game_notification_undo">Razveljavi</string>
   <string name="on_this_day_game_share_link_message">Igram \"Kaj se je zgodilo najprej?\", vsakodnevno zanimivo igro v aplikaciji Wikipedia Android %s</string>
+  <string name="donation_reminders_prompt_positive_button">Donirajte zdaj</string>
 </resources>

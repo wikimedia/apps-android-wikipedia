@@ -503,4 +503,5 @@
   <string name="survey_dialog_general_no">Ոչ</string>
   <string name="year_in_review_reading_list_dialog_positive_button_label">Ստեղծել</string>
   <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">Ստեղծված է ձեզ համար</string>
+  <string name="home_feed_settings_games_title">Խաղեր</string>
 </resources>

@@ -8,9 +8,7 @@ import org.wikipedia.base.BaseTest
 import org.wikipedia.main.MainActivity
 import org.wikipedia.robots.DialogRobot
 import org.wikipedia.robots.SystemRobot
-import org.wikipedia.robots.feature.LoginRobot
 import org.wikipedia.robots.feature.ReadingListRobot
-import org.wikipedia.robots.feature.SearchRobot
 import org.wikipedia.robots.navigation.BottomNavRobot
 
 @LargeTest
@@ -20,8 +18,6 @@ class ReadingListsTest : BaseTest<MainActivity>(
 ) {
     private val systemRobot = SystemRobot()
     private val bottomNavRobot = BottomNavRobot()
-    private val loginRobot = LoginRobot()
-    private val searchRobot = SearchRobot()
     private val readingListRobot = ReadingListRobot()
     private val dialogRobot = DialogRobot()
 
@@ -91,10 +87,8 @@ class ReadingListsTest : BaseTest<MainActivity>(
     }
 
     private fun search(title: String) {
-        searchRobot
-            .tapSearchView()
-            .typeTextInView(title)
-            .clickOnItemFromSearchList(0)
+        // TODO: update steps
+        // 1. Search for an article and open it
     }
 
     companion object {

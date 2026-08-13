@@ -11,6 +11,7 @@ import org.wikipedia.json.JsonUtil
 class SettingsActivity : BaseSettingsActivity<SettingsFragment>() {
     private lateinit var initialLanguageList: String
     private lateinit var initialFeedCardsEnabled: List<Boolean>
+    private lateinit var initialFeedCardsLangDisabled: Map<Int, List<String>>
     private lateinit var initialFeedCardsOrder: List<Int>
     private val app = WikipediaApp.instance
 
@@ -21,6 +22,7 @@ class SettingsActivity : BaseSettingsActivity<SettingsFragment>() {
         super.onCreate(savedInstanceState)
         initialLanguageList = JsonUtil.encodeToString(app.languageState.appLanguageCodes).orEmpty()
         initialFeedCardsEnabled = Prefs.feedCardsEnabled
+        initialFeedCardsLangDisabled = Prefs.feedCardsLangDisabled
         initialFeedCardsOrder = Prefs.feedCardsOrder
     }
 
@@ -31,7 +33,7 @@ class SettingsActivity : BaseSettingsActivity<SettingsFragment>() {
                 finalLanguageList != initialLanguageList) {
             setResult(ACTIVITY_RESULT_LANGUAGE_CHANGED)
         } else if (requestCode == Constants.ACTIVITY_REQUEST_FEED_CONFIGURE &&
-                (Prefs.feedCardsEnabled != initialFeedCardsEnabled || Prefs.feedCardsOrder != initialFeedCardsOrder)) {
+                (Prefs.feedCardsEnabled != initialFeedCardsEnabled || Prefs.feedCardsOrder != initialFeedCardsOrder || Prefs.feedCardsOrder != initialFeedCardsLangDisabled)) {
             setResult(ACTIVITY_RESULT_FEED_CONFIGURATION_CHANGED)
         }
     }

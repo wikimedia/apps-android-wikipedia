@@ -110,6 +110,8 @@ class CustomHtmlParser(private val handler: TagHandler) : TagHandler, ContentHan
 
     class CustomTagHandler(private val view: TextView?) : TagHandler {
         private var lastAClass = ""
+        private var hiddenSpanDepth = 0
+        private var hiddenSpanStartPos = -1
         private var listItemCounts = Stack<Int>()
         private val listParents = mutableListOf<String>()
 
@@ -194,6 +196,32 @@ class CustomHtmlParser(private val handler: TagHandler) : TagHandler, ContentHan
                 }
             } else if (tag == "li" && listParents.isNotEmpty() && !opening && output != null) {
                 handleListTag(output)
+            } else if (tag == "span" && output != null) {
+                if (opening) {
+                    if (hiddenSpanDepth > 0) {
+                        // Already inside a hidden span, just track nesting depth.
+                        hiddenSpanDepth++
+                    } else if (getValue(attributes, "style").orEmpty().let {
+                        it.contains("display:none") || it.contains("display: none")
+                    }) {
+                        // Entering a new hidden span. Record the output position so we can
+                        // truncate everything appended while inside this span.
+                        hiddenSpanDepth = 1
+                        hiddenSpanStartPos = output.length
+                    }
+                } else {
+                    if (hiddenSpanDepth > 0) {
+                        hiddenSpanDepth--
+                        if (hiddenSpanDepth == 0 && hiddenSpanStartPos >= 0) {
+                            // The outermost hidden span has closed. Remove all content
+                            // that was appended while we were inside it.
+                            if (hiddenSpanStartPos < output.length) {
+                                output.delete(hiddenSpanStartPos, output.length)
+                            }
+                            hiddenSpanStartPos = -1
+                        }
+                    }
+                }
             }
             return false
         }

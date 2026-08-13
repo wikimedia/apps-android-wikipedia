@@ -3,21 +3,18 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     id 'com.android.library'
     id 'com.google.devtools.ksp'
-    id 'kotlin-android'
     id 'kotlinx-serialization'
 }
 
-final JavaVersion JAVA_VERSION = JavaVersion.VERSION_17
-
 android {
-    namespace 'org.wikimedia.testkitchen'
-    compileSdk = 36
+    namespace = 'org.wikimedia.testkitchen'
+    compileSdk = 37
 
     compileOptions {
-        coreLibraryDesugaringEnabled true
+        coreLibraryDesugaringEnabled = true
 
-        sourceCompatibility = JAVA_VERSION
-        targetCompatibility = JAVA_VERSION
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     kotlin {
@@ -27,15 +24,15 @@ android {
     }
 
     defaultConfig {
-        targetSdk = 36
-        multiDexEnabled true
+        targetSdk = 37
+        multiDexEnabled = true
 
         buildConfigField "String", "EVENTGATE_ANALYTICS_EXTERNAL_BASE_URI", '"https://intake-analytics.wikimedia.org"'
         buildConfigField "String", "EVENTGATE_LOGGING_EXTERNAL_BASE_URI", '"https://intake-logging.wikimedia.org"'
     }
 
     buildFeatures {
-        buildConfig true
+        buildConfig = true
     }
 
     flavorDimensions = ['default']

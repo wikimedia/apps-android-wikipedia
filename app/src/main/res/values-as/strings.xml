@@ -20,6 +20,7 @@
   <string name="search_hint">ৱিকিপিডিয়াত সন্ধান কৰক</string>
   <string name="search_hint_voice_search">ভইচ ইনপুট সন্ধান</string>
   <string name="search_hint_search_languages">ভাষাৰ সন্ধান কৰক</string>
+  <string name="search_back_button_content_description">ঘূৰি যাওক</string>
   <string name="filter_hint_filter_my_lists_and_articles">মোৰ তালিকা ফিল্টাৰ কৰক</string>
   <string name="nav_item_suggested_edits">সম্পাদনা</string>
   <string name="nav_item_more">অধিক</string>

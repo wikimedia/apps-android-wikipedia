@@ -101,6 +101,9 @@ object ShareUtil {
                 .putExtra(Intent.EXTRA_TEXT, text)
                 .putExtra(Intent.EXTRA_STREAM, uri)
                 .setType("image/jpeg")
+                // Android 17 warns to Explicitly grant read access to the URI permission.
+                // The system will no longer grant it from Android 18, so adding this flag to be safe.
+                .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
     }
 
     private fun displayOnCatchMessage(caught: Throwable, context: Context) {

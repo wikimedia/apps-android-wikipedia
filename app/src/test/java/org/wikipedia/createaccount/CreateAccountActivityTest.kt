@@ -1,7 +1,6 @@
 package org.wikipedia.createaccount
 
-import org.hamcrest.MatcherAssert
-import org.hamcrest.Matchers
+import org.junit.Assert.assertEquals
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -12,61 +11,61 @@ import org.wikipedia.createaccount.CreateAccountActivity.ValidateResult
 class CreateAccountActivityTest {
     @Test
     fun testValidateInputSuccessWithEmail() {
-        MatcherAssert.assertThat(
-            validateInput("user", "password", "password", "test@example.com"),
-            Matchers.`is`(ValidateResult.SUCCESS)
+        assertEquals(
+            ValidateResult.SUCCESS,
+            validateInput("user", "password", "password", "test@example.com")
         )
     }
 
     @Test
     fun testValidateInvalidEmail() {
-        MatcherAssert.assertThat(
-            validateInput("user", "password", "password", ""),
-            Matchers.`is`(ValidateResult.NO_EMAIL)
+        assertEquals(
+            ValidateResult.NO_EMAIL,
+            validateInput("user", "password", "password", "")
         )
     }
 
     @Test
     fun testValidateInputInvalidUser() {
-        MatcherAssert.assertThat(
-            validateInput("user[]", "password", "password", ""),
-            Matchers.`is`(ValidateResult.INVALID_USERNAME)
+        assertEquals(
+            ValidateResult.INVALID_USERNAME,
+            validateInput("user[]", "password", "password", "")
         )
     }
 
     @Test
     fun testValidateInputInvalidPassword() {
-        MatcherAssert.assertThat(
-            validateInput("user", "foo", "password", ""),
-            Matchers.`is`(ValidateResult.PASSWORD_TOO_SHORT)
+        assertEquals(
+            ValidateResult.PASSWORD_TOO_SHORT,
+            validateInput("user", "foo", "password", "")
         )
     }
 
     @Test
     fun testValidateInputPasswordMismatch() {
-        MatcherAssert.assertThat(
-            validateInput("user", "password", "passw0rd", ""),
-            Matchers.`is`(ValidateResult.PASSWORD_MISMATCH)
+        assertEquals(
+            ValidateResult.PASSWORD_MISMATCH,
+            validateInput("user", "password", "passw0rd", "")
         )
     }
 
     @Test
     fun testValidateInputPasswordIsUsername() {
-        MatcherAssert.assertThat(
-            validateInput("password", "password", "password", ""),
-            Matchers.`is`(ValidateResult.PASSWORD_IS_USERNAME)
+        assertEquals(
+            ValidateResult.PASSWORD_IS_USERNAME,
+            validateInput("password", "password", "password", "")
         )
-        MatcherAssert.assertThat(
-            validateInput("password", "PassworD", "PassworD", ""),
-            Matchers.`is`(ValidateResult.PASSWORD_IS_USERNAME)
+        assertEquals(
+            ValidateResult.PASSWORD_IS_USERNAME,
+            validateInput("password", "PassworD", "PassworD", "")
         )
     }
 
     @Test
     fun testValidateInputInvalidEmail() {
-        MatcherAssert.assertThat(
-            validateInput("user", "password", "password", "foo"),
-            Matchers.`is`(ValidateResult.INVALID_EMAIL)
+        assertEquals(
+            ValidateResult.INVALID_EMAIL,
+            validateInput("user", "password", "password", "foo")
         )
     }
 }

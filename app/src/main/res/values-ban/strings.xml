@@ -480,8 +480,8 @@
     <item quantity="other">%d suratan kausap saking lis</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d suratan kausap saking %s</item>
-    <item quantity="other">%d suratan kausap saking %s</item>
+    <item quantity="one">%1$d suratan kausap saking %2$s</item>
+    <item quantity="other">%1$d suratan kausap saking %2$s</item>
   </plurals>
   <string name="reading_list_items_deleted">%d suratan kaapus saking lis</string>
   <string name="reading_lists_item_deleted">%s kaapus saking lis</string>

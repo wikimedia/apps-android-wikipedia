@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * 1100100
+* Ceylonchingu
 * Dbrant
 * Dulkith
 * MuratTheTurkish
@@ -20,15 +21,24 @@
   <string name="search_hint">විකිපීඩියාව ගවේෂණය කරන්න</string>
   <string name="search_hint_voice_search">හඩ ආදාන සෙවීම</string>
   <string name="search_hint_search_languages">භාෂාවක් සොයන්නා</string>
+  <string name="search_back_button_content_description">ආපසු යන්න</string>
+  <string name="search_icon_content_description">සොයන්න</string>
+  <string name="filter_hint_filter_my_lists_and_articles">මගේ ලැයිස්තු පෙරහන් කරන්න</string>
   <string name="nav_item_suggested_edits">සංස්කරණ</string>
+  <string name="nav_item_activity">ක්‍රියාකාරකම</string>
   <string name="nav_item_more">තවත්</string>
   <string name="nav_item_search">සොයන්න</string>
+  <string name="nav_item_contribute">දායකවන්න</string>
   <string name="error_network_error">අන්තර්ජාලය වෙත සම්බන්ධ විය නොහැක.</string>
   <string name="page_error_retry">නැවත උත්සහ කරන්න</string>
+  <string name="card_offline_error_retry">නැවත උත්සාහ කරන්න</string>
+  <string name="storage_access_error_retry">නැවත උත්සාහ කරන්න</string>
+  <string name="article_load_error_retry">නැවත උත්සාහ කරන්න</string>
+  <string name="offline_load_error_retry">නැවත උත්සාහ කරන්න</string>
   <string name="page_error_back_to_main">ආපසු යන්න</string>
   <string name="error_back">ආපසු යන්න</string>
   <string name="error_next">ඊළග</string>
-  <string name="menu_clear_all_history" fuzzy="true">ඉතිහාසය ඉවත් කරන්න</string>
+  <string name="menu_clear_all_history">කියවීමේ ඉතිහාසය හිස් කරන්න</string>
   <string name="history_item_deleted">%s ඉතිහාසයෙන් ඉවත් කරන ලදි</string>
   <string name="history_items_deleted">%d ලිපිය ඉතිහාසයෙන් ඉවත් කරන ලදි</string>
   <string name="history_item_delete_undo">පසුගමනය</string>
@@ -37,13 +47,17 @@
   <string name="history_list_title">ඉතිහාසය</string>
   <string name="image_content_description">පින්තූරය : %s</string>
   <string name="page_content_description">පිටුව : %s</string>
+  <string name="wikimedia_commons">විකිමීඩියා කොමන්ස්</string>
   <string name="wikidata">විකිදත්ත</string>
   <string name="dialog_title_clear_history">සෙවුම් ඉතිහාසය මකන්න</string>
   <string name="dialog_message_clear_history" fuzzy="true">මෙමගින් ඔබේ සියලු සෙවුම් ඉතිහාසය මකා දැමෙනු ඇත, එමෙන්ම සියලු විවෘත ටැබ්(කුඩා තීරු) ද වැසෙනු ඇත. ඔබට සහතික ද?</string>
   <string name="dialog_message_clear_history_yes">ඔව්</string>
   <string name="dialog_message_clear_history_no">නැහැ</string>
   <string name="share_via">මගින් හුවමාරු කරන්න</string>
+  <string name="image_share_via">මගින් හුවමාරු කරන්න</string>
   <string name="search_redirect_from">%s වෙතින් යළි යොමුකරන ලදී</string>
+  <string name="page_edit_history_activity_title">සංශෝධන ඉතිහාසය: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
   <string name="menu_page_show_tabs">ටැබ් පෙන්වන්න</string>
   <string name="menu_page_other_languages">භාෂාව වෙනස් කරන්න</string>
   <string name="menu_page_find_in_page">පිටුවෙහි සොයන්න</string>

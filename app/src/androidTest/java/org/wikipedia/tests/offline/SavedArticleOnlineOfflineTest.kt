@@ -4,12 +4,10 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.wikipedia.TestConstants
 import org.wikipedia.base.BaseTest
 import org.wikipedia.main.MainActivity
 import org.wikipedia.robots.DialogRobot
 import org.wikipedia.robots.SystemRobot
-import org.wikipedia.robots.feature.SearchRobot
 import org.wikipedia.robots.navigation.BottomNavRobot
 import org.wikipedia.robots.screen.SavedScreenRobot
 
@@ -18,7 +16,6 @@ import org.wikipedia.robots.screen.SavedScreenRobot
 class SavedArticleOnlineOfflineTest : BaseTest<MainActivity>(
  activityClass = MainActivity::class.java
 ) {
-    private val searchRobot = SearchRobot()
     private val systemRobot = SystemRobot()
     private val bottomNavRobot = BottomNavRobot()
     private val savedScreenRobot = SavedScreenRobot()
@@ -32,26 +29,10 @@ class SavedArticleOnlineOfflineTest : BaseTest<MainActivity>(
         }
         systemRobot
             .clickOnSystemDialogWithText("Allow")
-        searchRobot
-            .tapSearchView()
-            .typeTextInView(TestConstants.SEARCH_TERM)
-            .longClickOnItemFromSearchList(0)
-            .clickSave(action = { isSaved ->
-                if (!isSaved) {
-                    searchRobot
-                        .pressBack()
-                }
-            })
-            .clickSearchInsideSearchFragment()
-            .typeTextInView(TestConstants.SEARCH_TERM2)
-            .longClickOnItemFromSearchList(0)
-            .clickSave(action = { isSaved ->
-                if (!isSaved) {
-                    searchRobot
-                        .pressBack()
-                }
-            })
-            .pressBackUntilExploreFeed()
+        // @TODO: update steps
+        // 1. Search for an article and save it to a reading list.
+        // 2. Search for another article and save it to the same reading list.
+        // 3. Go to the saved page and open the reading list.
         bottomNavRobot
             .navigateToSavedPage()
         savedScreenRobot

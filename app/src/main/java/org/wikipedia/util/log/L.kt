@@ -93,7 +93,6 @@ object L {
         LEVEL_E.log(msg, t)
     }
 
-    @JvmStatic
     fun logRemoteErrorIfProd(t: Throwable) {
         if (ReleaseUtil.isProdRelease) {
             logRemoteError(t)
@@ -107,7 +106,7 @@ object L {
     fun logRemoteError(t: Throwable) {
         LEVEL_E.log("", t)
         if (!ReleaseUtil.isPreBetaRelease) {
-            WikipediaApp.instance.logCrashManually(t)
+            WikipediaApp.instance.logError(t)
         }
     }
 

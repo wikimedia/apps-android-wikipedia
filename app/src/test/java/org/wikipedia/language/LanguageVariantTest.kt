@@ -1,7 +1,6 @@
 package org.wikipedia.language
 
-import org.hamcrest.MatcherAssert
-import org.hamcrest.Matchers
+import org.junit.Assert.assertEquals
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -35,6 +34,6 @@ class LanguageVariantTest {
     private fun testDefaultLocaleAndAcceptLanguageAgree(expected: String, appLanguage: String, systemLocale: Locale, wiki: WikiSite? = null) {
         WikipediaApp.instance.languageState.setAppLanguageCodes(listOf(appLanguage))
         Locale.setDefault(systemLocale)
-        MatcherAssert.assertThat(expected, Matchers.`is`(WikipediaApp.instance.getAcceptLanguage(wiki)))
+        assertEquals(expected, WikipediaApp.instance.getAcceptLanguage(wiki))
     }
 }

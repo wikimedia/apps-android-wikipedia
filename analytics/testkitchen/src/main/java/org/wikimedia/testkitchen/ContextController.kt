@@ -57,14 +57,7 @@ class ContextController {
                 ContextValue.PERFORMER_SESSION_ID -> newPerformerData.sessionId = clientData.performerData?.sessionId
                 ContextValue.PERFORMER_PAGEVIEW_ID -> newPerformerData.pageviewId = clientData.performerData?.pageviewId
                 ContextValue.PERFORMER_GROUPS -> newPerformerData.groups = clientData.performerData?.groups
-                ContextValue.PERFORMER_LANGUAGE_GROUPS -> {
-                    var languageGroups = clientData.performerData?.languageGroups
-                    if (languageGroups != null && languageGroups.length > 255) {
-                        languageGroups = languageGroups.take(255)
-                    }
-                    newPerformerData.languageGroups = languageGroups
-                }
-
+                ContextValue.PERFORMER_LANGUAGE_GROUPS -> newPerformerData.languageGroups = clientData.performerData?.languageGroups
                 ContextValue.PERFORMER_LANGUAGE_PRIMARY -> newPerformerData.languagePrimary = clientData.performerData?.languagePrimary
                 ContextValue.PERFORMER_REGISTRATION_DT -> newPerformerData.registrationDt = clientData.performerData?.registrationDt
                 else -> throw IllegalArgumentException("Unknown property: $requestedValue")

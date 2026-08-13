@@ -601,11 +601,11 @@
   <string name="feed_item_type_main_page">Haadside fan \'e Wikipedy mei deistich útferkeazen ynhâld</string>
   <string name="feed_item_type_randomizer">Generearet samar wat artikels om te lêzen</string>
   <string name="feed_item_type_suggested_edits">Suggestjes om ynhâld oan \'e Wikipedy ta te heakjen</string>
-  <string name="feed_empty_message">Der sit neat yn jo Ferkenner-oanfier</string>
+  <string name="feed_empty_message" fuzzy="true">Der sit neat yn jo Ferkenner-oanfier</string>
   <string name="feed_configure_onboarding_action">Personalisearje</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Annulearje</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Personalisearje jo Ferkenner-oanfier&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Jo kinne no kieze wat jo yn \'e oanfier sjen wolle, en ek foarrang jaan oan jo favorite soarten ynhâld.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Personalisearje jo Ferkenner-oanfier&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Jo kinne no kieze wat jo yn \'e oanfier sjen wolle, en ek foarrang jaan oan jo favorite soarten ynhâld.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Annulearje</string>
   <string name="feed_accessibility_card_text">Jo hawwe de ein fan \'e oanfier berikt.</string>
@@ -835,7 +835,7 @@
   <string name="onboarding_get_started">Begjinne</string>
   <string name="onboarding_maybe_later">Letter miskien</string>
   <string name="onboarding_explore_title">Op nije manieren ferkenne</string>
-  <string name="onboarding_explore_text">Dûk yn \'e Wikipedy-kninehoale mei in altyd bywurke Ferkenner-oanfier. &lt;br/&gt; &lt;b&gt;Personalisearje&lt;/b&gt; de oanfier nei wêr\'t jo niget oan hawwe – oft dat no learen oer histoaryske barrens &lt;b&gt;Op dizze dei&lt;/b&gt; is, of de dobbelstien smiten foar &lt;b&gt;Samar wat&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Dûk yn \'e Wikipedy-kninehoale mei in altyd bywurke Ferkenner-oanfier. &lt;br/&gt; &lt;b&gt;Personalisearje&lt;/b&gt; de oanfier nei wêr\'t jo niget oan hawwe – oft dat no learen oer histoaryske barrens &lt;b&gt;Op dizze dei&lt;/b&gt; is, of de dobbelstien smiten foar &lt;b&gt;Samar wat&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Lêslisten mei syngronisaasje</string>
   <string name="onboarding_reading_list_sync_text_v2">Jo kinne lêslisten meitsje fan artikels dy\'t jo letter lêze wolle, sels sûnder netwurkferbining. &lt;br/&gt;Meld jo oan op jo Wikipedy-akkount en syngronisearje jo lêslisten. &lt;a href=\"#login\"&gt;Kom by de Wikipedy&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Gebrûksdata ferstjoere</string>
@@ -871,7 +871,7 @@
     <item quantity="one">Selektearre taal fuorthelje?</item>
     <item quantity="other">Selektearre talen fuorthelje?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Jo sjogge yn \'e Ferkenner-oanfier en flugge sykfilters inkeld noch ynhâld foar de Wikipedy-talen dy\'t oerbliuwe.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Jo sjogge yn \'e Ferkenner-oanfier en flugge sykfilters inkeld noch ynhâld foar de Wikipedy-talen dy\'t oerbliuwe.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Kin net alle talen fuorthelje</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Hâld teminsten ien Wikipedy-taal om ynhâld yn te sykjen en te lêzen.</string>
   <string name="more_language_options">mear</string>

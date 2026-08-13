@@ -6,6 +6,7 @@ import kotlinx.parcelize.Parcelize
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.LocationSerializer
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.Page
@@ -72,6 +73,10 @@ open class PageSummary(
         return PageTitle(apiTitle, wiki, thumbnailUrl, description, displayTitle, extract)
     }
 
+    fun getHistoryEntry(wiki: WikiSite, source: Int): HistoryEntry {
+        return HistoryEntry(getPageTitle(wiki), source)
+    }
+
     override fun toString(): String {
         return displayTitle
     }
@@ -96,5 +101,19 @@ open class PageSummary(
         const val TYPE_STANDARD = "standard"
         const val TYPE_DISAMBIGUATION = "disambiguation"
         const val TYPE_MAIN_PAGE = "mainpage"
+
+        /**
+         * For use in Composable previews.
+         */
+        fun preview(withThumbnail: Boolean = true): PageSummary {
+            return PageSummary(
+                displayTitle = "Lorem <i>ipsum</i>",
+                prefixTitle = "Lorem_ipsum",
+                description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                thumbnail = if (withThumbnail) "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Commons-logo.svg/1200px-Commons-logo.svg.png" else null,
+                lang = "en"
+            )
+        }
     }
 }

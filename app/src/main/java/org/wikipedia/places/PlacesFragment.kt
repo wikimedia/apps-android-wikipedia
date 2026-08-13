@@ -228,8 +228,10 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             PlacesEvent.logAction("search_view_click", "search_bar_view")
             val intent = SearchActivity.newIntent(requireActivity(), Constants.InvokeSource.PLACES,
                 viewModel.highlightedPageTitle?.displayText, true)
-            val options = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(),
+            val options = if (intent.component?.className == SearchActivity::class.java.name) {
+                ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(),
                     binding.searchContainer.getChildAt(0), getString(R.string.transition_search_bar))
+            } else null
             placesSearchLauncher.launch(intent, options)
         }
 

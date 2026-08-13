@@ -44,12 +44,14 @@ import org.wikipedia.analytics.eventplatform.YearInReviewEvent
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
+import org.wikipedia.util.UiState
 import org.wikipedia.util.UriUtil
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun YearInReviewOnboardingScreen(
     modifier: Modifier = Modifier,
+    uiState: UiState<Boolean> = UiState.Loading,
     onBackButtonClick: () -> Unit,
     onGetStartedClick: () -> Unit
 ) {
@@ -72,7 +74,10 @@ fun YearInReviewOnboardingScreen(
             )
         },
         bottomBar = {
-            YearInReviewOnboardingBottomBar(onGetStartedClick = onGetStartedClick)
+            YearInReviewOnboardingBottomBar(
+                onGetStartedClick = onGetStartedClick,
+                uiState = uiState
+            )
         },
         content = { paddingValues ->
             YearInReviewOnboardingContent(
@@ -145,7 +150,8 @@ fun YearInReviewOnboardingContent(
 
 @Composable
 fun YearInReviewOnboardingBottomBar(
-    onGetStartedClick: () -> Unit
+    onGetStartedClick: () -> Unit,
+    uiState: UiState<Boolean>
 ) {
     val context = LocalContext.current
     val mediaWikiUrl = stringResource(R.string.year_in_review_media_wiki_url)
@@ -183,6 +189,7 @@ fun YearInReviewOnboardingBottomBar(
                         containerColor = WikipediaTheme.colors.progressiveColor,
                         contentColor = WikipediaTheme.colors.paperColor
                     ),
+                    enabled = uiState !is UiState.Loading,
                     modifier = Modifier
                         .weight(1f)
                         .padding(start = 12.dp),

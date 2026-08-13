@@ -432,8 +432,8 @@
     <item quantity="other">%d gylə məǧolon ce sijohiku molə byə</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d gylə məǧolə molə byə cyjo %s</item>
-    <item quantity="other">%d gylə məǧolə molə byə cyjo %s</item>
+    <item quantity="one">%1$d gylə məǧolə molə byə cyjo %2$s</item>
+    <item quantity="other">%1$d gylə məǧolə molə byə cyjo %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d gylə sijohi molə byə</item>
@@ -630,7 +630,7 @@
   <string name="feed_item_type_featured_image">Ce Vikimənbəku ruži vyžnijə byə šikil</string>
   <string name="feed_item_type_randomizer">Bo hande məǧolon rajrəstə sijohi soxte</string>
   <string name="feed_item_type_suggested_edits">Bo kyrtə nom-nyšonon sərost karde tovsijə kardə byə</string>
-  <string name="feed_empty_message">Šymə lent təjlije</string>
+  <string name="feed_empty_message" fuzzy="true">Šymə lent təjlije</string>
   <string name="feed_configure_onboarding_action">Cəmisə noj</string>
   <string name="customize_lang_selection_dialog_ok_button_text">COK</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Ohaštej</string>

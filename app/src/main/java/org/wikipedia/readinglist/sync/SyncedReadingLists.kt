@@ -2,7 +2,9 @@ package org.wikipedia.readinglist.sync
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import org.wikipedia.json.LocalDateTimeSerializer
 import java.text.Normalizer
+import java.time.LocalDateTime
 
 @Serializable
 data class SyncedReadingLists(val lists: List<RemoteReadingList>? = null,
@@ -15,7 +17,9 @@ data class SyncedReadingLists(val lists: List<RemoteReadingList>? = null,
         @SerialName("default") val isDefault: Boolean = false,
         private val name: String,
         private val description: String? = null,
-        @SerialName("deleted") val isDeleted: Boolean = false
+        @SerialName("deleted") val isDeleted: Boolean = false,
+        @Serializable(with = LocalDateTimeSerializer::class) val created: LocalDateTime = LocalDateTime.now(),
+        @Serializable(with = LocalDateTimeSerializer::class) val updated: LocalDateTime = LocalDateTime.now()
     ) {
         fun name(): String = Normalizer.normalize(name, Normalizer.Form.NFC)
         fun description(): String? = Normalizer.normalize(description.orEmpty(), Normalizer.Form.NFC)
@@ -27,7 +31,9 @@ data class SyncedReadingLists(val lists: List<RemoteReadingList>? = null,
         val listId: Long = -1,
         private val project: String,
         private val title: String,
-        @SerialName("deleted") val isDeleted: Boolean = false
+        @SerialName("deleted") val isDeleted: Boolean = false,
+        @Serializable(with = LocalDateTimeSerializer::class) val created: LocalDateTime = LocalDateTime.now(),
+        @Serializable(with = LocalDateTimeSerializer::class) val updated: LocalDateTime = LocalDateTime.now()
     ) {
         fun project(): String = Normalizer.normalize(project, Normalizer.Form.NFC)
         fun title(): String = Normalizer.normalize(title, Normalizer.Form.NFC)

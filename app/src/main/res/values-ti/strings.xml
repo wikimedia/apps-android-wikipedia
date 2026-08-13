@@ -854,14 +854,14 @@
   <string name="survey_dialog_general_no">ኣይፋል</string>
   <string name="survey_dialog_general_maybe">ምናልባት</string>
   <string name="on_this_day_game_entry_dialog_subtitle">ጸወታታት ዊኪፐድያ</string>
-  <string name="on_this_day_game_entry_dialog_button">ናይ ሎሚ ጸወታ ኣጻውት</string>
+  <string name="on_this_day_game_entry_dialog_button" fuzzy="true">ናይ ሎሚ ጸወታ ኣጻውት</string>
   <string name="on_this_day_game_dialog_button">ኣጻውት</string>
   <string name="on_this_day_game_correct">ቅኑዕ!</string>
   <string name="on_this_day_game_incorrect">ጌጋ!</string>
   <string name="on_this_day_game_point">+1 ነጥቢ</string>
   <string name="on_this_day_game_next">ዝቕጽል ሕቶ</string>
   <string name="on_this_day_game_finish">ናይ መወዳእታ ውጽኢት</string>
-  <string name="on_this_day_game_share_button">ኣካፍል</string>
+  <string name="on_this_day_game_share_button" fuzzy="true">ኣካፍል</string>
   <string name="on_this_day_game_menu_info">ተወሳኺ ሓበሬታ</string>
   <string name="on_this_day_game_article_read_button">ጽሑፍ ኣንብብ</string>
   <string name="recommended_reading_list_onboarding_card_new">ሓድሽ!</string>

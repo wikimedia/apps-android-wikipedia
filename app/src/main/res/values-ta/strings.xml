@@ -36,6 +36,7 @@
   <string name="search_hint_voice_search">குரல் உள்ளீட்டுத் தேடல்</string>
   <string name="search_hint_search_languages">ஒரு மொழியைத் தேடு</string>
   <string name="search_back_button_content_description">பின் செல்</string>
+  <string name="search_clear_query_content_description">வினாவை அழி</string>
   <string name="search_icon_content_description">தேடுக</string>
   <string name="filter_hint_filter_my_lists_and_articles">எனது பட்டியல்களை வடிகட்டு</string>
   <string name="nav_item_suggested_edits">தொகுப்புகள்</string>
@@ -414,6 +415,8 @@
     <item quantity="one">இந்த கட்டுரை இனி அணை நிலையில் இருக்காது.</item>
     <item quantity="other">இந்த கட்டுரைகள் இனி அணை நிலையில் இருக்காது</item>
   </plurals>
+  <string name="reading_list_remove_list_dialog_ok_button_text">சரி</string>
+  <string name="reading_lists_preview_saved_snackbar_action">பார்வையிடு</string>
   <string name="user_option_sync_label">முன்னுரிமைகள்</string>
   <string name="notification_reverted_title">மீளமைக்கப்பட்ட தொகுப்புகள்</string>
   <string name="notification_channel_description">தரவிறக்கம் நடைபெறுகிறது</string>
@@ -441,9 +444,12 @@
   <string name="notifications_poll_enable_positive">செயலாக்கு</string>
   <string name="notifications_poll_enable_negative">தற்போது இல்லை</string>
   <string name="notifications_empty_message">புதிய அறிவிப்புகள் ஏதும் இல்லை!</string>
+  <string name="watchlist_title">கவனிப்புப் பட்டியல்</string>
   <string name="preference_title_notification_milestone">மைல் கல்</string>
   <string name="preference_title_notification_thanks">நன்றி</string>
+  <string name="notifications_channel_group_other_title">பிற</string>
   <string name="notifications_menu_mark_as_read">வாசித்ததாக குறியிடு</string>
+  <string name="notifications_all_wikis_text">அனைத்து விக்கிகள்</string>
   <string name="view_because_you_read_card_title">நீங்கள் படித்ததினால்</string>
   <string name="view_random_card_title">தற்போக்கான்</string>
   <string name="view_next_random_article">தற்போக்காக மற்றொரு கட்டுறையை காட்டு</string>
@@ -478,10 +484,11 @@
   <string name="feed_item_type_trending">தினமும் அதிகமாக காணப்பட்ட கட்டுரைகள்</string>
   <string name="feed_item_type_featured_image">விக்கிமீடியா பொதுவகத்திலிருந்து தினசரி சிறப்பு படம்</string>
   <string name="feed_item_type_randomizer">வாசிப்பதற்காக கட்டுறைகளை தற்போக்காக உற்பத்தி செய்க</string>
-  <string name="feed_empty_message">உங்கள் சுற்றிபார் ஓடத்தில் ஒன்றும் இல்லை</string>
+  <string name="feed_empty_message" fuzzy="true">உங்கள் சுற்றிபார் ஓடத்தில் ஒன்றும் இல்லை</string>
   <string name="feed_configure_onboarding_action">தனிப்பயனாக்குக</string>
   <string name="customize_lang_selection_dialog_ok_button_text">சரி</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;உங்கள் சுற்றிபார் ஓடத்தை விருப்பமைக&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;இப்போது உங்கள் ஓடத்தில் என்ன தெரிய வேண்டும் என்று நீங்கள் தேர்வு செய்யலாம். மேலும் உங்களுக்கு பிடித்தமான விதத்தில் வரிசைபடுத்தளாம்.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;உங்கள் சுற்றிபார் ஓடத்தை விருப்பமைக&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;இப்போது உங்கள் ஓடத்தில் என்ன தெரிய வேண்டும் என்று நீங்கள் தேர்வு செய்யலாம். மேலும் உங்களுக்கு பிடித்தமான விதத்தில் வரிசைபடுத்தளாம்.</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">அமைப்புகளுக்குச் செல்லவும்</string>
   <string name="description_edit_text_hint" fuzzy="true">தலைப்பு விவரம்</string>
   <string name="description_edit_save">பதிப்பிடு</string>
   <string name="description_edit_read">படி</string>
@@ -490,6 +497,7 @@
   <string name="description_edit_cancel_hint">கைவிடுக</string>
   <string name="description_edit_help_title" fuzzy="true">உதவி: தலைப்பு விவரங்கள்</string>
   <string name="description_edit_help_about_wikidata">விக்கித்தரவைப் பற்றி</string>
+  <string name="description_ends_with_punctuation">உரை நிறுத்தற்குறிகளுடன் முடிவடையக் கூடாது.</string>
   <string name="description_edit_success_saved" fuzzy="true">விவரம் பதிப்பிடப்பட்டது!</string>
   <string name="description_edit_success_encouragement">நீங்கள் விக்கிப்பீடியாவை அனைவருக்காகவும் மேம்படுத்தியுள்ளீர்கள்</string>
   <string name="description_edit_success_done">முடிந்தது</string>
@@ -498,13 +506,17 @@
   <string name="description_edit_tutorial_keep_it_short">இதை குறைவாக வைக்கவும்p</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">ஒரு வரியில், இரண்டிலிருந்து பன்னிரண்டு வார்த்தைகளில்</string>
   <string name="description_edit_tutorial_button_label_start_editing">தொகுக்கக் துவங்கவும்</string>
+  <string name="suggested_edits_activity_title">தொகு</string>
   <string name="suggested_edits_edit_patrol_review">மதிப்பிடு</string>
+  <string name="suggested_edits_edit_description_button">விளக்கத்தைத் திருத்து</string>
   <string name="suggested_edits_my_contributions">என் பங்களிப்புக்கள்</string>
   <string name="suggested_edits_task_add_description_title" fuzzy="true">விளக்கங்களைச் சேர்க்கவும்</string>
+  <string name="suggested_edits_task_multilingual_negative">எனக்காக அல்ல.</string>
   <string name="suggested_edits_task_multilingual_positive">மொழிகளைச் சேர்க்கவும்</string>
   <string name="suggested_edits_image_caption_summary_title_artist">கலைஞர்/ஆக்குனர்</string>
   <string name="suggested_edits_tasks_onboarding_get_started">தொடங்கவும்</string>
   <string name="suggested_edits_image_preview_dialog_more_info">மேலதிகத் தகவல்</string>
+  <string name="suggested_edits_article_cta_image_caption">படத்திற்கான தலைப்பைச் சேர்க்கவும்</string>
   <string name="suggested_edits_image_tags_published">பிரசுரிக்கப்பட்டது</string>
   <string name="suggested_edits_learn_more">மேலும் அறிக</string>
   <string name="suggested_edits_last_edited">கடைசியாகத் தொகுக்கப்பட்டது</string>
@@ -514,13 +526,16 @@
   <string name="suggested_edits_contribution_image_label" fuzzy="true">கோப்பு</string>
   <string name="suggested_edits_contribution_views">%s பார்வைகள்</string>
   <string name="suggested_edits_contribution_date_yesterday_text">நேற்று</string>
+  <string name="suggested_edits_encourage_account_creation_login_button">விக்கிபீடியாவில் புகுபதிக / இணைக</string>
+  <string name="image_recommendation_reject_low_quality">படம் குறைந்த தரத்தில் உள்ளது</string>
+  <string name="activity_tab_explore_wikipedia">விக்கிப்பீடியா மூலம் கண்டறியவும்</string>
   <string name="activity_tab_timeline_today">இன்று</string>
   <string name="description_edit_revert_subtitle">விக்கிப்பீடியாவில் தொகுத்ததற்கு நன்றி!!</string>
   <string name="onboarding_skip">தவிர்</string>
   <string name="onboarding_continue">தொடரவும்</string>
   <string name="onboarding_get_started">தொடங்கவும்</string>
   <string name="onboarding_explore_title">சுற்றிப்பார்பதற்கான புதிய வழிகள்</string>
-  <string name="onboarding_explore_text">தொடர்சியாக புதுப்பிக்கப்படும் சுற்றிபார் ஓடத்தினால் விக்கிப்பீடியா முயல் புதருக்குள் மூழ்கிடுங்கள். &lt;br /&gt;உங்கள் விருப்பத்திர்கேற்ப சுற்றிபார் ஓடத்தை &lt;b&gt;விருப்பமைக&lt;/b&gt; - &lt;b&gt;இந்த நாளில்&lt;/b&gt; நிகழ்ந்த வரலாற்று நிகழ்வுகளை அறிந்து கொள்வதோ, அல்லது &lt;b&gt;தற்போக்கான்&lt;/b&gt;ஐ வைத்து பகடையை உருட்டுவதோ.</string>
+  <string name="onboarding_explore_text" fuzzy="true">தொடர்சியாக புதுப்பிக்கப்படும் சுற்றிபார் ஓடத்தினால் விக்கிப்பீடியா முயல் புதருக்குள் மூழ்கிடுங்கள். &lt;br /&gt;உங்கள் விருப்பத்திர்கேற்ப சுற்றிபார் ஓடத்தை &lt;b&gt;விருப்பமைக&lt;/b&gt; - &lt;b&gt;இந்த நாளில்&lt;/b&gt; நிகழ்ந்த வரலாற்று நிகழ்வுகளை அறிந்து கொள்வதோ, அல்லது &lt;b&gt;தற்போக்கான்&lt;/b&gt;ஐ வைத்து பகடையை உருட்டுவதோ.</string>
   <string name="onboarding_reading_list_sync_title">ஒருங்குநிகழ்கவுடன் படிப்பு பட்டியல்கள்</string>
   <string name="onboarding_reading_list_sync_text_v2">நீங்கள் பின்னர் வாசிக்க விரும்பும் கட்டுரைகளிலிருந்து படிப்பு பட்டியல்களை உருவாக்கலாம். அவற்றை நீங்கள் இணைப்பில்லா நிலையிலும் வாசிக்கலாம். &lt;br/&gt;உங்கள் படிப்பு பட்டியல்களை ஒருங்குநிகழ் செய்ய உங்கள் வீக்கிபீடியா கணக்கிற்குள் புகுபதிகை செய்க. &lt;a href=\"#login\"&gt;விக்கிபீடியாவில் சேர்க&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">தரவு &amp; தனியுரிமை</string>

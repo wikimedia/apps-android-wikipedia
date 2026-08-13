@@ -39,6 +39,8 @@ class MwQueryPage {
     val revisions: List<Revision> = emptyList()
     val protection: List<Protection> = emptyList()
     val extract: String? = null
+    val snippet: String? = null
+    @SerialName("sectiontitle") val sectionTitle: String? = null
     val description: String? = null
     private val imagerepository: String? = null
     var redirectFrom: String? = null
@@ -138,7 +140,7 @@ class MwQueryPage {
     class PageProps {
 
         @SerialName("wikibase_item") val wikiBaseItem: String = ""
-        private val disambiguation: String? = null
+        public val disambiguation: String? = null
         @SerialName("displaytitle") val displayTitle: String? = null
     }
 

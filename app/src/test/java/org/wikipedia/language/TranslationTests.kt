@@ -1,8 +1,7 @@
 package org.wikipedia.language
 
-import org.hamcrest.MatcherAssert
-import org.hamcrest.Matchers
 import org.jsoup.Jsoup
+import org.junit.Assert.assertEquals
 import org.junit.Test
 import java.io.File
 import java.util.function.Consumer
@@ -50,7 +49,7 @@ class TranslationTests {
         }
 
         // Step 3: check the result
-        MatcherAssert.assertThat("\n" + mismatches.toString(), mismatches.length, Matchers.`is`(0))
+        assertEquals("\n" + mismatches.toString(), 0, mismatches.length)
     }
 
     @Test
@@ -71,8 +70,15 @@ class TranslationTests {
             }
         }
 
+        // Step 4: Check if the item in qq/strings.xml exists in en/strings.xml
+        for (item in qqList) {
+            if (!baseList.contains(item)) {
+                mismatches.append("Extra item in qq/strings.xml not found in en/strings.xml ").append(item).append(" \n")
+            }
+        }
+
         // Step 4: check the result
-        MatcherAssert.assertThat("\n" + mismatches.toString(), mismatches.length, Matchers.`is`(0))
+        assertEquals("\n" + mismatches.toString(), 0, mismatches.length)
     }
 
     @Test
@@ -99,7 +105,7 @@ class TranslationTests {
             })
         }
 
-        MatcherAssert.assertThat("\n" + mismatches.toString(), mismatches.length, Matchers.`is`(0))
+        assertEquals("\n" + mismatches.toString(), 0, mismatches.length)
     }
 
     @Test
@@ -124,7 +130,7 @@ class TranslationTests {
                     .append("\n")
             }
         }
-        MatcherAssert.assertThat("\n" + mismatches.toString(), mismatches.length, Matchers.`is`(0))
+        assertEquals("\n" + mismatches.toString(), 0, mismatches.length)
     }
 
     @Test
@@ -159,7 +165,7 @@ class TranslationTests {
         }
 
         // Step 3: check the result
-        MatcherAssert.assertThat("\n" + mismatches.toString(), mismatches.length, Matchers.`is`(0))
+        assertEquals("\n" + mismatches.toString(), 0, mismatches.length)
     }
 
     private val baseFile: File
@@ -293,7 +299,7 @@ class TranslationTests {
             "''.*?''",
             "(?<!%)%(?!%|,d|\\d|d|s|f)"
         )
-        private val BAD_NAMES = listOf("ldrtl", "sw360dp", "sw600dp", "sw720dp", "v19", "v21", "v23", "land", "night")
+        private val BAD_NAMES = listOf("ldrtl", "sw360dp", "sw600dp", "sw720dp", "v19", "v21", "v23", "v31", "land", "night")
 
         private var BASE_FILE: File? = null
         private var QQ_FILE: File? = null

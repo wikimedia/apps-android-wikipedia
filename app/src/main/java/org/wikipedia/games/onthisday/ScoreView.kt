@@ -12,19 +12,13 @@ import org.wikipedia.R
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 
-class ScoreView(
-    context: Context,
-    attrs: AttributeSet? = null,
-) : LinearLayout(context, attrs) {
+class ScoreView(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
 
     private val scoreViews = mutableListOf<ShapeableImageView>()
 
     init {
         orientation = HORIZONTAL
-        layoutParams = ViewGroup.LayoutParams(
-            ViewGroup.LayoutParams.WRAP_CONTENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT
-        )
+        layoutParams = ViewGroup.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
     }
 
     fun generateViews(size: Int) {

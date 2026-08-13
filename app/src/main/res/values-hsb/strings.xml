@@ -91,7 +91,7 @@
   <string name="reading_list_page_share">Dźělić</string>
   <string name="menu_text_select_edit_here">Tule wobdźěłać</string>
   <string name="menu_edit_article">Zapisk wobdźěłać</string>
-  <string name="last_updated_text">Posledni raz aktualizowane: %s</string>
+  <string name="last_updated_text">Posledni raz aktualizowane %s</string>
   <string name="talk_page_link_text">Diskusiju sej wobhladać</string>
   <string name="edit_history_link_text">Starše wersije sej wobhladać</string>
   <string name="map_view_link_text">Na karće pokazać</string>
@@ -127,7 +127,7 @@
   <string name="login_username_hint">Wužiwarske mjeno</string>
   <string name="login_password_hint">Hesło</string>
   <string name="account_creation_password_hint">Hesło</string>
-  <string name="login_2fa_hint" fuzzy="true">Kod za dwójnu awtentifikaciju</string>
+  <string name="login_2fa_hint">Kod za dwufaktorowu awtentifikaciju</string>
   <string name="onboarding_card_login">Přizjewić</string>
   <string name="page_editing_login">Přizjewić</string>
   <string name="reading_lists_sync_login">Přizjewić</string>
@@ -211,7 +211,7 @@
   <string name="about_description">Wo tutu app</string>
   <string name="privacy_policy_description">Datowoškitne směrnicy</string>
   <string name="terms_of_use_description">Wužiwanske wuměnjenja</string>
-  <string name="about_wikipedia_url" fuzzy="true">https://hsb.m.wikipedia.org/wiki/Wikipedija:Wo_Wikipediji</string>
+  <string name="about_wikipedia_url">https://de.wikipedia.org/wiki/Wikipedia:Über_Wikipedia</string>
   <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/de</string>
   <string name="about_libraries_heading">Trjebane biblioteki</string>
   <string name="about_contributors_heading">Přinošowarjo</string>
@@ -226,7 +226,7 @@
   <string name="user_blocked_from_editing_title">Zawrjene</string>
   <string name="user_logged_in_blocked_from_editing">Twoje wužiwarske konto je so zawrěło za wobdźěłanje tutoho wikija.</string>
   <string name="user_anon_blocked_from_editing">Twoja IP-adresa bu za wobdźěłanja blokěrowana.</string>
-  <string name="edit_how_page_improved">Kak sy stronu polěpšił(a)?</string>
+  <string name="edit_how_page_improved">Kak sy stronu polěpšił/a?</string>
   <string name="edit_next">Přichodne</string>
   <string name="edit_done">Wozjewić</string>
   <string name="edit_preview">Přehlad</string>
@@ -356,6 +356,7 @@
   <string name="preference_title_prefer_offline_content">Radšo offline-wobsah wzać</string>
   <string name="preference_summary_prefer_offline_content">Lutuj wužiwanje datow přez pokazowanje offline přistupnych zapiskow město stajneho sćehnjenja najnowšeje wersije.</string>
   <string name="empty_tab_title">Nowy rajtark</string>
+  <string name="menu_save_all_tabs">Wšě rajtarki składować</string>
   <string name="temp_account_not_logged_in">Njejsy přizjewjeny/a</string>
   <string name="temp_account_dialog_ok">W porjadku</string>
   <string name="temp_account_using_title">Dźěłaš z nachwilnym kontom</string>
@@ -459,15 +460,19 @@
   <string name="reading_lists_menu_sort_by">Sortěrować po</string>
   <string name="reading_lists_refresh_sync_option">Znowa synchronizować</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Přizjewić / konto wutworić</string>
-  <plurals name="reading_list_article_offline_message" fuzzy="true">
+  <plurals name="reading_list_article_offline_message">
     <item quantity="one">Tutón nastawk je nětko offline přistupny.</item>
-    <item quantity="other">Tutej nastawkaj stej nětko offline přistupnej.</item>
+    <item quantity="two">Tutej nastawkaj stej nětko offline přistupnej.</item>
+    <item quantity="few">Tute nastawki su nětko offline přistupne.</item>
+    <item quantity="other">Tute nastawki su nětko offline přistupne.</item>
   </plurals>
-  <plurals name="reading_list_article_not_offline_message" fuzzy="true">
+  <plurals name="reading_list_article_not_offline_message">
     <item quantity="one">Tutón nastawk njeje hižo offline přistupny.</item>
-    <item quantity="other">Tutej nastawkaj njejstej hižo offline přistupnej.</item>
+    <item quantity="two">Tutej nastawkaj njejstej hižo offline přistupnej.</item>
+    <item quantity="few">Tute nastawki njejsu hižo offline přistupne.</item>
+    <item quantity="other">Tute nastawki njejsu hižo offline přistupne.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync" fuzzy="true">Čitanske lisćiny wuspěšnje synchronizowane</string>
+  <string name="reading_list_toast_last_sync">Čitanske lisćiny synchronizowane</string>
   <string name="reading_list_menu_last_sync">Poslednja synchronizacija: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">W porjadku</string>
   <string name="reading_list_delete_dialog_ok_button_text">W porjadku</string>
@@ -547,6 +552,10 @@
   <string name="notifications_tab_filter_mentions">Naspomnjenja</string>
   <string name="notifications_search_bar_hint">Zdźělenki pytać abo filtrować</string>
   <string name="notifications_search_bar_filter_hint">Filter zdźělenkow</string>
+  <string name="notifications_wiki_filter_header">Filter wikijow</string>
+  <string name="notifications_type_filter_header">Filter družinow</string>
+  <string name="notifications_all_wikis_text">Wšitke wikije</string>
+  <string name="notifications_all_types_text">Wšě družiny</string>
   <string name="view_because_you_read_card_title">Přetož sy tole čitał(a)</string>
   <string name="view_random_card_title">Připad</string>
   <string name="view_top_read_card_title">Najhusćišo čitane</string>
@@ -766,10 +775,30 @@
   <string name="image_recommendation_reject_dont_know">Njewuznaju so z tutej temu</string>
   <string name="image_recommendation_reject_other">Druhe</string>
   <string name="image_recommendation_reject_submit">Wotpósłać</string>
+  <string name="activity_tab_on_wikipedia_android">w android-aplikaciji Wikipedije</string>
+  <string name="activity_tab_weekly_time_spent">Tak dołho sy tutón tydźeń čitał/a</string>
+  <string name="activity_tab_monthly_articles_read">W tutym měsacu čitane zapiski</string>
+  <string name="activity_tab_monthly_articles_saved">W tutym měsacu składowane zapiski</string>
+  <string name="activity_tab_monthly_top_categories">Najhusćišo čitane kategorije tutoho měsaca</string>
+  <string name="activity_tab_total_edits_all_projects">Cyłkowne změny we wšěch projektach</string>
+  <string name="activity_tab_impact">Twój přinošk</string>
+  <string name="activity_tab_impact_most_viewed">Najhusćišo wobhladane po twojej změnje</string>
+  <string name="activity_tab_impact_contributions_this_month">Přinoški w tutym měsacu</string>
+  <string name="activity_tab_impact_recent_activity">Twoje poslednje aktiwity (zašłych 30 dnjow)</string>
+  <plurals name="activity_tab_impact_recent_activity_views">
+    <item quantity="one">wobhladanje zapiskow, kotrež sy wobdźěłał/a</item>
+    <item quantity="two">wobhladani zapiskow, kotrež sy wobdźěłał/a</item>
+    <item quantity="few">wobhladanja zapiskow, kotrež sy wobdźěłał/a</item>
+    <item quantity="other">wobhladanjow zapiskow, kotrež sy wobdźěłał/a</item>
+  </plurals>
+  <string name="activity_tab_timeline_today">Dźensa</string>
+  <string name="activity_tab_timeline_yesterday">Wčera</string>
+  <string name="activity_tab_timeline_view_changes_button">Změny pokazać</string>
   <string name="description_edit_revert_subtitle">Měj dźak za wobdźěłanje Wikipedije!</string>
   <string name="description_edit_revert_reason2">twój přinošk wupadaše kaž eksperiment abo wandalizm.</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
+  <string name="on_this_day_card_title">Na tutym dnju</string>
   <plurals name="talk_hide_replies_count">
     <item quantity="one">wotmołwu schować</item>
     <item quantity="two">wotmołwje schować</item>
@@ -778,4 +807,11 @@
   </plurals>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">trajnje</string>
   <string name="watchlist_expiry_dialog_permanent">Trajnje</string>
+  <string name="preview_edit_summarize_edit_title">Změnu zjimać</string>
+  <string name="preview_edit_summarize_edit_hint">Kak sy stronu polěpšił/a?</string>
+  <string name="preview_edit_minor_edit">To je snadna změna</string>
+  <string name="preview_edit_watch_this_page">Tutu stronu wobkedźbować</string>
+  <string name="preview_edit_learn_more">Tu zhoniš wjace wo zjeću změnow</string>
+  <string name="action_item_categories">Kategorije</string>
+  <string name="action_item_view_on_map">Na karće pokazać</string>
 </resources>

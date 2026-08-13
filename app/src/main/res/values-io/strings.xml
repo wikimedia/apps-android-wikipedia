@@ -513,8 +513,8 @@
     <item quantity="other">%d artikli efacita de listo</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d artiklo efacita de %s</item>
-    <item quantity="other">%d artikli efacita de %s</item>
+    <item quantity="one">%1$d artiklo efacita de %2$s</item>
+    <item quantity="other">%1$d artikli efacita de %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d listo efacita</item>
@@ -782,11 +782,11 @@
   <string name="feed_item_type_randomizer">Krear hazard-artikli por lektar</string>
   <string name="feed_item_type_suggested_edits">Sugesti por adjuntar kontenajo a Wikipedio</string>
   <string name="feed_item_type_places">Artikli vicina, segun la nuna lokizo</string>
-  <string name="feed_empty_message">Existas nulo en vua \'\'feed\'\' Explorar</string>
+  <string name="feed_empty_message" fuzzy="true">Existas nulo en vua \'\'feed\'\' Explorar</string>
   <string name="feed_configure_onboarding_action">Ajustar</string>
   <string name="customize_lang_selection_dialog_ok_button_text">O.K.</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Anular</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Ajustez vua \'\'feed\'\' \"Explorar\"&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Nun vu povas selektar quale montresos a vu, ed anke vu povas priorizar la tipi di kontenajo quin vu preferas.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Ajustez vua \'\'feed\'\' \"Explorar\"&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Nun vu povas selektar quale montresos a vu, ed anke vu povas priorizar la tipi di kontenajo quin vu preferas.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">O.K.</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Anular</string>
   <string name="feed_accessibility_card_text">Vu atingis l\'infra parto de ca \'\'feed\'\'.</string>
@@ -1061,7 +1061,7 @@
     <item quantity="one">Ka removar selektita idiomo?</item>
     <item quantity="other">Ka removar selektita idiomi?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Vu nur vidos kontenajo che Exploro-\'\'feed\'\' e filtrili por rapida serchado por la restanta idiomi de Wikipedio.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Vu nur vidos kontenajo che Exploro-\'\'feed\'\' e filtrili por rapida serchado por la restanta idiomi de Wikipedio.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Ne povas removar omna idiomi</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Mantenez adminime 1 idiomo de Wikipedio de quon tu povos serchar e lektar kontenajo.</string>
   <string name="more_language_options">pluse</string>
@@ -1219,4 +1219,6 @@
   <string name="user_contrib_current">nuna</string>
   <string name="reading_list_share_menu_label">Partigez...</string>
   <string name="reading_list_share_menu_tooltip">Partigez ca texto kun altri</string>
+  <string name="reading_challenge_widget_reward_body">Celebrez la kompletigo di la tasko kun diskonto di 15%% che Wikipedia Store.</string>
+  <string name="reading_challenge_widget_reward_button_label">Obtenez 15%% diskonto che magazino</string>
 </resources>

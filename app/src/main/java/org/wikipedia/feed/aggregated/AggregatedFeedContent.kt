@@ -2,8 +2,8 @@ package org.wikipedia.feed.aggregated
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import kotlinx.serialization.Transient
 import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.feed.didyouknow.DidYouKnowItem
 import org.wikipedia.feed.image.FeaturedImage
 import org.wikipedia.feed.news.NewsItem
 import org.wikipedia.feed.onthisday.OnThisDay
@@ -15,7 +15,6 @@ class AggregatedFeedContent(
     val news: List<NewsItem>? = null,
     @SerialName("mostread") val topRead: TopRead? = null,
     @SerialName("image") val potd: FeaturedImage? = null,
-    val onthisday: List<OnThisDay.Event>? = null
-) {
-    @Transient var randomOnThisDayEvent: OnThisDay.Event? = null
-}
+    val onthisday: List<OnThisDay.Event>? = null,
+    val dyk: List<DidYouKnowItem>? = null
+)

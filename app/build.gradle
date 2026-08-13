@@ -4,7 +4,6 @@ plugins {
     id 'com.android.application'
     id 'com.google.devtools.ksp'
     id 'com.google.gms.google-services'
-    id 'kotlin-android'
     id 'kotlin-parcelize'
     id 'kotlinx-serialization'
     alias(libs.plugins.compose.compiler)
@@ -21,7 +20,7 @@ static def computeVersionName(versionCode, label) {
 }
 
 android {
-    compileSdk = 36
+    compileSdk = 37
 
     compileOptions {
         coreLibraryDesugaringEnabled = true
@@ -39,15 +38,15 @@ android {
     defaultConfig {
         applicationId 'org.wikipedia'
         minSdk = 23
-        targetSdk = 36
-        versionCode 50565
+        targetSdk = 37
+        versionCode 50601
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
 
         vectorDrawables.useSupportLibrary = true
 
-        signingConfig signingConfigs.debug
+        signingConfig = signingConfigs.debug
 
         buildConfigField "String", "DEFAULT_RESTBASE_URI_FORMAT", '"%1$s://%2$s/api/rest_v1/"'
         buildConfigField "String", "META_WIKI_BASE_URI", '"https://meta.wikimedia.org"'
@@ -61,14 +60,14 @@ android {
     }
 
     testOptions {
-        execution 'ANDROIDX_TEST_ORCHESTRATOR'
+        execution = 'ANDROIDX_TEST_ORCHESTRATOR'
         animationsDisabled = true
     }
 
     buildFeatures {
-        viewBinding true
-        buildConfig true
-        compose true
+        viewBinding = true
+        buildConfig = true
+        compose = true
     }
 
     androidResources {
@@ -77,14 +76,13 @@ android {
 
     sourceSets {
 
-        [ prod, beta, alpha, dev, custom ].forEach {
-            it.java.srcDirs += 'src/extra/java'
-            it.res.srcDirs += 'src/extra/res'
+        ['prod', 'beta', 'alpha', 'dev', 'custom'].forEach { name ->
+            maybeCreate(name).java.srcDirs += 'src/extra/java'
+            maybeCreate(name).kotlin.srcDirs += 'src/extra/java'
+            maybeCreate(name).res.srcDirs += 'src/extra/res'
         }
 
-        androidTest {
-            assets.srcDirs += files("$projectDir/schemas".toString())
-        }
+        maybeCreate('androidTest').assets.srcDirs += files("$projectDir/schemas".toString())
     }
 
     signingConfigs {
@@ -121,7 +119,7 @@ android {
         }
         prod {
             versionName computeVersionName(defaultConfig.versionCode, 'r')
-            signingConfig signingConfigs.prod
+            signingConfig = signingConfigs.prod
         }
         alpha {
             versionName computeVersionName(defaultConfig.versionCode, 'alpha')
@@ -130,17 +128,17 @@ android {
         beta {
             versionName computeVersionName(defaultConfig.versionCode, 'beta')
             applicationIdSuffix '.beta'
-            signingConfig signingConfigs.prod
+            signingConfig = signingConfigs.prod
         }
         fdroid {
             versionName computeVersionName(defaultConfig.versionCode, 'fdroid')
-            signingConfig signingConfigs.prod
+            signingConfig = signingConfigs.prod
         }
         custom {
             versionName computeVersionName(defaultConfig.versionCode, customChannel)
             // next line is for injecting a custom channel value into the custom/AndroidManifest.xml
             manifestPlaceholders = [customChannel:getProperty('customChannel').toString()]
-            signingConfig signingConfigs.prod
+            signingConfig = signingConfigs.prod
         }
     }
 
@@ -153,21 +151,16 @@ android {
 
     bundle {
         language {
-            enableSplit false
+            enableSplit = false
         }
     }
-    namespace 'org.wikipedia'
+    namespace = 'org.wikipedia'
 }
 
 ksp {
     arg("room.schemaLocation", "$projectDir/schemas")
 }
 
-configurations {
-    compileClasspath.extendsFrom(implementation)
-}
-
-apply from: '../gradle/src/test.gradle'
 apply from: '../gradle/src/ktlint.gradle'
 
 dependencies {
@@ -210,7 +203,8 @@ dependencies {
     implementation libs.photoview
     implementation libs.balloon
     implementation libs.retrofit2.kotlinx.serialization.converter
-    implementation(libs.paging.compose)
+    implementation libs.paging.compose
+    implementation libs.lottie.compose
 
     implementation libs.maplibre
     implementation libs.maplibre.annotation
@@ -219,6 +213,12 @@ dependencies {
     annotationProcessor libs.androidx.room.compiler
     ksp libs.androidx.room.compiler
     implementation libs.androidx.room.ktx
+
+    implementation libs.androidx.ui.graphics
+    implementation libs.androidx.glance.appwidget
+    implementation libs.androidx.glance.material3
+    implementation libs.androidx.glance.preview
+    implementation libs.androidx.glance.appwidget.preview
 
     // For language detection during editing
     prodImplementation libs.com.google.mlkit.language.id
@@ -252,11 +252,10 @@ dependencies {
     implementation libs.plumber.android
 
     testImplementation libs.junit
-    testImplementation libs.mockito.inline
+    testImplementation libs.mockk
     testImplementation libs.robolectric
     testImplementation libs.okhttp3.okhttp
     testImplementation libs.mockwebserver
-    testImplementation libs.hamcrest
     testImplementation libs.room.testing
 
     androidTestImplementation libs.espresso.core
@@ -268,7 +267,6 @@ dependencies {
     androidTestImplementation libs.room.testing
     androidTestUtil libs.androidx.orchestrator
 
-    // Coil
     implementation(libs.coil.compose)
     implementation(libs.coil.network.okhttp)
     implementation(libs.coil.gif)

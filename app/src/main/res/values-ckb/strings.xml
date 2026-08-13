@@ -508,9 +508,9 @@
     <item quantity="one">١ وتار سڕایەوە لە پێڕست</item>
     <item quantity="other">%d وتار سڕایەوە لە پێڕست</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d وتار سڕدرایەوە لە %s</item>
-    <item quantity="other">%d وتار سڕدرایەوە لە %s</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">%1$d وتار سڕدرایەوە لە %2$s</item>
+    <item quantity="other">%1$d وتار سڕدرایەوە لە %2$s</item>
   </plurals>
   <string name="reading_list_items_deleted">%d وتار سڕایەوە لە پێڕست</string>
   <string name="reading_lists_item_deleted">%s سڕایەوە لە پێڕست</string>
@@ -1393,7 +1393,6 @@
   <string name="on_this_day_game_point">+١ خاڵ</string>
   <string name="on_this_day_game_next">پرسیاری دواتر</string>
   <string name="on_this_day_game_finish">ئەنجامی کۆتایی</string>
-  <string name="on_this_day_game_pause_positive">تێگەیشتم</string>
   <string name="on_this_day_game_your_stats">ئامارەکانت</string>
   <string name="on_this_day_game_article_read_button">وتارەکە بخوێنەوە</string>
   <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">بەڵێ، دایان بگیرسێنە</string>

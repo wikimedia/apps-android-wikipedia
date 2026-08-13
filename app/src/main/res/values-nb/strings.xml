@@ -23,6 +23,7 @@
 * Telaneo
 * VukAnd12
 * Vukky
+* Yupik
 -->
 <resources>
   <string name="app_name_prod">Wikipedia</string>
@@ -261,6 +262,7 @@
   <string name="about_description">Om Wikipedia-appen</string>
   <string name="privacy_policy_description">Personvernspolitikk</string>
   <string name="terms_of_use_description">Bruksvilkår</string>
+  <string name="legal_safety_contacts_description">Juridisk og sikkerhetsrelaterte kontakter</string>
   <string name="about_wikipedia_url">https://no.wikipedia.org/wiki/Wikipedia:Om</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.no</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.no</string>
@@ -402,8 +404,10 @@
   <string name="button_get_directions">Veibeskrivelse</string>
   <string name="error_no_maps_app">Fant ikke noen apper som kunne gi veibeskrivelse.</string>
   <string name="preference_title_customize_explore_feed">Utforskingsmating</string>
+  <string name="preference_title_customize_home_feed">Hjemmestrøm</string>
   <string name="preference_title_show_link_previews">Forhåndsvis lenker</string>
   <string name="preference_summary_customize_explore_feed">Tilpass utforskingsmatingen</string>
+  <string name="preference_summary_customize_home_feed">Tilpass hjemmestrømmen din</string>
   <string name="preference_summary_show_link_previews">Vis en kort forhåndsvisning av artikler når du trykker på lenker.</string>
   <string name="preference_title_collapse_tables">Fold sammen tabeller</string>
   <string name="preference_summary_collapse_tables">Fold automatisk sammen tabeller i artikler, for eksempel infobokser, referanser og noter.</string>
@@ -562,8 +566,8 @@
     <item quantity="other">%d artikler fjernet fra listen</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d artikkel fjernet fra %s</item>
-    <item quantity="other">%d artikler fjernet fra %s</item>
+    <item quantity="one">%1$d artikkel fjernet fra %2$s</item>
+    <item quantity="other">%1$d artikler fjernet fra %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d liste slettet</item>
@@ -813,9 +817,11 @@
   <string name="view_random_article_card_title">Tilfeldig artikkel</string>
   <string name="view_random_article_card_action">Flere tilfeldige artikler</string>
   <string name="view_top_read_card_title">Mest lest</string>
+  <string name="view_top_read_card_description">Hva er populært på Wikipedia i dag</string>
   <string name="view_top_read_card_action">Flere mest leste</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d k</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
+  <string name="view_top_read_card_pageviews_views_suffix">visninger</string>
   <string name="view_next_random_article">Last en annen tilfeldig artikkel</string>
   <string name="view_main_page_card_title">I dag på Wikipedia</string>
   <string name="view_main_page_card_action">Vis forsiden</string>
@@ -856,11 +862,11 @@
   <string name="feed_item_type_randomizer">Tilfeldig utvalgte artikler</string>
   <string name="feed_item_type_suggested_edits">Forslag om å legge til innhold på Wikipedia</string>
   <string name="feed_item_type_places">Artikler i nærheten, basert på den nåværende plasseringen din</string>
-  <string name="feed_empty_message">Det er ingenting her</string>
+  <string name="feed_empty_message">Det er ingenting på hjemmestrømmen din</string>
   <string name="feed_configure_onboarding_action">Tilpass</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Avbryt</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Tilpass utforskingssiden&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Du kan tilpasse og prioritere hvilke typer innhold som skal vises.</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Tilpass hjemmestrømmen&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Du kan tilpasse og prioritere hvilke typer innhold som skal vises.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Avbryt</string>
   <string name="feed_accessibility_card_text">Du har nådd bunnen av utforskersiden.</string>
@@ -1171,6 +1177,7 @@
   <string name="activity_tab_menu_feedback">Problem med funksjonen</string>
   <string name="activity_tab_menu_info">Lær mer</string>
   <string name="activity_tab_menu_customize">Tilpass</string>
+  <string name="activity_tab_menu_customize_description">Leseinnsikt er basert på språkene i innstillingene dine, og redigeringsinnsikt er begrenset til hovedspråket i appen. Innsikt bruker lokale data, med unntak av redigeringer, som er offentlige.</string>
   <string name="activity_tab_highlights">Høydepunkter</string>
   <string name="activity_tab_customize_screen_reading_history_switch_title">Lesehistorikk</string>
   <string name="activity_tab_impact">Din innvirkning</string>
@@ -1197,6 +1204,7 @@
     <item quantity="one">%d dag</item>
     <item quantity="other">%d dager</item>
   </plurals>
+  <string name="activity_tab_impact_best_streak">Beste rekke</string>
   <string name="activity_tab_impact_last_edited">Sist redigert</string>
   <string name="activity_tab_impact_suggested_edits_title">0 nylige redigeringer i artikler</string>
   <string name="activity_tab_impact_suggested_edits_message">Det ser ut som at du ikke har redigert denne måneden. Utvid den frie kunnskapen ved å redigere emner som interesserer deg.</string>
@@ -1225,6 +1233,7 @@
   <string name="activity_tab_timeline_view_changes_button">Vis endringer</string>
   <string name="activity_tab_onboarding_reading_patterns_title">Lesemønstre</string>
   <string name="activity_tab_onboarding_reading_patterns_message">Se hvor mye tid du har brukt på å lese og hvilke artikler eller emner du har utforsket over tid.</string>
+  <string name="activity_tab_onboarding_screen_title">Introduksjon til aktivitet</string>
   <string name="activity_tab_onboarding_impact_title">Høydepunkter for innvirkningen din</string>
   <string name="activity_tab_onboarding_impact_message">Få innsikt i bidragene dine og rekkevidden til kunnskapen du har delt.</string>
   <string name="activity_tab_onboarding_engage_title">Flere måter å engasjere seg på</string>
@@ -1233,6 +1242,7 @@
   <string name="activity_tab_onboarding_stay_in_control_message">Velg hvilk moduler som skal vises. Alle personlige data forblir private på din enhet, og leseloggen kan slettes når som helst.</string>
   <string name="edits_screen_what_is_title">Redigering i Wikipedia-appen</string>
   <string name="edits_screen_what_is_body">Er du usikker på hvordan du kan begynne å redigere? Prøv foreslåtte redigeringer, en funksjon som lar deg gjøre små, men viktige bidrag til Wikipedia. Du kan også gå direkte til en artikkel du er interessert i og endre den ved hjelp av wikitekst.</string>
+  <string name="activity_tab_snackbar_label">Spillstatistikk vises på hovedspråket ditt.</string>
   <string name="file_page_activity_title">Filside</string>
   <string name="file_page_add_image_caption_button">Legg til bildetekst</string>
   <string name="file_page_add_image_tags_button">Legg til bildeknagger</string>
@@ -1252,16 +1262,24 @@
   <string name="onboarding_get_started">Kom i gang</string>
   <string name="onboarding_maybe_later">Kanskje senere</string>
   <string name="onboarding_explore_title">Nye måter å utforske</string>
-  <string name="onboarding_explore_text">Dykk ned i Wikipedia gjennom utforskersiden. &lt;br/&gt; &lt;b&gt;Tilpass&lt;/b&gt; innholdet etter smaken din, enten du vil se historiske hendelser &lt;b&gt;på denne dag&lt;/b&gt; eller oppdage &lt;b&gt;tilfeldige artikler&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text">Dykk ned i Wikipedia gjennom hjemmestrømmen. &lt;br/&gt; &lt;b&gt;Tilpass&lt;/b&gt; innholdet etter smaken din, enten du vil se historiske hendelser &lt;b&gt;på denne dag&lt;/b&gt; eller oppdage &lt;b&gt;tilfeldige artikler&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Leselister med synkronisering</string>
   <string name="onboarding_reading_list_sync_text_v2">Du kan lage leselister med artikler du vil lese senere, selv når du er uten nettilgang.&lt;br/&gt;Logg inn med en Wikipedia-konto for å sikkerhetskopiere listene. &lt;a href=\"#login\"&gt;Registrer deg på Wikipedia&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Data og personvern</string>
-  <string name="onboarding_data_privacy_text">Vi mener at du ikke skal trenge å oppgi personlig informasjon for å delta i bevegelsen for fri kunnskap. Bruksdata som samles inn for denne appen er anonyme. Lær mer om &lt;a href=\"#privacy\"&gt;personvernspolitikken vår&lt;/a&gt; og &lt;a href=\"#termsOfUse\"&gt;bruksvilkårene våre&lt;/a&gt;.</string>
+  <string name="onboarding_data_privacy_text">Vi mener at du ikke skal trenge å oppgi personlig informasjon for å delta i bevegelsen for fri kunnskap. Bruksdata som samles inn for denne appen er anonyme.&lt;br/&gt;&lt;br/&gt;Lær mer om &lt;a href=\"#privacy\"&gt;personvernspolitikken vår&lt;/a&gt; og &lt;a href=\"#termsOfUse\"&gt;bruksvilkårene våre&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Send bruksdata</string>
   <string name="onboarding_got_it">Skjønner</string>
   <string name="onboarding_multilingual_secondary_text">Følgende ble funnet på enheten din:</string>
   <string name="onboarding_multilingual_add_language_text">Legg til eller endre språk</string>
   <string name="onboarding_welcome_title_v2">Den frie encyklopedien\n…på over 300 språk</string>
+  <string name="onboarding_next">Neste</string>
+  <string name="onboarding_fresh_install_knowledge_title">Hele verdens kunnskap</string>
+  <string name="onboarding_fresh_install_knowledge_text">Wikipedai er et gratis nettleksikon med 65 millioner artikler som er skrevet og vedlikeholdt med samarbeid på over 300 språk av et fellesskap av frivillige.</string>
+  <string name="onboarding_fresh_install_knowledge_learn_more">Lær mer om Wikipedia</string>
+  <string name="onboarding_app_languages_title">Les på mer enn 300 språk</string>
+  <string name="onboarding_app_languages_text">Vi har lagt merke til følgende språk på enheten din:</string>
+  <string name="onboarding_app_languages_primary">Hoved</string>
+  <string name="onboarding_app_languages_add_button">Legg til eller endre språkene dine</string>
   <string name="app_shortcuts_random">Tilfeldig</string>
   <string name="app_shortcuts_continue_reading">Fortsett å lese</string>
   <string name="app_shortcuts_search">Søk</string>
@@ -1291,7 +1309,7 @@
     <item quantity="one">Fjern valgt språk?</item>
     <item quantity="other">Fjern valgte språk?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Innhold på utforskersiden og hurtigsøkefilter vil bare være tilgjengelig på de gjenværende Wikipedia-språkene.</string>
+  <string name="wikipedia_languages_remove_dialog_content">Innhold på hjemmestrømmen og hurtigsøkefilter vil bare være tilgjengelig på de gjenværende Wikipedia-språkene.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Kan ikke fjerne alle språk</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Behold minst ett Wikipedia-språk som du kan søke og lese innhold på</string>
   <string name="more_language_options">mer</string>
@@ -1729,7 +1747,7 @@
   <string name="email_report_patroller_tasks_subject">Problemrapport – Redigeringspatruljeringsfunksjon</string>
   <string name="email_report_patroller_tasks_body">Jeg har støtt på et problam med redigeringspatruljeringsfunksjonen:\n- [Beskriv spesifikt problem]\n\nAdferden jeg vil se:\n- [Beskriv løsningsforslag]\n\n[Skjermbilder eller lenker]</string>
   <string name="donation_campaign_maybe_later_snackbar">Vi påminner deg igjen i morgen.</string>
-  <string name="donation_campaign_donated_snackbar" fuzzy="true">Takk, kjære giver! Din sjenerøsitet hjelper å blomstre Wikipedia og søsterprosjektene.</string>
+  <string name="donation_campaign_donated_snackbar">Takk, kjære giver! Din sjenerøsitet hjelper å blomstre Wikipedia og andre frie kunnskapsprosjekter.</string>
   <string name="donation_campaign_go_back_button">Tilbake</string>
   <string name="menu_single_webview_open_external">Åpne i systemnettleseren</string>
   <string name="donate_gpay_dialog_title">Donere med Google Pay?</string>
@@ -1737,6 +1755,7 @@
   <string name="donate_gpay_dialog_pay_button">Doner med Google Pay</string>
   <string name="donate_gpay_dialog_other_button">Annen betalingsmåte</string>
   <string name="donate_gpay_activity_title">Velg et beløp</string>
+  <string name="donate_gpay_activity_title_with_currency">Velg et beløp (%s)</string>
   <string name="donate_gpay_check_transaction_fee">Jeg legger gjerne til %s for å dekke transaksjonsgebyrer, så dere kan beholde 100 %% av gaven min.</string>
   <string name="donate_gpay_check_recurring">Gjør dette til en gjentatt månedlig gave.</string>
   <string name="donate_gpay_check_send_email">Ja, Wikimedia Foundation kan sende meg en e-post i ny og ne.</string>
@@ -1747,7 +1766,8 @@
   <string name="donate_gpay_help_other_ways">Andre måter å gi</string>
   <string name="donate_gpay_help_faq">Ofte stilte spørsmål</string>
   <string name="donate_gpay_help_tax">Informasjon om skattefradrag</string>
-  <string name="donation_history_deleted_message_snackbar" fuzzy="true">Donorhistorikk slettet</string>
+  <string name="donation_history_deleted_message_snackbar">Donasjonshistorikk tømt.</string>
+  <string name="donation_history_no_history_message_snackbar">Du har ingen donasjonshistorikk å tømme.</string>
   <string name="places_title">Steder</string>
   <string name="places_permissions_denied">Posisjonstillatelse kreves for å se din posisjon på kartet. Prøv igjen.</string>
   <string name="places_search_hint">Søk i steder</string>
@@ -1764,6 +1784,7 @@
   <string name="places_empty_message_snackbar">Det er ingen artikler i nærheten. Prøv å zoome ut og/eller å flytte kartet.</string>
   <string name="survey_dialog_title">Hjelp oss å forbedre denne funksjonen</string>
   <string name="survey_dialog_message">Er du fornøyd med denne funksjonen?</string>
+  <string name="home_feed_survey_title">Hjelp med å forbedre «hjem»</string>
   <string name="survey_dialog_option_satisfied">Fornøyd</string>
   <string name="survey_dialog_option_neutral">Nøytral</string>
   <string name="survey_dialog_option_unsatisfied">Misfornøyd</string>
@@ -1777,10 +1798,15 @@
   <string name="survey_dialog_general_maybe">Kanskje</string>
   <string name="survey_dialog_input_hint">Ytterligere tilbakemeldinger</string>
   <string name="survey_dialog_submitted_snackbar">Tilbakemelding sendt. Hjertelig takk!</string>
+  <string name="games_hub_activity_title">Spill</string>
+  <string name="games_hub_activity_games_unavailable_message">Ingen spill er tilgjengelige på dette språket enda! Spill bruker innhold skapt av frivillige bidragsytere for hvert av Wikipedias språk.</string>
+  <string name="games_hub_activity_games_unavailable_message_learn_more_action">Lær mer</string>
+  <string name="games_hub_activity_overflow_view_game_stats">Se spillstatistikk</string>
+  <string name="games_hub_activity_overflow_learn_more">Lær mer</string>
   <string name="on_this_day_game_entry_dialog_title">Introduserer</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Wikipediaspill</string>
-  <string name="on_this_day_game_entry_dialog_button">Spill dagens spill</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia-spill er tilgjengelig i Utforsk-feeden.</string>
+  <string name="on_this_day_game_entry_dialog_button">Spill</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia-spill er tilgjengelig i spillhubben, som du finner i «MER»-menyen.</string>
   <string name="on_this_day_game_title">Hva kom først?</string>
   <string name="on_this_day_game_dialog_button">Spill</string>
   <string name="on_this_day_game_splash_message">Gjett hvilken hendelse som kom først på denne dagen i historien.</string>
@@ -1792,14 +1818,9 @@
   <string name="on_this_day_game_point">+1 poeng</string>
   <string name="on_this_day_game_next">Neste spørsmål</string>
   <string name="on_this_day_game_finish">Endelig resultat</string>
-  <string name="on_this_day_game_share_button">Del</string>
-  <string name="on_this_day_game_pause_title">Sette spillet på pause?</string>
-  <string name="on_this_day_game_pause_body">Fremgangen din blir lagret for dagen. Du kan finne spillet i Utforsksiden din</string>
-  <string name="on_this_day_game_pause_negative">Fortsett å spille</string>
-  <string name="on_this_day_game_pause_positive">Skjønner</string>
+  <string name="on_this_day_game_share_button">Del poengsum</string>
   <string name="on_this_day_game_feed_entry_card_heading">Wikipediaspill</string>
   <string name="on_this_day_game_feed_entry_card_title">Hva kom først?</string>
-  <string name="on_this_day_game_feed_entry_card_subtitle">Gjett hvilken hendelse som kom først på denne dagen i historien.</string>
   <string name="on_this_day_game_result">Du fikk %1$d av %2$d poeng.</string>
   <string name="on_this_day_game_next_in">Neste spill om %s</string>
   <string name="on_this_day_game_your_stats">Dine stats</string>
@@ -1810,7 +1831,7 @@
   <string name="on_this_day_game_stats_average_score">Gjennomsnittlig poengsum</string>
   <string name="on_this_day_game_stats_streak">Nåværende rekke</string>
   <string name="on_this_day_game_result_subtitle">Artikler referert til i dagens spill</string>
-  <string name="on_this_day_game_completed_message">Takk for at du spiller. Et nytt spill av \"Hva kom først?\" er tilgjengelig daglig på Utforsk-siden.</string>
+  <string name="on_this_day_game_completed_message">Takk for at du spiller. Et nytt spill av \"Hva kom først?\" er tilgjengelig daglig på hjemmestrømmen.</string>
   <string name="on_this_day_game_menu_notifications">Spillvarsler</string>
   <string name="on_this_day_game_menu_info">Lær mer</string>
   <string name="on_this_day_game_menu_feedback">Problem med funksjonen</string>
@@ -1819,6 +1840,7 @@
   <string name="on_this_day_game_article_answer_correct_stats_message">Du fikk riktig på dette spørsmålet</string>
   <string name="on_this_day_game_article_answer_incorrect_stats_message">Du tok feil på dette spørsmålet</string>
   <string name="on_this_day_game_turn_off_notification_dialog_title">Skru av spillvarsler?</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_subtitle">Dersom du skrur pushvarsler av, vil du ikke lenger motta en daglig påminnelse når et nytt spill er tilgjengelig.</string>
   <string name="on_this_day_game_turn_on_notification_dialog_title">Skru på spillvarsler?</string>
   <string name="on_this_day_game_turn_on_notification_dialog_subtitle">Spillvarsel varsler deg daglig når et nytt spill er tilgjengelig å spille.</string>
   <string name="on_this_day_game_turn_off_notification_dialog_positive_btn_label">Nei, behold dem på</string>
@@ -1829,6 +1851,7 @@
   <string name="on_this_day_game_notification_turned_on_snackbar_message">Spillvarsler er på.</string>
   <string name="on_this_day_game_notification_text">Dagens spill \"Hva kom først?\" er klart for å spilles.</string>
   <string name="on_this_day_game_report_email_subject">Problemrapport - Wikipediaspill</string>
+  <string name="on_this_day_game_report_email_body">Jeg har funnet et problem med Wikipedia-spill-funksjonen:\n- [Beskriv et spesifikt problem]\n\nDet jeg ønsker at skulle skje er:\n- [Legg inn løsningsforslag]</string>
   <string name="on_this_day_game_notification_undo">Angre</string>
   <string name="on_this_day_game_share_link_message">Jeg spiller \"Hva kom først?\", et daglig quiz-spill på Wikipedia Android-appen %s</string>
   <string name="on_this_day_game_share_screen_title">Jeg fikk %1$d av %2$d poeng på \"Hva kom først?\" i dag.</string>
@@ -1840,13 +1863,26 @@
   <string name="on_this_day_game_archive_btn_text">Spill av arkivet</string>
   <string name="on_this_day_game_review_results_btn_text">Gå igjennom resultatet</string>
   <string name="on_this_day_game_score_message">Din skår i dagens spill er %1$d/%2$d.</string>
+  <string name="on_this_day_game_play_today_btn_text">Spill dagens spill</string>
   <string name="on_this_day_game_continue_playing_btn_text">Fortsett å spille</string>
   <string name="on_this_day_game_sound_on">Slå på lyden</string>
   <string name="on_this_day_game_sound_off">Slå av lyden</string>
-  <string name="year_in_review_learn_more" fuzzy="true">Lær mer</string>
-  <string name="year_in_review_get_started" fuzzy="true">Kom i gang</string>
+  <string name="on_this_day_game_more_label">Mer</string>
+  <string name="on_this_day_game_card_progress_label">Du er på spørsmål %d. Fortsett å gjette hvilken hendelse som hendte først på denne dagen i historien.</string>
+  <string name="on_this_day_game_card_progress_short_label">Du er på spørsmål %d.</string>
+  <string name="on_this_day_game_explore_feed_card_score_message">Du fikk %1$d/%2$d poeng i dagens spill. Neste spill om %3$s</string>
+  <string name="on_this_day_game_explore_feed_card_score_short_message">Din poengsum i dagens spill er %1$d/%2$d.</string>
+  <string name="on_this_day_game_card_archive_label">Arkiv</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_button">Logg inn</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_title">Logg inn for å se spillstatistikken din</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_description">Se dine rekker, poengsummer og mer</string>
+  <string name="wikipedia_games_title">Wikipediaspill</string>
+  <string name="wikipedia_games_subtitle">Daglige quizspill basert på Wikipedia-innhold.</string>
+  <string name="year_in_review_learn_more">Lær mer</string>
+  <string name="year_in_review_get_started">Kom i gang</string>
   <string name="year_in_review_topbar_w_icon">Wikipedias W-ikon</string>
-  <string name="year_in_review_navigate_left" fuzzy="true">Naviger til venstre</string>
+  <string name="year_in_review_navigate_left">Naviger til venstre</string>
+  <string name="year_in_review_close">Lukk</string>
   <string name="year_in_review_share_icon">Delingsikon</string>
   <string name="year_in_review_heart_icon">Hjerteikon</string>
   <string name="year_in_review_navigate_right">Naviger til høyre</string>
@@ -1856,6 +1892,7 @@
   <string name="year_in_review_get_started_bodytext" fuzzy="true">Få innsikt i hvilke artikler du har lest i Wikipedia-appen og redigeringene du har gjort. Lesehistorikken din er beskyttet. Leseinnsikten beregnes ved hjelp av data som lagres lokalt på enheten din.</string>
   <string name="year_in_review_survey_title">Hjelp til å forbedre årskavalkaden</string>
   <string name="year_in_review_survey_subtitle">Er du fornøyd med denne funksjonen?</string>
+  <string name="year_in_review_reading_list_survey_subtitle">Er du tilfreds med leselista di?</string>
   <string name="year_in_review_survey_very_satisfied">Veldig fornøyd</string>
   <string name="year_in_review_survey_satisfied">Fornøyd</string>
   <string name="year_in_review_survey_neutral">Nøytral</string>
@@ -1864,9 +1901,67 @@
   <string name="year_in_review_survey_placeholder_text">Noen andre tanker?</string>
   <string name="year_in_review_survey_cancel">Avbryt</string>
   <string name="year_in_review_survey_submit">Send</string>
+  <string name="year_in_review_disable_title">Er du sikker på sikker på at du vil skru av årskavalkaden din?</string>
+  <string name="year_in_review_disable_positive_button">Ja, jeg er sikker</string>
+  <string name="year_in_review_disable_negative_button">Nei takk</string>
+  <string name="year_in_review_setting_subtitle">Dersom du skrur av årskavalkaden, blir all personalisert innsikt tømt, og årskavalkaden skjuler.</string>
+  <string name="year_in_review_screendeck_image_content_description">Bilderessurs for hovedskjermbildet i årskavalkaden</string>
   <string name="year_in_review_screenshot_error">Kunne ikke generere skjermbilde: %s</string>
-  <string name="year_in_review_share_subject" fuzzy="true">Bilde og lenke for årskavalkaden</string>
-  <string name="year_in_review_globe_icon" fuzzy="true">Globusikon</string>
+  <string name="year_in_review_share_subject">Min årskavalkade for Wikipedia</string>
+  <string name="year_in_review_share_body">Her er min Wikipedia-årskavalkade. Skapt med Android-appen for Wikipedia %1$s %2$s</string>
+  <string name="year_in_review_globe_icon">Globusikon</string>
+  <string name="settings_app_icon_title">App-ikon</string>
+  <string name="settings_app_icon_subtitle">Bidragsyterfordeler</string>
+  <string name="settings_app_icon_preference_subtitle">Du har tilgang til et egendefinert ikon som feirer dine %d bidrag gjort i appen til Wikipedia. Det forblir til neste årskavalkade.</string>
+  <string name="settings_app_icon_updated">Ditt app-ikon er oppdatert.</string>
+  <string name="year_in_review_slide_app_icon_title_unlocked">Nytt app-ikon låst opp for startskjermen din.</string>
+  <string name="year_in_review_slide_app_icon_title_unlock">Lås opp bidragsyterbelønningen din for neste år!</string>
+  <string name="year_in_review_slide_app_icon_donor">en giver</string>
+  <string name="year_in_review_slide_app_icon_editor">en bidragsyter</string>
+  <string name="year_in_review_slide_app_icon_donor_and_editor">en giver og bidragsyter</string>
+  <string name="year_in_review_slide_geo_headline">Artikler du leser er nærmest %s</string>
+  <string name="year_in_review_slide_geo_body">Landet som er nærmest til mange artikler du har lest ser ut til å være: %1$s basert på artikler som &lt;b&gt;%2$s&lt;/b&gt; og &lt;b&gt;%3$s&lt;/b&gt;.</string>
+  <string name="year_in_review_login_dialog_title">Logg inn for egendefinering?</string>
+  <string name="year_in_review_login_dialog_body">Innlogging gir deg tilgang til personlig innsikt. Du kan fortsatt se kollektiv innsikt uten å logge inn.</string>
+  <string name="year_in_review_login_dialog_positive">Logg inn / registrer deg på Wikipedia</string>
+  <string name="year_in_review_login_dialog_negative">Fortsett uten å logge inn</string>
+  <plurals name="year_in_review_slide_top_articles_headline">
+    <item quantity="one">Din toppartikkel</item>
+    <item quantity="other">Dine toppartikler</item>
+  </plurals>
+  <plurals name="year_in_review_slide_top_articles_body">
+    <item quantity="one">Her er artikkelen du besøkte flest ganger i %1$d: %2$s</item>
+    <item quantity="other">Her er artiklene du besøkte flest ganger i %1$d: %2$s</item>
+  </plurals>
+  <string name="year_in_review_slide_top_categories_headline">Dine mest interessante kategorier</string>
+  <string name="year_in_review_slide_top_categories_body">Kategoier grupperer artikler om lignende emner sammen. I %1$d besøkte du artikler i disse interessante kategoriene flere ganger: %2$s</string>
+  <string name="year_in_review_slide_most_read_english_articles_headline">De mest leste artiklene på Wikipedia på engelsk</string>
+  <string name="year_in_review_slide_reading_patterns_headline">Du har tydelige lesemønstre</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_time">Favorittid for å lese</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_day">Favorittdag for å lese</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_month">Måneden du leste mest</string>
+  <string name="year_in_review_slide_reading_pattern_morning">Morgen</string>
+  <string name="year_in_review_slide_reading_pattern_midday">Midt på dagen</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon">Ettermiddag</string>
+  <string name="year_in_review_slide_reading_pattern_evening">Kveld</string>
+  <string name="year_in_review_slide_reading_pattern_night">Natt</string>
+  <string name="year_in_review_slide_reading_pattern_late_night">Sent om natta</string>
+  <plurals name="year_in_review_slide_english_reading_hours_headline">
+    <item quantity="one">Vi leste i %,d time</item>
+    <item quantity="other">Vi leste i %,d timer</item>
+  </plurals>
+  <plurals name="year_in_review_slide_english_reading_hours_body_first">
+    <item quantity="one">Folk brukte rundt %,d time</item>
+    <item quantity="other">Folk brukte rundt %,d timer</item>
+  </plurals>
+  <string name="year_in_review_reading_list_dialog_title">Opprett en leseliste for årskavalkaden i %d?</string>
+  <string name="year_in_review_reading_list_dialog_message">Wikipedia-årskavalkaden oppretter en leseliste av artiklene du brukt mest tid på i %1$d. &lt;a href=\"%2$s\"&gt;Lær mer&lt;/a&gt;</string>
+  <string name="year_in_review_reading_list_dialog_positive_button_label">Opprett</string>
+  <string name="year_in_review_reading_list_dialog_negative_button_label">Nei takk</string>
+  <string name="year_in_review_reading_list_title">Årskavalkade %d</string>
+  <string name="year_in_review_reading_list_description">Opprettet for %1$s. Artiklene du brukte mest tid på i %2$d.</string>
+  <string name="year_in_review_highlights_thank_you_message">Takk for at du delte året ditt med Wikipedia.</string>
+  <string name="year_in_review_highlights_looking_forward_message">Vi gleder oss til neste år!</string>
   <string name="recommended_reading_list_title">Oppdag</string>
   <string name="recommended_reading_list_onboarding_card_title">Oppdag artikler som er valgt spesielt for deg</string>
   <string name="recommended_reading_list_onboarding_card_message">Din ukentlige leseliste med Wikipediaartikler, satt sammen spesielt for deg.</string>
@@ -1907,12 +2002,25 @@
   <string name="recommended_reading_list_page_snackbar_week">Uke</string>
   <string name="recommended_reading_list_page_snackbar_month">Måned</string>
   <string name="recommended_reading_list_settings_section_header">Anbefalinger</string>
+  <string name="recommended_reading_list_settings_title">Oppdag innstillinger</string>
+  <string name="recommended_reading_list_settings_toggle">Oppdag leseliste</string>
+  <string name="recommended_reading_list_settings_toggle_disable_message">Oppdagelse er deaktivert. Wikipedia kommer ikke til å foreslå artikler å lese.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_title">Skru av Oppdag?</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_message">Hvis du slår av Oppdagelse vil du ikke lenger motta %s leseanbefalinger fra Wikipedia.</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">Slå av</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_negative_button">Nei, behold dem</string>
   <string name="recommended_reading_list_settings_turn_off_snackbar">Oppdagelse er slått av. Du kan slå det på igjen i innstillingene når som helst.</string>
   <string name="recommended_reading_list_settings_articles">artikler</string>
+  <string name="recommended_reading_list_settings_updates_frequency">Oppdaterer %s</string>
   <string name="recommended_reading_list_settings_updates_frequency_daily">daglige</string>
   <string name="recommended_reading_list_settings_updates_frequency_weekly">ukentlige</string>
   <string name="recommended_reading_list_settings_updates_frequency_monthly">månedlige</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">Daglig</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">Ukentlig</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">Månedlig</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_action">Angre</string>
+  <string name="recommended_reading_list_settings_interests">Interesser</string>
+  <string name="recommended_reading_list_settings_notifications_title">Varsler</string>
+  <string name="donation_reminders_settings_learn_more_button">Lær mer</string>
+  <string name="reading_challenge_install_prompt_add">Legg til</string>
 </resources>

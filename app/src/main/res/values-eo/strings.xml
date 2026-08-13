@@ -655,11 +655,11 @@
   <string name="feed_item_type_main_page">Ĉefpaĝo de Vikipedio kun ĉiutaga elstara enhavo</string>
   <string name="feed_item_type_randomizer">Elekti hazardajn artikolojn por legado</string>
   <string name="feed_item_type_suggested_edits">Sugestoj pri aldoninda enhavo por Vikipedio</string>
-  <string name="feed_empty_message">Estas nenio en via Esploro-fluo.</string>
+  <string name="feed_empty_message" fuzzy="true">Estas nenio en via Esploro-fluo.</string>
   <string name="feed_configure_onboarding_action">Tajlori</string>
   <string name="customize_lang_selection_dialog_ok_button_text">Bone</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Nuligi</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Personecigi vian Esploro-fluon&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Vi nun povas elekti kion havi en via fluo, kaj doni prioritaton al viaj preferataj specoj de enhavo.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Personecigi vian Esploro-fluon&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Vi nun povas elekti kion havi en via fluo, kaj doni prioritaton al viaj preferataj specoj de enhavo.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">Bone</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Nuligi</string>
   <string name="feed_accessibility_card_load_more_button">Ŝargi pli</string>
@@ -816,7 +816,7 @@
   <string name="onboarding_get_started">Komenci</string>
   <string name="onboarding_maybe_later">Eble poste</string>
   <string name="onboarding_explore_title">Novaj metodoj por esplorado</string>
-  <string name="onboarding_explore_text">Saltu en la Vikipedian kuniklotruon per konstante ĝisdatigata Esploro-fluo. &lt;br/&gt; &lt;b&gt;Personecigu&lt;/b&gt; la fluon al viaj interesoj – ĉu pri historiaj eventoj &lt;b&gt;En ĉi tiu tago&lt;/b&gt;, ĉu hazardludado per la funkcio &lt;b&gt;Hazarde&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Saltu en la Vikipedian kuniklotruon per konstante ĝisdatigata Esploro-fluo. &lt;br/&gt; &lt;b&gt;Personecigu&lt;/b&gt; la fluon al viaj interesoj – ĉu pri historiaj eventoj &lt;b&gt;En ĉi tiu tago&lt;/b&gt;, ĉu hazardludado per la funkcio &lt;b&gt;Hazarde&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Legolistoj sinkronigeblaj</string>
   <string name="onboarding_reading_list_sync_text_v2">Vi povas fari legolistojn el artikoloj kiujn vi volas poste legi, eĉ se vi estas ne konektita. &lt;br/&gt;Ensalutu en vian Vikipedian konton por sinkronigi viajn legolistojn. &lt;a href=\"#login\"&gt;Aniĝu al Vikipedio&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Sendi datenon pri uzado</string>
@@ -847,7 +847,7 @@
     <item quantity="one">Ĉu forigi la elektitan lingvon?</item>
     <item quantity="other">Ĉu forigi la elektitajn lingvojn?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Vi nur vidos enhavon en la Esploro-fluo kaj rapidserĉaj filtriloj por la restintaj Vikipediaj lingvoj.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Vi nur vidos enhavon en la Esploro-fluo kaj rapidserĉaj filtriloj por la restintaj Vikipediaj lingvoj.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Ne povas forigi ĉiujn lingvojn</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Lasu almenaŭ unu Vikipedian lingvon por serĉado kaj legado de enhavo.</string>
   <string name="more_language_options">pli</string>

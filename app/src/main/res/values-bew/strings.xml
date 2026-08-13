@@ -489,9 +489,9 @@
     <item quantity="one">%d makalah dibuang deri daptar</item>
     <item quantity="other">%d makalah dibuang deri daptar</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d makalah dibuang deri daptar %s</item>
-    <item quantity="other">%d makalah dibuang deri daptar %s</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">%1$d makalah dibuang deri daptar %2$s</item>
+    <item quantity="other">%1$d makalah dibuang deri daptar %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d daptar diapus</item>
@@ -782,11 +782,11 @@
   <string name="feed_item_type_main_page">Balé-balé Wikipédi dengen isi pilihan saban-sarian</string>
   <string name="feed_item_type_randomizer">Buat makalah sembarang bakal dibaca</string>
   <string name="feed_item_type_suggested_edits">Saran nambahin isi di Wikipédi</string>
-  <string name="feed_empty_message">Kaga\' ada acan di lu punya empan Jelajahin</string>
+  <string name="feed_empty_message" fuzzy="true">Kaga\' ada acan di lu punya empan Jelajahin</string>
   <string name="feed_configure_onboarding_action">Cèngliin</string>
   <string name="customize_lang_selection_dialog_ok_button_text">Baè\'</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Urungin</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Cèngliin lu punya empan Jelajahin&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Lu sekarang bisa milih apa lu bakal kasi unjuk di lu punya empan, èn ngutamain lu punya jenis isi kedemenan.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Cèngliin lu punya empan Jelajahin&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Lu sekarang bisa milih apa lu bakal kasi unjuk di lu punya empan, èn ngutamain lu punya jenis isi kedemenan.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">Baè\'</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Urungin</string>
   <string name="feed_accessibility_card_text">Lu udah nyampé bawahnya empan.</string>
@@ -1080,7 +1080,7 @@
   <string name="onboarding_get_started">Mulain</string>
   <string name="onboarding_maybe_later">Entaran kali</string>
   <string name="onboarding_explore_title">Cara baru bakal njelajahin</string>
-  <string name="onboarding_explore_text">Selemin liang kelinci Wikipédi paké empan Jelajahin nyang terus diperbaruin. &lt;br/&gt; &lt;b&gt;Cèngliin&lt;/b&gt; empan bakal lu punya minat – mau entu belajar pasal peristiwa sejarah &lt;b&gt;Di ni ari&lt;/b&gt; kè\', mau nglèmpar dadu paké &lt;b&gt;Sembarang&lt;/b&gt; kè\'.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Selemin liang kelinci Wikipédi paké empan Jelajahin nyang terus diperbaruin. &lt;br/&gt; &lt;b&gt;Cèngliin&lt;/b&gt; empan bakal lu punya minat – mau entu belajar pasal peristiwa sejarah &lt;b&gt;Di ni ari&lt;/b&gt; kè\', mau nglèmpar dadu paké &lt;b&gt;Sembarang&lt;/b&gt; kè\'.</string>
   <string name="onboarding_reading_list_sync_title">Daptar bacaan dengen penjuntrungan</string>
   <string name="onboarding_reading_list_sync_text_v2">Lu bisa ngeja daptar bacaan deri makalah nyang lu pèngèn baca entarnya, hata pas lu lagi di luar-jala. &lt;br/&gt;Masup ke lu punya rèkening Wikipédi bakal ngejuntrungin lu punya daptar bacaan. &lt;a href=\"#login\"&gt;Nimbrung ama Wikipédi&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Kirim data pemakéan</string>
@@ -1116,7 +1116,7 @@
     <item quantity="one">Buang basa nyang dipilih?</item>
     <item quantity="other">Buang basa nyang dipilih?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Lu cuman bisa ngiat isi di empan Jelajahin èn saringan penyarian lekas bakal basa-basa Wikipédi laènnya nyang kesisa.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Lu cuman bisa ngiat isi di empan Jelajahin èn saringan penyarian lekas bakal basa-basa Wikipédi laènnya nyang kesisa.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Kaga\' bisa ngebuang semua basa</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Bikin paling kaga\' atu basa Wikipédia bakal nyari ama ngebaca isi.</string>
   <string name="more_language_options">laènnya</string>

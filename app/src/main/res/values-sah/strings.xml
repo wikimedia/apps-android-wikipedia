@@ -611,7 +611,7 @@
   <string name="feed_item_type_main_page">Бикипиэдьийэ сүрүн сирэйэ күн аайы уларыйар</string>
   <string name="feed_item_type_randomizer">Түбэспиччэ ыстатыйалаах ааҕыы испииһэгин оҥор</string>
   <string name="feed_item_type_suggested_edits">Кылгас быһаарыылары эбэргэ этии</string>
-  <string name="feed_empty_message">Кураанах</string>
+  <string name="feed_empty_message" fuzzy="true">Кураанах</string>
   <string name="feed_configure_onboarding_action">Нарылааһын</string>
   <string name="customize_lang_selection_dialog_ok_button_text">Сөп</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Салҕаама</string>

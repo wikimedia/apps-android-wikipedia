@@ -48,7 +48,7 @@ import java.util.Date
 import java.util.concurrent.TimeUnit
 import kotlin.math.abs
 
-class ActivityTabViewModel() : ViewModel() {
+class ActivityTabViewModel : ViewModel() {
     private val _readingHistoryState = MutableStateFlow<UiState<ReadingHistory>>(UiState.Loading)
     val readingHistoryState: StateFlow<UiState<ReadingHistory>> = _readingHistoryState.asStateFlow()
 
@@ -61,8 +61,7 @@ class ActivityTabViewModel() : ViewModel() {
     private var currentTimelinePagingSource: TimelinePagingSource? = null
 
     val wikiSiteForTimeline get(): WikiSite {
-        val langCode = Prefs.userContribFilterLangCode
-        return when (langCode) {
+        return when (val langCode = Prefs.userContribFilterLangCode) {
             Constants.WIKI_CODE_COMMONS -> WikiSite(Service.COMMONS_URL)
             Constants.WIKI_CODE_WIKIDATA -> WikiSite(Service.WIKIDATA_URL)
             else -> WikiSite.forLanguageCode(langCode)
@@ -96,6 +95,9 @@ class ActivityTabViewModel() : ViewModel() {
 
     private val _impactUiState = MutableStateFlow<UiState<Pair<GrowthUserImpact, Int>>>(UiState.Loading)
     val impactUiState: StateFlow<UiState<Pair<GrowthUserImpact, Int>>> = _impactUiState.asStateFlow()
+
+    private val _scrollToGames = MutableStateFlow(false)
+    val scrollToGames = _scrollToGames.asStateFlow()
 
     var shouldRefreshTimelineSilently: Boolean = false
 
@@ -148,10 +150,10 @@ class ActivityTabViewModel() : ViewModel() {
             }
             val mostRecentReadTime = AppDatabase.instance.historyEntryDao().getMostRecentEntry()?.timestamp?.toInstant()?.atZone(ZoneId.systemDefault())?.toLocalDateTime()
 
-            val articlesSavedThisMonth = AppDatabase.instance.readingListPageDao().getTotalLocallySavedPagesBetween(thirtyDaysAgo) ?: 0
-            val articlesSaved = AppDatabase.instance.readingListPageDao().getLocallySavedPagesSince(thirtyDaysAgo, 4)
+            val articlesSavedThisMonth = AppDatabase.instance.readingListPageDao().getTotalSavedPagesBetween(thirtyDaysAgo) ?: 0
+            val articlesSaved = AppDatabase.instance.readingListPageDao().getSavedPagesSince(thirtyDaysAgo, 4)
                 .map { ReadingListPage.toPageTitle(it) }
-            val mostRecentSaveTime = AppDatabase.instance.readingListPageDao().getMostRecentLocallySavedPage()?.atime?.let { Instant.ofEpochMilli(it) }?.atZone(ZoneId.systemDefault())?.toLocalDateTime()
+            val mostRecentSaveTime = AppDatabase.instance.readingListPageDao().getMostRecentSavedPage()?.atime?.let { Instant.ofEpochMilli(it) }?.atZone(ZoneId.systemDefault())?.toLocalDateTime()
 
             val currentDate = LocalDate.now()
             val topCategories = AppDatabase.instance.categoryDao().getTopCategoriesByMonth(currentDate.year, currentDate.monthValue)
@@ -298,6 +300,14 @@ class ActivityTabViewModel() : ViewModel() {
             }
             else -> true
         }
+    }
+
+    fun onScrollToGames() {
+        _scrollToGames.value = true
+    }
+
+    fun onScrollToGamesConsumed() {
+        _scrollToGames.value = false
     }
 
     class ReadingHistory(

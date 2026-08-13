@@ -524,8 +524,8 @@
     <item quantity="other">%d lahabaya yihi ya kpɛ</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d lahabali nyɛla din yihi kpɛ %s</item>
-    <item quantity="other">%d lahabaya yihi ya kpɛ %s</item>
+    <item quantity="one">%1$d lahabali nyɛla din yihi kpɛ %2$s</item>
+    <item quantity="other">%1$d lahabaya yihi ya kpɛ %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d yuli nyahiya</item>
@@ -816,11 +816,11 @@
   <string name="feed_item_type_randomizer">Yihimi sahasaha lahabali karinda timma</string>
   <string name="feed_item_type_suggested_edits">Sɔŋsim lahabali ni di bo pahigu n-ti din be Wikipedia puuni</string>
   <string name="feed_item_type_places">Gbanbiɛlima din miri na ka di doli di saha ŋɔ dooshee</string>
-  <string name="feed_empty_message">Shɛli na ka lala anfooni lahabaya ŋɔ yaɣili</string>
+  <string name="feed_empty_message" fuzzy="true">Shɛli na ka lala anfooni lahabaya ŋɔ yaɣili</string>
   <string name="feed_configure_onboarding_action">Maliniŋ a ni borili shɛm</string>
   <string name="customize_lang_selection_dialog_ok_button_text">Tɔ</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Nyahima</string>
-  <string name="feed_configure_onboarding_text">&lt;din mali yaa&gt;Malimi anfooni lahabali shɛŋa a ni yuuni niŋ a ni borili shɛm&lt;/din mali yaa&gt;&lt;br /&gt;&lt;br /&gt;a pa ni tooi piigi a ni bori ni anfooni lahabali shɛŋa yirina ka yuuna, yaha a ni tooi lan pu din be di puuni n doli a suhuyurilim ni nyɛ shɛli.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;din mali yaa&gt;Malimi anfooni lahabali shɛŋa a ni yuuni niŋ a ni borili shɛm&lt;/din mali yaa&gt;&lt;br /&gt;&lt;br /&gt;a pa ni tooi piigi a ni bori ni anfooni lahabali shɛŋa yirina ka yuuna, yaha a ni tooi lan pu din be di puuni n doli a suhuyurilim ni nyɛ shɛli.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">Tɔ</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Nyahima</string>
   <string name="feed_accessibility_card_text">A paagi anfooni lahabaya maa gbunni.</string>
@@ -1109,7 +1109,7 @@
   <string name="onboarding_get_started">Piligima</string>
   <string name="onboarding_maybe_later">Dii pa shɛli saha shɛli yaha</string>
   <string name="onboarding_explore_title">So\'pala shɛŋa anni tooi doli yuli</string>
-  <string name="onboarding_explore_text">Sirigim n-kpɛ Wikipedia sooŋa laasabu vali ŋɔ ni n-nya anfooni lahabaya din doli taba. &lt;br/&gt; &lt;b&gt;taɣi doli a suhuyurilim&lt;/b&gt; anfooninima lahabaya a ni borili shɛm - di lee nyɛla bohambu zaŋ chaŋ kurumbuna ni niŋsim &lt;b&gt;din jɛndi dabisili ŋɔ&lt;/b&gt;, bee ka a biligi ludu bia laasabu maa buyi &lt;b&gt;Sahasaha&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Sirigim n-kpɛ Wikipedia sooŋa laasabu vali ŋɔ ni n-nya anfooni lahabaya din doli taba. &lt;br/&gt; &lt;b&gt;taɣi doli a suhuyurilim&lt;/b&gt; anfooninima lahabaya a ni borili shɛm - di lee nyɛla bohambu zaŋ chaŋ kurumbuna ni niŋsim &lt;b&gt;din jɛndi dabisili ŋɔ&lt;/b&gt;, bee ka a biligi ludu bia laasabu maa buyi &lt;b&gt;Sahasaha&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Yu-karinda din goli taba</string>
   <string name="onboarding_reading_list_sync_text_v2">A ni tooi mɛ yu-karinda n-ti hali atikil shɛna a ni yɛn karim saha sheli ha, hali a yi na ka pɔhim zuɣu gba. &lt;br/&gt;Kpɛmi a Wikipedia akawnti ni n-ti zaŋ a yu-karinda gohi taba. &lt;a href=\"#login\"&gt;Pahami Wikipedia nim\' zuɣu&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Lahabali mini ashili</string>
@@ -1145,7 +1145,7 @@
   <plurals name="wikipedia_languages_remove_dialog_title">
     <item quantity="other">yini=Yihimi a ni dihi balishɛli zuɣu?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">A pa ku yɛn yuunila anfooni lahabaya zaŋ jɛndi zuliya shɛŋa din kpalim Wikipedia zuɣu vihigu puuni</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">A pa ku yɛn yuunila anfooni lahabaya zaŋ jɛndi zuliya shɛŋa din kpalim Wikipedia zuɣu vihigu puuni</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">A ku tooi yihi bala maa zaa</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Chɛli kamani zuliya yini ani tooi mali shɛli vihiri karindi lahabaya Wikipedia zuɣu</string>
   <string name="more_language_options">Pahima</string>

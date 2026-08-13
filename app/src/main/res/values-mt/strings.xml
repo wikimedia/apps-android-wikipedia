@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Chrisportelli
+* Fenakhay
 * Leli Forte
 * Macofe
 -->
@@ -8,9 +9,26 @@
   <string name="app_name_prod">Wikipedija</string>
   <string name="app_name_beta">Wikipedija Beta</string>
   <string name="app_name_alpha">Wikipedija Alpha</string>
+  <string name="nav_item_back">Lura</string>
+  <string name="page_tabs_back">Lura</string>
+  <string name="nav_item_forward">Quddiem</string>
   <string name="search_hint">Fittex fuq il-Wikipedija</string>
+  <string name="search_hint_voice_search">Tfittxija bil-vuċi</string>
+  <string name="search_hint_search_languages">Fittex lingwa</string>
+  <string name="search_icon_content_description">Fittex</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Iffiltra l-listi tiegħi</string>
+  <string name="nav_item_suggested_edits">Modifiki</string>
+  <string name="nav_item_activity">Attività</string>
+  <string name="nav_item_more">Aktar</string>
+  <string name="nav_item_search">Fittex</string>
+  <string name="nav_item_contribute">Ikkontribwixxi</string>
   <string name="error_network_error" fuzzy="true">M\'hemm l-ebda konnessjoni man-netwerk :(</string>
   <string name="page_error_retry">Erġa\' pprova</string>
+  <string name="card_offline_error_retry">Erġa\' pprova</string>
+  <string name="storage_access_error_retry">Erġa\' pprova</string>
+  <string name="article_load_error_retry">Erġa\' pprova</string>
+  <string name="offline_load_error_retry">Erġa\' pprova</string>
+  <string name="error_next">Li jmiss</string>
   <string name="menu_clear_all_history" fuzzy="true">Ħassar il-kronoloġija</string>
   <string name="dialog_title_clear_history" fuzzy="true">Trid tħassar il-kronoloġija tan-navigazzjoni?</string>
   <string name="share_via">Aqsam permezz…</string>

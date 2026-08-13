@@ -490,9 +490,9 @@
     <item quantity="one">%d ba iri la aatekele a yi a yoe poɔ</item>
     <item quantity="other">%d ba iri la aatekelehi yi a yoe poɔ</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d ba iri la aatekele a yi %s</item>
-    <item quantity="other">%d ba iri la aatekelehi a yi %s</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">%1$d ba iri la aatekele a yi %2$s</item>
+    <item quantity="other">%1$d ba iri la aatekelehi a yi %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d ba sãâ la gane yoe bare</item>
@@ -780,11 +780,11 @@
   <string name="feed_item_type_main_page">Wikipiideɛ meŋɛ peegyi zu ne bebiri zaa bɔgere kaa iraa</string>
   <string name="feed_item_type_randomizer">Yine bonne iri atekele na kanne</string>
   <string name="feed_item_type_suggested_edits">Yelteɛre na poɔ yelbulo wikipiideɛ poɔ</string>
-  <string name="feed_empty_message">Bone zaa kye a fo weɛre bɔ duoro eŋɛ</string>
+  <string name="feed_empty_message" fuzzy="true">Bone zaa kye a fo weɛre bɔ duoro eŋɛ</string>
   <string name="feed_configure_onboarding_action">Mɛ ka o kpɛ</string>
   <string name="customize_lang_selection_dialog_ok_button_text">Tɔɔ</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Ŋmaa o</string>
-  <string name="feed_configure_onboarding_text">&lt;kpeɛŋaa&gt;sɛgere iri fo duori peɛre boɔre&lt;/kpeɛŋaa&gt;&lt;br /&gt;&lt;br /&gt;Fo na baŋ kaa iri la pampana bone naŋ na sãã fo duori poɔ, ane meŋ kaa iri fo bɔgere boɔre parɛɛ yi a nimizeɛ naŋ seŋ lɛ ko fo.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;kpeɛŋaa&gt;sɛgere iri fo duori peɛre boɔre&lt;/kpeɛŋaa&gt;&lt;br /&gt;&lt;br /&gt;Fo na baŋ kaa iri la pampana bone naŋ na sãã fo duori poɔ, ane meŋ kaa iri fo bɔgere boɔre parɛɛ yi a nimizeɛ naŋ seŋ lɛ ko fo.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">Tɔɔ</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Ŋmaa o</string>
   <string name="feed_accessibility_card_text">Fo tɔ la a duoro pare baara.</string>

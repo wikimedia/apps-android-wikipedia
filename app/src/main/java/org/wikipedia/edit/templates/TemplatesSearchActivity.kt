@@ -45,9 +45,8 @@ class TemplatesSearchActivity : BaseActivity() {
 
     val viewModel: TemplatesSearchViewModel by viewModels()
 
-    private val searchCloseListener = SearchView.OnCloseListener {
+    private val searchCloseListener = View.OnClickListener {
         closeSearch()
-        false
     }
 
     private val searchQueryListener = object : SearchView.OnQueryTextListener {
@@ -122,7 +121,7 @@ class TemplatesSearchActivity : BaseActivity() {
 
     private fun initSearchView() {
         binding.searchCabView.setOnQueryTextListener(searchQueryListener)
-        binding.searchCabView.setOnCloseListener(searchCloseListener)
+        binding.searchCabView.setCloseButtonClickListener(searchCloseListener)
         binding.searchCabView.setSearchHintTextColor(ResourceUtil.getThemedColor(this, R.attr.secondary_color))
         binding.searchCabView.queryHint = getString(R.string.templates_search_hint)
         val searchEditPlate = binding.searchCabView.findViewById<View>(androidx.appcompat.R.id.search_plate)
@@ -135,6 +134,7 @@ class TemplatesSearchActivity : BaseActivity() {
     }
 
     private fun closeSearch() {
+        binding.searchCabView.setQuery("", false)
         DeviceUtil.hideSoftKeyboard(this)
     }
 

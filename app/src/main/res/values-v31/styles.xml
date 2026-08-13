@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <style name="AppTheme.Splash">
+        <item name="android:navigationBarColor">@color/splash_background_color</item>
+        <item name="android:windowBackground">@color/splash_background_color</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/animated_splash</item>
+        <item name="android:windowSplashScreenAnimationDuration">1000</item>
+        <item name="android:windowSplashScreenBackground">@color/splash_background_color</item>
+    </style>
+
+</resources>

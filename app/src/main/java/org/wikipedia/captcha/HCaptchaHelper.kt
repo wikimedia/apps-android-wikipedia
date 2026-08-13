@@ -16,8 +16,9 @@ class HCaptchaHelper(
     private val callback: Callback
 ) {
     interface Callback {
+        fun onShow()
         fun onSuccess(token: String)
-        fun onError(e: Exception)
+        fun onError(e: Exception, code: Int)
     }
 
     private var hCaptcha: HCaptcha? = null
@@ -35,14 +36,14 @@ class HCaptchaHelper(
 
     private val dialogCancelableRunnable = MakeHCaptchaDialogCancelable()
 
-    fun show() {
+    fun show(siteKey: String? = null) {
         if (hCaptcha == null) {
             val config = RemoteConfig.config.androidv1?.hCaptcha ?: configDefault
             hCaptcha = HCaptcha.getClient(activity)
             hCaptcha?.setup(
                 HCaptchaConfig.builder()
                     .theme(if (WikipediaApp.instance.currentTheme.isDark) HCaptchaTheme.DARK else HCaptchaTheme.LIGHT)
-                    .siteKey(config.siteKey)
+                    .siteKey(siteKey ?: config.siteKey)
                     .host(config.baseURL.toUri().host)
                     .jsSrc(config.jsSrc)
                     .endpoint(config.endpoint)
@@ -58,9 +59,10 @@ class HCaptchaHelper(
                 callback.onSuccess(response.tokenResult)
             }?.addOnFailureListener { e ->
                 L.e("hCaptcha failed: ${e.message} (${e.statusCode})")
-                callback.onError(e)
+                callback.onError(e, e.statusCode)
             }?.addOnOpenListener {
                 L.d("hCaptcha opened")
+                callback.onShow()
             }
         }
         hCaptcha?.verifyWithHCaptcha()

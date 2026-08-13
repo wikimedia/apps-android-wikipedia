@@ -106,6 +106,8 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data android:scheme="wikipedia" />
+                <data android:host="*.wikipedia.org" />
+                <!-- Add more deeplink hosts as needed -->
             </intent-filter>
         </activity-alias>
         <activity-alias
@@ -124,6 +126,8 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data android:scheme="wikipedia" />
+                <data android:host="*.wikipedia.org" />
+                <!-- Add more deeplink hosts as needed -->
             </intent-filter>
         </activity-alias>
 
@@ -216,6 +220,7 @@
 
         <activity
             android:name=".search.SearchActivity"
+            android:configChanges="orientation|screenSize"
             android:windowSoftInputMode="adjustResize"
             android:theme="@style/AppTheme.Splash"
             android:exported="true">
@@ -249,15 +254,13 @@
             android:name=".feed.topread.TopReadArticlesActivity"
             android:theme="@style/AppTheme.ActionBar"/>
 
+        <activity android:name=".feed.didyouknow.DidYouKnowActivity"/>
+
         <activity android:name=".feed.onthisday.OnThisDayActivity"
             android:configChanges="orientation|screenSize"/>
 
-        <activity android:name=".feed.configure.ConfigureActivity"
-            android:label="@string/feed_configure_activity_title"/>
-
         <activity android:name=".random.RandomActivity"
-            android:label="@string/view_random_card_title"
-            android:theme="@style/AppTheme.ActionBar"/>
+            android:label="@string/view_random_card_title"/>
 
         <activity android:name=".theme.ThemeFittingRoomActivity"
             android:label="@string/preference_title_app_theme"
@@ -382,6 +385,9 @@
             android:name=".games.onthisday.OnThisDayGameActivity"/>
 
         <activity
+            android:name=".games.GamesHubActivity"/>
+
+        <activity
             android:name=".readinglist.recommended.RecommendedReadingListOnboardingActivity"/>
 
         <activity
@@ -404,8 +410,22 @@
             android:name=".activitytab.ActivityTabOnboardingActivity" />
 
         <activity
+            android:name=".search.HybridSearchOnboardingActivity" />
+
+        <activity
             android:name=".donate.donationreminder.DonationReminderActivity"
             android:windowSoftInputMode="adjustResize"/>
+
+        <activity
+            android:name=".widgets.readingchallenge.ReadingChallengeOnboardingActivity" />
+
+        <activity android:name=".feed.onboarding.ExploreFeedUpdatePromptActivity"/>
+
+        <activity android:name=".feed.onboarding.ExploreFeedBuildingActivity"/>
+
+        <activity android:name=".feed.personalization.PersonalizationActivity"/>
+
+        <activity android:name=".settings.homefeed.HomeFeedSettingsActivity"/>
 
         <provider
             android:name=".WikipediaFileProvider"
@@ -443,6 +463,18 @@
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/widget_featured_page" />
+        </receiver>
+
+        <receiver
+            android:label="@string/random_article_widget_name"
+            android:name=".widgets.readingchallenge.ReadingChallengeWidgetReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/reading_challenge_widget_info"/>
         </receiver>
 
         <receiver android:name=".notifications.NotificationPollBroadcastReceiver"

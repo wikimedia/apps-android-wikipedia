@@ -5,21 +5,32 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.res.stringResource
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.YearInReviewEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.compose.components.WikipediaAlertDialog
 import org.wikipedia.compose.theme.BaseTheme
+import org.wikipedia.dataclient.mwapi.MwNotLoggedInException
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.UiState
+import kotlin.getValue
 
 class YearInReviewOnboardingActivity : BaseActivity() {
+    private val viewModel: YearInReviewOnboardingViewModel by viewModels()
 
     private val loginLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
@@ -32,8 +43,21 @@ class YearInReviewOnboardingActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         YearInReviewEvent.submit(action = "impression", slide = "explore_prompt")
         Prefs.yearInReviewVisited = true
+
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.RESUMED) {
+                viewModel.uiState.collectLatest {
+                    if (it is UiState.Error && it.error is MwNotLoggedInException) {
+                        AccountUtil.bailWithLogout()
+                    }
+                }
+            }
+        }
+
         setContent {
             BaseTheme {
+                val uiState = viewModel.uiState.collectAsState().value
+
                 var showLoginDialog by remember { mutableStateOf(false) }
                 if (showLoginDialog) {
                     WikipediaAlertDialog(
@@ -56,6 +80,7 @@ class YearInReviewOnboardingActivity : BaseActivity() {
                 }
 
                 YearInReviewOnboardingScreen(
+                    uiState = uiState,
                     onBackButtonClick = {
                         YearInReviewEvent.submit(action = "close_click", slide = "explore_prompt")
                         setResult(RESULT_CANCELED)

@@ -15,7 +15,6 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwException
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.notifications.PollNotificationWorker
@@ -75,21 +74,17 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
             subscriptionJob = MainScope().launch(CoroutineExceptionHandler { _, t ->
                 L.e(t)
             }) {
-                for (lang in WikipediaApp.instance.languageState.appLanguageCodes) {
-                    val csrfToken = CsrfTokenClient.getToken(WikiSite.forLanguageCode(lang))
-                    if (lang == WikipediaApp.instance.appOrSystemLanguageCode) {
-                        subscribeWithCsrf(csrfToken)
-                    }
-                    setNotificationOptions(lang, csrfToken)
-                }
+                subscribe()
             }
         }
 
-        private suspend fun subscribeWithCsrf(csrfToken: String) {
+        private suspend fun subscribe() {
             if (Prefs.isPushNotificationTokenSubscribed || Prefs.pushNotificationToken.isEmpty()) {
                 // Don't do anything if the token is already subscribed, or if the token is empty.
                 return
             }
+
+            val csrfToken = CsrfTokenClient.getToken(WikipediaApp.instance.wikiSite)
 
             val token = Prefs.pushNotificationToken
             val oldToken = Prefs.pushNotificationTokenOld
@@ -136,26 +131,6 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
                     break
                 }
             }
-        }
-
-        private suspend fun setNotificationOptions(lang: String, csrfToken: String) {
-            if (Prefs.isPushNotificationOptionsSet) {
-                return
-            }
-
-            val optionList = listOf(
-                    "echo-subscriptions-push-edit-user-talk=1",
-                    "echo-subscriptions-push-login-fail=1",
-                    "echo-subscriptions-push-mention=1",
-                    "echo-subscriptions-push-thank-you-edit=1",
-                    "echo-subscriptions-push-reverted=1",
-                    "echo-subscriptions-push-edit-thank=1",
-                    "echo-cross-wiki-notifications=1"
-            )
-
-            ServiceFactory.get(WikiSite.forLanguageCode(lang)).postSetOptions(optionList.joinToString(separator = "|"), csrfToken)
-            L.d("Notification options updated successfully.")
-            Prefs.isPushNotificationOptionsSet = true
         }
 
         suspend fun unsubscribePushToken(csrfToken: String, pushToken: String): MwQueryResponse {

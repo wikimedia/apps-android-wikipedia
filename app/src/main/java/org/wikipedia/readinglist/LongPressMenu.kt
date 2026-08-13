@@ -39,6 +39,7 @@ class LongPressMenu(
         fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean)
         fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry)
         fun onRemoveRequest() {}
+        fun onShareRequest() {}
     }
 
     private var listsContainingPage: List<ReadingList>? = null
@@ -166,7 +167,10 @@ class LongPressMenu(
                 }
                 R.id.menu_long_press_share_page -> {
                     sendPlacesEvent("share_click")
-                    entry?.let { ShareUtil.shareText(getActivity(), it.title) }
+                    entry?.let {
+                        callback?.onShareRequest()
+                        ShareUtil.shareText(getActivity(), it.title)
+                    }
                     true
                 }
                 R.id.menu_long_press_copy_page -> {

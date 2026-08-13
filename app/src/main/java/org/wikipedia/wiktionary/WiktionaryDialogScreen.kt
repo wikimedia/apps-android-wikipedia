@@ -146,7 +146,7 @@ fun DefinitionList(
             .padding(bottom = 8.dp)
     ) {
         Text(
-            text = usage.partOfSpeech,
+            text = StringUtil.removeStyleTags(usage.partOfSpeech),
             fontSize = 14.sp,
             color = WikipediaTheme.colors.placeholderColor,
             modifier = Modifier.padding(vertical = 4.dp)
@@ -179,7 +179,7 @@ fun DefinitionWithExamples(
     ) {
         SelectionContainer {
             HtmlText(
-                text = "$count. ${definition.definition}",
+                text = "$count. ${StringUtil.removeStyleTags(definition.definition)}",
                 modifier = Modifier.padding(vertical = 4.dp),
                 style = TextStyle(
                     color = WikipediaTheme.colors.primaryColor,
@@ -196,7 +196,7 @@ fun DefinitionWithExamples(
         definition.examples?.forEach { example ->
             SelectionContainer {
                 HtmlText(
-                    text = example,
+                    text = StringUtil.removeStyleTags(example),
                     modifier = Modifier.padding(start = 16.dp, end = 16.dp, bottom = 4.dp),
                     style = TextStyle(
                         color = WikipediaTheme.colors.primaryColor,

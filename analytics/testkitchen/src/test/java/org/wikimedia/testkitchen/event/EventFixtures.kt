@@ -12,7 +12,7 @@ object EventFixtures {
     private val dt get() = DateTimeFormatter.ISO_DATE_TIME.format(ZonedDateTime.now(ZoneId.of("Z")))
 
     fun minimalEvent(clientData: ClientData = ClientData()): Event {
-        return Event("test_schema", "test_stream", dt, clientData, InteractionData())
+        return Event("test_schema", "test_stream", dt, null, clientData, InteractionData())
     }
 
     fun getEvent(
@@ -22,7 +22,7 @@ object EventFixtures {
         isLoggedIn: Boolean = false,
         editCount: String? = null
     ): Event {
-        return Event("test/event", "test.event", dt,
+        return Event("test/event", "test.event", dt, null,
             ClientData(
                 pageData = PageData().also {
                     it.id = id

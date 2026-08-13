@@ -11,7 +11,5 @@ class InteractionData(
     val actionSource: String? = null,
     val actionContext: String? = null,
     val elementId: String? = null,
-    val elementFriendlyName: String? = null,
-    val funnelEntryToken: String? = null,
-    val funnelEventSequencePosition: Int? = null
+    val elementFriendlyName: String? = null
 )

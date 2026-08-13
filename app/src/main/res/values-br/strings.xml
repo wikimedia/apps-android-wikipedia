@@ -518,12 +518,12 @@
     <item quantity="many">%d a bennadoù lamet diouzh ar roll</item>
     <item quantity="other">%d a bennadoù lamet diouzh ar roll</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d pennad lamet diouzh %s</item>
-    <item quantity="two">%d bennad lamet diouzh %s</item>
-    <item quantity="few">%d a bennadoù lamet diouzh %s</item>
-    <item quantity="many">%d a bennadoù lamet diouzh %s</item>
-    <item quantity="other">%d a bennadoù lamet diouzh %s</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">%1$d pennad lamet diouzh %2$s</item>
+    <item quantity="two">%1$d bennad lamet diouzh %2$s</item>
+    <item quantity="few">%1$d a bennadoù lamet diouzh %2$s</item>
+    <item quantity="many">%1$d a bennadoù lamet diouzh %2$s</item>
+    <item quantity="other">%1$d a bennadoù lamet diouzh %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d roll dilamet</item>

@@ -20,4 +20,10 @@ interface EventService {
 
     @POST("/v1/events")
     suspend fun postEvents(@Body events: @JvmSuppressWildcards List<Event>): Response<Unit>
+
+    @POST("/v1/events?hasty=true")
+    suspend fun postEventsHastyTk(@Body events: List<org.wikimedia.testkitchen.event.Event>): Response<Unit>
+
+    @POST("/v1/events")
+    suspend fun postEventsTk(@Body events: List<org.wikimedia.testkitchen.event.Event>): Response<Unit>
 }

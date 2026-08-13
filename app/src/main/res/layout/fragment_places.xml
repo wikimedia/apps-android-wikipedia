@@ -39,7 +39,7 @@
                     android:layout_width="48dp"
                     android:layout_height="match_parent"
                     android:background="?attr/selectableItemBackground"
-                    android:contentDescription="@string/search_hint"
+                    android:contentDescription="@string/nav_item_back"
                     android:scaleType="center"
                     app:srcCompat="@drawable/ic_arrow_back_black_24dp"
                     app:tint="?attr/primary_color" />

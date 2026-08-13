@@ -1,10 +1,13 @@
 package org.wikipedia.descriptions
 
+import io.mockk.every
+import io.mockk.mockk
 import kotlinx.coroutines.runBlocking
-import org.hamcrest.MatcherAssert
-import org.hamcrest.Matchers
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertNotNull
+import org.junit.Assert.assertTrue
 import org.junit.Test
-import org.mockito.Mockito
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwException
 import org.wikipedia.dataclient.wikidata.EntityPostResponse
@@ -24,23 +27,17 @@ class DescriptionEditClientTest : MockRetrofitTest() {
             DescriptionEditViewModel.TEMPLATE_PARSE_REGEX.toRegex(),
             "$1" + "New description." + "$3"
         )
-        MatcherAssert.assertThat(
-            Pattern.compile(DescriptionEditViewModel.TEMPLATE_PARSE_REGEX).matcher(text).find(),
-            Matchers.`is`(true)
-        )
-        MatcherAssert.assertThat(
-            newText,
-            Matchers.`is`("test test test test {{Short description|New description.}} foo foo {{Another template|12345}} foo foo")
+        assertTrue(Pattern.compile(DescriptionEditViewModel.TEMPLATE_PARSE_REGEX).matcher(text).find())
+        assertEquals(
+            "test test test test {{Short description|New description.}} foo foo {{Another template|12345}} foo foo",
+            newText
         )
     }
 
     @Test
     fun testRegexWithNoLocalDescription() {
         val text = "test test test test foo foo {{Another template|12345}} foo foo"
-        MatcherAssert.assertThat(
-            Pattern.compile(DescriptionEditViewModel.TEMPLATE_PARSE_REGEX).matcher(text).find(),
-            Matchers.`is`(false)
-        )
+        assertFalse(Pattern.compile(DescriptionEditViewModel.TEMPLATE_PARSE_REGEX).matcher(text).find())
     }
 
     @Test
@@ -50,7 +47,7 @@ class DescriptionEditClientTest : MockRetrofitTest() {
         runBlocking {
             requestPostDescription()
         }.run {
-            MatcherAssert.assertThat(entity?.id, Matchers.`is`("Q123"))
+            assertEquals("Q123", entity?.id)
         }
     }
 
@@ -61,7 +58,7 @@ class DescriptionEditClientTest : MockRetrofitTest() {
         runBlocking {
             requestPostLabel()
         }.run {
-            MatcherAssert.assertThat(entity?.id, Matchers.`is`("Q456"))
+            assertEquals("Q456", entity?.id)
         }
     }
 
@@ -76,7 +73,7 @@ class DescriptionEditClientTest : MockRetrofitTest() {
             try {
                 requestPostDescription()
             } catch (e: Exception) {
-                MatcherAssert.assertThat(testErrorWithExpectedCodeAndMessage(e, expectedCode, expectedMessage), Matchers.`is`(true))
+                assertTrue(testErrorWithExpectedCodeAndMessage(e, expectedCode, expectedMessage))
             }
         }
     }
@@ -92,7 +89,7 @@ class DescriptionEditClientTest : MockRetrofitTest() {
             try {
                 requestPostDescription()
             } catch (e: Exception) {
-                MatcherAssert.assertThat(testErrorWithExpectedCodeAndMessage(e, expectedCode, expectedMessage), Matchers.`is`(true))
+                assertTrue(testErrorWithExpectedCodeAndMessage(e, expectedCode, expectedMessage))
             }
         }
     }
@@ -105,7 +102,7 @@ class DescriptionEditClientTest : MockRetrofitTest() {
             try {
                 requestPostDescription()
             } catch (e: Exception) {
-                MatcherAssert.assertThat(e, Matchers.notNullValue())
+                assertNotNull(e)
             }
         }
     }
@@ -118,7 +115,7 @@ class DescriptionEditClientTest : MockRetrofitTest() {
             try {
                 requestPostDescription()
             } catch (e: Exception) {
-                MatcherAssert.assertThat(e, Matchers.notNullValue())
+                assertNotNull(e)
             }
         }
     }
@@ -131,7 +128,7 @@ class DescriptionEditClientTest : MockRetrofitTest() {
             try {
                 requestPostDescription()
             } catch (e: Exception) {
-                MatcherAssert.assertThat(e, Matchers.notNullValue())
+                assertNotNull(e)
             }
         }
     }
@@ -139,23 +136,25 @@ class DescriptionEditClientTest : MockRetrofitTest() {
     @Test
     fun testIsEditAllowedSuccess() {
         val wiki = WikiSite.forLanguageCode("ru")
-        val props = Mockito.mock(PageProperties::class.java)
-        Mockito.`when`(props.wikiBaseItem).thenReturn("Q123")
-        Mockito.`when`(props.canEdit).thenReturn(true)
-        Mockito.`when`(props.descriptionSource).thenReturn("central")
-        Mockito.`when`(props.namespace).thenReturn(Namespace.MAIN)
+        val props = mockk<PageProperties>(relaxed = true) {
+            every { wikiBaseItem } returns "Q123"
+            every { canEdit } returns true
+            every { descriptionSource } returns "central"
+            every { namespace } returns Namespace.MAIN
+        }
         val page = Page(PageTitle("Test", wiki), pageProperties = props)
-        MatcherAssert.assertThat(DescriptionEditUtil.isEditAllowed(page), Matchers.`is`(true))
+        assertTrue(DescriptionEditUtil.isEditAllowed(page))
     }
 
     @Test
     fun testIsEditAllowedNoWikiBaseItem() {
         val wiki = WikiSite.forLanguageCode("ru")
-        val props = Mockito.mock(PageProperties::class.java)
-        Mockito.`when`(props.wikiBaseItem).thenReturn(null)
-        Mockito.`when`(props.namespace).thenReturn(Namespace.MAIN)
+        val props = mockk<PageProperties>(relaxed = true) {
+            every { wikiBaseItem } returns null
+            every { namespace } returns Namespace.MAIN
+        }
         val page = Page(PageTitle("Test", wiki), pageProperties = props)
-        MatcherAssert.assertThat(DescriptionEditUtil.isEditAllowed(page), Matchers.`is`(false))
+        assertFalse(DescriptionEditUtil.isEditAllowed(page))
     }
 
     private fun testErrorWithExpectedCodeAndMessage(caught: Exception, expectedCode: String, expectedMessage: String): Boolean {
