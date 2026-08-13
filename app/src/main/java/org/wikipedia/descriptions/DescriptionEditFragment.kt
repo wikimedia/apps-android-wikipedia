@@ -42,6 +42,7 @@ import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.Resource
+import org.wikipedia.util.InstrumentationViewModel
 import org.wikipedia.util.log.L
 import org.wikipedia.views.SuggestedArticleDescriptionsDialog
 import java.io.IOException
@@ -55,6 +56,7 @@ class DescriptionEditFragment : Fragment() {
     }
 
     private val viewModel: DescriptionEditViewModel by activityViewModels()
+    private val instrumentationViewModel : InstrumentationViewModel by activityViewModels()
     private var _binding: FragmentDescriptionEditBinding? = null
     val binding get() = _binding!!
 
@@ -107,7 +109,13 @@ class DescriptionEditFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        EditAttemptStepEvent.logInit(viewModel.pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
+        lifecycleScope.launch {
+            instrumentationViewModel.editCount.collect {
+                if (it is Resource.Success) {
+                    EditAttemptStepEvent.logInit(viewModel.pageTitle, EditAttemptStepEvent.INTERFACE_OTHER, it.data)
+                }
+            }
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {

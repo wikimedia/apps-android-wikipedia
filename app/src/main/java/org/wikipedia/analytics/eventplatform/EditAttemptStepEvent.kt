@@ -21,8 +21,8 @@ class EditAttemptStepEvent(private val event: EditAttemptStepInteractionEvent) :
         private const val STREAM_NAME = "eventlogging_EditAttemptStep"
         private const val INTEGRATION_ID = "app-android"
 
-        fun logInit(pageTitle: PageTitle, editorInterface: String = INTERFACE_WIKITEXT) {
-            submitEditAttemptEvent("init", editorInterface, pageTitle)
+        fun logInit(pageTitle: PageTitle, editorInterface: String = INTERFACE_WIKITEXT, editCount: Int = -1) {
+            submitEditAttemptEvent("init", editorInterface, pageTitle, editCount = editCount)
         }
 
         fun logSaveIntent(pageTitle: PageTitle, editorInterface: String = INTERFACE_WIKITEXT) {
@@ -45,10 +45,10 @@ class EditAttemptStepEvent(private val event: EditAttemptStepInteractionEvent) :
             submitEditAttemptEvent("abort", editorInterface, pageTitle)
         }
 
-        private fun submitEditAttemptEvent(action: String, editorInterface: String, pageTitle: PageTitle, revisionId: Long? = null) {
+        private fun submitEditAttemptEvent(action: String, editorInterface: String, pageTitle: PageTitle, revisionId: Long? = null, editCount: Int = -1) {
             EventPlatformClient.submit(EditAttemptStepEvent(EditAttemptStepInteractionEvent(action,
                 WikipediaApp.instance.appInstallID, "", editorInterface,
-                INTEGRATION_ID, "", WikipediaApp.instance.getString(R.string.device_type).lowercase(), 0, getUserIdForWikiSite(pageTitle.wikiSite),
+                INTEGRATION_ID, "", WikipediaApp.instance.getString(R.string.device_type).lowercase(), editCount, getUserIdForWikiSite(pageTitle.wikiSite),
                 !AccountUtil.isLoggedIn, AccountUtil.isTemporaryAccount, 1, pageTitle.prefixedText,
                 pageTitle.namespace().code(), revisionId, pageTitle.wikiSite.dbName())))
         }
