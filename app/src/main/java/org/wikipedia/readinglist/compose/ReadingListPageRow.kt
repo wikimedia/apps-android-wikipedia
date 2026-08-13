@@ -151,14 +151,15 @@ fun ReadingListPageRow(
         }
 
         // Containing-list chips span the full width below the top row.
-        if (containingLists.isNotEmpty()) {
+        val customLists = containingLists.filterNot { it.isDefault }
+        if (customLists.isNotEmpty()) {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
                     .horizontalScroll(rememberScrollState()),
                 horizontalArrangement = spacedBy(8.dp)
             ) {
-                containingLists.forEach { list ->
+                customLists.forEach { list ->
                     ListChip(
                         title = list.title,
                         onClick = {

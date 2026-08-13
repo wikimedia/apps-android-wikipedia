@@ -147,6 +147,8 @@
     <string name="search_no_results_found">No results found</string>
     <string name="search_reading_list_no_results">No results found in \"%s\"</string>
     <string name="search_reading_lists_no_results">No results found in collections</string>
+    <string name="search_all_articles_no_results">No results found in all articles</string>
+    <string name="search_collections_no_results">No results found in collections</string>
     <string name="search_history_no_results">No results found in history</string>
     <string name="edit_section_captcha_message">To help protect against automated spam, please enter the words that appear below</string>
     <string name="edit_section_captcha_request_an_account_message"><![CDATA[Can\'t see the image? <a href="https://en.wikipedia.org/wiki/Wikipedia:Request_an_account">Request an account</a>]]></string>
@@ -2598,8 +2600,14 @@
     <!-- Collections -->
     <string name="reading_lists_tab_all_articles">All articles</string>
     <string name="reading_lists_tab_collections">Collections</string>
+    <string name="reading_lists_filter_content_description">Filter saved articles</string>
+    <string name="reading_lists_filter_not_in_collection">Not in a collection</string>
+    <string name="reading_lists_empty_not_in_collection_title">All saved articles are in collections.</string>
     <string name="reading_lists_search_saved_articles">Search saved articles</string>
     <string name="reading_lists_search_collections">Search collections</string>
+    <string name="reading_lists_empty_collections_title">Organize saved articles with collections</string>
+    <string name="reading_lists_empty_collections_description">Create collections for places to travel to, favorite topics, and more.</string>
+    <string name="reading_lists_create_new_collection">Create a new collection</string>
     <string name="reading_lists_remove_articles_confirm_dialog_title">Remove saved articles?</string>
     <string name="reading_lists_remove_articles_confirm_button">Remove</string>
     <plurals name="reading_lists_remove_articles_confirm_dialog_message">
@@ -2614,4 +2622,5 @@
     <string name="reading_lists_save_sheet_empty_message">Save articles in collections.</string>
     <string name="reading_lists_save_sheet_empty_action">Start a collection</string>
     <string name="reading_lists_save_sheet_create">Create</string>
+    <string name="reading_lists_update_tooltip">Reading lists are now called collections.</string>
 </resources>

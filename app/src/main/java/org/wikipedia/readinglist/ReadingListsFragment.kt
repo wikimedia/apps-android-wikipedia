@@ -69,6 +69,7 @@ import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.MultiSelectActionModeCallback
 import org.wikipedia.views.MultiSelectActionModeCallback.Companion.isTagType
+import org.wikipedia.views.ReadingListsAllArticlesFilterOverflowView
 import org.wikipedia.views.ReadingListsOverflowView
 
 class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, ReadingListItemActionsDialog.Callback {
@@ -117,7 +118,8 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                         onPageLongClick = ::onPageLongClick,
                         onPageChipClick = ::onPageChipClick,
                         onPageToggleOfflineClick = ::onToggleOfflineClick,
-                        onDiscoverCardClick = ::onDiscoverCardClick
+                        onDiscoverCardClick = ::onDiscoverCardClick,
+                        onCreateCollectionClick = overflowCallback::createNewListClick
                     )
                 }
             }
@@ -279,6 +281,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         actionMode?.takeIf(::isTagType)?.finish()
         viewModel.setSelectedTab(tab)
         searchActionModeCallback.updateSearchHint(getSearchHint(tab))
+        requireActivity().invalidateOptionsMenu()
     }
 
     private fun getSearchHint(tab: SavedTab): String {
@@ -323,6 +326,22 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
     }
 
+    fun isAllArticlesSelected(): Boolean {
+        return viewModel.isSelectedTab(SavedTab.ALL_ARTICLES)
+    }
+
+    fun showReadingListsFilterMenu() {
+        if (!isAllArticlesSelected()) {
+            return
+        }
+        ReadingListsAllArticlesFilterOverflowView(requireContext()).show(
+            anchorView = (requireActivity() as MainActivity).getToolbar()
+                .findViewById(R.id.menu_filter_reading_lists_articles),
+            selectedOption = viewModel.getSelectedArticleFilter(),
+            callback = viewModel::setArticleFilter
+        )
+    }
+
     // Overflow menu
     fun showReadingListsOverflowMenu() {
         ReadingListsOverflowView(requireContext()).show(
@@ -345,24 +364,25 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
 
         override fun createNewListClick() {
-            val existingTitles = viewModel.uiState.value.rows
-                .filterIsInstance<ReadingListRow.ListRow>()
-                .map { it.list.title }
-            ReadingListTitleDialog.readingListTitleDialog(
-                activity = requireActivity(),
-                title = getString(R.string.reading_list_name_sample),
-                description = "",
-                otherTitles = existingTitles,
-                callback = object : ReadingListTitleDialog.Callback {
-                    override fun onSuccess(text: String, description: String) {
-                        viewLifecycleOwner.lifecycleScope.launch(
-                            CoroutineExceptionHandler { _, throwable -> L.w(throwable) }
-                        ) {
-                            viewModel.createReadingList(text, description)
+            viewLifecycleOwner.lifecycleScope.launch {
+                val existingTitles = viewModel.getReadingListsWithoutContents()
+                    .map { it.title }
+                ReadingListTitleDialog.readingListTitleDialog(
+                    activity = requireActivity(),
+                    title = getString(R.string.reading_list_name_sample),
+                    description = "",
+                    otherTitles = existingTitles,
+                    callback = object : ReadingListTitleDialog.Callback {
+                        override fun onSuccess(text: String, description: String) {
+                            viewLifecycleOwner.lifecycleScope.launch(
+                                CoroutineExceptionHandler { _, throwable -> L.w(throwable) }
+                            ) {
+                                viewModel.createReadingList(text, description)
+                            }
                         }
                     }
-                }
-            ).show()
+                ).show()
+            }
         }
 
         override fun importNewList() {

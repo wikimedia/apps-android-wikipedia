@@ -3,6 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="AlwaysShowAction">
+    <item
+        android:id="@+id/menu_filter_reading_lists_articles"
+        android:icon="@drawable/ic_filter_list_24"
+        android:title="@string/reading_lists_filter_content_description"
+        android:visible="false"
+        app:iconTint="?attr/primary_color"
+        app:showAsAction="always" />
     <item android:id="@+id/menu_search_lists"
         android:icon="@drawable/outline_search_24"
         android:title="@string/filter_hint_filter_my_lists_and_articles"

@@ -94,6 +94,7 @@ import org.wikipedia.yearinreview.YearInReviewDialog
 import org.wikipedia.yearinreview.YearInReviewOnboardingActivity
 import org.wikipedia.yearinreview.YearInReviewViewModel
 import java.io.File
+import java.time.LocalDate
 import java.util.concurrent.TimeUnit
 
 class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragment.Callback, MenuNavTabDialog.Callback, ActivityTabFragment.Callback {
@@ -197,6 +198,8 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
 
         binding.mainNavTabLayout.setOverlayDot(NavTab.EDITS, !Prefs.isActivityTabOnboardingShown)
 
+        // Check this first because the Feed tooltip marks its preference before posting its UI.
+        maybeShowReadingListsUpdateTooltip()
         maybeShowFeedNewModulesTooltip()
         Prefs.incrementExploreFeedVisitCount()
 
@@ -278,6 +281,12 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
         val fragment = currentFragment
         return when (menuItem.itemId) {
+            R.id.menu_filter_reading_lists_articles -> {
+                if (fragment is ReadingListsFragment) {
+                    fragment.showReadingListsFilterMenu()
+                }
+                true
+            }
             R.id.menu_search_lists -> {
                 if (fragment is ReadingListsFragment) {
                     fragment.startSearchActionMode()
@@ -295,10 +304,11 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
     }
 
     override fun onPrepareMenu(menu: Menu) {
-        menu.findItem(R.id.menu_search_lists).apply {
-            isVisible = currentFragment is ReadingListsFragment
-        }
-        menu.findItem(R.id.menu_overflow_button).isVisible = currentFragment is ReadingListsFragment
+        val readingListsFragment = currentFragment as? ReadingListsFragment
+        menu.findItem(R.id.menu_filter_reading_lists_articles).isVisible =
+            readingListsFragment?.isAllArticlesSelected() == true
+        menu.findItem(R.id.menu_search_lists).isVisible = readingListsFragment != null
+        menu.findItem(R.id.menu_overflow_button).isVisible = readingListsFragment != null
 
         val tabsItem = menu.findItem(R.id.menu_tabs)
         if (WikipediaApp.instance.tabCount < 1 || currentFragment is SuggestedEditsTasksFragment) {
@@ -568,6 +578,30 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
             binding.root.post {
                 if (isAdded) {
                     FeedbackUtil.showTooltip(requireActivity(), binding.mainNavTabLayout.findViewById(NavTab.HOME.id), getString(R.string.home_feed_update_tooltip1), aboveOrBelow = true, autoDismiss = false, showDismissButton = true)
+                }
+            }
+        }
+    }
+
+    private fun maybeShowReadingListsUpdateTooltip() {
+        val endDate = LocalDate.of(2026, 9, 15)
+        // Only show the tooltip to existing users and expire after September 15, 2026
+        if (Prefs.exploreFeedVisitCount == 0) {
+            Prefs.isReadingListsUpdateTooltipShown = true
+        } else if (Prefs.isHomeFeedUpdateTooltipShown &&
+                !Prefs.isReadingListsUpdateTooltipShown &&
+                !LocalDate.now().isAfter(endDate)) {
+            Prefs.isReadingListsUpdateTooltipShown = true
+            binding.root.post {
+                if (isAdded) {
+                    FeedbackUtil.showTooltip(
+                        requireActivity(),
+                        binding.mainNavTabLayout.findViewById(NavTab.READING_LISTS.id),
+                        getString(R.string.reading_lists_update_tooltip),
+                        aboveOrBelow = true,
+                        autoDismiss = false,
+                        showDismissButton = true
+                    )
                 }
             }
         }
