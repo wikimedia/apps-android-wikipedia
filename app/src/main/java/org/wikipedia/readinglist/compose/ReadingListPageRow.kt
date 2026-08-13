@@ -3,17 +3,15 @@ package org.wikipedia.readinglist.compose
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.combinedClickable
-import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement.spacedBy
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.CheckboxDefaults
@@ -63,111 +61,107 @@ fun ReadingListPageRow(
     onToggleOfflineClick: () -> Unit = {},
     onChipClick: (Long) -> Unit = {}
 ) {
-    Column(
+    Row(
         modifier = modifier
             .combinedClickable(
                 onClick = if (isSelectionMode) onSelectionChange else onClick,
                 onLongClick = if (isSelectionMode) onSelectionChange else onLongClick
             )
-            .padding(horizontal = 16.dp, vertical = 16.dp)
+            .padding(horizontal = 16.dp, vertical = 16.dp),
+        verticalAlignment = Alignment.Top
     ) {
-        Row(verticalAlignment = Alignment.Top) {
-            if (isSelectionMode) {
-                Checkbox(
-                    checked = isSelected,
-                    onCheckedChange = { onSelectionChange() },
-                    colors = CheckboxDefaults.colors(
-                        checkedColor = ComposeColors.Blue600,
-                        uncheckedColor = WikipediaTheme.colors.primaryColor
-                    ),
-                    modifier = Modifier.padding(end = 16.dp)
-                )
-            }
-            Column(
-                modifier = Modifier
-                    .weight(1f)
-                    .alpha(if (page.isAvailable) 1f else 0.5f)
-            ) {
-                HtmlText(
-                    text = page.title,
-                    color = WikipediaTheme.colors.primaryColor,
-                    style = MaterialTheme.typography.bodyLarge.copy(
-                        fontWeight = FontWeight.Bold
+        if (isSelectionMode) {
+            Checkbox(
+                checked = isSelected,
+                onCheckedChange = { onSelectionChange() },
+                colors = CheckboxDefaults.colors(
+                    checkedColor = ComposeColors.Blue600,
+                    uncheckedColor = WikipediaTheme.colors.primaryColor
+                ),
+                modifier = Modifier.padding(end = 16.dp)
+            )
+        }
+        Column(modifier = Modifier.weight(1f)) {
+            val alpha = if (page.isAvailable) 1f else 0.5f
+            HtmlText(
+                modifier = Modifier.alpha(alpha),
+                text = page.title,
+                color = WikipediaTheme.colors.primaryColor,
+                style = MaterialTheme.typography.bodyLarge.copy(
+                    fontWeight = FontWeight.Bold
+                ),
+                maxLines = 2,
+                overflow = TextOverflow.Ellipsis
+            )
+            if (!page.description.isNullOrEmpty()) {
+                Spacer(modifier = Modifier.size(6.dp))
+                Text(
+                    modifier = Modifier.alpha(alpha),
+                    text = page.description,
+                    color = WikipediaTheme.colors.secondaryColor,
+                    style = MaterialTheme.typography.bodyMedium.copy(
+                        lineHeight = 24.sp
                     ),
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis
                 )
-                if (!page.description.isNullOrEmpty()) {
-                    Spacer(modifier = Modifier.size(6.dp))
-                    Text(
-                        text = page.description,
-                        color = WikipediaTheme.colors.secondaryColor,
-                        style = MaterialTheme.typography.bodyMedium.copy(
-                            lineHeight = 24.sp
-                        ),
-                        maxLines = 2,
-                        overflow = TextOverflow.Ellipsis
-                    )
-                }
             }
 
-            if (!isSelectionMode && (!page.offline || page.saving)) {
-                Spacer(modifier = Modifier.width(16.dp))
-                Box(
-                    modifier = Modifier
-                        .align(Alignment.CenterVertically)
-                        .size(32.dp)
-                        .clickable(onClick = onToggleOfflineClick),
-                    contentAlignment = Alignment.Center
+            if (containingLists.isNotEmpty()) {
+                FlowRow(
+                    modifier = Modifier.padding(top = 8.dp),
+                    horizontalArrangement = spacedBy(8.dp),
+                    verticalArrangement = spacedBy(8.dp)
                 ) {
-                    if (downloadProgress in 1 until 100) {
-                        CircularProgressIndicator(
-                            progress = { downloadProgress / 100f },
-                            modifier = Modifier.size(28.dp),
-                            color = WikipediaTheme.colors.progressiveColor,
-                            trackColor = WikipediaTheme.colors.borderColor,
-                            strokeWidth = 3.dp
-                        )
-                    } else {
-                        Icon(
-                            painter = painterResource(
-                                if (page.saving) R.drawable.ic_download_in_progress
-                                else R.drawable.ic_download_circle_gray_24dp
-                            ),
-                            contentDescription = stringResource(R.string.reading_list_article_make_offline),
-                            tint = if (page.saving) WikipediaTheme.colors.progressiveColor
-                            else WikipediaTheme.colors.placeholderColor,
-                            modifier = Modifier.size(24.dp)
+                    containingLists.forEach { list ->
+                        ListChip(
+                            title = list.title,
+                            onClick = {
+                                if (isSelectionMode) onSelectionChange() else onChipClick(list.id)
+                            }
                         )
                     }
                 }
             }
-
-            Spacer(modifier = Modifier.width(16.dp))
-            ArticleThumbnail(
-                thumbUrl = page.thumbUrl,
-                modifier = Modifier.alpha(if (page.isAvailable) 1f else 0.5f)
-            )
         }
 
-        // Containing-list chips span the full width below the top row.
-        if (containingLists.isNotEmpty()) {
-            Row(
+        if (!isSelectionMode && (!page.offline || page.saving)) {
+            Spacer(modifier = Modifier.width(16.dp))
+            Box(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .horizontalScroll(rememberScrollState()),
-                horizontalArrangement = spacedBy(8.dp)
+                    .padding(top = (THUMBNAIL_SIZE - DOWNLOAD_BUTTON_SIZE) / 2)
+                    .size(DOWNLOAD_BUTTON_SIZE)
+                    .clickable(onClick = onToggleOfflineClick),
+                contentAlignment = Alignment.Center
             ) {
-                containingLists.forEach { list ->
-                    ListChip(
-                        title = list.title,
-                        onClick = {
-                            if (isSelectionMode) onSelectionChange() else onChipClick(list.id)
-                        }
+                if (downloadProgress in 1 until 100) {
+                    CircularProgressIndicator(
+                        progress = { downloadProgress / 100f },
+                        modifier = Modifier.size(28.dp),
+                        color = WikipediaTheme.colors.progressiveColor,
+                        trackColor = WikipediaTheme.colors.borderColor,
+                        strokeWidth = 3.dp
+                    )
+                } else {
+                    Icon(
+                        painter = painterResource(
+                            if (page.saving) R.drawable.ic_download_in_progress
+                            else R.drawable.ic_download_circle_gray_24dp
+                        ),
+                        contentDescription = stringResource(R.string.reading_list_article_make_offline),
+                        tint = if (page.saving) WikipediaTheme.colors.progressiveColor
+                        else WikipediaTheme.colors.placeholderColor,
+                        modifier = Modifier.size(24.dp)
                     )
                 }
             }
         }
+
+        Spacer(modifier = Modifier.width(16.dp))
+        ArticleThumbnail(
+            thumbUrl = page.thumbUrl,
+            modifier = Modifier.alpha(if (page.isAvailable) 1f else 0.5f)
+        )
     }
 }
 
@@ -178,7 +172,7 @@ private fun ListChip(title: String, onClick: () -> Unit, modifier: Modifier = Mo
         label = {
             Text(
                 text = title,
-                style = MaterialTheme.typography.bodyMedium,
+                style = MaterialTheme.typography.labelLarge,
                 maxLines = 1
             )
         },
@@ -199,10 +193,13 @@ private fun ListChip(title: String, onClick: () -> Unit, modifier: Modifier = Mo
     )
 }
 
+private val THUMBNAIL_SIZE = 56.dp
+private val DOWNLOAD_BUTTON_SIZE = 32.dp
+
 @Composable
 private fun ArticleThumbnail(thumbUrl: String?, modifier: Modifier = Modifier) {
     val thumbnail = modifier
-        .size(56.dp)
+        .size(THUMBNAIL_SIZE)
         .clip(RoundedCornerShape(8.dp))
     AsyncImage(
         model = ImageService.getRequest(context = LocalContext.current, url = thumbUrl),
@@ -256,7 +253,13 @@ private fun ReadingListPageRowOfflinePreview() {
                 saving = false,
                 isAvailable = true
             ),
-            containingLists = listOf(ContainingList(1, "Physics"), ContainingList(2, "Top read"))
+            containingLists = listOf(
+                ContainingList(1, "Physics"),
+                ContainingList(2, "Top read"),
+                ContainingList(3, "Random"),
+                ContainingList(4, "Saved pages"),
+                ContainingList(5, "Test list")
+            )
         )
     }
 }
@@ -271,7 +274,7 @@ private fun ReadingListPageRowSelectedPreview() {
             page = ReadingListPageUiModel(
                 id = 3,
                 title = "Selected article",
-                description = "Article selected from All articles",
+                description = null,
                 thumbUrl = null,
                 lang = "en",
                 apiTitle = "Selected_article",

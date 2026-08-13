@@ -610,6 +610,10 @@
   <string name="reading_list_deleted">Message shown when a reading list is deleted. The \"%s\" symbol is replaced with the name of the list.</string>
   <string name="saved_list_empty_title">Title message shown when there are no articles in saved list.</string>
   <string name="reading_lists_empty_message">Descriptive message that explains the benefits of reading lists, and the location of the button to add an article to a reading list.</string>
+  <string name="reading_lists_search_empty_articles_title">Title shown on the "All articles" tab of the Saved screen when a search returns no matching saved articles.</string>
+  <string name="reading_lists_search_empty_articles_message">Message shown on the "All articles" tab of the Saved screen when a search returns no matching saved articles. The "%s" symbol is replaced with the term the user searched for.</string>
+  <string name="reading_lists_search_empty_collections_title">Title shown on the "Collections" tab of the Saved screen when a search returns no matching collections.</string>
+  <string name="reading_lists_search_empty_collections_message">Message shown on the "Collections" tab of the Saved screen when a search returns no matching collections. The "%s" symbol is replaced with the term the user searched for.</string>
   <string name="reading_list_empty">Message shown when a reading list does not contain any articles.</string>
   <string name="reading_list_article_offline">Label for a toggle switch to make a reading list article available offline or online.</string>
   <string name="reading_list_article_make_offline">Hint for button that makes a reading list article available for offline use.</string>

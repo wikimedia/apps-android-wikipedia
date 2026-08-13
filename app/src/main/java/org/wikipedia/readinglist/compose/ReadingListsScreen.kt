@@ -36,14 +36,12 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.wikipedia.R
 import org.wikipedia.compose.components.MessageCard
-import org.wikipedia.compose.components.SearchEmptyView
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.readinglist.OnboardingState
@@ -251,12 +249,16 @@ private fun ReadingListsContent(
         }
         uiState.rows.isEmpty() && uiState.searchQuery.isNullOrEmpty() &&
             uiState.onboarding == OnboardingState.None && uiState.discoverCard == null -> {
-            EmptyReadingLists(modifier = modifier)
+            EmptyReadingLists(
+                selectedTab = uiState.selectedTab,
+                modifier = modifier
+            )
         }
         uiState.rows.isEmpty() && !uiState.searchQuery.isNullOrEmpty() -> {
-            SearchEmptyView(
-                modifier = modifier.fillMaxSize(),
-                emptyTexTitle = stringResource(R.string.search_reading_lists_no_results)
+            EmptyReadingLists(
+                selectedTab = uiState.selectedTab,
+                searchQuery = uiState.searchQuery,
+                modifier = modifier
             )
         }
         else -> {
@@ -478,7 +480,22 @@ private fun ReadingListsList(
 }
 
 @Composable
-private fun EmptyReadingLists(modifier: Modifier = Modifier) {
+private fun EmptyReadingLists(
+    selectedTab: SavedTab,
+    modifier: Modifier = Modifier,
+    searchQuery: String? = null
+) {
+    val query = searchQuery.orEmpty()
+    val title = when {
+        query.isEmpty() -> stringResource(R.string.saved_list_empty_title)
+        selectedTab == SavedTab.ALL_ARTICLES -> stringResource(R.string.reading_lists_search_empty_articles_title)
+        else -> stringResource(R.string.reading_lists_search_empty_collections_title)
+    }
+    val description = when {
+        query.isEmpty() -> stringResource(R.string.reading_lists_empty_message)
+        selectedTab == SavedTab.ALL_ARTICLES -> stringResource(R.string.reading_lists_search_empty_articles_message, query)
+        else -> stringResource(R.string.reading_lists_search_empty_collections_message, query)
+    }
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -488,22 +505,30 @@ private fun EmptyReadingLists(modifier: Modifier = Modifier) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = stringResource(R.string.saved_list_empty_title),
+            text = title,
             color = WikipediaTheme.colors.primaryColor,
-            style = MaterialTheme.typography.titleLarge.copy(
-                fontSize = 20.sp,
-                fontWeight = FontWeight.Bold
-            ),
+            style = MaterialTheme.typography.titleSmall,
             textAlign = TextAlign.Center
         )
         Spacer(modifier = Modifier.size(12.dp))
         Text(
-            text = stringResource(R.string.reading_lists_empty_message),
+            text = description,
             color = WikipediaTheme.colors.secondaryColor,
-            style = MaterialTheme.typography.bodyLarge.copy(
-                letterSpacing = 0.15.sp,
+            style = MaterialTheme.typography.bodyMedium.copy(
+                letterSpacing = 0.25.sp,
             ),
             textAlign = TextAlign.Center
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun EmptyReadingListsSearchPreview() {
+    BaseTheme(currentTheme = Theme.LIGHT) {
+        EmptyReadingLists(
+            selectedTab = SavedTab.ALL_ARTICLES,
+            searchQuery = "Einstein"
         )
     }
 }
