@@ -19,8 +19,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
-import kotlinx.coroutines.launch
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -63,8 +61,8 @@ import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.places.PlacesActivity
 import org.wikipedia.random.RandomActivity
 import org.wikipedia.readinglist.ReadingListActivity
-import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.ReadingListMode
+import org.wikipedia.readinglist.SaveArticleSheetDialog
 import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingActivity
 import org.wikipedia.readinglist.recommended.RecommendedReadingListSettingsActivity
 import org.wikipedia.settings.Prefs
@@ -256,15 +254,7 @@ class HomeFragment : Fragment() {
             }
             is HomeAction.PageBookmarkClick -> {
                 instrument.submitInteraction("click", actionSource = action.card.javaClass.simpleName, elementId = "article_save", pageData = TestKitchenAdapter.getPageData(pageTitle = action.historyEntry.title))
-                lifecycleScope.launch {
-                    val page = AppDatabase.instance.readingListPageDao().findPageInAnyList(action.historyEntry.title)
-                    val list = AppDatabase.instance.readingListDao().getListById(page?.listId ?: -1)
-                    if (list == null || page == null) {
-                        ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), action.historyEntry.title, true, InvokeSource.FEED)
-                    } else {
-                        ReadingListBehaviorsUtil.deletePages(requireActivity(), listOf(list), page, {}, {})
-                    }
-                }
+                SaveArticleSheetDialog.show(childFragmentManager, action.historyEntry.title)
             }
             is HomeAction.PageShareClick -> {
                 instrument.submitInteraction("click", actionSource = action.card.javaClass.simpleName, elementId = "article_share", pageData = TestKitchenAdapter.getPageData(pageTitle = action.historyEntry.title))
@@ -287,17 +277,9 @@ class HomeFragment : Fragment() {
                         (parentFragment as? MainFragment)?.onFeedSelectPage(entry, true)
                         viewModel.updateTabCount(true)
                     },
-                    onAddRequest = { entry, addToDefault ->
+                    onSaveRequest = { entry ->
                         instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_item_overflow", elementId = "article_save", pageData = TestKitchenAdapter.getPageData(pageTitle = entry.title))
-                        (parentFragment as? MainFragment)?.onFeedAddPageToList(entry, addToDefault)
-                    },
-                    onMoveRequest = { id, entry ->
-                        instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_item_overflow", elementId = "article_move", pageData = TestKitchenAdapter.getPageData(pageTitle = entry.title))
-                        (parentFragment as? MainFragment)?.onFeedMovePageToList(id, entry)
-                    },
-                    onRemoveRequest = { entry, lists ->
-                        instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_item_overflow", elementId = "article_remove", pageData = TestKitchenAdapter.getPageData(pageTitle = entry.title))
-                        (parentFragment as? MainFragment)?.onFeedRemovePageFromList(entry, lists)
+                        (parentFragment as? MainFragment)?.onFeedSavePage(entry)
                     },
                     onShareRequest = { entry ->
                         instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_item_overflow", elementId = "article_share", pageData = TestKitchenAdapter.getPageData(pageTitle = entry.title))

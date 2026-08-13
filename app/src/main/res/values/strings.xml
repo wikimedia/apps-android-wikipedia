@@ -600,6 +600,11 @@
     <string name="reading_list_article_make_offline">Make this article available offline</string>
     <string name="reading_list_add_to_other_list">Add to another collection</string>
     <string name="reading_list_move_to_other_list">Move to another collection</string>
+    <string name="reading_list_add_to_collection">Add to a collection</string>
+    <plurals name="reading_list_in_collections">
+        <item quantity="one">In 1 collection</item>
+        <item quantity="other">In %d collections</item>
+    </plurals>
     <string name="reading_list_move_from_to_other_list">Move from %s to another collection</string>
     <string name="reading_list_remove_from_list">Remove from %s</string>
     <string name="reading_list_remove_from_lists">Remove from collections</string>
@@ -2613,5 +2618,9 @@
         <item quantity="one">Article removed from all associated collections.</item>
         <item quantity="other">%d articles removed from all associated collections.</item>
     </plurals>
+    <string name="reading_lists_save_sheet_empty_title">Collect the articles you love</string>
+    <string name="reading_lists_save_sheet_empty_message">Save articles in collections.</string>
+    <string name="reading_lists_save_sheet_empty_action">Start a collection</string>
+    <string name="reading_lists_save_sheet_create">Create</string>
     <string name="reading_lists_update_tooltip">Reading lists are now called collections.</string>
 </resources>

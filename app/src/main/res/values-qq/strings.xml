@@ -617,7 +617,12 @@
   <string name="reading_list_article_make_offline">Hint for button that makes a collection article available for offline use.</string>
   <string name="reading_list_add_to_other_list">Menu item to add an article to another collection when the article already exists in one or more collections.</string>
   <string name="reading_list_move_to_other_list">Menu item to move an article to another collection when the article already exists in one or more collections.</string>
-  <string name="reading_list_move_from_to_other_list">Menu item to move an article from a specific collection to another collection. The %s symbol is replaced with the name of the collection.</string>
+    <string name="reading_list_add_to_collection">Menu item shown after long-pressing a saved article when it is not in any custom collection. Opens the collection selection sheet.</string>
+    <plurals name="reading_list_in_collections">
+        <item quantity="one">Menu item shown after long-pressing a saved article when it is in one custom collection. Opens the collection selection sheet.</item>
+        <item quantity="other">Menu item shown after long-pressing a saved article when it is in multiple custom collections. The "%d" symbol is replaced with the number of collections. Opens the collection selection sheet.</item>
+    </plurals>
+    <string name="reading_list_move_from_to_other_list">Menu item to move an article from a specific collection to another collection. The %s symbol is replaced with the name of the collection.</string>
   <string name="reading_list_remove_from_list">Menu item to remove an article from a specific collection. The %s symbol is replaced with the name of the collection.</string>
   <string name="reading_list_remove_from_lists">Menu item to remove an article from multiple collections to which it might belong.</string>
   <string name="reading_list_select_item">Menu item to select an article for further multiple delete action.</string>
@@ -2351,4 +2356,8 @@
     <item quantity="one">Message shown after one article is removed from all associated collections.</item>
     <item quantity="other">Message shown after multiple articles are removed from all associated collections. The \"%d\" symbol is replaced with the number of articles removed.</item>
   </plurals>
+    <string name="reading_lists_save_sheet_empty_title">Title of the empty state in the bottom sheet for saving an article, shown when the user has no collections yet.</string>
+    <string name="reading_lists_save_sheet_empty_message">Message below the empty state title in the bottom sheet for saving an article, explaining that articles are saved into collections.</string>
+    <string name="reading_lists_save_sheet_empty_action">Button text in the empty state of the bottom sheet for saving an article, which creates the user\'s first collection.</string>
+    <string name="reading_lists_save_sheet_create">Text of the action beside the Collections heading in the bottom sheet for saving an article, which creates a new collection.</string>
 </resources>

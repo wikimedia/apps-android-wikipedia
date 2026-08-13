@@ -504,7 +504,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 containingLists.size,
                 pageId,
                 actionMode != null,
-                showMoveAction = false
+                containingLists.count { !it.isDefault }
             )
         )
     }
@@ -551,21 +551,9 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
     }
 
-    override fun onAddItemToOther(pageId: Long) {
+    override fun onManageCollections(pageId: Long) {
         launchWithPage(pageId) { page ->
-            ExclusiveBottomSheetPresenter.show(
-                childFragmentManager,
-                AddToReadingListDialog.newInstance(ReadingListPage.toPageTitle(page), InvokeSource.READING_LIST_ACTIVITY)
-            )
-        }
-    }
-
-    override fun onMoveItemToOther(pageId: Long) {
-        launchWithPage(pageId) { page ->
-            ExclusiveBottomSheetPresenter.show(
-                childFragmentManager,
-                MoveToReadingListDialog.newInstance(page.listId, ReadingListPage.toPageTitle(page), InvokeSource.READING_LIST_ACTIVITY)
-            )
+            SaveArticleSheetDialog.show(childFragmentManager, ReadingListPage.toPageTitle(page))
         }
     }
 

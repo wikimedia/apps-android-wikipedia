@@ -12,7 +12,6 @@ import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.readinglist.database.ReadingList
 
 class PageOverflowMenuViewModel : ViewModel() {
     data class PageOverflowMenuState(
@@ -31,28 +30,22 @@ class PageOverflowMenuViewModel : ViewModel() {
         menuKey: String,
         onOpenPage: (HistoryEntry) -> Unit = {},
         onOpenInNewTab: (HistoryEntry) -> Unit = {},
-        onAddRequest: (HistoryEntry, addToDefault: Boolean) -> Unit,
-        onMoveRequest: (Long, HistoryEntry) -> Unit,
-        onRemoveRequest: (HistoryEntry, List<ReadingList>) -> Unit,
+        onSaveRequest: (HistoryEntry) -> Unit,
         onShareRequest: (HistoryEntry) -> Unit,
         onLinkCopyRequest: (HistoryEntry) -> Unit
     ) {
         viewModelScope.launch {
             val entry = pageSummary.getHistoryEntry(wikiSite, source)
-            val lists = AppDatabase.instance.readingListDao().getListsFromPageOccurrences(
-                AppDatabase.instance.readingListPageDao().getAllPageOccurrences(entry.title)
-            )
+            val isArticleSaved = AppDatabase.instance.readingListPageDao().findPageInAnyList(entry.title) != null
             pageOverflowMenuState = PageOverflowMenuState(
                 entry = entry,
                 items = buildOverflowMenuItems(
                     context = context,
                     entry = entry,
-                    lists = lists,
+                    isArticleSaved = isArticleSaved,
                     onOpenPage = onOpenPage,
                     onOpenInNewTab = onOpenInNewTab,
-                    onAddRequest = onAddRequest,
-                    onMoveRequest = onMoveRequest,
-                    onRemoveRequest = onRemoveRequest,
+                    onSaveRequest = onSaveRequest,
                     onShareRequest = onShareRequest,
                     onLinkCopyRequest = onLinkCopyRequest
                 ),
@@ -68,12 +61,10 @@ class PageOverflowMenuViewModel : ViewModel() {
     private fun buildOverflowMenuItems(
         context: Context,
         entry: HistoryEntry,
-        lists: List<ReadingList>,
+        isArticleSaved: Boolean,
         onOpenPage: (HistoryEntry) -> Unit = {},
         onOpenInNewTab: (HistoryEntry) -> Unit = {},
-        onAddRequest: (HistoryEntry, addToDefault: Boolean) -> Unit,
-        onMoveRequest: (Long, HistoryEntry) -> Unit,
-        onRemoveRequest: (HistoryEntry, List<ReadingList>) -> Unit,
+        onSaveRequest: (HistoryEntry) -> Unit,
         onShareRequest: (HistoryEntry) -> Unit,
         onLinkCopyRequest: (HistoryEntry) -> Unit
     ): List<Pair<String, () -> Unit>> = buildList {
@@ -81,24 +72,14 @@ class PageOverflowMenuViewModel : ViewModel() {
         add(context.getString(R.string.menu_long_press_open_page) to { onOpenPage(entry) })
         add(context.getString(R.string.menu_long_press_open_in_new_tab) to { onOpenInNewTab(entry) })
 
-        if (lists.isEmpty()) {
-            add(context.getString(R.string.feed_card_add_to_default_list) to { onAddRequest(entry, true) })
+        // A single entry either way: both states open the save sheet, which is where adding to and
+        // removing from collections now happens.
+        val saveLabel = if (isArticleSaved) {
+            context.getString(R.string.link_preview_dialog_saved_button)
         } else {
-            add(context.getString(R.string.reading_list_add_to_other_list) to { onAddRequest(entry, false) })
-
-            val removeLabel = if (lists.size == 1) {
-                context.getString(R.string.reading_list_remove_from_list, lists[0].title)
-            } else {
-                context.getString(R.string.reading_list_remove_from_lists)
-            }
-            add(removeLabel to { onRemoveRequest(entry, lists) })
-
-            if (lists.size == 1) {
-                add(context.getString(R.string.reading_list_move_from_to_other_list, lists[0].title) to {
-                    onMoveRequest(lists[0].id, entry)
-                })
-            }
+            context.getString(R.string.feed_card_add_to_default_list)
         }
+        add(saveLabel to { onSaveRequest(entry) })
 
         add(context.getString(R.string.menu_page_share) to { onShareRequest(entry) })
         add(context.getString(R.string.menu_long_press_copy_page) to { onLinkCopyRequest(entry) })
