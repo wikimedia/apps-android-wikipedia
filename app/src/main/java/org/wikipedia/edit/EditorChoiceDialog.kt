@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -212,9 +213,8 @@ private fun EditorOption(
                 onClick = onClick,
                 role = Role.RadioButton
             )
-            .height(88.dp)
-            .padding(horizontal = 16.dp, vertical = 12.dp),
-        verticalAlignment = Alignment.CenterVertically
+            .heightIn(min = 88.dp)
+            .padding(horizontal = 16.dp, vertical = 12.dp)
     ) {
         Column(modifier = Modifier
             .weight(1f)
@@ -288,7 +288,7 @@ private fun EditorChoiceDialogNonSettingsScreenPreview() {
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 private fun EditorChoiceDialogSettingsScreenPreview() {
     BaseTheme(
