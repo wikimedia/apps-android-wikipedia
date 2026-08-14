@@ -5,6 +5,7 @@ import androidx.annotation.OptIn
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableLongStateOf
@@ -27,7 +28,9 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.util.log.L
 import java.util.Locale
 
-private const val POSITION_POLL_INTERVAL_MILLIS = 250L
+// Fine enough that the highlighted word keeps up with the narration; individual words are often
+// only a couple of hundred milliseconds long.
+private const val POSITION_POLL_INTERVAL_MILLIS = 50L
 
 /**
  * Playback state of one article's lead-section audio, backed by an [ExoPlayer] that lives exactly as
@@ -47,6 +50,14 @@ class ReadAloudPlayerState internal constructor(private val player: ExoPlayer?) 
     var positionMillis by mutableLongStateOf(0L)
         internal set
 
+    var cues by mutableStateOf<List<ReadAloudCue>>(emptyList())
+        internal set
+
+    // Flipped by the first tap on Play, which is what triggers the captions download: like the audio
+    // itself, nothing is fetched for a card the user never listens to.
+    var hasStartedPlayback by mutableStateOf(false)
+        private set
+
     // While the user drags the slider we show the dragged position rather than the playhead, so the
     // thumb doesn't snap back and forth between drag events.
     private var scrubPositionMillis by mutableStateOf<Long?>(null)
@@ -57,8 +68,16 @@ class ReadAloudPlayerState internal constructor(private val player: ExoPlayer?) 
 
     val canSeek get() = durationMillis > 0 && !hasError
 
+    /**
+     * Index into [cues] of the word being spoken, or -1 before the first one starts. Derived rather
+     * than polled, so the transcript only recomposes when the word actually changes and not on every
+     * playback position tick.
+     */
+    val currentCueIndex by derivedStateOf { cues.indexOfCueStartedAt(displayPositionMillis) }
+
     fun playOrPause() {
         val player = player ?: return
+        hasStartedPlayback = true
         when {
             hasError -> retry()
             player.isPlaying -> player.pause()
@@ -110,8 +129,28 @@ class ReadAloudPlayerState internal constructor(private val player: ExoPlayer?) 
     internal fun currentPlayerDuration() = player?.duration?.takeIf { it != C.TIME_UNSET } ?: 0L
 }
 
+/**
+ * Index of the last cue that has started by [millis], which keeps the previous word lit through the
+ * silences between words instead of leaving nothing highlighted.
+ */
+private fun List<ReadAloudCue>.indexOfCueStartedAt(millis: Long): Int {
+    var low = 0
+    var high = size - 1
+    var index = -1
+    while (low <= high) {
+        val mid = (low + high) / 2
+        if (this[mid].startMillis <= millis) {
+            index = mid
+            low = mid + 1
+        } else {
+            high = mid - 1
+        }
+    }
+    return index
+}
+
 @Composable
-fun rememberReadAloudPlayerState(audioUrl: String): ReadAloudPlayerState {
+fun rememberReadAloudPlayerState(audioUrl: String, captionsUrl: String): ReadAloudPlayerState {
     val context = LocalContext.current
     // Previews render without a real player, so @Preview functions don't try to reach the network.
     val isPreview = LocalInspectionMode.current
@@ -153,6 +192,12 @@ fun rememberReadAloudPlayerState(audioUrl: String): ReadAloudPlayerState {
         while (state.isPlaying) {
             state.positionMillis = state.currentPlayerPosition()
             delay(POSITION_POLL_INTERVAL_MILLIS)
+        }
+    }
+
+    LaunchedEffect(captionsUrl, state.hasStartedPlayback) {
+        if (state.hasStartedPlayback && state.cues.isEmpty()) {
+            state.cues = ReadAloudCaptions.fetch(captionsUrl)
         }
     }
 

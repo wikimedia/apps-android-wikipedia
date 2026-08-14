@@ -34,8 +34,11 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
@@ -61,6 +64,8 @@ import org.wikipedia.topics.ArticleTopics
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.views.imageservice.ImageService
 import kotlin.math.abs
+
+private const val TRANSCRIPT_WORDS_PER_CHUNK = 16
 
 @Composable
 fun ReadAloudLeadSectionModule(
@@ -139,7 +144,10 @@ private fun ReadAloudCardContent(
     // Resolved on demand when the overflow button is tapped, so we never query the whole feed up front.
     var isInReadingList by remember { mutableStateOf(false) }
     val showSpaceForPagerDots = (module?.cards?.size ?: 0) > 1
-    val playerState = rememberReadAloudPlayerState(ReadAloudArticlesRepository.audioUrlFor(title))
+    val playerState = rememberReadAloudPlayerState(
+        audioUrl = ReadAloudArticlesRepository.audioUrlFor(title),
+        captionsUrl = ReadAloudArticlesRepository.captionsUrlFor(title)
+    )
 
     Box(
         modifier = Modifier
@@ -233,16 +241,26 @@ private fun ReadAloudCardContent(
                     )
                 }
 
-                (title.extract ?: title.description)?.let {
-                    Spacer(modifier = Modifier.height(2.dp))
-                    HtmlText(
-                        modifier = Modifier.padding(horizontal = 16.dp),
-                        text = it,
-                        color = Color.White,
-                        style = MaterialTheme.typography.bodyMedium,
-                        maxLines = 3,
-                        overflow = TextOverflow.Ellipsis
-                    )
+                Box(
+                    modifier = Modifier
+                        .padding(horizontal = 16.dp)
+                ) {
+                    if (playerState.cues.isEmpty()) {
+                        (title.extract ?: title.description)?.let {
+                            HtmlText(
+                                text = it,
+                                color = Color.White,
+                                style = MaterialTheme.typography.bodyMedium,
+                                maxLines = 3,
+                                overflow = TextOverflow.Ellipsis
+                            )
+                        }
+                    } else {
+                        ReadAloudTranscript(
+                            cues = playerState.cues,
+                            currentCueIndex = playerState.currentCueIndex
+                        )
+                    }
                 }
 
                 ReadAloudPlaybackControls(
@@ -274,6 +292,37 @@ private fun ReadAloudCardContent(
             }
         }
     }
+}
+
+/**
+ * Shows the narration a chunk of [TRANSCRIPT_WORDS_PER_CHUNK] words at a time, with the word
+ * currently being spoken in white and the rest in gray. Advancing a chunk at a time rather than
+ * sliding a window word by word keeps the text still between chunks, so only the highlight moves.
+ */
+@Composable
+private fun ReadAloudTranscript(
+    modifier: Modifier = Modifier,
+    cues: List<ReadAloudCue>,
+    currentCueIndex: Int
+) {
+    val chunkStart = currentCueIndex.coerceAtLeast(0) / TRANSCRIPT_WORDS_PER_CHUNK * TRANSCRIPT_WORDS_PER_CHUNK
+    val chunkEnd = (chunkStart + TRANSCRIPT_WORDS_PER_CHUNK).coerceAtMost(cues.size)
+    val transcript = buildAnnotatedString {
+        for (index in chunkStart until chunkEnd) {
+            if (index > chunkStart) {
+                append(' ')
+            }
+            withStyle(SpanStyle(color = if (index == currentCueIndex) Color.White else Color.White.copy(alpha = 0.5f))) {
+                append(cues[index].word)
+            }
+        }
+    }
+    Text(
+        modifier = modifier,
+        text = transcript,
+        style = MaterialTheme.typography.headlineSmall,
+        overflow = TextOverflow.Ellipsis
+    )
 }
 
 @Composable

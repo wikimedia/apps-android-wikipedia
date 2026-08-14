@@ -20,6 +20,10 @@ enum class ForYouModuleType(
     @param:StringRes val title: Int,
     @param:StringRes val subtitle: Int,
 ) {
+    READ_ALOUD_LEAD_SECTION(
+    title = R.string.home_feed_settings_read_aloud_lead_section_title,
+    subtitle = R.string.home_feed_settings_read_aloud_lead_section_subtitle
+    ),
     BASED_ON_INTEREST(
         title = R.string.home_feed_settings_based_on_interest_title,
         subtitle = R.string.home_feed_settings_based_on_interest_subtitle
@@ -47,10 +51,6 @@ enum class ForYouModuleType(
     GAMES(
         title = R.string.home_feed_settings_games_title,
         subtitle = R.string.home_feed_settings_games_subtitle
-    ),
-    READ_ALOUD_LEAD_SECTION(
-        title = R.string.home_feed_settings_read_aloud_lead_section_title,
-        subtitle = R.string.home_feed_settings_read_aloud_lead_section_subtitle
     );
 
     fun toEntry() = ToggleSettingItem(title, subtitle, name)

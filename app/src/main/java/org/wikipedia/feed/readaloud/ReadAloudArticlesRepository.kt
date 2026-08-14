@@ -19,7 +19,12 @@ object ReadAloudArticlesRepository {
 
     fun isSupported(wikiSite: WikiSite) = wikiSite.languageCode == LANGUAGE_CODE
 
-    fun audioUrlFor(title: PageTitle) = AUDIO_BASE_URL + UriUtil.encodeURL(title.prefixedText) + "/$LEAD_SECTION_NAME.mp3"
+    fun audioUrlFor(title: PageTitle) = mediaUrlFor(title, "mp3")
+
+    fun captionsUrlFor(title: PageTitle) = mediaUrlFor(title, "vtt")
+
+    private fun mediaUrlFor(title: PageTitle, extension: String) =
+        AUDIO_BASE_URL + UriUtil.encodeURL(title.prefixedText) + "/$LEAD_SECTION_NAME.$extension"
 
     /**
      * Returns up to [count] distinct random articles belonging to the given interest topic, or an

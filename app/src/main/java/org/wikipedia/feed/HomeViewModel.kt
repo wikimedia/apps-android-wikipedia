@@ -93,7 +93,6 @@ import java.util.Locale
 enum class HomeTab { COMMUNITY, FOR_YOU }
 private const val MAX_STOP_TIMEOUT_MILLIS = 5000L
 private const val MAX_DISCOVER_ARTICLE_CARDS = 4
-private const val MAX_READ_ALOUD_ARTICLE_CARDS = 4
 private const val PLACES_ARTICLES_REQUEST_LIMIT = 10
 private const val PLACES_SEARCH_RADIUS_METERS = 10000
 
@@ -788,7 +787,7 @@ class HomeViewModel : ViewModel() {
                 val readAloudCards = AppDatabase.instance.topicInterestDao().getAllRandom()
                     .firstNotNullOfOrNull { topic ->
                         ReadAloudArticlesRepository
-                            .randomArticlesForTopic(wikiSite.value, topic.topicId, MAX_READ_ALOUD_ARTICLE_CARDS)
+                            .randomArticlesForTopic(wikiSite.value, topic.topicId, 4)
                             .map { ReadAloudLeadSectionCard(it, topic) }
                             .takeIf { it.isNotEmpty() }
                     }
