@@ -65,6 +65,7 @@ import org.wikipedia.feed.model.WikiGameCard
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
 import org.wikipedia.feed.personalization.interest.InterestSelectionRepository
 import org.wikipedia.feed.readaloud.ReadAloudArticlesRepository
+import org.wikipedia.feed.readaloud.ReadAloudLeadSectionABTest
 import org.wikipedia.feed.wikigames.WikiGame
 import org.wikipedia.games.WikiGames
 import org.wikipedia.games.db.DailyGameHistory
@@ -779,7 +780,8 @@ class HomeViewModel : ViewModel() {
             // -- Read aloud lead section --
 
             val readAloudDeferred = async(Dispatchers.IO) {
-                if (!ReadAloudArticlesRepository.isSupported(wikiSite.value)) {
+                if (!ReadAloudLeadSectionABTest().isTestGroupUser() ||
+                    !ReadAloudArticlesRepository.isSupported(wikiSite.value)) {
                     return@async emptyList()
                 }
                 // All the cards in this module come from a single topic, so the first of the user's
