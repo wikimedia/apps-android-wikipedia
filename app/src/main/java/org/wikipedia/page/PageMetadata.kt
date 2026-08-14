@@ -12,13 +12,13 @@ class PageMetadata(
 ) {
     @Serializable
     class Topic(
-        val topic: String?,
+        val topic: String? = null,
         val score: Double = 0.0
     )
 
     @Serializable
     class LeadImage(
-        val source: String?,
+        val source: String? = null,
         val width: Int = 0,
         val height: Int = 0
     )
