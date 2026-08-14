@@ -5,7 +5,7 @@ import org.wikipedia.analytics.ABTest
 class NewWithinInterestABTest : ABTest("newWithinInterest", GROUP_SIZE_2) {
     override fun getGroupName(): String {
         return when (group) {
-            GROUP_2 -> "test"
+            GROUP_2 -> "treatment"
             else -> "control"
         }
     }
