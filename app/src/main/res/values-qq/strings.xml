@@ -2314,6 +2314,11 @@
   <string name="home_feed_settings_games_subtitle">Subtitle describing that the Games module provides daily games based on Wikipedia content.</string>
   <string name="home_feed_settings_discover_title">Title for the Discover recommendations settings section.</string>
   <string name="home_feed_settings_discover_subtitle">Subtitle describing that articles from the user\'s Discover reading list are shown.</string>
+  <string name="read_aloud_card_play">Accessibility label for an audio Play button.</string>
+  <string name="read_aloud_card_pause">Accessibility label for an audio Pause button.</string>
+  <string name="read_aloud_card_retry">Accessibility label for button to retry playing audio.</string>
+  <string name="read_aloud_card_error">Message shown when the audio for the current article is not available.</string>
+  <string name="read_aloud_card_keep_listening">Label for button that leads to listening to more of the selected article.</string>
   <string name="home_feed_discover_cta_title">Section title for the Discover module in the home feed.</string>
   <string name="home_feed_discover_cta_description">Description explaining that Discover recommends articles picked for the user, with a choice of daily, weekly, or monthly updates.</string>
   <string name="home_feed_discover_cta_button">Button text that enables the Discover reading list.</string>
