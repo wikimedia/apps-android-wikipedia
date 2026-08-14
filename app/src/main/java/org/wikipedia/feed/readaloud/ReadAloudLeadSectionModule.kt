@@ -5,6 +5,9 @@ import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.gestures.awaitEachGesture
+import androidx.compose.foundation.gestures.awaitFirstDown
+import androidx.compose.foundation.gestures.drag
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -19,9 +22,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Slider
-import androidx.compose.material3.SliderDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -41,6 +43,7 @@ import androidx.compose.ui.graphics.RadialGradientShader
 import androidx.compose.ui.graphics.Shader
 import androidx.compose.ui.graphics.ShaderBrush
 import androidx.compose.ui.graphics.painter.ColorPainter
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
@@ -449,22 +452,45 @@ private fun ReadAloudPlaybackControls(
                 }
             }
 
-            Slider(
-                modifier = Modifier.weight(1f),
-                value = playerState.displayPositionMillis.toFloat(),
-                valueRange = 0f..playerState.durationMillis.coerceAtLeast(1L).toFloat(),
-                enabled = playerState.canSeek,
-                onValueChange = { playerState.scrubTo(it.toLong()) },
-                onValueChangeFinished = { playerState.commitScrub() },
-                colors = SliderDefaults.colors(
-                    thumbColor = Color.White,
-                    activeTrackColor = Color.White,
-                    inactiveTrackColor = Color.White.copy(alpha = 0.3f),
-                    disabledThumbColor = Color.White.copy(alpha = 0.5f),
-                    disabledActiveTrackColor = Color.White.copy(alpha = 0.5f),
-                    disabledInactiveTrackColor = Color.White.copy(alpha = 0.3f)
+            Box(
+                modifier = Modifier
+                    .weight(1f)
+                    .pointerInput(playerState) {
+                        awaitEachGesture {
+                            val down = awaitFirstDown(requireUnconsumed = false)
+                            // Nothing to seek to until the recording's length is known; let the tap
+                            // fall through to opening the article instead.
+                            if (playerState.durationMillis <= 0) {
+                                return@awaitEachGesture
+                            }
+                            // Consuming keeps the tap away from the card's own click handler, and the
+                            // drag away from the pager that would otherwise swipe to the next card.
+                            down.consume()
+                            playerState.scrubToFraction(down.position.x / size.width)
+                            drag(down.id) { change ->
+                                change.consume()
+                                playerState.scrubToFraction(change.position.x / size.width)
+                            }
+                            playerState.commitScrub()
+                        }
+                    }
+                    // Padded after the gesture modifier, so the touch target is taller than the 4dp bar.
+                    .padding(vertical = 12.dp),
+                contentAlignment = Alignment.Center
+            ) {
+                LinearProgressIndicator(
+                    modifier = Modifier.fillMaxWidth(),
+                    // Read in the draw phase rather than in composition, so the bar advances without
+                    // recomposing this row on every playback position tick.
+                    progress = {
+                        val duration = playerState.durationMillis
+                        if (duration > 0) (playerState.displayPositionMillis.toFloat() / duration).coerceIn(0f, 1f) else 0f
+                    },
+                    color = Color.White,
+                    trackColor = Color.White.copy(alpha = 0.3f),
+                    drawStopIndicator = {}
                 )
-            )
+            }
 
             Spacer(modifier = Modifier.width(8.dp))
 

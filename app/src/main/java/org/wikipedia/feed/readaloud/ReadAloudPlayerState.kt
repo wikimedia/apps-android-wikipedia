@@ -5,8 +5,8 @@ import androidx.annotation.OptIn
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.Stable
+import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableLongStateOf
 import androidx.compose.runtime.mutableStateOf
@@ -62,15 +62,13 @@ class ReadAloudPlayerState internal constructor(private val player: ExoPlayer?) 
     var hasFinishedPlayback by mutableStateOf(false)
         private set
 
-    // While the user drags the slider we show the dragged position rather than the playhead, so the
-    // thumb doesn't snap back and forth between drag events.
+    // While the user drags the progress bar we show the dragged position rather than the playhead, so
+    // the bar doesn't snap back to the playhead between drag events.
     private var scrubPositionMillis by mutableStateOf<Long?>(null)
 
     private var isPrepared = false
 
     val displayPositionMillis get() = scrubPositionMillis ?: positionMillis
-
-    val canSeek get() = durationMillis > 0 && !hasError
 
     /**
      * Index into [cues] of the word being spoken, or -1 before the first one starts. Derived rather
@@ -93,8 +91,12 @@ class ReadAloudPlayerState internal constructor(private val player: ExoPlayer?) 
         }
     }
 
-    fun scrubTo(millis: Long) {
-        scrubPositionMillis = millis
+    /**
+     * Moves the scrub position to a fraction of the recording, without seeking yet: the seek happens
+     * once the finger lifts, in [commitScrub], so dragging doesn't thrash the player.
+     */
+    fun scrubToFraction(fraction: Float) {
+        scrubPositionMillis = (fraction.coerceIn(0f, 1f) * durationMillis).toLong()
     }
 
     fun commitScrub() {
