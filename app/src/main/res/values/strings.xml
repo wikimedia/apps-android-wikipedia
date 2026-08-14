@@ -2579,6 +2579,7 @@
     <string name="read_aloud_card_pause">Pause</string>
     <string name="read_aloud_card_retry">Retry</string>
     <string name="read_aloud_card_error">Audio isn\'t available for this article.</string>
+    <string name="read_aloud_card_keep_listening">Keep listening?</string>
     <string name="home_feed_discover_cta_title">From Discover</string>
     <string name="home_feed_discover_cta_description">Learn about new topics, picked just for you. Choose between daily, weekly or monthly updates.</string>
     <string name="home_feed_discover_cta_button">Enable Discover reading list</string>

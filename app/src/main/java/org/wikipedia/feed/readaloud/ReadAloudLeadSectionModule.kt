@@ -37,6 +37,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
@@ -44,6 +45,7 @@ import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
+import org.wikipedia.compose.components.AppButton
 import org.wikipedia.compose.components.FadeInAsyncImage
 import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.theme.BaseTheme
@@ -80,6 +82,7 @@ fun ReadAloudLeadSectionModule(
     onHideModuleClick: () -> Unit = {},
     onCardInView: (card: Card) -> Unit = {},
     onCustomizeClick: (card: Card) -> Unit = {},
+    onKeepListeningClick: (card: Card) -> Unit = {},
 ) {
     val context = LocalContext.current
     val backgroundColorIndex = abs(module.cards.firstOrNull()?.hideKey.hashCode())
@@ -112,7 +115,8 @@ fun ReadAloudLeadSectionModule(
             onSaveClick = { onPageBookmarkClick(card, historyEntry) },
             onHideCardClick = onHideCardClick,
             onHideModuleClick = onHideModuleClick,
-            onCustomizeClick = { onCustomizeClick(card) }
+            onCustomizeClick = { onCustomizeClick(card) },
+            onKeepListeningClick = { onKeepListeningClick(card) }
         )
     }
 }
@@ -136,7 +140,8 @@ private fun ReadAloudCardContent(
     onSaveClick: () -> Unit = {},
     onHideCardClick: (module: ForYouModule, card: ForYouCard) -> Unit = { _, _ -> },
     onHideModuleClick: () -> Unit = {},
-    onCustomizeClick: () -> Unit = {}
+    onCustomizeClick: () -> Unit = {},
+    onKeepListeningClick: () -> Unit = {}
 ) {
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
@@ -268,6 +273,19 @@ private fun ReadAloudCardContent(
                     wikiSite = wikiSite,
                     playerState = playerState
                 )
+
+                if (playerState.hasFinishedPlayback) {
+                    AppButton(
+                        modifier = Modifier.padding(start = 16.dp, top = 8.dp),
+                        onClick = onKeepListeningClick
+                    ) {
+                        Text(
+                            text = context.getString(wikiSite.languageCode, R.string.read_aloud_card_keep_listening),
+                            style = MaterialTheme.typography.titleMedium,
+                            fontWeight = FontWeight.Medium
+                        )
+                    }
+                }
 
                 footerText?.let {
                     Row(

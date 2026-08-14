@@ -58,6 +58,10 @@ class ReadAloudPlayerState internal constructor(private val player: ExoPlayer?) 
     var hasStartedPlayback by mutableStateOf(false)
         private set
 
+    // Stays set once the recording runs to its end, until playback is started again.
+    var hasFinishedPlayback by mutableStateOf(false)
+        private set
+
     // While the user drags the slider we show the dragged position rather than the playhead, so the
     // thumb doesn't snap back and forth between drag events.
     private var scrubPositionMillis by mutableStateOf<Long?>(null)
@@ -82,6 +86,7 @@ class ReadAloudPlayerState internal constructor(private val player: ExoPlayer?) 
             hasError -> retry()
             player.isPlaying -> player.pause()
             else -> {
+                hasFinishedPlayback = false
                 prepareIfNeeded()
                 player.play()
             }
@@ -113,6 +118,7 @@ class ReadAloudPlayerState internal constructor(private val player: ExoPlayer?) 
 
     private fun retry() {
         hasError = false
+        hasFinishedPlayback = false
         isPrepared = false
         prepareIfNeeded()
         player?.play()
@@ -122,6 +128,7 @@ class ReadAloudPlayerState internal constructor(private val player: ExoPlayer?) 
         player?.pause()
         player?.seekTo(0)
         positionMillis = 0
+        hasFinishedPlayback = true
     }
 
     internal fun currentPlayerPosition() = player?.currentPosition ?: 0L
