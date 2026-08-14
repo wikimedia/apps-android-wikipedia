@@ -76,6 +76,7 @@
 * Mnivar
 * Mouse21
 * Mynor Archila
+* Nah omy
 * No se
 * Osvaldorino
 * PPenloglou-WMF
@@ -490,6 +491,7 @@
   <string name="button_get_directions">Obtener indicaciones</string>
   <string name="error_no_maps_app">No se pudo encontrar ninguna aplicación que proporcione indicaciones.</string>
   <string name="preference_title_customize_explore_feed">Canal Explorar</string>
+  <string name="preference_title_customize_home_feed">Inicio</string>
   <string name="preference_title_show_link_previews">Mostrar vistas previas de enlaces</string>
   <string name="preference_summary_customize_explore_feed">Personaliza el canal Explorar</string>
   <string name="preference_summary_show_link_previews">Mostrar una vista previa rápida de los artículos al pulsar en los enlaces.</string>

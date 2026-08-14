@@ -9,6 +9,7 @@ import kotlinx.serialization.json.int
 import kotlinx.serialization.json.jsonPrimitive
 import org.wikipedia.Constants
 import org.wikipedia.R
+import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.bridge.CommunicationBridge
 import org.wikipedia.bridge.CommunicationBridge.JSEventListener
 import org.wikipedia.descriptions.DescriptionEditUtil
@@ -19,6 +20,7 @@ import org.wikipedia.util.log.L
 class EditHandler(private val fragment: PageFragment, bridge: CommunicationBridge) : JSEventListener {
 
     private var currentPage: Page? = null
+    private var menuItemClick = false
 
     init {
         bridge.addListener(TYPE_EDIT_SECTION, this)
@@ -41,7 +43,14 @@ class EditHandler(private val fragment: PageFragment, bridge: CommunicationBridg
                     val menu = PopupMenu(fragment.requireContext(), tempView, 0, 0, R.style.PagePopupMenu)
                     menu.menuInflater.inflate(R.menu.menu_page_header_edit, menu.menu)
                     menu.setOnMenuItemClickListener(EditMenuClickListener())
-                    menu.setOnDismissListener { (fragment.view as? ViewGroup)?.removeView(tempView) }
+                    menu.setOnDismissListener {
+                        if (!menuItemClick) {
+                            fragment.title?.let { title ->
+                                EditAttemptStepEvent.logAbort(title)
+                            }
+                        }
+                        (fragment.view as? ViewGroup)?.removeView(tempView)
+                    }
                     menu.show()
                 } else {
                     startEditingSection(sectionId, null)
@@ -54,7 +63,7 @@ class EditHandler(private val fragment: PageFragment, bridge: CommunicationBridg
 
     private inner class EditMenuClickListener : PopupMenu.OnMenuItemClickListener {
         override fun onMenuItemClick(item: MenuItem): Boolean {
-            return when (item.itemId) {
+            menuItemClick = when (item.itemId) {
                 R.id.menu_page_header_edit_description -> {
                     fragment.verifyBeforeEditingDescription(null, Constants.InvokeSource.PAGE_EDIT_PENCIL)
                     true
@@ -65,6 +74,7 @@ class EditHandler(private val fragment: PageFragment, bridge: CommunicationBridg
                 }
                 else -> false
             }
+            return menuItemClick
         }
     }
 
