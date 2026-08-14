@@ -460,7 +460,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
                         altTextAdd = !intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_ALT).isNullOrEmpty()), addImageTitle?.wikiSite?.languageCode.orEmpty())
                 }
                 doSave()
-                EditAttemptStepEvent.logSaveAttempt(viewModel.pageTitle)
+                EditAttemptStepEvent.logSaveAttempt(pageTitle = viewModel.pageTitle, editCount = viewModel.editCount)
                 supportActionBar?.title = getString(R.string.preview_edit_summarize_edit_title)
             }
             editPreviewFragment.isActive -> {
