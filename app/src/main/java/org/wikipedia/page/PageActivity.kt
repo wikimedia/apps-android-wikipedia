@@ -30,7 +30,6 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.preference.PreferenceManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
@@ -57,7 +56,6 @@ import org.wikipedia.descriptions.DescriptionEditSuccessActivity
 import org.wikipedia.edit.EDITOR_CHOICE_VE
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.edit.EditSectionActivity
-import org.wikipedia.edit.EditSectionViewModel
 import org.wikipedia.edit.showEditorChoiceDialog
 import org.wikipedia.events.ArticleSavedOrDeletedEvent
 import org.wikipedia.events.ChangeTextSizeEvent
@@ -555,22 +553,28 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                 // TODO: move this to a more appropriate spot.
                 uri.getQueryParameter("saved")?.let {
                     if (it == "true") {
-                        val revision = uri.getQueryParameter("revision")?.toLongOrNull()
-                        if (revision != null && pageFragment.title != null) {
-                            lifecycleScope.launch(CoroutineExceptionHandler { _, t ->
-                                L.e(t)
-                            }) {
-                                EditSectionViewModel.retryUntilNewRevision(pageFragment.title!!, revision)
-                                pageFragment.refreshPage()
-                                FeedbackUtil.showMessage(this@PageActivity, R.string.edit_saved_successfully)
-                            }
-                        } else {
-                            binding.root.post {
-                                if (!isDestroyed) {
-                                    FeedbackUtil.showMessage(this, R.string.edit_saved_successfully)
-                                }
-                            }
-                        }
+                        // Push back to external browser
+                        // TODO: remove this after the server-side logic is updated.
+                        UriUtil.visitInExternalBrowser(this, uri)
+                        return@let
+
+                        // TODO: hide this for now, maybe we'll use these in the future iteration.
+//                        val revision = uri.getQueryParameter("revision")?.toLongOrNull()
+//                        if (revision != null && pageFragment.title != null) {
+//                            lifecycleScope.launch(CoroutineExceptionHandler { _, t ->
+//                                L.e(t)
+//                            }) {
+//                                EditSectionViewModel.retryUntilNewRevision(pageFragment.title!!, revision)
+//                                pageFragment.refreshPage()
+//                                FeedbackUtil.showMessage(this@PageActivity, R.string.edit_saved_successfully)
+//                            }
+//                        } else {
+//                            binding.root.post {
+//                                if (!isDestroyed) {
+//                                    FeedbackUtil.showMessage(this, R.string.edit_saved_successfully)
+//                                }
+//                            }
+//                        }
                     } else {
                         L.d("Edit abandoned.")
                     }
