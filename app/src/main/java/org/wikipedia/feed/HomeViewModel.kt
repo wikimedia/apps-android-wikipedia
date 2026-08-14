@@ -93,6 +93,7 @@ import java.util.Locale
 enum class HomeTab { COMMUNITY, FOR_YOU }
 private const val MAX_STOP_TIMEOUT_MILLIS = 5000L
 private const val MAX_DISCOVER_ARTICLE_CARDS = 4
+private const val MAX_READ_ALOUD_ARTICLE_CARDS = 4
 private const val PLACES_ARTICLES_REQUEST_LIMIT = 10
 private const val PLACES_SEARCH_RADIUS_METERS = 10000
 
@@ -780,20 +781,32 @@ class HomeViewModel : ViewModel() {
 
             val readAloudDeferred = async(Dispatchers.IO) {
                 if (!ReadAloudArticlesRepository.isSupported(wikiSite.value)) {
-                    return@async null
+                    return@async emptyList()
                 }
-                val (topic, title) = AppDatabase.instance.topicInterestDao().getAllRandom()
+                // All the cards in this module come from a single topic, so the first of the user's
+                // topics that has any articles with an audio version supplies the whole module.
+                val readAloudCards = AppDatabase.instance.topicInterestDao().getAllRandom()
                     .firstNotNullOfOrNull { topic ->
-                        ReadAloudArticlesRepository.randomArticleForTopic(wikiSite.value, topic.topicId)?.let { topic to it }
-                    } ?: return@async null
-                ServiceFactory.get(title.wikiSite).getInfoWithExtractsByPageTitles(title.prefixedText)
-                    .query?.pages?.firstOrNull()?.let { page ->
-                        title.description = page.description
-                        title.thumbUrl = page.thumbUrl()
-                        title.displayText = page.displayTitle(title.wikiSite.languageCode)
-                        title.extract = page.extract
+                        ReadAloudArticlesRepository
+                            .randomArticlesForTopic(wikiSite.value, topic.topicId, MAX_READ_ALOUD_ARTICLE_CARDS)
+                            .map { ReadAloudLeadSectionCard(it, topic) }
+                            .takeIf { it.isNotEmpty() }
                     }
-                ReadAloudLeadSectionCard(title, topic)
+                    .orEmpty()
+                    .filterNot { hiddenCards.contains(it.hideKey) }
+                if (readAloudCards.isNotEmpty()) {
+                    ServiceFactory.get(wikiSite.value)
+                        .getInfoWithExtractsByPageTitles(readAloudCards.fastJoinToString("|") { it.title.prefixedText })
+                        .query?.pages?.forEach { page ->
+                            readAloudCards.find { it.title.prefixedText == StringUtil.addUnderscores(page.title) }?.title?.let {
+                                it.description = page.description
+                                it.thumbUrl = page.thumbUrl()
+                                it.displayText = page.displayTitle(wikiSite.value.languageCode)
+                                it.extract = page.extract
+                            }
+                        }
+                }
+                readAloudCards
             }
 
             // Combine all the deferred results and add them to the modules list if they have content.
@@ -826,9 +839,10 @@ class HomeViewModel : ViewModel() {
                     modules.add(ForYouModule.Random(age, 0, listOf(randomCard)))
                 }
             }
-            readAloudDeferred.await()?.let { readAloudCard ->
-                if (!hiddenCards.contains(readAloudCard.hideKey)) {
-                    modules.add(ForYouModule.ReadAloudLeadSection(age, 0, listOf(readAloudCard)))
+            readAloudDeferred.await().let {
+                if (it.isNotEmpty()) {
+                    // The index for this module is always 0 because there is always a single instance of this module, per age.
+                    modules.add(ForYouModule.ReadAloudLeadSection(age, 0, it))
                 }
             }
         }

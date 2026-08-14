@@ -363,7 +363,7 @@ fun ReadAloudLeadSectionCardPreviewWithImage() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         ReadAloudLeadSectionModule(
             wikiSite = WikiSite.preview(),
-            module = ForYouModule.ReadAloudLeadSection(0, 0, listOf(card))
+            module = ForYouModule.ReadAloudLeadSection(0, 0, listOf(card, card, card, card))
         )
     }
 }

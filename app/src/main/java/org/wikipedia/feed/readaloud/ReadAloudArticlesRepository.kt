@@ -21,8 +21,15 @@ object ReadAloudArticlesRepository {
 
     fun audioUrlFor(title: PageTitle) = AUDIO_BASE_URL + UriUtil.encodeURL(title.prefixedText) + "/$LEAD_SECTION_NAME.mp3"
 
-    fun randomArticleForTopic(wikiSite: WikiSite, topicId: String): PageTitle? {
-        return readArticleTitlesByTopic()[queryTopicIdOf(topicId)]?.randomOrNull()?.let { PageTitle(it, wikiSite) }
+    /**
+     * Returns up to [count] distinct random articles belonging to the given interest topic, or an
+     * empty list if the topic has no articles with an audio version.
+     */
+    fun randomArticlesForTopic(wikiSite: WikiSite, topicId: String, count: Int): List<PageTitle> {
+        return readArticleTitlesByTopic()[queryTopicIdOf(topicId)].orEmpty()
+            .shuffled()
+            .take(count)
+            .map { PageTitle(it, wikiSite) }
     }
 
     // The topic column of the CSV holds the topic ids used by the search API, which differ from our
