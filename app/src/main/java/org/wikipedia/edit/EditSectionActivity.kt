@@ -399,7 +399,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
     }
 
     private fun onEditFailure(caught: Throwable) {
-        EditAttemptStepEvent.logSaveFailure(viewModel.pageTitle)
+        EditAttemptStepEvent.logSaveFailure(pageTitle = viewModel.pageTitle, editCount = viewModel.editCount)
         showProgressBar(false)
         if (caught is MwException) {
             handleEditingException(caught)
