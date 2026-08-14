@@ -366,7 +366,11 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
 
     private fun onEditSuccess(result: EditResult) {
         if (result is EditSuccessResult) {
-            EditAttemptStepEvent.logSaveSuccess(viewModel.pageTitle, result.revID)
+            EditAttemptStepEvent.logSaveSuccess(
+                pageTitle = viewModel.pageTitle,
+                revisionId = result.revID,
+                editCount = viewModel.editCount
+            )
             // TODO: remove the artificial delay and use the new revision
             // ID returned to request the updated version of the page once
             // revision support for mobile-sections is added to RESTBase
