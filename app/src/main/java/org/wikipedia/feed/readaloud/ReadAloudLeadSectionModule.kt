@@ -1,5 +1,8 @@
 package org.wikipedia.feed.readaloud
 
+import android.content.Context
+import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -12,6 +15,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -20,6 +24,7 @@ import androidx.compose.material3.Slider
 import androidx.compose.material3.SliderDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -27,8 +32,14 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RadialGradientShader
+import androidx.compose.ui.graphics.Shader
+import androidx.compose.ui.graphics.ShaderBrush
 import androidx.compose.ui.graphics.painter.ColorPainter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
@@ -42,7 +53,14 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.palette.graphics.Palette
+import coil3.imageLoader
+import coil3.request.ImageRequest
+import coil3.request.SuccessResult
+import coil3.toBitmap
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.compose.components.AppButton
@@ -64,10 +82,44 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.theme.Theme
 import org.wikipedia.topics.ArticleTopics
 import org.wikipedia.util.ImageUrlUtil
+import org.wikipedia.util.log.L
 import org.wikipedia.views.imageservice.ImageService
 import kotlin.math.abs
+import kotlin.math.hypot
 
 private const val TRANSCRIPT_WORDS_PER_CHUNK = 16
+private const val GRADIENT_FADE_DURATION_MILLIS = 500
+private val THUMBNAIL_SIZE = 220.dp
+
+/**
+ * A radial gradient that reaches black only at the card's corners, rather than at the midpoint of
+ * its shortest edge as [Brush.radialGradient] does by default. The thumbnail covers the middle of
+ * the card, so a gradient sized to the short edge would be almost entirely hidden behind it.
+ */
+private fun radialBackdrop(color: Color) = object : ShaderBrush() {
+    override fun createShader(size: Size): Shader = RadialGradientShader(
+        center = Offset(size.width / 2f, size.height / 2f),
+        radius = hypot(size.width, size.height) / 2f,
+        colors = listOf(color, Color.Black)
+    )
+}
+
+/**
+ * Pulls the dominant color out of the article thumbnail, to tint the backdrop behind it. This goes
+ * through the very same request that renders the image, so it is served from the image cache
+ * instead of fetching the thumbnail a second time.
+ */
+private suspend fun dominantColorOf(context: Context, thumbnailUrl: String): Color? = withContext(Dispatchers.Default) {
+    try {
+        val request = ImageService.getRequest(context, url = thumbnailUrl) as? ImageRequest ?: return@withContext null
+        val result = context.imageLoader.execute(request) as? SuccessResult ?: return@withContext null
+        val palette = Palette.from(result.image.toBitmap()).generate()
+        (palette.vibrantSwatch ?: palette.dominantSwatch ?: palette.mutedSwatch)?.let { Color(it.rgb) }
+    } catch (e: Exception) {
+        L.e(e)
+        null
+    }
+}
 
 @Composable
 fun ReadAloudLeadSectionModule(
@@ -122,9 +174,9 @@ fun ReadAloudLeadSectionModule(
 }
 
 /**
- * Deliberately a sibling of `ForYouCardContent` rather than a caller of it: the layout is the same
- * image-with-scrim treatment, but the playback controls need to sit between the extract and the
- * footer, and the extract is clamped shorter to make room for them.
+ * Deliberately a sibling of `ForYouCardContent` rather than a caller of it: this card needs room for
+ * the playback controls between the text and the footer, and it swaps the full-bleed thumbnail for a
+ * small centered one over a backdrop tinted with the thumbnail's own dominant color.
  */
 @Composable
 private fun ReadAloudCardContent(
@@ -154,27 +206,38 @@ private fun ReadAloudCardContent(
         captionsUrl = ReadAloudArticlesRepository.captionsUrlFor(title)
     )
 
+    val thumbnailUrl = title.thumbUrl?.takeIf { it.isNotEmpty() }
+        ?.let { ImageUrlUtil.getUrlForPreferredSize(it, Constants.PREFERRED_CARD_THUMBNAIL_SIZE) }
+    val fallbackColor = colorResource(noImageCardBackgroundColors[backgroundColorIndex % noImageCardBackgroundColors.size])
+    var thumbnailColor by remember(thumbnailUrl) { mutableStateOf(fallbackColor) }
+    // Fades from the fallback to the thumbnail's own color, so the backdrop doesn't pop once the
+    // palette comes back.
+    val gradientColor by animateColorAsState(targetValue = thumbnailColor, animationSpec = tween(GRADIENT_FADE_DURATION_MILLIS))
+
+    LaunchedEffect(thumbnailUrl) {
+        thumbnailUrl?.let { thumbnailColor = dominantColorOf(context, it) ?: fallbackColor }
+    }
+
     Box(
         modifier = Modifier
             .fillMaxSize()
+            .background(Color.Black)
             .clickable { onPageClick() }
     ) {
-        if (title.thumbUrl.isNullOrEmpty()) {
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(colorResource(noImageCardBackgroundColors[backgroundColorIndex % noImageCardBackgroundColors.size]))
-            )
-        } else {
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(remember(gradientColor) { radialBackdrop(gradientColor) })
+        )
+
+        thumbnailUrl?.let {
             FadeInAsyncImage(
-                model = title.thumbUrl?.let {
-                    ImageService.getRequest(context, url = ImageUrlUtil.getUrlForPreferredSize(it, Constants.PREFERRED_CARD_THUMBNAIL_SIZE))
-                },
-                placeholder = ColorPainter(Color.Black),
-                error = ColorPainter(Color.DarkGray),
+                model = ImageService.getRequest(context, url = it),
+                placeholder = ColorPainter(Color.Transparent),
+                error = ColorPainter(Color.Transparent),
                 contentDescription = null,
                 contentScale = ContentScale.Crop,
-                modifier = Modifier.fillMaxSize()
+                modifier = Modifier.align(Alignment.Center).size(THUMBNAIL_SIZE).clip(RoundedCornerShape(16.dp))
             )
         }
 
