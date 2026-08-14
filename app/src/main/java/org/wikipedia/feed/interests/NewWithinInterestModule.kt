@@ -95,7 +95,7 @@ fun NewWithinInterestModule(
             backgroundColor = colorResource(noImageCardBackgroundColors[(backgroundColorIndex + pageIndex) % noImageCardBackgroundColors.size]),
             topInset = topInset,
             bottomSpacing = if (module.cards.size > 1) 40.dp else 16.dp,
-            onPageClick = { onPageClick(card, HistoryEntry(it, HistoryEntry.SOURCE_FEED_INTERESTS)) },
+            onPageClick = { onPageClick(card, HistoryEntry(it, HistoryEntry.SOURCE_FEED_NEW_WITHIN_TOPIC)) },
             onHideCardClick = { onHideCardClick(module, card) },
             onHideModuleClick = onHideModuleClick,
             onCustomizeClick = { onCustomizeClick(card) }
