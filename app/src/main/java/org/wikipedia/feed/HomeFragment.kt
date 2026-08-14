@@ -63,7 +63,6 @@ import org.wikipedia.main.MainFragment
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
-import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.page.tabs.TabActivity
@@ -515,7 +514,7 @@ class HomeFragment : Fragment(), LinkPreviewDialog.LoadPageCallback {
             (parentFragment as? MainFragment)?.onFeedSelectPage(entry, true)
             viewModel.updateTabCount(true)
         } else {
-            requireActivity().startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.title, false))
+            (parentFragment as? MainFragment)?.onFeedSelectPage(entry, false)
         }
     }
 }

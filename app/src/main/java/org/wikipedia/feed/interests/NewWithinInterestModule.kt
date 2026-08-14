@@ -89,7 +89,7 @@ fun NewWithinInterestModule(
 
         NewWithinInterestCardContent(
             wikiSite = wikiSite,
-            titles = card.titles.take(4),
+            titles = card.titles,
             title = context.getString(wikiSite.languageCode, R.string.home_feed_new_within_interest_card_title,
                 if (wikiSite.languageCode == "en") topicName.lowercase() else topicName),
             backgroundColor = colorResource(noImageCardBackgroundColors[(backgroundColorIndex + pageIndex) % noImageCardBackgroundColors.size]),

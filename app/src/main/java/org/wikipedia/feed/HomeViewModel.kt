@@ -370,7 +370,7 @@ class HomeViewModel : ViewModel() {
                 // only drop module when it has cards, and they are all hidden, not when it is empty to begin with.
                 if (module.cards.isNotEmpty() && visibleCards.isEmpty()) null else module.withCards(visibleCards)
             }
-        val areAllModulesHidden = ForYouModuleType.entries.all { hiddenModules.contains(it.name) }
+        val areAllModulesHidden = ForYouModuleType.entries().all { hiddenModules.contains(it.key) }
         val isInterestModuleHidden = hiddenModules.contains(ForYouModuleType.BASED_ON_INTEREST.name)
         val emptyState = when {
             areAllModulesHidden -> FeedEmptyState.ALL_MODULES_HIDDEN
@@ -677,7 +677,7 @@ class HomeViewModel : ViewModel() {
             val newWithinInterestTopicCalls = newWithinInterestTopics.map { topic ->
                 async(Dispatchers.IO) {
                     val articleTopic = ArticleTopics.all.find { it.topicId == topic.topicId }
-                    val titles = InterestSelectionRepository.getNewArticlesWithinTopic(wikiSite.value, articleTopic?.queryTopicId ?: topic.topicId)
+                    val titles = InterestSelectionRepository.getNewArticlesWithinTopic(wikiSite.value, articleTopic?.queryTopicId ?: topic.topicId).take(4)
                     listOf(NewWithinInterestCard(titles, interestTopic = topic))
                         .filterNot { it.titles.isEmpty() || hiddenCards.contains(it.hideKey) }
                 }

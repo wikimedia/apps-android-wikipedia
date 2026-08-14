@@ -162,6 +162,9 @@ class InterestSelectionRepository(
                 ?.filter {
                     wikiSite.languageCode != "en" || it.isReviewed
                 }
+                ?.filter {
+                    wikiSite.languageCode == "en" || it.index > 25
+                }
                 ?.sortedBy { it.index } // Sort by index, as reported by the API
                 ?.sortedBy { it.thumbUrl().isNullOrEmpty() } // Sort by whether it has a thumbnail
                 ?.map { page ->
