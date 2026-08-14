@@ -786,6 +786,13 @@ class HomeViewModel : ViewModel() {
                     .firstNotNullOfOrNull { topic ->
                         ReadAloudArticlesRepository.randomArticleForTopic(wikiSite.value, topic.topicId)?.let { topic to it }
                     } ?: return@async null
+                ServiceFactory.get(title.wikiSite).getInfoWithExtractsByPageTitles(title.prefixedText)
+                    .query?.pages?.firstOrNull()?.let { page ->
+                        title.description = page.description
+                        title.thumbUrl = page.thumbUrl()
+                        title.displayText = page.displayTitle(title.wikiSite.languageCode)
+                        title.extract = page.extract
+                    }
                 ReadAloudLeadSectionCard(title, topic)
             }
 

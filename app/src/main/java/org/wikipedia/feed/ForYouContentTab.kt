@@ -69,6 +69,7 @@ import org.wikipedia.feed.model.PlacesOfInterestLocationPromptCard
 import org.wikipedia.feed.places.PlacesOfInterestArticlesModule
 import org.wikipedia.feed.places.PlacesOfInterestLocationPromptModule
 import org.wikipedia.feed.random.RandomModule
+import org.wikipedia.feed.readaloud.ReadAloudLeadSectionModule
 import org.wikipedia.feed.wikigames.GamesModule
 import org.wikipedia.page.PageTitle
 import org.wikipedia.theme.Theme
@@ -456,7 +457,23 @@ private fun LazyListScope.forYouModuleItem(
             }
         }
         is ForYouModule.ReadAloudLeadSection -> {
-            // TODO: render the module once ReadAloudLeadSectionModule exists.
+            item(key = key) {
+                ReadAloudLeadSectionModule(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(viewPortHeight),
+                    wikiSite = wikiSite,
+                    module = module,
+                    resolveSavedState = resolveSavedState,
+                    onPageClick = { card, entry -> onAction(HomeAction.PageClick(card, entry)) },
+                    onPageShareClick = { card, entry -> onAction(HomeAction.PageShareClick(card, entry)) },
+                    onPageBookmarkClick = { card, entry -> onAction(HomeAction.PageBookmarkClick(card, entry)) },
+                    onHideCardClick = { module, card -> onAction(HomeAction.HideForYouCard(module, card)) },
+                    onHideModuleClick = { onAction(HomeAction.HideModule(module.moduleKey())) },
+                    onCardInView = { onCardImpression(it, index) },
+                    onCustomizeClick = { onAction(HomeAction.CustomizeClick(it)) }
+                )
+            }
         }
     }
 }

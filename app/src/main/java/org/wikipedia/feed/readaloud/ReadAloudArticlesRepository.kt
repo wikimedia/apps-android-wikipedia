@@ -4,6 +4,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.PageTitle
 import org.wikipedia.topics.ArticleTopics
+import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 
 /**
@@ -13,8 +14,12 @@ import org.wikipedia.util.log.L
 object ReadAloudArticlesRepository {
     private const val ASSET_FILE_NAME = "ttsarticles.csv"
     private const val LANGUAGE_CODE = "en"
+    private const val AUDIO_BASE_URL = "https://wiki-tts.toolforge.org/audio/"
+    private const val LEAD_SECTION_NAME = "Lead"
 
     fun isSupported(wikiSite: WikiSite) = wikiSite.languageCode == LANGUAGE_CODE
+
+    fun audioUrlFor(title: PageTitle) = AUDIO_BASE_URL + UriUtil.encodeURL(title.prefixedText) + "/$LEAD_SECTION_NAME.mp3"
 
     fun randomArticleForTopic(wikiSite: WikiSite, topicId: String): PageTitle? {
         return readArticleTitlesByTopic()[queryTopicIdOf(topicId)]?.randomOrNull()?.let { PageTitle(it, wikiSite) }
