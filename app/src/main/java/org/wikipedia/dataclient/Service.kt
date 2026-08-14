@@ -610,7 +610,7 @@ interface Service {
     suspend fun getWatchedStatusWithUserOptions(@Query("titles") titles: String): MwQueryResponse
 
     @Headers("Cache-Control: no-cache")
-    @GET(MW_API_PREFIX + "action=query&prop=info&converttitles=&redirects=&inprop=watched&meta=userinfo&uiprop=rights")
+    @GET(MW_API_PREFIX + "action=query&prop=info&converttitles=&redirects=&inprop=watched&meta=userinfo&uiprop=rights|editcount")
     suspend fun getWatchedStatusWithRights(@Query("titles") titles: String): MwQueryResponse
 
     @Headers("Cache-Control: no-cache")
@@ -651,7 +651,7 @@ interface Service {
             @Query("rvstartid") revisionStartId: Long
     ): MwQueryResponse
 
-    @GET(MW_API_PREFIX + "action=query&prop=info|revisions&rvslots=main&rvprop=ids|timestamp|size|flags|comment|parsedcomment|user|oresscores&rvdir=older&inprop=watched&meta=userinfo&uiprop=rights")
+    @GET(MW_API_PREFIX + "action=query&prop=info|revisions&rvslots=main&rvprop=ids|timestamp|size|flags|comment|parsedcomment|user|oresscores&rvdir=older&inprop=watched&meta=userinfo&uiprop=rights|editcount")
     suspend fun getRevisionDetailsWithUserInfo(
         @Query("pageids") pageIds: String,
         @Query("rvlimit") count: Int,
