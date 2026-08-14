@@ -116,7 +116,6 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
         }
     }
 
-    // TODO: remove after the experiment
     private fun setDonationReminderCard() {
         if (!DonationReminderHelper.isEnabled && !DonationReminderHelper.hasActiveReminder) {
             return

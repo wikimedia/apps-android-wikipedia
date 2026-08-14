@@ -244,6 +244,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
                                 }
                             }
                             is Resource.Error -> {
+                                EditAttemptStepEvent.logAbort(viewModel.pageTitle)
                                 showProgressBar(false)
                                 showError(it.throwable)
                             }
@@ -388,13 +389,13 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
             binding.editSectionCaptchaContainer.visibility = View.VISIBLE
             captchaHandler.handleCaptcha(null, result)
         } else {
-            EditAttemptStepEvent.logSaveFailure(viewModel.pageTitle)
             // Expand to do everything.
             onEditFailure(Throwable())
         }
     }
 
     private fun onEditFailure(caught: Throwable) {
+        EditAttemptStepEvent.logSaveFailure(viewModel.pageTitle)
         showProgressBar(false)
         if (caught is MwException) {
             handleEditingException(caught)
@@ -765,6 +766,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
             val alert = MaterialAlertDialogBuilder(this)
             alert.setMessage(getString(R.string.edit_abandon_confirm))
             alert.setPositiveButton(getString(R.string.edit_abandon_confirm_yes)) { dialog, _ ->
+                EditAttemptStepEvent.logAbort(viewModel.pageTitle)
                 dialog.dismiss()
                 action()
             }
