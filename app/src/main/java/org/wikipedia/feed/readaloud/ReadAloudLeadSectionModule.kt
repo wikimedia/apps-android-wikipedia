@@ -431,7 +431,7 @@ private fun ReadAloudPlaybackControls(
             ) {
                 if (playerState.isBuffering) {
                     CircularProgressIndicator(
-                        modifier = Modifier.size(24.dp),
+                        modifier = Modifier.size(16.dp),
                         color = Color.White,
                         strokeWidth = 2.dp
                     )
@@ -450,7 +450,7 @@ private fun ReadAloudPlaybackControls(
                         painter = painterResource(iconRes),
                         contentDescription = context.getString(wikiSite.languageCode, labelRes),
                         tint = Color.White,
-                        modifier = Modifier.size(32.dp)
+                        modifier = Modifier.size(24.dp)
                     )
                 }
             }
