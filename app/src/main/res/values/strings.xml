@@ -2573,8 +2573,6 @@
     <string name="home_feed_settings_games_subtitle">Daily games based on Wikipedia content</string>
     <string name="home_feed_settings_discover_title">Discover recommendations</string>
     <string name="home_feed_settings_discover_subtitle">Articles from your Discover reading list</string>
-    <string name="home_feed_settings_read_aloud_lead_section_title">Read aloud lead sections</string>
-    <string name="home_feed_settings_read_aloud_lead_section_subtitle">Read aloud the lead sections of articles from your topics of interest</string>
     <string name="read_aloud_card_play">Play</string>
     <string name="read_aloud_card_pause">Pause</string>
     <string name="read_aloud_card_retry">Retry</string>

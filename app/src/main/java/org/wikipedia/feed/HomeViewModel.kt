@@ -187,7 +187,7 @@ sealed class ForYouModule {
         override val cards: List<ForYouCard>
     ) : ForYouModule() {
         override fun withCards(cards: List<ForYouCard>): ForYouModule = copy(cards = cards)
-        override fun moduleKey(): String = ForYouModuleType.READ_ALOUD_LEAD_SECTION.name
+        override fun moduleKey(): String = ForYouModuleType.BASED_ON_INTEREST.name
     }
 }
 
@@ -810,6 +810,12 @@ class HomeViewModel : ViewModel() {
 
             // Combine all the deferred results and add them to the modules list if they have content.
 
+            readAloudDeferred.await().let {
+                if (it.isNotEmpty()) {
+                    // The index for this module is always 0 because there is always a single instance of this module, per age.
+                    modules.add(ForYouModule.ReadAloudLeadSection(age, 0, it))
+                }
+            }
             interestTopicCalls.awaitAll().forEachIndexed { index, entries ->
                 if (entries.isNotEmpty()) {
                     modules.add(ForYouModule.BasedOnInterest(age, index, entries))
@@ -836,12 +842,6 @@ class HomeViewModel : ViewModel() {
                 if (!hiddenCards.contains(randomCard.hideKey)) {
                     // The index for this module is always 0 because there is always a single instance of this module, per age.
                     modules.add(ForYouModule.Random(age, 0, listOf(randomCard)))
-                }
-            }
-            readAloudDeferred.await().let {
-                if (it.isNotEmpty()) {
-                    // The index for this module is always 0 because there is always a single instance of this module, per age.
-                    modules.add(ForYouModule.ReadAloudLeadSection(age, 0, it))
                 }
             }
         }
