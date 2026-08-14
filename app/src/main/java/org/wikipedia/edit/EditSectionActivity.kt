@@ -244,7 +244,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
                                 }
                             }
                             is Resource.Error -> {
-                                EditAttemptStepEvent.logAbort(viewModel.pageTitle)
+                                EditAttemptStepEvent.logAbort(pageTitle = viewModel.pageTitle, editCount = viewModel.editCount)
                                 showProgressBar(false)
                                 showError(it.throwable)
                             }
@@ -770,7 +770,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
             val alert = MaterialAlertDialogBuilder(this)
             alert.setMessage(getString(R.string.edit_abandon_confirm))
             alert.setPositiveButton(getString(R.string.edit_abandon_confirm_yes)) { dialog, _ ->
-                EditAttemptStepEvent.logAbort(viewModel.pageTitle)
+                EditAttemptStepEvent.logAbort(pageTitle = viewModel.pageTitle, editCount = viewModel.editCount)
                 dialog.dismiss()
                 action()
             }

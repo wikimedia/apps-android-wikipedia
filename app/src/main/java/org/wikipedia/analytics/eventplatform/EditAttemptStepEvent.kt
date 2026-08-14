@@ -41,8 +41,8 @@ class EditAttemptStepEvent(private val event: EditAttemptStepInteractionEvent) :
             submitEditAttemptEvent("saveFailure", editorInterface, pageTitle, editCount = editCount)
         }
 
-        fun logAbort(pageTitle: PageTitle, editorInterface: String = INTERFACE_WIKITEXT) {
-            submitEditAttemptEvent("abort", editorInterface, pageTitle)
+        fun logAbort(pageTitle: PageTitle, editorInterface: String = INTERFACE_WIKITEXT, editCount: Int = -1) {
+            submitEditAttemptEvent("abort", editorInterface, pageTitle, editCount = editCount)
         }
 
         private fun submitEditAttemptEvent(action: String, editorInterface: String, pageTitle: PageTitle, revisionId: Long? = null, editCount: Int = -1) {
