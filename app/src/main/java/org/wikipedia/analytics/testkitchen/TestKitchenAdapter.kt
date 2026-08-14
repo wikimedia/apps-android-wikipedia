@@ -86,8 +86,7 @@ object TestKitchenAdapter : ClientDataCallback, EventSender {
     }
 
     fun submitExperimentExposure(abTest: ABTest) {
-        val experiment = ExperimentImpl(abTest.name, abTest.getGroupName(), subjectId = Prefs.appInstallId, isLoggable = { abTest.shouldInstrument() })
-        client.submitExperimentExposure(experiment)
+        client.submitExperimentExposure(getExperiment(abTest))
     }
 
     fun getPageData(fragment: PageFragment?): PageData? {
