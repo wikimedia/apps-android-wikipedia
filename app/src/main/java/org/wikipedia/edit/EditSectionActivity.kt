@@ -169,7 +169,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
 
         // Only send the editing start log event if the activity is created for the first time
         if (savedInstanceState == null) {
-            EditAttemptStepEvent.logInit(viewModel.pageTitle, editCount = viewModel.editCount)
+            EditAttemptStepEvent.logInit(pageTitle = viewModel.pageTitle, editCount = viewModel.editCount)
         }
         if (savedInstanceState != null) {
             if (savedInstanceState.containsKey(EXTRA_KEY_TEMPORARY_WIKITEXT_STORED)) {
@@ -484,7 +484,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
                 DeviceUtil.hideSoftKeyboard(this)
                 binding.editSectionScroll.isVisible = false
                 editPreviewFragment.showPreview(viewModel.pageTitle, binding.editSectionText.text.toString())
-                EditAttemptStepEvent.logSaveIntent(viewModel.pageTitle)
+                EditAttemptStepEvent.logSaveIntent(pageTitle = viewModel.pageTitle, editCount = viewModel.editCount)
                 supportActionBar?.title = getString(R.string.edit_preview)
                 setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
                 if (viewModel.invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE) {

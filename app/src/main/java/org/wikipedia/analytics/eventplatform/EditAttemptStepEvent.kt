@@ -25,8 +25,8 @@ class EditAttemptStepEvent(private val event: EditAttemptStepInteractionEvent) :
             submitEditAttemptEvent("init", editorInterface, pageTitle, editCount = editCount)
         }
 
-        fun logSaveIntent(pageTitle: PageTitle, editorInterface: String = INTERFACE_WIKITEXT) {
-            submitEditAttemptEvent("saveIntent", editorInterface, pageTitle)
+        fun logSaveIntent(pageTitle: PageTitle, editorInterface: String = INTERFACE_WIKITEXT, editCount: Int = -1) {
+            submitEditAttemptEvent("saveIntent", editorInterface, pageTitle, editCount = editCount)
         }
 
         fun logSaveAttempt(pageTitle: PageTitle, editorInterface: String = INTERFACE_WIKITEXT) {
