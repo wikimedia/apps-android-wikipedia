@@ -537,7 +537,7 @@ interface Service {
         @Query("uselang") resultLang: String
     ): Search
 
-    @GET(MW_API_PREFIX + "action=query&prop=entityterms")
+    @GET(MW_API_PREFIX + "action=query&prop=entityterms&meta=userinfo&uiprop=editcount")
     suspend fun getWikidataEntityTerms(
         @Query("titles") titles: String,
         @Query("wbetlanguage") lang: String
