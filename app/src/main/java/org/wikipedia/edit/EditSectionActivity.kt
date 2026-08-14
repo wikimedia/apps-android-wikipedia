@@ -169,7 +169,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
 
         // Only send the editing start log event if the activity is created for the first time
         if (savedInstanceState == null) {
-            EditAttemptStepEvent.logInit(viewModel.pageTitle)
+            EditAttemptStepEvent.logInit(viewModel.pageTitle, editCount = viewModel.editCount)
         }
         if (savedInstanceState != null) {
             if (savedInstanceState.containsKey(EXTRA_KEY_TEMPORARY_WIKITEXT_STORED)) {
