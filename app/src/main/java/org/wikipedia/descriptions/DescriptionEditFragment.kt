@@ -108,9 +108,12 @@ class DescriptionEditFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         lifecycleScope.launch {
-
+            EditAttemptStepEvent.logInit(
+                pageTitle = viewModel.pageTitle,
+                editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
+                editCount = viewModel.awaitEditCountRequest()
+            )
         }
-        EditAttemptStepEvent.logInit(pageTitle = viewModel.pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {

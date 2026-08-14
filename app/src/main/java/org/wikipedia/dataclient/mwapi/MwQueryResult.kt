@@ -22,7 +22,7 @@ import java.util.*
 @Serializable
 class MwQueryResult {
 
-    val globaluserinfo: Any
+
     @SerialName("userinfo") val userInfo: UserInfo? = null
     @SerialName("unreadnotificationpages") val unreadNotificationWikis: Map<String, UnreadNotificationWikiItem>? = null
     @SerialName("authmanagerinfo") private val amInfo: MwAuthManagerInfo? = null
