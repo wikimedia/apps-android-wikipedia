@@ -4,6 +4,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
@@ -54,6 +55,7 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
 
     private val _waitForRevisionState = MutableStateFlow(Resource<Boolean>())
     val waitForRevisionState = _waitForRevisionState.asStateFlow()
+    private val editCountRequest = loadUserTotalEdits()
 
     fun loadPageSummary() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
@@ -76,6 +78,17 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
         }
     }
 
+    private fun loadUserTotalEdits(): Deferred<Int> = viewModelScope.async(CoroutineExceptionHandler { _, throwable ->
+        L.e(throwable)
+    }) {
+        val userInfoResponse = ServiceFactory.get(WikipediaApp.instance.wikiSite).globalUserInfo(AccountUtil.userName)
+        userInfoResponse.query?.globalUserInfo?.editCount ?: 0
+    }
+
+    suspend fun awaitEditCountRequest(): Int {
+        return editCountRequest.await()
+    }
+
     fun requestSuggestion() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             L.e(throwable)
@@ -84,11 +97,8 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
             _requestSuggestionState.value = Resource.Loading()
             val responseCall = async { ServiceFactory[pageTitle.wikiSite, LiftWingModelService.API_URL, LiftWingModelService::class.java]
                 .getDescriptionSuggestion(DescriptionSuggestion.Request(pageTitle.wikiSite.languageCode, pageTitle.prefixedText, 2)) }
-            val userInfoCall = async { ServiceFactory.get(WikipediaApp.instance.wikiSite)
-                .globalUserInfo(AccountUtil.userName) }
 
             val response = responseCall.await()
-            val userTotalEdits = userInfoCall.await().query?.globalUserInfo?.editCount ?: 0
 
             // Perform some post-processing on the predictions.
             // 1) Capitalize them, if we're dealing with enwiki.
@@ -97,7 +107,7 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
                 response.prediction.map { StringUtil.capitalize(it)!! }
             } else response.prediction).distinct()
 
-            _requestSuggestionState.value = Resource.Success(Triple(response, userTotalEdits, list))
+            _requestSuggestionState.value = Resource.Success(Triple(response, awaitEditCountRequest(), list))
         }
     }
 
