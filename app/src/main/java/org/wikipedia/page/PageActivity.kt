@@ -30,6 +30,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.preference.PreferenceManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
@@ -56,6 +57,7 @@ import org.wikipedia.descriptions.DescriptionEditSuccessActivity
 import org.wikipedia.edit.EDITOR_CHOICE_VE
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.edit.EditSectionActivity
+import org.wikipedia.edit.EditSectionViewModel
 import org.wikipedia.edit.showEditorChoiceDialog
 import org.wikipedia.events.ArticleSavedOrDeletedEvent
 import org.wikipedia.events.ChangeTextSizeEvent
@@ -486,7 +488,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     override fun onPageRequestEditSection(sectionId: Int, sectionAnchor: String?, title: PageTitle, highlightText: String?) {
         val launchEditor = {
             if (Prefs.editorModeChoice == EDITOR_CHOICE_VE && Prefs.visualEditorEnabled) {
-                UriUtil.visitInExternalBrowser(this, title.getWebApiUrl("veaction=edit&section=$sectionId&returntoapp=1").toUri())
+                UriUtil.visitInExternalBrowser(this, title.getWebApiUrl("veaction=edit&section=$sectionId").toUri())
             } else {
                 requestEditSectionLauncher.launch(EditSectionActivity.newIntent(this, sectionId, sectionAnchor, title, InvokeSource.PAGE_ACTIVITY, highlightText))
             }
@@ -534,47 +536,41 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         }
         if (Intent.ACTION_VIEW == intent.action && intent.data != null) {
             var uri = intent.data!!
+
+            // Push back if the user is still in the Visual Editor flow.
             uri.getQueryParameter("veaction")?.let {
                 if (it == "edit") {
                     val title = PageTitle.titleForUri(uri, WikiSite(uri))
                     val sectionId = uri.getQueryParameter("section")?.toIntOrNull() ?: 0
                     // If the link is a VisualEditor edit link, then we should open it in an external browser.
-                    UriUtil.visitInExternalBrowser(this, title.getWebApiUrl("veaction=edit&section=$sectionId&returntoapp=1").toUri())
+                    UriUtil.visitInExternalBrowser(this, title.getWebApiUrl("veaction=edit&section=$sectionId").toUri())
                     return
                 }
             }
+
             TestKitchenAdapter.client.getInstrument("apps-open")
                 .submitInteraction(action = "app_open", actionSource = "external_link")
 
             if (uri.scheme == "wikipedia") {
-
                 uri = uri.buildUpon().scheme(WikiSite.DEFAULT_SCHEME).build()
-
-                // TODO: move this to a more appropriate spot.
                 uri.getQueryParameter("saved")?.let {
                     if (it == "true") {
-                        // Push back to external browser
-                        // TODO: remove this after the server-side logic is updated.
-                        UriUtil.visitInExternalBrowser(this, uri)
-                        return@let
-
-                        // TODO: hide this for now, maybe we'll use these in the future iteration.
-//                        val revision = uri.getQueryParameter("revision")?.toLongOrNull()
-//                        if (revision != null && pageFragment.title != null) {
-//                            lifecycleScope.launch(CoroutineExceptionHandler { _, t ->
-//                                L.e(t)
-//                            }) {
-//                                EditSectionViewModel.retryUntilNewRevision(pageFragment.title!!, revision)
-//                                pageFragment.refreshPage()
-//                                FeedbackUtil.showMessage(this@PageActivity, R.string.edit_saved_successfully)
-//                            }
-//                        } else {
-//                            binding.root.post {
-//                                if (!isDestroyed) {
-//                                    FeedbackUtil.showMessage(this, R.string.edit_saved_successfully)
-//                                }
-//                            }
-//                        }
+                        val revision = uri.getQueryParameter("revision")?.toLongOrNull()
+                        if (revision != null && pageFragment.title != null) {
+                            lifecycleScope.launch(CoroutineExceptionHandler { _, t ->
+                                L.e(t)
+                            }) {
+                                EditSectionViewModel.retryUntilNewRevision(pageFragment.title!!, revision)
+                                pageFragment.refreshPage()
+                                FeedbackUtil.showMessage(this@PageActivity, R.string.edit_saved_successfully)
+                            }
+                        } else {
+                            binding.root.post {
+                                if (!isDestroyed) {
+                                    FeedbackUtil.showMessage(this, R.string.edit_saved_successfully)
+                                }
+                            }
+                        }
                     } else {
                         L.d("Edit abandoned.")
                     }
