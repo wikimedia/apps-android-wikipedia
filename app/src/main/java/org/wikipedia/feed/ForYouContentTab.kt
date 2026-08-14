@@ -455,6 +455,9 @@ private fun LazyListScope.forYouModuleItem(
                 )
             }
         }
+        is ForYouModule.ReadAloudLeadSection -> {
+            // TODO: render the module once ReadAloudLeadSectionModule exists.
+        }
     }
 }
 

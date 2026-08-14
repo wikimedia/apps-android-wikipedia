@@ -2573,6 +2573,8 @@
     <string name="home_feed_settings_games_subtitle">Daily games based on Wikipedia content</string>
     <string name="home_feed_settings_discover_title">Discover recommendations</string>
     <string name="home_feed_settings_discover_subtitle">Articles from your Discover reading list</string>
+    <string name="home_feed_settings_read_aloud_lead_section_title">Read aloud lead sections</string>
+    <string name="home_feed_settings_read_aloud_lead_section_subtitle">Read aloud the lead sections of articles from your topics of interest</string>
     <string name="home_feed_discover_cta_title">From Discover</string>
     <string name="home_feed_discover_cta_description">Learn about new topics, picked just for you. Choose between daily, weekly or monthly updates.</string>
     <string name="home_feed_discover_cta_button">Enable Discover reading list</string>

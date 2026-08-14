@@ -58,11 +58,13 @@ import org.wikipedia.feed.model.NewsCard
 import org.wikipedia.feed.model.OnThisDayCard
 import org.wikipedia.feed.model.PlacesOfInterestCard
 import org.wikipedia.feed.model.RandomCard
+import org.wikipedia.feed.model.ReadAloudLeadSectionCard
 import org.wikipedia.feed.model.SeeAllRecommendationCard
 import org.wikipedia.feed.model.TopReadCard
 import org.wikipedia.feed.model.WikiGameCard
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
 import org.wikipedia.feed.personalization.interest.InterestSelectionRepository
+import org.wikipedia.feed.readaloud.ReadAloudArticlesRepository
 import org.wikipedia.feed.wikigames.WikiGame
 import org.wikipedia.games.WikiGames
 import org.wikipedia.games.db.DailyGameHistory
@@ -176,6 +178,16 @@ sealed class ForYouModule {
     ) : ForYouModule() {
         override fun withCards(cards: List<ForYouCard>): ForYouModule = copy(cards = cards)
         override fun moduleKey(): String = ForYouModuleType.GAMES.name
+    }
+
+    @Serializable
+    data class ReadAloudLeadSection(
+        override val age: Int,
+        override val index: Int,
+        override val cards: List<ForYouCard>
+    ) : ForYouModule() {
+        override fun withCards(cards: List<ForYouCard>): ForYouModule = copy(cards = cards)
+        override fun moduleKey(): String = ForYouModuleType.READ_ALOUD_LEAD_SECTION.name
     }
 }
 
@@ -764,6 +776,19 @@ class HomeViewModel : ViewModel() {
                 RandomCard(random.getPageTitle(wikiSite.value))
             }
 
+            // -- Read aloud lead section --
+
+            val readAloudDeferred = async(Dispatchers.IO) {
+                if (!ReadAloudArticlesRepository.isSupported(wikiSite.value)) {
+                    return@async null
+                }
+                val (topic, title) = AppDatabase.instance.topicInterestDao().getAllRandom()
+                    .firstNotNullOfOrNull { topic ->
+                        ReadAloudArticlesRepository.randomArticleForTopic(wikiSite.value, topic.topicId)?.let { topic to it }
+                    } ?: return@async null
+                ReadAloudLeadSectionCard(title, topic)
+            }
+
             // Combine all the deferred results and add them to the modules list if they have content.
 
             interestTopicCalls.awaitAll().forEachIndexed { index, entries ->
@@ -792,6 +817,11 @@ class HomeViewModel : ViewModel() {
                 if (!hiddenCards.contains(randomCard.hideKey)) {
                     // The index for this module is always 0 because there is always a single instance of this module, per age.
                     modules.add(ForYouModule.Random(age, 0, listOf(randomCard)))
+                }
+            }
+            readAloudDeferred.await()?.let { readAloudCard ->
+                if (!hiddenCards.contains(readAloudCard.hideKey)) {
+                    modules.add(ForYouModule.ReadAloudLeadSection(age, 0, listOf(readAloudCard)))
                 }
             }
         }

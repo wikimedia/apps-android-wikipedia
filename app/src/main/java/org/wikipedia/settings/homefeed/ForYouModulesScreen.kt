@@ -47,6 +47,10 @@ enum class ForYouModuleType(
     GAMES(
         title = R.string.home_feed_settings_games_title,
         subtitle = R.string.home_feed_settings_games_subtitle
+    ),
+    READ_ALOUD_LEAD_SECTION(
+        title = R.string.home_feed_settings_read_aloud_lead_section_title,
+        subtitle = R.string.home_feed_settings_read_aloud_lead_section_subtitle
     );
 
     fun toEntry() = ToggleSettingItem(title, subtitle, name)
