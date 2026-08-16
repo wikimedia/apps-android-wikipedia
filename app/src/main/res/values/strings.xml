@@ -370,6 +370,10 @@
     <string name="gallery_not_available_offline_snackbar">Gallery view not available offline.</string>
     <string name="gallery_not_available_offline_snackbar_dismiss">Dismiss</string>
     <string name="menu_new_tab">New tab</string>
+    <string name="menu_close_other_tabs">Close other tabs</string>
+    <string name="close_other_tabs_confirm">Are you sure you want to close all but the currently selected tab?</string>
+    <string name="close_other_tabs_confirm_yes">Yes</string>
+    <string name="close_other_tabs_confirm_no">No</string>
     <string name="menu_close_all_tabs">Close all tabs</string>
     <string name="close_all_tabs_confirm">Are you sure you want to close all tabs?</string>
     <string name="close_all_tabs_confirm_yes">Yes</string>
@@ -377,6 +381,7 @@
     <string name="button_close_tab">Close tab</string>
     <string name="unnamed_tab_closed">Tab closed.</string>
     <string name="tab_item_closed">%s closed.</string>
+    <string name="other_tab_items_closed">Other tabs closed.</string>
     <string name="all_tab_items_closed">All tabs closed.</string>
     <string name="tool_tip_bookmark_icon_title">Add to reading list</string>
     <string name="tool_tip_bookmark_icon_text">Tap on the bookmark icon to save the article to a reading list.</string>
