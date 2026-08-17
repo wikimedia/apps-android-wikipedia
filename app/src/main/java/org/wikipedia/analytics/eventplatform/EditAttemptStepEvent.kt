@@ -56,7 +56,7 @@ class EditAttemptStepEvent(
                     editing_session_id = "",
                     editor_interface = editorInterface,
                     integration = INTEGRATION_ID,
-                    mw_version ="",
+                    mw_version = "",
                     platform = WikipediaApp.instance.getString(R.string.device_type).lowercase(),
                     user_editcount = editCount,
                     user_id = getUserIdForWikiSite(pageTitle.wikiSite),

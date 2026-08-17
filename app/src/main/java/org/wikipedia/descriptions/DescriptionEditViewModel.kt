@@ -111,7 +111,7 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
             } else response.prediction).distinct()
 
             _editCount.collect { editCountResource ->
-                when(editCountResource) {
+                when (editCountResource) {
                     is Resource.Success -> {
                         _requestSuggestionState.value = Resource.Success(Triple(response, editCountResource.data, list))
                     }
