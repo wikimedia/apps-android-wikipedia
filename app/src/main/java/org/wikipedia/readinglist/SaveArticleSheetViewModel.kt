@@ -28,13 +28,13 @@ class SaveArticleSheetViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
 
     val pageTitle = savedStateHandle.get<PageTitle>(Constants.ARG_TITLE)!!
 
-    private val savedPageTitle = MutableStateFlow(pageTitle)
+    private val savedArticleState = MutableStateFlow(SavedArticleState(pageTitle))
 
     val uiState: StateFlow<SaveArticleSheetUiState> = combine(
         AppDatabase.instance.readingListDao().getListsWithPagesFlow(),
-        savedPageTitle
-    ) { lists, title ->
-        buildUiState(lists, title)
+        savedArticleState
+    ) { lists, articleState ->
+        buildUiState(lists, articleState)
     }.stateIn(
         scope = viewModelScope,
         started = SharingStarted.WhileSubscribed(STOP_TIMEOUT_MILLIS),
@@ -62,8 +62,9 @@ class SaveArticleSheetViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
 
     private fun buildUiState(
         relations: List<ReadingListWithPages>,
-        title: PageTitle
+        articleState: SavedArticleState
     ): SaveArticleSheetUiState {
+        val title = articleState.pageTitle
         val readingLists = relations.map { it.toReadingList() }
         return SaveArticleSheetUiState(
             article = SaveArticleUiModel(
@@ -94,13 +95,10 @@ class SaveArticleSheetViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
     private fun saveArticle() {
         viewModelScope.launch(exceptionHandler) {
             val pageDao = AppDatabase.instance.readingListPageDao()
-            if (pageDao.findPageInAnyList(pageTitle) != null) {
-                return@launch
-            }
-            savedPageTitle.value = resolveRedirect(pageTitle)
-            if (pageDao.findPageInAnyList(savedPageTitle.value) == null) {
+            savedArticleState.value = SavedArticleState(resolveRedirect(pageTitle))
+            if (pageDao.findPageInAnyList(savedArticleState.value.pageTitle) == null) {
                 val defaultList = AppDatabase.instance.readingListDao().getDefaultList()
-                pageDao.addPagesToListIfNotExist(defaultList, listOf(savedPageTitle.value))
+                pageDao.addPagesToListIfNotExist(defaultList, listOf(savedArticleState.value.pageTitle))
             }
         }
     }
@@ -141,7 +139,7 @@ class SaveArticleSheetViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
                 lists.isEmpty() -> {
                     val defaultList = AppDatabase.instance.readingListDao().getDefaultList()
                     AppDatabase.instance.readingListPageDao()
-                        .addPagesToListIfNotExist(defaultList, listOf(savedPageTitle.value))
+                        .addPagesToListIfNotExist(defaultList, listOf(savedArticleState.value.pageTitle))
                     _events.emit(SaveArticleSheetEvent.Dismiss)
                 }
                 lists.any { !it.isDefault } -> {
@@ -179,7 +177,7 @@ class SaveArticleSheetViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
     fun createCollection(title: String, description: String) {
         viewModelScope.launch(exceptionHandler) {
             val list = AppDatabase.instance.readingListDao().createList(title, description)
-            AppDatabase.instance.readingListPageDao().addPagesToListIfNotExist(list, listOf(savedPageTitle.value))
+            AppDatabase.instance.readingListPageDao().addPagesToListIfNotExist(list, listOf(savedArticleState.value.pageTitle))
             _events.emit(SaveArticleSheetEvent.ArticleAddedToCollection(list))
         }
     }
@@ -188,7 +186,7 @@ class SaveArticleSheetViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
         viewModelScope.launch(exceptionHandler) {
             val list = AppDatabase.instance.readingListDao().getListWithPagesById(collectionId)?.toReadingList() ?: return@launch
             // first checks if the article is already in the list, and if so, remove it
-            list.pages.firstOrNull { it.isSameArticle(savedPageTitle.value) }?.let { page ->
+            list.pages.firstOrNull { it.isSameArticle(savedArticleState.value.pageTitle) }?.let { page ->
                 AppDatabase.instance.readingListPageDao().markPagesForDeletion(list, listOf(page))
                 _events.emit(SaveArticleSheetEvent.ArticleRemovedFromCollection(list))
                 return@launch
@@ -198,7 +196,8 @@ class SaveArticleSheetViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
                 return@launch
             }
 
-            val addedTitles = AppDatabase.instance.readingListPageDao().addPagesToListIfNotExist(list, listOf(savedPageTitle.value))
+            val addedTitles = AppDatabase.instance.readingListPageDao()
+                .addPagesToListIfNotExist(list, listOf(savedArticleState.value.pageTitle))
             if (addedTitles.isNotEmpty()) {
                 _events.emit(SaveArticleSheetEvent.ArticleAddedToCollection(list))
             }
@@ -206,7 +205,7 @@ class SaveArticleSheetViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
     }
 
     private suspend fun getListsContainingArticle(): List<ReadingList> {
-        val pages = AppDatabase.instance.readingListPageDao().getAllPageOccurrences(savedPageTitle.value)
+        val pages = AppDatabase.instance.readingListPageDao().getAllPageOccurrences(savedArticleState.value.pageTitle)
         if (pages.isEmpty()) {
             return emptyList()
         }
@@ -222,6 +221,8 @@ class SaveArticleSheetViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
     companion object {
         private const val STOP_TIMEOUT_MILLIS = 5000L
     }
+
+    private class SavedArticleState(val pageTitle: PageTitle)
 }
 
 sealed interface SaveArticleSheetEvent {
