@@ -434,7 +434,7 @@
   <string name="reading_lists_item_deleted">Čhašówapi kiŋ %s yuȟéyab ičú</string>
   <string name="reading_list_item_delete_undo">Khigléya</string>
   <string name="reading_list_deleted">%s iháŋgya</string>
-  <string name="saved_list_empty_title">Tákuni wówapi égnake šni</string>
+  <string name="saved_list_empty_title" fuzzy="true">Tákuni wówapi égnake šni</string>
   <string name="reading_list_empty">Čhašówapi kiŋ le mahél tákuni wówapi éyakignake šní.</string>
   <string name="reading_list_add_to_other_list">Táku-awáyawa čhašówapi uŋma ektá égnaka</string>
   <string name="reading_list_move_to_other_list">Táku-awáyawa čhašówapi uŋma ektá tȟokšú</string>

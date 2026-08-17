@@ -590,7 +590,7 @@
   <string name="reading_lists_item_deleted">%s개의 문서가 목록에서 제거되었습니다</string>
   <string name="reading_list_item_delete_undo">실행 취소</string>
   <string name="reading_list_deleted">%s이(가) 삭제되었습니다</string>
-  <string name="saved_list_empty_title">아직 읽기 목록이 없습니다</string>
+  <string name="saved_list_empty_title" fuzzy="true">아직 읽기 목록이 없습니다</string>
   <string name="reading_lists_empty_message">나중에 오프라인 상태이더라도 읽을 수 있도록 글들을 목록에 추가합니다.</string>
   <string name="reading_list_empty">이 목록에 추가한 글이 없습니다.</string>
   <string name="reading_list_article_offline">오프라인에서 읽을 수 있음</string>

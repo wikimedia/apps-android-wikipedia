@@ -336,7 +336,7 @@
   <string name="reading_lists_item_deleted">%s ಅನ್ನು ಪಟ್ಟಿಗಳಿಂದ ತೆಗೆಯಲಾಯಿತು</string>
   <string name="reading_list_item_delete_undo">ಕಳಚು</string>
   <string name="reading_list_deleted">%s ಅಳಿಸಲಾಯಿತು</string>
-  <string name="saved_list_empty_title">ಇನ್ನೂ ಯಾವುದೇ ಉಳಿಸಲಾದ ಪುಟಗಳಿಲ್ಲ</string>
+  <string name="saved_list_empty_title" fuzzy="true">ಇನ್ನೂ ಯಾವುದೇ ಉಳಿಸಲಾದ ಪುಟಗಳಿಲ್ಲ</string>
   <string name="reading_list_article_offline">ಆಫ್‌ಲೈನ್‌ನಲ್ಲಿ ಲಭ್ಯವಿದೆ</string>
   <string name="reading_list_add_to_other_list">ಬೇರೆ ಓದುವ ಪಟ್ಟಿಗೆ ಸೇರಿಸಿ</string>
   <string name="reading_list_move_to_other_list">ಬೇರೆ ಓದುವ ಪಟ್ಟಿಗೆ ಸ್ಥಳಾಂತರಿಸಿ</string>

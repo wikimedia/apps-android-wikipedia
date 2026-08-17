@@ -448,7 +448,7 @@
   <string name="reading_lists_item_deleted">%s испииһэктэртэн сотулунна</string>
   <string name="reading_list_item_delete_undo">Төннөр</string>
   <string name="reading_list_deleted">%s сотуллубут</string>
-  <string name="saved_list_empty_title">Испииһэк оҥоһулла илик эбит</string>
+  <string name="saved_list_empty_title" fuzzy="true">Испииһэк оҥоһулла илик эбит</string>
   <string name="reading_lists_empty_message">Ыстатыйаларгын ааҕыы испииһэгэр хойут, ситимэ да суох олорон, киллэриэххин сөп.</string>
   <string name="reading_list_empty">Испииһэккэ эбиллибит ыстатыйа суох эбит.</string>
   <string name="reading_list_article_offline">Ситимэ суох ааҕыахха сөп</string>

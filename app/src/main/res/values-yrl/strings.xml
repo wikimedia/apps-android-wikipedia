@@ -314,7 +314,7 @@
   <string name="reading_lists_item_deleted">%s umuçaka\'ana kamakaçawa\'etá çuiwara</string>
   <string name="reading_list_item_delete_undo">Muyuíri</string>
   <string name="reading_list_deleted">%s muçaka\'ana</string>
-  <string name="saved_list_empty_title">Ne yepé sowa karawata\'ana raĩ</string>
+  <string name="saved_list_empty_title" fuzzy="true">Ne yepé sowa karawata\'ana raĩ</string>
   <string name="reading_list_article_offline">Yukuawa yumũdianaĩma rupí</string>
   <string name="reading_list_add_to_other_list">Umburipíri amũ mũgetaçawa kamakaçawa upé</string>
   <string name="reading_list_remove_from_list">Umuçaká %s çui</string>

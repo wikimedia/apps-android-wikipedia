@@ -622,7 +622,7 @@
   <string name="reading_lists_item_deleted">%s von den Listen entfernt</string>
   <string name="reading_list_item_delete_undo">Rückgängig</string>
   <string name="reading_list_deleted">%s gelöscht</string>
-  <string name="saved_list_empty_title">Es sind noch keine Leselisten vorhanden.</string>
+  <string name="saved_list_empty_title" fuzzy="true">Es sind noch keine Leselisten vorhanden.</string>
   <string name="reading_lists_empty_message">Füge Artikel einer Liste zum späteren Lesen hinzu, auch wenn du offline bist.</string>
   <string name="reading_list_empty">Du hast keine Artikel zu dieser Liste hinzugefügt.</string>
   <string name="reading_list_article_offline">Offline verfügbar</string>

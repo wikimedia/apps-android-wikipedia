@@ -593,7 +593,7 @@
   <string name="reading_lists_item_deleted">%s выдалена са спісаў</string>
   <string name="reading_list_item_delete_undo">Скасаваць</string>
   <string name="reading_list_deleted">%s выдалена</string>
-  <string name="saved_list_empty_title">Пакуль няма захаваных старонак</string>
+  <string name="saved_list_empty_title" fuzzy="true">Пакуль няма захаваных старонак</string>
   <string name="reading_lists_empty_message">Дадавайце артыкулы ў спіс, каб прачытаць іх пазней, нават калі вы па-за сеткай.</string>
   <string name="reading_list_empty">У вас няма артыкулаў, дададзеных у гэты спіс.</string>
   <string name="reading_list_article_offline">Дасяжны па-за сеткай</string>
