@@ -42,6 +42,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.R
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.compose.components.AppButton
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
@@ -57,6 +58,8 @@ data class EditorChoiceDialogConfig(
     val isInSettingsScreen: Boolean
 )
 
+private val instrument = TestKitchenAdapter.client.getInstrument("apps-editing")
+
 fun showEditorChoiceDialog(
     context: Context,
     isSettingsScreen: Boolean,
@@ -64,12 +67,21 @@ fun showEditorChoiceDialog(
 ) {
 
     val dialogConfig = if (isSettingsScreen) {
+        instrument.submitInteraction(
+            action = "click",
+            actionSource = "settings",
+            elementId = "editing_method"
+        )
         EditorChoiceDialogConfig(
             dialogTitle = R.string.editor_select_title_settings_screen,
             confirmButtonText = R.string.editor_select_save_btn_settings_screen,
             isInSettingsScreen = true
         )
     } else {
+        instrument.submitInteraction(
+            action = "impression",
+            actionSource = "edit_choice_select"
+        )
         EditorChoiceDialogConfig(
             dialogTitle = R.string.editor_select_dialog_title,
             confirmButtonText = R.string.editor_select_dialog_continue,
@@ -88,8 +100,40 @@ fun showEditorChoiceDialog(
             EditorChoiceContent(
                 initialChoice = Prefs.editorModeChoice,
                 dialogConfigData = dialogConfig,
-                onCancel = { dialog.dismiss() },
+                onCancel = {
+                    if (!isSettingsScreen) {
+                        instrument.submitInteraction(
+                            action = "click",
+                            actionSource = "edit_choice_select",
+                            elementId = "edit_choice_cancel"
+                        )
+                    } else {
+                        instrument.submitInteraction(
+                            action = "click",
+                            actionSource = "settings",
+                            elementId = "cancel_editing_button"
+                        )
+                    }
+                    dialog.dismiss()
+                },
                 onConfirm = { editorChoice, dontShowAgain ->
+                    if (!isSettingsScreen) {
+                        instrument.submitInteraction(
+                            action = "click",
+                            actionSource = "edit_choice_select",
+                            elementId = "edit_choice_submit",
+                            actionContext = mapOf(
+                                "edit_choice" to if (editorChoice == EDITOR_CHOICE_VE) "visual" else "source",
+                                "is_default" to dontShowAgain
+                            )
+                        )
+                    } else {
+                        instrument.submitInteraction(
+                            action = "click",
+                            actionSource = "settings",
+                            elementId = if (editorChoice == EDITOR_CHOICE_VE) "visual_editing" else "source_editing"
+                        )
+                    }
                     onResult(editorChoice, dontShowAgain)
                     dialog.dismiss()
                 }
