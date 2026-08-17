@@ -53,6 +53,7 @@ import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.eventplatform.ArticleFindInPageInteractionEvent
 import org.wikipedia.analytics.eventplatform.ArticleInteractionEvent
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
+import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
@@ -193,6 +194,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     lateinit var shareHandler: ShareHandler
     lateinit var editHandler: EditHandler
     var revision = 0L
+    var editCount = -1
 
     private val shouldCreateNewTab get() = currentTab.backStack.isNotEmpty()
     private val backgroundTabPosition get() = 0.coerceAtLeast(foregroundTabPosition - 1)
@@ -970,6 +972,12 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             webView.visibility = View.VISIBLE
         }
 
+        lifecycleScope.launch(CoroutineExceptionHandler { _, t ->
+            L.e(t)
+        }) {
+            editCount = ServiceFactory.get(WikipediaApp.instance.wikiSite).getUserInfo().query?.userInfo?.editCount ?: 0
+        }
+
         maybeShowAnnouncement()
         OnThisDayGameMainMenuFragment.maybeShowOnThisDayGameDialog(requireActivity(),
             InvokeSource.PAGE_ACTIVITY, model.title?.wikiSite ?: WikipediaApp.instance.wikiSite)
@@ -1298,6 +1306,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             .putExtra(Constants.INTENT_RETURN_TO_MAIN, true)
             .putExtra(tabExtra, tab.code()))
         requireActivity().finish()
+    }
+
+    fun dismissEditMenu(title: PageTitle) {
+        EditAttemptStepEvent.logAbort(pageTitle = title, editCount = editCount)
     }
 
     private inner class AvCallback : AvPlayer.Callback {
