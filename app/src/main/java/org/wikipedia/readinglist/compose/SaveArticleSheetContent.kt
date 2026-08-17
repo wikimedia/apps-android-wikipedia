@@ -23,6 +23,8 @@ import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.BottomSheetDefaults
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
@@ -37,6 +39,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.ColorPainter
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.layout.ContentScale
@@ -56,7 +59,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
 import org.wikipedia.R
-import org.wikipedia.compose.components.AppButton
 import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.extensions.autoHidingLazyColumnScrollbar
 import org.wikipedia.compose.theme.BaseTheme
@@ -230,13 +232,23 @@ private fun EmptyCollections(
             style = MaterialTheme.typography.bodyLarge,
             textAlign = TextAlign.Center
         )
-        Spacer(modifier = Modifier.height(24.dp))
-        AppButton(
-            onClick = onStartCollectionClick,
-            modifier = Modifier.heightIn(min = 48.dp)
+        Spacer(modifier = Modifier.height(16.dp))
+        Button(
+            modifier = Modifier
+                .padding(top = 8.dp),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = WikipediaTheme.colors.progressiveColor,
+                contentColor = Color.White,
+            ),
+            onClick = onStartCollectionClick
         ) {
+            Icon(
+                painter = painterResource(R.drawable.ic_add_gray_white_24dp),
+                contentDescription = null
+            )
             Text(
-                text = stringResource(R.string.reading_lists_save_sheet_empty_action),
+                modifier = Modifier.padding(start = 6.dp, top = 4.dp, bottom = 4.dp),
+                text = stringResource(R.string.reading_lists_create_new_collection),
                 style = MaterialTheme.typography.labelLarge
             )
         }

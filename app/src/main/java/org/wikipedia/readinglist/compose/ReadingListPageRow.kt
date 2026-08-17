@@ -111,8 +111,7 @@ fun ReadingListPageRow(
             if (customLists.isNotEmpty()) {
                 FlowRow(
                     modifier = Modifier.padding(top = 8.dp),
-                    horizontalArrangement = spacedBy(8.dp),
-                    verticalArrangement = spacedBy(8.dp)
+                    horizontalArrangement = spacedBy(8.dp)
                 ) {
                     customLists.forEach { list ->
                         ListChip(
@@ -174,7 +173,8 @@ private fun ListChip(title: String, onClick: () -> Unit, modifier: Modifier = Mo
             Text(
                 text = title,
                 style = MaterialTheme.typography.labelLarge,
-                maxLines = 1
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis
             )
         },
         icon = {
