@@ -149,7 +149,7 @@ class SaveArticleSheetDialog : ExtendedBottomSheetDialogFragment() {
             .setTitle(R.string.reading_lists_remove_articles_confirm_dialog_title)
             .setMessage(
                 resources.getQuantityString(
-                    R.plurals.reading_lists_remove_articles_confirm_dialog_message,
+                    R.plurals.reading_lists_unsave_articles_confirm_dialog_message,
                     1,
                     1
                 )
