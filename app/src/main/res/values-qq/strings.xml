@@ -2357,7 +2357,7 @@
   <string name="reading_lists_remove_articles_confirm_button">Label for the button that confirms removing the selected saved articles from all associated collections.</string>
   <plurals name="reading_lists_remove_articles_confirm_dialog_message">
     <item quantity="one">Confirmation message explaining that one selected article will be removed from all associated collections.</item>
-    <item quantity="other">Confirmation message explaining that multiple selected articles will be removed from all associated collections. The "%d" symbol is replaced with the number of selected articles.</item>
+    <item quantity="other">Confirmation message explaining that multiple selected articles will be removed from all associated collections. The \"%d\" symbol is replaced with the number of selected articles.</item>
   </plurals>
   <plurals name="reading_lists_unsave_articles_confirm_dialog_message">
     <item quantity="one">Confirmation message explaining that unsaving one article will remove it from all associated collections.</item>

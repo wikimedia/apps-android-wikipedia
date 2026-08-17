@@ -25,8 +25,10 @@ import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.compose.SaveArticleSheetContent
 import org.wikipedia.readinglist.database.ReadingList
+import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 
 class SaveArticleSheetDialog : ExtendedBottomSheetDialogFragment() {
@@ -37,6 +39,8 @@ class SaveArticleSheetDialog : ExtendedBottomSheetDialogFragment() {
             DimenUtil.roundedDpToPx(DimenUtil.getDimension(R.dimen.saveArticleSheetPeekHeight)),
             (DimenUtil.displayHeightPx * MAX_PEEK_HEIGHT_RATIO).toInt()
         )
+
+    override fun getTheme() = R.style.App_BottomSheetDialogTheme_EdgeToEdgeContent
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
@@ -59,6 +63,9 @@ class SaveArticleSheetDialog : ExtendedBottomSheetDialogFragment() {
 
     override fun onStart() {
         super.onStart()
+        dialog?.window?.let { window ->
+            DeviceUtil.setNavigationBarColor(window, ResourceUtil.getThemedColor(requireContext(), R.attr.background_color))
+        }
         BottomSheetBehavior.from(requireView().parent as View).apply {
             peekHeight = collapsedSheetPeekHeightPx
             state = BottomSheetBehavior.STATE_COLLAPSED
