@@ -12,7 +12,9 @@ import org.wikipedia.page.PageTitle
 @Suppress("unused")
 @Serializable
 @SerialName("/analytics/legacy/editattemptstep/2.0.3")
-class EditAttemptStepEvent(private val event: EditAttemptStepInteractionEvent) : EventWithDt(STREAM_NAME) {
+class EditAttemptStepEvent(
+    private val wiki: String,
+    private val event: EditAttemptStepInteractionEvent) : EventWithDt(STREAM_NAME) {
 
     companion object {
         const val INTERFACE_WIKITEXT = "wikitext"
@@ -46,11 +48,26 @@ class EditAttemptStepEvent(private val event: EditAttemptStepInteractionEvent) :
         }
 
         private fun submitEditAttemptEvent(action: String, editorInterface: String, pageTitle: PageTitle, revisionId: Long? = null, editCount: Int = -1) {
-            EventPlatformClient.submit(EditAttemptStepEvent(EditAttemptStepInteractionEvent(action,
-                WikipediaApp.instance.appInstallID, "", editorInterface,
-                INTEGRATION_ID, "", WikipediaApp.instance.getString(R.string.device_type).lowercase(), editCount, getUserIdForWikiSite(pageTitle.wikiSite),
-                !AccountUtil.isLoggedIn, AccountUtil.isTemporaryAccount, 1, pageTitle.prefixedText,
-                pageTitle.namespace().code(), revisionId, pageTitle.wikiSite.dbName())))
+            EventPlatformClient.submit(EditAttemptStepEvent(
+                wiki = pageTitle.wikiSite.dbName(),
+                event = EditAttemptStepInteractionEvent(
+                    action = action,
+                    app_install_id = WikipediaApp.instance.appInstallID,
+                    editing_session_id = "",
+                    editor_interface = editorInterface,
+                    integration = INTEGRATION_ID,
+                    mw_version ="",
+                    platform = WikipediaApp.instance.getString(R.string.device_type).lowercase(),
+                    user_editcount = editCount,
+                    user_id = getUserIdForWikiSite(pageTitle.wikiSite),
+                    is_anon = !AccountUtil.isLoggedIn,
+                    user_is_temp = AccountUtil.isTemporaryAccount,
+                    version = 1,
+                    page_title = pageTitle.prefixedText,
+                    page_ns = pageTitle.namespace().code(),
+                    revision_id = revisionId
+                )
+            ))
         }
 
         private fun getUserIdForWikiSite(wikiSite: WikiSite): Int {
@@ -75,5 +92,4 @@ class EditAttemptStepInteractionEvent(private val action: String,
                                       private val version: Int,
                                       private val page_title: String,
                                       private val page_ns: Int,
-                                      private val revision_id: Long? = null,
-                                      private val wiki: String)
+                                      private val revision_id: Long? = null)
