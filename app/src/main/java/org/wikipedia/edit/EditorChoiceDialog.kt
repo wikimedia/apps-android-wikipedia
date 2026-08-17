@@ -107,6 +107,12 @@ fun showEditorChoiceDialog(
                             actionSource = "edit_choice_select",
                             elementId = "edit_choice_cancel"
                         )
+                    } else {
+                        instrument.submitInteraction(
+                            action = "click",
+                            actionSource = "settings",
+                            elementId = "cancel_editing_button"
+                        )
                     }
                     dialog.dismiss()
                 },
@@ -120,6 +126,12 @@ fun showEditorChoiceDialog(
                                 "edit_choice" to if (editorChoice == EDITOR_CHOICE_VE) "visual" else "source",
                                 "is_default" to dontShowAgain
                             )
+                        )
+                    } else {
+                        instrument.submitInteraction(
+                            action = "click",
+                            actionSource = "settings",
+                            elementId = if (editorChoice == EDITOR_CHOICE_VE) "visual_editing" else "source_editing"
                         )
                     }
                     onResult(editorChoice, dontShowAgain)
