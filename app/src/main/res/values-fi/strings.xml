@@ -594,8 +594,10 @@
   <string name="reading_lists_item_deleted">%s poistettu listoista</string>
   <string name="reading_list_item_delete_undo">Kumoa</string>
   <string name="reading_list_deleted">%s poistettu</string>
-  <string name="saved_list_empty_title">Ei vielä tallennettuja sivua</string>
+  <string name="saved_list_empty_title">Ei vielä tallennettuja artikkeleita</string>
   <string name="reading_lists_empty_message">Lisää artikkeleita listaan, jotta voit tarkastella niitä myöhemmin. Voit lukea lukulistassa olevia artikkeleja myös ilman verkkoyhteyttä.</string>
+  <string name="reading_lists_search_empty_articles_title">Tallennettuja artikeleita ei löytynyt</string>
+  <string name="reading_lists_search_empty_collections_title">Kokoelmia ei löytynyt</string>
   <string name="reading_list_empty">Tässä lukulistassa ei ole artikkeleita.</string>
   <string name="reading_list_article_offline">Saatavilla ilman verkkoyhteyttä</string>
   <string name="reading_list_article_make_offline">Tee tämä artikkeli käytettäväksi offline-tilassa</string>

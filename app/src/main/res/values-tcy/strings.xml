@@ -351,7 +351,7 @@
   <string name="reading_list_item_deleted">%s ಪಟ್ಟಿದ್ ದೆತುಂಡು</string>
   <string name="reading_list_item_delete_undo">ದುಂಬುದಲೆಕೊ</string>
   <string name="reading_list_deleted">%s ದೆತ್ತುಂಡು</string>
-  <string name="saved_list_empty_title">ಓದಿನ ಲಿಸ್ಟ್ ಮುಲ್ಪ ಇಜ್ಜಿ</string>
+  <string name="saved_list_empty_title" fuzzy="true">ಓದಿನ ಲಿಸ್ಟ್ ಮುಲ್ಪ ಇಜ್ಜಿ</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">ಬೊಡ್ಚಿ ಸೊಲ್ಮೆಲೋ</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">This article will now be available offline.</item>

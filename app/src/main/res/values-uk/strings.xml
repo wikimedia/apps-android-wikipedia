@@ -618,8 +618,12 @@
   <string name="reading_lists_item_deleted">%s видалено зі списків</string>
   <string name="reading_list_item_delete_undo">Скасувати</string>
   <string name="reading_list_deleted">%s видалено</string>
-  <string name="saved_list_empty_title">Ще немає збережених сторінок</string>
+  <string name="saved_list_empty_title">Ще немає збережених статей</string>
   <string name="reading_lists_empty_message">Додавайте статті до списку для пізнішого прочитання, навіть коли перебуваєте офлайн.</string>
+  <string name="reading_lists_search_empty_articles_title">Збережені статті не знайдено</string>
+  <string name="reading_lists_search_empty_articles_message">Нам не вдалося знайти «%s» у ваших збережених статтях.</string>
+  <string name="reading_lists_search_empty_collections_title">Колекцій не знайдено</string>
+  <string name="reading_lists_search_empty_collections_message">Нам не вдалося знайти «%s» у ваших колекціях.</string>
   <string name="reading_list_empty">У Вас немає статей, доданих до цього списку</string>
   <string name="reading_list_article_offline">Доступна автономно</string>
   <string name="reading_list_article_make_offline">Зробити цю статтю доступною офлайн</string>

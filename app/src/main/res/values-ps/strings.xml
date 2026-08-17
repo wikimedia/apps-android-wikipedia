@@ -573,8 +573,12 @@
   <string name="reading_lists_item_deleted">%s له لړليکونو لرې‌شوې</string>
   <string name="reading_list_item_delete_undo">ناکړل</string>
   <string name="reading_list_deleted">%s ړنگ شو</string>
-  <string name="saved_list_empty_title">لا تر اوسه پورې خوندي مخونه نشته</string>
+  <string name="saved_list_empty_title">لا تر اوسه پورې خوندي ليکنې نشته</string>
   <string name="reading_lists_empty_message">د وروسته لوستلو لپاره په لړليک کې د ليکنو ورگدول؛ ترڅو په افلاين بڼه يې ولولئ.</string>
+  <string name="reading_lists_search_empty_articles_title">هېڅ خوندي ليکنې ونه موندل شوې</string>
+  <string name="reading_lists_search_empty_articles_message">موږ نشو کولی ستاسو خوندي شويو ليکنو کې “%s” ومومو.</string>
+  <string name="reading_lists_search_empty_collections_title">هېڅ ټولگې ونه موندل شوې</string>
+  <string name="reading_lists_search_empty_collections_message">موږ نشو کولی ستاسو ټولگو کې “%s” ومومو.</string>
   <string name="reading_list_empty">تاسې دې لړليک ته هېڅ ليکنې نه دې ورگډې کړې.</string>
   <string name="reading_list_article_offline">افلاين د لاسرسي وړ دی</string>
   <string name="reading_list_article_make_offline">دا ليکنه په افلاين بڼه د لاسرسي وړ گرځول</string>
@@ -2468,4 +2472,12 @@
   <string name="reading_lists_search_collections">ټولگې پلټل</string>
   <string name="reading_lists_remove_articles_confirm_dialog_title">خوندي‌شوې ليکنې لرې‌کول</string>
   <string name="reading_lists_remove_articles_confirm_button">لرې‌کول</string>
+  <plurals name="reading_lists_remove_articles_confirm_dialog_message">
+    <item quantity="one">دا ليکنه به له ټولو اړوند ټولگو څخه لرې شي.</item>
+    <item quantity="other">دا %d ليکنې به له ټولو اړوند ټولگو څخه لرې شي.</item>
+  </plurals>
+  <plurals name="reading_lists_articles_removed_from_collections">
+    <item quantity="one">ليکنه له ټولو اړوند ټولگو څخه لرې شوه.</item>
+    <item quantity="other">%d ليکنې له ټولو اړوند ټولگو څخه لرې شوې.</item>
+  </plurals>
 </resources>

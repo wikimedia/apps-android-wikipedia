@@ -586,7 +586,7 @@
   <string name="reading_lists_item_deleted">%s eltávolítva a listákról</string>
   <string name="reading_list_item_delete_undo">Visszavonás</string>
   <string name="reading_list_deleted">%s törölve</string>
-  <string name="saved_list_empty_title">Még nincsenek olvasólisták</string>
+  <string name="saved_list_empty_title" fuzzy="true">Még nincsenek olvasólisták</string>
   <string name="reading_lists_empty_message">Adj hozzá szócikkeket egy olvasólistához későbbi elolvasáshoz, akár internetkapcsolat nélkül is.</string>
   <string name="reading_list_empty">Nem adtál szócikket ehhez a listához.</string>
   <string name="reading_list_article_offline">Elérhető kapcsolat nélkül</string>

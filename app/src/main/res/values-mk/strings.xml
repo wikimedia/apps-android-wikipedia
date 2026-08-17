@@ -85,7 +85,7 @@
   <string name="menu_page_talk_page">Разговорна страница</string>
   <string name="menu_page_view_edit_history">Историја на уредувања</string>
   <string name="menu_page_edit_history">Историја на уредувања</string>
-  <string name="menu_page_remove_from_watchlist">Отстрани набљудуваните</string>
+  <string name="menu_page_remove_from_watchlist">Отстрани од набљудуваните</string>
   <string name="menu_page_watched">Набљудувани</string>
   <string name="edit_section_find_in_page">Најди на страницата</string>
   <string name="menu_page_font_and_theme">Смени фонт и изглед</string>
@@ -571,8 +571,12 @@
   <string name="reading_lists_item_deleted">%s е отстранета од списоците</string>
   <string name="reading_list_item_delete_undo">Откажи</string>
   <string name="reading_list_deleted">%s е избришана</string>
-  <string name="saved_list_empty_title">Засега нема списоци за читање</string>
+  <string name="saved_list_empty_title">Засега нема зачувани статии</string>
   <string name="reading_lists_empty_message">Додај статии во список за читање подоцна, дури и кога немате линија.</string>
+  <string name="reading_lists_search_empty_articles_title">Не најдов зачувани статии</string>
+  <string name="reading_lists_search_empty_articles_message">Не го најдов „%s“ во вашите зачувани статии.</string>
+  <string name="reading_lists_search_empty_collections_title">Не пронајдов ниедна збирка</string>
+  <string name="reading_lists_search_empty_collections_message">Не го најдов „%s“ во вашите збирки.</string>
   <string name="reading_list_empty">Немате ставено статии во списоков.</string>
   <string name="reading_list_article_offline">Достапно вонмрежно</string>
   <string name="reading_list_article_make_offline">Направи ја статијава достапна вонмрежно</string>

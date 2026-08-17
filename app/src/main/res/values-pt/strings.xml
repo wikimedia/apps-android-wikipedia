@@ -587,7 +587,7 @@
   <string name="reading_lists_item_deleted">%s removido das listas</string>
   <string name="reading_list_item_delete_undo">Anular</string>
   <string name="reading_list_deleted">%s eliminada</string>
-  <string name="saved_list_empty_title">Ainda não existem páginas guardadas</string>
+  <string name="saved_list_empty_title" fuzzy="true">Ainda não existem páginas guardadas</string>
   <string name="reading_lists_empty_message">Acrescente artigos a uma lista para lê-los mais tarde, mesmo quando estiver sem acesso à Internet.</string>
   <string name="reading_list_empty">Não tem nenhum artigo adicionado a esta lista.</string>
   <string name="reading_list_article_offline">Disponível off-line</string>
