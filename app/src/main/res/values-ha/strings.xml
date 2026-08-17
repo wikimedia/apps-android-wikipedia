@@ -517,7 +517,7 @@
   <string name="reading_lists_item_deleted">%s an cire daga jerin</string>
   <string name="reading_list_item_delete_undo">Fasa</string>
   <string name="reading_list_deleted">%s an share</string>
-  <string name="saved_list_empty_title">Babu shafuka da aka adana har yanzu</string>
+  <string name="saved_list_empty_title" fuzzy="true">Babu shafuka da aka adana har yanzu</string>
   <string name="reading_lists_empty_message">Ƙara maƙala a cikin jerin don karatu daga baya, koda kuwa kana kan layi.</string>
   <string name="reading_list_empty">Ba ku da wani labarin da aka kara a cikin wannan jerin.</string>
   <string name="reading_list_article_offline">Ana samunsa a waje</string>

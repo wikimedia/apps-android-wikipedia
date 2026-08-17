@@ -387,7 +387,7 @@
   <string name="reading_list_items_deleted">%d கட்டுரைகள் பட்டியலில் இருந்து நீக்கப்பட்டது</string>
   <string name="reading_list_item_delete_undo">மீளமை</string>
   <string name="reading_list_deleted">%s நீக்கப்பட்டுவிட்டது</string>
-  <string name="saved_list_empty_title">இதுவரை எந்த பக்கமும் சேமிக்கப்படவில்லை</string>
+  <string name="saved_list_empty_title" fuzzy="true">இதுவரை எந்த பக்கமும் சேமிக்கப்படவில்லை</string>
   <string name="reading_lists_empty_message">பின்னர் வாசிக்க விரும்பும் கட்டுரைகளை ஒரு பட்டியலில் சேர்க்கவும். அவற்றை நீங்கள் இணைப்பில்லா நிலையிலும் வாசிக்கலாம்.</string>
   <string name="reading_list_article_offline">அணைநிலையில் கிடைக்கும்</string>
   <string name="reading_list_add_to_other_list">மற்றொரு படிக்கும் பட்டியலில் சேர்க</string>

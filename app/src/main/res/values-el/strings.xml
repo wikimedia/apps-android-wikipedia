@@ -576,7 +576,7 @@
   <string name="reading_lists_item_deleted">Το %s αφαιρέθηκε από τις λίστες</string>
   <string name="reading_list_item_delete_undo">Αναίρεση</string>
   <string name="reading_list_deleted">Διεγράφη η %s</string>
-  <string name="saved_list_empty_title">Δεν υπάρχουν αποθηκευμένες σελίδες ακόμα</string>
+  <string name="saved_list_empty_title" fuzzy="true">Δεν υπάρχουν αποθηκευμένες σελίδες ακόμα</string>
   <string name="reading_lists_empty_message">Προσθέτει λήμματα σε μια λίστα για να τα διαβάσετε αργότερα, ακόμα και όταν είστε εκτός σύνδεσης.</string>
   <string name="reading_list_empty">Δεν έχετε προσθέσει λήμματα σε αυτή τη λίστα</string>
   <string name="reading_list_article_offline">Διαθέσιμο εκτός σύνδεσης</string>

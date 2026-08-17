@@ -559,7 +559,7 @@
   <string name="reading_lists_item_deleted">စာရင်းတိက %s ကို ဖယ်ယှားပြီး</string>
   <string name="reading_list_item_delete_undo">မလုပ်ယာ</string>
   <string name="reading_list_deleted">%s ကို ဖျက်လိုက်ပါယာ</string>
-  <string name="saved_list_empty_title">စာဖတ်စရင်း မဟိ</string>
+  <string name="saved_list_empty_title" fuzzy="true">စာဖတ်စရင်း မဟိ</string>
   <string name="reading_lists_empty_message">သင် အော့ဖ်လိုင်းဖြိုက်ကေတောင်မှ နောင်အခါ ဖတ်ရှုဖို့ ဆောင်းပါးတိကို စရင်းတစ်ခုသို့ ပေါင်းထည့်ပါ</string>
   <string name="reading_list_empty">ဒေစရင်း၌ သင်ပေါင်းထည့်ထားရေ ဆောင်းပါးမဟိပါ</string>
   <string name="reading_list_article_offline">အော့ဖ်လိုင်း ရဟိနိုင်မှု</string>

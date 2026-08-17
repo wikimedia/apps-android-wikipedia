@@ -556,7 +556,7 @@
   <string name="reading_lists_item_deleted">Исемлектән %s бетерелгән.</string>
   <string name="reading_list_item_delete_undo">Кире кайтару</string>
   <string name="reading_list_deleted">%s бетерелгән</string>
-  <string name="saved_list_empty_title">Әлегә сакланган битләр юк</string>
+  <string name="saved_list_empty_title" fuzzy="true">Әлегә сакланган битләр юк</string>
   <string name="reading_lists_empty_message">Автоном режимда булганда да сонрак уку өчен исемлеккә мәкаләләр өстәгез.</string>
   <string name="reading_list_empty">Бу исемлеккә өстәлгән мәкаләләрегез юк.</string>
   <string name="reading_list_article_offline">Автоном режимда бар</string>

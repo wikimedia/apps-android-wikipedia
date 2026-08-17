@@ -544,7 +544,7 @@
   <string name="reading_lists_item_deleted">%s ਸੂਚੀਆਂ ਵਿੱਚੋਂ ਹਟਾਇਆ ਗਿਆ</string>
   <string name="reading_list_item_delete_undo">ਰੱਦ ਕਰੋ</string>
   <string name="reading_list_deleted">%s ਮਿਟਾਇਆ ਗਿਆ</string>
-  <string name="saved_list_empty_title">ਕੋਈ ਪੜ੍ਹਤ ਸੂਚੀ ਨਹੀਂ ਹੈ</string>
+  <string name="saved_list_empty_title" fuzzy="true">ਕੋਈ ਪੜ੍ਹਤ ਸੂਚੀ ਨਹੀਂ ਹੈ</string>
   <string name="reading_list_empty">ਤੁਹਾਡੇ ਕੋਲ ਇਸ ਸੂਚੀ ਵਿੱਚ ਕੋਈ ਲੇਖ ਸ਼ਾਮਲ ਨਹੀਂ ਹੈ।</string>
   <string name="reading_list_add_to_other_list">ਇੱਕ ਹੋਰ ਪੜ੍ਹਨ ਦੀ ਸੂਚੀ ਵਿੱਚ ਸ਼ਾਮਲ ਕਰੋ</string>
   <string name="reading_list_move_to_other_list">ਕਿਸੇ ਹੋਰ ਪੜ੍ਹਨ ਦੀ ਸੂਚੀ ਵਿੱਚ ਜਾਓ</string>

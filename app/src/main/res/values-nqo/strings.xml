@@ -493,7 +493,7 @@
   <string name="reading_lists_item_deleted">%s ߛߋ߲߬ߓߐ߬ ߛߙߍߘߍ ߘߐ߫</string>
   <string name="reading_list_item_delete_undo">ߊ߬ ߘߐߛߊ߬</string>
   <string name="reading_list_deleted">%s ߓߘߊ߫ ߖߏ߬ߛߌ߬</string>
-  <string name="saved_list_empty_title">ߞߐߜߍ ߟߊߞߎ߲߬ߘߎ߬ߣߍ߲߬ ߕߍ߫ ߡߎߣߎ߲߬</string>
+  <string name="saved_list_empty_title" fuzzy="true">ߞߐߜߍ ߟߊߞߎ߲߬ߘߎ߬ߣߍ߲߬ ߕߍ߫ ߡߎߣߎ߲߬</string>
   <string name="reading_lists_empty_message">ߞߎߡߘߊ ߟߊߘߏ߲߬ ߞߐߝߍ߫ ߘߐߘߊߙߊ߲ߠߌ߲ ߛߙߍߘߍ ߘߐ߫߸ ߤߊߟߌ߬ ߣߴߌ ߜߊ߲߬ߞߎ߲߬ߣߍ߲߬ ߕߍ߫.</string>
   <string name="reading_list_empty">ߦߌߟߡߊ߫ ߛߌ߫ ߟߊߘߏ߲߬ߣߍ߲߬ ߕߴߌ ߓߟߏ߫ ߛߙߍߘߍ ߣߌ߲߬ ߘߐ߫.</string>
   <string name="reading_list_article_offline">ߡߍ߲ ߠߎ߬ ߦߋ߫ ߜߊ߲߬ߞߎ߲߬ߠߌ߲ ߞߐߞߊ߲߬</string>

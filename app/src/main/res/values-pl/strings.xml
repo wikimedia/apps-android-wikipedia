@@ -635,8 +635,12 @@
   <string name="reading_lists_item_deleted">Usunięto „%s” z listy</string>
   <string name="reading_list_item_delete_undo">Cofnij</string>
   <string name="reading_list_deleted">Usunięto „%s”</string>
-  <string name="saved_list_empty_title">Nie zapisano jeszcze żadnych stron</string>
+  <string name="saved_list_empty_title">Nie zapisano jeszcze żadnych artykułów</string>
   <string name="reading_lists_empty_message">Dodawaj artykuły do listy artykułów do przeczytania później, nawet w trybie offline.</string>
+  <string name="reading_lists_search_empty_articles_title">Nie znaleziono żadnych zapisanych artykułów</string>
+  <string name="reading_lists_search_empty_articles_message">Nie znaleziono „%s” w Twoich zapisanych artykułach.</string>
+  <string name="reading_lists_search_empty_collections_title">Nie znaleziono list</string>
+  <string name="reading_lists_search_empty_collections_message">Nie znaleziono „%s” w Twoich listach.</string>
   <string name="reading_list_empty">Na tej liście nie ma dodanych artykułów.</string>
   <string name="reading_list_article_offline">Dostępne offline</string>
   <string name="reading_list_article_make_offline">Artykuł będzie dostępny offline</string>
@@ -995,7 +999,7 @@
   <string name="description_ends_with_punctuation">Tekst nie może kończyć się znakiem interpunkcyjnym.</string>
   <string name="description_starts_with_article">Unikaj rozpoczynania artykułów od „a” bądź „the” (ang).</string>
   <string name="description_starts_with_uppercase">Zaczynaj tekst, używając małej litery, chyba że pierwszy wyraz to nazwa własna.</string>
-  <string name="description_starts_with_lowercase">Unikaj rozpoczynania małą literą.</string>
+  <string name="description_starts_with_lowercase">Unikaj rozpoczynania małą literą (dot. jedynie języka angielskiego).</string>
   <string name="description_is_in_different_language">Wygląda na to, że tekst jest w nieoczekiwanym języku. Językiem tym powinien być %s.</string>
   <string name="description_verification_notice">Upewnij się, że język Twojego opisu to %1$s. Możesz zignorować to ostrzeżenie, jeśli użyty język to %2$s.</string>
   <string name="description_edit_suggested_description_button_text">Pokaż sugerowane opisy</string>

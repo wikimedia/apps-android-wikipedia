@@ -508,7 +508,7 @@
   <string name="reading_lists_item_deleted">%s dihapus dari senarai</string>
   <string name="reading_list_item_delete_undo">Nyahbuat</string>
   <string name="reading_list_deleted">%s dipadamkan</string>
-  <string name="saved_list_empty_title">Tiada senarai bacaan lagi</string>
+  <string name="saved_list_empty_title" fuzzy="true">Tiada senarai bacaan lagi</string>
   <string name="reading_lists_empty_message">Tambah rencana ke senarai untuk dibaca kemudian, walaupun semasa anda berada di luar talian.</string>
   <string name="reading_list_empty">Anda tidak mempunyai rencana ditambah ke senarai ini.</string>
   <string name="reading_list_article_offline">Tersedia di luar talian</string>

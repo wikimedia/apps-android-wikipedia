@@ -607,7 +607,7 @@
   <string name="reading_lists_item_deleted">%s از فهرست‌ها حذف شد</string>
   <string name="reading_list_item_delete_undo">واگردانی</string>
   <string name="reading_list_deleted">فهرست %s حذف شد</string>
-  <string name="saved_list_empty_title">هنوز صفحهٔ ذخیره‌شده‌ای وجود ندارد</string>
+  <string name="saved_list_empty_title" fuzzy="true">هنوز صفحهٔ ذخیره‌شده‌ای وجود ندارد</string>
   <string name="reading_lists_empty_message">برای مطالعهٔ مقاله‌ها در زمانی دیگر، حتی در زمانی که آفلاین هستید، آن‌ها را به یک فهرست بیفزایید.</string>
   <string name="reading_list_empty">مقاله‌ای به این فهرست اضافه نکرده‌اید.</string>
   <string name="reading_list_article_offline">در حالت آفلاین در دسترس است</string>

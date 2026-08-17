@@ -593,7 +593,7 @@
   <string name="reading_lists_item_deleted">%s odstranjen s seznamov</string>
   <string name="reading_list_item_delete_undo">Razveljavi</string>
   <string name="reading_list_deleted">Seznam %s izbrisan</string>
-  <string name="saved_list_empty_title">Nimate še prenesenih strani</string>
+  <string name="saved_list_empty_title" fuzzy="true">Nimate še prenesenih strani</string>
   <string name="reading_lists_empty_message">Dodajte članke na seznam za poznejše branje, tudi ko ste brez povezave.</string>
   <string name="reading_list_empty">Na tem seznamu nimate člankov.</string>
   <string name="reading_list_article_offline">Na voljo brez povezave</string>

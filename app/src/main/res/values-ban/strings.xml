@@ -487,7 +487,7 @@
   <string name="reading_lists_item_deleted">%s kaapus saking lis</string>
   <string name="reading_list_item_delete_undo">Ulihang</string>
   <string name="reading_list_deleted">%s kausap</string>
-  <string name="saved_list_empty_title">Kaca durung karaksa</string>
+  <string name="saved_list_empty_title" fuzzy="true">Kaca durung karaksa</string>
   <string name="reading_list_article_offline">Kasedia luring</string>
   <string name="reading_list_remove_from_list">Usap saking %s</string>
   <string name="reading_list_remove_from_lists">Usap saking lis wacénan</string>

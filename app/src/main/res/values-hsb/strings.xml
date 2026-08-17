@@ -417,7 +417,7 @@
   <string name="reading_lists_item_deleted">%s z lisćinow wotstronjene</string>
   <string name="reading_list_item_delete_undo">Cofnyć</string>
   <string name="reading_list_deleted">%s zhašene</string>
-  <string name="saved_list_empty_title">Hišće njejsu składowane zapiski</string>
+  <string name="saved_list_empty_title" fuzzy="true">Hišće njejsu składowane zapiski</string>
   <string name="reading_lists_empty_message">Składuj nastawki na lisćinje, zo by je pozdźišo čitał(a), samo hdyž sy offline.</string>
   <string name="reading_list_empty">Njejsy žane zapiski k tutej lisćinje přidał(a).</string>
   <string name="reading_list_article_offline">Offline přistupny</string>
