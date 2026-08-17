@@ -482,7 +482,7 @@
   <string name="reading_lists_item_deleted">Ba yis %s la\'ad la ni</string>
   <string name="reading_list_item_delete_undo">Lɛbisim</string>
   <string name="reading_list_deleted">%s saaeya</string>
-  <string name="saved_list_empty_title">Lakir banɛ kpɛn\'ɛs nan kae</string>
+  <string name="saved_list_empty_title" fuzzy="true">Lakir banɛ kpɛn\'ɛs nan kae</string>
   <string name="reading_list_empty">Fʋ pʋ mɔr atikil I paas la\'akaŋa nii.</string>
   <string name="reading_list_add_to_other_list">Zaŋim paas karʋŋ la\'asieba ni</string>
   <string name="reading_list_move_to_other_list">Vurigim kpɛn\'ɛs karʋŋ la\'ad sieba ni</string>

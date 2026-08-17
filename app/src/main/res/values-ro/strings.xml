@@ -2,6 +2,7 @@
 <!-- Authors:
 * Alesaru
 * Andreyyshore
+* Blaséd
 * Carcassonne93
 * Danutz
 * Dbrant
@@ -482,6 +483,9 @@
   <string name="temp_account_anon_ip_edit_status">&lt;b&gt;Nu ești conectat.&lt;/b&gt; După ce faci o modificare, adresa ta IP va rămâne asociată modificărilor tale.</string>
   <string name="temp_account_anon_edit_status">&lt;b&gt;Nu ești conectat.&lt;/b&gt; După ce faci o modificare, îți va fi creat un cont temporar pentru a-ți proteja confidențialitatea. &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Află mai multe&lt;/a&gt;</string>
   <string name="temp_account_edit_status">&lt;b&gt;Folosești un cont temporar.&lt;/b&gt; Editarea ta va fi atribuită contului %1$s. &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s \"&gt;Află mai multe&lt;/a&gt;.</string>
+  <string name="temp_account_login_status">&lt;b&gt;În prezent, utilizați un cont temporar.&lt;/b&gt; Modificările făcute cu contul temporar %1$s nu vor fi transferate în contul dvs. permanent atunci când vă conectați. Conectați-vă sau creați-vă un cont pentru a vă fi recunoscute modificările și pentru a primi și alte beneficii.</string>
+  <string name="temp_account_end_session">Încheie sesiunea</string>
+  <string name="temp_account_end_session_confirm">Această acțiune te va deconecta de la contul temporar. Dorești să continui?</string>
   <string name="crash_report_activity_title">Eroare aplicație</string>
   <string name="crash_report_relaunch_or_quit">Ne pare rău, aplicația Wikipedia a întâmpinat o eroare și nu mai funcționează.\n\nDoriți să o reporniți sau să o închideți?</string>
   <string name="crash_report_relaunch">Repornește</string>
@@ -537,6 +541,11 @@
     <item quantity="few">%1$d articole, %2$.2f MB</item>
     <item quantity="other">%1$d articole, %2$.2f MB</item>
   </plurals>
+  <plurals name="format_reading_list_statistical_detail_without_size">
+    <item quantity="one">Un singur articol disponibil offline</item>
+    <item quantity="few">%1$d din %2$d articole disponibile offline</item>
+    <item quantity="other">%1$d din %2$d de articole disponibile offline</item>
+  </plurals>
   <plurals name="format_reading_list_statistical_detail">
     <item quantity="one">%1$d articol disponibil offline, %3$.2f MB</item>
     <item quantity="few">%1$d de %2$d articole disponibile offline, %3$.2f MB</item>
@@ -553,6 +562,8 @@
   <string name="reading_list_menu_delete">Șterge lista</string>
   <string name="reading_list_menu_export">Exportați lista</string>
   <string name="reading_list_menu_select">Selectează</string>
+  <string name="reading_list_menu_unselect">Deselectare</string>
+  <string name="reading_list_export_write_permission_rationale">Pentru exportarea listei de lectură este necesară permisiunea de a scrie pe spațiul de stocare al dispozitivului.</string>
   <string name="reading_list_menu_rename">Editați numele/descrierea</string>
   <string name="reading_list_action_menu_remove_from_offline">Eliminați din offline</string>
   <string name="reading_list_action_menu_save_for_offline">Salvați pentru offline</string>
@@ -570,17 +581,31 @@
     <item quantity="few">%d articole eliminate din listă</item>
     <item quantity="other">%d articole eliminate din listă</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+  <plurals name="reading_list_articles_deleted_from_list">
     <item quantity="one">%1$d articol eliminat din %2$s</item>
     <item quantity="few">%1$d articole eliminate din %2$s</item>
-    <item quantity="other">%1$d articole eliminate din %2$s</item>
+    <item quantity="other">%1$d de articole eliminate din %2$s</item>
   </plurals>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="one">O listă a fost ștearsă</item>
+    <item quantity="few">%d liste au fost șterse</item>
+    <item quantity="other">%d de liste au fost șterse</item>
+  </plurals>
+  <string name="reading_lists_default_list_delete_message">Lista implicită (%s) nu poate fi ștearsă</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">%1$s a fost ștearsă. Lista implicită (%2$s) nu poate fi ștearsă.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">Listele au fost șterse. Lista implicită (%s) nu poate fi ștearsă.</string>
+  <string name="single_list_json_file_name">%s (listă de lectură Wikipedia).json</string>
+  <string name="multiple_lists_json_file_name">Liste de lectură Wikipedia (%s și altele).json</string>
   <string name="reading_list_items_deleted">%d articole eliminate din listă</string>
   <string name="reading_lists_item_deleted">%s eliminat din liste</string>
   <string name="reading_list_item_delete_undo">Anulează</string>
   <string name="reading_list_deleted">%s a fost ștearsă</string>
-  <string name="saved_list_empty_title">Nici o pagină salvată încă</string>
+  <string name="saved_list_empty_title">Niciun articol salvat încă</string>
   <string name="reading_lists_empty_message">Adăugați articole într-o listă pentru a le citi mai târziu, chiar și atunci când sunteți offline.</string>
+  <string name="reading_lists_search_empty_articles_title">Niciun articol salvat nu a fost găsit</string>
+  <string name="reading_lists_search_empty_articles_message">Nu am putut găsi „%s” în articolele tale salvate.</string>
+  <string name="reading_lists_search_empty_collections_title">Nicio colecție nu a fost găsită</string>
+  <string name="reading_lists_search_empty_collections_message">Nu am putut găsi „%s” în articolele tale salvate.</string>
   <string name="reading_list_empty">Nu aveți articole adăugate la această listă.</string>
   <string name="reading_list_article_offline">Disponibil offline</string>
   <string name="reading_list_article_make_offline">Faceți acest articol disponibil offline</string>
@@ -608,6 +633,11 @@
   <string name="reading_list_articles_moved_to_named">Mutat %1$d articole la %2$s</string>
   <string name="reading_list_delete_confirm">Sigur doriți să ștergeți %s?</string>
   <string name="reading_list_delete_lists_confirm_dialog_title">Ștergeți lista/listele selectate?</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+    <item quantity="one">Sigur dorești să ștergi lista %d?</item>
+    <item quantity="few">Sigur dorești să ștergi listele %d?</item>
+    <item quantity="other">Sigur dorești să ștergi listele %d?</item>
+  </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Conectați-vă pentru a activa sincronizarea</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Conectați-vă pentru a permite salvarea listelor de citire în cont.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Anulare</string>
@@ -658,12 +688,30 @@
   <string name="reading_list_activity_title">Lista de citit: %s</string>
   <string name="reading_list_notification_title">Lista/listele de lectură au fost exportate</string>
   <string name="reading_list_notification_text">%d Listă/liste de lectură au fost exportate ca \'reading_lists export.json\' în dosarul dvs. de descărcări (downloads)</string>
+  <string name="reading_list_notification_detailed_text">Listele de lectură au fost exportate în fișierul „reading_lists_export.json”</string>
   <string name="reading_lists_action_menu_export_lists">Exportă</string>
+  <string name="reading_lists_import_file_picker_title">Alege fișierul de importat</string>
+  <string name="reading_lists_import_failure_message">Importarea listelor de lectură a eșuat</string>
+  <string name="reading_lists_export_select_lists_message">Selectează lista/listele de exportat</string>
+  <string name="reading_lists_export_completed_message">Lista/listele de lectură au fost exportate</string>
+  <plurals name="reading_list_export_failed_message">
+    <item quantity="one">Exportul listei de lectură a eșuat</item>
+    <item quantity="few">Exportul listelor de lectură a eșuat</item>
+    <item quantity="other">Exportul listelor de lectură a eșuat</item>
+  </plurals>
+  <plurals name="reading_list_import_success_message">
+    <item quantity="one">Lista de lectură a fost importată</item>
+    <item quantity="few">Listele de lectură au fost importate</item>
+    <item quantity="other">Listele de lectură au fost importate</item>
+  </plurals>
+  <string name="reading_lists_preview_header_title">Listă partajată</string>
   <string name="reading_lists_preview_save_button">Salvează</string>
   <string name="reading_lists_preview_save_dialog_title">Salvează lista</string>
+  <string name="reading_lists_preview_save_dialog_text">Denumește lista și selectează articolele de salvat</string>
   <string name="reading_lists_preview_save_dialog_title_hint">Titlu</string>
   <string name="reading_lists_preview_save_dialog_cancel">Revocare</string>
   <string name="reading_lists_preview_save_dialog_save">Salvează</string>
+  <string name="reading_lists_preview_saved_snackbar">Lista de lectură a fost salvată</string>
   <string name="reading_lists_preview_saved_snackbar_action">Vizualizează</string>
   <string name="user_option_sync_label">Preferințe</string>
   <string name="notification_reverted_title">Modificare anulată</string>
@@ -806,9 +854,11 @@
   <string name="view_random_article_card_title">Articol aleatoriu</string>
   <string name="view_random_article_card_action">Mai multe articole aleatorii</string>
   <string name="view_top_read_card_title">Cele mai citite</string>
+  <string name="view_top_read_card_description">Ce este în tendințe azi pe Wikipedia</string>
   <string name="view_top_read_card_action">Mai multe cele mai citite</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d k</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
+  <string name="view_top_read_card_pageviews_views_suffix">vizualizări</string>
   <string name="view_next_random_article">Încarcă un alt articol aleatoriu</string>
   <string name="view_main_page_card_title">Astăzi la Wikipedia</string>
   <string name="view_main_page_card_action">Vezi pagina principală</string>
@@ -849,17 +899,22 @@
   <string name="feed_item_type_main_page">Pagina principală a Wikipedia cu conținut recomandat zilnic</string>
   <string name="feed_item_type_randomizer">Generați articole aleatorii pentru a fi citite</string>
   <string name="feed_item_type_suggested_edits">Sugestii pentru adăugarea de conținut la Wikipedia</string>
-  <string name="feed_empty_message" fuzzy="true">Nu există nimic în feedul dvs. Explorează</string>
+  <string name="feed_item_type_places">Articole din apropiere bazate pe locația curentă</string>
+  <string name="feed_empty_message">Nu există nimic în fluxul tău principal</string>
   <string name="feed_configure_onboarding_action">Personalizare</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Anulare</string>
-  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Personalizați-vă fluxul Explorează&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Acum puteți alege ce să afișați în fluxul dvs. și să acordați prioritate tipurilor dvs. de conținut preferate.</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Personalizează-ți fluxul principal&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Acum poți alege ce să afișezi în fluxul tău și să acorzi prioritate tipurilor tale de conținut preferate.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Anulare</string>
   <string name="feed_accessibility_card_text">Ați ajuns în partea de jos a fluxului.</string>
   <string name="feed_accessibility_card_load_more_button">Încarcă mai mult</string>
+  <string name="feed_language_variants_removal_dialog_title">Selectează o variantă lingvistică regională pentru o experiență de citire îmbunătățită</string>
+  <string name="feed_language_variants_removal_dialog_message">În prezent folosești o variantă de limba chineză generică, nesuportată ca limbă principală a Wikipedia.</string>
   <string name="feed_language_variants_removal_dialog_save">Salvează</string>
   <string name="feed_language_variants_removal_secondary_dialog_title">Vă rugăm să actualizați limbile tale secundare</string>
+  <string name="feed_language_variants_removal_secondary_dialog_message">În prezent folosești o variantă de limba chineză generică, nesuportată ca limbă secundară. Accesează setările pentru a selecta o nouă limbă secundară sau pentru a confirma lista de limbi.</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">Mergi la Setări</string>
   <string name="top_read_activity_title">Cele mai citite pe %s</string>
   <string name="tabs_activity_title">File</string>
   <string name="description_edit_text_hint">Descriere articol</string>
@@ -886,7 +941,10 @@
   <string name="description_edit_license_notice">Modificând descrierea articolului, sunt de acord cu &lt;a href=\"%1$s\"&gt; Termenii de utilizare&lt;/a&gt; și îmi eliberez irevocabil contribuțiile sub licența &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">începe de obicei cu o literă mică</string>
   <string name="description_edit_voice_input_description">Intrare vocală</string>
+  <string name="description_edit_learn_more">Află mai multe despre descrierile articolelor</string>
+  <string name="description_edit_image_caption_learn_more">Află mai multe despre legendele imaginilor</string>
   <string name="description_too_short">Textul este prea scurt.</string>
+  <string name="description_too_long">Încearcă să păstrezi descrierile scurte, astfel încât utilizatorii să poată înțelege subiectul articolului dintr-o privire.</string>
   <string name="description_ends_with_punctuation">Textul nu trebuie să se termine cu punctuație</string>
   <string name="description_starts_with_uppercase">Începeți cu o literă mică exceptând cazul în care primul cuvânt este un substantiv propriu.</string>
   <string name="description_starts_with_lowercase">Evitați începerea cu o literă mică.</string>
@@ -926,6 +984,7 @@
   <string name="suggested_edits_caption_images">Descrie imaginile</string>
   <string name="suggested_edits_tag_images">Etichetați imaginile</string>
   <string name="suggested_edits_edit_patrol">Patrula editărilor</string>
+  <string name="suggested_edits_edit_patrol_hint">Examinează modificările recente și determină dacă sunt constructive sau nu.</string>
   <string name="suggested_edits_edit_patrol_review">Revizuire</string>
   <string name="suggested_edits_review_description">Examinați descrierea articolului</string>
   <string name="suggested_edits_add_description_button">Adaugă descriere</string>
@@ -1001,6 +1060,7 @@
   <string name="suggested_edits_image_tags_select_title">Nu ați selectat nicio etichetă pentru această imagine</string>
   <string name="suggested_edits_image_tags_select_text">Doar etichetele pe care le alegeți vor fi adăugate la imagini. Etichetele care nu sunt selectate vor fi marcate ca respinse. Sigur doriți să marcați toate etichetele ca respinse?</string>
   <string name="suggested_edits_image_tags_add_tag">Adaugă etichetă</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">Etichetele nepublicate nu vor fi salvate</string>
   <string name="suggested_edits_image_zoom_tooltip">Prindeți pentru a mări această imagine.</string>
   <string name="suggested_edits_encouragement_message">%s, mulțumim pentru modificări. Mai jos puteți găsi mai multe modalități de a contribui la Wikipedia.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Bună %s&lt;/b&gt;, mai jos puteți găsi unele moduri rapide și ușoare de a ajuta la îmbunătățirea Wikipediei. Veți vedea diferența pe care o faceți cât de curând începeți. Editare fericită!</string>
@@ -1010,8 +1070,8 @@
   <string name="suggested_edits_edit_streak_stat_tooltip">Câte zile la rând în care ați avut contribuții. Dacă nu ați contribuit într-o perioadă, aceasta arată data ultimei contribuții.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Vizualizări totale ale paginilor articolelor la care ați contribuit în ultimele 30 de zile.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Pe baza de câte ori a fost revenită una dintre contribuțiile dvs. (anulată de un alt editor). Modificări anulate: %d.</string>
-  <string name="suggested_edits_paused_message">Editările sugerate sunt întrerupte până %1$s. Scuze, %2$s, o parte din contribuțiile dvs. recente au fost anulate.</string>
-  <string name="suggested_edits_disabled_message">Editările sugerate sunt dezactivate. Scuze, %s, prea multe dintre contribuțiile dvs. recente au fost anulate.</string>
+  <string name="suggested_edits_paused_message">Modificările sugerate sunt întrerupte până pe %1$s. Scuze, %2$s, o parte din contribuțiile dvs. recente au fost anulate.</string>
+  <string name="suggested_edits_disabled_message">Modificările sugerate sunt dezactivate. Scuze, %s, prea multe dintre contribuțiile tale recente au fost anulate.</string>
   <string name="suggested_edits_ip_blocked_message">Se pare că adresa dvs. IP (sau gama de adrese IP) este momentan blocată de la editarea Wikipediei.</string>
   <string name="suggested_edits_gate_message">Ne pare rău, %s, trebuie să faceți cel puțin trei modificări direct într-un articol pentru a utiliza această funcție.</string>
   <string name="suggested_edits_editing_tips_link_text">Modificare sfaturi și trucuri</string>
@@ -1027,11 +1087,16 @@
   <string name="suggested_edits_quality_sufficient_text">Suficient</string>
   <string name="suggested_edits_quality_poor_text">Slab</string>
   <string name="suggested_edits_quality_bad_text">Rău</string>
-  <string name="suggested_edits_label">Editări sugerate</string>
+  <string name="suggested_edits_label">Modificări sugerate</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Contribuție</item>
     <item quantity="few">Contribuții</item>
     <item quantity="other"/>
+  </plurals>
+  <plurals name="suggested_edits_edit_frequency">
+    <item quantity="one">Modificare</item>
+    <item quantity="few">Modificări</item>
+    <item quantity="other">Modificări</item>
   </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d zi</item>
@@ -1106,6 +1171,7 @@
   </plurals>
   <string name="suggested_edits_image_recommendations_task_title">Imaginile articolelor</string>
   <string name="suggested_edits_image_recommendations_task_detail">Adăugați imaginile sugerate în articolele Wikipedia pentru a îmbunătăți înțelegerea.</string>
+  <string name="image_recommendation_task_instruction">Vrei să adaugi această imagine la articol?</string>
   <string name="image_recommendation_tutorial">Tutorial</string>
   <string name="image_recommendation_accept">Da</string>
   <string name="image_recommendation_reject">Nu</string>
@@ -1119,16 +1185,22 @@
   <string name="image_recommendation_reject_dont_know">Nu cunosc acest subiect</string>
   <string name="image_recommendation_reject_other">Altceva</string>
   <string name="image_recommendation_reject_submit">Trimite</string>
+  <string name="image_recommendation_tooltip_main">Adaugă imagini lipsă la articole în Editări sugerate</string>
   <string name="image_recommendation_onboarding_1">Imaginile îi ajută pe oameni să înțeleagă, dar multe articole nu le au.</string>
   <string name="image_recommendation_onboarding_2">Dumneavoastră veți decide dacă o imagine sugerată ar trebui plasată într-un articol Wikipedia.</string>
   <string name="image_recommendation_onboarding_3">Sugestiile sunt generate automat și veți folosi propria judecată pentru a decide dacă le acceptați sau le respingeți.</string>
   <string name="image_recommendation_onboarding_4">Imaginile sunt preluate din Wikimedia Commons, o colecție de imagini cu licență liberă folosite de Wikipedia.</string>
+  <string name="image_recommendation_tooltip_1">Citește acest articol pentru a înțelege subiectul său</string>
+  <string name="image_recommendation_tooltip_2">Inspectează imaginea și informațiile asociate acesteia</string>
   <string name="image_recommendation_tooltip_3">Decideți dacă imaginea îi ajută pe cititori să înțeleagă mai bine acest subiect</string>
   <string name="image_recommendation_tooltip_next">Înainte</string>
   <string name="image_recommendation_tooltip_warning">Vă rugăm să revizuiți articolul pentru a înțelege subiectul acestuia și să inspectați imaginea</string>
   <string name="image_recommendation_depleted">Ne pare rău, nu există alte imagini sugerate disponibile în acest moment. Explorați alte &lt;a href=\"#\"&gt;modificări sugerate&lt;/a&gt; sau reveniți mai târziu.</string>
+  <string name="suggested_edits_report_feature">Problemă cu o caracteristică</string>
   <string name="suggested_edits_report_feature_subject">Problemă cu modificările sugerate</string>
   <string name="edit_summary_added_image">Imagine adăugată</string>
+  <string name="edit_summary_added_caption">Legendă adăugată</string>
+  <string name="edit_summary_added_image_and_caption">Imagine și legendă adăugate</string>
   <string name="edit_published_view">Vizualizare</string>
   <string name="activity_tab_logged_out_title">Autentificați-vă sau creați un cont pentru a vă viziualiza activitatea în aplicația Wikipedia</string>
   <string name="activity_tab_user_reading">Lecturile utilizatorului %s</string>
@@ -1147,20 +1219,83 @@
   <string name="activity_tab_game_stats_best_streak">Cea mai bună serie</string>
   <string name="activity_tab_play_wiki_games">Joacă WikiGames</string>
   <string name="activity_tab_report_email_subject">Raportare problemă - Fila Activitate</string>
+  <string name="activity_tab_report_email_body">Am întâmpinat o problemă cu funcția Filă Activitate:\n- [Descrieți problema specifică]\n\nComportamentul pe care aș dori să-l văd este:\n- [Descrieți soluția propusă]</string>
   <string name="activity_tab_menu_feedback">Problemă cu funcția</string>
   <string name="activity_tab_menu_info">Află mai multe</string>
   <string name="activity_tab_menu_customize">Personalizare</string>
+  <string name="activity_tab_menu_customize_description">Informațiile despre lectură se bazează pe limbile aplicației din setări, iar informațiile despre editare sunt limitate la limba principală a aplicației. Informațiile utilizează date locale, cu excepția editărilor, care sunt publice.</string>
+  <string name="activity_tab_highlights">Evidențieri</string>
   <string name="activity_tab_customize_screen_reading_history_switch_title">Istoria citirii</string>
   <string name="activity_tab_impact">Impactul dvs.</string>
   <string name="activity_tab_impact_most_viewed">Cele mai vizionate după editarea dumneavoastră</string>
   <string name="activity_tab_impact_contributions_this_month">Contribuții în această lună</string>
+  <plurals name="activity_tab_impact_edits_this_month">
+    <item quantity="one">modificare luna aceasta</item>
+    <item quantity="few">modificări luna aceasta</item>
+    <item quantity="other">de modificări luna aceasta</item>
+  </plurals>
+  <plurals name="activity_tab_impact_edits_last_month">
+    <item quantity="one">modificare luna trecută</item>
+    <item quantity="few">modificări luna trecută</item>
+    <item quantity="other">de modificări luna trecută</item>
+  </plurals>
   <string name="activity_tab_impact_all_time">Impactul tuturor timpurilor</string>
+  <plurals name="activity_tab_impact_total_edits">
+    <item quantity="one">modificare în total</item>
+    <item quantity="few">modificări în total</item>
+    <item quantity="other">de modificări în total</item>
+  </plurals>
+  <plurals name="activity_tab_impact_thanks">
+    <item quantity="one">mulțumire</item>
+    <item quantity="few">mulțumiri</item>
+    <item quantity="other">de mulțumiri</item>
+  </plurals>
+  <plurals name="activity_tab_impact_best_streak_text">
+    <item quantity="one">%d zi</item>
+    <item quantity="few">%d zile</item>
+    <item quantity="other">%d de zile</item>
+  </plurals>
   <string name="activity_tab_impact_best_streak">Cea mai bună serie</string>
+  <string name="activity_tab_impact_last_edited">Ultima modificare</string>
+  <string name="activity_tab_impact_suggested_edits_title">0 modificări de articole recente</string>
+  <string name="activity_tab_impact_suggested_edits_message">Se pare că nu ai făcut nicio editare luna aceasta. Extinde-ți cunoștințele gratuite editând subiecte care te interesează.</string>
   <string name="activity_tab_impact_suggested_edits_button">Faceți o editare</string>
+  <string name="activity_tab_impact_recent_activity">Activitatea ta recentă (ultimele 30 de zile)</string>
+  <plurals name="activity_tab_impact_recent_activity_edits">
+    <item quantity="one">Modificare</item>
+    <item quantity="few">Modificări</item>
+    <item quantity="other">De modificări</item>
+  </plurals>
+  <plurals name="activity_tab_impact_recent_activity_views">
+    <item quantity="one">Vizualizare a articolelor pe care le-ai editat</item>
+    <item quantity="few">Vizualizări ale articolelor pe care le-ai editat</item>
+    <item quantity="other">De vizualizări ale articolelor pe care le-ai editat</item>
+  </plurals>
+  <string name="activity_tab_customize_screen_time_spent_switch_title">Timp petrecut citind</string>
+  <string name="activity_tab_customize_screen_reading_insights_switch_title">Informații despre lectură</string>
+  <string name="activity_tab_customize_screen_editing_insights_switch_title">Informații despre editare</string>
+  <string name="activity_tab_customize_screen_impact_switch_title">Impactul dintotdeauna</string>
+  <string name="activity_tab_customize_screen_games_switch_title">Statistici de joc</string>
+  <string name="activity_tab_customize_screen_donations_switch_title">Ultima donație în aplicație</string>
+  <string name="activity_tab_customize_screen_timeline_switch_title">Cronologia comportamentului</string>
+  <string name="activity_tab_customize_screen_no_modules_message">Toate modulele de activitate sunt dezactivate. &lt;a href=\"#\"&gt;Activați-le&lt;/a&gt; pentru a vedea actualizări în această filă.</string>
   <string name="activity_tab_timeline_today">Astăzi</string>
   <string name="activity_tab_timeline_yesterday">Ieri</string>
   <string name="activity_tab_timeline_empty_state_title">Nimic de afișat</string>
+  <string name="activity_tab_timeline_empty_state_message">Începe să citești și să editezi pentru a-ți construi istoricul</string>
+  <string name="activity_tab_timeline_view_changes_button">Vizualizează modificările</string>
+  <string name="activity_tab_onboarding_reading_patterns_title">Obiceiuri de lectură</string>
+  <string name="activity_tab_onboarding_reading_patterns_message">Vezi cât timp ai petrecut citind și ce articole sau subiecte ai explorat de-a lungul timpului.</string>
+  <string name="activity_tab_onboarding_screen_title">Îți prezentăm fila Activitate</string>
+  <string name="activity_tab_onboarding_impact_title">Evidențieri din impactul tău</string>
+  <string name="activity_tab_onboarding_impact_message">Descoperă informații despre contribuțiile tale și despre amploarea cunoștințelor pe care le-ai împărtășit cu ceilalți.</string>
+  <string name="activity_tab_onboarding_engage_title">Mai multe modalități de a te implica</string>
+  <string name="activity_tab_onboarding_engage_message">Explorează statisticile pentru jocuri, articole salvate și alte activități care te conectează mai profund cu Wikipedia.</string>
   <string name="activity_tab_onboarding_stay_in_control_title">Păstrează controlul</string>
+  <string name="activity_tab_onboarding_stay_in_control_message">Alege ce module să fie afișate. Toate datele personale rămân private pe dispozitivul tău, iar istoricul de navigare poate fi șters oricând.</string>
+  <string name="edits_screen_what_is_title">Editarea în aplicația Wikipedia</string>
+  <string name="edits_screen_what_is_body">Nu știi de unde să începi cu editarea? Încearcă Modificări sugerate, o funcție care creează oportunități de a aduce contribuții mici, dar vitale, la Wikipedia. Alternativ, mergi direct la un articol de interes pentru tine și fă o modificare folosind wikitextul.</string>
+  <string name="activity_tab_snackbar_label">Statisticile pentru jocuri sunt afișate pentru limba ta principală.</string>
   <string name="file_page_activity_title">Pagina fișer</string>
   <string name="file_page_add_image_caption_button">Adaugă legendă pentru imagine</string>
   <string name="file_page_add_image_tags_button">Adaugă etichete pentru imagine</string>
@@ -1180,16 +1315,24 @@
   <string name="onboarding_get_started">Începe</string>
   <string name="onboarding_maybe_later">Poate mai târziu</string>
   <string name="onboarding_explore_title">Noi căi de explorare</string>
-  <string name="onboarding_explore_text" fuzzy="true">Aruncă-te în gaura de iepure Wikipedia cu o actualizare constantă a fluxului Explore. &lt;br/&gt; &lt;b&gt;Personalizați&lt;/b&gt; fluxul în funcție de interesele dvs. - fie că învață despre evenimente istorice &lt;b&gt;În această zi&lt;/b&gt;, fie că arunca cu zarurile cu &lt;b&gt;Aleator&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text">Aruncă-te în gaura de iepure Wikipedia cu un flux principal care se actualizează constant. &lt;br/&gt; &lt;b&gt;Personalizează-ți&lt;/b&gt; fluxul în funcție de interesele tale – fie că vrei să înveți despre evenimente istorice cu funcția &lt;b&gt;Astăzi în istorie&lt;/b&gt;, fie că arunci cu zarul cu funcția &lt;b&gt;Aleatoriu&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Citirea listelor cu sincronizare</string>
   <string name="onboarding_reading_list_sync_text_v2">Puteți crea liste de citire din articole pe care doriți să le citiți mai târziu, chiar și atunci când sunteți offline.&lt;br/&gt;Conectați-vă la contul dvs. Wikipedia pentru a vă sincroniza listele de citire.. &lt;a href=\"#login\"&gt;Alăturați-vă Wikipedia&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Confidențialitatea datelor</string>
-  <string name="onboarding_data_privacy_text" fuzzy="true">Considerăm că nu ar trebui să furnizați informații personale pentru a participa la mișcarea liberă a cunoașterii. Datele de utilizare colectate pentru această aplicație sunt anonime. Aflați mai multe despre &lt;a href=\"#privacy\"&gt;politica noastră de confidențialitate&lt;/a&gt; și de &lt;a href=\"#termsOfUse\"&gt;termenii de utilizare&lt;/a&gt; .</string>
+  <string name="onboarding_data_privacy_text">Considerăm că nu ar trebui să oferi informații personale pentru a participa la mișcarea liberă a cunoașterii. Datele de utilizare colectate de această aplicație sunt anonime.&lt;br/&gt;&lt;br/&gt;Află mai multe despre &lt;a href=\"#privacy\"&gt;politica de confidențialitate&lt;/a&gt; și &lt;a href=\"#termsOfUse\"&gt;termenii de utilizare&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Trimiteți date de utilizare</string>
   <string name="onboarding_got_it">Am înțeles</string>
   <string name="onboarding_multilingual_secondary_text">Am găsit următoarele pe dispozitivul dvs.:</string>
   <string name="onboarding_multilingual_add_language_text">Adăugați sau editați limbi</string>
   <string name="onboarding_welcome_title_v2">Enciclopedia gratuită\n... în peste 300 de limbi</string>
+  <string name="onboarding_next">Înainte</string>
+  <string name="onboarding_fresh_install_knowledge_title">Toată cunoașterea lumii</string>
+  <string name="onboarding_fresh_install_knowledge_text">Wikipedia este o enciclopedie online gratuită, cu 65 de milioane de articole scrise și întreținute în colaborare în peste 300 de limbi de către o comunitate de voluntari.</string>
+  <string name="onboarding_fresh_install_knowledge_learn_more">Află mai multe despre Wikipedia</string>
+  <string name="onboarding_app_languages_title">Citește în peste 300 de limbi</string>
+  <string name="onboarding_app_languages_text">Am identificat următoarele limbi pe acest dispozitiv:</string>
+  <string name="onboarding_app_languages_primary">Principală</string>
+  <string name="onboarding_app_languages_add_button">Adăugați sau modificați limbile</string>
   <string name="app_shortcuts_random">Aleatoriu</string>
   <string name="app_shortcuts_continue_reading">Continuați să citiți</string>
   <string name="app_shortcuts_search">Caută</string>
@@ -1221,7 +1364,7 @@
     <item quantity="few">Eliminați limbile selectate?</item>
     <item quantity="other"/>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Veți vedea conținut doar în fluxul Explorează și filtrele de căutare rapidă pentru limbile Wikipedia rămase.</string>
+  <string name="wikipedia_languages_remove_dialog_content">În fluxul principal și în filtrele de căutare rapidă veți vedea conținut Wikipedia doar în limbile rămase în listă.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Imposibil de șters toate limbile</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Păstrați cel puțin o limbă Wikipedia din care să căutați și să citiți conținut.</string>
   <string name="more_language_options">mai mult</string>
@@ -1262,7 +1405,9 @@
   <string name="insert_media_settings">Adăugați detaliile imaginii</string>
   <string name="insert_media_settings_uploaded_image">Imagine încărcată</string>
   <string name="insert_media_settings_caption">Descrierea imaginii</string>
+  <string name="insert_media_settings_caption_description">Legendă a imaginii vizibilă în articol</string>
   <string name="insert_media_settings_alternative_text">Text alternativ</string>
+  <string name="insert_media_settings_alternative_text_description">Descriere pentru cititorii cu deficiențe de vedere</string>
   <string name="insert_media_advanced_settings">Setări avansate</string>
   <string name="insert_media_advanced_settings_wrap_image">Înfășoară textul în jurul imaginii</string>
   <string name="insert_media_advanced_settings_image_position">Poziția imaginii</string>
@@ -1470,6 +1615,7 @@
   <string name="patroller_tasks_filters_user_status_registered_desc">Editori autentificati.</string>
   <string name="patroller_tasks_filters_user_status_newcomers_desc">Editori înregistrați care au mai puțin de 10 editări din 4 zile de activitate.</string>
   <string name="patroller_tasks_filters_user_status_learners_desc">Editori înregistrați a căror experiență se încadrează între „Nou veniți” și „Utilizatori cu experiență”.</string>
+  <string name="patroller_tasks_filters_latest_revisions_latest_revision">Versiunea curentă</string>
   <string name="patroller_tasks_filters_automated_contributions_header">Contribuții automate</string>
   <string name="patroller_tasks_filters_contribution_quality_good">Foarte probabil bune</string>
   <string name="patroller_tasks_filters_contribution_quality_good_desc">Foarte precis în găsirea aproape a tuturor editărilor fără probleme.</string>
@@ -1504,6 +1650,7 @@
   <string name="survey_dialog_general_maybe">Pot fi</string>
   <string name="on_this_day_game_completed_message" fuzzy="true">Vă mulțumesc că ați jucat. Un nou joc \"Care a venit primul?\" este disponibil zilnic în feedul Explore.</string>
   <string name="on_this_day_game_article_read_button">Citiți articolul</string>
+  <string name="year_in_review_get_started_info">Istoricul lecturii tale rămâne protejat. Informațiile despre lectură sunt calculate folosind datele stocate local pe dispozitivul tău.</string>
   <string name="recommended_reading_list_title">Discover</string>
   <string name="recommended_reading_list_interest_source_interests">Lasă-mă să aleg potrivit intereselor mele</string>
   <string name="recommended_reading_list_interest_source_saved">Alege pentru mine pe baza articolelor mele salvate</string>
@@ -1558,4 +1705,5 @@
   <string name="recommended_reading_list_settings_notification_subtitle_enable">Când „Discover“-ul dvs. este actualizat, Wikipedia vă va trimite o notificare.</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">„Descoperă“ este activat. Wikipedia vă va recomanda articole de citit.</string>
   <string name="donation_reminders_prompt_positive_button">Donați acum</string>
+  <string name="reading_challenge_onboarding_note">Istoricul lecturii tale rămâne protejat. Informațiile despre lectură sunt calculate folosind datele stocate local pe dispozitivul tău.</string>
 </resources>

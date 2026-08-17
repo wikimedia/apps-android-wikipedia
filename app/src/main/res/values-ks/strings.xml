@@ -391,7 +391,7 @@
   <string name="reading_lists_item_deleted">%s آو ہَٹاونہٕ فہرستو منٛز</string>
   <string name="reading_list_item_delete_undo">رَد کٕرو</string>
   <string name="reading_list_deleted">%s آو ہَٹاونہٕ</string>
-  <string name="saved_list_empty_title">وۄنی روٗد نہٕ کانٛہہ تہِ مَحفوٗظ صَفہٕ</string>
+  <string name="saved_list_empty_title" fuzzy="true">وۄنی روٗد نہٕ کانٛہہ تہِ مَحفوٗظ صَفہٕ</string>
   <string name="reading_list_article_offline">آفلاین چھُ مَیَسر</string>
   <string name="reading_list_select_item">مُنتَخٕب کٔرِو</string>
   <string name="reading_lists_login_button">وِکیٖپیٖڈیاہَس منٛز دٲخل گژھُن / شٲمل گژھُن</string>

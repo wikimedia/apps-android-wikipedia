@@ -343,7 +343,7 @@
   <string name="reading_list_menu_select">Dewis</string>
   <string name="reading_list_name_sample">Fy rhestr ddarllen</string>
   <string name="reading_list_name_hint">Enw ar y rhestr</string>
-  <string name="saved_list_empty_title">Dim rhestrau darllen eto</string>
+  <string name="saved_list_empty_title" fuzzy="true">Dim rhestrau darllen eto</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">Dileu</string>
   <string name="reading_lists_action_menu_export_lists">Allforio</string>
   <string name="reading_lists_preview_save_button">Cadw</string>

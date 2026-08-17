@@ -616,7 +616,7 @@
   <string name="reading_lists_item_deleted">%s bol odstránený zo zoznamov</string>
   <string name="reading_list_item_delete_undo">Vrátiť</string>
   <string name="reading_list_deleted">Zoznam %s bol odstránený</string>
-  <string name="saved_list_empty_title">Zatiaľ nemáte žiadne zoznamy na prečítanie</string>
+  <string name="saved_list_empty_title" fuzzy="true">Zatiaľ nemáte žiadne zoznamy na prečítanie</string>
   <string name="reading_lists_empty_message">Pridajte si články do zoznamov na prečítanie, aby ste si ich mohli pozrieť aj neskôr (dokonca aj offline).</string>
   <string name="reading_list_empty">V tomto zozname nemáte žiadne články.</string>
   <string name="reading_list_article_offline">Dostupné offline</string>

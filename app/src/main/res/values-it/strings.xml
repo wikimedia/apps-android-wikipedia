@@ -627,7 +627,7 @@
   <string name="reading_lists_item_deleted">%s rimosso dagli elenchi</string>
   <string name="reading_list_item_delete_undo">Annulla</string>
   <string name="reading_list_deleted">%s cancellato</string>
-  <string name="saved_list_empty_title">Nessun elenco di lettura ancora</string>
+  <string name="saved_list_empty_title" fuzzy="true">Nessun elenco di lettura ancora</string>
   <string name="reading_lists_empty_message">Aggiungi voci ad un elenco per leggerle più tardi, anche quando sei offline.</string>
   <string name="reading_list_empty">Non hai aggiunto alcuna voce a questo elenco.</string>
   <string name="reading_list_article_offline">Disponibile offline</string>

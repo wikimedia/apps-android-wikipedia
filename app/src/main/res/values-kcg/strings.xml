@@ -372,7 +372,7 @@
   <string name="reading_lists_item_deleted">Á̱ turung %s di̱ lís</string>
   <string name="reading_list_item_delete_undo">Bwuok ma̱ng</string>
   <string name="reading_list_deleted">Á̱ ti̱n %s</string>
-  <string name="saved_list_empty_title">Pejí nang á̱ sak a̱ni ku nshyia̱ bah</string>
+  <string name="saved_list_empty_title" fuzzy="true">Pejí nang á̱ sak a̱ni ku nshyia̱ bah</string>
   <string name="reading_lists_empty_message">Mbeang a̱yaati̱kut mi̱ lis mat fang jenjini̱shi, ku nang a shyia̱ ma̱ntalang wa.</string>
   <string name="reading_list_empty">A sang a̱yaati̱kut nang á̱ mbeang a̱ni mi̱ lis huni.</string>
   <string name="reading_list_article_offline">A̱ nshyia̱ ma̱ntalang</string>

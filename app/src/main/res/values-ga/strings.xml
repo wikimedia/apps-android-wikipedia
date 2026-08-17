@@ -590,11 +590,11 @@
     <item quantity="many">%d alt bainte den liosta </item>
     <item quantity="other">%d alt bainte den liosta</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
-    <item quantity="one">one=%1$d alt bainte as %2$s</item>
-    <item quantity="two">one=%1$d alt bainte as %2$s</item>
-    <item quantity="few">one=%1$d alt bainte as %2$s</item>
-    <item quantity="many">one=%1$d alt bainte as %2$s</item>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="one">%1$d alt bainte as %2$s</item>
+    <item quantity="two">%1$d alt bainte as %2$s</item>
+    <item quantity="few">%1$d alt bainte as %2$s</item>
+    <item quantity="many">%1$d alt bainte as %2$s</item>
     <item quantity="other">%1$d alt bainte as %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
@@ -613,8 +613,12 @@
   <string name="reading_lists_item_deleted">%s bainte de na liostaí</string>
   <string name="reading_list_item_delete_undo">Cealaigh</string>
   <string name="reading_list_deleted">Scriosadh %s</string>
-  <string name="saved_list_empty_title">Níor sábháladh aon leathanach fós</string>
+  <string name="saved_list_empty_title">Gan aon ailt sábháilte fós</string>
   <string name="reading_lists_empty_message">Cuir ailt ar liosta faoi choinne iad a léamh níos déanaí, fiú nuair a bheidh tú as líne.</string>
+  <string name="reading_lists_search_empty_articles_title">Ní bhfuarthas aon ailt shábháilte</string>
+  <string name="reading_lists_search_empty_articles_message">Ní raibh muid in ann “%s” a aimsiú i measc d’ailt shábháilte.</string>
+  <string name="reading_lists_search_empty_collections_title">Níor aimsíodh aon bhailiúcháin</string>
+  <string name="reading_lists_search_empty_collections_message">Ní raibh muid in ann “%s” a aimsiú i do bhailiúcháin.</string>
   <string name="reading_list_empty">Níl aon alt curtha ar an liosta seo agat.</string>
   <string name="reading_list_article_offline">Ar fáil as líne</string>
   <string name="reading_list_article_make_offline">Cuir an t-alt seo ar fáil as líne</string>
@@ -1945,6 +1949,8 @@
   <string name="places_empty_message_snackbar">Níl aon ailt in aice láimhe. Bain triail as súmáil amach agus an léarscáil a bhogadh.</string>
   <string name="survey_dialog_title">Cabhraigh linn an ghné seo a fheabhsú</string>
   <string name="survey_dialog_message">An bhfuil tú sásta leis an ngné seo?</string>
+  <string name="home_feed_survey_title">Cabhraigh le Baile a fheabhsú</string>
+  <string name="home_feed_survey_message">An bhfuil tú sásta leis na fothaí \"Pobal\" agus \"Duit féin\"?</string>
   <string name="survey_dialog_option_satisfied">Sásta</string>
   <string name="survey_dialog_option_neutral">Neodrach</string>
   <string name="survey_dialog_option_unsatisfied">Míshásta</string>
@@ -2666,6 +2672,7 @@
   <string name="explore_feed_new_update_prompt_language_description">Ag léamh i dteangacha éagsúla? Bíonn a thaithí féin ag gach ceann acu. Níl le déanamh ach aistriú agus beidh do bheatha nua réidh.</string>
   <string name="explore_feed_new_update_prompt_primary_button_text">Saincheap mo bheatha</string>
   <string name="explore_feed_customize_interests">Saincheap leasanna</string>
+  <string name="explore_feed_customize_discover">Saincheap Discover</string>
   <string name="explore_feed_new_update_prompt_secondary_button_text">Socraigh suas dom é</string>
   <string name="explore_feed_building_text">Tógfaimid do bheatha…</string>
   <string name="explore_feed_community_tab_label">Pobal</string>
@@ -2693,8 +2700,11 @@
   <string name="explore_feed_personalized_preference_empty_state_text">Ní mór duit leasanna a chur leis chun moltaí ábhair phearsantaithe a fheiceáil. Is féidir leat é seo a dhéanamh sna céimeanna roimhe seo nó níos déanaí i Socruithe.</string>
   <string name="explore_feed_because_you_read">Mar gheall gur léigh tú: %s</string>
   <string name="explore_feed_swipe_to_explore_prompt_title">Svaidhpeáil chun iniúchadh a dhéanamh</string>
-  <string name="explore_feed_swipe_to_explore_prompt_message" fuzzy="true">Svaidhpeáil síos chun nascleanúint a dhéanamh idir topaicí, nó svaidhpeáil i leataobh chun ábhar gaolmhar a iniúchadh.</string>
-  <string name="home_feed_settings_title" fuzzy="true">Saincheap an fotha Baile</string>
+  <string name="explore_feed_swipe_to_explore_prompt_message">Svaidhpeáil suas chun nascleanúint a dhéanamh idir topaicí, nó svaidhpeáil i leataobh chun ábhar gaolmhar a iniúchadh.</string>
+  <string name="home_feed_settings_title">Saincheap do bheatha Baile</string>
+  <string name="home_feed_settings_default_view_title">Amharc beatha réamhshocraithe</string>
+  <string name="home_feed_settings_default_view_subtitle">Roghnaigh cén fotha a thaispeánfar ar dtús nuair a osclaíonn tú an aip</string>
+  <string name="home_feed_settings_default_view_confirm">Cuirfear an t-athrú seo i bhfeidhm an chéad uair eile a osclóidh tú an aip.</string>
   <string name="home_feed_settings_whats_driving_title">Cad atá ag tiomáint do bheatha</string>
   <string name="home_feed_settings_modules_title">Modúil</string>
   <string name="home_feed_settings_community_subtitle">Modúil beatha \"Pobal\" a chasadh air nó as</string>
@@ -2744,9 +2754,46 @@
   <string name="home_feed_places_of_interest_cta_button">Téigh go dtí Áiteanna</string>
   <string name="home_feed_settings_places_of_interest_title">Áiteanna spéise</string>
   <string name="home_feed_settings_places_of_interest_subtitle">Ailt in aice le do shuíomh deireanach in Áiteanna</string>
+  <string name="home_feed_settings_games_title">Cluichí</string>
+  <string name="home_feed_settings_games_subtitle">Cluichí laethúla bunaithe ar ábhar Vicipéid</string>
+  <string name="home_feed_settings_discover_title">Faigh amach moltaí</string>
+  <string name="home_feed_settings_discover_subtitle">Ailt ó do liosta léitheoireachta Discover</string>
+  <string name="home_feed_discover_cta_title">Ó Discover</string>
+  <string name="home_feed_discover_cta_description">Foghlaim faoi ábhair nua, roghnaithe duitse amháin. Roghnaigh idir nuashonruithe laethúla, seachtainiúla nó míosúla.</string>
+  <string name="home_feed_discover_cta_button">Cumasaigh liosta léitheoireachta Discover</string>
+  <string name="home_feed_discover_card_footer">Ó Discover • Nuashonruithe %s</string>
+  <string name="home_feed_discover_see_all_title">Tá níos mó le fáil amach</string>
+  <string name="home_feed_discover_see_all_description">Tá níos mó scéalta roghnaithe díreach duitse ar do liosta léitheoireachta pearsantaithe.</string>
+  <string name="home_feed_discover_see_all_button">Iniúchadh a dhéanamh ar na moltaí go léir</string>
   <string name="home_feed_places_of_interest_card_footer">%1$s • Bunaithe ar do shuíomh in Áiteanna</string>
   <string name="home_feed_for_you_screen_end_of_feed_title">Sin é don lá inniu!</string>
   <string name="home_feed_for_you_screen_end_of_feed_description">Tar ar ais amárach chun ailt úra nua a fháil atá saincheaptha duitse.</string>
   <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Bealaí chun leanúint ar aghaidh ag foghlaim:</string>
   <string name="home_feed_for_you_screen_end_of_feed_add_interests">Cuir &lt;a href=\"#add_interests\"&gt;leasanna nua&lt;/a&gt; leis</string>
+  <string name="randomizer_shake_prompt_title">Croith le suaimhneas a chur air</string>
+  <string name="randomizer_shake_prompt_message">Croith do ghléas chun léim chuig alt randamach agus rud éigin gan choinne a fháil amach.</string>
+  <string name="home_feed_games_module_cta_prompt_title">Ar mhaith leat níos mó cluichí a imirt?</string>
+  <string name="home_feed_games_module_cta_prompt_subtitle">Téigh go dtí an mol cluichí</string>
+  <string name="home_feed_games_module_cta_prompt_button_text">Mol cluichí</string>
+  <string name="random_article_widget_name">Airteagal randamach</string>
+  <string name="reading_lists_tab_all_articles">Gach alt</string>
+  <string name="reading_lists_tab_collections">Bailiúcháin</string>
+  <string name="reading_lists_search_saved_articles">Cuardaigh ailt shábháilte</string>
+  <string name="reading_lists_search_collections">Cuardaigh bailiúcháin</string>
+  <string name="reading_lists_remove_articles_confirm_dialog_title">Bain ailt shábháilte?</string>
+  <string name="reading_lists_remove_articles_confirm_button">Bain</string>
+  <plurals name="reading_lists_remove_articles_confirm_dialog_message">
+    <item quantity="one">Bainfear an t-alt seo as na bailiúcháin ghaolmhara go léir.</item>
+    <item quantity="two">Bainfear na %d alt seo as na bailiúcháin ghaolmhara go léir.</item>
+    <item quantity="few">Bainfear na %d alt seo as na bailiúcháin ghaolmhara go léir.</item>
+    <item quantity="many">Bainfear na %d alt seo as na bailiúcháin ghaolmhara go léir.</item>
+    <item quantity="other">Bainfear na %d alt seo as na bailiúcháin ghaolmhara go léir.</item>
+  </plurals>
+  <plurals name="reading_lists_articles_removed_from_collections">
+    <item quantity="one">Alt bainte as na bailiúcháin ghaolmhara go léir.</item>
+    <item quantity="two">%d alt bainte as na bailiúcháin ghaolmhara go léir.</item>
+    <item quantity="few">%d alt bainte as na bailiúcháin ghaolmhara go léir.</item>
+    <item quantity="many">%d alt bainte as na bailiúcháin ghaolmhara go léir.</item>
+    <item quantity="other">%d alt bainte as na bailiúcháin ghaolmhara go léir.</item>
+  </plurals>
 </resources>

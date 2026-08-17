@@ -499,7 +499,7 @@
   <string name="reading_lists_item_deleted">%s ji lîstan hate rakirin</string>
   <string name="reading_list_item_delete_undo">Betal bike</string>
   <string name="reading_list_deleted">%s hate jêbirin</string>
-  <string name="saved_list_empty_title">Hêj yê qeydkirî tine ye</string>
+  <string name="saved_list_empty_title" fuzzy="true">Hêj yê qeydkirî tine ye</string>
   <string name="reading_lists_empty_message">Gotaran ji bo paşê bixwînî tevlî lîstekê bike, ger derhêl bî jî karibî.</string>
   <string name="reading_list_empty">Gotarên te tevlî vê lîstê kiriye nînin.</string>
   <string name="reading_list_article_offline">Wek derhêl berdest be</string>

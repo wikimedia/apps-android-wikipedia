@@ -568,7 +568,7 @@
   <string name="reading_lists_item_deleted">%s zerrendetatik kendu da</string>
   <string name="reading_list_item_delete_undo">Desegin</string>
   <string name="reading_list_deleted">%s ezabatua</string>
-  <string name="saved_list_empty_title">Irakurketa zerrendarik oraindik ez</string>
+  <string name="saved_list_empty_title" fuzzy="true">Irakurketa zerrendarik oraindik ez</string>
   <string name="reading_lists_empty_message">Gorde artikuluak irakurketa zerrenda beranduago ikus dezazun, nahiz eta offline egon.</string>
   <string name="reading_list_empty">Zerrenda honetan ez duzu artikulurik gehitu.</string>
   <string name="reading_list_article_offline">Erabilgarri lineaz kanpo</string>

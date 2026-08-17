@@ -414,7 +414,7 @@
   <string name="reading_lists_item_deleted">%s fan \'e listen ôfhelle</string>
   <string name="reading_list_item_delete_undo">Weromsette</string>
   <string name="reading_list_deleted">%s wiske</string>
-  <string name="saved_list_empty_title">Noch gjin bewarre siden</string>
+  <string name="saved_list_empty_title" fuzzy="true">Noch gjin bewarre siden</string>
   <string name="reading_lists_empty_message">Set artikels op in list om letter te lêzen, sels sûnder netwurkferbining.</string>
   <string name="reading_list_empty">Jo hawwe gjin artikels oan dizze list tafoege.</string>
   <string name="reading_list_article_offline">Ofline beskikber</string>

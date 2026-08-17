@@ -617,7 +617,7 @@
   <string name="reading_lists_item_deleted">%s, listelerden çıkarıldı</string>
   <string name="reading_list_item_delete_undo">Geri al</string>
   <string name="reading_list_deleted">%s silindi</string>
-  <string name="saved_list_empty_title">Henüz kaydedilmiş sayfa yok</string>
+  <string name="saved_list_empty_title" fuzzy="true">Henüz kaydedilmiş sayfa yok</string>
   <string name="reading_lists_empty_message">Çevrimdışı olsanız bile daha sonra okumak için listenize maddeler ekleyin.</string>
   <string name="reading_list_empty">Bu listeye henüz bir madde eklemediniz.</string>
   <string name="reading_list_article_offline">Çevrimdışı olarak erişilebilir</string>

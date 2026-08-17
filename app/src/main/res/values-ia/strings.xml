@@ -564,7 +564,7 @@
   <string name="reading_lists_item_deleted">%s removite del listas</string>
   <string name="reading_list_item_delete_undo">Disfacer</string>
   <string name="reading_list_deleted">%s delite</string>
-  <string name="saved_list_empty_title">Nulle pagina salveguardate ancora</string>
+  <string name="saved_list_empty_title" fuzzy="true">Nulle pagina salveguardate ancora</string>
   <string name="reading_lists_empty_message">Adder articulos a un lista pro leger plus plus tarde, mesmo sin connexion a internet.</string>
   <string name="reading_list_empty">Tu non ha articulos addite a iste lista.</string>
   <string name="reading_list_article_offline">Disponibile foras de linea</string>
