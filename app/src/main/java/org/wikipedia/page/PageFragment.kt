@@ -1308,7 +1308,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         requireActivity().finish()
     }
 
-    fun dismissEditMenu(title: PageTitle) {
+    fun logEditAttemptStepEvent(title: PageTitle) {
         EditAttemptStepEvent.logAbort(pageTitle = title, editCount = editCount)
     }
 
