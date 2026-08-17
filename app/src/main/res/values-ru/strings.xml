@@ -679,7 +679,7 @@
   <string name="reading_lists_item_deleted">%s удалено из списков</string>
   <string name="reading_list_item_delete_undo">Отменить</string>
   <string name="reading_list_deleted">%s удалено</string>
-  <string name="saved_list_empty_title">Ещё нет сохранённых страниц</string>
+  <string name="saved_list_empty_title" fuzzy="true">Ещё нет сохранённых страниц</string>
   <string name="reading_lists_empty_message">Добавьте статьи в список для чтения позже, даже если вы офлайн.</string>
   <string name="reading_list_empty">В этом списке нет добавленных статей.</string>
   <string name="reading_list_article_offline">Доступно без подключения к Интернету</string>

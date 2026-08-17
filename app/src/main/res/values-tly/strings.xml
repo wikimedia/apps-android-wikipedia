@@ -447,7 +447,7 @@
   <string name="reading_lists_item_deleted">%s ce sijohijonku molə byə</string>
   <string name="reading_list_item_delete_undo">Ohaštej</string>
   <string name="reading_list_deleted">%s molə byə</string>
-  <string name="saved_list_empty_title">Hələ ki bo hande sijohijon nin</string>
+  <string name="saved_list_empty_title" fuzzy="true">Hələ ki bo hande sijohijon nin</string>
   <string name="reading_lists_empty_message">Bə sijohi məǧolon əlovə kykardən bo pešo əvoni handejro, hətto girəm šymə oflajnədəjon.</string>
   <string name="reading_list_empty">By sijohijədə əlovə kardə byə məǧolon nin.</string>
   <string name="reading_list_article_offline">Be interneti dastrəse</string>

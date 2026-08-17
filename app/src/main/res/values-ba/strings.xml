@@ -556,7 +556,7 @@
   <string name="reading_lists_item_deleted">%s исемлектәрҙән юйылған</string>
   <string name="reading_list_item_delete_undo">Кире алырға</string>
   <string name="reading_list_deleted">%s юйылған</string>
-  <string name="saved_list_empty_title">Әлегә һаҡланған биттәр юҡ</string>
+  <string name="saved_list_empty_title" fuzzy="true">Әлегә һаҡланған биттәр юҡ</string>
   <string name="reading_lists_empty_message">Офлайн-режимда булһағыҙ ҙа, мәҡәләләрҙе аҙаҡ уҡыу өсөн исемлеккә өҫтәгеҙ.</string>
   <string name="reading_list_empty">Был исемлеккә индерелгән мәҡәләләрегеҙ юҡ.</string>
   <string name="reading_list_article_offline">Офлайн-режимда ла ҡулланырға була</string>

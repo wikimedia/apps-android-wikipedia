@@ -519,7 +519,7 @@
   <string name="reading_lists_item_deleted">%s дӀаяьккхай листамашкара</string>
   <string name="reading_list_item_delete_undo">Юхадаккха</string>
   <string name="reading_list_deleted">%s листам дӀабаьккхаб</string>
-  <string name="saved_list_empty_title">Дешарá дола листамаш хӀанзехьа дац</string>
+  <string name="saved_list_empty_title" fuzzy="true">Дешарá дола листамаш хӀанзехьа дац</string>
   <string name="reading_lists_empty_message">ТӀехьагӀа еша дӀаяхка статьяш, хье офлайн вале/яле а.</string>
   <string name="reading_list_empty">Укх листама чу тӀатеха оагӀонаш яц.</string>
   <string name="reading_list_article_offline">Дунен мазаца хоттам беце а дешалуш да</string>

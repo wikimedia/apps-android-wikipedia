@@ -585,7 +585,7 @@
   <string name="reading_lists_item_deleted">%s togs bort från listan</string>
   <string name="reading_list_item_delete_undo">Ångra</string>
   <string name="reading_list_deleted">%s raderades</string>
-  <string name="saved_list_empty_title">Inga sparade sidor ännu</string>
+  <string name="saved_list_empty_title" fuzzy="true">Inga sparade sidor ännu</string>
   <string name="reading_lists_empty_message">Lägg till artiklar i en lista för att läsa senare, även när du saknar uppkoppling.</string>
   <string name="reading_list_empty">Du har inte lagt till några artiklar i denna lista.</string>
   <string name="reading_list_article_offline">Tillgänglig offline</string>
