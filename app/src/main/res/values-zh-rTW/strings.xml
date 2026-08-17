@@ -603,7 +603,7 @@
   <string name="reading_lists_item_deleted">%s已從清單之中移除</string>
   <string name="reading_list_item_delete_undo">撤銷</string>
   <string name="reading_list_deleted">%s 已刪除</string>
-  <string name="saved_list_empty_title">尚無儲存頁面</string>
+  <string name="saved_list_empty_title" fuzzy="true">尚無儲存頁面</string>
   <string name="reading_lists_empty_message">將條目增加至供日後閱讀用的清單，讓您即使在離線時也可使用。</string>
   <string name="reading_list_empty">您尚未添加條目至此清單。</string>
   <string name="reading_list_article_offline">可於離線時閱讀</string>

@@ -543,7 +543,7 @@
   <string name="reading_lists_item_deleted">%s, тизмеледен къоратылды</string>
   <string name="reading_list_item_delete_undo">Кери ал</string>
   <string name="reading_list_deleted">%s кетерилди</string>
-  <string name="saved_list_empty_title">Алкъын сакъланнган бет джокъду</string>
+  <string name="saved_list_empty_title" fuzzy="true">Алкъын сакъланнган бет джокъду</string>
   <string name="reading_lists_empty_message">Оффлайн болсагъыз да, артдан окъурча тизмелеригизге статьяла къошугъуз.</string>
   <string name="reading_list_empty">Бу тизмеге алкъын чырт бир статья къошмагъансыз.</string>
   <string name="reading_list_article_offline">Оффлайн джетиширчады</string>

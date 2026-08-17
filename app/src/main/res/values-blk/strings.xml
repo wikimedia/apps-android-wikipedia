@@ -451,7 +451,7 @@
   <string name="reading_lists_item_deleted">အဝ်ႏစာႏရင်ꩻဖိုင်ႏကို ဖုဲင်းထန်ႏထွူလဲဉ်း %s</string>
   <string name="reading_list_item_delete_undo">သဲင်ꩻဖျင်ချာ</string>
   <string name="reading_list_deleted">ယားကုဲင်ထွူလဲဉ်း %s</string>
-  <string name="saved_list_empty_title">သဲမ်ဟဝ်ခါꩻ လိတ်မဲ့ငါဖိုင်ႏ အဝ်ႏတဝ်း</string>
+  <string name="saved_list_empty_title" fuzzy="true">သဲမ်ဟဝ်ခါꩻ လိတ်မဲ့ငါဖိုင်ႏ အဝ်ႏတဝ်း</string>
   <string name="reading_list_empty">စာႏရင်ꩻယိုထျꩻနဝ်ꩻ နာꩻထဲမ်သော့ꩻခါꩻ ရောမ်ဖြုဲင်ꩻဖိုင်ႏ အဝ်ႏတဝ်း။</string>
   <string name="reading_list_article_offline">လꩻနွောင်ꩻဒျာႏ အဝ်ႏလိုႏတဝ်းလဲင်းစား</string>
   <string name="reading_list_article_make_offline">မာꩻရောမ်ဖြုဲင်ꩻယို ဖေႏကလꩻနွောင်ꩻ အဝ်ႏလိုႏတဝ်းလဲင်းစား</string>

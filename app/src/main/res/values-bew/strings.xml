@@ -506,7 +506,7 @@
   <string name="reading_lists_item_deleted">%s dibuang deri daptar</string>
   <string name="reading_list_item_delete_undo">Balikin</string>
   <string name="reading_list_deleted">%s keapus</string>
-  <string name="saved_list_empty_title">Belon ada halaman kesimpen</string>
+  <string name="saved_list_empty_title" fuzzy="true">Belon ada halaman kesimpen</string>
   <string name="reading_lists_empty_message">Tambahin makalah ke daptar bacaan bakal entarannya, hata lu lagi di luar-jala.</string>
   <string name="reading_list_empty">Lu kaga\' punya makalah nyang ditambahin ke ni daptar.</string>
   <string name="reading_list_article_offline">Derak di luar-jala</string>

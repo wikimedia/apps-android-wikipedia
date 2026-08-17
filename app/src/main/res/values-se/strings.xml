@@ -553,7 +553,7 @@
   <string name="reading_lists_item_deleted">%s sihkkojuvvui listtuin</string>
   <string name="reading_list_item_delete_undo">Gáđa</string>
   <string name="reading_list_deleted">%s sihkkojuvvui</string>
-  <string name="saved_list_empty_title">Eai leat vuos lohkanlisttut.</string>
+  <string name="saved_list_empty_title" fuzzy="true">Eai leat vuos lohkanlisttut.</string>
   <string name="reading_lists_empty_message">Lasit artihkkaliid ovtta listui vai ieš beasat daid lohkat maŋŋelaš, vel dalle nai go it beasa nehttii.</string>
   <string name="reading_list_empty">Dus eai leat vuos artihkkalat dán listtus.</string>
   <string name="reading_list_article_offline">Olámuttos offline</string>

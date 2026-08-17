@@ -584,7 +584,7 @@
   <string name="reading_lists_item_deleted">Đã xóa %s khỏi danh sách</string>
   <string name="reading_list_item_delete_undo">Hoàn tác</string>
   <string name="reading_list_deleted">Đã xóa %s</string>
-  <string name="saved_list_empty_title">Chưa có danh sách đọc</string>
+  <string name="saved_list_empty_title" fuzzy="true">Chưa có danh sách đọc</string>
   <string name="reading_lists_empty_message">Thêm các bài viết vào danh sách để bạn có thể đọc sau, ngay cả khi bạn đang ngoại tuyến!</string>
   <string name="reading_list_empty">Bạn chưa có bài viết nào được thêm vào danh sách này.</string>
   <string name="reading_list_article_offline">Khả dụng ngoại tuyến</string>

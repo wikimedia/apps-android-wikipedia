@@ -477,7 +477,7 @@
   <string name="reading_lists_item_deleted">เอา %s ออกจากรายการแล้ว</string>
   <string name="reading_list_item_delete_undo">เลิกทำ</string>
   <string name="reading_list_deleted">ลบ %s แล้ว</string>
-  <string name="saved_list_empty_title">ยังไม่มีรายการอ่าน</string>
+  <string name="saved_list_empty_title" fuzzy="true">ยังไม่มีรายการอ่าน</string>
   <string name="reading_lists_empty_message">เพิ่มบทความลงในรายการสำหรับอ่านภายหลังได้แม้กระทั่งตอนที่คุณออฟไลน์</string>
   <string name="reading_list_empty">คุณไม่ได้เพิ่มบทความใด ๆ ลงในรายการนี้</string>
   <string name="reading_list_article_offline">ใช้ได้ขณะออฟไลน์</string>

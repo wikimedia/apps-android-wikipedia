@@ -394,7 +394,7 @@
   <string name="reading_list_item_deleted">%s წაიშალა სიიდან</string>
   <string name="reading_list_item_delete_undo">დაბრუნება</string>
   <string name="reading_list_deleted">„%s“ წაიშალა</string>
-  <string name="saved_list_empty_title">შენახული გვერდების გარეშე</string>
+  <string name="saved_list_empty_title" fuzzy="true">შენახული გვერდების გარეშე</string>
   <string name="reading_list_remove_from_list">%s-დან წაშლა</string>
   <string name="reading_list_remove_from_lists">საკითხავი სიებიდან წაშლა</string>
   <string name="reading_list_select_item">არჩევა</string>

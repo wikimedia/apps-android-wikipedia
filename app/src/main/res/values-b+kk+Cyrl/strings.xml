@@ -294,7 +294,7 @@
   <string name="reading_list_item_deleted">\"%s\" тізімнен алып тасталды</string>
   <string name="reading_list_item_deleted_from_list">%1$s %2$s тізімінен алып тасталды</string>
   <string name="reading_list_deleted">%s өшірілді</string>
-  <string name="saved_list_empty_title">Сақталған парақшалар әзірше жоқ</string>
+  <string name="saved_list_empty_title" fuzzy="true">Сақталған парақшалар әзірше жоқ</string>
   <string name="reading_list_select_item">Таңдау</string>
   <string name="reading_list_confirm_remove_article_from_offline">Офлайннан алып тастау</string>
   <string name="reading_lists_login_button">Уикипедияға кіру / қосылу</string>

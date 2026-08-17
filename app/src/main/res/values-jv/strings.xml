@@ -342,7 +342,7 @@
   <string name="reading_lists_item_deleted">%s kabusek saka pratélan</string>
   <string name="reading_list_item_delete_undo">Balèkaké</string>
   <string name="reading_list_deleted">%s dibusak</string>
-  <string name="saved_list_empty_title">Durung ana kaca kang kasimpen</string>
+  <string name="saved_list_empty_title" fuzzy="true">Durung ana kaca kang kasimpen</string>
   <string name="reading_lists_empty_message">Wuwuh artikel ing pratélan saperlu kawaca mengko, kapara nalika \'\'offline\'\'.</string>
   <string name="reading_list_empty">Panjenengan ora duwé artikel ing pratélan iki.</string>
   <string name="reading_list_article_offline">Cumepak ing njaban jaringan</string>
