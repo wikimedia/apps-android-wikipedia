@@ -609,6 +609,12 @@
         <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_randomizer_shake_prompt_shown"
             android:title="@string/preference_key_randomizer_shake_prompt_shown"/>
+
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="ab_test_newWithinInterest"
+            android:title="New articles by Topic test group" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>
