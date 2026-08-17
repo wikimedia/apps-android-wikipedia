@@ -55,7 +55,12 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
 
     private val _waitForRevisionState = MutableStateFlow(Resource<Boolean>())
     val waitForRevisionState = _waitForRevisionState.asStateFlow()
-    private val editCountRequest = loadUserTotalEdits()
+    private val _editCount = MutableStateFlow(-1)
+    val editCount = _editCount.asStateFlow()
+
+    init {
+        loadUserTotalEdits()
+    }
 
     fun loadPageSummary() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
@@ -78,15 +83,13 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
         }
     }
 
-    private fun loadUserTotalEdits(): Deferred<Int> = viewModelScope.async(CoroutineExceptionHandler { _, throwable ->
-        L.e(throwable)
-    }) {
-        val userInfoResponse = ServiceFactory.get(WikipediaApp.instance.wikiSite).globalUserInfo(AccountUtil.userName)
-        userInfoResponse.query?.globalUserInfo?.editCount ?: 0
-    }
-
-    suspend fun awaitEditCountRequest(): Int {
-        return editCountRequest.await()
+    private fun loadUserTotalEdits() {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            L.e(throwable)
+        }) {
+            val userInfoResponse = ServiceFactory.get(WikipediaApp.instance.wikiSite).globalUserInfo(AccountUtil.userName)
+            _editCount.value = userInfoResponse.query?.globalUserInfo?.editCount ?: 0
+        }
     }
 
     fun requestSuggestion() {
@@ -107,7 +110,7 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
                 response.prediction.map { StringUtil.capitalize(it)!! }
             } else response.prediction).distinct()
 
-            _requestSuggestionState.value = Resource.Success(Triple(response, awaitEditCountRequest(), list))
+            _requestSuggestionState.value = Resource.Success(Triple(response, _editCount.value, list))
         }
     }
 

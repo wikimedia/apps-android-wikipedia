@@ -107,13 +107,6 @@ class DescriptionEditFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        lifecycleScope.launch {
-            EditAttemptStepEvent.logInit(
-                pageTitle = viewModel.pageTitle,
-                editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
-                editCount = viewModel.awaitEditCountRequest()
-            )
-        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -132,6 +125,11 @@ class DescriptionEditFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        EditAttemptStepEvent.logInit(
+            pageTitle = viewModel.pageTitle,
+            editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
+            editCount = viewModel.editCount.value
+        )
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 launch {
@@ -193,14 +191,12 @@ class DescriptionEditFragment : Fragment() {
                                             editSucceeded -> {
                                                 AnonymousNotificationHelper.onEditSubmitted()
                                                 viewModel.waitForRevisionUpdate(newRevId)
-                                                lifecycleScope.launch {
                                                     EditAttemptStepEvent.logSaveSuccess(
                                                         pageTitle = viewModel.pageTitle,
                                                         revisionId = newRevId,
                                                         editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
-                                                        editCount = viewModel.awaitEditCountRequest()
+                                                        editCount = viewModel.editCount.value
                                                     )
-                                                }
                                                 analyticsHelper.logSuccess(requireContext(), viewModel.pageTitle, newRevId)
                                                 ImageRecommendationsEvent.logEditSuccess(viewModel.action, viewModel.pageTitle.wikiSite.languageCode, newRevId)
                                             }
@@ -234,7 +230,7 @@ class DescriptionEditFragment : Fragment() {
                                                 pageTitle = viewModel.pageTitle,
                                                 revisionId = revId,
                                                 editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
-                                                editCount = viewModel.awaitEditCountRequest()
+                                                editCount = viewModel.editCount.value
                                             )
                                         } else {
                                             editFailed(RuntimeException("Received unrecognized description edit response"), true)
@@ -344,13 +340,11 @@ class DescriptionEditFragment : Fragment() {
                 binding.fragmentDescriptionEditView.loadReviewContent(true)
             } else {
                 analyticsHelper.logAttempt(requireContext(), viewModel.pageTitle)
-                lifecycleScope.launch {
-                    EditAttemptStepEvent.logSaveAttempt(
-                        pageTitle = viewModel.pageTitle,
-                        editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
-                        editCount = viewModel.awaitEditCountRequest()
-                    )
-                }
+                EditAttemptStepEvent.logSaveAttempt(
+                    pageTitle = viewModel.pageTitle,
+                    editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
+                    editCount = viewModel.editCount.value
+                )
                 viewModel.postDescription(
                     currentDescription = binding.fragmentDescriptionEditView.description.orEmpty(),
                     editComment = getEditComment(),
@@ -440,13 +434,11 @@ class DescriptionEditFragment : Fragment() {
         FeedbackUtil.showError(requireActivity(), caught, wikiSite)
         L.e(caught)
         if (logError) {
-            lifecycleScope.launch {
-                EditAttemptStepEvent.logSaveFailure(
-                    pageTitle = viewModel.pageTitle,
-                    editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
-                    editCount = viewModel.awaitEditCountRequest()
-                )
-            }
+            EditAttemptStepEvent.logSaveFailure(
+                pageTitle = viewModel.pageTitle,
+                editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
+                editCount = viewModel.editCount.value
+            )
         }
     }
 
