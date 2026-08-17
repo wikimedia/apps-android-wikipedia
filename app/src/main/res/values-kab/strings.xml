@@ -423,7 +423,7 @@
   <string name="reading_lists_item_deleted">%s yettwakkes seg wumuɣen</string>
   <string name="reading_list_item_delete_undo">Err-d</string>
   <string name="reading_list_deleted">%s yettwakkes</string>
-  <string name="saved_list_empty_title">Ulac yakan tabdart n tɣuri</string>
+  <string name="saved_list_empty_title" fuzzy="true">Ulac yakan tabdart n tɣuri</string>
   <string name="reading_lists_empty_message">Sekles imagraden deg tebdarin n tɣuri akken ad tizmireḍ ad ten-twaliḍ ticki, ɣas s war tuqqna.</string>
   <string name="reading_list_empty">UR ɣur-k ara imagraden yettwarnan ar tebdart-agi.</string>
   <string name="reading_list_article_offline">Yella s war tuqqna</string>

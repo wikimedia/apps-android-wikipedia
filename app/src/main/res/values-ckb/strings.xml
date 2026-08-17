@@ -516,7 +516,7 @@
   <string name="reading_lists_item_deleted">%s سڕایەوە لە پێڕست</string>
   <string name="reading_list_item_delete_undo">پووچەڵکردنەوە</string>
   <string name="reading_list_deleted">%s سڕدرایەوە</string>
-  <string name="saved_list_empty_title">ھێشتا پەڕەکان پاشەکەوت نەکراون</string>
+  <string name="saved_list_empty_title" fuzzy="true">ھێشتا پەڕەکان پاشەکەوت نەکراون</string>
   <string name="reading_lists_empty_message">وتارەکان زیاد بکە بۆ پێڕستەکانی خوێندنەوە، کە دەتوانیت دواتر بیان بینیت، تەنانەت کاتێک دەرھێڵیش بیت.</string>
   <string name="reading_list_empty">ھیچ وتارێکت لەم پێڕستە دانەناوە.</string>
   <string name="reading_list_article_offline">بەبێ ئینتەرنێت بەردەستە</string>

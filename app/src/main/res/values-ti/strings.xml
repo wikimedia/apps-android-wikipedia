@@ -309,7 +309,7 @@
   <string name="reading_lists_item_deleted">%s ካብ ዝርዝራት ተኣልዩ</string>
   <string name="reading_list_item_delete_undo">ምለስ</string>
   <string name="reading_list_deleted">%s ተሰሪዙ</string>
-  <string name="saved_list_empty_title">ገና ዝተዓቀቡ ገጻት የለን</string>
+  <string name="saved_list_empty_title" fuzzy="true">ገና ዝተዓቀቡ ገጻት የለን</string>
   <string name="reading_lists_empty_message">ዋላ ካብ መስመር ወጻኢ ኣብ ዘለኻሉ እዋን፣ ድሒርካ ንኸተንብብ ኣብ ዝርዝር ጽሑፋት ወስኽ።</string>
   <string name="reading_list_empty">ኣብዚ ዝርዝር ዝተወሰኹ ጽሑፋት የብልካን።</string>
   <string name="reading_list_article_offline">ካብ መስመር ወጻኢ ይርከብ</string>

@@ -507,7 +507,7 @@
   <string name="reading_lists_item_deleted">%s iri yi a yoe poɔ</string>
   <string name="reading_list_item_delete_undo">Leɛ iri a toma na bare</string>
   <string name="reading_list_deleted">%s iri barɛɛŋ</string>
-  <string name="saved_list_empty_title">Gampɛle zaa ba biŋ soŋ sɛre</string>
+  <string name="saved_list_empty_title" fuzzy="true">Gampɛle zaa ba biŋ soŋ sɛre</string>
   <string name="reading_lists_empty_message">De atekele paale pɛll na kanne a puoriŋ, ka fõõ gba ba wa be saseɛŋ.</string>
   <string name="reading_list_empty">Fo ba taa atekele na poɛ a pɛll ŋa.</string>
   <string name="reading_list_article_offline">Bebe la saseɛ kpinnaa eŋɛ</string>

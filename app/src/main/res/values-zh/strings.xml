@@ -620,7 +620,7 @@
   <string name="reading_lists_item_deleted">%s已从列表中移除</string>
   <string name="reading_list_item_delete_undo">撤销</string>
   <string name="reading_list_deleted">%s已删除</string>
-  <string name="saved_list_empty_title">目前尚无保存的页面</string>
+  <string name="saved_list_empty_title" fuzzy="true">目前尚无保存的页面</string>
   <string name="reading_lists_empty_message">添加条目到列表中以便日后阅读，即使您处于离线状态也是如此。</string>
   <string name="reading_list_empty">您还没有条目添加到此列表。</string>
   <string name="reading_list_article_offline">离线可用</string>

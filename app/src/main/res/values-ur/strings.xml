@@ -421,7 +421,7 @@
   <string name="reading_list_items_deleted">%d مضامین فہرست سے ہٹا دیے گئے</string>
   <string name="reading_list_item_delete_undo">ترمیم رد کریں</string>
   <string name="reading_list_deleted">%s حذف شدہ</string>
-  <string name="saved_list_empty_title">یہاں اب تک کوئی فہرست مطالعہ موجود نہیں ہے۔</string>
+  <string name="saved_list_empty_title" fuzzy="true">یہاں اب تک کوئی فہرست مطالعہ موجود نہیں ہے۔</string>
   <string name="reading_lists_empty_message">مضامین کو مطالعہ کی فہرست میں شامل کریں جنہیں آپ بعد میں پڑھنا چاہتے ہیں، خواہ آپ آف لائن ہوں۔</string>
   <string name="reading_list_empty">اس فہرست میں کوئی مضمون شامل نہیں کیا گیا۔</string>
   <string name="reading_list_article_offline">آف لائن دستیاب</string>
