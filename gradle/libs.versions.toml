@@ -1,5 +1,5 @@
 [versions]
-appcompat = "1.7.1"
+appcompat = "1.8.0"
 balloon = "1.7.6"
 browser = "1.10.0"
 coilCompose = "3.4.0"
