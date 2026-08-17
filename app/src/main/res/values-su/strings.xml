@@ -381,7 +381,7 @@
   <string name="reading_list_items_deleted">%d artikel dipupus tina daptar</string>
   <string name="reading_list_item_delete_undo">Teu tulus</string>
   <string name="reading_list_deleted">%s dipupus</string>
-  <string name="saved_list_empty_title">Can aya daptar bacaan deui</string>
+  <string name="saved_list_empty_title" fuzzy="true">Can aya daptar bacaan deui</string>
   <string name="reading_lists_empty_message" fuzzy="true">Simpen artikel kana daptar bacaan hambéh engké anjeun bisa nempona deui, malah mah mun anjeun  keur oflén.</string>
   <string name="reading_list_empty">Anjeun teu mibanda artikel nu ditambahkeun ka ieu daptar.</string>
   <string name="reading_list_article_offline">Sayaga kalawan oflén</string>

@@ -567,7 +567,7 @@
   <string name="reading_lists_item_deleted">%s уклоњено са спискова</string>
   <string name="reading_list_item_delete_undo">Опозови</string>
   <string name="reading_list_deleted">Листа „%s” је избрисана</string>
-  <string name="saved_list_empty_title">Још увек нема сачуваних страница</string>
+  <string name="saved_list_empty_title" fuzzy="true">Још увек нема сачуваних страница</string>
   <string name="reading_lists_empty_message">Додајте чланке на листу за читање касније, чак и када сте офлајн.</string>
   <string name="reading_list_empty">На овој листи нема додатих чланака.</string>
   <string name="reading_list_article_offline">Доступно офлајн</string>

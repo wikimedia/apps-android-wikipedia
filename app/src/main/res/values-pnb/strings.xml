@@ -259,7 +259,7 @@
   <string name="reading_list_item_deleted">%s نوں لسٹ چوں ہٹایا گیا</string>
   <string name="reading_list_item_delete_undo">اݨکیتا کرو</string>
   <string name="reading_list_deleted">%s مٹائیا گیا</string>
-  <string name="saved_list_empty_title">کوئی پڑھت سوچی نہیں ہے</string>
+  <string name="saved_list_empty_title" fuzzy="true">کوئی پڑھت سوچی نہیں ہے</string>
   <string name="reading_list_select_item">چݨو</string>
   <string name="reading_lists_confirm_remote_delete_yes">ہاں</string>
   <string name="reading_lists_confirm_remote_delete_no">نہیں</string>

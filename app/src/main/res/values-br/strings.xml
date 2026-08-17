@@ -419,7 +419,7 @@
   <string name="theme_chooser_menu_item_short_tooltip">Personelaat ho parrenn-ostilhoù</string>
   <string name="temp_account_not_logged_in">N\'oc\'h ket kevreet</string>
   <string name="temp_account_dialog_ok">Komprenet am eus</string>
-  <string name="temp_account_using_title">Ur c\'hont da c\'hortoz emaoc\'h oc\'h implij</string>
+  <string name="temp_account_using_title">Ur gont verrbad emaoc\'h oc\'h implijout</string>
   <string name="crash_report_activity_title">Fazi an arload</string>
   <string name="crash_report_relaunch_or_quit">Hon digarezit, ur fazi zo degouezhet gant an arolad Wikimedia ha chomet eo a-sav.\n\nHa c\'hoant ho peus da adloc\'hañ pe da guitaat ?</string>
   <string name="crash_report_relaunch">Adloc\'hañ</string>
@@ -539,7 +539,7 @@
   <string name="reading_lists_item_deleted">%s dilamet diouzh ar rolloù</string>
   <string name="reading_list_item_delete_undo">Dizober</string>
   <string name="reading_list_deleted">%s dilamet</string>
-  <string name="saved_list_empty_title">Roll lenn ebet c\'hoazh.</string>
+  <string name="saved_list_empty_title" fuzzy="true">Roll lenn ebet c\'hoazh.</string>
   <string name="reading_lists_empty_message">Enrollañ pennadoù en ur roll da lenn diwezhatoc\'h evit gallout lenn anezho, ezlinenn zoken.</string>
   <string name="reading_list_empty">N\'hoc\'h eus pennad ebet ouzhpennet d\'ar roll-mañ.</string>
   <string name="reading_list_article_offline">A c\'haller tizhout ezlinenn</string>

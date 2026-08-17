@@ -570,8 +570,12 @@
   <string name="reading_lists_item_deleted">%s siyahılardan silindi</string>
   <string name="reading_list_item_delete_undo">Geri qaytar</string>
   <string name="reading_list_deleted">%s silindi</string>
-  <string name="saved_list_empty_title">Hələ yadda saxlanmış səhifə yoxdur</string>
+  <string name="saved_list_empty_title">Hələ yadda saxlanmış məqalə yoxdur</string>
   <string name="reading_lists_empty_message">Hətta oflayn olsanız belə, daha sonra oxumaq üçün məqalələri siyahıya əlavə edin.</string>
+  <string name="reading_lists_search_empty_articles_title">Yadda saxlanılmış məqalə tapılmadı</string>
+  <string name="reading_lists_search_empty_articles_message">Yadda saxlanılan məqalələrinizdə “%s” tapa bilmədik.</string>
+  <string name="reading_lists_search_empty_collections_title">Heç bir kolleksiya tapılmadı</string>
+  <string name="reading_lists_search_empty_collections_message">Kolleksiyalarınızda “%s” tapa bilmədik.</string>
   <string name="reading_list_empty">Bu siyahıya əlavə edilmiş məqaləniz yoxdur.</string>
   <string name="reading_list_article_offline">Oflayn mövcuddur</string>
   <string name="reading_list_article_make_offline">Bu məqaləni oflayn rejimdə əlçatan edin</string>

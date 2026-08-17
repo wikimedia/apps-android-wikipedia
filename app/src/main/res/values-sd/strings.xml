@@ -527,7 +527,7 @@
   <string name="reading_lists_item_deleted">%s فھرستن مان ھٽايو ويو</string>
   <string name="reading_list_item_delete_undo">اڻڪريو</string>
   <string name="reading_list_deleted">%s ڊاھيو ويو</string>
-  <string name="saved_list_empty_title">اڃان ڪي بہ سانڍيل صفحا ڪونھن</string>
+  <string name="saved_list_empty_title" fuzzy="true">اڃان ڪي بہ سانڍيل صفحا ڪونھن</string>
   <string name="reading_lists_empty_message">مضمونن کي بعد ۾ پڙھڻ جي لاءِ ڪنھن پڙھڻ جي فھرست ۾ شامل ڪريو، ڀلي جڏھن توھان آف لائين بہ ھجو.</string>
   <string name="reading_list_empty">ھن فھرست ۾ ڪي بہ مضمون وڌل ناھن.</string>
   <string name="reading_list_article_offline">آفلائين موجود</string>

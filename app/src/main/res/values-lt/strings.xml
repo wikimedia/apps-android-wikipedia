@@ -466,7 +466,7 @@
   <string name="reading_lists_item_deleted">%s pašalintas iš sąrašų</string>
   <string name="reading_list_item_delete_undo">Anuliuoti</string>
   <string name="reading_list_deleted">%s ištrintas</string>
-  <string name="saved_list_empty_title">Dar nėra skaitymo sąrašų</string>
+  <string name="saved_list_empty_title" fuzzy="true">Dar nėra skaitymo sąrašų</string>
   <string name="reading_lists_empty_message">Pridėkite straipsnių į sąrašą, kad galėtumėte skaityti vėliau, net kai esate neprisijungę.</string>
   <string name="reading_list_empty">Neturite pridėtų į sąrašą straipsnių.</string>
   <string name="reading_list_article_offline">Prieinama neprisijungus</string>

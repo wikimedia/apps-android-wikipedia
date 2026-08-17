@@ -468,7 +468,7 @@
   <string name="reading_lists_item_deleted">စာရင်းများမှ %s ကို ဖယ်ရှားပြီး</string>
   <string name="reading_list_item_delete_undo">နောက်ပြန် ပြန်ပြင်ရန်</string>
   <string name="reading_list_deleted">%s ကို ဖျက်ပြီး</string>
-  <string name="saved_list_empty_title">စာဖတ်စာရင်း မရှိ။</string>
+  <string name="saved_list_empty_title" fuzzy="true">စာဖတ်စာရင်း မရှိ။</string>
   <string name="reading_lists_empty_message">သင် အော့ဖ်လိုင်းဖြစ်လျင်တောင်မှ နောင်အခါ ဖတ်ရှုရန် ဆောင်းပါးများကို စာရင်းတစ်ခုသို့ ပေါင်းထည့်ရန်</string>
   <string name="reading_list_empty">ဤစာရင်း၌ သင်ပေါင်းထည့်ထားသော ဆောင်းပါးမရှိပါ</string>
   <string name="reading_list_article_offline">အော့ဖ်လိုင်း ရရှိနိုင်မှု</string>

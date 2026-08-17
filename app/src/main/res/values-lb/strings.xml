@@ -554,8 +554,12 @@
   <string name="reading_lists_item_deleted">%s vun de Lëschten erofgeholl</string>
   <string name="reading_list_item_delete_undo">Réckgängeg maachen</string>
   <string name="reading_list_deleted">%s geläscht</string>
-  <string name="saved_list_empty_title">Nach keng gespäichert Säiten</string>
+  <string name="saved_list_empty_title">Nach keng gespäichert Artikelen</string>
   <string name="reading_lists_empty_message">Setzt Artikelen op eng Lëscht derbäi fir se spéider ze liesen, esouguer dann, wann Dir offline sidd.</string>
+  <string name="reading_lists_search_empty_articles_title">Keng gespäichert Artikele fonnt</string>
+  <string name="reading_lists_search_empty_articles_message">Mir konnten „%s“ an Äre gespäicherten Artikelen net fannen.</string>
+  <string name="reading_lists_search_empty_collections_title">Keng Sammlunge fonnt</string>
+  <string name="reading_lists_search_empty_collections_message">Mir konnten „%s“ an Äre Sammlungen net fannen.</string>
   <string name="reading_list_empty">Dir hutt keng Artikelen op dës Lëscht derbäigesat.</string>
   <string name="reading_list_article_offline">Offline disponibel</string>
   <string name="reading_list_article_make_offline">Dësen Artikel offline disponibel maachen</string>

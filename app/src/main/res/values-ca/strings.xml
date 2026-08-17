@@ -563,7 +563,7 @@
   <string name="reading_lists_item_deleted">%s suprimit de les llistes</string>
   <string name="reading_list_item_delete_undo">Desfés</string>
   <string name="reading_list_deleted">%s eliminada</string>
-  <string name="saved_list_empty_title">Encara no hi ha cap llista de lectura.</string>
+  <string name="saved_list_empty_title" fuzzy="true">Encara no hi ha cap llista de lectura.</string>
   <string name="reading_lists_empty_message">Afegeix articles a una llista per llegir més endavant, fins i tot quan estigueu fora de línia.</string>
   <string name="reading_list_empty">No teniu articles afegits a la llista.</string>
   <string name="reading_list_article_offline">Disponible fora de línia</string>

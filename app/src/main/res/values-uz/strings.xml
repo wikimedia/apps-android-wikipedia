@@ -523,7 +523,7 @@
   <string name="reading_lists_item_deleted">%s roʻyxatdan oʻchirildi</string>
   <string name="reading_list_item_delete_undo">Bekor qilish</string>
   <string name="reading_list_deleted">%s oʻchirildi</string>
-  <string name="saved_list_empty_title">Saqlangan sahifalar mavjud emas</string>
+  <string name="saved_list_empty_title" fuzzy="true">Saqlangan sahifalar mavjud emas</string>
   <string name="reading_lists_empty_message">Keyinchalik, hatto oflaynda ham oʻqish uchun maqolalarni roʻyxatga qoʻshing.</string>
   <string name="reading_list_empty">Siz hali roʻyxatga maqola qoʻshmagansiz.</string>
   <string name="reading_list_article_offline">Oflayn maqola</string>

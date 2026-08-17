@@ -618,7 +618,7 @@
   <string name="reading_lists_item_deleted">%s removido das listas</string>
   <string name="reading_list_item_delete_undo">Desfazer</string>
   <string name="reading_list_deleted">%s apagada</string>
-  <string name="saved_list_empty_title">Nenhuma página salva ainda</string>
+  <string name="saved_list_empty_title" fuzzy="true">Nenhuma página salva ainda</string>
   <string name="reading_lists_empty_message">Adicione itens à lista para ler, mesmo quando você está desconectado.</string>
   <string name="reading_list_empty">Você não tem artigos adicionados a esta lista.</string>
   <string name="reading_list_article_offline">Disponível offline</string>
