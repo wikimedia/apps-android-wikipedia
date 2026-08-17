@@ -15,16 +15,11 @@ import org.wikipedia.compose.components.ToggleListScreen
 import org.wikipedia.compose.components.ToggleSettingItem
 import org.wikipedia.compose.components.WikipediaAlertDialog
 import org.wikipedia.extensions.instrument
-import org.wikipedia.feed.interests.NewWithinInterestABTest
 
 enum class ForYouModuleType(
     @param:StringRes val title: Int,
     @param:StringRes val subtitle: Int,
 ) {
-    NEW_WITHIN_INTEREST(
-        title = R.string.home_feed_new_within_interest_title,
-        subtitle = R.string.home_feed_new_within_interest_subtitle
-    ),
     BASED_ON_INTEREST(
         title = R.string.home_feed_settings_based_on_interest_title,
         subtitle = R.string.home_feed_settings_based_on_interest_subtitle
@@ -57,11 +52,7 @@ enum class ForYouModuleType(
     fun toEntry() = ToggleSettingItem(title, subtitle, name)
 
     companion object {
-        fun entries() = entries
-            .filter {
-                it != NEW_WITHIN_INTEREST || NewWithinInterestABTest().isTestGroupUser()
-            }
-            .map { it.toEntry() }
+        fun entries() = entries.map { it.toEntry() }
     }
 }
 

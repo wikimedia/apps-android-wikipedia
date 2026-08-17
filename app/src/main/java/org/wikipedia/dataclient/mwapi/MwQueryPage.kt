@@ -47,7 +47,6 @@ class MwQueryPage {
     var convertedFrom: String? = null
     var convertedTo: String? = null
     val watched = false
-    @SerialName("isreviewed") val isReviewed = false
     val lastrevid: Long = 0
 
     val tasktype: String? = null
