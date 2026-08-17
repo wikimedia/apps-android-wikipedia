@@ -54,7 +54,7 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
 
     private val _waitForRevisionState = MutableStateFlow(Resource<Boolean>())
     val waitForRevisionState = _waitForRevisionState.asStateFlow()
-    private val _editCount = MutableStateFlow(-1)
+    private val _editCount = MutableStateFlow<Resource<Int>>(Resource.Loading())
     val editCount = _editCount.asStateFlow()
 
     init {
@@ -85,9 +85,10 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
     private fun loadUserTotalEdits() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             L.e(throwable)
+            _editCount.value = Resource.Error(throwable)
         }) {
             val userInfoResponse = ServiceFactory.get(WikipediaApp.instance.wikiSite).globalUserInfo(AccountUtil.userName)
-            _editCount.value = userInfoResponse.query?.globalUserInfo?.editCount ?: 0
+            _editCount.value = Resource.Success(userInfoResponse.query?.userInfo?.editCount ?: 0)
         }
     }
 
@@ -109,7 +110,19 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
                 response.prediction.map { StringUtil.capitalize(it)!! }
             } else response.prediction).distinct()
 
-            _requestSuggestionState.value = Resource.Success(Triple(response, _editCount.value, list))
+            _editCount.collect { editCountResource ->
+                when(editCountResource) {
+                    is Resource.Success -> {
+                        _requestSuggestionState.value = Resource.Success(Triple(response, editCountResource.data, list))
+                    }
+                    is Resource.Error -> {
+                        _requestSuggestionState.value = Resource.Success(Triple(response, -1, list))
+                    }
+                    is Resource.Loading -> {
+                        _requestSuggestionState.value = Resource.Loading()
+                    }
+                }
+             }
         }
     }
 

@@ -125,11 +125,28 @@ class DescriptionEditFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        EditAttemptStepEvent.logInit(
-            pageTitle = viewModel.pageTitle,
-            editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
-            editCount = viewModel.editCount.value
-        )
+        lifecycleScope.launch {
+            viewModel.editCount.collect { editCountResource ->
+                when (editCountResource) {
+                    is Resource.Success -> {
+                        EditAttemptStepEvent.logInit(
+                            pageTitle = viewModel.pageTitle,
+                            editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
+                            editCount = editCountResource.data
+                        )
+                    }
+                    is Resource.Error -> {
+                        EditAttemptStepEvent.logInit(
+                            pageTitle = viewModel.pageTitle,
+                            editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
+                            editCount = -1
+                        )
+                        L.e(editCountResource.throwable)
+                    }
+                }
+            }
+        }
+
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 launch {
@@ -191,12 +208,31 @@ class DescriptionEditFragment : Fragment() {
                                             editSucceeded -> {
                                                 AnonymousNotificationHelper.onEditSubmitted()
                                                 viewModel.waitForRevisionUpdate(newRevId)
-                                                    EditAttemptStepEvent.logSaveSuccess(
-                                                        pageTitle = viewModel.pageTitle,
-                                                        revisionId = newRevId,
-                                                        editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
-                                                        editCount = viewModel.editCount.value
-                                                    )
+
+                                                lifecycleScope.launch {
+                                                    viewModel.editCount.collect { editCountResource ->
+                                                        when (editCountResource) {
+                                                            is Resource.Success -> {
+                                                                EditAttemptStepEvent.logSaveSuccess(
+                                                                    pageTitle = viewModel.pageTitle,
+                                                                    revisionId = newRevId,
+                                                                    editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
+                                                                    editCount = editCountResource.data
+                                                                )
+                                                            }
+                                                            is Resource.Error -> {
+                                                                EditAttemptStepEvent.logSaveSuccess(
+                                                                    pageTitle = viewModel.pageTitle,
+                                                                    revisionId = newRevId,
+                                                                    editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
+                                                                    editCount = -1
+                                                                )
+                                                                L.e(editCountResource.throwable)
+                                                            }
+                                                        }
+                                                    }
+                                                }
+
                                                 analyticsHelper.logSuccess(requireContext(), viewModel.pageTitle, newRevId)
                                                 ImageRecommendationsEvent.logEditSuccess(viewModel.action, viewModel.pageTitle.wikiSite.languageCode, newRevId)
                                             }
@@ -226,12 +262,30 @@ class DescriptionEditFragment : Fragment() {
                                             requireView().postDelayed(successRunnable, TimeUnit.SECONDS.toMillis(4))
                                             analyticsHelper.logSuccess(requireContext(), viewModel.pageTitle, revId)
                                             ImageRecommendationsEvent.logEditSuccess(viewModel.action, viewModel.pageTitle.wikiSite.languageCode, revId)
-                                            EditAttemptStepEvent.logSaveSuccess(
-                                                pageTitle = viewModel.pageTitle,
-                                                revisionId = revId,
-                                                editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
-                                                editCount = viewModel.editCount.value
-                                            )
+
+                                            lifecycleScope.launch {
+                                                viewModel.editCount.collect { editCountResource ->
+                                                    when (editCountResource) {
+                                                        is Resource.Success -> {
+                                                            EditAttemptStepEvent.logSaveSuccess(
+                                                                pageTitle = viewModel.pageTitle,
+                                                                revisionId = revId,
+                                                                editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
+                                                                editCount = editCountResource.data
+                                                            )
+                                                        }
+                                                        is Resource.Error -> {
+                                                            EditAttemptStepEvent.logSaveSuccess(
+                                                                pageTitle = viewModel.pageTitle,
+                                                                revisionId = revId,
+                                                                editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
+                                                                editCount = -1
+                                                            )
+                                                            L.e(editCountResource.throwable)
+                                                        }
+                                                    }
+                                                }
+                                            }
                                         } else {
                                             editFailed(RuntimeException("Received unrecognized description edit response"), true)
                                         }
@@ -340,11 +394,27 @@ class DescriptionEditFragment : Fragment() {
                 binding.fragmentDescriptionEditView.loadReviewContent(true)
             } else {
                 analyticsHelper.logAttempt(requireContext(), viewModel.pageTitle)
-                EditAttemptStepEvent.logSaveAttempt(
-                    pageTitle = viewModel.pageTitle,
-                    editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
-                    editCount = viewModel.editCount.value
-                )
+                lifecycleScope.launch {
+                    viewModel.editCount.collect { editCountResource ->
+                        when (editCountResource) {
+                            is Resource.Success -> {
+                                EditAttemptStepEvent.logSaveAttempt(
+                                    pageTitle = viewModel.pageTitle,
+                                    editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
+                                    editCount = editCountResource.data
+                                )
+                            }
+                            is Resource.Error -> {
+                                EditAttemptStepEvent.logSaveAttempt(
+                                    pageTitle = viewModel.pageTitle,
+                                    editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
+                                    editCount = -1
+                                )
+                                L.e(editCountResource.throwable)
+                            }
+                        }
+                    }
+                }
                 viewModel.postDescription(
                     currentDescription = binding.fragmentDescriptionEditView.description.orEmpty(),
                     editComment = getEditComment(),
@@ -434,11 +504,27 @@ class DescriptionEditFragment : Fragment() {
         FeedbackUtil.showError(requireActivity(), caught, wikiSite)
         L.e(caught)
         if (logError) {
-            EditAttemptStepEvent.logSaveFailure(
-                pageTitle = viewModel.pageTitle,
-                editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
-                editCount = viewModel.editCount.value
-            )
+            lifecycleScope.launch {
+                viewModel.editCount.collect { editCountResource ->
+                    when (editCountResource) {
+                        is Resource.Success -> {
+                            EditAttemptStepEvent.logSaveFailure(
+                                pageTitle = viewModel.pageTitle,
+                                editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
+                                editCount = editCountResource.data
+                            )
+                        }
+                        is Resource.Error -> {
+                            EditAttemptStepEvent.logSaveFailure(
+                                pageTitle = viewModel.pageTitle,
+                                editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
+                                editCount = -1
+                            )
+                            L.e(editCountResource.throwable)
+                        }
+                    }
+                }
+            }
         }
     }
 
