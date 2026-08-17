@@ -14,10 +14,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
+        android:orientation="vertical"
         android:background="?attr/paper_color">
 
         <View
@@ -38,6 +39,20 @@
             android:drawablePadding="8dp"
             tools:text="Lorem ipsum" />
 
-    </FrameLayout>
+        <TextView
+            android:id="@+id/hCaptchaDisclaimer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp"
+            android:paddingBottom="16dp"
+            android:lineSpacingExtra="4dp"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="?attr/secondary_color"
+            android:textColorLink="?attr/progressive_color"
+            tools:text="Lorem ipsum" />
+
+    </LinearLayout>
 
 </FrameLayout>
