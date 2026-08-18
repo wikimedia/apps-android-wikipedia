@@ -48,7 +48,6 @@ class TalkReplyViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         checkPageExists()
     }
 
-    @Suppress("KotlinConstantConditions")
     private fun checkPageExists() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             L.e(throwable)

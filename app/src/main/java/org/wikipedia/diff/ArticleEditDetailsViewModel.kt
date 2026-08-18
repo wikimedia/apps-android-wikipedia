@@ -10,6 +10,7 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -86,7 +87,6 @@ class ArticleEditDetailsViewModel(savedStateHandle: SavedStateHandle) : ViewMode
                 watchedStatus.postValue(Resource.Success(page))
                 hasRollbackRights = query.userInfo?.rights?.contains("rollback") == true
                 rollbackRights.postValue(Resource.Success(hasRollbackRights))
-                editCount = query.userInfo?.editCount ?: 0
             }
             if (revisionIdFrom >= 0) {
                 val responseFrom = async { ServiceFactory.get(pageTitle.wikiSite).getRevisionDetailsWithInfo(pageId.toString(), 2, revisionIdFrom) }
@@ -108,6 +108,7 @@ class ArticleEditDetailsViewModel(savedStateHandle: SavedStateHandle) : ViewMode
             revisionFromId = if (revisionFrom != null) revisionFrom!!.revId else revisionTo!!.parentRevId
 
             revisionDetails.postValue(Resource.Success(Unit))
+            getUserEditCount()
             getDiffText(revisionFromId, revisionToId)
         }
     }
@@ -139,10 +140,15 @@ class ArticleEditDetailsViewModel(savedStateHandle: SavedStateHandle) : ViewMode
             revisionFromId = if (revisionFrom != null) revisionFrom!!.revId else revisionTo!!.parentRevId
 
             revisionDetails.postValue(Resource.Success(Unit))
+            getUserEditCount()
             getDiffText(revisionFromId, revisionToId)
-
-            editCount = response.query?.userInfo?.editCount ?: 0
         }
+    }
+
+    suspend fun getUserEditCount() {
+        val userInfoResponse = ServiceFactory.get(pageTitle.wikiSite)
+            .userInfo(AccountUtil.userName)
+        editCount = userInfoResponse.query?.users?.first()?.editCount ?: 0
     }
 
     fun goBackward() {

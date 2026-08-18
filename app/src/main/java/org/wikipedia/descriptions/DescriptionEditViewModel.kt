@@ -12,7 +12,6 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.dataclient.ServiceFactory
@@ -56,9 +55,15 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
     val waitForRevisionState = _waitForRevisionState.asStateFlow()
     private val _editCount = MutableStateFlow<Resource<Int>>(Resource.Loading())
     val editCount = _editCount.asStateFlow()
+    var totalEditCount = -1
 
     init {
-        loadUserTotalEdits()
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            L.e(throwable)
+            _editCount.value = Resource.Error(throwable)
+        }) {
+            _editCount.value = Resource.Success(loadUserTotalEdits())
+        }
     }
 
     fun loadPageSummary() {
@@ -68,8 +73,8 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
             _loadPageSummaryState.value = Resource.Loading()
             editingAllowed = false
             val summaryResponse = async { ServiceFactory.getRest(pageTitle.wikiSite).getPageSummary(pageTitle.prefixedText) }
-            val infoResponse = async { ServiceFactory.get(pageTitle.wikiSite).getWikiTextForSectionWithInfo(pageTitle.prefixedText, 0) }
-
+            val infoResponse = async { ServiceFactory.get(pageTitle.wikiSite).getWikiTextForSectionWithInfo(pageTitle.prefixedText, 0, userNames = AccountUtil.userName) }
+            totalEditCount = infoResponse.await().query?.users?.first()?.editCount ?: 0
             val editError = infoResponse.await().query?.firstPage()?.getErrorForAction("edit")
             var error: MwServiceError? = null
             if (editError.isNullOrEmpty()) {
@@ -82,14 +87,13 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
         }
     }
 
-    private fun loadUserTotalEdits() {
-        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
-            L.e(throwable)
-            _editCount.value = Resource.Error(throwable)
-        }) {
-            val userInfoResponse = ServiceFactory.get(WikipediaApp.instance.wikiSite).globalUserInfo(AccountUtil.userName)
-            _editCount.value = Resource.Success(userInfoResponse.query?.userInfo?.editCount ?: 0)
+    private suspend fun loadUserTotalEdits(): Int {
+        if (totalEditCount == -1) {
+            val userInfoResponse = ServiceFactory.get(pageTitle.wikiSite)
+                .userInfo(AccountUtil.userName)
+            totalEditCount = userInfoResponse.query?.users?.first()?.editCount ?: 0
         }
+        return totalEditCount
     }
 
     fun requestSuggestion() {
@@ -101,6 +105,10 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
             val responseCall = async { ServiceFactory[pageTitle.wikiSite, LiftWingModelService.API_URL, LiftWingModelService::class.java]
                 .getDescriptionSuggestion(DescriptionSuggestion.Request(pageTitle.wikiSite.languageCode, pageTitle.prefixedText, 2)) }
 
+            async {
+                loadUserTotalEdits()
+            }.await()
+
             val response = responseCall.await()
 
             // Perform some post-processing on the predictions.
@@ -110,19 +118,7 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
                 response.prediction.map { StringUtil.capitalize(it)!! }
             } else response.prediction).distinct()
 
-            _editCount.collect { editCountResource ->
-                when (editCountResource) {
-                    is Resource.Success -> {
-                        _requestSuggestionState.value = Resource.Success(Triple(response, editCountResource.data, list))
-                    }
-                    is Resource.Error -> {
-                        _requestSuggestionState.value = Resource.Success(Triple(response, -1, list))
-                    }
-                    is Resource.Loading -> {
-                        _requestSuggestionState.value = Resource.Loading()
-                    }
-                }
-             }
+            _requestSuggestionState.value = Resource.Success(Triple(response, totalEditCount, list))
         }
     }
 
@@ -185,8 +181,9 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
                                                  captchaId: String?,
                                                  captchaWord: String?): Edit {
         val wikiSectionInfoResponse = ServiceFactory.get(pageTitle.wikiSite)
-            .getWikiTextForSectionWithInfo(pageTitle.prefixedText, 0)
+            .getWikiTextForSectionWithInfo(pageTitle.prefixedText, 0, userNames = AccountUtil.userName)
         val errorForAction = wikiSectionInfoResponse.query?.firstPage()?.getErrorForAction("edit")
+        totalEditCount = wikiSectionInfoResponse.query?.users?.first()?.editCount ?: 0
         if (!errorForAction.isNullOrEmpty()) {
             val error = errorForAction.first()
             throw MwException(error)
@@ -223,7 +220,8 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
                                                   currentDescription: String,
                                                   editComment: String?,
                                                   editTags: String?): EntityPostResponse {
-        val wikiSectionInfoResponse = ServiceFactory.get(pageTitle.wikiSite).getWikiTextForSectionWithInfo(pageTitle.prefixedText, 0)
+        val wikiSectionInfoResponse = ServiceFactory.get(pageTitle.wikiSite).getWikiTextForSectionWithInfo(pageTitle.prefixedText, 0, userNames = AccountUtil.userName)
+        totalEditCount = wikiSectionInfoResponse.query?.users?.first()?.editCount ?: 0
         val errorForAction = wikiSectionInfoResponse.query?.firstPage()?.getErrorForAction("edit")
         if (!errorForAction.isNullOrEmpty()) {
             val error = errorForAction.first()

@@ -84,7 +84,11 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
                 .show()
             ImageRecommendationsEvent.logAction("editsummary_success_confirm", "editsummary_dialog",
                 getActionStringForAnalytics(acceptanceState = "accepted", revisionId = revId, addTimeSpent = true), viewModel.langCode)
-            EditAttemptStepEvent.logSaveSuccess(pageTitle = viewModel.pageTitle, revisionId = revId, editCount = viewModel.editCount)
+            EditAttemptStepEvent.logSaveSuccess(
+                pageTitle = viewModel.pageTitle,
+                revisionId = revId,
+                editCount = (viewModel.editCount + 1)
+            )
             viewModel.acceptRecommendation(null, revId)
             callback().nextPage(this)
         }

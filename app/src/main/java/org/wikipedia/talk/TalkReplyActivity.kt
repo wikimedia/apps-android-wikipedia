@@ -197,6 +197,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
                     binding.footerContainer.tempAccountInfoContainer.isVisible = false
                 }
                 maybeShowTempAccountDialog()
+                EditAttemptStepEvent.logInit(pageTitle = viewModel.pageTitle, editCount = viewModel.editCount)
             }
         }
 
@@ -256,7 +257,6 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
             binding.replyInputView.editText.setSelection(binding.replyInputView.editText.text.toString().length)
         }
         shouldWatchText = true
-        EditAttemptStepEvent.logInit(pageTitle = viewModel.pageTitle, editCount = viewModel.editCount)
 
         setSaveButtonEnabled(binding.replyInputView.editText.text.isNotEmpty())
 
@@ -493,7 +493,11 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
 
         binding.progressBar.visibility = View.GONE
         setSaveButtonEnabled(true)
-        EditAttemptStepEvent.logSaveSuccess(pageTitle = viewModel.pageTitle, revisionId = newRevision, editCount = viewModel.editCount)
+        EditAttemptStepEvent.logSaveSuccess(
+            pageTitle = viewModel.pageTitle,
+            revisionId = newRevision,
+            editCount = (viewModel.editCount + 1)
+        )
 
         Intent().let {
             it.putExtra(RESULT_NEW_REVISION_ID, newRevision)

@@ -167,10 +167,6 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
         editSummaryFragment = supportFragmentManager.findFragmentById(R.id.edit_section_summary_fragment) as EditSummaryFragment
         editSummaryFragment.title = viewModel.pageTitle
 
-        // Only send the editing start log event if the activity is created for the first time
-        if (savedInstanceState == null) {
-            EditAttemptStepEvent.logInit(pageTitle = viewModel.pageTitle, editCount = viewModel.editCount)
-        }
         if (savedInstanceState != null) {
             if (savedInstanceState.containsKey(EXTRA_KEY_TEMPORARY_WIKITEXT_STORED)) {
                 viewModel.sectionWikitext = Prefs.temporaryWikitext
@@ -223,6 +219,10 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 launch {
                     viewModel.fetchSectionTextState.collectLatest {
+                        // Only send the editing start log event if the activity is created for the first time
+                        if (savedInstanceState == null && it !is Resource.Loading) {
+                            EditAttemptStepEvent.logInit(pageTitle = viewModel.pageTitle, editCount = viewModel.editCount)
+                        }
                         when (it) {
                             is Resource.Loading -> {
                                 showProgressBar(true)
@@ -369,7 +369,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
             EditAttemptStepEvent.logSaveSuccess(
                 pageTitle = viewModel.pageTitle,
                 revisionId = result.revID,
-                editCount = viewModel.editCount
+                editCount = (viewModel.editCount + 1)
             )
             // TODO: remove the artificial delay and use the new revision
             // ID returned to request the updated version of the page once
@@ -399,7 +399,10 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
     }
 
     private fun onEditFailure(caught: Throwable) {
-        EditAttemptStepEvent.logSaveFailure(pageTitle = viewModel.pageTitle, editCount = viewModel.editCount)
+        EditAttemptStepEvent.logSaveFailure(
+            pageTitle = viewModel.pageTitle,
+            editCount = viewModel.editCount
+        )
         showProgressBar(false)
         if (caught is MwException) {
             handleEditingException(caught)
@@ -464,7 +467,10 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
                         altTextAdd = !intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_ALT).isNullOrEmpty()), addImageTitle?.wikiSite?.languageCode.orEmpty())
                 }
                 doSave()
-                EditAttemptStepEvent.logSaveAttempt(pageTitle = viewModel.pageTitle, editCount = viewModel.editCount)
+                EditAttemptStepEvent.logSaveAttempt(
+                    pageTitle = viewModel.pageTitle,
+                    editCount = viewModel.editCount
+                )
                 supportActionBar?.title = getString(R.string.preview_edit_summarize_edit_title)
             }
             editPreviewFragment.isActive -> {
@@ -488,7 +494,10 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
                 DeviceUtil.hideSoftKeyboard(this)
                 binding.editSectionScroll.isVisible = false
                 editPreviewFragment.showPreview(viewModel.pageTitle, binding.editSectionText.text.toString())
-                EditAttemptStepEvent.logSaveIntent(pageTitle = viewModel.pageTitle, editCount = viewModel.editCount)
+                EditAttemptStepEvent.logSaveIntent(
+                    pageTitle = viewModel.pageTitle,
+                    editCount = viewModel.editCount
+                )
                 supportActionBar?.title = getString(R.string.edit_preview)
                 setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
                 if (viewModel.invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE) {
@@ -770,7 +779,10 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
             val alert = MaterialAlertDialogBuilder(this)
             alert.setMessage(getString(R.string.edit_abandon_confirm))
             alert.setPositiveButton(getString(R.string.edit_abandon_confirm_yes)) { dialog, _ ->
-                EditAttemptStepEvent.logAbort(pageTitle = viewModel.pageTitle, editCount = viewModel.editCount)
+                EditAttemptStepEvent.logAbort(
+                    pageTitle = viewModel.pageTitle,
+                    editCount = viewModel.editCount
+                )
                 dialog.dismiss()
                 action()
             }

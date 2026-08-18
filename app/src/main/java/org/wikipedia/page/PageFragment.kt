@@ -1301,8 +1301,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         requireActivity().finish()
     }
 
-    fun logEditAttemptStepEvent(title: PageTitle) {
-        EditAttemptStepEvent.logAbort(pageTitle = title, editCount = this.editCount)
+    fun dismissEditHandlerMenu(title: PageTitle?) {
+        title?.let {
+            EditAttemptStepEvent.logAbort(pageTitle = it, editCount = this.editCount)
+        }
     }
 
     private inner class AvCallback : AvPlayer.Callback {
