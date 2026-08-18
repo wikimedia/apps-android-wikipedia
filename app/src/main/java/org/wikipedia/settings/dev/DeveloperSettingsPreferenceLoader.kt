@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.preference.ListPreference
 import androidx.preference.Preference
+import androidx.preference.PreferenceCategory
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceGroup
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -18,7 +19,9 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.donate.donationreminder.DonationReminderAbTest
 import org.wikipedia.donate.donationreminder.DonationReminderConfig
+import org.wikipedia.feed.interests.NewWithinInterestABTest
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
 import org.wikipedia.games.onthisday.OnThisDayGameNotificationManager
 import org.wikipedia.games.onthisday.OnThisDayGameNotificationState
@@ -30,7 +33,9 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.recommended.RecommendedReadingListNotificationManager
 import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
+import org.wikipedia.search.HybridSearchAbCTest
 import org.wikipedia.settings.BasePreferenceLoader
+import org.wikipedia.settings.IntPreference
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.dev.playground.CategoryDeveloperPlayGround
 import org.wikipedia.settings.dev.playground.ReadingChallengePlayGroundDialog
@@ -297,6 +302,33 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
                 true
             }
         }
+        addABTestPreferences()
+    }
+
+    private fun addABTestPreferences() {
+        val screen = fragment.preferenceScreen
+        if (screen.findPreference<PreferenceCategory>(AB_TEST_CATEGORY_KEY) != null) {
+            return
+        }
+        val category = PreferenceCategory(screen.context).apply {
+            key = AB_TEST_CATEGORY_KEY
+            title = "A/B tests (restart required)"
+        }
+        screen.addPreference(category)
+        listOf(
+            DonationReminderAbTest(),
+            HybridSearchAbCTest(),
+            NewWithinInterestABTest()
+        ).forEach { abTest ->
+            category.addPreference(IntPreference(screen.context).apply {
+                key = abTest.preferenceKey
+                title = "${abTest.name} (groups 0 - ${abTest.groupCount - 1})"
+            })
+            category.addPreference(IntPreference(screen.context).apply {
+                key = abTest.exposureEventSentKey
+                title = "${abTest.name} exposure events sent"
+            })
+        }
     }
 
     private fun setUpMediaWikiSettings() {
@@ -360,5 +392,6 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
     companion object {
         private const val TEXT_OF_TEST_READING_LIST = "Test collection"
         private const val TEXT_OF_READING_LIST = "Collection"
+        private const val AB_TEST_CATEGORY_KEY = "ab_test_category"
     }
 }
