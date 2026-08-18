@@ -8,12 +8,17 @@ abstract class ABTest(private val abTestName: String, private val abTestGroupCou
 
     val name get() = abTestName
 
+    val groupCount get() = abTestGroupCount
+
+    val preferenceKey get() = AB_TEST_KEY_PREFIX + abTestName
+    val exposureEventSentKey get() = AB_TEST_EXPOSURE_SENT_PREFIX + abTestName
+
     val group: Int
         get() {
-            testGroup = PrefsIoUtil.getInt(AB_TEST_KEY_PREFIX + abTestName, -1)
+            testGroup = PrefsIoUtil.getInt(preferenceKey, -1)
             if (testGroup == -1) {
                 assignGroup()
-                PrefsIoUtil.setInt(AB_TEST_KEY_PREFIX + abTestName, testGroup)
+                PrefsIoUtil.setInt(preferenceKey, testGroup)
             }
             return testGroup
         }
@@ -31,10 +36,10 @@ abstract class ABTest(private val abTestName: String, private val abTestGroupCou
     }
 
     fun maybeSendExposureEvent() {
-        PrefsIoUtil.getInt(AB_TEST_EXPOSURE_SENT_PREFIX + abTestName, 0).let { sentCount ->
+        PrefsIoUtil.getInt(exposureEventSentKey, 0).let { sentCount ->
             if (sentCount < AB_TEST_EXPOSURE_SENT_MAX_TIMES) {
                 TestKitchenAdapter.submitExperimentExposure(this)
-                PrefsIoUtil.setInt(AB_TEST_EXPOSURE_SENT_PREFIX + abTestName, sentCount + 1)
+                PrefsIoUtil.setInt(exposureEventSentKey, sentCount + 1)
             }
         }
     }

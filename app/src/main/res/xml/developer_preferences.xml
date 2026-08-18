@@ -501,11 +501,6 @@
         <ListPreference
             android:key="@string/preference_key_recommended_reading_list_notification_simulator"
             android:title="Notification frequency Simulator"/>
-      
-        <org.wikipedia.settings.IntPreference
-            style="@style/IntPreference"
-            android:key="ab_test_recommendedReadingList"
-            android:title="AB test group" />
 
     </PreferenceCategory>
 
@@ -525,11 +520,6 @@
             android:key="@string/preference_key_yir_survey_state"
             android:title="Yir Survey State"/>
 
-        <org.wikipedia.settings.IntPreference
-            style="@style/IntPreference"
-            android:key="ab_test_yirReadingList"
-            android:title="Yir Reading List test group (require restart)" />
-
     </PreferenceCategory>
 
     <PreferenceCategory android:title="Donation Reminder">
@@ -547,11 +537,6 @@
             android:key="@string/preference_key_donation_reminder_config"
             android:title="@string/preference_key_donation_reminder_config"/>
 
-        <org.wikipedia.settings.IntPreference
-            style="@style/IntPreference"
-            android:key="ab_test_donationReminder"
-            android:title="Donation Reminder test group (require restart)"/>
-
     </PreferenceCategory>
 
     <PreferenceCategory android:title="Activity tab">
@@ -567,11 +552,6 @@
     </PreferenceCategory>
 
     <PreferenceCategory android:title="Hybrid Search">
-
-        <org.wikipedia.settings.IntPreference
-            style="@style/IntPreference"
-            android:key="ab_test_apps_hybridsearch"
-            android:title="Hybrid Search test group (require restart)"/>
 
         <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_hybrid_search_onboarding_shown"
@@ -610,11 +590,6 @@
         <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_randomizer_shake_prompt_shown"
             android:title="@string/preference_key_randomizer_shake_prompt_shown"/>
-
-        <org.wikipedia.settings.IntPreference
-            style="@style/IntPreference"
-            android:key="ab_test_newWithinInterest"
-            android:title="New articles by Topic test group" />
 
     </PreferenceCategory>
 
