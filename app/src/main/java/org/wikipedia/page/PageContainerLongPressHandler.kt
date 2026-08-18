@@ -1,10 +1,8 @@
 package org.wikipedia.page
 
-import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.LongPressHandler.WebViewMenuCallback
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.readinglist.ReadingListBehaviorsUtil
-import org.wikipedia.readinglist.database.ReadingListPage
+import org.wikipedia.readinglist.SaveArticleSheetDialog
 
 class PageContainerLongPressHandler(private val fragment: PageFragment) : WebViewMenuCallback {
 
@@ -16,14 +14,8 @@ class PageContainerLongPressHandler(private val fragment: PageFragment) : WebVie
         fragment.openInNewBackgroundTab(entry.title, entry)
     }
 
-    override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
-        ReadingListBehaviorsUtil.addToDefaultList(fragment.requireActivity(), entry.title, addToDefault, InvokeSource.CONTEXT_MENU)
-    }
-
-    override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
-        page?.run {
-            ReadingListBehaviorsUtil.moveToList(fragment.requireActivity(), this.listId, entry.title, InvokeSource.CONTEXT_MENU)
-        }
+    override fun onSaveRequest(entry: HistoryEntry) {
+        SaveArticleSheetDialog.show(fragment.childFragmentManager, entry.title)
     }
 
     override val wikiSite = fragment.title?.wikiSite
