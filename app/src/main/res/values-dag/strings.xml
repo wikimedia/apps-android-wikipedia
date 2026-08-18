@@ -540,7 +540,7 @@
   <string name="reading_lists_item_deleted">%s yihiya yuya maa ni</string>
   <string name="reading_list_item_delete_undo">M bi lahi niŋ</string>
   <string name="reading_list_deleted">%s nyahiya</string>
-  <string name="saved_list_empty_title">yaɣi shɛŋa na bi gu n-zali</string>
+  <string name="saved_list_empty_title" fuzzy="true">yaɣi shɛŋa na bi gu n-zali</string>
   <string name="reading_lists_empty_message">Zaŋmi lahabaya m-pahi luɣishɛli anni tooi ti karim li sahashɛli hali a yi ti ka pɔhim zuɣu gba.</string>
   <string name="reading_list_empty">A na bi zaŋ lahabali shɛli pahi yaɣili ŋɔ yuya ŋɔ ni.</string>
   <string name="reading_list_article_offline">Di beni a yi ka pɔhim zuɣu</string>

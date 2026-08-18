@@ -493,7 +493,7 @@
   <string name="reading_lists_item_deleted">%s ని జాబితాల నుండి తీసేసాం</string>
   <string name="reading_list_item_delete_undo">వెనక్కి తిప్పు</string>
   <string name="reading_list_deleted">%s ను తొలగించాం</string>
-  <string name="saved_list_empty_title">భద్రపరచిన పేజీలు ఇంకా ఏమీ లేవు</string>
+  <string name="saved_list_empty_title" fuzzy="true">భద్రపరచిన పేజీలు ఇంకా ఏమీ లేవు</string>
   <string name="reading_lists_empty_message">తరువాత, మీరు ఆఫ్‌లైనులో ఉండగా చదువుకునేందుకు కొన్ని వ్యాసాలను చేర్చండి</string>
   <string name="reading_list_empty">ఈ జాబితాలో వ్యాసాలనేమీ చేర్చుకోలేదు.</string>
   <string name="reading_list_article_offline">ఆఫ్‌లైనులో అందుబాటులో ఉన్నవి</string>

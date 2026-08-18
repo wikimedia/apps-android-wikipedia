@@ -610,10 +610,10 @@
   <string name="reading_list_deleted">Message shown when a reading list is deleted. The \"%s\" symbol is replaced with the name of the list.</string>
   <string name="saved_list_empty_title">Title message shown when there are no articles in saved list.</string>
   <string name="reading_lists_empty_message">Descriptive message that explains the benefits of reading lists, and the location of the button to add an article to a reading list.</string>
-  <string name="reading_lists_search_empty_articles_title">Title shown on the "All articles" tab of the Saved screen when a search returns no matching saved articles.</string>
-  <string name="reading_lists_search_empty_articles_message">Message shown on the "All articles" tab of the Saved screen when a search returns no matching saved articles. The "%s" symbol is replaced with the term the user searched for.</string>
-  <string name="reading_lists_search_empty_collections_title">Title shown on the "Collections" tab of the Saved screen when a search returns no matching collections.</string>
-  <string name="reading_lists_search_empty_collections_message">Message shown on the "Collections" tab of the Saved screen when a search returns no matching collections. The "%s" symbol is replaced with the term the user searched for.</string>
+  <string name="reading_lists_search_empty_articles_title">Title shown on the \"All articles\" tab of the Saved screen when a search returns no matching saved articles.</string>
+  <string name="reading_lists_search_empty_articles_message">Message shown on the \"All articles\" tab of the Saved screen when a search returns no matching saved articles. The \"%s\" symbol is replaced with the term the user searched for.</string>
+  <string name="reading_lists_search_empty_collections_title">Title shown on the \"Collections\" tab of the Saved screen when a search returns no matching collections.</string>
+  <string name="reading_lists_search_empty_collections_message">Message shown on the \"Collections\" tab of the Saved screen when a search returns no matching collections. The \"%s\" symbol is replaced with the term the user searched for.</string>
   <string name="reading_list_empty">Message shown when a reading list does not contain any articles.</string>
   <string name="reading_list_article_offline">Label for a toggle switch to make a reading list article available offline or online.</string>
   <string name="reading_list_article_make_offline">Hint for button that makes a reading list article available for offline use.</string>
@@ -2270,6 +2270,9 @@
   <string name="home_feed_settings_for_you_modules_description">Description explaining that disabled For You feed modules can be re-enabled later.</string>
   <string name="home_feed_settings_based_on_interest_title">Title for the Based on your interests module in Home feed settings.</string>
   <string name="home_feed_settings_based_on_interest_subtitle">Subtitle describing article recommendations based on selected interests and feed preferences. Please keep the anchor link around the word \"What’s driving your feed\"\\</string>
+  <string name="home_feed_new_within_interest_title">Title of the For You feed module that shows new articles within a topic of interest.</string>
+  <string name="home_feed_new_within_interest_subtitle">Description of the For You feed module that shows new articles within a topic of interest.</string>
+  <string name="home_feed_new_within_interest_card_title">Title of a card that shows recently created articles within one of the topics the user selected as an interest. %s is replaced by the name of the topic.</string>
   <string name="home_feed_settings_because_you_read_subtitle">Subtitle describing article suggestions based on recently viewed articles.</string>
   <string name="home_feed_settings_continue_reading_title">Title for the Continue reading module in Home feed settings.</string>
   <string name="home_feed_settings_continue_reading_subtitle">Subtitle prompting users to continue reading unfinished articles.</string>

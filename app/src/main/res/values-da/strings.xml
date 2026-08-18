@@ -584,8 +584,12 @@
   <string name="reading_lists_item_deleted">%s fjernet fra lister</string>
   <string name="reading_list_item_delete_undo">Fortryd</string>
   <string name="reading_list_deleted">%s slettet</string>
-  <string name="saved_list_empty_title">Ingen læselister endnu</string>
+  <string name="saved_list_empty_title">Ingen gemte artikler endnu</string>
   <string name="reading_lists_empty_message">Gem artikler til læselister, så du kan læse dem senere, selv når du er uden internetforbindelse.</string>
+  <string name="reading_lists_search_empty_articles_title">Ingen gemte artikler fundet</string>
+  <string name="reading_lists_search_empty_articles_message">Vi kunne ikke finde \"%s\" i dine gemte artikler.</string>
+  <string name="reading_lists_search_empty_collections_title">Ingen samlinger fundet</string>
+  <string name="reading_lists_search_empty_collections_message">Vi kunne ikke finde \"%s\" i dine samlinger.</string>
   <string name="reading_list_empty">Du har ingen artikler, der er tilføjet til denne liste.</string>
   <string name="reading_list_article_offline">Tilgængelig offline</string>
   <string name="reading_list_article_make_offline">Gør denne artikel tilgængelig offline</string>

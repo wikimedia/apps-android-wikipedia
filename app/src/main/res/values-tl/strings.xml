@@ -548,7 +548,7 @@
   <string name="reading_lists_item_deleted">Tinanggal na ang %s</string>
   <string name="reading_list_item_delete_undo">I-undo</string>
   <string name="reading_list_deleted">Binura na ang %s</string>
-  <string name="saved_list_empty_title">Walang pang na-save na pahina.</string>
+  <string name="saved_list_empty_title" fuzzy="true">Walang pang na-save na pahina.</string>
   <string name="reading_lists_empty_message">Magdagdag ng artikulong babasahin mamaya, kahit offline ka.</string>
   <string name="reading_list_empty">Wala kang dinagdag na artikulo dito.</string>
   <string name="reading_list_article_offline">Mababasa offline</string>

@@ -355,7 +355,7 @@
   <string name="reading_lists_item_deleted">%s listan ra dariya we</string>
   <string name="reading_list_item_delete_undo">Peyser bıgê</string>
   <string name="reading_list_deleted">%s esteriya</string>
-  <string name="saved_list_empty_title">Hewna qeyd bıyaye pela çıniya</string>
+  <string name="saved_list_empty_title" fuzzy="true">Hewna qeyd bıyaye pela çıniya</string>
   <string name="reading_list_empty">Na lista rê hewna şıma meqale cı nêkerdo</string>
   <string name="reading_list_article_offline">Resayışê offline</string>
   <string name="reading_list_remove_from_list">%s ra wedarne</string>

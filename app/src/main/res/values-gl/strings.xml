@@ -430,7 +430,7 @@
   <string name="reading_lists_item_deleted">%s eliminado das listas</string>
   <string name="reading_list_item_delete_undo">Desfacer</string>
   <string name="reading_list_deleted">%s eliminada</string>
-  <string name="saved_list_empty_title">Aínda non hai listas de lectura</string>
+  <string name="saved_list_empty_title" fuzzy="true">Aínda non hai listas de lectura</string>
   <string name="reading_lists_empty_message">Engade os artigos a unha lista para poder velos despois, incluso cando non estea conectado.</string>
   <string name="reading_list_empty">Non ten artigos engadidos nesta lista.</string>
   <string name="reading_list_article_offline">Dispoñible sen conexión</string>

@@ -589,7 +589,7 @@
   <string name="reading_lists_item_deleted">%s को सूचियों से हटाया गया</string>
   <string name="reading_list_item_delete_undo">पूर्ववत करें</string>
   <string name="reading_list_deleted">%s मिटा दिया गया</string>
-  <string name="saved_list_empty_title">अभी तक कोई पढ़ने वाली सूची नहीं</string>
+  <string name="saved_list_empty_title" fuzzy="true">अभी तक कोई पढ़ने वाली सूची नहीं</string>
   <string name="reading_lists_empty_message">पढ़ने वाली सूची में लेख जोड़ें ताकि आप उन्हें बाद में पढ़ सकें, ऑफलाइन होने पर भी।</string>
   <string name="reading_list_empty">आपके पास इस सूची में कोई लेख नहीं जुड़े हुए हैं।</string>
   <string name="reading_list_article_offline">ऑफलाइन उपलब्ध</string>

@@ -108,6 +108,7 @@ class HistoryEntry(
         const val SOURCE_FEED_INTERESTS = 48
         const val SOURCE_FEED_DID_YOU_KNOW = 49
         const val SOURCE_ACTIVITY_DID_YOU_KNOW = 50
-        const val SOURCE_FEED_READ_ALOUD = 51
+        const val SOURCE_FEED_NEW_WITHIN_TOPIC = 51
+        const val SOURCE_FEED_READ_ALOUD = 52
     }
 }
