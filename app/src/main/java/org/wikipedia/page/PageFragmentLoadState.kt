@@ -215,7 +215,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
             if (delayLoadHtml) {
                 bridge.resetHtml(title)
             }
-            fragment.onPageMetadataLoaded(redirectedFrom)
+            fragment.onPageMetadataLoaded(redirectedFrom = redirectedFrom, editCount = editCount)
 
             if (AnonymousNotificationHelper.shouldCheckAnonNotifications(watchedResponse)) {
                 checkAnonNotifications(title)
