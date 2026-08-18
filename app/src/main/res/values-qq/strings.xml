@@ -2356,8 +2356,12 @@
     <string name="reading_lists_remove_articles_confirm_dialog_title">Title of the confirmation dialog shown before removing saved articles from all associated collections.</string>
   <string name="reading_lists_remove_articles_confirm_button">Label for the button that confirms removing the selected saved articles from all associated collections.</string>
   <plurals name="reading_lists_remove_articles_confirm_dialog_message">
-    <item quantity="one">Confirmation message explaining that the selected article will be removed from all associated collections.</item>
-    <item quantity="other">Confirmation message explaining that the selected articles will be removed from all associated collections. The \"%d\" symbol is replaced with the number of selected articles.</item>
+    <item quantity="one">Confirmation message explaining that one selected article will be removed from all associated collections.</item>
+    <item quantity="other">Confirmation message explaining that multiple selected articles will be removed from all associated collections. The \"%d\" symbol is replaced with the number of selected articles.</item>
+  </plurals>
+  <plurals name="reading_lists_unsave_articles_confirm_dialog_message">
+    <item quantity="one">Confirmation message explaining that unsaving one article will remove it from all associated collections.</item>
+    <item quantity="other">Confirmation message explaining that unsaving multiple articles will remove them from all associated collections.</item>
   </plurals>
   <plurals name="reading_lists_articles_removed_from_collections">
     <item quantity="one">Message shown after one article is removed from all associated collections.</item>
@@ -2365,6 +2369,5 @@
   </plurals>
     <string name="reading_lists_save_sheet_empty_title">Title of the empty state in the bottom sheet for saving an article, shown when the user has no collections yet.</string>
     <string name="reading_lists_save_sheet_empty_message">Message below the empty state title in the bottom sheet for saving an article, explaining that articles are saved into collections.</string>
-    <string name="reading_lists_save_sheet_empty_action">Button text in the empty state of the bottom sheet for saving an article, which creates the user\'s first collection.</string>
     <string name="reading_lists_save_sheet_create">Text of the action beside the Collections heading in the bottom sheet for saving an article, which creates a new collection.</string>
 </resources>

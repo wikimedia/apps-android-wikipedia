@@ -2615,7 +2615,7 @@
     <string name="reading_lists_empty_collections_title">Organize saved articles with collections</string>
     <string name="reading_lists_empty_collections_description">Create collections for places to travel to, favorite topics, and more.</string>
     <string name="reading_lists_create_new_collection">Create a new collection</string>
-    <string name="reading_lists_remove_articles_confirm_dialog_title">Remove saved articles?</string>
+    <string name="reading_lists_remove_articles_confirm_dialog_title">Unsave article?</string>
     <string name="reading_lists_remove_articles_confirm_button">Remove</string>
     <plurals name="reading_lists_remove_articles_confirm_dialog_message">
         <item quantity="one">This article will be removed from all associated collections.</item>
@@ -2627,7 +2627,10 @@
     </plurals>
     <string name="reading_lists_save_sheet_empty_title">Collect the articles you love</string>
     <string name="reading_lists_save_sheet_empty_message">Save articles in collections.</string>
-    <string name="reading_lists_save_sheet_empty_action">Start a collection</string>
     <string name="reading_lists_save_sheet_create">Create</string>
     <string name="reading_lists_update_tooltip">Reading lists are now called collections.</string>
+    <plurals name="reading_lists_unsave_articles_confirm_dialog_message">
+        <item quantity="one">Unsaving this article will remove it from all associated collections.</item>
+        <item quantity="other">Unsaving these articles will remove it from all associated collections.</item>
+    </plurals>
 </resources>
