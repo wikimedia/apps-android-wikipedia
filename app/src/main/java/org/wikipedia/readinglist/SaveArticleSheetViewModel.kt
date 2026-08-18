@@ -88,7 +88,7 @@ class SaveArticleSheetViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
             id = id,
             title = title,
             totalPages = pages.size,
-            thumbUrl = pages.firstOrNull()?.thumbUrl,
+            thumbUrl = pages.firstOrNull { !it.thumbUrl.isNullOrEmpty() }?.thumbUrl,
             containsArticle = containsArticle(articleTitle)
         )
 
