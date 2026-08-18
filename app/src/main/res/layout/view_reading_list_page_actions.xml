@@ -85,7 +85,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/reading_list_item_add_to_other"
+        android:id="@+id/reading_list_item_collections"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/selectableItemBackground">
@@ -101,41 +101,14 @@
             app:srcCompat="@drawable/ic_icon_add_to_another_reading_list" />
 
         <TextView
+            android:id="@+id/reading_list_item_collection_text"
             android:layout_width="0dp"
             android:layout_height="54dp"
             android:layout_weight="1"
             android:gravity="center_vertical"
             android:paddingStart="@dimen/list_item_horizontal_padding"
             android:paddingEnd="@dimen/list_item_horizontal_padding"
-            android:text="@string/reading_list_add_to_other_list"
-            android:textColor="?attr/primary_color"
-            android:textSize="16sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/reading_list_item_move_to_other"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/selectableItemBackground">
-
-        <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="@dimen/list_item_horizontal_padding"
-            android:layout_marginEnd="@dimen/list_item_horizontal_padding"
-            android:contentDescription="@null"
-            app:tint="?attr/placeholder_color"
-            app:srcCompat="@drawable/ic_icon_move_to_another_reading_list" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="54dp"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:paddingStart="@dimen/list_item_horizontal_padding"
-            android:paddingEnd="@dimen/list_item_horizontal_padding"
-            android:text="@string/reading_list_move_to_other_list"
+            android:text="@string/reading_list_add_to_collection"
             android:textColor="?attr/primary_color"
             android:textSize="16sp" />
     </LinearLayout>

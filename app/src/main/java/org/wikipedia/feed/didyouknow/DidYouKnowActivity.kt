@@ -2,8 +2,6 @@ package org.wikipedia.feed.didyouknow
 
 import android.content.Context
 import android.content.Intent
-import android.icu.text.ListFormatter
-import android.os.Build
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
@@ -18,7 +16,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.wikipedia.Constants
-import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
@@ -33,8 +30,7 @@ import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
-import org.wikipedia.readinglist.ReadingListBehaviorsUtil
-import org.wikipedia.readinglist.RemoveFromReadingListsDialog
+import org.wikipedia.readinglist.SaveArticleSheetDialog
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.ClipboardUtil
 import org.wikipedia.util.FeedbackUtil
@@ -77,25 +73,8 @@ class DidYouKnowActivity : BaseActivity() {
                             onOpenInNewTab = { entry ->
                                 startActivity(PageActivity.newIntentForNewTab(this, entry, entry.title))
                             },
-                            onAddRequest = { entry, addToDefault ->
-                                ReadingListBehaviorsUtil.addToDefaultList(this, entry.title, addToDefault, InvokeSource.DID_YOU_KNOW)
-                            },
-                            onMoveRequest = { id, entry ->
-                                ReadingListBehaviorsUtil.moveToList(this, id, entry.title, InvokeSource.FEED)
-                            },
-                            onRemoveRequest = { entry, lists ->
-                                RemoveFromReadingListsDialog(lists).deleteOrShowDialog(this) { readingLists, _ ->
-                                    if (!this.isDestroyed) {
-                                        val names = readingLists.map { it.title }.run {
-                                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                                                ListFormatter.getInstance().format(this)
-                                            } else {
-                                                joinToString(separator = ", ")
-                                            }
-                                        }
-                                        FeedbackUtil.showMessage(this, getString(R.string.reading_list_item_deleted_from_list, entry.title.displayText, names))
-                                    }
-                                }
+                            onSaveRequest = { entry ->
+                                SaveArticleSheetDialog.show(this, entry.title)
                             },
                             onShareRequest = { entry ->
                                 ShareUtil.shareText(this, entry.title.displayText, entry.title.uri)

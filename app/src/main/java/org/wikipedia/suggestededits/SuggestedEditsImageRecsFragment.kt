@@ -84,7 +84,7 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
                 .show()
             ImageRecommendationsEvent.logAction("editsummary_success_confirm", "editsummary_dialog",
                 getActionStringForAnalytics(acceptanceState = "accepted", revisionId = revId, addTimeSpent = true), viewModel.langCode)
-            EditAttemptStepEvent.logSaveSuccess(viewModel.pageTitle, revId)
+            EditAttemptStepEvent.logSaveSuccess(pageTitle = viewModel.pageTitle, revisionId = revId, editCount = viewModel.editCount)
             viewModel.acceptRecommendation(null, revId)
             callback().nextPage(this)
         }
@@ -131,7 +131,7 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
         binding.acceptButton.setOnClickListener {
             ImageRecommendationsEvent.logAction("suggestion_accept", "recommendedimagetoolbar",
                 getActionStringForAnalytics(acceptanceState = "accepted"), viewModel.langCode)
-            EditAttemptStepEvent.logInit(viewModel.pageTitle)
+            EditAttemptStepEvent.logInit(pageTitle = viewModel.pageTitle, editCount = viewModel.editCount)
             doPublish()
         }
 

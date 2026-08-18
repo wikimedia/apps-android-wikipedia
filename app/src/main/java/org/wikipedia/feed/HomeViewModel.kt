@@ -43,6 +43,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.events.NewRecommendedReadingListEvent
+import org.wikipedia.feed.interests.NewWithinInterestABTest
 import org.wikipedia.feed.model.BasedOnInterestCard
 import org.wikipedia.feed.model.BecauseYouReadCard
 import org.wikipedia.feed.model.Card
@@ -54,6 +55,7 @@ import org.wikipedia.feed.model.FeaturedArticleCard
 import org.wikipedia.feed.model.FeaturedImageCard
 import org.wikipedia.feed.model.ForYouCard
 import org.wikipedia.feed.model.GamesModulePromptCard
+import org.wikipedia.feed.model.NewWithinInterestCard
 import org.wikipedia.feed.model.NewsCard
 import org.wikipedia.feed.model.OnThisDayCard
 import org.wikipedia.feed.model.PlacesOfInterestCard
@@ -656,6 +658,19 @@ class HomeViewModel : ViewModel() {
                         // TODO: filter items that have already been suggested.
                         BasedOnInterestCard(it, interestTopic = topic)
                     }.filterNot { hiddenCards.contains(it.hideKey) }.take(4)
+                }
+            }
+
+            NewWithinInterestABTest().maybeSendExposureEvent()
+            val newWithinInterestTopics = if (NewWithinInterestABTest().isTestGroupUser())
+                AppDatabase.instance.topicInterestDao().getAllRandom().distinctBy { it.topicId }.take(4)
+            else emptyList()
+            val newWithinInterestTopicCalls = newWithinInterestTopics.map { topic ->
+                async(Dispatchers.IO) {
+                    val articleTopic = ArticleTopics.all.find { it.topicId == topic.topicId }
+                    val titles = InterestSelectionRepository.getNewArticlesWithinTopic(wikiSite.value, articleTopic?.queryTopicId ?: topic.topicId).take(4)
+                    listOf(NewWithinInterestCard(titles, interestTopic = topic))
+                        .filterNot { it.titles.isEmpty() || hiddenCards.contains(it.hideKey) }
                 }
             }
 

@@ -39,7 +39,6 @@ import org.wikipedia.theme.Theme.Companion.fallback
 import org.wikipedia.util.DateUtil.dbDateFormat
 import org.wikipedia.util.DateUtil.dbDateParse
 import org.wikipedia.util.ReleaseUtil.isDevRelease
-import org.wikipedia.util.ReleaseUtil.isPreBetaRelease
 import org.wikipedia.util.StringUtil
 import org.wikipedia.watchlist.WatchlistFilterTypes
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetRepository
@@ -858,11 +857,6 @@ object Prefs {
     var isRecommendedReadingListEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_recommended_reading_list_enabled, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_recommended_reading_list_enabled, value)
-
-    var isReadingListsTabsEnabled
-        get() = isPreBetaRelease && PrefsIoUtil.getBoolean(R.string.preference_key_reading_lists_tabs_enabled, true)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_lists_tabs_enabled, value)
-
     var recommendedReadingListArticlesNumber
         get() = PrefsIoUtil.getInt(R.string.preference_key_recommended_reading_list_articles_number, 5)
         set(value) = PrefsIoUtil.setInt(R.string.preference_key_recommended_reading_list_articles_number, value)
@@ -1027,4 +1021,7 @@ object Prefs {
     var visualEditorEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_visual_editor_enabled, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_visual_editor_enabled, value)
+    var isReadingListsUpdateTooltipShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_lists_update_tooltip_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_lists_update_tooltip_shown, value)
 }

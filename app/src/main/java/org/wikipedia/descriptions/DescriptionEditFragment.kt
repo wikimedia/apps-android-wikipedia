@@ -107,7 +107,6 @@ class DescriptionEditFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        EditAttemptStepEvent.logInit(viewModel.pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -126,6 +125,24 @@ class DescriptionEditFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        when (val editCountResource = viewModel.editCount.value) {
+            is Resource.Success -> {
+                EditAttemptStepEvent.logInit(
+                    pageTitle = viewModel.pageTitle,
+                    editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
+                    editCount = editCountResource.data
+                )
+            }
+            else -> {
+                EditAttemptStepEvent.logInit(
+                    pageTitle = viewModel.pageTitle,
+                    editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
+                    editCount = -1
+                )
+            }
+        }
+
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 launch {
@@ -187,7 +204,26 @@ class DescriptionEditFragment : Fragment() {
                                             editSucceeded -> {
                                                 AnonymousNotificationHelper.onEditSubmitted()
                                                 viewModel.waitForRevisionUpdate(newRevId)
-                                                EditAttemptStepEvent.logSaveSuccess(viewModel.pageTitle, newRevId, EditAttemptStepEvent.INTERFACE_OTHER)
+
+                                                when (val editCountResource = viewModel.editCount.value) {
+                                                    is Resource.Success -> {
+                                                        EditAttemptStepEvent.logSaveSuccess(
+                                                            pageTitle = viewModel.pageTitle,
+                                                            revisionId = newRevId,
+                                                            editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
+                                                            editCount = editCountResource.data
+                                                        )
+                                                    }
+                                                    else -> {
+                                                        EditAttemptStepEvent.logSaveSuccess(
+                                                            pageTitle = viewModel.pageTitle,
+                                                            revisionId = newRevId,
+                                                            editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
+                                                            editCount = -1
+                                                        )
+                                                    }
+                                                }
+
                                                 analyticsHelper.logSuccess(requireContext(), viewModel.pageTitle, newRevId)
                                                 ImageRecommendationsEvent.logEditSuccess(viewModel.action, viewModel.pageTitle.wikiSite.languageCode, newRevId)
                                             }
@@ -217,7 +253,25 @@ class DescriptionEditFragment : Fragment() {
                                             requireView().postDelayed(successRunnable, TimeUnit.SECONDS.toMillis(4))
                                             analyticsHelper.logSuccess(requireContext(), viewModel.pageTitle, revId)
                                             ImageRecommendationsEvent.logEditSuccess(viewModel.action, viewModel.pageTitle.wikiSite.languageCode, revId)
-                                            EditAttemptStepEvent.logSaveSuccess(viewModel.pageTitle, revId, EditAttemptStepEvent.INTERFACE_OTHER)
+
+                                            when (val editCount = viewModel.editCount.value) {
+                                                is Resource.Success -> {
+                                                    EditAttemptStepEvent.logSaveSuccess(
+                                                        pageTitle = viewModel.pageTitle,
+                                                        revisionId = revId,
+                                                        editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
+                                                        editCount = editCount.data
+                                                    )
+                                                }
+                                                else -> {
+                                                    EditAttemptStepEvent.logSaveSuccess(
+                                                        pageTitle = viewModel.pageTitle,
+                                                        revisionId = revId,
+                                                        editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
+                                                        editCount = -1
+                                                    )
+                                                }
+                                            }
                                         } else {
                                             editFailed(RuntimeException("Received unrecognized description edit response"), true)
                                         }
@@ -326,7 +380,24 @@ class DescriptionEditFragment : Fragment() {
                 binding.fragmentDescriptionEditView.loadReviewContent(true)
             } else {
                 analyticsHelper.logAttempt(requireContext(), viewModel.pageTitle)
-                EditAttemptStepEvent.logSaveAttempt(viewModel.pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
+
+                when (val editCount = viewModel.editCount.value) {
+                    is Resource.Success -> {
+                        EditAttemptStepEvent.logSaveAttempt(
+                            pageTitle = viewModel.pageTitle,
+                            editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
+                            editCount = editCount.data
+                        )
+                    }
+                    else -> {
+                        EditAttemptStepEvent.logSaveAttempt(
+                            pageTitle = viewModel.pageTitle,
+                            editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
+                            editCount = -1
+                        )
+                    }
+                }
+
                 viewModel.postDescription(
                     currentDescription = binding.fragmentDescriptionEditView.description.orEmpty(),
                     editComment = getEditComment(),
@@ -416,7 +487,22 @@ class DescriptionEditFragment : Fragment() {
         FeedbackUtil.showError(requireActivity(), caught, wikiSite)
         L.e(caught)
         if (logError) {
-            EditAttemptStepEvent.logSaveFailure(viewModel.pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
+            when (val editCount = viewModel.editCount.value) {
+                is Resource.Success -> {
+                    EditAttemptStepEvent.logSaveFailure(
+                        pageTitle = viewModel.pageTitle,
+                        editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
+                        editCount = editCount.data
+                    )
+                }
+                else -> {
+                    EditAttemptStepEvent.logSaveFailure(
+                        pageTitle = viewModel.pageTitle,
+                        editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
+                        editCount = -1
+                    )
+                }
+            }
         }
     }
 

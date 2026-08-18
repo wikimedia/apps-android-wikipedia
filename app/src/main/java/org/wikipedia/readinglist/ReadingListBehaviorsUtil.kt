@@ -178,7 +178,7 @@ object ReadingListBehaviorsUtil {
         }
         MaterialAlertDialogBuilder(activity)
             .setTitle(R.string.reading_lists_remove_articles_confirm_dialog_title)
-            .setMessage(activity.resources.getQuantityString(R.plurals.reading_lists_remove_articles_confirm_dialog_message, selectedArticleCount, selectedArticleCount))
+            .setMessage(activity.resources.getQuantityString(R.plurals.reading_lists_unsave_articles_confirm_dialog_message, selectedArticleCount, selectedArticleCount))
             .setPositiveButton(R.string.reading_lists_remove_articles_confirm_button) { _, _ ->
                 MainScope().launch(exceptionHandler) {
                     AppDatabase.instance.readingListPageDao().markPagesForDeletionFromLists(listToDelete)
