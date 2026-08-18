@@ -148,7 +148,12 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                             is Resource.Success -> {
                                 if (it.data != null) {
                                     pageTitle?.let { title ->
-                                        EditAttemptStepEvent.logSaveSuccess(title, it.data.lastRevId, EditAttemptStepEvent.INTERFACE_OTHER)
+                                        EditAttemptStepEvent.logSaveSuccess(
+                                            pageTitle = title,
+                                            revisionId = it.data.lastRevId,
+                                            editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
+                                            editCount = viewModel.editCount
+                                        )
                                     }
                                 }
                                 publishSuccess = true
@@ -367,7 +372,11 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         publishSuccess = false
 
         pageTitle?.let {
-            EditAttemptStepEvent.logSaveAttempt(it, EditAttemptStepEvent.INTERFACE_OTHER)
+            EditAttemptStepEvent.logSaveAttempt(
+                pageTitle = it,
+                editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
+                editCount = viewModel.editCount
+            )
         }
 
         binding.publishProgressText.setText(R.string.suggested_edits_image_tags_publishing)
@@ -418,7 +427,11 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
     private fun onError(caught: Throwable) {
         pageTitle?.let {
-            EditAttemptStepEvent.logSaveFailure(it, EditAttemptStepEvent.INTERFACE_OTHER)
+            EditAttemptStepEvent.logSaveFailure(
+                pageTitle = it,
+                editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
+                editCount = viewModel.editCount
+            )
         }
         binding.publishOverlayContainer.visibility = GONE
         FeedbackUtil.showError(requireActivity(), caught)

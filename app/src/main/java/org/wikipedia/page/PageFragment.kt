@@ -53,6 +53,7 @@ import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.eventplatform.ArticleFindInPageInteractionEvent
 import org.wikipedia.analytics.eventplatform.ArticleInteractionEvent
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
+import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
@@ -176,6 +177,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     private var avPlayer: AvPlayer? = null
     private var avCallback: AvCallback? = null
     private var sections: MutableList<Section>? = null
+    private var editCount = -1
     private var app = WikipediaApp.instance
 
     override lateinit var linkHandler: LinkHandler
@@ -932,7 +934,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
     }
 
-    fun onPageMetadataLoaded(redirectedFrom: String? = null) {
+    fun onPageMetadataLoaded(redirectedFrom: String? = null, editCount: Int = -1) {
+        this.editCount = editCount
         updateQuickActionsAndMenuOptions()
         if (model.page == null) {
             return
@@ -1296,6 +1299,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             .putExtra(Constants.INTENT_RETURN_TO_MAIN, true)
             .putExtra(tabExtra, tab.code()))
         requireActivity().finish()
+    }
+
+    fun logEditAttemptStepEvent(title: PageTitle) {
+        EditAttemptStepEvent.logAbort(pageTitle = title, editCount = this.editCount)
     }
 
     private inner class AvCallback : AvPlayer.Callback {

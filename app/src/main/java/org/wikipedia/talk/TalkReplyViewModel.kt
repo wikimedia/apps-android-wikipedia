@@ -39,6 +39,7 @@ class TalkReplyViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     val pageExistsData = MutableLiveData<Resource<Boolean>>()
     var doesPageExist = false
     var tempAccountsEnabled = true
+    var editCount = -1
 
     init {
         if (isFromDiff) {
@@ -55,6 +56,7 @@ class TalkReplyViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             ServiceFactory.get(pageTitle.wikiSite).getPageIds(pageTitle.prefixedText).let {
                 doesPageExist = (it.query?.pages?.firstOrNull()?.pageId ?: 0) > 0
                 tempAccountsEnabled = it.query?.autoCreateTempUser?.enabled == true
+                editCount = it.query?.userInfo?.editCount ?: 0
             }
             pageExistsData.postValue(Resource.Success(doesPageExist))
         }
