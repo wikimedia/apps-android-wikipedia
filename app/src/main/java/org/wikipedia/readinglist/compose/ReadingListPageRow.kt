@@ -107,13 +107,13 @@ fun ReadingListPageRow(
                 )
             }
 
-            if (containingLists.isNotEmpty()) {
+            val customLists = containingLists.filterNot { it.isDefault }
+            if (customLists.isNotEmpty()) {
                 FlowRow(
                     modifier = Modifier.padding(top = 8.dp),
-                    horizontalArrangement = spacedBy(8.dp),
-                    verticalArrangement = spacedBy(8.dp)
+                    horizontalArrangement = spacedBy(8.dp)
                 ) {
-                    containingLists.forEach { list ->
+                    customLists.forEach { list ->
                         ListChip(
                             title = list.title,
                             onClick = {
@@ -173,7 +173,8 @@ private fun ListChip(title: String, onClick: () -> Unit, modifier: Modifier = Mo
             Text(
                 text = title,
                 style = MaterialTheme.typography.labelLarge,
-                maxLines = 1
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis
             )
         },
         icon = {

@@ -38,6 +38,8 @@
     <!-- Default height with which bottom sheets peek out from the bottom -->
     <dimen name="bottomSheetPeekHeight">320dp</dimen>
     <dimen name="readingListSheetPeekHeight">360dp</dimen>
+    <!-- Drag handle, article row, divider, collection header, and three collection rows. -->
+    <dimen name="saveArticleSheetPeekHeight">464dp</dimen>
     <dimen name="imagePreviewSheetPeekHeight">280dp</dimen>
 
     <!-- Default size of images in Link Preview thumbnail gallery -->

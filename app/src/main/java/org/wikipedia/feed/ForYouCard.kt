@@ -415,7 +415,7 @@ fun ForYouCardDropdownMenu(
                 },
                 text = {
                     Text(
-                        text = context.getString(wikiSite.languageCode, if (isInReadingList) R.string.reading_list_remove_from_lists else R.string.menu_page_add_to_default_list),
+                        text = context.getString(wikiSite.languageCode, if (isInReadingList) R.string.link_preview_dialog_saved_button else R.string.menu_page_add_to_default_list),
                         style = MaterialTheme.typography.bodyLarge,
                         color = WikipediaTheme.colors.primaryColor
                     )
