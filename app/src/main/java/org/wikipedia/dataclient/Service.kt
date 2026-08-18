@@ -614,7 +614,7 @@ interface Service {
     suspend fun getWatchedStatusWithRights(@Query("titles") titles: String): MwQueryResponse
 
     @Headers("Cache-Control: no-cache")
-    @GET(MW_API_PREFIX + "action=query&prop=info|categories&converttitles=&redirects=&inprop=watched&clshow=!hidden&cllimit=100")
+    @GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=editcount&prop=info|categories&converttitles=&redirects=&inprop=watched&clshow=!hidden&cllimit=100")
     suspend fun getWatchedStatusWithCategories(@Query("titles") titles: String): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&list=watchlist&wllimit=500&wlprop=ids|title|flags|comment|parsedcomment|timestamp|sizes|user|loginfo&assert=user")
