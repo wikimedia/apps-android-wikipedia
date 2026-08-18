@@ -29,6 +29,7 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.didyouknow.DidYouKnowActivity
+import org.wikipedia.feed.interests.NewWithinInterestABTest
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.DidYouKnowCard
 import org.wikipedia.feed.model.DiscoverCard
@@ -36,6 +37,7 @@ import org.wikipedia.feed.model.DiscoverEnablePromptCard
 import org.wikipedia.feed.model.EmptyCommunityCard
 import org.wikipedia.feed.model.EmptyForYouCard
 import org.wikipedia.feed.model.GamesModulePromptCard
+import org.wikipedia.feed.model.NewWithinInterestCard
 import org.wikipedia.feed.model.OnThisDayCard
 import org.wikipedia.feed.model.PlacesOfInterestLocationPromptCard
 import org.wikipedia.feed.model.RandomCard
@@ -53,10 +55,14 @@ import org.wikipedia.feed.wikigames.WikiGame
 import org.wikipedia.games.GamesHubActivity
 import org.wikipedia.games.db.DailyGameHistory
 import org.wikipedia.games.onthisday.OnThisDayGameActivity
+import org.wikipedia.history.HistoryEntry
 import org.wikipedia.main.MainActivity
 import org.wikipedia.main.MainFragment
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.notifications.NotificationActivity
+import org.wikipedia.page.ExclusiveBottomSheetPresenter
+import org.wikipedia.page.PageTitle
+import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.places.PlacesActivity
 import org.wikipedia.random.RandomActivity
@@ -75,11 +81,13 @@ import org.wikipedia.util.ShareUtil
 import org.wikipedia.views.SurveyDialog
 import java.time.LocalDate
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), LinkPreviewDialog.LoadPageCallback {
     private val viewModel: HomeViewModel by viewModels()
     private val pageOverflowMenuViewModel: PageOverflowMenuViewModel by viewModels()
     private val cardImpressions = mutableSetOf<String>()
-    private val instrument = TestKitchenAdapter.client.getInstrument("apps-home-feed").startFunnel("home_feed")
+    private val instrument = TestKitchenAdapter.client.getInstrument("apps-home-feed")
+        .startFunnel("home_feed")
+        .setExperiment(TestKitchenAdapter.getExperiment(NewWithinInterestABTest()))
 
     private val personalizationResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_OK) {
@@ -250,7 +258,11 @@ class HomeFragment : Fragment() {
             }
             is HomeAction.PageClick -> {
                 instrument.submitInteraction("click", actionSource = action.card.javaClass.simpleName, elementId = "article_open", pageData = TestKitchenAdapter.getPageData(pageTitle = action.historyEntry.title))
-                (parentFragment as? MainFragment)?.onFeedSelectPage(action.historyEntry, false)
+                if (action.card is NewWithinInterestCard) {
+                    ExclusiveBottomSheetPresenter.show(childFragmentManager, LinkPreviewDialog.newInstance(action.historyEntry))
+                } else {
+                    (parentFragment as? MainFragment)?.onFeedSelectPage(action.historyEntry, false)
+                }
             }
             is HomeAction.PageBookmarkClick -> {
                 instrument.submitInteraction("click", actionSource = action.card.javaClass.simpleName, elementId = "article_save", pageData = TestKitchenAdapter.getPageData(pageTitle = action.historyEntry.title))
@@ -477,5 +489,14 @@ class HomeFragment : Fragment() {
                 )
             }
         )
+    }
+
+    override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
+        if (inNewTab) {
+            (parentFragment as? MainFragment)?.onFeedSelectPage(entry, true)
+            viewModel.updateTabCount(true)
+        } else {
+            (parentFragment as? MainFragment)?.onFeedSelectPage(entry, false)
+        }
     }
 }

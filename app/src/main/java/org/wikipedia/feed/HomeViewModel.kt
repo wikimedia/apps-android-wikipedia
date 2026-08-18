@@ -116,6 +116,16 @@ sealed class ForYouModule {
     }
 
     @Serializable
+    data class NewWithinInterest(
+        override val age: Int,
+        override val index: Int,
+        override val cards: List<ForYouCard>
+    ) : ForYouModule() {
+        override fun withCards(cards: List<ForYouCard>): ForYouModule = copy(cards = cards)
+        override fun moduleKey(): String = ForYouModuleType.NEW_WITHIN_INTEREST.name
+    }
+
+    @Serializable
     data class ContinueReading(
         override val age: Int,
         override val index: Int,
@@ -360,7 +370,7 @@ class HomeViewModel : ViewModel() {
                 // only drop module when it has cards, and they are all hidden, not when it is empty to begin with.
                 if (module.cards.isNotEmpty() && visibleCards.isEmpty()) null else module.withCards(visibleCards)
             }
-        val areAllModulesHidden = ForYouModuleType.entries.all { hiddenModules.contains(it.name) }
+        val areAllModulesHidden = ForYouModuleType.entries().all { hiddenModules.contains(it.key) }
         val isInterestModuleHidden = hiddenModules.contains(ForYouModuleType.BASED_ON_INTEREST.name)
         val emptyState = when {
             areAllModulesHidden -> FeedEmptyState.ALL_MODULES_HIDDEN
@@ -807,6 +817,11 @@ class HomeViewModel : ViewModel() {
                 if (!hiddenCards.contains(randomCard.hideKey)) {
                     // The index for this module is always 0 because there is always a single instance of this module, per age.
                     modules.add(ForYouModule.Random(age, 0, listOf(randomCard)))
+                }
+            }
+            newWithinInterestTopicCalls.awaitAll().filter { it.isNotEmpty() }.flatten().let { entries ->
+                if (entries.isNotEmpty()) {
+                    modules.add(ForYouModule.NewWithinInterest(age, 0, entries))
                 }
             }
         }
