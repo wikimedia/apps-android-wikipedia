@@ -56,14 +56,16 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
     val waitForRevisionState = _waitForRevisionState.asStateFlow()
     private val _editCount = MutableStateFlow<Resource<Int>>(Resource.Loading())
     val editCount = _editCount.asStateFlow()
-    var totalEditCount = -1
+    var totalEditCount = 0
 
     init {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             L.e(throwable)
             _editCount.value = Resource.Error(throwable)
         }) {
-            _editCount.value = Resource.Success(loadUserTotalEdits())
+            val userInfoResponse = ServiceFactory.get(pageTitle.wikiSite).getUserInfo()
+            totalEditCount = userInfoResponse.query?.userInfo?.editCount ?: 0
+            _editCount.value = Resource.Success(totalEditCount)
         }
     }
 
@@ -88,30 +90,14 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
         }
     }
 
-    private suspend fun loadUserTotalEdits(): Int {
-        // get the edit count when necessary
-        if (totalEditCount == -1) {
-            val userInfoResponse = ServiceFactory.get(pageTitle.wikiSite).getUserInfo()
-            totalEditCount = userInfoResponse.query?.userInfo?.editCount ?: 0
-        }
-        return totalEditCount
-    }
-
     fun requestSuggestion() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             L.e(throwable)
             _requestSuggestionState.value = Resource.Error(throwable)
         }) {
             _requestSuggestionState.value = Resource.Loading()
-            val responseCall = async { ServiceFactory[pageTitle.wikiSite, LiftWingModelService.API_URL, LiftWingModelService::class.java]
-                .getDescriptionSuggestion(DescriptionSuggestion.Request(pageTitle.wikiSite.languageCode, pageTitle.prefixedText, 2)) }
-
-            async {
-                loadUserTotalEdits()
-            }.await()
-
-            val response = responseCall.await()
-
+            val response = ServiceFactory[pageTitle.wikiSite, LiftWingModelService.API_URL, LiftWingModelService::class.java]
+                .getDescriptionSuggestion(DescriptionSuggestion.Request(pageTitle.wikiSite.languageCode, pageTitle.prefixedText, 2))
             // Perform some post-processing on the predictions.
             // 1) Capitalize them, if we're dealing with enwiki.
             // 2) Remove duplicates.
