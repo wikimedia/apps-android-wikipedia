@@ -2616,7 +2616,7 @@
     <string name="reading_lists_empty_collections_description">Create collections for places to travel to, favorite topics, and more.</string>
     <string name="reading_lists_create_new_collection">Create a new collection</string>
     <string name="reading_lists_remove_articles_confirm_dialog_title">Unsave article?</string>
-    <string name="reading_lists_remove_articles_confirm_button">Remove</string>
+    <string name="reading_lists_remove_articles_confirm_button">Unsave</string>
     <plurals name="reading_lists_remove_articles_confirm_dialog_message">
         <item quantity="one">This article will be removed from all associated collections.</item>
         <item quantity="other">These %d articles will be removed from all associated collections.</item>
