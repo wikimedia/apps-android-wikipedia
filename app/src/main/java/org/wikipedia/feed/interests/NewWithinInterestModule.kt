@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -90,8 +91,7 @@ fun NewWithinInterestModule(
         NewWithinInterestCardContent(
             wikiSite = wikiSite,
             titles = card.titles,
-            title = context.getString(wikiSite.languageCode, R.string.home_feed_new_within_interest_card_title,
-                if (wikiSite.languageCode == "en") topicName.lowercase() else topicName),
+            topicName = topicName,
             backgroundColor = colorResource(noImageCardBackgroundColors[(backgroundColorIndex + pageIndex) % noImageCardBackgroundColors.size]),
             topInset = topInset,
             bottomSpacing = if (module.cards.size > 1) 40.dp else 16.dp,
@@ -107,7 +107,7 @@ fun NewWithinInterestModule(
 private fun NewWithinInterestCardContent(
     wikiSite: WikiSite,
     titles: List<PageTitle>,
-    title: String,
+    topicName: String,
     backgroundColor: Color,
     topInset: Int,
     bottomSpacing: Dp,
@@ -131,14 +131,23 @@ private fun NewWithinInterestCardContent(
             modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Text(
-                modifier = Modifier.weight(1f),
-                text = title,
-                color = Color.White,
-                style = MaterialTheme.typography.titleLarge,
-                maxLines = 2,
-                overflow = TextOverflow.Ellipsis
-            )
+            Column(
+                modifier = Modifier.weight(1f)
+            ) {
+                Text(
+                    text = context.getString(wikiSite.languageCode, R.string.home_feed_new_within_interest_card_heading),
+                    color = Color.White.copy(alpha = 0.8f),
+                    style = MaterialTheme.typography.labelSmall,
+                    maxLines = 2
+                )
+                Text(
+                    text = topicName,
+                    color = Color.White,
+                    style = MaterialTheme.typography.titleLarge,
+                    maxLines = 2,
+                    overflow = TextOverflow.Ellipsis
+                )
+            }
             Box {
                 IconButton(onClick = { overflowMenuExpanded = true }) {
                     Icon(
@@ -225,7 +234,8 @@ private fun NewWithinInterestArticleCard(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(16.dp),
+                .padding(horizontal = 16.dp, vertical = 12.dp)
+                .defaultMinSize(minHeight = 64.dp),
             horizontalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             Column(
@@ -235,7 +245,7 @@ private fun NewWithinInterestArticleCard(
                 HtmlText(
                     text = title.displayText,
                     color = WikipediaTheme.colors.primaryColor,
-                    style = MaterialTheme.typography.titleMedium,
+                    style = MaterialTheme.typography.bodyLarge,
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis
                 )
@@ -257,7 +267,7 @@ private fun NewWithinInterestArticleCard(
                     contentScale = ContentScale.Crop,
                     contentDescription = null,
                     modifier = Modifier
-                        .size(72.dp)
+                        .size(56.dp)
                         .clip(RoundedCornerShape(8.dp))
                 )
             }
