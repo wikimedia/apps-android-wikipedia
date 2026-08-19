@@ -85,6 +85,7 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
 import org.wikipedia.theme.Theme
 import org.wikipedia.topics.ArticleTopics
+import org.wikipedia.util.DateUtil
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.imageservice.ImageService
@@ -509,6 +510,15 @@ private fun ReadAloudPlaybackControls(
                 modifier = Modifier.padding(start = 8.dp),
                 text = context.getString(wikiSite.languageCode, R.string.read_aloud_card_error),
                 color = Color.White,
+                style = MaterialTheme.typography.labelSmall
+            )
+        }
+
+        playerState.generatedDate?.let {
+            Text(
+                modifier = Modifier.padding(start = 8.dp, top = 4.dp),
+                text = context.getString(wikiSite.languageCode, R.string.read_aloud_card_audio_date, DateUtil.getShortDateString(it)),
+                color = Color.White.copy(alpha = 0.7f),
                 style = MaterialTheme.typography.labelSmall
             )
         }

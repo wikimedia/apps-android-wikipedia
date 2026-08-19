@@ -26,6 +26,7 @@ import androidx.media3.exoplayer.source.DefaultMediaSourceFactory
 import kotlinx.coroutines.delay
 import org.wikipedia.WikipediaApp
 import org.wikipedia.util.log.L
+import java.time.LocalDate
 import java.util.Locale
 
 // Fine enough that the highlighted word keeps up with the narration; individual words are often
@@ -51,6 +52,10 @@ class ReadAloudPlayerState internal constructor(private val player: ExoPlayer?) 
         internal set
 
     var cues by mutableStateOf<List<ReadAloudCue>>(emptyList())
+        internal set
+
+    // When the recording was produced, and so how current the article text behind it is.
+    var generatedDate by mutableStateOf<LocalDate?>(null)
         internal set
 
     // Flipped by the first tap on Play, which is what triggers the captions download: like the audio
@@ -202,6 +207,10 @@ fun rememberReadAloudPlayerState(audioUrl: String, captionsUrl: String): ReadAlo
             state.positionMillis = state.currentPlayerPosition()
             delay(POSITION_POLL_INTERVAL_MILLIS)
         }
+    }
+
+    LaunchedEffect(audioUrl) {
+        state.generatedDate = ReadAloudArticlesRepository.fetchAudioGeneratedDate(audioUrl)
     }
 
     LaunchedEffect(captionsUrl, state.hasStartedPlayback) {

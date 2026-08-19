@@ -2587,6 +2587,7 @@
     <string name="read_aloud_card_retry">Retry</string>
     <string name="read_aloud_card_error">Audio is not available for this article.</string>
     <string name="read_aloud_card_keep_listening">Keep listening?</string>
+    <string name="read_aloud_card_audio_date">This audio is based on article content from %s</string>
     <string name="home_feed_settings_discover_subtitle">Articles from your Discover collection</string>
     <string name="home_feed_discover_cta_title">From Discover</string>
     <string name="home_feed_discover_cta_description">Learn about new topics, picked just for you. Choose between daily, weekly or monthly updates.</string>

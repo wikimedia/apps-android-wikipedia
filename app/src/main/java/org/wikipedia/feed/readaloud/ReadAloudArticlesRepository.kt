@@ -1,11 +1,17 @@
 package org.wikipedia.feed.readaloud
 
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+import okhttp3.Request
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.page.PageTitle
 import org.wikipedia.topics.ArticleTopics
 import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
+import java.time.LocalDate
+import java.time.ZoneOffset
 
 /**
  * Provides the hardcoded set of articles whose lead section has a pre-generated audio version,
@@ -25,6 +31,28 @@ object ReadAloudArticlesRepository {
 
     private fun mediaUrlFor(title: PageTitle, extension: String) =
         AUDIO_BASE_URL + UriUtil.encodeURL(title.prefixedText) + "/$LEAD_SECTION_NAME.$extension"
+
+    /**
+     * The date a recording was generated, which the service reports only as the `Last-Modified`
+     * header of the audio itself. Asking for a single byte gets us the headers without pulling down
+     * the whole recording.
+     */
+    suspend fun fetchAudioGeneratedDate(audioUrl: String): LocalDate? = withContext(Dispatchers.IO) {
+        try {
+            val request = Request.Builder().url(audioUrl).header("Range", "bytes=0-0").build()
+            OkHttpConnectionFactory.client.newCall(request).execute().use { response ->
+                if (!response.isSuccessful) {
+                    return@use null
+                }
+                // Kept in UTC, the zone the header states it in, so the date can't slip by a day for
+                // users whose own zone is behind or ahead of GMT.
+                response.headers.getInstant("Last-Modified")?.atZone(ZoneOffset.UTC)?.toLocalDate()
+            }
+        } catch (e: Exception) {
+            L.e(e)
+            null
+        }
+    }
 
     /**
      * Returns up to [count] distinct random articles belonging to the given interest topic, or an
