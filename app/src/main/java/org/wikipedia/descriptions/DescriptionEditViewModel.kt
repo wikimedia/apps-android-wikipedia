@@ -29,6 +29,7 @@ import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
+import kotlin.time.Duration.Companion.milliseconds
 
 class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
@@ -55,7 +56,7 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
     val waitForRevisionState = _waitForRevisionState.asStateFlow()
     private val _editCount = MutableStateFlow<Resource<Int>>(Resource.Loading())
     val editCount = _editCount.asStateFlow()
-    var totalEditCount = 0
+    var totalEditCount = -1
 
     init {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
@@ -88,6 +89,7 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
     }
 
     private suspend fun loadUserTotalEdits(): Int {
+        // get the edit count when necessary
         if (totalEditCount == -1) {
             val userInfoResponse = ServiceFactory.get(pageTitle.wikiSite).getUserInfo()
             totalEditCount = userInfoResponse.query?.userInfo?.editCount ?: 0
@@ -164,7 +166,7 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
             var retry = 0
             var revision = -1L
             while (revision < newRevision && retry < 10) {
-                delay(2000)
+                delay(2000.milliseconds)
                 val pageSummary = ServiceFactory.getRest(pageTitle.wikiSite).getPageSummary(pageTitle.prefixedText, cacheControl = OkHttpConnectionFactory.CACHE_CONTROL_FORCE_NETWORK.toString())
                 revision = pageSummary.revision
                 retry++
