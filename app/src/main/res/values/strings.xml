@@ -308,6 +308,16 @@
     <string name="edit_notices_please_read">Please read before editing</string>
     <string name="edit_notices_show_auto">Show edit notices automatically</string>
     <string name="edit_notices_tooltip">Tap this button to view edit notices for this article.</string>
+    <string name="editor_select_dialog_title">Choose how to edit</string>
+    <string name="editor_select_dialog_ve_title">Visual editing</string>
+    <string name="editor_select_dialog_ve_subtitle">Make changes directly to the page you see. Opens in your browser.</string>
+    <string name="editor_select_dialog_source_title">Source editing</string>
+    <string name="editor_select_dialog_source_subtitle">Make changes using markup. Stays in the app.</string>
+    <string name="editor_select_dialog_dont_show_again">Don\'t show me this again. This default can be changed later in Settings.</string>
+    <string name="editor_select_dialog_continue">Continue</string>
+    <string name="editor_select_icon_ve_title">Open in external browser icon</string>
+    <string name="editor_select_title_settings_screen">Editing preference</string>
+    <string name="editor_select_save_btn_settings_screen">Save</string>
     <string name="find_next">Find next</string>
     <string name="find_previous">Find previous</string>
     <string name="find_first_occurence">This is the first occurrence</string>
