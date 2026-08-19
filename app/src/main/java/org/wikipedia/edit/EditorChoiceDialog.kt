@@ -3,6 +3,7 @@ package org.wikipedia.edit
 import android.content.Context
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -158,7 +159,7 @@ private fun EditorChoiceContent(
             .verticalScroll(rememberScrollState())
     ) {
         Text(
-            modifier = Modifier.padding(horizontal = 16.dp, vertical = 24.dp),
+            modifier = Modifier.padding(start = 16.dp, top = 24.dp, end = 16.dp, bottom = 16.dp),
             text = stringResource(dialogConfigData.dialogTitle),
             style = MaterialTheme.typography.headlineSmall,
             color = WikipediaTheme.colors.primaryColor
@@ -187,31 +188,36 @@ private fun EditorChoiceContent(
         }
 
         if (!dialogConfigData.isInSettingsScreen) {
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
+            Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 16.dp, vertical = 8.dp)
                     .selectable(
                         selected = dontShowAgain,
                         onClick = { dontShowAgain = !dontShowAgain },
                         role = Role.Checkbox
                     )
             ) {
-                Checkbox(
-                    checked = dontShowAgain,
-                    onCheckedChange = null,
-                    colors = CheckboxDefaults.colors(
-                        checkedColor = WikipediaTheme.colors.progressiveColor,
-                        uncheckedColor = WikipediaTheme.colors.secondaryColor,
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp, vertical = 8.dp)
+                ) {
+                    Checkbox(
+                        checked = dontShowAgain,
+                        onCheckedChange = null,
+                        colors = CheckboxDefaults.colors(
+                            checkedColor = WikipediaTheme.colors.progressiveColor,
+                            uncheckedColor = WikipediaTheme.colors.secondaryColor,
+                        )
                     )
-                )
-                Text(
-                    modifier = Modifier.padding(start = 8.dp),
-                    text = stringResource(R.string.editor_select_dialog_dont_show_again),
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = WikipediaTheme.colors.primaryColor
-                )
+                    Text(
+                        modifier = Modifier.padding(start = 8.dp),
+                        text = stringResource(R.string.editor_select_dialog_dont_show_again),
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = WikipediaTheme.colors.primaryColor
+                    )
+                }
             }
         }
 
@@ -220,7 +226,7 @@ private fun EditorChoiceContent(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(start = 16.dp, end = 24.dp, top = 20.dp, bottom = 20.dp),
+                .padding(start = 16.dp, top = 16.dp, end = 16.dp, bottom = 8.dp),
             horizontalArrangement = Arrangement.End,
             verticalAlignment = Alignment.CenterVertically
         ) {
@@ -228,7 +234,7 @@ private fun EditorChoiceContent(
                 Text(
                     text = stringResource(android.R.string.cancel),
                     style = MaterialTheme.typography.labelLarge,
-                    color = WikipediaTheme.colors.progressiveColor
+                    color = WikipediaTheme.colors.secondaryColor
                 )
             }
             Spacer(modifier = Modifier.width(8.dp))
