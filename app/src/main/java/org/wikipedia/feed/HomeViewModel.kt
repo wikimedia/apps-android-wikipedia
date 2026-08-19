@@ -684,6 +684,7 @@ class HomeViewModel : ViewModel() {
                 }
             }
 
+            NewWithinInterestABTest().maybeSendExposureEvent()
             val newWithinInterestTopics = if (NewWithinInterestABTest().isTestGroupUser())
                 AppDatabase.instance.topicInterestDao().getAllRandom().distinctBy { it.topicId }.take(4)
             else emptyList()

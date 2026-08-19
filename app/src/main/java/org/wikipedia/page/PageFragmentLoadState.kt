@@ -43,6 +43,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
                             private var leadImagesHandler: LeadImagesHandler,
                             private var currentTab: Tab) {
     private var pageLoadJob: Job? = null
+    var editCount = -1
 
     fun load(pushBackStack: Boolean) {
         if (pushBackStack && model.title != null && model.curEntry != null) {
@@ -193,6 +194,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
             val watchedResponse = watchedRequest.await()
             val categoriesResponse = categoriesRequest.await()
             val isWatched = watchedResponse.query?.firstPage()?.watched == true
+            editCount = watchedResponse.query?.userInfo?.editCount ?: 0
             val hasWatchlistExpiry = watchedResponse.query?.firstPage()?.hasWatchlistExpiry() == true
             if (pageSummaryResponse.body() == null) {
                 throw RuntimeException("Summary response was invalid.")
@@ -213,7 +215,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
             if (delayLoadHtml) {
                 bridge.resetHtml(title)
             }
-            fragment.onPageMetadataLoaded(redirectedFrom)
+            fragment.onPageMetadataLoaded(redirectedFrom = redirectedFrom, editCount = editCount)
 
             if (AnonymousNotificationHelper.shouldCheckAnonNotifications(watchedResponse)) {
                 checkAnonNotifications(title)
