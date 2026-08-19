@@ -134,7 +134,7 @@ class DescriptionEditFragment : Fragment() {
                         EditAttemptStepEvent.logInit(
                             pageTitle = viewModel.pageTitle,
                             editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
-                            editCount = if (it is Resource.Success) it.data else -1
+                            editCount = if (it is Resource.Success) it.data else 0
                         )
                     }
                 }
