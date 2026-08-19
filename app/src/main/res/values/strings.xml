@@ -2536,7 +2536,7 @@
     <string name="home_feed_settings_for_you_modules_description">Turning off a module hides it from your \"For you\" feed. You can re-enable it here at any time.</string>
     <string name="home_feed_settings_based_on_interest_title">Based on your interests</string>
     <string name="home_feed_settings_based_on_interest_subtitle"><![CDATA[Articles tailored to the topics you chose.<br /><a href="#drivingFeed">What\'s driving your feed</a>]]></string>
-    <string name="home_feed_new_within_interest_card_title">New in %s</string>
+    <string name="home_feed_new_within_interest_card_heading">New in your interest</string>
     <string name="home_feed_new_within_interest_title">New articles in your interests</string>
     <string name="home_feed_new_within_interest_subtitle">Recently created articles within topic areas you follow</string>
     <string name="home_feed_settings_because_you_read_subtitle">Suggestions based on a recent article from your history</string>
@@ -2621,7 +2621,7 @@
     <string name="reading_lists_empty_collections_description">Create collections for places to travel to, favorite topics, and more.</string>
     <string name="reading_lists_create_new_collection">Create a new collection</string>
     <string name="reading_lists_remove_articles_confirm_dialog_title">Unsave article?</string>
-    <string name="reading_lists_remove_articles_confirm_button">Remove</string>
+    <string name="reading_lists_remove_articles_confirm_button">Unsave</string>
     <plurals name="reading_lists_remove_articles_confirm_dialog_message">
         <item quantity="one">This article will be removed from all associated collections.</item>
         <item quantity="other">These %d articles will be removed from all associated collections.</item>
