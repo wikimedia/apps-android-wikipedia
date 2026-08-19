@@ -39,7 +39,7 @@ class SuggestedEditsImageTagsViewModel : ViewModel() {
             val caption = response.query?.firstPage()?.entityTerms?.label?.firstOrNull()
             _uiState.value = Resource.Success(mwQueryPage to caption)
 
-            editCount = response.query?.users?.first()?.editCount ?: 0
+            editCount = response.query?.users?.firstOrNull()?.editCount ?: 0
         }
     }
 

@@ -59,7 +59,7 @@ class EditSectionViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             _fetchSectionTextState.value = Resource.Loading()
 
             val infoResponse = ServiceFactory.get(pageTitle.wikiSite).getWikiTextForSectionWithInfo(pageTitle.prefixedText, if (sectionID >= 0) sectionID else null, userNames = AccountUtil.userName)
-            editCount = infoResponse.query?.users?.first()?.editCount ?: 0
+            editCount = infoResponse.query?.users?.firstOrNull()?.editCount ?: 0
             tempAccountsEnabled = infoResponse.query?.autoCreateTempUser?.enabled == true
 
             infoResponse.query?.firstPage()?.let { firstPage ->

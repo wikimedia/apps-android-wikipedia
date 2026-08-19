@@ -74,7 +74,7 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
             editingAllowed = false
             val summaryResponse = async { ServiceFactory.getRest(pageTitle.wikiSite).getPageSummary(pageTitle.prefixedText) }
             val infoResponse = async { ServiceFactory.get(pageTitle.wikiSite).getWikiTextForSectionWithInfo(pageTitle.prefixedText, 0, userNames = AccountUtil.userName) }
-            totalEditCount = infoResponse.await().query?.users?.first()?.editCount ?: 0
+            totalEditCount = infoResponse.await().query?.users?.firstOrNull()?.editCount ?: 0
             val editError = infoResponse.await().query?.firstPage()?.getErrorForAction("edit")
             var error: MwServiceError? = null
             if (editError.isNullOrEmpty()) {
@@ -91,7 +91,7 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
         if (totalEditCount == -1) {
             val userInfoResponse = ServiceFactory.get(pageTitle.wikiSite)
                 .userInfo(AccountUtil.userName)
-            totalEditCount = userInfoResponse.query?.users?.first()?.editCount ?: 0
+            totalEditCount = userInfoResponse.query?.users?.firstOrNull()?.editCount ?: 0
         }
         return totalEditCount
     }
@@ -183,7 +183,7 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
         val wikiSectionInfoResponse = ServiceFactory.get(pageTitle.wikiSite)
             .getWikiTextForSectionWithInfo(pageTitle.prefixedText, 0, userNames = AccountUtil.userName)
         val errorForAction = wikiSectionInfoResponse.query?.firstPage()?.getErrorForAction("edit")
-        totalEditCount = wikiSectionInfoResponse.query?.users?.first()?.editCount ?: 0
+        totalEditCount = wikiSectionInfoResponse.query?.users?.firstOrNull()?.editCount ?: 0
         if (!errorForAction.isNullOrEmpty()) {
             val error = errorForAction.first()
             throw MwException(error)
@@ -221,7 +221,7 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
                                                   editComment: String?,
                                                   editTags: String?): EntityPostResponse {
         val wikiSectionInfoResponse = ServiceFactory.get(pageTitle.wikiSite).getWikiTextForSectionWithInfo(pageTitle.prefixedText, 0, userNames = AccountUtil.userName)
-        totalEditCount = wikiSectionInfoResponse.query?.users?.first()?.editCount ?: 0
+        totalEditCount = wikiSectionInfoResponse.query?.users?.firstOrNull()?.editCount ?: 0
         val errorForAction = wikiSectionInfoResponse.query?.firstPage()?.getErrorForAction("edit")
         if (!errorForAction.isNullOrEmpty()) {
             val error = errorForAction.first()

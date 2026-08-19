@@ -148,7 +148,7 @@ class ArticleEditDetailsViewModel(savedStateHandle: SavedStateHandle) : ViewMode
     suspend fun getUserEditCount() {
         val userInfoResponse = ServiceFactory.get(pageTitle.wikiSite)
             .userInfo(AccountUtil.userName)
-        editCount = userInfoResponse.query?.users?.first()?.editCount ?: 0
+        editCount = userInfoResponse.query?.users?.firstOrNull()?.editCount ?: 0
     }
 
     fun goBackward() {
