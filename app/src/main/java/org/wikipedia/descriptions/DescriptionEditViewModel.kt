@@ -12,7 +12,6 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.dataclient.ServiceFactory
@@ -30,6 +29,7 @@ import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
+import kotlin.time.Duration.Companion.milliseconds
 
 class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
@@ -56,9 +56,17 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
     val waitForRevisionState = _waitForRevisionState.asStateFlow()
     private val _editCount = MutableStateFlow<Resource<Int>>(Resource.Loading())
     val editCount = _editCount.asStateFlow()
+    var totalEditCount = 0
 
     init {
-        loadUserTotalEdits()
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            L.e(throwable)
+            _editCount.value = Resource.Error(throwable)
+        }) {
+            val userInfoResponse = ServiceFactory.get(pageTitle.wikiSite).getUserInfo()
+            totalEditCount = userInfoResponse.query?.userInfo?.editCount ?: 0
+            _editCount.value = Resource.Success(totalEditCount)
+        }
     }
 
     fun loadPageSummary() {
@@ -69,7 +77,7 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
             editingAllowed = false
             val summaryResponse = async { ServiceFactory.getRest(pageTitle.wikiSite).getPageSummary(pageTitle.prefixedText) }
             val infoResponse = async { ServiceFactory.get(pageTitle.wikiSite).getWikiTextForSectionWithInfo(pageTitle.prefixedText, 0) }
-
+            totalEditCount = infoResponse.await().query?.userInfo?.editCount ?: 0
             val editError = infoResponse.await().query?.firstPage()?.getErrorForAction("edit")
             var error: MwServiceError? = null
             if (editError.isNullOrEmpty()) {
@@ -82,27 +90,14 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
         }
     }
 
-    private fun loadUserTotalEdits() {
-        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
-            L.e(throwable)
-            _editCount.value = Resource.Error(throwable)
-        }) {
-            val userInfoResponse = ServiceFactory.get(WikipediaApp.instance.wikiSite).globalUserInfo(AccountUtil.userName)
-            _editCount.value = Resource.Success(userInfoResponse.query?.userInfo?.editCount ?: 0)
-        }
-    }
-
     fun requestSuggestion() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             L.e(throwable)
             _requestSuggestionState.value = Resource.Error(throwable)
         }) {
             _requestSuggestionState.value = Resource.Loading()
-            val responseCall = async { ServiceFactory[pageTitle.wikiSite, LiftWingModelService.API_URL, LiftWingModelService::class.java]
-                .getDescriptionSuggestion(DescriptionSuggestion.Request(pageTitle.wikiSite.languageCode, pageTitle.prefixedText, 2)) }
-
-            val response = responseCall.await()
-
+            val response = ServiceFactory[pageTitle.wikiSite, LiftWingModelService.API_URL, LiftWingModelService::class.java]
+                .getDescriptionSuggestion(DescriptionSuggestion.Request(pageTitle.wikiSite.languageCode, pageTitle.prefixedText, 2))
             // Perform some post-processing on the predictions.
             // 1) Capitalize them, if we're dealing with enwiki.
             // 2) Remove duplicates.
@@ -110,19 +105,7 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
                 response.prediction.map { StringUtil.capitalize(it)!! }
             } else response.prediction).distinct()
 
-            _editCount.collect { editCountResource ->
-                when (editCountResource) {
-                    is Resource.Success -> {
-                        _requestSuggestionState.value = Resource.Success(Triple(response, editCountResource.data, list))
-                    }
-                    is Resource.Error -> {
-                        _requestSuggestionState.value = Resource.Success(Triple(response, -1, list))
-                    }
-                    is Resource.Loading -> {
-                        _requestSuggestionState.value = Resource.Loading()
-                    }
-                }
-             }
+            _requestSuggestionState.value = Resource.Success(Triple(response, totalEditCount, list))
         }
     }
 
@@ -169,7 +152,7 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
             var retry = 0
             var revision = -1L
             while (revision < newRevision && retry < 10) {
-                delay(2000)
+                delay(2000.milliseconds)
                 val pageSummary = ServiceFactory.getRest(pageTitle.wikiSite).getPageSummary(pageTitle.prefixedText, cacheControl = OkHttpConnectionFactory.CACHE_CONTROL_FORCE_NETWORK.toString())
                 revision = pageSummary.revision
                 retry++
@@ -187,6 +170,7 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
         val wikiSectionInfoResponse = ServiceFactory.get(pageTitle.wikiSite)
             .getWikiTextForSectionWithInfo(pageTitle.prefixedText, 0)
         val errorForAction = wikiSectionInfoResponse.query?.firstPage()?.getErrorForAction("edit")
+        totalEditCount = wikiSectionInfoResponse.query?.userInfo?.editCount ?: 0
         if (!errorForAction.isNullOrEmpty()) {
             val error = errorForAction.first()
             throw MwException(error)
@@ -224,6 +208,7 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
                                                   editComment: String?,
                                                   editTags: String?): EntityPostResponse {
         val wikiSectionInfoResponse = ServiceFactory.get(pageTitle.wikiSite).getWikiTextForSectionWithInfo(pageTitle.prefixedText, 0)
+        totalEditCount = wikiSectionInfoResponse.query?.userInfo?.editCount ?: 0
         val errorForAction = wikiSectionInfoResponse.query?.firstPage()?.getErrorForAction("edit")
         if (!errorForAction.isNullOrEmpty()) {
             val error = errorForAction.first()
