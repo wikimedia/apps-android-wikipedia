@@ -151,7 +151,7 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&meta=globaluserinfo&guiprop=editcount&prop=info|description|pageimages&pilicense=any&inprop=varianttitles|displaytitle&redirects=1&assert=user&pithumbsize=" + PREFERRED_THUMB_SIZE)
     suspend fun getInfoByTitlesWithGlobalUserInfo(@Query("titles") titles: String? = null): MwQueryResponse
 
-    @GET(MW_API_PREFIX + "action=query&meta=siteinfo|userinfo&uiprop=editcount&siprop=general|autocreatetempuser")
+    @GET(MW_API_PREFIX + "action=query&meta=siteinfo&siprop=general|autocreatetempuser")
     suspend fun getPageIds(@Query("titles") titles: String): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&prop=imageinfo&iiprop=timestamp|user|url|mime|metadata|extmetadata&iiurlwidth=" + PREFERRED_THUMB_SIZE)
@@ -612,7 +612,7 @@ interface Service {
     suspend fun getWatchedStatusWithUserOptions(@Query("titles") titles: String): MwQueryResponse
 
     @Headers("Cache-Control: no-cache")
-    @GET(MW_API_PREFIX + "action=query&prop=info&converttitles=&redirects=&inprop=watched&uiprop=rights")
+    @GET(MW_API_PREFIX + "action=query&prop=info&converttitles=&redirects=&inprop=watched&meta=userinfo&uiprop=rights")
     suspend fun getWatchedStatusWithRights(@Query("titles") titles: String): MwQueryResponse
 
     @Headers("Cache-Control: no-cache")

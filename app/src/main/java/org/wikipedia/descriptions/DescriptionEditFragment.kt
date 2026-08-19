@@ -349,7 +349,7 @@ class DescriptionEditFragment : Fragment() {
                 EditAttemptStepEvent.logSaveAttempt(
                     pageTitle = viewModel.pageTitle,
                     editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
-                    editCount = viewModel.totalEditCount + 1
+                    editCount = viewModel.totalEditCount
                 )
                 viewModel.postDescription(
                     currentDescription = binding.fragmentDescriptionEditView.description.orEmpty(),

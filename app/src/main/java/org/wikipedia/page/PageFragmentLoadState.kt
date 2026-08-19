@@ -190,7 +190,16 @@ class PageFragmentLoadState(private var model: PageViewModel,
                 }
             }
             val userInfoRequest = async {
-                ServiceFactory.get(title.wikiSite).userInfo(AccountUtil.userName)
+                try {
+                    if (makeWatchRequest) {
+                        ServiceFactory.get(title.wikiSite).userInfo(AccountUtil.userName)
+                    } else {
+                        MwQueryResponse()
+                    }
+                } catch (_: IOException) {
+                    L.w("Ignoring network error while fetching user info.")
+                    MwQueryResponse()
+                }
             }
             val pageSummaryResponse = pageSummaryRequest.await()
             val watchedResponse = watchedRequest.await()

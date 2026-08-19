@@ -107,8 +107,8 @@ class ArticleEditDetailsViewModel(savedStateHandle: SavedStateHandle) : ViewMode
             revisionToId = revisionTo!!.revId
             revisionFromId = if (revisionFrom != null) revisionFrom!!.revId else revisionTo!!.parentRevId
 
-            revisionDetails.postValue(Resource.Success(Unit))
             getUserEditCount()
+            revisionDetails.postValue(Resource.Success(Unit))
             getDiffText(revisionFromId, revisionToId)
         }
     }
@@ -139,8 +139,8 @@ class ArticleEditDetailsViewModel(savedStateHandle: SavedStateHandle) : ViewMode
             revisionToId = revisionTo!!.revId
             revisionFromId = if (revisionFrom != null) revisionFrom!!.revId else revisionTo!!.parentRevId
 
-            revisionDetails.postValue(Resource.Success(Unit))
             getUserEditCount()
+            revisionDetails.postValue(Resource.Success(Unit))
             getDiffText(revisionFromId, revisionToId)
         }
     }
