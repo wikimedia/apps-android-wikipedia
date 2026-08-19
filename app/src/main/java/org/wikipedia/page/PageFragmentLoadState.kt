@@ -189,23 +189,11 @@ class PageFragmentLoadState(private var model: PageViewModel,
                     MwQueryResponse()
                 }
             }
-            val userInfoRequest = async {
-                try {
-                    if (makeWatchRequest) {
-                        ServiceFactory.get(title.wikiSite).userInfo(AccountUtil.userName)
-                    } else {
-                        MwQueryResponse()
-                    }
-                } catch (_: IOException) {
-                    L.w("Ignoring network error while fetching user info.")
-                    MwQueryResponse()
-                }
-            }
             val pageSummaryResponse = pageSummaryRequest.await()
             val watchedResponse = watchedRequest.await()
             val categoriesResponse = categoriesRequest.await()
             val isWatched = watchedResponse.query?.firstPage()?.watched == true
-            val editCount = userInfoRequest.await().query?.users?.firstOrNull()?.editCount ?: 0
+            val editCount = watchedResponse.query?.userInfo?.editCount ?: 0
             val hasWatchlistExpiry = watchedResponse.query?.firstPage()?.hasWatchlistExpiry() == true
             if (pageSummaryResponse.body() == null) {
                 throw RuntimeException("Summary response was invalid.")

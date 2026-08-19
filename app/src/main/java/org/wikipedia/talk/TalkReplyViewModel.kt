@@ -5,10 +5,8 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
-import org.wikipedia.auth.AccountUtil
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.discussiontools.ThreadItem
@@ -54,15 +52,11 @@ class TalkReplyViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             L.e(throwable)
         }) {
-            async {
-                ServiceFactory.get(pageTitle.wikiSite).getPageIds(pageTitle.prefixedText).let {
-                    doesPageExist = (it.query?.pages?.firstOrNull()?.pageId ?: 0) > 0
-                    tempAccountsEnabled = it.query?.autoCreateTempUser?.enabled == true
-                }
-            }.await()
-            async {
-                editCount = ServiceFactory.get(pageTitle.wikiSite).userInfo(AccountUtil.userName).query?.users?.firstOrNull()?.editCount ?: 0
-            }.await()
+            ServiceFactory.get(pageTitle.wikiSite).getPageIds(pageTitle.prefixedText).let {
+                doesPageExist = (it.query?.pages?.firstOrNull()?.pageId ?: 0) > 0
+                tempAccountsEnabled = it.query?.autoCreateTempUser?.enabled == true
+                editCount = it.query?.userInfo?.editCount ?: 0
+            }
             pageExistsData.postValue(Resource.Success(doesPageExist))
         }
     }

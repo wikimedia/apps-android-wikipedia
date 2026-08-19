@@ -86,6 +86,7 @@ class ArticleEditDetailsViewModel(savedStateHandle: SavedStateHandle) : ViewMode
                 isWatched = page.watched
                 watchedStatus.postValue(Resource.Success(page))
                 hasRollbackRights = query.userInfo?.rights?.contains("rollback") == true
+                editCount = query.userInfo?.editCount ?: 0
                 rollbackRights.postValue(Resource.Success(hasRollbackRights))
             }
             if (revisionIdFrom >= 0) {
@@ -107,7 +108,6 @@ class ArticleEditDetailsViewModel(savedStateHandle: SavedStateHandle) : ViewMode
             revisionToId = revisionTo!!.revId
             revisionFromId = if (revisionFrom != null) revisionFrom!!.revId else revisionTo!!.parentRevId
 
-            getUserEditCount()
             revisionDetails.postValue(Resource.Success(Unit))
             getDiffText(revisionFromId, revisionToId)
         }
@@ -130,6 +130,7 @@ class ArticleEditDetailsViewModel(savedStateHandle: SavedStateHandle) : ViewMode
 
             watchedStatus.postValue(Resource.Success(page))
             hasRollbackRights = response.query?.userInfo?.rights?.contains("rollback") == true
+            editCount = response.query?.userInfo?.editCount ?: 0
             rollbackRights.postValue(Resource.Success(hasRollbackRights))
 
             revisionTo = revisions[0]
@@ -139,16 +140,9 @@ class ArticleEditDetailsViewModel(savedStateHandle: SavedStateHandle) : ViewMode
             revisionToId = revisionTo!!.revId
             revisionFromId = if (revisionFrom != null) revisionFrom!!.revId else revisionTo!!.parentRevId
 
-            getUserEditCount()
             revisionDetails.postValue(Resource.Success(Unit))
             getDiffText(revisionFromId, revisionToId)
         }
-    }
-
-    suspend fun getUserEditCount() {
-        val userInfoResponse = ServiceFactory.get(pageTitle.wikiSite)
-            .userInfo(AccountUtil.userName)
-        editCount = userInfoResponse.query?.users?.firstOrNull()?.editCount ?: 0
     }
 
     fun goBackward() {

@@ -73,8 +73,8 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
             _loadPageSummaryState.value = Resource.Loading()
             editingAllowed = false
             val summaryResponse = async { ServiceFactory.getRest(pageTitle.wikiSite).getPageSummary(pageTitle.prefixedText) }
-            val infoResponse = async { ServiceFactory.get(pageTitle.wikiSite).getWikiTextForSectionWithInfo(pageTitle.prefixedText, 0, userNames = AccountUtil.userName) }
-            totalEditCount = infoResponse.await().query?.users?.firstOrNull()?.editCount ?: 0
+            val infoResponse = async { ServiceFactory.get(pageTitle.wikiSite).getWikiTextForSectionWithInfo(pageTitle.prefixedText, 0) }
+            totalEditCount = infoResponse.await().query?.userInfo?.editCount ?: 0
             val editError = infoResponse.await().query?.firstPage()?.getErrorForAction("edit")
             var error: MwServiceError? = null
             if (editError.isNullOrEmpty()) {
@@ -89,9 +89,8 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
 
     private suspend fun loadUserTotalEdits(): Int {
         if (totalEditCount == -1) {
-            val userInfoResponse = ServiceFactory.get(pageTitle.wikiSite)
-                .userInfo(AccountUtil.userName)
-            totalEditCount = userInfoResponse.query?.users?.firstOrNull()?.editCount ?: 0
+            val userInfoResponse = ServiceFactory.get(pageTitle.wikiSite).getUserInfo()
+            totalEditCount = userInfoResponse.query?.userInfo?.editCount ?: 0
         }
         return totalEditCount
     }
@@ -181,9 +180,9 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
                                                  captchaId: String?,
                                                  captchaWord: String?): Edit {
         val wikiSectionInfoResponse = ServiceFactory.get(pageTitle.wikiSite)
-            .getWikiTextForSectionWithInfo(pageTitle.prefixedText, 0, userNames = AccountUtil.userName)
+            .getWikiTextForSectionWithInfo(pageTitle.prefixedText, 0)
         val errorForAction = wikiSectionInfoResponse.query?.firstPage()?.getErrorForAction("edit")
-        totalEditCount = wikiSectionInfoResponse.query?.users?.firstOrNull()?.editCount ?: 0
+        totalEditCount = wikiSectionInfoResponse.query?.userInfo?.editCount ?: 0
         if (!errorForAction.isNullOrEmpty()) {
             val error = errorForAction.first()
             throw MwException(error)
@@ -220,8 +219,8 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
                                                   currentDescription: String,
                                                   editComment: String?,
                                                   editTags: String?): EntityPostResponse {
-        val wikiSectionInfoResponse = ServiceFactory.get(pageTitle.wikiSite).getWikiTextForSectionWithInfo(pageTitle.prefixedText, 0, userNames = AccountUtil.userName)
-        totalEditCount = wikiSectionInfoResponse.query?.users?.firstOrNull()?.editCount ?: 0
+        val wikiSectionInfoResponse = ServiceFactory.get(pageTitle.wikiSite).getWikiTextForSectionWithInfo(pageTitle.prefixedText, 0)
+        totalEditCount = wikiSectionInfoResponse.query?.userInfo?.editCount ?: 0
         val errorForAction = wikiSectionInfoResponse.query?.firstPage()?.getErrorForAction("edit")
         if (!errorForAction.isNullOrEmpty()) {
             val error = errorForAction.first()

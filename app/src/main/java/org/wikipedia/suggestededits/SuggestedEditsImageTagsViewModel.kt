@@ -7,7 +7,6 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
-import org.wikipedia.auth.AccountUtil
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.MwQueryPage
@@ -34,12 +33,12 @@ class SuggestedEditsImageTagsViewModel : ViewModel() {
         }) {
             val mwQueryPage = page ?: EditingSuggestionsProvider.getNextImageWithMissingTags()
             val response = ServiceFactory.get(Constants.commonsWikiSite)
-                .getWikidataEntityTerms(mwQueryPage.title, LanguageUtil.convertToUselangIfNeeded(languageCode), userNames = AccountUtil.userName)
+                .getWikidataEntityTerms(mwQueryPage.title, LanguageUtil.convertToUselangIfNeeded(languageCode))
 
             val caption = response.query?.firstPage()?.entityTerms?.label?.firstOrNull()
             _uiState.value = Resource.Success(mwQueryPage to caption)
 
-            editCount = response.query?.users?.firstOrNull()?.editCount ?: 0
+            editCount = response.query?.userInfo?.editCount ?: 0
         }
     }
 
