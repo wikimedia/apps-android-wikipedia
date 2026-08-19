@@ -77,6 +77,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
     private var _binding: FragmentArticleEditDetailsBinding? = null
     private val binding get() = _binding!!
     private val viewModel: ArticleEditDetailsViewModel by viewModels()
+    private var editAttemptInitLogged = false
 
     private val actionBarOffsetChangedListener =
         AppBarLayout.OnOffsetChangedListener { _, verticalOffset ->
@@ -149,7 +150,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
             if (it is Resource.Success) {
                 updateDiffCharCountView(viewModel.diffSize)
                 updateAfterRevisionFetchSuccess()
-                if (savedInstanceState == null) {
+                if (savedInstanceState == null && !editAttemptInitLogged) {
+                    editAttemptInitLogged = true
                     EditAttemptStepEvent.logInit(
                         pageTitle = viewModel.pageTitle,
                         editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
