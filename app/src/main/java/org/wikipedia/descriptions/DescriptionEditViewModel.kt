@@ -55,7 +55,7 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
     val waitForRevisionState = _waitForRevisionState.asStateFlow()
     private val _editCount = MutableStateFlow<Resource<Int>>(Resource.Loading())
     val editCount = _editCount.asStateFlow()
-    var totalEditCount = -1
+    var totalEditCount = 0
 
     init {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->

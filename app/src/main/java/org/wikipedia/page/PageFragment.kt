@@ -177,7 +177,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     private var avPlayer: AvPlayer? = null
     private var avCallback: AvCallback? = null
     private var sections: MutableList<Section>? = null
-    private var editCount = -1
+    private var editCount = 0
     private var app = WikipediaApp.instance
 
     override lateinit var linkHandler: LinkHandler

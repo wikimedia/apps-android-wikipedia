@@ -55,7 +55,7 @@ class ArticleEditDetailsViewModel(savedStateHandle: SavedStateHandle) : ViewMode
     var hasRollbackRights = false
     var isWatched = false
     var ns = 0
-    var editCount = -1
+    var editCount = 0
 
     val diffSize get() = if (revisionFrom != null) revisionTo!!.size - revisionFrom!!.size else revisionTo!!.size
 

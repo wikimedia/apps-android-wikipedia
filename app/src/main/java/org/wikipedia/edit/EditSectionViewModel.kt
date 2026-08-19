@@ -31,7 +31,7 @@ class EditSectionViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     var sectionWikitextOriginal: String? = null
     var tempAccountsEnabled = true
     var editingAllowed = false
-    var editCount = -1
+    var editCount = 0
     val editNotices = mutableListOf<String>()
 
     // Current revision of the article, to be passed back to the server to detect possible edit conflicts.

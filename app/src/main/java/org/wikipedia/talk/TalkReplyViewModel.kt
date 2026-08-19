@@ -39,7 +39,7 @@ class TalkReplyViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     val pageExistsData = MutableLiveData<Resource<Boolean>>()
     var doesPageExist = false
     var tempAccountsEnabled = true
-    var editCount = -1
+    var editCount = 0
 
     init {
         if (isFromDiff) {
