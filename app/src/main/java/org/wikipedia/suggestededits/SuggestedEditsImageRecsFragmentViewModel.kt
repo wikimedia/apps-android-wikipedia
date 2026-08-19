@@ -45,7 +45,7 @@ class SuggestedEditsImageRecsFragmentViewModel(savedStateHandle: SavedStateHandl
     val langCode = savedStateHandle.get<String>(SuggestedEditsImageRecsFragment.ARG_LANG)!!
     private val _uiState = MutableStateFlow(Resource<Unit>())
     val uiState = _uiState.asStateFlow()
-    var editCount = -1
+    var editCount = 0
 
     init {
         fetchRecommendation()

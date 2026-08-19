@@ -152,7 +152,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                                             pageTitle = title,
                                             revisionId = it.data.lastRevId,
                                             editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
-                                            editCount = viewModel.editCount
+                                            editCount = (viewModel.editCount + 1)
                                         )
                                     }
                                 }
