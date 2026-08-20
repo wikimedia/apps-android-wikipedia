@@ -332,23 +332,21 @@ fun DonationReminderContent(
                 .padding(16.dp)
         ) {
             DonationHeader()
-            if (viewModel.isFromSettings) {
-                DonationRemindersSwitch(
-                    modifier = Modifier
-                        .noRippleClickable {
-                            viewModel.toggleDonationReminders(!isDonationReminderEnabled)
-                        }
-                        .padding(top = 24.dp),
-                    isDonationRemindersEnabled = isDonationReminderEnabled,
-                    onCheckedChange = { viewModel.toggleDonationReminders(it) }
-                )
-            }
+
+            DonationRemindersSwitch(
+                modifier = Modifier
+                    .noRippleClickable {
+                        viewModel.toggleDonationReminders(!isDonationReminderEnabled)
+                    }
+                    .padding(top = 24.dp),
+                isDonationRemindersEnabled = isDonationReminderEnabled,
+                onCheckedChange = { viewModel.toggleDonationReminders(it) }
+            )
+
             Spacer(modifier = Modifier.height(24.dp))
             if (uiState.isDonationReminderEnabled || !viewModel.isFromSettings) {
                 ReadFrequencyView(
                     option = uiState.readFrequency,
-                    showReadFrequencyCustomDialog = showReadFrequencyCustomDialog,
-                    customDialogErrorMessage = customDialogErrorMessage,
                     onOptionSelected = { option ->
                         when (option) {
                             is OptionItem.Preset -> {
@@ -363,41 +361,6 @@ fun DonationReminderContent(
                             is OptionItem.Custom -> {
                                 showReadFrequencyCustomDialog = true
                             }
-                        }
-                    },
-                    onDismissRequest = {
-                        showReadFrequencyCustomDialog = false
-                        customDialogErrorMessage = ""
-                    },
-                    onDoneClick = { readFrequency ->
-                        if (customDialogErrorMessage.isEmpty()) {
-                            val activeInterface = if (viewModel.isFromSettings) "global_setting" else "reminder_config"
-                            DonorExperienceEvent.logDonationReminderAction(
-                                activeInterface = activeInterface,
-                                action = "freq_change_click"
-                            )
-                            viewModel.updateReadFrequencyState(readFrequency.toInt())
-                            showReadFrequencyCustomDialog = false
-                        }
-                    },
-                    onValueChange = { value ->
-                        val minimumAmount = uiState.readFrequency.minimumAmount
-                        val maximumAmount = uiState.readFrequency.maximumAmount
-                        val amount = DonateUtil.getAmountFloat(value)
-                        customDialogErrorMessage = when {
-                            amount <= minimumAmount -> {
-                                String.format(
-                                    warningMinAmount,
-                                    uiState.readFrequency.displayFormatter(minimumAmount + 1)
-                                )
-                            }
-                            amount >= maximumAmount -> {
-                                String.format(
-                                    warningMaxAmount,
-                                    uiState.readFrequency.displayFormatter(maximumAmount - 1)
-                                )
-                            }
-                            else -> ""
                         }
                     }
                 )
@@ -541,12 +504,7 @@ fun DonationAmountView(
 @Composable
 fun ReadFrequencyView(
     option: SelectableOption<Int>,
-    showReadFrequencyCustomDialog: Boolean,
-    customDialogErrorMessage: String,
     onOptionSelected: (OptionItem<Int>) -> Unit,
-    onDismissRequest: () -> Unit,
-    onDoneClick: (String) -> Unit,
-    onValueChange: (String) -> Unit
 ) {
     OptionSelector(
         title = stringResource(R.string.donation_reminders_settings_article_frequency_label),
@@ -555,22 +513,6 @@ fun ReadFrequencyView(
         showInfo = true,
         onOptionSelected = onOptionSelected
     )
-    if (showReadFrequencyCustomDialog) {
-        CustomInputDialog(
-            title = stringResource(R.string.donation_reminders_settings_article_frequency_label),
-            errorMessage = customDialogErrorMessage,
-            onDismissRequest = onDismissRequest,
-            suffix = {
-                Text(
-                    text = stringResource(R.string.donation_reminders_settings_article_frequency_input_suffix_label),
-                    style = MaterialTheme.typography.bodyLarge,
-                    color = WikipediaTheme.colors.primaryColor
-                )
-            },
-            onDoneClick = onDoneClick,
-            onValueChange = onValueChange
-        )
-    }
 }
 
 @Composable
@@ -643,11 +585,21 @@ fun <T : Number> OptionSelector(
         Column(
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            Text(
-                text = title,
-                style = MaterialTheme.typography.bodyLarge,
-                color = WikipediaTheme.colors.primaryColor,
-            )
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                Text(
+                    text = title,
+                    style = MaterialTheme.typography.bodyLarge,
+                    color = WikipediaTheme.colors.primaryColor,
+                )
+                if (showInfo) {
+                    InfoTooltip(
+                        modifier = Modifier,
+                        plainTooltipText = stringResource(R.string.donation_reminders_settings_tooltip_info_label)
+                    )
+                }
+            }
             Spacer(modifier = Modifier.width(16.dp))
             Row(
                 verticalAlignment = Alignment.CenterVertically,
@@ -673,13 +625,6 @@ fun <T : Number> OptionSelector(
                         )
                     }
                 )
-
-                if (showInfo) {
-                    InfoTooltip(
-                        modifier = Modifier,
-                        plainTooltipText = stringResource(R.string.donation_reminders_settings_tooltip_info_label)
-                    )
-                }
 
                 DropdownMenu(
                     modifier = Modifier
