@@ -4,6 +4,8 @@ import android.app.Activity
 import kotlinx.serialization.Serializable
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.ABTest.Companion.GROUP_2
+import org.wikipedia.analytics.ABTest.Companion.GROUP_3
 import org.wikipedia.donate.DonateUtil
 import org.wikipedia.donate.donationreminder.DonationReminderHelper.MAX_REMINDER_PROMPTS
 import org.wikipedia.settings.Prefs
@@ -18,11 +20,12 @@ object DonationReminderHelper {
 
     private val isTestGroupUser = DonationReminderAbTest().isTestGroupUser()
     private val enabledCountries = listOf(
-        "GB", "AU", "CA"
+        "NL"
     )
-    private val isInDateRange get() = LocalDate.now() <= LocalDate.of(2026, 3, 15)
+    private val isInDateRange get() = LocalDate.now() <= LocalDate.of(2026, 11, 1) // TODO: confirm with PM
     val isInEligibleCountry get() = ReleaseUtil.isDevRelease || enabledCountries.contains(GeoUtil.geoIPCountry.orEmpty())
-    val defaultReadFrequencyOptions = listOf(5, 10, 15, 25, 50)
+    val defaultReadFrequencyOptions = listOf(5, 10, 20)
+    val defaultDonateAmountOptions = listOf(1, 3, 5) // V3 only.
 
     val isEnabled
         get() = (ReleaseUtil.isDevRelease || isInEligibleCountry && isInDateRange) && isTestGroupUser
@@ -33,7 +36,11 @@ object DonationReminderHelper {
 
     fun getCampaignId(campaignIdOriginal: String = "appmenu"): String {
         return if (isInEligibleCountry && isInDateRange) {
-            campaignIdOriginal + if (isTestGroupUser) "_reminderB" else "_reminderA"
+            campaignIdOriginal + when (DonationReminderAbTest().group) {
+                GROUP_3 -> "_reminderC"
+                GROUP_2 -> "_reminderB"
+                else -> "_reminderA"
+            } // TODO: confirm with Shay
         } else {
             campaignIdOriginal
         }
