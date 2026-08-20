@@ -16,7 +16,7 @@
   <string name="search_back_button_content_description">पाछे जैथिन</string>
   <string name="search_clear_query_content_description">क्वेरी खाली करथिन</string>
   <string name="search_icon_content_description">खोजथिन</string>
-  <string name="filter_hint_filter_my_lists_and_articles">हमर सूचीके छाँटथिन</string>
+  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">हमर सूचीके छाँटथिन</string>
   <string name="nav_item_suggested_edits">सम्पादन</string>
   <string name="nav_item_activity">गतिविधि</string>
   <string name="nav_item_more">आउ</string>
@@ -83,16 +83,16 @@
   <string name="menu_page_watched">ध्यानसूचीमे रखल</string>
   <string name="edit_section_find_in_page">पन्नामे खोजथिन</string>
   <string name="menu_page_font_and_theme">वर्ण आउ प्रसङ्ग</string>
-  <string name="menu_page_add_to_list">पठन सूचीमे जोड़थिन</string>
+  <string name="menu_page_add_to_list" fuzzy="true">पठन सूचीमे जोड़थिन</string>
   <string name="menu_page_add_to_default_list">सहेजथिन</string>
-  <string name="feed_card_add_to_list">पठन सूचीमे जोड़थिन</string>
+  <string name="feed_card_add_to_list" fuzzy="true">पठन सूचीमे जोड़थिन</string>
   <string name="feed_card_add_to_default_list">सहेजथिन</string>
   <string name="menu_page_share">कड़ी साझा करथिन</string>
   <string name="menu_article_share">लेख साझा करथिन</string>
   <string name="menu_page_article_share">साझा करथिन</string>
   <string name="menu_page_open_a_new_tab">नया टैब खोलथिन</string>
   <string name="menu_page_new_tab">नया टैब</string>
-  <string name="menu_page_reading_lists">पठन सूची</string>
+  <string name="menu_page_reading_lists" fuzzy="true">पठन सूची</string>
   <string name="menu_page_recently_viewed">हालमे देखल</string>
   <string name="menu_page_archive">पुरालेख</string>
   <string name="menu_long_press_open_page">खोलथिन</string>
@@ -135,7 +135,7 @@
   <string name="menu_show_toc">बिसयसूची</string>
   <string name="search_no_results_found">कौनो परिणाम न मिलल</string>
   <string name="search_reading_list_no_results">\"%s\" मे कौनो परिणाम न मिलल</string>
-  <string name="search_reading_lists_no_results">पठन सूचीमे कौनो परिणाम नै भेटलै</string>
+  <string name="search_reading_lists_no_results" fuzzy="true">पठन सूचीमे कौनो परिणाम नै भेटलै</string>
   <string name="search_history_no_results">इतिहासमे कौनो परिणाम नै भेटलै</string>
   <string name="edit_section_captcha_message">स्वचालित स्पैम से बचेला कृपया नीचे देखावल शब्दके लिखथिन</string>
   <string name="edit_section_captcha_request_an_account_message">चित्र नै लौकैत ? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;एगो खाताके अनुरोध करथिन&lt;/a&gt;</string>
@@ -296,7 +296,7 @@
   <string name="unnamed_tab_closed">टैब बन्द होलै ।</string>
   <string name="tab_item_closed">%s बन्द होलै ।</string>
   <string name="all_tab_items_closed">सब टैब बन्द होलै ।</string>
-  <string name="tool_tip_bookmark_icon_title">पठन सूचीमे जोड़थिन</string>
+  <string name="tool_tip_bookmark_icon_title" fuzzy="true">पठन सूचीमे जोड़थिन</string>
   <string name="page_view_in_browser">पन्नाके ब्राउजरमे देखथिन</string>
   <string name="error_unknown">एगो अज्ञात त्रुटि आएल ।</string>
   <string name="format_error_server_message">सन्देश: \"%s\"</string>
@@ -306,7 +306,7 @@
   <string name="button_continue_to_talk_page">बार्ता पन्ना खोली</string>
   <string name="button_continue_to_disambiguation">ऐसने पन्ना देखावी</string>
   <string name="link_preview_disambiguation_description">ई शीर्षक एकसे अधिक पन्नासे सम्बन्धित हे:</string>
-  <string name="button_add_to_reading_list">पाठसूचीमे जोड़ी</string>
+  <string name="button_add_to_reading_list" fuzzy="true">पाठसूचीमे जोड़ी</string>
   <string name="page_offline_notice_cannot_load_while_offline">आफलाइन होवेपर लेख लोड नै कैल जा सकै ।</string>
   <string name="redirected_from_snackbar">%s से पुनर्निर्देशित</string>
   <string name="preference_title_customize_explore_feed">फीड मे खोजथिन</string>
@@ -362,8 +362,8 @@
   <string name="text_style_title">वर्ण</string>
   <string name="theme_category_reading">पढ़ाई</string>
   <string name="theme_category_editing">सम्पादन</string>
-  <string name="reading_list_added_view_button">सूची देखथिन</string>
-  <string name="reading_list_add_to_list_button">सूचीमे जोड़थिन</string>
+  <string name="reading_list_added_view_button" fuzzy="true">सूची देखथिन</string>
+  <string name="reading_list_add_to_list_button" fuzzy="true">सूचीमे जोड़थिन</string>
   <plurals name="format_reading_list_statistical_summary_without_size">
     <item quantity="one">१ लेख</item>
     <item quantity="other">%d लेख</item>
@@ -388,8 +388,8 @@
   <string name="reading_list_sort_by_recent_desc">जोड़ल गेल तिथि अनुसार क्रमबद्ध करथिन (सबसे पुरान)</string>
   <string name="reading_list_sort_by_created">निर्माण तिथि अनुसार क्रमबद्ध करथिन (नवीनतम)</string>
   <string name="reading_list_sort_by_created_desc">निर्माण तिथि अनुसार क्रमबद्ध करथिन (सबसे पुरान)</string>
-  <string name="reading_list_menu_delete">सूची हटावथिन</string>
-  <string name="reading_list_menu_export">निर्यात सूची</string>
+  <string name="reading_list_menu_delete" fuzzy="true">सूची हटावथिन</string>
+  <string name="reading_list_menu_export" fuzzy="true">निर्यात सूची</string>
   <string name="reading_list_menu_select">चुनथिन</string>
   <string name="reading_list_menu_unselect">चुनेसे हटावथिन</string>
   <string name="reading_list_menu_rename">नाम/विवरण सम्पादित करथिन</string>
@@ -397,12 +397,12 @@
   <string name="reading_list_action_menu_save_for_offline">आफलाइन लागि सुरक्षित सहेजथिन</string>
   <string name="reading_list_action_menu_remove_all_from_offline">आफलाइनसे सब हटावथिन</string>
   <string name="reading_list_action_menu_save_all_for_offline">आफलाइन लागि सब सहेजथिन</string>
-  <string name="reading_list_action_menu_add_to_another_list">दोसर सूचीमे जोड़थिन</string>
-  <string name="reading_list_action_menu_move_to_another_list">दोसर सूचीमे स्थानान्तरित करथिन</string>
-  <string name="reading_list_name_sample">हमर पठन सूची</string>
-  <string name="reading_list_name_hint">ई सूचीके नाम</string>
+  <string name="reading_list_action_menu_add_to_another_list" fuzzy="true">दोसर सूचीमे जोड़थिन</string>
+  <string name="reading_list_action_menu_move_to_another_list" fuzzy="true">दोसर सूचीमे स्थानान्तरित करथिन</string>
+  <string name="reading_list_name_sample" fuzzy="true">हमर पठन सूची</string>
+  <string name="reading_list_name_hint" fuzzy="true">ई सूचीके नाम</string>
   <string name="reading_list_description_hint">विवरण (वैकल्पिक)</string>
-  <string name="reading_list_item_deleted">%s सूचीसे हटावल गेलै</string>
+  <string name="reading_list_item_deleted" fuzzy="true">%s सूचीसे हटावल गेलै</string>
   <string name="reading_list_item_deleted_from_list">%1$s के %2$s से हटावल गेलै</string>
   <string name="reading_list_article_offline">आफलाइन उपलब्ध</string>
   <string name="reading_list_article_make_offline">ई लेखके आफलाइन उपलब्ध करावथिन</string>
@@ -424,7 +424,7 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">निरस्त करथिन</string>
   <string name="reading_list_split_dialog_ok_button_text">ठीक हे</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">हटावथिन</string>
-  <string name="reading_list_activity_title">पठन सूची: %s</string>
+  <string name="reading_list_activity_title" fuzzy="true">पठन सूची: %s</string>
   <string name="notification_echo_channel_description">विकिपीडिया अधिसूचना</string>
   <string name="notifications_activity_title">अधिसूचना</string>
   <string name="notifications_activity_title_archived">अधिसूचना (पुरालेखित)</string>

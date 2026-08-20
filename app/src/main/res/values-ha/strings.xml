@@ -22,7 +22,7 @@
   <string name="search_hint">Bincika Wikipedia</string>
   <string name="search_hint_voice_search">Bincika saka murya</string>
   <string name="search_hint_search_languages">Bincika yare</string>
-  <string name="filter_hint_filter_my_lists_and_articles">Tace jeri na</string>
+  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">Tace jeri na</string>
   <string name="nav_item_suggested_edits">Gyararraki</string>
   <string name="nav_item_more">Da yawa</string>
   <string name="nav_item_search">Bincika</string>
@@ -87,16 +87,16 @@
   <string name="menu_page_watched">Wanda aka duba</string>
   <string name="edit_section_find_in_page">Nema a shafi</string>
   <string name="menu_page_font_and_theme">Font da theme</string>
-  <string name="menu_page_add_to_list">Ƙara a jerin wanda ake karantawa</string>
+  <string name="menu_page_add_to_list" fuzzy="true">Ƙara a jerin wanda ake karantawa</string>
   <string name="menu_page_add_to_default_list">Aje</string>
-  <string name="feed_card_add_to_list">Ƙara a jerin wanda ake karantawa</string>
+  <string name="feed_card_add_to_list" fuzzy="true">Ƙara a jerin wanda ake karantawa</string>
   <string name="feed_card_add_to_default_list">Aje</string>
   <string name="menu_page_share">Raba shafi</string>
   <string name="menu_article_share">Raba maƙala</string>
   <string name="menu_page_article_share">Raba</string>
   <string name="menu_page_open_a_new_tab">Buɗe sabon shafi</string>
   <string name="menu_page_new_tab">Sabon shafi</string>
-  <string name="menu_page_reading_lists">Jerin waɗanda ake karantawa</string>
+  <string name="menu_page_reading_lists" fuzzy="true">Jerin waɗanda ake karantawa</string>
   <string name="menu_page_recently_viewed">Wanda aka duba na baya-bayan nan</string>
   <string name="menu_page_archive">Wanda aka cimma</string>
   <string name="menu_long_press_open_page">Buɗe</string>
@@ -133,7 +133,7 @@
   <string name="menu_show_toc">Abubuwan dake ciki</string>
   <string name="search_no_results_found">Babu sakamako</string>
   <string name="search_reading_list_no_results">Babu sakamako a \"%s\"</string>
-  <string name="search_reading_lists_no_results">Babu sakamako a jerin na karantawa</string>
+  <string name="search_reading_lists_no_results" fuzzy="true">Babu sakamako a jerin na karantawa</string>
   <string name="search_history_no_results">Babu sakamako a tarihi</string>
   <string name="edit_section_captcha_message">Domin taimakawa wajen kare spam, daure ka saka kalmomin da suka baiyana a ƙasa</string>
   <string name="edit_section_captcha_request_an_account_message">Baka ga hoton ba?&lt;a href=\"https://ha.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;&lt;/a&gt;&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Nemi a buɗe asusu&lt;/a&gt;</string>
@@ -207,12 +207,12 @@
   <string name="preferences_heading_syncing">Syncing</string>
   <string name="preferences_heading_data_usage">Amfanin Data</string>
   <string name="preferences_heading_experimental">Gwaje-gwajen kimiyya</string>
-  <string name="preference_title_sync_reading_lists_from_account">Bincika jerin wanda ake karantawa</string>
-  <string name="preference_title_download_reading_list_articles">Sauko da jerin maƙalolin dake kan wanda ake karantawa</string>
-  <string name="preference_summary_sync_reading_lists">Bincika jerin wanda ake karantawa daga mabanbantan na\'urori ta hanyar ajiye su a asusun ka na Wikipedia.</string>
-  <string name="preference_summary_sync_reading_lists_from_account">Bincika jerin wanda ake karantawa daga mabanbantan na\'urori ta hanyar ajiye su  asusun ka na Wikipedia \"%s\"</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">A cire binciken jerin wanda ake karantawa daga \"%s\"?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Wannan zai goge gaba ɗayan binciken da aka yi a baya na jerin wanda ake karantawa daga ma\'ajiya. A share dukkan jerin binciken daga asusun ka \"%s\"?</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Bincika jerin wanda ake karantawa</string>
+  <string name="preference_title_download_reading_list_articles" fuzzy="true">Sauko da jerin maƙalolin dake kan wanda ake karantawa</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">Bincika jerin wanda ake karantawa daga mabanbantan na\'urori ta hanyar ajiye su a asusun ka na Wikipedia.</string>
+  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">Bincika jerin wanda ake karantawa daga mabanbantan na\'urori ta hanyar ajiye su  asusun ka na Wikipedia \"%s\"</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">A cire binciken jerin wanda ake karantawa daga \"%s\"?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">Wannan zai goge gaba ɗayan binciken da aka yi a baya na jerin wanda ake karantawa daga ma\'ajiya. A share dukkan jerin binciken daga asusun ka \"%s\"?</string>
   <string name="preference_title_auto_upload_crash_reports">Aika rahoton cin karo</string>
   <string name="preference_summary_auto_upload_crash_reports">A bawa manhaja damar ta aika da rahoton cin karo zuwa mai bada sabis na ɓangare na uku ta atomatik domin mu iya duba haɗarin ka kuma mu gyara cikin sauri da sauƙi.</string>
   <string name="editing_error_spamblacklist">Mahaɗar shafukan da aka kulle (%s). Daure ka share su sai ka sake jarrabawa.</string>
@@ -343,8 +343,8 @@
   <string name="unnamed_tab_closed">An rufe shafi.</string>
   <string name="tab_item_closed">%s an rufe.</string>
   <string name="all_tab_items_closed">Dukkanin tabkuna sun rufe.</string>
-  <string name="tool_tip_bookmark_icon_title">Ƙara zuwa lissafin karatu</string>
-  <string name="tool_tip_bookmark_icon_text">Sanya alamar littafi don adana labarin zuwa jerin karatu.</string>
+  <string name="tool_tip_bookmark_icon_title" fuzzy="true">Ƙara zuwa lissafin karatu</string>
+  <string name="tool_tip_bookmark_icon_text" fuzzy="true">Sanya alamar littafi don adana labarin zuwa jerin karatu.</string>
   <string name="page_view_in_browser">Dubi shafin a cikin burauzar</string>
   <string name="tool_tip_toc_title">Tebur na abubuwan da ke ciki da sauri</string>
   <string name="tool_tip_toc_text">Yanzu zaka iya cire hagu don buɗe teburin abun ciki, da kuma dannawa da ja a kan wannan maɓallin scroller don saurin tsalle zuwa sassa daban-daban na labarin.</string>
@@ -357,9 +357,9 @@
   <string name="button_continue_to_talk_page">Duba shafin tattaunawa</string>
   <string name="button_continue_to_disambiguation">Dubi irin wannan shafukan</string>
   <string name="link_preview_disambiguation_description">Wannan taken yana da alaƙa da shafi fiye da ɗaya:</string>
-  <string name="button_add_to_reading_list">Ƙara a lissafin karatu</string>
+  <string name="button_add_to_reading_list" fuzzy="true">Ƙara a lissafin karatu</string>
   <string name="page_offline_notice_cannot_load_while_offline">Ba za a iya ɗora labarin ba yayin da yake kan layi.</string>
-  <string name="page_offline_notice_add_to_reading_list">Hint: Ƙara labarin zuwa jerin karatu kuma za a sauke shi da zarar ka dawo kan layi.</string>
+  <string name="page_offline_notice_add_to_reading_list" fuzzy="true">Hint: Ƙara labarin zuwa jerin karatu kuma za a sauke shi da zarar ka dawo kan layi.</string>
   <string name="page_offline_notice_last_date">Kuna karanta wani nau\'in layi na wannan labarin da aka adana akan %s.</string>
   <string name="redirected_from_snackbar">An turo daga \"%s\"</string>
   <string name="button_get_directions">Samu jagoranci</string>
@@ -444,17 +444,17 @@
   <string name="editing_monospace_font_label">Yi amfani da maɓallin sararin samaniya</string>
   <string name="editing_typing_suggestions">Nuna shawarwari na rubutu</string>
   <string name="nav_item_saved">An ajiye</string>
-  <string name="reading_list_save_to">Ajiye zuwa jerin wanda ake karantawa</string>
-  <string name="reading_list_move_to">Canza zuwa jadawalin karatu</string>
+  <string name="reading_list_save_to" fuzzy="true">Ajiye zuwa jerin wanda ake karantawa</string>
+  <string name="reading_list_move_to" fuzzy="true">Canza zuwa jadawalin karatu</string>
   <string name="reading_list_create_new">Ƙirƙiri sabo</string>
-  <string name="reading_list_title_exists">Jerin wanda ake karantawa \"%s\" akwai shi.</string>
+  <string name="reading_list_title_exists" fuzzy="true">Jerin wanda ake karantawa \"%s\" akwai shi.</string>
   <string name="reading_list_article_added_to_named">Ƙara %1$s to %2$s.</string>
-  <string name="reading_list_article_added_to_default_list">Ajiye %s . Kuna son ƙara shi zuwa jeri?</string>
+  <string name="reading_list_article_added_to_default_list" fuzzy="true">Ajiye %s . Kuna son ƙara shi zuwa jeri?</string>
   <string name="reading_list_article_moved_to_named">An ƙaura %1$s zuwa %2$s.</string>
   <string name="reading_list_article_already_exists_message">Duk mai kyau! %1$s ya riga ya ƙunshi %2$s.</string>
   <string name="reading_list_articles_already_exist_message">Dukkanin suna da kyau! %s ya riga ya ƙunshi dukkan labarai.</string>
-  <string name="reading_list_added_view_button">Duba jerin</string>
-  <string name="reading_list_add_to_list_button">Ƙara a jerin</string>
+  <string name="reading_list_added_view_button" fuzzy="true">Duba jerin</string>
+  <string name="reading_list_add_to_list_button" fuzzy="true">Ƙara a jerin</string>
   <plurals name="format_reading_list_statistical_summary_without_size">
     <item quantity="one">1 article</item>
     <item quantity="other">%d maƙaloli</item>
@@ -479,24 +479,24 @@
   <string name="reading_list_sort_by_recent_desc">Sanya ta hanyar kwanan wata da aka kara (mafi tsufa)</string>
   <string name="reading_list_sort_by_created">Sanya ta hanyar kwanan wata da aka kirkira (sabon)</string>
   <string name="reading_list_sort_by_created_desc">Sanya ta hanyar kwanan wata da aka kirkira (mafi tsufa)</string>
-  <string name="reading_list_menu_delete">Share jeri</string>
-  <string name="reading_list_menu_export">Jerin fitarwa</string>
+  <string name="reading_list_menu_delete" fuzzy="true">Share jeri</string>
+  <string name="reading_list_menu_export" fuzzy="true">Jerin fitarwa</string>
   <string name="reading_list_menu_select">Zaba</string>
   <string name="reading_list_menu_unselect">Cire zaɓe</string>
-  <string name="reading_list_export_write_permission_rationale">Ana buƙatar izinin yin rubutu zuwa ajiya akan na\'urar ku don fitar da jerin karatun ku.</string>
+  <string name="reading_list_export_write_permission_rationale" fuzzy="true">Ana buƙatar izinin yin rubutu zuwa ajiya akan na\'urar ku don fitar da jerin karatun ku.</string>
   <string name="reading_list_menu_rename">Gyara sunan/bayanin</string>
   <string name="reading_list_action_menu_remove_from_offline">Cire daga layi</string>
   <string name="reading_list_action_menu_save_for_offline">Ajiye don fita daga layi</string>
   <string name="reading_list_action_menu_remove_all_from_offline">Cire duka daga layi</string>
   <string name="reading_list_action_menu_save_all_for_offline">Ajiye don fita daga layi</string>
-  <string name="reading_list_action_menu_add_to_another_list">Ƙara zuwa wani jerin</string>
-  <string name="reading_list_action_menu_move_to_another_list">Matsar zuwa wani jeri</string>
-  <string name="reading_list_name_sample">Jerin karatun da na yi</string>
-  <string name="reading_list_name_hint">Sunan wannan jeri</string>
+  <string name="reading_list_action_menu_add_to_another_list" fuzzy="true">Ƙara zuwa wani jerin</string>
+  <string name="reading_list_action_menu_move_to_another_list" fuzzy="true">Matsar zuwa wani jeri</string>
+  <string name="reading_list_name_sample" fuzzy="true">Jerin karatun da na yi</string>
+  <string name="reading_list_name_hint" fuzzy="true">Sunan wannan jeri</string>
   <string name="reading_list_description_hint">Bayyanawa (zaɓi)</string>
-  <string name="reading_list_item_deleted">An cire %s daga lissafin</string>
+  <string name="reading_list_item_deleted" fuzzy="true">An cire %s daga lissafin</string>
   <string name="reading_list_item_deleted_from_list">An cire %1$s daga %2$s</string>
-  <plurals name="reading_list_articles_deleted">
+  <plurals name="reading_list_articles_deleted" fuzzy="true">
     <item quantity="one">%d an cire labarin daga jeri</item>
     <item quantity="other"> %d an cire labarai daga jeri</item>
   </plurals>
@@ -504,39 +504,39 @@
     <item quantity="one">%1$d an cire makala daga %2$s</item>
     <item quantity="other">%1$d an cire makala daga %2$s</item>
   </plurals>
-  <plurals name="reading_lists_deleted_message">
+  <plurals name="reading_lists_deleted_message" fuzzy="true">
     <item quantity="one">%d list deleted</item>
     <item quantity="other">%d an goge jerin</item>
   </plurals>
-  <string name="reading_lists_default_list_delete_message">Ba za a iya share jerin abubuwan da suka faru ba (%s)</string>
-  <string name="reading_lists_default_plus_one_list_delete_message">%1$s an goge. Ba za a iya share lissafin tsoho ( %2$s ) ba.</string>
-  <string name="reading_lists_default_plus_many_lists_delete_message">An share jerin sunayen. Ba za a iya share jerin abubuwan da suka faru ba (%s).</string>
-  <string name="single_list_json_file_name">%s (Listunan karatun Wikipedia).json</string>
-  <string name="multiple_lists_json_file_name">Jerin karatun Wikipedia (%s da fiye).json</string>
-  <string name="reading_list_items_deleted">%d an cire maƙalolin daga jeri</string>
-  <string name="reading_lists_item_deleted">%s an cire daga jerin</string>
+  <string name="reading_lists_default_list_delete_message" fuzzy="true">Ba za a iya share jerin abubuwan da suka faru ba (%s)</string>
+  <string name="reading_lists_default_plus_one_list_delete_message" fuzzy="true">%1$s an goge. Ba za a iya share lissafin tsoho ( %2$s ) ba.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message" fuzzy="true">An share jerin sunayen. Ba za a iya share jerin abubuwan da suka faru ba (%s).</string>
+  <string name="single_list_json_file_name" fuzzy="true">%s (Listunan karatun Wikipedia).json</string>
+  <string name="multiple_lists_json_file_name" fuzzy="true">Jerin karatun Wikipedia (%s da fiye).json</string>
+  <string name="reading_list_items_deleted" fuzzy="true">%d an cire maƙalolin daga jeri</string>
+  <string name="reading_lists_item_deleted" fuzzy="true">%s an cire daga jerin</string>
   <string name="reading_list_item_delete_undo">Fasa</string>
   <string name="reading_list_deleted">%s an share</string>
   <string name="saved_list_empty_title" fuzzy="true">Babu shafuka da aka adana har yanzu</string>
-  <string name="reading_lists_empty_message">Ƙara maƙala a cikin jerin don karatu daga baya, koda kuwa kana kan layi.</string>
-  <string name="reading_list_empty">Ba ku da wani labarin da aka kara a cikin wannan jerin.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Ƙara maƙala a cikin jerin don karatu daga baya, koda kuwa kana kan layi.</string>
+  <string name="reading_list_empty" fuzzy="true">Ba ku da wani labarin da aka kara a cikin wannan jerin.</string>
   <string name="reading_list_article_offline">Ana samunsa a waje</string>
   <string name="reading_list_article_make_offline">Yi wannan labarin a kan layi</string>
-  <string name="reading_list_add_to_other_list">Ƙara zuwa wani jerin karatu</string>
-  <string name="reading_list_move_to_other_list">Matsar zuwa wani jerin na karatu</string>
-  <string name="reading_list_move_from_to_other_list">Ka matsa daga %s zuwa wani jerin karatu</string>
+  <string name="reading_list_add_to_other_list" fuzzy="true">Ƙara zuwa wani jerin karatu</string>
+  <string name="reading_list_move_to_other_list" fuzzy="true">Matsar zuwa wani jerin na karatu</string>
+  <string name="reading_list_move_from_to_other_list" fuzzy="true">Ka matsa daga %s zuwa wani jerin karatu</string>
   <string name="reading_list_remove_from_list">Cire daga %s</string>
-  <string name="reading_list_remove_from_lists">Cire daga jerin karatu</string>
+  <string name="reading_list_remove_from_lists" fuzzy="true">Cire daga jerin karatu</string>
   <string name="reading_list_select_item">Zaba</string>
   <string name="reading_list_confirm_remove_article_from_offline">Cire duka daga layi</string>
-  <string name="reading_list_confirm_remove_article_from_offline_title">Maƙala ta bayyana a cikin jerin sunayen da yawa</string>
-  <string name="reading_list_confirm_remove_article_from_offline_message">%s ba za su kasance a kan layi ba don duk jerin karatu:</string>
-  <string name="reading_lists_sync_reminder_title">Yi amfani da jerin karatun tare?</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title" fuzzy="true">Maƙala ta bayyana a cikin jerin sunayen da yawa</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s ba za su kasance a kan layi ba don duk jerin karatu:</string>
+  <string name="reading_lists_sync_reminder_title" fuzzy="true">Yi amfani da jerin karatun tare?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">Labaran da aka adana zuwa jerin karatu yanzu za a iya haɗa su zuwa asusun Wikipedia. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Koyi ƙarin&lt;/a&gt;</string>
   <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Ana iya haɗa jerin karatun yanzu a duk na\'urori. Shigar da asusun Wikipedia ka kuma bari a adana jerin ku. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Koyi ƙarin&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Bayar da haɗin kai</string>
-  <string name="reading_list_login_reminder_title">Daidaita lissafin karatun</string>
-  <string name="reading_lists_login_reminder_text">Ana iya haɗa jerin karatun yanzu a duk na\'urori. Shigar da asusun Wikipedia ka kuma bari a adana jerin ku.</string>
+  <string name="reading_list_login_reminder_title" fuzzy="true">Daidaita lissafin karatun</string>
+  <string name="reading_lists_login_reminder_text" fuzzy="true">Ana iya haɗa jerin karatun yanzu a duk na\'urori. Shigar da asusun Wikipedia ka kuma bari a adana jerin ku.</string>
   <string name="reading_lists_login_button">Shiga / shiga Wikipedia</string>
   <string name="reading_lists_ignore_button">Ba yanzu ba</string>
   <string name="reading_lists_confirm_remote_delete_yes">Eh</string>
@@ -545,35 +545,35 @@
   <string name="reading_list_articles_added_to_named">Ƙara %1$d labarai zuwa %2$s</string>
   <string name="reading_list_articles_moved_to_named">Abubuwan da aka motsa %1$d zuwa %2$s</string>
   <string name="reading_list_delete_confirm">Shin kun tabbata kuna so ku share %s?</string>
-  <string name="reading_list_delete_lists_confirm_dialog_title">Share jerin (s) da aka zaɓa?</string>
-  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+  <string name="reading_list_delete_lists_confirm_dialog_title" fuzzy="true">Share jerin (s) da aka zaɓa?</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message" fuzzy="true">
     <item quantity="one">Shin ka tabbata kana son share lissafin %d ?</item>
     <item quantity="other">Shin ka tabbata kana son share lissafin %d ?</item>
   </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Shigarwa don ba da damar daidaitawa</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Shigar don ba da damar adana jerin karatun ku a asusunku.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text" fuzzy="true">Shigar don ba da damar adana jerin karatun ku a asusunku.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Soke</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Shiga</string>
-  <string name="reading_list_turned_sync_off_dialog_title">An kashe jerin karatun</string>
-  <string name="reading_list_turned_sync_off_dialog_text">Jerin karatun ya ƙare don asusunku, kuma abubuwan da aka adana a kan na\'urorin da aka shigar da su ba a sake tallafawa ba. Sanya jerin karatun a cikin Saiti.</string>
+  <string name="reading_list_turned_sync_off_dialog_title" fuzzy="true">An kashe jerin karatun</string>
+  <string name="reading_list_turned_sync_off_dialog_text" fuzzy="true">Jerin karatun ya ƙare don asusunku, kuma abubuwan da aka adana a kan na\'urorin da aka shigar da su ba a sake tallafawa ba. Sanya jerin karatun a cikin Saiti.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">Yayi</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Saituttuka</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_title">Kunna daidaita lissafin karatun?</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_text">Maƙalolin da aka adana zuwa jerin karatu yanzu za a iya haɗa su zuwa asusun Wikipedia. &lt;a href=\"#faq\"&gt;Koyi ƙarin&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title" fuzzy="true">Kunna daidaita lissafin karatun?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text" fuzzy="true">Maƙalolin da aka adana zuwa jerin karatu yanzu za a iya haɗa su zuwa asusun Wikipedia. &lt;a href=\"#faq\"&gt;Koyi ƙarin&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Kada ka sake nuna mini wannan</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Kunna aiki tare</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">A\'a Nagode</string>
   <string name="default_reading_list_name">An ajiye</string>
-  <string name="default_reading_list_description">Jerin tsoffin labaran labaran ku da aka adana</string>
-  <string name="no_user_lists_title">Tsara labarai cikin jeri</string>
-  <string name="no_user_lists_msg">Samar da jerin sunayen wuraren da za a yi tafiya, batutuwan da aka fi so, da sauransu</string>
+  <string name="default_reading_list_description" fuzzy="true">Jerin tsoffin labaran labaran ku da aka adana</string>
+  <string name="no_user_lists_title" fuzzy="true">Tsara labarai cikin jeri</string>
+  <string name="no_user_lists_msg" fuzzy="true">Samar da jerin sunayen wuraren da za a yi tafiya, batutuwan da aka fi so, da sauransu</string>
   <string name="reading_list_saved_list_rename">%1$s (mai amfani da aka kirkira)</string>
-  <string name="split_reading_list_message">Akwai iyaka na %d articles a kowane jerin karatu. Jerin da ke akwai fiye da wannan iyaka an raba su cikin jerin sunayen da yawa.</string>
-  <string name="reading_list_move_article_limit_message">Ba za a iya matsawa zuwa wannan jeri ba. Kun kai iyakar %2$d labarai akan kowane jeri na \" %1$s \".</string>
-  <string name="reading_list_article_limit_message">Ba za a iya ƙara zuwa wannan jeri ba. Kun kai iyakar %2$d labarai akan kowane jeri na \" %1$s\".</string>
-  <string name="reading_lists_limit_message">Ba za ku iya ƙirƙirar wani jerin ba. Kun kai iyakar jerin karatu 100 a kowane asusun.</string>
-  <string name="reading_lists_menu_create_list">Ka ƙirƙiri sabon jerin</string>
-  <string name="reading_lists_menu_import_list">Shigo da jerin</string>
+  <string name="split_reading_list_message" fuzzy="true">Akwai iyaka na %d articles a kowane jerin karatu. Jerin da ke akwai fiye da wannan iyaka an raba su cikin jerin sunayen da yawa.</string>
+  <string name="reading_list_move_article_limit_message" fuzzy="true">Ba za a iya matsawa zuwa wannan jeri ba. Kun kai iyakar %2$d labarai akan kowane jeri na \" %1$s \".</string>
+  <string name="reading_list_article_limit_message" fuzzy="true">Ba za a iya ƙara zuwa wannan jeri ba. Kun kai iyakar %2$d labarai akan kowane jeri na \" %1$s\".</string>
+  <string name="reading_lists_limit_message" fuzzy="true">Ba za ku iya ƙirƙirar wani jerin ba. Kun kai iyakar jerin karatu 100 a kowane asusun.</string>
+  <string name="reading_lists_menu_create_list" fuzzy="true">Ka ƙirƙiri sabon jerin</string>
+  <string name="reading_lists_menu_import_list" fuzzy="true">Shigo da jerin</string>
   <string name="reading_lists_menu_sort_by">Sanya ta hanyar</string>
   <string name="reading_lists_refresh_sync_option">Sabuntawa</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Shiga / yi rajista</string>
@@ -585,7 +585,7 @@
     <item quantity="one">Wannan labarin ba zai ƙara kasancewa a layi ba.</item>
     <item quantity="other">Waɗannan labaran ba za su ƙara kasancewa a layi ba.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Jerin karatun da aka haɗa</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">Jerin karatun da aka haɗa</string>
   <string name="reading_list_menu_last_sync">Haɗin kai na ƙarshe: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">Yayi</string>
   <string name="reading_list_delete_dialog_ok_button_text">Yayi</string>
@@ -595,31 +595,31 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Soke</string>
   <string name="reading_list_split_dialog_ok_button_text">Yayi</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">Goge</string>
-  <string name="reading_list_activity_title">Jerin karatu: %s</string>
-  <string name="reading_list_notification_title">Fitar da jerin(s) karatu</string>
-  <string name="reading_list_notification_text">%d An fitar da jerin (s) a matsayin \'reading_lists export.json\' zuwa fayil ɗin saukewa</string>
-  <string name="reading_list_notification_detailed_text">An fitar da jerin karatun zuwa \'reading_lists_export.json\'</string>
+  <string name="reading_list_activity_title" fuzzy="true">Jerin karatu: %s</string>
+  <string name="reading_list_notification_title" fuzzy="true">Fitar da jerin(s) karatu</string>
+  <string name="reading_list_notification_text" fuzzy="true">%d An fitar da jerin (s) a matsayin \'reading_lists export.json\' zuwa fayil ɗin saukewa</string>
+  <string name="reading_list_notification_detailed_text" fuzzy="true">An fitar da jerin karatun zuwa \'reading_lists_export.json\'</string>
   <string name="reading_lists_action_menu_export_lists">fitarwa</string>
   <string name="reading_lists_import_file_picker_title">Zaɓi fayil ɗin don shigo da</string>
-  <string name="reading_lists_import_failure_message">Lissafin karatu ya gaza</string>
-  <string name="reading_lists_export_select_lists_message">Zaɓi jerin (s) don fitarwa</string>
-  <string name="reading_lists_export_completed_message">Fitar da lissafin(s) karatu</string>
-  <plurals name="reading_list_export_failed_message">
+  <string name="reading_lists_import_failure_message" fuzzy="true">Lissafin karatu ya gaza</string>
+  <string name="reading_lists_export_select_lists_message" fuzzy="true">Zaɓi jerin (s) don fitarwa</string>
+  <string name="reading_lists_export_completed_message" fuzzy="true">Fitar da lissafin(s) karatu</string>
+  <plurals name="reading_list_export_failed_message" fuzzy="true">
     <item quantity="one">An kasa fitar da lissafin karatu</item>
     <item quantity="other">An kasa fitar da lissafin karatu</item>
   </plurals>
-  <plurals name="reading_list_import_success_message">
+  <plurals name="reading_list_import_success_message" fuzzy="true">
     <item quantity="one">An shigo da lissafin karatu</item>
     <item quantity="other">An shigo da lissafin karatu</item>
   </plurals>
-  <string name="reading_lists_preview_header_title">Jerin da aka raba</string>
+  <string name="reading_lists_preview_header_title" fuzzy="true">Jerin da aka raba</string>
   <string name="reading_lists_preview_save_button">Ajiye</string>
-  <string name="reading_lists_preview_save_dialog_title">Ajiye jeri</string>
-  <string name="reading_lists_preview_save_dialog_text">Jerin sunaye da zaɓar labarai don adanawa.</string>
+  <string name="reading_lists_preview_save_dialog_title" fuzzy="true">Ajiye jeri</string>
+  <string name="reading_lists_preview_save_dialog_text" fuzzy="true">Jerin sunaye da zaɓar labarai don adanawa.</string>
   <string name="reading_lists_preview_save_dialog_title_hint">Take</string>
   <string name="reading_lists_preview_save_dialog_cancel">Soke</string>
   <string name="reading_lists_preview_save_dialog_save">Ajiye</string>
-  <string name="reading_lists_preview_saved_snackbar">Jerin karatun da aka adana</string>
+  <string name="reading_lists_preview_saved_snackbar" fuzzy="true">Jerin karatun da aka adana</string>
   <string name="reading_lists_preview_saved_snackbar_action">Duba</string>
   <string name="user_option_sync_label">saituka</string>
   <string name="notification_reverted_title">Gyaran baya</string>
@@ -628,8 +628,8 @@
   <string name="notification_syncing_pause_button">Dakata</string>
   <string name="notification_syncing_resume_button">Ci gaba</string>
   <string name="notification_syncing_cancel_button">Soke</string>
-  <string name="notification_syncing_reading_list_channel_title">Daidaita lissafin karatun</string>
-  <string name="notification_syncing_reading_list_channel_description">Daidaita Lissafin Karatu Ci gaba</string>
+  <string name="notification_syncing_reading_list_channel_title" fuzzy="true">Daidaita lissafin karatun</string>
+  <string name="notification_syncing_reading_list_channel_description" fuzzy="true">Daidaita Lissafin Karatu Ci gaba</string>
   <string name="notification_many_unread">Kuna da sanarwar %d da ba a karanta ba</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Zazzage maƙala</item>
@@ -643,15 +643,15 @@
     <item quantity="one">%1$d labarin hagu</item>
     <item quantity="other"> %1$d labarai sun rage</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_channel_name">
+  <plurals name="notification_syncing_reading_list_channel_name" fuzzy="true">
     <item quantity="one">Jerin Karatun Daidaitawa</item>
     <item quantity="other">Lissafin Karatun Daidaitawa</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_title">
+  <plurals name="notification_syncing_reading_list_title" fuzzy="true">
     <item quantity="one">Aiki tare %1$d jeri…</item>
     <item quantity="other">Aiki tare %1$d lissafin…</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_description">
+  <plurals name="notification_syncing_reading_list_description" fuzzy="true">
     <item quantity="one">%1$d jeri hagu</item>
     <item quantity="other"> %1$d lissafin hagu</item>
   </plurals>
@@ -1093,8 +1093,8 @@
   <string name="onboarding_maybe_later">Wataƙila daga baya</string>
   <string name="onboarding_explore_title">Sabbin hanyoyin bincike</string>
   <string name="onboarding_explore_text" fuzzy="true">Nitsaye cikin rami na zomo na Wikipedia tare da sabuntawa akai-akai Bincike ciyarwa. Yi amfani da abinci don abubuwan da kuke so - ko yana koyo game da abubuwan da suka faru a tarihi &lt;b&gt;A wannan rana&lt;/b&gt;, ko kuma mirgine dice tare da Random.&lt;br/&gt;</string>
-  <string name="onboarding_reading_list_sync_title">Jerin karatu tare da daidaitawa</string>
-  <string name="onboarding_reading_list_sync_text_v2">Kuna iya yin jerin karatu daga labaran da kuke so ku karanta daga baya, koda kuwa kuna kan layi. Shigar da asusunku na Wikipedia don daidaita jerin karatun ku. &lt;a href=\"#login\"&gt;Shigar da Wikipedia&lt;/a&gt;&lt;br/&gt;</string>
+  <string name="onboarding_reading_list_sync_title" fuzzy="true">Jerin karatu tare da daidaitawa</string>
+  <string name="onboarding_reading_list_sync_text_v2" fuzzy="true">Kuna iya yin jerin karatu daga labaran da kuke so ku karanta daga baya, koda kuwa kuna kan layi. Shigar da asusunku na Wikipedia don daidaita jerin karatun ku. &lt;a href=\"#login\"&gt;Shigar da Wikipedia&lt;/a&gt;&lt;br/&gt;</string>
   <string name="onboarding_analytics_switch_title">Sanya bayanai na amfani</string>
   <string name="onboarding_got_it">Ka samu</string>
   <string name="onboarding_multilingual_secondary_text">Mun sami wadannan a kan na\'urarku:</string>
@@ -1406,16 +1406,16 @@
   <string name="user_contrib_filter_activity_title">Tace gudunmawar</string>
   <string name="action_item_view_on_map">Duba akan taswira</string>
   <string name="action_item_view_on_map_unavailable">Ba a samun ma\'aunin ƙasa don wannan shafin</string>
-  <string name="shareable_reading_lists_import_dialog_title">Jerin karatun da aka raba</string>
-  <string name="shareable_reading_lists_import_dialog_content">Ta yaya za ku so ku ambaci jerin sunayen da aka raba tare da ku?</string>
+  <string name="shareable_reading_lists_import_dialog_title" fuzzy="true">Jerin karatun da aka raba</string>
+  <string name="shareable_reading_lists_import_dialog_content" fuzzy="true">Ta yaya za ku so ku ambaci jerin sunayen da aka raba tare da ku?</string>
   <string name="shareable_reading_lists_new_indicator">*sabo*</string>
-  <string name="shareable_reading_lists_new_install_dialog_title">An raba jerin karatun tare da ku</string>
-  <string name="shareable_reading_lists_new_install_dialog_content">Mun lura cewa an raba jerin karatun tare da ku. Don duba wannan jerin a cikin aikace-aikacen, koma saƙon asali kuma sake danna hanyar haɗi.</string>
+  <string name="shareable_reading_lists_new_install_dialog_title" fuzzy="true">An raba jerin karatun tare da ku</string>
+  <string name="shareable_reading_lists_new_install_dialog_content" fuzzy="true">Mun lura cewa an raba jerin karatun tare da ku. Don duba wannan jerin a cikin aikace-aikacen, koma saƙon asali kuma sake danna hanyar haɗi.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Ka samu</string>
-  <string name="shareable_reading_lists_new_imported_snackbar">Jerin karatun da aka shigo da su</string>
+  <string name="shareable_reading_lists_new_imported_snackbar" fuzzy="true">Jerin karatun da aka shigo da su</string>
   <string name="reading_list_share_menu_label">Rabawa...</string>
-  <string name="reading_list_share_menu_tooltip">Raba wannan jerin karatun tare da wasu</string>
-  <string name="reading_list_share_message_v2">Ya kasance! Ina so in raba jerin karatun Wikipedia tare da ku:</string>
+  <string name="reading_list_share_menu_tooltip" fuzzy="true">Raba wannan jerin karatun tare da wasu</string>
+  <string name="reading_list_share_message_v2" fuzzy="true">Ya kasance! Ina so in raba jerin karatun Wikipedia tare da ku:</string>
   <string name="talk_templates_empty_message" fuzzy="true">Ba ku da saƙonnin gargadi da aka adana.</string>
   <string name="talk_templates_new_message_title">Sabon saƙo</string>
   <string name="talk_templates_new_message_subject_hint">Batu</string>

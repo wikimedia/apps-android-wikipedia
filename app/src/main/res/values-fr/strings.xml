@@ -95,7 +95,7 @@
   <string name="search_back_button_content_description">Revenir en arrière</string>
   <string name="search_clear_query_content_description">Effacer la requête</string>
   <string name="search_icon_content_description">Rechercher</string>
-  <string name="filter_hint_filter_my_lists_and_articles">Filtrer mes listes</string>
+  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">Filtrer mes listes</string>
   <string name="nav_item_suggested_edits">Modifications</string>
   <string name="nav_item_activity">Activité</string>
   <string name="nav_item_more">Plus</string>
@@ -162,16 +162,16 @@
   <string name="menu_page_watched">Suivi</string>
   <string name="edit_section_find_in_page">Rechercher dans la page</string>
   <string name="menu_page_font_and_theme">Police et thème</string>
-  <string name="menu_page_add_to_list">Ajouter à la liste de lecture</string>
+  <string name="menu_page_add_to_list" fuzzy="true">Ajouter à la liste de lecture</string>
   <string name="menu_page_add_to_default_list">Enregistrer</string>
-  <string name="feed_card_add_to_list">Ajouter à la liste de lecture</string>
+  <string name="feed_card_add_to_list" fuzzy="true">Ajouter à la liste de lecture</string>
   <string name="feed_card_add_to_default_list">Enregistrer</string>
   <string name="menu_page_share">Partager le lien</string>
   <string name="menu_article_share">Partager l’article</string>
   <string name="menu_page_article_share">Partager</string>
   <string name="menu_page_open_a_new_tab">Ouvrir un nouvel onglet</string>
   <string name="menu_page_new_tab">Nouvel onglet</string>
-  <string name="menu_page_reading_lists">Listes de lecture</string>
+  <string name="menu_page_reading_lists" fuzzy="true">Listes de lecture</string>
   <string name="menu_page_recently_viewed">Consulté récemment</string>
   <string name="menu_page_archive">Archiver</string>
   <string name="menu_long_press_open_page">Ouvrir</string>
@@ -215,7 +215,7 @@
   <string name="menu_show_toc">Sommaire</string>
   <string name="search_no_results_found">Aucun résultat trouvé</string>
   <string name="search_reading_list_no_results">Aucun résultat trouvé dans « %s »</string>
-  <string name="search_reading_lists_no_results">Aucun résultat trouvé dans les listes de lecture</string>
+  <string name="search_reading_lists_no_results" fuzzy="true">Aucun résultat trouvé dans les listes de lecture</string>
   <string name="search_history_no_results">Aucun résultat trouvé dans l’historique</string>
   <string name="edit_section_captcha_message">Pour aider à la protection contre le pourriel automatisé, veuillez saisir les mots qui apparaissent ci-dessous</string>
   <string name="edit_section_captcha_request_an_account_message">Impossible de voir l’image ? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Demander un compte&lt;/a&gt;</string>
@@ -295,12 +295,12 @@
   <string name="preferences_heading_syncing">Synchronisation</string>
   <string name="preferences_heading_data_usage">Utilisation des données</string>
   <string name="preferences_heading_experimental">Expérimental</string>
-  <string name="preference_title_sync_reading_lists_from_account">Synchronisation des listes de lecture</string>
-  <string name="preference_title_download_reading_list_articles">Télécharger les articles de la liste de lecture</string>
-  <string name="preference_summary_sync_reading_lists">Synchroniser les listes de lecture entre différents appareils en les enregistrant dans votre compte Wikipédia</string>
-  <string name="preference_summary_sync_reading_lists_from_account">Synchroniser les listes de lecture entre différents appareils en les enregistrant dans votre compte « %s » sur Wikipédia</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Supprimer les listes de lecture synchronisées de votre compte « %s » ?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Cela supprimera complètement du stockage distant toutes les listes de lecture précédemment synchronisées. Supprimer toutes les listes synchronisées de votre compte « %s » ?</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Synchronisation des listes de lecture</string>
+  <string name="preference_title_download_reading_list_articles" fuzzy="true">Télécharger les articles de la liste de lecture</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">Synchroniser les listes de lecture entre différents appareils en les enregistrant dans votre compte Wikipédia</string>
+  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">Synchroniser les listes de lecture entre différents appareils en les enregistrant dans votre compte « %s » sur Wikipédia</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">Supprimer les listes de lecture synchronisées de votre compte « %s » ?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">Cela supprimera complètement du stockage distant toutes les listes de lecture précédemment synchronisées. Supprimer toutes les listes synchronisées de votre compte « %s » ?</string>
   <string name="preference_title_auto_upload_crash_reports">Envoyer des rapports d’incident</string>
   <string name="preference_summary_auto_upload_crash_reports">Permettre à l’application d’envoyer automatiquement les rapports d’incident à un fournisseur de services tiers, afin que nous puissions les examiner et corriger le problème plus vite et plus facilement.</string>
   <string name="editing_error_spamblacklist">Détection de liens vers des domaines bloqués (%s) . Veuillez les supprimer et réessayer.</string>
@@ -443,8 +443,8 @@
   <string name="unnamed_tab_closed">Onglet fermé.</string>
   <string name="tab_item_closed">%s fermé.</string>
   <string name="all_tab_items_closed">Tous les onglets sont fermés.</string>
-  <string name="tool_tip_bookmark_icon_title">Ajouter à la liste de lecture</string>
-  <string name="tool_tip_bookmark_icon_text">Cliquez sur l’icône du signet pour enregistrer l’article dans une liste de lecture.</string>
+  <string name="tool_tip_bookmark_icon_title" fuzzy="true">Ajouter à la liste de lecture</string>
+  <string name="tool_tip_bookmark_icon_text" fuzzy="true">Cliquez sur l’icône du signet pour enregistrer l’article dans une liste de lecture.</string>
   <string name="page_view_in_browser">Afficher la page dans le navigateur</string>
   <string name="tool_tip_toc_title">Tableau d’accès rapide aux contenus</string>
   <string name="tool_tip_toc_text">Vous pouvez maintenant glisser à gauche pour ouvrir le tableau des contenus et cliquer-glisser ce bouton de défilement pour sauter rapidement aux différentes sections d’un article.</string>
@@ -457,9 +457,9 @@
   <string name="button_continue_to_talk_page">Ouvrir la page de discussion</string>
   <string name="button_continue_to_disambiguation">Afficher les pages similaires</string>
   <string name="link_preview_disambiguation_description">Ce titre fait référence à plus d’une page :</string>
-  <string name="button_add_to_reading_list">Ajouter à la liste de lecture</string>
+  <string name="button_add_to_reading_list" fuzzy="true">Ajouter à la liste de lecture</string>
   <string name="page_offline_notice_cannot_load_while_offline">L’article ne peut pas être chargé hors connexion.</string>
-  <string name="page_offline_notice_add_to_reading_list">Astuce : ajoutez l’article à une liste de lecture et il sera téléchargé une fois que vous serez à nouveau connecté.</string>
+  <string name="page_offline_notice_add_to_reading_list" fuzzy="true">Astuce : ajoutez l’article à une liste de lecture et il sera téléchargé une fois que vous serez à nouveau connecté.</string>
   <string name="page_offline_notice_last_date">Vous lisez une version hors ligne sauvegardée le %s.</string>
   <string name="redirected_from_snackbar">Redirigé de « %s »</string>
   <string name="button_get_directions">Obtenir les directions</string>
@@ -570,17 +570,17 @@
   <string name="editing_monospace_font_label">Utiliser une police à chasse fixe</string>
   <string name="editing_typing_suggestions">Afficher les suggestions de saisie</string>
   <string name="nav_item_saved">Enregistré</string>
-  <string name="reading_list_save_to">Enregistrer dans la liste de lecture</string>
-  <string name="reading_list_move_to">Déplacer vers la liste de lecture</string>
+  <string name="reading_list_save_to" fuzzy="true">Enregistrer dans la liste de lecture</string>
+  <string name="reading_list_move_to" fuzzy="true">Déplacer vers la liste de lecture</string>
   <string name="reading_list_create_new">Créer un nouveau</string>
-  <string name="reading_list_title_exists">La liste de lecture « %s » existe déjà.</string>
+  <string name="reading_list_title_exists" fuzzy="true">La liste de lecture « %s » existe déjà.</string>
   <string name="reading_list_article_added_to_named">%1$s ajouté à %2$s.</string>
-  <string name="reading_list_article_added_to_default_list">%s enregistré. Voulez-vous l’ajouter à une liste ?</string>
+  <string name="reading_list_article_added_to_default_list" fuzzy="true">%s enregistré. Voulez-vous l’ajouter à une liste ?</string>
   <string name="reading_list_article_moved_to_named">%1$s déplacé vers %2$s .</string>
   <string name="reading_list_article_already_exists_message">Tout va bien ! %1$s contient déjà %2$s.</string>
   <string name="reading_list_articles_already_exist_message">Tout va bien ! %s contient déjà tous les articles.</string>
-  <string name="reading_list_added_view_button">Afficher la liste</string>
-  <string name="reading_list_add_to_list_button">Ajouter à la liste</string>
+  <string name="reading_list_added_view_button" fuzzy="true">Afficher la liste</string>
+  <string name="reading_list_add_to_list_button" fuzzy="true">Ajouter à la liste</string>
   <plurals name="format_reading_list_statistical_summary_without_size">
     <item quantity="one">1 article</item>
     <item quantity="other">%d articles</item>
@@ -605,24 +605,24 @@
   <string name="reading_list_sort_by_recent_desc">Trier par date d’ajout (la plus ancienne)</string>
   <string name="reading_list_sort_by_created">Trier par date de création (la plus récente)</string>
   <string name="reading_list_sort_by_created_desc">Trier par date de création (la plus ancienne)</string>
-  <string name="reading_list_menu_delete">Supprimer la liste</string>
-  <string name="reading_list_menu_export">Exporter la liste</string>
+  <string name="reading_list_menu_delete" fuzzy="true">Supprimer la liste</string>
+  <string name="reading_list_menu_export" fuzzy="true">Exporter la liste</string>
   <string name="reading_list_menu_select">Sélectionner</string>
   <string name="reading_list_menu_unselect">Désélectionner</string>
-  <string name="reading_list_export_write_permission_rationale">L’autorisation d’écrire sur le stockage de votre appareil est requise pour exporter votre liste de lecture.</string>
+  <string name="reading_list_export_write_permission_rationale" fuzzy="true">L’autorisation d’écrire sur le stockage de votre appareil est requise pour exporter votre liste de lecture.</string>
   <string name="reading_list_menu_rename">Modifier le nom/description</string>
   <string name="reading_list_action_menu_remove_from_offline">Purger du cache hors connexion</string>
   <string name="reading_list_action_menu_save_for_offline">Enregistrer pour hors connexion</string>
   <string name="reading_list_action_menu_remove_all_from_offline">Supprimer tout du cache hors connexion</string>
   <string name="reading_list_action_menu_save_all_for_offline">Enregistrer tout pour hors connexion</string>
-  <string name="reading_list_action_menu_add_to_another_list">Ajouter à une autre liste</string>
-  <string name="reading_list_action_menu_move_to_another_list">Déplacer vers une autre liste</string>
-  <string name="reading_list_name_sample">Ma liste de lecture</string>
-  <string name="reading_list_name_hint">Nom de cette liste</string>
+  <string name="reading_list_action_menu_add_to_another_list" fuzzy="true">Ajouter à une autre liste</string>
+  <string name="reading_list_action_menu_move_to_another_list" fuzzy="true">Déplacer vers une autre liste</string>
+  <string name="reading_list_name_sample" fuzzy="true">Ma liste de lecture</string>
+  <string name="reading_list_name_hint" fuzzy="true">Nom de cette liste</string>
   <string name="reading_list_description_hint">Description (facultative)</string>
-  <string name="reading_list_item_deleted">%s supprimé de la liste</string>
+  <string name="reading_list_item_deleted" fuzzy="true">%s supprimé de la liste</string>
   <string name="reading_list_item_deleted_from_list">%1$s a été retiré de %2$s</string>
-  <plurals name="reading_list_articles_deleted">
+  <plurals name="reading_list_articles_deleted" fuzzy="true">
     <item quantity="one">%d article supprimé de la liste</item>
     <item quantity="other">%d articles supprimés de la liste</item>
   </plurals>
@@ -630,39 +630,39 @@
     <item quantity="one">%1$d article supprimé de %2$s</item>
     <item quantity="other">%1$d articles supprimés de %2$s</item>
   </plurals>
-  <plurals name="reading_lists_deleted_message">
+  <plurals name="reading_lists_deleted_message" fuzzy="true">
     <item quantity="one">%d liste supprimée</item>
     <item quantity="other">%d listes supprimées</item>
   </plurals>
-  <string name="reading_lists_default_list_delete_message">La liste par défaut (%s) ne peut pas être supprimée</string>
-  <string name="reading_lists_default_plus_one_list_delete_message">%1$s supprimé. La liste par défaut (%2$s) ne peut pas être supprimée.</string>
-  <string name="reading_lists_default_plus_many_lists_delete_message">Listes supprimées. La liste par défaut (%s) ne peut pas être supprimée.</string>
-  <string name="single_list_json_file_name">%s (liste de lecture de Wikipédia).json</string>
-  <string name="multiple_lists_json_file_name">Listes de lecture de Wikipédia (%s et plus).json</string>
-  <string name="reading_list_items_deleted">%d articles supprimés de la liste</string>
-  <string name="reading_lists_item_deleted">%s supprimé des listes</string>
+  <string name="reading_lists_default_list_delete_message" fuzzy="true">La liste par défaut (%s) ne peut pas être supprimée</string>
+  <string name="reading_lists_default_plus_one_list_delete_message" fuzzy="true">%1$s supprimé. La liste par défaut (%2$s) ne peut pas être supprimée.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message" fuzzy="true">Listes supprimées. La liste par défaut (%s) ne peut pas être supprimée.</string>
+  <string name="single_list_json_file_name" fuzzy="true">%s (liste de lecture de Wikipédia).json</string>
+  <string name="multiple_lists_json_file_name" fuzzy="true">Listes de lecture de Wikipédia (%s et plus).json</string>
+  <string name="reading_list_items_deleted" fuzzy="true">%d articles supprimés de la liste</string>
+  <string name="reading_lists_item_deleted" fuzzy="true">%s supprimé des listes</string>
   <string name="reading_list_item_delete_undo">Annuler</string>
   <string name="reading_list_deleted">%s supprimé</string>
   <string name="saved_list_empty_title" fuzzy="true">Encore aucune page enregistrée</string>
-  <string name="reading_lists_empty_message">Ajouter des articles à une liste pour les lire plus tard, même quand vous serez hors connexion.</string>
-  <string name="reading_list_empty">Vous n’avez aucun article ajouté à cette liste.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Ajouter des articles à une liste pour les lire plus tard, même quand vous serez hors connexion.</string>
+  <string name="reading_list_empty" fuzzy="true">Vous n’avez aucun article ajouté à cette liste.</string>
   <string name="reading_list_article_offline">Disponible hors connexion</string>
   <string name="reading_list_article_make_offline">Marquer cet article comme disponible hors connexion</string>
-  <string name="reading_list_add_to_other_list">Ajouter à une autre liste de lecture</string>
-  <string name="reading_list_move_to_other_list">Déplacer vers une autre liste de lecture</string>
-  <string name="reading_list_move_from_to_other_list">Déplacer de %s vers une autre liste de lecture</string>
+  <string name="reading_list_add_to_other_list" fuzzy="true">Ajouter à une autre liste de lecture</string>
+  <string name="reading_list_move_to_other_list" fuzzy="true">Déplacer vers une autre liste de lecture</string>
+  <string name="reading_list_move_from_to_other_list" fuzzy="true">Déplacer de %s vers une autre liste de lecture</string>
   <string name="reading_list_remove_from_list">Supprimer de %s</string>
-  <string name="reading_list_remove_from_lists">Supprimer des listes de lecture</string>
+  <string name="reading_list_remove_from_lists" fuzzy="true">Supprimer des listes de lecture</string>
   <string name="reading_list_select_item">Sélectionner</string>
   <string name="reading_list_confirm_remove_article_from_offline">Retirer du mode déconnecté</string>
-  <string name="reading_list_confirm_remove_article_from_offline_title">Article présent dans plusieurs listes</string>
-  <string name="reading_list_confirm_remove_article_from_offline_message">%s ne sera plus disponible en mode déconnecté dans toutes les listes de lecture :</string>
-  <string name="reading_lists_sync_reminder_title">Activer la synchronisation de la liste de lecture ?</string>
-  <string name="reading_lists_sync_reminder_text">Les articles enregistrés dans vos listes de lecture peuvent désormais être synchronisés avec votre compte Wikipédia. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;En savoir plus&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Vos listes de lecture peuvent désormais être synchronisées entre vos appareils. Connectez-vous à votre compte Wikipédia et autorisez leur sauvegarde. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;En savoir plus&lt;/a&gt;</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title" fuzzy="true">Article présent dans plusieurs listes</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s ne sera plus disponible en mode déconnecté dans toutes les listes de lecture :</string>
+  <string name="reading_lists_sync_reminder_title" fuzzy="true">Activer la synchronisation de la liste de lecture ?</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">Les articles enregistrés dans vos listes de lecture peuvent désormais être synchronisés avec votre compte Wikipédia. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;En savoir plus&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Vos listes de lecture peuvent désormais être synchronisées entre vos appareils. Connectez-vous à votre compte Wikipédia et autorisez leur sauvegarde. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;En savoir plus&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Activer la synchronisation</string>
-  <string name="reading_list_login_reminder_title">Synchroniser les listes de lecture</string>
-  <string name="reading_lists_login_reminder_text">Les listes de lecture peuvent maintenant être synchronisées entre appareils. Connectez-vous à votre compte Wikipédia et permettez à vos listes d’être enregistrées.</string>
+  <string name="reading_list_login_reminder_title" fuzzy="true">Synchroniser les listes de lecture</string>
+  <string name="reading_lists_login_reminder_text" fuzzy="true">Les listes de lecture peuvent maintenant être synchronisées entre appareils. Connectez-vous à votre compte Wikipédia et permettez à vos listes d’être enregistrées.</string>
   <string name="reading_lists_login_button">Se connecter / rejoindre Wikipédia</string>
   <string name="reading_lists_ignore_button">Pas maintenant</string>
   <string name="reading_lists_confirm_remote_delete_yes">Oui</string>
@@ -671,35 +671,35 @@
   <string name="reading_list_articles_added_to_named">%1$d articles ajoutés à %2$s</string>
   <string name="reading_list_articles_moved_to_named">%1$d articles déplacés vers %2$s</string>
   <string name="reading_list_delete_confirm">Êtes-vous sûr(e) de vouloir supprimer %s ?</string>
-  <string name="reading_list_delete_lists_confirm_dialog_title">Supprimer la (ou les) liste(s) sélectionnée(s) ?</string>
-  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+  <string name="reading_list_delete_lists_confirm_dialog_title" fuzzy="true">Supprimer la (ou les) liste(s) sélectionnée(s) ?</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message" fuzzy="true">
     <item quantity="one">Êtes-vous sûr·e de vouloir supprimer %d liste ?</item>
     <item quantity="other">Êtes-vous sûr·e de vouloir supprimer %d listes ?</item>
   </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Connectez-vous pour activer la synchronisation</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Connectez-vous pour permettre à vos listes de lecture d’être enregistrée dans votre compte.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text" fuzzy="true">Connectez-vous pour permettre à vos listes de lecture d’être enregistrée dans votre compte.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Annuler</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Se connecter</string>
-  <string name="reading_list_turned_sync_off_dialog_title">Synchronisation des listes de lecture désactivée</string>
-  <string name="reading_list_turned_sync_off_dialog_text">La synchronisation des listes de lecture est désactivée pour votre compte et les articles enregistrés dans vos appareils connectés ne sont plus sauvegardés. Activez la synchronisation des listes de lecture dans les Paramètres.</string>
+  <string name="reading_list_turned_sync_off_dialog_title" fuzzy="true">Synchronisation des listes de lecture désactivée</string>
+  <string name="reading_list_turned_sync_off_dialog_text" fuzzy="true">La synchronisation des listes de lecture est désactivée pour votre compte et les articles enregistrés dans vos appareils connectés ne sont plus sauvegardés. Activez la synchronisation des listes de lecture dans les Paramètres.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Paramètres</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_title">Activer la synchronisation des listes de lecture ?</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_text">Les articles enregistrés dans les listes de lecture peuvent maintenant être synchronisés avec votre compte Wikipédia. &lt;a href=\"#faq\"&gt;En savoir plus&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title" fuzzy="true">Activer la synchronisation des listes de lecture ?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text" fuzzy="true">Les articles enregistrés dans les listes de lecture peuvent maintenant être synchronisés avec votre compte Wikipédia. &lt;a href=\"#faq\"&gt;En savoir plus&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Ne plus m’afficher cela</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Activer la synchronisation</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Non merci</string>
   <string name="default_reading_list_name">Enregistré</string>
-  <string name="default_reading_list_description">Liste par défaut pour vos articles enregistrés</string>
-  <string name="no_user_lists_title">Organiser des articles dans des listes</string>
-  <string name="no_user_lists_msg">Créez des listes de lieux à visiter, de sujets préférés et bien plus encore.</string>
+  <string name="default_reading_list_description" fuzzy="true">Liste par défaut pour vos articles enregistrés</string>
+  <string name="no_user_lists_title" fuzzy="true">Organiser des articles dans des listes</string>
+  <string name="no_user_lists_msg" fuzzy="true">Créez des listes de lieux à visiter, de sujets préférés et bien plus encore.</string>
   <string name="reading_list_saved_list_rename">%1$s (créé par l’utilisateur)</string>
-  <string name="split_reading_list_message">Les listes de lecture sont limitées à %d articles par liste. Les listes existantes qui en avait trop ont été scindées en plusieurs listes.</string>
-  <string name="reading_list_move_article_limit_message">Impossible d’ajouter à cette liste. Vous avez atteint la limite de %2$d articles par liste pour « %1$s ».</string>
-  <string name="reading_list_article_limit_message">Impossible d’ajouter à cette liste. Vous avez atteint la limite de %2$d articles par liste pour « %1$s ».</string>
-  <string name="reading_lists_limit_message">Impossible de créer une autre liste. Vous avez atteint la limite de 100 listes de lecture par compte.</string>
-  <string name="reading_lists_menu_create_list">Créer une nouvelle liste</string>
-  <string name="reading_lists_menu_import_list">Importer la liste</string>
+  <string name="split_reading_list_message" fuzzy="true">Les listes de lecture sont limitées à %d articles par liste. Les listes existantes qui en avait trop ont été scindées en plusieurs listes.</string>
+  <string name="reading_list_move_article_limit_message" fuzzy="true">Impossible d’ajouter à cette liste. Vous avez atteint la limite de %2$d articles par liste pour « %1$s ».</string>
+  <string name="reading_list_article_limit_message" fuzzy="true">Impossible d’ajouter à cette liste. Vous avez atteint la limite de %2$d articles par liste pour « %1$s ».</string>
+  <string name="reading_lists_limit_message" fuzzy="true">Impossible de créer une autre liste. Vous avez atteint la limite de 100 listes de lecture par compte.</string>
+  <string name="reading_lists_menu_create_list" fuzzy="true">Créer une nouvelle liste</string>
+  <string name="reading_lists_menu_import_list" fuzzy="true">Importer la liste</string>
   <string name="reading_lists_menu_sort_by">Trier par</string>
   <string name="reading_lists_refresh_sync_option">Rafraîchir la synchronisation</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Se connecter / s’inscrire</string>
@@ -711,7 +711,7 @@
     <item quantity="one">Cet article n’est plus disponible hors connexion.</item>
     <item quantity="other">Ces articles ne sont plus disponibles hors connexion.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Listes de lecture synchronisées</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">Listes de lecture synchronisées</string>
   <string name="reading_list_menu_last_sync">Dernière synchronisation : %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_dialog_ok_button_text">OK</string>
@@ -721,31 +721,31 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Annuler</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">Supprimer</string>
-  <string name="reading_list_activity_title">Liste de lecture : %s</string>
-  <string name="reading_list_notification_title">Liste(s) de lecture exportée(s)</string>
-  <string name="reading_list_notification_text">%d liste(s) de lecture ont été exportées vers « reading_lists export.json » dans votre dossier de téléchargements.</string>
-  <string name="reading_list_notification_detailed_text">Les listes de lecture ont été exportées vers « reading_lists_export.json »</string>
+  <string name="reading_list_activity_title" fuzzy="true">Liste de lecture : %s</string>
+  <string name="reading_list_notification_title" fuzzy="true">Liste(s) de lecture exportée(s)</string>
+  <string name="reading_list_notification_text" fuzzy="true">%d liste(s) de lecture ont été exportées vers « reading_lists export.json » dans votre dossier de téléchargements.</string>
+  <string name="reading_list_notification_detailed_text" fuzzy="true">Les listes de lecture ont été exportées vers « reading_lists_export.json »</string>
   <string name="reading_lists_action_menu_export_lists">Exporter</string>
   <string name="reading_lists_import_file_picker_title">Choisir le fichier à importer</string>
-  <string name="reading_lists_import_failure_message">Échec d’importation des listes de lecture</string>
-  <string name="reading_lists_export_select_lists_message">Sélectionner la ou les liste(s) à exporter</string>
-  <string name="reading_lists_export_completed_message">Liste(s) de lecture exportée(s)</string>
-  <plurals name="reading_list_export_failed_message">
+  <string name="reading_lists_import_failure_message" fuzzy="true">Échec d’importation des listes de lecture</string>
+  <string name="reading_lists_export_select_lists_message" fuzzy="true">Sélectionner la ou les liste(s) à exporter</string>
+  <string name="reading_lists_export_completed_message" fuzzy="true">Liste(s) de lecture exportée(s)</string>
+  <plurals name="reading_list_export_failed_message" fuzzy="true">
     <item quantity="one">Échec de l’exportation de la liste de lecture</item>
     <item quantity="other">Échec de l’exportation des listes de lecture</item>
   </plurals>
-  <plurals name="reading_list_import_success_message">
+  <plurals name="reading_list_import_success_message" fuzzy="true">
     <item quantity="one">Liste de lecture importée</item>
     <item quantity="other">Listes de lecture importées</item>
   </plurals>
-  <string name="reading_lists_preview_header_title">Liste partagée</string>
+  <string name="reading_lists_preview_header_title" fuzzy="true">Liste partagée</string>
   <string name="reading_lists_preview_save_button">Enregistrer</string>
-  <string name="reading_lists_preview_save_dialog_title">Enregistrer la liste</string>
-  <string name="reading_lists_preview_save_dialog_text">Nommez la liste et sélectionnez les articles à enregistrer.</string>
+  <string name="reading_lists_preview_save_dialog_title" fuzzy="true">Enregistrer la liste</string>
+  <string name="reading_lists_preview_save_dialog_text" fuzzy="true">Nommez la liste et sélectionnez les articles à enregistrer.</string>
   <string name="reading_lists_preview_save_dialog_title_hint">Titre</string>
   <string name="reading_lists_preview_save_dialog_cancel">Annuler</string>
   <string name="reading_lists_preview_save_dialog_save">Enregistrer</string>
-  <string name="reading_lists_preview_saved_snackbar">Liste de lecture enregistrée</string>
+  <string name="reading_lists_preview_saved_snackbar" fuzzy="true">Liste de lecture enregistrée</string>
   <string name="reading_lists_preview_saved_snackbar_action">Afficher</string>
   <string name="user_option_sync_label">Préférences</string>
   <string name="notification_reverted_title">Modification annulée</string>
@@ -754,8 +754,8 @@
   <string name="notification_syncing_pause_button">Pause</string>
   <string name="notification_syncing_resume_button">Reprise</string>
   <string name="notification_syncing_cancel_button">Annulation</string>
-  <string name="notification_syncing_reading_list_channel_title">Synchronisation des listes de lecture</string>
-  <string name="notification_syncing_reading_list_channel_description">Synchronisation des listes de lecture en cours</string>
+  <string name="notification_syncing_reading_list_channel_title" fuzzy="true">Synchronisation des listes de lecture</string>
+  <string name="notification_syncing_reading_list_channel_description" fuzzy="true">Synchronisation des listes de lecture en cours</string>
   <string name="notification_many_unread">Vous avez %d notifications non lues</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Téléchargement d’un article</item>
@@ -769,15 +769,15 @@
     <item quantity="one">Un article restant</item>
     <item quantity="other">%1$d articles restants</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_channel_name">
+  <plurals name="notification_syncing_reading_list_channel_name" fuzzy="true">
     <item quantity="one">Synchronisation de la liste de lecture</item>
     <item quantity="other">Synchronisation des listes de lecture</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_title">
+  <plurals name="notification_syncing_reading_list_title" fuzzy="true">
     <item quantity="one">Synchronisation d’une liste...</item>
     <item quantity="other">Synchronisation de %1$d listes...</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_description">
+  <plurals name="notification_syncing_reading_list_description" fuzzy="true">
     <item quantity="one">une liste restante</item>
     <item quantity="other">%1$d listes restantes</item>
   </plurals>
@@ -1325,8 +1325,8 @@
   <string name="onboarding_maybe_later">Peut-être plus tard</string>
   <string name="onboarding_explore_title">Nouvelles façons d’explorer</string>
   <string name="onboarding_explore_text">Plongez dans l\'univers de Wikipédia avec un fil d\'actualité continuellement mis à jour.&lt;br/&gt; &lt;b&gt;Personnalisez&lt;/b&gt; le flux selon vos centres d\'intérêt — que ce soit pour découvrir les événements historiques &lt;b&gt;Ce jour-là&lt;/b&gt;, ou tenter votre chance avec &lt;b&gt;l\'option Aléatoire&lt;/b&gt;.</string>
-  <string name="onboarding_reading_list_sync_title">Listes de lecture avec synchronisation</string>
-  <string name="onboarding_reading_list_sync_text_v2">Vous pouvez créer des listes de lecture depuis les articles que vous voulez lire ultérieurement, même lorsque vous êtes hors connexion.&lt;br /&gt;\nConnectez-vous à votre compte Wikipédia pour synchroniser vos listes de lecture. &lt;a href=\"#login\"&gt;Rejoindre Wikipédia&lt;/a&gt;</string>
+  <string name="onboarding_reading_list_sync_title" fuzzy="true">Listes de lecture avec synchronisation</string>
+  <string name="onboarding_reading_list_sync_text_v2" fuzzy="true">Vous pouvez créer des listes de lecture depuis les articles que vous voulez lire ultérieurement, même lorsque vous êtes hors connexion.&lt;br /&gt;\nConnectez-vous à votre compte Wikipédia pour synchroniser vos listes de lecture. &lt;a href=\"#login\"&gt;Rejoindre Wikipédia&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Données &amp; confidentialité</string>
   <string name="onboarding_data_privacy_text">Nous considérons que vous ne devriez pas avoir à fournir d’informations personnelles pour participer au mouvement du savoir libre. Les données d’utilisation collectées pour cette application sont anonymes. Apprenez-en plus sur notre &lt;a href=\"#privacy\"&gt;politique de confidentialité&lt;/a&gt; et &lt;a href=\"#termsOfUse\"&gt;nos conditions d’utilisation&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Envoyer les données d’utilisation</string>
@@ -1661,16 +1661,16 @@
   <string name="user_contrib_filter_activity_title">Filtre des contributions</string>
   <string name="action_item_view_on_map">Afficher sur une carte</string>
   <string name="action_item_view_on_map_unavailable">Les coordonnées géographiques ne sont pas disponibles pour cette page</string>
-  <string name="shareable_reading_lists_import_dialog_title">Importer une liste de lecture partagée</string>
-  <string name="shareable_reading_lists_import_dialog_content">Comment désirez-vous nommer la liste de lecture qui a été partagée avec vous ?</string>
+  <string name="shareable_reading_lists_import_dialog_title" fuzzy="true">Importer une liste de lecture partagée</string>
+  <string name="shareable_reading_lists_import_dialog_content" fuzzy="true">Comment désirez-vous nommer la liste de lecture qui a été partagée avec vous ?</string>
   <string name="shareable_reading_lists_new_indicator">*nouveau*</string>
-  <string name="shareable_reading_lists_new_install_dialog_title">Une liste de lecture a été partagée avec vous.</string>
-  <string name="shareable_reading_lists_new_install_dialog_content">Nous avons remarqué qu’une liste de lecture a été partagée avec vous. Pour afficher cette liste dans l’application, revenez au message d’origine et appuyez à nouveau sur le lien partagé.</string>
+  <string name="shareable_reading_lists_new_install_dialog_title" fuzzy="true">Une liste de lecture a été partagée avec vous.</string>
+  <string name="shareable_reading_lists_new_install_dialog_content" fuzzy="true">Nous avons remarqué qu’une liste de lecture a été partagée avec vous. Pour afficher cette liste dans l’application, revenez au message d’origine et appuyez à nouveau sur le lien partagé.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Compris</string>
-  <string name="shareable_reading_lists_new_imported_snackbar">Liste de lecture importée</string>
+  <string name="shareable_reading_lists_new_imported_snackbar" fuzzy="true">Liste de lecture importée</string>
   <string name="reading_list_share_menu_label">Partager...</string>
-  <string name="reading_list_share_menu_tooltip">Partager cette liste de lecture avec d’autres personnes</string>
-  <string name="reading_list_share_message_v2">Bonjour ! J’aimerais partager ma liste de lecture Wikipédia avec vous :</string>
+  <string name="reading_list_share_menu_tooltip" fuzzy="true">Partager cette liste de lecture avec d’autres personnes</string>
+  <string name="reading_list_share_message_v2" fuzzy="true">Bonjour ! J’aimerais partager ma liste de lecture Wikipédia avec vous :</string>
   <string name="talk_templates_empty_message">Créez vos propres messages ou utilisez le &lt;a href=\"#\"&gt;message d\'exemple&lt;/a&gt; pour commencer.</string>
   <string name="talk_templates_new_message_title">Nouveau message</string>
   <string name="talk_templates_new_message_subject_hint">Sujet</string>
@@ -1961,8 +1961,8 @@
   <string name="year_in_review_get_started_later">Vous pourrez accéder par la suite à votre rétrospective annuelle depuis le menu Plus.</string>
   <string name="year_in_review_survey_title">Aidez-nous à améliorer le bilan de l’année</string>
   <string name="year_in_review_survey_subtitle">Êtes-vous satisfait de cette fonctionnalité ?</string>
-  <string name="year_in_review_reading_list_survey_title">Aidez à améliorer la liste de lecture %d de la rétrospective annuelle</string>
-  <string name="year_in_review_reading_list_survey_subtitle">Êtes-vous satisfait·e de votre liste de lecture ?</string>
+  <string name="year_in_review_reading_list_survey_title" fuzzy="true">Aidez à améliorer la liste de lecture %d de la rétrospective annuelle</string>
+  <string name="year_in_review_reading_list_survey_subtitle" fuzzy="true">Êtes-vous satisfait·e de votre liste de lecture ?</string>
   <string name="year_in_review_survey_very_satisfied">Très satisfait</string>
   <string name="year_in_review_survey_satisfied">Satisfait</string>
   <string name="year_in_review_survey_neutral">Neutre</string>
@@ -2070,7 +2070,7 @@
     <item quantity="one">Les utilisateur·rices de l’application ont enregistré %,d article</item>
     <item quantity="other">Les utilisateur·rices de l’application ont enregistré %,d articles</item>
   </plurals>
-  <string name="year_in_review_slide_global_saved_articles_body">Ajouter des articles à des listes de lecture vous permet d’y accéder même hors ligne. Vous pouvez aussi vous connecter pour synchroniser vos listes de lecture sur tous vos appareils.</string>
+  <string name="year_in_review_slide_global_saved_articles_body" fuzzy="true">Ajouter des articles à des listes de lecture vous permet d’y accéder même hors ligne. Vous pouvez aussi vous connecter pour synchroniser vos listes de lecture sur tous vos appareils.</string>
   <string name="year_in_review_slide_reading_patterns_headline">Vos habitudes de lecture sont bien marquées.</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">Moment préféré pour lire</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">Jour préféré pour lire</string>
@@ -2138,8 +2138,8 @@
     <item quantity="other">Les utilisateur·rices de l’application ont consulté des articles de Wikipédia %,d fois</item>
   </plurals>
   <string name="year_in_review_slide_viewed_articles_times_body">Pour des millions de personnes à travers le monde, Wikipédia est la première ressource consultée pour répondre à une question, rechercher de l’information pour les études ou le travail, ou découvrir une nouvelle connaissance.</string>
-  <string name="year_in_review_reading_list_dialog_title">Créer votre liste de lecture « Bilan %d » ?</string>
-  <string name="year_in_review_reading_list_dialog_message">Le Bilan Wikipédia créera une liste de lecture des articles avec lesquels vous avez passé le plus de temps en %1$d. &lt;a href=\"%2$s\"&gt;En savoir plus&lt;/a&gt;</string>
+  <string name="year_in_review_reading_list_dialog_title" fuzzy="true">Créer votre liste de lecture « Bilan %d » ?</string>
+  <string name="year_in_review_reading_list_dialog_message" fuzzy="true">Le Bilan Wikipédia créera une liste de lecture des articles avec lesquels vous avez passé le plus de temps en %1$d. &lt;a href=\"%2$s\"&gt;En savoir plus&lt;/a&gt;</string>
   <string name="year_in_review_reading_list_dialog_positive_button_label">Créer</string>
   <string name="year_in_review_reading_list_dialog_negative_button_label">Non merci</string>
   <string name="year_in_review_reading_list_title">Bilan %d</string>
@@ -2196,12 +2196,12 @@
   <string name="year_in_review_highlights_logo_description">Logo Wikipédia</string>
   <string name="recommended_reading_list_title">Découvrir</string>
   <string name="recommended_reading_list_onboarding_card_title">Découvrez des articles sélectionnés rien que pour vous</string>
-  <string name="recommended_reading_list_onboarding_card_message">Votre liste de lecture hebdomadaire d\'articles Wikipédia, organisée juste pour vous.</string>
+  <string name="recommended_reading_list_onboarding_card_message" fuzzy="true">Votre liste de lecture hebdomadaire d\'articles Wikipédia, organisée juste pour vous.</string>
   <string name="recommended_reading_list_onboarding_card_new">Nouveau !</string>
   <string name="recommended_reading_list_onboarding_card_positive_button">Commencer</string>
   <string name="recommended_reading_list_onboarding_card_negative_button">Non merci</string>
-  <string name="recommended_reading_list_onboarding_card_negative_snackbar">La configuration de votre liste de lectures recommandées reste possible depuis les paramètres.</string>
-  <string name="recommended_reading_list_interest_source_message">Que voulez-vous voir dans votre liste de lectures recommandées ?</string>
+  <string name="recommended_reading_list_onboarding_card_negative_snackbar" fuzzy="true">La configuration de votre liste de lectures recommandées reste possible depuis les paramètres.</string>
+  <string name="recommended_reading_list_interest_source_message" fuzzy="true">Que voulez-vous voir dans votre liste de lectures recommandées ?</string>
   <string name="recommended_reading_list_interest_source_interests">Choisir en fonction de mes intérêts</string>
   <string name="recommended_reading_list_interest_source_saved">Choisissez pour moi en fonction de mes articles enregistrés</string>
   <string name="recommended_reading_list_interest_source_history">Choisissez pour moi en fonction de mon historique de lecture</string>
@@ -2225,9 +2225,9 @@
     <item quantity="one">• %d article</item>
     <item quantity="other">• %d articles</item>
   </plurals>
-  <string name="recommended_reading_list_page_description_daily">Votre liste de lecture quotidienne. Découvrez de nouveaux sujets sélectionnés pour vous. Mises à jour à minuit.</string>
-  <string name="recommended_reading_list_page_description_weekly">Votre liste de lecture hebdomadaire. Découvrez de nouveaux sujets sélectionnés pour vous. Mises à jour en début de semaine.</string>
-  <string name="recommended_reading_list_page_description_monthly">Votre liste de lecture mensuelle. Découvrez de nouveaux sujets sélectionnés pour vous. Mises à jour le premier de chaque mois.</string>
+  <string name="recommended_reading_list_page_description_daily" fuzzy="true">Votre liste de lecture quotidienne. Découvrez de nouveaux sujets sélectionnés pour vous. Mises à jour à minuit.</string>
+  <string name="recommended_reading_list_page_description_weekly" fuzzy="true">Votre liste de lecture hebdomadaire. Découvrez de nouveaux sujets sélectionnés pour vous. Mises à jour en début de semaine.</string>
+  <string name="recommended_reading_list_page_description_monthly" fuzzy="true">Votre liste de lecture mensuelle. Découvrez de nouveaux sujets sélectionnés pour vous. Mises à jour le premier de chaque mois.</string>
   <string name="recommended_reading_list_page_overflow_customize">Personnaliser</string>
   <string name="recommended_reading_list_page_overflow_about">À propos de cette fonctionnalité</string>
   <string name="recommended_reading_list_page_snackbar">La Découverte sera mise à jour avec %1$d nouveaux articles tous les %2$s. Vos recommandations sont stockées localement sur votre appareil.</string>
@@ -2237,7 +2237,7 @@
   <string name="recommended_reading_list_page_snackbar_month">Mois</string>
   <string name="recommended_reading_list_settings_section_header">Recommandations</string>
   <string name="recommended_reading_list_settings_title">Paramètres de la Découverte</string>
-  <string name="recommended_reading_list_settings_toggle">Listes de lectures de la Découverte</string>
+  <string name="recommended_reading_list_settings_toggle" fuzzy="true">Listes de lectures de la Découverte</string>
   <string name="recommended_reading_list_settings_toggle_disable_message">La Découverte est désactivée. Wikipédia ne vous recommandera pas d\'articles à lire.</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_title">Désactiver la Découverte ?</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_message">Si vous désactivez la Découverte, vous ne recevrez plus de recommandations de lecture de Wikipédia %s.</string>
@@ -2272,7 +2272,7 @@
   <string name="recommended_reading_list_settings_notifications_dialog_message">Si vous désactivez les notifications, vous ne recevrez plus de rappels lorsque la Découverte est mise à jour.</string>
   <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Les désactiver</string>
   <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Non, les laisser activées</string>
-  <string name="recommended_reading_list_notification_title">Votre liste de lecture %s à découvrir est prête.</string>
+  <string name="recommended_reading_list_notification_title" fuzzy="true">Votre liste de lecture %s à découvrir est prête.</string>
   <string name="recommended_reading_list_notification_subtitle">Appuyez pour voir vos dernières recommandations.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">Lorsque votre Découverte est mise à jour, Wikipédia vous enverra une notification.</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">La Découverte est activée. Wikipédia vous recommandera des articles à lire.</string>
@@ -2433,7 +2433,7 @@
   <string name="explore_feed_for_you_tab_label">Pour vous</string>
   <string name="explore_feed_date_today">Aujourd\'hui - %s</string>
   <string name="explore_feed_load_previous_day_label">Charger le jour précédent</string>
-  <string name="explore_feed_from_reading_list">De votre liste de lecture</string>
+  <string name="explore_feed_from_reading_list" fuzzy="true">De votre liste de lecture</string>
   <string name="explore_feed_because_of_interest">En raison de vos centres d\'intérêt : %s</string>
   <string name="explore_feed_onboarding_curiosity_title">Suivez votre curiosité</string>
   <string name="explore_feed_onboarding_curiosity_description">Sélectionnez les sujets qui vous intéressent et nous personnaliserons votre flux.\n\nNous collectons un minimum de données qui sont anonymisées.</string>
@@ -2511,13 +2511,13 @@
   <string name="home_feed_settings_games_title">Jeux</string>
   <string name="home_feed_settings_games_subtitle">Jeux quotidiens basés sur le contenu de Wikipédia</string>
   <string name="home_feed_settings_discover_title">Découvrez les recommandations</string>
-  <string name="home_feed_settings_discover_subtitle">Articles de votre liste de lecture Découvrir</string>
+  <string name="home_feed_settings_discover_subtitle" fuzzy="true">Articles de votre liste de lecture Découvrir</string>
   <string name="home_feed_discover_cta_title">Depuis Découvrir</string>
   <string name="home_feed_discover_cta_description">Découvrez de nouveaux sujets, sélectionnés spécialement pour vous. Choisissez entre des mises à jour quotidiennes, hebdomadaires ou mensuelles.</string>
-  <string name="home_feed_discover_cta_button">Activer la liste de lecture Découvrir</string>
+  <string name="home_feed_discover_cta_button" fuzzy="true">Activer la liste de lecture Découvrir</string>
   <string name="home_feed_discover_card_footer">Depuis Découvrir • Mises à jour %s</string>
   <string name="home_feed_discover_see_all_title">Il y a plus à découvrir.</string>
-  <string name="home_feed_discover_see_all_description">Votre liste de lecture personnalisée contient davantage d\'histoires sélectionnées spécialement pour vous.</string>
+  <string name="home_feed_discover_see_all_description" fuzzy="true">Votre liste de lecture personnalisée contient davantage d\'histoires sélectionnées spécialement pour vous.</string>
   <string name="home_feed_discover_see_all_button">Explorez toutes les recommandations</string>
   <string name="home_feed_places_of_interest_card_footer">%1$s • Basé sur votre emplacement dans Lieux</string>
   <string name="home_feed_for_you_screen_end_of_feed_title">C\'est tout pour aujourd\'hui !</string>

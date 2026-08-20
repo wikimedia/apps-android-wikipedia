@@ -14,7 +14,7 @@
   <string name="search_hint">Eheka Vikipetãme</string>
   <string name="search_hint_voice_search">Eheka ñe\'ẽ rupive</string>
   <string name="search_hint_search_languages">Eheka peteĩ ñe\'ẽ</string>
-  <string name="filter_hint_filter_my_lists_and_articles">Embogua che rysyikuéra</string>
+  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">Embogua che rysyikuéra</string>
   <string name="nav_item_suggested_edits">Ñemoambue</string>
   <string name="nav_item_more">Ehechave</string>
   <string name="nav_item_search">Eheka</string>
@@ -79,16 +79,16 @@
   <string name="menu_page_watched">Oñeñangarekómava</string>
   <string name="edit_section_find_in_page">Eheka ko kuatiaroguépe</string>
   <string name="menu_page_font_and_theme">Tai ha téma</string>
-  <string name="menu_page_add_to_list">Emoinge moñe\'ẽrã rysýipe</string>
+  <string name="menu_page_add_to_list" fuzzy="true">Emoinge moñe\'ẽrã rysýipe</string>
   <string name="menu_page_add_to_default_list">Eñongatu</string>
-  <string name="feed_card_add_to_list">Emoinge moñe\'ẽrã rysýipe</string>
+  <string name="feed_card_add_to_list" fuzzy="true">Emoinge moñe\'ẽrã rysýipe</string>
   <string name="feed_card_add_to_default_list">Eñongatu</string>
   <string name="menu_page_share">Eikuaauka ko joajuha</string>
   <string name="menu_article_share">Eikuaauka ko kuatia</string>
   <string name="menu_page_article_share">Eikuaauka</string>
   <string name="menu_page_open_a_new_tab">Eipe\'a peteĩ tendayke pyahu</string>
   <string name="menu_page_new_tab">Tendayke pyahu</string>
-  <string name="menu_page_reading_lists">Moñe\'ẽrã rysýi</string>
+  <string name="menu_page_reading_lists" fuzzy="true">Moñe\'ẽrã rysýi</string>
   <string name="menu_page_recently_viewed">Mba\'e rehecha ramóva</string>
   <string name="menu_page_archive">Ñongatuha</string>
   <string name="menu_long_press_open_page">Eipe\'a</string>
@@ -177,9 +177,9 @@
   <string name="send_feedback">Oremomarandu ko tembiporu rehegua</string>
   <string name="create_account_account_created_toast">Ojejapopáma nde kuatiarãǃ</string>
   <string name="preferences_heading_syncing">Ñembojuehe</string>
-  <string name="preference_title_sync_reading_lists_from_account">Embojuehepa moñeꞌẽrã rysýi</string>
-  <string name="preference_title_download_reading_list_articles">Emboguejy umi kuatia ne moñe\'ẽrã rysýipe</string>
-  <string name="preference_summary_sync_reading_lists">Embojuehe ne moñeꞌẽrã rysýi opaichagua tembipuru rupive eñongatúvo chupekuéra nde kuatia Vikipetãme</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Embojuehepa moñeꞌẽrã rysýi</string>
+  <string name="preference_title_download_reading_list_articles" fuzzy="true">Emboguejy umi kuatia ne moñe\'ẽrã rysýipe</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">Embojuehe ne moñeꞌẽrã rysýi opaichagua tembipuru rupive eñongatúvo chupekuéra nde kuatia Vikipetãme</string>
   <string name="history_filter_list_hint">Embogua tembiasakue</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Emoĩ tembiapo ñangarekoha rysýipe</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Ehechapa mba\'épa oiko umi kuatiápe iporãvéva ndéve, epoko pe poravorã rehe ha eiporavo &lt;b&gt;Emoĩ tembiapo ñangarekoha rysýipe&lt;/b&gt; rehecha hag̃ua umi ñemoambue peteĩ kuatiápe.</string>
@@ -247,12 +247,12 @@
   <string name="color_theme_select">Téma</string>
   <string name="preference_title_app_theme">Tembiporu téma</string>
   <string name="preference_summary_color_theme">Eipuru tembiporu téma iñypytũva</string>
-  <string name="reading_list_name_sample">Che moñe\'ẽrã rysýi</string>
-  <string name="reading_list_login_reminder_title">Embojuehe ne moñe\'ẽrã rysýi</string>
-  <string name="reading_lists_login_reminder_text">Umi moñeꞌẽrã rysýi ikatu koꞌág̃a oñembojuehepa tembipurukuéra apytépe. Eike nde kuatiápe Vikipetãme ha eheja oñeñongatu ne moñeꞌẽrã rysýi.</string>
+  <string name="reading_list_name_sample" fuzzy="true">Che moñe\'ẽrã rysýi</string>
+  <string name="reading_list_login_reminder_title" fuzzy="true">Embojuehe ne moñe\'ẽrã rysýi</string>
+  <string name="reading_lists_login_reminder_text" fuzzy="true">Umi moñeꞌẽrã rysýi ikatu koꞌág̃a oñembojuehepa tembipurukuéra apytépe. Eike nde kuatiápe Vikipetãme ha eheja oñeñongatu ne moñeꞌẽrã rysýi.</string>
   <string name="reading_list_delete_confirm">Añetetépa remboguese %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Eike nde kuatiápe rembojuehe hag̃ua</string>
-  <string name="reading_list_turned_sync_off_dialog_title">Noñembojuehevéima ne moñeꞌẽrã rysýi</string>
+  <string name="reading_list_turned_sync_off_dialog_title" fuzzy="true">Noñembojuehevéima ne moñeꞌẽrã rysýi</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Embojuehe</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nahániri</string>
   <string name="notification_channel_title">Omboguejy hína kuatiakuéra</string>
@@ -415,7 +415,7 @@
   <string name="category_empty">Ndojejuhúi kuatia ko ñemohendápe.</string>
   <string name="user_contrib_filter_ns">Embogua téra renda rupive</string>
   <string name="reading_list_share_menu_label">Eikuaauka...</string>
-  <string name="reading_list_share_message_v2">Mba\'éichapa! Roikuaaukasemi che moñe\'ẽrã rysýi Vikipetãme:</string>
+  <string name="reading_list_share_message_v2" fuzzy="true">Mba\'éichapa! Roikuaaukasemi che moñe\'ẽrã rysýi Vikipetãme:</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Emboty</string>
   <string name="data_opt_in_accept">Oĩma</string>
   <string name="data_opt_in_reject">Ndaipotái</string>
