@@ -25,6 +25,7 @@ object DonationReminderHelper {
     private val isInDateRange get() = LocalDate.now() <= LocalDate.of(2026, 11, 1) // TODO: confirm with PM
     val isInEligibleCountry get() = ReleaseUtil.isDevRelease || enabledCountries.contains(GeoUtil.geoIPCountry.orEmpty())
     val defaultReadFrequencyOptions = listOf(5, 10, 20)
+    val defaultDonateAmountOptions = listOf(1, 3, 5) // V3 only.
 
     val isEnabled
         get() = (ReleaseUtil.isDevRelease || isInEligibleCountry && isInDateRange) && isTestGroupUser
