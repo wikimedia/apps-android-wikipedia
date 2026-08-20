@@ -14,7 +14,7 @@
   <string name="search_hint">विकिपीडिया मँ खोजौ</string>
   <string name="search_hint_voice_search">ध्वनि इनपुट खोज</string>
   <string name="search_hint_search_languages">भाषा लेली खोजौ</string>
-  <string name="filter_hint_filter_my_lists_and_articles">हमरौ सूची फ़िल्टर करौ</string>
+  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">हमरौ सूची फ़िल्टर करौ</string>
   <string name="nav_item_suggested_edits">संपादन सिनी</string>
   <string name="nav_item_more">आरू जादा</string>
   <string name="nav_item_search">खोजौ</string>
@@ -70,16 +70,16 @@
   <string name="menu_page_watched">ध्यान रखलौ</string>
   <string name="edit_section_find_in_page">पन्ना मँ ढूंढौ</string>
   <string name="menu_page_font_and_theme">फॉन्ट आरू थीम</string>
-  <string name="menu_page_add_to_list">पढ़ैवाला सूची मँ जोड़ौ</string>
+  <string name="menu_page_add_to_list" fuzzy="true">पढ़ैवाला सूची मँ जोड़ौ</string>
   <string name="menu_page_add_to_default_list">सहेजौ</string>
-  <string name="feed_card_add_to_list">पढ़ैवाला सूची मँ जोड़ौ</string>
+  <string name="feed_card_add_to_list" fuzzy="true">पढ़ैवाला सूची मँ जोड़ौ</string>
   <string name="feed_card_add_to_default_list">सहेजौ</string>
   <string name="menu_page_share">लिंक साझा करौ</string>
   <string name="menu_article_share">लेख साझा करौ</string>
   <string name="menu_page_article_share">साझा करौ</string>
   <string name="menu_page_open_a_new_tab">एगो नयो टैब खोलौ</string>
   <string name="menu_page_new_tab">नयो टैब</string>
-  <string name="menu_page_reading_lists">पढ़ैवाला सूची</string>
+  <string name="menu_page_reading_lists" fuzzy="true">पढ़ैवाला सूची</string>
   <string name="menu_page_recently_viewed">हालै मँ देखलो गेलौ</string>
   <string name="menu_page_archive">पुरालेख</string>
   <string name="menu_long_press_open_page">उघाड़ौ</string>
@@ -165,8 +165,8 @@
   <string name="preferences_heading_syncing">सिंक होय रहलौ छौं</string>
   <string name="preferences_heading_data_usage">डेटा उपयोग</string>
   <string name="preferences_heading_experimental">प्रयोगात्मक</string>
-  <string name="preference_title_sync_reading_lists_from_account">पठन सूची सिंक होय रहलौ छौं</string>
-  <string name="preference_title_download_reading_list_articles">पठन सूची केरौ लेख डाउनलोड करौ</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">पठन सूची सिंक होय रहलौ छौं</string>
+  <string name="preference_title_download_reading_list_articles" fuzzy="true">पठन सूची केरौ लेख डाउनलोड करौ</string>
   <string name="preference_title_auto_upload_crash_reports">क्रैश रिपोर्ट भेजौ</string>
   <string name="history_filter_list_hint">फ़िल्टर केरौ इतिहास</string>
   <string name="page_protected_autoconfirmed">हैय पृष्ठ अर्ध-सुरक्षित छै।</string>
@@ -264,7 +264,7 @@
   <string name="button_continue_to_article">लेख पढ़ौ</string>
   <string name="button_continue_to_talk_page">वार्ता पन्ना देखौ</string>
   <string name="button_continue_to_disambiguation">समान पृष्ठ देखौ</string>
-  <string name="button_add_to_reading_list">पढ़ैवाला सूची मँ जोड़ौ</string>
+  <string name="button_add_to_reading_list" fuzzy="true">पढ़ैवाला सूची मँ जोड़ौ</string>
   <string name="nav_item_donate">दान करौ</string>
   <string name="enable_location_service">चालू करौ</string>
   <string name="location_permissions_enable_action">चालू करौ</string>
@@ -307,8 +307,8 @@
   <string name="reading_list_sort_by_recent_desc">जोड़लौ तिथि केरौ अनुसार क्रमबद्ध करौ (सबसँ पुरानौ)</string>
   <string name="reading_list_sort_by_created">निर्माण तिथि केरौ अनुसार क्रमबद्ध करौ (सबसँ नया)</string>
   <string name="reading_list_sort_by_created_desc">निर्माण तिथि केरौ अनुसार क्रमबद्ध करौ (सबसँ पुरानौ)</string>
-  <string name="reading_list_menu_delete">सूची क हटाबौ</string>
-  <string name="reading_list_menu_export">निर्यात सूची</string>
+  <string name="reading_list_menu_delete" fuzzy="true">सूची क हटाबौ</string>
+  <string name="reading_list_menu_export" fuzzy="true">निर्यात सूची</string>
   <string name="reading_list_menu_select">चुनौ</string>
   <string name="reading_list_menu_unselect">नाय चुनौ</string>
   <string name="reading_lists_confirm_remote_delete_yes">हाँव</string>
@@ -319,7 +319,7 @@
   <string name="reading_list_turned_sync_off_dialog_settings">सेटिंग्स</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">नाय, धन्यवाद</string>
   <string name="default_reading_list_name">सहेजलौ गेलै</string>
-  <string name="reading_lists_menu_import_list">आयात सूची</string>
+  <string name="reading_lists_menu_import_list" fuzzy="true">आयात सूची</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">लॉग-इन / साइन-अप करौ</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">ठीक छै</string>
   <string name="reading_list_delete_dialog_ok_button_text">ठीक छै</string>
@@ -329,13 +329,13 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">रद्द करौ</string>
   <string name="reading_list_split_dialog_ok_button_text">ठीक छै</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">हटाबौ</string>
-  <string name="reading_list_activity_title">पढ़ैवाला सूची: %s</string>
-  <string name="reading_list_notification_title">पढ़ैवाला सूची(सिनी) निर्यात होलौं</string>
+  <string name="reading_list_activity_title" fuzzy="true">पढ़ैवाला सूची: %s</string>
+  <string name="reading_list_notification_title" fuzzy="true">पढ़ैवाला सूची(सिनी) निर्यात होलौं</string>
   <string name="reading_lists_action_menu_export_lists">निर्यात करौ</string>
-  <string name="reading_lists_export_completed_message">पढ़ैवाला सूची(सिनी) निर्यात होलौं</string>
-  <string name="reading_lists_preview_header_title">साझा करलौ सूची</string>
+  <string name="reading_lists_export_completed_message" fuzzy="true">पढ़ैवाला सूची(सिनी) निर्यात होलौं</string>
+  <string name="reading_lists_preview_header_title" fuzzy="true">साझा करलौ सूची</string>
   <string name="reading_lists_preview_save_button">सहेजौ</string>
-  <string name="reading_lists_preview_save_dialog_title">सूची सहेजौ</string>
+  <string name="reading_lists_preview_save_dialog_title" fuzzy="true">सूची सहेजौ</string>
   <string name="reading_lists_preview_save_dialog_title_hint">शीर्षक</string>
   <string name="reading_lists_preview_save_dialog_cancel">रद्द करौ</string>
   <string name="reading_lists_preview_save_dialog_save">सहेजौ</string>

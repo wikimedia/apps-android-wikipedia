@@ -21,7 +21,7 @@
   <string name="menu_page_other_languages">دیلی دَییشدیر</string>
   <string name="menu_page_find_in_page" fuzzy="true">صفحه‌ده تاپ</string>
   <string name="menu_page_font_and_theme">فونت ایله تمی دَییشدیر</string>
-  <string name="menu_page_add_to_list">اوخوما لیستینه آرتیر</string>
+  <string name="menu_page_add_to_list" fuzzy="true">اوخوما لیستینه آرتیر</string>
   <string name="menu_page_share">لینکی پایلاش</string>
   <string name="menu_long_press_open_page">آچ</string>
   <string name="menu_long_press_open_in_new_tab">یئنی تبده آچ</string>
@@ -119,7 +119,7 @@
   <string name="color_theme_light">آچیق</string>
   <string name="color_theme_dark">توخ</string>
   <string name="reading_list_create_new">یئنی یارات</string>
-  <string name="reading_list_added_view_button">لیسته باخ</string>
+  <string name="reading_list_added_view_button" fuzzy="true">لیسته باخ</string>
   <string name="reading_list_sort_by_name">آدینا گؤره دۆزولموش</string>
   <string name="reading_list_sort_by_name_desc">آدینا گؤره دۆزولموش (ترس)</string>
   <string name="reading_list_sort_by_recent" fuzzy="true">ان سوْنونا گؤره دۆزولموش</string>

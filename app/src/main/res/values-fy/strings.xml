@@ -17,7 +17,7 @@
   <string name="search_hint">De Wikipedy trochsykje</string>
   <string name="search_hint_voice_search">Sykje mei stimynfier</string>
   <string name="search_hint_search_languages">In taal opsykje</string>
-  <string name="filter_hint_filter_my_lists_and_articles">Myn listen filterje</string>
+  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">Myn listen filterje</string>
   <string name="nav_item_suggested_edits">Bewurkings</string>
   <string name="nav_item_more">Mear</string>
   <string name="nav_item_search">Sykje</string>
@@ -51,14 +51,14 @@
   <string name="menu_page_remove_from_watchlist">Fan folchlist ôfhelje</string>
   <string name="edit_section_find_in_page">Op side sykje</string>
   <string name="menu_page_font_and_theme">Letter en tema</string>
-  <string name="menu_page_add_to_list">Oan lêslist tafoegje</string>
+  <string name="menu_page_add_to_list" fuzzy="true">Oan lêslist tafoegje</string>
   <string name="menu_page_add_to_default_list">Bewarje</string>
-  <string name="feed_card_add_to_list">Oan lêslist tafoegje</string>
+  <string name="feed_card_add_to_list" fuzzy="true">Oan lêslist tafoegje</string>
   <string name="feed_card_add_to_default_list">Bewarje</string>
   <string name="menu_page_share">Keppeling diele</string>
   <string name="menu_page_open_a_new_tab">Nij tabblêd iepenje</string>
   <string name="menu_page_new_tab">Nij tabblêd</string>
-  <string name="menu_page_reading_lists">Lêslisten</string>
+  <string name="menu_page_reading_lists" fuzzy="true">Lêslisten</string>
   <string name="menu_page_recently_viewed">Resint besjoen</string>
   <string name="menu_long_press_open_page">Iepenje</string>
   <string name="menu_long_press_open_in_new_tab">Yn nij tabblêd iepenje</string>
@@ -92,7 +92,7 @@
   <string name="menu_show_toc">Ynhâldsopjefte</string>
   <string name="search_no_results_found">Gjin treffers fûn</string>
   <string name="search_reading_list_no_results">Gjin treffers fûn yn \"%s\"</string>
-  <string name="search_reading_lists_no_results">Gjin treffers fûn yn \'e lêslisten</string>
+  <string name="search_reading_lists_no_results" fuzzy="true">Gjin treffers fûn yn \'e lêslisten</string>
   <string name="search_history_no_results">Gjin treffers fûn yn \'e skiednis</string>
   <string name="edit_section_captcha_message">Typ de wurden dy\'t hjirûnder ferskine, as befeiliging tsjin automatisearre spam</string>
   <string name="edit_section_captcha_request_an_account_message">Plaatsje net te sjen? &lt;a href=\"https://fy.wikipedia.org/wiki/Wikipedy:Gasteboek\"&gt;Freegje in akkount&lt;/a&gt;</string>
@@ -164,12 +164,12 @@
   <string name="preferences_heading_syncing">Syngronisaasje</string>
   <string name="preferences_heading_data_usage">Datagebrûk</string>
   <string name="preferences_heading_experimental">Eksperiminteel</string>
-  <string name="preference_title_sync_reading_lists_from_account">Syngronisearjen fan lêslisten</string>
-  <string name="preference_title_download_reading_list_articles">Lêslist-artikels ynlade</string>
-  <string name="preference_summary_sync_reading_lists">Lêslisten mei oare apparaten syngronisearje troch se te bewarjen yn jo Wikipedy-akkount</string>
-  <string name="preference_summary_sync_reading_lists_from_account">Lêslisten mei oare apparaten syngronisearje troch se te bewarjen yn jo Wikipedy-akkount \"%s\"</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Syngronisearre lêslisten fan \"%s\" fuorthelje?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Sa wiskje jo folslein alle earder syngronisearre lêslisten fan \'e opslach om utens. Alle syngronisearre listen út jo akkount \"%s\" fuorthelje?</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Syngronisearjen fan lêslisten</string>
+  <string name="preference_title_download_reading_list_articles" fuzzy="true">Lêslist-artikels ynlade</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">Lêslisten mei oare apparaten syngronisearje troch se te bewarjen yn jo Wikipedy-akkount</string>
+  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">Lêslisten mei oare apparaten syngronisearje troch se te bewarjen yn jo Wikipedy-akkount \"%s\"</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">Syngronisearre lêslisten fan \"%s\" fuorthelje?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">Sa wiskje jo folslein alle earder syngronisearre lêslisten fan \'e opslach om utens. Alle syngronisearre listen út jo akkount \"%s\" fuorthelje?</string>
   <string name="preference_title_auto_upload_crash_reports">Steuringsrapporten ferstjoere</string>
   <string name="preference_summary_auto_upload_crash_reports">De app tastean om automatysk steuringsrapporten te ferstjoeren oan in treddepartij-tsjinstferliener, sadat wy jo probleem mei de app besjen kinne, en de flater flugger en makliker ferhelpe.</string>
   <string name="editing_error_spamblacklist">Keppelings nei útsletten domeinen (%s) ûntdutsen. Helje dy graach fuort, en besykje it nochris.</string>
@@ -290,8 +290,8 @@
   <string name="unnamed_tab_closed">Tabblêd sletten.</string>
   <string name="tab_item_closed">%s sletten.</string>
   <string name="all_tab_items_closed">Alle tabblêden sletten.</string>
-  <string name="tool_tip_bookmark_icon_title">Oan lêslist tafoegje</string>
-  <string name="tool_tip_bookmark_icon_text">Blêdwizer-ikoan oantikje om it artikel yn in lêslist te bewarjen.</string>
+  <string name="tool_tip_bookmark_icon_title" fuzzy="true">Oan lêslist tafoegje</string>
+  <string name="tool_tip_bookmark_icon_text" fuzzy="true">Blêdwizer-ikoan oantikje om it artikel yn in lêslist te bewarjen.</string>
   <string name="page_view_in_browser">Side yn webblêder besjen</string>
   <string name="tool_tip_toc_title">Fluch nei de ynhâldsopjefte</string>
   <string name="tool_tip_toc_text">Jo kinne no mei in feech nei lofts de ynhâldsopjefte iepenje, en ek de skoknop oantikje en ferslepe om fluch nei oare sideparten te springen.</string>
@@ -304,9 +304,9 @@
   <string name="button_continue_to_talk_page">Oerlisside iepenje</string>
   <string name="button_continue_to_disambiguation">Besibbe siden besjen</string>
   <string name="link_preview_disambiguation_description">Dizze titel is besibbe oan ferskate siden:</string>
-  <string name="button_add_to_reading_list">Oan lêslist tafoegje</string>
+  <string name="button_add_to_reading_list" fuzzy="true">Oan lêslist tafoegje</string>
   <string name="page_offline_notice_cannot_load_while_offline">Kin it artikel sûnder netwurk net lade.</string>
-  <string name="page_offline_notice_add_to_reading_list">Tip: Set it artikel op in lêslist; it wurdt dan ynladen sa gau\'t jo ferbining werombrocht is.</string>
+  <string name="page_offline_notice_add_to_reading_list" fuzzy="true">Tip: Set it artikel op in lêslist; it wurdt dan ynladen sa gau\'t jo ferbining werombrocht is.</string>
   <string name="page_offline_notice_last_date">Jo lêze in ôfline-ferzje fan it artikel, bewarre op %s.</string>
   <string name="button_get_directions">Rûtebeskriuwing krije</string>
   <string name="error_no_maps_app">Koe gjin app foar rûtebeskriuwings fine.</string>
@@ -367,17 +367,17 @@
   <string name="text_size_decrease">Tekst ferlytsje</string>
   <string name="text_size_percent_default">%s (standert)</string>
   <string name="text_style_title">Lettertype</string>
-  <string name="reading_list_save_to">Yn lêslist bewarje</string>
-  <string name="reading_list_move_to">Nei lêslist ferplakke</string>
+  <string name="reading_list_save_to" fuzzy="true">Yn lêslist bewarje</string>
+  <string name="reading_list_move_to" fuzzy="true">Nei lêslist ferplakke</string>
   <string name="reading_list_create_new">Nije oanmeitsje</string>
-  <string name="reading_list_title_exists">De lêslist \"%s\" bestiet al.</string>
+  <string name="reading_list_title_exists" fuzzy="true">De lêslist \"%s\" bestiet al.</string>
   <string name="reading_list_article_added_to_named">%1$s tafoege oan %2$s.</string>
-  <string name="reading_list_article_added_to_default_list">%s bewarre. Wolle jo it oan in list tafoegje?</string>
+  <string name="reading_list_article_added_to_default_list" fuzzy="true">%s bewarre. Wolle jo it oan in list tafoegje?</string>
   <string name="reading_list_article_moved_to_named">%1$s ferplakt nei %2$s.</string>
   <string name="reading_list_article_already_exists_message">Yn oarder! %1$s befettet %2$s al.</string>
   <string name="reading_list_articles_already_exist_message">Yn oarder! %s befettet alle artikels al.</string>
-  <string name="reading_list_added_view_button">List besjen</string>
-  <string name="reading_list_add_to_list_button">Oan list tafoegje</string>
+  <string name="reading_list_added_view_button" fuzzy="true">List besjen</string>
+  <string name="reading_list_add_to_list_button" fuzzy="true">Oan list tafoegje</string>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">1 artikel, %2$.2f MB</item>
     <item quantity="other">%1$d artikels, %2$.2f MB</item>
@@ -394,46 +394,46 @@
   <string name="reading_list_sort_by_recent_desc">Sortearje op tafoechdatum (âldste)</string>
   <string name="reading_list_sort_by_created">Sortearje op oanmeitsdatum (nijste)</string>
   <string name="reading_list_sort_by_created_desc">Sortearje op oanmeitsdatum (âldste)</string>
-  <string name="reading_list_menu_delete">List wiskje</string>
+  <string name="reading_list_menu_delete" fuzzy="true">List wiskje</string>
   <string name="reading_list_menu_rename">Namme/beskriuwing bewurkje</string>
   <string name="reading_list_action_menu_remove_from_offline">Ut ôfline fuorthelje</string>
   <string name="reading_list_action_menu_save_for_offline">Foar ôfline bewarje</string>
   <string name="reading_list_action_menu_remove_all_from_offline">Alles út ôfline fuorthelje</string>
   <string name="reading_list_action_menu_save_all_for_offline">Alles foar ôfline bewarje</string>
-  <string name="reading_list_action_menu_add_to_another_list">Oan in oare list tafoegje</string>
-  <string name="reading_list_action_menu_move_to_another_list">Nei in oare list ferplakke</string>
-  <string name="reading_list_name_sample">Myn lêslist</string>
-  <string name="reading_list_name_hint">Namme fan dizze list</string>
+  <string name="reading_list_action_menu_add_to_another_list" fuzzy="true">Oan in oare list tafoegje</string>
+  <string name="reading_list_action_menu_move_to_another_list" fuzzy="true">Nei in oare list ferplakke</string>
+  <string name="reading_list_name_sample" fuzzy="true">Myn lêslist</string>
+  <string name="reading_list_name_hint" fuzzy="true">Namme fan dizze list</string>
   <string name="reading_list_description_hint">Beskriuwing (hoecht net)</string>
-  <string name="reading_list_item_deleted">%s fan \'e list ôfhelle</string>
-  <plurals name="reading_list_articles_deleted">
+  <string name="reading_list_item_deleted" fuzzy="true">%s fan \'e list ôfhelle</string>
+  <plurals name="reading_list_articles_deleted" fuzzy="true">
     <item quantity="one">%d artikel fan \'e list ôfhelle</item>
     <item quantity="other">%d artikels fan \'e list ôfhelle</item>
   </plurals>
-  <string name="reading_list_items_deleted">%d artikels fan \'e list ôfhelle</string>
-  <string name="reading_lists_item_deleted">%s fan \'e listen ôfhelle</string>
+  <string name="reading_list_items_deleted" fuzzy="true">%d artikels fan \'e list ôfhelle</string>
+  <string name="reading_lists_item_deleted" fuzzy="true">%s fan \'e listen ôfhelle</string>
   <string name="reading_list_item_delete_undo">Weromsette</string>
   <string name="reading_list_deleted">%s wiske</string>
   <string name="saved_list_empty_title" fuzzy="true">Noch gjin bewarre siden</string>
-  <string name="reading_lists_empty_message">Set artikels op in list om letter te lêzen, sels sûnder netwurkferbining.</string>
-  <string name="reading_list_empty">Jo hawwe gjin artikels oan dizze list tafoege.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Set artikels op in list om letter te lêzen, sels sûnder netwurkferbining.</string>
+  <string name="reading_list_empty" fuzzy="true">Jo hawwe gjin artikels oan dizze list tafoege.</string>
   <string name="reading_list_article_offline">Ofline beskikber</string>
   <string name="reading_list_article_make_offline">Dit artikel ôfline beskikber meitsje</string>
-  <string name="reading_list_add_to_other_list">Oan in oare lêslist tafoegje</string>
-  <string name="reading_list_move_to_other_list">Nei in oare lêslist ferplakke</string>
-  <string name="reading_list_move_from_to_other_list">Fan %s nei in oare lêslist ferplakke</string>
+  <string name="reading_list_add_to_other_list" fuzzy="true">Oan in oare lêslist tafoegje</string>
+  <string name="reading_list_move_to_other_list" fuzzy="true">Nei in oare lêslist ferplakke</string>
+  <string name="reading_list_move_from_to_other_list" fuzzy="true">Fan %s nei in oare lêslist ferplakke</string>
   <string name="reading_list_remove_from_list">Fan %s ôfhelje</string>
-  <string name="reading_list_remove_from_lists">Fan lêslisten ôfhelje</string>
+  <string name="reading_list_remove_from_lists" fuzzy="true">Fan lêslisten ôfhelje</string>
   <string name="reading_list_select_item">Selektearje</string>
   <string name="reading_list_confirm_remove_article_from_offline">Ut ôfline fuorthelje</string>
-  <string name="reading_list_confirm_remove_article_from_offline_title">Artikel stiet yn ferskate listen</string>
-  <string name="reading_list_confirm_remove_article_from_offline_message">%s sil sûnder netwurk foar gjinien lêslist mear beskikber wêze:</string>
-  <string name="reading_lists_sync_reminder_title">Lêslist-syngronisaasje oansette?</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title" fuzzy="true">Artikel stiet yn ferskate listen</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s sil sûnder netwurk foar gjinien lêslist mear beskikber wêze:</string>
+  <string name="reading_lists_sync_reminder_title" fuzzy="true">Lêslist-syngronisaasje oansette?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">De lêslisten mei bewarre artikels kinne no mei jo Wikipedy-akkount syngronisearre wurde. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Mear witte&lt;/a&gt;</string>
   <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">De lêslisten kinne no mei oare apparaten syngronisearre wurde. Meld jo oan op jo Wikipedy-akkount, en lit jo listen bewarje. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Mear witte&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Syngronisaasje oansette</string>
-  <string name="reading_list_login_reminder_title">Lêslisten syngronisearje</string>
-  <string name="reading_lists_login_reminder_text">Lêslisten kinne no mei oare apparaten syngronisearre wurde. Meld jo oan op jo Wikipedy-akkount, en lit jo listen bewarje.</string>
+  <string name="reading_list_login_reminder_title" fuzzy="true">Lêslisten syngronisearje</string>
+  <string name="reading_lists_login_reminder_text" fuzzy="true">Lêslisten kinne no mei oare apparaten syngronisearre wurde. Meld jo oan op jo Wikipedy-akkount, en lit jo listen bewarje.</string>
   <string name="reading_lists_login_button">Oanmelde / kom by de Wikipedy</string>
   <string name="reading_lists_ignore_button">No net</string>
   <string name="reading_lists_confirm_remote_delete_yes">Ja</string>
@@ -443,28 +443,28 @@
   <string name="reading_list_articles_moved_to_named">%1$d artikels ferplakt nei %2$s</string>
   <string name="reading_list_delete_confirm">Wolle jo wier %s wiskje?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Oanmelde en skeakelje syngronisaasje yn</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Meld jo oan om jo lêslisten yn jo akkount bewarje te litten.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text" fuzzy="true">Meld jo oan om jo lêslisten yn jo akkount bewarje te litten.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Annulearje</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Oanmelde</string>
-  <string name="reading_list_turned_sync_off_dialog_title">Lêslist-syngronisaasje útset</string>
-  <string name="reading_list_turned_sync_off_dialog_text">Lêslist-syngronisaasje stiet út foar jo akkount, en bewarre artikels op jo ynlogde apparaten wurde net mear kopiearre. Set lêslist-syngronisaasje oan yn \'e Ynstellings.</string>
+  <string name="reading_list_turned_sync_off_dialog_title" fuzzy="true">Lêslist-syngronisaasje útset</string>
+  <string name="reading_list_turned_sync_off_dialog_text" fuzzy="true">Lêslist-syngronisaasje stiet út foar jo akkount, en bewarre artikels op jo ynlogde apparaten wurde net mear kopiearre. Set lêslist-syngronisaasje oan yn \'e Ynstellings.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Ynstellings</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_title">Lêslist-syngronisaasje oansette?</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_text">De lêslisten mei bewarre artikels kinne no mei jo Wikipedy-akkount syngronisearre wurde. &lt;a href=\"#faq\"&gt;Mear witte&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title" fuzzy="true">Lêslist-syngronisaasje oansette?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text" fuzzy="true">De lêslisten mei bewarre artikels kinne no mei jo Wikipedy-akkount syngronisearre wurde. &lt;a href=\"#faq\"&gt;Mear witte&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Dit net mear sjen litte</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Syngronisaasje ynskeakelje</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nee tanke</string>
   <string name="default_reading_list_name">Bewarre</string>
-  <string name="default_reading_list_description">Standertlist foar jo bewarre artikels</string>
-  <string name="no_user_lists_title">Artikels oarderje yn listen</string>
-  <string name="no_user_lists_msg">Meitsje listen foar reisbestimmings, leaflingsûnderwerpen en folle mear</string>
+  <string name="default_reading_list_description" fuzzy="true">Standertlist foar jo bewarre artikels</string>
+  <string name="no_user_lists_title" fuzzy="true">Artikels oarderje yn listen</string>
+  <string name="no_user_lists_msg" fuzzy="true">Meitsje listen foar reisbestimmings, leaflingsûnderwerpen en folle mear</string>
   <string name="reading_list_saved_list_rename">%1$s (sels makke)</string>
-  <string name="split_reading_list_message">Der jildt in beheining fan %d artikels op in lêslist. Besteande listen mei mear as dat binne opsplist yn ferskate listen.</string>
-  <string name="reading_list_move_article_limit_message">Ferplakken nei dy list kin net. Jo hawwe de beheining fan %2$d artikels op in list berikt foar \"%1$s\".</string>
-  <string name="reading_list_article_limit_message">Tafoegjen oan dy list kin net. Jo hawwe de beheining fan %2$d artikels op in list berikt foar \"%1$s\".</string>
-  <string name="reading_lists_limit_message">Mear listen oanmeitsjen kin net. Jo hawwe de beheining fan 100 lêslisten yn in akkount berikt.</string>
-  <string name="reading_lists_menu_create_list">Nije list oanmeitsje</string>
+  <string name="split_reading_list_message" fuzzy="true">Der jildt in beheining fan %d artikels op in lêslist. Besteande listen mei mear as dat binne opsplist yn ferskate listen.</string>
+  <string name="reading_list_move_article_limit_message" fuzzy="true">Ferplakken nei dy list kin net. Jo hawwe de beheining fan %2$d artikels op in list berikt foar \"%1$s\".</string>
+  <string name="reading_list_article_limit_message" fuzzy="true">Tafoegjen oan dy list kin net. Jo hawwe de beheining fan %2$d artikels op in list berikt foar \"%1$s\".</string>
+  <string name="reading_lists_limit_message" fuzzy="true">Mear listen oanmeitsjen kin net. Jo hawwe de beheining fan 100 lêslisten yn in akkount berikt.</string>
+  <string name="reading_lists_menu_create_list" fuzzy="true">Nije list oanmeitsje</string>
   <string name="reading_lists_menu_sort_by">Sortearje op</string>
   <string name="reading_lists_refresh_sync_option">Syngronisaasje fernije</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Oanmelde / ynskriuwe</string>
@@ -476,7 +476,7 @@
     <item quantity="one">Dit artikel is net mear ôfline beskikber.</item>
     <item quantity="other">Dizze artikels binne net mear ôfline beskikber.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Lêslisten syngronisearre</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">Lêslisten syngronisearre</string>
   <string name="reading_list_menu_last_sync">Lêste syngr.: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_dialog_ok_button_text">OK</string>
@@ -491,7 +491,7 @@
   <string name="notification_syncing_pause_button">Underbrekke</string>
   <string name="notification_syncing_resume_button">Ferfetsje</string>
   <string name="notification_syncing_cancel_button">Annulearje</string>
-  <string name="notification_syncing_reading_list_channel_description">Fuortgong fan \'e lêslistsyngronisaasje</string>
+  <string name="notification_syncing_reading_list_channel_description" fuzzy="true">Fuortgong fan \'e lêslistsyngronisaasje</string>
   <string name="notification_many_unread">Jo hawwe %d net-lêzen meldingen</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Ynladen fan artikel</item>
@@ -505,15 +505,15 @@
     <item quantity="one">Noch %1$d artikel</item>
     <item quantity="other">Noch %1$d artikels</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_channel_name">
+  <plurals name="notification_syncing_reading_list_channel_name" fuzzy="true">
     <item quantity="one">Syngronisearjen fan lêslist</item>
     <item quantity="other">Syngronisearjen fan lêslisten</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_title">
+  <plurals name="notification_syncing_reading_list_title" fuzzy="true">
     <item quantity="one">Syngronisearjen fan %1$d list …</item>
     <item quantity="other">Syngronisearjen fan %1$d listen …</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_description">
+  <plurals name="notification_syncing_reading_list_description" fuzzy="true">
     <item quantity="one">Noch %1$d list</item>
     <item quantity="other">Noch %1$d listen</item>
   </plurals>
@@ -836,8 +836,8 @@
   <string name="onboarding_maybe_later">Letter miskien</string>
   <string name="onboarding_explore_title">Op nije manieren ferkenne</string>
   <string name="onboarding_explore_text" fuzzy="true">Dûk yn \'e Wikipedy-kninehoale mei in altyd bywurke Ferkenner-oanfier. &lt;br/&gt; &lt;b&gt;Personalisearje&lt;/b&gt; de oanfier nei wêr\'t jo niget oan hawwe – oft dat no learen oer histoaryske barrens &lt;b&gt;Op dizze dei&lt;/b&gt; is, of de dobbelstien smiten foar &lt;b&gt;Samar wat&lt;/b&gt;.</string>
-  <string name="onboarding_reading_list_sync_title">Lêslisten mei syngronisaasje</string>
-  <string name="onboarding_reading_list_sync_text_v2">Jo kinne lêslisten meitsje fan artikels dy\'t jo letter lêze wolle, sels sûnder netwurkferbining. &lt;br/&gt;Meld jo oan op jo Wikipedy-akkount en syngronisearje jo lêslisten. &lt;a href=\"#login\"&gt;Kom by de Wikipedy&lt;/a&gt;</string>
+  <string name="onboarding_reading_list_sync_title" fuzzy="true">Lêslisten mei syngronisaasje</string>
+  <string name="onboarding_reading_list_sync_text_v2" fuzzy="true">Jo kinne lêslisten meitsje fan artikels dy\'t jo letter lêze wolle, sels sûnder netwurkferbining. &lt;br/&gt;Meld jo oan op jo Wikipedy-akkount en syngronisearje jo lêslisten. &lt;a href=\"#login\"&gt;Kom by de Wikipedy&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Gebrûksdata ferstjoere</string>
   <string name="onboarding_got_it">Begrepen</string>
   <string name="onboarding_multilingual_secondary_text">Wy hawwe it folgjende op jo apparaat fûn:</string>

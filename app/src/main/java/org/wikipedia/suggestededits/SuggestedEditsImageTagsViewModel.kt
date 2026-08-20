@@ -24,7 +24,7 @@ class SuggestedEditsImageTagsViewModel : ViewModel() {
 
     private val _actionState = MutableStateFlow(Resource<Entities.Entity?>())
     val actionState = _actionState.asStateFlow()
-    var editCount = -1
+    var editCount = 0
 
     fun findNextSuggestedEditsItem(languageCode: String, page: MwQueryPage?) {
         _uiState.value = Resource.Loading()

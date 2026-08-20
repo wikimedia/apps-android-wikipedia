@@ -16,7 +16,7 @@
   <string name="search_hint">ꯋꯤꯀꯤꯄꯦꯗꯤꯌꯥ ꯊꯤꯕꯥ</string>
   <string name="search_hint_voice_search">ꯈꯣꯟꯖꯦꯜꯅꯥ ꯊꯤꯕꯥ</string>
   <string name="search_hint_search_languages">ꯂꯣꯟ ꯱ ꯊꯤꯕꯥ</string>
-  <string name="filter_hint_filter_my_lists_and_articles">ꯑꯩꯒꯤ ꯄꯔꯤꯡꯇꯨ ꯁꯦꯡꯇꯣꯛꯎ</string>
+  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">ꯑꯩꯒꯤ ꯄꯔꯤꯡꯇꯨ ꯁꯦꯡꯇꯣꯛꯎ</string>
   <string name="nav_item_suggested_edits">ꯁꯦꯝꯒꯠ-ꯏꯈꯠꯂꯛꯄꯁꯤꯡ</string>
   <string name="nav_item_more">ꯋꯥꯠꯂꯤ</string>
   <string name="nav_item_search">ꯊꯤꯔꯣ</string>
@@ -55,12 +55,12 @@
   <string name="menu_page_watched">ꯌꯦꯡꯈꯔꯕ</string>
   <string name="edit_section_find_in_page">ꯂꯃꯥꯏ ꯗ ꯑꯣꯏꯅ ꯊꯤꯕꯥ</string>
   <string name="menu_page_add_to_default_list">ꯇꯨꯡꯁꯤꯟꯂꯨ</string>
-  <string name="feed_card_add_to_list">ꯄꯥꯅꯕ ꯄꯔꯤꯡꯗ ꯍꯥꯞꯆꯤꯟꯂꯨ</string>
+  <string name="feed_card_add_to_list" fuzzy="true">ꯄꯥꯅꯕ ꯄꯔꯤꯡꯗ ꯍꯥꯞꯆꯤꯟꯂꯨ</string>
   <string name="feed_card_add_to_default_list">ꯇꯨꯡꯁꯤꯟꯂꯨ</string>
   <string name="menu_article_share">ꯋꯥꯔꯦꯡ ꯁ꯭ꯌꯥꯔ ꯇꯧꯔꯣ</string>
   <string name="menu_page_open_a_new_tab">ꯑꯅꯧꯕ ꯃꯃꯥꯏꯗ ꯍꯥꯡꯗꯣꯛꯎ</string>
   <string name="menu_page_new_tab">ꯑꯅꯧꯕ ꯇꯦꯕ</string>
-  <string name="menu_page_reading_lists">ꯄꯥꯔꯤꯕ ꯄꯔꯤꯡ</string>
+  <string name="menu_page_reading_lists" fuzzy="true">ꯄꯥꯔꯤꯕ ꯄꯔꯤꯡ</string>
   <string name="menu_page_recently_viewed">ꯍꯧꯖꯤꯛꯋꯥꯏꯗ ꯌꯦꯡꯈꯔꯕ</string>
   <string name="menu_long_press_open_page">ꯍꯥꯡꯗꯣꯛꯄ</string>
   <string name="menu_long_press_open_in_new_tab">ꯑꯅꯧꯕ ꯃꯃꯥꯏꯗ ꯍꯥꯡꯗꯣꯛꯎ</string>

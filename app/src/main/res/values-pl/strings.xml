@@ -61,7 +61,7 @@
   <string name="search_back_button_content_description">Wróć</string>
   <string name="search_clear_query_content_description">Wyczyść zapytanie</string>
   <string name="search_icon_content_description">Szukaj</string>
-  <string name="filter_hint_filter_my_lists_and_articles">Filtruj moje listy</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Filtruj moje kolekcje</string>
   <string name="nav_item_suggested_edits">Edycje</string>
   <string name="nav_item_activity">Aktywność</string>
   <string name="nav_item_more">Więcej</string>
@@ -132,16 +132,16 @@
   <string name="menu_page_watched">Obserwowane</string>
   <string name="edit_section_find_in_page">Znajdź na stronie</string>
   <string name="menu_page_font_and_theme">Zmień czcionkę i motyw</string>
-  <string name="menu_page_add_to_list">Dodaj do listy do przeczytania</string>
+  <string name="menu_page_add_to_list">Dodaj do kolekcji</string>
   <string name="menu_page_add_to_default_list">Zapisz</string>
-  <string name="feed_card_add_to_list">Dodaj do listy do przeczytania</string>
+  <string name="feed_card_add_to_list">Dodaj do kolekcji</string>
   <string name="feed_card_add_to_default_list">Zapisz</string>
   <string name="menu_page_share">Udostępnij link</string>
   <string name="menu_article_share">Udostępnij artykuł</string>
   <string name="menu_page_article_share">Udostępnij</string>
   <string name="menu_page_open_a_new_tab">Otwórz nową kartę</string>
   <string name="menu_page_new_tab">Nowa karta</string>
-  <string name="menu_page_reading_lists">Listy do przeczytania</string>
+  <string name="menu_page_reading_lists">Kolekcje</string>
   <string name="menu_page_recently_viewed">Ostatnio oglądane</string>
   <string name="menu_page_archive">Archiwum</string>
   <string name="menu_long_press_open_page">Otwórz</string>
@@ -184,7 +184,9 @@
   <string name="menu_show_toc">Spis treści</string>
   <string name="search_no_results_found">Nie znaleziono</string>
   <string name="search_reading_list_no_results">Nie znaleziono wyników w „%s”</string>
-  <string name="search_reading_lists_no_results">Nie znaleziono wyników w listach do przeczytania</string>
+  <string name="search_reading_lists_no_results">Nie znaleziono wyników w kolekcjach</string>
+  <string name="search_all_articles_no_results">Nie znaleziono wyników we wszystkich artykułach</string>
+  <string name="search_collections_no_results">Nie znaleziono wyników w kolekcjach</string>
   <string name="search_history_no_results">Nie znaleziono wyników w historii</string>
   <string name="edit_section_captcha_message">Aby pomóc nam bronić się przed spamem, przepisz słowa podane poniżej</string>
   <string name="edit_section_captcha_request_an_account_message">Nie widzisz obrazu? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Poproś o założenie konta&lt;/a&gt;</string>
@@ -264,12 +266,12 @@
   <string name="preferences_heading_syncing">Synchronizowanie</string>
   <string name="preferences_heading_data_usage">Użycie danych</string>
   <string name="preferences_heading_experimental">Eksperymentalne</string>
-  <string name="preference_title_sync_reading_lists_from_account">Synchronizacja list do przeczytania</string>
-  <string name="preference_title_download_reading_list_articles">Pobierz artykuły z list do przeczytania</string>
-  <string name="preference_summary_sync_reading_lists">Synchronizuj listy do przeczytania na różnych urządzeniach, zapisując je na swoim koncie w Wikipedii</string>
-  <string name="preference_summary_sync_reading_lists_from_account">Synchronizuj listy do przeczytania na różnych urządzeniach, zapisując je na swoim koncie „%s” w Wikipedii</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Usunąć zsynchronizowane listy do przeczytania z konta „%s”?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Spowoduje to całkowite usunięcie wszystkich uprzednio zsynchronizowanych list do przeczytania ze zdalnego magazynu. Usunąć wszystkie zsynchronizowane listy z Twojego konta „%s”?</string>
+  <string name="preference_title_sync_reading_lists_from_account">Synchronizacja kolekcji</string>
+  <string name="preference_title_download_reading_list_articles">Pobierz artykuły z kolekcji</string>
+  <string name="preference_summary_sync_reading_lists">Synchronizuj kolekcje na różnych urządzeniach, zapisując je na swoim koncie w Wikipedii</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Synchronizuj kolekcje na różnych urządzeniach, zapisując je na swoim koncie „%s” w Wikipedii</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Usunąć zsynchronizowane kolekcje z konta „%s”?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Spowoduje to całkowite usunięcie wszystkich uprzednio zsynchronizowanych kolekcji ze zdalnego magazynu. Usunąć wszystkie zsynchronizowane kolekcje z Twojego konta „%s”?</string>
   <string name="preference_title_auto_upload_crash_reports">Wysyłaj raporty o awariach</string>
   <string name="preference_summary_auto_upload_crash_reports">Zezwól aplikacji na automatyczne wysyłanie raportów o awariach do zewnętrznego dostawcy usług, abyśmy mogli szybciej i łatwiej analizować informacje o zgłoszonych awariach oraz naprawiać błędy.</string>
   <string name="editing_error_spamblacklist">Wykryto linki do zablokowanych domen (%s). Usuń je i spróbuj ponownie.</string>
@@ -415,8 +417,8 @@
   <string name="unnamed_tab_closed">Karta zamknięta</string>
   <string name="tab_item_closed">Zamknięto „%s”.</string>
   <string name="all_tab_items_closed">Zamknięto wszystkie karty.</string>
-  <string name="tool_tip_bookmark_icon_title">Dodaj do listy do przeczytania</string>
-  <string name="tool_tip_bookmark_icon_text">Stuknij ikonę zakładki, aby zapisać artykuł na liście do przeczytania.</string>
+  <string name="tool_tip_bookmark_icon_title">Dodaj do kolekcji</string>
+  <string name="tool_tip_bookmark_icon_text">Stuknij ikonę zakładki, aby zapisać artykuł w kolekcji.</string>
   <string name="page_view_in_browser">Otwórz stronę w przeglądarce</string>
   <string name="tool_tip_toc_title">Spis treści szybkiego dostępu</string>
   <string name="tool_tip_toc_text">Możesz teraz przesunąć palcem w lewo, aby otworzyć spis treści, a także dotknąć i przeciągnąć ten przycisk przewijania, aby szybko przejść do różnych sekcji artykułu.</string>
@@ -429,9 +431,9 @@
   <string name="button_continue_to_talk_page">Otwórz stronę dyskusji</string>
   <string name="button_continue_to_disambiguation">Pokaż podobne strony</string>
   <string name="link_preview_disambiguation_description">Ten tytuł odnosi się do więcej niż jednej strony:</string>
-  <string name="button_add_to_reading_list">Dodaj do listy do przeczytania</string>
+  <string name="button_add_to_reading_list">Dodaj do kolekcji</string>
   <string name="page_offline_notice_cannot_load_while_offline">Artykuł nie może zostać załadowany w trybie offline.</string>
-  <string name="page_offline_notice_add_to_reading_list">Wskazówka: Dodaj artykuł do listy do przeczytania, a zostanie pobrany po powrocie do trybu online.</string>
+  <string name="page_offline_notice_add_to_reading_list">Wskazówka: Dodaj artykuł do kolekcji, a zostanie pobrany po powrocie do trybu online.</string>
   <string name="page_offline_notice_last_date">Czytasz wersję offline tego artykułu zapisaną %s.</string>
   <string name="redirected_from_snackbar">Przekierowano z: „%s”</string>
   <string name="button_get_directions">Wyznacz trasę</string>
@@ -548,17 +550,17 @@
   <string name="editing_monospace_font_label">Użyj czcionki o stałej szerokości</string>
   <string name="editing_typing_suggestions">Pokaż sugestie pisania</string>
   <string name="nav_item_saved">Zapisane</string>
-  <string name="reading_list_save_to">Zapisz do przeczytania</string>
-  <string name="reading_list_move_to">Przenieś do listy do przeczytania</string>
+  <string name="reading_list_save_to">Zapisz do kolekcji</string>
+  <string name="reading_list_move_to">Przenieś do kolekcji</string>
   <string name="reading_list_create_new">Utwórz nową</string>
-  <string name="reading_list_title_exists">Lista „%s” już istnieje.</string>
+  <string name="reading_list_title_exists">Kolekcja „%s” już istnieje.</string>
   <string name="reading_list_article_added_to_named">Dodano „%1$s” do „%2$s”.</string>
-  <string name="reading_list_article_added_to_default_list">Zapisano „%s”. Czy chcesz dodać tę stronę do listy?</string>
+  <string name="reading_list_article_added_to_default_list">Zapisano „%s”. Czy chcesz dodać tę stronę do kolekcji?</string>
   <string name="reading_list_article_moved_to_named">Przeniesiono „%1$s” do „%2$s”.</string>
   <string name="reading_list_article_already_exists_message">Wszystko w porządku! „%1$s” zawiera już „%2$s”.</string>
   <string name="reading_list_articles_already_exist_message">Wszystko w porządku! „%s” zawiera już wszystkie artykuły.</string>
-  <string name="reading_list_added_view_button">Zobacz listę</string>
-  <string name="reading_list_add_to_list_button">Dodaj do listy</string>
+  <string name="reading_list_added_view_button">Zobacz kolekcję</string>
+  <string name="reading_list_add_to_list_button">Dodaj do kolekcji</string>
   <plurals name="format_reading_list_statistical_summary_without_size">
     <item quantity="one">1 artykuł</item>
     <item quantity="few">%d artykuły</item>
@@ -591,28 +593,28 @@
   <string name="reading_list_sort_by_recent_desc">Sortuj według daty dodania (od najstarszych)</string>
   <string name="reading_list_sort_by_created">Sortuj według daty utworzenia (od najnowszych)</string>
   <string name="reading_list_sort_by_created_desc">Sortuj według daty utworzenia (od najstarszych)</string>
-  <string name="reading_list_menu_delete">Usuń listę</string>
-  <string name="reading_list_menu_export">Eksportuj listę</string>
+  <string name="reading_list_menu_delete">Usuń kolekcję</string>
+  <string name="reading_list_menu_export">Eksportuj kolekcję</string>
   <string name="reading_list_menu_select">Zaznacz</string>
   <string name="reading_list_menu_unselect">Odznacz</string>
-  <string name="reading_list_export_write_permission_rationale">Wymagane pozwolenie na zapis w pamięci urządzenia, aby móc wyeksportować listę artykułów do przeczytania.</string>
+  <string name="reading_list_export_write_permission_rationale">Wymagane pozwolenie na zapis w pamięci urządzenia, aby móc wyeksportować kolekcję.</string>
   <string name="reading_list_menu_rename">Edytuj nazwę/opis</string>
   <string name="reading_list_action_menu_remove_from_offline">Usuń z zapisanych na później</string>
   <string name="reading_list_action_menu_save_for_offline">Zapisz na później</string>
   <string name="reading_list_action_menu_remove_all_from_offline">Usuń wszystko z zapisanych na później</string>
   <string name="reading_list_action_menu_save_all_for_offline">Zapisz wszystkie pozycje na później</string>
-  <string name="reading_list_action_menu_add_to_another_list">Dodaj do innej listy</string>
-  <string name="reading_list_action_menu_move_to_another_list">Przenieś do innej listy</string>
-  <string name="reading_list_name_sample">Moja lista</string>
-  <string name="reading_list_name_hint">Nazwa listy</string>
+  <string name="reading_list_action_menu_add_to_another_list">Dodaj do innej kolekcji</string>
+  <string name="reading_list_action_menu_move_to_another_list">Przenieś do innej kolekcji</string>
+  <string name="reading_list_name_sample">Moja kolekcja</string>
+  <string name="reading_list_name_hint">Nazwa kolekcji</string>
   <string name="reading_list_description_hint">Opis (opcjonalnie)</string>
-  <string name="reading_list_item_deleted">Usunięto „%s” z historii</string>
+  <string name="reading_list_item_deleted">Usunięto „%s” z kolekcji</string>
   <string name="reading_list_item_deleted_from_list">Usunięto „%1$s” z „%2$s”</string>
   <plurals name="reading_list_articles_deleted">
-    <item quantity="one">Usunięto %d artykuł z listy</item>
-    <item quantity="few">Usunięto %d artykuły z listy</item>
-    <item quantity="many">Usunięto %d artykułów z listy</item>
-    <item quantity="other">Usunięto %d artykułu z listy</item>
+    <item quantity="one">Usunięto %d artykuł z kolekcji</item>
+    <item quantity="few">Usunięto %d artykuły z kolekcji</item>
+    <item quantity="many">Usunięto %d artykułów z kolekcji</item>
+    <item quantity="other">Usunięto %d artykułu z kolekcji</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
     <item quantity="one">Usunięto %1$d artykuł z listy „%2$s”</item>
@@ -621,44 +623,51 @@
     <item quantity="other">Usunięto %1$d artykułu z listy „%2$s”</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
-    <item quantity="one">Usunięto %d listę</item>
-    <item quantity="few">Usunięto %d listy</item>
-    <item quantity="many">Usunięto %d list</item>
-    <item quantity="other">Usunięto %d listy</item>
+    <item quantity="one">Usunięto %d kolekcję</item>
+    <item quantity="few">Usunięto %d kolekcje</item>
+    <item quantity="many">Usunięto %d kolekcji</item>
+    <item quantity="other">Usunięto %d kolekcji</item>
   </plurals>
-  <string name="reading_lists_default_list_delete_message">Lista domyślna (%s) nie może zostać usunięta</string>
-  <string name="reading_lists_default_plus_one_list_delete_message">Usunięto listę „%1$s”. Lista domyślna (%2$s) nie może zostać usunięta.</string>
-  <string name="reading_lists_default_plus_many_lists_delete_message">Usunięto wybrane listy. Domyślna lista (%s) nie może zostać usunięta.</string>
-  <string name="single_list_json_file_name">%s (lista artykułów do przeczytania w Wikipedii).json</string>
-  <string name="multiple_lists_json_file_name">Listy artykułów do przeczytania (%s i więcej).json</string>
-  <string name="reading_list_items_deleted">Usunięto artykuły (%d) z listy</string>
-  <string name="reading_lists_item_deleted">Usunięto „%s” z listy</string>
+  <string name="reading_lists_default_list_delete_message">Domyślna kolekcja (%s) nie może zostać usunięta</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">Usunięto kolekcję „%1$s”. Domyślna kolekcja (%2$s) nie może zostać usunięta.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">Usunięto wybrane kolekcje. Domyślna kolekcja (%s) nie może zostać usunięta.</string>
+  <string name="single_list_json_file_name">%s (kolekcja artykułów z Wikipedii).json</string>
+  <string name="multiple_lists_json_file_name">Kolekcja artykułów z Wikipedii (%s i inne).json</string>
+  <string name="reading_list_items_deleted">Usunięto artykuły (%d) z kolekcji</string>
+  <string name="reading_lists_item_deleted">Usunięto „%s” z kolekcji</string>
   <string name="reading_list_item_delete_undo">Cofnij</string>
   <string name="reading_list_deleted">Usunięto „%s”</string>
   <string name="saved_list_empty_title">Nie zapisano jeszcze żadnych artykułów</string>
-  <string name="reading_lists_empty_message">Dodawaj artykuły do listy artykułów do przeczytania później, nawet w trybie offline.</string>
+  <string name="reading_lists_empty_message">Dodawaj artykuły do kolekcji artykułów do przeczytania później, dostępnych nawet w trybie offline.</string>
   <string name="reading_lists_search_empty_articles_title">Nie znaleziono żadnych zapisanych artykułów</string>
   <string name="reading_lists_search_empty_articles_message">Nie znaleziono „%s” w Twoich zapisanych artykułach.</string>
   <string name="reading_lists_search_empty_collections_title">Nie znaleziono list</string>
   <string name="reading_lists_search_empty_collections_message">Nie znaleziono „%s” w Twoich listach.</string>
-  <string name="reading_list_empty">Na tej liście nie ma dodanych artykułów.</string>
+  <string name="reading_list_empty">W tej kolekcji nie ma dodanych artykułów.</string>
   <string name="reading_list_article_offline">Dostępne offline</string>
   <string name="reading_list_article_make_offline">Artykuł będzie dostępny offline</string>
-  <string name="reading_list_add_to_other_list">Dodaj do innej listy do przeczytania</string>
-  <string name="reading_list_move_to_other_list">Przenieś do innej listy do przeczytania</string>
-  <string name="reading_list_move_from_to_other_list">Przenieś z „%s” do innej listy do przeczytania</string>
+  <string name="reading_list_add_to_other_list">Dodaj do innej kolekcji</string>
+  <string name="reading_list_move_to_other_list">Przenieś do innej kolekcji</string>
+  <string name="reading_list_add_to_collection">Dodaj do kolekcji</string>
+  <plurals name="reading_list_in_collections">
+    <item quantity="one">W 1 kolekcji</item>
+    <item quantity="few">W %d kolekcjach</item>
+    <item quantity="many">W %d kolekcjach</item>
+    <item quantity="other">W %d kolekcji</item>
+  </plurals>
+  <string name="reading_list_move_from_to_other_list">Przenieś z „%s” do innej kolekcji</string>
   <string name="reading_list_remove_from_list">Usuń z „%s”</string>
-  <string name="reading_list_remove_from_lists">Usuń z listy do przeczytania</string>
+  <string name="reading_list_remove_from_lists">Usuń z kolekcji</string>
   <string name="reading_list_select_item">Wybierz</string>
   <string name="reading_list_confirm_remove_article_from_offline">Usuń z zapisanych na później</string>
-  <string name="reading_list_confirm_remove_article_from_offline_title">Artykuł pojawia się na wielu listach</string>
-  <string name="reading_list_confirm_remove_article_from_offline_message">Artykuł „%s” nie będzie dostępny offline dla wszystkich list:</string>
-  <string name="reading_lists_sync_reminder_title">Włączyć synchronizację list artykułów do przeczytania?</string>
-  <string name="reading_lists_sync_reminder_text">Artykuły zapisane na listach mogą być teraz zsynchronizowane z Twoim kontem w Wikipedii. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Dowiedz się więcej&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Listy mogą być teraz synchronizowane pomiędzy urządzeniami. Zaloguj się na swoje konto w Wikipedii i zezwól na zapisywanie list. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Dowiedz się więcej&lt;/a&gt;</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title">Artykuł pojawia się w wielu kolekcjach</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message">Artykuł „%s” nie będzie dostępny offline dla wszystkich kolekcji:</string>
+  <string name="reading_lists_sync_reminder_title">Włączyć synchronizację kolekcji?</string>
+  <string name="reading_lists_sync_reminder_text">Artykuły zapisane w kolekcjach mogą być teraz zsynchronizowane z Twoim kontem w Wikipedii. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Dowiedz się więcej&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Kolekcje mogą być teraz synchronizowane pomiędzy urządzeniami. Zaloguj się na swoje konto w Wikipedii i zezwól na zapisywanie kolekcji. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Dowiedz się więcej&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Włącz synchronizację</string>
-  <string name="reading_list_login_reminder_title">Zsynchronizuj swoje listy do przeczytania</string>
-  <string name="reading_lists_login_reminder_text">Listy mogą być teraz synchronizowane pomiędzy urządzeniami. Zaloguj się na swoje konto w Wikipedii i zezwól na zapisywanie list.</string>
+  <string name="reading_list_login_reminder_title">Zsynchronizuj swoje kolekcje</string>
+  <string name="reading_lists_login_reminder_text">Kolekcje mogą być teraz synchronizowane pomiędzy urządzeniami. Zaloguj się na swoje konto w Wikipedii i zezwól na zapisywanie kolekcji.</string>
   <string name="reading_lists_login_button">Zaloguj się / dołącz do Wikipedii</string>
   <string name="reading_lists_ignore_button">Nie teraz</string>
   <string name="reading_lists_confirm_remote_delete_yes">Tak</string>
@@ -667,37 +676,37 @@
   <string name="reading_list_articles_added_to_named">Dodano artykuły (%1$d) do „%2$s”</string>
   <string name="reading_list_articles_moved_to_named">Przeniesiono artykuły (%1$d) do „%2$s”</string>
   <string name="reading_list_delete_confirm">Czy na pewno chcesz usunąć „%s”?</string>
-  <string name="reading_list_delete_lists_confirm_dialog_title">Czy usunąć wybrane listy?</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title">Czy usunąć wybrane kolekcje?</string>
   <plurals name="reading_list_delete_lists_confirm_dialog_message">
-    <item quantity="one">Czy na pewno chcesz usunąć %d listę?</item>
-    <item quantity="few">Czy na pewno chcesz usunąć %d listy?</item>
-    <item quantity="many">Czy na pewno chcesz usunąć %d list?</item>
-    <item quantity="other">Czy na pewno chcesz usunąć %d listy?</item>
+    <item quantity="one">Czy na pewno chcesz usunąć %d kolekcję?</item>
+    <item quantity="few">Czy na pewno chcesz usunąć %d kolekcje?</item>
+    <item quantity="many">Czy na pewno chcesz usunąć %d kolekcji?</item>
+    <item quantity="other">Czy na pewno chcesz usunąć %d kolekcji?</item>
   </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Zaloguj się, aby włączyć synchronizację</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Zaloguj się, aby umożliwić zapisywanie list na swoim koncie.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Zaloguj się, aby umożliwić zapisywanie kolekcji na swoim koncie.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Anuluj</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Zaloguj się</string>
-  <string name="reading_list_turned_sync_off_dialog_title">Synchronizacja list wyłączona</string>
-  <string name="reading_list_turned_sync_off_dialog_text">Synchronizacja list jest wyłączona dla Twojego konta, a artykuły zapisane na zalogowanych urządzeniach nie są już kopiowane. Włącz synchronizację list w ustawieniach.</string>
+  <string name="reading_list_turned_sync_off_dialog_title">Synchronizacja kolekcji wyłączona</string>
+  <string name="reading_list_turned_sync_off_dialog_text">Synchronizacja kolekcji jest wyłączona dla Twojego konta, a artykuły zapisane na zalogowanych urządzeniach nie są już kopiowane. Włącz synchronizację kolekcji w ustawieniach.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Ustawienia</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_title">Włączyć synchronizację list?</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_text">Artykuły zapisane na listach mogą być teraz zsynchronizowane z Twoim kontem w Wikipedii. &lt;a href=\"#faq\"&gt;Dowiedz się więcej&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">Włączyć synchronizację kolekcji?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">Artykuły zapisane w kolekcjach mogą być teraz zsynchronizowane z Twoim kontem w Wikipedii. &lt;a href=\"#faq\"&gt;Dowiedz się więcej&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Nie pokazuj mi tego ponownie</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Włącz synchronizację</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nie, dziękuję</string>
   <string name="default_reading_list_name">Zapisane</string>
-  <string name="default_reading_list_description">Domyślna lista dla zapisanych artykułów</string>
-  <string name="no_user_lists_title">Uporządkuj artykuły w listy</string>
-  <string name="no_user_lists_msg">Twórz listy miejsc do odwiedzenia, ulubionych tematów i wielu innych.</string>
+  <string name="default_reading_list_description">Domyślna kolekcja dla zapisanych artykułów</string>
+  <string name="no_user_lists_title">Uporządkuj artykuły w kolekcje</string>
+  <string name="no_user_lists_msg">Twórz kolekcje miejsc do odwiedzenia, ulubionych tematów i wielu innych.</string>
   <string name="reading_list_saved_list_rename">%1$s (autorstwa użytkownika)</string>
-  <string name="split_reading_list_message">Istnieje limit %d artykułów na listę. Istniejące listy, których liczba przekracza ten limit, zostały podzielone na wiele list.</string>
-  <string name="reading_list_move_article_limit_message">Nie można przenieść tego na tę listę. Osiągnięto limit %2$d artykułów na listę „%1$s”.</string>
-  <string name="reading_list_article_limit_message">Nie można dodać tego do tej listy. Osiągnięto limit %2$d artykułów na listę „%1$s”.</string>
-  <string name="reading_lists_limit_message">Nie można utworzyć kolejnej listy. Osiągnięto limit 100 list dla tego konta.</string>
-  <string name="reading_lists_menu_create_list">Utwórz nową listę</string>
-  <string name="reading_lists_menu_import_list">Importuj listę</string>
+  <string name="split_reading_list_message">Istnieje limit %d artykułów na kolekcję. Istniejące listy, których liczba przekracza ten limit, zostały podzielone na wiele kolekcji.</string>
+  <string name="reading_list_move_article_limit_message">Nie można przenieść tego do tej kolekcji. Osiągnięto limit %2$d artykułów na kolekcję „%1$s”.</string>
+  <string name="reading_list_article_limit_message">Nie można dodać tego do tej kolekcji. Osiągnięto limit %2$d artykułów na kolekcję „%1$s”.</string>
+  <string name="reading_lists_limit_message">Nie można utworzyć kolejnej kolekcji. Osiągnięto limit 100 list dla tego konta.</string>
+  <string name="reading_lists_menu_create_list">Utwórz nową kolekcję</string>
+  <string name="reading_lists_menu_import_list">Importuj kolekcję</string>
   <string name="reading_lists_menu_sort_by">Sortuj według</string>
   <string name="reading_lists_refresh_sync_option">Odśwież synchronizację</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Zaloguj się / zarejestruj</string>
@@ -713,7 +722,7 @@
     <item quantity="many">Te artykuły nie będą już dostępne w trybie offline.</item>
     <item quantity="other">Te artykuły nie będą już dostępne w trybie offline.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Zsynchronizowano listy do przeczytania</string>
+  <string name="reading_list_toast_last_sync">Zsynchronizowano kolekcje</string>
   <string name="reading_list_menu_last_sync">Ostatnia synchronizacja: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_dialog_ok_button_text">OK</string>
@@ -723,35 +732,35 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Anuluj</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">Usuń</string>
-  <string name="reading_list_activity_title">Lista do przeczytania: %s</string>
-  <string name="reading_list_notification_title">Wyeksportowano listy do przeczytania</string>
-  <string name="reading_list_notification_text">Wyeksportowano listy do przeczytania (%d) jako plik „reading_lists export.json” w folderze „Pobrane”</string>
-  <string name="reading_list_notification_detailed_text">Wyeksportowano listy do przeczytania jako plik „reading_lists_export.json”</string>
+  <string name="reading_list_activity_title">Kolekcja: %s</string>
+  <string name="reading_list_notification_title">Wyeksportowano kolekcje</string>
+  <string name="reading_list_notification_text">Wyeksportowano kolekcje (%d) jako plik „reading_lists export.json” w folderze „Pobrane”</string>
+  <string name="reading_list_notification_detailed_text">Wyeksportowano kolekcje jako plik „reading_lists_export.json”</string>
   <string name="reading_lists_action_menu_export_lists">Eksportuj</string>
   <string name="reading_lists_import_file_picker_title">Wybierz plik do importu</string>
-  <string name="reading_lists_import_failure_message">Import list artykułów do przeczytania nie powiódł się</string>
-  <string name="reading_lists_export_select_lists_message">Wybierz listy do wyeksportowania</string>
-  <string name="reading_lists_export_completed_message">Wyeksportowano listy</string>
+  <string name="reading_lists_import_failure_message">Import kolekcji nie powiódł się</string>
+  <string name="reading_lists_export_select_lists_message">Wybierz kolekcje do wyeksportowania</string>
+  <string name="reading_lists_export_completed_message">Wyeksportowano kolekcje</string>
   <plurals name="reading_list_export_failed_message">
-    <item quantity="one">Eksport listy artykułów do przeczytania nie powiódł się</item>
-    <item quantity="few">Eksport list artykułów do przeczytania nie powiódł się</item>
-    <item quantity="many">Eksport list artykułów do przeczytania nie powiódł się</item>
-    <item quantity="other">Eksport list artykułów do przeczytania nie powiódł się</item>
+    <item quantity="one">Eksport kolekcji nie powiódł się</item>
+    <item quantity="few">Eksport kolekcji nie powiódł się</item>
+    <item quantity="many">Eksport kolekcji nie powiódł się</item>
+    <item quantity="other">Eksport kolekcji nie powiódł się</item>
   </plurals>
   <plurals name="reading_list_import_success_message">
-    <item quantity="one">Zaimportowano listę artykułów do przeczytania</item>
-    <item quantity="few">Zaimportowano listy artykułów do przeczytania</item>
-    <item quantity="many">Zaimportowano listy artykułów do przeczytania</item>
-    <item quantity="other">Zaimportowano listy artykułów do przeczytania</item>
+    <item quantity="one">Zaimportowano kolekcję</item>
+    <item quantity="few">Zaimportowano kolekcje</item>
+    <item quantity="many">Zaimportowano kolekcje</item>
+    <item quantity="other">Zaimportowano kolekcje</item>
   </plurals>
-  <string name="reading_lists_preview_header_title">Udostępniona lista</string>
+  <string name="reading_lists_preview_header_title">Udostępniona kolekcja</string>
   <string name="reading_lists_preview_save_button">Zapisz</string>
-  <string name="reading_lists_preview_save_dialog_title">Zapisz listę</string>
-  <string name="reading_lists_preview_save_dialog_text">Nazwij listę i wybierz artykuły do zapisania.</string>
+  <string name="reading_lists_preview_save_dialog_title">Zapisz kolekcję</string>
+  <string name="reading_lists_preview_save_dialog_text">Nazwij kolekcję i wybierz artykuły do zapisania.</string>
   <string name="reading_lists_preview_save_dialog_title_hint">Tytuł</string>
   <string name="reading_lists_preview_save_dialog_cancel">Anuluj</string>
   <string name="reading_lists_preview_save_dialog_save">Zapisz</string>
-  <string name="reading_lists_preview_saved_snackbar">Zapisano listę do przeczytania</string>
+  <string name="reading_lists_preview_saved_snackbar">Zapisano kolekcję</string>
   <string name="reading_lists_preview_saved_snackbar_action">Zobacz</string>
   <string name="user_option_sync_label">Preferencje</string>
   <string name="notification_reverted_title">Wycofana edycja</string>
@@ -760,8 +769,8 @@
   <string name="notification_syncing_pause_button">Pauza</string>
   <string name="notification_syncing_resume_button">Wznów</string>
   <string name="notification_syncing_cancel_button">Przerwij</string>
-  <string name="notification_syncing_reading_list_channel_title">Synchronizacja list do przeczytania</string>
-  <string name="notification_syncing_reading_list_channel_description">Synchronizowanie list</string>
+  <string name="notification_syncing_reading_list_channel_title">Synchronizacja kolekcji</string>
+  <string name="notification_syncing_reading_list_channel_description">Synchronizowanie kolekcji</string>
   <string name="notification_many_unread">Masz nieprzeczytane powiadomienia (%d)</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Pobieranie artykułu</item>
@@ -782,22 +791,22 @@
     <item quantity="other">pozostało %1$d artykułu</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_channel_name">
-    <item quantity="one">Synchronizowanie listy</item>
-    <item quantity="few">Synchronizowanie list</item>
-    <item quantity="many">Synchronizowanie list</item>
-    <item quantity="other">Synchronizowanie list</item>
+    <item quantity="one">Synchronizowanie kolekcji</item>
+    <item quantity="few">Synchronizowanie kolekcji</item>
+    <item quantity="many">Synchronizowanie kolekcji</item>
+    <item quantity="other">Synchronizowanie kolekcji</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_title">
-    <item quantity="one">Synchronizuję %1$d listę…</item>
-    <item quantity="few">Synchronizuję %1$d listy</item>
-    <item quantity="many">Synchronizuję %1$d list</item>
-    <item quantity="other">Synchronizuję %1$d listy</item>
+    <item quantity="one">Synchronizuję %1$d kolekcję…</item>
+    <item quantity="few">Synchronizuję %1$d kolekcje</item>
+    <item quantity="many">Synchronizuję %1$d kolekcji</item>
+    <item quantity="other">Synchronizuję %1$d kolekcji</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_description">
-    <item quantity="one">pozostała %1$d lista</item>
-    <item quantity="few">pozostały %1$d listy</item>
-    <item quantity="many">pozostało %1$d list</item>
-    <item quantity="other">pozostało %1$d listy</item>
+    <item quantity="one">pozostała %1$d kolekcja</item>
+    <item quantity="few">pozostały %1$d kolekcje</item>
+    <item quantity="many">pozostało %1$d kolekcji</item>
+    <item quantity="other">pozostało %1$d kolekcji</item>
   </plurals>
   <string name="notification_echo_channel_description">Powiadomienia z Wikipedii</string>
   <string name="notifications_activity_title">Powiadomienia</string>
@@ -1385,8 +1394,8 @@
   <string name="onboarding_maybe_later">Może później</string>
   <string name="onboarding_explore_title">Odkrywaj na nowe sposoby</string>
   <string name="onboarding_explore_text">Przepadnij w gąszczu artykułów Wikipedii ze stale aktualizowaną stroną główną.&lt;br/&gt;&lt;b&gt;Dostosuj&lt;/b&gt; ją do swoich zainteresowań – niezależnie od tego, czy chcesz odkrywać wydarzenia historyczne z sekcji &lt;b&gt;W tym dniu&lt;/b&gt;, czy rzucić kością z funkcją &lt;b&gt;Losowa strona&lt;/b&gt;.</string>
-  <string name="onboarding_reading_list_sync_title">Synchronizacja list do przeczytania</string>
-  <string name="onboarding_reading_list_sync_text_v2">Twórz listy z artykułów, które chcesz przeczytać później – również bez dostępu do sieci. &lt;br/&gt;Zaloguj się na swoje konto w Wikipedii, aby synchronizować swoje listy. &lt;a href=\"#login\"&gt;Dołącz do Wikipedii&lt;/a&gt;</string>
+  <string name="onboarding_reading_list_sync_title">Synchronizacja kolekcji</string>
+  <string name="onboarding_reading_list_sync_text_v2">Twórz kolekcje artykułów, które chcesz przeczytać później – również bez dostępu do sieci. &lt;br/&gt;Zaloguj się na swoje konto w Wikipedii, aby synchronizować swoje kolekcje. &lt;a href=\"#login\"&gt;Dołącz do Wikipedii&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Dane i prywatność</string>
   <string name="onboarding_data_privacy_text">Uważamy, że udział w ruchu wolnej wiedzy nie powinien wymagać podawania danych osobowych. Dane o korzystaniu z aplikacji gromadzone są w pełni anonimowo.&lt;br/&gt;&lt;br/&gt;Dowiedz się więcej o naszej &lt;a href=\"#privacy\"&gt;polityce prywatności&lt;/a&gt; oraz &lt;a href=\"#termsOfUse\"&gt;warunkach korzystania&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Wysyłaj dane o użytkowaniu</string>
@@ -1730,16 +1739,16 @@
   <string name="user_contrib_filter_activity_title">Filtruj wkład</string>
   <string name="action_item_view_on_map">Zobacz na mapie</string>
   <string name="action_item_view_on_map_unavailable">Współrzędne geograficzne nie są dostępne dla tej strony</string>
-  <string name="shareable_reading_lists_import_dialog_title">Importuj udostępnioną listę do przeczytania</string>
-  <string name="shareable_reading_lists_import_dialog_content">Jak chcesz nazwać udostępnioną Ci listę?</string>
+  <string name="shareable_reading_lists_import_dialog_title">Importuj udostępnioną kolekcję</string>
+  <string name="shareable_reading_lists_import_dialog_content">Jak chcesz nazwać udostępnioną Ci kolekcję?</string>
   <string name="shareable_reading_lists_new_indicator">*nowa*</string>
-  <string name="shareable_reading_lists_new_install_dialog_title">Udostępniono Ci listę do przeczytania</string>
-  <string name="shareable_reading_lists_new_install_dialog_content">Zauważyliśmy, że udostępniono Ci listę do przeczytania. Aby wyświetlić tę listę w aplikacji, wróć do oryginalnej wiadomości i ponownie kliknij link.</string>
+  <string name="shareable_reading_lists_new_install_dialog_title">Udostępniono Ci kolekcję</string>
+  <string name="shareable_reading_lists_new_install_dialog_content">Zauważyliśmy, że udostępniono Ci kolekcję. Aby wyświetlić tę kolekcję w aplikacji, wróć do oryginalnej wiadomości i ponownie kliknij link.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Jasne</string>
-  <string name="shareable_reading_lists_new_imported_snackbar">Zaimportowano listę do przeczytania</string>
+  <string name="shareable_reading_lists_new_imported_snackbar">Zaimportowano kolekcję</string>
   <string name="reading_list_share_menu_label">Udostępnij…</string>
-  <string name="reading_list_share_menu_tooltip">Udostępnij tę listę innym</string>
-  <string name="reading_list_share_message_v2">Cześć! Przesyłam moją listę artykułów do przeczytania z Wikipedii:</string>
+  <string name="reading_list_share_menu_tooltip">Udostępnij tę kolekcję innym</string>
+  <string name="reading_list_share_message_v2">Cześć! Przesyłam moją kolekcję artykułów z Wikipedii:</string>
   <string name="talk_templates_empty_message">Aby rozpocząć, utwórz własne wiadomości lub skorzystaj z &lt;a href=\"#\"&gt;przykładowych wiadomości&lt;/a&gt;.</string>
   <string name="talk_templates_new_message_title">Nowa wiadomość</string>
   <string name="talk_templates_new_message_subject_hint">Tytuł</string>
@@ -2038,8 +2047,8 @@
   <string name="year_in_review_get_started_later">Swoje podsumowanie roku znajdziesz później w menu „Więcej”.</string>
   <string name="year_in_review_survey_title">Pomóż nam ulepszyć podsumowanie roku</string>
   <string name="year_in_review_survey_subtitle">Jak oceniasz tę funkcję?</string>
-  <string name="year_in_review_reading_list_survey_title">Pomóż nam ulepszyć listę do przeczytania w ramach podsumowania roku %d.</string>
-  <string name="year_in_review_reading_list_survey_subtitle">Jak oceniasz swoją listę do przeczytania?</string>
+  <string name="year_in_review_reading_list_survey_title">Pomóż nam ulepszyć kolekcję artykułów w ramach podsumowania roku %d.</string>
+  <string name="year_in_review_reading_list_survey_subtitle">Jak oceniasz swoją kolekcję?</string>
   <string name="year_in_review_survey_very_satisfied">Bardzo dobrze</string>
   <string name="year_in_review_survey_satisfied">Dobrze</string>
   <string name="year_in_review_survey_neutral">Neutralnie</string>
@@ -2175,7 +2184,7 @@
     <item quantity="many">Osoby korzystające z aplikacji zapisały w tym roku %,d artykułów.</item>
     <item quantity="other">Osoby korzystające z aplikacji zapisały w tym roku %,d artykułu.</item>
   </plurals>
-  <string name="year_in_review_slide_global_saved_articles_body">Dodawanie artykułów do listy do przeczytania umożliwia dostęp do nich nawet gdy nie masz połączenia z Internetem. Możesz też zalogować się, aby zsynchronizować listy do przeczytania na różnych urządzeniach.</string>
+  <string name="year_in_review_slide_global_saved_articles_body">Dodawanie artykułów do kolekcji umożliwia dostęp do nich, nawet gdy nie masz połączenia z Internetem. Możesz też zalogować się, aby zsynchronizować kolekcje na różnych urządzeniach.</string>
   <string name="year_in_review_slide_reading_patterns_headline">Masz wyraźne nawyki czytelnicze</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">Ulubiona pora na czytanie</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">Ulubiony dzień na czytanie</string>
@@ -2271,8 +2280,8 @@
     <item quantity="other">Osoby korzystające z aplikacji przeczytały %,d artykułu z Wikipedii.</item>
   </plurals>
   <string name="year_in_review_slide_viewed_articles_times_body">Dla ludzi na całym świecie Wikipedia jest pierwszym miejscem, do którego sięgają, gdy chcą znaleźć odpowiedź na nurtujące ich pytanie, poszukać informacji do wykorzystania w szkole lub w pracy albo dowiedzieć się czegoś nowego.</string>
-  <string name="year_in_review_reading_list_dialog_title">Utworzyć listę do przeczytania w ramach podsumowania roku %d?</string>
-  <string name="year_in_review_reading_list_dialog_message">W ramach podsumowania roku w Wikipedii zostanie utworzona lista artykułów czytanych przez Ciebie najdłużej w %1$d roku. &lt;a href=\"%2$s\"&gt;Dowiedz się więcej&lt;/a&gt;</string>
+  <string name="year_in_review_reading_list_dialog_title">Utworzyć kolekcję artykułów w ramach podsumowania roku %d?</string>
+  <string name="year_in_review_reading_list_dialog_message">W ramach podsumowania roku w Wikipedii zostanie utworzona kolekcja artykułów czytanych przez Ciebie najdłużej w %1$d roku. &lt;a href=\"%2$s\"&gt;Dowiedz się więcej&lt;/a&gt;</string>
   <string name="year_in_review_reading_list_dialog_positive_button_label">Utwórz</string>
   <string name="year_in_review_reading_list_dialog_negative_button_label">Nie, dziękuję</string>
   <string name="year_in_review_reading_list_title">Podsumowanie roku %d</string>
@@ -2351,12 +2360,12 @@
   <string name="year_in_review_highlights_logo_description">Logo Wikipedii</string>
   <string name="recommended_reading_list_title">Odkrywaj</string>
   <string name="recommended_reading_list_onboarding_card_title">Odkryj artykuły wybrane specjalnie dla Ciebie</string>
-  <string name="recommended_reading_list_onboarding_card_message">Twoja cotygodniowa lista artykułów z Wikipedii przygotowana specjalnie dla Ciebie.</string>
+  <string name="recommended_reading_list_onboarding_card_message">Twoja cotygodniowa kolekcja artykułów z Wikipedii przygotowana specjalnie dla Ciebie.</string>
   <string name="recommended_reading_list_onboarding_card_new">Nowość!</string>
   <string name="recommended_reading_list_onboarding_card_positive_button">Rozpocznij</string>
   <string name="recommended_reading_list_onboarding_card_negative_button">Nie, dziękuję</string>
-  <string name="recommended_reading_list_onboarding_card_negative_snackbar">Aby skonfigurować listę polecanych artykułów, przejdź do ustawień.</string>
-  <string name="recommended_reading_list_interest_source_message">Jak przygotować Twoją listę polecanych artykułów?</string>
+  <string name="recommended_reading_list_onboarding_card_negative_snackbar">Aby skonfigurować kolekcję polecanych artykułów, przejdź do ustawień.</string>
+  <string name="recommended_reading_list_interest_source_message">Jak przygotować Twoją kolekcję polecanych artykułów?</string>
   <string name="recommended_reading_list_interest_source_interests">Wybiorę na podstawie moich zainteresowań</string>
   <string name="recommended_reading_list_interest_source_saved">Wybierz za mnie na podstawie zapisanych artykułów</string>
   <string name="recommended_reading_list_interest_source_history">Wybierz za mnie na podstawie historii przeglądania</string>
@@ -2384,9 +2393,9 @@
     <item quantity="many">• %d artykułów</item>
     <item quantity="other">• %d artykułu</item>
   </plurals>
-  <string name="recommended_reading_list_page_description_daily">Twoja codzienna lista artykułów do przeczytania. Poznaj nowe tematy przygotowane specjalnie dla Ciebie. Aktualizuje się o północy.</string>
-  <string name="recommended_reading_list_page_description_weekly">Twoja cotygodniowa lista artykułów do przeczytania. Poznaj nowe tematy przygotowane specjalnie dla Ciebie. Aktualizuje się na początku tygodnia.</string>
-  <string name="recommended_reading_list_page_description_monthly">Twoja comiesięczna lista artykułów do przeczytania. Poznaj nowe tematy przygotowane specjalnie dla Ciebie. Aktualizuje się pierwszego dnia każdego miesiąca.</string>
+  <string name="recommended_reading_list_page_description_daily">Twoja codzienna kolekcja artykułów z Wikipedii. Poznaj nowe tematy przygotowane specjalnie dla Ciebie. Aktualizuje się o północy.</string>
+  <string name="recommended_reading_list_page_description_weekly">Twoja cotygodniowa kolekcja artykułów z Wikipedii. Poznaj nowe tematy przygotowane specjalnie dla Ciebie. Aktualizuje się na początku tygodnia.</string>
+  <string name="recommended_reading_list_page_description_monthly">Twoja comiesięczna kolekcja artykułów z Wikipedii. Poznaj nowe tematy przygotowane specjalnie dla Ciebie. Aktualizuje się pierwszego dnia każdego miesiąca.</string>
   <string name="recommended_reading_list_page_overflow_customize">Dostosuj</string>
   <string name="recommended_reading_list_page_overflow_about">O tej funkcji</string>
   <string name="recommended_reading_list_page_snackbar">Sekcja „Odkrywaj” będzie %2$s uzupełniana o %1$d nowych artykułów. Twoje rekomendacje są zapisywane lokalnie na Twoim urządzeniu.</string>
@@ -2396,7 +2405,7 @@
   <string name="recommended_reading_list_page_snackbar_month">co miesiąc</string>
   <string name="recommended_reading_list_settings_section_header">Rekomendacje</string>
   <string name="recommended_reading_list_settings_title">Ustawienia funkcji „Odkrywaj”</string>
-  <string name="recommended_reading_list_settings_toggle">Lista polecanych artykułów</string>
+  <string name="recommended_reading_list_settings_toggle">Kolekcja polecanych artykułów</string>
   <string name="recommended_reading_list_settings_toggle_disable_message">Funkcja „Odkrywaj” jest wyłączona. Wikipedia nie będzie Ci polecać artykułów do przeczytania.</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_title">Wyłączyć funkcję „Odkrywaj”</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_message">Jeśli wyłączysz funkcję „Odkrywaj”, przestaniesz otrzymywać %s listę polecanych artykułów z Wikipedii.</string>
@@ -2431,7 +2440,7 @@
   <string name="recommended_reading_list_settings_notifications_dialog_message">Jeśli wyłączysz powiadomienia, nie będziesz już otrzymywać przypomnień o aktualizacjach funkcji „Odkrywaj”.</string>
   <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Wyłącz je</string>
   <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Nie, pozostaw je włączone</string>
-  <string name="recommended_reading_list_notification_title">Twoja lista polecanych artykułów aktualizowana %s jest już gotowa.</string>
+  <string name="recommended_reading_list_notification_title">Twoja kolekcja polecanych artykułów aktualizowana %s jest już gotowa.</string>
   <string name="recommended_reading_list_notification_subtitle">Kliknij, aby zobaczyć najnowsze rekomendacje.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">Gdy funkcja „Odkrywaj” zostanie zaktualizowana, Wikipedia wyśle Ci powiadomienie.</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">Funkcja „Odkrywaj” jest włączona. Wikipedia będzie Ci polecać artykuły do przeczytania.</string>
@@ -2596,7 +2605,7 @@
   <string name="explore_feed_for_you_tab_label">Dla Ciebie</string>
   <string name="explore_feed_date_today">Dzisiaj – %s</string>
   <string name="explore_feed_load_previous_day_label">Wczytaj poprzedni dzień</string>
-  <string name="explore_feed_from_reading_list">Z Twojej listy do przeczytania</string>
+  <string name="explore_feed_from_reading_list">Z Twojej kolekcji</string>
   <string name="explore_feed_because_of_interest">Na podstawie Twojego zainteresowania: %s</string>
   <string name="explore_feed_onboarding_curiosity_title">Podążaj za swoją ciekawością</string>
   <string name="explore_feed_onboarding_curiosity_description">Wybierz interesujące Cię tematy, a my spersonalizujemy Twój kanał.\n\nGromadzimy minimalną ilość danych, które są w pełni anonimizowane.</string>
@@ -2631,6 +2640,8 @@
   <string name="home_feed_settings_for_you_modules_description">Wyłączenie modułu ukryje go w kanale „Dla Ciebie”. Możesz go włączyć ponownie w dowolnym momencie.</string>
   <string name="home_feed_settings_based_on_interest_title">Na podstawie Twoich zainteresowań</string>
   <string name="home_feed_settings_based_on_interest_subtitle">Artykuły dopasowane do wybranych tematów.&lt;br /&gt;&lt;a href=\"#drivingFeed\"&gt;Co kształtuje Twój kanał&lt;/a&gt;</string>
+  <string name="home_feed_new_within_interest_title">Nowe artykuły z Twoich zainteresowań</string>
+  <string name="home_feed_new_within_interest_subtitle">Najnowsze artykuły z kategorii, które obserwujesz</string>
   <string name="home_feed_settings_because_you_read_subtitle">Propozycje na podstawie ostatnio czytanego artykułu z historii</string>
   <string name="home_feed_settings_continue_reading_title">Czytaj dalej</string>
   <string name="home_feed_settings_continue_reading_subtitle">Wróć do niedokończonych artykułów</string>
@@ -2674,13 +2685,13 @@
   <string name="home_feed_settings_games_title">Gry</string>
   <string name="home_feed_settings_games_subtitle">Codzienne gry oparte na treściach z Wikipedii</string>
   <string name="home_feed_settings_discover_title">Rekomendacje z sekcji „Odkrywaj”</string>
-  <string name="home_feed_settings_discover_subtitle">Artykuły z Twojej listy polecanych artykułów</string>
+  <string name="home_feed_settings_discover_subtitle">Artykuły z Twojej kolekcji polecanych artykułów</string>
   <string name="home_feed_discover_cta_title">Z sekcji „Odkrywaj”</string>
   <string name="home_feed_discover_cta_description">Poznawaj nowe tematy przygotowane specjalnie dla Ciebie. Wybierz aktualizacje codzienne, cotygodniowe lub comiesięczne.</string>
-  <string name="home_feed_discover_cta_button">Włącz listę polecanych artykułów</string>
+  <string name="home_feed_discover_cta_button">Włącz kolekcję polecanych artykułów</string>
   <string name="home_feed_discover_card_footer">Z sekcji „Odkrywaj” • Aktualizacje %s</string>
   <string name="home_feed_discover_see_all_title">Jest więcej do odkrycia</string>
-  <string name="home_feed_discover_see_all_description">Twój spersonalizowany kanał zawiera więcej artykułów przygotowanych specjalnie dla Ciebie.</string>
+  <string name="home_feed_discover_see_all_description">Twoja spersonalizowana kolekcja zawiera więcej artykułów przygotowanych specjalnie dla Ciebie.</string>
   <string name="home_feed_discover_see_all_button">Przeglądaj wszystkie rekomendacje</string>
   <string name="home_feed_places_of_interest_card_footer">%1$s • Na podstawie Twojej lokalizacji w zakładce Miejsca</string>
   <string name="home_feed_for_you_screen_end_of_feed_title">To już wszystko na dziś!</string>
@@ -2695,10 +2706,16 @@
   <string name="random_article_widget_name">Losowy artykuł</string>
   <string name="reading_lists_tab_all_articles">Wszystkie artykuły</string>
   <string name="reading_lists_tab_collections">Listy</string>
+  <string name="reading_lists_filter_content_description">Filtruj zapisane artykuły</string>
+  <string name="reading_lists_filter_not_in_collection">Nie w kolekcji</string>
+  <string name="reading_lists_empty_not_in_collection_title">Wszystkie zapisane artykuły znajdują się w kolekcjach.</string>
   <string name="reading_lists_search_saved_articles">Wyszukaj zapisane artykuły</string>
   <string name="reading_lists_search_collections">Wyszukaj listy</string>
-  <string name="reading_lists_remove_articles_confirm_dialog_title">Usunąć zapisane artykuły?</string>
-  <string name="reading_lists_remove_articles_confirm_button">Usuń</string>
+  <string name="reading_lists_empty_collections_title">Uporządkuj zapisane artykuły w kolekcje</string>
+  <string name="reading_lists_empty_collections_description">Twórz kolekcje miejsc do odwiedzenia, ulubionych tematów i wielu innych.</string>
+  <string name="reading_lists_create_new_collection">Utwórz nową kolekcję</string>
+  <string name="reading_lists_remove_articles_confirm_dialog_title">Usunąć zapisany artykuł?</string>
+  <string name="reading_lists_remove_articles_confirm_button" fuzzy="true">Usuń</string>
   <plurals name="reading_lists_remove_articles_confirm_dialog_message">
     <item quantity="one">Ten artykuł zostanie usunięty ze wszystkich powiązanych lisy.</item>
     <item quantity="few">Te %d artykuły zostaną usunięte ze wszystkich powiązanych list.</item>
@@ -2710,5 +2727,15 @@
     <item quantity="few">Usunięto %d artykuły ze wszystkich powiązanych list.</item>
     <item quantity="many">Usunięto %d artykułów ze wszystkich powiązanych list.</item>
     <item quantity="other">Usunięto %d artykułu ze wszystkich powiązanych list.</item>
+  </plurals>
+  <string name="reading_lists_save_sheet_empty_title">Zgromadź artykuły, które uwielbiasz</string>
+  <string name="reading_lists_save_sheet_empty_message">Zapisz artykuły w kolekcjach.</string>
+  <string name="reading_lists_save_sheet_create">Utwórz</string>
+  <string name="reading_lists_update_tooltip">Listy do przeczytania to od teraz kolekcje.</string>
+  <plurals name="reading_lists_unsave_articles_confirm_dialog_message">
+    <item quantity="one">Usunięcie tego artykułu spowoduje usunięcie go ze wszystkich powiązanych kolekcji.</item>
+    <item quantity="few">Usunięcie tych artykułów spowoduje ich usunięcie ze wszystkich powiązanych kolekcji.</item>
+    <item quantity="many">Usunięcie tych artykułów spowoduje ich usunięcie ze wszystkich powiązanych kolekcji.</item>
+    <item quantity="other">Usunięcie tych artykułów spowoduje ich usunięcie ze wszystkich powiązanych kolekcji.</item>
   </plurals>
 </resources>

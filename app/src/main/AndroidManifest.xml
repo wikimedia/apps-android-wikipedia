@@ -101,14 +101,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER" />
             </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="wikipedia" />
-                <data android:host="*.wikipedia.org" />
-                <!-- Add more deeplink hosts as needed -->
-            </intent-filter>
         </activity-alias>
         <activity-alias
             android:name=".YIR25Icon"
@@ -120,14 +112,6 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="wikipedia" />
-                <data android:host="*.wikipedia.org" />
-                <!-- Add more deeplink hosts as needed -->
             </intent-filter>
         </activity-alias>
 
@@ -155,6 +139,14 @@
                 <data android:host="*.wikipedia.org" android:pathPrefix="/wiki/" />
                 <data android:host="*.wikipedia.org" android:pathPattern="/zh.*" />
                 <data android:host="*.wikipedia.org" android:pathPattern="/sr.*" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="wikipedia" />
+                <data android:host="*.wikipedia.org" />
+                <!-- Add more deeplink hosts as needed -->
             </intent-filter>
         </activity>
         <activity
