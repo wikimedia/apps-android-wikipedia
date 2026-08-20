@@ -75,7 +75,7 @@
   <string name="search_back_button_content_description">رجوع</string>
   <string name="search_clear_query_content_description">محو الاستعلام</string>
   <string name="search_icon_content_description">بحث</string>
-  <string name="filter_hint_filter_my_lists_and_articles">تصفية قوائمي</string>
+  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">تصفية قوائمي</string>
   <string name="nav_item_suggested_edits">تعديلات</string>
   <string name="nav_item_activity">نشاط</string>
   <string name="nav_item_more">المزيد</string>
@@ -150,16 +150,16 @@
   <string name="menu_page_watched">مُراقَبة</string>
   <string name="edit_section_find_in_page">البحث في الصفحة</string>
   <string name="menu_page_font_and_theme">الخط والمظهر</string>
-  <string name="menu_page_add_to_list">إضافة إلى قائمة القراءة</string>
+  <string name="menu_page_add_to_list" fuzzy="true">إضافة إلى قائمة القراءة</string>
   <string name="menu_page_add_to_default_list">حفظ</string>
-  <string name="feed_card_add_to_list">إضافة إلى قائمة القراءة</string>
+  <string name="feed_card_add_to_list" fuzzy="true">إضافة إلى قائمة القراءة</string>
   <string name="feed_card_add_to_default_list">حفظ</string>
   <string name="menu_page_share">مشاركة الوصلة</string>
   <string name="menu_article_share">مشاركة المقالة</string>
   <string name="menu_page_article_share">مشاركة</string>
   <string name="menu_page_open_a_new_tab">فتح تبويب جديد</string>
   <string name="menu_page_new_tab">تبويب جديد</string>
-  <string name="menu_page_reading_lists">قوائم القراءة</string>
+  <string name="menu_page_reading_lists" fuzzy="true">قوائم القراءة</string>
   <string name="menu_page_recently_viewed">طالعتها مؤخّرًا</string>
   <string name="menu_page_archive">الأرشيف</string>
   <string name="menu_long_press_open_page">فتح</string>
@@ -203,7 +203,7 @@
   <string name="menu_show_toc">جدول المحتويات</string>
   <string name="search_no_results_found">لا توجد نتائج</string>
   <string name="search_reading_list_no_results">لا نتائج في %s</string>
-  <string name="search_reading_lists_no_results">لا نتائج في قوائم القراءة</string>
+  <string name="search_reading_lists_no_results" fuzzy="true">لا نتائج في قوائم القراءة</string>
   <string name="search_history_no_results">لا نتائج في التاريخ</string>
   <string name="edit_section_captcha_message">للمساعدة في الحماية من السبام الآلي، يُرجى إدخال الكلمات التي تظهر أدناه</string>
   <string name="edit_section_captcha_request_an_account_message">ألا ترى الصورة؟ &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;اطلب حسابًا&lt;/a&gt;</string>
@@ -283,12 +283,12 @@
   <string name="preferences_heading_syncing">مزامنة</string>
   <string name="preferences_heading_data_usage">استخدام البيانات</string>
   <string name="preferences_heading_experimental">تجريبيّ</string>
-  <string name="preference_title_sync_reading_lists_from_account">مزامنة قائمة القراءة</string>
-  <string name="preference_title_download_reading_list_articles">تنزيل مقالات قائمة القراءة</string>
-  <string name="preference_summary_sync_reading_lists">مزامنة قائمة قراءتك عبر الأجهزة المختلفة من خلال حفظها إلى حساب ويكيبيديا الخاص بك</string>
-  <string name="preference_summary_sync_reading_lists_from_account">مزامنة قائمة قراءتك عبر الأجهزة المختلفة من خلال حفظها إلى حساب ويكيبيديا الخاص بك %s</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">هل تريد إزالة قوائم القراءة التي تمت مزامنتها من \"%s\"؟</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">سيؤدي هذا إلى حذف جميع قوائم القراءة المتزامنة مسبقا من وحدة التخزين عن بعد، هل تريد إزالة جميع القوائم التي تمت مزامنتها من حسابك \"%s\"؟</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">مزامنة قائمة القراءة</string>
+  <string name="preference_title_download_reading_list_articles" fuzzy="true">تنزيل مقالات قائمة القراءة</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">مزامنة قائمة قراءتك عبر الأجهزة المختلفة من خلال حفظها إلى حساب ويكيبيديا الخاص بك</string>
+  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">مزامنة قائمة قراءتك عبر الأجهزة المختلفة من خلال حفظها إلى حساب ويكيبيديا الخاص بك %s</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">هل تريد إزالة قوائم القراءة التي تمت مزامنتها من \"%s\"؟</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">سيؤدي هذا إلى حذف جميع قوائم القراءة المتزامنة مسبقا من وحدة التخزين عن بعد، هل تريد إزالة جميع القوائم التي تمت مزامنتها من حسابك \"%s\"؟</string>
   <string name="preference_title_auto_upload_crash_reports">إرسال تقارير الأعطال</string>
   <string name="preference_summary_auto_upload_crash_reports">اسمح للتطبيق بإرسال تقارير الأعطال إلى مزود خدمة تابع لجهة خارجية تلقائيا حتى نتمكن من مراجعة الأعطال وإصلاح الخلل بشكل أسرع وأكثر سهولة.</string>
   <string name="editing_error_spamblacklist">تم اكتشاف وصلات لنطاقات ممنوعة (%s). الرجاء إزالة هذه النطاقات والمحاولة مرة أخرى.</string>
@@ -437,8 +437,8 @@
   <string name="unnamed_tab_closed">تم إغلاق علامة التبويب</string>
   <string name="tab_item_closed">أُغلقت %s.</string>
   <string name="all_tab_items_closed">جميع علامات التبويب مغلقة.</string>
-  <string name="tool_tip_bookmark_icon_title">الإضافة إلى قائمة القراءة</string>
-  <string name="tool_tip_bookmark_icon_text">اضغط على أيقونة الإشارة المرجعية لحفظ المقالة في قائمة قراءة.</string>
+  <string name="tool_tip_bookmark_icon_title" fuzzy="true">الإضافة إلى قائمة القراءة</string>
+  <string name="tool_tip_bookmark_icon_text" fuzzy="true">اضغط على أيقونة الإشارة المرجعية لحفظ المقالة في قائمة قراءة.</string>
   <string name="page_view_in_browser">اعرض الصفحة في المتصفح</string>
   <string name="tool_tip_toc_title">الوصول السريع لجدول المحتويات</string>
   <string name="tool_tip_toc_text">يمكنك الآن التحرك لليسار لفتح جدول المحتويات، وأيضا النقر والجر على زر الدحرجة هذا للقفز سريعا إلى أقسام مختلفة من مقالة.</string>
@@ -451,9 +451,9 @@
   <string name="button_continue_to_talk_page">اعرض صفحة النقاش</string>
   <string name="button_continue_to_disambiguation">عرض صفحات مشابهة</string>
   <string name="link_preview_disambiguation_description">يرتبط هذا العنوان بأكثر من صفحة واحدة:</string>
-  <string name="button_add_to_reading_list">أضف إلى قائمة القراءة</string>
+  <string name="button_add_to_reading_list" fuzzy="true">أضف إلى قائمة القراءة</string>
   <string name="page_offline_notice_cannot_load_while_offline">لا يمكن تحميل المقالة في حالة عدم الاتصال.</string>
-  <string name="page_offline_notice_add_to_reading_list">ملحوظة: أضف المقالة إلى قائمة قراءة وسيتم تنزيلها حينما تعاود الاتصال بالشبكة.</string>
+  <string name="page_offline_notice_add_to_reading_list" fuzzy="true">ملحوظة: أضف المقالة إلى قائمة قراءة وسيتم تنزيلها حينما تعاود الاتصال بالشبكة.</string>
   <string name="page_offline_notice_last_date">أنت تقرأ نسخةً من هذه المقالة بوضع عدم الاتصال تم حفظها في %s.</string>
   <string name="redirected_from_snackbar">تحويل من \"%s\"</string>
   <string name="button_get_directions">احصل على الاتجاهات</string>
@@ -576,17 +576,17 @@
   <string name="editing_monospace_font_label">استخدم خطًا أحادي المسافة</string>
   <string name="editing_typing_suggestions">إظهار اقتراحات الطباعة</string>
   <string name="nav_item_saved">محفوظة</string>
-  <string name="reading_list_save_to">حفظ في قائمة القراءة</string>
-  <string name="reading_list_move_to">انتقل إلى قائمة القراءة</string>
+  <string name="reading_list_save_to" fuzzy="true">حفظ في قائمة القراءة</string>
+  <string name="reading_list_move_to" fuzzy="true">انتقل إلى قائمة القراءة</string>
   <string name="reading_list_create_new">أنشئ قائمة قراءة جديدة</string>
-  <string name="reading_list_title_exists">قائمة القراءة \"%s\" موجودة فعلًا.</string>
+  <string name="reading_list_title_exists" fuzzy="true">قائمة القراءة \"%s\" موجودة فعلًا.</string>
   <string name="reading_list_article_added_to_named">أضيف %1$s إلى %2$s.</string>
-  <string name="reading_list_article_added_to_default_list">حُفظت %s. هل تود إضافتها إلى قائمة؟</string>
+  <string name="reading_list_article_added_to_default_list" fuzzy="true">حُفظت %s. هل تود إضافتها إلى قائمة؟</string>
   <string name="reading_list_article_moved_to_named">نُقلت %1$s إلى %2$s.</string>
   <string name="reading_list_article_already_exists_message">كل شيء على ما يرام! %1$s يحتوي مسبقا على %2$s.</string>
   <string name="reading_list_articles_already_exist_message">كل شيء جيد! %s تحتوي بالفعل على كل المقالات.</string>
-  <string name="reading_list_added_view_button">عرض القائمة</string>
-  <string name="reading_list_add_to_list_button">أضف إلى قائمة</string>
+  <string name="reading_list_added_view_button" fuzzy="true">عرض القائمة</string>
+  <string name="reading_list_add_to_list_button" fuzzy="true">أضف إلى قائمة</string>
   <plurals name="format_reading_list_statistical_summary_without_size">
     <item quantity="zero">لا مقالة\n</item>
     <item quantity="one">مقالة واحدة\n</item>
@@ -627,24 +627,24 @@
   <string name="reading_list_sort_by_recent_desc">فرز حسب الأقدم</string>
   <string name="reading_list_sort_by_created">فرز حسب تاريخ الإنشاء (الأحدث)</string>
   <string name="reading_list_sort_by_created_desc"> فرز حسب تاريخ الإنشاء (الأقدم)</string>
-  <string name="reading_list_menu_delete">احذف القائمة</string>
-  <string name="reading_list_menu_export">تصدير القائمة</string>
+  <string name="reading_list_menu_delete" fuzzy="true">احذف القائمة</string>
+  <string name="reading_list_menu_export" fuzzy="true">تصدير القائمة</string>
   <string name="reading_list_menu_select">اختر</string>
   <string name="reading_list_menu_unselect">إلغاء الاختيار</string>
-  <string name="reading_list_export_write_permission_rationale">مطلوب إذن الكتابة إلى مساحة التخزين على جهازك لتصدير قائمة القراءة الخاصة بك.</string>
+  <string name="reading_list_export_write_permission_rationale" fuzzy="true">مطلوب إذن الكتابة إلى مساحة التخزين على جهازك لتصدير قائمة القراءة الخاصة بك.</string>
   <string name="reading_list_menu_rename">تحرير الاسم/الوصف</string>
   <string name="reading_list_action_menu_remove_from_offline">أزل من وضع عدم الاتصال</string>
   <string name="reading_list_action_menu_save_for_offline">حفظ في وضع عدم الاتصال</string>
   <string name="reading_list_action_menu_remove_all_from_offline">إزالة الكل من عدم الاتصال</string>
   <string name="reading_list_action_menu_save_all_for_offline">حفظ الكل لعدم الاتصال</string>
-  <string name="reading_list_action_menu_add_to_another_list">أضف إلى قائمة أخرى</string>
-  <string name="reading_list_action_menu_move_to_another_list">انقل إلى قائمة أخرى</string>
-  <string name="reading_list_name_sample">قائمة قراءاتي</string>
-  <string name="reading_list_name_hint">اسم قائمة القراءة</string>
+  <string name="reading_list_action_menu_add_to_another_list" fuzzy="true">أضف إلى قائمة أخرى</string>
+  <string name="reading_list_action_menu_move_to_another_list" fuzzy="true">انقل إلى قائمة أخرى</string>
+  <string name="reading_list_name_sample" fuzzy="true">قائمة قراءاتي</string>
+  <string name="reading_list_name_hint" fuzzy="true">اسم قائمة القراءة</string>
   <string name="reading_list_description_hint">الوصف (اختياري):</string>
-  <string name="reading_list_item_deleted">أزيلت %s من القائمة</string>
+  <string name="reading_list_item_deleted" fuzzy="true">أزيلت %s من القائمة</string>
   <string name="reading_list_item_deleted_from_list">أُزيلت %1$s من %2$s</string>
-  <plurals name="reading_list_articles_deleted">
+  <plurals name="reading_list_articles_deleted" fuzzy="true">
     <item quantity="zero">...</item>
     <item quantity="one">%d مقالة أزيلت من القائمة</item>
     <item quantity="two">...</item>
@@ -660,7 +660,7 @@
     <item quantity="many">%1$d مقالة أُزيلت من  %2$s\n</item>
     <item quantity="other">%1$d مقالة أُزيلت من  %2$s\n</item>
   </plurals>
-  <plurals name="reading_lists_deleted_message">
+  <plurals name="reading_lists_deleted_message" fuzzy="true">
     <item quantity="zero">%d قائمة محذوفة\n</item>
     <item quantity="one">قائمة محذوفة\n</item>
     <item quantity="two">قائمتان محذوفتان\n</item>
@@ -668,35 +668,35 @@
     <item quantity="many">%d قائمة محذوفة\n</item>
     <item quantity="other">%d قائمة محذوفة\n</item>
   </plurals>
-  <string name="reading_lists_default_list_delete_message">القائمة الافتراضية %s لا يمكن حذفها.</string>
-  <string name="reading_lists_default_plus_one_list_delete_message">%1$s محذوف. القائمة الافتراضية %2$s لا يمكن حذفها.</string>
-  <string name="reading_lists_default_plus_many_lists_delete_message">تم حذف القوائم. القائمة الإفتراضية %s لا يمكن حذفها .</string>
-  <string name="single_list_json_file_name">%s (قائمة قراءة ويكيبيديا) .json</string>
-  <string name="multiple_lists_json_file_name">قوائم قراءة ويكيبيديا (%s وأكثر) .json</string>
-  <string name="reading_list_items_deleted">أزيلت %d مقالة من القائمة</string>
-  <string name="reading_lists_item_deleted">تمت إزالة %s من القوائم</string>
+  <string name="reading_lists_default_list_delete_message" fuzzy="true">القائمة الافتراضية %s لا يمكن حذفها.</string>
+  <string name="reading_lists_default_plus_one_list_delete_message" fuzzy="true">%1$s محذوف. القائمة الافتراضية %2$s لا يمكن حذفها.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message" fuzzy="true">تم حذف القوائم. القائمة الإفتراضية %s لا يمكن حذفها .</string>
+  <string name="single_list_json_file_name" fuzzy="true">%s (قائمة قراءة ويكيبيديا) .json</string>
+  <string name="multiple_lists_json_file_name" fuzzy="true">قوائم قراءة ويكيبيديا (%s وأكثر) .json</string>
+  <string name="reading_list_items_deleted" fuzzy="true">أزيلت %d مقالة من القائمة</string>
+  <string name="reading_lists_item_deleted" fuzzy="true">تمت إزالة %s من القوائم</string>
   <string name="reading_list_item_delete_undo">تراجع</string>
   <string name="reading_list_deleted">أزيلت %s</string>
   <string name="saved_list_empty_title" fuzzy="true">لا توجد قوائم قراءة بعد</string>
-  <string name="reading_lists_empty_message">احفظ المقالات التي تتصفحها في شكل قوائم قراءة حتى تتطلع عليهم لاحقا، حتى وإن كنت غير متصل بالشبكة.</string>
-  <string name="reading_list_empty">ليس لديك مقالات مضافة في هذه القائمة.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">احفظ المقالات التي تتصفحها في شكل قوائم قراءة حتى تتطلع عليهم لاحقا، حتى وإن كنت غير متصل بالشبكة.</string>
+  <string name="reading_list_empty" fuzzy="true">ليس لديك مقالات مضافة في هذه القائمة.</string>
   <string name="reading_list_article_offline">متاح في وضع عدم الاتصال</string>
   <string name="reading_list_article_make_offline">إتاحة هذه المقالة دون اتصال</string>
-  <string name="reading_list_add_to_other_list">أضف لقائمة قراءة أخرى</string>
-  <string name="reading_list_move_to_other_list">انقل إلى قائمة قراءة أخرى</string>
-  <string name="reading_list_move_from_to_other_list">انقل من %s لقائمة قراءة أخرى</string>
+  <string name="reading_list_add_to_other_list" fuzzy="true">أضف لقائمة قراءة أخرى</string>
+  <string name="reading_list_move_to_other_list" fuzzy="true">انقل إلى قائمة قراءة أخرى</string>
+  <string name="reading_list_move_from_to_other_list" fuzzy="true">انقل من %s لقائمة قراءة أخرى</string>
   <string name="reading_list_remove_from_list">إزالة من %s</string>
-  <string name="reading_list_remove_from_lists">أزل من قوائم القراءة</string>
+  <string name="reading_list_remove_from_lists" fuzzy="true">أزل من قوائم القراءة</string>
   <string name="reading_list_select_item">اختر</string>
   <string name="reading_list_confirm_remove_article_from_offline">أزل من وضع عدم الاتصال</string>
-  <string name="reading_list_confirm_remove_article_from_offline_title">المقالة تظهر في عدة قوائم</string>
-  <string name="reading_list_confirm_remove_article_from_offline_message">%s لن تكون متاحة بدون اتصال في جميع قوائم القراءة:</string>
-  <string name="reading_lists_sync_reminder_title">تشغيل مزامنة قائمة القراءة؟</string>
-  <string name="reading_lists_sync_reminder_text">يمكنك الآن مزامنة المقالات المحفوظة في قوائم القراءة مع حسابك على ويكيبيديا. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;تعرّف على المزيد&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">يمكنك الآن مزامنة قوائم القراءة عبر الأجهزة. سجّل دخولك إلى حسابك على ويكيبيديا واحفظ قوائمك. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;تعرّف على المزيد&lt;/a&gt;</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title" fuzzy="true">المقالة تظهر في عدة قوائم</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s لن تكون متاحة بدون اتصال في جميع قوائم القراءة:</string>
+  <string name="reading_lists_sync_reminder_title" fuzzy="true">تشغيل مزامنة قائمة القراءة؟</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">يمكنك الآن مزامنة المقالات المحفوظة في قوائم القراءة مع حسابك على ويكيبيديا. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;تعرّف على المزيد&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">يمكنك الآن مزامنة قوائم القراءة عبر الأجهزة. سجّل دخولك إلى حسابك على ويكيبيديا واحفظ قوائمك. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;تعرّف على المزيد&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">تمكين المزامنة</string>
-  <string name="reading_list_login_reminder_title">مزامنة قوائم القراءة</string>
-  <string name="reading_lists_login_reminder_text">يمكن الآن مزامنة قوائم القراءة عبر الأجهزة، سجل الدخول إلى حسابك في ويكيبيديا واسمح بحفظ قوائمك.</string>
+  <string name="reading_list_login_reminder_title" fuzzy="true">مزامنة قوائم القراءة</string>
+  <string name="reading_lists_login_reminder_text" fuzzy="true">يمكن الآن مزامنة قوائم القراءة عبر الأجهزة، سجل الدخول إلى حسابك في ويكيبيديا واسمح بحفظ قوائمك.</string>
   <string name="reading_lists_login_button">سجل الدخول / انضم لويكيبيديا</string>
   <string name="reading_lists_ignore_button">ليس الآن</string>
   <string name="reading_lists_confirm_remote_delete_yes">نعم</string>
@@ -705,8 +705,8 @@
   <string name="reading_list_articles_added_to_named">تمت إضافة مقالات %1$d إلى %2$s</string>
   <string name="reading_list_articles_moved_to_named">نُقلت %1$d مقالات إلى %2$s</string>
   <string name="reading_list_delete_confirm">هل أنت متأكد من أنك تريد حذف %s؟</string>
-  <string name="reading_list_delete_lists_confirm_dialog_title">حذف القائمة (القوائم) المحددة؟</string>
-  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+  <string name="reading_list_delete_lists_confirm_dialog_title" fuzzy="true">حذف القائمة (القوائم) المحددة؟</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message" fuzzy="true">
     <item quantity="zero">هل أنت متأكد أنك تريد حذف القائمة\n</item>
     <item quantity="one">هل أنت متأكد أنك تريد حذف %d قائمة\n</item>
     <item quantity="two">هل أنت متأكد أنك تريد حذف %d قائمتين\n</item>
@@ -715,29 +715,29 @@
     <item quantity="other">هل أنت متأكد أنك تريد حذف %d قائمة\n</item>
   </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">سجل الدخول لتمكين المزامنة</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_text">سجل الدخول للسماح بقوائم قراءتك ليتم حفظها في حسابك.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text" fuzzy="true">سجل الدخول للسماح بقوائم قراءتك ليتم حفظها في حسابك.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">إلغاء</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">تسجيل الدخول</string>
-  <string name="reading_list_turned_sync_off_dialog_title">تم إيقاف تشغيل مزامنة قائمة القراءة</string>
-  <string name="reading_list_turned_sync_off_dialog_text">تم إيقاف مزامنة قائمة القراءة لحسابك، ولم يعد يتم الاحتفاظ بنسخة احتياطية من المقالات المحفوظة على الأجهزة التي تم تسجيل الدخول إليها، قم بتشغيل مزامنة قائمة القراءة في الإعدادات.</string>
+  <string name="reading_list_turned_sync_off_dialog_title" fuzzy="true">تم إيقاف تشغيل مزامنة قائمة القراءة</string>
+  <string name="reading_list_turned_sync_off_dialog_text" fuzzy="true">تم إيقاف مزامنة قائمة القراءة لحسابك، ولم يعد يتم الاحتفاظ بنسخة احتياطية من المقالات المحفوظة على الأجهزة التي تم تسجيل الدخول إليها، قم بتشغيل مزامنة قائمة القراءة في الإعدادات.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">موافق</string>
   <string name="reading_list_turned_sync_off_dialog_settings">إعدادات</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_title">تشغيل مزامنة قائمة القراءة؟</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_text">يمكن الآن مزامنة المقالات المحفوظة لقوائم القراءة مع حساب ويكيبيديا الخاص بك. &lt;a href=\"#faq\"&gt;اعرف المزيد&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title" fuzzy="true">تشغيل مزامنة قائمة القراءة؟</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text" fuzzy="true">يمكن الآن مزامنة المقالات المحفوظة لقوائم القراءة مع حساب ويكيبيديا الخاص بك. &lt;a href=\"#faq\"&gt;اعرف المزيد&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">لا تُرني هذا مجددا</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">تمكين المزامنة</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">لا شكرًا</string>
   <string name="default_reading_list_name">المقالات المحفوظة</string>
-  <string name="default_reading_list_description">قائمة افتراضية لمقالاتك المحفوظة</string>
-  <string name="no_user_lists_title">نظّم المقالات في قوائم</string>
-  <string name="no_user_lists_msg">أنشئ قوائم للأماكن التي تريد السفر إليها، والمواضيع المفضلة، وغير ذلك الكثير</string>
+  <string name="default_reading_list_description" fuzzy="true">قائمة افتراضية لمقالاتك المحفوظة</string>
+  <string name="no_user_lists_title" fuzzy="true">نظّم المقالات في قوائم</string>
+  <string name="no_user_lists_msg" fuzzy="true">أنشئ قوائم للأماكن التي تريد السفر إليها، والمواضيع المفضلة، وغير ذلك الكثير</string>
   <string name="reading_list_saved_list_rename">%1$s (أنشأ مستخدم)</string>
-  <string name="split_reading_list_message">يوجد حد %d مقالات لكل قائمة قراءة، تم تقسيم القوائم الحالية التي تتضمن أكثر من هذا الحد إلى قوائم متعددة.</string>
-  <string name="reading_list_move_article_limit_message">لا يُمكن النقل إلى هذه القائمة. لقد بلغت حد %2$d مقالة لكل قائمة في \"%1$s\".</string>
-  <string name="reading_list_article_limit_message">لا يمكنك الإضافة إلى هذه القائمة; لقد وصلت إلى حد %2$d مقالات لكل قائمة لـ \"%1$s\".</string>
-  <string name="reading_lists_limit_message">لا يمكن إنشاء قائمة أخرى; لقد وصلت إلى حد 100 قائمة قراءة لكل حساب.</string>
-  <string name="reading_lists_menu_create_list">أنشئ قائمة جديدة</string>
-  <string name="reading_lists_menu_import_list">إستيراد القائمة</string>
+  <string name="split_reading_list_message" fuzzy="true">يوجد حد %d مقالات لكل قائمة قراءة، تم تقسيم القوائم الحالية التي تتضمن أكثر من هذا الحد إلى قوائم متعددة.</string>
+  <string name="reading_list_move_article_limit_message" fuzzy="true">لا يُمكن النقل إلى هذه القائمة. لقد بلغت حد %2$d مقالة لكل قائمة في \"%1$s\".</string>
+  <string name="reading_list_article_limit_message" fuzzy="true">لا يمكنك الإضافة إلى هذه القائمة; لقد وصلت إلى حد %2$d مقالات لكل قائمة لـ \"%1$s\".</string>
+  <string name="reading_lists_limit_message" fuzzy="true">لا يمكن إنشاء قائمة أخرى; لقد وصلت إلى حد 100 قائمة قراءة لكل حساب.</string>
+  <string name="reading_lists_menu_create_list" fuzzy="true">أنشئ قائمة جديدة</string>
+  <string name="reading_lists_menu_import_list" fuzzy="true">إستيراد القائمة</string>
   <string name="reading_lists_menu_sort_by">الترتيب حسب</string>
   <string name="reading_lists_refresh_sync_option">تحديث المزامنة</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">دخول / إنشاء حساب</string>
@@ -750,7 +750,7 @@
     <item quantity="many">...</item>
     <item quantity="other">ستصبح هذه المقالات غير متاحة في حالة عدم الاتصال.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">تمت مزامنة قوائم القراءة</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">تمت مزامنة قوائم القراءة</string>
   <string name="reading_list_menu_last_sync">آخر مزامنة: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">حسنا</string>
   <string name="reading_list_delete_dialog_ok_button_text">حسنا</string>
@@ -760,16 +760,16 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">إلغاء</string>
   <string name="reading_list_split_dialog_ok_button_text">حسنا</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">حذف</string>
-  <string name="reading_list_activity_title">قائمة القراءة\" %s</string>
-  <string name="reading_list_notification_title">تم تصدير قائمة (قوائم) القراءة</string>
-  <string name="reading_list_notification_text">%d تم تصدير قائمة (قوائم) القراءة كـ \"Reading_lists export.json\" إلى مجلد التنزيلات</string>
-  <string name="reading_list_notification_detailed_text">تم تصدير قوائم القراءة إلى \"Reading_lists_export.json\"</string>
+  <string name="reading_list_activity_title" fuzzy="true">قائمة القراءة\" %s</string>
+  <string name="reading_list_notification_title" fuzzy="true">تم تصدير قائمة (قوائم) القراءة</string>
+  <string name="reading_list_notification_text" fuzzy="true">%d تم تصدير قائمة (قوائم) القراءة كـ \"Reading_lists export.json\" إلى مجلد التنزيلات</string>
+  <string name="reading_list_notification_detailed_text" fuzzy="true">تم تصدير قوائم القراءة إلى \"Reading_lists_export.json\"</string>
   <string name="reading_lists_action_menu_export_lists">تصدير</string>
   <string name="reading_lists_import_file_picker_title">اختر ملف للإستيراد</string>
-  <string name="reading_lists_import_failure_message">فشل استيراد قوائم القراءة</string>
-  <string name="reading_lists_export_select_lists_message">حدد القائمة (القوائم) للتصدير</string>
-  <string name="reading_lists_export_completed_message">تم تصدير قائمة (قوائم) القراءة</string>
-  <plurals name="reading_list_export_failed_message">
+  <string name="reading_lists_import_failure_message" fuzzy="true">فشل استيراد قوائم القراءة</string>
+  <string name="reading_lists_export_select_lists_message" fuzzy="true">حدد القائمة (القوائم) للتصدير</string>
+  <string name="reading_lists_export_completed_message" fuzzy="true">تم تصدير قائمة (قوائم) القراءة</string>
+  <plurals name="reading_list_export_failed_message" fuzzy="true">
     <item quantity="zero">لا قوائم قراءة تم تصديرها</item>
     <item quantity="one">فشل تصدير قائمة القراءة</item>
     <item quantity="two">فشل تصدير قائمتي القراءة</item>
@@ -777,7 +777,7 @@
     <item quantity="many">فشل تصدير قوائم القراءة</item>
     <item quantity="other">فشل تصدير قوائم القراءة</item>
   </plurals>
-  <plurals name="reading_list_import_success_message">
+  <plurals name="reading_list_import_success_message" fuzzy="true">
     <item quantity="zero">لا قوائم قراءة تم استيرادها</item>
     <item quantity="one">قائمة القراءة المستوردة</item>
     <item quantity="two">قائمتا قراءة تم استيرادهما</item>
@@ -785,14 +785,14 @@
     <item quantity="many">قوائم قراءة كثيرة تم استيرادها</item>
     <item quantity="other">قوائم القراءة تم استيرادها</item>
   </plurals>
-  <string name="reading_lists_preview_header_title">قائمة مشتركة</string>
+  <string name="reading_lists_preview_header_title" fuzzy="true">قائمة مشتركة</string>
   <string name="reading_lists_preview_save_button">حفظ</string>
-  <string name="reading_lists_preview_save_dialog_title">حفظ القائمة</string>
-  <string name="reading_lists_preview_save_dialog_text">سمّ القائمة واختر مقالات لتحفظها</string>
+  <string name="reading_lists_preview_save_dialog_title" fuzzy="true">حفظ القائمة</string>
+  <string name="reading_lists_preview_save_dialog_text" fuzzy="true">سمّ القائمة واختر مقالات لتحفظها</string>
   <string name="reading_lists_preview_save_dialog_title_hint">العنوان</string>
   <string name="reading_lists_preview_save_dialog_cancel">إلغاء</string>
   <string name="reading_lists_preview_save_dialog_save">حفظ</string>
-  <string name="reading_lists_preview_saved_snackbar">تم حفظ قائمة القراءة</string>
+  <string name="reading_lists_preview_saved_snackbar" fuzzy="true">تم حفظ قائمة القراءة</string>
   <string name="reading_lists_preview_saved_snackbar_action">عرض</string>
   <string name="user_option_sync_label">تفضيلات</string>
   <string name="notification_reverted_title">تعديل ملغى</string>
@@ -801,8 +801,8 @@
   <string name="notification_syncing_pause_button">وقف</string>
   <string name="notification_syncing_resume_button">استئناف</string>
   <string name="notification_syncing_cancel_button">إلغاء</string>
-  <string name="notification_syncing_reading_list_channel_title">مزامنة قوائم القراءة</string>
-  <string name="notification_syncing_reading_list_channel_description">جارٍ تقدم مزامنة قوائم القراءة</string>
+  <string name="notification_syncing_reading_list_channel_title" fuzzy="true">مزامنة قوائم القراءة</string>
+  <string name="notification_syncing_reading_list_channel_description" fuzzy="true">جارٍ تقدم مزامنة قوائم القراءة</string>
   <string name="notification_many_unread">لديك  %d إشعارات غير مقروءة</string>
   <plurals name="notification_channel_name">
     <item quantity="zero">جارٍ تنزيل ...</item>
@@ -828,7 +828,7 @@
     <item quantity="many">%1$d مقالة</item>
     <item quantity="other">%1$d مقالة متبقية</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_channel_name">
+  <plurals name="notification_syncing_reading_list_channel_name" fuzzy="true">
     <item quantity="zero">لا قوائم</item>
     <item quantity="one">مزامنة قائمة القراءة</item>
     <item quantity="two">مزامنة قائمتي القراءة</item>
@@ -836,7 +836,7 @@
     <item quantity="many">مزامنة قوائم القراءة</item>
     <item quantity="other">مزامنة قوائم المراقبة</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_title">
+  <plurals name="notification_syncing_reading_list_title" fuzzy="true">
     <item quantity="zero">لا قوائم</item>
     <item quantity="one">مزامنة %1$d قائمة…</item>
     <item quantity="two">مزامنة قائمتين</item>
@@ -844,7 +844,7 @@
     <item quantity="many">مزامنة %1$d قائمة…</item>
     <item quantity="other">مزامنة %1$d قوائم…</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_description">
+  <plurals name="notification_syncing_reading_list_description" fuzzy="true">
     <item quantity="zero">لا مقالة</item>
     <item quantity="one">%1$d مقالة متبقية</item>
     <item quantity="two">مقالتان متيقيتان</item>
@@ -1482,8 +1482,8 @@
   <string name="onboarding_maybe_later">ربما لاحقا</string>
   <string name="onboarding_explore_title">طريقة جديدة للاستكشاف</string>
   <string name="onboarding_explore_text">انغمس في عالم ويكيبيديا المثير من خلال موجز الصفحة الرئيسية الذي يتم تحديثه باستمرار.&lt;br/&gt; &lt;b&gt;قم بتخصيص&lt;/b&gt; موجز الأخبار وفقًا لاهتماماتك - سواء كان ذلك التعرف على الأحداث التاريخية &lt;b&gt;في هذا اليوم&lt;/b&gt; ، أو رمي النرد مع &lt;b&gt;Random&lt;/b&gt; .</string>
-  <string name="onboarding_reading_list_sync_title">قوائم القراءة مع المزامنة</string>
-  <string name="onboarding_reading_list_sync_text_v2">أنشئ قوائم قراءة من المقالات التي تريد قراءتها لاحقا، حتى في وضع عدم الاتصال. &lt;br/&gt;قم بتسجيل الدخول لحسابك في ويكيبيديا لمزامنة قوائم قراءتك، &lt;a href=\"#login\"&gt;انضم إلى ويكيبيديا&lt;/a&gt;</string>
+  <string name="onboarding_reading_list_sync_title" fuzzy="true">قوائم القراءة مع المزامنة</string>
+  <string name="onboarding_reading_list_sync_text_v2" fuzzy="true">أنشئ قوائم قراءة من المقالات التي تريد قراءتها لاحقا، حتى في وضع عدم الاتصال. &lt;br/&gt;قم بتسجيل الدخول لحسابك في ويكيبيديا لمزامنة قوائم قراءتك، &lt;a href=\"#login\"&gt;انضم إلى ويكيبيديا&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">البيانات والخصوصية</string>
   <string name="onboarding_data_privacy_text">نؤمن بأنه لا ينبغي عليك تقديم معلومات شخصية للمشاركة في حركة المعرفة الحرة. بيانات الاستخدام التي يتم جمعها لهذا التطبيق مجهولة المصدر.&lt;br/&gt;&lt;br/&gt; تعرف على المزيد حول &lt;a href=\"#privacy\"&gt;سياسة الخصوصية&lt;/a&gt; &lt;a href=\"#termsOfUse\"&gt;وشروط الاستخدام&lt;/a&gt; الخاصة بنا.</string>
   <string name="onboarding_analytics_switch_title">إرسال بيانات الاستخدام</string>
@@ -1838,16 +1838,16 @@
   <string name="user_contrib_filter_activity_title">تصفية المساهمات</string>
   <string name="action_item_view_on_map">أظهر على الخريطة</string>
   <string name="action_item_view_on_map_unavailable">الإحداثيات الجغرافية غير متوفرة لهذه الصفحة</string>
-  <string name="shareable_reading_lists_import_dialog_title">استيراد قائمة القراءة المشتركة</string>
-  <string name="shareable_reading_lists_import_dialog_content">كيف تريد تسمية القائمة التي تمت مشاركتها معك؟</string>
+  <string name="shareable_reading_lists_import_dialog_title" fuzzy="true">استيراد قائمة القراءة المشتركة</string>
+  <string name="shareable_reading_lists_import_dialog_content" fuzzy="true">كيف تريد تسمية القائمة التي تمت مشاركتها معك؟</string>
   <string name="shareable_reading_lists_new_indicator">*جديد*</string>
-  <string name="shareable_reading_lists_new_install_dialog_title">تمت مشاركة قائمة القراءة معك</string>
-  <string name="shareable_reading_lists_new_install_dialog_content">لاحظنا أنه تمت مشاركة قائمة القراءة معك.  لعرض هذه القائمة في التطبيق ، ارجع إلى الرسالة الأصلية واضغط على الرابط مرة أخرى.</string>
+  <string name="shareable_reading_lists_new_install_dialog_title" fuzzy="true">تمت مشاركة قائمة القراءة معك</string>
+  <string name="shareable_reading_lists_new_install_dialog_content" fuzzy="true">لاحظنا أنه تمت مشاركة قائمة القراءة معك.  لعرض هذه القائمة في التطبيق ، ارجع إلى الرسالة الأصلية واضغط على الرابط مرة أخرى.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">عُلِم</string>
-  <string name="shareable_reading_lists_new_imported_snackbar">تم استيراد قائمة القراءة</string>
+  <string name="shareable_reading_lists_new_imported_snackbar" fuzzy="true">تم استيراد قائمة القراءة</string>
   <string name="reading_list_share_menu_label">المشاركة…</string>
-  <string name="reading_list_share_menu_tooltip">شارك قائمة القراءة هذه مع الآخرين</string>
-  <string name="reading_list_share_message_v2">مرحبًا! أرغب في مشاركة قائمة قراءة ويكيبيديا الخاصة بي معك:</string>
+  <string name="reading_list_share_menu_tooltip" fuzzy="true">شارك قائمة القراءة هذه مع الآخرين</string>
+  <string name="reading_list_share_message_v2" fuzzy="true">مرحبًا! أرغب في مشاركة قائمة قراءة ويكيبيديا الخاصة بي معك:</string>
   <string name="talk_templates_empty_message">قم بإنشاء رسائلك الخاصة أو استخدم &lt;a href=\"#\"&gt;رسائل نموذجية&lt;/a&gt; للبدء.</string>
   <string name="talk_templates_new_message_title">رسالة جديدة</string>
   <string name="talk_templates_new_message_subject_hint">الموضوع</string>
@@ -2154,8 +2154,8 @@
   <string name="year_in_review_get_started_later">يمكنك الوصول إلى \"مراجعة العام\" لاحقًا في قائمة \"المزيد\".</string>
   <string name="year_in_review_survey_title">ساعد في تحسين مراجعة العام</string>
   <string name="year_in_review_survey_subtitle">هل أنت راض عن هذه الميزة؟</string>
-  <string name="year_in_review_reading_list_survey_title">ساعد في تحسين قائمة قراءة مراجعة العام لسنة %d.</string>
-  <string name="year_in_review_reading_list_survey_subtitle">هل أنت راضٍ عن قائمة القراءة الخاصة بك؟</string>
+  <string name="year_in_review_reading_list_survey_title" fuzzy="true">ساعد في تحسين قائمة قراءة مراجعة العام لسنة %d.</string>
+  <string name="year_in_review_reading_list_survey_subtitle" fuzzy="true">هل أنت راضٍ عن قائمة القراءة الخاصة بك؟</string>
   <string name="year_in_review_survey_very_satisfied">راضٍ جدًا</string>
   <string name="year_in_review_survey_satisfied">راضي</string>
   <string name="year_in_review_survey_neutral">محايد</string>
@@ -2275,7 +2275,7 @@
     <item quantity="many">حفظ مستخدمو التطبيق %,d مقالة</item>
     <item quantity="other">حفظ مستخدمو التطبيق %,d مقالة</item>
   </plurals>
-  <string name="year_in_review_slide_global_saved_articles_body">تتيح لك إضافة المقالات إلى قوائم القراءة الوصول إليها حتى في وضع عدم الاتصال. كما يمكنك تسجيل الدخول لمزامنة قوائم القراءة عبر الأجهزة.</string>
+  <string name="year_in_review_slide_global_saved_articles_body" fuzzy="true">تتيح لك إضافة المقالات إلى قوائم القراءة الوصول إليها حتى في وضع عدم الاتصال. كما يمكنك تسجيل الدخول لمزامنة قوائم القراءة عبر الأجهزة.</string>
   <string name="year_in_review_slide_reading_patterns_headline">لديك أنماط قراءة واضحة</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">الوقت المفضل للقراءة</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">اليوم المفضل للقراءة</string>
@@ -2319,8 +2319,8 @@
     <item quantity="other">اشتملت ويكيبيديا على عدد %,d مقالة</item>
   </plurals>
   <string name="year_in_review_slide_viewed_articles_times_body">بالنسبة للأشخاص في جميع أنحاء العالم، تعد ويكيبيديا هي المحطة الأولى للإجابة على سؤال، أو البحث عن معلومات للمدرسة أو العمل، أو تعلم حقيقة جديدة.</string>
-  <string name="year_in_review_reading_list_dialog_title">هل تريد إنشاء قائمة قراءة مراجعة السنة لسنة %d؟</string>
-  <string name="year_in_review_reading_list_dialog_message">سوف تنشئ مراجعة العام على ويكيبيديا قائمة قراءة تشتمل على المقالات التي أمضيت أطول وقت في مطالعتها سنة %1$d. &lt;a href=\"%2$s\"&gt;تعرفوا على المزيد&lt;/a&gt;</string>
+  <string name="year_in_review_reading_list_dialog_title" fuzzy="true">هل تريد إنشاء قائمة قراءة مراجعة السنة لسنة %d؟</string>
+  <string name="year_in_review_reading_list_dialog_message" fuzzy="true">سوف تنشئ مراجعة العام على ويكيبيديا قائمة قراءة تشتمل على المقالات التي أمضيت أطول وقت في مطالعتها سنة %1$d. &lt;a href=\"%2$s\"&gt;تعرفوا على المزيد&lt;/a&gt;</string>
   <string name="year_in_review_reading_list_dialog_positive_button_label">أنشئ</string>
   <string name="year_in_review_reading_list_dialog_negative_button_label">لا، شكرًا</string>
   <string name="year_in_review_reading_list_title">مراجعة السنة لسنة %d</string>
@@ -2333,12 +2333,12 @@
   <string name="year_in_review_highlights_logo_description">شعار ويكيبيديا</string>
   <string name="recommended_reading_list_title">يكتشف</string>
   <string name="recommended_reading_list_onboarding_card_title">اكتشف المقالات المختارة خصيصًا لك</string>
-  <string name="recommended_reading_list_onboarding_card_message">قائمة القراءة الأسبوعية الخاصة بك لمقالات ويكيبيديا، والتي تم اختيارها خصيصًا لك.</string>
+  <string name="recommended_reading_list_onboarding_card_message" fuzzy="true">قائمة القراءة الأسبوعية الخاصة بك لمقالات ويكيبيديا، والتي تم اختيارها خصيصًا لك.</string>
   <string name="recommended_reading_list_onboarding_card_new">جديد!</string>
   <string name="recommended_reading_list_onboarding_card_positive_button">البدء</string>
   <string name="recommended_reading_list_onboarding_card_negative_button">ًلا شكرا</string>
-  <string name="recommended_reading_list_onboarding_card_negative_snackbar">لإعداد قائمة القراءة الموصى بها لاحقًا، انتقل إلى الإعدادات.</string>
-  <string name="recommended_reading_list_interest_source_message">كيف يمكننا بناء قائمة القراءة الموصى بها؟</string>
+  <string name="recommended_reading_list_onboarding_card_negative_snackbar" fuzzy="true">لإعداد قائمة القراءة الموصى بها لاحقًا، انتقل إلى الإعدادات.</string>
+  <string name="recommended_reading_list_interest_source_message" fuzzy="true">كيف يمكننا بناء قائمة القراءة الموصى بها؟</string>
   <string name="recommended_reading_list_interest_source_interests">دعني أختار بناءً على اهتماماتي</string>
   <string name="recommended_reading_list_interest_source_saved">اختر لي بناءً على مقالاتي المحفوظة</string>
   <string name="recommended_reading_list_interest_source_history">اختر لي بناءً على تاريخ قراءتي</string>
@@ -2370,9 +2370,9 @@
     <item quantity="many">مقالات كثيرة</item>
     <item quantity="other">• %d مقال</item>
   </plurals>
-  <string name="recommended_reading_list_page_description_daily">قائمة قراءاتك اليومية. تعرّف على مواضيع جديدة، مختارة خصيصًا لك. تحديثات منتصف الليل.</string>
-  <string name="recommended_reading_list_page_description_weekly">قائمة قراءاتك الأسبوعية. تعرّف على مواضيع جديدة، مختارة خصيصًا لك. تحديثات في بداية الأسبوع.</string>
-  <string name="recommended_reading_list_page_description_monthly">قائمة قراءاتك الشهرية. تعرّف على مواضيع جديدة، مختارة خصيصًا لك. تحديثات في أول كل شهر.</string>
+  <string name="recommended_reading_list_page_description_daily" fuzzy="true">قائمة قراءاتك اليومية. تعرّف على مواضيع جديدة، مختارة خصيصًا لك. تحديثات منتصف الليل.</string>
+  <string name="recommended_reading_list_page_description_weekly" fuzzy="true">قائمة قراءاتك الأسبوعية. تعرّف على مواضيع جديدة، مختارة خصيصًا لك. تحديثات في بداية الأسبوع.</string>
+  <string name="recommended_reading_list_page_description_monthly" fuzzy="true">قائمة قراءاتك الشهرية. تعرّف على مواضيع جديدة، مختارة خصيصًا لك. تحديثات في أول كل شهر.</string>
   <string name="recommended_reading_list_page_overflow_customize">تخصيص</string>
   <string name="recommended_reading_list_page_overflow_about">حول هذه الميزة</string>
   <string name="recommended_reading_list_page_snackbar">سيتم تحديث تطبيق Discover بإضافة %1$d مقالة جديدة كل %2$s . سيتم تخزين توصياتك محليًا على جهازك.</string>
@@ -2382,7 +2382,7 @@
   <string name="recommended_reading_list_page_snackbar_month">شهر</string>
   <string name="recommended_reading_list_settings_section_header">التوصيات</string>
   <string name="recommended_reading_list_settings_title">اكتشف الإعدادات</string>
-  <string name="recommended_reading_list_settings_toggle">اكتشف قائمة القراءة</string>
+  <string name="recommended_reading_list_settings_toggle" fuzzy="true">اكتشف قائمة القراءة</string>
   <string name="recommended_reading_list_settings_toggle_disable_message">خاصية \"اكتشف\" مُعطّلة. لن تُوصي ويكيبيديا بقراءة مقالاتك.</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_title">إيقاف تشغيل Discover؟</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_message">إذا قمت بإيقاف تشغيل Discover، فسوف تتوقف عن تلقي %s من توصيات القراءة من Wikipedia.</string>
@@ -2417,7 +2417,7 @@
   <string name="recommended_reading_list_settings_notifications_dialog_message">إذا قمت بإيقاف تشغيل الإشعارات، فلن تتلقى بعد الآن تذكيرات عند تحديث Discover.</string>
   <string name="recommended_reading_list_settings_notifications_dialog_positive_button">أطفئهم</string>
   <string name="recommended_reading_list_settings_notifications_dialog_negative_button">لا، ابقهم على حالهم</string>
-  <string name="recommended_reading_list_notification_title">قائمة القراءة %s Discover الخاصة بك جاهزة.</string>
+  <string name="recommended_reading_list_notification_title" fuzzy="true">قائمة القراءة %s Discover الخاصة بك جاهزة.</string>
   <string name="recommended_reading_list_notification_subtitle">انقر هنا لرؤية أحدث توصياتك.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">عندما يتم تحديث Discover الخاص بك، سوف ترسل لك Wikipedia إشعارًا.</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">اكتشف الآن. ستقترح عليك ويكيبيديا مقالات للقراءة.</string>

@@ -14,7 +14,7 @@
   <string name="search_hint">Википедий мучко кычалаш</string>
   <string name="search_hint_voice_search">Йӱк дене кычалаш</string>
   <string name="search_hint_search_languages">Йылмым кычалаш</string>
-  <string name="filter_hint_filter_my_lists_and_articles">Мыйын списке-влакым фильтроватлаш</string>
+  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">Мыйын списке-влакым фильтроватлаш</string>
   <string name="nav_item_suggested_edits">Тӧрлымаш</string>
   <string name="nav_item_more">Эше</string>
   <string name="nav_item_search">Кычалаш</string>
@@ -79,16 +79,16 @@
   <string name="menu_page_watched">Эскералтеш</string>
   <string name="edit_section_find_in_page">Велыжыште муаш</string>
   <string name="menu_page_font_and_theme">Шрифт да теме</string>
-  <string name="menu_page_add_to_list">Лудашлан спискыш ешараш</string>
+  <string name="menu_page_add_to_list" fuzzy="true">Лудашлан спискыш ешараш</string>
   <string name="menu_page_add_to_default_list">Аралаш</string>
-  <string name="feed_card_add_to_list">Лудашлан спискыш ешараш</string>
+  <string name="feed_card_add_to_list" fuzzy="true">Лудашлан спискыш ешараш</string>
   <string name="feed_card_add_to_default_list">Аралаш</string>
   <string name="menu_page_share">Кылвер дене пайлалташ</string>
   <string name="menu_article_share">Статья дене пайлалташ</string>
   <string name="menu_page_article_share">Пайлалташ</string>
   <string name="menu_page_open_a_new_tab">У ушештартышым почаш</string>
   <string name="menu_page_new_tab">У ушештартыш</string>
-  <string name="menu_page_reading_lists">Лудашлан списке-влак</string>
+  <string name="menu_page_reading_lists" fuzzy="true">Лудашлан списке-влак</string>
   <string name="menu_page_recently_viewed">Шукерте огыл ончен лекме</string>
   <string name="menu_page_archive">Архив</string>
   <string name="menu_long_press_open_page">Почаш</string>
@@ -126,7 +126,7 @@
   <string name="menu_show_toc">Контентын вуйлымашыже</string>
   <string name="search_no_results_found">Нимом мумо огыл</string>
   <string name="search_reading_list_no_results">\"%s\" спискыште лектышым мумо огыл</string>
-  <string name="search_reading_lists_no_results">Лудашлан спискылаште лектышым мумо огыл</string>
+  <string name="search_reading_lists_no_results" fuzzy="true">Лудашлан спискылаште лектышым мумо огыл</string>
   <string name="search_history_no_results">Историйыште лектышым мумо огыл</string>
   <string name="edit_section_captcha_message">Автоматизированный спам деч аралалташлан, поро лийза, ӱлнӧ ончыктымо мут-влакым пуртыза</string>
   <string name="edit_section_captcha_request_an_account_message">Капчан сӱретшым  ода уж? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Аккаунтым йодса&lt;/a&gt;</string>
@@ -203,12 +203,12 @@
   <string name="preferences_heading_syncing">Синхронизаций</string>
   <string name="preferences_heading_data_usage">Трафикым кучылтмаш</string>
   <string name="preferences_heading_experimental">Экспериментлык</string>
-  <string name="preference_title_sync_reading_lists_from_account">Лудмо спискым ик шотыш кондымаш</string>
-  <string name="preference_title_download_reading_list_articles">Лудашлан спсике гыч статья-влакым тулен налаш</string>
-  <string name="preference_summary_sync_reading_lists">Шке Википедий аккаунтыштет арален тӱрлӧ арверлаште лудшаш списке-влакым ик шотыш кондо</string>
-  <string name="preference_summary_sync_reading_lists_from_account">Шке аккаунтыштет арален, тӱрлӧ арверлаште лудшаш списке-влакым ик шотыш кондо\"%s\"</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">%s гыч ик шотыш кондымо лудмо списке влакым кораҥгдаш?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Тиде кораҥдыме аралтыш вер гыч ик шотыш кондымо лудшаш списке-влак кораҥдыме дек конгда. Чыла ик шотыш кондымо списке-влакым тыйын \"%s\" аккаунт гыч кораҥдаш?</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Лудмо спискым ик шотыш кондымаш</string>
+  <string name="preference_title_download_reading_list_articles" fuzzy="true">Лудашлан спсике гыч статья-влакым тулен налаш</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">Шке Википедий аккаунтыштет арален тӱрлӧ арверлаште лудшаш списке-влакым ик шотыш кондо</string>
+  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">Шке аккаунтыштет арален, тӱрлӧ арверлаште лудшаш списке-влакым ик шотыш кондо\"%s\"</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">%s гыч ик шотыш кондымо лудмо списке влакым кораҥгдаш?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">Тиде кораҥдыме аралтыш вер гыч ик шотыш кондымо лудшаш списке-влак кораҥдыме дек конгда. Чыла ик шотыш кондымо списке-влакым тыйын \"%s\" аккаунт гыч кораҥдаш?</string>
   <string name="preference_title_auto_upload_crash_reports">Тӧрсыр лекме нерген отчётым колтедылаш</string>
   <string name="editing_error_spamblacklist">Чарыме домен-влаклан (%s) кылверлам мумо. Поро лий, нуным кораҥде да угыч тӧчен ончо.</string>
   <string name="history_filter_list_hint">Фильтрын историйже</string>
@@ -335,7 +335,7 @@
   <string name="unnamed_tab_closed">Ушештартыш петыралтын.</string>
   <string name="tab_item_closed">Петырыме: %s</string>
   <string name="all_tab_items_closed">Чыла ушештартышым петырыме.</string>
-  <string name="tool_tip_bookmark_icon_title">Лудашлан спискыш ешараш</string>
+  <string name="tool_tip_bookmark_icon_title" fuzzy="true">Лудашлан спискыш ешараш</string>
   <string name="page_view_in_browser">Велыжым браузерыште ончымаш</string>
   <string name="error_unknown">Палыдыме йоҥылыш лийын.</string>
   <string name="format_error_server_message">Серыш: «%s»</string>
@@ -345,7 +345,7 @@
   <string name="button_continue_to_talk_page">Каҥашымаш велыжым почаш</string>
   <string name="button_continue_to_disambiguation">Икгайрак велыж-влакым ончымаш</string>
   <string name="link_preview_disambiguation_description">Тыгай вуймут икмыняр велыж дене кылдалтын:</string>
-  <string name="button_add_to_reading_list">Лудашлан спискыш ешараш</string>
+  <string name="button_add_to_reading_list" fuzzy="true">Лудашлан спискыш ешараш</string>
   <string name="page_offline_notice_cannot_load_while_offline">Статьям интернет деке ушалтме деч посна вераҥдаш огеш лий.</string>
   <string name="preference_title_customize_explore_feed">Тасмам шымлаш</string>
   <string name="preference_summary_customize_explore_feed">Тасмам келыштараш</string>
@@ -386,16 +386,16 @@
   <string name="editing_line_numbers_label">Корно номерым ончыкташ</string>
   <string name="editing_monospace_font_label">Икгай лопкытан шрифтым кучылташ</string>
   <string name="nav_item_saved">Аралыме</string>
-  <string name="reading_list_save_to">Лудашлан спискыш ешараш</string>
-  <string name="reading_list_move_to">Лудашлан спискыш кусараш</string>
+  <string name="reading_list_save_to" fuzzy="true">Лудашлан спискыш ешараш</string>
+  <string name="reading_list_move_to" fuzzy="true">Лудашлан спискыш кусараш</string>
   <string name="reading_list_create_new">Уым ышташ</string>
   <string name="reading_list_article_added_to_named">%1$s статьям %2$s спискыш ешарыме.</string>
-  <string name="reading_list_article_added_to_default_list">%s аралалтын. Спискыш ешарынет?</string>
+  <string name="reading_list_article_added_to_default_list" fuzzy="true">%s аралалтын. Спискыш ешарынет?</string>
   <string name="reading_list_article_moved_to_named">%1$s статьям %2$s спискыш кусарыме.</string>
   <string name="reading_list_article_already_exists_message">Чыла сай! %1$s спискыште уже %2$s уло.</string>
   <string name="reading_list_articles_already_exist_message">Чыла сай! %s спискыште уже чыла статья уло.</string>
-  <string name="reading_list_added_view_button">Спискым ончалаш</string>
-  <string name="reading_list_add_to_list_button">Спискыш ешараш</string>
+  <string name="reading_list_added_view_button" fuzzy="true">Спискым ончалаш</string>
+  <string name="reading_list_add_to_list_button" fuzzy="true">Спискыш ешараш</string>
   <plurals name="format_reading_list_statistical_summary_without_size">
     <item quantity="one">1 статья</item>
     <item quantity="other">%d статья</item>
@@ -406,7 +406,7 @@
   </plurals>
   <string name="reading_list_sort">Ойыркалаш</string>
   <string name="reading_list_sort_by_name">Вуйлӱм дене ойыркалаш</string>
-  <string name="reading_list_menu_delete">Спискым кораҥдаш</string>
+  <string name="reading_list_menu_delete" fuzzy="true">Спискым кораҥдаш</string>
   <string name="reading_list_menu_select">Ойыраш</string>
   <string name="reading_list_menu_unselect">Ойырымым чараш</string>
   <string name="reading_list_description_hint">Возен ончыктымаш (кӱлешанжак огыл)</string>
@@ -422,7 +422,7 @@
   <string name="reading_list_turned_sync_off_dialog_settings">Келыштарымаш</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Уке, тау</string>
   <string name="default_reading_list_name">Аралыме</string>
-  <string name="reading_lists_menu_create_list">У спискым ышташ</string>
+  <string name="reading_lists_menu_create_list" fuzzy="true">У спискым ышташ</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Пураш / регистрацийым эрташ</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">Йӧра</string>
   <string name="reading_list_delete_dialog_ok_button_text">Йӧра</string>
@@ -433,7 +433,7 @@
   <string name="reading_list_split_dialog_ok_button_text">Йӧра</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">Кораҥдаш</string>
   <string name="reading_lists_preview_save_button">Аралаш</string>
-  <string name="reading_lists_preview_save_dialog_title">Спискым аралаш</string>
+  <string name="reading_lists_preview_save_dialog_title" fuzzy="true">Спискым аралаш</string>
   <string name="reading_lists_preview_save_dialog_title_hint">Вуймут</string>
   <string name="reading_lists_preview_save_dialog_cancel">Чараш</string>
   <string name="reading_lists_preview_save_dialog_save">Аралаш</string>
