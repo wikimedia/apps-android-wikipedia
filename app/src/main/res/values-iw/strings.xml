@@ -43,7 +43,7 @@
   <string name="search_back_button_content_description">חזרה</string>
   <string name="search_clear_query_content_description">ניקוי שאילתה</string>
   <string name="search_icon_content_description">חיפוש</string>
-  <string name="filter_hint_filter_my_lists_and_articles">לסנן את הרשימות שלי</string>
+  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">לסנן את הרשימות שלי</string>
   <string name="nav_item_suggested_edits">עריכות</string>
   <string name="nav_item_activity">פעילות</string>
   <string name="nav_item_more">עוד</string>
@@ -114,16 +114,16 @@
   <string name="menu_page_watched">במעקב</string>
   <string name="edit_section_find_in_page">למצוא בדף</string>
   <string name="menu_page_font_and_theme">גופן וערכת נושא</string>
-  <string name="menu_page_add_to_list">הוספה לרשימת הקריאה</string>
+  <string name="menu_page_add_to_list" fuzzy="true">הוספה לרשימת הקריאה</string>
   <string name="menu_page_add_to_default_list">שמירה</string>
-  <string name="feed_card_add_to_list">הוספה לרשימת קריאה</string>
+  <string name="feed_card_add_to_list" fuzzy="true">הוספה לרשימת קריאה</string>
   <string name="feed_card_add_to_default_list">שמירה</string>
   <string name="menu_page_share">שיתוף קישור</string>
   <string name="menu_article_share">שיתוף ערך</string>
   <string name="menu_page_article_share">לשתף</string>
   <string name="menu_page_open_a_new_tab">פתיחת לשונית חדשה</string>
   <string name="menu_page_new_tab">לשונית חדשה</string>
-  <string name="menu_page_reading_lists">רשימות קריאה</string>
+  <string name="menu_page_reading_lists" fuzzy="true">רשימות קריאה</string>
   <string name="menu_page_recently_viewed">הוצגו לאחרונה</string>
   <string name="menu_page_archive">ארכיון</string>
   <string name="menu_long_press_open_page">פתיחה</string>
@@ -166,7 +166,7 @@
   <string name="menu_show_toc">תוכן עניינים</string>
   <string name="search_no_results_found">אין תוצאות</string>
   <string name="search_reading_list_no_results">לא נמצאו תוצרות ב\"%s\"</string>
-  <string name="search_reading_lists_no_results">לא נמצאו תוצאות ברשימות קריאה</string>
+  <string name="search_reading_lists_no_results" fuzzy="true">לא נמצאו תוצאות ברשימות קריאה</string>
   <string name="search_history_no_results">לא נמצאו תוצאות בהיסטוריה</string>
   <string name="edit_section_captcha_message">כדי לסייע בהגנה מפני ספאם, הזינו את המילים המופיעות להלן</string>
   <string name="edit_section_captcha_request_an_account_message">לא רואים את התמונה? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;בקשו חשבון&lt;/a&gt;</string>
@@ -246,12 +246,12 @@
   <string name="preferences_heading_syncing">סנכרון</string>
   <string name="preferences_heading_data_usage">שימוש בנתונים</string>
   <string name="preferences_heading_experimental">ניסיוני</string>
-  <string name="preference_title_sync_reading_lists_from_account">סנכרון רשימות קריאה</string>
-  <string name="preference_title_download_reading_list_articles">להוריד למכשיר ערכים מרשימת הקריאה</string>
-  <string name="preference_summary_sync_reading_lists">סנכרון רשימות קריאה במכשירים שונים באמצעות שמירתם לחשבון הוויקיפדיה שלך</string>
-  <string name="preference_summary_sync_reading_lists_from_account">סנכרון רשימות קריאה במכשירים שונים באמצעות שמירתם לחשבון הוויקיפדיה שלך \"%s\"</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">להסיר את רשימות הקריאה המסונכרנות שלך מהחשבון \"%s\"?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">זה ימחק לגמריאת כל רשימות הקריאה שסונכרנו בעבר מאחסון מרוחק. להסיר את כל הרשימות המסונכרנות מהחשבון שלך \"%s\"?</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">סנכרון רשימות קריאה</string>
+  <string name="preference_title_download_reading_list_articles" fuzzy="true">להוריד למכשיר ערכים מרשימת הקריאה</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">סנכרון רשימות קריאה במכשירים שונים באמצעות שמירתם לחשבון הוויקיפדיה שלך</string>
+  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">סנכרון רשימות קריאה במכשירים שונים באמצעות שמירתם לחשבון הוויקיפדיה שלך \"%s\"</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">להסיר את רשימות הקריאה המסונכרנות שלך מהחשבון \"%s\"?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">זה ימחק לגמריאת כל רשימות הקריאה שסונכרנו בעבר מאחסון מרוחק. להסיר את כל הרשימות המסונכרנות מהחשבון שלך \"%s\"?</string>
   <string name="preference_title_auto_upload_crash_reports">לשלוח דיווחי קריסה</string>
   <string name="preference_summary_auto_upload_crash_reports">לאפשר ליישום לשלוח דיווחי קריסה לספק שירות צד־שלישי באופן אוטומטי כדי שנוכל לסקור את הקריסה שלך ולתקן את הבאג יותר במהירות ובקלות.</string>
   <string name="editing_error_spamblacklist">יש כאן קישורים למתחמים חסומים (%s). נא להסיר אותם ולנסות שוב.</string>
@@ -396,8 +396,8 @@
   <string name="unnamed_tab_closed">הלשונית נסגרה.</string>
   <string name="tab_item_closed">הלשונית %s נסגרה.</string>
   <string name="all_tab_items_closed">כל הלשוניות סגורות.</string>
-  <string name="tool_tip_bookmark_icon_title">הוספה לרשימת הקריאה</string>
-  <string name="tool_tip_bookmark_icon_text">נא ללחוץ על כפתור הסימנייה כדי לשמור את הערך  לרשימת הקריאה.</string>
+  <string name="tool_tip_bookmark_icon_title" fuzzy="true">הוספה לרשימת הקריאה</string>
+  <string name="tool_tip_bookmark_icon_text" fuzzy="true">נא ללחוץ על כפתור הסימנייה כדי לשמור את הערך  לרשימת הקריאה.</string>
   <string name="page_view_in_browser">להציג את הדף בדפדפן</string>
   <string name="tool_tip_toc_title">גישה מהירה לתוכן העניינים</string>
   <string name="tool_tip_toc_text">עכשיו אפשר להחליק ימינה כדי לפתוח את תוכן העניינים, וגם ללחוץ ולגרור על כפתור הגלילה כדי לדלג מהר לחלקים השונים של הערך.</string>
@@ -410,9 +410,9 @@
   <string name="button_continue_to_talk_page">לפתוח את דף השיחה</string>
   <string name="button_continue_to_disambiguation">הצגת דפים דומים</string>
   <string name="link_preview_disambiguation_description">הכותרת מתייחסת ליותר מדף אחד:</string>
-  <string name="button_add_to_reading_list">הוספה לרשימת קריאה</string>
+  <string name="button_add_to_reading_list" fuzzy="true">הוספה לרשימת קריאה</string>
   <string name="page_offline_notice_cannot_load_while_offline">אי־אפשר לטעון ערך ללא חיבור לרשת.</string>
-  <string name="page_offline_notice_add_to_reading_list">רמז: הוסף את הערך לרשימת הקריאה, והוא יוּרד כששוב יהיה חיבור לרשת.</string>
+  <string name="page_offline_notice_add_to_reading_list" fuzzy="true">רמז: הוסף את הערך לרשימת הקריאה, והוא יוּרד כששוב יהיה חיבור לרשת.</string>
   <string name="page_offline_notice_last_date">זאת גרסה לקריאה ללא חיבור לרשת של הערך הזה, שנשמרה ב־%s.</string>
   <string name="redirected_from_snackbar">הופנה מהדף \"%s\"</string>
   <string name="button_get_directions">לקבל כיוונים</string>
@@ -527,17 +527,17 @@
   <string name="editing_monospace_font_label">להשתמש בגופן ברוחב אחיד</string>
   <string name="editing_typing_suggestions">הצגת הצעות הקלדה</string>
   <string name="nav_item_saved">שמורים</string>
-  <string name="reading_list_save_to">לשמור לרשימת קריאה</string>
-  <string name="reading_list_move_to">העברה לרשימת קריאה</string>
+  <string name="reading_list_save_to" fuzzy="true">לשמור לרשימת קריאה</string>
+  <string name="reading_list_move_to" fuzzy="true">העברה לרשימת קריאה</string>
   <string name="reading_list_create_new">ליצור חדשה</string>
-  <string name="reading_list_title_exists">רשימת הקריאה \"%s\" כבר קיימת.</string>
+  <string name="reading_list_title_exists" fuzzy="true">רשימת הקריאה \"%s\" כבר קיימת.</string>
   <string name="reading_list_article_added_to_named">הערך %1$s נוסף לרשימה %2$s.</string>
-  <string name="reading_list_article_added_to_default_list">הערך %s נשמר. האם להוסיף אותו לרשימה?</string>
+  <string name="reading_list_article_added_to_default_list" fuzzy="true">הערך %s נשמר. האם להוסיף אותו לרשימה?</string>
   <string name="reading_list_article_moved_to_named">הערך %1$s הועבר לרשימה %2$s.</string>
   <string name="reading_list_article_already_exists_message">הכול טוב! הרשימה %1$s כבר מכילה את הערך %2$s.</string>
   <string name="reading_list_articles_already_exist_message">הכול טוב! הרשימה %s כבר מכילה את כל הערכים.</string>
-  <string name="reading_list_added_view_button">הצגת הרשימה</string>
-  <string name="reading_list_add_to_list_button">הוספה לרשימה</string>
+  <string name="reading_list_added_view_button" fuzzy="true">הצגת הרשימה</string>
+  <string name="reading_list_add_to_list_button" fuzzy="true">הוספה לרשימה</string>
   <plurals name="format_reading_list_statistical_summary_without_size">
     <item quantity="one">ערך אחד</item>
     <item quantity="two">%d ערכים</item>
@@ -570,24 +570,24 @@
   <string name="reading_list_sort_by_recent_desc">מיון לפי מועד ההוספה (הישן ביותר)</string>
   <string name="reading_list_sort_by_created">מיון לפי מועד היצירה (החדש ביותר)</string>
   <string name="reading_list_sort_by_created_desc">מיון לפי מועד היצירה (הישן ביותר)</string>
-  <string name="reading_list_menu_delete">מחיקת רשימה</string>
-  <string name="reading_list_menu_export">יצוא רשימה</string>
+  <string name="reading_list_menu_delete" fuzzy="true">מחיקת רשימה</string>
+  <string name="reading_list_menu_export" fuzzy="true">יצוא רשימה</string>
   <string name="reading_list_menu_select">בחירה</string>
   <string name="reading_list_menu_unselect">ביטול בחירה</string>
-  <string name="reading_list_export_write_permission_rationale">הרשאה לכתוב לאחסון במכשיר שלך דרושה ליצוא רשימת הקריאה שלך.</string>
+  <string name="reading_list_export_write_permission_rationale" fuzzy="true">הרשאה לכתוב לאחסון במכשיר שלך דרושה ליצוא רשימת הקריאה שלך.</string>
   <string name="reading_list_menu_rename">שינוי שם/תיאור</string>
   <string name="reading_list_action_menu_remove_from_offline">הסרה מקריאה ללא חיבור לרשת</string>
   <string name="reading_list_action_menu_save_for_offline">שמירה לקריאה ללא חיבור לרשת</string>
   <string name="reading_list_action_menu_remove_all_from_offline">להסיר הכול מקריאה לא מקוונת</string>
   <string name="reading_list_action_menu_save_all_for_offline">לשמור הכול לקריאה לא מקוונת</string>
-  <string name="reading_list_action_menu_add_to_another_list">הוספה לרשימה אחרת</string>
-  <string name="reading_list_action_menu_move_to_another_list">העברה לרשימה אחרת</string>
-  <string name="reading_list_name_sample">רשימת הקריאה שלי</string>
-  <string name="reading_list_name_hint">שם הרשימה הזאת</string>
+  <string name="reading_list_action_menu_add_to_another_list" fuzzy="true">הוספה לרשימה אחרת</string>
+  <string name="reading_list_action_menu_move_to_another_list" fuzzy="true">העברה לרשימה אחרת</string>
+  <string name="reading_list_name_sample" fuzzy="true">רשימת הקריאה שלי</string>
+  <string name="reading_list_name_hint" fuzzy="true">שם הרשימה הזאת</string>
   <string name="reading_list_description_hint">תיאור (לא חובה)</string>
-  <string name="reading_list_item_deleted">%s הוסר מהרשימה</string>
+  <string name="reading_list_item_deleted" fuzzy="true">%s הוסר מהרשימה</string>
   <string name="reading_list_item_deleted_from_list">הערך %1$s הוסר מהרשימה %2$s</string>
-  <plurals name="reading_list_articles_deleted">
+  <plurals name="reading_list_articles_deleted" fuzzy="true">
     <item quantity="one">ערך אחד הוסר מהרשימה</item>
     <item quantity="two">%d ערכים הוסרו מהרשימה</item>
     <item quantity="many">%d ערכים הוסרו מהרשימה</item>
@@ -599,41 +599,41 @@
     <item quantity="many">%1$d ערכים הוסרו מהרשימה %2$s</item>
     <item quantity="other">%1$d ערכים הוסרו מהרשימה %2$s</item>
   </plurals>
-  <plurals name="reading_lists_deleted_message">
+  <plurals name="reading_lists_deleted_message" fuzzy="true">
     <item quantity="one">נמחקה רשימה אחת</item>
     <item quantity="two">נמחקו %d רשימות</item>
     <item quantity="many">נמחקו %d רשימות</item>
     <item quantity="other">נמחקו %d רשימות</item>
   </plurals>
-  <string name="reading_lists_default_list_delete_message">לא ניתן למחוק את הרשימה ההתחלתית (%s).</string>
-  <string name="reading_lists_default_plus_one_list_delete_message">%1$s נמחקה. לא ניתן למחוק את הרשימה ההתחלתית (%2$s).</string>
-  <string name="reading_lists_default_plus_many_lists_delete_message">רשימות נמחקו. לא ניתן למחוק את הרשימה ההתחלתית (%s).</string>
-  <string name="single_list_json_file_name">%s (רשימת קריאה של ויקיפדיה).json</string>
-  <string name="multiple_lists_json_file_name">רשימות קריאה של ויקיפדיה (%s ועוד).json</string>
-  <string name="reading_list_items_deleted">%d ערכים הוסרו מהרשימה</string>
-  <string name="reading_lists_item_deleted">%s הוסר מהרשימות</string>
+  <string name="reading_lists_default_list_delete_message" fuzzy="true">לא ניתן למחוק את הרשימה ההתחלתית (%s).</string>
+  <string name="reading_lists_default_plus_one_list_delete_message" fuzzy="true">%1$s נמחקה. לא ניתן למחוק את הרשימה ההתחלתית (%2$s).</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message" fuzzy="true">רשימות נמחקו. לא ניתן למחוק את הרשימה ההתחלתית (%s).</string>
+  <string name="single_list_json_file_name" fuzzy="true">%s (רשימת קריאה של ויקיפדיה).json</string>
+  <string name="multiple_lists_json_file_name" fuzzy="true">רשימות קריאה של ויקיפדיה (%s ועוד).json</string>
+  <string name="reading_list_items_deleted" fuzzy="true">%d ערכים הוסרו מהרשימה</string>
+  <string name="reading_lists_item_deleted" fuzzy="true">%s הוסר מהרשימות</string>
   <string name="reading_list_item_delete_undo">ביטול</string>
   <string name="reading_list_deleted">%s נמחק</string>
   <string name="saved_list_empty_title" fuzzy="true">אין עדיין רשימות קריאה</string>
-  <string name="reading_lists_empty_message">הוסיפו ערכים לרשימה לקריאה מאוחר יותר כשאין לכם רשת.</string>
-  <string name="reading_list_empty">אין לך ערכים להוסיף לרשימה הזאת.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">הוסיפו ערכים לרשימה לקריאה מאוחר יותר כשאין לכם רשת.</string>
+  <string name="reading_list_empty" fuzzy="true">אין לך ערכים להוסיף לרשימה הזאת.</string>
   <string name="reading_list_article_offline">זמין ללא חיבור לרשת</string>
   <string name="reading_list_article_make_offline">לגרום לערך הזה להיות זמין ללא חיבור לרשת</string>
-  <string name="reading_list_add_to_other_list">הוספה לרשימת קריאה אחרת</string>
-  <string name="reading_list_move_to_other_list">העברה לרשימת קריאה אחרת</string>
-  <string name="reading_list_move_from_to_other_list">העברה מרשימת הקריאה %s לרשימת קריאה אחרת</string>
+  <string name="reading_list_add_to_other_list" fuzzy="true">הוספה לרשימת קריאה אחרת</string>
+  <string name="reading_list_move_to_other_list" fuzzy="true">העברה לרשימת קריאה אחרת</string>
+  <string name="reading_list_move_from_to_other_list" fuzzy="true">העברה מרשימת הקריאה %s לרשימת קריאה אחרת</string>
   <string name="reading_list_remove_from_list">הסרה מהרשימה %s</string>
-  <string name="reading_list_remove_from_lists">הסרה מרשימות קריאה</string>
+  <string name="reading_list_remove_from_lists" fuzzy="true">הסרה מרשימות קריאה</string>
   <string name="reading_list_select_item">בחירה</string>
   <string name="reading_list_confirm_remove_article_from_offline">הסרה מקריאה ללא חיבור לרשת</string>
-  <string name="reading_list_confirm_remove_article_from_offline_title">הערך מופיע בכמה רשימות</string>
-  <string name="reading_list_confirm_remove_article_from_offline_message">הערך %s לא יהיה זמין מחוץ לרשת בכל רשימות הקריאה:</string>
-  <string name="reading_lists_sync_reminder_title">להפעיל סנכרון רשימות קריאה?</string>
-  <string name="reading_lists_sync_reminder_text">עכשיו אפשר לסנכרן ערכים שנשמרו לרשימות קריאה לחשבון הוויקיפדיה שלך. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;מידע נוסף&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">אפשר לסנכרן רשימות קריאה במכשירים שונים. יש להיכנס לחשבון הוויקיפדיה שלך ולאפשר לרשימת להישמר. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;מידע נוסף&lt;/a&gt;</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title" fuzzy="true">הערך מופיע בכמה רשימות</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">הערך %s לא יהיה זמין מחוץ לרשת בכל רשימות הקריאה:</string>
+  <string name="reading_lists_sync_reminder_title" fuzzy="true">להפעיל סנכרון רשימות קריאה?</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">עכשיו אפשר לסנכרן ערכים שנשמרו לרשימות קריאה לחשבון הוויקיפדיה שלך. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;מידע נוסף&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">אפשר לסנכרן רשימות קריאה במכשירים שונים. יש להיכנס לחשבון הוויקיפדיה שלך ולאפשר לרשימת להישמר. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;מידע נוסף&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">הפעלת סנכרון</string>
-  <string name="reading_list_login_reminder_title">סנכרון רשימות קריאה</string>
-  <string name="reading_lists_login_reminder_text">עכשיו אפשר לסנכרן רשימות קריאה במכשירים שונים. נא להיכנס לחשבון הוויקיפדיה שלך ולאפשר את שמירת רשימות הקריאה שלך.</string>
+  <string name="reading_list_login_reminder_title" fuzzy="true">סנכרון רשימות קריאה</string>
+  <string name="reading_lists_login_reminder_text" fuzzy="true">עכשיו אפשר לסנכרן רשימות קריאה במכשירים שונים. נא להיכנס לחשבון הוויקיפדיה שלך ולאפשר את שמירת רשימות הקריאה שלך.</string>
   <string name="reading_lists_login_button">כניסה / הצטרפות לוויקיפדיה</string>
   <string name="reading_lists_ignore_button">לא כעת</string>
   <string name="reading_lists_confirm_remote_delete_yes">כן</string>
@@ -642,37 +642,37 @@
   <string name="reading_list_articles_added_to_named">נוספו %1$d ערכים לרשימה %2$s</string>
   <string name="reading_list_articles_moved_to_named">הועברו %1$d ערכים לרשימה %2$s</string>
   <string name="reading_list_delete_confirm">למחוק את %s?</string>
-  <string name="reading_list_delete_lists_confirm_dialog_title">למחוק את הרשימות שנבחרו?</string>
-  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+  <string name="reading_list_delete_lists_confirm_dialog_title" fuzzy="true">למחוק את הרשימות שנבחרו?</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message" fuzzy="true">
     <item quantity="one">האם ברצונך באמת למחוק את הרשימה %d</item>
     <item quantity="two">האם ברצונך באמת למחוק את הרשימות %d</item>
     <item quantity="many">האם ברצונך באמת למחוק את הרשימות %d</item>
     <item quantity="other">האם ברצונך באמת למחוק את הרשימות %d</item>
   </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">נא להיכנס לשם הפעלת הסנכרון</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_text">נא להיכנס כדי לאפשר את השמירה של רשימות הקריאה שלך לחשבון שלך.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text" fuzzy="true">נא להיכנס כדי לאפשר את השמירה של רשימות הקריאה שלך לחשבון שלך.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">ביטול</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">כניסה לחשבון</string>
-  <string name="reading_list_turned_sync_off_dialog_title">סנכרון רשימות הקריאה כובה</string>
-  <string name="reading_list_turned_sync_off_dialog_text">סנכרון רשימות הקריאה כבוי בשביל החשבון שלך, וערכים שמורים במכשירים שנכנסת בהם לחשבון לא מגובים יותר. אפשר להפעיל את סנכרון רשימות הקריאה בהגדרות.</string>
+  <string name="reading_list_turned_sync_off_dialog_title" fuzzy="true">סנכרון רשימות הקריאה כובה</string>
+  <string name="reading_list_turned_sync_off_dialog_text" fuzzy="true">סנכרון רשימות הקריאה כבוי בשביל החשבון שלך, וערכים שמורים במכשירים שנכנסת בהם לחשבון לא מגובים יותר. אפשר להפעיל את סנכרון רשימות הקריאה בהגדרות.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">אישור</string>
   <string name="reading_list_turned_sync_off_dialog_settings">הגדרות</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_title">להפעיל את סנכרון רשימות הקריאה?</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_text">עכשיו אפשר לסנכרן רשימות קריאה בחשבון הוויקיפדיה שלך. &lt;a href=\"#faq\"&gt;מידע נוסף&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title" fuzzy="true">להפעיל את סנכרון רשימות הקריאה?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text" fuzzy="true">עכשיו אפשר לסנכרן רשימות קריאה בחשבון הוויקיפדיה שלך. &lt;a href=\"#faq\"&gt;מידע נוסף&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">אל תראו לי את זה שוב</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">הפעלת סנכרון</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">לא, תודה</string>
   <string name="default_reading_list_name">שמורים</string>
-  <string name="default_reading_list_description">ברירת מחדל לערכים השמורים שלך</string>
-  <string name="no_user_lists_title">ארגנו ערכים לרשימות</string>
-  <string name="no_user_lists_msg">צרו רשימות למקומות שביקרתם בהם, נושאים שאתם אוהבים, ועוד</string>
+  <string name="default_reading_list_description" fuzzy="true">ברירת מחדל לערכים השמורים שלך</string>
+  <string name="no_user_lists_title" fuzzy="true">ארגנו ערכים לרשימות</string>
+  <string name="no_user_lists_msg" fuzzy="true">צרו רשימות למקומות שביקרתם בהם, נושאים שאתם אוהבים, ועוד</string>
   <string name="reading_list_saved_list_rename">%1$s (נוצרה על־ידי המשתמש)</string>
-  <string name="split_reading_list_message">יש מגבלה של %d ערכים לרשימת קריאה. רשימות קיימות שחורגות מהמגבלה הזאת פוצלו לרשימות מרובות.</string>
-  <string name="reading_list_move_article_limit_message">אי־אפשר להעביר לרשימה הזאת. הגעת למגבלה של %2$d ערכים ברשימה \"%1$s\".</string>
-  <string name="reading_list_article_limit_message">אי־אפשר להוסיף לרשימה הזאת. הגעת למגבלה של %2$d ערכים ברשימה \"%1$s\".</string>
-  <string name="reading_lists_limit_message">לא ניתן ליצור עוד רשימה. הגעת למגבלה של 100 רשימות קריאה לחשבון.</string>
-  <string name="reading_lists_menu_create_list">יצירת רשימה חדשה</string>
-  <string name="reading_lists_menu_import_list">יבוא רשימה</string>
+  <string name="split_reading_list_message" fuzzy="true">יש מגבלה של %d ערכים לרשימת קריאה. רשימות קיימות שחורגות מהמגבלה הזאת פוצלו לרשימות מרובות.</string>
+  <string name="reading_list_move_article_limit_message" fuzzy="true">אי־אפשר להעביר לרשימה הזאת. הגעת למגבלה של %2$d ערכים ברשימה \"%1$s\".</string>
+  <string name="reading_list_article_limit_message" fuzzy="true">אי־אפשר להוסיף לרשימה הזאת. הגעת למגבלה של %2$d ערכים ברשימה \"%1$s\".</string>
+  <string name="reading_lists_limit_message" fuzzy="true">לא ניתן ליצור עוד רשימה. הגעת למגבלה של 100 רשימות קריאה לחשבון.</string>
+  <string name="reading_lists_menu_create_list" fuzzy="true">יצירת רשימה חדשה</string>
+  <string name="reading_lists_menu_import_list" fuzzy="true">יבוא רשימה</string>
   <string name="reading_lists_menu_sort_by">מיון לפי</string>
   <string name="reading_lists_refresh_sync_option">רענון סנכרון</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">כניסה / הרשמה לחשבון</string>
@@ -688,7 +688,7 @@
     <item quantity="many">הערכים האלה לא יהיו עוד זמינים ללא חיבור לרשת.</item>
     <item quantity="other">הערכים האלה לא יהיו עוד זמינים ללא חיבור לרשת.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">רשימות הקריאה סונכרנו</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">רשימות הקריאה סונכרנו</string>
   <string name="reading_list_menu_last_sync">סנכרון אחרון: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">אישור</string>
   <string name="reading_list_delete_dialog_ok_button_text">אישור</string>
@@ -698,35 +698,35 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">ביטול</string>
   <string name="reading_list_split_dialog_ok_button_text">אישור</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">מחיקה</string>
-  <string name="reading_list_activity_title">רשימת קריאה: %s</string>
-  <string name="reading_list_notification_title">רשימות קריאה יוצאו</string>
-  <string name="reading_list_notification_text">%d רשימות קריאה יוצאו בתור \'reading_lists export.json\' לתיקיית ההורדות שלך</string>
-  <string name="reading_list_notification_detailed_text">רשימות קריאה יוצאו אל \'reading_lists_export.json\'</string>
+  <string name="reading_list_activity_title" fuzzy="true">רשימת קריאה: %s</string>
+  <string name="reading_list_notification_title" fuzzy="true">רשימות קריאה יוצאו</string>
+  <string name="reading_list_notification_text" fuzzy="true">%d רשימות קריאה יוצאו בתור \'reading_lists export.json\' לתיקיית ההורדות שלך</string>
+  <string name="reading_list_notification_detailed_text" fuzzy="true">רשימות קריאה יוצאו אל \'reading_lists_export.json\'</string>
   <string name="reading_lists_action_menu_export_lists">יצוא</string>
   <string name="reading_lists_import_file_picker_title">בחירת קובץ ליבוא</string>
-  <string name="reading_lists_import_failure_message">יבוא רשימות הקריאה נכשל</string>
-  <string name="reading_lists_export_select_lists_message">נא לבחור רשימות ליצוא</string>
-  <string name="reading_lists_export_completed_message">רשימות הקריאה יוצאו</string>
-  <plurals name="reading_list_export_failed_message">
+  <string name="reading_lists_import_failure_message" fuzzy="true">יבוא רשימות הקריאה נכשל</string>
+  <string name="reading_lists_export_select_lists_message" fuzzy="true">נא לבחור רשימות ליצוא</string>
+  <string name="reading_lists_export_completed_message" fuzzy="true">רשימות הקריאה יוצאו</string>
+  <plurals name="reading_list_export_failed_message" fuzzy="true">
     <item quantity="one">יצוא רשימת הקריאה נכשל</item>
     <item quantity="two">יצוא רשימות הקריאה נכשל</item>
     <item quantity="many">יצוא רשימות הקריאה נכשל</item>
     <item quantity="other">יצוא רשימות הקריאה נכשל</item>
   </plurals>
-  <plurals name="reading_list_import_success_message">
+  <plurals name="reading_list_import_success_message" fuzzy="true">
     <item quantity="one">רשימת הקריאה יובאה</item>
     <item quantity="two">רשימות הקריאה יובאו</item>
     <item quantity="many">רשימות הקריאה יובאו</item>
     <item quantity="other">רשימות הקריאה יובאו</item>
   </plurals>
-  <string name="reading_lists_preview_header_title">רשימה ששותפה</string>
+  <string name="reading_lists_preview_header_title" fuzzy="true">רשימה ששותפה</string>
   <string name="reading_lists_preview_save_button">שמירה</string>
-  <string name="reading_lists_preview_save_dialog_title">שמירת רשימה</string>
-  <string name="reading_lists_preview_save_dialog_text">נא לתת לרשימה שם ולבחור אילו ערכים לשמור.</string>
+  <string name="reading_lists_preview_save_dialog_title" fuzzy="true">שמירת רשימה</string>
+  <string name="reading_lists_preview_save_dialog_text" fuzzy="true">נא לתת לרשימה שם ולבחור אילו ערכים לשמור.</string>
   <string name="reading_lists_preview_save_dialog_title_hint">כותרת</string>
   <string name="reading_lists_preview_save_dialog_cancel">ביטול</string>
   <string name="reading_lists_preview_save_dialog_save">שמירה</string>
-  <string name="reading_lists_preview_saved_snackbar">רשימת הקריאה נשמרה</string>
+  <string name="reading_lists_preview_saved_snackbar" fuzzy="true">רשימת הקריאה נשמרה</string>
   <string name="reading_lists_preview_saved_snackbar_action">הצגה</string>
   <string name="user_option_sync_label">העדפות</string>
   <string name="notification_reverted_title">עריכה משוחזרת</string>
@@ -735,8 +735,8 @@
   <string name="notification_syncing_pause_button">השהיה</string>
   <string name="notification_syncing_resume_button">המשך</string>
   <string name="notification_syncing_cancel_button">ביטול</string>
-  <string name="notification_syncing_reading_list_channel_title">מתבצע סנכרון רשימות קריאה</string>
-  <string name="notification_syncing_reading_list_channel_description">התקדמות סנכרון רשימות קריאה</string>
+  <string name="notification_syncing_reading_list_channel_title" fuzzy="true">מתבצע סנכרון רשימות קריאה</string>
+  <string name="notification_syncing_reading_list_channel_description" fuzzy="true">התקדמות סנכרון רשימות קריאה</string>
   <string name="notification_many_unread">יש לך %d התראות שלא נקראו</string>
   <plurals name="notification_channel_name">
     <item quantity="one">מתבצעת הורדה של ערך</item>
@@ -756,19 +756,19 @@
     <item quantity="many">נשארו %1$d ערכים</item>
     <item quantity="other">נשארו %1$d ערכים</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_channel_name">
+  <plurals name="notification_syncing_reading_list_channel_name" fuzzy="true">
     <item quantity="one">סנכרון רשימת קריאה</item>
     <item quantity="two">סנכרון רשימות קריאה</item>
     <item quantity="many">סנכרון רשימות קריאה</item>
     <item quantity="other">סנכרון רשימות קריאה</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_title">
+  <plurals name="notification_syncing_reading_list_title" fuzzy="true">
     <item quantity="one">מתבצע סנכרון של רשימה אחת…</item>
     <item quantity="two">מתבצע סנכרון של %1$d רשימות…</item>
     <item quantity="many">מתבצע סנכרון של %1$d רשימות…</item>
     <item quantity="other">מתבצע סנכרון של %1$d רשימות…</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_description">
+  <plurals name="notification_syncing_reading_list_description" fuzzy="true">
     <item quantity="one">נשארה רשימה אחת</item>
     <item quantity="two">נשארו %1$d רשימות</item>
     <item quantity="many">נשארו %1$d רשימות</item>
@@ -1358,8 +1358,8 @@
   <string name="onboarding_maybe_later">אולי מאוחר יותר</string>
   <string name="onboarding_explore_title">דרכים חדשות לחקור</string>
   <string name="onboarding_explore_text" fuzzy="true">תצללו לוויקיפדיה עם ההזנה המתעדכנת שלנו: \"לחקור\". &lt;br/&gt; תתאימו את ההזנה למה שמעניין אתכם – תלמדו על מה שקרה &lt;b&gt;היום בהיסטוריה&lt;/b&gt;, או תפתחו משהו &lt;b&gt;אקראי&lt;/b&gt;.</string>
-  <string name="onboarding_reading_list_sync_title">רשימת קריאה עם סנכרון</string>
-  <string name="onboarding_reading_list_sync_text_v2">אפשר ליצור רשימות קריאה מערכים שברצונך לקרוא מאוחר יותר, גם ללא חיבור לרשת. &lt;br/&gt;יש להיכנס לחשבון הוויקיפדיה שלך כדי לסנכרן את רשימות הקריאה שלך &lt;a href=\"#login\"&gt;הצטרפות לוויקיפדיה&lt;/a&gt;</string>
+  <string name="onboarding_reading_list_sync_title" fuzzy="true">רשימת קריאה עם סנכרון</string>
+  <string name="onboarding_reading_list_sync_text_v2" fuzzy="true">אפשר ליצור רשימות קריאה מערכים שברצונך לקרוא מאוחר יותר, גם ללא חיבור לרשת. &lt;br/&gt;יש להיכנס לחשבון הוויקיפדיה שלך כדי לסנכרן את רשימות הקריאה שלך &lt;a href=\"#login\"&gt;הצטרפות לוויקיפדיה&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">נתונים ופרטיות</string>
   <string name="onboarding_data_privacy_text" fuzzy="true">אנו מאמינים בכך שלא צריך לחייב אותך לספק מידע אישי כדי להשתתף בתנועת הידע החופשי. נתוני השימוש שנאספו עבור היישום הזה הם אלמוניים. אפשר לקבל מידע נוסף על &lt;a href=\"#privacy\"&gt;מדיניות הפרטיות&lt;/a&gt; ועל &lt;a href=\"#termsOfUse\"&gt;תנאי השימוש&lt;/a&gt; שלנו.</string>
   <string name="onboarding_analytics_switch_title">שליחת נתוני שימוש</string>
@@ -1697,16 +1697,16 @@
   <string name="user_contrib_filter_activity_title">סינון תרומות</string>
   <string name="action_item_view_on_map">הצגה על מפה</string>
   <string name="action_item_view_on_map_unavailable">נקודות ציון גאוגרפיות אינן זמינות עבור הדף הזה</string>
-  <string name="shareable_reading_lists_import_dialog_title">יבוא רשימת קריאה משותפת</string>
-  <string name="shareable_reading_lists_import_dialog_content">איזה שם ברצונך לתת לרשימה ששותפה איתך?</string>
+  <string name="shareable_reading_lists_import_dialog_title" fuzzy="true">יבוא רשימת קריאה משותפת</string>
+  <string name="shareable_reading_lists_import_dialog_content" fuzzy="true">איזה שם ברצונך לתת לרשימה ששותפה איתך?</string>
   <string name="shareable_reading_lists_new_indicator">*חדשה*</string>
-  <string name="shareable_reading_lists_new_install_dialog_title">רשימת קריאה שותפה איתך</string>
-  <string name="shareable_reading_lists_new_install_dialog_content">שמנו לב שרשימת קריאה שותפה איתך. כדי להציג את הרשימה הזאת ביישום, נא לחזור להודעה המקורית ולהקיש שוב על הקישור.</string>
+  <string name="shareable_reading_lists_new_install_dialog_title" fuzzy="true">רשימת קריאה שותפה איתך</string>
+  <string name="shareable_reading_lists_new_install_dialog_content" fuzzy="true">שמנו לב שרשימת קריאה שותפה איתך. כדי להציג את הרשימה הזאת ביישום, נא לחזור להודעה המקורית ולהקיש שוב על הקישור.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">הבנתי</string>
-  <string name="shareable_reading_lists_new_imported_snackbar">רשימת הקריאה יובאה</string>
+  <string name="shareable_reading_lists_new_imported_snackbar" fuzzy="true">רשימת הקריאה יובאה</string>
   <string name="reading_list_share_menu_label">שיתוף...</string>
-  <string name="reading_list_share_menu_tooltip">שיתוף רשימת הקריאה הזאת עם אחרים</string>
-  <string name="reading_list_share_message_v2">שלום! אני רוצה לשתף את רשימת הקריאה שלי בוויקיפדיה איתך:</string>
+  <string name="reading_list_share_menu_tooltip" fuzzy="true">שיתוף רשימת הקריאה הזאת עם אחרים</string>
+  <string name="reading_list_share_message_v2" fuzzy="true">שלום! אני רוצה לשתף את רשימת הקריאה שלי בוויקיפדיה איתך:</string>
   <string name="talk_templates_empty_message">באפשרותך ליצור הודעות משלך או להשתמש ב&lt;a href=\"#\"&gt;הודעות לדוגמה&lt;/a&gt; כדי להתחיל.</string>
   <string name="talk_templates_new_message_title">הודעה חדשה</string>
   <string name="talk_templates_new_message_subject_hint">נושא</string>
@@ -1996,8 +1996,8 @@
   <string name="year_in_review_get_started_later">אפשר לגשת לסקירת השנה שלך מאוחר יותר בתפריט \"עוד\".</string>
   <string name="year_in_review_survey_title">נא לעזור לנו לשפר את הסקירה השנתית</string>
   <string name="year_in_review_survey_subtitle">מרוצה מהתכונה הזאת?</string>
-  <string name="year_in_review_reading_list_survey_title">נא לעזור לנו לשפר את רשימת הקריאה של הסקירה השנתית ל־%d.</string>
-  <string name="year_in_review_reading_list_survey_subtitle">מרוצה מרשימת הקריאה שלך?</string>
+  <string name="year_in_review_reading_list_survey_title" fuzzy="true">נא לעזור לנו לשפר את רשימת הקריאה של הסקירה השנתית ל־%d.</string>
+  <string name="year_in_review_reading_list_survey_subtitle" fuzzy="true">מרוצה מרשימת הקריאה שלך?</string>
   <string name="year_in_review_survey_very_satisfied">מרוצה מאוד</string>
   <string name="year_in_review_survey_satisfied">מרוצה</string>
   <string name="year_in_review_survey_neutral">אין דעה</string>
@@ -2058,7 +2058,7 @@
     <item quantity="many">עורכים ביצעו %,d שינויים השנה</item>
     <item quantity="other">עורכים ביצעו %,d שינויים השנה</item>
   </plurals>
-  <string name="year_in_review_slide_global_saved_articles_body">הוספת ערכים לרשימות קריאה מאפשרת לך גישה לערכים גם לא חיבור לרשת. ניתן גם להתחבר כדי לסנכרן רשימות קריאה בין מכשירים.</string>
+  <string name="year_in_review_slide_global_saved_articles_body" fuzzy="true">הוספת ערכים לרשימות קריאה מאפשרת לך גישה לערכים גם לא חיבור לרשת. ניתן גם להתחבר כדי לסנכרן רשימות קריאה בין מכשירים.</string>
   <string name="year_in_review_slide_reading_patterns_headline">יש לך דפוסי קריאה ברורים</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">הזמן האהוב לקריאה</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">היום האהוב לקריאה</string>
@@ -2070,8 +2070,8 @@
   <string name="year_in_review_slide_reading_pattern_night">לילה</string>
   <string name="year_in_review_slide_reading_pattern_late_night">חצות</string>
   <string name="year_in_review_slide_viewed_articles_times_body">עבור אנשים ברחבי העולם, ויקיפדיה היא התחנה הראשונה כשרוצים לענות על שאלה, לחפש מידע ללימודים או עבודה, או ללמוד עובדה חדשה.</string>
-  <string name="year_in_review_reading_list_dialog_title">ליצור את רשימת הקריאה שלך עבור הסקירת השנתית של %d?</string>
-  <string name="year_in_review_reading_list_dialog_message">סקירת השנה של ויקיפדיה תיצור רשימת קריאה של הערכים שבהם בילית את רוב הזמן בשנת %1$d. &lt;a href=\"%2$s\"&gt;מידע נוסף&lt;/a&gt;</string>
+  <string name="year_in_review_reading_list_dialog_title" fuzzy="true">ליצור את רשימת הקריאה שלך עבור הסקירת השנתית של %d?</string>
+  <string name="year_in_review_reading_list_dialog_message" fuzzy="true">סקירת השנה של ויקיפדיה תיצור רשימת קריאה של הערכים שבהם בילית את רוב הזמן בשנת %1$d. &lt;a href=\"%2$s\"&gt;מידע נוסף&lt;/a&gt;</string>
   <string name="year_in_review_reading_list_dialog_positive_button_label">ליצור</string>
   <string name="year_in_review_reading_list_dialog_negative_button_label">לא, תודה</string>
   <string name="year_in_review_reading_list_title">סקירה שנתית %d</string>
@@ -2108,7 +2108,7 @@
   <string name="recommended_reading_list_page_snackbar_month">חודש</string>
   <string name="recommended_reading_list_settings_section_header">המלצות</string>
   <string name="recommended_reading_list_settings_title">הגדרות \"לגלות\"</string>
-  <string name="recommended_reading_list_settings_toggle">רשימת הקריאה ב\"לגלות\"</string>
+  <string name="recommended_reading_list_settings_toggle" fuzzy="true">רשימת הקריאה ב\"לגלות\"</string>
   <string name="recommended_reading_list_settings_toggle_disable_message">האפשרות \"לגלות\" כבויה. ויקיפדיה לא תמליץ לך על ערכים לקריאה.</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_title">לכבות את \"לגלות\"?</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">לכבות את זה</string>

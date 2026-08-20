@@ -21,7 +21,7 @@
   <string name="search_back_button_content_description">Retornar</string>
   <string name="search_clear_query_content_description">Rader consulta</string>
   <string name="search_icon_content_description">Cercar</string>
-  <string name="filter_hint_filter_my_lists_and_articles">Filtrar mi listas</string>
+  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">Filtrar mi listas</string>
   <string name="nav_item_suggested_edits">Modificationes</string>
   <string name="nav_item_activity">Activitate</string>
   <string name="nav_item_more">Plus</string>
@@ -88,16 +88,16 @@
   <string name="menu_page_watched">Observate</string>
   <string name="edit_section_find_in_page">Cercar in pagina</string>
   <string name="menu_page_font_and_theme">Typo de litteras e thema</string>
-  <string name="menu_page_add_to_list">Adder al lista de lectura</string>
+  <string name="menu_page_add_to_list" fuzzy="true">Adder al lista de lectura</string>
   <string name="menu_page_add_to_default_list">Salveguardar</string>
-  <string name="feed_card_add_to_list">Adder al lista de lectura</string>
+  <string name="feed_card_add_to_list" fuzzy="true">Adder al lista de lectura</string>
   <string name="feed_card_add_to_default_list">Salveguardar</string>
   <string name="menu_page_share">Condivider ligamine</string>
   <string name="menu_article_share">Condivider articulo</string>
   <string name="menu_page_article_share">Condivider</string>
   <string name="menu_page_open_a_new_tab">Aperir un nove scheda</string>
   <string name="menu_page_new_tab">Nove scheda</string>
-  <string name="menu_page_reading_lists">Listas de lectura</string>
+  <string name="menu_page_reading_lists" fuzzy="true">Listas de lectura</string>
   <string name="menu_page_recently_viewed">Recentemente visitate</string>
   <string name="menu_page_archive">Archivo</string>
   <string name="menu_long_press_open_page">Aperir</string>
@@ -140,7 +140,7 @@
   <string name="menu_show_toc">Tabula de contento</string>
   <string name="search_no_results_found">Nulle resultato trovate</string>
   <string name="search_reading_list_no_results">Necun resultato trovate in \"%s\"</string>
-  <string name="search_reading_lists_no_results">Necun resultato trovate in le listas de lectura</string>
+  <string name="search_reading_lists_no_results" fuzzy="true">Necun resultato trovate in le listas de lectura</string>
   <string name="search_history_no_results">Necun resultato trovate in le historia</string>
   <string name="edit_section_captcha_message">Pro adjutar a proteger contra le spam automatisate, per favor insere le parolas que appare infra</string>
   <string name="edit_section_captcha_request_an_account_message">Non pote vider le imagine? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Requestar un conto&lt;/a&gt;</string>
@@ -220,12 +220,12 @@
   <string name="preferences_heading_syncing">Synchronisation</string>
   <string name="preferences_heading_data_usage">Uso de datos</string>
   <string name="preferences_heading_experimental">Experimental</string>
-  <string name="preference_title_sync_reading_lists_from_account">Synchronisation de listas de lectura</string>
-  <string name="preference_title_download_reading_list_articles">Discargar articulos del lista de lectura</string>
-  <string name="preference_summary_sync_reading_lists">Synchronisar listas de lectura inter differente apparatos salveguardante los sur tu conto Wikipedia</string>
-  <string name="preference_summary_sync_reading_lists_from_account">Synchronisar listas de lectura inter differente apparatos salveguardante los sur tu conto Wikipedia \"%s\"</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Remover listas de lectura synchronisate de \"%s\"?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Isto delera completemente tote le listas de lectura anteriormente synchronisate del immagazinage distante. Remover tote le listas synchronisate de tu conto \"%s\"?</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Synchronisation de listas de lectura</string>
+  <string name="preference_title_download_reading_list_articles" fuzzy="true">Discargar articulos del lista de lectura</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">Synchronisar listas de lectura inter differente apparatos salveguardante los sur tu conto Wikipedia</string>
+  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">Synchronisar listas de lectura inter differente apparatos salveguardante los sur tu conto Wikipedia \"%s\"</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">Remover listas de lectura synchronisate de \"%s\"?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">Isto delera completemente tote le listas de lectura anteriormente synchronisate del immagazinage distante. Remover tote le listas synchronisate de tu conto \"%s\"?</string>
   <string name="preference_title_auto_upload_crash_reports">Inviar reportos de collapso</string>
   <string name="preference_summary_auto_upload_crash_reports">Permitter que le application invia automaticamente reportos de collapso a un fornitor tertie de servicios de maniera que nos pote revider tu collapso e reparar le defecto plus rapide- e facilemente.</string>
   <string name="editing_error_spamblacklist">Ligamines a dominios blocate (%s) detegite. Per favor remove los e tenta lo de novo.</string>
@@ -364,8 +364,8 @@
   <string name="unnamed_tab_closed">Scheda claudite.</string>
   <string name="tab_item_closed">%s claudite.</string>
   <string name="all_tab_items_closed">Tote le schedas claudite.</string>
-  <string name="tool_tip_bookmark_icon_title">Adder al lista de lectura</string>
-  <string name="tool_tip_bookmark_icon_text">Tocca le icone de marcapaginas pro salveguardar le articulo in un lista de lectura.</string>
+  <string name="tool_tip_bookmark_icon_title" fuzzy="true">Adder al lista de lectura</string>
+  <string name="tool_tip_bookmark_icon_text" fuzzy="true">Tocca le icone de marcapaginas pro salveguardar le articulo in un lista de lectura.</string>
   <string name="page_view_in_browser">Visitar iste pagina in le navigator</string>
   <string name="tool_tip_toc_title">Accesso rapide al tabula de contento</string>
   <string name="tool_tip_toc_text">Ora es possibile glissar al sinistra pro aperir le tabula de contento, e traher iste button de rolamento pro saltar rapidemente al varie sectiones de un articulo.</string>
@@ -378,9 +378,9 @@
   <string name="button_continue_to_talk_page">Aperir pagina de discussion</string>
   <string name="button_continue_to_disambiguation">Vider paginas similar</string>
   <string name="link_preview_disambiguation_description">Iste titulo face referentia a plus de un pagina:</string>
-  <string name="button_add_to_reading_list">Adder al lista de lectura</string>
+  <string name="button_add_to_reading_list" fuzzy="true">Adder al lista de lectura</string>
   <string name="page_offline_notice_cannot_load_while_offline">Le articulo non pote esser cargate sin connexion.</string>
-  <string name="page_offline_notice_add_to_reading_list">Consilio: Adde le articulo a un lista de lectura e illo essera discargate quando tu habera de novo un connexion a internet.</string>
+  <string name="page_offline_notice_add_to_reading_list" fuzzy="true">Consilio: Adde le articulo a un lista de lectura e illo essera discargate quando tu habera de novo un connexion a internet.</string>
   <string name="page_offline_notice_last_date">Tu lege ora un version foras de linea de iste articulo, salveguardate le %s.</string>
   <string name="redirected_from_snackbar">Redirigite ab \"%s\"</string>
   <string name="button_get_directions">Obtener itinerario</string>
@@ -491,17 +491,17 @@
   <string name="editing_monospace_font_label">Usar typo de litteras monospatial</string>
   <string name="editing_typing_suggestions">Monstrar suggestiones de scriptura a machina</string>
   <string name="nav_item_saved">Salveguardate</string>
-  <string name="reading_list_save_to">Salveguardar in lista de lectura</string>
-  <string name="reading_list_move_to">Displaciar al lista de lectura</string>
+  <string name="reading_list_save_to" fuzzy="true">Salveguardar in lista de lectura</string>
+  <string name="reading_list_move_to" fuzzy="true">Displaciar al lista de lectura</string>
   <string name="reading_list_create_new">Crear nove</string>
-  <string name="reading_list_title_exists">Le lista de lectura \"%s\" ja existe.</string>
+  <string name="reading_list_title_exists" fuzzy="true">Le lista de lectura \"%s\" ja existe.</string>
   <string name="reading_list_article_added_to_named">%1$s addite a %2$s.</string>
-  <string name="reading_list_article_added_to_default_list">%s salveguardate. Vole tu adder lo a un lista?</string>
+  <string name="reading_list_article_added_to_default_list" fuzzy="true">%s salveguardate. Vole tu adder lo a un lista?</string>
   <string name="reading_list_article_moved_to_named">%1$s displaciate a %2$s.</string>
   <string name="reading_list_article_already_exists_message">Toto ben! %1$s ja contine %2$s.</string>
   <string name="reading_list_articles_already_exist_message">Toto ben! %s ja contine tote le articulos.</string>
-  <string name="reading_list_added_view_button">Vider lista</string>
-  <string name="reading_list_add_to_list_button">Adder al lista</string>
+  <string name="reading_list_added_view_button" fuzzy="true">Vider lista</string>
+  <string name="reading_list_add_to_list_button" fuzzy="true">Adder al lista</string>
   <plurals name="format_reading_list_statistical_summary_without_size">
     <item quantity="one">1 articulo</item>
     <item quantity="other">%d articulos</item>
@@ -526,24 +526,24 @@
   <string name="reading_list_sort_by_recent_desc">Ordinar per data de addition (le plus ancian)</string>
   <string name="reading_list_sort_by_created">Ordinar per data de creation (le plus recente)</string>
   <string name="reading_list_sort_by_created_desc">Ordinar per data de creation (le plus ancian)</string>
-  <string name="reading_list_menu_delete">Deler lista</string>
-  <string name="reading_list_menu_export">Exportar lista</string>
+  <string name="reading_list_menu_delete" fuzzy="true">Deler lista</string>
+  <string name="reading_list_menu_export" fuzzy="true">Exportar lista</string>
   <string name="reading_list_menu_select">Seliger</string>
   <string name="reading_list_menu_unselect">Deseliger</string>
-  <string name="reading_list_export_write_permission_rationale">Le permission de scriber sur le immagazinage de tu apparato es necessari pro exportar tu lista de lectura.</string>
+  <string name="reading_list_export_write_permission_rationale" fuzzy="true">Le permission de scriber sur le immagazinage de tu apparato es necessari pro exportar tu lista de lectura.</string>
   <string name="reading_list_menu_rename">Modificar nomine/description</string>
   <string name="reading_list_action_menu_remove_from_offline">Remover de foras de linea</string>
   <string name="reading_list_action_menu_save_for_offline">Salveguardar pro foras de linea</string>
   <string name="reading_list_action_menu_remove_all_from_offline">Remover toto de foras de linea</string>
   <string name="reading_list_action_menu_save_all_for_offline">Salveguardar toto pro foras de linea</string>
-  <string name="reading_list_action_menu_add_to_another_list">Adder a un altere lista</string>
-  <string name="reading_list_action_menu_move_to_another_list">Displaciar a un altere lista</string>
-  <string name="reading_list_name_sample">Mi lista de lectura</string>
-  <string name="reading_list_name_hint">Nomine de iste lista</string>
+  <string name="reading_list_action_menu_add_to_another_list" fuzzy="true">Adder a un altere lista</string>
+  <string name="reading_list_action_menu_move_to_another_list" fuzzy="true">Displaciar a un altere lista</string>
+  <string name="reading_list_name_sample" fuzzy="true">Mi lista de lectura</string>
+  <string name="reading_list_name_hint" fuzzy="true">Nomine de iste lista</string>
   <string name="reading_list_description_hint">Description (optional)</string>
-  <string name="reading_list_item_deleted">%s removite del lista</string>
+  <string name="reading_list_item_deleted" fuzzy="true">%s removite del lista</string>
   <string name="reading_list_item_deleted_from_list">%1$s removite de %2$s</string>
-  <plurals name="reading_list_articles_deleted">
+  <plurals name="reading_list_articles_deleted" fuzzy="true">
     <item quantity="one">%d articulo removite del lista</item>
     <item quantity="other">%d articulos removite del lista</item>
   </plurals>
@@ -551,39 +551,39 @@
     <item quantity="one">%1$d articulo removite de %2$s</item>
     <item quantity="other">%1$d articulos removite de %2$s</item>
   </plurals>
-  <plurals name="reading_lists_deleted_message">
+  <plurals name="reading_lists_deleted_message" fuzzy="true">
     <item quantity="one">%d lista delite</item>
     <item quantity="other">%d listas delite</item>
   </plurals>
-  <string name="reading_lists_default_list_delete_message">Le lista predefinite (%s) non pote esser delite.</string>
-  <string name="reading_lists_default_plus_one_list_delete_message">%1$s delite. Le lista predefinite (%2$s) non pote esser delite.</string>
-  <string name="reading_lists_default_plus_many_lists_delete_message">Listas delite. Le lista predefinite (%s) non pote esser delite.</string>
-  <string name="single_list_json_file_name">%s (lista de lectura de Wikipedia).json</string>
-  <string name="multiple_lists_json_file_name">Listas de lectura de Wikipedia (%s e plus).json</string>
-  <string name="reading_list_items_deleted">%d articulos removite del lista</string>
-  <string name="reading_lists_item_deleted">%s removite del listas</string>
+  <string name="reading_lists_default_list_delete_message" fuzzy="true">Le lista predefinite (%s) non pote esser delite.</string>
+  <string name="reading_lists_default_plus_one_list_delete_message" fuzzy="true">%1$s delite. Le lista predefinite (%2$s) non pote esser delite.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message" fuzzy="true">Listas delite. Le lista predefinite (%s) non pote esser delite.</string>
+  <string name="single_list_json_file_name" fuzzy="true">%s (lista de lectura de Wikipedia).json</string>
+  <string name="multiple_lists_json_file_name" fuzzy="true">Listas de lectura de Wikipedia (%s e plus).json</string>
+  <string name="reading_list_items_deleted" fuzzy="true">%d articulos removite del lista</string>
+  <string name="reading_lists_item_deleted" fuzzy="true">%s removite del listas</string>
   <string name="reading_list_item_delete_undo">Disfacer</string>
   <string name="reading_list_deleted">%s delite</string>
   <string name="saved_list_empty_title" fuzzy="true">Nulle pagina salveguardate ancora</string>
-  <string name="reading_lists_empty_message">Adder articulos a un lista pro leger plus plus tarde, mesmo sin connexion a internet.</string>
-  <string name="reading_list_empty">Tu non ha articulos addite a iste lista.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Adder articulos a un lista pro leger plus plus tarde, mesmo sin connexion a internet.</string>
+  <string name="reading_list_empty" fuzzy="true">Tu non ha articulos addite a iste lista.</string>
   <string name="reading_list_article_offline">Disponibile foras de linea</string>
   <string name="reading_list_article_make_offline">Render iste articulo disponibile foras de linea</string>
-  <string name="reading_list_add_to_other_list">Adder a un altere lista de lectura</string>
-  <string name="reading_list_move_to_other_list">Displaciar a un altere lista de lectura</string>
-  <string name="reading_list_move_from_to_other_list">Displaciar de %s a un altere lista de lectura</string>
+  <string name="reading_list_add_to_other_list" fuzzy="true">Adder a un altere lista de lectura</string>
+  <string name="reading_list_move_to_other_list" fuzzy="true">Displaciar a un altere lista de lectura</string>
+  <string name="reading_list_move_from_to_other_list" fuzzy="true">Displaciar de %s a un altere lista de lectura</string>
   <string name="reading_list_remove_from_list">Remover de %s</string>
-  <string name="reading_list_remove_from_lists">Remover de listas de lectura</string>
+  <string name="reading_list_remove_from_lists" fuzzy="true">Remover de listas de lectura</string>
   <string name="reading_list_select_item">Seliger</string>
   <string name="reading_list_confirm_remove_article_from_offline">Remover de foras de linea</string>
-  <string name="reading_list_confirm_remove_article_from_offline_title">Articulo appare in plure listas</string>
-  <string name="reading_list_confirm_remove_article_from_offline_message">%s non essera plus disponibile foras de linea pro tote le listas de lectura:</string>
-  <string name="reading_lists_sync_reminder_title">Activar le synchronisation de listas de lectura?</string>
-  <string name="reading_lists_sync_reminder_text">Articulos salveguardate in listas de lectura pote ora esser synchronisate a tu conto de Wikipedia. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Leger plus&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Listas de lectura pote ora esser synchronisate inter apparatos. Aperi session in tu conto Wikipedia e permitte que tu listas es salveguardate. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Leger plus&lt;/a&gt;</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title" fuzzy="true">Articulo appare in plure listas</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s non essera plus disponibile foras de linea pro tote le listas de lectura:</string>
+  <string name="reading_lists_sync_reminder_title" fuzzy="true">Activar le synchronisation de listas de lectura?</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">Articulos salveguardate in listas de lectura pote ora esser synchronisate a tu conto de Wikipedia. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Leger plus&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Listas de lectura pote ora esser synchronisate inter apparatos. Aperi session in tu conto Wikipedia e permitte que tu listas es salveguardate. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Leger plus&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Activar synchronisation</string>
-  <string name="reading_list_login_reminder_title">Synchronisar listas de lectura</string>
-  <string name="reading_lists_login_reminder_text">Listas de lectura pote ora esser synchronisate inter apparatos. Aperi session in tu conto Wikipedia e permitte que tu listas es salveguardate.</string>
+  <string name="reading_list_login_reminder_title" fuzzy="true">Synchronisar listas de lectura</string>
+  <string name="reading_lists_login_reminder_text" fuzzy="true">Listas de lectura pote ora esser synchronisate inter apparatos. Aperi session in tu conto Wikipedia e permitte que tu listas es salveguardate.</string>
   <string name="reading_lists_login_button">Aperir session / crear conto sur Wikipedia</string>
   <string name="reading_lists_ignore_button">Non ora</string>
   <string name="reading_lists_confirm_remote_delete_yes">Si</string>
@@ -592,35 +592,35 @@
   <string name="reading_list_articles_added_to_named">%1$d articulos addite a %2$s</string>
   <string name="reading_list_articles_moved_to_named">%1$d articulos displaciate a %2$s</string>
   <string name="reading_list_delete_confirm">Es tu secur de voler deler %s?</string>
-  <string name="reading_list_delete_lists_confirm_dialog_title">Deler le lista(s) seligite?</string>
-  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+  <string name="reading_list_delete_lists_confirm_dialog_title" fuzzy="true">Deler le lista(s) seligite?</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message" fuzzy="true">
     <item quantity="one">Es tu secur de voler deler iste lista?</item>
     <item quantity="other">Es tu secur de voler deler %d listas?</item>
   </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Aperi session pro activar synchronisation</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Aperi session pro permitter que tu listas de lectura se salveguarda in tu conto.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text" fuzzy="true">Aperi session pro permitter que tu listas de lectura se salveguarda in tu conto.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Cancellar</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Aperir session</string>
-  <string name="reading_list_turned_sync_off_dialog_title">Synchronisation de listas de lectura disactivate</string>
-  <string name="reading_list_turned_sync_off_dialog_text">Le synchronisation de listas de lectura es disactivate pro tu conto e necun copia de reserva se face del articulos salveguardate sur tu apparatos in session. Activa le synchronisation de listas de lectura in Parametros.</string>
+  <string name="reading_list_turned_sync_off_dialog_title" fuzzy="true">Synchronisation de listas de lectura disactivate</string>
+  <string name="reading_list_turned_sync_off_dialog_text" fuzzy="true">Le synchronisation de listas de lectura es disactivate pro tu conto e necun copia de reserva se face del articulos salveguardate sur tu apparatos in session. Activa le synchronisation de listas de lectura in Parametros.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Parametros</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_title">Activar le synchronisation de listas de lectura?</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_text">Le articulos salveguardate in listas de lectura pote ora esser synchronisate con tu conto Wikipedia. &lt;a href=\"#faq\"&gt;Leger plus&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title" fuzzy="true">Activar le synchronisation de listas de lectura?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text" fuzzy="true">Le articulos salveguardate in listas de lectura pote ora esser synchronisate con tu conto Wikipedia. &lt;a href=\"#faq\"&gt;Leger plus&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Non monstrar me isto de novo</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Activar synchronisation</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">No, gratias</string>
   <string name="default_reading_list_name">Salveguardate</string>
-  <string name="default_reading_list_description">Lista predefinite pro tu articulos salveguardate</string>
-  <string name="no_user_lists_title">Organisar articulos in listas</string>
-  <string name="no_user_lists_msg">Crea listas con locos a visitar, themas favorite e multo plus</string>
+  <string name="default_reading_list_description" fuzzy="true">Lista predefinite pro tu articulos salveguardate</string>
+  <string name="no_user_lists_title" fuzzy="true">Organisar articulos in listas</string>
+  <string name="no_user_lists_msg" fuzzy="true">Crea listas con locos a visitar, themas favorite e multo plus</string>
   <string name="reading_list_saved_list_rename">%1$s (create per usator)</string>
-  <string name="split_reading_list_message">Existe un limite de %d articulos per lista de lectura. Listas existente que excede iste limite ha essite dividite in plure listas.</string>
-  <string name="reading_list_move_article_limit_message">Non es possibile displaciar a iste lista. Tu ha attingite le limite de %2$d articulos per lista pro \"%1$s\".</string>
-  <string name="reading_list_article_limit_message">Non es possibile adder a iste lista. Tu ha attingite le limite de %2$d articulos per lista pro \"%1$s\".</string>
-  <string name="reading_lists_limit_message">Non es possibile crear un altere lista. Tu ha attingite le limite de 100 listas de lectura per conto.</string>
-  <string name="reading_lists_menu_create_list">Crear nove lista</string>
-  <string name="reading_lists_menu_import_list">Importar lista</string>
+  <string name="split_reading_list_message" fuzzy="true">Existe un limite de %d articulos per lista de lectura. Listas existente que excede iste limite ha essite dividite in plure listas.</string>
+  <string name="reading_list_move_article_limit_message" fuzzy="true">Non es possibile displaciar a iste lista. Tu ha attingite le limite de %2$d articulos per lista pro \"%1$s\".</string>
+  <string name="reading_list_article_limit_message" fuzzy="true">Non es possibile adder a iste lista. Tu ha attingite le limite de %2$d articulos per lista pro \"%1$s\".</string>
+  <string name="reading_lists_limit_message" fuzzy="true">Non es possibile crear un altere lista. Tu ha attingite le limite de 100 listas de lectura per conto.</string>
+  <string name="reading_lists_menu_create_list" fuzzy="true">Crear nove lista</string>
+  <string name="reading_lists_menu_import_list" fuzzy="true">Importar lista</string>
   <string name="reading_lists_menu_sort_by">Ordinar per</string>
   <string name="reading_lists_refresh_sync_option">Re-synchronisar</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Aperir session / crear conto</string>
@@ -632,7 +632,7 @@
     <item quantity="one">Iste articulo non es plus disponibile foras de linea.</item>
     <item quantity="other">Iste articulos non es plus disponibile foras de linea.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Lista de lectura synchronisate</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">Lista de lectura synchronisate</string>
   <string name="reading_list_menu_last_sync">Ultime sync: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_dialog_ok_button_text">OK</string>
@@ -642,31 +642,31 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Cancellar</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">Deler</string>
-  <string name="reading_list_activity_title">Lista de lectura: %s</string>
-  <string name="reading_list_notification_title">Lista(s) de lectura exportate</string>
-  <string name="reading_list_notification_text">%d lista(s) de lectura ha essite exportate in \'reading_lists export.json\' in tu dossier de discargamentos</string>
-  <string name="reading_list_notification_detailed_text">Le listas de lectura ha essite exportate in \'reading_lists_export.json\'</string>
+  <string name="reading_list_activity_title" fuzzy="true">Lista de lectura: %s</string>
+  <string name="reading_list_notification_title" fuzzy="true">Lista(s) de lectura exportate</string>
+  <string name="reading_list_notification_text" fuzzy="true">%d lista(s) de lectura ha essite exportate in \'reading_lists export.json\' in tu dossier de discargamentos</string>
+  <string name="reading_list_notification_detailed_text" fuzzy="true">Le listas de lectura ha essite exportate in \'reading_lists_export.json\'</string>
   <string name="reading_lists_action_menu_export_lists">Exportar</string>
   <string name="reading_lists_import_file_picker_title">Elige le file a importar</string>
-  <string name="reading_lists_import_failure_message">Le importation del listas de lectura ha fallite</string>
-  <string name="reading_lists_export_select_lists_message">Selige le lista(s) a exportar</string>
-  <string name="reading_lists_export_completed_message">Lista(s) de lectura exportate</string>
-  <plurals name="reading_list_export_failed_message">
+  <string name="reading_lists_import_failure_message" fuzzy="true">Le importation del listas de lectura ha fallite</string>
+  <string name="reading_lists_export_select_lists_message" fuzzy="true">Selige le lista(s) a exportar</string>
+  <string name="reading_lists_export_completed_message" fuzzy="true">Lista(s) de lectura exportate</string>
+  <plurals name="reading_list_export_failed_message" fuzzy="true">
     <item quantity="one">Le exportation del lista de lectura ha fallite</item>
     <item quantity="other">Le exportation del listas de lectura ha fallite</item>
   </plurals>
-  <plurals name="reading_list_import_success_message">
+  <plurals name="reading_list_import_success_message" fuzzy="true">
     <item quantity="one">Lista de lectura importate</item>
     <item quantity="other">Listas de lectura importate</item>
   </plurals>
-  <string name="reading_lists_preview_header_title">Lista condividite</string>
+  <string name="reading_lists_preview_header_title" fuzzy="true">Lista condividite</string>
   <string name="reading_lists_preview_save_button">Salveguardar</string>
-  <string name="reading_lists_preview_save_dialog_title">Salveguardar lista</string>
-  <string name="reading_lists_preview_save_dialog_text">Nomina le lista e selige le articulos a salveguardar.</string>
+  <string name="reading_lists_preview_save_dialog_title" fuzzy="true">Salveguardar lista</string>
+  <string name="reading_lists_preview_save_dialog_text" fuzzy="true">Nomina le lista e selige le articulos a salveguardar.</string>
   <string name="reading_lists_preview_save_dialog_title_hint">Titulo</string>
   <string name="reading_lists_preview_save_dialog_cancel">Cancellar</string>
   <string name="reading_lists_preview_save_dialog_save">Salveguardar</string>
-  <string name="reading_lists_preview_saved_snackbar">Lista de lectura salveguardate</string>
+  <string name="reading_lists_preview_saved_snackbar" fuzzy="true">Lista de lectura salveguardate</string>
   <string name="reading_lists_preview_saved_snackbar_action">Vider</string>
   <string name="user_option_sync_label">Preferentias</string>
   <string name="notification_reverted_title">Modification revertite</string>
@@ -675,8 +675,8 @@
   <string name="notification_syncing_pause_button">Pausar</string>
   <string name="notification_syncing_resume_button">Reprender</string>
   <string name="notification_syncing_cancel_button">Cancellar</string>
-  <string name="notification_syncing_reading_list_channel_title">Synchronisation de listas de lectura</string>
-  <string name="notification_syncing_reading_list_channel_description">Progresso de synchronisation de listas de lectura</string>
+  <string name="notification_syncing_reading_list_channel_title" fuzzy="true">Synchronisation de listas de lectura</string>
+  <string name="notification_syncing_reading_list_channel_description" fuzzy="true">Progresso de synchronisation de listas de lectura</string>
   <string name="notification_many_unread">Tu ha %d notificationes non legite</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Discargamento de un articulo</item>
@@ -690,15 +690,15 @@
     <item quantity="one">%1$d articulo restante</item>
     <item quantity="other">%1$d articulos restante</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_channel_name">
+  <plurals name="notification_syncing_reading_list_channel_name" fuzzy="true">
     <item quantity="one">Synchronisation de un lista de lectura</item>
     <item quantity="other">Synchronisation de listas de lectura</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_title">
+  <plurals name="notification_syncing_reading_list_title" fuzzy="true">
     <item quantity="one">Synchronisa %1$d lista…</item>
     <item quantity="other">Synchronisa %1$d listas…</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_description">
+  <plurals name="notification_syncing_reading_list_description" fuzzy="true">
     <item quantity="one">%1$d lista restante</item>
     <item quantity="other">%1$d listas restante</item>
   </plurals>
@@ -1242,8 +1242,8 @@
   <string name="onboarding_maybe_later">Forsan plus tarde</string>
   <string name="onboarding_explore_title">Nove manieras de explorar</string>
   <string name="onboarding_explore_text">Immerge te in le mundo de Wikipedia con un canal Initio continuemente actualisate.&lt;br/&gt; &lt;b&gt;Personalisa&lt;/b&gt; le canal secundo tu interesses: apprende eventos historic con &lt;b&gt;Sur iste die&lt;/b&gt; o jecta le datos con &lt;b&gt;Aleatori&lt;/b&gt;.</string>
-  <string name="onboarding_reading_list_sync_title">Listas de lectura con synchronisation</string>
-  <string name="onboarding_reading_list_sync_text_v2">Tu pote facer listas de lectura de articulos que tu vole leger plus tarde, mesmo quando tu es disconnectite. &lt;br/&gt;Aperi session in tu conto de Wikipedia pro synchronisar tu listas de lectura. &lt;a href=\"#login\"&gt;Crear un conto sur Wikipedia&lt;/a&gt;</string>
+  <string name="onboarding_reading_list_sync_title" fuzzy="true">Listas de lectura con synchronisation</string>
+  <string name="onboarding_reading_list_sync_text_v2" fuzzy="true">Tu pote facer listas de lectura de articulos que tu vole leger plus tarde, mesmo quando tu es disconnectite. &lt;br/&gt;Aperi session in tu conto de Wikipedia pro synchronisar tu listas de lectura. &lt;a href=\"#login\"&gt;Crear un conto sur Wikipedia&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Datos e vita private</string>
   <string name="onboarding_data_privacy_text">Nos crede que non debe esser necessari fornir information personal pro participar in le movimento de cognoscentia libere. Le datos de uso colligite pro iste application es anonyme.&lt;br/&gt;&lt;br/&gt;Lege plus sur nostre &lt;a href=\"#privacy\"&gt;politica de confidentialitate&lt;/a&gt; e &lt;a href=\"#termsOfUse\"&gt;conditiones de uso&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Inviar datos de uso</string>
@@ -1578,16 +1578,16 @@
   <string name="user_contrib_filter_activity_title">Filtrar contributiones</string>
   <string name="action_item_view_on_map">Vider sur carta</string>
   <string name="action_item_view_on_map_unavailable">Le coordinatas geographic non es disponibile pro iste pagina</string>
-  <string name="shareable_reading_lists_import_dialog_title">Importar lista de lectura condividite</string>
-  <string name="shareable_reading_lists_import_dialog_content">Como vole tu nominar le lista de lectura que ha essite condividite con te?</string>
+  <string name="shareable_reading_lists_import_dialog_title" fuzzy="true">Importar lista de lectura condividite</string>
+  <string name="shareable_reading_lists_import_dialog_content" fuzzy="true">Como vole tu nominar le lista de lectura que ha essite condividite con te?</string>
   <string name="shareable_reading_lists_new_indicator">*nove*</string>
-  <string name="shareable_reading_lists_new_install_dialog_title">Un lista de lectura ha essite condividite con te</string>
-  <string name="shareable_reading_lists_new_install_dialog_content">Nos ha remarcate que un lista de lectura ha essite condividite con te. Pro vider iste lista in le application, retorna al message original e tocca le ligamine de novo.</string>
+  <string name="shareable_reading_lists_new_install_dialog_title" fuzzy="true">Un lista de lectura ha essite condividite con te</string>
+  <string name="shareable_reading_lists_new_install_dialog_content" fuzzy="true">Nos ha remarcate que un lista de lectura ha essite condividite con te. Pro vider iste lista in le application, retorna al message original e tocca le ligamine de novo.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Comprendite</string>
-  <string name="shareable_reading_lists_new_imported_snackbar">Lista de lectura importate</string>
+  <string name="shareable_reading_lists_new_imported_snackbar" fuzzy="true">Lista de lectura importate</string>
   <string name="reading_list_share_menu_label">Condivider…</string>
-  <string name="reading_list_share_menu_tooltip">Condivider iste lista de lectura con alteres</string>
-  <string name="reading_list_share_message_v2">Salute! Io vole condivider mi lista de lectura de Wikipedia con te:</string>
+  <string name="reading_list_share_menu_tooltip" fuzzy="true">Condivider iste lista de lectura con alteres</string>
+  <string name="reading_list_share_message_v2" fuzzy="true">Salute! Io vole condivider mi lista de lectura de Wikipedia con te:</string>
   <string name="talk_templates_empty_message">Crea tu proprie messages o usa le &lt;a href=\"#\"&gt;messages de exemplo&lt;/a&gt; pro comenciar.</string>
   <string name="talk_templates_new_message_title">Nove message</string>
   <string name="talk_templates_new_message_subject_hint">Subjecto</string>
@@ -1877,8 +1877,8 @@
   <string name="year_in_review_get_started_later">Tu pote acceder a tu Summario del anno plus tarde in le menu Plus.</string>
   <string name="year_in_review_survey_title">Adjuta a meliorar le Summario del anno</string>
   <string name="year_in_review_survey_subtitle">Es tu satisfacite de iste function?</string>
-  <string name="year_in_review_reading_list_survey_title">Adjuta a meliorar le lista de lectura del Summario del anno %d.</string>
-  <string name="year_in_review_reading_list_survey_subtitle">Es tu satisfacite con tu lista de lectura?</string>
+  <string name="year_in_review_reading_list_survey_title" fuzzy="true">Adjuta a meliorar le lista de lectura del Summario del anno %d.</string>
+  <string name="year_in_review_reading_list_survey_subtitle" fuzzy="true">Es tu satisfacite con tu lista de lectura?</string>
   <string name="year_in_review_survey_very_satisfied">Multo satisfacite</string>
   <string name="year_in_review_survey_satisfied">Satisfacite</string>
   <string name="year_in_review_survey_neutral">Neutral</string>
@@ -1986,7 +1986,7 @@
     <item quantity="one">Le usatores del app habeva %,d articulo salveguardate</item>
     <item quantity="other">Le usatores del app habeva %,d articulos salveguardate</item>
   </plurals>
-  <string name="year_in_review_slide_global_saved_articles_body">Adder articulos a listas de lectura te permitte acceder a articulos mesmo sin connexion a internet. Tu pote etiam aperir session pro synchronisar listas de lectura inter apparatos.</string>
+  <string name="year_in_review_slide_global_saved_articles_body" fuzzy="true">Adder articulos a listas de lectura te permitte acceder a articulos mesmo sin connexion a internet. Tu pote etiam aperir session pro synchronisar listas de lectura inter apparatos.</string>
   <string name="year_in_review_slide_reading_patterns_headline">Tu ha patronos clar de lectura</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">Hora favorite pro leger</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">Die favorite pro leger</string>
@@ -2054,8 +2054,8 @@
     <item quantity="other">Le usatores del app ha consultate articulos de Wikipedia %,d vices</item>
   </plurals>
   <string name="year_in_review_slide_viewed_articles_times_body">Pro le gente de tote le le mundo, Wikipedia es le prime station quando on vole trovar le responsa a un question, cercar information pro schola o labor, o apprender un nove facto.</string>
-  <string name="year_in_review_reading_list_dialog_title">Crear tu lista de lectura del Summario del anno %d?</string>
-  <string name="year_in_review_reading_list_dialog_message">Le Summario del anno de Wikipedia creara un lista de lectura del articulos que tu ha passate le plus tempore a leger in %1$d. &lt;a href=\"%2$s\"&gt;Plus information&lt;/a&gt;</string>
+  <string name="year_in_review_reading_list_dialog_title" fuzzy="true">Crear tu lista de lectura del Summario del anno %d?</string>
+  <string name="year_in_review_reading_list_dialog_message" fuzzy="true">Le Summario del anno de Wikipedia creara un lista de lectura del articulos que tu ha passate le plus tempore a leger in %1$d. &lt;a href=\"%2$s\"&gt;Plus information&lt;/a&gt;</string>
   <string name="year_in_review_reading_list_dialog_positive_button_label">Crear</string>
   <string name="year_in_review_reading_list_dialog_negative_button_label">No, gratias</string>
   <string name="year_in_review_reading_list_title">Summario del anno %d</string>
@@ -2112,12 +2112,12 @@
   <string name="year_in_review_highlights_logo_description">Logotypo de Wikipedia</string>
   <string name="recommended_reading_list_title">Discoperir</string>
   <string name="recommended_reading_list_onboarding_card_title">Discoperir articulos seligite specialmente pro te</string>
-  <string name="recommended_reading_list_onboarding_card_message">Tu lista de lectura septimanal de articulos de Wikipedia, curate specialmente pro te.</string>
+  <string name="recommended_reading_list_onboarding_card_message" fuzzy="true">Tu lista de lectura septimanal de articulos de Wikipedia, curate specialmente pro te.</string>
   <string name="recommended_reading_list_onboarding_card_new">Nove!</string>
   <string name="recommended_reading_list_onboarding_card_positive_button">Comenciar</string>
   <string name="recommended_reading_list_onboarding_card_negative_button">No, gratias</string>
-  <string name="recommended_reading_list_onboarding_card_negative_snackbar">Pro configurar tu lista de lectura recommendate plus tarde, visita le Parametros.</string>
-  <string name="recommended_reading_list_interest_source_message">Como construer tu lista de lectura recommendate?</string>
+  <string name="recommended_reading_list_onboarding_card_negative_snackbar" fuzzy="true">Pro configurar tu lista de lectura recommendate plus tarde, visita le Parametros.</string>
+  <string name="recommended_reading_list_interest_source_message" fuzzy="true">Como construer tu lista de lectura recommendate?</string>
   <string name="recommended_reading_list_interest_source_interests">Lassa me eliger a base de mi interesses</string>
   <string name="recommended_reading_list_interest_source_saved">Elige pro me a base de mi articulos salveguardate</string>
   <string name="recommended_reading_list_interest_source_history">Elige pro me a base de mi historia de lectura</string>
@@ -2141,9 +2141,9 @@
     <item quantity="one">• %d articulo</item>
     <item quantity="other">• %d articulos</item>
   </plurals>
-  <string name="recommended_reading_list_page_description_daily">Tu lista de lectura quotidian. Discoperi nove topicos, seligite specialmente pro te. Se actualisa a medienocte.</string>
-  <string name="recommended_reading_list_page_description_weekly">Tu lista de lectura septimanal. Discoperi nove topicos, seligite specialmente pro te. Se actualisa al initio del septimana.</string>
-  <string name="recommended_reading_list_page_description_monthly">Tu lista de lectura mensual. Discoperi nove topicos, seligite specialmente pro te. Se actualisa le prime die de cata mense.</string>
+  <string name="recommended_reading_list_page_description_daily" fuzzy="true">Tu lista de lectura quotidian. Discoperi nove topicos, seligite specialmente pro te. Se actualisa a medienocte.</string>
+  <string name="recommended_reading_list_page_description_weekly" fuzzy="true">Tu lista de lectura septimanal. Discoperi nove topicos, seligite specialmente pro te. Se actualisa al initio del septimana.</string>
+  <string name="recommended_reading_list_page_description_monthly" fuzzy="true">Tu lista de lectura mensual. Discoperi nove topicos, seligite specialmente pro te. Se actualisa le prime die de cata mense.</string>
   <string name="recommended_reading_list_page_overflow_customize">Personalisar</string>
   <string name="recommended_reading_list_page_overflow_about">A proposito de iste function</string>
   <string name="recommended_reading_list_page_snackbar">“Discoperir” se actualisara con %1$d nove articulos cata %2$s. Tu recommendationes se immagazina localmente sur tu apparato.</string>
@@ -2153,7 +2153,7 @@
   <string name="recommended_reading_list_page_snackbar_month">Mense</string>
   <string name="recommended_reading_list_settings_section_header">Recommendationes</string>
   <string name="recommended_reading_list_settings_title">Parametros de “Discoperir“</string>
-  <string name="recommended_reading_list_settings_toggle">Lista de lectura de “Discoperir”</string>
+  <string name="recommended_reading_list_settings_toggle" fuzzy="true">Lista de lectura de “Discoperir”</string>
   <string name="recommended_reading_list_settings_toggle_disable_message">“Discoperir” es disactivate. Wikipedia non te recommendara articulos a leger.</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_title">Disactivar “Discoperir”?</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_message">Si tu disactiva “Discoperir”, tu non recipera plus le recommendationes de lectura %s de Wikipedia.</string>
@@ -2188,7 +2188,7 @@
   <string name="recommended_reading_list_settings_notifications_dialog_message">Si tu disactiva le notificationes, tu non plus recipera rememorationes quando “Discoperir” se actualisa.</string>
   <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Disactivar los</string>
   <string name="recommended_reading_list_settings_notifications_dialog_negative_button">No, lassar los activate</string>
-  <string name="recommended_reading_list_notification_title">Tu lista de lectura %s de “Discoperir” es preste.</string>
+  <string name="recommended_reading_list_notification_title" fuzzy="true">Tu lista de lectura %s de “Discoperir” es preste.</string>
   <string name="recommended_reading_list_notification_subtitle">Tocca pro vider tu ultime recommendationes.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">Quando tu “Discoperir” se actualisa, Wikipedia te inviara un notification.</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">“Discoperir” es activate. Wikipedia te recommendara articulos a leger.</string>
@@ -2344,7 +2344,7 @@
   <string name="explore_feed_for_you_tab_label">Pro te</string>
   <string name="explore_feed_date_today">Hodie – %s</string>
   <string name="explore_feed_load_previous_day_label">Cargar le previe die</string>
-  <string name="explore_feed_from_reading_list">De tu lista de lectura</string>
+  <string name="explore_feed_from_reading_list" fuzzy="true">De tu lista de lectura</string>
   <string name="explore_feed_because_of_interest">A causa de tu interesse: %s</string>
   <string name="explore_feed_onboarding_curiosity_title">Seque tu curiositate</string>
   <string name="explore_feed_onboarding_curiosity_description">Selige le topicos que te interessa, e nos personalisara tu canal.\n\nNos collige un minimo de datos e nos los anonymisa.</string>

@@ -34,6 +34,7 @@ import androidx.compose.ui.layout.SubcomposeLayout
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Constraints
@@ -125,7 +126,7 @@ private fun NewWithinInterestCardContent(
             .background(backgroundColor)
             .padding(horizontal = 16.dp)
             .padding(top = (topInset * 2 + 64).dp, bottom = bottomSpacing),
-        verticalArrangement = Arrangement.spacedBy(16.dp)
+        verticalArrangement = Arrangement.spacedBy(16.dp, alignment = Alignment.CenterVertically)
     ) {
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -137,13 +138,15 @@ private fun NewWithinInterestCardContent(
                 Text(
                     text = context.getString(wikiSite.languageCode, R.string.home_feed_new_within_interest_card_heading),
                     color = Color.White.copy(alpha = 0.8f),
-                    style = MaterialTheme.typography.labelSmall,
+                    style = MaterialTheme.typography.labelLarge,
                     maxLines = 2
                 )
                 Text(
                     text = topicName,
                     color = Color.White,
-                    style = MaterialTheme.typography.titleLarge,
+                    style = MaterialTheme.typography.headlineSmall.copy(
+                        fontWeight = FontWeight.Medium
+                    ),
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis
                 )

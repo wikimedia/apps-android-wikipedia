@@ -86,16 +86,16 @@
   <string name="menu_page_remove_from_watchlist">Forigi el Atentaro</string>
   <string name="edit_section_find_in_page">Trovi en la paĝo</string>
   <string name="menu_page_font_and_theme">Fonto kaj etoso</string>
-  <string name="menu_page_add_to_list">Aldoni al legolisto</string>
+  <string name="menu_page_add_to_list" fuzzy="true">Aldoni al legolisto</string>
   <string name="menu_page_add_to_default_list">Konservi</string>
-  <string name="feed_card_add_to_list">Aldoni al legolisto</string>
+  <string name="feed_card_add_to_list" fuzzy="true">Aldoni al legolisto</string>
   <string name="feed_card_add_to_default_list">Konservi</string>
   <string name="menu_page_share">Konigi ligilon</string>
   <string name="menu_article_share">Konigi la artikolon</string>
   <string name="menu_page_article_share">Konigi</string>
   <string name="menu_page_open_a_new_tab">Malfermi en nova langeto</string>
   <string name="menu_page_new_tab">Nova langeto</string>
-  <string name="menu_page_reading_lists">Legolistoj</string>
+  <string name="menu_page_reading_lists" fuzzy="true">Legolistoj</string>
   <string name="menu_page_recently_viewed">Ĵus vidita</string>
   <string name="menu_page_archive">Arĥivo</string>
   <string name="menu_long_press_open_page">Malfermi</string>
@@ -134,7 +134,7 @@
   <string name="menu_show_toc">Enhavtabelo</string>
   <string name="search_no_results_found">Neniu rezulto trovita</string>
   <string name="search_reading_list_no_results">Neniu rezulto trovita en \"%s\"</string>
-  <string name="search_reading_lists_no_results">Neniuj rezultoj trovitaj en legolistoj</string>
+  <string name="search_reading_lists_no_results" fuzzy="true">Neniuj rezultoj trovitaj en legolistoj</string>
   <string name="search_history_no_results">Neniuj rezultoj trovitaj en historio</string>
   <string name="edit_section_captcha_message">Por helpi al la projekto kontraŭ spamado, bv. entajpi la vortojn kiuj aperas sube</string>
   <string name="edit_section_captcha_request_an_account_message">Ĉu vi ne povas vidi la bildon? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Petu konton&lt;/a&gt;</string>
@@ -207,12 +207,12 @@
   <string name="preferences_heading_syncing">Sinkronigas</string>
   <string name="preferences_heading_data_usage">Datuma uzado</string>
   <string name="preferences_heading_experimental">Eksperimenta</string>
-  <string name="preference_title_sync_reading_lists_from_account">Sinkronigado de la legolisto</string>
-  <string name="preference_title_download_reading_list_articles">Elŝuti artikolojn de legolisto</string>
-  <string name="preference_summary_sync_reading_lists">Sinkronigi legolistojn trans malsamaj aparatoj konservante ilin al via vikipedia konto</string>
-  <string name="preference_summary_sync_reading_lists_from_account">Sinkronigi legolistojn trans malsamaj aparatoj konservante ilin al via Vikipedia konto \"%s\"</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Ĉu forigi sinkronigitajn legolistojn de \"%s\"?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Tio ĉi tute forigos ĉiujn antaŭe sinkrinigitajn legolistojn de fora konservado. Ĉu forigi ĉiujn sinkronigitajn listojn de via konto \"%s\"?</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Sinkronigado de la legolisto</string>
+  <string name="preference_title_download_reading_list_articles" fuzzy="true">Elŝuti artikolojn de legolisto</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">Sinkronigi legolistojn trans malsamaj aparatoj konservante ilin al via vikipedia konto</string>
+  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">Sinkronigi legolistojn trans malsamaj aparatoj konservante ilin al via Vikipedia konto \"%s\"</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">Ĉu forigi sinkronigitajn legolistojn de \"%s\"?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">Tio ĉi tute forigos ĉiujn antaŭe sinkrinigitajn legolistojn de fora konservado. Ĉu forigi ĉiujn sinkronigitajn listojn de via konto \"%s\"?</string>
   <string name="preference_title_auto_upload_crash_reports">Sendi prikraŝajn raportojn</string>
   <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Permesi la aplikaĵon sendi prikraŝajn raportojn al HockeyApp /  ekstera servo-provizanto aŭtomate por ke ni povu revizii vian kraŝon kaj ripari la cimon pli rapide kaj pli facile.</string>
   <string name="editing_error_spamblacklist">Ligilo al blokitaj retadresoj detektitaj (%s). Bonvole forigu ilin kaj reprovu.</string>
@@ -337,8 +337,8 @@
   <string name="unnamed_tab_closed">Langeto fermita.</string>
   <string name="tab_item_closed">%s fermita.</string>
   <string name="all_tab_items_closed">Ĉiuj langetoj estis fermitaj.</string>
-  <string name="tool_tip_bookmark_icon_title">Aldoni al legolisto</string>
-  <string name="tool_tip_bookmark_icon_text">Frapetu la ikonon de la legosigno por konservi la artikolon en legoliston.</string>
+  <string name="tool_tip_bookmark_icon_title" fuzzy="true">Aldoni al legolisto</string>
+  <string name="tool_tip_bookmark_icon_text" fuzzy="true">Frapetu la ikonon de la legosigno por konservi la artikolon en legoliston.</string>
   <string name="page_view_in_browser">Montri paĝon per retumilo</string>
   <string name="tool_tip_toc_title">Enhavtabelo rapida aliro</string>
   <string name="tool_tip_toc_text">Nun vi povas ŝovumi maldekstren por malfermi la enhavotabelon, kaj frapeti-treni la ruluma butonon por rapide salti al paragrafoj de artikolo.</string>
@@ -350,9 +350,9 @@
   <string name="button_continue_to_article">Legi artikolon</string>
   <string name="button_continue_to_disambiguation">Vidi similajn paĝojn</string>
   <string name="link_preview_disambiguation_description">Ĉi tiu titolo rilatas al pli ol unu paĝo:</string>
-  <string name="button_add_to_reading_list">Aldoni al legolisto</string>
+  <string name="button_add_to_reading_list" fuzzy="true">Aldoni al legolisto</string>
   <string name="page_offline_notice_cannot_load_while_offline">Artikolo ne povas esti ŝargita dum vi estas eksterrete.</string>
-  <string name="page_offline_notice_add_to_reading_list">Sugesto: Aldonu la artikolon al legolisto; ĝi elŝutiĝos kiam vi reestos Interrete konektita.</string>
+  <string name="page_offline_notice_add_to_reading_list" fuzzy="true">Sugesto: Aldonu la artikolon al legolisto; ĝi elŝutiĝos kiam vi reestos Interrete konektita.</string>
   <string name="page_offline_notice_last_date">Vi estas leganta loke konservatan version de ĉi tiu artikolon je %s.</string>
   <string name="button_get_directions">Vojpriskribo</string>
   <string name="error_no_maps_app">Ne povis trovi navigilan aplikaĵon.</string>
@@ -416,12 +416,12 @@
   <string name="theme_category_reading">Legado</string>
   <string name="theme_category_editing">Redaktado</string>
   <string name="nav_item_saved">Konservitaj</string>
-  <string name="reading_list_save_to">Konservi al legolisto</string>
-  <string name="reading_list_move_to">Movi al legolisto</string>
+  <string name="reading_list_save_to" fuzzy="true">Konservi al legolisto</string>
+  <string name="reading_list_move_to" fuzzy="true">Movi al legolisto</string>
   <string name="reading_list_create_new">Krei novan</string>
-  <string name="reading_list_title_exists">Legolisto \"%s\" jam ekzistas.</string>
-  <string name="reading_list_added_view_button">Montri liston</string>
-  <string name="reading_list_add_to_list_button">Aldoni al listo</string>
+  <string name="reading_list_title_exists" fuzzy="true">Legolisto \"%s\" jam ekzistas.</string>
+  <string name="reading_list_added_view_button" fuzzy="true">Montri liston</string>
+  <string name="reading_list_add_to_list_button" fuzzy="true">Aldoni al listo</string>
   <plurals name="format_reading_list_statistical_summary_without_size">
     <item quantity="one">1 artikolo</item>
     <item quantity="other"> %d artikoloj</item>
@@ -438,44 +438,44 @@
   <string name="reading_list_sort_by_recent_desc">Ordigi laŭ dato aldonita (plej malnovaj)</string>
   <string name="reading_list_sort_by_created">Ordigi laŭ dato kreita (plej novaj)</string>
   <string name="reading_list_sort_by_created_desc">Ordigi laŭ dato kreita (plej malnovaj)</string>
-  <string name="reading_list_menu_delete">Forigi liston</string>
+  <string name="reading_list_menu_delete" fuzzy="true">Forigi liston</string>
   <string name="reading_list_menu_select">Elekti</string>
   <string name="reading_list_menu_rename">Redakti nomon/priskribon</string>
   <string name="reading_list_action_menu_remove_from_offline">Forigi el loka konservejo</string>
   <string name="reading_list_action_menu_save_for_offline">Konservi al loka konservejo</string>
   <string name="reading_list_action_menu_remove_all_from_offline">Forigi ĉion el loka konservejo</string>
   <string name="reading_list_action_menu_save_all_for_offline">Konservi ĉion al loka konservejo</string>
-  <string name="reading_list_action_menu_add_to_another_list">Aldoni al alia listo</string>
-  <string name="reading_list_name_sample">Mia legolisto</string>
-  <string name="reading_list_name_hint">Nomo de ĉi tiu listo</string>
+  <string name="reading_list_action_menu_add_to_another_list" fuzzy="true">Aldoni al alia listo</string>
+  <string name="reading_list_name_sample" fuzzy="true">Mia legolisto</string>
+  <string name="reading_list_name_hint" fuzzy="true">Nomo de ĉi tiu listo</string>
   <string name="reading_list_description_hint">Priskribo (nedeviga)</string>
-  <string name="reading_list_item_deleted">%s estas forigita de ĉi tiu listo</string>
-  <string name="single_list_json_file_name">%s (Vikipedia legolisto).json</string>
-  <string name="multiple_lists_json_file_name">Vikipediaj legolistoj (%s kaj pli).json</string>
-  <string name="reading_list_items_deleted">%d artikoloj estis forigitaj de ĉi tiu listo</string>
-  <string name="reading_lists_item_deleted">%s forigita el listoj</string>
+  <string name="reading_list_item_deleted" fuzzy="true">%s estas forigita de ĉi tiu listo</string>
+  <string name="single_list_json_file_name" fuzzy="true">%s (Vikipedia legolisto).json</string>
+  <string name="multiple_lists_json_file_name" fuzzy="true">Vikipediaj legolistoj (%s kaj pli).json</string>
+  <string name="reading_list_items_deleted" fuzzy="true">%d artikoloj estis forigitaj de ĉi tiu listo</string>
+  <string name="reading_lists_item_deleted" fuzzy="true">%s forigita el listoj</string>
   <string name="reading_list_item_delete_undo">Malfari</string>
   <string name="reading_list_deleted">%s forigita</string>
   <string name="saved_list_empty_title" fuzzy="true">Neniuj konservitaj paĝoj ankoraŭ</string>
-  <string name="reading_lists_empty_message">Aldoni artikolon al listo de legotoj, por eksterreta legado.</string>
-  <string name="reading_list_empty">Vi aldonis neniujn artikolojn al ĉi tiu listo.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Aldoni artikolon al listo de legotoj, por eksterreta legado.</string>
+  <string name="reading_list_empty" fuzzy="true">Vi aldonis neniujn artikolojn al ĉi tiu listo.</string>
   <string name="reading_list_article_offline">Disponebla eksterrete</string>
   <string name="reading_list_article_make_offline">Disponebligi ĉi tiun artikolon eksterrete</string>
-  <string name="reading_list_add_to_other_list">Aldoni al alia legolisto</string>
-  <string name="reading_list_move_to_other_list">Movi al alia legolisto</string>
-  <string name="reading_list_move_from_to_other_list">Movi el %s al alia legolisto</string>
+  <string name="reading_list_add_to_other_list" fuzzy="true">Aldoni al alia legolisto</string>
+  <string name="reading_list_move_to_other_list" fuzzy="true">Movi al alia legolisto</string>
+  <string name="reading_list_move_from_to_other_list" fuzzy="true">Movi el %s al alia legolisto</string>
   <string name="reading_list_remove_from_list">Forigi de %s</string>
-  <string name="reading_list_remove_from_lists">Forigi de legolistoj</string>
+  <string name="reading_list_remove_from_lists" fuzzy="true">Forigi de legolistoj</string>
   <string name="reading_list_select_item">Elekti</string>
   <string name="reading_list_confirm_remove_article_from_offline">Forigi el loka konservejo</string>
-  <string name="reading_list_confirm_remove_article_from_offline_title">La artikolo aperas en pluraj listoj</string>
-  <string name="reading_list_confirm_remove_article_from_offline_message">%s estos ne plu havebla eksterrete en ĉiuj legolistoj:</string>
-  <string name="reading_lists_sync_reminder_title">Ĉu ŝalti sinkronigadon de legolisto?</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title" fuzzy="true">La artikolo aperas en pluraj listoj</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s estos ne plu havebla eksterrete en ĉiuj legolistoj:</string>
+  <string name="reading_lists_sync_reminder_title" fuzzy="true">Ĉu ŝalti sinkronigadon de legolisto?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">Artikoloj konservitaj en legoliston nun povas esti sinkronigataj al via Vikipedia konto. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Lerni plu&lt;/a&gt;</string>
   <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Legolistoj nun povas esti sinkronigataj inter aparatoj. Ensalutu en vian Vikipedian konton kaj permesu la konservadon de viaj listoj. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Lerni plu&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Ŝalti sinkronigadon</string>
-  <string name="reading_list_login_reminder_title">Sinkronigi la legolistojn</string>
-  <string name="reading_lists_login_reminder_text">Legolistoj nun povas esti sinkronigataj inter aparatoj. Ensalutu en vian Vikipedian konton kaj permesu la konservadon de viaj listoj.</string>
+  <string name="reading_list_login_reminder_title" fuzzy="true">Sinkronigi la legolistojn</string>
+  <string name="reading_lists_login_reminder_text" fuzzy="true">Legolistoj nun povas esti sinkronigataj inter aparatoj. Ensalutu en vian Vikipedian konton kaj permesu la konservadon de viaj listoj.</string>
   <string name="reading_lists_login_button">Ensaluti en / aliĝi al Vikipedio</string>
   <string name="reading_lists_ignore_button">Ne nun</string>
   <string name="reading_lists_confirm_remote_delete_yes">Jes</string>
@@ -484,27 +484,27 @@
   <string name="reading_list_articles_added_to_named">Aldoniĝis %1$d artikoloj al %2$s</string>
   <string name="reading_list_delete_confirm">Ĉu vi certas, ke vi volas forigi %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Ensalutu por ebligi sinkronigadon</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Ensalutu por ebligi ke viaj legolistoj estu konservitaj al via konto.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text" fuzzy="true">Ensalutu por ebligi ke viaj legolistoj estu konservitaj al via konto.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Nuligi</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Ensaluti</string>
-  <string name="reading_list_turned_sync_off_dialog_title">Malŝaltis sinkronigadon de legolisto</string>
-  <string name="reading_list_turned_sync_off_dialog_text">Sinkronigado de legolistoj estas malŝaltita je via konto, kaj konservitaj artikoloj en viaj ensalutintaj aparatoj ne plu estas savkopiotaj. Vi povas ŝalti sinkronigadon de legolistoj en Agordoj.</string>
+  <string name="reading_list_turned_sync_off_dialog_title" fuzzy="true">Malŝaltis sinkronigadon de legolisto</string>
+  <string name="reading_list_turned_sync_off_dialog_text" fuzzy="true">Sinkronigado de legolistoj estas malŝaltita je via konto, kaj konservitaj artikoloj en viaj ensalutintaj aparatoj ne plu estas savkopiotaj. Vi povas ŝalti sinkronigadon de legolistoj en Agordoj.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">Bone</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Agordoj</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_title">Ĉu ŝalti la sinkronigadon de legolistoj?</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_text">Artikoloj konservitaj en legoliston nun povas esti sinkronigataj al via Vikipedia konto. &lt;a href=\"#faq\"&gt;Lerni plu&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title" fuzzy="true">Ĉu ŝalti la sinkronigadon de legolistoj?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text" fuzzy="true">Artikoloj konservitaj en legoliston nun povas esti sinkronigataj al via Vikipedia konto. &lt;a href=\"#faq\"&gt;Lerni plu&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Ne plu montri ĉi tion</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Ŝalti sinkronigadon</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ne, dankon</string>
   <string name="default_reading_list_name">Konservitaj</string>
-  <string name="default_reading_list_description">Defaŭlta listo por viaj konservitaj artikoloj</string>
-  <string name="no_user_lists_title">Organizi artikolojn en listoj</string>
-  <string name="no_user_lists_msg">Krei listojn por lokoj vizitindaj, ŝatataj temoj kaj multe pli</string>
+  <string name="default_reading_list_description" fuzzy="true">Defaŭlta listo por viaj konservitaj artikoloj</string>
+  <string name="no_user_lists_title" fuzzy="true">Organizi artikolojn en listoj</string>
+  <string name="no_user_lists_msg" fuzzy="true">Krei listojn por lokoj vizitindaj, ŝatataj temoj kaj multe pli</string>
   <string name="reading_list_saved_list_rename">%1$s (kreita de uzanto)</string>
-  <string name="split_reading_list_message">Estas maksimumo de po %d artikoloj en legolisto. Jam ekzistintaj listoj kun pli ol ĉi tiu maksimumo disdividiĝis en plurajn listojn.</string>
-  <string name="reading_list_article_limit_message">Ne povas aldoni al ĉi tiu listo. Atingiĝis, por listo \"%1$s\", la maksimumo de po %2$d artikoloj en listo.</string>
-  <string name="reading_lists_limit_message">Ne povas krei novan liston. Atingiĝis la maksimumo de po 100 legolistoj por konto.</string>
-  <string name="reading_lists_menu_create_list">Krei novan liston</string>
+  <string name="split_reading_list_message" fuzzy="true">Estas maksimumo de po %d artikoloj en legolisto. Jam ekzistintaj listoj kun pli ol ĉi tiu maksimumo disdividiĝis en plurajn listojn.</string>
+  <string name="reading_list_article_limit_message" fuzzy="true">Ne povas aldoni al ĉi tiu listo. Atingiĝis, por listo \"%1$s\", la maksimumo de po %2$d artikoloj en listo.</string>
+  <string name="reading_lists_limit_message" fuzzy="true">Ne povas krei novan liston. Atingiĝis la maksimumo de po 100 legolistoj por konto.</string>
+  <string name="reading_lists_menu_create_list" fuzzy="true">Krei novan liston</string>
   <string name="reading_lists_menu_sort_by">Ordigi laŭ</string>
   <string name="reading_lists_refresh_sync_option">Resinkronigi</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Ensaluti / registriĝi</string>
@@ -516,7 +516,7 @@
     <item quantity="one">Ĉi tiu artikolo estas ne plu havebla eksterrete.</item>
     <item quantity="other">Ĉi tiuj artikoloj estas ne plu haveblaj eksterrete.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Sinkronigis legolistojn</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">Sinkronigis legolistojn</string>
   <string name="reading_list_menu_last_sync">Lasta sinkronigo: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">Bone</string>
   <string name="reading_list_delete_dialog_ok_button_text">Bone</string>
@@ -526,9 +526,9 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Nuligi</string>
   <string name="reading_list_split_dialog_ok_button_text">Bone</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">Forigi</string>
-  <string name="reading_list_activity_title">Legolistoj: %s</string>
+  <string name="reading_list_activity_title" fuzzy="true">Legolistoj: %s</string>
   <string name="reading_lists_action_menu_export_lists">Elporti</string>
-  <plurals name="reading_list_import_success_message">
+  <plurals name="reading_list_import_success_message" fuzzy="true">
     <item quantity="one">Legolisto importita</item>
     <item quantity="other">Legolistoj importitaj</item>
   </plurals>
@@ -536,7 +536,7 @@
   <string name="reading_lists_preview_save_dialog_title_hint">Titolo</string>
   <string name="reading_lists_preview_save_dialog_cancel">Nuligi</string>
   <string name="reading_lists_preview_save_dialog_save">Konservi</string>
-  <string name="reading_lists_preview_saved_snackbar">Legolisto konservita</string>
+  <string name="reading_lists_preview_saved_snackbar" fuzzy="true">Legolisto konservita</string>
   <string name="reading_lists_preview_saved_snackbar_action">Vidi</string>
   <string name="user_option_sync_label">Preferoj</string>
   <string name="notification_reverted_title">Malfarita redakto</string>
@@ -544,7 +544,7 @@
   <string name="notification_syncing_pause_button">Paŭzigi</string>
   <string name="notification_syncing_resume_button">Daŭrigi</string>
   <string name="notification_syncing_cancel_button">Nuligi</string>
-  <string name="notification_syncing_reading_list_channel_description">Progreso de sinkronigado de Legolistoj</string>
+  <string name="notification_syncing_reading_list_channel_description" fuzzy="true">Progreso de sinkronigado de Legolistoj</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Elŝutanta artikolon</item>
     <item quantity="other">Elŝutanta artikolojn</item>
@@ -557,15 +557,15 @@
     <item quantity="one">%1$d artikolo ne jam sinkronigita</item>
     <item quantity="other">%1$d arikoloj ne jam sinkronigitaj</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_channel_name">
+  <plurals name="notification_syncing_reading_list_channel_name" fuzzy="true">
     <item quantity="one">Sinkronigante Legoliston</item>
     <item quantity="other">Sinkronigante Legolistojn</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_title">
+  <plurals name="notification_syncing_reading_list_title" fuzzy="true">
     <item quantity="one">Sinkronigante %1$d liston…</item>
     <item quantity="other">Sinkronigante %1$d listojn…</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_description">
+  <plurals name="notification_syncing_reading_list_description" fuzzy="true">
     <item quantity="one">%1$d listo ne jam sinkronigita</item>
     <item quantity="other">%1$d listoj ne jam sinkronigitaj</item>
   </plurals>
@@ -817,8 +817,8 @@
   <string name="onboarding_maybe_later">Eble poste</string>
   <string name="onboarding_explore_title">Novaj metodoj por esplorado</string>
   <string name="onboarding_explore_text" fuzzy="true">Saltu en la Vikipedian kuniklotruon per konstante ĝisdatigata Esploro-fluo. &lt;br/&gt; &lt;b&gt;Personecigu&lt;/b&gt; la fluon al viaj interesoj – ĉu pri historiaj eventoj &lt;b&gt;En ĉi tiu tago&lt;/b&gt;, ĉu hazardludado per la funkcio &lt;b&gt;Hazarde&lt;/b&gt;.</string>
-  <string name="onboarding_reading_list_sync_title">Legolistoj sinkronigeblaj</string>
-  <string name="onboarding_reading_list_sync_text_v2">Vi povas fari legolistojn el artikoloj kiujn vi volas poste legi, eĉ se vi estas ne konektita. &lt;br/&gt;Ensalutu en vian Vikipedian konton por sinkronigi viajn legolistojn. &lt;a href=\"#login\"&gt;Aniĝu al Vikipedio&lt;/a&gt;</string>
+  <string name="onboarding_reading_list_sync_title" fuzzy="true">Legolistoj sinkronigeblaj</string>
+  <string name="onboarding_reading_list_sync_text_v2" fuzzy="true">Vi povas fari legolistojn el artikoloj kiujn vi volas poste legi, eĉ se vi estas ne konektita. &lt;br/&gt;Ensalutu en vian Vikipedian konton por sinkronigi viajn legolistojn. &lt;a href=\"#login\"&gt;Aniĝu al Vikipedio&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Sendi datenon pri uzado</string>
   <string name="onboarding_got_it">Komprenite</string>
   <string name="onboarding_multilingual_secondary_text">Ni trovis la sekvajn sur via aparato:</string>
@@ -892,7 +892,7 @@
   <string name="watchlist_filter_pages">Paĝoj</string>
   <string name="watchlist_filter_other">Alia</string>
   <string name="watchlist_page_deleted">Forigita</string>
-  <string name="shareable_reading_lists_new_imported_snackbar">Legolisto importita</string>
+  <string name="shareable_reading_lists_new_imported_snackbar" fuzzy="true">Legolisto importita</string>
   <string name="talk_templates_edit_message_dialog_delete">Forigi</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Etikedoj: %s</string>
   <string name="patroller_tasks_filters_user_status_experienced_desc">Registritaj redaktantoj kun pli ol 500 redaktoj kaj 30 tagoj da aktiveco.</string>
