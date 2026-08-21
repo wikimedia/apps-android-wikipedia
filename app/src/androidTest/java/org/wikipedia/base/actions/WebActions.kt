@@ -13,7 +13,6 @@ import androidx.test.espresso.web.webdriver.Locator
 import org.hamcrest.Matchers
 import org.wikipedia.TestUtil
 import org.wikipedia.TestUtil.delay
-import org.wikipedia.base.TestConfig
 import org.wikipedia.base.utils.ExecuteJavascriptAction
 
 class WebActions {
@@ -36,7 +35,7 @@ class WebActions {
 
     fun swipeDownOnTheWebView(@IdRes viewId: Int) {
         onView(withId(viewId)).perform(TestUtil.swipeDownWebView())
-        delay(TestConfig.DELAY_LARGE)
+        delay(SWIPE_SETTLE_DELAY_SECONDS)
     }
 
     fun scrollToImageInWebView(imageIndex: Int): ViewAction {
@@ -52,5 +51,9 @@ class WebActions {
             })()
         """.trimIndent()
         return ExecuteJavascriptAction(scrollScript)
+    }
+
+    private companion object {
+        const val SWIPE_SETTLE_DELAY_SECONDS = 5L
     }
 }
