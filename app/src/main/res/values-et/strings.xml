@@ -27,7 +27,7 @@
   <string name="search_back_button_content_description">Mine tagasi</string>
   <string name="search_clear_query_content_description">Tühista päring</string>
   <string name="search_icon_content_description">Otsi</string>
-  <string name="filter_hint_filter_my_lists_and_articles">Filtreeri minu loendeid</string>
+  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">Filtreeri minu loendeid</string>
   <string name="nav_item_suggested_edits">Muudatused</string>
   <string name="nav_item_activity">Tegevus</string>
   <string name="nav_item_more">Veel</string>
@@ -90,16 +90,16 @@
   <string name="menu_page_watched">Jälgitud</string>
   <string name="edit_section_find_in_page">Leia lehelt</string>
   <string name="menu_page_font_and_theme">Font ja kujundus</string>
-  <string name="menu_page_add_to_list">Lisa lugemisloendisse</string>
+  <string name="menu_page_add_to_list" fuzzy="true">Lisa lugemisloendisse</string>
   <string name="menu_page_add_to_default_list">Salvesta</string>
-  <string name="feed_card_add_to_list">Lisa lugemisloendisse</string>
+  <string name="feed_card_add_to_list" fuzzy="true">Lisa lugemisloendisse</string>
   <string name="feed_card_add_to_default_list">Salvesta</string>
   <string name="menu_page_share">Jaga linki</string>
   <string name="menu_article_share">Jaga artiklit</string>
   <string name="menu_page_article_share">Jaga</string>
   <string name="menu_page_open_a_new_tab">Ava uus vahekaart</string>
   <string name="menu_page_new_tab">Uus vahekaart</string>
-  <string name="menu_page_reading_lists">Lugemisloendid</string>
+  <string name="menu_page_reading_lists" fuzzy="true">Lugemisloendid</string>
   <string name="menu_page_recently_viewed">Hiljuti vaadatud</string>
   <string name="menu_page_archive">Arhiiv</string>
   <string name="menu_long_press_open_page">Ava</string>
@@ -139,7 +139,7 @@
   <string name="dialog_confirm_delete_donation_history_cancel">Loobu</string>
   <string name="menu_show_toc">Sisukord</string>
   <string name="search_no_results_found">Tulemusi ei leitud</string>
-  <string name="search_reading_lists_no_results">Lugemisnimekirjadest ei leitud tulemusi</string>
+  <string name="search_reading_lists_no_results" fuzzy="true">Lugemisnimekirjadest ei leitud tulemusi</string>
   <string name="edit_section_captcha_message">Et kaitsta lehekülgi automatiseeritud rämpspostituste eest, sisesta palun alljärgnevad sõnad!</string>
   <string name="edit_section_captcha_hint">Palun korda ülaltoodud sõnu!</string>
   <string name="title_captcha">Sisesta robotilõksu (CAPTCHA) kuvatud tekst!</string>
@@ -254,13 +254,13 @@
   <string name="article_header_edit_hint">Redigeeri...</string>
   <string name="nav_item_saved">Salvestatud</string>
   <string name="saved_list_empty_title" fuzzy="true">Salvestatud lehti pole veel</string>
-  <string name="reading_lists_empty_message">Salvesta artiklid lugemisnimekirja, et vaadata neid hiljem, ka ilma võrguühenduseta.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Salvesta artiklid lugemisnimekirja, et vaadata neid hiljem, ka ilma võrguühenduseta.</string>
   <string name="reading_lists_confirm_remote_delete_yes">Jah</string>
   <string name="reading_lists_confirm_remote_delete_no">Ei</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Loobu</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Logi sisse</string>
   <string name="default_reading_list_name">Salvestatud</string>
-  <string name="no_user_lists_msg">Koosta loendeid reisisihtkohtade, lemmikteemade ja palju muu kohta</string>
+  <string name="no_user_lists_msg" fuzzy="true">Koosta loendeid reisisihtkohtade, lemmikteemade ja palju muu kohta</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">Loobu</string>
   <string name="reading_list_remove_from_offline_cancel_button_text">Loobu</string>
   <string name="reading_lists_preview_save_dialog_cancel">Loobu</string>

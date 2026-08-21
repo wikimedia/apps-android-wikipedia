@@ -19,7 +19,7 @@
   <string name="search_hint">ⵔⵣⵓ ⴳ ⵡⵉⴽⵉⴱⵉⴷⵢⴰ</string>
   <string name="search_hint_voice_search">ⴰⵔⵣⵣⵓ ⴰⴳⵔⴹⴰⵏ</string>
   <string name="search_hint_search_languages">ⵔⵣⵓ ⵖⴼ ⴽⵔⴰ ⵏ ⵜⵓⵜⵍⴰⵢⵜ</string>
-  <string name="filter_hint_filter_my_lists_and_articles">ⵙⵜⵢ ⵜⵉⵍⴳⴰⵎⵉⵏ ⵉⵏⵓ</string>
+  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">ⵙⵜⵢ ⵜⵉⵍⴳⴰⵎⵉⵏ ⵉⵏⵓ</string>
   <string name="nav_item_suggested_edits">ⵉⵙⵏⴼⵍⵏ</string>
   <string name="nav_item_more">ⵓⴳⴳⴰⵔ</string>
   <string name="nav_item_search">ⵔⵣⵓ</string>
@@ -62,14 +62,14 @@
   <string name="menu_page_edit_history">ⴰⵎⵣⵔⵓⵢ ⵏ ⵓⵙⵏⴼⵍ</string>
   <string name="menu_page_remove_from_watchlist">ⴽⴽⵉⵙ ⵙⴳ ⵜⵍⴳⴰⵎⵜ ⵏ ⵓⴹⴼⴼⵓⵕ</string>
   <string name="edit_section_find_in_page">ⴰⴼ ⴳ ⵜⵙⵏⴰ</string>
-  <string name="menu_page_add_to_list">ⵔⵏⵓ ⵖⵕ ⵓⵎⵓⵖ ⵏ ⵜⵖⵔⵉ</string>
+  <string name="menu_page_add_to_list" fuzzy="true">ⵔⵏⵓ ⵖⵕ ⵓⵎⵓⵖ ⵏ ⵜⵖⵔⵉ</string>
   <string name="menu_page_add_to_default_list">ⵃⴹⵓ</string>
-  <string name="feed_card_add_to_list">ⵔⵏⵓ ⵖⵔ ⵓⵎⵓⵖ ⵏ ⵜⵖⵓⵔⵉ</string>
+  <string name="feed_card_add_to_list" fuzzy="true">ⵔⵏⵓ ⵖⵔ ⵓⵎⵓⵖ ⵏ ⵜⵖⵓⵔⵉ</string>
   <string name="feed_card_add_to_default_list">ⵃⴹⵓ</string>
   <string name="menu_page_share">ⴱⴹⵓ ⴰⵣⴷⴰⵢ</string>
   <string name="menu_page_open_a_new_tab">ⵕⵥⵎ ⴰⵙⴽⵙⵍ ⴰⵎⴰⵢⵏⵓ</string>
   <string name="menu_page_new_tab">ⴰⵙⴽⵙⵍ ⴰⵎⴰⵢⵏⵓ</string>
-  <string name="menu_page_reading_lists">ⵜⵉⵍⴳⴰⵎⵉⵏ ⵏ ⵜⵖⵔⵉ</string>
+  <string name="menu_page_reading_lists" fuzzy="true">ⵜⵉⵍⴳⴰⵎⵉⵏ ⵏ ⵜⵖⵔⵉ</string>
   <string name="menu_page_recently_viewed">ⵜⴻⵜⵜⵓⵙⴽⴰⵏ ⴷⵔⵓⵙ ⴰⵢⴰ</string>
   <string name="menu_long_press_open_page">ⵕⵥⵎ</string>
   <string name="menu_long_press_open_in_new_tab">ⵕⵥⵎ ⴳ ⵓⵙⴽⵙⵍ ⴰⵎⴰⵢⵏⵓ</string>
@@ -103,7 +103,7 @@
   <string name="menu_show_toc">ⵜⴰⴼⵍⵡⵉⵜ ⵏ ⵜⵓⵎⴰⵢⵉⵏ</string>
   <string name="search_no_results_found">ⵓⵔ ⵜⵜⵢⴰⴼⴰⵏⵜ ⵜⵢⴰⴼⵓⵜⵉⵏ</string>
   <string name="search_reading_list_no_results">ⵓⵔ ⵜⵜⵢⴰⴼⴰⵏⵜ ⵜⵢⴰⴼⵓⵜⵉⵏ ⴳ %s</string>
-  <string name="search_reading_lists_no_results">ⵓⵔ ⵜⵜⵢⴰⴼⴰⵏⵜ ⵜⵢⴰⴼⵓⵜⵉⵏ ⴳ ⵜⵍⴳⴰⵎⵉⵏ ⵏ ⵜⵖⵔⵉ</string>
+  <string name="search_reading_lists_no_results" fuzzy="true">ⵓⵔ ⵜⵜⵢⴰⴼⴰⵏⵜ ⵜⵢⴰⴼⵓⵜⵉⵏ ⴳ ⵜⵍⴳⴰⵎⵉⵏ ⵏ ⵜⵖⵔⵉ</string>
   <string name="search_history_no_results">ⵓⵔ ⵜⵜⵢⴰⴼⴰⵏⵜ ⵜⵢⴰⴼⵓⵜⵉⵏ ⴳ ⵓⵎⵣⵔⵓⵢ</string>
   <string name="edit_section_captcha_request_an_account_message">ⵓⵔ ⵜⵓⵎⴰⵏ ⵜⵡⵍⴰⴼⵜ? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;ⵜⵜⵔ ⴰⵎⵉⴹⴰⵏ&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">ⴰⵍⵙ ⵜⵉⴳⵓⵔⵉⵡⵉⵏ ⵙⴳ ⵓⴼⵍⵍⴰ</string>
@@ -206,10 +206,10 @@
   <string name="close_all_tabs_confirm_yes">ⵢⴰⵀ</string>
   <string name="close_all_tabs_confirm_no">ⵓⵀⵓ</string>
   <string name="button_close_tab">ⵔⴳⵍ ⴰⵙⴽⵙⵍ</string>
-  <string name="tool_tip_bookmark_icon_title">ⵔⵏⵓ ⵖⵔ ⵓⵎⵓⵖ ⵏ ⵜⵖⵓⵔⵉ</string>
+  <string name="tool_tip_bookmark_icon_title" fuzzy="true">ⵔⵏⵓ ⵖⵔ ⵓⵎⵓⵖ ⵏ ⵜⵖⵓⵔⵉ</string>
   <string name="format_error_server_message">ⵜⵓⵣⵉⵏⵜ: \"%s\"</string>
   <string name="button_continue_to_article">ⵖⵔ ⴰⵎⴳⵔⴰⴷ</string>
-  <string name="button_add_to_reading_list">ⵔⵏⵓ ⴳ ⵓⵎⵓⵖ ⵏ ⵜⵖⵔⵉ</string>
+  <string name="button_add_to_reading_list" fuzzy="true">ⵔⵏⵓ ⴳ ⵓⵎⵓⵖ ⵏ ⵜⵖⵔⵉ</string>
   <string name="error_page_does_not_exist">ⵓⵔ ⵜⵍⵍⵉ ⵜⴰⵙⵏⴰ ⴰⴷ</string>
   <string name="empty_tab_title">ⴰⵙⴽⵙⵍ ⴰⵎⴰⵢⵏⵓ</string>
   <string name="crash_report_quit">ⴼⴼⵖ</string>
@@ -227,9 +227,9 @@
   <string name="color_theme_black">ⴰⴱⵔⴽⴰⵏ</string>
   <string name="color_theme_test_title">ⴰⴹⵕⵉⵚ ⴰⵎⴷⵢⴰ</string>
   <string name="preference_title_app_theme">ⴰⵙⴳⵓⵎ ⵏ ⵜⵙⵏⵙⵉ</string>
-  <string name="reading_list_save_to">ⵔⵏⵓ ⵖⵔ ⵓⵎⵓⵖ ⵏ ⵜⵖⵔⵉ</string>
+  <string name="reading_list_save_to" fuzzy="true">ⵔⵏⵓ ⵖⵔ ⵓⵎⵓⵖ ⵏ ⵜⵖⵔⵉ</string>
   <string name="reading_list_create_new">ⵙⵏⵓⵍⴼⵓ ⴰⵎⴰⵢⵎⵓ</string>
-  <string name="reading_list_menu_delete">ⴽⴽⵙ ⵜⴰⵍⴳⴰⵎⵜ</string>
+  <string name="reading_list_menu_delete" fuzzy="true">ⴽⴽⵙ ⵜⴰⵍⴳⴰⵎⵜ</string>
   <string name="reading_list_menu_rename">ⵙⵏⴼⵍ ⵉⵙⵎ/ⴰⴳⵍⴰⵎ</string>
   <string name="reading_list_select_item">ⵙⵜⵢ</string>
   <string name="reading_lists_confirm_remote_delete_yes">ⵢⴰⵀ</string>

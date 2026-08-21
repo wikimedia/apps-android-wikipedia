@@ -22,7 +22,7 @@
   <string name="search_back_button_content_description">Артқа қайту</string>
   <string name="search_clear_query_content_description">Сұрауды тазарту</string>
   <string name="search_icon_content_description">Іздеу</string>
-  <string name="filter_hint_filter_my_lists_and_articles">Тізімдерімді сүзу</string>
+  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">Тізімдерімді сүзу</string>
   <string name="nav_item_suggested_edits">Өңдемелер</string>
   <string name="nav_item_activity">Белсенділік</string>
   <string name="nav_item_more">Тағы</string>
@@ -79,16 +79,16 @@
   <string name="menu_page_watched">Көрілген</string>
   <string name="edit_section_find_in_page">Бетте табу</string>
   <string name="menu_page_font_and_theme">Қаріп пен кейіп</string>
-  <string name="menu_page_add_to_list">Оқу тізіміне қосу</string>
+  <string name="menu_page_add_to_list" fuzzy="true">Оқу тізіміне қосу</string>
   <string name="menu_page_add_to_default_list">Сақтау</string>
-  <string name="feed_card_add_to_list">Оқу тізіміне қосу</string>
+  <string name="feed_card_add_to_list" fuzzy="true">Оқу тізіміне қосу</string>
   <string name="feed_card_add_to_default_list">Сақтау</string>
   <string name="menu_page_share">Сілтемесін жіберу</string>
   <string name="menu_article_share">Мақаланы жіберу</string>
   <string name="menu_page_article_share">Бөлісу</string>
   <string name="menu_page_open_a_new_tab">Жаңа қойынды ашу</string>
   <string name="menu_page_new_tab">Жаңа қойынды</string>
-  <string name="menu_page_reading_lists">Оқу тізімі</string>
+  <string name="menu_page_reading_lists" fuzzy="true">Оқу тізімі</string>
   <string name="menu_page_recently_viewed">Соңғы көрілген</string>
   <string name="menu_page_archive">Мұрағат</string>
   <string name="menu_long_press_open_page">Ашу</string>
@@ -127,7 +127,7 @@
   <string name="menu_show_toc">Мазмұны</string>
   <string name="search_no_results_found">Нәтиже табылмады</string>
   <string name="search_reading_list_no_results">“%s” ішінен табылмады</string>
-  <string name="search_reading_lists_no_results">Оқу тізімінен табылмады</string>
+  <string name="search_reading_lists_no_results" fuzzy="true">Оқу тізімінен табылмады</string>
   <string name="search_history_no_results">Тарихтан табылмады</string>
   <string name="edit_section_captcha_message">Автоматтандырылған спамнан қорғану үшін, төменде көрсетілген сөздерді енгізіңіз</string>
   <string name="edit_section_captcha_hint">Жоғарыдағы сөздерді қайталаңыз</string>
@@ -277,8 +277,8 @@
   <string name="reading_list_sort_by_recent_desc">Қосылған күні бойынша сұрыптау (ең ескілері)</string>
   <string name="reading_list_sort_by_created">Жасалған күні бойынша сұрыптау (ең жаңалары)</string>
   <string name="reading_list_sort_by_created_desc">Жасалған күні бойынша сұрыптау (ең ескілері)</string>
-  <string name="reading_list_menu_delete">Тізімді өшіру</string>
-  <string name="reading_list_menu_export">Тізімді экспорттау</string>
+  <string name="reading_list_menu_delete" fuzzy="true">Тізімді өшіру</string>
+  <string name="reading_list_menu_export" fuzzy="true">Тізімді экспорттау</string>
   <string name="reading_list_menu_select">Таңдау</string>
   <string name="reading_list_menu_unselect">Таңдамау</string>
   <string name="reading_list_menu_rename">Атауын/сипаттамасын өңдеу</string>
@@ -286,12 +286,12 @@
   <string name="reading_list_action_menu_save_for_offline">Офлайн түрде сақтау</string>
   <string name="reading_list_action_menu_remove_all_from_offline">Барлығын офлайннан алып тастау</string>
   <string name="reading_list_action_menu_save_all_for_offline">Барлығын офлайн түрде сақтау</string>
-  <string name="reading_list_action_menu_add_to_another_list">Басқа тізімге қосу</string>
-  <string name="reading_list_action_menu_move_to_another_list">Басқа тізімге ауыстыру</string>
-  <string name="reading_list_name_sample">Менің оқитын тізімім</string>
-  <string name="reading_list_name_hint">Мына тізімнің атауы</string>
+  <string name="reading_list_action_menu_add_to_another_list" fuzzy="true">Басқа тізімге қосу</string>
+  <string name="reading_list_action_menu_move_to_another_list" fuzzy="true">Басқа тізімге ауыстыру</string>
+  <string name="reading_list_name_sample" fuzzy="true">Менің оқитын тізімім</string>
+  <string name="reading_list_name_hint" fuzzy="true">Мына тізімнің атауы</string>
   <string name="reading_list_description_hint">Сипаттамасы (міндетті емес):</string>
-  <string name="reading_list_item_deleted">\"%s\" тізімнен алып тасталды</string>
+  <string name="reading_list_item_deleted" fuzzy="true">\"%s\" тізімнен алып тасталды</string>
   <string name="reading_list_item_deleted_from_list">%1$s %2$s тізімінен алып тасталды</string>
   <string name="reading_list_deleted">%s өшірілді</string>
   <string name="saved_list_empty_title" fuzzy="true">Сақталған парақшалар әзірше жоқ</string>
@@ -305,13 +305,13 @@
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Кіру</string>
   <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Баптаулар</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_title">Оқитын тізім синхронизациясын қосқыңыз келе ме?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title" fuzzy="true">Оқитын тізім синхронизациясын қосқыңыз келе ме?</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Мынаны маған тағы көрсетпеңіз</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Синхронизацияны қосу</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Жоқ, рахмет</string>
   <string name="default_reading_list_name">Сақталған</string>
-  <string name="reading_lists_menu_create_list">Жаңа тізім жасау</string>
-  <string name="reading_lists_menu_import_list">Тізімді импорттау</string>
+  <string name="reading_lists_menu_create_list" fuzzy="true">Жаңа тізім жасау</string>
+  <string name="reading_lists_menu_import_list" fuzzy="true">Тізімді импорттау</string>
   <string name="reading_lists_menu_sort_by">Осы бойынша сұрыптау...</string>
   <string name="reading_lists_refresh_sync_option">Синхронизацияны жаңарту</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Кіру / Тіркелу</string>
@@ -324,11 +324,11 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Болдырмау</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">Өшіру</string>
-  <string name="reading_list_activity_title">Оқу тізімі: %s</string>
-  <string name="reading_list_notification_title">Оқу тізім(дер)і экспортталды</string>
+  <string name="reading_list_activity_title" fuzzy="true">Оқу тізімі: %s</string>
+  <string name="reading_list_notification_title" fuzzy="true">Оқу тізім(дер)і экспортталды</string>
   <string name="reading_lists_action_menu_export_lists">Экспорттау</string>
   <string name="reading_lists_preview_save_button">Сақтау</string>
-  <string name="reading_lists_preview_save_dialog_title">Тізімді сақтау</string>
+  <string name="reading_lists_preview_save_dialog_title" fuzzy="true">Тізімді сақтау</string>
   <string name="reading_lists_preview_save_dialog_title_hint">Тақырыбы</string>
   <string name="reading_lists_preview_save_dialog_cancel">Болдырмау</string>
   <string name="reading_lists_preview_save_dialog_save">Сақтау</string>

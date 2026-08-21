@@ -30,7 +30,7 @@
   <string name="search_back_button_content_description">पछाडि पर्कनुहोस्</string>
   <string name="search_clear_query_content_description">लाम खाली गर्नुहोस्</string>
   <string name="search_icon_content_description">खोज्नुहोस्</string>
-  <string name="filter_hint_filter_my_lists_and_articles">मेरा सूचीहरू फिल्टर गर्ने</string>
+  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">मेरा सूचीहरू फिल्टर गर्ने</string>
   <string name="nav_item_suggested_edits">सम्पादनहरू</string>
   <string name="nav_item_activity">क्रियाकलाप</string>
   <string name="nav_item_more">थप</string>
@@ -88,16 +88,16 @@
   <string name="menu_page_watched">हेरिएको</string>
   <string name="edit_section_find_in_page">पृष्ठमा खोज्नुहोस्</string>
   <string name="menu_page_font_and_theme">फन्ट र थिम</string>
-  <string name="menu_page_add_to_list">अध्ययन सूचीमा थप गर्नुहोस्</string>
+  <string name="menu_page_add_to_list" fuzzy="true">अध्ययन सूचीमा थप गर्नुहोस्</string>
   <string name="menu_page_add_to_default_list">सङ्ग्रह गर्नुहोस्</string>
-  <string name="feed_card_add_to_list">अध्ययन सूचीमा थप गर्नुहोस्</string>
+  <string name="feed_card_add_to_list" fuzzy="true">अध्ययन सूचीमा थप गर्नुहोस्</string>
   <string name="feed_card_add_to_default_list">सङ्ग्रह गर्नुहोस्</string>
   <string name="menu_page_share">सूत्र आदान-प्रदान गर्नुहोस्</string>
   <string name="menu_article_share">लेख साझा गर्ने</string>
   <string name="menu_page_article_share">साझा</string>
   <string name="menu_page_open_a_new_tab">नयाँ ट्याबमा खोल्नुहोस्</string>
   <string name="menu_page_new_tab">नयाँ ट्याब</string>
-  <string name="menu_page_reading_lists">अध्ययन सूचीहरू</string>
+  <string name="menu_page_reading_lists" fuzzy="true">अध्ययन सूचीहरू</string>
   <string name="menu_page_recently_viewed">भर्खरै हेरिएको</string>
   <string name="menu_page_archive">अभिलेख</string>
   <string name="menu_long_press_open_page">खोल्नुहोस्</string>
@@ -139,7 +139,7 @@
   <string name="menu_show_toc">विषयसूची</string>
   <string name="search_no_results_found">कुनै पनि परिणाम भेटिएन</string>
   <string name="search_reading_list_no_results">\"%s\" मा कुनै पनि परिणाम फेला परेन</string>
-  <string name="search_reading_lists_no_results">अध्ययन सूचीहरूमा कुनै पनि परिणाम फेला परेन</string>
+  <string name="search_reading_lists_no_results" fuzzy="true">अध्ययन सूचीहरूमा कुनै पनि परिणाम फेला परेन</string>
   <string name="search_history_no_results">इतिहासमा कुनै पनि परिणाम फेला परेन</string>
   <string name="edit_section_captcha_message">स्वचालित स्प्यामविरूद्ध सुरक्षा गर्ने कार्यमा मद्दत गर्न, कृपया तल देखिएका शब्दहरू प्रविष्ट गर्नुहोस्</string>
   <string name="edit_section_captcha_request_an_account_message">यस तस्विर देख्नु भएको छैन? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;खाता अनुरोध गर्नुहोस्&lt;/a&gt;</string>
@@ -215,12 +215,12 @@
   <string name="preferences_heading_syncing">समक्रमण गर्दै</string>
   <string name="preferences_heading_data_usage">डाटा उपयोग</string>
   <string name="preferences_heading_experimental">प्रयोगात्मक</string>
-  <string name="preference_title_sync_reading_lists_from_account">अध्ययन सूची समक्रमण गर्दै</string>
-  <string name="preference_title_download_reading_list_articles">अध्ययन सूचिका लेखहरू डाउनलोड गर्दै</string>
-  <string name="preference_summary_sync_reading_lists">अध्ययन सूची विकिपिडियामा सङ्ग्रह गरेर विभिन्न उपकरणहरूमा समक्रमण गर्नुहोस्</string>
-  <string name="preference_summary_sync_reading_lists_from_account">अध्ययन सूची विकिपिडिया खाता \"%s\" मा सङ्ग्रह गरेर विभिन्न उपकरणहरूमा समक्रमण गर्नुहोस् \\</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">\"%s\" बाट समक्रमण गरिएको अध्ययन सूची हटाउने?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">यसले पहिले समक्रमण गरिएको अध्ययन सूचीलाई रिमोट भण्डारणबाट हटाउने छ। सबै समक्रमण गरिएको सूचीहरू तपाईको खाता \"%s\" बाट हटाउने हो?</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">अध्ययन सूची समक्रमण गर्दै</string>
+  <string name="preference_title_download_reading_list_articles" fuzzy="true">अध्ययन सूचिका लेखहरू डाउनलोड गर्दै</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">अध्ययन सूची विकिपिडियामा सङ्ग्रह गरेर विभिन्न उपकरणहरूमा समक्रमण गर्नुहोस्</string>
+  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">अध्ययन सूची विकिपिडिया खाता \"%s\" मा सङ्ग्रह गरेर विभिन्न उपकरणहरूमा समक्रमण गर्नुहोस् \\</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">\"%s\" बाट समक्रमण गरिएको अध्ययन सूची हटाउने?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">यसले पहिले समक्रमण गरिएको अध्ययन सूचीलाई रिमोट भण्डारणबाट हटाउने छ। सबै समक्रमण गरिएको सूचीहरू तपाईको खाता \"%s\" बाट हटाउने हो?</string>
   <string name="preference_title_auto_upload_crash_reports">खरावी सम्बन्धी प्रतिवेदनहरू पठाउनुहोस्</string>
   <string name="preference_summary_auto_upload_crash_reports">क्र्यास प्रतिवेदनहरू HockeyApp नामक एक तेस्रो-पक्षीय सेवा प्रदायकलाई स्वतः पठाउन अनुप्रयोगलाई अनुमति दिनुहोस् जसले गर्दा हामी अझ छिटो र सरल तरिकाले तपाईंको क्र्यासको समीक्षा गरी उक्त समस्याको समाधान गर्न सक्छौं।</string>
   <string name="editing_error_spamblacklist">रोक लगाइएका डोमेनहरू (%s) को लिङ्क पत्ता लाग्यो। तिनीहरूलाई हटाएर फेरि प्रयास गर्नुहोस्।</string>
@@ -344,7 +344,7 @@
   <string name="unnamed_tab_closed">ट्याब बन्द गरियो।</string>
   <string name="tab_item_closed">%s बन्द गरियो।</string>
   <string name="all_tab_items_closed">सबै ट्याबहरू बन्द गरिए</string>
-  <string name="tool_tip_bookmark_icon_title">अध्ययन सूचीमा थप गर्नुहोस्</string>
+  <string name="tool_tip_bookmark_icon_title" fuzzy="true">अध्ययन सूचीमा थप गर्नुहोस्</string>
   <string name="page_view_in_browser">पृष्ठलार्इ ब्राउजरमा हेर्नुहोस्</string>
   <string name="error_response_malformed">सर्भरबाट आएको प्रतिक्रिया सही तरिकाले फर्म्याट गरिएको छैन।</string>
   <string name="error_unknown">एउटा अज्ञात त्रुटि देखापर्‍यो।</string>
@@ -355,7 +355,7 @@
   <string name="button_continue_to_talk_page">वार्तालाप पृष्ठ हेर्नुहोस्</string>
   <string name="button_continue_to_disambiguation">मिल्दाेजुल्दाे पृष्ठहरू हेर्नुहाेस्</string>
   <string name="link_preview_disambiguation_description">यो शीर्षक एक भन्दा बढी पृष्ठसँग सम्बन्धित छ:</string>
-  <string name="button_add_to_reading_list">अध्ययन सूचीमा थप गर्नुहोस्</string>
+  <string name="button_add_to_reading_list" fuzzy="true">अध्ययन सूचीमा थप गर्नुहोस्</string>
   <string name="button_get_directions">दिशानिर्देशन प्राप्त गर्नुहोस्</string>
   <string name="error_no_maps_app">दिशानिर्देशन प्रदान गर्ने कुनै पनि अनुप्रयोग फेला पार्न सकिएन।</string>
   <string name="preference_title_customize_explore_feed">फिड अन्वेषण गर्नुहोस्</string>
@@ -418,13 +418,13 @@
   <string name="editing_line_numbers_label">पङ्क्ति सङ्ख्या देखाउनुहोस्</string>
   <string name="editing_typing_suggestions">टाइपिङ सुझावहरू देखाउने</string>
   <string name="nav_item_saved">बचत गरिएको</string>
-  <string name="reading_list_save_to">अध्ययन सूचीमा सुरक्षित गर्नुहोस्</string>
-  <string name="reading_list_move_to">पाठ्यसूचीमा सार्ने</string>
+  <string name="reading_list_save_to" fuzzy="true">अध्ययन सूचीमा सुरक्षित गर्नुहोस्</string>
+  <string name="reading_list_move_to" fuzzy="true">पाठ्यसूचीमा सार्ने</string>
   <string name="reading_list_create_new">नयाँ सिर्जना गर्नुहोस्</string>
-  <string name="reading_list_title_exists">पाठ्यसूची \"%s\" पहिल्यै छ।</string>
+  <string name="reading_list_title_exists" fuzzy="true">पाठ्यसूची \"%s\" पहिल्यै छ।</string>
   <string name="reading_list_article_added_to_named">%1$s लाई %2$s मा थपियो।</string>
-  <string name="reading_list_added_view_button">सूची हेर्नुहोस्</string>
-  <string name="reading_list_add_to_list_button">सूचीमा थप्नुहाेस्</string>
+  <string name="reading_list_added_view_button" fuzzy="true">सूची हेर्नुहोस्</string>
+  <string name="reading_list_add_to_list_button" fuzzy="true">सूचीमा थप्नुहाेस्</string>
   <string name="reading_list_sort">श्रेणीबद्ध गर्नुहोस्</string>
   <string name="reading_list_sort_ellipsis">अनुसार क्रमबद्ध...</string>
   <string name="reading_list_sort_by_name">नाम अनुसार श्रेणीबद्ध गर्नुहोस्</string>
@@ -433,8 +433,8 @@
   <string name="reading_list_sort_by_recent_desc">जोडिएको मितिको आधारमा क्रमबद्ध गर्नुहोस् (सबैभन्दा पुरानो)</string>
   <string name="reading_list_sort_by_created">मिति अनुसार क्रमबद्ध बनाइएको (सबैभन्दा नयाँ)</string>
   <string name="reading_list_sort_by_created_desc">मिति अनुसार बनाइएको क्रमबद्ध (पुरानो)</string>
-  <string name="reading_list_menu_delete">सूची मेट्नुहोस्</string>
-  <string name="reading_list_menu_export">सूची निर्यात गर्नुहोस्</string>
+  <string name="reading_list_menu_delete" fuzzy="true">सूची मेट्नुहोस्</string>
+  <string name="reading_list_menu_export" fuzzy="true">सूची निर्यात गर्नुहोस्</string>
   <string name="reading_list_menu_select">चयन गर्नुहोस्</string>
   <string name="reading_list_menu_unselect">चयन रद्द गर्नुहोस्</string>
   <string name="reading_list_menu_rename">नाम/विवरण सम्पादन गर्नुहोस्</string>
@@ -442,24 +442,24 @@
   <string name="reading_list_action_menu_save_for_offline">अफलाइनको लागि सङ्ग्रह गर्नुहोस्।</string>
   <string name="reading_list_action_menu_remove_all_from_offline">सबै अफलाइनबाट हटाउनुहोस्।</string>
   <string name="reading_list_action_menu_save_all_for_offline">सबै अफलाइनको लागि सङ्ग्रह गर्नुहोस्।</string>
-  <string name="reading_list_action_menu_add_to_another_list">अर्को सूचिमा थप्नुहोस्।</string>
-  <string name="reading_list_action_menu_move_to_another_list">अर्को सूचीमा सार्नुहोस्</string>
-  <string name="reading_list_name_sample">मेरो अध्ययन सूची</string>
-  <string name="reading_list_name_hint">यो सूचीको नाम</string>
+  <string name="reading_list_action_menu_add_to_another_list" fuzzy="true">अर्को सूचिमा थप्नुहोस्।</string>
+  <string name="reading_list_action_menu_move_to_another_list" fuzzy="true">अर्को सूचीमा सार्नुहोस्</string>
+  <string name="reading_list_name_sample" fuzzy="true">मेरो अध्ययन सूची</string>
+  <string name="reading_list_name_hint" fuzzy="true">यो सूचीको नाम</string>
   <string name="reading_list_description_hint">विवरण (वैकल्पिक)</string>
-  <string name="reading_list_item_deleted">%s लाई सूचीबाट हटाइयो</string>
-  <string name="reading_list_items_deleted">%d वटा लेखहरूलाई सूचीबाट हटाइयो</string>
+  <string name="reading_list_item_deleted" fuzzy="true">%s लाई सूचीबाट हटाइयो</string>
+  <string name="reading_list_items_deleted" fuzzy="true">%d वटा लेखहरूलाई सूचीबाट हटाइयो</string>
   <string name="reading_list_item_delete_undo">अन्डू गर्नुहोस्</string>
   <string name="reading_list_deleted">%s मेटियो</string>
   <string name="saved_list_empty_title" fuzzy="true">हालसम्म कुनै पनि अध्ययन सूची छैन</string>
   <string name="reading_list_article_offline">अफलाइनमा पनि उपलब्ध</string>
-  <string name="reading_list_add_to_other_list">अर्को अध्ययन सूचीमा थप गर्नुहोस्</string>
+  <string name="reading_list_add_to_other_list" fuzzy="true">अर्को अध्ययन सूचीमा थप गर्नुहोस्</string>
   <string name="reading_list_remove_from_list">%s बाट हटाउनुहोस्</string>
-  <string name="reading_list_remove_from_lists">अध्ययन सूचीहरूबाट हटाउनुहोस्</string>
+  <string name="reading_list_remove_from_lists" fuzzy="true">अध्ययन सूचीहरूबाट हटाउनुहोस्</string>
   <string name="reading_list_select_item">चयन गर्नुहोस्</string>
   <string name="reading_list_confirm_remove_article_from_offline">अफलाइनबाट हटाउनुहोस्</string>
   <string name="reading_lists_sync_reminder_action">समक्रमण सक्षम पार्नुहोस्</string>
-  <string name="reading_list_login_reminder_title">पाठ्य सूचीहरू समक्रमण गर्नुहोस्</string>
+  <string name="reading_list_login_reminder_title" fuzzy="true">पाठ्य सूचीहरू समक्रमण गर्नुहोस्</string>
   <string name="reading_lists_login_button">प्रवेश/विकिपिडियामा जोडिनुहोस्</string>
   <string name="reading_lists_ignore_button">अहिले हैन</string>
   <string name="reading_lists_confirm_remote_delete_yes">हो</string>
@@ -473,8 +473,8 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">समक्रमण सक्षम पार्नुहोस्</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">पर्दैन धन्यवाद</string>
   <string name="default_reading_list_name">सङ्ग्रह गरिएको</string>
-  <string name="reading_lists_menu_create_list">नयाँ सुची बनाउनुहोस्</string>
-  <string name="reading_lists_menu_import_list">सूची निर्यात गर्नुहोस्</string>
+  <string name="reading_lists_menu_create_list" fuzzy="true">नयाँ सुची बनाउनुहोस्</string>
+  <string name="reading_lists_menu_import_list" fuzzy="true">सूची निर्यात गर्नुहोस्</string>
   <string name="reading_lists_menu_sort_by">द्वारा क्रमबद्ध</string>
   <string name="reading_lists_refresh_sync_option">सङ्क्रमण ताजा गर्नुहोस्</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">प्रवेश गर्नुहाेस् / खाता खाेल्नुहाेस्</string>
@@ -482,7 +482,7 @@
     <item quantity="one">यो लेख हाल अफलाइनमा उपलब्ध हुनेछ</item>
     <item quantity="other">यी लेखहरू हाल अफलाइनमा उपलब्ध हुनेछन्</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">अध्ययन सूची समक्रमण गर्दै</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">अध्ययन सूची समक्रमण गर्दै</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">हुन्छ</string>
   <string name="reading_list_delete_dialog_ok_button_text">हुन्छ</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">रद्द गर्नुहोस्</string>
@@ -491,16 +491,16 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">रद्द गर्नुहोस्</string>
   <string name="reading_list_split_dialog_ok_button_text">हुन्छ</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">मेट्ने</string>
-  <string name="reading_list_activity_title">पठन सूची: %s</string>
-  <string name="reading_list_notification_title">पठन सूची(हरू) निर्यात गरियो</string>
+  <string name="reading_list_activity_title" fuzzy="true">पठन सूची: %s</string>
+  <string name="reading_list_notification_title" fuzzy="true">पठन सूची(हरू) निर्यात गरियो</string>
   <string name="reading_lists_action_menu_export_lists">निर्यात गर्नुहोस्</string>
   <string name="reading_lists_import_file_picker_title">आयात गर्न फाइल चयन गर्नुहोस्</string>
-  <string name="reading_lists_import_failure_message">पठन सूची आयात असफल भयो</string>
-  <string name="reading_lists_export_select_lists_message">निर्यात गर्न सूची(हरू) चयन गर्नुहोस्</string>
-  <string name="reading_lists_export_completed_message">पठन सूची(हरू) निर्यात गरियो</string>
-  <string name="reading_lists_preview_header_title">साझा सूची</string>
+  <string name="reading_lists_import_failure_message" fuzzy="true">पठन सूची आयात असफल भयो</string>
+  <string name="reading_lists_export_select_lists_message" fuzzy="true">निर्यात गर्न सूची(हरू) चयन गर्नुहोस्</string>
+  <string name="reading_lists_export_completed_message" fuzzy="true">पठन सूची(हरू) निर्यात गरियो</string>
+  <string name="reading_lists_preview_header_title" fuzzy="true">साझा सूची</string>
   <string name="reading_lists_preview_save_button">सङ्ग्रह गर्नुहोस्</string>
-  <string name="reading_lists_preview_save_dialog_title">सूची सङ्ग्रह गर्नुहोस्</string>
+  <string name="reading_lists_preview_save_dialog_title" fuzzy="true">सूची सङ्ग्रह गर्नुहोस्</string>
   <string name="reading_lists_preview_save_dialog_title_hint">शीर्षक</string>
   <string name="reading_lists_preview_save_dialog_cancel">रद्द गर्नुहोस्</string>
   <string name="reading_lists_preview_save_dialog_save">सङ्ग्रह गर्नुहोस्</string>

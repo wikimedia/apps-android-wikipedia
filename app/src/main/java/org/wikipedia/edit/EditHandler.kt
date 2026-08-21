@@ -44,9 +44,7 @@ class EditHandler(private val fragment: PageFragment, bridge: CommunicationBridg
                     menu.setOnMenuItemClickListener(EditMenuClickListener())
                     menu.setOnDismissListener {
                         if (!menuItemClick) {
-                            fragment.title?.let { title ->
-                                fragment.logEditAttemptStepEvent(title)
-                            }
+                            fragment.dismissEditHandlerMenu(fragment.title)
                         }
                         (fragment.view as? ViewGroup)?.removeView(tempView)
                     }

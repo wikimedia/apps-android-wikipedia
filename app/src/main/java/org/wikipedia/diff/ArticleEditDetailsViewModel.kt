@@ -55,7 +55,7 @@ class ArticleEditDetailsViewModel(savedStateHandle: SavedStateHandle) : ViewMode
     var hasRollbackRights = false
     var isWatched = false
     var ns = 0
-    var editCount = -1
+    var editCount = 0
 
     val diffSize get() = if (revisionFrom != null) revisionTo!!.size - revisionFrom!!.size else revisionTo!!.size
 
@@ -85,8 +85,8 @@ class ArticleEditDetailsViewModel(savedStateHandle: SavedStateHandle) : ViewMode
                 isWatched = page.watched
                 watchedStatus.postValue(Resource.Success(page))
                 hasRollbackRights = query.userInfo?.rights?.contains("rollback") == true
-                rollbackRights.postValue(Resource.Success(hasRollbackRights))
                 editCount = query.userInfo?.editCount ?: 0
+                rollbackRights.postValue(Resource.Success(hasRollbackRights))
             }
             if (revisionIdFrom >= 0) {
                 val responseFrom = async { ServiceFactory.get(pageTitle.wikiSite).getRevisionDetailsWithInfo(pageId.toString(), 2, revisionIdFrom) }
@@ -129,6 +129,7 @@ class ArticleEditDetailsViewModel(savedStateHandle: SavedStateHandle) : ViewMode
 
             watchedStatus.postValue(Resource.Success(page))
             hasRollbackRights = response.query?.userInfo?.rights?.contains("rollback") == true
+            editCount = response.query?.userInfo?.editCount ?: 0
             rollbackRights.postValue(Resource.Success(hasRollbackRights))
 
             revisionTo = revisions[0]
@@ -140,8 +141,6 @@ class ArticleEditDetailsViewModel(savedStateHandle: SavedStateHandle) : ViewMode
 
             revisionDetails.postValue(Resource.Success(Unit))
             getDiffText(revisionFromId, revisionToId)
-
-            editCount = response.query?.userInfo?.editCount ?: 0
         }
     }
 

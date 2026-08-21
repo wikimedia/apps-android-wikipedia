@@ -132,7 +132,7 @@
   <string name="error_response_malformed">Server bialehnak cu thate in a thleng lo.</string>
   <string name="error_unknown">Palhnak pakhat khat a um.</string>
   <string name="format_error_server_message">Cakuat: \"%s\"</string>
-  <string name="button_add_to_reading_list">Relding cazin ah telh</string>
+  <string name="button_add_to_reading_list" fuzzy="true">Relding cazin ah telh</string>
   <string name="color_theme_select">Muisam</string>
   <string name="color_theme_light">Aceu</string>
   <string name="color_theme_dark">Amui</string>
