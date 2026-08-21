@@ -29,7 +29,6 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.didyouknow.DidYouKnowActivity
-import org.wikipedia.feed.interests.NewWithinInterestABTest
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.DidYouKnowCard
 import org.wikipedia.feed.model.DiscoverCard
@@ -49,6 +48,7 @@ import org.wikipedia.feed.onthisday.OnThisDayActivity
 import org.wikipedia.feed.personalization.PersonalizationActivity
 import org.wikipedia.feed.personalization.PersonalizationActivity.Companion.RESULT_INTERESTS_UPDATED
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
+import org.wikipedia.feed.readaloud.ReadAloudLeadSectionABTest
 import org.wikipedia.feed.topread.TopReadArticlesActivity
 import org.wikipedia.feed.wikigames.OnThisDayCardGameState
 import org.wikipedia.feed.wikigames.WikiGame
@@ -87,7 +87,7 @@ class HomeFragment : Fragment(), LinkPreviewDialog.LoadPageCallback {
     private val cardImpressions = mutableSetOf<String>()
     private val instrument = TestKitchenAdapter.client.getInstrument("apps-home-feed")
         .startFunnel("home_feed")
-        .setExperiment(TestKitchenAdapter.getExperiment(NewWithinInterestABTest()))
+        .setExperiment(TestKitchenAdapter.getExperiment(ReadAloudLeadSectionABTest()))
 
     private val personalizationResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_OK) {

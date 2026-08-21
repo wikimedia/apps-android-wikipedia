@@ -60,11 +60,14 @@ import org.wikipedia.feed.model.NewsCard
 import org.wikipedia.feed.model.OnThisDayCard
 import org.wikipedia.feed.model.PlacesOfInterestCard
 import org.wikipedia.feed.model.RandomCard
+import org.wikipedia.feed.model.ReadAloudLeadSectionCard
 import org.wikipedia.feed.model.SeeAllRecommendationCard
 import org.wikipedia.feed.model.TopReadCard
 import org.wikipedia.feed.model.WikiGameCard
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
 import org.wikipedia.feed.personalization.interest.InterestSelectionRepository
+import org.wikipedia.feed.readaloud.ReadAloudArticlesRepository
+import org.wikipedia.feed.readaloud.ReadAloudLeadSectionABTest
 import org.wikipedia.feed.wikigames.WikiGame
 import org.wikipedia.games.WikiGames
 import org.wikipedia.games.db.DailyGameHistory
@@ -188,6 +191,16 @@ sealed class ForYouModule {
     ) : ForYouModule() {
         override fun withCards(cards: List<ForYouCard>): ForYouModule = copy(cards = cards)
         override fun moduleKey(): String = ForYouModuleType.GAMES.name
+    }
+
+    @Serializable
+    data class ReadAloudLeadSection(
+        override val age: Int,
+        override val index: Int,
+        override val cards: List<ForYouCard>
+    ) : ForYouModule() {
+        override fun withCards(cards: List<ForYouCard>): ForYouModule = copy(cards = cards)
+        override fun moduleKey(): String = ForYouModuleType.BASED_ON_INTEREST.name
     }
 }
 
@@ -789,8 +802,47 @@ class HomeViewModel : ViewModel() {
                 RandomCard(random.getPageTitle(wikiSite.value))
             }
 
+            // -- Read aloud lead section --
+
+            val readAloudDeferred = async(Dispatchers.IO) {
+                if (!ReadAloudLeadSectionABTest().isTestGroupUser() ||
+                    !ReadAloudArticlesRepository.isSupported(wikiSite.value)) {
+                    return@async emptyList()
+                }
+                // All the cards in this module come from a single topic, so the first of the user's
+                // topics that has any articles with an audio version supplies the whole module.
+                val readAloudCards = AppDatabase.instance.topicInterestDao().getAllRandom()
+                    .firstNotNullOfOrNull { topic ->
+                        ReadAloudArticlesRepository
+                            .randomArticlesForTopic(wikiSite.value, topic.topicId, 4)
+                            .map { ReadAloudLeadSectionCard(it, topic) }
+                            .takeIf { it.isNotEmpty() }
+                    }
+                    .orEmpty()
+                    .filterNot { hiddenCards.contains(it.hideKey) }
+                if (readAloudCards.isNotEmpty()) {
+                    ServiceFactory.get(wikiSite.value)
+                        .getInfoWithExtractsByPageTitles(readAloudCards.fastJoinToString("|") { it.title.prefixedText })
+                        .query?.pages?.forEach { page ->
+                            readAloudCards.find { it.title.prefixedText == StringUtil.addUnderscores(page.title) }?.title?.let {
+                                it.description = page.description
+                                it.thumbUrl = page.thumbUrl()
+                                it.displayText = page.displayTitle(wikiSite.value.languageCode)
+                                it.extract = page.extract
+                            }
+                        }
+                }
+                readAloudCards
+            }
+
             // Combine all the deferred results and add them to the modules list if they have content.
 
+            readAloudDeferred.await().let {
+                if (it.isNotEmpty()) {
+                    // The index for this module is always 0 because there is always a single instance of this module, per age.
+                    modules.add(ForYouModule.ReadAloudLeadSection(age, 0, it))
+                }
+            }
             interestTopicCalls.awaitAll().forEachIndexed { index, entries ->
                 if (entries.isNotEmpty()) {
                     modules.add(ForYouModule.BasedOnInterest(age, index, entries))
