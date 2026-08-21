@@ -20,7 +20,7 @@ object DonationReminderHelper {
 
     private val isTestGroupUser = DonationReminderAbTest().isTestGroupUser()
     private val enabledCountries = listOf(
-        "NL"
+        "BR" // TODO: change to NL once the config is ready
     )
     private val isInDateRange get() = LocalDate.now() <= LocalDate.of(2026, 11, 1) // TODO: confirm with PM
     val isInEligibleCountry get() = ReleaseUtil.isDevRelease || enabledCountries.contains(GeoUtil.geoIPCountry.orEmpty())
