@@ -2,6 +2,7 @@ package org.wikipedia.donate.donationreminder
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -63,7 +64,6 @@ import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
@@ -286,16 +286,27 @@ fun DonationReminderAppBar(
             Row(
                 modifier = Modifier
                     .background(
-                        color = WikipediaTheme.colors.additionColor,
+                        color = WikipediaTheme.colors.paperColor,
+                    )
+                    .border(
+                        width = 1.dp,
+                        color = WikipediaTheme.colors.borderColor,
                         shape = RoundedCornerShape(size = 16.dp)
                     )
                     .padding(horizontal = 8.dp, vertical = 4.dp)
             ) {
+                Icon(
+                    modifier = Modifier
+                        .size(16.dp),
+                    painter = painterResource(R.drawable.ic_experiment_24dp),
+                    tint = WikipediaTheme.colors.inactiveColor,
+                    contentDescription = null
+                )
+
                 Text(
-                    text = stringResource(R.string.donation_reminders_experiment_label),
+                    text = stringResource(R.string.donation_reminders_beta_label),
                     style = MaterialTheme.typography.labelSmall,
-                    fontFamily = FontFamily.Monospace,
-                    fontWeight = FontWeight.Normal,
+                    fontWeight = FontWeight.Medium,
                     color = WikipediaTheme.colors.primaryColor
                 )
             }
