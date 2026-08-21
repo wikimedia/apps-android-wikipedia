@@ -9,8 +9,6 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.dataclient.donate.DonationConfigHelper
 import org.wikipedia.donate.DonateUtil
@@ -100,12 +98,10 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
     }
 
     private fun createReadFrequencyOptions(): SelectableOption<Int> {
-        val context = WikipediaApp.instance
         val options = DonationReminderHelper.defaultReadFrequencyOptions
         val optionItems = options.map {
-            OptionItem.Preset(it, context.resources.getQuantityString(R.plurals.donation_reminders_text_articles,
-                it, it))
-        } + OptionItem.Custom(context.getString(R.string.donation_reminders_settings_option_custom))
+            OptionItem.Preset(value = it, text = it.toString())
+        }
 
         val selectedValue = if (Prefs.donationReminderConfig.articleFrequency <= 0) preSelectedArticleFrequency
         else Prefs.donationReminderConfig.articleFrequency
@@ -116,10 +112,7 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
             minimumAmount = minArticleFrequencyLimit,
             maximumAmount = maxArticleFrequencyLimit,
             defaultValue = options.first(),
-            displayFormatter = {
-                context.resources.getQuantityString(R.plurals.donation_reminders_text_articles,
-                    it, it)
-            }
+            displayFormatter = { it.toString() }
         )
     }
 
@@ -137,11 +130,10 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
             }
         }
 
-        val context = WikipediaApp.instance
         val presets = donationConfig?.currencyAmountPresets[currencyCode]?.take(maxPresetItemsInDropdown) ?: listOf(minimumAmount)
         val options = presets.map {
             OptionItem.Preset(it, DonateUtil.currencyFormat.format(it).replace(formatRegex, ""))
-        } + OptionItem.Custom(context.getString(R.string.donation_reminders_settings_option_custom))
+        }
 
         val selectedValue = if (Prefs.donationReminderConfig.donateAmount <= 0f) presets.first()
         else Prefs.donationReminderConfig.donateAmount

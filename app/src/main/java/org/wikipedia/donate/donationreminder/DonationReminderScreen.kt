@@ -15,11 +15,15 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -37,8 +41,6 @@ import androidx.compose.material3.Switch
 import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
-import androidx.compose.material3.TextField
-import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.material3.TooltipBox
 import androidx.compose.material3.TooltipDefaults
 import androidx.compose.material3.rememberTooltipState
@@ -60,8 +62,6 @@ import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.Placeholder
-import androidx.compose.ui.text.PlaceholderVerticalAlign
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -79,8 +79,6 @@ import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.compose.components.AppButton
-import org.wikipedia.compose.components.InlinePosition
-import org.wikipedia.compose.components.TextWithInlineElement
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.extensions.noRippleClickable
@@ -511,6 +509,7 @@ fun ReadFrequencyView(
         headerIcon = R.drawable.newsstand_24dp,
         option = option,
         showInfo = true,
+        showArticleLabel = true,
         onOptionSelected = onOptionSelected
     )
 }
@@ -524,25 +523,13 @@ fun DonationHeader(
     ) {
         val rawString = stringResource(R.string.donation_reminders_settings_thank_you_message)
         val formattedString = rawString.replace("%%", "%")
-        TextWithInlineElement(
+
+        Text(
             text = formattedString,
-            position = InlinePosition.END,
-            placeholder = Placeholder(
-                width = 20.sp,
-                height = 20.sp,
-                placeholderVerticalAlign = PlaceholderVerticalAlign.Center
-            ),
-            content = {
-                Icon(
-                    modifier = Modifier
-                        .size(20.dp)
-                        .padding(start = 4.dp),
-                    painter = painterResource(R.drawable.ic_heart_24),
-                    contentDescription = null,
-                    tint = WikipediaTheme.colors.destructiveColor
-                )
-            }
+            style = MaterialTheme.typography.bodyMedium,
+            color = WikipediaTheme.colors.primaryColor
         )
+
         Spacer(modifier = Modifier.height(16.dp))
         Text(
             text = stringResource(R.string.donation_reminders_settings_donation_info),
@@ -565,8 +552,9 @@ fun <T : Number> OptionSelector(
     @DrawableRes headerIcon: Int,
     onOptionSelected: (OptionItem<T>) -> Unit,
     showInfo: Boolean = false,
+    showArticleLabel: Boolean = false
 ) {
-    var isDropdownExpanded by remember { mutableStateOf(false) }
+    var isSelected by remember { mutableStateOf("") }
     val displayValue by remember(option.selectedValue, option.displayFormatter) {
         derivedStateOf { option.displayFormatter(option.selectedValue) }
     }
@@ -605,51 +593,38 @@ fun <T : Number> OptionSelector(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
             ) {
-                TextField(
-                    modifier = Modifier
-                        .width(210.dp)
-                        .clickable { isDropdownExpanded = true },
-                    value = displayValue,
-                    enabled = false,
-                    onValueChange = {},
-                    textStyle = MaterialTheme.typography.bodyLarge,
-                    colors = TextFieldDefaults.colors(
-                        disabledContainerColor = WikipediaTheme.colors.backgroundColor,
-                        disabledTextColor = WikipediaTheme.colors.primaryColor
-                    ),
-                    trailingIcon = {
-                        Icon(
-                            painter = painterResource(R.drawable.ic_arrow_drop_down_black_24dp),
-                            tint = WikipediaTheme.colors.primaryColor,
-                            contentDescription = null
-                        )
-                    }
-                )
-
-                DropdownMenu(
-                    modifier = Modifier
-                        .width(210.dp),
-                    containerColor = WikipediaTheme.colors.backgroundColor,
-                    expanded = isDropdownExpanded,
-                    onDismissRequest = { isDropdownExpanded = false },
-                    content = {
-                        option.options.forEach { option ->
-                            DropdownMenuItem(
-                                text = {
-                                    Text(
-                                        text = option.displayText,
-                                        style = MaterialTheme.typography.bodyLarge,
-                                        color = WikipediaTheme.colors.primaryColor
-                                    )
-                                },
-                                onClick = {
-                                    onOptionSelected(option)
-                                    isDropdownExpanded = false
-                                }
+                LazyRow(
+                    horizontalArrangement = Arrangement.spacedBy(16.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    items(option.options) { currentOption ->
+                        Button(
+                            colors = ButtonDefaults.buttonColors(
+                                containerColor = if (currentOption.displayText == displayValue)
+                                    WikipediaTheme.colors.progressiveColor else WikipediaTheme.colors.backgroundColor),
+                            onClick = {
+                                isSelected = currentOption.displayText
+                                onOptionSelected(currentOption)
+                            }
+                        ) {
+                            Text(
+                                text = currentOption.displayText,
+                                style = MaterialTheme.typography.bodyLarge,
+                                color = if (currentOption.displayText == displayValue)
+                                    WikipediaTheme.colors.paperColor else WikipediaTheme.colors.primaryColor
                             )
                         }
                     }
-                )
+                    if (showArticleLabel) {
+                        item {
+                            Text(
+                                text = stringResource(R.string.donation_reminders_article_number_selection_label),
+                                style = MaterialTheme.typography.bodyLarge,
+                                color = WikipediaTheme.colors.primaryColor,
+                            )
+                        }
+                    }
+                }
             }
         }
     }
