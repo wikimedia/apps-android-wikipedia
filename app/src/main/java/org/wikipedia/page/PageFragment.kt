@@ -53,6 +53,7 @@ import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.eventplatform.ArticleFindInPageInteractionEvent
 import org.wikipedia.analytics.eventplatform.ArticleInteractionEvent
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
+import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
@@ -94,9 +95,7 @@ import org.wikipedia.page.references.ReferenceDialog
 import org.wikipedia.page.shareafact.ShareHandler
 import org.wikipedia.page.tabs.Tab
 import org.wikipedia.places.PlacesActivity
-import org.wikipedia.readinglist.LongPressMenu
-import org.wikipedia.readinglist.ReadingListBehaviorsUtil
-import org.wikipedia.readinglist.database.ReadingListPage
+import org.wikipedia.readinglist.SaveArticleSheetDialog
 import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.talk.TalkTopicsActivity
@@ -177,6 +176,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     private var avPlayer: AvPlayer? = null
     private var avCallback: AvCallback? = null
     private var sections: MutableList<Section>? = null
+    private var editCount = 0
     private var app = WikipediaApp.instance
 
     override lateinit var linkHandler: LinkHandler
@@ -933,7 +933,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
     }
 
-    fun onPageMetadataLoaded(redirectedFrom: String? = null) {
+    fun onPageMetadataLoaded(redirectedFrom: String? = null, editCount: Int = -1) {
+        this.editCount = editCount
         updateQuickActionsAndMenuOptions()
         if (model.page == null) {
             return
@@ -1297,6 +1298,12 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         requireActivity().finish()
     }
 
+    fun dismissEditHandlerMenu(title: PageTitle?) {
+        title?.let {
+            EditAttemptStepEvent.logAbort(pageTitle = it, editCount = this.editCount)
+        }
+    }
+
     private inner class AvCallback : AvPlayer.Callback {
         override fun onSuccess() {
             avPlayer?.stop()
@@ -1376,29 +1383,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     inner class PageActionItemCallback : PageActionItem.Callback {
         override fun onSaveSelected() {
-            if (model.isInReadingList) {
-                val anchor = if (Prefs.customizeToolbarOrder.contains(PageActionItem.SAVE.id))
-                    binding.pageActionsTabLayout else (requireActivity() as PageActivity).getOverflowMenu()
-                LongPressMenu(anchor, existsInAnyList = false, callback = object : LongPressMenu.Callback {
-                    override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
-                        title?.run {
-                            ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), this, addToDefault, InvokeSource.BOOKMARK_BUTTON)
-                        }
-                    }
-
-                    override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
-                        page?.let { readingListPage ->
-                            title?.run {
-                                ReadingListBehaviorsUtil.moveToList(requireActivity(), readingListPage.listId, this, InvokeSource.BOOKMARK_BUTTON)
-                            }
-                        }
-                    }
-                }).show(model.curEntry)
-            } else {
-                title?.run {
-                    ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), this, true, InvokeSource.BOOKMARK_BUTTON)
-                }
-            }
+            title?.let { SaveArticleSheetDialog.show(childFragmentManager, it) }
             articleInteractionEvent?.logSaveClick()
         }
 

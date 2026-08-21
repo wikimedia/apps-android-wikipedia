@@ -9,7 +9,6 @@ import kotlinx.serialization.json.int
 import kotlinx.serialization.json.jsonPrimitive
 import org.wikipedia.Constants
 import org.wikipedia.R
-import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.bridge.CommunicationBridge
 import org.wikipedia.bridge.CommunicationBridge.JSEventListener
 import org.wikipedia.descriptions.DescriptionEditUtil
@@ -45,9 +44,7 @@ class EditHandler(private val fragment: PageFragment, bridge: CommunicationBridg
                     menu.setOnMenuItemClickListener(EditMenuClickListener())
                     menu.setOnDismissListener {
                         if (!menuItemClick) {
-                            fragment.title?.let { title ->
-                                EditAttemptStepEvent.logAbort(title)
-                            }
+                            fragment.dismissEditHandlerMenu(fragment.title)
                         }
                         (fragment.view as? ViewGroup)?.removeView(tempView)
                     }

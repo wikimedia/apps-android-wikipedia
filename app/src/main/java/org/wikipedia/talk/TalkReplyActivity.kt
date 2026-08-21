@@ -197,6 +197,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
                     binding.footerContainer.tempAccountInfoContainer.isVisible = false
                 }
                 maybeShowTempAccountDialog()
+                EditAttemptStepEvent.logInit(pageTitle = viewModel.pageTitle, editCount = viewModel.editCount)
             }
         }
 
@@ -256,7 +257,6 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
             binding.replyInputView.editText.setSelection(binding.replyInputView.editText.text.toString().length)
         }
         shouldWatchText = true
-        EditAttemptStepEvent.logInit(viewModel.pageTitle)
 
         setSaveButtonEnabled(binding.replyInputView.editText.text.isNotEmpty())
 
@@ -414,7 +414,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
         }
 
         if (messagePreviewFragment.isActive) {
-            EditAttemptStepEvent.logSaveAttempt(viewModel.pageTitle)
+            EditAttemptStepEvent.logSaveAttempt(pageTitle = viewModel.pageTitle, editCount = viewModel.editCount)
             sendPatrollerExperienceEvent("publish_message_click", "pt_warning_messages")
             binding.progressBar.isVisible = true
             setSaveButtonEnabled(false)
@@ -468,7 +468,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
         supportActionBar?.title = getString(R.string.edit_preview)
         binding.replyNextButton.text = getString(R.string.description_edit_save)
         messagePreviewFragment.showPreview(viewModel.pageTitle, getWikitextForPreview())
-        EditAttemptStepEvent.logSaveIntent(viewModel.pageTitle)
+        EditAttemptStepEvent.logSaveIntent(pageTitle = viewModel.pageTitle, editCount = viewModel.editCount)
     }
 
     private fun getWikitextForPreview(): String {
@@ -493,7 +493,11 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
 
         binding.progressBar.visibility = View.GONE
         setSaveButtonEnabled(true)
-        EditAttemptStepEvent.logSaveSuccess(viewModel.pageTitle, newRevision)
+        EditAttemptStepEvent.logSaveSuccess(
+            pageTitle = viewModel.pageTitle,
+            revisionId = newRevision,
+            editCount = (viewModel.editCount + 1)
+        )
 
         Intent().let {
             it.putExtra(RESULT_NEW_REVISION_ID, newRevision)
@@ -512,7 +516,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
     }
 
     private fun onSaveError(t: Throwable) {
-        EditAttemptStepEvent.logSaveFailure(viewModel.pageTitle)
+        EditAttemptStepEvent.logSaveFailure(pageTitle = viewModel.pageTitle, editCount = viewModel.editCount)
         binding.progressBar.visibility = View.GONE
         setSaveButtonEnabled(true)
         FeedbackUtil.showError(this, t)

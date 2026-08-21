@@ -6,7 +6,6 @@ import android.app.ActivityOptions
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.icu.text.ListFormatter
 import android.os.Build
 import android.os.Bundle
 import android.speech.RecognizerIntent
@@ -69,10 +68,8 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.places.PlacesActivity
 import org.wikipedia.random.RandomActivity
-import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.ReadingListsFragment
-import org.wikipedia.readinglist.RemoveFromReadingListsDialog
-import org.wikipedia.readinglist.database.ReadingList
+import org.wikipedia.readinglist.SaveArticleSheetDialog
 import org.wikipedia.search.SearchActivity
 import org.wikipedia.search.SearchFragment
 import org.wikipedia.settings.Prefs
@@ -97,6 +94,7 @@ import org.wikipedia.yearinreview.YearInReviewDialog
 import org.wikipedia.yearinreview.YearInReviewOnboardingActivity
 import org.wikipedia.yearinreview.YearInReviewViewModel
 import java.io.File
+import java.time.LocalDate
 import java.util.concurrent.TimeUnit
 
 class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragment.Callback, MenuNavTabDialog.Callback, ActivityTabFragment.Callback {
@@ -200,6 +198,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
 
         binding.mainNavTabLayout.setOverlayDot(NavTab.EDITS, !Prefs.isActivityTabOnboardingShown)
 
+        maybeShowReadingListsUpdateTooltip()
         Prefs.incrementExploreFeedVisitCount()
 
         notificationButtonView = NotificationButtonView(requireActivity())
@@ -280,6 +279,12 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
         val fragment = currentFragment
         return when (menuItem.itemId) {
+            R.id.menu_filter_reading_lists_articles -> {
+                if (fragment is ReadingListsFragment) {
+                    fragment.showReadingListsFilterMenu()
+                }
+                true
+            }
             R.id.menu_search_lists -> {
                 if (fragment is ReadingListsFragment) {
                     fragment.startSearchActionMode()
@@ -297,14 +302,11 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
     }
 
     override fun onPrepareMenu(menu: Menu) {
-        menu.findItem(R.id.menu_search_lists).apply {
-            isVisible = currentFragment is ReadingListsFragment
-            // When tabs are disabled, this icon is filter icon
-            if (!Prefs.isReadingListsTabsEnabled) {
-                setIcon(R.drawable.ic_filter_list_24)
-            }
-        }
-        menu.findItem(R.id.menu_overflow_button).isVisible = currentFragment is ReadingListsFragment
+        val readingListsFragment = currentFragment as? ReadingListsFragment
+        menu.findItem(R.id.menu_filter_reading_lists_articles).isVisible =
+            readingListsFragment?.isAllArticlesSelected() == true
+        menu.findItem(R.id.menu_search_lists).isVisible = readingListsFragment != null
+        menu.findItem(R.id.menu_overflow_button).isVisible = readingListsFragment != null
 
         val tabsItem = menu.findItem(R.id.menu_tabs)
         if (WikipediaApp.instance.tabCount < 1 || currentFragment is SuggestedEditsTasksFragment) {
@@ -390,27 +392,8 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
         }
     }
 
-    fun onFeedAddPageToList(entry: HistoryEntry, addToDefault: Boolean) {
-        ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), entry.title, addToDefault, InvokeSource.FEED)
-    }
-
-    fun onFeedMovePageToList(sourceReadingListId: Long, entry: HistoryEntry) {
-        ReadingListBehaviorsUtil.moveToList(requireActivity(), sourceReadingListId, entry.title, InvokeSource.FEED)
-    }
-
-    fun onFeedRemovePageFromList(entry: HistoryEntry, lists: List<ReadingList>) {
-        RemoveFromReadingListsDialog(lists).deleteOrShowDialog(requireActivity()) { readingLists, _ ->
-            if (!requireActivity().isDestroyed) {
-                val names = readingLists.map { it.title }.run {
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                        ListFormatter.getInstance().format(this)
-                    } else {
-                        joinToString(separator = ", ")
-                    }
-                }
-                FeedbackUtil.showMessage(requireActivity(), getString(R.string.reading_list_item_deleted_from_list, entry.title.displayText, names))
-            }
-        }
+    fun onFeedSavePage(entry: HistoryEntry) {
+        SaveArticleSheetDialog.show(childFragmentManager, entry.title)
     }
 
     fun onFeedSharePage(entry: HistoryEntry) {
@@ -580,6 +563,29 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
                 .setNegativeButton(R.string.shareable_reading_lists_new_install_dialog_got_it, null)
                 .show()
             Prefs.importReadingListsNewInstallDialogShown = true
+        }
+    }
+
+    private fun maybeShowReadingListsUpdateTooltip() {
+        val endDate = LocalDate.of(2026, 9, 15)
+        // Only show the tooltip to existing users and expire after September 15, 2026
+        if (Prefs.exploreFeedVisitCount == 0) {
+            Prefs.isReadingListsUpdateTooltipShown = true
+        } else if (!Prefs.isReadingListsUpdateTooltipShown &&
+                !LocalDate.now().isAfter(endDate)) {
+            Prefs.isReadingListsUpdateTooltipShown = true
+            binding.root.post {
+                if (isAdded) {
+                    FeedbackUtil.showTooltip(
+                        requireActivity(),
+                        binding.mainNavTabLayout.findViewById(NavTab.READING_LISTS.id),
+                        getString(R.string.reading_lists_update_tooltip),
+                        aboveOrBelow = true,
+                        autoDismiss = false,
+                        showDismissButton = true
+                    )
+                }
+            }
         }
     }
 

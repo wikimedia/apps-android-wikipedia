@@ -14,7 +14,6 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageAvailableOfflineHandler
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.LongPressMenu
-import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
@@ -26,8 +25,7 @@ class ListItemView(context: Context, attrs: AttributeSet? = null) : ConstraintLa
     interface Callback {
         fun onSelectPage(title: PageTitle, entry: HistoryEntry, openInNewBackgroundTab: Boolean)
         fun onSelectPage(title: PageTitle, entry: HistoryEntry, sharedElements: Array<Pair<View, String>>)
-        fun onAddPageToList(entry: HistoryEntry, addToDefault: Boolean)
-        fun onMovePageToList(sourceReadingListId: Long, entry: HistoryEntry)
+        fun onSavePage(entry: HistoryEntry)
     }
 
     private val binding = ViewListItemBinding.inflate(LayoutInflater.from(context), this)
@@ -70,14 +68,8 @@ class ListItemView(context: Context, attrs: AttributeSet? = null) : ConstraintLa
                     }
                 }
 
-                override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
-                    callback?.onAddPageToList(entry, addToDefault)
-                }
-
-                override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
-                    page?.let {
-                        callback?.onMovePageToList(it.listId, entry)
-                    }
+                override fun onSaveRequest(entry: HistoryEntry) {
+                    callback?.onSavePage(entry)
                 }
             }).show(historyEntry)
             false

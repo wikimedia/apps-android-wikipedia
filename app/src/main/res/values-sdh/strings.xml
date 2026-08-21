@@ -9,7 +9,7 @@
   <string name="wikimedia">ویکیمیدیا</string>
   <string name="search_hint">مینەکردن لە ویکیپیدیا</string>
   <string name="search_hint_search_languages">مینەێ زوانێگ کردن</string>
-  <string name="filter_hint_filter_my_lists_and_articles">پاڵین پێرستەگانم</string>
+  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">پاڵین پێرستەگانم</string>
   <string name="nav_item_suggested_edits">دەسکاریەیل</string>
   <string name="nav_item_more">فێشتر</string>
   <string name="nav_item_search">مینە</string>
@@ -99,7 +99,7 @@
   <string name="theme_category_editing">دەسکاریکردن</string>
   <string name="nav_item_saved">پاشەکەفت کریا</string>
   <string name="reading_list_menu_select">هەڵوژانن</string>
-  <string name="reading_list_name_hint">ناو ئەی پێرستە</string>
+  <string name="reading_list_name_hint" fuzzy="true">ناو ئەی پێرستە</string>
   <string name="reading_list_select_item">هەڵوژنە</string>
   <string name="reading_lists_ignore_button">ئیسە نە</string>
   <string name="reading_lists_confirm_remote_delete_yes">ئەرێ</string>
@@ -118,7 +118,7 @@
   <string name="reading_list_split_dialog_ok_button_text">باشە</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">سڕینەوە</string>
   <string name="reading_lists_preview_save_button">پاشەکەفت</string>
-  <string name="reading_lists_preview_save_dialog_title">پێرست پاشەکەفت بکە</string>
+  <string name="reading_lists_preview_save_dialog_title" fuzzy="true">پێرست پاشەکەفت بکە</string>
   <string name="reading_lists_preview_save_dialog_title_hint">سەرناو</string>
   <string name="reading_lists_preview_save_dialog_cancel">هەڵوەشاننەوە</string>
   <string name="reading_lists_preview_save_dialog_save">پاشەکەفت</string>
