@@ -17,7 +17,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
@@ -49,7 +49,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -324,7 +323,6 @@ fun DonationReminderContent(
 ) {
     val isDonationReminderEnabled = uiState.isDonationReminderEnabled
     var showReadFrequencyCustomDialog by remember { mutableStateOf(false) }
-    var showDonationAmountCustomDialog by remember { mutableStateOf(false) }
     var customDialogErrorMessage by remember { mutableStateOf("") }
 
     val warningMinAmount = stringResource(R.string.donation_reminders_settings_warning_min_amount)
@@ -356,7 +354,7 @@ fun DonationReminderContent(
             if (uiState.isDonationReminderEnabled || !viewModel.isFromSettings) {
                 ReadFrequencyView(
                     option = uiState.readFrequency,
-                    onOptionSelected = { option ->
+                    onOptionSelected = { option, source ->
                         when (option) {
                             is OptionItem.Preset -> {
                                 val activeInterface = if (viewModel.isFromSettings) "global_setting" else "reminder_config"
@@ -364,7 +362,7 @@ fun DonationReminderContent(
                                     activeInterface = activeInterface,
                                     action = "freq_change_click"
                                 )
-                                viewModel.updateReadFrequencyState(option.value)
+                                viewModel.updateReadFrequencyState(option.value, source)
                             }
 
                             is OptionItem.Custom -> {
@@ -376,14 +374,8 @@ fun DonationReminderContent(
                 Spacer(modifier = Modifier.height(24.dp))
                 DonationAmountView(
                     option = uiState.donationAmount,
-                    showDonationAmountCustomDialog = showDonationAmountCustomDialog,
                     currencySymbol = DonateUtil.currencySymbol,
-                    customDialogErrorMessage = customDialogErrorMessage,
-                    onDismissRequest = {
-                        showDonationAmountCustomDialog = false
-                        customDialogErrorMessage = ""
-                    },
-                    onOptionSelected = { option ->
+                    onOptionSelected = { option, source ->
                         when (option) {
                             is OptionItem.Preset -> {
                                 val activeInterface = if (viewModel.isFromSettings) "global_setting" else "reminder_config"
@@ -391,22 +383,23 @@ fun DonationReminderContent(
                                     activeInterface = activeInterface,
                                     action = "amount_change_click"
                                 )
-                                viewModel.updateDonationAmountState(option.value)
+                                viewModel.updateDonationAmountState(option.value, source)
                             }
 
                             is OptionItem.Custom -> {
-                                showDonationAmountCustomDialog = true
+                                val customValue = DonateUtil.getAmountFloat(option.displayText)
+                                viewModel.updateDonationAmountState(customValue, source)
                             }
                         }
                     },
-                    onDoneClick = { amount ->
+                    /*onDoneClick = { amount ->
                         if (customDialogErrorMessage.isEmpty()) {
                             val activeInterface = if (viewModel.isFromSettings) "global_setting" else "reminder_config"
                             DonorExperienceEvent.logDonationReminderAction(
                                 activeInterface = activeInterface,
                                 action = "amount_change_click"
                             )
-                            viewModel.updateDonationAmountState(amount.toFloat())
+                            viewModel.updateDonationAmountState(amount.toFloat(), source)
                             showDonationAmountCustomDialog = false
                         }
                     },
@@ -429,7 +422,7 @@ fun DonationReminderContent(
                             }
                             else -> ""
                         }
-                    }
+                    },*/
                 )
             }
         }
@@ -478,42 +471,72 @@ fun DonationReminderContent(
 fun DonationAmountView(
     option: SelectableOption<Float>,
     currencySymbol: String,
-    showDonationAmountCustomDialog: Boolean,
-    customDialogErrorMessage: String,
-    onOptionSelected: (OptionItem<Float>) -> Unit,
-    onDismissRequest: () -> Unit,
-    onDoneClick: (String) -> Unit,
-    onValueChange: (String) -> Unit
+    onOptionSelected: (OptionItem<Float>, SelectedSource) -> Unit,
 ) {
+    var selectedOption by remember { mutableStateOf<OptionItem<Float>?>(OptionItem.Preset(option.selectedValue, option.displayFormatter(option.selectedValue))) }
+    var textFieldValue by remember { mutableStateOf("") }
+    val focusRequester = remember { FocusRequester() }
+    var hasFocused by remember { mutableStateOf(false) }
+
     OptionSelector(
         title = stringResource(R.string.donation_reminders_settings_amount_label),
         headerIcon = R.drawable.credit_card_heart_24,
         option = option,
-        onOptionSelected = onOptionSelected
+        onOptionSelected = { option, source ->
+            selectedOption = option
+            textFieldValue = ""
+            onOptionSelected(option, source)
+        },
     )
-    if (showDonationAmountCustomDialog) {
-        CustomInputDialog(
-            title = stringResource(R.string.donation_reminders_settings_amount_label),
-            decimalEnabled = true,
-            errorMessage = customDialogErrorMessage,
-            onDismissRequest = onDismissRequest,
-            prefix = {
-                Text(
-                    text = currencySymbol,
-                    style = MaterialTheme.typography.bodyLarge,
-                    color = WikipediaTheme.colors.primaryColor
-                )
-            },
-            onDoneClick = onDoneClick,
-            onValueChange = onValueChange
-        )
-    }
+
+    Spacer(modifier = Modifier.height(16.dp))
+
+    OutlinedTextField(
+        value = if (selectedOption is OptionItem.Custom) textFieldValue else "",
+        onValueChange = { newValue ->
+            textFieldValue = newValue
+            selectedOption = OptionItem.Custom( newValue)
+            onOptionSelected(OptionItem.Custom( newValue), SelectedSource.Custom)
+        },
+        prefix = { Text(
+            text = currencySymbol,
+            style = MaterialTheme.typography.bodyLarge,
+            color = WikipediaTheme.colors.primaryColor
+        ) },
+        placeholder = {
+            Text(
+                text = "Custom Amount",
+                style = MaterialTheme.typography.bodyLarge,
+                color = WikipediaTheme.colors.placeholderColor
+            )
+        },
+        singleLine = true,
+        shape = RoundedCornerShape(4.dp),
+        colors = OutlinedTextFieldDefaults.colors(
+            focusedTextColor = WikipediaTheme.colors.primaryColor,
+            focusedBorderColor = MaterialTheme.colorScheme.outline,
+            unfocusedTextColor = MaterialTheme.colorScheme.onSurfaceVariant,
+            unfocusedBorderColor = MaterialTheme.colorScheme.outline,
+            cursorColor = WikipediaTheme.colors.primaryColor,
+            errorTextColor = WikipediaTheme.colors.primaryColor
+        ),
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+        modifier = Modifier
+            .fillMaxWidth()
+            .focusRequester(focusRequester)
+            .onGloballyPositioned {
+                if (!hasFocused) {
+                    focusRequester.requestFocus()
+                    hasFocused = true
+                }
+            }
+    )
 }
 
 @Composable
 fun ReadFrequencyView(
     option: SelectableOption<Int>,
-    onOptionSelected: (OptionItem<Int>) -> Unit,
+    onOptionSelected: (OptionItem<Int>, SelectedSource) -> Unit,
 ) {
     OptionSelector(
         title = stringResource(R.string.donation_reminders_settings_article_frequency_label),
@@ -521,7 +544,9 @@ fun ReadFrequencyView(
         option = option,
         showInfo = true,
         showArticleLabel = true,
-        onOptionSelected = onOptionSelected
+        onOptionSelected = { option, source ->
+            onOptionSelected(option, source)
+        }
     )
 }
 
@@ -561,14 +586,10 @@ fun <T : Number> OptionSelector(
     title: String,
     option: SelectableOption<T>,
     @DrawableRes headerIcon: Int,
-    onOptionSelected: (OptionItem<T>) -> Unit,
+    onOptionSelected: (OptionItem<T>, SelectedSource) -> Unit,
     showInfo: Boolean = false,
-    showArticleLabel: Boolean = false
+    showArticleLabel: Boolean = false,
 ) {
-    var isSelected by remember { mutableStateOf("") }
-    val displayValue by remember(option.selectedValue, option.displayFormatter) {
-        derivedStateOf { option.displayFormatter(option.selectedValue) }
-    }
 
     Row(
         horizontalArrangement = Arrangement.spacedBy(16.dp),
@@ -608,22 +629,25 @@ fun <T : Number> OptionSelector(
                     horizontalArrangement = Arrangement.spacedBy(16.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    items(option.options) { currentOption ->
-                        Button(
-                            colors = ButtonDefaults.buttonColors(
-                                containerColor = if (currentOption.displayText == displayValue)
-                                    WikipediaTheme.colors.progressiveColor else WikipediaTheme.colors.backgroundColor),
-                            onClick = {
-                                isSelected = currentOption.displayText
-                                onOptionSelected(currentOption)
+                    itemsIndexed(option.options) { index, currentOption ->
+                        if (currentOption is OptionItem.Preset) {
+                            val isSelected = (option.selectedSource is SelectedSource.Preset) &&
+                                    (option.selectedSource.key == index)
+
+                            Button(
+                                colors = ButtonDefaults.buttonColors(
+                                    containerColor = if (isSelected) WikipediaTheme.colors.progressiveColor
+                                    else WikipediaTheme.colors.backgroundColor
+                                ),
+                                onClick = { onOptionSelected(currentOption, SelectedSource.Preset(index)) },
+                                modifier = Modifier.width(if (showArticleLabel) 75.dp else 100.dp)
+                            ) {
+                                Text(
+                                    text = currentOption.displayText,
+                                    color = if (isSelected) WikipediaTheme.colors.paperColor
+                                    else WikipediaTheme.colors.primaryColor
+                                )
                             }
-                        ) {
-                            Text(
-                                text = currentOption.displayText,
-                                style = MaterialTheme.typography.bodyLarge,
-                                color = if (currentOption.displayText == displayValue)
-                                    WikipediaTheme.colors.paperColor else WikipediaTheme.colors.primaryColor
-                            )
                         }
                     }
                     if (showArticleLabel) {
