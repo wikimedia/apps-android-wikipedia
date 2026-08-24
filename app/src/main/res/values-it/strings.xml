@@ -150,7 +150,7 @@
   <string name="menu_page_watched">Osservato</string>
   <string name="edit_section_find_in_page">Trova nella pagina</string>
   <string name="menu_page_font_and_theme">Carattere e tema</string>
-  <string name="menu_page_add_to_list" fuzzy="true">Aggiungi all\'elenco di lettura</string>
+  <string name="menu_page_add_to_list">Aggiungi alla raccolta</string>
   <string name="menu_page_add_to_default_list">Salva</string>
   <string name="feed_card_add_to_list" fuzzy="true">Aggiungi all\'elenco di lettura</string>
   <string name="feed_card_add_to_default_list">Salva</string>
@@ -430,7 +430,7 @@
   <string name="tab_item_closed">%s chiuso.</string>
   <string name="all_tab_items_closed">Tutte le schede chiuse.</string>
   <string name="tool_tip_bookmark_icon_title" fuzzy="true">Aggiungi all\'elenco di lettura</string>
-  <string name="tool_tip_bookmark_icon_text" fuzzy="true">Tocca l\'icona del segnalibro per salvare la voce in un elenco di lettura.</string>
+  <string name="tool_tip_bookmark_icon_text">Tocca l\'icona del segnalibro per salvare la voce in una raccolta.</string>
   <string name="page_view_in_browser">Vedi la pagina nel browser</string>
   <string name="tool_tip_toc_title">Accesso rapido all\'indice</string>
   <string name="tool_tip_toc_text">Ora puoi scorrere verso sinistra per aprire l\'indice e anche toccare e trascinare questo pulsante di scorrimento per passare rapidamente alle varie sezioni di una voce.</string>
@@ -443,7 +443,7 @@
   <string name="button_continue_to_talk_page">Apri la pagina di discussione</string>
   <string name="button_continue_to_disambiguation">Vedi pagine simili</string>
   <string name="link_preview_disambiguation_description">Questo titolo si riferisce a più di una pagina:</string>
-  <string name="button_add_to_reading_list" fuzzy="true">Aggiungi all\'elenco di lettura</string>
+  <string name="button_add_to_reading_list">Aggiungi alla raccolta</string>
   <string name="page_offline_notice_cannot_load_while_offline">Non è possibile caricare la voce in assenza di connessione.</string>
   <string name="page_offline_notice_add_to_reading_list" fuzzy="true">Suggerimento: aggiungi la voce ad un elenco di lettura e verrà scaricata non appena sarai collegato a internet.</string>
   <string name="page_offline_notice_last_date">Stai leggendo una versione offline di questa voce salvata il %s</string>
@@ -554,10 +554,10 @@
   <string name="editing_monospace_font_label">Usa carattere a monospazio</string>
   <string name="editing_typing_suggestions">Mostra suggerimenti di digitazione</string>
   <string name="nav_item_saved">Salvato</string>
-  <string name="reading_list_save_to" fuzzy="true">Salva nell\'elenco di lettura</string>
+  <string name="reading_list_save_to">Salva nella raccolta</string>
   <string name="reading_list_move_to" fuzzy="true">Sposta nell\'elenco di lettura</string>
   <string name="reading_list_create_new">Crea nuovo</string>
-  <string name="reading_list_title_exists" fuzzy="true">L\'elenco di lettura \"%s\" già esiste.</string>
+  <string name="reading_list_title_exists">La raccolta \"%s\" già esiste.</string>
   <string name="reading_list_article_added_to_named">%1$s aggiunta a %2$s.</string>
   <string name="reading_list_article_added_to_default_list" fuzzy="true">%s salvato. Vuoi aggiungerlo ad un elenco?</string>
   <string name="reading_list_article_moved_to_named">Spostato %1$s in %2$s.</string>
@@ -590,7 +590,7 @@
   <string name="reading_list_sort_by_created">Ordina per data creazione (più recente)</string>
   <string name="reading_list_sort_by_created_desc">Ordina per data di creazione (meno recente)</string>
   <string name="reading_list_menu_delete" fuzzy="true">Cancella elenco</string>
-  <string name="reading_list_menu_export" fuzzy="true">Esporta elenco</string>
+  <string name="reading_list_menu_export">Esporta raccolta</string>
   <string name="reading_list_menu_select">Seleziona</string>
   <string name="reading_list_menu_unselect">Deseleziona</string>
   <string name="reading_list_export_write_permission_rationale" fuzzy="true">Il permesso di scrittura sul dispositivo è necessario per il salvataggio dell\'elenco di lettura.</string>
@@ -604,7 +604,7 @@
   <string name="reading_list_name_sample" fuzzy="true">Il mio elenco di lettura</string>
   <string name="reading_list_name_hint" fuzzy="true">Nome di questo elenco</string>
   <string name="reading_list_description_hint">Descrizione (opzionale)</string>
-  <string name="reading_list_item_deleted" fuzzy="true">%s rimosso dall\'elenco</string>
+  <string name="reading_list_item_deleted">%s rimosso dalla raccolta</string>
   <string name="reading_list_item_deleted_from_list">%1$s rimosso da %2$s</string>
   <plurals name="reading_list_articles_deleted" fuzzy="true">
     <item quantity="one">%d voce rimossa dall\'elenco</item>
@@ -636,7 +636,7 @@
   <string name="reading_list_move_to_other_list" fuzzy="true">Sposta ad un altro elenco di lettura</string>
   <string name="reading_list_move_from_to_other_list" fuzzy="true">Sposta da %s ad un altro elenco di lettura</string>
   <string name="reading_list_remove_from_list">Rimuovi da %s</string>
-  <string name="reading_list_remove_from_lists" fuzzy="true">Rimuovi dall\'elenco di lettura</string>
+  <string name="reading_list_remove_from_lists">Rimuovi dalla raccolta</string>
   <string name="reading_list_select_item">Seleziona</string>
   <string name="reading_list_confirm_remove_article_from_offline">Rimuovi da offline</string>
   <string name="reading_list_confirm_remove_article_from_offline_title" fuzzy="true">Voce appare in più elenchi</string>
@@ -668,20 +668,20 @@
   <string name="reading_list_turned_sync_off_dialog_text" fuzzy="true">La sincronizzazione dell\'elenco di lettura è disattivata per la tua utenza e le voci salvate sui tuoi dispositivi registrati non vengono più sottoposti a backup. Attiva la sincronizzazione degli elenchi di lettura nelle impostazioni.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Impostazioni</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_title" fuzzy="true">Attiva la sincronizzazione degli elenchi di lettura?</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_text" fuzzy="true">Le voci salvate negli elenchi di lettura possono ora essere sincronizzati con la tua utenza Wikipedia. &lt;a href=\"#faq\"&gt;Ulteriori informazioni&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">Attiva la sincronizzazione della raccolta?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">Le voci salvate nelle raccolte possono ora essere sincronizzati con la tua utenza Wikipedia. &lt;a href=\"#faq\"&gt;Ulteriori informazioni&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Non mostrarmelo di nuovo</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Attiva sincronizzazione</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">No, grazie</string>
   <string name="default_reading_list_name">Salvato</string>
-  <string name="default_reading_list_description" fuzzy="true">Elenco predefinito per le tue voci salvate</string>
-  <string name="no_user_lists_title" fuzzy="true">Organizza voci in elenchi</string>
-  <string name="no_user_lists_msg" fuzzy="true">Crea elenchi per luoghi in cui viaggiare, argomenti preferiti e molto altro ancora</string>
+  <string name="default_reading_list_description">Raccolta predefinita per le tue voci salvate</string>
+  <string name="no_user_lists_title">Organizza voci in raccolte</string>
+  <string name="no_user_lists_msg">Crea raccolte per luoghi da visitare, argomenti preferiti e molto altro ancora</string>
   <string name="reading_list_saved_list_rename">%1$s (creato dall\'utente)</string>
-  <string name="split_reading_list_message" fuzzy="true">C\'è un limite di %d voci per elenco di lettura. Gli elenchi esistenti con più di questo limite sono stati suddivisi in più elenchi.</string>
-  <string name="reading_list_move_article_limit_message" fuzzy="true">Impossibile aggiungere a questo elenco. Hai raggiunto il limite di %2$d voci per elenco per \"%1$s\".</string>
+  <string name="split_reading_list_message">C\'è un limite di %d voci per raccolta. Le raccolte esistenti che superano questo limite sono state suddivise in più raccolte.</string>
+  <string name="reading_list_move_article_limit_message">Impossibile spostare in questa raccolta. Hai raggiunto il limite di %2$d voci per raccolta per \"%1$s\".</string>
   <string name="reading_list_article_limit_message" fuzzy="true">Impossibile aggiungere a questo elenco. Hai raggiunto il limite di %2$d voci per elenco per \"%1$s\".</string>
-  <string name="reading_lists_limit_message" fuzzy="true">Impossibile creare un altro elenco. Hai raggiunto il limite di 100 elenchi di lettura per utenza.</string>
+  <string name="reading_lists_limit_message">Impossibile creare un\'altra raccolta. Hai raggiunto il limite di 100 raccolte per utenza.</string>
   <string name="reading_lists_menu_create_list" fuzzy="true">Crea nuovo elenco</string>
   <string name="reading_lists_menu_import_list" fuzzy="true">Importa elenco</string>
   <string name="reading_lists_menu_sort_by">Ordina per</string>
@@ -711,7 +711,7 @@
   <string name="reading_list_notification_detailed_text" fuzzy="true">Gli elenchi di lettura sono stati esportati in \'reading_lists_export.json\'</string>
   <string name="reading_lists_action_menu_export_lists">Esporta</string>
   <string name="reading_lists_import_file_picker_title">Scegli il file da importare</string>
-  <string name="reading_lists_import_failure_message" fuzzy="true">Importazione degli elenchi di lettura non riuscita</string>
+  <string name="reading_lists_import_failure_message">Importazione delle raccolte non riuscita</string>
   <string name="reading_lists_export_select_lists_message" fuzzy="true">Seleziona l\'elenco o gli elenchi da esportare</string>
   <string name="reading_lists_export_completed_message" fuzzy="true">Elenco di lettura esportato</string>
   <plurals name="reading_list_export_failed_message" fuzzy="true">
@@ -722,7 +722,7 @@
     <item quantity="one">Elenco di lettura importato</item>
     <item quantity="other">Elenchi di lettura importati</item>
   </plurals>
-  <string name="reading_lists_preview_header_title" fuzzy="true">Elenco condiviso</string>
+  <string name="reading_lists_preview_header_title">Raccolta condivisa</string>
   <string name="reading_lists_preview_save_button">Salva</string>
   <string name="reading_lists_preview_save_dialog_title" fuzzy="true">Salva elenco</string>
   <string name="reading_lists_preview_save_dialog_text" fuzzy="true">Assegna un nome all\'elenco e seleziona le voci da salvare.</string>
@@ -738,7 +738,7 @@
   <string name="notification_syncing_pause_button">Pausa</string>
   <string name="notification_syncing_resume_button">Riprendi</string>
   <string name="notification_syncing_cancel_button">Annulla</string>
-  <string name="notification_syncing_reading_list_channel_title" fuzzy="true">Sincronizzazione degli elenchi di lettura</string>
+  <string name="notification_syncing_reading_list_channel_title">Sincronizzazione delle raccolte</string>
   <string name="notification_syncing_reading_list_channel_description" fuzzy="true">Sincronizzazione dei progressi degli elenchi di lettura</string>
   <string name="notification_many_unread">Hai %d notifiche non lette</string>
   <plurals name="notification_channel_name">
@@ -753,9 +753,9 @@
     <item quantity="one">%1$d voce rimanente</item>
     <item quantity="other">%1$d voci rimanenti</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_channel_name" fuzzy="true">
-    <item quantity="one">Sincronizzazione dell\'elenco di lettura</item>
-    <item quantity="other">Sincronizzazione degli elenchi di lettura</item>
+  <plurals name="notification_syncing_reading_list_channel_name">
+    <item quantity="one">Sincronizzazione della raccolta</item>
+    <item quantity="other">Sincronizzazione delle raccolte</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_title" fuzzy="true">
     <item quantity="one">Sincronizzando %1$d elenco…</item>
@@ -1636,7 +1636,7 @@
   <string name="user_contrib_filter_activity_title">Filtra i contributi</string>
   <string name="action_item_view_on_map">Visualizza sulla mappa</string>
   <string name="action_item_view_on_map_unavailable">Le coordinate geografiche non sono disponibili per questa pagina</string>
-  <string name="shareable_reading_lists_import_dialog_title" fuzzy="true">Importa elenco di lettura condiviso</string>
+  <string name="shareable_reading_lists_import_dialog_title">Importa raccolta condivisa</string>
   <string name="shareable_reading_lists_import_dialog_content" fuzzy="true">Come vorresti nominare l\'elenco che è stato condiviso con te?</string>
   <string name="shareable_reading_lists_new_indicator">*nuovo*</string>
   <string name="shareable_reading_lists_new_install_dialog_title" fuzzy="true">Un elenco di lettura è stato condiviso con te</string>
@@ -2053,7 +2053,7 @@
   <string name="recommended_reading_list_page_snackbar_month">Mese</string>
   <string name="recommended_reading_list_settings_section_header">Consigli</string>
   <string name="recommended_reading_list_settings_title">Scopri le impostazioni</string>
-  <string name="recommended_reading_list_settings_toggle" fuzzy="true">Esplora l\'elenco di lettura</string>
+  <string name="recommended_reading_list_settings_toggle">Esplora la raccolta</string>
   <string name="recommended_reading_list_settings_toggle_disable_message">La funzione Scopri è disattivata. Wikipedia non ti consiglierà voci da leggere.</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_title">Vuoi disattivare Discover?</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_message">Se disattivi Discover, non riceverai più %s consigli di lettura da Wikipedia.</string>
@@ -2217,5 +2217,5 @@
   <string name="random_article_widget_name">Voce a caso</string>
   <string name="reading_lists_tab_all_articles">Tutte le voci</string>
   <string name="reading_lists_tab_collections">Collezioni</string>
-  <string name="reading_lists_remove_articles_confirm_button" fuzzy="true">Rimuovi</string>
+  <string name="reading_lists_remove_articles_confirm_button">Annulla salvataggio</string>
 </resources>
