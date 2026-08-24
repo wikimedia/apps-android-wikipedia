@@ -28,7 +28,7 @@
   <string name="search_hint_search_languages">ဘာသာစကားတစ်ခုအတွက် ရှာဖွေရန်</string>
   <string name="search_back_button_content_description">နောက်သို့ ပြန်သွားရန်</string>
   <string name="search_icon_content_description">ရှာဖွေရန်</string>
-  <string name="filter_hint_filter_my_lists_and_articles">မိမိ၏စာရင်းများ စစ်ထုတ်ရန်</string>
+  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">မိမိ၏စာရင်းများ စစ်ထုတ်ရန်</string>
   <string name="nav_item_suggested_edits">တည်းဖြတ်မှုများ</string>
   <string name="nav_item_activity">လှုပ်ရှားမှု</string>
   <string name="nav_item_more">ပို၍</string>
@@ -80,16 +80,16 @@
   <string name="menu_page_watched">စောင့်ကြည့်ပြီး</string>
   <string name="edit_section_find_in_page">စာမျက်နှာတွင် ရှာဖွေရန်</string>
   <string name="menu_page_font_and_theme">ဖောင့်နှင့် အသွင်အပြင်</string>
-  <string name="menu_page_add_to_list">စာဖတ်စာရင်းသို့ ပေါင်းထည့်ရန်</string>
+  <string name="menu_page_add_to_list" fuzzy="true">စာဖတ်စာရင်းသို့ ပေါင်းထည့်ရန်</string>
   <string name="menu_page_add_to_default_list">သိမ်းရန်</string>
-  <string name="feed_card_add_to_list">စာဖတ်စာရင်းသို့ ပေါင်းထည့်ရန်</string>
+  <string name="feed_card_add_to_list" fuzzy="true">စာဖတ်စာရင်းသို့ ပေါင်းထည့်ရန်</string>
   <string name="feed_card_add_to_default_list">သိမ်းရန်</string>
   <string name="menu_page_share">လင့်ခ်ကို မျှဝေရန်</string>
   <string name="menu_article_share">ဆောင်းပါးကိုမျှဝေရန်</string>
   <string name="menu_page_article_share">မျှဝေ</string>
   <string name="menu_page_open_a_new_tab">tab အသစ်တွင် ဖွင့်ရန်</string>
   <string name="menu_page_new_tab">tab အသစ်</string>
-  <string name="menu_page_reading_lists">စာရင်းများကို ဖတ်နေသည်</string>
+  <string name="menu_page_reading_lists" fuzzy="true">စာရင်းများကို ဖတ်နေသည်</string>
   <string name="menu_page_recently_viewed">မကြာသေခင်က ကြည့်ခဲ့သော</string>
   <string name="menu_page_archive">မော်ကွန်း</string>
   <string name="menu_long_press_open_page">ဖွင့်ပါ</string>
@@ -129,7 +129,7 @@
   <string name="menu_show_toc">မာတိကာ</string>
   <string name="search_no_results_found">မည်သည့်ရလဒ်မျှ မရပါ</string>
   <string name="search_reading_list_no_results">\"%s\" ထဲတွင် ရလဒ် မတွေ့ပါ</string>
-  <string name="search_reading_lists_no_results">စာဖတ်စာရင်းမှ ရလဒ်များ မရှိပါ</string>
+  <string name="search_reading_lists_no_results" fuzzy="true">စာဖတ်စာရင်းမှ ရလဒ်များ မရှိပါ</string>
   <string name="search_history_no_results">ရာဇဝင်ထဲတွင် ရလဒ် မတွေ့ပါ</string>
   <string name="edit_section_captcha_message">အလိုအလျောက်ပေးပို့နေသော မေးလ်များရန်မှ ကာကွယ်ရန် အောက်ပါ စာလုံးများကို လိုက်ရိုက်ကြည့်ပါ။</string>
   <string name="edit_section_captcha_request_an_account_message">ရုပ်ပုံကို မတွေ့ရပါသလား? &lt;a href=\"https://my.wikipedia.org/wiki/Wikipedia:အကောင့်တစ်ခု_တောင်းဆိုရန်\"&gt;ပိုမိုလေ့လာရန်a&gt;</string>
@@ -204,12 +204,12 @@
   <string name="preferences_heading_syncing">တစ်ထပ်တည်းကျစေခြင်း</string>
   <string name="preferences_heading_data_usage">ဒေတာ အသုံးပြုမှု</string>
   <string name="preferences_heading_experimental">စမ်းသပ်လေ့လာဆဲ</string>
-  <string name="preference_title_sync_reading_lists_from_account">စာဖတ်စာရင်းအား sync လုပ်နေသည်</string>
-  <string name="preference_title_download_reading_list_articles">စာဖတ်စာရင်း ဆောင်းပါးများ ဒေါင်းလုတ်ရန်</string>
-  <string name="preference_summary_sync_reading_lists">မတူညီသော စက်ပစ္စည်းများရှိ sync လုပ်ထားသော စာဖတ်စာရင်းများကို သင်၏ဝီကီပီးဒီးယားအကောင့်ထဲတွင် သိမ်းရန်</string>
-  <string name="preference_summary_sync_reading_lists_from_account">မတူညီသော စက်ပစ္စည်းများရှိ sync လုပ်ထားသော စာဖတ်စာရင်းများကို သင်၏ဝီကီပီးဒီးယားအကောင့် \"%s\" ထဲတွင် သိမ်းရန်</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">%s မှ sync လုပ်ထားသော စာဖတ်စာရင်းကို ဖယ်ရှားမည်လော</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">ဤသည် remote storage မှ မကြာသေးခင်က sync လုပ်ထားသည့် စာဖတ်စာရင်းအားလုံးကို လုံးဝဥသုံ ဖျက်ပစ်မည်ဖြစ်သည်။ သင်၏အကောင့် \"%s\" မှ sync လုပ်ထားသော စာရင်းအားလုံးကို ဖယ်ရှားမည်လော။</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">စာဖတ်စာရင်းအား sync လုပ်နေသည်</string>
+  <string name="preference_title_download_reading_list_articles" fuzzy="true">စာဖတ်စာရင်း ဆောင်းပါးများ ဒေါင်းလုတ်ရန်</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">မတူညီသော စက်ပစ္စည်းများရှိ sync လုပ်ထားသော စာဖတ်စာရင်းများကို သင်၏ဝီကီပီးဒီးယားအကောင့်ထဲတွင် သိမ်းရန်</string>
+  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">မတူညီသော စက်ပစ္စည်းများရှိ sync လုပ်ထားသော စာဖတ်စာရင်းများကို သင်၏ဝီကီပီးဒီးယားအကောင့် \"%s\" ထဲတွင် သိမ်းရန်</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">%s မှ sync လုပ်ထားသော စာဖတ်စာရင်းကို ဖယ်ရှားမည်လော</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">ဤသည် remote storage မှ မကြာသေးခင်က sync လုပ်ထားသည့် စာဖတ်စာရင်းအားလုံးကို လုံးဝဥသုံ ဖျက်ပစ်မည်ဖြစ်သည်။ သင်၏အကောင့် \"%s\" မှ sync လုပ်ထားသော စာရင်းအားလုံးကို ဖယ်ရှားမည်လော။</string>
   <string name="preference_title_auto_upload_crash_reports">ပျက်မှု အစီရင်ခံချက်များအား ပို့ရန်</string>
   <string name="preference_summary_auto_upload_crash_reports">တတိယဝန်ဆောင်မှုလုပ်ငန်းသို့ အက်ပ်မှ ပျက်မှု အစီရင်ခံချက်များအား အလိုအလျောက် ပေးပို့စေခြင်းဖြင့် သင့်အစီရင်ခံချက်ကို လွယ်ကူလျှင်မြန်စွာ ကြည့်ရှုပြင်ဆင်နိုင်စေရန် ခွင့်ပြုပါ။</string>
   <string name="editing_error_spamblacklist">ပိတ်ပင်ထားသော ဒိုမိန်းများ (%s) သို့ ချိတ်ဆက်ထားမှု ရှိနေသည်။ ကျေးဇူးပြု၍ ယင်းတို့ကို ဖယ်ရှားပြီး ထပ်မံကြိုးစားပါ။</string>
@@ -338,8 +338,8 @@
   <string name="unnamed_tab_closed">Tab ပိတ်ထားသည်</string>
   <string name="tab_item_closed">%s ပိတ်သိမ်းပြီး။</string>
   <string name="all_tab_items_closed">Tab အားလုံး ပိတ်ထားသည်</string>
-  <string name="tool_tip_bookmark_icon_title">စာဖတ်စာရင်းသို့ ပေါင်းထည့်ရန်</string>
-  <string name="tool_tip_bookmark_icon_text">စာမူကိုစာဖတ်စာရင်းထဲသိမ်းဆည်းရန်အမှတ်အသားပြုသင်္ကေတပေါ်တွင်နှိပ်ပါ။</string>
+  <string name="tool_tip_bookmark_icon_title" fuzzy="true">စာဖတ်စာရင်းသို့ ပေါင်းထည့်ရန်</string>
+  <string name="tool_tip_bookmark_icon_text" fuzzy="true">စာမူကိုစာဖတ်စာရင်းထဲသိမ်းဆည်းရန်အမှတ်အသားပြုသင်္ကေတပေါ်တွင်နှိပ်ပါ။</string>
   <string name="page_view_in_browser">စာမျက်နှာအား ဘရောက်ဇာတွင် ကြည့်ရန်</string>
   <string name="tool_tip_toc_title">မြန်မြန်ရရှိနိုင်သော မာတိကာစာမျက်နှာ</string>
   <string name="tool_tip_toc_text">မာတိကာကိုဖွင့်ရန်ဘယ်ဘက်သို့ယခုပွတ်ဆွဲပြီးဆောင်းပါး၏ကွဲပြားခြားနားသော ကဏ္ဍများကိုလျင်မြန်စွာခုန်ရန်ဤ scroller ခလုတ်ကိုနှိပ်ပြီးဆွဲယူပါ။</string>
@@ -352,9 +352,9 @@
   <string name="button_continue_to_talk_page">ဆွေးနွေးချက်စာမျက်နှာကို ဖွင့်ရန်</string>
   <string name="button_continue_to_disambiguation">ဆင်တူစာမျက်နှာများကို ကြည့်ရန်</string>
   <string name="link_preview_disambiguation_description">ဤခေါင်းစဉ်သည် စာမျက်နှာတစ်ခုထက်ပို၍ ဆက်နွယ်သည်:</string>
-  <string name="button_add_to_reading_list">ဖတ်ရှုစာရင်းသို့ ပေါင်းထည့်ရန်</string>
+  <string name="button_add_to_reading_list" fuzzy="true">ဖတ်ရှုစာရင်းသို့ ပေါင်းထည့်ရန်</string>
   <string name="page_offline_notice_cannot_load_while_offline">အင်တာနက်မရှိချိန်တွင် ဆောင်းပါးများကို ဖတ်ရှုရန် မဖြစ်နိုင်ပါ။</string>
-  <string name="page_offline_notice_add_to_reading_list">အရိပ်အမြွက်: ဆောင်းပါးကို စာဖတ်စာရင်းသို့ ပေါင်းထည့်ပါ၊ အွန်လိုင်းပြန်ဖြစ်လာချိန်တွင် ယင်းသည် ဒေါင်းလုတ်ဆွဲသွားပါလိမ့်မည်။</string>
+  <string name="page_offline_notice_add_to_reading_list" fuzzy="true">အရိပ်အမြွက်: ဆောင်းပါးကို စာဖတ်စာရင်းသို့ ပေါင်းထည့်ပါ၊ အွန်လိုင်းပြန်ဖြစ်လာချိန်တွင် ယင်းသည် ဒေါင်းလုတ်ဆွဲသွားပါလိမ့်မည်။</string>
   <string name="page_offline_notice_last_date">သင်သည် %s တွင်သိမ်းထားသော ဤဆောင်းပါး၏ အော့ဖ်လိုင်းဗားရှင်းကို ဖတ်ရှုနေခြင်းဖြစ်ပါသည်။</string>
   <string name="redirected_from_snackbar">\"%s\" မှ ပြန်ညွှန်းထားသည်</string>
   <string name="button_get_directions">လမ်းညွှန် ရယူရန်</string>
@@ -431,17 +431,17 @@
   <string name="theme_category_reading">စာဖတ်ခြင်း</string>
   <string name="theme_category_editing">တည်းဖြတ်ခြင်း</string>
   <string name="nav_item_saved">သိမ်းဆည်းပြီး</string>
-  <string name="reading_list_save_to">စာဖတ်စာရင်းသို့ သိမ်းရန်</string>
-  <string name="reading_list_move_to">ဖတ်ရှုနေသောစာရင်သို့ ရွှေ့ရန်</string>
+  <string name="reading_list_save_to" fuzzy="true">စာဖတ်စာရင်းသို့ သိမ်းရန်</string>
+  <string name="reading_list_move_to" fuzzy="true">ဖတ်ရှုနေသောစာရင်သို့ ရွှေ့ရန်</string>
   <string name="reading_list_create_new">အသစ်ဖန်တီးရန်</string>
-  <string name="reading_list_title_exists">ဖတ်ရှုရန်စာရင်းတွင် \"%s\" ရှိပြီးသားဖြစ်သည်။</string>
+  <string name="reading_list_title_exists" fuzzy="true">ဖတ်ရှုရန်စာရင်းတွင် \"%s\" ရှိပြီးသားဖြစ်သည်။</string>
   <string name="reading_list_article_added_to_named">%1$sမှ%2$sသို့ ထည့်ပြီး</string>
-  <string name="reading_list_article_added_to_default_list">%s သိမ်းပြီးပြီ။ ယင်းအား စာရင်းတခုသို့ ပေါင်းထည့်လိုပါသလား။</string>
+  <string name="reading_list_article_added_to_default_list" fuzzy="true">%s သိမ်းပြီးပြီ။ ယင်းအား စာရင်းတခုသို့ ပေါင်းထည့်လိုပါသလား။</string>
   <string name="reading_list_article_moved_to_named">%1$sကို%2$sသို့ ထည့်ပြီး</string>
   <string name="reading_list_article_already_exists_message">အားလုံးကောင်းပါတယ်! %1$sမှာ%2$sပါပါတယ်</string>
   <string name="reading_list_articles_already_exist_message">အားလုံးကောင်းပါတယ်! %sမှာ ဆောင်းပါးအားလုံးပါပြီးသားပါ</string>
-  <string name="reading_list_added_view_button">စာရင်းအား ကြည့်ရန်</string>
-  <string name="reading_list_add_to_list_button">စာရင်းသို့ ပေါင်းထည့်ရန်</string>
+  <string name="reading_list_added_view_button" fuzzy="true">စာရင်းအား ကြည့်ရန်</string>
+  <string name="reading_list_add_to_list_button" fuzzy="true">စာရင်းသို့ ပေါင်းထည့်ရန်</string>
   <string name="reading_list_sort">စီစဉ်ရန်</string>
   <string name="reading_list_sort_ellipsis">အစဉ်လိုက်...</string>
   <string name="reading_list_sort_by_name">အမည်ဖြင့် စီစဉ်</string>
@@ -450,7 +450,7 @@
   <string name="reading_list_sort_by_recent_desc">ရက်စွဲပေါင်းထည့်သည့် အစဉ်အတိုင်း (အဟောင်းဆုံး)</string>
   <string name="reading_list_sort_by_created">ရက်စွဲဖန်တီးသည့် အစဉ်အတိုင်း (အသစ်ဆုံး)</string>
   <string name="reading_list_sort_by_created_desc">ရက်စွဲဖန်တီးသည့် အစဉ်အတိုင်း (အဟောင်းဆုံး)</string>
-  <string name="reading_list_menu_delete">စာဖတ်စာရင်း ဖျက်ရန်</string>
+  <string name="reading_list_menu_delete" fuzzy="true">စာဖတ်စာရင်း ဖျက်ရန်</string>
   <string name="reading_list_menu_select">ရွေးချယ်</string>
   <string name="reading_list_menu_unselect">မရွေးချယ်တော့ရန်</string>
   <string name="reading_list_menu_rename">အမည်/ဖော်ပြချက်ကို တည်းဖြတ်ရန်</string>
@@ -458,36 +458,36 @@
   <string name="reading_list_action_menu_save_for_offline">အင်တာနက်မရှိပဲ ဖတ်ရှုရန် သိမ်းဆည်းခြင်း။</string>
   <string name="reading_list_action_menu_remove_all_from_offline">အင်တာနက်မရှိ ဖတ်ရှုခြင်းမှ အားလုံးအား ဖယ်ထုတ်ရန်။</string>
   <string name="reading_list_action_menu_save_all_for_offline">အင်တာနက်မရှိပဲ ဖတ်ရှုရန် အားလုံးအား သိမ်းဆည်းခြင်း။</string>
-  <string name="reading_list_action_menu_add_to_another_list">အခြားသော စာရင်းတွင် ထည့်သွင်းရန်။</string>
-  <string name="reading_list_action_menu_move_to_another_list">အခြားစာရင်းသို့ရွှေ့ပါ</string>
-  <string name="reading_list_name_sample">ကျွန်ုပ်၏ စာဖတ်စာရင်း</string>
-  <string name="reading_list_name_hint">ဤစာရင်း၏ အမည်</string>
+  <string name="reading_list_action_menu_add_to_another_list" fuzzy="true">အခြားသော စာရင်းတွင် ထည့်သွင်းရန်။</string>
+  <string name="reading_list_action_menu_move_to_another_list" fuzzy="true">အခြားစာရင်းသို့ရွှေ့ပါ</string>
+  <string name="reading_list_name_sample" fuzzy="true">ကျွန်ုပ်၏ စာဖတ်စာရင်း</string>
+  <string name="reading_list_name_hint" fuzzy="true">ဤစာရင်း၏ အမည်</string>
   <string name="reading_list_description_hint">ဖော်ပြချက် (မထည့်လည်းရသည်)</string>
-  <string name="reading_list_item_deleted">%s ကို စာရင်းမှ ဖယ်ရှားပြီး</string>
-  <string name="reading_list_items_deleted">ဆောင်းပါး %d ခုကို စာရင်းမှ ဖယ်ရှားခဲ့။</string>
-  <string name="reading_lists_item_deleted">စာရင်းများမှ %s ကို ဖယ်ရှားပြီး</string>
+  <string name="reading_list_item_deleted" fuzzy="true">%s ကို စာရင်းမှ ဖယ်ရှားပြီး</string>
+  <string name="reading_list_items_deleted" fuzzy="true">ဆောင်းပါး %d ခုကို စာရင်းမှ ဖယ်ရှားခဲ့။</string>
+  <string name="reading_lists_item_deleted" fuzzy="true">စာရင်းများမှ %s ကို ဖယ်ရှားပြီး</string>
   <string name="reading_list_item_delete_undo">နောက်ပြန် ပြန်ပြင်ရန်</string>
   <string name="reading_list_deleted">%s ကို ဖျက်ပြီး</string>
   <string name="saved_list_empty_title" fuzzy="true">စာဖတ်စာရင်း မရှိ။</string>
-  <string name="reading_lists_empty_message">သင် အော့ဖ်လိုင်းဖြစ်လျင်တောင်မှ နောင်အခါ ဖတ်ရှုရန် ဆောင်းပါးများကို စာရင်းတစ်ခုသို့ ပေါင်းထည့်ရန်</string>
-  <string name="reading_list_empty">ဤစာရင်း၌ သင်ပေါင်းထည့်ထားသော ဆောင်းပါးမရှိပါ</string>
+  <string name="reading_lists_empty_message" fuzzy="true">သင် အော့ဖ်လိုင်းဖြစ်လျင်တောင်မှ နောင်အခါ ဖတ်ရှုရန် ဆောင်းပါးများကို စာရင်းတစ်ခုသို့ ပေါင်းထည့်ရန်</string>
+  <string name="reading_list_empty" fuzzy="true">ဤစာရင်း၌ သင်ပေါင်းထည့်ထားသော ဆောင်းပါးမရှိပါ</string>
   <string name="reading_list_article_offline">အော့ဖ်လိုင်း ရရှိနိုင်မှု</string>
   <string name="reading_list_article_make_offline">ဤဆောင်းပါးကို အော့ဖ်လိုင်း ရရှိနိုင်မှု ဖြစ်စေမည်</string>
-  <string name="reading_list_add_to_other_list">အခြားသော ဖတ်ရှုမည့်စာရင်းတွင် ထည့်သွင်းရန်။</string>
-  <string name="reading_list_move_to_other_list">အခြားဖတ်ရှုနေသောစရင်းသို့ ရွှေ့ပါ</string>
-  <string name="reading_list_move_from_to_other_list">%sမှ အခြားသော ဖတ်ရှုနေသောစာရင်းသို့ ရွှေ့ပါ</string>
+  <string name="reading_list_add_to_other_list" fuzzy="true">အခြားသော ဖတ်ရှုမည့်စာရင်းတွင် ထည့်သွင်းရန်။</string>
+  <string name="reading_list_move_to_other_list" fuzzy="true">အခြားဖတ်ရှုနေသောစရင်းသို့ ရွှေ့ပါ</string>
+  <string name="reading_list_move_from_to_other_list" fuzzy="true">%sမှ အခြားသော ဖတ်ရှုနေသောစာရင်းသို့ ရွှေ့ပါ</string>
   <string name="reading_list_remove_from_list">%s မှ ဖယ်ထုတ်ရန်။</string>
-  <string name="reading_list_remove_from_lists">ဖတ်ရှုစာရင်းမှ ဖယ်ထုတ်ရန်</string>
+  <string name="reading_list_remove_from_lists" fuzzy="true">ဖတ်ရှုစာရင်းမှ ဖယ်ထုတ်ရန်</string>
   <string name="reading_list_select_item">ရွေးချယ်</string>
   <string name="reading_list_confirm_remove_article_from_offline">အော့ဖ်လိုင်းမှ ဖယ်ထုတ်ရန်။</string>
-  <string name="reading_list_confirm_remove_article_from_offline_title">ဆောင်းပါးသည် စာရင်းများစွာ၌ ပေါ်နေသည်</string>
-  <string name="reading_list_confirm_remove_article_from_offline_message">%s သည် စာဖတ်စာရင်းများအားလုံးအတွက် အော့ဖ်လိုင်းတွင် ရရှိနိုင်တော့မည်မဟုတ်ပါ:</string>
-  <string name="reading_lists_sync_reminder_title">စာဖတ်စာရင်း sync လုပ်ခြင်းကို ဖွင့်မည်လော</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title" fuzzy="true">ဆောင်းပါးသည် စာရင်းများစွာ၌ ပေါ်နေသည်</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s သည် စာဖတ်စာရင်းများအားလုံးအတွက် အော့ဖ်လိုင်းတွင် ရရှိနိုင်တော့မည်မဟုတ်ပါ:</string>
+  <string name="reading_lists_sync_reminder_title" fuzzy="true">စာဖတ်စာရင်း sync လုပ်ခြင်းကို ဖွင့်မည်လော</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">စာဖတ်စာရင်းများသို့ သိမ်းထားသောဆောင်းပါးများသည် ယခုအခါ ဝီကီပီးဒီးယားအကောင့်သို့ sync လုပ်နိုင်ပါပြီ။ &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;ပို၍လေ့လာရန်&lt;/a&gt;</string>
   <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">စာဖတ်စာရင်းများကို စက်ပစ္စည်းများသို့ sync လုပ်နိုင်ပါပြီ။ သင်၏ စာရင်းများကို သိမ်းဆည်းရန် ဝီကီပီးဒီးယားအကောင့်သို့ လော့အင်ဝင်ရောက်ပါ။ &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;ပို၍လေ့လာရန်&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Sync လုပ်ခြင်းကို ဖွင့်ရန်</string>
-  <string name="reading_list_login_reminder_title">စာဖတ်စာရင်းများအား sync လုပ်ရန်</string>
-  <string name="reading_lists_login_reminder_text">စာဖတ်စာရင်းများကို စက်ပစ္စည်းများသို့ sync လုပ်နိုင်ပါပြီ။ သင်၏ စာရင်းများကို သိမ်းဆည်းရန် ဝီကီပီးဒီးယားအကောင့်သို့ လော့အင်ဝင်ရောက်ပါ။</string>
+  <string name="reading_list_login_reminder_title" fuzzy="true">စာဖတ်စာရင်းများအား sync လုပ်ရန်</string>
+  <string name="reading_lists_login_reminder_text" fuzzy="true">စာဖတ်စာရင်းများကို စက်ပစ္စည်းများသို့ sync လုပ်နိုင်ပါပြီ။ သင်၏ စာရင်းများကို သိမ်းဆည်းရန် ဝီကီပီးဒီးယားအကောင့်သို့ လော့အင်ဝင်ရောက်ပါ။</string>
   <string name="reading_lists_login_button">ဝီကီပီးဒီးယားသို့ လော့ဂ်အင် / ပါဝင်ရန်</string>
   <string name="reading_lists_ignore_button">အခု မဟုတ်ပါ</string>
   <string name="reading_lists_confirm_remote_delete_yes">လုပ်မည်။</string>
@@ -497,28 +497,28 @@
   <string name="reading_list_articles_moved_to_named">%1$dဆောင်းပါးများကို %2$sသို့ရွှေ့ပြီး</string>
   <string name="reading_list_delete_confirm">ဤ %s အား ဖျက်ရန် သေချာပါသလား</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Syn လုပ်နိုင်ရန် အကောင့်ထဲဝင်ပါ</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_text">သင်၏အကောင့်ထဲသို့ စာဖတ်စာရင်းများ သိမ်းဆည်းခွင့်ရှိရန် အကောင့်သို့ဝင်ရောက်ပါ။</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text" fuzzy="true">သင်၏အကောင့်ထဲသို့ စာဖတ်စာရင်းများ သိမ်းဆည်းခွင့်ရှိရန် အကောင့်သို့ဝင်ရောက်ပါ။</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">မလုပ်တော့ပါ</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">အကောင့်ဝင်ရန်</string>
-  <string name="reading_list_turned_sync_off_dialog_title">စာဖတ်စာရင်း sync လုပ်ခြင်းကို ပိတ်ပြီး</string>
-  <string name="reading_list_turned_sync_off_dialog_text">စာဖတ်စာရင်း sync လုပ်ခြင်းကို သင်၏အကောင့်အတွက် ပိတ်ထားသည်၊ သင် လော့အင်ဝင်ထားသော စက်ပစ္စည်းများပေါ်ရှိ သိမ်းထားသောဆောင်းပါးများမှာ backup မလုပ်ထားပါ။ အပြင်အဆင်များရှိ စာဖတ်စာရင်း sync လုပ်ခြင်းကို ဖွင့်ပေးပါ။</string>
+  <string name="reading_list_turned_sync_off_dialog_title" fuzzy="true">စာဖတ်စာရင်း sync လုပ်ခြင်းကို ပိတ်ပြီး</string>
+  <string name="reading_list_turned_sync_off_dialog_text" fuzzy="true">စာဖတ်စာရင်း sync လုပ်ခြင်းကို သင်၏အကောင့်အတွက် ပိတ်ထားသည်၊ သင် လော့အင်ဝင်ထားသော စက်ပစ္စည်းများပေါ်ရှိ သိမ်းထားသောဆောင်းပါးများမှာ backup မလုပ်ထားပါ။ အပြင်အဆင်များရှိ စာဖတ်စာရင်း sync လုပ်ခြင်းကို ဖွင့်ပေးပါ။</string>
   <string name="reading_list_turned_sync_off_dialog_ok">အိုကေ</string>
   <string name="reading_list_turned_sync_off_dialog_settings">အပြင်အဆင်များ</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_title">စာဖတ်စာရင်း sync လုပ်ခြင်းကို ဖွင့်မည်လော</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_text">စာဖတ်စာရင်းများသို့ သိမ်းထားသောဆောင်းပါးများကို ယခုအခါ သင်၏ဝီကီပီးဒီးယားအကောင့်သို့ sync လုပ်နိုင်ပါပြီ။ &lt;a href=\"#faq\"&gt;ပိုမိုလေ့လာရန်&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title" fuzzy="true">စာဖတ်စာရင်း sync လုပ်ခြင်းကို ဖွင့်မည်လော</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text" fuzzy="true">စာဖတ်စာရင်းများသို့ သိမ်းထားသောဆောင်းပါးများကို ယခုအခါ သင်၏ဝီကီပီးဒီးယားအကောင့်သို့ sync လုပ်နိုင်ပါပြီ။ &lt;a href=\"#faq\"&gt;ပိုမိုလေ့လာရန်&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">ဤအရာကို ထပ်မံ မပြပါနှင့်</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Sync လုပ်ခြင်းကို ခွင့်ပြုရန်</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">မလိုပါ၊ ကျေးဇူးတင်ပါသည်။</string>
   <string name="default_reading_list_name">သိမ်းဆည်းပြီး</string>
-  <string name="default_reading_list_description">သင် သိမ်းထားသော ဆောင်းပါးများအတွက် နဂိုစာရင်း</string>
-  <string name="no_user_lists_title">ဆောင်းပါးများကို စာရင်းများအဖြစ် ဖွဲ့စည်းရန်</string>
-  <string name="no_user_lists_msg">သွားလည်စရာနေရာများ၊ နှစ်သက်သည့် အကြောင်းအရာများနှင့် အခြားသောအရာများအတွက် စာရင်းတစ်ခု ဖန်တီးရန်</string>
+  <string name="default_reading_list_description" fuzzy="true">သင် သိမ်းထားသော ဆောင်းပါးများအတွက် နဂိုစာရင်း</string>
+  <string name="no_user_lists_title" fuzzy="true">ဆောင်းပါးများကို စာရင်းများအဖြစ် ဖွဲ့စည်းရန်</string>
+  <string name="no_user_lists_msg" fuzzy="true">သွားလည်စရာနေရာများ၊ နှစ်သက်သည့် အကြောင်းအရာများနှင့် အခြားသောအရာများအတွက် စာရင်းတစ်ခု ဖန်တီးရန်</string>
   <string name="reading_list_saved_list_rename">%1$s (အသုံးပြုသူ ဖန်တီးခဲ့)</string>
-  <string name="split_reading_list_message">စာဖတ်စာရင်းတစ်ခုလျင် %d ဆောင်းပါးနှုန်းဖြင့် ကန့်သတ်ချက်တစ်ခု ရှိနေပါသည်။ ဤကန့်သတ်ချက်ထက် ကျော်လွန်သည့် ရှိနှင့်ပြီးသားစာရင်းများသည် ၂ ခုထက်ပိုသောစာရင်းများအဖြစ် ကွဲထွက်သွားပါသည်။</string>
-  <string name="reading_list_move_article_limit_message">ဤစာရင်းသို့မရွှေ့နိုင်ပါ။ %1$sအတွက် စာရင်းတစ်ခု၏ ကန့်သတ်ထားသော %2$dဆောင်းပါးများကို သင်ရောက်ရှိသွားပြီ။</string>
-  <string name="reading_list_article_limit_message">ဤစာရင်းသို့ မပေါင်းထည့်နိုင်ပါ။ \"%1$s\" အတွက် စာရင်းတစ်ခုလျင် %2$d ဆောင်းပါးနှုန်း ကန့်သတ်ချက်ကို ရောက်ရှိသွားပါသည်။</string>
-  <string name="reading_lists_limit_message">အခြားစာရင်း မဖန်တီးနိုင်ပါ။ အကောင့်တစ်ခုလျင် စာဖတ်စာရင်း ၁၀၀ နှုန်းဖြစ်သော ကန့်သတ်ချက်ကို ရောက်ရှိသွားပါသည်။</string>
-  <string name="reading_lists_menu_create_list">စာရင်းသစ် ဖန်တီးပါ</string>
+  <string name="split_reading_list_message" fuzzy="true">စာဖတ်စာရင်းတစ်ခုလျင် %d ဆောင်းပါးနှုန်းဖြင့် ကန့်သတ်ချက်တစ်ခု ရှိနေပါသည်။ ဤကန့်သတ်ချက်ထက် ကျော်လွန်သည့် ရှိနှင့်ပြီးသားစာရင်းများသည် ၂ ခုထက်ပိုသောစာရင်းများအဖြစ် ကွဲထွက်သွားပါသည်။</string>
+  <string name="reading_list_move_article_limit_message" fuzzy="true">ဤစာရင်းသို့မရွှေ့နိုင်ပါ။ %1$sအတွက် စာရင်းတစ်ခု၏ ကန့်သတ်ထားသော %2$dဆောင်းပါးများကို သင်ရောက်ရှိသွားပြီ။</string>
+  <string name="reading_list_article_limit_message" fuzzy="true">ဤစာရင်းသို့ မပေါင်းထည့်နိုင်ပါ။ \"%1$s\" အတွက် စာရင်းတစ်ခုလျင် %2$d ဆောင်းပါးနှုန်း ကန့်သတ်ချက်ကို ရောက်ရှိသွားပါသည်။</string>
+  <string name="reading_lists_limit_message" fuzzy="true">အခြားစာရင်း မဖန်တီးနိုင်ပါ။ အကောင့်တစ်ခုလျင် စာဖတ်စာရင်း ၁၀၀ နှုန်းဖြစ်သော ကန့်သတ်ချက်ကို ရောက်ရှိသွားပါသည်။</string>
+  <string name="reading_lists_menu_create_list" fuzzy="true">စာရင်းသစ် ဖန်တီးပါ</string>
   <string name="reading_lists_menu_sort_by">အစဉ်လိုက်</string>
   <string name="reading_lists_refresh_sync_option">sync လုပ်ခြင်းကို ပြန်လည်ဆန်းသစ်ရန်</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">ဝင်ရန် / မှတ်ပုံတင်ရန်</string>
@@ -530,7 +530,7 @@
     <item quantity="one">ဤဆောင်းပါးသည် အင်တာနက်မရှိဘဲ အသုံးပြုနိုင်တော့မှာမဟုတ်ပါ။</item>
     <item quantity="other">ဆောင်းပါးများသည် အင်တာနက်မရှိဘဲ အသုံးပြုနိုင်တော့မှာမဟုတ်ပါ။</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">စာဖတ်စာရင်းများ sync လုပ်ပြီးပြီ</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">စာဖတ်စာရင်းများ sync လုပ်ပြီးပြီ</string>
   <string name="reading_list_menu_last_sync">နောက်ဆုံး sync: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">အိုကေ</string>
   <string name="reading_list_delete_dialog_ok_button_text">အိုကေ</string>
@@ -553,7 +553,7 @@
   <string name="notification_syncing_pause_button">ခေတ္တရပ်</string>
   <string name="notification_syncing_resume_button">ခေတ္တရပ်နားရာမှ ပြန်လုပ်ရန်</string>
   <string name="notification_syncing_cancel_button">မလုပ်တော့ပါ။</string>
-  <string name="notification_syncing_reading_list_channel_description">စာဖတ်စာရင်းများကို sync လုပ်နေခြင်း တိုးတက်မှု</string>
+  <string name="notification_syncing_reading_list_channel_description" fuzzy="true">စာဖတ်စာရင်းများကို sync လုပ်နေခြင်း တိုးတက်မှု</string>
   <string name="notification_many_unread">သင့်မှာသင်မဖတ်ရသေးသော သတိပေးချက် %dခု ရှိပါတယ်</string>
   <plurals name="notification_channel_name">
     <item quantity="one">ဆောင်းပါး ဒေါင်းလုဒ်ဆွဲနေသည်</item>
@@ -567,15 +567,15 @@
     <item quantity="one">ဆောင်းပါး %1$d ကျန်ရှိ</item>
     <item quantity="other">ဆောင်းပါးများ %1$d ကျန်ရှိ</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_channel_name">
+  <plurals name="notification_syncing_reading_list_channel_name" fuzzy="true">
     <item quantity="one">စာဖတ်စာရင်းကို sync လုပ်နေသည်</item>
     <item quantity="other">စာဖတ်စာရင်းများကို sync လုပ်နေသည်</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_title">
+  <plurals name="notification_syncing_reading_list_title" fuzzy="true">
     <item quantity="one">%1$d စာရင်းကို sync လုပ်နေသည်…</item>
     <item quantity="other">%1$d စာရင်းများကို sync လုပ်နေသည်…</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_description">
+  <plurals name="notification_syncing_reading_list_description" fuzzy="true">
     <item quantity="one">စာရင်း %1$d ကျန်ရှိ</item>
     <item quantity="other">စာရင်းများ %1$d ကျန်ရှိ</item>
   </plurals>
@@ -950,8 +950,8 @@
   <string name="onboarding_maybe_later">နောက်ကြုံမှ</string>
   <string name="onboarding_explore_title">စူးစမ်းရန် နည်းလမ်းသစ်များ</string>
   <string name="onboarding_explore_text" fuzzy="true">စဉ်ဆက်မပြတ် မွမ်းမံလျက်ရှိသော စူးစမ်းရေးအခင်းအကျင်းနှင့် ဝီကီပီးဒီးယား ယုန်တွင်းပေါက်သို့ ခုန်ဆင်းလိုက်ပါ။ &lt;br/&gt;သင် စိတ်ဝင်စားသော အခင်းအကျင်းကို &lt;b&gt;မွမ်းမံပြင်ဆင်ပါ&lt;/b&gt; - သမိုင်းဝင်ဖြစ်ရပ်များကို &lt;b&gt;ယနေ့ဖြစ်ရပ်များ&lt;/b&gt;၊ သို့မဟုတ် &lt;b&gt;ကျပန်း&lt;/b&gt;ဖြင့် အန်စာတုံးကို လှည့်ကာ လေ့လာနိုင်ပါသည်။</string>
-  <string name="onboarding_reading_list_sync_title">Sync နှင့် စာဖတ်စာရင်းများ</string>
-  <string name="onboarding_reading_list_sync_text_v2">အော့ဖ်လိုင်းဖြစ်နေစဉ်တွင်တောင်မှ နောင်အခါ သင်ဖတ်ရှုလိုသော ဆောင်းပါးများကို စာဖတ်စာရင်းများအဖြစ် ပြုလုပ်နိုင်ပါသည်။ &lt;br/&gt;သင်၏ ဖတ်ရှုစာရင်းများကို ဝီကီပီးဒီးယားအကောင့်ထဲတွင် sync လုပ်ရန် လော့အင်ဝင်ရောက်ပါ။ &lt;a href=\"#login\"&gt;ဝီကီပီးဒီးယားသို့ ချိတ်ဆက်ပါ&lt;/a&gt;</string>
+  <string name="onboarding_reading_list_sync_title" fuzzy="true">Sync နှင့် စာဖတ်စာရင်းများ</string>
+  <string name="onboarding_reading_list_sync_text_v2" fuzzy="true">အော့ဖ်လိုင်းဖြစ်နေစဉ်တွင်တောင်မှ နောင်အခါ သင်ဖတ်ရှုလိုသော ဆောင်းပါးများကို စာဖတ်စာရင်းများအဖြစ် ပြုလုပ်နိုင်ပါသည်။ &lt;br/&gt;သင်၏ ဖတ်ရှုစာရင်းများကို ဝီကီပီးဒီးယားအကောင့်ထဲတွင် sync လုပ်ရန် လော့အင်ဝင်ရောက်ပါ။ &lt;a href=\"#login\"&gt;ဝီကီပီးဒီးယားသို့ ချိတ်ဆက်ပါ&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">ဒေတာနှင့် ကိုယ်ရေးကိုယ်တာ</string>
   <string name="onboarding_data_privacy_text">အခမဲ့ဗဟုသုတလှုပ်ရှားမှုတွင် ပါဝင်ရန်အတွက် ကိုယ်ရေးကိုယ်တာအချက်အလက်များ ပေးရန်မလိုအပ်ဟု ကျွန်ုပ်တို့ယုံကြည်ပါသည်။ ဤအက်ပ်အတွက် စုဆောင်းရရှိသော အသုံးပြုမှုဒေတာသည် အမည်မဖော်ပါ။&lt;br/&gt;&lt;br/&gt; ကျွန်ုပ်တို့၏ &lt;a href=\"#privacy\"&gt;ကိုယ်ရေးကိုယ်တာမူဝါဒ&lt;/a&gt; နှင့် &lt;a href=\"#termsOfUse\"&gt;အသုံးပြုမှုစည်းကမ်းချက်များ&lt;/a&gt; အကြောင်း ပိုမိုလေ့လာပါ။</string>
   <string name="onboarding_analytics_switch_title">အသုံးပြုဒေတာကို ပို့ရန်</string>

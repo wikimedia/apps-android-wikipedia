@@ -138,7 +138,7 @@
   <string name="close_all_tabs_confirm_yes">Дюр</string>
   <string name="close_all_tabs_confirm_no">Ёкъ</string>
   <string name="tab_item_closed">%s ябыкъ.</string>
-  <string name="tool_tip_bookmark_icon_title">Охув тизмеге къошмакъ</string>
+  <string name="tool_tip_bookmark_icon_title" fuzzy="true">Охув тизмеге къошмакъ</string>
   <string name="format_error_server_message">Мактуп: \"%s\"</string>
   <string name="button_continue_to_article">Макъаланы охумакъ</string>
   <string name="button_continue_to_disambiguation">Ошашлы сагьифалагъа къарав</string>
@@ -158,8 +158,8 @@
   <string name="color_theme_sepia">Сепия</string>
   <string name="color_theme_test_title">Метин уьлгю</string>
   <string name="reading_list_create_new">Янгыны этмек</string>
-  <string name="reading_list_added_view_button">Тизмеге къарав</string>
-  <string name="reading_list_menu_delete">Тизмени тайдырмакъ</string>
+  <string name="reading_list_added_view_button" fuzzy="true">Тизмеге къарав</string>
+  <string name="reading_list_menu_delete" fuzzy="true">Тизмени тайдырмакъ</string>
   <string name="reading_list_menu_rename">Атын/тасвирин алышдырмакъ</string>
   <string name="reading_list_item_delete_undo">Гери алмакъ</string>
   <string name="reading_list_deleted">%s тайгъан</string>

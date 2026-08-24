@@ -54,7 +54,7 @@
   <string name="search_back_button_content_description">돌아가기</string>
   <string name="search_clear_query_content_description">쿼리 초기화</string>
   <string name="search_icon_content_description">검색</string>
-  <string name="filter_hint_filter_my_lists_and_articles">내 목록 필터링</string>
+  <string name="filter_hint_filter_my_lists_and_articles">내 모음집 필터링</string>
   <string name="nav_item_suggested_edits">편집</string>
   <string name="nav_item_activity">활동</string>
   <string name="nav_item_more">더 보기</string>
@@ -119,16 +119,16 @@
   <string name="menu_page_watched">주시 중</string>
   <string name="edit_section_find_in_page">문서에서 찾기</string>
   <string name="menu_page_font_and_theme">글자와 테마</string>
-  <string name="menu_page_add_to_list">읽기 목록에 추가</string>
+  <string name="menu_page_add_to_list">모음집에 추가</string>
   <string name="menu_page_add_to_default_list">저장</string>
-  <string name="feed_card_add_to_list">읽기 목록에 추가</string>
+  <string name="feed_card_add_to_list">모음집에 추가</string>
   <string name="feed_card_add_to_default_list">저장</string>
   <string name="menu_page_share">링크 공유</string>
   <string name="menu_article_share">문서 공유</string>
   <string name="menu_page_article_share">공유</string>
   <string name="menu_page_open_a_new_tab">새 탭 열기</string>
   <string name="menu_page_new_tab">새 탭</string>
-  <string name="menu_page_reading_lists">읽기 목록</string>
+  <string name="menu_page_reading_lists">모음집</string>
   <string name="menu_page_recently_viewed">최근에 읽음</string>
   <string name="menu_page_archive">보존</string>
   <string name="menu_long_press_open_page">열기</string>
@@ -172,7 +172,9 @@
   <string name="menu_show_toc">목차</string>
   <string name="search_no_results_found">결과가 없습니다</string>
   <string name="search_reading_list_no_results">\"%s\"에 대한 결과 없음</string>
-  <string name="search_reading_lists_no_results">읽기 목록에 결과가 없습니다</string>
+  <string name="search_reading_lists_no_results">모음집에 결과가 없습니다</string>
+  <string name="search_all_articles_no_results">모든 모음집에 결과가 없습니다</string>
+  <string name="search_collections_no_results">모음집에 결과가 없습니다</string>
   <string name="search_history_no_results">역사에 결과가 없습니다</string>
   <string name="edit_section_captcha_message">자동화된 스팸으로부터 보호하기 위해, 아래에 나타나는 낱말을 입력해 주세요</string>
   <string name="edit_section_captcha_request_an_account_message">그림이 보이지 않습니까? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;계정 요청하기&lt;/a&gt;</string>
@@ -252,12 +254,12 @@
   <string name="preferences_heading_syncing">동기화</string>
   <string name="preferences_heading_data_usage">데이터 사용률</string>
   <string name="preferences_heading_experimental">실험 기능</string>
-  <string name="preference_title_sync_reading_lists_from_account">읽기 목록 동기화</string>
-  <string name="preference_title_download_reading_list_articles">읽기 목록 문서 다운로드</string>
-  <string name="preference_summary_sync_reading_lists">위키백과 계정에 읽기 목록을 저장하여 각기 다른 장치 간에 읽기 목록을 동기화합니다.</string>
-  <string name="preference_summary_sync_reading_lists_from_account">읽기 목록을 위키백과 계정 \"%s\"에 저장하여 각기 다른 장치 간에 읽기 목록을 동기화합니다</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">\"%s\"에서 동기화된 읽기 목록을 제거하시겠습니까?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">이전에 원격 기억 장치에 동기화된 모든 읽기 목록을 완전히 삭제합니다. \"%s\" 계정에 동기화된 모든 목록을 제거하시겠습니까?</string>
+  <string name="preference_title_sync_reading_lists_from_account">모음집 동기화</string>
+  <string name="preference_title_download_reading_list_articles">모음집 문서 다운로드</string>
+  <string name="preference_summary_sync_reading_lists">위키백과 계정에 모음집을 저장하여 각기 다른 장치 간에 모음집을 동기화합니다.</string>
+  <string name="preference_summary_sync_reading_lists_from_account">모음집을 위키백과 계정 \"%s\"에 저장하여 각기 다른 장치 간에 모음집을 동기화합니다</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">\"%s\"에서 동기화된 모음집을 제거하시겠습니까?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">이전에 원격 기억 장치에 동기화된 모든 모음집을 완전히 삭제합니다. \"%s\" 계정에 동기화된 모든 모음집을 제거하시겠습니까?</string>
   <string name="preference_title_auto_upload_crash_reports">충돌 보고서 보내기</string>
   <string name="preference_summary_auto_upload_crash_reports">더 빠르고 쉽게 충돌을 검토하고 수정할 수 있도록 앱이 제 3의 서비스 제공자에게 자동으로 충돌 보고를 송신하도록 허용합니다.</string>
   <string name="editing_error_spamblacklist">차단된 도메인 (%s)으로의 링크가 감지되었습니다. 링크를 제거하고 나서 다시 시도하세요.</string>
@@ -325,6 +327,11 @@
   <string name="edit_notices_please_read">편집하기 전에 읽어 주십시오</string>
   <string name="edit_notices_show_auto">자동으로 편집 알림 표시</string>
   <string name="edit_notices_tooltip">이 문서의 편집 알림을 보려면 이 버튼을 탭하십시오.</string>
+  <string name="editor_select_dialog_title">편집 방법 선택</string>
+  <string name="editor_select_dialog_ve_title">시각 편집</string>
+  <string name="editor_select_dialog_source_title">원본 편집</string>
+  <string name="editor_select_dialog_continue">계속</string>
+  <string name="editor_select_save_btn_settings_screen">저장</string>
   <string name="find_next">다음 찾기</string>
   <string name="find_previous">이전 찾기</string>
   <string name="find_first_occurence">이것이 처음 항목입니다</string>
@@ -375,7 +382,7 @@
   <string name="gallery_save_progress">파일을 내려받고 있습니다…</string>
   <string name="gallery_save_success">파일을 저장했습니다.</string>
   <string name="gallery_error_video_failed">동영상을 재생할 수 없습니다.</string>
-  <string name="gallery_save_image_write_permission_rationale">장치에서 저장소의 쓰기 권한은 그림 저장에 필요합니다.</string>
+  <string name="gallery_save_image_write_permission_rationale">그럼을 저장하려면 기기 저장소에 쓰기 권한이 필요합니다.</string>
   <string name="gallery_edit_button_content_description">이미지 캡션 편집</string>
   <string name="gallery_add_image_caption_button">이미지 캡션 추가</string>
   <string name="gallery_add_image_caption_in_language_button">이미지 설명 추가 (%s)</string>
@@ -396,8 +403,8 @@
   <string name="unnamed_tab_closed">탭이 닫혔습니다.</string>
   <string name="tab_item_closed">%s 닫힘.</string>
   <string name="all_tab_items_closed">모든 탭이 닫혔습니다.</string>
-  <string name="tool_tip_bookmark_icon_title">읽기 목록에 추가</string>
-  <string name="tool_tip_bookmark_icon_text">읽기 목록에 글을 저장하려면 북마크 아이콘을 탭하십시오.</string>
+  <string name="tool_tip_bookmark_icon_title">모음집에 추가</string>
+  <string name="tool_tip_bookmark_icon_text">모음집에 문서를 저장하려면 북마크 아이콘을 탭하십시오.</string>
   <string name="page_view_in_browser">브라우저에서 페이지 보기</string>
   <string name="tool_tip_toc_title">목차 빠른 접근</string>
   <string name="tool_tip_toc_text">지금 왼쪽으로 스와이프하면 목차를 열 수 있으며 스크롤러 버튼에 탭하여 드래그하면 글의 다른 문단으로 빠르게 이동할 수도 있습니다.</string>
@@ -410,9 +417,9 @@
   <string name="button_continue_to_talk_page">토론 문서 열기</string>
   <string name="button_continue_to_disambiguation">비슷한 문서 보기</string>
   <string name="link_preview_disambiguation_description">이 제목은 하나 이상의 문서와 관련이 있습니다:</string>
-  <string name="button_add_to_reading_list">읽기 목록에 추가</string>
+  <string name="button_add_to_reading_list">모음집에 추가</string>
   <string name="page_offline_notice_cannot_load_while_offline">오프라인 상태에서는 글을 불러올 수 없습니다.</string>
-  <string name="page_offline_notice_add_to_reading_list">참고: 문서를 읽기 목록에 추가하면 온라인에 있을 때 다운로드됩니다.</string>
+  <string name="page_offline_notice_add_to_reading_list">참고: 문서를 모음집에 추가하면 온라인에 있을 때 다운로드됩니다.</string>
   <string name="page_offline_notice_last_date">%s에 저장한 이 문서의 오프라인 버전을 읽고 있습니다.</string>
   <string name="redirected_from_snackbar">\"%s\"에서 넘어옴</string>
   <string name="button_get_directions">경로 얻기</string>
@@ -521,17 +528,17 @@
   <string name="editing_monospace_font_label">고정폭 글꼴 사용</string>
   <string name="editing_typing_suggestions">입력 제안 표시</string>
   <string name="nav_item_saved">저장됨</string>
-  <string name="reading_list_save_to">읽기 목록에 저장</string>
-  <string name="reading_list_move_to">읽기 목록으로 이동</string>
+  <string name="reading_list_save_to">모음집에 저장</string>
+  <string name="reading_list_move_to">모음집으로 이동</string>
   <string name="reading_list_create_new">새로 만들기</string>
-  <string name="reading_list_title_exists">\"%s\" 읽기 목록이 이미 존재합니다.</string>
+  <string name="reading_list_title_exists">\"%s\" 모음집이 이미 존재합니다.</string>
   <string name="reading_list_article_added_to_named">%1$s 문서를 %2$s에 추가했습니다.</string>
-  <string name="reading_list_article_added_to_default_list">%s 문서를 저장했습니다. 해당 항목을 목록에 추가하시겠습니까?</string>
+  <string name="reading_list_article_added_to_default_list">%s 문서를 저장했습니다. 해당 항목을 모음집에 추가하시겠습니까?</string>
   <string name="reading_list_article_moved_to_named">%1$s 문서를 %2$s(으)로 이동했습니다.</string>
   <string name="reading_list_article_already_exists_message">좋습니다! %1$s은(는) 이미 %2$s 문서를 포함하고 있습니다.</string>
   <string name="reading_list_articles_already_exist_message">좋습니다! %s은(는) 이미 모든 문서를 포함하고 있습니다.</string>
-  <string name="reading_list_added_view_button">목록 보기</string>
-  <string name="reading_list_add_to_list_button">목록에 추가</string>
+  <string name="reading_list_added_view_button">모음집 보기</string>
+  <string name="reading_list_add_to_list_button">모음집에 추가</string>
   <plurals name="format_reading_list_statistical_summary_without_size">
     <item quantity="other">%d개 문서</item>
   </plurals>
@@ -554,62 +561,62 @@
   <string name="reading_list_sort_by_recent_desc">추가한 날짜 순으로 정렬 (최초)</string>
   <string name="reading_list_sort_by_created">만든 날짜 순으로 정렬 (최신)</string>
   <string name="reading_list_sort_by_created_desc">만든 날짜 순으로 정렬 (최초)</string>
-  <string name="reading_list_menu_delete">목록 삭제</string>
-  <string name="reading_list_menu_export">목록 내보내기</string>
+  <string name="reading_list_menu_delete">모음집 삭제</string>
+  <string name="reading_list_menu_export">모음집 내보내기</string>
   <string name="reading_list_menu_select">선택</string>
   <string name="reading_list_menu_unselect">선택 해제</string>
-  <string name="reading_list_export_write_permission_rationale">읽기목록을 내보내려면 기기저장소에 쓰기권한 필요</string>
+  <string name="reading_list_export_write_permission_rationale">모음집을 내보내려면 기기 저장소에 쓰기 권한이 필요합니다.</string>
   <string name="reading_list_menu_rename">이름/설명 편집</string>
   <string name="reading_list_action_menu_remove_from_offline">오프라인에서 제거</string>
   <string name="reading_list_action_menu_save_for_offline">오프라인을 위해 저장</string>
   <string name="reading_list_action_menu_remove_all_from_offline">오프라인에서 모두 제거</string>
   <string name="reading_list_action_menu_save_all_for_offline">오프라인을 위해 모두 저장</string>
-  <string name="reading_list_action_menu_add_to_another_list">다른 목록에 추가</string>
-  <string name="reading_list_action_menu_move_to_another_list">다른 목록으로 이동</string>
-  <string name="reading_list_name_sample">내 읽기 목록</string>
-  <string name="reading_list_name_hint">이 목록의 이름</string>
+  <string name="reading_list_action_menu_add_to_another_list">다른 모음집에 추가</string>
+  <string name="reading_list_action_menu_move_to_another_list">다른 모음집으로 이동</string>
+  <string name="reading_list_name_sample">내 모음집</string>
+  <string name="reading_list_name_hint">이 모음집의 이름</string>
   <string name="reading_list_description_hint">설명 (선택 사항)</string>
-  <string name="reading_list_item_deleted">%s개의 문서가 목록에서 제거되었습니다</string>
+  <string name="reading_list_item_deleted">%s개의 문서가 모음집에서 제거되었습니다</string>
   <string name="reading_list_item_deleted_from_list"> %2$s에서 %1$s 문서가 제거되었습니다</string>
   <plurals name="reading_list_articles_deleted">
-    <item quantity="one">목록에서 제거된 문서 %d개</item>
-    <item quantity="other">목록에서 제거된 문서 %d개</item>
+    <item quantity="other">모음집에서 제거된 문서 %d개</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
     <item quantity="other">%2$s에서 제거된 문서 %1$d개</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
-    <item quantity="other">목록 %d개 삭제됨</item>
+    <item quantity="other">모음집 %d개 삭제됨</item>
   </plurals>
-  <string name="reading_lists_default_list_delete_message">기본 목록(%s)은 삭제할 수 없습니다</string>
-  <string name="reading_lists_default_plus_one_list_delete_message">%1$s 목록이 삭제되었습니다. 기본 목록(%2$s)은 삭제할 수 없습니다.</string>
-  <string name="reading_lists_default_plus_many_lists_delete_message">목록이 삭제되었습니다. 기본 목록(%s)은 삭제할 수 없습니다.</string>
-  <string name="single_list_json_file_name">%s (위키백과 읽기 목록).json</string>
-  <string name="multiple_lists_json_file_name">위키백과 읽기 목록 (%s 등).json</string>
-  <string name="reading_list_items_deleted">%d개의 문서가 목록에서 제거됨</string>
-  <string name="reading_lists_item_deleted">%s개의 문서가 목록에서 제거되었습니다</string>
+  <string name="reading_lists_default_list_delete_message">기본 모음집(%s)은 삭제할 수 없습니다</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">%1$s 모음집이 삭제되었습니다. 기본 모음집(%2$s)은 삭제할 수 없습니다.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">모음집이 삭제되었습니다. 기본 모음집(%s)은 삭제할 수 없습니다.</string>
+  <string name="single_list_json_file_name">%s (위키백과 모음집).json</string>
+  <string name="multiple_lists_json_file_name">위키백과 모음집 (%s 등).json</string>
+  <string name="reading_list_items_deleted">%d개의 문서가 모음집에서 제거됨</string>
+  <string name="reading_lists_item_deleted">%s개의 문서가 모음집에서 제거되었습니다</string>
   <string name="reading_list_item_delete_undo">실행 취소</string>
   <string name="reading_list_deleted">%s이(가) 삭제되었습니다</string>
-  <string name="saved_list_empty_title" fuzzy="true">아직 읽기 목록이 없습니다</string>
-  <string name="reading_lists_empty_message">나중에 오프라인 상태이더라도 읽을 수 있도록 글들을 목록에 추가합니다.</string>
-  <string name="reading_list_empty">이 목록에 추가한 글이 없습니다.</string>
+  <string name="saved_list_empty_title">아직 저장된 문서가 없습니다</string>
+  <string name="reading_lists_empty_message">나중에 오프라인 상태이더라도 읽을 수 있도록 문서를 모음집에 추가합니다.</string>
+  <string name="reading_lists_search_empty_articles_title">저장된 문서가 없습니다</string>
+  <string name="reading_list_empty">이 모음집에 추가한 문서가 없습니다.</string>
   <string name="reading_list_article_offline">오프라인에서 읽을 수 있음</string>
   <string name="reading_list_article_make_offline">이 글을 오프라인에서 읽을 수 있게 하기</string>
-  <string name="reading_list_add_to_other_list">다른 읽기 목록에 추가하기</string>
-  <string name="reading_list_move_to_other_list">다른 읽기 목록으로 이동시키기</string>
-  <string name="reading_list_move_from_to_other_list">%s에서 다른 읽기 목록으로 이동시키기</string>
+  <string name="reading_list_add_to_other_list">다른 모음집에 추가하기</string>
+  <string name="reading_list_move_to_other_list">다른 모음집으로 이동</string>
+  <string name="reading_list_move_from_to_other_list">%s에서 다른 모음집으로 이동</string>
   <string name="reading_list_remove_from_list">%s에서 제거하기</string>
-  <string name="reading_list_remove_from_lists">읽기 목록에서 제거하기</string>
+  <string name="reading_list_remove_from_lists">모음집에서 제거하기</string>
   <string name="reading_list_select_item">선택</string>
   <string name="reading_list_confirm_remove_article_from_offline">오프라인에서 제거</string>
-  <string name="reading_list_confirm_remove_article_from_offline_title">글이 여러 목록으로 표시됩니다</string>
-  <string name="reading_list_confirm_remove_article_from_offline_message">%s 문서는 모든 읽기 목록에 대해 오프라인에서 더 이상 읽을 수 없습니다:</string>
-  <string name="reading_lists_sync_reminder_title">읽기 목록 동기화를 켜시겠습니까?</string>
-  <string name="reading_lists_sync_reminder_text">목록에 저장된 문서들을 위키백과 계정에 동기화할 수 있습니다. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;더 알아보기&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">목록은 장치 간에 동기화될 수 있습니다. 위키백과 계정에 로그인하면 목록을 저장할 수 있습니다. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;더 알아보기&lt;/a&gt;</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title">문서가 여러 모음집에 포함되어 있습니다</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message">%s 문서는 모든 모음집에 대해 오프라인에서 더 이상 읽을 수 없습니다:</string>
+  <string name="reading_lists_sync_reminder_title">모음집 동기화를 켜시겠습니까?</string>
+  <string name="reading_lists_sync_reminder_text">모음집에 저장된 문서들을 위키백과 계정에 동기화할 수 있습니다. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;더 알아보기&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">모음집은 장치 간에 동기화될 수 있습니다. 위키백과 계정에 로그인하면 모음집을 저장할 수 있습니다. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;더 알아보기&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">동기화 사용</string>
-  <string name="reading_list_login_reminder_title">읽기 목록 동기화</string>
-  <string name="reading_lists_login_reminder_text">지금 읽기 목록을 여러 장치 간에 동기화할 수 있습니다. 위키백과 계정으로 로그인하면 목록을 저장할 수 있습니다.</string>
+  <string name="reading_list_login_reminder_title">모음집 동기화</string>
+  <string name="reading_lists_login_reminder_text">이제 모음집을 여러 장치 간에 동기화할 수 있습니다. 위키백과 계정으로 로그인해서 모음집이 저장되도록 허용하세요.</string>
   <string name="reading_lists_login_button">위키백과에 로그인 / 가입</string>
   <string name="reading_lists_ignore_button">지금은 괜찮습니다</string>
   <string name="reading_lists_confirm_remote_delete_yes">예</string>
@@ -618,34 +625,34 @@
   <string name="reading_list_articles_added_to_named">%1$d개의 문서가 %2$s에 추가되었습니다</string>
   <string name="reading_list_articles_moved_to_named">%1$d개의 문서가 %2$s에 이동되었습니다</string>
   <string name="reading_list_delete_confirm">%s 목록을 삭제하시겠습니까?</string>
-  <string name="reading_list_delete_lists_confirm_dialog_title">선택한 목록을 삭제하시겠습니까?</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title">선택한 모음집을 삭제하시겠습니까?</string>
   <plurals name="reading_list_delete_lists_confirm_dialog_message">
-    <item quantity="other">정말로 %d 목록을 삭제하시겠습니까?</item>
+    <item quantity="other">정말로 %d개 모음집을 삭제하시겠습니까?</item>
   </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">동기화를 사용하려면 로그인하세요</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_text">읽기 목록을 계정에 저장할 수 있게 하려면 로그인하십시오.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">모음집을 계정에 저장할 수 있게 하려면 로그인하십시오.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">취소</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">로그인</string>
-  <string name="reading_list_turned_sync_off_dialog_title">읽기 목록 동기화가 꺼져 있습니다</string>
-  <string name="reading_list_turned_sync_off_dialog_text">계정에 읽기 목록 동기화 꺼져 있으며 로그인된 장치에 저장된 문서들은 더 이상 백업되지 않습니다. 설정에서 읽기 목록 동기화를 켜십시오.</string>
+  <string name="reading_list_turned_sync_off_dialog_title">모음집 동기화가 꺼져 있습니다</string>
+  <string name="reading_list_turned_sync_off_dialog_text">계정에 모음집 동기화가 꺼져 있으며 로그인된 장치에 저장된 문서들은 더 이상 백업되지 않습니다. 설정에서 모음집 동기화를 켜십시오.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">확인</string>
   <string name="reading_list_turned_sync_off_dialog_settings">설정</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_title">읽기 목록 동기화를 켜시겠습니까?</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_text">읽기 목록에 저장된 문서는 지금 위키백과 계정에 동기화할 수 있습니다. &lt;a href=\"#faq\"&gt;더 알아보기&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">모음집 동기화를 켜시겠습니까?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">모음집에 저장된 문서는 지금 위키백과 계정에 동기화할 수 있습니다. &lt;a href=\"#faq\"&gt;더 알아보기&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">더 이상 표시하지 않음</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">동기화 사용</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">괜찮습니다</string>
   <string name="default_reading_list_name">저장됨</string>
-  <string name="default_reading_list_description">저장된 문서를 위한 기본 목록</string>
-  <string name="no_user_lists_title">문서를 목록으로 정리하세요</string>
-  <string name="no_user_lists_msg">여행 갈 장소, 좋아하는 주제들, 그외의 원하는 용도의 목록을 만드세요</string>
+  <string name="default_reading_list_description">저장된 문서를 위한 기본 모음집</string>
+  <string name="no_user_lists_title">문서를 모음집별로 정리하세요</string>
+  <string name="no_user_lists_msg">여행 갈 장소, 좋아하는 주제들, 그외의 원하는 용도의 모음집을 만드세요</string>
   <string name="reading_list_saved_list_rename">%1$s (사용자가 생성함)</string>
-  <string name="split_reading_list_message">읽기 목록 하나 당 문서 %d개의 제한이 있습니다. 이 제한을 초과하는 목록이 있다면 여러 개 목록으로 분할되게 됩니다.</string>
-  <string name="reading_list_move_article_limit_message">이 목록으로 이동할 수 없습니다. \"%1$s\"에 대해 목록 당 %2$d개의 문서 제한에 도달했습니다.</string>
-  <string name="reading_list_article_limit_message">이 목록에 추가할 수 없습니다. \"%1$s\"에 대해 목록 당 %2$d개 문서 제한에 도달했습니다.</string>
-  <string name="reading_lists_limit_message">다른 목록을 만들 수 없습니다. 계정 당 100개 읽기 목록 제한에 도달했습니다.</string>
-  <string name="reading_lists_menu_create_list">새 목록 만들기</string>
-  <string name="reading_lists_menu_import_list">목록 가져오기</string>
+  <string name="split_reading_list_message">모음집 하나 당 문서 %d개의 제한이 있습니다. 이 제한을 초과하는 모음집이 있다면 여러 개의 모음집으로 분할되게 됩니다.</string>
+  <string name="reading_list_move_article_limit_message">이 모음집으로 이동할 수 없습니다. \"%1$s\"에 대해 모음집 당 %2$d개의 문서 제한에 도달했습니다.</string>
+  <string name="reading_list_article_limit_message">이 모음집에 추가할 수 없습니다. \"%1$s\"에 대해 모음집 당 %2$d개 문서 제한에 도달했습니다.</string>
+  <string name="reading_lists_limit_message">다른 모음집을 만들 수 없습니다. 계정 당 100개 모음집 제한에 도달했습니다.</string>
+  <string name="reading_lists_menu_create_list">새 모음집 만들기</string>
+  <string name="reading_lists_menu_import_list">모음집 가져오기</string>
   <string name="reading_lists_menu_sort_by">정렬 기준</string>
   <string name="reading_lists_refresh_sync_option">동기화 새로 고침</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">로그인 / 가입</string>
@@ -657,7 +664,7 @@
     <item quantity="one">이 글은 더 이상 오프라인에서 읽을 수 없습니다.</item>
     <item quantity="other">이 글들은 더 이상 오프라인에서 읽을 수 없습니다.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">읽기 목록을 동기화했습니다</string>
+  <string name="reading_list_toast_last_sync">모음집을 동기화했습니다</string>
   <string name="reading_list_menu_last_sync">마지막 동기시간: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">확인</string>
   <string name="reading_list_delete_dialog_ok_button_text">확인</string>
@@ -667,29 +674,29 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">취소</string>
   <string name="reading_list_split_dialog_ok_button_text">확인</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">삭제</string>
-  <string name="reading_list_activity_title">읽기 목록: %s</string>
-  <string name="reading_list_notification_title">읽기 목록을 내보냈습니다</string>
-  <string name="reading_list_notification_text">읽기 목록 %d개를 \'reading_lists export.json\' 이름으로 다운로드 폴더에 내보냈습니다</string>
-  <string name="reading_list_notification_detailed_text">읽기 목록을 \'reading_lists_export.json\'으로 내보냈습니다.</string>
+  <string name="reading_list_activity_title">모음집: %s</string>
+  <string name="reading_list_notification_title">모음집을 내보냈습니다</string>
+  <string name="reading_list_notification_text">모음집 %d개를 \'reading_lists export.json\' 이름으로 다운로드 폴더에 내보냈습니다</string>
+  <string name="reading_list_notification_detailed_text">모음집을 \'reading_lists_export.json\'으로 내보냈습니다.</string>
   <string name="reading_lists_action_menu_export_lists">내보내기</string>
   <string name="reading_lists_import_file_picker_title">가져올 파일 선택</string>
-  <string name="reading_lists_import_failure_message">읽기 목록을 가져오지 못했습니다</string>
-  <string name="reading_lists_export_select_lists_message">내보낼 목록을 선택하십시오</string>
-  <string name="reading_lists_export_completed_message">읽기 목록을 내보냈습니다</string>
+  <string name="reading_lists_import_failure_message">모음집을 가져오지 못했습니다</string>
+  <string name="reading_lists_export_select_lists_message">내보낼 모음집을 선택하십시오</string>
+  <string name="reading_lists_export_completed_message">모음집을 내보냈습니다</string>
   <plurals name="reading_list_export_failed_message">
-    <item quantity="other">읽기 목록 내보내기 실패</item>
+    <item quantity="other">모음집 내보내기 실패</item>
   </plurals>
   <plurals name="reading_list_import_success_message">
-    <item quantity="other">읽기 목록을 가져옴</item>
+    <item quantity="other">모음집을 가져옴</item>
   </plurals>
-  <string name="reading_lists_preview_header_title">공유 목록</string>
+  <string name="reading_lists_preview_header_title">공유 모음집</string>
   <string name="reading_lists_preview_save_button">저장</string>
-  <string name="reading_lists_preview_save_dialog_title">목록 저장</string>
-  <string name="reading_lists_preview_save_dialog_text">목록의 이름을 지정하고 저장할 문서를 선택하세요.</string>
+  <string name="reading_lists_preview_save_dialog_title">모음집 저장</string>
+  <string name="reading_lists_preview_save_dialog_text">모음집의 이름을 지정하고 저장할 문서를 선택하세요.</string>
   <string name="reading_lists_preview_save_dialog_title_hint">제목</string>
   <string name="reading_lists_preview_save_dialog_cancel">취소</string>
   <string name="reading_lists_preview_save_dialog_save">저장</string>
-  <string name="reading_lists_preview_saved_snackbar">읽기 목록을 저장했습니다</string>
+  <string name="reading_lists_preview_saved_snackbar">모음집을 저장했습니다</string>
   <string name="reading_lists_preview_saved_snackbar_action">보기</string>
   <string name="user_option_sync_label">환경 설정</string>
   <string name="notification_reverted_title">되돌려진 편집</string>
@@ -698,8 +705,8 @@
   <string name="notification_syncing_pause_button">일시 정지</string>
   <string name="notification_syncing_resume_button">재개</string>
   <string name="notification_syncing_cancel_button">취소</string>
-  <string name="notification_syncing_reading_list_channel_title">읽기 목록 동기화</string>
-  <string name="notification_syncing_reading_list_channel_description">읽기 목록 동기화 진행</string>
+  <string name="notification_syncing_reading_list_channel_title">모음집 동기화</string>
+  <string name="notification_syncing_reading_list_channel_description">모음집 동기화 진행</string>
   <string name="notification_many_unread">읽지 않은 알림 %d건이 있습니다</string>
   <plurals name="notification_channel_name">
     <item quantity="other">문서 다운로드 중</item>
@@ -711,13 +718,13 @@
     <item quantity="other">문서 %1$d개 남음</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_channel_name">
-    <item quantity="other">읽기 목록을 동기화하는 중</item>
+    <item quantity="other">모음집을 동기화하는 중</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_title">
-    <item quantity="other">목록 %1$d개를 동기화하는 중...</item>
+    <item quantity="other">모음집 %1$d개를 동기화하는 중...</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_description">
-    <item quantity="other">목록 %1$d개 남음</item>
+    <item quantity="other">모음집 %1$d개 남음</item>
   </plurals>
   <string name="notification_echo_channel_description">위키백과 알림</string>
   <string name="notifications_activity_title">알림</string>
@@ -1240,8 +1247,8 @@
   <string name="onboarding_maybe_later">나중에</string>
   <string name="onboarding_explore_title">탐구를 위한 새로운 방법</string>
   <string name="onboarding_explore_text">늘 업데이트되는 홈 피드로 위키백과를 탐험하세요.&lt;br/&gt;피드를 당신의 관심사에 &lt;b&gt;맞춤 관리하세요&lt;/b&gt; – 그것이 &lt;b&gt;오늘의 역사&lt;/b&gt;에 대한 역사적 사건을 배우는 것이든, 주사위를 굴려 &lt;b&gt;임의 문서로&lt;/b&gt; 가는 것이든요.</string>
-  <string name="onboarding_reading_list_sync_title">읽기 목록 동기화</string>
-  <string name="onboarding_reading_list_sync_text_v2">읽기 목록을 만들면 글을 나중에 읽거나 심지어는 오프라인 상태에서도 읽을 수 있습니다.&lt;br/&gt;읽기 목록을 동기화하려면 위키백과 계정에 로그인하십시오. &lt;a href=\"#login\"&gt;위키백과 가입&lt;/a&gt;</string>
+  <string name="onboarding_reading_list_sync_title">모음집 동기화</string>
+  <string name="onboarding_reading_list_sync_text_v2">모음집을 만들면 문서를 나중에 읽거나 심지어는 오프라인 상태에서도 읽을 수 있습니다.&lt;br/&gt;모음집을 동기화하려면 위키백과 계정에 로그인하십시오. &lt;a href=\"#login\"&gt;위키백과 가입&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">데이터 및 개인정보 보호</string>
   <string name="onboarding_data_privacy_text">우리는 자유 지식 운동에 참여하기 위해 개인 정보를 제공해야 한다고 생각하지 않습니다. 이 앱에 대한 이용 데이터들은 익명입니다.&lt;br/&gt;&lt;br/&gt;&lt;a href=\"#privacy\"&gt;개인정보 보호 정책&lt;/a&gt; 및 &lt;a href=\"#termsOfUse\"&gt;이용 약관&lt;/a&gt;에 대해 자세히 알아보세요.</string>
   <string name="onboarding_analytics_switch_title">사용 데이터 보내기</string>
@@ -1572,16 +1579,16 @@
   <string name="user_contrib_filter_activity_title">기여 필터</string>
   <string name="action_item_view_on_map">지도에서 보기</string>
   <string name="action_item_view_on_map_unavailable">이 문서에는 지리적 좌표를 사용할 수 없습니다</string>
-  <string name="shareable_reading_lists_import_dialog_title">공유된 읽기 목록 가져오기</string>
-  <string name="shareable_reading_lists_import_dialog_content">나에게 공유된 목록의 이름을 어떻게 지정하시겠습니까?</string>
+  <string name="shareable_reading_lists_import_dialog_title">공유된 모음집 가져오기</string>
+  <string name="shareable_reading_lists_import_dialog_content">나에게 공유된 모음집의 이름을 어떻게 지정하시겠습니까?</string>
   <string name="shareable_reading_lists_new_indicator">*새 항목*</string>
-  <string name="shareable_reading_lists_new_install_dialog_title">읽기 목록이 나와 공유되었습니다</string>
-  <string name="shareable_reading_lists_new_install_dialog_content">읽기 목록이 귀하와 공유되었음을 확인했습니다. 앱에서 이 목록을 보려면 원본 메시지로 돌아가서 링크를 다시 탭하세요.</string>
+  <string name="shareable_reading_lists_new_install_dialog_title">모음집이 나와 공유되었습니다</string>
+  <string name="shareable_reading_lists_new_install_dialog_content">모음집이 귀하와 공유되었음을 확인했습니다. 앱에서 이 모음집을 보려면 원본 메시지로 돌아가서 링크를 다시 탭하세요.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">알겠습니다</string>
-  <string name="shareable_reading_lists_new_imported_snackbar">읽기 목록을 가져왔습니다</string>
+  <string name="shareable_reading_lists_new_imported_snackbar">모음집을 가져왔습니다</string>
   <string name="reading_list_share_menu_label">공유...</string>
-  <string name="reading_list_share_menu_tooltip">이 읽기 목록을 다른 사람과 공유</string>
-  <string name="reading_list_share_message_v2">안녕하세요! 저의 위키백과 읽기 목록을 당신께 공유하고 싶습니다:</string>
+  <string name="reading_list_share_menu_tooltip">이 모음집을 다른 사람과 공유</string>
+  <string name="reading_list_share_message_v2">안녕하세요! 저의 위키백과 모음집을 당신께 공유하고 싶습니다:</string>
   <string name="talk_templates_empty_message">시작하려면 나만의 메시지를 만들거나 &lt;a href=\"#\"&gt;예시 메시지&lt;/a&gt;를 사용하십시오.</string>
   <string name="talk_templates_new_message_title">새 메시지</string>
   <string name="talk_templates_new_message_subject_hint">주제</string>
@@ -1869,8 +1876,8 @@
   <string name="year_in_review_get_started_later">연말 결산은 나중에 더보기 메뉴에서 확인하실 수 있습니다.</string>
   <string name="year_in_review_survey_title">연말 결산 개선에 도움을 주세요</string>
   <string name="year_in_review_survey_subtitle">이 기능에 만족하시나요?</string>
-  <string name="year_in_review_reading_list_survey_title">%d년도 연말 결산 읽기 목록을 개선하는데 도움을 주세요</string>
-  <string name="year_in_review_reading_list_survey_subtitle">읽기 목록에 만족하시나요?</string>
+  <string name="year_in_review_reading_list_survey_title">%d년도 연말 결산 모음집을 개선하는데 도움을 주세요</string>
+  <string name="year_in_review_reading_list_survey_subtitle">모음집에 만족하시나요?</string>
   <string name="year_in_review_survey_very_satisfied">매우 만족</string>
   <string name="year_in_review_survey_satisfied">만족</string>
   <string name="year_in_review_survey_neutral">중립</string>
@@ -1961,7 +1968,7 @@
   <plurals name="year_in_review_slide_global_saved_articles_headline">
     <item quantity="other">앱 사용자들은 %,d개 문서를 저장했습니다</item>
   </plurals>
-  <string name="year_in_review_slide_global_saved_articles_body">읽기 목록에 문서를 추가하면 오프라인 상태에서도 문서에 접근할 수 있습니다. 또한 로그인하여 여러 문서에서 읽기 목록을 동기화할 수 있습니다.</string>
+  <string name="year_in_review_slide_global_saved_articles_body">모음집에 문서를 추가하면 오프라인 상태에서도 문서에 접근할 수 있습니다. 또한 로그인하여 여러 문서에서 모음집을 동기화할 수 있습니다.</string>
   <string name="year_in_review_slide_reading_patterns_headline">당신의 읽기 패턴은 뚜렷합니다</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">글 읽기 가장 좋은 시간</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">글 읽기 가장 좋은 날</string>
@@ -2015,8 +2022,8 @@
     <item quantity="other">앱 사용자들의 위키백과 문서 조회 수는 %,d회입니다</item>
   </plurals>
   <string name="year_in_review_slide_viewed_articles_times_body">전 세계 사람들에게 위키백과는 질문에 대한 답을 찾거나, 학교나 직장에 필요한 정보를 검색하거나, 새로운 사실을 배울 때 가장 먼저 찾는 곳입니다.</string>
-  <string name="year_in_review_reading_list_dialog_title">연말 정산 %d 읽기 목록을 만들어 보시겠어요?</string>
-  <string name="year_in_review_reading_list_dialog_message">위키백과 연말 결산은 %1$d년에 가장 많은 시간을 보낸 문서의 읽기 목록을 생성합니다. &lt;a href=\"%2$s\"&gt;더 알아보기&lt;/a&gt;</string>
+  <string name="year_in_review_reading_list_dialog_title">연말 정산 %d 모음집을 만들어 보시겠어요?</string>
+  <string name="year_in_review_reading_list_dialog_message">위키백과 연말 결산은 %1$d년에 가장 많은 시간을 보낸 문서의 모음집을 생성합니다. &lt;a href=\"%2$s\"&gt;더 알아보기&lt;/a&gt;</string>
   <string name="year_in_review_reading_list_dialog_positive_button_label">만들기</string>
   <string name="year_in_review_reading_list_dialog_negative_button_label">괜찮습니다</string>
   <string name="year_in_review_reading_list_title">올해를 돌아보면서 %d</string>
@@ -2062,12 +2069,12 @@
   <string name="year_in_review_highlights_logo_description">위키백과 로고</string>
   <string name="recommended_reading_list_title">발견</string>
   <string name="recommended_reading_list_onboarding_card_title">당신만을 위한 문서를 발견하세요</string>
-  <string name="recommended_reading_list_onboarding_card_message">당신만을 위해 엄선된 이번 주 위키백과의 읽기 문서 목록입니다.</string>
+  <string name="recommended_reading_list_onboarding_card_message">당신만을 위해 엄선된 이번 주 위키백과의 읽기 모음집입니다.</string>
   <string name="recommended_reading_list_onboarding_card_new">새로운!</string>
   <string name="recommended_reading_list_onboarding_card_positive_button">시작하기</string>
   <string name="recommended_reading_list_onboarding_card_negative_button">괜찮습니다</string>
-  <string name="recommended_reading_list_onboarding_card_negative_snackbar">나중에 추천 읽기 목록을 설정하려면 설정으로 이동하세요.</string>
-  <string name="recommended_reading_list_interest_source_message">추천 읽기 목록을 어떻게 구성하면 좋을까요?</string>
+  <string name="recommended_reading_list_onboarding_card_negative_snackbar">나중에 추천 모음집을 설정하려면 설정으로 이동하세요.</string>
+  <string name="recommended_reading_list_interest_source_message">추천 모음집을 어떻게 구성하면 좋을까요?</string>
   <string name="recommended_reading_list_interest_source_interests">관심사에 기반해 선택할 수 있게 해주세요</string>
   <string name="recommended_reading_list_interest_source_saved">저장한 문서에 기반해 선택해 주세요</string>
   <string name="recommended_reading_list_interest_source_history">읽기 역사에 기반해 선택해 주세요</string>
@@ -2089,9 +2096,9 @@
   <plurals name="recommended_reading_list_page_subtitle_articles">
     <item quantity="other">• 문서 %d개</item>
   </plurals>
-  <string name="recommended_reading_list_page_description_daily">일간 읽기 목록입니다. 당신만을 위해 엄선된 새로운 주제들을 알아보세요. 매일 자정에 업데이트됩니다.</string>
-  <string name="recommended_reading_list_page_description_weekly">주간 읽기 목록입니다. 당신만을 위해 엄선된 새로운 주제들을 알아보세요. 매주 시작시에 업데이트됩니다.</string>
-  <string name="recommended_reading_list_page_description_monthly">월간 읽기 목록입니다. 당신만을 위해 엄선된 새로운 주제들을 알아보세요. 매달 시작시에 업데이트됩니다.</string>
+  <string name="recommended_reading_list_page_description_daily">일간 모음집입니다. 당신만을 위해 엄선된 새로운 주제들을 알아보세요. 매일 자정에 업데이트됩니다.</string>
+  <string name="recommended_reading_list_page_description_weekly">주간 모음집입니다. 당신만을 위해 엄선된 새로운 주제들을 알아보세요. 매주 시작시에 업데이트됩니다.</string>
+  <string name="recommended_reading_list_page_description_monthly">월간 모음집입니다. 당신만을 위해 엄선된 새로운 주제들을 알아보세요. 매달 시작시에 업데이트됩니다.</string>
   <string name="recommended_reading_list_page_overflow_customize">사용자 지정</string>
   <string name="recommended_reading_list_page_overflow_about">이 기능 정보</string>
   <string name="recommended_reading_list_page_snackbar">발견은 매 %2$s 마다 %1$d개의 새로운 문서로 업데이트됩니다. 추천 기사는 문서에 로컬로 저장됩니다.</string>
@@ -2101,7 +2108,7 @@
   <string name="recommended_reading_list_page_snackbar_month">월</string>
   <string name="recommended_reading_list_settings_section_header">추천</string>
   <string name="recommended_reading_list_settings_title">발견 설정</string>
-  <string name="recommended_reading_list_settings_toggle">읽기 목록 발견하기</string>
+  <string name="recommended_reading_list_settings_toggle">모음집 발견하기</string>
   <string name="recommended_reading_list_settings_toggle_disable_message">발견이 꺼져 있습니다. 위키백과가 읽을만한 문서를 추천하지 않습니다.</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_title">발견을 끄시겠습니까?</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_message">발견을 끄면 위키백과에서 %s 읽기 추천을 더 이상 받지 못하게 됩니다.</string>
@@ -2136,7 +2143,7 @@
   <string name="recommended_reading_list_settings_notifications_dialog_message">알림을 끄면 발견이 업데이트될 때 더 이상 알림을 받지 못합니다.</string>
   <string name="recommended_reading_list_settings_notifications_dialog_positive_button">끕니다</string>
   <string name="recommended_reading_list_settings_notifications_dialog_negative_button">아니요, 켠 상태로 유지합니다</string>
-  <string name="recommended_reading_list_notification_title">당신의 %s 발견 읽기 목록이 준비되었습니다.</string>
+  <string name="recommended_reading_list_notification_title">당신의 %s 발견 모음집이 준비되었습니다.</string>
   <string name="recommended_reading_list_notification_subtitle">탭하여 최신 추천 목록을 확인하세요.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">발견이 업데이트되면 위키백과에서 알림을 보냅니다.</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">발견이 켜져 있습니다. 위키백과가 읽을만한 문서를 추천합니다.</string>
@@ -2293,7 +2300,7 @@
   <string name="explore_feed_for_you_tab_label">추천</string>
   <string name="explore_feed_date_today">오늘 - %s</string>
   <string name="explore_feed_load_previous_day_label">이전 날짜 불러오기</string>
-  <string name="explore_feed_from_reading_list">당신의 읽기 목록에서</string>
+  <string name="explore_feed_from_reading_list">당신의 모음집에서</string>
   <string name="explore_feed_because_of_interest">당신의 다음 관심사로 인해: %s</string>
   <string name="explore_feed_onboarding_curiosity_title">호기심을 따라가세요</string>
   <string name="explore_feed_onboarding_curiosity_description">관심 있는 주제를 선택하시면 맞춤형 피드를 제공해 드립니다!\n\n저희는 익명 처리된 최소한의 데이터만 수집합니다.</string>
@@ -2371,13 +2378,13 @@
   <string name="home_feed_settings_games_title">게임</string>
   <string name="home_feed_settings_games_subtitle">위키백과 콘텐츠를 기반으로 한 일일 게임</string>
   <string name="home_feed_settings_discover_title">추천 발견</string>
-  <string name="home_feed_settings_discover_subtitle">읽기 목록 발견에서의 문서</string>
+  <string name="home_feed_settings_discover_subtitle">모음집 발견에서의 문서</string>
   <string name="home_feed_discover_cta_title">발견으로부터</string>
   <string name="home_feed_discover_cta_description">엄선된 새로운 주제들을 알아보세요. 매일, 매주 또는 매월 업데이트 중에서 선택하세요.</string>
-  <string name="home_feed_discover_cta_button">읽기 목록 발견 활성화</string>
+  <string name="home_feed_discover_cta_button">모음집 발견 활성화</string>
   <string name="home_feed_discover_card_footer">발견으로부터 • %s마다 업데이트</string>
   <string name="home_feed_discover_see_all_title">발견할 것이 더 많습니다</string>
-  <string name="home_feed_discover_see_all_description">나만의 맞춤형 읽기 목록에는 나만을 위해 엄선된 더 많은 이야기가 담겨 있습니다.</string>
+  <string name="home_feed_discover_see_all_description">나만의 맞춤형 모음집에는 나만을 위해 엄선된 더 많은 이야기가 담겨 있습니다.</string>
   <string name="home_feed_discover_see_all_button">모든 추천 둘러보기</string>
   <string name="home_feed_places_of_interest_card_footer">%1$s • 장소의 위치에 기반함</string>
   <string name="home_feed_for_you_screen_end_of_feed_title">오늘은 여기까지입니다!</string>
@@ -2394,8 +2401,8 @@
   <string name="reading_lists_tab_collections">모음집</string>
   <string name="reading_lists_search_saved_articles">저장된 문서 검색</string>
   <string name="reading_lists_search_collections">모음집 검색</string>
-  <string name="reading_lists_remove_articles_confirm_dialog_title">저장된 문서를 삭제하시겠습니까?</string>
-  <string name="reading_lists_remove_articles_confirm_button">제거</string>
+  <string name="reading_lists_remove_articles_confirm_dialog_title">문서를 저장하지 않겠습니까?</string>
+  <string name="reading_lists_remove_articles_confirm_button">저장하지 않음</string>
   <plurals name="reading_lists_remove_articles_confirm_dialog_message">
     <item quantity="other">이 문서 %d개가 모든 관련 컬렉션에서 제거됩니다.</item>
   </plurals>

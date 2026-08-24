@@ -8,6 +8,7 @@
 * MuratTheTurkish
 * O.sediqi93
 * Wrai
+* باران
 * شاه زمان پټان
 -->
 <resources>
@@ -24,7 +25,7 @@
   <string name="search_back_button_content_description">پر شا تلل</string>
   <string name="search_clear_query_content_description">پوښتنه پاکول</string>
   <string name="search_icon_content_description">پلټل</string>
-  <string name="filter_hint_filter_my_lists_and_articles">لړليکونه مې چاڼول</string>
+  <string name="filter_hint_filter_my_lists_and_articles">زما ټولگې چاڼ کړئ</string>
   <string name="nav_item_suggested_edits">سمونونه</string>
   <string name="nav_item_activity">چاره</string>
   <string name="nav_item_more">نور</string>
@@ -91,19 +92,19 @@
   <string name="menu_page_watched">کتل‌شوي</string>
   <string name="edit_section_find_in_page">په مخ کې موندل</string>
   <string name="menu_page_font_and_theme">ليکبڼه او شاليد</string>
-  <string name="menu_page_add_to_list">لوست لړليک کې ورگډول</string>
+  <string name="menu_page_add_to_list">ټولگه کې ورگډول</string>
   <string name="menu_page_add_to_default_list">خوندي‌کول</string>
-  <string name="feed_card_add_to_list">لوست لړليک کې ورگډول</string>
+  <string name="feed_card_add_to_list">ټولگه کې ورگډول</string>
   <string name="feed_card_add_to_default_list">خوندي کول</string>
   <string name="menu_page_share">تړنه شريکول</string>
   <string name="menu_article_share">ليکنه شريکول</string>
   <string name="menu_page_article_share">شريکول</string>
   <string name="menu_page_open_a_new_tab">په نوې کړکۍ کې پرانيستل</string>
   <string name="menu_page_new_tab">نوې کړکۍ</string>
-  <string name="menu_page_reading_lists">د لوست لړليکونه</string>
+  <string name="menu_page_reading_lists">ټولگې</string>
   <string name="menu_page_recently_viewed">وروستي کتل‌شوي</string>
   <string name="menu_page_archive">خونديځ</string>
-  <string name="menu_long_press_open_page">پرانيستل</string>
+  <string name="menu_long_press_open_page">پرانېستل</string>
   <string name="menu_long_press_open_in_places">په ځایونو کې پرانیستل</string>
   <string name="menu_long_press_open_in_new_tab">تړنه په نوې کړکۍ کې پرانيستل</string>
   <string name="menu_long_press_copy_page">تړ پته لمېسل</string>
@@ -144,7 +145,9 @@
   <string name="menu_show_toc">نيوليک</string>
   <string name="search_no_results_found">کومې پايلې و نه موندل شوې</string>
   <string name="search_reading_list_no_results">\"%s\" کې هېڅ پايلې ونه موندل شوې</string>
-  <string name="search_reading_lists_no_results">لوستلړونو کې هېڅ پايلې ونه موندل شوې</string>
+  <string name="search_reading_lists_no_results">ټولگو کې هېڅ پايلې ونه موندل شوې</string>
+  <string name="search_all_articles_no_results">ټولو ليکنو کې هېڅ پايلې ونه موندل شوې</string>
+  <string name="search_collections_no_results">ټولگو کې هېڅ پايلې ونه موندل شوې</string>
   <string name="search_history_no_results">پېښليک کې هېڅ پايلې ونه موندل شوې</string>
   <string name="edit_section_captcha_message">د خپلکاره سپم څخه ژغورنې لپاره مهرباني وکړئ لاندېې ويي وليکئ.</string>
   <string name="edit_section_captcha_request_an_account_message">انځور نه وينئ؟&lt;a href=\"https://ps.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;د يو گڼون غوښتنه وکړئ&lt;/a&gt;</string>
@@ -224,12 +227,12 @@
   <string name="preferences_heading_syncing">همغږي کول</string>
   <string name="preferences_heading_data_usage">مالومات کارول</string>
   <string name="preferences_heading_experimental">ازمايښتي</string>
-  <string name="preference_title_sync_reading_lists_from_account">د لوستلړ همغږي کول</string>
-  <string name="preference_title_download_reading_list_articles">لوستلړ ليکنو راکښته کول</string>
-  <string name="preference_summary_sync_reading_lists">د خپل ويکيپېډيا گڼون کې د خوندي کولو سره په بېلابېلو وسيلو کې د لوست لړليکونه همغږي کول</string>
-  <string name="preference_summary_sync_reading_lists_from_account">خپل ويکيپېډيا گڼون \"%s\" کې د خوندي کولو سره په بېلابېلو وسيلو کې لوست لړليکونه همغږي کول.</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">\"%s\" څخه دې همغږي شوي لوست لړليکونه لرې شي؟</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">دا به له انلاين زېرمه‌تون څخه ټول هغه لوستلړونه چې تر دې وړاندې همغږي شوې دي، په بشپړه توگه له منځه يوسي.\nايا ته غواړې له خپل گڼون \"%s\" څخه ټول همغږي شوي لړليکونه لرې کړې؟</string>
+  <string name="preference_title_sync_reading_lists_from_account">د ټولگې همغږي کول</string>
+  <string name="preference_title_download_reading_list_articles">د ټولگې ليکنې راکښته‌‌کول</string>
+  <string name="preference_summary_sync_reading_lists">د خپل ويکيپېډيا گڼون کې د خوندي کولو سره په بېلابېلو وسيلو کې د ټولگو همغږي کول</string>
+  <string name="preference_summary_sync_reading_lists_from_account">خپل ويکيپېډيا گڼون \"%s\" کې د خوندي کولو سره په بېلابېلو وسيلو کې ټولگو همغږي کول.</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">\"%s\" څخه دې همغږي شوې ټولگې لرې شي؟</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">دا به له انلاين زېرمه‌تون څخه ټول هغه ټولگې چې تر دې وړاندې همغږي شوې دي، په بشپړه توگه له منځه يوسي.\nايا ته غواړې له خپل گڼون \"%s\" څخه ټولې همغږي شوې ټولگې لرې کړې؟</string>
   <string name="preference_title_auto_upload_crash_reports">د ټکر راپورونه لېږل</string>
   <string name="preference_summary_auto_upload_crash_reports">کاريال ته اجازه ورکړئ چې د درېيمې ډلې چوپړتياوو چمتوکوونکي ته په خپلکاري ډول د ټکر خبر ولېږي؛ ترڅو موږ وکولای شو ستاسو ټکر بياکتنه وکړو په په چټکۍ او اسانۍ سره نيمگړتيا له منځه يوسو.</string>
   <string name="editing_error_spamblacklist">د بنديز لگېدلو واک‌سيمو (%s) تړوني وموندل شول. مهرباني وکړئ دوی لرې کړئ او بيا هڅه وکړئ.</string>
@@ -302,6 +305,16 @@
   <string name="edit_notices_please_read">مهرباني وکړئ د سمون دمخه یې ولولئ</string>
   <string name="edit_notices_show_auto">په خپلکاري ډول سمون يادښتونه ښودل</string>
   <string name="edit_notices_tooltip">د دې ليکنې د سمون يادښتونو کتلو لپاره دا بټن کېکاږئ.</string>
+  <string name="editor_select_dialog_title">خوښ کړئ چې څنگه سمون وکړئ</string>
+  <string name="editor_select_dialog_ve_title">ليدنيز سمون</string>
+  <string name="editor_select_dialog_ve_subtitle">په هغه مخ کې چې تاسو يې گورئ نېغ په نېغه بدلونونه راولئ. ستاسو ښوونگر کې پرانېستل کېږي.</string>
+  <string name="editor_select_dialog_source_title">سرچينې سمون</string>
+  <string name="editor_select_dialog_source_subtitle">د مارک‌اپ کارولو سره بدلونونه راولئ. په کاريال کې پاتې شئ.</string>
+  <string name="editor_select_dialog_dont_show_again">دا بيا مه راښکاره کوه. دا تلواليز وروسته په اوڼنو کې بدلېدلی شي.</string>
+  <string name="editor_select_dialog_continue">دوام ورکول</string>
+  <string name="editor_select_icon_ve_title">په باندني ښوونگر انځور کې پرانېستل</string>
+  <string name="editor_select_title_settings_screen">غوره‌توب سمول</string>
+  <string name="editor_select_save_btn_settings_screen">خوندي‌کول</string>
   <string name="find_next">بل موندل</string>
   <string name="find_previous">پخوانی موندل</string>
   <string name="find_first_occurence">دا لومړۍ پېښه ده</string>
@@ -373,8 +386,8 @@
   <string name="unnamed_tab_closed">کړکۍ تړل شوې.</string>
   <string name="tab_item_closed">%s تړل شوی.</string>
   <string name="all_tab_items_closed">ټولې کړکۍ تړل شوې دي.</string>
-  <string name="tool_tip_bookmark_icon_title">لوستلړ ته ورگډول</string>
-  <string name="tool_tip_bookmark_icon_text">په لوست لړ کې د ليکنې خوندي کولو لپاره په کتاب‌نښه باندې وټوکئ.</string>
+  <string name="tool_tip_bookmark_icon_title">ټولگه کې ورگډول</string>
+  <string name="tool_tip_bookmark_icon_text">په ټولگه کې د ليکنې خوندي کولو لپاره په کتاب‌نښه باندې وټوکئ.</string>
   <string name="page_view_in_browser">مخ په کتنمل کې کتل</string>
   <string name="tool_tip_toc_title">نيوليک ته چټک لاسرسی</string>
   <string name="tool_tip_toc_text">تاسو اوس کولی شئ د منځپانگو لښتيال پرانېستلو لپاره کيڼ اړخ وټوکئ او همدارنگه د دې سکرولر تڼۍ کېکاږلو او کش کولو سره کولی شئ په چټکۍ سره د ليکنې بېلابېلو برخو ته ورشئ.</string>
@@ -387,9 +400,9 @@
   <string name="button_continue_to_talk_page">خبرو اترو مخ پرانيستل</string>
   <string name="button_continue_to_disambiguation">ورته مخونه کتل</string>
   <string name="link_preview_disambiguation_description">دا سرليک له يوه څخه ډېرو مخونو پورې اړه لري:</string>
-  <string name="button_add_to_reading_list">لوستلړ ته ورگډول</string>
+  <string name="button_add_to_reading_list">ټولگه کې ورگډول</string>
   <string name="page_offline_notice_cannot_load_while_offline">ليکنه په افلاين بڼه نشي بارېدلی.</string>
-  <string name="page_offline_notice_add_to_reading_list">لارښوونه:ليکنه لوستلړ ته ورگډه کړئ او کله چې تاسو بېرته په ليکه شئ؛ نو دا به راکښته کړای شي.</string>
+  <string name="page_offline_notice_add_to_reading_list">لارښوونه:ليکنه ټولگې ته ورگډه کړئ او کله چې تاسو بېرته په ليکه شئ؛ نو دا به راکښته کړای شي.</string>
   <string name="page_offline_notice_last_date">تاسو د دې ليکنې يوه افلاين بڼه لولئ چې په %s کې خوندي شوې ده.</string>
   <string name="redirected_from_snackbar">\"%s\" څخه مخ گرځېدلی</string>
   <string name="button_get_directions">لارښوونې ترلاسه کول</string>
@@ -422,7 +435,7 @@
   <string name="link_preview_dialog_saved_button">خوندي شو</string>
   <string name="link_preview_dialog_share_button">وېشل</string>
   <string name="link_preview_stub_placeholder_text">دا يوه نيمگړې ليکنه ده، په دې مانا چې د مخکتنې لپاره په دې ليکنې کې کافي منځپانگه نشته. په هر صورت تاسو کولی شئ دا بدل کړئ.</string>
-  <string name="error_page_does_not_exist">دا مخشتون نه لري</string>
+  <string name="error_page_does_not_exist">دا مخ شتون نه لري</string>
   <string name="error_user_page_does_not_exist">ويکي‌پېډيا کټ مټ په همدې نوم &lt;a href=\"%1$s\"&gt;کارن مخ&lt;/a&gt; نه لري. په ټوليزه توگه دا مخ بايد د &lt;b&gt;%2$s&lt;/b&gt; له خوا جوړ او سم شي. که شک لرئ؛ نو مهرباني وکړئ تاييد کړئ چې \"%3$s\" شتون لري.</string>
   <string name="view_wiki_error_message_offline">اينټرنېټ سره نشي نښلېدای</string>
   <string name="view_wiki_error_message_timeout">ويکيپېډيا سره نشي نښلېدای. د خپلې شبکې نښلېدا وگورئ، يا وروسته بيا هڅه وکړئ</string>
@@ -500,17 +513,17 @@
   <string name="editing_monospace_font_label">يوتشياله ليکبڼه کارول</string>
   <string name="editing_typing_suggestions">ټاپلو وړانديزونه ښودل</string>
   <string name="nav_item_saved">خوندي شو</string>
-  <string name="reading_list_save_to">لوستلړ کې خوندي کول</string>
-  <string name="reading_list_move_to">لوستلړ ته لېږدول</string>
+  <string name="reading_list_save_to">ټولگه کې خوندي کول</string>
+  <string name="reading_list_move_to">ټولگې ته لېږدول</string>
   <string name="reading_list_create_new">نوی جوړول</string>
-  <string name="reading_list_title_exists">%s لوستلړ له پخوا څخه شته.</string>
+  <string name="reading_list_title_exists">%s ټولگه له پخوا څخه شته.</string>
   <string name="reading_list_article_added_to_named">%2$s ته د %1$s ورگډول.</string>
-  <string name="reading_list_article_added_to_default_list">%s خوندي شو. ايا تاسو غواړئ دا لوستلړ ته ورگډ کړئ؟</string>
+  <string name="reading_list_article_added_to_default_list">%s خوندي شو. ايا تاسو غواړئ دا ټولگې ته ورگډ کړئ؟</string>
   <string name="reading_list_article_moved_to_named">%1$s %2$s ته ولېږدېده.</string>
   <string name="reading_list_article_already_exists_message">ټول ښه دي! %1$s له مخکې %2$s لري.</string>
   <string name="reading_list_articles_already_exist_message">ټول ښه دي! %s له مخکې ټولې ليکنې لري.</string>
-  <string name="reading_list_added_view_button">لړليک کتل</string>
-  <string name="reading_list_add_to_list_button">لړليک کې گډول</string>
+  <string name="reading_list_added_view_button">ټولگه کتل</string>
+  <string name="reading_list_add_to_list_button">ټولگه کې ورگډول</string>
   <plurals name="format_reading_list_statistical_summary_without_size">
     <item quantity="one">1 ليکنه</item>
     <item quantity="other">%d ليکنې</item>
@@ -535,68 +548,73 @@
   <string name="reading_list_sort_by_recent_desc">د نېټې له مخې اوډنه ورگډه شوه (بيخي زړه)</string>
   <string name="reading_list_sort_by_created">د نېټې له مخې اوډنه جوړه شوه (بيخي نوې)</string>
   <string name="reading_list_sort_by_created_desc">د نېټې له مخې اوډنه جوړه شوه (بيخي زړه)</string>
-  <string name="reading_list_menu_delete">لړليک ړنگول</string>
-  <string name="reading_list_menu_export">بهرلېږلو لړليک</string>
+  <string name="reading_list_menu_delete">ټولگه ړنگول</string>
+  <string name="reading_list_menu_export">ټولگه بهرلېږل</string>
   <string name="reading_list_menu_select">ټاکل</string>
   <string name="reading_list_menu_unselect">ناټاکل</string>
-  <string name="reading_list_export_write_permission_rationale">ستاسو د لوستلړ بهرلېږلو لپاره ستاسو وسیله کې زخیره کولو ته د لیکلو اجازه اړینه ده.</string>
+  <string name="reading_list_export_write_permission_rationale">ستاسو د ټولگې بهرلېږلو لپاره ستاسو وسیله کې زخیره کولو ته د لیکلو اجازه اړینه ده.</string>
   <string name="reading_list_menu_rename">نوم/څرگنداوی سمول</string>
   <string name="reading_list_action_menu_remove_from_offline">له افلاين لرې کول</string>
   <string name="reading_list_action_menu_save_for_offline">افلاين ته خوندي‌کول</string>
   <string name="reading_list_action_menu_remove_all_from_offline">ټول له افلاين نه لرې‌کول</string>
   <string name="reading_list_action_menu_save_all_for_offline">ټول د افلاين لپاره خوندي‌کول</string>
-  <string name="reading_list_action_menu_add_to_another_list">بل لړليک ته ورگډول</string>
-  <string name="reading_list_action_menu_move_to_another_list">بل لړليک ته لېږدول</string>
-  <string name="reading_list_name_sample">زما لوست لړليک</string>
-  <string name="reading_list_name_hint">د دې لړليک نوم</string>
+  <string name="reading_list_action_menu_add_to_another_list">بلې ټولگې ته ورگډول</string>
+  <string name="reading_list_action_menu_move_to_another_list">بلې ټولگې ته لېږدول</string>
+  <string name="reading_list_name_sample">زما ټولگه</string>
+  <string name="reading_list_name_hint">د دې ټولگې نوم</string>
   <string name="reading_list_description_hint">څرگندونه (اختياري)</string>
-  <string name="reading_list_item_deleted">%s له لړليک څخه وغورځول شو</string>
+  <string name="reading_list_item_deleted">%s له ټولگې څخه لرې شو</string>
   <string name="reading_list_item_deleted_from_list">%1$s له %2$s څخه لرې‌شو</string>
   <plurals name="reading_list_articles_deleted">
-    <item quantity="one">%d ليکنه له لړليک لرې شوه</item>
-    <item quantity="other">%d ليکنې له لړليک لرې شوې</item>
+    <item quantity="one">%d ليکنه له ټولگې لرې شوه</item>
+    <item quantity="other">%d ليکنې له ټولگې لرې شوې</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
     <item quantity="one">%1$d ليکنه له %2$s لرې شوه</item>
     <item quantity="other">%1$d ليکنې له%2$s لرې شوې</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
-    <item quantity="one">%d لړليک ړنگ شو</item>
-    <item quantity="other">%d لړليکونه ړنگ شول</item>
+    <item quantity="one">%d ټولگه ړنگه شوه</item>
+    <item quantity="other">%d ټولگې ړنگې شوې</item>
   </plurals>
-  <string name="reading_lists_default_list_delete_message">تلواليز لړليک (%s) نشي ړنگېدای</string>
-  <string name="reading_lists_default_plus_one_list_delete_message">%1$s ړنگ شو. تلواليز لړليک (%2$s) نشي ړنگېدای.</string>
-  <string name="reading_lists_default_plus_many_lists_delete_message">لړليکونه ړنگ شول. تلواليز لړليک (%s) نشي ړنگېدای.</string>
-  <string name="single_list_json_file_name">%s (ويکيپېډيا لوستلړ).json</string>
-  <string name="multiple_lists_json_file_name">ويکي‌پېډيا لوستلړونه (%s او نور).json</string>
-  <string name="reading_list_items_deleted">%d ليکنې له لړليک نه لرې شوې</string>
-  <string name="reading_lists_item_deleted">%s له لړليکونو لرې‌شوې</string>
+  <string name="reading_lists_default_list_delete_message">تلواليز ټولگه (%s) نشي ړنگېدای</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">%1$s ړنگه شوه. تلواليزه ټولگه (%2$s) نشي ړنگېدای.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">ټولگې ړنگې شوې. تلواليزه ټولگه (%s) نشي ړنگېدای.</string>
+  <string name="single_list_json_file_name">%s (ويکيپېډيا ټولگه).json</string>
+  <string name="multiple_lists_json_file_name">ويکي‌پېډيا ټولگې (%s او نور).json</string>
+  <string name="reading_list_items_deleted">%d ليکنې له ټولگې نه لرې شوې</string>
+  <string name="reading_lists_item_deleted">%s له ټولگو لرې‌شوې</string>
   <string name="reading_list_item_delete_undo">ناکړل</string>
   <string name="reading_list_deleted">%s ړنگ شو</string>
   <string name="saved_list_empty_title">لا تر اوسه پورې خوندي ليکنې نشته</string>
-  <string name="reading_lists_empty_message">د وروسته لوستلو لپاره په لړليک کې د ليکنو ورگدول؛ ترڅو په افلاين بڼه يې ولولئ.</string>
+  <string name="reading_lists_empty_message">د وروسته لوستلو لپاره په ټولگه کې د ليکنو ورگډول؛ ترڅو په افلاين بڼه يې ولولئ.</string>
   <string name="reading_lists_search_empty_articles_title">هېڅ خوندي ليکنې ونه موندل شوې</string>
   <string name="reading_lists_search_empty_articles_message">موږ نشو کولی ستاسو خوندي شويو ليکنو کې “%s” ومومو.</string>
   <string name="reading_lists_search_empty_collections_title">هېڅ ټولگې ونه موندل شوې</string>
   <string name="reading_lists_search_empty_collections_message">موږ نشو کولی ستاسو ټولگو کې “%s” ومومو.</string>
-  <string name="reading_list_empty">تاسې دې لړليک ته هېڅ ليکنې نه دې ورگډې کړې.</string>
+  <string name="reading_list_empty">تاسې دې ټولگې ته هېڅ ليکنې نه دې ورگډې کړې.</string>
   <string name="reading_list_article_offline">افلاين د لاسرسي وړ دی</string>
   <string name="reading_list_article_make_offline">دا ليکنه په افلاين بڼه د لاسرسي وړ گرځول</string>
-  <string name="reading_list_add_to_other_list">بل لوستلړ ته ورگډول</string>
-  <string name="reading_list_move_to_other_list">بل لوستلړ ته لېږدول</string>
-  <string name="reading_list_move_from_to_other_list">له %s څخه بل لوستلړ ته لېږدول</string>
+  <string name="reading_list_add_to_other_list">بلې ټولگې ته ورگډول</string>
+  <string name="reading_list_move_to_other_list">بلې ټولگې ته لېږدول</string>
+  <string name="reading_list_add_to_collection">يوې ټولگه ته ورگډول</string>
+  <plurals name="reading_list_in_collections">
+    <item quantity="one">۱ ټولگه کې</item>
+    <item quantity="other"> %d ټولگو کې</item>
+  </plurals>
+  <string name="reading_list_move_from_to_other_list">له %s څخه بلې ټولگې ته لېږدول</string>
   <string name="reading_list_remove_from_list">له %s نه لرې‌کول</string>
-  <string name="reading_list_remove_from_lists">له لوستلړونو لرې‌کول</string>
+  <string name="reading_list_remove_from_lists">له ټولگو لرې‌کول</string>
   <string name="reading_list_select_item">ټاکل</string>
   <string name="reading_list_confirm_remove_article_from_offline">له افلاين لرې کول</string>
-  <string name="reading_list_confirm_remove_article_from_offline_title">ليکنه په څو لړليکونو کې ښکاري</string>
-  <string name="reading_list_confirm_remove_article_from_offline_message">%s به نور په ټولو لوستلړونو کې په افلاين بڼه د لاسرسي وړ نه وي:</string>
-  <string name="reading_lists_sync_reminder_title">لوستلړ همغږی کړي؟</string>
-  <string name="reading_lists_sync_reminder_text">هغه ليکنې چې لوستلړونو کې خوندي شوې دي، اوس ستاسو د ويکي‌پېډيا گڼون سره همغږي کېدای شي. a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;په دې اړه نور ولولئ&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">لوستلړونه اوس په ټولو وسيلو کې همغږي کېدای شي. خپل ويکي‌پېډيا گڼون ته ننوځئ او خپلو لوستلړنو ته د خوندي کېدو اجازه ورکړئ. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;په دې اړه نور مالومات زده کړئ&lt;/a&gt;</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title">ليکنه په څو ټولگو کې ښکاري</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message">%s به نور په ټولو ټولگو کې په افلاين بڼه د لاسرسي وړ نه وي:</string>
+  <string name="reading_lists_sync_reminder_title">ټولگه همغږې کړي؟</string>
+  <string name="reading_lists_sync_reminder_text">هغه ليکنې چې ټولگو کې خوندي شوې دي، اوس ستاسو د ويکي‌پېډيا گڼون سره همغږي کېدای شي. a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;په دې اړه نور ولولئ&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">ټولگې اوس په ټولو وسيلو کې همغږي کېدای شي. خپل ويکي‌پېډيا گڼون ته ننوځئ او خپلو ټولگو ته د خوندي کېدو اجازه ورکړئ. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;په دې اړه نور مالومات زده کړئ&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">همغږي چارنول</string>
-  <string name="reading_list_login_reminder_title">لوستلړونه همغږي کول</string>
-  <string name="reading_lists_login_reminder_text">لوستلړونه اوس په ټولو وسيلو کې همغږي کېدای شي. خپل ويکي‌پېډيا گڼون ته ننوځئ او خپلو لوستلړنو ته د خوندي کېدو اجازه ورکړئ.</string>
+  <string name="reading_list_login_reminder_title">ټولگې همغږي کول</string>
+  <string name="reading_lists_login_reminder_text">ټولگې اوس په ټولو وسيلو کې همغږي کېدای شي. خپل ويکي‌پېډيا گڼون ته ننوځئ او خپلو لوستلړنو ته د خوندي کېدو اجازه ورکړئ.</string>
   <string name="reading_lists_login_button">ننوتل/ويکيپېډيا سره يو ځای کېدل</string>
   <string name="reading_lists_ignore_button">اوس نه</string>
   <string name="reading_lists_confirm_remote_delete_yes">هو</string>
@@ -605,35 +623,35 @@
   <string name="reading_list_articles_added_to_named">%2$s ته %1$d ليکنې ورگډې شوې</string>
   <string name="reading_list_articles_moved_to_named">%2$s ته %1$d ليکنې ولېږدول شوې</string>
   <string name="reading_list_delete_confirm">ايا تاسو ډاډه ياست چې %s ړنگول غواړئ؟</string>
-  <string name="reading_list_delete_lists_confirm_dialog_title">ټاکلي لړليک(ونه) ړنگول؟</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title">ټاکلي ټولگه(ټولگې) ړنگول؟</string>
   <plurals name="reading_list_delete_lists_confirm_dialog_message">
-    <item quantity="one">ايا تاسو ډاډه ياست چې %d لوستلړ ړنگول غواړئ؟</item>
-    <item quantity="other">ايا تاسو ډاډه ياست چې %d لوستلړونه ړنگول غواړئ؟</item>
+    <item quantity="one">ايا تاسو ډاډه ياست چې %d ټولگه ړنگول غواړئ؟</item>
+    <item quantity="other">ايا تاسو ډاډه ياست چې %d ټولگې ړنگول غواړئ؟</item>
   </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">همغږۍ چارنولو لپاره ننوځئ</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_text">خپل گڼون کې د خپلو لوستلړونو خوندي کولو لپاره گڼون ته ننوځئ.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">خپل گڼون کې د خپلو ټولگو خوندي کولو لپاره گڼون ته ننوځئ.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">ناگارل</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">ننوتل</string>
-  <string name="reading_list_turned_sync_off_dialog_title">لوستلړ همغږي گله ده</string>
-  <string name="reading_list_turned_sync_off_dialog_text">ستاسو د گڼون لپاره لوستلړونو همغږي کېدل گول دي، او ستاسو په ننوتلو وسيلو کې خوندي شوې ليکنې نور بېرته نشي ترلاسه کېدای. په اوڼنو کې خپل لوستلړ همغږي بله کړئ.</string>
+  <string name="reading_list_turned_sync_off_dialog_title">د ټولگې همغږي گوله ده</string>
+  <string name="reading_list_turned_sync_off_dialog_text">ستاسو د گڼون لپاره ټولگې همغږي کېدل گول دي، او ستاسو په ننوتلو وسيلو کې خوندي شوې ليکنې نور بېرته نشي ترلاسه کېدای. په اوڼنو کې خپل د ټولگې همغږي بله کړئ.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">ښه</string>
   <string name="reading_list_turned_sync_off_dialog_settings">اوڼنې</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_title">د لوستلړ همغږي بله کړي؟</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_text">په لوستلړونو کې خوندي شوې ليکنې اوس ستاسو ويکي‌پېډيا گڼون سره همغږې کېدی شي. &lt;a href=\"#faq\"&gt;نور زده کړئ&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">د ټولگې همغږي بله کړي؟</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">په ټولگو کې خوندي شوې ليکنې اوس ستاسو ويکي‌پېډيا گڼون سره همغږې کېدی شي. &lt;a href=\"#faq\"&gt;نور زده کړئ&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">دا راته بيا مه ښکاره کوه</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">همغږي چارنول</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">نه مننه</string>
   <string name="default_reading_list_name">خوندي‌شو</string>
-  <string name="default_reading_list_description">ستاسو خوندي‌شوو ليکنو لپاره تلواله لړليک</string>
-  <string name="no_user_lists_title">ليکنې په سرليکونو کې ترتيبول</string>
-  <string name="no_user_lists_msg">د يون ځايونو، خواپورو سکالوگانو او نور ډېر څه لپاره لړليکونه جوړول</string>
+  <string name="default_reading_list_description">ستاسو خوندي‌شوو ليکنو لپاره تلواله ټولگه</string>
+  <string name="no_user_lists_title">ليکنې په ټولگو کې ترتيبول</string>
+  <string name="no_user_lists_msg">د يون ځايونو، خواپورو سکالوگانو او نور ډېر څه لپاره ټولگې جوړول</string>
   <string name="reading_list_saved_list_rename">%1$s (کارن جوړ کړي)</string>
-  <string name="split_reading_list_message">د هر لوستلړ لپاره د %d ليکنو حد دی. شته لوستلړونه چې له دې حد څخه ډېر دي په څو لړليکونو وېشل شوې دي.</string>
-  <string name="reading_list_move_article_limit_message">دې لړليک ته نشي لېږدول کېدای. تاسو د \"%1$s\" لپاره د %2$d ليکنو حد پوره کړی دی.</string>
-  <string name="reading_list_article_limit_message">دې لړليک ته نشي ورگډېدای. تاسو د \"%1$s\" لپاره د %2$d ليکنو حد پوره کړی دی.</string>
-  <string name="reading_lists_limit_message">بل لړليک نشئ جوړولی. تاسو په هر گڼون کې د ۱۰۰ لوستلړونو حد پوره کړی دی.</string>
-  <string name="reading_lists_menu_create_list">نوی لړليک جوړول</string>
-  <string name="reading_lists_menu_import_list">لړليک رالېږدول</string>
+  <string name="split_reading_list_message">د هرې ټولگې لپاره د %d ليکنو حد دی. شته ټولگې چې له دې حد څخه ډېرې دي په څو ټولگو وېشل شوې دي.</string>
+  <string name="reading_list_move_article_limit_message">دې ټولگې ته نشي لېږدول کېدای. تاسو د هرې ټولگې \"%1$s\" لپاره د %2$d ليکنو حد پوره کړی دی.</string>
+  <string name="reading_list_article_limit_message">دې ټولگې ته نشي لېږدول کېدای. تاسو د هرې ټولگې \"%1$s\" لپاره د %2$d ليکنو حد پوره کړی دی.</string>
+  <string name="reading_lists_limit_message">بله ټولگه نشئ جوړولی. تاسو په هر گڼون کې د ۱۰۰ ټولگو حد پوره کړی دی.</string>
+  <string name="reading_lists_menu_create_list">نوې ټولگه جوړول</string>
+  <string name="reading_lists_menu_import_list">ټولگه رالېږدول</string>
   <string name="reading_lists_menu_sort_by">اوډون ډول</string>
   <string name="reading_lists_refresh_sync_option">همغږي تاندول</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">ننوتل / نوم‌ليکنه</string>
@@ -645,7 +663,7 @@
     <item quantity="one">دا ليکنه به نور په افلاين بڼه د لاسرسي وړ نه وي.</item>
     <item quantity="other">دا ليکنې به نور په افلاين بڼه د لاسرسي وړ نه وي.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">لوستلړونه همغږی شول</string>
+  <string name="reading_list_toast_last_sync">ټولگې همغږې شوې</string>
   <string name="reading_list_menu_last_sync">وروستۍ همغږي: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">ښه</string>
   <string name="reading_list_delete_dialog_ok_button_text">ښه</string>
@@ -655,31 +673,31 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">ناگارل</string>
   <string name="reading_list_split_dialog_ok_button_text">ښه</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">ړنگول</string>
-  <string name="reading_list_activity_title">لوستلړ: %s</string>
-  <string name="reading_list_notification_title">لوستلړ(ونه) بهرلېږل‌شوي</string>
-  <string name="reading_list_notification_text">%d لوستلړ(ونه) د \'reading_lists export.json\' په توگه ستاسو د راکښته‌کولو پوښۍ ته بهرلېږل شوي</string>
-  <string name="reading_list_notification_detailed_text">لوستلړونه \'reading_lists_export.json\' ته بهرلېږل شوې دي.</string>
+  <string name="reading_list_activity_title">ټولگه: %s</string>
+  <string name="reading_list_notification_title">ټولگه(ټولگې) بهرلېږل‌شوي</string>
+  <string name="reading_list_notification_text">%d ټولگه(ټولگې) د \'reading_lists export.json\' په توگه ستاسو د راکښته‌کولو پوښۍ ته بهرلېږل شوي</string>
+  <string name="reading_list_notification_detailed_text">ټولگې \'reading_lists_export.json\' ته بهرلېږل شوې دي.</string>
   <string name="reading_lists_action_menu_export_lists">بهرلېږل</string>
   <string name="reading_lists_import_file_picker_title">رالېږدولو لپاره دوتنه خوښول</string>
-  <string name="reading_lists_import_failure_message">د لوستلړونو رالېږدولو کې پاتې راغی</string>
-  <string name="reading_lists_export_select_lists_message">به لېږلو لپاره لړليک(ونه) غوره‌کول</string>
-  <string name="reading_lists_export_completed_message">لوستلړ(ونه) بهرلېږل‌شوي</string>
+  <string name="reading_lists_import_failure_message">د ټولگو رالېږدولو کې پاتې راغی</string>
+  <string name="reading_lists_export_select_lists_message">بهرلېږلو لپاره ټولگه(ټولگې) غوره‌کول</string>
+  <string name="reading_lists_export_completed_message">ټولگه(ټولگې) بهرلېږل‌شوي</string>
   <plurals name="reading_list_export_failed_message">
-    <item quantity="one">لوستلړ بهرلېږل نابريالي شول</item>
-    <item quantity="other">لوستلړونو بهرلېږل نابريالي شول</item>
+    <item quantity="one">ټولگې بهرلېږل نابرياله شول</item>
+    <item quantity="other">ټولگو بهرلېږل نابرياله شول</item>
   </plurals>
   <plurals name="reading_list_import_success_message">
-    <item quantity="one">لوستلړ راولېږدول شو</item>
-    <item quantity="other">لوستلړونه راولېږدول شول</item>
+    <item quantity="one">ټولگه راولېږدول شوه</item>
+    <item quantity="other">ټولگې راولېږدول شوې</item>
   </plurals>
-  <string name="reading_lists_preview_header_title">وېشل‌شوی لړليک</string>
+  <string name="reading_lists_preview_header_title">وېشل‌شوې ټولگه</string>
   <string name="reading_lists_preview_save_button">خوندي کول</string>
-  <string name="reading_lists_preview_save_dialog_title">لړليک خوندي کړئ</string>
-  <string name="reading_lists_preview_save_dialog_text">لړليک نومول او ليکنې د خوندي‌کولو لپاره ټاکل.</string>
+  <string name="reading_lists_preview_save_dialog_title">ټولگه خوندي‌کول</string>
+  <string name="reading_lists_preview_save_dialog_text">ټولگه نومول او ليکنې د خوندي‌کولو لپاره ټاکل.</string>
   <string name="reading_lists_preview_save_dialog_title_hint">سرليک</string>
   <string name="reading_lists_preview_save_dialog_cancel">ناگارل</string>
   <string name="reading_lists_preview_save_dialog_save">خوندي کول</string>
-  <string name="reading_lists_preview_saved_snackbar">لوستلړ خوندي‌شو</string>
+  <string name="reading_lists_preview_saved_snackbar">ټولگه خوندي‌شوه</string>
   <string name="reading_lists_preview_saved_snackbar_action">کتل</string>
   <string name="user_option_sync_label">غوره توبونه</string>
   <string name="notification_reverted_title">بېرته‌گرځول‌شوی سمون</string>
@@ -688,8 +706,8 @@
   <string name="notification_syncing_pause_button">درول‌</string>
   <string name="notification_syncing_resume_button">روانول</string>
   <string name="notification_syncing_cancel_button">ناگارل</string>
-  <string name="notification_syncing_reading_list_channel_title">لوستلړونه همغږي کوي</string>
-  <string name="notification_syncing_reading_list_channel_description">لوستلړونه همغږي روانه ده</string>
+  <string name="notification_syncing_reading_list_channel_title">ټولگې همغږي کول</string>
+  <string name="notification_syncing_reading_list_channel_description">د ټولگو همغږي روانه ده</string>
   <string name="notification_many_unread">تاسو %d نالوستې خبرتياوې لرئ</string>
   <plurals name="notification_channel_name">
     <item quantity="one">ليکنه راکښته‌کول</item>
@@ -704,16 +722,16 @@
     <item quantity="other">%1$d ليکنې پاتې دي</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_channel_name">
-    <item quantity="one">لوستلړ همغږی کېږي</item>
-    <item quantity="other">لوستلړونه همغږي کېږي</item>
+    <item quantity="one">ټولگه همغږې کېږي</item>
+    <item quantity="other">ټولگې همغږې کېږي</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_title">
-    <item quantity="one">%1$d لوستلړ همغږی کول…</item>
-    <item quantity="other">%1$d لوستلړونه همغږي کول…</item>
+    <item quantity="one">%1$d ټولگه همغږی کول…</item>
+    <item quantity="other">%1$d ټولگې همغږي کول…</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_description">
-    <item quantity="one">%1$d لړليک پاتې دی</item>
-    <item quantity="other">%1$d لړليکونه پاتې دي</item>
+    <item quantity="one">%1$d ټولگه پاتې ده</item>
+    <item quantity="other">%1$d ټولگې پاتې دي</item>
   </plurals>
   <string name="notification_echo_channel_description">د ويکيپېډيا خبرتياوې</string>
   <string name="notifications_activity_title">خبرتياوې</string>
@@ -1259,8 +1277,8 @@
   <string name="onboarding_maybe_later">شايد وروسته</string>
   <string name="onboarding_explore_title">د سپړلو لپاره نوې لارې</string>
   <string name="onboarding_explore_text">د ويکي‌پېډيا منځپانگه د پرله‌پسې هم‌مهالېدونکي ار کتنمخ سره وپلټئ. &lt;br/&gt; \nکتنمخ مو له خپلې خوښې سره سم &lt;b&gt;دوديزه کړئ&lt;/b&gt; &lt;b&gt;په دې ورځ&lt;/b&gt; د رامنځته شوو تاريخي پېښو اړوند زده کړه وکړئ يا په ساده ډول يوڅه &lt;b&gt;ناڅاپي&lt;/b&gt; ومومئ.</string>
-  <string name="onboarding_reading_list_sync_title">همغږۍ سره لوستلړونه لوستل</string>
-  <string name="onboarding_reading_list_sync_text_v2">تاسو کولی شئ د هغه ليکنو څخه لوستلړونه جوړ کړئ چې تاسو يې وروسته لوستل غواړئ، حتی کله چې تاسو افلاين ياست.&lt;br/&gt;د خپلو لوستلړونو د همغږۍ لپاره خپل ويکي‌پېډيا گڼون ته ننوځئ.&lt;a href=\"#login\"&gt;ويکي‌پېډيا سره يوځای شئ&lt;/a&gt;</string>
+  <string name="onboarding_reading_list_sync_title">ټولگې له همغږۍ سره</string>
+  <string name="onboarding_reading_list_sync_text_v2">تاسو کولی شئ د هغه ليکنو څخه ټولگې جوړې کړئ چې تاسو يې وروسته لوستل غواړئ، حتی کله چې تاسو افلاين ياست.&lt;br/&gt;د خپلو ټولگو د همغږۍ لپاره خپل ويکي‌پېډيا گڼون ته ننوځئ.&lt;a href=\"#login\"&gt;ويکي‌پېډيا سره يوځای شئ&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">اومتوکي او پټنتيا</string>
   <string name="onboarding_data_privacy_text">موږ باور لرو چې تاسو به د وړيا پوهنغونډ غورځنگ کې د گډون لپاره ځانواله مالوماتو چمتو کولو ته اړتيا ونه لرئ. د دې کاريال کارونې اومتوک‌ ټولگه بې نومه ده.&lt;br/&gt;\n&lt;br/&gt;زموږ د &lt;a href=\"#privacy\"&gt;پټنتيا تگلار&lt;/a&gt; او &lt;a href=\"#termsOfUse\"&gt;کارونې منښتونو&lt;/a&gt; په اړه نور زده کړئ.</string>
   <string name="onboarding_analytics_switch_title">کارونې اومتوکي لېږل</string>
@@ -1595,16 +1613,16 @@
   <string name="user_contrib_filter_activity_title">ونډې چاڼول</string>
   <string name="action_item_view_on_map">نخچه کې کتل</string>
   <string name="action_item_view_on_map_unavailable">دې مخ لپاره هېڅ ځمکنۍ همغږي شتون نه لري</string>
-  <string name="shareable_reading_lists_import_dialog_title">شريک‌شوی لوستلړ رالېږدول</string>
-  <string name="shareable_reading_lists_import_dialog_content">تاسو د هغه لړليک نوم چې له تاسو سره شريک شوی دی، څه ايښودل غواړئ؟</string>
+  <string name="shareable_reading_lists_import_dialog_title">شريکه‌شوې ټولگه رالېږدول</string>
+  <string name="shareable_reading_lists_import_dialog_content">تاسو د هغه ټولگې نوم چې له تاسو سره شريکه شوې ده، څه ايښودل غواړئ؟</string>
   <string name="shareable_reading_lists_new_indicator">*نوی*</string>
-  <string name="shareable_reading_lists_new_install_dialog_title">يو لوستلړ له تاسو سره شريک‌‌شوی دی</string>
-  <string name="shareable_reading_lists_new_install_dialog_content">موږ وليدل چې لوستلړ له تاسو سره شريک شوی دی. په کاريال کې د دې لړليک کتلو لپاره بېرته ار بيغام ته ورشئ او بيا په تړوني کېکاږئ.</string>
+  <string name="shareable_reading_lists_new_install_dialog_title">يوه ټولگه له تاسو سره شريکه‌شوې ده</string>
+  <string name="shareable_reading_lists_new_install_dialog_content">موږ وليدل چې ټولگه له تاسو سره شريکه شوې ده. په کاريال کې د دې ټولگې کتلو لپاره بېرته ار پيغام ته ورشئ او بيا په تړوني کېکاږئ.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">وپوهېدم</string>
-  <string name="shareable_reading_lists_new_imported_snackbar">لوستلړ رالېږدول‌شوی</string>
+  <string name="shareable_reading_lists_new_imported_snackbar">ټولگه رالېږدول‌شوې</string>
   <string name="reading_list_share_menu_label">وېشل...</string>
-  <string name="reading_list_share_menu_tooltip">دا لوستلړ له نورو سره شريکول</string>
-  <string name="reading_list_share_message_v2">سلام! زه غواړم خپل د ويکيپيډيا لوستلړ له تاسو سره شريک کړم:</string>
+  <string name="reading_list_share_menu_tooltip">دا ټولگه له نورو سره شريکول</string>
+  <string name="reading_list_share_message_v2">سلام! زه غواړم خپل د ويکيپيډيا ټولگه له تاسو سره شريکه کړم:</string>
   <string name="talk_templates_empty_message">د پيلولو لپاره خپل پيغامونه جوړ کړئ يا د &lt;a href=\"#\"&gt;نمونه‌يي پيغامونو&lt;/a&gt; څخه کار واخلئ.</string>
   <string name="talk_templates_new_message_title">نوی پيغام</string>
   <string name="talk_templates_new_message_subject_hint">سکالو</string>
@@ -1897,8 +1915,8 @@
   <string name="year_in_review_get_started_later">تاسو وروسته د خپلې کال بياکتنې ته په نور غوره‌نۍ کې لاسرسی موندلی شئ.</string>
   <string name="year_in_review_survey_title">د کال بياکتنې ښه‌والي کې مرسته کول</string>
   <string name="year_in_review_survey_subtitle">ايا تاسو له دې ځانگړنې خوښ ياست؟</string>
-  <string name="year_in_review_reading_list_survey_title">د کال بياکتنې %d لوستلړ ښه کولو کې مرسته وکړئ.</string>
-  <string name="year_in_review_reading_list_survey_subtitle">ايا تاسو له خپل لوستلړ څخه خوښ ياست؟</string>
+  <string name="year_in_review_reading_list_survey_title">د کال بياکتنې %d ټولگې ښه کولو کې مرسته وکړئ.</string>
+  <string name="year_in_review_reading_list_survey_subtitle">ايا تاسو له خپلې ټولگې څخه خوښ ياست؟</string>
   <string name="year_in_review_survey_very_satisfied">ډېره خوښ‌</string>
   <string name="year_in_review_survey_satisfied">خوښ</string>
   <string name="year_in_review_survey_neutral">بې‌پرې</string>
@@ -2006,7 +2024,7 @@
     <item quantity="one">کاريال کارنانو %,d خوندي شوې ليکنه درلوده</item>
     <item quantity="other">کاريال کارنانو %,d خوندي شوې ليکنې درلودې</item>
   </plurals>
-  <string name="year_in_review_slide_global_saved_articles_body">لوستلړونو ته د ليکنو ورگډول تاسو ته په افلاين بڼه هم ليکنو ته د لاسرسي اجازه درکوي. تاسو کولی شئ په ټولو وسيلو کې هروخت د خپلو لوستلړونو همغږي کولو لپاره ننوځئ.</string>
+  <string name="year_in_review_slide_global_saved_articles_body">ټولگو ته د ليکنو ورگډول تاسو ته په افلاين بڼه هم ليکنو ته د لاسرسي اجازه درکوي. تاسو کولی شئ په ټولو وسيلو کې هروخت د خپلو ټولگو د همغږي کولو لپاره ننوځئ.</string>
   <string name="year_in_review_slide_reading_patterns_headline">تاسو د لوستلو روښانه نمونې لرئ</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">خواپورې لوست وخت</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">خواپورې لوست ورځ</string>
@@ -2074,8 +2092,8 @@
     <item quantity="other">کاريال کارنانو %,d ځله د ويکي‌پېډيا ليکنې ليدلې دي</item>
   </plurals>
   <string name="year_in_review_slide_viewed_articles_times_body">د نړۍ په گوټ گوټ کې د خلکو لپاره، ويکي‌پېډيا د يوې پوښتنې ځوابولو، د ښوونځي يا کار لپاره د مالوماتو راټولولو يا د يو نوي رښتينولۍ زده کولو لپاره لومړی تمځی دی.</string>
-  <string name="year_in_review_reading_list_dialog_title">ايا ستاسو د %d کال د کلنۍ بياکتنې لوستلړ جوړ کړي؟</string>
-  <string name="year_in_review_reading_list_dialog_message">د ويکي‌پېډيا کال بياکتنه به دهغه ليکنو نوملړ جوړ کړي چې تاسو ورسره ډېر وخت په %1$d کې تېر کړی دی. &lt;a href=\"%2$s\"&gt;په دې اړه نور زده کړئ&lt;/a&gt;</string>
+  <string name="year_in_review_reading_list_dialog_title">ايا ستاسو د %d کال د کلنۍ بياکتنې ټولگه جوړه کړي؟</string>
+  <string name="year_in_review_reading_list_dialog_message">د ويکي‌پېډيا کال بياکتنه به دهغه ليکنو ټولگه جوړه کړي چې تاسو ورسره ډېر وخت په %1$d کې تېر کړی دی. &lt;a href=\"%2$s\"&gt;په دې اړه نور زده کړئ&lt;/a&gt;</string>
   <string name="year_in_review_reading_list_dialog_positive_button_label">جوړول</string>
   <string name="year_in_review_reading_list_dialog_negative_button_label">نه مننه</string>
   <string name="year_in_review_reading_list_title">د %d کال بياکتنه</string>
@@ -2132,12 +2150,12 @@
   <string name="year_in_review_highlights_logo_description">ويکي‌پېډيا نښان</string>
   <string name="recommended_reading_list_title">موندل</string>
   <string name="recommended_reading_list_onboarding_card_title">ستاسو لپاره غوره‌شوې ليکنې ومومئ</string>
-  <string name="recommended_reading_list_onboarding_card_message">په ويکيپېډيا کې ستاسو د ليکنو اوونيز لوستلړ، چې يوازې تاسو لپاره جوړ شوی دی.</string>
+  <string name="recommended_reading_list_onboarding_card_message">په ويکيپېډيا کې ستاسو د ليکنو اوونيزه ټولگه، چې يوازې تاسو لپاره جوړه شوې ده.</string>
   <string name="recommended_reading_list_onboarding_card_new">نوی!</string>
   <string name="recommended_reading_list_onboarding_card_positive_button">پيلول</string>
   <string name="recommended_reading_list_onboarding_card_negative_button">نه مننه</string>
-  <string name="recommended_reading_list_onboarding_card_negative_snackbar">د خپل وړانديزشوي لوستلړ وروسته اوڼلو لپاره، غوره‌توبونو ته ورشئ.</string>
-  <string name="recommended_reading_list_interest_source_message">ستاسو د وړانديز لوستلړ څنگه جوړ کړو؟</string>
+  <string name="recommended_reading_list_onboarding_card_negative_snackbar">د خپل وړانديزشوې ټولگې وروسته اوڼلو لپاره، غوره‌توبونو ته ورشئ.</string>
+  <string name="recommended_reading_list_interest_source_message">ستاسو د وړانديز ټولگه څنگه جوړه کړو؟</string>
   <string name="recommended_reading_list_interest_source_interests">پرېږده چې د خپلو گټو له مخې يې خوښ کړم</string>
   <string name="recommended_reading_list_interest_source_saved">زما د خوندي‌شوو ليکنو پربنسټ يې راته خوښ کړئ</string>
   <string name="recommended_reading_list_interest_source_history">زما د لوست پېښليک پربنسټ يې راته خوښ کړئ</string>
@@ -2161,9 +2179,9 @@
     <item quantity="one">• %d ليکنه</item>
     <item quantity="other">• %d ليکنې</item>
   </plurals>
-  <string name="recommended_reading_list_page_description_daily">ستاسو ورځنی لوستلړ. نوې سکالوگانې چې يوازې ستاسو لپاره غوره شوې دي، زده کړئ. په نيمه شپه کې هم‌مهاله کېږي.</string>
-  <string name="recommended_reading_list_page_description_weekly">ستاسو اوونيزه لوستلړ. نوې سکالوگانې چې يوازې ستاسو لپاره غوره شوې دي، زده کړئ. د اوونۍ پيل کې هم‌مهاله کېږي.</string>
-  <string name="recommended_reading_list_page_description_monthly">ستاسو مياشتنی لوستلړ. نوې سکالوگانې چې يوازې ستاسو لپاره غوره شوې دي، زده کړئ. د هرې مياشتې په لومړۍ نېټه هم‌مهاله کېږي.</string>
+  <string name="recommended_reading_list_page_description_daily">ستاسو ورځنۍ ټولگه. نوې سکالوگانې چې يوازې ستاسو لپاره غوره شوې دي، زده کړئ. په نيمه شپه کې هم‌مهاله کېږي.</string>
+  <string name="recommended_reading_list_page_description_weekly">ستاسو اوونيزه ټولگه. نوې سکالوگانې چې يوازې ستاسو لپاره غوره شوې دي، زده کړئ. د اوونۍ پيل کې هم‌مهاله کېږي.</string>
+  <string name="recommended_reading_list_page_description_monthly">ستاسو مياشتنۍ ټولگه. نوې سکالوگانې چې يوازې ستاسو لپاره غوره شوې دي، زده کړئ. د هرې مياشتې په لومړۍ نېټه هم‌مهاله کېږي.</string>
   <string name="recommended_reading_list_page_overflow_customize">دوديزول</string>
   <string name="recommended_reading_list_page_overflow_about">د دې ځانگړنې په‌اړه</string>
   <string name="recommended_reading_list_page_snackbar">موندونکی به په هر %2$s کې %1$d نوو ليکنو سره هم‌مهاله شي. سپارښتنې ستاسو په وسيله کې په ځايي ډول زېرمه شوې دي.</string>
@@ -2173,7 +2191,7 @@
   <string name="recommended_reading_list_page_snackbar_month">مياشت</string>
   <string name="recommended_reading_list_settings_section_header">سپارښتنې</string>
   <string name="recommended_reading_list_settings_title">موندلو اوڼنې</string>
-  <string name="recommended_reading_list_settings_toggle">لوستلړ موندل</string>
+  <string name="recommended_reading_list_settings_toggle">ټولگه موندل</string>
   <string name="recommended_reading_list_settings_toggle_disable_message">موندنه گول ده. ويکي‌پېډيا به تاسو ته د لوستلو لپاره ليکنې وړانديز نه کړي.</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_title">موندل گول کړي؟</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_message">که تاسو موندل گول کړئ؛ نو تاسو به د ويکي‌پېډيا څخه د %s لوست سپارښتنو ترلاسه کول ودروئ.</string>
@@ -2208,7 +2226,7 @@
   <string name="recommended_reading_list_settings_notifications_dialog_message">که تاسو خبرتياوې گولې کړئ؛ نو تاسو به د موندونکي د هم‌مهالېدو پرمهال يادگېرنې ترلاسه نه کړئ.</string>
   <string name="recommended_reading_list_settings_notifications_dialog_positive_button">دوی بندول</string>
   <string name="recommended_reading_list_settings_notifications_dialog_negative_button">نه، بل يې وساتئ</string>
-  <string name="recommended_reading_list_notification_title">ستاسو د موندلو %s لوستلړ چمتو دی.</string>
+  <string name="recommended_reading_list_notification_title">ستاسو د موندلو %s ټولگه چمتو ده.</string>
   <string name="recommended_reading_list_notification_subtitle">د خپلو وروستيو سپارښتنو ليدلو لپاره وټوکئ.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">کله چې موندنې هممهاله شي؛ ويکي‌پېډيا به تاسو ته خبرتيا ولېږي.</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">موندنه بل ده. ويکي‌پېډيا به تاسو ته د لوستلو لپاره ليکنې وړانديز کړي.</string>
@@ -2369,7 +2387,7 @@
   <string name="explore_feed_for_you_tab_label">ستاسو لپاره</string>
   <string name="explore_feed_date_today">نن - %s</string>
   <string name="explore_feed_load_previous_day_label">تېره ورځ بارول</string>
-  <string name="explore_feed_from_reading_list">ستاسو له لوستلړ څخه</string>
+  <string name="explore_feed_from_reading_list">ستاسو له ټولگې څخه</string>
   <string name="explore_feed_because_of_interest">ستاسو د لېوالتياوو پربنسټ: %s</string>
   <string name="explore_feed_onboarding_curiosity_title">خپله کونجکاوي وڅارئ</string>
   <string name="explore_feed_onboarding_curiosity_description">هغه سکالوگانې غوره کړئ چې تاسو يې لېواله ياست، او مو به ستاسو کتنمخ دوديزه کړو.</string>
@@ -2404,6 +2422,9 @@
   <string name="home_feed_settings_for_you_modules_description">د چلنوال بندول ستاسو د \"ستاسو لپاره\" د کتنمخ څخه پټوي. تاسو کولی شئ دا هر وخت دلته بيا چارن کړئ.</string>
   <string name="home_feed_settings_based_on_interest_title">ستاسو د خوښو پربنسټ</string>
   <string name="home_feed_settings_based_on_interest_subtitle">ليکنې چې ستاسو د غوره کړو سکالوگانو سره ورته دي. &lt;a href=\"#drivingFeed\"&gt;ستاسو کتمنخ څه چلوي&lt;/a&gt;</string>
+  <string name="home_feed_new_within_interest_card_heading">ستاسو خواپورو کې نوې</string>
+  <string name="home_feed_new_within_interest_title">ستاسو خواپورو کې نوې ليکنه</string>
+  <string name="home_feed_new_within_interest_subtitle">دې وروستيو کې جوړې شوې ليکنې د هغه ليکنو په څېر چې تاسو يې څارئ</string>
   <string name="home_feed_settings_because_you_read_subtitle">وړانديزونه ستاسو د پېښليک د وروستيو ليکنې پربنسټ دي</string>
   <string name="home_feed_settings_continue_reading_title">لوستلو ته دوام ورکول</string>
   <string name="home_feed_settings_continue_reading_subtitle">بېرته هغه ليکنو ته ورشئ؛ چې پای ته رسولې مو نه دي</string>
@@ -2447,13 +2468,13 @@
   <string name="home_feed_settings_games_title">لوبې</string>
   <string name="home_feed_settings_games_subtitle">د ويکي‌پېډيا منځنپانگې پربنسټ ورځنۍ لوبې</string>
   <string name="home_feed_settings_discover_title">سپارښتنې موندل</string>
-  <string name="home_feed_settings_discover_subtitle">ستاسو له موندلي لوستلړ نه ليکنې</string>
+  <string name="home_feed_settings_discover_subtitle">ستاسو له موندلې ټولگې نه ليکنې</string>
   <string name="home_feed_discover_cta_title">له موندلو</string>
   <string name="home_feed_discover_cta_description">د نويو سکالوگانو په اړه زده کړئ، چې يوازې ستاسو لپاره غوره شوې دي. د ورځنيو، اوونيزو يآ مياشتنيو هم‌مهالېدنو ترمنځ يې خوښ کړئ.</string>
-  <string name="home_feed_discover_cta_button">لوستلړ موندل چارنول</string>
+  <string name="home_feed_discover_cta_button">ټولگه موندل چارنول</string>
   <string name="home_feed_discover_card_footer">موندلو څخه • %s هم‌مهالېدنې</string>
   <string name="home_feed_discover_see_all_title">د موندلو لپاره نور هم شته</string>
-  <string name="home_feed_discover_see_all_description">ستاسو ځانواله لوستلړ نورې کيسې لري چې يوازې ستاسو لپاره غوره شوې دي.</string>
+  <string name="home_feed_discover_see_all_description">ستاسو ځانواله ټولگه نورې کيسې لري چې يوازې ستاسو لپاره غوره شوې دي.</string>
   <string name="home_feed_discover_see_all_button">ټول وړانديزونه لټون کول</string>
   <string name="home_feed_places_of_interest_card_footer">%1$s • په ځايونو کې ستاسو د موقعيت پربنسټ</string>
   <string name="home_feed_for_you_screen_end_of_feed_title">د نن ورځې لپاره دا بس دي!</string>
@@ -2468,10 +2489,16 @@
   <string name="random_article_widget_name">ناټاکلې ليکنه</string>
   <string name="reading_lists_tab_all_articles">ټولې ليکنې</string>
   <string name="reading_lists_tab_collections">ټولگې</string>
+  <string name="reading_lists_filter_content_description">خوندي‌شوې ليکنې چاڼول</string>
+  <string name="reading_lists_filter_not_in_collection">په ټولگه کې نشته</string>
+  <string name="reading_lists_empty_not_in_collection_title">په ټولگو کې خوندي‌شوې ټولې ليکنې.</string>
   <string name="reading_lists_search_saved_articles">خوندي‌شوې ليکنې پلټل</string>
   <string name="reading_lists_search_collections">ټولگې پلټل</string>
-  <string name="reading_lists_remove_articles_confirm_dialog_title">خوندي‌شوې ليکنې لرې‌کول</string>
-  <string name="reading_lists_remove_articles_confirm_button">لرې‌کول</string>
+  <string name="reading_lists_empty_collections_title">خوندي‌شوې ليکنې په ټولگو کې ترتيبول</string>
+  <string name="reading_lists_empty_collections_description">د يون ځايونو، خواپورو سکالوگانو او نور ډېر څه لپاره ټولگې جوړول.</string>
+  <string name="reading_lists_create_new_collection">يوه نوې ټولگه جوړول</string>
+  <string name="reading_lists_remove_articles_confirm_dialog_title">ليکنه ناخوندي کړي؟</string>
+  <string name="reading_lists_remove_articles_confirm_button">ناخوندي‌کول</string>
   <plurals name="reading_lists_remove_articles_confirm_dialog_message">
     <item quantity="one">دا ليکنه به له ټولو اړوند ټولگو څخه لرې شي.</item>
     <item quantity="other">دا %d ليکنې به له ټولو اړوند ټولگو څخه لرې شي.</item>
@@ -2479,5 +2506,13 @@
   <plurals name="reading_lists_articles_removed_from_collections">
     <item quantity="one">ليکنه له ټولو اړوند ټولگو څخه لرې شوه.</item>
     <item quantity="other">%d ليکنې له ټولو اړوند ټولگو څخه لرې شوې.</item>
+  </plurals>
+  <string name="reading_lists_save_sheet_empty_title">هغه ليکنې راټولې کړئ چې تاسو يې خوښوئ</string>
+  <string name="reading_lists_save_sheet_empty_message">ليکنې په ټولگو کې خوندي کړئ.</string>
+  <string name="reading_lists_save_sheet_create">جوړول</string>
+  <string name="reading_lists_update_tooltip">لوستلړونو ته اوس ټولگې ويل کېږي.</string>
+  <plurals name="reading_lists_unsave_articles_confirm_dialog_message">
+    <item quantity="one">ناخوندي‌کول به دا ليکنه له ټولو اړوند ټولگو څخه لرې کړي.</item>
+    <item quantity="other">ناخوندي‌کول به دا ليکنې له ټولو اړوند ټولگو څخه لرې کړي.</item>
   </plurals>
 </resources>

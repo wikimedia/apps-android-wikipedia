@@ -19,7 +19,7 @@
   <string name="search_hint">Википедиагаас хайх</string>
   <string name="search_hint_voice_search">Яриагаар хайх</string>
   <string name="search_hint_search_languages">Хэл хайх</string>
-  <string name="filter_hint_filter_my_lists_and_articles">Миний жагсаалтыг шүүх</string>
+  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">Миний жагсаалтыг шүүх</string>
   <string name="nav_item_suggested_edits">Засварууд</string>
   <string name="nav_item_more">Илүү</string>
   <string name="nav_item_search">Хайх</string>
@@ -72,16 +72,16 @@
   <string name="menu_page_watched">Үзсэн</string>
   <string name="edit_section_find_in_page">Хуудаст хай.</string>
   <string name="menu_page_font_and_theme">Үсгийн төрөл болон өнгөний схемийг өөрчлөх</string>
-  <string name="menu_page_add_to_list">Унших жагсаалтад нэмэх</string>
+  <string name="menu_page_add_to_list" fuzzy="true">Унших жагсаалтад нэмэх</string>
   <string name="menu_page_add_to_default_list">Хадгалах</string>
-  <string name="feed_card_add_to_list">Унших жагсаалтад нэмэх</string>
+  <string name="feed_card_add_to_list" fuzzy="true">Унших жагсаалтад нэмэх</string>
   <string name="feed_card_add_to_default_list">Хадгалах</string>
   <string name="menu_page_share">Хуваалцах</string>
   <string name="menu_article_share">Нийтлэлийг хуваалцах</string>
   <string name="menu_page_article_share">Хуваалцах</string>
   <string name="menu_page_open_a_new_tab">Шинэ цонх нээх</string>
   <string name="menu_page_new_tab">Шинэ цонх</string>
-  <string name="menu_page_reading_lists">Унших жагсаалтууд</string>
+  <string name="menu_page_reading_lists" fuzzy="true">Унших жагсаалтууд</string>
   <string name="menu_page_recently_viewed">Сүүлд үзсэн</string>
   <string name="menu_page_archive">Архивлах</string>
   <string name="menu_long_press_open_page">Нээх</string>
@@ -114,7 +114,7 @@
   <string name="menu_show_toc">Агуулгын хүснэгт</string>
   <string name="search_no_results_found">Үр дүн олдсонгүй</string>
   <string name="search_reading_list_no_results">\"%s\"-д илэрц олдсонгүй</string>
-  <string name="search_reading_lists_no_results">Жагсаалтыг уншихад үр дүн олдсонгүй</string>
+  <string name="search_reading_lists_no_results" fuzzy="true">Жагсаалтыг уншихад үр дүн олдсонгүй</string>
   <string name="search_history_no_results">Явцын түүхэнд ямар ч үр дүн олдсонгүй</string>
   <string name="edit_section_captcha_message">Автомат спамаас хамгаалахын тулд доор харагдаж байгаа үгнүүдийг оруулна уу</string>
   <string name="edit_section_captcha_request_an_account_message">Та энэ зургийг харж чадахгүй байна уу? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Request an account&lt;/a&gt;</string>

@@ -181,9 +181,9 @@
   <string name="search_no_results_found">Message shown to user when no search results are found for a string</string>
   <string name="search_reading_list_no_results">Message shown when there are no pages in the current collection that match the specified search term. The %s symbol is replaced with the name of the collection.</string>
   <string name="search_reading_lists_no_results">Message shown when there are no collections whose name matches the specified search term.</string>
-    <string name="search_all_articles_no_results">Message shown when no saved articles in the All articles tab match the search term.</string>
-    <string name="search_collections_no_results">Message shown when no collections in the Collections tab match the search term.</string>
-    <string name="search_history_no_results">Message shown when there are no history entries that match the specified search term.</string>
+  <string name="search_all_articles_no_results">Message shown when no saved articles in the All articles tab match the search term.</string>
+  <string name="search_collections_no_results">Message shown when no collections in the Collections tab match the search term.</string>
+  <string name="search_history_no_results">Message shown when there are no history entries that match the specified search term.</string>
   <string name="edit_section_captcha_message">A label for the CAPTCHA screen.</string>
   <string name="edit_section_captcha_request_an_account_message">Text informing the user that there is an alternate way to create an account, if in case the user cannot read the captcha, with a link to the page to request an account.</string>
   <string name="edit_section_captcha_hint">A call to action to write the CAPTCHA string.</string>
@@ -552,7 +552,7 @@
   <string name="reading_list_create_new">Dialog title for creating a new collection.</string>
   <string name="reading_list_title_exists">Error text shown when a user attempts to create a new collection with the same title as an existing collection. The \"%s\" symbol is replaced with the title of the existing collection.</string>
   <string name="reading_list_article_added_to_named">Message shown to user when an article is successfully added to a readingList.\n\nThe %1$s symbol is replaced with the name of the article and the second %2$s symbol is replaced with the name of the collection.</string>
-  <string name="reading_list_article_added_to_default_list">Message shown after an article is saved, asking whether to add it to a collection. The "%s" symbol is replaced with the article title.</string>
+  <string name="reading_list_article_added_to_default_list">Message shown after an article is saved, asking whether to add it to a collection. The \"%s\" symbol is replaced with the article title.</string>
   <string name="reading_list_article_moved_to_named">Message shown to user when an article gets suffessfully moved to a readingList.\n\nThe %1$s symbol is replaced with the name of the article and the second %2$s symbol is replaced with the name of the collection.</string>
   <string name="reading_list_article_already_exists_message">Message shown to users when they try to add an already existing article to a collection.The first %1$s symbol is replaced with the name of the collection and the second %2$s symbol is replaced with the name of the article.</string>
   <string name="reading_list_articles_already_exist_message">Message shown to users when they try to add already existing articles to a collection. The \"%s\" symbol is replaced with the name of the collection.</string>
@@ -611,32 +611,32 @@
     <item quantity="one">Toast message shown when one collection is deleted. The \"%d\" symbol is replaced with the number of collections deleted.</item>
     <item quantity="other">Toast message shown when multiple collections are deleted. The \"%d\" symbol is replaced with the number of collections deleted.</item>
   </plurals>
-  <string name="reading_lists_default_list_delete_message">Message shown when the user selects the default collection for deletion. The "%s" symbol is replaced with the name of the default collection.</string>
-  <string name="reading_lists_default_plus_one_list_delete_message">Message shown when the user selects the default collection and one other collection for deletion. "%1$s" is replaced with the name of the non-default collection, and "%2$s" is replaced with the name of the default collection.</string>
-  <string name="reading_lists_default_plus_many_lists_delete_message">Message shown when the user selects the default collection among multiple collections for deletion. The "%s" symbol is replaced with the name of the default collection.</string>
+  <string name="reading_lists_default_list_delete_message">Message shown when the user selects the default collection for deletion. The \"%s\" symbol is replaced with the name of the default collection.</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">Message shown when the user selects the default collection and one other collection for deletion. \"%1$s\" is replaced with the name of the non-default collection, and \"%2$s\" is replaced with the name of the default collection.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">Message shown when the user selects the default collection among multiple collections for deletion. The \"%s\" symbol is replaced with the name of the default collection.</string>
   <string name="single_list_json_file_name">File name to be given to a single exported collection, with %s representing the name of the collection. Please preserve the .json extension, and do not use any illegal filename characters.</string>
-  <string name="multiple_lists_json_file_name">File name given to a file containing multiple exported collections. The "%s" symbol is replaced with the name of the first collection. Preserve the .json extension and do not use illegal filename characters.</string>
+  <string name="multiple_lists_json_file_name">File name given to a file containing multiple exported collections. The \"%s\" symbol is replaced with the name of the first collection. Preserve the .json extension and do not use illegal filename characters.</string>
   <string name="reading_list_items_deleted">Message shown when multiple articles are removed from a collection. The \"%d\" symbol is replaced with the number of articles removed.</string>
   <string name="reading_lists_item_deleted">Menu item to remove an article from selected collections. The %s symbol is replaced with the name of the article.</string>
   <string name="reading_list_item_delete_undo">Button label to undo the operation of deleting an item from a list.\n{{Identical|Undo}}</string>
   <string name="reading_list_deleted">Message shown when a collection is deleted. The \"%s\" symbol is replaced with the name of the list.</string>
   <string name="saved_list_empty_title">Title message shown when there are no articles in saved list.</string>
   <string name="reading_lists_empty_message">Descriptive message that explains the benefits of collections, and the location of the button to add an article to a collection.</string>
-    <string name="reading_lists_search_empty_articles_title">Title shown on the "All articles" tab of the Saved screen when a search returns no matching saved articles.</string>
-    <string name="reading_lists_search_empty_articles_message">Message shown on the "All articles" tab of the Saved screen when a search returns no matching saved articles. The "%s" symbol is replaced with the term the user searched for.</string>
-    <string name="reading_lists_search_empty_collections_title">Title shown on the "Collections" tab of the Saved screen when a search returns no matching collections.</string>
-    <string name="reading_lists_search_empty_collections_message">Message shown on the "Collections" tab of the Saved screen when a search returns no matching collections. The "%s" symbol is replaced with the term the user searched for.</string>
-    <string name="reading_list_empty">Message shown when a collection does not contain any articles.</string>
+  <string name="reading_lists_search_empty_articles_title">Title shown on the \"All articles\" tab of the Saved screen when a search returns no matching saved articles.</string>
+  <string name="reading_lists_search_empty_articles_message">Message shown on the \"All articles\" tab of the Saved screen when a search returns no matching saved articles. The \"%s\" symbol is replaced with the term the user searched for.</string>
+  <string name="reading_lists_search_empty_collections_title">Title shown on the \"Collections\" tab of the Saved screen when a search returns no matching collections.</string>
+  <string name="reading_lists_search_empty_collections_message">Message shown on the \"Collections\" tab of the Saved screen when a search returns no matching collections. The \"%s\" symbol is replaced with the term the user searched for.</string>
+  <string name="reading_list_empty">Message shown when a collection does not contain any articles.</string>
   <string name="reading_list_article_offline">Label for a toggle switch to make a collection article available offline or online.</string>
   <string name="reading_list_article_make_offline">Hint for button that makes a collection article available for offline use.</string>
   <string name="reading_list_add_to_other_list">Menu item to add an article to another collection when the article already exists in one or more collections.</string>
   <string name="reading_list_move_to_other_list">Menu item to move an article to another collection when the article already exists in one or more collections.</string>
-    <string name="reading_list_add_to_collection">Menu item shown after long-pressing a saved article when it is not in any custom collection. Opens the collection selection sheet.</string>
-    <plurals name="reading_list_in_collections">
-        <item quantity="one">Menu item shown after long-pressing a saved article when it is in one custom collection. Opens the collection selection sheet.</item>
-        <item quantity="other">Menu item shown after long-pressing a saved article when it is in multiple custom collections. The "%d" symbol is replaced with the number of collections. Opens the collection selection sheet.</item>
-    </plurals>
-    <string name="reading_list_move_from_to_other_list">Menu item to move an article from a specific collection to another collection. The %s symbol is replaced with the name of the collection.</string>
+  <string name="reading_list_add_to_collection">Menu item shown after long-pressing a saved article when it is not in any custom collection. Opens the collection selection sheet.</string>
+  <plurals name="reading_list_in_collections">
+    <item quantity="one">Menu item shown after long-pressing a saved article when it is in one custom collection. Opens the collection selection sheet.</item>
+    <item quantity="other">Menu item shown after long-pressing a saved article when it is in multiple custom collections. The \"%d\" symbol is replaced with the number of collections. Opens the collection selection sheet.</item>
+  </plurals>
+  <string name="reading_list_move_from_to_other_list">Menu item to move an article from a specific collection to another collection. The %s symbol is replaced with the name of the collection.</string>
   <string name="reading_list_remove_from_list">Menu item to remove an article from a specific collection. The %s symbol is replaced with the name of the collection.</string>
   <string name="reading_list_remove_from_lists">Menu item to remove an article from multiple collections to which it might belong.</string>
   <string name="reading_list_select_item">Menu item to select an article for further multiple delete action.</string>
@@ -680,9 +680,9 @@
   <string name="no_user_lists_title">Suggestion shown to users to organize articles into collections.</string>
   <string name="no_user_lists_msg">Text explaining the advantages of creating collections, to users</string>
   <string name="reading_list_saved_list_rename">\"%1$s\" _[string indicating that the list was created by user]</string>
-  <string name="split_reading_list_message">Message shown when large collections must be split to enforce the article limit. The "%d" symbol is replaced with the maximum number of articles per collection.</string>
-  <string name="reading_list_move_article_limit_message">Message shown when an article cannot be moved because a collection has reached its article limit. "%1$s" is replaced with the collection name and "%2$d" is replaced with the maximum number of articles.</string>
-  <string name="reading_list_article_limit_message">Message shown when an article cannot be added because a collection has reached its article limit. "%1$s" is replaced with the collection name and "%2$d" is replaced with the maximum number of articles.</string>
+  <string name="split_reading_list_message">Message shown when large collections must be split to enforce the article limit. The \"%d\" symbol is replaced with the maximum number of articles per collection.</string>
+  <string name="reading_list_move_article_limit_message">Message shown when an article cannot be moved because a collection has reached its article limit. \"%1$s\" is replaced with the collection name and \"%2$d\" is replaced with the maximum number of articles.</string>
+  <string name="reading_list_article_limit_message">Message shown when an article cannot be added because a collection has reached its article limit. \"%1$s\" is replaced with the collection name and \"%2$d\" is replaced with the maximum number of articles.</string>
   <string name="reading_lists_limit_message">Message shown when the user cannot create another collection because the account has reached its collection limit.</string>
   <string name="reading_lists_menu_create_list">Menu option offering user an option to create a new collection.</string>
   <string name="reading_lists_menu_import_list">Menu option offering user an option to import a collection from a csv file.</string>
@@ -709,7 +709,7 @@
   <string name="reading_list_delete_lists_dialog_delete_button_text">Delete action button text in warning pop-up dialog for deleteing multiple collections.</string>
   <string name="reading_list_activity_title">Title for collection. The \"%s\" symbol is replaced with the name of the collection.</string>
   <string name="reading_list_notification_title">Notification title text when a collections are exported.</string>
-  <string name="reading_list_notification_text">Notification description for a collection export. The "%d" symbol is replaced with the number of collections exported. Preserve the literal legacy export filename.</string>
+  <string name="reading_list_notification_text">Notification description for a collection export. The \"%d\" symbol is replaced with the number of collections exported. Preserve the literal legacy export filename.</string>
   <string name="reading_list_notification_detailed_text">Notification detailed description text for collection export.</string>
   <string name="reading_lists_action_menu_export_lists">Label for a menu option allowing the user to export multiple collections to phone storage.</string>
   <string name="reading_lists_import_file_picker_title">Title message text shsown to user while choosing a file from the downloads folder to import.</string>
@@ -2287,9 +2287,9 @@
   <string name="home_feed_settings_for_you_modules_description">Description explaining that disabled For You feed modules can be re-enabled later.</string>
   <string name="home_feed_settings_based_on_interest_title">Title for the Based on your interests module in Home feed settings.</string>
   <string name="home_feed_settings_based_on_interest_subtitle">Subtitle describing article recommendations based on selected interests and feed preferences. Please keep the anchor link around the word \"What’s driving your feed\"\\</string>
+  <string name="home_feed_new_within_interest_card_heading">Title of a card that shows recently created articles within one of the topics the user selected as an interest.</string>
   <string name="home_feed_new_within_interest_title">Title of the For You feed module that shows new articles within a topic of interest.</string>
   <string name="home_feed_new_within_interest_subtitle">Description of the For You feed module that shows new articles within a topic of interest.</string>
-  <string name="home_feed_new_within_interest_card_heading">Title of a card that shows recently created articles within one of the topics the user selected as an interest.</string>
   <string name="home_feed_settings_because_you_read_subtitle">Subtitle describing article suggestions based on recently viewed articles.</string>
   <string name="home_feed_settings_continue_reading_title">Title for the Continue reading module in Home feed settings.</string>
   <string name="home_feed_settings_continue_reading_subtitle">Subtitle prompting users to continue reading unfinished articles.</string>
@@ -2360,30 +2360,30 @@
   <string name="random_article_widget_name">Display name for the Random Article home screen widget.</string>
   <string name="reading_lists_tab_all_articles">Label for the tab in the Saved screen that shows every saved article across all collections.</string>
   <string name="reading_lists_tab_collections">Label for the tab in the Saved screen that shows the user\'s custom collections.</string>
-    <string name="reading_lists_filter_content_description">Accessibility label for the toolbar button that opens the saved-article filter menu.</string>
-    <string name="reading_lists_filter_not_in_collection">Label for filtering the All articles tab to show articles that have not been added to a custom collection.</string>
-    <string name="reading_lists_empty_not_in_collection_title">Title shown when the Not in a collection filter has no results because every saved article belongs to a collection.</string>
-    <string name="reading_lists_search_saved_articles">Hint text for searching saved article titles in the All articles tab.</string>
+  <string name="reading_lists_filter_content_description">Accessibility label for the toolbar button that opens the saved-article filter menu.</string>
+  <string name="reading_lists_filter_not_in_collection">Label for filtering the All articles tab to show articles that have not been added to a custom collection.</string>
+  <string name="reading_lists_empty_not_in_collection_title">Title shown when the Not in a collection filter has no results because every saved article belongs to a collection.</string>
+  <string name="reading_lists_search_saved_articles">Hint text for searching saved article titles in the All articles tab.</string>
   <string name="reading_lists_search_collections">Hint text for searching collection titles in the Collections tab.</string>
-    <string name="reading_lists_empty_collections_title">Title shown in the empty state of the Collections tab when the user has no collections.</string>
-    <string name="reading_lists_empty_collections_description">Description shown in the empty state of the Collections tab explaining how collections can organize saved articles.</string>
-    <string name="reading_lists_create_new_collection">Button label for creating a collection from the empty state of the Collections tab.</string>
-    <string name="reading_lists_update_tooltip">Tooltip shown to inform users that reading lists have been renamed to collections.</string>
-    <string name="reading_lists_remove_articles_confirm_dialog_title">Title of the confirmation dialog shown before removing saved articles from all associated collections.</string>
+  <string name="reading_lists_empty_collections_title">Title shown in the empty state of the Collections tab when the user has no collections.</string>
+  <string name="reading_lists_empty_collections_description">Description shown in the empty state of the Collections tab explaining how collections can organize saved articles.</string>
+  <string name="reading_lists_create_new_collection">Button label for creating a collection from the empty state of the Collections tab.</string>
+  <string name="reading_lists_remove_articles_confirm_dialog_title">Title of the confirmation dialog shown before removing saved articles from all associated collections.</string>
   <string name="reading_lists_remove_articles_confirm_button">Label for the button that confirms removing the selected saved articles from all associated collections.</string>
   <plurals name="reading_lists_remove_articles_confirm_dialog_message">
     <item quantity="one">Confirmation message explaining that one selected article will be removed from all associated collections.</item>
     <item quantity="other">Confirmation message explaining that multiple selected articles will be removed from all associated collections. The \"%d\" symbol is replaced with the number of selected articles.</item>
   </plurals>
-  <plurals name="reading_lists_unsave_articles_confirm_dialog_message">
-    <item quantity="one">Confirmation message explaining that unsaving one article will remove it from all associated collections.</item>
-    <item quantity="other">Confirmation message explaining that unsaving multiple articles will remove them from all associated collections.</item>
-  </plurals>
   <plurals name="reading_lists_articles_removed_from_collections">
     <item quantity="one">Message shown after one article is removed from all associated collections.</item>
     <item quantity="other">Message shown after multiple articles are removed from all associated collections. The \"%d\" symbol is replaced with the number of articles removed.</item>
   </plurals>
-    <string name="reading_lists_save_sheet_empty_title">Title of the empty state in the bottom sheet for saving an article, shown when the user has no collections yet.</string>
-    <string name="reading_lists_save_sheet_empty_message">Message below the empty state title in the bottom sheet for saving an article, explaining that articles are saved into collections.</string>
-    <string name="reading_lists_save_sheet_create">Text of the action beside the Collections heading in the bottom sheet for saving an article, which creates a new collection.</string>
+  <string name="reading_lists_save_sheet_empty_title">Title of the empty state in the bottom sheet for saving an article, shown when the user has no collections yet.</string>
+  <string name="reading_lists_save_sheet_empty_message">Message below the empty state title in the bottom sheet for saving an article, explaining that articles are saved into collections.</string>
+  <string name="reading_lists_save_sheet_create">Text of the action beside the Collections heading in the bottom sheet for saving an article, which creates a new collection.</string>
+  <string name="reading_lists_update_tooltip">Tooltip shown to inform users that reading lists have been renamed to collections.</string>
+  <plurals name="reading_lists_unsave_articles_confirm_dialog_message">
+    <item quantity="one">Confirmation message explaining that unsaving one article will remove it from all associated collections.</item>
+    <item quantity="other">Confirmation message explaining that unsaving multiple articles will remove them from all associated collections.</item>
+  </plurals>
 </resources>

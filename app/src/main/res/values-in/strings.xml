@@ -62,7 +62,7 @@
   <string name="search_back_button_content_description">Kembali</string>
   <string name="search_clear_query_content_description">Hapus kueri</string>
   <string name="search_icon_content_description">Cari</string>
-  <string name="filter_hint_filter_my_lists_and_articles">Saring daftar saya</string>
+  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">Saring daftar saya</string>
   <string name="nav_item_suggested_edits">Suntingan</string>
   <string name="nav_item_activity">Aktivitas</string>
   <string name="nav_item_more">Selebihnya</string>
@@ -127,16 +127,16 @@
   <string name="menu_page_watched">Dipantau</string>
   <string name="edit_section_find_in_page">Cari di halaman</string>
   <string name="menu_page_font_and_theme">Huruf dan tema</string>
-  <string name="menu_page_add_to_list">Tambahkan ke daftar bacaan</string>
+  <string name="menu_page_add_to_list" fuzzy="true">Tambahkan ke daftar bacaan</string>
   <string name="menu_page_add_to_default_list">Simpan</string>
-  <string name="feed_card_add_to_list">Tambahkan ke daftar bacaan</string>
+  <string name="feed_card_add_to_list" fuzzy="true">Tambahkan ke daftar bacaan</string>
   <string name="feed_card_add_to_default_list">Simpan</string>
   <string name="menu_page_share">Bagikan pranala</string>
   <string name="menu_article_share">Bagikan artikel</string>
   <string name="menu_page_article_share">Bagikan</string>
   <string name="menu_page_open_a_new_tab">Buka tab baru</string>
   <string name="menu_page_new_tab">Tab baru</string>
-  <string name="menu_page_reading_lists">Daftar bacaan</string>
+  <string name="menu_page_reading_lists" fuzzy="true">Daftar bacaan</string>
   <string name="menu_page_recently_viewed">Baru saja dilihat</string>
   <string name="menu_page_archive">Arsip</string>
   <string name="menu_long_press_open_page">Buka</string>
@@ -179,7 +179,7 @@
   <string name="menu_show_toc">Daftar isi</string>
   <string name="search_no_results_found">Tidak ada yang ditemukan</string>
   <string name="search_reading_list_no_results">Tidak ada yang ditemukan di \"%s\"</string>
-  <string name="search_reading_lists_no_results">Tidak ada yang ditemukan dalam daftar bacaan</string>
+  <string name="search_reading_lists_no_results" fuzzy="true">Tidak ada yang ditemukan dalam daftar bacaan</string>
   <string name="search_history_no_results">Tidak ada yang ditemukan dalam riwayat</string>
   <string name="edit_section_captcha_message">Untuk membantu melindungi dari spam otomatis, masukkan kata-kata yang muncul di bawah ini</string>
   <string name="edit_section_captcha_request_an_account_message">Tidak dapat melihat gambar? &lt;a href=\"https://id.wikipedia.org/wiki/Wikipedia:Mohon_buatkan_akun\"&gt;Mohon buatkan akun&lt;/a&gt;</string>
@@ -259,12 +259,12 @@
   <string name="preferences_heading_syncing">Sinkronisasi</string>
   <string name="preferences_heading_data_usage">Penggunaan data</string>
   <string name="preferences_heading_experimental">Eksperimental</string>
-  <string name="preference_title_sync_reading_lists_from_account">Sinkronisasi daftar bacaan</string>
-  <string name="preference_title_download_reading_list_articles">Unduh artikel di daftar bacaan</string>
-  <string name="preference_summary_sync_reading_lists">Sinkronkan daftar bacaan di berbagai perangkat dengan menyimpannya ke akun Wikipedia Anda</string>
-  <string name="preference_summary_sync_reading_lists_from_account">Sinkronkan daftar bacaan di berbagai perangkat dengan menyimpannya ke akun Wikipedia Anda \"%s\"</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Hapus daftar bacaan yang disinkronkan dari \"%s\"?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Tindakan ini akan menghapus semua daftar bacaan yang disinkronkan sebelumnya dari penyimpanan jarak jauh. Hapus semua daftar yang disinkronkan dari akun Anda \"%s\"?</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Sinkronisasi daftar bacaan</string>
+  <string name="preference_title_download_reading_list_articles" fuzzy="true">Unduh artikel di daftar bacaan</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">Sinkronkan daftar bacaan di berbagai perangkat dengan menyimpannya ke akun Wikipedia Anda</string>
+  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">Sinkronkan daftar bacaan di berbagai perangkat dengan menyimpannya ke akun Wikipedia Anda \"%s\"</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">Hapus daftar bacaan yang disinkronkan dari \"%s\"?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">Tindakan ini akan menghapus semua daftar bacaan yang disinkronkan sebelumnya dari penyimpanan jarak jauh. Hapus semua daftar yang disinkronkan dari akun Anda \"%s\"?</string>
   <string name="preference_title_auto_upload_crash_reports">Kirim laporan kerusakan</string>
   <string name="preference_summary_auto_upload_crash_reports">Izinkan aplikasi untuk mengirimkan laporan kerusakan ke penyedia layanan pihak ketiga secara otomatis sehingga kami dapat meninjau kerusakan Anda dan memperbaiki kesalahan lebih cepat dan lebih gampang.</string>
   <string name="editing_error_spamblacklist">Pranala ke domain yang diblokir (%s) terdeteksi. Harap menghapusnya dan coba lagi.</string>
@@ -406,8 +406,8 @@
   <string name="unnamed_tab_closed">Tab telah ditutup.</string>
   <string name="tab_item_closed">%s ditutup.</string>
   <string name="all_tab_items_closed">Semua tab ditutup</string>
-  <string name="tool_tip_bookmark_icon_title">Tambahkan ke daftar bacaan</string>
-  <string name="tool_tip_bookmark_icon_text">Ketuk ikon penanda untuk menyimpan artikel ke daftar bacaan.</string>
+  <string name="tool_tip_bookmark_icon_title" fuzzy="true">Tambahkan ke daftar bacaan</string>
+  <string name="tool_tip_bookmark_icon_text" fuzzy="true">Ketuk ikon penanda untuk menyimpan artikel ke daftar bacaan.</string>
   <string name="page_view_in_browser">Lihat halaman di peramban</string>
   <string name="tool_tip_toc_title">Akses cepat daftar isi</string>
   <string name="tool_tip_toc_text">Sekarang Anda dapat menggesek ke kiri untuk membuka daftar isi, dan juga mengetuk dan menyeret pada tombol penggulung ini untuk dengan cepat melompat ke bagian artikel yang berbeda.</string>
@@ -420,9 +420,9 @@
   <string name="button_continue_to_talk_page">Buka halaman pembicaraan</string>
   <string name="button_continue_to_disambiguation">Lihat halaman serupa</string>
   <string name="link_preview_disambiguation_description">Judul ini berkaitan dengan lebih dari satu halaman:</string>
-  <string name="button_add_to_reading_list">Tambahkan ke daftar bacaan</string>
+  <string name="button_add_to_reading_list" fuzzy="true">Tambahkan ke daftar bacaan</string>
   <string name="page_offline_notice_cannot_load_while_offline">Artikel tidak dapat dimuat saat luring.</string>
-  <string name="page_offline_notice_add_to_reading_list">Petunjuk: Tambahkan artikel ke daftar bacaan dan akan diunduh setelah Anda kembali daring.</string>
+  <string name="page_offline_notice_add_to_reading_list" fuzzy="true">Petunjuk: Tambahkan artikel ke daftar bacaan dan akan diunduh setelah Anda kembali daring.</string>
   <string name="page_offline_notice_last_date">Anda sedang membaca versi luring dari artikel ini yang disimpan pada %s</string>
   <string name="redirected_from_snackbar">Dialihkan dari \"%s\"</string>
   <string name="button_get_directions">Dapatkan petunjuk arah</string>
@@ -528,17 +528,17 @@
   <string name="editing_monospace_font_label">Gunakan fon monospace</string>
   <string name="editing_typing_suggestions">Tampilkan saran pengetikan</string>
   <string name="nav_item_saved">Tersimpan</string>
-  <string name="reading_list_save_to">Simpan ke daftar bacaan</string>
-  <string name="reading_list_move_to">Pindahkan ke daftar bacaan</string>
+  <string name="reading_list_save_to" fuzzy="true">Simpan ke daftar bacaan</string>
+  <string name="reading_list_move_to" fuzzy="true">Pindahkan ke daftar bacaan</string>
   <string name="reading_list_create_new">Buat baru</string>
-  <string name="reading_list_title_exists">Daftar bacaan \"%s\" sudah ada.</string>
+  <string name="reading_list_title_exists" fuzzy="true">Daftar bacaan \"%s\" sudah ada.</string>
   <string name="reading_list_article_added_to_named">Menambahkan %1$s ke %2$s</string>
-  <string name="reading_list_article_added_to_default_list">%s disimpan. Apakah anda mau menambahkannya ke daftar?</string>
+  <string name="reading_list_article_added_to_default_list" fuzzy="true">%s disimpan. Apakah anda mau menambahkannya ke daftar?</string>
   <string name="reading_list_article_moved_to_named">Memindahkan %1$s ke %2$s</string>
   <string name="reading_list_article_already_exists_message">Berhasil! %1$s telah berisi %2$s.</string>
   <string name="reading_list_articles_already_exist_message">Berhasil! %s telah berisi semua artikel.</string>
-  <string name="reading_list_added_view_button">Lihat daftar</string>
-  <string name="reading_list_add_to_list_button">Tambah ke daftar</string>
+  <string name="reading_list_added_view_button" fuzzy="true">Lihat daftar</string>
+  <string name="reading_list_add_to_list_button" fuzzy="true">Tambah ke daftar</string>
   <plurals name="format_reading_list_statistical_summary_without_size">
     <item quantity="other">%d artikel</item>
   </plurals>
@@ -558,59 +558,59 @@
   <string name="reading_list_sort_by_recent_desc">Urutkan menurut tanggal ditambahkan (terlama)</string>
   <string name="reading_list_sort_by_created">Urutkan menurut tanggal dibuat (terbaru)</string>
   <string name="reading_list_sort_by_created_desc">Urutkan menurut tanggal dibuat (terlama)</string>
-  <string name="reading_list_menu_delete">Hapus daftar</string>
-  <string name="reading_list_menu_export">Ekspor daftar</string>
+  <string name="reading_list_menu_delete" fuzzy="true">Hapus daftar</string>
+  <string name="reading_list_menu_export" fuzzy="true">Ekspor daftar</string>
   <string name="reading_list_menu_select">Pilih</string>
   <string name="reading_list_menu_unselect">Batal pilih</string>
-  <string name="reading_list_export_write_permission_rationale">Izin untuk menulis ke penyimpanan di perangkat Anda diperlukan, untuk mengekspor daftar bacaan Anda.</string>
+  <string name="reading_list_export_write_permission_rationale" fuzzy="true">Izin untuk menulis ke penyimpanan di perangkat Anda diperlukan, untuk mengekspor daftar bacaan Anda.</string>
   <string name="reading_list_menu_rename">Sunting nama/deskripsi</string>
   <string name="reading_list_action_menu_remove_from_offline">Hapus dari luring</string>
   <string name="reading_list_action_menu_save_for_offline">Simpan untuk luring</string>
   <string name="reading_list_action_menu_remove_all_from_offline">Hapus semua dari luring</string>
   <string name="reading_list_action_menu_save_all_for_offline">Simpan semua untuk luring</string>
-  <string name="reading_list_action_menu_add_to_another_list">Tambah ke daftar lainnya</string>
-  <string name="reading_list_action_menu_move_to_another_list">Pindah ke daftar lain</string>
-  <string name="reading_list_name_sample">Daftar bacaan saya</string>
-  <string name="reading_list_name_hint">Nama daftar ini</string>
+  <string name="reading_list_action_menu_add_to_another_list" fuzzy="true">Tambah ke daftar lainnya</string>
+  <string name="reading_list_action_menu_move_to_another_list" fuzzy="true">Pindah ke daftar lain</string>
+  <string name="reading_list_name_sample" fuzzy="true">Daftar bacaan saya</string>
+  <string name="reading_list_name_hint" fuzzy="true">Nama daftar ini</string>
   <string name="reading_list_description_hint">Deskripsi (opsional)</string>
-  <string name="reading_list_item_deleted">%s dihapus dari daftar</string>
+  <string name="reading_list_item_deleted" fuzzy="true">%s dihapus dari daftar</string>
   <string name="reading_list_item_deleted_from_list">%1$s dihapus dari %2$s</string>
-  <string name="reading_list_articles_deleted">%d artikel dihapus dari daftar</string>
+  <string name="reading_list_articles_deleted" fuzzy="true">%d artikel dihapus dari daftar</string>
   <plurals name="reading_list_articles_deleted_from_list">
     <item quantity="other">%1$d bahan bacoan diapus dari %2$s</item>
   </plurals>
-  <plurals name="reading_lists_deleted_message">
+  <plurals name="reading_lists_deleted_message" fuzzy="true">
     <item quantity="other">%d daftar dihapus</item>
   </plurals>
-  <string name="reading_lists_default_list_delete_message">Daftar tetepan (%s) tak dapat dihapus</string>
-  <string name="reading_lists_default_plus_one_list_delete_message">%1$s dihapus. Daftar tetapan (%2$s) tak dapat dihapus.</string>
-  <string name="reading_lists_default_plus_many_lists_delete_message">Daftar dihapus. Daftar tetapan (%s) tak dapat dihapus.</string>
-  <string name="single_list_json_file_name">%s (daftar bacaan Wikipedia).json</string>
-  <string name="multiple_lists_json_file_name">Daftar bacaan Wikipedia (%s dan lebih).json</string>
-  <string name="reading_list_items_deleted">%d artikel dihapus dari daftar</string>
-  <string name="reading_lists_item_deleted">%s dihapus dari daftar</string>
+  <string name="reading_lists_default_list_delete_message" fuzzy="true">Daftar tetepan (%s) tak dapat dihapus</string>
+  <string name="reading_lists_default_plus_one_list_delete_message" fuzzy="true">%1$s dihapus. Daftar tetapan (%2$s) tak dapat dihapus.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message" fuzzy="true">Daftar dihapus. Daftar tetapan (%s) tak dapat dihapus.</string>
+  <string name="single_list_json_file_name" fuzzy="true">%s (daftar bacaan Wikipedia).json</string>
+  <string name="multiple_lists_json_file_name" fuzzy="true">Daftar bacaan Wikipedia (%s dan lebih).json</string>
+  <string name="reading_list_items_deleted" fuzzy="true">%d artikel dihapus dari daftar</string>
+  <string name="reading_lists_item_deleted" fuzzy="true">%s dihapus dari daftar</string>
   <string name="reading_list_item_delete_undo">Batalkan</string>
   <string name="reading_list_deleted">%s terhapus</string>
   <string name="saved_list_empty_title" fuzzy="true">Tidak ada daftar bacaan lagi</string>
-  <string name="reading_lists_empty_message">Tambahkan artikel ke daftar untuk dibaca nanti, bahkan saat Anda sedang luring.</string>
-  <string name="reading_list_empty">Anda tidak memiliki artikel yang ditambahkan ke daftar ini.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Tambahkan artikel ke daftar untuk dibaca nanti, bahkan saat Anda sedang luring.</string>
+  <string name="reading_list_empty" fuzzy="true">Anda tidak memiliki artikel yang ditambahkan ke daftar ini.</string>
   <string name="reading_list_article_offline">Tersedia secara luring</string>
   <string name="reading_list_article_make_offline">Jadikan artikel ini tersedia secara luring</string>
-  <string name="reading_list_add_to_other_list">Tambahkan ke daftar bacaan yang lain</string>
-  <string name="reading_list_move_to_other_list">Pindahkan ke daftar bacaan lain</string>
-  <string name="reading_list_move_from_to_other_list">Pindahkan dari %s ke daftar bacaan lain</string>
+  <string name="reading_list_add_to_other_list" fuzzy="true">Tambahkan ke daftar bacaan yang lain</string>
+  <string name="reading_list_move_to_other_list" fuzzy="true">Pindahkan ke daftar bacaan lain</string>
+  <string name="reading_list_move_from_to_other_list" fuzzy="true">Pindahkan dari %s ke daftar bacaan lain</string>
   <string name="reading_list_remove_from_list">Hapus dari %s</string>
-  <string name="reading_list_remove_from_lists">Hapus dari daftar bacaan</string>
+  <string name="reading_list_remove_from_lists" fuzzy="true">Hapus dari daftar bacaan</string>
   <string name="reading_list_select_item">Pilih</string>
   <string name="reading_list_confirm_remove_article_from_offline">Hapus dari luring</string>
-  <string name="reading_list_confirm_remove_article_from_offline_title">Artikel muncul dalam beberapa daftar</string>
-  <string name="reading_list_confirm_remove_article_from_offline_message">%s tidak lagi tersedia secara luring untuk semua daftar bacaan:</string>
-  <string name="reading_lists_sync_reminder_title">Nyalakan sinkronisasi daftar bacaan?</string>
-  <string name="reading_lists_sync_reminder_text">Artikel yang disimpan ke daftar bacaan sekarang dapat disinkronkan ke akun Wikipedia Anda. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Pelajari lebih lanjut&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Sekarang, daftar bacaan dapat disinkronkan di seluruh perangkat. Masuk log ke akun Wikipedia Anda dan biarkan daftar Anda disimpan. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ/id#Daftar_bacaan_yang_disinkronkan\"&gt;Pelajari lebih lanjut&lt;/a&gt;</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title" fuzzy="true">Artikel muncul dalam beberapa daftar</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s tidak lagi tersedia secara luring untuk semua daftar bacaan:</string>
+  <string name="reading_lists_sync_reminder_title" fuzzy="true">Nyalakan sinkronisasi daftar bacaan?</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">Artikel yang disimpan ke daftar bacaan sekarang dapat disinkronkan ke akun Wikipedia Anda. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Pelajari lebih lanjut&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Sekarang, daftar bacaan dapat disinkronkan di seluruh perangkat. Masuk log ke akun Wikipedia Anda dan biarkan daftar Anda disimpan. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ/id#Daftar_bacaan_yang_disinkronkan\"&gt;Pelajari lebih lanjut&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Nyalakan sinkronisasi</string>
-  <string name="reading_list_login_reminder_title">Sinkronkan daftar bacaan</string>
-  <string name="reading_lists_login_reminder_text">Daftar bacaan sekarang dapat disinkronkan di seluruh perangkat. Masuk log ke akun Wikipedia Anda dan biarkan daftar Anda disimpan.</string>
+  <string name="reading_list_login_reminder_title" fuzzy="true">Sinkronkan daftar bacaan</string>
+  <string name="reading_lists_login_reminder_text" fuzzy="true">Daftar bacaan sekarang dapat disinkronkan di seluruh perangkat. Masuk log ke akun Wikipedia Anda dan biarkan daftar Anda disimpan.</string>
   <string name="reading_lists_login_button">Masuk log / gabung ke Wikipedia</string>
   <string name="reading_lists_ignore_button">Nanti</string>
   <string name="reading_lists_confirm_remote_delete_yes">Ya</string>
@@ -619,34 +619,34 @@
   <string name="reading_list_articles_added_to_named">%1$d ditambahkan ke %2$s</string>
   <string name="reading_list_articles_moved_to_named">%1$d artikel dipindahkan ke %2$s</string>
   <string name="reading_list_delete_confirm">Apakah Anda yakin ingin menghapus %s?</string>
-  <string name="reading_list_delete_lists_confirm_dialog_title">Hapus daftar terpilih?</string>
-  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+  <string name="reading_list_delete_lists_confirm_dialog_title" fuzzy="true">Hapus daftar terpilih?</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message" fuzzy="true">
     <item quantity="other">Apakah Anda yakin ingin menghapus %d daftar?</item>
   </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Masuk log untuk nyalakan sinkronisasi</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Masuk log untuk membolehkan daftar bacaan Anda disimpan ke akun Anda.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text" fuzzy="true">Masuk log untuk membolehkan daftar bacaan Anda disimpan ke akun Anda.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Batal</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Masuk log</string>
-  <string name="reading_list_turned_sync_off_dialog_title">Sinkronisasi daftar bacaan dimatikan</string>
-  <string name="reading_list_turned_sync_off_dialog_text">Sinkronisasi daftar baca tidak menyala untuk akun Anda, dan artikel tersimpan di perangkat yang Anda masuk tidak lagi dicadangkan. Nyalakan sinkronisasi daftar bacaan di Pengaturan.</string>
+  <string name="reading_list_turned_sync_off_dialog_title" fuzzy="true">Sinkronisasi daftar bacaan dimatikan</string>
+  <string name="reading_list_turned_sync_off_dialog_text" fuzzy="true">Sinkronisasi daftar baca tidak menyala untuk akun Anda, dan artikel tersimpan di perangkat yang Anda masuk tidak lagi dicadangkan. Nyalakan sinkronisasi daftar bacaan di Pengaturan.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Pengaturan</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_title">Nyalakan sinkronisasi daftar bacaan?</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_text">Artikel yang disimpan ke daftar bacaan sekarang dapat disinkronkan ke akun Wikipedia Anda. &lt;a href=\"#faq\"&gt;Pelajari lebih lanjut&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title" fuzzy="true">Nyalakan sinkronisasi daftar bacaan?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text" fuzzy="true">Artikel yang disimpan ke daftar bacaan sekarang dapat disinkronkan ke akun Wikipedia Anda. &lt;a href=\"#faq\"&gt;Pelajari lebih lanjut&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Jangan tunjukkan ini lagi</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Nyalakan sinkronisasi</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Tidak, terima kasih</string>
   <string name="default_reading_list_name">Tersimpan</string>
-  <string name="default_reading_list_description">Daftar baku untuk artikel tersimpan Anda</string>
-  <string name="no_user_lists_title">Atur artikel ke dalam daftar</string>
-  <string name="no_user_lists_msg">Buat daftar untuk tempat yang ingin dikunjungi, topik favorit, dan banyak lagi</string>
+  <string name="default_reading_list_description" fuzzy="true">Daftar baku untuk artikel tersimpan Anda</string>
+  <string name="no_user_lists_title" fuzzy="true">Atur artikel ke dalam daftar</string>
+  <string name="no_user_lists_msg" fuzzy="true">Buat daftar untuk tempat yang ingin dikunjungi, topik favorit, dan banyak lagi</string>
   <string name="reading_list_saved_list_rename">%1$s (dibuat pengguna)</string>
-  <string name="split_reading_list_message">Ada batas %d artikel per daftar bacaan. Daftar yang ada dengan lebih dari batas ini telah dipecah menjadi beberapa daftar.</string>
-  <string name="reading_list_move_article_limit_message">Tidak dapat memindahkan ke daftar ini. Anda telah mencapai batas %2$d artikel per daftar untuk daftar \"%1$s\".</string>
-  <string name="reading_list_article_limit_message">Tidak dapat menambahkan ke daftar ini. Anda telah mencapai batas %2$d artikel per daftar untuk daftar \"%1$s\".</string>
-  <string name="reading_lists_limit_message">Tidak bisa membuat daftar lain. Anda telah mencapai batas 100 daftar bacaan per akun.</string>
-  <string name="reading_lists_menu_create_list">Buat daftar baru</string>
-  <string name="reading_lists_menu_import_list">Impor daftar</string>
+  <string name="split_reading_list_message" fuzzy="true">Ada batas %d artikel per daftar bacaan. Daftar yang ada dengan lebih dari batas ini telah dipecah menjadi beberapa daftar.</string>
+  <string name="reading_list_move_article_limit_message" fuzzy="true">Tidak dapat memindahkan ke daftar ini. Anda telah mencapai batas %2$d artikel per daftar untuk daftar \"%1$s\".</string>
+  <string name="reading_list_article_limit_message" fuzzy="true">Tidak dapat menambahkan ke daftar ini. Anda telah mencapai batas %2$d artikel per daftar untuk daftar \"%1$s\".</string>
+  <string name="reading_lists_limit_message" fuzzy="true">Tidak bisa membuat daftar lain. Anda telah mencapai batas 100 daftar bacaan per akun.</string>
+  <string name="reading_lists_menu_create_list" fuzzy="true">Buat daftar baru</string>
+  <string name="reading_lists_menu_import_list" fuzzy="true">Impor daftar</string>
   <string name="reading_lists_menu_sort_by">Urut berdasarkan</string>
   <string name="reading_lists_refresh_sync_option">Segarkan sinkronisasi</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Masuk log / buat akun</string>
@@ -658,7 +658,7 @@
     <item quantity="one">Artikel ini tidak lagi tersedia secara luring.</item>
     <item quantity="other">Artikel-artikel ini tidak lagi tersedia secara luring.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Daftar bacaan berhasil disinkronkan</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">Daftar bacaan berhasil disinkronkan</string>
   <string name="reading_list_menu_last_sync">Terakhir disinkronkan: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">Oke</string>
   <string name="reading_list_delete_dialog_ok_button_text">Oke</string>
@@ -668,29 +668,29 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Batalkan</string>
   <string name="reading_list_split_dialog_ok_button_text">Oke</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">Hapus</string>
-  <string name="reading_list_activity_title">Daftar bacaan: %s</string>
-  <string name="reading_list_notification_title">Daftar bacaan telah diekspor</string>
-  <string name="reading_list_notification_text">%d daftar bacaan telah diekspor sebagai \'reading_lists export.json\' ke folder unduhan Anda</string>
-  <string name="reading_list_notification_detailed_text">Daftar bacaan telah diekspor ke \'reading_lists_export.json\'</string>
+  <string name="reading_list_activity_title" fuzzy="true">Daftar bacaan: %s</string>
+  <string name="reading_list_notification_title" fuzzy="true">Daftar bacaan telah diekspor</string>
+  <string name="reading_list_notification_text" fuzzy="true">%d daftar bacaan telah diekspor sebagai \'reading_lists export.json\' ke folder unduhan Anda</string>
+  <string name="reading_list_notification_detailed_text" fuzzy="true">Daftar bacaan telah diekspor ke \'reading_lists_export.json\'</string>
   <string name="reading_lists_action_menu_export_lists">Ekspor</string>
   <string name="reading_lists_import_file_picker_title">Pilih berkas untuk diimpor</string>
-  <string name="reading_lists_import_failure_message">Gagal mengimpor daftar bacaan</string>
-  <string name="reading_lists_export_select_lists_message">Pilih daftar untuk diekspor</string>
-  <string name="reading_lists_export_completed_message">Daftar bacaan telah diekspor</string>
-  <plurals name="reading_list_export_failed_message">
+  <string name="reading_lists_import_failure_message" fuzzy="true">Gagal mengimpor daftar bacaan</string>
+  <string name="reading_lists_export_select_lists_message" fuzzy="true">Pilih daftar untuk diekspor</string>
+  <string name="reading_lists_export_completed_message" fuzzy="true">Daftar bacaan telah diekspor</string>
+  <plurals name="reading_list_export_failed_message" fuzzy="true">
     <item quantity="other">Gagal mengekspor daftar bacaan</item>
   </plurals>
-  <plurals name="reading_list_import_success_message">
+  <plurals name="reading_list_import_success_message" fuzzy="true">
     <item quantity="other">Daftar bacaan telah diimpor</item>
   </plurals>
-  <string name="reading_lists_preview_header_title">Daftar bersama</string>
+  <string name="reading_lists_preview_header_title" fuzzy="true">Daftar bersama</string>
   <string name="reading_lists_preview_save_button">Simpan</string>
-  <string name="reading_lists_preview_save_dialog_title">Simpan daftar</string>
-  <string name="reading_lists_preview_save_dialog_text">Daftar nama dan artikel terpilih untuk disimpan.</string>
+  <string name="reading_lists_preview_save_dialog_title" fuzzy="true">Simpan daftar</string>
+  <string name="reading_lists_preview_save_dialog_text" fuzzy="true">Daftar nama dan artikel terpilih untuk disimpan.</string>
   <string name="reading_lists_preview_save_dialog_title_hint">Judul</string>
   <string name="reading_lists_preview_save_dialog_cancel">Batal</string>
   <string name="reading_lists_preview_save_dialog_save">Simpan</string>
-  <string name="reading_lists_preview_saved_snackbar">Daftar bacaan disimpan</string>
+  <string name="reading_lists_preview_saved_snackbar" fuzzy="true">Daftar bacaan disimpan</string>
   <string name="reading_lists_preview_saved_snackbar_action">Lihat</string>
   <string name="user_option_sync_label">Preferensi</string>
   <string name="notification_reverted_title">Suntingan yang dibalikkan</string>
@@ -699,8 +699,8 @@
   <string name="notification_syncing_pause_button">Jeda</string>
   <string name="notification_syncing_resume_button">Lanjutkan</string>
   <string name="notification_syncing_cancel_button">Batal</string>
-  <string name="notification_syncing_reading_list_channel_title">Menyinkronkan Daftar Bacaan</string>
-  <string name="notification_syncing_reading_list_channel_description">Kemajuan Sinkronisasi Daftar Bacaan</string>
+  <string name="notification_syncing_reading_list_channel_title" fuzzy="true">Menyinkronkan Daftar Bacaan</string>
+  <string name="notification_syncing_reading_list_channel_description" fuzzy="true">Kemajuan Sinkronisasi Daftar Bacaan</string>
   <string name="notification_many_unread">Anda memiliki %d pemberitahuan yang belum dibaca</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Mengunduh artikel</item>
@@ -714,15 +714,15 @@
     <item quantity="one">%1$d artikel tersisa</item>
     <item quantity="other">%1$d artikel tersisa</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_channel_name">
+  <plurals name="notification_syncing_reading_list_channel_name" fuzzy="true">
     <item quantity="one">Menyinkronkan Daftar Bacaan</item>
     <item quantity="other">Menyinkronkan Daftar Bacaan</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_title">
+  <plurals name="notification_syncing_reading_list_title" fuzzy="true">
     <item quantity="one">Menyinkronkan %1$d daftar...</item>
     <item quantity="other">Menyinkronkan %1$d daftar...</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_description">
+  <plurals name="notification_syncing_reading_list_description" fuzzy="true">
     <item quantity="one">%1$d daftar tersisa</item>
     <item quantity="other">%1$d daftar tersisa</item>
   </plurals>
@@ -1235,8 +1235,8 @@
   <string name="onboarding_maybe_later">Mungkin lain kali</string>
   <string name="onboarding_explore_title">Cara baru untuk menjelajah</string>
   <string name="onboarding_explore_text">Selami seluk-beluk Wikipedia dengan umpan Beranda yang terus diperbarui. &lt;br/&gt; &lt;b&gt;Sesuaikan&lt;/b&gt; umpan sesuai minat Anda – apakah itu mempelajari tentang peristiwa bersejarah &lt;b&gt;Pada hari ini&lt;/b&gt;, atau melempar dadu dengan &lt;b&gt;Sembarang&lt;/b&gt;.</string>
-  <string name="onboarding_reading_list_sync_title">Daftar bacaan dengan sinkronisasi</string>
-  <string name="onboarding_reading_list_sync_text_v2">Anda bisa membuat daftar bacaan dari artikel yang ingin Anda baca nanti, bahkan saat Anda sedang luring. &lt;br/&gt;Masuk log ke akun Wikipedia Anda untuk menyinkronkan daftar bacaan Anda. &lt;a href=\"#login\"&gt;Bergabunglah dengan Wikipedia&lt;/a&gt;</string>
+  <string name="onboarding_reading_list_sync_title" fuzzy="true">Daftar bacaan dengan sinkronisasi</string>
+  <string name="onboarding_reading_list_sync_text_v2" fuzzy="true">Anda bisa membuat daftar bacaan dari artikel yang ingin Anda baca nanti, bahkan saat Anda sedang luring. &lt;br/&gt;Masuk log ke akun Wikipedia Anda untuk menyinkronkan daftar bacaan Anda. &lt;a href=\"#login\"&gt;Bergabunglah dengan Wikipedia&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Data &amp; Privasi</string>
   <string name="onboarding_data_privacy_text" fuzzy="true">Kami percaya bahwa Anda tidak perlu memberikan informasi pribadi untuk berpartisipasi dalam gerakan pengetahuan bebas. Data penggunaan yang dikumpulkan untuk aplikasi ini bersifat anonim. Pelajari lebih lanjut tentang &lt;a href=\"#privacy\"&gt;kebijakan privasi&lt;/a&gt; dan &lt;a href=\"#termsOfUse\"&gt;ketentuan penggunaan&lt;/a&gt; kami.</string>
   <string name="onboarding_analytics_switch_title">Kirim data penggunaan</string>
@@ -1568,16 +1568,16 @@
   <string name="user_contrib_filter_activity_title">Filter kontribusi</string>
   <string name="action_item_view_on_map">Lihat di peta</string>
   <string name="action_item_view_on_map_unavailable">Koordinat geografis tidak tersedia untuk halaman ini</string>
-  <string name="shareable_reading_lists_import_dialog_title">Impor daftar bacaan bersama</string>
-  <string name="shareable_reading_lists_import_dialog_content">Bagaimana Anda ingin menamai daftar yang telah dibagikan dengan Anda?</string>
+  <string name="shareable_reading_lists_import_dialog_title" fuzzy="true">Impor daftar bacaan bersama</string>
+  <string name="shareable_reading_lists_import_dialog_content" fuzzy="true">Bagaimana Anda ingin menamai daftar yang telah dibagikan dengan Anda?</string>
   <string name="shareable_reading_lists_new_indicator">*baru*</string>
-  <string name="shareable_reading_lists_new_install_dialog_title">Daftar bacaan telah dibagikan dengan Anda</string>
-  <string name="shareable_reading_lists_new_install_dialog_content">Kami melihat bahwa daftar bacaan telah dibagikan kepada Anda. Untuk melihat daftar ini di aplikasi, kembali ke pesan awal dan ketuk lagi tautannya.</string>
+  <string name="shareable_reading_lists_new_install_dialog_title" fuzzy="true">Daftar bacaan telah dibagikan dengan Anda</string>
+  <string name="shareable_reading_lists_new_install_dialog_content" fuzzy="true">Kami melihat bahwa daftar bacaan telah dibagikan kepada Anda. Untuk melihat daftar ini di aplikasi, kembali ke pesan awal dan ketuk lagi tautannya.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Mengerti</string>
-  <string name="shareable_reading_lists_new_imported_snackbar">Daftar bacaan telah diimpor</string>
+  <string name="shareable_reading_lists_new_imported_snackbar" fuzzy="true">Daftar bacaan telah diimpor</string>
   <string name="reading_list_share_menu_label">Bagikan...</string>
-  <string name="reading_list_share_menu_tooltip">Bagikan daftar bacaan ini dengan orang lain</string>
-  <string name="reading_list_share_message_v2">Hai! Saya ingin berbagi daftar bacaan Wikipedia saya dengan Anda:</string>
+  <string name="reading_list_share_menu_tooltip" fuzzy="true">Bagikan daftar bacaan ini dengan orang lain</string>
+  <string name="reading_list_share_message_v2" fuzzy="true">Hai! Saya ingin berbagi daftar bacaan Wikipedia saya dengan Anda:</string>
   <string name="talk_templates_empty_message">Buat pesan Anda sendiri atau gunakan &lt;a href=\"#\"&gt;contoh pesan&lt;/a&gt; untuk memulai.</string>
   <string name="talk_templates_new_message_title">pesan baru</string>
   <string name="talk_templates_new_message_subject_hint">Subyek</string>
@@ -1863,8 +1863,8 @@
   <string name="year_in_review_get_started_later">Anda bisa mengakses Tinjauan Tahunan Anda nanti di menu Selebihnya.</string>
   <string name="year_in_review_survey_title">Bantu tingkatkan Tinjauan Tahunan</string>
   <string name="year_in_review_survey_subtitle">Apakah Anda puas dengan fitur ini?</string>
-  <string name="year_in_review_reading_list_survey_title">Bantu tingkatkan daftar bacaan Tinjauan Tahunan %d.</string>
-  <string name="year_in_review_reading_list_survey_subtitle">Apakah Anda puas dengan daftar bacaan Anda?</string>
+  <string name="year_in_review_reading_list_survey_title" fuzzy="true">Bantu tingkatkan daftar bacaan Tinjauan Tahunan %d.</string>
+  <string name="year_in_review_reading_list_survey_subtitle" fuzzy="true">Apakah Anda puas dengan daftar bacaan Anda?</string>
   <string name="year_in_review_survey_very_satisfied">Sangat puas</string>
   <string name="year_in_review_survey_satisfied">Puas</string>
   <string name="year_in_review_survey_neutral">Netral</string>
@@ -1948,8 +1948,8 @@
   <string name="year_in_review_slide_reading_pattern_night">Malam</string>
   <string name="year_in_review_slide_reading_pattern_late_night">Larut malam</string>
   <string name="year_in_review_slide_viewed_articles_times_body">Bagi orang-orang di seluruh dunia, Wikipedia adalah tempat pertama yang mereka kunjungi saat ingin mencari jawaban atas suatu pertanyaan, mencari informasi untuk keperluan sekolah atau pekerjaan, atau mempelajari fakta baru.</string>
-  <string name="year_in_review_reading_list_dialog_title">Buat daftar bacaan Tinjauan Tahunan %d Anda?</string>
-  <string name="year_in_review_reading_list_dialog_message">Tinjauan Tahunan akan membuat daftar bacaan berisi artikel-artikel yang paling banyak Anda baca pada %1$d. &lt;a href=\"%2$s\"&gt;Pelajari selengkapnya&lt;/a&gt;</string>
+  <string name="year_in_review_reading_list_dialog_title" fuzzy="true">Buat daftar bacaan Tinjauan Tahunan %d Anda?</string>
+  <string name="year_in_review_reading_list_dialog_message" fuzzy="true">Tinjauan Tahunan akan membuat daftar bacaan berisi artikel-artikel yang paling banyak Anda baca pada %1$d. &lt;a href=\"%2$s\"&gt;Pelajari selengkapnya&lt;/a&gt;</string>
   <string name="year_in_review_reading_list_dialog_positive_button_label">Buat</string>
   <string name="year_in_review_reading_list_dialog_negative_button_label">Tidak, terima kasih</string>
   <string name="year_in_review_reading_list_title">Tinjauan Tahunan %d</string>
@@ -1976,7 +1976,7 @@
   <string name="year_in_review_highlights_logo_description">Logo Wikipedia</string>
   <string name="recommended_reading_list_title">Temukan</string>
   <string name="recommended_reading_list_onboarding_card_title">Temukan artikel yang dipilih khusus untuk Anda</string>
-  <string name="recommended_reading_list_onboarding_card_message">Daftar bacaan mingguan Anda dari artikel Wikipedia, yang disusun khusus untuk Anda.</string>
+  <string name="recommended_reading_list_onboarding_card_message" fuzzy="true">Daftar bacaan mingguan Anda dari artikel Wikipedia, yang disusun khusus untuk Anda.</string>
   <string name="recommended_reading_list_onboarding_card_new">Baru!</string>
   <string name="recommended_reading_list_onboarding_card_positive_button">Memulai</string>
   <string name="recommended_reading_list_onboarding_card_negative_button">Tidak, terima kasih</string>

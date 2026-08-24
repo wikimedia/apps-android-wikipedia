@@ -30,7 +30,7 @@
   <string name="search_back_button_content_description">Idi natrag</string>
   <string name="search_clear_query_content_description">Očistite upit</string>
   <string name="search_icon_content_description">Pretraga</string>
-  <string name="filter_hint_filter_my_lists_and_articles">Filtriraj moje popise</string>
+  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">Filtriraj moje popise</string>
   <string name="nav_item_suggested_edits">Uređivanjā</string>
   <string name="nav_item_activity">Aktivnost</string>
   <string name="nav_item_more">Više</string>
@@ -99,16 +99,16 @@
   <string name="menu_page_watched">Praćeno</string>
   <string name="edit_section_find_in_page">Traži na stranici</string>
   <string name="menu_page_font_and_theme">Vrsta pisma i dizajn stranice</string>
-  <string name="menu_page_add_to_list">Dodaj na popis za čitanje</string>
+  <string name="menu_page_add_to_list" fuzzy="true">Dodaj na popis za čitanje</string>
   <string name="menu_page_add_to_default_list">Spremi</string>
-  <string name="feed_card_add_to_list">Dodaj na popis za čitanje</string>
+  <string name="feed_card_add_to_list" fuzzy="true">Dodaj na popis za čitanje</string>
   <string name="feed_card_add_to_default_list">Spremi</string>
   <string name="menu_page_share">Podijelite poveznicu</string>
   <string name="menu_article_share">Podijeli članak</string>
   <string name="menu_page_article_share">Podijeli</string>
   <string name="menu_page_open_a_new_tab">Otvori novu karticu</string>
   <string name="menu_page_new_tab">Nova kartica</string>
-  <string name="menu_page_reading_lists">Popisi za čitanje</string>
+  <string name="menu_page_reading_lists" fuzzy="true">Popisi za čitanje</string>
   <string name="menu_page_recently_viewed">Nedavno pregledano</string>
   <string name="menu_page_archive">Arhiv</string>
   <string name="menu_long_press_open_page">Otvori</string>
@@ -151,7 +151,7 @@
   <string name="menu_show_toc">Sadržaj</string>
   <string name="search_no_results_found">Nema rezultata</string>
   <string name="search_reading_list_no_results">Nisu pronađeni rezultati s popisa »%s«</string>
-  <string name="search_reading_lists_no_results">Nisu pronađeni rezultati na popisima za čitanje</string>
+  <string name="search_reading_lists_no_results" fuzzy="true">Nisu pronađeni rezultati na popisima za čitanje</string>
   <string name="search_history_no_results">Nisu pronađeni rezultati u povijesti</string>
   <string name="edit_section_captcha_message">Da biste se zaštitili od neželjenih poruka, molimo unesite riječi koje se pokazuju ispod</string>
   <string name="edit_section_captcha_request_an_account_message">Ne vidite sliku? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Zatražite račun&lt;/a&gt;</string>
@@ -230,12 +230,12 @@
   <string name="preferences_heading_syncing">Sinkronizacija</string>
   <string name="preferences_heading_data_usage">Korištenje podataka</string>
   <string name="preferences_heading_experimental">Eksperimentalno</string>
-  <string name="preference_title_sync_reading_lists_from_account">Sinkronizacija popisa za čitanje</string>
-  <string name="preference_title_download_reading_list_articles">Preuzmi članke s popisa za čitanje</string>
-  <string name="preference_summary_sync_reading_lists">Sinkronizirajte popise za čitanje među različitim uređajima tako da ih spremite na svoj račun na Wikipediji</string>
-  <string name="preference_summary_sync_reading_lists_from_account">Sinkronizirajte popise za čitanje među različitim uređajima tako da ih spremite na Vaš račun \"%s\" na Wikipediji</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Ukloniti sinkronizirane popise za čitanje s računa \"%s\"?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Ovo će u potpunosti izbrisati sve prethodno sinkronizirane popise za čitanje iz udaljene pohrane. Ukloniti sve sinkronizirane popise za čitanje s Vašeg računa \"%s\"?</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Sinkronizacija popisa za čitanje</string>
+  <string name="preference_title_download_reading_list_articles" fuzzy="true">Preuzmi članke s popisa za čitanje</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">Sinkronizirajte popise za čitanje među različitim uređajima tako da ih spremite na svoj račun na Wikipediji</string>
+  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">Sinkronizirajte popise za čitanje među različitim uređajima tako da ih spremite na Vaš račun \"%s\" na Wikipediji</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">Ukloniti sinkronizirane popise za čitanje s računa \"%s\"?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">Ovo će u potpunosti izbrisati sve prethodno sinkronizirane popise za čitanje iz udaljene pohrane. Ukloniti sve sinkronizirane popise za čitanje s Vašeg računa \"%s\"?</string>
   <string name="preference_title_auto_upload_crash_reports">Slanje izvješća o padu programa</string>
   <string name="preference_summary_auto_upload_crash_reports">Dopusti automatsko slanje izvješća o pogreškama servisu treće strane, kako bismo mogli vidjeti informacije o pogrešci i brže i lakše ispraviti ju.</string>
   <string name="editing_error_spamblacklist">Pronađeni su linkovi na popis blokiranih domena (%s). Molimo, uklonite ih i pokušajte ponovno.</string>
@@ -371,8 +371,8 @@
   <string name="unnamed_tab_closed">Kartica je zatvorena.</string>
   <string name="tab_item_closed">Članak %s zatvoren.</string>
   <string name="all_tab_items_closed">Sve kartice su zatvorene.</string>
-  <string name="tool_tip_bookmark_icon_title">Dodaj na popis za čitanje</string>
-  <string name="tool_tip_bookmark_icon_text">Dodirnite sličicu dočitnice da biste sačuvali članak na popis za čitanje.</string>
+  <string name="tool_tip_bookmark_icon_title" fuzzy="true">Dodaj na popis za čitanje</string>
+  <string name="tool_tip_bookmark_icon_text" fuzzy="true">Dodirnite sličicu dočitnice da biste sačuvali članak na popis za čitanje.</string>
   <string name="page_view_in_browser">Pogledaj stranicu u pregledniku</string>
   <string name="tool_tip_toc_title">Brzi pristup tablici sadržaja</string>
   <string name="tool_tip_toc_text">Sadržaju od sada možete pristupiti povlačenjem ulijevo te možete kliknuti i povlačiti ovaj pokazivač kako biste brzo prešli na drugi dio članka.</string>
@@ -385,9 +385,9 @@
   <string name="button_continue_to_talk_page">Prikaži stranicu za razgovor</string>
   <string name="button_continue_to_disambiguation">Vidi slične stranice</string>
   <string name="link_preview_disambiguation_description">Ovaj se naslov odnosi na više stranica:</string>
-  <string name="button_add_to_reading_list">Dodaj na popis za čitanje</string>
+  <string name="button_add_to_reading_list" fuzzy="true">Dodaj na popis za čitanje</string>
   <string name="page_offline_notice_cannot_load_while_offline">Nije moguće učitati članak u izvanmrežnom načinu rada.</string>
-  <string name="page_offline_notice_add_to_reading_list">Savjet: Dodajte članak na popis za čitanje i bit će preuzet čim se ponovno povežete na internet.</string>
+  <string name="page_offline_notice_add_to_reading_list" fuzzy="true">Savjet: Dodajte članak na popis za čitanje i bit će preuzet čim se ponovno povežete na internet.</string>
   <string name="page_offline_notice_last_date">Čitate izvanmrežnu inačicu članka, sačuvanu %s.</string>
   <string name="redirected_from_snackbar">Preusmjereno s »%s«</string>
   <string name="button_get_directions">Upute za dolazak</string>
@@ -477,15 +477,15 @@
   <string name="editing_monospace_font_label">Rabi neproporcionalni font</string>
   <string name="editing_typing_suggestions">Prikaži prijedloge pri tipkanju</string>
   <string name="nav_item_saved">Spremljeno</string>
-  <string name="reading_list_save_to">Dodaj na popis za čitanje</string>
-  <string name="reading_list_move_to">Premjesti na popis za čitanje</string>
+  <string name="reading_list_save_to" fuzzy="true">Dodaj na popis za čitanje</string>
+  <string name="reading_list_move_to" fuzzy="true">Premjesti na popis za čitanje</string>
   <string name="reading_list_create_new">Stvori novi</string>
-  <string name="reading_list_title_exists">Popis za čitanje „%s” već postoji.</string>
+  <string name="reading_list_title_exists" fuzzy="true">Popis za čitanje „%s” već postoji.</string>
   <string name="reading_list_article_moved_to_named">Premješten %1$s na %2$s.</string>
   <string name="reading_list_article_already_exists_message">Sve je u redu! %1$s već sadrži %2$s.</string>
   <string name="reading_list_articles_already_exist_message">Sve je u redu! %s već sadrži sve članke.</string>
-  <string name="reading_list_added_view_button">Prikaz popisa</string>
-  <string name="reading_list_add_to_list_button">Dodaj na popis</string>
+  <string name="reading_list_added_view_button" fuzzy="true">Prikaz popisa</string>
+  <string name="reading_list_add_to_list_button" fuzzy="true">Dodaj na popis</string>
   <string name="reading_list_sort">Poredaj</string>
   <string name="reading_list_sort_ellipsis">Poredaj...</string>
   <string name="reading_list_sort_by_name">Poredaj po nazivu</string>
@@ -494,63 +494,63 @@
   <string name="reading_list_sort_by_recent_desc">Poredaj po datumu dodavanja (prvo najstarije)</string>
   <string name="reading_list_sort_by_created">Poredaj po datumu stvaranja (prvo najnovije)</string>
   <string name="reading_list_sort_by_created_desc">Poredaj po datumu stvaranja (prvo najstarije)</string>
-  <string name="reading_list_menu_delete">Izbriši popis</string>
+  <string name="reading_list_menu_delete" fuzzy="true">Izbriši popis</string>
   <string name="reading_list_menu_rename">Uredi naziv/opis</string>
   <string name="reading_list_action_menu_remove_from_offline">Ukloni iz izvanmrežne pohrane</string>
   <string name="reading_list_action_menu_save_for_offline">Spremi u izvanmrežnu pohranu</string>
   <string name="reading_list_action_menu_remove_all_from_offline">Ukloni sve iz izvanmrežne pohrane</string>
   <string name="reading_list_action_menu_save_all_for_offline">Spremi sve u izvanmrežnu pohranu</string>
-  <string name="reading_list_action_menu_add_to_another_list">Dodaj na drugi popis</string>
-  <string name="reading_list_action_menu_move_to_another_list">Premjesti na drugi popis</string>
-  <string name="reading_list_name_sample">Moj popis za čitanje</string>
-  <string name="reading_list_name_hint">Naziv ovog popisa</string>
+  <string name="reading_list_action_menu_add_to_another_list" fuzzy="true">Dodaj na drugi popis</string>
+  <string name="reading_list_action_menu_move_to_another_list" fuzzy="true">Premjesti na drugi popis</string>
+  <string name="reading_list_name_sample" fuzzy="true">Moj popis za čitanje</string>
+  <string name="reading_list_name_hint" fuzzy="true">Naziv ovog popisa</string>
   <string name="reading_list_description_hint">Opis (nije obavezno)</string>
-  <string name="reading_list_item_deleted">%s uklonjen s popisa</string>
+  <string name="reading_list_item_deleted" fuzzy="true">%s uklonjen s popisa</string>
   <string name="reading_list_item_delete_undo">Poništi</string>
   <string name="reading_list_deleted">%s uklonjeno</string>
   <string name="saved_list_empty_title" fuzzy="true">Zasad nema spremljenih stranica</string>
-  <string name="reading_lists_empty_message">Dodajte članke na popis za čitanje, čak i kada niste povezani na internet.</string>
-  <string name="reading_list_empty">Niste dodali članke na ovaj popis.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Dodajte članke na popis za čitanje, čak i kada niste povezani na internet.</string>
+  <string name="reading_list_empty" fuzzy="true">Niste dodali članke na ovaj popis.</string>
   <string name="reading_list_article_offline">Dostupno izvan mreže</string>
   <string name="reading_list_article_make_offline">Neka ovaj članak bude dostupan izvan mreže</string>
-  <string name="reading_list_add_to_other_list">Dodaj na drugi popis za čitanje</string>
-  <string name="reading_list_move_to_other_list">Dodaj na drugi popis za čitanje</string>
-  <string name="reading_list_move_from_to_other_list">Premjesti iz %s na drugi popis za čitanje</string>
+  <string name="reading_list_add_to_other_list" fuzzy="true">Dodaj na drugi popis za čitanje</string>
+  <string name="reading_list_move_to_other_list" fuzzy="true">Dodaj na drugi popis za čitanje</string>
+  <string name="reading_list_move_from_to_other_list" fuzzy="true">Premjesti iz %s na drugi popis za čitanje</string>
   <string name="reading_list_remove_from_list">Ukloni s popisa %s</string>
-  <string name="reading_list_remove_from_lists">Ukloni s popisa za čitanje</string>
+  <string name="reading_list_remove_from_lists" fuzzy="true">Ukloni s popisa za čitanje</string>
   <string name="reading_list_select_item">Odaberi</string>
   <string name="reading_list_confirm_remove_article_from_offline">Ukloni iz izvanmrežne pohrane</string>
-  <string name="reading_list_confirm_remove_article_from_offline_title">Članak se pojavljuje na više popisa</string>
-  <string name="reading_list_confirm_remove_article_from_offline_message">%s više neće biti dostupan/-na na svim popisima za čitanje kada niste povezani na internet:</string>
-  <string name="reading_lists_sync_reminder_title">Uključiti sinkronizaciju popisa za čitanje?</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title" fuzzy="true">Članak se pojavljuje na više popisa</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s više neće biti dostupan/-na na svim popisima za čitanje kada niste povezani na internet:</string>
+  <string name="reading_lists_sync_reminder_title" fuzzy="true">Uključiti sinkronizaciju popisa za čitanje?</string>
   <string name="reading_lists_sync_reminder_action">Omogući sinkronizaciju</string>
-  <string name="reading_list_login_reminder_title">Sinkroniziranje popisa za čitanje</string>
-  <string name="reading_lists_login_reminder_text">Popisi za čitanje sada se mogu sinkronizirati na više uređaja. Prijavite se s Vašim računom na Wikipediji i dopustite spremanje Vaših popisa.</string>
+  <string name="reading_list_login_reminder_title" fuzzy="true">Sinkroniziranje popisa za čitanje</string>
+  <string name="reading_lists_login_reminder_text" fuzzy="true">Popisi za čitanje sada se mogu sinkronizirati na više uređaja. Prijavite se s Vašim računom na Wikipediji i dopustite spremanje Vaših popisa.</string>
   <string name="reading_lists_login_button">Prijavi se / stvori račun na Wikipediji</string>
   <string name="reading_lists_ignore_button">Trenutačno ne</string>
   <string name="reading_lists_confirm_remote_delete_yes">Da</string>
   <string name="reading_lists_confirm_remote_delete_no">Ne</string>
   <string name="reading_list_article_save_in_progress">Članak se preuzima i nakon dovršetka bit će dostupan izvan mreže.</string>
   <string name="reading_list_delete_confirm">Želite li zaista pobrisati %s?</string>
-  <string name="reading_list_delete_lists_confirm_dialog_title">Želite li izbrisati odabrane popise?</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title" fuzzy="true">Želite li izbrisati odabrane popise?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Prijavite se za omogućavanje sinkronizacije</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Prijavite se da bi Vaši popisi za čitanje bili spremljeni na Vaš račun.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text" fuzzy="true">Prijavite se da bi Vaši popisi za čitanje bili spremljeni na Vaš račun.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Odustani</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Prijava</string>
-  <string name="reading_list_turned_sync_off_dialog_title">Sinkronizacija popisa za čitanje isključena</string>
+  <string name="reading_list_turned_sync_off_dialog_title" fuzzy="true">Sinkronizacija popisa za čitanje isključena</string>
   <string name="reading_list_turned_sync_off_dialog_ok">U redu</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Postavke</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_title">Uključiti sinkronizaciju popisa za čitanje?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title" fuzzy="true">Uključiti sinkronizaciju popisa za čitanje?</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Ne prikazuj ovo ponovno</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Omogući sinkronizaciju</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ne, hvala</string>
   <string name="default_reading_list_name">Spremljeno</string>
-  <string name="default_reading_list_description">Zadani popis za Vaše spremljene članke</string>
-  <string name="no_user_lists_title">Organizirajte članke u popise</string>
-  <string name="no_user_lists_msg">Stvorite popise za mjesta koja želite posjetiti, omiljene teme i više toga</string>
+  <string name="default_reading_list_description" fuzzy="true">Zadani popis za Vaše spremljene članke</string>
+  <string name="no_user_lists_title" fuzzy="true">Organizirajte članke u popise</string>
+  <string name="no_user_lists_msg" fuzzy="true">Stvorite popise za mjesta koja želite posjetiti, omiljene teme i više toga</string>
   <string name="reading_list_saved_list_rename">%1$s (stvorio korisnik)</string>
-  <string name="reading_lists_menu_create_list">Stvori novi popis</string>
-  <string name="reading_lists_menu_import_list">Uvezi popis</string>
+  <string name="reading_lists_menu_create_list" fuzzy="true">Stvori novi popis</string>
+  <string name="reading_lists_menu_import_list" fuzzy="true">Uvezi popis</string>
   <string name="reading_lists_menu_sort_by">Poredaj po</string>
   <string name="reading_lists_refresh_sync_option">Osvježi sinkronizaciju</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Prijava / registracija</string>
@@ -573,16 +573,16 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Odustani</string>
   <string name="reading_list_split_dialog_ok_button_text">U redu</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">Izbriši</string>
-  <string name="reading_list_activity_title">Popis za čitanje: %s</string>
-  <string name="reading_list_notification_title">Uspješno ste izvezli popis(e) za čitanje</string>
-  <string name="reading_list_notification_detailed_text">Popisi za čitanje izvezeni su u \'reading_lists_export.json\'</string>
+  <string name="reading_list_activity_title" fuzzy="true">Popis za čitanje: %s</string>
+  <string name="reading_list_notification_title" fuzzy="true">Uspješno ste izvezli popis(e) za čitanje</string>
+  <string name="reading_list_notification_detailed_text" fuzzy="true">Popisi za čitanje izvezeni su u \'reading_lists_export.json\'</string>
   <string name="reading_lists_action_menu_export_lists">Izvoz</string>
   <string name="reading_lists_import_file_picker_title">Izaberite datoteku za uvoz</string>
-  <string name="reading_lists_import_failure_message">Uvoz popisa za čitanje nije uspio</string>
-  <string name="reading_lists_export_select_lists_message">Izaberite popis(e) za uvoz</string>
-  <string name="reading_lists_export_completed_message">Uspješno ste izvezli popis(e) za čitanje</string>
-  <string name="reading_lists_preview_save_dialog_title">Sačuvaj popis</string>
-  <string name="reading_lists_preview_save_dialog_text">Naslovite popis i izaberite članke koje želite spremiti.</string>
+  <string name="reading_lists_import_failure_message" fuzzy="true">Uvoz popisa za čitanje nije uspio</string>
+  <string name="reading_lists_export_select_lists_message" fuzzy="true">Izaberite popis(e) za uvoz</string>
+  <string name="reading_lists_export_completed_message" fuzzy="true">Uspješno ste izvezli popis(e) za čitanje</string>
+  <string name="reading_lists_preview_save_dialog_title" fuzzy="true">Sačuvaj popis</string>
+  <string name="reading_lists_preview_save_dialog_text" fuzzy="true">Naslovite popis i izaberite članke koje želite spremiti.</string>
   <string name="reading_lists_preview_save_dialog_title_hint">Naslov</string>
   <string name="reading_lists_preview_save_dialog_cancel">Odustani</string>
   <string name="reading_lists_preview_saved_snackbar_action">Prikaži</string>
@@ -593,7 +593,7 @@
   <string name="notification_syncing_pause_button">Pauziraj</string>
   <string name="notification_syncing_resume_button">Nastavi</string>
   <string name="notification_syncing_cancel_button">Odustani</string>
-  <string name="notification_syncing_reading_list_channel_description">Napredak sinkronizacije popisa za čitanje</string>
+  <string name="notification_syncing_reading_list_channel_description" fuzzy="true">Napredak sinkronizacije popisa za čitanje</string>
   <string name="notification_many_unread">Imate nepročitanih obavijesti (%d)</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Preuzimanje članka</item>
@@ -893,7 +893,7 @@
   <string name="onboarding_get_started">Krenimo</string>
   <string name="onboarding_maybe_later">Možda kasnije</string>
   <string name="onboarding_explore_title">Novi načini istraživanja</string>
-  <string name="onboarding_reading_list_sync_title">Popisi za čitanje sa sinkronizacijom</string>
+  <string name="onboarding_reading_list_sync_title" fuzzy="true">Popisi za čitanje sa sinkronizacijom</string>
   <string name="onboarding_analytics_switch_title">Šalji podatke o korištenju</string>
   <string name="onboarding_got_it">Shvaćam</string>
   <string name="onboarding_multilingual_secondary_text">Pronašli smo sljedeće na Vašem uređaju:</string>
