@@ -120,8 +120,7 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
         val selectedValue = if (Prefs.donationReminderConfig.articleFrequency <= 0) preSelectedArticleFrequency
         else Prefs.donationReminderConfig.articleFrequency
 
-        val selectedSource = if (options.contains(selectedValue)) SelectedSource.Preset(options.indexOf(selectedValue))
-        else SelectedSource.Custom
+        val selectedSource = SelectedSource.Preset(0)
 
         return SelectableOption(
             selectedValue,
@@ -156,12 +155,7 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
         val selectedValue = if (Prefs.donationReminderConfig.donateAmount <= 0f) presets.first()
         else Prefs.donationReminderConfig.donateAmount
 
-        val selectedPresetIndex = presets.indexOfFirst { it == selectedValue }
-        val selectedSource = if (selectedPresetIndex >= 0) {
-            SelectedSource.Preset(selectedPresetIndex)
-        } else {
-            SelectedSource.Custom
-        }
+        val selectedSource = SelectedSource.Preset(0)
 
         return SelectableOption(
             selectedValue,
