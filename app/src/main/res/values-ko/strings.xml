@@ -327,6 +327,11 @@
   <string name="edit_notices_please_read">편집하기 전에 읽어 주십시오</string>
   <string name="edit_notices_show_auto">자동으로 편집 알림 표시</string>
   <string name="edit_notices_tooltip">이 문서의 편집 알림을 보려면 이 버튼을 탭하십시오.</string>
+  <string name="editor_select_dialog_title">편집 방법 선택</string>
+  <string name="editor_select_dialog_ve_title">시각 편집</string>
+  <string name="editor_select_dialog_source_title">원본 편집</string>
+  <string name="editor_select_dialog_continue">계속</string>
+  <string name="editor_select_save_btn_settings_screen">저장</string>
   <string name="find_next">다음 찾기</string>
   <string name="find_previous">이전 찾기</string>
   <string name="find_first_occurence">이것이 처음 항목입니다</string>
