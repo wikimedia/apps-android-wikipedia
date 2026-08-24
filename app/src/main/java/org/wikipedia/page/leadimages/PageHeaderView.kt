@@ -150,8 +150,8 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
             }
 
             val dateText = DateUtil.getMMMMdYYYY(Date(config.setupTimestamp))
-            val messageText = context.getString(R.string.donation_reminders_prompt_message, dateText, articleText, donationAmount)
-            val positiveButtonText = context.getString(R.string.donation_reminders_prompt_positive_button)
+            val messageText = context.getString(R.string.donation_reminders_prompt_message_v2, dateText, articleText, donationAmount)
+            val positiveButtonText = context.getString(R.string.donation_reminders_prompt_positive_button_v2)
             val negativeButtonText = context.getString(R.string.donation_reminders_prompt_negative_button)
             binding.donationReminderCardView.setTitle(titleText)
             binding.donationReminderCardView.setMessage(messageText)
