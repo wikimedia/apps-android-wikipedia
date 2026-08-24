@@ -39,7 +39,7 @@
   <string name="search_back_button_content_description">Gå tilbage</string>
   <string name="search_clear_query_content_description">Ryd forespørgsel</string>
   <string name="search_icon_content_description">Søg</string>
-  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">Filtrer mine lister</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Filtrer mine samlinger</string>
   <string name="nav_item_suggested_edits">Redigeringer</string>
   <string name="nav_item_activity">Aktivitet</string>
   <string name="nav_item_more">Mere</string>
@@ -106,16 +106,16 @@
   <string name="menu_page_watched">Overvåget</string>
   <string name="edit_section_find_in_page">Søg på siden</string>
   <string name="menu_page_font_and_theme">Skrifttype og tema</string>
-  <string name="menu_page_add_to_list" fuzzy="true">Føj til læseliste</string>
+  <string name="menu_page_add_to_list">Tilføj til samling</string>
   <string name="menu_page_add_to_default_list">Gem</string>
-  <string name="feed_card_add_to_list" fuzzy="true">Tilføj til læseliste</string>
+  <string name="feed_card_add_to_list">Tilføj til samling</string>
   <string name="feed_card_add_to_default_list">Gem</string>
   <string name="menu_page_share">Del link</string>
   <string name="menu_article_share">Del artikel</string>
   <string name="menu_page_article_share">Del</string>
   <string name="menu_page_open_a_new_tab">Åbn en ny fane</string>
   <string name="menu_page_new_tab">Ny fane</string>
-  <string name="menu_page_reading_lists" fuzzy="true">Læselister</string>
+  <string name="menu_page_reading_lists">Samlinger</string>
   <string name="menu_page_recently_viewed">Senest vist</string>
   <string name="menu_page_archive">Arkiv</string>
   <string name="menu_long_press_open_page">Åbn</string>
@@ -158,7 +158,9 @@
   <string name="menu_show_toc">Indholdsfortegnelse</string>
   <string name="search_no_results_found">Ingen resultater fundet</string>
   <string name="search_reading_list_no_results">Ingen resultater fundet i \"%s\"</string>
-  <string name="search_reading_lists_no_results" fuzzy="true">Ingen resultater fundet i læselister</string>
+  <string name="search_reading_lists_no_results">Ingen resultater fundet i samlingerne</string>
+  <string name="search_all_articles_no_results">Ingen resultater fundet i alle artikler</string>
+  <string name="search_collections_no_results">Ingen resultater fundet i samlingerne</string>
   <string name="search_history_no_results">Ingen resultater fundet i historik</string>
   <string name="edit_section_captcha_message">For at beskytte mod automatiseret spam bedes du indtaste de ord, der vises nedenfor</string>
   <string name="edit_section_captcha_request_an_account_message">Kan du ikke se billeder? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Anmod om en konto&lt;/a&gt;</string>
@@ -238,12 +240,12 @@
   <string name="preferences_heading_syncing">Synkroniserer</string>
   <string name="preferences_heading_data_usage">Dataforbrug</string>
   <string name="preferences_heading_experimental">Eksperimentel</string>
-  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Synkronisering af læselister</string>
-  <string name="preference_title_download_reading_list_articles" fuzzy="true">Hent artikler på din læseliste</string>
-  <string name="preference_summary_sync_reading_lists" fuzzy="true">Synkroniser læselister på tværs af forskellige enheder ved at gemme dem på din Wikipediakonto</string>
-  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">Synkroniser læselister på tværs af forskellige enheder ved at gemme dem på din Wikipediakonto »%s«</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">Fjern synkroniserede læselister fra \"%s\"?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">Dette vil fuldstændig slette alle tidligere synkroniserede læselister fra fjernlageret. Fjern alle synkroniserede lister fra din konto \"%s\"?</string>
+  <string name="preference_title_sync_reading_lists_from_account">Synkronisering af samling</string>
+  <string name="preference_title_download_reading_list_articles">Hent artikler fra samlingen</string>
+  <string name="preference_summary_sync_reading_lists">Synkroniser samlinger på tværs af forskellige enheder ved at gemme dem på din Wikipedia-konto</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Synkroniser samlinger på tværs af forskellige enheder ved at gemme dem på din Wikipedia-konto \"%s\"</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Fjern synkroniserede samlinger fra \"%s\"?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Dette vil fuldstændig slette alle tidligere synkroniserede samlinger fra fjernlageret. Fjern alle synkroniserede samlinger fra din konto \"%s\"?</string>
   <string name="preference_title_auto_upload_crash_reports">Send rapporter om nedbrud</string>
   <string name="preference_summary_auto_upload_crash_reports">Tillad appen at sende rapporter om nedbrud til en tredjepartstjeneste automatisk, så vi kan gennemgå nedbruddet og rette fejlen hurtigere og nemmere.</string>
   <string name="editing_error_spamblacklist">Henvisninger til blokerede domæner (%s) fundet. Fjern dem, og prøv igen.</string>
@@ -313,6 +315,16 @@
   <string name="edit_notices_please_read">Læs venligst før du redigerer</string>
   <string name="edit_notices_show_auto">Vis redigeringsbemærkninger automatisk</string>
   <string name="edit_notices_tooltip">Tryk på denne knap for at se redigeringsbemærkninger for denne artikel.</string>
+  <string name="editor_select_dialog_title">Vælg hvordan du vil redigere</string>
+  <string name="editor_select_dialog_ve_title">Visuel redigering</string>
+  <string name="editor_select_dialog_ve_subtitle">Foretag ændringer direkte på den side, du ser. Åbner i din browser.</string>
+  <string name="editor_select_dialog_source_title">Kilderedigering</string>
+  <string name="editor_select_dialog_source_subtitle">Foretag ændringer ved hjælp af markup. Forbliver i appen.</string>
+  <string name="editor_select_dialog_dont_show_again">Vis mig ikke dette igen. Denne standardindstilling kan ændres senere i Indstillinger.</string>
+  <string name="editor_select_dialog_continue">Fortsæt</string>
+  <string name="editor_select_icon_ve_title">Ikon for at åbne i en ekstern browser</string>
+  <string name="editor_select_title_settings_screen">Redigeringspræference</string>
+  <string name="editor_select_save_btn_settings_screen">Gem</string>
   <string name="find_next">Find næste</string>
   <string name="find_previous">Find forrige</string>
   <string name="find_first_occurence">Dette er den første forekomst</string>
@@ -384,8 +396,8 @@
   <string name="unnamed_tab_closed">Fanen blev lukket.</string>
   <string name="tab_item_closed">%s lukket.</string>
   <string name="all_tab_items_closed">Alle faner lukket.</string>
-  <string name="tool_tip_bookmark_icon_title" fuzzy="true">Tilføj til læseliste</string>
-  <string name="tool_tip_bookmark_icon_text" fuzzy="true">Tryk på bogmærkeikonet for at gemme artiklen i en læseliste.</string>
+  <string name="tool_tip_bookmark_icon_title">Tilføj til samlinger</string>
+  <string name="tool_tip_bookmark_icon_text">Tryk på bogmærkeikonet for at gemme artiklen i en samling.</string>
   <string name="page_view_in_browser">Få vist siden i browseren</string>
   <string name="tool_tip_toc_title">Hurtig adgang til indholdsfortegnelse</string>
   <string name="tool_tip_toc_text">Du kan nu swipe til venstre for at åbne indholdsfortegnelsen, og også trykke og trække på denne rulleknap for at hurtigt hoppe til forskellige afsnit i artiklen.</string>
@@ -398,9 +410,9 @@
   <string name="button_continue_to_talk_page">Vis diskussionsside</string>
   <string name="button_continue_to_disambiguation">Vis lignende sider</string>
   <string name="link_preview_disambiguation_description">Denne titel relaterer sig til mere end en side:</string>
-  <string name="button_add_to_reading_list" fuzzy="true">Tilføj til læseliste</string>
+  <string name="button_add_to_reading_list">Tilføj til samling</string>
   <string name="page_offline_notice_cannot_load_while_offline">Artiklen kan ikke indlæses offline.</string>
-  <string name="page_offline_notice_add_to_reading_list" fuzzy="true">Fif: Tilføj artiklen til en læseliste, og den vil blive hentet når du er på nettet igen.</string>
+  <string name="page_offline_notice_add_to_reading_list">Fif: Tilføj artiklen til en samling, og den vil blive hentet når du er på nettet igen.</string>
   <string name="page_offline_notice_last_date">Du læser en offlineudgave af denne artikel gemt den %s.</string>
   <string name="redirected_from_snackbar">Omdirigeret fra %s</string>
   <string name="button_get_directions">Få rutevejledninger</string>
@@ -511,17 +523,17 @@
   <string name="editing_monospace_font_label">Brug monospace skrifttype</string>
   <string name="editing_typing_suggestions">Vis skriveforslag</string>
   <string name="nav_item_saved">Gemt</string>
-  <string name="reading_list_save_to" fuzzy="true">Gem til læseliste</string>
-  <string name="reading_list_move_to" fuzzy="true">Flyt til læseliste</string>
+  <string name="reading_list_save_to">Gem i samling</string>
+  <string name="reading_list_move_to">Flyt til samling</string>
   <string name="reading_list_create_new">Opret ny</string>
-  <string name="reading_list_title_exists" fuzzy="true">Læselisten »%s« findes allerede.</string>
+  <string name="reading_list_title_exists">Samlingen \"%s\" findes allerede.</string>
   <string name="reading_list_article_added_to_named">Tilføjede %1$s til %2$s.</string>
-  <string name="reading_list_article_added_to_default_list" fuzzy="true">Gemte %s. Ønsker du at tilføje den til en liste?</string>
+  <string name="reading_list_article_added_to_default_list">Gemte %s. Vil du tilføje den til en samling?</string>
   <string name="reading_list_article_moved_to_named">Flyttede %1$s til %2$s</string>
   <string name="reading_list_article_already_exists_message">%1$s indeholder allerede %2$s.</string>
   <string name="reading_list_articles_already_exist_message">%s indeholder allerede alle artiklerne.</string>
-  <string name="reading_list_added_view_button" fuzzy="true">Vis liste</string>
-  <string name="reading_list_add_to_list_button" fuzzy="true">Tilføj til liste</string>
+  <string name="reading_list_added_view_button">Vis samling</string>
+  <string name="reading_list_add_to_list_button">Tilføj til samling</string>
   <plurals name="format_reading_list_statistical_summary_without_size">
     <item quantity="one">1 artikel</item>
     <item quantity="other">%d artikler</item>
@@ -546,68 +558,73 @@
   <string name="reading_list_sort_by_recent_desc">Sorter efter dato tilføjet (ældste)</string>
   <string name="reading_list_sort_by_created">Sorter efter dato oprettet (nyeste)</string>
   <string name="reading_list_sort_by_created_desc">Sorter efter dato oprettet (ældste)</string>
-  <string name="reading_list_menu_delete" fuzzy="true">Slet liste</string>
-  <string name="reading_list_menu_export" fuzzy="true">Eksporter liste</string>
+  <string name="reading_list_menu_delete">Slet samling</string>
+  <string name="reading_list_menu_export">Eksportér samling</string>
   <string name="reading_list_menu_select">Vælg</string>
   <string name="reading_list_menu_unselect">Fravælg</string>
-  <string name="reading_list_export_write_permission_rationale" fuzzy="true">Tilladelse til at skrive til lager på din enhed er påkrævet for at eksportere din læseliste.</string>
+  <string name="reading_list_export_write_permission_rationale">Der kræves tilladelse til at skrive til lagerpladsen på din enhed for at eksportere din samling.</string>
   <string name="reading_list_menu_rename">Rediger navn/beskrivelse</string>
   <string name="reading_list_action_menu_remove_from_offline">Fjern lokal version</string>
   <string name="reading_list_action_menu_save_for_offline">Gem lokalt</string>
   <string name="reading_list_action_menu_remove_all_from_offline">Fjern alle fra lokal version</string>
   <string name="reading_list_action_menu_save_all_for_offline">Gem alle lokalt</string>
-  <string name="reading_list_action_menu_add_to_another_list" fuzzy="true">Tilføj til en anden liste</string>
-  <string name="reading_list_action_menu_move_to_another_list" fuzzy="true">Flyt til en anden liste</string>
-  <string name="reading_list_name_sample" fuzzy="true">Min læseliste</string>
-  <string name="reading_list_name_hint" fuzzy="true">Navn på denne liste</string>
+  <string name="reading_list_action_menu_add_to_another_list">Tilføj til en anden samling</string>
+  <string name="reading_list_action_menu_move_to_another_list">Flyt til en anden samling</string>
+  <string name="reading_list_name_sample">Min samling</string>
+  <string name="reading_list_name_hint">Navnet på denne samling</string>
   <string name="reading_list_description_hint">Beskrivelse (valgfri)</string>
-  <string name="reading_list_item_deleted" fuzzy="true">%s fjernet fra listen</string>
+  <string name="reading_list_item_deleted">%s fjernet fra samlingen</string>
   <string name="reading_list_item_deleted_from_list">%1$s fjernet fra %2$s</string>
-  <plurals name="reading_list_articles_deleted" fuzzy="true">
-    <item quantity="one">%d artikel fjernet fra listen</item>
-    <item quantity="other">%d artikler fjernet fra listen</item>
+  <plurals name="reading_list_articles_deleted">
+    <item quantity="one">%d artikel fjernet fra samling</item>
+    <item quantity="other">%d artikler fjernet fra samling</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
     <item quantity="one">%1$d artikel fjernet fra %2$s</item>
     <item quantity="other">%1$d artikler fjernet fra %2$s</item>
   </plurals>
-  <plurals name="reading_lists_deleted_message" fuzzy="true">
-    <item quantity="one">%d liste slettet</item>
-    <item quantity="other">%d lister slettet</item>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="one">%d samling slettet</item>
+    <item quantity="other">%d samlinger slettet</item>
   </plurals>
-  <string name="reading_lists_default_list_delete_message" fuzzy="true">Standardlisten ( %s ) kan ikke slettes</string>
-  <string name="reading_lists_default_plus_one_list_delete_message" fuzzy="true">%1$s slettet. Standardlisten (%2$s) kan ikke slettes.</string>
-  <string name="reading_lists_default_plus_many_lists_delete_message" fuzzy="true">Lister slettet. Standardlisten ( %s ) kan ikke slettes.</string>
-  <string name="single_list_json_file_name" fuzzy="true">%s (Wikipedia læseliste).json</string>
-  <string name="multiple_lists_json_file_name" fuzzy="true">Wikipedia læselister (%s og mere).json</string>
-  <string name="reading_list_items_deleted" fuzzy="true">%d artikler fjernet fra liste</string>
-  <string name="reading_lists_item_deleted" fuzzy="true">%s fjernet fra lister</string>
+  <string name="reading_lists_default_list_delete_message">Standardsamlingen (%s) kan ikke slettes</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">%1$s slettet. Standardsamlingen (%2$s) kan ikke slettes.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">Samlinger slettet. Standardsamlingen (%s) kan ikke slettes.</string>
+  <string name="single_list_json_file_name">%s (Wikipedia-samling).json</string>
+  <string name="multiple_lists_json_file_name">Wikipedia-samlinger (%s og mere).</string>
+  <string name="reading_list_items_deleted">%d artikler fjernet fra samlingen</string>
+  <string name="reading_lists_item_deleted">%s fjernet fra samlinger</string>
   <string name="reading_list_item_delete_undo">Fortryd</string>
   <string name="reading_list_deleted">%s slettet</string>
   <string name="saved_list_empty_title">Ingen gemte artikler endnu</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Gem artikler til læselister, så du kan læse dem senere, selv når du er uden internetforbindelse.</string>
+  <string name="reading_lists_empty_message">Tilføj artikler til en samling, så du kan læse dem senere, selv når du er offline.</string>
   <string name="reading_lists_search_empty_articles_title">Ingen gemte artikler fundet</string>
   <string name="reading_lists_search_empty_articles_message">Vi kunne ikke finde \"%s\" i dine gemte artikler.</string>
   <string name="reading_lists_search_empty_collections_title">Ingen samlinger fundet</string>
   <string name="reading_lists_search_empty_collections_message">Vi kunne ikke finde \"%s\" i dine samlinger.</string>
-  <string name="reading_list_empty" fuzzy="true">Du har ingen artikler, der er tilføjet til denne liste.</string>
+  <string name="reading_list_empty">Du har ingen artikler tilføjet til denne samling.</string>
   <string name="reading_list_article_offline">Tilgængelig offline</string>
   <string name="reading_list_article_make_offline">Gør denne artikel tilgængelig offline</string>
-  <string name="reading_list_add_to_other_list" fuzzy="true">Tilføj til en anden læseliste</string>
-  <string name="reading_list_move_to_other_list" fuzzy="true">Flyt til en anden læseliste</string>
-  <string name="reading_list_move_from_to_other_list" fuzzy="true">Flyt fra %s til en anden læseliste</string>
+  <string name="reading_list_add_to_other_list">Tilføj til en anden samling</string>
+  <string name="reading_list_move_to_other_list">Flyt til en anden samling</string>
+  <string name="reading_list_add_to_collection">Tilføj til en samling</string>
+  <plurals name="reading_list_in_collections">
+    <item quantity="one">I 1 samling</item>
+    <item quantity="other">I %d samlinger</item>
+  </plurals>
+  <string name="reading_list_move_from_to_other_list">Flyt fra %s til en anden samling</string>
   <string name="reading_list_remove_from_list">Fjern fra %s</string>
-  <string name="reading_list_remove_from_lists" fuzzy="true">Fjern fra læselister</string>
+  <string name="reading_list_remove_from_lists">Fjern fra samlinger</string>
   <string name="reading_list_select_item">Vælg</string>
   <string name="reading_list_confirm_remove_article_from_offline">Fjern fra offline</string>
-  <string name="reading_list_confirm_remove_article_from_offline_title" fuzzy="true">Artiklen forekommer i flere lister</string>
-  <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s vil ikke længere være tilgængelig offline for alle læselister:</string>
-  <string name="reading_lists_sync_reminder_title" fuzzy="true">Aktiver synkronisering af læseliste?</string>
-  <string name="reading_lists_sync_reminder_text" fuzzy="true">Artikler gemt på læselister kan nu synkroniseres til din Wikipedia-konto. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Få flere oplysninger&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Læselister kan nu synkroniseres på tværs af enheder. Log ind på din Wikipedia-konto og tillad, at dine lister gemmes. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Få flere oplysninger&lt;/a&gt;</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title">Artiklen findes i flere samlinger</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message">%s vil ikke længere være tilgængelig offline for alle samlinger:</string>
+  <string name="reading_lists_sync_reminder_title">Vil du aktivere synkronisering af samlinger?</string>
+  <string name="reading_lists_sync_reminder_text">Artikler gemt på samlinger kan nu synkroniseres til din Wikipedia-konto. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Få flere oplysninger&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Samlinger kan nu synkroniseres på tværs af enheder. Log ind på din Wikipedia-konto og tillad, at dine samlinger gemmes. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Få flere oplysninger&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Aktiver synkronisering</string>
-  <string name="reading_list_login_reminder_title" fuzzy="true">Synkr. læselister</string>
-  <string name="reading_lists_login_reminder_text" fuzzy="true">Læselister kan nu synkroniseres på tværs af enheder. Log ind på din Wikipediakonto og tillad at dine lister gemmes.</string>
+  <string name="reading_list_login_reminder_title">Synkroniser samlinger</string>
+  <string name="reading_lists_login_reminder_text">Samlinger kan nu synkroniseres på tværs af enheder. Log ind på din Wikipedia-konto, og tillad, at dine samlinger gemmes.</string>
   <string name="reading_lists_login_button">Log på / registrer dig på Wikipedia</string>
   <string name="reading_lists_ignore_button">Ikke nu</string>
   <string name="reading_lists_confirm_remote_delete_yes">Ja</string>
@@ -616,35 +633,35 @@
   <string name="reading_list_articles_added_to_named">Tilføjede %1$d artikler til %2$s</string>
   <string name="reading_list_articles_moved_to_named">Flyttede %1$d artikler til %2$s</string>
   <string name="reading_list_delete_confirm">Er du sikker på, at du ønsker at slette %s?</string>
-  <string name="reading_list_delete_lists_confirm_dialog_title" fuzzy="true">Vil du slette den eller de valgte lister?</string>
-  <plurals name="reading_list_delete_lists_confirm_dialog_message" fuzzy="true">
-    <item quantity="one">Er du sikker på, at du vil slette %d liste?</item>
-    <item quantity="other">Er du sikker på, at du vil slette %d lister?</item>
+  <string name="reading_list_delete_lists_confirm_dialog_title">Vil du slette den eller de valgte samlinger?</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+    <item quantity="one">Er du sikker på, at du vil slette %d samling?</item>
+    <item quantity="other">Er du sikker på, at du vil slette %d samlinger?</item>
   </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Log ind for at aktivere synkronsering</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_text" fuzzy="true">Log ind for at tillade at dine læselister gemmes på din konto.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Log ind for at tillade, at dine samlinger gemmes på din konto.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Annuller</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Log på</string>
-  <string name="reading_list_turned_sync_off_dialog_title" fuzzy="true">Synkronisering af læseliste er deaktiveret</string>
-  <string name="reading_list_turned_sync_off_dialog_text" fuzzy="true">Synkronisering af læseliste er deaktiveret for din konto og gemte artikler på din enhed bliver ikke længere sikkerehdskopieret. Aktiver synkronisering af læselister under indstillinger.</string>
+  <string name="reading_list_turned_sync_off_dialog_title">Synkronisering af samlinger er slået fra</string>
+  <string name="reading_list_turned_sync_off_dialog_text">Synkronisering af samlinger er slået fra for din konto, og gemte artikler på de enheder, du er logget ind på, sikkerhedskopieres ikke længere. Aktivér synkronisering af samlinger i Indstillinger.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">O.k.</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Indstillinger</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_title" fuzzy="true">Aktiver synkronisering af læselister?</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_text" fuzzy="true">Artikler gemt i læselister kan nu synkroniseres med din Wikipediakonto. &lt;a href=\"#faq\"&gt;Læs mere&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">Vil du aktivere synkronisering af samlinger?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">Artikler gemt i samlinger kan nu synkroniseres med din Wikipedia-konto. &lt;a href=\"#faq\"&gt;Læs mere&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Vis ikke dette igen</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Aktiver synkronisering</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nej tak</string>
   <string name="default_reading_list_name">Gemt</string>
-  <string name="default_reading_list_description" fuzzy="true">Standardliste for dine gemte artikler</string>
-  <string name="no_user_lists_title" fuzzy="true">Organiser artikler i lister</string>
-  <string name="no_user_lists_msg" fuzzy="true">Opret lister for steder at rejse til, favoritemner og meget mere</string>
+  <string name="default_reading_list_description">Standardsamling for dine gemte artikler</string>
+  <string name="no_user_lists_title">Organiser artikler i samlinger</string>
+  <string name="no_user_lists_msg">Opret samlinger af steder at rejse til, yndlingsemner og meget mere</string>
   <string name="reading_list_saved_list_rename">%1$s (bruger oprettet)</string>
-  <string name="split_reading_list_message" fuzzy="true">Der er en begrænsning på %d artikler per læseliste. Eksisterende lister med mere end denne begrænsning er blevet delt i flere lister.</string>
-  <string name="reading_list_move_article_limit_message" fuzzy="true">Kan ikke flytte til denne liste. Du har nået grænsen på %2$d artikler per liste for \"%1$s\".</string>
-  <string name="reading_list_article_limit_message" fuzzy="true">Kan ikke tilføje til denne liste. Du har nået begrænsningen på %2$d artikler per liste for »%1$s«.</string>
-  <string name="reading_lists_limit_message" fuzzy="true">Kan ikke oprette en anden liste. Du har nået begrænsningen på 100 læselister per konto.</string>
-  <string name="reading_lists_menu_create_list" fuzzy="true">Opret ny liste</string>
-  <string name="reading_lists_menu_import_list" fuzzy="true">Importer liste</string>
+  <string name="split_reading_list_message">Der er en grænse på %d artikler pr. samling. Eksisterende samlinger med mere end denne grænse er blevet opdelt i flere samlinger.</string>
+  <string name="reading_list_move_article_limit_message">Kan ikke flytte til denne samling. Du har nået grænsen på %2$d artikler pr. samling for \"%1$s\".</string>
+  <string name="reading_list_article_limit_message">Kan ikke tilføje til denne samling. Du har nået grænsen på %2$d artikler pr. samling for \"%1$s\".</string>
+  <string name="reading_lists_limit_message">Kan ikke oprette en ny samling. Du har nået grænsen på 100 samlinger pr. konto.</string>
+  <string name="reading_lists_menu_create_list">Opret ny samling</string>
+  <string name="reading_lists_menu_import_list">Importér samling</string>
   <string name="reading_lists_menu_sort_by">Sorter efter</string>
   <string name="reading_lists_refresh_sync_option">Opdater synkronisering</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Log på/tilmeld dig</string>
@@ -656,7 +673,7 @@
     <item quantity="one">Denne artikel vil ikke længere være tilgængelig lokalt.</item>
     <item quantity="other">Disse artikler vil ikke længere være tilgængelige lokalt.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync" fuzzy="true">Læselisterne blev synkroniseret</string>
+  <string name="reading_list_toast_last_sync">Samlinger synkroniseret</string>
   <string name="reading_list_menu_last_sync">Sidste synkronosering: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_dialog_ok_button_text">OK</string>
@@ -666,31 +683,31 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Annullér</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">Slet</string>
-  <string name="reading_list_activity_title" fuzzy="true">Læseliste: %s</string>
-  <string name="reading_list_notification_title" fuzzy="true">Læseliste(r) eksporteret</string>
-  <string name="reading_list_notification_text" fuzzy="true">læselisterne %d er blevet eksporteret som \'reading_lists export.json\' til din download-mappe</string>
-  <string name="reading_list_notification_detailed_text" fuzzy="true">Læselisterne er blevet eksporteret til \'reading_lists_export.json\'</string>
+  <string name="reading_list_activity_title">Samling: %s</string>
+  <string name="reading_list_notification_title">Eksporterede samlinger</string>
+  <string name="reading_list_notification_text">%d samling(er) er blevet eksporteret som \'reading_lists export.json\' til din downloadmappe</string>
+  <string name="reading_list_notification_detailed_text">Samlinger er blevet eksporteret til \'reading_lists_export.json\'</string>
   <string name="reading_lists_action_menu_export_lists">Eksportér</string>
   <string name="reading_lists_import_file_picker_title">Vælg den fil, der skal importeres</string>
-  <string name="reading_lists_import_failure_message" fuzzy="true">Import af læselister mislykkedes</string>
-  <string name="reading_lists_export_select_lists_message" fuzzy="true">Vælg den eller de lister, der skal eksporteres</string>
-  <string name="reading_lists_export_completed_message" fuzzy="true">Læseliste(r) er eksporteret</string>
-  <plurals name="reading_list_export_failed_message" fuzzy="true">
-    <item quantity="one">Eksport af læseliste mislykkedes</item>
-    <item quantity="other">Eksport af læselister mislykkedes</item>
+  <string name="reading_lists_import_failure_message">Import af samlinger mislykkedes</string>
+  <string name="reading_lists_export_select_lists_message">Vælg den samling eller de samlinger, der skal eksporteres</string>
+  <string name="reading_lists_export_completed_message">Eksporterede samlinger</string>
+  <plurals name="reading_list_export_failed_message">
+    <item quantity="one">Eksport af samling mislykkedes</item>
+    <item quantity="other">Eksport af samlinger mislykkedes</item>
   </plurals>
-  <plurals name="reading_list_import_success_message" fuzzy="true">
-    <item quantity="one">Læseliste importeret</item>
-    <item quantity="other">Læselister importeret</item>
+  <plurals name="reading_list_import_success_message">
+    <item quantity="one">Importeret samling</item>
+    <item quantity="other">Importerede samlinger</item>
   </plurals>
-  <string name="reading_lists_preview_header_title" fuzzy="true">Delt liste</string>
+  <string name="reading_lists_preview_header_title">Delt samling</string>
   <string name="reading_lists_preview_save_button">Gem</string>
-  <string name="reading_lists_preview_save_dialog_title" fuzzy="true">Gem liste</string>
-  <string name="reading_lists_preview_save_dialog_text" fuzzy="true">Navngiv listen, og vælg artikler, der skal gemmes.</string>
+  <string name="reading_lists_preview_save_dialog_title">Gem samling</string>
+  <string name="reading_lists_preview_save_dialog_text">Navngiv samlingen og vælg artikler, der skal gemmes.</string>
   <string name="reading_lists_preview_save_dialog_title_hint">Titel</string>
   <string name="reading_lists_preview_save_dialog_cancel">Annullér</string>
   <string name="reading_lists_preview_save_dialog_save">Gem</string>
-  <string name="reading_lists_preview_saved_snackbar" fuzzy="true">Læseliste blev gemt</string>
+  <string name="reading_lists_preview_saved_snackbar">Samling gemt</string>
   <string name="reading_lists_preview_saved_snackbar_action">Vis</string>
   <string name="user_option_sync_label">Indstillinger</string>
   <string name="notification_reverted_title">Omgjorde redigering</string>
@@ -699,8 +716,8 @@
   <string name="notification_syncing_pause_button">Pause</string>
   <string name="notification_syncing_resume_button">Genoptag</string>
   <string name="notification_syncing_cancel_button">Afbryd</string>
-  <string name="notification_syncing_reading_list_channel_title" fuzzy="true">Synkronisering af læselister</string>
-  <string name="notification_syncing_reading_list_channel_description" fuzzy="true">Status på synkronisering af læselister</string>
+  <string name="notification_syncing_reading_list_channel_title">Synkronisering af samlinger</string>
+  <string name="notification_syncing_reading_list_channel_description">Status på synkronisering af samlinger</string>
   <string name="notification_many_unread">Du har %d ulæste notifikationer</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Downloader artikel</item>
@@ -714,17 +731,17 @@
     <item quantity="one">%1$d artikel tilbage</item>
     <item quantity="other">%1$d artikler tilbage</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_channel_name" fuzzy="true">
-    <item quantity="one">Synkroniserer læseliste</item>
-    <item quantity="other">Synkroniserer læselister</item>
+  <plurals name="notification_syncing_reading_list_channel_name">
+    <item quantity="one">Synkroniserer samling</item>
+    <item quantity="other">Synkroniserer samlinger</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_title" fuzzy="true">
-    <item quantity="one">Synkroniserer %1$d liste…</item>
-    <item quantity="other">Synkroniserer %1$d lister…</item>
+  <plurals name="notification_syncing_reading_list_title">
+    <item quantity="one">Synkroniserer %1$d samling…</item>
+    <item quantity="other">Synkroniserer %1$d samlinger…</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_description" fuzzy="true">
-    <item quantity="one">%1$d liste tilbage</item>
-    <item quantity="other">%1$d lister tilbage</item>
+  <plurals name="notification_syncing_reading_list_description">
+    <item quantity="one">%1$d samling tilbage</item>
+    <item quantity="other">%1$d samlinger tilbage</item>
   </plurals>
   <string name="notification_echo_channel_description">Wikipedia-notifikationer</string>
   <string name="notifications_activity_title">Notifikationer</string>
@@ -1268,8 +1285,8 @@
   <string name="onboarding_maybe_later">Måske senere</string>
   <string name="onboarding_explore_title">Nye måder at udforske</string>
   <string name="onboarding_explore_text">Dyk ned i Wikipedias kaninhul med et konstant opdaterende startfeed. &lt;br/&gt; &lt;b&gt;Tilpas&lt;/b&gt; feedet til dine interesser – om det er historiske hændelser &lt;b&gt;På denne dag&lt;/b&gt;, eller at kaste terningerne med &lt;b&gt;Tilfældig&lt;/b&gt;.</string>
-  <string name="onboarding_reading_list_sync_title" fuzzy="true">Læselister med synkronisering</string>
-  <string name="onboarding_reading_list_sync_text_v2" fuzzy="true">Du kan lave læselister med artikler, du ønsker at læse senere, selv når du er uden internetadgang. &lt;br/&gt;Log ind på din Wikipediakonto for at synkronisere dine læselister.&lt;a href=\"#login\"&gt;Opret konto på Wikipedia&lt;/a&gt;</string>
+  <string name="onboarding_reading_list_sync_title">Samlinger med synkronisering</string>
+  <string name="onboarding_reading_list_sync_text_v2">Du kan lave samlinger med artikler, du vil at læse senere, selv når du er uden internetadgang. &lt;br/&gt;Log ind på din Wikipedia-konto for at synkronisere dine samlinger.&lt;a href=\"#login\"&gt;Opret konto på Wikipedia&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Data og privatliv</string>
   <string name="onboarding_data_privacy_text">Vi mener, at du ikke skal afgive personlige oplysninger for at deltage i den frie vidensbevægelse. Brugsdata indsamlet til denne app er anonyme.&lt;br/&gt;&lt;br/&gt;Lær mere om vores &lt;a href=\"#privacy\"&gt;privatlivspolitik&lt;/a&gt; og &lt;a href=\"#termsOfUse\"&gt;vilkår for brug&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Send brugsdata</string>
@@ -1604,16 +1621,16 @@
   <string name="user_contrib_filter_activity_title">Filtrer bidrag</string>
   <string name="action_item_view_on_map">Vis på et kort</string>
   <string name="action_item_view_on_map_unavailable">Geografiske koordinater er ikke tilgængelige for denne side</string>
-  <string name="shareable_reading_lists_import_dialog_title" fuzzy="true">Importér delt læseliste</string>
-  <string name="shareable_reading_lists_import_dialog_content" fuzzy="true">Hvordan vil du navngive den liste, der er blevet delt med dig?</string>
+  <string name="shareable_reading_lists_import_dialog_title">Importér delt samling</string>
+  <string name="shareable_reading_lists_import_dialog_content">Hvordan vil du navngive den samling, der er blevet delt med dig?</string>
   <string name="shareable_reading_lists_new_indicator">*ny*</string>
-  <string name="shareable_reading_lists_new_install_dialog_title" fuzzy="true">En læseliste er blevet delt med dig</string>
-  <string name="shareable_reading_lists_new_install_dialog_content" fuzzy="true">Vi har bemærket, at en læseliste er blevet delt med dig. For at se denne liste i appen skal du gå tilbage til den oprindelige besked og trykke på linket igen.</string>
+  <string name="shareable_reading_lists_new_install_dialog_title">En samling er blevet delt med dig</string>
+  <string name="shareable_reading_lists_new_install_dialog_content">Vi har bemærket, at en samling er blevet delt med dig. For at se denne samling i appen skal du gå tilbage til den oprindelige besked og trykke på linket igen.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Forstået</string>
-  <string name="shareable_reading_lists_new_imported_snackbar" fuzzy="true">Læseliste importeret</string>
+  <string name="shareable_reading_lists_new_imported_snackbar">Samling importeret</string>
   <string name="reading_list_share_menu_label">Del...</string>
-  <string name="reading_list_share_menu_tooltip" fuzzy="true">Del din læseliste med andre</string>
-  <string name="reading_list_share_message_v2" fuzzy="true">Hej! Jeg vil gerne dele min Wikipedia-læseliste med dig:</string>
+  <string name="reading_list_share_menu_tooltip">Del denne samling med andre</string>
+  <string name="reading_list_share_message_v2">Hej! Jeg vil gerne dele min Wikipedia-samling med dig:</string>
   <string name="talk_templates_empty_message">Opret dine egne beskeder eller brug &lt;a href=\"#\"&gt;eksempelbeskeder&lt;/a&gt; for at komme i gang.</string>
   <string name="talk_templates_new_message_title">Ny besked</string>
   <string name="talk_templates_new_message_subject_hint">Emne</string>
@@ -1905,8 +1922,8 @@
   <string name="year_in_review_get_started_later">Du kan få adgang til dit årsoverblik senere i menupunktet Mere.</string>
   <string name="year_in_review_survey_title">Hjælp med at forbedre Årets Oversigt</string>
   <string name="year_in_review_survey_subtitle">Er du tilfreds med denne funktion?</string>
-  <string name="year_in_review_reading_list_survey_title" fuzzy="true">Hjælp med at forbedre læselisten %d for Årsoversigten.</string>
-  <string name="year_in_review_reading_list_survey_subtitle" fuzzy="true">Er du tilfreds med din læseliste?</string>
+  <string name="year_in_review_reading_list_survey_title">Hjælp med at forbedre samlingen %d for Årsoversigten.</string>
+  <string name="year_in_review_reading_list_survey_subtitle">Er du tilfreds med din samling?</string>
   <string name="year_in_review_survey_very_satisfied">Meget tilfreds</string>
   <string name="year_in_review_survey_satisfied">Tilfreds</string>
   <string name="year_in_review_survey_neutral">Neutral</string>
@@ -2014,7 +2031,7 @@
     <item quantity="one">App-brugere havde %,d gemt artikel</item>
     <item quantity="other">App-brugere havde %,d gemte artikler</item>
   </plurals>
-  <string name="year_in_review_slide_global_saved_articles_body" fuzzy="true">Ved at tilføje artikler til læselister kan du få adgang til artikler, selv når du er offline. Du kan også logge ind for at synkronisere læselister på tværs af enheder.</string>
+  <string name="year_in_review_slide_global_saved_articles_body">Ved at tilføje artikler til samlinger kan du få adgang til artikler, selv når du er offline. Du kan også logge ind for at synkronisere samlinger på tværs af enheder.</string>
   <string name="year_in_review_slide_reading_patterns_headline">Du har klare læsemønstre</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">Yndlingstidspunkt at læse</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">Yndlingsdag at læse</string>
@@ -2082,8 +2099,8 @@
     <item quantity="other">App-brugere har set Wikipedia-artikler %,d gange</item>
   </plurals>
   <string name="year_in_review_slide_viewed_articles_times_body">For folk over hele verden er Wikipedia det første stop, når de skal besvare et spørgsmål, søge information til uddannelse eller arbejde eller blot få ny viden.</string>
-  <string name="year_in_review_reading_list_dialog_title" fuzzy="true">Opret din læseliste med %d årsoversigt?</string>
-  <string name="year_in_review_reading_list_dialog_message" fuzzy="true">Wikipedia Year in Review opretter en læseliste over de artikler, du har brugt mest tid på i %1$d. &lt;a href=\"%2$s\"&gt;Lær mere&lt;/a&gt;</string>
+  <string name="year_in_review_reading_list_dialog_title">Opret din samling med %d årsoversigt?</string>
+  <string name="year_in_review_reading_list_dialog_message">Wikipedia Year in Review opretter en samling over de artikler, du har brugt mest tid på i %1$d. &lt;a href=\"%2$s\"&gt;Lær mere&lt;/a&gt;</string>
   <string name="year_in_review_reading_list_dialog_positive_button_label">Opret</string>
   <string name="year_in_review_reading_list_dialog_negative_button_label">Nej tak</string>
   <string name="year_in_review_reading_list_title">Året i tilbageblik %d</string>
@@ -2140,12 +2157,12 @@
   <string name="year_in_review_highlights_logo_description">Wikipedia-logo</string>
   <string name="recommended_reading_list_title">Opdag</string>
   <string name="recommended_reading_list_onboarding_card_title">Opdag artikler udvalgt til dig</string>
-  <string name="recommended_reading_list_onboarding_card_message" fuzzy="true">Din ugentlige læseliste med Wikipedia-artikler, sammensat til dig.</string>
+  <string name="recommended_reading_list_onboarding_card_message">Din ugentlige samling med Wikipedia-artikler, sammensat til dig.</string>
   <string name="recommended_reading_list_onboarding_card_new">Ny!</string>
   <string name="recommended_reading_list_onboarding_card_positive_button">Kom i gang</string>
   <string name="recommended_reading_list_onboarding_card_negative_button">Nej tak</string>
-  <string name="recommended_reading_list_onboarding_card_negative_snackbar" fuzzy="true">Gå til Indstillinger for at konfigurere din anbefalede læseliste senere.</string>
-  <string name="recommended_reading_list_interest_source_message" fuzzy="true">Hvordan skal vi opbygge din anbefalede læseliste?</string>
+  <string name="recommended_reading_list_onboarding_card_negative_snackbar">Gå til Indstillinger for at konfigurere din anbefalede samling.</string>
+  <string name="recommended_reading_list_interest_source_message">Hvordan skal vi opbygge din anbefalede samling?</string>
   <string name="recommended_reading_list_interest_source_interests">Lad mig vælge ud fra mine interesser</string>
   <string name="recommended_reading_list_interest_source_saved">Vælg for mig baseret på mine gemte artikler</string>
   <string name="recommended_reading_list_interest_source_history">Vælg for mig ud fra min læsehistorie</string>
@@ -2169,9 +2186,9 @@
     <item quantity="one">• %d artikel</item>
     <item quantity="other">• %d artikler</item>
   </plurals>
-  <string name="recommended_reading_list_page_description_daily" fuzzy="true">Din daglige læseliste. Lær om nye emner, udvalgt til dig. Opdateringer ved midnat.</string>
-  <string name="recommended_reading_list_page_description_weekly" fuzzy="true">Din ugentlige læseliste. Lær om nye emner, udvalgt til dig. Opdateringer i starten af ​​ugen.</string>
-  <string name="recommended_reading_list_page_description_monthly" fuzzy="true">Din månedlige læseliste. Lær om nye emner, udvalgt til dig. Opdateringer den første i hver måned.</string>
+  <string name="recommended_reading_list_page_description_daily">Din daglige samling. Lær om nye emner, udvalgt til dig. Opdateringer ved midnat.</string>
+  <string name="recommended_reading_list_page_description_weekly">Din ugentlige samling. Lær om nye emner, udvalgt til dig. Opdateringer i starten af ​​ugen.</string>
+  <string name="recommended_reading_list_page_description_monthly">Din månedlige samling. Lær om nye emner, udvalgt til dig. Opdateringer den første i hver måned.</string>
   <string name="recommended_reading_list_page_overflow_customize">Tilpas</string>
   <string name="recommended_reading_list_page_overflow_about">Om denne funktion</string>
   <string name="recommended_reading_list_page_snackbar">Opdage vil opdatere med %1$d nye artikler hver %2$s. Dine anbefalinger gemmes lokalt på din enhed.</string>
@@ -2181,7 +2198,7 @@
   <string name="recommended_reading_list_page_snackbar_month">Måned</string>
   <string name="recommended_reading_list_settings_section_header">Anbefalinger</string>
   <string name="recommended_reading_list_settings_title">Opdag indstillinger</string>
-  <string name="recommended_reading_list_settings_toggle" fuzzy="true">Opdag læseliste</string>
+  <string name="recommended_reading_list_settings_toggle">Opdag samling</string>
   <string name="recommended_reading_list_settings_toggle_disable_message">Opdage er slået fra. Wikipedia vil ikke anbefale dig artikler at læse.</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_title">Vil du slå Opdage fra?</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_message">Hvis du slår Opdage fra, vil du stoppe med at modtage %s læseanbefalinger fra Wikipedia.</string>
@@ -2216,7 +2233,7 @@
   <string name="recommended_reading_list_settings_notifications_dialog_message">Hvis du slår notifikationer fra, modtager du ikke længere påmindelser, når Opdage opdateres.</string>
   <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Sluk dem</string>
   <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Nej, behold dem på</string>
-  <string name="recommended_reading_list_notification_title" fuzzy="true">Din %s Opdage-læseliste er klar.</string>
+  <string name="recommended_reading_list_notification_title">Din %s Opdage-samling er klar.</string>
   <string name="recommended_reading_list_notification_subtitle">Tryk for at se dine seneste anbefalinger.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">Når din Opdage er opdateret, sender Wikipedia dig en notifikation.</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">Opdage er slået til. Wikipedia vil anbefale dig artikler at læse.</string>
@@ -2377,7 +2394,7 @@
   <string name="explore_feed_for_you_tab_label">Til dig</string>
   <string name="explore_feed_date_today">I dag - %s</string>
   <string name="explore_feed_load_previous_day_label">Indlæs forrige dag</string>
-  <string name="explore_feed_from_reading_list" fuzzy="true">Fra din læseliste</string>
+  <string name="explore_feed_from_reading_list">Fra din samling</string>
   <string name="explore_feed_because_of_interest">På grund af din interesse: %s</string>
   <string name="explore_feed_onboarding_curiosity_title">Følg din nysgerrighed</string>
   <string name="explore_feed_onboarding_curiosity_description">Vælg emner, der interesserer dig, så personliggør vi dit feed.\n\nVi indsamler minimale data, der er anonymiserede.</string>
@@ -2412,6 +2429,7 @@
   <string name="home_feed_settings_for_you_modules_description">Hvis du deaktiverer et modul, skjules det fra dit \"Til dig\"-feed. Du kan til enhver tid genaktivere det her.</string>
   <string name="home_feed_settings_based_on_interest_title">Baseret på dine interesser</string>
   <string name="home_feed_settings_based_on_interest_subtitle">Artikler skræddersyet til de emner, du har valgt.&lt;br /&gt;&lt;a href=\"#drivingFeed\"&gt;Hvad driver dit feed&lt;/a&gt;</string>
+  <string name="home_feed_new_within_interest_card_heading">Nyt i din interesse</string>
   <string name="home_feed_new_within_interest_title">Nye artikler, der kan være i din interesse</string>
   <string name="home_feed_new_within_interest_subtitle">Nyligt oprettede artikler inden for emneområder, du følger</string>
   <string name="home_feed_settings_because_you_read_subtitle">Forslag baseret på en nylig artikel fra din historie</string>
@@ -2457,13 +2475,13 @@
   <string name="home_feed_settings_games_title">Spil</string>
   <string name="home_feed_settings_games_subtitle">Daglige spil baseret på Wikipedia-indhold</string>
   <string name="home_feed_settings_discover_title">Opdag anbefalinger</string>
-  <string name="home_feed_settings_discover_subtitle" fuzzy="true">Artikler fra din Discover-læseliste</string>
+  <string name="home_feed_settings_discover_subtitle">Artikler fra din Discover-samling</string>
   <string name="home_feed_discover_cta_title">Fra Discover</string>
   <string name="home_feed_discover_cta_description">Lær om nye emner, udvalgt specielt til dig. Vælg mellem daglige, ugentlige eller månedlige opdateringer.</string>
-  <string name="home_feed_discover_cta_button" fuzzy="true">Aktivér Discover-læseliste</string>
+  <string name="home_feed_discover_cta_button">Aktivér Discover-samling</string>
   <string name="home_feed_discover_card_footer">Fra Discover • Opdateringer %s</string>
   <string name="home_feed_discover_see_all_title">Der er mere at opdage</string>
-  <string name="home_feed_discover_see_all_description" fuzzy="true">Din personlige læseliste har flere historier udvalgt specielt til dig.</string>
+  <string name="home_feed_discover_see_all_description">Din personlige samling har flere historier udvalgt specielt til dig.</string>
   <string name="home_feed_discover_see_all_button">Udforsk alle anbefalinger</string>
   <string name="home_feed_places_of_interest_card_footer">%1$s • Baseret på din placering i Steder</string>
   <string name="home_feed_for_you_screen_end_of_feed_title">Det var det for i dag!</string>
@@ -2478,10 +2496,16 @@
   <string name="random_article_widget_name">Tilfældig artikel</string>
   <string name="reading_lists_tab_all_articles">Alle artikler</string>
   <string name="reading_lists_tab_collections">Samlinger</string>
+  <string name="reading_lists_filter_content_description">Filtrer gemte artikler</string>
+  <string name="reading_lists_filter_not_in_collection">Ikke i en samling</string>
+  <string name="reading_lists_empty_not_in_collection_title">Alle gemte artikler er i samlinger.</string>
   <string name="reading_lists_search_saved_articles">Søg i gemte artikler</string>
   <string name="reading_lists_search_collections">Søg i samlinger</string>
-  <string name="reading_lists_remove_articles_confirm_dialog_title" fuzzy="true">Fjern gemte artikler?</string>
-  <string name="reading_lists_remove_articles_confirm_button" fuzzy="true">Fjern</string>
+  <string name="reading_lists_empty_collections_title">Organiser gemte artikler med samlinger</string>
+  <string name="reading_lists_empty_collections_description">Opret samlinger af steder at rejse til, yndlingsemner og meget mere.</string>
+  <string name="reading_lists_create_new_collection">Opret en ny samling</string>
+  <string name="reading_lists_remove_articles_confirm_dialog_title">Vil du fjerne artikler?</string>
+  <string name="reading_lists_remove_articles_confirm_button">Fjern</string>
   <plurals name="reading_lists_remove_articles_confirm_dialog_message">
     <item quantity="one">Denne artikel vil blive fjernet fra alle tilknyttede samlinger.</item>
     <item quantity="other">Disse %d artikler vil blive fjernet fra alle tilknyttede samlinger.</item>
@@ -2489,5 +2513,13 @@
   <plurals name="reading_lists_articles_removed_from_collections">
     <item quantity="one">Artikel fjernet fra alle tilknyttede samlinger.</item>
     <item quantity="other">%d artikler fjernet fra alle tilknyttede samlinger.</item>
+  </plurals>
+  <string name="reading_lists_save_sheet_empty_title">Saml de artikler, du kan lide</string>
+  <string name="reading_lists_save_sheet_empty_message">Gem artikler i samlinger.</string>
+  <string name="reading_lists_save_sheet_create">Opret</string>
+  <string name="reading_lists_update_tooltip">Læselister kaldes nu samlinger.</string>
+  <plurals name="reading_lists_unsave_articles_confirm_dialog_message">
+    <item quantity="one">Hvis du ikke gemmer denne artikel, fjernes den fra alle tilknyttede samlinger.</item>
+    <item quantity="other">Hvis du ikke gemmer disse artikler, fjernes den fra alle tilknyttede samlinger.</item>
   </plurals>
 </resources>
