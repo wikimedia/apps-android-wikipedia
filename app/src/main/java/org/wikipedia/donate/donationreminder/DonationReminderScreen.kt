@@ -53,6 +53,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -323,12 +324,7 @@ fun DonationReminderContent(
 ) {
     val isDonationReminderEnabled = uiState.isDonationReminderEnabled
     var showReadFrequencyCustomDialog by remember { mutableStateOf(false) }
-    var customDialogErrorMessage by remember { mutableStateOf("") }
 
-    val warningMinAmount = stringResource(R.string.donation_reminders_settings_warning_min_amount)
-    val warningMaxAmount = stringResource(R.string.donation_reminders_settings_warning_max_amount)
-    val donateGooglePayMinAmount = stringResource(R.string.donate_gpay_minimum_amount)
-    val donateGooglePayMaxAmount = stringResource(R.string.donate_gpay_maximum_amount)
     Column(
         modifier = modifier
     ) {
@@ -392,6 +388,9 @@ fun DonationReminderContent(
                             }
                         }
                     },
+                    hasTextFieldError = { hasError ->
+                        // Handle text field error state
+                    }
                     /*onDoneClick = { amount ->
                         if (customDialogErrorMessage.isEmpty()) {
                             val activeInterface = if (viewModel.isFromSettings) "global_setting" else "reminder_config"
@@ -472,11 +471,17 @@ fun DonationAmountView(
     option: SelectableOption<Float>,
     currencySymbol: String,
     onOptionSelected: (OptionItem<Float>, SelectedSource) -> Unit,
+    hasTextFieldError: (Boolean) -> Unit
 ) {
-    var selectedOption by remember { mutableStateOf<OptionItem<Float>?>(OptionItem.Preset(option.selectedValue, option.displayFormatter(option.selectedValue))) }
-    var textFieldValue by remember { mutableStateOf("") }
-    val focusRequester = remember { FocusRequester() }
-    var hasFocused by remember { mutableStateOf(false) }
+    var selectedOption by rememberSaveable { mutableStateOf<OptionItem<Float>?>(OptionItem.Preset(option.selectedValue, option.displayFormatter(option.selectedValue))) }
+    var textFieldValue by rememberSaveable { mutableStateOf("") }
+    val focusRequester = rememberSaveable { FocusRequester() }
+    var hasFocused by rememberSaveable { mutableStateOf(false) }
+    var errorMessage by rememberSaveable { mutableStateOf("") }
+
+    val donateGooglePayMinAmount = stringResource(R.string.donate_gpay_minimum_amount)
+    val donateGooglePayMaxAmount = stringResource(R.string.donate_gpay_maximum_amount)
+
 
     OptionSelector(
         title = stringResource(R.string.donation_reminders_settings_amount_label),
@@ -494,9 +499,30 @@ fun DonationAmountView(
     OutlinedTextField(
         value = if (selectedOption is OptionItem.Custom) textFieldValue else "",
         onValueChange = { newValue ->
+
+            // read the value + source and send to viewmodel
             textFieldValue = newValue
             selectedOption = OptionItem.Custom( newValue)
             onOptionSelected(OptionItem.Custom( newValue), SelectedSource.Custom)
+
+            // error check and send error state to parent
+            val floatValue = DonateUtil.getAmountFloat(newValue)
+            if (floatValue < option.minimumAmount) {
+                errorMessage = String.format(
+                    donateGooglePayMinAmount,
+                    option.displayFormatter(option.minimumAmount)
+                )
+                hasTextFieldError(true)
+            } else if (option.maximumAmount > 0 && floatValue >= option.maximumAmount) {
+                errorMessage = String.format(
+                    donateGooglePayMaxAmount,
+                    option.displayFormatter(option.maximumAmount)
+                )
+                hasTextFieldError(true)
+            } else {
+                errorMessage = ""
+                hasTextFieldError(false)
+            }
         },
         prefix = { Text(
             text = currencySymbol,
@@ -521,6 +547,15 @@ fun DonationAmountView(
             errorTextColor = WikipediaTheme.colors.primaryColor
         ),
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+        isError = errorMessage.isNotEmpty(),
+        supportingText = if (errorMessage.isNotEmpty()) {
+            {
+                Text(
+                    text = errorMessage,
+                    color = WikipediaTheme.colors.destructiveColor,
+                )
+            }
+        } else null,
         modifier = Modifier
             .fillMaxWidth()
             .focusRequester(focusRequester)
