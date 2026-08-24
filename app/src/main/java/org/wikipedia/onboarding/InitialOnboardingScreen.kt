@@ -32,6 +32,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.LinkAnnotation
@@ -338,6 +339,7 @@ fun InitialOnboardingLanguagesScreen(
                 .fillMaxWidth()
                 .height(120.dp)
                 .padding(horizontal = 24.dp)
+                .testTag("onboarding_language_list")
                 .lazyColumnScrollbar(
                     state = lazyListState,
                     color = WikipediaTheme.colors.inactiveColor

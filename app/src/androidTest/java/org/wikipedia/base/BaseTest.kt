@@ -18,13 +18,19 @@ import org.wikipedia.TestLogRule
  *
  * @param T Activity type under test. It must extend [ComponentActivity].
  * @param activityClass Class of the Activity to launch.
+ * @param beforeActivityLaunch Configures test state before the Activity is launched.
  * @param configureIntent Configures the Intent used to launch the Activity.
  */
 abstract class BaseTest<T : ComponentActivity>(
     activityClass: Class<T>,
+    beforeActivityLaunch: Context.() -> Unit = {},
     configureIntent: Intent.() -> Unit = {}
 ) {
     protected val targetContext: Context = InstrumentationRegistry.getInstrumentation().targetContext
+
+    init {
+        beforeActivityLaunch(targetContext)
+    }
 
     // Launches the Activity before each test, manages its lifecycle, and closes it afterward.
     private val activityScenarioRule = ActivityScenarioRule<T>(
