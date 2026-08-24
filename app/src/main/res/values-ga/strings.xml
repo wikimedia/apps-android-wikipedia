@@ -2831,9 +2831,9 @@
   <string name="reading_lists_update_tooltip">Tugtar bailiúcháin ar liostaí léitheoireachta anois.</string>
   <plurals name="reading_lists_unsave_articles_confirm_dialog_message">
     <item quantity="one">Má dhéantar an t-alt seo a dhíshábháil, bainfear é de na bailiúcháin ghaolmhara go léir.</item>
-    <item quantity="two">%á dhéantar na hairteagail seo a dhíshábháil, bainfear é de na bailiúcháin ghaolmhara go léir.</item>
-    <item quantity="few">%á dhéantar na hairteagail seo a dhíshábháil, bainfear é de na bailiúcháin ghaolmhara go léir.</item>
-    <item quantity="many">%á dhéantar na hairteagail seo a dhíshábháil, bainfear é de na bailiúcháin ghaolmhara go léir.</item>
-    <item quantity="other">%á dhéantar na hairteagail seo a dhíshábháil, bainfear é de na bailiúcháin ghaolmhara go léir.</item>
+    <item quantity="two">Má dhéantar na hairteagail seo a dhíshábháil, bainfear é de na bailiúcháin ghaolmhara go léir.</item>
+    <item quantity="few">Má dhéantar na hairteagail seo a dhíshábháil, bainfear é de na bailiúcháin ghaolmhara go léir.</item>
+    <item quantity="many">Má dhéantar na hairteagail seo a dhíshábháil, bainfear é de na bailiúcháin ghaolmhara go léir.</item>
+    <item quantity="other">Má dhéantar na hairteagail seo a dhíshábháil, bainfear é de na bailiúcháin ghaolmhara go léir.</item>
   </plurals>
 </resources>
