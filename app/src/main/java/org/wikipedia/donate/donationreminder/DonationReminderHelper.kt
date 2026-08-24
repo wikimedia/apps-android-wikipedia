@@ -25,7 +25,8 @@ object DonationReminderHelper {
     private val isInDateRange get() = LocalDate.now() <= LocalDate.of(2026, 11, 9) // TODO: confirm with PM
     val isInEligibleCountry get() = ReleaseUtil.isDevRelease || enabledCountries.contains(GeoUtil.geoIPCountry.orEmpty())
     val defaultReadFrequencyOptions = listOf(5, 10, 20)
-    val defaultDonateAmountOptions = listOf(1, 3, 5) // V3 only.
+    val presetsToRemoveFromConfig = listOf(2f, 10f, 15f) // V3 only.
+    val defaultDonateAmountOptions = listOf(1f, 3f, 5f) // V3 only.
 
     val isEnabled
         get() = (ReleaseUtil.isDevRelease || isInEligibleCountry && isInDateRange) && isTestGroupUser
@@ -43,6 +44,13 @@ object DonationReminderHelper {
             } // TODO: confirm with Shay
         } else {
             campaignIdOriginal
+        }
+    }
+
+    fun updateDonationPresets(presets: MutableSet<Float>?) {
+        if (isEnabled) {
+            presets?.removeAll(presetsToRemoveFromConfig.toSet())
+            presets?.addAll(defaultDonateAmountOptions)
         }
     }
 
