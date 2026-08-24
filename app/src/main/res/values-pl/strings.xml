@@ -88,7 +88,7 @@
   <string name="page_content_description">Strona: %s</string>
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidane</string>
-  <string name="dialog_title_clear_history">Wyczyść historię przeglądania</string>
+  <string name="dialog_title_clear_history">Wyczyścić historię przeglądania?</string>
   <string name="dialog_message_clear_history">Spowoduje to usunięcie całej historii przeglądania. Czy na pewno chcesz to zrobić?</string>
   <string name="dialog_message_clear_history_yes">Tak</string>
   <string name="dialog_message_clear_history_no">Nie</string>
@@ -169,8 +169,8 @@
   <string name="langlinks_activity_title">Inne języki</string>
   <string name="langlinks_your_wikipedia_languages">Twoje języki Wikipedii</string>
   <string name="menu_save_changes">Opublikuj zmiany</string>
-  <string name="edit_saved_successfully">Edycja została opublikowana!</string>
-  <string name="stub_article_edit_saved_successfully">Edycja została opublikowana! Zmiany mogą być widoczne po pewnym czasie.</string>
+  <string name="edit_saved_successfully">Opublikowano edycję!</string>
+  <string name="stub_article_edit_saved_successfully">Opublikowano edycję! Zmiany mogą być widoczne po pewnym czasie.</string>
   <string name="dialog_message_edit_failed">Edycja nie powiodła się!</string>
   <string name="dialog_message_edit_failed_retry">Ponów próbę</string>
   <string name="dialog_message_edit_failed_cancel">Anuluj</string>
@@ -262,7 +262,7 @@
   <string name="preferences_account_heading">Konto</string>
   <string name="wikipedia_app_faq">FAQ dotyczące aplikacji Wikipedii</string>
   <string name="send_feedback">Wyślij opinię o aplikacji</string>
-  <string name="create_account_account_created_toast">Konto zostało utworzone!</string>
+  <string name="create_account_account_created_toast">Utworzono konto!</string>
   <string name="preferences_heading_syncing">Synchronizowanie</string>
   <string name="preferences_heading_data_usage">Użycie danych</string>
   <string name="preferences_heading_experimental">Eksperymentalne</string>
@@ -344,11 +344,21 @@
   <string name="edit_notices_please_read">Przeczytaj przed edycją</string>
   <string name="edit_notices_show_auto">Pokazuj komunikaty automatycznie</string>
   <string name="edit_notices_tooltip">Dotknij tego przycisku, aby wyświetlić komunikaty dla tego artykułu.</string>
+  <string name="editor_select_dialog_title">Wybierz sposób edycji</string>
+  <string name="editor_select_dialog_ve_title">Edycja w edytorze wizualnym</string>
+  <string name="editor_select_dialog_ve_subtitle">Wprowadzaj zmiany bezpośrednio na wyświetlanej stronie. Otwiera się w przeglądarce.</string>
+  <string name="editor_select_dialog_source_title">Edycja kodu źródłowego</string>
+  <string name="editor_select_dialog_source_subtitle">Wprowadzaj zmiany za pomocą znaczników wikikodu. Bez opuszczania aplikacji.</string>
+  <string name="editor_select_dialog_dont_show_again">Nie pokazuj mi tego ponownie. Ustawienie domyślne możesz później zmienić w ustawieniach.</string>
+  <string name="editor_select_dialog_continue">Kontynuuj</string>
+  <string name="editor_select_icon_ve_title">Ikona „Otwórz w zewnętrznej przeglądarce”</string>
+  <string name="editor_select_title_settings_screen">Preferencje edycji</string>
+  <string name="editor_select_save_btn_settings_screen">Zapisz</string>
   <string name="find_next">Znajdź następne</string>
   <string name="find_previous">Znajdź poprzednie</string>
   <string name="find_first_occurence">Jest to pierwsze wystąpienie</string>
   <string name="find_last_occurence">Jest to ostatnie wystąpienie</string>
-  <string name="article_opened_in_background_tab">Artykuł został otwarty w karcie w tle.</string>
+  <string name="article_opened_in_background_tab">Otwarto artykuł w karcie w tle.</string>
   <string name="abusefilter_title_warn">To chyba nie jest konstruktywna edycja. Czy na pewno chcesz ją opublikować?</string>
   <string name="abusefilter_title_disallow">Nie możesz opublikować tej edycji. Wróć do niej i popraw ją.</string>
   <string name="abusefilter_text_warn">Automatyczny filtr uważa tę edycję za potencjalnie niekonstruktywną. Może ona zawierać jeden lub więcej z następujących błędów:&lt;br /&gt;&lt;br /&gt;· tekst pisany wyłącznie wielkimi literami,&lt;br /&gt;· kasowanie zawartości artykułu lub spam,&lt;br /&gt;· niezwiązane z artykułem linki zewnętrzne lub zdjęcia,&lt;br /&gt;· powtarzające się znaki.</string>
@@ -482,7 +492,7 @@
   <string name="page_footer_license_text">O ile nie zaznaczono inaczej, treść dostępna jest na licencji $1</string>
   <string name="empty_tab_title">Nowa karta</string>
   <string name="menu_save_all_tabs">Zapisz wszystkie karty</string>
-  <string name="error_blocked_title">Twoja nazwa użytkownika lub adres IP został zablokowany.</string>
+  <string name="error_blocked_title">Twoja nazwa użytkownika lub adres IP zostały zablokowane.</string>
   <string name="error_blocked_by">Blokada została dokonana przez &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
   <string name="error_blocked_reason">Podany powód to: %s</string>
   <string name="error_blocked_start">Początek blokady: %s</string>
@@ -617,10 +627,10 @@
     <item quantity="other">Usunięto %d artykułu z kolekcji</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">Usunięto %1$d artykuł z listy „%2$s”</item>
-    <item quantity="few">Usunięto %1$d artykuły z listy „%2$s”</item>
-    <item quantity="many">Usunięto %1$d artykułów z listy „%2$s”</item>
-    <item quantity="other">Usunięto %1$d artykułu z listy „%2$s”</item>
+    <item quantity="one">Usunięto %1$d artykuł z kolekcji „%2$s”</item>
+    <item quantity="few">Usunięto %1$d artykuły z kolekcji „%2$s”</item>
+    <item quantity="many">Usunięto %1$d artykułów z kolekcji „%2$s”</item>
+    <item quantity="other">Usunięto %1$d artykułu z kolekcji „%2$s”</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">Usunięto %d kolekcję</item>
@@ -641,8 +651,8 @@
   <string name="reading_lists_empty_message">Dodawaj artykuły do kolekcji artykułów do przeczytania później, dostępnych nawet w trybie offline.</string>
   <string name="reading_lists_search_empty_articles_title">Nie znaleziono żadnych zapisanych artykułów</string>
   <string name="reading_lists_search_empty_articles_message">Nie znaleziono „%s” w Twoich zapisanych artykułach.</string>
-  <string name="reading_lists_search_empty_collections_title">Nie znaleziono list</string>
-  <string name="reading_lists_search_empty_collections_message">Nie znaleziono „%s” w Twoich listach.</string>
+  <string name="reading_lists_search_empty_collections_title">Nie znaleziono kolekcji</string>
+  <string name="reading_lists_search_empty_collections_message">Nie znaleziono „%s” w Twoich Twoich kolekcjach.</string>
   <string name="reading_list_empty">W tej kolekcji nie ma dodanych artykułów.</string>
   <string name="reading_list_article_offline">Dostępne offline</string>
   <string name="reading_list_article_make_offline">Artykuł będzie dostępny offline</string>
@@ -701,10 +711,10 @@
   <string name="no_user_lists_title">Uporządkuj artykuły w kolekcje</string>
   <string name="no_user_lists_msg">Twórz kolekcje miejsc do odwiedzenia, ulubionych tematów i wielu innych.</string>
   <string name="reading_list_saved_list_rename">%1$s (autorstwa użytkownika)</string>
-  <string name="split_reading_list_message">Istnieje limit %d artykułów na kolekcję. Istniejące listy, których liczba przekracza ten limit, zostały podzielone na wiele kolekcji.</string>
+  <string name="split_reading_list_message">Istnieje limit %d artykułów na kolekcję. Istniejące kolekcje, których liczba przekracza ten limit, zostały podzielone na wiele kolekcji.</string>
   <string name="reading_list_move_article_limit_message">Nie można przenieść tego do tej kolekcji. Osiągnięto limit %2$d artykułów na kolekcję „%1$s”.</string>
   <string name="reading_list_article_limit_message">Nie można dodać tego do tej kolekcji. Osiągnięto limit %2$d artykułów na kolekcję „%1$s”.</string>
-  <string name="reading_lists_limit_message">Nie można utworzyć kolejnej kolekcji. Osiągnięto limit 100 list dla tego konta.</string>
+  <string name="reading_lists_limit_message">Nie można utworzyć kolejnej kolekcji. Osiągnięto limit 100 kolekcji dla tego konta.</string>
   <string name="reading_lists_menu_create_list">Utwórz nową kolekcję</string>
   <string name="reading_lists_menu_import_list">Importuj kolekcję</string>
   <string name="reading_lists_menu_sort_by">Sortuj według</string>
@@ -1022,8 +1032,8 @@
   <string name="description_edit_success_se_general_feed_link_snackbar">Podobało Ci się? Pomóż nam dodać więcej treści.</string>
   <string name="description_edit_success_encouragement">Dzięki Tobie Wikipedia stała się lepsza dla wszystkich</string>
   <string name="description_edit_success_done">Gotowe</string>
-  <string name="description_edit_success_did_you_know">Czy wiesz…</string>
-  <string name="description_edit_success_article_edit_hint">W tej aplikacji możesz również edytować artykuły. Następnym razem spróbuj poprawić literówki i krótkie zdania, klikając ikonę ^1</string>
+  <string name="description_edit_success_did_you_know">Czy wiesz, że…</string>
+  <string name="description_edit_success_article_edit_hint">…w tej aplikacji możesz również edytować artykuły. Następnym razem spróbuj poprawić literówki i krótkie zdania, klikając ikonę ^1</string>
   <string name="description_edit_tutorial_title_descriptions">Opis artykułu</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Podsumowuje artykuł, aby pomóc czytającym zrozumieć temat na pierwszy rzut oka</string>
   <string name="description_edit_tutorial_keep_it_short">Opis powinien być zwięzły</string>
@@ -1046,7 +1056,7 @@
   <string name="suggested_edits_tag_images">Dodaj znaczniki do obrazów</string>
   <string name="suggested_edits_edit_patrol">Patroluj ostatnie zmiany</string>
   <string name="suggested_edits_edit_patrol_hint">Przeglądaj ostatnie zmiany i oceniaj, czy są one zasadne, czy nie.</string>
-  <string name="suggested_edits_edit_patrol_review">Przejrzyj</string>
+  <string name="suggested_edits_edit_patrol_review">Przeglądaj</string>
   <string name="suggested_edits_review_description">Przejrzyj opis artykułu</string>
   <string name="suggested_edits_add_description_button">Dodaj opis</string>
   <string name="suggested_edits_edit_description_button">Edytuj opis</string>
@@ -1132,7 +1142,7 @@
   <string name="suggested_edits_edit_streak_stat_tooltip">Liczba dni z rzędu z dokonanym przez Ciebie wkładem. Przy dłuższej przerwie wyświetla datę ostatniej edycji.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Łączna liczba odsłon artykułów, w których masz swój wkład z ostatnich 30 dni.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Wyliczane na podstawie tego, ile razy jeden z Twoich wkładów został cofnięty (anulowany przez innego redaktora). Liczba cofniętych edycji: %d.</string>
-  <string name="suggested_edits_paused_message">Sugerowane edycje został wstrzymane do %1$s. Przepraszamy, %2$s, niektóre z Twoich ostatnich edycji zostały cofnięte.</string>
+  <string name="suggested_edits_paused_message">Sugerowane edycje zostały wstrzymane do %1$s. Przepraszamy, %2$s, niektóre z Twoich ostatnich edycji zostały cofnięte.</string>
   <string name="suggested_edits_disabled_message">Sugerowane edycje zostały wyłączone. Przepraszamy, %s, zbyt wiele Twoich ostatnich edycji zostało cofniętych.</string>
   <string name="suggested_edits_ip_blocked_message">Wygląda na to, że Twój adres IP (lub zakres adresów IP) ma obecnie zablokowany dostęp do edytowania Wikipedii.</string>
   <string name="suggested_edits_gate_message">Przepraszamy, %s, aby móc korzystać z tej funkcji, musisz dokonać co najmniej trzech edycji bezpośrednio w artykule.</string>
@@ -1614,11 +1624,11 @@
   <string name="watchlist_details_prev_edit">Poprzednia edycja</string>
   <string name="thank_label">Podziękuj</string>
   <string name="view_user_page">Wyświetl stronę użytkownika</string>
-  <string name="thank_dialog_title_text">Wyślij publiczne podziękowanie</string>
+  <string name="thank_dialog_title_text">Wysłać publiczne podziękowanie?</string>
   <string name="thank_dialog_text">Podziękowania to prosty sposób na wyrażenie uznania za pracę redaktora w Wikipedii. Podziękowań nie można cofnąć i są one widoczne publicznie</string>
-  <string name="thank_dialog_positive_button_text">Wyślij podziękowanie</string>
+  <string name="thank_dialog_positive_button_text">Podziękuj</string>
   <string name="thank_dialog_negative_button_text">Anuluj</string>
-  <string name="thank_success_message">Twoje podziękowanie zostało wysłane do %s 👍</string>
+  <string name="thank_success_message">Wysłano Twoje podziękowanie do %s 👍</string>
   <string name="menu_option_view_user_profile">Wyświetl stronę użytkownika</string>
   <string name="menu_option_view_user_talk">Wyświetl stronę dyskusji</string>
   <string name="menu_option_view_user_contributions">Wyświetl wkład użytkownika</string>
@@ -2407,11 +2417,11 @@
   <string name="recommended_reading_list_settings_title">Ustawienia funkcji „Odkrywaj”</string>
   <string name="recommended_reading_list_settings_toggle">Kolekcja polecanych artykułów</string>
   <string name="recommended_reading_list_settings_toggle_disable_message">Funkcja „Odkrywaj” jest wyłączona. Wikipedia nie będzie Ci polecać artykułów do przeczytania.</string>
-  <string name="recommended_reading_list_settings_turn_off_dialog_title">Wyłączyć funkcję „Odkrywaj”</string>
-  <string name="recommended_reading_list_settings_turn_off_dialog_message">Jeśli wyłączysz funkcję „Odkrywaj”, przestaniesz otrzymywać %s listę polecanych artykułów z Wikipedii.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_title">Wyłączyć funkcję „Odkrywaj”?</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_message">Jeśli wyłączysz funkcję „Odkrywaj”, przestaniesz otrzymywać %s kolekcję polecanych artykułów z Wikipedii.</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">Wyłącz ją</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_negative_button">Nie, pozostaw włączoną</string>
-  <string name="recommended_reading_list_settings_turn_off_snackbar">Funkcja „Odkrywaj” została wyłączona. Możesz w dowolnym momencie włączyć ją ponownie w ustawieniach.</string>
+  <string name="recommended_reading_list_settings_turn_off_snackbar">Wyłączono funkcję „Odkrywaj”. Możesz w dowolnym momencie włączyć ją ponownie w ustawieniach.</string>
   <string name="recommended_reading_list_settings_articles">artykułów</string>
   <string name="recommended_reading_list_settings_updates_frequency">Aktualizacje %s</string>
   <string name="recommended_reading_list_settings_updates_frequency_daily">codziennie</string>
@@ -2640,6 +2650,7 @@
   <string name="home_feed_settings_for_you_modules_description">Wyłączenie modułu ukryje go w kanale „Dla Ciebie”. Możesz go włączyć ponownie w dowolnym momencie.</string>
   <string name="home_feed_settings_based_on_interest_title">Na podstawie Twoich zainteresowań</string>
   <string name="home_feed_settings_based_on_interest_subtitle">Artykuły dopasowane do wybranych tematów.&lt;br /&gt;&lt;a href=\"#drivingFeed\"&gt;Co kształtuje Twój kanał&lt;/a&gt;</string>
+  <string name="home_feed_new_within_interest_card_heading">Nowe artykuły z Twojego zainteresowania</string>
   <string name="home_feed_new_within_interest_title">Nowe artykuły z Twoich zainteresowań</string>
   <string name="home_feed_new_within_interest_subtitle">Najnowsze artykuły z kategorii, które obserwujesz</string>
   <string name="home_feed_settings_because_you_read_subtitle">Propozycje na podstawie ostatnio czytanego artykułu z historii</string>
@@ -2705,28 +2716,28 @@
   <string name="home_feed_games_module_cta_prompt_button_text">Centrum gier</string>
   <string name="random_article_widget_name">Losowy artykuł</string>
   <string name="reading_lists_tab_all_articles">Wszystkie artykuły</string>
-  <string name="reading_lists_tab_collections">Listy</string>
+  <string name="reading_lists_tab_collections">Kolekcje</string>
   <string name="reading_lists_filter_content_description">Filtruj zapisane artykuły</string>
   <string name="reading_lists_filter_not_in_collection">Nie w kolekcji</string>
   <string name="reading_lists_empty_not_in_collection_title">Wszystkie zapisane artykuły znajdują się w kolekcjach.</string>
   <string name="reading_lists_search_saved_articles">Wyszukaj zapisane artykuły</string>
-  <string name="reading_lists_search_collections">Wyszukaj listy</string>
+  <string name="reading_lists_search_collections">Wyszukaj kolekcje</string>
   <string name="reading_lists_empty_collections_title">Uporządkuj zapisane artykuły w kolekcje</string>
   <string name="reading_lists_empty_collections_description">Twórz kolekcje miejsc do odwiedzenia, ulubionych tematów i wielu innych.</string>
   <string name="reading_lists_create_new_collection">Utwórz nową kolekcję</string>
   <string name="reading_lists_remove_articles_confirm_dialog_title">Usunąć zapisany artykuł?</string>
-  <string name="reading_lists_remove_articles_confirm_button" fuzzy="true">Usuń</string>
+  <string name="reading_lists_remove_articles_confirm_button">Usuń</string>
   <plurals name="reading_lists_remove_articles_confirm_dialog_message">
-    <item quantity="one">Ten artykuł zostanie usunięty ze wszystkich powiązanych lisy.</item>
-    <item quantity="few">Te %d artykuły zostaną usunięte ze wszystkich powiązanych list.</item>
-    <item quantity="many">Te %d artykułów zostanie usuniętych ze wszystkich powiązanych list.</item>
-    <item quantity="other">Te %d artykułu zostanie usunięte ze wszystkich powiązanych list.</item>
+    <item quantity="one">Ten artykuł zostanie usunięty ze wszystkich powiązanych kolekcji.</item>
+    <item quantity="few">Te %d artykuły zostaną usunięte ze wszystkich powiązanych kolekcji.</item>
+    <item quantity="many">Te %d artykułów zostanie usuniętych ze wszystkich powiązanych kolekcji.</item>
+    <item quantity="other">Te %d artykułu zostanie usunięte ze wszystkich powiązanych kolekcji.</item>
   </plurals>
   <plurals name="reading_lists_articles_removed_from_collections">
-    <item quantity="one">Usunięto artykuł ze wszystkich powiązanych list.</item>
-    <item quantity="few">Usunięto %d artykuły ze wszystkich powiązanych list.</item>
-    <item quantity="many">Usunięto %d artykułów ze wszystkich powiązanych list.</item>
-    <item quantity="other">Usunięto %d artykułu ze wszystkich powiązanych list.</item>
+    <item quantity="one">Usunięto artykuł ze wszystkich powiązanych kolekcji.</item>
+    <item quantity="few">Usunięto %d artykuły ze wszystkich powiązanych kolekcji.</item>
+    <item quantity="many">Usunięto %d artykułów ze wszystkich powiązanych kolekcji.</item>
+    <item quantity="other">Usunięto %d artykułu ze wszystkich powiązanych kolekcji.</item>
   </plurals>
   <string name="reading_lists_save_sheet_empty_title">Zgromadź artykuły, które uwielbiasz</string>
   <string name="reading_lists_save_sheet_empty_message">Zapisz artykuły w kolekcjach.</string>

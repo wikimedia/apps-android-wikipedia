@@ -608,19 +608,19 @@
   <string name="reading_list_add_to_other_list">Lisää toiseen kokoelmaan</string>
   <string name="reading_list_move_to_other_list">Siirrä toiseen kokoelmaan</string>
   <string name="reading_list_add_to_collection">Lisää kokoelmaan</string>
-  <string name="reading_list_move_from_to_other_list" fuzzy="true">Siirrä lukulistasta %s toiseen lukulistaan</string>
+  <string name="reading_list_move_from_to_other_list">Siirrä kokoelmasta %s toiseen kokoelmaan</string>
   <string name="reading_list_remove_from_list">Poista lukulistasta %s</string>
-  <string name="reading_list_remove_from_lists" fuzzy="true">Poista lukulistoista</string>
+  <string name="reading_list_remove_from_lists">Poista kokoelmista</string>
   <string name="reading_list_select_item">Valitse</string>
   <string name="reading_list_confirm_remove_article_from_offline">Poista offlinesta</string>
-  <string name="reading_list_confirm_remove_article_from_offline_title" fuzzy="true">Artikkeli löytyy useammasta listasta</string>
-  <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s ei enää ole käytettävissä offline-tilassa kaikille lukulistoille:</string>
-  <string name="reading_lists_sync_reminder_title" fuzzy="true">Otetaanko lukulistan synkronointi käyttöön?</string>
-  <string name="reading_lists_sync_reminder_text" fuzzy="true">Lukulistoihisi tallennetut artikkelit voidaan nyt synkronoida Wikipedia-tunnuksellesi. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Lisätietoja&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Lukulistoja voi nyt synkronoida laitteiden välillä. Kirjaudu sisään Wikipedia-tunnuksellesi ja salli listojesi tallentaminen. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Lisätietoja&lt;/a&gt;</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title">Artikkeli löytyy useammasta kokoelmasta</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message">Artikkeli %s ei enää ole käytettävissä offline-tilassa kaikille kokoelmille:</string>
+  <string name="reading_lists_sync_reminder_title">Otetaanko kokoelmien synkronointi käyttöön?</string>
+  <string name="reading_lists_sync_reminder_text">Kokoelmiisi tallennetut artikkelit voidaan nyt synkronoida Wikipedia-tunnuksellesi. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Lisätietoja&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Kokoelmia voi nyt synkronoida laitteiden välillä. Kirjaudu sisään Wikipedia-tunnuksellesi ja salli kokoelmiesi tallentaminen. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Lisätietoja&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Ota synkronointi käyttöön</string>
-  <string name="reading_list_login_reminder_title" fuzzy="true">Synkronoi lukulistat</string>
-  <string name="reading_lists_login_reminder_text" fuzzy="true">Lukulistoja voi nyt synkronoida laitteiden välillä. Kirjaudu Wikipedia-tunnuksellesi ja ota listojen tallentaminen käyttöön.</string>
+  <string name="reading_list_login_reminder_title">Synkronoi kokoelmat</string>
+  <string name="reading_lists_login_reminder_text">Kokoelmia voi nyt synkronoida laitteiden välillä. Kirjaudu Wikipedia-tunnuksellesi ja ota kokoelmien tallentaminen käyttöön.</string>
   <string name="reading_lists_login_button">Kirjaudu sisään / liity Wikipediaan</string>
   <string name="reading_lists_ignore_button">Ei nyt</string>
   <string name="reading_lists_confirm_remote_delete_yes">Kyllä</string>
@@ -629,35 +629,35 @@
   <string name="reading_list_articles_added_to_named">Lisättiin %1$d artikkelia listaan %2$s</string>
   <string name="reading_list_articles_moved_to_named">Siirrettiin %1$d artikkelia listaan %2$s</string>
   <string name="reading_list_delete_confirm">Poistetaanko %s?</string>
-  <string name="reading_list_delete_lists_confirm_dialog_title" fuzzy="true">Poistetaanko valitut listat?</string>
-  <plurals name="reading_list_delete_lists_confirm_dialog_message" fuzzy="true">
-    <item quantity="one">Poistetaanko %d lista?</item>
-    <item quantity="other"> Poistetaanko %d listaa?</item>
+  <string name="reading_list_delete_lists_confirm_dialog_title">Poistetaanko valitut kokoelmat?</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+    <item quantity="one">Haluatko varmasti poistaa %d kokoelman?</item>
+    <item quantity="other"> Haluatko varmasti poistaa %d kokoelmaa?</item>
   </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Kirjaudu sisään ottaaksesi synkronoinnin käyttöön</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_text" fuzzy="true">Kirjaudu sisään salliaksesi lukulistojesi tallentamisen käyttäjätunnuksellesi.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Kirjaudu sisään salliaksesi kokoelmiesi tallentamisen käyttäjätunnuksellesi.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Peruuta</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Kirjaudu sisään</string>
-  <string name="reading_list_turned_sync_off_dialog_title" fuzzy="true">Lukulistojen synkronointi pois käytöstä</string>
-  <string name="reading_list_turned_sync_off_dialog_text" fuzzy="true">Lukulistojen synkronointi on pois päältä käyttäjätunnuksellesi, ja tallennettuja artikkeleita sisäänkirjautuneissa laitteissasi ei enää varmuuskopioida. Kytke lukulistojen synkronointi päälle asetuksista.</string>
+  <string name="reading_list_turned_sync_off_dialog_title">Kokoelmien synkronointi pois käytöstä</string>
+  <string name="reading_list_turned_sync_off_dialog_text">Kokoelmien synkronointi on pois päältä käyttäjätunnuksellesi, ja tallennettuja artikkeleita sisäänkirjautuneissa laitteissasi ei enää varmuuskopioida. Kytke kokoelmien synkronointi päälle asetuksista.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Asetukset</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_title" fuzzy="true">Otetaanko lukulistan synkronointi käyttöön?</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_text" fuzzy="true">Artikkelit, jotka on tallennettu lukulistoihin, voidaan nyt synkronoida Wikipedia-käyttäjätunnuksellesi. &lt;a href=\"#faq\"&gt;Lisätietoja&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">Otetaanko kokoelmien synkronointi käyttöön?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">Kokoelmiin tallennettuja artikkeleita voi nyt synkronoida Wikipedia-käyttäjätunnuksellesi. &lt;a href=\"#faq\"&gt;Lisätietoja&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Älä näytä tätä uudelleen</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Ota synkronointi käyttöön</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ei kiitos</string>
   <string name="default_reading_list_name">Tallennettu</string>
-  <string name="default_reading_list_description" fuzzy="true">Oletuslista tallennetuille artikkeleillesi</string>
-  <string name="no_user_lists_title" fuzzy="true">Järjestä artikkelit listoihin</string>
-  <string name="no_user_lists_msg" fuzzy="true">Luo listoja matkakohteista, suosikkiaiheista ja paljon muuta</string>
+  <string name="default_reading_list_description">Oletuskokoelma tallennetuille artikkeleillesi</string>
+  <string name="no_user_lists_title">Järjestä artikkelit kokoelmiin</string>
+  <string name="no_user_lists_msg">Luo kokoelmia matkakohteista, suosikkiaiheistasi ja paljon muuta</string>
   <string name="reading_list_saved_list_rename">%1$s (käyttäjän luoma)</string>
-  <string name="split_reading_list_message" fuzzy="true">On olemassa %d artikkelin raja lukulistaa kohden. Nykyiset tämän rajan ylittävät listat on jaettu moniin listoihin.</string>
-  <string name="reading_list_move_article_limit_message" fuzzy="true">Ei voida siirtää tähän listaan. Olet saavuttanut %2$d artikkelin rajan per lista listalle ”%1$s”.</string>
-  <string name="reading_list_article_limit_message" fuzzy="true">Ei voida lisätä tähän listaan. Olet saavuttanut %2$d artikkelin rajan per lista listalle ”%1$s”.</string>
-  <string name="reading_lists_limit_message" fuzzy="true">Uuden listan luominen epäonnistui. Sinulla voi olla enintään 100 lukulistaa.</string>
-  <string name="reading_lists_menu_create_list" fuzzy="true">Luo uusi lista</string>
-  <string name="reading_lists_menu_import_list" fuzzy="true">Tuo lista</string>
+  <string name="split_reading_list_message">Yhdessä kokoelmassa voi olla enintään %d artikkelia. Nykyiset tämän rajan ylittävät kokoelmat on jaettu useaan kokoelmaan.</string>
+  <string name="reading_list_move_article_limit_message">Ei voida siirtää tähän kokoelmaan. Olet saavuttanut %2$d artikkelin rajan per kokoelma kokoelmassa ”%1$s”.</string>
+  <string name="reading_list_article_limit_message">Ei voida lisätä tähän listaan. Olet saavuttanut %2$d artikkelin rajan per kokoelma kokoelmassa ”%1$s”.</string>
+  <string name="reading_lists_limit_message">Uuden kokoelman luominen epäonnistui. Sinulla voi olla enintään 100 kokoelmaaa.</string>
+  <string name="reading_lists_menu_create_list">Luo uusi kokoelma</string>
+  <string name="reading_lists_menu_import_list">Tuo kokoelma</string>
   <string name="reading_lists_menu_sort_by">Lajitteluperuste</string>
   <string name="reading_lists_refresh_sync_option">Päivitä synkronointi</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Kirjaudu sisään / rekisteröidy</string>
@@ -669,7 +669,7 @@
     <item quantity="one">Tämä artikkeli ei ole enää käytettävissä offline-tilassa.</item>
     <item quantity="other">Nämä artikkelit eivät enää ole käytettävissä offline-tilassa.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync" fuzzy="true">Lukulistat synkronoitu</string>
+  <string name="reading_list_toast_last_sync">Kokoelmat synkronoitu</string>
   <string name="reading_list_menu_last_sync">Viimeksi synkronoitu: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_dialog_ok_button_text">OK</string>
@@ -679,31 +679,31 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Peruuta</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">Poista</string>
-  <string name="reading_list_activity_title" fuzzy="true">Lukulista: %s</string>
-  <string name="reading_list_notification_title" fuzzy="true">Lukulista(t) tuotu</string>
-  <string name="reading_list_notification_text" fuzzy="true">%d lukulista(a) on viety nimellä \'reading_lists export.json\' latauskansioosi</string>
-  <string name="reading_list_notification_detailed_text" fuzzy="true">Lukulistat on viety tiedostoon \'reading_lists_export.json\'</string>
+  <string name="reading_list_activity_title">Kokoelma: %s</string>
+  <string name="reading_list_notification_title">Kokoelma(t) viety</string>
+  <string name="reading_list_notification_text">%d kokoelma(a) on viety nimellä \'reading_lists export.json\' latauskansioosi</string>
+  <string name="reading_list_notification_detailed_text">Kokoelmat on viety tiedostoon \'reading_lists_export.json\'</string>
   <string name="reading_lists_action_menu_export_lists">Vie</string>
   <string name="reading_lists_import_file_picker_title">Valitse tuotava tiedosto</string>
-  <string name="reading_lists_import_failure_message" fuzzy="true">Lukulistojen tuonti epäonnistui</string>
-  <string name="reading_lists_export_select_lists_message" fuzzy="true">Valitse vietävä(t) lista(t).</string>
-  <string name="reading_lists_export_completed_message" fuzzy="true">Lukulista(t) viety</string>
-  <plurals name="reading_list_export_failed_message" fuzzy="true">
-    <item quantity="one">Lukulistan vienti epäonnistui</item>
-    <item quantity="other">Lukulistojen vienti epäonnistui</item>
+  <string name="reading_lists_import_failure_message">Kokoelmien tuonti epäonnistui</string>
+  <string name="reading_lists_export_select_lists_message">Valitse vietävä(t) kokoelma(t)</string>
+  <string name="reading_lists_export_completed_message">Kokoelma(t) viety</string>
+  <plurals name="reading_list_export_failed_message">
+    <item quantity="one">Kokoelman vienti epäonnistui</item>
+    <item quantity="other">Kokoelmien vienti epäonnistui</item>
   </plurals>
-  <plurals name="reading_list_import_success_message" fuzzy="true">
-    <item quantity="one">Lukulista tuotu</item>
-    <item quantity="other">Lukulistat tuotu</item>
+  <plurals name="reading_list_import_success_message">
+    <item quantity="one">Kokoelma tuotu</item>
+    <item quantity="other">Kokoelmat tuotu</item>
   </plurals>
-  <string name="reading_lists_preview_header_title" fuzzy="true">Jaettu lista</string>
+  <string name="reading_lists_preview_header_title">Jaettu kokoelma</string>
   <string name="reading_lists_preview_save_button">Tallenna</string>
-  <string name="reading_lists_preview_save_dialog_title" fuzzy="true">Tallenna lista</string>
-  <string name="reading_lists_preview_save_dialog_text" fuzzy="true">Nimeä lista ja valitse tallennettavat artikkelit.</string>
+  <string name="reading_lists_preview_save_dialog_title">Tallenna kokoelma</string>
+  <string name="reading_lists_preview_save_dialog_text">Nimeä kokoelma ja valitse tallennettavat artikkelit.</string>
   <string name="reading_lists_preview_save_dialog_title_hint">Otsikko</string>
   <string name="reading_lists_preview_save_dialog_cancel">Peruuta</string>
   <string name="reading_lists_preview_save_dialog_save">Tallenna</string>
-  <string name="reading_lists_preview_saved_snackbar" fuzzy="true">Lukulista tallennettu</string>
+  <string name="reading_lists_preview_saved_snackbar">Kokoelma tallennettu</string>
   <string name="reading_lists_preview_saved_snackbar_action">Näytä</string>
   <string name="user_option_sync_label">Asetukset</string>
   <string name="notification_reverted_title">Kumottu muokkaus</string>
@@ -712,8 +712,8 @@
   <string name="notification_syncing_pause_button">Tauko</string>
   <string name="notification_syncing_resume_button">Jatka</string>
   <string name="notification_syncing_cancel_button">Peruuta</string>
-  <string name="notification_syncing_reading_list_channel_title" fuzzy="true">Synkronoidaan lukulistat</string>
-  <string name="notification_syncing_reading_list_channel_description" fuzzy="true">Lukulistojen synkronoinnin edistyminen</string>
+  <string name="notification_syncing_reading_list_channel_title">Synkronoidaan kokoelmia</string>
+  <string name="notification_syncing_reading_list_channel_description">Kokoelmien synkronoinnin edistyminen</string>
   <string name="notification_many_unread">Sinulla on %d lukematonta ilmoitusta</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Ladataan artikkelia</item>
@@ -727,17 +727,17 @@
     <item quantity="one">%1$d artikkeli jäljellä</item>
     <item quantity="other">%1$d artikkelia jäljellä</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_channel_name" fuzzy="true">
-    <item quantity="one">Synkronoidaan lukulistaa</item>
-    <item quantity="other">Synkronoidaan lukulistoja</item>
+  <plurals name="notification_syncing_reading_list_channel_name">
+    <item quantity="one">Synkronoidaan kokoelmaa</item>
+    <item quantity="other">Synkronoidaan kokoelmia</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_title" fuzzy="true">
-    <item quantity="one">Synkronoidaan %1$d listaa…</item>
-    <item quantity="other">Synkronoidaan %1$d listaa…</item>
+  <plurals name="notification_syncing_reading_list_title">
+    <item quantity="one">Synkronoidaan %1$d kokoelmaa…</item>
+    <item quantity="other">Synkronoidaan %1$d kokoelmaa…</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_description" fuzzy="true">
-    <item quantity="one">%1$d lista jäljellä</item>
-    <item quantity="other">%1$d listaa jäljellä</item>
+  <plurals name="notification_syncing_reading_list_description">
+    <item quantity="one">%1$d kokoelma jäljellä</item>
+    <item quantity="other">%1$d kokoelmaa jäljellä</item>
   </plurals>
   <string name="notification_echo_channel_description">Wikipedia-ilmoitukset</string>
   <string name="notifications_activity_title">Ilmoitukset</string>
@@ -1281,8 +1281,8 @@
   <string name="onboarding_maybe_later">Ehkä myöhemmin</string>
   <string name="onboarding_explore_title">Tutki sisältöä uusin tavoin</string>
   <string name="onboarding_explore_text">Sukella Wikipedian syövereihin aina ajan tasalla olevalla etusivun syötteellä. &lt;br/&gt; &lt;b&gt;Mukauta&lt;/b&gt; syötettä mielenkiinnon kohteidesi mukaan – vaikkapa tutustumalla &lt;b&gt;tämän päivämäärän&lt;/b&gt; historiallisiin tapahtumiin tai &lt;b&gt;satunnaisesti&lt;/b&gt; valittuun artikkeliin.</string>
-  <string name="onboarding_reading_list_sync_title" fuzzy="true">Synkronoidut lukulistat</string>
-  <string name="onboarding_reading_list_sync_text_v2" fuzzy="true">Voit tehdä lukulistoja artikkeleista, joita haluat lukea myöhemmin, myös ilman verkkoyhteyttä. &lt;br/&gt;Lukulistojen käyttö edellyttää Wikipedia-tunnuksella kirjautumista. &lt;a href=\"#login\"&gt;Liity Wikipediaan&lt;/a&gt;</string>
+  <string name="onboarding_reading_list_sync_title">Synkronoidut kokoelmat</string>
+  <string name="onboarding_reading_list_sync_text_v2">Voit tehdä kokoelmia artikkeleista, joita haluat lukea myöhemmin, myös ilman verkkoyhteyttä. &lt;br/&gt;Kokoelmien käyttö edellyttää Wikipedia-tunnuksella kirjautumista. &lt;a href=\"#login\"&gt;Liity Wikipediaan&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Data ja yksityisyys</string>
   <string name="onboarding_data_privacy_text">Uskomme, ettei sinun tarvitse antaa henkilötietoja osallistuaksesi vapaan tiedon liikkeeseen. Tämän sovelluksen käytöstä kerätyt tiedot ovat anonyymejä.&lt;br/&gt;&lt;br/&gt;Lisätietoja löytyy &lt;a href=\"#privacy\"&gt;tietosuojakäytännöstämme&lt;/a&gt; ja &lt;a href=\"#termsOfUse\"&gt;käyttöehdoistamme&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Lähetä dataa tavasta, jolla käytät sovellusta</string>
@@ -1617,16 +1617,16 @@
   <string name="user_contrib_filter_activity_title">Suodata muokkauksia</string>
   <string name="action_item_view_on_map">Näytä kartalla</string>
   <string name="action_item_view_on_map_unavailable">Maantieteellisiä koordinaatteja ei ole saatavilla tälle sivulle</string>
-  <string name="shareable_reading_lists_import_dialog_title" fuzzy="true">Tuo jaettu lukulista</string>
-  <string name="shareable_reading_lists_import_dialog_content" fuzzy="true">Miten haluat nimetä tämän kanssasi jaetun lukulistan?</string>
+  <string name="shareable_reading_lists_import_dialog_title">Tuo jaettu kokoelma</string>
+  <string name="shareable_reading_lists_import_dialog_content">Miten haluat nimetä tämän kanssasi jaetun kokoelman?</string>
   <string name="shareable_reading_lists_new_indicator">* uusi *</string>
-  <string name="shareable_reading_lists_new_install_dialog_title" fuzzy="true">Sinun kanssasi on jaettu lukulista</string>
-  <string name="shareable_reading_lists_new_install_dialog_content" fuzzy="true">Huomasimme, että sinulle on jaettu lukulista. Voit tarkastella tätä luetteloa sovelluksessa palaamalla alkuperäiseen viestiin ja napauttamalla linkkiä uudelleen.</string>
+  <string name="shareable_reading_lists_new_install_dialog_title">Sinulle on jaettu kokoelma</string>
+  <string name="shareable_reading_lists_new_install_dialog_content">Huomasimme, että sinulle on jaettu kokoelma. Voit tarkastella tätä kokoelmaa sovelluksessa palaamalla alkuperäiseen viestiin ja napauttamalla linkkiä uudelleen.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Selvä</string>
-  <string name="shareable_reading_lists_new_imported_snackbar" fuzzy="true">Lukulista tuotu</string>
+  <string name="shareable_reading_lists_new_imported_snackbar">Kokoelma tuotu</string>
   <string name="reading_list_share_menu_label">Jaa...</string>
-  <string name="reading_list_share_menu_tooltip" fuzzy="true">Jaa tämä lukulista muiden kanssa</string>
-  <string name="reading_list_share_message_v2" fuzzy="true">Hei! Haluan jakaa Wikipedian lukulistani kanssasi:</string>
+  <string name="reading_list_share_menu_tooltip">Jaa tämä kokoelma muille</string>
+  <string name="reading_list_share_message_v2">Hei! Haluan jakaa Wikipedia-kokoelmani sinulle:</string>
   <string name="talk_templates_empty_message">Luo omia viestejä tai käytä &lt;a href=\"#\"&gt;malliviestejä&lt;/a&gt; aloittaaksesi.</string>
   <string name="talk_templates_new_message_title">Uusi viesti</string>
   <string name="talk_templates_new_message_subject_hint">Aihe</string>
@@ -1908,8 +1908,8 @@
   <string name="year_in_review_get_started_later">Voit tarkastella vuosikatsaustasi myöhemmin Lisää-valikosta.</string>
   <string name="year_in_review_survey_title">Auta parantamaan vuosikatsausta</string>
   <string name="year_in_review_survey_subtitle">Oletko tyytyväinen tähän ominaisuuteen?</string>
-  <string name="year_in_review_reading_list_survey_title" fuzzy="true">Auta parantamaan vuosikatsaus %d -lukulistaa.</string>
-  <string name="year_in_review_reading_list_survey_subtitle" fuzzy="true">Oletko tyytyväinen lukulistaasi?</string>
+  <string name="year_in_review_reading_list_survey_title">Auta parantamaan vuosikatsaus %d -kokoelmaa.</string>
+  <string name="year_in_review_reading_list_survey_subtitle">Oletko tyytyväinen kokoelmaasi?</string>
   <string name="year_in_review_survey_very_satisfied">Erittäin tyytyväinen</string>
   <string name="year_in_review_survey_satisfied">Tyytyväinen</string>
   <string name="year_in_review_survey_neutral">Neutraali</string>

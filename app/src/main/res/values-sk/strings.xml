@@ -39,7 +39,7 @@
   <string name="search_back_button_content_description">Vráť sa späť</string>
   <string name="search_clear_query_content_description">Vyčistiť poradie</string>
   <string name="search_icon_content_description">Hľadať</string>
-  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">Filtrovať moje zoznamy</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Filtrovať moje zbierky</string>
   <string name="nav_item_suggested_edits">Úpravy</string>
   <string name="nav_item_activity">Aktivita</string>
   <string name="nav_item_more">Viac</string>
@@ -110,16 +110,16 @@
   <string name="menu_page_watched">Sledované</string>
   <string name="edit_section_find_in_page">Nájsť na stránke</string>
   <string name="menu_page_font_and_theme">Písmo a vzhľad</string>
-  <string name="menu_page_add_to_list" fuzzy="true">Pridať do zoznamu na prečítanie</string>
+  <string name="menu_page_add_to_list">Pridať do zbierky</string>
   <string name="menu_page_add_to_default_list">Uložiť</string>
-  <string name="feed_card_add_to_list" fuzzy="true">Pridať do zoznamu na prečítanie</string>
+  <string name="feed_card_add_to_list">Pridať do zbierky</string>
   <string name="feed_card_add_to_default_list">Uložiť</string>
   <string name="menu_page_share">Zdieľať odkaz</string>
   <string name="menu_article_share">Zdieľať článok</string>
   <string name="menu_page_article_share">Zdieľať</string>
   <string name="menu_page_open_a_new_tab">Otvoriť novú kartu</string>
   <string name="menu_page_new_tab">Nová karta</string>
-  <string name="menu_page_reading_lists" fuzzy="true">Zoznamy na prečítanie</string>
+  <string name="menu_page_reading_lists">Zbierky</string>
   <string name="menu_page_recently_viewed">Naposledy navštívené</string>
   <string name="menu_page_archive">Archív</string>
   <string name="menu_long_press_open_page">Otvoriť</string>
@@ -163,7 +163,9 @@
   <string name="menu_show_toc">Obsah</string>
   <string name="search_no_results_found">Neboli nájdené žiadne výsledky</string>
   <string name="search_reading_list_no_results">V zozname \"%s\" neboli nájdené žiadne výsledky</string>
-  <string name="search_reading_lists_no_results" fuzzy="true">V zoznamoch na prečítanie neboli nájdené žiadne výsledky</string>
+  <string name="search_reading_lists_no_results">V zbierkach sa nenašli žiadne výsledky</string>
+  <string name="search_all_articles_no_results">Vo všetkých článkoch sa nenašli žiadne výsledky</string>
+  <string name="search_collections_no_results">V zbierkach sa nenašli žiadne výsledky</string>
   <string name="search_history_no_results">V histórii neboli nájdené žiadne výsledky</string>
   <string name="edit_section_captcha_message">Kvôli ochrane pred automatizovaným spamom, prosím zadajte slová ktoré sa objavujú nižšie.</string>
   <string name="edit_section_captcha_request_an_account_message">Nevidíte obrázok? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Požiadajte o účet&lt;/a&gt; (anglicky)</string>
@@ -243,12 +245,12 @@
   <string name="preferences_heading_syncing">Synchronizácia</string>
   <string name="preferences_heading_data_usage">Spotreba dát</string>
   <string name="preferences_heading_experimental">Experimentálne</string>
-  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Synchronizácia zoznamov na prečítanie</string>
-  <string name="preference_title_download_reading_list_articles" fuzzy="true">Stiahnuť články v zoznamoch na prečítanie</string>
-  <string name="preference_summary_sync_reading_lists" fuzzy="true">Synchronizovať zoznamy na prečítanie naprieč rôznymi zariadeniami ich uložením do vášho účtu na Wikipédii.</string>
-  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">Synchronizovať zoznamy na prečítanie naprieč rôznymi zariadeniami pomocou ich uloženia do vášho účtu „%s“ na Wikipédii.</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">Chcete odstrániť synchronizované zoznamy na prečítanie z účtu „%s“?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">Táto akcia odstráni všetky predtým synchronizované zoznamy na prečítanie z úložného priestoru. Odstrániť všetky synchronizované zoznamy z vášho účtu „%s“?</string>
+  <string name="preference_title_sync_reading_lists_from_account">Synchronizácia zbierok</string>
+  <string name="preference_title_download_reading_list_articles">Sťahovať články zo zbierok</string>
+  <string name="preference_summary_sync_reading_lists">Synchronizovať zbierky medzi rôznymi zariadeniami ich uložením do vášho účtu na Wikipédii</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Synchronizovať zbierky medzi rôznymi zariadeniami ich uložením do vášho účtu na Wikipédii „%s“</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Odstrániť synchronizované zbierky z účtu „%s“?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Táto akcia úplne odstráni všetky predtým synchronizované zbierky zo vzdialeného úložiska. Odstrániť všetky synchronizované zbierky z vášho účtu „%s“?</string>
   <string name="preference_title_auto_upload_crash_reports">Odosielať správu o zlyhaní</string>
   <string name="preference_summary_auto_upload_crash_reports">Umožňuje aplikácii automaticky odosielať hlásenia o chybách tretím stranám, aby sme mohli chybu preskúmať a opraviť ju rýchlejšie a jednoduchšie.</string>
   <string name="editing_error_spamblacklist">Boli zistené odkazy na blokované domény (%s). Prosím odstráňte ich a skúste to znova.</string>
@@ -323,6 +325,16 @@
   <string name="edit_notices_please_read">Pred upravovaním prosím čítajte</string>
   <string name="edit_notices_show_auto">Zobraziť poznámky o úpravách automaticky</string>
   <string name="edit_notices_tooltip">Pre zobrazenie poznámok o úpravách pre tento článok stlačte toto tlačítko.</string>
+  <string name="editor_select_dialog_title">Vyberte spôsob úpravy</string>
+  <string name="editor_select_dialog_ve_title">Vizuálna úprava</string>
+  <string name="editor_select_dialog_ve_subtitle">Vykonajte zmeny priamo na zobrazenej stránke. Otvorí sa v prehliadači.</string>
+  <string name="editor_select_dialog_source_title">Úprava zdrojového kódu</string>
+  <string name="editor_select_dialog_source_subtitle">Vykonajte zmeny pomocou značiek. Zostanete v aplikácii.</string>
+  <string name="editor_select_dialog_dont_show_again">Toto už nezobrazovať. Predvoľbu možno neskôr zmeniť v Nastaveniach.</string>
+  <string name="editor_select_dialog_continue">Pokračovať</string>
+  <string name="editor_select_icon_ve_title">Ikona otvorenia v externom prehliadači</string>
+  <string name="editor_select_title_settings_screen">Predvoľba úprav</string>
+  <string name="editor_select_save_btn_settings_screen">Uložiť</string>
   <string name="find_next">Nájsť ďalšie</string>
   <string name="find_previous">Nájsť predchádzajúce</string>
   <string name="find_first_occurence">Toto je prvý výskyt</string>
@@ -396,8 +408,8 @@
   <string name="unnamed_tab_closed">Karta zatvorená.</string>
   <string name="tab_item_closed">%s zatvorená.</string>
   <string name="all_tab_items_closed">Všetky záložky sú zatvorené.</string>
-  <string name="tool_tip_bookmark_icon_title" fuzzy="true">Pridať do zoznamu na prečítanie</string>
-  <string name="tool_tip_bookmark_icon_text" fuzzy="true">Klepnutím na ikonu záložiek uložíte článok do zoznamu na prečítanie.</string>
+  <string name="tool_tip_bookmark_icon_title">Pridať do zbierky</string>
+  <string name="tool_tip_bookmark_icon_text">Klepnutím na ikonu záložky uložíte článok do zbierky.</string>
   <string name="page_view_in_browser">Zobraziť stránku v prehliadači</string>
   <string name="tool_tip_toc_title">Obsah rýchleho prístupu</string>
   <string name="tool_tip_toc_text">Teraz môžete prejsť prstom doľava a zobraziť obsah článku. Klepnutím a potiahnutím týmto tlačidlom môžete rýchlo prejsť na rôzne časti článku.</string>
@@ -410,9 +422,9 @@
   <string name="button_continue_to_talk_page">Otvoriť stránku diskusie</string>
   <string name="button_continue_to_disambiguation">Zobraziť podobné stránky</string>
   <string name="link_preview_disambiguation_description">Názov sa vzťahuje na viac než jednu stránku:</string>
-  <string name="button_add_to_reading_list" fuzzy="true">Pridať do zoznamu na prečítanie</string>
+  <string name="button_add_to_reading_list">Pridať do zbierky</string>
   <string name="page_offline_notice_cannot_load_while_offline">Článok nemôže byť načítaný pokiaľ nie ste pripojený k internetu.</string>
-  <string name="page_offline_notice_add_to_reading_list" fuzzy="true">Tip: Pridajte článok do zoznamu na prečítanie a hneď, ako budete opäť pripojený, sa stiahne.</string>
+  <string name="page_offline_notice_add_to_reading_list">Tip: Pridajte článok do zbierky a stiahne sa hneď, ako budete opäť online.</string>
   <string name="page_offline_notice_last_date">Čítate bez pripojenia verziu tohto článku, ktorá bola uložená %s.</string>
   <string name="redirected_from_snackbar">Presmerované z \"%s\"</string>
   <string name="button_get_directions">Nájsť trasu</string>
@@ -529,17 +541,17 @@
   <string name="editing_monospace_font_label">Používať písmo monospace</string>
   <string name="editing_typing_suggestions">Zobraziť návrhy na písanie</string>
   <string name="nav_item_saved">Uložené</string>
-  <string name="reading_list_save_to" fuzzy="true">Uložiť do zoznamu na prečítanie</string>
-  <string name="reading_list_move_to" fuzzy="true">Presunúť do zoznamu na prečítanie</string>
+  <string name="reading_list_save_to">Uložiť do zbierky</string>
+  <string name="reading_list_move_to">Presunúť do zbierky</string>
   <string name="reading_list_create_new">Vytvoriť nový</string>
-  <string name="reading_list_title_exists" fuzzy="true">Zoznam na prečítanie s názvom „%s“ už existuje.</string>
+  <string name="reading_list_title_exists">Zbierka „%s“ už existuje.</string>
   <string name="reading_list_article_added_to_named">%1$s pridané do %2$s.</string>
-  <string name="reading_list_article_added_to_default_list" fuzzy="true">Článok %s uložený. Chcete ho pridať do zoznamu?</string>
+  <string name="reading_list_article_added_to_default_list">Článok %s bol uložený. Chcete ho pridať do zbierky?</string>
   <string name="reading_list_article_moved_to_named">%1$s presunuté do %2$s.</string>
   <string name="reading_list_article_already_exists_message">Všetko je v poriadku! Zoznam %1$s už obsahuje %2$s.</string>
   <string name="reading_list_articles_already_exist_message">Všetko je v poriadku! Zoznam %s už obsahuje všetky články.</string>
-  <string name="reading_list_added_view_button" fuzzy="true">Zobraziť zoznam</string>
-  <string name="reading_list_add_to_list_button" fuzzy="true">Pridať do zoznamu</string>
+  <string name="reading_list_added_view_button">Zobraziť zbierku</string>
+  <string name="reading_list_add_to_list_button">Pridať do zbierky</string>
   <plurals name="format_reading_list_statistical_summary_without_size">
     <item quantity="one">1 článok</item>
     <item quantity="few">%d články</item>
@@ -572,28 +584,28 @@
   <string name="reading_list_sort_by_recent_desc">Zoradiť podľa dátumu vytvorenia (od najstaršieho)</string>
   <string name="reading_list_sort_by_created">Zoradiť podľa dátumu vytvorenia (od najnovšieho)</string>
   <string name="reading_list_sort_by_created_desc">Zoradiť podľa dátumu vytvorenia (od najstaršieho)</string>
-  <string name="reading_list_menu_delete" fuzzy="true">Vymazať zoznam</string>
-  <string name="reading_list_menu_export" fuzzy="true">Exportovať zoznam</string>
+  <string name="reading_list_menu_delete">Odstrániť zbierku</string>
+  <string name="reading_list_menu_export">Exportovať zbierku</string>
   <string name="reading_list_menu_select">Vybrať</string>
   <string name="reading_list_menu_unselect">Nevyberané</string>
-  <string name="reading_list_export_write_permission_rationale" fuzzy="true">Na export vášho zoznamu na prečítanie sa vyžaduje povolenie na zápis do úložiska vo vašom zariadení.</string>
+  <string name="reading_list_export_write_permission_rationale">Na export vašej zbierky sa vyžaduje povolenie na zápis do úložiska vo vašom zariadení.</string>
   <string name="reading_list_menu_rename">Upraviť názov/popis</string>
   <string name="reading_list_action_menu_remove_from_offline">Odstrániť článok z offline úložiska</string>
   <string name="reading_list_action_menu_save_for_offline">Uložiť článok do zariadenia</string>
   <string name="reading_list_action_menu_remove_all_from_offline">Odstrániť všetko z offline úložiska</string>
   <string name="reading_list_action_menu_save_all_for_offline">Uložiť všetko offline</string>
-  <string name="reading_list_action_menu_add_to_another_list" fuzzy="true">Pridať do ďalšieho zoznamu</string>
-  <string name="reading_list_action_menu_move_to_another_list" fuzzy="true">Presunúť do ďalšieho zoznamu</string>
-  <string name="reading_list_name_sample" fuzzy="true">Môj zoznam na prečítanie</string>
-  <string name="reading_list_name_hint" fuzzy="true">Názov zoznamu</string>
+  <string name="reading_list_action_menu_add_to_another_list">Pridať do ďalšej zbierky</string>
+  <string name="reading_list_action_menu_move_to_another_list">Presunúť do ďalšej zbierky</string>
+  <string name="reading_list_name_sample">Moja zbierka</string>
+  <string name="reading_list_name_hint">Názov tejto zbierky</string>
   <string name="reading_list_description_hint">Popis (nepovinné)</string>
-  <string name="reading_list_item_deleted" fuzzy="true">Článok %s bol odstránený zo zoznamu na prečítanie</string>
+  <string name="reading_list_item_deleted">Článok %s bol odstránený zo zbierky</string>
   <string name="reading_list_item_deleted_from_list">%1$s odstránený z %2$s</string>
-  <plurals name="reading_list_articles_deleted" fuzzy="true">
-    <item quantity="one">%d článok odstránený zo zoznamu</item>
-    <item quantity="few">%d články odstránené zo zoznamu</item>
-    <item quantity="many">%d článkov odstránených zo zoznamu</item>
-    <item quantity="other">%d článkov odstránených zo zoznamu</item>
+  <plurals name="reading_list_articles_deleted">
+    <item quantity="one">%d článok odstránený zo zbierky</item>
+    <item quantity="few">%d články odstránené zo zbierky</item>
+    <item quantity="many">%d článkov odstránených zo zbierky</item>
+    <item quantity="other">%d článkov odstránených zo zbierky</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
     <item quantity="one">%1$d článok odstránený zv%2$s</item>
@@ -601,41 +613,52 @@
     <item quantity="many">%1$d článkov odstránených z %2$s</item>
     <item quantity="other">%1$d článkov odstránených z %2$s</item>
   </plurals>
-  <plurals name="reading_lists_deleted_message" fuzzy="true">
-    <item quantity="one">%d zoznam odstránený</item>
-    <item quantity="few">%d zoznamy odstránené</item>
-    <item quantity="many">%d zoznamov odstránených</item>
-    <item quantity="other">%d zoznamov odstránených</item>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="one">%d zbierka odstránená</item>
+    <item quantity="few">%d zbierky odstránené</item>
+    <item quantity="many">%d zbierok odstránených</item>
+    <item quantity="other">%d zbierok odstránených</item>
   </plurals>
-  <string name="reading_lists_default_list_delete_message" fuzzy="true">Predvolený zoznam (%s) nie je možné odstrániť</string>
-  <string name="reading_lists_default_plus_one_list_delete_message" fuzzy="true">%1$s odstránený. Predvolený zoznam (%2$s) nie je možné odstrániť.</string>
-  <string name="reading_lists_default_plus_many_lists_delete_message" fuzzy="true">Zoznamy boli odstránené. Predvolený zoznam (%s) nie je možné odstrániť.</string>
-  <string name="single_list_json_file_name" fuzzy="true">%s (zoznam na prečítanie Wikipédie).json</string>
-  <string name="multiple_lists_json_file_name" fuzzy="true">Zoznamy na prečítanie Wikipédie (%s a ďalšie).json</string>
-  <string name="reading_list_items_deleted" fuzzy="true">Zo zoznamu na prečítanie bolo odstránených %d článkov</string>
-  <string name="reading_lists_item_deleted" fuzzy="true">%s bol odstránený zo zoznamov</string>
+  <string name="reading_lists_default_list_delete_message">Predvolenú zbierku (%s) nie je možné odstrániť</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">Odstránené: %1$s. Predvolenú zbierku (%2$s) nie je možné odstrániť.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">Zbierky boli odstránené. Predvolenú zbierku (%s) nie je možné odstrániť.</string>
+  <string name="single_list_json_file_name">%s (zbierka na Wikipédii).json</string>
+  <string name="multiple_lists_json_file_name">Zbierky na Wikipédii (%s a ďalšie).json</string>
+  <string name="reading_list_items_deleted">Zo zbierky bolo odstránených %d článkov</string>
+  <string name="reading_lists_item_deleted">%s bol odstránený zo zbierok</string>
   <string name="reading_list_item_delete_undo">Vrátiť</string>
   <string name="reading_list_deleted">Zoznam %s bol odstránený</string>
-  <string name="saved_list_empty_title" fuzzy="true">Zatiaľ nemáte žiadne zoznamy na prečítanie</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Pridajte si články do zoznamov na prečítanie, aby ste si ich mohli pozrieť aj neskôr (dokonca aj offline).</string>
-  <string name="reading_list_empty" fuzzy="true">V tomto zozname nemáte žiadne články.</string>
+  <string name="saved_list_empty_title">Zatiaľ nemáte žiadne uložené články</string>
+  <string name="reading_lists_empty_message">Pridajte si články do zbierky, aby ste si ich mohli prečítať neskôr, aj keď ste offline.</string>
+  <string name="reading_lists_search_empty_articles_title">Nenašli sa žiadne uložené články</string>
+  <string name="reading_lists_search_empty_articles_message">Vo vašich uložených článkoch sa nepodarilo nájsť „%s“.</string>
+  <string name="reading_lists_search_empty_collections_title">Nenašli sa žiadne zbierky</string>
+  <string name="reading_lists_search_empty_collections_message">Vo vašich zbierkach sa nepodarilo nájsť „%s“.</string>
+  <string name="reading_list_empty">V tejto zbierke nemáte žiadne články.</string>
   <string name="reading_list_article_offline">Dostupné offline</string>
   <string name="reading_list_article_make_offline">Urobiť dostupným offline</string>
-  <string name="reading_list_add_to_other_list" fuzzy="true">Pridať do ďalšieho zoznamu na prečítanie</string>
-  <string name="reading_list_move_to_other_list" fuzzy="true">Presunúť do ďalšieho zoznamu na prečítanie</string>
-  <string name="reading_list_move_from_to_other_list" fuzzy="true">Presunúť %s do iného zoznamu na prečítanie</string>
+  <string name="reading_list_add_to_other_list">Pridať do ďalšej zbierky</string>
+  <string name="reading_list_move_to_other_list">Presunúť do ďalšej zbierky</string>
+  <string name="reading_list_add_to_collection">Pridať do zbierky</string>
+  <plurals name="reading_list_in_collections">
+    <item quantity="one">V 1 zbierke</item>
+    <item quantity="few">V %d zbierkach</item>
+    <item quantity="many">V %d zbierkach</item>
+    <item quantity="other">V %d zbierkach</item>
+  </plurals>
+  <string name="reading_list_move_from_to_other_list">Presunúť %s do inej zbierky</string>
   <string name="reading_list_remove_from_list">Odstrániť zo zoznamu %s</string>
-  <string name="reading_list_remove_from_lists" fuzzy="true">Odstrániť zo zoznamov na prečítanie</string>
+  <string name="reading_list_remove_from_lists">Odstrániť zo zbierok</string>
   <string name="reading_list_select_item">Vybrať</string>
   <string name="reading_list_confirm_remove_article_from_offline">Odstrániť článok z offline úložiska</string>
-  <string name="reading_list_confirm_remove_article_from_offline_title" fuzzy="true">Článok je vo viacerých zoznamoch</string>
-  <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s ďalej nebude dostupný offline pre všetky zoznamy na prečítanie:</string>
-  <string name="reading_lists_sync_reminder_title" fuzzy="true">Chcete zapnúť synchronizáciu zoznamov na prečítanie?</string>
-  <string name="reading_lists_sync_reminder_text" fuzzy="true">Články uložené v zoznamoch na prečítanie je teraz možné synchronizovať s vaším účtom na Wikipédii. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Ďalšie informácie&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Zoznamy na prečítanie je teraz možné synchronizovať medzi zariadeniami. Prihláste sa do svojho účtu na Wikipédii a povoľte ukladanie svojich zoznamov. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Ďalšie informácie&lt;/a&gt;</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title">Článok sa nachádza vo viacerých zbierkach</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message">%s už nebude dostupný offline pre všetky zbierky:</string>
+  <string name="reading_lists_sync_reminder_title">Zapnúť synchronizáciu zbierok?</string>
+  <string name="reading_lists_sync_reminder_text">Články uložené v zbierkach je teraz možné synchronizovať s vaším účtom na Wikipédii. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Ďalšie informácie&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Zbierky je teraz možné synchronizovať medzi zariadeniami. Prihláste sa do svojho účtu na Wikipédii a povoľte ukladanie svojich zbierok. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Ďalšie informácie&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Povoliť synchronizáciu</string>
-  <string name="reading_list_login_reminder_title" fuzzy="true">Synchronizovať zoznamy na prečítanie</string>
-  <string name="reading_lists_login_reminder_text" fuzzy="true">Zoznamy na prečítanie môžu byť teraz synchronizované naprieč zariadeniami. Prihláste sa do svojho účtu na Wikipédii a povoľte ukladanie vašich zoznamov.</string>
+  <string name="reading_list_login_reminder_title">Synchronizovať zbierky</string>
+  <string name="reading_lists_login_reminder_text">Zbierky je teraz možné synchronizovať medzi zariadeniami. Prihláste sa do svojho účtu na Wikipédii a povoľte ukladanie svojich zbierok.</string>
   <string name="reading_lists_login_button">Prihlásiť/zaregistrovať sa na Wikipédiu</string>
   <string name="reading_lists_ignore_button">Teraz nie</string>
   <string name="reading_lists_confirm_remote_delete_yes">Áno</string>
@@ -644,37 +667,37 @@
   <string name="reading_list_articles_added_to_named">%1$d článkov pridané do %2$s</string>
   <string name="reading_list_articles_moved_to_named">%1$d článkov presunutých do %2$s</string>
   <string name="reading_list_delete_confirm">Naozaj chcete odstrániť zoznam %s?</string>
-  <string name="reading_list_delete_lists_confirm_dialog_title" fuzzy="true">Odstrániť vybrané zoznamy?</string>
-  <plurals name="reading_list_delete_lists_confirm_dialog_message" fuzzy="true">
-    <item quantity="one">Naozaj chcete odstrániť %d zoznam?</item>
-    <item quantity="few">Naozaj chcete odstrániť %d zoznamy?</item>
-    <item quantity="many">Naozaj chcete odstrániť %d zoznamov?</item>
-    <item quantity="other">Naozaj chcete odstrániť %d zoznamov?</item>
+  <string name="reading_list_delete_lists_confirm_dialog_title">Odstrániť vybrané zbierky?</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+    <item quantity="one">Naozaj chcete odstrániť %d zbierku?</item>
+    <item quantity="few">Naozaj chcete odstrániť %d zbierky?</item>
+    <item quantity="many">Naozaj chcete odstrániť %d zbierok?</item>
+    <item quantity="other">Naozaj chcete odstrániť %d zbierok?</item>
   </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Ak chcete povoliť synchronizáciu, prihláste sa</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_text" fuzzy="true">Prihláste sa, aby ste povolili ukladanie zoznamov na prečítanie na váš účet.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Prihláste sa, aby ste povolili ukladanie svojich zbierok do účtu.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Zrušiť</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Prihlásiť sa</string>
-  <string name="reading_list_turned_sync_off_dialog_title" fuzzy="true">Synchronizácia zoznamov na prečítanie bola vypnutá</string>
-  <string name="reading_list_turned_sync_off_dialog_text" fuzzy="true">Synchronizácia zoznamov na prečítanie je pre váš účet vypnutá, uložené články na vašich prihlásených zariadeniach už nie sú zálohované. Zapnite synchronizáciu zoznamov na prečítanie vo vašom nastavení.</string>
+  <string name="reading_list_turned_sync_off_dialog_title">Synchronizácia zbierok bola vypnutá</string>
+  <string name="reading_list_turned_sync_off_dialog_text">Synchronizácia zbierok je pre váš účet vypnutá a uložené články na vašich prihlásených zariadeniach sa už nezálohujú. Synchronizáciu zbierok zapnite v Nastaveniach.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Nastavenia</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_title" fuzzy="true">Chcete zapnúť synchronizáciu zoznamov na prečítanie?</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_text" fuzzy="true">Články uložené do zoznamov na prečítanie môžu byť odteraz synchronizované s vaším účtom na Wikipédii. &lt;a href=\"#faq\"&gt;Ďalšie informácie&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">Zapnúť synchronizáciu zbierok?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">Články uložené v zbierkach je teraz možné synchronizovať s vaším účtom na Wikipédii. &lt;a href=\"#faq\"&gt;Ďalšie informácie&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Nabudúce už nezobrazovať</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Povoliť synchronizáciu</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nie, vďaka</string>
   <string name="default_reading_list_name">Uložené</string>
-  <string name="default_reading_list_description" fuzzy="true">Predvolený zoznam pre vaše uložené články</string>
-  <string name="no_user_lists_title" fuzzy="true">Usporiadajte si články do zoznamov</string>
-  <string name="no_user_lists_msg" fuzzy="true">Vytvorte si zoznamy miest, kam sa chcete vydať, zoznamy obľúbených tém a ďalšie</string>
+  <string name="default_reading_list_description">Predvolená zbierka pre vaše uložené články</string>
+  <string name="no_user_lists_title">Usporiadajte si články do zbierok</string>
+  <string name="no_user_lists_msg">Vytvárajte si zbierky pre miesta, kam chcete cestovať, obľúbené témy a mnoho ďalšieho</string>
   <string name="reading_list_saved_list_rename">%1$s (vytvorený používateľom)</string>
-  <string name="split_reading_list_message" fuzzy="true">Zaviedli sme limit %d článkov na zoznam na prečítanie. Existujúce zoznamy prekračujúce tento limit budú rozdelené na viaceré zoznamy.</string>
-  <string name="reading_list_move_article_limit_message" fuzzy="true">Do tohoto zoznamu už nemôžete presunúť články. Dosiahli ste limit %2$d článkov pre zoznam „%1$s“.</string>
-  <string name="reading_list_article_limit_message" fuzzy="true">Do tohoto zoznamu už nemôžete pridávať články. Dosiahli ste limit %2$d článkov pre zoznam „%1$s“.</string>
-  <string name="reading_lists_limit_message" fuzzy="true">Nemôžete vytvoriť ďalší zoznam. Dosiahli ste limit 100 zoznamov na prečítanie pre 1 účet.</string>
-  <string name="reading_lists_menu_create_list" fuzzy="true">Vytvoriť nový zoznam</string>
-  <string name="reading_lists_menu_import_list" fuzzy="true">Importovať zoznam</string>
+  <string name="split_reading_list_message">Platí limit %d článkov na zbierku. Existujúce zbierky, ktoré tento limit prekračujú, boli rozdelené na viacero zbierok.</string>
+  <string name="reading_list_move_article_limit_message">Do tejto zbierky sa nedá presúvať. Dosiahli ste limit %2$d článkov na zbierku pre „%1$s“.</string>
+  <string name="reading_list_article_limit_message">Do tejto zbierky sa nedá pridávať. Dosiahli ste limit %2$d článkov na zbierku pre „%1$s“.</string>
+  <string name="reading_lists_limit_message">Nedá sa vytvoriť ďalšia zbierka. Dosiahli ste limit 100 zbierok na účet.</string>
+  <string name="reading_lists_menu_create_list">Vytvoriť novú zbierku</string>
+  <string name="reading_lists_menu_import_list">Importovať zbierku</string>
   <string name="reading_lists_menu_sort_by">Zoradiť podľa</string>
   <string name="reading_lists_refresh_sync_option">Obnoviť synchronizáciu</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Prihlásiť sa/zaregistrovať sa</string>
@@ -690,7 +713,7 @@
     <item quantity="many">Tieto články už nebudú dostupné bez pripojenia.</item>
     <item quantity="other">Tieto články už nebudú dostupné bez pripojenia.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync" fuzzy="true">Zoznamy na prečítanie boli synchronizované</string>
+  <string name="reading_list_toast_last_sync">Zbierky boli synchronizované</string>
   <string name="reading_list_menu_last_sync">Posledná synchronizácia: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_dialog_ok_button_text">OK</string>
@@ -700,35 +723,35 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Zrušiť</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">Zmazať</string>
-  <string name="reading_list_activity_title" fuzzy="true">Zoznam na čítanie: %s</string>
-  <string name="reading_list_notification_title" fuzzy="true">Zoznamy na prečítanie boli exportované</string>
-  <string name="reading_list_notification_text" fuzzy="true">Počet zoznamov na prečítanie exportovaných ako „reading_lists export.json“ do priečinka Stiahnuté: %d</string>
-  <string name="reading_list_notification_detailed_text" fuzzy="true">Zoznamy na prečítanie boli exportované do „reading_lists_export.json“</string>
+  <string name="reading_list_activity_title">Zbierka: %s</string>
+  <string name="reading_list_notification_title">Zbierky boli exportované</string>
+  <string name="reading_list_notification_text">Počet zbierok exportovaných ako „reading_lists export.json“ do priečinka Stiahnuté: %d</string>
+  <string name="reading_list_notification_detailed_text">Zbierky boli exportované do „reading_lists_export.json“</string>
   <string name="reading_lists_action_menu_export_lists">Exportovať</string>
   <string name="reading_lists_import_file_picker_title">Vyberte súbor na import</string>
-  <string name="reading_lists_import_failure_message" fuzzy="true">Import zoznamov na prečítanie zlyhal</string>
-  <string name="reading_lists_export_select_lists_message" fuzzy="true">Vyberte zoznamy na export</string>
-  <string name="reading_lists_export_completed_message" fuzzy="true">Zoznamy na prečítanie boli exportované</string>
-  <plurals name="reading_list_export_failed_message" fuzzy="true">
-    <item quantity="one">Export zoznamu na prečítanie zlyhal</item>
-    <item quantity="few">Export zoznamov na prečítanie zlyhal</item>
-    <item quantity="many">Export zoznamov na prečítanie zlyhal</item>
-    <item quantity="other">Export zoznamov na prečítanie zlyhal</item>
+  <string name="reading_lists_import_failure_message">Import zbierok zlyhal</string>
+  <string name="reading_lists_export_select_lists_message">Vyberte zbierky na export</string>
+  <string name="reading_lists_export_completed_message">Zbierky boli exportované</string>
+  <plurals name="reading_list_export_failed_message">
+    <item quantity="one">Export zbierky zlyhal</item>
+    <item quantity="few">Export zbierok zlyhal</item>
+    <item quantity="many">Export zbierok zlyhal</item>
+    <item quantity="other">Export zbierok zlyhal</item>
   </plurals>
-  <plurals name="reading_list_import_success_message" fuzzy="true">
-    <item quantity="one">Zoznam na prečítanie bol importovaný</item>
-    <item quantity="few">Zoznamy na prečítanie boli importované</item>
-    <item quantity="many">Zoznamy na prečítanie boli importované</item>
-    <item quantity="other">Zoznamy na prečítanie boli importované</item>
+  <plurals name="reading_list_import_success_message">
+    <item quantity="one">Zbierka bola importovaná</item>
+    <item quantity="few">Zbierky boli importované</item>
+    <item quantity="many">Zbierky boli importované</item>
+    <item quantity="other">Zbierky boli importované</item>
   </plurals>
-  <string name="reading_lists_preview_header_title" fuzzy="true">Zdieľaný zoznam</string>
+  <string name="reading_lists_preview_header_title">Zdieľaná zbierka</string>
   <string name="reading_lists_preview_save_button">Uložiť</string>
-  <string name="reading_lists_preview_save_dialog_title" fuzzy="true">Uložiť zoznam</string>
-  <string name="reading_lists_preview_save_dialog_text" fuzzy="true">Pomenujte zoznam a vyberte články na uloženie.</string>
+  <string name="reading_lists_preview_save_dialog_title">Uložiť zbierku</string>
+  <string name="reading_lists_preview_save_dialog_text">Pomenujte zbierku a vyberte články na uloženie.</string>
   <string name="reading_lists_preview_save_dialog_title_hint">Názov</string>
   <string name="reading_lists_preview_save_dialog_cancel">Zrušiť</string>
   <string name="reading_lists_preview_save_dialog_save">Uložiť</string>
-  <string name="reading_lists_preview_saved_snackbar" fuzzy="true">Zoznam na prečítanie bol uložený</string>
+  <string name="reading_lists_preview_saved_snackbar">Zbierka bola uložená</string>
   <string name="reading_lists_preview_saved_snackbar_action">Zobraziť</string>
   <string name="user_option_sync_label">Nastavenia</string>
   <string name="notification_reverted_title">Vaša úprava bol vrátená</string>
@@ -737,8 +760,8 @@
   <string name="notification_syncing_pause_button">Pozastaviť</string>
   <string name="notification_syncing_resume_button">Pokračovať</string>
   <string name="notification_syncing_cancel_button">Zrušiť</string>
-  <string name="notification_syncing_reading_list_channel_title" fuzzy="true">Synchronizáciu zoznamov na čítanie</string>
-  <string name="notification_syncing_reading_list_channel_description" fuzzy="true">Pokrok v synchronizácii zoznamov na prečítanie</string>
+  <string name="notification_syncing_reading_list_channel_title">Synchronizácia zbierok</string>
+  <string name="notification_syncing_reading_list_channel_description">Priebeh synchronizácie zbierok</string>
   <string name="notification_many_unread">Máte %d neprečítaných upozornení</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Sťahovanie článku</item>
@@ -758,23 +781,23 @@
     <item quantity="many">Ostáva %1$d článkov</item>
     <item quantity="other">Ostáva %1$d článkov</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_channel_name" fuzzy="true">
-    <item quantity="one">Synchronizácia zoznamu na prečítanie</item>
-    <item quantity="few">Synchronizácia zoznamov na prečítanie</item>
-    <item quantity="many">Synchronizácia zoznamov na prečítanie</item>
-    <item quantity="other">Synchronizácia zoznamov na prečítanie</item>
+  <plurals name="notification_syncing_reading_list_channel_name">
+    <item quantity="one">Synchronizácia zbierky</item>
+    <item quantity="few">Synchronizácia zbierok</item>
+    <item quantity="many">Synchronizácia zbierok</item>
+    <item quantity="other">Synchronizácia zbierok</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_title" fuzzy="true">
-    <item quantity="one">Synchronizácia %1$d zoznamu…</item>
-    <item quantity="few">Synchronizácia %1$d zoznamov…</item>
-    <item quantity="many">Synchronizácia %1$d zoznamov…</item>
-    <item quantity="other">Synchronizácia %1$d zoznamov…</item>
+  <plurals name="notification_syncing_reading_list_title">
+    <item quantity="one">Synchronizuje sa %1$d zbierka…</item>
+    <item quantity="few">Synchronizujú sa %1$d zbierky…</item>
+    <item quantity="many">Synchronizuje sa %1$d zbierok…</item>
+    <item quantity="other">Synchronizuje sa %1$d zbierok…</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_description" fuzzy="true">
-    <item quantity="one">ostáva %1$d zoznam</item>
-    <item quantity="few">ostáva %1$d zoznamov</item>
-    <item quantity="many">ostáva %1$d zoznamov</item>
-    <item quantity="other">ostáva %1$d zoznamov</item>
+  <plurals name="notification_syncing_reading_list_description">
+    <item quantity="one">ostáva %1$d zbierka</item>
+    <item quantity="few">ostávajú %1$d zbierky</item>
+    <item quantity="many">ostáva %1$d zbierok</item>
+    <item quantity="other">ostáva %1$d zbierok</item>
   </plurals>
   <string name="notification_echo_channel_description">Notifikácie z Wikipédie</string>
   <string name="notifications_activity_title">Upozornenia</string>
@@ -1364,8 +1387,8 @@
   <string name="onboarding_maybe_later">Možno neskôr</string>
   <string name="onboarding_explore_title">Nové možnosti pre objavovanie</string>
   <string name="onboarding_explore_text">Ponorte sa do hlbín Wikipédie s neustále sa aktualizujúcim domovským kanálom. &lt;br/&gt; &lt;b&gt;Prispôsobte&lt;/b&gt; si kanál podľa svojich záujmov – či už je to spoznávanie historických udalostí v sekcii &lt;b&gt;V tento deň&lt;/b&gt;, alebo hod kockou s &lt;b&gt;Náhodným článkom&lt;/b&gt;.</string>
-  <string name="onboarding_reading_list_sync_title" fuzzy="true">Zoznamy na prečítanie so synchronizáciou</string>
-  <string name="onboarding_reading_list_sync_text_v2" fuzzy="true">Môžete si vytvárať zoznamy na prečítanie z článkov, ktoré si chcete prečítať, aj keď sa odhlásite od svojho účtu.&lt;br/&gt;Prihláste sa do svojho účtu na Wikipédii, aby ste mohli svoje zoznamy na prečítanie synchronizovať.&lt;br/&gt;&lt;a href=\"#login\"&gt;Pripojiť sa k Wikipédii&lt;/a&gt;</string>
+  <string name="onboarding_reading_list_sync_title">Zbierky so synchronizáciou</string>
+  <string name="onboarding_reading_list_sync_text_v2">Môžete si vytvárať zbierky z článkov, ktoré si chcete prečítať neskôr, aj keď ste offline. &lt;br/&gt;Prihláste sa do svojho účtu na Wikipédii a synchronizujte si svoje zbierky. &lt;a href=\"#login\"&gt;Pripojiť sa k Wikipédii&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Údaje a súkromie</string>
   <string name="onboarding_data_privacy_text">Veríme, že na zapojenie sa do hnutia slobodných vedomostí by ste nemali musieť poskytovať osobné údaje. Údaje o používaní zbierané pre túto aplikáciu sú anonymné.&lt;br/&gt;&lt;br/&gt;Ďalšie informácie nájdete v našich &lt;a href=\"#privacy\"&gt;zásadách ochrany súkromia&lt;/a&gt; a &lt;a href=\"#termsOfUse\"&gt;podmienkach použitia&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Posielať informácie o používaní</string>
@@ -1710,16 +1733,16 @@
   <string name="user_contrib_filter_activity_title">Filtrovať príspevky</string>
   <string name="action_item_view_on_map">Zobraziť na mape</string>
   <string name="action_item_view_on_map_unavailable">Pre túto stránku nie sú dostupné zemepisné súradnice</string>
-  <string name="shareable_reading_lists_import_dialog_title" fuzzy="true">Importovať zdieľaný zoznam na prečítanie</string>
-  <string name="shareable_reading_lists_import_dialog_content" fuzzy="true">Ako chcete pomenovať zoznam, ktorý s vami niekto zdieľal?</string>
+  <string name="shareable_reading_lists_import_dialog_title">Importovať zdieľanú zbierku</string>
+  <string name="shareable_reading_lists_import_dialog_content">Ako chcete pomenovať zbierku, ktorú s vami niekto zdieľal?</string>
   <string name="shareable_reading_lists_new_indicator">*nový*</string>
-  <string name="shareable_reading_lists_new_install_dialog_title" fuzzy="true">Niekto s vami zdieľal zoznam na prečítanie</string>
-  <string name="shareable_reading_lists_new_install_dialog_content" fuzzy="true">Všimli sme si, že s vami niekto zdieľal zoznam na prečítanie. Ak si ho chcete zobraziť v aplikácii, vráťte sa k pôvodnej správe a znova ťuknite na odkaz.</string>
+  <string name="shareable_reading_lists_new_install_dialog_title">Niekto s vami zdieľal zbierku</string>
+  <string name="shareable_reading_lists_new_install_dialog_content">Všimli sme si, že s vami niekto zdieľal zbierku. Ak si ju chcete zobraziť v aplikácii, vráťte sa k pôvodnej správe a znova ťuknite na odkaz.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Rozumiem</string>
-  <string name="shareable_reading_lists_new_imported_snackbar" fuzzy="true">Zoznam na prečítanie bol importovaný</string>
+  <string name="shareable_reading_lists_new_imported_snackbar">Zbierka bola importovaná</string>
   <string name="reading_list_share_menu_label">Zdieľať…</string>
-  <string name="reading_list_share_menu_tooltip" fuzzy="true">Zdieľajte tento zoznam na prečítanie s ostatnými</string>
-  <string name="reading_list_share_message_v2" fuzzy="true">Ahoj! Rád by som s tebou zdieľal svoj zoznam na prečítanie na Wikipédii:</string>
+  <string name="reading_list_share_menu_tooltip">Zdieľajte túto zbierku s ostatnými</string>
+  <string name="reading_list_share_message_v2">Ahoj! Rád by som s tebou zdieľal svoju zbierku na Wikipédii:</string>
   <string name="talk_templates_empty_message">Vytvorte si vlastné správy alebo začnite pomocou &lt;a href=\"#\"&gt;vzorových správ&lt;/a&gt;.</string>
   <string name="talk_templates_new_message_title">Nová správa</string>
   <string name="talk_templates_new_message_subject_hint">Predmet</string>
@@ -2020,8 +2043,8 @@
   <string name="year_in_review_get_started_later">K svojmu Roku v skratke sa dostanete neskôr v ponuke Viac.</string>
   <string name="year_in_review_survey_title">Pomôžte vylepšiť Rok v skratke</string>
   <string name="year_in_review_survey_subtitle">Ste s touto funkciou spokojní?</string>
-  <string name="year_in_review_reading_list_survey_title" fuzzy="true">Pomôžte vylepšiť zoznam na prečítanie Rok v skratke %d.</string>
-  <string name="year_in_review_reading_list_survey_subtitle" fuzzy="true">Ste so svojím zoznamom na prečítanie spokojní?</string>
+  <string name="year_in_review_reading_list_survey_title">Pomôžte vylepšiť zbierku Rok v skratke %d.</string>
+  <string name="year_in_review_reading_list_survey_subtitle">Ste so svojou zbierkou spokojní?</string>
   <string name="year_in_review_survey_very_satisfied">Veľmi spokojný</string>
   <string name="year_in_review_survey_satisfied">Spokojný</string>
   <string name="year_in_review_survey_neutral">Neutrálny</string>
@@ -2163,7 +2186,7 @@
     <item quantity="many">Používatelia aplikácie mali %,d uložených článkov</item>
     <item quantity="other">Používatelia aplikácie mali %,d uložených článkov</item>
   </plurals>
-  <string name="year_in_review_slide_global_saved_articles_body" fuzzy="true">Pridávanie článkov do zoznamov na prečítanie vám umožňuje pristupovať k článkom aj offline. Po prihlásení si môžete zoznamy na prečítanie synchronizovať medzi zariadeniami.</string>
+  <string name="year_in_review_slide_global_saved_articles_body">Pridávanie článkov do zbierok vám umožňuje pristupovať k článkom aj offline. Po prihlásení si môžete zbierky synchronizovať medzi zariadeniami.</string>
   <string name="year_in_review_slide_reading_patterns_headline">Máte jasné zvyklosti pri čítaní</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">Obľúbený čas na čítanie</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">Obľúbený deň na čítanie</string>
@@ -2259,8 +2282,8 @@
     <item quantity="other">Používatelia aplikácie si zobrazili články Wikipédie %,d-krát</item>
   </plurals>
   <string name="year_in_review_slide_viewed_articles_times_body">Pre ľudí na celom svete je Wikipédia prvou zastávkou pri hľadaní odpovede na otázku, vyhľadávaní informácií do školy či práce alebo objavovaní nového faktu.</string>
-  <string name="year_in_review_reading_list_dialog_title" fuzzy="true">Vytvoriť váš zoznam na prečítanie Rok v skratke %d?</string>
-  <string name="year_in_review_reading_list_dialog_message" fuzzy="true">Rok v skratke na Wikipédii vytvorí zoznam na prečítanie z článkov, s ktorými ste v roku %1$d strávili najviac času. &lt;a href=\"%2$s\"&gt;Ďalšie informácie&lt;/a&gt;</string>
+  <string name="year_in_review_reading_list_dialog_title">Vytvoriť vašu zbierku Rok v skratke %d?</string>
+  <string name="year_in_review_reading_list_dialog_message">Rok v skratke na Wikipédii vytvorí zbierku článkov, s ktorými ste v roku %1$d strávili najviac času. &lt;a href=\"%2$s\"&gt;Ďalšie informácie&lt;/a&gt;</string>
   <string name="year_in_review_reading_list_dialog_positive_button_label">Vytvoriť</string>
   <string name="year_in_review_reading_list_dialog_negative_button_label">Nie, ďakujem</string>
   <string name="year_in_review_reading_list_title">Rok v skratke %d</string>
@@ -2339,12 +2362,12 @@
   <string name="year_in_review_highlights_logo_description">Logo Wikipédie</string>
   <string name="recommended_reading_list_title">Objavovať</string>
   <string name="recommended_reading_list_onboarding_card_title">Objavte články vybrané práve pre vás</string>
-  <string name="recommended_reading_list_onboarding_card_message" fuzzy="true">Váš týždenný zoznam článkov Wikipédie na prečítanie, zostavený práve pre vás.</string>
+  <string name="recommended_reading_list_onboarding_card_message">Vaša týždenná zbierka článkov Wikipédie, zostavená práve pre vás.</string>
   <string name="recommended_reading_list_onboarding_card_new">Novinka!</string>
   <string name="recommended_reading_list_onboarding_card_positive_button">Začať</string>
   <string name="recommended_reading_list_onboarding_card_negative_button">Nie, vďaka</string>
-  <string name="recommended_reading_list_onboarding_card_negative_snackbar" fuzzy="true">Ak si chcete odporúčaný zoznam na prečítanie nastaviť neskôr, prejdite do Nastavení.</string>
-  <string name="recommended_reading_list_interest_source_message" fuzzy="true">Ako máme zostaviť váš odporúčaný zoznam na prečítanie?</string>
+  <string name="recommended_reading_list_onboarding_card_negative_snackbar">Ak si chcete odporúčanú zbierku nastaviť neskôr, prejdite do Nastavení.</string>
+  <string name="recommended_reading_list_interest_source_message">Ako máme zostaviť vašu odporúčanú zbierku?</string>
   <string name="recommended_reading_list_interest_source_interests">Vyberiem si podľa svojich záujmov</string>
   <string name="recommended_reading_list_interest_source_saved">Vyberte za mňa podľa mojich uložených článkov</string>
   <string name="recommended_reading_list_interest_source_history">Vyberte za mňa podľa mojej histórie čítania</string>
@@ -2372,9 +2395,9 @@
     <item quantity="many">• %d článkov</item>
     <item quantity="other">• %d článkov</item>
   </plurals>
-  <string name="recommended_reading_list_page_description_daily" fuzzy="true">Váš denný zoznam na prečítanie. Spoznávajte nové témy vybrané práve pre vás. Aktualizuje sa o polnoci.</string>
-  <string name="recommended_reading_list_page_description_weekly" fuzzy="true">Váš týždenný zoznam na prečítanie. Spoznávajte nové témy vybrané práve pre vás. Aktualizuje sa na začiatku týždňa.</string>
-  <string name="recommended_reading_list_page_description_monthly" fuzzy="true">Váš mesačný zoznam na prečítanie. Spoznávajte nové témy vybrané práve pre vás. Aktualizuje sa prvého dňa každého mesiaca.</string>
+  <string name="recommended_reading_list_page_description_daily">Vaša denná zbierka. Spoznávajte nové témy vybrané práve pre vás. Aktualizuje sa o polnoci.</string>
+  <string name="recommended_reading_list_page_description_weekly">Vaša týždenná zbierka. Spoznávajte nové témy vybrané práve pre vás. Aktualizuje sa na začiatku týždňa.</string>
+  <string name="recommended_reading_list_page_description_monthly">Vaša mesačná zbierka. Spoznávajte nové témy vybrané práve pre vás. Aktualizuje sa prvého dňa každého mesiaca.</string>
   <string name="recommended_reading_list_page_overflow_customize">Prispôsobiť</string>
   <string name="recommended_reading_list_page_overflow_about">O tejto funkcii</string>
   <string name="recommended_reading_list_page_snackbar">Objavovať sa bude aktualizovať o %1$d nových článkov každý %2$s. Vaše odporúčania sú uložené lokálne vo vašom zariadení.</string>
@@ -2384,7 +2407,7 @@
   <string name="recommended_reading_list_page_snackbar_month">mesiac</string>
   <string name="recommended_reading_list_settings_section_header">Odporúčania</string>
   <string name="recommended_reading_list_settings_title">Nastavenia Objavovať</string>
-  <string name="recommended_reading_list_settings_toggle" fuzzy="true">Zoznam na prečítanie Objavovať</string>
+  <string name="recommended_reading_list_settings_toggle">Zbierka Objavovať</string>
   <string name="recommended_reading_list_settings_toggle_disable_message">Objavovať je vypnuté. Wikipédia vám nebude odporúčať články na čítanie.</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_title">Vypnúť Objavovať?</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_message">Ak vypnete Objavovať, prestanete od Wikipédie dostávať %s odporúčania na čítanie.</string>
@@ -2419,7 +2442,7 @@
   <string name="recommended_reading_list_settings_notifications_dialog_message">Ak vypnete upozornenia, už nebudete dostávať pripomienky pri aktualizácii Objavovať.</string>
   <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Vypnúť ich</string>
   <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Nie, ponechať zapnuté</string>
-  <string name="recommended_reading_list_notification_title" fuzzy="true">Váš %s zoznam na prečítanie Objavovať je pripravený.</string>
+  <string name="recommended_reading_list_notification_title">Vaša %s zbierka Objavovať je pripravená.</string>
   <string name="recommended_reading_list_notification_subtitle">Ťuknutím si zobrazíte svoje najnovšie odporúčania.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">Keď sa Objavovať aktualizuje, Wikipédia vám pošle upozornenie.</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">Objavovať je zapnuté. Wikipédia vám bude odporúčať články na čítanie.</string>
@@ -2588,7 +2611,7 @@
   <string name="explore_feed_for_you_tab_label">Pre vás</string>
   <string name="explore_feed_date_today">Dnes – %s</string>
   <string name="explore_feed_load_previous_day_label">Načítať predchádzajúci deň</string>
-  <string name="explore_feed_from_reading_list" fuzzy="true">Z vášho zoznamu na prečítanie</string>
+  <string name="explore_feed_from_reading_list">Z vašej zbierky</string>
   <string name="explore_feed_because_of_interest">Na základe vášho záujmu: %s</string>
   <string name="explore_feed_onboarding_curiosity_title">Nasledujte svoju zvedavosť</string>
   <string name="explore_feed_onboarding_curiosity_description">Vyberte si témy, ktoré vás zaujímajú, a my vám prispôsobíme kanál.\n\nZbierame minimum údajov a tie sú anonymizované.</string>
@@ -2623,6 +2646,9 @@
   <string name="home_feed_settings_for_you_modules_description">Vypnutím modulu ho skryjete z kanála „Pre vás“. Kedykoľvek ho tu môžete znova zapnúť.</string>
   <string name="home_feed_settings_based_on_interest_title">Na základe vašich záujmov</string>
   <string name="home_feed_settings_based_on_interest_subtitle">Články prispôsobené témam, ktoré ste si vybrali.&lt;br /&gt;&lt;a href=\"#drivingFeed\"&gt;Čo formuje váš kanál&lt;/a&gt;</string>
+  <string name="home_feed_new_within_interest_card_heading">Novinky vo vašom záujme</string>
+  <string name="home_feed_new_within_interest_title">Nové články vo vašich záujmoch</string>
+  <string name="home_feed_new_within_interest_subtitle">Nedávno vytvorené články z tematických oblastí, ktoré sledujete</string>
   <string name="home_feed_settings_because_you_read_subtitle">Návrhy na základe nedávneho článku z vašej histórie</string>
   <string name="home_feed_settings_continue_reading_title">Pokračovať v čítaní</string>
   <string name="home_feed_settings_continue_reading_subtitle">Vráťte sa k článkom, ktoré ste nedočítali</string>
@@ -2666,13 +2692,13 @@
   <string name="home_feed_settings_games_title">Hry</string>
   <string name="home_feed_settings_games_subtitle">Denné hry založené na obsahu Wikipédie</string>
   <string name="home_feed_settings_discover_title">Odporúčania Objavovať</string>
-  <string name="home_feed_settings_discover_subtitle" fuzzy="true">Články z vášho zoznamu na prečítanie Objavovať</string>
+  <string name="home_feed_settings_discover_subtitle">Články z vašej zbierky Objavovať</string>
   <string name="home_feed_discover_cta_title">Z Objavovať</string>
   <string name="home_feed_discover_cta_description">Spoznávajte nové témy vybrané práve pre vás. Vyberte si medzi dennými, týždennými alebo mesačnými aktualizáciami.</string>
-  <string name="home_feed_discover_cta_button" fuzzy="true">Zapnúť zoznam na prečítanie Objavovať</string>
+  <string name="home_feed_discover_cta_button">Zapnúť zbierku Objavovať</string>
   <string name="home_feed_discover_card_footer">Z Objavovať • Aktualizuje sa %s</string>
   <string name="home_feed_discover_see_all_title">Je toho viac na objavovanie</string>
-  <string name="home_feed_discover_see_all_description" fuzzy="true">Váš personalizovaný zoznam na prečítanie má ďalšie príbehy vybrané práve pre vás.</string>
+  <string name="home_feed_discover_see_all_description">Vaša personalizovaná zbierka má ďalšie príbehy vybrané práve pre vás.</string>
   <string name="home_feed_discover_see_all_button">Preskúmať všetky odporúčania</string>
   <string name="home_feed_places_of_interest_card_footer">%1$s • Na základe vašej polohy v Miestach</string>
   <string name="home_feed_for_you_screen_end_of_feed_title">To je na dnes všetko!</string>
@@ -2687,10 +2713,16 @@
   <string name="random_article_widget_name">Náhodný článok</string>
   <string name="reading_lists_tab_all_articles">Všetky články</string>
   <string name="reading_lists_tab_collections">Zbierky</string>
+  <string name="reading_lists_filter_content_description">Filtrovať uložené články</string>
+  <string name="reading_lists_filter_not_in_collection">Nie je v zbierke</string>
+  <string name="reading_lists_empty_not_in_collection_title">Všetky uložené články sú v zbierkach.</string>
   <string name="reading_lists_search_saved_articles">Hľadať v uložených článkoch</string>
   <string name="reading_lists_search_collections">Hľadať v zbierkach</string>
-  <string name="reading_lists_remove_articles_confirm_dialog_title" fuzzy="true">Odstrániť uložené články?</string>
-  <string name="reading_lists_remove_articles_confirm_button" fuzzy="true">Odstrániť</string>
+  <string name="reading_lists_empty_collections_title">Usporiadajte si uložené články pomocou zbierok</string>
+  <string name="reading_lists_empty_collections_description">Vytvárajte si zbierky pre miesta, kam chcete cestovať, obľúbené témy a ďalšie.</string>
+  <string name="reading_lists_create_new_collection">Vytvoriť novú zbierku</string>
+  <string name="reading_lists_remove_articles_confirm_dialog_title">Zrušiť uloženie článku?</string>
+  <string name="reading_lists_remove_articles_confirm_button">Zrušiť uloženie</string>
   <plurals name="reading_lists_remove_articles_confirm_dialog_message">
     <item quantity="one">Tento článok bude odstránený zo všetkých asociovaných zbierok.</item>
     <item quantity="few">Tieto %d články budú odstránené zo všetkých asociovaných zbierok.</item>
@@ -2702,5 +2734,15 @@
     <item quantity="few">%d články boli odstránené zo všetkých asociovaných zbierok.</item>
     <item quantity="many">%d článkov bolo odstránených zo všetkých asociovaných zbierok.</item>
     <item quantity="other">%d článkov bolo odstránených zo všetkých asociovaných zbierok.</item>
+  </plurals>
+  <string name="reading_lists_save_sheet_empty_title">Zbierajte články, ktoré máte radi</string>
+  <string name="reading_lists_save_sheet_empty_message">Ukladajte si články do zbierok.</string>
+  <string name="reading_lists_save_sheet_create">Vytvoriť</string>
+  <string name="reading_lists_update_tooltip">Zoznamy na čítanie sa teraz volajú zbierky.</string>
+  <plurals name="reading_lists_unsave_articles_confirm_dialog_message">
+    <item quantity="one">Zrušením uloženia tohto článku sa odstráni zo všetkých súvisiacich zbierok.</item>
+    <item quantity="few">Zrušením uloženia týchto článkov sa odstránia zo všetkých súvisiacich zbierok.</item>
+    <item quantity="many">Zrušením uloženia týchto článkov sa odstránia zo všetkých súvisiacich zbierok.</item>
+    <item quantity="other">Zrušením uloženia týchto článkov sa odstránia zo všetkých súvisiacich zbierok.</item>
   </plurals>
 </resources>
