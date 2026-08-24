@@ -147,7 +147,7 @@
   <string name="langlinks_activity_title">Alte limbi</string>
   <string name="langlinks_your_wikipedia_languages">Limbile tale Wikipedia</string>
   <string name="menu_save_changes">Salvează modificările</string>
-  <string name="edit_saved_successfully">Modificare salvată!</string>
+  <string name="edit_saved_successfully">Modificare publicată!</string>
   <string name="stub_article_edit_saved_successfully">Editare publicată! Modificările vor apărea după ceva timp.</string>
   <string name="dialog_message_edit_failed">Salvarea nu a reușit!</string>
   <string name="dialog_message_edit_failed_retry">Reîncercare</string>
