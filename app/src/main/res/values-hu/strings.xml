@@ -38,7 +38,7 @@
   <string name="search_back_button_content_description">Visszalépés</string>
   <string name="search_clear_query_content_description">Lekérdezés ürítése</string>
   <string name="search_icon_content_description">Keresés</string>
-  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">Listáim szűrése</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Gyűjteményeim szűrése</string>
   <string name="nav_item_suggested_edits">Szerkesztések</string>
   <string name="nav_item_activity">Tevékenység</string>
   <string name="nav_item_more">Több</string>
@@ -105,16 +105,16 @@
   <string name="menu_page_watched">Figyelt lap</string>
   <string name="edit_section_find_in_page">Keresés a lapon</string>
   <string name="menu_page_font_and_theme">Betűtípus és téma</string>
-  <string name="menu_page_add_to_list" fuzzy="true">Hozzáadás az olvasólistához</string>
+  <string name="menu_page_add_to_list">Hozzáadás gyűjteményhez</string>
   <string name="menu_page_add_to_default_list">Mentés</string>
-  <string name="feed_card_add_to_list" fuzzy="true">Hozzáadás az olvasólistához</string>
+  <string name="feed_card_add_to_list">Hozzáadás a gyűjteményhez</string>
   <string name="feed_card_add_to_default_list">Mentés</string>
   <string name="menu_page_share">Hivatkozás megosztása</string>
   <string name="menu_article_share">Szócikk megosztása</string>
   <string name="menu_page_article_share">Megosztás</string>
   <string name="menu_page_open_a_new_tab">Új lap megnyitása</string>
   <string name="menu_page_new_tab">Új lap</string>
-  <string name="menu_page_reading_lists" fuzzy="true">Olvasólisták</string>
+  <string name="menu_page_reading_lists">Gyűjtemények</string>
   <string name="menu_page_recently_viewed">Mostanában olvasott</string>
   <string name="menu_page_archive">Archívum</string>
   <string name="menu_long_press_open_page">Megnyitás</string>
@@ -157,7 +157,9 @@
   <string name="menu_show_toc">Tartalomjegyzék</string>
   <string name="search_no_results_found">Nincs találat</string>
   <string name="search_reading_list_no_results">Nincs találat a(z) „%s” olvasólistában</string>
-  <string name="search_reading_lists_no_results" fuzzy="true">Nincs találat az olvasólistákban</string>
+  <string name="search_reading_lists_no_results">Nincs találat a gyűjteményekben</string>
+  <string name="search_all_articles_no_results">Nincs találat az összes szócikk között</string>
+  <string name="search_collections_no_results">Nincs találat a gyűjteményekben</string>
   <string name="search_history_no_results">Nincs találat az előzményekben</string>
   <string name="edit_section_captcha_message">Az automatikus spam elleni védekezés érdekében írd be az alább megjelenő szavakat</string>
   <string name="edit_section_captcha_request_an_account_message">Nem látod a képet? &lt;a href=\"https://hu.wikipedia.org/wiki/Wikipédia:Felhasználói_fiók_kérése\"&gt;Kérj egy fiókot&lt;/a&gt;</string>
@@ -237,12 +239,12 @@
   <string name="preferences_heading_syncing">Szinkronizálás</string>
   <string name="preferences_heading_data_usage">Adathasználat</string>
   <string name="preferences_heading_experimental">Kísérleti</string>
-  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Olvasólisták szinkronizálása</string>
-  <string name="preference_title_download_reading_list_articles" fuzzy="true">Olvasólista szócikkeinek letöltése</string>
-  <string name="preference_summary_sync_reading_lists" fuzzy="true">Olvasólistáid szinkronizálása különböző eszközeid között, a Wikipédia-fiókodba mentve őket</string>
-  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">Olvasólistáid szinkronizálása különböző eszközeid között, a(z) „%s” Wikipédia-fiókodba mentve őket</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">Szinkronizált olvasólisták eltávolítása a(z) „%s” fiókból?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">Ez teljesen eltávolítja az összes korábbi szinkronizált olvasólistát. Az összes szinkronizált olvasólista eltávolítása a(z) „%s” fiókból?</string>
+  <string name="preference_title_sync_reading_lists_from_account">Gyűjtemények szinkronizálása</string>
+  <string name="preference_title_download_reading_list_articles">Gyűjtemény szócikkeinek letöltése</string>
+  <string name="preference_summary_sync_reading_lists">Gyűjteményeid szinkronizálása különböző eszközeid között, a Wikipédia-fiókodba mentve őket</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Gyűjteményid szinkronizálása különböző eszközeid között, a(z) „%s” Wikipédia-fiókodba mentve őket</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Szinkronizált gyűjtemények eltávolítása a(z) „%s” fiókból?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Ez teljesen eltávolítja az összes korábbi szinkronizált gyűjteményt. Az összes szinkronizált gyűjtemény eltávolítása a(z) „%s” fiókból?</string>
   <string name="preference_title_auto_upload_crash_reports">Hibajelentés küldése</string>
   <string name="preference_summary_auto_upload_crash_reports">Az alkalmazás automatikusan küldhet hibajelentéseket egy harmadik fél szolgáltatónak, hogy elemezhessük az összeomlást, így gyorsabban és könnyebben kijavíthatjuk a hibát.</string>
   <string name="editing_error_spamblacklist">Tiltott webhelyre (%s) mutató linkeket helyeztél el. Távolítsd el őket, majd próbáld újra.</string>
@@ -315,6 +317,16 @@
   <string name="edit_notices_please_read">Kérjük, olvasd el szerkesztés előtt</string>
   <string name="edit_notices_show_auto">Szerkesztési megjegyzések megjelenése</string>
   <string name="edit_notices_tooltip">Érintsd meg ezt a gombot a szócikk szerkesztési megjegyzéseinek megjelenítéséhez.</string>
+  <string name="editor_select_dialog_title">Válaszd ki a szerkesztés módját</string>
+  <string name="editor_select_dialog_ve_title">Vizuális szerkesztés</string>
+  <string name="editor_select_dialog_ve_subtitle">Módosítsd közvetlenül a megjelenített lapot. A böngésződben nyílik meg.</string>
+  <string name="editor_select_dialog_source_title">Forrásszöveg szerkesztése</string>
+  <string name="editor_select_dialog_source_subtitle">Módosítsd a lapot wikikód használatával. Az alkalmazásban marad.</string>
+  <string name="editor_select_dialog_dont_show_again">Ne jelenjen meg újra. Ez az alapértelmezés később módosítható a Beállításokban.</string>
+  <string name="editor_select_dialog_continue">Folytatás</string>
+  <string name="editor_select_icon_ve_title">Megnyitás külső böngészőben ikon</string>
+  <string name="editor_select_title_settings_screen">Szerkesztési beállítás</string>
+  <string name="editor_select_save_btn_settings_screen">Mentés</string>
   <string name="find_next">Következő keresése</string>
   <string name="find_previous">Előző keresése</string>
   <string name="find_first_occurence">Ez az első találat</string>
@@ -386,8 +398,8 @@
   <string name="unnamed_tab_closed">Lap bezárva</string>
   <string name="tab_item_closed">%s bezárva.</string>
   <string name="all_tab_items_closed">Az összes lap bezárva.</string>
-  <string name="tool_tip_bookmark_icon_title" fuzzy="true">Hozzáadás az olvasólistához</string>
-  <string name="tool_tip_bookmark_icon_text" fuzzy="true">Bökj a könyvjelző ikonra, hogy a cikket egy olvasólistádra mentsd.</string>
+  <string name="tool_tip_bookmark_icon_title">Hozzáadás a gyűjteményhez</string>
+  <string name="tool_tip_bookmark_icon_text">Bökj a könyvjelző ikonra, hogy a cikket egy gyűjteményre mentsd.</string>
   <string name="page_view_in_browser">Lap megtekintése böngészőben</string>
   <string name="tool_tip_toc_title">Tartalomjegyzék gyors elérése</string>
   <string name="tool_tip_toc_text">A tartalomjegyzéket balra lapozva tudod előhozni és a görgőt megragadva gyorsan navigálhatsz a szócikk különböző részei között.</string>
@@ -400,9 +412,9 @@
   <string name="button_continue_to_talk_page">Vitalap megtekintése</string>
   <string name="button_continue_to_disambiguation">Hasonló lapok megtekintése</string>
   <string name="link_preview_disambiguation_description">Ez a cím több mint egy lapra utal:</string>
-  <string name="button_add_to_reading_list" fuzzy="true">Hozzáadás az olvasólistához</string>
+  <string name="button_add_to_reading_list">Hozzáadás az gyűjteményhez</string>
   <string name="page_offline_notice_cannot_load_while_offline">A szócikk nem tölthető be kapcsolat nélkül.</string>
-  <string name="page_offline_notice_add_to_reading_list" fuzzy="true">Tipp: Add hozzá a szócikket egy olvasólistához, hogy letöltődjön, amikor kapcsolódsz az internethez.</string>
+  <string name="page_offline_notice_add_to_reading_list">Tipp: Add hozzá a szócikket egy gyűjteményhez, hogy letöltődjön, amikor kapcsolódsz az internethez.</string>
   <string name="page_offline_notice_last_date">A szócikk offline verzióját olvasod, mentve: %s</string>
   <string name="redirected_from_snackbar">„%s” szócikkből átirányítva</string>
   <string name="button_get_directions">Útvonalterv</string>
@@ -513,17 +525,17 @@
   <string name="editing_monospace_font_label">Használjon monospace betűtípust</string>
   <string name="editing_typing_suggestions">Gépelési javaslatok megjelenítése</string>
   <string name="nav_item_saved">Elmentve</string>
-  <string name="reading_list_save_to" fuzzy="true">Mentés olvasólistára</string>
-  <string name="reading_list_move_to" fuzzy="true">Mozgatás olvasólistára</string>
+  <string name="reading_list_save_to">Mentés a gyűjteménybe</string>
+  <string name="reading_list_move_to">Áthelyezés gyűjteménybe</string>
   <string name="reading_list_create_new">Új létrehozása</string>
-  <string name="reading_list_title_exists" fuzzy="true">A(z) „%s” olvasólista már létezik.</string>
+  <string name="reading_list_title_exists">A(z) „%s” gyűjtemény már létezik.</string>
   <string name="reading_list_article_added_to_named">%1$s hozzáadva ehhez: %2$s.</string>
-  <string name="reading_list_article_added_to_default_list" fuzzy="true">%s elmentve. Szeretnéd hozzáadni egy listához?</string>
+  <string name="reading_list_article_added_to_default_list">%s elmentve. Szeretnéd hozzáadni egy gyűjteményhez?</string>
   <string name="reading_list_article_moved_to_named">%1$s átmozgatva a(z) %2$s listára.</string>
   <string name="reading_list_article_already_exists_message">Minden rendben! A(z) %1$s már tartalmazza ezt: %2$s.</string>
   <string name="reading_list_articles_already_exist_message">Minden rendben! A(z) %s már tartalmaz minden cikket.</string>
-  <string name="reading_list_added_view_button" fuzzy="true">Lista megtekintése</string>
-  <string name="reading_list_add_to_list_button" fuzzy="true">Hozzáadás listához</string>
+  <string name="reading_list_added_view_button">Gyűjtemény megtekintése</string>
+  <string name="reading_list_add_to_list_button">Hozzáadás gyűjteményhez</string>
   <plurals name="format_reading_list_statistical_summary_without_size">
     <item quantity="one">%d szócikk</item>
     <item quantity="other">%d szócikk</item>
@@ -548,64 +560,73 @@
   <string name="reading_list_sort_by_recent_desc">Rendezés a hozzáadás dátuma szerint (legrégebbi)</string>
   <string name="reading_list_sort_by_created">Rendezés a létrehozás dátuma szerint (legújabb)</string>
   <string name="reading_list_sort_by_created_desc">Rendezés a létrehozás dátuma szerint (legrégebbi)</string>
-  <string name="reading_list_menu_delete" fuzzy="true">Lista törlése</string>
-  <string name="reading_list_menu_export" fuzzy="true">Lista exportálása</string>
+  <string name="reading_list_menu_delete">Gyűjtemény törlése</string>
+  <string name="reading_list_menu_export">Gyűjtemény exportálása</string>
   <string name="reading_list_menu_select">Kiválasztás</string>
   <string name="reading_list_menu_unselect">Kiválasztás törlése</string>
-  <string name="reading_list_export_write_permission_rationale" fuzzy="true">Olvasólisták exportálásához szükséges engedély az eszközöd tárhelyére íráshoz.</string>
+  <string name="reading_list_export_write_permission_rationale">A gyűjtemény exportálásához engedély szükséges az eszközöd tárhelyére való íráshoz.</string>
   <string name="reading_list_menu_rename">Név és leírás szerkesztése</string>
   <string name="reading_list_action_menu_remove_from_offline">Eltávolítás a kapcsolat nélküliből</string>
   <string name="reading_list_action_menu_save_for_offline">Mentés offline olvasáshoz</string>
   <string name="reading_list_action_menu_remove_all_from_offline">Az összes eltávolítása a kapcsolat nélküliből</string>
   <string name="reading_list_action_menu_save_all_for_offline">Az összes mentése kapcsolat nélküli olvasáshoz</string>
-  <string name="reading_list_action_menu_add_to_another_list" fuzzy="true">Hozzáadás másik listához</string>
-  <string name="reading_list_action_menu_move_to_another_list" fuzzy="true">Mozgatás egy másik listára</string>
-  <string name="reading_list_name_sample" fuzzy="true">Saját olvasólista</string>
-  <string name="reading_list_name_hint" fuzzy="true">A lista neve</string>
+  <string name="reading_list_action_menu_add_to_another_list">Hozzáadás egy másik gyűjteményhez</string>
+  <string name="reading_list_action_menu_move_to_another_list">Áthelyezés egy másik gyűjteménybe</string>
+  <string name="reading_list_name_sample">Saját gyűjtemény</string>
+  <string name="reading_list_name_hint">A gyűjtemény neve</string>
   <string name="reading_list_description_hint">Leírás (opcionális)</string>
-  <string name="reading_list_item_deleted" fuzzy="true">%s eltávolítva a listáról</string>
+  <string name="reading_list_item_deleted">%s eltávolítva a gyűjteményből</string>
   <string name="reading_list_item_deleted_from_list">%1$s eltávolítva a(z) %2$s listáról</string>
-  <plurals name="reading_list_articles_deleted" fuzzy="true">
-    <item quantity="one">%d szócikk eltávolítva a listáról</item>
-    <item quantity="other">%d szócikk eltávolítva a listáról</item>
+  <plurals name="reading_list_articles_deleted">
+    <item quantity="one">%d szócikk eltávolítva a gyűjteményből</item>
+    <item quantity="other">%d szócikk eltávolítva a gyűjteményből</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
     <item quantity="one">%1$d szócikk eltávolítva a(z) %2$s listáról</item>
     <item quantity="other">%1$d szócikk eltávolítva a(z) %2$s listáról</item>
   </plurals>
-  <plurals name="reading_lists_deleted_message" fuzzy="true">
-    <item quantity="one">%d lista törölve</item>
-    <item quantity="other">%d lista törölve</item>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="one">%d gyűjtemény törölve</item>
+    <item quantity="other">%d gyűjtemény törölve</item>
   </plurals>
-  <string name="reading_lists_default_list_delete_message" fuzzy="true">Az alapértelmezett lista (%s) nem törölhető</string>
-  <string name="reading_lists_default_plus_one_list_delete_message" fuzzy="true">%1$s törölve. Az alapértelmezett lista (%2$s) nem törölhető.</string>
-  <string name="reading_lists_default_plus_many_lists_delete_message" fuzzy="true">Listák törölve. Az alapértelmezett lista (%s) nem törölhető.</string>
-  <string name="single_list_json_file_name" fuzzy="true">%s (Wikipédia-olvasólista).json</string>
-  <string name="multiple_lists_json_file_name" fuzzy="true">Wikipédia-olvasólisták (%s és több).json</string>
-  <string name="reading_list_items_deleted" fuzzy="true">%d szócikk eltávolítva a listáról</string>
-  <string name="reading_lists_item_deleted" fuzzy="true">%s eltávolítva a listákról</string>
+  <string name="reading_lists_default_list_delete_message">Az alapértelmezett gyűjtemény (%s) nem törölhető</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">%1$s törölve. Az alapértelmezett gyűjtemény (%2$s) nem törölhető.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">Gyűjtemények törölve. Az alapértelmezett gyűjtemény (%s) nem törölhető.</string>
+  <string name="single_list_json_file_name">%s (Wikipédia-gyűjtemény).json</string>
+  <string name="multiple_lists_json_file_name">Wikipédia-gyűjtemény (%s és több).json</string>
+  <string name="reading_list_items_deleted">%d szócikk eltávolítva a gyűjteményből</string>
+  <string name="reading_lists_item_deleted">%s eltávolítva a gyűjteményből</string>
   <string name="reading_list_item_delete_undo">Visszavonás</string>
   <string name="reading_list_deleted">%s törölve</string>
-  <string name="saved_list_empty_title" fuzzy="true">Még nincsenek olvasólisták</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Adj hozzá szócikkeket egy olvasólistához későbbi elolvasáshoz, akár internetkapcsolat nélkül is.</string>
-  <string name="reading_list_empty" fuzzy="true">Nem adtál szócikket ehhez a listához.</string>
+  <string name="saved_list_empty_title">Még nincsenek mentett szócikkek</string>
+  <string name="reading_lists_empty_message">Adj hozzá szócikkeket egy gyűjteményhez későbbi elolvasáshoz, akár internetkapcsolat nélkül is.</string>
+  <string name="reading_lists_search_empty_articles_title">Nem találhatók mentett szócikkek</string>
+  <string name="reading_lists_search_empty_articles_message">Nem találtuk a(z) „%s” kifejezést a mentett szócikkeid között.</string>
+  <string name="reading_lists_search_empty_collections_title">Nem találhatók gyűjtemények</string>
+  <string name="reading_lists_search_empty_collections_message">Nem találtuk a(z) „%s” kifejezést a gyűjteményeid között.</string>
+  <string name="reading_list_empty">Nem adtál szócikket ehhez a gyűjteményhez.</string>
   <string name="reading_list_article_offline">Elérhető kapcsolat nélkül</string>
   <string name="reading_list_article_make_offline">A szócikk elérhetővé tétele kapcsolat nélkül</string>
-  <string name="reading_list_add_to_other_list" fuzzy="true">Hozzáadás egy másik olvasólistához</string>
-  <string name="reading_list_move_to_other_list" fuzzy="true">Mozgatás egy másik olvasólistára</string>
-  <string name="reading_list_move_from_to_other_list" fuzzy="true">Mozgatás a(z) %s olvasólistáról egy másik listára</string>
+  <string name="reading_list_add_to_other_list">Hozzáadás egy másik gyűjteményhez</string>
+  <string name="reading_list_move_to_other_list">Áthelyezés másik gyűjteménybe</string>
+  <string name="reading_list_add_to_collection">Hozzáadás egy gyűjteményhez</string>
+  <plurals name="reading_list_in_collections">
+    <item quantity="one">1 gyűjteményben</item>
+    <item quantity="other">%d gyűjteményben</item>
+  </plurals>
+  <string name="reading_list_move_from_to_other_list">Áthelyezés a(z) %s gyűjteményből egy másik gyűjteménybe</string>
   <string name="reading_list_remove_from_list">Eltávolítás a következőről: %s</string>
-  <string name="reading_list_remove_from_lists" fuzzy="true">Eltávolítás az olvasólistákról</string>
+  <string name="reading_list_remove_from_lists">Eltávolítás a gyűjteményekből</string>
   <string name="reading_list_select_item">Kiválasztás</string>
   <string name="reading_list_confirm_remove_article_from_offline">Eltávolítás a kapcsolat nélküliből</string>
-  <string name="reading_list_confirm_remove_article_from_offline_title" fuzzy="true">A szócikk több listán is rajta van</string>
-  <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s többé nem lesz elérhető kapcsolat nélkül egyik olvasólistánál sem:</string>
-  <string name="reading_lists_sync_reminder_title" fuzzy="true">Bekapcsolod az olvasólisták szinkronizálását?</string>
-  <string name="reading_lists_sync_reminder_text" fuzzy="true">Az olvasólistákra mentett szócikkek mostantól szinkronizálhatók a Wikipédia-fiókoddal. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ/hu#Offline_olvasás\"&gt;További információk&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Az olvasólisták már eszközök között is szinkronizálhatók. Jelentkezz be a Wikipédia fiókodba, és engedélyezd a listáid mentését. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ/hu#Olvasólisták_szinkronizálása\"&gt;További információk&lt;/a&gt;</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title">A szócikk több gyűjteményben is szerepel</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message">%s többé nem lesz elérhető kapcsolat nélkül egyik gyűjteményben sem:</string>
+  <string name="reading_lists_sync_reminder_title">Bekapcsolod a gyűjtemények szinkronizálását?</string>
+  <string name="reading_lists_sync_reminder_text">A gyűjteményekbe mentett szócikkek mostantól szinkronizálhatók a Wikipédia-fiókoddal. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/FAQ/Android/hu#Olvasólisták_és_offline_olvasás\"&gt;További információk&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">A gyűjtemények már eszközök között is szinkronizálhatók. Jelentkezz be a Wikipédia-fiókodba, és engedélyezd a gyűjteményeid mentését. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/FAQ/Android/hu#Olvasólisták_és_offline_olvasás\"&gt;További információk&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Szinkronizálás engedélyezése</string>
-  <string name="reading_list_login_reminder_title" fuzzy="true">Olvasólisták szinkronizálása</string>
-  <string name="reading_lists_login_reminder_text" fuzzy="true">Az olvasólisták mostantól szinkronizálhatók a különböző eszközeid között. Jelentkezz be a Wikipédia-fiókodba és engedélyezd a listáid mentését.</string>
+  <string name="reading_list_login_reminder_title">Gyűjtemények szinkronizálása</string>
+  <string name="reading_lists_login_reminder_text">Az gyűjtemények mostantól szinkronizálhatók a különböző eszközeid között. Jelentkezz be a Wikipédia-fiókodba és engedélyezd a gyűjteményeid mentését.</string>
   <string name="reading_lists_login_button">Bejelentkezés / regisztrálás a Wikipédiába</string>
   <string name="reading_lists_ignore_button">Ne most</string>
   <string name="reading_lists_confirm_remote_delete_yes">Igen</string>
@@ -614,35 +635,35 @@
   <string name="reading_list_articles_added_to_named">%1$d szócikk hozzáadva ide: %2$s</string>
   <string name="reading_list_articles_moved_to_named">%1$d szócikk átmozgatva a(z) %2$s olvasólistára</string>
   <string name="reading_list_delete_confirm">Biztosan szeretnéd törölni a(z) %s olvasólistát?</string>
-  <string name="reading_list_delete_lists_confirm_dialog_title" fuzzy="true">Törlöd a kiválasztott listá(ka)t?</string>
-  <plurals name="reading_list_delete_lists_confirm_dialog_message" fuzzy="true">
-    <item quantity="one">Biztosan törölni szeretnél %d listát?</item>
-    <item quantity="other">Biztosan törölni szeretnél %d listát?</item>
+  <string name="reading_list_delete_lists_confirm_dialog_title">Törlöd a kiválasztott gyűjtemény(eke)t?</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+    <item quantity="one">Biztosan törölni szeretnél %d gyűjteményt?</item>
+    <item quantity="other">Biztosan törölni szeretnél %d gyűjteményt?</item>
   </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Jelentkezz be a szinkronizálás engedélyezéséhez</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_text" fuzzy="true">Jelentkezz be, ha az olvasólistáidat a fiókodba akarod menteni.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Jelentkezz be, ha az gyűjteményeidet a fiókodba akarod menteni.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Mégse</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Bejelentkezés</string>
-  <string name="reading_list_turned_sync_off_dialog_title" fuzzy="true">Olvasólista szinkronizálás kikapcsolva</string>
-  <string name="reading_list_turned_sync_off_dialog_text" fuzzy="true">Az olvasólista szinkronizálás ki van kapcsolva a fiókodban, így a mentett szócikkek nem frissülnek a bejelentkezett eszközökön. Az olvasólista szinkronizálását a Beállítások alatt tudod bekapcsolni.</string>
+  <string name="reading_list_turned_sync_off_dialog_title">Gyűjtemények szinkronizálása kikapcsolva</string>
+  <string name="reading_list_turned_sync_off_dialog_text">Az gyűjtemények szinkronizálása ki van kapcsolva a fiókodban, így a mentett szócikkek nem frissülnek a bejelentkezett eszközökön. Az gyűjtemények szinkronizálását a Beállítások alatt tudod bekapcsolni.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Beállítások</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_title" fuzzy="true">Bekapcsolod az olvasólisták szinkronizálását?</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_text" fuzzy="true">Az olvasólistára mentett szócikkek mostantól szinkronizálhatók a Wikipédia-fiókoddal. &lt;a href=\"#faq\"&gt;További információk&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">Bekapcsolod az gyűjtemények szinkronizálását?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">Az gyűjteményekbe mentett szócikkek mostantól szinkronizálhatók a Wikipédia-fiókoddal. &lt;a href=\"#faq\"&gt;További információk&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Ne mutasd ezt többet</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Szinkronizálás engedélyezése</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Köszönöm, nem</string>
   <string name="default_reading_list_name">Elmentve</string>
-  <string name="default_reading_list_description" fuzzy="true">Alapértelmezett lista a mentett szócikkeidnek</string>
-  <string name="no_user_lists_title" fuzzy="true">Rendezd listákba a szócikkeket</string>
-  <string name="no_user_lists_msg" fuzzy="true">Készíts listát a felkeresendő helyeknek, kedvenc témáidnak és sok minden másnak</string>
+  <string name="default_reading_list_description">Alapértelmezett gyűjtemények a mentett szócikkeidnek</string>
+  <string name="no_user_lists_title">Rendezd gyűjteményekbe a szócikkeket</string>
+  <string name="no_user_lists_msg">Készíts gyűjteményeket a felkeresendő helyeknek, kedvenc témáidnak és sok minden másnak</string>
   <string name="reading_list_saved_list_rename">%1$s (felhasználó által létrehozva)</string>
-  <string name="split_reading_list_message" fuzzy="true">Egy olvasólista legfeljebb %d szócikket tartalmazhat. Az ennél nagyobb listák több listára lettek bontva.</string>
-  <string name="reading_list_move_article_limit_message" fuzzy="true">Nem lehet erre a listára mozgatni. Elérted a listánként %2$d szócikkes limitet a(z) „%1$s” listánál.</string>
-  <string name="reading_list_article_limit_message" fuzzy="true">Nem tudsz hozzáadni szócikket ehhez a listához. Elérted a listánkénti %2$d szócikkes határt a(z) „%1$s” listánál.</string>
-  <string name="reading_lists_limit_message" fuzzy="true">Nem tudsz készíteni új olvasólistát. Elérted a fiókonkénti 100 listás határt.</string>
-  <string name="reading_lists_menu_create_list" fuzzy="true">Új lista készítése</string>
-  <string name="reading_lists_menu_import_list" fuzzy="true">Lista importálása</string>
+  <string name="split_reading_list_message">Egy gyűjtemény legfeljebb %d szócikket tartalmazhat. Az ennél nagyobb gyűjtemények több gyűjteményre lettek bontva.</string>
+  <string name="reading_list_move_article_limit_message">Nem helyezhető át ebbe a gyűjteménybe. A(z) „%1$s” gyűjteményben elérted a gyűjteményenkénti %2$d szócikkes korlátot.</string>
+  <string name="reading_list_article_limit_message">Nem adható hozzá ehhez a gyűjteményhez. A(z) „%1$s” gyűjteményben elérted a gyűjteményenkénti %2$d szócikkes korlátot.</string>
+  <string name="reading_lists_limit_message">Nem hozhatsz létre újabb gyűjteményt. Elérted a fiókonkénti 100 gyűjteményes korlátot.</string>
+  <string name="reading_lists_menu_create_list">Új  gyűjtemény készítése</string>
+  <string name="reading_lists_menu_import_list">Gyűjtemény importálása</string>
   <string name="reading_lists_menu_sort_by">Rendezés</string>
   <string name="reading_lists_refresh_sync_option">Szinkronizálás frissítése</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Regisztráció/bejelentkezés</string>
@@ -654,7 +675,7 @@
     <item quantity="one">A szócikk mostantól nem érhető el kapcsolat nélkül.</item>
     <item quantity="other">A szócikkek mostantól nem érhetők el kapcsolat nélkül.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync" fuzzy="true">Az olvasólisták szinkronizálva</string>
+  <string name="reading_list_toast_last_sync">A gyűjtemények szinkronizálva</string>
   <string name="reading_list_menu_last_sync">Utolsó szinkronizálás: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_dialog_ok_button_text">OK</string>
@@ -664,31 +685,31 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Mégse</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">Törlés</string>
-  <string name="reading_list_activity_title" fuzzy="true">Olvasólista: %s</string>
-  <string name="reading_list_notification_title" fuzzy="true">Olvasólistá(k) exportálva</string>
-  <string name="reading_list_notification_text" fuzzy="true">%d olvasólista exportálva lett „reading_lists export.json” néven a letöltések mappádba</string>
-  <string name="reading_list_notification_detailed_text" fuzzy="true">Olvasólisták exportálva „reading_lists export.json” néven</string>
+  <string name="reading_list_activity_title">Gyűjtemény: %s</string>
+  <string name="reading_list_notification_title">Gyűjtemény(ek) exportálva</string>
+  <string name="reading_list_notification_text">%d gyűjtemény exportálva „reading_lists export.json” néven a letöltések mappádba</string>
+  <string name="reading_list_notification_detailed_text">Gyűjtemények exportálva „reading_lists export.json” néven</string>
   <string name="reading_lists_action_menu_export_lists">Exportálás</string>
   <string name="reading_lists_import_file_picker_title">Válaszd ki az importálandó fájlt</string>
-  <string name="reading_lists_import_failure_message" fuzzy="true">Az olvasólisták importálása sikertelen</string>
-  <string name="reading_lists_export_select_lists_message" fuzzy="true">Válaszd ki az exportálandó listá(ka)t</string>
-  <string name="reading_lists_export_completed_message" fuzzy="true">Olvasólistá(k) exportálva</string>
-  <plurals name="reading_list_export_failed_message" fuzzy="true">
-    <item quantity="one">Az olvasólista exportálása sikertelen</item>
-    <item quantity="other">Az olvasólisták exportálása sikertelen</item>
+  <string name="reading_lists_import_failure_message">A gyűjtemények importálása sikertelen</string>
+  <string name="reading_lists_export_select_lists_message">Válaszd ki az exportálandó gyűjtemény(eke)t</string>
+  <string name="reading_lists_export_completed_message">Gyűjtemény(ek) exportálva</string>
+  <plurals name="reading_list_export_failed_message">
+    <item quantity="one">A gyűjtemény exportálása sikertelen</item>
+    <item quantity="other">A gyűjtemények exportálása sikertelen</item>
   </plurals>
-  <plurals name="reading_list_import_success_message" fuzzy="true">
-    <item quantity="one">Olvasólista importálva</item>
-    <item quantity="other">Olvasólisták importálva</item>
+  <plurals name="reading_list_import_success_message">
+    <item quantity="one">Gyűjtemény importálva</item>
+    <item quantity="other">Gyűjtemények importálva</item>
   </plurals>
-  <string name="reading_lists_preview_header_title" fuzzy="true">Megosztott lista</string>
+  <string name="reading_lists_preview_header_title">Megosztott gyűjtemény</string>
   <string name="reading_lists_preview_save_button">Mentés</string>
-  <string name="reading_lists_preview_save_dialog_title" fuzzy="true">Lista mentése</string>
-  <string name="reading_lists_preview_save_dialog_text" fuzzy="true">Nevezd el a listát, és válaszd ki az elmentendő szócikkeket.</string>
+  <string name="reading_lists_preview_save_dialog_title">Gyűjtemény mentése</string>
+  <string name="reading_lists_preview_save_dialog_text">Nevezd el a gyűjteményt, és válaszd ki az elmentendő szócikkeket.</string>
   <string name="reading_lists_preview_save_dialog_title_hint">Cím</string>
   <string name="reading_lists_preview_save_dialog_cancel">Mégse</string>
   <string name="reading_lists_preview_save_dialog_save">Mentés</string>
-  <string name="reading_lists_preview_saved_snackbar" fuzzy="true">Az olvasólista elmentve</string>
+  <string name="reading_lists_preview_saved_snackbar">A gyűjtemény elmentve</string>
   <string name="reading_lists_preview_saved_snackbar_action">Megtekintés</string>
   <string name="user_option_sync_label">Beállítások</string>
   <string name="notification_reverted_title">Szerkesztés visszavonva</string>
@@ -697,8 +718,8 @@
   <string name="notification_syncing_pause_button">Szünet</string>
   <string name="notification_syncing_resume_button">Folytatás</string>
   <string name="notification_syncing_cancel_button">Mégsem</string>
-  <string name="notification_syncing_reading_list_channel_title" fuzzy="true">Olvasólisták szinkr.</string>
-  <string name="notification_syncing_reading_list_channel_description" fuzzy="true">Olvasólisták frissítése folyamatban</string>
+  <string name="notification_syncing_reading_list_channel_title">Gyűjtemények szinkr.</string>
+  <string name="notification_syncing_reading_list_channel_description">Gyűjtemények frissítése folyamatban</string>
   <string name="notification_many_unread">%d olvasatlan értesítésed van</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Szócikk letöltése</item>
@@ -712,17 +733,17 @@
     <item quantity="one">%1$d szócikk maradt</item>
     <item quantity="other">%1$d szócikk maradt</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_channel_name" fuzzy="true">
-    <item quantity="one">Olvasólista frissítése</item>
-    <item quantity="other">Olvasólisták frissítése</item>
+  <plurals name="notification_syncing_reading_list_channel_name">
+    <item quantity="one">Gyűjtemény frissítése</item>
+    <item quantity="other">Gyűjtemények frissítése</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_title" fuzzy="true">
-    <item quantity="one">%1$d lista szinkronizálása…</item>
-    <item quantity="other">%1$d lista szinkronizálása…</item>
+  <plurals name="notification_syncing_reading_list_title">
+    <item quantity="one">%1$d gyűjtemény szinkronizálása…</item>
+    <item quantity="other">%1$d gyűjtemény szinkronizálása…</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_description" fuzzy="true">
-    <item quantity="one">%1$d lista van hátra</item>
-    <item quantity="other">%1$d lista van hátra</item>
+  <plurals name="notification_syncing_reading_list_description">
+    <item quantity="one">%1$d gyűjtemény van hátra</item>
+    <item quantity="other">%1$d gyűjtemény van hátra</item>
   </plurals>
   <string name="notification_echo_channel_description">Wikipédia értesítések</string>
   <string name="notifications_activity_title">Értesítések</string>
@@ -1266,8 +1287,8 @@
   <string name="onboarding_maybe_later">Talán később</string>
   <string name="onboarding_explore_title">Új módok a felfedezésre</string>
   <string name="onboarding_explore_text">Merülj alá a Wikipédiában a folyamatosan frissülő Kezdőlap hírfolyammal!&lt;br /&gt; &lt;b&gt;Szabd testre&lt;/b&gt; a hírfolyamot az érdeklődésednek megfelelően – izgassanak bár az &lt;b&gt;Ezen a napon&lt;/b&gt; történt események, vagy ami épp &lt;b&gt;Találomra&lt;/b&gt; jön.</string>
-  <string name="onboarding_reading_list_sync_title" fuzzy="true">Olvasólisták szinkronizálással</string>
-  <string name="onboarding_reading_list_sync_text_v2" fuzzy="true">Olvasólistákat készíthetsz olyan szócikkekről, amelyeket később szeretnél elolvasni, akár offline is.&lt;br/&gt;Jelentkezz be a Wikipédia-fiókodba, hogy szinkronizálhasd az olvasólistáidat.&lt;a href=\"#login\"&gt;Csatlakozz a Wikipédiához&lt;/a&gt;</string>
+  <string name="onboarding_reading_list_sync_title">Gyűjtemények szinkronizálással</string>
+  <string name="onboarding_reading_list_sync_text_v2">Gyűjteményeket készíthetsz olyan szócikkekről, amelyeket később szeretnél elolvasni, akár offline is.&lt;br/&gt;Jelentkezz be a Wikipédia-fiókodba, hogy szinkronizálhasd az gyűjteményeidet.&lt;a href=\"#login\"&gt;Csatlakozz a Wikipédiához&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Adatvédelem</string>
   <string name="onboarding_data_privacy_text">Hiszünk benne, hogy nem kell elvárni tőled személyes adatok megadását a nyílttudás-mozgalomban való részvételhez. Az alkalmazás által gyűjtött használati adatok anonimak.&lt;br/&gt;&lt;br/&gt;További információkért lásd az &lt;a href=\"#privacy\"&gt;adatvédelmi irányelvünket&lt;/a&gt; és a &lt;a href=\"#termsOfUse\"&gt;felhasználási feltételeinket&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Felhasználási adatok küldése</string>
@@ -1602,16 +1623,16 @@
   <string name="user_contrib_filter_activity_title">Szerkesztések szűrése</string>
   <string name="action_item_view_on_map">Megtekintés térképen</string>
   <string name="action_item_view_on_map_unavailable">Ehhez az oldalhoz nem állnak rendelkezésre földrajzi koordináták</string>
-  <string name="shareable_reading_lists_import_dialog_title" fuzzy="true">Megosztott olvasólista importálása</string>
-  <string name="shareable_reading_lists_import_dialog_content" fuzzy="true">Hogy szeretnéd elnevezni ezt a veled megosztott listát?</string>
+  <string name="shareable_reading_lists_import_dialog_title">Megosztott gyűjtemény importálása</string>
+  <string name="shareable_reading_lists_import_dialog_content">Hogy szeretnéd elnevezni ezt a veled megosztott gyűjteményt?</string>
   <string name="shareable_reading_lists_new_indicator">*új*</string>
-  <string name="shareable_reading_lists_new_install_dialog_title" fuzzy="true">Megosztottak veled egy olvasólistát</string>
-  <string name="shareable_reading_lists_new_install_dialog_content" fuzzy="true">Észrevettük, hogy egy olvasnivalót osztottak meg Veled. Ha meg szeretnéd tekinteni ezt a listát az alkalmazásban, lépj vissza az eredeti üzenethez, és koppints újra a hivatkozásra.</string>
+  <string name="shareable_reading_lists_new_install_dialog_title">Megosztottak veled egy gyűjteményt</string>
+  <string name="shareable_reading_lists_new_install_dialog_content">Észrevettük, hogy egy gyűjteményt osztottak meg Veled. Ha meg szeretnéd tekinteni ezt a gyűjteményt az alkalmazásban, lépj vissza az eredeti üzenethez, és koppints újra a hivatkozásra.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Értettem</string>
-  <string name="shareable_reading_lists_new_imported_snackbar" fuzzy="true">Az olvasólista importálva</string>
+  <string name="shareable_reading_lists_new_imported_snackbar">A gyűjtemény importálva</string>
   <string name="reading_list_share_menu_label">Megosztás…</string>
-  <string name="reading_list_share_menu_tooltip" fuzzy="true">Az olvasólista megosztása másokkal</string>
-  <string name="reading_list_share_message_v2" fuzzy="true">Szia! Szeretném megosztani veled a Wikipédia-olvasólistámat:</string>
+  <string name="reading_list_share_menu_tooltip">A gyűjtemény megosztása másokkal</string>
+  <string name="reading_list_share_message_v2">Szia! Szeretném megosztani veled a Wikipédia-gyűjteményemet:</string>
   <string name="talk_templates_empty_message">Hozzál létre saját üzeneteket, vagy használd &lt;a href=\"#\"&gt;példaüzeneteket&lt;/a&gt; a kezdéshez.</string>
   <string name="talk_templates_new_message_title">Új üzenetek</string>
   <string name="talk_templates_new_message_subject_hint">Tárgy</string>
@@ -1903,8 +1924,8 @@
   <string name="year_in_review_get_started_later">Az Éves összefoglalódat később a Továbbiak menüben is elérheted.</string>
   <string name="year_in_review_survey_title">Segíts fejleszteni az Éves összefoglalót</string>
   <string name="year_in_review_survey_subtitle">Elégedett vagy ezzel a funkcióval?</string>
-  <string name="year_in_review_reading_list_survey_title" fuzzy="true">Segíts fejleszteni a %d. évi Éves összefoglaló olvasási listáját.</string>
-  <string name="year_in_review_reading_list_survey_subtitle" fuzzy="true">Elégedett vagy az olvasólistáddal?</string>
+  <string name="year_in_review_reading_list_survey_title">Segíts fejleszteni a %d. évi Éves összefoglaló gyűjteményt.</string>
+  <string name="year_in_review_reading_list_survey_subtitle">Elégedett vagy az gyűjteményeddel?</string>
   <string name="year_in_review_survey_very_satisfied">Nagyon elégedett</string>
   <string name="year_in_review_survey_satisfied">Elégedett</string>
   <string name="year_in_review_survey_neutral">Semleges</string>
@@ -2012,7 +2033,7 @@
     <item quantity="one">Az alkalmazás felhasználóinak %,d elmentett szócikke volt</item>
     <item quantity="other">Az alkalmazás felhasználóinak %,d elmentett szócikke volt</item>
   </plurals>
-  <string name="year_in_review_slide_global_saved_articles_body" fuzzy="true">A szócikkek olvasólistákhoz adásával offline is elérheted őket. Bejelentkezve az olvasólistáidat az eszközeid között is szinkronizálhatod.</string>
+  <string name="year_in_review_slide_global_saved_articles_body">A szócikkek gyűjteményekhez adásával internetkapcsolat nélkül is elérheted őket. Bejelentkezve a gyűjteményeidet az eszközeid között is szinkronizálhatod.</string>
   <string name="year_in_review_slide_reading_patterns_headline">Jól kirajzolódó olvasási szokásaid vannak</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">Kedvenc olvasási időpontod</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">Kedvenc olvasási napod</string>
@@ -2080,8 +2101,8 @@
     <item quantity="other">Az alkalmazás felhasználói %,d alkalommal tekintettek meg Wikipédia-szócikkeket</item>
   </plurals>
   <string name="year_in_review_slide_viewed_articles_times_body">Az emberek világszerte a Wikipédiához fordulnak először, ha egy kérdésre keresnek választ, iskolai vagy munkahelyi információ után kutatnak, vagy egy új tényt szeretnének megtudni.</string>
-  <string name="year_in_review_reading_list_dialog_title" fuzzy="true">Létrehozod a %d. évi Éves össszefoglalóhoz tartozó olvasólistádat?</string>
-  <string name="year_in_review_reading_list_dialog_message" fuzzy="true">A Wikipédia Éves összefoglaló egy olvasólistát hoz létre azokból a szócikkekből, amelyekkel %1$d-ben a legtöbb időt töltötted. &lt;a href=\"%2$s\"&gt;Tudj meg többet&lt;/a&gt;</string>
+  <string name="year_in_review_reading_list_dialog_title">Létrehozod a %d. évi Éves összefoglalóhoz tartozó gyűjteményedet?</string>
+  <string name="year_in_review_reading_list_dialog_message">A Wikipédia Éves összefoglaló egy gyűjteményt hoz létre azokból a szócikkekből, amelyekkel %1$d-ben a legtöbb időt töltötted. &lt;a href=\"%2$s\"&gt;Tudj meg többet&lt;/a&gt;</string>
   <string name="year_in_review_reading_list_dialog_positive_button_label">Létrehozás</string>
   <string name="year_in_review_reading_list_dialog_negative_button_label">Nem, köszönöm</string>
   <string name="year_in_review_reading_list_title">%d. évi Éves összefoglaló</string>
@@ -2138,12 +2159,12 @@
   <string name="year_in_review_highlights_logo_description">Wikipédia logó</string>
   <string name="recommended_reading_list_title">Felfedezés</string>
   <string name="recommended_reading_list_onboarding_card_title">Fedezz fel kifejezetten neked válogatott szócikkeket</string>
-  <string name="recommended_reading_list_onboarding_card_message" fuzzy="true">A heti olvasólistád Wikipédia-szócikkekből, kifejezetten számodra válogatva.</string>
+  <string name="recommended_reading_list_onboarding_card_message">A heti gyűjteményed Wikipédia-szócikkekből, kifejezetten neked válogatva.</string>
   <string name="recommended_reading_list_onboarding_card_new">Újdonság!</string>
   <string name="recommended_reading_list_onboarding_card_positive_button">Kezdés</string>
   <string name="recommended_reading_list_onboarding_card_negative_button">Nem, köszönöm</string>
-  <string name="recommended_reading_list_onboarding_card_negative_snackbar" fuzzy="true">Ha később szeretnéd beállítani az ajánlott olvasólistádat, menj a Beállításokhoz.</string>
-  <string name="recommended_reading_list_interest_source_message" fuzzy="true">Hogyan állítsuk össze az ajánlott olvasólistádat?</string>
+  <string name="recommended_reading_list_onboarding_card_negative_snackbar">Ha később szeretnéd beállítani az ajánlott gyűjteményedet, menj a Beállításokhoz.</string>
+  <string name="recommended_reading_list_interest_source_message">Hogyan állítsuk össze az ajánlott gyűjteményedet?</string>
   <string name="recommended_reading_list_interest_source_interests">Szeretnék érdeklődési köreim alapján választani</string>
   <string name="recommended_reading_list_interest_source_saved">Válassz helyettem a mentett szócikkeim alapján</string>
   <string name="recommended_reading_list_interest_source_history">Válassz helyettem az olvasási előzményeim alapján</string>
@@ -2167,9 +2188,9 @@
     <item quantity="one">• %d szócikk</item>
     <item quantity="other">• %d szócikk</item>
   </plurals>
-  <string name="recommended_reading_list_page_description_daily" fuzzy="true">A napi olvasólistád – új témákról tanulhatsz, kifejezetten neked válogatva. Éjfélkor frissül.</string>
-  <string name="recommended_reading_list_page_description_weekly" fuzzy="true">A heti olvasólistád – új témákról tanulhatsz, kifejezetten neked válogatva. A hét elején frissül.</string>
-  <string name="recommended_reading_list_page_description_monthly" fuzzy="true">A havi olvasólistád – új témákról tanulhatsz, kifejezetten neked válogatva. Minden hónap első napján frissül.</string>
+  <string name="recommended_reading_list_page_description_daily">Napi gyűjteményed. Ismerj meg új témákat, csak neked válogatva. Éjfélkor frissül.</string>
+  <string name="recommended_reading_list_page_description_weekly">A heti gyűjteményed – új témákról tanulhatsz, kifejezetten neked válogatva. A hét elején frissül.</string>
+  <string name="recommended_reading_list_page_description_monthly">A havi gyűjteményed – új témákról tanulhatsz, kifejezetten neked válogatva. Minden hónap első napján frissül.</string>
   <string name="recommended_reading_list_page_overflow_customize">Testreszabás</string>
   <string name="recommended_reading_list_page_overflow_about">Erről a funkcióról</string>
   <string name="recommended_reading_list_page_snackbar">A Felfedezés minden %2$s %1$d új szócikkel frissül. Az ajánlások helyileg, az eszközödön kerülnek tárolásra.</string>
@@ -2179,7 +2200,7 @@
   <string name="recommended_reading_list_page_snackbar_month">hónapban</string>
   <string name="recommended_reading_list_settings_section_header">Javaslatok</string>
   <string name="recommended_reading_list_settings_title">Felfedezés beállításai</string>
-  <string name="recommended_reading_list_settings_toggle" fuzzy="true">Felfedezés olvasólista</string>
+  <string name="recommended_reading_list_settings_toggle">Felfedezés gyűjteményed</string>
   <string name="recommended_reading_list_settings_toggle_disable_message">A Felfedezés ki van kapcsolva. A Wikipédia nem fog számodra olvasásra ajánlani szócikkeket.</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_title">Biztosan kikapcsolod a Felfedezést?</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_message">Ha kikapcsolod a Felfedezést, nem fogsz többé %s olvasási ajánlást kapni a Wikipédiától.</string>
@@ -2214,7 +2235,7 @@
   <string name="recommended_reading_list_settings_notifications_dialog_message">Ha kikapcsolod az értesítéseket, többé nem kapsz emlékeztetőt a Felfedezés frissítéseiről.</string>
   <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Kapcsold ki őket</string>
   <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Nem, maradjanak bekapcsolva</string>
-  <string name="recommended_reading_list_notification_title" fuzzy="true">Elkészült a %s Felfedezés olvasólistád.</string>
+  <string name="recommended_reading_list_notification_title">Elkészült a %s Felfedezés gyűjteményed.</string>
   <string name="recommended_reading_list_notification_subtitle">Koppints ide a legújabb ajánlások megtekintéséhez.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">Amikor a Felfedezés frissül, a Wikipédia értesítést küld számodra.</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">A Felfedezés be van kapcsolva. A Wikipédia ajánlani fog számodra olvasnivaló szócikkeket.</string>
@@ -2374,7 +2395,7 @@
   <string name="explore_feed_for_you_tab_label">Neked</string>
   <string name="explore_feed_date_today">Ma - %s</string>
   <string name="explore_feed_load_previous_day_label">Előző nap betöltése</string>
-  <string name="explore_feed_from_reading_list" fuzzy="true">Az olvasási listádról</string>
+  <string name="explore_feed_from_reading_list">A gyűjteményedből</string>
   <string name="explore_feed_because_of_interest">Érdeklődési köröd alapján: %s</string>
   <string name="explore_feed_onboarding_curiosity_title">Kövesd a kíváncsiságodat</string>
   <string name="explore_feed_onboarding_curiosity_description">Válassz témákat, amelyek érdekelnek, és személyre szabjuk a hírfolyamodat.\n\nCsak minimális, anonimizált adatokat gyűjtünk.</string>
@@ -2409,6 +2430,9 @@
   <string name="home_feed_settings_for_you_modules_description">Egy modul kikapcsolásával az eltűnik a „Neked” hírfolyamból. Itt bármikor újra bekapcsolhatod.</string>
   <string name="home_feed_settings_based_on_interest_title">Az érdeklődési köreid alapján</string>
   <string name="home_feed_settings_based_on_interest_subtitle">Az általad választott témákhoz igazított cikkek.&lt;br /&gt;&lt;a href=\"#drivingFeed\"&gt;Mi alakítja a hírfolyamodat&lt;/a&gt;</string>
+  <string name="home_feed_new_within_interest_card_heading">Új az érdeklődési körödben</string>
+  <string name="home_feed_new_within_interest_title">Új szócikkek az érdeklődési köreidben</string>
+  <string name="home_feed_new_within_interest_subtitle">Nemrég létrehozott szócikkek az általad követett témakörökben</string>
   <string name="home_feed_settings_because_you_read_subtitle">Javaslatok az előzményeidben szereplő egyik nemrég olvasott cikk alapján</string>
   <string name="home_feed_settings_continue_reading_title">Olvasás folytatása</string>
   <string name="home_feed_settings_continue_reading_subtitle">Folytasd azokat a cikkeket, amelyeket nem fejeztél be</string>
@@ -2452,13 +2476,13 @@
   <string name="home_feed_settings_games_title">Játékok</string>
   <string name="home_feed_settings_games_subtitle">Napi játékok Wikipédia-tartalmak alapján</string>
   <string name="home_feed_settings_discover_title">Felfedezési ajánlások</string>
-  <string name="home_feed_settings_discover_subtitle" fuzzy="true">Cikkek a Felfedezés olvasási listádról</string>
+  <string name="home_feed_settings_discover_subtitle">Szócikkek a Felfedezés gyűjteményedből</string>
   <string name="home_feed_discover_cta_title">A Felfedezésből</string>
   <string name="home_feed_discover_cta_description">Ismerj meg új témákat, kifejezetten neked válogatva. Válassz napi, heti vagy havi frissítéseket.</string>
-  <string name="home_feed_discover_cta_button" fuzzy="true">A Felfedezés olvasási lista engedélyezése</string>
+  <string name="home_feed_discover_cta_button">A Felfedezés gyűjtemény engedélyezése</string>
   <string name="home_feed_discover_card_footer">A Felfedezésből • %s frissítve</string>
   <string name="home_feed_discover_see_all_title">További felfedeznivalók</string>
-  <string name="home_feed_discover_see_all_description" fuzzy="true">A személyre szabott olvasási listádon további, kifejezetten neked válogatott történetek várnak.</string>
+  <string name="home_feed_discover_see_all_description">A személyre szabott gyűjteményeden további, kifejezetten neked válogatott történetek várnak.</string>
   <string name="home_feed_discover_see_all_button">Az összes ajánlás felfedezése</string>
   <string name="home_feed_places_of_interest_card_footer">%1$s • A Helyekben megadott tartózkodási helyed alapján</string>
   <string name="home_feed_for_you_screen_end_of_feed_title">Ennyi volt mára!</string>
@@ -2473,10 +2497,16 @@
   <string name="random_article_widget_name">Szócikk találomra</string>
   <string name="reading_lists_tab_all_articles">Minden szócikk</string>
   <string name="reading_lists_tab_collections">Gyűjtemények</string>
+  <string name="reading_lists_filter_content_description">Mentett szócikkek szűrése</string>
+  <string name="reading_lists_filter_not_in_collection">Nincs gyűjteményben</string>
+  <string name="reading_lists_empty_not_in_collection_title">Minden mentett szócikk gyűjteményben van.</string>
   <string name="reading_lists_search_saved_articles">Keresés a mentett szócikkeidben</string>
   <string name="reading_lists_search_collections">Gyűjtemények keresése</string>
-  <string name="reading_lists_remove_articles_confirm_dialog_title" fuzzy="true">Eltávolítod a mentett szócikkeket?</string>
-  <string name="reading_lists_remove_articles_confirm_button" fuzzy="true">Eltávolítás</string>
+  <string name="reading_lists_empty_collections_title">Rendszerezd gyűjteményekbe a mentett szócikkeket</string>
+  <string name="reading_lists_empty_collections_description">Hozz létre gyűjteményeket a felkeresendő helyeknek, kedvenc témáidnak és más dolgoknak.</string>
+  <string name="reading_lists_create_new_collection">Új gyűjtemény létrehozása</string>
+  <string name="reading_lists_remove_articles_confirm_dialog_title">Megszünteted a szócikk mentését?</string>
+  <string name="reading_lists_remove_articles_confirm_button">Mentés megszüntetése</string>
   <plurals name="reading_lists_remove_articles_confirm_dialog_message">
     <item quantity="one">Ez a szócikk minden kapcsolódó gyűjteményből el lesz távolítva.</item>
     <item quantity="other">Ez a(z) %d szócikk minden kapcsolódó gyűjteményből el lesz távolítva.</item>
@@ -2484,5 +2514,13 @@
   <plurals name="reading_lists_articles_removed_from_collections">
     <item quantity="one">A szócikket eltávolítottuk minden kapcsolódó gyűjteményből.</item>
     <item quantity="other">A(z) %d szócikket eltávolítottuk minden kapcsolódó gyűjteményből.</item>
+  </plurals>
+  <string name="reading_lists_save_sheet_empty_title">Gyűjtsd össze a kedvenc szócikkeidet</string>
+  <string name="reading_lists_save_sheet_empty_message">Mentsd a szócikkeket gyűjteményekbe.</string>
+  <string name="reading_lists_save_sheet_create">Létrehozás</string>
+  <string name="reading_lists_update_tooltip">Az olvasólisták neve mostantól gyűjtemények.</string>
+  <plurals name="reading_lists_unsave_articles_confirm_dialog_message">
+    <item quantity="one">A szócikk mentésének megszüntetésével az összes kapcsolódó gyűjteményből eltávolítod.</item>
+    <item quantity="other">A szócikkek mentésének megszüntetésével az összes kapcsolódó gyűjteményből eltávolítod őket.</item>
   </plurals>
 </resources>
