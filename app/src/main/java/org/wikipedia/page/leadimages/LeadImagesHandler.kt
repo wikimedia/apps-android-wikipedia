@@ -237,7 +237,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
     private fun hideDonationReminderCard() {
         pageHeaderView.hideDonationReminderCard()
         loadLeadImage()
-        parentFragment.refreshPage()
+        parentFragment.updateHeaderTopMargin()
     }
 
     fun hide() {
