@@ -61,6 +61,7 @@ import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.layout.onGloballyPositioned
+import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
@@ -480,22 +481,11 @@ fun DonationAmountView(
 ) {
     var selectedOption by remember { mutableStateOf<OptionItem<Float>?>(OptionItem.Preset(option.selectedValue, option.displayFormatter(option.selectedValue))) }
     var textFieldValue by remember { mutableStateOf("") }
-    val focusRequester = remember { FocusRequester() }
     var errorMessage by remember { mutableStateOf("") }
+    val focusManager = LocalFocusManager.current
 
     val donateGooglePayMinAmount = stringResource(R.string.donate_gpay_minimum_amount)
     val donateGooglePayMaxAmount = stringResource(R.string.donate_gpay_maximum_amount)
-
-    LaunchedEffect(selectedOption) {
-        when(selectedOption) {
-            is OptionItem.Preset -> {
-                textFieldValue = ""
-                errorMessage = ""
-                focusRequester.freeFocus()
-            }
-            else -> {}
-        }
-    }
 
     OptionSelector(
         title = stringResource(R.string.donation_reminders_settings_amount_label),
@@ -504,7 +494,10 @@ fun DonationAmountView(
         onOptionSelected = { option, source ->
             selectedOption = option
             textFieldValue = ""
+            errorMessage = ""
+            hasTextFieldError(false)
             onOptionSelected(option, source)
+            focusManager.clearFocus()
         },
     )
 
@@ -533,6 +526,9 @@ fun DonationAmountView(
                     option.displayFormatter(option.maximumAmount)
                 )
                 hasTextFieldError(true)
+            } else {
+                errorMessage = ""
+                hasTextFieldError(false)
             }
         },
         prefix = { Text(
@@ -571,9 +567,9 @@ fun DonationAmountView(
         } else null,
         modifier = Modifier
             .fillMaxWidth()
-            .focusRequester(focusRequester)
             .onFocusChanged { focusState ->
                 if (focusState.isFocused && textFieldValue.isEmpty()) {
+                    onOptionSelected(OptionItem.Custom( ""), SelectedSource.Custom)
                     errorMessage = String.format(
                         donateGooglePayMinAmount,
                         option.displayFormatter(option.minimumAmount)
