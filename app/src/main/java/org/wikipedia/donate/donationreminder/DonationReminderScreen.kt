@@ -323,6 +323,7 @@ fun DonationReminderContent(
 ) {
     val isDonationReminderEnabled = uiState.isDonationReminderEnabled
     var showReadFrequencyCustomDialog by remember { mutableStateOf(false) }
+    var doesTextFieldHaveError by remember { mutableStateOf(false) }
 
     Column(
         modifier = modifier
@@ -388,7 +389,7 @@ fun DonationReminderContent(
                         }
                     },
                     hasTextFieldError = { hasError ->
-                        // Handle text field error state
+                        doesTextFieldHaveError = hasError
                     }
                     /*onDoneClick = { amount ->
                         if (customDialogErrorMessage.isEmpty()) {
@@ -433,10 +434,14 @@ fun DonationReminderContent(
                         .padding(horizontal = 16.dp)
                         .padding(top = 16.dp),
                     onClick = {
+                        if (doesTextFieldHaveError) {
+                            return@AppButton
+                        }
                         viewModel.toggleDonationReminders(true)
                         viewModel.saveReminder()
                         val message = DonationReminderHelper.thankYouMessageForSettings()
                         onConfirmButtonClick(message)
+
                     },
                     content = {
                         Text(
