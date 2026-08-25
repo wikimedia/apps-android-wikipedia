@@ -53,7 +53,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -473,11 +472,11 @@ fun DonationAmountView(
     onOptionSelected: (OptionItem<Float>, SelectedSource) -> Unit,
     hasTextFieldError: (Boolean) -> Unit
 ) {
-    var selectedOption by rememberSaveable { mutableStateOf<OptionItem<Float>?>(OptionItem.Preset(option.selectedValue, option.displayFormatter(option.selectedValue))) }
-    var textFieldValue by rememberSaveable { mutableStateOf("") }
-    val focusRequester = rememberSaveable { FocusRequester() }
-    var hasFocused by rememberSaveable { mutableStateOf(false) }
-    var errorMessage by rememberSaveable { mutableStateOf("") }
+    var selectedOption by remember { mutableStateOf<OptionItem<Float>?>(OptionItem.Preset(option.selectedValue, option.displayFormatter(option.selectedValue))) }
+    var textFieldValue by remember { mutableStateOf("") }
+    val focusRequester = remember { FocusRequester() }
+    var hasFocused by remember { mutableStateOf(false) }
+    var errorMessage by remember { mutableStateOf("") }
 
     val donateGooglePayMinAmount = stringResource(R.string.donate_gpay_minimum_amount)
     val donateGooglePayMaxAmount = stringResource(R.string.donate_gpay_maximum_amount)
