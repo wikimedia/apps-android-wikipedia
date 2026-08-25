@@ -59,6 +59,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
+import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -480,7 +481,6 @@ fun DonationAmountView(
     var selectedOption by remember { mutableStateOf<OptionItem<Float>?>(OptionItem.Preset(option.selectedValue, option.displayFormatter(option.selectedValue))) }
     var textFieldValue by remember { mutableStateOf("") }
     val focusRequester = remember { FocusRequester() }
-    var hasFocused by remember { mutableStateOf(false) }
     var errorMessage by remember { mutableStateOf("") }
 
     val donateGooglePayMinAmount = stringResource(R.string.donate_gpay_minimum_amount)
@@ -572,10 +572,13 @@ fun DonationAmountView(
         modifier = Modifier
             .fillMaxWidth()
             .focusRequester(focusRequester)
-            .onGloballyPositioned {
-                if (!hasFocused) {
-                    focusRequester.requestFocus()
-                    hasFocused = true
+            .onFocusChanged { focusState ->
+                if (focusState.isFocused && textFieldValue.isEmpty()) {
+                    errorMessage = String.format(
+                        donateGooglePayMinAmount,
+                        option.displayFormatter(option.minimumAmount)
+                    )
+                    hasTextFieldError(true)
                 }
             }
     )
