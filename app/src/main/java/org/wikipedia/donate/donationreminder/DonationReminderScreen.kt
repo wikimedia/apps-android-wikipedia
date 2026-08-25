@@ -393,37 +393,6 @@ fun DonationReminderContent(
                     hasTextFieldError = { hasError ->
                         doesTextFieldHaveError = hasError
                     }
-                    /*onDoneClick = { amount ->
-                        if (customDialogErrorMessage.isEmpty()) {
-                            val activeInterface = if (viewModel.isFromSettings) "global_setting" else "reminder_config"
-                            DonorExperienceEvent.logDonationReminderAction(
-                                activeInterface = activeInterface,
-                                action = "amount_change_click"
-                            )
-                            viewModel.updateDonationAmountState(amount.toFloat(), source)
-                            showDonationAmountCustomDialog = false
-                        }
-                    },
-                    onValueChange = { value ->
-                        val amount = DonateUtil.getAmountFloat(value)
-                        val minimumAmount = uiState.donationAmount.minimumAmount
-                        val maximumAmount = uiState.donationAmount.maximumAmount
-                        customDialogErrorMessage = when {
-                            amount < minimumAmount -> {
-                                String.format(
-                                    donateGooglePayMinAmount,
-                                    uiState.donationAmount.displayFormatter(minimumAmount)
-                                )
-                            }
-                            maximumAmount > 0 && amount >= maximumAmount -> {
-                                String.format(
-                                    donateGooglePayMaxAmount,
-                                    uiState.donationAmount.displayFormatter(maximumAmount)
-                                )
-                            }
-                            else -> ""
-                        }
-                    },*/
                 )
             }
         }
