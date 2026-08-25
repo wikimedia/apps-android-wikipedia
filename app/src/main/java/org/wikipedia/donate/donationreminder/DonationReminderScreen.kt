@@ -544,7 +544,9 @@ fun DonationAmountView(
             cursorColor = WikipediaTheme.colors.primaryColor,
             errorTextColor = WikipediaTheme.colors.primaryColor
         ),
-        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+        keyboardOptions = KeyboardOptions(
+            keyboardType = KeyboardType.Number,
+        ),
         isError = errorMessage.isNotEmpty(),
         supportingText = if (errorMessage.isNotEmpty()) {
             {
