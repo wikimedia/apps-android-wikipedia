@@ -481,6 +481,17 @@ fun DonationAmountView(
     val donateGooglePayMinAmount = stringResource(R.string.donate_gpay_minimum_amount)
     val donateGooglePayMaxAmount = stringResource(R.string.donate_gpay_maximum_amount)
 
+    LaunchedEffect(selectedOption) {
+        when(selectedOption) {
+            is OptionItem.Preset -> {
+                textFieldValue = ""
+                errorMessage = ""
+                focusRequester.freeFocus()
+            }
+            else -> {}
+        }
+    }
+
     OptionSelector(
         title = stringResource(R.string.donation_reminders_settings_amount_label),
         headerIcon = R.drawable.credit_card_heart_24,
