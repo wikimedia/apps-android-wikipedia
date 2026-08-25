@@ -51,6 +51,7 @@ object DonationReminderHelper {
         if (isEnabled) {
             presets?.removeAll(presetsToRemoveFromConfig.toSet())
             presets?.addAll(defaultDonateAmountOptions)
+            presets?.sorted()
         }
     }
 
