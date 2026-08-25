@@ -521,7 +521,7 @@ fun DonationAmountView(
 
             // error check and send error state to parent
             val floatValue = DonateUtil.getAmountFloat(newValue)
-            if (floatValue < option.minimumAmount) {
+            if (floatValue < option.minimumAmount || textFieldValue == "" ) {
                 errorMessage = String.format(
                     donateGooglePayMinAmount,
                     option.displayFormatter(option.minimumAmount)
@@ -533,9 +533,6 @@ fun DonationAmountView(
                     option.displayFormatter(option.maximumAmount)
                 )
                 hasTextFieldError(true)
-            } else {
-                errorMessage = ""
-                hasTextFieldError(false)
             }
         },
         prefix = { Text(
