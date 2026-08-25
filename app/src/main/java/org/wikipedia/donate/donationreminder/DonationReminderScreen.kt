@@ -482,13 +482,14 @@ fun DonationAmountView(
     val initialCustomText = if (option.selectedSource is SelectedSource.Custom) {
         option.selectedValue.toString()
     } else ""
-    var selectedOption by remember { mutableStateOf<OptionItem<Float>?>(
-        if (option.selectedSource is SelectedSource.Custom) {
-            OptionItem.Custom(initialCustomText)
-        } else {
-            OptionItem.Preset(option.selectedValue, option.displayFormatter(option.selectedValue))
-        })
+
+    val initialSelectedOption = if (option.selectedSource is SelectedSource.Custom) {
+        OptionItem.Custom(initialCustomText)
+    } else {
+        OptionItem.Preset(option.selectedValue, option.displayFormatter(option.selectedValue))
     }
+
+    var selectedOption by remember { mutableStateOf(initialSelectedOption) }
     var textFieldValue by remember { mutableStateOf(initialCustomText) }
     var errorMessage by remember { mutableStateOf("") }
     val focusManager = LocalFocusManager.current
