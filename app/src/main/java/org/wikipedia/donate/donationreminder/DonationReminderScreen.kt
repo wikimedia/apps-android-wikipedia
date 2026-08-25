@@ -517,9 +517,16 @@ fun DonationAmountView(
         ) },
         placeholder = {
             Text(
-                text = "Custom Amount",
+                text = stringResource(R.string.donation_reminders_custom_amount_label),
                 style = MaterialTheme.typography.bodyLarge,
                 color = WikipediaTheme.colors.placeholderColor
+            )
+        },
+        trailingIcon = {
+            Icon(
+                painter = painterResource(R.drawable.ic_error_black_24dp),
+                tint = WikipediaTheme.colors.destructiveColor,
+                contentDescription = null,
             )
         },
         singleLine = true,
