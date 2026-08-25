@@ -2386,6 +2386,7 @@
     <string name="donation_reminders_snackbar_modify_button_label">Modify</string>
     <string name="donation_reminders_article_number_selection_label">Articles</string>
     <string name="donation_reminders_beta_label">Beta</string>
+    <string name="donation_reminders_custom_amount_label">Custom amount</string>
 
     <!-- Hybrid Search -->
     <string name="hybrid_search_search_hint">Search or ask anything</string>
