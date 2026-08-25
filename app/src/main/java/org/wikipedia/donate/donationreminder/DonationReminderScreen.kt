@@ -523,11 +523,13 @@ fun DonationAmountView(
             )
         },
         trailingIcon = {
-            Icon(
-                painter = painterResource(R.drawable.ic_error_black_24dp),
-                tint = WikipediaTheme.colors.destructiveColor,
-                contentDescription = null,
-            )
+            if (errorMessage.isNotEmpty()) {
+                Icon(
+                    painter = painterResource(R.drawable.baseline_info_24),
+                    tint = WikipediaTheme.colors.destructiveColor,
+                    contentDescription = null
+                )
+            }
         },
         singleLine = true,
         shape = RoundedCornerShape(4.dp),
