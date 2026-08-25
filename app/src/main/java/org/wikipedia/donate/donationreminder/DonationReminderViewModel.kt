@@ -3,6 +3,7 @@ package org.wikipedia.donate.donationreminder
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.room.util.query
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -117,8 +118,9 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
             OptionItem.Preset(value = it, text = it.toString())
         }
 
-        val selectedValue = options.first()
-        val selectedSource = SelectedSource.Preset(0)
+        val selectedValue = if (Prefs.donationReminderConfig.articleFrequency <= 0) options.first()
+        else Prefs.donationReminderConfig.articleFrequency
+        val selectedSource = SelectedSource.Preset(options.indexOf(selectedValue))
 
         return SelectableOption(
             selectedValue,
@@ -150,8 +152,10 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
             OptionItem.Preset(it, DonateUtil.currencyFormat.format(it).replace(formatRegex, ""))
         }
 
-        val selectedValue = presets.first()
-        val selectedSource = SelectedSource.Preset(0)
+        val selectedValue = if (Prefs.donationReminderConfig.donateAmount <= 0f) presets.first()
+        else Prefs.donationReminderConfig.donateAmount
+        val selectedSource = if (presets.contains(selectedValue)) SelectedSource.Preset(presets.indexOf(selectedValue))
+        else SelectedSource.Custom
 
         return SelectableOption(
             selectedValue,
