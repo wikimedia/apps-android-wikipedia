@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.net.toUri
 import androidx.core.view.isVisible
+import androidx.core.view.updateLayoutParams
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.databinding.ViewPageHeaderBinding
@@ -86,7 +87,12 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
     }
 
     fun show() {
-        layoutParams = CoordinatorLayout.LayoutParams(LayoutParams.MATCH_PARENT, DimenUtil.leadImageHeightForDevice(context) + donationReminderCardViewHeight)
+        val leadImageHeight = DimenUtil.leadImageHeightForDevice(context)
+        layoutParams = CoordinatorLayout.LayoutParams(LayoutParams.MATCH_PARENT, leadImageHeight + donationReminderCardViewHeight)
+        binding.headerImageContainer.updateLayoutParams<LayoutParams> {
+            height = leadImageHeight
+            weight = 0f
+        }
         visibility = VISIBLE
     }
 
@@ -130,7 +136,7 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
 
                 binding.donationReminderCardView.measure(widthSpec, heightSpec)
                 // HACK: Manually adjust the height of the message card view
-                messageCardViewHeight = binding.donationReminderCardView.measuredHeight + DimenUtil.dpToPx(64f).toInt()
+                messageCardViewHeight = binding.donationReminderCardView.measuredHeight + DimenUtil.dpToPx(48f).toInt()
                 binding.donationReminderCardView.isVisible = false
                 visibility = GONE
             }
@@ -156,13 +162,13 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
             binding.donationReminderCardView.setTitle(titleText)
             binding.donationReminderCardView.setMessage(messageText)
             binding.donationReminderCardView.setPositiveButton(positiveButtonText) {
-                callback?.donationReminderCardPositiveClicked()
                 DonationReminderHelper.dismissReminder()
+                callback?.donationReminderCardPositiveClicked()
             }
             binding.donationReminderCardView.setNegativeButton(negativeButtonText) {
-                callback?.donationReminderCardNegativeClicked()
                 binding.donationReminderCardView.isVisible = false
                 DonationReminderHelper.dismissReminder()
+                callback?.donationReminderCardNegativeClicked()
             }
         }
     }
