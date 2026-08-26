@@ -8,17 +8,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:paddingTop="16dp"
-        android:orientation="vertical">
+        android:padding="16dp"
+        android:orientation="vertical"
+        android:background="?attr/background_color">
 
         <TextView
             android:id="@+id/messageTitleView"
             style="@style/TextAppearance.Material3.TitleMedium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="4dp"
+            android:layout_marginBottom="8dp"
             android:textColor="?attr/primary_color"/>
 
         <TextView
@@ -27,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="?attr/secondary_color"
-            android:layout_marginBottom="4dp" />
+            android:layout_marginBottom="8dp" />
 
         <com.google.android.flexbox.FlexboxLayout
             android:id="@+id/buttonsContainer"
@@ -40,9 +39,7 @@
                 android:id="@+id/positiveButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/App.Button.Text"
-                android:textSize="14sp"
-                android:layout_marginStart="-16dp"
+                style="@style/App.Button"
                 tools:text="Lorem ipsum"/>
 
             <com.google.android.material.button.MaterialButton
@@ -50,8 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/App.Button.Text"
-                android:textColor="?attr/primary_color"
-                android:textSize="14sp"
+                android:textColor="?attr/placeholder_color"
                 tools:text="Lorem ipsum"
                 tools:visibility="visible"/>
 

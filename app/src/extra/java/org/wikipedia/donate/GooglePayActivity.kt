@@ -29,6 +29,7 @@ import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.databinding.ActivityDonateBinding
 import org.wikipedia.dataclient.donate.CampaignCollection
 import org.wikipedia.dataclient.donate.DonationConfig
+import org.wikipedia.donate.donationreminder.DonationReminderHelper
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
@@ -251,6 +252,8 @@ class GooglePayActivity : BaseActivity() {
 
         val viewIds = mutableListOf<Int>()
         val presets = donationConfig.currencyAmountPresets[DonateUtil.currencyCode]?.toMutableSet()
+        // TODO: remove this when experiment is completed in November 2026.
+        DonationReminderHelper.updateDonationPresets(presets)
         if (viewModel.filledAmount > 0f) {
             presets?.add(viewModel.filledAmount)
         }

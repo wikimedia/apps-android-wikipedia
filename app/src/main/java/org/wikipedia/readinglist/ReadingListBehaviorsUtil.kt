@@ -172,25 +172,31 @@ object ReadingListBehaviorsUtil {
     }
 
     fun deletePagesFromLists(activity: Activity, selectedArticleCount: Int, lists: List<ReadingList>, snackbarCallback: SnackbarCallback, callback: Callback) {
-        val listToDelete = lists.filter { it.pages.isNotEmpty() }
-        if (selectedArticleCount == 0 || listToDelete.isEmpty()) {
+        val listsWithPagesToDelete = lists.filter { it.pages.isNotEmpty() }
+        if (selectedArticleCount == 0 || listsWithPagesToDelete.isEmpty()) {
             return
         }
-        MaterialAlertDialogBuilder(activity)
-            .setTitle(R.string.reading_lists_remove_articles_confirm_dialog_title)
-            .setMessage(activity.resources.getQuantityString(R.plurals.reading_lists_unsave_articles_confirm_dialog_message, selectedArticleCount, selectedArticleCount))
-            .setPositiveButton(R.string.reading_lists_remove_articles_confirm_button) { _, _ ->
-                MainScope().launch(exceptionHandler) {
-                    AppDatabase.instance.readingListPageDao().markPagesForDeletionFromLists(listToDelete)
-                    if (!activity.isStarted) {
-                        return@launch
-                    }
-                    showDeletePagesFromListsUndoSnackbar(activity, selectedArticleCount, listToDelete, snackbarCallback)
+
+        val deletePages = {
+            MainScope().launch(exceptionHandler) {
+                AppDatabase.instance.readingListPageDao().markPagesForDeletionFromLists(listsWithPagesToDelete)
+                if (activity.isStarted) {
+                    showDeletePagesFromListsUndoSnackbar(activity, selectedArticleCount, listsWithPagesToDelete, snackbarCallback)
                     callback.onCompleted()
                 }
             }
-            .setNegativeButton(R.string.reading_list_delete_dialog_cancel_button_text, null)
-            .show()
+        }
+
+        if (listsWithPagesToDelete.any { !it.isDefault }) {
+            MaterialAlertDialogBuilder(activity)
+                .setTitle(R.string.reading_lists_remove_articles_confirm_dialog_title)
+                .setMessage(activity.resources.getQuantityString(R.plurals.reading_lists_unsave_articles_confirm_dialog_message, selectedArticleCount, selectedArticleCount))
+                .setPositiveButton(R.string.reading_lists_remove_articles_confirm_button) { _, _ -> deletePages() }
+                .setNegativeButton(R.string.reading_list_delete_dialog_cancel_button_text, null)
+                .show()
+        } else {
+            deletePages()
+        }
     }
 
     private fun showDeletePagesFromListsUndoSnackbar(activity: Activity, selectedArticleCount: Int, lists: List<ReadingList>, callback: SnackbarCallback) {

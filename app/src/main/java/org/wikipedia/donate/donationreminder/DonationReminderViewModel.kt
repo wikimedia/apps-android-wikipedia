@@ -147,7 +147,10 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
             }
         }
 
-        val presets = donationConfig?.currencyAmountPresets[currencyCode]?.take(maxPresetItemsInDropdown) ?: listOf(minimumAmount)
+        val context = WikipediaApp.instance
+        val presets = (donationConfig?.currencyAmountPresets[currencyCode]?.take(maxPresetItemsInDropdown) ?: listOf(minimumAmount)).toMutableSet()
+        // TODO: remove this when experiment is completed in November 2026.
+        DonationReminderHelper.updateDonationPresets(presets)
         val options = presets.map {
             OptionItem.Preset(it, DonateUtil.currencyFormat.format(it).replace(formatRegex, ""))
         }
