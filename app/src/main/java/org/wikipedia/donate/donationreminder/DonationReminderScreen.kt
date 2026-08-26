@@ -678,7 +678,8 @@ fun <T : Number> OptionSelector(
                                 Text(
                                     text = currentOption.displayText,
                                     color = if (isSelected) WikipediaTheme.colors.paperColor
-                                    else WikipediaTheme.colors.primaryColor
+                                    else WikipediaTheme.colors.primaryColor,
+                                    style = MaterialTheme.typography.bodyLarge
                                 )
                             }
                         }
