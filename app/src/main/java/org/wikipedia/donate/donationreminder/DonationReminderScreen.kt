@@ -630,19 +630,17 @@ fun <T : Number> OptionSelector(
         horizontalArrangement = Arrangement.spacedBy(16.dp),
         verticalAlignment = Alignment.Top
     ) {
-        Icon(
-            modifier = Modifier
-                .padding(top = 3.dp),
-            painter = painterResource(headerIcon),
-            tint = WikipediaTheme.colors.primaryColor,
-            contentDescription = null
-        )
         Column(
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             Row(
                 horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) {
+                Icon(
+                    painter = painterResource(headerIcon),
+                    tint = WikipediaTheme.colors.primaryColor,
+                    contentDescription = null
+                )
                 Text(
                     text = title,
                     style = MaterialTheme.typography.bodyLarge,
