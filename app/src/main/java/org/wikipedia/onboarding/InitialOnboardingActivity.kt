@@ -10,6 +10,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.core.content.ContextCompat
@@ -46,8 +47,8 @@ class InitialOnboardingActivity : BaseActivity() {
             .startFunnel("initial_onboarding")
 
         setContent {
-            var currentTheme by remember { mutableStateOf(Theme.BLACK) }
-            var currentNavigationBarColor by remember { mutableIntStateOf(ContextCompat.getColor(window.context, android.R.color.black)) }
+            var currentTheme by rememberSaveable { mutableStateOf(Theme.BLACK) }
+            var currentNavigationBarColor by rememberSaveable { mutableIntStateOf(ContextCompat.getColor(window.context, android.R.color.black)) }
             DeviceUtil.setLightSystemUiVisibility(this, !currentTheme.isDark)
             setNavigationBarColor(currentNavigationBarColor)
             BaseTheme(

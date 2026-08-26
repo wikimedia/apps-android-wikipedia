@@ -2,10 +2,10 @@ package org.wikipedia.robots
 
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.Espresso.pressBack
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers.hasDescendant
+import androidx.test.espresso.matcher.ViewMatchers.withContentDescription
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import org.wikipedia.R
@@ -22,6 +22,8 @@ class WikipediaLanguagesRobot {
     }
 
     fun navigateBack() = apply {
-        pressBack()
+        onView(
+            withContentDescription(androidx.appcompat.R.string.abc_action_bar_up_description)
+        ).perform(click())
     }
 }

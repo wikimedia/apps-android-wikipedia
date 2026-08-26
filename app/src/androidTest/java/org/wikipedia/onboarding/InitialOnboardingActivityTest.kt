@@ -31,6 +31,7 @@ class InitialOnboardingActivityTest : BaseTest<InitialOnboardingActivity>(
     beforeActivityLaunch = {
         Prefs.isInitialOnboardingEnabled = true
         Prefs.isExploreFeedUpdatePromptShown = false
+        Prefs.shouldMatchSystemTheme = false
         WikipediaApp.instance.languageState.setAppLanguageCodes(listOf(ENGLISH_LANGUAGE_CODE))
         WikipediaApp.instance.currentTheme = Theme.LIGHT
     }
