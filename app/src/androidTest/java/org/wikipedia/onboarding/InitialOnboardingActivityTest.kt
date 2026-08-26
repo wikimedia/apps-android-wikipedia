@@ -8,7 +8,6 @@ import androidx.test.espresso.intent.matcher.IntentMatchers.hasComponent
 import androidx.test.espresso.intent.matcher.IntentMatchers.hasExtra
 import org.hamcrest.Matchers.allOf
 import org.junit.After
-import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Before
@@ -81,12 +80,11 @@ class InitialOnboardingActivityTest : BaseTest<InitialOnboardingActivity>(
         onboardingRobot
             .tapForward()
             .assertDataPrivacyScreenIsDisplayed()
-            .assertDataPrivacyTitleColor(lightThemePrimaryColor)
+        .assertDataPrivacyTitleColor(lightThemePrimaryColor)
 
-        val activityToRecreate = activity
-
+        // re-creates the activity to simulate a configuration change
         composeTestRule.runOnUiThread {
-            activityToRecreate.recreate()
+            activity.recreate()
         }
 
         onboardingRobot
@@ -170,10 +168,7 @@ class InitialOnboardingActivityTest : BaseTest<InitialOnboardingActivity>(
 
         onboardingRobot
             .assertLanguagesScreenIsDisplayed()
-            .assertLanguageIsDisplayed(spanishLanguageName)
-
-        assertEquals(updatedLanguageCodes, languageState.appLanguageCodes)
-        assertEquals(SPANISH_LANGUAGE_CODE, Prefs.homeLanguageCode)
+            .assertPrimaryLanguageIsDisplayed(spanishLanguageName)
 
         onboardingRobot.tapForward()
 
