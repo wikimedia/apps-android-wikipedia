@@ -161,7 +161,7 @@ class InitialOnboardingActivityTest : BaseTest<InitialOnboardingActivity>(
             .tapForward()
             .assertLanguagesScreenIsDisplayed()
             .tapAddOrEditLanguages()
-        Thread.sleep(2000)
+
         composeTestRule.runOnUiThread {
             languageState.setAppLanguageCodes(updatedLanguageCodes)
         }
@@ -170,7 +170,7 @@ class InitialOnboardingActivityTest : BaseTest<InitialOnboardingActivity>(
         onboardingRobot
             .assertLanguagesScreenIsDisplayed()
             .assertLanguageIsDisplayed(spanishLanguageName)
-        Thread.sleep(2000)
+
         assertEquals(updatedLanguageCodes, languageState.appLanguageCodes)
         assertEquals(SPANISH_LANGUAGE_CODE, Prefs.homeLanguageCode)
 
