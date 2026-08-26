@@ -1,6 +1,7 @@
 package org.wikipedia.robots
 
 import android.content.Context
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertIsNotDisplayed
 import androidx.compose.ui.test.hasText
@@ -12,6 +13,7 @@ import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performScrollTo
 import androidx.compose.ui.test.performScrollToNode
 import org.wikipedia.R
+import org.wikipedia.base.utils.assertTextColor
 
 class OnboardingRobot(
     private val composeTestRule: ComposeTestRule,
@@ -27,6 +29,12 @@ class OnboardingRobot(
         composeTestRule
             .onNodeWithText(context.getString(R.string.onboarding_data_privacy_title))
             .assertIsDisplayed()
+    }
+
+    fun assertDataPrivacyTitleColor(color: Color) = apply {
+        composeTestRule
+            .onNodeWithText(context.getString(R.string.onboarding_data_privacy_title))
+            .assertTextColor(color)
     }
 
     fun assertLanguagesScreenIsDisplayed() = apply {
