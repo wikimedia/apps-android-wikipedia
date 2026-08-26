@@ -4,6 +4,8 @@ import androidx.annotation.DrawableRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.relocation.BringIntoViewRequester
+import androidx.compose.foundation.relocation.bringIntoViewRequester
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -465,9 +467,17 @@ fun DonationAmountView(
     var textFieldValue by remember { mutableStateOf(initialCustomText) }
     var errorMessage by remember { mutableStateOf("") }
     val focusManager = LocalFocusManager.current
+    val bringIntoViewRequester = remember { BringIntoViewRequester() }
+    val coroutineScope = rememberCoroutineScope()
 
     val donateGooglePayMinAmount = stringResource(R.string.donate_gpay_minimum_amount)
     val donateGooglePayMaxAmount = stringResource(R.string.donate_gpay_maximum_amount)
+
+    LaunchedEffect(errorMessage) {
+        if (errorMessage.isNotEmpty()) {
+            bringIntoViewRequester.bringIntoView()
+        }
+    }
 
     OptionSelector(
         title = stringResource(R.string.donation_reminders_settings_amount_label),
@@ -558,14 +568,18 @@ fun DonationAmountView(
         } else null,
         modifier = Modifier
             .fillMaxWidth()
+            .bringIntoViewRequester(bringIntoViewRequester)
             .onFocusChanged { focusState ->
-                if (focusState.isFocused && textFieldValue.isEmpty()) {
-                    onOptionSelected(OptionItem.Custom( ""), SelectedSource.Custom)
-                    errorMessage = String.format(
-                        donateGooglePayMinAmount,
-                        option.displayFormatter(option.minimumAmount)
-                    )
-                    hasTextFieldError(true)
+                if (focusState.isFocused) {
+                    coroutineScope.launch { bringIntoViewRequester.bringIntoView() }
+                    if (textFieldValue.isEmpty()) {
+                        onOptionSelected(OptionItem.Custom(""), SelectedSource.Custom)
+                        errorMessage = String.format(
+                            donateGooglePayMinAmount,
+                            option.displayFormatter(option.minimumAmount)
+                        )
+                        hasTextFieldError(true)
+                    }
                 }
             }
     )
