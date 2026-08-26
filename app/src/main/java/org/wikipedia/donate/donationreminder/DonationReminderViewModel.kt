@@ -149,13 +149,14 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
         val presets = (donationConfig?.currencyAmountPresets[currencyCode]?.take(maxPresetItemsInDropdown) ?: listOf(minimumAmount)).toMutableSet()
         // TODO: remove this when experiment is completed in November 2026.
         DonationReminderHelper.updateDonationPresets(presets)
-        val options = presets.map {
+        val sortedPresets = presets.sorted().take(maxPresetItemsInDropdown)
+        val options = sortedPresets.map {
             OptionItem.Preset(it, DonateUtil.currencyFormat.format(it).replace(formatRegex, ""))
         }
 
-        val selectedValue = if (Prefs.donationReminderConfig.donateAmount <= 0f) presets.first()
+        val selectedValue = if (Prefs.donationReminderConfig.donateAmount <= 0f) sortedPresets.first()
         else Prefs.donationReminderConfig.donateAmount
-        val selectedSource = if (presets.contains(selectedValue)) SelectedSource.Preset(presets.indexOf(selectedValue))
+        val selectedSource = if (sortedPresets.contains(selectedValue)) SelectedSource.Preset(sortedPresets.indexOf(selectedValue))
         else SelectedSource.Custom
 
         return SelectableOption(
@@ -164,7 +165,7 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
             options,
             minimumAmount = minimumAmount,
             maximumAmount = maximumAmount,
-            defaultValue = presets.first(),
+            defaultValue = sortedPresets.first(),
             displayFormatter = {
                 DonateUtil.currencyFormat.format(it).replace(formatRegex, "")
             }
