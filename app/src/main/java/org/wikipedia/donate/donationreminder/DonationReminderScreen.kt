@@ -412,7 +412,6 @@ fun DonationReminderContent(
                         viewModel.saveReminder()
                         val message = DonationReminderHelper.thankYouMessageForSettings()
                         onConfirmButtonClick(message)
-
                     },
                     content = {
                         Text(

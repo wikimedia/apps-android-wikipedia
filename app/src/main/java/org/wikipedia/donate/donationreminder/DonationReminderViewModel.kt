@@ -3,7 +3,6 @@ package org.wikipedia.donate.donationreminder
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.room.util.query
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -147,7 +146,6 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
             }
         }
 
-        val context = WikipediaApp.instance
         val presets = (donationConfig?.currencyAmountPresets[currencyCode]?.take(maxPresetItemsInDropdown) ?: listOf(minimumAmount)).toMutableSet()
         // TODO: remove this when experiment is completed in November 2026.
         DonationReminderHelper.updateDonationPresets(presets)
