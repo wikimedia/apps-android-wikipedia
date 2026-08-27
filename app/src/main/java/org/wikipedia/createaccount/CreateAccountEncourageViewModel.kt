@@ -47,8 +47,8 @@ class CreateAccountEncourageViewModel : ViewModel() {
     )
 
     companion object {
-        private const val READING_GAP_MIN_DAYS = 7
-        private const val READING_GAP_MAX_DAYS = 14
+        private const val READING_SPAN_DAYS = 14
+        private const val READING_SPAN_MIN_AGE_DAYS = 7L
         private const val RETURN_DAYS_REQUIRED = 2
 
         suspend fun shouldShow(): Boolean {
@@ -57,15 +57,18 @@ class CreateAccountEncourageViewModel : ViewModel() {
             }
             return when (Prefs.createAccountEncourageImpressions) {
                 -1 -> true // for testing and debugging
-                0 -> hasReturnedAfterAboutAWeek()
+                0 -> hasReadOnTwoDaysWithinAFortnight()
                 1 -> hasReturnedSinceLastImpression()
                 else -> false
             }
         }
 
-        private suspend fun hasReturnedAfterAboutAWeek(): Boolean {
+        private suspend fun hasReadOnTwoDaysWithinAFortnight(): Boolean {
+            // The earlier of the two days must itself be a week old, otherwise the fortnight
+            // containing both of them would have to extend into the future.
+            val firstDayOnOrBefore = System.currentTimeMillis() - TimeUnit.DAYS.toMillis(READING_SPAN_MIN_AGE_DAYS)
             return AppDatabase.instance.historyEntryDao()
-                .hasReadingDaysApartBetween(READING_GAP_MIN_DAYS, READING_GAP_MAX_DAYS)
+                .hasReadingDaysApartWithin(READING_SPAN_DAYS, firstDayOnOrBefore)
         }
 
         private suspend fun hasReturnedSinceLastImpression(): Boolean {
