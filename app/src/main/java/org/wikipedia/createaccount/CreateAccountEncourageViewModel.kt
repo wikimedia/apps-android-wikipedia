@@ -47,7 +47,8 @@ class CreateAccountEncourageViewModel : ViewModel() {
     )
 
     companion object {
-        private const val ENGAGEMENT_WINDOW_DAYS = 7L
+        private const val READING_GAP_MIN_DAYS = 7
+        private const val READING_GAP_MAX_DAYS = 14
         private const val RETURN_DAYS_REQUIRED = 2
 
         suspend fun shouldShow(): Boolean {
@@ -56,19 +57,15 @@ class CreateAccountEncourageViewModel : ViewModel() {
             }
             return when (Prefs.createAccountEncourageImpressions) {
                 -1 -> true // for testing and debugging
-                0 -> hasReadInTwoConsecutiveWeeks()
+                0 -> hasReturnedAfterAboutAWeek()
                 1 -> hasReturnedSinceLastImpression()
                 else -> false
             }
         }
 
-        private suspend fun hasReadInTwoConsecutiveWeeks(): Boolean {
-            val now = System.currentTimeMillis()
-            val oneWindowAgo = now - TimeUnit.DAYS.toMillis(ENGAGEMENT_WINDOW_DAYS)
-            val twoWindowsAgo = now - TimeUnit.DAYS.toMillis(ENGAGEMENT_WINDOW_DAYS * 2)
-            val historyEntryDao = AppDatabase.instance.historyEntryDao()
-            return (historyEntryDao.getDistinctEntriesCountSince(oneWindowAgo) ?: 0) > 0 &&
-                    historyEntryDao.getDistinctEntriesCountBetween(twoWindowsAgo, oneWindowAgo) > 0
+        private suspend fun hasReturnedAfterAboutAWeek(): Boolean {
+            return AppDatabase.instance.historyEntryDao()
+                .hasReadingDaysApartBetween(READING_GAP_MIN_DAYS, READING_GAP_MAX_DAYS)
         }
 
         private suspend fun hasReturnedSinceLastImpression(): Boolean {

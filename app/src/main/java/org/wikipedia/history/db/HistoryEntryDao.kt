@@ -40,6 +40,9 @@ interface HistoryEntryDao {
     @Query("SELECT COUNT(*) FROM (SELECT DISTINCT date(timestamp / 1000, 'unixepoch', 'localtime') FROM HistoryEntry WHERE timestamp > :timestamp)")
     suspend fun getDistinctReadingDaysCountSince(timestamp: Long): Int
 
+    @Query("WITH readingDays AS (SELECT DISTINCT CAST(julianday(date(timestamp / 1000, 'unixepoch', 'localtime')) AS INTEGER) AS day FROM HistoryEntry) SELECT EXISTS(SELECT 1 FROM readingDays a, readingDays b WHERE b.day - a.day > :minDaysApart AND b.day - a.day < :maxDaysApart)")
+    suspend fun hasReadingDaysApartBetween(minDaysApart: Int, maxDaysApart: Int): Boolean
+
     @Query("DELETE FROM HistoryEntry")
     suspend fun deleteAll()
 
