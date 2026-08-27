@@ -49,6 +49,7 @@ class CreateAccountEncourageViewModel : ViewModel() {
     companion object {
         private const val READING_SPAN_DAYS = 14
         private const val READING_SPAN_MIN_AGE_DAYS = 7L
+        private const val READING_HISTORY_CUTOFF_DAYS = 365L
         private const val RETURN_DAYS_REQUIRED = 2
 
         suspend fun shouldShow(): Boolean {
@@ -66,9 +67,12 @@ class CreateAccountEncourageViewModel : ViewModel() {
         private suspend fun hasReadOnTwoDaysWithinAFortnight(): Boolean {
             // The earlier of the two days must itself be a week old, otherwise the fortnight
             // containing both of them would have to extend into the future.
-            val firstDayOnOrBefore = System.currentTimeMillis() - TimeUnit.DAYS.toMillis(READING_SPAN_MIN_AGE_DAYS)
-            return AppDatabase.instance.historyEntryDao()
-                .hasReadingDaysApartWithin(READING_SPAN_DAYS, firstDayOnOrBefore)
+            val now = System.currentTimeMillis()
+            return AppDatabase.instance.historyEntryDao().hasReadingDaysApartWithin(
+                maxDaysApart = READING_SPAN_DAYS,
+                firstDayOnOrBeforeMillis = now - TimeUnit.DAYS.toMillis(READING_SPAN_MIN_AGE_DAYS),
+                sinceMillis = now - TimeUnit.DAYS.toMillis(READING_HISTORY_CUTOFF_DAYS)
+            )
         }
 
         private suspend fun hasReturnedSinceLastImpression(): Boolean {
