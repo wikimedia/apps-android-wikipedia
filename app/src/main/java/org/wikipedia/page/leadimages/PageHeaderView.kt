@@ -136,7 +136,7 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
 
                 binding.donationReminderCardView.measure(widthSpec, heightSpec)
                 // HACK: Manually adjust the height of the message card view
-                messageCardViewHeight = binding.donationReminderCardView.measuredHeight + DimenUtil.dpToPx(48f).toInt()
+                messageCardViewHeight = binding.donationReminderCardView.measuredHeight + DimenUtil.dpToPx(56f).toInt()
                 binding.donationReminderCardView.isVisible = false
                 visibility = GONE
             }
