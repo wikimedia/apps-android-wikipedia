@@ -426,6 +426,7 @@ fun DonationReminderContent(
                                     activeInterface = activeInterface,
                                     action = "amount_change_click"
                                 )
+                                customErrorMessage = ""
                                 viewModel.updateDonationAmountState(option.value, source)
                             }
 
