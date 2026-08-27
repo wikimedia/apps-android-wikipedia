@@ -342,7 +342,7 @@ fun DonationReminderContent(
     val donateGooglePayMinAmount = stringResource(R.string.donate_gpay_minimum_amount)
     val donateGooglePayMaxAmount = stringResource(R.string.donate_gpay_maximum_amount)
 
-    fun customAmountErrorMessageOrNull(inputText: String): String? {
+    fun customAmountErrorMessage(inputText: String): String {
         val parsedCustomAmount = inputText.toFloatOrNull()
         return when {
             inputText.isBlank() || parsedCustomAmount == null || parsedCustomAmount < uiState.donationAmount.minimumAmount -> {
@@ -351,13 +351,13 @@ fun DonationReminderContent(
                     uiState.donationAmount.displayFormatter(uiState.donationAmount.minimumAmount)
                 )
             }
-            uiState.donationAmount.maximumAmount > 0 && parsedCustomAmount >= uiState.donationAmount.maximumAmount -> {
+            parsedCustomAmount >= uiState.donationAmount.maximumAmount -> {
                 String.format(
                     donateGooglePayMaxAmount,
                     uiState.donationAmount.displayFormatter(uiState.donationAmount.maximumAmount)
                 )
             }
-            else -> null
+            else -> ""
         }
     }
 
@@ -413,7 +413,7 @@ fun DonationReminderContent(
                     customErrorMessage = customErrorMessage,
                     onCustomTextChanged = { newValue ->
                         customAmountText = newValue
-                        customErrorMessage = customAmountErrorMessageOrNull(newValue).orEmpty()
+                        customErrorMessage = customAmountErrorMessage(newValue)
                     },
                     onCustomTextFocusedEmpty = {
                         customAmountText = ""
@@ -459,8 +459,8 @@ fun DonationReminderContent(
                         onClick = {
                             val isCustomSelected = uiState.donationAmount.selectedSource is SelectedSource.Custom
                             if (isCustomSelected) {
-                                val customAmountError = customAmountErrorMessageOrNull(customAmountText)
-                                if (customAmountError != null) {
+                                val customAmountError = customAmountErrorMessage(customAmountText)
+                                if (customAmountError.isNotEmpty()) {
                                     customErrorMessage = customAmountError
                                     return@AppButton
                                 }
