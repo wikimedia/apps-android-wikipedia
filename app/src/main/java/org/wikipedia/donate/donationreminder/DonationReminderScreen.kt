@@ -468,6 +468,7 @@ fun DonationAmountView(
     var textFieldValue by remember { mutableStateOf(initialCustomText) }
     var errorMessage by remember { mutableStateOf("") }
     val focusManager = LocalFocusManager.current
+    val focusRequester = remember { FocusRequester() }
     val bringIntoViewRequester = remember { BringIntoViewRequester() }
     val coroutineScope = rememberCoroutineScope()
 
@@ -477,6 +478,12 @@ fun DonationAmountView(
     LaunchedEffect(errorMessage) {
         if (errorMessage.isNotEmpty()) {
             bringIntoViewRequester.bringIntoView()
+        }
+    }
+
+    LaunchedEffect(option.selectedSource) {
+        if (option.selectedSource is SelectedSource.Custom) {
+            focusRequester.requestFocus()
         }
     }
 
@@ -570,6 +577,7 @@ fun DonationAmountView(
         modifier = Modifier
             .fillMaxWidth()
             .bringIntoViewRequester(bringIntoViewRequester)
+            .focusRequester(focusRequester)
             .onFocusChanged { focusState ->
                 if (focusState.isFocused) {
                     coroutineScope.launch { bringIntoViewRequester.bringIntoView() }
