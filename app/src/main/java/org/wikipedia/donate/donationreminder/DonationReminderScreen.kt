@@ -4,6 +4,7 @@ import androidx.annotation.DrawableRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -679,41 +680,36 @@ fun <T : Number> OptionSelector(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            LazyRow(
-                horizontalArrangement = Arrangement.spacedBy(16.dp),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                itemsIndexed(option.options) { index, currentOption ->
-                    if (currentOption is OptionItem.Preset) {
-                        val isSelected = (option.selectedSource is SelectedSource.Preset) &&
-                                (option.selectedSource.key == index)
+            option.options.forEachIndexed { index, currentOption ->
+                if (currentOption is OptionItem.Preset) {
+                    val isSelected = (option.selectedSource is SelectedSource.Preset) &&
+                            (option.selectedSource.key == index)
 
-                        Button(
-                            colors = ButtonDefaults.buttonColors(
-                                containerColor = if (isSelected) WikipediaTheme.colors.progressiveColor
-                                else WikipediaTheme.colors.backgroundColor
-                            ),
-                            onClick = { onOptionSelected(currentOption, SelectedSource.Preset(index)) },
-                            modifier = Modifier.width(if (showArticleLabel) 75.dp else 100.dp)
-                        ) {
-                            Text(
-                                text = currentOption.displayText,
-                                color = if (isSelected) WikipediaTheme.colors.paperColor
-                                else WikipediaTheme.colors.primaryColor,
-                                style = MaterialTheme.typography.bodyLarge
-                            )
-                        }
-                    }
-                }
-                if (showArticleLabel) {
-                    item {
+                    Button(
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = if (isSelected) WikipediaTheme.colors.progressiveColor
+                            else WikipediaTheme.colors.backgroundColor
+                        ),
+                        onClick = { onOptionSelected(currentOption, SelectedSource.Preset(index)) },
+                        modifier = Modifier
+                            .width(if (showArticleLabel) 75.dp else 100.dp)
+                            .weight(1f)
+                    ) {
                         Text(
-                            text = stringResource(R.string.donation_reminders_article_number_selection_label),
-                            style = MaterialTheme.typography.bodyLarge,
-                            color = WikipediaTheme.colors.primaryColor,
+                            text = currentOption.displayText,
+                            color = if (isSelected) WikipediaTheme.colors.paperColor
+                            else WikipediaTheme.colors.primaryColor,
+                            style = MaterialTheme.typography.bodyLarge
                         )
                     }
                 }
+            }
+            if (showArticleLabel) {
+                Text(
+                    text = stringResource(R.string.donation_reminders_article_number_selection_label),
+                    style = MaterialTheme.typography.bodyLarge,
+                    color = WikipediaTheme.colors.primaryColor,
+                )
             }
         }
     }
