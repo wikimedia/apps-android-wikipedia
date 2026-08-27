@@ -2,7 +2,7 @@ package org.wikipedia.createaccount
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.gestures.snapping.SnapPosition
-import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
@@ -26,6 +26,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
@@ -163,22 +164,20 @@ private fun EncourageCardView(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(horizontal = 16.dp, vertical = 32.dp)
+                .padding(horizontal = 16.dp, vertical = 32.dp),
+            verticalArrangement = Arrangement.Center
         ) {
-            Box(
+            AsyncImage(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .weight(1f),
-                contentAlignment = Alignment.Center
-            ) {
-                AsyncImage(
-                    modifier = Modifier.size(200.dp),
-                    model = ImageRequest.Builder(LocalContext.current)
-                        .data(card.imageRes)
-                        .build(),
-                    contentDescription = null
-                )
-            }
+                    .align(Alignment.CenterHorizontally)
+                    .weight(1f, fill = false)
+                    .size(200.dp),
+                model = ImageRequest.Builder(LocalContext.current)
+                    .data(card.imageRes)
+                    .build(),
+                contentScale = ContentScale.Fit,
+                contentDescription = null
+            )
 
             Spacer(modifier = Modifier.height(16.dp))
 
@@ -231,7 +230,7 @@ private fun encourageCards(uiState: CreateAccountEncourageViewModel.UiState): Li
 
 private data class EncourageCard(
     val backgroundColor: Color,
-    @DrawableRes val imageRes: Int,
+    @param:DrawableRes val imageRes: Int,
     val title: String,
     val description: String
 )
