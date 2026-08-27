@@ -9,6 +9,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.compose.theme.BaseTheme
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DeviceUtil
 
 class CreateAccountEncourageActivity : BaseActivity() {
@@ -25,9 +26,17 @@ class CreateAccountEncourageActivity : BaseActivity() {
 
                 CreateAccountEncourageScreen(
                     uiState = uiState,
-                    onCloseClick = { finish() },
-                    onCreateAccountClick = { },
-                    onMaybeLaterClick = { }
+                    onCloseClick = {
+                        // Explicitly clobber impression count, so that we don't show it again.
+                        Prefs.createAccountEncourageImpressions = 100
+                        finish()
+                    },
+                    onCreateAccountClick = {
+
+                    },
+                    onMaybeLaterClick = {
+                        finish()
+                    }
                 )
             }
         }

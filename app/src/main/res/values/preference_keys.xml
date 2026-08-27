@@ -128,6 +128,8 @@
     <string name="preference_key_customize_toolbar_tooltip" translatable="false">showCustomizeToolbarTooltip</string>
     <string name="preference_key_customize_toolbar_order" translatable="false">customizeToolbarOrder</string>
     <string name="preference_key_customize_toolbar_menu_order" translatable="false">customizeToolbarMenuOrder</string>
+    <string name="preference_key_create_account_encourage_impressions" translatable="false">createAccountEncourageImpressions</string>
+    <string name="preference_key_create_account_encourage_last_impression_date" translatable="false">createAccountEncourageLastImpressionDate</string>
     <string name="preference_key_show_edit_talk_page_source_prompt" translatable="false">showEditTalkPageSourcePrompt</string>
     <string name="preference_key_temp_account_welcome_shown" translatable="false">tempAccountWelcomeShown</string>
     <string name="preference_key_temp_account_dialog_shown" translatable="false">tempAccountDialogShown</string>

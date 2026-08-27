@@ -30,6 +30,8 @@ import org.wikipedia.appshortcuts.AppShortcuts
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.connectivity.ConnectionStateMonitor
+import org.wikipedia.createaccount.CreateAccountEncourageActivity
+import org.wikipedia.createaccount.CreateAccountEncourageViewModel
 import org.wikipedia.donate.DonateDialog
 import org.wikipedia.events.LoggedOutInBackgroundEvent
 import org.wikipedia.events.ReadingListsEnableDialogEvent
@@ -356,13 +358,18 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         if (Prefs.isInitialOnboardingEnabled) return
         if (!Prefs.isExploreFeedUpdatePromptShown) return
 
-        when {
-            ReadingChallengeWidgetRepository.shouldShowOnboardingDialog() -> showReadingChallenge()
-            YearInReviewViewModel.isAccessible &&
-                    Prefs.isYearInReviewEnabled &&
-                    !Prefs.yearInReviewVisited -> {
-                        yearInReviewLauncher.launch((YearInReviewOnboardingActivity.newIntent(this)))
-                    }
+        lifecycleScope.launch {
+            when {
+                ReadingChallengeWidgetRepository.shouldShowOnboardingDialog() -> showReadingChallenge()
+                YearInReviewViewModel.isAccessible &&
+                        Prefs.isYearInReviewEnabled &&
+                        !Prefs.yearInReviewVisited -> {
+                    yearInReviewLauncher.launch((YearInReviewOnboardingActivity.newIntent(this@BaseActivity)))
+                }
+                CreateAccountEncourageViewModel.shouldShow() -> {
+                    startActivity(CreateAccountEncourageActivity.newIntent(this@BaseActivity))
+                }
+            }
         }
     }
 

@@ -7,7 +7,9 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.database.AppDatabase
+import org.wikipedia.settings.Prefs
 import java.time.LocalDate
 import java.time.ZoneId
 import java.util.concurrent.TimeUnit
@@ -18,6 +20,8 @@ class CreateAccountEncourageViewModel : ViewModel() {
     val uiState: StateFlow<UiState> = _uiState.asStateFlow()
 
     init {
+        Prefs.createAccountEncourageImpressions += 1
+        Prefs.createAccountEncourageLastImpressionDate = LocalDate.now().toString()
         loadPersonalizedCounts()
     }
 
@@ -41,4 +45,39 @@ class CreateAccountEncourageViewModel : ViewModel() {
         val savedArticles: Int = 0,
         val recentReads: Int = 0
     )
+
+    companion object {
+        private const val ENGAGEMENT_WINDOW_DAYS = 7L
+        private const val RETURN_DAYS_REQUIRED = 2
+
+        suspend fun shouldShow(): Boolean {
+            if (AccountUtil.isLoggedIn && !AccountUtil.isTemporaryAccount) {
+                return false
+            }
+            return when (Prefs.createAccountEncourageImpressions) {
+                -1 -> true // for testing and debugging
+                0 -> hasReadInTwoConsecutiveWeeks()
+                1 -> hasReturnedSinceLastImpression()
+                else -> false
+            }
+        }
+
+        private suspend fun hasReadInTwoConsecutiveWeeks(): Boolean {
+            val now = System.currentTimeMillis()
+            val oneWindowAgo = now - TimeUnit.DAYS.toMillis(ENGAGEMENT_WINDOW_DAYS)
+            val twoWindowsAgo = now - TimeUnit.DAYS.toMillis(ENGAGEMENT_WINDOW_DAYS * 2)
+            val historyEntryDao = AppDatabase.instance.historyEntryDao()
+            return (historyEntryDao.getDistinctEntriesCountSince(oneWindowAgo) ?: 0) > 0 &&
+                    historyEntryDao.getDistinctEntriesCountBetween(twoWindowsAgo, oneWindowAgo) > 0
+        }
+
+        private suspend fun hasReturnedSinceLastImpression(): Boolean {
+            val lastImpressionDate = runCatching { LocalDate.parse(Prefs.createAccountEncourageLastImpressionDate) }
+                .getOrNull() ?: return false
+
+            val sinceMillis = lastImpressionDate.plusDays(1).atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli()
+            val historyEntryDao = AppDatabase.instance.historyEntryDao()
+            return historyEntryDao.getDistinctReadingDaysCountSince(sinceMillis) >= RETURN_DAYS_REQUIRED
+        }
+    }
 }
