@@ -84,7 +84,7 @@ object JavaScriptActionHandler {
                 R.string.table_infobox, R.string.table_other, R.string.table_close))
         var leadImageHeight = if (isPreview) 0 else
             (if (DimenUtil.isLandscape(context) || !Prefs.isImageDownloadEnabled) 0 else (DimenUtil.leadImageHeightForDevice(context) / DimenUtil.densityScalar).roundToInt() - topActionBarHeight)
-        leadImageHeight = leadImageHeight + messageCardHeight
+        leadImageHeight += DimenUtil.roundedPxToDp(messageCardHeight.toFloat())
         val topMargin = topActionBarHeight + 16
 
         var fontFamily = Prefs.fontFamily

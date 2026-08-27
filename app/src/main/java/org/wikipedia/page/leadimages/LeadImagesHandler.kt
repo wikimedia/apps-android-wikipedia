@@ -252,15 +252,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
         if (pageHeaderView.donationReminderCardViewHeight == 0) {
             return 0
         }
-        return pageHeaderView.donationReminderCardViewHeight - if (adjustBottomMargin) {
-            if (DimenUtil.isLandscape(activity) || !isLeadImageEnabled) {
-                DimenUtil.roundedDpToPx(64f)
-            } else {
-                DimenUtil.roundedDpToPx(24f)
-            }
-        } else {
-            0
-        }
+        return pageHeaderView.donationReminderCardViewHeight - if (adjustBottomMargin) DimenUtil.roundedDpToPx(16f) else 0
     }
 
     fun loadLeadImage() {
