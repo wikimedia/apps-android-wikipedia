@@ -9,7 +9,9 @@ import androidx.activity.viewModels
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.compose.theme.BaseTheme
+import org.wikipedia.extensions.instrument
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DeviceUtil
@@ -27,6 +29,11 @@ class CreateAccountEncourageActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         DeviceUtil.setEdgeToEdge(this)
 
+        _instrument = TestKitchenAdapter.client.getInstrument("apps-authentication")
+            .startFunnel("create_account_encourage")
+
+        instrument?.submitInteraction("impression")
+
         setContent {
             BaseTheme {
                 val uiState by viewModel.uiState.collectAsState()
@@ -36,12 +43,15 @@ class CreateAccountEncourageActivity : BaseActivity() {
                     onCloseClick = {
                         // Explicitly clobber impression count, so that we don't show it again.
                         Prefs.createAccountEncourageImpressions = 100
+                        instrument?.submitInteraction("click", elementId = "close")
                         finish()
                     },
                     onCreateAccountClick = {
+                        instrument?.submitInteraction("click", elementId = "create_account")
                         requestLogin.launch(LoginActivity.newIntent(this, LoginActivity.SOURCE_ENCOURAGE, createAccountFirst = true))
                     },
                     onMaybeLaterClick = {
+                        instrument?.submitInteraction("click", elementId = "maybe_later")
                         finish()
                     }
                 )
