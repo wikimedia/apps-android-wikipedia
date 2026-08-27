@@ -390,7 +390,7 @@ fun DonationReminderContent(
                             }
 
                             is OptionItem.Custom -> {
-                                if (viewModel.isFromSettings && option.displayText.isBlank()) {
+                                if (option.displayText.isBlank()) {
                                     return@DonationAmountView
                                 }
                                 val customValue = DonateUtil.getAmountFloat(option.displayText)
@@ -591,7 +591,6 @@ fun DonationAmountView(
                 if (focusState.isFocused) {
                     coroutineScope.launch { bringIntoViewRequester.bringIntoView() }
                     if (textFieldValue.isEmpty()) {
-                        onOptionSelected(OptionItem.Custom(""), SelectedSource.Custom)
                         errorMessage = ""
                         hasTextFieldError(false)
                     }
