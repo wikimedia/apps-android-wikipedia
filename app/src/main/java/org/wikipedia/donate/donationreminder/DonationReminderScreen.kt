@@ -468,7 +468,7 @@ fun DonationAmountView(
 
     var selectedOption by remember { mutableStateOf(initialSelectedOption) }
     var textFieldValue by remember { mutableStateOf(initialCustomText) }
-    var errorMessage by rememberSaveable() { mutableStateOf("") }
+    var errorMessage by rememberSaveable { mutableStateOf("") }
     var hasUserEditedCustomAmount by rememberSaveable { mutableStateOf(false) }
     val focusManager = LocalFocusManager.current
     val focusRequester = remember { FocusRequester() }
