@@ -328,7 +328,20 @@ fun DonationReminderContent(
     val isDonationReminderEnabled = uiState.isDonationReminderEnabled
     var showReadFrequencyCustomDialog by remember { mutableStateOf(false) }
     var doesTextFieldHaveError by remember { mutableStateOf(false) }
+    var customAmountText by rememberSaveable {
+        mutableStateOf(
+            if (uiState.donationAmount.selectedSource is SelectedSource.Custom) {
+                uiState.donationAmount.selectedValue.toString()
+            } else {
+                ""
+            }
+        )
+    }
+    var customErrorMessage by remember { mutableStateOf("") }
     val density = LocalDensity.current
+
+    val donateGooglePayMinAmount = stringResource(R.string.donate_gpay_minimum_amount)
+    val donateGooglePayMaxAmount = stringResource(R.string.donate_gpay_maximum_amount)
 
     Column(
         modifier = modifier
@@ -378,10 +391,37 @@ fun DonationReminderContent(
                 DonationAmountView(
                     option = uiState.donationAmount,
                     currencySymbol = DonateUtil.currencySymbol,
+                    customErrorMessage = customErrorMessage,
+                    onCustomTextChanged = { newValue ->
+                        customAmountText = newValue
+                        val floatValue = DonateUtil.getAmountFloat(newValue)
+                        val minimumAmount = uiState.donationAmount.minimumAmount
+                        val maximumAmount = uiState.donationAmount.maximumAmount
+                        if (floatValue < minimumAmount) {
+                            customErrorMessage = String.format(
+                                donateGooglePayMinAmount,
+                                uiState.donationAmount.displayFormatter(minimumAmount)
+                            )
+                            doesTextFieldHaveError = true
+                        } else if (maximumAmount > 0 && floatValue >= maximumAmount) {
+                            customErrorMessage = String.format(
+                                donateGooglePayMaxAmount,
+                                uiState.donationAmount.displayFormatter(maximumAmount)
+                            )
+                            doesTextFieldHaveError = true
+                        } else {
+                            customErrorMessage = ""
+                            doesTextFieldHaveError = false
+                        }
+                    },
+                    onCustomTextFocusedEmpty = {
+                        customAmountText = ""
+                    },
                     onOptionSelected = { option, source ->
                         when (option) {
                             is OptionItem.Preset -> {
-                                val activeInterface = if (viewModel.isFromSettings) "global_setting" else "reminder_config"
+                                val activeInterface =
+                                    if (viewModel.isFromSettings) "global_setting" else "reminder_config"
                                 DonorExperienceEvent.logDonationReminderAction(
                                     activeInterface = activeInterface,
                                     action = "amount_change_click"
@@ -390,18 +430,18 @@ fun DonationReminderContent(
                             }
 
                             is OptionItem.Custom -> {
-                                if (option.displayText.isBlank()) {
+                                if (option.displayText.isBlank() && viewModel.isFromSettings) {
                                     // Keep previous amount value but switch selected source to custom.
-                                    viewModel.updateDonationAmountState(uiState.donationAmount.selectedValue, source)
+                                    viewModel.updateDonationAmountState(
+                                        uiState.donationAmount.selectedValue,
+                                        source
+                                    )
                                     return@DonationAmountView
                                 }
                                 val customValue = DonateUtil.getAmountFloat(option.displayText)
                                 viewModel.updateDonationAmountState(customValue, source)
                             }
                         }
-                    },
-                    hasTextFieldError = { hasError ->
-                        doesTextFieldHaveError = hasError
                     }
                 )
             }
@@ -415,6 +455,31 @@ fun DonationReminderContent(
                             .padding(horizontal = 16.dp)
                             .padding(top = 16.dp),
                         onClick = {
+                            val isCustomSelected = uiState.donationAmount.selectedSource is SelectedSource.Custom
+                            if (isCustomSelected) {
+                                val parsedCustomAmount = customAmountText.toFloatOrNull()
+                                val customAmountIsInvalid = customAmountText.isBlank() ||
+                                        parsedCustomAmount == null ||
+                                        parsedCustomAmount < uiState.donationAmount.minimumAmount ||
+                                        (uiState.donationAmount.maximumAmount > 0 && parsedCustomAmount >= uiState.donationAmount.maximumAmount)
+
+                                if (customAmountIsInvalid) {
+                                    customErrorMessage = if (customAmountText.isBlank() || parsedCustomAmount == null || parsedCustomAmount < uiState.donationAmount.minimumAmount) {
+                                        String.format(
+                                            donateGooglePayMinAmount,
+                                            uiState.donationAmount.displayFormatter(uiState.donationAmount.minimumAmount)
+                                        )
+                                    } else {
+                                        String.format(
+                                            donateGooglePayMaxAmount,
+                                            uiState.donationAmount.displayFormatter(uiState.donationAmount.maximumAmount)
+                                        )
+                                    }
+                                    doesTextFieldHaveError = true
+                                    return@AppButton
+                                }
+                            }
+
                             if (doesTextFieldHaveError) {
                                 return@AppButton
                             }
@@ -454,9 +519,11 @@ fun DonationReminderContent(
 @Composable
 fun DonationAmountView(
     option: SelectableOption<Float>,
+    customErrorMessage: String,
+    onCustomTextChanged: (String) -> Unit,
+    onCustomTextFocusedEmpty: () -> Unit,
     currencySymbol: String,
     onOptionSelected: (OptionItem<Float>, SelectedSource) -> Unit,
-    hasTextFieldError: (Boolean) -> Unit
 ) {
     val initialCustomText = if (option.selectedSource is SelectedSource.Custom) {
         option.selectedValue.toString()
@@ -470,18 +537,14 @@ fun DonationAmountView(
 
     var selectedOption by remember { mutableStateOf(initialSelectedOption) }
     var textFieldValue by remember { mutableStateOf(initialCustomText) }
-    var errorMessage by rememberSaveable { mutableStateOf("") }
-    var hasUserEditedCustomAmount by rememberSaveable { mutableStateOf(false) }
     val focusManager = LocalFocusManager.current
     val focusRequester = remember { FocusRequester() }
     val bringIntoViewRequester = remember { BringIntoViewRequester() }
     val coroutineScope = rememberCoroutineScope()
 
-    val donateGooglePayMinAmount = stringResource(R.string.donate_gpay_minimum_amount)
-    val donateGooglePayMaxAmount = stringResource(R.string.donate_gpay_maximum_amount)
 
-    LaunchedEffect(errorMessage) {
-        if (errorMessage.isNotEmpty()) {
+    LaunchedEffect(customErrorMessage) {
+        if (customErrorMessage.isNotEmpty()) {
             bringIntoViewRequester.bringIntoView()
         }
     }
@@ -499,9 +562,6 @@ fun DonationAmountView(
         onOptionSelected = { option, source ->
             selectedOption = option
             textFieldValue = ""
-            errorMessage = ""
-            hasUserEditedCustomAmount = false
-            hasTextFieldError(false)
             onOptionSelected(option, source)
             focusManager.clearFocus()
         },
@@ -517,30 +577,7 @@ fun DonationAmountView(
             textFieldValue = newValue
             selectedOption = OptionItem.Custom( newValue)
             onOptionSelected(OptionItem.Custom( newValue), SelectedSource.Custom)
-            if (!hasUserEditedCustomAmount) {
-                hasUserEditedCustomAmount = true
-                errorMessage = ""
-                hasTextFieldError(false)
-            }
-
-            // error check and send error state to parent
-            val floatValue = DonateUtil.getAmountFloat(newValue)
-            if (floatValue < option.minimumAmount || textFieldValue == "" ) {
-                errorMessage = String.format(
-                    donateGooglePayMinAmount,
-                    option.displayFormatter(option.minimumAmount)
-                )
-                hasTextFieldError(true)
-            } else if (option.maximumAmount > 0 && floatValue >= option.maximumAmount) {
-                errorMessage = String.format(
-                    donateGooglePayMaxAmount,
-                    option.displayFormatter(option.maximumAmount)
-                )
-                hasTextFieldError(true)
-            } else {
-                errorMessage = ""
-                hasTextFieldError(false)
-            }
+            onCustomTextChanged(newValue)
         },
         prefix = { Text(
             text = currencySymbol,
@@ -555,7 +592,7 @@ fun DonationAmountView(
             )
         },
         trailingIcon = {
-            if (errorMessage.isNotEmpty()) {
+            if (customErrorMessage.isNotEmpty()) {
                 Icon(
                     painter = painterResource(R.drawable.baseline_info_24),
                     tint = WikipediaTheme.colors.destructiveColor,
@@ -576,11 +613,11 @@ fun DonationAmountView(
         keyboardOptions = KeyboardOptions(
             keyboardType = KeyboardType.Number,
         ),
-        isError = errorMessage.isNotEmpty(),
-        supportingText = if (errorMessage.isNotEmpty()) {
+        isError = customErrorMessage.isNotEmpty(),
+        supportingText = if (customErrorMessage.isNotEmpty()) {
             {
                 Text(
-                    text = errorMessage,
+                    text = customErrorMessage,
                     color = WikipediaTheme.colors.destructiveColor,
                 )
             }
@@ -593,9 +630,8 @@ fun DonationAmountView(
                 if (focusState.isFocused) {
                     coroutineScope.launch { bringIntoViewRequester.bringIntoView() }
                     if (textFieldValue.isEmpty()) {
+                        onCustomTextFocusedEmpty()
                         onOptionSelected(OptionItem.Custom(""), SelectedSource.Custom)
-                        errorMessage = ""
-                        hasTextFieldError(false)
                     }
                 }
             }
