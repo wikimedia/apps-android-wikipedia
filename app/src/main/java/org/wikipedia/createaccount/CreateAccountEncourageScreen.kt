@@ -1,7 +1,6 @@
 package org.wikipedia.createaccount
 
 import androidx.annotation.DrawableRes
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -13,9 +12,10 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.gestures.snapping.SnapPosition
 import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.PageSize
 import androidx.compose.foundation.pager.rememberPagerState
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -32,12 +32,10 @@ import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
-import coil3.compose.SubcomposeAsyncImage
-import coil3.compose.SubcomposeAsyncImageContent
 import coil3.request.ImageRequest
-import coil3.request.allowHardware
 import org.wikipedia.R
 import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.components.AppButton
@@ -47,6 +45,15 @@ import org.wikipedia.compose.components.WikiCard
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
+
+private val CardEdgeMargin = 16.dp
+private val CardCenteredMargin = 24.dp
+
+private val EncourageCardPageSize = object : PageSize {
+    override fun Density.calculateMainAxisPageSize(availableSpace: Int, pageSpacing: Int): Int {
+        return (availableSpace - (CardCenteredMargin - CardEdgeMargin).roundToPx() * 2).coerceAtLeast(1)
+    }
+}
 
 @Composable
 fun CreateAccountEncourageScreen(
@@ -125,8 +132,10 @@ fun CreateAccountEncourageScreen(
             HorizontalPager(
                 modifier = Modifier.weight(1f),
                 state = pagerState,
-                contentPadding = PaddingValues(start = 16.dp, end = 32.dp),
-                pageSpacing = 8.dp
+                contentPadding = PaddingValues(horizontal = CardEdgeMargin),
+                pageSize = EncourageCardPageSize,
+                pageSpacing = 8.dp,
+                snapPosition = SnapPosition.Center
             ) { pageIndex ->
                 EncourageCardView(
                     modifier = Modifier.fillMaxHeight(),
