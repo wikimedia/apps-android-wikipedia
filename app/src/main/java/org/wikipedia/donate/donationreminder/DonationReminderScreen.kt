@@ -327,7 +327,6 @@ fun DonationReminderContent(
 ) {
     val isDonationReminderEnabled = uiState.isDonationReminderEnabled
     var showReadFrequencyCustomDialog by remember { mutableStateOf(false) }
-    var doesTextFieldHaveError by remember { mutableStateOf(false) }
     var customAmountText by rememberSaveable {
         mutableStateOf(
             if (uiState.donationAmount.selectedSource is SelectedSource.Custom) {
@@ -379,7 +378,6 @@ fun DonationReminderContent(
                                     action = "freq_change_click"
                                 )
                                 customErrorMessage = ""
-                                doesTextFieldHaveError = false
                                 viewModel.updateReadFrequencyState(option.value, source)
                             }
 
@@ -404,16 +402,13 @@ fun DonationReminderContent(
                                 donateGooglePayMinAmount,
                                 uiState.donationAmount.displayFormatter(minimumAmount)
                             )
-                            doesTextFieldHaveError = true
                         } else if (maximumAmount > 0 && floatValue >= maximumAmount) {
                             customErrorMessage = String.format(
                                 donateGooglePayMaxAmount,
                                 uiState.donationAmount.displayFormatter(maximumAmount)
                             )
-                            doesTextFieldHaveError = true
                         } else {
                             customErrorMessage = ""
-                            doesTextFieldHaveError = false
                         }
                     },
                     onCustomTextFocusedEmpty = {
@@ -478,13 +473,8 @@ fun DonationReminderContent(
                                             uiState.donationAmount.displayFormatter(uiState.donationAmount.maximumAmount)
                                         )
                                     }
-                                    doesTextFieldHaveError = true
                                     return@AppButton
                                 }
-                            }
-
-                            if (doesTextFieldHaveError) {
-                                return@AppButton
                             }
                             viewModel.toggleDonationReminders(true)
                             viewModel.saveReminder()
