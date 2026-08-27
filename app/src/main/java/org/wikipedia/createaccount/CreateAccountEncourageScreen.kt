@@ -26,12 +26,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import coil3.compose.AsyncImage
+import coil3.compose.SubcomposeAsyncImage
+import coil3.compose.SubcomposeAsyncImageContent
+import coil3.request.ImageRequest
+import coil3.request.allowHardware
 import org.wikipedia.R
 import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.components.AppButton
@@ -41,11 +47,6 @@ import org.wikipedia.compose.components.WikiCard
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
-
-private val CardYellow = Color(0xFFFBE2A5)
-private val CardMint = Color(0xFFA7DCC4)
-private val CardBlue = Color(0xFFB0CBF5)
-private val CardGreen = Color(0xFFAFD4A4)
 
 @Composable
 fun CreateAccountEncourageScreen(
@@ -66,7 +67,7 @@ fun CreateAccountEncourageScreen(
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 24.dp, vertical = 8.dp),
+                    .padding(horizontal = 16.dp, vertical = 8.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 PageIndicator(
@@ -114,7 +115,7 @@ fun CreateAccountEncourageScreen(
 
             Text(
                 modifier = Modifier
-                    .padding(horizontal = 24.dp)
+                    .padding(horizontal = 16.dp)
                     .padding(top = 8.dp, bottom = 24.dp),
                 text = stringResource(R.string.create_account_encourage_title),
                 style = MaterialTheme.typography.headlineMedium.copy(fontWeight = FontWeight.W500),
@@ -124,7 +125,7 @@ fun CreateAccountEncourageScreen(
             HorizontalPager(
                 modifier = Modifier.weight(1f),
                 state = pagerState,
-                contentPadding = PaddingValues(start = 24.dp, end = 44.dp),
+                contentPadding = PaddingValues(start = 16.dp, end = 32.dp),
                 pageSpacing = 8.dp
             ) { pageIndex ->
                 EncourageCardView(
@@ -144,7 +145,7 @@ private fun EncourageCardView(
     WikiCard(
         modifier = modifier,
         elevation = 0.dp,
-        shape = RoundedCornerShape(16.dp),
+        shape = MaterialTheme.shapes.extraLarge,
         colors = CardDefaults.cardColors(
             containerColor = card.backgroundColor,
             contentColor = card.backgroundColor
@@ -153,7 +154,7 @@ private fun EncourageCardView(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(horizontal = 16.dp, vertical = 24.dp)
+                .padding(horizontal = 16.dp, vertical = 32.dp)
         ) {
             Box(
                 modifier = Modifier
@@ -161,9 +162,11 @@ private fun EncourageCardView(
                     .weight(1f),
                 contentAlignment = Alignment.Center
             ) {
-                Image(
-                    modifier = Modifier.size(120.dp),
-                    painter = painterResource(card.imageRes),
+                AsyncImage(
+                    modifier = Modifier.size(200.dp),
+                    model = ImageRequest.Builder(LocalContext.current)
+                        .data(card.imageRes)
+                        .build(),
                     contentDescription = null
                 )
             }
@@ -173,7 +176,7 @@ private fun EncourageCardView(
             Text(
                 text = card.title,
                 style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.W500),
-                color = WikipediaTheme.colors.primaryColor
+                color = ComposeColors.Gray700
             )
 
             Spacer(modifier = Modifier.height(4.dp))
@@ -181,7 +184,7 @@ private fun EncourageCardView(
             Text(
                 text = card.description,
                 style = MaterialTheme.typography.bodyMedium,
-                color = WikipediaTheme.colors.primaryColor
+                color = ComposeColors.Gray700
             )
         }
     }
@@ -191,26 +194,26 @@ private fun EncourageCardView(
 private fun encourageCards(uiState: CreateAccountEncourageViewModel.UiState): List<EncourageCard> {
     return listOf(
         EncourageCard(
-            backgroundColor = CardYellow,
-            imageRes = R.drawable.ic_wikipedia_w,
+            backgroundColor = ComposeColors.Yellow100,
+            imageRes = R.drawable.yir_puzzle_clock,
             title = pluralStringResource(R.plurals.create_account_encourage_year_in_review_title, uiState.readingDays, uiState.readingDays),
             description = stringResource(R.string.create_account_encourage_year_in_review_description)
         ),
         EncourageCard(
-            backgroundColor = CardMint,
-            imageRes = R.drawable.ic_wikipedia_w,
+            backgroundColor = ComposeColors.Green200,
+            imageRes = R.drawable.yir_puzzle_cloud,
             title = pluralStringResource(R.plurals.create_account_encourage_saved_articles_title, uiState.savedArticles, uiState.savedArticles),
             description = stringResource(R.string.create_account_encourage_saved_articles_description)
         ),
         EncourageCard(
-            backgroundColor = CardBlue,
-            imageRes = R.drawable.ic_wikipedia_w,
+            backgroundColor = ComposeColors.Blue200,
+            imageRes = R.drawable.ic_yir_puzzle,
             title = pluralStringResource(R.plurals.create_account_encourage_activity_title, uiState.recentReads, uiState.recentReads),
             description = stringResource(R.string.create_account_encourage_activity_description)
         ),
         EncourageCard(
-            backgroundColor = CardGreen,
-            imageRes = R.drawable.ic_wikipedia_w,
+            backgroundColor = ComposeColors.Lime200,
+            imageRes = R.drawable.yir_puzzle_worker,
             title = stringResource(R.string.create_account_encourage_edits_title),
             description = stringResource(R.string.create_account_encourage_edits_description)
         )
