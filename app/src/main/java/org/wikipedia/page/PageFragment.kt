@@ -1202,6 +1202,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
     }
 
+    fun updateHeaderTopMargin() {
+        bridge.execute(JavaScriptActionHandler.setTopMargin(leadImagesHandler.topMargin))
+    }
+
     fun refreshPage(stagedScrollY: Int = 0) {
         if (bridge.isLoading) {
             binding.pageRefreshContainer.isRefreshing = false
