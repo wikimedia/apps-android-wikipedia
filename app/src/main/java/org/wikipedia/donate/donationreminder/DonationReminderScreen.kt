@@ -9,9 +9,11 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.ime
 import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
@@ -65,6 +67,7 @@ import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.layout.onGloballyPositioned
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -330,6 +333,7 @@ fun DonationReminderContent(
     val isDonationReminderEnabled = uiState.isDonationReminderEnabled
     var showReadFrequencyCustomDialog by remember { mutableStateOf(false) }
     var doesTextFieldHaveError by remember { mutableStateOf(false) }
+    val density = LocalDensity.current
 
     Column(
         modifier = modifier
@@ -402,47 +406,48 @@ fun DonationReminderContent(
                 )
             }
         }
-
-        if (uiState.isDonationReminderEnabled || !viewModel.isFromSettings) {
-            if (!viewModel.isFromSettings) {
-                AppButton(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 16.dp)
-                        .padding(top = 16.dp),
-                    onClick = {
-                        if (doesTextFieldHaveError) {
-                            return@AppButton
+        if (WindowInsets.ime.getBottom(density) <= 0) {
+            if (uiState.isDonationReminderEnabled || !viewModel.isFromSettings) {
+                if (!viewModel.isFromSettings) {
+                    AppButton(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(horizontal = 16.dp)
+                            .padding(top = 16.dp),
+                        onClick = {
+                            if (doesTextFieldHaveError) {
+                                return@AppButton
+                            }
+                            viewModel.toggleDonationReminders(true)
+                            viewModel.saveReminder()
+                            val message = DonationReminderHelper.thankYouMessageForSettings()
+                            onConfirmButtonClick(message)
+                        },
+                        content = {
+                            Text(
+                                stringResource(R.string.donation_reminders_settings_confirm_btn_label)
+                            )
                         }
-                        viewModel.toggleDonationReminders(true)
-                        viewModel.saveReminder()
-                        val message = DonationReminderHelper.thankYouMessageForSettings()
-                        onConfirmButtonClick(message)
-                    },
-                    content = {
-                        Text(
-                            stringResource(R.string.donation_reminders_settings_confirm_btn_label)
-                        )
-                    }
-                )
+                    )
+                }
             }
-        }
 
-        val footerButtonText = if (viewModel.isFromSettings) stringResource(R.string.donation_reminders_settings_about_experiment_btn_label)
-        else stringResource(R.string.donation_reminders_settings_no_thanks_btn_label)
-        TextButton(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp)
-                .padding(bottom = 16.dp),
-            onClick = onFooterButtonClick,
-            content = {
-                Text(
-                    text = footerButtonText,
-                    color = WikipediaTheme.colors.progressiveColor
-                )
-            }
-        )
+            val footerButtonText = if (viewModel.isFromSettings) stringResource(R.string.donation_reminders_settings_about_experiment_btn_label)
+            else stringResource(R.string.donation_reminders_settings_no_thanks_btn_label)
+            TextButton(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp)
+                    .padding(bottom = 16.dp),
+                onClick = onFooterButtonClick,
+                content = {
+                    Text(
+                        text = footerButtonText,
+                        color = WikipediaTheme.colors.progressiveColor
+                    )
+                }
+            )
+        }
     }
 }
 
