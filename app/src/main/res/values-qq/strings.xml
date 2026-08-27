@@ -251,20 +251,20 @@
   <string name="email_recommendation_dialog_create_with_email_action">Action message, suggesting that the user can enter an email before proceeding to create an account</string>
   <string name="create_account_button">Button text on Create Account screen to go start creating the account (may also go to a CAPTCHA screen first).\n{{Identical|Create account}}</string>
   <string name="create_account_encourage_title">Title of a screen that encourages a logged-out user to create an account. Shown above a set of swipeable cards that each describe one benefit of having an account.</string>
+  <string name="create_account_encourage_year_in_review_title_zero">Title of a card that encourages the user to create an account, by describing the Year in Review feature, when the user has no reading history yet.</string>
   <plurals name="create_account_encourage_year_in_review_title">
-    <item quantity="zero">Title of a card that encourages the user to create an account, by describing the Year in Review feature, when the user has no reading history yet.</item>
     <item quantity="one">Title of a card that encourages the user to create an account, by describing the Year in Review feature. The \"%1$d\" symbol is replaced with the number of separate days on which the user has read an article this year.</item>
     <item quantity="other">Title of a card that encourages the user to create an account, by describing the Year in Review feature. The \"%1$d\" symbol is replaced with the number of separate days on which the user has read an article this year.</item>
   </plurals>
   <string name="create_account_encourage_year_in_review_description">Description on a card that encourages the user to create an account, explaining that Year in Review presents their reading from the past year once a year, in a form they can share.</string>
+  <string name="create_account_encourage_saved_articles_title_zero">Title of a card that encourages the user to create an account, by describing synchronisation of saved articles between devices, when the user has no saved articles yet.</string>
   <plurals name="create_account_encourage_saved_articles_title">
-    <item quantity="zero">Title of a card that encourages the user to create an account, by describing synchronisation of saved articles between devices, when the user has no saved articles yet.</item>
     <item quantity="one">Title of a card that encourages the user to create an account, by describing synchronisation of saved articles between devices. The \"%1$d\" symbol is replaced with the number of articles the user has saved.</item>
     <item quantity="other">Title of a card that encourages the user to create an account, by describing synchronisation of saved articles between devices. The \"%1$d\" symbol is replaced with the number of articles the user has saved.</item>
   </plurals>
   <string name="create_account_encourage_saved_articles_description">Description on a card that encourages the user to create an account, explaining that saved articles are synchronised across devices once the user is logged in.</string>
+  <string name="create_account_encourage_activity_title_zero">Title of a card that encourages the user to create an account, by describing the Activity tab, when the user has not read any articles yet.</string>
   <plurals name="create_account_encourage_activity_title">
-    <item quantity="zero">Title of a card that encourages the user to create an account, by describing the Activity tab, when the user has not read any articles yet.</item>
     <item quantity="one">Title of a card that encourages the user to create an account, by describing the Activity tab. The \"%1$d\" symbol is replaced with the number of articles the user has read recently.</item>
     <item quantity="other">Title of a card that encourages the user to create an account, by describing the Activity tab. The \"%1$d\" symbol is replaced with the number of articles the user has read recently.</item>
   </plurals>

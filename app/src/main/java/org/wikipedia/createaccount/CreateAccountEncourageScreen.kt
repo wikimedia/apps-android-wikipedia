@@ -1,6 +1,8 @@
 package org.wikipedia.createaccount
 
 import androidx.annotation.DrawableRes
+import androidx.annotation.PluralsRes
+import androidx.annotation.StringRes
 import androidx.compose.foundation.gestures.snapping.SnapPosition
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -204,19 +206,19 @@ private fun encourageCards(uiState: CreateAccountEncourageViewModel.UiState): Li
         EncourageCard(
             backgroundColor = ComposeColors.Yellow100,
             imageRes = R.drawable.yir_puzzle_clock,
-            title = pluralStringResource(R.plurals.create_account_encourage_year_in_review_title, uiState.readingDays, uiState.readingDays),
+            title = countedTitle(uiState.readingDays, R.plurals.create_account_encourage_year_in_review_title, R.string.create_account_encourage_year_in_review_title_zero),
             description = stringResource(R.string.create_account_encourage_year_in_review_description)
         ),
         EncourageCard(
             backgroundColor = ComposeColors.Green200,
             imageRes = R.drawable.yir_puzzle_cloud,
-            title = pluralStringResource(R.plurals.create_account_encourage_saved_articles_title, uiState.savedArticles, uiState.savedArticles),
+            title = countedTitle(uiState.savedArticles, R.plurals.create_account_encourage_saved_articles_title, R.string.create_account_encourage_saved_articles_title_zero),
             description = stringResource(R.string.create_account_encourage_saved_articles_description)
         ),
         EncourageCard(
             backgroundColor = ComposeColors.Blue200,
             imageRes = R.drawable.ic_yir_puzzle,
-            title = pluralStringResource(R.plurals.create_account_encourage_activity_title, uiState.recentReads, uiState.recentReads),
+            title = countedTitle(uiState.recentReads, R.plurals.create_account_encourage_activity_title, R.string.create_account_encourage_activity_title_zero),
             description = stringResource(R.string.create_account_encourage_activity_description)
         ),
         EncourageCard(
@@ -226,6 +228,11 @@ private fun encourageCards(uiState: CreateAccountEncourageViewModel.UiState): Li
             description = stringResource(R.string.create_account_encourage_edits_description)
         )
     )
+}
+
+@Composable
+private fun countedTitle(count: Int, @PluralsRes titleRes: Int, @StringRes zeroTitleRes: Int): String {
+    return if (count > 0) pluralStringResource(titleRes, count, count) else stringResource(zeroTitleRes)
 }
 
 private data class EncourageCard(
