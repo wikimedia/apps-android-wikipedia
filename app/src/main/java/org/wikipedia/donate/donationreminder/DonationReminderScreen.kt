@@ -4,7 +4,6 @@ import androidx.annotation.DrawableRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -21,8 +20,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.relocation.BringIntoViewRequester
 import androidx.compose.foundation.relocation.bringIntoViewRequester
 import androidx.compose.foundation.rememberScrollState
@@ -60,6 +57,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -392,6 +390,9 @@ fun DonationReminderContent(
                             }
 
                             is OptionItem.Custom -> {
+                                if (viewModel.isFromSettings && option.displayText.isBlank()) {
+                                    return@DonationAmountView
+                                }
                                 val customValue = DonateUtil.getAmountFloat(option.displayText)
                                 viewModel.updateDonationAmountState(customValue, source)
                             }
@@ -467,7 +468,8 @@ fun DonationAmountView(
 
     var selectedOption by remember { mutableStateOf(initialSelectedOption) }
     var textFieldValue by remember { mutableStateOf(initialCustomText) }
-    var errorMessage by remember { mutableStateOf("") }
+    var errorMessage by rememberSaveable() { mutableStateOf("") }
+    var hasUserEditedCustomAmount by rememberSaveable { mutableStateOf(false) }
     val focusManager = LocalFocusManager.current
     val focusRequester = remember { FocusRequester() }
     val bringIntoViewRequester = remember { BringIntoViewRequester() }
@@ -496,6 +498,7 @@ fun DonationAmountView(
             selectedOption = option
             textFieldValue = ""
             errorMessage = ""
+            hasUserEditedCustomAmount = false
             hasTextFieldError(false)
             onOptionSelected(option, source)
             focusManager.clearFocus()
@@ -512,6 +515,11 @@ fun DonationAmountView(
             textFieldValue = newValue
             selectedOption = OptionItem.Custom( newValue)
             onOptionSelected(OptionItem.Custom( newValue), SelectedSource.Custom)
+            if (!hasUserEditedCustomAmount) {
+                hasUserEditedCustomAmount = true
+                errorMessage = ""
+                hasTextFieldError(false)
+            }
 
             // error check and send error state to parent
             val floatValue = DonateUtil.getAmountFloat(newValue)
@@ -584,11 +592,8 @@ fun DonationAmountView(
                     coroutineScope.launch { bringIntoViewRequester.bringIntoView() }
                     if (textFieldValue.isEmpty()) {
                         onOptionSelected(OptionItem.Custom(""), SelectedSource.Custom)
-                        errorMessage = String.format(
-                            donateGooglePayMinAmount,
-                            option.displayFormatter(option.minimumAmount)
-                        )
-                        hasTextFieldError(true)
+                        errorMessage = ""
+                        hasTextFieldError(false)
                     }
                 }
             }
