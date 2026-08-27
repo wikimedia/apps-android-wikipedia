@@ -29,6 +29,10 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
 
     private val formatRegex = Regex("\\.00$")
 
+    init {
+        loadData()
+    }
+
     fun loadData() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             L.e(throwable)

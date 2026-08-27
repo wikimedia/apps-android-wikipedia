@@ -133,10 +133,6 @@ fun DonationReminderScreen(
         }
     }
 
-    LaunchedEffect(Unit) {
-        viewModel.loadData()
-    }
-
     Scaffold(
         modifier = modifier,
         topBar = {
