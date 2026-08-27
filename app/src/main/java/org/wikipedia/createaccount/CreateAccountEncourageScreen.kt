@@ -70,7 +70,7 @@ fun CreateAccountEncourageScreen(
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 PageIndicator(
-                    modifier = Modifier.padding(vertical = 20.dp),
+                    modifier = Modifier.padding(top = 8.dp, bottom = 32.dp),
                     pagerState = pagerState
                 )
 
@@ -108,7 +108,7 @@ fun CreateAccountEncourageScreen(
                 Icon(
                     painter = painterResource(R.drawable.ic_close_black_24dp),
                     tint = WikipediaTheme.colors.primaryColor,
-                    contentDescription = stringResource(R.string.table_close)
+                    contentDescription = stringResource(R.string.dialog_close_description)
                 )
             }
 
@@ -117,7 +117,7 @@ fun CreateAccountEncourageScreen(
                     .padding(horizontal = 24.dp)
                     .padding(top = 8.dp, bottom = 24.dp),
                 text = stringResource(R.string.create_account_encourage_title),
-                style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold),
+                style = MaterialTheme.typography.headlineMedium.copy(fontWeight = FontWeight.W500),
                 color = WikipediaTheme.colors.primaryColor
             )
 
@@ -172,8 +172,8 @@ private fun EncourageCardView(
 
             Text(
                 text = card.title,
-                style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
-                color = ComposeColors.Gray700
+                style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.W500),
+                color = WikipediaTheme.colors.primaryColor
             )
 
             Spacer(modifier = Modifier.height(4.dp))
@@ -181,7 +181,7 @@ private fun EncourageCardView(
             Text(
                 text = card.description,
                 style = MaterialTheme.typography.bodyMedium,
-                color = ComposeColors.Gray700
+                color = WikipediaTheme.colors.primaryColor
             )
         }
     }
