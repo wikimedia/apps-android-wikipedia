@@ -336,11 +336,30 @@ fun DonationReminderContent(
             }
         )
     }
-    var customErrorMessage by remember { mutableStateOf("") }
+    var customErrorMessage by rememberSaveable { mutableStateOf("") }
     val density = LocalDensity.current
 
     val donateGooglePayMinAmount = stringResource(R.string.donate_gpay_minimum_amount)
     val donateGooglePayMaxAmount = stringResource(R.string.donate_gpay_maximum_amount)
+
+    fun customAmountErrorMessageOrNull(inputText: String): String? {
+        val parsedCustomAmount = inputText.toFloatOrNull()
+        return when {
+            inputText.isBlank() || parsedCustomAmount == null || parsedCustomAmount < uiState.donationAmount.minimumAmount -> {
+                String.format(
+                    donateGooglePayMinAmount,
+                    uiState.donationAmount.displayFormatter(uiState.donationAmount.minimumAmount)
+                )
+            }
+            uiState.donationAmount.maximumAmount > 0 && parsedCustomAmount >= uiState.donationAmount.maximumAmount -> {
+                String.format(
+                    donateGooglePayMaxAmount,
+                    uiState.donationAmount.displayFormatter(uiState.donationAmount.maximumAmount)
+                )
+            }
+            else -> null
+        }
+    }
 
     Column(
         modifier = modifier
@@ -394,22 +413,7 @@ fun DonationReminderContent(
                     customErrorMessage = customErrorMessage,
                     onCustomTextChanged = { newValue ->
                         customAmountText = newValue
-                        val floatValue = DonateUtil.getAmountFloat(newValue)
-                        val minimumAmount = uiState.donationAmount.minimumAmount
-                        val maximumAmount = uiState.donationAmount.maximumAmount
-                        if (floatValue < minimumAmount) {
-                            customErrorMessage = String.format(
-                                donateGooglePayMinAmount,
-                                uiState.donationAmount.displayFormatter(minimumAmount)
-                            )
-                        } else if (maximumAmount > 0 && floatValue >= maximumAmount) {
-                            customErrorMessage = String.format(
-                                donateGooglePayMaxAmount,
-                                uiState.donationAmount.displayFormatter(maximumAmount)
-                            )
-                        } else {
-                            customErrorMessage = ""
-                        }
+                        customErrorMessage = customAmountErrorMessageOrNull(newValue).orEmpty()
                     },
                     onCustomTextFocusedEmpty = {
                         customAmountText = ""
@@ -455,24 +459,9 @@ fun DonationReminderContent(
                         onClick = {
                             val isCustomSelected = uiState.donationAmount.selectedSource is SelectedSource.Custom
                             if (isCustomSelected) {
-                                val parsedCustomAmount = customAmountText.toFloatOrNull()
-                                val customAmountIsInvalid = customAmountText.isBlank() ||
-                                        parsedCustomAmount == null ||
-                                        parsedCustomAmount < uiState.donationAmount.minimumAmount ||
-                                        (uiState.donationAmount.maximumAmount > 0 && parsedCustomAmount >= uiState.donationAmount.maximumAmount)
-
-                                if (customAmountIsInvalid) {
-                                    customErrorMessage = if (customAmountText.isBlank() || parsedCustomAmount == null || parsedCustomAmount < uiState.donationAmount.minimumAmount) {
-                                        String.format(
-                                            donateGooglePayMinAmount,
-                                            uiState.donationAmount.displayFormatter(uiState.donationAmount.minimumAmount)
-                                        )
-                                    } else {
-                                        String.format(
-                                            donateGooglePayMaxAmount,
-                                            uiState.donationAmount.displayFormatter(uiState.donationAmount.maximumAmount)
-                                        )
-                                    }
+                                val customAmountError = customAmountErrorMessageOrNull(customAmountText)
+                                if (customAmountError != null) {
+                                    customErrorMessage = customAmountError
                                     return@AppButton
                                 }
                             }
