@@ -18,15 +18,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import coil3.compose.SubcomposeAsyncImage
-import coil3.compose.SubcomposeAsyncImageContent
+import coil3.compose.AsyncImage
 import coil3.request.ImageRequest
-import coil3.request.allowHardware
 import org.wikipedia.R
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
-import org.wikipedia.yearinreview.LoadingIndicator
 
 @Composable
 fun OnboardingCuriosityScreen(
@@ -41,17 +38,12 @@ fun OnboardingCuriosityScreen(
 
         Spacer(modifier = Modifier.weight(1f))
 
-        SubcomposeAsyncImage(
+        AsyncImage(
             modifier = Modifier
                 .size(125.dp),
             model = ImageRequest.Builder(LocalContext.current)
                 .data(R.drawable.yir_puzzle_browser)
-                .allowHardware(false)
                 .build(),
-            loading = { LoadingIndicator() },
-            success = {
-                SubcomposeAsyncImageContent()
-            },
             contentDescription = stringResource(R.string.explore_feed_onboarding_curiosity_title),
         )
 
