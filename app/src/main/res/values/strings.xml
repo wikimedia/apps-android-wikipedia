@@ -216,6 +216,24 @@
     <string name="email_recommendation_dialog_create_without_email_action">Continue without email</string>
     <string name="email_recommendation_dialog_create_with_email_action">Add an email address</string>
     <string name="create_account_button">Create account</string>
+    <string name="create_account_encourage_title">Wikipedia is better with an account</string>
+    <plurals name="create_account_encourage_year_in_review_title">
+        <item quantity="one">See your %1$d reading day come together in Year in Review</item>
+        <item quantity="other">See your %1$d reading days come together in Year in Review</item>
+    </plurals>
+    <string name="create_account_encourage_year_in_review_description">Once a year, your reading days come back as a look at where the year took you, ready to share.</string>
+    <plurals name="create_account_encourage_saved_articles_title">
+        <item quantity="one">Sync your %1$d saved article</item>
+        <item quantity="other">Sync your %1$d saved articles</item>
+    </plurals>
+    <string name="create_account_encourage_saved_articles_description">Log in to your Wikipedia account to allow your saved articles to be synced across devices.</string>
+    <plurals name="create_account_encourage_activity_title">
+        <item quantity="one">Revisit your %1$d recent read with Activity</item>
+        <item quantity="other">Revisit your %1$d recent reads with Activity</item>
+    </plurals>
+    <string name="create_account_encourage_activity_description">See your reading time, explored topics, and the reach of your contributions in the Activity tab.</string>
+    <string name="create_account_encourage_edits_title">Get credit for your edits</string>
+    <string name="create_account_encourage_edits_description">Build a track record you can be proud of, with contributions across Wikimedia projects credited to your account.</string>
     <string name="create_account_name_unavailable">The user name \"%s\" is not available. Please choose a different name.</string>
     <string name="create_account_ip_block_message">Sorry, your IP address is currently blocked from creating new accounts.</string>
     <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>

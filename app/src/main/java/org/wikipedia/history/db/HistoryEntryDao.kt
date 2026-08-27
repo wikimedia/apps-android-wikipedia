@@ -37,6 +37,9 @@ interface HistoryEntryDao {
     @Query("SELECT COUNT(*) FROM HistoryEntry")
     suspend fun getHistoryCount(): Int
 
+    @Query("SELECT COUNT(*) FROM (SELECT DISTINCT date(timestamp / 1000, 'unixepoch', 'localtime') FROM HistoryEntry WHERE timestamp > :timestamp)")
+    suspend fun getDistinctReadingDaysCountSince(timestamp: Long): Int
+
     @Query("DELETE FROM HistoryEntry")
     suspend fun deleteAll()
 
