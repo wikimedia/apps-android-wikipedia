@@ -354,7 +354,6 @@ fun DonationReminderContent(
                     onCheckedChange = { viewModel.toggleDonationReminders(it) }
                 )
             }
-
             Spacer(modifier = Modifier.height(24.dp))
             if (uiState.isDonationReminderEnabled || !viewModel.isFromSettings) {
                 ReadFrequencyView(
