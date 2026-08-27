@@ -524,7 +524,6 @@ fun DonationAmountView(
     val bringIntoViewRequester = remember { BringIntoViewRequester() }
     val coroutineScope = rememberCoroutineScope()
 
-
     LaunchedEffect(customErrorMessage) {
         if (customErrorMessage.isNotEmpty()) {
             bringIntoViewRequester.bringIntoView()
