@@ -343,16 +343,17 @@ fun DonationReminderContent(
                 .padding(16.dp)
         ) {
             DonationHeader()
-
-            DonationRemindersSwitch(
-                modifier = Modifier
-                    .noRippleClickable {
-                        viewModel.toggleDonationReminders(!isDonationReminderEnabled)
-                    }
-                    .padding(top = 24.dp),
-                isDonationRemindersEnabled = isDonationReminderEnabled,
-                onCheckedChange = { viewModel.toggleDonationReminders(it) }
-            )
+            if (viewModel.isFromSettings) {
+                DonationRemindersSwitch(
+                    modifier = Modifier
+                        .noRippleClickable {
+                            viewModel.toggleDonationReminders(!isDonationReminderEnabled)
+                        }
+                        .padding(top = 24.dp),
+                    isDonationRemindersEnabled = isDonationReminderEnabled,
+                    onCheckedChange = { viewModel.toggleDonationReminders(it) }
+                )
+            }
 
             Spacer(modifier = Modifier.height(24.dp))
             if (uiState.isDonationReminderEnabled || !viewModel.isFromSettings) {
