@@ -46,10 +46,8 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import coil3.compose.SubcomposeAsyncImage
-import coil3.compose.SubcomposeAsyncImageContent
+import coil3.compose.AsyncImage
 import coil3.request.ImageRequest
-import coil3.request.allowHardware
 import org.wikipedia.R
 import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.components.HtmlText
@@ -530,13 +528,11 @@ fun ForYouFeedMessageView(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(16.dp, Alignment.CenterVertically)
     ) {
-        SubcomposeAsyncImage(
+        AsyncImage(
             modifier = Modifier.size(125.dp),
             model = ImageRequest.Builder(context)
                 .data(illustrationResId)
-                .allowHardware(false)
                 .build(),
-            success = { SubcomposeAsyncImageContent() },
             contentDescription = null
         )
         Spacer(modifier = Modifier.height(16.dp))

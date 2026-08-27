@@ -851,7 +851,7 @@
   <string name="feed_language_variants_removal_dialog_save">Späicheren</string>
   <string name="feed_language_variants_removal_secondary_dialog_title">Aktualiséiert wgl. Äre Zweetsproochen</string>
   <string name="feed_language_variants_removal_secondary_dialog_message">Dir benotzt am Moment eng net-ënnerstëtzt geneeresch chineesesch Sproochvariant als eng Zweetsprooch. Gitt wgl. an Är Astellunge fir eng nei Zweetsprooch erauszesichen oder Är Sproochlëscht ze confirméieren.</string>
-  <string name="feed_language_variants_removal_secondary_dialog_settings">Op d’Astellunge goen</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">An d\'Astellunge goen</string>
   <string name="top_read_activity_title">Am dackste gelies de(n) %s</string>
   <string name="tabs_activity_title">Tabs</string>
   <string name="description_edit_text_hint">Artikelbeschreiwung</string>

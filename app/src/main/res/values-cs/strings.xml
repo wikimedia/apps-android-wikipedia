@@ -1267,6 +1267,7 @@
   <string name="activity_tab_timeline_view_changes_button">Zobrazit změny</string>
   <string name="activity_tab_onboarding_reading_patterns_title">Statistiky čtení</string>
   <string name="activity_tab_onboarding_reading_patterns_message">Zjistěte, kolik času jste strávili čtením a které články nebo témata jste v průběhu času prozkoumali.</string>
+  <string name="activity_tab_onboarding_screen_title">Představujeme aktivitu</string>
   <string name="activity_tab_onboarding_impact_title">Dopady vlivu</string>
   <string name="activity_tab_onboarding_impact_message">Objevte informace o svých příspěvcích a o dosahu znalostí, které jste sdíleli.</string>
   <string name="activity_tab_onboarding_engage_title">Další způsoby, jak se zapojit</string>
@@ -1302,6 +1303,13 @@
   <string name="onboarding_multilingual_secondary_text">Na vašem zařízení máte nastaveny následující jazyky:</string>
   <string name="onboarding_multilingual_add_language_text">Přidat nebo editovat jazyky</string>
   <string name="onboarding_welcome_title_v2">Otevřená encyklopedie\n...ve více než 300 jazycích</string>
+  <string name="onboarding_fresh_install_knowledge_title">Všechny vědomosti světa</string>
+  <string name="onboarding_fresh_install_knowledge_text">Wikipedie je bezplatná online encyklopedie s 65 miliony článků, které ve více než 300 jazycích společně napsala a spravuje komunita dobrovolníků.</string>
+  <string name="onboarding_fresh_install_knowledge_learn_more">Další informace o Wikipedii</string>
+  <string name="onboarding_app_languages_title">Čtěte ve více než 300 jazycích</string>
+  <string name="onboarding_app_languages_text">Na vašem zařízení jsme si všimli následujících jazyků:</string>
+  <string name="onboarding_app_languages_primary">Hlavní</string>
+  <string name="onboarding_app_languages_add_button">Přidat nebo upravit jazyky</string>
   <string name="app_shortcuts_random">Náhodný článek</string>
   <string name="app_shortcuts_continue_reading">Pokračovat ve čtení</string>
   <string name="app_shortcuts_search">Hledat</string>
@@ -1800,9 +1808,13 @@
   <string name="explore_feed_community_tab_label">Komunita</string>
   <string name="explore_feed_for_you_tab_label">Pro vás</string>
   <string name="explore_feed_date_today">Dnes - %s</string>
+  <string name="explore_feed_onboarding_curiosity_title">Následujte svou zvědavost</string>
   <string name="explore_feed_deselect_all_button_label">Zrušit celý výběr</string>
   <string name="explore_feed_potd_subtitle">Denní obrázky na Wikimedia Commons, vybrané dobrovolnými přispěvateli</string>
   <string name="explore_feed_featured_article_subtitle">Doporučené články patří mezi nejkvalitnější články na Wikipedii, které denně vybírají redaktoři</string>
+  <string name="explore_feed_preference_selection_screen_title">Co byste chtěli vidět jako první?</string>
+  <string name="explore_feed_preference_community_content_title">Obsah související s komunitou</string>
+  <string name="explore_feed_preference_personalized_content_title">Personalizovaný obsah</string>
   <string name="explore_feed_on_this_day_subtitle">Objevte historické události z tohoto dne</string>
   <string name="explore_feed_community_disclaimer">Obsah a zdroje vybrané komunitou Wikimedia a týkající se této komunity</string>
   <string name="explore_feed_community_load_more_label">Prohlédnout minulý obsah komunity</string>
