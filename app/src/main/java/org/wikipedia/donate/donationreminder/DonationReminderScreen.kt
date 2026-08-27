@@ -664,7 +664,7 @@ fun <T : Number> OptionSelector(
             ) {
                 Icon(
                     painter = painterResource(headerIcon),
-                    tint = WikipediaTheme.colors.primaryColor,
+                    tint = WikipediaTheme.colors.inactiveColor,
                     contentDescription = null
                 )
                 Text(
