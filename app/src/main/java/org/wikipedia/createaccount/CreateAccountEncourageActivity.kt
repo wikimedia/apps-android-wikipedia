@@ -4,17 +4,24 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.compose.theme.BaseTheme
+import org.wikipedia.login.LoginActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DeviceUtil
 
 class CreateAccountEncourageActivity : BaseActivity() {
-
     private val viewModel: CreateAccountEncourageViewModel by viewModels()
+
+    private val requestLogin = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
+            finish()
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +39,7 @@ class CreateAccountEncourageActivity : BaseActivity() {
                         finish()
                     },
                     onCreateAccountClick = {
-
+                        requestLogin.launch(LoginActivity.newIntent(this, LoginActivity.SOURCE_ENCOURAGE, createAccountFirst = true))
                     },
                     onMaybeLaterClick = {
                         finish()
