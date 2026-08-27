@@ -651,73 +651,67 @@ fun <T : Number> OptionSelector(
     showInfo: Boolean = false,
     showArticleLabel: Boolean = false,
 ) {
-
-    Row(
-        horizontalArrangement = Arrangement.spacedBy(16.dp),
-        verticalAlignment = Alignment.Top
+    Column(
+        verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
-        Column(
-            verticalArrangement = Arrangement.spacedBy(8.dp),
+        Row(
+            horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            Row(
-                horizontalArrangement = Arrangement.spacedBy(8.dp)
-            ) {
-                Icon(
-                    painter = painterResource(headerIcon),
-                    tint = WikipediaTheme.colors.inactiveColor,
-                    contentDescription = null
+            Icon(
+                painter = painterResource(headerIcon),
+                tint = WikipediaTheme.colors.inactiveColor,
+                contentDescription = null
+            )
+            Text(
+                text = title,
+                style = MaterialTheme.typography.bodyLarge,
+                color = WikipediaTheme.colors.primaryColor,
+            )
+            if (showInfo) {
+                InfoTooltip(
+                    modifier = Modifier,
+                    plainTooltipText = stringResource(R.string.donation_reminders_settings_tooltip_info_label)
                 )
-                Text(
-                    text = title,
-                    style = MaterialTheme.typography.bodyLarge,
-                    color = WikipediaTheme.colors.primaryColor,
-                )
-                if (showInfo) {
-                    InfoTooltip(
-                        modifier = Modifier,
-                        plainTooltipText = stringResource(R.string.donation_reminders_settings_tooltip_info_label)
-                    )
-                }
             }
-            Spacer(modifier = Modifier.width(16.dp))
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(16.dp)
+        }
+        Spacer(modifier = Modifier.width(16.dp))
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
+            LazyRow(
+                horizontalArrangement = Arrangement.spacedBy(16.dp),
+                verticalAlignment = Alignment.CenterVertically
             ) {
-                LazyRow(
-                    horizontalArrangement = Arrangement.spacedBy(16.dp),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    itemsIndexed(option.options) { index, currentOption ->
-                        if (currentOption is OptionItem.Preset) {
-                            val isSelected = (option.selectedSource is SelectedSource.Preset) &&
-                                    (option.selectedSource.key == index)
+                itemsIndexed(option.options) { index, currentOption ->
+                    if (currentOption is OptionItem.Preset) {
+                        val isSelected = (option.selectedSource is SelectedSource.Preset) &&
+                                (option.selectedSource.key == index)
 
-                            Button(
-                                colors = ButtonDefaults.buttonColors(
-                                    containerColor = if (isSelected) WikipediaTheme.colors.progressiveColor
-                                    else WikipediaTheme.colors.backgroundColor
-                                ),
-                                onClick = { onOptionSelected(currentOption, SelectedSource.Preset(index)) },
-                                modifier = Modifier.width(if (showArticleLabel) 75.dp else 100.dp)
-                            ) {
-                                Text(
-                                    text = currentOption.displayText,
-                                    color = if (isSelected) WikipediaTheme.colors.paperColor
-                                    else WikipediaTheme.colors.primaryColor,
-                                    style = MaterialTheme.typography.bodyLarge
-                                )
-                            }
-                        }
-                    }
-                    if (showArticleLabel) {
-                        item {
+                        Button(
+                            colors = ButtonDefaults.buttonColors(
+                                containerColor = if (isSelected) WikipediaTheme.colors.progressiveColor
+                                else WikipediaTheme.colors.backgroundColor
+                            ),
+                            onClick = { onOptionSelected(currentOption, SelectedSource.Preset(index)) },
+                            modifier = Modifier.width(if (showArticleLabel) 75.dp else 100.dp)
+                        ) {
                             Text(
-                                text = stringResource(R.string.donation_reminders_article_number_selection_label),
-                                style = MaterialTheme.typography.bodyLarge,
-                                color = WikipediaTheme.colors.primaryColor,
+                                text = currentOption.displayText,
+                                color = if (isSelected) WikipediaTheme.colors.paperColor
+                                else WikipediaTheme.colors.primaryColor,
+                                style = MaterialTheme.typography.bodyLarge
                             )
                         }
+                    }
+                }
+                if (showArticleLabel) {
+                    item {
+                        Text(
+                            text = stringResource(R.string.donation_reminders_article_number_selection_label),
+                            style = MaterialTheme.typography.bodyLarge,
+                            color = WikipediaTheme.colors.primaryColor,
+                        )
                     }
                 }
             }
