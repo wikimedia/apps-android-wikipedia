@@ -378,6 +378,8 @@ fun DonationReminderContent(
                                     activeInterface = activeInterface,
                                     action = "freq_change_click"
                                 )
+                                customErrorMessage = ""
+                                doesTextFieldHaveError = false
                                 viewModel.updateReadFrequencyState(option.value, source)
                             }
 
