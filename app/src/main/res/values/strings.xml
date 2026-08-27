@@ -218,16 +218,19 @@
     <string name="create_account_button">Create account</string>
     <string name="create_account_encourage_title">Wikipedia is better with an account</string>
     <plurals name="create_account_encourage_year_in_review_title">
+        <item quantity="zero">See your reading days come together in Year in Review</item>
         <item quantity="one">See your %1$d reading day come together in Year in Review</item>
         <item quantity="other">See your %1$d reading days come together in Year in Review</item>
     </plurals>
     <string name="create_account_encourage_year_in_review_description">Once a year, your reading days come back as a look at where the year took you, ready to share.</string>
     <plurals name="create_account_encourage_saved_articles_title">
+        <item quantity="zero">Sync your saved articles</item>
         <item quantity="one">Sync your %1$d saved article</item>
         <item quantity="other">Sync your %1$d saved articles</item>
     </plurals>
     <string name="create_account_encourage_saved_articles_description">Log in to your Wikipedia account to allow your saved articles to be synced across devices.</string>
     <plurals name="create_account_encourage_activity_title">
+        <item quantity="zero">Revisit your recent reads with Activity</item>
         <item quantity="one">Revisit your %1$d recent read with Activity</item>
         <item quantity="other">Revisit your %1$d recent reads with Activity</item>
     </plurals>
