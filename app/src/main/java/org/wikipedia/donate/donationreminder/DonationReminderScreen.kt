@@ -24,7 +24,6 @@ import androidx.compose.foundation.relocation.BringIntoViewRequester
 import androidx.compose.foundation.relocation.bringIntoViewRequester
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
@@ -65,20 +64,16 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.focus.onFocusChanged
-import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.ui.window.Dialog
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
@@ -326,7 +321,6 @@ fun DonationReminderContent(
     onFooterButtonClick: () -> Unit
 ) {
     val isDonationReminderEnabled = uiState.isDonationReminderEnabled
-    var showReadFrequencyCustomDialog by remember { mutableStateOf(false) }
     var customAmountText by rememberSaveable {
         mutableStateOf(
             if (uiState.donationAmount.selectedSource is SelectedSource.Custom) {
@@ -337,8 +331,6 @@ fun DonationReminderContent(
         )
     }
     var customErrorMessage by rememberSaveable { mutableStateOf("") }
-    val density = LocalDensity.current
-
     val donateGooglePayMinAmount = stringResource(R.string.donate_gpay_minimum_amount)
     val donateGooglePayMaxAmount = stringResource(R.string.donate_gpay_maximum_amount)
 
@@ -396,13 +388,10 @@ fun DonationReminderContent(
                                     activeInterface = activeInterface,
                                     action = "freq_change_click"
                                 )
-                                customErrorMessage = ""
                                 viewModel.updateReadFrequencyState(option.value, source)
                             }
 
-                            is OptionItem.Custom -> {
-                                showReadFrequencyCustomDialog = true
-                            }
+                            is OptionItem.Custom -> { }
                         }
                     }
                 )
@@ -414,6 +403,10 @@ fun DonationReminderContent(
                     onCustomTextChanged = { newValue ->
                         customAmountText = newValue
                         customErrorMessage = customAmountErrorMessage(newValue)
+                        if (customErrorMessage != "" && viewModel.isFromSettings) {
+                            // Keep the last valid amount in the field
+                            viewModel.updateDonationAmountState(uiState.donationAmount.selectedValue, uiState.donationAmount.selectedSource)
+                        }
                     },
                     onCustomTextFocusedEmpty = {
                         customAmountText = ""
@@ -448,7 +441,7 @@ fun DonationReminderContent(
                 )
             }
         }
-        if (WindowInsets.ime.getBottom(density) <= 0) {
+        if (WindowInsets.ime.getBottom(LocalDensity.current) <= 0) {
             if (uiState.isDonationReminderEnabled || !viewModel.isFromSettings) {
                 if (!viewModel.isFromSettings) {
                     AppButton(
@@ -501,10 +494,10 @@ fun DonationReminderContent(
 @Composable
 fun DonationAmountView(
     option: SelectableOption<Float>,
+    currencySymbol: String,
     customErrorMessage: String,
     onCustomTextChanged: (String) -> Unit,
     onCustomTextFocusedEmpty: () -> Unit,
-    currencySymbol: String,
     onOptionSelected: (OptionItem<Float>, SelectedSource) -> Unit,
 ) {
     val initialCustomText = if (option.selectedSource is SelectedSource.Custom) {
@@ -567,7 +560,7 @@ fun DonationAmountView(
         ) },
         placeholder = {
             Text(
-                text = stringResource(R.string.donation_reminders_custom_amount_label),
+                text = stringResource(R.string.donation_reminders_settings_custom_amount_label),
                 style = MaterialTheme.typography.bodyLarge,
                 color = WikipediaTheme.colors.placeholderColor
             )
@@ -715,9 +708,7 @@ fun <T : Number> OptionSelector(
                             else WikipediaTheme.colors.backgroundColor
                         ),
                         onClick = { onOptionSelected(currentOption, SelectedSource.Preset(index)) },
-                        modifier = Modifier
-                            .width(if (showArticleLabel) 75.dp else 100.dp)
-                            .weight(1f)
+                        modifier = Modifier.weight(1f)
                     ) {
                         Text(
                             text = currentOption.displayText,
@@ -730,7 +721,7 @@ fun <T : Number> OptionSelector(
             }
             if (showArticleLabel) {
                 Text(
-                    text = stringResource(R.string.donation_reminders_article_number_selection_label),
+                    text = stringResource(R.string.donation_reminders_settings_article_number_selection_label),
                     style = MaterialTheme.typography.bodyLarge,
                     color = WikipediaTheme.colors.primaryColor,
                 )
@@ -817,153 +808,6 @@ fun InfoTooltip(
             )
         }
     )
-}
-
-@Composable
-fun CustomInputDialog(
-    modifier: Modifier = Modifier,
-    title: String,
-    decimalEnabled: Boolean = false,
-    errorMessage: String = "",
-    onDoneClick: (String) -> Unit,
-    onDismissRequest: () -> Unit,
-    prefix: @Composable (() -> Unit)? = null,
-    suffix: @Composable (() -> Unit)? = null,
-    onValueChange: (String) -> Unit,
-) {
-    var value by remember { mutableStateOf("") }
-    val focusRequester = remember { FocusRequester() }
-    var hasFocused by remember { mutableStateOf(false) }
-
-    Dialog(
-        onDismissRequest = onDismissRequest,
-        content = {
-            Column(
-                modifier = modifier
-                    .clip(RoundedCornerShape(28.dp))
-                    .background(WikipediaTheme.colors.paperColor)
-                    .padding(24.dp),
-            ) {
-                Text(
-                    modifier = Modifier
-                        .fillMaxWidth(),
-                    text = title,
-                    textAlign = TextAlign.Center,
-                    style = MaterialTheme.typography.labelLarge,
-                    color = WikipediaTheme.colors.primaryColor
-                )
-                Spacer(modifier = Modifier.height(16.dp))
-                OutlinedTextField(
-                    modifier = Modifier
-                        .focusRequester(focusRequester)
-                        .onGloballyPositioned {
-                            if (!hasFocused) {
-                                focusRequester.requestFocus()
-                                hasFocused = true
-                            }
-                        },
-                    value = value,
-                    singleLine = true,
-                    onValueChange = { newValue ->
-                        onValueChange(newValue)
-                        value = newValue
-                    },
-                    isError = errorMessage.isNotEmpty(),
-                    prefix = prefix,
-                    suffix = suffix,
-                    textStyle = MaterialTheme.typography.bodyLarge,
-                    keyboardOptions = KeyboardOptions(
-                        keyboardType = if (decimalEnabled) KeyboardType.Number else KeyboardType.NumberPassword,
-                        imeAction = ImeAction.Send
-                    ),
-                    keyboardActions = KeyboardActions(
-                        onSend = {
-                            if (value.isEmpty()) {
-                                onValueChange("")
-                                return@KeyboardActions
-                            }
-                            onDoneClick(value)
-                        }
-                    ),
-                    colors = OutlinedTextFieldDefaults.colors(
-                        focusedTextColor = WikipediaTheme.colors.primaryColor,
-                        focusedBorderColor = MaterialTheme.colorScheme.outline,
-                        unfocusedTextColor = MaterialTheme.colorScheme.onSurfaceVariant,
-                        unfocusedBorderColor = MaterialTheme.colorScheme.outline,
-                        cursorColor = WikipediaTheme.colors.primaryColor,
-                        errorTextColor = WikipediaTheme.colors.primaryColor,
-                    ),
-                    supportingText = if (errorMessage.isNotEmpty()) {
-                        {
-                            Text(
-                                text = errorMessage,
-                                color = WikipediaTheme.colors.destructiveColor,
-                            )
-                        }
-                    } else null,
-                    trailingIcon = if (errorMessage.isNotEmpty()) {
-                        {
-                            Icon(
-                                painter = painterResource(R.drawable.baseline_info_24),
-                                contentDescription = null,
-                                tint = WikipediaTheme.colors.destructiveColor
-                            )
-                        }
-                    } else null
-                )
-                Row(
-                    modifier = Modifier
-                        .padding(top = 8.dp)
-                        .fillMaxWidth(),
-                    horizontalArrangement = Arrangement.End
-                ) {
-                    TextButton(
-                        onClick = {
-                            if (value.isEmpty()) {
-                                onValueChange("")
-                                return@TextButton
-                            }
-                            onDoneClick(value)
-                        },
-                        content = {
-                            Text(
-                                text = "Done",
-                                color = WikipediaTheme.colors.progressiveColor
-                            )
-                        }
-                    )
-                }
-            }
-        }
-    )
-}
-
-@Preview
-@Composable
-private fun CustomInputDialogPreview() {
-    BaseTheme(
-        currentTheme = Theme.LIGHT
-    ) {
-        CustomInputDialog(
-            title = "Remind me to donate",
-            onDoneClick = {},
-            onDismissRequest = {},
-            prefix = {
-                Text(
-                    text = "$",
-                    modifier = Modifier.padding(start = 16.dp)
-                )
-            },
-            suffix = {
-                Text(
-                    modifier = Modifier
-                        .padding(horizontal = 12.dp),
-                    text = "articles"
-                )
-            },
-            onValueChange = {}
-        )
-    }
 }
 
 @Preview(showBackground = true)

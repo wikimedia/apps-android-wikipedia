@@ -18,7 +18,6 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.util.log.L
 
 class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
-    private val preSelectedArticleFrequency = 10
     private val maxArticleFrequencyLimit = 1000
     private val minArticleFrequencyLimit = 1
     private val maxPresetItemsInDropdown = 3
