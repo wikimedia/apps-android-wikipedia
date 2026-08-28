@@ -3,10 +3,6 @@ package org.wikipedia.auth
 import android.content.Context
 import android.content.Intent
 import android.util.Base64
-import net.openid.appauth.AuthState
-import net.openid.appauth.AuthorizationService
-import net.openid.appauth.AuthorizationServiceConfiguration
-import org.wikipedia.settings.Prefs
 import androidx.core.net.toUri
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
@@ -14,9 +10,12 @@ import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import net.openid.appauth.AppAuthConfiguration
+import net.openid.appauth.AuthState
 import net.openid.appauth.AuthorizationException
 import net.openid.appauth.AuthorizationRequest
 import net.openid.appauth.AuthorizationResponse
+import net.openid.appauth.AuthorizationService
+import net.openid.appauth.AuthorizationServiceConfiguration
 import net.openid.appauth.ResponseTypeValues
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
@@ -24,6 +23,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.notifications.PollNotificationWorker
 import org.wikipedia.push.WikipediaFirebaseMessagingService
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.log.L
 import java.security.MessageDigest
 import java.security.SecureRandom
@@ -34,13 +34,13 @@ class OAuthClient(val context: Context) {
     }
 
     private var authState = AuthState()
-    private val authorizationService : AuthorizationService
-    val authServiceConfig : AuthorizationServiceConfiguration
+    private val authorizationService: AuthorizationService
+    val authServiceConfig: AuthorizationServiceConfiguration
 
-    val isLoggedIn : Boolean
+    val isLoggedIn
         get() = authState.isAuthorized
 
-    val accessToken : String?
+    val accessToken
         get() = authState.accessToken
 
     init {
@@ -54,15 +54,15 @@ class OAuthClient(val context: Context) {
             (OAUTH_WIKI + AUTHORIZATION_ENDPOINT).toUri(),
             (OAUTH_WIKI + TOKEN_ENDPOINT).toUri(),
             null,
-            (OAUTH_WIKI + LOGOUT_ENDPOINT).toUri()) //?
+            (OAUTH_WIKI + LOGOUT_ENDPOINT).toUri()) // TODO?
 
         val appAuthConfiguration = AppAuthConfiguration.Builder()
-            //.setBrowserMatcher(
+            // .setBrowserMatcher(
             //    BrowserAllowList(
             //        VersionedBrowserMatcher.CHROME_CUSTOM_TAB,
             //        VersionedBrowserMatcher.SAMSUNG_CUSTOM_TAB
             //    )
-            //)
+            // )
             .build()
 
         authorizationService = AuthorizationService(context, appAuthConfiguration)
@@ -72,7 +72,7 @@ class OAuthClient(val context: Context) {
         Prefs.oauthState = authState.jsonSerializeString()
     }
 
-    fun getLoginIntent() : Intent {
+    fun getLoginIntent(): Intent {
         val secureRandom = SecureRandom()
         val bytes = ByteArray(64)
         secureRandom.nextBytes(bytes)
@@ -160,17 +160,16 @@ class OAuthClient(val context: Context) {
         Prefs.tempAccountCreateDay = 0L
         ReadingListSyncAdapter.manualSyncWithForce()
         PollNotificationWorker.schedulePollNotificationJob(WikipediaApp.instance)
-        Prefs.isPushNotificationOptionsSet = false
         WikipediaFirebaseMessagingService.updateSubscription()
     }
 
     companion object {
         const val CLIENT_ID = "50ad79ffa34f64853c96b729e4aa5d8c"
         const val REDIRECT_URI = "wikipedia://oauth/callback"
-        const val OAUTH_WIKI = "https://meta.wikimedia.org" //TODO: use current language wiki?
+        const val OAUTH_WIKI = "https://meta.wikimedia.org" // TODO: use current language wiki?
         const val AUTHORIZATION_ENDPOINT = "/w/rest.php/oauth2/authorize"
         const val TOKEN_ENDPOINT = "/w/rest.php/oauth2/access_token"
         const val PROFILE_ENDPOINT = "/w/rest.php/oauth2/resource/profile"
-        const val LOGOUT_ENDPOINT = "/w/rest.php/oauth2/logout" //<--TODO
+        const val LOGOUT_ENDPOINT = "/w/rest.php/oauth2/logout" // <--TODO?
     }
 }

@@ -450,7 +450,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
     }
 
     fun onLoginRequested() {
-        //startActivityForResult(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_NAV),
+        //  startActivityForResult(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_NAV),
         //        Constants.ACTIVITY_REQUEST_LOGIN)
 
         loginLauncher.launch(WikipediaApp.instance.oauthClient.getLoginIntent())
