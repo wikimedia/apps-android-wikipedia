@@ -82,6 +82,7 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
 
     fun updateDonationAmountState(donationAmount: Float, source: SelectedSource) {
         _uiState.update {
+            L.d("Update amount $donationAmount, source $source")
             it.copy(
                 donationAmount = it.donationAmount.copy(
                     selectedValue = donationAmount,
