@@ -32,11 +32,27 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
     }
 
     private val binding = ViewPageHeaderBinding.inflate(LayoutInflater.from(context), this)
-    private var messageCardViewHeight: Int = 0
+
     val donationReminderCardViewHeight get() = if (binding.donationReminderCardView.isVisible) {
-        // HACK: adjust the height for the message card to handle image/no image scenarios to make sure have better margins
-        messageCardViewHeight + if (binding.headerImageContainer.isVisible) 0 else DimenUtil.dpToPx(20f).toInt()
+        measureDonationReminderCardExtraHeight()
     } else 0
+
+    private fun measureDonationReminderCardExtraHeight(): Int {
+        val hasImage = binding.headerImageContainer.isVisible
+        val originalHeight = binding.headerImageContainer.layoutParams.height
+        if (hasImage) {
+            binding.headerImageContainer.updateLayoutParams<LayoutParams> { height = 0 }
+        }
+        val widthSpec = MeasureSpec.makeMeasureSpec(resources.displayMetrics.widthPixels, MeasureSpec.EXACTLY)
+        val heightSpec = MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED)
+        measure(widthSpec, heightSpec)
+        val extraHeight = measuredHeight
+        if (hasImage) {
+            binding.headerImageContainer.updateLayoutParams<LayoutParams> { height = originalHeight }
+        }
+        return extraHeight
+    }
+
     var callToActionText: String? = null
         set(value) {
             field = value
@@ -54,7 +70,6 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
         binding.callToActionContainer.setOnClickListener {
             callback?.onCallToActionClicked()
         }
-        setDonationReminderCard()
         orientation = VERTICAL
     }
 
@@ -119,27 +134,6 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
         } else {
             showImage()
             binding.viewPageHeaderImage.loadImage(url.toUri())
-        }
-    }
-
-    private fun setDonationReminderCard() {
-        if (!DonationReminderHelper.isEnabled && !DonationReminderHelper.hasActiveReminder) {
-            return
-        }
-        Prefs.donationReminderConfig.let { config ->
-            updateDonationReminderCardContent(config)
-            binding.donationReminderCardView.isVisible = true
-            visibility = INVISIBLE
-            binding.donationReminderCardView.post {
-                val widthSpec = MeasureSpec.makeMeasureSpec(resources.displayMetrics.widthPixels, MeasureSpec.EXACTLY)
-                val heightSpec = MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED)
-
-                binding.donationReminderCardView.measure(widthSpec, heightSpec)
-                // HACK: Manually adjust the height of the message card view
-                messageCardViewHeight = binding.donationReminderCardView.measuredHeight + DimenUtil.dpToPx(56f).toInt()
-                binding.donationReminderCardView.isVisible = false
-                visibility = GONE
-            }
         }
     }
 

@@ -238,6 +238,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
         pageHeaderView.hideDonationReminderCard()
         loadLeadImage()
         parentFragment.updateHeaderTopMargin()
+        parentFragment.updateMessageCardHeight()
     }
 
     fun hide() {
@@ -248,19 +249,12 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
         pageHeaderView.refreshCallToActionVisibility()
     }
 
-    fun getDonationReminderCardViewHeight(adjustBottomMargin: Boolean = false): Int {
+    fun getDonationReminderCardViewHeight(adjustBottomMargin: Boolean = false): Float {
         if (pageHeaderView.donationReminderCardViewHeight == 0) {
-            return 0
+            return 0f
         }
-        return pageHeaderView.donationReminderCardViewHeight - if (adjustBottomMargin) {
-            if (DimenUtil.isLandscape(activity) || !isLeadImageEnabled) {
-                DimenUtil.roundedDpToPx(64f)
-            } else {
-                DimenUtil.roundedDpToPx(24f)
-            }
-        } else {
-            0
-        }
+        val newMargin = DimenUtil.getToolbarHeightPx(activity).toFloat() / (if (isLeadImageEnabled) 1.3f else 1f)
+        return pageHeaderView.donationReminderCardViewHeight.toFloat() - if (adjustBottomMargin) newMargin else 0f
     }
 
     fun loadLeadImage() {
@@ -273,6 +267,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
         } else {
             pageHeaderView.loadImage(null)
         }
+        parentFragment.updateMessageCardHeight()
     }
 
     fun openImageInGallery(language: String?) {
