@@ -723,7 +723,7 @@ fun <T : Number> OptionSelector(
             }
             if (showArticleLabel) {
                 Text(
-                    text = stringResource(R.string.donation_reminders_article_number_selection_label),
+                    text = stringResource(R.string.donation_reminders_settings_article_number_selection_label),
                     style = MaterialTheme.typography.bodyLarge,
                     color = WikipediaTheme.colors.primaryColor,
                 )
