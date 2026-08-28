@@ -187,7 +187,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     override val isPreview get() = false
     override val referencesGroup get() = references?.referencesGroup
     override val selectedReferenceIndex get() = references?.selectedIndex ?: 0
-    override val messageCardHeight get() = leadImagesHandler.getDonationReminderCardViewHeight()
+    override var messageCardHeight: Int = 0
 
     lateinit var sidePanelHandler: SidePanelHandler
     lateinit var shareHandler: ShareHandler
@@ -1204,6 +1204,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     fun updateHeaderTopMargin() {
         bridge.execute(JavaScriptActionHandler.setTopMargin(leadImagesHandler.topMargin))
+    }
+
+    fun updateMessageCardHeight() {
+        messageCardHeight = leadImagesHandler.getDonationReminderCardViewHeight()
     }
 
     fun refreshPage(stagedScrollY: Int = 0) {
