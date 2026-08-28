@@ -29,18 +29,18 @@ class DonationReminderActivity : BaseActivity() {
                     onBackButtonClick = {
                         onBackPressedDispatcher.onBackPressed()
                     },
-                    onConfirmButtonClick = { message ->
+                    onConfirmButtonClick = {
                         DonationReminderHelper.shouldShowSettingSnackbar = true
                         setResult(RESULT_OK_FROM_DONATION_REMINDER)
                         finish()
                     },
                     onFooterButtonClick = {
+                        DonorExperienceEvent.logDonationReminderAction(
+                            activeInterface = if (viewModel.isFromSettings) "global_setting" else "reminder_config",
+                            action = "reminder_about_click"
+                        )
                         if (viewModel.isFromSettings) {
                             UriUtil.visitInExternalBrowser(this, getString(R.string.donation_reminders_experiment_url).toUri())
-                            DonorExperienceEvent.logDonationReminderAction(
-                                activeInterface = "global_setting",
-                                action = "reminder_about_click"
-                            )
                         } else {
                             setResult(RESULT_OK_FROM_DONATION_REMINDER)
                             finish()
@@ -56,14 +56,14 @@ class DonationReminderActivity : BaseActivity() {
                     ),
                     onLearnMoreClick = {
                         DonorExperienceEvent.logDonationReminderAction(
-                            activeInterface = if (viewModel.isFromSettings) "global_setting" else "reminder_config",
+                            activeInterface = "reminder_overflow",
                             action = "overflow_learn_more_click"
                         )
                         UriUtil.visitInExternalBrowser(this, getString(R.string.donation_reminders_experiment_url).toUri())
                     },
                     onReportClick = {
                         DonorExperienceEvent.logDonationReminderAction(
-                            activeInterface = if (viewModel.isFromSettings) "global_setting" else "reminder_config",
+                            activeInterface = "reminder_overflow",
                             action = "overflow_problem_click"
                         )
                         FeedbackUtil.composeEmail(this,
