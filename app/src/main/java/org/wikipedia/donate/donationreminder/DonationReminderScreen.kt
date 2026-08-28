@@ -708,9 +708,7 @@ fun <T : Number> OptionSelector(
                             else WikipediaTheme.colors.backgroundColor
                         ),
                         onClick = { onOptionSelected(currentOption, SelectedSource.Preset(index)) },
-                        modifier = Modifier
-                            .width(if (showArticleLabel) 75.dp else 100.dp)
-                            .weight(1f)
+                        modifier = Modifier.weight(1f)
                     ) {
                         Text(
                             text = currentOption.displayText,
