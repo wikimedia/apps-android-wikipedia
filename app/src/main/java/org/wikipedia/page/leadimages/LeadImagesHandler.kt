@@ -249,12 +249,12 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
         pageHeaderView.refreshCallToActionVisibility()
     }
 
-    fun getDonationReminderCardViewHeight(adjustBottomMargin: Boolean = false): Int {
+    fun getDonationReminderCardViewHeight(adjustBottomMargin: Boolean = false): Float {
         if (pageHeaderView.donationReminderCardViewHeight == 0) {
-            return 0
+            return 0f
         }
-        val newMargin = DimenUtil.getToolbarHeightPx(activity) / (if (isLeadImageEnabled) 2 else 1)
-        return pageHeaderView.donationReminderCardViewHeight - if (adjustBottomMargin) newMargin else 0
+        val newMargin = DimenUtil.getToolbarHeightPx(activity).toFloat() / (if (isLeadImageEnabled) 1.3f else 1f)
+        return pageHeaderView.donationReminderCardViewHeight.toFloat() - if (adjustBottomMargin) newMargin else 0f
     }
 
     fun loadLeadImage() {
