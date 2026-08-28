@@ -1936,10 +1936,7 @@
     <string name="games_hub_activity_overflow_learn_more">Learn more</string>
 
     <!-- On this day game -->
-    <string name="on_this_day_game_entry_dialog_title">Introducing</string>
-    <string name="on_this_day_game_entry_dialog_subtitle">Wikipedia games</string>
     <string name="on_this_day_game_entry_dialog_button">Play</string>
-    <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia games are available in the Games Hub, found in the MORE menu.</string>
     <string name="on_this_day_game_title">Which came first?</string>
     <string name="on_this_day_game_dialog_button">Play</string>
     <string name="on_this_day_game_splash_message">Guess which event came first on this day in history.</string>
@@ -2573,7 +2570,6 @@
     <string name="home_feed_for_you_screen_empty_ways_to_start">Ways to get started:</string>
     <string name="home_feed_for_you_screen_empty_add_interests"><![CDATA[Add <a href="#add_interests">some interests</a>]]></string>
     <string name="home_feed_for_you_screen_empty_see_community"><![CDATA[See what\'s happening in <a href="#community_tab">community</a>]]></string>
-    <string name="home_feed_update_tooltip1">New: \"Random Article\" and \"Places of Interest\" are available in For You and \"Did You Know\" is in the Community Tab.</string>
     <string name="home_feed_random_title">Random</string>
     <string name="home_feed_random_subtitle">Random article to spark your curiosity</string>
     <string name="home_feed_random_shuffle_button">Shuffle</string>

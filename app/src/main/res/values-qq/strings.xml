@@ -1833,10 +1833,7 @@
   <string name="games_hub_activity_games_unavailable_message_learn_more_action">The action button for the snackbar message that indicates the game is unavailable.</string>
   <string name="games_hub_activity_overflow_view_game_stats">Menu label for the overflow menu in the Games hub that opens the game stats.</string>
   <string name="games_hub_activity_overflow_learn_more">Menu label for the overflow menu in the Games hub that opens the learn more page.</string>
-  <string name="on_this_day_game_entry_dialog_title">Title for the trivia game dialog.</string>
-  <string name="on_this_day_game_entry_dialog_subtitle">Subtitle for the trivia game dialog.</string>
   <string name="on_this_day_game_entry_dialog_button">Entry dialog Button label for the trivia game to enter the trivia game.</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Message shown when user dismisses the initial trivia game entry dialog.</string>
   <string name="on_this_day_game_title">Title of the trivia game.</string>
   <string name="on_this_day_game_dialog_button">Button label in the initial screen of the trivia game to enter the game.</string>
   <string name="on_this_day_game_splash_message">Message in the initial screen of the trivia game to explain the game rules.</string>
@@ -2314,7 +2311,6 @@
   <string name="home_feed_for_you_screen_empty_ways_to_start">Header introducing suggested actions for getting started with the “For you” feed.</string>
   <string name="home_feed_for_you_screen_empty_add_interests">Link text prompting the user to add new interests to personalize the “For you” feed. Please keep the anchor link around the word \"some interests\"</string>
   <string name="home_feed_for_you_screen_empty_see_community">Link text prompting the user to explore the Community feed for additional content. Please keep the anchor link around the word \"community\"</string>
-  <string name="home_feed_update_tooltip1">Message that explains new features introduced into the Home Feed.</string>
   <string name="home_feed_random_title">Title for the Random Article module in the For You feed.</string>
   <string name="home_feed_random_subtitle">Description of the Random Article module in the For You feed.</string>
   <string name="home_feed_random_shuffle_button">Button label for going to the Randomizer feature in the app.</string>

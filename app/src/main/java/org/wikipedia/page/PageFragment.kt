@@ -78,7 +78,6 @@ import org.wikipedia.donate.donationreminder.DonationReminderActivity
 import org.wikipedia.donate.donationreminder.DonationReminderHelper
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.gallery.GalleryActivity
-import org.wikipedia.games.onthisday.OnThisDayGameMainMenuFragment
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.login.LoginActivity
@@ -972,8 +971,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
 
         maybeShowAnnouncement()
-        OnThisDayGameMainMenuFragment.maybeShowOnThisDayGameDialog(requireActivity(),
-            InvokeSource.PAGE_ACTIVITY, model.title?.wikiSite ?: WikipediaApp.instance.wikiSite)
 
         bridge.onMetadataReady()
         // Explicitly set the top margin (even though it might have already been set in the setup

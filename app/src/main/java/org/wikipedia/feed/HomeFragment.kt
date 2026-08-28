@@ -449,7 +449,7 @@ class HomeFragment : Fragment(), LinkPreviewDialog.LoadPageCallback {
         val minVisits = 4
 
         // don't show the survey if the user has not seen other dialogs or prompts that can be shown on the feed
-        if (!Prefs.isExploreFeedUpdatePromptShown || !Prefs.isHomeFeedUpdateTooltipShown) {
+        if (!Prefs.isExploreFeedUpdatePromptShown) {
             return
         }
 
