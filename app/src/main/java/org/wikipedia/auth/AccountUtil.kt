@@ -4,6 +4,7 @@ import android.accounts.Account
 import android.accounts.AccountAuthenticatorResponse
 import android.accounts.AccountManager
 import android.app.Activity
+import android.os.Bundle
 import androidx.core.os.bundleOf
 import androidx.core.text.isDigitsOnly
 import org.wikipedia.R
@@ -39,9 +40,13 @@ object AccountUtil {
     }
 
     fun updateAccount(response: AccountAuthenticatorResponse?, result: OAuthProfile) {
-        if (createAccount(result.userName, null)) {
-            response?.onResult(bundleOf(AccountManager.KEY_ACCOUNT_NAME to result.userName,
-                AccountManager.KEY_ACCOUNT_TYPE to accountType()))
+        if (createAccount(result.userName, "")) {
+            response?.onResult(
+                Bundle().apply {
+                    putString(AccountManager.KEY_ACCOUNT_NAME, result.userName)
+                    putString(AccountManager.KEY_ACCOUNT_TYPE, accountType())
+                }
+            )
         } else {
             response?.onError(AccountManager.ERROR_CODE_REMOTE_EXCEPTION, "")
             L.d("account creation failure")
@@ -144,7 +149,7 @@ object AccountUtil {
         FlowEventBus.post(LoggedOutInBackgroundEvent())
     }
 
-    private fun createAccount(userName: String, password: String?): Boolean {
+    private fun createAccount(userName: String, password: String): Boolean {
         var account = account()
         if (account == null || account.name.isEmpty() || account.name != userName) {
             removeAccount()
@@ -154,7 +159,7 @@ object AccountUtil {
         return true
     }
 
-    private fun setPassword(password: String?) {
+    private fun setPassword(password: String) {
         val account = account()
         if (account != null) {
             accountManager().setPassword(account, password)
