@@ -41,10 +41,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import coil3.compose.SubcomposeAsyncImage
-import coil3.compose.SubcomposeAsyncImageContent
+import coil3.compose.AsyncImage
 import coil3.request.ImageRequest
-import coil3.request.allowHardware
 import org.wikipedia.R
 import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.extensions.lazyColumnScrollbar
@@ -54,7 +52,6 @@ import org.wikipedia.extensions.instrument
 import org.wikipedia.language.AppLanguageState
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.yearinreview.LoadingIndicator
 
 @Composable
 fun InitialOnboardingScreen(
@@ -225,17 +222,12 @@ fun InitialOnboardingDataPrivacyContent(
         verticalArrangement = Arrangement.Center
     ) {
 
-        SubcomposeAsyncImage(
+        AsyncImage(
             modifier = Modifier
                 .size(124.dp),
             model = ImageRequest.Builder(LocalContext.current)
                 .data(R.drawable.ic_onboarding_puzzle)
-                .allowHardware(false)
                 .build(),
-            loading = { LoadingIndicator() },
-            success = {
-                SubcomposeAsyncImageContent()
-            },
             contentDescription = stringResource(R.string.onboarding_data_privacy_title),
         )
 
@@ -295,17 +287,11 @@ fun InitialOnboardingLanguagesScreen(
                 .fillMaxWidth(),
             contentAlignment = Alignment.Center
         ) {
-            SubcomposeAsyncImage(
-                modifier = Modifier
-                    .size(124.dp),
+            AsyncImage(
+                modifier = Modifier.size(124.dp),
                 model = ImageRequest.Builder(LocalContext.current)
                     .data(R.drawable.yir_puzzle_stone)
-                    .allowHardware(false)
                     .build(),
-                loading = { LoadingIndicator() },
-                success = {
-                    SubcomposeAsyncImageContent()
-                },
                 contentDescription = stringResource(R.string.onboarding_app_languages_title),
             )
         }

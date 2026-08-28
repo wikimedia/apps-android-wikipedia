@@ -60,6 +60,7 @@
 * Obscaeris
 * Oujon
 * Oupsa
+* PPenloglou-WMF
 * Pa2chant.bis
 * Papawy
 * Pols12
@@ -1825,7 +1826,7 @@
   <string name="donate_gpay_activity_title">Sélectionnez le montant</string>
   <string name="donate_gpay_activity_title_with_currency">Choisissez un montant (en %s)</string>
   <string name="donate_gpay_check_transaction_fee">J\'ajouterai généreusement %s pour couvrir les frais de transaction afin de que vous puissiez conserver 100%% de mon don.</string>
-  <string name="donate_gpay_check_recurring">En faire un don mensuel récurrent.</string>
+  <string name="donate_gpay_check_recurring">Convertir en don mensuel.</string>
   <string name="donate_gpay_check_send_email">Oui, la Fondation Wikimedia peut m\'envoyer un courriel de temps en temps.</string>
   <string name="donate_gpay_minimum_amount">Veuillez sélectionner un montant (minimum %s)</string>
   <string name="donate_gpay_maximum_amount">Nous ne pouvons pas accepter de dons supérieurs à %s via notre application. Veuillez contacter notre équipe chargée des dons importants à l\'adresse benefactors@wikimedia.org.</string>

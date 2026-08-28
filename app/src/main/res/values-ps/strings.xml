@@ -927,7 +927,7 @@
   <string name="description_starts_with_lowercase">په کوچني تورو له پيلولو ډډه‌کول.</string>
   <string name="description_is_in_different_language">داسې ښکاري چې ليک په ناڅاپي ژبه کې دی. ژبه بايد %s وي.</string>
   <string name="description_verification_notice">مهرباني وکړئ تاييد کړئ چې ستاسو څرگنډاوی په %1$s کې دی. که چېرې هغه څرگنداوی چې تاسو ليکلی په %2$s کې وي؛ نو دا خبرداری له پامه وغورځوئ.</string>
-  <string name="description_edit_suggested_description_button_text">وړانديزشوو څرگنداوي ښودل</string>
+  <string name="description_edit_suggested_description_button_text">وړانديزشوي څرگنداوي ښودل</string>
   <string name="description_edit_suggested_description_button_tooltip">د ماشيني وړانديزشوې ليکنې څرگنداوي هڅه کول</string>
   <string name="description_edit_success_saved">د ليکنې څرگنداوی خپور شو!</string>
   <string name="description_edit_success_saved_snackbar">د ليکنې څرگنداوی خپور شو!</string>
@@ -1118,7 +1118,7 @@
   <string name="suggested_edits_descriptions_not_enough_info_suggestion">کافي مالومات نشته</string>
   <string name="suggested_edits_descriptions_cannot_see_suggestion">وړانديزشوي څرگنداوي نشي ليدل کېدای.</string>
   <string name="suggested_edits_inappropriate_suggestion">نامناسب وړانديز</string>
-  <string name="suggested_edits_do_not_understand_suggestion">په دنده نه پوهېږم</string>
+  <string name="suggested_edits_do_not_understand_suggestion">په کاردنده نه پوهېږم</string>
   <string name="suggested_edits_report_suggestion">خبرورکول</string>
   <string name="suggested_edits_suggestion_report_submitted">خبر وسپارل‌شو</string>
   <plurals name="suggested_edits_tags_diff_count_text">
@@ -1753,7 +1753,7 @@
   <string name="patroller_saved_message_body_copy_vio">ستاسو وروستي سمون کې داسې ښکاري چې له اجازې پرته لمېس‌رښتې لرونکي مواد شامل وي. مهرباني وکړئ ځان ډاډه کړئ چې ټوله منځپانگه د دې ويکي‌پېډيا د [[ويکيپېډيا:کاپی رایټ|لمېسل رښتې]] تگلارو سره سمون لري؛ ترڅو له لرې کولو څخه يې ډده وشي.</string>
   <string name="patroller_saved_message_body_edit_summary">سلام {{{username}}}، داسې ښکاري چې تاسو د ويکي‌پېډيا څخه منځپانگه لرې کړې ده، بې له دې چې د هغې د سمون لنډيز پرېږدئ. مهرباني وکړئ هرلکه چې تاسو ته ويکي‌پېډيا منځپانگه ورگډوئ يا لرې کوئ، د سمون لنډيز يې وليکئ.</string>
   <string name="patroller_saved_message_body_do_not_censor">سلام {{{username}}}، داسې ښکاري چې تاسو د ليکنې د خبرو اترو مخ کې له شننې کولو پرته منځپانگه لرې کړې ده. مهرباني وکړئ دا په ياد ولرئ چې ويکي‌پېډيا کوم سانسور نه دی او منځپانگه بايد لرې نه شي ځکه چې دا جنجال جوړوي. که تاسو باوري ياست چې مالومات ناسم دي، مهرباني وکړئ د ليکنې د خبرو اترو مخ کې پرې يوې اجماع ته ورسېږې.</string>
-  <string name="talk_warn_learn_more_label">د پيغام ځاي‌ناستو په اړه نور زده کړئ</string>
+  <string name="talk_warn_learn_more_label">د پيغام ځای‌نيوونکو په اړه نور زده کړئ</string>
   <string name="talk_warn_learn_more_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_Suggested_edits#Message_placeholders</string>
   <string name="talk_warn_saved_messages_usage_instruction">لاندې يو پيغام د خپلو پيغامونو دوديزولو، لېږلو او خوندي کولو لپاره د بېلگې په توگه وکاروئ.</string>
   <string name="patroller_saved_message_body_art_imp">سلام {{{username}}}. ستاسو ليکنه يو ښه پيل ده! د دې لا ښه کولو لپاره د باوري سرچينو لپاره د نورو سرچينو ورگډول په پام کې ونيسئ. دا د مالوماتو تاييد کې مرسته کوي او د ليکنې کيفيت ښه کوي. د نور سپيناوي لپاره د ويکي‌پېډيا د [[ويکيپېډيا:باوري_سرچينې|باوري سرچينو]] لارښود کرښې وگورئ.</string>
