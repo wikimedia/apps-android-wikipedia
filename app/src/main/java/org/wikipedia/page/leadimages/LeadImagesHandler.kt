@@ -252,7 +252,8 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
         if (pageHeaderView.donationReminderCardViewHeight == 0) {
             return 0
         }
-        return pageHeaderView.donationReminderCardViewHeight - if (adjustBottomMargin) DimenUtil.roundedDpToPx(16f) else 0
+        val newMargin = DimenUtil.getToolbarHeightPx(activity) / (if (isLeadImageEnabled) 2 else 1)
+        return pageHeaderView.donationReminderCardViewHeight - if (adjustBottomMargin) newMargin else 0
     }
 
     fun loadLeadImage() {
