@@ -34,6 +34,9 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
+import java.time.Instant
+import java.time.LocalDateTime
+import java.time.ZoneOffset
 
 class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : CoroutineWorker(context, params) {
 
@@ -197,6 +200,8 @@ class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : Corou
                             AppDatabase.instance.readingListDao().createList(remoteList.name(), remoteList.description())
                         }
                         localList.remoteId = remoteList.id
+                        localList.atime = remoteList.created.toInstant(ZoneOffset.UTC).toEpochMilli()
+                        localList.mtime = remoteList.updated.toInstant(ZoneOffset.UTC).toEpochMilli()
                         allLocalLists.add(localList)
                         upsertNeeded = true
                     } else {
@@ -455,11 +460,13 @@ class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : Corou
         var updateOnly = localPage != null
 
         if (localPage == null) {
-            localPage = ReadingListPage(pageTitleFromRemoteEntry(remotePage), fromRemoteSync = true)
+            localPage = ReadingListPage(pageTitleFromRemoteEntry(remotePage))
             localPage.listId = listForPage.id
             updateOnly = AppDatabase.instance.readingListPageDao().getPageByTitle(listForPage, remoteTitle) != null
         }
         localPage.remoteId = remotePage.id
+        localPage.atime = remotePage.created.toInstant(ZoneOffset.UTC).toEpochMilli()
+        localPage.mtime = remotePage.updated.toInstant(ZoneOffset.UTC).toEpochMilli()
         if (updateOnly) {
             L.d("Updating local page " + localPage.apiTitle)
             AppDatabase.instance.readingListPageDao().updateReadingListPage(localPage)
@@ -488,7 +495,9 @@ class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : Corou
     private fun remoteEntryFromLocalPage(localPage: ReadingListPage): RemoteReadingListEntry {
         val title = ReadingListPage.toPageTitle(localPage)
         return RemoteReadingListEntry(0, 0,
-            "${title.wikiSite.scheme()}://${title.wikiSite.authority()}", title.prefixedText)
+            "${title.wikiSite.scheme()}://${title.wikiSite.authority()}", title.prefixedText,
+            created = if (localPage.atime == 0L) LocalDateTime.now() else LocalDateTime.ofInstant(Instant.ofEpochMilli(localPage.atime), ZoneOffset.UTC),
+            updated = if (localPage.mtime == 0L) LocalDateTime.now() else LocalDateTime.ofInstant(Instant.ofEpochMilli(localPage.mtime), ZoneOffset.UTC))
     }
 
     companion object {
@@ -529,8 +538,25 @@ class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : Corou
             }
         }
 
-        fun manualSyncWithForce() {
-            manualSync(bundleOf(SYNC_EXTRAS_FORCE_FULL_SYNC to true))
+        fun manualSyncWithDeletePages(lists: List<ReadingList>) {
+            val ids = lists.flatMapTo(mutableSetOf()) { list ->
+                createIdsForDeletion(list, list.pages.toSet())
+            }
+
+            if (ids.isNotEmpty()) {
+                Prefs.addReadingListPagesDeletedIds(ids)
+                manualSync()
+            }
+        }
+
+        fun manualSyncWithForce(fromRefresh: Boolean = false) {
+            val extras = bundleOf(SYNC_EXTRAS_FORCE_FULL_SYNC to true)
+            // Pull-to-refresh needs the REFRESHING flag so a ReadingListSyncEvent is emitted on
+            // completion to dismiss the refresh spinner.
+            if (fromRefresh) {
+                extras.putBoolean(SYNC_EXTRAS_REFRESHING, true)
+            }
+            manualSync(extras)
         }
 
         fun manualSyncWithRefresh() {

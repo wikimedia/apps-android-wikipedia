@@ -35,7 +35,7 @@
   <string name="menu_page_other_languages">Verander taal</string>
   <string name="menu_page_find_in_page" fuzzy="true">Soek in blad</string>
   <string name="menu_page_font_and_theme">Lettertipe en tema</string>
-  <string name="menu_page_add_to_list">Voeg toe tot leeslys</string>
+  <string name="menu_page_add_to_list" fuzzy="true">Voeg toe tot leeslys</string>
   <string name="menu_page_share">Deel skakel</string>
   <string name="menu_long_press_open_page">Maak oop</string>
   <string name="menu_long_press_open_in_new_tab">Open in nuwe oortjie</string>
@@ -67,7 +67,7 @@
   <string name="menu_show_toc">Inhoudsopgawe</string>
   <string name="search_no_results_found">Geen resultate gevind nie</string>
   <string name="search_reading_list_no_results">Geen resultate in “%s” gevind nie</string>
-  <string name="search_reading_lists_no_results">Geen resultate in leeslys gevind</string>
+  <string name="search_reading_lists_no_results" fuzzy="true">Geen resultate in leeslys gevind</string>
   <string name="search_history_no_results">Geen resultate in geskiedenis gevind</string>
   <string name="edit_section_captcha_message">Om te help teen ge-outomatiseerde spam, voer asseblief die woorde wat hieronder verskyn in</string>
   <string name="edit_section_captcha_hint">Herhaal woorde van hierbo</string>
@@ -222,7 +222,7 @@
   <string name="address_copied">Adres gekopiëer na knipbord.</string>
   <string name="text_copied">Teks na knipbord gekopieer.</string>
   <string name="button_continue_to_article">Lees artikel</string>
-  <string name="button_add_to_reading_list">Voeg toe tot leeslys</string>
+  <string name="button_add_to_reading_list" fuzzy="true">Voeg toe tot leeslys</string>
   <string name="button_get_directions">Kry aanwysings</string>
   <string name="preference_title_show_link_previews">Toon skakelvoorskoue</string>
   <string name="nav_item_donate" fuzzy="true">Ondersteun Wikipedia</string>
@@ -252,10 +252,10 @@
   <string name="text_size_increase">Vergroot teks</string>
   <string name="text_size_decrease">Verklein teks</string>
   <string name="text_size_percent_default">%s (verstek)</string>
-  <string name="reading_list_save_to">Bewaar in leeslys</string>
+  <string name="reading_list_save_to" fuzzy="true">Bewaar in leeslys</string>
   <string name="reading_list_create_new">Skep nuwe</string>
-  <string name="reading_list_title_exists">Leeslys “%s” bestaan reeds.</string>
-  <string name="reading_list_added_view_button">Bekyk lys</string>
+  <string name="reading_list_title_exists" fuzzy="true">Leeslys “%s” bestaan reeds.</string>
+  <string name="reading_list_added_view_button" fuzzy="true">Bekyk lys</string>
   <string name="reading_list_sort">Sorteer</string>
   <string name="reading_list_sort_ellipsis">Sorteer volgens…</string>
   <string name="reading_list_sort_by_name">Sorteer volgens naam</string>
@@ -264,22 +264,22 @@
   <string name="reading_list_sort_by_recent_desc">Sorteer volgens byvoegdatum (oudste)</string>
   <string name="reading_list_sort_by_created">Sorteer volgens skeppingsdatum (jongste)</string>
   <string name="reading_list_sort_by_created_desc">Sorteer volgens skeppingsdatum (oudste)</string>
-  <string name="reading_list_menu_delete">Skraplys</string>
+  <string name="reading_list_menu_delete" fuzzy="true">Skraplys</string>
   <string name="reading_list_menu_rename" fuzzy="true">Hernoem</string>
-  <string name="reading_list_name_sample">My leeslys</string>
-  <string name="reading_list_name_hint">Naam van hierdie lys</string>
+  <string name="reading_list_name_sample" fuzzy="true">My leeslys</string>
+  <string name="reading_list_name_hint" fuzzy="true">Naam van hierdie lys</string>
   <string name="reading_list_description_hint">Beskrywing (opsioneel)</string>
-  <string name="reading_list_item_deleted">%s uit lys verwyder</string>
-  <string name="reading_list_items_deleted">%d artikels uit lys verwyder</string>
+  <string name="reading_list_item_deleted" fuzzy="true">%s uit lys verwyder</string>
+  <string name="reading_list_items_deleted" fuzzy="true">%d artikels uit lys verwyder</string>
   <string name="reading_list_item_delete_undo">Ontdaan</string>
   <string name="reading_list_deleted">%s geskrap</string>
-  <string name="saved_list_empty_title">Nog geen leeslyste nie</string>
+  <string name="saved_list_empty_title" fuzzy="true">Nog geen leeslyste nie</string>
   <string name="reading_lists_empty_message" fuzzy="true">Bewaar artikels in die leeslys sodat u dit later kan lees, selfs wanneer u vanlyn is.</string>
-  <string name="reading_list_empty">U het geen artikels tot hierdie lys toegevoeg nie.</string>
+  <string name="reading_list_empty" fuzzy="true">U het geen artikels tot hierdie lys toegevoeg nie.</string>
   <string name="reading_list_article_offline">Vanlyn beskikbaar</string>
   <string name="reading_list_article_make_offline">Maak hierdie artikel vanlyn beskikbaar</string>
   <string name="reading_list_remove_from_list">Verwyder uit %s</string>
-  <string name="reading_list_remove_from_lists">Verwyder uit leeslyste</string>
+  <string name="reading_list_remove_from_lists" fuzzy="true">Verwyder uit leeslyste</string>
   <string name="reading_list_turned_sync_off_dialog_ok">Regso</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Instellings</string>
   <string name="user_option_sync_label">Voorkeure</string>

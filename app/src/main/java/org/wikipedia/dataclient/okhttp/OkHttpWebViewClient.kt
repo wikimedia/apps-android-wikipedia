@@ -5,7 +5,6 @@ import android.webkit.WebResourceRequest
 import android.webkit.WebResourceResponse
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import okhttp3.Headers
 import okhttp3.Request
 import okhttp3.Response
 import org.wikipedia.WikipediaApp
@@ -73,7 +72,7 @@ abstract class OkHttpWebViewClient : WebViewClient() {
                     rsp.body!!.contentType()!!.charset(Charset.defaultCharset())!!.name(),
                     rsp.code,
                     rsp.message.ifBlank { "Unknown error" },
-                    addResponseHeaders(rsp.headers).toMap(),
+                    rsp.headers.toMap(),
                     rsp.body?.byteStream())
             }
         } catch (e: Exception) {
@@ -130,11 +129,6 @@ abstract class OkHttpWebViewClient : WebViewClient() {
             }
         }
         return builder
-    }
-
-    private fun addResponseHeaders(headers: Headers): Headers {
-        // add CORS header to allow requests from all domains.
-        return headers.newBuilder().set("Access-Control-Allow-Origin", "*").build()
     }
 
     companion object {

@@ -25,7 +25,7 @@
   <string name="search_hint_voice_search">ದನಿ ಇನ್‌ಪುಟ್ ನಾಡ್ಲೆ</string>
   <string name="search_hint_search_languages">ಬಾಸೆಲೆನ್ ನಡ್ಲೆ</string>
   <string name="search_back_button_content_description">ಪಿರ ಪೋಲೆ</string>
-  <string name="filter_hint_filter_my_lists_and_articles">ಎನ್ನ ಪಟ್ಟಿಲೆನ್ ಅರ್ತ್‌ದ್ ತೋಜಾಲ</string>
+  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">ಎನ್ನ ಪಟ್ಟಿಲೆನ್ ಅರ್ತ್‌ದ್ ತೋಜಾಲ</string>
   <string name="nav_item_suggested_edits">ಸಂಪೊಲಿಪುಲೆ</string>
   <string name="nav_item_more">ನನಾತ್</string>
   <string name="nav_item_search">ನಾಡ್‍ಲೆ</string>
@@ -89,16 +89,16 @@
   <string name="menu_page_watched">ತೂಯಿನವು</string>
   <string name="edit_section_find_in_page">ಪುಟೊಟು ಪತ್ತೆ ಮಲ್ಪುಲೆ</string>
   <string name="menu_page_font_and_theme">ಅಕ್ಷರದ ನಮೂನೆ ಬುಕ್ಕಾ ಬಣ್ಣೊ</string>
-  <string name="menu_page_add_to_list">ಓದುನ ಪಟ್ಟಿಗ್ ಸೇರ್ಪಾಲೆ</string>
+  <string name="menu_page_add_to_list" fuzzy="true">ಓದುನ ಪಟ್ಟಿಗ್ ಸೇರ್ಪಾಲೆ</string>
   <string name="menu_page_add_to_default_list">ಒರಿಪಾಲೆ</string>
-  <string name="feed_card_add_to_list">ಓದುನ ಪಟ್ಟಿಗ್ ಸೇರಾಲೆ</string>
+  <string name="feed_card_add_to_list" fuzzy="true">ಓದುನ ಪಟ್ಟಿಗ್ ಸೇರಾಲೆ</string>
   <string name="feed_card_add_to_default_list">ಒರಿಪಾಲೆ</string>
   <string name="menu_page_share">ಕೊಂಡಿನ್ ಪಟ್ಟ್‌ಲೆ</string>
   <string name="menu_article_share">ಬರವುನು ಪಟ್ಟೊನುಲೆ</string>
   <string name="menu_page_article_share">ಪಟ್ಟ್‌ಲೆ</string>
   <string name="menu_page_open_a_new_tab">ಪೊಸ ಪಟ್ಟಿಡ್ ತೋಜಾಲೆ</string>
   <string name="menu_page_new_tab">ಪೊಸ ಪಟ್ಟಿ</string>
-  <string name="menu_page_reading_lists">ಓದುನ ಪಟ್ಟಿ</string>
+  <string name="menu_page_reading_lists" fuzzy="true">ಓದುನ ಪಟ್ಟಿ</string>
   <string name="menu_page_recently_viewed">ಇಂಚಪ ತೂಯಿನವು</string>
   <string name="menu_page_archive">ಒರಿಪಾಯಿನ-ಆರ್ಕೈವ್</string>
   <string name="menu_long_press_open_page">ತೋಜಾಲೇ</string>
@@ -136,7 +136,7 @@
   <string name="menu_show_toc">ಪರಿವಿಡಿ</string>
   <string name="search_no_results_found">ಒವ್ವೆ ವಿಚಾರೊಲ್ ತಿಕೀಜಿ</string>
   <string name="search_reading_list_no_results">\"%s\" ಪನ್ಪಿ ವಿಸಯೊಗ್ ದಾಲ ತಿಕ್ಕಿಜಿ</string>
-  <string name="search_reading_lists_no_results">ಓದುನ ಪಟ್ಟಿಲೆಡ್ ದಾಲ ಫಲಿತಾಂಶೊ ತಿಕ್ಕಿಜಿ</string>
+  <string name="search_reading_lists_no_results" fuzzy="true">ಓದುನ ಪಟ್ಟಿಲೆಡ್ ದಾಲ ಫಲಿತಾಂಶೊ ತಿಕ್ಕಿಜಿ</string>
   <string name="search_history_no_results">ಇತಿಹಾಸೊಡು ದಾಲ ಫಲಿತಾಂಶೊ ತಿಕ್ಕಿಜಿ</string>
   <string name="edit_section_captcha_message">ಅಟೊಮೇಟೆಡ್ ಸ್ಪ್ಯಾಮ್ ಉಂಡಾಪಿನೆನ್ ಉಂತಾಯೆರೆ ಬೋಡಾದ್, ದಯಮಲ್ತ್‌ದ್ ತಿರ್ತ್ ತೋಜುನ ಪಠ್ಯೊನು ಬರೆಲೆ.</string>
   <string name="edit_section_captcha_request_an_account_message">ಚಿತ್ರೊನ್ ತುಯರ ಅಪುಜಾ? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;ಮುಲ್ಪ ತೂಲೆ&lt;/a&gt;</string>
@@ -212,12 +212,12 @@
   <string name="preferences_heading_syncing">ಸಿಂಕಿಂಗ್</string>
   <string name="preferences_heading_data_usage">ಡಾಟಾ ಬಲಕೆ</string>
   <string name="preferences_heading_experimental">ಪರೀಕ್ಷಾರ್ತೊ</string>
-  <string name="preference_title_sync_reading_lists_from_account">ಓದುನ ಲಿಸ್ಟ್</string>
-  <string name="preference_title_download_reading_list_articles">ಪಟ್ಟಿತ  ಲೇಖನೊನ್ ಓದಿರ ಡೌನ್ಲೋಡ್ ಮಾಲ್ಪುಲೆ.</string>
-  <string name="preference_summary_sync_reading_lists">ಓದುನ ಪಟ್ಟಿನ್ ಮಾತಾ ಡಿವೈಸ್‌ಗ್ ಸೇರಾವರ ಇರೆನ ವಿಕಿಪೀಡಿಯ ಖಾತೆಡ್ ಒರಿಪಾಲೆ</string>
-  <string name="preference_summary_sync_reading_lists_from_account">ಓದುನ ಪಟ್ಟಿನ್ ಮಾತಾ ಡಿವೈಸ್‌ಗ್ ಸೇರಾವರ ಇರೆನ ವಿಕಿಪೀಡಿಯ ಖಾತೆ%sಡ್ ಒರಿಪಾಲೆ</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">ಸೇರಾಯಿನ ಓದುನ ಪಟ್ಟಿನ್ %sಡ್ದ್ ದೆಪ್ಪೊಡಾ?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">ದುಂಬು ಸೇರಾಯಿನ ಓದುನ ಮಾತಾ ಪಟ್ಟಿನ್ ಉಂದು ಮಾಜಾವುಂಡು. ಸೇರಾಯಿನ ಪಟ್ಟಿನ್ %sಡ್ದ್ ಇರೆನ ಖಾತೆಡ್ದ್ ದೆಪ್ಪೊಡಾ?</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">ಓದುನ ಲಿಸ್ಟ್</string>
+  <string name="preference_title_download_reading_list_articles" fuzzy="true">ಪಟ್ಟಿತ  ಲೇಖನೊನ್ ಓದಿರ ಡೌನ್ಲೋಡ್ ಮಾಲ್ಪುಲೆ.</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">ಓದುನ ಪಟ್ಟಿನ್ ಮಾತಾ ಡಿವೈಸ್‌ಗ್ ಸೇರಾವರ ಇರೆನ ವಿಕಿಪೀಡಿಯ ಖಾತೆಡ್ ಒರಿಪಾಲೆ</string>
+  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">ಓದುನ ಪಟ್ಟಿನ್ ಮಾತಾ ಡಿವೈಸ್‌ಗ್ ಸೇರಾವರ ಇರೆನ ವಿಕಿಪೀಡಿಯ ಖಾತೆ%sಡ್ ಒರಿಪಾಲೆ</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">ಸೇರಾಯಿನ ಓದುನ ಪಟ್ಟಿನ್ %sಡ್ದ್ ದೆಪ್ಪೊಡಾ?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">ದುಂಬು ಸೇರಾಯಿನ ಓದುನ ಮಾತಾ ಪಟ್ಟಿನ್ ಉಂದು ಮಾಜಾವುಂಡು. ಸೇರಾಯಿನ ಪಟ್ಟಿನ್ %sಡ್ದ್ ಇರೆನ ಖಾತೆಡ್ದ್ ದೆಪ್ಪೊಡಾ?</string>
   <string name="preference_title_auto_upload_crash_reports">ಬೊಡ್ಚಂತಿನ ವರದಿ ಕಡಪ‍್ಡುಕಾ</string>
   <string name="history_filter_list_hint">ಇತಿಹಾಸೊನು ಅರಿಪುಲೆ</string>
   <string name="error_can_not_process_link">ಈ ಕೊಂಡಿತಾ ಪುಟೋ ತೋಜೊಂತಿಜ್ಜಿ</string>
@@ -308,7 +308,7 @@
   <string name="page_view_in_browser">ಪುಟೋ  ಬ್ರೌಸರ್ಟ್ ತೂಲೆ</string>
   <string name="format_error_server_message">ಸಂದೇಸೊ: \"%s\"</string>
   <string name="button_continue_to_article">ಲೇಕನೋ ಓದುಲೆ</string>
-  <string name="button_add_to_reading_list">ಓದುನ ಪಟ್ಟಿಗ್ ಸೇರ್ಪಾಲೆ</string>
+  <string name="button_add_to_reading_list" fuzzy="true">ಓದುನ ಪಟ್ಟಿಗ್ ಸೇರ್ಪಾಲೆ</string>
   <string name="nav_item_donate">ದಾನೊ</string>
   <string name="enable_location_service">ಸಕ್ರಿಯ ಮಲ್ಪು</string>
   <string name="location_permissions_enable_action">ಅನ್ ಮಾಲ್ಪುಲೆ</string>
@@ -336,22 +336,22 @@
   <string name="color_theme_black">ಕಪ್ಪು</string>
   <string name="theme_category_editing">ಸಂಪೊಲಿಪು</string>
   <string name="nav_item_saved">ಒರಿಪಾಲೆ</string>
-  <string name="reading_list_save_to">ಓದಿನ ಲಿಸ್ಟ್ನ್ ಒರಿಪಾಲೇ</string>
+  <string name="reading_list_save_to" fuzzy="true">ಓದಿನ ಲಿಸ್ಟ್ನ್ ಒರಿಪಾಲೇ</string>
   <string name="reading_list_create_new">ಪೊಸತ್ ಮಾನ್ಪುಲೇ</string>
-  <string name="reading_list_added_view_button">ಪಟ್ಟಿ ತುಲೇ</string>
+  <string name="reading_list_added_view_button" fuzzy="true">ಪಟ್ಟಿ ತುಲೇ</string>
   <string name="reading_list_sort">ಅಜಪುಲೇ</string>
   <string name="reading_list_sort_by_name">ಪುದರ್ತ ತರೋ</string>
   <string name="reading_list_sort_by_name_desc">ಪುದರ್ತ ತರೋ(ತಿರ್ಗಾತ್)</string>
   <string name="reading_list_sort_by_recent">ತಾರೀಕ್‌ಗ್ ಎಲ್ಯ ಮಾಲ್ಪುಲೆ.(ಇಂಚಿಪೊದ)</string>
-  <string name="reading_list_menu_delete"> ಮಾಜಾಯಿನ ಪಟ್ಟಿ.</string>
+  <string name="reading_list_menu_delete" fuzzy="true"> ಮಾಜಾಯಿನ ಪಟ್ಟಿ.</string>
   <string name="reading_list_menu_rename">ಪೊಸ ಪುದಾರ್/ವಿವರಣೆ</string>
   <string name="reading_list_action_menu_save_for_offline">offlin ಡ್ ಒರಿಪಾಲೆ</string>
-  <string name="reading_list_name_sample">ಎನ್ನ ಓದುನಾ ಲಿಸ್ಟ್</string>
-  <string name="reading_list_name_hint">ಈ ಲಿಸ್ಟ್ ದ ಪುದರ್</string>
-  <string name="reading_list_item_deleted">%s ಪಟ್ಟಿದ್ ದೆತುಂಡು</string>
+  <string name="reading_list_name_sample" fuzzy="true">ಎನ್ನ ಓದುನಾ ಲಿಸ್ಟ್</string>
+  <string name="reading_list_name_hint" fuzzy="true">ಈ ಲಿಸ್ಟ್ ದ ಪುದರ್</string>
+  <string name="reading_list_item_deleted" fuzzy="true">%s ಪಟ್ಟಿದ್ ದೆತುಂಡು</string>
   <string name="reading_list_item_delete_undo">ದುಂಬುದಲೆಕೊ</string>
   <string name="reading_list_deleted">%s ದೆತ್ತುಂಡು</string>
-  <string name="saved_list_empty_title">ಓದಿನ ಲಿಸ್ಟ್ ಮುಲ್ಪ ಇಜ್ಜಿ</string>
+  <string name="saved_list_empty_title" fuzzy="true">ಓದಿನ ಲಿಸ್ಟ್ ಮುಲ್ಪ ಇಜ್ಜಿ</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">ಬೊಡ್ಚಿ ಸೊಲ್ಮೆಲೋ</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">This article will now be available offline.</item>

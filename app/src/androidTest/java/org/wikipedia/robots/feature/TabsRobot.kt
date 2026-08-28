@@ -18,12 +18,12 @@ class TabsRobot : BaseRobot() {
 
     fun launchTabsScreen() = apply {
         click.onDisplayedView(R.id.page_toolbar_button_tabs)
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun createNewTabWithContentDescription(text: String) = apply {
         click.onDisplayedViewWithContentDescription(text)
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun verifyTabCount(count: Int) = apply {

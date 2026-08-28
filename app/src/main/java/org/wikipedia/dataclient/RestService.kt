@@ -5,12 +5,11 @@ import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.dataclient.page.TalkPage
 import org.wikipedia.dataclient.restbase.Metrics
+import org.wikipedia.dataclient.restbase.PageViews
 import org.wikipedia.dataclient.restbase.PreviewRequest
 import org.wikipedia.dataclient.restbase.RbDefinition
 import org.wikipedia.dataclient.restbase.UserEdits
 import org.wikipedia.feed.aggregated.AggregatedFeedContent
-import org.wikipedia.feed.announcement.AnnouncementList
-import org.wikipedia.feed.configure.FeedAvailability
 import org.wikipedia.feed.onthisday.OnThisDay
 import org.wikipedia.gallery.MediaList
 import org.wikipedia.readinglist.sync.SyncedReadingLists
@@ -83,11 +82,6 @@ interface RestService {
     suspend fun getOnThisDay(@Path("mm") month: Int,
                              @Path("dd") day: Int): OnThisDay
 
-    // TODO: Remove this before next fundraising campaign in 2024
-    @GET("feed/announcements")
-    @Headers("Accept: " + ACCEPT_HEADER_PREFIX + "announcements/0.1.0\"")
-    suspend fun getAnnouncements(): AnnouncementList
-
     @Headers("Accept: " + ACCEPT_HEADER_PREFIX + "aggregated-feed/0.5.0\"")
     @GET("feed/featured/{year}/{month}/{day}")
     suspend fun getFeedFeatured(
@@ -96,9 +90,6 @@ interface RestService {
         @Path("day") day: String?,
         @Query("lang") lang: String?
     ): AggregatedFeedContent
-
-    @GET("feed/availability")
-    suspend fun feedAvailability(): FeedAvailability
 
     // ------- Reading lists -------
     @POST("data/lists/setup")
@@ -201,6 +192,20 @@ interface RestService {
         @Path("fromDate") fromDate: String,
         @Path("toDate") toDate: String
     ): UserEdits
+
+    @GET("metrics/pageviews/v3/per_editor/{globalUserId}/daily/{fromDate}/{toDate}")
+    suspend fun getPageViewsForEditedPagesDaily(
+        @Path("globalUserId") globalUserId: Int,
+        @Path("fromDate") fromDate: String,
+        @Path("toDate") toDate: String
+    ): PageViews
+
+    @GET("metrics/pageviews/v3/top_pages_per_editor/{globalUserId}/monthly/{fromDate}/{toDate}")
+    suspend fun getMostViewedEditedPagesMonthly(
+        @Path("globalUserId") globalUserId: Int,
+        @Path("fromDate") fromDate: String,
+        @Path("toDate") toDate: String
+    ): PageViews
 
     @POST("transform/wikitext/to/mobile-html/{title}")
     suspend fun getHtmlPreviewFromWikitext(

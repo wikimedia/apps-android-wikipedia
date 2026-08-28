@@ -30,6 +30,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.preference.PreferenceManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
@@ -41,18 +42,23 @@ import org.wikipedia.activity.SingleWebViewActivity
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.analytics.eventplatform.YearInReviewEvent
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.databinding.ActivityPageBinding
+import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.donate.CampaignCollection
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.descriptions.DescriptionEditRevertHelpView
 import org.wikipedia.descriptions.DescriptionEditSuccessActivity
+import org.wikipedia.edit.EDITOR_CHOICE_VE
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.edit.EditSectionActivity
+import org.wikipedia.edit.EditSectionViewModel
+import org.wikipedia.edit.showEditorChoiceDialog
 import org.wikipedia.events.ArticleSavedOrDeletedEvent
 import org.wikipedia.events.ChangeTextSizeEvent
 import org.wikipedia.extensions.parcelableExtra
@@ -66,6 +72,7 @@ import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.readinglist.ReadingListActivity
 import org.wikipedia.readinglist.ReadingListMode
+import org.wikipedia.search.HybridSearchAbCTest
 import org.wikipedia.search.SearchActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.MainPageNameData
@@ -87,8 +94,10 @@ import org.wikipedia.views.FrameLayoutNavMenuTriggerer
 import org.wikipedia.views.ObservableWebView
 import org.wikipedia.views.ViewUtil
 import org.wikipedia.watchlist.WatchlistExpiry
+import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetRepository
 import org.wikipedia.yearinreview.YearInReviewDialog
 import org.wikipedia.yearinreview.YearInReviewViewModel
+import java.time.LocalDate
 import java.util.Locale
 
 class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.LoadPageCallback, FrameLayoutNavMenuTriggerer.Callback {
@@ -120,11 +129,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                 }).show()
 
             // and reload the page...
-            pageFragment.model.title?.let { title ->
-                pageFragment.model.curEntry?.let { entry ->
-                    pageFragment.loadPage(title, entry, pushBackStack = false, squashBackstack = false, isRefresh = true)
-                }
-            }
+            pageFragment.refreshPage()
         }
     }
 
@@ -190,12 +195,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
 
         app = WikipediaApp.instance
 
-        if (savedInstanceState == null && !app.haveMainActivity) {
-            lifecycleScope.launch {
-                YearInReviewDialog.maybeShowCreateReadingListDialog(this@PageActivity)
-            }
-        }
-
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false)
         binding = ActivityPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -228,9 +227,15 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         setSupportActionBar(binding.pageToolbar)
         clearActionBarTitle()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         binding.pageToolbarButtonSearch.setOnClickListener {
             pageFragment.articleInteractionEvent?.logSearchWikipediaClick()
-            startActivity(SearchActivity.newIntent(this@PageActivity, InvokeSource.TOOLBAR, null))
+            val articleTitle = if (pageFragment.title?.namespace() == Namespace.MAIN) pageFragment.title?.displayText else null
+            startActivity(SearchActivity.newIntent(
+                context = this@PageActivity,
+                source = InvokeSource.TOOLBAR,
+                query = null,
+                title = articleTitle))
         }
         binding.pageToolbarButtonTabs.updateTabCount(false)
         binding.pageToolbarButtonTabs.setOnClickListener {
@@ -322,7 +327,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                 if (app.haveMainActivity) {
                     onBackPressedDispatcher.onBackPressed()
                 } else {
-                    pageFragment.goToMainActivity(tab = NavTab.EXPLORE, tabExtra = Constants.INTENT_EXTRA_GO_TO_MAIN_TAB)
+                    pageFragment.goToMainActivity(tab = NavTab.HOME, tabExtra = Constants.INTENT_EXTRA_GO_TO_MAIN_TAB)
                 }
                 true
             } else -> super.onOptionsItemSelected(item)
@@ -417,6 +422,10 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     override fun onPageLoadComplete() {
         removeTransitionAnimState()
         maybeShowThemeTooltip()
+        updateSearchHint()
+        lifecycleScope.launch {
+            ReadingChallengeWidgetRepository(this@PageActivity).updateOnArticleRead(LocalDate.now())
+        }
     }
 
     override fun onPageDismissBottomSheet() {
@@ -477,7 +486,22 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     }
 
     override fun onPageRequestEditSection(sectionId: Int, sectionAnchor: String?, title: PageTitle, highlightText: String?) {
-        requestEditSectionLauncher.launch(EditSectionActivity.newIntent(this, sectionId, sectionAnchor, title, InvokeSource.PAGE_ACTIVITY, highlightText))
+        val launchEditor = {
+            if (Prefs.editorModeChoice == EDITOR_CHOICE_VE && Prefs.visualEditorEnabled) {
+                UriUtil.visitInExternalBrowser(this, title.getWebApiUrl("veaction=edit&section=$sectionId").toUri())
+            } else {
+                requestEditSectionLauncher.launch(EditSectionActivity.newIntent(this, sectionId, sectionAnchor, title, InvokeSource.PAGE_ACTIVITY, highlightText))
+            }
+        }
+        if (Prefs.editorModeChoiceShowDialog && Prefs.visualEditorEnabled) {
+            showEditorChoiceDialog(this, isSettingsScreen = false) { editorChoice, dontShowAgain ->
+                Prefs.editorModeChoice = editorChoice
+                Prefs.editorModeChoiceShowDialog = !dontShowAgain
+                launchEditor()
+            }
+        } else {
+            launchEditor()
+        }
     }
 
     override fun onPageRequestLangLinks(title: PageTitle, historyEntryId: Long) {
@@ -506,67 +530,115 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     }
 
     private fun handleIntent(intent: Intent) {
+        if (intent.action == Intent.ACTION_MAIN && intent.categories?.contains(Intent.CATEGORY_LAUNCHER) == true) {
+            TestKitchenAdapter.client.getInstrument("apps-open")
+                .submitInteraction(action = "app_open", actionSource = "app_icon")
+        }
         if (Intent.ACTION_VIEW == intent.action && intent.data != null) {
-            var uri = intent.data
-            if (!ReleaseUtil.isPreBetaRelease && uri?.scheme != null && uri.scheme == "http") {
+            var uri = intent.data!!
+
+            // Push back if the user is still in the Visual Editor flow.
+            uri.getQueryParameter("veaction")?.let {
+                if (it == "edit") {
+                    val title = PageTitle.titleForUri(uri, WikiSite(uri))
+                    val sectionId = uri.getQueryParameter("section")?.toIntOrNull() ?: 0
+                    // If the link is a VisualEditor edit link, then we should open it in an external browser.
+                    UriUtil.visitInExternalBrowser(this, title.getWebApiUrl("veaction=edit&section=$sectionId").toUri())
+                    return
+                }
+            }
+
+            TestKitchenAdapter.client.getInstrument("apps-open")
+                .submitInteraction(action = "app_open", actionSource = "external_link")
+
+            if (uri.scheme == "wikipedia") {
+                uri = uri.buildUpon().scheme(WikiSite.DEFAULT_SCHEME).build()
+                uri.getQueryParameter("saved")?.let {
+                    if (it == "true") {
+                        val revision = uri.getQueryParameter("revision")?.toLongOrNull()
+                        if (revision != null && pageFragment.title != null) {
+                            lifecycleScope.launch(CoroutineExceptionHandler { _, t ->
+                                L.e(t)
+                            }) {
+                                EditSectionViewModel.retryUntilNewRevision(pageFragment.title!!, revision)
+                                pageFragment.refreshPage()
+                                FeedbackUtil.showMessage(this@PageActivity, R.string.edit_saved_successfully)
+                            }
+                        } else {
+                            binding.root.post {
+                                if (!isDestroyed) {
+                                    FeedbackUtil.showMessage(this, R.string.edit_saved_successfully)
+                                }
+                            }
+                        }
+                    } else {
+                        L.d("Edit abandoned.")
+                    }
+                }
+            }
+
+            if (!ReleaseUtil.isPreBetaRelease && uri.scheme != null && uri.scheme == "http") {
                 // For external links, ensure that they're using https.
                 uri = uri.buildUpon().scheme(WikiSite.DEFAULT_SCHEME).build()
             }
-            uri?.let {
-                val wiki = WikiSite(it)
-                val title = PageTitle.titleForUri(it, wiki)
-                val historyEntry = HistoryEntry(title, if (intent.hasExtra(Constants.INTENT_EXTRA_NOTIFICATION_ID))
-                    HistoryEntry.SOURCE_NOTIFICATION_SYSTEM else HistoryEntry.SOURCE_EXTERNAL_LINK)
-                // Populate the referrer with the externally-referring URL, e.g. an external Browser URL, if present.
-                ActivityCompat.getReferrer(this)?.let { uri ->
-                    historyEntry.referrer = uri.toString()
-                }
-                if (title.namespace() == Namespace.SPECIAL && title.prefixedText.startsWith("Special:ReadingLists")) {
-                    L.d("Received shareable reading lists")
-                    val encodedListFromParameter = uri.getQueryParameter("limport")
-                    Prefs.importReadingListsDialogShown = false
-                    Prefs.receiveReadingListsData = encodedListFromParameter
-                    startActivity(ReadingListActivity.newIntent(this, ReadingListMode.PREVIEW).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
-                    finish()
-                    return
-                }
-                // Special cases:
-                // If the subdomain of the URL is not a "language" subdomain as we expect, then
-                // bounce it out to an external browser. This can be links to the "donate." or
-                // "thankyou." subdomains, or the Wikiquote "quote." subdomain, and possibly others.
-                val language = wiki.languageCode.lowercase(Locale.getDefault())
-                if (Constants.NON_LANGUAGE_SUBDOMAINS.contains(language) || (title.isSpecial && !title.isContributions)) {
-                    // ...Except if the URL came as a result of a successful donation, in which case
-                    // treat it differently:
-                    if (language == "thankyou" && uri.getQueryParameter("order_id") != null) {
-                        CampaignCollection.addDonationResult(fromWeb = true,
-                            amount = (uri.getQueryParameter("amount"))?.toFloat() ?: 0f,
-                            currency = uri.getQueryParameter("currency") ?: "",
-                            recurring = uri.getQueryParameter("recurring") == "1")
-                        // Check if the donation started from the app, but completed via web, in which case
-                        // show it in a SingleWebViewActivity.
-                        val campaign = uri.getQueryParameter("wmf_campaign")
-
-                        if (campaign != null && campaign == "Android") {
-                            var pageContentInfo = SingleWebViewActivity.PAGE_CONTENT_SOURCE_DONOR_EXPERIENCE
-                            YearInReviewViewModel.currentCampaignId?.let { campaignId ->
-                                YearInReviewEvent.submit(action = "impression", slide = "webpay_processed", campaignId = campaignId)
-                                pageContentInfo = SingleWebViewActivity.PAGE_CONTENT_SOURCE_YIR
-                            } ?: run {
-                                DonorExperienceEvent.logAction("impression", "webpay_processed", wiki.languageCode)
-                            }
-                            startActivity(SingleWebViewActivity.newIntent(this@PageActivity, uri.toString(),
-                                true, pageFragment.title, pageContentInfo))
-                            finish()
-                            return
-                        }
-                    }
-                    UriUtil.visitInExternalBrowser(this, it)
-                    finish()
-                    return
-                }
-                loadPage(title, historyEntry, TabPosition.NEW_TAB_FOREGROUND)
+            if (!Service.isWikimediaAuthority(uri.authority)) {
+                UriUtil.visitInExternalBrowser(this, uri)
+                finish()
+                return
             }
+            val wiki = WikiSite(uri)
+            val title = PageTitle.titleForUri(uri, wiki)
+            val historyEntry = HistoryEntry(title, if (intent.hasExtra(Constants.INTENT_EXTRA_NOTIFICATION_ID))
+                HistoryEntry.SOURCE_NOTIFICATION_SYSTEM else HistoryEntry.SOURCE_EXTERNAL_LINK)
+            // Populate the referrer with the externally-referring URL, e.g. an external Browser URL, if present.
+            ActivityCompat.getReferrer(this)?.let { uri ->
+                historyEntry.referrer = uri.toString()
+            }
+            if (title.namespace() == Namespace.SPECIAL && title.prefixedText.startsWith("Special:ReadingLists")) {
+                L.d("Received shareable reading lists")
+                val encodedListFromParameter = uri.getQueryParameter("limport")
+                Prefs.importReadingListsDialogShown = false
+                Prefs.receiveReadingListsData = encodedListFromParameter
+                startActivity(ReadingListActivity.newIntent(this, ReadingListMode.PREVIEW).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
+                finish()
+                return
+            }
+            // Special cases:
+            // If the subdomain of the URL is not a "language" subdomain as we expect, then
+            // bounce it out to an external browser. This can be links to the "donate." or
+            // "thankyou." subdomains, or the Wikiquote "quote." subdomain, and possibly others.
+            val language = wiki.languageCode.lowercase(Locale.getDefault())
+            if (Constants.NON_LANGUAGE_SUBDOMAINS.contains(language) || (title.isSpecial && !title.isContributions)) {
+                // ...Except if the URL came as a result of a successful donation, in which case
+                // treat it differently:
+                if (language == "thankyou" && uri.getQueryParameter("order_id") != null) {
+                    CampaignCollection.addDonationResult(fromWeb = true,
+                        amount = (uri.getQueryParameter("amount"))?.toFloat() ?: 0f,
+                        currency = uri.getQueryParameter("currency") ?: "",
+                        recurring = uri.getQueryParameter("recurring") == "1")
+                    // Check if the donation started from the app, but completed via web, in which case
+                    // show it in a SingleWebViewActivity.
+                    val campaign = uri.getQueryParameter("wmf_campaign")
+
+                    if (campaign != null && campaign == "Android") {
+                        var pageContentInfo = SingleWebViewActivity.PAGE_CONTENT_SOURCE_DONOR_EXPERIENCE
+                        YearInReviewViewModel.currentCampaignId?.let { campaignId ->
+                            YearInReviewEvent.submit(action = "impression", slide = "webpay_processed", campaignId = campaignId)
+                            pageContentInfo = SingleWebViewActivity.PAGE_CONTENT_SOURCE_YIR
+                        } ?: run {
+                            DonorExperienceEvent.logAction("impression", "webpay_processed", wiki.languageCode)
+                        }
+                        startActivity(SingleWebViewActivity.newIntent(this@PageActivity, uri.toString(),
+                            true, pageFragment.title, pageContentInfo))
+                        finish()
+                        return
+                    }
+                }
+                UriUtil.visitInExternalBrowser(this, uri)
+                finish()
+                return
+            }
+            loadPage(title, historyEntry, TabPosition.NEW_TAB_FOREGROUND)
         } else if ((ACTION_LOAD_IN_NEW_TAB == intent.action || ACTION_LOAD_IN_CURRENT_TAB == intent.action ||
                     ACTION_LOAD_IN_CURRENT_TAB_SQUASH == intent.action) && intent.hasExtra(EXTRA_HISTORYENTRY)) {
             val title = intent.parcelableExtra<PageTitle>(Constants.ARG_TITLE)
@@ -576,8 +648,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                 ACTION_LOAD_IN_CURRENT_TAB -> loadPage(title, historyEntry, TabPosition.CURRENT_TAB)
                 ACTION_LOAD_IN_CURRENT_TAB_SQUASH -> loadPage(title, historyEntry, TabPosition.CURRENT_TAB_SQUASH)
             }
-            if (intent.hasExtra(Constants.INTENT_EXTRA_REVERT_QNUMBER)) {
-                showDescriptionEditRevertDialog(intent.getStringExtra(Constants.INTENT_EXTRA_REVERT_QNUMBER)!!)
+            intent.getStringExtra(Constants.INTENT_EXTRA_REVERT_QNUMBER)?.let {
+                showDescriptionEditRevertDialog(it)
             }
         } else if (ACTION_LOAD_FROM_EXISTING_TAB == intent.action && intent.hasExtra(EXTRA_HISTORYENTRY)) {
             val title = intent.parcelableExtra<PageTitle>(Constants.ARG_TITLE)
@@ -614,8 +686,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
             binding.wikiArticleCardView.prepareForTransition(pageTitle)
             wasTransitionShown = true
         }
-        app.putCrashReportProperty("api", pageTitle.wikiSite.authority())
-        app.putCrashReportProperty("title", pageTitle.toString())
         if (loadNonArticlePageIfNeeded(pageTitle)) {
             return
         }
@@ -810,6 +880,16 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
 
     fun onAnonNotification() {
         updateNotificationsButton(true)
+    }
+
+    fun updateSearchHint() {
+        if (Prefs.isHybridSearchOnboardingShown && HybridSearchAbCTest().isHybridSearchEnabled(WikipediaApp.instance.languageState.appLanguageCode) &&
+            pageFragment.title?.namespace() == Namespace.MAIN) {
+            val title = StringUtil.fromHtml(pageFragment.title?.displayText)
+            binding.pageToolbarButtonSearch.text = getString(R.string.hybrid_search_article_search_hint, title)
+        } else {
+            binding.pageToolbarButtonSearch.text = getString(R.string.search_hint)
+        }
     }
 
     override fun onProvideAssistContent(outContent: AssistContent) {

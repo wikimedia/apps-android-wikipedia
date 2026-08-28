@@ -2,8 +2,7 @@ package org.wikipedia.page.linkpreview
 
 import android.text.style.SuperscriptSpan
 import androidx.core.text.getSpans
-import org.hamcrest.MatcherAssert
-import org.hamcrest.Matchers
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -31,7 +30,7 @@ class LinkPreviewContentsTest {
         val extract = fromHtml(linkPreviewContents.extract)
 
         // the 3 <sup> tags in the formula are represented correctly
-        MatcherAssert.assertThat(extract.getSpans<SuperscriptSpan>(), Matchers.arrayWithSize(EXPECTED_SUPS))
+        assertEquals(EXPECTED_SUPS, extract.getSpans<SuperscriptSpan>().size)
     }
 
     companion object {

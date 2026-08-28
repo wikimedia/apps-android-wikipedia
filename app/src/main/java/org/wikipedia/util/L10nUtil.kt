@@ -53,14 +53,14 @@ object L10nUtil {
         return getStringForLocale(context, Locale(title.wikiSite.languageCode), resId)
     }
 
-    fun getStringForLocale(context: Context, targetLocale: Locale, @StringRes resId: Int): String {
+    fun getStringForLocale(context: Context, targetLocale: Locale, @StringRes resId: Int, vararg formatArgs: Any): String {
         val config = Configuration(context.resources.configuration)
         val systemLocale = ConfigurationCompat.getLocales(config)[0]
         if (systemLocale?.language == targetLocale.language) {
-            return context.getString(resId)
+            return context.getString(resId, *formatArgs)
         }
         setDesiredLocale(config, targetLocale)
-        val str = context.createConfigurationContext(config).resources.getString(resId)
+        val str = context.createConfigurationContext(config).resources.getString(resId, *formatArgs)
         config.setLocale(systemLocale)
         context.createConfigurationContext(config)
         return str

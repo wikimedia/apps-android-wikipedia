@@ -1,9 +1,7 @@
 package org.wikipedia.readinglist
 
 import android.content.ContextWrapper
-import android.icu.text.ListFormatter
 import android.location.Location
-import android.os.Build
 import android.view.Gravity
 import android.view.MenuItem
 import android.view.View
@@ -16,8 +14,6 @@ import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.extensions.coroutineScope
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.readinglist.database.ReadingList
-import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.ClipboardUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.GeoUtil
@@ -26,9 +22,8 @@ import org.wikipedia.util.StringUtil
 
 class LongPressMenu(
     private val anchorView: View,
-    private val existsInAnyList: Boolean = true,
     private val openPageInPlaces: Boolean = false,
-    private var menuRes: Int = R.menu.menu_long_press,
+    private val menuRes: Int = R.menu.menu_long_press,
     private val location: Location? = null,
     private val callback: Callback? = null
 ) {
@@ -36,83 +31,39 @@ class LongPressMenu(
         fun onOpenLink(entry: HistoryEntry) {}
         fun onOpenInNewTab(entry: HistoryEntry) {}
         fun onOpenInPlaces(entry: HistoryEntry, location: Location) {}
-        fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean)
-        fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry)
-        fun onRemoveRequest() {}
+        fun onSaveRequest(entry: HistoryEntry)
+        fun onShareRequest() {}
     }
 
-    private var listsContainingPage: List<ReadingList>? = null
+    private var isArticleSaved = false
     private var entry: HistoryEntry? = null
 
     fun show(entry: HistoryEntry?) {
         entry?.let {
             anchorView.coroutineScope().launch {
-                listsContainingPage = AppDatabase.instance.readingListDao().getListsFromPageOccurrences(
-                        AppDatabase.instance.readingListPageDao().getAllPageOccurrences(it.title)
-                    )
+                isArticleSaved = AppDatabase.instance.readingListPageDao().findPageInAnyList(it.title) != null
                 this@LongPressMenu.entry = it
-                if (!existsInAnyList) {
-                    this@LongPressMenu.menuRes = R.menu.menu_reading_list_page_toggle
-                }
                 showMenu()
             }
         }
     }
 
     private fun showMenu() {
-        if (!existsInAnyList && listsContainingPage.isNullOrEmpty()) {
-            return
-        }
-        listsContainingPage?.let {
-            PopupMenu(getActivity(), anchorView).let { menu ->
-                menu.menuInflater.inflate(menuRes, menu.menu)
-                menu.setOnMenuItemClickListener(PageSaveMenuClickListener())
-                if (it.size == 1) {
-                    val removeItem = menu.menu.findItem(R.id.menu_long_press_remove_from_lists)
-                    removeItem.title = getActivity().getString(R.string.reading_list_remove_from_list, it[0].title)
-                    val moveItem = menu.menu.findItem(R.id.menu_long_press_move_from_list_to_another_list)
-                    moveItem.title = getActivity().getString(R.string.reading_list_move_from_to_other_list, it[0].title)
-                    moveItem.isVisible = true
-                    moveItem.isEnabled = true
-                }
-                if (existsInAnyList) {
-                    menu.gravity = Gravity.END
-                    val addToOtherItem = menu.menu.findItem(R.id.menu_long_press_add_to_another_list)
-                    addToOtherItem.isVisible = it.isNotEmpty()
-                    addToOtherItem.isEnabled = it.isNotEmpty()
-                    val removeItem = menu.menu.findItem(R.id.menu_long_press_remove_from_lists)
-                    removeItem.isVisible = it.isNotEmpty()
-                    removeItem.isEnabled = it.isNotEmpty()
-                    val saveItem = menu.menu.findItem(R.id.menu_long_press_add_to_default_list)
-                    saveItem.isVisible = it.isEmpty()
-                    saveItem.isEnabled = it.isEmpty()
-                }
-                val showOpenPageInPlaces = openPageInPlaces && location != null
-                menu.menu.findItem(R.id.menu_long_press_open_in_places)?.isVisible = showOpenPageInPlaces
-                menu.menu.findItem(R.id.menu_long_press_open_page)?.isVisible = !showOpenPageInPlaces
-                menu.menu.findItem(R.id.menu_long_press_get_directions)?.isVisible = location != null
-                menu.show()
-            }
-        }
-    }
-
-    private fun deleteOrShowDialog() {
-        listsContainingPage?.let { list ->
-            RemoveFromReadingListsDialog(list).deleteOrShowDialog(getActivity()) { readingLists, _ ->
-                entry?.let {
-                    if (!getActivity().isDestroyed) {
-                        val readingListNames = readingLists.map { readingList -> readingList.title }.run {
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                                ListFormatter.getInstance().format(this)
-                            } else {
-                                joinToString(separator = ", ")
-                            }
-                        }
-                        FeedbackUtil.showMessage(getActivity(), getActivity().getString(R.string.reading_list_item_deleted_from_list,
-                                        it.title.displayText, readingListNames))
-                    }
-                }
-            }
+        PopupMenu(getActivity(), anchorView).let { menu ->
+            menu.menuInflater.inflate(menuRes, menu.menu)
+            menu.setOnMenuItemClickListener(PageSaveMenuClickListener())
+            menu.gravity = Gravity.END
+            // A single entry either way: both states open the save sheet, which is where adding to
+            // and removing from collections now happens.
+            menu.menu.findItem(R.id.menu_long_press_add_to_default_list)?.setTitle(
+                if (isArticleSaved) R.string.link_preview_dialog_saved_button
+                else R.string.feed_card_add_to_default_list
+            )
+            val showOpenPageInPlaces = openPageInPlaces && location != null
+            menu.menu.findItem(R.id.menu_long_press_open_in_places)?.isVisible = showOpenPageInPlaces
+            menu.menu.findItem(R.id.menu_long_press_open_page)?.isVisible = !showOpenPageInPlaces
+            menu.menu.findItem(R.id.menu_long_press_get_directions)?.isVisible = location != null
+            menu.show()
         }
     }
 
@@ -145,28 +96,15 @@ class LongPressMenu(
                 }
                 R.id.menu_long_press_add_to_default_list -> {
                     sendPlacesEvent("save_click")
-                    entry?.let { callback?.onAddRequest(it, true) }
-                    true
-                }
-                R.id.menu_long_press_add_to_another_list -> {
-                    sendPlacesEvent("add_to_another_list_click")
-                    listsContainingPage?.let { entry?.let { callback?.onAddRequest(it, false) } }
-                    true
-                }
-                R.id.menu_long_press_move_from_list_to_another_list -> {
-                    sendPlacesEvent("move_from_list_to_another_list_click")
-                    listsContainingPage?.let { list -> entry?.let { callback?.onMoveRequest(list[0].pages[0], it) } }
-                    true
-                }
-                R.id.menu_long_press_remove_from_lists -> {
-                    sendPlacesEvent("remove_from_list_click")
-                    deleteOrShowDialog()
-                    callback?.onRemoveRequest()
+                    entry?.let { callback?.onSaveRequest(it) }
                     true
                 }
                 R.id.menu_long_press_share_page -> {
                     sendPlacesEvent("share_click")
-                    entry?.let { ShareUtil.shareText(getActivity(), it.title) }
+                    entry?.let {
+                        callback?.onShareRequest()
+                        ShareUtil.shareText(getActivity(), it.title)
+                    }
                     true
                 }
                 R.id.menu_long_press_copy_page -> {

@@ -159,7 +159,7 @@ private fun AlignmentSpan.toParagraphStyle(): ParagraphStyle {
 }
 
 private fun StyleSpan.toSpanStyle(): SpanStyle? {
-    /** StyleSpan doc: styles are cumulative -- if both bold and italic are set in
+    /* StyleSpan doc: styles are cumulative -- if both bold and italic are set in
      * separate spans, or if the base style is bold and a span calls for italic,
      * you get bold italic.  You can't turn off a style from the base style.
      */

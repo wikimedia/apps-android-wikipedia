@@ -49,9 +49,11 @@ object ViewAnimations {
                 .start()
     }
 
-    fun ensureTranslationY(view: View, translation: Int) {
+    fun ensureTranslationY(view: View, translation: Int, runOnComplete: (() -> Unit)? = null) {
         if (view.translationY != translation.toFloat()) {
-            view.animate().translationY(translation.toFloat()).setDuration(SHORT_ANIMATION_DURATION).start()
+            val animator = view.animate().translationY(translation.toFloat()).setDuration(SHORT_ANIMATION_DURATION)
+            runOnComplete?.let { animator.withEndAction(it) }
+            animator.start()
         }
     }
 

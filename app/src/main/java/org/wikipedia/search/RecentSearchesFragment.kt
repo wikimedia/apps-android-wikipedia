@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.view.isInvisible
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -21,6 +22,7 @@ import org.wikipedia.databinding.FragmentSearchRecentBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResult
+import org.wikipedia.extensions.instrument
 import org.wikipedia.page.Namespace
 import org.wikipedia.search.db.RecentSearch
 import org.wikipedia.util.FeedbackUtil.setButtonTooltip
@@ -136,6 +138,7 @@ class RecentSearchesFragment : Fragment() {
         binding.searchEmptyContainer.isInvisible = !searchesEmpty
         updateSearchEmptyView(searchesEmpty)
         binding.recentSearches.isInvisible = searchesEmpty
+        binding.namespacesContainer.isVisible = !namespaceMap[langCode].isNullOrEmpty()
     }
 
     private open inner class RecentSearchItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener, SwipeableItemTouchHelperCallback.Callback {
@@ -148,7 +151,12 @@ class RecentSearchesFragment : Fragment() {
         }
 
         override fun onClick(v: View) {
-            callback?.switchToSearch((v as TextView).text.toString())
+            val text = (v as TextView).text.toString()
+
+            requireActivity().instrument?.submitInteraction("click", elementId = "recent_search",
+                actionContext = mapOf("query" to text))
+
+            callback?.switchToSearch(text)
         }
 
         override fun onSwipe() {

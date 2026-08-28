@@ -20,7 +20,8 @@
   <string name="search_hint">ৱিকিপিডিয়াত সন্ধান কৰক</string>
   <string name="search_hint_voice_search">ভইচ ইনপুট সন্ধান</string>
   <string name="search_hint_search_languages">ভাষাৰ সন্ধান কৰক</string>
-  <string name="filter_hint_filter_my_lists_and_articles">মোৰ তালিকা ফিল্টাৰ কৰক</string>
+  <string name="search_back_button_content_description">ঘূৰি যাওক</string>
+  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">মোৰ তালিকা ফিল্টাৰ কৰক</string>
   <string name="nav_item_suggested_edits">সম্পাদনা</string>
   <string name="nav_item_more">অধিক</string>
   <string name="nav_item_search">সন্ধান কৰক</string>
@@ -68,16 +69,16 @@
   <string name="menu_page_watched">চকু ৰাখিছে</string>
   <string name="edit_section_find_in_page">এই পৃষ্ঠাত বিচাৰক</string>
   <string name="menu_page_font_and_theme">ফ\'ণ্ট আৰু থীম</string>
-  <string name="menu_page_add_to_list">পঢ়া তালিকাত যোগ দিয়ক</string>
+  <string name="menu_page_add_to_list" fuzzy="true">পঢ়া তালিকাত যোগ দিয়ক</string>
   <string name="menu_page_add_to_default_list">সাঁচি থওক</string>
-  <string name="feed_card_add_to_list">পঢ়া তালিকাত যোগ দিয়ক</string>
+  <string name="feed_card_add_to_list" fuzzy="true">পঢ়া তালিকাত যোগ দিয়ক</string>
   <string name="feed_card_add_to_default_list">সাঁচি থওক</string>
   <string name="menu_page_share">লিংক শ্বেয়াৰ কৰক</string>
   <string name="menu_article_share">প্ৰবন্ধ শ্বেয়াৰ কৰক</string>
   <string name="menu_page_article_share">শ্বেয়াৰ কৰক</string>
   <string name="menu_page_open_a_new_tab">নতুন টেব খোলক</string>
   <string name="menu_page_new_tab">নতুন টেব</string>
-  <string name="menu_page_reading_lists">পঢ়াৰ তালিকা</string>
+  <string name="menu_page_reading_lists" fuzzy="true">পঢ়াৰ তালিকা</string>
   <string name="menu_page_recently_viewed">শেহতীয়াকৈ দৰ্শিত</string>
   <string name="menu_long_press_open_page">খোলক</string>
   <string name="menu_long_press_open_in_new_tab">নতুন টেবত খোলক</string>
@@ -111,7 +112,7 @@
   <string name="menu_show_toc">সমলসমূহৰ সূচী</string>
   <string name="search_no_results_found">কোনো ফলাফল পোৱা নগ\'ল</string>
   <string name="search_reading_list_no_results">\"%s\"ত কোনো ফলাফল পোৱা নগ\'ল</string>
-  <string name="search_reading_lists_no_results">পঢ়া তালিকাত কোনো ফলাফল পোৱা নগ\'ল</string>
+  <string name="search_reading_lists_no_results" fuzzy="true">পঢ়া তালিকাত কোনো ফলাফল পোৱা নগ\'ল</string>
   <string name="search_history_no_results">ইতিহাসত কোনো ফলাফল পোৱা নগ\'ল</string>
   <string name="edit_section_captcha_message">স্বয়ংক্ৰিয় স্পামৰ পৰা সুৰক্ষাৰ হেতু অনুগ্ৰহ কৰি তলত দিয়া শব্দবোৰ লিখক</string>
   <string name="edit_section_captcha_request_an_account_message">ছবিখন দেখা পোৱা নাই? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;এটা একাউণ্টৰ বাবে অনুৰোধ কৰক&lt;/a&gt;</string>
@@ -185,12 +186,12 @@
   <string name="preferences_heading_syncing">সুসংগত কৰা হৈছে</string>
   <string name="preferences_heading_data_usage">ডে\'টা ব্যৱহাৰ</string>
   <string name="preferences_heading_experimental">পৰীক্ষামূলক</string>
-  <string name="preference_title_sync_reading_lists_from_account">পাঠ্য তালিকা ছীঙ্ক হৈ আছে</string>
-  <string name="preference_title_download_reading_list_articles">পাঠ্য তালিকাত থকা প্ৰবন্ধবোৰ ডাউনল\'ড কৰক</string>
-  <string name="preference_summary_sync_reading_lists">আপোনাৰ ৱিকিপিডিয়া একাউণ্টত পাঠ্য তালিকা সাঁচি সেয়া বিভিন্ন সঁজুলিত ছীঙ্ক কৰক</string>
-  <string name="preference_summary_sync_reading_lists_from_account">আপোনাৰ \"%s\" ৱিকিপিডিয়া একাউণ্টত পাঠ্য তালিকা সাঁচি সেয়া বিভিন্ন সঁজুলিত ছীঙ্ক কৰক</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">\"%s\"ৰ পৰা ছীঙ্ক কৰা পাঠ্য তালিকা আঁতৰাব?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">ই ৰিম\'ট ষ্ট\'ৰেজৰ পৰা পূৰ্বতে ছিংক কৰা সকলো পঢ়া তালিকা সম্পূৰ্ণৰূপে মচি পেলাব। আপোনাৰ একাউণ্ট \"%s\"ৰ পৰা সকলো ছিংক কৰা তালিকা আঁতৰাবনে?</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">পাঠ্য তালিকা ছীঙ্ক হৈ আছে</string>
+  <string name="preference_title_download_reading_list_articles" fuzzy="true">পাঠ্য তালিকাত থকা প্ৰবন্ধবোৰ ডাউনল\'ড কৰক</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">আপোনাৰ ৱিকিপিডিয়া একাউণ্টত পাঠ্য তালিকা সাঁচি সেয়া বিভিন্ন সঁজুলিত ছীঙ্ক কৰক</string>
+  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">আপোনাৰ \"%s\" ৱিকিপিডিয়া একাউণ্টত পাঠ্য তালিকা সাঁচি সেয়া বিভিন্ন সঁজুলিত ছীঙ্ক কৰক</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">\"%s\"ৰ পৰা ছীঙ্ক কৰা পাঠ্য তালিকা আঁতৰাব?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">ই ৰিম\'ট ষ্ট\'ৰেজৰ পৰা পূৰ্বতে ছিংক কৰা সকলো পঢ়া তালিকা সম্পূৰ্ণৰূপে মচি পেলাব। আপোনাৰ একাউণ্ট \"%s\"ৰ পৰা সকলো ছিংক কৰা তালিকা আঁতৰাবনে?</string>
   <string name="preference_title_auto_upload_crash_reports">ক্ৰেশ্ব প্ৰতিবেদন পঠিয়াওক</string>
   <string name="preference_summary_auto_upload_crash_reports">এপ্‌টোক স্বয়ংক্ৰিয়ভাৱে তৃতীয় পক্ষৰ সেৱা প্ৰদানকাৰীলৈ ত্ৰুটি প্ৰতিবেদন পঠিয়াবলৈ অনুমতি দিয়ক যাতে আমি সোনকালে আপোনাৰ ত্ৰুটি পৰীক্ষা কৰি বাগ্‌ ঠিক কৰিব পাৰোঁ।</string>
   <string name="editing_error_spamblacklist">অৱৰুদ্ধ ডমেইনৰ সংযোগ (%s) চিনাক্ত কৰা হৈছে। অনুগ্ৰহ কৰি সেইবোৰ আঁতৰাওক আৰু পুনৰ চেষ্টা কৰক।</string>
@@ -312,8 +313,8 @@
   <string name="unnamed_tab_closed">টেব বন্ধ কৰা হ\'ল।</string>
   <string name="tab_item_closed">%s বন্ধ কৰা হ\'ল।</string>
   <string name="all_tab_items_closed">সকলো টেব্‌ বন্ধ কৰা হ\'ল</string>
-  <string name="tool_tip_bookmark_icon_title">পঢ়া তালিকাত যোগ দিয়ক</string>
-  <string name="tool_tip_bookmark_icon_text">বুক্‌মাৰ্ক চিহ্নটো চুই কোনো প্ৰবন্ধ এক পাঠ্য তালিকাত যোগ দিয়ক</string>
+  <string name="tool_tip_bookmark_icon_title" fuzzy="true">পঢ়া তালিকাত যোগ দিয়ক</string>
+  <string name="tool_tip_bookmark_icon_text" fuzzy="true">বুক্‌মাৰ্ক চিহ্নটো চুই কোনো প্ৰবন্ধ এক পাঠ্য তালিকাত যোগ দিয়ক</string>
   <string name="page_view_in_browser">পৃষ্ঠাটো ব্ৰাউজাৰত চাওক</string>
   <string name="error_unknown">এটা অজ্ঞাত ত্ৰুটি হৈছে।</string>
   <string name="format_error_server_message">বাৰ্তা: \"%s\"</string>
@@ -323,9 +324,9 @@
   <string name="button_continue_to_talk_page">আলোচনা পৃষ্ঠা খোলক</string>
   <string name="button_continue_to_disambiguation">সদৃশ পৃষ্ঠা চাওক</string>
   <string name="link_preview_disambiguation_description">এই শীৰ্ষক এটাৰো অধিক পৃষ্ঠাৰ সৈতে জড়িত:</string>
-  <string name="button_add_to_reading_list">পঢ়া তালিকাত যোগ দিয়ক</string>
+  <string name="button_add_to_reading_list" fuzzy="true">পঢ়া তালিকাত যোগ দিয়ক</string>
   <string name="page_offline_notice_cannot_load_while_offline">অফলাইন থাকিল প্ৰবন্ধ ল\'ড কৰিব নোৱাৰি।</string>
-  <string name="page_offline_notice_add_to_reading_list">ইংগিত: প্ৰবন্ধটো পঢ়া তালিকাত যোগ দিয়ক আৰু আপুনি অনলাইন হ\'লেই এইটো ডাউনল\'ড হ\'ব।</string>
+  <string name="page_offline_notice_add_to_reading_list" fuzzy="true">ইংগিত: প্ৰবন্ধটো পঢ়া তালিকাত যোগ দিয়ক আৰু আপুনি অনলাইন হ\'লেই এইটো ডাউনল\'ড হ\'ব।</string>
   <string name="page_offline_notice_last_date">আপুনি এই প্ৰবন্ধৰ %s তাৰিখে সাঁচি থোৱা এটা অফলাইন সংস্কৰণ পঢ়ি আছে।</string>
   <string name="button_get_directions">দিক্‌নিৰ্দেশনা পাওক</string>
   <string name="error_no_maps_app">দিক্‌নিৰ্দেশনা দিয়া কোনো এপ্‌ পোৱা নগ\'ল।</string>
@@ -385,17 +386,17 @@
   <string name="text_size_decrease">আখৰৰ আকাৰ হ্ৰাস কৰক</string>
   <string name="text_size_percent_default">%s পূৰ্বনিৰ্ধাৰিত</string>
   <string name="text_style_title">ফণ্ট</string>
-  <string name="reading_list_save_to">পঢ়া তালিকাত সাঁচি থওক</string>
-  <string name="reading_list_move_to">পঢ়া সূচীলৈ নিয়ক</string>
+  <string name="reading_list_save_to" fuzzy="true">পঢ়া তালিকাত সাঁচি থওক</string>
+  <string name="reading_list_move_to" fuzzy="true">পঢ়া সূচীলৈ নিয়ক</string>
   <string name="reading_list_create_new">নতুন সৃষ্টি কৰক</string>
-  <string name="reading_list_title_exists">পঢ়াৰ তালিকা \"%s\" ইতিমধ্যে বিদ্যমান।</string>
+  <string name="reading_list_title_exists" fuzzy="true">পঢ়াৰ তালিকা \"%s\" ইতিমধ্যে বিদ্যমান।</string>
   <string name="reading_list_article_added_to_named">%1$s %2$s-ত যোগ কৰা হ\'ল।</string>
-  <string name="reading_list_article_added_to_default_list">%s সাঁচি থোৱা হ\'ল। আপুনি ইয়াক কোনো সূচীত যোগ কৰিব বিচাৰেনে?</string>
+  <string name="reading_list_article_added_to_default_list" fuzzy="true">%s সাঁচি থোৱা হ\'ল। আপুনি ইয়াক কোনো সূচীত যোগ কৰিব বিচাৰেনে?</string>
   <string name="reading_list_article_moved_to_named">%1$s %2$s-লৈ নিয়া হ\'ল।</string>
   <string name="reading_list_article_already_exists_message">সকলো ঠিক আছে! %1$s-ত ইতিমধ্যে %2$s আছেই।</string>
   <string name="reading_list_articles_already_exist_message">সকলো ঠিক আছে! %s-ত ইতিমধ্যে সকলো প্ৰবন্ধ আছেই।</string>
-  <string name="reading_list_added_view_button">তালিকা চাওক</string>
-  <string name="reading_list_add_to_list_button">সূচীত যোগ কৰক</string>
+  <string name="reading_list_added_view_button" fuzzy="true">তালিকা চাওক</string>
+  <string name="reading_list_add_to_list_button" fuzzy="true">সূচীত যোগ কৰক</string>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">এটা প্ৰবন্ধ, %2$.2f MB</item>
     <item quantity="other">%1$dটা প্ৰবন্ধ, %2$.2f MB</item>
@@ -408,38 +409,38 @@
   <string name="reading_list_sort_by_recent_desc">যোগ কৰা তাৰিখক্ৰমে সজাওক (আটাইতকৈ পুৰণি)</string>
   <string name="reading_list_sort_by_created">সৃষ্টিৰ তাৰিখ অনুসৰি সজাওক (নতুনতম)</string>
   <string name="reading_list_sort_by_created_desc">সৃষ্টিৰ তাৰিখ অনুসৰি সজাওক (পুৰণিতম)</string>
-  <string name="reading_list_menu_delete">তালিকা বিলোপ কৰক</string>
+  <string name="reading_list_menu_delete" fuzzy="true">তালিকা বিলোপ কৰক</string>
   <string name="reading_list_menu_rename">নাম/বিৱৰণ সম্পাদনা কৰক</string>
   <string name="reading_list_action_menu_remove_from_offline">অফলাইনৰ পৰা আঁতৰাওক</string>
   <string name="reading_list_action_menu_save_for_offline">অফলাইনৰ বাবে সাঁচি থওক</string>
   <string name="reading_list_action_menu_remove_all_from_offline">অফলাইনৰ পৰা সকলো আঁতৰাওক</string>
   <string name="reading_list_action_menu_save_all_for_offline">অফলাইনৰ বাবে সকলো সাঁচি থওক</string>
-  <string name="reading_list_action_menu_add_to_another_list">আন এখন তালিকাত যোগ দিয়ক</string>
-  <string name="reading_list_action_menu_move_to_another_list">আন এটা সূচীলৈ নিয়ক</string>
-  <string name="reading_list_name_sample">মোৰ পঢ়া তালিকা</string>
-  <string name="reading_list_name_hint">এই তালিকাৰ নাম</string>
+  <string name="reading_list_action_menu_add_to_another_list" fuzzy="true">আন এখন তালিকাত যোগ দিয়ক</string>
+  <string name="reading_list_action_menu_move_to_another_list" fuzzy="true">আন এটা সূচীলৈ নিয়ক</string>
+  <string name="reading_list_name_sample" fuzzy="true">মোৰ পঢ়া তালিকা</string>
+  <string name="reading_list_name_hint" fuzzy="true">এই তালিকাৰ নাম</string>
   <string name="reading_list_description_hint">বিৱৰণ (বৈকল্পিক)</string>
-  <string name="reading_list_item_deleted">তালিকাৰ পৰা %s আঁতৰোৱা হ\'ল</string>
-  <string name="reading_list_items_deleted">তালিকাৰ পৰা %dটা প্ৰবন্ধ আঁতৰোৱা হ\'ল</string>
-  <string name="reading_lists_item_deleted">তালিকাৰ পৰা %s আঁতৰোৱা হ\'ল</string>
+  <string name="reading_list_item_deleted" fuzzy="true">তালিকাৰ পৰা %s আঁতৰোৱা হ\'ল</string>
+  <string name="reading_list_items_deleted" fuzzy="true">তালিকাৰ পৰা %dটা প্ৰবন্ধ আঁতৰোৱা হ\'ল</string>
+  <string name="reading_lists_item_deleted" fuzzy="true">তালিকাৰ পৰা %s আঁতৰোৱা হ\'ল</string>
   <string name="reading_list_item_delete_undo">পূৰ্ববত কৰক</string>
   <string name="reading_list_deleted">%s বিলোপ কৰা হ\'ল</string>
-  <string name="saved_list_empty_title">কোনো পঢ়া তালিকা নাই</string>
-  <string name="reading_lists_empty_message">প্ৰবন্ধবোৰ এক পাঠ্য তালিকাত যোগ কৰে যাতে আপুনি অফলাইন থাকিলেও পাছত সেইবোৰ পুনৰ পঢ়িব পাৰে।</string>
-  <string name="reading_list_empty">এই তালিকাত আপুনি কোনো প্ৰবন্ধ যোগ কৰা নাই।</string>
+  <string name="saved_list_empty_title" fuzzy="true">কোনো পঢ়া তালিকা নাই</string>
+  <string name="reading_lists_empty_message" fuzzy="true">প্ৰবন্ধবোৰ এক পাঠ্য তালিকাত যোগ কৰে যাতে আপুনি অফলাইন থাকিলেও পাছত সেইবোৰ পুনৰ পঢ়িব পাৰে।</string>
+  <string name="reading_list_empty" fuzzy="true">এই তালিকাত আপুনি কোনো প্ৰবন্ধ যোগ কৰা নাই।</string>
   <string name="reading_list_article_offline">অফলাইন উপলব্ধ</string>
   <string name="reading_list_article_make_offline">এই প্ৰবন্ধটো অফলাইন উপলব্ধ কৰাওক</string>
-  <string name="reading_list_add_to_other_list">আন এখন পঢ়া তালিকাত যোগ দিয়ক</string>
-  <string name="reading_list_move_to_other_list">আন এখন পঢ়া সূচীলৈ নিয়ক</string>
-  <string name="reading_list_move_from_to_other_list">%s-ৰ পৰা আন এখন পঢ়া সূচীলৈ নিয়ক</string>
+  <string name="reading_list_add_to_other_list" fuzzy="true">আন এখন পঢ়া তালিকাত যোগ দিয়ক</string>
+  <string name="reading_list_move_to_other_list" fuzzy="true">আন এখন পঢ়া সূচীলৈ নিয়ক</string>
+  <string name="reading_list_move_from_to_other_list" fuzzy="true">%s-ৰ পৰা আন এখন পঢ়া সূচীলৈ নিয়ক</string>
   <string name="reading_list_remove_from_list">%s পৰা আঁতৰাওক</string>
-  <string name="reading_list_remove_from_lists">পঢ়া তালিকাৰ পৰা আঁতৰাওক</string>
+  <string name="reading_list_remove_from_lists" fuzzy="true">পঢ়া তালিকাৰ পৰা আঁতৰাওক</string>
   <string name="reading_list_select_item">বাছনি কৰক</string>
   <string name="reading_list_confirm_remove_article_from_offline">অফলাইনৰ পৰা আঁতৰাওক</string>
-  <string name="reading_list_confirm_remove_article_from_offline_title">প্ৰবন্ধটো একাধিক তালিকাত আছে</string>
-  <string name="reading_lists_sync_reminder_title">পঢ়া সূচী ছিংক কৰাটো চালু কৰিবনে?</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title" fuzzy="true">প্ৰবন্ধটো একাধিক তালিকাত আছে</string>
+  <string name="reading_lists_sync_reminder_title" fuzzy="true">পঢ়া সূচী ছিংক কৰাটো চালু কৰিবনে?</string>
   <string name="reading_lists_sync_reminder_action">ছিংক কৰাটো সক্ৰিয় কৰক</string>
-  <string name="reading_list_login_reminder_title">পঢ়া সূচী ছিংক কৰক</string>
+  <string name="reading_list_login_reminder_title" fuzzy="true">পঢ়া সূচী ছিংক কৰক</string>
   <string name="reading_lists_login_button">ৱিকিপিডিয়াত লগিন / যোগদান কৰক</string>
   <string name="reading_lists_ignore_button">এতিয়া নহয়</string>
   <string name="reading_lists_confirm_remote_delete_yes">হয়</string>
@@ -450,12 +451,12 @@
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">প্ৰৱেশ</string>
   <string name="reading_list_turned_sync_off_dialog_ok">বাৰু</string>
   <string name="reading_list_turned_sync_off_dialog_settings">ছেটিংছ</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_title">পঢ়া তালিকা ছিংক চালু কৰিবনে?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title" fuzzy="true">পঢ়া তালিকা ছিংক চালু কৰিবনে?</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">মোক এইটো আকৌ নেদেখুৱাব</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">ছিংক কৰাটো সক্ৰিয় কৰক</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">নালাগে দিয়ক</string>
   <string name="default_reading_list_name">সাঁচি থোৱা হ\'ল</string>
-  <string name="reading_lists_menu_create_list">নতুন সূচী সৃষ্টি কৰক</string>
+  <string name="reading_lists_menu_create_list" fuzzy="true">নতুন সূচী সৃষ্টি কৰক</string>
   <string name="reading_lists_menu_sort_by">ক্ৰমে সজাওক</string>
   <string name="reading_lists_refresh_sync_option">ছিংক সতেজ কৰক</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">লগিন / ছাইন আপ কৰক</string>

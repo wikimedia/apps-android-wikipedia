@@ -78,6 +78,10 @@ object StringUtil {
         return fromHtml(text).toString()
     }
 
+    fun removeBoldTags(text: String): String {
+        return text.replace("</?b(?:\\s+[^>]*)?>".toRegex(), "")
+    }
+
     fun removeStyleTags(text: String): String {
         return text.replace("<style.*?</style>".toRegex(), "")
     }
@@ -88,6 +92,20 @@ object StringUtil {
 
     fun sanitizeAbuseFilterCode(code: String): String {
         return code.replace("[⧼⧽]".toRegex(), "")
+    }
+
+    /**
+     * Convenience function for parsing wikitext that might contain external links (and ONLY
+     * external links), to save a round-trip call to the parse API.
+     */
+    fun parseWikitextExternalLinks(wikitext: String): String {
+        val pattern = """\[(\S+)(?:\s+([^]]+))?]""".toRegex()
+
+        return pattern.replace(wikitext) { match ->
+            val url = match.groupValues[1]
+            val displayText = match.groupValues[2].ifEmpty { url }
+            """<a href="$url">$displayText</a>"""
+        }
     }
 
     fun normalizedEquals(str1: String?, str2: String?): Boolean {
@@ -148,7 +166,7 @@ object StringUtil {
         }
     }
 
-    private fun isIndexInsideHtmlTag(text: String, index: Int): Boolean {
+    fun isIndexInsideHtmlTag(text: String, index: Int): Boolean {
         var tagStack = 0
         for (i in text.indices) {
             if (text[i] == '<') { tagStack++ } else if (text[i] == '>') { tagStack-- }

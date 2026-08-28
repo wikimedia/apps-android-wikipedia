@@ -26,7 +26,7 @@
   <string name="search_back_button_content_description">Nazaj</string>
   <string name="search_clear_query_content_description">Počisti poizvedbo</string>
   <string name="search_icon_content_description">Iskanje</string>
-  <string name="filter_hint_filter_my_lists_and_articles">Filtriraj moje sezname</string>
+  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">Filtriraj moje sezname</string>
   <string name="nav_item_suggested_edits">Urejanja</string>
   <string name="nav_item_more">Več</string>
   <string name="nav_item_search">Išči</string>
@@ -96,16 +96,16 @@
   <string name="menu_page_watched">Opazovano</string>
   <string name="edit_section_find_in_page">Poišči na strani</string>
   <string name="menu_page_font_and_theme">Pisava in tema</string>
-  <string name="menu_page_add_to_list">Dodaj na bralni seznam</string>
+  <string name="menu_page_add_to_list" fuzzy="true">Dodaj na bralni seznam</string>
   <string name="menu_page_add_to_default_list">Shrani</string>
-  <string name="feed_card_add_to_list">Dodaj na bralni seznam</string>
+  <string name="feed_card_add_to_list" fuzzy="true">Dodaj na bralni seznam</string>
   <string name="feed_card_add_to_default_list">Shrani</string>
   <string name="menu_page_share">Deli povezavo</string>
   <string name="menu_article_share">Deli članek</string>
   <string name="menu_page_article_share">Deli</string>
   <string name="menu_page_open_a_new_tab">Odpri na novem zavihku</string>
   <string name="menu_page_new_tab">Nov zavihek</string>
-  <string name="menu_page_reading_lists">Bralni seznami</string>
+  <string name="menu_page_reading_lists" fuzzy="true">Bralni seznami</string>
   <string name="menu_page_recently_viewed">Nedavno pregledano</string>
   <string name="menu_page_archive">Arhiv</string>
   <string name="menu_long_press_open_page">Odpri</string>
@@ -149,7 +149,7 @@
   <string name="menu_show_toc">Kazalo vsebine</string>
   <string name="search_no_results_found">Ni najdenih zadetkov</string>
   <string name="search_reading_list_no_results">V »%s« ni najdenih zadetkov</string>
-  <string name="search_reading_lists_no_results">V seznamih branja ni ničesar</string>
+  <string name="search_reading_lists_no_results" fuzzy="true">V seznamih branja ni ničesar</string>
   <string name="search_history_no_results">V zgodovini ni bilo mogoče najti ničesar</string>
   <string name="edit_section_captcha_message">Za pomoč pri zaščiti pred smetjem vas prosimo, da vpišete spodaj prikazane besede</string>
   <string name="edit_section_captcha_request_an_account_message">Ali ne morete videti slike? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Zahtevajte račun&lt;/a&gt;</string>
@@ -226,12 +226,12 @@
   <string name="preferences_heading_syncing">Sinhroniziranje</string>
   <string name="preferences_heading_data_usage">Uporaba podatkov</string>
   <string name="preferences_heading_experimental">Preizkusno</string>
-  <string name="preference_title_sync_reading_lists_from_account">Sinhroniziranje bralnih seznamov</string>
-  <string name="preference_title_download_reading_list_articles">Prenesi članke na bralnem seznamu</string>
-  <string name="preference_summary_sync_reading_lists">Sinhroniziraj bralne sezname med različnimi napravami tako, da se shranijo v mojem računu v Wikipediji.</string>
-  <string name="preference_summary_sync_reading_lists_from_account">Sinhroniziraj bralne sezname med različnimi napravami tako, da se shranijo v računu »%s« v Wikipediji.</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Odstranim sinhronizirane bralne sezname iz »%s«?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">S tem boste iz shranjevanja v oblaku v celoti izbrisali vse predhodno sinhronizirane bralne sezame. Odstranim z vašega računa »%s« vse sinhronizirane sezname?</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Sinhroniziranje bralnih seznamov</string>
+  <string name="preference_title_download_reading_list_articles" fuzzy="true">Prenesi članke na bralnem seznamu</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">Sinhroniziraj bralne sezname med različnimi napravami tako, da se shranijo v mojem računu v Wikipediji.</string>
+  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">Sinhroniziraj bralne sezname med različnimi napravami tako, da se shranijo v računu »%s« v Wikipediji.</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">Odstranim sinhronizirane bralne sezname iz »%s«?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">S tem boste iz shranjevanja v oblaku v celoti izbrisali vse predhodno sinhronizirane bralne sezame. Odstranim z vašega računa »%s« vse sinhronizirane sezname?</string>
   <string name="preference_title_auto_upload_crash_reports">Pošiljaj poročila o sesutjih</string>
   <string name="preference_summary_auto_upload_crash_reports">Omogočite aplikaciji samodejno pošiljanje poročil o sesutjih tretjemu ponudniku storitve, da bomo lahko pregledali dogodke ter hitreje in lažje odpravili hrošče.</string>
   <string name="editing_error_spamblacklist">Zaznane so bile povezave na blokirane domene (%s). Prosimo, odstranite jih in poskusite znova.</string>
@@ -250,6 +250,7 @@
   <string name="about_description">O aplikaciji Wikipedija</string>
   <string name="privacy_policy_description">Pravilnik o zasebnosti</string>
   <string name="terms_of_use_description">Pogoji uporabe</string>
+  <string name="legal_safety_contacts_description">Pravni in varnostni stiki</string>
   <string name="about_wikipedia_url">https://sl.wikipedia.org/wiki/Wikipedija:O_Wikipediji</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Policy:Privacy_policy/sl</string>
   <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
@@ -376,8 +377,8 @@
   <string name="unnamed_tab_closed">Zavihek zaprt.</string>
   <string name="tab_item_closed">%s: zaprto.</string>
   <string name="all_tab_items_closed">Vsi zavihki zaprti.</string>
-  <string name="tool_tip_bookmark_icon_title">Dodaj na bralni seznam</string>
-  <string name="tool_tip_bookmark_icon_text">Da shranite članek na bralni seznam, tapnite ikono za zaznamek.</string>
+  <string name="tool_tip_bookmark_icon_title" fuzzy="true">Dodaj na bralni seznam</string>
+  <string name="tool_tip_bookmark_icon_text" fuzzy="true">Da shranite članek na bralni seznam, tapnite ikono za zaznamek.</string>
   <string name="page_view_in_browser">Ogled strani v brskalniku</string>
   <string name="tool_tip_toc_title">Hitri dostop do vsebinskega kazala</string>
   <string name="tool_tip_toc_text">Zdaj lahko podrsate levo, da odprete vsebinsko kazalo, ali tapnete drsnik in ga povlečete, da hitro preidete na drug razdelek članka.</string>
@@ -390,9 +391,9 @@
   <string name="button_continue_to_talk_page">Odpri pogovorno stran</string>
   <string name="button_continue_to_disambiguation">Oglej si podobne strani</string>
   <string name="link_preview_disambiguation_description">Ta naslov se nanaša na več kot eno stran:</string>
-  <string name="button_add_to_reading_list">Dodaj na bralni seznam</string>
+  <string name="button_add_to_reading_list" fuzzy="true">Dodaj na bralni seznam</string>
   <string name="page_offline_notice_cannot_load_while_offline">Članka brez povezave ni mogoče naložiti.</string>
-  <string name="page_offline_notice_add_to_reading_list">Namig: Dodajte članek na bralni seznam in se bo prenesel, ko boste spet povezani.</string>
+  <string name="page_offline_notice_add_to_reading_list" fuzzy="true">Namig: Dodajte članek na bralni seznam in se bo prenesel, ko boste spet povezani.</string>
   <string name="page_offline_notice_last_date">Berete nepovezano različico tega članka; čas shranitve: %s.</string>
   <string name="redirected_from_snackbar">Preusmerjeno z »%s«</string>
   <string name="button_get_directions">Pridobite navodila za pot</string>
@@ -506,17 +507,17 @@
   <string name="editing_monospace_font_label">Uporabi pisavo monospace</string>
   <string name="editing_typing_suggestions">Prikaži predloge za tipkanje</string>
   <string name="nav_item_saved">Shranjeno</string>
-  <string name="reading_list_save_to">Shrani na bralni seznam</string>
-  <string name="reading_list_move_to">Prestavi na bralni seznam</string>
+  <string name="reading_list_save_to" fuzzy="true">Shrani na bralni seznam</string>
+  <string name="reading_list_move_to" fuzzy="true">Prestavi na bralni seznam</string>
   <string name="reading_list_create_new">Ustvari nov seznam</string>
-  <string name="reading_list_title_exists">Bralni seznam »%s« že obstaja.</string>
+  <string name="reading_list_title_exists" fuzzy="true">Bralni seznam »%s« že obstaja.</string>
   <string name="reading_list_article_added_to_named">%1$s dodano na %2$s.</string>
-  <string name="reading_list_article_added_to_default_list">Članek %s je shranjen. Ali ga želite dodati na seznam?</string>
+  <string name="reading_list_article_added_to_default_list" fuzzy="true">Članek %s je shranjen. Ali ga želite dodati na seznam?</string>
   <string name="reading_list_article_moved_to_named">Članek %1$s je prestavljen na %2$s.</string>
   <string name="reading_list_article_already_exists_message">Vse je v redu! Seznam %1$s že vsebuje članek %2$s.</string>
   <string name="reading_list_articles_already_exist_message">Vse je v redu! %s že vsebuje vse članke.</string>
-  <string name="reading_list_added_view_button">Prikaži seznam</string>
-  <string name="reading_list_add_to_list_button">Dodaj na seznam</string>
+  <string name="reading_list_added_view_button" fuzzy="true">Prikaži seznam</string>
+  <string name="reading_list_add_to_list_button" fuzzy="true">Dodaj na seznam</string>
   <plurals name="format_reading_list_statistical_summary_without_size">
     <item quantity="one">1 članek</item>
     <item quantity="two">%d članka</item>
@@ -549,70 +550,70 @@
   <string name="reading_list_sort_by_recent_desc">Razvrsti po datumu dodajanja (najstarejše)</string>
   <string name="reading_list_sort_by_created">Razvrsti po datumu ustvaritve (najnovejše)</string>
   <string name="reading_list_sort_by_created_desc">Razvrsti po datumu ustvaritve (najstarejše)</string>
-  <string name="reading_list_menu_delete">Izbriši seznam</string>
-  <string name="reading_list_menu_export">Izvozi seznam</string>
+  <string name="reading_list_menu_delete" fuzzy="true">Izbriši seznam</string>
+  <string name="reading_list_menu_export" fuzzy="true">Izvozi seznam</string>
   <string name="reading_list_menu_select">Izberi</string>
   <string name="reading_list_menu_unselect">Odizberi</string>
-  <string name="reading_list_export_write_permission_rationale">Za izvoz vašega bralnega seznama je potrebno dovoljenje za shranjevanje v vaši napravi.</string>
+  <string name="reading_list_export_write_permission_rationale" fuzzy="true">Za izvoz vašega bralnega seznama je potrebno dovoljenje za shranjevanje v vaši napravi.</string>
   <string name="reading_list_menu_rename">Uredi naslov/opis</string>
   <string name="reading_list_action_menu_remove_from_offline">Odstrani preneseno</string>
   <string name="reading_list_action_menu_save_for_offline">Prenesi</string>
   <string name="reading_list_action_menu_remove_all_from_offline">Odstrani vse nepreneseno</string>
   <string name="reading_list_action_menu_save_all_for_offline">Prenesi vse</string>
-  <string name="reading_list_action_menu_add_to_another_list">Dodaj na drug seznam</string>
-  <string name="reading_list_action_menu_move_to_another_list">Prestavi na drug seznam</string>
-  <string name="reading_list_name_sample">Moj bralni seznam</string>
-  <string name="reading_list_name_hint">Naslov seznama</string>
+  <string name="reading_list_action_menu_add_to_another_list" fuzzy="true">Dodaj na drug seznam</string>
+  <string name="reading_list_action_menu_move_to_another_list" fuzzy="true">Prestavi na drug seznam</string>
+  <string name="reading_list_name_sample" fuzzy="true">Moj bralni seznam</string>
+  <string name="reading_list_name_hint" fuzzy="true">Naslov seznama</string>
   <string name="reading_list_description_hint">Opis (izbirno)</string>
-  <string name="reading_list_item_deleted">Članek %s je odstranjen s seznama.</string>
+  <string name="reading_list_item_deleted" fuzzy="true">Članek %s je odstranjen s seznama.</string>
   <string name="reading_list_item_deleted_from_list">%1$s odstranjen s seznama %2$s</string>
-  <plurals name="reading_list_articles_deleted">
+  <plurals name="reading_list_articles_deleted" fuzzy="true">
     <item quantity="one">%d članek odstranjen s seznama</item>
     <item quantity="two">%d članka odstranjena s seznama</item>
     <item quantity="few">%d članki odstranjeni s seznama</item>
     <item quantity="other">%d člankov odstranjenih s seznama</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d članek odstranjen s seznama %s</item>
-    <item quantity="two">%d članka odstranjena s seznama %s</item>
-    <item quantity="few">%d članki odstranjeni s seznama %s</item>
-    <item quantity="other">%d člankov odstranjenih s seznama %s</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">%1$d članek odstranjen s seznama %2$s</item>
+    <item quantity="two">%1$d članka odstranjena s seznama %2$s</item>
+    <item quantity="few">%1$d članki odstranjeni s seznama %2$s</item>
+    <item quantity="other">%1$d člankov odstranjenih s seznama %2$s</item>
   </plurals>
-  <plurals name="reading_lists_deleted_message">
+  <plurals name="reading_lists_deleted_message" fuzzy="true">
     <item quantity="one">%d seznam izbrisan</item>
     <item quantity="two">%d seznama izbrisana</item>
     <item quantity="few">%d seznami izbrisani</item>
     <item quantity="other">%d seznamov izbrisanih</item>
   </plurals>
-  <string name="reading_lists_default_list_delete_message">Privzetega seznama (%s) ni mogoče izbrisati.</string>
-  <string name="reading_lists_default_plus_one_list_delete_message">%1$s izbrisani. Privzetega seznama (%2$s) ni mogoče izbrisati.</string>
-  <string name="reading_lists_default_plus_many_lists_delete_message">Seznami izbrisani. Privzetega seznama (%s) ni mogoče izbrisati.</string>
-  <string name="single_list_json_file_name">%s (seznam za branje Wikipedije).json</string>
-  <string name="multiple_lists_json_file_name">Bralni seznami Wikipedije (vsaj %s).json</string>
-  <string name="reading_list_items_deleted">%d člankov odstranjenih s seznama</string>
-  <string name="reading_lists_item_deleted">%s odstranjen s seznamov</string>
+  <string name="reading_lists_default_list_delete_message" fuzzy="true">Privzetega seznama (%s) ni mogoče izbrisati.</string>
+  <string name="reading_lists_default_plus_one_list_delete_message" fuzzy="true">%1$s izbrisani. Privzetega seznama (%2$s) ni mogoče izbrisati.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message" fuzzy="true">Seznami izbrisani. Privzetega seznama (%s) ni mogoče izbrisati.</string>
+  <string name="single_list_json_file_name" fuzzy="true">%s (seznam za branje Wikipedije).json</string>
+  <string name="multiple_lists_json_file_name" fuzzy="true">Bralni seznami Wikipedije (vsaj %s).json</string>
+  <string name="reading_list_items_deleted" fuzzy="true">%d člankov odstranjenih s seznama</string>
+  <string name="reading_lists_item_deleted" fuzzy="true">%s odstranjen s seznamov</string>
   <string name="reading_list_item_delete_undo">Razveljavi</string>
   <string name="reading_list_deleted">Seznam %s izbrisan</string>
-  <string name="saved_list_empty_title">Nimate še prenesenih strani</string>
-  <string name="reading_lists_empty_message">Dodajte članke na seznam za poznejše branje, tudi ko ste brez povezave.</string>
-  <string name="reading_list_empty">Na tem seznamu nimate člankov.</string>
+  <string name="saved_list_empty_title" fuzzy="true">Nimate še prenesenih strani</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Dodajte članke na seznam za poznejše branje, tudi ko ste brez povezave.</string>
+  <string name="reading_list_empty" fuzzy="true">Na tem seznamu nimate člankov.</string>
   <string name="reading_list_article_offline">Na voljo brez povezave</string>
   <string name="reading_list_article_make_offline">Članek naj bo na voljo brez povezave</string>
-  <string name="reading_list_add_to_other_list">Dodaj na drug bralni seznam</string>
-  <string name="reading_list_move_to_other_list">Prestavi na drug bralni seznam</string>
-  <string name="reading_list_move_from_to_other_list">Prestavi s %s na drug bralni seznam</string>
+  <string name="reading_list_add_to_other_list" fuzzy="true">Dodaj na drug bralni seznam</string>
+  <string name="reading_list_move_to_other_list" fuzzy="true">Prestavi na drug bralni seznam</string>
+  <string name="reading_list_move_from_to_other_list" fuzzy="true">Prestavi s %s na drug bralni seznam</string>
   <string name="reading_list_remove_from_list">Odstrani s seznama %s</string>
-  <string name="reading_list_remove_from_lists">Odstrani z bralnih seznamov</string>
+  <string name="reading_list_remove_from_lists" fuzzy="true">Odstrani z bralnih seznamov</string>
   <string name="reading_list_select_item">Izberi</string>
   <string name="reading_list_confirm_remove_article_from_offline">Odstrani preneseno</string>
-  <string name="reading_list_confirm_remove_article_from_offline_title">Članek je na več seznamih</string>
-  <string name="reading_list_confirm_remove_article_from_offline_message">%s ne bo več na voljo preneseno za noben bralni seznam:</string>
-  <string name="reading_lists_sync_reminder_title">Vklopim sinhroniziranje bralnih seznamov?</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title" fuzzy="true">Članek je na več seznamih</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s ne bo več na voljo preneseno za noben bralni seznam:</string>
+  <string name="reading_lists_sync_reminder_title" fuzzy="true">Vklopim sinhroniziranje bralnih seznamov?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">Članke, shranjene v bralne sezname, lahko zdaj sinhronizirate z računom v Wikipediji. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Več o tem&lt;/a&gt;</string>
   <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Bralne sezname lahko zdaj sinhronizirate med napravami. Prijavite se v svoj račun v Wikipediji in omogočite shranjevanje seznamov. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Več o tem&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Omogoči sinhroniziranje</string>
-  <string name="reading_list_login_reminder_title">Sinhronizirajte bralne sezname</string>
-  <string name="reading_lists_login_reminder_text">Bralne sezname lahko zdaj sinhronizirate med napravami. Prijavite se v svoj račun v Wikipediji in omogočite shranjevanje seznamov.</string>
+  <string name="reading_list_login_reminder_title" fuzzy="true">Sinhronizirajte bralne sezname</string>
+  <string name="reading_lists_login_reminder_text" fuzzy="true">Bralne sezname lahko zdaj sinhronizirate med napravami. Prijavite se v svoj račun v Wikipediji in omogočite shranjevanje seznamov.</string>
   <string name="reading_lists_login_button">Prijavite se / pridružite se Wikipediji</string>
   <string name="reading_lists_ignore_button">Ne zdaj</string>
   <string name="reading_lists_confirm_remote_delete_yes">Da</string>
@@ -621,37 +622,37 @@
   <string name="reading_list_articles_added_to_named">%1$d člankov dodanih na %2$s</string>
   <string name="reading_list_articles_moved_to_named">%1$d člankov prestavljenih na %2$s</string>
   <string name="reading_list_delete_confirm">Ali res želite izbrisati %s?</string>
-  <string name="reading_list_delete_lists_confirm_dialog_title">Izbrišem izbrani(e) seznam(e)?</string>
-  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+  <string name="reading_list_delete_lists_confirm_dialog_title" fuzzy="true">Izbrišem izbrani(e) seznam(e)?</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message" fuzzy="true">
     <item quantity="one">Ste prepričani, da želite izbrisati %d seznam?</item>
     <item quantity="two">Ste prepričani, da želite izbrisati %d seznama</item>
     <item quantity="few">Ste prepričani, da želite izbrisati %d sezname</item>
     <item quantity="other">Ste prepričani, da želite izbrisati %d sezname?</item>
   </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Za uporabo sinhroniziranja se prijavite</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Za shranjevanje bralnih seznamov na svoj račun se prijavite.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text" fuzzy="true">Za shranjevanje bralnih seznamov na svoj račun se prijavite.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Prekliči</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Prijava</string>
-  <string name="reading_list_turned_sync_off_dialog_title">Sinhroniziranje bralnih seznamov izklopljeno</string>
-  <string name="reading_list_turned_sync_off_dialog_text">Sinhroniziranje bralnih seznamov je v vašem računu izklopljeno; prijavljene naprave se več ne posodabljajo. Sinhroniziranje bralnih seznamov lahko vklopite v Nastavitvah.</string>
+  <string name="reading_list_turned_sync_off_dialog_title" fuzzy="true">Sinhroniziranje bralnih seznamov izklopljeno</string>
+  <string name="reading_list_turned_sync_off_dialog_text" fuzzy="true">Sinhroniziranje bralnih seznamov je v vašem računu izklopljeno; prijavljene naprave se več ne posodabljajo. Sinhroniziranje bralnih seznamov lahko vklopite v Nastavitvah.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">V redu</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Nastavitve</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_title">Vklopim sinhroniziranje bralnih seznamov?</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_text">Članke, shranjene na bralnih seznamih, lahko zdaj sinhronizirate s svojimi računom v Wikipediji. &lt;a href=\"#faq\"&gt;Več o tem&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title" fuzzy="true">Vklopim sinhroniziranje bralnih seznamov?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text" fuzzy="true">Članke, shranjene na bralnih seznamih, lahko zdaj sinhronizirate s svojimi računom v Wikipediji. &lt;a href=\"#faq\"&gt;Več o tem&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Tega ne prikaži več</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Sinhroniziraj</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ne, hvala</string>
   <string name="default_reading_list_name">Shranjeno</string>
-  <string name="default_reading_list_description">Privzeti seznam za vaše shranjene članke</string>
-  <string name="no_user_lists_title">Organiziraj članke v sezname</string>
-  <string name="no_user_lists_msg">Ustvarite lahko sezname krajev, ki jih želite obiskati, priljubljenih tem in še marsičesa drugega</string>
+  <string name="default_reading_list_description" fuzzy="true">Privzeti seznam za vaše shranjene članke</string>
+  <string name="no_user_lists_title" fuzzy="true">Organiziraj članke v sezname</string>
+  <string name="no_user_lists_msg" fuzzy="true">Ustvarite lahko sezname krajev, ki jih želite obiskati, priljubljenih tem in še marsičesa drugega</string>
   <string name="reading_list_saved_list_rename">%1$s (uporabnik ustvarjen)</string>
-  <string name="split_reading_list_message">Bralni seznami so omejeni na %d člankov. Obstoječi seznami, ki presegajo to dolžino, so bili razdeljeni v več seznamov.</string>
-  <string name="reading_list_move_article_limit_message">Prestavitev na ta seznam ni mogoča. Dosegli ste omejitev seznama »%1$s« na %2$d člankov.</string>
-  <string name="reading_list_article_limit_message">Na ta seznam ni mogoče dodati. Dosegli ste omejitev seznama »%1$s« na %2$d člankov.</string>
-  <string name="reading_lists_limit_message">Še enega seznama ni mogoče ustvariti. Dosegli ste omejitev 100 bralnih seznamov na račun.</string>
-  <string name="reading_lists_menu_create_list">Ustvari nov seznam</string>
-  <string name="reading_lists_menu_import_list">Uvozi seznam</string>
+  <string name="split_reading_list_message" fuzzy="true">Bralni seznami so omejeni na %d člankov. Obstoječi seznami, ki presegajo to dolžino, so bili razdeljeni v več seznamov.</string>
+  <string name="reading_list_move_article_limit_message" fuzzy="true">Prestavitev na ta seznam ni mogoča. Dosegli ste omejitev seznama »%1$s« na %2$d člankov.</string>
+  <string name="reading_list_article_limit_message" fuzzy="true">Na ta seznam ni mogoče dodati. Dosegli ste omejitev seznama »%1$s« na %2$d člankov.</string>
+  <string name="reading_lists_limit_message" fuzzy="true">Še enega seznama ni mogoče ustvariti. Dosegli ste omejitev 100 bralnih seznamov na račun.</string>
+  <string name="reading_lists_menu_create_list" fuzzy="true">Ustvari nov seznam</string>
+  <string name="reading_lists_menu_import_list" fuzzy="true">Uvozi seznam</string>
   <string name="reading_lists_menu_sort_by">Razvrsti po</string>
   <string name="reading_lists_refresh_sync_option">Osveži sinhroniziranje</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Prijava/registracija</string>
@@ -667,7 +668,7 @@
     <item quantity="few">Članki ne bodo več na voljo brez povezave.</item>
     <item quantity="other">Članki ne bodo več na voljo brez povezave.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Bralni seznami sinhronizirani.</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">Bralni seznami sinhronizirani.</string>
   <string name="reading_list_menu_last_sync">Zadnje sinhroniziranje: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">V redu</string>
   <string name="reading_list_delete_dialog_ok_button_text">V redu</string>
@@ -677,35 +678,35 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Prekliči</string>
   <string name="reading_list_split_dialog_ok_button_text">V redu</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">Izbriši</string>
-  <string name="reading_list_activity_title">Bralni seznam: %s</string>
-  <string name="reading_list_notification_title">Bralni seznam(i) je(so) izvožen(i)</string>
-  <string name="reading_list_notification_text">%d bralnih seznamov je bilo izvoženih kot \'reading_lists export.json\' v vašo mapo s prenosi</string>
-  <string name="reading_list_notification_detailed_text">Bralni seznami so bili izvoženi v »reading_lists_export.json«</string>
+  <string name="reading_list_activity_title" fuzzy="true">Bralni seznam: %s</string>
+  <string name="reading_list_notification_title" fuzzy="true">Bralni seznam(i) je(so) izvožen(i)</string>
+  <string name="reading_list_notification_text" fuzzy="true">%d bralnih seznamov je bilo izvoženih kot \'reading_lists export.json\' v vašo mapo s prenosi</string>
+  <string name="reading_list_notification_detailed_text" fuzzy="true">Bralni seznami so bili izvoženi v »reading_lists_export.json«</string>
   <string name="reading_lists_action_menu_export_lists">Izvozi</string>
   <string name="reading_lists_import_file_picker_title">Izberite datoteko za uvoz</string>
-  <string name="reading_lists_import_failure_message">Uvoz bralnega seznama ni uspel</string>
-  <string name="reading_lists_export_select_lists_message">Izberite seznam(e) za izvoz</string>
-  <string name="reading_lists_export_completed_message">Bralni seznam(i) izvoženi</string>
-  <plurals name="reading_list_export_failed_message">
+  <string name="reading_lists_import_failure_message" fuzzy="true">Uvoz bralnega seznama ni uspel</string>
+  <string name="reading_lists_export_select_lists_message" fuzzy="true">Izberite seznam(e) za izvoz</string>
+  <string name="reading_lists_export_completed_message" fuzzy="true">Bralni seznam(i) izvoženi</string>
+  <plurals name="reading_list_export_failed_message" fuzzy="true">
     <item quantity="one">Izvoz bralnega seznama je spodletel</item>
     <item quantity="two">Izvoz bralnih seznamov je spodletel</item>
     <item quantity="few">Izvoz bralnih seznamov je spodletel</item>
     <item quantity="other">Izvoz bralnih seznamov je spodletel</item>
   </plurals>
-  <plurals name="reading_list_import_success_message">
+  <plurals name="reading_list_import_success_message" fuzzy="true">
     <item quantity="one">Bralni seznam je uvožen</item>
     <item quantity="two">Bralna seznama sta uvožena</item>
     <item quantity="few">Bralni seznami so uvoženi</item>
     <item quantity="other">Bralni seznami so uvoženi</item>
   </plurals>
-  <string name="reading_lists_preview_header_title">Deljeni seznam</string>
+  <string name="reading_lists_preview_header_title" fuzzy="true">Deljeni seznam</string>
   <string name="reading_lists_preview_save_button">Shrani</string>
-  <string name="reading_lists_preview_save_dialog_title">Shrani seznam</string>
-  <string name="reading_lists_preview_save_dialog_text">Poimenujte seznam in izberite članke za shranitev.</string>
+  <string name="reading_lists_preview_save_dialog_title" fuzzy="true">Shrani seznam</string>
+  <string name="reading_lists_preview_save_dialog_text" fuzzy="true">Poimenujte seznam in izberite članke za shranitev.</string>
   <string name="reading_lists_preview_save_dialog_title_hint">Naslov</string>
   <string name="reading_lists_preview_save_dialog_cancel">Prekliči</string>
   <string name="reading_lists_preview_save_dialog_save">Shrani</string>
-  <string name="reading_lists_preview_saved_snackbar">Bralni seznam shranjen</string>
+  <string name="reading_lists_preview_saved_snackbar" fuzzy="true">Bralni seznam shranjen</string>
   <string name="reading_lists_preview_saved_snackbar_action">Prikaži</string>
   <string name="user_option_sync_label">Nastavitve</string>
   <string name="notification_reverted_title">Vrnjeno urejanje</string>
@@ -714,8 +715,8 @@
   <string name="notification_syncing_pause_button">Premor</string>
   <string name="notification_syncing_resume_button">Nadaljuj</string>
   <string name="notification_syncing_cancel_button">Prekliči</string>
-  <string name="notification_syncing_reading_list_channel_title">Sinhroniziranje bralnih seznamov</string>
-  <string name="notification_syncing_reading_list_channel_description">Napredek sinhroniziranja bralnih seznamov</string>
+  <string name="notification_syncing_reading_list_channel_title" fuzzy="true">Sinhroniziranje bralnih seznamov</string>
+  <string name="notification_syncing_reading_list_channel_description" fuzzy="true">Napredek sinhroniziranja bralnih seznamov</string>
   <string name="notification_many_unread">Imate %d neprebranih obvestil</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Prenašam članek</item>
@@ -735,19 +736,19 @@
     <item quantity="few">Preostali so še %1$d članki</item>
     <item quantity="other">Preostalo je še %1$d člankov</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_channel_name">
+  <plurals name="notification_syncing_reading_list_channel_name" fuzzy="true">
     <item quantity="one">Sinhroniziranje bralnega seznama</item>
     <item quantity="two">Sinhroniziranje bralnih seznamov</item>
     <item quantity="few">Sinhroniziranje bralnih seznamov</item>
     <item quantity="other">Sinhroniziranje bralnih seznamov</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_title">
+  <plurals name="notification_syncing_reading_list_title" fuzzy="true">
     <item quantity="one">Sinhroniziram %1$d seznam …</item>
     <item quantity="two">Sinhroniziram %1$d seznama …</item>
     <item quantity="few">Sinhroniziram %1$d sezname …</item>
     <item quantity="other">Sinhroniziram %1$d sezname …</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_description">
+  <plurals name="notification_syncing_reading_list_description" fuzzy="true">
     <item quantity="one">Preostal je še %1$d seznam</item>
     <item quantity="two">Preostala sta še %1$d seznama</item>
     <item quantity="few">Preostali so še %1$d seznami</item>
@@ -903,11 +904,11 @@
   <string name="feed_item_type_randomizer">Prikazuje naključne članke za branje</string>
   <string name="feed_item_type_suggested_edits">Predlogi za dodajanje vsebine v Wikipedijo</string>
   <string name="feed_item_type_places">Članki v bližini glede na trenutno lokacijo</string>
-  <string name="feed_empty_message">V vašem viru Raziskovanje ni ničesar</string>
+  <string name="feed_empty_message" fuzzy="true">V vašem viru Raziskovanje ni ničesar</string>
   <string name="feed_configure_onboarding_action">Prilagodi</string>
   <string name="customize_lang_selection_dialog_ok_button_text">V redu</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Prekliči</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Prilagodite si svoj vir Raziskuj&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Izberete lahko, kaj želite v viru videti, in določite tudi najljubše vrste vsebine.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Prilagodite si svoj vir Raziskuj&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Izberete lahko, kaj želite v viru videti, in določite tudi najljubše vrste vsebine.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">V redu</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Prekliči</string>
   <string name="feed_accessibility_card_text">Dosegli ste dno vira.</string>
@@ -1236,11 +1237,11 @@
   <string name="onboarding_get_started">Začni</string>
   <string name="onboarding_maybe_later">Mogoče pozneje</string>
   <string name="onboarding_explore_title">Novi načini raziskovanja</string>
-  <string name="onboarding_explore_text">Vstopite v zajčjo luknjo Wikipedije z neprestanim posodabljanjem vira raziskovanja. &lt;br/&gt; &lt;b&gt;Prilagodite&lt;/b&gt; vir svojim zanimanjem – pa naj bodo to zgodovinski dogodki &lt;b&gt;Na današnji dan&lt;/b&gt; ali metanje kocke z možnostjo &lt;b&gt;Naključno&lt;/b&gt;.</string>
-  <string name="onboarding_reading_list_sync_title">Bralni seznami s sinhroniziranjem</string>
-  <string name="onboarding_reading_list_sync_text_v2">Ustvarjate lahko bralne sezname člankov, ki jih želite prebrati pozneje, tudi če niste povezani na splet. &lt;br/&gt;Za sinhroniziranje bralnih seznamov se prijavite v svoj račun v Wikipediji. &lt;a href=\"#login\"&gt;Pridružite se Wikipediji&lt;/a&gt;</string>
+  <string name="onboarding_explore_text" fuzzy="true">Vstopite v zajčjo luknjo Wikipedije z neprestanim posodabljanjem vira raziskovanja. &lt;br/&gt; &lt;b&gt;Prilagodite&lt;/b&gt; vir svojim zanimanjem – pa naj bodo to zgodovinski dogodki &lt;b&gt;Na današnji dan&lt;/b&gt; ali metanje kocke z možnostjo &lt;b&gt;Naključno&lt;/b&gt;.</string>
+  <string name="onboarding_reading_list_sync_title" fuzzy="true">Bralni seznami s sinhroniziranjem</string>
+  <string name="onboarding_reading_list_sync_text_v2" fuzzy="true">Ustvarjate lahko bralne sezname člankov, ki jih želite prebrati pozneje, tudi če niste povezani na splet. &lt;br/&gt;Za sinhroniziranje bralnih seznamov se prijavite v svoj račun v Wikipediji. &lt;a href=\"#login\"&gt;Pridružite se Wikipediji&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Podatki in zasebnost</string>
-  <string name="onboarding_data_privacy_text">Menimo, da vam za sodelovanje v gibanju svobodnega znanja ne bi bilo treba posredovati osebnih podatkov. Podatki o uporabi, zbrani za to aplikacijo, so anonimni. Preberite več o naši &lt;a href=\"#privacy\"&gt;politiki zasebnosti&lt;/a&gt; in &lt;a href=\"#termsOfUse\"&gt;pogojih uporabe&lt;/a&gt;.</string>
+  <string name="onboarding_data_privacy_text" fuzzy="true">Menimo, da vam za sodelovanje v gibanju svobodnega znanja ne bi bilo treba posredovati osebnih podatkov. Podatki o uporabi, zbrani za to aplikacijo, so anonimni. Preberite več o naši &lt;a href=\"#privacy\"&gt;politiki zasebnosti&lt;/a&gt; in &lt;a href=\"#termsOfUse\"&gt;pogojih uporabe&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Pošiljaj podatke o uporabi</string>
   <string name="onboarding_got_it">Razumem</string>
   <string name="onboarding_multilingual_secondary_text">Na vaši napravi smo našli naslednje:</string>
@@ -1279,7 +1280,7 @@
     <item quantity="few">Odstranim izbrane jezike</item>
     <item quantity="other">Odstranim izbrane jezike?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">V viru Raziskovanje in hitrih filtrih iskanja boste videli samo vsebino za preostale jezike Wikipedije.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">V viru Raziskovanje in hitrih filtrih iskanja boste videli samo vsebino za preostale jezike Wikipedije.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Ne morem odstraniti vseh jezikov</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Ohranite vsaj en jezik Wikipedije, v katerem lahko pregledujete in berete vsebino.</string>
   <string name="more_language_options">več</string>
@@ -1575,16 +1576,16 @@
   <string name="user_contrib_filter_activity_title">Filtriraj prispevke</string>
   <string name="action_item_view_on_map">Prikaži na zemljevidu</string>
   <string name="action_item_view_on_map_unavailable">Geografske koordinate za to stran niso na voljo</string>
-  <string name="shareable_reading_lists_import_dialog_title">Uvoz deljenega bralnega seznama</string>
-  <string name="shareable_reading_lists_import_dialog_content">Kako želite poimenovati seznam, ki je bil deljen z vami?</string>
+  <string name="shareable_reading_lists_import_dialog_title" fuzzy="true">Uvoz deljenega bralnega seznama</string>
+  <string name="shareable_reading_lists_import_dialog_content" fuzzy="true">Kako želite poimenovati seznam, ki je bil deljen z vami?</string>
   <string name="shareable_reading_lists_new_indicator">*novo*</string>
-  <string name="shareable_reading_lists_new_install_dialog_title">Z vami je bil deljen bralni seznam</string>
-  <string name="shareable_reading_lists_new_install_dialog_content">Opazili smo, da je bil z vami deljen bralni seznam. Če si želite ogledati ta seznam v aplikaciji, se vrnite na prvotno sporočilo in znova tapnite povezavo.</string>
+  <string name="shareable_reading_lists_new_install_dialog_title" fuzzy="true">Z vami je bil deljen bralni seznam</string>
+  <string name="shareable_reading_lists_new_install_dialog_content" fuzzy="true">Opazili smo, da je bil z vami deljen bralni seznam. Če si želite ogledati ta seznam v aplikaciji, se vrnite na prvotno sporočilo in znova tapnite povezavo.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Razumem</string>
-  <string name="shareable_reading_lists_new_imported_snackbar">Bralni seznam je uspešno uvožen</string>
+  <string name="shareable_reading_lists_new_imported_snackbar" fuzzy="true">Bralni seznam je uspešno uvožen</string>
   <string name="reading_list_share_menu_label">Deli ...</string>
-  <string name="reading_list_share_menu_tooltip">Delite ta bralni seznam z drugimi</string>
-  <string name="reading_list_share_message_v2">Zdravo! S tabo želim deliti svoj bralni seznam Wikipedije:</string>
+  <string name="reading_list_share_menu_tooltip" fuzzy="true">Delite ta bralni seznam z drugimi</string>
+  <string name="reading_list_share_message_v2" fuzzy="true">Zdravo! S tabo želim deliti svoj bralni seznam Wikipedije:</string>
   <string name="talk_templates_empty_message">Za začetek ustvarite lastna sporočila ali uporabite &lt;a href=\"#\"&gt;zglede sporočil&lt;/a&gt;.</string>
   <string name="talk_templates_new_message_title">Novo sporočilo</string>
   <string name="talk_templates_new_message_subject_hint">Tema</string>
@@ -1785,8 +1786,8 @@
   <string name="survey_dialog_submitted_snackbar">Povratne informacije so poslane. Hvalaǃ</string>
   <string name="on_this_day_game_entry_dialog_title">Predstavljamo</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Igre Wikipedije</string>
-  <string name="on_this_day_game_entry_dialog_button">Igraj današnjo igro</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Igre Wikipedije so na voljo v viru Raziskuj</string>
+  <string name="on_this_day_game_entry_dialog_button" fuzzy="true">Igraj današnjo igro</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message" fuzzy="true">Igre Wikipedije so na voljo v viru Raziskuj</string>
   <string name="on_this_day_game_title">Kateri je bil prvi?</string>
   <string name="on_this_day_game_dialog_button">Igraj</string>
   <string name="on_this_day_game_splash_message">Uganite, kateri dogodek na današnji dan se je zgodil prvi v zgodovini.</string>
@@ -1797,13 +1798,8 @@
   <string name="on_this_day_game_point">+1 točka</string>
   <string name="on_this_day_game_next">Naslednje vprašanje</string>
   <string name="on_this_day_game_finish">Končni rezultati</string>
-  <string name="on_this_day_game_pause_title">Premor igre?</string>
-  <string name="on_this_day_game_pause_body">Vaš napredek bo shranjen za ta dan. Igro najdete v viru Raziskuj.</string>
-  <string name="on_this_day_game_pause_negative">Igraj naprej</string>
-  <string name="on_this_day_game_pause_positive">Razumem</string>
   <string name="on_this_day_game_feed_entry_card_heading">Igre Wikipedije</string>
   <string name="on_this_day_game_feed_entry_card_title">Kateri je bil prvi?</string>
-  <string name="on_this_day_game_feed_entry_card_subtitle">Uganite, kateri dogodek na današnji dan se je zgodil prvi v zgodovini.</string>
   <string name="on_this_day_game_result">Vaš rezultat: %1$d/%2$d.</string>
   <string name="on_this_day_game_next_in">Naslednja igra v %s</string>
   <string name="on_this_day_game_your_stats">Vaša statistika</string>
@@ -1816,7 +1812,7 @@
   <string name="on_this_day_game_stats_average_score">Povprečna ocena</string>
   <string name="on_this_day_game_stats_streak">Trenutni niz</string>
   <string name="on_this_day_game_result_subtitle">Članki, ki so vključeni v današnjo igro</string>
-  <string name="on_this_day_game_completed_message">Hvala za igranje. Nova igra »Kaj se je zgodilo najprej?« je vsak dan na voljo na zavihku Raziskuj.</string>
+  <string name="on_this_day_game_completed_message" fuzzy="true">Hvala za igranje. Nova igra »Kaj se je zgodilo najprej?« je vsak dan na voljo na zavihku Raziskuj.</string>
   <string name="on_this_day_game_menu_notifications">Obvestila igre</string>
   <string name="on_this_day_game_menu_info">Več o tem</string>
   <string name="on_this_day_game_menu_feedback">Težava z možnostjo</string>
@@ -1839,4 +1835,5 @@
   <string name="on_this_day_game_report_email_body">Naletel_a sem na težavo z možnostjo iger Wikipedije:\n– [Opišite specifično težavo]\n\nVedenje, ki bi ga rad_a videl_a, je:\n– [Opišite predlagano rešitev]</string>
   <string name="on_this_day_game_notification_undo">Razveljavi</string>
   <string name="on_this_day_game_share_link_message">Igram \"Kaj se je zgodilo najprej?\", vsakodnevno zanimivo igro v aplikaciji Wikipedia Android %s</string>
+  <string name="donation_reminders_prompt_positive_button">Donirajte zdaj</string>
 </resources>

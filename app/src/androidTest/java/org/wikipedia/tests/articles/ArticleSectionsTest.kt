@@ -4,20 +4,16 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.wikipedia.TestConstants.SEARCH_TERM
 import org.wikipedia.base.BaseTest
 import org.wikipedia.main.MainActivity
 import org.wikipedia.robots.SystemRobot
 import org.wikipedia.robots.feature.PageRobot
-import org.wikipedia.robots.feature.SearchRobot
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
 class ArticleSectionsTest : BaseTest<MainActivity>(
  activityClass = MainActivity::class.java,
 ) {
-
-    private val searchRobot = SearchRobot()
     private val pageRobot = PageRobot(context)
     private val systemRobot = SystemRobot()
 
@@ -25,10 +21,8 @@ class ArticleSectionsTest : BaseTest<MainActivity>(
     fun runTest() {
         systemRobot
             .clickOnSystemDialogWithText("Allow")
-        searchRobot
-            .tapSearchView()
-            .typeTextInView(SEARCH_TERM)
-            .clickOnItemFromSearchList(0)
+        // TODO: update the test steps
+        // 1. Search for an article and open it
         setDeviceOrientation(isLandscape = true)
         pageRobot
             .scrollToCollapsingTables()

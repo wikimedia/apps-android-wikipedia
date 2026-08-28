@@ -15,7 +15,7 @@
   <string name="search_hint_search_languages">ቋንቋ ድለይ</string>
   <string name="search_back_button_content_description">ተመለስ</string>
   <string name="search_icon_content_description">ድለይ</string>
-  <string name="filter_hint_filter_my_lists_and_articles">ዝርዝራተይ ኣጻርይ</string>
+  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">ዝርዝራተይ ኣጻርይ</string>
   <string name="nav_item_suggested_edits">ኣርትዖታት</string>
   <string name="nav_item_more">ተወሳኺ</string>
   <string name="nav_item_search">ድለይ</string>
@@ -65,7 +65,7 @@
   <string name="edit_section_find_in_page">ኣብ ገጽ ርኸብ</string>
   <string name="menu_page_font_and_theme">ቅርጺ ፈደልን ገጽታን</string>
   <string name="menu_page_add_to_default_list">ኣቐምጥ</string>
-  <string name="feed_card_add_to_list">ኣብ ዝርዝር ንባብ ወስኽ</string>
+  <string name="feed_card_add_to_list" fuzzy="true">ኣብ ዝርዝር ንባብ ወስኽ</string>
   <string name="feed_card_add_to_default_list">ኣቐምጥ</string>
   <string name="menu_page_share">መጋጠሚ ኣካፍል</string>
   <string name="menu_article_share">ጽሑፍ ኣካፍል</string>
@@ -229,7 +229,7 @@
   <string name="unnamed_tab_closed">ጽላት ተዓጽዩ።</string>
   <string name="tab_item_closed">%s ተዓጽዩ።</string>
   <string name="all_tab_items_closed">ኩሎም ጽላታት ተዓጽዮም።</string>
-  <string name="tool_tip_bookmark_icon_title">ኣብ ዝርዝር ንባብ ወስኽ</string>
+  <string name="tool_tip_bookmark_icon_title" fuzzy="true">ኣብ ዝርዝር ንባብ ወስኽ</string>
   <string name="page_view_in_browser">ገጽ ኣብ መዳህሰሲ ርኣይ</string>
   <string name="error_unknown">ዘይተፈልጠ ጌጋ ኣጋጢሙ ኣሎ።</string>
   <string name="format_error_server_message">መልእኽቲ፦ «%s»</string>
@@ -285,8 +285,8 @@
   <string name="reading_list_article_moved_to_named">ጽሑፍ ካብ %1$s ናብ %2$s ተንቀሳቒሱ።</string>
   <string name="reading_list_article_already_exists_message">ኩሉ ጽቡቕ! %1$s ድሮ %2$s ዝሓዘ እዩ።</string>
   <string name="reading_list_articles_already_exist_message">ኩሉ ጽቡቕ! %s ድሮ ኩሎም ጽሑፋት ዝሓዘ እዩ።</string>
-  <string name="reading_list_added_view_button">ዝርዝር ርኣይ</string>
-  <string name="reading_list_add_to_list_button">ናብ ዝርዝር ወስኽ</string>
+  <string name="reading_list_added_view_button" fuzzy="true">ዝርዝር ርኣይ</string>
+  <string name="reading_list_add_to_list_button" fuzzy="true">ናብ ዝርዝር ወስኽ</string>
   <plurals name="format_reading_list_statistical_summary_without_size">
     <item quantity="one">1 ጽሑፍ</item>
     <item quantity="other">%d ጽሑፋት</item>
@@ -298,26 +298,26 @@
   <string name="reading_list_sort">ጎጅል</string>
   <string name="reading_list_sort_ellipsis">ጎጅል ብ...</string>
   <string name="reading_list_sort_by_name">ብስም ጎጅል</string>
-  <string name="reading_list_menu_delete">ዝርዝር ሰርዝ</string>
-  <string name="reading_list_menu_export">ዝርዝር ሰደድ</string>
+  <string name="reading_list_menu_delete" fuzzy="true">ዝርዝር ሰርዝ</string>
+  <string name="reading_list_menu_export" fuzzy="true">ዝርዝር ሰደድ</string>
   <string name="reading_list_menu_select">ምረጽ</string>
   <string name="reading_list_menu_rename">ስም/መግለጺ ኣርትዕ</string>
-  <string name="reading_list_name_hint">ስም ናይዚ ዝርዝር</string>
+  <string name="reading_list_name_hint" fuzzy="true">ስም ናይዚ ዝርዝር</string>
   <string name="reading_list_description_hint">መግለጺ (ኣማራጽያዊ)</string>
-  <string name="single_list_json_file_name">%s (ዝርዝር ንባብ ዊኪፐድያ).json</string>
-  <string name="multiple_lists_json_file_name">ዝርዝር ንባብ ዊኪፐድያ (%sን ካልእን).json</string>
-  <string name="reading_lists_item_deleted">%s ካብ ዝርዝራት ተኣልዩ</string>
+  <string name="single_list_json_file_name" fuzzy="true">%s (ዝርዝር ንባብ ዊኪፐድያ).json</string>
+  <string name="multiple_lists_json_file_name" fuzzy="true">ዝርዝር ንባብ ዊኪፐድያ (%sን ካልእን).json</string>
+  <string name="reading_lists_item_deleted" fuzzy="true">%s ካብ ዝርዝራት ተኣልዩ</string>
   <string name="reading_list_item_delete_undo">ምለስ</string>
   <string name="reading_list_deleted">%s ተሰሪዙ</string>
-  <string name="saved_list_empty_title">ገና ዝተዓቀቡ ገጻት የለን</string>
-  <string name="reading_lists_empty_message">ዋላ ካብ መስመር ወጻኢ ኣብ ዘለኻሉ እዋን፣ ድሒርካ ንኸተንብብ ኣብ ዝርዝር ጽሑፋት ወስኽ።</string>
-  <string name="reading_list_empty">ኣብዚ ዝርዝር ዝተወሰኹ ጽሑፋት የብልካን።</string>
+  <string name="saved_list_empty_title" fuzzy="true">ገና ዝተዓቀቡ ገጻት የለን</string>
+  <string name="reading_lists_empty_message" fuzzy="true">ዋላ ካብ መስመር ወጻኢ ኣብ ዘለኻሉ እዋን፣ ድሒርካ ንኸተንብብ ኣብ ዝርዝር ጽሑፋት ወስኽ።</string>
+  <string name="reading_list_empty" fuzzy="true">ኣብዚ ዝርዝር ዝተወሰኹ ጽሑፋት የብልካን።</string>
   <string name="reading_list_article_offline">ካብ መስመር ወጻኢ ይርከብ</string>
-  <string name="reading_list_add_to_other_list">ኣብ ካልእ ዝርዝር ንባብ ወስኽ</string>
+  <string name="reading_list_add_to_other_list" fuzzy="true">ኣብ ካልእ ዝርዝር ንባብ ወስኽ</string>
   <string name="reading_list_remove_from_list">ካብ %s ኣልግስ</string>
-  <string name="reading_list_remove_from_lists">ካብ ዝርዝራት ንባብ ኣልግስ</string>
+  <string name="reading_list_remove_from_lists" fuzzy="true">ካብ ዝርዝራት ንባብ ኣልግስ</string>
   <string name="reading_list_select_item">ምረጽ</string>
-  <string name="reading_list_confirm_remove_article_from_offline_title">ጽሑፍ ኣብ ብዙሕ ዝርዝራት ይቐርብ</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title" fuzzy="true">ጽሑፍ ኣብ ብዙሕ ዝርዝራት ይቐርብ</string>
   <string name="reading_lists_login_button">ብመንነት እተው / ናብ ዊኪፐድያ ተጸንበር</string>
   <string name="reading_lists_ignore_button">ሕጂ ኣይከውንን</string>
   <string name="reading_lists_confirm_remote_delete_yes">እወ</string>
@@ -330,7 +330,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">ኣይፋል፣ የቐንየለይ</string>
   <string name="default_reading_list_name">ዝተቐመጠ</string>
   <string name="reading_list_saved_list_rename">%1$s (ብተጠቃሚ ዝተፈጠረ)</string>
-  <string name="reading_lists_menu_create_list">ሓድሽ ዝርዝር ፍጠር</string>
+  <string name="reading_lists_menu_create_list" fuzzy="true">ሓድሽ ዝርዝር ፍጠር</string>
   <string name="reading_lists_menu_sort_by">ጎጅል ብ</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">ብመንነት እተው / ተመዝገብ</string>
   <string name="reading_list_menu_last_sync">መጨረሻ ምስናይ፦ %s</string>
@@ -342,13 +342,13 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">ኣትርፍ</string>
   <string name="reading_list_split_dialog_ok_button_text">ሕራይ</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">ሰርዝ</string>
-  <string name="reading_list_activity_title">ዝርዝር ንባብ፦ %s</string>
+  <string name="reading_list_activity_title" fuzzy="true">ዝርዝር ንባብ፦ %s</string>
   <string name="reading_lists_action_menu_export_lists">ስደድ</string>
   <string name="reading_lists_preview_save_button">ኣቐምጥ</string>
   <string name="reading_lists_preview_save_dialog_title_hint">ኣርእስቲ</string>
   <string name="reading_lists_preview_save_dialog_cancel">ኣትርፍ</string>
   <string name="reading_lists_preview_save_dialog_save">ኣቐምጥ</string>
-  <string name="reading_lists_preview_saved_snackbar">ዝርዝር ንባብ ተዓቂቡ</string>
+  <string name="reading_lists_preview_saved_snackbar" fuzzy="true">ዝርዝር ንባብ ተዓቂቡ</string>
   <string name="reading_lists_preview_saved_snackbar_action">ርኣይ</string>
   <string name="user_option_sync_label">ምርጫታት</string>
   <string name="notification_syncing_pause_button">ንግዚኡ ደው ኣብል</string>
@@ -854,14 +854,14 @@
   <string name="survey_dialog_general_no">ኣይፋል</string>
   <string name="survey_dialog_general_maybe">ምናልባት</string>
   <string name="on_this_day_game_entry_dialog_subtitle">ጸወታታት ዊኪፐድያ</string>
-  <string name="on_this_day_game_entry_dialog_button">ናይ ሎሚ ጸወታ ኣጻውት</string>
+  <string name="on_this_day_game_entry_dialog_button" fuzzy="true">ናይ ሎሚ ጸወታ ኣጻውት</string>
   <string name="on_this_day_game_dialog_button">ኣጻውት</string>
   <string name="on_this_day_game_correct">ቅኑዕ!</string>
   <string name="on_this_day_game_incorrect">ጌጋ!</string>
   <string name="on_this_day_game_point">+1 ነጥቢ</string>
   <string name="on_this_day_game_next">ዝቕጽል ሕቶ</string>
   <string name="on_this_day_game_finish">ናይ መወዳእታ ውጽኢት</string>
-  <string name="on_this_day_game_share_button">ኣካፍል</string>
+  <string name="on_this_day_game_share_button" fuzzy="true">ኣካፍል</string>
   <string name="on_this_day_game_menu_info">ተወሳኺ ሓበሬታ</string>
   <string name="on_this_day_game_article_read_button">ጽሑፍ ኣንብብ</string>
   <string name="recommended_reading_list_onboarding_card_new">ሓድሽ!</string>

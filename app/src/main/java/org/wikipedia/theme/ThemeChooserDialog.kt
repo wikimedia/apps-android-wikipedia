@@ -184,7 +184,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
         if (isMatchingSystemThemeEnabled) {
             when (app.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
                 Configuration.UI_MODE_NIGHT_YES -> if (!app.currentTheme.isDark) {
-                    app.currentTheme = if (!app.unmarshalTheme(Prefs.previousThemeId).isDark) Theme.BLACK else app.unmarshalTheme(Prefs.previousThemeId)
+                    app.currentTheme = if (!app.unmarshalTheme(Prefs.previousThemeId).isDark) Theme.DARK else app.unmarshalTheme(Prefs.previousThemeId)
                     Prefs.previousThemeId = currentTheme.marshallingId
                 }
                 Configuration.UI_MODE_NIGHT_NO -> if (app.currentTheme.isDark) {

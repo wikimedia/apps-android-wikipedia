@@ -77,6 +77,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
     private var _binding: FragmentArticleEditDetailsBinding? = null
     private val binding get() = _binding!!
     private val viewModel: ArticleEditDetailsViewModel by viewModels()
+    private var editAttemptInitLogged = false
 
     private val actionBarOffsetChangedListener =
         AppBarLayout.OnOffsetChangedListener { _, verticalOffset ->
@@ -131,10 +132,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
         setLoadingState()
         requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
 
-        if (savedInstanceState == null) {
-            EditAttemptStepEvent.logInit(viewModel.pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
-        }
-
         if (!viewModel.fromRecentEdits) {
             (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.revision_diff_compare)
             binding.articleTitleView.text = StringUtil.fromHtml(viewModel.pageTitle.displayText)
@@ -153,6 +150,14 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
             if (it is Resource.Success) {
                 updateDiffCharCountView(viewModel.diffSize)
                 updateAfterRevisionFetchSuccess()
+                if (savedInstanceState == null && !editAttemptInitLogged) {
+                    editAttemptInitLogged = true
+                    EditAttemptStepEvent.logInit(
+                        pageTitle = viewModel.pageTitle,
+                        editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
+                        editCount = viewModel.editCount
+                    )
+                }
             } else if (it is Resource.Error) {
                 setErrorState(it.throwable)
             }
@@ -189,15 +194,24 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
         viewModel.undoEditResponse.observe(viewLifecycleOwner) {
             binding.progressBar.isVisible = false
             if (it is Resource.Success) {
-                EditAttemptStepEvent.logSaveSuccess(viewModel.pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
+                val revisionId = it.data.edit!!.newRevId
                 setLoadingState()
-                viewModel.getRevisionDetails(it.data.edit!!.newRevId)
+                viewModel.getRevisionDetails(revisionId)
                 sendPatrollerExperienceEvent("undo_success", "pt_edit",
-                    PatrollerExperienceEvent.getActionDataString(it.data.edit.newRevId))
+                    PatrollerExperienceEvent.getActionDataString(revisionId))
+                EditAttemptStepEvent.logSaveSuccess(
+                    pageTitle = viewModel.pageTitle, revisionId,
+                    editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
+                    editCount = (viewModel.editCount + 1)
+                )
                 showUndoSnackbar()
                 callback()?.onUndoSuccess()
             } else if (it is Resource.Error) {
-                EditAttemptStepEvent.logSaveFailure(viewModel.pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
+                EditAttemptStepEvent.logSaveFailure(
+                    pageTitle = viewModel.pageTitle,
+                    editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
+                    editCount = viewModel.editCount
+                    )
                 it.throwable.printStackTrace()
                 FeedbackUtil.showError(requireActivity(), it.throwable)
             }
@@ -216,15 +230,25 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
         viewModel.rollbackResponse.observe(viewLifecycleOwner) {
             binding.progressBar.isVisible = false
             if (it is Resource.Success) {
-                EditAttemptStepEvent.logSaveSuccess(viewModel.pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
+                val revisionId = it.data.rollback?.revision ?: 0
                 setLoadingState()
-                viewModel.getRevisionDetails(it.data.rollback?.revision ?: 0)
+                viewModel.getRevisionDetails(revisionId)
                 sendPatrollerExperienceEvent("rollback_success", "pt_edit",
-                    PatrollerExperienceEvent.getActionDataString(it.data.rollback?.revision ?: 0))
+                    PatrollerExperienceEvent.getActionDataString(revisionId))
+                EditAttemptStepEvent.logSaveSuccess(
+                    pageTitle = viewModel.pageTitle,
+                    revisionId = revisionId,
+                    editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
+                    editCount = (viewModel.editCount + 1)
+                )
                 showRollbackSnackbar()
                 callback()?.onRollbackSuccess()
             } else if (it is Resource.Error) {
-                EditAttemptStepEvent.logSaveFailure(viewModel.pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
+                EditAttemptStepEvent.logSaveFailure(
+                    pageTitle = viewModel.pageTitle,
+                    editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
+                    editCount = viewModel.editCount
+                )
                 it.throwable.printStackTrace()
                 FeedbackUtil.showError(requireActivity(), it.throwable)
             }
@@ -303,7 +327,11 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
         binding.undoButton.setOnClickListener {
             val canUndo = viewModel.revisionFrom != null && AccountUtil.isLoggedIn
             val canRollback = AccountUtil.isLoggedIn && viewModel.hasRollbackRights && !viewModel.canGoForward
-            EditAttemptStepEvent.logSaveIntent(viewModel.pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
+            EditAttemptStepEvent.logSaveIntent(
+                pageTitle = viewModel.pageTitle,
+                editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
+                editCount = viewModel.editCount
+            )
             if (canUndo && canRollback) {
                 PopupMenu(requireContext(), binding.undoLabel, Gravity.END).apply {
                     menuInflater.inflate(R.menu.menu_context_undo, menu)
@@ -606,7 +634,11 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
             if (viewModel.fromRecentEdits) InvokeSource.SUGGESTED_EDITS_RECENT_EDITS else null) { text ->
                 viewModel.revisionTo?.let {
                     binding.progressBar.isVisible = true
-                    EditAttemptStepEvent.logSaveAttempt(viewModel.pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
+                    EditAttemptStepEvent.logSaveAttempt(
+                        pageTitle = viewModel.pageTitle,
+                        editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
+                        editCount = viewModel.editCount
+                    )
                     viewModel.undoEdit(viewModel.pageTitle, it.user, text.toString(), viewModel.revisionToId, 0)
                 }
         }
@@ -634,7 +666,11 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
                 sendPatrollerExperienceEvent("rollback_confirm", "pt_edit")
                 binding.progressBar.isVisible = true
                 viewModel.revisionTo?.let {
-                    EditAttemptStepEvent.logSaveAttempt(viewModel.pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
+                    EditAttemptStepEvent.logSaveAttempt(
+                        pageTitle = viewModel.pageTitle,
+                        editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
+                        editCount = viewModel.editCount
+                    )
                     viewModel.postRollback(viewModel.pageTitle, it.user)
                 }
             }

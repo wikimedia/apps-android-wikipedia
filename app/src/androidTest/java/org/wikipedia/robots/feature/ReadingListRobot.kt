@@ -27,7 +27,7 @@ class ReadingListRobot : BaseRobot() {
             listId = R.id.recycler_view,
             position
         )
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun clickOnReadingLists(title: String) = apply {
@@ -80,7 +80,7 @@ class ReadingListRobot : BaseRobot() {
 
     fun typeNameOfTheList(title: String, context: Context) = apply {
         input.replaceTextInView(viewId = R.id.text_input, title)
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
         if (verify.isViewWithTextVisible(context.getString(R.string.reading_list_title_exists, title))) {
             input.replaceTextInView(viewId = R.id.text_input, "$title${Math.random()}")
         }
@@ -88,12 +88,12 @@ class ReadingListRobot : BaseRobot() {
 
     fun saveTheList(context: Context) = apply {
         click.onViewWithText(context.getString(R.string.text_input_dialog_ok_button_text))
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun viewTheList(context: Context) = apply {
         click.onViewWithText(context.getString(R.string.reading_list_added_view_button))
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun dismissTooltip(activity: Activity) = apply {
@@ -103,7 +103,7 @@ class ReadingListRobot : BaseRobot() {
     fun clickOnGotIt() = apply {
         try {
             click.onViewWithText("Got it")
-            delay(TestConfig.DELAY_MEDIUM)
+            delay(TestConfig.DELAY_SHORT)
         } catch (e: Exception) {
             Log.e("ReadingListRobot:", "Text does not exist.")
         }
@@ -122,7 +122,7 @@ class ReadingListRobot : BaseRobot() {
     }
 
     fun verifyArticleHasNotDownloaded() = apply {
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
         onView(withId(R.id.reading_list_recycler_view))
             .perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(1))
             .check(
@@ -141,7 +141,7 @@ class ReadingListRobot : BaseRobot() {
     }
 
     fun verifyArticleHasDownloaded() = apply {
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
         onView(withId(R.id.reading_list_recycler_view))
             .perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(1))
             .check(
@@ -181,7 +181,7 @@ class ReadingListRobot : BaseRobot() {
     fun clickNoThanks(context: Context) = apply {
         try {
             click.onViewWithText(context.getString(R.string.reading_list_prompt_turned_sync_on_dialog_no_thanks))
-            delay(TestConfig.DELAY_MEDIUM)
+            delay(TestConfig.DELAY_SHORT)
         } catch (e: Exception) {
             Log.e("ReadingListRobot: ", "${e.message}")
         }
@@ -189,11 +189,11 @@ class ReadingListRobot : BaseRobot() {
 
     fun clickCreateList() = apply {
         click.onViewWithId(R.id.create_button)
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun pressBack() = apply {
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
         goBack()
     }
 }

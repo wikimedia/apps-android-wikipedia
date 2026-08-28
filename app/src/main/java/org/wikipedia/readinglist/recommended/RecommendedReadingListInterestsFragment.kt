@@ -11,12 +11,10 @@ import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -31,8 +29,6 @@ import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridCells
 import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridItemSpan
 import androidx.compose.foundation.lazy.staggeredgrid.items
 import androidx.compose.foundation.lazy.staggeredgrid.rememberLazyStaggeredGridState
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LinearProgressIndicator
@@ -51,21 +47,15 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.graphics.SolidColor
-import androidx.compose.ui.graphics.painter.BrushPainter
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.ComposeView
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -73,13 +63,12 @@ import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import coil3.compose.AsyncImage
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
-import org.wikipedia.compose.components.HtmlText
-import org.wikipedia.compose.components.WikiCard
+import org.wikipedia.compose.components.ArticleCard
+import org.wikipedia.compose.components.SearchBarCard
 import org.wikipedia.compose.components.WikipediaAlertDialog
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
@@ -95,7 +84,6 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
-import org.wikipedia.views.imageservice.ImageService
 
 class RecommendedReadingListInterestsFragment : Fragment() {
     private val viewModel: RecommendedReadingListInterestsViewModel by viewModels()
@@ -362,10 +350,13 @@ fun RecommendedReadingListInterestsContent(
                     )
                 }
                 item(span = StaggeredGridItemSpan.FullLine) {
-                    ReadingListInterestSearchCard(onSearchClick)
+                    SearchBarCard(
+                        text = stringResource(R.string.recommended_reading_list_interest_pick_search_hint),
+                        onSearchClick = onSearchClick
+                    )
                 }
                 items(items) { item ->
-                    ReadingListInterestCard(
+                    ArticleCard(
                         modifier = Modifier.animateItem(),
                         item = item,
                         isSelected = selectedItems.contains(item),
@@ -438,113 +429,6 @@ fun RecommendedReadingListInterestsContent(
                 Spacer(modifier = Modifier.width(48.dp))
             }
         }
-    }
-}
-
-@Composable
-fun ReadingListInterestCard(
-    modifier: Modifier,
-    item: PageTitle,
-    isSelected: Boolean = false,
-    onItemClick: (PageTitle) -> Unit = {},
-) {
-    WikiCard(
-        modifier = modifier
-            .fillMaxWidth(),
-        elevation = 0.dp,
-        border = BorderStroke(width = 1.dp, color = WikipediaTheme.colors.borderColor),
-        colors = CardDefaults.cardColors(
-            containerColor = if (isSelected) WikipediaTheme.colors.additionColor else WikipediaTheme.colors.paperColor
-        ),
-        shape = RoundedCornerShape(16.dp),
-        onClick = {
-            onItemClick(item)
-        }
-    ) {
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-        ) {
-            if (!item.thumbUrl.isNullOrEmpty()) {
-                val request = ImageService.getRequest(LocalContext.current, url = item.thumbUrl, detectFace = true)
-                AsyncImage(
-                    model = request,
-                    placeholder = BrushPainter(SolidColor(WikipediaTheme.colors.borderColor)),
-                    error = BrushPainter(SolidColor(WikipediaTheme.colors.borderColor)),
-                    contentScale = ContentScale.Crop,
-                    contentDescription = null,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(108.dp)
-                        .clip(RoundedCornerShape(16.dp))
-                )
-            }
-            Column(
-                modifier = Modifier.padding(8.dp)
-            ) {
-                HtmlText(
-                    text = item.displayText,
-                    style = MaterialTheme.typography.bodyLarge,
-                    color = WikipediaTheme.colors.primaryColor
-                )
-                Spacer(modifier = Modifier.height(2.dp))
-                Row {
-                    if (!item.description.isNullOrEmpty()) {
-                        HtmlText(
-                            text = item.description.orEmpty(),
-                            style = MaterialTheme.typography.bodyMedium,
-                            color = WikipediaTheme.colors.secondaryColor,
-                            maxLines = 3,
-                            overflow = TextOverflow.Ellipsis,
-                            modifier = Modifier.weight(1f)
-                        )
-                    } else {
-                        Spacer(modifier = Modifier.weight(1f))
-                    }
-                    if (isSelected) {
-                        Spacer(modifier = Modifier.width(8.dp))
-                        Icon(
-                            modifier = Modifier.size(24.dp).align(Alignment.Bottom),
-                            painter = painterResource(R.drawable.check_circle_24px),
-                            tint = WikipediaTheme.colors.primaryColor,
-                            contentDescription = null
-                        )
-                    } else {
-                        Spacer(modifier = Modifier.width(32.dp).height(24.dp))
-                    }
-                }
-            }
-        }
-    }
-}
-
-@Composable
-fun ReadingListInterestSearchCard(onSearchClick: () -> Unit) {
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(56.dp)
-            .clip(RoundedCornerShape(28.dp))
-            .background(
-                color = WikipediaTheme.colors.backgroundColor,
-                shape = RoundedCornerShape(24.dp)
-            )
-            .clickable(onClick = onSearchClick),
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        Spacer(modifier = Modifier.width(16.dp))
-        Icon(
-            painter = painterResource(R.drawable.outline_search_24),
-            contentDescription = stringResource(R.string.search_hint),
-            tint = WikipediaTheme.colors.secondaryColor,
-            modifier = Modifier.size(24.dp)
-        )
-        Text(
-            modifier = Modifier.padding(start = 16.dp, end = 16.dp),
-            text = stringResource(R.string.recommended_reading_list_interest_pick_search_hint),
-            style = MaterialTheme.typography.bodyLarge,
-            color = WikipediaTheme.colors.primaryColor
-        )
     }
 }
 

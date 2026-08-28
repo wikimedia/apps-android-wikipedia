@@ -14,6 +14,7 @@ import androidx.core.text.inSpans
 import androidx.core.text.set
 import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.restbase.DiffResponse
 import org.wikipedia.dataclient.restbase.Revision
 import org.wikipedia.util.ResourceUtil
@@ -115,8 +116,9 @@ object DiffUtil {
     }
 
     private fun SpannableStringBuilder.updateDiffTextDecor(context: Context, isAddition: Boolean, start: Int, end: Int) {
+        val alpha = if (WikipediaApp.instance.currentTheme.isDark) 96 else 48
         this[start, end] = BackgroundColorSpan(ColorUtils.setAlphaComponent(ResourceUtil.getThemedColor(context,
-            if (isAddition) R.attr.success_color else R.attr.destructive_color), 48))
+            if (isAddition) R.attr.success_color else R.attr.destructive_color), alpha))
         this[start, end] = StyleSpan(Typeface.BOLD)
         this[start, end] = ForegroundColorSpan(ResourceUtil.getThemedColor(context, R.attr.primary_color))
         if (!isAddition) {

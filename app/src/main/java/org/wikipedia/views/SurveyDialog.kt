@@ -1,10 +1,12 @@
 package org.wikipedia.views
 
 import android.app.Activity
+import android.text.InputFilter
 import android.view.View
 import android.widget.ScrollView
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
+import androidx.core.view.isVisible
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputEditText
 import org.wikipedia.Constants
@@ -16,6 +18,65 @@ import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 
 object SurveyDialog {
+
+    fun showHomeFeedFeedbackDialog(
+        activity: Activity,
+        onImpression: () -> Unit,
+        onCancel: () -> Unit,
+        onSubmit: (feedbackOption: Int?, feedbackText: String) -> Unit
+    ) {
+        val maxCharacter = 250
+        var dialog: AlertDialog? = null
+        val binding = DialogFeedbackOptionsBinding.inflate(activity.layoutInflater)
+        binding.titleText.text = activity.getString(R.string.home_feed_survey_title)
+        binding.messageText.text = activity.getString(R.string.home_feed_survey_message)
+        binding.optionVerySatisfied.isVisible = true
+        binding.optionVeryUnsatisfied.isVisible = true
+        binding.feedbackInputContainer.isVisible = true
+        binding.feedbackInputContainer.isCounterEnabled = true
+        binding.feedbackInputContainer.counterMaxLength = maxCharacter
+        binding.feedbackInput.filters = arrayOf(InputFilter.LengthFilter(maxCharacter))
+        binding.feedbackInput.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) {
+                binding.dialogContainer.postDelayed({
+                    if (!activity.isDestroyed) {
+                        binding.dialogContainer.fullScroll(ScrollView.FOCUS_DOWN)
+                    }
+                }, 200)
+            }
+        }
+
+        binding.cancelButton.setOnClickListener {
+            onCancel()
+            dialog?.dismiss()
+        }
+        binding.submitButton.setOnClickListener {
+            val feedbackOption = getSelectedOption(binding)
+            val feedbackText = binding.feedbackInput.text.toString()
+            onSubmit(feedbackOption, feedbackText)
+            FeedbackUtil.showMessage(activity, R.string.survey_dialog_submitted_snackbar)
+            dialog?.dismiss()
+        }
+
+        val dialogBuilder = MaterialAlertDialogBuilder(activity, R.style.AlertDialogTheme_AdjustResize)
+            .setCancelable(false)
+            .setView(binding.root)
+
+        onImpression()
+        dialog = dialogBuilder.show()
+    }
+
+    private fun getSelectedOption(binding: DialogFeedbackOptionsBinding): Int? {
+        val selectedId = binding.feedbackRadioGroup.checkedRadioButtonId
+        return when (selectedId) {
+            R.id.optionVerySatisfied -> 1
+            R.id.optionSatisfied -> 2
+            R.id.optionNeutral -> 3
+            R.id.optionUnsatisfied -> 4
+            R.id.optionVeryUnsatisfied -> 5
+            else -> null
+        }
+    }
 
     fun showFeedbackOptionsDialog(activity: Activity,
                                   titleId: Int = R.string.survey_dialog_title,

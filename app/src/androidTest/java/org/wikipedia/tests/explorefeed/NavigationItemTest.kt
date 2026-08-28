@@ -25,7 +25,7 @@ class NavigationItemTest : BaseTest<MainActivity>(
         bottomNavRobot
             .navigateToSavedPage()
             .navigateToSearchPage()
-            .navigateToSuggestedEdits()
+            .navigateToActivityTab()
             .navigateToMoreMenu()
             .pressBack()
             .navigateToExploreFeed()

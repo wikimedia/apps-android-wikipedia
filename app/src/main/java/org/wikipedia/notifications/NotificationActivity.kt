@@ -24,9 +24,12 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.graphics.drawable.updateBounds
 import androidx.core.view.MenuItemCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
 import androidx.core.view.updateLayoutParams
 import androidx.core.view.updateMargins
+import androidx.core.view.updatePadding
 import androidx.core.widget.ImageViewCompat
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -92,7 +95,11 @@ class NotificationActivity : BaseActivity() {
         setContentView(binding.root)
         setSupportActionBar(binding.notificationsToolbar)
         supportActionBar?.title = getString(R.string.notifications_activity_title)
-
+        ViewCompat.setOnApplyWindowInsetsListener(binding.notificationsCoordinatorLayout) { _, insets ->
+            val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            binding.notificationsCoordinatorLayout.updatePadding(top = bars.top)
+            insets
+        }
         binding.notificationsErrorView.retryClickListener = View.OnClickListener { viewModel.fetchAndSave() }
         binding.notificationsErrorView.backClickListener = View.OnClickListener { onBackPressedDispatcher.onBackPressed() }
         binding.notificationsRecyclerView.layoutManager = LinearLayoutManager(this)

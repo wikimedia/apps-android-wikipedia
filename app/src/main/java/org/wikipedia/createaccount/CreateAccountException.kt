@@ -1,3 +1,3 @@
 package org.wikipedia.createaccount
 
-class CreateAccountException internal constructor(message: String) : RuntimeException(message)
+class CreateAccountException internal constructor(message: String, val messageCode: String? = null) : RuntimeException(message)

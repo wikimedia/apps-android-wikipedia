@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* ArcaneIE
 * Dbrant
 * Kareyac
 * MTongov
@@ -25,8 +26,9 @@
   <string name="search_back_button_content_description">Назад</string>
   <string name="search_clear_query_content_description">Изчистване на заявката</string>
   <string name="search_icon_content_description">Търсене</string>
-  <string name="filter_hint_filter_my_lists_and_articles">Филтриране на списъците</string>
+  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">Филтриране на списъците</string>
   <string name="nav_item_suggested_edits">Редакции</string>
+  <string name="nav_item_activity">Дейност</string>
   <string name="nav_item_more">Още</string>
   <string name="nav_item_search">Търсене</string>
   <string name="nav_item_contribute">Добавете своя принос</string>
@@ -39,7 +41,7 @@
   <string name="page_error_back_to_main">Назад</string>
   <string name="error_back">Назад</string>
   <string name="error_next">Следваща</string>
-  <string name="menu_clear_all_history" fuzzy="true">Изчистване на историята</string>
+  <string name="menu_clear_all_history">Изчистване историята на четене</string>
   <string name="history_item_deleted">%s е премахната от историята</string>
   <string name="history_items_deleted">%d статии са премахнати от историята</string>
   <string name="history_item_delete_undo">Отмяна</string>
@@ -52,7 +54,7 @@
   <string name="wikimedia_commons">Общомедия</string>
   <string name="wikidata">Уикиданни</string>
   <string name="dialog_title_clear_history">Изчистване на историята</string>
-  <string name="dialog_message_clear_history" fuzzy="true">Това ще изтрие цялата история на сърфиране и ще затвори всички отворени раздели. Сигурни ли сте?</string>
+  <string name="dialog_message_clear_history">Това ще изтрие цялата ви история на сърфиране. Сигурни ли сте?</string>
   <string name="dialog_message_clear_history_yes">Да</string>
   <string name="dialog_message_clear_history_no">Не</string>
   <string name="share_via">Споделяне чрез</string>
@@ -91,16 +93,16 @@
   <string name="menu_page_watched">Наблюдавани</string>
   <string name="edit_section_find_in_page">Търсене в страницата</string>
   <string name="menu_page_font_and_theme">Шрифт и облик</string>
-  <string name="menu_page_add_to_list">Добавяне към списъка за четене</string>
+  <string name="menu_page_add_to_list" fuzzy="true">Добавяне към списъка за четене</string>
   <string name="menu_page_add_to_default_list">Съхраняване</string>
-  <string name="feed_card_add_to_list">Добавяне към списъка за четене</string>
+  <string name="feed_card_add_to_list" fuzzy="true">Добавяне към списъка за четене</string>
   <string name="feed_card_add_to_default_list">Съхраняване</string>
   <string name="menu_page_share">Споделяне на връзка</string>
   <string name="menu_article_share">Споделяне на статия</string>
   <string name="menu_page_article_share">Споделяне</string>
   <string name="menu_page_open_a_new_tab">Отваряне в нов раздел</string>
   <string name="menu_page_new_tab">Нов раздел</string>
-  <string name="menu_page_reading_lists">Списъци за четене</string>
+  <string name="menu_page_reading_lists" fuzzy="true">Списъци за четене</string>
   <string name="menu_page_recently_viewed">Посетени наскоро</string>
   <string name="menu_page_archive">Архивиране</string>
   <string name="menu_long_press_open_page">Отваряне</string>
@@ -118,6 +120,7 @@
   <string name="map_view_link_text">Преглед върху карта</string>
   <string name="other_languages_indication_text">Прочитане на друг език</string>
   <string name="language_count_link_text">Налична на %d други езика</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">Публикувайки промените, Вие се съгласявате с &lt;a href=\"%1$s\"&gt;Условията за ползване&lt;/a&gt; и безвъзвратно публикувате приносите си под &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; лиценз.</string>
   <string name="edit_save_action_license_anon">Публикувайки промените, Вие се съгласявате с &lt;a href=\"%1$s\"&gt;Условията за ползване&lt;/a&gt; и безвъзвратно публикувате приносите си под &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; лиценз. Редакциите ще бъдат приписани на IP адреса на вашето  устройство. Ако &lt;a href=\"https://#login\"&gt;влезете в системата&lt;/a&gt;, тази информация няма да бъде публична.</string>
   <string name="edit_anon_warning">Редакциите ще бъдат приписани на IP адреса на вашето устройство. Ако &lt;a href=\"https://#login\"&gt;влезете&lt;/a&gt;, ще имате по-голяма поверителност.</string>
@@ -143,7 +146,7 @@
   <string name="menu_show_toc">Съдържание</string>
   <string name="search_no_results_found">Не бяха открити резултати</string>
   <string name="search_reading_list_no_results">Не са открити резултати в „%s“</string>
-  <string name="search_reading_lists_no_results">Не са открити резултати в списъка за четене</string>
+  <string name="search_reading_lists_no_results" fuzzy="true">Не са открити резултати в списъка за четене</string>
   <string name="search_history_no_results">Не са открити резултати в историята</string>
   <string name="edit_section_captcha_message">За защита от автоматизиран спам, моля, напишете думите, които излизат по-долу.</string>
   <string name="edit_section_captcha_request_an_account_message">Не можете да видите изображението? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Пуснете заявка за създаване на сметка&lt;/a&gt;</string>
@@ -157,6 +160,8 @@
   <string name="login_2fa_hint">Двукомпонентен удостоверителен код</string>
   <string name="login_2fa_other_workflow_error_msg">Изисква се двуфакторно удостоверяване! Моля, влезте от главния екран и въведете кода от вашия 2FA токен.</string>
   <string name="login_email_auth_hint">Код за потвърждение на имейл</string>
+  <string name="login_email_auth_other_workflow_error_msg">Изисква се потвърждение на имейла! Моля, влезте в сметката си от главния екран и въведете кода си за потвърждение на имейл.</string>
+  <string name="login_background_error_msg">Неуспешно повторно влизане. Моля, върнете се на главния екран и влезте ръчно.</string>
   <string name="onboarding_card_login">Влизане</string>
   <string name="page_editing_login">Влизане</string>
   <string name="reading_lists_sync_login">Влизане</string>
@@ -179,6 +184,7 @@
   <string name="logged_out_in_background_cancel">Отказ</string>
   <string name="account_vanish_request_title">Изтриване на сметката</string>
   <string name="account_vanish_request_confirm_title">Предупреждение за изтриване на сметката</string>
+  <string name="account_vanish_request_confirm">Изчезването е &lt;b&gt;последна възможност&lt;/b&gt; и трябва да се използва &lt;b&gt;само когато желаете да спрете да редактирате завинаги&lt;/b&gt;, а също и за скриете възможно най-много от свързаните с вас действия.&lt;br/&gt;&lt;br/&gt;Изтриването на сметка в Уикипедия се извършва чрез промяна на потребителското име, така че останалите да не могат да разпознаят вашите приноси, в процес, наречен изчезване на сметка. &lt;b&gt;Изчезването не гарантира пълна анонимност и не премахва приносите към проектите&lt;/b&gt;.</string>
   <string name="history_empty_title">Няма скорошно преглеждани статии</string>
   <string name="history_empty_message">Следете какво сте чели тук.</string>
   <string name="history_offline_articles_toast">Някои статии в историята може да са недостъпни офлайн.</string>
@@ -220,12 +226,12 @@
   <string name="preferences_heading_syncing">Синхронизиране</string>
   <string name="preferences_heading_data_usage">Използване на данните</string>
   <string name="preferences_heading_experimental">Експериментални</string>
-  <string name="preference_title_sync_reading_lists_from_account">Синхронизация на списъци за четене</string>
-  <string name="preference_title_download_reading_list_articles">Изтегляне на статии от списъците за четене</string>
-  <string name="preference_summary_sync_reading_lists">Синхронизиране на списъци за четене на различни устройства чрез запазването им в сметката Ви в Уикипедия</string>
-  <string name="preference_summary_sync_reading_lists_from_account">Синхронизиране на списъци за четене на различни устройства чрез запазването им в сметката Ви „%s“ в Уикипедия</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Премахване на синхронизираните списъци за четене от „%s“?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Това ще изтрие напълно всички синхронизирани досега списъци за четене от външното хранилище. Премахване на всички синхронизирани списъци от сметката Ви „%s“?</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Синхронизация на списъци за четене</string>
+  <string name="preference_title_download_reading_list_articles" fuzzy="true">Изтегляне на статии от списъците за четене</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">Синхронизиране на списъци за четене на различни устройства чрез запазването им в сметката Ви в Уикипедия</string>
+  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">Синхронизиране на списъци за четене на различни устройства чрез запазването им в сметката Ви „%s“ в Уикипедия</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">Премахване на синхронизираните списъци за четене от „%s“?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">Това ще изтрие напълно всички синхронизирани досега списъци за четене от външното хранилище. Премахване на всички синхронизирани списъци от сметката Ви „%s“?</string>
   <string name="preference_title_auto_upload_crash_reports">Изпращане на доклади за сривове</string>
   <string name="preference_summary_auto_upload_crash_reports">Позволяване на приложението да изпраща доклади за сривове към услуга на трети страни автоматично, така че да можем да прегледаме срива и да оправим бъга по-бързо и по-лесно.</string>
   <string name="editing_error_spamblacklist">Открити са препратки до блокирани домейни (%s). Моля, премахнете ги и опитайте пак.</string>
@@ -238,12 +244,16 @@
   <string name="page_protected_can_not_edit_anon">За съжаление, към момента тази страница не може да бъде редактирана анонимно.</string>
   <string name="page_protected_can_not_edit_title">Тази страница е защитена</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Добавяне към списъка за наблюдение</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Следете какво се случва със статиите, които ви интересуват. Докоснете менюто за още опции и изберете &lt;b&gt;Добавяне в списъка за наблюдение&lt;/b&gt;, за да виждате промените по дадена статия.</string>
   <string name="settings_item_preferences">Настройки</string>
   <string name="settings_activity_title">Настройки</string>
   <string name="about_description">Относно приложението Уикипедия.</string>
   <string name="privacy_policy_description">Защита на личните данни</string>
   <string name="terms_of_use_description">Условия за ползване</string>
+  <string name="legal_safety_contacts_description">Правни контакти и контакти за безопасност</string>
   <string name="about_wikipedia_url">https://bg.wikipedia.org/wiki/Уикипедия:За_Уикипедия</string>
+  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Privacy_policy</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Офлайн_четене_и_данни</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.bg</string>
   <string name="about_libraries_heading">Използвани библиотеки</string>
   <string name="about_contributors_heading">Сътрудници</string>
@@ -254,6 +264,7 @@
   <string name="about_app_license">Програмният код е достъпен на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; под лиценз &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Освен ако друго не е упоменато, съдържанието е достъпно под лиценз &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.bg\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Продукт на &lt;a href=\"https://wikimediafoundation.org/\"&gt;Фондация Уикимедия&lt;/a&gt;</string>
   <string name="about_activity_title">Относно</string>
+  <string name="about_logo_content_description">Лого с пъзел глобус на Уикипедия</string>
   <string name="edit_abandon_confirm">Страницата е била променена. Сигурни ли сте, че искате да излезете, без да запазите промените си?</string>
   <string name="edit_abandon_confirm_yes">Да</string>
   <string name="edit_abandon_confirm_no">Не</string>
@@ -360,8 +371,8 @@
   <string name="unnamed_tab_closed">Разделът е затворен.</string>
   <string name="tab_item_closed">%s затворена.</string>
   <string name="all_tab_items_closed">Всички табове са затворени.</string>
-  <string name="tool_tip_bookmark_icon_title">Добавяне към списък за четене</string>
-  <string name="tool_tip_bookmark_icon_text">Докоснете иконата за отметка, за да запазите статията в списъка за четене.</string>
+  <string name="tool_tip_bookmark_icon_title" fuzzy="true">Добавяне към списък за четене</string>
+  <string name="tool_tip_bookmark_icon_text" fuzzy="true">Докоснете иконата за отметка, за да запазите статията в списъка за четене.</string>
   <string name="page_view_in_browser">Преглед на страницата в браузър</string>
   <string name="tool_tip_toc_title">Бърз достъп до съдържанието</string>
   <string name="tool_tip_toc_text">Вече можете да плъзнете наляво, за да отворите съдържанието, а също така да докоснете и плъзнете този бутон за превъртане, за да преминете бързо към различни секции на статия.</string>
@@ -374,20 +385,23 @@
   <string name="button_continue_to_talk_page">Преглед на беседата</string>
   <string name="button_continue_to_disambiguation">Преглед на подобните страници</string>
   <string name="link_preview_disambiguation_description">Това заглавие се отнася за повече от една страница:</string>
-  <string name="button_add_to_reading_list">Добавяне към списъка за четене</string>
+  <string name="button_add_to_reading_list" fuzzy="true">Добавяне към списъка за четене</string>
   <string name="page_offline_notice_cannot_load_while_offline">Статията не може да бъде заредена в офлайн режим.</string>
-  <string name="page_offline_notice_add_to_reading_list">Съвет: Добавете статията към списък за четене и тя ще бъде изтеглена щом се свържете към Интернет.</string>
+  <string name="page_offline_notice_add_to_reading_list" fuzzy="true">Съвет: Добавете статията към списък за четене и тя ще бъде изтеглена щом се свържете към Интернет.</string>
   <string name="page_offline_notice_last_date">Четете офлайн версия на тази статия, запазена на %s.</string>
   <string name="redirected_from_snackbar">Пренасочено от „%s“</string>
   <string name="button_get_directions">Упътвания</string>
   <string name="error_no_maps_app">Не са намерени приложения, предоставящи навигация.</string>
   <string name="preference_title_customize_explore_feed">Разгледайте емисията</string>
+  <string name="preference_title_customize_home_feed">Начална страница</string>
   <string name="preference_title_show_link_previews">Предварителен преглед на връзки</string>
   <string name="preference_summary_customize_explore_feed">Персонализирайте емисията за изследване</string>
+  <string name="preference_summary_customize_home_feed">Персонализирайте вашата начална страница</string>
   <string name="preference_summary_show_link_previews">Показва бърз предварителен преглед на статии, когато се натисне връзка.</string>
   <string name="preference_title_collapse_tables">Свиване на таблици</string>
   <string name="preference_summary_collapse_tables">Автоматично свиване на таблиците в статиите, като например инфокутии, източници и бележки.</string>
   <string name="nav_item_donate">Направете дарение</string>
+  <string name="nav_item_year_in_review">Обзор на годината</string>
   <string name="error_voice_search_not_available">За съжаление, гласовото разпознаване не е достъпно.</string>
   <string name="location_service_disabled">Услугите за местоположение са изключени.</string>
   <string name="enable_location_service">Включване</string>
@@ -405,7 +419,9 @@
   <string name="link_preview_dialog_save_button">Съхраняване</string>
   <string name="link_preview_dialog_saved_button">Съхранена</string>
   <string name="link_preview_dialog_share_button">Споделяне</string>
+  <string name="link_preview_stub_placeholder_text">Тази статия е мъниче, което означава, че в нея няма достатъчно съдържание за генериране на предварителен преглед. Вие обаче можете да промените това.</string>
   <string name="error_page_does_not_exist">Тази страница не съществува</string>
+  <string name="error_user_page_does_not_exist">Уикипедия няма &lt;a href=\"%1$s\"&gt;потребителска страница&lt;/a&gt; с точно това име. По принцип тази страница трябва да бъде създадена и редактирана от &lt;b&gt;%2$s&lt;/b&gt;. Ако се колебаете, моля, проверете дали „%3$s“ съществува.</string>
   <string name="view_wiki_error_message_offline">Няма връзка с интернет</string>
   <string name="view_wiki_error_message_timeout">Не е възможно свързването с Уикипедия. Проверете Вашата мрежова връзка или опитайте по-късно</string>
   <string name="reference_title">Източник %s</string>
@@ -413,6 +429,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Избледняване на изображенията (в Тъмен облик)</string>
   <string name="preference_title_prefer_offline_content">Предпочитане на офлайн съдържание</string>
   <string name="preference_summary_prefer_offline_content">Пестете мобилни данни, като зареждате статии, които са налични в офлайн режим, вместо да зареждате последната им версия.</string>
+  <string name="preference_title_delete_local_donation_history">Изчистване на историята на даренията</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Съвпада със системния облик</string>
   <string name="page_footer_license_text">Съдържанието е достъпно под $1, освен ако не е посочено друго</string>
   <string name="empty_tab_title">Нов раздел</string>
@@ -427,9 +444,23 @@
   <string name="theme_chooser_menu_item_short_tooltip">Персонализирайте лентата си с инструменти</string>
   <string name="error_blocked_footer_no_blocker">Можете да се свържете с &lt;a href=\"https://https://bg.wikipedia.org/wiki/Уикипедия:Администратори\"&gt;администратор&lt;/a&gt;, за да обсъдите блокирането.</string>
   <string name="temp_account_not_logged_in">Вие не сте влезли в системата</string>
+  <string name="temp_account_anon_ip_dialog_body">След като направите редакция, вашият IP адрес ще бъде свързан с вашите редакции.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Влезте&lt;/a&gt; или &lt;a href=\"https://#createaccount\"&gt;създайте сметка&lt;/a&gt;, за да получите признание за бъдещи редакции и да получите достъп до други функции.</string>
+  <string name="temp_account_anon_dialog_body">След като направите редакция, за вас ще бъде създадена &lt;b&gt;временна сметка&lt;/b&gt;, за да се защити поверителността ви. &lt;a href=\"%1$s\"&gt;Научете повече&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Влезте&lt;/a&gt; или &lt;a href=\"https://#createaccount\"&gt;създайте сметка&lt;/a&gt;, за да получите признание за бъдещи редакции и да получите достъп до други функции.</string>
+  <string name="temp_account_temp_dialog_body">Вашата редакция ще бъде приписана на %1$s. Вашият IP адрес ще бъде видим за администраторите.&lt;br /&gt;&lt;br /&gt;Ако &lt;a href=\"https://#login\"&gt;влезете&lt;/a&gt; или &lt;a href=\"https://#createaccount\"&gt;създадете сметка&lt;/a&gt;, вашите редакции ще бъдат приписани на име, което изберете, наред с други предимства.</string>
   <string name="temp_account_dialog_ok">Разбрах</string>
   <string name="temp_account_using_title">Използвате временна сметка</string>
   <string name="temp_account_dialog_discard">Отхвърляне на промените ли влизане</string>
+  <plurals name="temp_account_created">
+    <item quantity="one">Временната сметка %1$s беше създадена, след като редакцията ви беше публикувана. Тя ще изтече след %2$d ден.</item>
+    <item quantity="other">Временната сметка %1$s беше създадена, след като редакцията ви беше публикувана. Тя ще изтече след %2$d дни.</item>
+  </plurals>
+  <plurals name="temp_account_expiry">
+    <item quantity="one">Сметката ще изтече след %d ден.</item>
+    <item quantity="other">Сметката ще изтече след %d дни.</item>
+  </plurals>
+  <string name="temp_account_anon_ip_edit_status">&lt;b&gt;Не сте влезли в системата.&lt;/b&gt; След като направите редакция, вашият IP адрес ще бъде свързан с вашите редакции.</string>
+  <string name="temp_account_anon_edit_status" fuzzy="true">Не сте влезли в системата. След като направите редакция, ще Ви бъде създадена временна сметка, за да се защити поверителността Ви. &lt;a href=\"%1$s\"&gt;Научете повече&lt;/a&gt;</string>
+  <string name="temp_account_edit_status">&lt;b&gt;Използвате временна сметка.&lt;/b&gt; Вашата редакция ще бъде приписана на %1$s. &lt;a href=\"%2$s\"&gt;Научете повече&lt;/a&gt;.</string>
   <string name="temp_account_end_session">Завършване на сесията</string>
   <string name="crash_report_activity_title">Грешка в приложението</string>
   <string name="crash_report_relaunch_or_quit">За съжаление, приложението на Уикипедия претърпя срив и бе спряно.\n\nБихте ли желали да започнете отначало или да излезете?</string>
@@ -465,17 +496,17 @@
   <string name="editing_monospace_font_label">Използване на моноширинен шрифт</string>
   <string name="editing_typing_suggestions">Показване на предложения за въвеждане</string>
   <string name="nav_item_saved">Съхранени</string>
-  <string name="reading_list_save_to">Добавяне в списъка за четене</string>
-  <string name="reading_list_move_to">Преместване в списък за четене</string>
+  <string name="reading_list_save_to" fuzzy="true">Добавяне в списъка за четене</string>
+  <string name="reading_list_move_to" fuzzy="true">Преместване в списък за четене</string>
   <string name="reading_list_create_new">Създаване на нов</string>
-  <string name="reading_list_title_exists">Списъкът за четене „%s“ вече съществува.</string>
+  <string name="reading_list_title_exists" fuzzy="true">Списъкът за четене „%s“ вече съществува.</string>
   <string name="reading_list_article_added_to_named">%1$s е добавена към %2$s.</string>
-  <string name="reading_list_article_added_to_default_list">%s е съхранена. Искате ли да я добавите към списъка?</string>
+  <string name="reading_list_article_added_to_default_list" fuzzy="true">%s е съхранена. Искате ли да я добавите към списъка?</string>
   <string name="reading_list_article_moved_to_named">%1$s е преместена в %2$s.</string>
   <string name="reading_list_article_already_exists_message">Всичко е наред! %1$s вече съдържа %2$s.</string>
   <string name="reading_list_articles_already_exist_message">Всичко е наред! %s вече съдържа всички статии.</string>
-  <string name="reading_list_added_view_button">Преглед на списъка</string>
-  <string name="reading_list_add_to_list_button">Добавяне към списък</string>
+  <string name="reading_list_added_view_button" fuzzy="true">Преглед на списъка</string>
+  <string name="reading_list_add_to_list_button" fuzzy="true">Добавяне към списък</string>
   <plurals name="format_reading_list_statistical_summary_without_size">
     <item quantity="one">1 статия</item>
     <item quantity="other">%d статии</item>
@@ -500,62 +531,62 @@
   <string name="reading_list_sort_by_recent_desc">Подреждане по дата на добавяне (най-стари)</string>
   <string name="reading_list_sort_by_created">Подреждане по дата на създаване (най-скорошни)</string>
   <string name="reading_list_sort_by_created_desc">Подреждане по дата на създаване (най-стари)</string>
-  <string name="reading_list_menu_delete">Изтриване на списъка</string>
-  <string name="reading_list_menu_export">Изнасяне на списък</string>
+  <string name="reading_list_menu_delete" fuzzy="true">Изтриване на списъка</string>
+  <string name="reading_list_menu_export" fuzzy="true">Изнасяне на списък</string>
   <string name="reading_list_menu_select">Избиране</string>
   <string name="reading_list_menu_unselect">Премахване на избора</string>
-  <string name="reading_list_export_write_permission_rationale">Нужно е разрешение за записване в паметта на устройството, за да се запази списъка за четене.</string>
+  <string name="reading_list_export_write_permission_rationale" fuzzy="true">Нужно е разрешение за записване в паметта на устройството, за да се запази списъка за четене.</string>
   <string name="reading_list_menu_rename">Редактиране на име/описание</string>
   <string name="reading_list_action_menu_remove_from_offline">Премахване от офлайн достъп</string>
   <string name="reading_list_action_menu_save_for_offline">Запазване за офлайн достъп</string>
   <string name="reading_list_action_menu_remove_all_from_offline">Премахване на всички от офлайн</string>
   <string name="reading_list_action_menu_save_all_for_offline">Запазване на всички за офлайн</string>
-  <string name="reading_list_action_menu_add_to_another_list">Добавяне в друг списък</string>
-  <string name="reading_list_action_menu_move_to_another_list">Преместване в друг списък</string>
-  <string name="reading_list_name_sample">Моят списък за четене</string>
-  <string name="reading_list_name_hint">Име на този списък</string>
+  <string name="reading_list_action_menu_add_to_another_list" fuzzy="true">Добавяне в друг списък</string>
+  <string name="reading_list_action_menu_move_to_another_list" fuzzy="true">Преместване в друг списък</string>
+  <string name="reading_list_name_sample" fuzzy="true">Моят списък за четене</string>
+  <string name="reading_list_name_hint" fuzzy="true">Име на този списък</string>
   <string name="reading_list_description_hint">Описание (незадължително)</string>
-  <string name="reading_list_item_deleted">статията %s е премахната от списъка</string>
+  <string name="reading_list_item_deleted" fuzzy="true">статията %s е премахната от списъка</string>
   <string name="reading_list_item_deleted_from_list">%1$s е отстранена от %2$s</string>
-  <plurals name="reading_list_articles_deleted">
+  <plurals name="reading_list_articles_deleted" fuzzy="true">
     <item quantity="one">%d статия е премахната от списъка</item>
     <item quantity="other">%d статии са премахнати от списъка</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d статия е премахната от %s</item>
-    <item quantity="other">%d статии са премахнати от %s</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">%1$d статия е премахната от %2$s</item>
+    <item quantity="other">%1$d статии са премахнати от %2$s</item>
   </plurals>
-  <plurals name="reading_lists_deleted_message">
+  <plurals name="reading_lists_deleted_message" fuzzy="true">
     <item quantity="one">%d списък е изтрит</item>
     <item quantity="other">%d списъка са изтрити</item>
   </plurals>
-  <string name="reading_lists_default_list_delete_message">Списъкът по подразбиране (%s) не може да се изтрива</string>
-  <string name="reading_lists_default_plus_one_list_delete_message">%1$s е изтрит. Списъкът по подразбиране (%2$s) не може да се изтрива.</string>
-  <string name="reading_lists_default_plus_many_lists_delete_message">Списъците са изтрити. Списъкът по подразбиране (%s) не може да се изтрива.</string>
-  <string name="reading_list_items_deleted">%d статии са премахнати от списъка</string>
-  <string name="reading_lists_item_deleted">%s е премахната от списъците</string>
+  <string name="reading_lists_default_list_delete_message" fuzzy="true">Списъкът по подразбиране (%s) не може да се изтрива</string>
+  <string name="reading_lists_default_plus_one_list_delete_message" fuzzy="true">%1$s е изтрит. Списъкът по подразбиране (%2$s) не може да се изтрива.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message" fuzzy="true">Списъците са изтрити. Списъкът по подразбиране (%s) не може да се изтрива.</string>
+  <string name="reading_list_items_deleted" fuzzy="true">%d статии са премахнати от списъка</string>
+  <string name="reading_lists_item_deleted" fuzzy="true">%s е премахната от списъците</string>
   <string name="reading_list_item_delete_undo">Отмяна</string>
   <string name="reading_list_deleted">%s е изтрит</string>
-  <string name="saved_list_empty_title">Все още няма списъци за четене</string>
-  <string name="reading_lists_empty_message">Добавяйте статии в списъци за четене по-късно, дори когато нямате мрежа.</string>
-  <string name="reading_list_empty">Нямате добавени статии в списъка.</string>
+  <string name="saved_list_empty_title" fuzzy="true">Все още няма списъци за четене</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Добавяйте статии в списъци за четене по-късно, дори когато нямате мрежа.</string>
+  <string name="reading_list_empty" fuzzy="true">Нямате добавени статии в списъка.</string>
   <string name="reading_list_article_offline">Наличен офлайн</string>
   <string name="reading_list_article_make_offline">Правене на статията достъпна офлайн</string>
-  <string name="reading_list_add_to_other_list">Добавяне в друг списък за четене</string>
-  <string name="reading_list_move_to_other_list">Преместване в друг списък за четене</string>
-  <string name="reading_list_move_from_to_other_list">Преместване от %s към друг списък за четене</string>
+  <string name="reading_list_add_to_other_list" fuzzy="true">Добавяне в друг списък за четене</string>
+  <string name="reading_list_move_to_other_list" fuzzy="true">Преместване в друг списък за четене</string>
+  <string name="reading_list_move_from_to_other_list" fuzzy="true">Преместване от %s към друг списък за четене</string>
   <string name="reading_list_remove_from_list">Премахване от %s</string>
-  <string name="reading_list_remove_from_lists">Премахване от списъците за четене</string>
+  <string name="reading_list_remove_from_lists" fuzzy="true">Премахване от списъците за четене</string>
   <string name="reading_list_select_item">Избиране</string>
   <string name="reading_list_confirm_remove_article_from_offline">Премахване от офлайн достъп</string>
-  <string name="reading_list_confirm_remove_article_from_offline_title">Статията се намира в няколко списъка</string>
-  <string name="reading_list_confirm_remove_article_from_offline_message">%s повече няма да е налична офлайн за всички списъци за четене:</string>
-  <string name="reading_lists_sync_reminder_title">Включване на синхронизиране на списъци за четене?</string>
-  <string name="reading_lists_sync_reminder_text">Статиите, съхранени в списъците Ви за четене, вече могат да се синхронизират със сметката Ви в Уикипедия. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Научете повече&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Списъците за четене вече могат да бъдат синхронизирани на различни устройства. Влезте във Вашата сметка в Уикипедия и позволете списъците Ви да бъдат запазвани. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Научете повече&lt;/a&gt;</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title" fuzzy="true">Статията се намира в няколко списъка</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s повече няма да е налична офлайн за всички списъци за четене:</string>
+  <string name="reading_lists_sync_reminder_title" fuzzy="true">Включване на синхронизиране на списъци за четене?</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">Статиите, съхранени в списъците Ви за четене, вече могат да се синхронизират със сметката Ви в Уикипедия. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Научете повече&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Списъците за четене вече могат да бъдат синхронизирани на различни устройства. Влезте във Вашата сметка в Уикипедия и позволете списъците Ви да бъдат запазвани. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Научете повече&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Включване на синхронизиране</string>
-  <string name="reading_list_login_reminder_title">Синхронизация на списъците за четене</string>
-  <string name="reading_lists_login_reminder_text">Списъците за четене вече могат да се синхронизират между устройства. Влезте в сметката си в Уикипедия, за да позволите съхранението на списъците си.</string>
+  <string name="reading_list_login_reminder_title" fuzzy="true">Синхронизация на списъците за четене</string>
+  <string name="reading_lists_login_reminder_text" fuzzy="true">Списъците за четене вече могат да се синхронизират между устройства. Влезте в сметката си в Уикипедия, за да позволите съхранението на списъците си.</string>
   <string name="reading_lists_login_button">Влизане в / присъединяване към Уикипедия</string>
   <string name="reading_lists_ignore_button">Не сега</string>
   <string name="reading_lists_confirm_remote_delete_yes">Да</string>
@@ -564,31 +595,31 @@
   <string name="reading_list_articles_added_to_named">Добавени %1$d статии в %2$s</string>
   <string name="reading_list_articles_moved_to_named">Преместени са %1$d статии в %2$s</string>
   <string name="reading_list_delete_confirm">Сигурни ли сте, че искате да изтриете %s?</string>
-  <string name="reading_list_delete_lists_confirm_dialog_title">Изтриване на избраните списъци?</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title" fuzzy="true">Изтриване на избраните списъци?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Влезте, за да включите синхронизиране</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Влезте, за да позволите съхранението на списъци за четене в сметката си.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text" fuzzy="true">Влезте, за да позволите съхранението на списъци за четене в сметката си.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Отказ</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Влизане</string>
-  <string name="reading_list_turned_sync_off_dialog_title">Синхронизацията на списъците за четене е изключена</string>
-  <string name="reading_list_turned_sync_off_dialog_text">Синхронизирането на списъците за четене е изключено за сметката Ви и съхранените статии на устройствата Ви не се пазят вече. Включете синхронизиране на списъците за четене от Настройки.</string>
+  <string name="reading_list_turned_sync_off_dialog_title" fuzzy="true">Синхронизацията на списъците за четене е изключена</string>
+  <string name="reading_list_turned_sync_off_dialog_text" fuzzy="true">Синхронизирането на списъците за четене е изключено за сметката Ви и съхранените статии на устройствата Ви не се пазят вече. Включете синхронизиране на списъците за четене от Настройки.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">Добре</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Настройки</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_title">Включване на синхронизиране на списъци за четене?</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_text">Статиите, запазени в списъци за четене, вече могат да се синхронизират със сметката Ви в Уикипедия. &lt;a href=\"#faq\"&gt;Научете повече&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title" fuzzy="true">Включване на синхронизиране на списъци за четене?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text" fuzzy="true">Статиите, запазени в списъци за четене, вече могат да се синхронизират със сметката Ви в Уикипедия. &lt;a href=\"#faq\"&gt;Научете повече&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Не показвай повече</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Включване на синхронизиране</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Не, благодаря</string>
   <string name="default_reading_list_name">Съхранени</string>
-  <string name="default_reading_list_description">Списък по подразбиране за Вашите запазени статии</string>
-  <string name="no_user_lists_title">Организирайте статии в списъци</string>
-  <string name="no_user_lists_msg">Създавайте списъци с места за пътуване, любими теми и много други</string>
+  <string name="default_reading_list_description" fuzzy="true">Списък по подразбиране за Вашите запазени статии</string>
+  <string name="no_user_lists_title" fuzzy="true">Организирайте статии в списъци</string>
+  <string name="no_user_lists_msg" fuzzy="true">Създавайте списъци с места за пътуване, любими теми и много други</string>
   <string name="reading_list_saved_list_rename">%1$s (направен от потребител)</string>
-  <string name="split_reading_list_message">Има ограничение от %d статии на списък за четене. Съществуващите списъци с повече от това ограничение бяха разделени на няколко списъка.</string>
-  <string name="reading_list_move_article_limit_message">Не може да бъде преместено към този списък. Достигнали сте ограничението от %2$d статии на списък за „%1$s“.</string>
-  <string name="reading_list_article_limit_message">Не може да бъде добавено към този списък. Достигнали сте ограничението от %2$d статии на списък за „%1$s“.</string>
-  <string name="reading_lists_limit_message">Не може да бъде създаден друг списък. Достигнали сте ограничението от 100 списъка за четене на сметка.</string>
-  <string name="reading_lists_menu_create_list">Създаване на нов списък</string>
-  <string name="reading_lists_menu_import_list">Вмъкване на списък</string>
+  <string name="split_reading_list_message" fuzzy="true">Има ограничение от %d статии на списък за четене. Съществуващите списъци с повече от това ограничение бяха разделени на няколко списъка.</string>
+  <string name="reading_list_move_article_limit_message" fuzzy="true">Не може да бъде преместено към този списък. Достигнали сте ограничението от %2$d статии на списък за „%1$s“.</string>
+  <string name="reading_list_article_limit_message" fuzzy="true">Не може да бъде добавено към този списък. Достигнали сте ограничението от %2$d статии на списък за „%1$s“.</string>
+  <string name="reading_lists_limit_message" fuzzy="true">Не може да бъде създаден друг списък. Достигнали сте ограничението от 100 списъка за четене на сметка.</string>
+  <string name="reading_lists_menu_create_list" fuzzy="true">Създаване на нов списък</string>
+  <string name="reading_lists_menu_import_list" fuzzy="true">Вмъкване на списък</string>
   <string name="reading_lists_menu_sort_by">Подреждане по</string>
   <string name="reading_lists_refresh_sync_option">Обновяване на синхронизацията</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Влизане / регистрация</string>
@@ -600,7 +631,7 @@
     <item quantity="one">Тази статия вече не е налична в офлайн режим.</item>
     <item quantity="other">Тези статии вече не са налични в офлайн режим.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Списъците за четене са синхронизирани</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">Списъците за четене са синхронизирани</string>
   <string name="reading_list_menu_last_sync">Последно синхронизиране: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">Добре</string>
   <string name="reading_list_delete_dialog_ok_button_text">Добре</string>
@@ -610,20 +641,20 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Отказ</string>
   <string name="reading_list_split_dialog_ok_button_text">Добре</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">Изтриване</string>
-  <string name="reading_list_activity_title">Списък за четене: %s</string>
-  <string name="reading_list_notification_title">Списъците за четене са изнесени</string>
+  <string name="reading_list_activity_title" fuzzy="true">Списък за четене: %s</string>
+  <string name="reading_list_notification_title" fuzzy="true">Списъците за четене са изнесени</string>
   <string name="reading_lists_action_menu_export_lists">Изнасяне</string>
   <string name="reading_lists_import_file_picker_title">Изберете файла за внасяне</string>
-  <string name="reading_lists_import_failure_message">Неуспешно внасяне на списъци за четене</string>
-  <string name="reading_lists_export_select_lists_message">Изберете списъци за изнасяне</string>
-  <string name="reading_lists_export_completed_message">Списъците за четене са изнесени</string>
-  <string name="reading_lists_preview_header_title">Споделен списък</string>
+  <string name="reading_lists_import_failure_message" fuzzy="true">Неуспешно внасяне на списъци за четене</string>
+  <string name="reading_lists_export_select_lists_message" fuzzy="true">Изберете списъци за изнасяне</string>
+  <string name="reading_lists_export_completed_message" fuzzy="true">Списъците за четене са изнесени</string>
+  <string name="reading_lists_preview_header_title" fuzzy="true">Споделен списък</string>
   <string name="reading_lists_preview_save_button">Съхраняване</string>
-  <string name="reading_lists_preview_save_dialog_title">Запазване на списъка</string>
+  <string name="reading_lists_preview_save_dialog_title" fuzzy="true">Запазване на списъка</string>
   <string name="reading_lists_preview_save_dialog_title_hint">Заглавие</string>
   <string name="reading_lists_preview_save_dialog_cancel">Отказ</string>
   <string name="reading_lists_preview_save_dialog_save">Съхраняване</string>
-  <string name="reading_lists_preview_saved_snackbar">Списъкът за четене е съхранен</string>
+  <string name="reading_lists_preview_saved_snackbar" fuzzy="true">Списъкът за четене е съхранен</string>
   <string name="reading_lists_preview_saved_snackbar_action">Преглед</string>
   <string name="user_option_sync_label">Предпочитания</string>
   <string name="notification_reverted_title">Отменена редакция</string>
@@ -632,8 +663,8 @@
   <string name="notification_syncing_pause_button">Пауза</string>
   <string name="notification_syncing_resume_button">Продължаване</string>
   <string name="notification_syncing_cancel_button">Отказ</string>
-  <string name="notification_syncing_reading_list_channel_title">Синхронизация на списъците за четене</string>
-  <string name="notification_syncing_reading_list_channel_description">Напредък по синхронизирането на Списъците за четене</string>
+  <string name="notification_syncing_reading_list_channel_title" fuzzy="true">Синхронизация на списъците за четене</string>
+  <string name="notification_syncing_reading_list_channel_description" fuzzy="true">Напредък по синхронизирането на Списъците за четене</string>
   <string name="notification_many_unread">Имате %d непрочетени известия</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Изтегляне на статия</item>
@@ -647,15 +678,15 @@
     <item quantity="one">остава %1$d статия</item>
     <item quantity="other">остават %1$d статии</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_channel_name">
+  <plurals name="notification_syncing_reading_list_channel_name" fuzzy="true">
     <item quantity="one">Синхронизиране на Списъка за четене</item>
     <item quantity="other">Синхронизиране на Списъците за четене</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_title">
+  <plurals name="notification_syncing_reading_list_title" fuzzy="true">
     <item quantity="one">Синхронизиране на %1$d списък…</item>
     <item quantity="other">Синхронизиране на %1$d списъка…</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_description">
+  <plurals name="notification_syncing_reading_list_description" fuzzy="true">
     <item quantity="one">остава %1$d списък</item>
     <item quantity="other">остават %1$d списъка</item>
   </plurals>
@@ -797,11 +828,11 @@
   <string name="feed_item_type_main_page">Начална страница на Уикипедия с дневно избрано съдържание</string>
   <string name="feed_item_type_randomizer">Генериране на произволни статии за четене</string>
   <string name="feed_item_type_suggested_edits">Предложения за добавяне на съдържание към Уикипедия</string>
-  <string name="feed_empty_message">Няма нищо във Вашата хранилка за Откриване</string>
+  <string name="feed_empty_message" fuzzy="true">Няма нищо във Вашата хранилка за Откриване</string>
   <string name="feed_configure_onboarding_action">Персонализиране</string>
   <string name="customize_lang_selection_dialog_ok_button_text">Добре</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Отказ</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Персонализирайте вашата хранилка за откриване&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt; Сега можете да изберете какво да се показва във Вашата хранилка, както и да давате приоритет на любимия си вид съдържание.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Персонализирайте вашата хранилка за откриване&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt; Сега можете да изберете какво да се показва във Вашата хранилка, както и да давате приоритет на любимия си вид съдържание.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">Добре</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Отказ</string>
   <string name="feed_accessibility_card_load_more_button">Зареждане на още</string>
@@ -857,6 +888,7 @@
   <string name="customize_toolbar_title">Персонализиране на лентата с инструменти</string>
   <string name="customize_toolbar_category_toolbar">Лента с инструменти</string>
   <string name="customize_toolbar_category_menu">Меню</string>
+  <string name="customize_toolbar_drag_and_drop_placeholder">Плъзнете и пуснете любимите си елементи тук 👋</string>
   <string name="suggested_edits_describe_articles">Описване на статии</string>
   <string name="suggested_edits_caption_images">Описване на изображения</string>
   <string name="suggested_edits_tag_images">Добавяне на етикети</string>
@@ -1069,9 +1101,9 @@
   <string name="onboarding_get_started">Начало</string>
   <string name="onboarding_maybe_later">Може би по-късно</string>
   <string name="onboarding_explore_title">Нови начини за откриване</string>
-  <string name="onboarding_explore_text">Гмурнете се в Уикипедия с постоянно обновяващата се хранилка за откриване. &lt;br/&gt; &lt;b&gt;Персонализирайте&lt;/b&gt; хранилката според Вашите интереси – опознайте историческите събития &lt;b&gt;На днешната дата&lt;/b&gt; или пробвайте късмета си със &lt;b&gt;Случайна&lt;/b&gt;.</string>
-  <string name="onboarding_reading_list_sync_title">Списъци за четене със синхронизация</string>
-  <string name="onboarding_reading_list_sync_text_v2">Можете да правите списъци за четене от статии, които искате да четете по-късно, дори когато нямате мрежа. &lt;br/&gt;Влезте в сметката си в Уикипедия, за да синхронизирате списъците си за четене. &lt;a href=\"#login\"&gt;Присъединете се към Уикипедия&lt;/a&gt;</string>
+  <string name="onboarding_explore_text" fuzzy="true">Гмурнете се в Уикипедия с постоянно обновяващата се хранилка за откриване. &lt;br/&gt; &lt;b&gt;Персонализирайте&lt;/b&gt; хранилката според Вашите интереси – опознайте историческите събития &lt;b&gt;На днешната дата&lt;/b&gt; или пробвайте късмета си със &lt;b&gt;Случайна&lt;/b&gt;.</string>
+  <string name="onboarding_reading_list_sync_title" fuzzy="true">Списъци за четене със синхронизация</string>
+  <string name="onboarding_reading_list_sync_text_v2" fuzzy="true">Можете да правите списъци за четене от статии, които искате да четете по-късно, дори когато нямате мрежа. &lt;br/&gt;Влезте в сметката си в Уикипедия, за да синхронизирате списъците си за четене. &lt;a href=\"#login\"&gt;Присъединете се към Уикипедия&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Данни и поверителност</string>
   <string name="onboarding_analytics_switch_title">Изпращане на данни за използване</string>
   <string name="onboarding_got_it">Разбрах</string>
@@ -1107,7 +1139,7 @@
     <item quantity="one">Премахване на избрания език?</item>
     <item quantity="other">Премахване на избраните езици?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Ще виждате съдържание във вашата хранилка за Откриване и филтрите за бързо търсене само на останалите езици на Уикипедия.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Ще виждате съдържание във вашата хранилка за Откриване и филтрите за бързо търсене само на останалите езици на Уикипедия.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Не могат да се премахнат всички езици</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Оставете поне един език на Уикипедия, на който да търсите и да четете съдържание.</string>
   <string name="more_language_options">още</string>
@@ -1366,9 +1398,9 @@
   <string name="user_contrib_filter_activity_title">Филтриране на приноси</string>
   <string name="shareable_reading_lists_new_indicator">*нов*</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Разбрах</string>
-  <string name="shareable_reading_lists_new_imported_snackbar">Списъкът за четене е внесен</string>
+  <string name="shareable_reading_lists_new_imported_snackbar" fuzzy="true">Списъкът за четене е внесен</string>
   <string name="reading_list_share_menu_label">Споделяне...</string>
-  <string name="reading_list_share_menu_tooltip">Споделяне на списъка за четене с други</string>
+  <string name="reading_list_share_menu_tooltip" fuzzy="true">Споделяне на списъка за четене с други</string>
   <string name="talk_templates_new_message_title">Ново съобщение</string>
   <string name="talk_templates_new_message_subject_hint">Тема</string>
   <string name="talk_templates_new_message_compose_hint">Съставяне на съобщение</string>
@@ -1537,4 +1569,5 @@
     <item quantity="one">%d статия</item>
     <item quantity="other">%d статии</item>
   </plurals>
+  <string name="reading_challenge_widget_search_button">Търсене</string>
 </resources>

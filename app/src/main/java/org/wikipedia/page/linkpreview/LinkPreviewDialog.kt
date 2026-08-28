@@ -42,9 +42,7 @@ import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.places.PlacesActivity
-import org.wikipedia.readinglist.LongPressMenu
-import org.wikipedia.readinglist.ReadingListBehaviorsUtil
-import org.wikipedia.readinglist.database.ReadingListPage
+import org.wikipedia.readinglist.SaveArticleSheetDialog
 import org.wikipedia.util.ClipboardUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.GeoUtil
@@ -78,7 +76,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     private val menuListener = PopupMenu.OnMenuItemClickListener { item ->
         return@OnMenuItemClickListener when (item.itemId) {
             R.id.menu_link_preview_add_to_list -> {
-                doAddToList()
+                showSaveArticleSheet()
                 true
             }
             R.id.menu_link_preview_share_page -> {
@@ -295,41 +293,15 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     }
 
     override fun onAddToList() {
-        doAddToList()
+        showSaveArticleSheet()
     }
 
     override fun onDismiss() {
         dismiss()
     }
 
-    private fun doAddToList() {
-        ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), viewModel.pageTitle, true, Constants.InvokeSource.LINK_PREVIEW_MENU)
-        dialog?.dismiss()
-    }
-
-    private fun showReadingListPopupMenu(anchorView: View) {
-        if (viewModel.isInReadingList) {
-            LongPressMenu(anchorView, existsInAnyList = false, callback = object : LongPressMenu.Callback {
-                override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
-                    ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), viewModel.pageTitle, addToDefault, Constants.InvokeSource.LINK_PREVIEW_MENU)
-                    dismiss()
-                }
-
-                override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
-                    page?.let { readingListPage ->
-                        ReadingListBehaviorsUtil.moveToList(requireActivity(), readingListPage.listId, viewModel.pageTitle, Constants.InvokeSource.LINK_PREVIEW_MENU)
-                    }
-                    dismiss()
-                }
-
-                override fun onRemoveRequest() {
-                    dismiss()
-                }
-            }).show(HistoryEntry(viewModel.pageTitle, HistoryEntry.SOURCE_INTERNAL_LINK))
-        } else {
-            ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), viewModel.pageTitle, true, Constants.InvokeSource.LINK_PREVIEW_MENU)
-            dismiss()
-        }
+    private fun showSaveArticleSheet() {
+        SaveArticleSheetDialog.show(parentFragmentManager, viewModel.pageTitle)
     }
 
     private fun showPreview(contents: LinkPreviewContents) {
@@ -429,7 +401,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         override fun onSecondaryClick() {
             overlayView?.let {
                 sendPlacesEvent("save_click", "detail_toolbar")
-                showReadingListPopupMenu(it.secondaryButtonView)
+                showSaveArticleSheet()
             }
         }
 

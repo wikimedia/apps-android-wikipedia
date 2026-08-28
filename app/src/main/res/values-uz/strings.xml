@@ -22,7 +22,7 @@
   <string name="search_hint">Vikipediyadan qidirish</string>
   <string name="search_hint_voice_search">Ovoz bilan izlash</string>
   <string name="search_hint_search_languages">Til bo‘yicha izlash</string>
-  <string name="filter_hint_filter_my_lists_and_articles">Ro‘yxatimni filtrlamoq</string>
+  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">Ro‘yxatimni filtrlamoq</string>
   <string name="nav_item_suggested_edits">Tahrirlar</string>
   <string name="nav_item_more">Batafsil</string>
   <string name="nav_item_search">Izlash</string>
@@ -87,16 +87,16 @@
   <string name="menu_page_watched">Kuzatilgan</string>
   <string name="edit_section_find_in_page">Sahifadan izlash</string>
   <string name="menu_page_font_and_theme">Shrift va tema</string>
-  <string name="menu_page_add_to_list">Ro‘yxatga qo‘shmoq</string>
+  <string name="menu_page_add_to_list" fuzzy="true">Ro‘yxatga qo‘shmoq</string>
   <string name="menu_page_add_to_default_list">Saqlamoq</string>
-  <string name="feed_card_add_to_list">O‘qilganlar ro‘yxatiga qo‘shmoq</string>
+  <string name="feed_card_add_to_list" fuzzy="true">O‘qilganlar ro‘yxatiga qo‘shmoq</string>
   <string name="feed_card_add_to_default_list">Saqlamoq</string>
   <string name="menu_page_share">Havolani ulashmoq</string>
   <string name="menu_article_share">Maqolani ulashish</string>
   <string name="menu_page_article_share">Ulashmoq</string>
   <string name="menu_page_open_a_new_tab">Yangi varaq ochish</string>
   <string name="menu_page_new_tab">Yangi varaqa</string>
-  <string name="menu_page_reading_lists">O‘qilganlar ro‘yxati</string>
+  <string name="menu_page_reading_lists" fuzzy="true">O‘qilganlar ro‘yxati</string>
   <string name="menu_page_recently_viewed">So‘nggi ko‘rilgan</string>
   <string name="menu_page_archive">Arxiv</string>
   <string name="menu_long_press_open_page">Ochish</string>
@@ -133,7 +133,7 @@
   <string name="menu_show_toc">Mundarija</string>
   <string name="search_no_results_found">Natija topilmadi</string>
   <string name="search_reading_list_no_results">%s’da natija topilmadi</string>
-  <string name="search_reading_lists_no_results">O‘qish ro‘yxatida natija topilmadi</string>
+  <string name="search_reading_lists_no_results" fuzzy="true">O‘qish ro‘yxatida natija topilmadi</string>
   <string name="search_history_no_results">Tarixda hech qanday natija topilmadi</string>
   <string name="edit_section_captcha_message">Avtomatlashtirilgan spamdan himoyalanish uchun quyida keltirilgan so‘zlarni kiriting</string>
   <string name="edit_section_captcha_request_an_account_message">Rasmni ko‘rmayapsizmi? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Akkauntni so‘ramoq&lt;/a&gt;</string>
@@ -207,12 +207,12 @@
   <string name="preferences_heading_syncing">Sinxronlash...</string>
   <string name="preferences_heading_data_usage">Xotira</string>
   <string name="preferences_heading_experimental">Tajribaviy</string>
-  <string name="preference_title_sync_reading_lists_from_account">Roʻyxatni sinxronlamoq...</string>
-  <string name="preference_title_download_reading_list_articles">Maqolalarni yuklab olmoq</string>
-  <string name="preference_summary_sync_reading_lists">Ro‘yxatlarni turli qurilmalarda sinxronlashtiring, ularni Vikipediyadagi akkauntingizga saqlang.</string>
-  <string name="preference_summary_sync_reading_lists_from_account">Ro‘yxatlarni turli qurilmalardagi \"%s\" Vikipediya hisobingizga saqlash orqali sinxronlashtiring.</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Sinxronlangan o‘qish ro‘yxatlari \"%s\"dan olib tashlansinmi?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Bu barcha oldindan sinxronlangan o‘qish ro‘yxatlarini butunlay olib tashlaydi. \"%s\" hisobingizdan barcha sinxronlangan ro‘yxatlar o‘chirilsinmi?</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Roʻyxatni sinxronlamoq...</string>
+  <string name="preference_title_download_reading_list_articles" fuzzy="true">Maqolalarni yuklab olmoq</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">Ro‘yxatlarni turli qurilmalarda sinxronlashtiring, ularni Vikipediyadagi akkauntingizga saqlang.</string>
+  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">Ro‘yxatlarni turli qurilmalardagi \"%s\" Vikipediya hisobingizga saqlash orqali sinxronlashtiring.</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">Sinxronlangan o‘qish ro‘yxatlari \"%s\"dan olib tashlansinmi?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">Bu barcha oldindan sinxronlangan o‘qish ro‘yxatlarini butunlay olib tashlaydi. \"%s\" hisobingizdan barcha sinxronlangan ro‘yxatlar o‘chirilsinmi?</string>
   <string name="preference_title_auto_upload_crash_reports">Xatolik hisobotini joʻnatmoq</string>
   <string name="preference_summary_auto_upload_crash_reports">Ilovaga xatoliklar haqida hisobotlarni avtomatik ravishda uchinchi tomon provayderiga yuborishiga ruxsat bering, shunda biz Sizning ilovangizda yuz bergan xatoliklarni koʻrib chiqamiz va xatoni tezroq va osonroq tuzatamiz.</string>
   <string name="editing_error_spamblacklist">Bloklangan domenlarga (%s) havolalar aniqlandi. Iltimos, ularni olib tashlang va qaytadan urinib koʻring.</string>
@@ -349,8 +349,8 @@
   <string name="unnamed_tab_closed">Xatcho‘p yopildi.</string>
   <string name="tab_item_closed">%s yopildi.</string>
   <string name="all_tab_items_closed">Barcha xatcho‘plar yopildi.</string>
-  <string name="tool_tip_bookmark_icon_title">O‘qilganlar ro‘yxatiga qo‘shmoq</string>
-  <string name="tool_tip_bookmark_icon_text">Maqolani o‘qish ro‘yxatiga saqlash uchun xatcho‘p belgisini bosing.</string>
+  <string name="tool_tip_bookmark_icon_title" fuzzy="true">O‘qilganlar ro‘yxatiga qo‘shmoq</string>
+  <string name="tool_tip_bookmark_icon_text" fuzzy="true">Maqolani o‘qish ro‘yxatiga saqlash uchun xatcho‘p belgisini bosing.</string>
   <string name="page_view_in_browser">Sahifani brauzer orqali ochish</string>
   <string name="tool_tip_toc_title">Tezkor murojaat mundarijasi</string>
   <string name="tool_tip_toc_text">Endi tarkibni ochish uchun chapga suring va maqolaning turli bo‘limlariga tez o‘tish uchun ushbu skrlerler tugmachasini bosing.</string>
@@ -363,9 +363,9 @@
   <string name="button_continue_to_talk_page">Muhokama sahifasini ko‘rmoq</string>
   <string name="button_continue_to_disambiguation">O‘xshash sahifalarni ko‘rmoq</string>
   <string name="link_preview_disambiguation_description">Ushbu sarlavha bir nechta sahifalarga tegishli:</string>
-  <string name="button_add_to_reading_list">O‘qilganlar ro‘yxatiga qo‘shmoq</string>
+  <string name="button_add_to_reading_list" fuzzy="true">O‘qilganlar ro‘yxatiga qo‘shmoq</string>
   <string name="page_offline_notice_cannot_load_while_offline">Maqolani oflayn rejimda yuklab bo‘lmaydi.</string>
-  <string name="page_offline_notice_add_to_reading_list">Maslahat: Maqolani o‘qilganlar ro‘yxatiga qo‘shing va u onlayn bo‘lganingizdan so‘ng yuklab olinadi.</string>
+  <string name="page_offline_notice_add_to_reading_list" fuzzy="true">Maslahat: Maqolani o‘qilganlar ro‘yxatiga qo‘shing va u onlayn bo‘lganingizdan so‘ng yuklab olinadi.</string>
   <string name="page_offline_notice_last_date">Siz ushbu maqolaning %s’da saqlangan oflayn versiyasini o‘qiyapsiz.</string>
   <string name="redirected_from_snackbar">%sʼdan yo‘naltirildi</string>
   <string name="button_get_directions">Joylashuvni olmoq</string>
@@ -450,17 +450,17 @@
   <string name="editing_monospace_font_label">Monospace shriftidan foydalanish</string>
   <string name="editing_typing_suggestions">Yozish bo‘yicha takliflarni ko‘rsatish</string>
   <string name="nav_item_saved">Saqlamalar</string>
-  <string name="reading_list_save_to">O‘qilganlar ro‘yxatiga qo‘shmoq</string>
-  <string name="reading_list_move_to">Oʻqish roʻyxatiga oʻtmoq</string>
+  <string name="reading_list_save_to" fuzzy="true">O‘qilganlar ro‘yxatiga qo‘shmoq</string>
+  <string name="reading_list_move_to" fuzzy="true">Oʻqish roʻyxatiga oʻtmoq</string>
   <string name="reading_list_create_new">Maqola tuzmoq</string>
-  <string name="reading_list_title_exists">Roʻyxatda \"%s\" oldindan mavjud.</string>
+  <string name="reading_list_title_exists" fuzzy="true">Roʻyxatda \"%s\" oldindan mavjud.</string>
   <string name="reading_list_article_added_to_named">%1$s %2$sga qoʻshildi.</string>
-  <string name="reading_list_article_added_to_default_list">%s saqlandi. Uni roʻyxatga qoʻshishni xohlaysizmi?</string>
+  <string name="reading_list_article_added_to_default_list" fuzzy="true">%s saqlandi. Uni roʻyxatga qoʻshishni xohlaysizmi?</string>
   <string name="reading_list_article_moved_to_named">%1$s %2$sga koʻchirildi</string>
   <string name="reading_list_article_already_exists_message">Juda soz! %1$sda allaqachon %2$s bor.</string>
   <string name="reading_list_articles_already_exist_message">Juda soz! %sda barcha maqolalar bor.</string>
-  <string name="reading_list_added_view_button">Koʻrmoq</string>
-  <string name="reading_list_add_to_list_button">Roʻyxatga qoʻshmoq</string>
+  <string name="reading_list_added_view_button" fuzzy="true">Koʻrmoq</string>
+  <string name="reading_list_add_to_list_button" fuzzy="true">Roʻyxatga qoʻshmoq</string>
   <plurals name="format_reading_list_statistical_summary_without_size">
     <item quantity="one">1 ta maqola</item>
     <item quantity="other">%d ta maqola</item>
@@ -485,64 +485,64 @@
   <string name="reading_list_sort_by_recent_desc">Sanasi boʻyicha (eskilari)</string>
   <string name="reading_list_sort_by_created">Tuzilgan sanasi boʻyicha (yangilari)</string>
   <string name="reading_list_sort_by_created_desc">Tuzilgan sanasi boʻyicha (eskilari)</string>
-  <string name="reading_list_menu_delete">Roʻyxatni oʻchirmoq</string>
-  <string name="reading_list_menu_export">Eksport roʻyxati</string>
+  <string name="reading_list_menu_delete" fuzzy="true">Roʻyxatni oʻchirmoq</string>
+  <string name="reading_list_menu_export" fuzzy="true">Eksport roʻyxati</string>
   <string name="reading_list_menu_select">Tanlash</string>
   <string name="reading_list_menu_unselect">Tanlamaslik</string>
-  <string name="reading_list_export_write_permission_rationale">Roʻyxatini eksport qilish uchun qurilmangiz xotirasiga yozish uchun ruxsat talab qilinadi.</string>
+  <string name="reading_list_export_write_permission_rationale" fuzzy="true">Roʻyxatini eksport qilish uchun qurilmangiz xotirasiga yozish uchun ruxsat talab qilinadi.</string>
   <string name="reading_list_menu_rename">Nom/taʼrifni tahrirlamoq</string>
   <string name="reading_list_action_menu_remove_from_offline">Oflayndan olib tashlamoq</string>
   <string name="reading_list_action_menu_save_for_offline">Oflayn tarzida saqlamoq</string>
   <string name="reading_list_action_menu_remove_all_from_offline">Barini olfayndan olib tashlamoq</string>
   <string name="reading_list_action_menu_save_all_for_offline">Barini oflayn tarzida saqlamoq</string>
-  <string name="reading_list_action_menu_add_to_another_list">Boshqa roʻyxatga qoʻshmoq</string>
-  <string name="reading_list_action_menu_move_to_another_list">Boshqa roʻyxatga koʻchirmoq</string>
-  <string name="reading_list_name_sample">Roʻyxatim</string>
-  <string name="reading_list_name_hint">Roʻyxat nomi</string>
+  <string name="reading_list_action_menu_add_to_another_list" fuzzy="true">Boshqa roʻyxatga qoʻshmoq</string>
+  <string name="reading_list_action_menu_move_to_another_list" fuzzy="true">Boshqa roʻyxatga koʻchirmoq</string>
+  <string name="reading_list_name_sample" fuzzy="true">Roʻyxatim</string>
+  <string name="reading_list_name_hint" fuzzy="true">Roʻyxat nomi</string>
   <string name="reading_list_description_hint">Taʼrifi (ixtiyoriy)</string>
-  <string name="reading_list_item_deleted">%s roʻyxatdan oʻchirildi.</string>
+  <string name="reading_list_item_deleted" fuzzy="true">%s roʻyxatdan oʻchirildi.</string>
   <string name="reading_list_item_deleted_from_list">%1$s %2$s dan oʻchirildi</string>
-  <plurals name="reading_list_articles_deleted">
+  <plurals name="reading_list_articles_deleted" fuzzy="true">
     <item quantity="one">%d ta maqola roʻyxatdan oʻchirildi</item>
     <item quantity="other">%d ta maqola roʻyxatdan oʻchirldi</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d ta maqola %s dan oʻchirildi</item>
-    <item quantity="other">%d ta maqola %s dan oʻchirildi</item>
+    <item quantity="one">%1$d ta maqola %2$s dan oʻchirildi</item>
+    <item quantity="other">%1$d ta maqola %2$s dan oʻchirildi</item>
   </plurals>
-  <plurals name="reading_lists_deleted_message">
+  <plurals name="reading_lists_deleted_message" fuzzy="true">
     <item quantity="one">%d ta roʻyxat oʻchirildi</item>
     <item quantity="other">%d tasi oʻchirildi</item>
   </plurals>
-  <string name="reading_lists_default_list_delete_message">Joriy (%s) roʻyxatini oʻchirib boʻlmaydi</string>
-  <string name="reading_lists_default_plus_one_list_delete_message">%1$s oʻchirilgan. Joriy (%2$s) roʻyxatni oʻchirib boʻlmaydi.</string>
-  <string name="reading_lists_default_plus_many_lists_delete_message">Roʻyxatlar oʻchirildi. Joriy (%s) roʻyxatni oʻchirib boʻlmaydi.</string>
-  <string name="single_list_json_file_name">%s (Vikipediya oʻqish roʻyxati).json</string>
-  <string name="multiple_lists_json_file_name">Vikipediya oʻqish roʻyxatlari (%s va boshqalar).json</string>
-  <string name="reading_list_items_deleted">%d ta maqola roʻyxatdan oʻchirildi</string>
-  <string name="reading_lists_item_deleted">%s roʻyxatdan oʻchirildi</string>
+  <string name="reading_lists_default_list_delete_message" fuzzy="true">Joriy (%s) roʻyxatini oʻchirib boʻlmaydi</string>
+  <string name="reading_lists_default_plus_one_list_delete_message" fuzzy="true">%1$s oʻchirilgan. Joriy (%2$s) roʻyxatni oʻchirib boʻlmaydi.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message" fuzzy="true">Roʻyxatlar oʻchirildi. Joriy (%s) roʻyxatni oʻchirib boʻlmaydi.</string>
+  <string name="single_list_json_file_name" fuzzy="true">%s (Vikipediya oʻqish roʻyxati).json</string>
+  <string name="multiple_lists_json_file_name" fuzzy="true">Vikipediya oʻqish roʻyxatlari (%s va boshqalar).json</string>
+  <string name="reading_list_items_deleted" fuzzy="true">%d ta maqola roʻyxatdan oʻchirildi</string>
+  <string name="reading_lists_item_deleted" fuzzy="true">%s roʻyxatdan oʻchirildi</string>
   <string name="reading_list_item_delete_undo">Bekor qilish</string>
   <string name="reading_list_deleted">%s oʻchirildi</string>
-  <string name="saved_list_empty_title">Saqlangan sahifalar mavjud emas</string>
-  <string name="reading_lists_empty_message">Keyinchalik, hatto oflaynda ham oʻqish uchun maqolalarni roʻyxatga qoʻshing.</string>
-  <string name="reading_list_empty">Siz hali roʻyxatga maqola qoʻshmagansiz.</string>
+  <string name="saved_list_empty_title" fuzzy="true">Saqlangan sahifalar mavjud emas</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Keyinchalik, hatto oflaynda ham oʻqish uchun maqolalarni roʻyxatga qoʻshing.</string>
+  <string name="reading_list_empty" fuzzy="true">Siz hali roʻyxatga maqola qoʻshmagansiz.</string>
   <string name="reading_list_article_offline">Oflayn maqola</string>
   <string name="reading_list_article_make_offline">Ushbu maqolani oflayn tarzida saqlamoq</string>
-  <string name="reading_list_add_to_other_list">Boshqa roʻyxatga qoʻshmoq</string>
-  <string name="reading_list_move_to_other_list">Boshqa roʻyxatga koʻchirmoq</string>
-  <string name="reading_list_move_from_to_other_list">%sdan boshqa roʻyxatga koʻchirmoq</string>
+  <string name="reading_list_add_to_other_list" fuzzy="true">Boshqa roʻyxatga qoʻshmoq</string>
+  <string name="reading_list_move_to_other_list" fuzzy="true">Boshqa roʻyxatga koʻchirmoq</string>
+  <string name="reading_list_move_from_to_other_list" fuzzy="true">%sdan boshqa roʻyxatga koʻchirmoq</string>
   <string name="reading_list_remove_from_list">%sdan oʻchirmoq</string>
-  <string name="reading_list_remove_from_lists">Roʻyxatdan oʻchirmoq</string>
+  <string name="reading_list_remove_from_lists" fuzzy="true">Roʻyxatdan oʻchirmoq</string>
   <string name="reading_list_select_item">Tanlamoq</string>
   <string name="reading_list_confirm_remove_article_from_offline">Oflayndan olib tashlamoq</string>
-  <string name="reading_list_confirm_remove_article_from_offline_title">Maqola bir nechta roʻyxatdan iborat</string>
-  <string name="reading_list_confirm_remove_article_from_offline_message">%s endi barcha roʻyxatlar uchun oflayn rejimda mavjud boʻlmaydi:</string>
-  <string name="reading_lists_sync_reminder_title">Roʻyxatni sinxronlashtirasizmi?</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title" fuzzy="true">Maqola bir nechta roʻyxatdan iborat</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s endi barcha roʻyxatlar uchun oflayn rejimda mavjud boʻlmaydi:</string>
+  <string name="reading_lists_sync_reminder_title" fuzzy="true">Roʻyxatni sinxronlashtirasizmi?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">Maqolalar sizning Vikipediya akkauntingiz bilan sinxronlashtirildi. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Batafsil maʼlumot&lt;/a&gt;</string>
   <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Roʻyxatlardan endi barcha qurilmalaringizda sinxron tarzda foydalanishingiz mumkin. Vikipediya hisobingizga kiring va roʻyxatlaringizni saqlashga ruxsat bering.&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Batafsil maʼlumot&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Sinxronlashtirmoq</string>
-  <string name="reading_list_login_reminder_title">Sinxronlashgan roʻyxatlar</string>
-  <string name="reading_lists_login_reminder_text">Roʻyxatlarini endi qurilmalararo sinxronlashtirish mumkin. Vikipediya hisobingizga kiring va roʻyxatlaringizni saqlashga ruxsat bering.</string>
+  <string name="reading_list_login_reminder_title" fuzzy="true">Sinxronlashgan roʻyxatlar</string>
+  <string name="reading_lists_login_reminder_text" fuzzy="true">Roʻyxatlarini endi qurilmalararo sinxronlashtirish mumkin. Vikipediya hisobingizga kiring va roʻyxatlaringizni saqlashga ruxsat bering.</string>
   <string name="reading_lists_login_button">Vikipediaga kirmoq/aʼzo boʻlmoq</string>
   <string name="reading_lists_ignore_button">Hozir emas</string>
   <string name="reading_lists_confirm_remote_delete_yes">Ha</string>
@@ -551,35 +551,35 @@
   <string name="reading_list_articles_added_to_named">%2$sga %1$d ta maqola qoʻshildi</string>
   <string name="reading_list_articles_moved_to_named">%1$d ta maqola %2$sga koʻchirildi</string>
   <string name="reading_list_delete_confirm">%sni oʻchirib tashlamoqchimisiz?</string>
-  <string name="reading_list_delete_lists_confirm_dialog_title">Tanlangan roʻyxat(lar) oʻchirilsinmi?</string>
-  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+  <string name="reading_list_delete_lists_confirm_dialog_title" fuzzy="true">Tanlangan roʻyxat(lar) oʻchirilsinmi?</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message" fuzzy="true">
     <item quantity="one">%d ta roʻyxat oʻchirib tashlansinmi?</item>
     <item quantity="other">%d ta roʻyxat oʻchirilsinmi?</item>
   </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Tizimga kirmoq</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Roʻyxatlaringizni hisobingizga saqlashga ruxsat berish uchun tizimga kiring.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text" fuzzy="true">Roʻyxatlaringizni hisobingizga saqlashga ruxsat berish uchun tizimga kiring.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Bekor qilish</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Kirmoq</string>
-  <string name="reading_list_turned_sync_off_dialog_title">Sinxronlash faol emas</string>
-  <string name="reading_list_turned_sync_off_dialog_text">Hisobingiz uchun roʻyxat sinxronizatsiyasi oʻchirilgan va tizimga kirgan qurilmalardagi saqlangan maqolalar endi zaxiralanmaydi. Tanlovlar menyusidan roʻyxat sinxronizatsiyasini yoqing.</string>
+  <string name="reading_list_turned_sync_off_dialog_title" fuzzy="true">Sinxronlash faol emas</string>
+  <string name="reading_list_turned_sync_off_dialog_text" fuzzy="true">Hisobingiz uchun roʻyxat sinxronizatsiyasi oʻchirilgan va tizimga kirgan qurilmalardagi saqlangan maqolalar endi zaxiralanmaydi. Tanlovlar menyusidan roʻyxat sinxronizatsiyasini yoqing.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Tanlovlar</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_title">Sinxronizatsiya faollashtirilsinmi?</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_text">Roʻyxatlarga saqlangan maqolalar endi Sizning Vikipediya hisobingiz bilan sinxronlashtirilishi mumkin. &lt;a href=\"#faq\"&gt;Batafsil maʼlumot&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title" fuzzy="true">Sinxronizatsiya faollashtirilsinmi?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text" fuzzy="true">Roʻyxatlarga saqlangan maqolalar endi Sizning Vikipediya hisobingiz bilan sinxronlashtirilishi mumkin. &lt;a href=\"#faq\"&gt;Batafsil maʼlumot&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Boshqa koʻrsatilmasin</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Sinxronlashtirmoq</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Yo‘q, rahmat</string>
   <string name="default_reading_list_name">Saqlamalar</string>
-  <string name="default_reading_list_description">Saqlangan maqolalaringiz uchun standart roʻyxat</string>
-  <string name="no_user_lists_title">Roʻyxatdagi maqolalarni tartiblamoq</string>
-  <string name="no_user_lists_msg">Sayohat qilish uchun joylar, sevimli mavzular va boshqa koʻplab mavzularga oid roʻyxatlar yarating</string>
+  <string name="default_reading_list_description" fuzzy="true">Saqlangan maqolalaringiz uchun standart roʻyxat</string>
+  <string name="no_user_lists_title" fuzzy="true">Roʻyxatdagi maqolalarni tartiblamoq</string>
+  <string name="no_user_lists_msg" fuzzy="true">Sayohat qilish uchun joylar, sevimli mavzular va boshqa koʻplab mavzularga oid roʻyxatlar yarating</string>
   <string name="reading_list_saved_list_rename">%1$s (foydalanuvchi tuzgan)</string>
-  <string name="split_reading_list_message">Bitta roʻyxatga %d tagacha maqolani kiritish mumkin. Ushbu chegaradan koʻp boʻlgan mavjud maqolalar bir nechta roʻyxatlarga boʻlinadi.</string>
-  <string name="reading_list_move_article_limit_message">Ushbu roʻyxatga koʻchira olmaysiz. \"%1$s\" tarkibida %2$d ta maqola mavjud, undan ortiq maqola kiritib boʻlmaydi.</string>
-  <string name="reading_list_article_limit_message">Ushbu roʻyxatga qoʻshib boʻlmadi. Siz \"%1$s\" roʻyxatiga %2$d tagacha maqola qoʻsha olasiz.</string>
-  <string name="reading_lists_limit_message">Boshqa roʻyxat tuzib boʻlmaydi. Har bir hisob uchun 100 ta roʻyxat tuzish chegarasi belgilangan.</string>
-  <string name="reading_lists_menu_create_list">Roʻyxat tuzmoq</string>
-  <string name="reading_lists_menu_import_list">Import roʻyxati</string>
+  <string name="split_reading_list_message" fuzzy="true">Bitta roʻyxatga %d tagacha maqolani kiritish mumkin. Ushbu chegaradan koʻp boʻlgan mavjud maqolalar bir nechta roʻyxatlarga boʻlinadi.</string>
+  <string name="reading_list_move_article_limit_message" fuzzy="true">Ushbu roʻyxatga koʻchira olmaysiz. \"%1$s\" tarkibida %2$d ta maqola mavjud, undan ortiq maqola kiritib boʻlmaydi.</string>
+  <string name="reading_list_article_limit_message" fuzzy="true">Ushbu roʻyxatga qoʻshib boʻlmadi. Siz \"%1$s\" roʻyxatiga %2$d tagacha maqola qoʻsha olasiz.</string>
+  <string name="reading_lists_limit_message" fuzzy="true">Boshqa roʻyxat tuzib boʻlmaydi. Har bir hisob uchun 100 ta roʻyxat tuzish chegarasi belgilangan.</string>
+  <string name="reading_lists_menu_create_list" fuzzy="true">Roʻyxat tuzmoq</string>
+  <string name="reading_lists_menu_import_list" fuzzy="true">Import roʻyxati</string>
   <string name="reading_lists_menu_sort_by">Saralash turi</string>
   <string name="reading_lists_refresh_sync_option">Qayta sinxronlamoq</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Kirmoq / Aʼzo boʻlmoq</string>
@@ -591,7 +591,7 @@
     <item quantity="one">Ushbu maqola bundan buyon oflayn tarzida mavjud emas.</item>
     <item quantity="other">Bu maqoladan bunday buyon oflayn tarzida oʻqish imkoni yoʻq.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Roʻyxat sinxronlandi</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">Roʻyxat sinxronlandi</string>
   <string name="reading_list_menu_last_sync">Soʻnggi sinxronlashuv: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_dialog_ok_button_text">OK</string>
@@ -601,31 +601,31 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Bekor qilish</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">Oʻchirish</string>
-  <string name="reading_list_activity_title">%s oʻqilganlar roʻyxati</string>
-  <string name="reading_list_notification_title">Oʻqish roʻyxat(lar)i eksport qilindi</string>
-  <string name="reading_list_notification_text">%d ta oʻqish roʻyxat(lar)i \'reading_lists export.json\' nomli faylda Yuklamalar jildiga saqlandi</string>
-  <string name="reading_list_notification_detailed_text">Oʻqish roʻyxatlari \'reading_lists_export.json\' faylida saqlandi</string>
+  <string name="reading_list_activity_title" fuzzy="true">%s oʻqilganlar roʻyxati</string>
+  <string name="reading_list_notification_title" fuzzy="true">Oʻqish roʻyxat(lar)i eksport qilindi</string>
+  <string name="reading_list_notification_text" fuzzy="true">%d ta oʻqish roʻyxat(lar)i \'reading_lists export.json\' nomli faylda Yuklamalar jildiga saqlandi</string>
+  <string name="reading_list_notification_detailed_text" fuzzy="true">Oʻqish roʻyxatlari \'reading_lists_export.json\' faylida saqlandi</string>
   <string name="reading_lists_action_menu_export_lists">Eksport</string>
   <string name="reading_lists_import_file_picker_title">Import qilinadigan faylni tanlang</string>
-  <string name="reading_lists_import_failure_message">Oʻqish roʻyxatlarini import qilib boʻlmadi</string>
-  <string name="reading_lists_export_select_lists_message">Eksport qilish uchun roʻyxat(lar)ni tanlang</string>
-  <string name="reading_lists_export_completed_message">Oʻqish roʻyxat(lar)i eksport qilindi</string>
-  <plurals name="reading_list_export_failed_message">
+  <string name="reading_lists_import_failure_message" fuzzy="true">Oʻqish roʻyxatlarini import qilib boʻlmadi</string>
+  <string name="reading_lists_export_select_lists_message" fuzzy="true">Eksport qilish uchun roʻyxat(lar)ni tanlang</string>
+  <string name="reading_lists_export_completed_message" fuzzy="true">Oʻqish roʻyxat(lar)i eksport qilindi</string>
+  <plurals name="reading_list_export_failed_message" fuzzy="true">
     <item quantity="one">1 ta oʻqish roʻyxatini eksport qilib boʻlmadi</item>
     <item quantity="other">Oʻqish roʻyxatlarini eksport qilib boʻlmadi</item>
   </plurals>
-  <plurals name="reading_list_import_success_message">
+  <plurals name="reading_list_import_success_message" fuzzy="true">
     <item quantity="one">Oʻqish roʻyxati import qilindi</item>
     <item quantity="other">Oʻqish roʻyxatlari import qilindi</item>
   </plurals>
-  <string name="reading_lists_preview_header_title">Ulashilgan roʻyxat</string>
+  <string name="reading_lists_preview_header_title" fuzzy="true">Ulashilgan roʻyxat</string>
   <string name="reading_lists_preview_save_button">Saqlamoq</string>
-  <string name="reading_lists_preview_save_dialog_title">Roʻyxatni saqlash</string>
-  <string name="reading_lists_preview_save_dialog_text">Roʻyxatni nomlang va saqlash uchun maqolalarni tanlang.</string>
+  <string name="reading_lists_preview_save_dialog_title" fuzzy="true">Roʻyxatni saqlash</string>
+  <string name="reading_lists_preview_save_dialog_text" fuzzy="true">Roʻyxatni nomlang va saqlash uchun maqolalarni tanlang.</string>
   <string name="reading_lists_preview_save_dialog_title_hint">Sarlavha</string>
   <string name="reading_lists_preview_save_dialog_cancel">Bekor qilish</string>
   <string name="reading_lists_preview_save_dialog_save">Saqlash</string>
-  <string name="reading_lists_preview_saved_snackbar">Oʻqish roʻyxati saqlandi</string>
+  <string name="reading_lists_preview_saved_snackbar" fuzzy="true">Oʻqish roʻyxati saqlandi</string>
   <string name="reading_lists_preview_saved_snackbar_action">Koʻrish</string>
   <string name="user_option_sync_label">Tanlovlar</string>
   <string name="notification_reverted_title">Qayta tahrir</string>
@@ -634,8 +634,8 @@
   <string name="notification_syncing_pause_button">Pauza</string>
   <string name="notification_syncing_resume_button">Davom etmoq</string>
   <string name="notification_syncing_cancel_button">Bekor qilish</string>
-  <string name="notification_syncing_reading_list_channel_title">Sinxronlashgan roʻyxatlar</string>
-  <string name="notification_syncing_reading_list_channel_description">Roʻyxatni sinxronlash jarayoni</string>
+  <string name="notification_syncing_reading_list_channel_title" fuzzy="true">Sinxronlashgan roʻyxatlar</string>
+  <string name="notification_syncing_reading_list_channel_description" fuzzy="true">Roʻyxatni sinxronlash jarayoni</string>
   <string name="notification_many_unread">%d ta bildirgi oʻqilmagan</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Maqolani yuklab olish</item>
@@ -649,15 +649,15 @@
     <item quantity="one">%1$d ta maqola qoldi</item>
     <item quantity="other">%1$d ta maqola qoldi</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_channel_name">
+  <plurals name="notification_syncing_reading_list_channel_name" fuzzy="true">
     <item quantity="one">Roʻyxatni sinxronlash</item>
     <item quantity="other">Roʻyxatni sinxronlash</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_title">
+  <plurals name="notification_syncing_reading_list_title" fuzzy="true">
     <item quantity="one">%1$d ta roʻyxatni sinxronlash…</item>
     <item quantity="other">%1$d ta roʻyxatni sinxronlash…</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_description">
+  <plurals name="notification_syncing_reading_list_description" fuzzy="true">
     <item quantity="one">%1$d ta roʻyxat qoldi</item>
     <item quantity="other">%1$d ta roʻyxat qoldi</item>
   </plurals>
@@ -799,11 +799,11 @@
   <string name="feed_item_type_main_page">Vikipedianing bosh sahifasi bilan kunlik kontentlar bilan tanishib boring</string>
   <string name="feed_item_type_randomizer">Tasodifiy tavsiya etilgan maqolalar</string>
   <string name="feed_item_type_suggested_edits">Vikipediyaga tarkib qoʻshish boʻyicha takliflar</string>
-  <string name="feed_empty_message">Kezish tasmangizda hech narsa yoʻq</string>
+  <string name="feed_empty_message" fuzzy="true">Kezish tasmangizda hech narsa yoʻq</string>
   <string name="feed_configure_onboarding_action">Moslash</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Bekor qilish</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Kezish tasmangizni moslashtiring&lt;/strong&gt;&lt;br/&gt;&lt;br/&gt; Endi tasmangizda nimani namoyish qilishni tanlashingiz, shuningdek, oʻzingiz yoqtirgan tarkib turlariga ustuvor ahamiyat berishingiz mumkin boʻladi.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Kezish tasmangizni moslashtiring&lt;/strong&gt;&lt;br/&gt;&lt;br/&gt; Endi tasmangizda nimani namoyish qilishni tanlashingiz, shuningdek, oʻzingiz yoqtirgan tarkib turlariga ustuvor ahamiyat berishingiz mumkin boʻladi.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Bekor qilish</string>
   <string name="feed_accessibility_card_text">Siz tasmaning eng pastki qismiga yetdingiz.</string>
@@ -1099,11 +1099,11 @@
   <string name="onboarding_get_started">Boshladik</string>
   <string name="onboarding_maybe_later">Keyinroq</string>
   <string name="onboarding_explore_title">Kezish uchun yangi imkoniyatlar</string>
-  <string name="onboarding_explore_text">Doimo yangilanib boriladigan yangiliklar tasmasi orqali Vikipediyaning axborotlar ummoniga shoʻngʻib boring. &lt;br/&gt; Oʻzingizning qiziqishingizga koʻra tasmani &lt;b&gt;Moslashtiring&lt;/b&gt; .</string>
-  <string name="onboarding_reading_list_sync_title">Sinxronli roʻyxatni oʻqish</string>
-  <string name="onboarding_reading_list_sync_text_v2">Siz keyinroq, hatto oflaynda ham oʻqishni xohlagan maqolalardan roʻyxatlarni tuzishingiz mumkin. &lt;br/&gt;Roʻyxatlaringizni sinxronlashtirish uchun Vikipediya hisobingizga kiring. &lt;a href=\"#login\"&gt;Vikipediaga kirmoq&lt;/a&gt;</string>
+  <string name="onboarding_explore_text" fuzzy="true">Doimo yangilanib boriladigan yangiliklar tasmasi orqali Vikipediyaning axborotlar ummoniga shoʻngʻib boring. &lt;br/&gt; Oʻzingizning qiziqishingizga koʻra tasmani &lt;b&gt;Moslashtiring&lt;/b&gt; .</string>
+  <string name="onboarding_reading_list_sync_title" fuzzy="true">Sinxronli roʻyxatni oʻqish</string>
+  <string name="onboarding_reading_list_sync_text_v2" fuzzy="true">Siz keyinroq, hatto oflaynda ham oʻqishni xohlagan maqolalardan roʻyxatlarni tuzishingiz mumkin. &lt;br/&gt;Roʻyxatlaringizni sinxronlashtirish uchun Vikipediya hisobingizga kiring. &lt;a href=\"#login\"&gt;Vikipediaga kirmoq&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Maʼlumot va Maxfiylik</string>
-  <string name="onboarding_data_privacy_text">Erkin bilimlar harakatida ishtirok etish uchun shaxsiy ma’lumotlarni taqdim etishingiz shart emas deb hisoblaymiz. Bu ilova uchun toʻplangan foydalanish maʼlumotlari anonim hisoblanadi. Batafsil maʼlumotni &lt;a href=\"#privacy\"&gt;maxfiylik siyosati&lt;/a&gt; hamda &lt;a href=\"#termsOfUse\"&gt;foydalanish shartlari&lt;/a&gt;dan olishingiz mumkin.</string>
+  <string name="onboarding_data_privacy_text" fuzzy="true">Erkin bilimlar harakatida ishtirok etish uchun shaxsiy ma’lumotlarni taqdim etishingiz shart emas deb hisoblaymiz. Bu ilova uchun toʻplangan foydalanish maʼlumotlari anonim hisoblanadi. Batafsil maʼlumotni &lt;a href=\"#privacy\"&gt;maxfiylik siyosati&lt;/a&gt; hamda &lt;a href=\"#termsOfUse\"&gt;foydalanish shartlari&lt;/a&gt;dan olishingiz mumkin.</string>
   <string name="onboarding_analytics_switch_title">Fodalanilgan trafik maʼlumotini joʻnatmoq</string>
   <string name="onboarding_got_it">Tushunarli</string>
   <string name="onboarding_multilingual_secondary_text">Qurilmangizda quyidagilarni aniqladik:</string>
@@ -1137,7 +1137,7 @@
     <item quantity="one">Tanlangan tilni olib tashlaysizmi?</item>
     <item quantity="other">Tanlangan tillarni olib tashlaysizmi?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Siz faqat Kezish varaqasida hamda tezkor qidiruv filtrida Vikipedianing qolgan tillarini koʻra olasiz.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Siz faqat Kezish varaqasida hamda tezkor qidiruv filtrida Vikipedianing qolgan tillarini koʻra olasiz.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Barcha tillarni olib tashlab boʻlmaydi</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Maqolani qidirish va oʻqish uchun kamida bitta Vikipediya tilini saqlang.</string>
   <string name="more_language_options">batafsil</string>
@@ -1415,16 +1415,16 @@
   <string name="user_contrib_filter_activity_title">Hissalarni filtrlash</string>
   <string name="action_item_view_on_map">Xaritada ko‘rmoq</string>
   <string name="action_item_view_on_map_unavailable">Bu sahifa uchun geografik koordinatalar mavjud emas</string>
-  <string name="shareable_reading_lists_import_dialog_title">Umumiy oʻqish roʻyxatini import qilish</string>
-  <string name="shareable_reading_lists_import_dialog_content">Siz bilan baham koʻrilgan roʻyxatni qanday nomlashni xohlaysiz?</string>
+  <string name="shareable_reading_lists_import_dialog_title" fuzzy="true">Umumiy oʻqish roʻyxatini import qilish</string>
+  <string name="shareable_reading_lists_import_dialog_content" fuzzy="true">Siz bilan baham koʻrilgan roʻyxatni qanday nomlashni xohlaysiz?</string>
   <string name="shareable_reading_lists_new_indicator">*yangi*</string>
-  <string name="shareable_reading_lists_new_install_dialog_title">Oʻqish roʻyxati Siz bilan baham koʻrildi.</string>
-  <string name="shareable_reading_lists_new_install_dialog_content">Oʻqish roʻyxati Siz bilan baham koʻrilganini aniqladik. Ushbu roʻyxatni ushbu ilovada koʻrish uchun asl xabarga qayting va Sizga ulashilgan havolani yana bir bor bosing.</string>
+  <string name="shareable_reading_lists_new_install_dialog_title" fuzzy="true">Oʻqish roʻyxati Siz bilan baham koʻrildi.</string>
+  <string name="shareable_reading_lists_new_install_dialog_content" fuzzy="true">Oʻqish roʻyxati Siz bilan baham koʻrilganini aniqladik. Ushbu roʻyxatni ushbu ilovada koʻrish uchun asl xabarga qayting va Sizga ulashilgan havolani yana bir bor bosing.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Tushunarli</string>
-  <string name="shareable_reading_lists_new_imported_snackbar">Oʻqish roʻyxati import qilindi</string>
+  <string name="shareable_reading_lists_new_imported_snackbar" fuzzy="true">Oʻqish roʻyxati import qilindi</string>
   <string name="reading_list_share_menu_label">Ulashish…</string>
-  <string name="reading_list_share_menu_tooltip">Ushbu oʻqish roʻyxatini boshqalar bilan baham koʻring</string>
-  <string name="reading_list_share_message_v2">Salom! Men Siz bilan Vikipediya oʻqish roʻyxatini baham koʻrmoqchiman:</string>
+  <string name="reading_list_share_menu_tooltip" fuzzy="true">Ushbu oʻqish roʻyxatini boshqalar bilan baham koʻring</string>
+  <string name="reading_list_share_message_v2" fuzzy="true">Salom! Men Siz bilan Vikipediya oʻqish roʻyxatini baham koʻrmoqchiman:</string>
   <string name="talk_templates_empty_message" fuzzy="true">Sizda hech qanday ogohlantirish xabari saqlanmagan.</string>
   <string name="talk_templates_new_message_title">Yangi xabar</string>
   <string name="talk_templates_new_message_subject_hint">Mavzu</string>

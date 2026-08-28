@@ -1,17 +1,24 @@
 package org.wikipedia.analytics
 
-import org.wikipedia.analytics.eventplatform.ActivityTabEvent
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.settings.PrefsIoUtil
 import kotlin.random.Random
 
-open class ABTest(private val abTestName: String, private val abTestGroupCount: Int) {
+abstract class ABTest(private val abTestName: String, private val abTestGroupCount: Int) {
+
+    val name get() = abTestName
+
+    val groupCount get() = abTestGroupCount
+
+    val preferenceKey get() = AB_TEST_KEY_PREFIX + abTestName
+    val exposureEventSentKey get() = AB_TEST_EXPOSURE_SENT_PREFIX + abTestName
 
     val group: Int
         get() {
-            testGroup = PrefsIoUtil.getInt(AB_TEST_KEY_PREFIX + abTestName, -1)
+            testGroup = PrefsIoUtil.getInt(preferenceKey, -1)
             if (testGroup == -1) {
                 assignGroup()
-                PrefsIoUtil.setInt(AB_TEST_KEY_PREFIX + abTestName, testGroup)
+                PrefsIoUtil.setInt(preferenceKey, testGroup)
             }
             return testGroup
         }
@@ -20,14 +27,28 @@ open class ABTest(private val abTestName: String, private val abTestGroupCount: 
 
     protected open fun assignGroup() {
         testGroup = Random(System.currentTimeMillis()).nextInt(Int.MAX_VALUE).mod(abTestGroupCount)
-        ActivityTabEvent.submit(activeInterface = "", action = "group_assign", group = when (testGroup) {
-            GROUP_2 -> "activity_tab_b"
-            else -> "activity_tab_a"
-        })
+    }
+
+    abstract fun getGroupName(): String
+
+    open fun shouldInstrument(): Boolean {
+        return true
+    }
+
+    fun maybeSendExposureEvent() {
+        PrefsIoUtil.getInt(exposureEventSentKey, 0).let { sentCount ->
+            if (sentCount < AB_TEST_EXPOSURE_SENT_MAX_TIMES) {
+                TestKitchenAdapter.submitExperimentExposure(this)
+                PrefsIoUtil.setInt(exposureEventSentKey, sentCount + 1)
+            }
+        }
     }
 
     companion object {
         private const val AB_TEST_KEY_PREFIX = "ab_test_"
+        private const val AB_TEST_EXPOSURE_SENT_PREFIX = "ab_test_exposure_sent_"
+        private const val AB_TEST_EXPOSURE_SENT_MAX_TIMES = 3
+
         const val GROUP_SIZE_2 = 2
         const val GROUP_SIZE_3 = 3
         const val GROUP_1 = 0

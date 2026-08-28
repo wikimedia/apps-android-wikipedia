@@ -52,7 +52,7 @@
   <string name="search_hint_search_languages">भाषा के लिए खोजें</string>
   <string name="search_back_button_content_description">वापस जाएँ</string>
   <string name="search_icon_content_description">खोजें</string>
-  <string name="filter_hint_filter_my_lists_and_articles">मेरी सूचियों को छाँटें</string>
+  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">मेरी सूचियों को छाँटें</string>
   <string name="nav_item_suggested_edits">सम्पादन</string>
   <string name="nav_item_more">और</string>
   <string name="nav_item_search">खोजें</string>
@@ -118,16 +118,16 @@
   <string name="menu_page_watched">ध्यान रखा हुआ</string>
   <string name="edit_section_find_in_page">पृष्ठ में ढूँढें</string>
   <string name="menu_page_font_and_theme">फ़ॉण्ट और थीम</string>
-  <string name="menu_page_add_to_list">पठन सूची में जोड़ें</string>
+  <string name="menu_page_add_to_list" fuzzy="true">पठन सूची में जोड़ें</string>
   <string name="menu_page_add_to_default_list">सहेजें</string>
-  <string name="feed_card_add_to_list">पठन सूची में जोड़ें</string>
+  <string name="feed_card_add_to_list" fuzzy="true">पठन सूची में जोड़ें</string>
   <string name="feed_card_add_to_default_list">सहेजें</string>
   <string name="menu_page_share">कड़ी को बाँटें</string>
   <string name="menu_article_share">लेख को बाँटें</string>
   <string name="menu_page_article_share">बाँटें</string>
   <string name="menu_page_open_a_new_tab">नया टैब खोलें</string>
   <string name="menu_page_new_tab">नया टैब</string>
-  <string name="menu_page_reading_lists">पठन सूचियाँ</string>
+  <string name="menu_page_reading_lists" fuzzy="true">पठन सूचियाँ</string>
   <string name="menu_page_recently_viewed">हाल ही में देखे हुए</string>
   <string name="menu_page_archive">पुरालेख</string>
   <string name="menu_long_press_open_page">खोलें</string>
@@ -170,7 +170,7 @@
   <string name="menu_show_toc">विषयसूची</string>
   <string name="search_no_results_found">कोई परिणाम नहीं मिला</string>
   <string name="search_reading_list_no_results">\"%s\" में कोई परिणाम नहीं मिला</string>
-  <string name="search_reading_lists_no_results">पठन सूची में कोई परिणाम नहीं मिला</string>
+  <string name="search_reading_lists_no_results" fuzzy="true">पठन सूची में कोई परिणाम नहीं मिला</string>
   <string name="search_history_no_results">इतिहास में कोई परिणाम नहीं मिला</string>
   <string name="edit_section_captcha_message">स्वचालित स्पैम से बचने के लिए कृपया नीचे दिखाए गए शब्दों को लिखें</string>
   <string name="edit_section_captcha_request_an_account_message">चित्र नहीं दिख रहा? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;एक खाते का अनुरोध करें&lt;/a&gt;</string>
@@ -183,6 +183,9 @@
   <string name="account_creation_password_hint">पासवर्ड</string>
   <string name="login_2fa_hint" fuzzy="true">दो-कारक प्रमाणीकरण कोड</string>
   <string name="login_2fa_other_workflow_error_msg" fuzzy="true">दो-कारक प्रमाणीकरण आवश्यक है! कृपया मुख्य कार्यकलाप पर वापस जाएँ और अपने 2FA टोकन से लॉग-इन कर पुनः प्रयास करें।</string>
+  <string name="login_email_auth_hint">ईमेल सत्यापन कोड</string>
+  <string name="login_email_auth_other_workflow_error_msg">ईमेल सत्यापन आवश्यक है! कृपया मुख्य स्क्रीन से लॉग-इन करें और अपना ईमेल सत्यापन कोड दर्ज करें।</string>
+  <string name="login_background_error_msg">पुनः लॉग-इन करने में असमर्थ। कृपया मुख्य स्क्रीन पर वापस जाएं और हस्तचालन से लॉग-इन करें।</string>
   <string name="onboarding_card_login">लॉग-इन करें</string>
   <string name="page_editing_login">लॉग-इन करें</string>
   <string name="reading_lists_sync_login">लॉग-इन करें</string>
@@ -247,12 +250,12 @@
   <string name="preferences_heading_syncing">सिंक हो रहा है</string>
   <string name="preferences_heading_data_usage">डेटा का उपयोग</string>
   <string name="preferences_heading_experimental">प्रयोगात्मक</string>
-  <string name="preference_title_sync_reading_lists_from_account">पठन सूची सिंक हो रहा है</string>
-  <string name="preference_title_download_reading_list_articles">पठन सूची के लेख डाउनलोड करें</string>
-  <string name="preference_summary_sync_reading_lists">पठन सूचियाँ अपने विकिपीडिया खाते में संयोजित करके विभिन्न डिवाइसों में सिंक करें</string>
-  <string name="preference_summary_sync_reading_lists_from_account">पठन सूचियाँ अपने विकिपीडिया खाते \"%s\"\n में संयोजित करके विभिन्न डिवाइसों में सिंक करें</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">सिंक की गई पठन सूचियों को \"%s\" से हटा दें?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">इससे दूरस्थ संग्रह से सभी पहले से सिंक किए गए पढ़ने की सूचियों को पूरी तरह से हटा दिया जाएगा। अपने खाते \"%s\" से सभी सिंक की गईं सूचियां हटा दें?</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">पठन सूची सिंक हो रहा है</string>
+  <string name="preference_title_download_reading_list_articles" fuzzy="true">पठन सूची के लेख डाउनलोड करें</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">पठन सूचियाँ अपने विकिपीडिया खाते में संयोजित करके विभिन्न डिवाइसों में सिंक करें</string>
+  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">पठन सूचियाँ अपने विकिपीडिया खाते \"%s\"\n में संयोजित करके विभिन्न डिवाइसों में सिंक करें</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">सिंक की गई पठन सूचियों को \"%s\" से हटा दें?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">इससे दूरस्थ संग्रह से सभी पहले से सिंक किए गए पढ़ने की सूचियों को पूरी तरह से हटा दिया जाएगा। अपने खाते \"%s\" से सभी सिंक की गईं सूचियां हटा दें?</string>
   <string name="preference_title_auto_upload_crash_reports">क्रैश रिपोर्ट भेजें</string>
   <string name="preference_summary_auto_upload_crash_reports">ऐप्स को क्रैश रिपोर्ट किसी तृतीय-पक्ष सेवा प्रदाता को स्वचालित रूप से भेजने दें ताकि हम आपके क्रैश की समीक्षा कर सकें और बग को तेज़ी से और अधिक आसानी से ठीक कर सकें।</string>
   <string name="editing_error_spamblacklist">प्रतिबंधित डोमेन (%s) के लिंक पाये गए हैं। कृपया इन्हें हटायें और पुनः प्रयास करें।</string>
@@ -271,6 +274,7 @@
   <string name="about_description">विकिपीडिया एप के बारे में</string>
   <string name="privacy_policy_description">गोपनीयता नीति</string>
   <string name="terms_of_use_description">उपयोग की शर्तें</string>
+  <string name="legal_safety_contacts_description">कानूनी और सुरक्षा संपर्क</string>
   <string name="about_wikipedia_url">https://hi.wikipedia.org/wiki/विकिपीडिया:विकिपीडिया_के_बारे में</string>
   <string name="about_libraries_heading">लाइब्रेरीज़ का प्रयोग किया गया</string>
   <string name="about_contributors_heading">योगदानकर्ता</string>
@@ -387,8 +391,8 @@
   <string name="unnamed_tab_closed">टैब बंद किया।</string>
   <string name="tab_item_closed">%s बंद किया।</string>
   <string name="all_tab_items_closed">सभी टैब बंद किये।</string>
-  <string name="tool_tip_bookmark_icon_title">पठन सूची में जोड़ें</string>
-  <string name="tool_tip_bookmark_icon_text">लेख को पठन सूची में सहेजने के लिए बुकमार्क आइकन पर टैप करें।</string>
+  <string name="tool_tip_bookmark_icon_title" fuzzy="true">पठन सूची में जोड़ें</string>
+  <string name="tool_tip_bookmark_icon_text" fuzzy="true">लेख को पठन सूची में सहेजने के लिए बुकमार्क आइकन पर टैप करें।</string>
   <string name="page_view_in_browser">पेज को ब्राउज़र में देखें</string>
   <string name="tool_tip_toc_title">सामग्री की तालिका हेतु त्वरित पहुँच</string>
   <string name="tool_tip_toc_text">अब आप सामग्री तालिका को खोलने के लिए बाईं ओर स्वाइप कर सकते हैं, और किसी लेख के विभिन्न अनुभागों पर त्वरित रूप से कूदने के लिए इस स्क्रॉलर बटन पर टैप और ड्रैग भी कर सकते हैं।</string>
@@ -401,9 +405,9 @@
   <string name="button_continue_to_talk_page">वार्ता पृष्ठ देखें</string>
   <string name="button_continue_to_disambiguation">समान पृष्ठ देखें</string>
   <string name="link_preview_disambiguation_description">यह शीर्षक एक से अधिक पृष्ठों से संबंधित है:</string>
-  <string name="button_add_to_reading_list">पढ़ने वाली सूची में जोड़ें</string>
+  <string name="button_add_to_reading_list" fuzzy="true">पढ़ने वाली सूची में जोड़ें</string>
   <string name="page_offline_notice_cannot_load_while_offline">ऑफलाइन होने पर लेख लोड नहीं किया जा सकता।</string>
-  <string name="page_offline_notice_add_to_reading_list">सहायता: लेख को अपनी पढ़ने वाली सूची में जोड़ें और जब आप वापस ऑनलाइन होंगे इसे डाउनलोड कर लिया जाएगा।</string>
+  <string name="page_offline_notice_add_to_reading_list" fuzzy="true">सहायता: लेख को अपनी पढ़ने वाली सूची में जोड़ें और जब आप वापस ऑनलाइन होंगे इसे डाउनलोड कर लिया जाएगा।</string>
   <string name="page_offline_notice_last_date">आप %s पर सहेजे गए लेख का ऑफ़लाइन वर्ज़न पढ़ रहे हैं।</string>
   <string name="redirected_from_snackbar">%s से पुनर्निर्देशित</string>
   <string name="button_get_directions">दिशानिर्देश पाएं</string>
@@ -415,6 +419,7 @@
   <string name="preference_title_collapse_tables">तालिकाओं को संक्षिप्त करें</string>
   <string name="preference_summary_collapse_tables">लेखों में तालिकाओं को स्वचालित रूप से संक्षिप्त करें जैसे ज्ञानसंदूक, संदर्भ और नोट्स आदि।</string>
   <string name="nav_item_donate">दान करें</string>
+  <string name="nav_item_year_in_review">वर्ष की समीक्षा</string>
   <string name="error_voice_search_not_available">क्षमा करें, आवाज की पहचान उपलब्ध नहीं है।</string>
   <string name="location_service_disabled">स्थिति सेवाएं बंद हैं।</string>
   <string name="enable_location_service">चालू करें</string>
@@ -511,17 +516,17 @@
   <string name="editing_monospace_font_label">मोनोस्पेस फ़ॉन्ट का प्रयोग करें</string>
   <string name="editing_typing_suggestions">टाइपिंग सुझाव दिखाएँ</string>
   <string name="nav_item_saved">सहेजा गया</string>
-  <string name="reading_list_save_to">पढ़ने वाली सूची में जोड़ें</string>
-  <string name="reading_list_move_to">पठन सूची में जोड़ें</string>
+  <string name="reading_list_save_to" fuzzy="true">पढ़ने वाली सूची में जोड़ें</string>
+  <string name="reading_list_move_to" fuzzy="true">पठन सूची में जोड़ें</string>
   <string name="reading_list_create_new">नयी बनायें</string>
-  <string name="reading_list_title_exists">पढ़ने वाली सूची \"%s\" पहले से है।</string>
+  <string name="reading_list_title_exists" fuzzy="true">पढ़ने वाली सूची \"%s\" पहले से है।</string>
   <string name="reading_list_article_added_to_named">%1$s को %2$s में जोड़ा गया।</string>
-  <string name="reading_list_article_added_to_default_list">सहेजा गया %s। क्या आप इसे एक सूची में जोड़ना चाहते हैं?</string>
+  <string name="reading_list_article_added_to_default_list" fuzzy="true">सहेजा गया %s। क्या आप इसे एक सूची में जोड़ना चाहते हैं?</string>
   <string name="reading_list_article_moved_to_named">%1$s को %2$s पर ले जाया गया।</string>
   <string name="reading_list_article_already_exists_message">सब बढ़िया! %1$s में पहले से ही %2$s है।</string>
   <string name="reading_list_articles_already_exist_message">सब बाढ़िया! %s में पहले से ही सभी लेख हैं।</string>
-  <string name="reading_list_added_view_button">सूची देखें</string>
-  <string name="reading_list_add_to_list_button">सूची में जोड़ें</string>
+  <string name="reading_list_added_view_button" fuzzy="true">सूची देखें</string>
+  <string name="reading_list_add_to_list_button" fuzzy="true">सूची में जोड़ें</string>
   <plurals name="format_reading_list_statistical_summary_without_size">
     <item quantity="one">1 लेख</item>
     <item quantity="other"> %d लेख</item>
@@ -546,64 +551,64 @@
   <string name="reading_list_sort_by_recent_desc">जोड़ी गई तिथि के अनुसार क्रमित करें (सबसे पुराना)</string>
   <string name="reading_list_sort_by_created">निर्माण तिथि के अनुसार क्रमित करें (नवीनतम)</string>
   <string name="reading_list_sort_by_created_desc">निर्माण तिथि के अनुसार क्रमित करें (सबसे पुराना)</string>
-  <string name="reading_list_menu_delete">सूची को मिटायें</string>
-  <string name="reading_list_menu_export">निर्यात लिस्ट</string>
+  <string name="reading_list_menu_delete" fuzzy="true">सूची को मिटायें</string>
+  <string name="reading_list_menu_export" fuzzy="true">निर्यात लिस्ट</string>
   <string name="reading_list_menu_select">चुनें</string>
   <string name="reading_list_menu_unselect">चुनें से हटाएं</string>
-  <string name="reading_list_export_write_permission_rationale">आपकी पठन सूची को निर्यात करने के लिए आपके डिवाइस पर स्टोरेज में लिखने की अनुमति आवश्यक है।</string>
+  <string name="reading_list_export_write_permission_rationale" fuzzy="true">आपकी पठन सूची को निर्यात करने के लिए आपके डिवाइस पर स्टोरेज में लिखने की अनुमति आवश्यक है।</string>
   <string name="reading_list_menu_rename">नाम या विवरण बदलें</string>
   <string name="reading_list_action_menu_remove_from_offline">ऑफलाइन से हटाएं</string>
   <string name="reading_list_action_menu_save_for_offline">ऑफलाइन के लिए सुरक्षित करें</string>
   <string name="reading_list_action_menu_remove_all_from_offline">ऑफलाइन से सब हटायें</string>
   <string name="reading_list_action_menu_save_all_for_offline">ऑफलाइन के लिए सुरक्षित करें</string>
-  <string name="reading_list_action_menu_add_to_another_list">दूसरी सूची में जोड़ें</string>
-  <string name="reading_list_action_menu_move_to_another_list">दूसरी सूची में ले जाएँ</string>
-  <string name="reading_list_name_sample">मेरी पढ़ने वाली सूची</string>
-  <string name="reading_list_name_hint">सूची का नाम</string>
+  <string name="reading_list_action_menu_add_to_another_list" fuzzy="true">दूसरी सूची में जोड़ें</string>
+  <string name="reading_list_action_menu_move_to_another_list" fuzzy="true">दूसरी सूची में ले जाएँ</string>
+  <string name="reading_list_name_sample" fuzzy="true">मेरी पढ़ने वाली सूची</string>
+  <string name="reading_list_name_hint" fuzzy="true">सूची का नाम</string>
   <string name="reading_list_description_hint">विवरण (वैकल्पिक)</string>
-  <string name="reading_list_item_deleted">%s सूची में से हटाया गया</string>
+  <string name="reading_list_item_deleted" fuzzy="true">%s सूची में से हटाया गया</string>
   <string name="reading_list_item_deleted_from_list">%1$s को %2$s से हटाया गया</string>
-  <plurals name="reading_list_articles_deleted">
+  <plurals name="reading_list_articles_deleted" fuzzy="true">
     <item quantity="one">%d लेख को सूची से हटाया गया</item>
     <item quantity="other"> %d लेख सूची से हटाए गए</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d लेख को %s से हटाया गया</item>
-    <item quantity="other">%d लेखों को %s से हटाया गया</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">%1$d लेख को %2$s से हटाया गया</item>
+    <item quantity="other">%1$d लेखों को %2$s से हटाया गया</item>
   </plurals>
-  <plurals name="reading_lists_deleted_message">
+  <plurals name="reading_lists_deleted_message" fuzzy="true">
     <item quantity="one">%d सूची हटाई गई</item>
     <item quantity="other"> %d सूचियाँ हटाई गईं</item>
   </plurals>
-  <string name="reading_lists_default_list_delete_message">डिफ़ॉल्ट सूची ( %s ) को हटाया नहीं जा सकता</string>
-  <string name="reading_lists_default_plus_one_list_delete_message">%1$s हटा दिया गया। डिफ़ॉल्ट सूची ( %2$s ) को हटाया नहीं जा सकता।</string>
-  <string name="reading_lists_default_plus_many_lists_delete_message">सूचियाँ हटा दी गईं। डिफ़ॉल्ट सूची ( %s ) को हटाया नहीं जा सकता।</string>
-  <string name="single_list_json_file_name">%s (Wikipedia reading list).json</string>
-  <string name="multiple_lists_json_file_name">विकिपीडिया पठन सूचियाँ ( %s और अधिक).json</string>
-  <string name="reading_list_items_deleted">%d लेख सूची से हटाये गए</string>
-  <string name="reading_lists_item_deleted">%s को सूचियों से हटाया गया</string>
+  <string name="reading_lists_default_list_delete_message" fuzzy="true">डिफ़ॉल्ट सूची ( %s ) को हटाया नहीं जा सकता</string>
+  <string name="reading_lists_default_plus_one_list_delete_message" fuzzy="true">%1$s हटा दिया गया। डिफ़ॉल्ट सूची ( %2$s ) को हटाया नहीं जा सकता।</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message" fuzzy="true">सूचियाँ हटा दी गईं। डिफ़ॉल्ट सूची ( %s ) को हटाया नहीं जा सकता।</string>
+  <string name="single_list_json_file_name" fuzzy="true">%s (Wikipedia reading list).json</string>
+  <string name="multiple_lists_json_file_name" fuzzy="true">विकिपीडिया पठन सूचियाँ ( %s और अधिक).json</string>
+  <string name="reading_list_items_deleted" fuzzy="true">%d लेख सूची से हटाये गए</string>
+  <string name="reading_lists_item_deleted" fuzzy="true">%s को सूचियों से हटाया गया</string>
   <string name="reading_list_item_delete_undo">पूर्ववत करें</string>
   <string name="reading_list_deleted">%s मिटा दिया गया</string>
-  <string name="saved_list_empty_title">अभी तक कोई पढ़ने वाली सूची नहीं</string>
-  <string name="reading_lists_empty_message">पढ़ने वाली सूची में लेख जोड़ें ताकि आप उन्हें बाद में पढ़ सकें, ऑफलाइन होने पर भी।</string>
-  <string name="reading_list_empty">आपके पास इस सूची में कोई लेख नहीं जुड़े हुए हैं।</string>
+  <string name="saved_list_empty_title" fuzzy="true">अभी तक कोई पढ़ने वाली सूची नहीं</string>
+  <string name="reading_lists_empty_message" fuzzy="true">पढ़ने वाली सूची में लेख जोड़ें ताकि आप उन्हें बाद में पढ़ सकें, ऑफलाइन होने पर भी।</string>
+  <string name="reading_list_empty" fuzzy="true">आपके पास इस सूची में कोई लेख नहीं जुड़े हुए हैं।</string>
   <string name="reading_list_article_offline">ऑफलाइन उपलब्ध</string>
   <string name="reading_list_article_make_offline">इस लेख को ऑफलाइन उपलब्ध कराएं</string>
-  <string name="reading_list_add_to_other_list">अन्य पढ़ने वाली सूची में जोड़ें</string>
-  <string name="reading_list_move_to_other_list">किसी अन्य पठन सूची पर जाएं</string>
-  <string name="reading_list_move_from_to_other_list">%s से दूसरी पठन सूची में ले जाएँ</string>
+  <string name="reading_list_add_to_other_list" fuzzy="true">अन्य पढ़ने वाली सूची में जोड़ें</string>
+  <string name="reading_list_move_to_other_list" fuzzy="true">किसी अन्य पठन सूची पर जाएं</string>
+  <string name="reading_list_move_from_to_other_list" fuzzy="true">%s से दूसरी पठन सूची में ले जाएँ</string>
   <string name="reading_list_remove_from_list">%s से हटाएँ</string>
-  <string name="reading_list_remove_from_lists">पढ़ने वाली सूची से हटाएँ</string>
+  <string name="reading_list_remove_from_lists" fuzzy="true">पढ़ने वाली सूची से हटाएँ</string>
   <string name="reading_list_select_item">चयन करें</string>
   <string name="reading_list_confirm_remove_article_from_offline">ऑफलाइन से हटायें</string>
-  <string name="reading_list_confirm_remove_article_from_offline_title">लेख एक से अधिक सूचियों में है</string>
-  <string name="reading_list_confirm_remove_article_from_offline_message">%s सभी ऑफलाइन पढ़ने वाली सूचियों में आगे उपलब्ध नहीं होगा:</string>
-  <string name="reading_lists_sync_reminder_title">पठन सूची को सिंक करना चालू करें?</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title" fuzzy="true">लेख एक से अधिक सूचियों में है</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s सभी ऑफलाइन पढ़ने वाली सूचियों में आगे उपलब्ध नहीं होगा:</string>
+  <string name="reading_lists_sync_reminder_title" fuzzy="true">पठन सूची को सिंक करना चालू करें?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">पठन सूचियों में सहेजे गए लेख अब आपके विकिपीडिया खाते से सिंक किए जा सकते हैं। &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;अधिक जानें&lt;/a&gt;</string>
   <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">पठन सूचियां अब सभी उपकरणों में सिंक की जा सकती हैं। अपने विकिपीडिया खाते में लॉग इन करें और अपनी सूचियों को सहेजने दें। &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;अधिक जानें&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">सिंक चालू करें</string>
-  <string name="reading_list_login_reminder_title">\nअपनी पठन सूचियों को सिंक करें</string>
-  <string name="reading_lists_login_reminder_text">पठन सूचियां अब सभी उपकरणों में सिंक की जा सकती हैं। अपने विकिपीडिया खाते में लॉग इन करें और अपनी सूचियों को सहेजने दें।</string>
+  <string name="reading_list_login_reminder_title" fuzzy="true">\nअपनी पठन सूचियों को सिंक करें</string>
+  <string name="reading_lists_login_reminder_text" fuzzy="true">पठन सूचियां अब सभी उपकरणों में सिंक की जा सकती हैं। अपने विकिपीडिया खाते में लॉग इन करें और अपनी सूचियों को सहेजने दें।</string>
   <string name="reading_lists_login_button">लॉग इन करें / विकिपीडिया से जुड़ें</string>
   <string name="reading_lists_ignore_button">अभी नहीं</string>
   <string name="reading_lists_confirm_remote_delete_yes">हाँ</string>
@@ -612,35 +617,35 @@
   <string name="reading_list_articles_added_to_named">%2$s में %1$d आलेख जोड़े गए</string>
   <string name="reading_list_articles_moved_to_named">%1$d लेखों को %2$s पर ले जाया गया</string>
   <string name="reading_list_delete_confirm">क्या आप  \"%s\" को हटाने हेतु निश्चित हैं?</string>
-  <string name="reading_list_delete_lists_confirm_dialog_title">चयनित सूची/सूचियां हटाएं?</string>
-  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+  <string name="reading_list_delete_lists_confirm_dialog_title" fuzzy="true">चयनित सूची/सूचियां हटाएं?</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message" fuzzy="true">
     <item quantity="one">क्या आप वाकई %d सूची हटाना चाहते हैं?</item>
     <item quantity="other">क्या आप वाकई %d सूचियाँ हटाना चाहते हैं?</item>
   </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">सिंक चालू करने के लिए लॉग इन करें</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_text">अपनी पठन सूचियों को अपने खाते में सहेजने की अनुमति देने के लिए लॉग इन करें।</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text" fuzzy="true">अपनी पठन सूचियों को अपने खाते में सहेजने की अनुमति देने के लिए लॉग इन करें।</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">रद्द करें</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">लॉगिन करें</string>
-  <string name="reading_list_turned_sync_off_dialog_title">पठन सूची सिंक बंद किया गया</string>
-  <string name="reading_list_turned_sync_off_dialog_text">आपके खाते के लिए पठन सूची सिंक बंद है, और आपके लॉग-इन डिवाइस पर सहेजे गए लेखों का अब बैकअप नहीं लिया जा रहा है। सेटिंग में रीडिंग लिस्ट सिंक चालू करें।</string>
+  <string name="reading_list_turned_sync_off_dialog_title" fuzzy="true">पठन सूची सिंक बंद किया गया</string>
+  <string name="reading_list_turned_sync_off_dialog_text" fuzzy="true">आपके खाते के लिए पठन सूची सिंक बंद है, और आपके लॉग-इन डिवाइस पर सहेजे गए लेखों का अब बैकअप नहीं लिया जा रहा है। सेटिंग में रीडिंग लिस्ट सिंक चालू करें।</string>
   <string name="reading_list_turned_sync_off_dialog_ok">ठीक है</string>
   <string name="reading_list_turned_sync_off_dialog_settings">सेटिंग्स</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_title">पठन सूची को सिंक करना चालू करें?</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_text">पठन सूचियों में सहेजे गए लेख अब आपके विकिपीडिया खाते से सिंक किए जा सकते हैं। &lt;a href=\"#faq\"&gt;और अधिक जानें&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title" fuzzy="true">पठन सूची को सिंक करना चालू करें?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text" fuzzy="true">पठन सूचियों में सहेजे गए लेख अब आपके विकिपीडिया खाते से सिंक किए जा सकते हैं। &lt;a href=\"#faq\"&gt;और अधिक जानें&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">ये मुझे दुबारा न दिखाएँ</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">समन्वयन सक्षम करें</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">नहीं, धन्यवाद</string>
   <string name="default_reading_list_name">सहेजा गया</string>
-  <string name="default_reading_list_description">आपके सहेजे गए लेखों की डिफ़ॉल्ट सूची</string>
-  <string name="no_user_lists_title">लेखों को सूचियों में व्यवस्थित करें</string>
-  <string name="no_user_lists_msg">यात्रा करने के स्थानों, पसंदीदा विषयों, और अन्य के लिए सूचियां बनाएं</string>
+  <string name="default_reading_list_description" fuzzy="true">आपके सहेजे गए लेखों की डिफ़ॉल्ट सूची</string>
+  <string name="no_user_lists_title" fuzzy="true">लेखों को सूचियों में व्यवस्थित करें</string>
+  <string name="no_user_lists_msg" fuzzy="true">यात्रा करने के स्थानों, पसंदीदा विषयों, और अन्य के लिए सूचियां बनाएं</string>
   <string name="reading_list_saved_list_rename">%1$s (उपयोगकर्ता द्वारा बनाई)</string>
-  <string name="split_reading_list_message">प्रति पठन सूची में %d लेखों की सीमा है। इस सीमा से अधिक वाली मौजूदा सूचियों को अनेक सूचियों में विभाजित किया गया है।</string>
-  <string name="reading_list_move_article_limit_message">इस सूची में नहीं जा सकते। आप \" %1$s \" के लिए प्रति सूची %2$d लेखों की सीमा तक पहुंच गए हैं।</string>
-  <string name="reading_list_article_limit_message">इस सूची में नहीं जोड़ा जा सकता। आप \" %1$s \" के लिए प्रति सूची %2$d लेखों की सीमा तक पहुंच गए हैं।</string>
-  <string name="reading_lists_limit_message">दूसरी सूची नहीं बनाई जा सकती। आप प्रति खाता 100 पठन सूचियों की सीमा तक पहुँच चुके हैं।</string>
-  <string name="reading_lists_menu_create_list">नई सूची बनाएँ</string>
-  <string name="reading_lists_menu_import_list">आयात सूची</string>
+  <string name="split_reading_list_message" fuzzy="true">प्रति पठन सूची में %d लेखों की सीमा है। इस सीमा से अधिक वाली मौजूदा सूचियों को अनेक सूचियों में विभाजित किया गया है।</string>
+  <string name="reading_list_move_article_limit_message" fuzzy="true">इस सूची में नहीं जा सकते। आप \" %1$s \" के लिए प्रति सूची %2$d लेखों की सीमा तक पहुंच गए हैं।</string>
+  <string name="reading_list_article_limit_message" fuzzy="true">इस सूची में नहीं जोड़ा जा सकता। आप \" %1$s \" के लिए प्रति सूची %2$d लेखों की सीमा तक पहुंच गए हैं।</string>
+  <string name="reading_lists_limit_message" fuzzy="true">दूसरी सूची नहीं बनाई जा सकती। आप प्रति खाता 100 पठन सूचियों की सीमा तक पहुँच चुके हैं।</string>
+  <string name="reading_lists_menu_create_list" fuzzy="true">नई सूची बनाएँ</string>
+  <string name="reading_lists_menu_import_list" fuzzy="true">आयात सूची</string>
   <string name="reading_lists_menu_sort_by">इसके अनुसार क्रमबद्ध करें</string>
   <string name="reading_lists_refresh_sync_option">सिंक क टटका करौ</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">लॉग-इन / साइन-अप करें</string>
@@ -652,7 +657,7 @@
     <item quantity="one">यह लेख अब आगे ऑफलाइन उपलब्ध नहीं होगा।</item>
     <item quantity="other">These articles will no longer be available offline.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">पठन सूचियाँ सिंक की गयीं</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">पठन सूचियाँ सिंक की गयीं</string>
   <string name="reading_list_menu_last_sync">पिछला सिंक: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">ठीक है</string>
   <string name="reading_list_delete_dialog_ok_button_text">ठीक है</string>
@@ -662,31 +667,31 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">रद्द करें</string>
   <string name="reading_list_split_dialog_ok_button_text">ठीक है</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">मिटाएं</string>
-  <string name="reading_list_activity_title">पठन सूची: %s</string>
-  <string name="reading_list_notification_title">पठन सूची/सूचियाँ निर्यात की गईं</string>
-  <string name="reading_list_notification_text">%d पठन सूची(सूचियों) को आपके डाउनलोड फ़ोल्डर में \'reading_lists export.json\' के रूप में निर्यात किया गया है</string>
-  <string name="reading_list_notification_detailed_text">पठन सूचियाँ \'reading_lists_export.json\' पर निर्यात कर दी गई हैं</string>
+  <string name="reading_list_activity_title" fuzzy="true">पठन सूची: %s</string>
+  <string name="reading_list_notification_title" fuzzy="true">पठन सूची/सूचियाँ निर्यात की गईं</string>
+  <string name="reading_list_notification_text" fuzzy="true">%d पठन सूची(सूचियों) को आपके डाउनलोड फ़ोल्डर में \'reading_lists export.json\' के रूप में निर्यात किया गया है</string>
+  <string name="reading_list_notification_detailed_text" fuzzy="true">पठन सूचियाँ \'reading_lists_export.json\' पर निर्यात कर दी गई हैं</string>
   <string name="reading_lists_action_menu_export_lists">निर्यात</string>
   <string name="reading_lists_import_file_picker_title">आयात करने के लिए फ़ाइल चुनें</string>
-  <string name="reading_lists_import_failure_message">पठन सूचियाँ आयात असफल</string>
-  <string name="reading_lists_export_select_lists_message">निर्यात करने के लिए सूची(सूचियों) का चयन करें</string>
-  <string name="reading_lists_export_completed_message">पठन सूचियाँ निर्यात की गईं</string>
-  <plurals name="reading_list_export_failed_message">
+  <string name="reading_lists_import_failure_message" fuzzy="true">पठन सूचियाँ आयात असफल</string>
+  <string name="reading_lists_export_select_lists_message" fuzzy="true">निर्यात करने के लिए सूची(सूचियों) का चयन करें</string>
+  <string name="reading_lists_export_completed_message" fuzzy="true">पठन सूचियाँ निर्यात की गईं</string>
+  <plurals name="reading_list_export_failed_message" fuzzy="true">
     <item quantity="one">पठन सूची निर्यात विफल</item>
     <item quantity="other">पठन सूचियां निर्यात विफल</item>
   </plurals>
-  <plurals name="reading_list_import_success_message">
+  <plurals name="reading_list_import_success_message" fuzzy="true">
     <item quantity="one">पठन सूची आयातित</item>
     <item quantity="other">पठन सूचियां आयातित</item>
   </plurals>
-  <string name="reading_lists_preview_header_title">साझा सूची</string>
+  <string name="reading_lists_preview_header_title" fuzzy="true">साझा सूची</string>
   <string name="reading_lists_preview_save_button">सहेजें</string>
-  <string name="reading_lists_preview_save_dialog_title">लिस्ट सेव करें</string>
-  <string name="reading_lists_preview_save_dialog_text">सेव करने के लिए नाम की लिस्ट और आर्टिकल्स चुनें</string>
+  <string name="reading_lists_preview_save_dialog_title" fuzzy="true">लिस्ट सेव करें</string>
+  <string name="reading_lists_preview_save_dialog_text" fuzzy="true">सेव करने के लिए नाम की लिस्ट और आर्टिकल्स चुनें</string>
   <string name="reading_lists_preview_save_dialog_title_hint">शीर्षक</string>
   <string name="reading_lists_preview_save_dialog_cancel">रद्द करें</string>
   <string name="reading_lists_preview_save_dialog_save">सहेजें</string>
-  <string name="reading_lists_preview_saved_snackbar">पठन सूची सहेजी गई</string>
+  <string name="reading_lists_preview_saved_snackbar" fuzzy="true">पठन सूची सहेजी गई</string>
   <string name="reading_lists_preview_saved_snackbar_action">देखें</string>
   <string name="user_option_sync_label">वरीयता</string>
   <string name="notification_reverted_title">संपादन वापस लिया गया</string>
@@ -695,8 +700,8 @@
   <string name="notification_syncing_pause_button">थामें</string>
   <string name="notification_syncing_resume_button">दुबारा शुरू करें</string>
   <string name="notification_syncing_cancel_button">रद्द करें</string>
-  <string name="notification_syncing_reading_list_channel_title">पठन सूचियों को सिंक किया जा रहा है</string>
-  <string name="notification_syncing_reading_list_channel_description">पठन सूचियों को सिंक करने की प्रगति</string>
+  <string name="notification_syncing_reading_list_channel_title" fuzzy="true">पठन सूचियों को सिंक किया जा रहा है</string>
+  <string name="notification_syncing_reading_list_channel_description" fuzzy="true">पठन सूचियों को सिंक करने की प्रगति</string>
   <string name="notification_many_unread">आपके पास %d अपठित अधिसूचनाएं हैं</string>
   <plurals name="notification_channel_name">
     <item quantity="one">लेख डाउनलोड हो रहा है</item>
@@ -710,15 +715,15 @@
     <item quantity="one">%1$d लेख शेष है</item>
     <item quantity="other"> %1$d लेख शेष हैं</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_channel_name">
+  <plurals name="notification_syncing_reading_list_channel_name" fuzzy="true">
     <item quantity="one">सिंकिंग पठन सूची</item>
     <item quantity="other">सिंकिंग पठन सूची</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_title">
+  <plurals name="notification_syncing_reading_list_title" fuzzy="true">
     <item quantity="one">%1$d सूची सिंक की जा रही है…</item>
     <item quantity="other"> %1$d सूचियों को सिंक किया जा रहा है…</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_description">
+  <plurals name="notification_syncing_reading_list_description" fuzzy="true">
     <item quantity="one">%1$d सूची शेष</item>
     <item quantity="other"> %1$d सूचियां शेष</item>
   </plurals>
@@ -861,11 +866,11 @@
   <string name="feed_item_type_randomizer">पढ़ने के लिए कोई भी लेख उत्पन्न करें</string>
   <string name="feed_item_type_suggested_edits">विकिपीडिया पर सामग्री जोड़ने के सुझाव</string>
   <string name="feed_item_type_places">वर्तमान स्थान के आधार पर निकटवर्ती लेख</string>
-  <string name="feed_empty_message">आपके एक्सप्लोर फ़ीड में कुछ भी नहीं है</string>
+  <string name="feed_empty_message" fuzzy="true">आपके एक्सप्लोर फ़ीड में कुछ भी नहीं है</string>
   <string name="feed_configure_onboarding_action">अनुकूलित करें</string>
   <string name="customize_lang_selection_dialog_ok_button_text">ठीक है</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">रद्द करें</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;अपना एक्सप्लोर फ़ीड अनुकूलित करें&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt; अब आप चुन सकते हैं कि आपके फ़ीड पर क्या दिखाना है, और अपनी पसंदीदा प्रकार की सामग्री को प्राथमिकता भी दे सकते हैं।</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;अपना एक्सप्लोर फ़ीड अनुकूलित करें&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt; अब आप चुन सकते हैं कि आपके फ़ीड पर क्या दिखाना है, और अपनी पसंदीदा प्रकार की सामग्री को प्राथमिकता भी दे सकते हैं।</string>
   <string name="feed_lang_selection_dialog_ok_button_text">ठीक है</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">रद्द करें</string>
   <string name="feed_accessibility_card_text">आप फ़ीड की अंत तक पहुंच गए हैं।</string>
@@ -941,6 +946,7 @@
   <string name="customize_toolbar_reset_to_default_button">डिफ़ॉल्ट पर रीसेट</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">आइटम को स्थानांतरित करने के लिए ड्रैग आइकन को दबाए रखें</string>
   <string name="customize_toolbar_item_default_tooltip">किसी आइटम का स्थान बदलने के लिए उसे दबाएं और खींचें</string>
+  <string name="suggested_edits_activity_title">सम्पादित करें</string>
   <string name="suggested_edits_describe_articles">लेखों का वर्णन करें</string>
   <string name="suggested_edits_caption_images">चित्र को कैप्शन करें</string>
   <string name="suggested_edits_tag_images">चित्र टैग करें</string>
@@ -1129,16 +1135,16 @@
   <string name="image_recommendation_notsure">अनिश्चित</string>
   <string name="image_recommendation_reject_title">अस्वीकृति का कारण</string>
   <string name="image_recommendation_reject_subtitle">अस्वीकृति का कारण गुमनाम है और भविष्य में छवि सुझावों को बेहतर बनाएगा।</string>
-  <string name="image_recommendation_reject_not_relevant">ईमेज रिलेवेंट नहीं है</string>
-  <string name="image_recommendation_reject_no_info">डिसाइड करने के लिए यह जानकारी काफी नहीं है</string>
-  <string name="image_recommendation_reject_offensive">ईमेज ऑफेंसिव है</string>
-  <string name="image_recommendation_reject_low_quality">ईमेज घटिया क्वॉलिटी की है</string>
+  <string name="image_recommendation_reject_not_relevant">चित्र प्रासंगिक नहीं है</string>
+  <string name="image_recommendation_reject_no_info">निर्धारित करने के लिए पर्याप्त जानकारी नहीं है</string>
+  <string name="image_recommendation_reject_offensive">चित्र अपमानजनक है</string>
+  <string name="image_recommendation_reject_low_quality">चित्र कम गुणवत्ता का है</string>
   <string name="image_recommendation_reject_dont_know">मुझे इस विषय के बारे में जानकारी नहीं है</string>
   <string name="image_recommendation_reject_other">अन्य</string>
   <string name="image_recommendation_reject_submit">जमा करें</string>
   <string name="image_recommendation_tooltip_main">सुझाए गए संपादन में लेखों में लुप्त छवियाँ जोड़ें</string>
-  <string name="image_recommendation_onboarding_1">पिक्चर्स लोगों को समझने में सहायता करतीं हैं, लेकिन बहुत आर्टिकल्स में पिक्चर्स नहीं होते हैं</string>
-  <string name="image_recommendation_onboarding_2">आप डिसाइड करेगें यदि एक सजेस्टेड इमेज एक विकिपीडिया आर्टिकल में होना चाहिए या नहीं|</string>
+  <string name="image_recommendation_onboarding_1">चित्रों से लोगों को समझने में मदद मिलती है, लेकिन कई लेखों में एक भी चित्र नहीं है।</string>
+  <string name="image_recommendation_onboarding_2">आप तय करें कि विकिपीडिया के किसी लेख पर कोई सुझावित चित्र जोड़ा जाना चाहिए कि नहीं।</string>
   <string name="image_recommendation_onboarding_3">सजेशंस मशीन जेनरेटेड होते हैं और उनको स्वीकार या अस्वीकार करने के लिए आपको आपके जजमेंट का इस्तेमाल करना पड़ेगा</string>
   <string name="image_recommendation_onboarding_4">ईमेज विकिपीडिया कॉमन्स से चुनें जाते हैं, जो विकिपीडिया द्वारा उपयोग किए जाने वाले फ्रीली लाइसेंस्ड इमेजेस का एक कलेक्शन है|</string>
   <string name="image_recommendation_tooltip_1">इस आर्टिकल के मुद्दे को समझने के इस आर्टिकल को रिव्यू करें</string>
@@ -1153,6 +1159,11 @@
   <string name="edit_summary_added_caption">एड किया हुआ कैप्शन</string>
   <string name="edit_summary_added_image_and_caption">छवि और कैप्शन जोड़ा गया</string>
   <string name="edit_published_view">देखें</string>
+  <string name="activity_tab_logged_out_title">विकिपीडिया ऐप पर अपनी गतिविधि देखने के लिए लॉग-इन करें या खाता बनाएं।</string>
+  <string name="activity_tab_monthly_top_categories">इस महीने पढ़ी गई शीर्ष श्रेणियां</string>
+  <string name="activity_tab_explore_wikipedia">विकिपीडिया के माध्यम से खोजें</string>
+  <string name="activity_tab_discover_encourage">कुछ नया पढ़ने की तलाश में हैं?</string>
+  <string name="activity_tab_donation_unknown">अज्ञात</string>
   <string name="activity_tab_timeline_yesterday">कल</string>
   <string name="file_page_activity_title">फ़ाइल पृष्ठ</string>
   <string name="file_page_add_image_caption_button">चित्र कैप्शन जोड़ें</string>
@@ -1173,16 +1184,17 @@
   <string name="onboarding_get_started">शुरू करें</string>
   <string name="onboarding_maybe_later">शायद बाद में</string>
   <string name="onboarding_explore_title">अन्वेषण के नए तरीके</string>
-  <string name="onboarding_explore_text">लगातार अपडेट हो रहे एक्सप्लोर फ़ीड के साथ विकिपीडिया के अंतहीन रास्तों पर जायें।&lt;br/&gt; फ़ीड को अपनी रुचियों के अनुसार &lt;b&gt;अनुकूलित करें&lt;/b&gt; - चाहे वह &lt;b&gt;इस दिन&lt;/b&gt; की ऐतिहासिक घटनाओं के बारे में सीखना हो, या &lt;b&gt;बेतरतीब&lt;/b&gt; पासा घुमाना हो।</string>
-  <string name="onboarding_reading_list_sync_title">सिंक के साथ पठन सूचियां</string>
-  <string name="onboarding_reading_list_sync_text_v2">आप उन लेखों की पठन सूची बना सकते हैं जिन्हें आप बाद में पढ़ना चाहते हैं, तब भी जब आप ऑफ़लाइन हों।&lt;br/&gt; अपनी पठन सूचियों को सिंक करने के लिए अपने विकिपीडिया खाते में लॉगिन करें। &lt;a href=\"#login\"&gt;विकिपीडिया से जुड़ें&lt;/a&gt;</string>
+  <string name="onboarding_explore_text" fuzzy="true">लगातार अपडेट हो रहे एक्सप्लोर फ़ीड के साथ विकिपीडिया के अंतहीन रास्तों पर जायें।&lt;br/&gt; फ़ीड को अपनी रुचियों के अनुसार &lt;b&gt;अनुकूलित करें&lt;/b&gt; - चाहे वह &lt;b&gt;इस दिन&lt;/b&gt; की ऐतिहासिक घटनाओं के बारे में सीखना हो, या &lt;b&gt;बेतरतीब&lt;/b&gt; पासा घुमाना हो।</string>
+  <string name="onboarding_reading_list_sync_title" fuzzy="true">सिंक के साथ पठन सूचियां</string>
+  <string name="onboarding_reading_list_sync_text_v2" fuzzy="true">आप उन लेखों की पठन सूची बना सकते हैं जिन्हें आप बाद में पढ़ना चाहते हैं, तब भी जब आप ऑफ़लाइन हों।&lt;br/&gt; अपनी पठन सूचियों को सिंक करने के लिए अपने विकिपीडिया खाते में लॉगिन करें। &lt;a href=\"#login\"&gt;विकिपीडिया से जुड़ें&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">डेटा और गोपनीयता</string>
-  <string name="onboarding_data_privacy_text">हमारा मानना है कि मुक्त ज्ञान आंदोलन में भाग लेने के लिए आपको व्यक्तिगत जानकारी प्रदान करने की आवश्यकता नहीं होनी चाहिए। इस ऐप के लिए एकत्र किया गया उपयोग डेटा गुमनाम है। हमारी &lt;a href=\"#privacy\"&gt;गोपनीयता नीति&lt;/a&gt; और &lt;a href=\"#termsOfUse\"&gt;उपयोग की शर्तों&lt;/a&gt; के बारे में अधिक जानें।</string>
+  <string name="onboarding_data_privacy_text" fuzzy="true">हमारा मानना है कि मुक्त ज्ञान आंदोलन में भाग लेने के लिए आपको व्यक्तिगत जानकारी प्रदान करने की आवश्यकता नहीं होनी चाहिए। इस ऐप के लिए एकत्र किया गया उपयोग डेटा गुमनाम है। हमारी &lt;a href=\"#privacy\"&gt;गोपनीयता नीति&lt;/a&gt; और &lt;a href=\"#termsOfUse\"&gt;उपयोग की शर्तों&lt;/a&gt; के बारे में अधिक जानें।</string>
   <string name="onboarding_analytics_switch_title">उपयोग किया गया डेटा भेजें</string>
   <string name="onboarding_got_it">समझ गया</string>
   <string name="onboarding_multilingual_secondary_text">हमने आपके डिवाइस पर निम्नलिखित पाया है:</string>
   <string name="onboarding_multilingual_add_language_text">भाषाएं जोड़ें या संपादित करें</string>
   <string name="onboarding_welcome_title_v2">नि:शुल्क विश्वकोश\n...300 से अधिक भाषाओं में</string>
+  <string name="onboarding_next">अगला</string>
   <string name="app_shortcuts_random">कोई भी</string>
   <string name="app_shortcuts_continue_reading">पढ़ना जारी रखें</string>
   <string name="app_shortcuts_search">खोजना</string>
@@ -1212,7 +1224,7 @@
     <item quantity="one">चयनित भाषा हटाएं?</item>
     <item quantity="other">चयनित भाषाएं हटाएं?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">आप शेष विकिपीडिया भाषाओं के लिए केवल एक्सप्लोर फ़ीड और त्वरित खोज फ़िल्टर पर सामग्री देखेंगे।</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">आप शेष विकिपीडिया भाषाओं के लिए केवल एक्सप्लोर फ़ीड और त्वरित खोज फ़िल्टर पर सामग्री देखेंगे।</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">सभी भाषाओं को नहीं हटा सकते</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">कम से कम एक विकिपीडिया भाषा रखें जिससे सामग्री को खोजा और पढ़ा जा सके।</string>
   <string name="more_language_options">अधिक</string>
@@ -1501,16 +1513,16 @@
   <string name="user_contrib_menu_label">योगदान</string>
   <string name="user_contrib_filter_activity_title">योगदान फ़िल्टर करें</string>
   <string name="action_item_view_on_map">मैप पर देखें</string>
-  <string name="shareable_reading_lists_import_dialog_title">साझा पठन सूची आयात करें</string>
-  <string name="shareable_reading_lists_import_dialog_content">आपके साथ साझा की गई सूची को आप क्या नाम देना चाहेंगे?</string>
+  <string name="shareable_reading_lists_import_dialog_title" fuzzy="true">साझा पठन सूची आयात करें</string>
+  <string name="shareable_reading_lists_import_dialog_content" fuzzy="true">आपके साथ साझा की गई सूची को आप क्या नाम देना चाहेंगे?</string>
   <string name="shareable_reading_lists_new_indicator">*नया*</string>
-  <string name="shareable_reading_lists_new_install_dialog_title">आपके साथ एक पठन सूची साझा की गई है</string>
-  <string name="shareable_reading_lists_new_install_dialog_content">हमने देखा कि आपके साथ एक पठन सूची साझा की गई है। ऐप में इस सूची को देखने के लिए, मूल संदेश पर वापस जाएं और लिंक पर दोबारा टैप करें।</string>
+  <string name="shareable_reading_lists_new_install_dialog_title" fuzzy="true">आपके साथ एक पठन सूची साझा की गई है</string>
+  <string name="shareable_reading_lists_new_install_dialog_content" fuzzy="true">हमने देखा कि आपके साथ एक पठन सूची साझा की गई है। ऐप में इस सूची को देखने के लिए, मूल संदेश पर वापस जाएं और लिंक पर दोबारा टैप करें।</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">समझ गया</string>
-  <string name="shareable_reading_lists_new_imported_snackbar">पठन सूची आयात की गई</string>
+  <string name="shareable_reading_lists_new_imported_snackbar" fuzzy="true">पठन सूची आयात की गई</string>
   <string name="reading_list_share_menu_label">साझा करें…</string>
-  <string name="reading_list_share_menu_tooltip">यह रीडिंग लिस्ट अन्य लोगों के साथ साझा करें</string>
-  <string name="reading_list_share_message_v2">हैलो! मैं अपना Wikipedia रीडिंग लिस्ट आपके साथ साझा करना चाहता/चाहती हूं :</string>
+  <string name="reading_list_share_menu_tooltip" fuzzy="true">यह रीडिंग लिस्ट अन्य लोगों के साथ साझा करें</string>
+  <string name="reading_list_share_message_v2" fuzzy="true">हैलो! मैं अपना Wikipedia रीडिंग लिस्ट आपके साथ साझा करना चाहता/चाहती हूं :</string>
   <string name="talk_templates_new_message_subject_hint">विषय</string>
   <string name="talk_templates_new_message_compose_hint">संदेश लिखें</string>
   <string name="talk_templates_new_message_save">सहेजें</string>
@@ -1553,12 +1565,17 @@
   <string name="survey_dialog_general_yes">हाँ</string>
   <string name="survey_dialog_general_no">नहीं</string>
   <string name="survey_dialog_submitted_snackbar" fuzzy="true">फीडबैक जमा किया गया. धन्यवाद!</string>
+  <string name="games_hub_activity_games_unavailable_message_learn_more_action">अधिक जानिए</string>
+  <string name="games_hub_activity_overflow_learn_more">अधिक जानिए</string>
   <string name="on_this_day_game_turn_on_notification_dialog_title">खेल सूचनाएं चालू करें?</string>
   <string name="on_this_day_game_turn_off_notification_dialog_positive_btn_label">नहीं, इन्हें चालू रखें</string>
   <string name="on_this_day_game_turn_off_notification_dialog_negative_btn_label">इन्हें बंद कर दें।</string>
   <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">हाँ, इन्हें चालू कर दें।</string>
+  <string name="on_this_day_game_more_label">अधिक</string>
   <string name="year_in_review_disable_positive_button">हाँ, मुझे यकीन है</string>
   <string name="year_in_review_slide_reading_pattern_night">रात</string>
   <string name="donation_reminders_settings_article_frequency_input_suffix_label">लेख</string>
   <string name="donation_reminders_prompt_negative_button">अभी नहीं</string>
+  <string name="home_feed_did_you_know_title">क्या आप जानते हैं?</string>
+  <string name="reading_lists_remove_articles_confirm_button" fuzzy="true">हटाएँ</string>
 </resources>

@@ -16,7 +16,7 @@ import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.uiautomator.UiDevice
 import androidx.test.uiautomator.UiSelector
-import org.hamcrest.CoreMatchers.allOf
+import org.hamcrest.Matchers.allOf
 import org.wikipedia.R
 import org.wikipedia.base.TestConfig
 import org.wikipedia.base.utils.GifMatchers
@@ -55,12 +55,12 @@ class MediaRobot : BaseRobot() {
     fun verifyOverlayVisibility(isVisible: Boolean) = apply {
         if (isVisible) {
             verify.viewExists(R.id.toolbar_container)
-            delay(TestConfig.DELAY_MEDIUM)
+            delay(TestConfig.DELAY_SHORT)
             return@apply
         }
 
         verify.viewWithIdIsNotVisible(R.id.toolbar_container)
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun navigateUp() = apply {

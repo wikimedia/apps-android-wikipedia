@@ -1,7 +1,6 @@
 package org.wikipedia.language
 
-import org.hamcrest.MatcherAssert
-import org.hamcrest.Matchers
+import org.junit.Assert.assertEquals
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -101,8 +100,8 @@ class LangLinksActivityTest {
 
     private fun compareLists(list1: List<PageTitle>, list2: List<PageTitle>) {
         for (i in list1.indices) {
-            MatcherAssert.assertThat(list1[i].uri, Matchers.`is`(list2[i].uri))
-            MatcherAssert.assertThat(list1[i].displayText, Matchers.`is`(list2[i].displayText))
+            assertEquals(list2[i].uri, list1[i].uri)
+            assertEquals(list2[i].displayText, list1[i].displayText)
         }
     }
 }

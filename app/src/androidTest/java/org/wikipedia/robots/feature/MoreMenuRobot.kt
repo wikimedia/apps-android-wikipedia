@@ -56,7 +56,7 @@ class MoreMenuRobot : BaseRobot() {
 
     fun clickTalk() = apply {
         click.onViewWithId(R.id.main_drawer_talk_container)
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun clickWatchList() = apply {
@@ -89,7 +89,8 @@ class MoreMenuRobot : BaseRobot() {
             val customTabIntentMatcher = allOf(
                 hasAction(Intent.ACTION_VIEW),
                 hasData(context.getString(R.string.donate_url, CampaignCollection.getFormattedCampaignId("appmenu"),
-                    WikipediaApp.instance.languageState.systemLanguageCode, BuildConfig.VERSION_NAME))
+                    WikipediaApp.instance.languageState.systemLanguageCode, BuildConfig.VERSION_NAME,
+                    WikipediaApp.instance.appInstallID))
             )
             intended(customTabIntentMatcher)
         } catch (e: AssertionError) {

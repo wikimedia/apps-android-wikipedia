@@ -66,7 +66,7 @@ class PageActionItemRobot : BaseRobot() {
     }
 
     fun clickExplore() = apply {
-        click.onViewWithId(R.id.page_explore)
+        click.onViewWithId(R.id.page_home)
         delay(TestConfig.DELAY_SHORT)
     }
 

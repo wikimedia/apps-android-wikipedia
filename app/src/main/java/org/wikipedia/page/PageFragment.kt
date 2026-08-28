@@ -53,6 +53,7 @@ import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.eventplatform.ArticleFindInPageInteractionEvent
 import org.wikipedia.analytics.eventplatform.ArticleInteractionEvent
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
+import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
@@ -95,13 +96,12 @@ import org.wikipedia.page.references.ReferenceDialog
 import org.wikipedia.page.shareafact.ShareHandler
 import org.wikipedia.page.tabs.Tab
 import org.wikipedia.places.PlacesActivity
-import org.wikipedia.readinglist.LongPressMenu
-import org.wikipedia.readinglist.ReadingListBehaviorsUtil
-import org.wikipedia.readinglist.database.ReadingListPage
+import org.wikipedia.readinglist.SaveArticleSheetDialog
 import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.theme.ThemeChooserDialog
+import org.wikipedia.topics.db.PageTopic
 import org.wikipedia.util.ActiveTimer
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
@@ -177,6 +177,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     private var avPlayer: AvPlayer? = null
     private var avCallback: AvCallback? = null
     private var sections: MutableList<Section>? = null
+    private var editCount = 0
     private var app = WikipediaApp.instance
 
     override lateinit var linkHandler: LinkHandler
@@ -438,6 +439,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                                 }
                             }
                         }
+                        callback()?.onPageLoadComplete()
                     }
                 }
             }
@@ -771,13 +773,26 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
         bridge.addListener("link", linkHandler)
         bridge.addListener("setup") { _, _ -> onPageSetupEvent() }
-        bridge.addListener("final_setup") { _, _ ->
+        bridge.addListener("final_setup") { _, payload ->
             if (!isAdded) {
                 return@addListener
             }
             bridge.onPcsReady()
             articleInteractionEvent?.logLoaded()
             callback()?.onPageLoadComplete()
+
+            JsonUtil.decodeFromElement<PageMetadata>(payload)?.let { metadata ->
+                // Persist the list of topics for this article.
+                // TODO: do something with the other bits of metadata?
+                model.curEntry?.let { entry ->
+                    if (metadata.topics.isNotEmpty()) {
+                        MainScope().launch(CoroutineExceptionHandler { _, t -> L.e(t) }) {
+                            AppDatabase.instance.pageTopicDao()
+                                .upsertForPage(entry, PageTopic.fromMetadata(entry, metadata.topics))
+                        }
+                    }
+                }
+            }
 
             // do we have a URL fragment to scroll to?
             model.title?.let { prevTitle ->
@@ -800,7 +815,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             if (!isAdded) {
                 return@addListener
             }
-            references = JsonUtil.decodeFromString(messagePayload.toString())
+            references = JsonUtil.decodeFromElement<PageReferences>(messagePayload)
             references?.let {
                 if (it.referencesGroup.isNotEmpty()) {
                     showBottomSheet(ReferenceDialog())
@@ -919,7 +934,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
     }
 
-    fun onPageMetadataLoaded(redirectedFrom: String? = null) {
+    fun onPageMetadataLoaded(redirectedFrom: String? = null, editCount: Int = -1) {
+        this.editCount = editCount
         updateQuickActionsAndMenuOptions()
         if (model.page == null) {
             return
@@ -1285,6 +1301,12 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         requireActivity().finish()
     }
 
+    fun dismissEditHandlerMenu(title: PageTitle?) {
+        title?.let {
+            EditAttemptStepEvent.logAbort(pageTitle = it, editCount = this.editCount)
+        }
+    }
+
     private inner class AvCallback : AvPlayer.Callback {
         override fun onSuccess() {
             avPlayer?.stop()
@@ -1364,29 +1386,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     inner class PageActionItemCallback : PageActionItem.Callback {
         override fun onSaveSelected() {
-            if (model.isInReadingList) {
-                val anchor = if (Prefs.customizeToolbarOrder.contains(PageActionItem.SAVE.id))
-                    binding.pageActionsTabLayout else (requireActivity() as PageActivity).getOverflowMenu()
-                LongPressMenu(anchor, existsInAnyList = false, callback = object : LongPressMenu.Callback {
-                    override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
-                        title?.run {
-                            ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), this, addToDefault, InvokeSource.BOOKMARK_BUTTON)
-                        }
-                    }
-
-                    override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
-                        page?.let { readingListPage ->
-                            title?.run {
-                                ReadingListBehaviorsUtil.moveToList(requireActivity(), readingListPage.listId, this, InvokeSource.BOOKMARK_BUTTON)
-                            }
-                        }
-                    }
-                }).show(model.curEntry)
-            } else {
-                title?.run {
-                    ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), this, true, InvokeSource.BOOKMARK_BUTTON)
-                }
-            }
+            title?.let { SaveArticleSheetDialog.show(childFragmentManager, it) }
             articleInteractionEvent?.logSaveClick()
         }
 
@@ -1459,9 +1459,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             articleInteractionEvent?.logNewTabClick()
         }
 
-        override fun onExploreSelected() {
-            goToMainActivity(tab = NavTab.EXPLORE, tabExtra = Constants.INTENT_EXTRA_GO_TO_MAIN_TAB)
-            articleInteractionEvent?.logExploreClick()
+        override fun onHomeSelected() {
+            goToMainActivity(tab = NavTab.HOME, tabExtra = Constants.INTENT_EXTRA_GO_TO_MAIN_TAB)
+            articleInteractionEvent?.logHomeClick()
         }
 
         override fun onCategoriesSelected() {

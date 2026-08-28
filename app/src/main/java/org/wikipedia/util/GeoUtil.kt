@@ -3,8 +3,14 @@ package org.wikipedia.util
 import android.app.Activity
 import android.content.ActivityNotFoundException
 import android.content.Intent
+import android.icu.number.NumberFormatter
+import android.icu.number.Precision
+import android.icu.util.Measure
+import android.icu.util.MeasureUnit
+import android.icu.util.ULocale
 import android.location.Location
 import android.net.Uri
+import android.os.Build
 import androidx.core.net.toUri
 import org.wikipedia.R
 import org.wikipedia.feed.announcement.GeoIPCookieUnmarshaller
@@ -49,14 +55,23 @@ object GeoUtil {
         }
 
     fun getDistanceWithUnit(startLocation: Location, endLocation: Location, locale: Locale): String {
-        val countriesUsingMiles = listOf("US", "GB", "LR", "MM")
-        val milesInKilometers = 0.62137119
-        val distance = startLocation.distanceTo(endLocation) / 1000.0 // in Kilometers
-        val formatter = DecimalFormat("#.##")
-        return if (countriesUsingMiles.contains(locale.country)) {
-            "${formatter.format(distance * milesInKilometers)} mi"
+        val usingMiles = listOf("US", "GB", "LR", "MM").contains(locale.country)
+        var distance = startLocation.distanceTo(endLocation) / 1000.0 // in Kilometers
+        if (usingMiles) {
+            distance *= 0.62137119 // Convert to miles
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            val uLocale = ULocale.forLocale(locale)
+            val measure = Measure(distance, if (usingMiles) MeasureUnit.MILE else MeasureUnit.KILOMETER)
+            return NumberFormatter.withLocale(uLocale)
+                .unit(measure.unit)
+                .unitWidth(NumberFormatter.UnitWidth.SHORT)
+                .precision(Precision.maxFraction(2))
+                .format(measure.number)
+                .toString()
         } else {
-            "${formatter.format(distance)} km"
+            val formatter = DecimalFormat("#.##")
+            return "${formatter.format(distance)} ${if (usingMiles) "mi" else "km"}"
         }
     }
 

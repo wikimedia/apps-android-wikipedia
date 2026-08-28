@@ -41,6 +41,7 @@ class TableOfContentsTest : BaseTest<PageActivity>(
         tocTest()
         setDeviceOrientation(isLandscape = true)
         tocTest()
+        setDeviceOrientation(isLandscape = false)
     }
 
     private fun tocTest() {

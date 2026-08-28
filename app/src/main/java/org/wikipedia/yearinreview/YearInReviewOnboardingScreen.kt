@@ -35,21 +35,21 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
-import coil3.compose.SubcomposeAsyncImage
-import coil3.compose.SubcomposeAsyncImageContent
+import coil3.compose.AsyncImage
 import coil3.request.ImageRequest
-import coil3.request.allowHardware
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.YearInReviewEvent
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
+import org.wikipedia.util.UiState
 import org.wikipedia.util.UriUtil
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun YearInReviewOnboardingScreen(
     modifier: Modifier = Modifier,
+    uiState: UiState<Boolean> = UiState.Loading,
     onBackButtonClick: () -> Unit,
     onGetStartedClick: () -> Unit
 ) {
@@ -72,7 +72,10 @@ fun YearInReviewOnboardingScreen(
             )
         },
         bottomBar = {
-            YearInReviewOnboardingBottomBar(onGetStartedClick = onGetStartedClick)
+            YearInReviewOnboardingBottomBar(
+                onGetStartedClick = onGetStartedClick,
+                uiState = uiState
+            )
         },
         content = { paddingValues ->
             YearInReviewOnboardingContent(
@@ -104,13 +107,10 @@ fun YearInReviewOnboardingContent(
                     .clip(RoundedCornerShape(16.dp)),
                 contentAlignment = Alignment.Center
             ) {
-                SubcomposeAsyncImage(
+                AsyncImage(
                     model = ImageRequest.Builder(LocalContext.current)
                         .data(R.drawable.yir_puzzle_pinch)
-                        .allowHardware(false)
                         .build(),
-                    loading = { LoadingIndicator() },
-                    success = { SubcomposeAsyncImageContent() },
                     contentDescription = stringResource(R.string.year_in_review_screendeck_image_content_description),
                     modifier = Modifier.fillMaxSize()
                 )
@@ -145,7 +145,8 @@ fun YearInReviewOnboardingContent(
 
 @Composable
 fun YearInReviewOnboardingBottomBar(
-    onGetStartedClick: () -> Unit
+    onGetStartedClick: () -> Unit,
+    uiState: UiState<Boolean>
 ) {
     val context = LocalContext.current
     val mediaWikiUrl = stringResource(R.string.year_in_review_media_wiki_url)
@@ -183,6 +184,7 @@ fun YearInReviewOnboardingBottomBar(
                         containerColor = WikipediaTheme.colors.progressiveColor,
                         contentColor = WikipediaTheme.colors.paperColor
                     ),
+                    enabled = uiState !is UiState.Loading,
                     modifier = Modifier
                         .weight(1f)
                         .padding(start = 12.dp),

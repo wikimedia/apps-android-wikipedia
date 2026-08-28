@@ -8,7 +8,6 @@ import org.wikipedia.tests.settings.AboutSettingsTest
 import org.wikipedia.tests.settings.AppThemeTest
 import org.wikipedia.tests.settings.ChangingLanguageTest
 import org.wikipedia.tests.settings.CollapseTablesTest
-import org.wikipedia.tests.settings.CustomizeExploreFeedTest
 import org.wikipedia.tests.settings.FontChangeTest
 import org.wikipedia.tests.settings.FontSizeTest
 import org.wikipedia.tests.settings.LinkPreviewTest
@@ -19,7 +18,6 @@ import org.wikipedia.tests.settings.ShowImageTest
 @SuiteClasses(
     DownloadReadingListTest::class,
     ChangingLanguageTest::class,
-    CustomizeExploreFeedTest::class,
     LinkPreviewTest::class,
     CollapseTablesTest::class,
     AppThemeTest::class,

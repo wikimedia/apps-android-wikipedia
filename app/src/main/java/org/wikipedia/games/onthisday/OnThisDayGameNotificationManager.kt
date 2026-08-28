@@ -10,6 +10,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.WikiGamesEvent
+import org.wikipedia.games.WikiGames
 import org.wikipedia.notifications.NotificationCategory
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver.Companion.ACTION_DAILY_GAME
@@ -113,7 +114,7 @@ object OnThisDayGameNotificationManager {
 
     fun showNotification(context: Context) {
         if (WikipediaApp.instance.currentResumedActivity !is OnThisDayGameActivity &&
-            OnThisDayGameViewModel.isLangSupported(WikipediaApp.instance.wikiSite.languageCode)) {
+            WikiGames.WHICH_CAME_FIRST.isLangSupported(WikipediaApp.instance.wikiSite.languageCode)) {
             NotificationPresenter.showNotification(
                 context = context,
                 builder = NotificationPresenter.getDefaultBuilder(context, 1, notificationCategory = NotificationCategory.GAMES),

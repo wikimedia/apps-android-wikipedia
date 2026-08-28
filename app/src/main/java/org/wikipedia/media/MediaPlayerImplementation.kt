@@ -3,6 +3,8 @@ package org.wikipedia.media
 import android.media.MediaPlayer
 import android.media.MediaPlayer.OnCompletionListener
 import android.media.MediaPlayer.OnPreparedListener
+import androidx.core.net.toUri
+import org.wikipedia.WikipediaApp
 import org.wikipedia.util.log.L
 import java.io.IOException
 
@@ -43,7 +45,11 @@ class MediaPlayerImplementation {
 
     private fun setDataSource(path: String): Boolean {
         return try {
-            player.setDataSource(path)
+            player.setDataSource(
+                WikipediaApp.instance,
+                path.toUri(),
+                mapOf("User-Agent" to WikipediaApp.instance.userAgent)
+            )
             true
         } catch (e: IOException) {
             L.e(e)
@@ -51,7 +57,7 @@ class MediaPlayerImplementation {
         }
     }
 
-    private class CallbackWrapper constructor(val callback: AvPlayer.Callback) : OnPreparedListener, OnCompletionListener, MediaPlayer.OnErrorListener {
+    private class CallbackWrapper(val callback: AvPlayer.Callback) : OnPreparedListener, OnCompletionListener, MediaPlayer.OnErrorListener {
         override fun onCompletion(mp: MediaPlayer) {
             callback.onSuccess()
         }

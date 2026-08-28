@@ -16,7 +16,7 @@
   <string name="search_hint">Arricerca supra Wikipedia</string>
   <string name="search_hint_voice_search">Arricerca vucali</string>
   <string name="search_hint_search_languages">Arricerca na lingua</string>
-  <string name="filter_hint_filter_my_lists_and_articles">Arricerca nti l\'elenchi</string>
+  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">Arricerca nti l\'elenchi</string>
   <string name="nav_item_suggested_edits">Canci</string>
   <string name="nav_item_more">Àutri cosi</string>
   <string name="nav_item_search">Cerca</string>
@@ -78,16 +78,16 @@
   <string name="menu_page_watched">Talìata</string>
   <string name="edit_section_find_in_page">Attrova ntâ pàggina</string>
   <string name="menu_page_font_and_theme">Caràttiri e tema</string>
-  <string name="menu_page_add_to_list">Agghiunci a l\'elencu di littura</string>
+  <string name="menu_page_add_to_list" fuzzy="true">Agghiunci a l\'elencu di littura</string>
   <string name="menu_page_add_to_default_list">Sarva</string>
-  <string name="feed_card_add_to_list">Agghiunci a l\'elencu di littura</string>
+  <string name="feed_card_add_to_list" fuzzy="true">Agghiunci a l\'elencu di littura</string>
   <string name="feed_card_add_to_default_list">Sarva</string>
   <string name="menu_page_share">Cunnividi lijami</string>
   <string name="menu_article_share">Cunnividi vuci</string>
   <string name="menu_page_article_share">Cunnividi</string>
   <string name="menu_page_open_a_new_tab">Apri na scheda nova</string>
   <string name="menu_page_new_tab">Scheda nova</string>
-  <string name="menu_page_reading_lists">Elenchi di littura</string>
+  <string name="menu_page_reading_lists" fuzzy="true">Elenchi di littura</string>
   <string name="menu_page_recently_viewed">Taliati ricentimenti</string>
   <string name="menu_page_archive">Archiviu</string>
   <string name="menu_long_press_open_page">Apri</string>
@@ -124,7 +124,7 @@
   <string name="menu_show_toc">Ìnnici</string>
   <string name="search_no_results_found">Nuḍḍu risurtatu attruvatu</string>
   <string name="search_reading_list_no_results">Nuḍḍu risurtatu attruvatu n \"%s\"</string>
-  <string name="search_reading_lists_no_results">Nuḍḍu risurtatu attruvatu nti l\'elenchi di littura</string>
+  <string name="search_reading_lists_no_results" fuzzy="true">Nuḍḍu risurtatu attruvatu nti l\'elenchi di littura</string>
   <string name="search_history_no_results">Nuḍḍu risurtatu attruvatu ntâ crunuluggìa</string>
   <string name="edit_section_captcha_message">P\'aiutari a cummàttiri lu spam autumàticu, nzirisci pi favuri li palori chi cumpàrunu sutta</string>
   <string name="edit_section_captcha_request_an_account_message">Nun arrinesci a taliari la mmàggini? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Richiedi nu cuntu&lt;/a&gt;</string>
@@ -177,9 +177,9 @@
   <string name="create_account_account_created_toast">Cuntu criatu!</string>
   <string name="preferences_heading_syncing">Sincrunizzazzioni</string>
   <string name="preferences_heading_data_usage">Usu dî dati</string>
-  <string name="preference_title_sync_reading_lists_from_account">Sincrunizzazzioni di l\'elenchi di littura</string>
-  <string name="preference_title_download_reading_list_articles">Scàrrica li vuci nti l\'elenchi di littura</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Cancillari l\'elenchi di littura sincrunizzati di \"%s\"?</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Sincrunizzazzioni di l\'elenchi di littura</string>
+  <string name="preference_title_download_reading_list_articles" fuzzy="true">Scàrrica li vuci nti l\'elenchi di littura</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">Cancillari l\'elenchi di littura sincrunizzati di \"%s\"?</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Agghiunci â lista taliata</string>
   <string name="settings_item_preferences">Mpustazzioni</string>
   <string name="settings_activity_title">Mpustazzioni</string>
@@ -231,13 +231,13 @@
   <string name="article_header_edit_lead_section">Cancia ntroduzzioni</string>
   <string name="color_theme_black">Nigru</string>
   <string name="nav_item_saved">Sarvatu</string>
-  <string name="reading_list_added_view_button">Talìa elencu</string>
-  <string name="reading_list_add_to_list_button">Agghiunci a l\'elencu</string>
+  <string name="reading_list_added_view_button" fuzzy="true">Talìa elencu</string>
+  <string name="reading_list_add_to_list_button" fuzzy="true">Agghiunci a l\'elencu</string>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">1 vuci, %2$.2f MB</item>
     <item quantity="other">%1$d vuci, %2$.2f MB</item>
   </plurals>
-  <string name="reading_list_menu_delete">Cancella elencu</string>
+  <string name="reading_list_menu_delete" fuzzy="true">Cancella elencu</string>
   <string name="reading_list_menu_rename">Cancia nomu/discrizzioni</string>
   <string name="reading_list_description_hint">Discrizzioni (facultativa)</string>
   <string name="reading_list_item_delete_undo">Annulla</string>
@@ -251,7 +251,7 @@
   <string name="reading_list_turned_sync_off_dialog_settings">Mpustazzioni</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">No, grazzi</string>
   <string name="default_reading_list_name">Sarvatu</string>
-  <string name="reading_lists_menu_create_list">Crea n\'elencu novu</string>
+  <string name="reading_lists_menu_create_list" fuzzy="true">Crea n\'elencu novu</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_dialog_ok_button_text">OK</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">Annulla</string>

@@ -15,7 +15,7 @@
   <string name="search_hint">Pretraži Wikipediju</string>
   <string name="search_hint_voice_search">Pretraga glasom</string>
   <string name="search_hint_search_languages">Pronađi jezik</string>
-  <string name="filter_hint_filter_my_lists_and_articles">Filtriraj moje spiskove</string>
+  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">Filtriraj moje spiskove</string>
   <string name="nav_item_suggested_edits">Izmjene</string>
   <string name="nav_item_more">Više</string>
   <string name="nav_item_search">Pretraži</string>
@@ -77,16 +77,16 @@
   <string name="menu_page_watched">Praćeno</string>
   <string name="edit_section_find_in_page">Pronađi na stranici</string>
   <string name="menu_page_font_and_theme">Font i tema</string>
-  <string name="menu_page_add_to_list">Dodaj na spisak za čitanje</string>
+  <string name="menu_page_add_to_list" fuzzy="true">Dodaj na spisak za čitanje</string>
   <string name="menu_page_add_to_default_list">Sačuvaj</string>
-  <string name="feed_card_add_to_list">Dodaj na spisak za čitanje</string>
+  <string name="feed_card_add_to_list" fuzzy="true">Dodaj na spisak za čitanje</string>
   <string name="feed_card_add_to_default_list">Sačuvaj</string>
   <string name="menu_page_share">Podijeli link</string>
   <string name="menu_article_share">Podijeli članak</string>
   <string name="menu_page_article_share">Podijeli</string>
   <string name="menu_page_open_a_new_tab">Otvori novu karticu</string>
   <string name="menu_page_new_tab">Nova kartica</string>
-  <string name="menu_page_reading_lists">Spiskovi za čitanje</string>
+  <string name="menu_page_reading_lists" fuzzy="true">Spiskovi za čitanje</string>
   <string name="menu_page_recently_viewed">Nedavno pregledano</string>
   <string name="menu_page_archive">Arhiva</string>
   <string name="menu_long_press_open_page">Otvori</string>
@@ -122,7 +122,7 @@
   <string name="menu_show_toc">Sadržaj</string>
   <string name="search_no_results_found">Nema rezultata</string>
   <string name="search_reading_list_no_results">Ništa nije pronađeno za upit \"%s\"</string>
-  <string name="search_reading_lists_no_results">Ništa nije pronađeno u spiskovima za čitanje</string>
+  <string name="search_reading_lists_no_results" fuzzy="true">Ništa nije pronađeno u spiskovima za čitanje</string>
   <string name="search_history_no_results">Ništa nije pronađeno u historiji</string>
   <string name="edit_section_captcha_message">Da bi se onemogućio automatizirani neželjeni sadržaj, upišite riječi koje su prikazane ispod</string>
   <string name="edit_section_captcha_request_an_account_message">Ne vidite sliku? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Zatražite račun&lt;/a&gt;</string>
@@ -196,12 +196,12 @@
   <string name="preferences_heading_syncing">Sinhronizacija</string>
   <string name="preferences_heading_data_usage">Upotreba podataka</string>
   <string name="preferences_heading_experimental">Eksperimentalno</string>
-  <string name="preference_title_sync_reading_lists_from_account">Sinhronizacija spiska za čitanje</string>
-  <string name="preference_title_download_reading_list_articles">Preuzmi članke spiska za čitanje</string>
-  <string name="preference_summary_sync_reading_lists">Sinhronizirajte spiskove za čitanje među raznim uređajima tako što ćete ih sačuvati na Vaš račun na Wikipediji</string>
-  <string name="preference_summary_sync_reading_lists_from_account">Sinhroniziraj spiskove za čitanje na raznim uređajima tako što ćeš ih sačuvati na svoj Wikipedia račun \"%s\"</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Želiš ukloniti sinhronizirane spiskove za čitanje sa \"%s\"?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Ovo će u potpunosti izbrisati sve prethodno sinhronizirane spiskove za čitanje iz memorije. Želiš ukloniti sve sinhronizirane spiske sa svog računa \"%s\"?</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Sinhronizacija spiska za čitanje</string>
+  <string name="preference_title_download_reading_list_articles" fuzzy="true">Preuzmi članke spiska za čitanje</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">Sinhronizirajte spiskove za čitanje među raznim uređajima tako što ćete ih sačuvati na Vaš račun na Wikipediji</string>
+  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">Sinhroniziraj spiskove za čitanje na raznim uređajima tako što ćeš ih sačuvati na svoj Wikipedia račun \"%s\"</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">Želiš ukloniti sinhronizirane spiskove za čitanje sa \"%s\"?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">Ovo će u potpunosti izbrisati sve prethodno sinhronizirane spiskove za čitanje iz memorije. Želiš ukloniti sve sinhronizirane spiske sa svog računa \"%s\"?</string>
   <string name="preference_title_auto_upload_crash_reports">Šalji izvještaje o rušenju aplikacije</string>
   <string name="preference_summary_auto_upload_crash_reports">Dozvolite aplikaciji da automatski šalje izvještaje o tehničkim poteškoćama pružaocu usluga treće strane da bismo ih mogli pregledati i brže i lakše popraviti programsku grešku.</string>
   <string name="editing_error_spamblacklist">Otkriven link ka blokiranim domenama (%s). Uklonite ih i pokušajte ponovo.</string>
@@ -318,7 +318,7 @@
   <string name="unnamed_tab_closed">Kartica je zatvorena.</string>
   <string name="tab_item_closed">Članak %s zatvoren.</string>
   <string name="all_tab_items_closed">Sve kartice su zatvorene.</string>
-  <string name="tool_tip_bookmark_icon_title">Dodaj na spisak za čitanje</string>
+  <string name="tool_tip_bookmark_icon_title" fuzzy="true">Dodaj na spisak za čitanje</string>
   <string name="page_view_in_browser">Prikaži stranicu u pregledniku</string>
   <string name="tool_tip_toc_title">Brzi pristup pregledu sadržaja</string>
   <string name="error_response_malformed">Serverov odgovor nije ispravno formatiran.</string>
@@ -330,9 +330,9 @@
   <string name="button_continue_to_talk_page">Prikaži stranicu za razgovor</string>
   <string name="button_continue_to_disambiguation">Prikaži slične stranice</string>
   <string name="link_preview_disambiguation_description">Naslov se odnosi na više od jedne stranice:</string>
-  <string name="button_add_to_reading_list">Dodaj na spisak za čitanje</string>
+  <string name="button_add_to_reading_list" fuzzy="true">Dodaj na spisak za čitanje</string>
   <string name="page_offline_notice_cannot_load_while_offline">Članak se ne može učitati dok ste van mreže.</string>
-  <string name="page_offline_notice_add_to_reading_list">Savjet: Dodajte članak na spisak za čitanje i bit će preuzet čim se ponovo povežete.</string>
+  <string name="page_offline_notice_add_to_reading_list" fuzzy="true">Savjet: Dodajte članak na spisak za čitanje i bit će preuzet čim se ponovo povežete.</string>
   <string name="page_offline_notice_last_date">Čitate vanmrežnu verziju članka, sačuvanu na %s.</string>
   <string name="button_get_directions">Dobij uputstva</string>
   <string name="error_no_maps_app">Ne mogu pronaći aplikacije koje pružaju uputstva.</string>
@@ -394,11 +394,11 @@
   <string name="editing_syntax_highlight_label">Isticanje sintakse</string>
   <string name="editing_line_numbers_label">Prikaži brojeve redova</string>
   <string name="nav_item_saved">Sačuvano</string>
-  <string name="reading_list_save_to">Sačuvaj na spisak za čitanje</string>
-  <string name="reading_list_move_to">Premjesti na spisak za čitanje</string>
+  <string name="reading_list_save_to" fuzzy="true">Sačuvaj na spisak za čitanje</string>
+  <string name="reading_list_move_to" fuzzy="true">Premjesti na spisak za čitanje</string>
   <string name="reading_list_create_new">Napravi novi</string>
-  <string name="reading_list_title_exists">Spisak za čitanje \"%s\" već postoji.</string>
-  <string name="reading_list_added_view_button">Prikaži spisak</string>
+  <string name="reading_list_title_exists" fuzzy="true">Spisak za čitanje \"%s\" već postoji.</string>
+  <string name="reading_list_added_view_button" fuzzy="true">Prikaži spisak</string>
   <string name="reading_list_sort">Sortiraj</string>
   <string name="reading_list_sort_ellipsis">Sortiraj po…</string>
   <string name="reading_list_sort_by_name">Sortiraj po imenu</string>
@@ -407,34 +407,34 @@
   <string name="reading_list_sort_by_recent_desc">Sortiraj po datumu dodavanja (najstariji)</string>
   <string name="reading_list_sort_by_created">Sortiraj po datumu dodavanja (najnoviji)</string>
   <string name="reading_list_sort_by_created_desc">Sortiraj po datumu dodavanja (najstariji)</string>
-  <string name="reading_list_menu_delete">Izbriši spisak</string>
+  <string name="reading_list_menu_delete" fuzzy="true">Izbriši spisak</string>
   <string name="reading_list_menu_select">Izaberi</string>
   <string name="reading_list_menu_unselect">Poništi izbor</string>
   <string name="reading_list_menu_rename">Izmijeni ime/opis</string>
   <string name="reading_list_action_menu_remove_from_offline">Ukloni iz vanmrežnih</string>
   <string name="reading_list_action_menu_remove_all_from_offline">Ukloni sve iz vanmrežnih</string>
   <string name="reading_list_action_menu_save_all_for_offline">Sačuvaj sve za vanmrežno</string>
-  <string name="reading_list_action_menu_add_to_another_list">Dodaj na drugi spisak</string>
-  <string name="reading_list_name_sample">Moj spisak za čitanje</string>
-  <string name="reading_list_name_hint">Naziv ovog spiska</string>
+  <string name="reading_list_action_menu_add_to_another_list" fuzzy="true">Dodaj na drugi spisak</string>
+  <string name="reading_list_name_sample" fuzzy="true">Moj spisak za čitanje</string>
+  <string name="reading_list_name_hint" fuzzy="true">Naziv ovog spiska</string>
   <string name="reading_list_description_hint">Opis (neobavezno)</string>
-  <string name="reading_list_item_deleted">Članak \"%s\" uklonjen je sa spiska</string>
-  <string name="reading_list_items_deleted">%d članaka uklonjeno sa spiska</string>
+  <string name="reading_list_item_deleted" fuzzy="true">Članak \"%s\" uklonjen je sa spiska</string>
+  <string name="reading_list_items_deleted" fuzzy="true">%d članaka uklonjeno sa spiska</string>
   <string name="reading_list_item_delete_undo">Poništi</string>
   <string name="reading_list_deleted">Spisak \"%s\" izbrisan</string>
-  <string name="saved_list_empty_title">Zasad nema spiskova za čitanje</string>
-  <string name="reading_lists_empty_message">Dodajte članke u spisak za čitanje kasnije, čak i kad niste na mreži.</string>
-  <string name="reading_list_empty">Niste dodali nijedan članak na ovaj spisak.</string>
+  <string name="saved_list_empty_title" fuzzy="true">Zasad nema spiskova za čitanje</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Dodajte članke u spisak za čitanje kasnije, čak i kad niste na mreži.</string>
+  <string name="reading_list_empty" fuzzy="true">Niste dodali nijedan članak na ovaj spisak.</string>
   <string name="reading_list_article_offline">Dostupno van mreže</string>
   <string name="reading_list_article_make_offline">Učini članak dostupnim van mreže</string>
-  <string name="reading_list_add_to_other_list">Dodaj na drugi spisak za čitanje</string>
+  <string name="reading_list_add_to_other_list" fuzzy="true">Dodaj na drugi spisak za čitanje</string>
   <string name="reading_list_remove_from_list">Ukloni sa spiska %s</string>
-  <string name="reading_list_remove_from_lists">Ukloni sa spiskova za čitanje</string>
+  <string name="reading_list_remove_from_lists" fuzzy="true">Ukloni sa spiskova za čitanje</string>
   <string name="reading_list_confirm_remove_article_from_offline">Ukloni iz vanmrežnih</string>
-  <string name="reading_list_confirm_remove_article_from_offline_title">Članak se nalazi na nekoliko spiskova</string>
-  <string name="reading_list_confirm_remove_article_from_offline_message">%s više neće biti dostupan van mreže za sljedeće spiskove za čitanje:</string>
-  <string name="reading_list_login_reminder_title">Sinhronizacija spiskova za čitanje</string>
-  <string name="reading_lists_login_reminder_text">Spiskovi za čitanje sada se mogu sinhronizirati između raznih uređaja. Prijavite se na račun na Wikipediji i dozvolite čuvanje spiskova.</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title" fuzzy="true">Članak se nalazi na nekoliko spiskova</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s više neće biti dostupan van mreže za sljedeće spiskove za čitanje:</string>
+  <string name="reading_list_login_reminder_title" fuzzy="true">Sinhronizacija spiskova za čitanje</string>
+  <string name="reading_lists_login_reminder_text" fuzzy="true">Spiskovi za čitanje sada se mogu sinhronizirati između raznih uređaja. Prijavite se na račun na Wikipediji i dozvolite čuvanje spiskova.</string>
   <string name="reading_lists_login_button">Prijavi me / otvori račun na Wikipediji</string>
   <string name="reading_lists_ignore_button">Ne sada</string>
   <string name="reading_lists_confirm_remote_delete_yes">Da</string>
@@ -446,16 +446,16 @@
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Prijavi me</string>
   <string name="reading_list_turned_sync_off_dialog_ok">U redu</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Postavke</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_title">Da uključim sinhronizaciju spiskova za čitanje?</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_text">Članke koje sačuvate na spiskovima za čitanje sada je moguće sinhronizirati s Vašim računom na Wikipediji. &lt;a href=\"#faq\"&gt;Detaljnije&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title" fuzzy="true">Da uključim sinhronizaciju spiskova za čitanje?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text" fuzzy="true">Članke koje sačuvate na spiskovima za čitanje sada je moguće sinhronizirati s Vašim računom na Wikipediji. &lt;a href=\"#faq\"&gt;Detaljnije&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Ne prikazuj ponovo</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Uključi sinhronizaciju</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ne, hvala</string>
   <string name="default_reading_list_name">Sačuvano</string>
-  <string name="default_reading_list_description">Standardni spisak za Vaše sačuvane članke</string>
-  <string name="no_user_lists_title">Organizirajte članke sa spiskovima</string>
-  <string name="no_user_lists_msg">Napravite spiskove za mjesta koja želite posjetiti, Vaše omiljene teme i još mnogo toga</string>
-  <string name="reading_lists_menu_create_list">Napravi novi spisak</string>
+  <string name="default_reading_list_description" fuzzy="true">Standardni spisak za Vaše sačuvane članke</string>
+  <string name="no_user_lists_title" fuzzy="true">Organizirajte članke sa spiskovima</string>
+  <string name="no_user_lists_msg" fuzzy="true">Napravite spiskove za mjesta koja želite posjetiti, Vaše omiljene teme i još mnogo toga</string>
+  <string name="reading_lists_menu_create_list" fuzzy="true">Napravi novi spisak</string>
   <string name="reading_lists_menu_sort_by">Sortiraj po</string>
   <string name="reading_lists_refresh_sync_option">Osvježi sinhronizaciju</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Prijavi me / otvori račun</string>
@@ -476,7 +476,7 @@
   <string name="reading_list_split_dialog_ok_button_text">U redu</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">Izbriši</string>
   <string name="reading_lists_preview_save_button">Sačuvaj</string>
-  <string name="reading_lists_preview_save_dialog_title">Sačuvaj spisak</string>
+  <string name="reading_lists_preview_save_dialog_title" fuzzy="true">Sačuvaj spisak</string>
   <string name="reading_lists_preview_save_dialog_title_hint">Naslov</string>
   <string name="reading_lists_preview_save_dialog_cancel">Otkaži</string>
   <string name="reading_lists_preview_save_dialog_save">Sačuvaj</string>
@@ -562,7 +562,7 @@
   <string name="feed_configure_onboarding_action">Prilagodi</string>
   <string name="customize_lang_selection_dialog_ok_button_text">U redu</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Otkaži</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Prilagodite stranicu \"Istraži\"&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Možete izabrati šta će se prikazati na stranici i dati prednost Vašim omiljenim vrstama sadržaja.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Prilagodite stranicu \"Istraži\"&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Možete izabrati šta će se prikazati na stranici i dati prednost Vašim omiljenim vrstama sadržaja.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">U redu</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Otkaži</string>
   <string name="top_read_activity_title">Najčitanije na %s</string>
@@ -670,9 +670,9 @@
   <string name="onboarding_continue">Nastavi</string>
   <string name="onboarding_get_started">Započnite</string>
   <string name="onboarding_explore_title">Novi načini za istraživanje</string>
-  <string name="onboarding_explore_text">Uronite u svijet Wikipedije sa stranicom \"Istraži\" koja se neprestano ažurira. &lt;br/&gt; &lt;b&gt;Prilagodite&lt;/b&gt; je svojim interesima – saznajte o historijskim događajima koji su se desili &lt;b&gt;Na današnji dan&lt;/b&gt; ili okušajte sreću s &lt;b&gt;Nasumičnom&lt;/b&gt;.</string>
-  <string name="onboarding_reading_list_sync_title">Spiskovi za čitanje sa sinhronizacijom</string>
-  <string name="onboarding_reading_list_sync_text_v2">Možete praviti spiskove za čitanje od članaka koje želite čitati kasnije, čak i kad niste na mreži. &lt;br/&gt;Prijavite se na Wikipediju da biste sinhronizirali spiskove. &lt;a href=\"#login\"&gt;Pridružite se Wikipediji&lt;/a&gt;</string>
+  <string name="onboarding_explore_text" fuzzy="true">Uronite u svijet Wikipedije sa stranicom \"Istraži\" koja se neprestano ažurira. &lt;br/&gt; &lt;b&gt;Prilagodite&lt;/b&gt; je svojim interesima – saznajte o historijskim događajima koji su se desili &lt;b&gt;Na današnji dan&lt;/b&gt; ili okušajte sreću s &lt;b&gt;Nasumičnom&lt;/b&gt;.</string>
+  <string name="onboarding_reading_list_sync_title" fuzzy="true">Spiskovi za čitanje sa sinhronizacijom</string>
+  <string name="onboarding_reading_list_sync_text_v2" fuzzy="true">Možete praviti spiskove za čitanje od članaka koje želite čitati kasnije, čak i kad niste na mreži. &lt;br/&gt;Prijavite se na Wikipediju da biste sinhronizirali spiskove. &lt;a href=\"#login\"&gt;Pridružite se Wikipediji&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Šalji podatke o upotrebi</string>
   <string name="onboarding_got_it">Razumijem</string>
   <string name="onboarding_multilingual_secondary_text">Pronašli smo sljedeće jezike na Vašem uređaju:</string>
@@ -702,7 +702,7 @@
     <item quantity="one">Da uklonim izabrani jezik?</item>
     <item quantity="other">Da uklonim izabrane jezike?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Sadržaj na stranici \"Istraži\" i filteri za brzu pretragu bit će prikazani samo na preostalim jezicima Wikipedije.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Sadržaj na stranici \"Istraži\" i filteri za brzu pretragu bit će prikazani samo na preostalim jezicima Wikipedije.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Ne mogu ukloniti sve jezike</string>
   <string name="remove_language_dialog_cancel_button_text">Otkaži</string>
   <string name="remove_language_dialog_ok_button_text">U redu</string>

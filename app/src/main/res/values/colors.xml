@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <color name="white">#FFFFFF</color>
 
@@ -34,6 +34,7 @@
 
     <color name="green600">#00AF89</color>
     <color name="green700">#14866D</color>
+    <color name="green800">#196551</color>
 
     <color name="red500">#FF4242</color>
     <color name="red700">#B32424</color>
@@ -47,6 +48,19 @@
     <color name="orange500_50">#80FF9500</color>
     <color name="orange200">#FFC894</color>
 
+    <color name="maroon300">#DCB5B3</color>
+    <color name="maroon800">#854848</color>
+
+    <color name="purple300">#C5B9DD</color>
+    <color name="purple800">#534FA3</color>
+
+    <color name="pink300">#D9B4CD</color>
+    <color name="pink800">#82456A</color>
+
+    <color name="launcher_background_color">#F3F4F5</color>
+    <color name="splash_background_color">#F8F9FA</color>
+    <color name="splash_foreground_color">#27292D</color>
+    <color name="splash_star_color">@android:color/transparent</color>
 
     <color name="widget_background">#F8F9FA</color>
     <color name="widget_paper">#FFFFFF</color>
@@ -54,4 +68,6 @@
     <color name="widget_primary">#202122</color>
     <color name="widget_placeholder">#72777D</color>
 
+    <color name="abc_decor_view_status_guard" tools:override="true">@android:color/transparent</color>
+    <color name="abc_decor_view_status_guard_light" tools:override="true">@android:color/transparent</color>
 </resources>

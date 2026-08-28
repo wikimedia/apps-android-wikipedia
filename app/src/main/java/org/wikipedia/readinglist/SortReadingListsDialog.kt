@@ -28,7 +28,13 @@ class SortReadingListsDialog : ExtendedBottomSheetDialogFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         chosenSortOption = requireArguments().getInt(SORT_OPTION)
-        sortOptions = resources.getStringArray(R.array.sort_options).asList()
+        sortOptions = resources.getStringArray(
+            if (requireArguments().getBoolean(SORT_ARTICLES)) {
+                R.array.sort_article_options
+            } else {
+                R.array.sort_options
+            }
+        ).asList()
         adapter = ReadingListSortAdapter()
     }
 
@@ -80,10 +86,14 @@ class SortReadingListsDialog : ExtendedBottomSheetDialogFragment() {
 
     companion object {
         private const val SORT_OPTION = "sortOption"
+        private const val SORT_ARTICLES = "sortArticles"
 
-        fun newInstance(sortOption: Int): SortReadingListsDialog {
+        fun newInstance(sortOption: Int, sortArticles: Boolean = false): SortReadingListsDialog {
             return SortReadingListsDialog().apply {
-                arguments = bundleOf(SORT_OPTION to sortOption)
+                arguments = bundleOf(
+                    SORT_OPTION to sortOption,
+                    SORT_ARTICLES to sortArticles
+                )
             }
         }
     }

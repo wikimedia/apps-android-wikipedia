@@ -43,9 +43,9 @@ import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
 import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
-import org.wikipedia.analytics.eventplatform.YearInReviewEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.concurrency.FlowEventBus
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentReadingListBinding
 import org.wikipedia.events.NewRecommendedReadingListEvent
 import org.wikipedia.events.PageDownloadEvent
@@ -60,6 +60,7 @@ import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.recommended.RecommendedReadingListNotificationManager
 import org.wikipedia.readinglist.recommended.RecommendedReadingListSettingsActivity
+import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
@@ -188,10 +189,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                             is Resource.Success -> {
                                 if (isRecommendedList) {
                                     RecommendedReadingListEvent.submit("add_list_new", "rrl_discover", countSaved = resource.data.pages.size)
-                                }
-
-                                if (readingListMode == ReadingListMode.YEAR_IN_REVIEW) {
-                                    return@collect
                                 }
 
                                 requireActivity().startActivity(MainActivity.newIntent(requireContext())
@@ -476,9 +473,23 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         if (isRecommendedList) {
             return
         }
-        binding.readingListSwipeRefresh.setOnRefreshListener { ReadingListsFragment.refreshSync(this, binding.readingListSwipeRefresh) }
+        binding.readingListSwipeRefresh.setOnRefreshListener { refreshSync() }
         if (RemoteConfig.config.disableReadingListSync) {
             binding.readingListSwipeRefresh.isEnabled = false
+        }
+    }
+
+    private fun refreshSync() {
+        if (!AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount) {
+            ReadingListSyncBehaviorDialogs.promptLogInToSyncDialog(requireActivity())
+            binding.readingListSwipeRefresh.isRefreshing = false
+        } else {
+            Prefs.isReadingListSyncEnabled = true
+
+            // TODO: Change this back to the less forceful manualSyncWithRefresh() when the
+            // service-side endpoint is fixed.
+            // https://phabricator.wikimedia.org/T351149
+            ReadingListSyncAdapter.manualSyncWithForce(fromRefresh = true)
         }
     }
 
@@ -526,15 +537,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                     update()
                     Prefs.isNewRecommendedReadingListGenerated = false
                     FlowEventBus.post(NewRecommendedReadingListEvent())
-                }
-            }
-
-            ReadingListMode.YEAR_IN_REVIEW -> {
-                if (readingList == null) {
-                    YearInReviewEvent.submit(action = "impression", slide = "reading_list_create")
-                    viewModel.generateYearInReviewReadingList(AccountUtil.userName)
-                } else {
-                    update()
                 }
             }
         }
@@ -725,7 +727,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
     private fun delete() {
         readingList?.let {
-            ReadingListBehaviorsUtil.deleteReadingList(requireActivity(), it, true) {
+            ReadingListBehaviorsUtil.confirmDeleteReadingList(requireActivity(), it) {
                 startActivity(MainActivity.newIntent(requireActivity()).putExtra(Constants.INTENT_EXTRA_DELETE_READING_LIST, it.title))
                 requireActivity().finish()
             }
@@ -745,16 +747,9 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         ShareUtil.shareText(requireContext(), ReadingListPage.toPageTitle(page))
     }
 
-    override fun onAddItemToOther(pageId: Long) {
+    override fun onManageCollections(pageId: Long) {
         val page = getPageById(pageId) ?: return
-        ExclusiveBottomSheetPresenter.show(childFragmentManager,
-                AddToReadingListDialog.newInstance(ReadingListPage.toPageTitle(page), InvokeSource.READING_LIST_ACTIVITY))
-    }
-
-    override fun onMoveItemToOther(pageId: Long) {
-        val page = getPageById(pageId) ?: return
-        ExclusiveBottomSheetPresenter.show(childFragmentManager,
-                MoveToReadingListDialog.newInstance(readingListId, ReadingListPage.toPageTitle(page), InvokeSource.READING_LIST_ACTIVITY))
+        SaveArticleSheetDialog.show(childFragmentManager, ReadingListPage.toPageTitle(page))
     }
 
     override fun onSelectItem(pageId: Long) {
@@ -894,7 +889,9 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 view.setTitleEllipsis()
                 view.setDescriptionMaxLines(2)
                 view.setDescriptionEllipsis()
-                view.setUpChipGroup(ReadingListBehaviorsUtil.getListsContainPage(page))
+                val collectionsContainingPage = ReadingListBehaviorsUtil.getListsContainPage(page)
+                    .filterNot { it.isDefault }
+                view.setUpChipGroup(collectionsContainingPage)
             } else {
                 view.hideChipGroup()
             }
@@ -911,7 +908,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                         }
                     }
                 }
-                ReadingListMode.RECOMMENDED, ReadingListMode.PREVIEW, ReadingListMode.YEAR_IN_REVIEW -> { }
+                ReadingListMode.RECOMMENDED, ReadingListMode.PREVIEW -> { }
             }
         }
 
@@ -1091,9 +1088,20 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 return false
             }
             item?.let {
-                ExclusiveBottomSheetPresenter.show(childFragmentManager,
-                        ReadingListItemActionsDialog.newInstance(if (currentSearchQuery.isNullOrEmpty()) listOf(readingList!!)
-                        else ReadingListBehaviorsUtil.getListsContainPage(it), it.id, actionMode != null))
+                viewLifecycleOwner.lifecycleScope.launch {
+                    val pages = AppDatabase.instance.readingListPageDao().getAllPageOccurrences(ReadingListPage.toPageTitle(it))
+                    val listsContainingPage = AppDatabase.instance.readingListDao().getListsFromPageOccurrences(pages)
+                    val listsToRemoveFrom = if (currentSearchQuery.isNullOrEmpty()) listOf(readingList!!) else listsContainingPage
+
+                    ExclusiveBottomSheetPresenter.show(childFragmentManager,
+                            ReadingListItemActionsDialog.newInstance(
+                                listsToRemoveFrom[0].title,
+                                listsToRemoveFrom.size,
+                                it.id,
+                                actionMode != null,
+                                listsContainingPage.count { list -> !list.isDefault }
+                            ))
+                }
                 return true
             }
             return false

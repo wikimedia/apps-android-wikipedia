@@ -14,16 +14,15 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.appbar.AppBarLayout
 import org.wikipedia.Constants
-import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.databinding.FragmentNewsBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.extensions.setLayoutDirectionByLang
-import org.wikipedia.feed.model.Card
-import org.wikipedia.feed.view.ListCardItemView
+import org.wikipedia.feed.view.ListItemView
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageActivity
-import org.wikipedia.readinglist.ReadingListBehaviorsUtil
+import org.wikipedia.page.PageTitle
+import org.wikipedia.readinglist.SaveArticleSheetDialog
 import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
@@ -76,7 +75,7 @@ class NewsFragment : Fragment() {
         binding.newsStoryItemsRecyclerview.addItemDecoration(DrawableItemDecoration(requireContext(),
             R.attr.list_divider))
         binding.newsStoryItemsRecyclerview.isNestedScrollingEnabled = false
-        binding.newsStoryItemsRecyclerview.adapter = RecyclerAdapter(viewModel.item.linkCards(viewModel.wiki), Callback())
+        binding.newsStoryItemsRecyclerview.adapter = RecyclerAdapter(viewModel.item.links.map { it.getPageTitle(viewModel.wiki) }, Callback())
         return binding.root
     }
 
@@ -88,23 +87,23 @@ class NewsFragment : Fragment() {
 
     private val appCompatActivity get() = requireActivity() as AppCompatActivity
 
-    private class RecyclerAdapter constructor(items: List<NewsLinkCard>, private val callback: Callback) :
-        DefaultRecyclerAdapter<NewsLinkCard, ListCardItemView>(items) {
+    private class RecyclerAdapter(items: List<PageTitle>, private val callback: Callback) :
+        DefaultRecyclerAdapter<PageTitle, ListItemView>(items) {
 
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DefaultViewHolder<ListCardItemView> {
-            return DefaultViewHolder(ListCardItemView(parent.context))
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DefaultViewHolder<ListItemView> {
+            return DefaultViewHolder(ListItemView(parent.context))
         }
 
-        override fun onBindViewHolder(holder: DefaultViewHolder<ListCardItemView>, position: Int) {
-            val card = item(position)
-            holder.view.setCard(card)
-                .setHistoryEntry(HistoryEntry(card.pageTitle(), HistoryEntry.SOURCE_NEWS))
+        override fun onBindViewHolder(holder: DefaultViewHolder<ListItemView>, position: Int) {
+            val title = item(position)
+            holder.view.setPageTitle(title)
+                .setHistoryEntry(HistoryEntry(title, HistoryEntry.SOURCE_NEWS))
                 .setCallback(callback)
         }
     }
 
-    private inner class Callback : ListCardItemView.Callback {
-        override fun onSelectPage(card: Card, entry: HistoryEntry, openInNewBackgroundTab: Boolean) {
+    private inner class Callback : ListItemView.Callback {
+        override fun onSelectPage(title: PageTitle, entry: HistoryEntry, openInNewBackgroundTab: Boolean) {
             if (openInNewBackgroundTab) {
                 TabUtil.openInNewBackgroundTab(entry)
                 FeedbackUtil.showMessage(requireActivity(), R.string.article_opened_in_background_tab)
@@ -113,7 +112,7 @@ class NewsFragment : Fragment() {
             }
         }
 
-        override fun onSelectPage(card: Card, entry: HistoryEntry, sharedElements: Array<Pair<View, String>>) {
+        override fun onSelectPage(title: PageTitle, entry: HistoryEntry, sharedElements: Array<Pair<View, String>>) {
             val options = ActivityOptions.makeSceneTransitionAnimation(requireActivity(), *sharedElements)
             val intent = PageActivity.newIntentForNewTab(requireContext(), entry, entry.title)
             if (sharedElements.isNotEmpty()) {
@@ -122,12 +121,8 @@ class NewsFragment : Fragment() {
             startActivity(intent, if (DimenUtil.isLandscape(requireContext()) || sharedElements.isEmpty()) null else options.toBundle())
         }
 
-        override fun onAddPageToList(entry: HistoryEntry, addToDefault: Boolean) {
-            ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), entry.title, addToDefault, InvokeSource.NEWS_ACTIVITY)
-        }
-
-        override fun onMovePageToList(sourceReadingListId: Long, entry: HistoryEntry) {
-            ReadingListBehaviorsUtil.moveToList(requireActivity(), sourceReadingListId, entry.title, InvokeSource.NEWS_ACTIVITY)
+        override fun onSavePage(entry: HistoryEntry) {
+            SaveArticleSheetDialog.show(childFragmentManager, entry.title)
         }
     }
 

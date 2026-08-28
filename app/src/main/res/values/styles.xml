@@ -8,6 +8,7 @@
 
         <item name="toolbarStyle">@style/ToolbarStyle</item>
         <item name="actionModeStyle">@style/ActionModeStyle</item>
+        <item name="actionBarPopupTheme">@style/ActionBarTheme</item>
 
         <item name="materialButtonStyle">@style/App.Button</item>
 
@@ -35,6 +36,7 @@
         <item name="longPreferenceStyle">@style/LongPreference</item>
         <item name="intPreferenceStyle">@style/IntPreference</item>
 
+        <item name="android:windowSplashScreenBackground" tools:targetApi="s">@color/splash_background_color</item>
         <item name="android:windowBackground">?attr/border_color</item>
         <item name="android:colorBackground">?attr/background_color</item>
         <item name="android:textColorPrimary">?attr/primary_color</item>
@@ -94,8 +96,9 @@
     </style>
 
     <style name="AppTheme.Splash">
-        <item name="android:windowBackground">@drawable/splash_bg</item>
-        <item name="android:navigationBarColor">@color/gray700</item>
+        <item name="android:navigationBarColor">@color/splash_background_color</item>
+        <item name="android:statusBarColor">@color/splash_background_color</item>
+        <item name="android:windowBackground">@drawable/splash_background_drawable</item>
     </style>
 
     <style name="AppTheme.ActionBar">
@@ -313,6 +316,7 @@
 
     <style name="PopupMenuStyle" parent="Widget.Material3.PopupMenu">
         <item name="overlapAnchor">true</item>
+        <item name="android:popupBackground">?attr/paper_color</item>
     </style>
 
     <style name="ActionBarStyle" parent="@style/Widget.Material3.Light.ActionBar.Solid">
@@ -326,6 +330,7 @@
 
     <style name="ActionBarTheme" parent="@style/ThemeOverlay.Material3.ActionBar">
         <item name="colorControlNormal">?attr/primary_color</item>
+        <item name="actionOverflowMenuStyle">@style/PopupMenuStyle</item>
     </style>
 
     <style name="ToolbarStyle" parent="@style/Widget.Material3.Toolbar">
@@ -668,6 +673,16 @@
 
     <style name="App.BottomSheetStyle" parent="Widget.Material3.BottomSheet.Modal">
         <item name="behavior_peekHeight">@dimen/bottomSheetPeekHeight</item>
+    </style>
+
+    <!-- When gesture navigation is enabled, for sheets where the content draws its own background to the bottom edge of the screen
+    and handles the navigation bar inset itself. -->
+    <style name="App.BottomSheetDialogTheme.EdgeToEdgeContent">
+        <item name="bottomSheetStyle">@style/App.BottomSheetStyle.EdgeToEdgeContent</item>
+    </style>
+
+    <style name="App.BottomSheetStyle.EdgeToEdgeContent">
+        <item name="paddingBottomSystemWindowInsets">false</item>
     </style>
 
     <style name="FloatingActionButtonRounded">

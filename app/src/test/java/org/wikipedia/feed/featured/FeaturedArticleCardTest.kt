@@ -1,13 +1,13 @@
 package org.wikipedia.feed.featured
 
-import org.hamcrest.MatcherAssert
-import org.hamcrest.Matchers
+import org.junit.Assert.assertFalse
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.feed.model.FeaturedArticleCard
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.test.TestFileUtil
 
@@ -25,7 +25,7 @@ class FeaturedArticleCardTest {
     @Test
     fun testTitleNormalization() {
         val tfaCard = FeaturedArticleCard(content, 0, TEST)
-        MatcherAssert.assertThat(tfaCard.title(), Matchers.not(Matchers.containsString("_")))
+        assertFalse(tfaCard.title().contains("_"))
     }
 
     companion object {

@@ -15,7 +15,7 @@
   <string name="search_hint">وکی ڈیٹا وچ ڳولو</string>
   <string name="search_hint_search_languages">زبان دی ڳول</string>
   <string name="search_icon_content_description">ڳولو</string>
-  <string name="filter_hint_filter_my_lists_and_articles">میݙیاں تندیراں چھاݨو</string>
+  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">میݙیاں تندیراں چھاݨو</string>
   <string name="nav_item_suggested_edits">تبدیلیاں</string>
   <string name="nav_item_more">ٻئے</string>
   <string name="nav_item_search">ڳولو</string>
@@ -62,16 +62,16 @@
   <string name="menu_page_remove_from_watchlist">پارھاتندیر کنوں ہٹاؤ</string>
   <string name="edit_section_find_in_page">ورقے وچ لبھو</string>
   <string name="menu_page_font_and_theme">فانٹ  تے تھیم</string>
-  <string name="menu_page_add_to_list">مطالعہ دی فہرست وچ شامل کرو</string>
+  <string name="menu_page_add_to_list" fuzzy="true">مطالعہ دی فہرست وچ شامل کرو</string>
   <string name="menu_page_add_to_default_list">بچاؤ</string>
-  <string name="feed_card_add_to_list">مطالعہ دی تندیر وچ شامل کرو</string>
+  <string name="feed_card_add_to_list" fuzzy="true">مطالعہ دی تندیر وچ شامل کرو</string>
   <string name="feed_card_add_to_default_list">بچاؤ</string>
   <string name="menu_page_share">لنک سانجھا کرو</string>
   <string name="menu_article_share">مضمون شیئر کرو</string>
   <string name="menu_page_article_share">شیئر</string>
   <string name="menu_page_open_a_new_tab">نویں ٹیب کھولو</string>
   <string name="menu_page_new_tab">نویں ٹیب</string>
-  <string name="menu_page_reading_lists">مطالعہ دیاں تندیراں</string>
+  <string name="menu_page_reading_lists" fuzzy="true">مطالعہ دیاں تندیراں</string>
   <string name="menu_page_recently_viewed">حالیہ ݙٹھے ڳئے</string>
   <string name="menu_page_archive">آرکائیو</string>
   <string name="menu_long_press_open_page">کھولو</string>
@@ -231,7 +231,7 @@
   <string name="button_continue_to_article">مضمون پڑھو</string>
   <string name="button_continue_to_talk_page">ڳالھ مہاڑ ورقہ کھولو</string>
   <string name="button_continue_to_disambiguation">رلدے ملدے ورقے ݙیکھو</string>
-  <string name="button_add_to_reading_list">مطالعہ دی فہرست وچ شامل کرو</string>
+  <string name="button_add_to_reading_list" fuzzy="true">مطالعہ دی فہرست وچ شامل کرو</string>
   <string name="preference_title_collapse_tables">ٹیبل ولھیٹو</string>
   <string name="nav_item_donate">عطیہ</string>
   <string name="enable_location_service">فعال کرو</string>
@@ -276,15 +276,15 @@
   <string name="theme_category_reading">پڑھݨ</string>
   <string name="theme_category_editing">ایڈیٹ کرݨ</string>
   <string name="nav_item_saved">محفوظ تھی ڳیا</string>
-  <string name="reading_list_save_to">مطالعہ دی فہرست وچ شامل کرو</string>
+  <string name="reading_list_save_to" fuzzy="true">مطالعہ دی فہرست وچ شامل کرو</string>
   <string name="reading_list_create_new">نواں بݨاؤ</string>
-  <string name="reading_list_added_view_button">فہرست ݙیکھو</string>
-  <string name="reading_list_add_to_list_button">تندیر وچ رلاؤ</string>
+  <string name="reading_list_added_view_button" fuzzy="true">فہرست ݙیکھو</string>
+  <string name="reading_list_add_to_list_button" fuzzy="true">تندیر وچ رلاؤ</string>
   <string name="reading_list_sort">چھانٹ</string>
   <string name="reading_list_sort_ellipsis">ترتیب بمطابق۔۔۔</string>
   <string name="reading_list_sort_by_name">ناں نال ترتیب ݙیوو</string>
-  <string name="reading_list_menu_delete">تندیر مٹاؤ</string>
-  <string name="reading_list_menu_export">تندیر برآمد کرو</string>
+  <string name="reading_list_menu_delete" fuzzy="true">تندیر مٹاؤ</string>
+  <string name="reading_list_menu_export" fuzzy="true">تندیر برآمد کرو</string>
   <string name="reading_list_menu_select">چݨو</string>
   <string name="reading_list_menu_unselect">اݨ چݨیا کرو</string>
   <string name="reading_list_menu_rename">ناں یا وضاحت وچ تبدیلی لکھو</string>
@@ -292,9 +292,9 @@
   <string name="reading_list_action_menu_save_for_offline">آف لائن کیتے محفوظ کرو</string>
   <string name="reading_list_action_menu_remove_all_from_offline">آف لائن کنوں سارے ہٹاؤ</string>
   <string name="reading_list_action_menu_save_all_for_offline">آف لائن کیتے سارے محفوظ کرو</string>
-  <string name="reading_list_action_menu_add_to_another_list">ہک ٻئی تندیر شامل کرو</string>
-  <string name="reading_list_name_sample">میݙی پڑھݨ تندیر</string>
-  <string name="reading_list_name_hint">ایں فہرست دا ناں</string>
+  <string name="reading_list_action_menu_add_to_another_list" fuzzy="true">ہک ٻئی تندیر شامل کرو</string>
+  <string name="reading_list_name_sample" fuzzy="true">میݙی پڑھݨ تندیر</string>
+  <string name="reading_list_name_hint" fuzzy="true">ایں فہرست دا ناں</string>
   <string name="reading_list_description_hint">تفصیلاں(اختیاری)</string>
   <string name="reading_list_item_delete_undo">واپس</string>
   <string name="reading_list_deleted">%s مٹایا ہویا</string>
@@ -313,8 +313,8 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">ہم وقت کرݨ فعال کرو</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">کو، شکریہ</string>
   <string name="default_reading_list_name">محفوظ تھی ڳیا</string>
-  <string name="reading_lists_menu_create_list">نویں لسٹ بݨاؤ</string>
-  <string name="reading_lists_menu_import_list">تندیر درآمد کرو</string>
+  <string name="reading_lists_menu_create_list" fuzzy="true">نویں لسٹ بݨاؤ</string>
+  <string name="reading_lists_menu_import_list" fuzzy="true">تندیر درآمد کرو</string>
   <string name="reading_lists_menu_sort_by">ترتیب بمطابق</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">لاگ ان/ کھاتہ بݨاو</string>
   <string name="reading_list_menu_last_sync">چھیکڑی ہم وقت: %s</string>
@@ -326,12 +326,12 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">منسوخ</string>
   <string name="reading_list_split_dialog_ok_button_text">ٹھیک ہے</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">مٹاؤ</string>
-  <string name="reading_list_activity_title">مطالعہ تندیر: %s</string>
+  <string name="reading_list_activity_title" fuzzy="true">مطالعہ تندیر: %s</string>
   <string name="reading_lists_action_menu_export_lists">ٻاہر بھیڄو</string>
   <string name="reading_lists_import_file_picker_title">درآمد کرݨ کیتے فائل چݨو</string>
-  <string name="reading_lists_preview_header_title">شیئر تھئی تندیر</string>
+  <string name="reading_lists_preview_header_title" fuzzy="true">شیئر تھئی تندیر</string>
   <string name="reading_lists_preview_save_button">بچاؤ</string>
-  <string name="reading_lists_preview_save_dialog_title">تندیر محفوظ کرو</string>
+  <string name="reading_lists_preview_save_dialog_title" fuzzy="true">تندیر محفوظ کرو</string>
   <string name="reading_lists_preview_save_dialog_title_hint">عنوان</string>
   <string name="reading_lists_preview_save_dialog_cancel">منسوخ</string>
   <string name="reading_lists_preview_save_dialog_save">محفوظ کرو</string>
@@ -379,6 +379,7 @@
   <string name="view_random_article_card_title">پوکھواں مضمون</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d کے</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d ایم</string>
+  <string name="view_top_read_card_pageviews_views_suffix">نظارے</string>
   <string name="view_main_page_card_title">اڄ وکی پیڈیا تے</string>
   <string name="view_main_page_card_action">پہلا پرت ݙیکھو</string>
   <string name="view_featured_image_card_title">اڄ دی تصویر</string>
@@ -515,6 +516,8 @@
   <string name="onboarding_continue">جاری</string>
   <string name="onboarding_get_started">شروع کرو</string>
   <string name="onboarding_got_it">گھن گھندا</string>
+  <string name="onboarding_next">اڳلا</string>
+  <string name="onboarding_app_languages_primary">ابتدائی</string>
   <string name="app_shortcuts_random">بے ترتیبا</string>
   <string name="app_shortcuts_continue_reading">پڑھݨ جاری رکھو</string>
   <string name="app_shortcuts_search">ڳولو</string>
@@ -720,12 +723,12 @@
   <string name="survey_dialog_next">اڳلا</string>
   <string name="survey_dialog_general_no">کو</string>
   <string name="survey_dialog_input_hint">وادھوں فیڈبیک</string>
+  <string name="games_hub_activity_title">کھیݙاں</string>
+  <string name="games_hub_activity_games_unavailable_message_learn_more_action">ٻیا سِکھو</string>
+  <string name="on_this_day_game_entry_dialog_button">چلاؤ</string>
   <string name="on_this_day_game_dialog_button">چلاؤ</string>
   <string name="on_this_day_game_next">اڳلا سوال</string>
-  <string name="on_this_day_game_share_button">شیئر</string>
-  <string name="on_this_day_game_pause_title">کِھیݙ کوں روکو؟</string>
-  <string name="on_this_day_game_pause_body">تُہاݙی اَڳوتری کوں ݙینہہ کیتے محفوظ کیتا ویسی۔ تساں گیم کوں اپݨی ایکسپلور فیڈ تے ڳول سڳدو۔</string>
-  <string name="on_this_day_game_pause_positive">سمجھ ڳئے</string>
+  <string name="on_this_day_game_share_button" fuzzy="true">شیئر</string>
   <string name="on_this_day_game_menu_notifications">گیم دیاں اطلاعات</string>
   <string name="on_this_day_game_menu_info">مزید ڄاݨو</string>
   <string name="on_this_day_game_menu_feedback">خصوصیت دے نال ڳنڈھ</string>
@@ -740,6 +743,9 @@
   <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">اُنہاں کوں بند رکھو</string>
   <string name="on_this_day_game_notification_text">اڄ دی گیم\"پہلے کیہڑا آیا؟\"  کھیݙݨ کیتے تیار ہے۔</string>
   <string name="on_this_day_game_notification_undo">واپس</string>
+  <string name="on_this_day_game_more_label">ٻئے</string>
+  <string name="on_this_day_game_card_archive_label">آرکائیو</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_button">لاگ ان تھیوو</string>
   <string name="year_in_review_get_started" fuzzy="true">شروع کرو</string>
   <string name="year_in_review_donate">عطیہ ݙیوو</string>
   <string name="year_in_review_survey_cancel">منسوخ</string>
@@ -751,4 +757,20 @@
   <string name="donation_settings_section_header">عطیے</string>
   <string name="donation_reminders_prompt_negative_button">ہُݨ نہ</string>
   <string name="donation_reminders_experiment_label" fuzzy="true">تجربہ</string>
+  <string name="hybrid_search_onboarding_learn_more">ٻیا سِکھو</string>
+  <string name="hybrid_search_beta_tag">آزمائشی</string>
+  <string name="reading_challenge_onboarding_win_title">انعام جیتو</string>
+  <string name="reading_challenge_onboarding_learn_more_button">ٻیا سِکھو</string>
+  <string name="reading_challenge_onboarding_prompt_no_thanks">کو، شکریہ</string>
+  <string name="reading_challenge_install_prompt_got_it">سمجھ آڳئی</string>
+  <string name="reading_challenge_install_prompt_add">شامل کرو</string>
+  <string name="reading_challenge_widget_explore_button">پھلورو</string>
+  <string name="reading_challenge_widget_search_button">ڳولو</string>
+  <string name="reading_challenge_widget_random_button">بے ترتیبا</string>
+  <string name="reading_challenge_widget_collect_prize_button">انعام وصول کرو</string>
+  <string name="explore_feed_community_tab_label">برادری</string>
+  <string name="reading_lists_tab_all_articles">سارے مضمون</string>
+  <string name="reading_lists_tab_collections">مجموعے</string>
+  <string name="reading_lists_search_collections">مجموعیاں دی ڳول</string>
+  <string name="reading_lists_remove_articles_confirm_button" fuzzy="true">ہٹاؤ</string>
 </resources>

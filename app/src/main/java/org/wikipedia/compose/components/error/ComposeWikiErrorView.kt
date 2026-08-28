@@ -35,13 +35,13 @@ import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.mwapi.MwException
+import org.wikipedia.dataclient.mwapi.MwNotLoggedInException
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.ThrowableUtil.is404
 import org.wikipedia.util.ThrowableUtil.isEmptyException
-import org.wikipedia.util.ThrowableUtil.isNotLoggedIn
 import org.wikipedia.util.ThrowableUtil.isOffline
 import org.wikipedia.util.ThrowableUtil.isTimeout
 
@@ -122,12 +122,10 @@ fun WikiErrorView(
             modifier = Modifier
                 .heightIn(min = 48.dp)
                 .widthIn(min = 0.dp),
-
             onClick = {
                 BreadCrumbLogEvent.logClick(context, "errorButton")
                 getClickEventForErrorType(errorClickEvents, errorType)?.invoke()
             },
-
             colors = ButtonDefaults.buttonColors(
                 containerColor = WikipediaTheme.colors.backgroundColor,
                 contentColor = WikipediaTheme.colors.placeholderColor
@@ -148,6 +146,7 @@ fun WikiErrorView(
                 modifier = Modifier
                     .padding(horizontal = 16.dp),
                 text = footerErrorMessage,
+                textAlign = TextAlign.Center,
                 color = WikipediaTheme.colors.placeholderColor,
                 fontSize = 14.sp
             )
@@ -187,7 +186,7 @@ private fun getErrorType(caught: Throwable?, pageTitle: PageTitle?, retryForGene
             isEmptyException(it) -> {
                 return ComposeErrorType.Empty()
             }
-            isNotLoggedIn(it) -> {
+            it is MwNotLoggedInException -> {
                 return ComposeErrorType.LoggedOut()
             }
         }

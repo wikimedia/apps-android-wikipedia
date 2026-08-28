@@ -1,8 +1,9 @@
 package org.wikipedia.gallery
 
 import kotlinx.coroutines.runBlocking
-import org.hamcrest.MatcherAssert
-import org.hamcrest.Matchers
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotNull
+import org.junit.Assert.assertTrue
 import org.junit.Test
 import org.wikipedia.test.MockRetrofitTest
 
@@ -14,8 +15,8 @@ class GalleryClientTest : MockRetrofitTest() {
         runBlocking {
             getMediaList()
         }.run {
-            MatcherAssert.assertThat(getItems("image").size, Matchers.`is`(1))
-            MatcherAssert.assertThat(getItems("video").size, Matchers.`is`(1))
+            assertEquals(1, getItems("image").size)
+            assertEquals(1, getItems("video").size)
         }
     }
 
@@ -27,10 +28,10 @@ class GalleryClientTest : MockRetrofitTest() {
             getMediaList()
         }.run {
             val result = getItems("image")
-            MatcherAssert.assertThat(result.size, Matchers.`is`(1))
-            MatcherAssert.assertThat(result[0].type, Matchers.`is`("image"))
-            MatcherAssert.assertThat(result[0].title, Matchers.`is`("File:BarackObamaportrait.jpg"))
-            MatcherAssert.assertThat(result[0].showInGallery, Matchers.`is`(true))
+            assertEquals(1, result.size)
+            assertEquals("image", result[0].type)
+            assertEquals("File:BarackObamaportrait.jpg", result[0].title)
+            assertTrue(result[0].showInGallery)
         }
     }
 
@@ -42,9 +43,9 @@ class GalleryClientTest : MockRetrofitTest() {
             getMediaList()
         }.run {
             val result = getItems("video")
-            MatcherAssert.assertThat(result[0].type, Matchers.`is`("video"))
-            MatcherAssert.assertThat(result[0].title, Matchers.`is`("File:20090124_WeeklyAddress.ogv"))
-            MatcherAssert.assertThat(result[0].showInGallery, Matchers.`is`(true))
+            assertEquals("video", result[0].type)
+            assertEquals("File:20090124_WeeklyAddress.ogv", result[0].title)
+            assertTrue(result[0].showInGallery)
         }
     }
 
@@ -56,7 +57,7 @@ class GalleryClientTest : MockRetrofitTest() {
             try {
                 getMediaList()
             } catch (e: Exception) {
-                MatcherAssert.assertThat(e, Matchers.notNullValue())
+                assertNotNull(e)
             }
         }
     }
@@ -69,7 +70,7 @@ class GalleryClientTest : MockRetrofitTest() {
             try {
                 getMediaList()
             } catch (e: Exception) {
-                MatcherAssert.assertThat(e, Matchers.notNullValue())
+                assertNotNull(e)
             }
         }
     }

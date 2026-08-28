@@ -5,7 +5,6 @@ import androidx.test.filters.LargeTest
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.wikipedia.base.BaseTest
-import org.wikipedia.base.DataInjector
 import org.wikipedia.main.MainActivity
 import org.wikipedia.robots.SystemRobot
 import org.wikipedia.robots.feature.LoginRobot
@@ -13,11 +12,11 @@ import org.wikipedia.robots.feature.MoreMenuRobot
 import org.wikipedia.robots.feature.SettingsRobot
 import org.wikipedia.robots.navigation.BottomNavRobot
 
+// MARK: requires login
 @LargeTest
 @RunWith(AndroidJUnit4::class)
 class MoreMenuTest : BaseTest<MainActivity>(
-    activityClass = MainActivity::class.java,
-    dataInjector = DataInjector()
+    activityClass = MainActivity::class.java
 ) {
     private val systemRobot = SystemRobot()
     private val bottomNavRobot = BottomNavRobot()

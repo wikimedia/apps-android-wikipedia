@@ -239,5 +239,19 @@ data class PageTitle(
             }
             return titleForInternalLink(path, wiki)
         }
+
+        /**
+         * For use in Composable previews.
+         */
+        fun preview(withThumbnail: Boolean = true): PageTitle {
+            return PageTitle(
+                text = "Test Article",
+                displayText = "Test <i>Article</i>",
+                wiki = WikiSite.preview(),
+                description = "This is a test article",
+                extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                thumbUrl = if (withThumbnail) "https://example.com/thumb.jpg" else null
+            )
+        }
     }
 }

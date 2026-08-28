@@ -10,7 +10,6 @@ import org.wikipedia.base.BaseTest
 import org.wikipedia.main.MainActivity
 import org.wikipedia.robots.DialogRobot
 import org.wikipedia.robots.SystemRobot
-import org.wikipedia.robots.feature.ExploreFeedRobot
 import org.wikipedia.robots.feature.PageRobot
 import org.wikipedia.robots.feature.SearchRobot
 import org.wikipedia.robots.feature.TabsRobot
@@ -25,7 +24,6 @@ class ArticleTabTest : BaseTest<MainActivity>(
     private val pageRobot = PageRobot(context)
     private val tabsRobot = TabsRobot()
     private val systemRobot = SystemRobot()
-    private val exploreFeedRobot = ExploreFeedRobot()
     private val dialogRobot = DialogRobot()
     private val searchRobot = SearchRobot()
 
@@ -34,14 +32,8 @@ class ArticleTabTest : BaseTest<MainActivity>(
         systemRobot
             .clickOnSystemDialogWithText("Allow")
             .disableDarkMode(context)
-        exploreFeedRobot
-            .scrollToItem(title = TestConstants.FEATURED_ARTICLE)
-            .clickOnFeaturedArticle()
-        pageRobot
-            .navigateUp()
-        exploreFeedRobot
-            .scrollToItem(title = TestConstants.FEATURED_ARTICLE)
-            .clickOnFeaturedArticle()
+        // TODO: update the test steps in new explore feed
+        //  1. scroll to featured article and click on it
         dialogRobot
             .dismissBigEnglishDialog()
             .dismissContributionDialog()

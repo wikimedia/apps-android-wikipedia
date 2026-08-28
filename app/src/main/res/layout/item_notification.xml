@@ -117,10 +117,7 @@
             android:id="@+id/notificationWikiCode"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:contentDescription="@null"
-            app:layout_constraintBottom_toBottomOf="@id/view_card_header_title"
-            app:layout_constraintEnd_toStartOf="@id/view_list_card_header_menu"
-            app:layout_constraintTop_toTopOf="@id/view_card_header_title" />
+            android:contentDescription="@null"/>
 
     </FrameLayout>
 

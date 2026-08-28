@@ -2,17 +2,19 @@ package org.wikipedia.compose.extensions
 
 import androidx.compose.animation.core.Easing
 import androidx.compose.animation.core.FastOutSlowInEasing
+import androidx.compose.animation.core.InfiniteTransition
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.animate
 import androidx.compose.animation.core.animateFloat
+import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.infiniteRepeatable
-import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -23,22 +25,30 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
+import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
+import androidx.compose.ui.draw.drawWithContent
 import androidx.compose.ui.draw.scale
+import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.TransformOrigin
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.collectLatest
 import org.wikipedia.compose.components.WikiTopAppBar
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.compose.theme.shimmerColors
 import org.wikipedia.theme.Theme
+import kotlin.time.Duration.Companion.milliseconds
 
 fun Modifier.pulse(
     fromScale: Float = 1f,
@@ -46,7 +56,8 @@ fun Modifier.pulse(
     durationMillis: Int = 1000,
     pivot: Float = 0.5f,
     repeatCount: Int = 1,
-    easing: Easing = FastOutSlowInEasing
+    easing: Easing = FastOutSlowInEasing,
+    onCompleted: (() -> Unit)? = null
 ): Modifier = composed {
     val scale = remember { mutableFloatStateOf(fromScale) }
     val targetScale = rememberUpdatedState(toScale)
@@ -69,6 +80,7 @@ fun Modifier.pulse(
                 scale.floatValue = value
             }
         }
+        onCompleted?.invoke()
     }
 
     scale(scale.floatValue, scale.floatValue).also {
@@ -87,6 +99,121 @@ fun Modifier.noRippleClickable(
     onClickLabel = onClickLabel,
     onClick = onClick
 )
+
+fun Modifier.shimmerEffect(
+    shimmerColors: List<Color>? = null,
+    durationMs: Int = 1200,
+    easing: Easing = LinearEasing,
+    heightMultiplier: Float = 1f,
+    transition: InfiniteTransition,
+): Modifier = composed {
+    val colors = shimmerColors ?: WikipediaTheme.colors.shimmerColors()
+    var size by remember { mutableStateOf(IntSize.Zero) }
+
+    val startOffsetX by transition.animateFloat(
+        initialValue = -2 * size.width.toFloat(),
+        targetValue = 2 * size.width.toFloat(),
+        animationSpec = infiniteRepeatable(
+            animation = tween(durationMs, easing = easing),
+            repeatMode = RepeatMode.Restart
+        )
+    )
+
+    val brush = Brush.linearGradient(
+        colors = colors,
+        start = Offset(startOffsetX, 0f),
+        end = Offset(startOffsetX + size.width.toFloat(), size.height.toFloat() * heightMultiplier)
+    )
+
+    this
+        .onSizeChanged { size = it }
+        .background(brush)
+}
+
+fun Modifier.lazyColumnScrollbar(
+    state: LazyListState,
+    color: Color,
+    thumbHeight: Dp = 48.dp,
+    hasHiddenContent: Boolean = false
+): Modifier = drawWithContent {
+    drawContent()
+    val info = state.layoutInfo
+    val listCanScroll = state.canScrollForward || state.canScrollBackward
+    if (info.visibleItemsInfo.isNotEmpty() && (hasHiddenContent || listCanScroll)) {
+        val indicatorState = state.scrollIndicatorState
+        val trackHeight = size.height
+        val minimumThumbHeight = thumbHeight.toPx().coerceAtMost(trackHeight)
+        val contentSize = indicatorState?.contentSize?.toFloat() ?: 0f
+        val viewportSize = indicatorState?.viewportSize?.toFloat() ?: 0f
+        val scrollOffset = indicatorState?.scrollOffset?.toFloat() ?: 0f
+        val scrollRange = (contentSize - viewportSize).coerceAtLeast(0f)
+
+        val actualThumbHeight = if (listCanScroll && contentSize > 0f) {
+            (trackHeight * viewportSize / contentSize)
+                .coerceIn(minimumThumbHeight, trackHeight)
+        } else {
+            minimumThumbHeight
+        }
+        val scrollFraction = if (listCanScroll && scrollRange > 0f) {
+            (scrollOffset / scrollRange).coerceIn(0f, 1f)
+        } else {
+            0f
+        }
+        val thumbOffset = scrollFraction * (trackHeight - actualThumbHeight)
+
+        drawRoundRect(
+            color = color,
+            topLeft = Offset(size.width - 4.dp.toPx(), thumbOffset),
+            size = Size(4.dp.toPx(), actualThumbHeight),
+            cornerRadius = CornerRadius(2.dp.toPx())
+        )
+    }
+}
+
+/**
+ * A [lazyColumnScrollbar] that shows itself while the list is being scrolled and fades out once
+ * the user has been idle for [hideDelayMillis]. It also shows briefly when the list can scroll or
+ * when the content is hidden below the bottom sheet [hasHiddenContent].
+ */
+fun Modifier.autoHidingLazyColumnScrollbar(
+    state: LazyListState,
+    color: Color,
+    thumbHeight: Dp = 120.dp,
+    hideDelayMillis: Long = 1000L,
+    fadeDurationMillis: Int = 250,
+    hasHiddenContent: Boolean = false
+): Modifier = composed {
+    var visible by remember { mutableStateOf(false) }
+    LaunchedEffect(state, hideDelayMillis, hasHiddenContent) {
+        snapshotFlow {
+            val shouldShowScrollbar =
+                hasHiddenContent || state.canScrollForward || state.canScrollBackward
+            state.isScrollInProgress to shouldShowScrollbar
+        }.collectLatest { (isScrolling, shouldShowScrollbar) ->
+            visible = shouldShowScrollbar
+            if (visible && !isScrolling) {
+                delay(hideDelayMillis.milliseconds)
+                visible = false
+            }
+        }
+    }
+    val alpha by animateFloatAsState(
+        targetValue = if (visible) 1f else 0f,
+        animationSpec = tween(fadeDurationMillis),
+        label = "scrollbarAlpha"
+    )
+
+    if (alpha == 0f) {
+        this
+    } else {
+        lazyColumnScrollbar(
+            state = state,
+            color = color.copy(alpha = color.alpha * alpha),
+            thumbHeight = thumbHeight,
+            hasHiddenContent = hasHiddenContent
+        )
+    }
+}
 
 @Preview
 @Composable
@@ -117,33 +244,4 @@ private fun PreviewPulse() {
             }
         }
     }
-}
-
-fun Modifier.shimmerEffect(
-    shimmerColors: List<Color>? = null,
-    durationMs: Int = 1200,
-    easing: Easing = LinearEasing
-): Modifier = composed {
-    val colors = shimmerColors ?: WikipediaTheme.colors.shimmerColors()
-    var size by remember { mutableStateOf(IntSize.Zero) }
-    val transition = rememberInfiniteTransition()
-
-    val startOffsetX by transition.animateFloat(
-        initialValue = -2 * size.width.toFloat(),
-        targetValue = 2 * size.width.toFloat(),
-        animationSpec = infiniteRepeatable(
-            animation = tween(durationMs, easing = easing),
-            repeatMode = RepeatMode.Restart
-        )
-    )
-
-    val brush = Brush.linearGradient(
-        colors = colors,
-        start = Offset(startOffsetX, 0f),
-        end = Offset(startOffsetX + size.width.toFloat(), size.height.toFloat())
-    )
-
-    this
-        .onSizeChanged { size = it }
-        .background(brush)
 }

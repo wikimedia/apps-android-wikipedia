@@ -10,17 +10,17 @@ import org.wikipedia.settings.Prefs
 class SuggestedEditsScreenRobot : BaseRobot() {
     fun clickArticleDescriptions() = apply {
         list.scrollToRecyclerViewInsideNestedScrollView(recyclerViewId = R.id.tasksRecyclerView, position = 0, viewAction = click())
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun clickImageCaptions() = apply {
         list.scrollToRecyclerViewInsideNestedScrollView(recyclerViewId = R.id.tasksRecyclerView, position = 2, viewAction = click())
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun clickImageTags() = apply {
         list.scrollToRecyclerViewInsideNestedScrollView(recyclerViewId = R.id.tasksRecyclerView, position = 3, viewAction = click())
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun clickSuggestedEdits() = apply {
@@ -30,7 +30,7 @@ class SuggestedEditsScreenRobot : BaseRobot() {
 
     fun pressBack() = apply {
         goBack()
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun verifyArticleDescriptionDoesNotExist(context: Context) = apply {
