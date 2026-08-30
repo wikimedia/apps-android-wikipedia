@@ -23,6 +23,7 @@ import org.wikipedia.donate.donationreminder.DonationReminderAbTest
 import org.wikipedia.donate.donationreminder.DonationReminderConfig
 import org.wikipedia.feed.interests.NewWithinInterestABTest
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
+import org.wikipedia.feed.readaloud.ReadAloudLeadSectionABTest
 import org.wikipedia.games.onthisday.OnThisDayGameNotificationManager
 import org.wikipedia.games.onthisday.OnThisDayGameNotificationState
 import org.wikipedia.history.HistoryEntry
@@ -318,7 +319,8 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
         listOf(
             DonationReminderAbTest(),
             HybridSearchAbCTest(),
-            NewWithinInterestABTest()
+            NewWithinInterestABTest(),
+            ReadAloudLeadSectionABTest()
         ).forEach { abTest ->
             category.addPreference(IntPreference(screen.context).apply {
                 key = abTest.preferenceKey
