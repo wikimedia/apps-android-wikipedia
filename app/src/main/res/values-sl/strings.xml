@@ -2060,7 +2060,7 @@
     <item quantity="one">Ta članek bo odstranjen iz vseh povezanih zbirk.</item>
     <item quantity="two">Ta članka bosta odstranjena iz vseh povezanih zbirk.</item>
     <item quantity="few">Ti %d članki bodo odstranjeni iz vseh povezanih zbirk</item>
-    <item quantity="other">Teh %d člankov bo odstranjenih iz vseh povezanih zbirk.</item>
+    <item quantity="other">Ti %d članki bodo odstranjeni iz vseh povezanih zbirk.</item>
   </plurals>
   <plurals name="reading_lists_articles_removed_from_collections">
     <item quantity="one">Članek je odstranjen iz vseh povezanih zbirk.</item>
