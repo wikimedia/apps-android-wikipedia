@@ -1,4 +1,4 @@
-name: Android smoke test
+name: Android UI fixtures test
 
 on: [workflow_dispatch]
 
@@ -39,11 +39,11 @@ jobs:
         target: ${{ matrix.target }}
         arch: ${{ matrix.arch }}
         disable-animations: true
-        script: ./gradlew connectedDevDebugAndroidTest --stacktrace --no-daemon --info -P android.testInstrumentationRunnerArguments.class=org.wikipedia.testsuites.SmokeTestSuite
+        script: ./gradlew connectedDevDebugAndroidTest --stacktrace --no-daemon --info -P android.testInstrumentationRunnerArguments.class=org.wikipedia.testsuites.FixturesTestSuite
 
     - name: Upload results
       if: ${{ always() }}
       uses: actions/upload-artifact@v7
       with:
-        name: instrumentation-test-results${{ matrix.api-level }}
+        name: ui-fixtures-test-results${{ matrix.api-level }}
         path: ./**/build/reports/androidTests/connected/**

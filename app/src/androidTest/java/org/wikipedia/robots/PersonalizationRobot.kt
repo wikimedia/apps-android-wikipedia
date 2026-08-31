@@ -19,7 +19,8 @@ import org.wikipedia.topics.ArticleTopic
 
 class PersonalizationRobot(
     private val composeTestRule: ComposeTestRule,
-    private val context: Context
+    private val context: Context,
+    private val textTimeoutMillis: Long = DEFAULT_TEXT_TIMEOUT_MILLIS
 ) {
     fun assertCuriosityScreenIsDisplayed() =
         assertTextIsDisplayed(R.string.explore_feed_onboarding_curiosity_title)
@@ -39,6 +40,14 @@ class PersonalizationRobot(
 
     fun assertPersonalizedPreferenceIsEnabled() = apply {
         personalizedPreferenceRadioButton().assertIsEnabled()
+    }
+
+    fun tapSearchBar() = apply {
+        composeTestRule
+            .onNodeWithText(
+                context.getString(R.string.recommended_reading_list_interest_pick_search_hint)
+            )
+            .performClick()
     }
 
     fun tapNext() = apply {
@@ -81,13 +90,13 @@ class PersonalizationRobot(
     }
 
     private fun waitForText(text: String) {
-        composeTestRule.waitUntil(timeoutMillis = TEXT_TIMEOUT_MILLIS) {
+        composeTestRule.waitUntil(timeoutMillis = textTimeoutMillis) {
             composeTestRule.onAllNodesWithText(text).fetchSemanticsNodes().isNotEmpty()
         }
     }
 
     private companion object {
-        const val TEXT_TIMEOUT_MILLIS = 10_000L
+        const val DEFAULT_TEXT_TIMEOUT_MILLIS = 10_000L
         const val DEFAULT_LANGUAGE_CODE = "en"
     }
 }

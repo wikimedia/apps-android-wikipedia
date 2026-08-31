@@ -4,9 +4,11 @@ import org.junit.runner.RunWith
 import org.junit.runners.Suite
 import org.junit.runners.Suite.SuiteClasses
 import org.wikipedia.onboarding.InitialOnboardingActivityTest
+import org.wikipedia.personalization.PersonalizationSearchLiveApiTest
 
 @RunWith(Suite::class)
 @SuiteClasses(
-    InitialOnboardingActivityTest::class
+    InitialOnboardingActivityTest::class,
+    PersonalizationSearchLiveApiTest::class
 )
-class TestSuite
+class SmokeTestSuite

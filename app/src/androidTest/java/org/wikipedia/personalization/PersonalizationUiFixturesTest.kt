@@ -24,7 +24,7 @@ import org.wikipedia.robots.PersonalizationRobot
 import org.wikipedia.settings.Prefs
 import org.wikipedia.topics.ArticleTopics
 
-class PersonalizationJourneyTest : BaseTest<PersonalizationActivity>(
+class PersonalizationUiFixturesTest : BaseTest<PersonalizationActivity>(
     activityClass = PersonalizationActivity::class.java,
     beforeActivityLaunch = {
         Prefs.shouldMatchSystemTheme = false
