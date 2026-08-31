@@ -2395,6 +2395,7 @@
     <string name="donation_reminders_wrap_up_survey_option_remove_it">Remove it</string>
     <string name="donation_reminders_wrap_up_survey_option_not_sure">Not sure</string>
     <string name="donation_reminders_wrap_up_survey_optional_hint">Anything else? (Optional)</string>
+    <string name="donation_reminders_wrap_up_survey_thank_you_message">Thank you for your feedback. Your answer helps us decide what to build next.</string>
     <string name="donation_reminders_eoe_title">This is the end of the experiment</string>
     <string name="donation_reminders_eoe_message">We will no longer show in-app reminders but you can still support by donating your pledged amount %s monthly.</string>
     <string name="donation_reminders_eoe_give_monthly_button">Give monthly</string>
