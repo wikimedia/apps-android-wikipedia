@@ -1854,10 +1854,7 @@
   <string name="games_hub_activity_games_unavailable_message_learn_more_action">Meer lezen</string>
   <string name="games_hub_activity_overflow_view_game_stats">Spelstatistieken bekijken</string>
   <string name="games_hub_activity_overflow_learn_more">Meer lezen</string>
-  <string name="on_this_day_game_entry_dialog_title">Welkom bij</string>
-  <string name="on_this_day_game_entry_dialog_subtitle">Wikipedia-spellen</string>
   <string name="on_this_day_game_entry_dialog_button">Spelen</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia-spellen zijn beschikbaar in de Spellenhub, te vinden in het menu MEER.</string>
   <string name="on_this_day_game_title">Wat gebeurde er eerst?</string>
   <string name="on_this_day_game_dialog_button">Spelen</string>
   <string name="on_this_day_game_splash_message">Raad welke gebeurtenis op deze dag in de geschiedenis als eerste plaatsvond.</string>
@@ -2474,7 +2471,6 @@
   <string name="home_feed_for_you_screen_empty_ways_to_start">Manieren om te beginnen:</string>
   <string name="home_feed_for_you_screen_empty_add_interests">U kunt &lt;a href=\"#add_interests\"&gt;interesses toevoegen&lt;/a&gt;</string>
   <string name="home_feed_for_you_screen_empty_see_community">Kijk wat er in de &lt;a href=\"#community_tab\"&gt;gemeenschap&lt;/a&gt; gebeurt</string>
-  <string name="home_feed_update_tooltip1">Nieuw: \"Willekeurige pagina\" en \"Plaatsen in de buurt\" zijn beschikbaar in \"Voor u\" en \"Wist u dat\" is in het tabblad Gemeenschap.</string>
   <string name="home_feed_random_title">Willekeurig</string>
   <string name="home_feed_random_subtitle">Een willekeurige pagina om uw nieuwsgierigheid te prikkelen</string>
   <string name="home_feed_random_shuffle_button">Willekeurig</string>
