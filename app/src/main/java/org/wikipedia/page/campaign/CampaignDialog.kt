@@ -86,6 +86,7 @@ class CampaignDialog internal constructor(private val context: Context, val camp
                 groupAssigned = groupAssigned,
                 campaignId = campaignId
             )
+            DonationReminderAbTest().maybeSendExposureEvent()
         }
         if (!DonationReminderHelper.isEnabled) {
             Prefs.announcementPauseTime = Date().time
