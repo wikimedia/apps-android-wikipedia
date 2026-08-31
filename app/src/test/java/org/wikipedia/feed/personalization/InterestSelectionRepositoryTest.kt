@@ -1,4 +1,4 @@
-package org.wikipedia.feed.personalization.interest
+package org.wikipedia.feed.personalization
 
 import android.net.Uri
 import io.mockk.coEvery
@@ -15,6 +15,7 @@ import org.robolectric.RobolectricTestRunner
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.personalization.db.dao.InterestArticleDao
 import org.wikipedia.feed.personalization.db.dao.InterestTopicDao
+import org.wikipedia.feed.personalization.interest.InterestSelectionRepository
 import org.wikipedia.feed.random.RandomClient
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.db.HistoryEntryWithImageDao

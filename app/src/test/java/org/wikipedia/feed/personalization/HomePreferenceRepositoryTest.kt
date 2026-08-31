@@ -1,4 +1,4 @@
-package org.wikipedia.feed.personalization.homepreference
+package org.wikipedia.feed.personalization
 
 import android.net.Uri
 import io.mockk.coEvery
@@ -10,6 +10,8 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.feed.personalization.homepreference.HomePreferenceContent
+import org.wikipedia.feed.personalization.homepreference.HomePreferenceRepository
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.db.HistoryEntryWithImageDao
 import org.wikipedia.page.PageTitle
