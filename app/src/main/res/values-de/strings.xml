@@ -353,6 +353,16 @@
   <string name="edit_notices_please_read">Bitte vor der Bearbeitung lesen</string>
   <string name="edit_notices_show_auto">Automatische Anzeige von Bearbeitungshinweisen</string>
   <string name="edit_notices_tooltip">Tippe auf diese Schaltfläche, um die Bearbeitungshinweise für diesen Artikel anzuzeigen.</string>
+  <string name="editor_select_dialog_title">Bearbeitungsmethode wählen</string>
+  <string name="editor_select_dialog_ve_title">Visuelles Bearbeiten</string>
+  <string name="editor_select_dialog_ve_subtitle">Änderungen direkt an der angezeigten Seite vornehmen. Wird im Browser geöffnet.</string>
+  <string name="editor_select_dialog_source_title">Quelltextbearbeitung</string>
+  <string name="editor_select_dialog_source_subtitle">Änderungen im Wikitext vornehmen. Bleibt in der App.</string>
+  <string name="editor_select_dialog_dont_show_again">Nicht mehr anzeigen. Diese Voreinstellung kann später in den Einstellungen geändert werden.</string>
+  <string name="editor_select_dialog_continue">Weiter</string>
+  <string name="editor_select_icon_ve_title">Im externen Browser öffnen</string>
+  <string name="editor_select_title_settings_screen">Bearbeitungseinstellung</string>
+  <string name="editor_select_save_btn_settings_screen">Speichern</string>
   <string name="find_next">Nächste finden</string>
   <string name="find_previous">Vorherige finden</string>
   <string name="find_first_occurence">Dies ist das erste Auftreten</string>
@@ -1860,10 +1870,7 @@
   <string name="games_hub_activity_games_unavailable_message_learn_more_action">Mehr erfahren</string>
   <string name="games_hub_activity_overflow_view_game_stats">Spielstatistik ansehen</string>
   <string name="games_hub_activity_overflow_learn_more">Mehr erfahren</string>
-  <string name="on_this_day_game_entry_dialog_title">Wir präsentieren</string>
-  <string name="on_this_day_game_entry_dialog_subtitle">Wikipedia-Spiele</string>
   <string name="on_this_day_game_entry_dialog_button">Spielen</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia-Spiele findest du im Spielebereich im Menü „Mehr“.</string>
   <string name="on_this_day_game_title">Was war zuerst da?</string>
   <string name="on_this_day_game_dialog_button">Spielen</string>
   <string name="on_this_day_game_splash_message">Raten Sie, welches Ereignis an diesem Tag in der Geschichte zuerst stattgefunden hat.</string>
@@ -2458,6 +2465,7 @@
   <string name="home_feed_settings_for_you_modules_description">Wenn du ein Modul ausschaltest, wird es in deinem „Für dich“-Feed ausgeblendet. Du kannst es hier jederzeit wieder aktivieren.</string>
   <string name="home_feed_settings_based_on_interest_title">Basierend auf deinen Interessen</string>
   <string name="home_feed_settings_based_on_interest_subtitle">Artikel, die auf die von dir gewählten Themen zugeschnitten sind.&lt;br /&gt;&lt;a href=\"#drivingFeed\"&gt;Was deinen Feed bestimmt&lt;/a&gt;</string>
+  <string name="home_feed_new_within_interest_card_heading">Neu passend zu deinen Interessen</string>
   <string name="home_feed_new_within_interest_title">Neue Artikel zu deinen Interessen</string>
   <string name="home_feed_new_within_interest_subtitle">Kürzlich erstellte Artikel aus Themenbereichen, denen du folgst</string>
   <string name="home_feed_settings_because_you_read_subtitle">Vorschläge basierend auf einem kürzlich gelesenen Artikel aus deinem Verlauf</string>
@@ -2479,7 +2487,6 @@
   <string name="home_feed_for_you_screen_empty_ways_to_start">So legst du los:</string>
   <string name="home_feed_for_you_screen_empty_add_interests">Füge &lt;a href=\"#add_interests\"&gt;einige Interessen&lt;/a&gt; hinzu</string>
   <string name="home_feed_for_you_screen_empty_see_community">Sieh, was in der &lt;a href=\"#community_tab\"&gt;Gemeinschaft&lt;/a&gt; passiert</string>
-  <string name="home_feed_update_tooltip1">Neu: „Zufallsartikel“ und „Interessante Orte“ findest du unter „Für dich“, und „Schon gewusst?“ ist im Gemeinschaft-Tab.</string>
   <string name="home_feed_random_title">Zufällig</string>
   <string name="home_feed_random_subtitle">Zufälliger Artikel, der deine Neugier weckt</string>
   <string name="home_feed_random_shuffle_button">Mischen</string>
@@ -2533,7 +2540,7 @@
   <string name="reading_lists_empty_collections_description">Erstelle Sammlungen für Reiseziele, Lieblingsthemen und mehr.</string>
   <string name="reading_lists_create_new_collection">Neue Sammlung erstellen</string>
   <string name="reading_lists_remove_articles_confirm_dialog_title">Artikel nicht mehr speichern?</string>
-  <string name="reading_lists_remove_articles_confirm_button" fuzzy="true">Entfernen</string>
+  <string name="reading_lists_remove_articles_confirm_button">Nicht mehr speichern</string>
   <plurals name="reading_lists_remove_articles_confirm_dialog_message">
     <item quantity="one">Dieser Artikel wird aus allen zugehörigen Sammlungen entfernt.</item>
     <item quantity="other">Diese %d Artikel werden aus allen zugehörigen Sammlungen entfernt.</item>

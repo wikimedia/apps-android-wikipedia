@@ -1950,10 +1950,7 @@
   <string name="games_hub_activity_games_unavailable_message_learn_more_action">Ďalšie informácie</string>
   <string name="games_hub_activity_overflow_view_game_stats">Zobraziť herné štatistiky</string>
   <string name="games_hub_activity_overflow_learn_more">Ďalšie informácie</string>
-  <string name="on_this_day_game_entry_dialog_title">Predstavujeme</string>
-  <string name="on_this_day_game_entry_dialog_subtitle">Hry Wikipédie</string>
   <string name="on_this_day_game_entry_dialog_button">Hrať</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Hry Wikipédie sú dostupné v Centre hier, ktoré nájdete v ponuke VIAC.</string>
   <string name="on_this_day_game_title">Čo bolo skôr?</string>
   <string name="on_this_day_game_dialog_button">Hrať</string>
   <string name="on_this_day_game_splash_message">Hádajte, ktorá udalosť sa v tento deň v dejinách stala skôr.</string>
@@ -2668,7 +2665,6 @@
   <string name="home_feed_for_you_screen_empty_ways_to_start">Ako začať:</string>
   <string name="home_feed_for_you_screen_empty_add_interests">Pridajte si &lt;a href=\"#add_interests\"&gt;nejaké záujmy&lt;/a&gt;</string>
   <string name="home_feed_for_you_screen_empty_see_community">Pozrite sa, čo je nové v &lt;a href=\"#community_tab\"&gt;komunite&lt;/a&gt;</string>
-  <string name="home_feed_update_tooltip1">Novinka: „Náhodný článok“ a „Zaujímavé miesta“ sú dostupné v sekcii Pre vás a „Vedeli ste?“ nájdete na karte Komunita.</string>
   <string name="home_feed_random_title">Náhodný článok</string>
   <string name="home_feed_random_subtitle">Náhodný článok, ktorý podnieti vašu zvedavosť</string>
   <string name="home_feed_random_shuffle_button">Zamiešať</string>
