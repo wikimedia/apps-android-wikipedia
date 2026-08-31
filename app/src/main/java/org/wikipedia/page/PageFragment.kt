@@ -310,7 +310,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         binding.pageImageTransitionHolder.visibility = View.GONE
         binding.pageActionsTabLayout.update()
         updateQuickActionsAndMenuOptions()
-        if (ImageUrlUtil.isGif(page?.pageProperties?.leadImageUrl)) {
+        if (ImageUrlUtil.isGif(page?.leadImageUrl)) {
             leadImagesHandler.loadLeadImage()
         }
         articleInteractionEvent?.resume()
@@ -352,7 +352,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         bottomBarHideHandler.enabled = Prefs.readingFocusModeEnabled
         leadImagesHandler.refreshCallToActionVisibility()
         page?.let {
-            bridge.execute(JavaScriptActionHandler.setUpEditButtons(!Prefs.readingFocusModeEnabled, !it.pageProperties.canEdit))
+            bridge.execute(JavaScriptActionHandler.setUpEditButtons(!Prefs.readingFocusModeEnabled, !it.canEdit))
         }
         // We disable and then re-enable scroll events coming from the WebView, because toggling
         // reading focus mode within the article could actually change the dimensions of the page,
@@ -428,7 +428,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                         // that we can't control, we need to bounce them out explicitly to an external
                         // browser, even after the page is fully loaded into our WebView. This is because
                         // we can determine the namespace only after the loading sequence is in progress.
-                        if (model.page?.pageProperties?.namespace == Namespace.EVENT) {
+                        if (model.page?.summary?.ns == Namespace.EVENT) {
                             model.title?.let {
                                 UriUtil.visitInExternalBrowser(requireActivity(), it.uri.toUri())
                                 binding.root.post {
@@ -491,7 +491,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 return@evaluate
             }
             model.page?.let { page ->
-                page.pageProperties.protection = JsonUtil.decodeFromString(value)
+                page.protection = JsonUtil.decodeFromString(value)
                 updateQuickActionsAndMenuOptions()
             }
         }
@@ -882,7 +882,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     }
                     "coordinate" -> {
                         model.page?.let { page ->
-                            val location = page.pageProperties.geo
+                            val location = page.summary.coordinates
                             if (location != null) {
                                 PlacesEvent.logAction("places_click", "article_footer")
                                 requireActivity().startActivity(PlacesActivity.newIntent(requireContext(), page.title, location))
@@ -940,7 +940,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             return
         }
         model.page?.run {
-            articleInteractionEvent = ArticleInteractionEvent(model.title?.wikiSite?.dbName()!!, pageProperties.pageId)
+            articleInteractionEvent = ArticleInteractionEvent(model.title?.wikiSite?.dbName()!!, summary.pageId)
         }
         editHandler.setPage(model.page)
         binding.pageRefreshContainer.isEnabled = true
@@ -1082,10 +1082,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     it.setCompoundDrawablesWithIntrinsicBounds(0, PageActionItem.readingListIcon(model.isInReadingList), 0, 0)
                 }
                 PageActionItem.EDIT_ARTICLE -> {
-                    it.setCompoundDrawablesWithIntrinsicBounds(0, PageActionItem.editArticleIcon(model.page?.pageProperties?.canEdit != true), 0, 0)
+                    it.setCompoundDrawablesWithIntrinsicBounds(0, PageActionItem.editArticleIcon(model.page?.canEdit != true), 0, 0)
                 }
                 PageActionItem.VIEW_ON_MAP -> {
-                    val geoAvailable = model.page?.pageProperties?.geo != null
+                    val geoAvailable = model.page?.summary?.coordinates != null
                     val tintColor = ResourceUtil.getThemedColorStateList(requireContext(), if (geoAvailable) R.attr.primary_color else R.attr.inactive_color)
                     it.setTextColor(tintColor)
                     TextViewCompat.setCompoundDrawableTintList(it, tintColor)
@@ -1130,7 +1130,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 if (!isAdded) {
                     return@evaluate
                 }
-                val articleFindInPageInteractionEvent = ArticleFindInPageInteractionEvent(model.page?.pageProperties?.pageId ?: -1)
+                val articleFindInPageInteractionEvent = ArticleFindInPageInteractionEvent(model.page?.summary?.pageId ?: -1)
                 val findInPageActionProvider = FindInWebPageActionProvider(this, articleFindInPageInteractionEvent)
                 startSupportActionMode(object : ActionMode.Callback {
                     override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
@@ -1475,7 +1475,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
         override fun onViewOnMapSelected() {
             title?.let {
-                val location = page?.pageProperties?.geo
+                val location = page?.summary?.coordinates
                 if (location != null) {
                     PlacesEvent.logAction("places_click", "article_more_menu")
                     requireActivity().startActivity(PlacesActivity.newIntent(requireContext(), it, location))
