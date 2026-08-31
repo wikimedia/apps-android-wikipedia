@@ -257,7 +257,6 @@ dependencies {
     testImplementation libs.okhttp3.okhttp
     testImplementation libs.mockwebserver
     testImplementation libs.room.testing
-    testImplementation libs.kotlinx.coroutines.test
 
     androidTestImplementation libs.espresso.core
     androidTestImplementation libs.espresso.contrib

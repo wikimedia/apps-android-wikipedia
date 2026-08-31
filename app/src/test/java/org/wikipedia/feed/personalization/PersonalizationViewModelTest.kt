@@ -8,11 +8,6 @@ import io.mockk.every
 import io.mockk.mockk
 import io.mockk.mockkObject
 import io.mockk.unmockkAll
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.test.UnconfinedTestDispatcher
-import kotlinx.coroutines.test.resetMain
-import kotlinx.coroutines.test.setMain
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Before
@@ -29,30 +24,28 @@ import org.wikipedia.feed.personalization.interest.OnboardingTopic
 import org.wikipedia.page.PageTitle
 import org.wikipedia.topics.ArticleTopics
 
-@OptIn(ExperimentalCoroutinesApi::class)
 @RunWith(RobolectricTestRunner::class)
 class PersonalizationViewModelTest {
     private val wikiSite = WikiSite(Uri.parse("https://en.wikipedia.org"), "en")
     private val interestSelectionRepository = mockk<InterestSelectionRepository>()
     private val homePreferenceRepository = mockk<HomePreferenceRepository>()
+    private val communityPreview = listOf(
+        HomePreferenceContent(
+            title = "Restoring urban rivers",
+            description = null,
+            imageUrl = null,
+            tag = "Featured article"
+        )
+    )
 
     @Before
     fun setUp() {
-        Dispatchers.setMain(UnconfinedTestDispatcher())
         every { interestSelectionRepository.wikiSite } returns wikiSite
-        coEvery { homePreferenceRepository.getCommunityPreviewContent() } returns listOf(
-            HomePreferenceContent(
-                title = "Restoring urban rivers",
-                description = null,
-                imageUrl = null,
-                tag = "Featured article"
-            )
-        )
+        coEvery { homePreferenceRepository.getCommunityPreviewContent() } returns communityPreview
     }
 
     @After
     fun tearDown() {
-        Dispatchers.resetMain()
         unmockkAll()
     }
 
@@ -116,11 +109,28 @@ class PersonalizationViewModelTest {
     }
 
     @Test
+    fun `the community preview content shows whatever the repository previews`() {
+        coEvery { homePreferenceRepository.getPersonalizedPreviewContent(any(), any()) } returns emptyList()
+
+        val viewModel = viewModel()
+        viewModel.onPageChanged(PersonalizationPage.HOME_PREFERENCE)
+
+        coVerify { homePreferenceRepository.getCommunityPreviewContent() }
+
+        assertEquals(
+            HomeContentState.Success(communityPreview),
+            viewModel.feedPreferenceUiState.value.communityState
+        )
+    }
+
+    @Test
     fun `the personalized preview content is empty when the repository has nothing to preview`() {
         coEvery { homePreferenceRepository.getPersonalizedPreviewContent(any(), any()) } returns emptyList()
 
         val viewModel = viewModel()
         viewModel.onPageChanged(PersonalizationPage.HOME_PREFERENCE)
+
+        coVerify { homePreferenceRepository.getPersonalizedPreviewContent(any(), any()) }
 
         assertEquals(
             HomeContentState.Empty,
