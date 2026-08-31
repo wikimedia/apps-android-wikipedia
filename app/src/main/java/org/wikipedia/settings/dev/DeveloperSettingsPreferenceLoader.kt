@@ -244,6 +244,7 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
         }
         findPreference(R.string.preference_key_donation_reminders_dev_reset).onPreferenceClickListener = Preference.OnPreferenceClickListener {
             Prefs.donationReminderConfig = DonationReminderConfig()
+            Prefs.donationReminderDevWrapUp = false
             Toast.makeText(activity, "donationReminderConfig has been reset", Toast.LENGTH_SHORT).show()
             fragment.requireActivity().finish()
             true
@@ -253,6 +254,13 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
                 promptLastSeen = 0
             )
             Toast.makeText(activity, "promptLastSeen has been reset", Toast.LENGTH_SHORT).show()
+            fragment.requireActivity().finish()
+            true
+        }
+        findPreference(R.string.preference_key_donation_reminders_dev_wrap_up_enabled).onPreferenceClickListener = Preference.OnPreferenceClickListener {
+            Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(
+                wrapUpEnabled = true
+            )
             fragment.requireActivity().finish()
             true
         }
