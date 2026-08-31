@@ -1922,7 +1922,7 @@
   <string name="on_this_day_game_notification_undo">Razveljavi</string>
   <string name="on_this_day_game_share_link_message">Igram \"Kaj se je zgodilo najprej?\", vsakodnevno zanimivo igro v aplikaciji Wikipedia Android %s</string>
   <string name="year_in_review_learn_more">Izvedite več</string>
-  <string name="year_in_review_reading_list_survey_title" fuzzy="true">Pomagajte izboljšati zbirko Pregled leta $d</string>
+  <string name="year_in_review_reading_list_survey_title" fuzzy="true">Pomagajte izboljšati zbirko Pregled leta %d</string>
   <string name="year_in_review_reading_list_survey_subtitle">Ste zadovoljni s svojo zbirko?</string>
   <string name="year_in_review_disable_negative_button">Ne, hvala</string>
   <string name="year_in_review_slide_top_categories_headline">Vaše najbolj zanimive kategorije</string>
@@ -2059,8 +2059,8 @@
   <plurals name="reading_lists_remove_articles_confirm_dialog_message" fuzzy="true">
     <item quantity="one">Ta članek bo odstranjen iz vseh povezanih zbirk.</item>
     <item quantity="two">Ta članka bosta odstranjena iz vseh povezanih zbirk.</item>
-    <item quantity="few">Ti članki bodo odstranjeni iz vseh povezanih zbirk</item>
-    <item quantity="other">Ti članki bodo odstranjeni iz vseh povezanih zbirk.</item>
+    <item quantity="few">Ti %d članki bodo odstranjeni iz vseh povezanih zbirk</item>
+    <item quantity="other">Teh %d člankov bo odstranjenih iz vseh povezanih zbirk.</item>
   </plurals>
   <plurals name="reading_lists_articles_removed_from_collections">
     <item quantity="one">Članek je odstranjen iz vseh povezanih zbirk.</item>
