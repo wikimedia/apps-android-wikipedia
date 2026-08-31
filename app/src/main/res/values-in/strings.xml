@@ -1773,10 +1773,7 @@
   <string name="games_hub_activity_games_unavailable_message_learn_more_action">Pelajari lebih lanjut</string>
   <string name="games_hub_activity_overflow_view_game_stats">Lihat statistik permainan</string>
   <string name="games_hub_activity_overflow_learn_more">Pelajari lebih lanjut</string>
-  <string name="on_this_day_game_entry_dialog_title">Memperkenalkan</string>
-  <string name="on_this_day_game_entry_dialog_subtitle">Permainan Wikipedia</string>
   <string name="on_this_day_game_entry_dialog_button">Mainkan</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Permainan Wikipedia tersedia di Pusat Permainan, yang dapat ditemukan di menu LAINNYA.</string>
   <string name="on_this_day_game_title">Mana yang lebih dulu?</string>
   <string name="on_this_day_game_dialog_button">Mainkan</string>
   <string name="on_this_day_game_splash_message">Coba tebak peristiwa mana yang terjadi lebih dulu pada hari ini dalam sejarah.</string>
