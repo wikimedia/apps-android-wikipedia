@@ -23,8 +23,8 @@ object DonationReminderHelper {
         "NL"
     )
     private val isInDateRange get() = LocalDate.now() <= LocalDate.of(2026, 11, 9)
-    private val isInWrapUpDateRange get() = LocalDate.now() <= LocalDate.of(2026, 11, 15)
-            && LocalDate.now() >= LocalDate.of(2026, 11, 10)
+    private val isInWrapUpDateRange get() = LocalDate.now() <= LocalDate.of(2026, 11, 15) &&
+            LocalDate.now() >= LocalDate.of(2026, 11, 10)
     val isInEligibleCountry get() = ReleaseUtil.isDevRelease || enabledCountries.contains(GeoUtil.geoIPCountry.orEmpty())
     val defaultReadFrequencyOptions = listOf(5, 10, 20)
     val presetsToRemoveFromConfig = listOf(2f, 10f, 15f) // V3 only.
