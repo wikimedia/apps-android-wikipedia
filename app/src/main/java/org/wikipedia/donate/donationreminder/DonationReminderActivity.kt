@@ -37,7 +37,7 @@ class DonationReminderActivity : BaseActivity() {
                     onFooterButtonClick = {
                         DonorExperienceEvent.logDonationReminderAction(
                             activeInterface = if (viewModel.isFromSettings) "global_setting" else "reminder_config",
-                            action = "reminder_about_click"
+                            action = if (viewModel.isFromSettings) "reminder_about_click" else "nothanks_click"
                         )
                         if (viewModel.isFromSettings) {
                             UriUtil.visitInExternalBrowser(this, getString(R.string.donation_reminders_experiment_url).toUri())
