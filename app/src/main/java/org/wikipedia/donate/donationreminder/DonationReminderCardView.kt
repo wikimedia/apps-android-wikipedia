@@ -46,3 +46,7 @@ class DonationReminderCardView(context: Context, attrs: AttributeSet? = null) : 
         }
     }
 }
+
+enum class DonationReminderType {
+    GENERAL, WRAP_UP
+}

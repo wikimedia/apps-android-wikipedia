@@ -26,6 +26,7 @@ import org.wikipedia.donate.DonateDialog
 import org.wikipedia.donate.donationreminder.DonationReminderAbTest
 import org.wikipedia.donate.donationreminder.DonationReminderActivity
 import org.wikipedia.donate.donationreminder.DonationReminderHelper
+import org.wikipedia.donate.donationreminder.DonationReminderType
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageFragment
@@ -208,9 +209,9 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                 }
             }
 
-            override fun donationReminderCardPositiveClicked() {
+            override fun donationReminderCardPositiveClicked(type: DonationReminderType) {
                 hideDonationReminderCard()
-                if (DonationReminderHelper.isWrapUpEnabled) {
+                if (type == DonationReminderType.WRAP_UP) {
                     if (DonationReminderAbTest().group == 1) {
                         SurveyDialog.showDonationReminderFeedbackDialog(
                             activity = parentFragment.requireActivity(),
@@ -237,9 +238,9 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                 }
             }
 
-            override fun donationReminderCardNegativeClicked() {
+            override fun donationReminderCardNegativeClicked(type: DonationReminderType) {
                 hideDonationReminderCard()
-                if (DonationReminderHelper.isWrapUpEnabled) {
+                if (type == DonationReminderType.WRAP_UP) {
                     // TODO: instrumentation
                 } else {
                     DonorExperienceEvent.logDonationReminderAction(

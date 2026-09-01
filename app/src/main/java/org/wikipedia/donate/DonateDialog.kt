@@ -88,7 +88,7 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
                     }
                 }
                 if (arguments?.getBoolean(ARG_FROM_DONATION_REMINDER) == true) {
-                    setupDirectGooglePayButton(arguments?.getBoolean(ARG_FROM_DONATION_REMINDER) ?: false)
+                    setupDirectGooglePayButton(arguments?.getBoolean(ARG_FROM_DONATION_REMINDER_WRAP_UP) ?: false)
                 }
             }
         }

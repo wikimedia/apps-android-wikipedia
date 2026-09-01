@@ -15,6 +15,7 @@ import org.wikipedia.donate.DonateUtil
 import org.wikipedia.donate.donationreminder.DonationReminderAbTest
 import org.wikipedia.donate.donationreminder.DonationReminderConfig
 import org.wikipedia.donate.donationreminder.DonationReminderHelper
+import org.wikipedia.donate.donationreminder.DonationReminderType
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DimenUtil
@@ -28,8 +29,8 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
     interface Callback {
         fun onImageClicked()
         fun onCallToActionClicked()
-        fun donationReminderCardPositiveClicked()
-        fun donationReminderCardNegativeClicked()
+        fun donationReminderCardPositiveClicked(type: DonationReminderType)
+        fun donationReminderCardNegativeClicked(type: DonationReminderType)
     }
 
     private val binding = ViewPageHeaderBinding.inflate(LayoutInflater.from(context), this)
@@ -141,6 +142,7 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
     private fun updateDonationReminderCardContent(config: DonationReminderConfig?) {
         config?.let { config ->
             val isWrapUpEnabled = DonationReminderHelper.isWrapUpEnabled
+            val reminderCardType = if (isWrapUpEnabled) DonationReminderType.WRAP_UP else DonationReminderType.GENERAL
             val articleText = context.resources.getQuantityString(
                 R.plurals.donation_reminders_text_articles, config.articleFrequency, config.articleFrequency
             )
@@ -195,12 +197,12 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
             binding.donationReminderCardView.setMessage(messageText)
             binding.donationReminderCardView.setPositiveButton(positiveButtonText) {
                 DonationReminderHelper.dismissReminder()
-                callback?.donationReminderCardPositiveClicked()
+                callback?.donationReminderCardPositiveClicked(reminderCardType)
             }
             binding.donationReminderCardView.setNegativeButton(negativeButtonText) {
                 binding.donationReminderCardView.isVisible = false
                 DonationReminderHelper.dismissReminder()
-                callback?.donationReminderCardNegativeClicked()
+                callback?.donationReminderCardNegativeClicked(reminderCardType)
             }
         }
     }
