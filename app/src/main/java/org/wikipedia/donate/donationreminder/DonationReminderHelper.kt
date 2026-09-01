@@ -41,7 +41,7 @@ object DonationReminderHelper {
     var shouldShowSettingSnackbar = false
 
     fun getCampaignId(campaignIdOriginal: String = "appmenu"): String {
-        return if (isInEligibleCountry && isWrapUpEnabled) {
+        return if (isInEligibleCountry && (isInDateRange || isInWrapUpDateRange)) {
             campaignIdOriginal + when (DonationReminderAbTest().group) {
                 GROUP_3 -> "_reminderC"
                 GROUP_2 -> "_reminderB"

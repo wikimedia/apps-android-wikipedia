@@ -148,7 +148,12 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
                 campaignId = DonationReminderHelper.getCampaignId()
             )
             (requireActivity() as? BaseActivity)?.launchDonateActivity(
-                GooglePayComponent.getDonateActivityIntent(requireActivity(), campaignId = DonationReminderHelper.getCampaignId()))
+                GooglePayComponent.getDonateActivityIntent(
+                    activity = requireActivity(),
+                    campaignId = DonationReminderHelper.getCampaignId(),
+                    checkedRecurringDonation = fromDonationReminderWrapUp
+                )
+            )
         }
         binding.donateOtherButton.setOnClickListener {
             DonorExperienceEvent.logDonationReminderAction(
