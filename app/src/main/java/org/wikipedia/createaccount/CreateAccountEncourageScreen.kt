@@ -185,7 +185,7 @@ private fun EncourageCardView(
 
             Text(
                 text = card.title,
-                style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.W500),
+                style = MaterialTheme.typography.titleMedium,
                 color = ComposeColors.Gray700
             )
 

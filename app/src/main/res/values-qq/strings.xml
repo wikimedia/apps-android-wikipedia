@@ -666,7 +666,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">Message warning that an article selected for removal from offline availability appears in multiple collections. The collection names appear below. The \"%s\" symbol is replaced with the article title.</string>
   <string name="reading_lists_sync_reminder_title">Title for a tutorial card that reminds the user that their collections can be synchronized.</string>
   <string name="reading_lists_sync_reminder_text">Text for a tutorial card that reminds the user that their collections can be synchronized, with a link to the synced collections FAQ page that explains the procedure in detail.</string>
-  <string name="reading_lists_login_reminder_text_with_link">Text for a tutorial card that reminds the user that logging in will enable syncing of collections, with a link to the synced collections FAQ page that explains the procedure in detail.</string>
   <string name="reading_lists_sync_reminder_action">Button text for turning on synchronizing of collections.</string>
   <string name="reading_list_login_reminder_title">Title for a tutorial card that reminds the user that logging in will enable syncing of collections.</string>
   <string name="reading_lists_login_reminder_text">Text for a tutorial card that reminds the user that logging in will enable syncing of collections.</string>
@@ -709,7 +708,6 @@
   <string name="reading_lists_menu_import_list">Menu option offering user an option to import a collection from a csv file.</string>
   <string name="reading_lists_menu_sort_by">Heading for a list of suggested sort options.\n{{Identical|Sort by}}</string>
   <string name="reading_lists_refresh_sync_option">Menu option suggesting that the user can manually sync using this option.</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Affirmative answer to confirm and redirect to the login / Sign up page.\n\n{{Identical|Log in / create account}}\n\n{{Identical|Log in}}</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Message shown when a single collection article is made available for offline use.</item>
     <item quantity="other">Message shown when more than one collection article is made available for offline use.</item>
