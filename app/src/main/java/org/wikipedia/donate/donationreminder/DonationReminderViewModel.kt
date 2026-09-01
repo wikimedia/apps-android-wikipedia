@@ -105,12 +105,11 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
         Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(userEnabled = enabled)
         if (enabled) {
             Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(isReminderReady = false)
-        } else {
-            DonorExperienceEvent.logDonationReminderAction(
-                activeInterface = "global_setting",
-                action = "reminder_set_off"
-            )
         }
+        DonorExperienceEvent.logDonationReminderAction(
+            activeInterface = if (isFromSettings) "global_setting" else "reminder_config",
+            action = if (enabled) "reminder_enable" else "reminder_disable"
+        )
         _uiState.update { it.copy(isDonationReminderEnabled = enabled) }
     }
 
