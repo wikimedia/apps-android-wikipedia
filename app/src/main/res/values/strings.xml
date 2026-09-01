@@ -1957,10 +1957,7 @@
     <string name="games_hub_activity_overflow_learn_more">Learn more</string>
 
     <!-- On this day game -->
-    <string name="on_this_day_game_entry_dialog_title">Introducing</string>
-    <string name="on_this_day_game_entry_dialog_subtitle">Wikipedia games</string>
     <string name="on_this_day_game_entry_dialog_button">Play</string>
-    <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia games are available in the Games Hub, found in the MORE menu.</string>
     <string name="on_this_day_game_title">Which came first?</string>
     <string name="on_this_day_game_dialog_button">Play</string>
     <string name="on_this_day_game_splash_message">Guess which event came first on this day in history.</string>
@@ -2374,8 +2371,8 @@
     <string name="donation_reminders_settings_title">How should we remind you?</string>
     <string name="donation_reminders_settings_option_title">Donation reminders</string>
     <string name="donation_reminders_settings_thank_you_message">Your generosity helps keep Wikipedia thriving. Set up a donation reminder based on the number of articles you read.</string>
-    <string name="donation_reminders_settings_donation_info">Donations go to the Wikimedia Foundation and affiliates, proud hosts of Wikipedia and other free knowledge projects.</string>
-    <string name="donation_reminders_settings_article_frequency_label">When I read</string>
+    <string name="donation_reminders_settings_donation_info">Donations go to the Wikimedia Foundation and affiliates, proud hosts of Wikipedia and its sister sites.</string>
+    <string name="donation_reminders_settings_article_frequency_label">Whenever I read</string>
     <string name="donation_reminders_settings_amount_label">Remind me to donate</string>
     <string name="donation_reminders_settings_confirm_btn_label">Confirm reminder</string>
     <string name="donation_reminders_settings_about_experiment_btn_label">About this experiment</string>
@@ -2384,10 +2381,12 @@
     <string name="donation_reminders_settings_warning_max_amount">Maximum %s is allowed</string>
     <string name="donation_reminders_settings_option_custom">Custom…</string>
     <string name="donation_reminders_snacbkbar_confirmation_label">Thank you! We\'ll remind you to donate %1$s when you read %2$s while this experiment runs.</string>
-    <string name="donation_reminders_first_milestone_reached_prompt_title">You\'ve read %1$s since you pledged %2$s</string>
-    <string name="donation_reminders_subsequent_milestone_reached_prompt_title">You\'ve read another %1$s</string>
+    <string name="donation_reminders_first_milestone_reached_prompt_title">You\'ve read %1$s since you pledged %2$s!</string>
+    <string name="donation_reminders_subsequent_milestone_reached_prompt_title">You\'ve read another %1$s!</string>
     <string name="donation_reminders_prompt_message">You set up a donation reminder on %1$s to give %3$s every %2$s you read. Ready to follow through on your pledge to support Wikipedia?</string>
+    <string name="donation_reminders_prompt_message_v2">On %1$s you asked us to remind you to donate after reading %2$s. If Wikipedia has provided you with %3$s of knowledge, please join the 2%% of readers who give and complete your pledge today.</string>
     <string name="donation_reminders_prompt_positive_button">Donate now</string>
+    <string name="donation_reminders_prompt_positive_button_v2">Yes, donate now</string>
     <string name="donation_reminders_prompt_negative_button">Not now</string>
     <string name="donation_reminders_gpay_text">Donate %s with Google Pay</string>
     <string name="donation_reminders_gpay_different_amount_text">Donate a different amount with Google Pay</string>
@@ -2405,6 +2404,23 @@
     <string name="donation_reminders_settings_report_email_subject">Issue Report-Donation Reminders</string>
     <string name="donation_reminders_settings_report_email_body">I have encountered a problem with the Donation reminders feature:\n- [Describe specific problem]\n- [Screenshots or links]\n\nThe behavior I would like to see is:\n- [Describe proposed solution]</string>
     <string name="donation_reminders_snackbar_modify_button_label">Modify</string>
+    <string name="donation_reminders_settings_article_number_selection_label">Articles</string>
+    <string name="donation_reminders_settings_custom_amount_label">Custom amount</string>
+    <string name="donation_reminders_beta_label">Beta</string>
+    <string name="donation_reminders_wrap_up_title">That\'s a wrap on donation reminders</string>
+    <string name="donation_reminders_wrap_up_message"><![CDATA[Thanks for trying reminders based on the articles you read. This was a test - and your feedback decides whether it becomes a permanent way to give on Wikipedia.<br />Takes about a minute. No donation required.]]></string>
+    <string name="donation_reminders_wrap_up_share_feedback_button">Share feedback</string>
+    <string name="donation_reminders_wrap_up_survey_title">A quick question about donation reminders</string>
+    <string name="donation_reminders_wrap_up_survey_message">Should donation reminders based on articles you read become a permanent feature?</string>
+    <string name="donation_reminders_wrap_up_survey_option_keep_it">Keep it</string>
+    <string name="donation_reminders_wrap_up_survey_option_remove_it">Remove it</string>
+    <string name="donation_reminders_wrap_up_survey_option_not_sure">Not sure</string>
+    <string name="donation_reminders_wrap_up_survey_optional_hint">Anything else? (Optional)</string>
+    <string name="donation_reminders_wrap_up_survey_thank_you_message">Thank you for your feedback. Your answer helps us decide what to build next.</string>
+    <string name="donation_reminders_eoe_title">This is the end of the experiment</string>
+    <string name="donation_reminders_eoe_message">We will no longer show in-app reminders but you can still support by donating your pledged amount %s monthly.</string>
+    <string name="donation_reminders_eoe_give_monthly_button">Give monthly</string>
+    <string name="donation_reminders_eoe_donate_dialog_title">How would you like to give monthly?</string>
 
     <!-- Hybrid Search -->
     <string name="hybrid_search_search_hint">Search or ask anything</string>
@@ -2589,7 +2605,6 @@
     <string name="home_feed_for_you_screen_empty_ways_to_start">Ways to get started:</string>
     <string name="home_feed_for_you_screen_empty_add_interests"><![CDATA[Add <a href="#add_interests">some interests</a>]]></string>
     <string name="home_feed_for_you_screen_empty_see_community"><![CDATA[See what\'s happening in <a href="#community_tab">community</a>]]></string>
-    <string name="home_feed_update_tooltip1">New: \"Random Article\" and \"Places of Interest\" are available in For You and \"Did You Know\" is in the Community Tab.</string>
     <string name="home_feed_random_title">Random</string>
     <string name="home_feed_random_subtitle">Random article to spark your curiosity</string>
     <string name="home_feed_random_shuffle_button">Shuffle</string>

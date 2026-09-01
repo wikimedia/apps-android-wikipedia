@@ -203,9 +203,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
 
         binding.mainNavTabLayout.setOverlayDot(NavTab.EDITS, !Prefs.isActivityTabOnboardingShown)
 
-        // Check this first because the Feed tooltip marks its preference before posting its UI.
         maybeShowReadingListsUpdateTooltip()
-        maybeShowFeedNewModulesTooltip()
         Prefs.incrementExploreFeedVisitCount()
 
         notificationButtonView = NotificationButtonView(requireActivity())
@@ -568,28 +566,12 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
         }
     }
 
-    private fun maybeShowFeedNewModulesTooltip() {
-        if (Prefs.exploreFeedVisitCount == 0) {
-            // Explicitly consider this tooltip "shown", since we only want to show it to users
-            // who have used the Feed already, instead of completely new users.
-            Prefs.isHomeFeedUpdateTooltipShown = true
-        } else if (!Prefs.isHomeFeedUpdateTooltipShown) {
-            Prefs.isHomeFeedUpdateTooltipShown = true
-            binding.root.post {
-                if (isAdded) {
-                    FeedbackUtil.showTooltip(requireActivity(), binding.mainNavTabLayout.findViewById(NavTab.HOME.id), getString(R.string.home_feed_update_tooltip1), aboveOrBelow = true, autoDismiss = false, showDismissButton = true)
-                }
-            }
-        }
-    }
-
     private fun maybeShowReadingListsUpdateTooltip() {
         val endDate = LocalDate.of(2026, 9, 15)
         // Only show the tooltip to existing users and expire after September 15, 2026
         if (Prefs.exploreFeedVisitCount == 0) {
             Prefs.isReadingListsUpdateTooltipShown = true
-        } else if (Prefs.isHomeFeedUpdateTooltipShown &&
-                !Prefs.isReadingListsUpdateTooltipShown &&
+        } else if (!Prefs.isReadingListsUpdateTooltipShown &&
                 !LocalDate.now().isAfter(endDate)) {
             Prefs.isReadingListsUpdateTooltipShown = true
             binding.root.post {

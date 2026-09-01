@@ -1831,10 +1831,7 @@
   <string name="games_hub_activity_games_unavailable_message_learn_more_action">Lær mere</string>
   <string name="games_hub_activity_overflow_view_game_stats">Se spilstatistik</string>
   <string name="games_hub_activity_overflow_learn_more">Lær mere</string>
-  <string name="on_this_day_game_entry_dialog_title">Introducerer</string>
-  <string name="on_this_day_game_entry_dialog_subtitle">Wikipedia spil</string>
   <string name="on_this_day_game_entry_dialog_button">Spil</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia-spil er tilgængelige i Spilhubben, som findes i menuen MERE.</string>
   <string name="on_this_day_game_title">Hvad kom først?</string>
   <string name="on_this_day_game_dialog_button">Spil</string>
   <string name="on_this_day_game_splash_message">Gæt hvilken begivenhed, der kom først på denne dag i historien.</string>
@@ -2451,7 +2448,6 @@
   <string name="home_feed_for_you_screen_empty_ways_to_start">Måder at komme i gang på:</string>
   <string name="home_feed_for_you_screen_empty_add_interests">Tilføj &lt;a href=\"#add_interests\"&gt;nogle interesser&lt;/a&gt;</string>
   <string name="home_feed_for_you_screen_empty_see_community">Se hvad der sker i &lt;a href=\"#community_tab\"&gt;fællesskabet&lt;/a&gt;</string>
-  <string name="home_feed_update_tooltip1">Nyt: \"Tilfældig artikel\" og \"Seværdigheder\" er tilgængelige i Til dig, og \"Vidste du det?\" er i fanen Fællesskab.</string>
   <string name="home_feed_random_title">Tilfældig</string>
   <string name="home_feed_random_subtitle">Tilfældig artikel til at vække din nysgerrighed</string>
   <string name="home_feed_random_shuffle_button">Bland</string>

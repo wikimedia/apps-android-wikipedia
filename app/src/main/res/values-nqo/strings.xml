@@ -1522,10 +1522,7 @@
   <string name="survey_dialog_general_maybe">ߕߎ߬ߡߊ߬ߘߐ߫</string>
   <string name="survey_dialog_input_hint">ߞߊ߲߬ߞߎߡߊ ߡߊߊ߬ߝߏ߫ ߜߘߍ߫</string>
   <string name="survey_dialog_submitted_snackbar">ߞߊ߲߬ߞߎߡߊ ߓߘߊ߫ ߗߋ߫. ߌ ߣߌ߫ ߗߋ߫߹</string>
-  <string name="on_this_day_game_entry_dialog_title">ߘߊ߲߬ߕߍ߰ߟߌ</string>
-  <string name="on_this_day_game_entry_dialog_subtitle">ߥߞߌߔߋߘߌߦߊ ߕߏߟߏ߲</string>
   <string name="on_this_day_game_entry_dialog_button" fuzzy="true">ߓߌ߬ ߕߏߟߏ߲ ߕߏߟߏ߲߫</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message" fuzzy="true">ߧߞߌߔߋߘߌߦߊ ߕߏߟߏ߲ ߠߎ߬ ߦߋ߫ ߛߐ߬ߘߐ߲߬ ߠߊ߫ ߘߏ߯ߘߏ߯ ߘߐߛߏ߯ߙߋߕߊ ߟߋ߬ ߟߊ߫.</string>
   <string name="on_this_day_game_title">ߢߎ߬ߡߊ߲߬ ߝߟߐ߫ ߦߋ߫ ߣߊ߬؟</string>
   <string name="on_this_day_game_dialog_button">ߊ߬ ߕߏߟߏ߲߫</string>
   <string name="on_this_day_game_splash_message">ߌߟߋ ߢߣߊ߫ ߕߏߟߏ߲ ߢߎ߬ߡߊ߲߫ ߣߊ߬ ߘߊ߫ ߣߌ߲߬ ߟߏ߲ ߞߊ߲ߠߊ߫ ߘߐ߬ߝߐ ߘߐ߫.</string>

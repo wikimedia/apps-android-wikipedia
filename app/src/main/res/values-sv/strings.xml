@@ -1811,10 +1811,7 @@
   <string name="games_hub_activity_games_unavailable_message_learn_more_action">Ta reda på mer</string>
   <string name="games_hub_activity_overflow_view_game_stats">Visa spelstatistik</string>
   <string name="games_hub_activity_overflow_learn_more">Ta reda på mer</string>
-  <string name="on_this_day_game_entry_dialog_title">Introducerar</string>
-  <string name="on_this_day_game_entry_dialog_subtitle">Wikipedia-spel</string>
   <string name="on_this_day_game_entry_dialog_button">Spela</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia-spel är tillgängliga i Spelhubben, i MER-menyn.</string>
   <string name="on_this_day_game_title">Vilket kom först?</string>
   <string name="on_this_day_game_dialog_button">Spela</string>
   <string name="on_this_day_game_splash_message">Gissa vilken händelse som kom först den här dagen i historien.</string>
@@ -2428,7 +2425,6 @@
   <string name="home_feed_for_you_screen_empty_ways_to_start">Sätt att komma igång:</string>
   <string name="home_feed_for_you_screen_empty_add_interests">Lägg till &lt;a href=\"#add_interests\"&gt;några intressen&lt;/a&gt;</string>
   <string name="home_feed_for_you_screen_empty_see_community">Se vad som händer i &lt;a href=\"#community_tab\"&gt;gemenskapen&lt;/a&gt;</string>
-  <string name="home_feed_update_tooltip1">Nyhet: \"Slumpartikel\" och \"Sevärdheter\" finns i \"För dig\" samt \"Visste du att\" finns i gemenskapsfliken.</string>
   <string name="home_feed_random_title">Slumpartikel</string>
   <string name="home_feed_random_subtitle">Slumpartikel för att väcka din nyfikenhet</string>
   <string name="home_feed_random_shuffle_button">Blanda</string>

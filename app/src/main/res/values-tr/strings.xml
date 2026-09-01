@@ -1841,10 +1841,7 @@
   <string name="games_hub_activity_games_unavailable_message_learn_more_action">Daha fazla bilgi</string>
   <string name="games_hub_activity_overflow_view_game_stats">Oyun istatistiklerini görüntüle</string>
   <string name="games_hub_activity_overflow_learn_more">Daha fazla bilgi</string>
-  <string name="on_this_day_game_entry_dialog_title">Karşınızda</string>
-  <string name="on_this_day_game_entry_dialog_subtitle">Vikipedi oyunları</string>
   <string name="on_this_day_game_entry_dialog_button">Oyna</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Vikipedi oyunları, DAHA FAZLA menüsündeki Oyun Merkezi\'nde bulunabilir.</string>
   <string name="on_this_day_game_title">Hangisi daha önce oldu?</string>
   <string name="on_this_day_game_dialog_button">Oyna</string>
   <string name="on_this_day_game_splash_message">Tarihte bugün hangi olayın daha önce gerçekleştiğini tahmin edin.</string>
@@ -2458,7 +2455,6 @@
   <string name="home_feed_for_you_screen_empty_ways_to_start">Başlama yolları:</string>
   <string name="home_feed_for_you_screen_empty_add_interests">&lt;a href=\"#add_interests\"&gt;İlgi alanları&lt;/a&gt; ekleyin</string>
   <string name="home_feed_for_you_screen_empty_see_community">&lt;a href=\"#community_tab\"&gt;Topluluk&lt;/a&gt; sekmesinde neler olduğuna bakın</string>
-  <string name="home_feed_update_tooltip1">Yeni: \"Rastgele Madde\" ve \"İlgi Çekici Yerler\" artık \"Size Özel\" bölümünde, \"Biliyor muydunuz\" ise \"Topluluk\" sekmesinde yer alıyor.</string>
   <string name="home_feed_random_title">Rastgele</string>
   <string name="home_feed_random_subtitle">Merakınızı uyandıracak rastgele bir makale</string>
   <string name="home_feed_random_shuffle_button">Karıştır</string>
