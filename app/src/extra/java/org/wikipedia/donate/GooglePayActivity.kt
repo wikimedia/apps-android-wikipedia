@@ -278,6 +278,7 @@ class GooglePayActivity : BaseActivity() {
         }
         binding.amountPresetsFlow.referencedIds = viewIds.toIntArray()
         setFilledAmountToText()
+        setCheckRecurringDonation()
         setButtonHighlighted(filledAmountButton)
     }
 
@@ -285,6 +286,10 @@ class GooglePayActivity : BaseActivity() {
         if (viewModel.filledAmount > 0f) {
             setAmountText(viewModel.filledAmount)
         }
+    }
+
+    private fun setCheckRecurringDonation() {
+        binding.checkBoxRecurring.isChecked = viewModel.checkedRecurringDonation
     }
 
     private fun setButtonHighlighted(button: View? = null) {
@@ -315,12 +320,14 @@ class GooglePayActivity : BaseActivity() {
     companion object {
         private const val CAMPAIGN_ID_APP_MENU = "appmenu"
         const val FILLED_AMOUNT = "filledAmount"
+        const val CHECKED_RECURRING_DONATION = "checkedRecurringDonation"
 
-        fun newIntent(context: Context, campaignId: String? = null, donateUrl: String? = null, filledAmount: Float = 0f): Intent {
+        fun newIntent(context: Context, campaignId: String? = null, donateUrl: String? = null, filledAmount: Float = 0f, checkedRecurringDonation: Boolean = false): Intent {
             return Intent(context, GooglePayActivity::class.java)
                 .putExtra(DonateDialog.ARG_CAMPAIGN_ID, campaignId)
                 .putExtra(DonateDialog.ARG_DONATE_URL, donateUrl)
                 .putExtra(FILLED_AMOUNT, filledAmount)
+                .putExtra(CHECKED_RECURRING_DONATION, checkedRecurringDonation)
         }
     }
 }

@@ -23,6 +23,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.donate.DonateDialog
+import org.wikipedia.donate.donationreminder.DonationReminderAbTest
 import org.wikipedia.donate.donationreminder.DonationReminderActivity
 import org.wikipedia.donate.donationreminder.DonationReminderHelper
 import org.wikipedia.gallery.GalleryActivity
@@ -36,6 +37,7 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ObservableWebView
+import org.wikipedia.views.SurveyDialog
 
 class LeadImagesHandler(private val parentFragment: PageFragment,
                         webView: ObservableWebView,
@@ -208,28 +210,50 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
 
             override fun donationReminderCardPositiveClicked() {
                 hideDonationReminderCard()
-                DonorExperienceEvent.logDonationReminderAction(
-                    activeInterface = "reminder_milestone",
-                    action = "donate_start_click",
-                    campaignId = DonationReminderHelper.getCampaignId()
-                )
-                ExclusiveBottomSheetPresenter.show(parentFragment.parentFragmentManager, DonateDialog.newInstance(fromDonationReminder = true))
+                if (DonationReminderHelper.isWrapUpEnabled) {
+                    if (DonationReminderAbTest().group == 1) {
+                        SurveyDialog.showDonationReminderFeedbackDialog(
+                            activity = parentFragment.requireActivity(),
+                            onImpression = {
+                                // TODO: instrumentation
+                            },
+                            onCancel = {
+                                // TODO: instrumentation
+                            },
+                            onSubmit = { feedbackOption, feedbackText ->
+                                // TODO: instrumentation
+                            }
+                        )
+                    } else {
+                        ExclusiveBottomSheetPresenter.show(parentFragment.parentFragmentManager, DonateDialog.newInstance(fromDonationReminder = true, fromDonationReminderWrapUp = true))
+                    }
+                } else {
+                    DonorExperienceEvent.logDonationReminderAction(
+                        activeInterface = "reminder_milestone",
+                        action = "donate_start_click",
+                        campaignId = DonationReminderHelper.getCampaignId()
+                    )
+                    ExclusiveBottomSheetPresenter.show(parentFragment.parentFragmentManager, DonateDialog.newInstance(fromDonationReminder = true))
+                }
             }
 
             override fun donationReminderCardNegativeClicked() {
                 hideDonationReminderCard()
-                DonorExperienceEvent.logDonationReminderAction(
-                    activeInterface = "reminder_milestone",
-                    action = "notnow_click"
-                )
-                FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.donation_reminders_prompt_dismiss_snackbar))
-                    .setAction(R.string.donation_reminders_snackbar_modify_button_label) {
-                        DonorExperienceEvent.logDonationReminderAction(
-                            activeInterface = "reminder_milestone",
-                            action = "setting_click"
-                        )
-                        activity.startActivity(DonationReminderActivity.newIntent(activity, isFromSettings = true))
-                    }.show()
+                if (DonationReminderHelper.isWrapUpEnabled) {
+                    // TODO: instrumentation
+                } else {
+                    DonorExperienceEvent.logDonationReminderAction(
+                        activeInterface = "reminder_milestone",
+                        action = "notnow_click"
+                    )
+                    FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.donation_reminders_prompt_dismiss_snackbar))
+                        .setAction(R.string.donation_reminders_snackbar_modify_button_label) {
+                            DonorExperienceEvent.logDonationReminderAction(activeInterface = "reminder_milestone",
+                                action = "setting_click"
+                            )
+                            activity.startActivity(DonationReminderActivity.newIntent(activity, isFromSettings = true))
+                        }.show()
+                }
             }
         }
     }

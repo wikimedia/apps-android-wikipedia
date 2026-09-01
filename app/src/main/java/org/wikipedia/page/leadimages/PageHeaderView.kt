@@ -144,7 +144,12 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
             val articleText = context.resources.getQuantityString(
                 R.plurals.donation_reminders_text_articles, config.articleFrequency, config.articleFrequency
             )
-            val donationAmount = DonateUtil.currencyFormat.format(Prefs.donationReminderConfig.donateAmount)
+            val donateAmount = if (Prefs.donationReminderConfig.donateAmount <= 0) {
+                DonationReminderHelper.defaultDonateAmountOptions.first()
+            } else {
+                Prefs.donationReminderConfig.donateAmount
+            }
+            val donationAmountText = DonateUtil.currencyFormat.format(donateAmount)
             val titleText = if (isWrapUpEnabled) {
                 if (DonationReminderAbTest().group == 1) {
                     context.getString(R.string.donation_reminders_wrap_up_title)
@@ -153,7 +158,7 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
                 }
             } else {
                 if (config.goalReachedCount == 1) {
-                    context.getString(R.string.donation_reminders_first_milestone_reached_prompt_title, articleText, donationAmount)
+                    context.getString(R.string.donation_reminders_first_milestone_reached_prompt_title, articleText, donationAmountText)
                 } else {
                     context.getString(R.string.donation_reminders_subsequent_milestone_reached_prompt_title, articleText)
                 }
@@ -164,10 +169,10 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
                 if (DonationReminderAbTest().group == 1) {
                     context.getString(R.string.donation_reminders_wrap_up_message)
                 } else {
-                    context.getString(R.string.donation_reminders_eoe_message, donationAmount)
+                    context.getString(R.string.donation_reminders_eoe_message, donationAmountText)
                 }
             } else {
-                context.getString(R.string.donation_reminders_prompt_message_v2, dateText, articleText, donationAmount)
+                context.getString(R.string.donation_reminders_prompt_message_v2, dateText, articleText, donationAmountText)
             }
             val positiveButtonText = if (isWrapUpEnabled) {
                 if (DonationReminderAbTest().group == 1) {

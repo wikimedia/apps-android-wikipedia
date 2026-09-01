@@ -77,8 +77,6 @@ object SurveyDialog {
         val binding = DialogFeedbackOptionsBinding.inflate(activity.layoutInflater)
         binding.titleText.text = activity.getString(R.string.donation_reminders_wrap_up_survey_title)
         binding.messageText.text = activity.getString(R.string.donation_reminders_wrap_up_survey_message)
-        binding.optionVerySatisfied.isVisible = true
-        binding.optionVeryUnsatisfied.isVisible = true
         binding.optionSatisfied.text = activity.getString(R.string.donation_reminders_wrap_up_survey_option_keep_it)
         binding.optionNeutral.text = activity.getString(R.string.donation_reminders_wrap_up_survey_option_remove_it)
         binding.optionUnsatisfied.text = activity.getString(R.string.donation_reminders_wrap_up_survey_option_not_sure)

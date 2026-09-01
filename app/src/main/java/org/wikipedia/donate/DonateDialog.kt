@@ -22,6 +22,7 @@ import org.wikipedia.donate.donationreminder.DonationReminderHelper
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.CustomTabsUtil
+import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
 
@@ -87,7 +88,7 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
                     }
                 }
                 if (arguments?.getBoolean(ARG_FROM_DONATION_REMINDER) == true) {
-                    setupDirectGooglePayButton()
+                    setupDirectGooglePayButton(arguments?.getBoolean(ARG_FROM_DONATION_REMINDER) ?: false)
                 }
             }
         }
@@ -114,10 +115,14 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
         }
     }
 
-    private fun setupDirectGooglePayButton() {
-        val donateAmount = Prefs.donationReminderConfig.donateAmount
+    private fun setupDirectGooglePayButton(fromDonationReminderWrapUp: Boolean) {
+        val donateAmount = if (Prefs.donationReminderConfig.donateAmount <= 0) {
+            DonationReminderHelper.defaultDonateAmountOptions.first()
+        } else {
+            Prefs.donationReminderConfig.donateAmount
+        }
         val donateAmountText =
-            DonateUtil.currencyFormat.format(Prefs.donationReminderConfig.donateAmount)
+            DonateUtil.currencyFormat.format(donateAmount)
         val donateButtonText = getString(R.string.donation_reminders_gpay_text, donateAmountText)
         binding.donateGooglePayButton.text = donateButtonText
         binding.donateGooglePayButton.setOnClickListener {
@@ -127,7 +132,13 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
                 campaignId = DonationReminderHelper.getCampaignId()
             )
             (requireActivity() as? BaseActivity)?.launchDonateActivity(
-                GooglePayComponent.getDonateActivityIntent(requireActivity(), filledAmount = donateAmount, campaignId = DonationReminderHelper.getCampaignId()))
+                GooglePayComponent.getDonateActivityIntent(
+                    activity = requireActivity(),
+                    filledAmount = donateAmount,
+                    checkedRecurringDonation = fromDonationReminderWrapUp,
+                    campaignId = DonationReminderHelper.getCampaignId()
+                )
+            )
         }
         binding.donateGooglePayDifferentAmountButton.isVisible = true
         binding.donateGooglePayDifferentAmountButton.setOnClickListener {
@@ -147,21 +158,38 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
             )
             onDonateClicked()
         }
-        binding.gPayHeaderContainer.isVisible = false
+        if (fromDonationReminderWrapUp) {
+            binding.gPayTitle.text = getString(R.string.donation_reminders_eoe_donate_dialog_title)
+            (binding.gPayTitle.layoutParams as? ViewGroup.MarginLayoutParams)?.let { params ->
+                params.bottomMargin = DimenUtil.roundedDpToPx(16.0f)
+                binding.gPayTitle.layoutParams = params
+            }
+            binding.gPayDescription.isVisible = false
+        } else {
+            binding.gPayHeaderContainer.isVisible = false
+        }
     }
 
     companion object {
         const val ARG_CAMPAIGN_ID = "campaignId"
         const val ARG_DONATE_URL = "donateUrl"
         const val ARG_FROM_DONATION_REMINDER = "fromDonationReminder"
+        const val ARG_FROM_DONATION_REMINDER_WRAP_UP = "fromDonationReminderWrapUp"
         const val ARG_FROM_YIR = "fromYiR"
 
-        fun newInstance(campaignId: String? = null, donateUrl: String? = null, fromDonationReminder: Boolean = false, fromYiR: Boolean = false): DonateDialog {
+        fun newInstance(
+            campaignId: String? = null,
+            donateUrl: String? = null,
+            fromDonationReminder: Boolean = false,
+            fromYiR: Boolean = false,
+            fromDonationReminderWrapUp: Boolean = false
+        ): DonateDialog {
             return DonateDialog().apply {
                 arguments = Bundle().apply {
                     putString(ARG_CAMPAIGN_ID, campaignId)
                     putString(ARG_DONATE_URL, donateUrl)
                     putBoolean(ARG_FROM_DONATION_REMINDER, fromDonationReminder)
+                    putBoolean(ARG_FROM_DONATION_REMINDER_WRAP_UP, fromDonationReminderWrapUp)
                     putBoolean(ARG_FROM_YIR, fromYiR)
                 }
             }
