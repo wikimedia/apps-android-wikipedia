@@ -33,8 +33,8 @@ object DonationReminderHelper {
     val isEnabled
         get() = (ReleaseUtil.isDevRelease || isInEligibleCountry && isInDateRange) && isTestGroupUser
     val isWrapUpEnabled
-        get() = (ReleaseUtil.isDevRelease && Prefs.donationReminderDevWrapUp || isInEligibleCountry && isInWrapUpDateRange) && isTestGroupUser &&
-                (Prefs.donationReminderConfig.wrapUpEnabled || ReleaseUtil.isDevRelease && Prefs.donationReminderDevWrapUp)
+        get() = (Prefs.donationReminderDevWrapUp && Prefs.donationReminderConfig.wrapUpEnabled || isInEligibleCountry && isInWrapUpDateRange) &&
+                isTestGroupUser && Prefs.donationReminderConfig.wrapUpEnabled
 
     val hasActiveReminder get() = Prefs.donationReminderConfig.userEnabled && Prefs.donationReminderConfig.isReminderReady && isInEligibleCountry
 
@@ -123,6 +123,7 @@ object DonationReminderHelper {
             Prefs.donationReminderConfig = config.copy(
                 wrapUpEnabled = false
             )
+            Prefs.donationReminderDevWrapUp = false
         } else {
             Prefs.donationReminderConfig = config.copy(
                 isReminderReady = false
