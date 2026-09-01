@@ -278,7 +278,7 @@ class GooglePayActivity : BaseActivity() {
         }
         binding.amountPresetsFlow.referencedIds = viewIds.toIntArray()
         setFilledAmountToText()
-        setCheckRecurringDonation()
+        setCheckedRecurringDonation()
         setButtonHighlighted(filledAmountButton)
     }
 
@@ -288,7 +288,7 @@ class GooglePayActivity : BaseActivity() {
         }
     }
 
-    private fun setCheckRecurringDonation() {
+    private fun setCheckedRecurringDonation() {
         binding.checkBoxRecurring.isChecked = viewModel.checkedRecurringDonation
     }
 
