@@ -142,7 +142,7 @@ data class DonationReminderConfig(
     val isReminderReady: Boolean = false,
     val timesReminderShown: Int = 0,
     val goalReachedCount: Int = 0,
-    val wrapUpEnabled: Boolean = true
+    val wrapUpEnabled: Boolean = false
 ) {
     val isSetup: Boolean get() = userEnabled && setupTimestamp != 0L && articleFrequency > 0
 

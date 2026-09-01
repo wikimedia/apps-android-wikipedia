@@ -12,6 +12,7 @@ import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingActivity.Companion.EXTRA_FROM_SETTINGS
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.UriUtil
@@ -74,6 +75,7 @@ class DonationReminderActivity : BaseActivity() {
             }
         }
         sendAnalysis()
+        enableWrapUp()
     }
 
     private fun sendAnalysis() {
@@ -82,6 +84,14 @@ class DonationReminderActivity : BaseActivity() {
                 activeInterface = "reminder_config",
                 action = "impression",
                 campaignId = DonationReminderHelper.getCampaignId()
+            )
+        }
+    }
+
+    private fun enableWrapUp() {
+        if (!DonationReminderHelper.isWrapUpEnabled) {
+            Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(
+                wrapUpEnabled = true
             )
         }
     }

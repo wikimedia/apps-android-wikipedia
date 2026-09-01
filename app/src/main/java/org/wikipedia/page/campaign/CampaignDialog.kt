@@ -87,6 +87,10 @@ class CampaignDialog internal constructor(private val context: Context, val camp
                 campaignId = campaignId
             )
             DonationReminderAbTest().maybeSendExposureEvent()
+            // Enable wrap up for the user if they are in the eligible country and have seen the campaign.
+            Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(
+                wrapUpEnabled = true
+            )
         }
         if (!DonationReminderHelper.isEnabled) {
             Prefs.announcementPauseTime = Date().time
