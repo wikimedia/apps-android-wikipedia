@@ -334,9 +334,9 @@ fun DonationReminderContent(
     val donateGooglePayMaxAmount = stringResource(R.string.donate_gpay_maximum_amount)
 
     fun customAmountErrorMessage(inputText: String): String {
-        val parsedCustomAmount = inputText.toFloatOrNull()
+        val parsedCustomAmount = DonateUtil.getAmountFloat(inputText)
         return when {
-            inputText.isBlank() || parsedCustomAmount == null || parsedCustomAmount < uiState.donationAmount.minimumAmount -> {
+            inputText.isBlank() || parsedCustomAmount < uiState.donationAmount.minimumAmount -> {
                 String.format(
                     donateGooglePayMinAmount,
                     uiState.donationAmount.displayFormatter(uiState.donationAmount.minimumAmount)
