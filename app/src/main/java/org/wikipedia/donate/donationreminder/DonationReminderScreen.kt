@@ -79,7 +79,6 @@ import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import kotlinx.coroutines.launch
 import org.wikipedia.R
-import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.compose.components.AppButton
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
@@ -383,11 +382,6 @@ fun DonationReminderContent(
                     onOptionSelected = { option, source ->
                         when (option) {
                             is OptionItem.Preset -> {
-                                val activeInterface = if (viewModel.isFromSettings) "global_setting" else "reminder_config"
-                                DonorExperienceEvent.logDonationReminderAction(
-                                    activeInterface = activeInterface,
-                                    action = "freq_change_click"
-                                )
                                 viewModel.updateReadFrequencyState(option.value, source)
                             }
 
@@ -414,12 +408,6 @@ fun DonationReminderContent(
                     onOptionSelected = { option, source ->
                         when (option) {
                             is OptionItem.Preset -> {
-                                val activeInterface =
-                                    if (viewModel.isFromSettings) "global_setting" else "reminder_config"
-                                DonorExperienceEvent.logDonationReminderAction(
-                                    activeInterface = activeInterface,
-                                    action = "amount_change_click"
-                                )
                                 customErrorMessage = ""
                                 viewModel.updateDonationAmountState(option.value, source)
                             }

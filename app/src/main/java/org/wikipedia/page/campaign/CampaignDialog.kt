@@ -95,6 +95,7 @@ class CampaignDialog internal constructor(private val context: Context, val camp
         if (!DonationReminderHelper.isEnabled) {
             Prefs.announcementPauseTime = Date().time
             FeedbackUtil.showMessage(context as Activity, R.string.donation_campaign_maybe_later_snackbar)
+            DonorExperienceEvent.logAction("impression", "maybe_later_toast", campaignId = campaignId)
             dismissDialog(false)
             return
         }
