@@ -2386,6 +2386,20 @@
     <string name="donation_reminders_settings_article_number_selection_label">Articles</string>
     <string name="donation_reminders_settings_custom_amount_label">Custom amount</string>
     <string name="donation_reminders_beta_label">Beta</string>
+    <string name="donation_reminders_wrap_up_title">That\'s a wrap on donation reminders</string>
+    <string name="donation_reminders_wrap_up_message"><![CDATA[Thanks for trying reminders based on the articles you read. This was a test - and your feedback decides whether it becomes a permanent way to give on Wikipedia.<br />Takes about a minute. No donation required.]]></string>
+    <string name="donation_reminders_wrap_up_share_feedback_button">Share feedback</string>
+    <string name="donation_reminders_wrap_up_survey_title">A quick question about donation reminders</string>
+    <string name="donation_reminders_wrap_up_survey_message">Should donation reminders based on articles you read become a permanent feature?</string>
+    <string name="donation_reminders_wrap_up_survey_option_keep_it">Keep it</string>
+    <string name="donation_reminders_wrap_up_survey_option_remove_it">Remove it</string>
+    <string name="donation_reminders_wrap_up_survey_option_not_sure">Not sure</string>
+    <string name="donation_reminders_wrap_up_survey_optional_hint">Anything else? (Optional)</string>
+    <string name="donation_reminders_wrap_up_survey_thank_you_message">Thank you for your feedback. Your answer helps us decide what to build next.</string>
+    <string name="donation_reminders_eoe_title">This is the end of the experiment</string>
+    <string name="donation_reminders_eoe_message">We will no longer show in-app reminders but you can still support by donating your pledged amount %s monthly.</string>
+    <string name="donation_reminders_eoe_give_monthly_button">Give monthly</string>
+    <string name="donation_reminders_eoe_donate_dialog_title">How would you like to give monthly?</string>
 
     <!-- Hybrid Search -->
     <string name="hybrid_search_search_hint">Search or ask anything</string>
