@@ -9,6 +9,7 @@ import androidx.core.net.toUri
 import androidx.core.view.isVisible
 import androidx.core.view.updateLayoutParams
 import org.wikipedia.R
+import org.wikipedia.analytics.ABTest.Companion.GROUP_2
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.databinding.ViewPageHeaderBinding
 import org.wikipedia.donate.DonateUtil
@@ -153,13 +154,13 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
             }
             val donationAmountText = DonateUtil.currencyFormat.format(donateAmount)
             val titleText = if (isWrapUpEnabled) {
-                if (DonationReminderAbTest().group == 1) {
+                if (DonationReminderAbTest().group == GROUP_2) {
                     context.getString(R.string.donation_reminders_wrap_up_title)
                 } else {
                     context.getString(R.string.donation_reminders_eoe_title)
                 }
             } else {
-                if (config.goalReachedCount == 1) {
+                if (config.goalReachedCount == GROUP_2) {
                     context.getString(R.string.donation_reminders_first_milestone_reached_prompt_title, articleText, donationAmountText)
                 } else {
                     context.getString(R.string.donation_reminders_subsequent_milestone_reached_prompt_title, articleText)
@@ -168,7 +169,7 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
 
             val dateText = DateUtil.getMMMMdYYYY(Date(config.setupTimestamp))
             val messageText = if (isWrapUpEnabled) {
-                if (DonationReminderAbTest().group == 1) {
+                if (DonationReminderAbTest().group == GROUP_2) {
                     context.getString(R.string.donation_reminders_wrap_up_message)
                 } else {
                     context.getString(R.string.donation_reminders_eoe_message, donationAmountText)
@@ -177,7 +178,7 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
                 context.getString(R.string.donation_reminders_prompt_message_v2, dateText, articleText, donationAmountText)
             }
             val positiveButtonText = if (isWrapUpEnabled) {
-                if (DonationReminderAbTest().group == 1) {
+                if (DonationReminderAbTest().group == GROUP_2) {
                     context.getString(R.string.donation_reminders_wrap_up_share_feedback_button)
                 } else {
                     context.getString(R.string.donation_reminders_eoe_give_monthly_button)

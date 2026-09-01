@@ -13,6 +13,7 @@ import org.wikipedia.Constants.ImageEditType
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.ABTest.Companion.GROUP_2
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.bridge.JavaScriptActionHandler
@@ -212,7 +213,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
             override fun donationReminderCardPositiveClicked(type: DonationReminderType) {
                 hideDonationReminderCard()
                 if (type == DonationReminderType.WRAP_UP) {
-                    if (DonationReminderAbTest().group == 1) {
+                    if (DonationReminderAbTest().group == GROUP_2) {
                         SurveyDialog.showDonationReminderFeedbackDialog(
                             activity = parentFragment.requireActivity(),
                             onImpression = {
