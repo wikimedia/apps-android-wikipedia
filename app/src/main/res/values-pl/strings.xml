@@ -1964,10 +1964,7 @@
   <string name="games_hub_activity_games_unavailable_message_learn_more_action">Dowiedz się więcej</string>
   <string name="games_hub_activity_overflow_view_game_stats">Wyświetl statystyki gry</string>
   <string name="games_hub_activity_overflow_learn_more">Dowiedz się więcej</string>
-  <string name="on_this_day_game_entry_dialog_title">Przedstawiamy grę</string>
-  <string name="on_this_day_game_entry_dialog_subtitle">Gry Wikipedii</string>
   <string name="on_this_day_game_entry_dialog_button">Zagraj</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Gry Wikipedii są dostępne w sekcji „Centrum gier” w menu „Więcej”.</string>
   <string name="on_this_day_game_title">Co było pierwsze?</string>
   <string name="on_this_day_game_dialog_button">Zagraj</string>
   <string name="on_this_day_game_splash_message">Zgadnij, które wydarzenie miało miejsce jako pierwsze tego dnia w historii.</string>
@@ -2672,7 +2669,6 @@
   <string name="home_feed_for_you_screen_empty_ways_to_start">Jak zacząć:</string>
   <string name="home_feed_for_you_screen_empty_add_interests">Dodaj &lt;a href=\"#add_interests\"&gt;kilka zainteresowań&lt;/a&gt;</string>
   <string name="home_feed_for_you_screen_empty_see_community">Zobacz, co dzieje się w &lt;a href=\"#community_tab\"&gt;społeczności&lt;/a&gt;</string>
-  <string name="home_feed_update_tooltip1">Nowość: funkcje „Losowy artykuł” i „Miejsca w pobliżu” są dostępne w sekcji „Dla Ciebie”, a moduł „Czy wiesz…” znajduje się w zakładce „Społeczność”.</string>
   <string name="home_feed_random_title">Losowy artykuł</string>
   <string name="home_feed_random_subtitle">Losowy artykuł, który rozbudzi Twoją ciekawość</string>
   <string name="home_feed_random_shuffle_button">Losuj inne</string>

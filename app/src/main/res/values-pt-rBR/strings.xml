@@ -1849,10 +1849,7 @@
   <string name="games_hub_activity_games_unavailable_message_learn_more_action">Saiba mais</string>
   <string name="games_hub_activity_overflow_view_game_stats">Ver estatísticas do jogo</string>
   <string name="games_hub_activity_overflow_learn_more">Saiba mais</string>
-  <string name="on_this_day_game_entry_dialog_title">Apresentando</string>
-  <string name="on_this_day_game_entry_dialog_subtitle">Wikipédia jogos</string>
   <string name="on_this_day_game_entry_dialog_button">Jogar</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipédia Jogos estão disponíveis no Hub de Jogos, que pode ser encontrado no menu MAIS.</string>
   <string name="on_this_day_game_title">O que veio primeiro?</string>
   <string name="on_this_day_game_dialog_button">Jogar</string>
   <string name="on_this_day_game_splash_message">Adivinhe qual evento ocorreu primeiro neste dia na história.</string>
@@ -2325,7 +2322,6 @@
   <string name="home_feed_for_you_screen_empty_ways_to_start">Formas de começar:</string>
   <string name="home_feed_for_you_screen_empty_add_interests">Adicione &lt;a href=\"#add_interests\"&gt;alguns interesses&lt;/a&gt;</string>
   <string name="home_feed_for_you_screen_empty_see_community">Veja o que está acontecendo na &lt;a href=\"#community_tab\"&gt;comunidade&lt;/a&gt;</string>
-  <string name="home_feed_update_tooltip1">Novidade: as seções \"Artigo aleatório\" e \"Locais de interesse\" estão disponíveis na seção \"Para você\", e \"Você sabia?\" está na aba \"Comunidade\".</string>
   <string name="home_feed_random_title">Aleatório</string>
   <string name="home_feed_random_subtitle">Artigo aleatório para despertar sua curiosidade</string>
   <string name="home_feed_random_shuffle_button">Aleatório</string>

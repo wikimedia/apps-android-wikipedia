@@ -1725,8 +1725,6 @@
   <string name="games_hub_activity_games_unavailable_message">Hiện chưa có trò chơi nào có sẵn cho ngôn ngữ này! Các trò chơi sử dụng nội dung của những biên tập viên tình nguyện tạo ra cho Wikipedia của ngôn ngữ đó.</string>
   <string name="games_hub_activity_games_unavailable_message_learn_more_action">Tìm hiểu thêm</string>
   <string name="games_hub_activity_overflow_learn_more">Tìm hiểu thêm</string>
-  <string name="on_this_day_game_entry_dialog_title">Giới thiệu</string>
-  <string name="on_this_day_game_entry_dialog_subtitle">Trò chơi Wikipedia</string>
   <string name="on_this_day_game_entry_dialog_button">Chơi</string>
   <string name="on_this_day_game_title">Sự kiện nào đến trước?</string>
   <string name="on_this_day_game_dialog_button">Chơi</string>
@@ -1907,7 +1905,6 @@
   <string name="home_feed_settings_continue_reading_subtitle">Quay lại đọc những bài viết bạn chưa đọc xong</string>
   <string name="home_feed_did_you_know_title">Bạn có biết</string>
   <string name="home_feed_did_you_know_subtitle">Những thông tin thú vị từ các bài viết được chọn lọc bởi các biên tập viên tình nguyện</string>
-  <string name="home_feed_update_tooltip1">Mới: \"Bài viết ngẫu nhiên\" cùng \"Địa điểm đáng chú ý\" hiện có sẵn trong mục Dành cho bạn, \"Bạn có biết\" hiện nằm trong mục Cộng đồng.</string>
   <string name="home_feed_random_title">Ngẫu nhiên</string>
   <string name="home_feed_settings_feed_configuration_location_title">Vị trí của bạn</string>
   <string name="home_feed_settings_feed_configuration_languages_title">Ngôn ngữ</string>

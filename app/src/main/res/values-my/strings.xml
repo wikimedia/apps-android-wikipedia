@@ -3,6 +3,7 @@
 * Dbrant
 * Dr Lotus Black
 * July Amyutay
+* Kalixlouiis
 * Khunnaingko
 * Lionslayer
 * MuratTheTurkish
@@ -27,8 +28,9 @@
   <string name="search_hint_voice_search">အသံထည့်သွင်းရှာဖွေရေး</string>
   <string name="search_hint_search_languages">ဘာသာစကားတစ်ခုအတွက် ရှာဖွေရန်</string>
   <string name="search_back_button_content_description">နောက်သို့ ပြန်သွားရန်</string>
+  <string name="search_clear_query_content_description">စုံစမ်းရှာဖွေထားမှုကို ရှင်းလင်းရန်</string>
   <string name="search_icon_content_description">ရှာဖွေရန်</string>
-  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">မိမိ၏စာရင်းများ စစ်ထုတ်ရန်</string>
+  <string name="filter_hint_filter_my_lists_and_articles">မိမိ၏စုစည်းမှုများ စစ်ထုတ်ရန်</string>
   <string name="nav_item_suggested_edits">တည်းဖြတ်မှုများ</string>
   <string name="nav_item_activity">လှုပ်ရှားမှု</string>
   <string name="nav_item_more">ပို၍</string>
@@ -43,7 +45,7 @@
   <string name="page_error_back_to_main">နောက်သို့ ပြန်သွားရန်</string>
   <string name="error_back">နောက်သို့ ပြန်သွားရန်</string>
   <string name="error_next">ရှေ့သို့</string>
-  <string name="menu_clear_all_history" fuzzy="true">မှတ်တမ်းအားရှင်းမည်</string>
+  <string name="menu_clear_all_history">စာဖတ်မှု ရာဇဝင် ရှင်းလင်းရန်</string>
   <string name="history_item_deleted">%s ကို ရာဇဝင်မှတ်တမ်းမှ ဖယ်ရှားပြီး</string>
   <string name="history_items_deleted">ဆောင်းပါး %d ခုကို ရာဇဝင်မှတ်တမ်းမှ ဖယ်ရှားပြီး</string>
   <string name="history_item_delete_undo">နောက်ပြန် ပြန်ပြင်ရန်</string>
@@ -80,16 +82,16 @@
   <string name="menu_page_watched">စောင့်ကြည့်ပြီး</string>
   <string name="edit_section_find_in_page">စာမျက်နှာတွင် ရှာဖွေရန်</string>
   <string name="menu_page_font_and_theme">ဖောင့်နှင့် အသွင်အပြင်</string>
-  <string name="menu_page_add_to_list" fuzzy="true">စာဖတ်စာရင်းသို့ ပေါင်းထည့်ရန်</string>
+  <string name="menu_page_add_to_list">စုစည်းမှုထဲသို့ ထည့်ရန်</string>
   <string name="menu_page_add_to_default_list">သိမ်းရန်</string>
-  <string name="feed_card_add_to_list" fuzzy="true">စာဖတ်စာရင်းသို့ ပေါင်းထည့်ရန်</string>
+  <string name="feed_card_add_to_list">စုစည်းမှုထဲသို့ ထည့်ရန်</string>
   <string name="feed_card_add_to_default_list">သိမ်းရန်</string>
   <string name="menu_page_share">လင့်ခ်ကို မျှဝေရန်</string>
   <string name="menu_article_share">ဆောင်းပါးကိုမျှဝေရန်</string>
   <string name="menu_page_article_share">မျှဝေ</string>
   <string name="menu_page_open_a_new_tab">tab အသစ်တွင် ဖွင့်ရန်</string>
   <string name="menu_page_new_tab">tab အသစ်</string>
-  <string name="menu_page_reading_lists" fuzzy="true">စာရင်းများကို ဖတ်နေသည်</string>
+  <string name="menu_page_reading_lists">စုစည်းမှုများ</string>
   <string name="menu_page_recently_viewed">မကြာသေခင်က ကြည့်ခဲ့သော</string>
   <string name="menu_page_archive">မော်ကွန်း</string>
   <string name="menu_long_press_open_page">ဖွင့်ပါ</string>
