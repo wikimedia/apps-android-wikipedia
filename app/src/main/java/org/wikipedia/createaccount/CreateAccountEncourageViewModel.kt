@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.database.AppDatabase
+import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.settings.Prefs
 import java.time.LocalDate
 import java.time.ZoneId
@@ -34,7 +35,7 @@ class CreateAccountEncourageViewModel : ViewModel() {
 
             _uiState.value = UiState(
                 readingDays = AppDatabase.instance.historyEntryDao().getDistinctReadingDaysCountSince(startOfYear),
-                savedArticles = AppDatabase.instance.readingListPageDao().getPagesCount(),
+                savedArticles = AppDatabase.instance.readingListPageDao().getDistinctPagesCount(excludedStatus = ReadingListPage.STATUS_QUEUE_FOR_DELETE),
                 recentReads = AppDatabase.instance.historyEntryDao().getDistinctEntriesCountSince(thirtyDaysAgo) ?: 0
             )
         }
