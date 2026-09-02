@@ -7,6 +7,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
@@ -159,7 +160,9 @@ fun DonationReminderScreen(
                     .padding(paddingValues)
             ) {
                 LinearProgressIndicator(
-                    modifier = Modifier.fillMaxWidth(),
+                    modifier = Modifier
+                        .padding(top = 16.dp)
+                        .fillMaxWidth(),
                     color = WikipediaTheme.colors.progressiveColor,
                     trackColor = WikipediaTheme.colors.borderColor
                 )
@@ -281,6 +284,7 @@ fun DonationReminderAppBar(
                     .size(24.dp)
             )
             Row(
+                verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier
                     .background(
                         color = WikipediaTheme.colors.paperColor,
@@ -293,8 +297,7 @@ fun DonationReminderAppBar(
                     .padding(horizontal = 8.dp, vertical = 4.dp)
             ) {
                 Icon(
-                    modifier = Modifier
-                        .size(16.dp),
+                    modifier = Modifier,
                     painter = painterResource(R.drawable.ic_experiment_24dp),
                     tint = WikipediaTheme.colors.inactiveColor,
                     contentDescription = null
@@ -544,13 +547,13 @@ fun DonationAmountView(
         prefix = { Text(
             text = currencySymbol,
             style = MaterialTheme.typography.bodyLarge,
-            color = WikipediaTheme.colors.primaryColor
+            color = WikipediaTheme.colors.secondaryColor
         ) },
         placeholder = {
             Text(
                 text = stringResource(R.string.donation_reminders_settings_custom_amount_label),
                 style = MaterialTheme.typography.bodyLarge,
-                color = WikipediaTheme.colors.placeholderColor
+                color = WikipediaTheme.colors.secondaryColor
             )
         },
         trailingIcon = {
@@ -657,33 +660,36 @@ fun <T : Number> OptionSelector(
     showInfo: Boolean = false,
     showArticleLabel: Boolean = false,
 ) {
+
     Column(
         verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
         Row(
-            horizontalArrangement = Arrangement.spacedBy(8.dp)
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+            verticalAlignment = Alignment.CenterVertically
         ) {
             Icon(
                 painter = painterResource(headerIcon),
                 tint = WikipediaTheme.colors.inactiveColor,
-                contentDescription = null
+                contentDescription = null,
             )
             Text(
                 text = title,
-                style = MaterialTheme.typography.bodyLarge,
+                style = MaterialTheme.typography.labelLarge,
                 color = WikipediaTheme.colors.primaryColor,
             )
             if (showInfo) {
                 InfoTooltip(
                     modifier = Modifier,
-                    plainTooltipText = stringResource(R.string.donation_reminders_settings_tooltip_info_label)
+                    plainTooltipText = stringResource(R.string.donation_reminders_settings_tooltip_info_label),
                 )
             }
         }
         Spacer(modifier = Modifier.width(16.dp))
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(16.dp)
+        FlowRow(
+            itemVerticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(16.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             option.options.forEachIndexed { index, currentOption ->
                 if (currentOption is OptionItem.Preset) {
@@ -700,9 +706,10 @@ fun <T : Number> OptionSelector(
                     ) {
                         Text(
                             text = currentOption.displayText,
+                            maxLines = 1,
                             color = if (isSelected) WikipediaTheme.colors.paperColor
                             else WikipediaTheme.colors.primaryColor,
-                            style = MaterialTheme.typography.bodyLarge
+                            style = MaterialTheme.typography.titleMedium
                         )
                     }
                 }
