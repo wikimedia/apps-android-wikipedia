@@ -329,10 +329,6 @@
             android:key="@string/preference_key_editor_mode_choice_show_dialog"
             android:title="Show editor preference dialog" />
 
-        <org.wikipedia.settings.EditTextAutoSummarizePreference
-            android:key="@string/preference_key_create_account_encourage_last_impression_date"
-            android:title="@string/preference_key_create_account_encourage_last_impression_date" />
-
         <org.wikipedia.settings.IntPreference
             style="@style/IntPreference"
             android:key="@string/preference_key_create_account_encourage_impressions"
