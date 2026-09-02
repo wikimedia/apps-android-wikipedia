@@ -698,7 +698,8 @@ fun <T : Number> OptionSelector(
         Spacer(modifier = Modifier.width(16.dp))
         FlowRow(
             itemVerticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(16.dp)
+            horizontalArrangement = Arrangement.spacedBy(16.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             option.options.forEachIndexed { index, currentOption ->
                 if (currentOption is OptionItem.Preset) {
