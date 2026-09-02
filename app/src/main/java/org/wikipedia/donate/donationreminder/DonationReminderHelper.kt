@@ -22,7 +22,9 @@ object DonationReminderHelper {
     private val enabledCountries = listOf(
         "NL"
     )
-    private val isInDateRange get() = LocalDate.now() <= LocalDate.of(2026, 11, 9) // TODO: confirm with PM
+    private val isInDateRange get() = LocalDate.now() <= LocalDate.of(2026, 11, 9)
+    val isInWrapUpDateRange get() = LocalDate.now() <= LocalDate.of(2026, 11, 15) &&
+            LocalDate.now() >= LocalDate.of(2026, 11, 10)
     val isInEligibleCountry get() = ReleaseUtil.isDevRelease || enabledCountries.contains(GeoUtil.geoIPCountry.orEmpty())
     val defaultReadFrequencyOptions = listOf(5, 10, 20)
     val presetsToRemoveFromConfig = listOf(2f, 10f, 15f) // V3 only.
@@ -30,18 +32,30 @@ object DonationReminderHelper {
 
     val isEnabled
         get() = (ReleaseUtil.isDevRelease || isInEligibleCountry && isInDateRange) && isTestGroupUser
+    val isWrapUpEnabled: Boolean
+        get() {
+            val config = Prefs.donationReminderConfig
+            val group = DonationReminderAbTest().group
+
+            val isWrapUpWindow = (Prefs.donationReminderDevWrapUp && config.wrapUpEnabled) ||
+                    (isInEligibleCountry && isInWrapUpDateRange)
+            val isEligibleGroup = (group == GROUP_2 && config.wrapUpEnabled) ||
+                    (group == GROUP_3 && config.wrapUpEnabled && config.userEnabled)
+
+            return isWrapUpWindow && isEligibleGroup
+        }
 
     val hasActiveReminder get() = Prefs.donationReminderConfig.userEnabled && Prefs.donationReminderConfig.isReminderReady && isInEligibleCountry
 
     var shouldShowSettingSnackbar = false
 
     fun getCampaignId(campaignIdOriginal: String = "appmenu"): String {
-        return if (isInEligibleCountry && isInDateRange) {
+        return if (isInEligibleCountry && (isInDateRange || isInWrapUpDateRange)) {
             campaignIdOriginal + when (DonationReminderAbTest().group) {
                 GROUP_3 -> "_reminderC"
                 GROUP_2 -> "_reminderB"
                 else -> "_reminderA"
-            } // TODO: confirm with Shay
+            }
         } else {
             campaignIdOriginal
         }
@@ -114,9 +128,16 @@ object DonationReminderHelper {
 
     fun dismissReminder() {
         val config = Prefs.donationReminderConfig
-        Prefs.donationReminderConfig = config.copy(
-            isReminderReady = false
-        )
+        if (isWrapUpEnabled) {
+            Prefs.donationReminderConfig = config.copy(
+                wrapUpEnabled = false
+            )
+            Prefs.donationReminderDevWrapUp = false
+        } else {
+            Prefs.donationReminderConfig = config.copy(
+                isReminderReady = false
+            )
+        }
     }
 }
 
@@ -130,7 +151,8 @@ data class DonationReminderConfig(
     val donateAmount: Float = 0f,
     val isReminderReady: Boolean = false,
     val timesReminderShown: Int = 0,
-    val goalReachedCount: Int = 0
+    val goalReachedCount: Int = 0,
+    val wrapUpEnabled: Boolean = false
 ) {
     val isSetup: Boolean get() = userEnabled && setupTimestamp != 0L && articleFrequency > 0
 

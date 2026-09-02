@@ -9,11 +9,14 @@ import androidx.core.net.toUri
 import androidx.core.view.isVisible
 import androidx.core.view.updateLayoutParams
 import org.wikipedia.R
+import org.wikipedia.analytics.ABTest.Companion.GROUP_2
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.databinding.ViewPageHeaderBinding
 import org.wikipedia.donate.DonateUtil
+import org.wikipedia.donate.donationreminder.DonationReminderAbTest
 import org.wikipedia.donate.donationreminder.DonationReminderConfig
 import org.wikipedia.donate.donationreminder.DonationReminderHelper
+import org.wikipedia.donate.donationreminder.DonationReminderType
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DimenUtil
@@ -27,8 +30,8 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
     interface Callback {
         fun onImageClicked()
         fun onCallToActionClicked()
-        fun donationReminderCardPositiveClicked()
-        fun donationReminderCardNegativeClicked()
+        fun donationReminderCardPositiveClicked(type: DonationReminderType)
+        fun donationReminderCardNegativeClicked(type: DonationReminderType)
     }
 
     private val binding = ViewPageHeaderBinding.inflate(LayoutInflater.from(context), this)
@@ -139,39 +142,84 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
 
     private fun updateDonationReminderCardContent(config: DonationReminderConfig?) {
         config?.let { config ->
+            val isWrapUpEnabled = DonationReminderHelper.isWrapUpEnabled
+            val reminderCardType = if (isWrapUpEnabled) DonationReminderType.WRAP_UP else DonationReminderType.GENERAL
             val articleText = context.resources.getQuantityString(
                 R.plurals.donation_reminders_text_articles, config.articleFrequency, config.articleFrequency
             )
-            val donationAmount = DonateUtil.currencyFormat.format(Prefs.donationReminderConfig.donateAmount)
-            val titleText = if (config.goalReachedCount == 1) {
-                context.getString(R.string.donation_reminders_first_milestone_reached_prompt_title, articleText, donationAmount)
+            val donateAmount = if (Prefs.donationReminderConfig.donateAmount <= 0) {
+                DonationReminderHelper.defaultDonateAmountOptions.first()
             } else {
-                context.getString(R.string.donation_reminders_subsequent_milestone_reached_prompt_title, articleText)
+                Prefs.donationReminderConfig.donateAmount
+            }
+            val donationAmountText = DonateUtil.currencyFormat.format(donateAmount)
+            val titleText = if (isWrapUpEnabled) {
+                if (DonationReminderAbTest().group == GROUP_2) {
+                    context.getString(R.string.donation_reminders_wrap_up_title)
+                } else {
+                    context.getString(R.string.donation_reminders_eoe_title)
+                }
+            } else {
+                if (config.goalReachedCount == 1) {
+                    context.getString(R.string.donation_reminders_first_milestone_reached_prompt_title, articleText, donationAmountText)
+                } else {
+                    context.getString(R.string.donation_reminders_subsequent_milestone_reached_prompt_title, articleText)
+                }
             }
 
             val dateText = DateUtil.getMMMMdYYYY(Date(config.setupTimestamp))
-            val messageText = context.getString(R.string.donation_reminders_prompt_message_v2, dateText, articleText, donationAmount)
-            val positiveButtonText = context.getString(R.string.donation_reminders_prompt_positive_button_v2)
-            val negativeButtonText = context.getString(R.string.donation_reminders_prompt_negative_button)
+            val messageText = if (isWrapUpEnabled) {
+                if (DonationReminderAbTest().group == GROUP_2) {
+                    context.getString(R.string.donation_reminders_wrap_up_message)
+                } else {
+                    context.getString(R.string.donation_reminders_eoe_message, donationAmountText)
+                }
+            } else {
+                context.getString(R.string.donation_reminders_prompt_message_v2, dateText, articleText, donationAmountText)
+            }
+            val positiveButtonText = if (isWrapUpEnabled) {
+                if (DonationReminderAbTest().group == GROUP_2) {
+                    context.getString(R.string.donation_reminders_wrap_up_share_feedback_button)
+                } else {
+                    context.getString(R.string.donation_reminders_eoe_give_monthly_button)
+                }
+            } else {
+                context.getString(R.string.donation_reminders_prompt_positive_button_v2)
+            }
+            val negativeButtonText = if (isWrapUpEnabled) {
+                context.getString(R.string.donation_reminders_settings_no_thanks_btn_label)
+            } else {
+                context.getString(R.string.donation_reminders_prompt_negative_button)
+            }
+            if (isWrapUpEnabled) {
+                binding.donationReminderCardView.showWrapUpContainer()
+            }
             binding.donationReminderCardView.setTitle(titleText)
             binding.donationReminderCardView.setMessage(messageText)
             binding.donationReminderCardView.setPositiveButton(positiveButtonText) {
                 DonationReminderHelper.dismissReminder()
-                callback?.donationReminderCardPositiveClicked()
+                callback?.donationReminderCardPositiveClicked(reminderCardType)
             }
             binding.donationReminderCardView.setNegativeButton(negativeButtonText) {
                 binding.donationReminderCardView.isVisible = false
                 DonationReminderHelper.dismissReminder()
-                callback?.donationReminderCardNegativeClicked()
+                callback?.donationReminderCardNegativeClicked(reminderCardType)
             }
         }
     }
 
     fun maybeShowDonationReminderCard() {
-        if (DonationReminderHelper.shouldShowReminderNow()) {
+        if (DonationReminderHelper.shouldShowReminderNow() || DonationReminderHelper.isWrapUpEnabled) {
             DonorExperienceEvent.logDonationReminderAction(
-                activeInterface = "reminder_milestone",
-                action = "impression"
+                activeInterface = if (DonationReminderHelper.isWrapUpEnabled) {
+                    if (DonationReminderAbTest().group == GROUP_2) {
+                        "reminder_end"
+                    } else {
+                        "reminder_recur_end"
+                    }
+                } else "reminder_milestone",
+                action = "impression",
+                campaignId = DonationReminderHelper.getCampaignId(),
             )
             updateDonationReminderCardContent(Prefs.donationReminderConfig)
             binding.donationReminderCardView.isVisible = true
