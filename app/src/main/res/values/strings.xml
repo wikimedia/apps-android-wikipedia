@@ -216,6 +216,27 @@
     <string name="email_recommendation_dialog_create_without_email_action">Continue without email</string>
     <string name="email_recommendation_dialog_create_with_email_action">Add an email address</string>
     <string name="create_account_button">Create account</string>
+    <string name="create_account_encourage_title">Wikipedia is better with an account</string>
+    <string name="create_account_encourage_year_in_review_title_zero">See your reading days come together in Year in Review</string>
+    <plurals name="create_account_encourage_year_in_review_title">
+        <item quantity="one">See your %1$d reading day come together in Year in Review</item>
+        <item quantity="other">See your %1$d reading days come together in Year in Review</item>
+    </plurals>
+    <string name="create_account_encourage_year_in_review_description">Once a year, your reading days come back as a look at where the year took you, ready to share.</string>
+    <string name="create_account_encourage_saved_articles_title_zero">Sync your saved articles</string>
+    <plurals name="create_account_encourage_saved_articles_title">
+        <item quantity="one">Sync your %1$d saved article</item>
+        <item quantity="other">Sync your %1$d saved articles</item>
+    </plurals>
+    <string name="create_account_encourage_saved_articles_description">Log in to your Wikipedia account to allow your saved articles to be synced across devices.</string>
+    <string name="create_account_encourage_activity_title_zero">Revisit your recent reads with Activity</string>
+    <plurals name="create_account_encourage_activity_title">
+        <item quantity="one">Revisit your %1$d recent read with Activity</item>
+        <item quantity="other">Revisit your %1$d recent reads with Activity</item>
+    </plurals>
+    <string name="create_account_encourage_activity_description">See your reading time, explored topics, and the reach of your contributions in the Activity tab.</string>
+    <string name="create_account_encourage_edits_title">Get credit for your edits</string>
+    <string name="create_account_encourage_edits_description">Build a track record you can be proud of, with contributions across Wikimedia projects credited to your account.</string>
     <string name="create_account_name_unavailable">The user name \"%s\" is not available. Please choose a different name.</string>
     <string name="create_account_ip_block_message">Sorry, your IP address is currently blocked from creating new accounts.</string>
     <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
@@ -628,7 +649,6 @@
     <string name="reading_list_confirm_remove_article_from_offline_message">%s will no longer be available offline for all collections:</string>
     <string name="reading_lists_sync_reminder_title">Turn on collection syncing?</string>
     <string name="reading_lists_sync_reminder_text"><![CDATA[Articles saved to collections can now be synced to your Wikipedia account. <a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists">Learn more</a>]]></string>
-    <string name="reading_lists_login_reminder_text_with_link"><![CDATA[Collections can now be synced across devices. Log in to your Wikipedia account and allow your collections to be saved. <a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists">Learn more</a>]]></string>
     <string name="reading_lists_sync_reminder_action">Enable syncing</string>
     <string name="reading_list_login_reminder_title">Sync collections</string>
     <string name="reading_lists_login_reminder_text">Collections can now be synced across devices. Log in to your Wikipedia account and allow your collections to be saved.</string>
@@ -671,7 +691,6 @@
     <string name="reading_lists_menu_import_list">Import collection</string>
     <string name="reading_lists_menu_sort_by">Sort by</string>
     <string name="reading_lists_refresh_sync_option">Refresh sync</string>
-    <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Log in / sign up</string>
     <plurals name="reading_list_article_offline_message">
         <item quantity="one">This article will now be available offline.</item>
         <item quantity="other">These articles will now be available offline.</item>
