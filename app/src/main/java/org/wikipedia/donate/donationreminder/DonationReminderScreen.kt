@@ -671,7 +671,7 @@ fun <T : Number> OptionSelector(
             )
             Text(
                 text = title,
-                style = MaterialTheme.typography.bodyLarge,
+                style = MaterialTheme.typography.labelLarge,
                 color = WikipediaTheme.colors.primaryColor,
             )
             if (showInfo) {
