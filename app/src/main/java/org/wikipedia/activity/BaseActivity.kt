@@ -32,7 +32,6 @@ import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.connectivity.ConnectionStateMonitor
 import org.wikipedia.donate.DonateDialog
 import org.wikipedia.events.LoggedOutInBackgroundEvent
-import org.wikipedia.events.ReadingListsEnableDialogEvent
 import org.wikipedia.events.ReadingListsNoLongerSyncedEvent
 import org.wikipedia.events.SplitLargeListsEvent
 import org.wikipedia.events.ThemeFontChangeEvent
@@ -182,9 +181,6 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
                         }
                         is ReadingListsNoLongerSyncedEvent -> {
                             ReadingListSyncBehaviorDialogs.detectedRemoteTornDownDialog(this@BaseActivity)
-                        }
-                        is ReadingListsEnableDialogEvent, (this@BaseActivity is MainActivity) -> {
-                            ReadingListSyncBehaviorDialogs.promptEnableSyncDialog(this@BaseActivity)
                         }
                         is LoggedOutInBackgroundEvent -> {
                             maybeShowLoggedOutInBackgroundDialog()

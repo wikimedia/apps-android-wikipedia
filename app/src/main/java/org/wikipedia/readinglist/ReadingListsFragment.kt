@@ -190,17 +190,11 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         if (Prefs.isReadingListSyncEnabled) {
             return
         }
-        if (AccountUtil.isLoggedIn) {
-            ReadingListSyncBehaviorDialogs.promptEnableSyncDialog(requireActivity())
-        } else if (!viewModel.hasRecentPreviewSavedReadingList) {
-            ReadingListSyncBehaviorDialogs.promptLogInToSyncDialog(requireActivity())
-        }
     }
 
     private fun onRefresh() {
         viewModel.setRefreshing(true)
         if (!AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount) {
-            ReadingListSyncBehaviorDialogs.promptLogInToSyncDialog(requireActivity())
             viewModel.setRefreshing(false)
         } else {
             Prefs.isReadingListSyncEnabled = true
