@@ -17,6 +17,11 @@ import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.res.stringResource
 import androidx.core.app.ActivityCompat
 import androidx.core.net.toUri
 import androidx.core.os.postDelayed
@@ -40,8 +45,9 @@ import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.captcha.CaptchaHandler
 import org.wikipedia.captcha.CaptchaResult
+import org.wikipedia.compose.components.WikipediaAlertDialogWithCheckbox
+import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.databinding.ActivityEditSectionBinding
-import org.wikipedia.databinding.DialogWithCheckboxBinding
 import org.wikipedia.databinding.ItemEditActionbarButtonBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.MwException
@@ -142,10 +148,6 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
             // If the user cancels image insertion, back out immediately.
             finish()
         }
-    }
-
-    private val movementMethod = LinkMovementMethodExt { urlStr ->
-        UriUtil.visitInExternalBrowser(this, UriUtil.resolveProtocolRelativeUrl(viewModel.pageTitle.wikiSite, urlStr).toUri())
     }
 
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -678,16 +680,26 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
         if (!Prefs.showEditTalkPageSourcePrompt || (viewModel.pageTitle.namespace() !== Namespace.TALK && viewModel.pageTitle.namespace() !== Namespace.USER_TALK)) {
             return
         }
-        val binding = DialogWithCheckboxBinding.inflate(layoutInflater)
-        binding.dialogMessage.text = StringUtil.fromHtml(getString(R.string.talk_edit_disclaimer))
-        binding.dialogMessage.movementMethod = movementMethod
-        MaterialAlertDialogBuilder(this@EditSectionActivity)
-            .setView(binding.root)
-            .setPositiveButton(R.string.onboarding_got_it) { dialog, _ -> dialog.dismiss() }
-            .setOnDismissListener {
-                Prefs.showEditTalkPageSourcePrompt = !binding.dialogCheckbox.isChecked
+        binding.editSectionDialogComposeView.setContent {
+            var dialogVisible by remember { mutableStateOf(true) }
+            var doNotShowAgain by remember { mutableStateOf(false) }
+            if (dialogVisible) {
+                BaseTheme {
+                    WikipediaAlertDialogWithCheckbox(
+                        message = stringResource(R.string.talk_edit_disclaimer),
+                        checkboxText = stringResource(R.string.reading_list_prompt_turned_sync_on_dialog_do_not_show),
+                        isChecked = doNotShowAgain,
+                        onCheckedChange = { doNotShowAgain = it },
+                        confirmButtonText = stringResource(R.string.onboarding_got_it),
+                        wikiSite = viewModel.pageTitle.wikiSite,
+                        onDismissRequest = {
+                            Prefs.showEditTalkPageSourcePrompt = !doNotShowAgain
+                            dialogVisible = false
+                        }
+                    )
+                }
             }
-            .show()
+        }
     }
 
     private fun displaySectionText() {
