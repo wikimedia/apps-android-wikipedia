@@ -103,8 +103,8 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
         super.onDestroyView()
     }
 
-    private fun onDonateClicked() {
-        launchDonateLink(requireContext(), url = arguments?.getString(ARG_DONATE_URL), campaignId = campaignId)
+    private fun onDonateClicked(checkMonthly: Boolean = false) {
+        launchDonateLink(requireContext(), url = arguments?.getString(ARG_DONATE_URL), campaignId = campaignId, checkMonthly = checkMonthly)
         invalidateCampaign()
         dismiss()
     }
@@ -161,7 +161,7 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
                 action = "other_method_click",
                 campaignId = DonationReminderHelper.getCampaignId()
             )
-            onDonateClicked()
+            onDonateClicked(fromDonationReminderWrapUp)
         }
         if (fromDonationReminderWrapUp) {
             binding.gPayTitle.text = getString(R.string.donation_reminders_eoe_donate_dialog_title)
@@ -200,12 +200,15 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
             }
         }
 
-        fun launchDonateLink(context: Context, url: String? = null, campaignId: String? = "appmenu") {
+        fun launchDonateLink(context: Context, url: String? = null, campaignId: String? = "appmenu", checkMonthly: Boolean = false) {
             val formattedCampaignId = campaignId?.let {
                 return@let CampaignCollection.getFormattedCampaignId(it)
             }.orEmpty()
-            val donateUrl = url ?: context.getString(R.string.donate_url, formattedCampaignId,
+            var donateUrl = url ?: context.getString(R.string.donate_url, formattedCampaignId,
                 WikipediaApp.instance.languageState.systemLanguageCode, BuildConfig.VERSION_NAME, Prefs.appInstallId)
+            if (checkMonthly) {
+                donateUrl += "&frequency=monthly"
+            }
             CustomTabsUtil.openInCustomTab(context, donateUrl)
         }
     }
