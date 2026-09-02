@@ -545,13 +545,13 @@ fun DonationAmountView(
         prefix = { Text(
             text = currencySymbol,
             style = MaterialTheme.typography.bodyLarge,
-            color = WikipediaTheme.colors.primaryColor
+            color = WikipediaTheme.colors.secondaryColor
         ) },
         placeholder = {
             Text(
                 text = stringResource(R.string.donation_reminders_settings_custom_amount_label),
                 style = MaterialTheme.typography.bodyLarge,
-                color = WikipediaTheme.colors.placeholderColor
+                color = WikipediaTheme.colors.secondaryColor
             )
         },
         trailingIcon = {
