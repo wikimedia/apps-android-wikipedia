@@ -14,6 +14,7 @@ import androidx.core.net.toUri
 import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.lifecycleScope
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.launch
 import org.wikipedia.R
@@ -38,6 +39,7 @@ import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil.visitInExternalBrowser
 import org.wikipedia.util.log.L
@@ -152,8 +154,10 @@ class LoginActivity : BaseActivity() {
 
         // always go to account creation before logging in, unless we arrived here through the
         // system account creation workflow
-        if (savedInstanceState == null && !intent.hasExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE) &&
-                intent.getBooleanExtra(CREATE_ACCOUNT_FIRST, true)) {
+        if (savedInstanceState == null &&
+            !ReleaseUtil.isAAOS() &&
+            !intent.hasExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE) &&
+            intent.getBooleanExtra(CREATE_ACCOUNT_FIRST, true)) {
             startCreateAccountActivity()
         }
 
@@ -248,6 +252,14 @@ class LoginActivity : BaseActivity() {
     }
 
     private fun startCreateAccountActivity() {
+        if (ReleaseUtil.isAAOS()) {
+            MaterialAlertDialogBuilder(this)
+                .setCancelable(false)
+                .setMessage(R.string.create_account_unavailable_message)
+                .setPositiveButton(android.R.string.ok) { _, _ -> }
+                .show()
+            return
+        }
         createAccountLauncher.launch(CreateAccountActivity.newIntent(this, loginSource))
     }
 
