@@ -17,6 +17,7 @@ import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -78,7 +79,6 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
-import org.wikipedia.views.EditNoticesDialog
 import org.wikipedia.views.ViewUtil
 import java.io.IOException
 import java.util.concurrent.TimeUnit
@@ -150,6 +150,9 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
         }
     }
 
+    private var editSourcePromptVisible by mutableStateOf(false)
+    private var editNoticesVisible by mutableStateOf(false)
+
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityEditSectionBinding.inflate(layoutInflater)
@@ -160,6 +163,8 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
         supportActionBar?.title = ""
 
         onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
+
+        binding.editSectionDialogComposeView.setContent { Dialogs() }
 
         syntaxHighlighter = SyntaxHighlighter(this, binding.editSectionText, binding.editSectionScroll)
         binding.editSectionScroll.isSmoothScrollingEnabled = false
@@ -673,33 +678,48 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
         if (viewModel.editNotices.isEmpty()) {
             return
         }
-        EditNoticesDialog(viewModel.pageTitle.wikiSite, viewModel.editNotices, this).show()
+        editNoticesVisible = true
+    }
+
+    @Composable
+    private fun Dialogs() {
+        BaseTheme {
+            if (editSourcePromptVisible) {
+                var doNotShowAgain by remember { mutableStateOf(false) }
+                WikipediaAlertDialogWithCheckbox(
+                    message = stringResource(R.string.talk_edit_disclaimer),
+                    checkboxText = stringResource(R.string.reading_list_prompt_turned_sync_on_dialog_do_not_show),
+                    isChecked = doNotShowAgain,
+                    onCheckedChange = { doNotShowAgain = it },
+                    confirmButtonText = stringResource(R.string.onboarding_got_it),
+                    wikiSite = viewModel.pageTitle.wikiSite,
+                    onDismissRequest = {
+                        Prefs.showEditTalkPageSourcePrompt = !doNotShowAgain
+                        editSourcePromptVisible = false
+                    }
+                )
+            }
+            if (editNoticesVisible) {
+                var autoShowEnabled by remember { mutableStateOf(Prefs.autoShowEditNotices) }
+                EditNoticesDialog(
+                    editNotices = viewModel.editNotices,
+                    autoShowEnabled = autoShowEnabled,
+                    onAutoShowChange = {
+                        autoShowEnabled = it
+                        Prefs.autoShowEditNotices = it
+                    },
+                    wikiSite = viewModel.pageTitle.wikiSite,
+                    onDismissRequest = { editNoticesVisible = false }
+                )
+            }
+        }
     }
 
     private fun maybeShowEditSourceDialog() {
         if (!Prefs.showEditTalkPageSourcePrompt || (viewModel.pageTitle.namespace() !== Namespace.TALK && viewModel.pageTitle.namespace() !== Namespace.USER_TALK)) {
             return
         }
-        binding.editSectionDialogComposeView.setContent {
-            var dialogVisible by remember { mutableStateOf(true) }
-            var doNotShowAgain by remember { mutableStateOf(false) }
-            if (dialogVisible) {
-                BaseTheme {
-                    WikipediaAlertDialogWithCheckbox(
-                        message = stringResource(R.string.talk_edit_disclaimer),
-                        checkboxText = stringResource(R.string.reading_list_prompt_turned_sync_on_dialog_do_not_show),
-                        isChecked = doNotShowAgain,
-                        onCheckedChange = { doNotShowAgain = it },
-                        confirmButtonText = stringResource(R.string.onboarding_got_it),
-                        wikiSite = viewModel.pageTitle.wikiSite,
-                        onDismissRequest = {
-                            Prefs.showEditTalkPageSourcePrompt = !doNotShowAgain
-                            dialogVisible = false
-                        }
-                    )
-                }
-            }
-        }
+        editSourcePromptVisible = true
     }
 
     private fun displaySectionText() {
