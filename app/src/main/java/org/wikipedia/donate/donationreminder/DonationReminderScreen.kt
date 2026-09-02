@@ -7,6 +7,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
@@ -693,8 +694,8 @@ fun <T : Number> OptionSelector(
             }
         }
         Spacer(modifier = Modifier.width(16.dp))
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
+        FlowRow(
+            itemVerticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             option.options.forEachIndexed { index, currentOption ->
@@ -712,6 +713,7 @@ fun <T : Number> OptionSelector(
                     ) {
                         Text(
                             text = currentOption.displayText,
+                            maxLines = 1,
                             color = if (isSelected) WikipediaTheme.colors.paperColor
                             else WikipediaTheme.colors.primaryColor,
                             style = MaterialTheme.typography.titleMedium
