@@ -73,7 +73,6 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.Lifecycle
@@ -210,9 +209,6 @@ fun DonationReminderAppBar(
     menuItems: List<DonationReminderDropDownMenuItem> = emptyList()
 ) {
     var expanded by remember { mutableStateOf(false) }
-    val iconSize = with(LocalDensity.current) {
-        16.sp.toDp()
-    }
 
     Column(
         modifier = modifier,
@@ -301,8 +297,7 @@ fun DonationReminderAppBar(
                     .padding(horizontal = 8.dp, vertical = 4.dp)
             ) {
                 Icon(
-                    modifier = Modifier
-                        .size(iconSize),
+                    modifier = Modifier,
                     painter = painterResource(R.drawable.ic_experiment_24dp),
                     tint = WikipediaTheme.colors.inactiveColor,
                     contentDescription = null
@@ -665,9 +660,6 @@ fun <T : Number> OptionSelector(
     showInfo: Boolean = false,
     showArticleLabel: Boolean = false,
 ) {
-    val iconSize = with(LocalDensity.current) {
-        24.sp.toDp()
-    }
 
     Column(
         verticalArrangement = Arrangement.spacedBy(8.dp),
@@ -680,7 +672,6 @@ fun <T : Number> OptionSelector(
                 painter = painterResource(headerIcon),
                 tint = WikipediaTheme.colors.inactiveColor,
                 contentDescription = null,
-                modifier = Modifier.size(iconSize)
             )
             Text(
                 text = title,
@@ -691,7 +682,6 @@ fun <T : Number> OptionSelector(
                 InfoTooltip(
                     modifier = Modifier,
                     plainTooltipText = stringResource(R.string.donation_reminders_settings_tooltip_info_label),
-                    iconSize = iconSize
                 )
             }
         }
@@ -777,8 +767,7 @@ private fun DonationRemindersSwitch(
 @Composable
 fun InfoTooltip(
     modifier: Modifier = Modifier,
-    plainTooltipText: String,
-    iconSize: Dp? = null
+    plainTooltipText: String
 ) {
     val tooltipState = rememberTooltipState()
     val scope = rememberCoroutineScope()
@@ -803,7 +792,6 @@ fun InfoTooltip(
         content = {
             Icon(
                 modifier = Modifier
-                    .size(iconSize ?: 24.dp)
                     .noRippleClickable(onClick = {
                         scope.launch {
                             tooltipState.show()
