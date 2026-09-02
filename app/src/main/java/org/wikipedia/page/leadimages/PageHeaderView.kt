@@ -160,7 +160,7 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
                     context.getString(R.string.donation_reminders_eoe_title)
                 }
             } else {
-                if (config.goalReachedCount == GROUP_2) {
+                if (config.goalReachedCount == 1) {
                     context.getString(R.string.donation_reminders_first_milestone_reached_prompt_title, articleText, donationAmountText)
                 } else {
                     context.getString(R.string.donation_reminders_subsequent_milestone_reached_prompt_title, articleText)
