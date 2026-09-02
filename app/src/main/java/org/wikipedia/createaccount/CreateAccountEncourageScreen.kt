@@ -175,7 +175,6 @@ private fun EncourageCardView(
             AsyncImage(
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally)
-                    .weight(1f, fill = false)
                     .size(200.dp),
                 model = ImageRequest.Builder(LocalContext.current)
                     .data(card.imageRes)
