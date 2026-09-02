@@ -46,6 +46,7 @@ import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.databinding.FragmentMainBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.ImportReadingListsEvent
+import org.wikipedia.events.LoggedInEvent
 import org.wikipedia.events.LoggedOutEvent
 import org.wikipedia.events.LoggedOutInBackgroundEvent
 import org.wikipedia.events.NewRecommendedReadingListEvent
@@ -144,6 +145,10 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 FlowEventBus.events.collectLatest { event ->
                     when (event) {
+                        is LoggedInEvent -> {
+                            refreshContents()
+                            FeedbackUtil.showMessage(this@MainFragment, R.string.login_success_toast)
+                        }
                         is LoggedOutEvent,
                         is LoggedOutInBackgroundEvent -> {
                             requireActivity().invalidateOptionsMenu()
@@ -241,10 +246,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
         } else if (requestCode == Constants.ACTIVITY_REQUEST_GALLERY &&
                 resultCode == GalleryActivity.ACTIVITY_RESULT_PAGE_SELECTED && data != null) {
             startActivity(data)
-        } else if (requestCode == Constants.ACTIVITY_REQUEST_LOGIN &&
-                resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
-            refreshContents()
-            FeedbackUtil.showMessage(this, R.string.login_success_toast)
         } else if (requestCode == Constants.ACTIVITY_REQUEST_BROWSE_TABS) {
             if (WikipediaApp.instance.tabCount == 0) {
                 // They browsed the tabs and cleared all of them, without wanting to open a new tab.
@@ -436,8 +437,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
     }
 
     fun onLoginRequested() {
-        startActivityForResult(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_NAV),
-                Constants.ACTIVITY_REQUEST_LOGIN)
+        startActivity(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_NAV))
     }
 
     override fun onLoadPage(entry: HistoryEntry) {
