@@ -281,6 +281,7 @@ fun DonationReminderAppBar(
                     .size(24.dp)
             )
             Row(
+                verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier
                     .background(
                         color = WikipediaTheme.colors.paperColor,
