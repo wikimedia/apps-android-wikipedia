@@ -358,6 +358,10 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         if (Prefs.isInitialOnboardingEnabled) return
         if (!Prefs.isExploreFeedUpdatePromptShown) return
 
+        val isExternalArticleLink = activity is PageActivity &&
+                activity.intent.action == Intent.ACTION_VIEW &&
+                activity.intent.data != null
+
         lifecycleScope.launch {
             when {
                 ReadingChallengeWidgetRepository.shouldShowOnboardingDialog() -> showReadingChallenge()
@@ -366,7 +370,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
                         !Prefs.yearInReviewVisited -> {
                     yearInReviewLauncher.launch((YearInReviewOnboardingActivity.newIntent(this@BaseActivity)))
                 }
-                CreateAccountEncourageViewModel.shouldShow() -> {
+                !isExternalArticleLink && CreateAccountEncourageViewModel.shouldShow() -> {
                     startActivity(CreateAccountEncourageActivity.newIntent(this@BaseActivity))
                 }
             }
