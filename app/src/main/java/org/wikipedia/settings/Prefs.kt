@@ -916,6 +916,10 @@ object Prefs {
         ) ?: DonationReminderConfig()
         set(types) = PrefsIoUtil.setString(R.string.preference_key_donation_reminder_config, JsonUtil.encodeToString(types))
 
+    var donationReminderDevWrapUp
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_donation_reminders_dev_wrap_up_enabled, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_donation_reminders_dev_wrap_up_enabled, value)
+
     var activityTabModules: ActivityTabModules
         get() = JsonUtil.decodeFromString<ActivityTabModules>(PrefsIoUtil.getString(R.string.preference_key_activity_tab_modules, null))
             ?: ActivityTabModules()
