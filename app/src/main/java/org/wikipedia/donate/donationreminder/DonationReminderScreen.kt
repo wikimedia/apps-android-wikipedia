@@ -703,7 +703,7 @@ fun <T : Number> OptionSelector(
                             text = currentOption.displayText,
                             color = if (isSelected) WikipediaTheme.colors.paperColor
                             else WikipediaTheme.colors.primaryColor,
-                            style = MaterialTheme.typography.bodyLarge
+                            style = MaterialTheme.typography.titleMedium
                         )
                     }
                 }
