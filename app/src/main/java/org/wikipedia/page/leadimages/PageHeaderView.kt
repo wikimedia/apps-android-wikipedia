@@ -210,12 +210,17 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
 
     fun maybeShowDonationReminderCard() {
         if (DonationReminderHelper.shouldShowReminderNow() || DonationReminderHelper.isWrapUpEnabled) {
-            if (!DonationReminderHelper.isWrapUpEnabled) {
-                DonorExperienceEvent.logDonationReminderAction(
-                    activeInterface = "reminder_milestone",
-                    action = "impression"
-                )
-            }
+            DonorExperienceEvent.logDonationReminderAction(
+                activeInterface = if (DonationReminderHelper.isWrapUpEnabled) {
+                    if (DonationReminderAbTest().group == GROUP_2) {
+                        "reminder_end"
+                    } else {
+                        "reminder_recur_end"
+                    }
+                } else "reminder_milestone",
+                action = "impression",
+                campaignId = DonationReminderHelper.getCampaignId(),
+            )
             updateDonationReminderCardContent(Prefs.donationReminderConfig)
             binding.donationReminderCardView.isVisible = true
         } else {

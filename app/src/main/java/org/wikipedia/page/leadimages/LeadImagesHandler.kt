@@ -214,19 +214,33 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                 hideDonationReminderCard()
                 if (type == DonationReminderType.WRAP_UP) {
                     if (DonationReminderAbTest().group == GROUP_2) {
+                        DonorExperienceEvent.logDonationReminderAction(
+                            activeInterface = "reminder_end",
+                            action = "feedback_start_click",
+                        )
                         SurveyDialog.showDonationReminderFeedbackDialog(
                             activity = parentFragment.requireActivity(),
-                            onImpression = {
-                                // TODO: instrumentation
-                            },
+                            onImpression = { },
                             onCancel = {
-                                // TODO: instrumentation
+                                DonorExperienceEvent.logDonationReminderAction(
+                                    activeInterface = "reminder_feedback",
+                                    action = "cancel_click",
+                                )
                             },
                             onSubmit = { feedbackOption, feedbackText ->
-                                // TODO: instrumentation
+                                DonorExperienceEvent.logDonationReminderAction(
+                                    activeInterface = "reminder_feedback",
+                                    action = "feedback_submit_click",
+                                    feedbackSelect = feedbackOption,
+                                    feedbackText = feedbackText
+                                )
                             }
                         )
                     } else {
+                        DonorExperienceEvent.logDonationReminderAction(
+                            activeInterface = "reminder_recur_end",
+                            action = "recurring_start_click",
+                        )
                         ExclusiveBottomSheetPresenter.show(parentFragment.parentFragmentManager, DonateDialog.newInstance(fromDonationReminder = true, fromDonationReminderWrapUp = true))
                     }
                 } else {
@@ -242,7 +256,14 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
             override fun donationReminderCardNegativeClicked(type: DonationReminderType) {
                 hideDonationReminderCard()
                 if (type == DonationReminderType.WRAP_UP) {
-                    // TODO: instrumentation
+                    DonorExperienceEvent.logDonationReminderAction(
+                        activeInterface = if (DonationReminderAbTest().group == GROUP_2) {
+                            "reminder_end"
+                        } else {
+                            "reminder_recur_end"
+                        },
+                        action = "nothanks_click",
+                    )
                 } else {
                     DonorExperienceEvent.logDonationReminderAction(
                         activeInterface = "reminder_milestone",

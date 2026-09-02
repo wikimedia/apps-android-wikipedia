@@ -116,6 +116,11 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun setupDirectGooglePayButton(fromDonationReminderWrapUp: Boolean) {
+        val activeInterface = if (fromDonationReminderWrapUp) {
+            "reminder_recur_end"
+        } else {
+            "reminder_milestone"
+        }
         val donateAmount = if (Prefs.donationReminderConfig.donateAmount <= 0) {
             DonationReminderHelper.defaultDonateAmountOptions.first()
         } else {
@@ -127,7 +132,7 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
         binding.donateGooglePayButton.text = donateButtonText
         binding.donateGooglePayButton.setOnClickListener {
             DonorExperienceEvent.logDonationReminderAction(
-                activeInterface = "reminder_milestone",
+                activeInterface = activeInterface,
                 action = "gpay_click",
                 campaignId = DonationReminderHelper.getCampaignId()
             )
@@ -143,7 +148,7 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
         binding.donateGooglePayDifferentAmountButton.isVisible = true
         binding.donateGooglePayDifferentAmountButton.setOnClickListener {
             DonorExperienceEvent.logDonationReminderAction(
-                activeInterface = "reminder_milestone",
+                activeInterface = activeInterface,
                 action = "other_gpay_click",
                 campaignId = DonationReminderHelper.getCampaignId()
             )
@@ -157,7 +162,7 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
         }
         binding.donateOtherButton.setOnClickListener {
             DonorExperienceEvent.logDonationReminderAction(
-                activeInterface = "reminder_milestone",
+                activeInterface = activeInterface,
                 action = "other_method_click",
                 campaignId = DonationReminderHelper.getCampaignId()
             )

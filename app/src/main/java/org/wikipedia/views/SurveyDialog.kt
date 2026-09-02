@@ -100,7 +100,7 @@ object SurveyDialog {
             dialog?.dismiss()
         }
         binding.submitButton.setOnClickListener {
-            val feedbackOption = getSelectedOption(binding)
+            val feedbackOption = (getSelectedOption(binding) ?: 2) - 1 // score is from 2 to 4, since we hide 1 and 5, we need to subtract 1 to make it from 1 to 3
             val feedbackText = binding.feedbackInput.text.toString()
             onSubmit(feedbackOption, feedbackText)
             FeedbackUtil.showMessage(activity, R.string.donation_reminders_wrap_up_survey_thank_you_message)

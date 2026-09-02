@@ -101,7 +101,11 @@ class GooglePayActivity : BaseActivity() {
                             }
                             is GooglePayViewModel.NoPaymentMethod -> {
                                 DonorExperienceEvent.logAction("no_payment_method", "gpay", campaignId = campaignId)
-                                DonateDialog.launchDonateLink(this@GooglePayActivity, url = intent.getStringExtra(DonateDialog.ARG_DONATE_URL))
+                                DonateDialog.launchDonateLink(
+                                    context = this@GooglePayActivity,
+                                    url = intent.getStringExtra(DonateDialog.ARG_DONATE_URL),
+                                    checkMonthly = viewModel.checkedRecurringDonation
+                                )
                                 finish()
                             }
                             is Resource.Success -> {
@@ -111,7 +115,11 @@ class GooglePayActivity : BaseActivity() {
                                 } catch (_: IllegalStateException) {
                                     // An IllegalStateException could happen on certain devices if Google Pay is not fully set up or supported.
                                     // In this case, fall back to an external link for donation.
-                                    DonateDialog.launchDonateLink(this@GooglePayActivity, url = intent.getStringExtra(DonateDialog.ARG_DONATE_URL))
+                                    DonateDialog.launchDonateLink(
+                                        context = this@GooglePayActivity,
+                                        url = intent.getStringExtra(DonateDialog.ARG_DONATE_URL),
+                                        checkMonthly = viewModel.checkedRecurringDonation
+                                    )
                                     finish()
                                 }
                             }
@@ -122,6 +130,9 @@ class GooglePayActivity : BaseActivity() {
                                     currency = DonateUtil.currencyCode,
                                     recurring = binding.checkBoxRecurring.isChecked
                                 )
+                                if (viewModel.checkedRecurringDonation && DonationReminderHelper.isInWrapUpDateRange) {
+                                    DonorExperienceEvent.logDonationReminderAction("impression", "reminder_recur_confirmed")
+                                }
                                 setResult(RESULT_OK)
                                 finish()
                             }
