@@ -161,7 +161,9 @@ fun DonationReminderScreen(
                     .padding(paddingValues)
             ) {
                 LinearProgressIndicator(
-                    modifier = Modifier.fillMaxWidth(),
+                    modifier = Modifier
+                        .padding(top = 16.dp)
+                        .fillMaxWidth(),
                     color = WikipediaTheme.colors.progressiveColor,
                     trackColor = WikipediaTheme.colors.borderColor
                 )
