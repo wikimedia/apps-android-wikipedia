@@ -255,7 +255,8 @@ class LoginActivity : BaseActivity() {
         if (ReleaseUtil.isAAOS()) {
             MaterialAlertDialogBuilder(this)
                 .setCancelable(false)
-                .setMessage(R.string.create_account_unavailable_message)
+                .setTitle(R.string.create_account_aaos_title)
+                .setMessage(R.string.create_account_aaos_message)
                 .setPositiveButton(android.R.string.ok) { _, _ -> }
                 .show()
             return

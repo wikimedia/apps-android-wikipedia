@@ -179,7 +179,8 @@
     <string name="preference_title_logout">Log out</string>
     <string name="toast_logout_complete">Logged out</string>
     <string name="logout_prompt">This will log you out on all devices where you are currently logged in. Do you want to continue?</string>
-    <string name="create_account_unavailable_message">Cannot create an account on this device. Please use your mobile device to create an account.</string>
+    <string name="create_account_aaos_title">Mobile device required</string>
+    <string name="create_account_aaos_message">Please use your phone to create an account when you are safely parked.</string>
     <string name="logout_dialog_cancel_button_text">Cancel</string>
     <string name="logged_out_in_background_title">Logged out</string>
     <string name="logged_out_in_background_dialog">You have been logged out of Wikipedia. Would you like to log in again?</string>
