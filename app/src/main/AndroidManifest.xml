@@ -189,7 +189,8 @@
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
-            android:name=".createaccount.CreateAccountEncourageActivity" />
+            android:name=".createaccount.CreateAccountEncourageActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".login.ResetPasswordActivity"
             android:theme="@style/AppTheme"
