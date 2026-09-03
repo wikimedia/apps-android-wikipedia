@@ -13,9 +13,9 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.page.PageViewModel
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
-import java.util.Date
+import java.time.LocalDateTime
+import java.time.temporal.ChronoUnit
 import java.util.Locale
-import java.util.concurrent.TimeUnit
 import kotlin.math.roundToInt
 
 object JavaScriptActionHandler {
@@ -123,8 +123,8 @@ object JavaScriptActionHandler {
             return ""
         }
         val showTalkLink = model.page!!.title.namespace() !== Namespace.TALK
-        val showMapLink = model.page!!.pageProperties.geo != null
-        val editedDaysAgo = TimeUnit.MILLISECONDS.toDays(Date().time - model.page!!.pageProperties.lastModified.time)
+        val showMapLink = model.page!!.summary.coordinates != null
+        val editedDaysAgo = ChronoUnit.DAYS.between(model.page!!.lastModified, LocalDateTime.now())
         val langCode = model.title?.wikiSite?.languageCode ?: WikipediaApp.instance.appOrSystemLanguageCode
 
         // TODO: page-library also supports showing disambiguation ("similar pages") links and
