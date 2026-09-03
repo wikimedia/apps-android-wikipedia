@@ -2406,7 +2406,7 @@
     <string name="donation_reminders_settings_custom_amount_label">Custom amount</string>
     <string name="donation_reminders_beta_label">Beta</string>
     <string name="donation_reminders_wrap_up_title">That\'s a wrap on donation reminders</string>
-    <string name="donation_reminders_wrap_up_message"><![CDATA[Thanks for trying reminders based on the articles you read. This was a test - and your feedback decides whether it becomes a permanent way to give on Wikipedia.<br />Takes about a minute. No donation required.]]></string>
+    <string name="donation_reminders_wrap_up_message">Thanks for testing donation reminders based on the articles you read. Your feedback decides if this becomes a permanent way to give on Wikipedia. It only takes a minute, and no donation is required.</string>
     <string name="donation_reminders_wrap_up_share_feedback_button">Share feedback</string>
     <string name="donation_reminders_wrap_up_survey_title">A quick question about donation reminders</string>
     <string name="donation_reminders_wrap_up_survey_message">Should donation reminders based on articles you read become a permanent feature?</string>
