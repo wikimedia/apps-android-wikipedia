@@ -8,17 +8,64 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:paddingTop="16dp"
-        android:orientation="vertical">
+        android:padding="16dp"
+        android:orientation="vertical"
+        android:background="?attr/background_color">
+
+        <LinearLayout
+            android:id="@+id/wrapUpContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_marginTop="-12dp">
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/donation_reminders_beta_label"
+                android:textSize="11sp"
+                android:clickable="false"
+                app:chipBackgroundColor="@android:color/transparent"
+                app:chipStrokeWidth="1dp"
+                app:chipCornerRadius="32dp"
+                app:chipStrokeColor="?attr/border_color"
+                app:textStartPadding="2dp"
+                app:textEndPadding="4dp"
+                app:chipMinHeight="24dp"
+                app:chipIcon="@drawable/ic_experiment_24dp"
+                app:chipIconTint="?attr/inactive_color"
+                app:chipStartPadding="4dp"
+                app:chipEndPadding="2dp" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/learnMoreButton"
+                android:background="?android:attr/selectableItemBackground"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="8dp"
+                android:layout_marginEnd="-8dp"
+                android:text="@string/donation_reminders_settings_learn_more_button"
+                android:textColor="?attr/progressive_color"
+                android:textSize="12sp"
+                android:drawablePadding="4dp"
+                app:drawableEndCompat="@drawable/ic_open_in_new_black_16px"
+                app:drawableTint="?attr/progressive_color" />
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/messageTitleView"
             style="@style/TextAppearance.Material3.TitleMedium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="4dp"
+            android:layout_marginBottom="8dp"
             android:textColor="?attr/primary_color"/>
 
         <TextView
@@ -27,7 +74,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="?attr/secondary_color"
-            android:layout_marginBottom="4dp" />
+            android:layout_marginBottom="8dp" />
 
         <com.google.android.flexbox.FlexboxLayout
             android:id="@+id/buttonsContainer"
@@ -40,9 +87,7 @@
                 android:id="@+id/positiveButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/App.Button.Text"
-                android:textSize="14sp"
-                android:layout_marginStart="-16dp"
+                style="@style/App.Button"
                 tools:text="Lorem ipsum"/>
 
             <com.google.android.material.button.MaterialButton
@@ -50,8 +95,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/App.Button.Text"
-                android:textColor="?attr/primary_color"
-                android:textSize="14sp"
+                android:textColor="?attr/placeholder_color"
                 tools:text="Lorem ipsum"
                 tools:visibility="visible"/>
 

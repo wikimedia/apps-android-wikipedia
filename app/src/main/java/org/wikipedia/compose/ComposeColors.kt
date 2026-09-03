@@ -28,19 +28,24 @@ object ComposeColors {
     val Taupe200 = Color(0xFFCBC8C1)
     val Taupe600 = Color(0xFF646059)
 
+    val Blue200 = Color(0xFFB6D4FB)
     val Blue300 = Color(0xFF6699FF)
     val Blue300_15 = Color(0x266699FF)
     val Blue300_20 = Color(0x336699FF)
     val Blue600 = Color(0xFF3366CC)
     val Blue600_30 = Color(0x4D3366CC)
 
+    val Green200 = Color(0xFFAEDFCD)
     val Green600 = Color(0xFF00AF89)
     val Green700 = Color(0xFF14866D)
     val Green800 = Color(0xFF196551)
 
+    val Lime200 = Color(0xFFB9DEBC)
+
     val Red500 = Color(0xFFFF4242)
     val Red700 = Color(0xFFB32424)
 
+    val Yellow100 = Color(0xFFFFE49C)
     val Yellow500 = Color(0xFFFFCC33)
     val Yellow500_40 = Color(0x66FFCC33)
     val Yellow700 = Color(0xFFAC6600)

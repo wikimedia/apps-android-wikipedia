@@ -265,7 +265,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
                 WikipediaApp.instance.appSessionEvent.noDescription()
             }
             if (!title.isMainPage) {
-                title.displayText = page?.displayTitle.orEmpty()
+                title.displayText = page?.summary?.displayTitle.orEmpty()
             }
             title.thumbUrl = pageSummary?.thumbnailUrl
             leadImagesHandler.loadLeadImage()

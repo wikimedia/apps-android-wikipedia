@@ -55,8 +55,6 @@ class ReadingListsViewModel : ViewModel() {
     }.distinctUntilChanged()
 
     private val recentPreviewSavedState = MutableStateFlow(RecentPreviewSavedState())
-    val hasRecentPreviewSavedReadingList
-        get() = recentPreviewSavedState.value.newBadgeListId != null
 
     private val accountState = MutableStateFlow(readAccountState())
     private val pageDownloadProgress = MutableStateFlow<Map<Long, Int>>(emptyMap())
