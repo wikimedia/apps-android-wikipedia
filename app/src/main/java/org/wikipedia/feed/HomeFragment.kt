@@ -113,9 +113,9 @@ class HomeFragment : Fragment(), LinkPreviewDialog.LoadPageCallback {
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
-                viewModel.totalNetworkLatency.collectLatest {
+                viewModel.forYouNetworkLatency.collectLatest {
                     if (it > 0) {
-                        instrument.submitInteraction("timing", actionSource = "network_latency", actionContext = mapOf("latency" to it))
+                        instrument.submitInteraction("timing", actionSource = "for_you_latency", actionContext = mapOf("latency" to it))
                     }
                 }
             }
