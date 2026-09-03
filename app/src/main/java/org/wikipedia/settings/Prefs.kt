@@ -268,6 +268,14 @@ object Prefs {
         PrefsIoUtil.setInt(R.string.preference_key_total_anon_descriptions_edited, totalAnonDescriptionsEdited + 1)
     }
 
+    var createAccountEncourageImpressions
+        get() = PrefsIoUtil.getInt(R.string.preference_key_create_account_encourage_impressions, 0)
+        set(count) = PrefsIoUtil.setInt(R.string.preference_key_create_account_encourage_impressions, count)
+
+    var createAccountEncourageLastImpressionDate
+        get() = PrefsIoUtil.getString(R.string.preference_key_create_account_encourage_last_impression_date, "").orEmpty()
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_create_account_encourage_last_impression_date, value)
+
     var isReadingListSyncEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_sync_reading_lists, false)
         set(enabled) = PrefsIoUtil.setBoolean(R.string.preference_key_sync_reading_lists, enabled)
@@ -907,6 +915,10 @@ object Prefs {
             PrefsIoUtil.getString(R.string.preference_key_donation_reminder_config, null)
         ) ?: DonationReminderConfig()
         set(types) = PrefsIoUtil.setString(R.string.preference_key_donation_reminder_config, JsonUtil.encodeToString(types))
+
+    var donationReminderDevWrapUp
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_donation_reminders_dev_wrap_up_enabled, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_donation_reminders_dev_wrap_up_enabled, value)
 
     var activityTabModules: ActivityTabModules
         get() = JsonUtil.decodeFromString<ActivityTabModules>(PrefsIoUtil.getString(R.string.preference_key_activity_tab_modules, null))
