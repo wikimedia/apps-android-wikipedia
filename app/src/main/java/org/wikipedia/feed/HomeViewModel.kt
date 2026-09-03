@@ -671,8 +671,10 @@ class HomeViewModel : ViewModel() {
                 }
             }
 
-            NewWithinInterestABTest().maybeSendExposureEvent()
-            val newWithinInterestTopics = if (NewWithinInterestABTest().isTestGroupUser())
+            if (NewWithinInterestABTest().isTestActive()) {
+                NewWithinInterestABTest().maybeSendExposureEvent()
+            }
+            val newWithinInterestTopics = if (NewWithinInterestABTest().isTestActive() && NewWithinInterestABTest().isTestGroupUser())
                 AppDatabase.instance.topicInterestDao().getAllRandom().distinctBy { it.topicId }.take(4)
             else emptyList()
             val newWithinInterestTopicCalls = newWithinInterestTopics.map { topic ->

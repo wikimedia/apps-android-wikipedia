@@ -140,6 +140,10 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
             isVisible = DonationReminderHelper.isEnabled
             onPreferenceClickListener =
                 Preference.OnPreferenceClickListener {
+                    DonorExperienceEvent.logDonationReminderAction(
+                        activeInterface = "global_setting",
+                        action = "donation_reminder_click"
+                    )
                     activity.startActivity(DonationReminderActivity.newIntent(activity, isFromSettings = true))
                     true
                 }

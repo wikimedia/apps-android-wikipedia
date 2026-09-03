@@ -481,7 +481,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
     private fun refreshSync() {
         if (!AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount) {
-            ReadingListSyncBehaviorDialogs.promptLogInToSyncDialog(requireActivity())
             binding.readingListSwipeRefresh.isRefreshing = false
         } else {
             Prefs.isReadingListSyncEnabled = true
