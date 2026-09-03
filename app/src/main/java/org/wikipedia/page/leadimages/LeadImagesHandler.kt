@@ -61,17 +61,15 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
     private var handlerJob: Job? = null
 
     private val isLeadImageEnabled get() = Prefs.isImageDownloadEnabled && !DimenUtil.isLandscape(activity) && displayHeightDp >= MIN_SCREEN_HEIGHT_DP && !isMainPage && !leadImageUrl.isNullOrEmpty()
-    private val leadImageWidth get() = page?.run { pageProperties.leadImageWidth } ?: pageHeaderView.imageView.width
-    private val leadImageHeight get() = page?.run { pageProperties.leadImageHeight } ?: pageHeaderView.imageView.height
+    private val leadImageWidth get() = page?.leadImageWidth ?: pageHeaderView.imageView.width
+    private val leadImageHeight get() = page?.leadImageHeight ?: pageHeaderView.imageView.height
 
-    // Conditionally add the PageTitle's URL scheme and authority if these are missing from the
-    // PageProperties' URL.
     private val leadImageUrl: String?
         get() {
             return title?.let {
                 // Conditionally add the PageTitle's URL scheme and authority if these are missing from the
-                // PageProperties' URL.
-                val url = page?.run { pageProperties.leadImageUrl } ?: return@let null
+                // PageSummary's URL.
+                val url = page?.leadImageUrl ?: return@let null
                 val fullUri = url.toUri()
                 var scheme: String? = it.wikiSite.scheme()
                 var authority: String? = it.wikiSite.authority()
@@ -114,7 +112,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
             return
         }
         title?.let {
-            val imageTitle = "File:" + page!!.pageProperties.leadImageName
+            val imageTitle = "File:" + page!!.leadImageName
             pageHeaderView.imageView.contentDescription = StringUtil.fromHtml(parentFragment.getString(R.string.image_content_description, it.displayText))
             if (imageTitle == lastImageTitleForCallToAction) {
                 finalizeCallToAction()
@@ -319,7 +317,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
 
     fun openImageInGallery(language: String?) {
         if (isLeadImageEnabled) {
-            page?.pageProperties?.leadImageName?.let { imageName ->
+            page?.leadImageName?.let { imageName ->
                 title?.let {
                     val filename = "File:$imageName"
                     val wiki = language?.run { WikiSite.forLanguageCode(this) } ?: it.wikiSite
