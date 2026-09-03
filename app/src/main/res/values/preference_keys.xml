@@ -205,6 +205,9 @@
     <string name="preference_key_donation_reminders_dev_reset" translatable="false">donationReminderDevReset</string>
     <string name="preference_key_donation_reminders_dev_reset_seen_date" translatable="false">donationReminderDevResetSeenDate</string>
     <string name="preference_key_donation_reminders_dev_wrap_up_enabled" translatable="false">donationReminderDevWrapUpEnabled</string>
+    <string name="preference_key_donation_reminders_end_date_override" translatable="false">donationReminderEndDateOverride</string>
+    <string name="preference_key_donation_reminders_wrap_up_start_date_override" translatable="false">donationReminderWrapUpStartDateOverride</string>
+    <string name="preference_key_donation_reminders_wrap_up_end_date_override" translatable="false">donationReminderWrapUpEndDateOverride</string>
     <string name="preference_category_donations" translatable="false">donations</string>
     <string name="preference_key_activity_tab_modules" translatable="false">activityTabModules</string>
     <string name="preference_key_activity_tab_onboarding_shown" translatable="false">activityTabOnboardingShown</string>

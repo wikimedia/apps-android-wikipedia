@@ -546,6 +546,21 @@
 
         <org.wikipedia.settings.EditTextAutoSummarizePreference
             style="@style/EditTextAutoSummarizePreference"
+            android:key="@string/preference_key_donation_reminders_end_date_override"
+            android:title="Donation reminder end date override (i.e. 2026-11-09)" />
+
+        <org.wikipedia.settings.EditTextAutoSummarizePreference
+            style="@style/EditTextAutoSummarizePreference"
+            android:key="@string/preference_key_donation_reminders_wrap_up_start_date_override"
+            android:title="Donation reminder wrap up start date override (i.e. 2026-11-10)" />
+
+        <org.wikipedia.settings.EditTextAutoSummarizePreference
+            style="@style/EditTextAutoSummarizePreference"
+            android:key="@string/preference_key_donation_reminders_wrap_up_end_date_override"
+            android:title="Donation reminder wrap up end date override (i.e. 2026-11-15)" />
+
+        <org.wikipedia.settings.EditTextAutoSummarizePreference
+            style="@style/EditTextAutoSummarizePreference"
             android:key="@string/preference_key_donation_reminder_config"
             android:title="@string/preference_key_donation_reminder_config"/>
 
