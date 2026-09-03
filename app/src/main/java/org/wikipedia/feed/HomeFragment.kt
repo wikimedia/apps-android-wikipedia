@@ -19,6 +19,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -105,6 +110,17 @@ class HomeFragment : Fragment(), LinkPreviewDialog.LoadPageCallback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                viewModel.totalNetworkLatency.collectLatest {
+                    if (it > 0) {
+                        instrument.submitInteraction("timing", actionSource = "network_latency", actionContext = mapOf("latency" to it))
+                    }
+                }
+            }
+        }
+
         if (savedInstanceState == null) {
             maybeShowExploreFeedUpdatePrompt()
         }
@@ -173,6 +189,7 @@ class HomeFragment : Fragment(), LinkPreviewDialog.LoadPageCallback {
         (requireActivity() as? MainActivity)?.onTabChanged(NavTab.HOME)
         viewModel.updateTabCount()
         viewModel.updateSelectedLanguageIfNeeded()
+        instrument.stopFunnel()
         instrument.startFunnel("home_feed")
         refreshNotification()
         maybeShowSurveyDialog()
@@ -185,7 +202,6 @@ class HomeFragment : Fragment(), LinkPreviewDialog.LoadPageCallback {
     override fun onPause() {
         super.onPause()
         cardImpressions.clear()
-        instrument.stopFunnel()
     }
 
     fun refreshNotification() {
