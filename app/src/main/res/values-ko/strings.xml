@@ -1786,10 +1786,7 @@
   <string name="games_hub_activity_games_unavailable_message_learn_more_action">더 알아보기</string>
   <string name="games_hub_activity_overflow_view_game_stats">게임 통계 보기</string>
   <string name="games_hub_activity_overflow_learn_more">더 알아보기</string>
-  <string name="on_this_day_game_entry_dialog_title">소개</string>
-  <string name="on_this_day_game_entry_dialog_subtitle">위키백과 게임</string>
   <string name="on_this_day_game_entry_dialog_button">플레이</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">위키백과 게임은 더보기 메뉴의 게임 허브에서 이용할 수 있습니다.</string>
   <string name="on_this_day_game_title">어느 것이 먼저 일어났나요?</string>
   <string name="on_this_day_game_dialog_button">플레이</string>
   <string name="on_this_day_game_splash_message">역사 속 오늘 어떤 사건이 먼저 일어났는지 맞춰보세요.</string>
@@ -2354,7 +2351,6 @@
   <string name="home_feed_for_you_screen_empty_ways_to_start">시작하는 방법:</string>
   <string name="home_feed_for_you_screen_empty_add_interests">&lt;a href=\"#add_interests\"&gt;관심사&lt;/a&gt;를 추가해 보세요</string>
   <string name="home_feed_for_you_screen_empty_see_community">&lt;a href=\"#community_tab\"&gt;커뮤니티&lt;/a&gt;에서 무슨 일이 일어나고 있는지 확인해 보세요</string>
-  <string name="home_feed_update_tooltip1">새로운 기능: 추천 탭에서 \"무작위 문서\" 및 \"관심 지점\"를, 커뮤니티 탭에서 \"알고 계십니까\"를 이용할 수 있습니다.</string>
   <string name="home_feed_random_title">아무거나</string>
   <string name="home_feed_random_subtitle">호기심을 자극할 만한 무작위 문서</string>
   <string name="home_feed_random_shuffle_button">셔플</string>

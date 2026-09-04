@@ -250,6 +250,27 @@
   <string name="email_recommendation_dialog_create_without_email_action">Action message, to proceed to create an account, without entering an email</string>
   <string name="email_recommendation_dialog_create_with_email_action">Action message, suggesting that the user can enter an email before proceeding to create an account</string>
   <string name="create_account_button">Button text on Create Account screen to go start creating the account (may also go to a CAPTCHA screen first).\n{{Identical|Create account}}</string>
+  <string name="create_account_encourage_title">Title of a screen that encourages a logged-out user to create an account. Shown above a set of swipeable cards that each describe one benefit of having an account.</string>
+  <string name="create_account_encourage_year_in_review_title_zero">Title of a card that encourages the user to create an account, by describing the Year in Review feature, when the user has no reading history yet.</string>
+  <plurals name="create_account_encourage_year_in_review_title">
+    <item quantity="one">Title of a card that encourages the user to create an account, by describing the Year in Review feature. The \"%1$d\" symbol is replaced with the number of separate days on which the user has read an article this year.</item>
+    <item quantity="other">Title of a card that encourages the user to create an account, by describing the Year in Review feature. The \"%1$d\" symbol is replaced with the number of separate days on which the user has read an article this year.</item>
+  </plurals>
+  <string name="create_account_encourage_year_in_review_description">Description on a card that encourages the user to create an account, explaining that Year in Review presents their reading from the past year once a year, in a form they can share.</string>
+  <string name="create_account_encourage_saved_articles_title_zero">Title of a card that encourages the user to create an account, by describing synchronisation of saved articles between devices, when the user has no saved articles yet.</string>
+  <plurals name="create_account_encourage_saved_articles_title">
+    <item quantity="one">Title of a card that encourages the user to create an account, by describing synchronisation of saved articles between devices. The \"%1$d\" symbol is replaced with the number of articles the user has saved.</item>
+    <item quantity="other">Title of a card that encourages the user to create an account, by describing synchronisation of saved articles between devices. The \"%1$d\" symbol is replaced with the number of articles the user has saved.</item>
+  </plurals>
+  <string name="create_account_encourage_saved_articles_description">Description on a card that encourages the user to create an account, explaining that saved articles are synchronised across devices once the user is logged in.</string>
+  <string name="create_account_encourage_activity_title_zero">Title of a card that encourages the user to create an account, by describing the Activity tab, when the user has not read any articles yet.</string>
+  <plurals name="create_account_encourage_activity_title">
+    <item quantity="one">Title of a card that encourages the user to create an account, by describing the Activity tab. The \"%1$d\" symbol is replaced with the number of articles the user has read recently.</item>
+    <item quantity="other">Title of a card that encourages the user to create an account, by describing the Activity tab. The \"%1$d\" symbol is replaced with the number of articles the user has read recently.</item>
+  </plurals>
+  <string name="create_account_encourage_activity_description">Description on a card that encourages the user to create an account, explaining what the Activity tab shows: reading time, explored topics, and the reach of the contributions the user has made.</string>
+  <string name="create_account_encourage_edits_title">Title of a card that encourages the user to create an account, by explaining that edits made while logged in are credited to the account.</string>
+  <string name="create_account_encourage_edits_description">Description on a card that encourages the user to create an account, explaining that contributions across Wikimedia projects are credited to the account and build up a track record.</string>
   <string name="create_account_name_unavailable">Error message shown when the selected user name is not available for a new account. The \"%s\" symbol is replaced with the requested user name.</string>
   <string name="create_account_ip_block_message">Message shown if the user\'s IP address is blocked from creating an account.</string>
   <string name="create_account_ip_block_help_url">URL for a page that describes the possible reasons for an IP block, and possible solutions for it.</string>
@@ -645,7 +666,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">Message warning that an article selected for removal from offline availability appears in multiple collections. The collection names appear below. The \"%s\" symbol is replaced with the article title.</string>
   <string name="reading_lists_sync_reminder_title">Title for a tutorial card that reminds the user that their collections can be synchronized.</string>
   <string name="reading_lists_sync_reminder_text">Text for a tutorial card that reminds the user that their collections can be synchronized, with a link to the synced collections FAQ page that explains the procedure in detail.</string>
-  <string name="reading_lists_login_reminder_text_with_link">Text for a tutorial card that reminds the user that logging in will enable syncing of collections, with a link to the synced collections FAQ page that explains the procedure in detail.</string>
   <string name="reading_lists_sync_reminder_action">Button text for turning on synchronizing of collections.</string>
   <string name="reading_list_login_reminder_title">Title for a tutorial card that reminds the user that logging in will enable syncing of collections.</string>
   <string name="reading_lists_login_reminder_text">Text for a tutorial card that reminds the user that logging in will enable syncing of collections.</string>
@@ -688,7 +708,6 @@
   <string name="reading_lists_menu_import_list">Menu option offering user an option to import a collection from a csv file.</string>
   <string name="reading_lists_menu_sort_by">Heading for a list of suggested sort options.\n{{Identical|Sort by}}</string>
   <string name="reading_lists_refresh_sync_option">Menu option suggesting that the user can manually sync using this option.</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Affirmative answer to confirm and redirect to the login / Sign up page.\n\n{{Identical|Log in / create account}}\n\n{{Identical|Log in}}</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Message shown when a single collection article is made available for offline use.</item>
     <item quantity="other">Message shown when more than one collection article is made available for offline use.</item>
@@ -1833,10 +1852,7 @@
   <string name="games_hub_activity_games_unavailable_message_learn_more_action">The action button for the snackbar message that indicates the game is unavailable.</string>
   <string name="games_hub_activity_overflow_view_game_stats">Menu label for the overflow menu in the Games hub that opens the game stats.</string>
   <string name="games_hub_activity_overflow_learn_more">Menu label for the overflow menu in the Games hub that opens the learn more page.</string>
-  <string name="on_this_day_game_entry_dialog_title">Title for the trivia game dialog.</string>
-  <string name="on_this_day_game_entry_dialog_subtitle">Subtitle for the trivia game dialog.</string>
   <string name="on_this_day_game_entry_dialog_button">Entry dialog Button label for the trivia game to enter the trivia game.</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Message shown when user dismisses the initial trivia game entry dialog.</string>
   <string name="on_this_day_game_title">Title of the trivia game.</string>
   <string name="on_this_day_game_dialog_button">Button label in the initial screen of the trivia game to enter the game.</string>
   <string name="on_this_day_game_splash_message">Message in the initial screen of the trivia game to explain the game rules.</string>
@@ -2125,7 +2141,9 @@
   <string name="donation_reminders_first_milestone_reached_prompt_title">Title for the donation reminder prompt shown after reaching the first milestone. %1$s will be replaced by the text of number of articles and %2$s will be replaced by the amount of donation.</string>
   <string name="donation_reminders_subsequent_milestone_reached_prompt_title">Title for the donation reminder prompt shown after reaching a subsequent milestone. %1$s will be replaced by the text of number of articles.</string>
   <string name="donation_reminders_prompt_message">Message for the donation reminder prompt. %1$s will be replaced by the date, %2$s will be replaced by the text of the number of articles, and %3$s will be replaced by the amount of donation.</string>
+  <string name="donation_reminders_prompt_message_v2">Message for the donation reminder prompt. %1$s will be replaced by the date, %2$s will be replaced by the text of the number of articles, and %3$s will be replaced by the amount of donation.</string>
   <string name="donation_reminders_prompt_positive_button">Positive button for the donation reminder prompt that opens the donation bottom sheet.</string>
+  <string name="donation_reminders_prompt_positive_button_v2">Positive button for the donation reminder prompt that opens the donation bottom sheet.</string>
   <string name="donation_reminders_prompt_negative_button">Negative button for the donation reminder prompt to close the prompt.</string>
   <string name="donation_reminders_gpay_text">Button text for the donation bottom sheet. %s will be replaced by the amount of the donation that the user set.</string>
   <string name="donation_reminders_gpay_different_amount_text">Button text for the donation bottom sheet that open the Google Pay donation page.</string>
@@ -2140,6 +2158,23 @@
   <string name="donation_reminders_settings_report_email_subject">Subject heading for sending a report about a problem with the Donation reminders feature.</string>
   <string name="donation_reminders_settings_report_email_body">Body of email for sending a report about a problem with the Donation reminders feature.</string>
   <string name="donation_reminders_snackbar_modify_button_label">Label for the button that allows the user to modify the donation reminder.</string>
+  <string name="donation_reminders_settings_article_number_selection_label">Label for the button row that allows a user to set the desired number of article for a donation reminder.</string>
+  <string name="donation_reminders_settings_custom_amount_label">Placeholder text for the custom amount.</string>
+  <string name="donation_reminders_beta_label">Header label to indicate the screen is part of a Beta.</string>
+  <string name="donation_reminders_wrap_up_title">Title of the wrap up message card for the donation reminder.</string>
+  <string name="donation_reminders_wrap_up_message">Message of the wrap up message card for the donation reminder.</string>
+  <string name="donation_reminders_wrap_up_share_feedback_button">Label of the wrap up message card button for the donation reminder to share feedback.</string>
+  <string name="donation_reminders_wrap_up_survey_title">Title of the wrap up survey for the donation reminder.</string>
+  <string name="donation_reminders_wrap_up_survey_message">Message of the wrap up survey for the donation reminder.</string>
+  <string name="donation_reminders_wrap_up_survey_option_keep_it">Label for the option to keep the donation reminder.</string>
+  <string name="donation_reminders_wrap_up_survey_option_remove_it">Label for the option to remove the donation reminder.</string>
+  <string name="donation_reminders_wrap_up_survey_option_not_sure">Label for the option indicating uncertainty about the donation reminder.</string>
+  <string name="donation_reminders_wrap_up_survey_optional_hint">Hint text indicating that users can provide optional feedback.</string>
+  <string name="donation_reminders_wrap_up_survey_thank_you_message">Snackbar message that indicates the feedback has been submitted.</string>
+  <string name="donation_reminders_eoe_title">Title shown at the end of the experiment for the donation reminder.</string>
+  <string name="donation_reminders_eoe_message">Message shown at the end of the experiment for the donation reminder. %s is replaced by the pledged amount.</string>
+  <string name="donation_reminders_eoe_give_monthly_button">Label for the button that allows the user to give monthly.</string>
+  <string name="donation_reminders_eoe_donate_dialog_title">Title of the donation dialog that asks the user how they would like to give monthly.</string>
   <string name="hybrid_search_search_hint">Hint text for the search box for the hybrid search feature.</string>
   <string name="hybrid_search_article_search_hint">Hint text for the search box for the hybrid search feature in the article screen. %s is replaced by the title of the article.</string>
   <string name="hybrid_search_suggestion_title">Title shown as a search suggestion while the user is typing a query, when the hybrid search experiment is enabled.</string>
@@ -2256,7 +2291,7 @@
   <string name="explore_feed_because_of_interest">Label explaining that the current suggestion is based on one of your selected interests, which could be a topic or an article. The %s symbol is replaced by the name of the interest.</string>
   <string name="explore_feed_onboarding_curiosity_title">Display name for the title of the Explore feed onboarding screen prompting users to follow topics.</string>
   <string name="explore_feed_onboarding_curiosity_description">Body text for the Explore feed onboarding screen explaining feed personalization and data usage. \n\n represents a paragraph break between the personalization explanation and the data collection notice.</string>
-  <string name="explore_feed_deselect_all_button_label">Button text to deselect all selected items in the intereset selection screen.</string>
+  <string name="explore_feed_deselect_all_button_label">Button text to deselect all selected items in the interest selection screen.</string>
   <string name="explore_feed_potd_subtitle">Description of the Picture of the Day card in the Home feed.</string>
   <string name="explore_feed_featured_article_subtitle">Description of the Featured Article card in the Home feed.</string>
   <string name="explore_feed_preference_selection_screen_title">Screen title prompting the user to choose which type of content should appear first in the explore feed.</string>
@@ -2309,7 +2344,6 @@
   <string name="home_feed_for_you_screen_empty_ways_to_start">Header introducing suggested actions for getting started with the “For you” feed.</string>
   <string name="home_feed_for_you_screen_empty_add_interests">Link text prompting the user to add new interests to personalize the “For you” feed. Please keep the anchor link around the word \"some interests\"</string>
   <string name="home_feed_for_you_screen_empty_see_community">Link text prompting the user to explore the Community feed for additional content. Please keep the anchor link around the word \"community\"</string>
-  <string name="home_feed_update_tooltip1">Message that explains new features introduced into the Home Feed.</string>
   <string name="home_feed_random_title">Title for the Random Article module in the For You feed.</string>
   <string name="home_feed_random_subtitle">Description of the Random Article module in the For You feed.</string>
   <string name="home_feed_random_shuffle_button">Button label for going to the Randomizer feature in the app.</string>

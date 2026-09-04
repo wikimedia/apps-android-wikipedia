@@ -39,7 +39,7 @@ android {
         applicationId 'org.wikipedia'
         minSdk = 23
         targetSdk = 37
-        versionCode 50603
+        versionCode 50604
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
@@ -113,6 +113,7 @@ android {
 
     productFlavors {
         dev {
+            isDefault = true
             versionName computeVersionName(defaultConfig.versionCode, 'dev')
             applicationIdSuffix '.dev'
             buildConfigField "String", "META_WIKI_BASE_URI", '"https://meta.wikimedia.beta.wmflabs.org"'
