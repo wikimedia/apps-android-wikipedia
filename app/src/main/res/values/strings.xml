@@ -2419,6 +2419,7 @@
     <string name="donation_reminders_eoe_message">We will no longer show in-app reminders but you can still support by donating your pledged amount %s monthly.</string>
     <string name="donation_reminders_eoe_give_monthly_button">Give monthly</string>
     <string name="donation_reminders_eoe_donate_dialog_title">How would you like to give monthly?</string>
+    <string name="donation_reminders_settings_screen_update_btn">Update reminder</string>
 
     <!-- Hybrid Search -->
     <string name="hybrid_search_search_hint">Search or ask anything</string>

@@ -2175,6 +2175,7 @@
   <string name="donation_reminders_eoe_message">Message shown at the end of the experiment for the donation reminder. %s is replaced by the pledged amount.</string>
   <string name="donation_reminders_eoe_give_monthly_button">Label for the button that allows the user to give monthly.</string>
   <string name="donation_reminders_eoe_donate_dialog_title">Title of the donation dialog that asks the user how they would like to give monthly.</string>
+  <string name="donation_reminders_settings_screen_update_btn">Button label for the update reminder button in the settings screen</string>
   <string name="hybrid_search_search_hint">Hint text for the search box for the hybrid search feature.</string>
   <string name="hybrid_search_article_search_hint">Hint text for the search box for the hybrid search feature in the article screen. %s is replaced by the title of the article.</string>
   <string name="hybrid_search_suggestion_title">Title shown as a search suggestion while the user is typing a query, when the hybrid search experiment is enabled.</string>

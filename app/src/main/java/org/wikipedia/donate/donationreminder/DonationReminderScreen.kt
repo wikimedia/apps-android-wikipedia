@@ -189,6 +189,7 @@ fun DonationReminderScreen(
             if (!uiState.isLoading && uiState.error == null && WindowInsets.ime.getBottom(LocalDensity.current) <= 0) {
                 DonationReminderBottomBar(
                     isFromSettings = viewModel.isFromSettings,
+                    isDonationRemindersEnabled = uiState.isDonationReminderEnabled,
                     onConfirmButtonClick = {
                         val isCustomSelected = uiState.donationAmount.selectedSource is SelectedSource.Custom
                         val customAmountError = if (isCustomSelected) customAmountErrorMessage(customAmountText) else ""
@@ -463,6 +464,7 @@ fun DonationReminderContent(
 fun DonationReminderBottomBar(
     modifier: Modifier = Modifier,
     isFromSettings: Boolean,
+    isDonationRemindersEnabled: Boolean,
     onConfirmButtonClick: () -> Unit,
     onFooterButtonClick: () -> Unit
 ) {
@@ -484,20 +486,28 @@ fun DonationReminderBottomBar(
                     )
                 }
             )
-        }
 
-        val footerButtonText = if (isFromSettings) stringResource(R.string.donation_reminders_settings_about_experiment_btn_label)
-        else stringResource(R.string.donation_reminders_settings_no_thanks_btn_label)
-        TextButton(
-            modifier = Modifier.fillMaxWidth(),
-            onClick = onFooterButtonClick,
-            content = {
-                Text(
-                    text = footerButtonText,
-                    color = WikipediaTheme.colors.progressiveColor
-                )
-            }
-        )
+            TextButton(
+                modifier = Modifier.fillMaxWidth(),
+                onClick = onFooterButtonClick,
+                content = {
+                    Text(
+                        text = stringResource(R.string.donation_reminders_settings_no_thanks_btn_label) ,
+                        color = WikipediaTheme.colors.progressiveColor
+                    )
+                }
+            )
+        } else if (isDonationRemindersEnabled) {
+            AppButton(
+                modifier = Modifier.fillMaxWidth(),
+                onClick = onConfirmButtonClick,
+                content = {
+                    Text(
+                        stringResource(R.string.donation_reminders_settings_screen_update_btn)
+                    )
+                }
+            )
+        }
     }
 }
 
@@ -863,6 +873,7 @@ private fun DonationReminderBottomBarPreview() {
     ) {
         DonationReminderBottomBar(
             isFromSettings = false,
+            isDonationRemindersEnabled = true,
             onConfirmButtonClick = {},
             onFooterButtonClick = {}
         )
@@ -877,6 +888,7 @@ private fun DonationReminderBottomBarSettingsPreview() {
     ) {
         DonationReminderBottomBar(
             isFromSettings = true,
+            isDonationRemindersEnabled = true,
             onConfirmButtonClick = {},
             onFooterButtonClick = {}
         )
