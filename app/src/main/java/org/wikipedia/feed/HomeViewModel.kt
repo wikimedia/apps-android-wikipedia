@@ -88,6 +88,7 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import java.time.LocalDate
 import java.time.LocalDateTime
+import java.time.ZoneId
 import java.util.Locale
 
 enum class HomeTab { COMMUNITY, FOR_YOU }
@@ -95,6 +96,8 @@ private const val MAX_STOP_TIMEOUT_MILLIS = 5000L
 private const val MAX_DISCOVER_ARTICLE_CARDS = 4
 private const val PLACES_ARTICLES_REQUEST_LIMIT = 10
 private const val PLACES_SEARCH_RADIUS_METERS = 10000
+private const val RECENT_ARTICLES_MIN_TIME_SPENT_SEC = 60
+private const val RECENT_ARTICLES_SEED_WINDOW_DAYS = 30L
 
 @Serializable
 sealed class ForYouModule {
@@ -194,7 +197,8 @@ sealed class ForYouModule {
 @Serializable
 class ForYouCollectionSaved(
     @Serializable(with = LocalDateTimeSerializer::class) val dateTime: LocalDateTime? = null,
-    val modulesPerLanguage: Map<String, List<ForYouModule>> = emptyMap()
+    val modulesPerLanguage: Map<String, List<ForYouModule>> = emptyMap(),
+    val previousSeedTitlesPerLanguage: Map<String, List<String>> = emptyMap()
 )
 
 data class CommunityContentState(
@@ -656,6 +660,10 @@ class HomeViewModel : ViewModel() {
             return newModules
         }
         L.d("Loading modules from network...")
+        val previousSeedTitles = forYouCollectionSaved.previousSeedTitlesPerLanguage[wikiSite.value.languageCode].orEmpty().toSet()
+        val seedEntries = pickSeedEntries(wikiSite.value.languageCode, count = 2, excludeTitles = previousSeedTitles)
+        val continueReadingSeed = seedEntries.getOrNull(0)
+        val becauseYouReadSeed = seedEntries.getOrNull(1)
 
         coroutineScope {
             // --- Interests ---
@@ -713,9 +721,7 @@ class HomeViewModel : ViewModel() {
 
             val becauseYouReadDeferred = async(Dispatchers.IO) {
                 buildList {
-                    val lastReadEntries = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(age + 1, 30, wikiSite.value.languageCode)
-                    if (lastReadEntries.size > age) {
-                        val entry = lastReadEntries[age]
+                    becauseYouReadSeed?.let { entry ->
                         val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(wikiSite.value.languageCode).isNullOrEmpty()
                         val searchTerm = StringUtil.removeUnderscores(entry.title.prefixedText)
 
@@ -751,15 +757,15 @@ class HomeViewModel : ViewModel() {
 
             val continueReadingDeferred = async(Dispatchers.IO) {
                 val continueReadingCards = buildList {
-                    val lastReadEntries = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(age + 1, 30, wikiSite.value.languageCode)
-                    if (lastReadEntries.size > age) {
+                    continueReadingSeed?.let { entry ->
                         add(
                             ContinueReadingCard(
-                                lastReadEntries[age].title,
+                                entry.title,
                                 HistoryEntry.SOURCE_HISTORY
                             )
                         )
                     }
+
                     AppDatabase.instance.readingListPageDao().getMostRecentSavedPagesByLang(wikiSite.value.languageCode, 10).take(2)
                         .forEach {
                             add(
@@ -828,14 +834,28 @@ class HomeViewModel : ViewModel() {
             }
         }
 
+        val seedTitles = listOfNotNull(continueReadingSeed, becauseYouReadSeed).map { it.title.prefixedText }.distinct()
         forYouCollectionSaved = ForYouCollectionSaved(
             dateTime = LocalDateTime.now(),
-            modulesPerLanguage = forYouCollectionSaved.modulesPerLanguage + (wikiSite.value.languageCode to modules)
+            modulesPerLanguage = forYouCollectionSaved.modulesPerLanguage + (wikiSite.value.languageCode to modules),
+            previousSeedTitlesPerLanguage = forYouCollectionSaved.previousSeedTitlesPerLanguage + (wikiSite.value.languageCode to seedTitles)
         )
         withContext(Dispatchers.Default) {
             Prefs.homeForYouModulesToday = JsonUtil.encodeToString(forYouCollectionSaved).orEmpty()
         }
         return modules
+    }
+
+    private suspend fun pickSeedEntries(langCode: String, count: Int, excludeTitles: Set<String>): List<HistoryEntry> {
+        val sinceMillis = LocalDate.now().minusDays(RECENT_ARTICLES_SEED_WINDOW_DAYS)
+            .atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli()
+        val pool = AppDatabase.instance.historyEntryWithImageDao().findSeedEntriesForReadMore(
+            minTimeSpent = RECENT_ARTICLES_MIN_TIME_SPENT_SEC,
+            sinceMillis = sinceMillis,
+            langCode = langCode
+        )
+        val (fresh, repeats) = pool.partition { it.title.prefixedText !in excludeTitles }
+        return (fresh.shuffled() + repeats.shuffled()).take(count)
     }
 
     private suspend fun buildDiscoverModule(): ForYouModule.Discover? {
