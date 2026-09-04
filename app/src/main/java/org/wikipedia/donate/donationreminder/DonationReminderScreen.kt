@@ -100,7 +100,6 @@ fun DonationReminderScreen(
     onReportClick: () -> Unit
 ) {
     val uiState = viewModel.uiState.collectAsState().value
-    var isNavigatingToExternalUrl by remember { mutableStateOf(false) }
     var customAmountText by rememberSaveable {
         mutableStateOf(
             if (uiState.donationAmount.selectedSource is SelectedSource.Custom) {
@@ -177,7 +176,6 @@ fun DonationReminderScreen(
                         }
                     },
                     onFooterButtonClick = {
-                        isNavigatingToExternalUrl = true
                         onFooterButtonClick()
                     }
                 )
