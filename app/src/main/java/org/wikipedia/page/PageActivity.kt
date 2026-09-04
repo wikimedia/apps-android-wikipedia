@@ -501,13 +501,13 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     override fun onPageRequestEditSection(sectionId: Int, sectionAnchor: String?, title: PageTitle, highlightText: String?) {
         val launchEditor = {
             val appInstallId = WikipediaApp.instance.appInstallID
-            if (Prefs.editorModeChoice == EDITOR_CHOICE_VE && Prefs.visualEditorEnabled) {
+            if (Prefs.editorModeChoice == EDITOR_CHOICE_VE) {
                 UriUtil.visitInExternalBrowser(this, title.getWebApiUrl("veaction=edit&section=$sectionId&appinstallid=$appInstallId").toUri())
             } else {
                 requestEditSectionLauncher.launch(EditSectionActivity.newIntent(this, sectionId, sectionAnchor, title, InvokeSource.PAGE_ACTIVITY, highlightText))
             }
         }
-        if (Prefs.editorModeChoiceShowDialog && Prefs.visualEditorEnabled) {
+        if (Prefs.editorModeChoiceShowDialog) {
             showEditorChoiceDialog(this, isSettingsScreen = false) { editorChoice, dontShowAgain ->
                 Prefs.editorModeChoice = editorChoice
                 Prefs.editorModeChoiceShowDialog = !dontShowAgain
