@@ -39,6 +39,9 @@ interface ReadingListPageDao {
     @Query("SELECT COUNT(*) FROM ReadingListPage")
     suspend fun getPagesCount(): Int
 
+    @Query("SELECT COUNT(*) FROM (SELECT DISTINCT lang, apiTitle, wiki, namespace FROM ReadingListPage WHERE status != :excludedStatus)")
+    suspend fun getDistinctPagesCount(excludedStatus: Long): Int
+
     @Query("SELECT * FROM ReadingListPage WHERE id = :id")
     suspend fun getPageById(id: Long): ReadingListPage?
 

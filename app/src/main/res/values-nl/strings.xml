@@ -263,7 +263,7 @@
   <string name="preferences_heading_data_usage">Gegevensgebruik</string>
   <string name="preferences_heading_experimental">Experimenteel</string>
   <string name="preference_title_sync_reading_lists_from_account">Synchronisatie van verzamelingen</string>
-  <string name="preference_title_download_reading_list_articles">Artikelen uit verzamelingen downloaden</string>
+  <string name="preference_title_download_reading_list_articles">Pagina\'s uit verzamelingen downloaden</string>
   <string name="preference_summary_sync_reading_lists">Verzamelingen tussen verschillende apparaten synchroniseren door ze op uw Wikipedia-account op te slaan</string>
   <string name="preference_summary_sync_reading_lists_from_account">Verzamelingen tussen verschillende apparaten synchroniseren door ze op uw Wikipedia-account “%s” op te slaan</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Gesynchroniseerde verzamelingen van “%s” verwijderen?</string>
@@ -419,7 +419,7 @@
   <string name="tab_item_closed">%s gesloten.</string>
   <string name="all_tab_items_closed">Alle tabbladen gesloten.</string>
   <string name="tool_tip_bookmark_icon_title">Aan verzameling toevoegen</string>
-  <string name="tool_tip_bookmark_icon_text">Klik op het bladwijzerpictogram om het artikel in een verzameling op te slaan.</string>
+  <string name="tool_tip_bookmark_icon_text">Klik op het bladwijzerpictogram om de pagina in een verzameling op te slaan.</string>
   <string name="page_view_in_browser">Pagina in de browser weergeven</string>
   <string name="tool_tip_toc_title">Snel toegang tot de inhoudsopgave</string>
   <string name="tool_tip_toc_text">U kunt nu naar links vegen om de inhoudsopgave te openen, en klikken en slepen op deze schuifknop om snel naar verschillende secties van een pagina te gaan.</string>
@@ -434,7 +434,7 @@
   <string name="link_preview_disambiguation_description">Deze titel heeft betrekking op meer dan één pagina:</string>
   <string name="button_add_to_reading_list">Aan verzameling toevoegen</string>
   <string name="page_offline_notice_cannot_load_while_offline">De pagina kan niet worden geladen zolang u offline bent.</string>
-  <string name="page_offline_notice_add_to_reading_list">Tip: voeg het artikel aan een verzameling toe, dan wordt het binnengehaald wanneer u weer verbinding hebt.</string>
+  <string name="page_offline_notice_add_to_reading_list">Tip: voeg de pagina aan een verzameling toe, dan wordt die binnengehaald wanneer u weer verbinding hebt.</string>
   <string name="page_offline_notice_last_date">U leest nu een offline versie van deze pagina, opgeslagen op %s.</string>
   <string name="redirected_from_snackbar">Doorverwezen vanaf \"%s\"</string>
   <string name="button_get_directions">Routebeschrijving</string>
@@ -496,7 +496,7 @@
   <string name="temp_account_temp_dialog_body">Uw bewerking wordt toegeschreven aan %1$s. Uw IP-adres is zichtbaar voor beheerders.&lt;br /&gt;&lt;br /&gt; Als u zich &lt;a href=\"https://#login\"&gt;aanmeldt&lt;/a&gt; of &lt;a href=\"https://#createaccount\"&gt;een account aanmaakt&lt;/a&gt;, worden uw bewerkingen toegeschreven aan een door u gekozen naam en zijn er andere voordelen.</string>
   <string name="temp_account_dialog_ok">Begrepen</string>
   <string name="temp_account_using_title">U gebruikt een tijdelijk account</string>
-  <string name="temp_account_dialog_discard">Wijzigingen negeren en inloggen</string>
+  <string name="temp_account_dialog_discard">Wijzigingen negeren en aanmelden</string>
   <plurals name="temp_account_created">
     <item quantity="one">Het tijdelijke account %1$s is aangemaakt nadat uw bewerking werd gepubliceerd. Het verloopt over %2$d dag.</item>
     <item quantity="other">Het tijdelijke account %1$s is aangemaakt nadat uw bewerking werd gepubliceerd. Het verloopt over %2$d dagen.</item>
@@ -550,7 +550,7 @@
   <string name="reading_list_create_new">Nieuwe aanmaken</string>
   <string name="reading_list_title_exists">De verzameling “%s” bestaat al.</string>
   <string name="reading_list_article_added_to_named">%1$s toegevoegd aan %2$s.</string>
-  <string name="reading_list_article_added_to_default_list">%s opgeslagen. Wilt u het aan een verzameling toevoegen?</string>
+  <string name="reading_list_article_added_to_default_list">%s opgeslagen. Wilt u deze aan een verzameling toevoegen?</string>
   <string name="reading_list_article_moved_to_named">%1$s naar %2$s verplaatst.</string>
   <string name="reading_list_article_already_exists_message">Perfect! %1$s bevat al %2$s.</string>
   <string name="reading_list_articles_already_exist_message">Perfect! %s bevat al alle pagina\'s.</string>
@@ -598,8 +598,8 @@
   <string name="reading_list_item_deleted">%s is uit de verzameling verwijderd</string>
   <string name="reading_list_item_deleted_from_list">%1$s verwijderd uit %2$s</string>
   <plurals name="reading_list_articles_deleted">
-    <item quantity="one">%d artikel is uit de verzameling verwijderd</item>
-    <item quantity="other">%d artikelen zijn uit de verzameling verwijderd</item>
+    <item quantity="one">%d pagina is uit de verzameling verwijderd</item>
+    <item quantity="other">%d pagina\'s zijn uit de verzameling verwijderd</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
     <item quantity="one">%1$d pagina verwijderd uit %2$s</item>
@@ -614,17 +614,17 @@
   <string name="reading_lists_default_plus_many_lists_delete_message">De verzamelingen zijn verwijderd. De standaardverzemeling (%s) kan niet worden verwijderd.</string>
   <string name="single_list_json_file_name">%s (Wikipedia-verzameling).json</string>
   <string name="multiple_lists_json_file_name">Wikipedia-verzamelingen (%s en meer).json</string>
-  <string name="reading_list_items_deleted">%d artikelen zijn uit de verzameling verwijderd</string>
+  <string name="reading_list_items_deleted">%d pagina\'s zijn uit de verzameling verwijderd</string>
   <string name="reading_lists_item_deleted">%s is uit de verzamelingen verwijderd</string>
   <string name="reading_list_item_delete_undo">Ongedaan maken</string>
   <string name="reading_list_deleted">%s verwijderd</string>
   <string name="saved_list_empty_title">Nog geen opgeslagen pagina\'s</string>
-  <string name="reading_lists_empty_message">Voeg artikelen aan een verzameling toe om ze later te lezen, ook als u offline bent.</string>
+  <string name="reading_lists_empty_message">Voeg pagina\'s aan een verzameling toe om ze later te lezen, ook als u offline bent.</string>
   <string name="reading_lists_search_empty_articles_title">Geen opgeslagen pagina\'s gevonden</string>
   <string name="reading_lists_search_empty_articles_message">\"%s \" is niet gevonden in uw opgeslagen pagina\'s.</string>
   <string name="reading_lists_search_empty_collections_title">Geen verzamelingen gevonden</string>
   <string name="reading_lists_search_empty_collections_message">\"%s\" is niet gevonden in uw verzamelingen.</string>
-  <string name="reading_list_empty">U hebt nog geen artikelen aan deze verzameling toegevoegd.</string>
+  <string name="reading_list_empty">U hebt nog geen pagina\'s aan deze verzameling toegevoegd.</string>
   <string name="reading_list_article_offline">Offline beschikbaar</string>
   <string name="reading_list_article_make_offline">Deze pagina offline beschikbaar maken</string>
   <string name="reading_list_add_to_other_list">Aan een andere verzameling toevoegen</string>
@@ -639,15 +639,15 @@
   <string name="reading_list_remove_from_lists">Uit verzamelingen verwijderen</string>
   <string name="reading_list_select_item">Selecteren</string>
   <string name="reading_list_confirm_remove_article_from_offline">Uit offline verwijderen</string>
-  <string name="reading_list_confirm_remove_article_from_offline_title">Het artikel komt in meerdere verzamelingen voor</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title">De pagina komt in meerdere verzamelingen voor</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s zal voor alle verzamelingen niet langer offline beschikbaar zijn:</string>
   <string name="reading_lists_sync_reminder_title">Verzamelingensynchronisatie inschakelen?</string>
-  <string name="reading_lists_sync_reminder_text">Artikelen die in verzamelingen zijn opgeslagen kunnen nu met uw Wikipedia-account worden gesynchroniseerd. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Meer informatie&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">Pagina\'s die in verzamelingen zijn opgeslagen kunnen nu met uw Wikipedia-account worden gesynchroniseerd. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Meer informatie&lt;/a&gt;</string>
   <string name="reading_lists_login_reminder_text_with_link">Verzamelingen kunnen nu tussen verschillende apparaten worden gesynchroniseerd. Meld u aan bij uw Wikipedia-account en laat uw verzamelingen opslaan. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Meer informatie&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Synchronisatie inschakelen</string>
   <string name="reading_list_login_reminder_title">Verzamelingen synchroniseren</string>
   <string name="reading_lists_login_reminder_text">Verzamelingen kunnen nu tussen apparaten gesynchroniseerd worden. Meld u aan met uw Wikipedia-account en sta toe dat uw verzamelingen opgeslagen worden.</string>
-  <string name="reading_lists_login_button">Inloggen/inschrijven bij Wikipedia</string>
+  <string name="reading_lists_login_button">Aanmelden/registreren bij Wikipedia</string>
   <string name="reading_lists_ignore_button">Nu niet</string>
   <string name="reading_lists_confirm_remote_delete_yes">Ja</string>
   <string name="reading_lists_confirm_remote_delete_no">Nee</string>
@@ -665,22 +665,22 @@
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Annuleren</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Aanmelden</string>
   <string name="reading_list_turned_sync_off_dialog_title">Verzamelingensynchronisatie uitgeschakeld</string>
-  <string name="reading_list_turned_sync_off_dialog_text">De synchronisatie van verzamelingen is voor uw account uitgeschakeld en er wordt niet langer een reservekopie gemaakt van de op uw aangemelde apparaten opgeslagen artikelen. Schakel de verzamelingensynchronisatie in de Instellingen in.</string>
+  <string name="reading_list_turned_sync_off_dialog_text">De synchronisatie van verzamelingen is voor uw account uitgeschakeld en er wordt niet langer een reservekopie gemaakt van de op uw aangemelde apparaten opgeslagen pagina\'s. Schakel de verzamelingensynchronisatie in de Instellingen in.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Instellingen</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_title">Verzamelingensynchronisatie inschakelen?</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_text">Artikelen die in verzamelingen zijn opgeslagen kunnen nu worden gesynchroniseerd met uw Wikipedia-account. &lt;a href=\"#faq\"&gt;Meer informatie&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">Pagina\'s die in verzamelingen zijn opgeslagen kunnen nu worden gesynchroniseerd met uw Wikipedia-account. &lt;a href=\"#faq\"&gt;Meer informatie&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Niet opnieuw weergeven</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Synchronisatie inschakelen</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nee, bedankt</string>
   <string name="default_reading_list_name">Opgeslagen</string>
-  <string name="default_reading_list_description">Standaardverzameling voor uw opgeslagen artikelen</string>
-  <string name="no_user_lists_title">Artikelen in verzamelingen organiseren</string>
+  <string name="default_reading_list_description">Standaardverzameling voor uw opgeslagen pagina\'s</string>
+  <string name="no_user_lists_title">Pagina\'s in verzamelingen organiseren</string>
   <string name="no_user_lists_msg">Maak verzamelingen met te bezoeken plaatsen, favoriete onderwerpen en nog veel meer</string>
   <string name="reading_list_saved_list_rename">%1$s (aangemaakt door gebruiker)</string>
-  <string name="split_reading_list_message">Er is een limiet van %d artikelen per verzameling. Bestaande verzamelingen met meer artikelen dan deze limiet zijn opgesplitst in meerdere verzamelingen.</string>
-  <string name="reading_list_move_article_limit_message">Er kan niet naar deze verzameling verplaatst worden. U hebt voor “%1$s” de limiet van %2$d artikelen per verzameling bereikt.</string>
-  <string name="reading_list_article_limit_message">Er kan niet aan deze verzameling toegevoegd worden. U hebt voor “%1$s” de limiet van %2$d artikelen per verzameling bereikt.</string>
+  <string name="split_reading_list_message">Er is een limiet van %d pagina\'s per verzameling. Bestaande verzamelingen met meer pagina\'s dan deze limiet zijn opgesplitst in meerdere verzamelingen.</string>
+  <string name="reading_list_move_article_limit_message">Er kan niet naar deze verzameling verplaatst worden. U hebt voor “%1$s” de limiet van %2$d pagina\'s per verzameling bereikt.</string>
+  <string name="reading_list_article_limit_message">Er kan niet aan deze verzameling toegevoegd worden. U hebt voor “%1$s” de limiet van %2$d pagina\'s per verzameling bereikt.</string>
   <string name="reading_lists_limit_message">Er kan geen verzameling meer worden aangemaakt. U hebt de limiet van 100 verzamelingen per account bereikt.</string>
   <string name="reading_lists_menu_create_list">Nieuwe verzameling aanmaken</string>
   <string name="reading_lists_menu_import_list">Verzameling importeren</string>
@@ -725,7 +725,7 @@
   <string name="reading_lists_preview_header_title">Gedeelde verzameling</string>
   <string name="reading_lists_preview_save_button">Opslaan</string>
   <string name="reading_lists_preview_save_dialog_title">Verzameling opslaan</string>
-  <string name="reading_lists_preview_save_dialog_text">Geef de verzameling een naam en selecteer artikelen om op te slaan.</string>
+  <string name="reading_lists_preview_save_dialog_text">Geef de verzameling een naam en selecteer pagina\'s om op te slaan.</string>
   <string name="reading_lists_preview_save_dialog_title_hint">Titel</string>
   <string name="reading_lists_preview_save_dialog_cancel">Annuleren</string>
   <string name="reading_lists_preview_save_dialog_save">Opslaan</string>
@@ -1140,7 +1140,7 @@
   <string name="suggested_edits_contribution_date_yesterday_text">Gisteren</string>
   <string name="suggested_edits_encourage_account_creation_title">Wist u dat iedereen Wikipedia kan bewerken?</string>
   <string name="suggested_edits_encourage_account_creation_message">“Voorgestelde bewerkingen” is een nieuwe manier om Wikipedia vanuit Android te bewerken. Hiermee kunt u een kleine maar belangrijke bijdrage leveren aan Wikipedia. Ons doel is het bewerken voor iedereen makkelijker en toegankelijker te maken! Meld u aan of schrijf u in bij Wikipedia om aan de slag te gaan.</string>
-  <string name="suggested_edits_encourage_account_creation_login_button">Aanmelden/inschrijven bij Wikipedia</string>
+  <string name="suggested_edits_encourage_account_creation_login_button">Aanmelden/registreren bij Wikipedia</string>
   <string name="suggested_edits_contribution_type_image_tag">Afbeeldingslabel</string>
   <string name="suggested_edits_contribution_current_revision_text">Uw bewerking staat nu op Wikipedia</string>
   <string name="suggested_card_more_edits">Meer voorgestelde bewerkingen</string>
@@ -1428,7 +1428,7 @@
   <string name="templates_description_empty">De \"%s\"-sjabloon heeft nog geen beschrijving.</string>
   <string name="templates_description_missing_data">Dit sjabloon heeft geen &lt;a href=\"%1$s\"&gt;TemplateData&lt;/a&gt; en de parameters zijn &lt;a href=\"%2$s\"&gt;automatisch gegenereerd&lt;/a&gt;. Als gevolg hiervan ontbreekt het aan beschrijvingen van het sjabloon en zijn parameters.</string>
   <string name="main_drawer_help">Hulp</string>
-  <string name="main_drawer_login">Aanmelden/inschrijven bij Wikipedia</string>
+  <string name="main_drawer_login">Aanmelden/registreren bij Wikipedia</string>
   <string name="main_tooltip_action_button">Aan de slag</string>
   <string name="main_tooltip_watchlist_title">Volglijst</string>
   <string name="main_tooltip_watchlist_text">Vind pagina\'s die u heeft toegevoegd aan uw leeslijst in het menu Meer onder &lt;b&gt;Volglijst&lt;/b&gt;.</string>
@@ -1854,10 +1854,7 @@
   <string name="games_hub_activity_games_unavailable_message_learn_more_action">Meer lezen</string>
   <string name="games_hub_activity_overflow_view_game_stats">Spelstatistieken bekijken</string>
   <string name="games_hub_activity_overflow_learn_more">Meer lezen</string>
-  <string name="on_this_day_game_entry_dialog_title">Welkom bij</string>
-  <string name="on_this_day_game_entry_dialog_subtitle">Wikipedia-spellen</string>
   <string name="on_this_day_game_entry_dialog_button">Spelen</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia-spellen zijn beschikbaar in de Spellenhub, te vinden in het menu MEER.</string>
   <string name="on_this_day_game_title">Wat gebeurde er eerst?</string>
   <string name="on_this_day_game_dialog_button">Spelen</string>
   <string name="on_this_day_game_splash_message">Raad welke gebeurtenis op deze dag in de geschiedenis als eerste plaatsvond.</string>
@@ -2474,7 +2471,6 @@
   <string name="home_feed_for_you_screen_empty_ways_to_start">Manieren om te beginnen:</string>
   <string name="home_feed_for_you_screen_empty_add_interests">U kunt &lt;a href=\"#add_interests\"&gt;interesses toevoegen&lt;/a&gt;</string>
   <string name="home_feed_for_you_screen_empty_see_community">Kijk wat er in de &lt;a href=\"#community_tab\"&gt;gemeenschap&lt;/a&gt; gebeurt</string>
-  <string name="home_feed_update_tooltip1">Nieuw: \"Willekeurige pagina\" en \"Plaatsen in de buurt\" zijn beschikbaar in \"Voor u\" en \"Wist u dat\" is in het tabblad Gemeenschap.</string>
   <string name="home_feed_random_title">Willekeurig</string>
   <string name="home_feed_random_subtitle">Een willekeurige pagina om uw nieuwsgierigheid te prikkelen</string>
   <string name="home_feed_random_shuffle_button">Willekeurig</string>

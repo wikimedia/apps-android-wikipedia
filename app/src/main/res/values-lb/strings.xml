@@ -851,7 +851,7 @@
   <string name="feed_language_variants_removal_dialog_save">Späicheren</string>
   <string name="feed_language_variants_removal_secondary_dialog_title">Aktualiséiert wgl. Äre Zweetsproochen</string>
   <string name="feed_language_variants_removal_secondary_dialog_message">Dir benotzt am Moment eng net-ënnerstëtzt geneeresch chineesesch Sproochvariant als eng Zweetsprooch. Gitt wgl. an Är Astellunge fir eng nei Zweetsprooch erauszesichen oder Är Sproochlëscht ze confirméieren.</string>
-  <string name="feed_language_variants_removal_secondary_dialog_settings">Op d’Astellunge goen</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">An d\'Astellunge goen</string>
   <string name="top_read_activity_title">Am dackste gelies de(n) %s</string>
   <string name="tabs_activity_title">Tabs</string>
   <string name="description_edit_text_hint">Artikelbeschreiwung</string>
@@ -1735,10 +1735,7 @@
   <string name="games_hub_activity_games_unavailable_message_learn_more_action">Méi gewuer ginn</string>
   <string name="games_hub_activity_overflow_view_game_stats">Spillstatistike weisen</string>
   <string name="games_hub_activity_overflow_learn_more">Méi gewuer ginn</string>
-  <string name="on_this_day_game_entry_dialog_title">Mir presentéieren</string>
-  <string name="on_this_day_game_entry_dialog_subtitle">Wikipedia-Spiller</string>
   <string name="on_this_day_game_entry_dialog_button">Spillen</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia-Spiller fannt Dir am Menü „Méi“ ënner „Spiller“.</string>
   <string name="on_this_day_game_title">Wat koum als éischt?</string>
   <string name="on_this_day_game_dialog_button">Spillen</string>
   <string name="on_this_day_game_splash_message">Rot, wateren Evenement als éischt op dësem Dag an der Geschicht koum.</string>
@@ -2211,7 +2208,6 @@
   <string name="home_feed_for_you_screen_empty_ways_to_start">Méiglechkeeten, fir unzefänken:</string>
   <string name="home_feed_for_you_screen_empty_add_interests">Setzt &lt;a href=\"#add_interests\"&gt;e puer Interessen&lt;/a&gt; derbäi</string>
   <string name="home_feed_for_you_screen_empty_see_community">Kuckt, wat ënner &lt;a href=\"#community_tab\"&gt;Communautéit&lt;/a&gt; lass ass</string>
-  <string name="home_feed_update_tooltip1">Nei: „Zoufällegen Artikel“ an „Interessant Plazen“ sinn ënner „Fir Iech“ disponibel a „Wousst Dir schonn“ am Communautéits-Tab.</string>
   <string name="home_feed_random_title">Zoufälleg</string>
   <string name="home_feed_random_subtitle">Zoufällegen Artikel, fir Äre Virwëtz waakreg ze maachen</string>
   <string name="home_feed_random_shuffle_button">Wierfelen</string>

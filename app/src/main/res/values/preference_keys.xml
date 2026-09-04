@@ -128,6 +128,8 @@
     <string name="preference_key_customize_toolbar_tooltip" translatable="false">showCustomizeToolbarTooltip</string>
     <string name="preference_key_customize_toolbar_order" translatable="false">customizeToolbarOrder</string>
     <string name="preference_key_customize_toolbar_menu_order" translatable="false">customizeToolbarMenuOrder</string>
+    <string name="preference_key_create_account_encourage_impressions" translatable="false">createAccountEncourageImpressions</string>
+    <string name="preference_key_create_account_encourage_last_impression_date" translatable="false">createAccountEncourageLastImpressionDate</string>
     <string name="preference_key_show_edit_talk_page_source_prompt" translatable="false">showEditTalkPageSourcePrompt</string>
     <string name="preference_key_temp_account_welcome_shown" translatable="false">tempAccountWelcomeShown</string>
     <string name="preference_key_temp_account_dialog_shown" translatable="false">tempAccountDialogShown</string>
@@ -173,7 +175,6 @@
     <string name="preference_key_otd_last_played_date" translatable="false">otdLastPlayedDate</string>
     <string name="preference_key_otd_game_date_override" translatable="false">otdGameDateOverride</string>
     <string name="preference_key_otd_game_num_questions" translatable="false">otdGameNumQuestions</string>
-    <string name="preference_key_otd_entry_dialog_shown" translatable="false">otdEntryDialogShown</string>
     <string name="preference_key_otd_notification_state" translatable="false">otdNotificationState</string>
     <string name="preference_key_otd_game_first_played_shown" translatable="false">otdGameFirstPlayedShown</string>
     <string name="preference_key_impact_last_query_time" translatable="false">impactLastQueryTime</string>
@@ -203,6 +204,7 @@
     <string name="preference_key_donation_reminders" translatable="false">donationReminder</string>
     <string name="preference_key_donation_reminders_dev_reset" translatable="false">donationReminderDevReset</string>
     <string name="preference_key_donation_reminders_dev_reset_seen_date" translatable="false">donationReminderDevResetSeenDate</string>
+    <string name="preference_key_donation_reminders_dev_wrap_up_enabled" translatable="false">donationReminderDevWrapUpEnabled</string>
     <string name="preference_category_donations" translatable="false">donations</string>
     <string name="preference_key_activity_tab_modules" translatable="false">activityTabModules</string>
     <string name="preference_key_activity_tab_onboarding_shown" translatable="false">activityTabOnboardingShown</string>
@@ -225,7 +227,6 @@
     <string name="preference_key_home_preference_selection" translatable="false">exploreFeedPreferenceSelection</string>
     <string name="preference_key_home_for_you_modules_today" translatable="false">homeForYouModulesToday</string>
     <string name="preference_key_home_swipe_to_explore_prompt_shown" translatable="false">homeSwipeToExplorePromptShown</string>
-    <string name="preference_key_home_feed_update_tooltip_shown" translatable="false">homeFeedUpdateTooltipShown</string>
     <string name="preference_key_search_widget_install_prompt_shown" translatable="false">searchWidgetInstallPromptShown</string>
     <string name="preference_key_randomizer_shake_prompt_shown" translatable="false">randomizerShakePromptShown</string>
     <string name="preference_key_home_feed_survey_shown" translatable="false">homeFeedSurveyShown</string>

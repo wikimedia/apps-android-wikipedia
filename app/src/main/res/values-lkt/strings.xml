@@ -16,7 +16,7 @@
   <string name="search_back_button_content_description">Hékta ya</string>
   <string name="search_clear_query_content_description">Wówala yužúžu</string>
   <string name="search_icon_content_description">Wóle</string>
-  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">Čhašówapi nazéyakiye</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Wamnáyaŋpi nazéyakiye</string>
   <string name="nav_item_suggested_edits">Wóyutȟokča</string>
   <string name="nav_item_activity">Wóečhuƞ</string>
   <string name="nav_item_more">Sáƞpȟa</string>
@@ -81,16 +81,16 @@
   <string name="menu_page_watched">Awáŋlaŋke</string>
   <string name="edit_section_find_in_page">Oyúblaye mahél olé</string>
   <string name="menu_page_font_and_theme">Mas\'oowa na owáƞyaƞke</string>
-  <string name="menu_page_add_to_list" fuzzy="true">Táku-awáyawa čhašówapi ektá égnaka</string>
+  <string name="menu_page_add_to_list">Wamnáyaŋpi ektá égnaka</string>
   <string name="menu_page_add_to_default_list">Égnaka</string>
-  <string name="feed_card_add_to_list" fuzzy="true">Táku-awáyawa čhašówapi ektá égnaka</string>
+  <string name="feed_card_add_to_list">Wamnáyaŋpi ektá égnaka</string>
   <string name="feed_card_add_to_default_list">Égnaka</string>
   <string name="menu_page_share">Wóičhikȟoyake ok\'ú</string>
   <string name="menu_article_share">Wówapi ok\'ú</string>
   <string name="menu_page_article_share">Ok\'u</string>
   <string name="menu_page_open_a_new_tab">Wipȟá tȟéča káǧa</string>
   <string name="menu_page_new_tab">Wipȟá tȟéča</string>
-  <string name="menu_page_reading_lists" fuzzy="true">Táku-awáyawa čhašówapi</string>
+  <string name="menu_page_reading_lists">Wamnáyaŋpi</string>
   <string name="menu_page_recently_viewed">Táku leháŋl waŋlaŋka</string>
   <string name="menu_page_archive">Wówapi-mnayáŋpi</string>
   <string name="menu_long_press_open_page">Yuǧáŋ</string>
@@ -133,7 +133,7 @@
   <string name="menu_show_toc">Táku lel Owápi</string>
   <string name="search_no_results_found">Tákuni iyéyapi šni</string>
   <string name="search_reading_list_no_results">\"%s\" mahél tákuni iyéyapi šni</string>
-  <string name="search_reading_lists_no_results" fuzzy="true">Táku-awáyawa čhašówapi mahél tákuni iyéyapi šni</string>
+  <string name="search_reading_lists_no_results">Wamnáyaŋpi mahél tákuni iyéyapi šni</string>
   <string name="search_history_no_results">Eháŋni-wóyakapi mahél tákuni iyéyapi šni</string>
   <string name="edit_section_captcha_message">Mas\'wíčhaša šíča khušéuŋyaŋpi uŋčhíŋpi. Wičhóiye kiŋ dená yo/ye</string>
   <string name="edit_section_captcha_request_an_account_message">Itówapi kiŋ le wáŋlaŋka oyákihi šni he? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Čhažé-oyáŋke waŋ kila yo&lt;/a&gt;</string>
@@ -207,8 +207,8 @@
   <string name="preferences_heading_syncing">Wíhoši-yutȟéčapi</string>
   <string name="preferences_heading_data_usage">Wíhoši úŋpi</string>
   <string name="preferences_heading_experimental">Wíkhičhaŋye su</string>
-  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Táku-awáyawa čhašówapi-yutȟéčapi</string>
-  <string name="preference_title_download_reading_list_articles" fuzzy="true">Táku-awáyawa čhašówapi wówapi khulwókšu</string>
+  <string name="preference_title_sync_reading_lists_from_account">Wamnáyaŋpi-yutȟéčapi</string>
+  <string name="preference_title_download_reading_list_articles">Wamnáyaŋpi wówapi khulwókšu</string>
   <string name="history_filter_list_hint">Eháŋni-wóyakapi nazéya</string>
   <string name="error_can_not_process_link">Wóičhikȟoyake wapázo owákihi šni</string>
   <string name="page_protected_autoconfirmed">Oyúblaye kiŋ le kítaŋna nakíčižiƞpi.</string>
@@ -319,13 +319,13 @@
   <string name="unnamed_tab_closed">Wipȟá kiŋ ečhél iyéyakiye.</string>
   <string name="tab_item_closed">%s ečhél iyéyaye.</string>
   <string name="all_tab_items_closed">Wipȟá iyúha ečhél iyéyakiye.</string>
-  <string name="tool_tip_bookmark_icon_title" fuzzy="true">Táku-awáyawa čhašówapi ektá égnaka</string>
+  <string name="tool_tip_bookmark_icon_title">Wamnáyaŋpi ektá égnaka</string>
   <string name="page_view_in_browser">Owákhita ogná waŋyáŋka</string>
   <string name="format_error_server_message">Wónaȟ’uŋ: \"%s\"</string>
   <string name="button_continue_to_article">Wówapi kiŋ yawá</string>
   <string name="button_continue_to_talk_page">Wóakhiye-oyúblaye waŋyáŋka</string>
   <string name="button_continue_to_disambiguation">Oyúblaye iyéčhel kiŋ waŋyáŋka</string>
-  <string name="button_add_to_reading_list" fuzzy="true">Táku-awáyawa čhašówapi ektá égnaka</string>
+  <string name="button_add_to_reading_list">Wamnáyaŋpi ektá égnaka</string>
   <string name="redirected_from_snackbar">\"%s\" etáŋhaŋ iglákapi</string>
   <string name="nav_item_donate">Mázaska kič\'úŋ</string>
   <string name="nav_item_year_in_review">Hékta Ómakȟa Oyákapi</string>
@@ -379,17 +379,17 @@
   <string name="theme_category_reading">Yawápi</string>
   <string name="theme_category_editing">Yutȟókečapi</string>
   <string name="nav_item_saved">Táku éyakignake</string>
-  <string name="reading_list_save_to" fuzzy="true">Táku-awáyawa čhašówapi ektá égnaka</string>
-  <string name="reading_list_move_to" fuzzy="true">Táku-awáyawa čhašówapi ektá tȟoksú</string>
+  <string name="reading_list_save_to">Wamnáyaŋpi ektá égnaka</string>
+  <string name="reading_list_move_to">Wamnáyaŋpi ektá tȟoksú</string>
   <string name="reading_list_create_new">Táku-awáyawa čhašówapi tȟéča káǧa</string>
-  <string name="reading_list_title_exists" fuzzy="true">Waŋnáš táku-awáyawa čhašówapi %s uŋ.</string>
+  <string name="reading_list_title_exists">Waŋnáš wamnáyaŋpi %s uŋ.</string>
   <string name="reading_list_article_added_to_named">%2$s mahél %1$s éyakignake.</string>
-  <string name="reading_list_article_added_to_default_list" fuzzy="true">%s éyakignage. Čhašówapi waŋ ektá yeyá yačhíŋ he?</string>
+  <string name="reading_list_article_added_to_default_list">%s éyakignage. Wamnáyaŋpi waŋ ektá yeyá yačhíŋ he?</string>
   <string name="reading_list_article_moved_to_named">%2$s ektá %1$s tȟóyakšu.</string>
   <string name="reading_list_article_already_exists_message">Wašte! Waŋnáš %2$s kiŋ %1$s yuhé.</string>
   <string name="reading_list_articles_already_exist_message">Wašte! Waŋnáš %s kiŋ wówapi iyúha yuhé.</string>
-  <string name="reading_list_added_view_button" fuzzy="true">Čhašówapi kiŋ waŋyáŋka</string>
-  <string name="reading_list_add_to_list_button" fuzzy="true">Čhašówapi ektá he yeyá</string>
+  <string name="reading_list_added_view_button">Wamnáyaŋpi kiŋ waŋyáŋka</string>
+  <string name="reading_list_add_to_list_button">Wamnáyaŋpi ektá he yeyá</string>
   <plurals name="format_reading_list_statistical_summary_without_size">
     <item quantity="other">wówapi %d</item>
   </plurals>
@@ -404,43 +404,43 @@
   <string name="reading_list_sort_by_recent_desc">Tóhaŋ yeyápi ogná yuówečhiŋhaŋ (iyóyaŋ kaŋ)</string>
   <string name="reading_list_sort_by_created">Tóhaŋ káǧapi ogná yuówečhiŋhaŋ (iyóyaŋ théča)</string>
   <string name="reading_list_sort_by_created_desc">Tóhaŋ káǧapi ogná yuówečhiŋhaŋ (iyóyaŋ kaŋ)</string>
-  <string name="reading_list_menu_delete" fuzzy="true">Čhašówapi kiŋ iháŋgya</string>
-  <string name="reading_list_menu_export" fuzzy="true">Čhašówapi kiŋ yutȟáŋkal ičú</string>
+  <string name="reading_list_menu_delete">Wamnáyaŋpi kiŋ iháŋgya</string>
+  <string name="reading_list_menu_export">Wamnáyaŋpi kiŋ yutȟáŋkal ičú</string>
   <string name="reading_list_menu_select">Kaȟníǧa</string>
   <string name="reading_list_menu_unselect">Kaȟníǧa-ayúštaŋ</string>
   <string name="reading_list_menu_rename">Čhaže naíŋš čhašówapi-oyákapi yutȟókeča</string>
-  <string name="reading_list_action_menu_add_to_another_list" fuzzy="true">Čhašówapi uŋma ektá yeyá</string>
-  <string name="reading_list_action_menu_move_to_another_list" fuzzy="true">Čhašówapi uŋma ektá tȟokšú</string>
-  <string name="reading_list_name_sample" fuzzy="true">Táku-awáyawa čhašówapi mitȟáwa</string>
-  <string name="reading_list_name_hint" fuzzy="true">Čhašówapi tȟačháže</string>
+  <string name="reading_list_action_menu_add_to_another_list">Wamnáyaŋpi uŋmá ektá yeyá</string>
+  <string name="reading_list_action_menu_move_to_another_list">Wamnáyaŋpi uŋmá ektá tȟokšú</string>
+  <string name="reading_list_name_sample">Wamnáyaŋpi mitȟáwa</string>
+  <string name="reading_list_name_hint">Wamnáyaŋpi tȟačháže</string>
   <string name="reading_list_description_hint">Čhašówapi-oyákapi (kaȟníȟphiča)</string>
-  <string name="reading_list_item_deleted" fuzzy="true">Čhašówapi etáŋhaŋ %s yuȟéyab iyáču</string>
+  <string name="reading_list_item_deleted">Wamnáyaŋpi etáŋhaŋ %s yuȟéyab iyáču</string>
   <string name="reading_list_item_deleted_from_list">%2$s etáŋhaŋ %1$s yuȟéyab ičú</string>
-  <plurals name="reading_list_articles_deleted" fuzzy="true">
-    <item quantity="other">čhašówapi etáŋhaŋ wówapi %d yuȟéyab ičú</item>
+  <plurals name="reading_list_articles_deleted">
+    <item quantity="other">wamnáyaŋpi etáŋhaŋ wówapi %d yuȟéyab ičú</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
     <item quantity="other">%2$s etáŋhaŋ wówapi %1$d yuȟéyab ičú</item>
   </plurals>
-  <plurals name="reading_lists_deleted_message" fuzzy="true">
-    <item quantity="other">čhašówapi  %d iháŋgya</item>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="other">wamnáyaŋpi %d iháŋgya</item>
   </plurals>
-  <string name="reading_lists_default_list_delete_message" fuzzy="true">Ikčé-čhašówapi kiŋ (%s) iháŋgyaya oyákihi šni</string>
-  <string name="reading_lists_default_plus_one_list_delete_message" fuzzy="true">%1$s iháŋgyaye. Ikčé-čhašówapi kiŋ (%2$s) iháŋgyaya oyákihi šni.</string>
-  <string name="reading_lists_default_plus_many_lists_delete_message" fuzzy="true">Čhašówapi kiŋ hená iháŋgyaye. Ikčé-čhašówapi kiŋ (%s) iháŋgyaya oyákihi šni.</string>
-  <string name="single_list_json_file_name" fuzzy="true">%s (Wikipedia táku-awáyawa čhašówapi).json</string>
-  <string name="multiple_lists_json_file_name" fuzzy="true">Wikipedia táku-awáyawa čhašówapi (%s sáŋpȟa).json</string>
-  <string name="reading_list_items_deleted" fuzzy="true">Čhašówapi kiŋ wówapi %d yuȟéyab ičú</string>
-  <string name="reading_lists_item_deleted" fuzzy="true">Čhašówapi kiŋ %s yuȟéyab ičú</string>
+  <string name="reading_lists_default_list_delete_message">Ikčé-wamnáyaŋpi kiŋ (%s) iháŋgyaya oyákihi šni</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">%1$s iháŋgyaye. Ikčé-wamnáyaŋpi kiŋ (%2$s) iháŋgyaya oyákihi šni.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">Wamnáyaŋpi kiŋ hená iháŋgyaye. Ikčé-wamnáyaŋpi kiŋ (%s) iháŋgyaya oyákihi šni.</string>
+  <string name="single_list_json_file_name">%s (Wikipedia wamnáyaŋpi).json</string>
+  <string name="multiple_lists_json_file_name">Wikipedia wamnáyaŋpi (%s sáŋpȟa).json</string>
+  <string name="reading_list_items_deleted">Wamnáyaŋpi kiŋ wówapi %d yuȟéyab ičú</string>
+  <string name="reading_lists_item_deleted">Wamnáyaŋpi kiŋ %s yuȟéyab ičú</string>
   <string name="reading_list_item_delete_undo">Khigléya</string>
   <string name="reading_list_deleted">%s iháŋgya</string>
   <string name="saved_list_empty_title">Tákuni wówapi égnake šni</string>
-  <string name="reading_list_empty" fuzzy="true">Čhašówapi kiŋ le mahél tákuni wówapi éyakignake šní.</string>
-  <string name="reading_list_add_to_other_list" fuzzy="true">Táku-awáyawa čhašówapi uŋma ektá égnaka</string>
-  <string name="reading_list_move_to_other_list" fuzzy="true">Táku-awáyawa čhašówapi uŋma ektá tȟokšú</string>
-  <string name="reading_list_move_from_to_other_list" fuzzy="true">%s etáŋhaŋ táku-awáyawa čhašówapi uŋma ektá tȟokšú</string>
+  <string name="reading_list_empty">Wamnáyaŋpi kiŋ le mahél tákuni wówapi éyakignake šní.</string>
+  <string name="reading_list_add_to_other_list">Wamnáyaŋpi uŋmá ektá égnaka</string>
+  <string name="reading_list_move_to_other_list">Wamnáyaŋpi uŋmá ektá tȟokšú</string>
+  <string name="reading_list_move_from_to_other_list">%s etáŋhaŋ wamnáyaŋpi uŋmá ektá tȟokšú</string>
   <string name="reading_list_remove_from_list">%s etáŋhaŋ yuȟéyab ičú</string>
-  <string name="reading_list_remove_from_lists" fuzzy="true">Táku-awáyawa čhašówapi etáŋhaŋ yuȟéyab ičú</string>
+  <string name="reading_list_remove_from_lists">Wamnáyaŋpi etáŋhaŋ yuȟéyab ičú</string>
   <string name="reading_list_select_item">Kaȟníǧa</string>
   <string name="reading_lists_login_button">Wikipedia ogná čhaž\'óigwa</string>
   <string name="reading_lists_ignore_button">Waŋná wačhíŋ šni</string>
@@ -449,9 +449,9 @@
   <string name="reading_list_articles_added_to_named">%2$s ektá wówapi %1$d yeyá</string>
   <string name="reading_list_articles_moved_to_named">%2$s ektá wówapi %1$d tȟokšú</string>
   <string name="reading_list_delete_confirm">%s iháŋgyaya yačhíŋ he?</string>
-  <string name="reading_list_delete_lists_confirm_dialog_title" fuzzy="true">Čhašówapi yakáȟniǧe kiŋ iháŋgyaya yačȟíŋ he?</string>
-  <plurals name="reading_list_delete_lists_confirm_dialog_message" fuzzy="true">
-    <item quantity="other">Čhašówapi yakáȟniǧe %d iháŋgyaya yačȟíŋ he?</item>
+  <string name="reading_list_delete_lists_confirm_dialog_title">Wamnáyaŋpi yakáȟniǧe kiŋ iháŋgyaya yačȟíŋ he?</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+    <item quantity="other">Wamnáyaŋpi yakáȟniǧe %d iháŋgyaya yačȟíŋ he?</item>
   </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Yužúžu</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Čhaž\'óigwa</string>
@@ -460,10 +460,10 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Le mapázo wačȟíŋ šni</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Hiyá</string>
   <string name="default_reading_list_name">Táku éyakignake</string>
-  <string name="default_reading_list_description" fuzzy="true">Táku éyakignake ikčé-čhašówapi</string>
+  <string name="default_reading_list_description">Táku éyakignake ikčé-wamnáyaŋpi</string>
   <string name="reading_list_saved_list_rename">%1$s (tuwá uŋ kiŋ káǧe)</string>
-  <string name="reading_lists_menu_create_list" fuzzy="true">Čhašówapi tȟéča waŋ káǧa</string>
-  <string name="reading_lists_menu_import_list" fuzzy="true">Čhašówapi kiŋ yuthímahel ičú</string>
+  <string name="reading_lists_menu_create_list">Wamnáyaŋpi tȟéča waŋ káǧa</string>
+  <string name="reading_lists_menu_import_list">Wamnáyaŋpi kiŋ yuthímahel ičú</string>
   <string name="reading_lists_menu_sort_by">Táku ogná yuówečhiŋhaŋ?</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Čhaž\'óigwa</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">Hau/Haƞ</string>
@@ -474,29 +474,29 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Yužúžu</string>
   <string name="reading_list_split_dialog_ok_button_text">Hau/Haƞ</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">Iháƞgya</string>
-  <string name="reading_list_activity_title" fuzzy="true">Táku-awáyawa čhašówapi: %s</string>
-  <string name="reading_list_notification_title" fuzzy="true">Táku-awáyawa čhašówapi kiŋ yutȟáŋkal iyáču</string>
-  <string name="reading_list_notification_text" fuzzy="true">\'reading_lists export.json\'s\'e táku-awáyawa čhašówapi %d yutȟáŋkal ičú. Khulwókšu oyáŋke nitȟáwa yaŋke.</string>
-  <string name="reading_list_notification_detailed_text" fuzzy="true">\'reading_lists export.json\' ektá táku-awáyawa čhašówapi kiŋ yutȟáŋkal ičú</string>
+  <string name="reading_list_activity_title">Wamnáyaŋpi: %s</string>
+  <string name="reading_list_notification_title">Wamnáyaŋpi kiŋ yutȟáŋkal iyáču</string>
+  <string name="reading_list_notification_text">\'reading_lists export.json\'s\'e wamnáyaŋpi %d yutȟáŋkal ičú. Khulwókšu oyáŋke nitȟáwa yaŋké.</string>
+  <string name="reading_list_notification_detailed_text">\'reading_lists export.json\' ektá wamnáyaŋpi kiŋ yutȟáŋkal ičú</string>
   <string name="reading_lists_action_menu_export_lists">Yutȟáŋkal ičú</string>
   <string name="reading_lists_import_file_picker_title">Wópȟaȟta yuthímahel-ičú kin kaȟníǧa</string>
-  <string name="reading_lists_import_failure_message" fuzzy="true">Táku-awáyawa čhašówapi yuthímahel iyáču oyáhiki šni</string>
-  <string name="reading_lists_export_select_lists_message" fuzzy="true">Čhašówapi yutȟáŋkal-ičú kin kaȟníǧa</string>
-  <string name="reading_lists_export_completed_message" fuzzy="true">Čhašówapi kiŋ yutȟáŋkal-iyáču</string>
-  <plurals name="reading_list_export_failed_message" fuzzy="true">
-    <item quantity="other">Táku-awáyawa čhašówapi yutȟáŋkal iyáču oyáhiki šni</item>
+  <string name="reading_lists_import_failure_message">Wamnáyaŋpi yuthímahel iyáču oyáhiki šni</string>
+  <string name="reading_lists_export_select_lists_message">Wamnáyaŋpi yutȟáŋkal-ičú kin kaȟníǧa</string>
+  <string name="reading_lists_export_completed_message">Wamnáyaŋpi kiŋ yutȟáŋkal-iyáču</string>
+  <plurals name="reading_list_export_failed_message">
+    <item quantity="other">Wamnáyaŋpi yutȟáŋkal iyáču oyáhiki šni</item>
   </plurals>
-  <plurals name="reading_list_import_success_message" fuzzy="true">
-    <item quantity="other">Táku-awáyawa čhašówapi yuthímahel iyáču</item>
+  <plurals name="reading_list_import_success_message">
+    <item quantity="other">Wamnáyaŋpi yuthímahel iyáču</item>
   </plurals>
-  <string name="reading_lists_preview_header_title" fuzzy="true">Čhašówapi onič\'u</string>
+  <string name="reading_lists_preview_header_title">Wamnáyaŋpi onič\'u</string>
   <string name="reading_lists_preview_save_button">Égnaka</string>
-  <string name="reading_lists_preview_save_dialog_title" fuzzy="true">Čhašówapi ékignaka</string>
-  <string name="reading_lists_preview_save_dialog_text" fuzzy="true">Čhašówapi čhaštȟúŋ na wówapi éyakignaka yačhíŋ kiŋ kaȟníǧa</string>
+  <string name="reading_lists_preview_save_dialog_title">Wamnáyaŋpi ékignaka</string>
+  <string name="reading_lists_preview_save_dialog_text">Wamnáyaŋpi čhaštȟúŋ na wówapi éyakignaka yačhíŋ kiŋ kaȟníǧa</string>
   <string name="reading_lists_preview_save_dialog_title_hint">Čhažé</string>
   <string name="reading_lists_preview_save_dialog_cancel">Yužúžu</string>
   <string name="reading_lists_preview_save_dialog_save">Égnaka</string>
-  <string name="reading_lists_preview_saved_snackbar" fuzzy="true">Táku-awáyawa čhašówapi éyakignake</string>
+  <string name="reading_lists_preview_saved_snackbar">Wamnáyaŋpi éyakignake</string>
   <string name="reading_lists_preview_saved_snackbar_action">Waŋyáŋka</string>
   <string name="user_option_sync_label">Wóigluštaŋ</string>
   <string name="notification_reverted_title">Wóyutȟokča khigléyapi</string>
@@ -959,7 +959,7 @@
   <string name="action_item_view_on_map">Makȟówapi akáŋl waŋyáŋka</string>
   <string name="shareable_reading_lists_new_indicator">*tȟéča*</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Héčhetu</string>
-  <string name="shareable_reading_lists_new_imported_snackbar" fuzzy="true">Táku-awáyawa čhašówapi kiŋ yutȟáŋkal iyáču</string>
+  <string name="shareable_reading_lists_new_imported_snackbar">Wamnáyaŋpi kiŋ yutȟáŋkal iyáču</string>
   <string name="reading_list_share_menu_label">Ok\'u</string>
   <string name="talk_templates_new_message_title">Wónaȟ\'uŋ théča</string>
   <string name="talk_templates_new_message_subject_hint">Wóiwoglake</string>
@@ -1030,7 +1030,6 @@
   <string name="games_hub_activity_title">Wóškate</string>
   <string name="games_hub_activity_overflow_view_game_stats">Wóškate wóiyawa waŋyáŋka</string>
   <string name="games_hub_activity_overflow_learn_more">Táku sáŋpȟa uŋspéič’iya</string>
-  <string name="on_this_day_game_entry_dialog_subtitle">Wikipedia wóškate</string>
   <string name="on_this_day_game_entry_dialog_button">Škáta</string>
   <string name="on_this_day_game_dialog_button">Škáta</string>
   <string name="on_this_day_game_correct">Léčhetu!</string>

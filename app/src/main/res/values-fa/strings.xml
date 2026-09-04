@@ -344,6 +344,11 @@
   <string name="edit_notices_please_read">لطفاً پیش از ویرایش، مطالعه کنید</string>
   <string name="edit_notices_show_auto">نمایش اعلامیه‌های ویرایش به‌طور خودکار</string>
   <string name="edit_notices_tooltip">برای مشاهدهٔ اعلامیه‌های ویرایش این مقاله، این دکمه را لمس کنید.</string>
+  <string name="editor_select_dialog_title">نحوه ویرایش را انتخاب کنید</string>
+  <string name="editor_select_dialog_ve_title">ویرایش دیداری</string>
+  <string name="editor_select_dialog_source_title">ویرایش مبدأ</string>
+  <string name="editor_select_title_settings_screen">ترجیحات ویرایش</string>
+  <string name="editor_select_save_btn_settings_screen">ذخیره</string>
   <string name="find_next">یافتن بعدی</string>
   <string name="find_previous">یافتن قبلی</string>
   <string name="find_first_occurence">این نخستین مورد است</string>
@@ -1640,10 +1645,10 @@
   <string name="shareable_reading_lists_new_install_dialog_title">یک مجموعه با شما به اشتراک گذاشته شده است</string>
   <string name="shareable_reading_lists_new_install_dialog_content" fuzzy="true">متوجه شدیم که یک فهرست مطالعه با شما به اشتراک گذاشته شده است. برای مشاهدهٔ این فهرست در نرم‌افزار، به پیام اولیه بازگردید و دوباره روی پیوند کلیک کنید.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">گرفتم</string>
-  <string name="shareable_reading_lists_new_imported_snackbar" fuzzy="true">فهرست مطالعه درون‌ریزی شد</string>
+  <string name="shareable_reading_lists_new_imported_snackbar">مجموعه درون‌ریزی شد</string>
   <string name="reading_list_share_menu_label">اشتراک‌گذاری...</string>
-  <string name="reading_list_share_menu_tooltip" fuzzy="true">این فهرست مطالعه را با دیگران به اشتراک بگذارید</string>
-  <string name="reading_list_share_message_v2" fuzzy="true">سلام! من می‌خواهم فهرست مطالعه ویکی‌پدیایم را با شما به اشتراک بگذارم:</string>
+  <string name="reading_list_share_menu_tooltip">این مجموعه را با دیگران به اشتراک بگذارید</string>
+  <string name="reading_list_share_message_v2">سلام! من می‌خواهم مجموعهٔ ویکی‌پدیایم را با شما به اشتراک بگذارم:</string>
   <string name="talk_templates_empty_message">پیام‌های خودتان را ایجاد کنید یا برای شروع از &lt;a href=\"#\"&gt;پیام‌های نمونه&lt;/a&gt; استفاده کنید.</string>
   <string name="talk_templates_new_message_title">پیام جدید</string>
   <string name="talk_templates_new_message_subject_hint">عنوان</string>
@@ -1833,10 +1838,7 @@
   <string name="games_hub_activity_games_unavailable_message_learn_more_action">اطلاعات بیشتر</string>
   <string name="games_hub_activity_overflow_view_game_stats">مشاهدهٔ آمار بازی</string>
   <string name="games_hub_activity_overflow_learn_more">اطلاعات بیشتر</string>
-  <string name="on_this_day_game_entry_dialog_title">معرفی</string>
-  <string name="on_this_day_game_entry_dialog_subtitle">بازی‌های ویکی‌پدیا</string>
   <string name="on_this_day_game_entry_dialog_button">بازی کن</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">بازی‌های ویکی‌پدیا در بخش مرکز بازی‌ها که در منوی بیشتر قرار دارد، در دسترس هستند.</string>
   <string name="on_this_day_game_title">کدام اول اتفاق افتاد؟</string>
   <string name="on_this_day_game_dialog_button">بازی کن</string>
   <string name="on_this_day_game_splash_message">حدس بزنید کدام رویداد در این روز از تاریخ ابتدا رخ داده است.</string>
@@ -2228,6 +2230,7 @@
   <string name="home_feed_settings_for_you_modules_description">غیرفعال کردن یک پودمان، آن را از خوراک «برای شما» پنهان می‌کند. می‌توانید هر زمان که خواستید آن را دوباره فعال کنید.</string>
   <string name="home_feed_settings_based_on_interest_title">بر اساس علایق شما</string>
   <string name="home_feed_settings_based_on_interest_subtitle">مقالات متناسب با موضوعاتی که شما انتخاب کرده‌اید.&lt;br /&gt;&lt;a href=\"#drivingFeed\"&gt;چه چیز محتوای شما را هدایت می‌کند&lt;/a&gt;</string>
+  <string name="home_feed_new_within_interest_title">مقاله‌های جدید در علایق شما</string>
   <string name="home_feed_settings_because_you_read_subtitle">پیشنهادات بر اساس مقالهٔ اخیر از تاریخچهٔ شما</string>
   <string name="home_feed_settings_continue_reading_title">ادامهٔ مطالعه</string>
   <string name="home_feed_settings_continue_reading_subtitle">به مقالاتی که تمام نکرده‌اید، برگردید</string>
@@ -2247,7 +2250,6 @@
   <string name="home_feed_for_you_screen_empty_ways_to_start">راه‌های شروع:</string>
   <string name="home_feed_for_you_screen_empty_add_interests">افزودن &lt;a href=\"#add_interests\"&gt;برخی علایق&lt;/a&gt;</string>
   <string name="home_feed_for_you_screen_empty_see_community">ببینید در &lt;a href=\"#community_tab\"&gt;جامعه&lt;/a&gt; چه خبر است</string>
-  <string name="home_feed_update_tooltip1">جدید: «مقالهٔ تصادفی» و «مکان‌های علاقه» در بخش «برای شما» و «آیا می‌دانستید که» در زبانهٔ «جامعه» موجود است.</string>
   <string name="home_feed_random_title">تصادفی</string>
   <string name="home_feed_random_subtitle">مقاله‌ای تصادفی برای برانگیختن حس کنجکاوی شما</string>
   <string name="home_feed_random_shuffle_button">بُر زدن</string>
@@ -2301,5 +2303,8 @@
   <string name="reading_lists_create_new_collection">ایجاد یک مجموعهٔ جدید</string>
   <string name="reading_lists_remove_articles_confirm_dialog_title">مقاله از حالت ذخیره خارج شود؟</string>
   <string name="reading_lists_remove_articles_confirm_button" fuzzy="true">حذف</string>
+  <string name="reading_lists_save_sheet_empty_title">مقالاتی را که دوست دارید جمع‌آوری کنید</string>
+  <string name="reading_lists_save_sheet_empty_message">ذخیره مقالات در مجموعه‌ها.</string>
   <string name="reading_lists_save_sheet_create">ایجاد</string>
+  <string name="reading_lists_update_tooltip">فهرست‌های مطالعه اکنون مجموعه‌ها نامیده می‌شوند.</string>
 </resources>

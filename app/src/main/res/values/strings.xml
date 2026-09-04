@@ -216,6 +216,27 @@
     <string name="email_recommendation_dialog_create_without_email_action">Continue without email</string>
     <string name="email_recommendation_dialog_create_with_email_action">Add an email address</string>
     <string name="create_account_button">Create account</string>
+    <string name="create_account_encourage_title">Wikipedia is better with an account</string>
+    <string name="create_account_encourage_year_in_review_title_zero">See your reading days come together in Year in Review</string>
+    <plurals name="create_account_encourage_year_in_review_title">
+        <item quantity="one">See your %1$d reading day come together in Year in Review</item>
+        <item quantity="other">See your %1$d reading days come together in Year in Review</item>
+    </plurals>
+    <string name="create_account_encourage_year_in_review_description">Once a year, your reading days come back as a look at where the year took you, ready to share.</string>
+    <string name="create_account_encourage_saved_articles_title_zero">Sync your saved articles</string>
+    <plurals name="create_account_encourage_saved_articles_title">
+        <item quantity="one">Sync your %1$d saved article</item>
+        <item quantity="other">Sync your %1$d saved articles</item>
+    </plurals>
+    <string name="create_account_encourage_saved_articles_description">Log in to your Wikipedia account to allow your saved articles to be synced across devices.</string>
+    <string name="create_account_encourage_activity_title_zero">Revisit your recent reads with Activity</string>
+    <plurals name="create_account_encourage_activity_title">
+        <item quantity="one">Revisit your %1$d recent read with Activity</item>
+        <item quantity="other">Revisit your %1$d recent reads with Activity</item>
+    </plurals>
+    <string name="create_account_encourage_activity_description">See your reading time, explored topics, and the reach of your contributions in the Activity tab.</string>
+    <string name="create_account_encourage_edits_title">Get credit for your edits</string>
+    <string name="create_account_encourage_edits_description">Build a track record you can be proud of, with contributions across Wikimedia projects credited to your account.</string>
     <string name="create_account_name_unavailable">The user name \"%s\" is not available. Please choose a different name.</string>
     <string name="create_account_ip_block_message">Sorry, your IP address is currently blocked from creating new accounts.</string>
     <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
@@ -628,7 +649,6 @@
     <string name="reading_list_confirm_remove_article_from_offline_message">%s will no longer be available offline for all collections:</string>
     <string name="reading_lists_sync_reminder_title">Turn on collection syncing?</string>
     <string name="reading_lists_sync_reminder_text"><![CDATA[Articles saved to collections can now be synced to your Wikipedia account. <a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists">Learn more</a>]]></string>
-    <string name="reading_lists_login_reminder_text_with_link"><![CDATA[Collections can now be synced across devices. Log in to your Wikipedia account and allow your collections to be saved. <a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists">Learn more</a>]]></string>
     <string name="reading_lists_sync_reminder_action">Enable syncing</string>
     <string name="reading_list_login_reminder_title">Sync collections</string>
     <string name="reading_lists_login_reminder_text">Collections can now be synced across devices. Log in to your Wikipedia account and allow your collections to be saved.</string>
@@ -671,7 +691,6 @@
     <string name="reading_lists_menu_import_list">Import collection</string>
     <string name="reading_lists_menu_sort_by">Sort by</string>
     <string name="reading_lists_refresh_sync_option">Refresh sync</string>
-    <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Log in / sign up</string>
     <plurals name="reading_list_article_offline_message">
         <item quantity="one">This article will now be available offline.</item>
         <item quantity="other">These articles will now be available offline.</item>
@@ -1936,10 +1955,7 @@
     <string name="games_hub_activity_overflow_learn_more">Learn more</string>
 
     <!-- On this day game -->
-    <string name="on_this_day_game_entry_dialog_title">Introducing</string>
-    <string name="on_this_day_game_entry_dialog_subtitle">Wikipedia games</string>
     <string name="on_this_day_game_entry_dialog_button">Play</string>
-    <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia games are available in the Games Hub, found in the MORE menu.</string>
     <string name="on_this_day_game_title">Which came first?</string>
     <string name="on_this_day_game_dialog_button">Play</string>
     <string name="on_this_day_game_splash_message">Guess which event came first on this day in history.</string>
@@ -2353,8 +2369,8 @@
     <string name="donation_reminders_settings_title">How should we remind you?</string>
     <string name="donation_reminders_settings_option_title">Donation reminders</string>
     <string name="donation_reminders_settings_thank_you_message">Your generosity helps keep Wikipedia thriving. Set up a donation reminder based on the number of articles you read.</string>
-    <string name="donation_reminders_settings_donation_info">Donations go to the Wikimedia Foundation and affiliates, proud hosts of Wikipedia and other free knowledge projects.</string>
-    <string name="donation_reminders_settings_article_frequency_label">When I read</string>
+    <string name="donation_reminders_settings_donation_info">Donations go to the Wikimedia Foundation and affiliates, proud hosts of Wikipedia and its sister sites.</string>
+    <string name="donation_reminders_settings_article_frequency_label">Whenever I read</string>
     <string name="donation_reminders_settings_amount_label">Remind me to donate</string>
     <string name="donation_reminders_settings_confirm_btn_label">Confirm reminder</string>
     <string name="donation_reminders_settings_about_experiment_btn_label">About this experiment</string>
@@ -2363,10 +2379,12 @@
     <string name="donation_reminders_settings_warning_max_amount">Maximum %s is allowed</string>
     <string name="donation_reminders_settings_option_custom">Custom…</string>
     <string name="donation_reminders_snacbkbar_confirmation_label">Thank you! We\'ll remind you to donate %1$s when you read %2$s while this experiment runs.</string>
-    <string name="donation_reminders_first_milestone_reached_prompt_title">You\'ve read %1$s since you pledged %2$s</string>
-    <string name="donation_reminders_subsequent_milestone_reached_prompt_title">You\'ve read another %1$s</string>
+    <string name="donation_reminders_first_milestone_reached_prompt_title">You\'ve read %1$s since you pledged %2$s!</string>
+    <string name="donation_reminders_subsequent_milestone_reached_prompt_title">You\'ve read another %1$s!</string>
     <string name="donation_reminders_prompt_message">You set up a donation reminder on %1$s to give %3$s every %2$s you read. Ready to follow through on your pledge to support Wikipedia?</string>
+    <string name="donation_reminders_prompt_message_v2">On %1$s you asked us to remind you to donate after reading %2$s. If Wikipedia has provided you with %3$s of knowledge, please join the 2%% of readers who give and complete your pledge today.</string>
     <string name="donation_reminders_prompt_positive_button">Donate now</string>
+    <string name="donation_reminders_prompt_positive_button_v2">Yes, donate now</string>
     <string name="donation_reminders_prompt_negative_button">Not now</string>
     <string name="donation_reminders_gpay_text">Donate %s with Google Pay</string>
     <string name="donation_reminders_gpay_different_amount_text">Donate a different amount with Google Pay</string>
@@ -2384,6 +2402,23 @@
     <string name="donation_reminders_settings_report_email_subject">Issue Report-Donation Reminders</string>
     <string name="donation_reminders_settings_report_email_body">I have encountered a problem with the Donation reminders feature:\n- [Describe specific problem]\n- [Screenshots or links]\n\nThe behavior I would like to see is:\n- [Describe proposed solution]</string>
     <string name="donation_reminders_snackbar_modify_button_label">Modify</string>
+    <string name="donation_reminders_settings_article_number_selection_label">Articles</string>
+    <string name="donation_reminders_settings_custom_amount_label">Custom amount</string>
+    <string name="donation_reminders_beta_label">Beta</string>
+    <string name="donation_reminders_wrap_up_title">That\'s a wrap on donation reminders</string>
+    <string name="donation_reminders_wrap_up_message">Thanks for testing donation reminders based on the articles you read. Your feedback decides if this becomes a permanent way to give on Wikipedia. It only takes a minute, and no donation is required.</string>
+    <string name="donation_reminders_wrap_up_share_feedback_button">Share feedback</string>
+    <string name="donation_reminders_wrap_up_survey_title">A quick question about donation reminders</string>
+    <string name="donation_reminders_wrap_up_survey_message">Should donation reminders based on articles you read become a permanent feature?</string>
+    <string name="donation_reminders_wrap_up_survey_option_keep_it">Keep it</string>
+    <string name="donation_reminders_wrap_up_survey_option_remove_it">Remove it</string>
+    <string name="donation_reminders_wrap_up_survey_option_not_sure">Not sure</string>
+    <string name="donation_reminders_wrap_up_survey_optional_hint">Anything else? (Optional)</string>
+    <string name="donation_reminders_wrap_up_survey_thank_you_message">Thank you for your feedback. Your answer helps us decide what to build next.</string>
+    <string name="donation_reminders_eoe_title">This is the end of the experiment</string>
+    <string name="donation_reminders_eoe_message">We will no longer show in-app reminders but you can still support by donating your pledged amount %s monthly.</string>
+    <string name="donation_reminders_eoe_give_monthly_button">Give monthly</string>
+    <string name="donation_reminders_eoe_donate_dialog_title">How would you like to give monthly?</string>
 
     <!-- Hybrid Search -->
     <string name="hybrid_search_search_hint">Search or ask anything</string>
@@ -2568,7 +2603,6 @@
     <string name="home_feed_for_you_screen_empty_ways_to_start">Ways to get started:</string>
     <string name="home_feed_for_you_screen_empty_add_interests"><![CDATA[Add <a href="#add_interests">some interests</a>]]></string>
     <string name="home_feed_for_you_screen_empty_see_community"><![CDATA[See what\'s happening in <a href="#community_tab">community</a>]]></string>
-    <string name="home_feed_update_tooltip1">New: \"Random Article\" and \"Places of Interest\" are available in For You and \"Did You Know\" is in the Community Tab.</string>
     <string name="home_feed_random_title">Random</string>
     <string name="home_feed_random_subtitle">Random article to spark your curiosity</string>
     <string name="home_feed_random_shuffle_button">Shuffle</string>

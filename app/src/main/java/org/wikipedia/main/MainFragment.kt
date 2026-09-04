@@ -46,6 +46,7 @@ import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.databinding.FragmentMainBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.ImportReadingListsEvent
+import org.wikipedia.events.LoggedInEvent
 import org.wikipedia.events.LoggedOutEvent
 import org.wikipedia.events.LoggedOutInBackgroundEvent
 import org.wikipedia.events.NewRecommendedReadingListEvent
@@ -144,6 +145,10 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 FlowEventBus.events.collectLatest { event ->
                     when (event) {
+                        is LoggedInEvent -> {
+                            refreshContents()
+                            FeedbackUtil.showMessage(this@MainFragment, R.string.login_success_toast)
+                        }
                         is LoggedOutEvent,
                         is LoggedOutInBackgroundEvent -> {
                             requireActivity().invalidateOptionsMenu()
@@ -198,9 +203,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
 
         binding.mainNavTabLayout.setOverlayDot(NavTab.EDITS, !Prefs.isActivityTabOnboardingShown)
 
-        // Check this first because the Feed tooltip marks its preference before posting its UI.
         maybeShowReadingListsUpdateTooltip()
-        maybeShowFeedNewModulesTooltip()
         Prefs.incrementExploreFeedVisitCount()
 
         notificationButtonView = NotificationButtonView(requireActivity())
@@ -243,10 +246,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
         } else if (requestCode == Constants.ACTIVITY_REQUEST_GALLERY &&
                 resultCode == GalleryActivity.ACTIVITY_RESULT_PAGE_SELECTED && data != null) {
             startActivity(data)
-        } else if (requestCode == Constants.ACTIVITY_REQUEST_LOGIN &&
-                resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
-            refreshContents()
-            FeedbackUtil.showMessage(this, R.string.login_success_toast)
         } else if (requestCode == Constants.ACTIVITY_REQUEST_BROWSE_TABS) {
             if (WikipediaApp.instance.tabCount == 0) {
                 // They browsed the tabs and cleared all of them, without wanting to open a new tab.
@@ -438,8 +437,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
     }
 
     fun onLoginRequested() {
-        startActivityForResult(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_NAV),
-                Constants.ACTIVITY_REQUEST_LOGIN)
+        startActivity(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_NAV))
     }
 
     override fun onLoadPage(entry: HistoryEntry) {
@@ -568,28 +566,12 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
         }
     }
 
-    private fun maybeShowFeedNewModulesTooltip() {
-        if (Prefs.exploreFeedVisitCount == 0) {
-            // Explicitly consider this tooltip "shown", since we only want to show it to users
-            // who have used the Feed already, instead of completely new users.
-            Prefs.isHomeFeedUpdateTooltipShown = true
-        } else if (!Prefs.isHomeFeedUpdateTooltipShown) {
-            Prefs.isHomeFeedUpdateTooltipShown = true
-            binding.root.post {
-                if (isAdded) {
-                    FeedbackUtil.showTooltip(requireActivity(), binding.mainNavTabLayout.findViewById(NavTab.HOME.id), getString(R.string.home_feed_update_tooltip1), aboveOrBelow = true, autoDismiss = false, showDismissButton = true)
-                }
-            }
-        }
-    }
-
     private fun maybeShowReadingListsUpdateTooltip() {
         val endDate = LocalDate.of(2026, 9, 15)
         // Only show the tooltip to existing users and expire after September 15, 2026
         if (Prefs.exploreFeedVisitCount == 0) {
             Prefs.isReadingListsUpdateTooltipShown = true
-        } else if (Prefs.isHomeFeedUpdateTooltipShown &&
-                !Prefs.isReadingListsUpdateTooltipShown &&
+        } else if (!Prefs.isReadingListsUpdateTooltipShown &&
                 !LocalDate.now().isAfter(endDate)) {
             Prefs.isReadingListsUpdateTooltipShown = true
             binding.root.post {

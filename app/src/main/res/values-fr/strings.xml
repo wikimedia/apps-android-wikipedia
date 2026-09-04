@@ -60,6 +60,7 @@
 * Obscaeris
 * Oujon
 * Oupsa
+* PPenloglou-WMF
 * Pa2chant.bis
 * Papawy
 * Pols12
@@ -1825,7 +1826,7 @@
   <string name="donate_gpay_activity_title">Sélectionnez le montant</string>
   <string name="donate_gpay_activity_title_with_currency">Choisissez un montant (en %s)</string>
   <string name="donate_gpay_check_transaction_fee">J\'ajouterai généreusement %s pour couvrir les frais de transaction afin de que vous puissiez conserver 100%% de mon don.</string>
-  <string name="donate_gpay_check_recurring">En faire un don mensuel récurrent.</string>
+  <string name="donate_gpay_check_recurring">Convertir en don mensuel.</string>
   <string name="donate_gpay_check_send_email">Oui, la Fondation Wikimedia peut m\'envoyer un courriel de temps en temps.</string>
   <string name="donate_gpay_minimum_amount">Veuillez sélectionner un montant (minimum %s)</string>
   <string name="donate_gpay_maximum_amount">Nous ne pouvons pas accepter de dons supérieurs à %s via notre application. Veuillez contacter notre équipe chargée des dons importants à l\'adresse benefactors@wikimedia.org.</string>
@@ -1870,10 +1871,7 @@
   <string name="games_hub_activity_games_unavailable_message_learn_more_action">En savoir plus</string>
   <string name="games_hub_activity_overflow_view_game_stats">Consulter les statistiques de jeu</string>
   <string name="games_hub_activity_overflow_learn_more">En savoir plus</string>
-  <string name="on_this_day_game_entry_dialog_title">Présentation</string>
-  <string name="on_this_day_game_entry_dialog_subtitle">Jeux de Wikipédia</string>
   <string name="on_this_day_game_entry_dialog_button">Jouer</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Les jeux Wikipédia sont disponibles dans la Centrale des jeux, accessible dans le menu PLUS.</string>
   <string name="on_this_day_game_title">Le plus ancien ?</string>
   <string name="on_this_day_game_dialog_button">Lecture</string>
   <string name="on_this_day_game_splash_message">Devinez quel événement s’est produit en premier ce jour-là dans l’histoire.</string>
@@ -2487,7 +2485,6 @@
   <string name="home_feed_for_you_screen_empty_ways_to_start">Comment commencer :</string>
   <string name="home_feed_for_you_screen_empty_add_interests">Ajoutez des &lt;a href=\"#add_interests\"&gt;centres d\'intérêt&lt;/a&gt;</string>
   <string name="home_feed_for_you_screen_empty_see_community">Voir ce qui se passe dans la &lt;a href=\"#community_tab\"&gt;communauté&lt;/a&gt;</string>
-  <string name="home_feed_update_tooltip1">Nouveautés : Les rubriques « Article aléatoire » et « Lieux d’intérêt » sont disponibles dans la section « Pour vous », et la rubrique « Le saviez-vous ? » se trouve dans l\'onglet Communauté.</string>
   <string name="home_feed_random_title">Aléatoire</string>
   <string name="home_feed_random_subtitle">Article aléatoire pour éveiller votre curiosité</string>
   <string name="home_feed_random_shuffle_button">Lecture aléatoire</string>
