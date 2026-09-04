@@ -503,7 +503,7 @@ fun DonationReminderBottomBar(
                 onClick = onConfirmButtonClick,
                 content = {
                     Text(
-                        stringResource(R.string.donation_reminders_settings_screen_update_btn)
+                        stringResource(R.string.donation_reminders_settings_update_reminder_button)
                     )
                 }
             )
