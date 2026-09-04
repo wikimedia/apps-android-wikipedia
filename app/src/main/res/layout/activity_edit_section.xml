@@ -122,6 +122,13 @@
         android:visibility="gone"
         tools:visibility="visible" />
 
+    <androidx.compose.ui.platform.ComposeView
+        android:id="@+id/edit_section_dialog_compose_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <org.wikipedia.views.WikiErrorView
         android:id="@+id/view_edit_section_error"
         android:layout_width="0dp"
