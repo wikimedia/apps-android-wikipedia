@@ -192,13 +192,8 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
     }
 
     fun updateVisualEditorPreference(visualEditorPref: Preference = findPreference(R.string.preference_key_editor_mode_choice)) {
-        if (Prefs.visualEditorEnabled) {
-            visualEditorPref.isVisible = true
-            visualEditorPref.setSummary(if (Prefs.editorModeChoice == EDITOR_CHOICE_VE) R.string.editor_select_dialog_ve_title else R.string.editor_select_dialog_source_title)
-        } else {
-            visualEditorPref.isVisible = false
-            visualEditorPref.summary = null
-        }
+        visualEditorPref.isVisible = true
+        visualEditorPref.setSummary(if (Prefs.editorModeChoice == EDITOR_CHOICE_VE) R.string.editor_select_dialog_ve_title else R.string.editor_select_dialog_source_title)
     }
 
     private inner class SyncReadingListsListener : Preference.OnPreferenceChangeListener {
