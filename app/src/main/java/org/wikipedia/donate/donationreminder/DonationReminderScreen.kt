@@ -492,7 +492,7 @@ fun DonationReminderBottomBar(
                 onClick = onFooterButtonClick,
                 content = {
                     Text(
-                        text = stringResource(R.string.donation_reminders_settings_no_thanks_btn_label) ,
+                        text = stringResource(R.string.donation_reminders_settings_no_thanks_btn_label),
                         color = WikipediaTheme.colors.progressiveColor
                     )
                 }
