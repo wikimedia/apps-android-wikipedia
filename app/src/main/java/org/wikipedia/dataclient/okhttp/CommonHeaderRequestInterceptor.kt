@@ -19,6 +19,9 @@ internal class CommonHeaderRequestInterceptor : Interceptor {
         } else if (url.contains("maps.wikimedia.org")) {
             builder.header("Referer", "https://maps.wikimedia.org/")
         }
+        app.oauthClient.accessToken?.let {
+            builder.header("Authorization", "Bearer $it")
+        }
         return chain.proceed(builder.build())
     }
 }

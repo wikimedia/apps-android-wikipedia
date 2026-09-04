@@ -85,6 +85,7 @@
     <string name="preference_key_about_wikipedia_app" translatable="false">aboutWikipediaApp</string>
     <string name="preference_key_send_feedback" translatable="false">sendFeedback</string>
     <string name="preference_key_logout" translatable="false">logOut</string>
+    <string name="preference_key_oauth_state" translatable="false">oauthState</string>
     <string name="preference_key_download_only_over_wifi" translatable="false">downloadOnlyOverWiFi</string>
     <string name="preference_key_download_reading_list_articles" translatable="false">downloadReadingListArticles</string>
     <string name="preference_key_remote_notifications_seen_time" translatable="false">remoteNotificationsSeenTime</string>

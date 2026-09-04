@@ -48,6 +48,8 @@ android {
 
         signingConfig = signingConfigs.debug
 
+        manifestPlaceholders = ['appAuthRedirectScheme': 'wikipedia']
+
         buildConfigField "String", "DEFAULT_RESTBASE_URI_FORMAT", '"%1$s://%2$s/api/rest_v1/"'
         buildConfigField "String", "META_WIKI_BASE_URI", '"https://meta.wikimedia.org"'
         buildConfigField "String", "EVENTGATE_ANALYTICS_EXTERNAL_BASE_URI", '"https://intake-analytics.wikimedia.org"'
@@ -196,6 +198,7 @@ dependencies {
     implementation libs.work.runtime.ktx
     implementation libs.hcaptcha
 
+    implementation libs.appauth
     implementation libs.okhttp.tls
     implementation libs.okhttp3.logging.interceptor
     implementation libs.retrofit

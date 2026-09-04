@@ -127,6 +127,18 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
         }
     }
 
+    private val loginLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            WikipediaApp.instance.oauthClient.handleAuthorizationResponse(result.data!!) {
+                if (it == null) {
+                    FeedbackUtil.showMessage(this, R.string.login_success_toast)
+                } else {
+                    FeedbackUtil.showError(requireActivity(), it)
+                }
+            }
+        }
+    }
+
     private val activityTabOnboardingLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
             onNavigateTo(NavTab.EDITS)
@@ -437,7 +449,9 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
     }
 
     fun onLoginRequested() {
-        startActivity(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_NAV))
+        // startActivity(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_NAV))
+
+        loginLauncher.launch(WikipediaApp.instance.oauthClient.getLoginIntent())
     }
 
     override fun onLoadPage(entry: HistoryEntry) {

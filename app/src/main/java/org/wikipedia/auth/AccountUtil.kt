@@ -4,6 +4,7 @@ import android.accounts.Account
 import android.accounts.AccountAuthenticatorResponse
 import android.accounts.AccountManager
 import android.app.Activity
+import android.os.Bundle
 import androidx.core.os.bundleOf
 import androidx.core.text.isDigitsOnly
 import org.wikipedia.R
@@ -16,8 +17,7 @@ import org.wikipedia.login.LoginResult
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.UriUtil
-import org.wikipedia.util.log.L.d
-import org.wikipedia.util.log.L.logRemoteErrorIfProd
+import org.wikipedia.util.log.L
 import java.time.LocalDate
 import java.util.Collections
 import kotlin.math.max
@@ -32,11 +32,27 @@ object AccountUtil {
                     AccountManager.KEY_ACCOUNT_TYPE to accountType()))
         } else {
             response?.onError(AccountManager.ERROR_CODE_REMOTE_EXCEPTION, "")
-            d("account creation failure")
+            L.d("account creation failure")
             return
         }
         setPassword(result.password)
         groups = result.groups
+    }
+
+    fun updateAccount(response: AccountAuthenticatorResponse?, result: OAuthProfile) {
+        if (createAccount(result.userName, "")) {
+            response?.onResult(
+                Bundle().apply {
+                    putString(AccountManager.KEY_ACCOUNT_NAME, result.userName)
+                    putString(AccountManager.KEY_ACCOUNT_TYPE, accountType())
+                }
+            )
+        } else {
+            response?.onError(AccountManager.ERROR_CODE_REMOTE_EXCEPTION, "")
+            L.d("account creation failure")
+            return
+        }
+        groups = result.groups.toSet()
     }
 
     val isLoggedIn: Boolean
@@ -89,7 +105,7 @@ object AccountUtil {
         return try {
             accountManager().getAccountsByType(accountType()).firstOrNull()
         } catch (e: SecurityException) {
-            logRemoteErrorIfProd(e)
+            L.e(e)
             null
         }
     }
