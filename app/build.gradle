@@ -37,7 +37,7 @@ android {
 
     defaultConfig {
         applicationId 'org.wikipedia'
-        minSdk = 23
+        minSdk = 24
         targetSdk = 37
         versionCode 50604
         testApplicationId 'org.wikipedia.test'
@@ -196,7 +196,6 @@ dependencies {
     implementation libs.work.runtime.ktx
     implementation libs.hcaptcha
 
-    implementation libs.okhttp.tls
     implementation libs.okhttp3.logging.interceptor
     implementation libs.retrofit
     implementation libs.commons.lang3
