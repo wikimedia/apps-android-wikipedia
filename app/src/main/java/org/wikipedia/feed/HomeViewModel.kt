@@ -440,6 +440,9 @@ class HomeViewModel : ViewModel() {
     private val _unreadCount = MutableStateFlow(NotificationBellState())
     val unreadCount = _unreadCount.asStateFlow()
 
+    private val _forYouNetworkLatency = MutableStateFlow(0L)
+    val forYouNetworkLatency = _forYouNetworkLatency.asStateFlow()
+
     init {
         viewModelScope.launch {
             SettingsRepository.migrateLegacyHiddenCards()
@@ -660,6 +663,7 @@ class HomeViewModel : ViewModel() {
             return newModules
         }
         L.d("Loading modules from network...")
+        val startMillis = System.currentTimeMillis()
         val previousSeedTitles = forYouCollectionSaved.previousSeedTitlesPerLanguage[wikiSite.value.languageCode].orEmpty().toSet()
         val seedEntries = pickSeedEntries(wikiSite.value.languageCode, count = 2, excludeTitles = previousSeedTitles)
         val continueReadingSeed = seedEntries.getOrNull(0)
@@ -833,6 +837,8 @@ class HomeViewModel : ViewModel() {
                 }
             }
         }
+
+        _forYouNetworkLatency.value = System.currentTimeMillis() - startMillis
 
         val seedTitles = listOfNotNull(continueReadingSeed, becauseYouReadSeed).map { it.title.prefixedText }.distinct()
         forYouCollectionSaved = ForYouCollectionSaved(

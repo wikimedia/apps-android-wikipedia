@@ -174,7 +174,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
 
             SuggestedEditsSnackbars.show(this, action, it.resultCode != DescriptionEditSuccessActivity.RESULT_OK_FROM_EDIT_SUCCESS,
                 editLanguage, action !== DescriptionEditActivity.Action.ADD_DESCRIPTION && action !== DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION) {
-                pageFragment.page?.pageProperties?.leadImageName?.let { imageName ->
+                pageFragment.page?.leadImageName?.let { imageName ->
                     val wikiSite = WikiSite.forLanguageCode(pageFragment.leadImageEditLang.orEmpty().ifEmpty { app.appOrSystemLanguageCode })
                     val imageTitle = PageTitle("File:${StringUtil.removeNamespace(imageName)}", wikiSite)
                     if (action === DescriptionEditActivity.Action.ADD_IMAGE_TAGS) {
