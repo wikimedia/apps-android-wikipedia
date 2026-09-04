@@ -74,6 +74,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -715,20 +716,19 @@ fun <T : Number> OptionSelector(
                 if (currentOption is OptionItem.Preset) {
                     val isSelected = (option.selectedSource is SelectedSource.Preset) &&
                             (option.selectedSource.key == index)
-
                     Button(
                         colors = ButtonDefaults.buttonColors(
                             containerColor = if (isSelected) WikipediaTheme.colors.progressiveColor
                             else WikipediaTheme.colors.backgroundColor
                         ),
                         onClick = { onOptionSelected(currentOption, SelectedSource.Preset(index)) },
-                        modifier = Modifier.weight(1f)
+                        modifier = Modifier.weight(1f, fill = false)
                     ) {
                         Text(
+                            modifier = Modifier.fillMaxWidth(),
                             text = currentOption.displayText,
-                            maxLines = 1,
-                            color = if (isSelected) WikipediaTheme.colors.paperColor
-                            else WikipediaTheme.colors.primaryColor,
+                            textAlign = TextAlign.Center,
+                            color = if (isSelected) WikipediaTheme.colors.paperColor else WikipediaTheme.colors.primaryColor,
                             style = MaterialTheme.typography.titleMedium
                         )
                     }
@@ -736,6 +736,7 @@ fun <T : Number> OptionSelector(
             }
             if (showArticleLabel) {
                 Text(
+                    modifier = Modifier.weight(1f),
                     text = stringResource(R.string.donation_reminders_settings_article_number_selection_label),
                     style = MaterialTheme.typography.bodyLarge,
                     color = WikipediaTheme.colors.primaryColor,
