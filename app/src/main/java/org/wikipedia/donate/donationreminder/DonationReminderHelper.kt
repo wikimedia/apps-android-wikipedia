@@ -16,15 +16,19 @@ import java.time.LocalDate
 
 object DonationReminderHelper {
     const val MAX_REMINDER_PROMPTS = 2
+    private val EXPERIMENT_END_DATE get() = Prefs.donationReminderEndDateOverride.ifEmpty { "2026-11-09" }
+    private val WRAP_UP_START_DATE get() = Prefs.donationReminderWrapUpStartDateOverride.ifEmpty { "2026-11-10" }
+    private val WRAP_UP_END_DATE get() = Prefs.donationReminderWrapUpEndDateOverride.ifEmpty { "2026-11-15" }
     private val validReadCountOnSeconds = if (ReleaseUtil.isDevRelease) 1 else 5
 
     private val isTestGroupUser = DonationReminderAbTest().isTestGroupUser()
     private val enabledCountries = listOf(
         "NL"
     )
-    private val isInDateRange get() = LocalDate.now() <= LocalDate.of(2026, 11, 9)
-    val isInWrapUpDateRange get() = LocalDate.now() <= LocalDate.of(2026, 11, 15) &&
-            LocalDate.now() >= LocalDate.of(2026, 11, 10)
+
+    private val isInDateRange get() = LocalDate.now() <= LocalDate.parse(EXPERIMENT_END_DATE)
+    val isInWrapUpDateRange get() = LocalDate.now() <= LocalDate.parse(WRAP_UP_END_DATE) &&
+            LocalDate.now() >= LocalDate.parse(WRAP_UP_START_DATE)
     val isInEligibleCountry get() = ReleaseUtil.isDevRelease || enabledCountries.contains(GeoUtil.geoIPCountry.orEmpty())
     val defaultReadFrequencyOptions = listOf(5, 10, 20)
     val presetsToRemoveFromConfig = listOf(2f, 10f, 15f) // V3 only.

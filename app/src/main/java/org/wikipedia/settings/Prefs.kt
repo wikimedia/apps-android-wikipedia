@@ -920,6 +920,18 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_donation_reminders_dev_wrap_up_enabled, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_donation_reminders_dev_wrap_up_enabled, value)
 
+    var donationReminderEndDateOverride
+        get() = PrefsIoUtil.getString(R.string.preference_key_donation_reminders_end_date_override, null).orEmpty()
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_donation_reminders_end_date_override, value)
+
+    var donationReminderWrapUpStartDateOverride
+        get() = PrefsIoUtil.getString(R.string.preference_key_donation_reminders_wrap_up_start_date_override, null).orEmpty()
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_donation_reminders_wrap_up_start_date_override, value)
+
+    var donationReminderWrapUpEndDateOverride
+        get() = PrefsIoUtil.getString(R.string.preference_key_donation_reminders_wrap_up_end_date_override, null).orEmpty()
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_donation_reminders_wrap_up_end_date_override, value)
+
     var activityTabModules: ActivityTabModules
         get() = JsonUtil.decodeFromString<ActivityTabModules>(PrefsIoUtil.getString(R.string.preference_key_activity_tab_modules, null))
             ?: ActivityTabModules()
