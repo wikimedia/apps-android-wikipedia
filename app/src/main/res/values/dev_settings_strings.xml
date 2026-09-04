@@ -13,7 +13,6 @@
     <string name="preferences_developer_announcement_country_override">GeoIP Country Override</string>
     <string name="preferences_developer_announcement_country_override_hint">Type a two-letter, all caps country code (US, NG, etc).</string>
     <string name="preferences_developer_announcement_ignore_date">Ignore date</string>
-    <string name="preferences_developer_announcement_version_code_hint">Set to 0 to reset.</string>
     <string name="preferences_developer_announcement_reset_shown_dialogs_title">Reset shown dialogs</string>
     <string name="preferences_developer_announcement_reset_shown_dialogs_summary">%d shown dialog(s).</string>
     <string name="preferences_developer_announcement_debug_url">Use the test.wikipedia debug URL.</string>

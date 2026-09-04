@@ -30,12 +30,6 @@
             android:key="@string/preference_key_announcement_ignore_date"
             android:title="@string/preferences_developer_announcement_ignore_date" />
 
-        <org.wikipedia.settings.IntPreference
-            style="@style/IntPreference"
-            android:key="@string/preference_key_announcement_version_code"
-            android:title="@string/preference_key_announcement_version_code"
-            android:dialogMessage="@string/preferences_developer_announcement_version_code_hint"/>
-
         <Preference android:key="@string/preference_key_announcement_shown_dialogs"
             android:title="@string/preferences_developer_announcement_reset_shown_dialogs_title" />
     </PreferenceCategory>
@@ -397,25 +391,10 @@
             android:key="@string/preference_key_suggested_edits_pause_reverts"
             android:title="@string/preference_key_suggested_edits_pause_reverts" />
 
-        <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_suggested_edits_override_counts"
-            android:title="@string/preference_key_suggested_edits_override_counts"
-            android:summary="Use the following two fields to override suggested edit counts:"/>
-
-        <org.wikipedia.settings.IntPreference
-            style="@style/IntPreference"
-            android:key="@string/preference_key_suggested_edits_override_edits"
-            android:title="@string/preference_key_suggested_edits_override_edits" />
-
         <org.wikipedia.settings.IntPreference
             style="@style/IntPreference"
             android:key="@string/preference_key_suggested_edits_override_contribution"
             android:title="@string/preference_key_suggested_edits_override_contribution" />
-
-        <org.wikipedia.settings.IntPreference
-            style="@style/IntPreference"
-            android:key="@string/preference_key_suggested_edits_override_reverts"
-            android:title="@string/preference_key_suggested_edits_override_reverts" />
 
         <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_suggested_edits_reactivation_test"
