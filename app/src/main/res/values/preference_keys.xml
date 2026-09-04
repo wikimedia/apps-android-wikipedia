@@ -73,6 +73,7 @@
     <string name="preference_key_feed_cards_lang_disabled" translatable="false">feedCardsLangDisabled</string>
     <string name="preference_key_feed_customize_onboarding_card_enabled" translatable="false">feedCustomizeOnboardingCardEnabled</string>
     <string name="preference_key_add_articles" translatable="false">addArticles</string>
+    <string name="preference_key_add_history_entries" translatable="false">addHistoryEntries</string>
     <string name="preference_key_add_reading_lists" translatable="false">addReadingLists</string>
     <string name="preference_key_delete_reading_lists" translatable="false">deleteReadingLists</string>
     <string name="preference_key_delete_test_reading_lists" translatable="false">deleteTestReadingLists</string>

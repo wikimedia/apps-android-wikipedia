@@ -30,6 +30,7 @@ import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
+import org.wikipedia.pageimages.db.PageImage
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.recommended.RecommendedReadingListNotificationManager
 import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
@@ -45,6 +46,8 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.StringUtil.fromHtml
 import org.wikipedia.yearinreview.YearInReviewSurveyState
+import java.util.Date
+import java.util.concurrent.TimeUnit
 
 internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : BasePreferenceLoader(fragment) {
     private val setMediaWikiBaseUriChangeListener = Preference.OnPreferenceChangeListener { _, _ ->
@@ -95,6 +98,13 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             val intValue = newValue.toIntOrDefault()
             if (intValue != 0) {
                 createTestReadingList(TEXT_OF_TEST_READING_LIST, 1, intValue)
+            }
+            true
+        }
+        findPreference(R.string.preference_key_add_history_entries).onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _: Preference, newValue: Any ->
+            val intValue = newValue.toIntOrDefault()
+            if (intValue != 0) {
+                createTestHistoryEntries(intValue)
             }
             true
         }
@@ -349,6 +359,30 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
         WikipediaApp.instance.resetWikiSite()
     }
 
+    private fun createTestHistoryEntries(numOfArticles: Int) {
+        fragment.lifecycleScope.launch(CoroutineExceptionHandler { _, caught ->
+            MaterialAlertDialogBuilder(activity)
+                .setMessage(caught.message)
+                .setPositiveButton(android.R.string.ok, null)
+                .show()
+        }) {
+            val wikiSite = WikipediaApp.instance.wikiSite
+            val count = numOfArticles.coerceIn(1, TEST_HISTORY_TITLES.size)
+            for (index in 0 until count) {
+                val title = PageTitle(TEST_HISTORY_TITLES[index], wikiSite)
+                val timestamp = Date(System.currentTimeMillis() - TimeUnit.DAYS.toMillis(index * 2L))
+                AppDatabase.instance.historyEntryDao().insertEntry(
+                    HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK, timestamp)
+                )
+                AppDatabase.instance.pageImagesDao().insertPageImage(
+                    PageImage(wikiSite.languageCode, title.namespace, title.text, null, null, 90)
+                )
+            }
+            Prefs.homeForYouModulesToday = ""
+            Toast.makeText(activity, "Added $count history entries.", Toast.LENGTH_SHORT).show()
+        }
+    }
+
     private fun createTestReadingList(listName: String, numOfLists: Int, numOfArticles: Int) {
         fragment.lifecycleScope.launch(CoroutineExceptionHandler { _, caught ->
             MaterialAlertDialogBuilder(activity)
@@ -401,6 +435,11 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
     companion object {
         private const val TEXT_OF_TEST_READING_LIST = "Test collection"
         private const val TEXT_OF_READING_LIST = "Collection"
+        private val TEST_HISTORY_TITLES = listOf(
+            "Albert Einstein", "Mount Everest", "Photosynthesis", "Roman Empire",
+            "Jazz", "Antarctica", "Leonardo da Vinci", "Coffee",
+            "Black hole", "Great Barrier Reef", "Sushi", "Tokyo"
+        )
         private const val AB_TEST_CATEGORY_KEY = "ab_test_category"
     }
 }

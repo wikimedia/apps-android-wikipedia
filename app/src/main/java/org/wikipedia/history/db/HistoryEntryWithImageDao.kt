@@ -49,6 +49,22 @@ interface HistoryEntryWithImageDao {
     @RewriteQueriesToDropUnusedColumns
     suspend fun getEntriesWithCoordinates(limit: Int, startMillis: Long, endMillis: Long = System.currentTimeMillis()): List<HistoryEntryWithImage>
 
+    @Query("""
+        SELECT HistoryEntry.*, PageImage.imageName, PageImage.description, PageImage.geoLat, PageImage.geoLon, PageImage.timeSpentSec 
+        FROM HistoryEntry 
+        LEFT OUTER JOIN PageImage ON (HistoryEntry.namespace = PageImage.namespace AND HistoryEntry.apiTitle = PageImage.apiTitle AND HistoryEntry.lang = PageImage.lang) 
+        INNER JOIN (
+            SELECT lang, namespace, apiTitle, MAX(timestamp) as max_timestamp FROM HistoryEntry
+            WHERE timestamp >= :sinceMillis
+            AND source != :excludeSource1 AND source != :excludeSource2 AND source != :excludeSource3
+            GROUP BY lang, namespace, apiTitle
+        ) LatestEntries ON HistoryEntry.lang = LatestEntries.lang AND HistoryEntry.namespace = LatestEntries.namespace AND HistoryEntry.apiTitle = LatestEntries.apiTitle AND HistoryEntry.timestamp = LatestEntries.max_timestamp
+        WHERE PageImage.timeSpentSec >= :minTimeSpent AND (:langCode IS NULL OR HistoryEntry.lang = :langCode)
+    """
+    )
+    @RewriteQueriesToDropUnusedColumns
+    suspend fun getRecentReadEntriesSince(sinceMillis: Long, excludeSource1: Int, excludeSource2: Int, excludeSource3: Int, minTimeSpent: Int, langCode: String? = null): List<HistoryEntryWithImage>
+
     suspend fun findHistoryItem(wikiSite: WikiSite, searchQuery: String): SearchResults {
         var normalizedQuery = StringUtils.stripAccents(searchQuery)
         if (normalizedQuery.isEmpty()) {
@@ -98,6 +114,11 @@ interface HistoryEntryWithImageDao {
     suspend fun findEntryForReadMore(limit: Int, minTimeSpent: Int, langCode: String? = null): List<HistoryEntry> {
         return findEntriesBy(HistoryEntry.SOURCE_MAIN_PAGE, HistoryEntry.SOURCE_RANDOM,
             HistoryEntry.SOURCE_FEED_MAIN_PAGE, minTimeSpent, limit, langCode).map { toHistoryEntry(it) }
+    }
+
+    suspend fun findSeedEntriesForReadMore(minTimeSpent: Int, sinceMillis: Long, langCode: String? = null): List<HistoryEntry> {
+        return getRecentReadEntriesSince(sinceMillis, HistoryEntry.SOURCE_MAIN_PAGE, HistoryEntry.SOURCE_RANDOM,
+            HistoryEntry.SOURCE_FEED_MAIN_PAGE, minTimeSpent, langCode).map { toHistoryEntry(it) }
     }
 
     suspend fun getHistoryItemWIthImage(searchTerm: String): List<HistoryEntryWithImage> {
