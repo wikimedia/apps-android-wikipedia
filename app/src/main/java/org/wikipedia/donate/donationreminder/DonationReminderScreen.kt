@@ -51,7 +51,6 @@ import androidx.compose.material3.TooltipBox
 import androidx.compose.material3.TooltipDefaults
 import androidx.compose.material3.rememberTooltipState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -78,9 +77,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleEventObserver
-import androidx.lifecycle.compose.LocalLifecycleOwner
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.compose.components.AppButton
@@ -137,30 +133,6 @@ fun DonationReminderScreen(
         }
     }
 
-    val lifecycleOwner = LocalLifecycleOwner.current
-    DisposableEffect(lifecycleOwner) {
-        val observer = LifecycleEventObserver { _, event ->
-            when (event) {
-                Lifecycle.Event.ON_PAUSE -> {
-                    if (viewModel.isFromSettings && !isNavigatingToExternalUrl && viewModel.hasValueChanged()) {
-                        viewModel.saveReminder()
-                        val message = DonationReminderHelper.thankYouMessageForSettings()
-                        onConfirmButtonClick(message)
-                    }
-                }
-                Lifecycle.Event.ON_RESUME -> {
-                    isNavigatingToExternalUrl = false
-                }
-                else -> {}
-            }
-        }
-        lifecycleOwner.lifecycle.addObserver(observer)
-
-        onDispose {
-            lifecycleOwner.lifecycle.removeObserver(observer)
-        }
-    }
-
     Scaffold(
         modifier = modifier,
         topBar = {
@@ -196,7 +168,9 @@ fun DonationReminderScreen(
                         if (customAmountError.isNotEmpty()) {
                             customErrorMessage = customAmountError
                         } else {
-                            viewModel.toggleDonationReminders(true)
+                            if (!viewModel.isFromSettings) {
+                                viewModel.toggleDonationReminders(true)
+                            }
                             viewModel.saveReminder()
                             val message = DonationReminderHelper.thankYouMessageForSettings()
                             onConfirmButtonClick(message)
