@@ -36,18 +36,12 @@ class DonationReminderActivity : BaseActivity() {
                         finish()
                     },
                     onFooterButtonClick = {
-                        if (!viewModel.isFromSettings) {
-                            DonorExperienceEvent.logDonationReminderAction(
-                                activeInterface = "reminder_config",
-                                action = "nothanks_click"
-                            )
-                        }
-                        if (viewModel.isFromSettings) {
-                            UriUtil.visitInExternalBrowser(this, getString(R.string.donation_reminders_experiment_url).toUri())
-                        } else {
-                            setResult(RESULT_OK_FROM_DONATION_REMINDER)
-                            finish()
-                        }
+                        DonorExperienceEvent.logDonationReminderAction(
+                            activeInterface = "reminder_config",
+                            action = "nothanks_click"
+                        )
+                        setResult(RESULT_OK_FROM_DONATION_REMINDER)
+                        finish()
                     },
                     wikiErrorClickEvents = WikiErrorClickEvents(
                         backClickListener = {
