@@ -250,6 +250,27 @@
   <string name="email_recommendation_dialog_create_without_email_action">Doorgaan zonder e-mail</string>
   <string name="email_recommendation_dialog_create_with_email_action">Een e-mailadres toevoegen</string>
   <string name="create_account_button">Account aanmaken</string>
+  <string name="create_account_encourage_title">Wikipedia is beter met een account</string>
+  <string name="create_account_encourage_year_in_review_title_zero">Bekijk hoe uw leesdagen samenkomen in het Jaaroverzicht</string>
+  <plurals name="create_account_encourage_year_in_review_title">
+    <item quantity="one">Bekijk uw leesdag in het Jaaroverzicht</item>
+    <item quantity="other">Bekijk uw %1$d leesdagen in het Jaaroverzicht</item>
+  </plurals>
+  <string name="create_account_encourage_year_in_review_description">Eén keer per jaar komen uw leesdagen terug als een terugblik op waar het jaar u heeft gebracht. Klaar om te delen.</string>
+  <string name="create_account_encourage_saved_articles_title_zero">Synchroniseer uw opgeslagen pagina\'s</string>
+  <plurals name="create_account_encourage_saved_articles_title">
+    <item quantity="one">Synchroniseer uw opgeslagen pagina</item>
+    <item quantity="other">Synchroniseer uw %1$d opgeslagen pagina\'s</item>
+  </plurals>
+  <string name="create_account_encourage_saved_articles_description">Meld u aan bij uw Wikipedia-account om uw opgeslagen pagina\'s te synchroniseren tussen verschillende apparaten.</string>
+  <string name="create_account_encourage_activity_title_zero">Bekijk wat u recent hebt gelezen met Activiteit</string>
+  <plurals name="create_account_encourage_activity_title">
+    <item quantity="one">Bekijk uw recent gelezen inhoud in Activiteit</item>
+    <item quantity="other">Bekijk uw %1$d recent gelezen items in Activiteit</item>
+  </plurals>
+  <string name="create_account_encourage_activity_description">Bekijk uw leestijd, de onderwerpen die u hebt verkend en het bereik van uw bijdragen in het tabblad Activiteit.</string>
+  <string name="create_account_encourage_edits_title">Krijg erkenning voor uw bewerkingen</string>
+  <string name="create_account_encourage_edits_description">Bouw een staat van dienst op waar u trots op kunt zijn, met bijdragen aan Wikimedia-projecten die aan uw account worden toegeschreven.</string>
   <string name="create_account_name_unavailable">De gebruikersnaam \"%s\" is niet beschikbaar. Kies een andere naam.</string>
   <string name="create_account_ip_block_message">Sorry, uw IP-adres is op dit moment geblokkeerd voor het aanmaken van nieuwe accounts.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
@@ -643,7 +664,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">%s zal voor alle verzamelingen niet langer offline beschikbaar zijn:</string>
   <string name="reading_lists_sync_reminder_title">Verzamelingensynchronisatie inschakelen?</string>
   <string name="reading_lists_sync_reminder_text">Pagina\'s die in verzamelingen zijn opgeslagen kunnen nu met uw Wikipedia-account worden gesynchroniseerd. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Meer informatie&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Verzamelingen kunnen nu tussen verschillende apparaten worden gesynchroniseerd. Meld u aan bij uw Wikipedia-account en laat uw verzamelingen opslaan. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Meer informatie&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Synchronisatie inschakelen</string>
   <string name="reading_list_login_reminder_title">Verzamelingen synchroniseren</string>
   <string name="reading_lists_login_reminder_text">Verzamelingen kunnen nu tussen apparaten gesynchroniseerd worden. Meld u aan met uw Wikipedia-account en sta toe dat uw verzamelingen opgeslagen worden.</string>
@@ -686,7 +706,6 @@
   <string name="reading_lists_menu_import_list">Verzameling importeren</string>
   <string name="reading_lists_menu_sort_by">Sorteren op</string>
   <string name="reading_lists_refresh_sync_option">Vernieuw synchronisatie</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Meld aan / registreer</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Deze pagina komt nu offline beschikbaar.</item>
     <item quantity="other">Deze pagina\'s komen nu offline beschikbaar.</item>
@@ -2262,8 +2281,8 @@
   <string name="donation_reminders_settings_title">Hoe moeten wij u hieraan herinneren?</string>
   <string name="donation_reminders_settings_option_title">Donatieherinneringen</string>
   <string name="donation_reminders_settings_thank_you_message">Uw vrijgevigheid helpt Wikipedia te blijven bloeien. Stel een donatieherinnering in op basis van het aantal pagina\'s dat u leest.</string>
-  <string name="donation_reminders_settings_donation_info">Donaties gaan naar de Wikimedia Foundation en aangesloten organisaties, de trotse beheerders van Wikipedia en andere projecten voor vrije kennis.</string>
-  <string name="donation_reminders_settings_article_frequency_label">Als ik lees</string>
+  <string name="donation_reminders_settings_donation_info">Donaties gaan naar de Wikimedia Foundation en aangesloten organisaties, de trotse beheerders van Wikipedia en de zusterprojecten.</string>
+  <string name="donation_reminders_settings_article_frequency_label">Telkens als ik lees</string>
   <string name="donation_reminders_settings_amount_label">Herinner mij eraan om te doneren</string>
   <string name="donation_reminders_settings_confirm_btn_label">Herinnering bevestigen</string>
   <string name="donation_reminders_settings_about_experiment_btn_label">Over dit experiment</string>
@@ -2272,10 +2291,12 @@
   <string name="donation_reminders_settings_warning_max_amount">Maximaal %s is toegestaan</string>
   <string name="donation_reminders_settings_option_custom">Anders…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Bedankt! We herinneren u eraan om %1$s te doneren wanneer u %2$s leest terwijl dit experiment loopt.</string>
-  <string name="donation_reminders_first_milestone_reached_prompt_title">U hebt %1$s gelezen sinds u %2$s hebt toegezegd</string>
-  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">U hebt er nog %1$s gelezen</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title">U hebt %1$s gelezen sinds u %2$s hebt toegezegd!</string>
+  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">U hebt er nog %1$s gelezen!</string>
   <string name="donation_reminders_prompt_message">U hebt een donatieherinnering ingesteld op %1$s om %3$s te doneren voor elke %2$s die u leest. Klaar om uw belofte om Wikipedia te steunen na te komen?</string>
+  <string name="donation_reminders_prompt_message_v2">Op %1$s vroeg u ons u eraan te herinneren te doneren na het lezen van %2$s. Als Wikipedia u %3$s aan kennis heeft verschaft, sluit u dan aan bij de 2% van de lezers die doneren en voltooi uw donatie vandaag nog.</string>
   <string name="donation_reminders_prompt_positive_button">Doneer nu</string>
+  <string name="donation_reminders_prompt_positive_button_v2">Ja, nu doneren</string>
   <string name="donation_reminders_prompt_negative_button">Nu niet</string>
   <string name="donation_reminders_gpay_text">Doneer %s met Google Pay</string>
   <string name="donation_reminders_gpay_different_amount_text">Doneer een ander bedrag met Google Pay</string>
@@ -2293,6 +2314,24 @@
   <string name="donation_reminders_settings_report_email_subject">Probleemrapport - Donatieherinneringen</string>
   <string name="donation_reminders_settings_report_email_body">Ik ben een probleem tegengekomen met de functie Donatieherinneringen:\n- [Beschrijf precies het probleem]\n- [Schermafbeelding of koppelingen]\n\nHet gedrag dat ik wil zien is:\n- [Beschrijf de voorgestelde oplossing]</string>
   <string name="donation_reminders_snackbar_modify_button_label">Wijzigen</string>
+  <string name="donation_reminders_settings_article_number_selection_label">Pagina\'s</string>
+  <string name="donation_reminders_settings_custom_amount_label">Aangepast bedrag</string>
+  <string name="donation_reminders_settings_update_reminder_button">Herinnering aanpassen</string>
+  <string name="donation_reminders_beta_label">Bèta</string>
+  <string name="donation_reminders_wrap_up_title">Dat was het dan wat betreft de herinneringen voor donaties</string>
+  <string name="donation_reminders_wrap_up_message">Bedankt voor het testen van de donatieherinneringen op basis van de pagina\'s die u leest. Uw terugkoppeling bepaalt of dit een permanente manier wordt om te doneren via Wikipedia. Het kost maar een minuut en er is geen donatie vereist.</string>
+  <string name="donation_reminders_wrap_up_share_feedback_button">Terugkoppeling geven</string>
+  <string name="donation_reminders_wrap_up_survey_title">Een korte vraag over herinneringen voor donaties</string>
+  <string name="donation_reminders_wrap_up_survey_message">Is het een goed idee om donatieherinneringen te ontvangen op basis van pagina\'s die u leest?</string>
+  <string name="donation_reminders_wrap_up_survey_option_keep_it">Behouden</string>
+  <string name="donation_reminders_wrap_up_survey_option_remove_it">Verwijderen</string>
+  <string name="donation_reminders_wrap_up_survey_option_not_sure">Niet zeker</string>
+  <string name="donation_reminders_wrap_up_survey_optional_hint">Nog iets anders? (Optioneel)</string>
+  <string name="donation_reminders_wrap_up_survey_thank_you_message">Bedankt voor uw terugkoppeling. Uw antwoord helpt ons te bepalen wat hierna gaan doen.</string>
+  <string name="donation_reminders_eoe_title">Dit is het einde van het experiment</string>
+  <string name="donation_reminders_eoe_message">We sturen geen herinneringen meer in de app, maar u kunt ons nog steeds steunen door maandelijks het toegezegde bedrag van %s te doneren.</string>
+  <string name="donation_reminders_eoe_give_monthly_button">Doneer maandelijks</string>
+  <string name="donation_reminders_eoe_donate_dialog_title">Zou u het prettig vinden om maandelijks te doneren?</string>
   <string name="hybrid_search_search_hint">Zoek of stel een vraag</string>
   <string name="hybrid_search_article_search_hint">Vragen naar %s</string>
   <string name="hybrid_search_suggestion_title">Zoeken naar:</string>
