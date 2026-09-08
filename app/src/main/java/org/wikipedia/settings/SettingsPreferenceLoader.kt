@@ -61,13 +61,15 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
             }
         }
         findPreference(R.string.preference_key_editor_mode_choice).let {
-            updateVisualEditorPreference(it)
-            it.onPreferenceClickListener = Preference.OnPreferenceClickListener { prefs ->
-                showEditorChoiceDialog(activity, isSettingsScreen = true) { editorChoice, _ ->
-                    Prefs.editorModeChoice = editorChoice
-                    prefs.setSummary(if (editorChoice == EDITOR_CHOICE_VE) R.string.editor_select_dialog_ve_title else R.string.editor_select_dialog_source_title)
+            val isVisualEditorEnabled = updateVisualEditorPreference(it)
+            if (isVisualEditorEnabled) {
+                it.onPreferenceClickListener = Preference.OnPreferenceClickListener { prefs ->
+                    showEditorChoiceDialog(activity, isSettingsScreen = true) { editorChoice, _ ->
+                        Prefs.editorModeChoice = editorChoice
+                        prefs.setSummary(if (editorChoice == EDITOR_CHOICE_VE) R.string.editor_select_dialog_ve_title else R.string.editor_select_dialog_source_title)
+                    }
+                    true
                 }
-                true
             }
         }
 
@@ -191,9 +193,15 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
         findPreference(R.string.preference_key_donation_reminders).summary = description
     }
 
-    fun updateVisualEditorPreference(visualEditorPref: Preference = findPreference(R.string.preference_key_editor_mode_choice)) {
+    fun updateVisualEditorPreference(visualEditorPref: Preference = findPreference(R.string.preference_key_editor_mode_choice)): Boolean {
+        val isVisualEditorEnabled = RemoteConfig.config.androidv1?.visualEditorEnabled ?: false
+        if (!isVisualEditorEnabled) {
+            visualEditorPref.isVisible = false
+            return false
+        }
         visualEditorPref.isVisible = true
         visualEditorPref.setSummary(if (Prefs.editorModeChoice == EDITOR_CHOICE_VE) R.string.editor_select_dialog_ve_title else R.string.editor_select_dialog_source_title)
+        return true
     }
 
     private inner class SyncReadingListsListener : Preference.OnPreferenceChangeListener {
