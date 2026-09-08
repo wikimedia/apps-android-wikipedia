@@ -659,7 +659,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ist für keine Sammlung mehr offline verfügbar:</string>
   <string name="reading_lists_sync_reminder_title">Synchronisierung von Sammlungen anschalten?</string>
   <string name="reading_lists_sync_reminder_text">Artikel, die in Sammlungen gespeichert sind, können jetzt mit deinem Wikipedia-Benutzerkonto synchronisiert werden. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/de#Synced_reading_lists\"&gt;Mehr erfahren&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Sammlungen können jetzt zwischen deinen Geräten synchronisiert werden. Melde dich bei deinem Wikipedia-Benutzerkonto an und erlaube die Speicherung deiner Sammlungen. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/de#Synced_reading_lists\"&gt;Mehr erfahren&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Synchronisierung aktivieren</string>
   <string name="reading_list_login_reminder_title">Sammlungen synchronisieren</string>
   <string name="reading_lists_login_reminder_text">Sammlungen können jetzt zwischen Geräten synchronisiert werden. Melde dich bei deinem Wikipedia-Benutzerkonto an und erlaube die Speicherung deiner Sammlungen.</string>
@@ -702,7 +701,6 @@
   <string name="reading_lists_menu_import_list">Sammlung importieren</string>
   <string name="reading_lists_menu_sort_by">Sortieren nach</string>
   <string name="reading_lists_refresh_sync_option">Erneut synchronisieren</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Anmelden / Benutzerkonto erstellen</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Dieser Artikel ist jetzt offline verfügbar.</item>
     <item quantity="other">Diese Artikel sind jetzt offline verfügbar.</item>
@@ -2278,8 +2276,8 @@
   <string name="donation_reminders_settings_title">Spendenerinnerungen</string>
   <string name="donation_reminders_settings_option_title">Spendenerinnerungen</string>
   <string name="donation_reminders_settings_thank_you_message">Schließe dich den 2 %% der Leser an, die spenden, damit Wikipedia werbefrei, aktuell und für alle zugänglich bleibt. Richte jetzt deine Spendenerinnerung ein.</string>
-  <string name="donation_reminders_settings_donation_info">Die Spenden gehen an die Wikimedia Foundation und zugehörige Organisationen, die stolzen Betreiber von Wikipedia und anderen freien Wissensprojekten.</string>
-  <string name="donation_reminders_settings_article_frequency_label">Wenn ich lese</string>
+  <string name="donation_reminders_settings_donation_info" fuzzy="true">Die Spenden gehen an die Wikimedia Foundation und zugehörige Organisationen, die stolzen Betreiber von Wikipedia und anderen freien Wissensprojekten.</string>
+  <string name="donation_reminders_settings_article_frequency_label" fuzzy="true">Wenn ich lese</string>
   <string name="donation_reminders_settings_amount_label">Erinnere mich daran, zu spenden</string>
   <string name="donation_reminders_settings_confirm_btn_label">Erinnerung bestätigen</string>
   <string name="donation_reminders_settings_about_experiment_btn_label">Über dieses Experiment</string>
@@ -2288,8 +2286,8 @@
   <string name="donation_reminders_settings_warning_max_amount">Es sind maximal %s erlaubt</string>
   <string name="donation_reminders_settings_option_custom">Benutzerdefiniert…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Vielen Dank! Wir werden dich während der Laufzeit dieses Experiments jedes Mal, wenn du %2$s liest, an deine Spende in Höhe von %1$s erinnern.</string>
-  <string name="donation_reminders_first_milestone_reached_prompt_title">Du hast %1$s gelesen, seit du %2$s versprochen haben.</string>
-  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">Du hast weitere %1$s gelesen</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title" fuzzy="true">Du hast %1$s gelesen, seit du %2$s versprochen haben.</string>
+  <string name="donation_reminders_subsequent_milestone_reached_prompt_title" fuzzy="true">Du hast weitere %1$s gelesen</string>
   <string name="donation_reminders_prompt_message">Am %1$s hast du eine Spendenerinnerung eingerichtet, um nach jeweils %2$s gelesenen Artikeln %3$s zu spenden. Bereit, deine Zusage einzulösen und Wikipedia zu unterstützen?</string>
   <string name="donation_reminders_prompt_positive_button">Jetzt spenden</string>
   <string name="donation_reminders_prompt_negative_button">Nicht jetzt</string>

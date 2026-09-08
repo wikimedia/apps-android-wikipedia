@@ -633,7 +633,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s artık şu listelerde çevrimdışı erişilebilir olmayacak:</string>
   <string name="reading_lists_sync_reminder_title" fuzzy="true">Okuma listesi senkronizasyonunu etkinleştirilsin mi?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">Okuma listelerine kaydedilen maddeler artık Vikipedi hesabınıza senkronize edilebilir. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Daha fazla bilgi&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Okuma listeleri artık cihazlar arasında senkronize edilebilir. Vikipedi hesabınıza oturum açın ve listelerinizin kaydedilmesine izin verin. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Daha fazla bilgi&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Senkronizasyonu etkinleştir</string>
   <string name="reading_list_login_reminder_title" fuzzy="true">Okuma listelerini eşitle</string>
   <string name="reading_lists_login_reminder_text" fuzzy="true">Okuma listeleri artık cihazlar arasında senkronize edilebilir. Vikipedi hesabınıza giriş yapın ve listelerinizin kaydedilmesine izin verin.</string>
@@ -676,7 +675,6 @@
   <string name="reading_lists_menu_import_list" fuzzy="true">Listeyi içe aktar</string>
   <string name="reading_lists_menu_sort_by">Sıralama ölçütü:</string>
   <string name="reading_lists_refresh_sync_option">Senkronizasyonu yenile</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Oturum aç / kaydol</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Bu maddeye artık çevrimdışı olarak erişilebilir.</item>
     <item quantity="other">Bu maddelere artık çevrimdışı olarak erişilebilir.</item>
@@ -2249,8 +2247,8 @@
   <string name="donation_reminders_settings_title">Size nasıl hatırlatalım?</string>
   <string name="donation_reminders_settings_option_title">Bağış hatırlatıcıları</string>
   <string name="donation_reminders_settings_thank_you_message">Cömertliğiniz Vikipedi\'nin gelişmesine yardımcı oluyor. Okuduğunuz makale sayısına göre bir bağış hatırlatıcısı ayarlayın.</string>
-  <string name="donation_reminders_settings_donation_info">Bağışlar, Vikipedi ve diğer özgür bilgi projelerinin ev sahibi olan Wikimedia Vakfı ve bağlı kuruluşlara gitmektedir.</string>
-  <string name="donation_reminders_settings_article_frequency_label">Şu kadar okuduğumda</string>
+  <string name="donation_reminders_settings_donation_info" fuzzy="true">Bağışlar, Vikipedi ve diğer özgür bilgi projelerinin ev sahibi olan Wikimedia Vakfı ve bağlı kuruluşlara gitmektedir.</string>
+  <string name="donation_reminders_settings_article_frequency_label" fuzzy="true">Şu kadar okuduğumda</string>
   <string name="donation_reminders_settings_amount_label">Bağış yapmamı hatırlat</string>
   <string name="donation_reminders_settings_confirm_btn_label">Hatırlatıcıyı onayla</string>
   <string name="donation_reminders_settings_about_experiment_btn_label">Bu deney hakkında</string>
@@ -2259,8 +2257,8 @@
   <string name="donation_reminders_settings_warning_max_amount">En fazla %s girebilirsiniz</string>
   <string name="donation_reminders_settings_option_custom">Özel…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Teşekkürler! Bu deney süresince %2$s okuduğunuzda %1$s bağış yapmanızı hatırlatacağız.</string>
-  <string name="donation_reminders_first_milestone_reached_prompt_title">%2$s taahhüt ettiğinizden beri %1$s okudunuz</string>
-  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">Bir %1$s daha okudunuz</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title" fuzzy="true">%2$s taahhüt ettiğinizden beri %1$s okudunuz</string>
+  <string name="donation_reminders_subsequent_milestone_reached_prompt_title" fuzzy="true">Bir %1$s daha okudunuz</string>
   <string name="donation_reminders_prompt_message">Okuduğunuz her %2$s için %3$s bağış yapmak üzere %1$s tarihinde bir bağış hatırlatıcısı ayarladınız. Taahhüdünüzü yerine getirmeye hazır mısınız?</string>
   <string name="donation_reminders_prompt_positive_button">Şimdi bağış yap</string>
   <string name="donation_reminders_prompt_negative_button">Şimdi değil</string>

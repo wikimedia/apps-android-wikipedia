@@ -51,7 +51,6 @@ import androidx.compose.material3.TooltipBox
 import androidx.compose.material3.TooltipDefaults
 import androidx.compose.material3.rememberTooltipState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -78,9 +77,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleEventObserver
-import androidx.lifecycle.compose.LocalLifecycleOwner
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.compose.components.AppButton
@@ -104,7 +100,6 @@ fun DonationReminderScreen(
     onReportClick: () -> Unit
 ) {
     val uiState = viewModel.uiState.collectAsState().value
-    var isNavigatingToExternalUrl by remember { mutableStateOf(false) }
     var customAmountText by rememberSaveable {
         mutableStateOf(
             if (uiState.donationAmount.selectedSource is SelectedSource.Custom) {
@@ -137,30 +132,6 @@ fun DonationReminderScreen(
         }
     }
 
-    val lifecycleOwner = LocalLifecycleOwner.current
-    DisposableEffect(lifecycleOwner) {
-        val observer = LifecycleEventObserver { _, event ->
-            when (event) {
-                Lifecycle.Event.ON_PAUSE -> {
-                    if (viewModel.isFromSettings && !isNavigatingToExternalUrl && viewModel.hasValueChanged()) {
-                        viewModel.saveReminder()
-                        val message = DonationReminderHelper.thankYouMessageForSettings()
-                        onConfirmButtonClick(message)
-                    }
-                }
-                Lifecycle.Event.ON_RESUME -> {
-                    isNavigatingToExternalUrl = false
-                }
-                else -> {}
-            }
-        }
-        lifecycleOwner.lifecycle.addObserver(observer)
-
-        onDispose {
-            lifecycleOwner.lifecycle.removeObserver(observer)
-        }
-    }
-
     Scaffold(
         modifier = modifier,
         topBar = {
@@ -189,20 +160,22 @@ fun DonationReminderScreen(
             if (!uiState.isLoading && uiState.error == null && WindowInsets.ime.getBottom(LocalDensity.current) <= 0) {
                 DonationReminderBottomBar(
                     isFromSettings = viewModel.isFromSettings,
+                    isDonationRemindersEnabled = uiState.isDonationReminderEnabled,
                     onConfirmButtonClick = {
                         val isCustomSelected = uiState.donationAmount.selectedSource is SelectedSource.Custom
                         val customAmountError = if (isCustomSelected) customAmountErrorMessage(customAmountText) else ""
                         if (customAmountError.isNotEmpty()) {
                             customErrorMessage = customAmountError
                         } else {
-                            viewModel.toggleDonationReminders(true)
+                            if (!viewModel.isFromSettings) {
+                                viewModel.toggleDonationReminders(true)
+                            }
                             viewModel.saveReminder()
                             val message = DonationReminderHelper.thankYouMessageForSettings()
                             onConfirmButtonClick(message)
                         }
                     },
                     onFooterButtonClick = {
-                        isNavigatingToExternalUrl = true
                         onFooterButtonClick()
                     }
                 )
@@ -463,6 +436,7 @@ fun DonationReminderContent(
 fun DonationReminderBottomBar(
     modifier: Modifier = Modifier,
     isFromSettings: Boolean,
+    isDonationRemindersEnabled: Boolean,
     onConfirmButtonClick: () -> Unit,
     onFooterButtonClick: () -> Unit
 ) {
@@ -484,20 +458,28 @@ fun DonationReminderBottomBar(
                     )
                 }
             )
-        }
 
-        val footerButtonText = if (isFromSettings) stringResource(R.string.donation_reminders_settings_about_experiment_btn_label)
-        else stringResource(R.string.donation_reminders_settings_no_thanks_btn_label)
-        TextButton(
-            modifier = Modifier.fillMaxWidth(),
-            onClick = onFooterButtonClick,
-            content = {
-                Text(
-                    text = footerButtonText,
-                    color = WikipediaTheme.colors.progressiveColor
-                )
-            }
-        )
+            TextButton(
+                modifier = Modifier.fillMaxWidth(),
+                onClick = onFooterButtonClick,
+                content = {
+                    Text(
+                        text = stringResource(R.string.donation_reminders_settings_no_thanks_btn_label),
+                        color = WikipediaTheme.colors.progressiveColor
+                    )
+                }
+            )
+        } else if (isDonationRemindersEnabled) {
+            AppButton(
+                modifier = Modifier.fillMaxWidth(),
+                onClick = onConfirmButtonClick,
+                content = {
+                    Text(
+                        stringResource(R.string.donation_reminders_settings_update_reminder_button)
+                    )
+                }
+            )
+        }
     }
 }
 
@@ -863,6 +845,7 @@ private fun DonationReminderBottomBarPreview() {
     ) {
         DonationReminderBottomBar(
             isFromSettings = false,
+            isDonationRemindersEnabled = true,
             onConfirmButtonClick = {},
             onFooterButtonClick = {}
         )
@@ -877,6 +860,7 @@ private fun DonationReminderBottomBarSettingsPreview() {
     ) {
         DonationReminderBottomBar(
             isFromSettings = true,
+            isDonationRemindersEnabled = true,
             onConfirmButtonClick = {},
             onFooterButtonClick = {}
         )

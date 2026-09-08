@@ -703,7 +703,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">لن يكون %s متاحًا بعد الآن دون اتصال بالإنترنت لجميع المجموعات:</string>
   <string name="reading_lists_sync_reminder_title">هل تريد تفعيل مزامنة المجموعة؟</string>
   <string name="reading_lists_sync_reminder_text">يمكنك الآن مزامنة المقالات المحفوظة في مجموعات مع حسابك على ويكيبيديا. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;اعرف المزيد&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">أصبح بالإمكان الآن مزامنة المجموعات عبر الأجهزة. سجّل الدخول إلى حسابك على ويكيبيديا، واسمح بحفظ مجموعاتك. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;اعرف المزيد&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">تمكين المزامنة</string>
   <string name="reading_list_login_reminder_title">مزامنة المجموعات</string>
   <string name="reading_lists_login_reminder_text">أصبح بالإمكان الآن مزامنة المجموعات عبر الأجهزة. سجّل الدخول إلى حسابك على ويكيبيديا، واسمح بحفظ مجموعاتك.</string>
@@ -750,7 +749,6 @@
   <string name="reading_lists_menu_import_list">مجموعة الاستيراد</string>
   <string name="reading_lists_menu_sort_by">الترتيب حسب</string>
   <string name="reading_lists_refresh_sync_option">تحديث المزامنة</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">دخول / إنشاء حساب</string>
   <string name="reading_list_article_offline_message">{{PLURAL|one=ستصبح هذه المقالة متاحة في حالة عدم الاتصال.|two=ستصبح هتان المقالتان متاحتان في حالة عدم الاتصال.|ستصبح هذه المقالات متاحة في حالة عدم الاتصال.}{</string>
   <plurals name="reading_list_article_not_offline_message">
     <item quantity="zero">...</item>
@@ -2433,8 +2431,8 @@
   <string name="donation_reminders_settings_title">كيف نذكرك؟</string>
   <string name="donation_reminders_settings_option_title">تذكيرات التبرع</string>
   <string name="donation_reminders_settings_thank_you_message">كرمكم يُسهم في ازدهار ويكيبيديا. أنشئوا تذكيرًا بالتبرعات بناءً على عدد المقالات التي تقرأونها.</string>
-  <string name="donation_reminders_settings_donation_info">تذهب التبرعات إلى مؤسسة ويكيميديا والشركات التابعة لها، المضيفين الفخورين لويكيبيديا ومشاريع المعرفة المجانية الأخرى.</string>
-  <string name="donation_reminders_settings_article_frequency_label">عندما أقرأ</string>
+  <string name="donation_reminders_settings_donation_info" fuzzy="true">تذهب التبرعات إلى مؤسسة ويكيميديا والشركات التابعة لها، المضيفين الفخورين لويكيبيديا ومشاريع المعرفة المجانية الأخرى.</string>
+  <string name="donation_reminders_settings_article_frequency_label" fuzzy="true">عندما أقرأ</string>
   <string name="donation_reminders_settings_amount_label">ذكّرني بالتبرع</string>
   <string name="donation_reminders_settings_confirm_btn_label">تأكيد التذكير</string>
   <string name="donation_reminders_settings_about_experiment_btn_label">حول هذه التجربة</string>
@@ -2443,8 +2441,8 @@
   <string name="donation_reminders_settings_warning_max_amount">الحد الأقصى المسموح به %s</string>
   <string name="donation_reminders_settings_option_custom">مُخصَّص…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">شكرًا لك! سنذكرك بالتبرع %1$s عند قراءة %2$s أثناء إجراء هذه التجربة.</string>
-  <string name="donation_reminders_first_milestone_reached_prompt_title">لقد قرأت %1$s منذ أن تعهدت بـ %2$s</string>
-  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">لقد قرأت %1$s آخر</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title" fuzzy="true">لقد قرأت %1$s منذ أن تعهدت بـ %2$s</string>
+  <string name="donation_reminders_subsequent_milestone_reached_prompt_title" fuzzy="true">لقد قرأت %1$s آخر</string>
   <string name="donation_reminders_prompt_message">لقد فعّلتَ تذكيرًا بالتبرعات على %1$s للتبرع %3$s كل %2$s تقرأها. هل أنت مستعدٌّ للوفاء بتعهدك بدعم ويكيبيديا؟</string>
   <string name="donation_reminders_prompt_positive_button">تبرع الآن</string>
   <string name="donation_reminders_prompt_negative_button">ليس الآن</string>

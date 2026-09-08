@@ -168,7 +168,7 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
     }
 
     private fun deviceInformation(): String {
-        return "\n\nVersion: ${BuildConfig.VERSION_NAME} \nDevice: ${Build.BRAND} ${Build.MODEL} (SDK: ${Build.VERSION.SDK_INT})\n"
+        return "\n\nVersion: ${BuildConfig.VERSION_NAME} \nDevice: ${Build.BRAND} ${Build.MODEL} (SDK: ${Build.VERSION.SDK_INT})\nAppInstallId: ${WikipediaApp.instance.appInstallID}"
     }
 
     fun updateLanguagePrefSummary() {

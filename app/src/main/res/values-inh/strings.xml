@@ -535,7 +535,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s массадолча дешара листамашка тӀакхоачача хургьяц офлайн-раже:</string>
   <string name="reading_lists_sync_reminder_title" fuzzy="true">Дешара мугӀамай синхронизаци хьалсага езий?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">Хьа мугӀамашкара еша дӀаяхкача статьяштеи хьа аккаунтаи хӀанз синхронизаци е йиш я. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Цу хьакъехьа дукхагӀа довза&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Дешара листамашта тайп-тайпарча чоалхашта юкъе синхронизаци е йиш я. Хьай аккаунта чу чувала(-яла), тӀаккха листамаш дӀадахка/дӀаязде пурам ле. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Ма дарра хá&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Синхронизаци хьалсага</string>
   <string name="reading_list_login_reminder_title" fuzzy="true">Синхронизаци хьае дешара листамá</string>
   <string name="reading_lists_login_reminder_text" fuzzy="true">Дешара листамашта тайп-тайпарча чоалхашта юкъе синхронизаци е йиш я. Хьай аккаунта чу чувала(-яла), тӀаккха листамаш дӀадахка/дӀаязде пурам ле.</string>
@@ -574,7 +573,6 @@
   <string name="reading_lists_menu_import_list" fuzzy="true">Листама импорт</string>
   <string name="reading_lists_menu_sort_by">Къоастадеш дӀанийсде укх тайпара...</string>
   <string name="reading_lists_refresh_sync_option">Юха хеца синхронизаци</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Чувала / Регистраци е</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Ер статья хӀанз офлайн еша йиш хургья.</item>
     <item quantity="few">Ераш статьяш хӀанз офлайн еша йиш хургья.</item>

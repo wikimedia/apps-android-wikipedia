@@ -568,7 +568,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_title" fuzzy="true">Artihkal gávdno máŋgga listtus</string>
   <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s ii šat boađe leat olámuttos offline guđege lohkanlisttu bokte:</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">Artihkkalat vurkejuvvon lohkanlisttuide sáhttet synkroniserejuvvot du Wikipedia-dovddaldagain. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Oza eambbo&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Lohkanlisttut sáhttet sihkkarismáŋgejuvvot ja synkroniserejuvvot ovttadagaid rastá. Čálit sisa iežat Wikipedia-dovddaldagain jus háliidat váldit atnui dán. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Oza eambbo&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Váldde synkroniserema atnui</string>
   <string name="reading_list_login_reminder_title" fuzzy="true">Synkronisere lohkanlisttuid</string>
   <string name="reading_lists_login_button">Čálit sisa / searvva Wikipediai</string>
@@ -607,7 +606,6 @@
   <string name="reading_lists_menu_import_list" fuzzy="true">Sisafievrrit listtu</string>
   <string name="reading_lists_menu_sort_by">Sirrenvuohki</string>
   <string name="reading_lists_refresh_sync_option">Synkronisere dál</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Čálit sisa / registrere iežat</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Dát artihkal boahtá dál leat olámuttos offline.</item>
     <item quantity="two">Dát artihkkalat bohtet dál leat olámuttos offline.</item>
