@@ -436,6 +436,9 @@ class HomeViewModel : ViewModel() {
     private val _unreadCount = MutableStateFlow(NotificationBellState())
     val unreadCount = _unreadCount.asStateFlow()
 
+    private val _forYouNetworkLatency = MutableStateFlow(0L)
+    val forYouNetworkLatency = _forYouNetworkLatency.asStateFlow()
+
     init {
         viewModelScope.launch {
             SettingsRepository.migrateLegacyHiddenCards()
@@ -656,6 +659,7 @@ class HomeViewModel : ViewModel() {
             return newModules
         }
         L.d("Loading modules from network...")
+        val startMillis = System.currentTimeMillis()
 
         coroutineScope {
             // --- Interests ---
@@ -827,6 +831,8 @@ class HomeViewModel : ViewModel() {
                 }
             }
         }
+
+        _forYouNetworkLatency.value = System.currentTimeMillis() - startMillis
 
         forYouCollectionSaved = ForYouCollectionSaved(
             dateTime = LocalDateTime.now(),
