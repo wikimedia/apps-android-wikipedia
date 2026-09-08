@@ -197,8 +197,7 @@ sealed class ForYouModule {
 @Serializable
 class ForYouCollectionSaved(
     @Serializable(with = LocalDateTimeSerializer::class) val dateTime: LocalDateTime? = null,
-    val modulesPerLanguage: Map<String, List<ForYouModule>> = emptyMap(),
-    val previousSeedTitlesPerLanguage: Map<String, List<String>> = emptyMap()
+    val modulesPerLanguage: Map<String, List<ForYouModule>> = emptyMap()
 )
 
 data class CommunityContentState(
@@ -670,11 +669,10 @@ class HomeViewModel : ViewModel() {
         }
 
         L.d("Loading modules from network...")
+        val seedEntries = pickSeedEntries(languageCode, count = 2)
+        val becauseYouReadSeed = seedEntries.getOrNull(0)
+        val continueReadingSeed = seedEntries.getOrNull(1)
         val startMillis = System.currentTimeMillis()
-        val previousSeedTitles = forYouCollectionSaved.previousSeedTitlesPerLanguage[languageCode].orEmpty().toSet()
-        val seedEntries = pickSeedEntries(languageCode, count = 2, excludeTitles = previousSeedTitles)
-        val continueReadingSeed = seedEntries.getOrNull(0)
-        val becauseYouReadSeed = seedEntries.getOrNull(1)
 
         coroutineScope {
             // --- Interests ---
@@ -846,11 +844,9 @@ class HomeViewModel : ViewModel() {
 
         _forYouNetworkLatency.value = System.currentTimeMillis() - startMillis
 
-        val seedTitles = listOfNotNull(continueReadingSeed, becauseYouReadSeed).map { it.title.prefixedText }.distinct()
         forYouCollectionSaved = ForYouCollectionSaved(
             dateTime = currentDateTime,
-            modulesPerLanguage = cachedModulesByLanguage + (languageCode to modules),
-            previousSeedTitlesPerLanguage = forYouCollectionSaved.previousSeedTitlesPerLanguage + (languageCode to seedTitles)
+            modulesPerLanguage = cachedModulesByLanguage + (languageCode to modules)
         )
         withContext(Dispatchers.Default) {
             Prefs.homeForYouModulesToday = JsonUtil.encodeToString(forYouCollectionSaved).orEmpty()
@@ -858,16 +854,14 @@ class HomeViewModel : ViewModel() {
         return modules
     }
 
-    private suspend fun pickSeedEntries(langCode: String, count: Int, excludeTitles: Set<String>): List<HistoryEntry> {
+    private suspend fun pickSeedEntries(langCode: String, count: Int): List<HistoryEntry> {
         val sinceMillis = LocalDate.now().minusDays(RECENT_ARTICLES_SEED_WINDOW_DAYS)
             .atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli()
-        val pool = AppDatabase.instance.historyEntryWithImageDao().findSeedEntriesForReadMore(
+        return AppDatabase.instance.historyEntryWithImageDao().findSeedEntriesForReadMore(
             minTimeSpent = RECENT_ARTICLES_MIN_TIME_SPENT_SEC,
             sinceMillis = sinceMillis,
             langCode = langCode
-        )
-        val (fresh, repeats) = pool.partition { it.title.prefixedText !in excludeTitles }
-        return (fresh.shuffled() + repeats.shuffled()).take(count)
+        ).shuffled().take(count)
     }
 
     private suspend fun buildDiscoverModule(): ForYouModule.Discover? {

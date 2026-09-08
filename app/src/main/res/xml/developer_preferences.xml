@@ -367,7 +367,7 @@
 
         <org.wikipedia.settings.EditTextAutoSummarizePreference
             style="@style/EditTextAutoSummarizePreference"
-            android:dialogMessage="Creates up to 12 English-language history entries with corresponding PageImage data."
+            android:dialogMessage="Creates up to 50 English-language history entries with corresponding PageImage data."
             android:key="@string/preference_key_add_history_entries"
             android:title="Add articles to history" />
 

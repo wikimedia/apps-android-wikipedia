@@ -438,7 +438,17 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
         private val TEST_HISTORY_TITLES = listOf(
             "Albert Einstein", "Mount Everest", "Photosynthesis", "Roman Empire",
             "Jazz", "Antarctica", "Leonardo da Vinci", "Coffee",
-            "Black hole", "Great Barrier Reef", "Sushi", "Tokyo"
+            "Black hole", "Great Barrier Reef", "Sushi", "Tokyo",
+            "Ada Lovelace", "Amazon rainforest", "Ancient Egypt", "Apollo 11",
+            "Artificial intelligence", "Ballet", "Basketball", "Beethoven",
+            "Biodiversity", "Climate change", "Computer science",
+            "Coral reef", "Democracy", "DNA", "Earth", "Evolution",
+            "French Revolution", "Galileo Galilei", "Grand Canyon", "Human brain",
+            "Internet", "Marie Curie", "Mars", "Mona Lisa",
+            "New York City", "Ocean", "Olympic Games", "Pablo Picasso",
+            "Penguin", "Quantum mechanics", "Renaissance", "Solar System",
+            "Space exploration", "Theory of relativity", "Volcano", "World War II",
+            "William Shakespeare", "Yoga"
         )
         private const val AB_TEST_CATEGORY_KEY = "ab_test_category"
     }
