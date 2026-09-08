@@ -332,7 +332,6 @@
   <string name="reading_list_saved_list_rename">%1$s (ብተጠቃሚ ዝተፈጠረ)</string>
   <string name="reading_lists_menu_create_list" fuzzy="true">ሓድሽ ዝርዝር ፍጠር</string>
   <string name="reading_lists_menu_sort_by">ጎጅል ብ</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">ብመንነት እተው / ተመዝገብ</string>
   <string name="reading_list_menu_last_sync">መጨረሻ ምስናይ፦ %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">ሕራይ</string>
   <string name="reading_list_delete_dialog_ok_button_text">ሕራይ</string>

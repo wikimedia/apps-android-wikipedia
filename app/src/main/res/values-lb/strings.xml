@@ -208,6 +208,7 @@
   <string name="email_recommendation_dialog_create_without_email_action">Ouni E-Mail-Adress virufueren</string>
   <string name="email_recommendation_dialog_create_with_email_action">Eng E-Mail-Adress derbäisetzen</string>
   <string name="create_account_button">Benotzerkont uleeën</string>
+  <string name="create_account_encourage_saved_articles_title_zero">Är gespäichert Artikele synchroniséieren</string>
   <string name="create_account_name_unavailable">De Benotzernumm \"%s\" ass net verfügbar. Wgl. wielt een anere Benotzernumm.</string>
   <string name="create_account_ip_block_message">Pardon, Är IP-Adress ass momentan gespaart fir d\'Uleeë vun neie Benotzerkonten.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
@@ -580,7 +581,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ass fir keng Sammlung méi offline disponibel:</string>
   <string name="reading_lists_sync_reminder_title">Synchroniséierung vu Sammlungen aktivéieren?</string>
   <string name="reading_lists_sync_reminder_text">Artikelen, déi a Sammlunge gespäichert sinn, kënnen elo mat Ärem Wikipedia-Kont synchroniséiert ginn. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Méi gewuer ginn&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Sammlunge kënnen elo tëscht Apparater synchroniséiert ginn. Loggt Iech an Äre Wikipedia-Kont an an erlaabt d\'Späichere vun Äre Sammlungen. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Méi gewuer ginn&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Synchronisatioun aktivéieren</string>
   <string name="reading_list_login_reminder_title">Sammlunge synchroniséieren</string>
   <string name="reading_lists_login_reminder_text">Sammlunge kënnen elo tëscht Apparater synchroniséiert ginn. Loggt Iech an Äre Wikipedia-Kont an an erlaabt d\'Späichere vun Äre Sammlungen.</string>
@@ -623,7 +623,6 @@
   <string name="reading_lists_menu_import_list">Sammlung importéieren</string>
   <string name="reading_lists_menu_sort_by">Sortéieren no</string>
   <string name="reading_lists_refresh_sync_option">Synchronisatioun aktualiséieren</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Aloggen / Benotzerkont opmaachen</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Dësen Artikel ass elo offline disponibel.</item>
     <item quantity="other">Dës Artikele sinn elo offline disponibel.</item>
@@ -2025,7 +2024,7 @@
   <string name="donation_settings_section_header">Donen</string>
   <string name="donation_reminders_settings_title">Wéi solle mir Iech erënneren?</string>
   <string name="donation_reminders_settings_option_title">Donerënnerungen</string>
-  <string name="donation_reminders_settings_article_frequency_label">Nodeems ech esouvill Artikele gelies hunn</string>
+  <string name="donation_reminders_settings_article_frequency_label" fuzzy="true">Nodeems ech esouvill Artikele gelies hunn</string>
   <string name="donation_reminders_settings_amount_label">Erënnert mech dru fir en Don vun esouvill ze maachen</string>
   <string name="donation_reminders_settings_confirm_btn_label">Erënnerung confirméieren</string>
   <string name="donation_reminders_settings_about_experiment_btn_label">Iwwer dëst Experiment</string>
@@ -2033,7 +2032,7 @@
   <string name="donation_reminders_settings_warning_min_amount">Gitt wgl. op d\'mannst %s an</string>
   <string name="donation_reminders_settings_warning_max_amount">Maximal %s ass erlaabt</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Merci! Mir erënneren Iech dorunner fir en Don vu(n) %1$s ze maachen, wann Dir %2$s gelies hutt, wärend dëst Experiment leeft.</string>
-  <string name="donation_reminders_first_milestone_reached_prompt_title">Dir hutt %1$s gelies, zanter datt Dir %2$s engagéiert hutt.</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title" fuzzy="true">Dir hutt %1$s gelies, zanter datt Dir %2$s engagéiert hutt.</string>
   <string name="donation_reminders_prompt_positive_button">Elo en Don maachen</string>
   <string name="donation_reminders_prompt_negative_button">Net elo</string>
   <string name="donation_reminders_gpay_text">En Don vu(n) %s mat Google Pay maachen</string>
@@ -2051,6 +2050,9 @@
   <string name="donation_reminders_settings_report_button">Problem mat der Funktioun</string>
   <string name="donation_reminders_settings_report_email_body">Ech sinn op e Problem mat der Funktioun fir Donerënnerunge gestouss:\n- [Beschreift de spezifesche Problem]\n- [Screenshotten oder Linken]\n\nD\'Verhalen, dat ech gär geséich:\n- [Beschreift déi proposéiert Léisung]</string>
   <string name="donation_reminders_snackbar_modify_button_label">Änneren</string>
+  <string name="donation_reminders_settings_article_number_selection_label">Artikelen</string>
+  <string name="donation_reminders_beta_label">Beta</string>
+  <string name="donation_reminders_wrap_up_survey_option_not_sure">Net sécher</string>
   <string name="hybrid_search_search_hint">Sicht oder frot, wat Dir wëllt</string>
   <string name="hybrid_search_suggestion_title">Sichen no:</string>
   <string name="hybrid_search_onboarding_learn_more">Méi gewuer ginn</string>
