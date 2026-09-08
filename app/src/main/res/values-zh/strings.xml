@@ -2236,7 +2236,7 @@
   <string name="donation_reminders_first_milestone_reached_prompt_title">自从您承诺捐赠%2$s以来，您已阅读了%1$s篇条目！</string>
   <string name="donation_reminders_subsequent_milestone_reached_prompt_title">您进一步阅读了%1$s篇条目！</string>
   <string name="donation_reminders_prompt_message">您于 %1$s 设定了捐款提醒，每当您阅读了 %2$s 篇条目后，就捐赠 %3$s。准备好履行您支持维基百科的承诺了吗？</string>
-  <string name="donation_reminders_prompt_message_v2">在%1$s中，您要求我们在您阅读%2$s后提醒您捐款。如果维基百科为您提供了%3$s的知识，请加入2%的捐赠读者行列，并立即完成您的捐赠承诺。</string>
+  <string name="donation_reminders_prompt_message_v2">在%1$s中，您要求我们在您阅读%2$s后提醒您捐款。如果维基百科为您提供了%3$s的知识，请加入2%%的捐赠读者行列，并立即完成您的捐赠承诺。</string>
   <string name="donation_reminders_prompt_positive_button">立即捐款</string>
   <string name="donation_reminders_prompt_positive_button_v2">是的，现在就捐款吧</string>
   <string name="donation_reminders_prompt_negative_button">现在不要</string>

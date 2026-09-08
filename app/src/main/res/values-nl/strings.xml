@@ -2294,7 +2294,7 @@
   <string name="donation_reminders_first_milestone_reached_prompt_title">U hebt %1$s gelezen sinds u %2$s hebt toegezegd!</string>
   <string name="donation_reminders_subsequent_milestone_reached_prompt_title">U hebt er nog %1$s gelezen!</string>
   <string name="donation_reminders_prompt_message">U hebt een donatieherinnering ingesteld op %1$s om %3$s te doneren voor elke %2$s die u leest. Klaar om uw belofte om Wikipedia te steunen na te komen?</string>
-  <string name="donation_reminders_prompt_message_v2">Op %1$s vroeg u ons u eraan te herinneren te doneren na het lezen van %2$s. Als Wikipedia u %3$s aan kennis heeft verschaft, sluit u dan aan bij de 2% van de lezers die doneren en voltooi uw donatie vandaag nog.</string>
+  <string name="donation_reminders_prompt_message_v2">Op %1$s vroeg u ons u eraan te herinneren te doneren na het lezen van %2$s. Als Wikipedia u %3$s aan kennis heeft verschaft, sluit u dan aan bij de 2%% van de lezers die doneren en voltooi uw donatie vandaag nog.</string>
   <string name="donation_reminders_prompt_positive_button">Doneer nu</string>
   <string name="donation_reminders_prompt_positive_button_v2">Ja, nu doneren</string>
   <string name="donation_reminders_prompt_negative_button">Nu niet</string>

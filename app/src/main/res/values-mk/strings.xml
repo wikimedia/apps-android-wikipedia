@@ -2261,7 +2261,7 @@
   <string name="donation_reminders_first_milestone_reached_prompt_title">Прочитавте %1$s откако ветивте %2$s!</string>
   <string name="donation_reminders_subsequent_milestone_reached_prompt_title">Прочитавте уште %1$s!</string>
   <string name="donation_reminders_prompt_message">Поставете потсетник за дарување за %1$s за да дарувате %3$s на секои %2$s што ќе ги прочирате. Дали сте подготвени да го исполните ветувањето за поддршка на Википедија?</string>
-  <string name="donation_reminders_prompt_message_v2">На %1$s ни рековте да ве потсетиме да дарувате откако ќе прочитате %2$s. Ако Википедија ви овозможи %3$s знаење, придружете им се на 2% % од читателите кои даруваат и исполнете го вашето ветување денес.</string>
+  <string name="donation_reminders_prompt_message_v2">На %1$s ни рековте да ве потсетиме да дарувате откако ќе прочитате %2$s. Ако Википедија ви овозможи %3$s знаење, придружете им се на 2%% од читателите кои даруваат и исполнете го вашето ветување денес.</string>
   <string name="donation_reminders_prompt_positive_button">Дарувајте сега</string>
   <string name="donation_reminders_prompt_positive_button_v2">Да, ќе дарувам деенс</string>
   <string name="donation_reminders_prompt_negative_button">Не сега</string>
