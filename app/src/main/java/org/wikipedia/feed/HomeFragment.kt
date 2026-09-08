@@ -103,8 +103,7 @@ class HomeFragment : Fragment(), LinkPreviewDialog.LoadPageCallback {
 
     private val customizeInterestsLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_INTERESTS_UPDATED) {
-            Prefs.homeForYouModulesToday = ""
-            viewModel.refreshForYouContent()
+            viewModel.refreshForYouContent(forceRefresh = true)
         }
     }
 
@@ -233,11 +232,10 @@ class HomeFragment : Fragment(), LinkPreviewDialog.LoadPageCallback {
                 selectTab(action.tab)
             }
             is HomeAction.RefreshTab -> {
-                Prefs.homeForYouModulesToday = ""
                 if (action.tab == HomeTab.COMMUNITY) {
                     viewModel.refreshCommunityContent()
                 } else {
-                    viewModel.refreshForYouContent()
+                    viewModel.refreshForYouContent(forceRefresh = true)
                 }
             }
             HomeAction.LoadMoreCommunityContent -> viewModel.loadCommunityContent()

@@ -462,10 +462,10 @@ class HomeViewModel : ViewModel() {
         loadCommunityContent()
     }
 
-    fun refreshForYouContent() {
+    fun refreshForYouContent(forceRefresh: Boolean = false) {
         forYouBatchIndex = 0
         _forYouState.update { ForYouContentState() }
-        loadForYouContent()
+        loadForYouContent(forceRefresh = forceRefresh)
     }
 
     fun selectTab(tab: HomeTab) {
@@ -572,7 +572,7 @@ class HomeViewModel : ViewModel() {
      * Loads the next batch of personalized recommendations for the "For you" tab.
      * Safe to call as a retry — the batch index only advances after a successful fetch.
      */
-    fun loadForYouContent() {
+    fun loadForYouContent(forceRefresh: Boolean = false) {
         if (_forYouState.value.isInitialLoading || _forYouState.value.isLoadingMore) return
 
         viewModelScope.launch(forYouHandler) {
@@ -584,7 +584,7 @@ class HomeViewModel : ViewModel() {
                 error = null
             )
 
-            val newModules = fetchForYouModules(forYouBatchIndex)
+            val newModules = fetchForYouModules(forYouBatchIndex, forceRefresh)
 
             // Advance batch index only after success.
             forYouBatchIndex++
@@ -634,7 +634,7 @@ class HomeViewModel : ViewModel() {
         }
     }
 
-    private suspend fun fetchForYouModules(age: Int): List<ForYouModule> {
+    private suspend fun fetchForYouModules(age: Int, forceRefresh: Boolean = false): List<ForYouModule> {
         val modules = mutableListOf<ForYouModule>()
         val hiddenCards = SettingsRepository.hiddenCards.first()
         var forYouCollectionSaved = ForYouCollectionSaved()
@@ -647,7 +647,8 @@ class HomeViewModel : ViewModel() {
             L.e("Failed to load modules from cache.")
         }
 
-        if (forYouCollectionSaved.dateTime != null &&
+        if (!forceRefresh &&
+            forYouCollectionSaved.dateTime != null &&
             forYouCollectionSaved.dateTime.toLocalDate() == LocalDate.now() &&
             forYouCollectionSaved.modulesPerLanguage.containsKey(wikiSite.value.languageCode)
         ) {

@@ -366,7 +366,7 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
                 .setPositiveButton(android.R.string.ok, null)
                 .show()
         }) {
-            val wikiSite = WikipediaApp.instance.wikiSite
+            val wikiSite = WikiSite.forLanguageCode("en")
             val count = numOfArticles.coerceIn(1, TEST_HISTORY_TITLES.size)
             for (index in 0 until count) {
                 val title = PageTitle(TEST_HISTORY_TITLES[index], wikiSite)
