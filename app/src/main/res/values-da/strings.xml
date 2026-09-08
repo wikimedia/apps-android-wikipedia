@@ -228,6 +228,24 @@
   <string name="email_recommendation_dialog_create_without_email_action">Fortsæt uden email</string>
   <string name="email_recommendation_dialog_create_with_email_action">Tilføj en e-mailadresse</string>
   <string name="create_account_button">Opret konto</string>
+  <string name="create_account_encourage_title">Wikipedia er bedre med en konto</string>
+  <string name="create_account_encourage_year_in_review_title_zero">Se, at dine læsesdage kommer sammen i årets gennemgang</string>
+  <plurals name="create_account_encourage_year_in_review_title">
+    <item quantity="one">Se dine %1$d læsedage komme sammen i Åretsoversigt</item>
+    <item quantity="other">Se dine %1$d læsedage komme sammen i Åretsoversigt</item>
+  </plurals>
+  <string name="create_account_encourage_year_in_review_description">En gang om året vender dine læsedage tilbage som et glimt af, hvor året har ført dig hen, klar til at blive delt.</string>
+  <string name="create_account_encourage_saved_articles_title_zero">Synkroniser dine gemte artikler</string>
+  <plurals name="create_account_encourage_saved_articles_title">
+    <item quantity="one">Synkroniser din %1$d gemte artikel</item>
+    <item quantity="other">Synkroniser dine %1$d gemte artikler</item>
+  </plurals>
+  <string name="create_account_encourage_saved_articles_description">Log ind på din Wikipedia-konto for at tillade, at dine gemte artikler synkroniseres på tværs af enheder.</string>
+  <string name="create_account_encourage_activity_title_zero">Gense dine seneste læsninger med aktivitet</string>
+  <plurals name="create_account_encourage_activity_title">
+    <item quantity="one">Genlæs din %1$d seneste læsning med aktivitet</item>
+    <item quantity="other">Genlæs dine %1$d seneste læsninger med aktivitet</item>
+  </plurals>
   <string name="create_account_name_unavailable">Brugernavnet \"%s\" er ikke tilgængeligt. Vælg venligst et andet navn.</string>
   <string name="create_account_ip_block_message">Beklager, din IP-adresse er på nuværende tidspunkt blokeret fra at oprette nye kontoer.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
@@ -621,7 +639,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">%s vil ikke længere være tilgængelig offline for alle samlinger:</string>
   <string name="reading_lists_sync_reminder_title">Vil du aktivere synkronisering af samlinger?</string>
   <string name="reading_lists_sync_reminder_text">Artikler gemt på samlinger kan nu synkroniseres til din Wikipedia-konto. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Få flere oplysninger&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Samlinger kan nu synkroniseres på tværs af enheder. Log ind på din Wikipedia-konto og tillad, at dine samlinger gemmes. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Få flere oplysninger&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Aktiver synkronisering</string>
   <string name="reading_list_login_reminder_title">Synkroniser samlinger</string>
   <string name="reading_lists_login_reminder_text">Samlinger kan nu synkroniseres på tværs af enheder. Log ind på din Wikipedia-konto, og tillad, at dine samlinger gemmes.</string>
@@ -664,7 +681,6 @@
   <string name="reading_lists_menu_import_list">Importér samling</string>
   <string name="reading_lists_menu_sort_by">Sorter efter</string>
   <string name="reading_lists_refresh_sync_option">Opdater synkronisering</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Log på/tilmeld dig</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Denne artikel vil nu være tilgængelig lokalt.</item>
     <item quantity="other">Disse artikler vil nu være tilgængelige lokalt.</item>
@@ -2239,7 +2255,7 @@
   <string name="donation_reminders_settings_title">Hvordan skal vi minde dig om det?</string>
   <string name="donation_reminders_settings_option_title">Donationspåmindelser</string>
   <string name="donation_reminders_settings_thank_you_message">Din gavmildhed hjælper Wikipedia med at trives. Opret en donationspåmindelse baseret på antallet af artikler, du læser.</string>
-  <string name="donation_reminders_settings_donation_info">Donationer går til Wikimedia Foundation og tilknyttede selskaber, der er stolte værter for Wikipedia og andre frie vidensprojekter.</string>
+  <string name="donation_reminders_settings_donation_info">Donationer går til Wikimedia Foundation og tilknyttede selskaber, der er stolte værter for Wikipedia og dets søstersider.</string>
   <string name="donation_reminders_settings_article_frequency_label">Når jeg læser</string>
   <string name="donation_reminders_settings_amount_label">Mind mig om at donere</string>
   <string name="donation_reminders_settings_confirm_btn_label">Bekræft påmindelse</string>
@@ -2249,8 +2265,8 @@
   <string name="donation_reminders_settings_warning_max_amount">Maksimum %s er tilladt</string>
   <string name="donation_reminders_settings_option_custom">Tilpas...</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Tak! Vi minder dig om at donere %1$s når du læser %2$s mens dette eksperiment kører.</string>
-  <string name="donation_reminders_first_milestone_reached_prompt_title">Du har læst %1$s siden du gav tilsagn om %2$s</string>
-  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">Du har læst endnu %1$s</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title">Du har læst %1$s siden du gav tilsagn om %2$s!</string>
+  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">Du har læst endnu %1$s!</string>
   <string name="donation_reminders_prompt_message">Du har oprettet en donationspåmindelse på %1$s for at give %3$s for hver %2$s du læser. Er du klar til at holde dit løfte om at støtte Wikipedia?</string>
   <string name="donation_reminders_prompt_positive_button">Donér nu</string>
   <string name="donation_reminders_prompt_negative_button">Ikke nu</string>

@@ -316,7 +316,6 @@
   <string name="reading_lists_menu_create_list" fuzzy="true">نویں لسٹ بݨاؤ</string>
   <string name="reading_lists_menu_import_list" fuzzy="true">تندیر درآمد کرو</string>
   <string name="reading_lists_menu_sort_by">ترتیب بمطابق</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">لاگ ان/ کھاتہ بݨاو</string>
   <string name="reading_list_menu_last_sync">چھیکڑی ہم وقت: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">ٹھیک ہے</string>
   <string name="reading_list_delete_dialog_ok_button_text">ٹھیک ہے</string>

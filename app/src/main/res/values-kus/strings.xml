@@ -511,7 +511,6 @@
   <string name="reading_lists_menu_create_list" fuzzy="true">Maalim la\'ad bɛn paal</string>
   <string name="reading_lists_menu_import_list" fuzzy="true">Kpɛn\'ɛsim la\'ad</string>
   <string name="reading_lists_menu_sort_by">Gaansim dɔlis</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Kpɛn\'ɛm / yɔ\'ɔgim</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">Awɔɔ</string>
   <string name="reading_list_delete_dialog_ok_button_text">Awɔɔ</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">Basim</string>

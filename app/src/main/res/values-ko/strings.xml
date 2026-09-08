@@ -613,7 +613,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">%s 문서는 모든 모음집에 대해 오프라인에서 더 이상 읽을 수 없습니다:</string>
   <string name="reading_lists_sync_reminder_title">모음집 동기화를 켜시겠습니까?</string>
   <string name="reading_lists_sync_reminder_text">모음집에 저장된 문서들을 위키백과 계정에 동기화할 수 있습니다. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;더 알아보기&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">모음집은 장치 간에 동기화될 수 있습니다. 위키백과 계정에 로그인하면 모음집을 저장할 수 있습니다. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;더 알아보기&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">동기화 사용</string>
   <string name="reading_list_login_reminder_title">모음집 동기화</string>
   <string name="reading_lists_login_reminder_text">이제 모음집을 여러 장치 간에 동기화할 수 있습니다. 위키백과 계정으로 로그인해서 모음집이 저장되도록 허용하세요.</string>
@@ -655,7 +654,6 @@
   <string name="reading_lists_menu_import_list">모음집 가져오기</string>
   <string name="reading_lists_menu_sort_by">정렬 기준</string>
   <string name="reading_lists_refresh_sync_option">동기화 새로 고침</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">로그인 / 가입</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">이 글은 이제 오프라인에서 읽을 수 있습니다.</item>
     <item quantity="other">이 글들은 이제 오프라인에서 읽을 수 있습니다.</item>
@@ -2149,8 +2147,8 @@
   <string name="donation_reminders_settings_title">어떻게 알려야 할까요?</string>
   <string name="donation_reminders_settings_option_title">기부 알림</string>
   <string name="donation_reminders_settings_thank_you_message">여러분의 후원은 위키백과가 번창하는 데 큰 도움이 됩니다. 읽으신 문서 수에 따른 기부 알림을 설정해 보세요.</string>
-  <string name="donation_reminders_settings_donation_info">기부금은 위키백과 및 기타 무료 지식 프로젝트를 운영하는 위키미디어 재단과 그 가맹단체에 전달됩니다.</string>
-  <string name="donation_reminders_settings_article_frequency_label">내가 읽을 때</string>
+  <string name="donation_reminders_settings_donation_info">기부금은 위키백과 및 자매 사이트를 운영하는 위키미디어 재단과 그 가맹단체에 전달됩니다.</string>
+  <string name="donation_reminders_settings_article_frequency_label">내가 읽을 때마다</string>
   <string name="donation_reminders_settings_amount_label">기부하라고 알립니다</string>
   <string name="donation_reminders_settings_confirm_btn_label">알림 확인</string>
   <string name="donation_reminders_settings_about_experiment_btn_label">이 실험 기능 정보</string>
@@ -2159,8 +2157,8 @@
   <string name="donation_reminders_settings_warning_max_amount">허용되는 최대값은 %s입니다</string>
   <string name="donation_reminders_settings_option_custom">사용자 지정…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">감사합니다! 이 실험이 진행되는 동안 %2$s 읽으실 때마다 %1$s 기부하도록 알려드리겠습니다.</string>
-  <string name="donation_reminders_first_milestone_reached_prompt_title">%2$s 후원 약속을 한 이후로 %1$s 만큼을 읽었습니다</string>
-  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">%1$s개를 추가로 읽었습니다</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title">%2$s 후원 약속을 한 이후로 %1$s 만큼을 읽었습니다!</string>
+  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">%1$s개를 추가로 읽었습니다!</string>
   <string name="donation_reminders_prompt_message">%2$s 만큼 읽을 때 마다 %3$s 만큼 기부하도록 %1$s에 기부 알림을 설정하셨습니다. 위키백과를 지원하겠다는 약속을 실천할 준비가 되셨나요?</string>
   <string name="donation_reminders_prompt_positive_button">지금 기부하기</string>
   <string name="donation_reminders_prompt_negative_button">지금은 괜찮습니다</string>

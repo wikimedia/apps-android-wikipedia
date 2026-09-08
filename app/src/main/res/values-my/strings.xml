@@ -486,7 +486,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s သည် စာဖတ်စာရင်းများအားလုံးအတွက် အော့ဖ်လိုင်းတွင် ရရှိနိုင်တော့မည်မဟုတ်ပါ:</string>
   <string name="reading_lists_sync_reminder_title" fuzzy="true">စာဖတ်စာရင်း sync လုပ်ခြင်းကို ဖွင့်မည်လော</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">စာဖတ်စာရင်းများသို့ သိမ်းထားသောဆောင်းပါးများသည် ယခုအခါ ဝီကီပီးဒီးယားအကောင့်သို့ sync လုပ်နိုင်ပါပြီ။ &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;ပို၍လေ့လာရန်&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">စာဖတ်စာရင်းများကို စက်ပစ္စည်းများသို့ sync လုပ်နိုင်ပါပြီ။ သင်၏ စာရင်းများကို သိမ်းဆည်းရန် ဝီကီပီးဒီးယားအကောင့်သို့ လော့အင်ဝင်ရောက်ပါ။ &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;ပို၍လေ့လာရန်&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Sync လုပ်ခြင်းကို ဖွင့်ရန်</string>
   <string name="reading_list_login_reminder_title" fuzzy="true">စာဖတ်စာရင်းများအား sync လုပ်ရန်</string>
   <string name="reading_lists_login_reminder_text" fuzzy="true">စာဖတ်စာရင်းများကို စက်ပစ္စည်းများသို့ sync လုပ်နိုင်ပါပြီ။ သင်၏ စာရင်းများကို သိမ်းဆည်းရန် ဝီကီပီးဒီးယားအကောင့်သို့ လော့အင်ဝင်ရောက်ပါ။</string>
@@ -523,7 +522,6 @@
   <string name="reading_lists_menu_create_list" fuzzy="true">စာရင်းသစ် ဖန်တီးပါ</string>
   <string name="reading_lists_menu_sort_by">အစဉ်လိုက်</string>
   <string name="reading_lists_refresh_sync_option">sync လုပ်ခြင်းကို ပြန်လည်ဆန်းသစ်ရန်</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">ဝင်ရန် / မှတ်ပုံတင်ရန်</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">ဤဆောင်းပါးကို အင်တာနက်မရှိချိန်တွင် အသုံးပြုနိုင်ပါပြီ</item>
     <item quantity="other">ဤဆောင်းပါးများကို အင်တာနက်မရှိချိန်တွင် အသုံးပြုနိုင်ပါပြီ</item>
