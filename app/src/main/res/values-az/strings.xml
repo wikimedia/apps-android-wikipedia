@@ -218,6 +218,27 @@
   <string name="email_recommendation_dialog_create_without_email_action">E-poçtsuz davam et</string>
   <string name="email_recommendation_dialog_create_with_email_action">E-poçt ünvanı əlavə et</string>
   <string name="create_account_button">Hesab yarat</string>
+  <string name="create_account_encourage_title">Vikipediya hesabla daha yaxşıdır</string>
+  <string name="create_account_encourage_year_in_review_title_zero">İllik İcmalda oxu günlərini bir araya gətirilməsinə baxın.</string>
+  <plurals name="create_account_encourage_year_in_review_title">
+    <item quantity="one">İllik İcmalda %1$d oxu gününüzü bir yerdə görün</item>
+    <item quantity="other">İllik İcmalda %1$d oxu gününüzü bir yerdə görün</item>
+  </plurals>
+  <string name="create_account_encourage_year_in_review_description">İldə bir dəfə oxu günləriniz geri qayıdır və ilin sizi hara apardığına nəzər salır; paylaşmağa hazırdır.</string>
+  <string name="create_account_encourage_saved_articles_title_zero">Yadda saxlanılan məqalələri sinxronlaşdır</string>
+  <plurals name="create_account_encourage_saved_articles_title">
+    <item quantity="one">Yadda saxlanılan %1$d məqalənizi sinxronlaşdırın</item>
+    <item quantity="other">Yadda saxlanılan %1$d məqalənizi sinxronlaşdırın</item>
+  </plurals>
+  <string name="create_account_encourage_saved_articles_description">Yadda saxlanılan məqalələrinizin cihazlar arasında sinxronizasiya olunmasına icazə vermək üçün Vikipediya hesabınıza daxil olun.</string>
+  <string name="create_account_encourage_activity_title_zero">Son oxuduqlarınızı Fəaliyyət bölməsinə yenidən nəzərdən keçirin</string>
+  <plurals name="create_account_encourage_activity_title">
+    <item quantity="one">Fəaliyyət bölməsində son oxuduğunuz %1$d məzmuna yenidən baxın</item>
+    <item quantity="other">Fəaliyyət bölməsində son oxuduğunuz %1$d məzmuna yenidən baxın</item>
+  </plurals>
+  <string name="create_account_encourage_activity_description">Fəaliyyət bölməsində oxumağa sərf etdiyiniz vaxtı, araşdırdığınız mövzuları və töhfələrinizin əhatə dairəsini görün.</string>
+  <string name="create_account_encourage_edits_title">Redaktələrinizə görə töhfənizin qeyd olunmasını təmin edin.</string>
+  <string name="create_account_encourage_edits_description">Vikimedia layihələrindəki töhfələriniz hesabınıza aid edilərək qürur duyacağınız bir töhfə tarixçəsi yaradın.</string>
   <string name="create_account_name_unavailable">\"%s\" istifadəçi adı mövcud deyil. Müxtəlif bir ad seçin.</string>
   <string name="create_account_ip_block_message">Üzr istəyirik, hazırda IP ünvanınız yeni hesab yaratmaqdan bloklanıb.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
@@ -607,7 +628,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">%s artıq bütün kolleksiyalar üçün oflayn olaraq əlçatan olmayacaq:</string>
   <string name="reading_lists_sync_reminder_title">Kolleksiya sinxronizasiyası aktiv edilsin?</string>
   <string name="reading_lists_sync_reminder_text">Kolleksiyalarda saxlanılan məqalələr indi Vikipediya hesabınızla sinxronlaşdırıla bilər. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Ətraflı məlumat əldə edin&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Kolleksiyalar indi cihazlar arasında sinxronlaşdırıla bilər. Vikipediya hesabınıza daxil olun və kolleksiyalarınızın saxlanmasına icazə verin. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Ətraflı öyrən&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Sinxronizasiyanı aktivləşdir</string>
   <string name="reading_list_login_reminder_title">Kolleksiyaları sinxronlaşdır</string>
   <string name="reading_lists_login_reminder_text">Kolleksiyalar indi cihazlar arasında sinxronlaşdırıla bilər. Vikipediya hesabınıza daxil olun və kolleksiyalarınızın saxlanmasına icazə verin.</string>
@@ -650,7 +670,6 @@
   <string name="reading_lists_menu_import_list">Kolleksiyanı idxal et</string>
   <string name="reading_lists_menu_sort_by">Çeşidlə</string>
   <string name="reading_lists_refresh_sync_option">Sinxronizasiyanı yenilə</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Daxil olun / qeydiyyatdan keç</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Bu məqalə indi oflayn olaraq əlçatan olacaq.</item>
     <item quantity="other">Bu məqalələr indi oflayn rejimdə mövcud olacaq.</item>
@@ -2218,8 +2237,8 @@
   <string name="donation_reminders_settings_title">Sizə necə xatırlatmalıyıq?</string>
   <string name="donation_reminders_settings_option_title">İanə xatırlatmaları</string>
   <string name="donation_reminders_settings_thank_you_message">Səxavətiniz Vikipediyanın inkişafına kömək edir. Oxuduğunuz məqalələrin sayına əsasən ianə xatırlatması qurun.</string>
-  <string name="donation_reminders_settings_donation_info">İanələr Vikipediyanın fəxri ev sahibləri Vikimedia Fonduna və filiallarına və digər azad bilik layihələrinə verilir.</string>
-  <string name="donation_reminders_settings_article_frequency_label">Mən oxuyanda</string>
+  <string name="donation_reminders_settings_donation_info">İanələr Vikipediyanın fəxri ev sahibləri Vikimedia Fonduna və filiallarına və digər əlaqəli layihələrinə verilir.</string>
+  <string name="donation_reminders_settings_article_frequency_label">Mən oxuyan zaman</string>
   <string name="donation_reminders_settings_amount_label">Mənə ianə etməyi xatırlat</string>
   <string name="donation_reminders_settings_confirm_btn_label">Xatırlatmanı təsdiqlə</string>
   <string name="donation_reminders_settings_about_experiment_btn_label">Bu təcrübə haqqında</string>
@@ -2228,10 +2247,12 @@
   <string name="donation_reminders_settings_warning_max_amount">Maksimum %s icazə verilir</string>
   <string name="donation_reminders_settings_option_custom">Fərdi…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Təşəkkürlər! Bu sınaq davam edərkən %2$s məqalə oxuduğunuz zaman %1$s ianə etməyi sizə xatırladacağıq.</string>
-  <string name="donation_reminders_first_milestone_reached_prompt_title">%2$s vəd etdiyinizdən bəri %1$s məqalə oxumusunuz</string>
-  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">%1$s məqalə oxumusunuz</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title">%2$s vəd etdiyinizdən bəri %1$s məqalə oxumusunuz!</string>
+  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">%1$s məqalə oxumusunuz!</string>
   <string name="donation_reminders_prompt_message">Siz oxuduğunuz hər %2$s məqalədə %3$s ianə vermək üçün %1$s tarixində ianə xatırladıcısı quraşdırmısınız. Vikipediyanı dəstəkləmək vədinizə əməl etməyə hazırsınız?</string>
+  <string name="donation_reminders_prompt_message_v2">%1$s tarixində %2$s məqalə oxuyandan sonra ianə etməyinizi xatırlatmağımızı istədiniz. Əgər Vikipediya sizə %3$s dəyərində məlumat veribsə, xahiş edirik ianə edən və vədini yerinə yetirən 2%% oxucuya qoşulun.</string>
   <string name="donation_reminders_prompt_positive_button">İndi ianə et</string>
+  <string name="donation_reminders_prompt_positive_button_v2">Bəli, indi ianə et</string>
   <string name="donation_reminders_prompt_negative_button">İndi yox</string>
   <string name="donation_reminders_gpay_text">Google Pay ilə %s ianə et</string>
   <string name="donation_reminders_gpay_different_amount_text">Google Pay ilə fərqli məbləğdə ianə et</string>
@@ -2249,6 +2270,23 @@
   <string name="donation_reminders_settings_report_email_subject">Problem-İanə xatırladıcısı</string>
   <string name="donation_reminders_settings_report_email_body">İanə xatırlatmaları funksiyası ilə bağlı problemlə qarşılaşdım:\n- [Spesifik problemi təsvir edin]\n- [Skrinşotlar və ya keçidlər]\n\nGörmək istədiyim davranış:\n- [Təklif olunan həlli təsvir edin]</string>
   <string name="donation_reminders_snackbar_modify_button_label">Dəyişdir</string>
+  <string name="donation_reminders_settings_article_number_selection_label">Məqalələr</string>
+  <string name="donation_reminders_settings_custom_amount_label">Xüsusi məbləğ</string>
+  <string name="donation_reminders_beta_label">Beta</string>
+  <string name="donation_reminders_wrap_up_title">Bu, ianə xatırlatmalarının sonudur</string>
+  <string name="donation_reminders_wrap_up_message">Oxuduğunuz məqalələrə əsaslanan ianə xatırlatmalarını sınaqdan keçirdiyiniz üçün təşəkkür edirik. Rəyiniz bunun Vikipediyada ianə etməyin daimi üsuluna çevrilib-çevrilməyəcəyini müəyyənləşdirir. Bu, cəmi bir dəqiqə çəkir və ianə etmək tələb olunmur.</string>
+  <string name="donation_reminders_wrap_up_share_feedback_button">Rəy bildir</string>
+  <string name="donation_reminders_wrap_up_survey_title">İanə xatırlatmaları barədə qısa bir sual</string>
+  <string name="donation_reminders_wrap_up_survey_message">Oxuduğunuz məqalələrə əsaslanan ianə xatırlatmaları daimi bir xüsusiyyətə çevrilməlidir?</string>
+  <string name="donation_reminders_wrap_up_survey_option_keep_it">Saxla</string>
+  <string name="donation_reminders_wrap_up_survey_option_remove_it">Yox, sil</string>
+  <string name="donation_reminders_wrap_up_survey_option_not_sure">Əmin deyiləm</string>
+  <string name="donation_reminders_wrap_up_survey_optional_hint">Başqa bir şey (məcburi deyil)</string>
+  <string name="donation_reminders_wrap_up_survey_thank_you_message">Rəyiniz üçün təşəkkür edirik. Cavabınız növbəti qərarlarımıza kömək edir.</string>
+  <string name="donation_reminders_eoe_title">Bu, təcrübənin sonudur</string>
+  <string name="donation_reminders_eoe_message">Artıq tətbiqdaxili xatırlatmalar göstərməyəcəyik, lakin aylıq %s məbləğində ianə etməklə dəstək ola bilərsiniz.</string>
+  <string name="donation_reminders_eoe_give_monthly_button">Aylıq ianə et</string>
+  <string name="donation_reminders_eoe_donate_dialog_title">Aylıq necə ianə etmək istərdiniz?</string>
   <string name="hybrid_search_search_hint">Nəsə axtar və ya soruş</string>
   <string name="hybrid_search_article_search_hint">%s haqqında soruş</string>
   <string name="hybrid_search_suggestion_title">Axtar:</string>
@@ -2407,6 +2445,7 @@
   <string name="home_feed_settings_based_on_interest_subtitle">Seçdiyiniz mövzulara uyğunlaşdırılmış məqalələr.&lt;br /&gt;&lt;a href=\"#drivingFeed\"&gt;Lentinizi nə idarə edir&lt;/a&gt;</string>
   <string name="home_feed_new_within_interest_card_heading">Maraqlarınız arasından yeni</string>
   <string name="home_feed_new_within_interest_title">Maraqlarınız arasından yeni məqalələr</string>
+  <string name="home_feed_new_within_interest_subtitle">İzlədiyiniz mövzu sahələrində son zamanlar yaradılan məqalələr</string>
   <string name="home_feed_settings_because_you_read_subtitle">Tarixçənizə əsaslanan təkliflər</string>
   <string name="home_feed_settings_continue_reading_title">Oxumağa davam et</string>
   <string name="home_feed_settings_continue_reading_subtitle">Bitirmədiyiniz məqalələrə qayıdın</string>
@@ -2449,13 +2488,13 @@
   <string name="home_feed_settings_games_title">Oyunlar</string>
   <string name="home_feed_settings_games_subtitle">Vikipediya məzmununa əsaslanan gündəlik oyunlar</string>
   <string name="home_feed_settings_discover_title">Kəşf tövsiyələri</string>
-  <string name="home_feed_settings_discover_subtitle" fuzzy="true">Kəşf edilmiş oxuma siyahınızdan məqalələr</string>
+  <string name="home_feed_settings_discover_subtitle">Kəşf edilmiş kolleksiyanızdan məqalələr</string>
   <string name="home_feed_discover_cta_title">Kəşf etdən</string>
   <string name="home_feed_discover_cta_description">Yalnız sizin üçün seçilmiş yeni mövzular haqqında məlumat əldə edin. Gündəlik, həftəlik və ya aylıq yeniləmələr arasında seçim edin.</string>
-  <string name="home_feed_discover_cta_button" fuzzy="true">Kəşf edilmiş oxuma siyahısını aktivləşdir</string>
+  <string name="home_feed_discover_cta_button">Kəşf edilmiş kolleksiyanı aktivləşdir</string>
   <string name="home_feed_discover_card_footer">Kəşf etdən • %s yeniləmələr</string>
   <string name="home_feed_discover_see_all_title">Kəşf ediləcək daha çox şey var</string>
-  <string name="home_feed_discover_see_all_description" fuzzy="true">Fərdiləşdirilmiş oxuma siyahınızda yalnız sizin üçün seçilmiş daha çox hekayə var.</string>
+  <string name="home_feed_discover_see_all_description">Fərdiləşdirilmiş kolleksiyada yalnız sizin üçün seçilmiş daha çox hekayə var.</string>
   <string name="home_feed_discover_see_all_button">Bütün tövsiyələri kəşf et</string>
   <string name="home_feed_places_of_interest_card_footer">%1$s • Yerlərdəki yerinizə əsasən</string>
   <string name="home_feed_for_you_screen_end_of_feed_title">Bugünlük bu qədər!</string>
@@ -2470,10 +2509,16 @@
   <string name="random_article_widget_name">Təsadüfi məqalə</string>
   <string name="reading_lists_tab_all_articles">Bütün məqalələr</string>
   <string name="reading_lists_tab_collections">Kolleksiyalar</string>
+  <string name="reading_lists_filter_content_description">Yadda saxlanılan məqalələri filtrlə</string>
+  <string name="reading_lists_filter_not_in_collection">Kolleksiyada olmayan</string>
+  <string name="reading_lists_empty_not_in_collection_title">Bütün yadda saxlanılan məqalələr kolleksiyalardadır.</string>
   <string name="reading_lists_search_saved_articles">Saxlanmış məqalələrdə axtar</string>
   <string name="reading_lists_search_collections">Kolleksiyalarda axtar</string>
-  <string name="reading_lists_remove_articles_confirm_dialog_title" fuzzy="true">Yadda saxlanılan məqalələr silinsin?</string>
-  <string name="reading_lists_remove_articles_confirm_button" fuzzy="true">Sil</string>
+  <string name="reading_lists_empty_collections_title">Saxlanılan məqalələri kolleksiyalar şəklində təşkil et</string>
+  <string name="reading_lists_empty_collections_description">Səyahət ediləcək yerlər, sevimli mövzular və daha çoxu üçün kolleksiyalar yarat</string>
+  <string name="reading_lists_create_new_collection">Yeni kolleksiya yarat</string>
+  <string name="reading_lists_remove_articles_confirm_dialog_title">Məqalə yadda saxlanılanlardan çıxarılsın?</string>
+  <string name="reading_lists_remove_articles_confirm_button">Çıxart</string>
   <plurals name="reading_lists_remove_articles_confirm_dialog_message">
     <item quantity="one">Bu məqalə bütün əlaqəli kolleksiyalardan silinəcək.</item>
     <item quantity="other">Bu %d məqalə bütün əlaqəli kolleksiyalardan silinəcək.</item>
@@ -2481,5 +2526,13 @@
   <plurals name="reading_lists_articles_removed_from_collections">
     <item quantity="one">Məqalə bütün əlaqəli kolleksiyalardan silindi.</item>
     <item quantity="other">%d məqalə bütün əlaqəli kolleksiyalardan silindi.</item>
+  </plurals>
+  <string name="reading_lists_save_sheet_empty_title">Sevdiyiniz məqalələri toplayın</string>
+  <string name="reading_lists_save_sheet_empty_message">Məqalələri kolleksiyalarda saxlayın.</string>
+  <string name="reading_lists_save_sheet_create">Yarat</string>
+  <string name="reading_lists_update_tooltip">Oxuma siyahıları artıq kolleksiyalar adlanır.</string>
+  <plurals name="reading_lists_unsave_articles_confirm_dialog_message">
+    <item quantity="one">Bu məqalənin yadda saxlanılmaması onu bütün əlaqəli kolleksiyalardan siləcək.</item>
+    <item quantity="other">Bu məqalələrin yadda saxlanılmaması onları bütün əlaqəli kolleksiyalardan siləcək.</item>
   </plurals>
 </resources>
