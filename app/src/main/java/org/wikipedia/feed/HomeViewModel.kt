@@ -643,9 +643,10 @@ class HomeViewModel : ViewModel() {
             L.e("Failed to load modules from cache.")
         }
 
+        val currentDateTime = LocalDateTime.now()
         val currentWikiSite = wikiSite.value
         val languageCode = currentWikiSite.languageCode
-        val cachedModulesByLanguage = if (forYouCollectionSaved.dateTime?.toLocalDate() == LocalDate.now()) {
+        val cachedModulesByLanguage = if (forYouCollectionSaved.dateTime?.toLocalDate() == currentDateTime.toLocalDate()) {
             forYouCollectionSaved.modulesPerLanguage
         } else {
             emptyMap()
@@ -839,9 +840,8 @@ class HomeViewModel : ViewModel() {
         }
 
         _forYouNetworkLatency.value = System.currentTimeMillis() - startMillis
-
         forYouCollectionSaved = ForYouCollectionSaved(
-            dateTime = LocalDateTime.now(),
+            dateTime = currentDateTime,
             modulesPerLanguage = cachedModulesByLanguage + (languageCode to modules)
         )
         withContext(Dispatchers.Default) {
