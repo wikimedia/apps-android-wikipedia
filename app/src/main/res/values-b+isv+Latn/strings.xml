@@ -600,7 +600,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s veče ne bude dostupny oflajn za vse spisky za čitanje:</string>
   <string name="reading_lists_sync_reminder_title" fuzzy="true">Vključiti sinhronizaciju spiskov za čitanje?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">Članky, zapisane v spiskah za čitanje, tutčas mogut byti sinhronizovane s vašim koristničskym kontom v Vikipediji. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Podrobnosti&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Spisky za čitanje tutčas mogut byti sinhronizovane medžu raznymi aparatami. Prijavite se k svojemu koristničskomu kontu v Vikipediji i dozvolite zapisanje vaših spiskov. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Podrobnosti&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Vključiti sinhronizaciju</string>
   <string name="reading_list_login_reminder_title" fuzzy="true">Sinhronizovati spisky za čitanje</string>
   <string name="reading_lists_login_reminder_text" fuzzy="true">Spisky za čitanje tutčas mogut byti sinhronizovane medžu raznymi aparatami. Prijavite se k svojemu koristničskomu kontu v Vikipediji i dozvolite zapisanje vaših spiskov.</string>
@@ -645,7 +644,6 @@
   <string name="reading_lists_menu_import_list" fuzzy="true">Importovati spisok</string>
   <string name="reading_lists_menu_sort_by">Sortovati po</string>
   <string name="reading_lists_refresh_sync_option">Osvěžiti sinhronizaciju</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Prijaviti/registrovati se</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Tutoj članok tutčas bude dostupny oflajn.</item>
     <item quantity="few">Tute članky tutčas budut dostupne oflajn.</item>
@@ -2345,8 +2343,8 @@
   <string name="donation_reminders_settings_title">Kako imajemo vam pripomněti?</string>
   <string name="donation_reminders_settings_option_title">Pripomněnja o darovanju</string>
   <string name="donation_reminders_settings_thank_you_message">Vaša ščedrost pomagaje procvětati Vikipediji. Nastavite sobě pripomněnje o darovanju na osnově kolikosti pročitanyh vami člankov.</string>
-  <string name="donation_reminders_settings_donation_info">Darovanja idut v fondaciju Wikimedia i prinaležne jej organizacije, ktore s gordostoju gostet Vikipediju i druge projekty za svobodno znanje.</string>
-  <string name="donation_reminders_settings_article_frequency_label">Kogda ja čitaju</string>
+  <string name="donation_reminders_settings_donation_info" fuzzy="true">Darovanja idut v fondaciju Wikimedia i prinaležne jej organizacije, ktore s gordostoju gostet Vikipediju i druge projekty za svobodno znanje.</string>
+  <string name="donation_reminders_settings_article_frequency_label" fuzzy="true">Kogda ja čitaju</string>
   <string name="donation_reminders_settings_amount_label">Pripomni mene sdělati darovanje</string>
   <string name="donation_reminders_settings_confirm_btn_label">Potvrditi darovanje</string>
   <string name="donation_reminders_settings_about_experiment_btn_label">O tutom eksperimentu</string>
@@ -2355,8 +2353,8 @@
   <string name="donation_reminders_settings_warning_max_amount">Dozvoljeny maksimum jest %s</string>
   <string name="donation_reminders_settings_option_custom">Prisposobjeno...</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Hvala! My pripomnimo vam, že podarujete %1$s poslě %2$s pročitanyh člankov v tečenju tutogo eksperimenta.</string>
-  <string name="donation_reminders_first_milestone_reached_prompt_title">Vy jeste pročitali %1$s odkogda vy jeste oběčali podarovati %2$s</string>
-  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">Vy jeste pročitali ješče %1$s</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title" fuzzy="true">Vy jeste pročitali %1$s odkogda vy jeste oběčali podarovati %2$s</string>
+  <string name="donation_reminders_subsequent_milestone_reached_prompt_title" fuzzy="true">Vy jeste pročitali ješče %1$s</string>
   <string name="donation_reminders_prompt_message">Vy jeste nastavili pripomněnje v %1$s, že budete darovati %3$s za vsake %2$s pročitane vami članky. Jeste li gotovi do izpolnjenja svojego oběčanja za poddržanje Vikipedije?</string>
   <string name="donation_reminders_prompt_positive_button">Darovati tutčas</string>
   <string name="donation_reminders_prompt_negative_button">Ne tutčas</string>
