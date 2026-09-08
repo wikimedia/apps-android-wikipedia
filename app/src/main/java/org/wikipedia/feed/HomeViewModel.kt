@@ -657,7 +657,7 @@ class HomeViewModel : ViewModel() {
         }
 
         val cachedModules = cachedModulesByLanguage[languageCode]
-        if (cachedModules != null) {
+        if (!forceRefresh && cachedModules != null) {
             L.d("Loading modules from cache...")
             return cachedModules.mapNotNull { module ->
                 val filteredCards = module.cards.filterNot { hiddenCards.contains(it.hideKey) }
@@ -671,8 +671,8 @@ class HomeViewModel : ViewModel() {
 
         L.d("Loading modules from network...")
         val startMillis = System.currentTimeMillis()
-        val previousSeedTitles = forYouCollectionSaved.previousSeedTitlesPerLanguage[wikiSite.value.languageCode].orEmpty().toSet()
-        val seedEntries = pickSeedEntries(wikiSite.value.languageCode, count = 2, excludeTitles = previousSeedTitles)
+        val previousSeedTitles = forYouCollectionSaved.previousSeedTitlesPerLanguage[languageCode].orEmpty().toSet()
+        val seedEntries = pickSeedEntries(languageCode, count = 2, excludeTitles = previousSeedTitles)
         val continueReadingSeed = seedEntries.getOrNull(0)
         val becauseYouReadSeed = seedEntries.getOrNull(1)
 
@@ -776,7 +776,6 @@ class HomeViewModel : ViewModel() {
                             )
                         )
                     }
-
                     AppDatabase.instance.readingListPageDao().getMostRecentSavedPagesByLang(languageCode, 10).take(2)
                         .forEach {
                             add(
@@ -850,8 +849,8 @@ class HomeViewModel : ViewModel() {
         val seedTitles = listOfNotNull(continueReadingSeed, becauseYouReadSeed).map { it.title.prefixedText }.distinct()
         forYouCollectionSaved = ForYouCollectionSaved(
             dateTime = currentDateTime,
-            modulesPerLanguage = forYouCollectionSaved.modulesPerLanguage + (languageCode to modules),
-            previousSeedTitlesPerLanguage = cachedModulesByLanguage + (languageCode to seedTitles)
+            modulesPerLanguage = cachedModulesByLanguage + (languageCode to modules),
+            previousSeedTitlesPerLanguage = forYouCollectionSaved.previousSeedTitlesPerLanguage + (languageCode to seedTitles)
         )
         withContext(Dispatchers.Default) {
             Prefs.homeForYouModulesToday = JsonUtil.encodeToString(forYouCollectionSaved).orEmpty()
