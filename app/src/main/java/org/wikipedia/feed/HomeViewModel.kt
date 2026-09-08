@@ -669,7 +669,7 @@ class HomeViewModel : ViewModel() {
         }
 
         L.d("Loading modules from network...")
-        val seedEntries = pickSeedEntries(languageCode, count = 2)
+        val seedEntries = getRandomSeedEntries(languageCode, limit = 2)
         val becauseYouReadSeed = seedEntries.getOrNull(0)
         val continueReadingSeed = seedEntries.getOrNull(1)
         val startMillis = System.currentTimeMillis()
@@ -854,14 +854,15 @@ class HomeViewModel : ViewModel() {
         return modules
     }
 
-    private suspend fun pickSeedEntries(langCode: String, count: Int): List<HistoryEntry> {
+    private suspend fun getRandomSeedEntries(langCode: String, limit: Int): List<HistoryEntry> {
         val sinceMillis = LocalDate.now().minusDays(RECENT_ARTICLES_SEED_WINDOW_DAYS)
             .atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli()
-        return AppDatabase.instance.historyEntryWithImageDao().findSeedEntriesForReadMore(
+        return AppDatabase.instance.historyEntryWithImageDao().findRandomSeedEntriesForReadMore(
+            limit = limit,
             minTimeSpent = RECENT_ARTICLES_MIN_TIME_SPENT_SEC,
             sinceMillis = sinceMillis,
             langCode = langCode
-        ).shuffled().take(count)
+        )
     }
 
     private suspend fun buildDiscoverModule(): ForYouModule.Discover? {
