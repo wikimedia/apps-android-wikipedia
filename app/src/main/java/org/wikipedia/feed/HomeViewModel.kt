@@ -462,10 +462,10 @@ class HomeViewModel : ViewModel() {
         loadCommunityContent()
     }
 
-    fun refreshForYouContent(forceRefresh: Boolean = false) {
+    fun refreshForYouContent() {
         forYouBatchIndex = 0
         _forYouState.update { ForYouContentState() }
-        loadForYouContent(forceRefresh = forceRefresh)
+        loadForYouContent()
     }
 
     fun selectTab(tab: HomeTab) {
@@ -572,7 +572,7 @@ class HomeViewModel : ViewModel() {
      * Loads the next batch of personalized recommendations for the "For you" tab.
      * Safe to call as a retry — the batch index only advances after a successful fetch.
      */
-    fun loadForYouContent(forceRefresh: Boolean = false) {
+    fun loadForYouContent() {
         if (_forYouState.value.isInitialLoading || _forYouState.value.isLoadingMore) return
 
         viewModelScope.launch(forYouHandler) {
@@ -584,7 +584,7 @@ class HomeViewModel : ViewModel() {
                 error = null
             )
 
-            val newModules = fetchForYouModules(forYouBatchIndex, forceRefresh)
+            val newModules = fetchForYouModules(forYouBatchIndex)
 
             // Advance batch index only after success.
             forYouBatchIndex++
@@ -634,7 +634,7 @@ class HomeViewModel : ViewModel() {
         }
     }
 
-    private suspend fun fetchForYouModules(age: Int, forceRefresh: Boolean = false): List<ForYouModule> {
+    private suspend fun fetchForYouModules(age: Int): List<ForYouModule> {
         val modules = mutableListOf<ForYouModule>()
         val hiddenCards = SettingsRepository.hiddenCards.first()
         var forYouCollectionSaved = ForYouCollectionSaved()
@@ -657,7 +657,7 @@ class HomeViewModel : ViewModel() {
         }
 
         val cachedModules = cachedModulesByLanguage[languageCode]
-        if (!forceRefresh && cachedModules != null) {
+        if (cachedModules != null) {
             L.d("Loading modules from cache...")
             return cachedModules.mapNotNull { module ->
                 val filteredCards = module.cards.filterNot { hiddenCards.contains(it.hideKey) }
