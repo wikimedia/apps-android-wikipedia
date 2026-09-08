@@ -80,10 +80,10 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
                     view.visibility = if (enabled) VISIBLE else GONE
                 }
                 PageActionItem.EDIT_ARTICLE -> {
-                    view.setCompoundDrawablesRelativeWithIntrinsicBounds(PageActionItem.editArticleIcon(model.page?.pageProperties?.canEdit != true), 0, 0, 0)
+                    view.setCompoundDrawablesRelativeWithIntrinsicBounds(PageActionItem.editArticleIcon(model.page?.canEdit != true), 0, 0, 0)
                 }
                 PageActionItem.VIEW_ON_MAP -> {
-                    val geoAvailable = model.page?.pageProperties?.geo != null
+                    val geoAvailable = model.page?.summary?.coordinates != null
                     val tintColor = ResourceUtil.getThemedColorStateList(context, if (geoAvailable) R.attr.primary_color else R.attr.inactive_color)
                     view.setTextColor(tintColor)
                     TextViewCompat.setCompoundDrawableTintList(view, tintColor)

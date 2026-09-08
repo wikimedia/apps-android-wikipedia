@@ -10,10 +10,10 @@ import org.junit.Assert.assertTrue
 import org.junit.Test
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwException
+import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.dataclient.wikidata.EntityPostResponse
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.Page
-import org.wikipedia.page.PageProperties
 import org.wikipedia.page.PageTitle
 import org.wikipedia.test.MockRetrofitTest
 import java.util.regex.Pattern
@@ -136,24 +136,23 @@ class DescriptionEditClientTest : MockRetrofitTest() {
     @Test
     fun testIsEditAllowedSuccess() {
         val wiki = WikiSite.forLanguageCode("ru")
-        val props = mockk<PageProperties>(relaxed = true) {
+        val summary = mockk<PageSummary>(relaxed = true) {
             every { wikiBaseItem } returns "Q123"
-            every { canEdit } returns true
             every { descriptionSource } returns "central"
-            every { namespace } returns Namespace.MAIN
+            every { ns } returns Namespace.MAIN
         }
-        val page = Page(PageTitle("Test", wiki), pageProperties = props)
+        val page = Page(PageTitle("Test", wiki), summary = summary)
         assertTrue(DescriptionEditUtil.isEditAllowed(page))
     }
 
     @Test
     fun testIsEditAllowedNoWikiBaseItem() {
         val wiki = WikiSite.forLanguageCode("ru")
-        val props = mockk<PageProperties>(relaxed = true) {
+        val summary = mockk<PageSummary>(relaxed = true) {
             every { wikiBaseItem } returns null
-            every { namespace } returns Namespace.MAIN
+            every { ns } returns Namespace.MAIN
         }
-        val page = Page(PageTitle("Test", wiki), pageProperties = props)
+        val page = Page(PageTitle("Test", wiki), summary = summary)
         assertFalse(DescriptionEditUtil.isEditAllowed(page))
     }
 

@@ -29,6 +29,7 @@ import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.databinding.ActivityDonateBinding
 import org.wikipedia.dataclient.donate.CampaignCollection
 import org.wikipedia.dataclient.donate.DonationConfig
+import org.wikipedia.donate.donationreminder.DonationReminderHelper
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
@@ -100,7 +101,11 @@ class GooglePayActivity : BaseActivity() {
                             }
                             is GooglePayViewModel.NoPaymentMethod -> {
                                 DonorExperienceEvent.logAction("no_payment_method", "gpay", campaignId = campaignId)
-                                DonateDialog.launchDonateLink(this@GooglePayActivity, url = intent.getStringExtra(DonateDialog.ARG_DONATE_URL))
+                                DonateDialog.launchDonateLink(
+                                    context = this@GooglePayActivity,
+                                    url = intent.getStringExtra(DonateDialog.ARG_DONATE_URL),
+                                    checkMonthly = viewModel.checkedRecurringDonation
+                                )
                                 finish()
                             }
                             is Resource.Success -> {
@@ -110,7 +115,11 @@ class GooglePayActivity : BaseActivity() {
                                 } catch (_: IllegalStateException) {
                                     // An IllegalStateException could happen on certain devices if Google Pay is not fully set up or supported.
                                     // In this case, fall back to an external link for donation.
-                                    DonateDialog.launchDonateLink(this@GooglePayActivity, url = intent.getStringExtra(DonateDialog.ARG_DONATE_URL))
+                                    DonateDialog.launchDonateLink(
+                                        context = this@GooglePayActivity,
+                                        url = intent.getStringExtra(DonateDialog.ARG_DONATE_URL),
+                                        checkMonthly = viewModel.checkedRecurringDonation
+                                    )
                                     finish()
                                 }
                             }
@@ -121,6 +130,9 @@ class GooglePayActivity : BaseActivity() {
                                     currency = DonateUtil.currencyCode,
                                     recurring = binding.checkBoxRecurring.isChecked
                                 )
+                                if (viewModel.checkedRecurringDonation && DonationReminderHelper.isInWrapUpDateRange) {
+                                    DonorExperienceEvent.logDonationReminderAction("impression", "reminder_recur_confirmed")
+                                }
                                 setResult(RESULT_OK)
                                 finish()
                             }
@@ -251,6 +263,8 @@ class GooglePayActivity : BaseActivity() {
 
         val viewIds = mutableListOf<Int>()
         val presets = donationConfig.currencyAmountPresets[DonateUtil.currencyCode]?.toMutableSet()
+        // TODO: remove this when experiment is completed in November 2026.
+        DonationReminderHelper.updateDonationPresets(presets)
         if (viewModel.filledAmount > 0f) {
             presets?.add(viewModel.filledAmount)
         }
@@ -275,6 +289,7 @@ class GooglePayActivity : BaseActivity() {
         }
         binding.amountPresetsFlow.referencedIds = viewIds.toIntArray()
         setFilledAmountToText()
+        setCheckedRecurringDonation()
         setButtonHighlighted(filledAmountButton)
     }
 
@@ -282,6 +297,10 @@ class GooglePayActivity : BaseActivity() {
         if (viewModel.filledAmount > 0f) {
             setAmountText(viewModel.filledAmount)
         }
+    }
+
+    private fun setCheckedRecurringDonation() {
+        binding.checkBoxRecurring.isChecked = viewModel.checkedRecurringDonation
     }
 
     private fun setButtonHighlighted(button: View? = null) {
@@ -312,12 +331,14 @@ class GooglePayActivity : BaseActivity() {
     companion object {
         private const val CAMPAIGN_ID_APP_MENU = "appmenu"
         const val FILLED_AMOUNT = "filledAmount"
+        const val CHECKED_RECURRING_DONATION = "checkedRecurringDonation"
 
-        fun newIntent(context: Context, campaignId: String? = null, donateUrl: String? = null, filledAmount: Float = 0f): Intent {
+        fun newIntent(context: Context, campaignId: String? = null, donateUrl: String? = null, filledAmount: Float = 0f, checkedRecurringDonation: Boolean = false): Intent {
             return Intent(context, GooglePayActivity::class.java)
                 .putExtra(DonateDialog.ARG_CAMPAIGN_ID, campaignId)
                 .putExtra(DonateDialog.ARG_DONATE_URL, donateUrl)
                 .putExtra(FILLED_AMOUNT, filledAmount)
+                .putExtra(CHECKED_RECURRING_DONATION, checkedRecurringDonation)
         }
     }
 }

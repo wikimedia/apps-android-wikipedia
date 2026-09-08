@@ -254,6 +254,33 @@
   <string name="email_recommendation_dialog_create_without_email_action">Kontynuuj bez adresu e-mail</string>
   <string name="email_recommendation_dialog_create_with_email_action">Dodaj adres e‐mail</string>
   <string name="create_account_button">Utwórz konto</string>
+  <string name="create_account_encourage_title">Odkryj pełnię możliwości Wikipedii z kontem</string>
+  <string name="create_account_encourage_year_in_review_title_zero">Przeżyj swój czytelniczy rok na nowo w podsumowaniu roku</string>
+  <plurals name="create_account_encourage_year_in_review_title">
+    <item quantity="one">Odkryj %1$d dzień czytania w podsumowaniu roku</item>
+    <item quantity="few">Odkryj %1$d dni czytania w podsumowaniu roku</item>
+    <item quantity="many">Odkryj %1$d dni czytania w podsumowaniu roku</item>
+    <item quantity="other">Odkryj %1$d dnia czytania w podsumowaniu roku</item>
+  </plurals>
+  <string name="create_account_encourage_year_in_review_description">Sprawdź, dokąd zaprowadziła Cię ciekawość w tym roku, i podziel się swoim zestawieniem.</string>
+  <string name="create_account_encourage_saved_articles_title_zero">Synchronizuj zapisane artykuły</string>
+  <plurals name="create_account_encourage_saved_articles_title">
+    <item quantity="one">Synchronizuj %1$d zapisany artykuł</item>
+    <item quantity="few">Synchronizuj %1$d zapisane artykuły</item>
+    <item quantity="many">Synchronizuj %1$d zapisanych artykułów</item>
+    <item quantity="other">Synchronizuj %1$d zapisanego artykułu</item>
+  </plurals>
+  <string name="create_account_encourage_saved_articles_description">Zaloguj się na swoje konto w Wikipedii, aby automatycznie synchronizować zapisane artykuły między wszystkimi swoimi urządzeniami.</string>
+  <string name="create_account_encourage_activity_title_zero">Przeglądaj swoją historię czytania w sekcji „Aktywność”</string>
+  <plurals name="create_account_encourage_activity_title">
+    <item quantity="one">Zobacz %1$d niedawno przeczytany artykuł w sekcji „Aktywność”</item>
+    <item quantity="few">Zobacz %1$d niedawno przeczytane artykuły w sekcji „Aktywność”</item>
+    <item quantity="many">Zobacz %1$d niedawno przeczytanych artykułów w sekcji „Aktywność”</item>
+    <item quantity="other">Zobacz %1$d niedawno przeczytanego artykułu w sekcji „Aktywność”</item>
+  </plurals>
+  <string name="create_account_encourage_activity_description">Śledź czas spędzony na czytaniu, zgłębiane zagadnienia oraz wpływ swoich edycji w sekcji „Aktywność”.</string>
+  <string name="create_account_encourage_edits_title">Zyskaj uznanie za wniesiony wkład</string>
+  <string name="create_account_encourage_edits_description">Buduj swój dorobek edytorski — Twój wkład we wszystkich projektach Wikimediów zostanie przypisany bezpośrednio do Twojego konta.</string>
   <string name="create_account_name_unavailable">Nazwa użytkownika „%s” nie jest dostępna. Wybierz inną nazwę.</string>
   <string name="create_account_ip_block_message">Niestety tworzenie kont z Twojego adresu IP jest w tej chwili zablokowane.</string>
   <string name="create_account_ip_block_help_url">https://pl.wikipedia.org/wiki/Wikipedia:Blokady_zakresów_IP</string>
@@ -674,7 +701,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">Artykuł „%s” nie będzie dostępny offline dla wszystkich kolekcji:</string>
   <string name="reading_lists_sync_reminder_title">Włączyć synchronizację kolekcji?</string>
   <string name="reading_lists_sync_reminder_text">Artykuły zapisane w kolekcjach mogą być teraz zsynchronizowane z Twoim kontem w Wikipedii. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Dowiedz się więcej&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Kolekcje mogą być teraz synchronizowane pomiędzy urządzeniami. Zaloguj się na swoje konto w Wikipedii i zezwól na zapisywanie kolekcji. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Dowiedz się więcej&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Włącz synchronizację</string>
   <string name="reading_list_login_reminder_title">Zsynchronizuj swoje kolekcje</string>
   <string name="reading_lists_login_reminder_text">Kolekcje mogą być teraz synchronizowane pomiędzy urządzeniami. Zaloguj się na swoje konto w Wikipedii i zezwól na zapisywanie kolekcji.</string>
@@ -719,7 +745,6 @@
   <string name="reading_lists_menu_import_list">Importuj kolekcję</string>
   <string name="reading_lists_menu_sort_by">Sortuj według</string>
   <string name="reading_lists_refresh_sync_option">Odśwież synchronizację</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Zaloguj się / zarejestruj</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Ten artykuł będzie teraz dostępny w trybie offline.</item>
     <item quantity="few">Te artykuły będą teraz dostępne w trybie offline.</item>
@@ -1964,10 +1989,7 @@
   <string name="games_hub_activity_games_unavailable_message_learn_more_action">Dowiedz się więcej</string>
   <string name="games_hub_activity_overflow_view_game_stats">Wyświetl statystyki gry</string>
   <string name="games_hub_activity_overflow_learn_more">Dowiedz się więcej</string>
-  <string name="on_this_day_game_entry_dialog_title">Przedstawiamy grę</string>
-  <string name="on_this_day_game_entry_dialog_subtitle">Gry Wikipedii</string>
   <string name="on_this_day_game_entry_dialog_button">Zagraj</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Gry Wikipedii są dostępne w sekcji „Centrum gier” w menu „Więcej”.</string>
   <string name="on_this_day_game_title">Co było pierwsze?</string>
   <string name="on_this_day_game_dialog_button">Zagraj</string>
   <string name="on_this_day_game_splash_message">Zgadnij, które wydarzenie miało miejsce jako pierwsze tego dnia w historii.</string>
@@ -2071,6 +2093,7 @@
   <string name="year_in_review_disable_positive_button">Tak, na pewno</string>
   <string name="year_in_review_disable_negative_button">Nie, dziękuję</string>
   <string name="year_in_review_setting_subtitle">Wyłączenie funkcji „Podsumowanie roku” spowoduje usunięcie wszystkich zapisanych spersonalizowanych statystyk oraz ukrycie podsumowania roku.</string>
+  <string name="year_in_review_screendeck_image_content_description">Zasób graficzny dla głównego zestawu kart Podsumowania roku</string>
   <string name="year_in_review_screenshot_error">Nie udało się wygenerować zrzutu ekranu: %s</string>
   <string name="year_in_review_share_subject">Moje podsumowanie roku w Wikipedii</string>
   <string name="year_in_review_share_body">Oto moje podsumowanie roku w Wikipedii. Utworzone za pomocą aplikacji Wikipedii na Androida %1$s %2$s</string>
@@ -2459,7 +2482,7 @@
   <string name="donation_reminders_settings_title">Jak mamy Ci przypominać?</string>
   <string name="donation_reminders_settings_option_title">Przypomnienia o darowiznach</string>
   <string name="donation_reminders_settings_thank_you_message">Twoja hojność pomaga Wikipedii się rozwijać. Skonfiguruj przypomnienia o darowiznach na podstawie liczby przeczytanych artykułów.</string>
-  <string name="donation_reminders_settings_donation_info">Darowizny trafiają do Wikimedia Foundation i jej podmiotów stowarzyszonych, które z dumą prowadzą Wikipedię i inne projekty zapewniające swobodny dostęp do wiedzy.</string>
+  <string name="donation_reminders_settings_donation_info">Darowizny trafiają do Wikimedia Foundation i jej podmiotów stowarzyszonych, które z dumą prowadzą Wikipedię i jej projekty siostrzane.</string>
   <string name="donation_reminders_settings_article_frequency_label">Kiedy przeczytam</string>
   <string name="donation_reminders_settings_amount_label">Przypomnij mi o przekazaniu</string>
   <string name="donation_reminders_settings_confirm_btn_label">Potwierdź przypomnienie</string>
@@ -2470,9 +2493,11 @@
   <string name="donation_reminders_settings_option_custom">Niestandardowa…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Dziękujemy! Przypomnimy Ci o przekazaniu darowizny w wysokości %1$s, gdy przeczytasz %2$s w trakcie trwania tego eksperymentu.</string>
   <string name="donation_reminders_first_milestone_reached_prompt_title">Liczba przeczytanych artykułów od momentu zadeklarowania darowizny w wysokości %1$s: %2$s.</string>
-  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">Kolejne %1$s już przeczytane.</string>
+  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">Kolejne %1$s już przeczytane!</string>
   <string name="donation_reminders_prompt_message">W dniu %1$s ustawiono przypomnienia o darowiznach w wysokości %3$s za każde przeczytane %2$s. Czy chcesz podtrzymać swoją obietnicę wsparcia Wikipedii?</string>
+  <string name="donation_reminders_prompt_message_v2">W dniu %1$s po przeczytaniu %2$s artykułów mieliśmy przypomnieć Ci o przekazaniu darowizny. Jeśli Wikipedia zapewniła Ci wiedzę wartą %3$s, dołącz do 2%% osób czytających, które przekazują darowizny, i zrealizuj swoją obietnicę już dziś.</string>
   <string name="donation_reminders_prompt_positive_button">Przekaż teraz</string>
+  <string name="donation_reminders_prompt_positive_button_v2">Tak, przekaż darowiznę</string>
   <string name="donation_reminders_prompt_negative_button">Nie teraz</string>
   <string name="donation_reminders_gpay_text">Przekaż darowiznę w wysokości %s przez Google Pay</string>
   <string name="donation_reminders_gpay_different_amount_text">Przekaż darowiznę w innej wysokości przez Google Pay</string>
@@ -2492,6 +2517,24 @@
   <string name="donation_reminders_settings_report_email_subject">Zgłoszenie problemu – funkcja przypominania o darowiznach</string>
   <string name="donation_reminders_settings_report_email_body">Problem dotyczy funkcji przypominania o darowiznach:\n- [Opisz szczegółowo problem]\n- [Załącz zrzuty ekranu lub linki]\n\nOczekuję, że funkcja będzie działać w następujący sposób:\n- [Opisz proponowane rozwiązanie]</string>
   <string name="donation_reminders_snackbar_modify_button_label">Zmień</string>
+  <string name="donation_reminders_settings_article_number_selection_label">Artykuły</string>
+  <string name="donation_reminders_settings_custom_amount_label">Własna kwota</string>
+  <string name="donation_reminders_settings_update_reminder_button">Zaktualizuj przypomnienie</string>
+  <string name="donation_reminders_beta_label">Beta</string>
+  <string name="donation_reminders_wrap_up_title">To już koniec przypomnień o darowiznach</string>
+  <string name="donation_reminders_wrap_up_message">Dziękujemy za przetestowanie przypomnień o darowiznach opartych na czytanych artykułach. Była to funkcja eksperymentalna, a Twoja opinia pozwoli nam zdecydować, czy stanie się ona stałą opcją wnoszenia darowizn w Wikipedii. Zajmie to około minuty i nie trzeba dokonywać darowizny.</string>
+  <string name="donation_reminders_wrap_up_share_feedback_button">Zostaw opinię</string>
+  <string name="donation_reminders_wrap_up_survey_title">Krótkie pytanie dotyczące przypomnień o darowiznach</string>
+  <string name="donation_reminders_wrap_up_survey_message">Czy przypomnienia o darowiznach oparte na czytanych artykułach powinny stać się stałą funkcją?</string>
+  <string name="donation_reminders_wrap_up_survey_option_keep_it">Tak, zostaw</string>
+  <string name="donation_reminders_wrap_up_survey_option_remove_it">Nie, usuń</string>
+  <string name="donation_reminders_wrap_up_survey_option_not_sure">Trudno powiedzieć</string>
+  <string name="donation_reminders_wrap_up_survey_optional_hint">Coś jeszcze? (opcjonalnie)</string>
+  <string name="donation_reminders_wrap_up_survey_thank_you_message">Dziękujemy za opinię. Twoja odpowiedź pomoże nam zdecydować, nad czym będziemy pracować dalej.</string>
+  <string name="donation_reminders_eoe_title">To koniec eksperymentu</string>
+  <string name="donation_reminders_eoe_message">Nie będziemy już wyświetlać przypomnień w aplikacji, ale nadal możesz nas wspierać, przekazując co miesiąc zadeklarowaną kwotę %s.</string>
+  <string name="donation_reminders_eoe_give_monthly_button">Wpłacaj co miesiąc</string>
+  <string name="donation_reminders_eoe_donate_dialog_title">W jaki sposób chcesz wpłacać co miesiąc?</string>
   <string name="hybrid_search_search_hint">Wyszukaj lub zapytaj o cokolwiek</string>
   <string name="hybrid_search_article_search_hint">Zapytaj o %s</string>
   <string name="hybrid_search_suggestion_title">Wyszukaj:</string>
@@ -2585,6 +2628,7 @@
   <string name="reading_challenge_widget_reminder_before_day_snoozes">Zanim dzień dobiegnie końca…	wciąż jest czas, by się czegoś nauczyć.</string>
   <string name="reading_challenge_widget_reminder_small_bit_counts">Nawet krótka lektura liczy się do Twojego celu.</string>
   <string name="reading_challenge_widget_reminder_one_article_away">Od serii dzieli Cię tylko jeden artykuł.</string>
+  <string name="reading_challenge_widget_reminder_jump_in_anytime">Wpadnij poczytać w wolnej chwili!</string>
   <string name="reading_challenge_widget_reminder_quiet_reading_moment">Chwila na spokojną lekturę?</string>
   <string name="reading_challenge_widget_reminder_keep_curiosity_going">Nie gaś swojej ciekawości.</string>
   <string name="reading_challenge_widget_enrolled_not_started_title">Do czytania, gotowi, start!</string>
@@ -2597,6 +2641,9 @@
   <string name="reading_challenge_widget_start_fresh_start_subtitle">Do Twojej serii brakuje już tylko jednego artykułu.</string>
   <string name="reading_challenge_widget_concluded_incomplete">Wyzwanie zakończone</string>
   <string name="reading_challenge_widget_concluded_complete">Udało Ci się!</string>
+  <string name="reading_challenge_widget_reward_title">Do twarzy Ci z ciekawością! 🛍️</string>
+  <string name="reading_challenge_widget_reward_body">Uczcij ukończenie wyzwania z 15%% zniżką w sklepie Wikipedii.</string>
+  <string name="reading_challenge_widget_reward_button_label">Odbierz 15%% żniżki w sklepie</string>
   <string name="explore_feed_new_update_prompt_title">Sekcja „Odkrywaj” to teraz „Strona główna” – w nowej odsłonie</string>
   <string name="explore_feed_new_update_prompt_new_name_title">Nowa nazwa</string>
   <string name="explore_feed_new_update_prompt_new_name_description">Kanał „Odkrywaj” zmienił nazwę na „Strona główna”. Znajdziesz go w tym samym miejscu.</string>
@@ -2672,7 +2719,6 @@
   <string name="home_feed_for_you_screen_empty_ways_to_start">Jak zacząć:</string>
   <string name="home_feed_for_you_screen_empty_add_interests">Dodaj &lt;a href=\"#add_interests\"&gt;kilka zainteresowań&lt;/a&gt;</string>
   <string name="home_feed_for_you_screen_empty_see_community">Zobacz, co dzieje się w &lt;a href=\"#community_tab\"&gt;społeczności&lt;/a&gt;</string>
-  <string name="home_feed_update_tooltip1">Nowość: funkcje „Losowy artykuł” i „Miejsca w pobliżu” są dostępne w sekcji „Dla Ciebie”, a moduł „Czy wiesz…” znajduje się w zakładce „Społeczność”.</string>
   <string name="home_feed_random_title">Losowy artykuł</string>
   <string name="home_feed_random_subtitle">Losowy artykuł, który rozbudzi Twoją ciekawość</string>
   <string name="home_feed_random_shuffle_button">Losuj inne</string>

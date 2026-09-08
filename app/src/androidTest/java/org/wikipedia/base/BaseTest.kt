@@ -39,7 +39,6 @@ data class DataInjector(
     val intentBuilder: (Intent.() -> Unit)? = null,
     val showOneTimeCustomizeToolbarTooltip: Boolean = false,
     val readingListShareTooltipShown: Boolean = true,
-    val otdEntryDialogShown: Boolean = true,
     val enableYearInReview: Boolean = false,
     val showReadingListSyncEnablePrompt: Boolean = false,
     val isSuggestedEditsHighestPriorityEnabled: Boolean = true,
@@ -78,7 +77,6 @@ abstract class BaseTest<T : AppCompatActivity>(
             isInitialOnboardingEnabled = dataInjector.isInitialOnboardingEnabled
             showOneTimeCustomizeToolbarTooltip = dataInjector.showOneTimeCustomizeToolbarTooltip
             readingListShareTooltipShown = dataInjector.readingListShareTooltipShown
-            otdEntryDialogShown = dataInjector.otdEntryDialogShown
             isYearInReviewEnabled = dataInjector.enableYearInReview
             showReadingListSyncEnablePrompt = dataInjector.showReadingListSyncEnablePrompt
             isSuggestedEditsHighestPriorityEnabled = dataInjector.isSuggestedEditsHighestPriorityEnabled

@@ -1,16 +1,15 @@
 package org.wikipedia.donate.donationreminder
 
 import android.content.Context
-import android.text.Spannable
-import android.text.SpannableString
-import android.text.style.ImageSpan
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import androidx.core.content.ContextCompat
+import androidx.core.net.toUri
+import androidx.core.view.isVisible
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewDonationReminderCardBinding
 import org.wikipedia.util.DimenUtil
-import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.StringUtil
+import org.wikipedia.util.UriUtil
 import org.wikipedia.views.WikiCardView
 
 class DonationReminderCardView(context: Context, attrs: AttributeSet? = null) : WikiCardView(context, attrs) {
@@ -23,20 +22,11 @@ class DonationReminderCardView(context: Context, attrs: AttributeSet? = null) : 
     }
 
     fun setTitle(title: String) {
-        val titleWithReservedSpace = "$title  %" // HACK: Reserve space for the icon
-        val spannableString = SpannableString(titleWithReservedSpace)
-        val iconDrawable = ContextCompat.getDrawable(context, R.drawable.ic_heart_24)!!
-        val iconSize = DimenUtil.dpToPx(20f).toInt()
-        iconDrawable.apply {
-            setTint(ResourceUtil.getThemedColor(context, R.attr.destructive_color))
-            setBounds(0, 0, iconSize, iconSize)
-        }
-        spannableString.setSpan(ImageSpan(iconDrawable, ImageSpan.ALIGN_BOTTOM), titleWithReservedSpace.length - 1, titleWithReservedSpace.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-        binding.messageTitleView.text = spannableString
+        binding.messageTitleView.text = title
     }
 
     fun setMessage(text: String) {
-        binding.messageTextView.text = text
+        binding.messageTextView.text = StringUtil.fromHtml(text)
     }
 
     fun setPositiveButton(text: String, listener: OnClickListener) {
@@ -48,4 +38,15 @@ class DonationReminderCardView(context: Context, attrs: AttributeSet? = null) : 
         binding.negativeButton.text = text
         binding.negativeButton.setOnClickListener(listener)
     }
+
+    fun showWrapUpContainer() {
+        binding.wrapUpContainer.isVisible = true
+        binding.learnMoreButton.setOnClickListener {
+            UriUtil.visitInExternalBrowser(context, context.getString(R.string.donation_reminders_experiment_url).toUri())
+        }
+    }
+}
+
+enum class DonationReminderType {
+    GENERAL, WRAP_UP
 }

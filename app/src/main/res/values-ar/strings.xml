@@ -45,6 +45,7 @@
 * Shbib Al-Subaie
 * Sonic N800
 * Tala Ali
+* ToadetteEdit1
 * Ulhvulgv
 * Wrai
 * XIDME
@@ -204,6 +205,8 @@
   <string name="search_no_results_found">لا توجد نتائج</string>
   <string name="search_reading_list_no_results">لا نتائج في %s</string>
   <string name="search_reading_lists_no_results">لم يتم العثور على نتائج في المجموعات</string>
+  <string name="search_all_articles_no_results">لم تُعثر على نتائج في جميع المقالات</string>
+  <string name="search_collections_no_results">لم تُعثر على نتائج في المجموعات</string>
   <string name="search_history_no_results">لا نتائج في التاريخ</string>
   <string name="edit_section_captcha_message">للمساعدة في الحماية من السبام الآلي، يُرجى إدخال الكلمات التي تظهر أدناه</string>
   <string name="edit_section_captcha_request_an_account_message">ألا ترى الصورة؟ &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;اطلب حسابًا&lt;/a&gt;</string>
@@ -362,6 +365,13 @@
   <string name="edit_notices_please_read">فضلًا اقرأ قبل التعديل</string>
   <string name="edit_notices_show_auto">أظهر ملاحظات التحرير آليًّا</string>
   <string name="edit_notices_tooltip">اضغط هذا الزر لمطالعة ملاحظات التحرير لهذه المقالة.</string>
+  <string name="editor_select_dialog_title">اختر طريقة التحرير</string>
+  <string name="editor_select_dialog_ve_title">التحرير المرئي</string>
+  <string name="editor_select_dialog_ve_subtitle">أجري التغييرات مباشرةً على الصفحة التي تراها. سيفتح المحرر في متصفحك.</string>
+  <string name="editor_select_dialog_source_title">تعديل المصدر</string>
+  <string name="editor_select_dialog_source_subtitle">أجري التغييرات باستخدام لغة الترميز. سيبقى المحرر داخل التطبيق.</string>
+  <string name="editor_select_dialog_dont_show_again">لا تعرض لي هذا مرة أخرى. يمكن تغيير هذا الإعداد الافتراضي لاحقًا في الإعدادات.</string>
+  <string name="editor_select_dialog_continue">استمرار</string>
   <string name="find_next">البحث عن التالي</string>
   <string name="find_previous">البحث عن السابق</string>
   <string name="find_first_occurence">هذه هي أول فرصة</string>
@@ -693,7 +703,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">لن يكون %s متاحًا بعد الآن دون اتصال بالإنترنت لجميع المجموعات:</string>
   <string name="reading_lists_sync_reminder_title">هل تريد تفعيل مزامنة المجموعة؟</string>
   <string name="reading_lists_sync_reminder_text">يمكنك الآن مزامنة المقالات المحفوظة في مجموعات مع حسابك على ويكيبيديا. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;اعرف المزيد&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">أصبح بالإمكان الآن مزامنة المجموعات عبر الأجهزة. سجّل الدخول إلى حسابك على ويكيبيديا، واسمح بحفظ مجموعاتك. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;اعرف المزيد&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">تمكين المزامنة</string>
   <string name="reading_list_login_reminder_title">مزامنة المجموعات</string>
   <string name="reading_lists_login_reminder_text">أصبح بالإمكان الآن مزامنة المجموعات عبر الأجهزة. سجّل الدخول إلى حسابك على ويكيبيديا، واسمح بحفظ مجموعاتك.</string>
@@ -740,7 +749,6 @@
   <string name="reading_lists_menu_import_list">مجموعة الاستيراد</string>
   <string name="reading_lists_menu_sort_by">الترتيب حسب</string>
   <string name="reading_lists_refresh_sync_option">تحديث المزامنة</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">دخول / إنشاء حساب</string>
   <string name="reading_list_article_offline_message">{{PLURAL|one=ستصبح هذه المقالة متاحة في حالة عدم الاتصال.|two=ستصبح هتان المقالتان متاحتان في حالة عدم الاتصال.|ستصبح هذه المقالات متاحة في حالة عدم الاتصال.}{</string>
   <plurals name="reading_list_article_not_offline_message">
     <item quantity="zero">...</item>
@@ -2059,10 +2067,7 @@
   <string name="games_hub_activity_games_unavailable_message_learn_more_action">معرفة المزيد</string>
   <string name="games_hub_activity_overflow_view_game_stats">عرض إحصائيات اللعبة</string>
   <string name="games_hub_activity_overflow_learn_more">معرفة المزيد</string>
-  <string name="on_this_day_game_entry_dialog_title">مقدمة</string>
-  <string name="on_this_day_game_entry_dialog_subtitle">ألعاب ويكيبيديا</string>
   <string name="on_this_day_game_entry_dialog_button">يلعب</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">تتوفر ألعاب ويكيبيديا في مركز الألعاب، الموجود في قائمة المزيد.</string>
   <string name="on_this_day_game_title">أيهما جاء أولا؟</string>
   <string name="on_this_day_game_dialog_button">العب</string>
   <string name="on_this_day_game_splash_message">خمّن أيّ حدث جاء أولاً في هذا اليوم في التاريخ</string>
@@ -2426,8 +2431,8 @@
   <string name="donation_reminders_settings_title">كيف نذكرك؟</string>
   <string name="donation_reminders_settings_option_title">تذكيرات التبرع</string>
   <string name="donation_reminders_settings_thank_you_message">كرمكم يُسهم في ازدهار ويكيبيديا. أنشئوا تذكيرًا بالتبرعات بناءً على عدد المقالات التي تقرأونها.</string>
-  <string name="donation_reminders_settings_donation_info">تذهب التبرعات إلى مؤسسة ويكيميديا والشركات التابعة لها، المضيفين الفخورين لويكيبيديا ومشاريع المعرفة المجانية الأخرى.</string>
-  <string name="donation_reminders_settings_article_frequency_label">عندما أقرأ</string>
+  <string name="donation_reminders_settings_donation_info" fuzzy="true">تذهب التبرعات إلى مؤسسة ويكيميديا والشركات التابعة لها، المضيفين الفخورين لويكيبيديا ومشاريع المعرفة المجانية الأخرى.</string>
+  <string name="donation_reminders_settings_article_frequency_label" fuzzy="true">عندما أقرأ</string>
   <string name="donation_reminders_settings_amount_label">ذكّرني بالتبرع</string>
   <string name="donation_reminders_settings_confirm_btn_label">تأكيد التذكير</string>
   <string name="donation_reminders_settings_about_experiment_btn_label">حول هذه التجربة</string>
@@ -2436,8 +2441,8 @@
   <string name="donation_reminders_settings_warning_max_amount">الحد الأقصى المسموح به %s</string>
   <string name="donation_reminders_settings_option_custom">مُخصَّص…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">شكرًا لك! سنذكرك بالتبرع %1$s عند قراءة %2$s أثناء إجراء هذه التجربة.</string>
-  <string name="donation_reminders_first_milestone_reached_prompt_title">لقد قرأت %1$s منذ أن تعهدت بـ %2$s</string>
-  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">لقد قرأت %1$s آخر</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title" fuzzy="true">لقد قرأت %1$s منذ أن تعهدت بـ %2$s</string>
+  <string name="donation_reminders_subsequent_milestone_reached_prompt_title" fuzzy="true">لقد قرأت %1$s آخر</string>
   <string name="donation_reminders_prompt_message">لقد فعّلتَ تذكيرًا بالتبرعات على %1$s للتبرع %3$s كل %2$s تقرأها. هل أنت مستعدٌّ للوفاء بتعهدك بدعم ويكيبيديا؟</string>
   <string name="donation_reminders_prompt_positive_button">تبرع الآن</string>
   <string name="donation_reminders_prompt_negative_button">ليس الآن</string>
@@ -2547,4 +2552,21 @@
   <string name="reading_challenge_widget_reward_title">الفضول يبدو جيدا عليك  ⁇ ️</string>
   <string name="reading_challenge_widget_reward_body">احتفل بإكمال التحدي مع خصم 15%% في متجر ويكيبيديا.</string>
   <string name="reading_challenge_widget_reward_button_label">الحصول على خصم 15%% في المتجر</string>
+  <string name="explore_feed_community_tab_label">المجتمع</string>
+  <string name="explore_feed_for_you_tab_label">لك</string>
+  <string name="explore_feed_date_today">اليوم - %s</string>
+  <string name="explore_feed_load_previous_day_label">حمِّل اليوم السابق</string>
+  <string name="explore_feed_from_reading_list">من مجموعتك</string>
+  <string name="explore_feed_because_of_interest">بسبب اهتمامك: %s</string>
+  <string name="explore_feed_onboarding_curiosity_title">اتبع فضولك</string>
+  <string name="explore_feed_deselect_all_button_label">أزل اختيار الكل</string>
+  <string name="explore_feed_potd_subtitle">صور يومية على ويكيميديا كومنز، يختارها المساهمون المتطوعون</string>
+  <string name="explore_feed_featured_article_subtitle">المقالات المختارة هي بعض من أفضل المقالات جودةً على ويكيبيديا، ويختار المحررين مقالة واحدة يوميًا.</string>
+  <string name="explore_feed_preference_selection_screen_title">ما الذي ترغب برؤيته أولاً؟</string>
+  <string name="explore_feed_because_you_read">لأنك قرأت: %s</string>
+  <string name="explore_feed_swipe_to_explore_prompt_title">اسحب للاستكشاف</string>
+  <string name="explore_feed_swipe_to_explore_prompt_message">اسحب لأعلى للتنقل بين المواضيع، أو اسحب جانبياً لاستكشاف المحتوى ذي الصلة.</string>
+  <string name="home_feed_settings_modules_title">الوحدات</string>
+  <string name="home_feed_did_you_know_title">هل تعلم؟</string>
+  <string name="home_feed_did_you_know_subtitle">حقائق مثيرة للاهتمام من مقالات اختارها محررون متطوعون</string>
 </resources>

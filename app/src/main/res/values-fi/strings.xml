@@ -172,6 +172,8 @@
   <string name="search_no_results_found">Tuloksia ei löytynyt</string>
   <string name="search_reading_list_no_results">Tuloksia ei löytynyt haulla ”%s”</string>
   <string name="search_reading_lists_no_results">Kokoelmista ei löytynyt tuloksia</string>
+  <string name="search_all_articles_no_results">Kaikista artikkeleista ei löytynyt tuloksia</string>
+  <string name="search_collections_no_results">Kokoelmista ei löytynyt tuloksia</string>
   <string name="search_history_no_results">Hakuhistoriastasi ei löytynyt tuloksia tällä haulla</string>
   <string name="edit_section_captcha_message">Kirjoita alla olevat sanat roskapostin torjumiseksi</string>
   <string name="edit_section_captcha_request_an_account_message">Etkö näe kuvaa? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Pyydä käyttäjätunnusta&lt;/a&gt;</string>
@@ -239,6 +241,12 @@
   <string name="email_recommendation_dialog_create_without_email_action">Jatka ilman sähköpostiosoitetta</string>
   <string name="email_recommendation_dialog_create_with_email_action">Lisää sähköpostiosoite</string>
   <string name="create_account_button">Luo käyttäjätunnus</string>
+  <string name="create_account_encourage_title">Wikipedia on parempi käyttäjätunnuksen kanssa</string>
+  <string name="create_account_encourage_saved_articles_title_zero">Synkronoi tallennetut artikkelisi</string>
+  <plurals name="create_account_encourage_saved_articles_title">
+    <item quantity="one">Synkronoi %1$d tallennettu artikkelisi</item>
+    <item quantity="other">Synkronoi %1$d tallennettua artikkelisia</item>
+  </plurals>
   <string name="create_account_name_unavailable">Käyttäjänimi ”%s” ei ole käytettävissä. Valitse toinen nimi.</string>
   <string name="create_account_ip_block_message">IP-osoitteesi on tällä hetkellä estetty luomasta uusia käyttäjätunnuksia.</string>
   <string name="create_account_ip_block_help_url">https://fi.wikipedia.org/wiki/Wikipedia:Esto</string>
@@ -326,9 +334,11 @@
   <string name="edit_notices_please_read">Lue ennen muokkaamista</string>
   <string name="edit_notices_show_auto">Näytä muokkausilmoitukset automaattisesti</string>
   <string name="edit_notices_tooltip">Katso artikkelin muokkausilmoitukset painamalla tätä nappia.</string>
+  <string name="editor_select_dialog_title">Valitse muokkaustapasi</string>
   <string name="editor_select_dialog_ve_title">Visuaalinen muokkaus</string>
   <string name="editor_select_dialog_source_title">Wikitekstimuokkaus</string>
   <string name="editor_select_dialog_continue">Jatka</string>
+  <string name="editor_select_title_settings_screen">Muokkausasetukset</string>
   <string name="editor_select_save_btn_settings_screen">Tallenna</string>
   <string name="find_next">Etsi seuraava</string>
   <string name="find_previous">Etsi edellinen</string>
@@ -608,6 +618,10 @@
   <string name="reading_list_add_to_other_list">Lisää toiseen kokoelmaan</string>
   <string name="reading_list_move_to_other_list">Siirrä toiseen kokoelmaan</string>
   <string name="reading_list_add_to_collection">Lisää kokoelmaan</string>
+  <plurals name="reading_list_in_collections">
+    <item quantity="one">Yhdessä kokoelmassa</item>
+    <item quantity="other">%d kokoelmassa</item>
+  </plurals>
   <string name="reading_list_move_from_to_other_list">Siirrä kokoelmasta %s toiseen kokoelmaan</string>
   <string name="reading_list_remove_from_list">Poista lukulistasta %s</string>
   <string name="reading_list_remove_from_lists">Poista kokoelmista</string>
@@ -617,7 +631,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">Artikkeli %s ei enää ole käytettävissä offline-tilassa kaikille kokoelmille:</string>
   <string name="reading_lists_sync_reminder_title">Otetaanko kokoelmien synkronointi käyttöön?</string>
   <string name="reading_lists_sync_reminder_text">Kokoelmiisi tallennetut artikkelit voidaan nyt synkronoida Wikipedia-tunnuksellesi. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Lisätietoja&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Kokoelmia voi nyt synkronoida laitteiden välillä. Kirjaudu sisään Wikipedia-tunnuksellesi ja salli kokoelmiesi tallentaminen. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Lisätietoja&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Ota synkronointi käyttöön</string>
   <string name="reading_list_login_reminder_title">Synkronoi kokoelmat</string>
   <string name="reading_lists_login_reminder_text">Kokoelmia voi nyt synkronoida laitteiden välillä. Kirjaudu Wikipedia-tunnuksellesi ja ota kokoelmien tallentaminen käyttöön.</string>
@@ -660,7 +673,6 @@
   <string name="reading_lists_menu_import_list">Tuo kokoelma</string>
   <string name="reading_lists_menu_sort_by">Lajitteluperuste</string>
   <string name="reading_lists_refresh_sync_option">Päivitä synkronointi</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Kirjaudu sisään / rekisteröidy</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Tämä artikkeli on nyt saatavilla offline-tilassa.</item>
     <item quantity="other">Nämä artikkelit ovat nyt saatavilla offline-tilassa.</item>
@@ -1818,10 +1830,7 @@
   <string name="games_hub_activity_games_unavailable_message_learn_more_action">Lisätietoja</string>
   <string name="games_hub_activity_overflow_view_game_stats">Näytä pelitilastot</string>
   <string name="games_hub_activity_overflow_learn_more">Lisätietoja</string>
-  <string name="on_this_day_game_entry_dialog_title">Esittelyssä</string>
-  <string name="on_this_day_game_entry_dialog_subtitle">Wikipedia-pelit</string>
   <string name="on_this_day_game_entry_dialog_button">Pelaa</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipediat-pelit ovat saatavilla Pelikeskuksessa, joka löytyy lisävalikosta.</string>
   <string name="on_this_day_game_title">Kumpi tuli ensin?</string>
   <string name="on_this_day_game_dialog_button">Pelaa</string>
   <string name="on_this_day_game_splash_message">Veikkaa, kumpi tapahtuma tuli ensin tällä päivämäärällä historiassa.</string>
@@ -2177,7 +2186,7 @@
   <string name="donation_reminders_settings_title">Miten meidän tulisi muistuttaa sinua?</string>
   <string name="donation_reminders_settings_option_title">Lahjoitusmuistutukset</string>
   <string name="donation_reminders_settings_thank_you_message">Anteliaisuutesi auttaa pitämään Wikipedian kukoistavana. Aseta lahjoitusmuistutus lukemiesi artikkelien määrän perusteella.</string>
-  <string name="donation_reminders_settings_article_frequency_label">Kun luen</string>
+  <string name="donation_reminders_settings_article_frequency_label" fuzzy="true">Kun luen</string>
   <string name="donation_reminders_settings_amount_label">Muistuta minua lahjoittamaan</string>
   <string name="donation_reminders_settings_confirm_btn_label">Vahvista muistutus</string>
   <string name="donation_reminders_settings_about_experiment_btn_label">Tietoja tästä kokeilusta</string>
@@ -2186,10 +2195,11 @@
   <string name="donation_reminders_settings_warning_max_amount">Sallittu enimmäismäärä on %s</string>
   <string name="donation_reminders_settings_option_custom">Mukautettu…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Kiitos! Muistutamme sinua lahjoittamaan %1$s, kun luet %2$s tämän kokeilun aikana.</string>
-  <string name="donation_reminders_first_milestone_reached_prompt_title">Olet lukenut %1$s sen jälkeen, kun lupasit lahjoittaa %2$s</string>
-  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">Olet lukenut %1$s artikkelia lisää</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title" fuzzy="true">Olet lukenut %1$s sen jälkeen, kun lupasit lahjoittaa %2$s</string>
+  <string name="donation_reminders_subsequent_milestone_reached_prompt_title" fuzzy="true">Olet lukenut %1$s artikkelia lisää</string>
   <string name="donation_reminders_prompt_message">Asetit %1$s lahjoitusmuistutuksen antaaksesi %3$s jokaisesta %2$s lukemastasi artikkelista. Haluatko pitää kiinni lupauksestasi tukea Wikipediaa?</string>
   <string name="donation_reminders_prompt_positive_button">Lahjoita nyt</string>
+  <string name="donation_reminders_prompt_positive_button_v2">Kyllä, lahjoita nyt</string>
   <string name="donation_reminders_prompt_negative_button">Ei nyt</string>
   <string name="donation_reminders_gpay_text">Lahjoita %s Google Paylla</string>
   <string name="donation_reminders_gpay_different_amount_text">Lahjoita eri summa Google Paylla</string>
@@ -2207,6 +2217,11 @@
   <string name="donation_reminders_settings_report_email_subject">Ongelmaraportti – Lahjoitusmuistutukset</string>
   <string name="donation_reminders_settings_report_email_body">Olen huomannut seuraavan ongelman Lahjoitusmuistutuset-ominaisuudessa:\n- [Kuvaile havaitsemasi ongelma]\n- [Kuvakaappaukset tai linkit)\n\nOminaisuuden tulisi toimia näin:\n- [Kuvaile mahdollinen ratkaisu]</string>
   <string name="donation_reminders_snackbar_modify_button_label">Muuta</string>
+  <string name="donation_reminders_settings_article_number_selection_label">Artikkelit</string>
+  <string name="donation_reminders_settings_custom_amount_label">Mukautettu määrä</string>
+  <string name="donation_reminders_settings_update_reminder_button">Päivitä muistutusta</string>
+  <string name="donation_reminders_beta_label">Beeta</string>
+  <string name="donation_reminders_wrap_up_share_feedback_button">Anna palautetta</string>
   <string name="hybrid_search_search_hint">Etsi tai kysy mitä tahansa</string>
   <string name="hybrid_search_article_search_hint">Kysy artikkelista %s</string>
   <string name="hybrid_search_suggestion_title">Hae:</string>

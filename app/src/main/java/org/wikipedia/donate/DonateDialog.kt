@@ -22,6 +22,7 @@ import org.wikipedia.donate.donationreminder.DonationReminderHelper
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.CustomTabsUtil
+import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
 
@@ -87,7 +88,7 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
                     }
                 }
                 if (arguments?.getBoolean(ARG_FROM_DONATION_REMINDER) == true) {
-                    setupDirectGooglePayButton()
+                    setupDirectGooglePayButton(arguments?.getBoolean(ARG_FROM_DONATION_REMINDER_WRAP_UP) ?: false)
                 }
             }
         }
@@ -102,8 +103,8 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
         super.onDestroyView()
     }
 
-    private fun onDonateClicked() {
-        launchDonateLink(requireContext(), url = arguments?.getString(ARG_DONATE_URL), campaignId = campaignId)
+    private fun onDonateClicked(checkMonthly: Boolean = false) {
+        launchDonateLink(requireContext(), url = arguments?.getString(ARG_DONATE_URL), campaignId = campaignId, checkMonthly = checkMonthly)
         invalidateCampaign()
         dismiss()
     }
@@ -114,65 +115,105 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
         }
     }
 
-    private fun setupDirectGooglePayButton() {
-        val donateAmount = Prefs.donationReminderConfig.donateAmount
+    private fun setupDirectGooglePayButton(fromDonationReminderWrapUp: Boolean) {
+        val activeInterface = if (fromDonationReminderWrapUp) {
+            "reminder_recur_end"
+        } else {
+            "reminder_milestone"
+        }
+        val donateAmount = if (Prefs.donationReminderConfig.donateAmount <= 0) {
+            DonationReminderHelper.defaultDonateAmountOptions.first()
+        } else {
+            Prefs.donationReminderConfig.donateAmount
+        }
         val donateAmountText =
-            DonateUtil.currencyFormat.format(Prefs.donationReminderConfig.donateAmount)
+            DonateUtil.currencyFormat.format(donateAmount)
         val donateButtonText = getString(R.string.donation_reminders_gpay_text, donateAmountText)
         binding.donateGooglePayButton.text = donateButtonText
         binding.donateGooglePayButton.setOnClickListener {
             DonorExperienceEvent.logDonationReminderAction(
-                activeInterface = "reminder_milestone",
+                activeInterface = activeInterface,
                 action = "gpay_click",
                 campaignId = DonationReminderHelper.getCampaignId()
             )
             (requireActivity() as? BaseActivity)?.launchDonateActivity(
-                GooglePayComponent.getDonateActivityIntent(requireActivity(), filledAmount = donateAmount, campaignId = DonationReminderHelper.getCampaignId()))
+                GooglePayComponent.getDonateActivityIntent(
+                    activity = requireActivity(),
+                    filledAmount = donateAmount,
+                    checkedRecurringDonation = fromDonationReminderWrapUp,
+                    campaignId = DonationReminderHelper.getCampaignId()
+                )
+            )
         }
         binding.donateGooglePayDifferentAmountButton.isVisible = true
         binding.donateGooglePayDifferentAmountButton.setOnClickListener {
             DonorExperienceEvent.logDonationReminderAction(
-                activeInterface = "reminder_milestone",
+                activeInterface = activeInterface,
                 action = "other_gpay_click",
                 campaignId = DonationReminderHelper.getCampaignId()
             )
             (requireActivity() as? BaseActivity)?.launchDonateActivity(
-                GooglePayComponent.getDonateActivityIntent(requireActivity(), campaignId = DonationReminderHelper.getCampaignId()))
+                GooglePayComponent.getDonateActivityIntent(
+                    activity = requireActivity(),
+                    campaignId = DonationReminderHelper.getCampaignId(),
+                    checkedRecurringDonation = fromDonationReminderWrapUp
+                )
+            )
         }
         binding.donateOtherButton.setOnClickListener {
             DonorExperienceEvent.logDonationReminderAction(
-                activeInterface = "reminder_milestone",
+                activeInterface = activeInterface,
                 action = "other_method_click",
                 campaignId = DonationReminderHelper.getCampaignId()
             )
-            onDonateClicked()
+            onDonateClicked(fromDonationReminderWrapUp)
         }
-        binding.gPayHeaderContainer.isVisible = false
+        if (fromDonationReminderWrapUp) {
+            binding.gPayTitle.text = getString(R.string.donation_reminders_eoe_donate_dialog_title)
+            (binding.gPayTitle.layoutParams as? ViewGroup.MarginLayoutParams)?.let { params ->
+                params.bottomMargin = DimenUtil.roundedDpToPx(16.0f)
+                binding.gPayTitle.layoutParams = params
+            }
+            binding.gPayDescription.isVisible = false
+        } else {
+            binding.gPayHeaderContainer.isVisible = false
+        }
     }
 
     companion object {
         const val ARG_CAMPAIGN_ID = "campaignId"
         const val ARG_DONATE_URL = "donateUrl"
         const val ARG_FROM_DONATION_REMINDER = "fromDonationReminder"
+        const val ARG_FROM_DONATION_REMINDER_WRAP_UP = "fromDonationReminderWrapUp"
         const val ARG_FROM_YIR = "fromYiR"
 
-        fun newInstance(campaignId: String? = null, donateUrl: String? = null, fromDonationReminder: Boolean = false, fromYiR: Boolean = false): DonateDialog {
+        fun newInstance(
+            campaignId: String? = null,
+            donateUrl: String? = null,
+            fromDonationReminder: Boolean = false,
+            fromYiR: Boolean = false,
+            fromDonationReminderWrapUp: Boolean = false
+        ): DonateDialog {
             return DonateDialog().apply {
                 arguments = Bundle().apply {
                     putString(ARG_CAMPAIGN_ID, campaignId)
                     putString(ARG_DONATE_URL, donateUrl)
                     putBoolean(ARG_FROM_DONATION_REMINDER, fromDonationReminder)
+                    putBoolean(ARG_FROM_DONATION_REMINDER_WRAP_UP, fromDonationReminderWrapUp)
                     putBoolean(ARG_FROM_YIR, fromYiR)
                 }
             }
         }
 
-        fun launchDonateLink(context: Context, url: String? = null, campaignId: String? = "appmenu") {
+        fun launchDonateLink(context: Context, url: String? = null, campaignId: String? = "appmenu", checkMonthly: Boolean = false) {
             val formattedCampaignId = campaignId?.let {
                 return@let CampaignCollection.getFormattedCampaignId(it)
             }.orEmpty()
-            val donateUrl = url ?: context.getString(R.string.donate_url, formattedCampaignId,
+            var donateUrl = url ?: context.getString(R.string.donate_url, formattedCampaignId,
                 WikipediaApp.instance.languageState.systemLanguageCode, BuildConfig.VERSION_NAME, Prefs.appInstallId)
+            if (checkMonthly) {
+                donateUrl += "&frequency=monthly"
+            }
             CustomTabsUtil.openInCustomTab(context, donateUrl)
         }
     }

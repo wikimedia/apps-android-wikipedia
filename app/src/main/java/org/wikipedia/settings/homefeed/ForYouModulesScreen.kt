@@ -59,7 +59,7 @@ enum class ForYouModuleType(
     companion object {
         fun entries() = entries
             .filter {
-                it != NEW_WITHIN_INTEREST || NewWithinInterestABTest().isTestGroupUser()
+                it != NEW_WITHIN_INTEREST || (NewWithinInterestABTest().isTestActive() && NewWithinInterestABTest().isTestGroupUser())
             }
             .map { it.toEntry() }
     }

@@ -30,12 +30,6 @@
             android:key="@string/preference_key_announcement_ignore_date"
             android:title="@string/preferences_developer_announcement_ignore_date" />
 
-        <org.wikipedia.settings.IntPreference
-            style="@style/IntPreference"
-            android:key="@string/preference_key_announcement_version_code"
-            android:title="@string/preference_key_announcement_version_code"
-            android:dialogMessage="@string/preferences_developer_announcement_version_code_hint"/>
-
         <Preference android:key="@string/preference_key_announcement_shown_dialogs"
             android:title="@string/preferences_developer_announcement_reset_shown_dialogs_title" />
     </PreferenceCategory>
@@ -329,6 +323,15 @@
             android:key="@string/preference_key_editor_mode_choice_show_dialog"
             android:title="Show editor preference dialog" />
 
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="@string/preference_key_create_account_encourage_impressions"
+            android:title="Create Account encouragement impressions (-1 to force)" />
+
+        <org.wikipedia.settings.EditTextAutoSummarizePreference
+            android:key="@string/preference_key_create_account_encourage_last_impression_date"
+            android:title="Create Account encouragement last impression date" />
+
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/preferences_developer_reading_list_category">
@@ -388,25 +391,10 @@
             android:key="@string/preference_key_suggested_edits_pause_reverts"
             android:title="@string/preference_key_suggested_edits_pause_reverts" />
 
-        <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_suggested_edits_override_counts"
-            android:title="@string/preference_key_suggested_edits_override_counts"
-            android:summary="Use the following two fields to override suggested edit counts:"/>
-
-        <org.wikipedia.settings.IntPreference
-            style="@style/IntPreference"
-            android:key="@string/preference_key_suggested_edits_override_edits"
-            android:title="@string/preference_key_suggested_edits_override_edits" />
-
         <org.wikipedia.settings.IntPreference
             style="@style/IntPreference"
             android:key="@string/preference_key_suggested_edits_override_contribution"
             android:title="@string/preference_key_suggested_edits_override_contribution" />
-
-        <org.wikipedia.settings.IntPreference
-            style="@style/IntPreference"
-            android:key="@string/preference_key_suggested_edits_override_reverts"
-            android:title="@string/preference_key_suggested_edits_override_reverts" />
 
         <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_suggested_edits_reactivation_test"
@@ -459,10 +447,6 @@
     </PreferenceCategory>
 
     <PreferenceCategory android:title="On this day game">
-
-        <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_otd_entry_dialog_shown"
-            android:title="@string/preference_key_otd_entry_dialog_shown" />
 
         <org.wikipedia.settings.EditTextAutoSummarizePreference
             style="@style/EditTextAutoSummarizePreference"
@@ -535,6 +519,10 @@
             android:key="@string/preference_key_donation_reminders_dev_reset_seen_date"
             android:title="Remove the last prompt seen date." />
 
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_donation_reminders_dev_wrap_up_enabled"
+            android:title="@string/preference_key_donation_reminders_dev_wrap_up_enabled" />
+
         <org.wikipedia.settings.EditTextAutoSummarizePreference
             style="@style/EditTextAutoSummarizePreference"
             android:key="@string/preference_key_donation_reminder_config"
@@ -578,9 +566,6 @@
         <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_home_swipe_to_explore_prompt_shown"
             android:title="@string/preference_key_home_swipe_to_explore_prompt_shown"/>
-        <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_home_feed_update_tooltip_shown"
-            android:title="@string/preference_key_home_feed_update_tooltip_shown"/>
         <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_home_feed_survey_shown"
             android:title="@string/preference_key_home_feed_survey_shown"/>

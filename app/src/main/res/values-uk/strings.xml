@@ -638,7 +638,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s тепер не буде доступна автономно для всіх списків:</string>
   <string name="reading_lists_sync_reminder_title" fuzzy="true">Увімкнути синхронізацію читальних списків?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">Статті, збережені у читальних списках тепер можна синхронізувати із Вашим обліковим записом у Вікіпедії. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Дізнатися більше&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Читальні списки тепер можна синхронізувати між різними пристроями. Увійдіть у свій обліковий запис у Вікіпедії і дозвольте зберігання таких списків. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Дізнатись більше&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Увімкнути синхронізацію</string>
   <string name="reading_list_login_reminder_title" fuzzy="true">Синхронізувати читальні списки</string>
   <string name="reading_lists_login_reminder_text" fuzzy="true">Читальні списки тепер можна синхронізувати між різними пристроями. Увійдіть у свій обліковий запис у Вікіпедії і дозвольте зберігати такі списки.</string>
@@ -683,7 +682,6 @@
   <string name="reading_lists_menu_import_list" fuzzy="true">Імпортувати список</string>
   <string name="reading_lists_menu_sort_by">Сортувати за</string>
   <string name="reading_lists_refresh_sync_option">Оновити синхронізацію</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Увійти / зареєструватися</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Ця стаття тепер буде доступна автономно.</item>
     <item quantity="few">Ці статті тепер будуть доступні автономно.</item>
@@ -1933,10 +1931,7 @@
   <string name="games_hub_activity_games_unavailable_message_learn_more_action">Дізнатися більше</string>
   <string name="games_hub_activity_overflow_view_game_stats">Переглянути статистику гри</string>
   <string name="games_hub_activity_overflow_learn_more">Дізнатися більше</string>
-  <string name="on_this_day_game_entry_dialog_title">Знайомтеся</string>
-  <string name="on_this_day_game_entry_dialog_subtitle">Ігри Вікіпедії</string>
   <string name="on_this_day_game_entry_dialog_button">Грати</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Ігри Вікіпедії доступні в Ігровому центрі, який знаходиться у меню «Більше».</string>
   <string name="on_this_day_game_title">Що було першим?</string>
   <string name="on_this_day_game_dialog_button">Грати</string>
   <string name="on_this_day_game_splash_message">Вгадайте, яка подія цього дня в історії відбулася першою.</string>
@@ -2434,8 +2429,8 @@
   <string name="donation_reminders_settings_title">Як вам нагадати?</string>
   <string name="donation_reminders_settings_option_title">Нагадування про пожертву</string>
   <string name="donation_reminders_settings_thank_you_message">Ваша щедрість допомагає Вікіпедії процвітати. Налаштуйте нагадування про пожертву залежно від кількості прочитаних вами статей.</string>
-  <string name="donation_reminders_settings_donation_info">Пожертви надходять до Фонду Вікімедіа та його афілійованих організацій, які мають честь уможливлювати існування Вікіпедії та інших проєктів вільних знань.</string>
-  <string name="donation_reminders_settings_article_frequency_label">Коли я читаю</string>
+  <string name="donation_reminders_settings_donation_info" fuzzy="true">Пожертви надходять до Фонду Вікімедіа та його афілійованих організацій, які мають честь уможливлювати існування Вікіпедії та інших проєктів вільних знань.</string>
+  <string name="donation_reminders_settings_article_frequency_label" fuzzy="true">Коли я читаю</string>
   <string name="donation_reminders_settings_amount_label">Нагадати мені зробити пожертву</string>
   <string name="donation_reminders_settings_confirm_btn_label">Підтвердити нагадування</string>
   <string name="donation_reminders_settings_about_experiment_btn_label">Про цей експеримент</string>
@@ -2444,8 +2439,8 @@
   <string name="donation_reminders_settings_warning_max_amount">Дозволено максимум %s</string>
   <string name="donation_reminders_settings_option_custom">Користувацький…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Дякуємо! Ми нагадаємо вам пожертвувати %1$s, коли ви прочитаєте %2$s під час цього експерименту.</string>
-  <string name="donation_reminders_first_milestone_reached_prompt_title">Ви прочитали %1$s з моменту, як пообіцяли %2$s</string>
-  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">Ви прочитали ще %1$s</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title" fuzzy="true">Ви прочитали %1$s з моменту, як пообіцяли %2$s</string>
+  <string name="donation_reminders_subsequent_milestone_reached_prompt_title" fuzzy="true">Ви прочитали ще %1$s</string>
   <string name="donation_reminders_prompt_message">Ви налаштували нагадування про пожертву %1$s, щоб жертвувати %3$s кожні %2$s, які ви прочитаєте. Готові виконати свою обіцянку підтримувати Вікіпедію?</string>
   <string name="donation_reminders_prompt_positive_button">Пожертвувати зараз</string>
   <string name="donation_reminders_prompt_negative_button">Не зараз</string>
@@ -2648,7 +2643,6 @@
   <string name="home_feed_for_you_screen_empty_ways_to_start">Способи початку:</string>
   <string name="home_feed_for_you_screen_empty_add_interests">Додайте &lt;a href=\"#add_interests\"&gt;кілька уподобань&lt;/a&gt;</string>
   <string name="home_feed_for_you_screen_empty_see_community">Дивіться, що відбувається у &lt;a href=\"#community_tab\"&gt;спільноті&lt;/a&gt;</string>
-  <string name="home_feed_update_tooltip1">Нове: «Випадкова стаття» та «Цікаві місця» доступні у розділі «Для вас», а «Чи знаєте ви?» — у вкладці «Спільнота».</string>
   <string name="home_feed_random_title">Випадкові</string>
   <string name="home_feed_random_subtitle">Випадкова стаття, щоб викликати вашу цікавість</string>
   <string name="home_feed_random_shuffle_button">Перемішати</string>

@@ -61,6 +61,8 @@ import org.wikipedia.edit.EditSectionViewModel
 import org.wikipedia.edit.showEditorChoiceDialog
 import org.wikipedia.events.ArticleSavedOrDeletedEvent
 import org.wikipedia.events.ChangeTextSizeEvent
+import org.wikipedia.events.LoggedInEvent
+import org.wikipedia.events.LoggedOutEvent
 import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.history.HistoryEntry
@@ -172,7 +174,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
 
             SuggestedEditsSnackbars.show(this, action, it.resultCode != DescriptionEditSuccessActivity.RESULT_OK_FROM_EDIT_SUCCESS,
                 editLanguage, action !== DescriptionEditActivity.Action.ADD_DESCRIPTION && action !== DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION) {
-                pageFragment.page?.pageProperties?.leadImageName?.let { imageName ->
+                pageFragment.page?.leadImageName?.let { imageName ->
                     val wikiSite = WikiSite.forLanguageCode(pageFragment.leadImageEditLang.orEmpty().ifEmpty { app.appOrSystemLanguageCode })
                     val imageTitle = PageTitle("File:${StringUtil.removeNamespace(imageName)}", wikiSite)
                     if (action === DescriptionEditActivity.Action.ADD_IMAGE_TAGS) {
@@ -215,6 +217,13 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                                 }
                             }
                         }
+                        is LoggedInEvent -> {
+                            updateForLoginState()
+                            FeedbackUtil.showMessage(this@PageActivity, R.string.login_success_toast)
+                        }
+                        is LoggedOutEvent -> {
+                            updateForLoginState()
+                        }
                     }
                 }
             }
@@ -250,7 +259,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
             Prefs.showOneTimeCustomizeToolbarTooltip = false
         }
 
-        binding.pageToolbarButtonNotifications.isVisible = AccountUtil.isLoggedIn
         binding.pageToolbarButtonNotifications.setOnClickListener {
             pageFragment.articleInteractionEvent?.logNotificationClick()
             if (AccountUtil.isLoggedIn) {
@@ -294,6 +302,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
             // then we must have been launched with an Intent, so... handle it!
             handleIntent(intent)
         }
+        updateForLoginState()
     }
 
     override fun onStart() {
@@ -378,6 +387,10 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         super.onNewIntent(intent)
         setIntent(intent)
         handleIntent(intent)
+    }
+
+    private fun updateForLoginState() {
+        binding.pageToolbarButtonNotifications.isVisible = AccountUtil.isLoggedIn
     }
 
     private val onBackPressedCallback = object : OnBackPressedCallback(true) {
@@ -487,8 +500,9 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
 
     override fun onPageRequestEditSection(sectionId: Int, sectionAnchor: String?, title: PageTitle, highlightText: String?) {
         val launchEditor = {
+            val appInstallId = WikipediaApp.instance.appInstallID
             if (Prefs.editorModeChoice == EDITOR_CHOICE_VE && Prefs.visualEditorEnabled) {
-                UriUtil.visitInExternalBrowser(this, title.getWebApiUrl("veaction=edit&section=$sectionId").toUri())
+                UriUtil.visitInExternalBrowser(this, title.getWebApiUrl("veaction=edit&section=$sectionId&appinstallid=$appInstallId").toUri())
             } else {
                 requestEditSectionLauncher.launch(EditSectionActivity.newIntent(this, sectionId, sectionAnchor, title, InvokeSource.PAGE_ACTIVITY, highlightText))
             }

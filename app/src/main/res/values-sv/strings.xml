@@ -601,7 +601,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s kommer inte längre vara tillgänglig offline för alla läslistor:</string>
   <string name="reading_lists_sync_reminder_title" fuzzy="true">Aktivera synkronisering av läslistor?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">Artiklar som har sparats i läslistor kan nu synkroniseras till ditt Wikipedia-konto. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Läs mer&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Läslistor kan nu synkroniseras över enheter. Logga in med ditt Wikipediakonto och tillåt dina listor att sparas. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Läs mer&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Aktivera synkronisering</string>
   <string name="reading_list_login_reminder_title" fuzzy="true">Synkronisera läslistor</string>
   <string name="reading_lists_login_reminder_text" fuzzy="true">Läslistor kan nu synkroniseras över enheter. Logga in med ditt Wikipediakonto och tillåt dina listor att sparas.</string>
@@ -644,7 +643,6 @@
   <string name="reading_lists_menu_import_list" fuzzy="true">Importera lista</string>
   <string name="reading_lists_menu_sort_by">Sortera efter</string>
   <string name="reading_lists_refresh_sync_option">Uppdatera synkronisering</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Logga in / registrera</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Denna artikel kommer nu vara tillgänglig offline.</item>
     <item quantity="other">Dessa artiklar kommer nu vara tillgängliga offline.</item>
@@ -1811,10 +1809,7 @@
   <string name="games_hub_activity_games_unavailable_message_learn_more_action">Ta reda på mer</string>
   <string name="games_hub_activity_overflow_view_game_stats">Visa spelstatistik</string>
   <string name="games_hub_activity_overflow_learn_more">Ta reda på mer</string>
-  <string name="on_this_day_game_entry_dialog_title">Introducerar</string>
-  <string name="on_this_day_game_entry_dialog_subtitle">Wikipedia-spel</string>
   <string name="on_this_day_game_entry_dialog_button">Spela</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia-spel är tillgängliga i Spelhubben, i MER-menyn.</string>
   <string name="on_this_day_game_title">Vilket kom först?</string>
   <string name="on_this_day_game_dialog_button">Spela</string>
   <string name="on_this_day_game_splash_message">Gissa vilken händelse som kom först den här dagen i historien.</string>
@@ -2222,8 +2217,8 @@
   <string name="donation_reminders_settings_title">Hur ska vi påminna dig?</string>
   <string name="donation_reminders_settings_option_title">Påminnelser om donationer</string>
   <string name="donation_reminders_settings_thank_you_message">Din generositet hjälper Wikipedia att blomstra. Sätt en donationspåminnelse baserat på antalet artiklar du läser.</string>
-  <string name="donation_reminders_settings_donation_info">Donationer går till Wikimedia Foundation och dess dotterbolag, som är stolta värdar för Wikipedia och andra fria kunskapsportaler.</string>
-  <string name="donation_reminders_settings_article_frequency_label">När jag läser</string>
+  <string name="donation_reminders_settings_donation_info" fuzzy="true">Donationer går till Wikimedia Foundation och dess dotterbolag, som är stolta värdar för Wikipedia och andra fria kunskapsportaler.</string>
+  <string name="donation_reminders_settings_article_frequency_label" fuzzy="true">När jag läser</string>
   <string name="donation_reminders_settings_amount_label">Påminn mig om att donera</string>
   <string name="donation_reminders_settings_confirm_btn_label">Bekräfta påminnelse</string>
   <string name="donation_reminders_settings_about_experiment_btn_label">Om det här experimentet</string>
@@ -2232,8 +2227,8 @@
   <string name="donation_reminders_settings_warning_max_amount">Maximalt %s är tillåtet</string>
   <string name="donation_reminders_settings_option_custom">Anpassad…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Tack! Vi påminner dig om att donera %1$s när du har läst %2$s medan experimentet pågår.</string>
-  <string name="donation_reminders_first_milestone_reached_prompt_title">Du har läst %1$s sedan du lovade %2$s</string>
-  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">Du har läst ytterligare %1$s</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title" fuzzy="true">Du har läst %1$s sedan du lovade %2$s</string>
+  <string name="donation_reminders_subsequent_milestone_reached_prompt_title" fuzzy="true">Du har läst ytterligare %1$s</string>
   <string name="donation_reminders_prompt_message">Du har satt en donationspåminnelse på %1$s för att ge %3$s efter varje %2$s du läser. Är du redo att fullfölja ditt löfte om att stödja Wikipedia?</string>
   <string name="donation_reminders_prompt_positive_button">Donera nu</string>
   <string name="donation_reminders_prompt_negative_button">Inte nu</string>
@@ -2428,7 +2423,6 @@
   <string name="home_feed_for_you_screen_empty_ways_to_start">Sätt att komma igång:</string>
   <string name="home_feed_for_you_screen_empty_add_interests">Lägg till &lt;a href=\"#add_interests\"&gt;några intressen&lt;/a&gt;</string>
   <string name="home_feed_for_you_screen_empty_see_community">Se vad som händer i &lt;a href=\"#community_tab\"&gt;gemenskapen&lt;/a&gt;</string>
-  <string name="home_feed_update_tooltip1">Nyhet: \"Slumpartikel\" och \"Sevärdheter\" finns i \"För dig\" samt \"Visste du att\" finns i gemenskapsfliken.</string>
   <string name="home_feed_random_title">Slumpartikel</string>
   <string name="home_feed_random_subtitle">Slumpartikel för att väcka din nyfikenhet</string>
   <string name="home_feed_random_shuffle_button">Blanda</string>

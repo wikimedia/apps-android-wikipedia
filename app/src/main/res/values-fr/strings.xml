@@ -60,6 +60,7 @@
 * Obscaeris
 * Oujon
 * Oupsa
+* PPenloglou-WMF
 * Pa2chant.bis
 * Papawy
 * Pols12
@@ -659,7 +660,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s ne sera plus disponible en mode déconnecté dans toutes les listes de lecture :</string>
   <string name="reading_lists_sync_reminder_title" fuzzy="true">Activer la synchronisation de la liste de lecture ?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">Les articles enregistrés dans vos listes de lecture peuvent désormais être synchronisés avec votre compte Wikipédia. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;En savoir plus&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Vos listes de lecture peuvent désormais être synchronisées entre vos appareils. Connectez-vous à votre compte Wikipédia et autorisez leur sauvegarde. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;En savoir plus&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Activer la synchronisation</string>
   <string name="reading_list_login_reminder_title" fuzzy="true">Synchroniser les listes de lecture</string>
   <string name="reading_lists_login_reminder_text" fuzzy="true">Les listes de lecture peuvent maintenant être synchronisées entre appareils. Connectez-vous à votre compte Wikipédia et permettez à vos listes d’être enregistrées.</string>
@@ -702,7 +702,6 @@
   <string name="reading_lists_menu_import_list" fuzzy="true">Importer la liste</string>
   <string name="reading_lists_menu_sort_by">Trier par</string>
   <string name="reading_lists_refresh_sync_option">Rafraîchir la synchronisation</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Se connecter / s’inscrire</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Cet article est désormais disponible hors connexion.</item>
     <item quantity="other">Ces articles sont désormais disponibles hors connexion.</item>
@@ -1825,7 +1824,7 @@
   <string name="donate_gpay_activity_title">Sélectionnez le montant</string>
   <string name="donate_gpay_activity_title_with_currency">Choisissez un montant (en %s)</string>
   <string name="donate_gpay_check_transaction_fee">J\'ajouterai généreusement %s pour couvrir les frais de transaction afin de que vous puissiez conserver 100%% de mon don.</string>
-  <string name="donate_gpay_check_recurring">En faire un don mensuel récurrent.</string>
+  <string name="donate_gpay_check_recurring">Convertir en don mensuel.</string>
   <string name="donate_gpay_check_send_email">Oui, la Fondation Wikimedia peut m\'envoyer un courriel de temps en temps.</string>
   <string name="donate_gpay_minimum_amount">Veuillez sélectionner un montant (minimum %s)</string>
   <string name="donate_gpay_maximum_amount">Nous ne pouvons pas accepter de dons supérieurs à %s via notre application. Veuillez contacter notre équipe chargée des dons importants à l\'adresse benefactors@wikimedia.org.</string>
@@ -1870,10 +1869,7 @@
   <string name="games_hub_activity_games_unavailable_message_learn_more_action">En savoir plus</string>
   <string name="games_hub_activity_overflow_view_game_stats">Consulter les statistiques de jeu</string>
   <string name="games_hub_activity_overflow_learn_more">En savoir plus</string>
-  <string name="on_this_day_game_entry_dialog_title">Présentation</string>
-  <string name="on_this_day_game_entry_dialog_subtitle">Jeux de Wikipédia</string>
   <string name="on_this_day_game_entry_dialog_button">Jouer</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Les jeux Wikipédia sont disponibles dans la Centrale des jeux, accessible dans le menu PLUS.</string>
   <string name="on_this_day_game_title">Le plus ancien ?</string>
   <string name="on_this_day_game_dialog_button">Lecture</string>
   <string name="on_this_day_game_splash_message">Devinez quel événement s’est produit en premier ce jour-là dans l’histoire.</string>
@@ -2281,8 +2277,8 @@
   <string name="donation_reminders_settings_title">Comment devrions-nous vous le rappeler ?</string>
   <string name="donation_reminders_settings_option_title">Rappels de dons</string>
   <string name="donation_reminders_settings_thank_you_message">Votre générosité contribue à la vitalité de Wikipédia. Programmez un rappel de don en fonction du nombre d\'articles que vous lisez.</string>
-  <string name="donation_reminders_settings_donation_info">Les dons sont versés à la Fondation Wikimedia et à ses affiliés, hébergeurs fiers de Wikipédia et d’autres projets de savoir libre.</string>
-  <string name="donation_reminders_settings_article_frequency_label">Quand je lis</string>
+  <string name="donation_reminders_settings_donation_info" fuzzy="true">Les dons sont versés à la Fondation Wikimedia et à ses affiliés, hébergeurs fiers de Wikipédia et d’autres projets de savoir libre.</string>
+  <string name="donation_reminders_settings_article_frequency_label" fuzzy="true">Quand je lis</string>
   <string name="donation_reminders_settings_amount_label">Me rappeler de faire un don</string>
   <string name="donation_reminders_settings_confirm_btn_label">Confirmer le rappel</string>
   <string name="donation_reminders_settings_about_experiment_btn_label">À propos de cette expérimentation</string>
@@ -2291,8 +2287,8 @@
   <string name="donation_reminders_settings_warning_max_amount">Le maximum autorisé est %s</string>
   <string name="donation_reminders_settings_option_custom">Personnalisé</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Merci ! Nous vous rappellerons de faire un don de %1$s lorsque vous lirez %2$s pendant la durée de cette expérience.</string>
-  <string name="donation_reminders_first_milestone_reached_prompt_title">Vous avez lu %1$s depuis que vous avez promis %2$s</string>
-  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">Vous avez lu %1$s de plus</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title" fuzzy="true">Vous avez lu %1$s depuis que vous avez promis %2$s</string>
+  <string name="donation_reminders_subsequent_milestone_reached_prompt_title" fuzzy="true">Vous avez lu %1$s de plus</string>
   <string name="donation_reminders_prompt_message">Vous avez programmé un rappel de don sur %1$s pour donner %3$s à chaque %2$s que vous lisez. Prêt·e à concrétiser votre engagement envers Wikipédia ?</string>
   <string name="donation_reminders_prompt_positive_button">Faire un don maintenant</string>
   <string name="donation_reminders_prompt_negative_button">Pas maintenant</string>
@@ -2487,7 +2483,6 @@
   <string name="home_feed_for_you_screen_empty_ways_to_start">Comment commencer :</string>
   <string name="home_feed_for_you_screen_empty_add_interests">Ajoutez des &lt;a href=\"#add_interests\"&gt;centres d\'intérêt&lt;/a&gt;</string>
   <string name="home_feed_for_you_screen_empty_see_community">Voir ce qui se passe dans la &lt;a href=\"#community_tab\"&gt;communauté&lt;/a&gt;</string>
-  <string name="home_feed_update_tooltip1">Nouveautés : Les rubriques « Article aléatoire » et « Lieux d’intérêt » sont disponibles dans la section « Pour vous », et la rubrique « Le saviez-vous ? » se trouve dans l\'onglet Communauté.</string>
   <string name="home_feed_random_title">Aléatoire</string>
   <string name="home_feed_random_subtitle">Article aléatoire pour éveiller votre curiosité</string>
   <string name="home_feed_random_shuffle_button">Lecture aléatoire</string>

@@ -449,6 +449,9 @@ class HomeViewModel : ViewModel() {
     private val _unreadCount = MutableStateFlow(NotificationBellState())
     val unreadCount = _unreadCount.asStateFlow()
 
+    private val _forYouNetworkLatency = MutableStateFlow(0L)
+    val forYouNetworkLatency = _forYouNetworkLatency.asStateFlow()
+
     init {
         viewModelScope.launch {
             SettingsRepository.migrateLegacyHiddenCards()
@@ -669,6 +672,7 @@ class HomeViewModel : ViewModel() {
             return newModules
         }
         L.d("Loading modules from network...")
+        val startMillis = System.currentTimeMillis()
 
         coroutineScope {
             // --- Interests ---
@@ -684,8 +688,10 @@ class HomeViewModel : ViewModel() {
                 }
             }
 
-            NewWithinInterestABTest().maybeSendExposureEvent()
-            val newWithinInterestTopics = if (NewWithinInterestABTest().isTestGroupUser())
+            if (NewWithinInterestABTest().isTestActive()) {
+                NewWithinInterestABTest().maybeSendExposureEvent()
+            }
+            val newWithinInterestTopics = if (NewWithinInterestABTest().isTestActive() && NewWithinInterestABTest().isTestGroupUser())
                 AppDatabase.instance.topicInterestDao().getAllRandom().distinctBy { it.topicId }.take(4)
             else emptyList()
             val newWithinInterestTopicCalls = newWithinInterestTopics.map { topic ->
@@ -877,6 +883,8 @@ class HomeViewModel : ViewModel() {
                 }
             }
         }
+
+        _forYouNetworkLatency.value = System.currentTimeMillis() - startMillis
 
         forYouCollectionSaved = ForYouCollectionSaved(
             dateTime = LocalDateTime.now(),

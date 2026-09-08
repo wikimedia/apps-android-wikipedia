@@ -583,7 +583,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">Страница „%s” више неће бити доступна офлајн за све листе за читање:</string>
   <string name="reading_lists_sync_reminder_title" fuzzy="true">Укључити синхронизацију листе за читање?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">Чланци сачувани на листама за читање сада се могу синхронизовати са вашим налогом на Википедији. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Сазнајте више&lt;/a&gt;.</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Листе за читање сада се могу синхронизовати између уређаја. Пријавите се на ваш налог на Википедији и дозволите чување листа. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Сазнајте више&lt;/a&gt;.</string>
   <string name="reading_lists_sync_reminder_action">Омогући синхронизацију</string>
   <string name="reading_list_login_reminder_title" fuzzy="true">Синхронизација листа за читање</string>
   <string name="reading_lists_login_reminder_text" fuzzy="true">Листе за читање се сада могу синхронизовати између уређаја. Пријавите се на ваш налог на Википедији и дозволите чување листа.</string>
@@ -626,7 +625,6 @@
   <string name="reading_lists_menu_import_list" fuzzy="true">Увези списак</string>
   <string name="reading_lists_menu_sort_by">Сортирај по</string>
   <string name="reading_lists_refresh_sync_option">Освежи синхронизацију</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Пријава/регистрација</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Овај чланак ће сада бити доступан офлајн.</item>
     <item quantity="other">Ови чланаци ће сада бити доступни офлајн.</item>
@@ -1667,7 +1665,6 @@
   <string name="games_hub_activity_title">Игрице</string>
   <string name="games_hub_activity_games_unavailable_message_learn_more_action">Сазнајте више</string>
   <string name="games_hub_activity_overflow_learn_more">Сазнајте више</string>
-  <string name="on_this_day_game_entry_dialog_title">Представљамо</string>
   <string name="on_this_day_game_entry_dialog_button">Играј</string>
   <string name="on_this_day_game_dialog_button">Играј</string>
   <string name="on_this_day_game_progress">%1$d од %2$d</string>

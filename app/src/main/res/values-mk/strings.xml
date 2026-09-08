@@ -212,6 +212,27 @@
   <string name="email_recommendation_dialog_create_without_email_action">Продолжи без е-пошта</string>
   <string name="email_recommendation_dialog_create_with_email_action">Додај е-пошта</string>
   <string name="create_account_button">Направи сметка</string>
+  <string name="create_account_encourage_title">Википедија е подобра со сметка</string>
+  <string name="create_account_encourage_year_in_review_title_zero">Погледнете како се сосредоточуваат вашите денови на читање во Преглед на годината</string>
+  <plurals name="create_account_encourage_year_in_review_title">
+    <item quantity="one">Погледнете како вашиот %1$d ден на читање се сосредоточува во Преглед на годината</item>
+    <item quantity="other">Погледнете како вашите %1$d денови на читање се сосредоточуваат во Преглед на годината</item>
+  </plurals>
+  <string name="create_account_encourage_year_in_review_description">Еднаш годишно вашите денови на читање се навраќаат за да погледнете каде ве однела годината, спремно за споделување.</string>
+  <string name="create_account_encourage_saved_articles_title_zero">Усогласете си ги зачуваните статии</string>
+  <plurals name="create_account_encourage_saved_articles_title">
+    <item quantity="one">Усогласете ја вашата %1$d зачувана статија</item>
+    <item quantity="other">Усогласете ги вашите %1$d зачувани статии</item>
+  </plurals>
+  <string name="create_account_encourage_saved_articles_description">Најавете се на вашата сметка на Википедија за да дозволите зачуваните статии да бидат усогласени на разни уреди.</string>
+  <string name="create_account_encourage_activity_title_zero">Навратете се на скорешните читања со Активност</string>
+  <plurals name="create_account_encourage_activity_title">
+    <item quantity="one">Навратете се на %1$d скорешно читање со Активност</item>
+    <item quantity="other">Навратете се на %1$d скорешни читања со Активност</item>
+  </plurals>
+  <string name="create_account_encourage_activity_description">Погледајте го проведеното време во читање, истражените теми и досегот на вашите придонеси во јазичето Активност.</string>
+  <string name="create_account_encourage_edits_title">Добивајте признание за вашите уредувања</string>
+  <string name="create_account_encourage_edits_description">Направете достигнувања со кои ќе се гордеете, со придонеси на Викимедиините проекти кои ќе ѝ се припишуваат на вашата сметка.</string>
   <string name="create_account_name_unavailable">Корисничкото име „%s“ е недостапно. Изберете друго.</string>
   <string name="create_account_ip_block_message">За жал, вашата IP-адреса во мигов е спречена да создава нови сметки.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
@@ -608,7 +629,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">%s повеќе нема да биде достапно вонмрежно за сите збирки:</string>
   <string name="reading_lists_sync_reminder_title">Да го вклучам усогласувањето на збирките?</string>
   <string name="reading_lists_sync_reminder_text">Статиите зачувани во збирките сега можат да се усогласат со вашата сметка на Википедија. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Дознајте повеќе&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Збирките сега можат да се усогласат низ разни уреди. Најавете се со вашата сметка на Википедија и дозволете зачувување на вашите збирки. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Дознајте повеќе&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Овозможи усогласување</string>
   <string name="reading_list_login_reminder_title">Усогласи збирки</string>
   <string name="reading_lists_login_reminder_text">Сега збирките за читање можат да се усогласат низ разни уреди. Најавете се на сметката на Википедија и дозволете да ви се зачуваат збирките.</string>
@@ -651,7 +671,6 @@
   <string name="reading_lists_menu_import_list">Увези збирка</string>
   <string name="reading_lists_menu_sort_by">Подреди по</string>
   <string name="reading_lists_refresh_sync_option">Превчитај усогласување</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Најава / зачленување</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Статијава сега ќе биде достапна вонмрежно.</item>
     <item quantity="other">Статииве сега ќе бидат достапни вонмрежно.</item>
@@ -1821,10 +1840,7 @@
   <string name="games_hub_activity_games_unavailable_message_learn_more_action">Дознајте повеќе</string>
   <string name="games_hub_activity_overflow_view_game_stats">Погл. статистика за игрите</string>
   <string name="games_hub_activity_overflow_learn_more">Дознајте повеќе</string>
-  <string name="on_this_day_game_entry_dialog_title">Ви претставуваме</string>
-  <string name="on_this_day_game_entry_dialog_subtitle">Википедиини игри</string>
   <string name="on_this_day_game_entry_dialog_button">Играјте</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Википедиините игри се достапни во Games Hub, во менито ПОВЕЌЕ.</string>
   <string name="on_this_day_game_title">Што се случило попрво?</string>
   <string name="on_this_day_game_dialog_button">Играј</string>
   <string name="on_this_day_game_splash_message">Погодете кој настан се случил попрво на денешен ден во историјата.</string>
@@ -2232,8 +2248,8 @@
   <string name="donation_reminders_settings_title">Како да ве потсетиме?</string>
   <string name="donation_reminders_settings_option_title">Потсетници за дарување</string>
   <string name="donation_reminders_settings_thank_you_message">Вашата великодушност му помага на напредокот на Википедија. Поставете потсетник за дарување според бројот на статии што ќе ги прочитате.</string>
-  <string name="donation_reminders_settings_donation_info">Дарувања за Фондацијата Викимедија и нејзините подружници, горди вдомувачи на Википедија и други проекти за слободно знаење.</string>
-  <string name="donation_reminders_settings_article_frequency_label">Кога читам</string>
+  <string name="donation_reminders_settings_donation_info">Дарувања за Фондацијата Викимедија и нејзините подружници, горди вдомувачи на Википедија и нејзините братски проекти.</string>
+  <string name="donation_reminders_settings_article_frequency_label">Секогаш кога читам</string>
   <string name="donation_reminders_settings_amount_label">Потсети ме да дарувам</string>
   <string name="donation_reminders_settings_confirm_btn_label">Потврди го потсетникот</string>
   <string name="donation_reminders_settings_about_experiment_btn_label">За овој опит</string>
@@ -2242,10 +2258,12 @@
   <string name="donation_reminders_settings_warning_max_amount">Дозволено е највеќе %s</string>
   <string name="donation_reminders_settings_option_custom">Прилагодено…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Ви благодариме! Ќе ве потсетуваме да дарувате %1$s кога ќе прочитате %2$s додека трае овој опит.</string>
-  <string name="donation_reminders_first_milestone_reached_prompt_title">Прочитавте %1$s откако дарувавте %2$s</string>
-  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">Прочитавте уште %1$s</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title">Прочитавте %1$s откако ветивте %2$s!</string>
+  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">Прочитавте уште %1$s!</string>
   <string name="donation_reminders_prompt_message">Поставете потсетник за дарување за %1$s за да дарувате %3$s на секои %2$s што ќе ги прочирате. Дали сте подготвени да го исполните ветувањето за поддршка на Википедија?</string>
+  <string name="donation_reminders_prompt_message_v2">На %1$s ни рековте да ве потсетиме да дарувате откако ќе прочитате %2$s. Ако Википедија ви овозможи %3$s знаење, придружете им се на 2%% од читателите кои даруваат и исполнете го вашето ветување денес.</string>
   <string name="donation_reminders_prompt_positive_button">Дарувајте сега</string>
+  <string name="donation_reminders_prompt_positive_button_v2">Да, ќе дарувам деенс</string>
   <string name="donation_reminders_prompt_negative_button">Не сега</string>
   <string name="donation_reminders_gpay_text">Дерувајте %s со Google Pay</string>
   <string name="donation_reminders_gpay_different_amount_text">Дарувајте друг износ со Google Pay</string>
@@ -2263,6 +2281,24 @@
   <string name="donation_reminders_settings_report_email_subject">Пријава на грешка — Потсетници за дарување</string>
   <string name="donation_reminders_settings_report_email_body">Наидов на проблем со функцијата Потсетници за дарување:\n- [Опишете го конкрениот проблем]\n- [Екрански снимки или врски]\n\nСакам да биде вака:\n- [Опишете го предложеното решение]</string>
   <string name="donation_reminders_snackbar_modify_button_label">Измени</string>
+  <string name="donation_reminders_settings_article_number_selection_label">Статии</string>
+  <string name="donation_reminders_settings_custom_amount_label">Прилагоден износ</string>
+  <string name="donation_reminders_settings_update_reminder_button">Поднови потсетник</string>
+  <string name="donation_reminders_beta_label">Бета</string>
+  <string name="donation_reminders_wrap_up_title">Тоа е крај на потсетниците за дарување</string>
+  <string name="donation_reminders_wrap_up_message">Ви благодариме што ги испробувате потсетниците за дарување според статиите што ги читавте. Вашето мислење решева дали ова ќе стане траен начин за дарување на Википедија. Трае само минутка, и не бара дарување.</string>
+  <string name="donation_reminders_wrap_up_share_feedback_button">Дајте мислење</string>
+  <string name="donation_reminders_wrap_up_survey_title">Брзо прашање за потсетници за дарување</string>
+  <string name="donation_reminders_wrap_up_survey_message">Дали потсетниците за дарување според прочитани статии да станат трајна функција?</string>
+  <string name="donation_reminders_wrap_up_survey_option_keep_it">Задржете ја</string>
+  <string name="donation_reminders_wrap_up_survey_option_remove_it">Отстранете ја</string>
+  <string name="donation_reminders_wrap_up_survey_option_not_sure">Не знам</string>
+  <string name="donation_reminders_wrap_up_survey_optional_hint">Нешто друго? (незадолж.)</string>
+  <string name="donation_reminders_wrap_up_survey_thank_you_message">Ви благодариме за мислењето. Вашиот одговор ни помага да одлучиме што понатаму.</string>
+  <string name="donation_reminders_eoe_title">Ова е крајот на експериментот</string>
+  <string name="donation_reminders_eoe_message">Повеќе нема да прикажуваме посетници во прилог, но сепак можете да не поддржите со тоа што ќе го дарувате ветениот износ од %s месечно.</string>
+  <string name="donation_reminders_eoe_give_monthly_button">Месечно дарување</string>
+  <string name="donation_reminders_eoe_donate_dialog_title">Како би сакале да дарувате секој месец?</string>
   <string name="hybrid_search_search_hint">Пребарајте или прашајте било што</string>
   <string name="hybrid_search_article_search_hint">Поставете прашање за %s</string>
   <string name="hybrid_search_suggestion_title">Пребарајте:</string>
@@ -2441,7 +2477,6 @@
   <string name="home_feed_for_you_screen_empty_ways_to_start">Начини да почнете:</string>
   <string name="home_feed_for_you_screen_empty_add_interests">Додајте &lt;a href=\"#add_interests\"&gt;некои интереси&lt;/a&gt;</string>
   <string name="home_feed_for_you_screen_empty_see_community">Погледајте ги случувањата во &lt;a href=\"#community_tab\"&gt;заедницата&lt;/a&gt;</string>
-  <string name="home_feed_update_tooltip1">Ново: „Случајна статија“ и „Места од интерес“ се достапни во „За вас“ и „Дали сте знаеле“ во јазичето „Заедница“.</string>
   <string name="home_feed_random_title">Случајна</string>
   <string name="home_feed_random_subtitle">Случајна статија која ќе ја поттикне вашата љубопитност</string>
   <string name="home_feed_random_shuffle_button">Измешај</string>

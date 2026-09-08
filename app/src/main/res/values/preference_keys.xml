@@ -15,7 +15,6 @@
     <string name="preference_key_show_images" translatable="false">showImages</string>
     <string name="preference_key_announcement_country_override" translatable="false">announcementCountryOverride</string>
     <string name="preference_key_announcement_ignore_date" translatable="false">announcementIgnoreDate</string>
-    <string name="preference_key_announcement_version_code" translatable="false">announcementVersionCode</string>
     <string name="preference_key_announcement_shown_dialogs" translatable="false">announcementShownDialogs</string>
     <string name="preference_key_announcement_pause_time" translatable="false">announcementPauseTime</string>
     <string name="preference_key_announcement_debug_url" translatable="false">announcementDebugUrl</string>
@@ -55,7 +54,6 @@
     <string name="preference_key_reading_lists_remote_setup_pending" translatable="false">readingListsRemoteSetupPending</string>
     <string name="preference_key_reading_lists_remote_delete_pending" translatable="false">readingListsRemoteDeletePending</string>
     <string name="preference_key_initial_onboarding_enabled" translatable="false">initialOnboardingEnabled</string>
-    <string name="preference_key_permission_asked" translatable="false">permissionAsked</string>
     <string name="preference_key_dim_dark_mode_images" translatable="false">dimDarkModeImages</string>
     <string name="preference_key_notification_customize_push" translatable="false">customizePushNotifications</string>
     <string name="preference_key_notification_hide_read" translatable="false">hideReadNotifications</string>
@@ -97,10 +95,7 @@
     <string name="preference_key_image_zoom_tooltip_shown" translatable="false">imageZoomTooltipShown</string>
     <string name="preference_key_suggested_edits_pause_date" translatable="false">suggestedEditsPauseDate</string>
     <string name="preference_key_suggested_edits_pause_reverts" translatable="false">suggestedEditsPauseReverts</string>
-    <string name="preference_key_suggested_edits_override_counts" translatable="false">suggestedEditsOverrideCounts</string>
-    <string name="preference_key_suggested_edits_override_edits" translatable="false">suggestedEditsOverrideEdits</string>
     <string name="preference_key_suggested_edits_override_contribution" translatable="false">suggestedEditsOverrideContribution</string>
-    <string name="preference_key_suggested_edits_override_reverts" translatable="false">suggestedEditsOverrideReverts</string>
     <string name="preference_key_suggested_edits_reactivation_pass_stage_one" translatable="false">suggestedEditsReactivationPassStageOne</string>
     <string name="preference_key_suggested_edits_reactivation_test" translatable="false">suggestedEditsReactivationTest</string>
     <string name="preference_key_image_tags_onboarding_shown" translatable="false">imageTagsOnboardingShown</string>
@@ -128,6 +123,8 @@
     <string name="preference_key_customize_toolbar_tooltip" translatable="false">showCustomizeToolbarTooltip</string>
     <string name="preference_key_customize_toolbar_order" translatable="false">customizeToolbarOrder</string>
     <string name="preference_key_customize_toolbar_menu_order" translatable="false">customizeToolbarMenuOrder</string>
+    <string name="preference_key_create_account_encourage_impressions" translatable="false">createAccountEncourageImpressions</string>
+    <string name="preference_key_create_account_encourage_last_impression_date" translatable="false">createAccountEncourageLastImpressionDate</string>
     <string name="preference_key_show_edit_talk_page_source_prompt" translatable="false">showEditTalkPageSourcePrompt</string>
     <string name="preference_key_temp_account_welcome_shown" translatable="false">tempAccountWelcomeShown</string>
     <string name="preference_key_temp_account_dialog_shown" translatable="false">tempAccountDialogShown</string>
@@ -173,7 +170,6 @@
     <string name="preference_key_otd_last_played_date" translatable="false">otdLastPlayedDate</string>
     <string name="preference_key_otd_game_date_override" translatable="false">otdGameDateOverride</string>
     <string name="preference_key_otd_game_num_questions" translatable="false">otdGameNumQuestions</string>
-    <string name="preference_key_otd_entry_dialog_shown" translatable="false">otdEntryDialogShown</string>
     <string name="preference_key_otd_notification_state" translatable="false">otdNotificationState</string>
     <string name="preference_key_otd_game_first_played_shown" translatable="false">otdGameFirstPlayedShown</string>
     <string name="preference_key_impact_last_query_time" translatable="false">impactLastQueryTime</string>
@@ -203,6 +199,7 @@
     <string name="preference_key_donation_reminders" translatable="false">donationReminder</string>
     <string name="preference_key_donation_reminders_dev_reset" translatable="false">donationReminderDevReset</string>
     <string name="preference_key_donation_reminders_dev_reset_seen_date" translatable="false">donationReminderDevResetSeenDate</string>
+    <string name="preference_key_donation_reminders_dev_wrap_up_enabled" translatable="false">donationReminderDevWrapUpEnabled</string>
     <string name="preference_category_donations" translatable="false">donations</string>
     <string name="preference_key_activity_tab_modules" translatable="false">activityTabModules</string>
     <string name="preference_key_activity_tab_onboarding_shown" translatable="false">activityTabOnboardingShown</string>
@@ -225,7 +222,6 @@
     <string name="preference_key_home_preference_selection" translatable="false">exploreFeedPreferenceSelection</string>
     <string name="preference_key_home_for_you_modules_today" translatable="false">homeForYouModulesToday</string>
     <string name="preference_key_home_swipe_to_explore_prompt_shown" translatable="false">homeSwipeToExplorePromptShown</string>
-    <string name="preference_key_home_feed_update_tooltip_shown" translatable="false">homeFeedUpdateTooltipShown</string>
     <string name="preference_key_search_widget_install_prompt_shown" translatable="false">searchWidgetInstallPromptShown</string>
     <string name="preference_key_randomizer_shake_prompt_shown" translatable="false">randomizerShakePromptShown</string>
     <string name="preference_key_home_feed_survey_shown" translatable="false">homeFeedSurveyShown</string>

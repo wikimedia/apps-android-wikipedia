@@ -564,7 +564,6 @@
   <string name="reading_lists_menu_create_list" fuzzy="true">نئين فھرست تخليقيو</string>
   <string name="reading_lists_menu_import_list" fuzzy="true">فھرست درآمد ڪريو</string>
   <string name="reading_lists_menu_sort_by">مرتب ڪريو</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">داخل ٿيو / شامل ٿيو</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">ھي مضمون ھاڻي آفلائين موجود ھوندو.</item>
     <item quantity="other">ھي مضمونَ ھاڻي آفلائين موجود ھوندا.</item>

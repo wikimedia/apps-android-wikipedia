@@ -580,7 +580,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s non essera plus disponibile foras de linea pro tote le listas de lectura:</string>
   <string name="reading_lists_sync_reminder_title" fuzzy="true">Activar le synchronisation de listas de lectura?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">Articulos salveguardate in listas de lectura pote ora esser synchronisate a tu conto de Wikipedia. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Leger plus&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Listas de lectura pote ora esser synchronisate inter apparatos. Aperi session in tu conto Wikipedia e permitte que tu listas es salveguardate. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Leger plus&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Activar synchronisation</string>
   <string name="reading_list_login_reminder_title" fuzzy="true">Synchronisar listas de lectura</string>
   <string name="reading_lists_login_reminder_text" fuzzy="true">Listas de lectura pote ora esser synchronisate inter apparatos. Aperi session in tu conto Wikipedia e permitte que tu listas es salveguardate.</string>
@@ -623,7 +622,6 @@
   <string name="reading_lists_menu_import_list" fuzzy="true">Importar lista</string>
   <string name="reading_lists_menu_sort_by">Ordinar per</string>
   <string name="reading_lists_refresh_sync_option">Re-synchronisar</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Aperir session / crear conto</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Iste articulo es ora disponibile foras de linea.</item>
     <item quantity="other">Iste articulos es ora disponibile foras de linea.</item>
@@ -1786,10 +1784,7 @@
   <string name="games_hub_activity_games_unavailable_message_learn_more_action">Leger plus</string>
   <string name="games_hub_activity_overflow_view_game_stats">Vider le statisticas de jocos</string>
   <string name="games_hub_activity_overflow_learn_more">Leger plus</string>
-  <string name="on_this_day_game_entry_dialog_title">Presentation</string>
-  <string name="on_this_day_game_entry_dialog_subtitle">Jocos de Wikipedia</string>
   <string name="on_this_day_game_entry_dialog_button">Jocar</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Le jocos de Wikipedia es disponibile in le Centro de jocos, que se trova in le menu PLUS.</string>
   <string name="on_this_day_game_title">Qual ha evenite primo?</string>
   <string name="on_this_day_game_dialog_button">Jocar</string>
   <string name="on_this_day_game_splash_message">Divina qual evento se ha producite primo sur iste die in le historia.</string>
@@ -2197,8 +2192,8 @@
   <string name="donation_reminders_settings_title">Como deberea nos rememorar te de isto?</string>
   <string name="donation_reminders_settings_option_title">Rememorationes de donation</string>
   <string name="donation_reminders_settings_thank_you_message">Tu generositate adjuta Wikipedia a prosperar. Crea un rememoration de donation basate sur le numero de articulos que tu lege.</string>
-  <string name="donation_reminders_settings_donation_info">Le donationes se destina al Fundation Wikimedia e su affiliatos, orgoliose hospites de Wikipedia e de altere projectos de cognoscentia libere.</string>
-  <string name="donation_reminders_settings_article_frequency_label">Quando io lege</string>
+  <string name="donation_reminders_settings_donation_info" fuzzy="true">Le donationes se destina al Fundation Wikimedia e su affiliatos, orgoliose hospites de Wikipedia e de altere projectos de cognoscentia libere.</string>
+  <string name="donation_reminders_settings_article_frequency_label" fuzzy="true">Quando io lege</string>
   <string name="donation_reminders_settings_amount_label">Rememorar me de donar</string>
   <string name="donation_reminders_settings_confirm_btn_label">Confirmar rememoration</string>
   <string name="donation_reminders_settings_about_experiment_btn_label">A proposito de iste experimento</string>
@@ -2207,8 +2202,8 @@
   <string name="donation_reminders_settings_warning_max_amount">Es permittite un maximo de %s</string>
   <string name="donation_reminders_settings_option_custom">Personalisar…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Gratias! Nos te rememorara de donar %1$s quando tu lege %2$s durante iste experimento.</string>
-  <string name="donation_reminders_first_milestone_reached_prompt_title">Tu ha legite %1$s desde que tu promitteva %2$s</string>
-  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">Tu ha legite %1$s alteres</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title" fuzzy="true">Tu ha legite %1$s desde que tu promitteva %2$s</string>
+  <string name="donation_reminders_subsequent_milestone_reached_prompt_title" fuzzy="true">Tu ha legite %1$s alteres</string>
   <string name="donation_reminders_prompt_message">Le %1$s, tu ha create un rememoration de donar %3$s pro cata %2$s articulos que tu lege. Es tu preste a complir tu promissa de appoiar Wikipedia?</string>
   <string name="donation_reminders_prompt_positive_button">Donar ora</string>
   <string name="donation_reminders_prompt_negative_button">Non ora</string>

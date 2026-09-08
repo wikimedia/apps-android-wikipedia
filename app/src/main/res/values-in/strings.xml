@@ -230,7 +230,7 @@
   <string name="login_join_wikipedia">Bergabunglah dengan Wikipedia</string>
   <string name="login_forgot_password">Lupa kata sandi?</string>
   <string name="create_account_already_have">Sudah memiliki akun?</string>
-  <string name="create_account_activity_title">Buat akun baru</string>
+  <string name="create_account_activity_title">Buat akun</string>
   <string name="dialog_create_account_checking_progress">Memverifikasi</string>
   <string name="create_account_email_hint">Surel (Opsional)</string>
   <string name="create_account_password_repeat_hint">Ulangi kata sandi</string>
@@ -607,7 +607,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s tidak lagi tersedia secara luring untuk semua daftar bacaan:</string>
   <string name="reading_lists_sync_reminder_title" fuzzy="true">Nyalakan sinkronisasi daftar bacaan?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">Artikel yang disimpan ke daftar bacaan sekarang dapat disinkronkan ke akun Wikipedia Anda. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Pelajari lebih lanjut&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Sekarang, daftar bacaan dapat disinkronkan di seluruh perangkat. Masuk log ke akun Wikipedia Anda dan biarkan daftar Anda disimpan. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ/id#Daftar_bacaan_yang_disinkronkan\"&gt;Pelajari lebih lanjut&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Nyalakan sinkronisasi</string>
   <string name="reading_list_login_reminder_title" fuzzy="true">Sinkronkan daftar bacaan</string>
   <string name="reading_lists_login_reminder_text" fuzzy="true">Daftar bacaan sekarang dapat disinkronkan di seluruh perangkat. Masuk log ke akun Wikipedia Anda dan biarkan daftar Anda disimpan.</string>
@@ -649,7 +648,6 @@
   <string name="reading_lists_menu_import_list" fuzzy="true">Impor daftar</string>
   <string name="reading_lists_menu_sort_by">Urut berdasarkan</string>
   <string name="reading_lists_refresh_sync_option">Segarkan sinkronisasi</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Masuk log / buat akun</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Artikel ini sekarang akan tersedia secara luring.</item>
     <item quantity="other">Artikel-artikel ini sekarang akan tersedia secara luring.</item>
@@ -1394,7 +1392,7 @@
   <string name="talk_snackbar_undo">Batalkan</string>
   <string name="talk_last_modified">&lt;b&gt;Terakir disunting %1$s&lt;/b&gt; oleh %2$s</string>
   <string name="talk_snackbar_survey_text">Terima kasih telah menggunakan halaman pembicaraan. Dapatkah Anda membantu kami meningkatkan aplikasi dengan berpartisipasi dalam survei?</string>
-  <string name="talk_snackbar_survey_action_text">Mulai</string>
+  <string name="talk_snackbar_survey_action_text">Memulai</string>
   <string name="talk_share_discussion_subject">Wikipedia - diskusi di halaman pembicaraan dengan topik \"%s\"</string>
   <string name="talk_share_talk_page">Wikipedia - diskusi di halaman pembicaraan</string>
   <string name="talk_edit_disclaimer">Ini adalah halaman pembicaraan. Tolong hormati pedoman halaman pembicaraan, dan jangan lupa untuk menandatangani pesan Anda dengan mengetik empat tilda: ~~~~ ketika menggunakan teks wiki.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines\"&gt;Wikipedia:Talk page guidelines&lt;/a&gt;</string>
@@ -1773,10 +1771,7 @@
   <string name="games_hub_activity_games_unavailable_message_learn_more_action">Pelajari lebih lanjut</string>
   <string name="games_hub_activity_overflow_view_game_stats">Lihat statistik permainan</string>
   <string name="games_hub_activity_overflow_learn_more">Pelajari lebih lanjut</string>
-  <string name="on_this_day_game_entry_dialog_title">Memperkenalkan</string>
-  <string name="on_this_day_game_entry_dialog_subtitle">Permainan Wikipedia</string>
   <string name="on_this_day_game_entry_dialog_button">Mainkan</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Permainan Wikipedia tersedia di Pusat Permainan, yang dapat ditemukan di menu LAINNYA.</string>
   <string name="on_this_day_game_title">Mana yang lebih dulu?</string>
   <string name="on_this_day_game_dialog_button">Mainkan</string>
   <string name="on_this_day_game_splash_message">Coba tebak peristiwa mana yang terjadi lebih dulu pada hari ini dalam sejarah.</string>
@@ -1848,7 +1843,7 @@
   <string name="wikipedia_games_title">Permainan Wikipedia</string>
   <string name="wikipedia_games_subtitle">Permainan trivia harian berdasarkan konten Wikipedia.</string>
   <string name="year_in_review_learn_more">Pelajari lebih lanjut</string>
-  <string name="year_in_review_get_started">Mulai</string>
+  <string name="year_in_review_get_started">Memulai</string>
   <string name="year_in_review_topbar_w_icon">Ikon W Wikipedia</string>
   <string name="year_in_review_navigate_left">Berpindah ke kiri</string>
   <string name="year_in_review_close">Tutup</string>

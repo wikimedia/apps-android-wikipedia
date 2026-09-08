@@ -7,6 +7,7 @@
 * Kwekubo
 * Smirkybec
 * Tem
+* Wrai
 -->
 <resources>
   <string name="app_name_prod">Vicipéid</string>
@@ -653,7 +654,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">Ní bheidh %s ar fáil as líne a thuilleadh do na bailiúcháin uile:</string>
   <string name="reading_lists_sync_reminder_title">An bhfuil fonn ort sioncrónú bailiúcháin a chur ar siúl?</string>
   <string name="reading_lists_sync_reminder_text">Is féidir ailt atá sábháilte i mbailiúcháin a shioncronú le do chuntas Vicipéid anois. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Foghlaim tuilleadh&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Is féidir bailiúcháin a shioncronú anois ar fud gléasanna. Logáil isteach i do chuntas Vicipéide agus lig do bhailiúcháin a bheith sábháilte. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Foghlaim tuilleadh&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Cumasaigh sioncronú</string>
   <string name="reading_list_login_reminder_title">Sioncrónaigh bailiúcháin</string>
   <string name="reading_lists_login_reminder_text">Is féidir bailiúcháin a shioncronú anois ar fud gléasanna. Logáil isteach i do chuntas Vicipéid agus lig do do bhailiúcháin a bheith sábháilte.</string>
@@ -699,7 +699,6 @@
   <string name="reading_lists_menu_import_list">Bailiúchán allmhairithe</string>
   <string name="reading_lists_menu_sort_by">Sórtáil de réir</string>
   <string name="reading_lists_refresh_sync_option">Athnuaigh sioncronú</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Logáil isteach / cláraigh</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">one=Beidh an t-alt seo ar fáil as líne anois.</item>
     <item quantity="two">one=Beidh an t-alt seo ar fáil as líne anois.</item>
@@ -1989,10 +1988,7 @@
   <string name="games_hub_activity_games_unavailable_message_learn_more_action">Foghlaim níos mó</string>
   <string name="games_hub_activity_overflow_view_game_stats">Féach ar staitisticí an chluiche</string>
   <string name="games_hub_activity_overflow_learn_more">Foghlaim níos mó</string>
-  <string name="on_this_day_game_entry_dialog_title">Ag cur i láthair</string>
-  <string name="on_this_day_game_entry_dialog_subtitle">Cluichí Vicipéid</string>
   <string name="on_this_day_game_entry_dialog_button">Imir</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Tá cluichí Vicipéid ar fáil sa Mhol Cluichí, atá le fáil sa roghchlár TUILLEADH.</string>
   <string name="on_this_day_game_title">Cé acu a tháinig ar dtús?</string>
   <string name="on_this_day_game_dialog_button">Imir</string>
   <string name="on_this_day_game_splash_message">Buille faoi thuairim cén eachtra a tharla ar dtús ar an lá seo sa stair.</string>
@@ -2535,8 +2531,8 @@
   <string name="donation_reminders_settings_title">Conas ba chóir dúinn meabhrú duit?</string>
   <string name="donation_reminders_settings_option_title">Meabhrúcháin síntiús</string>
   <string name="donation_reminders_settings_thank_you_message">Cuidíonn do fhlaithiúlacht le Vicipéid a choinneáil ag fás. Socraigh meabhrúchán síntiúis bunaithe ar líon na n-alt a léann tú.</string>
-  <string name="donation_reminders_settings_donation_info">Téann síntiúis chuig Fondúireacht Wikimedia agus a chleamhnaithe, óstaigh bródúla ar Vicipéid agus tionscadail eolais shaor eile.</string>
-  <string name="donation_reminders_settings_article_frequency_label">Nuair a léim</string>
+  <string name="donation_reminders_settings_donation_info" fuzzy="true">Téann síntiúis chuig Fondúireacht Wikimedia agus a chleamhnaithe, óstaigh bródúla ar Vicipéid agus tionscadail eolais shaor eile.</string>
+  <string name="donation_reminders_settings_article_frequency_label" fuzzy="true">Nuair a léim</string>
   <string name="donation_reminders_settings_amount_label">Cuir i gcuimhne dom síntiús a thabhairt</string>
   <string name="donation_reminders_settings_confirm_btn_label">Deimhnigh an meabhrúchán</string>
   <string name="donation_reminders_settings_about_experiment_btn_label">Maidir leis an turgnamh seo</string>
@@ -2545,8 +2541,8 @@
   <string name="donation_reminders_settings_warning_max_amount">Uasmhéid %s ceadaithe</string>
   <string name="donation_reminders_settings_option_custom">Saincheaptha…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Go raibh maith agat! Cuirfimid i gcuimhne duit %1$s a bhronnadh nuair a léifidh tú %2$s agus an turgnamh seo ar siúl.</string>
-  <string name="donation_reminders_first_milestone_reached_prompt_title">Tá %1$s léite agat ó gheall tú %2$s</string>
-  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">Léigh tú %1$s eile</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title" fuzzy="true">Tá %1$s léite agat ó gheall tú %2$s</string>
+  <string name="donation_reminders_subsequent_milestone_reached_prompt_title" fuzzy="true">Léigh tú %1$s eile</string>
   <string name="donation_reminders_prompt_message">Chuir tú meabhrúchán síntiúis ar bun ar %1$s chun %3$s a thabhairt gach %2$s a léann tú. An bhfuil tú réidh le do ghealltanas tacú le Vicipéid a chomhlíonadh?</string>
   <string name="donation_reminders_prompt_positive_button">Tabhair síntiús anois</string>
   <string name="donation_reminders_prompt_negative_button">Ní anois</string>
@@ -2756,7 +2752,6 @@
   <string name="home_feed_for_you_screen_empty_ways_to_start">Bealaí le tosú:</string>
   <string name="home_feed_for_you_screen_empty_add_interests">Cuir &lt;a href=\"#add_interests\"&gt;roinnt spéiseanna&lt;/a&gt; leis</string>
   <string name="home_feed_for_you_screen_empty_see_community">Féach cad atá ag tarlú sa &lt;a href=\"#community_tab\"&gt;phobal&lt;/a&gt;</string>
-  <string name="home_feed_update_tooltip1">Nua: Tá \"Alt Randamach\" agus \"Áiteanna Suimiúla\" ar fáil i Duit Féin agus tá \"An raibh a Fhios Agat\" sa Chluaisín Pobail.</string>
   <string name="home_feed_random_title">Randamach</string>
   <string name="home_feed_random_subtitle">Alt randamach chun do chuid fiosrachta a mhúscailt</string>
   <string name="home_feed_random_shuffle_button">Meascán</string>

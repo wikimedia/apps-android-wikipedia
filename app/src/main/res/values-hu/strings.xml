@@ -227,6 +227,27 @@
   <string name="email_recommendation_dialog_create_without_email_action">Folytatás e-mail-cím nélkül</string>
   <string name="email_recommendation_dialog_create_with_email_action">E-mail-cím megadása</string>
   <string name="create_account_button">Regisztráció</string>
+  <string name="create_account_encourage_title">A Wikipédia még jobb egy fiókkal</string>
+  <string name="create_account_encourage_year_in_review_title_zero">Nézd meg, hogyan állnak össze olvasási napjaid az Éves összefoglalóban</string>
+  <plurals name="create_account_encourage_year_in_review_title">
+    <item quantity="one">Nézd meg, hogyan áll össze %1$d olvasási napod az Éves összefoglalóban</item>
+    <item quantity="other">Nézd meg, hogyan áll össze %1$d olvasási napod az Éves összefoglalóban</item>
+  </plurals>
+  <string name="create_account_encourage_year_in_review_description">Évente egyszer az olvasási napjaidból összefoglaló készül arról, merre vitt az év, és ezt meg is oszthatod.</string>
+  <string name="create_account_encourage_saved_articles_title_zero">Mentett szócikkeid szinkronizálása</string>
+  <plurals name="create_account_encourage_saved_articles_title">
+    <item quantity="one">Szinkronizáld %1$d mentett szócikkedet</item>
+    <item quantity="other">Szinkronizáld %1$d mentett szócikkedet</item>
+  </plurals>
+  <string name="create_account_encourage_saved_articles_description">Jelentkezz be a Wikipédia-fiókodba, hogy a mentett szócikkeid szinkronizálhatók legyenek az eszközeid között.</string>
+  <string name="create_account_encourage_activity_title_zero">Térj vissza a nemrég olvasott szócikkeidhez a Tevékenységek lapon</string>
+  <plurals name="create_account_encourage_activity_title">
+    <item quantity="one">Térj vissza %1$d nemrég olvasott szócikkedhez a Tevékenységek lapon</item>
+    <item quantity="other">Térj vissza %1$d nemrég olvasott szócikkedhez a Tevékenységek lapon</item>
+  </plurals>
+  <string name="create_account_encourage_activity_description">A Tevékenységek lapon megnézheted az olvasással töltött idődet, a felfedezett témáidat és közreműködéseid elérését.</string>
+  <string name="create_account_encourage_edits_title">Kapj elismerést a szerkesztéseidért</string>
+  <string name="create_account_encourage_edits_description">Építs fel olyan szerkesztői múltat, amelyre büszke lehetsz, a Wikimédia-projektekben végzett közreműködéseidet pedig rendeld a fiókodhoz.</string>
   <string name="create_account_name_unavailable">A(z) „%s” felhasználói név nem érhető el. Válassz másikat.</string>
   <string name="create_account_ip_block_message">Sajnáljuk, de az IP-címedről jelenleg nem lehet regisztrálni.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
@@ -263,7 +284,7 @@
   <string name="about_description">A Wikipédia alkalmazás névjegye</string>
   <string name="privacy_policy_description">Adatvédelmi irányelvek</string>
   <string name="terms_of_use_description">Felhasználási feltételek</string>
-  <string name="legal_safety_contacts_description">Jogi és biztonsági kapcsolatok</string>
+  <string name="legal_safety_contacts_description">Jogi és biztonsági elérhetőségek</string>
   <string name="about_wikipedia_url">https://hu.wikipedia.org/wiki/Wikipédia:Rólunk</string>
   <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Policy:Privacy_policy/hu</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/hu#Olvasólisták_és_offline_olvasás</string>
@@ -623,7 +644,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">%s többé nem lesz elérhető kapcsolat nélkül egyik gyűjteményben sem:</string>
   <string name="reading_lists_sync_reminder_title">Bekapcsolod a gyűjtemények szinkronizálását?</string>
   <string name="reading_lists_sync_reminder_text">A gyűjteményekbe mentett szócikkek mostantól szinkronizálhatók a Wikipédia-fiókoddal. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/FAQ/Android/hu#Olvasólisták_és_offline_olvasás\"&gt;További információk&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">A gyűjtemények már eszközök között is szinkronizálhatók. Jelentkezz be a Wikipédia-fiókodba, és engedélyezd a gyűjteményeid mentését. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/FAQ/Android/hu#Olvasólisták_és_offline_olvasás\"&gt;További információk&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Szinkronizálás engedélyezése</string>
   <string name="reading_list_login_reminder_title">Gyűjtemények szinkronizálása</string>
   <string name="reading_lists_login_reminder_text">Az gyűjtemények mostantól szinkronizálhatók a különböző eszközeid között. Jelentkezz be a Wikipédia-fiókodba és engedélyezd a gyűjteményeid mentését.</string>
@@ -666,7 +686,6 @@
   <string name="reading_lists_menu_import_list">Gyűjtemény importálása</string>
   <string name="reading_lists_menu_sort_by">Rendezés</string>
   <string name="reading_lists_refresh_sync_option">Szinkronizálás frissítése</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Regisztráció/bejelentkezés</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">A szócikk mostantól kapcsolat nélkül is elérhető.</item>
     <item quantity="other">A szócikkek mostantól kapcsolat nélkül is elérhetők.</item>
@@ -1833,10 +1852,7 @@
   <string name="games_hub_activity_games_unavailable_message_learn_more_action">Tudj meg többet</string>
   <string name="games_hub_activity_overflow_view_game_stats">Játékstatisztikák megtekintése</string>
   <string name="games_hub_activity_overflow_learn_more">Tudj meg többet</string>
-  <string name="on_this_day_game_entry_dialog_title">Bemutatjuk</string>
-  <string name="on_this_day_game_entry_dialog_subtitle">Wikipédia játékok</string>
   <string name="on_this_day_game_entry_dialog_button">Játék indítása</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">A Wikipédia-játékokat a Több menü Játékok pontjában éred el.</string>
   <string name="on_this_day_game_title">Melyik volt előbb?</string>
   <string name="on_this_day_game_dialog_button">Játék</string>
   <string name="on_this_day_game_splash_message">Találd ki, melyik esemény történt először ezen a napon a történelemben.</string>
@@ -2244,8 +2260,8 @@
   <string name="donation_reminders_settings_title">Hogyan emlékeztessünk?</string>
   <string name="donation_reminders_settings_option_title">Adományemlékeztetők</string>
   <string name="donation_reminders_settings_thank_you_message">Nagylelkűséged segít abban, hogy a Wikipédia továbbra is fejlődjön. Állíts be adományozási emlékeztetőt az általad olvasott szócikkek száma alapján.</string>
-  <string name="donation_reminders_settings_donation_info">Az adományok a Wikimedia Alapítványhoz és partnereihez kerülnek, akik a Wikipédia és más ingyenes tudásprojektek üzemeltetői.</string>
-  <string name="donation_reminders_settings_article_frequency_label">Amikor olvasok</string>
+  <string name="donation_reminders_settings_donation_info">Az adományok a Wikimédia Alapítványhoz és társszervezeteihez kerülnek, amelyek büszkén adnak otthont a Wikipédiának és testvéroldalainak.</string>
+  <string name="donation_reminders_settings_article_frequency_label">Valahányszor olvasok</string>
   <string name="donation_reminders_settings_amount_label">Emlékeztess az adományozásra</string>
   <string name="donation_reminders_settings_confirm_btn_label">Emlékeztető megerősítése</string>
   <string name="donation_reminders_settings_about_experiment_btn_label">Erről a kísérletről</string>
@@ -2254,10 +2270,12 @@
   <string name="donation_reminders_settings_warning_max_amount">Maximum %s engedélyezett</string>
   <string name="donation_reminders_settings_option_custom">Egyedi…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Köszönjük! Emlékeztetni fogjuk, hogy adományozz %1$s összeget, amikor elolvastál %2$s a kísérlet futása alatt.</string>
-  <string name="donation_reminders_first_milestone_reached_prompt_title">%1$s olvastál el, mióta %2$s összeget ígértél</string>
-  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">Még %1$s szócikket olvastál el</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title">%1$s olvastál el, mióta %2$s összeget ígértél!</string>
+  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">Még %1$s szócikket olvastál el!</string>
   <string name="donation_reminders_prompt_message">%1$s dátummal beállítottál egy adományozási emlékeztetőt, amely szerint %3$s összeget adományozol minden elolvasott %2$s után. Készen állsz arra, hogy beváltsd a Wikipédiát támogató vállalásodat?</string>
+  <string name="donation_reminders_prompt_message_v2">%1$s napján arra kértél minket, hogy emlékeztessünk az adományozásra, miután elolvastál %2$s. Ha a Wikipédia legalább %3$s értékű tudást adott neked, csatlakozz az adományozó olvasók 2%%-ához, és teljesítsd ma a felajánlásodat.</string>
   <string name="donation_reminders_prompt_positive_button">Adományozz most!</string>
+  <string name="donation_reminders_prompt_positive_button_v2">Igen, adományozok most</string>
   <string name="donation_reminders_prompt_negative_button">Ne most</string>
   <string name="donation_reminders_gpay_text">Adományozz %s összeget Google Payjel</string>
   <string name="donation_reminders_gpay_different_amount_text">Más összegű adományozás a Google Payjel</string>
@@ -2275,6 +2293,24 @@
   <string name="donation_reminders_settings_report_email_subject">Problémajelentés – Adományemlékeztetők</string>
   <string name="donation_reminders_settings_report_email_body">Problémát tapasztaltam az adományemlékeztető  funkcióval kapcsolatban:\n\n– [Írd le pontosan a problémát]\n– [Képernyőképek vagy hivatkozások]\n\nAz általam elvárt működés a következő lenne:\n\n– [A javasolt megoldás leírása]</string>
   <string name="donation_reminders_snackbar_modify_button_label">Módosít</string>
+  <string name="donation_reminders_settings_article_number_selection_label">Szócikkek</string>
+  <string name="donation_reminders_settings_custom_amount_label">Egyedi összeg</string>
+  <string name="donation_reminders_settings_update_reminder_button">Emlékeztető frissítése</string>
+  <string name="donation_reminders_beta_label">Béta</string>
+  <string name="donation_reminders_wrap_up_title">Ennyi volt az adományozási emlékeztetőkből</string>
+  <string name="donation_reminders_wrap_up_message">Köszönjük, hogy kipróbáltad az olvasott szócikkeken alapuló adományozási emlékeztetőket. A visszajelzésed dönti el, hogy ez állandó adományozási lehetőséggé válik-e a Wikipédián. Csak egy percet vesz igénybe, és nem szükséges adományoznod.</string>
+  <string name="donation_reminders_wrap_up_share_feedback_button">Visszajelzés megosztása</string>
+  <string name="donation_reminders_wrap_up_survey_title">Egy gyors kérdés az adományozási emlékeztetőkkel kapcsolatban</string>
+  <string name="donation_reminders_wrap_up_survey_message">Az olvasott szócikkeken alapuló adományozási emlékeztetők váljanak állandó funkcióvá?</string>
+  <string name="donation_reminders_wrap_up_survey_option_keep_it">Tartsd meg</string>
+  <string name="donation_reminders_wrap_up_survey_option_remove_it">Távolítsd el</string>
+  <string name="donation_reminders_wrap_up_survey_option_not_sure">Nem tudom biztosan</string>
+  <string name="donation_reminders_wrap_up_survey_optional_hint">Van még valami? (Opcionális)</string>
+  <string name="donation_reminders_wrap_up_survey_thank_you_message">Köszönjük a visszajelzését. Válasza segít nekünk eldönteni, hogy mit építsünk legközelebb.</string>
+  <string name="donation_reminders_eoe_title">Ez a kísérlet vége</string>
+  <string name="donation_reminders_eoe_message">A továbbiakban nem jelenítünk meg alkalmazáson belüli emlékeztetőket, de továbbra is támogathatsz a havi %s összegű felajánlással.</string>
+  <string name="donation_reminders_eoe_give_monthly_button">Adományozás havonta</string>
+  <string name="donation_reminders_eoe_donate_dialog_title">Hogyan szeretnél havonta adományozni?</string>
   <string name="hybrid_search_search_hint">Keress, vagy kérdezz bármit</string>
   <string name="hybrid_search_article_search_hint">Kérdezz a(z) %s szócikkről</string>
   <string name="hybrid_search_suggestion_title">Keresés:</string>
@@ -2452,7 +2488,6 @@
   <string name="home_feed_for_you_screen_empty_ways_to_start">Első lépések:</string>
   <string name="home_feed_for_you_screen_empty_add_interests">Adj hozzá &lt;a href=\"#add_interests\"&gt;érdeklődési köröket&lt;/a&gt;</string>
   <string name="home_feed_for_you_screen_empty_see_community">Nézd meg, mi történik a &lt;a href=\"#community_tab\"&gt;Közösség&lt;/a&gt; lapon</string>
-  <string name="home_feed_update_tooltip1">Új: a „Véletlenszerű szócikk” és a „Közeli helyek” elérhető a „Neked” lapon, a „Tudtad?” pedig a „Közösség” lapon.</string>
   <string name="home_feed_random_title">Véletlen</string>
   <string name="home_feed_random_subtitle">Véletlenszerű szócikk a kíváncsiságod felkeltésére</string>
   <string name="home_feed_random_shuffle_button">Keverés</string>

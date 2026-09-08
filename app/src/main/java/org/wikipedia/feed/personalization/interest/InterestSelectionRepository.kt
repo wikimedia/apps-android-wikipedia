@@ -155,7 +155,7 @@ class InterestSelectionRepository(
                 "articletopic:$topic",
                 limit = 50,
                 sort = "create_timestamp_desc",
-                prop = if (wikiSite.languageCode == "en") "description|pageimages|pageprops|info|extracts|isreviewed" else "description|pageimages|pageprops|info|extracts"
+                prop = if (wikiSite.languageCode == "en") "description|pageimages|pageprops|info|isreviewed" else "description|pageimages|pageprops|info"
             )
                 .query?.pages
                 ?.filter { it.pageProps?.disambiguation == null } // Filter out disambiguation pages
