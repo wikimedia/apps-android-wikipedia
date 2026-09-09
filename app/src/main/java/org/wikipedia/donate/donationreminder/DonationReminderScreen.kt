@@ -11,11 +11,9 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.ime
 import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
@@ -65,7 +63,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.focus.onFocusChanged
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.painterResource
@@ -157,7 +154,7 @@ fun DonationReminderScreen(
             )
         },
         bottomBar = {
-            if (!uiState.isLoading && uiState.error == null && WindowInsets.ime.getBottom(LocalDensity.current) <= 0) {
+            if (!uiState.isLoading && uiState.error == null) {
                 DonationReminderBottomBar(
                     isFromSettings = viewModel.isFromSettings,
                     isDonationRemindersEnabled = uiState.isDonationReminderEnabled,
@@ -369,7 +366,6 @@ fun DonationReminderContent(
     Column(
         modifier = modifier
             .focusable() // Intercepts Android's fallback focus in API 24
-            .imePadding()
             .verticalScroll(rememberScrollState())
             .padding(16.dp)
     ) {
@@ -444,6 +440,7 @@ fun DonationReminderBottomBar(
         modifier = modifier
             .fillMaxWidth()
             .background(WikipediaTheme.colors.paperColor)
+            .imePadding()
             .navigationBarsPadding()
             .padding(horizontal = 16.dp, vertical = 8.dp),
         horizontalAlignment = Alignment.CenterHorizontally
