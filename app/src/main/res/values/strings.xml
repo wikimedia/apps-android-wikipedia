@@ -2404,6 +2404,7 @@
     <string name="donation_reminders_snackbar_modify_button_label">Modify</string>
     <string name="donation_reminders_settings_article_number_selection_label">Articles</string>
     <string name="donation_reminders_settings_custom_amount_label">Custom amount</string>
+    <string name="donation_reminders_settings_update_reminder_button">Update reminder</string>
     <string name="donation_reminders_beta_label">Beta</string>
     <string name="donation_reminders_wrap_up_title">That\'s a wrap on donation reminders</string>
     <string name="donation_reminders_wrap_up_message">Thanks for testing donation reminders based on the articles you read. Your feedback decides if this becomes a permanent way to give on Wikipedia. It only takes a minute, and no donation is required.</string>

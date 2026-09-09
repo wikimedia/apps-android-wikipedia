@@ -611,7 +611,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">%s به نور په ټولو ټولگو کې په افلاين بڼه د لاسرسي وړ نه وي:</string>
   <string name="reading_lists_sync_reminder_title">ټولگه همغږې کړي؟</string>
   <string name="reading_lists_sync_reminder_text">هغه ليکنې چې ټولگو کې خوندي شوې دي، اوس ستاسو د ويکي‌پېډيا گڼون سره همغږي کېدای شي. a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;په دې اړه نور ولولئ&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">ټولگې اوس په ټولو وسيلو کې همغږي کېدای شي. خپل ويکي‌پېډيا گڼون ته ننوځئ او خپلو ټولگو ته د خوندي کېدو اجازه ورکړئ. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;په دې اړه نور مالومات زده کړئ&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">همغږي چارنول</string>
   <string name="reading_list_login_reminder_title">ټولگې همغږي کول</string>
   <string name="reading_lists_login_reminder_text">ټولگې اوس په ټولو وسيلو کې همغږي کېدای شي. خپل ويکي‌پېډيا گڼون ته ننوځئ او خپلو لوستلړنو ته د خوندي کېدو اجازه ورکړئ.</string>
@@ -654,7 +653,6 @@
   <string name="reading_lists_menu_import_list">ټولگه رالېږدول</string>
   <string name="reading_lists_menu_sort_by">اوډون ډول</string>
   <string name="reading_lists_refresh_sync_option">همغږي تاندول</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">ننوتل / نوم‌ليکنه</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">دا ليکنه به اوس په افلاين بڼه د لاسرسي وړ وي.</item>
     <item quantity="other">دا ليکنې به اوس په افلاين بڼه د لاسرسي وړ وي.</item>
@@ -2232,8 +2230,8 @@
   <string name="donation_reminders_settings_title">موږ تاسو ته څنگه يادونه وکړو؟</string>
   <string name="donation_reminders_settings_option_title">د بسپنې يادونې</string>
   <string name="donation_reminders_settings_thank_you_message">ستاسو سخاوت د ويکي‌پېډيا د پرمختگ په ساتلو کې مرسته کوي. د هغو ليکنو د شمېر پربنسټ چې تاسو يې لولئ د بسپنې يادونه جوړه کړئ.</string>
-  <string name="donation_reminders_settings_donation_info">بسپنې د ويکي‌رسنۍ بنسټ او ملگرو ته يې ځي؛ چې په وياړ سره د ويکي‌پېډيا او نورو وړيا پوهنيزو پروژو کوربه‌توب کوي.</string>
-  <string name="donation_reminders_settings_article_frequency_label">کله چې ما لوستل</string>
+  <string name="donation_reminders_settings_donation_info">بسپنې د ويکي‌رسنۍ بنسټ او ملگرو ته يې ځي؛ چې په وياړ سره د ويکي‌پېډيا او د هغې د خورلڼو وېبپاڼو کوربه‌توب کوي.</string>
+  <string name="donation_reminders_settings_article_frequency_label">هر کله چې زه لولم</string>
   <string name="donation_reminders_settings_amount_label">د بسپنې ورکولو يادونه راته وکړه</string>
   <string name="donation_reminders_settings_confirm_btn_label">يادگر تاييدول</string>
   <string name="donation_reminders_settings_about_experiment_btn_label">د دې ازمېښت په‌اړه</string>
@@ -2242,8 +2240,8 @@
   <string name="donation_reminders_settings_warning_max_amount">ډېر تر ډېره %s اجازه لري</string>
   <string name="donation_reminders_settings_option_custom">دوديز...</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">مننه! موږ تاسو ته در په يادوو چې د %2$s لوستلو سره %1$s بسپنه ورکړئ؛ ترڅو دا لړۍ روانه وساتل شي.</string>
-  <string name="donation_reminders_first_milestone_reached_prompt_title">تاسو د %2$s ژمنې کولو راهيسې %1$s لوستی دی</string>
-  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">تاسو نور %1$s لوستې دي</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title">تاسو د %2$s ژمنې کولو راهيسې %1$s لوستی دی!</string>
+  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">تاسو نور %1$s لوستې دي!</string>
   <string name="donation_reminders_prompt_message">تاسو په %1$s د بسپنې يادښت اوڼلی دی؛ ترڅو په هرو %2$s لوستنو %3$s ورکړئ. ايا تاسو چمتو ياست چې د ويکي‌پډيا د ملاتړ لپاره خپله ژمنه پوره کړئ؟</string>
   <string name="donation_reminders_prompt_positive_button">اوس بسپنه ورکول</string>
   <string name="donation_reminders_prompt_negative_button">اوس نه</string>

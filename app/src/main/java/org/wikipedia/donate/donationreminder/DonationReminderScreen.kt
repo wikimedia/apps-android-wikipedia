@@ -4,17 +4,16 @@ import androidx.annotation.DrawableRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.focusable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.ime
 import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
@@ -50,7 +49,6 @@ import androidx.compose.material3.TooltipBox
 import androidx.compose.material3.TooltipDefaults
 import androidx.compose.material3.rememberTooltipState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -65,19 +63,17 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.focus.onFocusChanged
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleEventObserver
-import androidx.lifecycle.compose.LocalLifecycleOwner
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.compose.components.AppButton
@@ -101,29 +97,35 @@ fun DonationReminderScreen(
     onReportClick: () -> Unit
 ) {
     val uiState = viewModel.uiState.collectAsState().value
-    var isNavigatingToExternalUrl by remember { mutableStateOf(false) }
-
-    val lifecycleOwner = LocalLifecycleOwner.current
-    DisposableEffect(lifecycleOwner) {
-        val observer = LifecycleEventObserver { _, event ->
-            when (event) {
-                Lifecycle.Event.ON_PAUSE -> {
-                    if (viewModel.isFromSettings && !isNavigatingToExternalUrl && viewModel.hasValueChanged()) {
-                        viewModel.saveReminder()
-                        val message = DonationReminderHelper.thankYouMessageForSettings()
-                        onConfirmButtonClick(message)
-                    }
-                }
-                Lifecycle.Event.ON_RESUME -> {
-                    isNavigatingToExternalUrl = false
-                }
-                else -> {}
+    var customAmountText by rememberSaveable {
+        mutableStateOf(
+            if (uiState.donationAmount.selectedSource is SelectedSource.Custom) {
+                uiState.donationAmount.selectedValue.toString()
+            } else {
+                ""
             }
-        }
-        lifecycleOwner.lifecycle.addObserver(observer)
+        )
+    }
+    var customErrorMessage by rememberSaveable { mutableStateOf("") }
+    val donateGooglePayMinAmount = stringResource(R.string.donate_gpay_minimum_amount)
+    val donateGooglePayMaxAmount = stringResource(R.string.donate_gpay_maximum_amount)
 
-        onDispose {
-            lifecycleOwner.lifecycle.removeObserver(observer)
+    fun customAmountErrorMessage(inputText: String): String {
+        val parsedCustomAmount = DonateUtil.getAmountFloat(inputText)
+        return when {
+            inputText.isBlank() || parsedCustomAmount < uiState.donationAmount.minimumAmount -> {
+                String.format(
+                    donateGooglePayMinAmount,
+                    uiState.donationAmount.displayFormatter(uiState.donationAmount.minimumAmount)
+                )
+            }
+            parsedCustomAmount >= uiState.donationAmount.maximumAmount -> {
+                String.format(
+                    donateGooglePayMaxAmount,
+                    uiState.donationAmount.displayFormatter(uiState.donationAmount.maximumAmount)
+                )
+            }
+            else -> ""
         }
     }
 
@@ -151,11 +153,36 @@ fun DonationReminderScreen(
                 )
             )
         },
+        bottomBar = {
+            if (!uiState.isLoading && uiState.error == null) {
+                DonationReminderBottomBar(
+                    isFromSettings = viewModel.isFromSettings,
+                    isDonationRemindersEnabled = uiState.isDonationReminderEnabled,
+                    onConfirmButtonClick = {
+                        val isCustomSelected = uiState.donationAmount.selectedSource is SelectedSource.Custom
+                        val customAmountError = if (isCustomSelected) customAmountErrorMessage(customAmountText) else ""
+                        if (customAmountError.isNotEmpty()) {
+                            customErrorMessage = customAmountError
+                        } else {
+                            if (!viewModel.isFromSettings) {
+                                viewModel.toggleDonationReminders(true)
+                            }
+                            viewModel.saveReminder()
+                            val message = DonationReminderHelper.thankYouMessageForSettings()
+                            onConfirmButtonClick(message)
+                        }
+                    },
+                    onFooterButtonClick = {
+                        onFooterButtonClick()
+                    }
+                )
+            }
+        },
         containerColor = WikipediaTheme.colors.paperColor,
     ) { paddingValues ->
         if (uiState.isLoading) {
             Box(
-                modifier = modifier
+                modifier = Modifier
                     .fillMaxSize()
                     .padding(paddingValues)
             ) {
@@ -193,10 +220,20 @@ fun DonationReminderScreen(
                 .fillMaxSize(),
             viewModel = viewModel,
             uiState = uiState,
-            onConfirmButtonClick = onConfirmButtonClick,
-            onFooterButtonClick = {
-                isNavigatingToExternalUrl = true
-                onFooterButtonClick()
+            customErrorMessage = customErrorMessage,
+            onCustomTextChanged = { newValue ->
+                customAmountText = newValue
+                customErrorMessage = customAmountErrorMessage(newValue)
+                if (customErrorMessage != "" && viewModel.isFromSettings) {
+                    // Keep the last valid amount in the field
+                    viewModel.updateDonationAmountState(uiState.donationAmount.selectedValue, uiState.donationAmount.selectedSource)
+                }
+            },
+            onCustomTextFocusedEmpty = {
+                customAmountText = ""
+            },
+            onClearCustomErrorMessage = {
+                customErrorMessage = ""
             }
         )
     }
@@ -319,162 +356,123 @@ fun DonationReminderContent(
     modifier: Modifier = Modifier,
     viewModel: DonationReminderViewModel,
     uiState: DonationReminderUiState,
-    onConfirmButtonClick: (String) -> Unit,
-    onFooterButtonClick: () -> Unit
+    customErrorMessage: String,
+    onCustomTextChanged: (String) -> Unit,
+    onCustomTextFocusedEmpty: () -> Unit,
+    onClearCustomErrorMessage: () -> Unit
 ) {
     val isDonationReminderEnabled = uiState.isDonationReminderEnabled
-    var customAmountText by rememberSaveable {
-        mutableStateOf(
-            if (uiState.donationAmount.selectedSource is SelectedSource.Custom) {
-                uiState.donationAmount.selectedValue.toString()
-            } else {
-                ""
-            }
-        )
-    }
-    var customErrorMessage by rememberSaveable { mutableStateOf("") }
-    val donateGooglePayMinAmount = stringResource(R.string.donate_gpay_minimum_amount)
-    val donateGooglePayMaxAmount = stringResource(R.string.donate_gpay_maximum_amount)
-
-    fun customAmountErrorMessage(inputText: String): String {
-        val parsedCustomAmount = DonateUtil.getAmountFloat(inputText)
-        return when {
-            inputText.isBlank() || parsedCustomAmount < uiState.donationAmount.minimumAmount -> {
-                String.format(
-                    donateGooglePayMinAmount,
-                    uiState.donationAmount.displayFormatter(uiState.donationAmount.minimumAmount)
-                )
-            }
-            parsedCustomAmount >= uiState.donationAmount.maximumAmount -> {
-                String.format(
-                    donateGooglePayMaxAmount,
-                    uiState.donationAmount.displayFormatter(uiState.donationAmount.maximumAmount)
-                )
-            }
-            else -> ""
-        }
-    }
 
     Column(
         modifier = modifier
+            .focusable() // Intercepts Android's fallback focus in API 24
+            .verticalScroll(rememberScrollState())
+            .padding(16.dp)
+    ) {
+        DonationHeader()
+        if (viewModel.isFromSettings) {
+            DonationRemindersSwitch(
+                modifier = Modifier
+                    .noRippleClickable {
+                        viewModel.toggleDonationReminders(!isDonationReminderEnabled)
+                    }
+                    .padding(top = 24.dp),
+                isDonationRemindersEnabled = isDonationReminderEnabled,
+                onCheckedChange = { viewModel.toggleDonationReminders(it) }
+            )
+        }
+        Spacer(modifier = Modifier.height(24.dp))
+        if (uiState.isDonationReminderEnabled || !viewModel.isFromSettings) {
+            ReadFrequencyView(
+                option = uiState.readFrequency,
+                onOptionSelected = { option, source ->
+                    when (option) {
+                        is OptionItem.Preset -> {
+                            viewModel.updateReadFrequencyState(option.value, source)
+                        }
+
+                        is OptionItem.Custom -> { }
+                    }
+                }
+            )
+            Spacer(modifier = Modifier.height(24.dp))
+            DonationAmountView(
+                option = uiState.donationAmount,
+                currencySymbol = DonateUtil.currencySymbol,
+                customErrorMessage = customErrorMessage,
+                onCustomTextChanged = onCustomTextChanged,
+                onCustomTextFocusedEmpty = onCustomTextFocusedEmpty,
+                onOptionSelected = { option, source ->
+                    when (option) {
+                        is OptionItem.Preset -> {
+                            onClearCustomErrorMessage()
+                            viewModel.updateDonationAmountState(option.value, source)
+                        }
+
+                        is OptionItem.Custom -> {
+                            if (option.displayText.isBlank() && viewModel.isFromSettings) {
+                                // Keep previous amount value but switch selected source to custom.
+                                viewModel.updateDonationAmountState(
+                                    uiState.donationAmount.selectedValue,
+                                    source
+                                )
+                                return@DonationAmountView
+                            }
+                            val customValue = DonateUtil.getAmountFloat(option.displayText)
+                            viewModel.updateDonationAmountState(customValue, source)
+                        }
+                    }
+                }
+            )
+        }
+    }
+}
+
+@Composable
+fun DonationReminderBottomBar(
+    modifier: Modifier = Modifier,
+    isFromSettings: Boolean,
+    isDonationRemindersEnabled: Boolean,
+    onConfirmButtonClick: () -> Unit,
+    onFooterButtonClick: () -> Unit
+) {
+    Column(
+        modifier = modifier
+            .fillMaxWidth()
+            .background(WikipediaTheme.colors.paperColor)
             .imePadding()
             .navigationBarsPadding()
+            .padding(horizontal = 16.dp, vertical = 8.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Column(
-            modifier = Modifier
-                .verticalScroll(rememberScrollState())
-                .weight(1f)
-                .padding(16.dp)
-        ) {
-            DonationHeader()
-            if (viewModel.isFromSettings) {
-                DonationRemindersSwitch(
-                    modifier = Modifier
-                        .noRippleClickable {
-                            viewModel.toggleDonationReminders(!isDonationReminderEnabled)
-                        }
-                        .padding(top = 24.dp),
-                    isDonationRemindersEnabled = isDonationReminderEnabled,
-                    onCheckedChange = { viewModel.toggleDonationReminders(it) }
-                )
-            }
-            Spacer(modifier = Modifier.height(24.dp))
-            if (uiState.isDonationReminderEnabled || !viewModel.isFromSettings) {
-                ReadFrequencyView(
-                    option = uiState.readFrequency,
-                    onOptionSelected = { option, source ->
-                        when (option) {
-                            is OptionItem.Preset -> {
-                                viewModel.updateReadFrequencyState(option.value, source)
-                            }
-
-                            is OptionItem.Custom -> { }
-                        }
-                    }
-                )
-                Spacer(modifier = Modifier.height(24.dp))
-                DonationAmountView(
-                    option = uiState.donationAmount,
-                    currencySymbol = DonateUtil.currencySymbol,
-                    customErrorMessage = customErrorMessage,
-                    onCustomTextChanged = { newValue ->
-                        customAmountText = newValue
-                        customErrorMessage = customAmountErrorMessage(newValue)
-                        if (customErrorMessage != "" && viewModel.isFromSettings) {
-                            // Keep the last valid amount in the field
-                            viewModel.updateDonationAmountState(uiState.donationAmount.selectedValue, uiState.donationAmount.selectedSource)
-                        }
-                    },
-                    onCustomTextFocusedEmpty = {
-                        customAmountText = ""
-                    },
-                    onOptionSelected = { option, source ->
-                        when (option) {
-                            is OptionItem.Preset -> {
-                                customErrorMessage = ""
-                                viewModel.updateDonationAmountState(option.value, source)
-                            }
-
-                            is OptionItem.Custom -> {
-                                if (option.displayText.isBlank() && viewModel.isFromSettings) {
-                                    // Keep previous amount value but switch selected source to custom.
-                                    viewModel.updateDonationAmountState(
-                                        uiState.donationAmount.selectedValue,
-                                        source
-                                    )
-                                    return@DonationAmountView
-                                }
-                                val customValue = DonateUtil.getAmountFloat(option.displayText)
-                                viewModel.updateDonationAmountState(customValue, source)
-                            }
-                        }
-                    }
-                )
-            }
-        }
-        if (WindowInsets.ime.getBottom(LocalDensity.current) <= 0) {
-            if (uiState.isDonationReminderEnabled || !viewModel.isFromSettings) {
-                if (!viewModel.isFromSettings) {
-                    AppButton(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(horizontal = 16.dp)
-                            .padding(top = 16.dp),
-                        onClick = {
-                            val isCustomSelected = uiState.donationAmount.selectedSource is SelectedSource.Custom
-                            if (isCustomSelected) {
-                                val customAmountError = customAmountErrorMessage(customAmountText)
-                                if (customAmountError.isNotEmpty()) {
-                                    customErrorMessage = customAmountError
-                                    return@AppButton
-                                }
-                            }
-                            viewModel.toggleDonationReminders(true)
-                            viewModel.saveReminder()
-                            val message = DonationReminderHelper.thankYouMessageForSettings()
-                            onConfirmButtonClick(message)
-                        },
-                        content = {
-                            Text(
-                                stringResource(R.string.donation_reminders_settings_confirm_btn_label)
-                            )
-                        }
+        if (!isFromSettings) {
+            AppButton(
+                modifier = Modifier.fillMaxWidth(),
+                onClick = onConfirmButtonClick,
+                content = {
+                    Text(
+                        stringResource(R.string.donation_reminders_settings_confirm_btn_label)
                     )
                 }
-            }
+            )
 
-            val footerButtonText = if (viewModel.isFromSettings) stringResource(R.string.donation_reminders_settings_about_experiment_btn_label)
-            else stringResource(R.string.donation_reminders_settings_no_thanks_btn_label)
             TextButton(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp)
-                    .padding(bottom = 16.dp),
+                modifier = Modifier.fillMaxWidth(),
                 onClick = onFooterButtonClick,
                 content = {
                     Text(
-                        text = footerButtonText,
+                        text = stringResource(R.string.donation_reminders_settings_no_thanks_btn_label),
                         color = WikipediaTheme.colors.progressiveColor
+                    )
+                }
+            )
+        } else if (isDonationRemindersEnabled) {
+            AppButton(
+                modifier = Modifier.fillMaxWidth(),
+                onClick = onConfirmButtonClick,
+                content = {
+                    Text(
+                        stringResource(R.string.donation_reminders_settings_update_reminder_button)
                     )
                 }
             )
@@ -504,6 +502,7 @@ fun DonationAmountView(
     var selectedOption by remember { mutableStateOf(initialSelectedOption) }
     var textFieldValue by remember { mutableStateOf(initialCustomText) }
     val focusManager = LocalFocusManager.current
+    val keyboardController = LocalSoftwareKeyboardController.current
     val focusRequester = remember { FocusRequester() }
     val bringIntoViewRequester = remember { BringIntoViewRequester() }
     val coroutineScope = rememberCoroutineScope()
@@ -529,6 +528,7 @@ fun DonationAmountView(
             textFieldValue = ""
             onOptionSelected(option, source)
             focusManager.clearFocus()
+            keyboardController?.hide()
         },
     )
 
@@ -695,20 +695,19 @@ fun <T : Number> OptionSelector(
                 if (currentOption is OptionItem.Preset) {
                     val isSelected = (option.selectedSource is SelectedSource.Preset) &&
                             (option.selectedSource.key == index)
-
                     Button(
                         colors = ButtonDefaults.buttonColors(
                             containerColor = if (isSelected) WikipediaTheme.colors.progressiveColor
                             else WikipediaTheme.colors.backgroundColor
                         ),
                         onClick = { onOptionSelected(currentOption, SelectedSource.Preset(index)) },
-                        modifier = Modifier.weight(1f)
+                        modifier = Modifier.weight(1f, fill = false)
                     ) {
                         Text(
+                            modifier = Modifier.fillMaxWidth(),
                             text = currentOption.displayText,
-                            maxLines = 1,
-                            color = if (isSelected) WikipediaTheme.colors.paperColor
-                            else WikipediaTheme.colors.primaryColor,
+                            textAlign = TextAlign.Center,
+                            color = if (isSelected) WikipediaTheme.colors.paperColor else WikipediaTheme.colors.primaryColor,
                             style = MaterialTheme.typography.titleMedium
                         )
                     }
@@ -716,6 +715,7 @@ fun <T : Number> OptionSelector(
             }
             if (showArticleLabel) {
                 Text(
+                    modifier = Modifier.weight(1f),
                     text = stringResource(R.string.donation_reminders_settings_article_number_selection_label),
                     style = MaterialTheme.typography.bodyLarge,
                     color = WikipediaTheme.colors.primaryColor,
@@ -830,6 +830,36 @@ private fun DonationReminderAppBarPreview() {
                     onClick = {}
                 )
             )
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun DonationReminderBottomBarPreview() {
+    BaseTheme(
+        currentTheme = Theme.LIGHT
+    ) {
+        DonationReminderBottomBar(
+            isFromSettings = false,
+            isDonationRemindersEnabled = true,
+            onConfirmButtonClick = {},
+            onFooterButtonClick = {}
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun DonationReminderBottomBarSettingsPreview() {
+    BaseTheme(
+        currentTheme = Theme.LIGHT
+    ) {
+        DonationReminderBottomBar(
+            isFromSettings = true,
+            isDonationRemindersEnabled = true,
+            onConfirmButtonClick = {},
+            onFooterButtonClick = {}
         )
     }
 }

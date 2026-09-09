@@ -441,7 +441,6 @@
   <string name="reading_lists_menu_import_list" fuzzy="true">Uvezi listu</string>
   <string name="reading_lists_menu_sort_by">Sortiraj po</string>
   <string name="reading_lists_refresh_sync_option">Osvježi sinhronizaciju</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Prijavi me / izradi račun</string>
   <string name="reading_list_toast_last_sync" fuzzy="true">Liste za čitanje su sinhronizirane</string>
   <string name="reading_list_menu_last_sync">Posljednja sinhronizacija: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">U redu</string>

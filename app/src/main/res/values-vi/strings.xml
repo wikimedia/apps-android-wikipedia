@@ -116,16 +116,16 @@
   <string name="menu_page_watched">Đã theo dõi</string>
   <string name="edit_section_find_in_page">Tìm trong trang</string>
   <string name="menu_page_font_and_theme">Phông chữ và thiết kế</string>
-  <string name="menu_page_add_to_list" fuzzy="true">Thêm vào danh sách đọc</string>
+  <string name="menu_page_add_to_list">Thêm vào bộ sưu tập</string>
   <string name="menu_page_add_to_default_list">Lưu</string>
-  <string name="feed_card_add_to_list" fuzzy="true">Thêm vào danh sách đọc</string>
+  <string name="feed_card_add_to_list">Thêm vào bộ sưu tập</string>
   <string name="feed_card_add_to_default_list">Lưu</string>
   <string name="menu_page_share">Chia sẻ liên kết</string>
   <string name="menu_article_share">Chia sẻ bài</string>
   <string name="menu_page_article_share">Chia sẻ</string>
   <string name="menu_page_open_a_new_tab">Mở một thẻ mới</string>
   <string name="menu_page_new_tab">Tab mới</string>
-  <string name="menu_page_reading_lists" fuzzy="true">Danh sách đọc</string>
+  <string name="menu_page_reading_lists">Bộ sưu tập</string>
   <string name="menu_page_recently_viewed">Đã xem gần đây</string>
   <string name="menu_page_archive">Lưu trữ</string>
   <string name="menu_long_press_open_page">Mở</string>
@@ -168,7 +168,9 @@
   <string name="menu_show_toc">Mục lục</string>
   <string name="search_no_results_found">Không tìm thấy kết quả</string>
   <string name="search_reading_list_no_results">Không tìm thấy kết quả trong “%s”</string>
-  <string name="search_reading_lists_no_results" fuzzy="true">Không tìm thấy kết quả trong danh sách đọc</string>
+  <string name="search_reading_lists_no_results">Không tìm thấy kết quả nào trong bộ sưu tập</string>
+  <string name="search_all_articles_no_results">Không tìm thấy kết quả nào trong toàn bộ bài viết</string>
+  <string name="search_collections_no_results">Không tìm thấy kết quả nào trong bộ sưu tập</string>
   <string name="search_history_no_results">Không tìm thấy kết quả trong lịch sử</string>
   <string name="edit_section_captcha_message">Để giúp tránh các sửa đổi spam tự động, xin vui lòng nhập các từ xuất hiện ở dưới</string>
   <string name="edit_section_captcha_request_an_account_message">Không đọc được các chữ trong hình này? &lt;a href=\"https://vi.wikipedia.org/wiki/Wikipedia:Yêu_cầu_tạo_tài_khoản\"&gt;Yêu cầu tạo tài khoản&lt;/a&gt;</string>
@@ -248,12 +250,12 @@
   <string name="preferences_heading_syncing">Đang đồng bộ hóa</string>
   <string name="preferences_heading_data_usage">Sử dụng dữ liệu mạng</string>
   <string name="preferences_heading_experimental">Thử nghiệm</string>
-  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Đồng bộ hóa danh sách đọc</string>
-  <string name="preference_title_download_reading_list_articles" fuzzy="true">Tải về bài trong danh sách đọc</string>
-  <string name="preference_summary_sync_reading_lists" fuzzy="true">Đồng bộ hóa danh sách đọc giữa các thiết bị khác nhau bằng cách lưu chúng vào tài khoản Wikipedia</string>
-  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">Đồng bộ hóa danh sách đọc giữa các thiết bị khác nhau bằng cách lưu chúng vào tài khoản Wikipedia “%s”</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">Xóa danh sách đọc đã được đồng bộ từ “%s”?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">Điều này sẽ xóa bỏ hoàn toàn các danh sách đọc đã được đồng bộ trước đó từ các thiết bị khác. Bạn thật sự muốn xóa các danh sách đã đồng bộ từ tài khoản “%s” chứ?</string>
+  <string name="preference_title_sync_reading_lists_from_account">Đồng bộ hóa bộ sưu tập</string>
+  <string name="preference_title_download_reading_list_articles">Tải về bài viết trong bộ sưu tập</string>
+  <string name="preference_summary_sync_reading_lists">Đồng bộ hóa bộ sưu tập giữa các thiết bị khác nhau bằng cách lưu chúng vào tài khoản Wikipedia</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Đồng bộ hóa bộ sưu tập giữa các thiết bị khác nhau bằng cách lưu chúng vào tài khoản Wikipedia “%s”</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Xóa bộ sưu tập đã được đồng bộ từ “%s”?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Điều này sẽ xóa bỏ hoàn toàn các bộ sưu tập đã được đồng bộ trước đó từ các thiết bị khác. Bạn thật sự muốn xóa các bộ sưu tập đã đồng bộ từ tài khoản “%s” chứ?</string>
   <string name="preference_title_auto_upload_crash_reports">Gửi báo cáo sự cố</string>
   <string name="preference_summary_auto_upload_crash_reports">Cho phép ứng dụng tự động gửi báo cáo sự cố đến một nhà cung cấp dịch vụ bên thứ ba, để chúng tôi có thể xem xét sự cố và sửa lỗi nhanh chóng và dễ dàng hơn.</string>
   <string name="editing_error_spamblacklist">Đã tìm thấy các liên kết đến tên miền bị cấm (%s). Xin vui lòng xóa các liên kết này và thử lại.</string>
@@ -321,6 +323,10 @@
   <string name="edit_notices_please_read">Vui lòng đọc trước khi sửa đổi</string>
   <string name="edit_notices_show_auto">Tự động hiển thị thông báo sửa đổi</string>
   <string name="edit_notices_tooltip">Chạm vào nút này để xem các thông báo sửa đổi của bài viết.</string>
+  <string name="editor_select_dialog_title">Chọn cách chỉnh sửa</string>
+  <string name="editor_select_dialog_ve_title">Trình soạn thảo trực quan</string>
+  <string name="editor_select_dialog_continue">Tiếp tục</string>
+  <string name="editor_select_save_btn_settings_screen">Lưu</string>
   <string name="find_next">Tìm tiếp</string>
   <string name="find_previous">Tìm trước</string>
   <string name="find_first_occurence">Đây là lần đầu tiên</string>
@@ -392,8 +398,8 @@
   <string name="unnamed_tab_closed">Đã đóng thẻ.</string>
   <string name="tab_item_closed">Đã đóng %s.</string>
   <string name="all_tab_items_closed">Đã đóng tất cả thẻ.</string>
-  <string name="tool_tip_bookmark_icon_title" fuzzy="true">Thêm vào danh sách đọc</string>
-  <string name="tool_tip_bookmark_icon_text" fuzzy="true">Chạm vào biểu trưng dấu trang để lưu bài viết vào danh sách đọc.</string>
+  <string name="tool_tip_bookmark_icon_title">Thêm vào bộ sưu tập</string>
+  <string name="tool_tip_bookmark_icon_text">Chạm vào biểu tượng dấu trang để lưu bài viết vào bộ sưu tập.</string>
   <string name="page_view_in_browser">Xem trang trong trình duyệt</string>
   <string name="tool_tip_toc_title">Truy cập nhanh mục lục</string>
   <string name="tool_tip_toc_text">Bây giờ bạn có thể vuốt sang trái để mở mục lục, đồng thời chạm và kéo vào nút cuộn này để nhanh chóng chuyển đến các phần khác nhau của bài viết.</string>
@@ -406,9 +412,9 @@
   <string name="button_continue_to_talk_page">Xem trang thảo luận</string>
   <string name="button_continue_to_disambiguation">Xem các trang có liên quan.</string>
   <string name="link_preview_disambiguation_description">Tên trang này ứng với nhiều trang.</string>
-  <string name="button_add_to_reading_list" fuzzy="true">Thêm vào danh sách đọc</string>
+  <string name="button_add_to_reading_list">Thêm vào bộ sưu tập</string>
   <string name="page_offline_notice_cannot_load_while_offline">Không thể tải bài viết khi ngoại tuyến</string>
-  <string name="page_offline_notice_add_to_reading_list" fuzzy="true">Gợi ý: Thêm bài viết vào danh sách độc và nó sẽ được tải xuống khi bạn trưc tuyến.</string>
+  <string name="page_offline_notice_add_to_reading_list">Gợi ý: Thêm bài viết vào một bộ sưu tập và bài viết sẽ được tải xuống khi bạn quay trở lại.</string>
   <string name="page_offline_notice_last_date">Bạn đang đọc phiên bản ngoại tuyến của bài này được lưu vào %s.</string>
   <string name="redirected_from_snackbar">Đổi hướng từ “%s”</string>
   <string name="button_get_directions">Chỉ đường</string>
@@ -516,17 +522,17 @@
   <string name="editing_monospace_font_label">Sử dụng phông chữ monospace</string>
   <string name="editing_typing_suggestions">Hiển thị gợi ý nhập</string>
   <string name="nav_item_saved">Đã lưu</string>
-  <string name="reading_list_save_to" fuzzy="true">Lưu vào danh sách đọc</string>
-  <string name="reading_list_move_to" fuzzy="true">Di chuyển tới danh sách đọc.</string>
+  <string name="reading_list_save_to">Thêm vào bộ sưu tập</string>
+  <string name="reading_list_move_to">Chuyển vào bộ sưu tập</string>
   <string name="reading_list_create_new">Tạo mới</string>
-  <string name="reading_list_title_exists" fuzzy="true">Danh sách đọc “%s” đã tồn tại.</string>
+  <string name="reading_list_title_exists">Bộ sưu tập \"%s\" đã tồn tại.</string>
   <string name="reading_list_article_added_to_named">Đã thêm %1$s vào %2$s.</string>
-  <string name="reading_list_article_added_to_default_list" fuzzy="true">Đã lưu %s. Bạn có muốn thêm vào danh sách không?</string>
+  <string name="reading_list_article_added_to_default_list">Đã lưu %s. Bạn có muốn thêm vào bộ sưu tập không?</string>
   <string name="reading_list_article_moved_to_named">Đã thêm %1$s vào %2$s.</string>
   <string name="reading_list_article_already_exists_message">Rất tốt! %1$s đã chứa %2$s rồi.</string>
   <string name="reading_list_articles_already_exist_message">Rất tốt! %s đã chứa tất cả bài viết rồi.</string>
-  <string name="reading_list_added_view_button" fuzzy="true">Xem danh sách</string>
-  <string name="reading_list_add_to_list_button" fuzzy="true">Thêm vào danh sách</string>
+  <string name="reading_list_added_view_button">Xem bộ sưu tập</string>
+  <string name="reading_list_add_to_list_button">Thêm vào bộ sưu tập</string>
   <plurals name="format_reading_list_statistical_summary_without_size">
     <item quantity="other">%d bài</item>
   </plurals>
@@ -548,7 +554,7 @@
   <string name="reading_list_sort_by_recent_desc">Sắp xếp theo ngày được thêm (cũ nhất)</string>
   <string name="reading_list_sort_by_created">Sắp xếp theo ngày được tạo (mới nhất)</string>
   <string name="reading_list_sort_by_created_desc">Sắp xếp theo ngày được tạo (cũ nhất)</string>
-  <string name="reading_list_menu_delete" fuzzy="true">Xóa danh sách</string>
+  <string name="reading_list_menu_delete">Xóa bộ sưu tập</string>
   <string name="reading_list_menu_export" fuzzy="true">Xuất danh sách</string>
   <string name="reading_list_menu_select">Chọn</string>
   <string name="reading_list_menu_unselect">Bỏ chọn</string>
@@ -558,9 +564,9 @@
   <string name="reading_list_action_menu_save_for_offline">Lưu để đọc ngoại tuyến</string>
   <string name="reading_list_action_menu_remove_all_from_offline">Xóa hết khỏi bộ nhớ ngoại tuyến</string>
   <string name="reading_list_action_menu_save_all_for_offline">Lưu hết để đọc ngoại tuyến</string>
-  <string name="reading_list_action_menu_add_to_another_list" fuzzy="true">Thêm vào danh sách khác</string>
-  <string name="reading_list_action_menu_move_to_another_list" fuzzy="true">Thêm vào danh sách khác.</string>
-  <string name="reading_list_name_sample" fuzzy="true">Danh sách đọc của tôi</string>
+  <string name="reading_list_action_menu_add_to_another_list">Thêm vào bộ sưu tập khác</string>
+  <string name="reading_list_action_menu_move_to_another_list">Chuyển vào bộ sưu tập khác</string>
+  <string name="reading_list_name_sample">Bộ sưu tập của tôi</string>
   <string name="reading_list_name_hint" fuzzy="true">Tên của danh sách này</string>
   <string name="reading_list_description_hint">Miêu tả (tùy chọn)</string>
   <string name="reading_list_item_deleted" fuzzy="true">Đã xóa %s khỏi danh sách</string>
@@ -591,7 +597,10 @@
   <string name="reading_list_article_make_offline">Làm bài viết này khả dụng ngoại tuyến</string>
   <string name="reading_list_add_to_other_list" fuzzy="true">Thêm vào danh sách đọc khác</string>
   <string name="reading_list_move_to_other_list" fuzzy="true">Thêm vào danh sách đọc khác.</string>
-  <string name="reading_list_move_from_to_other_list" fuzzy="true">Di chuyển từ %s đến danh sách đọc khác.</string>
+  <plurals name="reading_list_in_collections">
+    <item quantity="other">Trong %d bộ sưu tập</item>
+  </plurals>
+  <string name="reading_list_move_from_to_other_list">Di chuyển từ %s sang bộ sưu tập khác</string>
   <string name="reading_list_remove_from_list">Xóa khỏi %s</string>
   <string name="reading_list_remove_from_lists" fuzzy="true">Xóa khỏi các danh sách đọc</string>
   <string name="reading_list_select_item">Chọn</string>
@@ -600,7 +609,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s hiện không còn có sẵn ngoại tuyến cho danh sách đọc nào:</string>
   <string name="reading_lists_sync_reminder_title" fuzzy="true">Bật đồng bộ hóa danh sách đọc?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">Các bài viết được lưu vào danh sách đọc bây giờ đã có thể được đồng bộ hóa vào tài khoản Wikipedia của bạn. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Tìm hiểu thêm&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Danh sách đọc có thể được đồng bộ hóa. Đăng nhập tài khoản Wikipedia của bạn, chắc chắn rằng danh sách đọc của riêng bạn đã được lưu. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Bật đồng bộ hóa</string>
   <string name="reading_list_login_reminder_title" fuzzy="true">Đồng bộ hóa các danh sách đọc</string>
   <string name="reading_lists_login_reminder_text" fuzzy="true">Danh sách đọc bây giờ đã có thể được đồng bộ hóa xuyên suốt các thiết bị. Hãy đăng nhập vào tài khoản Wikipedia của bạn để cho phép các danh sách của bạn được lưu.</string>
@@ -642,7 +650,6 @@
   <string name="reading_lists_menu_import_list" fuzzy="true">Nhập danh sách</string>
   <string name="reading_lists_menu_sort_by">Sắp xếp theo</string>
   <string name="reading_lists_refresh_sync_option">Làm mới đồng bộ hóa</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Đăng nhập / Đăng ký</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Bài này hiện có sẵn ngoại tuyến.</item>
     <item quantity="other">Các bài này hiện có sẵn ngoại tuyến.</item>
@@ -1834,7 +1841,7 @@
   <string name="recommended_reading_list_settings_notifications_title">Thông báo</string>
   <string name="donation_settings_section_header">Khoản quyên góp</string>
   <string name="donation_reminders_settings_title" fuzzy="true">Lời nhắc quyên góp</string>
-  <string name="donation_reminders_settings_article_frequency_label">Khi tôi đọc</string>
+  <string name="donation_reminders_settings_article_frequency_label" fuzzy="true">Khi tôi đọc</string>
   <string name="donation_reminders_settings_amount_label">Nhắc tôi quyên góp</string>
   <string name="donation_reminders_settings_confirm_btn_label">Xác nhận lời nhắc</string>
   <string name="donation_reminders_settings_about_experiment_btn_label">Về thử nghiệm này</string>
