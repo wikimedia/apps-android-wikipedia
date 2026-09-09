@@ -7,9 +7,11 @@ import androidx.compose.ui.util.fastJoinToString
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.coroutineScope
@@ -30,6 +32,8 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.transformLatest
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
 import kotlinx.serialization.Serializable
 import org.wikipedia.Constants
@@ -63,6 +67,8 @@ import org.wikipedia.feed.model.RandomCard
 import org.wikipedia.feed.model.SeeAllRecommendationCard
 import org.wikipedia.feed.model.TopReadCard
 import org.wikipedia.feed.model.WikiGameCard
+import org.wikipedia.feed.personalization.db.entity.InterestArticle
+import org.wikipedia.feed.personalization.db.entity.InterestTopic
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
 import org.wikipedia.feed.personalization.interest.InterestSelectionRepository
 import org.wikipedia.feed.wikigames.WikiGame
@@ -95,6 +101,13 @@ private const val MAX_STOP_TIMEOUT_MILLIS = 5000L
 private const val MAX_DISCOVER_ARTICLE_CARDS = 4
 private const val PLACES_ARTICLES_REQUEST_LIMIT = 10
 private const val PLACES_SEARCH_RADIUS_METERS = 10000
+private const val MAX_CARDS_PER_MODULE = 4
+private const val MAX_INTEREST_TOPIC_MODULES = 5
+private const val MAX_INTEREST_ARTICLE_MODULES = 5
+private const val MAX_NEW_WITHIN_INTEREST_TOPICS = 4
+private const val MORE_LIKE_REQUEST_ITEMS = 10
+
+private fun slotKeyOf(moduleKey: String, age: Int, index: Int) = "$moduleKey-$age-$index"
 
 @Serializable
 sealed class ForYouModule {
@@ -104,6 +117,29 @@ sealed class ForYouModule {
 
     abstract fun withCards(cards: List<ForYouCard>): ForYouModule
     abstract fun moduleKey(): String
+
+    /**
+     * Identifies the slot that this module occupies in the "For you" feed, and stays the same whether the
+     * slot is still an unloaded [Placeholder] or the module that eventually replaces it. Used both as the
+     * list key in the UI and as the cache key of an already-loaded module.
+     */
+    val slotKey get() = slotKeyOf(moduleKey(), age, index)
+
+    /**
+     * Stands in for a module whose contents haven't been fetched yet. The feed is laid out entirely as
+     * placeholders as soon as the day's plan of modules is known, and each one is swapped for its real
+     * module (or removed, if the module turns out to be empty) when the user scrolls near it.
+     */
+    data class Placeholder(
+        override val age: Int,
+        override val index: Int,
+        val forModuleKey: String,
+        val error: Throwable? = null,
+        override val cards: List<ForYouCard> = emptyList()
+    ) : ForYouModule() {
+        override fun withCards(cards: List<ForYouCard>): ForYouModule = this
+        override fun moduleKey(): String = forModuleKey
+    }
 
     @Serializable
     data class BasedOnInterest(
@@ -191,10 +227,87 @@ sealed class ForYouModule {
     }
 }
 
+/**
+ * Describes a single "For you" module that is yet to be fetched. The plan of requests for the current day
+ * is built up front from local data only (no network), which lets the feed lay out a placeholder for every
+ * module it will eventually contain, while the contents of each module are fetched one at a time.
+ */
+@Serializable
+sealed class ForYouModuleRequest {
+    abstract val age: Int
+    abstract val index: Int
+    abstract val moduleType: ForYouModuleType
+
+    val slotKey get() = slotKeyOf(moduleType.name, age, index)
+
+    @Serializable
+    data class TopicInterest(
+        override val age: Int,
+        override val index: Int,
+        val topic: InterestTopic
+    ) : ForYouModuleRequest() {
+        override val moduleType get() = ForYouModuleType.BASED_ON_INTEREST
+    }
+
+    @Serializable
+    data class ArticleInterest(
+        override val age: Int,
+        override val index: Int,
+        val article: InterestArticle
+    ) : ForYouModuleRequest() {
+        override val moduleType get() = ForYouModuleType.BASED_ON_INTEREST
+    }
+
+    @Serializable
+    data class NewWithinInterest(
+        override val age: Int,
+        override val index: Int,
+        val topics: List<InterestTopic>
+    ) : ForYouModuleRequest() {
+        override val moduleType get() = ForYouModuleType.NEW_WITHIN_INTEREST
+    }
+
+    @Serializable
+    data class BecauseYouRead(
+        override val age: Int,
+        override val index: Int
+    ) : ForYouModuleRequest() {
+        override val moduleType get() = ForYouModuleType.BECAUSE_YOU_READ
+    }
+
+    @Serializable
+    data class ContinueReading(
+        override val age: Int,
+        override val index: Int
+    ) : ForYouModuleRequest() {
+        override val moduleType get() = ForYouModuleType.CONTINUE_READING
+    }
+
+    @Serializable
+    data class Random(
+        override val age: Int,
+        override val index: Int
+    ) : ForYouModuleRequest() {
+        override val moduleType get() = ForYouModuleType.RANDOM
+    }
+}
+
+/**
+ * The day's plan of modules for a single language, together with whatever has been fetched so far.
+ * [emptySlotKeys] records the slots that resolved to no content, so that they aren't requested again
+ * on the same day.
+ */
+@Serializable
+data class ForYouLanguageCollection(
+    val plan: List<ForYouModuleRequest> = emptyList(),
+    val modules: List<ForYouModule> = emptyList(),
+    val emptySlotKeys: Set<String> = emptySet()
+)
+
 @Serializable
 class ForYouCollectionSaved(
     @Serializable(with = LocalDateTimeSerializer::class) val dateTime: LocalDateTime? = null,
-    val modulesPerLanguage: Map<String, List<ForYouModule>> = emptyMap()
+    val collectionPerLanguage: Map<String, ForYouLanguageCollection> = emptyMap()
 )
 
 data class CommunityContentState(
@@ -390,6 +503,20 @@ class HomeViewModel : ViewModel() {
     // Batch counter for "For you" recommendations.
     private var forYouBatchIndex = 0
 
+    // The day's plan of "For you" modules, keyed by slot key. Each entry is fetched lazily, when the user
+    // scrolls to the module that occupies its slot.
+    private var forYouPlan = emptyMap<String, ForYouModuleRequest>()
+
+    // Slots that are being fetched right now, so that a slot is never requested twice concurrently.
+    private val forYouSlotJobs = mutableMapOf<String, Job>()
+
+    // In-memory mirror of the modules cached in Prefs, updated as each module resolves.
+    private var forYouCache = ForYouCollectionSaved()
+    private val forYouCacheMutex = Mutex()
+
+    // Start of the current load, used to report how long it takes the first module to arrive.
+    private var forYouLoadStartMillis = 0L
+
     private val _tabsState = MutableStateFlow(TabsState(WikipediaApp.instance.tabCount, pulse = false))
     val tabsState = _tabsState.asStateFlow()
 
@@ -460,6 +587,9 @@ class HomeViewModel : ViewModel() {
 
     fun refreshForYouContent() {
         forYouBatchIndex = 0
+        forYouPlan = emptyMap()
+        forYouSlotJobs.values.forEach { it.cancel() }
+        forYouSlotJobs.clear()
         _forYouState.update { ForYouContentState() }
         loadForYouContent()
     }
@@ -565,8 +695,11 @@ class HomeViewModel : ViewModel() {
     }
 
     /**
-     * Loads the next batch of personalized recommendations for the "For you" tab.
-     * Safe to call as a retry — the batch index only advances after a successful fetch.
+     * Lays out the next batch of personalized recommendations for the "For you" tab: it decides which
+     * modules the feed will contain, without fetching any of their contents. Modules that were already
+     * fetched earlier today are restored from the cache; the rest become placeholders that are filled in
+     * by [loadForYouModules] as the user scrolls to them.
+     * Safe to call as a retry — the batch index only advances after a successful build.
      */
     fun loadForYouContent() {
         if (_forYouState.value.isInitialLoading || _forYouState.value.isLoadingMore) return
@@ -580,10 +713,33 @@ class HomeViewModel : ViewModel() {
                 error = null
             )
 
-            val newModules = fetchForYouModules(forYouBatchIndex)
+            val age = forYouBatchIndex
+            val langCode = wikiSite.value.languageCode
+            val collection = restoreForYouCache(langCode)
+            val cachedPlan = collection.plan.filter { it.age == age }
+
+            val plan: List<ForYouModuleRequest>
+            if (cachedPlan.isNotEmpty()) {
+                L.d("Loading modules plan from cache...")
+                plan = cachedPlan
+            } else {
+                L.d("Building modules plan...")
+                plan = buildForYouPlan(age, langCode)
+                updateForYouCache(langCode) { it.copy(plan = it.plan + plan) }
+                // Only a plan built from scratch measures how long the feed takes to fetch from the network.
+                forYouLoadStartMillis = System.currentTimeMillis()
+            }
+
+            val cachedModules = collection.modules.associateBy { it.slotKey }
+            val newModules = plan.mapNotNull { request ->
+                if (collection.emptySlotKeys.contains(request.slotKey)) null
+                else cachedModules[request.slotKey]
+                    ?: ForYouModule.Placeholder(request.age, request.index, request.moduleType.name)
+            }
 
             // Advance batch index only after success.
-            forYouBatchIndex++
+            forYouBatchIndex = age + 1
+            forYouPlan = forYouPlan + plan.associateBy { it.slotKey }
 
             _forYouState.value = _forYouState.value.copy(
                 modules = _forYouState.value.modules + newModules,
@@ -591,6 +747,57 @@ class HomeViewModel : ViewModel() {
                 isLoadingMore = false,
                 error = null
             )
+        }
+    }
+
+    /**
+     * Fetches the contents of the given "For you" module slots, if they haven't been fetched already.
+     * The tab calls this with the module currently in view plus the next one, so that only what the user
+     * is about to see is ever requested.
+     * A slot whose previous attempt failed is only retried when [retry] is set, so that the failed module
+     * keeps showing its error until the user asks for it again.
+     */
+    fun loadForYouModules(slotKeys: List<String>, retry: Boolean = false) {
+        slotKeys.forEach { slotKey ->
+            val request = forYouPlan[slotKey] ?: return@forEach
+            val placeholder = _forYouState.value.modules
+                .find { it.slotKey == slotKey } as? ForYouModule.Placeholder ?: return@forEach
+            if (placeholder.error != null && !retry) return@forEach
+            if (forYouSlotJobs.containsKey(slotKey)) return@forEach
+
+            if (placeholder.error != null) {
+                replaceForYouModule(slotKey) { placeholder.copy(error = null) }
+            }
+            forYouSlotJobs[slotKey] = viewModelScope.launch { loadForYouModule(request) }
+        }
+    }
+
+    private suspend fun loadForYouModule(request: ForYouModuleRequest) {
+        val langCode = wikiSite.value.languageCode
+        try {
+            val module = fetchForYouModule(request)
+            if (forYouLoadStartMillis > 0L) {
+                _forYouNetworkLatency.value = System.currentTimeMillis() - forYouLoadStartMillis
+                forYouLoadStartMillis = 0L
+            }
+            // A module with no content leaves the feed entirely, rather than showing an empty screen.
+            replaceForYouModule(request.slotKey) { module }
+            updateForYouCache(langCode) { collection ->
+                if (module == null) collection.copy(emptySlotKeys = collection.emptySlotKeys + request.slotKey)
+                else collection.copy(modules = collection.modules.filterNot { it.slotKey == request.slotKey } + module)
+            }
+        } catch (e: Exception) {
+            if (e is CancellationException) throw e
+            L.e(e)
+            replaceForYouModule(request.slotKey) { (it as? ForYouModule.Placeholder)?.copy(error = e) ?: it }
+        } finally {
+            forYouSlotJobs.remove(request.slotKey)
+        }
+    }
+
+    private fun replaceForYouModule(slotKey: String, transform: (ForYouModule) -> ForYouModule?) {
+        _forYouState.update { state ->
+            state.copy(modules = state.modules.mapNotNull { if (it.slotKey == slotKey) transform(it) else it })
         }
     }
 
@@ -630,218 +837,223 @@ class HomeViewModel : ViewModel() {
         }
     }
 
-    private suspend fun fetchForYouModules(age: Int): List<ForYouModule> {
-        val modules = mutableListOf<ForYouModule>()
+    /**
+     * Decides which "For you" modules the given batch will contain, using only locally available data,
+     * so that this is fast enough to run before anything is shown. The resulting requests are ordered the
+     * same way the modules are laid out in the feed.
+     */
+    private suspend fun buildForYouPlan(age: Int, langCode: String): List<ForYouModuleRequest> {
+        val requests = mutableListOf<ForYouModuleRequest>()
+
+        // "Based on interest" modules come from both topics and articles, and share a single running index
+        // so that every one of them ends up with a slot key of its own.
+        var basedOnInterestIndex = 0
+        AppDatabase.instance.topicInterestDao().getAllRandom().distinctBy { it.topicId }.take(MAX_INTEREST_TOPIC_MODULES)
+            .forEach { requests.add(ForYouModuleRequest.TopicInterest(age, basedOnInterestIndex++, it)) }
+        AppDatabase.instance.articleInterestDao().getAllRandom(langCode).take(MAX_INTEREST_ARTICLE_MODULES)
+            .forEach { requests.add(ForYouModuleRequest.ArticleInterest(age, basedOnInterestIndex++, it)) }
+
+        // There is always a single instance of each of the modules below, per age, so their index is always 0.
+        val lastReadEntries = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(age + 1, 30, langCode)
+        if (lastReadEntries.size > age) {
+            requests.add(ForYouModuleRequest.BecauseYouRead(age, 0))
+            requests.add(ForYouModuleRequest.ContinueReading(age, 0))
+        } else if (AppDatabase.instance.readingListPageDao().getMostRecentSavedPagesByLang(langCode, 1).isNotEmpty()) {
+            requests.add(ForYouModuleRequest.ContinueReading(age, 0))
+        }
+
+        requests.add(ForYouModuleRequest.Random(age, 0))
+
+        val newWithinInterestTest = NewWithinInterestABTest()
+        if (newWithinInterestTest.isTestActive()) {
+            newWithinInterestTest.maybeSendExposureEvent()
+            if (newWithinInterestTest.isTestGroupUser()) {
+                val topics = AppDatabase.instance.topicInterestDao().getAllRandom().distinctBy { it.topicId }.take(MAX_NEW_WITHIN_INTEREST_TOPICS)
+                if (topics.isNotEmpty()) {
+                    requests.add(ForYouModuleRequest.NewWithinInterest(age, 0, topics))
+                }
+            }
+        }
+
+        return requests.sortedBy { it.moduleType.ordinal }
+    }
+
+    /**
+     * Fetches the contents of a single module. Returns null when the module has nothing to show, in which
+     * case it is dropped from the feed.
+     */
+    private suspend fun fetchForYouModule(request: ForYouModuleRequest): ForYouModule? {
+        val site = wikiSite.value
         val hiddenCards = SettingsRepository.hiddenCards.first()
-        var forYouCollectionSaved = ForYouCollectionSaved()
 
-        try {
-            withContext(Dispatchers.Default) {
-                forYouCollectionSaved = JsonUtil.decodeFromString<ForYouCollectionSaved>(Prefs.homeForYouModulesToday)!!
-            }
-        } catch (e: Exception) {
-            L.e("Failed to load modules from cache.")
-        }
-
-        if (forYouCollectionSaved.dateTime != null &&
-            forYouCollectionSaved.dateTime.toLocalDate() == LocalDate.now() &&
-            forYouCollectionSaved.modulesPerLanguage.containsKey(wikiSite.value.languageCode)
-        ) {
-            L.d("Loading modules from cache...")
-            val modules = forYouCollectionSaved.modulesPerLanguage[wikiSite.value.languageCode].orEmpty()
-            val newModules = mutableListOf<ForYouModule>()
-            modules.forEach { module ->
-                val filteredCards = module.cards.filterNot { hiddenCards.contains(it.hideKey) }
-                if (filteredCards.isNotEmpty()) {
-                    newModules.add(module.withCards(filteredCards))
-                }
-            }
-            return newModules
-        }
-        L.d("Loading modules from network...")
-        val startMillis = System.currentTimeMillis()
-
-        coroutineScope {
-            // --- Interests ---
-
-            val interestTopics = AppDatabase.instance.topicInterestDao().getAllRandom().distinctBy { it.topicId }.take(5)
-            val interestTopicCalls = interestTopics.map { topic ->
-                async(Dispatchers.IO) {
-                    val articleTopic = ArticleTopics.all.find { it.topicId == topic.topicId }
-                    InterestSelectionRepository.getArticlesByTopic(wikiSite.value, articleTopic?.queryTopicId ?: topic.topicId).map {
-                        // TODO: filter items that have already been suggested.
-                        BasedOnInterestCard(it, interestTopic = topic)
-                    }.filterNot { hiddenCards.contains(it.hideKey) }.take(4)
-                }
+        return when (request) {
+            is ForYouModuleRequest.TopicInterest -> {
+                val articleTopic = ArticleTopics.all.find { it.topicId == request.topic.topicId }
+                val cards = withContext(Dispatchers.IO) {
+                    InterestSelectionRepository.getArticlesByTopic(site, articleTopic?.queryTopicId ?: request.topic.topicId)
+                }.map {
+                    // TODO: filter items that have already been suggested.
+                    BasedOnInterestCard(it, interestTopic = request.topic)
+                }.filterNot { hiddenCards.contains(it.hideKey) }.take(MAX_CARDS_PER_MODULE)
+                if (cards.isEmpty()) null else ForYouModule.BasedOnInterest(request.age, request.index, cards)
             }
 
-            if (NewWithinInterestABTest().isTestActive()) {
-                NewWithinInterestABTest().maybeSendExposureEvent()
-            }
-            val newWithinInterestTopics = if (NewWithinInterestABTest().isTestActive() && NewWithinInterestABTest().isTestGroupUser())
-                AppDatabase.instance.topicInterestDao().getAllRandom().distinctBy { it.topicId }.take(4)
-            else emptyList()
-            val newWithinInterestTopicCalls = newWithinInterestTopics.map { topic ->
-                async(Dispatchers.IO) {
-                    val articleTopic = ArticleTopics.all.find { it.topicId == topic.topicId }
-                    val titles = InterestSelectionRepository.getNewArticlesWithinTopic(wikiSite.value, articleTopic?.queryTopicId ?: topic.topicId).take(4)
-                    listOf(NewWithinInterestCard(titles, interestTopic = topic))
-                        .filterNot { it.titles.isEmpty() || hiddenCards.contains(it.hideKey) }
-                }
-            }
-
-            val interestArticles = AppDatabase.instance.articleInterestDao().getAllRandom(wikiSite.value.languageCode).take(5)
-            val interestArticleCalls = interestArticles.map { article ->
-                async(Dispatchers.IO) {
-                    val searchTerm = StringUtil.removeUnderscores(article.apiTitle)
-                    ServiceFactory.get(wikiSite.value).searchMoreLike("morelike:$searchTerm", 10, 10)
-                        .query?.pages?.filter { it.title != searchTerm && it.title != MainPageNameData.valueFor(wikiSite.value.languageCode) }?.map { page ->
+            is ForYouModuleRequest.ArticleInterest -> {
+                val searchTerm = StringUtil.removeUnderscores(request.article.apiTitle)
+                val cards = withContext(Dispatchers.IO) {
+                    ServiceFactory.get(site).searchMoreLike("morelike:$searchTerm", MORE_LIKE_REQUEST_ITEMS, MORE_LIKE_REQUEST_ITEMS)
+                        .query?.pages?.filter { it.title != searchTerm && it.title != MainPageNameData.valueFor(site.languageCode) }?.map { page ->
                             PageTitle(
                                 text = page.title,
-                                wiki = wikiSite.value,
+                                wiki = site,
                                 thumbUrl = page.thumbUrl(),
                                 description = page.description,
-                                displayText = page.displayTitle(wikiSite.value.languageCode),
+                                displayText = page.displayTitle(site.languageCode),
                             ).also {
                                 if (!page.sectionTitle.isNullOrEmpty()) it.fragment = StringUtil.addUnderscores(page.sectionTitle)
                                 it.extract = page.extract
                             }
-                        }.orEmpty().map {
-                            // TODO: filter items that have already been suggested.
-                            BasedOnInterestCard(it, interestArticle = article)
-                        }.filterNot { hiddenCards.contains(it.hideKey) }.take(4)
-                }
+                        }.orEmpty()
+                }.map {
+                    // TODO: filter items that have already been suggested.
+                    BasedOnInterestCard(it, interestArticle = request.article)
+                }.filterNot { hiddenCards.contains(it.hideKey) }.take(MAX_CARDS_PER_MODULE)
+                if (cards.isEmpty()) null else ForYouModule.BasedOnInterest(request.age, request.index, cards)
             }
 
-            // --- Because you read ---
-
-            val becauseYouReadDeferred = async(Dispatchers.IO) {
-                buildList {
-                    val lastReadEntries = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(age + 1, 30, wikiSite.value.languageCode)
-                    if (lastReadEntries.size > age) {
-                        val entry = lastReadEntries[age]
-                        val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(wikiSite.value.languageCode).isNullOrEmpty()
-                        val searchTerm = StringUtil.removeUnderscores(entry.title.prefixedText)
-
-                        var moreLikeMaxAge = 86400
-                        if (hasParentLanguageCode) {
-                            moreLikeMaxAge = 0
+            is ForYouModuleRequest.NewWithinInterest -> {
+                val cards = coroutineScope {
+                    request.topics.map { topic ->
+                        async(Dispatchers.IO) {
+                            val articleTopic = ArticleTopics.all.find { it.topicId == topic.topicId }
+                            val titles = InterestSelectionRepository.getNewArticlesWithinTopic(site, articleTopic?.queryTopicId ?: topic.topicId).take(MAX_CARDS_PER_MODULE)
+                            listOf(NewWithinInterestCard(titles, interestTopic = topic))
+                                .filterNot { it.titles.isEmpty() || hiddenCards.contains(it.hideKey) }
                         }
-                        val moreLikeResponse = ServiceFactory.get(entry.title.wikiSite).searchMoreLike("morelike:$searchTerm",
-                            Constants.SUGGESTION_REQUEST_ITEMS * 2, Constants.SUGGESTION_REQUEST_ITEMS * 2, sMaxAge = moreLikeMaxAge, maxAge = moreLikeMaxAge)
-
-                        val relatedPages = moreLikeResponse.query?.pages?.filter { it.title != searchTerm && it.title != MainPageNameData.valueFor(entry.title.wikiSite.languageCode) }?.map {
-                            PageSummary(
-                                it.displayTitle(wikiSite.value.languageCode),
-                                it.title,
-                                it.description,
-                                it.extract,
-                                it.thumbUrl(),
-                                wikiSite.value.languageCode
-                            )
-                        }?.take(Constants.SUGGESTION_REQUEST_ITEMS)
-
-                        addAll(relatedPages?.map {
-                            BecauseYouReadCard(
-                                it.getPageTitle(wikiSite.value),
-                                entry.title.displayText
-                            )
-                        } ?: emptyList())
-                    }
-                }.filterNot { hiddenCards.contains(it.hideKey) }.take(4)
+                    }.awaitAll().flatten()
+                }
+                if (cards.isEmpty()) null else ForYouModule.NewWithinInterest(request.age, request.index, cards)
             }
 
-            // --- Continue reading ---
+            is ForYouModuleRequest.BecauseYouRead -> {
+                val age = request.age
+                val cards = withContext(Dispatchers.IO) {
+                    buildList {
+                        val lastReadEntries = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(age + 1, 30, site.languageCode)
+                        if (lastReadEntries.size > age) {
+                            val entry = lastReadEntries[age]
+                            val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(site.languageCode).isNullOrEmpty()
+                            val searchTerm = StringUtil.removeUnderscores(entry.title.prefixedText)
 
-            val continueReadingDeferred = async(Dispatchers.IO) {
-                val continueReadingCards = buildList {
-                    val lastReadEntries = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(age + 1, 30, wikiSite.value.languageCode)
-                    if (lastReadEntries.size > age) {
-                        add(
-                            ContinueReadingCard(
-                                lastReadEntries[age].title,
-                                HistoryEntry.SOURCE_HISTORY
-                            )
-                        )
-                    }
-                    AppDatabase.instance.readingListPageDao().getMostRecentSavedPagesByLang(wikiSite.value.languageCode, 10).take(2)
-                        .forEach {
+                            var moreLikeMaxAge = 86400
+                            if (hasParentLanguageCode) {
+                                moreLikeMaxAge = 0
+                            }
+                            val moreLikeResponse = ServiceFactory.get(entry.title.wikiSite).searchMoreLike("morelike:$searchTerm",
+                                Constants.SUGGESTION_REQUEST_ITEMS * 2, Constants.SUGGESTION_REQUEST_ITEMS * 2, sMaxAge = moreLikeMaxAge, maxAge = moreLikeMaxAge)
+
+                            val relatedPages = moreLikeResponse.query?.pages?.filter { it.title != searchTerm && it.title != MainPageNameData.valueFor(entry.title.wikiSite.languageCode) }?.map {
+                                PageSummary(
+                                    it.displayTitle(site.languageCode),
+                                    it.title,
+                                    it.description,
+                                    it.extract,
+                                    it.thumbUrl(),
+                                    site.languageCode
+                                )
+                            }?.take(Constants.SUGGESTION_REQUEST_ITEMS)
+
+                            addAll(relatedPages?.map {
+                                BecauseYouReadCard(
+                                    it.getPageTitle(site),
+                                    entry.title.displayText
+                                )
+                            } ?: emptyList())
+                        }
+                    }.filterNot { hiddenCards.contains(it.hideKey) }.take(MAX_CARDS_PER_MODULE)
+                }
+                if (cards.isEmpty()) null else ForYouModule.BecauseYouRead(request.age, request.index, cards)
+            }
+
+            is ForYouModuleRequest.ContinueReading -> {
+                val age = request.age
+                val cards = withContext(Dispatchers.IO) {
+                    val continueReadingCards = buildList {
+                        val lastReadEntries = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(age + 1, 30, site.languageCode)
+                        if (lastReadEntries.size > age) {
                             add(
                                 ContinueReadingCard(
-                                    ReadingListPage.toPageTitle(it),
-                                    HistoryEntry.SOURCE_READING_LIST
+                                    lastReadEntries[age].title,
+                                    HistoryEntry.SOURCE_HISTORY
                                 )
                             )
                         }
-                }.filterNot { hiddenCards.contains(it.hideKey) }.take(4)
-                if (continueReadingCards.isNotEmpty()) {
-                    ServiceFactory.get(wikiSite.value).getInfoWithExtractsByPageTitles(continueReadingCards.map { it.title.prefixedText }.fastJoinToString("|"))
-                        .query?.pages?.forEach { page ->
-                            continueReadingCards.find { it.title.prefixedText == StringUtil.addUnderscores(page.title) }?.let {
-                                it.title.description = page.description
-                                it.title.thumbUrl = page.thumbUrl()
-                                it.title.displayText = page.displayTitle(wikiSite.value.languageCode)
-                                it.title.extract = page.extract
+                        AppDatabase.instance.readingListPageDao().getMostRecentSavedPagesByLang(site.languageCode, 10).take(2)
+                            .forEach {
+                                add(
+                                    ContinueReadingCard(
+                                        ReadingListPage.toPageTitle(it),
+                                        HistoryEntry.SOURCE_READING_LIST
+                                    )
+                                )
                             }
-                        }
+                    }.filterNot { hiddenCards.contains(it.hideKey) }.take(MAX_CARDS_PER_MODULE)
+                    if (continueReadingCards.isNotEmpty()) {
+                        ServiceFactory.get(site).getInfoWithExtractsByPageTitles(continueReadingCards.map { it.title.prefixedText }.fastJoinToString("|"))
+                            .query?.pages?.forEach { page ->
+                                continueReadingCards.find { it.title.prefixedText == StringUtil.addUnderscores(page.title) }?.let {
+                                    it.title.description = page.description
+                                    it.title.thumbUrl = page.thumbUrl()
+                                    it.title.displayText = page.displayTitle(site.languageCode)
+                                    it.title.extract = page.extract
+                                }
+                            }
+                    }
+                    continueReadingCards
                 }
-                continueReadingCards
+                if (cards.isEmpty()) null else ForYouModule.ContinueReading(request.age, request.index, cards)
             }
 
-            // --- Random article ---
-
-            val randomDeferred = async(Dispatchers.IO) {
-                val random = ServiceFactory.getRest(wikiSite.value).getRandomSummary()
-                RandomCard(random.getPageTitle(wikiSite.value))
-            }
-
-            // Combine all the deferred results and add them to the modules list if they have content.
-
-            interestTopicCalls.awaitAll().forEachIndexed { index, entries ->
-                if (entries.isNotEmpty()) {
-                    modules.add(ForYouModule.BasedOnInterest(age, index, entries))
+            is ForYouModuleRequest.Random -> {
+                val randomCard = withContext(Dispatchers.IO) {
+                    RandomCard(ServiceFactory.getRest(site).getRandomSummary().getPageTitle(site))
                 }
-            }
-            interestArticleCalls.awaitAll().forEachIndexed { index, entries ->
-                if (entries.isNotEmpty()) {
-                    modules.add(ForYouModule.BasedOnInterest(age, index, entries))
-                }
-            }
-            becauseYouReadDeferred.await().let {
-                if (it.isNotEmpty()) {
-                    // The index for this module is always 0 because there is always a single instance of this module, per age.
-                    modules.add(ForYouModule.BecauseYouRead(age, 0, it))
-                }
-            }
-            continueReadingDeferred.await().let {
-                if (it.isNotEmpty()) {
-                    // The index for this module is always 0 because there is always a single instance of this module, per age.
-                    modules.add(ForYouModule.ContinueReading(age, 0, it))
-                }
-            }
-            randomDeferred.await().let { randomCard ->
-                if (!hiddenCards.contains(randomCard.hideKey)) {
-                    // The index for this module is always 0 because there is always a single instance of this module, per age.
-                    modules.add(ForYouModule.Random(age, 0, listOf(randomCard)))
-                }
-            }
-            newWithinInterestTopicCalls.awaitAll().filter { it.isNotEmpty() }.flatten().let { entries ->
-                if (entries.isNotEmpty()) {
-                    modules.add(ForYouModule.NewWithinInterest(age, 0, entries))
-                }
+                if (hiddenCards.contains(randomCard.hideKey)) null
+                else ForYouModule.Random(request.age, request.index, listOf(randomCard))
             }
         }
+    }
 
-        _forYouNetworkLatency.value = System.currentTimeMillis() - startMillis
-
-        forYouCollectionSaved = ForYouCollectionSaved(
-            dateTime = LocalDateTime.now(),
-            modulesPerLanguage = forYouCollectionSaved.modulesPerLanguage + (wikiSite.value.languageCode to modules)
-        )
-        withContext(Dispatchers.Default) {
-            Prefs.homeForYouModulesToday = JsonUtil.encodeToString(forYouCollectionSaved).orEmpty()
+    /**
+     * Reads today's cached "For you" collection into memory, discarding it if it was saved on a previous day,
+     * and returns the part of it that belongs to the given language.
+     */
+    private suspend fun restoreForYouCache(langCode: String): ForYouLanguageCollection {
+        return forYouCacheMutex.withLock {
+            val saved = withContext(Dispatchers.Default) {
+                JsonUtil.decodeFromString<ForYouCollectionSaved>(Prefs.homeForYouModulesToday)
+            }
+            forYouCache = if (saved?.dateTime?.toLocalDate() == LocalDate.now()) saved else ForYouCollectionSaved()
+            forYouCache.collectionPerLanguage[langCode] ?: ForYouLanguageCollection()
         }
-        return modules
+    }
+
+    /**
+     * Applies an incremental change to the cached collection of the given language, and writes the whole
+     * collection back to Prefs. Guarded by a mutex, since modules resolve concurrently.
+     */
+    private suspend fun updateForYouCache(langCode: String, transform: (ForYouLanguageCollection) -> ForYouLanguageCollection) {
+        forYouCacheMutex.withLock {
+            val collection = forYouCache.collectionPerLanguage[langCode] ?: ForYouLanguageCollection()
+            val updated = ForYouCollectionSaved(
+                dateTime = LocalDateTime.now(),
+                collectionPerLanguage = forYouCache.collectionPerLanguage + (langCode to transform(collection))
+            )
+            forYouCache = updated
+            withContext(Dispatchers.Default) {
+                Prefs.homeForYouModulesToday = JsonUtil.encodeToString(updated).orEmpty()
+            }
+        }
     }
 
     private suspend fun buildDiscoverModule(): ForYouModule.Discover? {
