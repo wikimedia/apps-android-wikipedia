@@ -4,8 +4,6 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.Network
 import android.net.NetworkCapabilities
-import android.net.NetworkRequest
-import android.os.Build
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.savedpages.SavedPageSyncService
@@ -62,16 +60,7 @@ class ConnectionStateMonitor : ConnectivityManager.NetworkCallback() {
         }
         try {
             val connectivityManager = WikipediaApp.instance.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                connectivityManager.registerDefaultNetworkCallback(this)
-            } else {
-                connectivityManager.registerNetworkCallback(
-                    NetworkRequest.Builder()
-                        .addTransportType(NetworkCapabilities.TRANSPORT_CELLULAR)
-                        .addTransportType(NetworkCapabilities.TRANSPORT_WIFI)
-                        .build(), this
-                )
-            }
+            connectivityManager.registerDefaultNetworkCallback(this)
             networkCallbackRegistered = true
         } catch (e: Exception) {
             // Framework bug, will only be fixed in Android S:

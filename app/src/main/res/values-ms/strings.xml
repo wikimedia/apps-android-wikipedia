@@ -524,7 +524,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s tidak lagi akan tersedia di luar talian untuk semua senarai baca:</string>
   <string name="reading_lists_sync_reminder_title" fuzzy="true">Hidupkan penyegerakan senarai bacaan?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">Rencana yang disimpan pada senarai bacaan kini boleh disegerakkan ke akaun Wikipedia anda. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Ketahui lebih lanjut&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Senarai bacaan kini boleh disegerakkan merentas peranti. Log masuk ke akaun Wikipedia anda dan benarkan senarai anda disimpan. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Ketahui lebih lanjut&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Dayakan penyegerakan</string>
   <string name="reading_list_login_reminder_title" fuzzy="true">Menyegerakkan senarai bacaan</string>
   <string name="reading_lists_login_reminder_text" fuzzy="true">Senarai bacaan kini boleh disegerakkan merentas peranti. Masuk ke akaun Wikipedia anda dan izinkan senarai anda disimpan.</string>
@@ -562,7 +561,6 @@
   <string name="reading_lists_menu_import_list" fuzzy="true">Import senarai</string>
   <string name="reading_lists_menu_sort_by">Isih mengikut</string>
   <string name="reading_lists_refresh_sync_option">Segarkan semula penyegerakan</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Log masuk / cipta akaun</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Rencana ini kini boleh didapati di luar talian.</item>
     <item quantity="other">Rencana-rencana ini kini boleh didapati di luar talian.</item>

@@ -426,6 +426,7 @@
 
         <activity
             android:name=".donate.donationreminder.DonationReminderActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize"/>
 
         <activity

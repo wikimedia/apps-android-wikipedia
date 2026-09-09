@@ -575,7 +575,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s စွာ စာဖတ်စရင်းတိအားလုံးအတွက် အော့ဖ်လိုင်းတွင် ရဟိနိုင်လီဖို့မဟုတ်ပါ:</string>
   <string name="reading_lists_sync_reminder_title" fuzzy="true">စာဖတ်စရင်း sync လုပ်ခြင်းကို ဖွင့်ဖို့လား။</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">စာဖတ်စရင်းတွင် သိမ်းဆည်းထားရေ ဆောင်းပါးတိကို သင်ဧ့ Wikipedia အကောင့်သို့ ယခု စင့်ခ်လုပ်နိုင်ပါရေ။  &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;ပိုပနာလိ့လာဖို့&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">ဒေဂုအခါတွင် စာဖတ်ခြင်းစရင်းတိကို စက်ပစ္စည်းတိတွင် စင့်ခ်လုပ်နိုင်ပါရေ။  သင်ဧ့ Wikipedia အကောင့်သို့ ဝင်ရောက်ပြီးကေ သင်ဧ့စရင်းတိကို သိမ်းဆည်းခွင့်ပြုပါ။  &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;ပိုမိုလိ့လာဖို့&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Sync လုပ်ခြင်းကို ဖွင့်ဖို့</string>
   <string name="reading_list_login_reminder_title" fuzzy="true">စာဖတ်စာရင်းတိကို sync လုပ်ပါ</string>
   <string name="reading_lists_login_reminder_text" fuzzy="true">စာဖတ်စရင်းတိကို စက်ပစ္စည်းများသို့ sync လုပ်နိုင်ပါယာ။ သင်ဧ့ စရင်းတိကို သိမ်းဆည်းဖို့ ဝီကီးပီးဒီးယားအကောင့်သို့ လော့အင်ဝင်ရောက်ပါ။</string>
@@ -618,7 +617,6 @@
   <string name="reading_lists_menu_import_list" fuzzy="true">တင်သွင်းစရင်း</string>
   <string name="reading_lists_menu_sort_by">အစိုင်လိုက်...</string>
   <string name="reading_lists_refresh_sync_option">sync လုပ်ခြင်းကို ပြန်ပနာဆန်းစစ်ပါ</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">ဝင်ပါ / မှတ်ပုံတင်ပါ</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">‌ဒေဆောင်းပါးကို အင်တာနက်မဟိချိန်မာ အသုံးပြုနိုင်ပါယာ</item>
     <item quantity="other">‌ဒေဆောင်းပါးတိကို အင်တာနက်မဟိချိန်မာ အသုံးပြုနိုင်ပါယာ</item>

@@ -2160,6 +2160,7 @@
   <string name="donation_reminders_snackbar_modify_button_label">Label for the button that allows the user to modify the donation reminder.</string>
   <string name="donation_reminders_settings_article_number_selection_label">Label for the button row that allows a user to set the desired number of article for a donation reminder.</string>
   <string name="donation_reminders_settings_custom_amount_label">Placeholder text for the custom amount.</string>
+  <string name="donation_reminders_settings_update_reminder_button">Label for the button that allows the user to update the donation reminder.</string>
   <string name="donation_reminders_beta_label">Header label to indicate the screen is part of a Beta.</string>
   <string name="donation_reminders_wrap_up_title">Title of the wrap up message card for the donation reminder.</string>
   <string name="donation_reminders_wrap_up_message">Message of the wrap up message card for the donation reminder.</string>

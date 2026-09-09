@@ -413,7 +413,6 @@
   <string name="reading_lists_menu_create_list" fuzzy="true">Jieun daptar anyar</string>
   <string name="reading_lists_menu_sort_by">Runtuykeun dumasar</string>
   <string name="reading_lists_refresh_sync_option">Segerkeun singkronan</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Asup log / jieun akun</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Ieu artikel ayeuna bakal sayaga kalawan oflén.</item>
     <item quantity="other">Ieu artikel-artikel ayeuna bakal sayaga kalawan oflén.</item>
