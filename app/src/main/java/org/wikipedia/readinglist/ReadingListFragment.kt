@@ -812,6 +812,8 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 Prefs.isRecommendedReadingListNotificationEnabled = false
                 RecommendedReadingListNotificationManager.cancelRecommendedReadingListNotification(requireContext())
                 update()
+                TestKitchenAdapter.client.getInstrument("apps-notifications")
+                    .submitInteraction(action = "click", actionSource = "discover", actionSubtype = "discover_home_modal", elementId = "notification_bell_off")
             }
             .show()
     }
@@ -1025,8 +1027,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             RecommendedReadingListEvent.submit("notifications_click", "rrl_discover")
             if (Prefs.isRecommendedReadingListNotificationEnabled) {
                 showRecommendedReadingListNotificationOffDialog()
-                TestKitchenAdapter.client.getInstrument("apps-notifications")
-                    .submitInteraction(action = "click", actionSource = "discover", actionSubtype = "discover_home_modal", elementId = "notification_bell_off")
             } else {
                 Prefs.isRecommendedReadingListNotificationEnabled = true
                 requestPermissionAndScheduleRecommendedReadingNotification()
