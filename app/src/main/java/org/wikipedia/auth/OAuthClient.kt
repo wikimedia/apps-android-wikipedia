@@ -19,7 +19,6 @@ import net.openid.appauth.AuthorizationServiceConfiguration
 import net.openid.appauth.ResponseTypeValues
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.notifications.PollNotificationWorker
 import org.wikipedia.push.WikipediaFirebaseMessagingService
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
@@ -50,11 +49,12 @@ class OAuthClient(val context: Context) {
             authState = AuthState()
         }
 
+        val wikiUrl = WikipediaApp.instance.wikiSite.url()
         authServiceConfig = AuthorizationServiceConfiguration(
-            (OAUTH_WIKI + AUTHORIZATION_ENDPOINT).toUri(),
-            (OAUTH_WIKI + TOKEN_ENDPOINT).toUri(),
+            (wikiUrl + AUTHORIZATION_ENDPOINT).toUri(),
+            (wikiUrl + TOKEN_ENDPOINT).toUri(),
             null,
-            (OAUTH_WIKI + LOGOUT_ENDPOINT).toUri()) // TODO?
+            (wikiUrl + LOGOUT_ENDPOINT).toUri()) // TODO?
 
         val appAuthConfiguration = AppAuthConfiguration.Builder()
             // .setBrowserMatcher(
@@ -126,7 +126,7 @@ class OAuthClient(val context: Context) {
                 callback.onComplete(t as Exception)
             }) {
                 withContext(Dispatchers.IO) {
-                    val profile = ServiceFactory.getCoreRest(WikiSite(OAUTH_WIKI)).getOAuthProfile()
+                    val profile = ServiceFactory.getCoreRest(WikipediaApp.instance.wikiSite).getOAuthProfile()
                     finishLogin(profile)
                     callback.onComplete(null)
                 }
@@ -166,7 +166,6 @@ class OAuthClient(val context: Context) {
     companion object {
         const val CLIENT_ID = "50ad79ffa34f64853c96b729e4aa5d8c"
         const val REDIRECT_URI = "wikipedia://oauth/callback"
-        const val OAUTH_WIKI = "https://meta.wikimedia.org" // TODO: use current language wiki?
         const val AUTHORIZATION_ENDPOINT = "/w/rest.php/oauth2/authorize"
         const val TOKEN_ENDPOINT = "/w/rest.php/oauth2/access_token"
         const val PROFILE_ENDPOINT = "/w/rest.php/oauth2/resource/profile"
