@@ -10,6 +10,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.WikiGamesEvent
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.games.WikiGames
 import org.wikipedia.notifications.NotificationCategory
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
@@ -53,6 +54,8 @@ object OnThisDayGameNotificationManager {
             }
             .setNegativeButton(R.string.on_this_day_game_turn_off_notification_dialog_negative_btn_label) { _, _ ->
                 WikiGamesEvent.submit("off_click", "notification_modal", "game_end")
+                TestKitchenAdapter.client.getInstrument("apps-notifications")
+                    .submitInteraction(action = "click", actionSource = "game", actionSubtype = "notifications_modal", elementId = "notification_off")
                 disableNotifications(activity, showUndo = true)
             }
             .show()
@@ -66,6 +69,8 @@ object OnThisDayGameNotificationManager {
             .setIcon(R.drawable.outline_notifications_active_24)
             .setPositiveButton(R.string.on_this_day_game_turn_on_notification_dialog_positive_btn_label) { _, _ ->
                 WikiGamesEvent.submit("on_click", "notification_modal", "game_end")
+                TestKitchenAdapter.client.getInstrument("apps-notifications")
+                    .submitInteraction(action = "click", actionSource = "game", actionSubtype = "notifications_modal", elementId = "notification_on")
                 enableNotifications(activity, showUndo = true)
             }
             .setNegativeButton(R.string.on_this_day_game_turn_on_notification_dialog_negative_btn_label) { _, _ ->
@@ -86,6 +91,8 @@ object OnThisDayGameNotificationManager {
             ).apply {
                 setAction(R.string.reading_list_item_delete_undo) {
                     WikiGamesEvent.submit("undo_click", "notification_snackbar", "game_end")
+                    TestKitchenAdapter.client.getInstrument("apps-notifications")
+                        .submitInteraction(action = "click", actionSource = "game", actionSubtype = "notifications_undo", elementId = "notification_on")
                     enableNotifications(activity, showUndo = false)
                     activity.invalidateOptionsMenu()
                 }
@@ -128,7 +135,8 @@ object OnThisDayGameNotificationManager {
                 bodyIntent = OnThisDayGameActivity.newIntent(
                     context = context,
                     invokeSource = Constants.InvokeSource.NOTIFICATION,
-                    wikiSite = WikipediaApp.instance.wikiSite
+                    wikiSite = WikipediaApp.instance.wikiSite,
+                    notificationCategory = NotificationCategory.GAMES
                 )
             )
         }
