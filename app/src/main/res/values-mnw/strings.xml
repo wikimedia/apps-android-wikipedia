@@ -517,7 +517,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s ဂှ် ဆက်ဗှ် ပ္ဍဲအခိင် မ္ၚးလာင် ဟွံဂွံရ၊၊</string>
   <string name="reading_lists_sync_reminder_title" fuzzy="true">ပံက် ကချဳဓရာင် စရင်လိက်သွက်ဂွံဗှ်？</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">လိက်ပရေၚ်ဂှ် ဂိုၚ်သီလဝ် ပ္ဍဲ စရၚ်လိက်သွက်ဂွံဗှ်တုဲ လၟုဟ် မချဳဓရာၚ် ပ္ဍဲအကံက်ဝဳကဳပဳယာ မၞး။ &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;ဆက်လ္ၚတ်ပဵုနူဂှ်ပၠန်&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">စရင်လိက်သွက်ဂွံဗှ်တအ် လၟုဟ် ချဳဓရာင် မွဲဒမြေပ် devices. လုပ်လံက်အေန် အကံက် ဝဳကဳပဳဒဳယာ မၞး တုဲ ကဵုအခေါင် စရင်မၞး ကဵုဂိုင်သိပ်၊၊ &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;ဆက် ဗှ်&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">ကချဳဓရာင် သၟဟ်အစောံ</string>
   <string name="reading_list_login_reminder_title" fuzzy="true">ပချဳဓရာင် စရင် လိက်ဗွဟ်</string>
   <string name="reading_lists_login_reminder_text" fuzzy="true">စရင် လိက်ဗွဟ်တအ် လၟုဟ် ချဳဓရာင် ပ္ဍဲမဒမြေပ် devices. လုပ်လံက်အေန် အကံက် ဝဳကဳပဳဒဳယာ မၞး တုဲ ကဵုအခေါင် စရင်မၞး ကဵုဂိုင်သိပ်၊၊</string>
@@ -554,7 +553,6 @@
   <string name="reading_lists_menu_create_list" fuzzy="true">ခၞံကၠောန် စရင် တၟိ</string>
   <string name="reading_lists_menu_sort_by">ဖျေဟ်ဒၞာဲ နကဵု</string>
   <string name="reading_lists_refresh_sync_option">ကလေင်မ္ၚုဟ် ကချဳဓရာင်</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">လုပ်လံက်အေန် / ကၠောန်အကံက်တၟိ</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">လိက်ပရေင်ဏအ် လၟုဟ် ဗှ် မ္ၚးလာင်ဂွံရ၊၊</item>
     <item quantity="other">These articles will now be available offline.</item>

@@ -140,6 +140,10 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
             isVisible = DonationReminderHelper.isEnabled
             onPreferenceClickListener =
                 Preference.OnPreferenceClickListener {
+                    DonorExperienceEvent.logDonationReminderAction(
+                        activeInterface = "global_setting",
+                        action = "donation_reminder_click"
+                    )
                     activity.startActivity(DonationReminderActivity.newIntent(activity, isFromSettings = true))
                     true
                 }
@@ -164,7 +168,7 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
     }
 
     private fun deviceInformation(): String {
-        return "\n\nVersion: ${BuildConfig.VERSION_NAME} \nDevice: ${Build.BRAND} ${Build.MODEL} (SDK: ${Build.VERSION.SDK_INT})\n"
+        return "\n\nVersion: ${BuildConfig.VERSION_NAME} \nDevice: ${Build.BRAND} ${Build.MODEL} (SDK: ${Build.VERSION.SDK_INT})\nAppInstallId: ${WikipediaApp.instance.appInstallID}"
     }
 
     fun updateLanguagePrefSummary() {

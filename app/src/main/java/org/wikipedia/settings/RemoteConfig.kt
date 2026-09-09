@@ -55,6 +55,7 @@ object RemoteConfig {
         val hCaptcha: RemoteConfigHCaptcha? = null
         val hybridSearchEnabled: Boolean? = null
         val hybridSearchLanguages: List<String>? = null
+        val newArticlesWithinInterestEnabled: Boolean? = null
     }
 
     @Suppress("unused")

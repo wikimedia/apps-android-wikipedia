@@ -387,7 +387,6 @@ class LoginActivity : BaseActivity() {
         const val SOURCE_ONBOARDING = "onboarding"
         const val SOURCE_SETTINGS = "settings"
         const val SOURCE_SUBSCRIBE = "subscribe"
-        const val SOURCE_READING_MANUAL_SYNC = "reading_lists_manual_sync"
         const val SOURCE_LOGOUT_BACKGROUND = "logout_background"
         const val SOURCE_SUGGESTED_EDITS = "suggestededits"
         const val SOURCE_TALK = "talk"
@@ -395,6 +394,7 @@ class LoginActivity : BaseActivity() {
         const val SOURCE_YEAR_IN_REVIEW = "yir"
         const val SOURCE_ON_THIS_DAY_GAME_RESULT = "on_this_day_game_result"
         const val SOURCE_READING_CHALLENGE = "widget_challenge"
+        const val SOURCE_ENCOURAGE = "encourage"
 
         fun newIntent(context: Context, source: String, createAccountFirst: Boolean = true): Intent {
             return Intent(context, LoginActivity::class.java)

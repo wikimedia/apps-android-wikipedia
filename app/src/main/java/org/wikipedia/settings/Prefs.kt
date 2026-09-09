@@ -161,9 +161,6 @@ object Prefs {
     val announcementCustomTabTestUrl
         get() = PrefsIoUtil.getString(R.string.preference_key_announcement_custom_tab_test_url, null)
 
-    val announcementsVersionCode
-        get() = PrefsIoUtil.getInt(R.string.preference_key_announcement_version_code, 0)
-
     val retrofitLogLevel: HttpLoggingInterceptor.Level
         get() {
             val prefValue = PrefsIoUtil.getString(R.string.preference_key_retrofit_log_level, null)
@@ -268,6 +265,14 @@ object Prefs {
         PrefsIoUtil.setInt(R.string.preference_key_total_anon_descriptions_edited, totalAnonDescriptionsEdited + 1)
     }
 
+    var createAccountEncourageImpressions
+        get() = PrefsIoUtil.getInt(R.string.preference_key_create_account_encourage_impressions, 0)
+        set(count) = PrefsIoUtil.setInt(R.string.preference_key_create_account_encourage_impressions, count)
+
+    var createAccountEncourageLastImpressionDate
+        get() = PrefsIoUtil.getString(R.string.preference_key_create_account_encourage_last_impression_date, "").orEmpty()
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_create_account_encourage_last_impression_date, value)
+
     var isReadingListSyncEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_sync_reading_lists, false)
         set(enabled) = PrefsIoUtil.setBoolean(R.string.preference_key_sync_reading_lists, enabled)
@@ -291,14 +296,6 @@ object Prefs {
     var isInitialOnboardingEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_initial_onboarding_enabled, true)
         set(enabled) = PrefsIoUtil.setBoolean(R.string.preference_key_initial_onboarding_enabled, enabled)
-
-    fun askedForPermissionOnce(permission: String): Boolean {
-        return PrefsIoUtil.getBoolean(R.string.preference_key_permission_asked.toString() + permission, false)
-    }
-
-    fun setAskedForPermissionOnce(permission: String) {
-        PrefsIoUtil.setBoolean(R.string.preference_key_permission_asked.toString() + permission, true)
-    }
 
     var dimDarkModeImages
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_dim_dark_mode_images, true)
@@ -351,13 +348,6 @@ object Prefs {
         get() = JsonUtil.decodeFromString<Map<Int, List<String>>>(PrefsIoUtil.getString(R.string.preference_key_feed_cards_lang_disabled, null))
             ?: emptyMap()
         set(langDisabledMap) = PrefsIoUtil.setString(R.string.preference_key_feed_cards_lang_disabled, JsonUtil.encodeToString(langDisabledMap))
-
-    fun resetFeedCustomizations() {
-        PrefsIoUtil.remove(R.string.preference_key_feed_hidden_cards)
-        PrefsIoUtil.remove(R.string.preference_key_feed_cards_enabled)
-        PrefsIoUtil.remove(R.string.preference_key_feed_cards_order)
-        PrefsIoUtil.remove(R.string.preference_key_feed_cards_lang_disabled)
-    }
 
     var readingListsLastSyncTime
         get() = PrefsIoUtil.getString(R.string.preference_key_reading_lists_last_sync_time, "")
@@ -443,19 +433,9 @@ object Prefs {
         get() = PrefsIoUtil.getInt(R.string.preference_key_suggested_edits_pause_reverts, 0)
         set(count) = PrefsIoUtil.setInt(R.string.preference_key_suggested_edits_pause_reverts, count)
 
-    fun shouldOverrideSuggestedEditCounts(): Boolean {
-        return PrefsIoUtil.getBoolean(R.string.preference_key_suggested_edits_override_counts, false)
-    }
-
-    val overrideSuggestedEditCount
-        get() = PrefsIoUtil.getInt(R.string.preference_key_suggested_edits_override_edits, 0)
-
     var overrideSuggestedEditContribution
         get() = PrefsIoUtil.getInt(R.string.preference_key_suggested_edits_override_contribution, 0)
         set(value) = PrefsIoUtil.setInt(R.string.preference_key_suggested_edits_override_contribution, value)
-
-    val overrideSuggestedRevertCount
-        get() = PrefsIoUtil.getInt(R.string.preference_key_suggested_edits_override_reverts, 0)
 
     var installReferrerAttempts
         get() = PrefsIoUtil.getInt(R.string.preference_key_install_referrer_attempts, 0)
@@ -907,6 +887,10 @@ object Prefs {
             PrefsIoUtil.getString(R.string.preference_key_donation_reminder_config, null)
         ) ?: DonationReminderConfig()
         set(types) = PrefsIoUtil.setString(R.string.preference_key_donation_reminder_config, JsonUtil.encodeToString(types))
+
+    var donationReminderDevWrapUp
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_donation_reminders_dev_wrap_up_enabled, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_donation_reminders_dev_wrap_up_enabled, value)
 
     var activityTabModules: ActivityTabModules
         get() = JsonUtil.decodeFromString<ActivityTabModules>(PrefsIoUtil.getString(R.string.preference_key_activity_tab_modules, null))

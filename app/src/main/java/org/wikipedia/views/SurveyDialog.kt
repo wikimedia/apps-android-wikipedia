@@ -66,6 +66,55 @@ object SurveyDialog {
         dialog = dialogBuilder.show()
     }
 
+    fun showDonationReminderFeedbackDialog(
+        activity: Activity,
+        onImpression: () -> Unit,
+        onCancel: () -> Unit,
+        onSubmit: (feedbackOption: Int?, feedbackText: String) -> Unit
+    ) {
+        val maxCharacter = 250
+        var dialog: AlertDialog? = null
+        val binding = DialogFeedbackOptionsBinding.inflate(activity.layoutInflater)
+        binding.titleText.text = activity.getString(R.string.donation_reminders_wrap_up_survey_title)
+        binding.messageText.text = activity.getString(R.string.donation_reminders_wrap_up_survey_message)
+        binding.optionSatisfied.text = activity.getString(R.string.donation_reminders_wrap_up_survey_option_keep_it)
+        binding.optionNeutral.text = activity.getString(R.string.donation_reminders_wrap_up_survey_option_remove_it)
+        binding.optionUnsatisfied.text = activity.getString(R.string.donation_reminders_wrap_up_survey_option_not_sure)
+        binding.feedbackInputContainer.isVisible = true
+        binding.feedbackInputContainer.isCounterEnabled = true
+        binding.feedbackInputContainer.counterMaxLength = maxCharacter
+        binding.feedbackInputContainer.hint = activity.getString(R.string.donation_reminders_wrap_up_survey_optional_hint)
+        binding.feedbackInput.filters = arrayOf(InputFilter.LengthFilter(maxCharacter))
+        binding.feedbackInput.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) {
+                binding.dialogContainer.postDelayed({
+                    if (!activity.isDestroyed) {
+                        binding.dialogContainer.fullScroll(ScrollView.FOCUS_DOWN)
+                    }
+                }, 200)
+            }
+        }
+
+        binding.cancelButton.setOnClickListener {
+            onCancel()
+            dialog?.dismiss()
+        }
+        binding.submitButton.setOnClickListener {
+            val feedbackOption = getSelectedOption(binding)?.minus(1)
+            val feedbackText = binding.feedbackInput.text.toString()
+            onSubmit(feedbackOption, feedbackText)
+            FeedbackUtil.showMessage(activity, R.string.donation_reminders_wrap_up_survey_thank_you_message)
+            dialog?.dismiss()
+        }
+
+        val dialogBuilder = MaterialAlertDialogBuilder(activity, R.style.AlertDialogTheme_AdjustResize)
+            .setCancelable(false)
+            .setView(binding.root)
+
+        onImpression()
+        dialog = dialogBuilder.show()
+    }
+
     private fun getSelectedOption(binding: DialogFeedbackOptionsBinding): Int? {
         val selectedId = binding.feedbackRadioGroup.checkedRadioButtonId
         return when (selectedId) {

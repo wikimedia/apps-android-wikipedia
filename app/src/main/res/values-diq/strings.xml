@@ -379,7 +379,6 @@
   <string name="reading_lists_menu_create_list" fuzzy="true">Lista newiye vıraze</string>
   <string name="reading_lists_menu_sort_by">Sencışê rêzi</string>
   <string name="reading_lists_refresh_sync_option">Senkronizey newe kerê</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Ronıştış ake/qeyd bıbê</string>
   <string name="reading_list_toast_last_sync" fuzzy="true">Listey wendış biyê senkronize</string>
   <string name="reading_list_menu_last_sync">Senkronizeyo peyên : %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">TEMAM</string>
@@ -648,5 +647,6 @@
   <string name="shareable_reading_lists_new_indicator">*newe*</string>
   <string name="reading_list_share_menu_label">Vıla ke...</string>
   <string name="on_this_day_game_stats_average_score">Puwano miyanên</string>
+  <string name="donation_reminders_settings_article_number_selection_label">Meqaleyi</string>
   <string name="random_article_widget_name">Nuşteyo raştameye</string>
 </resources>

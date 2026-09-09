@@ -509,7 +509,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s ߕߍ߫ ߣߊ߬ ߡߍ߲߫ ߠߊ߫ ߞߍߟߌ ߘߐ߫ ߜߊ߲߬ߞߎ߲߬ߓߊߟߌߦߊ ߘߐ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߓߍ߯ ߦߋ߫:</string>
   <string name="reading_lists_sync_reminder_title" fuzzy="true">ߞߊ߬ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ ߟߊߞߎߣߎ߲߫؟</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">ߞߎߡߘߊ ߡߍ߲ ߠߎ߬ ߟߊߞߎ߲߬ߘߎ߬ߣߍ߲߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫߸ ߏ߬ ߟߎ߬ ߘߌ߫ ߛߋ߫ ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ߬ ߟߴߌ ߟߊ߫ ߥߞߌߔߋߘߌߦߊ ߖߊ߬ߕߋ߬ߘߊ ߘߐ߫ ߛߍߣߍ߲߬. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Learn more&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߌ߫ ߛߋ߫ ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ߬ ߟߴߌ ߟߊ߫ ߞߍߟߊ߲ ߘߐ߫ ߡߎ߬ߕߎ߲߬. \nߌ ߜߊ߲߬ߞߎ߲߬ ߌ ߟߊ߫ ߥߞߌߔߋߘߌߦߊ ߖߊ߬ߕߋ߬ߘߊ ߘߐ߫ ߞߵߌ ߟߊ߫ ߛߙߍߘߍ ߟߎ߬ ߟߊߞߎ߲߬ߘߎ߬ߟߌ ߟߊߘߌ߬ߢߍ߬. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Learn more&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ ߓߌ߬ߟߵߊ߬ ߟߊ߫</string>
   <string name="reading_list_login_reminder_title" fuzzy="true">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ߫</string>
   <string name="reading_lists_login_reminder_text" fuzzy="true">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߌ߫ ߛߋ߫ ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ߬ ߟߴߌ ߟߊ߫ ߞߍߟߊ߲ ߘߐ߫ ߛߌߣߍ߲߬. ߌ ߜߊ߲߬ߞߎ߲߬ ߌ ߟߊ߫ ߥߞߌߔߋߘߌߦߊ ߖߊ߬ߕߋ߬ߘߊ ߟߊ߫ ߞߴߌ ߟߊ߫ ߛߙߍߘߍ ߟߎ߬ ߟߊߞߎ߲߬ߘߎ߬ߟߌ ߟߊߘߌ߬ߢߍ߬.</string>
@@ -548,7 +547,6 @@
   <string name="reading_lists_menu_import_list" fuzzy="true">ߟߊ߬ߛߣߍ߬ߟߌ߫ ߛߙߍߘߍ</string>
   <string name="reading_lists_menu_sort_by">ߞߵߊ߬ ߢߊߓߐ߫ ߡߊ߬</string>
   <string name="reading_lists_refresh_sync_option">ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ߬ߟߌ ߟߊߛߎߡߊ߫</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">ߌ ߜߊ߲߬ߞߎ߲߫/ߖߊ߬ߕߋ߬ߘߊ ߛߌ߲ߘߌ߫</string>
   <plurals name="reading_list_article_offline_message" fuzzy="true">
     <item quantity="other">ߞߋߟߋ߲߫=ߞߎߡߘߊ ߣߌ߲߬ ߕߍ߫ ߣߊ߬ ߛߐ߲߬ ߞߍ߫ ߟߊ߫ ߜߊ߲߬ߞߎ߲߬ߠߌ߲߬ߓߊߟߌߦߊ ߘߐ߫</item>
   </plurals>
@@ -1663,7 +1661,7 @@
   <string name="recommended_reading_list_settings_toggle_enable_message">ߞߎ߲߬ߠߞߊ߬ߟߌ ߦߴߊ߬ ߟߊ߫. ߥߞߌߔߋߘߌߦߊ ߘߴߌ ߟߊ߫ ߞߎߡߘߊ ߟߎ߬ ߖߡߊ߬ߙߌ߬ߦߊ߫ ߘߐߞߊ߬ߙߊ߲߬ߠߌ߲ ߠߊ߫. ߠߊ߫.</string>
   <string name="donation_settings_section_header">ߣߌ߬ߟߌ</string>
   <string name="donation_reminders_settings_title" fuzzy="true">ߣߌ߬ߟߌ ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ</string>
-  <string name="donation_reminders_settings_article_frequency_label">ߣߌ߫ ߒ ߞߵߊ߬ ߘߐߞߊ߬ߙߊ߲߬</string>
+  <string name="donation_reminders_settings_article_frequency_label" fuzzy="true">ߣߌ߫ ߒ ߞߵߊ߬ ߘߐߞߊ߬ߙߊ߲߬</string>
   <string name="donation_reminders_settings_amount_label">ߒ ߖߊ߲߬ߓߌ߬ߟߊ߫ ߣߌ߬ߟߌ߬ߞߏ ߟߊ߫</string>
   <string name="donation_reminders_settings_confirm_btn_label">ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ ߟߊߛߙߋߦߊ߫</string>
   <string name="donation_reminders_settings_article_frequency_input_suffix_label">ߞߎߡߘߊ ߟߎ߬</string>
