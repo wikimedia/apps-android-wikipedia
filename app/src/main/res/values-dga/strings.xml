@@ -523,7 +523,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s ko la be saseɛ kpinnaa poɔ ko pɛll kannaa zaa:</string>
   <string name="reading_lists_sync_reminder_title" fuzzy="true">Nyige kannoo pɛll tɔraa?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">Atekele naŋ biŋ fo kannoo pɛll na baŋ tage gaa la fo wikipiideɛ die daga pampana. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Learn more&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Kannoo pɛll na baŋ tɔre kpɛ la taa e boŋyeni pampana mansiŋ yaga eŋɛ. Yuo fo wikipiideɛ die daga kpɛ a bare sori ko fo pɛll ka o na biŋ. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;zanne yɛlɛ yaga&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Eŋ tɔre ka a e boŋyeni</string>
   <string name="reading_list_login_reminder_title" fuzzy="true">E ka kannoo pɛllɛ kpɛtaa</string>
   <string name="reading_lists_login_reminder_text" fuzzy="true">Kannoo pɛll na baŋ tɔre kpɛ la taa e boŋyeni pampana mansiŋ yaga eŋɛ. Yuo fo wikipiideɛ die daga kpɛ a bare fo pɛll sori ka o na biŋ.</string>
@@ -566,7 +565,6 @@
   <string name="reading_lists_menu_import_list" fuzzy="true">de yoe yiniŋ</string>
   <string name="reading_lists_menu_sort_by">ŋmaa ne...</string>
   <string name="reading_lists_refresh_sync_option">Iriferɛse e ka a kpɛtaa</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Kpɛ/maale kyɛ kpɛ</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">This article will now be available offline.</item>
     <item quantity="other">A atekele ama na be la ba be saseɛŋ pampana.</item>

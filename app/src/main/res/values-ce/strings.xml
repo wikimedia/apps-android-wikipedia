@@ -361,7 +361,6 @@
   <string name="reading_lists_menu_create_list" fuzzy="true">Кхолла керла могӀам</string>
   <string name="reading_lists_menu_import_list" fuzzy="true">МогӀам импорт бе</string>
   <string name="reading_lists_menu_sort_by">Къастам бе</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">ЧугӀо / аккаунт кхолла</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">ОК</string>
   <string name="reading_list_delete_dialog_ok_button_text">ОК</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">Йухайаккхар</string>

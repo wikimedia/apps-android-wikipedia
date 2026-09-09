@@ -223,7 +223,6 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ij späʹsseb</string>
   <string name="default_reading_list_name">Ruõkkum</string>
   <string name="reading_lists_menu_create_list" fuzzy="true">Raaj ođđ lookkâmliist</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Ǩeeʹrjtõõđ sizz</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">Jõõsk</string>
   <string name="reading_list_delete_dialog_cancel_button_text">Jõõsk</string>
   <string name="reading_list_remove_from_offline_cancel_button_text">Jõõsk</string>

@@ -514,7 +514,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">Stranica „%s” više neće biti dostupna oflajn za sve liste za čitanje:</string>
   <string name="reading_lists_sync_reminder_title" fuzzy="true">Uključiti sinhronizaciju liste za čitanje?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">Članci sačuvani na listama za čitanje sada se mogu sinhronizovati sa vašim nalogom na Vikipediji. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Saznajte više&lt;/a&gt;.</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Liste za čitanje sada se mogu sinhronizovati među uređajima. Prijavite se na vaš nalog na Vikipediji i dozvolite čuvanje lista. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Saznajte više&lt;/a&gt;.</string>
   <string name="reading_lists_sync_reminder_action">Omogući sinhronizaciju</string>
   <string name="reading_list_login_reminder_title" fuzzy="true">Sinhronizacija lista za čitanje</string>
   <string name="reading_lists_login_reminder_text" fuzzy="true">Liste za čitanje se sada mogu sinhronizovati među uređajima. Prijavite se na vaš nalog na Vikipediji i dozvolite čuvanje lista.</string>
@@ -557,7 +556,6 @@
   <string name="reading_lists_menu_import_list" fuzzy="true">Uvezi spisak</string>
   <string name="reading_lists_menu_sort_by">Sortiraj po</string>
   <string name="reading_lists_refresh_sync_option">Osveži sinhronizaciju</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Prijava/registracija</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Ovaj članak će sada biti dostupan oflajn.</item>
     <item quantity="other">Ovi članaci će sada biti dostupni oflajn.</item>
