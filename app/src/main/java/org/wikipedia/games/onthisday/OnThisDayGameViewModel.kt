@@ -25,9 +25,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.log.L
-import java.time.Instant
 import java.time.LocalDate
-import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 import kotlin.math.min
 
@@ -45,7 +43,7 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     private var currentGameId: Int? = null
 
     private val overrideDate = savedStateHandle.contains(EXTRA_DATE)
-    var currentDate = if (overrideDate) LocalDate.ofInstant(Instant.ofEpochSecond(savedStateHandle.get<Long>(EXTRA_DATE)!!), ZoneOffset.UTC) else LocalDate.now()
+    var currentDate: LocalDate = savedStateHandle.get<LocalDate>(EXTRA_DATE) ?: LocalDate.now()
     val currentMonth get() = currentDate.monthValue
     val currentDay get() = currentDate.dayOfMonth
     var isArchiveGame = false
