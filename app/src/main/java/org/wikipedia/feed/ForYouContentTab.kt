@@ -192,18 +192,25 @@ fun ForYouContentTab(
                             )
                         }
 
-                        item(key = "load-more-foryou") {
-                            if (state.isLoadingMore) {
+                        // This item is only emitted when it has something to show. An item that renders
+                        // nothing still takes part in the list, and the list would anchor onto it while the
+                        // modules are still being laid out above it.
+                        if (state.isLoadingMore) {
+                            item(key = "load-more-foryou") {
                                 LoadingIndicator()
-                            } else if (state.canLoadMore) {
-                                // In case we want to load more For You items in the future:
-                                // LoadMoreButton(
-                                //     wikiSite = wikiSite,
-                                //     isCommunity = false,
-                                //     onClick = onLoadMore
-                                // )
-                            } else if (state.modules.isNotEmpty()) {
-                                // only when we don't serve new content on the same day
+                            }
+                        } else if (state.canLoadMore) {
+                            // In case we want to load more For You items in the future:
+                            // item(key = "load-more-foryou") {
+                            //     LoadMoreButton(
+                            //         wikiSite = wikiSite,
+                            //         isCommunity = false,
+                            //         onClick = onLoadMore
+                            //     )
+                            // }
+                        } else if (state.modules.isNotEmpty()) {
+                            // only when we don't serve new content on the same day
+                            item(key = "load-more-foryou") {
                                 val card = EmptyForYouCard()
                                 ForYouFeedMessageView(
                                     modifier = Modifier

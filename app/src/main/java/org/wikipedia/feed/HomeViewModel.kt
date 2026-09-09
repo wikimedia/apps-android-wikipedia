@@ -495,7 +495,9 @@ class HomeViewModel : ViewModel() {
             emptyState = emptyState,
             isInterestModuleHidden = isInterestModuleHidden
         )
-    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(MAX_STOP_TIMEOUT_MILLIS), ForYouContentState())
+        // The feed always starts out loading: nothing has been laid out yet at the time of subscription, and
+        // a state that claims otherwise would briefly present an empty feed before the first real emission.
+    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(MAX_STOP_TIMEOUT_MILLIS), ForYouContentState(isInitialLoading = true))
 
     // "age" in days from today. 0 = today, 1 = yesterday, etc.
     private var nextCommunityAge = 0
