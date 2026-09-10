@@ -7,7 +7,10 @@ import android.os.Bundle
 import androidx.activity.SystemBarStyle
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
+import androidx.compose.runtime.getValue
 import androidx.core.net.toUri
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.compose.theme.BaseTheme
@@ -18,6 +21,8 @@ import org.wikipedia.util.UriUtil
 
 class YearInReviewActivity : BaseActivity() {
 
+    private val viewModel: YearInReviewViewModel2 by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge(
@@ -27,8 +32,10 @@ class YearInReviewActivity : BaseActivity() {
 
         setContent {
             BaseTheme {
+                val yearInReview by viewModel.yearInReview.collectAsStateWithLifecycle()
+
                 YearInReviewScreen(
-                    showDonateButton = true, // TODO: pass in value from the ViewModel
+                    showDonateButton = yearInReview?.isDonationEligible == true,
                     onCloseClick = {
                         finish()
                     },
