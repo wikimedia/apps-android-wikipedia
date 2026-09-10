@@ -21,6 +21,8 @@ import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.VerticalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.CenterAlignedTopAppBar
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -30,7 +32,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
-import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -60,7 +61,7 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
 import kotlin.math.roundToInt
 
-private val YearInReviewCardCornerRadius = 48.dp
+private val YearInReviewCardCornerRadius = 28.dp
 private val TopAppBarHeight = 64.dp
 
 fun Modifier.placeholderBackground() = background(
@@ -86,12 +87,20 @@ fun YearInReviewScreen(
     onLearnMoreClick: () -> Unit = {},
     onShareFeedbackClick: () -> Unit = {},
     onShareClick: () -> Unit = {},
-    onDonateClick: () -> Unit = {},
+    onDonateClick: (String) -> Unit = { _ -> },
     onRetryClick: () -> Unit = {}
 ) {
     when (uiState) {
         YearInReviewUiState.Loading -> {
-            LoadingIndicator()
+            Box(
+                modifier = modifier
+                    .fillMaxSize()
+            ) {
+                CircularProgressIndicator(
+                    modifier = Modifier.align(Alignment.Center),
+                    color = WikipediaTheme.colors.progressiveColor
+                )
+            }
         }
 
         is YearInReviewUiState.Content -> {
@@ -109,9 +118,14 @@ fun YearInReviewScreen(
         }
 
         is YearInReviewUiState.Error -> {
-            Box(modifier = Modifier.fillMaxSize()) {
+            Box(
+                modifier = modifier
+                    .fillMaxSize()
+            ) {
                 WikiErrorView(
-                    modifier = modifier.align(Alignment.Center),
+                    modifier = Modifier
+                        .align(Alignment.Center)
+                        .padding(horizontal = 16.dp),
                     caught = uiState.error,
                     errorClickEvents = WikiErrorClickEvents(
                         retryClickListener = onRetryClick,
@@ -133,7 +147,7 @@ private fun YearInReviewContent(
     onLearnMoreClick: () -> Unit,
     onShareFeedbackClick: () -> Unit,
     onShareClick: () -> Unit,
-    onDonateClick: () -> Unit
+    onDonateClick: (String) -> Unit
 ) {
     val pagerState = rememberPagerState { pages.size }
     Scaffold(
@@ -142,9 +156,13 @@ private fun YearInReviewContent(
         contentWindowInsets = WindowInsets(0, 0, 0, 0),
         bottomBar = {
             YearInReviewBottomBar(
-                showDonateButton = showDonateButton,
+                showDonateButton = showDonateButton && pages.isNotEmpty(),
                 onShareClick = onShareClick,
-                onDonateClick = onDonateClick
+                onDonateClick = {
+                    pages.getOrNull(pagerState.currentPage)?.let {
+                        onDonateClick(it.id)
+                    }
+                }
             )
         }
     ) { paddingValues ->
@@ -156,9 +174,12 @@ private fun YearInReviewContent(
             VerticalPager(
                 modifier = Modifier
                     .fillMaxSize()
-                    .clip(shape = MaterialTheme.shapes.extraLarge),
+                    .clip(shape = RoundedCornerShape(
+                        bottomStart = YearInReviewCardCornerRadius,
+                        bottomEnd = YearInReviewCardCornerRadius
+                    )),
                 state = pagerState,
-                key = { page -> "$year-$page" }
+                key = { page -> pages[page].id }
             ) { position ->
                 when (val page = pages[position]) {
                     is YearInReviewPage.ReadingDays -> {
@@ -172,17 +193,11 @@ private fun YearInReviewContent(
                 }
             }
 
-            Box(
-                modifier = Modifier
-                    .align(Alignment.TopCenter)
-                    .fillMaxWidth()
-            ) {
-                YearInReviewTopBar(
-                    onCloseClick = onCloseClick,
-                    onLearnMoreClick = onLearnMoreClick,
-                    onShareFeedbackClick = onShareFeedbackClick
-                )
-            }
+            YearInReviewTopBar(
+                onCloseClick = onCloseClick,
+                onLearnMoreClick = onLearnMoreClick,
+                onShareFeedbackClick = onShareFeedbackClick
+            )
 
             YearInReviewProgressTracker(
                 pagerState = pagerState,
@@ -244,9 +259,9 @@ private fun YearInReviewTopBar(
 ) {
     var overflowMenuExpanded by remember { mutableStateOf(false) }
 
-    TopAppBar(
+    CenterAlignedTopAppBar(
         colors = TopAppBarDefaults.topAppBarColors(
-            containerColor = Color.Transparent
+            containerColor = Color.Transparent,
         ),
         title = {
             Box(

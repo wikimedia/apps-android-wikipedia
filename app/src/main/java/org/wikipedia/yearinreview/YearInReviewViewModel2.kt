@@ -31,7 +31,7 @@ class YearInReviewViewModel2(
             val yearInReview = repository.getYearInReview(YearInReviewViewModel.YIR_YEAR)
             _uiState.value = YearInReviewUiState.Content(
                 year = yearInReview.year,
-                pages = listOf(YearInReviewPage.ReadingDays(id = "reading_days")), // TODO: Populate pages
+                pages = listOf(YearInReviewPage.ReadingDays(id = "reading_days"), YearInReviewPage.ReadingDays(id = "reading_days_2")), // TODO: Populate actual pages
                 isDonationEligible = yearInReview.isDonationEligible
             )
         }

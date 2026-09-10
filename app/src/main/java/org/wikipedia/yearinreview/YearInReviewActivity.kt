@@ -13,6 +13,9 @@ import androidx.core.net.toUri
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
+import org.wikipedia.analytics.eventplatform.EventPlatformClient
+import org.wikipedia.analytics.eventplatform.YearInReviewEvent
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.donate.DonateDialog
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
@@ -51,14 +54,21 @@ class YearInReviewActivity : BaseActivity() {
                     onShareClick = {
                         // @TODO: Implement share functionality
                     },
-                    onDonateClick = {
-                        ExclusiveBottomSheetPresenter.show(
-                            supportFragmentManager,
-                            DonateDialog.newInstance(
-                                campaignId = YearInReviewViewModel.currentCampaignId,
-                                fromYiR = true
+                    onDonateClick = { currentSlide ->
+                        EventPlatformClient.submit(
+                            BreadCrumbLogEvent(
+                                screen_name = "year_in_review",
+                                action = "donate_click"
                             )
                         )
+                        val campaignId = "appmenu_yir_$currentSlide"
+                        YearInReviewViewModel.currentCampaignId = campaignId
+                        YearInReviewEvent.submit(
+                            action = "donate_start_click_yir",
+                            slide = currentSlide,
+                            campaignId = campaignId
+                        )
+                        ExclusiveBottomSheetPresenter.show(supportFragmentManager, DonateDialog.newInstance(campaignId = campaignId, fromYiR = true))
                     },
                     onRetryClick = {
                         viewModel.loadYearInReview()
