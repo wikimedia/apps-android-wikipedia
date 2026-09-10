@@ -32,10 +32,10 @@ class YearInReviewActivity : BaseActivity() {
 
         setContent {
             BaseTheme {
-                val yearInReview by viewModel.yearInReview.collectAsStateWithLifecycle()
+                val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
                 YearInReviewScreen(
-                    showDonateButton = yearInReview?.isDonationEligible == true,
+                    uiState = uiState,
                     onCloseClick = {
                         finish()
                     },
@@ -59,6 +59,9 @@ class YearInReviewActivity : BaseActivity() {
                                 fromYiR = true
                             )
                         )
+                    },
+                    onRetryClick = {
+                        viewModel.loadYearInReview()
                     }
                 )
             }

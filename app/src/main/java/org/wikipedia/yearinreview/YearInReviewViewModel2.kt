@@ -13,20 +13,27 @@ class YearInReviewViewModel2(
     private val repository: YearInReviewRepository = YearInReviewRepositoryImpl()
 ) : ViewModel() {
 
-    private val _yearInReview = MutableStateFlow<YearInReviewSnapshot?>(null)
-    val yearInReview = _yearInReview.asStateFlow()
+    private val _uiState = MutableStateFlow<YearInReviewUiState>(YearInReviewUiState.Loading)
+    val uiState = _uiState.asStateFlow()
 
     private val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
         L.e(throwable)
+        _uiState.value = YearInReviewUiState.Error(throwable)
     }
 
     init {
         loadYearInReview()
     }
 
-    private fun loadYearInReview() {
+    fun loadYearInReview() {
+        _uiState.value = YearInReviewUiState.Loading
         viewModelScope.launch(exceptionHandler) {
-            _yearInReview.value = repository.getYearInReview(YearInReviewViewModel.YIR_YEAR)
+            val yearInReview = repository.getYearInReview(YearInReviewViewModel.YIR_YEAR)
+            _uiState.value = YearInReviewUiState.Content(
+                year = yearInReview.year,
+                pages = listOf(YearInReviewPage.ReadingDays(id = "reading_days")), // TODO: Populate pages
+                isDonationEligible = yearInReview.isDonationEligible
+            )
         }
     }
 }
@@ -35,3 +42,21 @@ data class YearInReviewSnapshot(
     val year: Int,
     val isDonationEligible: Boolean
 )
+
+sealed interface YearInReviewUiState {
+    object Loading : YearInReviewUiState
+    data class Content(
+        val year: Int,
+        val isDonationEligible: Boolean,
+        val pages: List<YearInReviewPage>,
+    ) : YearInReviewUiState
+    data class Error(val error: Throwable) : YearInReviewUiState
+}
+
+sealed interface YearInReviewPage {
+    val id: String
+
+    data class ReadingDays(
+        override val id: String
+    ) : YearInReviewPage
+}

@@ -13,6 +13,7 @@ class YearInReviewRepositoryImpl(
     private val restService: RestService = ServiceFactory.getRest(WikipediaApp.instance.wikiSite)
 ) : YearInReviewRepository {
 
+    // TODO: wire up other data
     override suspend fun getYearInReview(year: Int): YearInReviewSnapshot {
         val remoteConfig = restService.getConfiguration().commonv1?.getYirForYear(year)
         val isDonationEligible = remoteConfig != null &&

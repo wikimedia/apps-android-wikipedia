@@ -53,6 +53,8 @@ import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import org.wikipedia.R
 import org.wikipedia.compose.ComposeColors
+import org.wikipedia.compose.components.error.WikiErrorClickEvents
+import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
@@ -61,17 +63,79 @@ import kotlin.math.roundToInt
 private val YearInReviewCardCornerRadius = 48.dp
 private val TopAppBarHeight = 64.dp
 
+fun Modifier.placeholderBackground() = background(
+    brush = Brush.linearGradient(
+        colorStops = arrayOf(
+            0f to Color(0xFF030303),
+            0.3f to Color(0xFF010004),
+            0.48f to Color(0xFF03072C),
+            0.63f to Color(0xFF01124F),
+            0.82f to Color(0xFF042C95),
+            1f to Color(0xFF0050A6)
+        ),
+        start = Offset.Zero,
+        end = Offset.Infinite
+    )
+)
+
 @Composable
 fun YearInReviewScreen(
+    uiState: YearInReviewUiState,
     modifier: Modifier = Modifier,
-    showDonateButton: Boolean = true,
     onCloseClick: () -> Unit = {},
     onLearnMoreClick: () -> Unit = {},
     onShareFeedbackClick: () -> Unit = {},
     onShareClick: () -> Unit = {},
-    onDonateClick: () -> Unit = {}
+    onDonateClick: () -> Unit = {},
+    onRetryClick: () -> Unit = {}
 ) {
-    val pagerState = rememberPagerState { 5 }
+    when (uiState) {
+        YearInReviewUiState.Loading -> {
+            LoadingIndicator()
+        }
+
+        is YearInReviewUiState.Content -> {
+            YearInReviewContent(
+                modifier = modifier,
+                year = uiState.year,
+                pages = uiState.pages,
+                showDonateButton = uiState.isDonationEligible,
+                onCloseClick = onCloseClick,
+                onLearnMoreClick = onLearnMoreClick,
+                onShareFeedbackClick = onShareFeedbackClick,
+                onShareClick = onShareClick,
+                onDonateClick = onDonateClick
+            )
+        }
+
+        is YearInReviewUiState.Error -> {
+            Box(modifier = Modifier.fillMaxSize()) {
+                WikiErrorView(
+                    modifier = modifier.align(Alignment.Center),
+                    caught = uiState.error,
+                    errorClickEvents = WikiErrorClickEvents(
+                        retryClickListener = onRetryClick,
+                        backClickListener = onCloseClick
+                    )
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun YearInReviewContent(
+    year: Int,
+    pages: List<YearInReviewPage>,
+    showDonateButton: Boolean,
+    modifier: Modifier = Modifier,
+    onCloseClick: () -> Unit,
+    onLearnMoreClick: () -> Unit,
+    onShareFeedbackClick: () -> Unit,
+    onShareClick: () -> Unit,
+    onDonateClick: () -> Unit
+) {
+    val pagerState = rememberPagerState { pages.size }
     Scaffold(
         modifier = modifier,
         containerColor = ComposeColors.Black,
@@ -85,44 +149,33 @@ fun YearInReviewScreen(
         }
     ) { paddingValues ->
         Box(
-            modifier = Modifier.fillMaxSize()
+            modifier = Modifier
+                .padding(paddingValues)
+                .fillMaxWidth()
         ) {
             VerticalPager(
-                modifier = Modifier.fillMaxSize(),
+                modifier = Modifier
+                    .fillMaxSize()
+                    .clip(shape = MaterialTheme.shapes.extraLarge),
                 state = pagerState,
-                contentPadding = paddingValues
-            ) {
-                Box(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .clip(
-                            shape = RoundedCornerShape(
-                                bottomStart = YearInReviewCardCornerRadius,
-                                bottomEnd = YearInReviewCardCornerRadius
-                            )
-                        )
-                        .background(
-                            brush = Brush.linearGradient(
-                                colorStops = arrayOf(
-                                    0f to Color(0xFF030303),
-                                    0.3f to Color(0xFF010004),
-                                    0.48f to Color(0xFF03072C),
-                                    0.63f to Color(0xFF01124F),
-                                    0.82f to Color(0xFF042C95),
-                                    1f to Color(0xFF0050A6)
-                                ),
-                                start = Offset.Zero,
-                                end = Offset.Infinite
-                            )
-                        )
-                ) { }
+                key = { page -> "$year-$page" }
+            ) { position ->
+                when (val page = pages[position]) {
+                    is YearInReviewPage.ReadingDays -> {
+                        // TODO: Implement ReadingDays page content once Rive animation is ready
+                        Box(
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .placeholderBackground()
+                        ) { }
+                    }
+                }
             }
 
             Box(
                 modifier = Modifier
                     .align(Alignment.TopCenter)
                     .fillMaxWidth()
-                    .background(Color.Black.copy(alpha = 0.8f))
             ) {
                 YearInReviewTopBar(
                     onCloseClick = onCloseClick,
@@ -138,7 +191,7 @@ fun YearInReviewScreen(
                     .fillMaxHeight()
                     .padding(
                         top = WindowInsets.statusBars.asPaddingValues().calculateTopPadding() + TopAppBarHeight,
-                        bottom = paddingValues.calculateBottomPadding() + YearInReviewCardCornerRadius,
+                        bottom = YearInReviewCardCornerRadius,
                         end = 1.dp
                     )
             )
@@ -336,6 +389,12 @@ private fun YearInReviewBottomBar(
 @Composable
 private fun YearInReviewScreenPreview() {
     BaseTheme(currentTheme = Theme.BLACK) {
-        YearInReviewScreen()
+        YearInReviewScreen(
+            uiState = YearInReviewUiState.Content(
+                year = YearInReviewViewModel.YIR_YEAR,
+                pages = listOf(YearInReviewPage.ReadingDays(id = "reading_days")),
+                isDonationEligible = true
+            )
+        )
     }
 }
