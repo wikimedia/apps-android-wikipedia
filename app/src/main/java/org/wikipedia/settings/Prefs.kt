@@ -910,14 +910,6 @@ object Prefs {
         get() = PrefsIoUtil.getString(R.string.preference_key_selected_app_icon, LauncherIcon.DEFAULT.key)
         set(value) = PrefsIoUtil.setString(R.string.preference_key_selected_app_icon, value)
 
-    var isHybridSearchOnboardingShown
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_hybrid_search_onboarding_shown, false)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_hybrid_search_onboarding_shown, value)
-
-    var isHybridSearchEnabled
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_hybrid_search_enabled, false)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_hybrid_search_enabled, value)
-
     var isGameStatsUnavailableSnackbarShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_game_stats_snackbar_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_game_stats_snackbar_shown, value)
