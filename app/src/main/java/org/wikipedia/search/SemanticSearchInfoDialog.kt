@@ -30,7 +30,7 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.util.UriUtil
 
-class SemanticSearchInfoDialog: ExtendedBottomSheetDialogFragment() {
+class SemanticSearchInfoDialog : ExtendedBottomSheetDialogFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
@@ -64,7 +64,6 @@ private fun SemanticSearchInfoDialogContent(
                     onClick = onLearnMoreClick,
                     backgroundColor = WikipediaTheme.colors.backgroundColor,
                     modifier = Modifier.fillMaxWidth(),
-
                 ) {
                     Row(
                         verticalAlignment = Alignment.CenterVertically,

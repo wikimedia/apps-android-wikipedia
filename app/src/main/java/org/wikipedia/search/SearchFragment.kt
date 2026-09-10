@@ -1,5 +1,3 @@
-        // Add your bottom sheet logic here
-        // Example: ExclusiveBottomSheetPresenter.show(childFragmentManager, YourBottomSheetDialog())
 package org.wikipedia.search
 
 import android.app.Activity.RESULT_OK
@@ -262,7 +260,7 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
     override fun showSemanticSearchInfoDialog() {
         ExclusiveBottomSheetPresenter.show(childFragmentManager, SemanticSearchInfoDialog())
     }
-    
+
     private fun onSearchContainerClick() {
         // Give the root container view an empty click handler, so that click events won't
         // get passed down to any underlying views (e.g. a PageFragment on top of which
