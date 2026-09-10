@@ -58,7 +58,6 @@ import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.gallery.MediaDownloadReceiver
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.HistoryFragment
-import org.wikipedia.login.LoginActivity
 import org.wikipedia.navtab.MenuNavTabDialog
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.navtab.NavTabFragmentPagerAdapter
@@ -124,6 +123,18 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
             pendingDownloadImage?.let { download(it) }
         } else {
             FeedbackUtil.showMessage(this, R.string.gallery_save_image_write_permission_rationale)
+        }
+    }
+
+    private val loginLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            WikipediaApp.instance.oauthClient.handleAuthorizationResponse(result.data!!) {
+                if (it == null) {
+                    FeedbackUtil.showMessage(this, R.string.login_success_toast)
+                } else {
+                    FeedbackUtil.showError(requireActivity(), it)
+                }
+            }
         }
     }
 
@@ -437,7 +448,9 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
     }
 
     fun onLoginRequested() {
-        startActivity(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_NAV))
+        // startActivity(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_NAV))
+
+        loginLauncher.launch(WikipediaApp.instance.oauthClient.getLoginIntent())
     }
 
     override fun onLoadPage(entry: HistoryEntry) {
