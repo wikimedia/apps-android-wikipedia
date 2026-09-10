@@ -129,8 +129,7 @@ class SearchResultsFragment : Fragment() {
                             },
                             onInfoClick = {
                                 requireActivity().instrument?.submitInteraction("click", elementId = "learn_more")
-
-                                UriUtil.visitInExternalBrowser(requireActivity(), getString(R.string.hybrid_search_info_link).toUri())
+                                callback()?.showSemanticSearchInfoDialog()
                             },
                             onTurnOffExperimentClick = {
                                 requireActivity().instrument?.submitInteraction("click", elementId = "hybrid_search_opt_out")
