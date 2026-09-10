@@ -337,7 +337,9 @@ private fun CollectionRow(
             )
         }
 
-        Thumbnail(thumbUrl = collection.thumbUrl)
+        if (collection.thumbUrl != null) {
+            Thumbnail(thumbUrl = collection.thumbUrl)
+        }
 
         Box(
             modifier = Modifier.size(32.dp),
@@ -360,7 +362,7 @@ private fun CollectionRow(
 
 @Composable
 private fun Thumbnail(
-    thumbUrl: String?,
+    thumbUrl: String,
     modifier: Modifier = Modifier
 ) {
     AsyncImage(
