@@ -274,6 +274,8 @@
   <string name="email_recommendation_dialog_create_without_email_action">الاستمرار بدون بريد إلكتروني</string>
   <string name="email_recommendation_dialog_create_with_email_action">إضافة عنوان بريد إلكتروني</string>
   <string name="create_account_button">أنشئ حسابًا</string>
+  <string name="create_account_encourage_title">ويكيبيديا أفضل مع حساب</string>
+  <string name="create_account_encourage_year_in_review_title_zero">شاهدوا كيف تجتمع أيّام قراءتكم في ملخّص العام.</string>
   <string name="create_account_name_unavailable">اسم المستخدم \"%s\" غير متوفر; يُرجَى اختيار اسم مختلف.</string>
   <string name="create_account_ip_block_message">عذرًا، تم منع عنوان الآيبي الخاص بك حاليًا من إنشاء حسابات جديدة.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
