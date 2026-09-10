@@ -62,7 +62,6 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
         setSearchText("")
     }
 
-
     private val searchQueryListener = object : SearchView.OnQueryTextListener {
         override fun onQueryTextSubmit(queryText: String): Boolean {
             DeviceUtil.hideSoftKeyboard(requireActivity())
