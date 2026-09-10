@@ -185,7 +185,7 @@ private fun ArticleHeader(
             }
         }
 
-        if (article.thumbUrl != null) {
+        if (!article.thumbUrl.isNullOrEmpty()) {
             Thumbnail(thumbUrl = article.thumbUrl)
         }
 
@@ -337,7 +337,7 @@ private fun CollectionRow(
             )
         }
 
-        if (collection.thumbUrl != null) {
+        if (!collection.thumbUrl.isNullOrEmpty()) {
             Thumbnail(thumbUrl = collection.thumbUrl)
         }
 

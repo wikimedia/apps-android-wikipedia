@@ -157,8 +157,8 @@ fun ReadingListPageRow(
             }
         }
 
-        Spacer(modifier = Modifier.width(16.dp))
-        if (page.thumbUrl != null) {
+        if (!page.thumbUrl.isNullOrEmpty()) {
+            Spacer(modifier = Modifier.width(16.dp))
             ArticleThumbnail(
                 thumbUrl = page.thumbUrl,
                 modifier = Modifier.alpha(if (page.isAvailable) 1f else 0.5f)
