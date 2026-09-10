@@ -3,13 +3,21 @@ package org.wikipedia.yearinreview
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.asPaddingValues
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.statusBars
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.VerticalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -39,13 +47,19 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.DpOffset
+import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import org.wikipedia.R
 import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
+import kotlin.math.roundToInt
+
+private val YearInReviewCardCornerRadius = 48.dp
+private val TopAppBarHeight = 64.dp
 
 @Composable
 fun YearInReviewScreen(
@@ -57,7 +71,7 @@ fun YearInReviewScreen(
     onShareClick: () -> Unit = {},
     onDonateClick: () -> Unit = {}
 ) {
-    val pagerState = rememberPagerState { 1 }
+    val pagerState = rememberPagerState { 5 }
     Scaffold(
         modifier = modifier,
         containerColor = ComposeColors.Black,
@@ -83,8 +97,8 @@ fun YearInReviewScreen(
                         .fillMaxSize()
                         .clip(
                             shape = RoundedCornerShape(
-                                bottomStart = 48.dp,
-                                bottomEnd = 48.dp
+                                bottomStart = YearInReviewCardCornerRadius,
+                                bottomEnd = YearInReviewCardCornerRadius
                             )
                         )
                         .background(
@@ -116,7 +130,55 @@ fun YearInReviewScreen(
                     onShareFeedbackClick = onShareFeedbackClick
                 )
             }
+
+            YearInReviewProgressTracker(
+                pagerState = pagerState,
+                modifier = Modifier
+                    .align(Alignment.CenterEnd)
+                    .fillMaxHeight()
+                    .padding(
+                        top = WindowInsets.statusBars.asPaddingValues().calculateTopPadding() + TopAppBarHeight,
+                        bottom = paddingValues.calculateBottomPadding() + YearInReviewCardCornerRadius,
+                        end = 1.dp
+                    )
+            )
         }
+    }
+}
+
+@Composable
+private fun YearInReviewProgressTracker(
+    pagerState: PagerState,
+    modifier: Modifier = Modifier,
+    indicatorHeight: Dp = 32.dp,
+    indicatorWidth: Dp = 3.dp
+) {
+    if (pagerState.pageCount <= 1) {
+        return
+    }
+
+    BoxWithConstraints(
+        modifier = modifier.width(indicatorWidth)
+    ) {
+
+        Box(
+            modifier = Modifier
+                .offset {
+                    val pagePosition = (pagerState.currentPage + pagerState.currentPageOffsetFraction)
+                        .coerceIn(0f, (pagerState.pageCount - 1).toFloat())
+                    val progress = pagePosition / (pagerState.pageCount - 1)
+                    val availableHeight = (constraints.maxHeight - indicatorHeight.roundToPx())
+                        .coerceAtLeast(0)
+                    IntOffset(
+                        x = 0,
+                        y = (availableHeight * progress).roundToInt()
+                    )
+                }
+                .width(indicatorWidth)
+                .height(indicatorHeight)
+                .clip(RoundedCornerShape(2.dp))
+                .background(ComposeColors.White.copy(alpha = 0.8f))
+        )
     }
 }
 
@@ -230,6 +292,7 @@ private fun YearInReviewBottomBar(
         modifier = Modifier
             .fillMaxWidth()
             .navigationBarsPadding()
+            .padding(top = 8.dp)
             .padding(horizontal = 16.dp),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
