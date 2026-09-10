@@ -2272,6 +2272,7 @@
   <string name="donation_reminders_snackbar_modify_button_label">Dəyişdir</string>
   <string name="donation_reminders_settings_article_number_selection_label">Məqalələr</string>
   <string name="donation_reminders_settings_custom_amount_label">Xüsusi məbləğ</string>
+  <string name="donation_reminders_settings_update_reminder_button">Xatırlatmanı yenilə</string>
   <string name="donation_reminders_beta_label">Beta</string>
   <string name="donation_reminders_wrap_up_title">Bu, ianə xatırlatmalarının sonudur</string>
   <string name="donation_reminders_wrap_up_message">Oxuduğunuz məqalələrə əsaslanan ianə xatırlatmalarını sınaqdan keçirdiyiniz üçün təşəkkür edirik. Rəyiniz bunun Vikipediyada ianə etməyin daimi üsuluna çevrilib-çevrilməyəcəyini müəyyənləşdirir. Bu, cəmi bir dəqiqə çəkir və ianə etmək tələb olunmur.</string>
