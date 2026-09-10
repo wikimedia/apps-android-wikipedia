@@ -817,8 +817,12 @@ class HomeViewModel : ViewModel() {
 
             // -- Read aloud lead section --
 
+            if (ReadAloudLeadSectionABTest().isTestActive()) {
+                ReadAloudLeadSectionABTest().maybeSendExposureEvent()
+            }
             val readAloudDeferred = async(Dispatchers.IO) {
-                if (!ReadAloudLeadSectionABTest().isTestGroupUser() ||
+                if (ReadAloudLeadSectionABTest().isTestActive() &&
+                    !ReadAloudLeadSectionABTest().isTestGroupUser() ||
                     !ReadAloudArticlesRepository.isSupported(wikiSite.value)) {
                     return@async emptyList()
                 }
