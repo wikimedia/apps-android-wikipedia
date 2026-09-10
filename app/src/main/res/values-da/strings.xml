@@ -246,6 +246,9 @@
     <item quantity="one">Genlæs din %1$d seneste læsning med aktivitet</item>
     <item quantity="other">Genlæs dine %1$d seneste læsninger med aktivitet</item>
   </plurals>
+  <string name="create_account_encourage_activity_description">Se din læsetid, dine udforskede emner og rækkevidden af dine bidrag i fanen Aktivitet.</string>
+  <string name="create_account_encourage_edits_title">Få kredit for dine redigeringer</string>
+  <string name="create_account_encourage_edits_description">Opbyg en historik, du kan være stolt af, med bidrag på tværs af Wikimedia-projekter krediteret til din konto.</string>
   <string name="create_account_name_unavailable">Brugernavnet \"%s\" er ikke tilgængeligt. Vælg venligst et andet navn.</string>
   <string name="create_account_ip_block_message">Beklager, din IP-adresse er på nuværende tidspunkt blokeret fra at oprette nye kontoer.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
@@ -2268,7 +2271,9 @@
   <string name="donation_reminders_first_milestone_reached_prompt_title">Du har læst %1$s siden du gav tilsagn om %2$s!</string>
   <string name="donation_reminders_subsequent_milestone_reached_prompt_title">Du har læst endnu %1$s!</string>
   <string name="donation_reminders_prompt_message">Du har oprettet en donationspåmindelse på %1$s for at give %3$s for hver %2$s du læser. Er du klar til at holde dit løfte om at støtte Wikipedia?</string>
+  <string name="donation_reminders_prompt_message_v2">Den %1$s bad du os om at minde dig om at donere efter at have læst %2$s. Hvis Wikipedia har givet dig %3$s viden, så bliv en del af de 2%% af læsere, der giver og fuldfør dit løfte i dag.</string>
   <string name="donation_reminders_prompt_positive_button">Donér nu</string>
+  <string name="donation_reminders_prompt_positive_button_v2">Ja, donér nu</string>
   <string name="donation_reminders_prompt_negative_button">Ikke nu</string>
   <string name="donation_reminders_gpay_text">Donér %s med Google Pay</string>
   <string name="donation_reminders_gpay_different_amount_text">Donér et andet beløb med Google Pay</string>
@@ -2286,6 +2291,24 @@
   <string name="donation_reminders_settings_report_email_subject">Problemrapport - Donationspåmindelser</string>
   <string name="donation_reminders_settings_report_email_body">Jeg er stødt på et problem med funktionen til påmindelser om donationer:\n- [Beskriv det specifikke problem]\n- [Skærmbilleder eller links]\n\nDen adfærd, jeg gerne vil se, er:\n- [Beskriv den foreslåede løsning]</string>
   <string name="donation_reminders_snackbar_modify_button_label">Ændr</string>
+  <string name="donation_reminders_settings_article_number_selection_label">Artikler</string>
+  <string name="donation_reminders_settings_custom_amount_label">Brugerdefineret beløb</string>
+  <string name="donation_reminders_settings_update_reminder_button">Opdater påmindelse</string>
+  <string name="donation_reminders_beta_label">Beta</string>
+  <string name="donation_reminders_wrap_up_title">Det er en oversigt over påmindelser om donationer</string>
+  <string name="donation_reminders_wrap_up_message">Tak for at du tester påmindelser om donationer baseret på de artikler, du læser. Din feedback afgør, om dette bliver en permanent måde at donere på Wikipedia. Det tager kun et minut, og der kræves ingen donation.</string>
+  <string name="donation_reminders_wrap_up_share_feedback_button">Del tilbagemelding</string>
+  <string name="donation_reminders_wrap_up_survey_title">Et hurtigt spørgsmål om påmindelser om donationer</string>
+  <string name="donation_reminders_wrap_up_survey_message">Bør påmindelser om donationer baseret på artikler, du læser, blive en permanent funktion?</string>
+  <string name="donation_reminders_wrap_up_survey_option_keep_it">Behold det</string>
+  <string name="donation_reminders_wrap_up_survey_option_remove_it">Fjern det</string>
+  <string name="donation_reminders_wrap_up_survey_option_not_sure">Ikke sikker</string>
+  <string name="donation_reminders_wrap_up_survey_optional_hint">Noget andet? (Valgfrit)</string>
+  <string name="donation_reminders_wrap_up_survey_thank_you_message">Tak for din tilbagemelding. Dit svar hjælper os med at beslutte, hvad vi skal arbejde med næste gang.</string>
+  <string name="donation_reminders_eoe_title">Dette er slutningen på eksperimentet</string>
+  <string name="donation_reminders_eoe_message">Vi viser ikke længere påmindelser i appen, men du kan stadig støtte ved at donere dit lovede beløb %s månedligt.</string>
+  <string name="donation_reminders_eoe_give_monthly_button">Giv månedligt</string>
+  <string name="donation_reminders_eoe_donate_dialog_title">Hvordan vil du gerne give månedligt?</string>
   <string name="hybrid_search_search_hint">Søg eller spørg om hvad som helst</string>
   <string name="hybrid_search_article_search_hint">Spørg om %s</string>
   <string name="hybrid_search_suggestion_title">Søg efter:</string>
