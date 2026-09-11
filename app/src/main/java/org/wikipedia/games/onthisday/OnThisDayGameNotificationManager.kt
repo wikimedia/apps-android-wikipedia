@@ -111,6 +111,8 @@ object OnThisDayGameNotificationManager {
             ).apply {
                 setAction(R.string.reading_list_item_delete_undo) {
                     WikiGamesEvent.submit("undo_click", "notification_snackbar", "game_end")
+                    TestKitchenAdapter.client.getInstrument("apps-notifications")
+                        .submitInteraction(action = "click", actionSource = "game", actionSubtype = "notifications_undo", elementId = "notification_off")
                     disableNotifications(activity, showUndo = false)
                     activity.invalidateOptionsMenu()
                 }
