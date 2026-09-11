@@ -994,6 +994,10 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_home_feed_survey_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_home_feed_survey_shown, value)
 
+    var readAloudLeadSectionTooltipShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_read_aloud_lead_section_tooltip_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_read_aloud_lead_section_tooltip_shown, value)
+
     var isReadingListsUpdateTooltipShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_lists_update_tooltip_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_lists_update_tooltip_shown, value)

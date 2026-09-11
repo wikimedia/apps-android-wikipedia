@@ -156,6 +156,7 @@
     <string name="preference_key_recent_edits_included_type_codes" translatable="false">filterRecentEditsIncludedTypeCodes</string>
     <string name="preference_key_recent_edits_onboarding_shown" translatable="false">recentEditsOnboardingShown</string>
     <string name="preference_key_show_sequential_recent_edits_diff_tooltip" translatable="false">showSequentialRecentEditsDiffTooltip</string>
+    <string name="preference_key_read_aloud_lead_section_tooltip_shown" translatable="false">readAloudLeadSectionTooltipShown</string>
     <string name="preference_key_show_recent_edits_feedback_form" translatable="false">showRecentEditsFeedbackForm</string>
     <string name="preference_key_places_wiki_code" translatable="false">filterPlacesWikiCode</string>
     <string name="preference_key_places_last_location_and_zoom_level" translatable="false">placesLastLocationAndZoomLevel</string>
