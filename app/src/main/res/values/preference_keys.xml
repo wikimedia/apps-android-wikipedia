@@ -204,8 +204,6 @@
     <string name="preference_key_activity_tab_modules" translatable="false">activityTabModules</string>
     <string name="preference_key_activity_tab_onboarding_shown" translatable="false">activityTabOnboardingShown</string>
     <string name="preference_key_yir_model_data" translatable="false">yirModelData</string>
-    <string name="preference_key_hybrid_search_onboarding_shown" translatable="false">hybridSearchOnboardingShown</string>
-    <string name="preference_key_hybrid_search_enabled" translatable="false">hybridSearchEnabled</string>
     <string name="preference_key_game_stats_snackbar_shown" translatable="false">gameStatsSnackbarShown</string>
     <string name="preference_key_reading_challenge_streak" translatable="false">readingChallengeStreak</string>
     <string name="preference_key_reading_challenge_enrolled" translatable="false">readingChallengeEnrolled</string>
