@@ -11,6 +11,18 @@
             android:value="Automotive"
             tools:replace="android:value" />
 
+        <activity
+            android:name=".games.onthisday.OnThisDayGameActivity"
+            tools:remove="android:screenOrientation" />
+
+        <activity
+            android:name=".createaccount.CreateAccountEncourageActivity"
+            tools:remove="android:screenOrientation" />
+
+        <activity
+            android:name=".donate.donationreminder.DonationReminderActivity"
+            tools:remove="android:screenOrientation" />
+
     </application>
 
 </manifest>
