@@ -14,6 +14,10 @@ import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.selection.selectableGroup
+import androidx.compose.foundation.text.input.InputTransformation
+import androidx.compose.foundation.text.input.TextFieldLineLimits
+import androidx.compose.foundation.text.input.maxLength
+import androidx.compose.foundation.text.input.rememberTextFieldState
 import androidx.compose.foundation.text.selection.TextSelectionColors
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.AlertDialogDefaults
@@ -108,15 +112,15 @@ fun ReadAloudSurveyDialog(
                     onDismissRequest()
                 },
                 onSubmitClick = { choiceIndex, otherText ->
-                    val context = mutableMapOf<String, Any>()
+                    val actionContext = mutableMapOf<String, Any>()
                     if (choiceIndex != null) {
-                        context["choice"] = choiceIndex
+                        actionContext["choice"] = choiceIndex
                     }
                     if (otherText.isNotEmpty()) {
-                        context["text"] = otherText
+                        actionContext["text"] = otherText
                     }
                     activity?.let {
-                        it.instrument?.submitInteraction("click", actionSource = "read_aloud_lead_section_survey", elementId = "submit", actionContext = context)
+                        it.instrument?.submitInteraction("click", actionSource = "read_aloud_lead_section_survey", elementId = "submit", actionContext = actionContext)
                         FeedbackUtil.showMessage(it, R.string.survey_dialog_submitted_snackbar)
                     }
                     onDismissRequest()
@@ -132,7 +136,7 @@ private fun ReadAloudSurveyContent(
     onSubmitClick: (choiceIndex: Int?, otherText: String) -> Unit = { _, _ -> }
 ) {
     var selectedChoiceIndex by remember { mutableStateOf<Int?>(null) }
-    var otherText by remember { mutableStateOf("") }
+    val otherTextState = rememberTextFieldState()
 
     Surface(
         modifier = Modifier.widthIn(min = 280.dp, max = 560.dp),
@@ -175,9 +179,9 @@ private fun ReadAloudSurveyContent(
                                 selectedChoiceIndex = OTHER_CHOICE_INDEX
                             }
                         },
-                    value = otherText,
-                    onValueChange = { otherText = it },
-                    singleLine = true,
+                    state = otherTextState,
+                    inputTransformation = InputTransformation.maxLength(250),
+                    lineLimits = TextFieldLineLimits.SingleLine,
                     colors = TextFieldDefaults.colors(
                         focusedTextColor = WikipediaTheme.colors.primaryColor,
                         unfocusedTextColor = WikipediaTheme.colors.primaryColor,
@@ -205,7 +209,7 @@ private fun ReadAloudSurveyContent(
                         style = MaterialTheme.typography.labelLarge.copy(fontSize = 16.sp)
                     )
                 }
-                AppTextButton(onClick = { onSubmitClick(selectedChoiceIndex, otherText) }) {
+                AppTextButton(onClick = { onSubmitClick(selectedChoiceIndex, otherTextState.text.toString()) }) {
                     Text(
                         text = stringResource(R.string.survey_dialog_submit),
                         style = MaterialTheme.typography.labelLarge.copy(fontSize = 16.sp)
