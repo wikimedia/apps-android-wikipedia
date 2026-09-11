@@ -2455,6 +2455,8 @@
     <string name="hybrid_search_error_message">Something went wrong. Please try again later.</string>
     <string name="hybrid_search_who_is_prefix">Who is %s?</string>
     <string name="hybrid_search_turn_off_experiment_label">Turn off this experiment</string>
+    <string name="hybrid_search_entry_point_card_message">Search within articles and jump straight to the relevant passage.</string>
+    <string name="hybrid_search_entry_point_card_text_button">Try it now</string>
 
     <!-- Reading challenge   -->
     <string name="reading_challenge_widget_name">Reading Challenge</string>
