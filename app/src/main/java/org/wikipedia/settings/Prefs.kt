@@ -997,4 +997,8 @@ object Prefs {
     var isReadingListsUpdateTooltipShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_lists_update_tooltip_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_lists_update_tooltip_shown, value)
+
+    var isSemanticSearchEnabled
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_semantic_search_enabled, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_semantic_search_enabled, value)
 }
