@@ -2455,6 +2455,9 @@
     <string name="hybrid_search_error_message">Something went wrong. Please try again later.</string>
     <string name="hybrid_search_who_is_prefix">Who is %s?</string>
     <string name="hybrid_search_turn_off_experiment_label">Turn off this experiment</string>
+    <string name="hybrid_search_info_dialog_title">What is this feature?</string>
+    <string name="hybrid_search_info_dialog_message">With dive you can find answers to your questions inside Wikipedia articles. We will retrieve the exact Wikipedia passage and you can go straight to it in article to get more context.</string>
+    <string name="hybrid_search_info_dialog_button_text">Learn more</string>
 
     <!-- Reading challenge   -->
     <string name="reading_challenge_widget_name">Reading Challenge</string>

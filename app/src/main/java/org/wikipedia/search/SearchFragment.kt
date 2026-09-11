@@ -27,6 +27,7 @@ import org.wikipedia.databinding.FragmentSearchBinding
 import org.wikipedia.extensions.instrument
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.JsonUtil
+import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.places.PlacesActivity
@@ -254,6 +255,10 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
 
     override fun onSearchProgressBar(enabled: Boolean) {
         binding.searchProgressBar.visibility = if (enabled) View.VISIBLE else View.GONE
+    }
+
+    override fun showSemanticSearchInfoDialog() {
+        ExclusiveBottomSheetPresenter.show(childFragmentManager, SemanticSearchInfoDialog())
     }
 
     private fun onSearchContainerClick() {

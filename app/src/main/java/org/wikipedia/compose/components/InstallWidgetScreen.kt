@@ -40,7 +40,7 @@ fun InstallWidgetScreen(
     onCloseClick: () -> Unit,
     bottomContent: @Composable () -> Unit,
     modifier: Modifier = Modifier,
-    previewContent: @Composable BoxScope.() -> Unit
+    previewContent: (@Composable BoxScope.() -> Unit)? = null
 ) {
     Column(
         modifier = modifier
@@ -83,14 +83,16 @@ fun InstallWidgetScreen(
                 color = WikipediaTheme.colors.secondaryColor
             )
 
-            Box(
-                modifier = Modifier
-                    .padding(vertical = 12.dp)
-                    .height(190.dp)
-                    .fillMaxWidth()
-                    .clip(RoundedCornerShape(12.dp)),
-                content = previewContent
-            )
+            previewContent?.let { content ->
+                Box(
+                    modifier = Modifier
+                        .padding(vertical = 12.dp)
+                        .height(190.dp)
+                        .fillMaxWidth()
+                        .clip(RoundedCornerShape(12.dp)),
+                    content = content
+                )
+            }
 
             bottomContent()
         }
