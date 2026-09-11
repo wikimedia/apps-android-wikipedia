@@ -131,7 +131,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
                         .submitInteraction(action = "app_open", actionSource = "widget", actionSubtype = widgetType)
                 }
                 InvokeSource.NOTIFICATION -> {
-                    val notificationCategory = intent.getSerializableExtra(Constants.INTENT_EXTRA_NOTIFICATION_TYPE) as NotificationCategory?
+                    val notificationCategory = intent.getSerializableExtra(Constants.INTENT_EXTRA_NOTIFICATION_CATEGORY) as NotificationCategory?
                     val subType = when (notificationCategory) {
                         NotificationCategory.GAMES -> "game"
                         NotificationCategory.RECOMMENDED_READING_LISTS -> "discover"
