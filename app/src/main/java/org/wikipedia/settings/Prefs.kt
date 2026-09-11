@@ -998,6 +998,14 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_read_aloud_lead_section_tooltip_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_read_aloud_lead_section_tooltip_shown, value)
 
+    var readAloudLeadSectionSurveyShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_read_aloud_lead_section_survey_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_read_aloud_lead_section_survey_shown, value)
+
+    var readAloudLeadSectionLastPlayedDate
+        get() = PrefsIoUtil.getString(R.string.preference_key_read_aloud_last_played_date, "").orEmpty()
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_read_aloud_last_played_date, value)
+
     var isReadingListsUpdateTooltipShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_lists_update_tooltip_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_lists_update_tooltip_shown, value)

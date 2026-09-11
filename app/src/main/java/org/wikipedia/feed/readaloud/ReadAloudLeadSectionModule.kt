@@ -83,12 +83,14 @@ import org.wikipedia.feed.noImageCardBackgroundColors
 import org.wikipedia.feed.personalization.db.entity.InterestTopic
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
+import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
 import org.wikipedia.topics.ArticleTopics
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.imageservice.ImageService
+import java.time.LocalDate
 import kotlin.math.abs
 import kotlin.math.hypot
 
@@ -428,7 +430,11 @@ private fun ReadAloudPlaybackControls(
         ) {
             IconButton(
                 modifier = Modifier.size(48.dp),
-                onClick = { playerState.playOrPause() }
+                onClick = {
+                    playerState.playOrPause()
+                    ReadAloudSurveyDialog.maybeShow(context, byDate = false)
+                    Prefs.readAloudLeadSectionLastPlayedDate = LocalDate.now().toString()
+                }
             ) {
                 if (playerState.isBuffering) {
                     CircularProgressIndicator(
