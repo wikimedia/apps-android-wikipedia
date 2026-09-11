@@ -389,9 +389,10 @@ private fun ReadAloudCardContent(
 }
 
 /**
- * Shows the narration a chunk of [TRANSCRIPT_WORDS_PER_CHUNK] words at a time, with the word
- * currently being spoken in white and the rest in gray. Advancing a chunk at a time rather than
- * sliding a window word by word keeps the text still between chunks, so only the highlight moves.
+ * Shows the narration a chunk of [TRANSCRIPT_WORDS_PER_CHUNK] words at a time, with every word up to
+ * and including the one currently being spoken in white and the words still to come in gray.
+ * Advancing a chunk at a time rather than sliding a window word by word keeps the text still between
+ * chunks, so only the highlight moves.
  */
 @Composable
 private fun ReadAloudTranscript(
@@ -406,7 +407,7 @@ private fun ReadAloudTranscript(
             if (index > chunkStart) {
                 append(' ')
             }
-            withStyle(SpanStyle(color = if (index == currentCueIndex) Color.White else Color.White.copy(alpha = 0.5f))) {
+            withStyle(SpanStyle(color = if (index <= currentCueIndex) Color.White else Color.White.copy(alpha = 0.5f))) {
                 append(cues[index].word)
             }
         }
