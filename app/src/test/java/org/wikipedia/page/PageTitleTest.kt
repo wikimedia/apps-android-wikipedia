@@ -48,6 +48,8 @@ class PageTitleTest {
         assertEquals("https://en.wikipedia.org/wiki/India", PageTitle.titleForInternalLink("/wiki/India", enwiki).uri)
         assertEquals("https://en.wikipedia.org/wiki/India_Gate", PageTitle.titleForInternalLink("/wiki/India Gate", enwiki).uri)
         assertEquals("https://en.wikipedia.org/wiki/India%27s_Gate", PageTitle.titleForInternalLink("/wiki/India's Gate", enwiki).uri)
+        assertEquals("https://en.wikipedia.org/wiki/File:William_Frederick_Yeames_-_And_when_did_you_last_see_your_father%3F_-_Google_Art_Project.jpg", 
+                PageTitle.titleForInternalLink("/wiki/File:William_Frederick_Yeames_-_And_when_did_you_last_see_your_father?_-_Google_Art_Project.jpg", enwiki).uri)
     }
 
     @Test
