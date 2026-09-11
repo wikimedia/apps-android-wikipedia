@@ -73,6 +73,9 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.L10nUtil
 
+// How many modules to fetch ahead of the one currently in view, so that scrolling to the next one is smooth.
+private const val FOR_YOU_PREFETCH_COUNT = 1
+
 @Composable
 fun ForYouContentTab(
     state: ForYouContentState,
@@ -155,6 +158,18 @@ fun ForYouContentTab(
                     }
                 }
 
+                // Modules are fetched lazily: only the one in view and the next one are ever requested.
+                LaunchedEffect(listState, modules) {
+                    snapshotFlow { listState.firstVisibleItemIndex }
+                        .collect { index ->
+                            val slotKeys = (index..index + FOR_YOU_PREFETCH_COUNT)
+                                .mapNotNull { modules.getOrNull(it)?.slotKey }
+                            if (slotKeys.isNotEmpty()) {
+                                onAction(HomeAction.LoadForYouModules(slotKeys))
+                            }
+                        }
+                }
+
                 BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
                     val viewportHeight = maxHeight
 
@@ -177,18 +192,25 @@ fun ForYouContentTab(
                             )
                         }
 
-                        item(key = "load-more-foryou") {
-                            if (state.isLoadingMore) {
+                        // This item is only emitted when it has something to show. An item that renders
+                        // nothing still takes part in the list, and the list would anchor onto it while the
+                        // modules are still being laid out above it.
+                        if (state.isLoadingMore) {
+                            item(key = "load-more-foryou") {
                                 LoadingIndicator()
-                            } else if (state.canLoadMore) {
-                                // In case we want to load more For You items in the future:
-                                // LoadMoreButton(
-                                //     wikiSite = wikiSite,
-                                //     isCommunity = false,
-                                //     onClick = onLoadMore
-                                // )
-                            } else if (state.modules.isNotEmpty()) {
-                                // only when we don't serve new content on the same day
+                            }
+                        } else if (state.canLoadMore) {
+                            // In case we want to load more For You items in the future:
+                            // item(key = "load-more-foryou") {
+                            //     LoadMoreButton(
+                            //         wikiSite = wikiSite,
+                            //         isCommunity = false,
+                            //         onClick = onLoadMore
+                            //     )
+                            // }
+                        } else if (state.modules.isNotEmpty()) {
+                            // only when we don't serve new content on the same day
+                            item(key = "load-more-foryou") {
                                 val card = EmptyForYouCard()
                                 ForYouFeedMessageView(
                                     modifier = Modifier
@@ -220,6 +242,7 @@ fun ForYouContentTab(
                             forYouModuleItem(
                                 module = state.modules.first(),
                                 index = modules.size + 1,
+                                key = "${state.modules.first().slotKey}-repeat",
                                 topInset = topInset,
                                 viewPortHeight = viewportHeight,
                                 wikiSite = wikiSite,
@@ -243,10 +266,26 @@ private fun LazyListScope.forYouModuleItem(
     wikiSite: WikiSite,
     resolveSavedState: suspend (PageTitle) -> Boolean,
     onAction: (HomeAction) -> Unit,
+    key: String = module.slotKey,
     onCardImpression: (card: Card, index: Int) -> Unit = { card, index -> onAction(HomeAction.CardImpression(card, index)) }
 ) {
-    val key = "${module.javaClass.simpleName}-${module.age}-$index"
     when (module) {
+        is ForYouModule.Placeholder -> {
+            item(key = key) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(viewPortHeight),
+                    contentAlignment = Alignment.Center
+                ) {
+                    if (module.error != null) {
+                        ErrorState(module.error, onRetry = { onAction(HomeAction.RetryForYouModule(module.slotKey)) })
+                    } else {
+                        LoadingIndicator()
+                    }
+                }
+            }
+        }
         is ForYouModule.BasedOnInterest -> {
             item(key = key) {
                 BasedOnInterestModule(
