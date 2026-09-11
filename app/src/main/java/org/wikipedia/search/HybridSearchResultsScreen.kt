@@ -25,6 +25,7 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
@@ -81,6 +82,7 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.PageTitle
+import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.L10nUtil
@@ -183,7 +185,23 @@ fun HybridSearchResultsList(
     onRatingClick: (Boolean, SearchResult) -> Unit
 ) {
     LazyColumn {
-        if (testGroup == HybridSearchAbCTest.GROUP_CONTROL || testGroup == HybridSearchAbCTest.GROUP_LEXICAL_SEMANTIC) {
+        if (testGroup == HybridSearchAbCTest.GROUP_CONTROL || testGroup == HybridSearchAbCTest.GROUP_SEMANTIC_LEXICAL) {
+            if (testGroup == HybridSearchAbCTest.GROUP_SEMANTIC_LEXICAL && semanticSearchResultPage.isNotEmpty()) {
+                item {
+                    SemanticSearchEntryCard(
+                        searchTerm = searchTerm,
+                        isFirstUse = Prefs.isHybridSearchOnboardingShown.not(),
+                        onInfoBtnClick = onInfoClick,
+                        onCloseClick = onTurnOffExperimentClick
+                    )
+                    HorizontalDivider(
+                        modifier = Modifier.fillMaxWidth()
+                            .padding(top = 12.dp),
+                        thickness = 1.dp,
+                        color = WikipediaTheme.colors.borderColor
+                    )
+                }
+            }
             items(
                 count = searchResultsPage.size
             ) { index ->
@@ -203,7 +221,8 @@ fun HybridSearchResultsList(
             item {
                 if (searchResultsPage.isNotEmpty() && semanticSearchResultPage.isNotEmpty()) {
                     HorizontalDivider(
-                        modifier = Modifier.fillMaxWidth().padding(start = 16.dp, end = 16.dp, top = 12.dp),
+                        modifier = Modifier.fillMaxWidth()
+                            .padding(start = 16.dp, end = 16.dp, top = 12.dp),
                         thickness = 1.dp,
                         color = WikipediaTheme.colors.borderColor
                     )
@@ -211,16 +230,7 @@ fun HybridSearchResultsList(
             }
         }
 
-        item {
-            if (semanticSearchResultPage.isNotEmpty()) {
-                SemanticSearchResultHeader(
-                    modifier = Modifier.padding(top = 8.dp, start = 16.dp, end = 16.dp),
-                    onInfoClick = onInfoClick,
-                    onTurnOffExperimentClick = onTurnOffExperimentClick
-                )
-            }
-        }
-
+        /* TODO: Retain Logic for future tickets (see LazyRow), delete when no longer needed
         item {
 
             // Logic for tracking "impressions" of horizontally scrollable cards.
@@ -273,35 +283,7 @@ fun HybridSearchResultsList(
                     }
                 }
             }
-        }
-
-        if (testGroup == HybridSearchAbCTest.GROUP_SEMANTIC_LEXICAL) {
-            item {
-                if (semanticSearchResultPage.isNotEmpty() && searchResultsPage.isNotEmpty()) {
-                    HorizontalDivider(
-                        modifier = Modifier.fillMaxWidth().padding(start = 16.dp, end = 16.dp, top = 8.dp),
-                        thickness = 1.dp,
-                        color = WikipediaTheme.colors.borderColor
-                    )
-                }
-            }
-            items(
-                count = searchResultsPage.size
-            ) { index ->
-                searchResultsPage[index].let { result ->
-                    SearchResultPageItem(
-                        searchResultPage = result,
-                        searchTerm = searchTerm,
-                        onItemClick = {
-                            onItemClick(result, false, index, result.location)
-                        },
-                        onItemLongClick = { view ->
-                            onItemLongClick(view, result, index)
-                        }
-                    )
-                }
-            }
-        }
+        } */
     }
 }
 
@@ -613,11 +595,14 @@ fun SemanticSearchResultPageItem(
 @Composable
 fun SemanticSearchEntryCard(
     searchTerm: String?,
+    isFirstUse: Boolean,
     onInfoBtnClick: () -> Unit,
     onCloseClick: () -> Unit
 ) {
     Column(
-        modifier = Modifier.padding(vertical = 12.dp)
+        modifier = Modifier
+            .padding(horizontal = 16.dp)
+            .wrapContentHeight()
     ) {
         // Beta pill + Info button + Close button
         Row(
@@ -703,12 +688,13 @@ fun SemanticSearchEntryCard(
                     style = MaterialTheme.typography.bodyMedium,
                     color = WikipediaTheme.colors.placeholderColor
                 )
-
-                Text(
-                    text = stringResource(R.string.hybrid_search_entry_point_card_text_button),
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = WikipediaTheme.colors.progressiveColor
-                )
+                if (isFirstUse) {
+                    Text(
+                        text = stringResource(R.string.hybrid_search_entry_point_card_text_button),
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = WikipediaTheme.colors.progressiveColor
+                    )
+                }
             }
             Box(
                 modifier = Modifier
@@ -738,7 +724,8 @@ private fun SemanticSearchEntryCardPreview() {
             SemanticSearchEntryCard(
                 searchTerm = "what is communication",
                 onCloseClick = {},
-                onInfoBtnClick = {}
+                onInfoBtnClick = {},
+                isFirstUse = false
             )
         }
     }
