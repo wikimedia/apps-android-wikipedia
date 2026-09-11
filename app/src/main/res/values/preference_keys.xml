@@ -226,4 +226,5 @@
     <string name="preference_key_randomizer_shake_prompt_shown" translatable="false">randomizerShakePromptShown</string>
     <string name="preference_key_home_feed_survey_shown" translatable="false">homeFeedSurveyShown</string>
     <string name="preference_key_reading_lists_update_tooltip_shown" translatable="false">readingListsUpdateTooltipShown</string>
+    <string name="preference_key_semantic_search_enabled" translatable="false">semanticSearchEnabled</string>
 </resources>
