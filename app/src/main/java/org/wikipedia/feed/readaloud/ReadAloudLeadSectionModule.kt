@@ -422,6 +422,7 @@ private fun ReadAloudPlaybackControls(
     playerState: ReadAloudPlayerState
 ) {
     val context = LocalContext.current
+    var showSurveyDialog by remember { mutableStateOf(false) }
 
     Column(modifier = modifier) {
         Row(
@@ -432,7 +433,9 @@ private fun ReadAloudPlaybackControls(
                 modifier = Modifier.size(48.dp),
                 onClick = {
                     playerState.playOrPause()
-                    ReadAloudSurveyDialog.maybeShow(context, byDate = false)
+                    if (ReadAloudSurveyDialog.shouldShow(byDate = false)) {
+                        showSurveyDialog = true
+                    }
                     Prefs.readAloudLeadSectionLastPlayedDate = LocalDate.now().toString()
                 }
             ) {
@@ -527,6 +530,10 @@ private fun ReadAloudPlaybackControls(
                 color = Color.White.copy(alpha = 0.7f),
                 style = MaterialTheme.typography.labelSmall
             )
+        }
+
+        if (showSurveyDialog) {
+            ReadAloudSurveyDialog(onDismissRequest = { showSurveyDialog = false })
         }
     }
 }

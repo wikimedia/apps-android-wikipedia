@@ -2634,8 +2634,7 @@
     <string name="read_aloud_card_keep_listening">Keep listening?</string>
     <string name="read_aloud_card_audio_date">This audio is based on article content from %s</string>
     <string name="read_aloud_lead_section_tooltip_text">New beta feature: listen to article intros in \"For you\"</string>
-    <string name="read_aloud_lead_section_survey_title">What are you interested in listening to?</string>
-    <string name="read_aloud_lead_section_survey_subtitle">What are you interested in listening to?</string>
+    <string name="read_aloud_lead_section_survey_title">How are you interested in listening to Wikipedia?</string>
     <string name="read_aloud_lead_section_survey_choice1">Article introductions</string>
     <string name="read_aloud_lead_section_survey_choice2">A few sections of an article</string>
     <string name="read_aloud_lead_section_survey_choice3">Full articles</string>

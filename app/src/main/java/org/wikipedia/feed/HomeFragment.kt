@@ -54,6 +54,7 @@ import org.wikipedia.feed.personalization.PersonalizationActivity
 import org.wikipedia.feed.personalization.PersonalizationActivity.Companion.RESULT_INTERESTS_UPDATED
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
 import org.wikipedia.feed.readaloud.ReadAloudLeadSectionABTest
+import org.wikipedia.feed.readaloud.ReadAloudSurveyDialog
 import org.wikipedia.feed.topread.TopReadArticlesActivity
 import org.wikipedia.feed.wikigames.OnThisDayCardGameState
 import org.wikipedia.feed.wikigames.WikiGame
@@ -140,6 +141,7 @@ class HomeFragment : Fragment(), LinkPreviewDialog.LoadPageCallback {
                 val forYouContentState by viewModel.forYouState.collectAsState()
                 val communityContentState by viewModel.communityState.collectAsState()
                 var swipeToExplorePromptShown by remember { mutableStateOf(Prefs.isHomeSwipeToExplorePromptShown) }
+                var showReadAloudSurveyDialog by remember { mutableStateOf(false) }
 
                 BaseTheme(currentTheme = if (selectedTab == HomeTab.FOR_YOU) Theme.BLACK else WikipediaApp.instance.currentTheme) {
                     HomeScreen(
@@ -178,6 +180,14 @@ class HomeFragment : Fragment(), LinkPreviewDialog.LoadPageCallback {
                             onDismissRequest = dismissSwipePrompt,
                             onConfirmButtonClick = dismissSwipePrompt
                         )
+                    }
+
+                    if (showReadAloudSurveyDialog) {
+                        ReadAloudSurveyDialog(onDismissRequest = { showReadAloudSurveyDialog = false })
+                    } else {
+                        if (ReadAloudSurveyDialog.shouldShow(byDate = true)) {
+                            showReadAloudSurveyDialog = true
+                        }
                     }
                 }
             }
