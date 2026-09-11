@@ -113,7 +113,7 @@ fun ReadAloudSurveyDialog(
                         context["choice"] = choiceIndex
                     }
                     if (otherText.isNotEmpty()) {
-                        context["other_text"] = otherText
+                        context["text"] = otherText
                     }
                     activity?.let {
                         it.instrument?.submitInteraction("click", actionSource = "read_aloud_lead_section_survey", elementId = "submit", actionContext = context)
@@ -148,7 +148,6 @@ private fun ReadAloudSurveyContent(
                 style = MaterialTheme.typography.titleLarge.copy(fontSize = 20.sp, fontWeight = FontWeight.Bold),
                 color = WikipediaTheme.colors.primaryColor
             )
-            // Only the choices scroll, so the title and the buttons stay in view when the keyboard shrinks the dialog.
             Column(
                 modifier = Modifier
                     .weight(1f, fill = false)
