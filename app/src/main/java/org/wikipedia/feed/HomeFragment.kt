@@ -34,7 +34,6 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.didyouknow.DidYouKnowActivity
-import org.wikipedia.feed.interests.NewWithinInterestABTest
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.DidYouKnowCard
 import org.wikipedia.feed.model.DiscoverCard
@@ -54,6 +53,8 @@ import org.wikipedia.feed.onthisday.OnThisDayActivity
 import org.wikipedia.feed.personalization.PersonalizationActivity
 import org.wikipedia.feed.personalization.PersonalizationActivity.Companion.RESULT_INTERESTS_UPDATED
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
+import org.wikipedia.feed.readaloud.ReadAloudLeadSectionABTest
+import org.wikipedia.feed.readaloud.ReadAloudSurveyDialog
 import org.wikipedia.feed.topread.TopReadArticlesActivity
 import org.wikipedia.feed.wikigames.OnThisDayCardGameState
 import org.wikipedia.feed.wikigames.WikiGame
@@ -92,7 +93,7 @@ class HomeFragment : Fragment(), LinkPreviewDialog.LoadPageCallback {
     private val cardImpressions = mutableSetOf<String>()
     private val instrument = TestKitchenAdapter.client.getInstrument("apps-home-feed")
         .startFunnel("home_feed")
-        .setExperiment(TestKitchenAdapter.getExperiment(NewWithinInterestABTest()))
+        .setExperiment(TestKitchenAdapter.getExperiment(ReadAloudLeadSectionABTest()))
 
     private val personalizationResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_OK) {
@@ -140,6 +141,7 @@ class HomeFragment : Fragment(), LinkPreviewDialog.LoadPageCallback {
                 val forYouContentState by viewModel.forYouState.collectAsState()
                 val communityContentState by viewModel.communityState.collectAsState()
                 var swipeToExplorePromptShown by remember { mutableStateOf(Prefs.isHomeSwipeToExplorePromptShown) }
+                var showReadAloudSurveyDialog by remember { mutableStateOf(false) }
 
                 BaseTheme(currentTheme = if (selectedTab == HomeTab.FOR_YOU) Theme.BLACK else WikipediaApp.instance.currentTheme) {
                     HomeScreen(
@@ -155,7 +157,13 @@ class HomeFragment : Fragment(), LinkPreviewDialog.LoadPageCallback {
                         },
                         tabsState = tabsState,
                         notificationBellState = notificationState,
-                        onAction = { handleHomeAction(it, wikiSite, selectedTab) }
+                        onAction = {
+                            if (it is HomeAction.ShowReadAloudSurvey) {
+                                showReadAloudSurveyDialog = true
+                            } else {
+                                handleHomeAction(it, wikiSite, selectedTab)
+                            }
+                        }
                     )
 
                     if (selectedTab == HomeTab.FOR_YOU && !swipeToExplorePromptShown && forYouContentState.modules.isNotEmpty()) {
@@ -178,6 +186,14 @@ class HomeFragment : Fragment(), LinkPreviewDialog.LoadPageCallback {
                             onDismissRequest = dismissSwipePrompt,
                             onConfirmButtonClick = dismissSwipePrompt
                         )
+                    }
+
+                    if (showReadAloudSurveyDialog) {
+                        ReadAloudSurveyDialog(onDismissRequest = { showReadAloudSurveyDialog = false }, instrument)
+                    } else {
+                        if (ReadAloudSurveyDialog.shouldShow(byDate = true)) {
+                            showReadAloudSurveyDialog = true
+                        }
                     }
                 }
             }
@@ -446,6 +462,8 @@ class HomeFragment : Fragment(), LinkPreviewDialog.LoadPageCallback {
             HomeAction.GoToGamesHubClick -> {
                 instrument.submitInteraction("click", actionSource = GamesModulePromptCard::class.java.simpleName, elementId = "go_to_games_hub")
                 requireActivity().startActivity(GamesHubActivity.newIntent(requireContext()))
+            }
+            else -> {
             }
         }
     }

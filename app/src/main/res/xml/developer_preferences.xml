@@ -578,6 +578,17 @@
         <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_randomizer_shake_prompt_shown"
             android:title="@string/preference_key_randomizer_shake_prompt_shown"/>
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_read_aloud_lead_section_tooltip_shown"
+            android:title="@string/preference_key_read_aloud_lead_section_tooltip_shown"/>
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_read_aloud_lead_section_survey_shown"
+            android:title="@string/preference_key_read_aloud_lead_section_survey_shown"/>
+        <org.wikipedia.settings.EditTextAutoSummarizePreference
+            style="@style/EditTextAutoSummarizePreference"
+            android:key="@string/preference_key_read_aloud_last_played_date"
+            android:title="@string/preference_key_read_aloud_last_played_date" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>
