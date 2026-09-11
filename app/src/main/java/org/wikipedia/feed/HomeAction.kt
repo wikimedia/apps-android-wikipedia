@@ -41,4 +41,5 @@ sealed interface HomeAction {
     data object SeeAllRecommendationsClick : HomeAction
     data class GameActionClick(val wikiGame: WikiGame) : HomeAction
     data object GoToGamesHubClick : HomeAction
+    data object ShowReadAloudSurvey : HomeAction
 }

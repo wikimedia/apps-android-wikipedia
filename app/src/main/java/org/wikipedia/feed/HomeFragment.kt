@@ -157,7 +157,13 @@ class HomeFragment : Fragment(), LinkPreviewDialog.LoadPageCallback {
                         },
                         tabsState = tabsState,
                         notificationBellState = notificationState,
-                        onAction = { handleHomeAction(it, wikiSite, selectedTab) }
+                        onAction = {
+                            if (it is HomeAction.ShowReadAloudSurvey) {
+                                showReadAloudSurveyDialog = true
+                            } else {
+                                handleHomeAction(it, wikiSite, selectedTab)
+                            }
+                        }
                     )
 
                     if (selectedTab == HomeTab.FOR_YOU && !swipeToExplorePromptShown && forYouContentState.modules.isNotEmpty()) {
@@ -183,7 +189,7 @@ class HomeFragment : Fragment(), LinkPreviewDialog.LoadPageCallback {
                     }
 
                     if (showReadAloudSurveyDialog) {
-                        ReadAloudSurveyDialog(onDismissRequest = { showReadAloudSurveyDialog = false })
+                        ReadAloudSurveyDialog(onDismissRequest = { showReadAloudSurveyDialog = false }, instrument)
                     } else {
                         if (ReadAloudSurveyDialog.shouldShow(byDate = true)) {
                             showReadAloudSurveyDialog = true
@@ -456,6 +462,8 @@ class HomeFragment : Fragment(), LinkPreviewDialog.LoadPageCallback {
             HomeAction.GoToGamesHubClick -> {
                 instrument.submitInteraction("click", actionSource = GamesModulePromptCard::class.java.simpleName, elementId = "go_to_games_hub")
                 requireActivity().startActivity(GamesHubActivity.newIntent(requireContext()))
+            }
+            else -> {
             }
         }
     }

@@ -45,11 +45,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
+import org.wikimedia.testkitchen.instrument.InstrumentImpl
 import org.wikipedia.R
 import org.wikipedia.compose.components.AppTextButton
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
-import org.wikipedia.extensions.instrument
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.FeedbackUtil
@@ -81,12 +81,13 @@ object ReadAloudSurveyDialog {
 
 @Composable
 fun ReadAloudSurveyDialog(
-    onDismissRequest: () -> Unit
+    onDismissRequest: () -> Unit,
+    instrument: InstrumentImpl?
 ) {
     val activity = LocalActivity.current
 
     LaunchedEffect(Unit) {
-        activity?.instrument?.submitInteraction("impression", actionSource = "read_aloud_lead_section_survey")
+        instrument?.submitInteraction("impression", actionSource = "read_aloud_lead_section_survey")
         Prefs.readAloudLeadSectionSurveyShown = true
     }
 
@@ -108,7 +109,7 @@ fun ReadAloudSurveyDialog(
         ) {
             ReadAloudSurveyContent(
                 onCancelClick = {
-                    activity?.instrument?.submitInteraction("click", actionSource = "read_aloud_lead_section_survey", elementId = "cancel")
+                    instrument?.submitInteraction("click", actionSource = "read_aloud_lead_section_survey", elementId = "cancel")
                     onDismissRequest()
                 },
                 onSubmitClick = { choiceIndex, otherText ->
@@ -119,8 +120,8 @@ fun ReadAloudSurveyDialog(
                     if (otherText.isNotEmpty()) {
                         actionContext["text"] = otherText
                     }
+                    instrument?.submitInteraction("click", actionSource = "read_aloud_lead_section_survey", elementId = "submit", actionContext = actionContext)
                     activity?.let {
-                        it.instrument?.submitInteraction("click", actionSource = "read_aloud_lead_section_survey", elementId = "submit", actionContext = actionContext)
                         FeedbackUtil.showMessage(it, R.string.survey_dialog_submitted_snackbar)
                     }
                     onDismissRequest()

@@ -142,6 +142,7 @@ fun ReadAloudLeadSectionModule(
     onCardInView: (card: Card) -> Unit = {},
     onCustomizeClick: (card: Card) -> Unit = {},
     onKeepListeningClick: (card: Card) -> Unit = {},
+    onShowSurvey: () -> Unit = {}
 ) {
     val context = LocalContext.current
     val backgroundColorIndex = abs(module.cards.firstOrNull()?.hideKey.hashCode())
@@ -175,7 +176,8 @@ fun ReadAloudLeadSectionModule(
             onHideCardClick = onHideCardClick,
             onHideModuleClick = onHideModuleClick,
             onCustomizeClick = { onCustomizeClick(card) },
-            onKeepListeningClick = { onKeepListeningClick(card) }
+            onKeepListeningClick = { onKeepListeningClick(card) },
+            onShowSurvey = onShowSurvey
         )
     }
 }
@@ -200,7 +202,8 @@ private fun ReadAloudCardContent(
     onHideCardClick: (module: ForYouModule, card: ForYouCard) -> Unit = { _, _ -> },
     onHideModuleClick: () -> Unit = {},
     onCustomizeClick: () -> Unit = {},
-    onKeepListeningClick: () -> Unit = {}
+    onKeepListeningClick: () -> Unit = {},
+    onShowSurvey: () -> Unit = {}
 ) {
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
@@ -341,7 +344,8 @@ private fun ReadAloudCardContent(
                 ReadAloudPlaybackControls(
                     modifier = Modifier.padding(start = 8.dp, end = 16.dp, top = 8.dp),
                     wikiSite = wikiSite,
-                    playerState = playerState
+                    playerState = playerState,
+                    onShowSurvey = onShowSurvey
                 )
 
                 if (playerState.hasFinishedPlayback) {
@@ -419,10 +423,10 @@ private fun ReadAloudTranscript(
 private fun ReadAloudPlaybackControls(
     modifier: Modifier = Modifier,
     wikiSite: WikiSite,
-    playerState: ReadAloudPlayerState
+    playerState: ReadAloudPlayerState,
+    onShowSurvey: () -> Unit = {}
 ) {
     val context = LocalContext.current
-    var showSurveyDialog by remember { mutableStateOf(false) }
 
     Column(modifier = modifier) {
         Row(
@@ -434,7 +438,7 @@ private fun ReadAloudPlaybackControls(
                 onClick = {
                     playerState.playOrPause()
                     if (ReadAloudSurveyDialog.shouldShow(byDate = false)) {
-                        showSurveyDialog = true
+                        onShowSurvey()
                     }
                     Prefs.readAloudLeadSectionLastPlayedDate = LocalDate.now().toString()
                 }
@@ -530,10 +534,6 @@ private fun ReadAloudPlaybackControls(
                 color = Color.White.copy(alpha = 0.7f),
                 style = MaterialTheme.typography.labelSmall
             )
-        }
-
-        if (showSurveyDialog) {
-            ReadAloudSurveyDialog(onDismissRequest = { showSurveyDialog = false })
         }
     }
 }
