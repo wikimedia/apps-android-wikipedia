@@ -35,6 +35,7 @@ object Constants {
     const val INTENT_EXTRA_NOTIFICATION_SYNC_CANCEL = "syncCancel"
     const val INTENT_EXTRA_NOTIFICATION_SYNC_PAUSE_RESUME = "syncPauseResume"
     const val INTENT_EXTRA_NOTIFICATION_TYPE = "notificationType"
+    const val INTENT_EXTRA_NOTIFICATION_CATEGORY = "notificationCategory"
     const val INTENT_EXTRA_REVERT_QNUMBER = "revertQNumber"
     const val INTENT_EXTRA_SNACKBAR_MESSAGE = "snackbarMessage"
     const val INTENT_RETURN_TO_MAIN = "returnToMain"
