@@ -813,7 +813,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 RecommendedReadingListNotificationManager.cancelRecommendedReadingListNotification(requireContext())
                 update()
                 TestKitchenAdapter.client.getInstrument("apps-notifications")
-                    .submitInteraction(action = "click", actionSource = "discover", actionSubtype = "discover_home_modal", elementId = "notification_bell_off")
+                    .submitInteraction(action = "click", actionSource = "discover", actionSubtype = "discover_home", elementId = "notification_bell_off")
             }
             .show()
     }
@@ -1032,7 +1032,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 requestPermissionAndScheduleRecommendedReadingNotification()
                 update()
                 TestKitchenAdapter.client.getInstrument("apps-notifications")
-                    .submitInteraction(action = "click", actionSource = "discover", actionSubtype = "discover_home_modal", elementId = "notification_bell_on")
+                    .submitInteraction(action = "click", actionSource = "discover", actionSubtype = "discover_home", elementId = "notification_bell_on")
             }
         }
 
