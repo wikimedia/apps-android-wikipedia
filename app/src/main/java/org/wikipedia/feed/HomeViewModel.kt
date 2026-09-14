@@ -91,6 +91,7 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import java.time.LocalDate
 import java.time.LocalDateTime
+import java.time.ZoneId
 import java.util.Locale
 
 enum class HomeTab { COMMUNITY, FOR_YOU }
@@ -98,6 +99,8 @@ private const val MAX_STOP_TIMEOUT_MILLIS = 5000L
 private const val MAX_DISCOVER_ARTICLE_CARDS = 4
 private const val PLACES_ARTICLES_REQUEST_LIMIT = 10
 private const val PLACES_SEARCH_RADIUS_METERS = 10000
+private const val RECENT_ARTICLES_MIN_TIME_SPENT_SEC = 60
+private const val RECENT_ARTICLES_SEED_WINDOW_DAYS = 30L
 
 @Serializable
 sealed class ForYouModule {
@@ -679,6 +682,9 @@ class HomeViewModel : ViewModel() {
         }
 
         L.d("Loading modules from network...")
+        val seedEntries = getRandomSeedEntries(languageCode, limit = 2)
+        val becauseYouReadSeed = seedEntries.getOrNull(0)
+        val continueReadingSeed = seedEntries.getOrNull(1)
         val startMillis = System.currentTimeMillis()
 
         coroutineScope {
@@ -737,9 +743,7 @@ class HomeViewModel : ViewModel() {
 
             val becauseYouReadDeferred = async(Dispatchers.IO) {
                 buildList {
-                    val lastReadEntries = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(age + 1, 30, languageCode)
-                    if (lastReadEntries.size > age) {
-                        val entry = lastReadEntries[age]
+                    becauseYouReadSeed?.let { entry ->
                         val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(languageCode).isNullOrEmpty()
                         val searchTerm = StringUtil.removeUnderscores(entry.title.prefixedText)
 
@@ -775,11 +779,10 @@ class HomeViewModel : ViewModel() {
 
             val continueReadingDeferred = async(Dispatchers.IO) {
                 val continueReadingCards = buildList {
-                    val lastReadEntries = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(age + 1, 30, languageCode)
-                    if (lastReadEntries.size > age) {
+                    continueReadingSeed?.let { entry ->
                         add(
                             ContinueReadingCard(
-                                lastReadEntries[age].title,
+                                entry.title,
                                 HistoryEntry.SOURCE_HISTORY
                             )
                         )
@@ -896,6 +899,7 @@ class HomeViewModel : ViewModel() {
         }
 
         _forYouNetworkLatency.value = System.currentTimeMillis() - startMillis
+
         forYouCollectionSaved = ForYouCollectionSaved(
             dateTime = currentDateTime,
             modulesPerLanguage = cachedModulesByLanguage + (languageCode to modules)
@@ -904,6 +908,17 @@ class HomeViewModel : ViewModel() {
             Prefs.homeForYouModulesToday = JsonUtil.encodeToString(forYouCollectionSaved).orEmpty()
         }
         return modules
+    }
+
+    private suspend fun getRandomSeedEntries(langCode: String, limit: Int): List<HistoryEntry> {
+        val sinceMillis = LocalDate.now().minusDays(RECENT_ARTICLES_SEED_WINDOW_DAYS)
+            .atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli()
+        return AppDatabase.instance.historyEntryWithImageDao().findRandomSeedEntriesForReadMore(
+            limit = limit,
+            minTimeSpent = RECENT_ARTICLES_MIN_TIME_SPENT_SEC,
+            sinceMillis = sinceMillis,
+            langCode = langCode
+        )
     }
 
     private suspend fun buildDiscoverModule(): ForYouModule.Discover? {
