@@ -1,4 +1,4 @@
-package org.wikipedia.search
+package org.wikipedia.search.semantic
 
 import android.os.Bundle
 import android.view.LayoutInflater

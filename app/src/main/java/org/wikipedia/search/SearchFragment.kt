@@ -33,6 +33,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.places.PlacesActivity
 import org.wikipedia.readinglist.SaveArticleSheetDialog
 import org.wikipedia.search.db.RecentSearch
+import org.wikipedia.search.semantic.SemanticSearchInfoDialog
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesFragment
