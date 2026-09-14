@@ -24,7 +24,7 @@ import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
 import org.wikipedia.R
 import org.wikipedia.compose.components.AppButton
-import org.wikipedia.compose.components.InstallWidgetScreen
+import org.wikipedia.compose.components.InfoActionScreen
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
@@ -54,7 +54,7 @@ private fun SemanticSearchInfoDialogContent(
     onLearnMoreClick: () -> Unit
 ) {
     BaseTheme {
-        InstallWidgetScreen(
+        InfoActionScreen(
             title = stringResource(id = R.string.hybrid_search_info_dialog_title),
             message = stringResource(id = R.string.hybrid_search_info_dialog_message),
             onCloseClick = onCloseClick,

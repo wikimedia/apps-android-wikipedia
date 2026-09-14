@@ -34,7 +34,7 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
 
 @Composable
-fun InstallWidgetScreen(
+fun InfoActionScreen(
     title: String,
     message: String,
     onCloseClick: () -> Unit,
@@ -101,11 +101,11 @@ fun InstallWidgetScreen(
 
 @Preview(showBackground = true)
 @Composable
-private fun SearchWidgetInstallWidgetScreenPreview() {
+private fun SearchWidgetInfoActionScreenPreview() {
     BaseTheme(
         currentTheme = Theme.LIGHT
     ) {
-        InstallWidgetScreen(
+        InfoActionScreen(
             title = "A Faster way to Search",
             message = "Install the Wikipedia Search widget for instant access to knowledge from your home screen.",
             onCloseClick = {},
@@ -131,11 +131,11 @@ private fun SearchWidgetInstallWidgetScreenPreview() {
 
 @Preview(showBackground = true)
 @Composable
-private fun ReadingChallengeInstallWidgetScreenPreview() {
+private fun ReadingChallengeInfoActionScreenPreview() {
     BaseTheme(
         currentTheme = Theme.LIGHT
     ) {
-        InstallWidgetScreen(
+        InfoActionScreen(
             title = "Install the 250-day reading challenge widget",
             message = "Baby Globe is cheering you on. Add the Reading Challenge widget to track your progress from your home screen.",
             onCloseClick = {},
