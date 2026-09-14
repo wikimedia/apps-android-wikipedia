@@ -125,13 +125,13 @@ fun SemanticSearchEntryCard(
                 }
 
                 Text(
-                    text = stringResource(R.string.hybrid_search_entry_point_card_message),
+                    text = stringResource(R.string.semantic_search_entry_point_card_message),
                     style = MaterialTheme.typography.bodyMedium,
                     color = WikipediaTheme.colors.placeholderColor
                 )
                 if (isFirstUse) {
                     Text(
-                        text = stringResource(R.string.hybrid_search_entry_point_card_text_button),
+                        text = stringResource(R.string.semantic_search_entry_point_card_text_button),
                         style = MaterialTheme.typography.bodyMedium,
                         color = WikipediaTheme.colors.progressiveColor
                     )
