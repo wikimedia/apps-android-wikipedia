@@ -39,7 +39,7 @@ class SemanticSearchInfoDialog : ExtendedBottomSheetDialogFragment() {
                 SemanticSearchInfoDialogContent(
                     onCloseClick = { dismiss() },
                     onLearnMoreClick = {
-                        UriUtil.visitInExternalBrowser(requireContext(), getString(R.string.hybrid_search_info_link_phase2).toUri())
+                        UriUtil.visitInExternalBrowser(requireContext(), getString(R.string.semantic_search_info_link_phase2).toUri())
                         dismiss()
                     }
                 )
@@ -55,8 +55,8 @@ private fun SemanticSearchInfoDialogContent(
 ) {
     BaseTheme {
         InfoActionScreen(
-            title = stringResource(id = R.string.hybrid_search_info_dialog_title),
-            message = stringResource(id = R.string.hybrid_search_info_dialog_message),
+            title = stringResource(id = R.string.semantic_search_info_dialog_title),
+            message = stringResource(id = R.string.semantic_search_info_dialog_message),
             onCloseClick = onCloseClick,
             bottomContent = {
                 Spacer(modifier = Modifier.height(24.dp))
@@ -70,7 +70,7 @@ private fun SemanticSearchInfoDialogContent(
                         horizontalArrangement = Arrangement.Center
                     ) {
                         Text(
-                            text = stringResource(id = R.string.hybrid_search_info_dialog_button_text),
+                            text = stringResource(id = R.string.semantic_search_info_dialog_button_text),
                             color = WikipediaTheme.colors.progressiveColor,
                             style = MaterialTheme.typography.titleMedium
                         )
