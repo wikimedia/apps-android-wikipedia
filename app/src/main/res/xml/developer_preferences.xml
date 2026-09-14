@@ -365,6 +365,12 @@
             android:key="@string/preference_key_add_malformed_reading_list_page"
             android:title="Add malformed pages to reading list" />
 
+        <org.wikipedia.settings.EditTextAutoSummarizePreference
+            style="@style/EditTextAutoSummarizePreference"
+            android:dialogMessage="Creates up to 50 English-language history entries with corresponding PageImage data."
+            android:key="@string/preference_key_add_history_entries"
+            android:title="Add articles to history" />
+
         <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_reading_lists_share_url_shorten"
             android:title="@string/preference_key_reading_lists_share_url_shorten" />
