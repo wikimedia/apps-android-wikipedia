@@ -6,6 +6,7 @@ import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 import org.wikipedia.compose.ComposeColors
 
+// CODEX VERSION 2.7
 @Immutable
 data class WikipediaColor(
     val isDarkTheme: Boolean = false,
@@ -23,7 +24,7 @@ data class WikipediaColor(
     val highlightColor: Color,
     val focusColor: Color,
     val additionColor: Color,
-    val overlayColor: Color
+    val overlayColor: Color,
 )
 
 val LocalWikipediaColor = staticCompositionLocalOf {
@@ -46,6 +47,23 @@ val LocalWikipediaColor = staticCompositionLocalOf {
     )
 }
 
+@Composable
+fun WikipediaColor.shimmerColors(): List<Color> {
+    return if (isDarkTheme) {
+        listOf(
+            borderColor.copy(alpha = 0.3f),
+            inactiveColor.copy(alpha = 0.5f),
+            borderColor.copy(alpha = 0.3f)
+        )
+    } else {
+        listOf(
+            borderColor.copy(alpha = 0.6f),
+            backgroundColor.copy(alpha = 0.8f),
+            borderColor.copy(alpha = 0.6f)
+        )
+    }
+}
+
 val LightColors = WikipediaColor(
     primaryColor = ComposeColors.Gray700,
     paperColor = ComposeColors.White,
@@ -61,7 +79,7 @@ val LightColors = WikipediaColor(
     highlightColor = ComposeColors.Yellow500,
     focusColor = ComposeColors.Orange500,
     additionColor = ComposeColors.Blue300_15,
-    overlayColor = ComposeColors.Black_30
+    overlayColor = ComposeColors.Black_30,
 )
 
 val DarkColors = WikipediaColor(
@@ -80,7 +98,7 @@ val DarkColors = WikipediaColor(
     highlightColor = ComposeColors.Yellow500_40,
     focusColor = ComposeColors.Orange500_50,
     additionColor = ComposeColors.Blue600_30,
-    overlayColor = ComposeColors.Black_70
+    overlayColor = ComposeColors.Black_70,
 )
 
 val BlackColors = WikipediaColor(
@@ -99,7 +117,7 @@ val BlackColors = WikipediaColor(
     highlightColor = ComposeColors.Yellow500_40,
     focusColor = ComposeColors.Orange500_50,
     additionColor = ComposeColors.Blue600_30,
-    overlayColor = ComposeColors.Black_70
+    overlayColor = ComposeColors.Black_70,
 )
 
 val SepiaColors = WikipediaColor(
@@ -117,22 +135,5 @@ val SepiaColors = WikipediaColor(
     highlightColor = ComposeColors.Yellow500,
     focusColor = ComposeColors.Orange500,
     additionColor = ComposeColors.Blue300_15,
-    overlayColor = ComposeColors.Black_30
+    overlayColor = ComposeColors.Black_30,
 )
-
-@Composable
-fun WikipediaColor.shimmerColors(): List<Color> {
-    return if (isDarkTheme) {
-        listOf(
-            borderColor.copy(alpha = 0.3f),
-            inactiveColor.copy(alpha = 0.5f),
-            borderColor.copy(alpha = 0.3f)
-        )
-    } else {
-        listOf(
-            borderColor.copy(alpha = 0.6f),
-            backgroundColor.copy(alpha = 0.8f),
-            borderColor.copy(alpha = 0.6f)
-        )
-    }
-}
