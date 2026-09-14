@@ -287,7 +287,7 @@
   <string name="create_account_encourage_title">Wikipedia, c’est encore mieux avec un compte</string>
   <string name="create_account_encourage_year_in_review_title_zero">Retrouvez vos jours de lecture dans la rétrospective de l’année</string>
   <plurals name="create_account_encourage_year_in_review_title">
-    <item quantity="one">Retrouvez vos %1$d jours de lecture dans la rétrospective de l’année}</item>
+    <item quantity="one">Retrouvez vos %1$d jours de lecture dans la rétrospective de l’année</item>
     <item quantity="other">Retrouvez vos %1$d jours de lecture dans la rétrospective de l’année</item>
   </plurals>
   <string name="create_account_encourage_year_in_review_description">Une fois par an, retrouvez tout ce que vous avez lu dans la rétrospective, prête à être partagée.</string>
