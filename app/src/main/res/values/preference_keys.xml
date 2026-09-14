@@ -15,7 +15,6 @@
     <string name="preference_key_show_images" translatable="false">showImages</string>
     <string name="preference_key_announcement_country_override" translatable="false">announcementCountryOverride</string>
     <string name="preference_key_announcement_ignore_date" translatable="false">announcementIgnoreDate</string>
-    <string name="preference_key_announcement_version_code" translatable="false">announcementVersionCode</string>
     <string name="preference_key_announcement_shown_dialogs" translatable="false">announcementShownDialogs</string>
     <string name="preference_key_announcement_pause_time" translatable="false">announcementPauseTime</string>
     <string name="preference_key_announcement_debug_url" translatable="false">announcementDebugUrl</string>
@@ -55,7 +54,6 @@
     <string name="preference_key_reading_lists_remote_setup_pending" translatable="false">readingListsRemoteSetupPending</string>
     <string name="preference_key_reading_lists_remote_delete_pending" translatable="false">readingListsRemoteDeletePending</string>
     <string name="preference_key_initial_onboarding_enabled" translatable="false">initialOnboardingEnabled</string>
-    <string name="preference_key_permission_asked" translatable="false">permissionAsked</string>
     <string name="preference_key_dim_dark_mode_images" translatable="false">dimDarkModeImages</string>
     <string name="preference_key_notification_customize_push" translatable="false">customizePushNotifications</string>
     <string name="preference_key_notification_hide_read" translatable="false">hideReadNotifications</string>
@@ -73,6 +71,7 @@
     <string name="preference_key_feed_cards_lang_disabled" translatable="false">feedCardsLangDisabled</string>
     <string name="preference_key_feed_customize_onboarding_card_enabled" translatable="false">feedCustomizeOnboardingCardEnabled</string>
     <string name="preference_key_add_articles" translatable="false">addArticles</string>
+    <string name="preference_key_add_history_entries" translatable="false">addHistoryEntries</string>
     <string name="preference_key_add_reading_lists" translatable="false">addReadingLists</string>
     <string name="preference_key_delete_reading_lists" translatable="false">deleteReadingLists</string>
     <string name="preference_key_delete_test_reading_lists" translatable="false">deleteTestReadingLists</string>
@@ -97,10 +96,7 @@
     <string name="preference_key_image_zoom_tooltip_shown" translatable="false">imageZoomTooltipShown</string>
     <string name="preference_key_suggested_edits_pause_date" translatable="false">suggestedEditsPauseDate</string>
     <string name="preference_key_suggested_edits_pause_reverts" translatable="false">suggestedEditsPauseReverts</string>
-    <string name="preference_key_suggested_edits_override_counts" translatable="false">suggestedEditsOverrideCounts</string>
-    <string name="preference_key_suggested_edits_override_edits" translatable="false">suggestedEditsOverrideEdits</string>
     <string name="preference_key_suggested_edits_override_contribution" translatable="false">suggestedEditsOverrideContribution</string>
-    <string name="preference_key_suggested_edits_override_reverts" translatable="false">suggestedEditsOverrideReverts</string>
     <string name="preference_key_suggested_edits_reactivation_pass_stage_one" translatable="false">suggestedEditsReactivationPassStageOne</string>
     <string name="preference_key_suggested_edits_reactivation_test" translatable="false">suggestedEditsReactivationTest</string>
     <string name="preference_key_image_tags_onboarding_shown" translatable="false">imageTagsOnboardingShown</string>
@@ -233,6 +229,5 @@
     <string name="preference_key_search_widget_install_prompt_shown" translatable="false">searchWidgetInstallPromptShown</string>
     <string name="preference_key_randomizer_shake_prompt_shown" translatable="false">randomizerShakePromptShown</string>
     <string name="preference_key_home_feed_survey_shown" translatable="false">homeFeedSurveyShown</string>
-    <string name="preference_key_visual_editor_enabled" translatable="false">visualEditorIsEnabled</string>
     <string name="preference_key_reading_lists_update_tooltip_shown" translatable="false">readingListsUpdateTooltipShown</string>
 </resources>

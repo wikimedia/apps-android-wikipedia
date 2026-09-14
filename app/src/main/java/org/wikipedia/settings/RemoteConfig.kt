@@ -56,6 +56,7 @@ object RemoteConfig {
         val hybridSearchEnabled: Boolean? = null
         val hybridSearchLanguages: List<String>? = null
         val newArticlesWithinInterestEnabled: Boolean? = null
+        val visualEditorEnabled: Boolean? = null
     }
 
     @Suppress("unused")

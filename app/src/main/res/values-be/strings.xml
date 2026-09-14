@@ -609,7 +609,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s больш не будзе дасяжны па-за сеткай для ўсіх спісаў чытання:</string>
   <string name="reading_lists_sync_reminder_title" fuzzy="true">Уключыць сінхранізацыю спіса чытання?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">Артыкулы, захаваныя ў спісах чытання, цяпер можна сінхранізаваць з вашым уліковым запісам Вікіпедыі. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Даведайцеся больш&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Цяпер спісы чытання можна сінхранізаваць на ўсіх прыладах. Увайдзіце ў свой уліковы запіс у Вікіпедыі і дазвольце захоўваць свае спісы. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Даведайцеся больш&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Уключыць сінхранізацыю</string>
   <string name="reading_list_login_reminder_title" fuzzy="true">Сінхранізацыя спісаў чытання</string>
   <string name="reading_lists_login_reminder_text" fuzzy="true">Цяпер спісы чытання можна сінхранізаваць на ўсіх прыладах. Увайдзіце ў свой уліковы запіс у Вікіпедыі і дазвольце захоўваць свае спісы.</string>
@@ -654,7 +653,6 @@
   <string name="reading_lists_menu_import_list" fuzzy="true">Спіс імпарту</string>
   <string name="reading_lists_menu_sort_by">Сартаваць па</string>
   <string name="reading_lists_refresh_sync_option">Абнавіць сінхранізацыю</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Увайсці / зарэгістравацца</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Гэты артыкул не дасяжны па-за сеткай..</item>
     <item quantity="few">Гэтыя артыкулы не дасяжныя па-за сеткай..</item>

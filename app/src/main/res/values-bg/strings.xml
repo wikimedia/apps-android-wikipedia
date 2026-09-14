@@ -583,7 +583,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s повече няма да е налична офлайн за всички списъци за четене:</string>
   <string name="reading_lists_sync_reminder_title" fuzzy="true">Включване на синхронизиране на списъци за четене?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">Статиите, съхранени в списъците Ви за четене, вече могат да се синхронизират със сметката Ви в Уикипедия. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Научете повече&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Списъците за четене вече могат да бъдат синхронизирани на различни устройства. Влезте във Вашата сметка в Уикипедия и позволете списъците Ви да бъдат запазвани. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Научете повече&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Включване на синхронизиране</string>
   <string name="reading_list_login_reminder_title" fuzzy="true">Синхронизация на списъците за четене</string>
   <string name="reading_lists_login_reminder_text" fuzzy="true">Списъците за четене вече могат да се синхронизират между устройства. Влезте в сметката си в Уикипедия, за да позволите съхранението на списъците си.</string>
@@ -622,7 +621,6 @@
   <string name="reading_lists_menu_import_list" fuzzy="true">Вмъкване на списък</string>
   <string name="reading_lists_menu_sort_by">Подреждане по</string>
   <string name="reading_lists_refresh_sync_option">Обновяване на синхронизацията</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Влизане / регистрация</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Тази статия вече е налична офлайн.</item>
     <item quantity="other">Тези статии вече са налични офлайн.</item>

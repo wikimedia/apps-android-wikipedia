@@ -555,7 +555,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_title" fuzzy="true">ਲੇਖ ਕਈ ਸੂਚੀਆਂ ਵਿੱਚ ਦਿਖਾਈ ਦਿੰਦਾ ਹੈ</string>
   <string name="reading_lists_sync_reminder_title" fuzzy="true">ਕੀ ਪਡ਼੍ਹਨ ਦੀ ਸੂਚੀ ਦਾ ਸਮਕਾਲੀਕਰਨ ਚਾਲੂ ਕਰਨਾ ਹੈ?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">ਪਡ਼੍ਹਨ ਦੀਆਂ ਸੂਚੀਆਂ ਵਿੱਚ ਸੰਭਾਲੇ ਲੇਖ ਹੁਣ ਤੁਹਾਡੇ ਵਿਕੀਪੀਡੀਆ ਖਾਤੇ ਨਾਲ਼ ਸਮਕਾਲੀ ਕੀਤੇ ਜਾ ਸਕਦੇ ਹਨ। &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;ਹੋਰ ਜਾਣੋ&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">ਪਡ਼੍ਹਨ ਦੀਆਂ ਸੂਚੀਆਂ ਨੂੰ ਹੁਣ ਸਾਰੇ ਜੰਤਰਾਂ ਵਿੱਚ ਸਮਕਾਲੀ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ। ਆਪਣੇ ਵਿਕੀਪੀਡੀਆ ਖਾਤੇ ਵਿੱਚ ਦਾਖ਼ਲ ਹੋਵੋ ਅਤੇ ਆਪਣੀਆਂ ਸੂਚੀਆਂ ਨੂੰ ਸੰਭਾਲਣ ਦੀ ਆਗਿਆ ਦਿਓ। &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;ਹੋਰ ਜਾਣੋ&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">ਸਮਕਾਲੀਕਰਨ ਚਾਲੂ ਕਰੋ</string>
   <string name="reading_list_login_reminder_title" fuzzy="true">ਪਡ਼੍ਹਨਵਾਲੀ ਸੂਚੀਆਂ ਸਮਕਾਲੀ ਕਰੋ</string>
   <string name="reading_lists_login_reminder_text" fuzzy="true">ਪਡ਼੍ਹਨ ਦੀਆਂ ਸੂਚੀਆਂ ਨੂੰ ਹੁਣ ਸਾਰੇ ਜੰਤਰਾਂ ਵਿੱਚ ਸਮਕਾਲੀ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ। ਆਪਣੇ ਵਿਕੀਪੀਡੀਆ ਖਾਤੇ ਵਿੱਚ ਦਾਖ਼ਲ ਹੋਵੋ ਅਤੇ ਆਪਣੀਆਂ ਸੂਚੀਆਂ ਨੂੰ ਸੰਭਾਲਣ ਦੀ ਆਗਿਆ ਦਿਓ।</string>
@@ -594,7 +593,6 @@
   <string name="reading_lists_menu_import_list" fuzzy="true">ਦਰਾਮਦ ਸੂਚੀ</string>
   <string name="reading_lists_menu_sort_by">ਇਸ ਮੁਤਾਬਕ ਛਾਂਟੋ</string>
   <string name="reading_lists_refresh_sync_option">ਸਮਕਾਲੀਕਰਨ ਨੂੰ ਤਾਜ਼ਾ ਕਰੋ</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">ਦਾਖ਼ਲ ਹੋਵੋ / ਖਾਤਾ ਬਣਾਓ</string>
   <string name="reading_list_toast_last_sync" fuzzy="true">ਪੜ੍ਹਨ ਦੀ ਸੂਚੀਆਂ ਦਾ ਸਮਕਾਲੀਕਰਨ ਕੀਤਾ ਗਿਆ</string>
   <string name="reading_list_menu_last_sync">ਆਖਰੀ ਸਮਕਾਲੀਕਰਨ: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">ਠੀਕ</string>
@@ -1674,7 +1672,7 @@
   <string name="recommended_reading_list_settings_notifications_dialog_negative_button">ਨਹੀਂ, ਉਨ੍ਹਾਂ ਨੂੰ ਚਾਲੂ ਰੱਖੋ</string>
   <string name="donation_settings_section_header">ਦਾਨ</string>
   <string name="donation_reminders_settings_option_title">ਦਾਨ ਕਰਨ ਲਈ ਯਾਦ-ਦਹਾਨੀਆਂ</string>
-  <string name="donation_reminders_settings_article_frequency_label">ਜਦੋਂ ਮੈਂ ਪੜ੍ਹਦਾ/ਪੜ੍ਹਦੀ ਹਾਂ</string>
+  <string name="donation_reminders_settings_article_frequency_label" fuzzy="true">ਜਦੋਂ ਮੈਂ ਪੜ੍ਹਦਾ/ਪੜ੍ਹਦੀ ਹਾਂ</string>
   <string name="donation_reminders_settings_amount_label">ਮੈਨੂੰ ਦਾਨ ਕਰਨ ਲਈ ਯਾਦ ਦਿਵਾਓ</string>
   <string name="donation_reminders_settings_confirm_btn_label">ਯਾਦ-ਦਹਾਨੀ ਦੀ ਤਸਦੀਕ ਕਰੋ</string>
   <string name="donation_reminders_settings_about_experiment_btn_label">ਇਸ ਤਜਰਬੇ ਬਾਰੇ</string>

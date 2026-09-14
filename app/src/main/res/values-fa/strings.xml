@@ -639,7 +639,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">%s دیگر به صورت آفلاین برای همهٔ مجموعه‌ها موجود نخواهد بود:</string>
   <string name="reading_lists_sync_reminder_title">همگام‌سازی مجموعه فعال شود؟</string>
   <string name="reading_lists_sync_reminder_text">مقاله‌های ذخیره‌شده در مجموعه‌ها اکنون می‌توانند در حساب ویکی‌پدیای شما همگام‌سازی شوند. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;اطلاعات بیشتر&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">مجموعه‌ها اکنون می‌توانند بین چند دستگاه همگام‌سازی شوند. به حساب ویکی‌پدیای خود وارد شوید و امکان ذخیره‌سازی مجموعه‌های خود را فراهم کنید. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;اطلاعات بیشتر&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">فعال‌کردن همگام‌سازی</string>
   <string name="reading_list_login_reminder_title">همگام‌سازی مجموعه‌ها</string>
   <string name="reading_lists_login_reminder_text">مجموعه‌ها اکنون می‌توانند بین چند دستگاه همگام‌سازی شوند. به حساب ویکی‌پدیای خود وارد شوید و امکان ذخیره‌سازی مجموعه‌های خود را فراهم کنید.</string>
@@ -682,7 +681,6 @@
   <string name="reading_lists_menu_import_list">درون‌ریزی مجموعه</string>
   <string name="reading_lists_menu_sort_by">مرتب‌سازی بر اساس</string>
   <string name="reading_lists_refresh_sync_option">تازه‌کردن همگام‌سازی</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">ورود / ثبت نام</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">اکنون مقاله در حالت آفلاین در دسترس است.</item>
     <item quantity="other">اکنون این مقاله‌ها در حالت آفلاین در دسترس هستند.</item>
@@ -2062,8 +2060,8 @@
   <string name="donation_reminders_settings_title">چطور باید تو یادآوری کنیم؟</string>
   <string name="donation_reminders_settings_option_title">یادآوری‌های کمک مالی</string>
   <string name="donation_reminders_settings_thank_you_message">سخاوت شما به رونق ویکی‌پدیا کمک می‌کند. بر اساس تعداد مقالاتی که می‌خوانید، یک یادآوری برای کمک‌های مالی خود تنظیم کنید.</string>
-  <string name="donation_reminders_settings_donation_info">کمک‌های مالی به بنیاد ویکی‌مدیا و شرکت‌های وابسته، میزبانان افتخاری ویکی‌پدیا و سایر پروژه‌های دانش آزاد، اختصاص می‌یابد.</string>
-  <string name="donation_reminders_settings_article_frequency_label">وقتی می‌خوانم</string>
+  <string name="donation_reminders_settings_donation_info" fuzzy="true">کمک‌های مالی به بنیاد ویکی‌مدیا و شرکت‌های وابسته، میزبانان افتخاری ویکی‌پدیا و سایر پروژه‌های دانش آزاد، اختصاص می‌یابد.</string>
+  <string name="donation_reminders_settings_article_frequency_label" fuzzy="true">وقتی می‌خوانم</string>
   <string name="donation_reminders_settings_amount_label">به من یادآوری کن که کمک مالی کنم</string>
   <string name="donation_reminders_settings_confirm_btn_label">تأیید یادآوری</string>
   <string name="donation_reminders_settings_about_experiment_btn_label">درباره این آزمایش</string>

@@ -605,7 +605,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s सभी ऑफलाइन पढ़ने वाली सूचियों में आगे उपलब्ध नहीं होगा:</string>
   <string name="reading_lists_sync_reminder_title" fuzzy="true">पठन सूची को सिंक करना चालू करें?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">पठन सूचियों में सहेजे गए लेख अब आपके विकिपीडिया खाते से सिंक किए जा सकते हैं। &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;अधिक जानें&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">पठन सूचियां अब सभी उपकरणों में सिंक की जा सकती हैं। अपने विकिपीडिया खाते में लॉग इन करें और अपनी सूचियों को सहेजने दें। &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;अधिक जानें&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">सिंक चालू करें</string>
   <string name="reading_list_login_reminder_title" fuzzy="true">\nअपनी पठन सूचियों को सिंक करें</string>
   <string name="reading_lists_login_reminder_text" fuzzy="true">पठन सूचियां अब सभी उपकरणों में सिंक की जा सकती हैं। अपने विकिपीडिया खाते में लॉग इन करें और अपनी सूचियों को सहेजने दें।</string>
@@ -648,7 +647,6 @@
   <string name="reading_lists_menu_import_list" fuzzy="true">आयात सूची</string>
   <string name="reading_lists_menu_sort_by">इसके अनुसार क्रमबद्ध करें</string>
   <string name="reading_lists_refresh_sync_option">सिंक क टटका करौ</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">लॉग-इन / साइन-अप करें</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">यह लेख अब ऑफलाइन उपलब्ध होगा।</item>
     <item quantity="other">These articles will now be available offline.</item>

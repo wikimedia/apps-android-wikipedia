@@ -482,7 +482,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s toliau nenebus prieinamas neprisijungus visiems skaitymo sąrašams:</string>
   <string name="reading_lists_sync_reminder_title" fuzzy="true">Įjungti skaitymo sąrašo sinchronizavimą?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">Straipsniai, išsaugoti jūsų skaitymo sąrašuose, dabar gali būti sinchronizuojami su jūsų Vikipedijos paskyrą.&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Sužinokite daugiau&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Skaitymo sąrašai dabar gali būti sinchronizuojami tarp įrenginių. Prisijunkite prie savo Vikipedijos paskyros ir leiskite išsaugoti savo sąrašus. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Sužinokite daugiau&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Įgalinti sinchronizavimą</string>
   <string name="reading_list_login_reminder_title" fuzzy="true">Sinchronizuoti skaitymo sąrašus</string>
   <string name="reading_lists_login_reminder_text" fuzzy="true">Skaitymo sąrašai dabar gali būti sinchronizuojami tarp įrenginių. Prisijunkite prie savo Vikipedijos paskyros ir leiskite išsaugoti savo sąrašus.</string>
@@ -521,7 +520,6 @@
   <string name="reading_lists_menu_import_list" fuzzy="true">Importuoti sąrašą</string>
   <string name="reading_lists_menu_sort_by">Rūšiuoti pagal</string>
   <string name="reading_lists_refresh_sync_option">Atnaujinti sinchronizaciją</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Prisijungti / užsiregistruoti</string>
   <plurals name="reading_list_article_offline_message" fuzzy="true">
     <item quantity="one">Šis straipsnis bus prieinamas neprisijungus.</item>
     <item quantity="other">Šie straipsniai bus prieinami neprisijungus.</item>

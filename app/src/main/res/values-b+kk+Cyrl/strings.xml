@@ -314,7 +314,6 @@
   <string name="reading_lists_menu_import_list" fuzzy="true">Тізімді импорттау</string>
   <string name="reading_lists_menu_sort_by">Осы бойынша сұрыптау...</string>
   <string name="reading_lists_refresh_sync_option">Синхронизацияны жаңарту</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Кіру / Тіркелу</string>
   <string name="reading_list_menu_last_sync">Соңғы синхронизация: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_dialog_ok_button_text">OK</string>

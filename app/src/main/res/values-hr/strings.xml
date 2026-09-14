@@ -553,7 +553,6 @@
   <string name="reading_lists_menu_import_list" fuzzy="true">Uvezi popis</string>
   <string name="reading_lists_menu_sort_by">Poredaj po</string>
   <string name="reading_lists_refresh_sync_option">Osvježi sinkronizaciju</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Prijava / registracija</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Ovaj će članak odsad biti dostupan izvan mreže.</item>
     <item quantity="few">Ovi će članci odsad biti dostupni izvan mreže.</item>

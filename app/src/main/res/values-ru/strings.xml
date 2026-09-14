@@ -696,7 +696,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s больше не будет доступна в офлайн-режиме во всех списках для чтения:</string>
   <string name="reading_lists_sync_reminder_title" fuzzy="true">Включить синхронизацию списков для чтения?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">Статьи, сохранённые в списках для чтения, теперь можно синхронизировать с вашей учётной записью Википедии. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Узнать больше&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Списки для чтения теперь можно синхронизировать между устройствами. Войдите в свою учетную запись Wikipedia и разрешите сохранение ваших списков. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Узнать больше&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Включить синхронизацию</string>
   <string name="reading_list_login_reminder_title" fuzzy="true">Синхронизировать список для чтения</string>
   <string name="reading_lists_login_reminder_text" fuzzy="true">Списки для чтения теперь могут быть синхронизированы между устройствами. Войдите в свою учётную запись в Википедии и разрешите сохранять списки.</string>
@@ -741,7 +740,6 @@
   <string name="reading_lists_menu_import_list" fuzzy="true">Импортировать список</string>
   <string name="reading_lists_menu_sort_by">Сортировать по</string>
   <string name="reading_lists_refresh_sync_option">Перезапустить синхронизацию</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Войти / зарегистрироваться</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Эта статья теперь будет доступна в офлайн-режиме.</item>
     <item quantity="few">Эти статьи теперь будут доступны в офлайн-режиме.</item>
@@ -2488,8 +2486,8 @@
   <string name="donation_reminders_settings_title">Как нам вам об этом напомнить?</string>
   <string name="donation_reminders_settings_option_title">Напоминания о пожертвованиях</string>
   <string name="donation_reminders_settings_thank_you_message">Ваша щедрость помогает Википедии процветать. Настройте напоминание о пожертвовании в зависимости от количества прочитанных вами статей.</string>
-  <string name="donation_reminders_settings_donation_info">Пожертвования поступают в фонд Wikimedia Foundation и его филиалы, которые с гордостью размещают Википедию и другие проекты, предоставляющие свободные знания.</string>
-  <string name="donation_reminders_settings_article_frequency_label">Когда я читаю</string>
+  <string name="donation_reminders_settings_donation_info" fuzzy="true">Пожертвования поступают в фонд Wikimedia Foundation и его филиалы, которые с гордостью размещают Википедию и другие проекты, предоставляющие свободные знания.</string>
+  <string name="donation_reminders_settings_article_frequency_label" fuzzy="true">Когда я читаю</string>
   <string name="donation_reminders_settings_amount_label">Напомнить мне сделать пожертвование</string>
   <string name="donation_reminders_settings_confirm_btn_label">Подтвердить напоминание</string>
   <string name="donation_reminders_settings_about_experiment_btn_label">Об этом эксперименте</string>
@@ -2498,8 +2496,8 @@
   <string name="donation_reminders_settings_warning_max_amount">Допустимо максимум %s</string>
   <string name="donation_reminders_settings_option_custom">Произвольная...</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Спасибо! Мы напомним вам о необходимости пожертвовать %1$s, когда вы прочтёте %2$s статей во время этого эксперимента.</string>
-  <string name="donation_reminders_first_milestone_reached_prompt_title">Вы прочитали %1$s с тех пор, как закладывались в %2$s</string>
-  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">Вы прочитали ещё %1$s</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title" fuzzy="true">Вы прочитали %1$s с тех пор, как закладывались в %2$s</string>
+  <string name="donation_reminders_subsequent_milestone_reached_prompt_title" fuzzy="true">Вы прочитали ещё %1$s</string>
   <string name="donation_reminders_prompt_message">Вы установили напоминание о пожертвовании на %1$s, чтобы перечислять %3$s за каждые %2$s, которые вы читаете. Готовы выполнить своё обещание и поддержать Википедию?</string>
   <string name="donation_reminders_prompt_positive_button">Пожертвовать сейчас</string>
   <string name="donation_reminders_prompt_negative_button">Не сейчас</string>

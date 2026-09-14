@@ -472,7 +472,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s estos ne plu havebla eksterrete en ĉiuj legolistoj:</string>
   <string name="reading_lists_sync_reminder_title" fuzzy="true">Ĉu ŝalti sinkronigadon de legolisto?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">Artikoloj konservitaj en legoliston nun povas esti sinkronigataj al via Vikipedia konto. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Lerni plu&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Legolistoj nun povas esti sinkronigataj inter aparatoj. Ensalutu en vian Vikipedian konton kaj permesu la konservadon de viaj listoj. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Lerni plu&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Ŝalti sinkronigadon</string>
   <string name="reading_list_login_reminder_title" fuzzy="true">Sinkronigi la legolistojn</string>
   <string name="reading_lists_login_reminder_text" fuzzy="true">Legolistoj nun povas esti sinkronigataj inter aparatoj. Ensalutu en vian Vikipedian konton kaj permesu la konservadon de viaj listoj.</string>
@@ -507,7 +506,6 @@
   <string name="reading_lists_menu_create_list" fuzzy="true">Krei novan liston</string>
   <string name="reading_lists_menu_sort_by">Ordigi laŭ</string>
   <string name="reading_lists_refresh_sync_option">Resinkronigi</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Ensaluti / registriĝi</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Ĉi tiu artikolo nun estas havebla eksterrete.</item>
     <item quantity="other">Ĉi tiuj artikoloj nun estas haveblaj eksterrete.</item>

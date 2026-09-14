@@ -630,7 +630,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ne bo več na voljo preneseno za nobeno zbirko:</string>
   <string name="reading_lists_sync_reminder_title">Vklopim sinhroniziranje zbirk?</string>
   <string name="reading_lists_sync_reminder_text">Članke, shranjene v zbirkah, lahko zdaj sinhronizirate z računom v Wikipediji. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Več o tem&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Zbirke lahko zdaj sinhronizirate med napravami. Prijavite se v svoj račun v Wikipediji in omogočite shranjevanje zbirk. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Več o tem&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Omogoči sinhroniziranje</string>
   <string name="reading_list_login_reminder_title">Sinhroniziranje zbirk</string>
   <string name="reading_lists_login_reminder_text">Zbirke lahko zdaj sinhronizirate med napravami. Prijavite se v svoj račun v Wikipediji in omogočite shranjevanje zbirk.</string>
@@ -675,7 +674,6 @@
   <string name="reading_lists_menu_import_list">Uvozi zbirko</string>
   <string name="reading_lists_menu_sort_by">Razvrsti po</string>
   <string name="reading_lists_refresh_sync_option">Osveži sinhroniziranje</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Prijava/registracija</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Članek bo zdaj na voljo brez povezave.</item>
     <item quantity="two">Članka bosta zdaj na voljo brez povezave.</item>
@@ -1982,7 +1980,7 @@
   <string name="recommended_reading_list_settings_updates_frequency_weekly">tedensko</string>
   <string name="recommended_reading_list_notification_title">Vaša zbirka %s Odkrijte je pripravljena.</string>
   <string name="donation_settings_section_header">Donacije</string>
-  <string name="donation_reminders_settings_donation_info">Donacije gredo fundaciji Wikimedia in njenim podružnicam, ponosnim gostiteljem Wikipedije in drugih prostih projektov znanja.</string>
+  <string name="donation_reminders_settings_donation_info" fuzzy="true">Donacije gredo fundaciji Wikimedia in njenim podružnicam, ponosnim gostiteljem Wikipedije in drugih prostih projektov znanja.</string>
   <string name="donation_reminders_prompt_message">Dne %1$s ste nastavili opomnik za donacijo, da boste na vsakih %2$s, ki jih preberete, podarili %3$s. Ste pripravljeni izpolniti svojo obljubo o podpori Wikipedije?</string>
   <string name="donation_reminders_prompt_positive_button">Donirajte zdaj</string>
   <string name="donation_reminders_settings_no_thanks_btn_label">Ne, hvala</string>

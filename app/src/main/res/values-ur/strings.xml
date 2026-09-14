@@ -446,7 +446,6 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">نہیں شکریہ</string>
   <string name="reading_lists_menu_create_list" fuzzy="true">نئی فہرست بنائیں</string>
   <string name="reading_lists_menu_sort_by">ترتیب بمطابق</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">دخول / اندراج</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">یہ مضمون آف لائن دستیاب ہوگا۔</item>
     <item quantity="other">یہ مضامین آف لائن دستیاب ہونگے۔</item>

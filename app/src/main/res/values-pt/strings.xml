@@ -603,7 +603,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s deixará de estar disponível offline para todas as listas de leitura:</string>
   <string name="reading_lists_sync_reminder_title" fuzzy="true">Deseja ativar a sincronização das listas de leitura?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">Os artigos guardados nas listas de leitura podem agora ser sincronizados com a sua conta da Wikipédia. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Saiba mais&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Agora as listas de leitura podem ser sincronizadas entre dispositivos. Inicie a sessão na sua conta da Wikipédia e permita que as suas listas sejam guardadas. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Saiba mais&lt;/a&gt;.</string>
   <string name="reading_lists_sync_reminder_action">Ativar sincronização</string>
   <string name="reading_list_login_reminder_title" fuzzy="true">Sincronizar listas de leitura</string>
   <string name="reading_lists_login_reminder_text" fuzzy="true">Agora é possível sincronizar as listas de leitura entre os dispositivos. Inicie a sessão na sua conta da Wikipédia e permita que as suas listas sejam guardadas.</string>
@@ -646,7 +645,6 @@
   <string name="reading_lists_menu_import_list" fuzzy="true">Importar lista</string>
   <string name="reading_lists_menu_sort_by">Ordenar por</string>
   <string name="reading_lists_refresh_sync_option">Atualizar sincronização</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Iniciar sessão/registar</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Este artigo agora estará disponível sem acesso à Internet.</item>
     <item quantity="other">Estes artigos agora estarão disponíveis sem acesso à Internet.</item>

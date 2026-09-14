@@ -452,6 +452,7 @@
   <string name="error_blocked_footer_no_blocker">Сез блоклау турында фикер алышу өчен &lt;a href=\"https://en.wikipedia.org/wiki\n/Википедия:идарәчеләр\"&gt;идарәче&lt;/a&gt; белән элемтәгә керә аласыз.</string>
   <string name="temp_account_not_logged_in">Сез системага кермәгәнсез</string>
   <string name="temp_account_anon_ip_dialog_body">Төзәтмәне бастырганнан соң IP-адресыгыз битнең үзгәртүләр тарихында барлык кешеләргә күренәчәк.&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;Системага керегез&lt;/a&gt; яки &lt;a href=\"https://#createaccount\"&gt;хисапъязма булдырыгыз&lt;/a&gt;. Үзгәртүләрегез тарихы сакланыла башлаячак һәм сезгә башка мөмкинлекләр ачылачак.</string>
+  <string name="temp_account_anon_dialog_body">Үзгәртүне ясаганнан соң шәхси мәгълүматларыгызны саклау өчен &lt;b&gt;вакытлы хисапъязма&lt;/b&gt; булдырылачак. Моның турында &lt;a href=\"%1$s\"&gt;күбрәк мәгълүмат&lt;/a&gt;. &lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;Системага керегез&lt;/a&gt; яки &lt;a href=\"https://#createaccount\"&gt;хисапъязма булдырыгыз&lt;/a&gt;. Теркәлү сезгә киләчәк төзәтмәләрегез өчен рәхмәтләрне кабул итәргә һәм башка мөмкинлекләрне кулланырга бирәчәк.</string>
   <string name="temp_account_dialog_ok">Аңлашыла</string>
   <string name="temp_account_using_title">Сез вакытлы хисапъязманы кулланасыз</string>
   <string name="temp_account_dialog_discard">Үзгәртүләрне арындыр һәм системага кер</string>
@@ -460,6 +461,7 @@
     <item quantity="other">Хисапъязма %d көннән соң эшләүдән туктаячак.</item>
   </plurals>
   <string name="temp_account_anon_ip_edit_status">&lt;b&gt;Сез керүне башкармадыгыз.&lt;/b&gt; Үзгәртүләр ясагач, IP адресыгыз төзәтмәләрегез белән бәйләнеләчәк.</string>
+  <string name="temp_account_anon_edit_status">&lt;b&gt;Сез системага кермәдегез.&lt;/b&gt; Үзгәртүләрне саклаганнан соң шәхси мәгълүматларыгызны саклау өчен вакытлы хисапъязма булдырылачак. &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Күбрәк мәгълүмат&lt;/a&gt;</string>
   <string name="temp_account_end_session">Сеансны тәмамла</string>
   <string name="temp_account_end_session_confirm">Бу гамәлнең нәтиҗәсендә сез вакытлы хисапъязмагыздан чыгачаксыз. Дәвам итәргә телисезме?</string>
   <string name="crash_report_activity_title">Кушымта хатасы</string>
@@ -563,32 +565,40 @@
   <string name="reading_lists_default_list_delete_message" fuzzy="true">Программа көйләгән исемлек (%s) бетерелә алмый</string>
   <string name="reading_lists_default_plus_one_list_delete_message" fuzzy="true">%1$s бетерелгән. Программа көйләгән исемлек (%2$s) бетерелә алмый.</string>
   <string name="reading_lists_default_plus_many_lists_delete_message" fuzzy="true">Исемлекләр бетерелде. Программа көйләгән исемлек (%s) бетерелә алмый.</string>
-  <string name="single_list_json_file_name" fuzzy="true">%s (Википедияне уку исемлеге).json</string>
-  <string name="multiple_lists_json_file_name" fuzzy="true">Википедияне уку исемлекләре (%s һәм аннан да күбрәк).json</string>
-  <string name="reading_list_items_deleted" fuzzy="true">Исемлектән %d мәкаләләре бетерелгән.</string>
-  <string name="reading_lists_item_deleted" fuzzy="true">Исемлектән %s бетерелгән.</string>
+  <string name="single_list_json_file_name">%s (Википедия исемлеге).json</string>
+  <string name="multiple_lists_json_file_name">Википедия исемлекләре (%s һәм аннан да күбрәк).json</string>
+  <string name="reading_list_items_deleted">Исемлектән %d мәкалә бетерелгән.</string>
+  <string name="reading_lists_item_deleted">%s исемлектән бетерелгән</string>
   <string name="reading_list_item_delete_undo">Кире кайтару</string>
   <string name="reading_list_deleted">%s бетерелгән</string>
-  <string name="saved_list_empty_title" fuzzy="true">Әлегә сакланган битләр юк</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Автоном режимда булганда да сонрак уку өчен исемлеккә мәкаләләр өстәгез.</string>
-  <string name="reading_list_empty" fuzzy="true">Бу исемлеккә өстәлгән мәкаләләрегез юк.</string>
+  <string name="saved_list_empty_title">Сакланган мәкаләләр әлегә юк</string>
+  <string name="reading_lists_empty_message">Автоном режимда булганда да сонрак уку өчен исемлеккә мәкаләләр өстәгез.</string>
+  <string name="reading_lists_search_empty_articles_title">Сакланган мәкаләләр табылмады</string>
+  <string name="reading_lists_search_empty_articles_message">Без сакланган мәкаләләрегездә «%s» дигәнне таба алмадык.</string>
+  <string name="reading_lists_search_empty_collections_title">Исемлекләр табылмады</string>
+  <string name="reading_lists_search_empty_collections_message">Без исемлекләрегездә «%s» дигәнне таба алмадык.</string>
+  <string name="reading_list_empty">Бу исемлектә өстәлгән мәкаләләрегез юк.</string>
   <string name="reading_list_article_offline">Автоном режимда бар</string>
   <string name="reading_list_article_make_offline">Бу мәкаләне автоном режимда куллана алырлык итеп ясагыз.</string>
-  <string name="reading_list_add_to_other_list" fuzzy="true">Башка уку исемлегенә күчәргә</string>
-  <string name="reading_list_move_to_other_list" fuzzy="true">Башка уку исемлегенә күчәргә</string>
-  <string name="reading_list_move_from_to_other_list" fuzzy="true"> %s исемлегеннән башкасына күчәргә:</string>
+  <string name="reading_list_add_to_other_list">Башка исемлеккә өстәү</string>
+  <string name="reading_list_move_to_other_list">Башка исемлеккә күчерү</string>
+  <string name="reading_list_add_to_collection">Исемлеккә өстәү</string>
+  <plurals name="reading_list_in_collections">
+    <item quantity="one">1 исемлектә</item>
+    <item quantity="other">%d исемлектә</item>
+  </plurals>
+  <string name="reading_list_move_from_to_other_list"> %s исемлегеннән башкасына күчерү</string>
   <string name="reading_list_remove_from_list">%s бетерергә</string>
-  <string name="reading_list_remove_from_lists" fuzzy="true">Уку исемлекләреннән бетерергә</string>
+  <string name="reading_list_remove_from_lists">Исемлекләрдән бетерү</string>
   <string name="reading_list_select_item">Сайлау</string>
   <string name="reading_list_confirm_remove_article_from_offline">Автоном режимнан бетерергә</string>
-  <string name="reading_list_confirm_remove_article_from_offline_title" fuzzy="true">Мәкалә берничә исемлектә күрсәтелә</string>
-  <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s башка барлык уку исемлекләре өчен автоном режимда кулланылмаячак:</string>
-  <string name="reading_lists_sync_reminder_title" fuzzy="true">Уку исемлеген синхронлаштыруны кабызыргамы?</string>
-  <string name="reading_lists_sync_reminder_text" fuzzy="true">Уку исемлекләрендә сакланган мәкаләләрне хәзер сезнең Википедиядәге хисап язмагыз белән синхронлаштырып була. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Тулырак&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Уку исемлекләрен хәзер җайланмалар арасында синхронлаштырырга мөмкин. Үзегезнең Википедиялагы хисап язмасына керегез һәм исемлекләрегезне сакларга рөхсәт бирегез. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Тулырак&lt;/a&gt;</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title">Мәкалә берничә исемлектә күрсәтелә</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message">«%s» барлык исемлекләрдә офлайн режимда кулланылмаячак:</string>
+  <string name="reading_lists_sync_reminder_title">Исемлекләрне синхронлаштыруны кабызыргамы?</string>
+  <string name="reading_lists_sync_reminder_text">Исемлекләрдә сакланган мәкаләләрне хәзер сезнең Википедиядәге хисапъязмагыз белән синхронлаштырып була. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Тулырак&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Синхронлаштыруны кабызырга</string>
-  <string name="reading_list_login_reminder_title" fuzzy="true">Уку исемлекләрен синхронлаштырырга</string>
-  <string name="reading_lists_login_reminder_text" fuzzy="true">Уку исемлекләрен хәзер төрле җайланмаларда синхронлаштырырга мөмкин. Үзегезнең Википедия хисап язмасына керегез һәм сезнең исемлекләрне сакларга рөхсәт бирегез.</string>
+  <string name="reading_list_login_reminder_title">Исемлекләрне синхронлаштыру</string>
+  <string name="reading_lists_login_reminder_text">Исемлекләрне хәзер төрле җайланмаларда синхронлаштырып була. Википедиядәге хисапъязмагызга керегез һәм исемлекләрегезне сакларга рөхсәт бирегез.</string>
   <string name="reading_lists_login_button">Системага керегез / Википедиягә кушылыгыз</string>
   <string name="reading_lists_ignore_button">Хәзер түгел</string>
   <string name="reading_lists_confirm_remote_delete_yes">Әйе</string>
@@ -597,38 +607,37 @@
   <string name="reading_list_articles_added_to_named">%1$d мәкаләсе %2$s мәкаләсенә өстәлгән</string>
   <string name="reading_list_articles_moved_to_named">%1$d мәкаләсен %2$s мәкаләсенә күчерергә</string>
   <string name="reading_list_delete_confirm">Сез %s бетерергә телисезме?</string>
-  <string name="reading_list_delete_lists_confirm_dialog_title" fuzzy="true">Сайланган исемлекне (исемлекләрне) бетерергәме?</string>
-  <plurals name="reading_list_delete_lists_confirm_dialog_message" fuzzy="true">
-    <item quantity="one">сез %d исемлеген бетерергә телисезме?</item>
-    <item quantity="other">сез %d исемлекләрен бетерергә телисезме?</item>
+  <string name="reading_list_delete_lists_confirm_dialog_title">Сайланган исемлекне (исемлекләрне) бетерергәме?</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+    <item quantity="one">сез %d исемлекне бетерергә телисезме?</item>
+    <item quantity="other">сез %d исемлекне бетерергә телисезме?</item>
   </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Синхронлаштыруны кабызу өчен системага керегез</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_text" fuzzy="true">Сезнең уку исемлекләрен хисап язмагызда сакларга рөхсәт итү өчен системага керегез.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Исемлекләрне хисапъязмагызда сакларга рөхсәт итү өчен системага керегез.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Кире алу</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Керү</string>
-  <string name="reading_list_turned_sync_off_dialog_title" fuzzy="true">Уку исемлеген синхронлаштыру өзеп куелган</string>
-  <string name="reading_list_turned_sync_off_dialog_text" fuzzy="true">Сезнең хисап язмасы өчен уку исемлеген синхронлаштыру өзеп куелган һәм системага кергән җайланмаларда сакланган мәкаләләрнең резерв күчермәләре башка ясалмый. Көйләүләрдә уку исемлеген синхронлаштыруны кабызыгыз.</string>
+  <string name="reading_list_turned_sync_off_dialog_title">Исемлекне синхронлаштыру сүндерелгән</string>
+  <string name="reading_list_turned_sync_off_dialog_text">Хисапъязмагызда исемлекләрне синхронлаштыру сүндерелгән, һәм системага кергән җайланмаларда сакланган мәкаләләрнең резерв күчермәләре башка ясалмый. Көйләнмәләрдә исемлекләрне синхронлаштыруны кабызыгыз.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">Ярар</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Көйләнмәләр</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_title" fuzzy="true">Уку исемлеген синхронлаштыруны кабызыгыз?</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_text" fuzzy="true">Уку исемлегендә сакланган мәкаләләр хәзер сезнең Википедиядәге хисап язмагыз белән синхронлашырга мөмкин. &lt;a href=\"#faq\"&gt;Тулырак&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">Исемлекләрне синхронлаштыруны кабызыргамы?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">Исемлектә сакланган мәкаләләр хәзер сезнең Википедиядәге хисапъязмагыз белән синхронлашырыла. &lt;a href=\"#faq\"&gt;Тулырак&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Миңа моны кабат күрсәтмә</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Синхронлаштыруны кабызырга</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Юк, рәхмәт</string>
   <string name="default_reading_list_name">Сакланган</string>
-  <string name="default_reading_list_description" fuzzy="true">Сезнең сакланган мәкаләләр өчен программа көйләгән исемлек</string>
-  <string name="no_user_lists_title" fuzzy="true">Мәкаләләр җыелмасын саклагыз</string>
-  <string name="no_user_lists_msg" fuzzy="true">Сәяхәт итү урыннары, яраткан темалар һәм башка бик күп нәрсәләр буенча исемлекләр төзегез</string>
+  <string name="default_reading_list_description">Сакланган мәкаләләрегез өчен стандартлы итеп көйләнгән исемлек</string>
+  <string name="no_user_lists_title">Мәкаләләрне исемлекләр итеп оештырыгыз</string>
+  <string name="no_user_lists_msg">Сәяхәт итү урыннары, яраткан темалар һәм башка бик күп нәрсәләр буенча исемлекләр төзегез</string>
   <string name="reading_list_saved_list_rename">%1$s (кулланучы тарафыннан булдырылды)</string>
-  <string name="split_reading_list_message" fuzzy="true">Чикләүләр бар: уку өчен исемлеккә %d мәкалә керә.\nБу чикләүдән артыграк гамәлдәге исемлекләр берничә исемлеккә бүленгән.</string>
-  <string name="reading_list_move_article_limit_message" fuzzy="true">Бу исемлеккә күчү мөмкин түгел. Сез \"%1$s\" исемлегендә %2$d мәкаләләр чигенә җиттегез.</string>
-  <string name="reading_list_article_limit_message" fuzzy="true">Бу исемлеккә өстәү мөмкин түгел. Сез \"%1$s\" исемлегендә %2$d мәкаләләр чигенә җиттегез.</string>
-  <string name="reading_lists_limit_message" fuzzy="true">Башка исемлек төзеп булмый. Сез бер хисап язмасы өчен 100 исемлекнең чигенә җиттегез.</string>
-  <string name="reading_lists_menu_create_list" fuzzy="true">Яңа исемлекне төзү</string>
-  <string name="reading_lists_menu_import_list" fuzzy="true">Импортлау исемлеге</string>
+  <string name="split_reading_list_message">Чикләүләр бар: исемлеткә %d мәкалә була ала.\nБу чикләүне узган исемлекләр берничә исемлеккә бүленгән булган.</string>
+  <string name="reading_list_move_article_limit_message">Бу исемлеккә күчү мөмкин түгел. Сез \"%1$s\" исемлегендә %2$d мәкаләләр чигенә җиттегез.</string>
+  <string name="reading_list_article_limit_message">Бу исемлеккә өстәү мөмкин түгел. Сез «%1$s» исемлегендә %2$d мәкаләләр чигенә җиттегез.</string>
+  <string name="reading_lists_limit_message">Башка исемлек төзеп булмый. Сез бер хисапъязма өчен 100 генә исемлек булдыра аласыз.</string>
+  <string name="reading_lists_menu_create_list">Яңа исемлек төзү</string>
+  <string name="reading_lists_menu_import_list">Исемлекне импортлау</string>
   <string name="reading_lists_menu_sort_by">... буенча сортларга аеру</string>
   <string name="reading_lists_refresh_sync_option">Синхронлаштыруны яңарту</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Системага керегез / теркәлегез</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Хәзер бу мәкалә автоном режимда булачак.</item>
     <item quantity="other">Хәзер бу мәкаләләр автоном режимда булачак.</item>
@@ -637,7 +646,7 @@
     <item quantity="one">Бу мәкалә башка автоном режимда булмаячак.</item>
     <item quantity="other">Бу мәкаләләр башка автоном режимда булмаячак.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync" fuzzy="true">Синхронлаштырылган уку исемлекләре</string>
+  <string name="reading_list_toast_last_sync">Синхронлаштырылган исемлекләр</string>
   <string name="reading_list_menu_last_sync">Соңгы синхронлаштыру: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">Ярар</string>
   <string name="reading_list_delete_dialog_ok_button_text">Ярар</string>
@@ -647,31 +656,31 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Кире алу</string>
   <string name="reading_list_split_dialog_ok_button_text">Ярар</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">Бетерергә</string>
-  <string name="reading_list_activity_title" fuzzy="true">Уку исемлеге: %s</string>
-  <string name="reading_list_notification_title" fuzzy="true">Экспортланган уку исемлеге (исемлекләре)</string>
-  <string name="reading_list_notification_text" fuzzy="true">%d уку исемлеге (исемлекләре) сезнең йөкләүләр папкасына \'reading_lists export.json\' буларак экспортланган.</string>
-  <string name="reading_list_notification_detailed_text" fuzzy="true">Уку исемлекләре түбәндәгегә экспортланган: \'reading_lists_export.json\'</string>
+  <string name="reading_list_activity_title">Исемлек: %s</string>
+  <string name="reading_list_notification_title">Исемлек(ләр) экспортланды</string>
+  <string name="reading_list_notification_text">%d исемлек сезнең йөкләүләр папкасына \'reading_lists export.json\' итеп экспортланды.</string>
+  <string name="reading_list_notification_detailed_text">Исемлекләр \'reading_lists_export.json\' итеп экспортланды</string>
   <string name="reading_lists_action_menu_export_lists">Экспортларга</string>
   <string name="reading_lists_import_file_picker_title">Импортлау өчен файлны сайлагыз</string>
-  <string name="reading_lists_import_failure_message" fuzzy="true">Уку исемлекләрен импортлап булмады</string>
-  <string name="reading_lists_export_select_lists_message" fuzzy="true">Экспортлау өчен исемлек(ләр)не сайлагыз</string>
-  <string name="reading_lists_export_completed_message" fuzzy="true">Уку өчен экспортланган исемлек(ләр)</string>
-  <plurals name="reading_list_export_failed_message" fuzzy="true">
-    <item quantity="one">Уку исемлеген экспортлау хатасы</item>
-    <item quantity="other">Уку исемлекләрен экспортлау хатасы</item>
+  <string name="reading_lists_import_failure_message">Исемлекләрне импортлап булмады</string>
+  <string name="reading_lists_export_select_lists_message">Экспортлау өчен исемлек(ләр)не сайлау</string>
+  <string name="reading_lists_export_completed_message">Исемлек(ләр) экспортланды</string>
+  <plurals name="reading_list_export_failed_message">
+    <item quantity="one">Исемлекне экспортлап булмады</item>
+    <item quantity="other">Исемлекләрне экспортлап булмады</item>
   </plurals>
-  <plurals name="reading_list_import_success_message" fuzzy="true">
-    <item quantity="one">Импортланган уку исемлеге</item>
-    <item quantity="other">Импортланган уку исемлекләре</item>
+  <plurals name="reading_list_import_success_message">
+    <item quantity="one">Импортланган исемлек</item>
+    <item quantity="other">Импортланган исемлекләр</item>
   </plurals>
-  <string name="reading_lists_preview_header_title" fuzzy="true">Гомуми исемлек</string>
+  <string name="reading_lists_preview_header_title">Уртаклашылган исемлек</string>
   <string name="reading_lists_preview_save_button">Сакларга</string>
-  <string name="reading_lists_preview_save_dialog_title" fuzzy="true">Исемлекне сакларга</string>
-  <string name="reading_lists_preview_save_dialog_text" fuzzy="true">Исемнәрне санап чыгыгыз һәм саклап калу өчен мәкаләләрне сайлагыз.</string>
+  <string name="reading_lists_preview_save_dialog_title">Исемлекне саклау</string>
+  <string name="reading_lists_preview_save_dialog_text">Исемлекне исемләгез һәм саклау өчен мәкаләләрне сайлагыз.</string>
   <string name="reading_lists_preview_save_dialog_title_hint">Башлык</string>
   <string name="reading_lists_preview_save_dialog_cancel">Кире алу</string>
   <string name="reading_lists_preview_save_dialog_save">Сакларга</string>
-  <string name="reading_lists_preview_saved_snackbar" fuzzy="true">Сакланган уку исемлеге</string>
+  <string name="reading_lists_preview_saved_snackbar">Исемлек сакланды</string>
   <string name="reading_lists_preview_saved_snackbar_action">Күрсәт</string>
   <string name="user_option_sync_label">Көйләнмәләр</string>
   <string name="notification_reverted_title">Кире кагылган төзәтмә</string>
@@ -680,8 +689,8 @@
   <string name="notification_syncing_pause_button">Тыныш</string>
   <string name="notification_syncing_resume_button">Яңадан торгызырга</string>
   <string name="notification_syncing_cancel_button">Кире алу</string>
-  <string name="notification_syncing_reading_list_channel_title" fuzzy="true">Уку исемлекләрен синхронлаштыру</string>
-  <string name="notification_syncing_reading_list_channel_description" fuzzy="true">Уку исемлекләрен синхронлаштыру барышы</string>
+  <string name="notification_syncing_reading_list_channel_title">Исемлекләрне синхронлаштыру</string>
+  <string name="notification_syncing_reading_list_channel_description">Исемлекләрне синхронлаштыру хәле</string>
   <string name="notification_many_unread">Сезнең %d укылмаган хәбәрнамәгез бар</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Мәкаләне йөкләү</item>
@@ -695,15 +704,15 @@
     <item quantity="one">%1$d мәкалә калды</item>
     <item quantity="other">%1$d мәкалә калды</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_channel_name" fuzzy="true">
-    <item quantity="one">Уку исемлеген синхронлаштыру</item>
-    <item quantity="other">Уку исемлекләрен синхронлаштыру</item>
+  <plurals name="notification_syncing_reading_list_channel_name">
+    <item quantity="one">Исемлекне синхронлаштыру</item>
+    <item quantity="other">Исемлекләрне синхронлаштыру</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_title" fuzzy="true">
+  <plurals name="notification_syncing_reading_list_title">
     <item quantity="one">%1$d исемлекнең синхронлаштырылуы...</item>
-    <item quantity="other">%1$d исемлекләрнең синхронлаштырылуы...</item>
+    <item quantity="other">%1$d исемлекнең синхронлаштырылуы...</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_description" fuzzy="true">
+  <plurals name="notification_syncing_reading_list_description">
     <item quantity="one">%1$d исемлек калды</item>
     <item quantity="other">%1$d исемлек калды</item>
   </plurals>
@@ -848,16 +857,17 @@
   <string name="feed_item_type_randomizer">Уку өчен очраклы мәкаләләр булдырыгыз</string>
   <string name="feed_item_type_suggested_edits">Википедиягә эчтәлек өстәү буенча тәкъдимнәр</string>
   <string name="feed_item_type_places">Хәзерге локациягезгә бәйле якындагы мәкаләләр</string>
-  <string name="feed_empty_message" fuzzy="true">Сезнең \"Тикшеренүләр\" лентасында бернәрсә дә юк</string>
+  <string name="feed_empty_message">Сезнең баш битегез буш</string>
   <string name="feed_configure_onboarding_action">Көйләргә</string>
   <string name="customize_lang_selection_dialog_ok_button_text">Ярар</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Кире алу</string>
-  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Үзегезнең тикшеренүләр лентасын көйләгез&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;\nХәзер сез үзегезнең лентада нәрсә күрсәтергә кирәклеген, шулай ук сезнең яраткан эчтәлек төрләре өчен өстенлекләрне сайлый аласыз.</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Баш битегезне көйләгез&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;\nХәзер сез үзегезнең тасмагызда нәрсә күрсәтергә кирәклеген, шулай ук сезнең яраткан эчтәлек төрләре өчен өстенлекләрне сайлый аласыз.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">Ярар</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Кире алу</string>
   <string name="feed_accessibility_card_text">Сез лентаның аскы өлешенә барып җиттегез.</string>
   <string name="feed_accessibility_card_load_more_button">Күбрәк йөкләргә</string>
   <string name="feed_language_variants_removal_dialog_title">Уку җайлырак булсын өчен региональ тел вариантын сайлагыз</string>
+  <string name="feed_language_variants_removal_dialog_message">Сез Википедиянең төп теле итеп сайлаган кытай теле дөрес эшләми.</string>
   <string name="feed_language_variants_removal_dialog_save">Сакла</string>
   <string name="feed_language_variants_removal_secondary_dialog_title">Өстәмә телләрегезне яңартыгызчы</string>
   <string name="feed_language_variants_removal_secondary_dialog_settings">Көйләүләргә күч</string>
@@ -1139,6 +1149,7 @@
   <string name="edit_summary_added_image_and_caption">Сурәт һәм аның аңлатма язуы өстәлде</string>
   <string name="edit_published_view">Күрсәт</string>
   <string name="activity_tab_logged_out_title">Википедия кушымтасында активлыгыгызны карау өчен хисапъязмагызга керегез. Хисапъязмагыз әле булмаса, аны булдырыгыз.</string>
+  <string name="activity_tab_user_reading">%s укый</string>
   <string name="activity_tab_on_wikipedia_android">Android өчен Википедиядә</string>
   <string name="activity_tab_weekly_time_spent_hm">%1$d сәг. %2$d мин.</string>
   <string name="activity_tab_weekly_time_spent">Бу атнада укуга сарыф ителгән вакыт</string>
@@ -1154,6 +1165,7 @@
   <string name="activity_tab_game_stats_best_streak">Иң яхшы streak</string>
   <string name="activity_tab_play_wiki_games">WikiGames уеннарын уйнау</string>
   <string name="activity_tab_report_email_subject">Читенлек турында хәбәрләү — «Активлык» табы</string>
+  <string name="activity_tab_report_email_body">I have encountered a problem with Activity Tab feature:\n- [Читенлекне тасвирлагыз]\n\nThe behavior I would like to see is:\n- [Читенлекне чишүнең вариантын тасвирлагыз]</string>
   <string name="activity_tab_menu_feedback">Функция белән проблема</string>
   <string name="activity_tab_menu_info">Күбрәк күрсәт</string>
   <string name="activity_tab_menu_customize">Җайлау</string>
@@ -1231,7 +1243,7 @@
   <string name="onboarding_maybe_later">Бәлки соңрак</string>
   <string name="onboarding_explore_title">Өйрәнүнең яңа ысуллары</string>
   <string name="onboarding_explore_text" fuzzy="true">Даими яңартыла торган лента ярдәмендә Википедиянең лабиринтлары буйлап сәяхәт итегез. &lt;br/&gt; лентаны сезнең кызыксынуларыгызга туры килерлек итеп &lt;b&gt;көйләгез&lt;/b&gt; - &lt;b&gt; бу көнне  булган&lt;/b&gt; тарихи вакыйгаларны өйрәнү яисә &lt;/b&gt;уңышка&lt;/b&gt; таяну булсынмы.</string>
-  <string name="onboarding_reading_list_sync_title" fuzzy="true">Синхронлаштырылган уку исемлекләре</string>
+  <string name="onboarding_reading_list_sync_title">Синхронлаштырылган исемлекләр</string>
   <string name="onboarding_reading_list_sync_text_v2" fuzzy="true">Сез автоном режимда булып та соңрак укырга теләгән мәкаләләрдән уку өчен исемлекләр төзи аласыз.&lt;br/&gt;Үзегезнең уку исемлекләрен синхронлаштыру өчен Википедиядәге хисап язмагызга керегез. &lt;a href=\"#login\"&gt;Википедиягә кушылыгыз&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Мәгълүмат һәм конфиденциальлек</string>
   <string name="onboarding_analytics_switch_title">Куллану турында мәгълүматны җибәрергә</string>
@@ -1240,6 +1252,7 @@
   <string name="onboarding_multilingual_add_language_text">Телләрне тулыландыру яки мөхәррирләү</string>
   <string name="onboarding_welcome_title_v2">Ирекле энциклопедия\n..., 300 дән артык телдә</string>
   <string name="onboarding_next">Алга</string>
+  <string name="onboarding_app_languages_add_button">Телләрне өстәү яки үзгәртү</string>
   <string name="app_shortcuts_random">Очраклы</string>
   <string name="app_shortcuts_continue_reading">Алга таба укырга</string>
   <string name="app_shortcuts_search">Эзләү</string>
@@ -1558,16 +1571,16 @@
   <string name="user_contrib_filter_activity_title">Кертемнәрне фильтрлау</string>
   <string name="action_item_view_on_map">Харитада күрсәт</string>
   <string name="action_item_view_on_map_unavailable">Бу бит өчен географик координатлар юк.</string>
-  <string name="shareable_reading_lists_import_dialog_title" fuzzy="true">Укуның гомуми исемлеген импортлау</string>
-  <string name="shareable_reading_lists_import_dialog_content" fuzzy="true">Сезнең белән бүлешкән исемлекне ничек атарга теләр идегез?</string>
+  <string name="shareable_reading_lists_import_dialog_title">Исемлекне импортлау</string>
+  <string name="shareable_reading_lists_import_dialog_content">Сезнең белән бүлешкән исемлекне ничек атарга теләр идегез?</string>
   <string name="shareable_reading_lists_new_indicator">*яңа*</string>
-  <string name="shareable_reading_lists_new_install_dialog_title" fuzzy="true">Сезгә уку өчен исемлек бирелгән</string>
+  <string name="shareable_reading_lists_new_install_dialog_title">Сезгә уку өчен исемлек бирелгән</string>
   <string name="shareable_reading_lists_new_install_dialog_content" fuzzy="true">Без сезгә уку өчен исемлек белән уртаклашуларына игътибар иттек.  Бу исемлекне кушымтада карау өчен башлангыч хәбәргә кайтыгыз һәм яңадан сылтамага басыгыз.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Аңлашыла</string>
-  <string name="shareable_reading_lists_new_imported_snackbar" fuzzy="true">Уку исемлеге импортланды</string>
+  <string name="shareable_reading_lists_new_imported_snackbar">Исемлек импортланды</string>
   <string name="reading_list_share_menu_label">Уртаклашу…</string>
-  <string name="reading_list_share_menu_tooltip" fuzzy="true">Бу уку өчен исемлекне башкалар белән дә уртаклашыгыз</string>
-  <string name="reading_list_share_message_v2" fuzzy="true">Сәлам! Мин сезнең белән Википедиядәге үземнең уку исемлеге белән уртаклашырга телим.</string>
+  <string name="reading_list_share_menu_tooltip">Бу исемлекне башкалар белән дә уртаклашыгыз</string>
+  <string name="reading_list_share_message_v2">Сәлам! Мин сезнең белән Википедиядәге үземнең исемлегемне уртаклашырга телим.</string>
   <string name="talk_templates_empty_message">Эшне башлау өчен үзегезнең хәбәрләрегезне булдырыгыз яки &lt;a href=\"#\"&gt;хәбәр мисалларын&lt;/a&gt; кулланыгыз.</string>
   <string name="talk_templates_new_message_title">Яңа хәбәр</string>
   <string name="talk_templates_new_message_subject_hint">Тема</string>
@@ -1700,19 +1713,25 @@
   <string name="donate_gpay_check_recurring">Моны ай саен җибәрелүче иганәгә әйләндерү</string>
   <string name="donate_gpay_check_send_email">Әйе, Wikimedia Foundation миңа вакыт-вакыт электрон хатлар җибәрә ала.</string>
   <string name="donate_gpay_minimum_amount">Сумманы сайлагызчы (кимендә %s)</string>
+  <string name="donate_gpay_help_problems">Акчалата иганә белән читенлек бармы?</string>
+  <string name="donate_gpay_help_other_ways">Акчалата иганә ясауның башка ысуллары</string>
   <string name="donate_gpay_help_faq">Еш бирелә торган сораулар</string>
+  <string name="donation_history_deleted_message_snackbar">Акчалата иганәләр тарихы бетерелде.</string>
+  <string name="donation_history_no_history_message_snackbar">Сездә чистартуны таләп итә торган акчалата иганәләр тарихы юкмы?</string>
   <string name="places_title">Урыннар</string>
   <string name="places_permissions_denied">Харитада кайда икәнегезне күрү өчен сездән локациягезне уртаклашуга рөхсәт бирүегез кирәк. Яңадан кабатлагызчы.</string>
   <string name="places_search_hint">Урыннарны эзләү</string>
   <string name="places_filter_title">Тел буенча сөзгеч</string>
   <string name="places_toggle_buttons_map">Харита</string>
   <string name="places_toggle_buttons_list">Исемлек</string>
+  <string name="places_empty_list">Бу өлкә буш. &lt;a href=\"#\"&gt;Харита&lt;/a&gt; нисбәтен киметегез.</string>
   <string name="places_card_title">Якындагы урыннар</string>
   <string name="places_card_action">Якын-тирәдәге башка урыннар</string>
   <string name="places_card_enable_location_card_button">Локация табуны кабызу</string>
   <string name="places_card_distance_unknown">Ара билгесез</string>
   <string name="survey_dialog_title">Бу функцияне яхшыртырга ярдәм итегез</string>
   <string name="survey_dialog_message">Сезне бу функция канәгатьләндерәме?</string>
+  <string name="home_feed_survey_title">Баш битне яхшыртырга булышыгыз</string>
   <string name="survey_dialog_option_satisfied">Канәгатьләндерелгән</string>
   <string name="survey_dialog_option_neutral">Нейтраль</string>
   <string name="survey_dialog_option_unsatisfied">Канәгать түгел</string>
@@ -1724,7 +1743,7 @@
   <string name="survey_dialog_general_yes">Әйе</string>
   <string name="survey_dialog_general_no">Юк</string>
   <string name="survey_dialog_general_maybe">Шулайдыр</string>
-  <string name="survey_dialog_submitted_snackbar" fuzzy="true">Бәяләмә җибәрелде.</string>
+  <string name="survey_dialog_submitted_snackbar">Бәяләмә җибәрелде. Рәхмәт сезгә!</string>
   <string name="games_hub_activity_title">Уеннар</string>
   <string name="games_hub_activity_games_unavailable_message">Бу телдә уеннар юк! Уеннарда һәрбер тел бүлегендә волонтер-мөхәррирләр тарафыннан ясалган контент кулланыла.</string>
   <string name="games_hub_activity_games_unavailable_message_learn_more_action">Күбрәк мәгълүмат</string>
@@ -1741,6 +1760,7 @@
   <string name="on_this_day_game_share_button">Нәтиҗәне уртаклашу</string>
   <string name="on_this_day_game_feed_entry_card_heading">Википедия уеннары</string>
   <string name="on_this_day_game_feed_entry_card_title">Нәрсә элегрәк булган?</string>
+  <string name="on_this_day_game_next_in">Икенче уен %s узуга</string>
   <string name="on_this_day_game_your_stats">Статистикагыз</string>
   <plurals name="on_this_day_game_stats_games_played">
     <item quantity="other">Уен уйналган</item>

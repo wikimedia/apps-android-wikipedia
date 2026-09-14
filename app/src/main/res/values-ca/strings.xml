@@ -579,7 +579,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s ja no estarà disponible fora de línia a totes les llistes de lectura:</string>
   <string name="reading_lists_sync_reminder_title" fuzzy="true">Voleu activar la sincronització de les llistes de lectura?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">Els articles que es desen a les llistes de lectura ara poden sincronitzar-se amb el vostre compte de Viquipèdia. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Més informació&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Ara és possible sincronitzar les llistes de lectura amb diferents dispositius. Entreu al vostre compte de la Viquipèdia i permeteu que s’hi desin les vostres llistes. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Més informació&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Habilita la sincronització</string>
   <string name="reading_list_login_reminder_title" fuzzy="true">Sincronitza les llistes de lectura</string>
   <string name="reading_lists_login_reminder_text" fuzzy="true">Les llistes de lectura poden sincronitzar-se entre dispositius. Inicieu una sessió amb el vostre compte de Viquipèdia i permeteu desar les llistes.</string>
@@ -622,7 +621,6 @@
   <string name="reading_lists_menu_import_list" fuzzy="true">Importa la llista</string>
   <string name="reading_lists_menu_sort_by">Ordena per</string>
   <string name="reading_lists_refresh_sync_option">Refresca la sincronització</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Inicia una sessió / crea un compte</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Aquest article estarà disponible fora de línia a partir d\'ara.</item>
     <item quantity="other">Aquests articles estaran disponibles fora de línia a partir d\'ara.</item>

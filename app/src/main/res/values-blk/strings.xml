@@ -494,7 +494,6 @@
   <string name="reading_lists_menu_create_list" fuzzy="true">ဖန်ဆင်ꩻ စာႏရင်ꩻတသာ</string>
   <string name="reading_lists_menu_sort_by">အရဲဉ်ႏအတွိုင်ꩻ</string>
   <string name="reading_lists_refresh_sync_option">ထိုမ်ႏစဲစ်ချာယင်း syncထာꩻမာꩻ</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">နွို့အကောက် / ဒင်ႏအကောက်မတ်ပိုင်တိဉ်</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">ရောမ်ဖြုဲင်ꩻယိုနဝ်ꩻ ယိုခါ ထွားလꩻနွောင်ꩻလဲဉ်း အဝ်ႏလိုႏတဝ်းလဲင်းစားသွူ</item>
     <item quantity="other">ရောမ်ဖြုဲင်ꩻယိုဖိုင်ႏနဝ်ꩻ ယိုခါ ထွားလꩻနွောင်ꩻလဲဉ်း အဝ်ႏလိုႏတဝ်းလဲင်းစားသွူ။</item>

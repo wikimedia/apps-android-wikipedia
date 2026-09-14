@@ -273,6 +273,24 @@
   <string name="email_recommendation_dialog_create_without_email_action">メールアドレスなしで先に進む</string>
   <string name="email_recommendation_dialog_create_with_email_action">メールアドレスを追加</string>
   <string name="create_account_button">アカウント作成</string>
+  <string name="create_account_encourage_title">アカウント作成で、ウィキペディアがもっと便利に</string>
+  <string name="create_account_encourage_year_in_review_title_zero">閲覧記録を一年のまとめで確認</string>
+  <plurals name="create_account_encourage_year_in_review_title">
+    <item quantity="other"> %1$d日分の閲覧記録を一年のまとめで確認</item>
+  </plurals>
+  <string name="create_account_encourage_year_in_review_description">年に一度、これまでの閲覧記録を振り返り、一年のまとめとしてお届けします。シェアもできます。</string>
+  <string name="create_account_encourage_saved_articles_title_zero">保存記事を同期</string>
+  <plurals name="create_account_encourage_saved_articles_title">
+    <item quantity="other">保存記事%1$d件を同期</item>
+  </plurals>
+  <string name="create_account_encourage_saved_articles_description">ウィキペディアアカウントにログインすると、保存済みの記事を複数のデバイスで同期できます。</string>
+  <string name="create_account_encourage_activity_title_zero">アクティビティで最近読んだ記事を再読</string>
+  <plurals name="create_account_encourage_activity_title">
+    <item quantity="other">アクティビティで最近読んだ記事%1$d件を再読</item>
+  </plurals>
+  <string name="create_account_encourage_activity_description">アクティビティタブで、閲覧時間や探索したトピック、自分の貢献の反響を確認できます。</string>
+  <string name="create_account_encourage_edits_title">編集の功績を獲得</string>
+  <string name="create_account_encourage_edits_description">ウィキメディアプロジェクトへの貢献が自分のアカウントに記録され、誇れる実績を築けます。</string>
   <string name="create_account_name_unavailable">利用者名「%s」は利用できません。別の名前を指定してください。</string>
   <string name="create_account_ip_block_message">申し訳ありませんが現在あなたのIPアドレスはアカウント作成がブロックされています。</string>
   <string name="create_account_ip_block_help_url">https://ja.wikipedia.org/wiki/ヘルプ:あなたが投稿ブロックされたら</string>
@@ -654,7 +672,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">すべてのコレクションで、%sはオフラインで利用できなくなります：</string>
   <string name="reading_lists_sync_reminder_title">コレクションの同期をオンにしますか?</string>
   <string name="reading_lists_sync_reminder_text">コレクションに保存された記事を、あなたのウィキペディアアカウントで同期することができるようになりました。&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ/ja#Synced_reading_lists\"&gt;さらに詳しく&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">コレクションはデバイスをまたいで同期できるようになりました。ウィキペディアアカウントにログインして、あなたのコレクションを保存しましょう。&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ/ja#Synced_reading_lists\"&gt;さらに詳しく&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">同期を有効にする</string>
   <string name="reading_list_login_reminder_title">コレクションを同期する</string>
   <string name="reading_lists_login_reminder_text">コレクションはデバイス間で同期できるようになりました。ウィキペディアのアカウントにログインして、コレクションの保存を許可してください。</string>
@@ -696,7 +713,6 @@
   <string name="reading_lists_menu_import_list">コレクションをインポート</string>
   <string name="reading_lists_menu_sort_by">並び順</string>
   <string name="reading_lists_refresh_sync_option">同期を更新</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">ログイン / 登録</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">この記事は現在オフラインで利用できるようになります。</item>
     <item quantity="other">これらの記事はオフラインで利用できるようになります。</item>
@@ -2054,7 +2070,7 @@
   <string name="donation_reminders_settings_title">どのようにリマインドすべきですか?</string>
   <string name="donation_reminders_settings_option_title">寄付リマインダー</string>
   <string name="donation_reminders_settings_thank_you_message">あなたのご厚意によってウィキペディアの発展が支えられています。あなたが読んだ記事の数に基づく寄付リマインダーを設定してください。</string>
-  <string name="donation_reminders_settings_donation_info">寄付はウィキペディアおよびその他のフリーナレッジプロジェクトのホストであるウィキメディア財団および提携団体に渡ります。</string>
+  <string name="donation_reminders_settings_donation_info">寄付はウィキペディアおよびその姉妹サイトのホストであるウィキメディア財団および提携団体に渡ります。</string>
   <string name="donation_reminders_settings_amount_label">寄付をリマインドする</string>
   <string name="donation_reminders_settings_confirm_btn_label">リマインダーを確認</string>
   <string name="donation_reminders_settings_about_experiment_btn_label">この実験について</string>
@@ -2077,6 +2093,7 @@
   <string name="donation_reminders_settings_report_email_subject">寄付リマインダーの問題を報告</string>
   <string name="donation_reminders_settings_report_email_body">寄付リマインダー機能で問題に出くわしました:\n- [具体的な問題の説明]\n- [スクリーンショットまたはリンク]\n\n期待する挙動:\n- [提案する解決策の説明]</string>
   <string name="donation_reminders_snackbar_modify_button_label">変更</string>
+  <string name="donation_reminders_settings_article_number_selection_label">記事</string>
   <string name="hybrid_search_search_hint">何か検索または質問する</string>
   <string name="hybrid_search_article_search_hint">%sに関して質問する</string>
   <string name="hybrid_search_suggestion_title">検索対象:</string>

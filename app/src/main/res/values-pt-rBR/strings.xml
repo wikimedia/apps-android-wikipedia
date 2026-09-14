@@ -127,7 +127,7 @@
   <string name="page_edit_history_empty_search_message">Tente alterar os &lt;a href=\"#\"&gt;filtros&lt;/a&gt; para ver mais edições</string>
   <string name="menu_page_show_tabs">Mostrar guias</string>
   <string name="menu_page_other_languages">Alterar idioma</string>
-  <string name="menu_page_find_in_page">Encontre no artigo</string>
+  <string name="menu_page_find_in_page">Encontrar no artigo</string>
   <string name="menu_page_add_to_watchlist">Adicionar às páginas vigiadas</string>
   <string name="menu_page_watch">Vigiar</string>
   <string name="menu_page_unwatch">Deixar de vigiar</string>
@@ -146,13 +146,13 @@
   <string name="menu_page_share">Compartilhar link</string>
   <string name="menu_article_share">Compartilhar artigo</string>
   <string name="menu_page_article_share">Compartilhar</string>
-  <string name="menu_page_open_a_new_tab">Abrir uma nova aba</string>
+  <string name="menu_page_open_a_new_tab">Abrir uma nova guia</string>
   <string name="menu_page_new_tab">Nova guia</string>
   <string name="menu_page_reading_lists">Coleções</string>
   <string name="menu_page_recently_viewed">Visto recentemente</string>
   <string name="menu_page_archive">Arquivo</string>
   <string name="menu_long_press_open_page">Abrir</string>
-  <string name="menu_long_press_open_in_places">Aberto em Locais</string>
+  <string name="menu_long_press_open_in_places">Abrir em Locais</string>
   <string name="menu_long_press_open_in_new_tab">Abrir em uma nova guia</string>
   <string name="menu_long_press_copy_page">Copiar endereço da ligação</string>
   <string name="menu_text_select_define">Definir</string>
@@ -166,22 +166,22 @@
   <string name="map_view_link_text">Ver no mapa</string>
   <string name="other_languages_indication_text">Ler em outro idioma</string>
   <string name="language_count_link_text">Disponível em %d outros idiomas</string>
-  <string name="edit_save_action_license_logged_in">Ao publicar, você estará concordando com os &lt;a href=\"%1$s\"&gt;termos de uso&lt;/a&gt; e em publicar irrevogavelmente sua contribuição sob a licença &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Ao publicar, você estará concordando com os &lt;a href=\"%1$s\"&gt;termos de uso&lt;/a&gt; e em publicar irrevogavelmente sua contribuição sob a licença &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. As edições serão atribuídas ao endereço de IP do seu dispositivo. Para ter mais privacidade, &lt;a href=\"https://#login\"&gt;autentique-se&lt;/a&gt;.</string>
-  <string name="edit_anon_warning">As edições serão atribuídas ao endereço IP do seu dispositivo. Se você &lt;a href=\"https://#login\"&gt;se conectar&lt;/a&gt;, terá mais privacidade.</string>
+  <string name="edit_save_action_license_logged_in">Ao publicar, você declara que aceita os &lt;a href=\"%1$s\"&gt;Termos de Uso&lt;/a&gt; e autoriza publicar irrevogavelmente a sua contribuição sob a licença &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Ao publicar, você declara que aceita os &lt;a href=\"%1$s\"&gt;Termos de Uso&lt;/a&gt; e autoriza publicar irrevogavelmente a sua contribuição sob a licença &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. As edições serão atribuídas ao endereço IP do seu dispositivo. Para ter mais privacidade, &lt;a href=\"https://#login\"&gt;autentique-se&lt;/a&gt;.</string>
+  <string name="edit_anon_warning">As edições serão atribuídas ao endereço IP do seu dispositivo. Para ter mais privacidade, &lt;a href=\"https://#login\"&gt;autentique-se&lt;/a&gt;.</string>
   <string name="preference_title_language">Idiomas da Wikipédia</string>
   <string name="langlinks_filter_hint">Pesquisar</string>
   <string name="langlinks_empty">Esta página não está disponível em outros idiomas.</string>
   <string name="langlinks_no_match">Nenhum idioma encontrado</string>
   <string name="langlinks_activity_title">Outros idiomas</string>
   <string name="langlinks_your_wikipedia_languages">Seus idiomas da Wikipédia</string>
-  <string name="menu_save_changes">Publicar alterações</string>
+  <string name="menu_save_changes">Publicar mudanças</string>
   <string name="edit_saved_successfully">Edição publicada!</string>
-  <string name="stub_article_edit_saved_successfully">Edição publicada! As alterações podem levar algum tempo para aparecerem.</string>
+  <string name="stub_article_edit_saved_successfully">Edição publicada! As mudanças podem levar algum tempo para aparecerem.</string>
   <string name="dialog_message_edit_failed">Falha de edição!</string>
   <string name="dialog_message_edit_failed_retry">Tentar novamente</string>
   <string name="dialog_message_edit_failed_cancel">Cancelar</string>
-  <string name="dialog_message_leaving_edit">As suas alterações ainda não foram publicadas. Tem certeza que pretende sair desta página?</string>
+  <string name="dialog_message_leaving_edit">As suas mudanças ainda não foram publicadas. Tem certeza de que pretende sair desta página?</string>
   <string name="dialog_message_leaving_edit_leave">Sair</string>
   <string name="dialog_message_leaving_edit_stay">Ficar</string>
   <string name="dialog_confirm_delete_donation_history_title">Confirmar exclusão</string>
@@ -192,9 +192,11 @@
   <string name="search_no_results_found">Nenhum resultado encontrado</string>
   <string name="search_reading_list_no_results">Nenhum resultado encontrado em “%s”</string>
   <string name="search_reading_lists_no_results">Nenhum resultado encontrado nas coleções</string>
+  <string name="search_all_articles_no_results">Nenhum resultado encontrado em todos os artigos</string>
+  <string name="search_collections_no_results">Nenhum resultado encontrado nas coleções</string>
   <string name="search_history_no_results">Nenhum resultado encontrado no histórico</string>
   <string name="edit_section_captcha_message">Para ajudar a proteger contra spam automatizado, digite as palavras abaixo</string>
-  <string name="edit_section_captcha_request_an_account_message">Não consegue ver a imagem? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Solicitar uma conta&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Não consegue ver a imagem? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Peça uma conta&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Repita as palavras acima</string>
   <string name="title_captcha">Digite o CAPTCHA</string>
   <string name="edit_section_captcha_reload">Toque no CAPTCHA para atualizar</string>
@@ -203,10 +205,10 @@
   <string name="login_password_hint">Senha</string>
   <string name="account_creation_password_hint">Senha</string>
   <string name="login_2fa_hint">Código de autenticação de dois fatores</string>
-  <string name="login_2fa_other_workflow_error_msg">Autenticação de dois fatores solicitada! Por favor, faça o login de outro dispositivo e entre com o seu código do token 2 FA.</string>
-  <string name="login_email_auth_hint">Código de verificação de e-mail</string>
-  <string name="login_email_auth_other_workflow_error_msg">Verificação de e-mail solicitada! Por favor, faça o login da tela principal e entre com o código de verificação do seu e-mail.</string>
-  <string name="login_background_error_msg">Não é possível fazer login novamente. Volte para a tela principal e faça login manualmente.</string>
+  <string name="login_2fa_other_workflow_error_msg">Autenticação de dois fatores solicitada! Por favor, inicie sessão a partir de outro dispositivo e insira o código do seu token 2FA.</string>
+  <string name="login_email_auth_hint">Código de verificação por e-mail</string>
+  <string name="login_email_auth_other_workflow_error_msg">Verificação de e-mail solicitada! Inicie sessão a partir da tela principal e insira o seu código de verificação por e-mail.</string>
+  <string name="login_background_error_msg">Não foi possível iniciar sessão novamente. Volte para a tela principal e inicie sessão manualmente.</string>
   <string name="onboarding_card_login">Entrar</string>
   <string name="page_editing_login">Entrar</string>
   <string name="reading_lists_sync_login">Entrar</string>
@@ -214,7 +216,7 @@
   <string name="menu_login">Entrar</string>
   <string name="login_activity_title">Entrar</string>
   <string name="login_in_progress_dialog_message">Autenticando…</string>
-  <string name="login_success_toast">Entrado(a)!</string>
+  <string name="login_success_toast">Autenticado(a)!</string>
   <string name="reset_password_title">Defina sua senha</string>
   <string name="reset_password_description">Você iniciou a sessão com uma senha temporária. Para concluir a autenticação, defina sua nova senha.</string>
   <string name="reset_password_hint">Nova senha</string>
@@ -259,6 +261,15 @@
   <string name="email_recommendation_dialog_create_without_email_action">Continuar sem e-mail</string>
   <string name="email_recommendation_dialog_create_with_email_action">Adicionar um endereço de e-mail</string>
   <string name="create_account_button">Criar conta</string>
+  <string name="create_account_encourage_title">A Wikipédia fica melhor com uma conta</string>
+  <string name="create_account_encourage_year_in_review_title_zero">Veja como foram seus dias de leitura no Resumo do Ano</string>
+  <string name="create_account_encourage_year_in_review_description">Uma vez por ano, seus dias de leitura voltam à tona como uma reflexão sobre a trajetória que você percorreu ao longo do ano, pronta para ser compartilhada.</string>
+  <string name="create_account_encourage_saved_articles_title_zero">Sincronize seus artigos salvos</string>
+  <string name="create_account_encourage_saved_articles_description">Entre na sua conta da Wikipédia para permitir que os artigos salvos sejam sincronizados entre os dispositivos.</string>
+  <string name="create_account_encourage_activity_title_zero">Revisite suas leituras recentes com a seção Atividade</string>
+  <string name="create_account_encourage_activity_description">Confira seu tempo de leitura, os tópicos explorados e o alcance de suas contribuições na aba Atividade.</string>
+  <string name="create_account_encourage_edits_title">Receba crédito pelas suas edições</string>
+  <string name="create_account_encourage_edits_description">Construa um histórico do qual você possa se orgulhar, com contribuições em todos os projetos da Wikimedia creditadas à sua conta.</string>
   <string name="create_account_name_unavailable">O nome de usuário \"%s\" não está disponível. Escolha um nome diferente, por favor.</string>
   <string name="create_account_ip_block_message">Desculpe, seu endereço IP está atualmente impedido de criar novas contas.</string>
   <string name="create_account_ip_block_help_url">https://pt.wikipedia.org/wiki/Ajuda:Fui_bloqueado</string>
@@ -351,7 +362,10 @@
   <string name="editor_select_dialog_ve_title">Edição visual</string>
   <string name="editor_select_dialog_ve_subtitle">Faça alterações diretamente na página que você está vendo. Abre no seu navegador.</string>
   <string name="editor_select_dialog_source_title">Edição de código-fonte</string>
+  <string name="editor_select_dialog_source_subtitle">Faça alterações usando marcações. Elas permanecem no aplicativo.</string>
+  <string name="editor_select_dialog_dont_show_again">Não mostre isso de novo. Essa configuração padrão pode ser alterada mais tarde em Configurações.</string>
   <string name="editor_select_dialog_continue">Continuar</string>
+  <string name="editor_select_icon_ve_title">Ícone Abrir em navegador externo</string>
   <string name="editor_select_title_settings_screen">Preferências de edição</string>
   <string name="editor_select_save_btn_settings_screen">Salvar</string>
   <string name="find_next">Encontrar próxima</string>
@@ -634,6 +648,7 @@
   <string name="reading_list_article_make_offline">Disponibilizar este artigo offline</string>
   <string name="reading_list_add_to_other_list">Adicionar a outra coleção</string>
   <string name="reading_list_move_to_other_list">Mover para outra coleção</string>
+  <string name="reading_list_add_to_collection">Adicionar a uma coleção</string>
   <string name="reading_list_move_from_to_other_list">Mover de %s para outra coleção</string>
   <string name="reading_list_remove_from_list">Remover de %s</string>
   <string name="reading_list_remove_from_lists">Remover das coleções</string>
@@ -643,7 +658,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">%s não estará mais disponível off-line para todas as coleções:</string>
   <string name="reading_lists_sync_reminder_title">Deseja ativar a sincronização das coleções?</string>
   <string name="reading_lists_sync_reminder_text">Os artigos salvos nas coleções podem agora ser sincronizados com a sua conta da Wikipédia. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Saiba mais&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">As coleções agora podem ser sincronizadas entre dispositivos. Faça login na sua conta da Wikipédia e permita que suas coleções sejam salvas &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/pt-br#Synced_reading_lists\"&gt;Saber mais&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Ativar sincronização</string>
   <string name="reading_list_login_reminder_title">Sincronizar coleções</string>
   <string name="reading_lists_login_reminder_text">As coleções agora podem ser sincronizadas entre dispositivos. Entre na sua conta da Wikipédia e permita que suas coleções sejam salvas.</string>
@@ -686,7 +700,6 @@
   <string name="reading_lists_menu_import_list">Coleção importada</string>
   <string name="reading_lists_menu_sort_by">Ordenar por</string>
   <string name="reading_lists_refresh_sync_option">Atualizar sincronização</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Entrar / Inscrever-se</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Este artigo agora estará disponível off-line.</item>
     <item quantity="other">Estes artigos agora estarão disponíveis off-line.</item>
@@ -2115,8 +2128,8 @@
   <string name="donation_reminders_settings_title">Como podemos lembrá-lo?</string>
   <string name="donation_reminders_settings_option_title">Lembretes de doações</string>
   <string name="donation_reminders_settings_thank_you_message">Sua generosidade ajuda a manter a Wikipédia prosperando. Configure um lembrete de doação com base no número de artigos que você lê.</string>
-  <string name="donation_reminders_settings_donation_info">As doações são destinadas à Wikimedia Foundation e suas afiliadas, orgulhosas anfitriãs da Wikipédia e de outros projetos de conhecimento livre.</string>
-  <string name="donation_reminders_settings_article_frequency_label">Quando eu li</string>
+  <string name="donation_reminders_settings_donation_info" fuzzy="true">As doações são destinadas à Wikimedia Foundation e suas afiliadas, orgulhosas anfitriãs da Wikipédia e de outros projetos de conhecimento livre.</string>
+  <string name="donation_reminders_settings_article_frequency_label" fuzzy="true">Quando eu li</string>
   <string name="donation_reminders_settings_amount_label">Lembre-me de fazer uma doação</string>
   <string name="donation_reminders_settings_confirm_btn_label">Confirmar lembrete</string>
   <string name="donation_reminders_settings_about_experiment_btn_label">Sobre esse experimento</string>
@@ -2125,8 +2138,8 @@
   <string name="donation_reminders_settings_warning_max_amount">O máximo permitido é %s</string>
   <string name="donation_reminders_settings_option_custom">Personalizar...</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Obrigado! Lembraremos você de doar %1$s quando ler %2$s enquanto este experimento estiver em andamento.</string>
-  <string name="donation_reminders_first_milestone_reached_prompt_title">Você leu %1$s desde que se comprometeu com %2$s</string>
-  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">Você leu outro %1$s</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title" fuzzy="true">Você leu %1$s desde que se comprometeu com %2$s</string>
+  <string name="donation_reminders_subsequent_milestone_reached_prompt_title" fuzzy="true">Você leu outro %1$s</string>
   <string name="donation_reminders_prompt_message">Você configurou um lembrete de doação em %1$s para doar %3$s a cada %2$s que você ler. Pronto para cumprir sua promessa de apoiar a Wikipédia?</string>
   <string name="donation_reminders_prompt_positive_button">Doar agora</string>
   <string name="donation_reminders_prompt_negative_button">Agora não</string>
@@ -2145,6 +2158,18 @@
   <string name="donation_reminders_settings_report_button">Problema com a funcionalidade</string>
   <string name="donation_reminders_settings_report_email_subject">Relatório de Problemas – Lembretes de Doações</string>
   <string name="donation_reminders_snackbar_modify_button_label">Modificar</string>
+  <string name="donation_reminders_settings_article_number_selection_label">Artigos</string>
+  <string name="donation_reminders_beta_label">Beta</string>
+  <string name="donation_reminders_wrap_up_title">É isso aí: encerramos os lembretes de doação</string>
+  <string name="donation_reminders_wrap_up_message">Obrigado por testar os lembretes de doação com base nos artigos que você leu. Seu comentário decide se essa será uma forma permanente de fazer doações na Wikipédia. Leva apenas um minuto e não é necessário fazer nenhuma doação.</string>
+  <string name="donation_reminders_wrap_up_share_feedback_button">Compartilhar comentário</string>
+  <string name="donation_reminders_wrap_up_survey_title">Uma pergunta rápida sobre lembretes de doação</string>
+  <string name="donation_reminders_wrap_up_survey_message">Os lembretes de doação baseados nos artigos que você lê deveriam se tornar um recurso permanente?</string>
+  <string name="donation_reminders_wrap_up_survey_optional_hint">Mais alguma coisa? (Opcional)</string>
+  <string name="donation_reminders_wrap_up_survey_thank_you_message">Agradecemos seu comentário. Sua resposta nos ajuda a decidir o que desenvolver em seguida.</string>
+  <string name="donation_reminders_eoe_title">Este é o fim do experimento</string>
+  <string name="donation_reminders_eoe_message">Não exibiremos mais lembretes no aplicativo, mas você ainda pode nos apoiar doando mensalmente o valor prometido de %s.</string>
+  <string name="donation_reminders_eoe_donate_dialog_title">O que você acha de fazer doações mensais?</string>
   <string name="hybrid_search_search_hint">Pesquise ou pergunte qualquer coisa</string>
   <string name="hybrid_search_article_search_hint">Pergunte sobre %s</string>
   <string name="hybrid_search_suggestion_title">Procurar por:</string>
@@ -2301,6 +2326,7 @@
   <string name="home_feed_settings_for_you_modules_description">Desativar um módulo o oculta do seu feed \"Para você\"”. Você pode reativá-lo aqui a qualquer momento.</string>
   <string name="home_feed_settings_based_on_interest_title">Com base nos seus interesses</string>
   <string name="home_feed_settings_based_on_interest_subtitle">Artigos personalizados de acordo com os tópicos que você escolheu.&lt;br /&gt;&lt;a href=\"#drivingFeed\"&gt;O que está alimentando seu feed&lt;/a&gt;</string>
+  <string name="home_feed_new_within_interest_card_heading">Novidades relacionadas aos seus interesses</string>
   <string name="home_feed_new_within_interest_title">Novos artigos de seu interesse</string>
   <string name="home_feed_new_within_interest_subtitle">Artigos publicados recentemente nas áreas temáticas que você acompanha</string>
   <string name="home_feed_settings_because_you_read_subtitle">Sugestões com base em um artigo recente do seu histórico</string>
@@ -2366,11 +2392,21 @@
   <string name="random_article_widget_name">Artigo aleatório</string>
   <string name="reading_lists_tab_all_articles">Todos os artigos</string>
   <string name="reading_lists_tab_collections">Coleções</string>
+  <string name="reading_lists_filter_not_in_collection">Não faz parte de uma coleção</string>
+  <string name="reading_lists_empty_not_in_collection_title">Todos os artigos salvos estão em coleções.</string>
   <string name="reading_lists_search_saved_articles">Pesquisar artigos salvos</string>
   <string name="reading_lists_search_collections">Pesquisar coleções</string>
+  <string name="reading_lists_empty_collections_title">Organize os artigos salvos em coleções</string>
+  <string name="reading_lists_empty_collections_description">Crie coleções de destinos de viagem, assuntos favoritos e muito mais.</string>
   <string name="reading_lists_create_new_collection">Criar uma nova coleção</string>
-  <string name="reading_lists_remove_articles_confirm_dialog_title" fuzzy="true">Excluir os artigos salvos?</string>
-  <string name="reading_lists_remove_articles_confirm_button" fuzzy="true">Remover</string>
+  <string name="reading_lists_remove_articles_confirm_dialog_title">Cancelar o salvamento do artigo?</string>
+  <string name="reading_lists_remove_articles_confirm_button">Não salvar</string>
+  <plurals name="reading_lists_remove_articles_confirm_dialog_message">
+    <item quantity="one">Este artigo será removido de todas as coleções associadas.</item>
+    <item quantity="other">Esses %d artigos serão removidos de todas as coleções associadas.</item>
+  </plurals>
+  <string name="reading_lists_save_sheet_empty_title">Reúna os artigos que você adora</string>
+  <string name="reading_lists_save_sheet_empty_message">Salve artigos em coleções.</string>
   <string name="reading_lists_save_sheet_create">Criar</string>
   <string name="reading_lists_update_tooltip">As listas de leitura agora são chamadas de coleções.</string>
 </resources>

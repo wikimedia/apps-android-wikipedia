@@ -462,7 +462,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s офлайн-эрэсиимҥэ аны көстүө суоҕа:</string>
   <string name="reading_lists_sync_reminder_title" fuzzy="true">Аҕыы испииһэгин мэнэйдэһиитин холбуугун дуо?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">Мэнэйдэһии испииһэгэр хараллыбыт ыстатыйалар Эн Бикипиэдьийэҕэ бэлиэтэммит ааккын кытта ситимнэниэхтэрин сөп. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Сиһилии&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Ааҕар испииһэктэри тэриллэр ыккардыларыгар тэҥниир кыах баар. Бикипиэдьийэҕэ киирэр ааккынан киир уонна испииһэктэри бигэргэтиини көҥүллээ. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Сиһилии&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Мэнэйдээһини холбоо</string>
   <string name="reading_list_login_reminder_title" fuzzy="true">Мэнэйдэhии испиhиэгэ</string>
   <string name="reading_lists_login_reminder_text" fuzzy="true">Ааҕар испииһэктэри тэриллэр ыккардыларыгар тэҥниир кыах баар. Бикипиэдьийэҕэ киирэр ааккынан киир уонна испииһэктэри бигэргэтиини көҥүллээ.</string>
@@ -497,7 +496,6 @@
   <string name="reading_lists_menu_create_list" fuzzy="true">Саҥа испииһэги оҥоруу</string>
   <string name="reading_lists_menu_sort_by">Маннык наардаа...</string>
   <string name="reading_lists_refresh_sync_option">Хос ыыт</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Киир / бэлиэтэн</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Бу ыстатыйаны ситимэ суох ааҕыахха сөп буолла.</item>
     <item quantity="other">Ыстатыйалары ситимэ суох ааҕыахха сөп буолла.</item>

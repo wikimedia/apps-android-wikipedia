@@ -465,7 +465,6 @@
   <string name="reading_lists_menu_create_list">Wamnáyaŋpi tȟéča waŋ káǧa</string>
   <string name="reading_lists_menu_import_list">Wamnáyaŋpi kiŋ yuthímahel ičú</string>
   <string name="reading_lists_menu_sort_by">Táku ogná yuówečhiŋhaŋ?</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Čhaž\'óigwa</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">Hau/Haƞ</string>
   <string name="reading_list_delete_dialog_ok_button_text">Hau/Haƞ</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">Yužúžu</string>

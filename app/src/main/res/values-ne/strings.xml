@@ -477,7 +477,6 @@
   <string name="reading_lists_menu_import_list" fuzzy="true">सूची निर्यात गर्नुहोस्</string>
   <string name="reading_lists_menu_sort_by">द्वारा क्रमबद्ध</string>
   <string name="reading_lists_refresh_sync_option">सङ्क्रमण ताजा गर्नुहोस्</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">प्रवेश गर्नुहाेस् / खाता खाेल्नुहाेस्</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">यो लेख हाल अफलाइनमा उपलब्ध हुनेछ</item>
     <item quantity="other">यी लेखहरू हाल अफलाइनमा उपलब्ध हुनेछन्</item>

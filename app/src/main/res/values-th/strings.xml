@@ -493,7 +493,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s จะไม่พร้อมใช้งานแบบออฟไลน์อีกต่อไปสำหรับรายการอ่านทั้งหมด:</string>
   <string name="reading_lists_sync_reminder_title" fuzzy="true">เปิดการซิงค์รายการอ่านหรือไม่</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">คุณสามารถซิงค์บทความที่บันทึกลงในรายการอ่านกับบัญชีวิกิพีเดียของคุณได้แล้วตอนนี้ &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;เรียนรู้เพิ่มเติม&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">คุณสามารถซิงค์รายการอ่านระหว่างอุปกรณ์ต่าง ๆ ได้แล้วตอนนี้ เข้าสู่ระบบบัญชีวิกิพีเดียของคุณและอนุญาตให้รายการของคุณสามารถบันทึกได้ &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;เรียนรู้เพิ่มเติม&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">เปิดใช้งานการซิงค์</string>
   <string name="reading_list_login_reminder_title" fuzzy="true">ซิงค์รายการอ่าน</string>
   <string name="reading_lists_login_reminder_text" fuzzy="true">คุณสามารถซิงค์รายการอ่านระหว่างอุปกรณ์ต่าง ๆ ได้แล้วตอนนี้ เข้าสู่ระบบบัญชีวิกิพีเดียของคุณและอนุญาตให้รายการของคุณสามารถบันทึกได้</string>
@@ -530,7 +529,6 @@
   <string name="reading_lists_menu_create_list" fuzzy="true">สร้างรายการใหม่</string>
   <string name="reading_lists_menu_sort_by">เรียงตาม</string>
   <string name="reading_lists_refresh_sync_option">รีเฟรชการซิงค์</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">เข้าสู่ระบบ / สมัครสมาชิก</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">บทความนี้จะใช้ได้ขณะออฟไลน์แล้วตอนนี้</item>
     <item quantity="other">บทความเหล่านี้จะใช้ได้ขณะออฟไลน์แล้วตอนนี้</item>

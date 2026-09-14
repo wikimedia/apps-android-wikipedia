@@ -539,7 +539,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s endi barcha roʻyxatlar uchun oflayn rejimda mavjud boʻlmaydi:</string>
   <string name="reading_lists_sync_reminder_title" fuzzy="true">Roʻyxatni sinxronlashtirasizmi?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">Maqolalar sizning Vikipediya akkauntingiz bilan sinxronlashtirildi. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Batafsil maʼlumot&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Roʻyxatlardan endi barcha qurilmalaringizda sinxron tarzda foydalanishingiz mumkin. Vikipediya hisobingizga kiring va roʻyxatlaringizni saqlashga ruxsat bering.&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Batafsil maʼlumot&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Sinxronlashtirmoq</string>
   <string name="reading_list_login_reminder_title" fuzzy="true">Sinxronlashgan roʻyxatlar</string>
   <string name="reading_lists_login_reminder_text" fuzzy="true">Roʻyxatlarini endi qurilmalararo sinxronlashtirish mumkin. Vikipediya hisobingizga kiring va roʻyxatlaringizni saqlashga ruxsat bering.</string>
@@ -582,7 +581,6 @@
   <string name="reading_lists_menu_import_list" fuzzy="true">Import roʻyxati</string>
   <string name="reading_lists_menu_sort_by">Saralash turi</string>
   <string name="reading_lists_refresh_sync_option">Qayta sinxronlamoq</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Kirmoq / Aʼzo boʻlmoq</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Ushbu maqola endi oflayn tarzda mavjud boʻladi.</item>
     <item quantity="other">Bu maqolani oflayn tarzda ham oʻqisa boʻladi.</item>

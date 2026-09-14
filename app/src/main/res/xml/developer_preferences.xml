@@ -30,12 +30,6 @@
             android:key="@string/preference_key_announcement_ignore_date"
             android:title="@string/preferences_developer_announcement_ignore_date" />
 
-        <org.wikipedia.settings.IntPreference
-            style="@style/IntPreference"
-            android:key="@string/preference_key_announcement_version_code"
-            android:title="@string/preference_key_announcement_version_code"
-            android:dialogMessage="@string/preferences_developer_announcement_version_code_hint"/>
-
         <Preference android:key="@string/preference_key_announcement_shown_dialogs"
             android:title="@string/preferences_developer_announcement_reset_shown_dialogs_title" />
     </PreferenceCategory>
@@ -371,6 +365,12 @@
             android:key="@string/preference_key_add_malformed_reading_list_page"
             android:title="Add malformed pages to reading list" />
 
+        <org.wikipedia.settings.EditTextAutoSummarizePreference
+            style="@style/EditTextAutoSummarizePreference"
+            android:dialogMessage="Creates up to 50 English-language history entries with corresponding PageImage data."
+            android:key="@string/preference_key_add_history_entries"
+            android:title="Add articles to history" />
+
         <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_reading_lists_share_url_shorten"
             android:title="@string/preference_key_reading_lists_share_url_shorten" />
@@ -397,25 +397,10 @@
             android:key="@string/preference_key_suggested_edits_pause_reverts"
             android:title="@string/preference_key_suggested_edits_pause_reverts" />
 
-        <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_suggested_edits_override_counts"
-            android:title="@string/preference_key_suggested_edits_override_counts"
-            android:summary="Use the following two fields to override suggested edit counts:"/>
-
-        <org.wikipedia.settings.IntPreference
-            style="@style/IntPreference"
-            android:key="@string/preference_key_suggested_edits_override_edits"
-            android:title="@string/preference_key_suggested_edits_override_edits" />
-
         <org.wikipedia.settings.IntPreference
             style="@style/IntPreference"
             android:key="@string/preference_key_suggested_edits_override_contribution"
             android:title="@string/preference_key_suggested_edits_override_contribution" />
-
-        <org.wikipedia.settings.IntPreference
-            style="@style/IntPreference"
-            android:key="@string/preference_key_suggested_edits_override_reverts"
-            android:title="@string/preference_key_suggested_edits_override_reverts" />
 
         <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_suggested_edits_reactivation_test"
@@ -614,13 +599,6 @@
         <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_randomizer_shake_prompt_shown"
             android:title="@string/preference_key_randomizer_shake_prompt_shown"/>
-    </PreferenceCategory>
-
-    <PreferenceCategory android:title="Visual Editor">
-        <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_visual_editor_enabled"
-            android:title="@string/preference_key_visual_editor_enabled"/>
-
     </PreferenceCategory>
 
 </PreferenceScreen>

@@ -458,7 +458,6 @@
   <string name="reading_lists_menu_create_list" fuzzy="true">Napravi novi spisak</string>
   <string name="reading_lists_menu_sort_by">Sortiraj po</string>
   <string name="reading_lists_refresh_sync_option">Osvježi sinhronizaciju</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Prijavi me / otvori račun</string>
   <plurals name="reading_list_article_offline_message" fuzzy="true">
     <item quantity="one">Članak će sada biti dostupan van mreže.</item>
     <item quantity="other">Članci će sada biti dostupni van mreže.</item>

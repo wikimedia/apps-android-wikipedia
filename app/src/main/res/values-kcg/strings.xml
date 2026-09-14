@@ -404,7 +404,6 @@
   <string name="reading_lists_menu_create_list" fuzzy="true">Khwuk lis fai</string>
   <string name="reading_lists_menu_sort_by">Tswang di̱n vak</string>
   <string name="reading_lists_refresh_sync_option">Shyim tyei pwut</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Nwuo/Shyia̱ nwuai</string>
   <string name="reading_list_menu_last_sync">Tyei pwut ngaan: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">Ndei</string>
   <string name="reading_list_delete_dialog_ok_button_text">Ndei</string>

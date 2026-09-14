@@ -610,7 +610,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">Το λήμμα %s δεν θα είναι πλέον διαθέσιμο εκτός σύνδεσης για όλες τις συλλογές:</string>
   <string name="reading_lists_sync_reminder_title">Ενεργοποίηση συγχρονισμού των συλλογών;</string>
   <string name="reading_lists_sync_reminder_text">Τα λήμματα που αποθηκεύονται σε συλλογές μπορούν πλέον να συγχρονιστούν με τον λογαριασμό σας στη Βικιπαίδεια. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Μάθετε περισσότερα&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Οι συλλογές μπορούν πλέον να συγχρονιστούν μεταξύ συσκευών. Συνδεθείτε στον λογαριασμό σας στη Βικιπαίδεια και επιτρέψτε την αποθήκευση των συλλογών σας. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Μάθετε περισσότερα&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Ενεργοποίηση συγχρονισμού</string>
   <string name="reading_list_login_reminder_title">Συγχρονισμός συλλογών</string>
   <string name="reading_lists_login_reminder_text">Οι συλλογές μπορούν πλέον να συγχρονιστούν μεταξύ συσκευών. Συνδεθείτε στον λογαριασμό σας στη Βικιπαίδεια και επιτρέψτε την αποθήκευση των συλλογών σας.</string>
@@ -653,7 +652,6 @@
   <string name="reading_lists_menu_import_list">Εισαγωγή συλλογής</string>
   <string name="reading_lists_menu_sort_by">Ταξινόμηση κατά</string>
   <string name="reading_lists_refresh_sync_option">Ανανέωση συγχρονισμού</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Σύνδεση / Εγγραφή</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Αυτό το λήμμα θα είναι πλέον διαθέσιμο εκτός σύνδεσης.</item>
     <item quantity="other">Αυτά τα λήμματα θα είναι πλέον διαθέσιμα εκτός σύνδεσης.</item>
@@ -1705,7 +1703,7 @@
   <string name="donation_settings_section_header">Δωρεές</string>
   <string name="donation_reminders_settings_title">Πώς να σας το υπενθυμίσουμε;</string>
   <string name="donation_reminders_settings_option_title">Υπενθυμίσεις δωρεών</string>
-  <string name="donation_reminders_settings_article_frequency_label">Όταν διαβάζω</string>
+  <string name="donation_reminders_settings_article_frequency_label" fuzzy="true">Όταν διαβάζω</string>
   <string name="donation_reminders_prompt_positive_button">Δωρίστε τώρα</string>
   <string name="donation_reminders_prompt_negative_button">Όχι τώρα</string>
   <string name="donation_reminders_gpay_text">Δωρίστε %s μέσω Google Pay</string>

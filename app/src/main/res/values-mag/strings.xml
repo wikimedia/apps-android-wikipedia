@@ -415,7 +415,6 @@
   <string name="reading_list_turned_sync_off_dialog_ok">ठीक</string>
   <string name="reading_list_turned_sync_off_dialog_settings">सेटिङ्ग</string>
   <string name="default_reading_list_name">सहेजल</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">प्रवेश करथिन / खाता बनावथिन</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">ठीक हे</string>
   <string name="reading_list_delete_dialog_ok_button_text">ठीक हे</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">निरस्त करथिन</string>

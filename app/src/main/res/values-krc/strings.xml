@@ -559,7 +559,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s мындан ары бу тизмеледе оффлайн джетиширча боллукъ тюлдю:</string>
   <string name="reading_lists_sync_reminder_title" fuzzy="true">Окъуу тизмени синхронизациясы джандырылсынмы?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">Окъуу тизмелеригизге сакъланнган статьяланы, мындан ары Википедия хыйсабыгъыз бла синхронизация этерчады. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tr#Synced_reading_lists\"&gt;Аслам бил&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Окъуу тизмеле энди девайсла арасында синхронизация этилирчады. Википедия хыйсабыгъызда сессия ачыгъыз эмда тизмелеригизни сакъландырыууна эркинлик беригиз. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Аслам бил&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Синхрозинацияны джандыр</string>
   <string name="reading_list_login_reminder_title" fuzzy="true">Окъуу тимзелени синхронизация эт</string>
   <string name="reading_lists_login_reminder_text" fuzzy="true">Окъуу тизмеле энди девайсла арасында синхронизация этилирчады. Википедия хыйсабыгъызда сессия ачыгъыз эмда тизмелеригизни сакъландырыууна эркинлик беригиз.</string>
@@ -602,7 +601,6 @@
   <string name="reading_lists_menu_import_list" fuzzy="true">Тизмени импорт эт</string>
   <string name="reading_lists_menu_sort_by">Айырыу шарт</string>
   <string name="reading_lists_refresh_sync_option">Синхронизацияны джангырт</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Кир / регистрация эт</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Бу статьягъа энди оффлайн джетиширчады.</item>
     <item quantity="other">Бу статьягъа энди оффлайн джетиширчады.</item>

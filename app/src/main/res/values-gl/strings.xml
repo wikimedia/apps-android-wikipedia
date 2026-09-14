@@ -444,7 +444,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s xa non estará dispoñible sen conexión en ningunha lista de lectura:</string>
   <string name="reading_lists_sync_reminder_title" fuzzy="true">Desexa activar a sincronización das listas de lectura?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">Agora os artigos gardados nas listas de lectura poden sincronizarse coa súa conta da Wikipedia. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Máis información.&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Agora é posible sincronizar as listas de lectura en varios dispositivos. Acceda á súa conta da Wikipedia e permita que se garden as súas listas. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Máis información.&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Activar sincronización</string>
   <string name="reading_list_login_reminder_title" fuzzy="true">Sincronizar as listas de lectura</string>
   <string name="reading_lists_login_reminder_text" fuzzy="true">Agora é posible sincronizar as listas de lectura entre varios dispositivos. Acceda á súa conta de Wikipedia e permita que se garden as súas listas.</string>
@@ -479,7 +478,6 @@
   <string name="reading_lists_menu_create_list" fuzzy="true">Crear unha lista nova</string>
   <string name="reading_lists_menu_sort_by">Ordenar por</string>
   <string name="reading_lists_refresh_sync_option">Actualizar sincronización</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Acceder/crear conta</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Agora este artigo estará dispoñible sen conexión.</item>
     <item quantity="other">Agora estes artigos estarán dispoñibles sen conexión.</item>

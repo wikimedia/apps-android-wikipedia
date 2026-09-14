@@ -556,7 +556,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s lahi pala dinni tooi nya karim yaɣa maa zaa a yi ka pɔhim zuɣu:</string>
   <string name="reading_lists_sync_reminder_title" fuzzy="true">Nyom karim yaɣa zaŋkpɛhi tabi ni?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">Lahabali shɛŋa din gu n be karim yaɣa maa ni pa ni tooi vooi kpehi A Wikipedia akawnti maa ni. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;bohimmi pahi&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Karimbu yuya pa ni tooi zaŋ gohi taba tabibi-maʒini dabam dabam puuni. Kpɛm a Wikipedia akawnti ni nti ti soli ka a karim yuya maa gu n-zali. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;bohimmi pahi&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Saɣiti zaŋgohi taba</string>
   <string name="reading_list_login_reminder_title" fuzzy="true">zaŋmi a yu-karimda n-gohi taba</string>
   <string name="reading_lists_login_reminder_text" fuzzy="true">A yu-Karimda pa ni tooi zaŋ gohi taba tabibi-maʒini dabam dabam zuɣu. Kpɛm a Wikipedia akawnti ni nti ti soli ka a yu-karimda maa gu n-zali.</string>
@@ -599,7 +598,6 @@
   <string name="reading_lists_menu_import_list" fuzzy="true">yuya kpuɣimi kpɛhi</string>
   <string name="reading_lists_menu_sort_by">jɛhi doli</string>
   <string name="reading_lists_refresh_sync_option">Labi mali nema zaŋkpɛhi tabini niŋ</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Kpɛma / Yoomi akawnti</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Lahabali ŋɔ nyɛla din pa beni ka di pa la pɔhim zuɣu.</item>
     <item quantity="other">Lahabaya ŋɔ nyɛla din pa beni ka di pa la pɔhim zuɣu.</item>

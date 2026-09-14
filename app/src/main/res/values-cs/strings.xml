@@ -629,7 +629,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s již nebude k dispozici offline pro všechny seznamy k přečtení:</string>
   <string name="reading_lists_sync_reminder_title" fuzzy="true">Zapnout synchronizaci seznamů k přečtení?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">Články uložené v seznamech k přečtení mohou být nyní synchronizovány s vaším účtem na Wikipedii. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Více informací&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Seznamy článků k přečtení mohou být synchronizovány napříč zařízeními. Přihlaste se ke svému účtu Wikipedie a potvrďte své seznamy k uložení. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Více informací&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Povolit synchronizaci</string>
   <string name="reading_list_login_reminder_title" fuzzy="true">Synchronizovat seznamy k přečtení</string>
   <string name="reading_lists_login_reminder_text" fuzzy="true">Seznamy k přečtení mohou být nyní synchronizovány napříč zařízeními. Přihlaste se do svého účtu na Wikipedii a povolte ukládání vašich seznamů.</string>
@@ -668,7 +667,6 @@
   <string name="reading_lists_menu_import_list" fuzzy="true">Importovat seznam</string>
   <string name="reading_lists_menu_sort_by">Seřadit podle</string>
   <string name="reading_lists_refresh_sync_option">Synchronizovat</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Přihlášení/registrace</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Tento článek bude dostupný bez připojení k internetu.</item>
     <item quantity="few">Tyto články budou dostupné bez připojení k internetu.</item>

@@ -643,7 +643,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s non sarà più disponibile offline per tutti gli elenchi di lettura:</string>
   <string name="reading_lists_sync_reminder_title">Attiva la sincronizzazione delle raccolte?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">Le voci salvate negli elenchi di lettura possono ora essere sincronizzate con la tua utenza Wikipedia. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Ulteriori informazioni&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Ora le raccolte possono ora essere sincronizzate su tutti i dispositivi. Accedi alla tua utenza di Wikipedia e consenti alle tue raccolte di essere salvate. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Ulteriori informazioni&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Attiva sincronizzazione</string>
   <string name="reading_list_login_reminder_title">Sincronizza raccolte</string>
   <string name="reading_lists_login_reminder_text">Le raccolte possono ora essere sincronizzate su tutti i dispositivi. Accedi alla tua utenza di Wikipedia e consenti alle tue raccolte di essere salvate.</string>
@@ -686,7 +685,6 @@
   <string name="reading_lists_menu_import_list">Importa raccolta</string>
   <string name="reading_lists_menu_sort_by">Ordina per</string>
   <string name="reading_lists_refresh_sync_option">Aggiorna la sincronizzazione</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Entra / registrati</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Questa voce ora è disponibile offline.</item>
     <item quantity="other">Queste voci ora sono disponibili offline.</item>
@@ -2095,7 +2093,7 @@
   <string name="donation_reminders_settings_option_title">Promemoria per le donazioni</string>
   <string name="donation_reminders_settings_thank_you_message">La tua generosità contribuisce a far prosperare Wikipedia. Imposta un promemoria per le donazioni in base al numero di voci che leggi.</string>
   <string name="donation_reminders_settings_donation_info">Le donazioni sono destinate alla Wikimedia Foundation e alle sue organizzazioni affiliate, che gestiscono orgogliosamente Wikipedia e altri progetti di conoscenza libera.</string>
-  <string name="donation_reminders_settings_article_frequency_label">Quando leggo</string>
+  <string name="donation_reminders_settings_article_frequency_label">Ogni volta che leggo</string>
   <string name="donation_reminders_settings_amount_label">Ricordami di donare</string>
   <string name="donation_reminders_settings_confirm_btn_label">Conferma il promemoria</string>
   <string name="donation_reminders_settings_about_experiment_btn_label">Informazioni sul presente esperimento</string>

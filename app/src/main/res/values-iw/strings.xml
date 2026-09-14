@@ -630,7 +630,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">הערך %s לא יהיה זמין מחוץ לרשת בכל רשימות הקריאה:</string>
   <string name="reading_lists_sync_reminder_title" fuzzy="true">להפעיל סנכרון רשימות קריאה?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">עכשיו אפשר לסנכרן ערכים שנשמרו לרשימות קריאה לחשבון הוויקיפדיה שלך. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;מידע נוסף&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">אפשר לסנכרן רשימות קריאה במכשירים שונים. יש להיכנס לחשבון הוויקיפדיה שלך ולאפשר לרשימת להישמר. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;מידע נוסף&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">הפעלת סנכרון</string>
   <string name="reading_list_login_reminder_title" fuzzy="true">סנכרון רשימות קריאה</string>
   <string name="reading_lists_login_reminder_text" fuzzy="true">עכשיו אפשר לסנכרן רשימות קריאה במכשירים שונים. נא להיכנס לחשבון הוויקיפדיה שלך ולאפשר את שמירת רשימות הקריאה שלך.</string>
@@ -675,7 +674,6 @@
   <string name="reading_lists_menu_import_list" fuzzy="true">יבוא רשימה</string>
   <string name="reading_lists_menu_sort_by">מיון לפי</string>
   <string name="reading_lists_refresh_sync_option">רענון סנכרון</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">כניסה / הרשמה לחשבון</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">הערך הזה יהיה זמין ללא חיבור לרשת.</item>
     <item quantity="two">הערכים האלה יהיו זמינים ללא חיבור לרשת.</item>
@@ -2135,7 +2133,7 @@
   <string name="donation_settings_section_header">תרומות</string>
   <string name="donation_reminders_settings_title">איך אנחנו נזכיר לך?</string>
   <string name="donation_reminders_settings_option_title">תזכורות על תרומות</string>
-  <string name="donation_reminders_settings_article_frequency_label">בזמן קריאה</string>
+  <string name="donation_reminders_settings_article_frequency_label" fuzzy="true">בזמן קריאה</string>
   <string name="donation_reminders_settings_amount_label">תזכירו לי לתרום</string>
   <string name="donation_reminders_settings_confirm_btn_label">אישור תזכורת</string>
   <string name="donation_reminders_settings_about_experiment_btn_label">על הניסוי הזה</string>
