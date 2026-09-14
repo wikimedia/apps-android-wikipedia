@@ -269,7 +269,7 @@
   <string name="create_account_encourage_year_in_review_title_zero">Sehen Sie Ihre Tage mit Leseaktivität im Jahresüberblick</string>
   <plurals name="create_account_encourage_year_in_review_title">
     <item quantity="one">Sehen Sie Ihre %1$d Tage mit Leseaktivität im Jahresüberblick</item>
-    <item quantity="other">Sehen Sie Ihre %1$d Tage mit Leseaktivität im Jahresüberblick\n</item>
+    <item quantity="other">Sehen Sie Ihre %1$d Tage mit Leseaktivität im Jahresüberblick</item>
   </plurals>
   <string name="create_account_encourage_year_in_review_description">Einmal im Jahr erhalten Sie einen Rückblick auf Ihre aktiven Lesetage und darauf, wohin das Jahr Sie geführt hat – bereit zum Teilen.</string>
   <string name="create_account_encourage_saved_articles_title_zero">Synchronisieren Sie Ihre gespeicherten Artikel</string>
