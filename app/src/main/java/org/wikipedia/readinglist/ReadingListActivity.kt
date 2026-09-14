@@ -14,6 +14,7 @@ import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
 import org.wikipedia.main.MainActivity
 import org.wikipedia.navtab.NavTab
+import org.wikipedia.notifications.NotificationCategory
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.recommended.RecommendedReadingListNotificationManager
 import org.wikipedia.settings.Prefs
@@ -35,7 +36,7 @@ class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>(), BaseA
     public override fun createFragment(): ReadingListFragment {
         readingListMode = (intent.getSerializableExtra(EXTRA_READING_LIST_MODE) as ReadingListMode?) ?: ReadingListMode.DEFAULT
         return if (readingListMode != ReadingListMode.DEFAULT) {
-            val invokeSource = intent.getSerializableExtra(EXTRA_SOURCE) as InvokeSource?
+            val invokeSource = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource?
             ReadingListFragment.newInstance(readingListMode, invokeSource)
         } else {
             ReadingListFragment.newInstance(intent.getLongExtra(EXTRA_READING_LIST_ID, 0))
@@ -80,7 +81,6 @@ class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>(), BaseA
         private const val EXTRA_READING_LIST_TITLE = "readingListTitle"
         const val EXTRA_READING_LIST_ID = "readingListId"
         const val EXTRA_READING_LIST_MODE = "readingListMode"
-        const val EXTRA_SOURCE = "invokeSource"
 
         fun newIntent(context: Context, list: ReadingList): Intent {
             return Intent(context, ReadingListActivity::class.java)
@@ -88,10 +88,11 @@ class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>(), BaseA
                     .putExtra(EXTRA_READING_LIST_ID, list.id)
         }
 
-        fun newIntent(context: Context, readingListMode: ReadingListMode, invokeSource: InvokeSource? = null): Intent {
+        fun newIntent(context: Context, readingListMode: ReadingListMode, invokeSource: InvokeSource? = null, notificationCategory: NotificationCategory? = null): Intent {
             return Intent(context, ReadingListActivity::class.java)
                 .putExtra(EXTRA_READING_LIST_MODE, readingListMode)
-                .putExtra(EXTRA_SOURCE, invokeSource)
+                .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
+                .putExtra(Constants.INTENT_EXTRA_NOTIFICATION_CATEGORY, notificationCategory)
         }
     }
 }
