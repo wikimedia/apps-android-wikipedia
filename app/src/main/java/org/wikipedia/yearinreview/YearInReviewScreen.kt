@@ -52,6 +52,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
+import app.rive.rememberRiveWorker
 import org.wikipedia.R
 import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
@@ -150,6 +151,7 @@ private fun YearInReviewContent(
     onDonateClick: (String) -> Unit
 ) {
     val pagerState = rememberPagerState { pages.size }
+    val riveWorker = rememberRiveWorker()
     Scaffold(
         modifier = modifier,
         containerColor = ComposeColors.Black,
