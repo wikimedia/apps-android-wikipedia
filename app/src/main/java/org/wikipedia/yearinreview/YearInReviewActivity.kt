@@ -12,7 +12,9 @@ import androidx.compose.runtime.getValue
 import androidx.core.net.toUri
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.startup.AppInitializer
+import app.rive.RiveLog
 import app.rive.runtime.kotlin.RiveInitializer
+import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
@@ -31,6 +33,9 @@ class YearInReviewActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        if (BuildConfig.DEBUG) {
+            RiveLog.logger = RiveLog.LogcatLogger()
+        }
         AppInitializer.getInstance(this).initializeComponent(RiveInitializer::class.java)
 
         enableEdgeToEdge(

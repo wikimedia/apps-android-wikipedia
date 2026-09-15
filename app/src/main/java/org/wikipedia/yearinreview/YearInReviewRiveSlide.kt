@@ -39,14 +39,13 @@ data class RiveSlideSpec(
     val stateMachineName: String,
     val viewModelName: String,
     val instanceType: RiveInstanceType = RiveInstanceType.Default,
-    val instanceName: String? = null,
     val font: RiveSlideFont? = null
 )
 
-enum class RiveInstanceType {
-    Default,
-    Blank,
-    Named
+sealed interface RiveInstanceType {
+    data object Default : RiveInstanceType
+    data object Blank : RiveInstanceType
+    data class Named(val name: String) : RiveInstanceType
 }
 
 data class RiveSlideFont(
@@ -128,7 +127,7 @@ private fun YearInReviewRiveArtboard(
     val instanceSource = when (spec.instanceType) {
         RiveInstanceType.Default -> viewModelSource.defaultInstance()
         RiveInstanceType.Blank -> viewModelSource.blankInstance()
-        RiveInstanceType.Named -> viewModelSource.namedInstance(requireNotNull(spec.instanceName))
+        is RiveInstanceType.Named -> viewModelSource.namedInstance(spec.instanceType.name)
     }
     val instanceResult = rememberViewModelInstanceResult(file = riveFile, source = instanceSource)
 
