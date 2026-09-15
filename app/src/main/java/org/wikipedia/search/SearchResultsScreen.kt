@@ -52,6 +52,7 @@ import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.extensions.toAnnotatedStringWithBoldQuery
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.search.semantic.SemanticSearchEntryCard
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.views.imageservice.ImageService
@@ -172,10 +173,19 @@ fun SearchResultsList(
     onItemLongClick: (View, SearchResult, Int) -> Unit,
     modifier: Modifier = Modifier
 ) {
+    val context = LocalContext.current
     LazyColumn(
         modifier = modifier
             .testTag(SEARCH_LIST_TAG)
     ) {
+        item {
+            SemanticSearchEntryCard(
+                searchTerm = searchTerm ?: "",
+                onCloseClick = { },
+                onInfoBtnClick = { },
+                isFirstUse = true
+            )
+        }
         items(
             count = searchResultsPage.itemCount
         ) { index ->

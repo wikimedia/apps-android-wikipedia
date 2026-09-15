@@ -32,7 +32,6 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
 
-
 @Composable
 fun SemanticSearchEntryCard(
     searchTerm: String?,
