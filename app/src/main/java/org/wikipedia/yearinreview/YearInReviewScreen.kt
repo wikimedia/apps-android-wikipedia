@@ -1,5 +1,6 @@
 package org.wikipedia.yearinreview
 
+import android.graphics.Bitmap
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -35,6 +36,7 @@ import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -52,6 +54,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
+import app.rive.GetBitmapFun
 import org.wikipedia.R
 import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
@@ -86,7 +89,7 @@ fun YearInReviewScreen(
     onCloseClick: () -> Unit = {},
     onLearnMoreClick: () -> Unit = {},
     onShareFeedbackClick: () -> Unit = {},
-    onShareClick: () -> Unit = {},
+    onShareClick: (Bitmap) -> Unit = {},
     onDonateClick: (String) -> Unit = { _ -> },
     onRetryClick: () -> Unit = {},
     onRiveError: (Throwable) -> Unit = {}
@@ -148,13 +151,12 @@ private fun YearInReviewContent(
     onCloseClick: () -> Unit,
     onLearnMoreClick: () -> Unit,
     onShareFeedbackClick: () -> Unit,
-    onShareClick: () -> Unit,
+    onShareClick: (Bitmap) -> Unit,
     onDonateClick: (String) -> Unit,
     onRiveError: (Throwable) -> Unit
 ) {
     val pagerState = rememberPagerState { pages.size }
-    val riveWorker = rememberYearInReviewRiveWorker(onRiveError)
-    InstallRiveSystemFontFallback()
+    val screenshotGetters = remember { mutableStateMapOf<String, GetBitmapFun>() }
     Scaffold(
         modifier = modifier,
         containerColor = ComposeColors.Black,
@@ -162,7 +164,21 @@ private fun YearInReviewContent(
         bottomBar = {
             YearInReviewBottomBar(
                 showDonateButton = showDonateButton && pages.isNotEmpty(),
-                onShareClick = onShareClick,
+                shareEnabled = pages.getOrNull(pagerState.currentPage)?.let { page ->
+                    screenshotGetters.containsKey(page.id)
+                } == true,
+                onShareClick = {
+                    val page = pages.getOrNull(pagerState.currentPage)
+                    if (page != null) {
+                        try {
+                            screenshotGetters[page.id]?.invoke()?.let { bitmap ->
+                                onShareClick(bitmap)
+                            }
+                        } catch (exception: Exception) {
+                            onRiveError(exception)
+                        }
+                    }
+                },
                 onDonateClick = {
                     pages.getOrNull(pagerState.currentPage)?.let {
                         onDonateClick(it.id)
@@ -186,7 +202,7 @@ private fun YearInReviewContent(
                 state = pagerState,
                 key = { page -> pages[page].id }
             ) { position ->
-                when (val page = pages[position]) {
+                when (pages[position]) {
                     is YearInReviewPage.ReadingDays -> {
                         // TODO: Implement ReadingDays page content once Rive animation is ready
                         Box(
@@ -358,6 +374,7 @@ private fun YearInReviewTopBar(
 @Composable
 private fun YearInReviewBottomBar(
     showDonateButton: Boolean,
+    shareEnabled: Boolean,
     onShareClick: () -> Unit,
     onDonateClick: () -> Unit
 ) {
@@ -371,19 +388,20 @@ private fun YearInReviewBottomBar(
         verticalAlignment = Alignment.CenterVertically
     ) {
         TextButton(
-            onClick = onShareClick
+            onClick = onShareClick,
+            enabled = shareEnabled
         ) {
             Icon(
                 modifier = Modifier.size(20.dp),
                 painter = painterResource(R.drawable.ic_share),
-                tint = WikipediaTheme.colors.progressiveColor,
+                tint = if (shareEnabled) WikipediaTheme.colors.progressiveColor else WikipediaTheme.colors.inactiveColor,
                 contentDescription = null
             )
             Text(
                 modifier = Modifier.padding(start = 4.dp),
                 text = stringResource(R.string.menu_page_article_share),
                 style = MaterialTheme.typography.labelLarge,
-                color = WikipediaTheme.colors.progressiveColor
+                color = if (shareEnabled) WikipediaTheme.colors.progressiveColor else WikipediaTheme.colors.inactiveColor
             )
         }
         if (showDonateButton) {

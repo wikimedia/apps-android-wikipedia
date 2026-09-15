@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.key
 import androidx.compose.runtime.mutableStateOf
@@ -15,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalResources
 import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.contentDescription
+import app.rive.GetBitmapFun
 import app.rive.Result
 import app.rive.Rive
 import app.rive.RiveFile
@@ -71,6 +73,8 @@ fun rememberYearInReviewRiveWorker(onRiveError: (Throwable) -> Unit): RiveWorker
 @Composable
 fun YearInReviewRiveSlide(
     riveWorker: RiveWorker?,
+    slideId: String,
+    screenshotGetters: MutableMap<String, GetBitmapFun>,
     spec: RiveSlideSpec,
     textProperties: Map<String, String>,
     accessibilityDescription: String,
@@ -107,7 +111,9 @@ fun YearInReviewRiveSlide(
             accessibilityDescription = accessibilityDescription,
             playing = playing,
             modifier = modifier,
-            onRiveError = onRiveError
+            onRiveError = onRiveError,
+            slideId = slideId,
+            screenshotGetters = screenshotGetters
         )
     }
 }
@@ -120,7 +126,9 @@ private fun YearInReviewRiveArtboard(
     accessibilityDescription: String,
     playing: Boolean,
     modifier: Modifier,
-    onRiveError: (Throwable) -> Unit
+    onRiveError: (Throwable) -> Unit,
+    slideId: String,
+    screenshotGetters: MutableMap<String, GetBitmapFun>
 ) {
     // loading the artboard and state machine from the rive file
     val artboardResult = rememberArtboardResult(file = riveFile, artboardName = spec.artboardName)
@@ -142,6 +150,9 @@ private fun YearInReviewRiveArtboard(
         is Result.Success -> {
             val (artboardAndStateMachines, instance) = result.value
             val (artboard, stateMachine) = artboardAndStateMachines
+            DisposableEffect(slideId, screenshotGetters, riveFile, artboard, stateMachine, instance) {
+                onDispose { screenshotGetters.remove(slideId) }
+            }
             // setting the provided text properties on the ViewModel instance
             LaunchedEffect(instance, textProperties) {
                 textProperties.forEach { (property, value) ->
@@ -155,6 +166,7 @@ private fun YearInReviewRiveArtboard(
                 stateMachine = stateMachine,
                 viewModelInstance = instance,
                 pointerInputMode = RivePointerInputMode.Observe,
+                onBitmapAvailable = { screenshotGetters[slideId] = it },
                 modifier = modifier
                     .fillMaxSize()
                     .clearAndSetSemantics {

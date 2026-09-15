@@ -11,6 +11,7 @@ import androidx.activity.viewModels
 import androidx.compose.runtime.getValue
 import androidx.core.net.toUri
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.lifecycleScope
 import androidx.startup.AppInitializer
 import app.rive.RiveLog
 import app.rive.runtime.kotlin.RiveInitializer
@@ -24,6 +25,7 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.donate.DonateDialog
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.UriUtil
 
 class YearInReviewActivity : BaseActivity() {
@@ -61,8 +63,21 @@ class YearInReviewActivity : BaseActivity() {
                             subject = getString(R.string.year_in_review_feedback_email_subject)
                         )
                     },
-                    onShareClick = {
-                        // @TODO: Implement share functionality
+                    onShareClick = { bitmap ->
+                        val shareUrl = getString(R.string.year_in_review_share_url) + YearInReviewViewModel.YIR_TAG
+                        val shareText = String.format(
+                            getString(R.string.year_in_review_share_body),
+                            shareUrl,
+                            getString(R.string.year_in_review_hashtag)
+                        )
+                        ShareUtil.shareImage(
+                            coroutineScope = lifecycleScope,
+                            context = this,
+                            bmp = bitmap,
+                            imageFileName = YearInReviewViewModel.YIR_TAG,
+                            subject = getString(R.string.year_in_review_share_subject),
+                            text = shareText
+                        )
                     },
                     onDonateClick = { currentSlide ->
                         EventPlatformClient.submit(
