@@ -173,7 +173,6 @@ fun SearchResultsList(
     onItemLongClick: (View, SearchResult, Int) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    val context = LocalContext.current
     LazyColumn(
         modifier = modifier
             .testTag(SEARCH_LIST_TAG)
@@ -182,8 +181,8 @@ fun SearchResultsList(
             SemanticSearchEntryCard(
                 searchTerm = searchTerm ?: "",
                 onCloseClick = { },
-                onInfoBtnClick = { },
-                isFirstUse = true
+                onInfoBtnClick = { /* logic to deploy the bottom sheet goes here */ },
+                isFirstUse = true // will need to be replaced with a proper state from the view model
             )
         }
         items(
