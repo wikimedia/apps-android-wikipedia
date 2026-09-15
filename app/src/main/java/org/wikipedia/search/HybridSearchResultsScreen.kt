@@ -7,29 +7,21 @@ import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.shrinkHorizontally
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.defaultMinSize
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
@@ -38,19 +30,16 @@ import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
-import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -82,7 +71,6 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.PageTitle
-import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.L10nUtil
@@ -186,22 +174,6 @@ fun HybridSearchResultsList(
 ) {
     LazyColumn {
         if (testGroup == HybridSearchAbCTest.GROUP_CONTROL || testGroup == HybridSearchAbCTest.GROUP_SEMANTIC_LEXICAL) {
-            if (testGroup == HybridSearchAbCTest.GROUP_SEMANTIC_LEXICAL && semanticSearchResultPage.isNotEmpty()) {
-                item {
-                    SemanticSearchEntryCard(
-                        searchTerm = searchTerm,
-                        isFirstUse = Prefs.isHybridSearchOnboardingShown.not(),
-                        onInfoBtnClick = onInfoClick,
-                        onCloseClick = onTurnOffExperimentClick
-                    )
-                    HorizontalDivider(
-                        modifier = Modifier.fillMaxWidth()
-                            .padding(top = 12.dp),
-                        thickness = 1.dp,
-                        color = WikipediaTheme.colors.borderColor
-                    )
-                }
-            }
             items(
                 count = searchResultsPage.size
             ) { index ->
@@ -588,145 +560,6 @@ fun SemanticSearchResultPageItem(
                     }
                 }
             }
-        }
-    }
-}
-
-@Composable
-fun SemanticSearchEntryCard(
-    searchTerm: String?,
-    isFirstUse: Boolean,
-    onInfoBtnClick: () -> Unit,
-    onCloseClick: () -> Unit
-) {
-    Column(
-        modifier = Modifier
-            .padding(horizontal = 16.dp)
-            .wrapContentHeight()
-    ) {
-        // Beta pill + Info button + Close button
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween
-        ) {
-            // Beta pill + Info button
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    modifier = Modifier
-                        .background(
-                            color = WikipediaTheme.colors.backgroundColor,
-                        )
-                        .border(
-                            width = 1.dp,
-                            color = WikipediaTheme.colors.borderColor,
-                            shape = RoundedCornerShape(size = 16.dp)
-                        )
-                        .padding(horizontal = 8.dp, vertical = 4.dp)
-                ) {
-                    Icon(
-                        modifier = Modifier,
-                        painter = painterResource(R.drawable.ic_experiment_24dp),
-                        tint = WikipediaTheme.colors.inactiveColor,
-                        contentDescription = null
-                    )
-
-                    Text(
-                        text = stringResource(R.string.donation_reminders_beta_label),
-                        style = MaterialTheme.typography.labelSmall,
-                        fontWeight = FontWeight.Medium,
-                        color = WikipediaTheme.colors.primaryColor
-                    )
-                }
-
-                IconButton(
-                    modifier = Modifier.size(48.dp),
-                    onClick = { onInfoBtnClick() }
-                ) {
-                    Icon(
-                        painter = painterResource(R.drawable.ic_info_outline_black_24dp),
-                        tint = WikipediaTheme.colors.placeholderColor,
-                        contentDescription = null
-                    )
-                }
-            }
-
-            IconButton(
-                modifier = Modifier.size(48.dp),
-                onClick = { onCloseClick() }
-            ) {
-                Icon(
-                    painter = painterResource(R.drawable.ic_close_black_24dp),
-                    tint = WikipediaTheme.colors.progressiveColor,
-                    contentDescription = null
-                )
-            }
-        }
-
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.Top
-        ) {
-            Column(
-                verticalArrangement = Arrangement.spacedBy(4.dp),
-                horizontalAlignment = Alignment.Start,
-                modifier = Modifier
-                    .weight(1f)
-                    .padding(end = 16.dp)
-            ) {
-                searchTerm?.let { searchText ->
-                    Text(
-                        modifier = Modifier.padding(top = 8.dp),
-                        text = searchText,
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = WikipediaTheme.colors.primaryColor
-                    )
-                }
-
-                Text(
-                    text = stringResource(R.string.hybrid_search_entry_point_card_message),
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = WikipediaTheme.colors.placeholderColor
-                )
-                if (isFirstUse) {
-                    Text(
-                        text = stringResource(R.string.hybrid_search_entry_point_card_text_button),
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = WikipediaTheme.colors.progressiveColor
-                    )
-                }
-            }
-            Box(
-                modifier = Modifier
-                    .height(96.dp)
-                    .aspectRatio(38f / 54f)
-            ) {
-                Image(
-                    modifier = Modifier.fillMaxSize(),
-                    painter = painterResource(R.drawable.semantic_search_intro_card_icon),
-                    contentDescription = null
-                )
-            }
-        }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-private fun SemanticSearchEntryCardPreview() {
-    BaseTheme(
-        currentTheme = Theme.LIGHT
-    ) {
-        Column(
-            modifier = Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.Center
-        ) {
-            SemanticSearchEntryCard(
-                searchTerm = "what is communication",
-                onCloseClick = {},
-                onInfoBtnClick = {},
-                isFirstUse = false
-            )
         }
     }
 }
