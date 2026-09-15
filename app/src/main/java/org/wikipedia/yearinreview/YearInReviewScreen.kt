@@ -152,6 +152,7 @@ private fun YearInReviewContent(
 ) {
     val pagerState = rememberPagerState { pages.size }
     val riveWorker = rememberRiveWorker()
+    InstallRiveSystemFontFallback()
     Scaffold(
         modifier = modifier,
         containerColor = ComposeColors.Black,

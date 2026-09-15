@@ -64,7 +64,6 @@ fun YearInReviewRiveSlide(
     onRetryClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    rememberRiveSystemFontFallback()
     val fontResult = spec.font?.let { font ->
         rememberRawResourceBytes(font.resourceId).andThen { bytes ->
             rememberRegisteredFont(riveWorker, font.registrationKey, bytes)

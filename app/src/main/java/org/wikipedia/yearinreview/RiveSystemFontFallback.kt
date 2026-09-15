@@ -3,8 +3,6 @@ package org.wikipedia.yearinreview
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.remember
-import androidx.compose.ui.platform.LocalContext
-import app.rive.runtime.kotlin.core.Rive
 import app.rive.runtime.kotlin.fonts.FontBytes
 import app.rive.runtime.kotlin.fonts.FontFallbackStrategy
 import app.rive.runtime.kotlin.fonts.FontHelper
@@ -22,12 +20,8 @@ private class RiveSystemFontFallback : FontFallbackStrategy {
 }
 
 @Composable
-fun rememberRiveSystemFontFallback() {
-    val context = LocalContext.current
-    val fallback = remember {
-        Rive.init(context.applicationContext)
-        RiveSystemFontFallback()
-    }
+fun InstallRiveSystemFontFallback() {
+    val fallback = remember { RiveSystemFontFallback() }
     DisposableEffect(fallback) {
         FontFallbackStrategy.stylePicker = fallback
         onDispose {
@@ -37,4 +31,4 @@ fun rememberRiveSystemFontFallback() {
         }
     }
 }
-private val FALLBACK_FONT_LANGS = listOf("und-Arab", "ja", "und-Deva")
+private val FALLBACK_FONT_LANGS = listOf("und-Arab", "ja", "zh-hans", "und-Deva")
