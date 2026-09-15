@@ -64,11 +64,13 @@ fun YearInReviewRiveSlide(
     onRetryClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+    // loading font asset if available and registering with RiveWorker before loading the Rive file
     val fontResult = spec.font?.let { font ->
         rememberRawResourceBytes(font.resourceId).andThen { bytes ->
             rememberRegisteredFont(riveWorker, font.registrationKey, bytes)
         }
     }
+    // loading rive file
     val riveFileResult = rememberRiveFile(
         source = RiveFileSource.RawRes.from(spec.resourceId),
         riveWorker = riveWorker
@@ -99,10 +101,12 @@ private fun YearInReviewRiveArtboard(
     onRetryClick: () -> Unit,
     modifier: Modifier
 ) {
+    // loading the artboard and state machine from the rive file
     val artboardResult = rememberArtboardResult(file = riveFile, artboardName = spec.artboardName)
     val stateMachineResult = artboardResult.andThen { artboard ->
         rememberStateMachineResult(artboard, spec.stateMachineName)
     }
+    // creating ViewModel instance based on the spec
     val viewModelSource = ViewModelSource.Named(spec.viewModelName)
     val instanceSource = when (spec.instanceType) {
         RiveInstanceType.Default -> viewModelSource.defaultInstance()
@@ -117,6 +121,7 @@ private fun YearInReviewRiveArtboard(
         is Result.Success -> {
             val (artboardAndStateMachines, instance) = result.value
             val (artboard, stateMachine) = artboardAndStateMachines
+            // setting the provided text properties on the ViewModel instance
             LaunchedEffect(instance, textProperties) {
                 textProperties.forEach { (property, value) ->
                     instance.setString(property, value)
