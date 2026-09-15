@@ -52,7 +52,6 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
-import app.rive.rememberRiveWorker
 import org.wikipedia.R
 import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
@@ -89,7 +88,8 @@ fun YearInReviewScreen(
     onShareFeedbackClick: () -> Unit = {},
     onShareClick: () -> Unit = {},
     onDonateClick: (String) -> Unit = { _ -> },
-    onRetryClick: () -> Unit = {}
+    onRetryClick: () -> Unit = {},
+    onRiveError: (Throwable) -> Unit = {}
 ) {
     when (uiState) {
         YearInReviewUiState.Loading -> {
@@ -114,7 +114,8 @@ fun YearInReviewScreen(
                 onLearnMoreClick = onLearnMoreClick,
                 onShareFeedbackClick = onShareFeedbackClick,
                 onShareClick = onShareClick,
-                onDonateClick = onDonateClick
+                onDonateClick = onDonateClick,
+                onRiveError = onRiveError
             )
         }
 
@@ -148,10 +149,11 @@ private fun YearInReviewContent(
     onLearnMoreClick: () -> Unit,
     onShareFeedbackClick: () -> Unit,
     onShareClick: () -> Unit,
-    onDonateClick: (String) -> Unit
+    onDonateClick: (String) -> Unit,
+    onRiveError: (Throwable) -> Unit
 ) {
     val pagerState = rememberPagerState { pages.size }
-    val riveWorker = rememberRiveWorker()
+    val riveWorker = rememberYearInReviewRiveWorker(onRiveError)
     InstallRiveSystemFontFallback()
     Scaffold(
         modifier = modifier,

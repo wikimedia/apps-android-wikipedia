@@ -3,17 +3,17 @@ package org.wikipedia.yearinreview
 import androidx.annotation.RawRes
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.produceState
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalResources
 import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.contentDescription
-import androidx.compose.ui.unit.dp
 import app.rive.Result
 import app.rive.Rive
 import app.rive.RiveFile
@@ -24,14 +24,14 @@ import app.rive.core.RiveWorker
 import app.rive.rememberArtboardResult
 import app.rive.rememberRegisteredFont
 import app.rive.rememberRiveFile
+import app.rive.rememberRiveWorkerOrNull
 import app.rive.rememberStateMachineResult
 import app.rive.rememberViewModelInstanceResult
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import org.wikipedia.compose.components.error.WikiErrorClickEvents
-import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.util.log.L
 
 data class RiveSlideSpec(
     @param:RawRes val resourceId: Int,
@@ -55,15 +55,32 @@ data class RiveSlideFont(
 )
 
 @Composable
+fun rememberYearInReviewRiveWorker(onRiveError: (Throwable) -> Unit): RiveWorker? {
+    val riveWorkerError = remember { mutableStateOf<Throwable?>(null) }
+    val riveWorker = rememberRiveWorkerOrNull(errorState = riveWorkerError)
+    LaunchedEffect(riveWorkerError.value) {
+        riveWorkerError.value?.let {
+            L.e(it)
+            onRiveError(it)
+        }
+    }
+    return riveWorker
+}
+
+@Composable
 fun YearInReviewRiveSlide(
-    riveWorker: RiveWorker,
+    riveWorker: RiveWorker?,
     spec: RiveSlideSpec,
     textProperties: Map<String, String>,
     accessibilityDescription: String,
     playing: Boolean,
-    onRetryClick: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onRiveError: (Throwable) -> Unit
 ) {
+    if (riveWorker == null) {
+        // TODO: what will user see if riveWorker is null which means Rive failed to initialize for unknown reasons
+        return
+    }
     // loading font asset if available and registering with RiveWorker before loading the Rive file
     val fontResult = spec.font?.let { font ->
         rememberRawResourceBytes(font.resourceId).andThen { bytes ->
@@ -78,15 +95,15 @@ fun YearInReviewRiveSlide(
 
     when (val result = fontResult?.andThen { riveFileResult } ?: riveFileResult) {
         Result.Loading -> RiveLoadingIndicator(modifier)
-        is Result.Error -> RiveErrorView(result.throwable, onRetryClick, modifier)
+        is Result.Error -> RiveFailure(result.throwable, onRiveError)
         is Result.Success -> YearInReviewRiveArtboard(
             riveFile = result.value,
             spec = spec,
             textProperties = textProperties,
             accessibilityDescription = accessibilityDescription,
             playing = playing,
-            onRetryClick = onRetryClick,
-            modifier = modifier
+            modifier = modifier,
+            onRiveError = onRiveError
         )
     }
 }
@@ -98,8 +115,8 @@ private fun YearInReviewRiveArtboard(
     textProperties: Map<String, String>,
     accessibilityDescription: String,
     playing: Boolean,
-    onRetryClick: () -> Unit,
-    modifier: Modifier
+    modifier: Modifier,
+    onRiveError: (Throwable) -> Unit
 ) {
     // loading the artboard and state machine from the rive file
     val artboardResult = rememberArtboardResult(file = riveFile, artboardName = spec.artboardName)
@@ -117,7 +134,7 @@ private fun YearInReviewRiveArtboard(
 
     when (val result = artboardResult.zip(stateMachineResult).zip(instanceResult)) {
         is Result.Loading -> RiveLoadingIndicator(modifier)
-        is Result.Error -> RiveErrorView(result.throwable, onRetryClick, modifier)
+        is Result.Error -> RiveFailure(result.throwable, onRiveError)
         is Result.Success -> {
             val (artboardAndStateMachines, instance) = result.value
             val (artboard, stateMachine) = artboardAndStateMachines
@@ -155,20 +172,13 @@ private fun RiveLoadingIndicator(modifier: Modifier) {
 }
 
 @Composable
-private fun RiveErrorView(
+private fun RiveFailure(
     throwable: Throwable,
-    onRetryClick: () -> Unit,
-    modifier: Modifier
+    onRiveError: (Throwable) -> Unit
 ) {
-    Box(modifier = modifier.fillMaxSize()) {
-        WikiErrorView(
-            modifier = Modifier
-                .align(Alignment.Center)
-                .padding(horizontal = 16.dp),
-            caught = throwable,
-            errorClickEvents = WikiErrorClickEvents(retryClickListener = onRetryClick),
-            retryForGenericError = true
-        )
+    LaunchedEffect(throwable) {
+        L.e(throwable)
+        onRiveError(throwable)
     }
 }
 

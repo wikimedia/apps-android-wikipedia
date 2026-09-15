@@ -77,6 +77,9 @@ class YearInReviewActivity : BaseActivity() {
                     },
                     onRetryClick = {
                         viewModel.loadYearInReview()
+                    },
+                    onRiveError = { throwable ->
+                        FeedbackUtil.showError(this, throwable)
                     }
                 )
             }
