@@ -45,6 +45,7 @@
     <string name="hybrid_search_info_link" translatable="false">https://www.mediawiki.org/wiki/Readers/Information_Retrieval/Phase_1</string>
     <string name="reading_challenge_learn_more" translatable="false">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/25th_Birthday_Reading_Challenge</string>
     <string name="reading_challenge_reward_url" translatable="false">https://store.wikimedia.org/discount/Widget15</string>
+    <string name="read_aloud_lead_section_info_link" translatable="false">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Listening_to_article_intros</string>
     <!-- Accounts -->
     <string name="account_name" translatable="false">@string/wikimedia</string>
     <string name="account_type" translatable="false">org.wikimedia</string>

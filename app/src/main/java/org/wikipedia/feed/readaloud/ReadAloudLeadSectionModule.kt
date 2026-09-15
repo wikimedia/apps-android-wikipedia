@@ -16,12 +16,16 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LinearProgressIndicator
@@ -51,9 +55,11 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
@@ -71,6 +77,7 @@ import org.wikipedia.R
 import org.wikipedia.compose.components.FadeInAsyncImage
 import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.theme.BaseTheme
+import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.extensions.getString
 import org.wikipedia.feed.ForYouCardDropdownMenu
@@ -142,7 +149,9 @@ fun ReadAloudLeadSectionModule(
     onCardInView: (card: Card) -> Unit = {},
     onCustomizeClick: (card: Card) -> Unit = {},
     onKeepListeningClick: (card: Card) -> Unit = {},
-    onShowSurvey: () -> Unit = {}
+    onShowSurvey: () -> Unit = {},
+    onInfoClick: () -> Unit = {},
+    onReportIssueClick: () -> Unit = {}
 ) {
     val context = LocalContext.current
     val backgroundColorIndex = abs(module.cards.firstOrNull()?.hideKey.hashCode())
@@ -177,7 +186,9 @@ fun ReadAloudLeadSectionModule(
             onHideModuleClick = onHideModuleClick,
             onCustomizeClick = { onCustomizeClick(card) },
             onKeepListeningClick = { onKeepListeningClick(card) },
-            onShowSurvey = onShowSurvey
+            onShowSurvey = onShowSurvey,
+            onInfoClick = onInfoClick,
+            onReportIssueClick = onReportIssueClick
         )
     }
 }
@@ -203,7 +214,9 @@ private fun ReadAloudCardContent(
     onHideModuleClick: () -> Unit = {},
     onCustomizeClick: () -> Unit = {},
     onKeepListeningClick: () -> Unit = {},
-    onShowSurvey: () -> Unit = {}
+    onShowSurvey: () -> Unit = {},
+    onInfoClick: () -> Unit = {},
+    onReportIssueClick: () -> Unit = {}
 ) {
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
@@ -223,6 +236,7 @@ private fun ReadAloudCardContent(
     // Fades from the fallback to the thumbnail's own color, so the backdrop doesn't pop once the
     // palette comes back.
     val gradientColor by animateColorAsState(targetValue = thumbnailColor, animationSpec = tween(GRADIENT_FADE_DURATION_MILLIS))
+    var infoMenuExpanded by remember { mutableStateOf(false) }
 
     LaunchedEffect(thumbnailUrl) {
         thumbnailUrl?.let { thumbnailColor = dominantColorOf(context, it) ?: fallbackColor }
@@ -274,6 +288,73 @@ private fun ReadAloudCardContent(
                 modifier = Modifier.background(color = Color.Black.copy(alpha = 0.80f))
                     .padding(bottom = if (showSpaceForPagerDots) 40.dp else 16.dp)
             ) {
+                Row(
+                    modifier = Modifier.fillMaxWidth().padding(horizontal = 14.dp).offset(y = 12.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Box(
+                        modifier = Modifier
+                            .background(
+                                color = WikipediaTheme.colors.progressiveColor,
+                                shape = RoundedCornerShape(size = 16.dp)
+                            )
+                            .padding(horizontal = 10.dp, vertical = 1.dp)
+                    ) {
+                        Text(
+                            text = stringResource(R.string.hybrid_search_beta_tag).uppercase(),
+                            style = MaterialTheme.typography.labelSmall,
+                            fontWeight = FontWeight.Normal,
+                            color = Color.White
+                        )
+                    }
+
+                    Box(
+                        modifier = Modifier
+                            .size(48.dp)
+                            .clip(CircleShape)
+                            .clickable {
+                                infoMenuExpanded = true
+                            }
+                            .padding(horizontal = 12.dp),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Icon(
+                            painter = painterResource(R.drawable.ic_info_outline_black_24dp),
+                            tint = Color.White,
+                            contentDescription = stringResource(R.string.year_in_review_information_icon)
+                        )
+                        DropdownMenu(
+                            expanded = infoMenuExpanded,
+                            containerColor = WikipediaTheme.colors.paperColor,
+                            onDismissRequest = { infoMenuExpanded = false }
+                        ) {
+                            DropdownMenuItem(
+                                text = {
+                                    Text(
+                                        text = stringResource(R.string.read_aloud_lead_section_about_experiment),
+                                        style = MaterialTheme.typography.bodyLarge,
+                                        color = WikipediaTheme.colors.primaryColor
+                                    ) },
+                                onClick = {
+                                    infoMenuExpanded = false
+                                    onInfoClick()
+                                }
+                            )
+                            DropdownMenuItem(
+                                text = {
+                                    Text(
+                                        text = stringResource(R.string.read_aloud_lead_section_report_issue),
+                                        style = MaterialTheme.typography.bodyLarge,
+                                        color = WikipediaTheme.colors.primaryColor
+                                    ) },
+                                onClick = {
+                                    infoMenuExpanded = false
+                                    onReportIssueClick()
+                                }
+                            )
+                        }
+                    }
+                }
                 Row(
                     modifier = Modifier.fillMaxWidth()
                 ) {
