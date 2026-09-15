@@ -276,7 +276,7 @@
   <string name="create_account_encourage_title">アカウント作成で、ウィキペディアがもっと便利に</string>
   <string name="create_account_encourage_year_in_review_title_zero">閲覧記録を一年のまとめで確認</string>
   <plurals name="create_account_encourage_year_in_review_title">
-    <item quantity="other"> %1$d日分の閲覧記録を一年のまとめで確認</item>
+    <item quantity="other">%1$d日分の閲覧記録を一年のまとめで確認</item>
   </plurals>
   <string name="create_account_encourage_year_in_review_description">年に一度、これまでの閲覧記録を振り返り、一年のまとめとしてお届けします。シェアもできます。</string>
   <string name="create_account_encourage_saved_articles_title_zero">保存記事を同期</string>
