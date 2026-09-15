@@ -234,7 +234,7 @@ private fun encourageCards(uiState: CreateAccountEncourageViewModel.UiState): Li
 
 @Composable
 private fun countedTitle(count: Int, @PluralsRes titleRes: Int, @StringRes zeroTitleRes: Int): String {
-    return if (count > 1) pluralStringResource(titleRes, count, count) else stringResource(zeroTitleRes)
+    return if (count > 0) pluralStringResource(titleRes, count, count) else stringResource(zeroTitleRes)
 }
 
 private data class EncourageCard(
