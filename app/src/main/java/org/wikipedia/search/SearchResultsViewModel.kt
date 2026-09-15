@@ -15,11 +15,13 @@ import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
@@ -27,12 +29,14 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.page.PageTitle
+import org.wikipedia.search.semantic.SemanticSearchAbTest
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UiState
 import java.util.UUID
 
 class SearchResultsViewModel : ViewModel() {
-
+    private val semanticSearchAbTest = SemanticSearchAbTest()
     private val batchSize = 10
     private val delayMillis = 200L
     var countsPerLanguageCode = mutableListOf<Pair<String, Int>>()
@@ -54,6 +58,12 @@ class SearchResultsViewModel : ViewModel() {
     val hybridSearchResultState = _hybridSearchResultState.asStateFlow()
 
     private var _refreshSearchResults = MutableStateFlow(0)
+
+    private val _isSemanticSearchFirstUse = MutableStateFlow(Prefs.isSemanticSearchFirstUse)
+    val isSemanticSearchFirstUse = _isSemanticSearchFirstUse.asStateFlow()
+
+    private val _isSemanticSearchEnabled = MutableStateFlow(semanticSearchAbTest.isSemanticSearchEnabled(languageCode.value))
+    val isSemanticSearchEnabled = _isSemanticSearchEnabled.asStateFlow()
 
     val getTestGroup get() = HybridSearchAbCTest().getGroupName()
 
@@ -216,6 +226,11 @@ class SearchResultsViewModel : ViewModel() {
             "semantic" to semanticResultsTitlesForEvent,
             "query" to searchTerm.value.orEmpty()
         )
+    }
+
+    fun updateIsSemanticSearchFirstUse(isFirstUse: Boolean) {
+        _isSemanticSearchFirstUse.value = isFirstUse
+        Prefs.isSemanticSearchFirstUse = isFirstUse
     }
 
     class SearchResultsPagingSource(
