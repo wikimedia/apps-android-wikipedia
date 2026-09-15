@@ -28,6 +28,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.games.db.DailyGameHistory
 import org.wikipedia.main.MainActivity
 import org.wikipedia.navtab.NavTab
+import org.wikipedia.notifications.NotificationCategory
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
@@ -204,7 +205,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     companion object {
         const val EXTRA_GAME_STATUS = "gameStatus"
 
-        fun newIntent(context: Context, invokeSource: Constants.InvokeSource, wikiSite: WikiSite, date: LocalDate? = null, gameStatus: Int = -1): Intent {
+        fun newIntent(context: Context, invokeSource: Constants.InvokeSource, wikiSite: WikiSite, date: LocalDate? = null, gameStatus: Int = -1, notificationCategory: NotificationCategory? = null): Intent {
             val resolvedDate = Prefs.lastOtdGameDateOverride
                 .takeIf { it.isNotEmpty() }
                 ?.let { runCatching { LocalDate.parse(it, DateTimeFormatter.ISO_LOCAL_DATE) }.getOrElse { LocalDate.now() } }
@@ -213,6 +214,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
             return Intent(context, OnThisDayGameActivity::class.java)
                 .putExtra(Constants.ARG_WIKISITE, wikiSite)
                 .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
+                .putExtra(Constants.INTENT_EXTRA_NOTIFICATION_CATEGORY, notificationCategory)
                 .apply {
                     if (gameStatus == DailyGameHistory.GAME_COMPLETED) {
                         putExtra(EXTRA_GAME_STATUS, gameStatus)
