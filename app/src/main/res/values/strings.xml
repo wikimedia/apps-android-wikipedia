@@ -2030,6 +2030,8 @@
 
     <!-- Year In Review -->
     <string name="year_in_review_learn_more">Learn more</string>
+    <string name="year_in_review_share_feedback">Share feedback</string>
+    <string name="year_in_review_feedback_email_subject">Year in Review Feedback</string>
     <string name="year_in_review_get_started">Get started</string>
     <string name="year_in_review_topbar_w_icon">Wikipedia W Icon</string>
     <string name="year_in_review_navigate_left">Navigate left</string>

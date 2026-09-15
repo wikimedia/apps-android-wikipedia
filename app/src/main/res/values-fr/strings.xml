@@ -284,6 +284,27 @@
   <string name="email_recommendation_dialog_create_without_email_action">Continuer sans adresse courriel</string>
   <string name="email_recommendation_dialog_create_with_email_action">Ajouter une adresse courriel</string>
   <string name="create_account_button">Créer un compte</string>
+  <string name="create_account_encourage_title">Wikipedia, c’est encore mieux avec un compte</string>
+  <string name="create_account_encourage_year_in_review_title_zero">Retrouvez vos jours de lecture dans la rétrospective de l’année</string>
+  <plurals name="create_account_encourage_year_in_review_title">
+    <item quantity="one">Retrouvez vos %1$d jours de lecture dans la rétrospective de l’année}</item>
+    <item quantity="other">Retrouvez vos %1$d jours de lecture dans la rétrospective de l’année</item>
+  </plurals>
+  <string name="create_account_encourage_year_in_review_description">Une fois par an, retrouvez tout ce que vous avez lu dans la rétrospective, prête à être partagée.</string>
+  <string name="create_account_encourage_saved_articles_title_zero">Synchronisez vos articles enregistrés</string>
+  <plurals name="create_account_encourage_saved_articles_title">
+    <item quantity="one">Synchronisez vos %1$d articles enregistrés</item>
+    <item quantity="other">Synchronisez vos %1$d articles enregistrés</item>
+  </plurals>
+  <string name="create_account_encourage_saved_articles_description">Connectez-vous à votre compte Wikipedia pour synchroniser vos articles enregistrés sur tous vos appareils.</string>
+  <string name="create_account_encourage_activity_title_zero">Retrouvez vos dernières lectures dans Activité</string>
+  <plurals name="create_account_encourage_activity_title">
+    <item quantity="one">Retrouvez vos %1$d dernières lectures dans Activité</item>
+    <item quantity="other">Retrouvez vos %1$d dernières lectures dans Activité</item>
+  </plurals>
+  <string name="create_account_encourage_activity_description">Consultez votre temps de lecture, les sujets explorés et la portée de vos contributions dans l\'onglet Activité</string>
+  <string name="create_account_encourage_edits_title">Soyez reconnu pour vos contributions</string>
+  <string name="create_account_encourage_edits_description">Construisez une historique dont vous pouvez être fier, avec vos contributions aux projets Wikimedia associées à votre compte.</string>
   <string name="create_account_name_unavailable">Le nom d\'utilisateur « %s » n’est pas disponible. Veuillez choisir un autre nom.</string>
   <string name="create_account_ip_block_message">Désolé, votre adresse IP est actuellement bloquée pour créer de nouveaux comptes.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
