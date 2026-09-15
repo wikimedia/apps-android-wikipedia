@@ -118,7 +118,7 @@ fun SemanticSearchEntryCard(
                     Text(
                         modifier = Modifier.padding(top = 8.dp),
                         text = searchText,
-                        style = MaterialTheme.typography.bodyMedium,
+                        style = MaterialTheme.typography.titleMedium,
                         color = WikipediaTheme.colors.primaryColor
                     )
                 }
