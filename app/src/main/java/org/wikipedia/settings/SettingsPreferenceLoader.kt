@@ -194,7 +194,7 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
     }
 
     fun updateVisualEditorPreference(visualEditorPref: Preference = findPreference(R.string.preference_key_editor_mode_choice)): Boolean {
-        val isVisualEditorEnabled = RemoteConfig.config.androidv1?.visualEditorEnabled ?: false
+        val isVisualEditorEnabled = true
         if (!isVisualEditorEnabled) {
             visualEditorPref.isVisible = false
             return false

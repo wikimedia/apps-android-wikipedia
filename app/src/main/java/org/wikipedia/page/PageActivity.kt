@@ -500,7 +500,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     }
 
     override fun onPageRequestEditSection(sectionId: Int, sectionAnchor: String?, title: PageTitle, highlightText: String?) {
-        val isVisualEditorEnabled = RemoteConfig.config.androidv1?.visualEditorEnabled ?: false
+        val isVisualEditorEnabled = true
         val launchEditor = {
             val appInstallId = WikipediaApp.instance.appInstallID
             if (Prefs.editorModeChoice == EDITOR_CHOICE_VE && isVisualEditorEnabled) {
