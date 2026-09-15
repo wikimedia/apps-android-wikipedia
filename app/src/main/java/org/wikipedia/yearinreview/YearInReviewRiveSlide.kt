@@ -38,9 +38,16 @@ data class RiveSlideSpec(
     val artboardName: String,
     val stateMachineName: String,
     val viewModelName: String,
-    val instanceName: String,
+    val instanceType: RiveInstanceType = RiveInstanceType.Default,
+    val instanceName: String? = null,
     val font: RiveSlideFont? = null
 )
+
+enum class RiveInstanceType {
+    Default,
+    Blank,
+    Named
+}
 
 data class RiveSlideFont(
     @param:RawRes val resourceId: Int,
@@ -97,10 +104,13 @@ private fun YearInReviewRiveArtboard(
     val stateMachineResult = artboardResult.andThen { artboard ->
         rememberStateMachineResult(artboard, spec.stateMachineName)
     }
-    val instanceResult = rememberViewModelInstanceResult(
-        file = riveFile,
-        source = ViewModelSource.Named(spec.viewModelName).namedInstance(spec.instanceName)
-    )
+    val viewModelSource = ViewModelSource.Named(spec.viewModelName)
+    val instanceSource = when (spec.instanceType) {
+        RiveInstanceType.Default -> viewModelSource.defaultInstance()
+        RiveInstanceType.Blank -> viewModelSource.blankInstance()
+        RiveInstanceType.Named -> viewModelSource.namedInstance(requireNotNull(spec.instanceName))
+    }
+    val instanceResult = rememberViewModelInstanceResult(file = riveFile, source = instanceSource)
 
     when (val result = artboardResult.zip(stateMachineResult).zip(instanceResult)) {
         is Result.Loading -> RiveLoadingIndicator(modifier)
