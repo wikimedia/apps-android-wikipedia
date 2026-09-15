@@ -488,6 +488,7 @@ private fun LazyListScope.forYouModuleItem(
                     onHideModuleClick = { onAction(HomeAction.HideModule(module.moduleKey())) },
                     onCardInView = { onCardImpression(it, index) },
                     onCustomizeClick = { onAction(HomeAction.CustomizeClick(it)) },
+                    onPlayClick = { onAction(HomeAction.ReadAloudPlayClick) },
                     onShowSurvey = { onAction(HomeAction.ReadAloudShowSurvey) },
                     onInfoClick = { onAction(HomeAction.ReadAloudShowInfo) },
                     onReportIssueClick = { onAction(HomeAction.ReadAloudReportIssue) }

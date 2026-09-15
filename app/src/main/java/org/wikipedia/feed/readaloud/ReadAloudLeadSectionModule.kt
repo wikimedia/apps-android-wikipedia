@@ -3,7 +3,6 @@ package org.wikipedia.feed.readaloud
 import android.content.Context
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.awaitEachGesture
@@ -22,7 +21,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
@@ -30,7 +28,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -148,7 +145,7 @@ fun ReadAloudLeadSectionModule(
     onHideModuleClick: () -> Unit = {},
     onCardInView: (card: Card) -> Unit = {},
     onCustomizeClick: (card: Card) -> Unit = {},
-    onKeepListeningClick: (card: Card) -> Unit = {},
+    onPlayClick: (card: Card) -> Unit = {},
     onShowSurvey: () -> Unit = {},
     onInfoClick: () -> Unit = {},
     onReportIssueClick: () -> Unit = {}
@@ -185,7 +182,7 @@ fun ReadAloudLeadSectionModule(
             onHideCardClick = onHideCardClick,
             onHideModuleClick = onHideModuleClick,
             onCustomizeClick = { onCustomizeClick(card) },
-            onKeepListeningClick = { onKeepListeningClick(card) },
+            onPlayClick = { onPlayClick(card) },
             onShowSurvey = onShowSurvey,
             onInfoClick = onInfoClick,
             onReportIssueClick = onReportIssueClick
@@ -213,7 +210,7 @@ private fun ReadAloudCardContent(
     onHideCardClick: (module: ForYouModule, card: ForYouCard) -> Unit = { _, _ -> },
     onHideModuleClick: () -> Unit = {},
     onCustomizeClick: () -> Unit = {},
-    onKeepListeningClick: () -> Unit = {},
+    onPlayClick: () -> Unit = {},
     onShowSurvey: () -> Unit = {},
     onInfoClick: () -> Unit = {},
     onReportIssueClick: () -> Unit = {}
@@ -426,23 +423,9 @@ private fun ReadAloudCardContent(
                     modifier = Modifier.padding(start = 8.dp, end = 16.dp, top = 8.dp),
                     wikiSite = wikiSite,
                     playerState = playerState,
+                    onPlayClick = onPlayClick,
                     onShowSurvey = onShowSurvey
                 )
-
-                if (playerState.hasFinishedPlayback) {
-                    OutlinedButton(
-                        modifier = Modifier.align(Alignment.CenterHorizontally),
-                        onClick = onKeepListeningClick,
-                        shape = RoundedCornerShape(percent = 50),
-                        border = BorderStroke(1.dp, Color.White),
-                        colors = ButtonDefaults.outlinedButtonColors(contentColor = Color.White)
-                    ) {
-                        Text(
-                            text = context.getString(wikiSite.languageCode, R.string.read_aloud_card_keep_listening),
-                            style = MaterialTheme.typography.labelLarge
-                        )
-                    }
-                }
 
                 footerText?.let {
                     Row(
@@ -506,6 +489,7 @@ private fun ReadAloudPlaybackControls(
     modifier: Modifier = Modifier,
     wikiSite: WikiSite,
     playerState: ReadAloudPlayerState,
+    onPlayClick: () -> Unit = {},
     onShowSurvey: () -> Unit = {}
 ) {
     val context = LocalContext.current
@@ -518,6 +502,7 @@ private fun ReadAloudPlaybackControls(
             IconButton(
                 modifier = Modifier.size(48.dp),
                 onClick = {
+                    onPlayClick()
                     playerState.playOrPause()
                     if (ReadAloudSurveyDialog.shouldShow(byDate = false)) {
                         onShowSurvey()

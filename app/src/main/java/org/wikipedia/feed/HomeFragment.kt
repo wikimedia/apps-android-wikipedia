@@ -466,6 +466,9 @@ class HomeFragment : Fragment(), LinkPreviewDialog.LoadPageCallback {
                 instrument.submitInteraction("click", actionSource = GamesModulePromptCard::class.java.simpleName, elementId = "go_to_games_hub")
                 requireActivity().startActivity(GamesHubActivity.newIntent(requireContext()))
             }
+            HomeAction.ReadAloudPlayClick -> {
+                instrument.submitInteraction("click", actionSource = ReadAloudLeadSectionCard::class.java.simpleName, elementId = "play_pause")
+            }
             HomeAction.ReadAloudShowInfo -> {
                 instrument.submitInteraction("click", actionSource = ReadAloudLeadSectionCard::class.java.simpleName, elementId = "info_icon")
                 UriUtil.visitInExternalBrowser(requireContext(), getString(R.string.read_aloud_lead_section_info_link).toUri())
