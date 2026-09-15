@@ -43,6 +43,7 @@ import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.concurrency.FlowEventBus
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentMainBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.ImportReadingListsEvent
@@ -203,7 +204,9 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
 
         binding.mainNavTabLayout.setOverlayDot(NavTab.EDITS, !Prefs.isActivityTabOnboardingShown)
 
-        maybeShowReadingListsUpdateTooltip()
+        if (!maybeShowReadingListsUpdateTooltip()) {
+            maybeShowFeedNewModulesTooltip()
+        }
         Prefs.incrementExploreFeedVisitCount()
 
         notificationButtonView = NotificationButtonView(requireActivity())
@@ -566,7 +569,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
         }
     }
 
-    private fun maybeShowReadingListsUpdateTooltip() {
+    private fun maybeShowReadingListsUpdateTooltip(): Boolean {
         val endDate = LocalDate.of(2026, 9, 15)
         // Only show the tooltip to existing users and expire after September 15, 2026
         if (Prefs.exploreFeedVisitCount == 0) {
@@ -586,12 +589,30 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
                     )
                 }
             }
+            return true
         }
+        return false
     }
 
     private fun maybeShowSearchWidgetInstallPrompt() {
         if (DeviceUtil.areWidgetsSupported && !Prefs.searchWidgetInstallPromptShown && !SearchWidgetInstallDialog.isWidgetInstalled()) {
             ExclusiveBottomSheetPresenter.show(childFragmentManager, SearchWidgetInstallDialog())
+        }
+    }
+
+    private fun maybeShowFeedNewModulesTooltip() {
+        lifecycleScope.launch {
+            if (!Prefs.readAloudLeadSectionTooltipShown &&
+                Prefs.exploreFeedVisitCount > 0 &&
+                AppDatabase.instance.topicInterestDao().hasAnyTopics()) {
+                Prefs.readAloudLeadSectionTooltipShown = true
+                binding.root.post {
+                    if (isAdded) {
+                        FeedbackUtil.showTooltip(requireActivity(), binding.mainNavTabLayout.findViewById(NavTab.HOME.id),
+                            getString(R.string.read_aloud_lead_section_tooltip_text), aboveOrBelow = true, autoDismiss = false, showDismissButton = true)
+                    }
+                }
+            }
         }
     }
 

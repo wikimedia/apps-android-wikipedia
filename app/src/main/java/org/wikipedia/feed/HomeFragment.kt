@@ -17,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -34,7 +35,6 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.didyouknow.DidYouKnowActivity
-import org.wikipedia.feed.interests.NewWithinInterestABTest
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.DidYouKnowCard
 import org.wikipedia.feed.model.DiscoverCard
@@ -46,6 +46,7 @@ import org.wikipedia.feed.model.NewWithinInterestCard
 import org.wikipedia.feed.model.OnThisDayCard
 import org.wikipedia.feed.model.PlacesOfInterestLocationPromptCard
 import org.wikipedia.feed.model.RandomCard
+import org.wikipedia.feed.model.ReadAloudLeadSectionCard
 import org.wikipedia.feed.model.SeeAllRecommendationCard
 import org.wikipedia.feed.model.TopReadCard
 import org.wikipedia.feed.model.WikiGameCard
@@ -54,6 +55,8 @@ import org.wikipedia.feed.onthisday.OnThisDayActivity
 import org.wikipedia.feed.personalization.PersonalizationActivity
 import org.wikipedia.feed.personalization.PersonalizationActivity.Companion.RESULT_INTERESTS_UPDATED
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
+import org.wikipedia.feed.readaloud.ReadAloudLeadSectionABTest
+import org.wikipedia.feed.readaloud.ReadAloudSurveyDialog
 import org.wikipedia.feed.topread.TopReadArticlesActivity
 import org.wikipedia.feed.wikigames.OnThisDayCardGameState
 import org.wikipedia.feed.wikigames.WikiGame
@@ -83,6 +86,7 @@ import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ShareUtil
+import org.wikipedia.util.UriUtil
 import org.wikipedia.views.SurveyDialog
 import java.time.LocalDate
 
@@ -92,7 +96,7 @@ class HomeFragment : Fragment(), LinkPreviewDialog.LoadPageCallback {
     private val cardImpressions = mutableSetOf<String>()
     private val instrument = TestKitchenAdapter.client.getInstrument("apps-home-feed")
         .startFunnel("home_feed")
-        .setExperiment(TestKitchenAdapter.getExperiment(NewWithinInterestABTest()))
+        .setExperiment(TestKitchenAdapter.getExperiment(ReadAloudLeadSectionABTest()))
 
     private val personalizationResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_OK) {
@@ -140,6 +144,7 @@ class HomeFragment : Fragment(), LinkPreviewDialog.LoadPageCallback {
                 val forYouContentState by viewModel.forYouState.collectAsState()
                 val communityContentState by viewModel.communityState.collectAsState()
                 var swipeToExplorePromptShown by remember { mutableStateOf(Prefs.isHomeSwipeToExplorePromptShown) }
+                var showReadAloudSurveyDialog by remember { mutableStateOf(false) }
 
                 BaseTheme(currentTheme = if (selectedTab == HomeTab.FOR_YOU) Theme.BLACK else WikipediaApp.instance.currentTheme) {
                     HomeScreen(
@@ -155,7 +160,13 @@ class HomeFragment : Fragment(), LinkPreviewDialog.LoadPageCallback {
                         },
                         tabsState = tabsState,
                         notificationBellState = notificationState,
-                        onAction = { handleHomeAction(it, wikiSite, selectedTab) }
+                        onAction = {
+                            if (it is HomeAction.ReadAloudShowSurvey) {
+                                showReadAloudSurveyDialog = true
+                            } else {
+                                handleHomeAction(it, wikiSite, selectedTab)
+                            }
+                        }
                     )
 
                     if (selectedTab == HomeTab.FOR_YOU && !swipeToExplorePromptShown && forYouContentState.modules.isNotEmpty()) {
@@ -178,6 +189,14 @@ class HomeFragment : Fragment(), LinkPreviewDialog.LoadPageCallback {
                             onDismissRequest = dismissSwipePrompt,
                             onConfirmButtonClick = dismissSwipePrompt
                         )
+                    }
+
+                    if (showReadAloudSurveyDialog) {
+                        ReadAloudSurveyDialog(onDismissRequest = { showReadAloudSurveyDialog = false }, instrument)
+                    } else {
+                        if (ReadAloudSurveyDialog.shouldShow(byDate = true)) {
+                            showReadAloudSurveyDialog = true
+                        }
                     }
                 }
             }
@@ -446,6 +465,21 @@ class HomeFragment : Fragment(), LinkPreviewDialog.LoadPageCallback {
             HomeAction.GoToGamesHubClick -> {
                 instrument.submitInteraction("click", actionSource = GamesModulePromptCard::class.java.simpleName, elementId = "go_to_games_hub")
                 requireActivity().startActivity(GamesHubActivity.newIntent(requireContext()))
+            }
+            HomeAction.ReadAloudPlayClick -> {
+                instrument.submitInteraction("click", actionSource = ReadAloudLeadSectionCard::class.java.simpleName, elementId = "play_pause")
+            }
+            HomeAction.ReadAloudShowInfo -> {
+                instrument.submitInteraction("click", actionSource = ReadAloudLeadSectionCard::class.java.simpleName, elementId = "info_icon")
+                UriUtil.visitInExternalBrowser(requireContext(), getString(R.string.read_aloud_lead_section_info_link).toUri())
+            }
+            HomeAction.ReadAloudReportIssue -> {
+                instrument.submitInteraction("click", actionSource = ReadAloudLeadSectionCard::class.java.simpleName, elementId = "report_issue")
+                FeedbackUtil.composeEmail(requireContext(),
+                    subject = getString(R.string.read_aloud_lead_section_report_subject),
+                    body = getString(R.string.read_aloud_lead_section_report_body))
+            }
+            else -> {
             }
         }
     }
