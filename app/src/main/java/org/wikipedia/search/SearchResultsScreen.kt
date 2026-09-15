@@ -181,7 +181,8 @@ fun SearchResultsList(
             SemanticSearchEntryCard(
                 searchTerm = searchTerm ?: "",
                 onCloseClick = { },
-                onInfoBtnClick = { /* logic to deploy the bottom sheet goes here */ },
+                onInfoBtnClick = { },
+                onSemanticSearchClick = { },
                 isFirstUse = true // will need to be replaced with a proper state from the view model
             )
         }

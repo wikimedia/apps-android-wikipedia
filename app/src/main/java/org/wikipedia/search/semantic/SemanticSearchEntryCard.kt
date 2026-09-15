@@ -3,6 +3,7 @@ package org.wikipedia.search.semantic
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -37,7 +38,8 @@ fun SemanticSearchEntryCard(
     searchTerm: String?,
     isFirstUse: Boolean,
     onInfoBtnClick: () -> Unit,
-    onCloseClick: () -> Unit
+    onCloseClick: () -> Unit,
+    onSemanticSearchClick: () -> Unit
 ) {
     Column(
         modifier = Modifier
@@ -104,7 +106,9 @@ fun SemanticSearchEntryCard(
         }
 
         Row(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .clickable(onClick = { onSemanticSearchClick() }),
             verticalAlignment = Alignment.Top
         ) {
             Column(
@@ -165,6 +169,7 @@ private fun SemanticSearchEntryCardPreview() {
                 searchTerm = "what is communication",
                 onCloseClick = {},
                 onInfoBtnClick = {},
+                onSemanticSearchClick = {},
                 isFirstUse = false
             )
         }
