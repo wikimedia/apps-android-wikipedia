@@ -52,6 +52,7 @@ import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.extensions.toAnnotatedStringWithBoldQuery
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.search.semantic.SemanticSearchEntryCard
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.views.imageservice.ImageService
@@ -176,6 +177,14 @@ fun SearchResultsList(
         modifier = modifier
             .testTag(SEARCH_LIST_TAG)
     ) {
+        item {
+            SemanticSearchEntryCard(
+                searchTerm = searchTerm ?: "",
+                onCloseClick = { },
+                onInfoBtnClick = { /* logic to deploy the bottom sheet goes here */ },
+                isFirstUse = true // will need to be replaced with a proper state from the view model
+            )
+        }
         items(
             count = searchResultsPage.itemCount
         ) { index ->

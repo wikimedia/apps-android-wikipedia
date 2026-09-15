@@ -12,7 +12,6 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -23,8 +22,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
@@ -37,14 +34,12 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
-import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -178,7 +173,7 @@ fun HybridSearchResultsList(
     onRatingClick: (Boolean, SearchResult) -> Unit
 ) {
     LazyColumn {
-        if (testGroup == HybridSearchAbCTest.GROUP_CONTROL || testGroup == HybridSearchAbCTest.GROUP_LEXICAL_SEMANTIC) {
+        if (testGroup == HybridSearchAbCTest.GROUP_CONTROL || testGroup == HybridSearchAbCTest.GROUP_SEMANTIC_LEXICAL) {
             items(
                 count = searchResultsPage.size
             ) { index ->
@@ -198,7 +193,8 @@ fun HybridSearchResultsList(
             item {
                 if (searchResultsPage.isNotEmpty() && semanticSearchResultPage.isNotEmpty()) {
                     HorizontalDivider(
-                        modifier = Modifier.fillMaxWidth().padding(start = 16.dp, end = 16.dp, top = 12.dp),
+                        modifier = Modifier.fillMaxWidth()
+                            .padding(start = 16.dp, end = 16.dp, top = 12.dp),
                         thickness = 1.dp,
                         color = WikipediaTheme.colors.borderColor
                     )
@@ -206,16 +202,7 @@ fun HybridSearchResultsList(
             }
         }
 
-        item {
-            if (semanticSearchResultPage.isNotEmpty()) {
-                SemanticSearchResultHeader(
-                    modifier = Modifier.padding(top = 8.dp, start = 16.dp, end = 16.dp),
-                    onInfoClick = onInfoClick,
-                    onTurnOffExperimentClick = onTurnOffExperimentClick
-                )
-            }
-        }
-
+        /* TODO: Retain Logic for future tickets (see LazyRow), delete when no longer needed
         item {
 
             // Logic for tracking "impressions" of horizontally scrollable cards.
@@ -268,35 +255,7 @@ fun HybridSearchResultsList(
                     }
                 }
             }
-        }
-
-        if (testGroup == HybridSearchAbCTest.GROUP_SEMANTIC_LEXICAL) {
-            item {
-                if (semanticSearchResultPage.isNotEmpty() && searchResultsPage.isNotEmpty()) {
-                    HorizontalDivider(
-                        modifier = Modifier.fillMaxWidth().padding(start = 16.dp, end = 16.dp, top = 8.dp),
-                        thickness = 1.dp,
-                        color = WikipediaTheme.colors.borderColor
-                    )
-                }
-            }
-            items(
-                count = searchResultsPage.size
-            ) { index ->
-                searchResultsPage[index].let { result ->
-                    SearchResultPageItem(
-                        searchResultPage = result,
-                        searchTerm = searchTerm,
-                        onItemClick = {
-                            onItemClick(result, false, index, result.location)
-                        },
-                        onItemLongClick = { view ->
-                            onItemLongClick(view, result, index)
-                        }
-                    )
-                }
-            }
-        }
+        } */
     }
 }
 
