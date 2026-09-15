@@ -1001,4 +1001,8 @@ object Prefs {
     var isSemanticSearchEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_semantic_search_enabled, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_semantic_search_enabled, value)
+
+    var isSemanticSearchFirstUse
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_semantic_search_first_use, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_semantic_search_first_use, value)
 }

@@ -53,6 +53,7 @@ import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.extensions.toAnnotatedStringWithBoldQuery
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.search.semantic.SemanticSearchEntryCard
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.views.imageservice.ImageService
@@ -182,8 +183,12 @@ fun SearchResultsList(
                 searchTerm = searchTerm ?: "",
                 onCloseClick = { },
                 onInfoBtnClick = { },
-                onSemanticSearchClick = { },
-                isFirstUse = true // will need to be replaced with a proper state from the view model
+                onSemanticSearchClick = {
+                    if (Prefs.isSemanticSearchFirstUse) {
+                        Prefs.isSemanticSearchFirstUse = false
+                    }
+                },
+                isFirstUse = Prefs.isSemanticSearchFirstUse
             )
         }
         items(
