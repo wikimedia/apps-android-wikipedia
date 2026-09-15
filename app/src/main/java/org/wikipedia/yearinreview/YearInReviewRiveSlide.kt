@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.key
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.produceState
 import androidx.compose.runtime.remember
@@ -27,6 +28,7 @@ import app.rive.rememberRiveFile
 import app.rive.rememberRiveWorkerOrNull
 import app.rive.rememberStateMachineResult
 import app.rive.rememberViewModelInstanceResult
+import app.rive.sequence
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -39,7 +41,7 @@ data class RiveSlideSpec(
     val stateMachineName: String,
     val viewModelName: String,
     val instanceType: RiveInstanceType = RiveInstanceType.Default,
-    val font: RiveSlideFont? = null
+    val fonts: List<RiveSlideFont> = emptyList()
 )
 
 sealed interface RiveInstanceType {
@@ -80,19 +82,22 @@ fun YearInReviewRiveSlide(
         // TODO: what will user see if riveWorker is null which means Rive failed to initialize for unknown reasons
         return
     }
-    // loading font asset if available and registering with RiveWorker before loading the Rive file
-    val fontResult = spec.font?.let { font ->
-        rememberRawResourceBytes(font.resourceId).andThen { bytes ->
-            rememberRegisteredFont(riveWorker, font.registrationKey, bytes)
+    // referenced fonts must be registered before the Rive file loads, otherwise text using them draws nothing
+    val fontsResult = spec.fonts.map { font ->
+        key(font.registrationKey) {
+            rememberRawResourceBytes(font.resourceId).andThen { bytes ->
+                rememberRegisteredFont(riveWorker, font.registrationKey, bytes)
+            }
         }
+    }.sequence()
+    val riveFileResult = fontsResult.andThen {
+        rememberRiveFile(
+            source = RiveFileSource.RawRes.from(spec.resourceId),
+            riveWorker = riveWorker
+        )
     }
-    // loading rive file
-    val riveFileResult = rememberRiveFile(
-        source = RiveFileSource.RawRes.from(spec.resourceId),
-        riveWorker = riveWorker
-    )
 
-    when (val result = fontResult?.andThen { riveFileResult } ?: riveFileResult) {
+    when (val result = riveFileResult) {
         Result.Loading -> RiveLoadingIndicator(modifier)
         is Result.Error -> RiveFailure(result.throwable, onRiveError)
         is Result.Success -> YearInReviewRiveArtboard(
