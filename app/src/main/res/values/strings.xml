@@ -2643,4 +2643,16 @@
         <item quantity="one">Unsaving this article will remove it from all associated collections.</item>
         <item quantity="other">Unsaving these articles will remove it from all associated collections.</item>
     </plurals>
+
+    <!-- Semantic Search -->
+    <string name="semantic_search_beta_label">Beta</string>
+    <string name="semantic_search_no_results_message">No results for this search</string>
+    <plurals name="semantic_search_result_contributors">
+        <item quantity="one">%d contributor</item>
+        <item quantity="other">%d contributors</item>
+    </plurals>
+    <plurals name="semantic_search_result_references">
+        <item quantity="one">%d reference</item>
+        <item quantity="other">%d references</item>
+    </plurals>
 </resources>
