@@ -233,6 +233,11 @@ class SearchResultsViewModel : ViewModel() {
         Prefs.isSemanticSearchFirstUse = isFirstUse
     }
 
+    fun disableSemanticSearch() {
+        _isSemanticSearchEnabled.value = false
+        Prefs.isSemanticSearchEnabled = false
+    }
+
     class SearchResultsPagingSource(
         private val searchTerm: String?,
         private val languageCode: String?,

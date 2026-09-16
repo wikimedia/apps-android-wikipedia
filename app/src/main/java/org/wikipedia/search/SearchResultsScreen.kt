@@ -157,7 +157,8 @@ fun SearchResultsScreen(
                             searchResultsPage = searchResults,
                             searchTerm = searchTerm.value,
                             onItemClick = onNavigateToTitle,
-                            onItemLongClick = onItemLongClick
+                            onItemLongClick = onItemLongClick,
+                            onSemanticSearchCloseClick = { viewModel.disableSemanticSearch() }
                         )
                     }
                 }
@@ -168,11 +169,12 @@ fun SearchResultsScreen(
 
 @Composable
 fun SearchResultsList(
+    modifier: Modifier = Modifier,
     searchResultsPage: LazyPagingItems<SearchResult>,
     searchTerm: String?,
     onItemClick: (SearchResult, Boolean, Int, Location?) -> Unit,
     onItemLongClick: (View, SearchResult, Int) -> Unit,
-    modifier: Modifier = Modifier
+    onSemanticSearchCloseClick: () -> Unit = {},
 ) {
     LazyColumn(
         modifier = modifier
@@ -181,7 +183,7 @@ fun SearchResultsList(
         item {
             SemanticSearchEntryCard(
                 searchTerm = searchTerm ?: "",
-                onCloseClick = { },
+                onCloseClick = { onSemanticSearchCloseClick() },
                 onInfoBtnClick = { },
                 onSemanticSearchClick = {
                     if (Prefs.isSemanticSearchFirstUse) {
