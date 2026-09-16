@@ -35,7 +35,6 @@ import org.wikipedia.pageimages.db.PageImage
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.recommended.RecommendedReadingListNotificationManager
 import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
-import org.wikipedia.search.HybridSearchAbCTest
 import org.wikipedia.settings.BasePreferenceLoader
 import org.wikipedia.settings.IntPreference
 import org.wikipedia.settings.Prefs
@@ -337,7 +336,6 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
         screen.addPreference(category)
         listOf(
             DonationReminderAbTest(),
-            HybridSearchAbCTest(),
             NewWithinInterestABTest(),
             ReadAloudLeadSectionABTest()
         ).forEach { abTest ->
