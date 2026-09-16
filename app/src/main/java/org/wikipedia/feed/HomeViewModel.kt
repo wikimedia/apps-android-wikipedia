@@ -821,13 +821,13 @@ class HomeViewModel : ViewModel() {
             // -- Read aloud lead section --
 
             if (ReadAloudLeadSectionABTest().isTestActive() &&
-                ReadAloudArticlesRepository.isSupported(wikiSite.value)) {
+                ReadAloudArticlesRepository.isSupported(currentWikiSite)) {
                 ReadAloudLeadSectionABTest().maybeSendExposureEvent()
             }
             val readAloudDeferred = async(Dispatchers.IO) {
                 if (!ReadAloudLeadSectionABTest().isTestActive() ||
                     !ReadAloudLeadSectionABTest().isTestGroupUser() ||
-                    !ReadAloudArticlesRepository.isSupported(wikiSite.value)) {
+                    !ReadAloudArticlesRepository.isSupported(currentWikiSite)) {
                     return@async emptyList()
                 }
                 // All the cards in this module come from a single topic, so the first of the user's
@@ -835,20 +835,20 @@ class HomeViewModel : ViewModel() {
                 val readAloudCards = AppDatabase.instance.topicInterestDao().getAllRandom()
                     .firstNotNullOfOrNull { topic ->
                         ReadAloudArticlesRepository
-                            .randomArticlesForTopic(wikiSite.value, topic.topicId, 4)
+                            .randomArticlesForTopic(currentWikiSite, topic.topicId, 4)
                             .map { ReadAloudLeadSectionCard(it, topic) }
                             .takeIf { it.isNotEmpty() }
                     }
                     .orEmpty()
                     .filterNot { hiddenCards.contains(it.hideKey) }
                 if (readAloudCards.isNotEmpty()) {
-                    ServiceFactory.get(wikiSite.value)
+                    ServiceFactory.get(currentWikiSite)
                         .getInfoWithExtractsByPageTitles(readAloudCards.fastJoinToString("|") { it.title.prefixedText })
                         .query?.pages?.forEach { page ->
                             readAloudCards.find { it.title.prefixedText == StringUtil.addUnderscores(page.title) }?.title?.let {
                                 it.description = page.description
                                 it.thumbUrl = page.thumbUrl()
-                                it.displayText = page.displayTitle(wikiSite.value.languageCode)
+                                it.displayText = page.displayTitle(currentWikiSite.languageCode)
                                 it.extract = page.extract
                             }
                         }
