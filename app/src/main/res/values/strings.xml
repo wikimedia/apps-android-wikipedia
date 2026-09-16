@@ -2421,41 +2421,6 @@
     <string name="donation_reminders_eoe_give_monthly_button">Give monthly</string>
     <string name="donation_reminders_eoe_donate_dialog_title">How would you like to give monthly?</string>
 
-    <!-- Hybrid Search -->
-    <string name="hybrid_search_search_hint">Search or ask anything</string>
-    <string name="hybrid_search_article_search_hint">Ask about %s</string>
-    <string name="hybrid_search_suggestion_title">Search for:</string>
-    <string name="hybrid_search_onboarding_learn_more">Learn more</string>
-    <string name="hybrid_search_onboarding_search_title">Ask questions, get answers</string>
-    <string name="hybrid_search_onboarding_search_description">This experimental feature understands natural language. Instead of searching for keywords, describe what you want to know.</string>
-    <string name="hybrid_search_onboarding_opt_in_choice_title">Beta feature</string>
-    <string name="hybrid_search_onboarding_opt_in_choice_description">Available for a limited time during this experiment.</string>
-    <string name="hybrid_search_beta_tag">Beta</string>
-    <string name="hybrid_search_experimental_feature_switch_label">Join experiment</string>
-    <string name="hybrid_search_onboarding_search_example_title">Need inspiration?</string>
-    <string name="hybrid_search_onboarding_search_example_description">Use one of the search examples below.</string>
-    <string name="hybrid_search_onboarding_opt_out_toast_message">You\'ve opted out of the experiment.</string>
-    <string name="hybrid_search_onboarding_search_example_query_pluto_as_planet">When was Pluto unlisted as a planet?</string>
-    <string name="hybrid_search_onboarding_search_example_query_first_olympics">first Olympics</string>
-    <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">RNA vs DNA</string>
-    <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Why do people put pineapple on pizza?</string>
-    <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">What are the biggest cities in Europe?</string>
-    <string name="hybrid_search_onboarding_screen_title">A new way to search</string>
-    <string name="hybrid_search_results_header_description">Sourced from human written Wikipedia articles</string>
-    <string name="hybrid_search_results_rate_label">Rate this result</string>
-    <string name="hybrid_search_results_rated_label">Rated</string>
-    <string name="hybrid_search_results_rate_thumb_up">Rate thumbs up</string>
-    <string name="hybrid_search_results_rate_thumb_down">Rate thumbs down</string>
-    <string name="hybrid_lexical_search_results_empty">No article title matches this query.</string>
-    <string name="hybrid_search_results_empty">Enhanced search is temporarily unavailable.</string>
-    <string name="hybrid_search_no_results_header">No results</string>
-    <string name="hybrid_search_no_results_description">This topic isn\'t returning article excerpts at this moment. Here are some things you can try:</string>
-    <string name="hybrid_search_no_results_suggestion_rephrase_text">Rephrase your search</string>
-    <string name="hybrid_search_no_results_suggestion_try_related_topic">Try a related topic</string>
-    <string name="hybrid_search_error_message">Something went wrong. Please try again later.</string>
-    <string name="hybrid_search_who_is_prefix">Who is %s?</string>
-    <string name="hybrid_search_turn_off_experiment_label">Turn off this experiment</string>
-
     <!-- Reading challenge   -->
     <string name="reading_challenge_widget_name">Reading Challenge</string>
     <string name="reading_challenge_onboarding_header">Celebrate Wikipedia\'s 25th birthday by joining the 25-day reading challenge!</string>
