@@ -422,6 +422,7 @@ private fun ReadAloudCardContent(
                 ReadAloudPlaybackControls(
                     modifier = Modifier.padding(start = 8.dp, end = 16.dp, top = 8.dp),
                     wikiSite = wikiSite,
+                    pageTitle = title,
                     playerState = playerState,
                     onPlayClick = onPlayClick,
                     onShowSurvey = onShowSurvey
@@ -488,11 +489,13 @@ private fun ReadAloudTranscript(
 private fun ReadAloudPlaybackControls(
     modifier: Modifier = Modifier,
     wikiSite: WikiSite,
+    pageTitle: PageTitle,
     playerState: ReadAloudPlayerState,
     onPlayClick: () -> Unit = {},
     onShowSurvey: () -> Unit = {}
 ) {
     val context = LocalContext.current
+    var currentPlayedTitle by remember { mutableStateOf("") }
 
     Column(modifier = modifier) {
         Row(
@@ -504,10 +507,13 @@ private fun ReadAloudPlaybackControls(
                 onClick = {
                     onPlayClick()
                     playerState.playOrPause()
-                    if (ReadAloudSurveyDialog.shouldShow(byDate = false)) {
-                        onShowSurvey()
+                    if (currentPlayedTitle != pageTitle.prefixedText) {
+                        currentPlayedTitle = pageTitle.prefixedText
+                        if (ReadAloudSurveyDialog.shouldShow(byDate = false)) {
+                            onShowSurvey()
+                        }
+                        Prefs.readAloudLeadSectionLastPlayedDate = LocalDate.now().toString()
                     }
-                    Prefs.readAloudLeadSectionLastPlayedDate = LocalDate.now().toString()
                 }
             ) {
                 if (playerState.isBuffering) {

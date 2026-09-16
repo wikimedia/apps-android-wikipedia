@@ -70,8 +70,11 @@ object ReadAloudSurveyDialog {
             return false
         }
         val lastPlayedDate = if (Prefs.readAloudLeadSectionLastPlayedDate.isEmpty()) null else runCatching { LocalDate.parse(Prefs.readAloudLeadSectionLastPlayedDate) }.getOrNull()
+        if (lastPlayedDate == null) {
+            return false
+        }
         if (byDate) {
-            if (lastPlayedDate == null || lastPlayedDate.isAfter(LocalDate.now().minusDays(7))) {
+            if (lastPlayedDate.isAfter(LocalDate.now().minusDays(7))) {
                 return false
             }
         }

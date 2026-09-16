@@ -2643,7 +2643,7 @@
     <string name="read_aloud_lead_section_report_subject">Issue report - Listen to article intros</string>
     <string name="read_aloud_lead_section_report_body">I have encountered a problem with the \"Listen to article intros\" feature:\n- [Describe specific problem]\n\nThe behavior I would like to see is:\n- [Describe proposed solution]</string>
     <string name="read_aloud_lead_section_about_experiment">About this experiment</string>
-    <string name="read_aloud_lead_section_report_issue">Report an issue</string>"
+    <string name="read_aloud_lead_section_report_issue">Report an issue</string>
     <string name="home_feed_settings_discover_subtitle">Articles from your Discover collection</string>
     <string name="home_feed_discover_cta_title">From Discover</string>
     <string name="home_feed_discover_cta_description">Learn about new topics, picked just for you. Choose between daily, weekly or monthly updates.</string>

@@ -43,7 +43,6 @@ import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.concurrency.FlowEventBus
-import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentMainBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.ImportReadingListsEvent
@@ -55,6 +54,7 @@ import org.wikipedia.feed.HomeFragment
 import org.wikipedia.feed.image.FeaturedImage
 import org.wikipedia.feed.news.NewsActivity
 import org.wikipedia.feed.news.NewsItem
+import org.wikipedia.feed.readaloud.ReadAloudLeadSectionABTest
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.gallery.MediaDownloadReceiver
 import org.wikipedia.history.HistoryEntry
@@ -602,9 +602,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
 
     private fun maybeShowFeedNewModulesTooltip() {
         lifecycleScope.launch {
-            if (!Prefs.readAloudLeadSectionTooltipShown &&
-                Prefs.exploreFeedVisitCount > 0 &&
-                AppDatabase.instance.topicInterestDao().hasAnyTopics()) {
+            if (ReadAloudLeadSectionABTest().shouldShowToolTip()) {
                 Prefs.readAloudLeadSectionTooltipShown = true
                 binding.root.post {
                     if (isAdded) {
