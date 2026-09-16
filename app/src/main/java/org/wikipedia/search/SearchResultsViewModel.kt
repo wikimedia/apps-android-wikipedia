@@ -1,6 +1,5 @@
 package org.wikipedia.search
 
-import androidx.core.net.toUri
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.Pager
@@ -22,7 +21,6 @@ import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
-import org.wikipedia.page.PageTitle
 
 class SearchResultsViewModel : ViewModel() {
 
@@ -155,27 +153,6 @@ class SearchResultsViewModel : ViewModel() {
                     list.filter { it.coordinates != null } else list).sortedBy { it.index }
                     .map { SearchResult(it, wikiSite, it.coordinates, type, indexInApiCall = it.index) }
             } ?: emptyList()
-        }
-
-        fun buildList(
-            response: SemanticSearchResults,
-            wikiSite: WikiSite,
-            type: SearchResult.SearchResultType
-        ): List<SearchResult> {
-            return response.results.mapIndexed { index, result ->
-                SearchResult(PageTitle.titleForUri(result.url.toUri(), wikiSite), searchResultType = type, snippet = postProcessSectionText(result.sectionText), indexInApiCall = index + 1)
-            }
-        }
-
-        fun postProcessSectionText(text: String): String {
-            // TODO: remove this when server-side parsing is done.
-            val bold = Regex("'''(.*?)'''", RegexOption.DOT_MATCHES_ALL)
-            val italic = Regex("''(.*?)''", RegexOption.DOT_MATCHES_ALL)
-            val emptyParens = Regex("""\([\s,.;]*\)""")
-            return text
-                .replace(emptyParens, "")
-                .replace(bold, "<b>\$1</b>")
-                .replace(italic, "<i>\$1</i>")
         }
     }
 }
