@@ -43,12 +43,13 @@ fun SemanticSearchEntryCard(
 ) {
     Column(
         modifier = Modifier
-            .padding(horizontal = 16.dp)
             .wrapContentHeight()
     ) {
         // Beta pill + Info button + Close button
         Row(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             // Beta pill + Info button
@@ -108,7 +109,8 @@ fun SemanticSearchEntryCard(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .clickable(onClick = { onSemanticSearchClick() }),
+                .clickable(onClick = { onSemanticSearchClick() })
+                .padding(horizontal = 16.dp),
             verticalAlignment = Alignment.Top
         ) {
             Column(
