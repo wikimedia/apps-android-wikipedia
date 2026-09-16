@@ -37,7 +37,6 @@ import org.wikipedia.main.MainActivity
 import org.wikipedia.main.MainFragment
 import org.wikipedia.page.PageAvailableOfflineHandler
 import org.wikipedia.readinglist.database.ReadingList
-import org.wikipedia.search.HybridSearchAbCTest
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
@@ -291,9 +290,8 @@ class HistoryFragment : Fragment(), BackPressedHandler {
         }
 
         private fun updateSearchHint(searchIcon: ImageView, searchTextView: TextView) {
-            val showHybridSearch = Prefs.isHybridSearchOnboardingShown && HybridSearchAbCTest().isHybridSearchEnabled(WikipediaApp.instance.appOrSystemLanguageCode)
-            searchIcon.contentDescription = getString(if (showHybridSearch) R.string.hybrid_search_search_hint else R.string.search_hint)
-            searchTextView.text = getString(if (showHybridSearch) R.string.hybrid_search_search_hint else R.string.search_hint)
+            searchIcon.contentDescription = getString(R.string.search_hint)
+            searchTextView.text = getString(R.string.search_hint)
         }
     }
 
