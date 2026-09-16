@@ -3,6 +3,8 @@ package org.wikipedia.yearinreview
 import android.location.Geocoder
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.Transient
 import org.maplibre.android.geometry.LatLng
 import org.maplibre.android.geometry.LatLngBounds
 import org.wikipedia.WikipediaApp
@@ -25,10 +27,6 @@ import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.GeoUtil.LocationClusterer
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
-import org.wikipedia.yearinreview.YearInReviewViewModel.Companion.MAX_TOP_ARTICLES
-import org.wikipedia.yearinreview.YearInReviewViewModel.Companion.MAX_TOP_CATEGORY
-import org.wikipedia.yearinreview.YearInReviewViewModel.Companion.MIN_ARTICLES_PER_MAP_CLUSTER
-import org.wikipedia.yearinreview.YearInReviewViewModel.Companion.MIN_SAVED_ARTICLES
 import java.io.IOException
 import java.time.Instant
 import java.time.LocalDate
@@ -49,22 +47,35 @@ class YearInReviewRepositoryImpl(
 ) : YearInReviewRepository {
 
     override suspend fun getYearInReview(year: Int): YearInReviewSnapshot = coroutineScope {
-        val remoteConfigDeferred = async {
-            restService.getConfiguration().commonv1?.getYirForYear(year)
-        }
-        val editingStatsDeferred = async { getEditingStats(year) }
-        val remoteConfig = remoteConfigDeferred.await()
+        val remoteConfig = restService.getConfiguration().commonv1?.getYirForYear(year)
         val isDonationEligible = remoteConfig != null && !remoteConfig.hideDonateCountryCodes.contains(GeoUtil.geoIPCountry.orEmpty())
-        val readingStatsDeferred = async {
-            remoteConfig?.let { config ->
-                val startMillis = config.dataStartDate.toInstant(ZoneOffset.UTC).toEpochMilli()
-                val endMillis = config.dataEndDate.toInstant(ZoneOffset.UTC).toEpochMilli()
-                getReadingStats(year, startMillis, endMillis)
+        val dataStartMillis = remoteConfig?.dataStartDate?.toInstant(ZoneOffset.UTC)?.toEpochMilli()
+        val dataEndMillis = remoteConfig?.dataEndDate?.toInstant(ZoneOffset.UTC)?.toEpochMilli()
+
+        val cachedStats = Prefs.yearInReviewCachedStats[year]
+        val editingStats: YearInReviewEditingStats?
+        val readingStats: YearInReviewReadingStats?
+        if (cachedStats != null) {
+            editingStats = cachedStats.editingStats
+            readingStats = if (cachedStats.readingStats != null && dataStartMillis != null && dataEndMillis != null) {
+                val pagesWithCoordinates = getPagesWithCoordinates(dataStartMillis, dataEndMillis)
+                cachedStats.readingStats.copy(geoStats = cachedStats.readingStats.geoStats.copy(pagesWithCoordinates = pagesWithCoordinates))
+            } else {
+                cachedStats.readingStats
+            }
+        } else {
+            val editingStatsDeferred = async { getEditingStats(year) }
+            val readingStatsDeferred = async {
+                if (dataStartMillis != null && dataEndMillis != null) getReadingStats(year, dataStartMillis, dataEndMillis) else null
+            }
+            editingStats = editingStatsDeferred.await()
+            readingStats = readingStatsDeferred.await()
+            if (readingStats != null) {
+                Prefs.yearInReviewCachedStats += (year to YearInReviewCachedStats(readingStats, editingStats))
+                YearInReviewDialog.resetYearInReviewSurveyState()
             }
         }
 
-        val editingStats = editingStatsDeferred.await()
-        val readingStats = readingStatsDeferred.await()
         YearInReviewSnapshot(
             year = year,
             isDonationEligible = isDonationEligible,
@@ -76,6 +87,11 @@ class YearInReviewRepositoryImpl(
                 isEditor = editingStats?.userEditsCount?.let { it > 0 } == true
             )
         )
+    }
+
+    private suspend fun getPagesWithCoordinates(startMillis: Long, endMillis: Long): List<HistoryEntryWithImage> {
+        return historyEntryWithImageDao.getEntriesWithCoordinates(256, startMillis, endMillis)
+            .distinctBy { it.apiTitle }
     }
 
     private suspend fun getReadingStats(year: Int, startMillis: Long, endMillis: Long): YearInReviewReadingStats = coroutineScope {
@@ -115,8 +131,7 @@ class YearInReviewRepositoryImpl(
     }
 
     private suspend fun getGeoStats(startMillis: Long, endMillis: Long): YearInReviewGeoStats {
-        var pagesWithCoordinates = historyEntryWithImageDao.getEntriesWithCoordinates(256, startMillis, endMillis)
-            .distinctBy { it.apiTitle }
+        var pagesWithCoordinates = getPagesWithCoordinates(startMillis, endMillis)
 
         var largestClusterLatitude = 0.0
         var largestClusterLongitude = 0.0
@@ -227,13 +242,28 @@ class YearInReviewRepositoryImpl(
         val (categoriesWithTwoSpaces, remainingCategories) = categories.partition { category -> category.count { it == ' ' } >= 2 }
         return (categoriesWithTwoSpaces + remainingCategories).take(MAX_TOP_CATEGORY)
     }
+
+    companion object {
+        const val MIN_SAVED_ARTICLES = 3
+        const val MAX_TOP_ARTICLES = 5
+        const val MAX_TOP_CATEGORY = 5
+        const val MIN_ARTICLES_PER_MAP_CLUSTER = 2
+    }
 }
 
+@Serializable
+data class YearInReviewCachedStats(
+    val readingStats: YearInReviewReadingStats?,
+    val editingStats: YearInReviewEditingStats?
+)
+
+@Serializable
 data class YearInReviewEditingStats(
     val userEditsCount: Int,
     val userEditsViewedTimes: Long
 )
 
+@Serializable
 data class YearInReviewReadingStats(
     val totalReadingTimeMinutes: Long,
     val localReadingArticlesCount: Int,
@@ -247,13 +277,14 @@ data class YearInReviewReadingStats(
     val geoStats: YearInReviewGeoStats
 )
 
+@Serializable
 data class YearInReviewGeoStats(
     val largestClusterLocation: Pair<Double, Double>,
     val largestClusterTopLeft: Pair<Double, Double>,
     val largestClusterBottomRight: Pair<Double, Double>,
     val largestClusterCountryName: String,
     val largestClusterArticles: List<String>,
-    val pagesWithCoordinates: List<HistoryEntryWithImage>
+    @Transient val pagesWithCoordinates: List<HistoryEntryWithImage> = emptyList()
 )
 
 data class YearInReviewRewardData(
