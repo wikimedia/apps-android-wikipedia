@@ -2605,6 +2605,7 @@
     <string name="read_aloud_lead_section_survey_choice3">Full articles</string>
     <string name="read_aloud_lead_section_survey_choice4">Multiple short excerpts from different articles on a topic</string>
     <string name="read_aloud_lead_section_survey_choice5">Other:</string>
+    <string name="read_aloud_lead_section_beta_label">Beta</string>
     <string name="read_aloud_lead_section_report_subject">Issue report - Listen to article intros</string>
     <string name="read_aloud_lead_section_report_body">I have encountered a problem with the \"Listen to article intros\" feature:\n- [Describe specific problem]\n\nThe behavior I would like to see is:\n- [Describe proposed solution]</string>
     <string name="read_aloud_lead_section_about_experiment">About this experiment</string>

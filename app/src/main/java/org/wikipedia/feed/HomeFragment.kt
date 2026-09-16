@@ -470,11 +470,11 @@ class HomeFragment : Fragment(), LinkPreviewDialog.LoadPageCallback {
                 instrument.submitInteraction("click", actionSource = ReadAloudLeadSectionCard::class.java.simpleName, elementId = "play_pause")
             }
             HomeAction.ReadAloudShowInfo -> {
-                instrument.submitInteraction("click", actionSource = ReadAloudLeadSectionCard::class.java.simpleName, elementId = "info_icon")
+                instrument.submitInteraction("click", actionSource = ReadAloudLeadSectionCard::class.java.simpleName, elementId = "menu_about")
                 UriUtil.visitInExternalBrowser(requireContext(), getString(R.string.read_aloud_lead_section_info_link).toUri())
             }
             HomeAction.ReadAloudReportIssue -> {
-                instrument.submitInteraction("click", actionSource = ReadAloudLeadSectionCard::class.java.simpleName, elementId = "report_issue")
+                instrument.submitInteraction("click", actionSource = ReadAloudLeadSectionCard::class.java.simpleName, elementId = "menu_report_issue")
                 FeedbackUtil.composeEmail(requireContext(),
                     subject = getString(R.string.read_aloud_lead_section_report_subject),
                     body = getString(R.string.read_aloud_lead_section_report_body))

@@ -2347,6 +2347,7 @@
   <string name="read_aloud_lead_section_survey_choice3">One of the response choices in a survey of how the user would prefer to listen to Wikipedia articles.</string>
   <string name="read_aloud_lead_section_survey_choice4">One of the response choices in a survey of how the user would prefer to listen to Wikipedia articles.</string>
   <string name="read_aloud_lead_section_survey_choice5">One of the response choices in a survey of how the user would prefer to listen to Wikipedia articles.</string>
+  <string name="read_aloud_lead_section_beta_label">Label indicating that this is a beta feature.</string>
   <string name="read_aloud_lead_section_tooltip_text">Text for a tooltip that introduces the user to the text-to-speech feature.</string>
   <string name="read_aloud_lead_section_report_subject">Subject of email for the user to compose when reporting an issue.</string>
   <string name="read_aloud_lead_section_report_body">Body of email for the user to compose when reporting an issue.</string>
