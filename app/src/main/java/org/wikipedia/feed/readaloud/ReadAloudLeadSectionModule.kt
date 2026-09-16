@@ -54,13 +54,16 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.TextLinkStyles
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.palette.graphics.Palette
 import coil3.imageLoader
 import coil3.request.ImageRequest
@@ -601,9 +604,16 @@ private fun ReadAloudPlaybackControls(
         }
 
         playerState.generatedDate?.let {
-            Text(
+            HtmlText(
                 modifier = Modifier.padding(start = 8.dp, top = 4.dp),
                 text = context.getString(wikiSite.languageCode, R.string.read_aloud_card_audio_date, DateUtil.getShortDateString(it)),
+                linkStyle = TextLinkStyles(
+                    style = SpanStyle(
+                        fontSize = 11.sp,
+                        color = Color.White.copy(alpha = 0.8f),
+                        textDecoration = TextDecoration.Underline
+                    )
+                ),
                 color = Color.White.copy(alpha = 0.7f),
                 style = MaterialTheme.typography.labelSmall
             )
