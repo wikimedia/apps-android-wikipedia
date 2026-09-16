@@ -25,9 +25,6 @@ import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.page.PageTitle
 import org.wikipedia.search.semantic.SemanticSearchAbTest
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.StringUtil
-import org.wikipedia.util.UiState
-import java.util.UUID
 
 class SearchResultsViewModel : ViewModel() {
     private val semanticSearchAbTest = SemanticSearchAbTest()
