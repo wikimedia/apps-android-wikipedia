@@ -250,5 +250,6 @@ private fun buildPlayer(context: Context, audioUrl: String): ExoPlayer {
                     .build(),
                 true
             )
+            setHandleAudioBecomingNoisy(true)
         }
 }
