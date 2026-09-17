@@ -226,10 +226,7 @@ private fun ReadAloudCardContent(
     // Resolved on demand when the overflow button is tapped, so we never query the whole feed up front.
     var isInReadingList by remember { mutableStateOf(false) }
     val showSpaceForPagerDots = (module?.cards?.size ?: 0) > 1
-    val playerState = rememberReadAloudPlayerState(
-        audioUrl = ReadAloudArticlesRepository.audioUrlFor(summary),
-        captionsUrl = ReadAloudArticlesRepository.captionsUrlFor(summary)
-    )
+    val playerState = rememberReadAloudPlayerState(summary = summary)
 
     val thumbnailUrl = summary.thumbnailUrl?.takeIf { it.isNotEmpty() }
         ?.let { ImageUrlUtil.getUrlForPreferredSize(it, Constants.PREFERRED_CARD_THUMBNAIL_SIZE) }

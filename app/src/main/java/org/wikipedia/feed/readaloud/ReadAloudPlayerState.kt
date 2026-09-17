@@ -8,6 +8,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableLongStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -25,6 +26,7 @@ import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.exoplayer.source.DefaultMediaSourceFactory
 import kotlinx.coroutines.delay
 import org.wikipedia.WikipediaApp
+import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.util.log.L
 import java.time.LocalDate
 import java.util.Locale
@@ -56,7 +58,15 @@ class ReadAloudPlayerState internal constructor(private val player: ExoPlayer?) 
 
     // When the recording was produced, and so how current the article text behind it is.
     var generatedDate by mutableStateOf<LocalDate?>(null)
-        internal set
+        private set
+
+    // Where the captions live, known only once the media has been resolved.
+    internal var captionsUrl by mutableStateOf<String?>(null)
+        private set
+
+    // Incremented to ask for the media a second time after resolving it failed.
+    internal var resolveAttempt by mutableIntStateOf(0)
+        private set
 
     // Flipped by the first tap on Play, which is what triggers the captions download: like the audio
     // itself, nothing is fetched for a card the user never listens to.
@@ -73,6 +83,12 @@ class ReadAloudPlayerState internal constructor(private val player: ExoPlayer?) 
 
     private var isPrepared = false
 
+    // The recording this card plays, which lands a moment after the card composes.
+    private var audioUrl: String? = null
+
+    // A tap on Play that arrived while the media was still being resolved, honored once it is.
+    private var isAwaitingMedia = false
+
     val displayPositionMillis get() = scrubPositionMillis ?: positionMillis
 
     /**
@@ -88,6 +104,12 @@ class ReadAloudPlayerState internal constructor(private val player: ExoPlayer?) 
         when {
             hasError -> retry()
             player.isPlaying -> player.pause()
+            // The media is still on its way: hold on to the intent to play and honor it the moment
+            // the media lands, or drop it again if the user taps a second time before that.
+            audioUrl == null -> {
+                isAwaitingMedia = !isAwaitingMedia
+                isBuffering = isAwaitingMedia
+            }
             else -> {
                 hasFinishedPlayback = false
                 prepareIfNeeded()
@@ -113,6 +135,31 @@ class ReadAloudPlayerState internal constructor(private val player: ExoPlayer?) 
     }
 
     /**
+     * Gives the player its recording, once the repository has worked out where that recording lives,
+     * picking up a tap on Play that arrived while it was still being resolved.
+     */
+    internal fun onMediaResolved(media: ReadAloudMedia?) {
+        if (media == null) {
+            isAwaitingMedia = false
+            isBuffering = false
+            hasError = true
+            return
+        }
+        audioUrl = media.audioUrl
+        captionsUrl = media.captionsUrl
+        generatedDate = media.generatedDate
+        player?.setMediaItem(MediaItem.fromUri(media.audioUrl))
+        if (isAwaitingMedia) {
+            isAwaitingMedia = false
+            hasFinishedPlayback = false
+            prepareIfNeeded()
+            // Buffering is left set until the player itself says otherwise, so the spinner carries
+            // straight through from waiting on the media into waiting on the audio.
+            player?.play()
+        }
+    }
+
+    /**
      * Nothing is fetched until the user actually starts playback, so merely scrolling past the card
      * never pulls down an audio file.
      */
@@ -126,6 +173,14 @@ class ReadAloudPlayerState internal constructor(private val player: ExoPlayer?) 
     private fun retry() {
         hasError = false
         hasFinishedPlayback = false
+        if (audioUrl == null) {
+            // It was resolving the media that failed, so there is nothing yet to prepare: ask for it
+            // again, and play as soon as it arrives.
+            isAwaitingMedia = true
+            isBuffering = true
+            resolveAttempt++
+            return
+        }
         isPrepared = false
         prepareIfNeeded()
         player?.play()
@@ -164,11 +219,11 @@ private fun List<ReadAloudCue>.indexOfCueStartedAt(millis: Long): Int {
 }
 
 @Composable
-fun rememberReadAloudPlayerState(audioUrl: String, captionsUrl: String): ReadAloudPlayerState {
+fun rememberReadAloudPlayerState(summary: PageSummary): ReadAloudPlayerState {
     val context = LocalContext.current
     // Previews render without a real player, so @Preview functions don't try to reach the network.
     val isPreview = LocalInspectionMode.current
-    val player = remember(audioUrl, isPreview) { if (isPreview) null else buildPlayer(context, audioUrl) }
+    val player = remember(summary.pageId, isPreview) { if (isPreview) null else buildPlayer(context) }
     val state = remember(player, isPreview) { ReadAloudPlayerState(player) }
 
     if (player == null) {
@@ -209,12 +264,15 @@ fun rememberReadAloudPlayerState(audioUrl: String, captionsUrl: String): ReadAlo
         }
     }
 
-    LaunchedEffect(audioUrl) {
-        state.generatedDate = ReadAloudArticlesRepository.fetchAudioGeneratedDate(audioUrl)
+    // Each recording is filed under the revision it was generated from, so where it lives can only
+    // be discovered over the network. This is the one request a card makes before it is played.
+    LaunchedEffect(summary.pageId, state.resolveAttempt) {
+        state.onMediaResolved(ReadAloudArticlesRepository.fetchLeadSectionMedia(summary))
     }
 
-    LaunchedEffect(captionsUrl, state.hasStartedPlayback) {
-        if (state.hasStartedPlayback && state.cues.isEmpty()) {
+    LaunchedEffect(state.captionsUrl, state.hasStartedPlayback) {
+        val captionsUrl = state.captionsUrl
+        if (captionsUrl != null && state.hasStartedPlayback && state.cues.isEmpty()) {
             state.cues = ReadAloudCaptions.fetch(captionsUrl)
         }
     }
@@ -235,14 +293,13 @@ fun formatPlaybackTime(millis: Long): String {
 }
 
 @OptIn(UnstableApi::class)
-private fun buildPlayer(context: Context, audioUrl: String): ExoPlayer {
+private fun buildPlayer(context: Context): ExoPlayer {
     val dataSourceFactory = DefaultHttpDataSource.Factory()
         .setUserAgent(WikipediaApp.instance.userAgent)
     return ExoPlayer.Builder(context)
         .setMediaSourceFactory(DefaultMediaSourceFactory(dataSourceFactory))
         .build()
         .apply {
-            setMediaItem(MediaItem.fromUri(audioUrl))
             setAudioAttributes(
                 AudioAttributes.Builder()
                     .setUsage(C.USAGE_MEDIA)

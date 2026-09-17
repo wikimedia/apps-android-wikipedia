@@ -9,10 +9,18 @@ import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.page.PageTitle
 import org.wikipedia.topics.ArticleTopics
-import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 import java.time.LocalDate
-import java.time.ZoneOffset
+
+/**
+ * The lead-section recording of one article, and the captions that accompany it.
+ */
+data class ReadAloudMedia(
+    val audioUrl: String,
+    val captionsUrl: String,
+    // When the recording was produced, and so how current the article text behind it is.
+    val generatedDate: LocalDate?
+)
 
 /**
  * Provides the hardcoded set of articles whose lead section has a pre-generated audio version,
@@ -21,34 +29,64 @@ import java.time.ZoneOffset
 object ReadAloudArticlesRepository {
     private const val ASSET_FILE_NAME = "ttsarticles.csv"
     private const val LANGUAGE_CODE = "en"
-    private const val AUDIO_BASE_URL = "https://wiki-tts.toolforge.org/audio/"
-    private const val LEAD_SECTION_NAME = "Lead"
+    private const val MEDIA_BASE_URL = "https://analytics.wikimedia.org/published/datasets/ml/tts/experiment-v1/enwiki/"
+    private const val AUDIO_FILE_NAME = "lead.mp3"
+    private const val CAPTIONS_FILE_NAME = "lead.vtt"
+
+    /**
+     * Matches a directory whose name is all digits — a revision id — in the listing the server
+     * renders, capturing the date from the "Last modified" column beside it. The `.` in a Kotlin
+     * regex doesn't span newlines, so the date can only ever be read from the row the revision
+     * itself was found on.
+     */
+    private val REVISION_ENTRY_REGEX = Regex("""href="(\d+)/".*?(\d{4}-\d{2}-\d{2})""")
 
     fun isSupported(wikiSite: WikiSite) = wikiSite.languageCode == LANGUAGE_CODE
 
-    fun audioUrlFor(summary: PageSummary) = mediaUrlFor(summary, "mp3")
-
-    fun captionsUrlFor(summary: PageSummary) = mediaUrlFor(summary, "vtt")
-
-    private fun mediaUrlFor(summary: PageSummary, extension: String) =
-        AUDIO_BASE_URL + UriUtil.encodeURL(summary.apiTitle) + "/$LEAD_SECTION_NAME.$extension"
-
     /**
-     * The date a recording was generated, which the service reports only as the `Last-Modified`
-     * header of the audio itself. Asking for a single byte gets us the headers without pulling down
-     * the whole recording.
+     * Resolves the recording of an article's lead section. The dataset files each one under the
+     * revision of the article it was generated from (`.../<pageId>/<revisionId>/lead.mp3`), and that
+     * revision is discoverable only from the directory listing the server renders for the article.
+     * The listing dates the recording too, which saves asking the audio itself for its
+     * `Last-Modified` header.
      */
-    suspend fun fetchAudioGeneratedDate(audioUrl: String): LocalDate? = withContext(Dispatchers.IO) {
+    suspend fun fetchLeadSectionMedia(summary: PageSummary): ReadAloudMedia? = withContext(Dispatchers.IO) {
+        val articleUrl = "$MEDIA_BASE_URL${summary.pageId}/"
         try {
-            val request = Request.Builder().url(audioUrl).header("Range", "bytes=0-0").build()
+            val request = Request.Builder().url(articleUrl).build()
             OkHttpConnectionFactory.client.newCall(request).execute().use { response ->
                 if (!response.isSuccessful) {
                     return@use null
                 }
-                // Kept in UTC, the zone the header states it in, so the date can't slip by a day for
-                // users whose own zone is behind or ahead of GMT.
-                response.headers.getInstant("Last-Modified")?.atZone(ZoneOffset.UTC)?.toLocalDate()
+                parseNewestRevision(response.body.string())?.let { (revisionId, generatedDate) ->
+                    ReadAloudMedia(
+                        audioUrl = "$articleUrl$revisionId/$AUDIO_FILE_NAME",
+                        captionsUrl = "$articleUrl$revisionId/$CAPTIONS_FILE_NAME",
+                        generatedDate = generatedDate
+                    )
+                }
             }
+        } catch (e: Exception) {
+            L.e(e)
+            null
+        }
+    }
+
+    /**
+     * An article normally has exactly one revision directory, but preferring the highest revision
+     * keeps us on the most recently generated recording if that ever stops being true.
+     */
+    private fun parseNewestRevision(listingHtml: String): Pair<Long, LocalDate?>? {
+        return REVISION_ENTRY_REGEX.findAll(listingHtml)
+            .mapNotNull { match ->
+                match.groupValues[1].toLongOrNull()?.let { it to parseListingDate(match.groupValues[2]) }
+            }
+            .maxByOrNull { it.first }
+    }
+
+    private fun parseListingDate(date: String): LocalDate? {
+        return try {
+            LocalDate.parse(date)
         } catch (e: Exception) {
             L.e(e)
             null
