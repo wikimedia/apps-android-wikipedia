@@ -47,14 +47,12 @@ fun SemanticSearchEntryCard(
             .padding(top = 12.dp)
             .wrapContentHeight()
     ) {
-        // Beta pill + Info button + Close button
         Row(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
-            // Beta pill + Info button
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
