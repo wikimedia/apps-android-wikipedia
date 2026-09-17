@@ -323,19 +323,28 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             }
         }
 
-        findPreference(R.string.preference_developer_semantic_search_override_supported_language).onPreferenceClickListener = Preference.OnPreferenceClickListener {
-            Prefs.semanticSearchLanguageOverride = true
-            true
+        (findPreference(R.string.preference_developer_semantic_search_override_supported_language) as TwoStatePreference).apply {
+            isChecked = Prefs.semanticSearchLanguageOverride
+            onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _, newValue ->
+                Prefs.semanticSearchLanguageOverride = newValue as Boolean
+                true
+            }
         }
 
-        findPreference(R.string.preference_developer_semantic_search_is_test_active).onPreferenceClickListener = Preference.OnPreferenceClickListener {
-            Prefs.semanticSearchIsTestActive = true
-            true
+        (findPreference(R.string.preference_developer_semantic_search_is_test_active) as TwoStatePreference).apply {
+            isChecked = Prefs.semanticSearchIsTestActive
+            onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _, newValue ->
+                Prefs.semanticSearchIsTestActive = newValue as Boolean
+                true
+            }
         }
 
-        findPreference(R.string.preference_developer_semantic_search_is_enabled).onPreferenceClickListener = Preference.OnPreferenceClickListener {
-            Prefs.isSemanticSearchEnabled = true
-            true
+        (findPreference(R.string.preference_developer_semantic_search_is_enabled) as TwoStatePreference).apply {
+            isChecked = Prefs.isSemanticSearchEnabled
+            onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _, newValue ->
+                Prefs.isSemanticSearchEnabled = newValue as Boolean
+                true
+            }
         }
 
         (findPreference(R.string.preference_developer_semantic_search_is_first_use) as TwoStatePreference).apply {

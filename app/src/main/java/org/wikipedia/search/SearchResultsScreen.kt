@@ -1,7 +1,6 @@
 package org.wikipedia.search
 
 import android.location.Location
-import android.util.Log
 import android.view.View
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.combinedClickable
@@ -71,6 +70,8 @@ fun SearchResultsScreen(
 ) {
     val searchResults = viewModel.searchResultsFlow.collectAsLazyPagingItems()
     val searchTerm = viewModel.searchTerm.collectAsState()
+    val isSemanticSearchEnabled = viewModel.isSemanticSearchEnabled.collectAsState()
+    val isSemanticSearchFirstUse = viewModel.isSemanticSearchFirstUse.collectAsState()
     val loadState = searchResults.loadState
     val countsPerLanguageCode = viewModel.countsPerLanguageCode
 
@@ -116,13 +117,14 @@ fun SearchResultsScreen(
                 }
 
                 else -> {
-                    Log.d("SearchResultsScreen", "first use prefs val: ${Prefs.isSemanticSearchFirstUse}")
                     SearchResultsList(
                         searchResultsPage = searchResults,
                         searchTerm = searchTerm.value,
                         onItemClick = onNavigateToTitle,
                         onItemLongClick = onItemLongClick,
-                        onSemanticSearchCloseClick = { viewModel.disableSemanticSearch() }
+                        onSemanticSearchCloseClick = { viewModel.disableSemanticSearch() },
+                        isSemanticSearchEnabled = isSemanticSearchEnabled.value,
+                        isSemanticSearchFirstUse = isSemanticSearchFirstUse.value
                     )
                 }
             }
@@ -138,23 +140,27 @@ fun SearchResultsList(
     onItemClick: (SearchResult, Boolean, Int, Location?) -> Unit,
     onItemLongClick: (View, SearchResult, Int) -> Unit,
     onSemanticSearchCloseClick: () -> Unit = {},
+    isSemanticSearchEnabled: Boolean,
+    isSemanticSearchFirstUse: Boolean,
 ) {
     LazyColumn(
         modifier = modifier
             .testTag(SEARCH_LIST_TAG)
     ) {
-        item {
-            SemanticSearchEntryCard(
-                searchTerm = searchTerm ?: "",
-                onCloseClick = { onSemanticSearchCloseClick() },
-                onInfoBtnClick = { },
-                onSemanticSearchClick = {
-                    if (Prefs.isSemanticSearchFirstUse) {
-                        Prefs.isSemanticSearchFirstUse = false
-                    }
-                },
-                isFirstUse = Prefs.isSemanticSearchFirstUse
-            )
+        if (isSemanticSearchEnabled) {
+            item {
+                SemanticSearchEntryCard(
+                    searchTerm = searchTerm ?: "",
+                    onCloseClick = { onSemanticSearchCloseClick() },
+                    onInfoBtnClick = { },
+                    onSemanticSearchClick = {
+                        if (isSemanticSearchFirstUse) {
+                            Prefs.isSemanticSearchFirstUse = false
+                        }
+                    },
+                    isFirstUse = isSemanticSearchFirstUse
+                )
+            }
         }
         items(
             count = searchResultsPage.itemCount
