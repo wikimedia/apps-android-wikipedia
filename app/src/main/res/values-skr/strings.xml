@@ -756,8 +756,6 @@
   <string name="donation_settings_section_header">عطیے</string>
   <string name="donation_reminders_prompt_negative_button">ہُݨ نہ</string>
   <string name="donation_reminders_experiment_label" fuzzy="true">تجربہ</string>
-  <string name="hybrid_search_onboarding_learn_more">ٻیا سِکھو</string>
-  <string name="hybrid_search_beta_tag">آزمائشی</string>
   <string name="reading_challenge_onboarding_win_title">انعام جیتو</string>
   <string name="reading_challenge_onboarding_learn_more_button">ٻیا سِکھو</string>
   <string name="reading_challenge_onboarding_prompt_no_thanks">کو، شکریہ</string>
