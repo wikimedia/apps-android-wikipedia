@@ -10,6 +10,7 @@ import androidx.preference.Preference
 import androidx.preference.PreferenceCategory
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceGroup
+import androidx.preference.TwoStatePreference
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
@@ -337,9 +338,12 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             true
         }
 
-        findPreference(R.string.preference_developer_semantic_search_is_first_use).onPreferenceClickListener = Preference.OnPreferenceClickListener {
-            Prefs.isSemanticSearchFirstUse = true
-            true
+        (findPreference(R.string.preference_developer_semantic_search_is_first_use) as TwoStatePreference).apply {
+            isChecked = Prefs.isSemanticSearchFirstUse
+            onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _, newValue ->
+                Prefs.isSemanticSearchFirstUse = newValue as Boolean
+                true
+            }
         }
 
         addABTestPreferences()

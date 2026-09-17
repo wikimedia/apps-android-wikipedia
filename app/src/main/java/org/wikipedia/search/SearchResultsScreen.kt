@@ -1,6 +1,7 @@
 package org.wikipedia.search
 
 import android.location.Location
+import android.util.Log
 import android.view.View
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.combinedClickable
@@ -115,6 +116,7 @@ fun SearchResultsScreen(
                 }
 
                 else -> {
+                    Log.d("SearchResultsScreen", "first use prefs val: ${Prefs.isSemanticSearchFirstUse}")
                     SearchResultsList(
                         searchResultsPage = searchResults,
                         searchTerm = searchTerm.value,

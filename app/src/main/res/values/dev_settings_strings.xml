@@ -50,7 +50,7 @@
     <string name="preference_developer_otd_reset_notification_state">Reset otd game notification state</string>
     <string name="preference_developer_semantic_search_heading">Semantic Search</string>
     <string name="preference_developer_semantic_search_override_supported_language">overrideSupportedLanguages</string>
-    <string name="preference_developer_semantic_search_is_test_active">isTestActive</string>
+    <string name="preference_developer_semantic_search_is_test_active">isSemanticSearchTestActive</string>
     <string name="preference_developer_semantic_search_is_enabled">isSemanticSearchEnabled</string>
-    <string name="preference_developer_semantic_search_is_first_use">isFirstUse</string>
+    <string name="preference_developer_semantic_search_is_first_use">isSemanticSearchFirstUse</string>
 </resources>
