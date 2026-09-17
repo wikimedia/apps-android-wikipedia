@@ -6,10 +6,10 @@ import org.wikipedia.database.AppDatabase
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
 
-class ReadAloudLeadSectionABTest : ABTest("readAloudLeadSection", GROUP_SIZE_2) {
+class ReadAloudLeadSectionABTest : ABTest("readaloudleadsection", GROUP_SIZE_2) {
     override fun getGroupName(): String {
         return when (group) {
-            GROUP_2 -> "test"
+            GROUP_2 -> "treatment"
             else -> "control"
         }
     }
