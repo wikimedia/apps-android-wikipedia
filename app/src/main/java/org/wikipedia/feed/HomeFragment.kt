@@ -35,6 +35,7 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.didyouknow.DidYouKnowActivity
+import org.wikipedia.feed.interests.NewWithinInterestABTest
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.DidYouKnowCard
 import org.wikipedia.feed.model.DiscoverCard
@@ -95,8 +96,13 @@ class HomeFragment : Fragment(), LinkPreviewDialog.LoadPageCallback {
     private val pageOverflowMenuViewModel: PageOverflowMenuViewModel by viewModels()
     private val cardImpressions = mutableSetOf<String>()
     private val instrument = TestKitchenAdapter.client.getInstrument("apps-home-feed")
-        .startFunnel("home_feed")
-        .setExperiment(TestKitchenAdapter.getExperiment(ReadAloudLeadSectionABTest()))
+        .startFunnel("home_feed").also {
+            if (NewWithinInterestABTest().isTestActive()) {
+                it.setExperiment(TestKitchenAdapter.getExperiment(NewWithinInterestABTest()))
+            } else if (ReadAloudLeadSectionABTest().isTestActive()) {
+                it.setExperiment(TestKitchenAdapter.getExperiment(ReadAloudLeadSectionABTest()))
+            }
+        }
 
     private val personalizationResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_OK) {
