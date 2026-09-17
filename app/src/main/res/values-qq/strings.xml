@@ -2176,6 +2176,9 @@
   <string name="donation_reminders_eoe_message">Message shown at the end of the experiment for the donation reminder. %s is replaced by the pledged amount.</string>
   <string name="donation_reminders_eoe_give_monthly_button">Label for the button that allows the user to give monthly.</string>
   <string name="donation_reminders_eoe_donate_dialog_title">Title of the donation dialog that asks the user how they would like to give monthly.</string>
+  <string name="semantic_search_info_dialog_title">Title for the semantic search info dialog.</string>
+  <string name="semantic_search_info_dialog_message">Message for the semantic search info dialog.</string>
+  <string name="semantic_search_info_dialog_button_text">Button text for the semantic search info dialog.</string>
   <string name="reading_challenge_widget_name">Display name for the small Reading Challenge home screen widget.</string>
   <string name="reading_challenge_onboarding_header">Title of the onboarding screen for the Reading challenge.</string>
   <string name="reading_challenge_onboarding_read_title">Title of the first item in onboarding screen for the Reading challenge that indicates read one article for 25 days to complete the challenge.</string>
