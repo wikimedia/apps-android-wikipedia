@@ -44,6 +44,7 @@ fun SemanticSearchEntryCard(
 ) {
     Column(
         modifier = Modifier
+            .padding(top = 12.dp)
             .wrapContentHeight()
     ) {
         // Beta pill + Info button + Close button

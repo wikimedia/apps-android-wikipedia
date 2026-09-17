@@ -34,7 +34,7 @@ class SemanticSearchAbTest : ABTest("apps_semantic_search", GROUP_SIZE_2) {
     }
 
     private val supportedLanguages = listOf(
-        "ja", "ab", "fr"
+        "ja", "ar", "fr"
     )
 
     fun isSemanticSearchEnabled(languageCode: String?): Boolean {
