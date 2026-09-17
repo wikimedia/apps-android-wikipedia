@@ -57,8 +57,14 @@ object JavaScriptActionHandler {
                 "          color: #000000 !important;" +
                 "      }" +
                 "      :root::search-text:current {" +
-                "           background-color: $currentHighlightColor !important;" +
-                "           color: #000000 !important;" +
+                "          background-color: $currentHighlightColor !important;" +
+                "          color: #000000 !important;" +
+                "      }" +
+                "      a::search-text { " +
+                "          text-decoration: underline !important; " +
+                "      }" +
+                "      a::search-text:current { " +
+                "          text-decoration: underline !important; " +
                 "      }" +
                 "  `;" +
                 "  document.head.appendChild(style);" +
