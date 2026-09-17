@@ -14,6 +14,10 @@ class SemanticSearchAbTest : ABTest("apps_semantic_search", GROUP_SIZE_2) {
     }
 
     fun isTestActive(): Boolean {
+        // TODO: remove the Prefs check before release
+        if (Prefs.semanticSearchIsTestActive) {
+            return true
+        }
         return RemoteConfig.config.androidv1?.hybridSearchEnabled ?: false // TODO: update to the new variable.
     }
 
@@ -22,6 +26,10 @@ class SemanticSearchAbTest : ABTest("apps_semantic_search", GROUP_SIZE_2) {
     }
 
     private fun isLanguageSupported(languageCode: String?): Boolean {
+        // TODO: remove the Prefs check before release
+        if (Prefs.semanticSearchLanguageOverride) {
+            return true
+        }
         return supportedLanguages.any { it.equals(languageCode, true) }
     }
 

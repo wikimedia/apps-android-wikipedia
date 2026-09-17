@@ -577,6 +577,14 @@
 
     <PreferenceCategory android:title="@string/preference_developer_semantic_search_heading">
         <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_developer_semantic_search_is_enabled"
+            android:title="@string/preference_developer_semantic_search_is_enabled"/>
+
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_developer_semantic_search_is_first_use"
+            android:title="@string/preference_developer_semantic_search_is_first_use"/>
+
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_developer_semantic_search_override_supported_language"
             android:title="@string/preference_developer_semantic_search_override_supported_language"/>
 

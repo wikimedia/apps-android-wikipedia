@@ -332,6 +332,16 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             true
         }
 
+        findPreference(R.string.preference_developer_semantic_search_is_enabled).onPreferenceClickListener = Preference.OnPreferenceClickListener {
+            Prefs.isSemanticSearchEnabled = true
+            true
+        }
+
+        findPreference(R.string.preference_developer_semantic_search_is_first_use).onPreferenceClickListener = Preference.OnPreferenceClickListener {
+            Prefs.isSemanticSearchFirstUse = true
+            true
+        }
+
         addABTestPreferences()
     }
 
