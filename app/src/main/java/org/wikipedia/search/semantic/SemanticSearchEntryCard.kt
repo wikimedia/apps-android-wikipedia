@@ -140,6 +140,7 @@ fun SemanticSearchEntryCard(
                     Text(
                         text = stringResource(R.string.semantic_search_entry_point_card_text_button),
                         style = MaterialTheme.typography.bodyMedium,
+                        fontWeight = FontWeight.Medium,
                         color = WikipediaTheme.colors.progressiveColor
                     )
                 }
