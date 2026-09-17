@@ -608,6 +608,9 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
                     if (isAdded) {
                         FeedbackUtil.showTooltip(requireActivity(), binding.mainNavTabLayout.findViewById(NavTab.HOME.id),
                             getString(R.string.read_aloud_lead_section_tooltip_text), aboveOrBelow = true, autoDismiss = false, showDismissButton = true)
+                        // For the purposes of this experiment, explicitly clear today's cache of For You content,
+                        // so that the Audio content can be loaded when the user goes to For You.
+                        Prefs.homeForYouModulesToday = ""
                     }
                 }
             }
