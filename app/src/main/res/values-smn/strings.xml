@@ -680,10 +680,6 @@
   <string name="recommended_reading_list_settings_updates_base_snackbar_action">Koomeet</string>
   <string name="recommended_reading_list_settings_notifications_title">Almottâsah</string>
   <string name="donation_reminders_settings_learn_more_button">Lasetiäđuh</string>
-  <string name="hybrid_search_search_hint">Uusâ tâi koijâd maid peri</string>
-  <string name="hybrid_search_suggestion_title">Uusâ:</string>
-  <string name="hybrid_search_onboarding_learn_more">Lasetiäđuh</string>
-  <string name="hybrid_search_onboarding_screen_title">Uđđâ vyehi uuccâđ</string>
   <string name="reading_challenge_onboarding_prompt_login">Čáládât siisâ / seervâ Wikipedian</string>
   <string name="reading_challenge_install_prompt_add">Lasseet</string>
   <string name="reading_challenge_widget_explore_button">Tuuđhâ</string>
