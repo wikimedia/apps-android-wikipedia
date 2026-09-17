@@ -39,7 +39,7 @@ class SemanticSearchInfoDialog : ExtendedBottomSheetDialogFragment() {
                 SemanticSearchInfoDialogContent(
                     onCloseClick = { dismiss() },
                     onLearnMoreClick = {
-                        UriUtil.visitInExternalBrowser(requireContext(), getString(R.string.semantic_search_info_link_phase2).toUri())
+                        UriUtil.visitInExternalBrowser(requireContext(), getString(R.string.semantic_search_info_learn_more_url).toUri())
                         dismiss()
                     }
                 )
