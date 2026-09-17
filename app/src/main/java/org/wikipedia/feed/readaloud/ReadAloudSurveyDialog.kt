@@ -118,7 +118,7 @@ fun ReadAloudSurveyDialog(
                 onSubmitClick = { choiceIndex, otherText ->
                     val actionContext = mutableMapOf<String, Any>()
                     if (choiceIndex != null) {
-                        actionContext["choice"] = choiceIndex
+                        actionContext["choice"] = choiceIndex + 1
                     }
                     if (otherText.isNotEmpty()) {
                         actionContext["text"] = otherText
