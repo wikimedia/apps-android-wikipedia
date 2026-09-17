@@ -98,7 +98,7 @@ fun SemanticSearchEntryCard(
                 Icon(
                     painter = painterResource(R.drawable.ic_close_black_24dp),
                     tint = WikipediaTheme.colors.progressiveColor,
-                    contentDescription = null
+                    contentDescription = stringResource(R.string.semantic_search_close_btn_content_description)
                 )
             }
         }
