@@ -8,12 +8,14 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
@@ -57,9 +59,6 @@ fun SemanticSearchEntryCard(
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     modifier = Modifier
-                        .background(
-                            color = WikipediaTheme.colors.backgroundColor,
-                        )
                         .border(
                             width = 1.dp,
                             color = WikipediaTheme.colors.borderColor,
@@ -70,7 +69,7 @@ fun SemanticSearchEntryCard(
                     Icon(
                         modifier = Modifier,
                         painter = painterResource(R.drawable.ic_experiment_24dp),
-                        tint = WikipediaTheme.colors.inactiveColor,
+                        tint = WikipediaTheme.colors.secondaryColor,
                         contentDescription = null
                     )
 
@@ -81,6 +80,8 @@ fun SemanticSearchEntryCard(
                         color = WikipediaTheme.colors.primaryColor
                     )
                 }
+
+                Spacer(modifier = Modifier.width(8.dp))
 
                 IconButton(
                     modifier = Modifier.size(48.dp),
@@ -106,6 +107,8 @@ fun SemanticSearchEntryCard(
             }
         }
 
+        Spacer(modifier = Modifier.height(8.dp))
+
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -122,7 +125,6 @@ fun SemanticSearchEntryCard(
             ) {
                 searchTerm?.let { searchText ->
                     Text(
-                        modifier = Modifier.padding(top = 8.dp),
                         text = searchText,
                         style = MaterialTheme.typography.titleMedium,
                         color = WikipediaTheme.colors.primaryColor
