@@ -2387,4 +2387,5 @@
   <string name="semantic_search_info_dialog_title">Title for the semantic search info dialog.</string>
   <string name="semantic_search_info_dialog_message">Message for the semantic search info dialog.</string>
   <string name="semantic_search_info_dialog_button_text">Button text for the semantic search info dialog.</string>
+  <string name="semantic_search_info_btn_content_description">Text for the context description of the semantic search information icon button</string>
 </resources>
