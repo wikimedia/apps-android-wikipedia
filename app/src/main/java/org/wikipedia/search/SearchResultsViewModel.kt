@@ -36,7 +36,7 @@ class SearchResultsViewModel : ViewModel() {
     private val semanticSearchEnabledPrefUpdates = Prefs.observeKeys(
         R.string.preference_key_semantic_search_enabled,
         R.string.preference_key_semantic_search_is_test_active, // TODO: remove this before release
-        R.string.preference_key_semantic_search_override_supported_language //TODO: remove this before release
+        R.string.preference_key_semantic_search_override_supported_language // TODO: remove this before release
     )
     private val semanticSearchIsFirstUsePrefUpdates = Prefs.observeKeys(
         R.string.preference_key_semantic_search_first_use
