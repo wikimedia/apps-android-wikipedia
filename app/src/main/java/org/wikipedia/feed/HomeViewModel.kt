@@ -832,26 +832,27 @@ class HomeViewModel : ViewModel() {
                 }
                 // All the cards in this module come from a single topic, so the first of the user's
                 // topics that has any articles with an audio version supplies the whole module.
-                val readAloudCards = AppDatabase.instance.topicInterestDao().getAllRandom()
-                    .firstNotNullOfOrNull { topic ->
-                        ReadAloudArticlesRepository
-                            .randomArticlesForTopic(currentWikiSite, topic.topicId, 4)
-                            .map { ReadAloudLeadSectionCard(it, topic) }
-                            .takeIf { it.isNotEmpty() }
+                val readAloudCards = mutableListOf<ReadAloudLeadSectionCard>()
+                AppDatabase.instance.topicInterestDao().getAllRandom().firstOrNull()?.let { topic ->
+                    val readAloudTitles = ReadAloudArticlesRepository
+                        .randomArticlesForTopic(currentWikiSite, topic.topicId, 4)
+                    if (readAloudTitles.isNotEmpty()) {
+                        readAloudCards.addAll(ServiceFactory.get(currentWikiSite)
+                            .getInfoWithExtractsByPageTitles(readAloudTitles.fastJoinToString("|") { it.prefixedText })
+                            .query?.pages?.map { page ->
+                                PageSummary(
+                                    prefixTitle = page.title,
+                                    displayTitle = page.displayTitle(currentWikiSite.languageCode),
+                                    description = page.description,
+                                    extract = page.extract,
+                                    thumbnail = page.thumbUrl(),
+                                    lang = currentWikiSite.languageCode,
+                                    pageId = page.pageId
+                                )
+                            }?.map { summary ->
+                                ReadAloudLeadSectionCard(summary, topic)
+                            }?.filterNot { hiddenCards.contains(it.hideKey) }.orEmpty())
                     }
-                    .orEmpty()
-                    .filterNot { hiddenCards.contains(it.hideKey) }
-                if (readAloudCards.isNotEmpty()) {
-                    ServiceFactory.get(currentWikiSite)
-                        .getInfoWithExtractsByPageTitles(readAloudCards.fastJoinToString("|") { it.title.prefixedText })
-                        .query?.pages?.forEach { page ->
-                            readAloudCards.find { it.title.prefixedText == StringUtil.addUnderscores(page.title) }?.title?.let {
-                                it.description = page.description
-                                it.thumbUrl = page.thumbUrl()
-                                it.displayText = page.displayTitle(currentWikiSite.languageCode)
-                                it.extract = page.extract
-                            }
-                        }
                 }
                 readAloudCards
             }

@@ -1,15 +1,15 @@
 package org.wikipedia.feed.model
 
 import kotlinx.serialization.Serializable
+import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.feed.personalization.db.entity.InterestTopic
-import org.wikipedia.page.PageTitle
 
 @Serializable
 class ReadAloudLeadSectionCard(
-    val title: PageTitle,
+    val summary: PageSummary,
     val interestTopic: InterestTopic
 ) : ForYouCard() {
     override fun dismissHashCode(): Int {
-        return title.hashCode()
+        return summary.apiTitle.hashCode() + summary.lang.hashCode()
     }
 }

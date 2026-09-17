@@ -19,7 +19,7 @@ class ReadAloudLeadSectionABTest : ABTest("readAloudLeadSection", GROUP_SIZE_2) 
     }
 
     fun isTestActive(): Boolean {
-        return RemoteConfig.config.androidv1?.readAloudLeadSectionEnabled ?: false
+        return if (Prefs.readAloudLeadSectionOverrideConfig) true else (RemoteConfig.config.androidv1?.readAloudLeadSectionEnabled ?: false)
     }
 
     suspend fun shouldShowToolTip(): Boolean {

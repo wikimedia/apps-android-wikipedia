@@ -79,6 +79,7 @@ import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.extensions.getString
 import org.wikipedia.feed.ForYouCardDropdownMenu
 import org.wikipedia.feed.ForYouModule
@@ -162,12 +163,13 @@ fun ReadAloudLeadSectionModule(
         onCardInView = onCardInView
     ) { pageIndex ->
         val card = module.cards[pageIndex] as ReadAloudLeadSectionCard
-        val historyEntry = HistoryEntry(card.title, HistoryEntry.SOURCE_FEED_READ_ALOUD)
+        val pageTitle = card.summary.getPageTitle(wikiSite)
+        val historyEntry = HistoryEntry(pageTitle, HistoryEntry.SOURCE_FEED_READ_ALOUD)
         val topic = ArticleTopics.all.find { it.topicId == card.interestTopic.topicId }
 
         ReadAloudCardContent(
             wikiSite = wikiSite,
-            title = card.title,
+            summary = card.summary,
             resolveSavedState = resolveSavedState,
             backgroundColorIndex = backgroundColorIndex + pageIndex,
             module = module,
@@ -201,7 +203,7 @@ fun ReadAloudLeadSectionModule(
 @Composable
 private fun ReadAloudCardContent(
     wikiSite: WikiSite,
-    title: PageTitle,
+    summary: PageSummary,
     resolveSavedState: suspend (PageTitle) -> Boolean = { false },
     backgroundColorIndex: Int = 0,
     module: ForYouModule? = null,
@@ -225,11 +227,11 @@ private fun ReadAloudCardContent(
     var isInReadingList by remember { mutableStateOf(false) }
     val showSpaceForPagerDots = (module?.cards?.size ?: 0) > 1
     val playerState = rememberReadAloudPlayerState(
-        audioUrl = ReadAloudArticlesRepository.audioUrlFor(title),
-        captionsUrl = ReadAloudArticlesRepository.captionsUrlFor(title)
+        audioUrl = ReadAloudArticlesRepository.audioUrlFor(summary),
+        captionsUrl = ReadAloudArticlesRepository.captionsUrlFor(summary)
     )
 
-    val thumbnailUrl = title.thumbUrl?.takeIf { it.isNotEmpty() }
+    val thumbnailUrl = summary.thumbnailUrl?.takeIf { it.isNotEmpty() }
         ?.let { ImageUrlUtil.getUrlForPreferredSize(it, Constants.PREFERRED_CARD_THUMBNAIL_SIZE) }
     val fallbackColor = colorResource(noImageCardBackgroundColors[backgroundColorIndex % noImageCardBackgroundColors.size])
     var thumbnailColor by remember(thumbnailUrl) { mutableStateOf(fallbackColor) }
@@ -360,7 +362,7 @@ private fun ReadAloudCardContent(
                 ) {
                     HtmlText(
                         modifier = Modifier.weight(1f).padding(start = 16.dp, top = 8.dp),
-                        text = title.displayText,
+                        text = summary.displayTitle,
                         color = Color.White,
                         style = MaterialTheme.typography.titleLarge.copy(
                             fontFamily = FontFamily.Serif
@@ -371,7 +373,7 @@ private fun ReadAloudCardContent(
                         modifier = Modifier.size(48.dp),
                         onClick = {
                             scope.launch {
-                                isInReadingList = resolveSavedState(title)
+                                isInReadingList = resolveSavedState(summary.getPageTitle(wikiSite))
                                 overflowMenuExpanded = true
                             }
                         }
@@ -405,7 +407,7 @@ private fun ReadAloudCardContent(
                         .padding(horizontal = 16.dp)
                 ) {
                     if (playerState.cues.isEmpty()) {
-                        (title.extract ?: title.description)?.let {
+                        (summary.extract ?: summary.description)?.let {
                             HtmlText(
                                 text = it,
                                 color = Color.White,
@@ -425,7 +427,7 @@ private fun ReadAloudCardContent(
                 ReadAloudPlaybackControls(
                     modifier = Modifier.padding(start = 8.dp, end = 16.dp, top = 8.dp),
                     wikiSite = wikiSite,
-                    pageTitle = title,
+                    summary = summary,
                     playerState = playerState,
                     onPlayClick = onPlayClick,
                     onShowSurvey = onShowSurvey
@@ -492,7 +494,7 @@ private fun ReadAloudTranscript(
 private fun ReadAloudPlaybackControls(
     modifier: Modifier = Modifier,
     wikiSite: WikiSite,
-    pageTitle: PageTitle,
+    summary: PageSummary,
     playerState: ReadAloudPlayerState,
     onPlayClick: () -> Unit = {},
     onShowSurvey: () -> Unit = {}
@@ -510,8 +512,8 @@ private fun ReadAloudPlaybackControls(
                 onClick = {
                     onPlayClick()
                     playerState.playOrPause()
-                    if (currentPlayedTitle != pageTitle.prefixedText) {
-                        currentPlayedTitle = pageTitle.prefixedText
+                    if (currentPlayedTitle != summary.apiTitle) {
+                        currentPlayedTitle = summary.apiTitle
                         if (ReadAloudSurveyDialog.shouldShow(byDate = false)) {
                             onShowSurvey()
                         }
@@ -624,7 +626,7 @@ private fun ReadAloudPlaybackControls(
 @Preview
 @Composable
 fun ReadAloudLeadSectionCardPreviewWithImage() {
-    val card = ReadAloudLeadSectionCard(PageTitle.preview(), InterestTopic("architecture"))
+    val card = ReadAloudLeadSectionCard(PageSummary.preview(), InterestTopic("architecture"))
     BaseTheme(currentTheme = Theme.LIGHT) {
         ReadAloudLeadSectionModule(
             wikiSite = WikiSite.preview(),
@@ -636,7 +638,7 @@ fun ReadAloudLeadSectionCardPreviewWithImage() {
 @Preview
 @Composable
 fun ReadAloudLeadSectionCardPreviewNoImage() {
-    val card = ReadAloudLeadSectionCard(PageTitle.preview(withThumbnail = false), InterestTopic("music"))
+    val card = ReadAloudLeadSectionCard(PageSummary.preview(withThumbnail = false), InterestTopic("music"))
     BaseTheme(currentTheme = Theme.LIGHT) {
         ReadAloudLeadSectionModule(
             wikiSite = WikiSite.preview(),

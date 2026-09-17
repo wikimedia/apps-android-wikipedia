@@ -6,6 +6,7 @@ import okhttp3.Request
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
+import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.page.PageTitle
 import org.wikipedia.topics.ArticleTopics
 import org.wikipedia.util.UriUtil
@@ -25,12 +26,12 @@ object ReadAloudArticlesRepository {
 
     fun isSupported(wikiSite: WikiSite) = wikiSite.languageCode == LANGUAGE_CODE
 
-    fun audioUrlFor(title: PageTitle) = mediaUrlFor(title, "mp3")
+    fun audioUrlFor(summary: PageSummary) = mediaUrlFor(summary, "mp3")
 
-    fun captionsUrlFor(title: PageTitle) = mediaUrlFor(title, "vtt")
+    fun captionsUrlFor(summary: PageSummary) = mediaUrlFor(summary, "vtt")
 
-    private fun mediaUrlFor(title: PageTitle, extension: String) =
-        AUDIO_BASE_URL + UriUtil.encodeURL(title.prefixedText) + "/$LEAD_SECTION_NAME.$extension"
+    private fun mediaUrlFor(summary: PageSummary, extension: String) =
+        AUDIO_BASE_URL + UriUtil.encodeURL(summary.apiTitle) + "/$LEAD_SECTION_NAME.$extension"
 
     /**
      * The date a recording was generated, which the service reports only as the `Last-Modified`

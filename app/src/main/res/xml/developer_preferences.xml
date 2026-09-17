@@ -583,6 +583,9 @@
             style="@style/EditTextAutoSummarizePreference"
             android:key="@string/preference_key_read_aloud_last_played_date"
             android:title="@string/preference_key_read_aloud_last_played_date" />
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_read_aloud_lead_section_override_config"
+            android:title="@string/preference_key_read_aloud_lead_section_override_config"/>
 
     </PreferenceCategory>
 
