@@ -79,8 +79,6 @@ fun SemanticSearchEntryCard(
                     )
                 }
 
-                Spacer(modifier = Modifier.width(8.dp))
-
                 IconButton(
                     modifier = Modifier.size(48.dp),
                     onClick = { onInfoBtnClick() }
