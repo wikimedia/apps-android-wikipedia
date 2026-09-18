@@ -42,6 +42,7 @@ import org.wikipedia.util.ReleaseUtil.isDevRelease
 import org.wikipedia.util.StringUtil
 import org.wikipedia.watchlist.WatchlistFilterTypes
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetRepository
+import org.wikipedia.yearinreview.YearInReviewCachedStats
 import org.wikipedia.yearinreview.YearInReviewModel
 import org.wikipedia.yearinreview.YearInReviewSurveyState
 import java.util.Date
@@ -905,6 +906,11 @@ object Prefs {
         get() = JsonUtil.decodeFromString<Map<Int, YearInReviewModel>>(PrefsIoUtil.getString(R.string.preference_key_yir_model_data, null))
             ?: emptyMap()
         set(modelDataWithYear) = PrefsIoUtil.setString(R.string.preference_key_yir_model_data, JsonUtil.encodeToString(modelDataWithYear))
+
+    var yearInReviewCachedStats
+        get() = JsonUtil.decodeFromString<Map<Int, YearInReviewCachedStats>>(PrefsIoUtil.getString(R.string.preference_key_yir_cached_stats, null))
+            ?: emptyMap()
+        set(statsByYear) = PrefsIoUtil.setString(R.string.preference_key_yir_cached_stats, JsonUtil.encodeToString(statsByYear))
 
     var selectedAppIcon
         get() = PrefsIoUtil.getString(R.string.preference_key_selected_app_icon, LauncherIcon.DEFAULT.key)

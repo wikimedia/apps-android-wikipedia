@@ -268,6 +268,7 @@ class WikipediaApp : Application() {
         Prefs.impactLastQueryTime = 0
         Prefs.impactLastResponseBody = emptyMap()
         Prefs.yearInReviewModelData = emptyMap()
+        Prefs.yearInReviewCachedStats = emptyMap()
         SharedPreferenceCookieManager.instance.clearAllCookies()
         MainScope().launch {
             AppDatabase.instance.notificationDao().deleteAll()
