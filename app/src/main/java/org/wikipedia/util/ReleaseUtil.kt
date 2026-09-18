@@ -38,6 +38,10 @@ object ReleaseUtil {
         return channel
     }
 
+    fun isAAOS(): Boolean {
+        return BuildConfig.VERSION_NAME.contains("aaos")
+    }
+
     private fun calculateReleaseType(): Int {
         return when {
             BuildConfig.APPLICATION_ID.contains("beta") -> RELEASE_BETA

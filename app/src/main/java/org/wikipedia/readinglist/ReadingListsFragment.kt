@@ -190,9 +190,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         if (Prefs.isReadingListSyncEnabled) {
             return
         }
-        if (AccountUtil.isLoggedIn) {
-            ReadingListSyncBehaviorDialogs.promptEnableSyncDialog(requireActivity())
-        }
     }
 
     private fun onRefresh() {
