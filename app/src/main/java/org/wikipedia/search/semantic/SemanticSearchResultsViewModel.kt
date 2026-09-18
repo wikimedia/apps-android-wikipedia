@@ -50,7 +50,7 @@ class SemanticSearchResultsViewModel(savedStateHandle: SavedStateHandle) : ViewM
             // TODO: adding additional API requests for edit counts and reference counts
             val semanticDeferred = async {
                 runCatching {
-                    val response = ServiceFactory.get(wikiSite).fullTextSearchResponse(searchQuery, semanticBatchSize, 0, isSemantic = true)
+                    val response = ServiceFactory.get(wikiSite).fullTextSearchResponse(searchQuery, semanticBatchSize, 0, semanticSearchType = "hl")
                     SearchResultsViewModel.buildList(response.body(), invokeSource, wikiSite, type = SearchResult.SearchResultType.SEMANTIC)
                 }
             }
