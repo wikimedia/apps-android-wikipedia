@@ -49,6 +49,8 @@ import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.extensions.toAnnotatedStringWithBoldQuery
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.search.semantic.SemanticSearchEntryCard
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.views.imageservice.ImageService
@@ -62,12 +64,15 @@ fun SearchResultsScreen(
     onNavigateToTitle: (SearchResult, Boolean, Int, Location?) -> Unit,
     onItemLongClick: (View, SearchResult, Int) -> Unit,
     onLanguageClick: (Int) -> Unit,
+    onSemanticSearchInfoClick: () -> Unit,
     onCloseSearch: () -> Unit,
     onRetrySearch: () -> Unit,
     onLoading: (Boolean) -> Unit,
 ) {
     val searchResults = viewModel.searchResultsFlow.collectAsLazyPagingItems()
     val searchTerm = viewModel.searchTerm.collectAsState()
+    val isSemanticSearchEnabled = viewModel.isSemanticSearchEnabled.collectAsState()
+    val isSemanticSearchFirstUse = viewModel.isSemanticSearchFirstUse.collectAsState()
     val loadState = searchResults.loadState
     val countsPerLanguageCode = viewModel.countsPerLanguageCode
 
@@ -117,7 +122,11 @@ fun SearchResultsScreen(
                         searchResultsPage = searchResults,
                         searchTerm = searchTerm.value,
                         onItemClick = onNavigateToTitle,
-                        onItemLongClick = onItemLongClick
+                        onItemLongClick = onItemLongClick,
+                        onSemanticSearchCloseClick = { viewModel.disableSemanticSearch() },
+                        onSemanticSearchInfoClick = { onSemanticSearchInfoClick() },
+                        isSemanticSearchEnabled = isSemanticSearchEnabled.value,
+                        isSemanticSearchFirstUse = isSemanticSearchFirstUse.value
                     )
                 }
             }
@@ -127,16 +136,35 @@ fun SearchResultsScreen(
 
 @Composable
 fun SearchResultsList(
+    modifier: Modifier = Modifier,
     searchResultsPage: LazyPagingItems<SearchResult>,
     searchTerm: String?,
     onItemClick: (SearchResult, Boolean, Int, Location?) -> Unit,
     onItemLongClick: (View, SearchResult, Int) -> Unit,
-    modifier: Modifier = Modifier
+    onSemanticSearchCloseClick: () -> Unit = {},
+    onSemanticSearchInfoClick: () -> Unit = {},
+    isSemanticSearchEnabled: Boolean,
+    isSemanticSearchFirstUse: Boolean,
 ) {
     LazyColumn(
         modifier = modifier
             .testTag(SEARCH_LIST_TAG)
     ) {
+        if (isSemanticSearchEnabled) {
+            item {
+                SemanticSearchEntryCard(
+                    searchTerm = searchTerm ?: "",
+                    onCloseClick = { onSemanticSearchCloseClick() },
+                    onInfoBtnClick = { onSemanticSearchInfoClick() },
+                    onSemanticSearchClick = {
+                        if (isSemanticSearchFirstUse) {
+                            Prefs.isSemanticSearchFirstUse = false
+                        }
+                    },
+                    isFirstUse = isSemanticSearchFirstUse
+                )
+            }
+        }
         items(
             count = searchResultsPage.itemCount
         ) { index ->
