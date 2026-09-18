@@ -413,7 +413,7 @@ private fun ReadAloudCardContent(
                     modifier = Modifier
                         .padding(horizontal = 16.dp)
                 ) {
-                    if (playerState.cues.isEmpty()) {
+                    if (!playerState.hasStartedPlayback || playerState.cues.isEmpty()) {
                         (summary.extract ?: summary.description)?.let {
                             HtmlText(
                                 text = it,

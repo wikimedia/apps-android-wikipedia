@@ -56,22 +56,18 @@ class ReadAloudPlayerState internal constructor(private val player: ExoPlayer?) 
         internal set
 
     var cues by mutableStateOf<List<ReadAloudCue>>(emptyList())
-        internal set
+        private set
 
     // When the recording was produced, and so how current the article text behind it is.
     var generatedDate by mutableStateOf<LocalDate?>(null)
-        private set
-
-    // Where the captions live, known only once the media has been resolved.
-    internal var captionsUrl by mutableStateOf<String?>(null)
         private set
 
     // Incremented to ask for the media a second time after resolving it failed.
     internal var resolveAttempt by mutableIntStateOf(0)
         private set
 
-    // Flipped by the first tap on Play, which is what triggers the captions download: like the audio
-    // itself, nothing is fetched for a card the user never listens to.
+    // Flipped by the first tap on Play, from which point the card shows the transcript of the
+    // narration in place of the article's extract.
     var hasStartedPlayback by mutableStateOf(false)
         private set
 
@@ -160,7 +156,6 @@ class ReadAloudPlayerState internal constructor(private val player: ExoPlayer?) 
             return
         }
         audioUrl = media.audioUrl
-        captionsUrl = media.captionsUrl
         generatedDate = media.generatedDate
         player?.setMediaItem(MediaItem.fromUri(media.audioUrl))
         if (isAwaitingMedia) {
@@ -174,8 +169,21 @@ class ReadAloudPlayerState internal constructor(private val player: ExoPlayer?) 
     }
 
     /**
-     * Nothing is fetched until the user actually starts playback, so merely scrolling past the card
-     * never pulls down an audio file.
+     * Takes in the captions, which arrive ahead of the audio. The player learns the true length of
+     * the recording only once it is prepared, which waits for a tap on Play, so until then the end
+     * of the last spoken word stands in for it. That falls short only by whatever silence trails
+     * the narration, and the player's own figure replaces it as soon as it has one.
+     */
+    internal fun onCaptionsLoaded(captions: List<ReadAloudCue>) {
+        cues = captions
+        if (durationMillis <= 0) {
+            durationMillis = captions.maxOfOrNull { it.endMillis } ?: 0L
+        }
+    }
+
+    /**
+     * The audio isn't fetched until the user actually starts playback, so merely scrolling past the
+     * card never pulls down an audio file.
      */
     private fun prepareIfNeeded() {
         if (!isPrepared) {
@@ -292,16 +300,12 @@ fun rememberReadAloudPlayerState(summary: PageSummary, isInFocus: Boolean): Read
     }
 
     // Each recording is filed under the revision it was generated from, so where it lives can only
-    // be discovered over the network. This is the one request a card makes before it is played.
+    // be discovered over the network. That lookup and the captions are all a card fetches before
+    // it is played.
     LaunchedEffect(summary.pageId, state.resolveAttempt) {
-        state.onMediaResolved(ReadAloudArticlesRepository.fetchLeadSectionMedia(summary))
-    }
-
-    LaunchedEffect(state.captionsUrl, state.hasStartedPlayback) {
-        val captionsUrl = state.captionsUrl
-        if (captionsUrl != null && state.hasStartedPlayback && state.cues.isEmpty()) {
-            state.cues = ReadAloudCaptions.fetch(captionsUrl)
-        }
+        val media = ReadAloudArticlesRepository.fetchLeadSectionMedia(summary)
+        state.onMediaResolved(media)
+        media?.let { state.onCaptionsLoaded(ReadAloudCaptions.fetch(it.captionsUrl)) }
     }
 
     return state
