@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <appwidget-provider
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:minWidth="320dp"
     android:minHeight="32dp"
     android:resizeMode="horizontal"
@@ -11,6 +10,4 @@
     android:minResizeHeight="34dp"
     android:initialLayout="@layout/widget_search_large"
     android:previewImage="@drawable/widget_search"
-    android:description="@string/widget_description_search"
-    tools:targetApi="s">
-</appwidget-provider>
+    android:description="@string/widget_description_search" />
