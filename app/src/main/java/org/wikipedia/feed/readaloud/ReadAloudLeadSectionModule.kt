@@ -50,6 +50,7 @@ import androidx.compose.ui.graphics.ShaderBrush
 import androidx.compose.ui.graphics.painter.ColorPainter
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.layout.onVisibilityChanged
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
@@ -231,7 +232,10 @@ private fun ReadAloudCardContent(
     // Resolved on demand when the overflow button is tapped, so we never query the whole feed up front.
     var isInReadingList by remember { mutableStateOf(false) }
     val showSpaceForPagerDots = (module?.cards?.size ?: 0) > 1
-    val playerState = rememberReadAloudPlayerState(summary = summary, isInFocus = isInFocus)
+    // The feed keeps a card alive for a while after it scrolls away, so the card checks for itself
+    // whether it is still on screen, rather than waiting to be disposed before playback stops.
+    var isOnScreen by remember { mutableStateOf(false) }
+    val playerState = rememberReadAloudPlayerState(summary = summary, isInFocus = isInFocus && isOnScreen)
 
     val thumbnailUrl = summary.thumbnailUrl?.takeIf { it.isNotEmpty() }
         ?.let { ImageUrlUtil.getUrlForPreferredSize(it, Constants.PREFERRED_CARD_THUMBNAIL_SIZE) }
@@ -249,6 +253,7 @@ private fun ReadAloudCardContent(
     Box(
         modifier = Modifier
             .fillMaxSize()
+            .onVisibilityChanged(minFractionVisible = 0.5f) { isOnScreen = it }
             .background(Color.Black)
             .clickable { onPageClick() }
     ) {
