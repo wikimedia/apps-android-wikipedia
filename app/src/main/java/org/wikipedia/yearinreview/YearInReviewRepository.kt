@@ -46,6 +46,11 @@ class YearInReviewRepositoryImpl(
     private val categoryDao: CategoryDao = AppDatabase.instance.categoryDao()
 ) : YearInReviewRepository {
 
+    private val maxTopCategory = 5
+    private val minSavedArticles = 3
+    private val maxTopArticles = 5
+    private val minArticlesPerMapCluster = 2
+
     override suspend fun getYearInReview(year: Int): YearInReviewSnapshot = coroutineScope {
         val remoteConfig = restService.getConfiguration().commonv1?.getYirForYear(year)
         val isDonationEligible = remoteConfig != null && !remoteConfig.hideDonateCountryCodes.contains(GeoUtil.geoIPCountry.orEmpty())
@@ -99,12 +104,12 @@ class YearInReviewRepositoryImpl(
         val localReadingArticlesCount = async { historyEntryDao.getDistinctEntriesCountBetween(startMillis, endMillis) }
         val localSavedArticlesCount = async { readingListPageDao.getTotalSavedPagesBetween(startMillis, endMillis) ?: 0 }
         val localSavedArticles = async {
-            readingListPageDao.getRandomPageTitlesBetween(MIN_SAVED_ARTICLES, startMillis, endMillis)
+            readingListPageDao.getRandomPageTitlesBetween(minSavedArticles, startMillis, endMillis)
                 .map { StringUtil.fromHtml(it).toString() }
                 .filter { it.isNotBlank() }
         }
         val localTopVisitedArticles = async {
-            historyEntryDao.getTopVisitedEntriesBetween(MAX_TOP_ARTICLES, startMillis, endMillis)
+            historyEntryDao.getTopVisitedEntriesBetween(maxTopArticles, startMillis, endMillis)
                 .map { StringUtil.fromHtml(it).toString() }
                 .filter { it.isNotBlank() }
         }
@@ -139,7 +144,7 @@ class YearInReviewRepositoryImpl(
         var largestClusterBottomRight = Pair(0.0, 0.0)
         var largestClusterCountryName = ""
         val largestClusterArticles = mutableListOf<String>()
-        if (pagesWithCoordinates.size > MIN_ARTICLES_PER_MAP_CLUSTER) {
+        if (pagesWithCoordinates.size > minArticlesPerMapCluster) {
             try {
                 val clusters = LocationClusterer().clusterLocations(
                     locations = pagesWithCoordinates,
@@ -147,8 +152,8 @@ class YearInReviewRepositoryImpl(
                     minPoints = 3
                 )
                 val largestCluster = clusters.maxByOrNull { it.locations.size }
-                if (largestCluster != null && largestCluster.centroid != null && largestCluster.locations.size >= MIN_ARTICLES_PER_MAP_CLUSTER) {
-                    largestClusterArticles.addAll(largestCluster.locations.map { it.displayTitle }.take(MIN_ARTICLES_PER_MAP_CLUSTER))
+                if (largestCluster != null && largestCluster.centroid != null && largestCluster.locations.size >= minArticlesPerMapCluster) {
+                    largestClusterArticles.addAll(largestCluster.locations.map { it.displayTitle }.take(minArticlesPerMapCluster))
                     largestClusterLatitude = largestCluster.centroid.latitude
                     largestClusterLongitude = largestCluster.centroid.longitude
 
@@ -236,22 +241,11 @@ class YearInReviewRepositoryImpl(
     }
 
     private suspend fun getTopVisitedCategories(year: Int): List<String> {
-        val categories = categoryDao.getTopCategoriesByYear(year = year, limit = MAX_TOP_CATEGORY * 10)
+        val categories = categoryDao.getTopCategoriesByYear(year = year, limit = maxTopCategory * 10)
             .map { StringUtil.removeNamespace(it.title) }
             .filter { it.isNotBlank() }
         val (categoriesWithTwoSpaces, remainingCategories) = categories.partition { category -> category.count { it == ' ' } >= 2 }
-        return (categoriesWithTwoSpaces + remainingCategories).take(MAX_TOP_CATEGORY)
-    }
-
-    companion object {
-        const val MIN_SAVED_ARTICLES = 3
-        const val MAX_TOP_ARTICLES = 5
-        const val MAX_TOP_CATEGORY = 5
-        const val MIN_ARTICLES_PER_MAP_CLUSTER = 2
-
-        val isCustomIconAllowed get() = Prefs.yearInReviewCachedStats[YearInReviewViewModel.YIR_YEAR]?.let {
-            Prefs.donationResults.isNotEmpty() || (it.editingStats?.userEditsCount ?: 0) > 0
-        } == true
+        return (categoriesWithTwoSpaces + remainingCategories).take(maxTopCategory)
     }
 }
 

@@ -30,7 +30,7 @@ import org.wikipedia.util.UriUtil
 
 class YearInReviewActivity : BaseActivity() {
 
-    private val viewModel: YearInReviewViewModel2 by viewModels()
+    private val viewModel: YearInReviewViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
