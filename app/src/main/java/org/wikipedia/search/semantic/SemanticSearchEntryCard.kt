@@ -122,6 +122,7 @@ fun SemanticSearchEntryCard(
                     Text(
                         text = searchText,
                         style = MaterialTheme.typography.titleMedium,
+                        fontWeight = FontWeight.Bold,
                         color = WikipediaTheme.colors.primaryColor
                     )
                 }
