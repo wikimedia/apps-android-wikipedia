@@ -97,6 +97,9 @@ class SearchResultsFragment : Fragment() {
                         },
                         onLoading = { enabled ->
                             callback()?.onSearchProgressBar(enabled)
+                        },
+                        onSemanticSearchInfoClick = {
+                            callback()?.showSemanticSearchInfoDialog()
                         }
                     )
                 }
