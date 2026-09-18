@@ -54,7 +54,6 @@ class CreateAccountEncourageViewModel : ViewModel() {
         private const val RETURN_DAYS_REQUIRED = 2
 
         suspend fun shouldShow(): Boolean {
-            return false // TODO: remove this after getting translations from translatewiki
             if (AccountUtil.isLoggedIn && !AccountUtil.isTemporaryAccount) {
                 return false
             }
