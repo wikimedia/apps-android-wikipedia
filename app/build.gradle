@@ -272,6 +272,10 @@ dependencies {
     implementation(libs.coil.gif)
     implementation(libs.coil.svg)
 
+    // Rive
+    implementation libs.rive.android
+    implementation libs.androidx.startup.runtime
+
     // Compose Library
     def composeBom = platform(libs.composeBom)
     implementation(composeBom)
