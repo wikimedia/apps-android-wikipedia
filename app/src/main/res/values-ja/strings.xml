@@ -273,6 +273,24 @@
   <string name="email_recommendation_dialog_create_without_email_action">メールアドレスなしで先に進む</string>
   <string name="email_recommendation_dialog_create_with_email_action">メールアドレスを追加</string>
   <string name="create_account_button">アカウント作成</string>
+  <string name="create_account_encourage_title">アカウント作成で、ウィキペディアがもっと便利に</string>
+  <string name="create_account_encourage_year_in_review_title_zero">閲覧記録を一年のまとめで確認</string>
+  <plurals name="create_account_encourage_year_in_review_title">
+    <item quantity="other">%1$d日分の閲覧記録を一年のまとめで確認</item>
+  </plurals>
+  <string name="create_account_encourage_year_in_review_description">年に一度、これまでの閲覧記録を振り返り、一年のまとめとしてお届けします。シェアもできます。</string>
+  <string name="create_account_encourage_saved_articles_title_zero">保存記事を同期</string>
+  <plurals name="create_account_encourage_saved_articles_title">
+    <item quantity="other">保存記事%1$d件を同期</item>
+  </plurals>
+  <string name="create_account_encourage_saved_articles_description">ウィキペディアアカウントにログインすると、保存済みの記事を複数のデバイスで同期できます。</string>
+  <string name="create_account_encourage_activity_title_zero">アクティビティで最近読んだ記事を再読</string>
+  <plurals name="create_account_encourage_activity_title">
+    <item quantity="other">アクティビティで最近読んだ記事%1$d件を再読</item>
+  </plurals>
+  <string name="create_account_encourage_activity_description">アクティビティタブで、閲覧時間や探索したトピック、自分の貢献の反響を確認できます。</string>
+  <string name="create_account_encourage_edits_title">編集の功績を獲得</string>
+  <string name="create_account_encourage_edits_description">ウィキメディアプロジェクトへの貢献が自分のアカウントに記録され、誇れる実績を築けます。</string>
   <string name="create_account_name_unavailable">利用者名「%s」は利用できません。別の名前を指定してください。</string>
   <string name="create_account_ip_block_message">申し訳ありませんが現在あなたのIPアドレスはアカウント作成がブロックされています。</string>
   <string name="create_account_ip_block_help_url">https://ja.wikipedia.org/wiki/ヘルプ:あなたが投稿ブロックされたら</string>
@@ -2076,16 +2094,6 @@
   <string name="donation_reminders_settings_report_email_body">寄付リマインダー機能で問題に出くわしました:\n- [具体的な問題の説明]\n- [スクリーンショットまたはリンク]\n\n期待する挙動:\n- [提案する解決策の説明]</string>
   <string name="donation_reminders_snackbar_modify_button_label">変更</string>
   <string name="donation_reminders_settings_article_number_selection_label">記事</string>
-  <string name="hybrid_search_search_hint">何か検索または質問する</string>
-  <string name="hybrid_search_article_search_hint">%sに関して質問する</string>
-  <string name="hybrid_search_suggestion_title">検索対象:</string>
-  <string name="hybrid_search_onboarding_learn_more">詳細</string>
-  <string name="hybrid_search_onboarding_search_title">質問して、答えを得ます</string>
-  <string name="hybrid_search_onboarding_search_description">この実験的な機能は自然言語を理解します。キーワードを検索する代わりに、何を知りたいか説明してください。</string>
-  <string name="hybrid_search_onboarding_opt_in_choice_title">ベータ版機能</string>
-  <string name="hybrid_search_beta_tag">ベータ版</string>
-  <string name="hybrid_search_onboarding_screen_title">新しい検索方法</string>
-  <string name="hybrid_search_no_results_header">結果なし</string>
   <string name="reading_challenge_widget_name">読書チャレンジ</string>
   <string name="reading_challenge_onboarding_header">ウィキペディア誕生25周年を記念して、25日間閲覧チャレンジに参加しよう！</string>
   <string name="reading_challenge_onboarding_read_title">25日間、1日1記事を読もう</string>

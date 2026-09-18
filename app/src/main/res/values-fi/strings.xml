@@ -2186,7 +2186,7 @@
   <string name="donation_reminders_settings_title">Miten meidän tulisi muistuttaa sinua?</string>
   <string name="donation_reminders_settings_option_title">Lahjoitusmuistutukset</string>
   <string name="donation_reminders_settings_thank_you_message">Anteliaisuutesi auttaa pitämään Wikipedian kukoistavana. Aseta lahjoitusmuistutus lukemiesi artikkelien määrän perusteella.</string>
-  <string name="donation_reminders_settings_article_frequency_label" fuzzy="true">Kun luen</string>
+  <string name="donation_reminders_settings_article_frequency_label">Kun luen</string>
   <string name="donation_reminders_settings_amount_label">Muistuta minua lahjoittamaan</string>
   <string name="donation_reminders_settings_confirm_btn_label">Vahvista muistutus</string>
   <string name="donation_reminders_settings_about_experiment_btn_label">Tietoja tästä kokeilusta</string>
@@ -2195,8 +2195,8 @@
   <string name="donation_reminders_settings_warning_max_amount">Sallittu enimmäismäärä on %s</string>
   <string name="donation_reminders_settings_option_custom">Mukautettu…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Kiitos! Muistutamme sinua lahjoittamaan %1$s, kun luet %2$s tämän kokeilun aikana.</string>
-  <string name="donation_reminders_first_milestone_reached_prompt_title" fuzzy="true">Olet lukenut %1$s sen jälkeen, kun lupasit lahjoittaa %2$s</string>
-  <string name="donation_reminders_subsequent_milestone_reached_prompt_title" fuzzy="true">Olet lukenut %1$s artikkelia lisää</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title">Olet lukenut %1$s sen jälkeen, kun lupasit lahjoittaa %2$s!</string>
+  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">Olet lukenut %1$s artikkelia lisää!</string>
   <string name="donation_reminders_prompt_message">Asetit %1$s lahjoitusmuistutuksen antaaksesi %3$s jokaisesta %2$s lukemastasi artikkelista. Haluatko pitää kiinni lupauksestasi tukea Wikipediaa?</string>
   <string name="donation_reminders_prompt_positive_button">Lahjoita nyt</string>
   <string name="donation_reminders_prompt_positive_button_v2">Kyllä, lahjoita nyt</string>
@@ -2222,39 +2222,6 @@
   <string name="donation_reminders_settings_update_reminder_button">Päivitä muistutusta</string>
   <string name="donation_reminders_beta_label">Beeta</string>
   <string name="donation_reminders_wrap_up_share_feedback_button">Anna palautetta</string>
-  <string name="hybrid_search_search_hint">Etsi tai kysy mitä tahansa</string>
-  <string name="hybrid_search_article_search_hint">Kysy artikkelista %s</string>
-  <string name="hybrid_search_suggestion_title">Hae:</string>
-  <string name="hybrid_search_onboarding_learn_more">Lisätietoja</string>
-  <string name="hybrid_search_onboarding_search_title">Kysymällä saat vastauksia</string>
-  <string name="hybrid_search_onboarding_search_description">Tämä kokeellinen toiminto ymmärtää luonnollista kieltä. Kuvaile hakusanojen sijaan, mistä haluat tietoja.</string>
-  <string name="hybrid_search_onboarding_opt_in_choice_title">Beetaominaisuus</string>
-  <string name="hybrid_search_onboarding_opt_in_choice_description">Saatavilla rajoitetun ajan tämän kokeilun aikana.</string>
-  <string name="hybrid_search_beta_tag">Beeta</string>
-  <string name="hybrid_search_experimental_feature_switch_label">Liity kokeiluun</string>
-  <string name="hybrid_search_onboarding_search_example_title">Tarvitsetko inspiraationlähteitä?</string>
-  <string name="hybrid_search_onboarding_search_example_description">Käytä jotakin alla olevista hakuesimerkeistä.</string>
-  <string name="hybrid_search_onboarding_opt_out_toast_message">Olet kieltäytynyt tästä kokeilusta.</string>
-  <string name="hybrid_search_onboarding_search_example_query_pluto_as_planet">Milloin Pluto poistettiin planeettojen luettelosta?</string>
-  <string name="hybrid_search_onboarding_search_example_query_first_olympics">ensimmäiset olympialaiset</string>
-  <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">RNA vs. DNA</string>
-  <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Miksi jotkut laittavat pizzaan ananasta?</string>
-  <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Mitkä ovat Euroopan suurimpia kaupunkeja?</string>
-  <string name="hybrid_search_onboarding_screen_title">Uusi tapa hakea tietoja</string>
-  <string name="hybrid_search_results_header_description">Lähteinä on käytetty ihmisten kirjoittamia Wikipedian artikkeleita</string>
-  <string name="hybrid_search_results_rate_label">Arvioi tämä tulos</string>
-  <string name="hybrid_search_results_rated_label">Arvioitu</string>
-  <string name="hybrid_search_results_rate_thumb_up">Anna arvosanaksi yläpeukku</string>
-  <string name="hybrid_search_results_rate_thumb_down">Anna arvosanaksi alapeukku</string>
-  <string name="hybrid_lexical_search_results_empty">Minkään artikkelin nimi ei vastaa tätä kyselyä.</string>
-  <string name="hybrid_search_results_empty">Parannettu hakutoiminto on väliaikaisesti poissa käytöstä.</string>
-  <string name="hybrid_search_no_results_header">Ei tuloksia</string>
-  <string name="hybrid_search_no_results_description">Tästä aiheesta ei toistaiseksi tule artikkelien otteita. Voit kokeilla jotakin seuraavista:</string>
-  <string name="hybrid_search_no_results_suggestion_rephrase_text">Muotoile hakusi uudelleen</string>
-  <string name="hybrid_search_no_results_suggestion_try_related_topic">Kokeile jotakin muuta samaan aiheeseen liittyvää aihetta</string>
-  <string name="hybrid_search_error_message">Jokin meni pieleen. Yritä myöhemmin uudelleen.</string>
-  <string name="hybrid_search_who_is_prefix">Kuka %s on?</string>
-  <string name="hybrid_search_turn_off_experiment_label">Poista tämä kokeilu käytöstä</string>
   <string name="reading_challenge_widget_name">Lukuhaaste</string>
   <string name="reading_challenge_onboarding_header">Juhlista 25-vuotiasta Wikipediaa osallistumalla 25 päivän lukuhaasteeseen!</string>
   <string name="reading_challenge_onboarding_read_title">Lue yksi artikkeli päivässä 25 päivän ajan</string>
@@ -2427,7 +2394,7 @@
   <string name="reading_lists_tab_collections">Kokoelmat</string>
   <string name="reading_lists_filter_not_in_collection">Ei kokoelmassa</string>
   <string name="reading_lists_search_saved_articles">Hae tallennetuista artikkeleista</string>
-  <string name="reading_lists_search_collections">Hae kokoelmiasta</string>
+  <string name="reading_lists_search_collections">Hae kokoelmia</string>
   <string name="reading_lists_create_new_collection">Luo uusi kokoelma</string>
   <string name="reading_lists_remove_articles_confirm_dialog_title">Poista tallennettu artikkeli?</string>
   <string name="reading_lists_remove_articles_confirm_button">Poista</string>

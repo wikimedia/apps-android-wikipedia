@@ -71,6 +71,7 @@
     <string name="preference_key_feed_cards_lang_disabled" translatable="false">feedCardsLangDisabled</string>
     <string name="preference_key_feed_customize_onboarding_card_enabled" translatable="false">feedCustomizeOnboardingCardEnabled</string>
     <string name="preference_key_add_articles" translatable="false">addArticles</string>
+    <string name="preference_key_add_history_entries" translatable="false">addHistoryEntries</string>
     <string name="preference_key_add_reading_lists" translatable="false">addReadingLists</string>
     <string name="preference_key_delete_reading_lists" translatable="false">deleteReadingLists</string>
     <string name="preference_key_delete_test_reading_lists" translatable="false">deleteTestReadingLists</string>
@@ -204,8 +205,6 @@
     <string name="preference_key_activity_tab_modules" translatable="false">activityTabModules</string>
     <string name="preference_key_activity_tab_onboarding_shown" translatable="false">activityTabOnboardingShown</string>
     <string name="preference_key_yir_model_data" translatable="false">yirModelData</string>
-    <string name="preference_key_hybrid_search_onboarding_shown" translatable="false">hybridSearchOnboardingShown</string>
-    <string name="preference_key_hybrid_search_enabled" translatable="false">hybridSearchEnabled</string>
     <string name="preference_key_game_stats_snackbar_shown" translatable="false">gameStatsSnackbarShown</string>
     <string name="preference_key_reading_challenge_streak" translatable="false">readingChallengeStreak</string>
     <string name="preference_key_reading_challenge_enrolled" translatable="false">readingChallengeEnrolled</string>

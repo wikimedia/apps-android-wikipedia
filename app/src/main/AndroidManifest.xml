@@ -405,9 +405,6 @@
             android:name=".activitytab.ActivityTabOnboardingActivity" />
 
         <activity
-            android:name=".search.HybridSearchOnboardingActivity" />
-
-        <activity
             android:name=".donate.donationreminder.DonationReminderActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize"/>
