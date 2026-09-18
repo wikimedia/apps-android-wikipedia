@@ -1,5 +1,6 @@
 package org.wikipedia.dataclient
 
+import org.wikipedia.auth.OAuthProfile
 import org.wikipedia.dataclient.growthtasks.GrowthImageSuggestion
 import org.wikipedia.dataclient.growthtasks.GrowthUserImpact
 import org.wikipedia.dataclient.restbase.DiffResponse
@@ -39,6 +40,9 @@ interface CoreRestService {
     suspend fun getUserImpact(
         @Path("userId") userId: Int
     ): GrowthUserImpact
+
+    @GET("oauth2/resource/profile")
+    suspend fun getOAuthProfile(): OAuthProfile
 
     companion object {
         const val CORE_REST_API_PREFIX = "w/rest.php/"
