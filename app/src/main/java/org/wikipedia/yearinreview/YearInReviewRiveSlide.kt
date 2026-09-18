@@ -13,15 +13,20 @@ import androidx.compose.runtime.produceState
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalResources
 import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.unit.sp
+import app.rive.ExperimentalRiveGlobalViewModels
+import app.rive.Fit
 import app.rive.GetBitmapFun
 import app.rive.Result
 import app.rive.Rive
 import app.rive.RiveFile
 import app.rive.RiveFileSource
 import app.rive.RivePointerInputMode
+import app.rive.ViewModelInstance
 import app.rive.ViewModelSource
 import app.rive.core.RiveWorker
 import app.rive.rememberArtboardResult
@@ -43,8 +48,24 @@ data class RiveSlideSpec(
     val stateMachineName: String,
     val viewModelName: String,
     val instanceType: RiveInstanceType = RiveInstanceType.Default,
-    val fonts: List<RiveSlideFont> = emptyList()
+    val globalViewModel: RiveGlobalViewModel? = null,
+    val fit: RiveSlideFit = RiveSlideFit.Layout
 )
+
+// A view model whose values every artboard in the file can read; left null when the app doesn't set them
+data class RiveGlobalViewModel(
+    val name: String,
+    val instanceType: RiveInstanceType = RiveInstanceType.Default,
+    // Number property name to its size at the default text scale
+    val textSizes: Map<String, Float> = emptyMap()
+)
+
+enum class RiveSlideFit {
+    // Resizes the artboard to the slide and lets its auto layout arrange the content, with 1 artboard unit = 1dp
+    Layout,
+    // Keeps the authored artboard size and scales it down to fit, leaving empty gaps on mismatched screens
+    Contain
+}
 
 sealed interface RiveInstanceType {
     data object Default : RiveInstanceType
@@ -52,10 +73,32 @@ sealed interface RiveInstanceType {
     data class Named(val name: String) : RiveInstanceType
 }
 
+private fun ViewModelSource.instanceSource(instanceType: RiveInstanceType) = when (instanceType) {
+    RiveInstanceType.Default -> defaultInstance()
+    RiveInstanceType.Blank -> blankInstance()
+    is RiveInstanceType.Named -> namedInstance(instanceType.name)
+}
+
 data class RiveSlideFont(
     @param:RawRes val resourceId: Int,
     val registrationKey: String
 )
+
+// Registered once for the whole screen; a slide should never register its own, otherwise the pager unregisters them for other slides
+val YearInReviewRiveFonts = emptyList<RiveSlideFont>()
+
+private const val MAX_RIVE_TEXT_SCALE = 1.5f
+
+// Scales like a Compose Text would (including Android 14+ non-linear scaling), capped so text still fits the frame
+@Composable
+private fun rememberScaledRiveTextSizes(baseTextSizes: Map<String, Float>): Map<String, Float> {
+    val density = LocalDensity.current
+    return remember(density, baseTextSizes) {
+        baseTextSizes.mapValues { (_, size) ->
+            with(density) { size.sp.toDp().value }.coerceAtMost(size * MAX_RIVE_TEXT_SCALE)
+        }
+    }
+}
 
 @Composable
 fun rememberYearInReviewRiveWorker(onRiveError: (Throwable) -> Unit): RiveWorker? {
@@ -71,8 +114,23 @@ fun rememberYearInReviewRiveWorker(onRiveError: (Throwable) -> Unit): RiveWorker
 }
 
 @Composable
+fun rememberYearInReviewRiveFonts(riveWorker: RiveWorker?, fonts: List<RiveSlideFont>): Result<Unit> {
+    if (riveWorker == null) {
+        return Result.Loading
+    }
+    return fonts.map { font ->
+        key(font.registrationKey) {
+            rememberRawResourceBytes(font.resourceId).andThen { bytes ->
+                rememberRegisteredFont(riveWorker, font.registrationKey, bytes)
+            }
+        }
+    }.sequence().map { }
+}
+
+@Composable
 fun YearInReviewRiveSlide(
     riveWorker: RiveWorker?,
+    riveFontsResult: Result<Unit>,
     slideId: String,
     screenshotGetters: MutableMap<String, GetBitmapFun>,
     spec: RiveSlideSpec,
@@ -86,15 +144,8 @@ fun YearInReviewRiveSlide(
         // TODO: what will user see if riveWorker is null which means Rive failed to initialize for unknown reasons
         return
     }
-    // referenced fonts must be registered before the Rive file loads, otherwise text using them draws nothing
-    val fontsResult = spec.fonts.map { font ->
-        key(font.registrationKey) {
-            rememberRawResourceBytes(font.resourceId).andThen { bytes ->
-                rememberRegisteredFont(riveWorker, font.registrationKey, bytes)
-            }
-        }
-    }.sequence()
-    val riveFileResult = fontsResult.andThen {
+
+    val riveFileResult = riveFontsResult.andThen {
         rememberRiveFile(
             source = RiveFileSource.RawRes.from(spec.resourceId),
             riveWorker = riveWorker
@@ -137,19 +188,24 @@ private fun YearInReviewRiveArtboard(
     }
     // creating ViewModel instance based on the spec
     val viewModelSource = ViewModelSource.Named(spec.viewModelName)
-    val instanceSource = when (spec.instanceType) {
-        RiveInstanceType.Default -> viewModelSource.defaultInstance()
-        RiveInstanceType.Blank -> viewModelSource.blankInstance()
-        is RiveInstanceType.Named -> viewModelSource.namedInstance(spec.instanceType.name)
-    }
+    val instanceSource = viewModelSource.instanceSource(spec.instanceType)
     val instanceResult = rememberViewModelInstanceResult(file = riveFile, source = instanceSource)
+    val globalInstanceResult = rememberGlobalViewModelInstanceResult(riveFile, spec.globalViewModel)
 
-    when (val result = artboardResult.zip(stateMachineResult).zip(instanceResult)) {
+    when (val result = artboardResult.zip(stateMachineResult).zip(instanceResult).zip(globalInstanceResult)) {
         is Result.Loading -> RiveLoadingIndicator(modifier)
         is Result.Error -> RiveFailure(result.throwable, onRiveError)
         is Result.Success -> {
-            val (artboardAndStateMachines, instance) = result.value
+            val (artboardStateMachineAndInstance, globalInstance) = result.value
+            val (artboardAndStateMachines, instance) = artboardStateMachineAndInstance
             val (artboard, stateMachine) = artboardAndStateMachines
+            val globalViewModelInstances = remember(spec.globalViewModel, globalInstance) {
+                if (spec.globalViewModel != null && globalInstance != null) {
+                    mapOf(spec.globalViewModel.name to globalInstance)
+                } else {
+                    emptyMap()
+                }
+            }
             DisposableEffect(slideId, screenshotGetters, riveFile, artboard, stateMachine, instance) {
                 onDispose { screenshotGetters.remove(slideId) }
             }
@@ -159,21 +215,53 @@ private fun YearInReviewRiveArtboard(
                     instance.setString(property, value)
                 }
             }
+            val textSizes = rememberScaledRiveTextSizes(spec.globalViewModel?.textSizes.orEmpty())
+            LaunchedEffect(globalInstance, textSizes) {
+                textSizes.forEach { (property, value) ->
+                    globalInstance?.setNumber(property, value)
+                }
+            }
+            val density = LocalDensity.current.density
+            val fit = remember(spec.fit, density) {
+                when (spec.fit) {
+                    RiveSlideFit.Layout -> Fit.Layout(scaleFactor = density)
+                    RiveSlideFit.Contain -> Fit.Contain()
+                }
+            }
+            @OptIn(ExperimentalRiveGlobalViewModels::class)
             Rive(
                 file = riveFile,
                 playing = playing,
                 artboard = artboard,
                 stateMachine = stateMachine,
                 viewModelInstance = instance,
+                fit = fit,
                 pointerInputMode = RivePointerInputMode.Observe,
                 onBitmapAvailable = { screenshotGetters[slideId] = it },
                 modifier = modifier
                     .fillMaxSize()
                     .clearAndSetSemantics {
                         contentDescription = accessibilityDescription
-                    }
+                    },
+                globalViewModelInstances = globalViewModelInstances
             )
         }
+    }
+}
+
+@Composable
+private fun rememberGlobalViewModelInstanceResult(
+    riveFile: RiveFile,
+    globalViewModel: RiveGlobalViewModel?
+): Result<ViewModelInstance?> {
+    if (globalViewModel == null) {
+        return Result.Success(null)
+    }
+    return key(globalViewModel.name, globalViewModel.instanceType) {
+        rememberViewModelInstanceResult(
+            file = riveFile,
+            source = ViewModelSource.Named(globalViewModel.name).instanceSource(globalViewModel.instanceType)
+        )
     }
 }
 

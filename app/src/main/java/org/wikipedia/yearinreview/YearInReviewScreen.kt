@@ -157,6 +157,9 @@ private fun YearInReviewContent(
 ) {
     val pagerState = rememberPagerState { pages.size }
     val screenshotGetters = remember { mutableStateMapOf<String, GetBitmapFun>() }
+    val riveWorker = rememberYearInReviewRiveWorker(onRiveError)
+    val riveFontsResult = rememberYearInReviewRiveFonts(riveWorker, YearInReviewRiveFonts)
+    InstallRiveSystemFontFallback()
     Scaffold(
         modifier = modifier,
         containerColor = ComposeColors.Black,
