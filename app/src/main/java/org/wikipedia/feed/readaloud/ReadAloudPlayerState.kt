@@ -1,0 +1,343 @@
+package org.wikipedia.feed.readaloud
+
+import android.content.Context
+import androidx.annotation.OptIn
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.Stable
+import androidx.compose.runtime.derivedStateOf
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableLongStateOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalInspectionMode
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.compose.LifecycleEventEffect
+import androidx.media3.common.AudioAttributes
+import androidx.media3.common.C
+import androidx.media3.common.MediaItem
+import androidx.media3.common.PlaybackException
+import androidx.media3.common.Player
+import androidx.media3.common.util.UnstableApi
+import androidx.media3.datasource.DefaultHttpDataSource
+import androidx.media3.exoplayer.ExoPlayer
+import androidx.media3.exoplayer.source.DefaultMediaSourceFactory
+import kotlinx.coroutines.delay
+import org.wikipedia.WikipediaApp
+import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.util.log.L
+import java.time.LocalDate
+import java.util.Locale
+
+// Fine enough that the highlighted word keeps up with the narration; individual words are often
+// only a couple of hundred milliseconds long.
+private const val POSITION_POLL_INTERVAL_MILLIS = 50L
+
+/**
+ * Playback state of one article's lead-section audio, backed by an [ExoPlayer] that lives exactly as
+ * long as the composable that remembers it. Scrolling the card out of the feed therefore stops
+ * playback and frees the player.
+ */
+@Stable
+class ReadAloudPlayerState internal constructor(private val player: ExoPlayer?) {
+    var isPlaying by mutableStateOf(false)
+        internal set
+    var isBuffering by mutableStateOf(false)
+        internal set
+    var hasError by mutableStateOf(false)
+        internal set
+    var durationMillis by mutableLongStateOf(0L)
+        internal set
+    var positionMillis by mutableLongStateOf(0L)
+        internal set
+
+    var cues by mutableStateOf<List<ReadAloudCue>>(emptyList())
+        private set
+
+    // When the recording was produced, and so how current the article text behind it is.
+    var generatedDate by mutableStateOf<LocalDate?>(null)
+        private set
+
+    // Incremented to ask for the media a second time after resolving it failed.
+    internal var resolveAttempt by mutableIntStateOf(0)
+        private set
+
+    // Flipped by the first tap on Play, from which point the card shows the transcript of the
+    // narration in place of the article's extract.
+    var hasStartedPlayback by mutableStateOf(false)
+        private set
+
+    // Stays set once the recording runs to its end, until playback is started again.
+    var hasFinishedPlayback by mutableStateOf(false)
+        private set
+
+    // While the user drags the progress bar we show the dragged position rather than the playhead, so
+    // the bar doesn't snap back to the playhead between drag events.
+    private var scrubPositionMillis by mutableStateOf<Long?>(null)
+
+    private var isPrepared = false
+
+    // The recording this card plays, which lands a moment after the card composes.
+    private var audioUrl: String? = null
+
+    // A tap on Play that arrived while the media was still being resolved, honored once it is.
+    private var isAwaitingMedia = false
+
+    val displayPositionMillis get() = scrubPositionMillis ?: positionMillis
+
+    /**
+     * Index into [cues] of the word being spoken, or -1 before the first one starts. Derived rather
+     * than polled, so the transcript only recomposes when the word actually changes and not on every
+     * playback position tick.
+     */
+    val currentCueIndex by derivedStateOf { cues.indexOfCueStartedAt(displayPositionMillis) }
+
+    fun playOrPause() {
+        val player = player ?: return
+        hasStartedPlayback = true
+        when {
+            hasError -> retry()
+            player.isPlaying -> player.pause()
+            // The media is still on its way: hold on to the intent to play and honor it the moment
+            // the media lands, or drop it again if the user taps a second time before that.
+            audioUrl == null -> {
+                isAwaitingMedia = !isAwaitingMedia
+                isBuffering = isAwaitingMedia
+            }
+            else -> {
+                hasFinishedPlayback = false
+                prepareIfNeeded()
+                player.play()
+            }
+        }
+    }
+
+    /**
+     * Stops the narration where it is, so Play picks it up from the same spot, and drops a tap on
+     * Play still waiting on the media, so the card doesn't start talking once the media arrives.
+     */
+    internal fun pause() {
+        if (isAwaitingMedia) {
+            isAwaitingMedia = false
+            isBuffering = false
+        }
+        player?.pause()
+    }
+
+    /**
+     * Moves the scrub position to a fraction of the recording, without seeking yet: the seek happens
+     * once the finger lifts, in [commitScrub], so dragging doesn't thrash the player.
+     */
+    fun scrubToFraction(fraction: Float) {
+        scrubPositionMillis = (fraction.coerceIn(0f, 1f) * durationMillis).toLong()
+    }
+
+    fun commitScrub() {
+        scrubPositionMillis?.let {
+            player?.seekTo(it)
+            positionMillis = it
+        }
+        scrubPositionMillis = null
+    }
+
+    /**
+     * Gives the player its recording, once the repository has worked out where that recording lives,
+     * picking up a tap on Play that arrived while it was still being resolved.
+     */
+    internal fun onMediaResolved(media: ReadAloudMedia?) {
+        if (media == null) {
+            isAwaitingMedia = false
+            isBuffering = false
+            hasError = true
+            return
+        }
+        audioUrl = media.audioUrl
+        generatedDate = media.generatedDate
+        player?.setMediaItem(MediaItem.fromUri(media.audioUrl))
+        if (isAwaitingMedia) {
+            isAwaitingMedia = false
+            hasFinishedPlayback = false
+            prepareIfNeeded()
+            // Buffering is left set until the player itself says otherwise, so the spinner carries
+            // straight through from waiting on the media into waiting on the audio.
+            player?.play()
+        }
+    }
+
+    /**
+     * Takes in the captions, which arrive ahead of the audio. The player learns the true length of
+     * the recording only once it is prepared, which waits for a tap on Play, so until then the end
+     * of the last spoken word stands in for it. That falls short only by whatever silence trails
+     * the narration, and the player's own figure replaces it as soon as it has one.
+     */
+    internal fun onCaptionsLoaded(captions: List<ReadAloudCue>) {
+        cues = captions
+        if (durationMillis <= 0) {
+            durationMillis = captions.maxOfOrNull { it.endMillis } ?: 0L
+        }
+    }
+
+    /**
+     * The audio isn't fetched until the user actually starts playback, so merely scrolling past the
+     * card never pulls down an audio file.
+     */
+    private fun prepareIfNeeded() {
+        if (!isPrepared) {
+            player?.prepare()
+            isPrepared = true
+        }
+    }
+
+    private fun retry() {
+        hasError = false
+        hasFinishedPlayback = false
+        if (audioUrl == null) {
+            // It was resolving the media that failed, so there is nothing yet to prepare: ask for it
+            // again, and play as soon as it arrives.
+            isAwaitingMedia = true
+            isBuffering = true
+            resolveAttempt++
+            return
+        }
+        isPrepared = false
+        prepareIfNeeded()
+        player?.play()
+    }
+
+    internal fun onPlaybackEnded() {
+        player?.pause()
+        player?.seekTo(0)
+        positionMillis = 0
+        hasFinishedPlayback = true
+    }
+
+    internal fun currentPlayerPosition() = player?.currentPosition ?: 0L
+
+    internal fun currentPlayerDuration() = player?.duration?.takeIf { it != C.TIME_UNSET } ?: 0L
+}
+
+/**
+ * Index of the last cue that has started by [millis], which keeps the previous word lit through the
+ * silences between words instead of leaving nothing highlighted.
+ */
+private fun List<ReadAloudCue>.indexOfCueStartedAt(millis: Long): Int {
+    var low = 0
+    var high = size - 1
+    var index = -1
+    while (low <= high) {
+        val mid = (low + high) / 2
+        if (this[mid].startMillis <= millis) {
+            index = mid
+            low = mid + 1
+        } else {
+            high = mid - 1
+        }
+    }
+    return index
+}
+
+@Composable
+fun rememberReadAloudPlayerState(summary: PageSummary, isInFocus: Boolean): ReadAloudPlayerState {
+    val context = LocalContext.current
+    // Previews render without a real player, so @Preview functions don't try to reach the network.
+    val isPreview = LocalInspectionMode.current
+    val player = remember(summary.pageId, isPreview) { if (isPreview) null else buildPlayer(context) }
+    val state = remember(player, isPreview) { ReadAloudPlayerState(player) }
+
+    if (player == null) {
+        return state
+    }
+
+    DisposableEffect(player) {
+        val listener = object : Player.Listener {
+            override fun onIsPlayingChanged(isPlaying: Boolean) {
+                state.isPlaying = isPlaying
+            }
+
+            override fun onPlaybackStateChanged(playbackState: Int) {
+                state.isBuffering = playbackState == Player.STATE_BUFFERING
+                when (playbackState) {
+                    Player.STATE_READY -> state.durationMillis = state.currentPlayerDuration()
+                    Player.STATE_ENDED -> state.onPlaybackEnded()
+                }
+            }
+
+            override fun onPlayerError(error: PlaybackException) {
+                L.e(error)
+                state.hasError = true
+                state.isBuffering = false
+            }
+        }
+        player.addListener(listener)
+        onDispose {
+            player.removeListener(listener)
+            player.release()
+        }
+    }
+
+    LaunchedEffect(state.isPlaying) {
+        while (state.isPlaying) {
+            state.positionMillis = state.currentPlayerPosition()
+            delay(POSITION_POLL_INTERVAL_MILLIS)
+        }
+    }
+
+    // Only the card the user is looking at may be heard. Keyed on isPlaying as well as on focus, so
+    // a card can never start playing while out of focus either.
+    LaunchedEffect(isInFocus, state.isPlaying) {
+        if (!isInFocus) {
+            state.pause()
+        }
+    }
+
+    // Backgrounding the app stops it too, as does opening the article on top of the feed.
+    LifecycleEventEffect(Lifecycle.Event.ON_STOP) {
+        state.pause()
+    }
+
+    // Each recording is filed under the revision it was generated from, so where it lives can only
+    // be discovered over the network. That lookup and the captions are all a card fetches before
+    // it is played.
+    LaunchedEffect(summary.pageId, state.resolveAttempt) {
+        val media = ReadAloudArticlesRepository.fetchLeadSectionMedia(summary)
+        state.onMediaResolved(media)
+        media?.let { state.onCaptionsLoaded(ReadAloudCaptions.fetch(it.captionsUrl)) }
+    }
+
+    return state
+}
+
+fun formatPlaybackTime(millis: Long): String {
+    val totalSeconds = (millis / 1000).coerceAtLeast(0)
+    val hours = totalSeconds / 3600
+    val minutes = (totalSeconds % 3600) / 60
+    val seconds = totalSeconds % 60
+    return if (hours > 0) {
+        String.format(Locale.getDefault(), "%d:%02d:%02d", hours, minutes, seconds)
+    } else {
+        String.format(Locale.getDefault(), "%d:%02d", minutes, seconds)
+    }
+}
+
+@OptIn(UnstableApi::class)
+private fun buildPlayer(context: Context): ExoPlayer {
+    val dataSourceFactory = DefaultHttpDataSource.Factory()
+        .setUserAgent(WikipediaApp.instance.userAgent)
+    return ExoPlayer.Builder(context)
+        .setMediaSourceFactory(DefaultMediaSourceFactory(dataSourceFactory))
+        .build()
+        .apply {
+            setAudioAttributes(
+                AudioAttributes.Builder()
+                    .setUsage(C.USAGE_MEDIA)
+                    .setContentType(C.AUDIO_CONTENT_TYPE_SPEECH)
+                    .build(),
+                true
+            )
+            setHandleAudioBecomingNoisy(true)
+        }
+}

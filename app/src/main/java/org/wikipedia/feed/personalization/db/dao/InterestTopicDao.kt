@@ -26,5 +26,8 @@ interface InterestTopicDao {
     suspend fun getAllRandom(): List<InterestTopic>
 
     @Query("SELECT EXISTS(SELECT 1 FROM InterestTopic)")
-    fun hasAnyTopics(): Flow<Boolean>
+    fun hasAnyTopicsFlow(): Flow<Boolean>
+
+    @Query("SELECT EXISTS(SELECT 1 FROM InterestTopic)")
+    suspend fun hasAnyTopics(): Boolean
 }
