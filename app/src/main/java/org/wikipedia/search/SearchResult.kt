@@ -13,6 +13,8 @@ data class SearchResult(val pageTitle: PageTitle,
                         val type: SearchResultType,
                         val coordinates: List<MwQueryPage.Coordinates>? = null,
                         val snippet: String? = null,
+                        val editCounts: Int? = null,
+                        val referenceCounts: Int? = null,
                         val indexInApiCall: Int = 0) {
 
     @Serializable
@@ -25,7 +27,9 @@ data class SearchResult(val pageTitle: PageTitle,
         wiki: WikiSite,
         coordinates: List<MwQueryPage.Coordinates>? = null,
         type: SearchResultType = SearchResultType.PREFIX,
-        indexInApiCall: Int = 0
+        indexInApiCall: Int = 0,
+        editCounts: Int? = null,
+        referenceCounts: Int? = null,
     ) : this(
         pageTitle = PageTitle(
             text = page.title,
@@ -38,7 +42,9 @@ data class SearchResult(val pageTitle: PageTitle,
         type = type,
         coordinates = coordinates,
         snippet = page.snippet,
-        indexInApiCall = indexInApiCall
+        indexInApiCall = indexInApiCall,
+        editCounts = editCounts,
+        referenceCounts = referenceCounts
     )
 
     constructor(pageTitle: PageTitle, searchResultType: SearchResultType = SearchResultType.PREFIX, snippet: String? = null, indexInApiCall: Int = 0) :

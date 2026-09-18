@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
@@ -13,8 +14,8 @@ import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.search.SearchResult
-import org.wikipedia.search.SearchResultsViewModel
 import org.wikipedia.util.UiState
 
 class SemanticSearchResultsViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
@@ -47,22 +48,35 @@ class SemanticSearchResultsViewModel(savedStateHandle: SavedStateHandle) : ViewM
 
             val wikiSite = WikiSite.forLanguageCode(languageCode)
 
-            // TODO: adding additional API requests for edit counts and reference counts
-            val semanticDeferred = async {
-                runCatching {
-                    val response = ServiceFactory.get(wikiSite).fullTextSearchResponse(searchQuery, semanticBatchSize, 0, semanticSearchType = "hl")
-                    SearchResultsViewModel.buildList(response.body(), invokeSource, wikiSite, type = SearchResult.SearchResultType.SEMANTIC)
-                }
-            }
+            val semanticResponse = ServiceFactory.get(wikiSite).fullTextSearchResponse(searchQuery, semanticBatchSize, 0, semanticSearchType = "hl")
 
-            val semanticResult = semanticDeferred.await()
+            val semanticResult = semanticResponse.body()?.query?.pages?.sortedBy { it.index }
+                ?.map { page ->
+                    async {
+                        val pageAttributionResponse = ServiceFactory.getCoreRest(wikiSite).getAttribution(page.title)
+                        SearchResult(
+                            page = page,
+                            wiki = wikiSite,
+                            coordinates = page.coordinates,
+                            type = SearchResult.SearchResultType.SEMANTIC,
+                            indexInApiCall = page.index,
+                            editCounts = pageAttributionResponse.trustAndRelevance?.contributorCounts,
+                            referenceCounts = pageAttributionResponse.trustAndRelevance?.referenceCount
+                        )
+                    }
+                }?.awaitAll() ?: emptyList()
 
-            if (semanticResult.isFailure) {
-                _semanticSearchResultState.value = UiState.Error(Throwable())
-                return@launch
-            }
-
-            _semanticSearchResultState.value = UiState.Success(semanticResult.getOrElse { emptyList() })
+            _semanticSearchResultState.value = UiState.Success(semanticResult)
         }
+    }
+
+    fun buildList(
+        response: MwQueryResponse?,
+        wikiSite: WikiSite,
+        type: SearchResult.SearchResultType
+    ): List<SearchResult> {
+        return response?.query?.pages?.let { list ->
+            list.sortedBy { it.index }.map { SearchResult(it, wikiSite, it.coordinates, type, indexInApiCall = it.index) }
+        } ?: emptyList()
     }
 }
