@@ -15,4 +15,5 @@ interface SearchResultCallback {
     )
 
     fun setSearchText(text: String)
+    fun showSemanticSearchInfoDialog()
 }

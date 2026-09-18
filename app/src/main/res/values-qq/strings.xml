@@ -2382,4 +2382,11 @@
     <item quantity="one">Confirmation message explaining that unsaving one article will remove it from all associated collections.</item>
     <item quantity="other">Confirmation message explaining that unsaving multiple articles will remove them from all associated collections.</item>
   </plurals>
+  <string name="semantic_search_entry_point_card_message">Message displayed on the entry point card for the semantic search</string>
+  <string name="semantic_search_entry_point_card_text_button">Text for the button on the entry point card for semantic search.</string>
+  <string name="semantic_search_info_dialog_title">Title for the semantic search info dialog.</string>
+  <string name="semantic_search_info_dialog_message">Message for the semantic search info dialog.</string>
+  <string name="semantic_search_info_dialog_button_text">Button text for the semantic search info dialog.</string>
+  <string name="semantic_search_info_btn_content_description">Text for the context description field of the semantic search information icon button</string>
+  <string name="semantic_search_close_btn_content_description">Text for the content description field of the semantic search disable and close icon button</string>
 </resources>

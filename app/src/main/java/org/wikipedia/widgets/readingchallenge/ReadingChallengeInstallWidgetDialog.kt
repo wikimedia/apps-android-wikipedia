@@ -31,7 +31,7 @@ import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
 import org.wikipedia.R
 import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
-import org.wikipedia.compose.components.InstallWidgetScreen
+import org.wikipedia.compose.components.InfoActionScreen
 import org.wikipedia.compose.components.TwoButtonBottomBar
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
@@ -57,7 +57,7 @@ class ReadingChallengeInstallWidgetDialog : ExtendedBottomSheetDialogFragment(st
                         instrument.submitInteraction(action = "click", elementId = "install_accept")
                         dismiss()
                     }
-                    InstallWidgetScreen(
+                    InfoActionScreen(
                         title = stringResource(R.string.reading_challenge_install_prompt_title),
                         message = stringResource(R.string.reading_challenge_install_prompt_message),
                         onCloseClick = {
