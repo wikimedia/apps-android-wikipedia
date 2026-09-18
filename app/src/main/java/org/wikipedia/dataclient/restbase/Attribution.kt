@@ -13,6 +13,9 @@ class Attribution {
     @Serializable
     class TrustAndRelevance {
 
+        @SerialName("last_updated")
+        val lastUpdated: String? = null
+
         @SerialName("contributor_counts")
         val contributorCounts: Int? = null
 
