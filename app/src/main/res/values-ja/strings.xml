@@ -2094,16 +2094,6 @@
   <string name="donation_reminders_settings_report_email_body">寄付リマインダー機能で問題に出くわしました:\n- [具体的な問題の説明]\n- [スクリーンショットまたはリンク]\n\n期待する挙動:\n- [提案する解決策の説明]</string>
   <string name="donation_reminders_snackbar_modify_button_label">変更</string>
   <string name="donation_reminders_settings_article_number_selection_label">記事</string>
-  <string name="hybrid_search_search_hint">何か検索または質問する</string>
-  <string name="hybrid_search_article_search_hint">%sに関して質問する</string>
-  <string name="hybrid_search_suggestion_title">検索対象:</string>
-  <string name="hybrid_search_onboarding_learn_more">詳細</string>
-  <string name="hybrid_search_onboarding_search_title">質問して、答えを得ます</string>
-  <string name="hybrid_search_onboarding_search_description">この実験的な機能は自然言語を理解します。キーワードを検索する代わりに、何を知りたいか説明してください。</string>
-  <string name="hybrid_search_onboarding_opt_in_choice_title">ベータ版機能</string>
-  <string name="hybrid_search_beta_tag">ベータ版</string>
-  <string name="hybrid_search_onboarding_screen_title">新しい検索方法</string>
-  <string name="hybrid_search_no_results_header">結果なし</string>
   <string name="reading_challenge_widget_name">読書チャレンジ</string>
   <string name="reading_challenge_onboarding_header">ウィキペディア誕生25周年を記念して、25日間閲覧チャレンジに参加しよう！</string>
   <string name="reading_challenge_onboarding_read_title">25日間、1日1記事を読もう</string>

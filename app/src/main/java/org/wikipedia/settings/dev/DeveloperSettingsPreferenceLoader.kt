@@ -10,6 +10,7 @@ import androidx.preference.Preference
 import androidx.preference.PreferenceCategory
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceGroup
+import androidx.preference.TwoStatePreference
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
@@ -34,6 +35,7 @@ import org.wikipedia.pageimages.db.PageImage
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.recommended.RecommendedReadingListNotificationManager
 import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
+import org.wikipedia.search.semantic.SemanticSearchAbTest
 import org.wikipedia.settings.BasePreferenceLoader
 import org.wikipedia.settings.IntPreference
 import org.wikipedia.settings.Prefs
@@ -320,6 +322,39 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
                 true
             }
         }
+
+        (findPreference(R.string.preference_developer_semantic_search_override_supported_language) as TwoStatePreference).apply {
+            isChecked = Prefs.semanticSearchLanguageOverride
+            onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _, newValue ->
+                Prefs.semanticSearchLanguageOverride = newValue as Boolean
+                true
+            }
+        }
+
+        (findPreference(R.string.preference_developer_semantic_search_is_test_active) as TwoStatePreference).apply {
+            isChecked = Prefs.semanticSearchIsTestActive
+            onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _, newValue ->
+                Prefs.semanticSearchIsTestActive = newValue as Boolean
+                true
+            }
+        }
+
+        (findPreference(R.string.preference_developer_semantic_search_is_enabled) as TwoStatePreference).apply {
+            isChecked = Prefs.isSemanticSearchEnabled
+            onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _, newValue ->
+                Prefs.isSemanticSearchEnabled = newValue as Boolean
+                true
+            }
+        }
+
+        (findPreference(R.string.preference_developer_semantic_search_is_first_use) as TwoStatePreference).apply {
+            isChecked = Prefs.isSemanticSearchFirstUse
+            onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _, newValue ->
+                Prefs.isSemanticSearchFirstUse = newValue as Boolean
+                true
+            }
+        }
+
         addABTestPreferences()
     }
 
@@ -335,7 +370,8 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
         screen.addPreference(category)
         listOf(
             DonationReminderAbTest(),
-            NewWithinInterestABTest()
+            NewWithinInterestABTest(),
+            SemanticSearchAbTest()
         ).forEach { abTest ->
             category.addPreference(IntPreference(screen.context).apply {
                 key = abTest.preferenceKey

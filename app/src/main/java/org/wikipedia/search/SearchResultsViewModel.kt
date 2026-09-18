@@ -12,18 +12,33 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.debounce
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.stateIn
 import org.wikipedia.Constants
+import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
+import org.wikipedia.search.semantic.SemanticSearchAbTest
+import org.wikipedia.settings.Prefs
 
 class SearchResultsViewModel : ViewModel() {
-
+    private val semanticSearchAbTest = SemanticSearchAbTest()
+    private val semanticSearchEnabledPrefUpdates = Prefs.observeKeys(
+        R.string.preference_key_semantic_search_enabled,
+        R.string.preference_key_semantic_search_is_test_active, // TODO: remove this before release
+        R.string.preference_key_semantic_search_override_supported_language // TODO: remove this before release
+    )
+    private val semanticSearchIsFirstUsePrefUpdates = Prefs.observeKeys(
+        R.string.preference_key_semantic_search_first_use
+    )
     private val batchSize = 10
     private val delayMillis = 200L
     var countsPerLanguageCode = mutableListOf<Pair<String, Int>>()
@@ -45,6 +60,26 @@ class SearchResultsViewModel : ViewModel() {
 
     private var lastXSearchIdPrefix = ""
     private var lastXSearchIdFullText = ""
+
+    val isSemanticSearchEnabled = combine(
+        _languageCode,
+        semanticSearchEnabledPrefUpdates
+    ) { currentLanguageCode, _ ->
+        semanticSearchAbTest.isSemanticSearchEnabled(currentLanguageCode)
+    }.distinctUntilChanged().stateIn(
+        viewModelScope,
+        SharingStarted.Eagerly,
+        semanticSearchAbTest.isSemanticSearchEnabled(_languageCode.value)
+    )
+
+    val isSemanticSearchFirstUse = semanticSearchIsFirstUsePrefUpdates
+        .map { Prefs.isSemanticSearchFirstUse }
+        .distinctUntilChanged()
+        .stateIn(
+            viewModelScope,
+            SharingStarted.Eagerly,
+            Prefs.isSemanticSearchFirstUse
+        )
 
     @OptIn(
         FlowPreview::class,
@@ -93,6 +128,10 @@ class SearchResultsViewModel : ViewModel() {
                 put("type", result.type)
             }
         }
+    }
+
+    fun disableSemanticSearch() {
+        Prefs.isSemanticSearchEnabled = false
     }
 
     class SearchResultsPagingSource(
