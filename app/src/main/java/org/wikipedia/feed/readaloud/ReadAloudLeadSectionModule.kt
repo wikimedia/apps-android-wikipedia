@@ -19,6 +19,7 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CircularProgressIndicator
@@ -156,10 +157,12 @@ fun ReadAloudLeadSectionModule(
 ) {
     val context = LocalContext.current
     val backgroundColorIndex = abs(module.cards.firstOrNull()?.hideKey.hashCode())
+    val pagerState = rememberPagerState(pageCount = { module.cards.size })
 
     ForYouModulePager(
         modifier = modifier,
         module = module,
+        pagerState = pagerState,
         onCardInView = onCardInView
     ) { pageIndex ->
         val card = module.cards[pageIndex] as ReadAloudLeadSectionCard
@@ -170,6 +173,7 @@ fun ReadAloudLeadSectionModule(
         ReadAloudCardContent(
             wikiSite = wikiSite,
             summary = card.summary,
+            isInFocus = pagerState.settledPage == pageIndex,
             resolveSavedState = resolveSavedState,
             backgroundColorIndex = backgroundColorIndex + pageIndex,
             module = module,
@@ -204,6 +208,7 @@ fun ReadAloudLeadSectionModule(
 private fun ReadAloudCardContent(
     wikiSite: WikiSite,
     summary: PageSummary,
+    isInFocus: Boolean = true,
     resolveSavedState: suspend (PageTitle) -> Boolean = { false },
     backgroundColorIndex: Int = 0,
     module: ForYouModule? = null,
@@ -226,7 +231,7 @@ private fun ReadAloudCardContent(
     // Resolved on demand when the overflow button is tapped, so we never query the whole feed up front.
     var isInReadingList by remember { mutableStateOf(false) }
     val showSpaceForPagerDots = (module?.cards?.size ?: 0) > 1
-    val playerState = rememberReadAloudPlayerState(summary = summary)
+    val playerState = rememberReadAloudPlayerState(summary = summary, isInFocus = isInFocus)
 
     val thumbnailUrl = summary.thumbnailUrl?.takeIf { it.isNotEmpty() }
         ?.let { ImageUrlUtil.getUrlForPreferredSize(it, Constants.PREFERRED_CARD_THUMBNAIL_SIZE) }

@@ -15,6 +15,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalInspectionMode
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.compose.LifecycleEventEffect
 import androidx.media3.common.AudioAttributes
 import androidx.media3.common.C
 import androidx.media3.common.MediaItem
@@ -119,6 +121,18 @@ class ReadAloudPlayerState internal constructor(private val player: ExoPlayer?) 
     }
 
     /**
+     * Stops the narration where it is, so Play picks it up from the same spot, and drops a tap on
+     * Play still waiting on the media, so the card doesn't start talking once the media arrives.
+     */
+    internal fun pause() {
+        if (isAwaitingMedia) {
+            isAwaitingMedia = false
+            isBuffering = false
+        }
+        player?.pause()
+    }
+
+    /**
      * Moves the scrub position to a fraction of the recording, without seeking yet: the seek happens
      * once the finger lifts, in [commitScrub], so dragging doesn't thrash the player.
      */
@@ -219,7 +233,7 @@ private fun List<ReadAloudCue>.indexOfCueStartedAt(millis: Long): Int {
 }
 
 @Composable
-fun rememberReadAloudPlayerState(summary: PageSummary): ReadAloudPlayerState {
+fun rememberReadAloudPlayerState(summary: PageSummary, isInFocus: Boolean): ReadAloudPlayerState {
     val context = LocalContext.current
     // Previews render without a real player, so @Preview functions don't try to reach the network.
     val isPreview = LocalInspectionMode.current
@@ -262,6 +276,19 @@ fun rememberReadAloudPlayerState(summary: PageSummary): ReadAloudPlayerState {
             state.positionMillis = state.currentPlayerPosition()
             delay(POSITION_POLL_INTERVAL_MILLIS)
         }
+    }
+
+    // Only the card the user is looking at may be heard. Keyed on isPlaying as well as on focus, so
+    // a card can never start playing while out of focus either.
+    LaunchedEffect(isInFocus, state.isPlaying) {
+        if (!isInFocus) {
+            state.pause()
+        }
+    }
+
+    // Backgrounding the app stops it too, as does opening the article on top of the feed.
+    LifecycleEventEffect(Lifecycle.Event.ON_STOP) {
+        state.pause()
     }
 
     // Each recording is filed under the revision it was generated from, so where it lives can only
