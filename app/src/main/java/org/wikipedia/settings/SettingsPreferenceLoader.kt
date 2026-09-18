@@ -30,6 +30,7 @@ import org.wikipedia.settings.homefeed.HomeFeedSettingsActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.theme.ThemeFittingRoomActivity
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.yearinreview.YearInReviewRepositoryImpl
 import org.wikipedia.yearinreview.YearInReviewViewModel
 
 internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : BasePreferenceLoader(fragment) {
@@ -74,7 +75,7 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
         }
 
         findPreference(R.string.preference_key_selected_app_icon).let {
-            it.isVisible = YearInReviewViewModel.isCustomIconAllowed
+            it.isVisible = YearInReviewRepositoryImpl.isCustomIconAllowed
             it.summary = fragment.getString(R.string.settings_app_icon_preference_subtitle, YearInReviewViewModel.YIR_YEAR)
             it.onPreferenceClickListener = Preference.OnPreferenceClickListener {
                 ExclusiveBottomSheetPresenter.show(fragment.parentFragmentManager, AppIconDialog())

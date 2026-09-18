@@ -248,6 +248,10 @@ class YearInReviewRepositoryImpl(
         const val MAX_TOP_ARTICLES = 5
         const val MAX_TOP_CATEGORY = 5
         const val MIN_ARTICLES_PER_MAP_CLUSTER = 2
+
+        val isCustomIconAllowed get() = Prefs.yearInReviewCachedStats[YearInReviewViewModel.YIR_YEAR]?.let {
+            Prefs.donationResults.isNotEmpty() || (it.editingStats?.userEditsCount ?: 0) > 0
+        } == true
     }
 }
 
