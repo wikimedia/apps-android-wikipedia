@@ -2643,8 +2643,8 @@
         <item quantity="one">Unsaving this article will remove it from all associated collections.</item>
         <item quantity="other">Unsaving these articles will remove it from all associated collections.</item>
     </plurals>
-  
-      <!-- Semantic search -->
+
+    <!-- Semantic search -->
     <string name="semantic_search_entry_point_card_message">Search within articles and jump straight to the relevant passage.</string>
     <string name="semantic_search_entry_point_card_text_button">Try it now</string>
     <string name="semantic_search_info_dialog_title">What is this feature?</string>
@@ -2652,4 +2652,15 @@
     <string name="semantic_search_info_dialog_button_text">Learn more</string>
     <string name="semantic_search_info_btn_content_description">Semantic search information icon button</string>
     <string name="semantic_search_close_btn_content_description">Semantic search disable and close icon button</string>
+    <string name="semantic_search_beta_label">Beta</string>
+    <string name="semantic_search_no_results_message">No results for this search</string>
+    <string name="semantic_search_results_close_button_content_description">Close the semantic search results</string>
+    <plurals name="semantic_search_result_contributors">
+        <item quantity="one">%d contributor</item>
+        <item quantity="other">%d contributors</item>
+    </plurals>
+    <plurals name="semantic_search_result_references">
+        <item quantity="one">%d reference</item>
+        <item quantity="other">%d references</item>
+    </plurals>
 </resources>
