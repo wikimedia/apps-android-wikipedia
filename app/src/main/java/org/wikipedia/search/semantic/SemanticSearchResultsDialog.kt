@@ -10,7 +10,7 @@ import org.wikipedia.Constants
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 
-class SemanticSearchResultsDialog : ExtendedBottomSheetDialogFragment(startExpanded = true) {
+class SemanticSearchResultsDialog : ExtendedBottomSheetDialogFragment() {
 
     private val viewModel: SemanticSearchResultsViewModel by viewModels()
 
@@ -20,6 +20,18 @@ class SemanticSearchResultsDialog : ExtendedBottomSheetDialogFragment(startExpan
         return ComposeView(requireContext()).apply {
             setContent {
                 BaseTheme {
+                    SemanticSearchResultsScreen(
+                        viewModel = viewModel,
+                        onItemClick = { result, title, inNewTab, fromSnippetLink, position, location ->
+                            // TODO: start PageActivity
+                        },
+                        onCloseClick = {
+                            dismiss()
+                        },
+                        onRatingClick = { rate, searchResult ->
+                        },
+                        onLoading = { }
+                    )
                 }
             }
         }

@@ -1,8 +1,10 @@
 package org.wikipedia.search.semantic
 
 import android.location.Location
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -19,6 +21,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -42,22 +45,18 @@ import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextLinkStyles
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import coil3.compose.AsyncImage
 import org.wikipedia.R
 import org.wikipedia.compose.components.HtmlText
-import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
-import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.PageTitle
 import org.wikipedia.search.SearchResult
-import org.wikipedia.theme.Theme
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.UiState
+import org.wikipedia.util.log.L
 import org.wikipedia.views.imageservice.ImageService
 
 @Composable
@@ -84,6 +83,7 @@ fun SemanticSearchResultsScreen(
                 is UiState.Loading -> {
                     onLoading(true)
                     // TODO: show skeleton loader
+                    L.d("loadSemanticSearchResults loading")
                 }
 
                 is UiState.Success -> {
@@ -93,14 +93,17 @@ fun SemanticSearchResultsScreen(
                         // TODO: show empty message
                         return@CompositionLocalProvider
                     }
+                    L.d("loadSemanticSearchResults Success")
                     SemanticSearchResultsContent(
                         viewModel = viewModel,
                         items = results,
+                        onItemClick = onItemClick,
                         onCloseClick = onCloseClick
                     )
                 }
 
                 is UiState.Error -> {
+                    L.d("loadSemanticSearchResults Error")
                     onLoading(false)
                 }
             }
@@ -113,12 +116,13 @@ fun SemanticSearchResultsContent(
     modifier: Modifier = Modifier,
     viewModel: SemanticSearchResultsViewModel,
     items: List<SearchResult>,
+    onItemClick: (SearchResult, PageTitle, Boolean, Boolean, Int, Location?) -> Unit,
     onCloseClick: () -> Unit
 ) {
     Column(
         modifier = modifier
             .fillMaxSize()
-            .background(WikipediaTheme.colors.backgroundColor)
+            .background(WikipediaTheme.colors.paperColor)
             .padding(horizontal = 16.dp)
     ) {
         Row(
@@ -170,9 +174,11 @@ fun SemanticSearchResultsContent(
             contentPadding = PaddingValues(bottom = 24.dp)
         ) {
             items(items.size, key = { items[it].pageTitle }) { index ->
+                val searchResult = items[index]
                 SemanticSearchResultCard(
                     viewModel = viewModel,
-                    searchResult = items[index]
+                    searchResult = searchResult,
+                    onItemClick = { onItemClick(searchResult, searchResult.pageTitle, false, false, index, searchResult.location) }
                 )
             }
         }
@@ -183,8 +189,10 @@ fun SemanticSearchResultsContent(
 fun SemanticSearchResultCard(
     viewModel: SemanticSearchResultsViewModel,
     searchResult: SearchResult,
+    onItemClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+    val prefixQuotationMark = viewModel.quotationMarkMap[viewModel.languageCode] ?: "❞"
     val articlePath = listOfNotNull(
         searchResult.pageTitle.displayText.takeIf { it.isNotBlank() },
         searchResult.sectionTitle?.takeIf { it.isNotBlank() }
@@ -199,24 +207,23 @@ fun SemanticSearchResultCard(
         colors = CardDefaults.cardColors(
             containerColor = WikipediaTheme.colors.backgroundColor,
         ),
+        border = BorderStroke(
+            width = 1.dp,
+            color = WikipediaTheme.colors.borderColor
+        ),
         elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
     ) {
         Column(
             modifier = Modifier.padding(16.dp)
+                .clickable {
+                    onItemClick()
+                }
         ) {
             Row(
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text(
-                    text = viewModel.quotationMarkMap[viewModel.languageCode] ?: "",
-                    fontSize = 22.sp,
-                    lineHeight = 20.sp,
-                    color = WikipediaTheme.colors.primaryColor
-                )
-                Spacer(modifier = Modifier.width(6.dp))
-
                 HtmlText(
-                    text = searchResult.snippet.orEmpty(),
+                    text = "<span style=\"font-size: 32px;\">$prefixQuotationMark</span>${searchResult.snippet.orEmpty()}",
                     color = WikipediaTheme.colors.primaryColor,
                     linkStyle = TextLinkStyles(
                         style = SpanStyle(
@@ -250,7 +257,7 @@ fun SemanticSearchResultCard(
                         contentScale = ContentScale.Crop,
                         contentDescription = null,
                         modifier = Modifier
-                            .size(56.dp)
+                            .size(32.dp)
                             .clip(RoundedCornerShape(8.dp))
                     )
                 }
@@ -266,7 +273,14 @@ fun SemanticSearchResultCard(
                 )
             }
 
-            Spacer(modifier = Modifier.height(12.dp))
+            Spacer(modifier = Modifier.height(8.dp))
+
+            HorizontalDivider(
+                color = WikipediaTheme.colors.borderColor,
+                thickness = 1.dp
+            )
+
+            Spacer(modifier = Modifier.height(8.dp))
 
             Row(
                 verticalAlignment = Alignment.CenterVertically,
@@ -303,32 +317,5 @@ fun SemanticSearchResultCard(
                 }
             }
         }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-private fun SemanticSearchResultsScreenPreview() {
-    val wikiSite = WikiSite.preview()
-    val pageTitle = PageTitle("Beyoncé", wikiSite).apply {
-        description = "American singer, songwriter, and actress"
-        thumbUrl = "https://example"
-    }
-    val snippet = "Beyoncé Giselle Knowles-Carter is an <a href='#'>American singer</a>, songwriter, actress, and businesswoman. Born and raised in Houston, Texas, she performed in various singing and dancing competitions as a child. She rose to fame in the late 1990s as the lead singer of Destiny's Child, one of the world's best"
-
-    BaseTheme(
-        currentTheme = Theme.LIGHT
-    ) {
-        SemanticSearchResultsContent(
-            onCloseClick = {},
-            viewModel = viewModel(),
-            items = listOf(
-                SearchResult(
-                    pageTitle = pageTitle,
-                    searchResultType = SearchResult.SearchResultType.SEMANTIC,
-                    snippet = snippet
-                )
-            )
-        )
     }
 }

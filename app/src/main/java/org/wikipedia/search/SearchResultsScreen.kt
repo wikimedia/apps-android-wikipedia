@@ -64,6 +64,7 @@ fun SearchResultsScreen(
     onNavigateToTitle: (SearchResult, Boolean, Int, Location?) -> Unit,
     onItemLongClick: (View, SearchResult, Int) -> Unit,
     onLanguageClick: (Int) -> Unit,
+    onSemanticSearchClick: (String?) -> Unit,
     onSemanticSearchInfoClick: () -> Unit,
     onCloseSearch: () -> Unit,
     onRetrySearch: () -> Unit,
@@ -123,6 +124,7 @@ fun SearchResultsScreen(
                         searchTerm = searchTerm.value,
                         onItemClick = onNavigateToTitle,
                         onItemLongClick = onItemLongClick,
+                        onSemanticSearchClick = { onSemanticSearchClick(searchTerm.value) },
                         onSemanticSearchCloseClick = { viewModel.disableSemanticSearch() },
                         onSemanticSearchInfoClick = { onSemanticSearchInfoClick() },
                         isSemanticSearchEnabled = isSemanticSearchEnabled.value,
@@ -141,6 +143,7 @@ fun SearchResultsList(
     searchTerm: String?,
     onItemClick: (SearchResult, Boolean, Int, Location?) -> Unit,
     onItemLongClick: (View, SearchResult, Int) -> Unit,
+    onSemanticSearchClick: () -> Unit = {},
     onSemanticSearchCloseClick: () -> Unit = {},
     onSemanticSearchInfoClick: () -> Unit = {},
     isSemanticSearchEnabled: Boolean,
@@ -160,6 +163,7 @@ fun SearchResultsList(
                         if (isSemanticSearchFirstUse) {
                             Prefs.isSemanticSearchFirstUse = false
                         }
+                        onSemanticSearchClick()
                     },
                     isFirstUse = isSemanticSearchFirstUse
                 )
