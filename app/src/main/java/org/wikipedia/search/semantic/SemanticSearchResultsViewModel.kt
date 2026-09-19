@@ -14,7 +14,6 @@ import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.search.SearchResult
 import org.wikipedia.util.UiState
 
@@ -29,6 +28,12 @@ class SemanticSearchResultsViewModel(savedStateHandle: SavedStateHandle) : ViewM
     // TODO: we'll probably need a separate data class for edit and reference counts.
     private var _semanticSearchResultState = MutableStateFlow<UiState<List<SearchResult>>>(UiState.Loading)
     val semanticSearchResultState = _semanticSearchResultState.asStateFlow()
+
+    val quotationMarkMap = mapOf(
+        "ja" to "『",
+        "ar" to "«",
+        "fr" to "❞"
+    )
 
     init {
         loadSemanticSearchResults()
@@ -68,15 +73,5 @@ class SemanticSearchResultsViewModel(savedStateHandle: SavedStateHandle) : ViewM
 
             _semanticSearchResultState.value = UiState.Success(semanticResult)
         }
-    }
-
-    fun buildList(
-        response: MwQueryResponse?,
-        wikiSite: WikiSite,
-        type: SearchResult.SearchResultType
-    ): List<SearchResult> {
-        return response?.query?.pages?.let { list ->
-            list.sortedBy { it.index }.map { SearchResult(it, wikiSite, it.coordinates, type, indexInApiCall = it.index) }
-        } ?: emptyList()
     }
 }

@@ -13,9 +13,10 @@ data class SearchResult(val pageTitle: PageTitle,
                         val type: SearchResultType,
                         val coordinates: List<MwQueryPage.Coordinates>? = null,
                         val snippet: String? = null,
+                        val indexInApiCall: Int = 0,
+                        val sectionTitle: String? = null,
                         val editCounts: Int? = null,
-                        val referenceCounts: Int? = null,
-                        val indexInApiCall: Int = 0) {
+                        val referenceCounts: Int? = null) {
 
     @Serializable
     enum class SearchResultType {
@@ -28,6 +29,7 @@ data class SearchResult(val pageTitle: PageTitle,
         coordinates: List<MwQueryPage.Coordinates>? = null,
         type: SearchResultType = SearchResultType.PREFIX,
         indexInApiCall: Int = 0,
+        sectionTitle: String? = null,
         editCounts: Int? = null,
         referenceCounts: Int? = null,
     ) : this(
@@ -43,6 +45,7 @@ data class SearchResult(val pageTitle: PageTitle,
         coordinates = coordinates,
         snippet = page.snippet,
         indexInApiCall = indexInApiCall,
+        sectionTitle = page.sectionTitle,
         editCounts = editCounts,
         referenceCounts = referenceCounts
     )
