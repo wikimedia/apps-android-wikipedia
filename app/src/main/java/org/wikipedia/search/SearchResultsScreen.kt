@@ -110,11 +110,21 @@ fun SearchResultsScreen(
                 }
 
                 loadState.append is LoadState.NotLoading && loadState.append.endOfPaginationReached && searchResults.itemCount == 0 -> {
-                    NoSearchResults(
-                        countsPerLanguageCode = countsPerLanguageCode,
-                        invokeSource = viewModel.invokeSource,
-                        onLanguageClick = onLanguageClick
-                    )
+                    if (isSemanticSearchEnabled.value) {
+                        SemanticSearchEntryCard(
+                            searchTerm = searchTerm.value,
+                            isFirstUse = isSemanticSearchFirstUse.value,
+                            onInfoBtnClick = { onSemanticSearchInfoClick() },
+                            onCloseClick = { viewModel.disableSemanticSearch() },
+                            onSemanticSearchClick = { /*TODO: wire up click functionality */ }
+                        )
+                    } else {
+                        NoSearchResults(
+                            countsPerLanguageCode = countsPerLanguageCode,
+                            invokeSource = viewModel.invokeSource,
+                            onLanguageClick = onLanguageClick
+                        )
+                    }
                 }
 
                 else -> {
