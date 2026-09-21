@@ -163,7 +163,7 @@ fun SemanticSearchResultsHeader(
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp)
-            .padding(bottom = 12.dp),
+            .padding(bottom = 8.dp),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -364,9 +364,9 @@ fun SemanticSearchResultCard(
                             .size(32.dp)
                             .clip(RoundedCornerShape(8.dp))
                     )
-                }
 
-                Spacer(modifier = Modifier.width(8.dp))
+                    Spacer(modifier = Modifier.width(8.dp))
+                }
 
                 Text(
                     text = articlePath,
