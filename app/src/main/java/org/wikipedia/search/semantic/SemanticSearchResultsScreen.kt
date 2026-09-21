@@ -304,7 +304,7 @@ fun SemanticSearchResultCard(
             ) {
                 Icon(
                     modifier = Modifier.size(16.dp),
-                    painter = painterResource(R.drawable.ic_quotation_mark_20dp),
+                    painter = painterResource(prefixQuotationMark),
                     contentDescription = null,
                     tint = WikipediaTheme.colors.primaryColor
                 )
