@@ -60,6 +60,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.net.toUri
 import coil3.compose.AsyncImage
 import org.wikipedia.R
 import org.wikipedia.compose.components.HtmlText
@@ -267,7 +268,11 @@ fun SemanticSearchResultsContent(
                 SemanticSearchResultCard(
                     prefixQuotationMark = viewModel.quotationMarkMap[viewModel.languageCode] ?: "«",
                     searchResult = searchResult,
-                    onItemClick = { onItemClick(searchResult, searchResult.pageTitle, false) }
+                    onItemClick = { onItemClick(searchResult, searchResult.pageTitle, false) },
+                    onLinkClick = { url ->
+                        val pageTitle = PageTitle.titleForUri(url.toUri(), WikiSite(url))
+                        onItemClick(searchResult, pageTitle, true)
+                    }
                 )
             }
         }
@@ -276,10 +281,11 @@ fun SemanticSearchResultsContent(
 
 @Composable
 fun SemanticSearchResultCard(
+    modifier: Modifier = Modifier,
     prefixQuotationMark: String,
     searchResult: SearchResult,
     onItemClick: () -> Unit,
-    modifier: Modifier = Modifier
+    onLinkClick: (String) -> Unit
 ) {
     val articlePath = listOfNotNull(
         searchResult.pageTitle.displayText.takeIf { it.isNotBlank() },
@@ -330,7 +336,7 @@ fun SemanticSearchResultCard(
                     ),
                     linkInteractionListener = {
                         val url = (it as LinkAnnotation.Url).url
-                        // TODO: handle link click
+                        onLinkClick(url)
                     },
                     maxLines = 8
                 )
@@ -465,7 +471,8 @@ fun SemanticSearchResultCardPreview() {
                 searchResultType = SearchResult.SearchResultType.SEMANTIC,
                 snippet = snippet
             ),
-            onItemClick = {}
+            onItemClick = {},
+            onLinkClick = {}
         )
     }
 }

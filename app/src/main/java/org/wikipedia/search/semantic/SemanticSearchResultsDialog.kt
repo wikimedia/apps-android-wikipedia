@@ -25,9 +25,8 @@ class SemanticSearchResultsDialog : ExtendedBottomSheetDialogFragment() {
                     SemanticSearchResultsScreen(
                         viewModel = viewModel,
                         onItemClick = { result, title, fromSnippetLink ->
-                            val pageTitle = result.pageTitle
-                            val entry = HistoryEntry(pageTitle, HistoryEntry.SOURCE_SEARCH)
-                            startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, pageTitle))
+                            val entry = HistoryEntry(title, HistoryEntry.SOURCE_SEARCH)
+                            startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, title))
                         },
                         onCloseClick = {
                             dismiss()
