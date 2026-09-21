@@ -5,8 +5,10 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.gestures.Orientation
+import androidx.compose.foundation.gestures.rememberScrollableState
+import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -19,8 +21,10 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.BottomSheetDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -34,9 +38,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.painter.BrushPainter
+import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLayoutDirection
+import androidx.compose.ui.platform.rememberNestedScrollInteropConnection
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
@@ -59,6 +65,7 @@ import org.wikipedia.util.UiState
 import org.wikipedia.util.log.L
 import org.wikipedia.views.imageservice.ImageService
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SemanticSearchResultsScreen(
     modifier: Modifier = Modifier,
@@ -75,10 +82,23 @@ fun SemanticSearchResultsScreen(
     val layoutDirection =
         if (L10nUtil.isLangRTL(languageCode)) LayoutDirection.Rtl else LayoutDirection.Ltr
 
+    val interopConnection = rememberNestedScrollInteropConnection()
+    val sheetDragState = rememberScrollableState { 0f }
+
     CompositionLocalProvider(LocalLayoutDirection provides layoutDirection) {
-        Box(
+        Column(
             modifier = modifier
+                .fillMaxWidth()
+                .nestedScroll(interopConnection)
+                .scrollable(
+                    state = sheetDragState,
+                    orientation = Orientation.Vertical
+                )
         ) {
+            BottomSheetDefaults.DragHandle(
+                modifier = Modifier.align(Alignment.CenterHorizontally),
+                color = WikipediaTheme.colors.inactiveColor
+            )
             when (searchResultsState) {
                 is UiState.Loading -> {
                     onLoading(true)
