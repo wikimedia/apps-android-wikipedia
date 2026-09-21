@@ -11,7 +11,6 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
-import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -30,9 +29,9 @@ class SemanticSearchResultsViewModel(savedStateHandle: SavedStateHandle) : ViewM
     val semanticSearchResultState = _semanticSearchResultState.asStateFlow()
 
     val quotationMarkMap = mapOf(
-        "ja" to R.drawable.ic_quotation_mark_20dp,
-        "ar" to R.drawable.ic_quotation_mark_20dp,
-        "fr" to R.drawable.ic_quotation_mark_20dp
+        "ja" to "『",
+        "ar" to "❞",
+        "fr" to "«"
     )
 
     init {

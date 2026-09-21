@@ -1,6 +1,5 @@
 package org.wikipedia.compose.components
 
-import android.text.TextPaint
 import androidx.compose.foundation.gestures.awaitEachGesture
 import androidx.compose.foundation.gestures.awaitFirstDown
 import androidx.compose.foundation.text.TextAutoSize
@@ -14,7 +13,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.PointerEventPass
 import androidx.compose.ui.input.pointer.pointerInput
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.LinkAnnotation
 import androidx.compose.ui.text.LinkInteractionListener
@@ -25,10 +23,8 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.TextUnit
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
 import androidx.core.net.toUri
@@ -39,7 +35,6 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.UriUtil
-import kotlin.math.ceil
 import kotlin.math.roundToInt
 
 @Composable
@@ -142,24 +137,6 @@ fun defaultLinkInteractionListener(wikiSite: WikiSite? = null): LinkInteractionL
             )
         }
     }
-}
-
-@Composable
-fun leadingSpacesForIcon(
-    iconSize: Dp = 20.dp,
-    iconGap: Dp = 4.dp,
-    fontSize: TextUnit = 16.sp
-): String {
-    val density = LocalDensity.current
-    val paint = remember(fontSize, density) {
-        TextPaint().apply { textSize = with(density) { fontSize.toPx() } }
-    }
-
-    val spaceWidthPx = paint.measureText("\u00A0").coerceAtLeast(1f)
-    val targetWidthPx = with(density) { (iconSize + iconGap).toPx() }
-    val count = ceil(targetWidthPx / spaceWidthPx).toInt()
-
-    return "\u00A0".repeat(count)
 }
 
 @Preview

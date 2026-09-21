@@ -1,6 +1,7 @@
 package org.wikipedia.search.semantic
 
 import android.location.Location
+import android.text.TextPaint
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -34,6 +35,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -42,6 +44,7 @@ import androidx.compose.ui.graphics.painter.BrushPainter
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.platform.rememberNestedScrollInteropConnection
 import androidx.compose.ui.res.painterResource
@@ -54,6 +57,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -63,7 +67,6 @@ import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.components.WikiCard
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
-import org.wikipedia.compose.components.leadingSpacesForIcon
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
@@ -73,6 +76,7 @@ import org.wikipedia.theme.Theme
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.UiState
 import org.wikipedia.views.imageservice.ImageService
+import kotlin.math.ceil
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -259,7 +263,7 @@ fun SemanticSearchResultsContent(
             items(items.size, key = { items[it].pageTitle }) { index ->
                 val searchResult = items[index]
                 SemanticSearchResultCard(
-                    prefixQuotationMark = viewModel.quotationMarkMap[viewModel.languageCode] ?: R.drawable.ic_quotation_mark_20dp,
+                    prefixQuotationMark = viewModel.quotationMarkMap[viewModel.languageCode] ?: "«",
                     searchResult = searchResult,
                     onItemClick = { onItemClick(searchResult, searchResult.pageTitle, false, false, index, searchResult.location) }
                 )
@@ -270,7 +274,7 @@ fun SemanticSearchResultsContent(
 
 @Composable
 fun SemanticSearchResultCard(
-    prefixQuotationMark: Int,
+    prefixQuotationMark: String,
     searchResult: SearchResult,
     onItemClick: () -> Unit,
     modifier: Modifier = Modifier
@@ -302,17 +306,16 @@ fun SemanticSearchResultCard(
             Box(
                 modifier = Modifier.fillMaxWidth(),
             ) {
-                Icon(
-                    modifier = Modifier.size(16.dp),
-                    painter = painterResource(prefixQuotationMark),
-                    contentDescription = null,
-                    tint = WikipediaTheme.colors.primaryColor
+                Text(
+                    modifier = Modifier.offset(y = (-12).dp),
+                    text = prefixQuotationMark,
+                    fontSize = 32.sp,
+                    color = WikipediaTheme.colors.primaryColor
                 )
                 HtmlText(
-                    text = leadingSpacesForIcon(
-                        iconSize = 16.dp,
-                        iconGap = 8.dp,
-                        fontSize = 16.sp
+                    text = leadingSpacesForQuotationMark(
+                        reserveSize = 24.dp,
+                        reserveSGap = 4.dp
                     ) + searchResult.snippet.orEmpty(),
                     color = WikipediaTheme.colors.primaryColor,
                     linkStyle = TextLinkStyles(
@@ -411,6 +414,23 @@ fun SemanticSearchResultCard(
     }
 }
 
+@Composable
+fun leadingSpacesForQuotationMark(
+    reserveSize: Dp = 20.dp,
+    reserveSGap: Dp = 4.dp,
+): String {
+    val density = LocalDensity.current
+    val paint = remember(reserveSize, density) {
+        TextPaint().apply { textSize = with(density) { reserveSize.toPx() } }
+    }
+
+    val spaceWidthPx = paint.measureText("\u00A0").coerceAtLeast(1f)
+    val targetWidthPx = with(density) { (reserveSize + reserveSGap).toPx() }
+    val count = ceil(targetWidthPx / spaceWidthPx).toInt()
+
+    return "\u00A0".repeat(count)
+}
+
 @Preview(showBackground = true)
 @Composable
 fun SemanticSearchResultCardPreview() {
@@ -428,7 +448,7 @@ fun SemanticSearchResultCardPreview() {
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(16.dp),
-            prefixQuotationMark = R.drawable.ic_quotation_mark_20dp,
+            prefixQuotationMark = "«",
             searchResult = SearchResult(
                 pageTitle = pageTitle,
                 searchResultType = SearchResult.SearchResultType.SEMANTIC,
