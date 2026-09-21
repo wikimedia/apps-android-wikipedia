@@ -314,8 +314,10 @@ fun SemanticSearchResultCard(
                 )
                 HtmlText(
                     text = leadingSpacesForQuotationMark(
-                        reserveSize = 24.dp,
-                        reserveSGap = 4.dp
+                        quotationMark = prefixQuotationMark,
+                        quoteTextSize = 32.sp,
+                        contentTextSize = 16.sp,
+                        reserveGap = 4.dp
                     ) + searchResult.snippet.orEmpty(),
                     color = WikipediaTheme.colors.primaryColor,
                     linkStyle = TextLinkStyles(
@@ -416,17 +418,24 @@ fun SemanticSearchResultCard(
 
 @Composable
 fun leadingSpacesForQuotationMark(
-    reserveSize: Dp = 20.dp,
-    reserveSGap: Dp = 4.dp,
+    quotationMark: String,
+    quoteTextSize: androidx.compose.ui.unit.TextUnit = 32.sp,
+    contentTextSize: androidx.compose.ui.unit.TextUnit = 16.sp,
+    reserveGap: Dp = 4.dp
 ): String {
     val density = LocalDensity.current
-    val paint = remember(reserveSize, density) {
-        TextPaint().apply { textSize = with(density) { reserveSize.toPx() } }
+
+    val quotePaint = remember(quoteTextSize, density) {
+        TextPaint().apply { textSize = with(density) { quoteTextSize.toPx() } }
+    }
+    val contentPaint = remember(contentTextSize, density) {
+        TextPaint().apply { textSize = with(density) { contentTextSize.toPx() } }
     }
 
-    val spaceWidthPx = paint.measureText("\u00A0").coerceAtLeast(1f)
-    val targetWidthPx = with(density) { (reserveSize + reserveSGap).toPx() }
-    val count = ceil(targetWidthPx / spaceWidthPx).toInt()
+    val quoteWidthPx = quotePaint.measureText(quotationMark).coerceAtLeast(0f)
+    val spaceWidthPx = contentPaint.measureText("\u00A0").coerceAtLeast(1f)
+    val targetWidthPx = quoteWidthPx + with(density) { reserveGap.toPx() }
+    val count = ceil(targetWidthPx / spaceWidthPx).toInt().coerceAtLeast(0)
 
     return "\u00A0".repeat(count)
 }
