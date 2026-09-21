@@ -117,7 +117,7 @@ fun SearchResultsScreen(
                             isFirstUse = isSemanticSearchFirstUse.value,
                             onInfoBtnClick = { onSemanticSearchInfoClick() },
                             onCloseClick = { viewModel.disableSemanticSearch() },
-                            onSemanticSearchClick = { /*TODO: wire up click functionality */ }
+                            onSemanticSearchClick = { onSemanticSearchClick(searchTerm.value) }
                         )
                     } else {
                         NoSearchResults(

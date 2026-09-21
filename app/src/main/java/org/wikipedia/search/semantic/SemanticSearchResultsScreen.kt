@@ -212,7 +212,10 @@ fun SemanticSearchNoResultsContent(
     modifier: Modifier = Modifier
 ) {
     Column(
-        modifier = modifier.padding(16.dp)
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp, vertical = 32.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Image(
             painter = painterResource(R.drawable.illustration_no_results),
@@ -301,7 +304,7 @@ fun SemanticSearchResultCard(
         onClick = onItemClick
     ) {
         Column(
-            modifier = Modifier.padding(16.dp)
+            modifier = Modifier.padding(top = 16.dp, bottom = 8.dp, start = 16.dp, end = 16.dp)
         ) {
             Box(
                 modifier = Modifier.fillMaxWidth(),
@@ -465,5 +468,16 @@ fun SemanticSearchResultCardPreview() {
             ),
             onItemClick = {}
         )
+    }
+}
+
+
+@Preview(showBackground = true)
+@Composable
+fun SemanticSearchNoResultsPreview() {
+    BaseTheme(
+        currentTheme = Theme.LIGHT
+    ) {
+        SemanticSearchNoResultsContent()
     }
 }
