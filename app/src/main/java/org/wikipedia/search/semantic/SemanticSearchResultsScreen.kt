@@ -5,7 +5,6 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.gestures.rememberScrollableState
 import androidx.compose.foundation.gestures.scrollable
@@ -25,7 +24,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.BottomSheetDefaults
-import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
@@ -61,6 +59,7 @@ import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
 import org.wikipedia.R
 import org.wikipedia.compose.components.HtmlText
+import org.wikipedia.compose.components.WikiCard
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.theme.WikipediaTheme
@@ -280,7 +279,7 @@ fun SemanticSearchResultCard(
     val editCount = searchResult.editCounts ?: 0
     val referenceCounts = searchResult.referenceCounts ?: 0
 
-    Card(
+    WikiCard(
         modifier = modifier.fillMaxWidth(),
         shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(
@@ -290,19 +289,17 @@ fun SemanticSearchResultCard(
             width = 1.dp,
             color = WikipediaTheme.colors.borderColor
         ),
-        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
+        elevation = 0.dp,
+        onClick = onItemClick
     ) {
         Column(
             modifier = Modifier.padding(16.dp)
-                .clickable {
-                    onItemClick()
-                }
         ) {
             Row(
                 modifier = Modifier.fillMaxWidth()
             ) {
                 HtmlText(
-                    text = "<span style=\"font-size: 32px;\">$prefixQuotationMark</span>${searchResult.snippet.orEmpty()}",
+                    text = "<span style=\"font-size: 72px;\">$prefixQuotationMark </span>${searchResult.snippet.orEmpty()}",
                     color = WikipediaTheme.colors.primaryColor,
                     linkStyle = TextLinkStyles(
                         style = SpanStyle(

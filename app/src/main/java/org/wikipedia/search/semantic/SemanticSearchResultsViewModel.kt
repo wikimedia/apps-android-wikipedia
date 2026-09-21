@@ -25,13 +25,12 @@ class SemanticSearchResultsViewModel(savedStateHandle: SavedStateHandle) : ViewM
     var languageCode = savedStateHandle.get<String>(SemanticSearchResultsDialog.ARG_LANGUAGE_CODE).orEmpty().ifEmpty { WikipediaApp.instance.languageState.appLanguageCode }
     val invokeSource = savedStateHandle.get<Constants.InvokeSource>(Constants.INTENT_EXTRA_INVOKE_SOURCE) ?: Constants.InvokeSource.SEARCH
 
-    // TODO: we'll probably need a separate data class for edit and reference counts.
     private var _semanticSearchResultState = MutableStateFlow<UiState<List<SearchResult>>>(UiState.Loading)
     val semanticSearchResultState = _semanticSearchResultState.asStateFlow()
 
     val quotationMarkMap = mapOf(
         "ja" to "『",
-        "ar" to "«",
+        "ar" to "❞",
         "fr" to "❞"
     )
 
