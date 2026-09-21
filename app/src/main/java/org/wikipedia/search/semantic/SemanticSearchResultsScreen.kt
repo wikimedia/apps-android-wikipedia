@@ -9,6 +9,7 @@ import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.gestures.rememberScrollableState
 import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -16,6 +17,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -62,7 +64,6 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.search.SearchResult
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.UiState
-import org.wikipedia.util.log.L
 import org.wikipedia.views.imageservice.ImageService
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -95,15 +96,21 @@ fun SemanticSearchResultsScreen(
                     orientation = Orientation.Vertical
                 )
         ) {
+
             BottomSheetDefaults.DragHandle(
-                modifier = Modifier.align(Alignment.CenterHorizontally),
+                modifier = Modifier
+                    .align(Alignment.CenterHorizontally),
                 color = WikipediaTheme.colors.inactiveColor
             )
+
+            SemanticSearchResultsHeader(
+                onCloseClick = onCloseClick
+            )
+
             when (searchResultsState) {
                 is UiState.Loading -> {
                     onLoading(true)
                     // TODO: show skeleton loader
-                    L.d("loadSemanticSearchResults loading")
                 }
 
                 is UiState.Success -> {
@@ -113,20 +120,69 @@ fun SemanticSearchResultsScreen(
                         // TODO: show empty message
                         return@CompositionLocalProvider
                     }
-                    L.d("loadSemanticSearchResults Success")
                     SemanticSearchResultsContent(
                         viewModel = viewModel,
                         items = results,
-                        onItemClick = onItemClick,
-                        onCloseClick = onCloseClick
+                        onItemClick = onItemClick
                     )
                 }
 
                 is UiState.Error -> {
-                    L.d("loadSemanticSearchResults Error")
                     onLoading(false)
                 }
             }
+        }
+    }
+}
+
+@Composable
+fun SemanticSearchResultsHeader(
+    onCloseClick: () -> Unit
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp)
+            .padding(bottom = 12.dp),
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier
+                .border(
+                    width = 1.dp,
+                    color = WikipediaTheme.colors.borderColor,
+                    shape = RoundedCornerShape(size = 16.dp)
+                )
+                .padding(horizontal = 8.dp, vertical = 4.dp)
+        ) {
+            Icon(
+                modifier = Modifier,
+                painter = painterResource(R.drawable.ic_experiment_24dp),
+                tint = WikipediaTheme.colors.secondaryColor,
+                contentDescription = null
+            )
+
+            Text(
+                text = stringResource(R.string.donation_reminders_beta_label),
+                style = MaterialTheme.typography.labelSmall,
+                fontWeight = FontWeight.Medium,
+                color = WikipediaTheme.colors.primaryColor
+            )
+        }
+
+        IconButton(
+            onClick = onCloseClick,
+            modifier = Modifier
+                .size(48.dp)
+                .offset(x = 12.dp)
+        ) {
+            Icon(
+                painter = painterResource(R.drawable.ic_close_black_24dp),
+                contentDescription = stringResource(R.string.semantic_search_results_close_button_content_description),
+                tint = WikipediaTheme.colors.primaryColor
+            )
         }
     }
 }
@@ -136,59 +192,14 @@ fun SemanticSearchResultsContent(
     modifier: Modifier = Modifier,
     viewModel: SemanticSearchResultsViewModel,
     items: List<SearchResult>,
-    onItemClick: (SearchResult, PageTitle, Boolean, Boolean, Int, Location?) -> Unit,
-    onCloseClick: () -> Unit
+    onItemClick: (SearchResult, PageTitle, Boolean, Boolean, Int, Location?) -> Unit
 ) {
-    Column(
+    Box(
         modifier = modifier
             .fillMaxSize()
             .background(WikipediaTheme.colors.paperColor)
             .padding(horizontal = 16.dp)
     ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = 8.dp, bottom = 12.dp),
-            horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier
-                    .border(
-                        width = 1.dp,
-                        color = WikipediaTheme.colors.borderColor,
-                        shape = RoundedCornerShape(size = 16.dp)
-                    )
-                    .padding(horizontal = 8.dp, vertical = 4.dp)
-            ) {
-                Icon(
-                    modifier = Modifier,
-                    painter = painterResource(R.drawable.ic_experiment_24dp),
-                    tint = WikipediaTheme.colors.secondaryColor,
-                    contentDescription = null
-                )
-
-                Text(
-                    text = stringResource(R.string.donation_reminders_beta_label),
-                    style = MaterialTheme.typography.labelSmall,
-                    fontWeight = FontWeight.Medium,
-                    color = WikipediaTheme.colors.primaryColor
-                )
-            }
-
-            IconButton(
-                onClick = onCloseClick,
-                modifier = Modifier.size(32.dp)
-            ) {
-                Icon(
-                    painter = painterResource(R.drawable.ic_close_black_24dp),
-                    contentDescription = stringResource(R.string.semantic_search_results_close_button_content_description),
-                    tint = WikipediaTheme.colors.primaryColor
-                )
-            }
-        }
-
         LazyColumn(
             verticalArrangement = Arrangement.spacedBy(16.dp),
             contentPadding = PaddingValues(bottom = 24.dp)
