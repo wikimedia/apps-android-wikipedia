@@ -8,7 +8,9 @@ import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.viewModels
 import org.wikipedia.Constants
 import org.wikipedia.compose.theme.BaseTheme
+import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
+import org.wikipedia.page.PageActivity
 
 class SemanticSearchResultsDialog : ExtendedBottomSheetDialogFragment() {
 
@@ -22,15 +24,20 @@ class SemanticSearchResultsDialog : ExtendedBottomSheetDialogFragment() {
                 BaseTheme {
                     SemanticSearchResultsScreen(
                         viewModel = viewModel,
-                        onItemClick = { result, title, inNewTab, fromSnippetLink, position, location ->
-                            // TODO: start PageActivity
+                        onItemClick = { result, title, fromSnippetLink ->
+                            val pageTitle = result.pageTitle
+                            val entry = HistoryEntry(pageTitle, HistoryEntry.SOURCE_SEARCH)
+                            startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, pageTitle))
                         },
                         onCloseClick = {
                             dismiss()
                         },
                         onRatingClick = { rate, searchResult ->
+                            // TODO: implement this in another ticket.
                         },
-                        onLoading = { }
+                        onLoading = {
+                            // TODO: maybe instrumentation?
+                        }
                     )
                 }
             }

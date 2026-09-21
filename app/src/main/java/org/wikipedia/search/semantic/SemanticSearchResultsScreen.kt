@@ -1,6 +1,5 @@
 package org.wikipedia.search.semantic
 
-import android.location.Location
 import android.text.TextPaint
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -83,7 +82,7 @@ import kotlin.math.ceil
 fun SemanticSearchResultsScreen(
     modifier: Modifier = Modifier,
     viewModel: SemanticSearchResultsViewModel,
-    onItemClick: (SearchResult, PageTitle, Boolean, Boolean, Int, Location?) -> Unit,
+    onItemClick: (SearchResult, PageTitle, Boolean) -> Unit,
     onCloseClick: () -> Unit,
     onRatingClick: (Boolean, SearchResult) -> Unit,
     onLoading: (Boolean) -> Unit,
@@ -251,7 +250,7 @@ fun SemanticSearchResultsContent(
     modifier: Modifier = Modifier,
     viewModel: SemanticSearchResultsViewModel,
     items: List<SearchResult>,
-    onItemClick: (SearchResult, PageTitle, Boolean, Boolean, Int, Location?) -> Unit
+    onItemClick: (SearchResult, PageTitle, Boolean) -> Unit
 ) {
     Box(
         modifier = modifier
@@ -268,7 +267,7 @@ fun SemanticSearchResultsContent(
                 SemanticSearchResultCard(
                     prefixQuotationMark = viewModel.quotationMarkMap[viewModel.languageCode] ?: "«",
                     searchResult = searchResult,
-                    onItemClick = { onItemClick(searchResult, searchResult.pageTitle, false, false, index, searchResult.location) }
+                    onItemClick = { onItemClick(searchResult, searchResult.pageTitle, false) }
                 )
             }
         }
@@ -470,7 +469,6 @@ fun SemanticSearchResultCardPreview() {
         )
     }
 }
-
 
 @Preview(showBackground = true)
 @Composable
