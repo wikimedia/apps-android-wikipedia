@@ -1033,7 +1033,7 @@
   <string name="description_edit_help_wikidata_guide">Wytyczne Wikidanych dotyczące tworzenia opisów</string>
   <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Dziękujemy za Twoje zainteresowanie edycją opisów artykułów! Aby wprowadzić dalsze zmiany, zaloguj się na swoje konto w Wikipedii.</string>
-  <string name="description_edit_license_notice">Zmieniając opis artykułu, wyrażam zgodę na &lt;a href=\"%1$s\"&gt;warunki korzystania&lt;/a&gt; i nieodwołalnie udostępniam moje artykuły na licencji &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_edit_license_notice">Zmieniając opis artykułu, wyrażam zgodę na &lt;a href=\"%1$s\"&gt;warunki korzystania&lt;/a&gt; i nieodwołalnie udostępniam mój wkład na licencji &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">zazwyczaj zaczynają się małą literą</string>
   <string name="description_edit_voice_input_description">Wprowadzanie głosowe</string>
   <string name="description_edit_learn_more">Dowiedz się więcej o opisach artykułów</string>
@@ -1092,7 +1092,7 @@
   <string name="suggested_edits_review_image_caption">Przejrzyj podpis obrazu</string>
   <string name="suggested_edits_my_contributions">Mój wkład</string>
   <string name="suggested_edits_no_description">Ten plik nie ma opisu</string>
-  <string name="suggested_edits_license_notice">Dodając opis, wyrażam zgodę na &lt;a href=\"%1$s\"&gt;warunki korzystania&lt;/a&gt; i nieodwołalnie udostępniam mój wkład na licencji &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="suggested_edits_license_notice">Dodając opis artykułu, wyrażam zgodę na &lt;a href=\"%1$s\"&gt;warunki korzystania&lt;/a&gt; i nieodwołalnie udostępniam mój wkład na licencji &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Dodając opis obrazu, wyrażam zgodę na &lt;a href=\"%1$s\"&gt;warunki korzystania&lt;/a&gt; i nieodwołalnie udostępniam mój wkład na licencji &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Informacje</string>
   <string name="suggested_edits_task_add_description_title">Dodaj opisy artykułów</string>
@@ -1551,7 +1551,7 @@
   <string name="templates_learn_more_link">Dowiedz się więcej</string>
   <string name="templates_description_incomplete">Szablony są tworzone przez użytkowników i mogą nie zawierać pełnych opisów.</string>
   <string name="templates_description_empty">Szablon „%s” nie ma jeszcze swojego opisu.</string>
-  <string name="templates_description_missing_data">W tym szablonie brakuje danych &lt;a href=\"%1$s\"&gt;TemplateData&lt;/a&gt;, a jego parametry zostały &lt;a href=\"%2$s\"&gt;wygenerowane automatycznie&lt;/a&gt;. W związku z tym szablon i jego parametry nie posiadają opisów.</string>
+  <string name="templates_description_missing_data">W tym szablonie brakuje danych &lt;a href=\"%1$s\"&gt;TemplateData&lt;/a&gt;, a jego parametry zostały &lt;a href=\"%2$s\"&gt;wygenerowane automatycznie&lt;/a&gt;. W związku z tym szablon i jego parametry nie zawierają opisów.</string>
   <string name="main_drawer_help">Pomoc</string>
   <string name="main_drawer_login">Zaloguj się / dołącz do Wikipedii</string>
   <string name="main_tooltip_action_button">Rozpocznij</string>
