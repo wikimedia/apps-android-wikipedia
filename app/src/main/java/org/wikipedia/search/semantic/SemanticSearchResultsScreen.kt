@@ -53,6 +53,7 @@ import androidx.compose.ui.text.TextLinkStyles
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -62,9 +63,13 @@ import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.components.WikiCard
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
+import org.wikipedia.compose.components.leadingSpacesForIcon
+import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.PageTitle
 import org.wikipedia.search.SearchResult
+import org.wikipedia.theme.Theme
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.UiState
 import org.wikipedia.views.imageservice.ImageService
@@ -254,7 +259,7 @@ fun SemanticSearchResultsContent(
             items(items.size, key = { items[it].pageTitle }) { index ->
                 val searchResult = items[index]
                 SemanticSearchResultCard(
-                    viewModel = viewModel,
+                    prefixQuotationMark = viewModel.quotationMarkMap[viewModel.languageCode] ?: R.drawable.ic_quotation_mark_20dp,
                     searchResult = searchResult,
                     onItemClick = { onItemClick(searchResult, searchResult.pageTitle, false, false, index, searchResult.location) }
                 )
@@ -265,12 +270,11 @@ fun SemanticSearchResultsContent(
 
 @Composable
 fun SemanticSearchResultCard(
-    viewModel: SemanticSearchResultsViewModel,
+    prefixQuotationMark: Int,
     searchResult: SearchResult,
     onItemClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    val prefixQuotationMark = viewModel.quotationMarkMap[viewModel.languageCode] ?: "❞"
     val articlePath = listOfNotNull(
         searchResult.pageTitle.displayText.takeIf { it.isNotBlank() },
         searchResult.sectionTitle?.takeIf { it.isNotBlank() }
@@ -295,11 +299,21 @@ fun SemanticSearchResultCard(
         Column(
             modifier = Modifier.padding(16.dp)
         ) {
-            Row(
-                modifier = Modifier.fillMaxWidth()
+            Box(
+                modifier = Modifier.fillMaxWidth(),
             ) {
+                Icon(
+                    modifier = Modifier.size(16.dp),
+                    painter = painterResource(R.drawable.ic_quotation_mark_20dp),
+                    contentDescription = null,
+                    tint = WikipediaTheme.colors.primaryColor
+                )
                 HtmlText(
-                    text = "<span style=\"font-size: 72px;\">$prefixQuotationMark </span>${searchResult.snippet.orEmpty()}",
+                    text = leadingSpacesForIcon(
+                        iconSize = 16.dp,
+                        iconGap = 8.dp,
+                        fontSize = 16.sp
+                    ) + searchResult.snippet.orEmpty(),
                     color = WikipediaTheme.colors.primaryColor,
                     linkStyle = TextLinkStyles(
                         style = SpanStyle(
@@ -310,7 +324,8 @@ fun SemanticSearchResultCard(
                     linkInteractionListener = {
                         val url = (it as LinkAnnotation.Url).url
                         // TODO: handle link click
-                    }
+                    },
+                    maxLines = 8
                 )
             }
 
@@ -393,5 +408,33 @@ fun SemanticSearchResultCard(
                 }
             }
         }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun SemanticSearchResultCardPreview() {
+    val wikiSite = WikiSite.preview()
+    val pageTitle = PageTitle("Beyoncé", wikiSite).apply {
+        description = "American singer, songwriter, and actress"
+        thumbUrl = "https://example"
+    }
+    val snippet = "Beyoncé Giselle Knowles-Carter is an <a href='#'>American singer</a>, songwriter, actress, and businesswoman. Born and raised in Houston, Texas, she performed in various singing and dancing competitions as a child. She rose to fame in the late 1990s as the lead singer of Destiny's Child, one of the world's best"
+
+    BaseTheme(
+        currentTheme = Theme.LIGHT
+    ) {
+        SemanticSearchResultCard(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            prefixQuotationMark = R.drawable.ic_quotation_mark_20dp,
+            searchResult = SearchResult(
+                pageTitle = pageTitle,
+                searchResultType = SearchResult.SearchResultType.SEMANTIC,
+                snippet = snippet
+            ),
+            onItemClick = {}
+        )
     }
 }
