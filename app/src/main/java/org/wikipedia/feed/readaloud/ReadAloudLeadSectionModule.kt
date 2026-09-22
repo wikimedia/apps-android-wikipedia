@@ -612,10 +612,20 @@ private fun ReadAloudPlaybackControls(
             )
         }
 
-        playerState.generatedDate?.let {
+        playerState.audioRevisionId?.let { audioRevisionId ->
+            val generatedDate = playerState.generatedDate
+            val attributionText = if (audioRevisionId == summary.revision || generatedDate == null) {
+                context.getString(wikiSite.languageCode, R.string.read_aloud_card_audio_attribution)
+            } else {
+                context.getString(
+                    wikiSite.languageCode,
+                    R.string.read_aloud_card_audio_date,
+                    DateUtil.getShortDateString(generatedDate)
+                )
+            }
             HtmlText(
                 modifier = Modifier.padding(start = 8.dp, top = 4.dp),
-                text = context.getString(wikiSite.languageCode, R.string.read_aloud_card_audio_date, DateUtil.getShortDateString(it)),
+                text = attributionText,
                 linkStyle = TextLinkStyles(
                     style = SpanStyle(
                         fontSize = 11.sp,

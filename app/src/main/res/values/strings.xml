@@ -2597,7 +2597,8 @@
     <string name="read_aloud_card_retry">Retry</string>
     <string name="read_aloud_card_error">Audio is not available for this article.</string>
     <string name="read_aloud_card_keep_listening">Keep listening?</string>
-    <string name="read_aloud_card_audio_date"><![CDATA[This audio was generated using a <a href="https://huggingface.co/hexgrad/Kokoro-82M">text-to-speech model</a>, based on article content from %s]]></string>
+    <string name="read_aloud_card_audio_date"><![CDATA[This audio was generated using <a href="https://www.mediawiki.org/wiki/Readers/Listening_to_Wikipedia/Model">a text-to-speech model</a>, based on article content from %s.]]></string>
+    <string name="read_aloud_card_audio_attribution"><![CDATA[This audio was generated using <a href="https://www.mediawiki.org/wiki/Readers/Listening_to_Wikipedia/Model">a text-to-speech model</a>.]]></string>
     <string name="read_aloud_lead_section_tooltip_text">New beta feature: listen to article intros in \"For you\"</string>
     <string name="read_aloud_lead_section_survey_title">How are you interested in listening to Wikipedia?</string>
     <string name="read_aloud_lead_section_survey_choice1">Article introductions</string>
