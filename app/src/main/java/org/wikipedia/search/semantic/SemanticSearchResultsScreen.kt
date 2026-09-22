@@ -342,6 +342,15 @@ fun SemanticSearchResultCard(
                 )
             }
 
+            Spacer(modifier = Modifier.height(4.dp))
+
+            Text(
+                text = stringResource(R.string.semantic_search_results_read_in_article_label),
+                fontWeight = FontWeight.Medium,
+                fontSize = 13.sp,
+                color = WikipediaTheme.colors.placeholderColor
+            )
+
             Spacer(modifier = Modifier.height(14.dp))
 
             Row(
