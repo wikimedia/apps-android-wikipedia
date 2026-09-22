@@ -847,7 +847,8 @@ class HomeViewModel : ViewModel() {
                                     extract = page.extract,
                                     thumbnail = page.thumbUrl(),
                                     lang = currentWikiSite.languageCode,
-                                    pageId = page.pageId
+                                    pageId = page.pageId,
+                                    revision = page.lastrevid
                                 )
                             }?.map { summary ->
                                 ReadAloudLeadSectionCard(summary, topic)

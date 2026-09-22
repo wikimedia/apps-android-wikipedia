@@ -62,6 +62,9 @@ class ReadAloudPlayerState internal constructor(private val player: ExoPlayer?) 
     var generatedDate by mutableStateOf<LocalDate?>(null)
         private set
 
+    var audioRevisionId by mutableStateOf<Long?>(null)
+        private set
+
     // Incremented to ask for the media a second time after resolving it failed.
     internal var resolveAttempt by mutableIntStateOf(0)
         private set
@@ -157,6 +160,7 @@ class ReadAloudPlayerState internal constructor(private val player: ExoPlayer?) 
         }
         audioUrl = media.audioUrl
         generatedDate = media.generatedDate
+        audioRevisionId = media.revisionId
         player?.setMediaItem(MediaItem.fromUri(media.audioUrl))
         if (isAwaitingMedia) {
             isAwaitingMedia = false

@@ -19,7 +19,8 @@ data class ReadAloudMedia(
     val audioUrl: String,
     val captionsUrl: String,
     // When the recording was produced, and so how current the article text behind it is.
-    val generatedDate: LocalDate?
+    val generatedDate: LocalDate?,
+    val revisionId: Long
 )
 
 /**
@@ -62,7 +63,8 @@ object ReadAloudArticlesRepository {
                     ReadAloudMedia(
                         audioUrl = "$articleUrl$revisionId/$AUDIO_FILE_NAME",
                         captionsUrl = "$articleUrl$revisionId/$CAPTIONS_FILE_NAME",
-                        generatedDate = generatedDate
+                        generatedDate = generatedDate,
+                        revisionId = revisionId
                     )
                 }
             }
