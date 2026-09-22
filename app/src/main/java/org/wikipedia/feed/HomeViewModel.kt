@@ -203,7 +203,7 @@ sealed class ForYouModule {
         override val cards: List<ForYouCard>
     ) : ForYouModule() {
         override fun withCards(cards: List<ForYouCard>): ForYouModule = copy(cards = cards)
-        override fun moduleKey(): String = ForYouModuleType.BASED_ON_INTEREST.name
+        override fun moduleKey(): String = ForYouModuleType.READ_ALOUD_LEAD_SECTION.name
     }
 }
 
