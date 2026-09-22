@@ -46,6 +46,7 @@ fun SemanticSearchEntryCard(
         modifier = Modifier
             .padding(top = 12.dp)
             .wrapContentHeight()
+            .clickable(onClick = { onSemanticSearchClick() })
     ) {
         Row(
             modifier = Modifier
@@ -108,7 +109,6 @@ fun SemanticSearchEntryCard(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .clickable(onClick = { onSemanticSearchClick() })
                 .padding(horizontal = 16.dp),
             verticalAlignment = Alignment.Top
         ) {
