@@ -62,9 +62,9 @@ private fun SemanticSearchInfoDialogContent(
 ) {
 
     val snippet = "<span class=\\\"searchmatch\\\">Cats have excellent night vision and can see at one sixth the light level " +
-            "required for human vision.: 43 This is partly the result of </span> cat eyes having a " +
+            "required for human vision.<sup>: 43</sup> This is partly the result of </span> cat eyes having a " +
             "tapetum lucidum, which reflects any light that passes through the retina back into " +
-            "the eye, thereby increasing the eye's sensitivity to dim light.[74] Large pupils " +
+            "the eye, thereby increasing the eye's sensitivity to dim light.<sup>[74]</sup> Large pupils " +
             "are an adaptation to dim light. The do..."
 
     val searchResult = SearchResult(
