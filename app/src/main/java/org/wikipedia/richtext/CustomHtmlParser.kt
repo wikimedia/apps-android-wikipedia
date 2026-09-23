@@ -7,6 +7,7 @@ import android.graphics.Canvas
 import android.graphics.Rect
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
+import android.text.Annotation
 import android.text.Editable
 import android.text.Html.ImageGetter
 import android.text.Html.TagHandler
@@ -197,17 +198,20 @@ class CustomHtmlParser(private val handler: TagHandler) : TagHandler, ContentHan
             } else if (tag == "li" && listParents.isNotEmpty() && !opening && output != null) {
                 handleListTag(output)
             } else if (tag == "span" && output != null) {
+                val styleAttr = getValue(attributes, "style").orEmpty()
+                val classAttr = getValue(attributes, "class").orEmpty()
                 if (opening) {
                     if (hiddenSpanDepth > 0) {
                         // Already inside a hidden span, just track nesting depth.
                         hiddenSpanDepth++
-                    } else if (getValue(attributes, "style").orEmpty().let {
-                        it.contains("display:none") || it.contains("display: none")
-                    }) {
+                    } else if (styleAttr.contains("display:none") || styleAttr.contains("display: none")) {
                         // Entering a new hidden span. Record the output position so we can
                         // truncate everything appended while inside this span.
                         hiddenSpanDepth = 1
                         hiddenSpanStartPos = output.length
+                    } else if (styleAttr.contains("searchmatch") || classAttr.contains("searchmatch")) {
+                        val key = if (styleAttr.contains("searchmatch")) "style" else "class"
+                        output.setSpan(Annotation(key, "searchmatch"), output.length, output.length, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
                     }
                 } else {
                     if (hiddenSpanDepth > 0) {
@@ -219,6 +223,14 @@ class CustomHtmlParser(private val handler: TagHandler) : TagHandler, ContentHan
                                 output.delete(hiddenSpanStartPos, output.length)
                             }
                             hiddenSpanStartPos = -1
+                        }
+                    } else {
+                        val spans = output.getSpans<Annotation>(output.length)
+                        val matchSpan = spans.lastOrNull { (it.key == "style" || it.key == "class") && it.value == "searchmatch" }
+                        if (matchSpan != null) {
+                            val start = output.getSpanStart(matchSpan)
+                            output.removeSpan(matchSpan)
+                            output.setSpan(Annotation(matchSpan.key, matchSpan.value), start, output.length, 0)
                         }
                     }
                 }

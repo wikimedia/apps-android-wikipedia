@@ -19,7 +19,7 @@ import org.wikipedia.util.UiState
 
 class SemanticSearchResultsViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
-    private val semanticBatchSize = 3
+    private val semanticBatchSize = 8
 
     var searchQuery = savedStateHandle.get<String>(SemanticSearchResultsDialog.ARG_SEARCH_QUERY).orEmpty()
     var languageCode = savedStateHandle.get<String>(SemanticSearchResultsDialog.ARG_LANGUAGE_CODE).orEmpty().ifEmpty { WikipediaApp.instance.languageState.appLanguageCode }

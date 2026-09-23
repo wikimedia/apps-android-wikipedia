@@ -4,7 +4,7 @@ import org.wikipedia.analytics.ABTest
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
 
-class SemanticSearchAbTest : ABTest("apps_semantic_search", GROUP_SIZE_2) {
+class SemanticSearchAbTest : ABTest("semantic-search-phase-2", GROUP_SIZE_2) {
     // TODO: confirm with data about the abTestName & group name
     override fun getGroupName(): String {
         return when (group) {
