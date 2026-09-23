@@ -143,7 +143,7 @@ class CustomHtmlParserTest {
         val annotatedString = AnnotatedString.composeFromHtml(
             htmlString = html,
             linkStyles = null,
-            searchMatchStyle = customStyle
+            highlightStyle = customStyle
         )
         val spanStyles = annotatedString.spanStyles
         assertEquals(1, spanStyles.size)

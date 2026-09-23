@@ -48,7 +48,7 @@ fun HtmlText(
             fontSize = 14.sp
         )
     ),
-    searchMatchStyle: SpanStyle = SpanStyle(
+    highlightStyle: SpanStyle = SpanStyle(
         color = ComposeColors.Gray700,
         background = WikipediaTheme.colors.highlightColor
     ),
@@ -69,7 +69,7 @@ fun HtmlText(
         htmlString = text,
         linkStyles = linkStyle,
         linkInteractionListener = linkInteractionListener,
-        searchMatchStyle = searchMatchStyle
+        highlightStyle = highlightStyle
     )
     var layoutResult by remember { mutableStateOf<TextLayoutResult?>(null) }
 
