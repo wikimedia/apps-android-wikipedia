@@ -29,6 +29,7 @@ import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
 import androidx.core.net.toUri
 import org.wikipedia.WikipediaApp
+import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.extensions.composeFromHtml
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
@@ -48,6 +49,7 @@ fun HtmlText(
         )
     ),
     searchMatchStyle: SpanStyle = SpanStyle(
+        color = ComposeColors.Gray700,
         background = WikipediaTheme.colors.highlightColor
     ),
     style: TextStyle = TextStyle(

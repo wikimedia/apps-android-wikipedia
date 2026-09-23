@@ -47,14 +47,13 @@ import androidx.compose.ui.text.style.BaselineShift
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.em
-import org.wikipedia.compose.ComposeColors
 import org.wikipedia.util.StringUtil
 
 fun AnnotatedString.Companion.composeFromHtml(
     htmlString: String,
     linkStyles: TextLinkStyles?,
     linkInteractionListener: LinkInteractionListener? = null,
-    searchMatchStyle: SpanStyle? = SpanStyle(background = ComposeColors.Yellow500)
+    searchMatchStyle: SpanStyle?
 ): AnnotatedString {
     val spanned = StringUtil.fromHtml(htmlString)
     return spanned.toAnnotatedString(linkStyles, linkInteractionListener, searchMatchStyle)
