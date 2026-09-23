@@ -821,8 +821,12 @@ class HomeViewModel : ViewModel() {
             // -- Read aloud lead section --
 
             if (ReadAloudLeadSectionABTest().isTestActive() &&
-                ReadAloudArticlesRepository.isSupported(currentWikiSite)) {
+                ReadAloudArticlesRepository.isSupported(currentWikiSite) &&
+                AppDatabase.instance.topicInterestDao().hasAnyTopics()) {
                 ReadAloudLeadSectionABTest().maybeSendExposureEvent()
+                println("orange sent exposure event for read aloud lead section module")
+            } else {
+                println("orange not sent exposure event because test is not active, or no topics, or not supported")
             }
             val readAloudDeferred = async(Dispatchers.IO) {
                 if (!ReadAloudLeadSectionABTest().isTestActive() ||
