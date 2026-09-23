@@ -31,7 +31,6 @@ import org.wikipedia.compose.components.InfoActionScreen
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.PageTitle
 import org.wikipedia.search.SearchResult
@@ -110,10 +109,7 @@ private fun SemanticSearchInfoDialogContent(
                             style = MaterialTheme.typography.titleMedium,
                             fontWeight = FontWeight(600),
                         )
-
-
                     }
-
                     SemanticSearchResultCard(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -146,7 +142,6 @@ private fun SemanticSearchInfoDialogContent(
                             )
                         }
                     }
-
                 }
             },
             modifier = Modifier.fillMaxWidth()
