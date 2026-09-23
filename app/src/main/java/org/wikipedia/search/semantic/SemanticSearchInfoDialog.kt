@@ -5,10 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -19,6 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
@@ -27,10 +30,15 @@ import org.wikipedia.compose.components.AppButton
 import org.wikipedia.compose.components.InfoActionScreen
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
+import org.wikipedia.page.PageTitle
+import org.wikipedia.search.SearchResult
+import org.wikipedia.search.SearchResult.SearchResultType
 import org.wikipedia.util.UriUtil
 
-class SemanticSearchInfoDialog : ExtendedBottomSheetDialogFragment() {
+class SemanticSearchInfoDialog : ExtendedBottomSheetDialogFragment(startExpanded = true) {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
@@ -53,34 +61,92 @@ private fun SemanticSearchInfoDialogContent(
     onCloseClick: () -> Unit,
     onLearnMoreClick: () -> Unit
 ) {
+
+    val snippet = "Cats have excellent night vision and can see at one sixth the light level " +
+            "required for human vision.: 43 This is partly the result of cat eyes having a " +
+            "tapetum lucidum, which reflects any light that passes through the retina back into " +
+            "the eye, thereby increasing the eye's sensitivity to dim light.[74] Large pupils " +
+            "are an adaptation to dim light. The do..."
+
+    val searchResult = SearchResult(
+        pageTitle = PageTitle("Cats", WikiSite.preview()).apply {
+            description = "Cats"
+            thumbUrl = "https://upload.wikimedia.org/wikipedia/commons/2/25/Siam_lilacpoint.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+        },
+        redirectFrom = null,
+        type = SearchResultType.SEMANTIC,
+        coordinates = null,
+        snippet = snippet,
+        indexInApiCall = 0,
+        sectionTitle = "Vision",
+        editCounts = 2348,
+        referenceCounts = 35
+    )
+
     BaseTheme {
         InfoActionScreen(
             title = stringResource(id = R.string.semantic_search_info_dialog_title),
             message = stringResource(id = R.string.semantic_search_info_dialog_message),
             onCloseClick = onCloseClick,
             bottomContent = {
-                Spacer(modifier = Modifier.height(24.dp))
-                AppButton(
-                    onClick = onLearnMoreClick,
-                    backgroundColor = WikipediaTheme.colors.backgroundColor,
-                    modifier = Modifier.fillMaxWidth(),
+                Column(
+                    horizontalAlignment = Alignment.Start,
+                    modifier = Modifier
+                        .fillMaxWidth()
                 ) {
+                    Spacer(modifier = Modifier.height(24.dp))
                     Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.Center
+                        horizontalArrangement = Arrangement.Start,
                     ) {
-                        Text(
-                            text = stringResource(id = R.string.semantic_search_info_dialog_button_text),
-                            color = WikipediaTheme.colors.progressiveColor,
-                            style = MaterialTheme.typography.titleMedium
-                        )
-                        Spacer(modifier = Modifier.width(8.dp))
                         Icon(
-                            painter = painterResource(id = R.drawable.ic_open_in_new_black_24px),
-                            tint = WikipediaTheme.colors.progressiveColor,
+                            painter = painterResource(id = R.drawable.outline_search_24),
+                            tint = WikipediaTheme.colors.primaryColor,
                             contentDescription = null
                         )
+                        Spacer(modifier = Modifier.width(8.dp))
+                        Text(
+                            text = stringResource(id = R.string.semantic_search_info_dialog_search_string),
+                            color = WikipediaTheme.colors.primaryColor,
+                            style = MaterialTheme.typography.titleMedium,
+                            fontWeight = FontWeight(600),
+                        )
+
+
                     }
+
+                    SemanticSearchResultCard(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(vertical = 16.dp),
+                        prefixQuotationMark = "«",
+                        searchResult = searchResult,
+                        onItemClick = {},
+                        onLinkClick = {}
+                    )
+
+                    AppButton(
+                        onClick = onLearnMoreClick,
+                        backgroundColor = WikipediaTheme.colors.backgroundColor,
+                        modifier = Modifier.fillMaxWidth(),
+                    ) {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.Center
+                        ) {
+                            Text(
+                                text = stringResource(id = R.string.semantic_search_info_dialog_button_text),
+                                color = WikipediaTheme.colors.progressiveColor,
+                                style = MaterialTheme.typography.titleMedium
+                            )
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Icon(
+                                painter = painterResource(id = R.drawable.ic_open_in_new_black_24px),
+                                tint = WikipediaTheme.colors.progressiveColor,
+                                contentDescription = null
+                            )
+                        }
+                    }
+
                 }
             },
             modifier = Modifier.fillMaxWidth()
