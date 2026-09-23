@@ -60,7 +60,6 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.core.net.toUri
 import coil3.compose.AsyncImage
 import org.wikipedia.R
 import org.wikipedia.compose.components.HtmlText
@@ -270,8 +269,7 @@ fun SemanticSearchResultsContent(
                     searchResult = searchResult,
                     onItemClick = { onItemClick(searchResult, searchResult.pageTitle, false) },
                     onLinkClick = { url ->
-                        val pageTitle = PageTitle.titleForUri(url.toUri(), WikiSite(url))
-                        onItemClick(searchResult, pageTitle, true)
+                        // ignore in-article links
                     }
                 )
             }
