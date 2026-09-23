@@ -2550,6 +2550,8 @@
     <string name="home_feed_new_within_interest_card_heading">New in your interest</string>
     <string name="home_feed_new_within_interest_title">New articles in your interests</string>
     <string name="home_feed_new_within_interest_subtitle">Recently created articles within topic areas you follow</string>
+    <string name="home_feed_settings_read_aloud_lead_section_title">Listen to article intros</string>
+    <string name="home_feed_settings_read_aloud_lead_section_subtitle">Generated audio for article introductions within topic areas you follow</string>
     <string name="home_feed_settings_because_you_read_subtitle">Suggestions based on a recent article from your history</string>
     <string name="home_feed_settings_continue_reading_title">Continue reading</string>
     <string name="home_feed_settings_continue_reading_subtitle">Jump back into articles you didn\'t finish</string>

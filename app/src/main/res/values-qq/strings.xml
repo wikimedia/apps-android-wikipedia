@@ -2293,6 +2293,8 @@
   <string name="home_feed_new_within_interest_card_heading">Title of a card that shows recently created articles within one of the topics the user selected as an interest.</string>
   <string name="home_feed_new_within_interest_title">Title of the For You feed module that shows new articles within a topic of interest.</string>
   <string name="home_feed_new_within_interest_subtitle">Description of the For You feed module that shows new articles within a topic of interest.</string>
+  <string name="home_feed_settings_read_aloud_lead_section_title">Title of the For You feed module that provides generated audio for article introductions.</string>
+  <string name="home_feed_settings_read_aloud_lead_section_subtitle">Description of the For You feed module that provides generated audio for article introductions within topics the user follows.</string>
   <string name="home_feed_settings_because_you_read_subtitle">Subtitle describing article suggestions based on recently viewed articles.</string>
   <string name="home_feed_settings_continue_reading_title">Title for the Continue reading module in Home feed settings.</string>
   <string name="home_feed_settings_continue_reading_subtitle">Subtitle prompting users to continue reading unfinished articles.</string>
