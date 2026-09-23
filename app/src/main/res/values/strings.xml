@@ -2657,6 +2657,7 @@
     <string name="semantic_search_results_close_button_content_description">Close the semantic search results</string>
     <string name="semantic_search_results_read_in_article_label">Read in article</string>
     <string name="semantic_search_info_dialog_search_string"> Can cats see in the dark?</string>
+    <string name="semantic_search_sample_snippet"><![CDATA[<span class="searchmatch">Cats have excellent night vision and can see at one sixth the light level required for human vision.<sup>: 43</sup> This is partly the result of </span>cat eyes having a tapetum lucidum, which reflects any light that passes through the retina back into the eye, thereby increasing the eye\'s sensitivity to dim light.<sup>[74]</sup> Large pupils are an adaptation to dim light. The do…]]></string>
     <plurals name="semantic_search_result_contributors">
         <item quantity="one">%d contributor</item>
         <item quantity="other">%d contributors</item>
