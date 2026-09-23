@@ -139,7 +139,7 @@ fun defaultLinkInteractionListener(wikiSite: WikiSite? = null): LinkInteractionL
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 private fun HtmlTextPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {

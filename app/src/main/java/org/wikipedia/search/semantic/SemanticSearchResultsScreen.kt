@@ -465,7 +465,7 @@ fun SemanticSearchResultCardPreview() {
         description = "American singer, songwriter, and actress"
         thumbUrl = "https://example"
     }
-    val snippet = "Beyoncé Giselle Knowles-Carter is an <a href='#'>American singer</a>, songwriter, actress, and businesswoman. Born and raised in Houston, Texas, she performed in various singing and dancing competitions as a child. She rose to fame in the late 1990s as the lead singer of Destiny's Child, one of the world's best"
+    val snippet = "Beyoncé Giselle Knowles-Carter is an <a href='#'>American singer</a>, songwriter, actress, and <span class=\"searchmatch\">businesswoman</span>. Born and raised in Houston, Texas, she performed in various singing and dancing competitions as a child. She rose to fame in the late 1990s as the lead singer of Destiny's Child, one of the world's best"
 
     BaseTheme(
         currentTheme = Theme.LIGHT
