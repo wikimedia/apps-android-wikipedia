@@ -1,9 +1,14 @@
 package org.wikipedia.richtext
 
+import android.text.Annotation
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.SpanStyle
 import org.junit.Assert.assertEquals
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
+import org.wikipedia.compose.extensions.composeFromHtml
 
 @RunWith(RobolectricTestRunner::class)
 class CustomHtmlParserTest {
@@ -118,5 +123,32 @@ class CustomHtmlParserTest {
         val html = """visible<span style="display: none">hidden</span>text"""
         val result = CustomHtmlParser.fromHtml(html).toString()
         assertEquals("visibletext", result)
+    }
+
+    @Test
+    fun testSearchMatchSpanAnnotation() {
+        val html = """This is <span style="searchmatch">highlighted</span> text"""
+        val spanned = CustomHtmlParser.fromHtml(html)
+        val annotations = spanned.getSpans(0, spanned.length, Annotation::class.java)
+        assertEquals(1, annotations.size)
+        assertEquals("searchmatch", annotations[0].value)
+        assertEquals(8, spanned.getSpanStart(annotations[0]))
+        assertEquals(19, spanned.getSpanEnd(annotations[0]))
+    }
+
+    @Test
+    fun testSearchMatchComposeFromHtml() {
+        val html = """This is <span style="searchmatch">highlighted</span> text"""
+        val customStyle = SpanStyle(background = Color.Yellow)
+        val annotatedString = AnnotatedString.composeFromHtml(
+            htmlString = html,
+            linkStyles = null,
+            searchMatchStyle = customStyle
+        )
+        val spanStyles = annotatedString.spanStyles
+        assertEquals(1, spanStyles.size)
+        assertEquals(customStyle, spanStyles[0].item)
+        assertEquals(8, spanStyles[0].start)
+        assertEquals(19, spanStyles[0].end)
     }
 }

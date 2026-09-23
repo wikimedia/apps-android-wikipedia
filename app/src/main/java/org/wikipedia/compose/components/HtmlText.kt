@@ -47,6 +47,9 @@ fun HtmlText(
             fontSize = 14.sp
         )
     ),
+    searchMatchStyle: SpanStyle = SpanStyle(
+        background = WikipediaTheme.colors.highlightColor
+    ),
     style: TextStyle = TextStyle(
         color = WikipediaTheme.colors.primaryColor,
         fontSize = 14.sp
@@ -63,7 +66,8 @@ fun HtmlText(
     val annotatedString = AnnotatedString.composeFromHtml(
         htmlString = text,
         linkStyles = linkStyle,
-        linkInteractionListener = linkInteractionListener
+        linkInteractionListener = linkInteractionListener,
+        searchMatchStyle = searchMatchStyle
     )
     var layoutResult by remember { mutableStateOf<TextLayoutResult?>(null) }
 
@@ -143,7 +147,7 @@ fun defaultLinkInteractionListener(wikiSite: WikiSite? = null): LinkInteractionL
 @Composable
 private fun HtmlTextPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
-        HtmlText("This is an <em>example</em> of <strong>text</strong><br />with " +
+        HtmlText("This is an <em>example</em> of <span style=\"searchmatch\">text</span><br />with " +
                 "<a href=\"#foo\">html</a>, with nonstandard stuff<br />like <code>monospace</code>" +
                 " and <sup>superscript</sup>, too!")
     }
