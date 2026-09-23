@@ -61,8 +61,8 @@ private fun SemanticSearchInfoDialogContent(
     onLearnMoreClick: () -> Unit
 ) {
 
-    val snippet = "Cats have excellent night vision and can see at one sixth the light level " +
-            "required for human vision.: 43 This is partly the result of cat eyes having a " +
+    val snippet = "<span class=\\\"searchmatch\\\">Cats have excellent night vision and can see at one sixth the light level " +
+            "required for human vision.: 43 This is partly the result of </span> cat eyes having a " +
             "tapetum lucidum, which reflects any light that passes through the retina back into " +
             "the eye, thereby increasing the eye's sensitivity to dim light.[74] Large pupils " +
             "are an adaptation to dim light. The do..."
