@@ -46,9 +46,9 @@ object ComposeColors {
     val Red700 = Color(0xFFB32424)
 
     val Yellow100 = Color(0xFFFFE49C)
-    val Yellow400 = Color(0xFFF7D779)
+    val Yellow400_70 = Color(0xB3F7D779)
     val Yellow500 = Color(0xFFFFCC33)
-    val Yellow500_40 = Color(0x66FFCC33)
+    val Yellow500_30 = Color(0x4DFFCC33)
     val Yellow700 = Color(0xFFAC6600)
 
     val Orange500 = Color(0xFFFF9500)
