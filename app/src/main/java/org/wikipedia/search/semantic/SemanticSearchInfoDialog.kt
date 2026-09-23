@@ -8,6 +8,8 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -66,7 +68,7 @@ private fun SemanticSearchInfoDialogContent(
     val searchResult = SearchResult(
         pageTitle = PageTitle("Cats", WikiSite.preview()).apply {
             description = "Cats"
-            thumbUrl = "https://upload.wikimedia.org/wikipedia/commons/2/25/Siam_lilacpoint.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+            thumbUrl = "https://upload.wikimedia.org/wikipedia/commons/c/c7/Tabby_cat_with_blue_eyes-3336579.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"
         },
         redirectFrom = null,
         type = SearchResultType.SEMANTIC,
