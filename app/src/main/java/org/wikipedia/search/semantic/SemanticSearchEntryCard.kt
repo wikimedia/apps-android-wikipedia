@@ -151,7 +151,7 @@ fun SemanticSearchEntryCard(
             ) {
                 Image(
                     modifier = Modifier.fillMaxSize(),
-                    painter = painterResource(R.drawable.semantic_search_icon),
+                    painter = painterResource(R.drawable.semantic_search_intro_card_icon),
                     contentDescription = null
                 )
             }
