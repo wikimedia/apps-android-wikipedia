@@ -47,17 +47,16 @@ import androidx.compose.ui.text.style.BaselineShift
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.em
-import org.wikipedia.compose.ComposeColors
 import org.wikipedia.util.StringUtil
 
 fun AnnotatedString.Companion.composeFromHtml(
     htmlString: String,
     linkStyles: TextLinkStyles?,
     linkInteractionListener: LinkInteractionListener? = null,
-    searchMatchStyle: SpanStyle? = SpanStyle(background = ComposeColors.Yellow500)
+    highlightStyle: SpanStyle?
 ): AnnotatedString {
     val spanned = StringUtil.fromHtml(htmlString)
-    return spanned.toAnnotatedString(linkStyles, linkInteractionListener, searchMatchStyle)
+    return spanned.toAnnotatedString(linkStyles, linkInteractionListener, highlightStyle)
 }
 
 // TODO
@@ -69,7 +68,7 @@ fun AnnotatedString.Companion.composeFromHtml(
 internal fun Spanned.toAnnotatedString(
     linkStyles: TextLinkStyles? = null,
     linkInteractionListener: LinkInteractionListener? = null,
-    searchMatchStyle: SpanStyle? = null
+    highlightStyle: SpanStyle? = null
 ): AnnotatedString {
     return AnnotatedString.Builder(capacity = length)
         .append(this)
@@ -77,7 +76,7 @@ internal fun Spanned.toAnnotatedString(
             this,
             linkStyles,
             linkInteractionListener,
-            searchMatchStyle
+            highlightStyle
         ) }
         .toAnnotatedString()
 }
@@ -86,7 +85,7 @@ private fun AnnotatedString.Builder.addSpans(
     spanned: Spanned,
     linkStyles: TextLinkStyles?,
     linkInteractionListener: LinkInteractionListener?,
-    searchMatchStyle: SpanStyle?
+    highlightStyle: SpanStyle?
 ) {
     spanned.getSpans(0, length, Any::class.java).forEach { span ->
         val range = TextRange(spanned.getSpanStart(span), spanned.getSpanEnd(span))
@@ -96,7 +95,7 @@ private fun AnnotatedString.Builder.addSpans(
             range.end,
             linkStyles,
             linkInteractionListener,
-            searchMatchStyle
+            highlightStyle
         )
     }
 }
@@ -107,12 +106,12 @@ private fun AnnotatedString.Builder.addSpan(
     end: Int,
     linkStyles: TextLinkStyles?,
     linkInteractionListener: LinkInteractionListener?,
-    searchMatchStyle: SpanStyle?
+    highlightStyle: SpanStyle?
 ) {
     when (span) {
         is Annotation -> {
             if ((span.key == "style" || span.key == "class") && span.value.contains("searchmatch")) {
-                searchMatchStyle?.let { addStyle(it, start, end) }
+                highlightStyle?.let { addStyle(it, start, end) }
             }
         }
         is AbsoluteSizeSpan -> {
