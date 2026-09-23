@@ -2664,4 +2664,5 @@
         <item quantity="one">%d reference</item>
         <item quantity="other">%d references</item>
     </plurals>
+    <string name="semantic_search_results_last_updated_label">Last updated: %s</string>
 </resources>

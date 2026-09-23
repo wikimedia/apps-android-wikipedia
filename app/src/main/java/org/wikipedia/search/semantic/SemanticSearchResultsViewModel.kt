@@ -52,7 +52,6 @@ class SemanticSearchResultsViewModel(savedStateHandle: SavedStateHandle) : ViewM
 
             val wikiSite = WikiSite.forLanguageCode(languageCode)
 
-            // TODO: update the semanticSearchType to `hl` once it is ready.
             val semanticResponse = ServiceFactory.get(wikiSite).fullTextSearchResponse(searchQuery, semanticBatchSize, 0, semanticSearchType = null)
 
             val semanticResult = semanticResponse.body()?.query?.pages?.sortedBy { it.index }
@@ -66,7 +65,8 @@ class SemanticSearchResultsViewModel(savedStateHandle: SavedStateHandle) : ViewM
                             type = SearchResult.SearchResultType.SEMANTIC,
                             indexInApiCall = page.index,
                             editCounts = pageAttributionResponse.trustAndRelevance?.contributorCounts,
-                            referenceCounts = pageAttributionResponse.trustAndRelevance?.referenceCount
+                            referenceCounts = pageAttributionResponse.trustAndRelevance?.referenceCount,
+                            lastUpdated = pageAttributionResponse.trustAndRelevance?.lastUpdated
                         )
                     }
                 }?.awaitAll() ?: emptyList()

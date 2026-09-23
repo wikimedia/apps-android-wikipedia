@@ -1,6 +1,7 @@
 package org.wikipedia.search.semantic
 
 import android.text.TextPaint
+import android.text.format.DateUtils
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -72,9 +73,11 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.PageTitle
 import org.wikipedia.search.SearchResult
 import org.wikipedia.theme.Theme
+import org.wikipedia.util.DateUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.UiState
 import org.wikipedia.views.imageservice.ImageService
+import java.util.Date
 import kotlin.math.ceil
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -266,6 +269,7 @@ fun SemanticSearchResultsContent(
                 val searchResult = items[index]
                 SemanticSearchResultCard(
                     prefixQuotationMark = viewModel.quotationMarkMap[viewModel.languageCode] ?: "«",
+                    showLastUpdatedTime = viewModel.languageCode == "ar",
                     searchResult = searchResult,
                     onItemClick = { onItemClick(searchResult, searchResult.pageTitle, false) },
                     onLinkClick = { url ->
@@ -281,6 +285,7 @@ fun SemanticSearchResultsContent(
 fun SemanticSearchResultCard(
     modifier: Modifier = Modifier,
     prefixQuotationMark: String,
+    showLastUpdatedTime: Boolean,
     searchResult: SearchResult,
     onItemClick: () -> Unit,
     onLinkClick: (String) -> Unit
@@ -292,6 +297,15 @@ fun SemanticSearchResultCard(
 
     val editCount = searchResult.editCounts ?: 0
     val referenceCounts = searchResult.referenceCounts ?: 0
+    val lastUpdatedDate = (searchResult.lastUpdated?.let {
+        DateUtil.iso8601DateParse(it)
+    } ?: Date()).run {
+        DateUtils.getRelativeTimeSpanString(
+            this.time,
+            System.currentTimeMillis(),
+            0L
+        ).toString()
+    }
 
     WikiCard(
         modifier = modifier.fillMaxWidth(),
@@ -313,15 +327,15 @@ fun SemanticSearchResultCard(
                 modifier = Modifier.fillMaxWidth(),
             ) {
                 Text(
-                    modifier = Modifier.offset(y = (-12).dp),
+                    modifier = Modifier.offset(y = (-8).dp),
                     text = prefixQuotationMark,
-                    fontSize = 32.sp,
+                    fontSize = 24.sp,
                     color = WikipediaTheme.colors.primaryColor
                 )
                 HtmlText(
                     text = leadingSpacesForQuotationMark(
                         quotationMark = prefixQuotationMark,
-                        quoteTextSize = 32.sp,
+                        quoteTextSize = 24.sp,
                         contentTextSize = 16.sp,
                         reserveGap = 4.dp
                     ) + searchResult.snippet.orEmpty(),
@@ -413,15 +427,19 @@ fun SemanticSearchResultCard(
                 }
 
                 Row(verticalAlignment = Alignment.CenterVertically) {
+                    val itemIcon = if (showLastUpdatedTime) R.drawable.ic_schedule_24dp else
+                        R.drawable.ic_references_24dp
+                    val itemText = if (showLastUpdatedTime) stringResource(R.string.semantic_search_results_last_updated_label, lastUpdatedDate) else
+                        pluralStringResource(R.plurals.semantic_search_result_references, referenceCounts, referenceCounts)
                     Icon(
-                        painter = painterResource(R.drawable.ic_references_24dp),
+                        painter = painterResource(itemIcon),
                         modifier = Modifier.size(15.dp),
                         contentDescription = null,
                         tint = WikipediaTheme.colors.secondaryColor,
                     )
                     Spacer(modifier = Modifier.width(4.dp))
                     Text(
-                        text = pluralStringResource(R.plurals.semantic_search_result_references, referenceCounts, referenceCounts),
+                        text = itemText,
                         fontSize = 12.sp,
                         color = WikipediaTheme.colors.secondaryColor
                     )
@@ -473,6 +491,7 @@ fun SemanticSearchResultCardPreview() {
                 .fillMaxWidth()
                 .padding(16.dp),
             prefixQuotationMark = "«",
+            showLastUpdatedTime = true,
             searchResult = SearchResult(
                 pageTitle = pageTitle,
                 searchResultType = SearchResult.SearchResultType.SEMANTIC,

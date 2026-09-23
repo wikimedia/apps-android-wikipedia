@@ -2401,4 +2401,5 @@
       <item quantity="one">Text of the number of the references in the semantic search result. %d is replaced by the number of references.</item>
       <item quantity="other">Text of the number of the references in the semantic search result. %d is replaced by the number of references.</item>
   </plurals>
+  <string name="semantic_search_results_last_updated_label">Label that indicates the last update time. %s is replaced by the last update time.</string>
 </resources>
