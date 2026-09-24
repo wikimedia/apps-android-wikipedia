@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -48,7 +49,9 @@ import androidx.paging.compose.collectAsLazyPagingItems
 import coil3.compose.AsyncImage
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.debounce
+import org.wikipedia.Constants
 import org.wikipedia.R
+import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.extensions.toAnnotatedStringWithBoldQuery
@@ -111,8 +114,25 @@ fun SearchResultsScreen(
             }
     }
 
+    val shouldShowNoResults =
+        loadState.append is LoadState.NotLoading &&
+        loadState.append.endOfPaginationReached &&
+        searchResults.itemCount == 0 &&
+        !isSemanticSearchEnabled.value
+
+    val shouldLogNoResultsImpression =
+        shouldShowNoResults &&
+        countsPerLanguageCode.isNotEmpty() &&
+        viewModel.invokeSource == Constants.InvokeSource.PLACES
+
+    LaunchedEffect(shouldLogNoResultsImpression) {
+        if (shouldLogNoResultsImpression) {
+            PlacesEvent.logAction("no_results_impression", "search_view")
+        }
+    }
+
     CompositionLocalProvider(LocalLayoutDirection provides layoutDirection) {
-        Column(
+        LazyColumn(
             modifier = modifier
         ) {
             val shouldShowSemanticSearchEntryPoint =
@@ -121,17 +141,19 @@ fun SearchResultsScreen(
                         !isErrorState
 
             if (shouldShowSemanticSearchEntryPoint) {
-                SemanticSearchEntryCard(
-                    searchTerm = searchTerm.value,
-                    onCloseClick = { viewModel.disableSemanticSearch() },
-                    onInfoBtnClick = { onSemanticSearchInfoClick() },
-                    onSemanticSearchClick = {
-                        if (isSemanticSearchFirstUse.value) {
-                            Prefs.isSemanticSearchFirstUse = false
-                        }
-                    },
-                    isFirstUse = isSemanticSearchFirstUse.value
-                )
+                item {
+                    SemanticSearchEntryCard(
+                        searchTerm = searchTerm.value,
+                        onCloseClick = { viewModel.disableSemanticSearch() },
+                        onInfoBtnClick = { onSemanticSearchInfoClick() },
+                        onSemanticSearchClick = {
+                            if (isSemanticSearchFirstUse.value) {
+                                Prefs.isSemanticSearchFirstUse = false
+                            }
+                        },
+                        isFirstUse = isSemanticSearchFirstUse.value
+                    )
+                }
             }
 
             when {
@@ -139,32 +161,33 @@ fun SearchResultsScreen(
 
                 loadState.refresh is LoadState.Error -> {
                     val error = (loadState.refresh as LoadState.Error).error
-                    Box(
-                        modifier = Modifier.fillMaxSize(),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        WikiErrorView(
-                            caught = error,
-                            errorClickEvents = WikiErrorClickEvents(
-                                backClickListener = { onCloseSearch() },
-                                retryClickListener = { onRetrySearch() }
+                    item {
+                        Box(
+                            modifier = Modifier.fillMaxSize(),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            WikiErrorView(
+                                caught = error,
+                                errorClickEvents = WikiErrorClickEvents(
+                                    backClickListener = { onCloseSearch() },
+                                    retryClickListener = { onRetrySearch() }
+                                )
                             )
-                        )
+                        }
                     }
                 }
 
                 loadState.append is LoadState.NotLoading && loadState.append.endOfPaginationReached && searchResults.itemCount == 0 -> {
                     if (!isSemanticSearchEnabled.value) {
-                        NoSearchResults(
+                        noSearchResults(
                             countsPerLanguageCode = countsPerLanguageCode,
-                            invokeSource = viewModel.invokeSource,
                             onLanguageClick = onLanguageClick
                         )
                     }
                 }
 
                 else -> {
-                    SearchResultsList(
+                    searchResultItems(
                         searchResultsPage = searchResults,
                         searchTerm = searchTerm.value,
                         onItemClick = onNavigateToTitle,
@@ -176,35 +199,28 @@ fun SearchResultsScreen(
     }
 }
 
-@Composable
-fun SearchResultsList(
-    modifier: Modifier = Modifier,
+private fun LazyListScope.searchResultItems(
     searchResultsPage: LazyPagingItems<SearchResult>,
     searchTerm: String?,
     onItemClick: (SearchResult, Boolean, Int, Location?) -> Unit,
     onItemLongClick: (View, SearchResult, Int) -> Unit,
 ) {
-    LazyColumn(
-        modifier = modifier
-            .testTag(SEARCH_LIST_TAG)
-    ) {
-        items(
-            count = searchResultsPage.itemCount
-        ) { index ->
-            searchResultsPage[index]?.let { result ->
-                SearchResultPageItem(
-                    modifier = Modifier
-                        .testTag("$SEARCH_LIST_TAG$index"),
-                    searchResultPage = result,
-                    searchTerm = searchTerm,
-                    onItemClick = {
-                        onItemClick(result, false, index, result.location)
-                    },
-                    onItemLongClick = { view ->
-                        onItemLongClick(view, result, index)
-                    }
-                )
-            }
+    items(
+        count = searchResultsPage.itemCount
+    ) { index ->
+        searchResultsPage[index]?.let { result ->
+            SearchResultPageItem(
+                modifier = Modifier
+                    .testTag("$SEARCH_LIST_TAG$index"),
+                searchResultPage = result,
+                searchTerm = searchTerm,
+                onItemClick = {
+                    onItemClick(result, false, index, result.location)
+                },
+                onItemLongClick = { view ->
+                    onItemLongClick(view, result, index)
+                }
+            )
         }
     }
 }
