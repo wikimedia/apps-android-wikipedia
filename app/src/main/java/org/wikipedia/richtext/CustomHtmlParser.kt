@@ -113,6 +113,7 @@ class CustomHtmlParser(private val handler: TagHandler) : TagHandler, ContentHan
         private var lastAClass = ""
         private var hiddenSpanDepth = 0
         private var hiddenSpanStartPos = -1
+        private val openSpanIsSearchMatch = ArrayDeque<Boolean>()
         private var listItemCounts = Stack<Int>()
         private val listParents = mutableListOf<String>()
 
@@ -209,9 +210,13 @@ class CustomHtmlParser(private val handler: TagHandler) : TagHandler, ContentHan
                         // truncate everything appended while inside this span.
                         hiddenSpanDepth = 1
                         hiddenSpanStartPos = output.length
-                    } else if (styleAttr.contains("searchmatch") || classAttr.contains("searchmatch")) {
-                        val key = if (styleAttr.contains("searchmatch")) "style" else "class"
-                        output.setSpan(Annotation(key, "searchmatch"), output.length, output.length, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
+                    } else {
+                        val isSearchMatch = styleAttr.contains("searchmatch") || classAttr.contains("searchmatch")
+                        openSpanIsSearchMatch.addLast(isSearchMatch)
+                        if (isSearchMatch) {
+                            val key = if (styleAttr.contains("searchmatch")) "style" else "class"
+                            output.setSpan(Annotation(key, "searchmatch"), output.length, output.length, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
+                        }
                     }
                 } else {
                     if (hiddenSpanDepth > 0) {
@@ -224,9 +229,12 @@ class CustomHtmlParser(private val handler: TagHandler) : TagHandler, ContentHan
                             }
                             hiddenSpanStartPos = -1
                         }
-                    } else {
+                    } else if (openSpanIsSearchMatch.removeLastOrNull() == true) {
                         val spans = output.getSpans<Annotation>(output.length)
-                        val matchSpan = spans.lastOrNull { (it.key == "style" || it.key == "class") && it.value == "searchmatch" }
+                        val matchSpan = spans.lastOrNull {
+                            (it.key == "style" || it.key == "class") && it.value == "searchmatch" &&
+                                    output.getSpanFlags(it) == Spannable.SPAN_INCLUSIVE_INCLUSIVE
+                        }
                         if (matchSpan != null) {
                             val start = output.getSpanStart(matchSpan)
                             output.removeSpan(matchSpan)

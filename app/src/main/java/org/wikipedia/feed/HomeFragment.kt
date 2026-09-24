@@ -17,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -46,6 +47,7 @@ import org.wikipedia.feed.model.NewWithinInterestCard
 import org.wikipedia.feed.model.OnThisDayCard
 import org.wikipedia.feed.model.PlacesOfInterestLocationPromptCard
 import org.wikipedia.feed.model.RandomCard
+import org.wikipedia.feed.model.ReadAloudLeadSectionCard
 import org.wikipedia.feed.model.SeeAllRecommendationCard
 import org.wikipedia.feed.model.TopReadCard
 import org.wikipedia.feed.model.WikiGameCard
@@ -54,6 +56,8 @@ import org.wikipedia.feed.onthisday.OnThisDayActivity
 import org.wikipedia.feed.personalization.PersonalizationActivity
 import org.wikipedia.feed.personalization.PersonalizationActivity.Companion.RESULT_INTERESTS_UPDATED
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
+import org.wikipedia.feed.readaloud.ReadAloudLeadSectionABTest
+import org.wikipedia.feed.readaloud.ReadAloudSurveyDialog
 import org.wikipedia.feed.topread.TopReadArticlesActivity
 import org.wikipedia.feed.wikigames.OnThisDayCardGameState
 import org.wikipedia.feed.wikigames.WikiGame
@@ -83,6 +87,7 @@ import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ShareUtil
+import org.wikipedia.util.UriUtil
 import org.wikipedia.views.SurveyDialog
 import java.time.LocalDate
 
@@ -91,8 +96,11 @@ class HomeFragment : Fragment(), LinkPreviewDialog.LoadPageCallback {
     private val pageOverflowMenuViewModel: PageOverflowMenuViewModel by viewModels()
     private val cardImpressions = mutableSetOf<String>()
     private val instrument = TestKitchenAdapter.client.getInstrument("apps-home-feed")
-        .startFunnel("home_feed")
-        .setExperiment(TestKitchenAdapter.getExperiment(NewWithinInterestABTest()))
+        .startFunnel("home_feed").also {
+            if (NewWithinInterestABTest().isTestActive()) {
+                it.setExperiment(TestKitchenAdapter.getExperiment(NewWithinInterestABTest()))
+            }
+        }
 
     private val personalizationResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_OK) {
@@ -121,6 +129,17 @@ class HomeFragment : Fragment(), LinkPreviewDialog.LoadPageCallback {
             }
         }
 
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                viewModel.readAloudExperimentAssigned.collectLatest { assigned ->
+                    val test = ReadAloudLeadSectionABTest()
+                    if (assigned && test.isTestActive() && !NewWithinInterestABTest().isTestActive()) {
+                        instrument.setExperiment(TestKitchenAdapter.getExperiment(test))
+                    }
+                }
+            }
+        }
+
         if (savedInstanceState == null) {
             maybeShowExploreFeedUpdatePrompt()
         }
@@ -140,6 +159,7 @@ class HomeFragment : Fragment(), LinkPreviewDialog.LoadPageCallback {
                 val forYouContentState by viewModel.forYouState.collectAsState()
                 val communityContentState by viewModel.communityState.collectAsState()
                 var swipeToExplorePromptShown by remember { mutableStateOf(Prefs.isHomeSwipeToExplorePromptShown) }
+                var showReadAloudSurveyDialog by remember { mutableStateOf(false) }
 
                 BaseTheme(currentTheme = if (selectedTab == HomeTab.FOR_YOU) Theme.BLACK else WikipediaApp.instance.currentTheme) {
                     HomeScreen(
@@ -155,7 +175,13 @@ class HomeFragment : Fragment(), LinkPreviewDialog.LoadPageCallback {
                         },
                         tabsState = tabsState,
                         notificationBellState = notificationState,
-                        onAction = { handleHomeAction(it, wikiSite, selectedTab) }
+                        onAction = {
+                            if (it is HomeAction.ReadAloudShowSurvey) {
+                                showReadAloudSurveyDialog = true
+                            } else {
+                                handleHomeAction(it, wikiSite, selectedTab)
+                            }
+                        }
                     )
 
                     if (selectedTab == HomeTab.FOR_YOU && !swipeToExplorePromptShown && forYouContentState.modules.isNotEmpty()) {
@@ -178,6 +204,14 @@ class HomeFragment : Fragment(), LinkPreviewDialog.LoadPageCallback {
                             onDismissRequest = dismissSwipePrompt,
                             onConfirmButtonClick = dismissSwipePrompt
                         )
+                    }
+
+                    if (showReadAloudSurveyDialog) {
+                        ReadAloudSurveyDialog(onDismissRequest = { showReadAloudSurveyDialog = false }, instrument)
+                    } else {
+                        if (ReadAloudSurveyDialog.shouldShow(byDate = true)) {
+                            showReadAloudSurveyDialog = true
+                        }
                     }
                 }
             }
@@ -446,6 +480,21 @@ class HomeFragment : Fragment(), LinkPreviewDialog.LoadPageCallback {
             HomeAction.GoToGamesHubClick -> {
                 instrument.submitInteraction("click", actionSource = GamesModulePromptCard::class.java.simpleName, elementId = "go_to_games_hub")
                 requireActivity().startActivity(GamesHubActivity.newIntent(requireContext()))
+            }
+            HomeAction.ReadAloudPlayClick -> {
+                instrument.submitInteraction("click", actionSource = ReadAloudLeadSectionCard::class.java.simpleName, elementId = "play_pause")
+            }
+            HomeAction.ReadAloudShowInfo -> {
+                instrument.submitInteraction("click", actionSource = ReadAloudLeadSectionCard::class.java.simpleName, elementId = "menu_about")
+                UriUtil.visitInExternalBrowser(requireContext(), getString(R.string.read_aloud_lead_section_info_link).toUri())
+            }
+            HomeAction.ReadAloudReportIssue -> {
+                instrument.submitInteraction("click", actionSource = ReadAloudLeadSectionCard::class.java.simpleName, elementId = "menu_report_issue")
+                FeedbackUtil.composeEmail(requireContext(),
+                    subject = getString(R.string.read_aloud_lead_section_report_subject),
+                    body = getString(R.string.read_aloud_lead_section_report_body))
+            }
+            else -> {
             }
         }
     }
