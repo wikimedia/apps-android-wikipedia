@@ -123,6 +123,7 @@ fun SearchResultsScreen(
     val shouldShowSemanticSearchEntryPoint =
         isSemanticSearchEnabled.value &&
                 !searchTerm.value.isNullOrBlank() &&
+                loadState.refresh !is LoadState.Error &&
                 !isErrorState
 
     LaunchedEffect(shouldLogNoResultsImpression) {
@@ -365,3 +366,4 @@ fun SearchResultPageItem(
         )
     }
 }
+  
