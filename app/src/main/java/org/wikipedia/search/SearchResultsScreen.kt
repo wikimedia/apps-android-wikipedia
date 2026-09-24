@@ -102,13 +102,8 @@ fun SearchResultsScreen(
             .debounce(200L.milliseconds)
             .collect { state ->
                 isErrorState = when (state) {
-                    is LoadState.Error -> {
-                        true
-                    }
-
-                    else -> {
-                        false
-                    }
+                    is LoadState.Error -> true
+                    else -> false
                 }
             }
     }
@@ -124,6 +119,11 @@ fun SearchResultsScreen(
         countsPerLanguageCode.isNotEmpty() &&
         viewModel.invokeSource == Constants.InvokeSource.PLACES
 
+    val shouldShowSemanticSearchEntryPoint =
+        isSemanticSearchEnabled.value &&
+                !searchTerm.value.isNullOrBlank() &&
+                !isErrorState
+
     LaunchedEffect(shouldLogNoResultsImpression) {
         if (shouldLogNoResultsImpression) {
             PlacesEvent.logAction("no_results_impression", "search_view")
@@ -134,11 +134,6 @@ fun SearchResultsScreen(
         LazyColumn(
             modifier = modifier
         ) {
-            val shouldShowSemanticSearchEntryPoint =
-                isSemanticSearchEnabled.value &&
-                       !searchTerm.value.isNullOrBlank() &&
-                        !isErrorState
-
             if (shouldShowSemanticSearchEntryPoint) {
                 item {
                     SemanticSearchEntryCard(
