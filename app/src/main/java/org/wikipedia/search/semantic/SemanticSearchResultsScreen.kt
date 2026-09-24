@@ -187,7 +187,7 @@ fun SemanticSearchResultsHeader(
             )
 
             Text(
-                text = stringResource(R.string.donation_reminders_beta_label),
+                text = stringResource(R.string.semantic_search_beta_label),
                 style = MaterialTheme.typography.labelSmall,
                 fontWeight = FontWeight.Medium,
                 color = WikipediaTheme.colors.primaryColor
