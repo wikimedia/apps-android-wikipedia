@@ -53,6 +53,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.LinkAnnotation
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextLinkStyles
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
@@ -389,11 +390,14 @@ fun SemanticSearchResultCard(
                     Spacer(modifier = Modifier.width(8.dp))
                 }
 
-                Text(
+                HtmlText(
                     text = articlePath,
-                    fontSize = 12.sp,
+                    style = TextStyle(
+                        color = WikipediaTheme.colors.primaryColor,
+                        fontSize = 12.sp
+                    ),
                     color = WikipediaTheme.colors.primaryColor,
-                    maxLines = 1,
+                    maxLines = 2,
                     overflow = TextOverflow.Ellipsis
                 )
             }
