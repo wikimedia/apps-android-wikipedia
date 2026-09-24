@@ -60,11 +60,14 @@ import org.wikipedia.feed.model.NewsCard
 import org.wikipedia.feed.model.OnThisDayCard
 import org.wikipedia.feed.model.PlacesOfInterestCard
 import org.wikipedia.feed.model.RandomCard
+import org.wikipedia.feed.model.ReadAloudLeadSectionCard
 import org.wikipedia.feed.model.SeeAllRecommendationCard
 import org.wikipedia.feed.model.TopReadCard
 import org.wikipedia.feed.model.WikiGameCard
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
 import org.wikipedia.feed.personalization.interest.InterestSelectionRepository
+import org.wikipedia.feed.readaloud.ReadAloudArticlesRepository
+import org.wikipedia.feed.readaloud.ReadAloudLeadSectionABTest
 import org.wikipedia.feed.wikigames.WikiGame
 import org.wikipedia.games.WikiGames
 import org.wikipedia.games.db.DailyGameHistory
@@ -88,6 +91,7 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import java.time.LocalDate
 import java.time.LocalDateTime
+import java.time.ZoneId
 import java.util.Locale
 
 enum class HomeTab { COMMUNITY, FOR_YOU }
@@ -95,6 +99,8 @@ private const val MAX_STOP_TIMEOUT_MILLIS = 5000L
 private const val MAX_DISCOVER_ARTICLE_CARDS = 4
 private const val PLACES_ARTICLES_REQUEST_LIMIT = 10
 private const val PLACES_SEARCH_RADIUS_METERS = 10000
+private const val RECENT_ARTICLES_MIN_TIME_SPENT_SEC = 60
+private const val RECENT_ARTICLES_SEED_WINDOW_DAYS = 30L
 
 @Serializable
 sealed class ForYouModule {
@@ -188,6 +194,16 @@ sealed class ForYouModule {
     ) : ForYouModule() {
         override fun withCards(cards: List<ForYouCard>): ForYouModule = copy(cards = cards)
         override fun moduleKey(): String = ForYouModuleType.GAMES.name
+    }
+
+    @Serializable
+    data class ReadAloudLeadSection(
+        override val age: Int,
+        override val index: Int,
+        override val cards: List<ForYouCard>
+    ) : ForYouModule() {
+        override fun withCards(cards: List<ForYouCard>): ForYouModule = copy(cards = cards)
+        override fun moduleKey(): String = ForYouModuleType.READ_ALOUD_LEAD_SECTION.name
     }
 }
 
@@ -666,6 +682,9 @@ class HomeViewModel : ViewModel() {
         }
 
         L.d("Loading modules from network...")
+        val seedEntries = getRandomSeedEntries(languageCode, limit = 2)
+        val becauseYouReadSeed = seedEntries.getOrNull(0)
+        val continueReadingSeed = seedEntries.getOrNull(1)
         val startMillis = System.currentTimeMillis()
 
         coroutineScope {
@@ -724,9 +743,7 @@ class HomeViewModel : ViewModel() {
 
             val becauseYouReadDeferred = async(Dispatchers.IO) {
                 buildList {
-                    val lastReadEntries = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(age + 1, 30, languageCode)
-                    if (lastReadEntries.size > age) {
-                        val entry = lastReadEntries[age]
+                    becauseYouReadSeed?.let { entry ->
                         val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(languageCode).isNullOrEmpty()
                         val searchTerm = StringUtil.removeUnderscores(entry.title.prefixedText)
 
@@ -762,11 +779,10 @@ class HomeViewModel : ViewModel() {
 
             val continueReadingDeferred = async(Dispatchers.IO) {
                 val continueReadingCards = buildList {
-                    val lastReadEntries = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(age + 1, 30, languageCode)
-                    if (lastReadEntries.size > age) {
+                    continueReadingSeed?.let { entry ->
                         add(
                             ContinueReadingCard(
-                                lastReadEntries[age].title,
+                                entry.title,
                                 HistoryEntry.SOURCE_HISTORY
                             )
                         )
@@ -802,8 +818,54 @@ class HomeViewModel : ViewModel() {
                 RandomCard(random.getPageTitle(currentWikiSite))
             }
 
+            // -- Read aloud lead section --
+
+            if (ReadAloudLeadSectionABTest().isTestActive() &&
+                ReadAloudArticlesRepository.isSupported(currentWikiSite)) {
+                ReadAloudLeadSectionABTest().maybeSendExposureEvent()
+            }
+            val readAloudDeferred = async(Dispatchers.IO) {
+                if (!ReadAloudLeadSectionABTest().isTestActive() ||
+                    !ReadAloudLeadSectionABTest().isTestGroupUser() ||
+                    !ReadAloudArticlesRepository.isSupported(currentWikiSite)) {
+                    return@async emptyList()
+                }
+                // All the cards in this module come from a single topic, so the first of the user's
+                // topics that has any articles with an audio version supplies the whole module.
+                val readAloudCards = mutableListOf<ReadAloudLeadSectionCard>()
+                AppDatabase.instance.topicInterestDao().getAllRandom().firstOrNull()?.let { topic ->
+                    val readAloudTitles = ReadAloudArticlesRepository
+                        .randomArticlesForTopic(currentWikiSite, topic.topicId, 4)
+                    if (readAloudTitles.isNotEmpty()) {
+                        readAloudCards.addAll(ServiceFactory.get(currentWikiSite)
+                            .getInfoWithExtractsByPageTitles(readAloudTitles.fastJoinToString("|") { it.prefixedText })
+                            .query?.pages?.map { page ->
+                                PageSummary(
+                                    prefixTitle = page.title,
+                                    displayTitle = page.displayTitle(currentWikiSite.languageCode),
+                                    description = page.description,
+                                    extract = page.extract,
+                                    thumbnail = page.thumbUrl(),
+                                    lang = currentWikiSite.languageCode,
+                                    pageId = page.pageId,
+                                    revision = page.lastrevid
+                                )
+                            }?.map { summary ->
+                                ReadAloudLeadSectionCard(summary, topic)
+                            }?.filterNot { hiddenCards.contains(it.hideKey) }.orEmpty())
+                    }
+                }
+                readAloudCards
+            }
+
             // Combine all the deferred results and add them to the modules list if they have content.
 
+            readAloudDeferred.await().let {
+                if (it.isNotEmpty()) {
+                    // The index for this module is always 0 because there is always a single instance of this module, per age.
+                    modules.add(ForYouModule.ReadAloudLeadSection(age, 0, it))
+                }
+            }
             interestTopicCalls.awaitAll().forEachIndexed { index, entries ->
                 if (entries.isNotEmpty()) {
                     modules.add(ForYouModule.BasedOnInterest(age, index, entries))
@@ -840,6 +902,7 @@ class HomeViewModel : ViewModel() {
         }
 
         _forYouNetworkLatency.value = System.currentTimeMillis() - startMillis
+
         forYouCollectionSaved = ForYouCollectionSaved(
             dateTime = currentDateTime,
             modulesPerLanguage = cachedModulesByLanguage + (languageCode to modules)
@@ -848,6 +911,17 @@ class HomeViewModel : ViewModel() {
             Prefs.homeForYouModulesToday = JsonUtil.encodeToString(forYouCollectionSaved).orEmpty()
         }
         return modules
+    }
+
+    private suspend fun getRandomSeedEntries(langCode: String, limit: Int): List<HistoryEntry> {
+        val sinceMillis = LocalDate.now().minusDays(RECENT_ARTICLES_SEED_WINDOW_DAYS)
+            .atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli()
+        return AppDatabase.instance.historyEntryWithImageDao().findRandomSeedEntriesForReadMore(
+            limit = limit,
+            minTimeSpent = RECENT_ARTICLES_MIN_TIME_SPENT_SEC,
+            sinceMillis = sinceMillis,
+            langCode = langCode
+        )
     }
 
     private suspend fun buildDiscoverModule(): ForYouModule.Discover? {

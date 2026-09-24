@@ -1033,7 +1033,7 @@
   <string name="description_edit_help_wikidata_guide">Wytyczne Wikidanych dotyczące tworzenia opisów</string>
   <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Dziękujemy za Twoje zainteresowanie edycją opisów artykułów! Aby wprowadzić dalsze zmiany, zaloguj się na swoje konto w Wikipedii.</string>
-  <string name="description_edit_license_notice">Zmieniając opis artykułu, wyrażam zgodę na &lt;a href=\"%1$s\"&gt;warunki korzystania&lt;/a&gt; i nieodwołalnie udostępniam moje artykuły na licencji &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_edit_license_notice">Zmieniając opis artykułu, wyrażam zgodę na &lt;a href=\"%1$s\"&gt;warunki korzystania&lt;/a&gt; i nieodwołalnie udostępniam mój wkład na licencji &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">zazwyczaj zaczynają się małą literą</string>
   <string name="description_edit_voice_input_description">Wprowadzanie głosowe</string>
   <string name="description_edit_learn_more">Dowiedz się więcej o opisach artykułów</string>
@@ -1092,7 +1092,7 @@
   <string name="suggested_edits_review_image_caption">Przejrzyj podpis obrazu</string>
   <string name="suggested_edits_my_contributions">Mój wkład</string>
   <string name="suggested_edits_no_description">Ten plik nie ma opisu</string>
-  <string name="suggested_edits_license_notice">Dodając opis, wyrażam zgodę na &lt;a href=\"%1$s\"&gt;warunki korzystania&lt;/a&gt; i nieodwołalnie udostępniam mój wkład na licencji &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="suggested_edits_license_notice">Dodając opis artykułu, wyrażam zgodę na &lt;a href=\"%1$s\"&gt;warunki korzystania&lt;/a&gt; i nieodwołalnie udostępniam mój wkład na licencji &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Dodając opis obrazu, wyrażam zgodę na &lt;a href=\"%1$s\"&gt;warunki korzystania&lt;/a&gt; i nieodwołalnie udostępniam mój wkład na licencji &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Informacje</string>
   <string name="suggested_edits_task_add_description_title">Dodaj opisy artykułów</string>
@@ -1551,7 +1551,7 @@
   <string name="templates_learn_more_link">Dowiedz się więcej</string>
   <string name="templates_description_incomplete">Szablony są tworzone przez użytkowników i mogą nie zawierać pełnych opisów.</string>
   <string name="templates_description_empty">Szablon „%s” nie ma jeszcze swojego opisu.</string>
-  <string name="templates_description_missing_data">W tym szablonie brakuje danych &lt;a href=\"%1$s\"&gt;TemplateData&lt;/a&gt;, a jego parametry zostały &lt;a href=\"%2$s\"&gt;wygenerowane automatycznie&lt;/a&gt;. W związku z tym szablon i jego parametry nie posiadają opisów.</string>
+  <string name="templates_description_missing_data">W tym szablonie brakuje danych &lt;a href=\"%1$s\"&gt;TemplateData&lt;/a&gt;, a jego parametry zostały &lt;a href=\"%2$s\"&gt;wygenerowane automatycznie&lt;/a&gt;. W związku z tym szablon i jego parametry nie zawierają opisów.</string>
   <string name="main_drawer_help">Pomoc</string>
   <string name="main_drawer_login">Zaloguj się / dołącz do Wikipedii</string>
   <string name="main_tooltip_action_button">Rozpocznij</string>
@@ -2535,39 +2535,6 @@
   <string name="donation_reminders_eoe_message">Nie będziemy już wyświetlać przypomnień w aplikacji, ale nadal możesz nas wspierać, przekazując co miesiąc zadeklarowaną kwotę %s.</string>
   <string name="donation_reminders_eoe_give_monthly_button">Wpłacaj co miesiąc</string>
   <string name="donation_reminders_eoe_donate_dialog_title">W jaki sposób chcesz wpłacać co miesiąc?</string>
-  <string name="hybrid_search_search_hint">Wyszukaj lub zapytaj o cokolwiek</string>
-  <string name="hybrid_search_article_search_hint">Zapytaj o %s</string>
-  <string name="hybrid_search_suggestion_title">Wyszukaj:</string>
-  <string name="hybrid_search_onboarding_learn_more">Dowiedz się więcej</string>
-  <string name="hybrid_search_onboarding_search_title">Zadawaj pytania, uzyskuj odpowiedzi</string>
-  <string name="hybrid_search_onboarding_search_description">Ta funkcja eksperymentalna rozumie język naturalny. Zamiast wyszukiwać słowa kluczowe, opisz, co chcesz wiedzieć.</string>
-  <string name="hybrid_search_onboarding_opt_in_choice_title">Funkcja eksperymentalna</string>
-  <string name="hybrid_search_onboarding_opt_in_choice_description">Dostępna przez ograniczony czas w ramach tego eksperymentu.</string>
-  <string name="hybrid_search_beta_tag">Beta</string>
-  <string name="hybrid_search_experimental_feature_switch_label">Dołącz do eksperymentu</string>
-  <string name="hybrid_search_onboarding_search_example_title">Potrzebujesz inspiracji?</string>
-  <string name="hybrid_search_onboarding_search_example_description">Skorzystaj z jednego z poniższych przykładów.</string>
-  <string name="hybrid_search_onboarding_opt_out_toast_message">Nie bierzesz udziału w eksperymencie.</string>
-  <string name="hybrid_search_onboarding_search_example_query_pluto_as_planet">Kiedy Pluton stracił status planety?</string>
-  <string name="hybrid_search_onboarding_search_example_query_first_olympics">pierwsze igrzyska olimpijskie</string>
-  <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">RNA a DNA</string>
-  <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Dlaczego ludzie dodają ananasa do pizzy?</string>
-  <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Jakie są największe miasta w Europie?</string>
-  <string name="hybrid_search_onboarding_screen_title">Wyszukuj po nowemu</string>
-  <string name="hybrid_search_results_header_description">Na podstawie artykułów z Wikipedii napisanych przez ludzi</string>
-  <string name="hybrid_search_results_rate_label">Oceń ten wynik</string>
-  <string name="hybrid_search_results_rated_label">Oceniono</string>
-  <string name="hybrid_search_results_rate_thumb_up">Oceń pozytywnie</string>
-  <string name="hybrid_search_results_rate_thumb_down">Oceń negatywnie</string>
-  <string name="hybrid_lexical_search_results_empty">Nie znaleziono żadnego tytułu artykułu pasującego do tego zapytania.</string>
-  <string name="hybrid_search_results_empty">Wyszukiwanie rozszerzone jest chwilowo niedostępne.</string>
-  <string name="hybrid_search_no_results_header">Brak wyników</string>
-  <string name="hybrid_search_no_results_description">Ten temat nie zwraca obecnie żadnych fragmentów artykułów. Oto kilka rzeczy, które możesz spróbować:</string>
-  <string name="hybrid_search_no_results_suggestion_rephrase_text">sformułuj zapytanie inaczej,</string>
-  <string name="hybrid_search_no_results_suggestion_try_related_topic">spróbuj wpisać powiązany temat.</string>
-  <string name="hybrid_search_error_message">Coś poszło nie tak. Spróbuj ponownie później.</string>
-  <string name="hybrid_search_who_is_prefix">Kim jest %s?</string>
-  <string name="hybrid_search_turn_off_experiment_label">Wyłącz ten eksperyment</string>
   <string name="reading_challenge_widget_name">Wyzwanie czytelnicze</string>
   <string name="reading_challenge_onboarding_header">Świętuj 25. urodziny Wikipedii, dołączając do 25-dniowego wyzwania czytelniczego!</string>
   <string name="reading_challenge_onboarding_read_title">Przeczytaj co najmniej 1 artykuł dziennie przez 25 dni</string>
@@ -2700,6 +2667,8 @@
   <string name="home_feed_new_within_interest_card_heading">Nowe artykuły z Twojego zainteresowania</string>
   <string name="home_feed_new_within_interest_title">Nowe artykuły z Twoich zainteresowań</string>
   <string name="home_feed_new_within_interest_subtitle">Najnowsze artykuły z kategorii, które obserwujesz</string>
+  <string name="home_feed_settings_read_aloud_lead_section_title">Posłuchaj wstępów do artykułów</string>
+  <string name="home_feed_settings_read_aloud_lead_section_subtitle">Wygenerowane nagrania dźwiękowe ze wstępami do artykułów z obszarów tematycznych, które obserwujesz</string>
   <string name="home_feed_settings_because_you_read_subtitle">Propozycje na podstawie ostatnio czytanego artykułu z historii</string>
   <string name="home_feed_settings_continue_reading_title">Czytaj dalej</string>
   <string name="home_feed_settings_continue_reading_subtitle">Wróć do niedokończonych artykułów</string>
@@ -2742,6 +2711,15 @@
   <string name="home_feed_settings_games_title">Gry</string>
   <string name="home_feed_settings_games_subtitle">Codzienne gry oparte na treściach z Wikipedii</string>
   <string name="home_feed_settings_discover_title">Rekomendacje z sekcji „Odkrywaj”</string>
+  <string name="read_aloud_card_play">Odtwórz</string>
+  <string name="read_aloud_card_pause">Wstrzymaj</string>
+  <string name="read_aloud_card_retry">Ponów próbę</string>
+  <string name="read_aloud_card_error">Nagranie dźwiękowe dla tego artykułu jest niedostępne.</string>
+  <string name="read_aloud_card_keep_listening">Kontynuować nagranie?</string>
+  <string name="read_aloud_card_audio_date">To nagranie zostało wygenerowane przy użyciu &lt;a href=\"https://www.mediawiki.org/wiki/Readers/Listening_to_Wikipedia/Model\"&gt;modelu syntezy mowy&lt;/a&gt; na podstawie treści artykułu z %s.</string>
+  <string name="read_aloud_card_audio_attribution">To nagranie zostało wygenerowane przy użyciu &lt;a href=\"https://www.mediawiki.org/wiki/Readers/Listening_to_Wikipedia/Model\"&gt;modelu syntezy mowy&lt;/a&gt;.</string>
+  <string name="read_aloud_lead_section_about_experiment">O tym eksperymencie</string>
+  <string name="read_aloud_lead_section_report_issue">Zgłoś problem</string>
   <string name="home_feed_settings_discover_subtitle">Artykuły z Twojej kolekcji polecanych artykułów</string>
   <string name="home_feed_discover_cta_title">Z sekcji „Odkrywaj”</string>
   <string name="home_feed_discover_cta_description">Poznawaj nowe tematy przygotowane specjalnie dla Ciebie. Wybierz aktualizacje codzienne, cotygodniowe lub comiesięczne.</string>

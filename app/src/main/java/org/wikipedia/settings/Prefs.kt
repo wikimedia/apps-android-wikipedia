@@ -914,14 +914,6 @@ object Prefs {
         get() = PrefsIoUtil.getString(R.string.preference_key_selected_app_icon, LauncherIcon.DEFAULT.key)
         set(value) = PrefsIoUtil.setString(R.string.preference_key_selected_app_icon, value)
 
-    var isHybridSearchOnboardingShown
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_hybrid_search_onboarding_shown, false)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_hybrid_search_onboarding_shown, value)
-
-    var isHybridSearchEnabled
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_hybrid_search_enabled, false)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_hybrid_search_enabled, value)
-
     var isGameStatsUnavailableSnackbarShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_game_stats_snackbar_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_game_stats_snackbar_shown, value)
@@ -998,9 +990,22 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_home_feed_survey_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_home_feed_survey_shown, value)
 
-    var visualEditorEnabled
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_visual_editor_enabled, false)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_visual_editor_enabled, value)
+    var readAloudLeadSectionTooltipShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_read_aloud_lead_section_tooltip_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_read_aloud_lead_section_tooltip_shown, value)
+
+    var readAloudLeadSectionSurveyShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_read_aloud_lead_section_survey_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_read_aloud_lead_section_survey_shown, value)
+
+    var readAloudLeadSectionLastPlayedDate
+        get() = PrefsIoUtil.getString(R.string.preference_key_read_aloud_last_played_date, "").orEmpty()
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_read_aloud_last_played_date, value)
+
+    var readAloudLeadSectionOverrideConfig
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_read_aloud_lead_section_override_config, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_read_aloud_lead_section_override_config, value)
+
     var isReadingListsUpdateTooltipShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_lists_update_tooltip_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_lists_update_tooltip_shown, value)
