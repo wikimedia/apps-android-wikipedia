@@ -99,8 +99,6 @@ class HomeFragment : Fragment(), LinkPreviewDialog.LoadPageCallback {
         .startFunnel("home_feed").also {
             if (NewWithinInterestABTest().isTestActive()) {
                 it.setExperiment(TestKitchenAdapter.getExperiment(NewWithinInterestABTest()))
-            } else if (ReadAloudLeadSectionABTest().isTestActive()) {
-                it.setExperiment(TestKitchenAdapter.getExperiment(ReadAloudLeadSectionABTest()))
             }
         }
 
@@ -126,6 +124,17 @@ class HomeFragment : Fragment(), LinkPreviewDialog.LoadPageCallback {
                 viewModel.forYouNetworkLatency.collectLatest {
                     if (it > 0) {
                         instrument.submitInteraction("timing", actionSource = "for_you_latency", actionContext = mapOf("latency" to it))
+                    }
+                }
+            }
+        }
+
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                viewModel.readAloudExperimentAssigned.collectLatest { assigned ->
+                    val test = ReadAloudLeadSectionABTest()
+                    if (assigned && test.isTestActive() && !NewWithinInterestABTest().isTestActive()) {
+                        instrument.setExperiment(TestKitchenAdapter.getExperiment(test))
                     }
                 }
             }
