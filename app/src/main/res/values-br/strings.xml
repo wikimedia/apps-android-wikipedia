@@ -232,7 +232,7 @@
     <item quantity="many">Gwelit ho %1$d devezh lenn bodet e Bilañs ar Bloaz</item>
     <item quantity="other">Gwelit ho %1$d devezh lenn bodet e Bilañs ar Bloaz</item>
   </plurals>
-  <string name="create_account_encourage_year_in_review_description">Ur wezh ar bloaz e tistro ho tevezhioù lenn evel ur sell war belec\'h elaoc\'h erru, prest da vezañ lodet.</string>
+  <string name="create_account_encourage_year_in_review_description">Ur wezh ar bloaz e tistro ho tevezhioù lenn evel ur sell war belec\'h emaoc\'h erru, prest da vezañ lodet.</string>
   <string name="create_account_encourage_saved_articles_title_zero">Kempredañ  ho pennadoù enrollet.</string>
   <plurals name="create_account_encourage_saved_articles_title">
     <item quantity="one">Kempredit ho %1$d pennad savet</item>
@@ -252,7 +252,7 @@
   </plurals>
   <string name="create_account_encourage_activity_description">Gwelet ho amzer lenn, an danvezioù furchet ha pouez ho tegasadennoù en ivinell Obererezhioù.</string>
   <string name="create_account_encourage_edits_title">Ho pezet kred evit ho kemmoù</string>
-  <string name="create_account_encourage_edits_description">Savit ur roll-istor a c\'hallot bezañ stad gantañ, gant degasadennoù dre raktresoù Wikipedia lakaet war ho kont.</string>
+  <string name="create_account_encourage_edits_description">Savit ur roll-istor a c\'hallot bezañ stad gantañ, gant degasadennoù da veur a raktres Wikimedia lakaet war ho kont.</string>
   <string name="create_account_name_unavailable">Ne c\'haller ket kaout an anv-implijer %s. Dibabit un anv all, mar plij.</string>
   <string name="create_account_ip_block_message">Ho tigarez, stanket eo ho chomlec\'h IP er mare-mañ evit krouiñ kontoù nevez.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
@@ -981,7 +981,7 @@
   <string name="feed_configure_menu_reset">Assevel ar gwel dre ziouer</string>
   <string name="feed_configure_menu_select_all">Diskouez pep tra</string>
   <string name="feed_configure_menu_deselect_all">Kuzhat pep tra</string>
-  <string name="feed_configure_language_warning">Dav eo notenniñ ne c\'haller ket kaout an holl seurtoù kartoù e holl yezhoù Wikipedia.Kemmit ho yezhoù dibabet en Arventennoù.</string>
+  <string name="feed_configure_language_warning">Merkit n\'eo ket hegerz an holl zoareoù kartennoù en holl yezhoù Wikipedia.Kemmit ho yezhoù diuzet e Dibarzhioù.</string>
   <string name="feed_item_type_news">Pennadoù diwar-benn an darvoudoù a-vremañ</string>
   <string name="feed_item_type_on_this_day">Darvoudoù en istor hiziv</string>
   <string name="feed_item_type_because_you_read">Alioù diazezet war ur pennad hoc\'h eus lennet nevez zo eus hoc\'h istor</string>
