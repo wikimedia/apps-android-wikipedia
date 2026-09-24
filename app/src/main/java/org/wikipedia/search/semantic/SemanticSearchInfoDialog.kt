@@ -114,8 +114,9 @@ private fun SemanticSearchInfoDialogContent(
                             .padding(vertical = 16.dp),
                         prefixQuotationMark = "«",
                         searchResult = searchResult,
-                        onItemClick = {},
-                        onLinkClick = {}
+                        onItemClick = { /* non-op click */ },
+                        onLinkClick = { /* non-op click */ },
+                        showLastUpdatedTime = false
                     )
 
                     AppButton(
