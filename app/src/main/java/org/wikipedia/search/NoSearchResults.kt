@@ -33,7 +33,6 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.language.LanguageUtil
 import org.wikipedia.theme.Theme
 
-
 fun LazyListScope.noSearchResults(
     countsPerLanguageCode: List<Pair<String, Int>>,
     onLanguageClick: (Int) -> Unit,
