@@ -489,7 +489,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">रद्द गर्नुहोस्</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">रद्द गर्नुहोस्</string>
   <string name="reading_list_split_dialog_ok_button_text">हुन्छ</string>
-  <string name="reading_list_delete_lists_dialog_delete_button_text">मेट्ने</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">मेटाउनुहोस्</string>
   <string name="reading_list_activity_title" fuzzy="true">पठन सूची: %s</string>
   <string name="reading_list_notification_title" fuzzy="true">पठन सूची(हरू) निर्यात गरियो</string>
   <string name="reading_lists_action_menu_export_lists">निर्यात गर्नुहोस्</string>

@@ -47,9 +47,10 @@ class PageSummary(
     val ns get() = if (namespace == null) Namespace.MAIN else Namespace.of(namespace.id)
 
     constructor(displayTitle: String, prefixTitle: String, description: String?,
-                extract: String?, thumbnail: String?, lang: String) : this(
+                extract: String?, thumbnail: String?, lang: String, pageId: Int = 0,
+                revision: Long = 0L) : this(
         titles = Titles(prefixTitle, displayTitle), description = description, extract = extract,
-        thumbnail = Thumbnail(thumbnail, 0, 0), lang = lang
+        thumbnail = Thumbnail(thumbnail, 0, 0), lang = lang, pageId = pageId, revision = revision
     )
 
     fun toPage(title: PageTitle?): Page? {
