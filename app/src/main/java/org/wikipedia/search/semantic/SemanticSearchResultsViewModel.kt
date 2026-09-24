@@ -52,7 +52,7 @@ class SemanticSearchResultsViewModel(savedStateHandle: SavedStateHandle) : ViewM
 
             val wikiSite = WikiSite.forLanguageCode(languageCode)
 
-            val semanticResponse = ServiceFactory.get(wikiSite).fullTextSearchResponse(searchQuery, semanticBatchSize, 0, semanticSearchType = "hl")
+            val semanticResponse = ServiceFactory.get(wikiSite).fullTextSearchResponse(searchQuery, semanticBatchSize, 0, semanticSearchType = null)
 
             val semanticResult = semanticResponse.body()?.query?.pages?.sortedBy { it.index }
                 ?.map { page ->

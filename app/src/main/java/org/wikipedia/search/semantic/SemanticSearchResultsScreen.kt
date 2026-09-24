@@ -1,7 +1,6 @@
 package org.wikipedia.search.semantic
 
 import android.text.TextPaint
-import android.text.format.DateUtils
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -298,16 +297,7 @@ fun SemanticSearchResultCard(
 
     val editCount = searchResult.editCounts ?: 0
     val referenceCounts = searchResult.referenceCounts ?: 0
-    val lastUpdatedDate = (searchResult.lastUpdated?.let {
-        DateUtil.iso8601DateParse(it)
-    } ?: Date()).run {
-        DateUtils.getRelativeTimeSpanString(
-            this.time,
-            System.currentTimeMillis(),
-            0L
-        ).toString()
-    }
-
+    val lastUpdatedDate = searchResult.lastUpdated?.let { DateUtil.iso8601DateParse(it) } ?: Date()
     WikiCard(
         modifier = modifier.fillMaxWidth(),
         shape = RoundedCornerShape(16.dp),
@@ -433,7 +423,8 @@ fun SemanticSearchResultCard(
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     val itemIcon = if (showLastUpdatedTime) R.drawable.ic_schedule_24dp else
                         R.drawable.ic_references_24dp
-                    val itemText = if (showLastUpdatedTime) stringResource(R.string.semantic_search_results_last_updated_label, lastUpdatedDate) else
+                    val itemText = if (showLastUpdatedTime) stringResource(R.string.semantic_search_results_last_updated_label,
+                        DateUtil.getMonthWithYearString(lastUpdatedDate)) else
                         pluralStringResource(R.plurals.semantic_search_result_references, referenceCounts, referenceCounts)
                     Icon(
                         painter = painterResource(itemIcon),
