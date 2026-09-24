@@ -99,8 +99,11 @@ class HomeFragment : Fragment(), LinkPreviewDialog.LoadPageCallback {
         .startFunnel("home_feed").also {
             if (NewWithinInterestABTest().isTestActive()) {
                 it.setExperiment(TestKitchenAdapter.getExperiment(NewWithinInterestABTest()))
-            } else if (ReadAloudLeadSectionABTest().isTestActive()) {
-                it.setExperiment(TestKitchenAdapter.getExperiment(ReadAloudLeadSectionABTest()))
+            } else {
+                val readAloudLeadSectionTest = ReadAloudLeadSectionABTest()
+                if (readAloudLeadSectionTest.isTestActive() && readAloudLeadSectionTest.isGroupAssigned()) {
+                    it.setExperiment(TestKitchenAdapter.getExperiment(readAloudLeadSectionTest))
+                }
             }
         }
 
