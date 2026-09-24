@@ -43,8 +43,10 @@ import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
 import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.concurrency.FlowEventBus
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentReadingListBinding
 import org.wikipedia.events.NewRecommendedReadingListEvent
 import org.wikipedia.events.PageDownloadEvent
@@ -121,7 +123,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
         readingListMode = (requireArguments().getSerializable(ReadingListActivity.EXTRA_READING_LIST_MODE) as ReadingListMode?) ?: ReadingListMode.DEFAULT
         readingListId = requireArguments().getLong(ReadingListActivity.EXTRA_READING_LIST_ID, -1)
-        invokeSource = requireArguments().getSerializable(ReadingListActivity.EXTRA_SOURCE) as InvokeSource?
+        invokeSource = requireArguments().getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource?
 
         touchCallback = SwipeableItemTouchHelperCallback(requireContext())
         ItemTouchHelper(touchCallback).attachToRecyclerView(binding.readingListRecyclerView)
@@ -480,7 +482,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
     private fun refreshSync() {
         if (!AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount) {
-            ReadingListSyncBehaviorDialogs.promptLogInToSyncDialog(requireActivity())
             binding.readingListSwipeRefresh.isRefreshing = false
         } else {
             Prefs.isReadingListSyncEnabled = true
@@ -746,16 +747,9 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         ShareUtil.shareText(requireContext(), ReadingListPage.toPageTitle(page))
     }
 
-    override fun onAddItemToOther(pageId: Long) {
+    override fun onManageCollections(pageId: Long) {
         val page = getPageById(pageId) ?: return
-        ExclusiveBottomSheetPresenter.show(childFragmentManager,
-                AddToReadingListDialog.newInstance(ReadingListPage.toPageTitle(page), InvokeSource.READING_LIST_ACTIVITY))
-    }
-
-    override fun onMoveItemToOther(pageId: Long) {
-        val page = getPageById(pageId) ?: return
-        ExclusiveBottomSheetPresenter.show(childFragmentManager,
-                MoveToReadingListDialog.newInstance(readingListId, ReadingListPage.toPageTitle(page), InvokeSource.READING_LIST_ACTIVITY))
+        SaveArticleSheetDialog.show(childFragmentManager, ReadingListPage.toPageTitle(page))
     }
 
     override fun onSelectItem(pageId: Long) {
@@ -813,9 +807,13 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 update()
             }
             .setNegativeButton(R.string.recommended_reading_list_settings_notifications_dialog_positive_button) { _, _ ->
+                TestKitchenAdapter.client.getInstrument("apps-notifications")
+                    .submitInteraction(action = "click", actionSource = "discover", actionSubtype = "discover_home_modal", elementId = "notification_modal_off")
                 Prefs.isRecommendedReadingListNotificationEnabled = false
                 RecommendedReadingListNotificationManager.cancelRecommendedReadingListNotification(requireContext())
                 update()
+                TestKitchenAdapter.client.getInstrument("apps-notifications")
+                    .submitInteraction(action = "click", actionSource = "discover", actionSubtype = "discover_home", elementId = "notification_bell_off")
             }
             .show()
     }
@@ -895,7 +893,9 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 view.setTitleEllipsis()
                 view.setDescriptionMaxLines(2)
                 view.setDescriptionEllipsis()
-                view.setUpChipGroup(ReadingListBehaviorsUtil.getListsContainPage(page))
+                val collectionsContainingPage = ReadingListBehaviorsUtil.getListsContainPage(page)
+                    .filterNot { it.isDefault }
+                view.setUpChipGroup(collectionsContainingPage)
             } else {
                 view.hideChipGroup()
             }
@@ -1031,6 +1031,8 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 Prefs.isRecommendedReadingListNotificationEnabled = true
                 requestPermissionAndScheduleRecommendedReadingNotification()
                 update()
+                TestKitchenAdapter.client.getInstrument("apps-notifications")
+                    .submitInteraction(action = "click", actionSource = "discover", actionSubtype = "discover_home", elementId = "notification_bell_on")
             }
         }
 
@@ -1092,10 +1094,20 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 return false
             }
             item?.let {
-                val lists = if (currentSearchQuery.isNullOrEmpty()) listOf(readingList!!)
-                        else ReadingListBehaviorsUtil.getListsContainPage(it)
-                ExclusiveBottomSheetPresenter.show(childFragmentManager,
-                        ReadingListItemActionsDialog.newInstance(lists[0].title, lists.size, it.id, actionMode != null))
+                viewLifecycleOwner.lifecycleScope.launch {
+                    val pages = AppDatabase.instance.readingListPageDao().getAllPageOccurrences(ReadingListPage.toPageTitle(it))
+                    val listsContainingPage = AppDatabase.instance.readingListDao().getListsFromPageOccurrences(pages)
+                    val listsToRemoveFrom = if (currentSearchQuery.isNullOrEmpty()) listOf(readingList!!) else listsContainingPage
+
+                    ExclusiveBottomSheetPresenter.show(childFragmentManager,
+                            ReadingListItemActionsDialog.newInstance(
+                                listsToRemoveFrom[0].title,
+                                listsToRemoveFrom.size,
+                                it.id,
+                                actionMode != null,
+                                listsContainingPage.count { list -> !list.isDefault }
+                            ))
+                }
                 return true
             }
             return false
@@ -1234,7 +1246,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             return ReadingListFragment().apply {
                 arguments = bundleOf(
                     ReadingListActivity.EXTRA_READING_LIST_MODE to readingListMode,
-                    ReadingListActivity.EXTRA_SOURCE to invokeSource
+                    Constants.INTENT_EXTRA_INVOKE_SOURCE to invokeSource
                 )
             }
         }

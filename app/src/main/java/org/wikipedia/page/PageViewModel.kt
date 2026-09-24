@@ -18,6 +18,6 @@ class PageViewModel {
     val cacheControl get() = if (forceNetwork) OkHttpConnectionFactory.CACHE_CONTROL_FORCE_NETWORK else OkHttpConnectionFactory.CACHE_CONTROL_NONE
     val shouldLoadAsMobileWeb get() =
         title?.run { namespace() === Namespace.SPECIAL || isMainPage } ?: run { false } ||
-          page?.run { pageProperties.namespace !== Namespace.MAIN && pageProperties.namespace !== Namespace.USER &&
-                  pageProperties.namespace !== Namespace.PROJECT && pageProperties.namespace !== Namespace.DRAFT || isMainPage } ?: run { false }
+          page?.run { summary.ns !== Namespace.MAIN && summary.ns !== Namespace.USER &&
+                  summary.ns !== Namespace.PROJECT && summary.ns !== Namespace.DRAFT || isMainPage } ?: run { false }
 }

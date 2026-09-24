@@ -159,7 +159,7 @@ private fun RecommendedReadingListDiscoverCardViewPreview() {
             title = "Discover",
             subtitle = "Made for you",
             subtitleIcon = R.drawable.ic_wikipedia_w,
-            description = "Your weekly reading list. Learn about new topics,  picked just for you. Updates at midnight.",
+            description = "Your weekly collection. Learn about new topics, picked just for you. Updates at midnight.",
             images = listOf()
         )
     }

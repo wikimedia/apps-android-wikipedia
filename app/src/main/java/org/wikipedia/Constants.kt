@@ -10,7 +10,6 @@ object Constants {
     const val ACTIVITY_REQUEST_DESCRIPTION_EDIT = 55
     const val ACTIVITY_REQUEST_FEED_CONFIGURE = 58
     const val ACTIVITY_REQUEST_GALLERY = 52
-    const val ACTIVITY_REQUEST_LOGIN = 53
     const val ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY = 62
     const val ACTIVITY_REQUEST_SETTINGS = 41
     const val ACTIVITY_REQUEST_VOICE_SEARCH = 45
@@ -36,6 +35,7 @@ object Constants {
     const val INTENT_EXTRA_NOTIFICATION_SYNC_CANCEL = "syncCancel"
     const val INTENT_EXTRA_NOTIFICATION_SYNC_PAUSE_RESUME = "syncPauseResume"
     const val INTENT_EXTRA_NOTIFICATION_TYPE = "notificationType"
+    const val INTENT_EXTRA_NOTIFICATION_CATEGORY = "notificationCategory"
     const val INTENT_EXTRA_REVERT_QNUMBER = "revertQNumber"
     const val INTENT_EXTRA_SNACKBAR_MESSAGE = "snackbarMessage"
     const val INTENT_RETURN_TO_MAIN = "returnToMain"

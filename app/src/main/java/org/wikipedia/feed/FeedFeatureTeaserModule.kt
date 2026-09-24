@@ -164,7 +164,7 @@ private fun FeedFeatureTeaserModulePreview() {
                 .padding(horizontal = 16.dp),
             title = "From Discover",
             description = "Learn about new topics, picked just for you. Choose between daily, weekly or monthly updates.",
-            buttonText = "Enable Discover reading list",
+            buttonText = "Enable Discover collection",
             buttonIcon = painterResource(R.drawable.ic_light_bulb),
             imageUrls = emptyList()
         )

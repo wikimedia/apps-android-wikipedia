@@ -10,7 +10,7 @@ object GooglePayComponent {
         return false
     }
 
-    fun getDonateActivityIntent(activity: Activity, campaignId: String? = null, donateUrl: String? = null, filledAmount: Float = 0f): Intent {
+    fun getDonateActivityIntent(activity: Activity, campaignId: String? = null, donateUrl: String? = null, filledAmount: Float = 0f, checkedRecurringDonation: Boolean = false): Intent {
         return Intent()
     }
 }

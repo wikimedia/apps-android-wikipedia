@@ -18,8 +18,7 @@ class ReadingListItemActionsDialog : ExtendedBottomSheetDialogFragment() {
     interface Callback {
         fun onToggleItemOffline(pageId: Long)
         fun onShareItem(pageId: Long)
-        fun onAddItemToOther(pageId: Long)
-        fun onMoveItemToOther(pageId: Long)
+        fun onManageCollections(pageId: Long)
         fun onSelectItem(pageId: Long)
         fun onDeleteItem(pageId: Long)
     }
@@ -37,6 +36,16 @@ class ReadingListItemActionsDialog : ExtendedBottomSheetDialogFragment() {
             AppDatabase.instance.readingListPageDao()
                 .getPageById(requireArguments().getLong(ARG_READING_LIST_PAGE))?.let {
                 readingListPage = it
+                val customCollectionCount = requireArguments().getInt(ARG_CUSTOM_COLLECTION_COUNT)
+                val collectionActionText = if (customCollectionCount == 0) {
+                    getString(R.string.reading_list_add_to_collection)
+                } else {
+                    resources.getQuantityString(
+                        R.plurals.reading_list_in_collections,
+                        customCollectionCount,
+                        customCollectionCount
+                    )
+                }
                 val removeFromListText =
                     if (requireArguments().getInt(ARG_READING_LIST_SIZE) == 1) getString(
                         R.string.reading_list_remove_from_list,
@@ -45,9 +54,9 @@ class ReadingListItemActionsDialog : ExtendedBottomSheetDialogFragment() {
                 actionsView.setState(
                     it.displayTitle,
                     removeFromListText,
+                    collectionActionText,
                     it.offline,
-                    requireArguments().getBoolean(ARG_READING_LIST_HAS_ACTION_MODE),
-                    requireArguments().getBoolean(ARG_READING_LIST_SHOW_MOVE_ACTION, true)
+                    requireArguments().getBoolean(ARG_READING_LIST_HAS_ACTION_MODE)
                 )
             }
         }
@@ -74,17 +83,10 @@ class ReadingListItemActionsDialog : ExtendedBottomSheetDialogFragment() {
             }
         }
 
-        override fun onAddToOther() {
+        override fun onManageCollections() {
             dismiss()
             readingListPage?.let {
-                callback()?.onAddItemToOther(it.id)
-            }
-        }
-
-        override fun onMoveToOther() {
-            dismiss()
-            readingListPage?.let {
-                callback()?.onMoveItemToOther(it.id)
+                callback()?.onManageCollections(it.id)
             }
         }
 
@@ -112,21 +114,21 @@ class ReadingListItemActionsDialog : ExtendedBottomSheetDialogFragment() {
         private const val ARG_READING_LIST_SIZE = "readingListSize"
         private const val ARG_READING_LIST_PAGE = "readingListPage"
         private const val ARG_READING_LIST_HAS_ACTION_MODE = "hasActionMode"
-        private const val ARG_READING_LIST_SHOW_MOVE_ACTION = "showMoveAction"
+        private const val ARG_CUSTOM_COLLECTION_COUNT = "customCollectionCount"
 
         fun newInstance(
             readingListName: String,
             readingListSize: Int,
             pageID: Long,
             hasActionMode: Boolean,
-            showMoveAction: Boolean = true
+            customCollectionCount: Int
         ): ReadingListItemActionsDialog {
             return ReadingListItemActionsDialog().apply {
                 arguments = bundleOf(ARG_READING_LIST_NAME to readingListName,
                         ARG_READING_LIST_SIZE to readingListSize,
                         ARG_READING_LIST_PAGE to pageID,
                         ARG_READING_LIST_HAS_ACTION_MODE to hasActionMode,
-                        ARG_READING_LIST_SHOW_MOVE_ACTION to showMoveAction)
+                        ARG_CUSTOM_COLLECTION_COUNT to customCollectionCount)
             }
         }
     }

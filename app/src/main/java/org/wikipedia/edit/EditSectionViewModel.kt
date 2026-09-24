@@ -19,6 +19,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
+import kotlin.time.Duration.Companion.milliseconds
 
 class EditSectionViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
@@ -31,6 +32,7 @@ class EditSectionViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     var sectionWikitextOriginal: String? = null
     var tempAccountsEnabled = true
     var editingAllowed = false
+    var editCount = 0
     val editNotices = mutableListOf<String>()
 
     // Current revision of the article, to be passed back to the server to detect possible edit conflicts.
@@ -58,7 +60,7 @@ class EditSectionViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             _fetchSectionTextState.value = Resource.Loading()
 
             val infoResponse = ServiceFactory.get(pageTitle.wikiSite).getWikiTextForSectionWithInfo(pageTitle.prefixedText, if (sectionID >= 0) sectionID else null)
-
+            editCount = infoResponse.query?.userInfo?.editCount ?: 0
             tempAccountsEnabled = infoResponse.query?.autoCreateTempUser?.enabled == true
 
             infoResponse.query?.firstPage()?.let { firstPage ->
@@ -129,17 +131,23 @@ class EditSectionViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             L.e(throwable)
             _waitForRevisionState.value = Resource.Success(newRevision)
         }) {
+            _waitForRevisionState.value = Resource.Success(retryUntilNewRevision(pageTitle, newRevision))
+        }
+    }
+
+    companion object {
+        suspend fun retryUntilNewRevision(pageTitle: PageTitle, newRevision: Long, maxRetries: Int = 10): Long {
             // Implement a retry mechanism to wait for the revision to be available.
             var retry = 0
             var revision = -1L
-            while (revision < newRevision && retry < 10) {
-                delay(2000)
+            while (revision < newRevision && retry < maxRetries) {
+                delay(2000.milliseconds)
                 val pageSummaryResponse = ServiceFactory.getRest(pageTitle.wikiSite)
                     .getPageSummary(pageTitle.prefixedText, cacheControl = OkHttpConnectionFactory.CACHE_CONTROL_FORCE_NETWORK.toString())
                 revision = pageSummaryResponse.revision
                 retry++
             }
-            _waitForRevisionState.value = Resource.Success(revision)
+            return revision
         }
     }
 }

@@ -43,6 +43,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.events.NewRecommendedReadingListEvent
+import org.wikipedia.feed.interests.NewWithinInterestABTest
 import org.wikipedia.feed.model.BasedOnInterestCard
 import org.wikipedia.feed.model.BecauseYouReadCard
 import org.wikipedia.feed.model.Card
@@ -54,15 +55,19 @@ import org.wikipedia.feed.model.FeaturedArticleCard
 import org.wikipedia.feed.model.FeaturedImageCard
 import org.wikipedia.feed.model.ForYouCard
 import org.wikipedia.feed.model.GamesModulePromptCard
+import org.wikipedia.feed.model.NewWithinInterestCard
 import org.wikipedia.feed.model.NewsCard
 import org.wikipedia.feed.model.OnThisDayCard
 import org.wikipedia.feed.model.PlacesOfInterestCard
 import org.wikipedia.feed.model.RandomCard
+import org.wikipedia.feed.model.ReadAloudLeadSectionCard
 import org.wikipedia.feed.model.SeeAllRecommendationCard
 import org.wikipedia.feed.model.TopReadCard
 import org.wikipedia.feed.model.WikiGameCard
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
 import org.wikipedia.feed.personalization.interest.InterestSelectionRepository
+import org.wikipedia.feed.readaloud.ReadAloudArticlesRepository
+import org.wikipedia.feed.readaloud.ReadAloudLeadSectionABTest
 import org.wikipedia.feed.wikigames.WikiGame
 import org.wikipedia.games.WikiGames
 import org.wikipedia.games.db.DailyGameHistory
@@ -86,6 +91,7 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import java.time.LocalDate
 import java.time.LocalDateTime
+import java.time.ZoneId
 import java.util.Locale
 
 enum class HomeTab { COMMUNITY, FOR_YOU }
@@ -93,6 +99,8 @@ private const val MAX_STOP_TIMEOUT_MILLIS = 5000L
 private const val MAX_DISCOVER_ARTICLE_CARDS = 4
 private const val PLACES_ARTICLES_REQUEST_LIMIT = 10
 private const val PLACES_SEARCH_RADIUS_METERS = 10000
+private const val RECENT_ARTICLES_MIN_TIME_SPENT_SEC = 60
+private const val RECENT_ARTICLES_SEED_WINDOW_DAYS = 30L
 
 @Serializable
 sealed class ForYouModule {
@@ -111,6 +119,16 @@ sealed class ForYouModule {
     ) : ForYouModule() {
         override fun withCards(cards: List<ForYouCard>): ForYouModule = copy(cards = cards)
         override fun moduleKey(): String = ForYouModuleType.BASED_ON_INTEREST.name
+    }
+
+    @Serializable
+    data class NewWithinInterest(
+        override val age: Int,
+        override val index: Int,
+        override val cards: List<ForYouCard>
+    ) : ForYouModule() {
+        override fun withCards(cards: List<ForYouCard>): ForYouModule = copy(cards = cards)
+        override fun moduleKey(): String = ForYouModuleType.NEW_WITHIN_INTEREST.name
     }
 
     @Serializable
@@ -176,6 +194,16 @@ sealed class ForYouModule {
     ) : ForYouModule() {
         override fun withCards(cards: List<ForYouCard>): ForYouModule = copy(cards = cards)
         override fun moduleKey(): String = ForYouModuleType.GAMES.name
+    }
+
+    @Serializable
+    data class ReadAloudLeadSection(
+        override val age: Int,
+        override val index: Int,
+        override val cards: List<ForYouCard>
+    ) : ForYouModule() {
+        override fun withCards(cards: List<ForYouCard>): ForYouModule = copy(cards = cards)
+        override fun moduleKey(): String = ForYouModuleType.READ_ALOUD_LEAD_SECTION.name
     }
 }
 
@@ -358,7 +386,7 @@ class HomeViewModel : ViewModel() {
                 // only drop module when it has cards, and they are all hidden, not when it is empty to begin with.
                 if (module.cards.isNotEmpty() && visibleCards.isEmpty()) null else module.withCards(visibleCards)
             }
-        val areAllModulesHidden = ForYouModuleType.entries.all { hiddenModules.contains(it.name) }
+        val areAllModulesHidden = ForYouModuleType.entries().all { hiddenModules.contains(it.key) }
         val isInterestModuleHidden = hiddenModules.contains(ForYouModuleType.BASED_ON_INTEREST.name)
         val emptyState = when {
             areAllModulesHidden -> FeedEmptyState.ALL_MODULES_HIDDEN
@@ -423,6 +451,9 @@ class HomeViewModel : ViewModel() {
 
     private val _unreadCount = MutableStateFlow(NotificationBellState())
     val unreadCount = _unreadCount.asStateFlow()
+
+    private val _forYouNetworkLatency = MutableStateFlow(0L)
+    val forYouNetworkLatency = _forYouNetworkLatency.asStateFlow()
 
     init {
         viewModelScope.launch {
@@ -628,22 +659,33 @@ class HomeViewModel : ViewModel() {
             L.e("Failed to load modules from cache.")
         }
 
-        if (forYouCollectionSaved.dateTime != null &&
-            forYouCollectionSaved.dateTime.toLocalDate() == LocalDate.now() &&
-            forYouCollectionSaved.modulesPerLanguage.containsKey(wikiSite.value.languageCode)
-        ) {
+        val currentDateTime = LocalDateTime.now()
+        val currentWikiSite = wikiSite.value
+        val languageCode = currentWikiSite.languageCode
+        val cachedModulesByLanguage = if (forYouCollectionSaved.dateTime?.toLocalDate() == currentDateTime.toLocalDate()) {
+            forYouCollectionSaved.modulesPerLanguage
+        } else {
+            emptyMap()
+        }
+
+        val cachedModules = cachedModulesByLanguage[languageCode]
+        if (cachedModules != null) {
             L.d("Loading modules from cache...")
-            val modules = forYouCollectionSaved.modulesPerLanguage[wikiSite.value.languageCode].orEmpty()
-            val newModules = mutableListOf<ForYouModule>()
-            modules.forEach { module ->
+            return cachedModules.mapNotNull { module ->
                 val filteredCards = module.cards.filterNot { hiddenCards.contains(it.hideKey) }
-                if (filteredCards.isNotEmpty()) {
-                    newModules.add(module.withCards(filteredCards))
+                if (filteredCards.isEmpty()) {
+                    null
+                } else {
+                    module.withCards(filteredCards)
                 }
             }
-            return newModules
         }
+
         L.d("Loading modules from network...")
+        val seedEntries = getRandomSeedEntries(languageCode, limit = 2)
+        val becauseYouReadSeed = seedEntries.getOrNull(0)
+        val continueReadingSeed = seedEntries.getOrNull(1)
+        val startMillis = System.currentTimeMillis()
 
         coroutineScope {
             // --- Interests ---
@@ -652,25 +694,40 @@ class HomeViewModel : ViewModel() {
             val interestTopicCalls = interestTopics.map { topic ->
                 async(Dispatchers.IO) {
                     val articleTopic = ArticleTopics.all.find { it.topicId == topic.topicId }
-                    InterestSelectionRepository.getArticlesByTopic(wikiSite.value, articleTopic?.queryTopicId ?: topic.topicId).map {
+                    InterestSelectionRepository.getArticlesByTopic(currentWikiSite, articleTopic?.queryTopicId ?: topic.topicId).map {
                         // TODO: filter items that have already been suggested.
                         BasedOnInterestCard(it, interestTopic = topic)
                     }.filterNot { hiddenCards.contains(it.hideKey) }.take(4)
                 }
             }
 
-            val interestArticles = AppDatabase.instance.articleInterestDao().getAllRandom(wikiSite.value.languageCode).take(5)
+            if (NewWithinInterestABTest().isTestActive()) {
+                NewWithinInterestABTest().maybeSendExposureEvent()
+            }
+            val newWithinInterestTopics = if (NewWithinInterestABTest().isTestActive() && NewWithinInterestABTest().isTestGroupUser())
+                AppDatabase.instance.topicInterestDao().getAllRandom().distinctBy { it.topicId }.take(4)
+            else emptyList()
+            val newWithinInterestTopicCalls = newWithinInterestTopics.map { topic ->
+                async(Dispatchers.IO) {
+                    val articleTopic = ArticleTopics.all.find { it.topicId == topic.topicId }
+                    val titles = InterestSelectionRepository.getNewArticlesWithinTopic(currentWikiSite, articleTopic?.queryTopicId ?: topic.topicId).take(4)
+                    listOf(NewWithinInterestCard(titles, interestTopic = topic))
+                        .filterNot { it.titles.isEmpty() || hiddenCards.contains(it.hideKey) }
+                }
+            }
+
+            val interestArticles = AppDatabase.instance.articleInterestDao().getAllRandom(languageCode).take(5)
             val interestArticleCalls = interestArticles.map { article ->
                 async(Dispatchers.IO) {
                     val searchTerm = StringUtil.removeUnderscores(article.apiTitle)
-                    ServiceFactory.get(wikiSite.value).searchMoreLike("morelike:$searchTerm", 10, 10)
-                        .query?.pages?.filter { it.title != searchTerm && it.title != MainPageNameData.valueFor(wikiSite.value.languageCode) }?.map { page ->
+                    ServiceFactory.get(currentWikiSite).searchMoreLike("morelike:$searchTerm", 10, 10)
+                        .query?.pages?.filter { it.title != searchTerm && it.title != MainPageNameData.valueFor(languageCode) }?.map { page ->
                             PageTitle(
                                 text = page.title,
-                                wiki = wikiSite.value,
+                                wiki = currentWikiSite,
                                 thumbUrl = page.thumbUrl(),
                                 description = page.description,
-                                displayText = page.displayTitle(wikiSite.value.languageCode),
+                                displayText = page.displayTitle(languageCode),
                             ).also {
                                 if (!page.sectionTitle.isNullOrEmpty()) it.fragment = StringUtil.addUnderscores(page.sectionTitle)
                                 it.extract = page.extract
@@ -686,10 +743,8 @@ class HomeViewModel : ViewModel() {
 
             val becauseYouReadDeferred = async(Dispatchers.IO) {
                 buildList {
-                    val lastReadEntries = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(age + 1, 30, wikiSite.value.languageCode)
-                    if (lastReadEntries.size > age) {
-                        val entry = lastReadEntries[age]
-                        val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(wikiSite.value.languageCode).isNullOrEmpty()
+                    becauseYouReadSeed?.let { entry ->
+                        val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(languageCode).isNullOrEmpty()
                         val searchTerm = StringUtil.removeUnderscores(entry.title.prefixedText)
 
                         var moreLikeMaxAge = 86400
@@ -701,18 +756,18 @@ class HomeViewModel : ViewModel() {
 
                         val relatedPages = moreLikeResponse.query?.pages?.filter { it.title != searchTerm && it.title != MainPageNameData.valueFor(entry.title.wikiSite.languageCode) }?.map {
                             PageSummary(
-                                it.displayTitle(wikiSite.value.languageCode),
+                                it.displayTitle(languageCode),
                                 it.title,
                                 it.description,
                                 it.extract,
                                 it.thumbUrl(),
-                                wikiSite.value.languageCode
+                                languageCode
                             )
                         }?.take(Constants.SUGGESTION_REQUEST_ITEMS)
 
                         addAll(relatedPages?.map {
                             BecauseYouReadCard(
-                                it.getPageTitle(wikiSite.value),
+                                it.getPageTitle(currentWikiSite),
                                 entry.title.displayText
                             )
                         } ?: emptyList())
@@ -724,16 +779,15 @@ class HomeViewModel : ViewModel() {
 
             val continueReadingDeferred = async(Dispatchers.IO) {
                 val continueReadingCards = buildList {
-                    val lastReadEntries = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(age + 1, 30, wikiSite.value.languageCode)
-                    if (lastReadEntries.size > age) {
+                    continueReadingSeed?.let { entry ->
                         add(
                             ContinueReadingCard(
-                                lastReadEntries[age].title,
+                                entry.title,
                                 HistoryEntry.SOURCE_HISTORY
                             )
                         )
                     }
-                    AppDatabase.instance.readingListPageDao().getMostRecentSavedPagesByLang(wikiSite.value.languageCode, 10).take(2)
+                    AppDatabase.instance.readingListPageDao().getMostRecentSavedPagesByLang(languageCode, 10).take(2)
                         .forEach {
                             add(
                                 ContinueReadingCard(
@@ -744,12 +798,12 @@ class HomeViewModel : ViewModel() {
                         }
                 }.filterNot { hiddenCards.contains(it.hideKey) }.take(4)
                 if (continueReadingCards.isNotEmpty()) {
-                    ServiceFactory.get(wikiSite.value).getInfoWithExtractsByPageTitles(continueReadingCards.map { it.title.prefixedText }.fastJoinToString("|"))
+                    ServiceFactory.get(currentWikiSite).getInfoWithExtractsByPageTitles(continueReadingCards.map { it.title.prefixedText }.fastJoinToString("|"))
                         .query?.pages?.forEach { page ->
                             continueReadingCards.find { it.title.prefixedText == StringUtil.addUnderscores(page.title) }?.let {
                                 it.title.description = page.description
                                 it.title.thumbUrl = page.thumbUrl()
-                                it.title.displayText = page.displayTitle(wikiSite.value.languageCode)
+                                it.title.displayText = page.displayTitle(languageCode)
                                 it.title.extract = page.extract
                             }
                         }
@@ -760,12 +814,58 @@ class HomeViewModel : ViewModel() {
             // --- Random article ---
 
             val randomDeferred = async(Dispatchers.IO) {
-                val random = ServiceFactory.getRest(wikiSite.value).getRandomSummary()
-                RandomCard(random.getPageTitle(wikiSite.value))
+                val random = ServiceFactory.getRest(currentWikiSite).getRandomSummary()
+                RandomCard(random.getPageTitle(currentWikiSite))
+            }
+
+            // -- Read aloud lead section --
+
+            if (ReadAloudLeadSectionABTest().isTestActive() &&
+                ReadAloudArticlesRepository.isSupported(currentWikiSite)) {
+                ReadAloudLeadSectionABTest().maybeSendExposureEvent()
+            }
+            val readAloudDeferred = async(Dispatchers.IO) {
+                if (!ReadAloudLeadSectionABTest().isTestActive() ||
+                    !ReadAloudLeadSectionABTest().isTestGroupUser() ||
+                    !ReadAloudArticlesRepository.isSupported(currentWikiSite)) {
+                    return@async emptyList()
+                }
+                // All the cards in this module come from a single topic, so the first of the user's
+                // topics that has any articles with an audio version supplies the whole module.
+                val readAloudCards = mutableListOf<ReadAloudLeadSectionCard>()
+                AppDatabase.instance.topicInterestDao().getAllRandom().firstOrNull()?.let { topic ->
+                    val readAloudTitles = ReadAloudArticlesRepository
+                        .randomArticlesForTopic(currentWikiSite, topic.topicId, 4)
+                    if (readAloudTitles.isNotEmpty()) {
+                        readAloudCards.addAll(ServiceFactory.get(currentWikiSite)
+                            .getInfoWithExtractsByPageTitles(readAloudTitles.fastJoinToString("|") { it.prefixedText })
+                            .query?.pages?.map { page ->
+                                PageSummary(
+                                    prefixTitle = page.title,
+                                    displayTitle = page.displayTitle(currentWikiSite.languageCode),
+                                    description = page.description,
+                                    extract = page.extract,
+                                    thumbnail = page.thumbUrl(),
+                                    lang = currentWikiSite.languageCode,
+                                    pageId = page.pageId,
+                                    revision = page.lastrevid
+                                )
+                            }?.map { summary ->
+                                ReadAloudLeadSectionCard(summary, topic)
+                            }?.filterNot { hiddenCards.contains(it.hideKey) }.orEmpty())
+                    }
+                }
+                readAloudCards
             }
 
             // Combine all the deferred results and add them to the modules list if they have content.
 
+            readAloudDeferred.await().let {
+                if (it.isNotEmpty()) {
+                    // The index for this module is always 0 because there is always a single instance of this module, per age.
+                    modules.add(ForYouModule.ReadAloudLeadSection(age, 0, it))
+                }
+            }
             interestTopicCalls.awaitAll().forEachIndexed { index, entries ->
                 if (entries.isNotEmpty()) {
                     modules.add(ForYouModule.BasedOnInterest(age, index, entries))
@@ -794,16 +894,34 @@ class HomeViewModel : ViewModel() {
                     modules.add(ForYouModule.Random(age, 0, listOf(randomCard)))
                 }
             }
+            newWithinInterestTopicCalls.awaitAll().filter { it.isNotEmpty() }.flatten().let { entries ->
+                if (entries.isNotEmpty()) {
+                    modules.add(ForYouModule.NewWithinInterest(age, 0, entries))
+                }
+            }
         }
 
+        _forYouNetworkLatency.value = System.currentTimeMillis() - startMillis
+
         forYouCollectionSaved = ForYouCollectionSaved(
-            dateTime = LocalDateTime.now(),
-            modulesPerLanguage = forYouCollectionSaved.modulesPerLanguage + (wikiSite.value.languageCode to modules)
+            dateTime = currentDateTime,
+            modulesPerLanguage = cachedModulesByLanguage + (languageCode to modules)
         )
         withContext(Dispatchers.Default) {
             Prefs.homeForYouModulesToday = JsonUtil.encodeToString(forYouCollectionSaved).orEmpty()
         }
         return modules
+    }
+
+    private suspend fun getRandomSeedEntries(langCode: String, limit: Int): List<HistoryEntry> {
+        val sinceMillis = LocalDate.now().minusDays(RECENT_ARTICLES_SEED_WINDOW_DAYS)
+            .atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli()
+        return AppDatabase.instance.historyEntryWithImageDao().findRandomSeedEntriesForReadMore(
+            limit = limit,
+            minTimeSpent = RECENT_ARTICLES_MIN_TIME_SPENT_SEC,
+            sinceMillis = sinceMillis,
+            langCode = langCode
+        )
     }
 
     private suspend fun buildDiscoverModule(): ForYouModule.Discover? {

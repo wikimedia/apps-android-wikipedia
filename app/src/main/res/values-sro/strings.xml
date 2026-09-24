@@ -14,7 +14,7 @@
   <string name="search_hint">Circa in Wikipedia</string>
   <string name="search_hint_voice_search">Circa a boxi</string>
   <string name="search_hint_search_languages">Circa una lìngua</string>
-  <string name="filter_hint_filter_my_lists_and_articles">Circa me is elencus</string>
+  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">Circa me is elencus</string>
   <string name="nav_item_suggested_edits">Càmbius</string>
   <string name="nav_item_more">Prus</string>
   <string name="nav_item_search">Circa</string>
@@ -75,16 +75,16 @@
   <string name="menu_page_watched">Castiau</string>
   <string name="edit_section_find_in_page">Agata in sa pàgina</string>
   <string name="menu_page_font_and_theme">Caràtiri e tema</string>
-  <string name="menu_page_add_to_list">Aciungi a sa lista de ligidura</string>
+  <string name="menu_page_add_to_list" fuzzy="true">Aciungi a sa lista de ligidura</string>
   <string name="menu_page_add_to_default_list">Sarva</string>
-  <string name="feed_card_add_to_list">Aciungi a sa lista de ligidura</string>
+  <string name="feed_card_add_to_list" fuzzy="true">Aciungi a sa lista de ligidura</string>
   <string name="feed_card_add_to_default_list">Sarva</string>
   <string name="menu_page_share">Cumpartzi su ligàmini</string>
   <string name="menu_article_share">Cumpartzi sa boxi</string>
   <string name="menu_page_article_share">Cumpartzi</string>
   <string name="menu_page_open_a_new_tab">Aberi una sceda noa</string>
   <string name="menu_page_new_tab">Sceda noa</string>
-  <string name="menu_page_reading_lists">Listas de ligidura</string>
+  <string name="menu_page_reading_lists" fuzzy="true">Listas de ligidura</string>
   <string name="menu_page_recently_viewed">Bius imoi de pagu</string>
   <string name="menu_long_press_open_page">Aberi</string>
   <string name="menu_long_press_open_in_new_tab">Aberi una sceda noa</string>
@@ -120,7 +120,7 @@
   <string name="menu_show_toc">Ìndixi</string>
   <string name="search_no_results_found">Nisciunu arresultau agatau</string>
   <string name="search_reading_list_no_results">Nisciunu arresultau agatau in \"%s\"</string>
-  <string name="search_reading_lists_no_results">Nisciunu arresultau agatau me is listas de ligidura</string>
+  <string name="search_reading_lists_no_results" fuzzy="true">Nisciunu arresultau agatau me is listas de ligidura</string>
   <string name="search_history_no_results">Nisciunu arresultau agatau in sa cronologia</string>
   <string name="edit_section_captcha_message">Po agiudai a amparai de su spam automàticu, po prexeri inserta is fueddus chi aparessint asuta</string>
   <string name="edit_section_captcha_request_an_account_message">Non podit biri sa màgina? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Pedi unu contu&lt;/a&gt;</string>
@@ -194,12 +194,12 @@
   <string name="preferences_heading_syncing">Sincronizendi</string>
   <string name="preferences_heading_data_usage">Impreu de is datus</string>
   <string name="preferences_heading_experimental">Sperimentali</string>
-  <string name="preference_title_sync_reading_lists_from_account">Sincronizendi sa lista de ligidura</string>
-  <string name="preference_title_download_reading_list_articles">Scàrriga is boxis me is listas de ligidura</string>
-  <string name="preference_summary_sync_reading_lists">Sincroniza is listas de ligidura in aparìcius diversus sarvendiddusì in su contu tuu de Wikipedia</string>
-  <string name="preference_summary_sync_reading_lists_from_account">Sincroniza is listas de ligidura in aparìcius diversus sarvendiddusì in su contu tuu de Wikipedia \"%s\"</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">A bogai is listas de ligidura sincronizaus de \"%s\"</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Custu at a bogai de totu calichisiat lista de ligidura sincronizada ainnantis in su cloud. Bolis bogai totu is listas sincronizadas de su contu tuu \"%s\"?</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Sincronizendi sa lista de ligidura</string>
+  <string name="preference_title_download_reading_list_articles" fuzzy="true">Scàrriga is boxis me is listas de ligidura</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">Sincroniza is listas de ligidura in aparìcius diversus sarvendiddusì in su contu tuu de Wikipedia</string>
+  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">Sincroniza is listas de ligidura in aparìcius diversus sarvendiddusì in su contu tuu de Wikipedia \"%s\"</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">A bogai is listas de ligidura sincronizaus de \"%s\"</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">Custu at a bogai de totu calichisiat lista de ligidura sincronizada ainnantis in su cloud. Bolis bogai totu is listas sincronizadas de su contu tuu \"%s\"?</string>
   <string name="preference_title_auto_upload_crash_reports">Imbia arrelatus de faddina</string>
   <string name="preference_summary_auto_upload_crash_reports">Permiti a s\'aplicatzioni de imbiai asola is arrelatus de faddina a frunidori de tertzas partis, ca podeus biri sa faddina tua e dda currìgiri prus allestru e a fàcili.</string>
   <string name="editing_error_spamblacklist">Est stètiu agatau unu ligàmini a unu domìniu siddau (%s). Bogaddu e torra a proai.</string>
@@ -236,9 +236,9 @@
   <string name="menu_new_tab">Sceda noa</string>
   <string name="close_all_tabs_confirm_yes">Eja</string>
   <string name="close_all_tabs_confirm_no">No</string>
-  <string name="tool_tip_bookmark_icon_title">Aciungi a sa lista de ligidura</string>
+  <string name="tool_tip_bookmark_icon_title" fuzzy="true">Aciungi a sa lista de ligidura</string>
   <string name="button_continue_to_talk_page">Biri sa pàgina de chistionu</string>
-  <string name="button_add_to_reading_list">Aciungi a sa lista de ligidura</string>
+  <string name="button_add_to_reading_list" fuzzy="true">Aciungi a sa lista de ligidura</string>
   <string name="nav_item_donate">Fai una dàdiva</string>
   <string name="error_page_does_not_exist">Sa pàgina no nc\'est</string>
   <string name="reference_title">Preferèntzias %s</string>
@@ -252,11 +252,11 @@
   <string name="article_header_edit_description">Aciungi descridura locali</string>
   <string name="color_theme_black">Acoa</string>
   <string name="nav_item_saved">Sarva</string>
-  <string name="reading_list_save_to">Aciungi a sa lista de ligidura</string>
-  <string name="reading_list_move_to">Aciungi a sa lista de ligidura</string>
-  <string name="reading_list_item_deleted">%s bogau de sa cronologia</string>
-  <string name="reading_list_items_deleted">%d artìculus bogaus de sa cronologia</string>
-  <string name="reading_lists_item_deleted">%s bogau de sa cronologia</string>
+  <string name="reading_list_save_to" fuzzy="true">Aciungi a sa lista de ligidura</string>
+  <string name="reading_list_move_to" fuzzy="true">Aciungi a sa lista de ligidura</string>
+  <string name="reading_list_item_deleted" fuzzy="true">%s bogau de sa cronologia</string>
+  <string name="reading_list_items_deleted" fuzzy="true">%d artìculus bogaus de sa cronologia</string>
+  <string name="reading_lists_item_deleted" fuzzy="true">%s bogau de sa cronologia</string>
   <string name="reading_list_item_delete_undo">Annudda</string>
   <string name="reading_lists_login_button">Intra in Wikipedia</string>
   <string name="reading_lists_confirm_remote_delete_yes">Eja</string>
@@ -266,7 +266,7 @@
   <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Impostatzionis</string>
   <string name="default_reading_list_name">Sarva</string>
-  <string name="reading_list_toast_last_sync">Sincronizendi sa lista de ligidura</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">Sincronizendi sa lista de ligidura</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_dialog_ok_button_text">OK</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">Annudda</string>
@@ -274,7 +274,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Annudda</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Annudda</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
-  <string name="reading_list_activity_title">Listas de ligidura: %s</string>
+  <string name="reading_list_activity_title" fuzzy="true">Listas de ligidura: %s</string>
   <string name="user_option_sync_label">Preferèntzias</string>
   <string name="notification_syncing_cancel_button">Annudda</string>
   <string name="notifications_direct_reply_action">Arrespundi</string>

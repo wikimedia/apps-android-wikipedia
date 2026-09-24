@@ -193,6 +193,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
             val watchedResponse = watchedRequest.await()
             val categoriesResponse = categoriesRequest.await()
             val isWatched = watchedResponse.query?.firstPage()?.watched == true
+            val editCount = watchedResponse.query?.userInfo?.editCount ?: 0
             val hasWatchlistExpiry = watchedResponse.query?.firstPage()?.hasWatchlistExpiry() == true
             if (pageSummaryResponse.body() == null) {
                 throw RuntimeException("Summary response was invalid.")
@@ -213,7 +214,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
             if (delayLoadHtml) {
                 bridge.resetHtml(title)
             }
-            fragment.onPageMetadataLoaded(redirectedFrom)
+            fragment.onPageMetadataLoaded(redirectedFrom = redirectedFrom, editCount = editCount)
 
             if (AnonymousNotificationHelper.shouldCheckAnonNotifications(watchedResponse)) {
                 checkAnonNotifications(title)
@@ -264,7 +265,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
                 WikipediaApp.instance.appSessionEvent.noDescription()
             }
             if (!title.isMainPage) {
-                title.displayText = page?.displayTitle.orEmpty()
+                title.displayText = page?.summary?.displayTitle.orEmpty()
             }
             title.thumbUrl = pageSummary?.thumbnailUrl
             leadImagesHandler.loadLeadImage()

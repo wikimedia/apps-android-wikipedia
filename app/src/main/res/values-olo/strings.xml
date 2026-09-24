@@ -20,7 +20,7 @@
   <string name="search_hint_search_languages">Eči kieli</string>
   <string name="search_back_button_content_description">Mene järilleh</string>
   <string name="search_icon_content_description">Eči</string>
-  <string name="filter_hint_filter_my_lists_and_articles">Filtruiče minun luvettelot</string>
+  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">Filtruiče minun luvettelot</string>
   <string name="nav_item_suggested_edits">Kohendukset</string>
   <string name="nav_item_more">Enämbi</string>
   <string name="nav_item_search">Eči</string>
@@ -74,16 +74,16 @@
   <string name="menu_page_remove_from_watchlist">Ota iäre valvondulistaspäi</string>
   <string name="edit_section_find_in_page">Eči täl sivul</string>
   <string name="menu_page_font_and_theme">Kirjaimien kogo da muodo</string>
-  <string name="menu_page_add_to_list">Ližiä luvendulistah</string>
+  <string name="menu_page_add_to_list" fuzzy="true">Ližiä luvendulistah</string>
   <string name="menu_page_add_to_default_list">Tallenda</string>
-  <string name="feed_card_add_to_list">Ližiä luvendulistah</string>
+  <string name="feed_card_add_to_list" fuzzy="true">Ližiä luvendulistah</string>
   <string name="feed_card_add_to_default_list">Tallenda</string>
   <string name="menu_page_share">Jua linku</string>
   <string name="menu_article_share">Jua artikla</string>
   <string name="menu_page_article_share">Jua</string>
   <string name="menu_page_open_a_new_tab">Avua uuzi välilehti</string>
   <string name="menu_page_new_tab">Uuzi välilehti</string>
-  <string name="menu_page_reading_lists">Luvendulistat</string>
+  <string name="menu_page_reading_lists" fuzzy="true">Luvendulistat</string>
   <string name="menu_page_archive">Arhiivu</string>
   <string name="menu_long_press_open_page">Avua</string>
   <string name="menu_long_press_open_in_places">Avua Paikois</string>

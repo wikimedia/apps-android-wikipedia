@@ -18,7 +18,7 @@
   <string name="search_hint">זוכן וויקיפעדיע</string>
   <string name="search_hint_voice_search">שטימע־זוך</string>
   <string name="search_hint_search_languages">זוכן א שפראך</string>
-  <string name="filter_hint_filter_my_lists_and_articles">פילטערן מיין רשימות</string>
+  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">פילטערן מיין רשימות</string>
   <string name="nav_item_suggested_edits">רעדאקטירונגען</string>
   <string name="nav_item_more">נאך</string>
   <string name="nav_item_search">זוכן</string>
@@ -68,12 +68,12 @@
   <string name="menu_page_watched">נאָכגעפֿאלגט</string>
   <string name="edit_section_find_in_page">זוכן אין בלאט</string>
   <string name="menu_page_font_and_theme">פאנט און טעמע</string>
-  <string name="menu_page_add_to_list">צולייגן צו ליינליסטע</string>
+  <string name="menu_page_add_to_list" fuzzy="true">צולייגן צו ליינליסטע</string>
   <string name="menu_page_add_to_default_list">אויפֿהיטן</string>
   <string name="feed_card_add_to_default_list">אויפֿהיטן</string>
   <string name="menu_page_share">טיילן לינק</string>
   <string name="menu_page_open_a_new_tab">עפֿענען אין נײַעם טאב</string>
-  <string name="menu_page_reading_lists">ליין־ליסטעס</string>
+  <string name="menu_page_reading_lists" fuzzy="true">ליין־ליסטעס</string>
   <string name="menu_long_press_open_page">עפענען</string>
   <string name="menu_long_press_open_in_new_tab">עפֿענען אין נײַעם טאב</string>
   <string name="menu_long_press_copy_page">קאפירן לינק אדרעס</string>
@@ -244,7 +244,7 @@
   <string name="color_theme_test_title">ביישפיל־טעקסט</string>
   <string name="reading_list_create_new">שאפֿן ניי</string>
   <string name="reading_list_sort">סארטירן</string>
-  <string name="reading_list_menu_delete">אויסמעקן רשימה</string>
+  <string name="reading_list_menu_delete" fuzzy="true">אויסמעקן רשימה</string>
   <string name="reading_lists_confirm_remote_delete_yes">יא</string>
   <string name="reading_lists_confirm_remote_delete_no">ניין</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">אַנולירן</string>

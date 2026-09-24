@@ -141,7 +141,7 @@ class PageItemView<T>(context: Context) : FrameLayout(context) {
     }
 
     fun setUpChipGroup(readingLists: List<ReadingList>) {
-        binding.chipsScrollview.visibility = VISIBLE
+        binding.chipsScrollview.isVisible = readingLists.isNotEmpty()
         binding.chipsScrollview.setFadingEdgeLength(0)
         binding.readingListsChipGroup.removeAllViews()
         readingLists.forEach { readingList ->

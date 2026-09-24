@@ -18,6 +18,8 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.donate.DonateUtil
 import org.wikipedia.donate.donationreminder.DonationReminderActivity
 import org.wikipedia.donate.donationreminder.DonationReminderHelper
+import org.wikipedia.edit.EDITOR_CHOICE_VE
+import org.wikipedia.edit.showEditorChoiceDialog
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingActivity
@@ -56,6 +58,18 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
             it.onPreferenceClickListener = Preference.OnPreferenceClickListener {
                 activity.startActivity(ThemeFittingRoomActivity.newIntent(activity))
                 true
+            }
+        }
+        findPreference(R.string.preference_key_editor_mode_choice).let {
+            val isVisualEditorEnabled = updateVisualEditorPreference(it)
+            if (isVisualEditorEnabled) {
+                it.onPreferenceClickListener = Preference.OnPreferenceClickListener { prefs ->
+                    showEditorChoiceDialog(activity, isSettingsScreen = true) { editorChoice, _ ->
+                        Prefs.editorModeChoice = editorChoice
+                        prefs.setSummary(if (editorChoice == EDITOR_CHOICE_VE) R.string.editor_select_dialog_ve_title else R.string.editor_select_dialog_source_title)
+                    }
+                    true
+                }
             }
         }
 
@@ -128,6 +142,10 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
             isVisible = DonationReminderHelper.isEnabled
             onPreferenceClickListener =
                 Preference.OnPreferenceClickListener {
+                    DonorExperienceEvent.logDonationReminderAction(
+                        activeInterface = "global_setting",
+                        action = "donation_reminder_click"
+                    )
                     activity.startActivity(DonationReminderActivity.newIntent(activity, isFromSettings = true))
                     true
                 }
@@ -152,7 +170,7 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
     }
 
     private fun deviceInformation(): String {
-        return "\n\nVersion: ${BuildConfig.VERSION_NAME} \nDevice: ${Build.BRAND} ${Build.MODEL} (SDK: ${Build.VERSION.SDK_INT})\n"
+        return "\n\nVersion: ${BuildConfig.VERSION_NAME} \nDevice: ${Build.BRAND} ${Build.MODEL} (SDK: ${Build.VERSION.SDK_INT})\nAppInstallId: ${WikipediaApp.instance.appInstallID}"
     }
 
     fun updateLanguagePrefSummary() {
@@ -173,6 +191,17 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
             DonateUtil.currencyFormat.format(Prefs.donationReminderConfig.donateAmount), articleFrequency) else
                 activity.getString(R.string.donation_reminders_settings_description_off)
         findPreference(R.string.preference_key_donation_reminders).summary = description
+    }
+
+    fun updateVisualEditorPreference(visualEditorPref: Preference = findPreference(R.string.preference_key_editor_mode_choice)): Boolean {
+        val isVisualEditorEnabled = RemoteConfig.config.androidv1?.visualEditorEnabled ?: false
+        if (!isVisualEditorEnabled) {
+            visualEditorPref.isVisible = false
+            return false
+        }
+        visualEditorPref.isVisible = true
+        visualEditorPref.setSummary(if (Prefs.editorModeChoice == EDITOR_CHOICE_VE) R.string.editor_select_dialog_ve_title else R.string.editor_select_dialog_source_title)
+        return true
     }
 
     private inner class SyncReadingListsListener : Preference.OnPreferenceChangeListener {

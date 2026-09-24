@@ -14,7 +14,7 @@
   <string name="search_hint">Zercha in Vichipedìa</string>
   <string name="search_hint_voice_search">Zercha vucari</string>
   <string name="search_hint_search_languages">Zercha \'na linga</string>
-  <string name="filter_hint_filter_my_lists_and_articles">Filtrà li me\' erenchi</string>
+  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">Filtrà li me\' erenchi</string>
   <string name="nav_item_suggested_edits">Mudifigga</string>
   <string name="nav_item_more">Più</string>
   <string name="nav_item_search">Zercha</string>
@@ -156,9 +156,9 @@
   <string name="color_theme_black">Indareddu</string>
   <string name="nav_item_saved">Saivva</string>
   <string name="reading_list_sort">Althu cuntrasthu</string>
-  <string name="reading_list_item_deleted">%s buggaddu di l\'isthòria</string>
-  <string name="reading_list_items_deleted">%d arthìcuri buggaddi di l\'isthòria</string>
-  <string name="reading_lists_item_deleted">%s buggaddu di l\'isthòria</string>
+  <string name="reading_list_item_deleted" fuzzy="true">%s buggaddu di l\'isthòria</string>
+  <string name="reading_list_items_deleted" fuzzy="true">%d arthìcuri buggaddi di l\'isthòria</string>
+  <string name="reading_lists_item_deleted" fuzzy="true">%s buggaddu di l\'isthòria</string>
   <string name="reading_list_item_delete_undo">Annulla</string>
   <string name="reading_list_deleted">%s canzilladdi</string>
   <string name="reading_lists_confirm_remote_delete_yes">Éia</string>

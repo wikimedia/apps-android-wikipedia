@@ -85,15 +85,19 @@ object TestKitchenAdapter : ClientDataCallback, EventSender {
         return ExperimentImpl(abTest.name, abTest.getGroupName(), subjectId = Prefs.appInstallId, isLoggable = { abTest.shouldInstrument() })
     }
 
+    fun submitExperimentExposure(abTest: ABTest) {
+        client.submitExperimentExposure(getExperiment(abTest))
+    }
+
     fun getPageData(fragment: PageFragment?): PageData? {
-        val pageProperties = fragment?.page?.pageProperties ?: return null
+        val pageSummary = fragment?.page?.summary ?: return null
         return PageData(
-            pageProperties.pageId,
+            pageSummary.pageId,
             fragment.model.title?.prefixedText.orEmpty(),
-            pageProperties.namespace.code(),
-            Namespace.of(pageProperties.namespace.code()).toString(),
-            pageProperties.revisionId,
-            pageProperties.wikiBaseItem.orEmpty(),
+            pageSummary.ns.code(),
+            Namespace.of(pageSummary.ns.code()).toString(),
+            pageSummary.revision,
+            pageSummary.wikiBaseItem.orEmpty(),
             fragment.model.title?.wikiSite?.languageCode.orEmpty()
         )
     }

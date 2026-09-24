@@ -6,7 +6,6 @@ import android.app.ActivityOptions
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.icu.text.ListFormatter
 import android.os.Build
 import android.os.Bundle
 import android.speech.RecognizerIntent
@@ -47,6 +46,7 @@ import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.databinding.FragmentMainBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.ImportReadingListsEvent
+import org.wikipedia.events.LoggedInEvent
 import org.wikipedia.events.LoggedOutEvent
 import org.wikipedia.events.LoggedOutInBackgroundEvent
 import org.wikipedia.events.NewRecommendedReadingListEvent
@@ -54,6 +54,7 @@ import org.wikipedia.feed.HomeFragment
 import org.wikipedia.feed.image.FeaturedImage
 import org.wikipedia.feed.news.NewsActivity
 import org.wikipedia.feed.news.NewsItem
+import org.wikipedia.feed.readaloud.ReadAloudLeadSectionABTest
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.gallery.MediaDownloadReceiver
 import org.wikipedia.history.HistoryEntry
@@ -69,10 +70,8 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.places.PlacesActivity
 import org.wikipedia.random.RandomActivity
-import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.ReadingListsFragment
-import org.wikipedia.readinglist.RemoveFromReadingListsDialog
-import org.wikipedia.readinglist.database.ReadingList
+import org.wikipedia.readinglist.SaveArticleSheetDialog
 import org.wikipedia.search.SearchActivity
 import org.wikipedia.search.SearchFragment
 import org.wikipedia.settings.Prefs
@@ -97,6 +96,7 @@ import org.wikipedia.yearinreview.YearInReviewDialog
 import org.wikipedia.yearinreview.YearInReviewOnboardingActivity
 import org.wikipedia.yearinreview.YearInReviewViewModel
 import java.io.File
+import java.time.LocalDate
 import java.util.concurrent.TimeUnit
 
 class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragment.Callback, MenuNavTabDialog.Callback, ActivityTabFragment.Callback {
@@ -146,6 +146,10 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 FlowEventBus.events.collectLatest { event ->
                     when (event) {
+                        is LoggedInEvent -> {
+                            refreshContents()
+                            FeedbackUtil.showMessage(this@MainFragment, R.string.login_success_toast)
+                        }
                         is LoggedOutEvent,
                         is LoggedOutInBackgroundEvent -> {
                             requireActivity().invalidateOptionsMenu()
@@ -200,7 +204,9 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
 
         binding.mainNavTabLayout.setOverlayDot(NavTab.EDITS, !Prefs.isActivityTabOnboardingShown)
 
-        maybeShowFeedNewModulesTooltip()
+        if (!maybeShowReadingListsUpdateTooltip()) {
+            maybeShowFeedNewModulesTooltip()
+        }
         Prefs.incrementExploreFeedVisitCount()
 
         notificationButtonView = NotificationButtonView(requireActivity())
@@ -243,10 +249,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
         } else if (requestCode == Constants.ACTIVITY_REQUEST_GALLERY &&
                 resultCode == GalleryActivity.ACTIVITY_RESULT_PAGE_SELECTED && data != null) {
             startActivity(data)
-        } else if (requestCode == Constants.ACTIVITY_REQUEST_LOGIN &&
-                resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
-            refreshContents()
-            FeedbackUtil.showMessage(this, R.string.login_success_toast)
         } else if (requestCode == Constants.ACTIVITY_REQUEST_BROWSE_TABS) {
             if (WikipediaApp.instance.tabCount == 0) {
                 // They browsed the tabs and cleared all of them, without wanting to open a new tab.
@@ -281,6 +283,12 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
         val fragment = currentFragment
         return when (menuItem.itemId) {
+            R.id.menu_filter_reading_lists_articles -> {
+                if (fragment is ReadingListsFragment) {
+                    fragment.showReadingListsFilterMenu()
+                }
+                true
+            }
             R.id.menu_search_lists -> {
                 if (fragment is ReadingListsFragment) {
                     fragment.startSearchActionMode()
@@ -298,8 +306,11 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
     }
 
     override fun onPrepareMenu(menu: Menu) {
-        menu.findItem(R.id.menu_search_lists).isVisible = currentFragment is ReadingListsFragment
-        menu.findItem(R.id.menu_overflow_button).isVisible = currentFragment is ReadingListsFragment
+        val readingListsFragment = currentFragment as? ReadingListsFragment
+        menu.findItem(R.id.menu_filter_reading_lists_articles).isVisible =
+            readingListsFragment?.isAllArticlesSelected() == true
+        menu.findItem(R.id.menu_search_lists).isVisible = readingListsFragment != null
+        menu.findItem(R.id.menu_overflow_button).isVisible = readingListsFragment != null
 
         val tabsItem = menu.findItem(R.id.menu_tabs)
         if (WikipediaApp.instance.tabCount < 1 || currentFragment is SuggestedEditsTasksFragment) {
@@ -385,27 +396,8 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
         }
     }
 
-    fun onFeedAddPageToList(entry: HistoryEntry, addToDefault: Boolean) {
-        ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), entry.title, addToDefault, InvokeSource.FEED)
-    }
-
-    fun onFeedMovePageToList(sourceReadingListId: Long, entry: HistoryEntry) {
-        ReadingListBehaviorsUtil.moveToList(requireActivity(), sourceReadingListId, entry.title, InvokeSource.FEED)
-    }
-
-    fun onFeedRemovePageFromList(entry: HistoryEntry, lists: List<ReadingList>) {
-        RemoveFromReadingListsDialog(lists).deleteOrShowDialog(requireActivity()) { readingLists, _ ->
-            if (!requireActivity().isDestroyed) {
-                val names = readingLists.map { it.title }.run {
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                        ListFormatter.getInstance().format(this)
-                    } else {
-                        joinToString(separator = ", ")
-                    }
-                }
-                FeedbackUtil.showMessage(requireActivity(), getString(R.string.reading_list_item_deleted_from_list, entry.title.displayText, names))
-            }
-        }
+    fun onFeedSavePage(entry: HistoryEntry) {
+        SaveArticleSheetDialog.show(childFragmentManager, entry.title)
     }
 
     fun onFeedSharePage(entry: HistoryEntry) {
@@ -448,8 +440,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
     }
 
     fun onLoginRequested() {
-        startActivityForResult(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_NAV),
-                Constants.ACTIVITY_REQUEST_LOGIN)
+        startActivity(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_NAV))
     }
 
     override fun onLoadPage(entry: HistoryEntry) {
@@ -578,24 +569,51 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
         }
     }
 
-    private fun maybeShowFeedNewModulesTooltip() {
+    private fun maybeShowReadingListsUpdateTooltip(): Boolean {
+        val endDate = LocalDate.of(2026, 9, 15)
+        // Only show the tooltip to existing users and expire after September 15, 2026
         if (Prefs.exploreFeedVisitCount == 0) {
-            // Explicitly consider this tooltip "shown", since we only want to show it to users
-            // who have used the Feed already, instead of completely new users.
-            Prefs.isHomeFeedUpdateTooltipShown = true
-        } else if (!Prefs.isHomeFeedUpdateTooltipShown) {
-            Prefs.isHomeFeedUpdateTooltipShown = true
+            Prefs.isReadingListsUpdateTooltipShown = true
+        } else if (!Prefs.isReadingListsUpdateTooltipShown &&
+                !LocalDate.now().isAfter(endDate)) {
+            Prefs.isReadingListsUpdateTooltipShown = true
             binding.root.post {
                 if (isAdded) {
-                    FeedbackUtil.showTooltip(requireActivity(), binding.mainNavTabLayout.findViewById(NavTab.HOME.id), getString(R.string.home_feed_update_tooltip1), aboveOrBelow = true, autoDismiss = false, showDismissButton = true)
+                    FeedbackUtil.showTooltip(
+                        requireActivity(),
+                        binding.mainNavTabLayout.findViewById(NavTab.READING_LISTS.id),
+                        getString(R.string.reading_lists_update_tooltip),
+                        aboveOrBelow = true,
+                        autoDismiss = false,
+                        showDismissButton = true
+                    )
                 }
             }
+            return true
         }
+        return false
     }
 
     private fun maybeShowSearchWidgetInstallPrompt() {
         if (DeviceUtil.areWidgetsSupported && !Prefs.searchWidgetInstallPromptShown && !SearchWidgetInstallDialog.isWidgetInstalled()) {
             ExclusiveBottomSheetPresenter.show(childFragmentManager, SearchWidgetInstallDialog())
+        }
+    }
+
+    private fun maybeShowFeedNewModulesTooltip() {
+        lifecycleScope.launch {
+            if (ReadAloudLeadSectionABTest().shouldShowToolTip()) {
+                Prefs.readAloudLeadSectionTooltipShown = true
+                binding.root.post {
+                    if (isAdded) {
+                        FeedbackUtil.showTooltip(requireActivity(), binding.mainNavTabLayout.findViewById(NavTab.HOME.id),
+                            getString(R.string.read_aloud_lead_section_tooltip_text), aboveOrBelow = true, autoDismiss = false, showDismissButton = true)
+                        // For the purposes of this experiment, explicitly clear today's cache of For You content,
+                        // so that the Audio content can be loaded when the user goes to For You.
+                        Prefs.homeForYouModulesToday = ""
+                    }
+                }
+            }
         }
     }
 

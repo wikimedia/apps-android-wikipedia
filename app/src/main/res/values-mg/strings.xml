@@ -26,7 +26,7 @@
   <string name="menu_page_show_tabs">Haneho vakizoro</string>
   <string name="menu_page_other_languages">Hanova fiteny</string>
   <string name="menu_page_find_in_page" fuzzy="true">Hikaroka anaty pejy</string>
-  <string name="menu_page_add_to_list">Ampiana amin\'ny lisi-pamakiana</string>
+  <string name="menu_page_add_to_list" fuzzy="true">Ampiana amin\'ny lisi-pamakiana</string>
   <string name="menu_page_share">Hizara ny rohy</string>
   <string name="menu_long_press_open_page">Sokafana</string>
   <string name="menu_long_press_open_in_new_tab">Hanokatra rohy anaty sasa-joro vaovao</string>
@@ -56,7 +56,7 @@
   <string name="menu_show_toc">Ambangovangony</string>
   <string name="search_no_results_found">Tsy nahitana valiny</string>
   <string name="search_reading_list_no_results">Tsy nahitana valiny tanaty \"%s\"</string>
-  <string name="search_reading_lists_no_results">Tsy nahitana valiny tanatin\'ny lisi-pamakiana</string>
+  <string name="search_reading_lists_no_results" fuzzy="true">Tsy nahitana valiny tanatin\'ny lisi-pamakiana</string>
   <string name="search_history_no_results">Tsy nahitana valiny tanaty ny tantara</string>
   <string name="edit_section_captcha_message">Mba hiarovana amin\'ny fandotoana ho azy, dia atsofohy ireo teny izay miseho eo ambany ireo.</string>
   <string name="edit_section_captcha_hint">Avereno ny teny teo ambony</string>
@@ -175,7 +175,7 @@
   <string name="address_copied">Adiresy nodikaina tanaty hela-tsilaka.</string>
   <string name="text_copied">Sorata nodikaina anaty hela-tsilaka.</string>
   <string name="button_continue_to_article">Hamaky ny lahatsoratra</string>
-  <string name="button_add_to_reading_list">Ampiana amin\'ny lisi-pamakiana</string>
+  <string name="button_add_to_reading_list" fuzzy="true">Ampiana amin\'ny lisi-pamakiana</string>
   <string name="page_offline_notice_cannot_load_while_offline">Tsy afaka alaina ilay lahatsoratra rehefa tsy misy fifandraisana.</string>
   <string name="crash_report_activity_title">Hadisoam-pampiharana</string>
   <string name="crash_report_relaunch">Averina indray</string>
@@ -192,10 +192,10 @@
   <string name="text_size_increase">Hampitombo ny haben-tsoratra</string>
   <string name="text_size_decrease">Hampidina ny haben-tsoratra</string>
   <string name="text_size_percent_default">%s (Rehefa tsy misy)</string>
-  <string name="reading_list_save_to">Tehirizina ao amin\'ny lisi-pamakiana</string>
+  <string name="reading_list_save_to" fuzzy="true">Tehirizina ao amin\'ny lisi-pamakiana</string>
   <string name="reading_list_create_new">Hamorona vaovao</string>
-  <string name="reading_list_title_exists">Efa misy ny lisi-pamakiana \"%s\".</string>
-  <string name="reading_list_added_view_button">Hijery lisitra</string>
+  <string name="reading_list_title_exists" fuzzy="true">Efa misy ny lisi-pamakiana \"%s\".</string>
+  <string name="reading_list_added_view_button" fuzzy="true">Hijery lisitra</string>
   <string name="description_edit_text_hint" fuzzy="true">Visavisan\'ilay lohateny</string>
   <string name="description_edit_add_description" fuzzy="true">Hanampy visavisan-dohateny</string>
 </resources>

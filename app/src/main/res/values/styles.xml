@@ -675,6 +675,16 @@
         <item name="behavior_peekHeight">@dimen/bottomSheetPeekHeight</item>
     </style>
 
+    <!-- When gesture navigation is enabled, for sheets where the content draws its own background to the bottom edge of the screen
+    and handles the navigation bar inset itself. -->
+    <style name="App.BottomSheetDialogTheme.EdgeToEdgeContent">
+        <item name="bottomSheetStyle">@style/App.BottomSheetStyle.EdgeToEdgeContent</item>
+    </style>
+
+    <style name="App.BottomSheetStyle.EdgeToEdgeContent">
+        <item name="paddingBottomSystemWindowInsets">false</item>
+    </style>
+
     <style name="FloatingActionButtonRounded">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>

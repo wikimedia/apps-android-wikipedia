@@ -42,9 +42,9 @@
     <string name="editing_learn_more_url" translatable="false">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Editing</string>
     <string name="apps_about_wmf_url" translatable="false">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/About_the_Wikimedia_Foundation</string>
     <string name="forget_password_link" translatable="false">https://%s.wikipedia.org/wiki/Special:PasswordReset</string>
-    <string name="hybrid_search_info_link" translatable="false">https://www.mediawiki.org/wiki/Readers/Information_Retrieval/Phase_1</string>
     <string name="reading_challenge_learn_more" translatable="false">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/25th_Birthday_Reading_Challenge</string>
     <string name="reading_challenge_reward_url" translatable="false">https://store.wikimedia.org/discount/Widget15</string>
+    <string name="read_aloud_lead_section_info_link" translatable="false">https://www.mediawiki.org/wiki/Readers/Listening_to_Wikipedia/Phase_1</string>
     <!-- Accounts -->
     <string name="account_name" translatable="false">@string/wikimedia</string>
     <string name="account_type" translatable="false">org.wikimedia</string>
@@ -108,23 +108,6 @@
     <string name="sender_username_wikitext" translatable="false">{{{senderUserName}}}</string>
     <string name="diff_link_wikitext" translatable="false">{{{diffLink}}}</string>
     <string name="wikiText_replace_url" translatable="false">[[%1$s|%2$s]]</string>
-
-    <!-- Example semantic search queries, specifically for testing with Greek and French. -->
-    <string name="hybrid_search_onboarding_search_example_query1_el" translatable="false">Πότε ο Πλούτωνας έπαψε να θεωρείται πλανήτης;</string>
-    <string name="hybrid_search_onboarding_search_example_query2_el" translatable="false">Πρώτοι Ολυμπιακοί Αγώνες</string>
-    <string name="hybrid_search_onboarding_search_example_query3_el" translatable="false">RNA vs DNA</string>
-    <string name="hybrid_search_onboarding_search_example_query4_el" translatable="false">Η μεγαλύτερη λίμνη στην Ελλάδα</string>
-    <string name="hybrid_search_onboarding_search_example_query5_el" translatable="false">Εθνικό πιάτο στην Ελλάδα</string>
-    <string name="hybrid_search_onboarding_search_example_query1_fr" translatable="false">Pourquoi les étoiles semblent-elles scintiller la nuit ?</string>
-    <string name="hybrid_search_onboarding_search_example_query2_fr" translatable="false">Origine des Jeux Olympiques</string>
-    <string name="hybrid_search_onboarding_search_example_query3_fr" translatable="false">ADN ou ARN</string>
-    <string name="hybrid_search_onboarding_search_example_query4_fr" translatable="false">Pourquoi rêvons-nous ?</string>
-    <string name="hybrid_search_onboarding_search_example_query5_fr" translatable="false">Comment les langues disparaissent-elles ?</string>
-    <string name="hybrid_search_onboarding_search_example_query1_pt" translatable="false">Maior planeta do Sistema Solar</string>
-    <string name="hybrid_search_onboarding_search_example_query2_pt" translatable="false">Primeira Olimpíada de verão</string>
-    <string name="hybrid_search_onboarding_search_example_query3_pt" translatable="false">RNA vs DNA</string>
-    <string name="hybrid_search_onboarding_search_example_query4_pt" translatable="false">O que é um buraco negro?</string>
-    <string name="hybrid_search_onboarding_search_example_query5_pt" translatable="false">Qual é o maior rio do Brasil?</string>
 
     <string name="launcher_clip" translatable="false">M 0 0 L 0 28.575 L 28.575 28.575 L 28.575 0 Z</string>
 

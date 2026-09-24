@@ -13,7 +13,6 @@
     <string name="preferences_developer_announcement_country_override">GeoIP Country Override</string>
     <string name="preferences_developer_announcement_country_override_hint">Type a two-letter, all caps country code (US, NG, etc).</string>
     <string name="preferences_developer_announcement_ignore_date">Ignore date</string>
-    <string name="preferences_developer_announcement_version_code_hint">Set to 0 to reset.</string>
     <string name="preferences_developer_announcement_reset_shown_dialogs_title">Reset shown dialogs</string>
     <string name="preferences_developer_announcement_reset_shown_dialogs_summary">%d shown dialog(s).</string>
     <string name="preferences_developer_announcement_debug_url">Use the test.wikipedia debug URL.</string>
@@ -27,13 +26,13 @@
     <string name="preferences_developer_crash_title">Crash</string>
     <string name="preferences_developer_crash_summary">Tap here to crash the app</string>
     <string name="preferences_developer_session_timeout_title">Session timeout (minutes)</string>
-    <string name="preferences_developer_reading_list_category">Reading Lists</string>
+    <string name="preferences_developer_reading_list_category">Collections</string>
     <string name="preferences_developer_add_articles">Add articles</string>
-    <string name="preferences_developer_add_lists">Add reading lists</string>
-    <string name="preferences_developer_delete_lists">Delete reading lists</string>
-    <string name="preferences_developer_test_delete_lists">Delete Test reading lists</string>
+    <string name="preferences_developer_add_lists">Add collections</string>
+    <string name="preferences_developer_delete_lists">Delete collections</string>
+    <string name="preferences_developer_test_delete_lists">Delete test collections</string>
     <string name="preferences_developer_summary_configure_articles">Type the number of articles</string>
-    <string name="preferences_developer_summary_configure_reading_lists">Type the number of lists</string>
+    <string name="preferences_developer_summary_configure_reading_lists">Type the number of collections</string>
     <string name="preferences_developer_suggested_edits_category">Suggested edits</string>
     <string name="preferences_developer_suggested_edits_reactivation_notification_stage_one">Show the first stage local notification for editor re-activation</string>
     <string name="preferences_developer_suggested_edits_reactivation_notification_stage_two">Show the second stage local notification for editor re-activation</string>

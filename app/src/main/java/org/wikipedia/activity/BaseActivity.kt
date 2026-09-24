@@ -30,6 +30,8 @@ import org.wikipedia.appshortcuts.AppShortcuts
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.connectivity.ConnectionStateMonitor
+import org.wikipedia.createaccount.CreateAccountEncourageActivity
+import org.wikipedia.createaccount.CreateAccountEncourageViewModel
 import org.wikipedia.donate.DonateDialog
 import org.wikipedia.events.LoggedOutInBackgroundEvent
 import org.wikipedia.events.ReadingListsEnableDialogEvent
@@ -40,6 +42,7 @@ import org.wikipedia.events.UnreadNotificationsEvent
 import org.wikipedia.games.onthisday.OnThisDayGameResultFragment
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
+import org.wikipedia.notifications.NotificationCategory
 import org.wikipedia.notifications.NotificationPresenter
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
@@ -128,8 +131,18 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
                         .submitInteraction(action = "app_open", actionSource = "widget", actionSubtype = widgetType)
                 }
                 InvokeSource.NOTIFICATION -> {
+                    val notificationCategory = intent.getSerializableExtra(Constants.INTENT_EXTRA_NOTIFICATION_CATEGORY) as NotificationCategory?
+                    val subType = when (notificationCategory) {
+                        NotificationCategory.GAMES -> "game"
+                        NotificationCategory.RECOMMENDED_READING_LISTS -> "discover"
+                        else -> null
+                    }
                     TestKitchenAdapter.client.getInstrument("apps-open")
-                        .submitInteraction(action = "app_open", actionSource = "notification")
+                        .submitInteraction(
+                            action = "app_open",
+                            actionSource = "notification",
+                            actionSubtype = subType
+                        )
                 }
                 InvokeSource.APP_SHORTCUTS -> {
                     val shortcutId = intent.getStringExtra(AppShortcuts.APP_SHORTCUT_ID)
@@ -356,13 +369,22 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         if (Prefs.isInitialOnboardingEnabled) return
         if (!Prefs.isExploreFeedUpdatePromptShown) return
 
-        when {
-            ReadingChallengeWidgetRepository.shouldShowOnboardingDialog() -> showReadingChallenge()
-            YearInReviewViewModel.isAccessible &&
-                    Prefs.isYearInReviewEnabled &&
-                    !Prefs.yearInReviewVisited -> {
-                        yearInReviewLauncher.launch((YearInReviewOnboardingActivity.newIntent(this)))
-                    }
+        val isExternalArticleLink = activity is PageActivity &&
+                activity.intent.action == Intent.ACTION_VIEW &&
+                activity.intent.data != null
+
+        lifecycleScope.launch {
+            when {
+                ReadingChallengeWidgetRepository.shouldShowOnboardingDialog() -> showReadingChallenge()
+                YearInReviewViewModel.isAccessible &&
+                        Prefs.isYearInReviewEnabled &&
+                        !Prefs.yearInReviewVisited -> {
+                    yearInReviewLauncher.launch((YearInReviewOnboardingActivity.newIntent(this@BaseActivity)))
+                }
+                !isExternalArticleLink && CreateAccountEncourageViewModel.shouldShow() -> {
+                    startActivity(CreateAccountEncourageActivity.newIntent(this@BaseActivity))
+                }
+            }
         }
     }
 

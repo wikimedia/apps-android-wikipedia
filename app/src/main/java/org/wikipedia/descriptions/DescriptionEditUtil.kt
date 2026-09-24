@@ -17,7 +17,7 @@ object DescriptionEditUtil {
             // For English Wikipedia, allow editing the description for all articles, since the
             // edit will go directly into the article instead of Wikidata.
             true
-        } else !page.pageProperties.wikiBaseItem.isNullOrEmpty() &&
-                page.pageProperties.descriptionSource != DESCRIPTION_SOURCE_LOCAL
+        } else !page.summary.wikiBaseItem.isNullOrEmpty() &&
+                page.summary.descriptionSource != DESCRIPTION_SOURCE_LOCAL
     }
 }

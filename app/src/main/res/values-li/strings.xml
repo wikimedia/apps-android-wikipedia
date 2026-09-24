@@ -27,7 +27,7 @@
   <string name="menu_page_other_languages">Veranger spraok</string>
   <string name="menu_page_find_in_page" fuzzy="true">Zeuk op pagina</string>
   <string name="menu_page_font_and_theme">Littertype en thema</string>
-  <string name="menu_page_add_to_list">Veug tou aan laeslies</string>
+  <string name="menu_page_add_to_list" fuzzy="true">Veug tou aan laeslies</string>
   <string name="menu_page_share">Deil link</string>
   <string name="menu_long_press_open_page">Äöpen</string>
   <string name="menu_long_press_open_in_new_tab">Äöpen in e nuuj tabblaad</string>
@@ -58,7 +58,7 @@
   <string name="menu_show_toc">Inhawdsopgaaf</string>
   <string name="search_no_results_found">Gein rizzeltaote gevónje</string>
   <string name="search_reading_list_no_results">Gein rizzeltaote gevónje in \"%s\"</string>
-  <string name="search_reading_lists_no_results">Gein rizzeltaote gevónje in laeslieste</string>
+  <string name="search_reading_lists_no_results" fuzzy="true">Gein rizzeltaote gevónje in laeslieste</string>
   <string name="search_history_no_results">Gein rizzeltaote gevónje in gesjiechte</string>
   <string name="edit_section_captcha_message">Veur de óngerstäönde wäörd in veur te besjurme taenge geautomatiseerde spam</string>
   <string name="edit_section_captcha_hint">Herhaol de baovestäönde wäörd</string>
@@ -137,7 +137,7 @@
   <string name="address_copied">\'t Adres is gekopieerd nao \'t klembraed.</string>
   <string name="text_copied">De teks is gekopieerd nao \'t klembraed.</string>
   <string name="button_continue_to_article">Laes artikel</string>
-  <string name="button_add_to_reading_list">Veug tou aan laeslies</string>
+  <string name="button_add_to_reading_list" fuzzy="true">Veug tou aan laeslies</string>
   <string name="page_offline_notice_cannot_load_while_offline">Artikel kan neet offline waere gelaje.</string>
   <string name="crash_report_activity_title">Programmafout</string>
 </resources>

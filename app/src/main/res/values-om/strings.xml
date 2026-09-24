@@ -14,7 +14,7 @@
   <string name="search_hint">Wikipiidiyaa barbaadi</string>
   <string name="search_hint_voice_search">Sagalee galchuun barbaadi</string>
   <string name="search_hint_search_languages">Qooda barbaadi</string>
-  <string name="filter_hint_filter_my_lists_and_articles">Tarreewwan koo calali</string>
+  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">Tarreewwan koo calali</string>
   <string name="nav_item_suggested_edits">Gulaalawwan</string>
   <string name="nav_item_more">Dabalata</string>
   <string name="nav_item_search">Barbaadi</string>
@@ -86,6 +86,6 @@
   <string name="color_theme_light">Ifaa</string>
   <string name="color_theme_dark">Dukkanaa\'aa</string>
   <string name="nav_item_saved">Olkaa\'ameera</string>
-  <string name="reading_list_article_added_to_default_list">%s ol kayame. Tarreetti isa dabaluu feetaa?</string>
-  <string name="reading_list_add_to_list_button">Tarreetti dabali</string>
+  <string name="reading_list_article_added_to_default_list" fuzzy="true">%s ol kayame. Tarreetti isa dabaluu feetaa?</string>
+  <string name="reading_list_add_to_list_button" fuzzy="true">Tarreetti dabali</string>
 </resources>

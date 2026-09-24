@@ -43,6 +43,7 @@ import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.concurrency.FlowEventBus
+import org.wikipedia.events.ArticleSavedOrDeletedEvent
 import org.wikipedia.events.LoggedInEvent
 import org.wikipedia.events.LoggedOutEvent
 import org.wikipedia.events.LoggedOutInBackgroundEvent
@@ -69,6 +70,7 @@ import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.MultiSelectActionModeCallback
 import org.wikipedia.views.MultiSelectActionModeCallback.Companion.isTagType
+import org.wikipedia.views.ReadingListsAllArticlesFilterOverflowView
 import org.wikipedia.views.ReadingListsOverflowView
 
 class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, ReadingListItemActionsDialog.Callback {
@@ -117,7 +119,8 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                         onPageLongClick = ::onPageLongClick,
                         onPageChipClick = ::onPageChipClick,
                         onPageToggleOfflineClick = ::onToggleOfflineClick,
-                        onDiscoverCardClick = ::onDiscoverCardClick
+                        onDiscoverCardClick = ::onDiscoverCardClick,
+                        onCreateCollectionClick = overflowCallback::createNewListClick
                     )
                 }
             }
@@ -136,6 +139,12 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                         is LoggedOutEvent,
                         is LoggedOutInBackgroundEvent -> viewModel.refreshAccountState()
                         is PageDownloadEvent -> viewModel.updatePageDownloadProgress(event.page)
+                        is ArticleSavedOrDeletedEvent -> {
+                            if (event.isAdded && Prefs.readingListsPageSaveCount < SAVE_COUNT_LIMIT) {
+                                showReadingListsSyncDialog()
+                                Prefs.readingListsPageSaveCount += 1
+                            }
+                        }
                     }
                 }
             }
@@ -177,10 +186,18 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
     }
 
+    private fun showReadingListsSyncDialog() {
+        if (Prefs.isReadingListSyncEnabled) {
+            return
+        }
+        if (AccountUtil.isLoggedIn) {
+            ReadingListSyncBehaviorDialogs.promptEnableSyncDialog(requireActivity())
+        }
+    }
+
     private fun onRefresh() {
         viewModel.setRefreshing(true)
         if (!AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount) {
-            ReadingListSyncBehaviorDialogs.promptLogInToSyncDialog(requireActivity())
             viewModel.setRefreshing(false)
         } else {
             Prefs.isReadingListSyncEnabled = true
@@ -279,6 +296,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         actionMode?.takeIf(::isTagType)?.finish()
         viewModel.setSelectedTab(tab)
         searchActionModeCallback.updateSearchHint(getSearchHint(tab))
+        requireActivity().invalidateOptionsMenu()
     }
 
     private fun getSearchHint(tab: SavedTab): String {
@@ -323,6 +341,22 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
     }
 
+    fun isAllArticlesSelected(): Boolean {
+        return viewModel.isSelectedTab(SavedTab.ALL_ARTICLES)
+    }
+
+    fun showReadingListsFilterMenu() {
+        if (!isAllArticlesSelected()) {
+            return
+        }
+        ReadingListsAllArticlesFilterOverflowView(requireContext()).show(
+            anchorView = (requireActivity() as MainActivity).getToolbar()
+                .findViewById(R.id.menu_filter_reading_lists_articles),
+            selectedOption = viewModel.getSelectedArticleFilter(),
+            callback = viewModel::setArticleFilter
+        )
+    }
+
     // Overflow menu
     fun showReadingListsOverflowMenu() {
         ReadingListsOverflowView(requireContext()).show(
@@ -345,24 +379,25 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
 
         override fun createNewListClick() {
-            val existingTitles = viewModel.uiState.value.rows
-                .filterIsInstance<ReadingListRow.ListRow>()
-                .map { it.list.title }
-            ReadingListTitleDialog.readingListTitleDialog(
-                activity = requireActivity(),
-                title = getString(R.string.reading_list_name_sample),
-                description = "",
-                otherTitles = existingTitles,
-                callback = object : ReadingListTitleDialog.Callback {
-                    override fun onSuccess(text: String, description: String) {
-                        viewLifecycleOwner.lifecycleScope.launch(
-                            CoroutineExceptionHandler { _, throwable -> L.w(throwable) }
-                        ) {
-                            viewModel.createReadingList(text, description)
+            viewLifecycleOwner.lifecycleScope.launch {
+                val existingTitles = viewModel.getReadingListsWithoutContents()
+                    .map { it.title }
+                ReadingListTitleDialog.readingListTitleDialog(
+                    activity = requireActivity(),
+                    title = getString(R.string.reading_list_name_sample),
+                    description = "",
+                    otherTitles = existingTitles,
+                    callback = object : ReadingListTitleDialog.Callback {
+                        override fun onSuccess(text: String, description: String) {
+                            viewLifecycleOwner.lifecycleScope.launch(
+                                CoroutineExceptionHandler { _, throwable -> L.w(throwable) }
+                            ) {
+                                viewModel.createReadingList(text, description)
+                            }
                         }
                     }
-                }
-            ).show()
+                ).show()
+            }
         }
 
         override fun importNewList() {
@@ -484,7 +519,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 containingLists.size,
                 pageId,
                 actionMode != null,
-                showMoveAction = false
+                containingLists.count { !it.isDefault }
             )
         )
     }
@@ -531,21 +566,9 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
     }
 
-    override fun onAddItemToOther(pageId: Long) {
+    override fun onManageCollections(pageId: Long) {
         launchWithPage(pageId) { page ->
-            ExclusiveBottomSheetPresenter.show(
-                childFragmentManager,
-                AddToReadingListDialog.newInstance(ReadingListPage.toPageTitle(page), InvokeSource.READING_LIST_ACTIVITY)
-            )
-        }
-    }
-
-    override fun onMoveItemToOther(pageId: Long) {
-        launchWithPage(pageId) { page ->
-            ExclusiveBottomSheetPresenter.show(
-                childFragmentManager,
-                MoveToReadingListDialog.newInstance(page.listId, ReadingListPage.toPageTitle(page), InvokeSource.READING_LIST_ACTIVITY)
-            )
+            SaveArticleSheetDialog.show(childFragmentManager, ReadingListPage.toPageTitle(page))
         }
     }
 
@@ -555,13 +578,14 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     }
 
     override fun onDeleteItem(pageId: Long) {
-        launchWithPage(pageId) { page ->
-            val lists = viewModel.getReadingListsByIds(
-                viewModel.containingLists(pageId).mapTo(mutableSetOf()) { it.id }
-            )
-            if (lists.isNotEmpty()) {
-                 ReadingListBehaviorsUtil.deletePages(requireActivity(), lists, page, {}) {}
-            }
+        viewLifecycleOwner.lifecycleScope.launch {
+            val deletion = viewModel.prepareSelectedPagesForDeletion(setOf(pageId)) ?: return@launch
+            ReadingListBehaviorsUtil.deletePagesFromLists(
+                requireActivity(),
+                deletion.selectedPageCount,
+                deletion.readingLists,
+                {}
+            ) {}
         }
     }
 
@@ -829,6 +853,8 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     }
 
     companion object {
+        private const val SAVE_COUNT_LIMIT = 3
+
         fun newInstance(): ReadingListsFragment {
             return ReadingListsFragment()
         }

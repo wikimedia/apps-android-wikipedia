@@ -5,7 +5,7 @@ import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonElement
 import org.wikipedia.dataclient.mwapi.MwServiceError.BlockInfo
 import org.wikipedia.util.DateUtil
-import java.util.*
+import java.util.Date
 
 @Serializable
 class UserInfo : BlockInfo() {
@@ -14,7 +14,7 @@ class UserInfo : BlockInfo() {
     @SerialName("latestcontrib") private val latestContrib: String? = null
     @SerialName("registrationdate") private val regDate: String? = null
     @SerialName("registration") private val registration: String? = null
-    @SerialName("editcount") val editCount = -1
+    @SerialName("editcount") val editCount = 0
     val name: String = ""
     val anon: Boolean = false
     val messages: Boolean = false

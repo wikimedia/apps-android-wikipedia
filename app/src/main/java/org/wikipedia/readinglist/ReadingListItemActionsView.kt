@@ -11,8 +11,7 @@ class ReadingListItemActionsView : LinearLayout {
     interface Callback {
         fun onToggleOffline()
         fun onShare()
-        fun onAddToOther()
-        fun onMoveToOther()
+        fun onManageCollections()
         fun onSelect()
         fun onDelete()
     }
@@ -35,12 +34,8 @@ class ReadingListItemActionsView : LinearLayout {
             callback?.onShare()
         }
 
-        binding.readingListItemAddToOther.setOnClickListener {
-            callback?.onAddToOther()
-        }
-
-        binding.readingListItemMoveToOther.setOnClickListener {
-            callback?.onMoveToOther()
+        binding.readingListItemCollections.setOnClickListener {
+            callback?.onManageCollections()
         }
 
         binding.readingListItemSelect.setOnClickListener {
@@ -55,14 +50,14 @@ class ReadingListItemActionsView : LinearLayout {
     fun setState(
         pageTitle: String,
         removeFromListText: String,
+        collectionActionText: String,
         offline: Boolean,
-        hasActionMode: Boolean,
-        showMoveAction: Boolean
+        hasActionMode: Boolean
     ) {
         binding.readingListItemOfflineSwitch.isChecked = offline
         binding.readingListItemTitle.text = StringUtil.fromHtml(pageTitle)
         binding.readingListItemRemoveText.text = removeFromListText
+        binding.readingListItemCollectionText.text = collectionActionText
         binding.readingListItemSelect.visibility = if (hasActionMode) GONE else VISIBLE
-        binding.readingListItemMoveToOther.visibility = if (hasActionMode || !showMoveAction) GONE else VISIBLE
     }
 }

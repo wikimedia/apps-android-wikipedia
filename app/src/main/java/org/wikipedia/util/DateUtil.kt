@@ -2,12 +2,9 @@ package org.wikipedia.util
 
 import android.content.Context
 import android.icu.text.RelativeDateTimeFormatter
-import android.os.Build
 import android.text.format.DateFormat
-import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.extensions.getResources
-import org.wikipedia.extensions.getString
 import org.wikipedia.extensions.toLocalDate
 import org.wikipedia.feed.model.UtcDate
 import java.text.SimpleDateFormat
@@ -187,17 +184,12 @@ object DateUtil {
     fun getYearDifferenceString(context: Context, year: Int, languageCode: String): String {
         val diffInYears = Calendar.getInstance()[Calendar.YEAR] - year
         val targetResource = context.getResources(languageCode)
-        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            val firstMatchLocaleInstance = RelativeDateTimeFormatter.getInstance(targetResource.configuration.locales.getFirstMatch(arrayOf(languageCode)))
-            when (diffInYears) {
-                0 -> firstMatchLocaleInstance.format(RelativeDateTimeFormatter.Direction.THIS, RelativeDateTimeFormatter.AbsoluteUnit.YEAR)
-                1 -> firstMatchLocaleInstance.format(RelativeDateTimeFormatter.Direction.LAST, RelativeDateTimeFormatter.AbsoluteUnit.YEAR)
-                -1 -> firstMatchLocaleInstance.format(RelativeDateTimeFormatter.Direction.NEXT, RelativeDateTimeFormatter.AbsoluteUnit.YEAR)
-                else -> firstMatchLocaleInstance.format(diffInYears.toDouble(), RelativeDateTimeFormatter.Direction.LAST, RelativeDateTimeFormatter.RelativeUnit.YEARS)
-            }
-        } else {
-            return if (diffInYears == 0) context.getString(languageCode, R.string.this_year)
-            else targetResource.getQuantityString(R.plurals.diff_years, diffInYears, diffInYears)
+        val firstMatchLocaleInstance = RelativeDateTimeFormatter.getInstance(targetResource.configuration.locales.getFirstMatch(arrayOf(languageCode)))
+        return when (diffInYears) {
+            0 -> firstMatchLocaleInstance.format(RelativeDateTimeFormatter.Direction.THIS, RelativeDateTimeFormatter.AbsoluteUnit.YEAR)
+            1 -> firstMatchLocaleInstance.format(RelativeDateTimeFormatter.Direction.LAST, RelativeDateTimeFormatter.AbsoluteUnit.YEAR)
+            -1 -> firstMatchLocaleInstance.format(RelativeDateTimeFormatter.Direction.NEXT, RelativeDateTimeFormatter.AbsoluteUnit.YEAR)
+            else -> firstMatchLocaleInstance.format(diffInYears.toDouble(), RelativeDateTimeFormatter.Direction.LAST, RelativeDateTimeFormatter.RelativeUnit.YEARS)
         }
     }
 

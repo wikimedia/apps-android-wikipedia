@@ -14,7 +14,7 @@
   <string name="search_hint">Cerca su Wikipedia</string>
   <string name="search_hint_voice_search">Ricerca vocal</string>
   <string name="search_hint_search_languages">Cerca una lengua</string>
-  <string name="filter_hint_filter_my_lists_and_articles">filtra i mè liste</string>
+  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">filtra i mè liste</string>
   <string name="nav_item_suggested_edits">Modifiche</string>
   <string name="nav_item_more">An\'mò</string>
   <string name="nav_item_search">Cerca</string>
@@ -77,16 +77,16 @@
   <string name="menu_page_watched">Tegnud d\'oeugg</string>
   <string name="edit_section_find_in_page">Troeuva in la pagina</string>
   <string name="menu_page_font_and_theme">Carater e tema</string>
-  <string name="menu_page_add_to_list">Sgionta a la lista di robe de leger</string>
+  <string name="menu_page_add_to_list" fuzzy="true">Sgionta a la lista di robe de leger</string>
   <string name="menu_page_add_to_default_list">Salva</string>
-  <string name="feed_card_add_to_list">Sgionta a la lista di robe de leger</string>
+  <string name="feed_card_add_to_list" fuzzy="true">Sgionta a la lista di robe de leger</string>
   <string name="feed_card_add_to_default_list">Manten i cambiament</string>
   <string name="menu_page_share">Spartiss el conligament cont un quaivun</string>
   <string name="menu_article_share">Compartiss articoi</string>
   <string name="menu_page_article_share">Condivid</string>
   <string name="menu_page_open_a_new_tab">Derva una scheda noeuva</string>
   <string name="menu_page_new_tab">Noeuva scheda</string>
-  <string name="menu_page_reading_lists">Liste di robe de leger</string>
+  <string name="menu_page_reading_lists" fuzzy="true">Liste di robe de leger</string>
   <string name="menu_page_recently_viewed">Vardad de recent</string>
   <string name="menu_page_archive">Archivi</string>
   <string name="menu_long_press_open_page">Derva</string>
@@ -123,7 +123,7 @@
   <string name="menu_show_toc">Indes</string>
   <string name="search_no_results_found">Nissun risultad trovad</string>
   <string name="search_reading_list_no_results">Nissun risultad trovad in \"%s\"</string>
-  <string name="search_reading_lists_no_results">Nissun risultad trovad in di elench de lettura</string>
+  <string name="search_reading_lists_no_results" fuzzy="true">Nissun risultad trovad in di elench de lettura</string>
   <string name="search_history_no_results">Nissun risultad trovad in la cronologia</string>
   <string name="edit_section_captcha_message">Per ajutà a scombat el ruf automatich, per piasè met dent i parolle che gh\'è chì de sota.</string>
   <string name="edit_section_captcha_request_an_account_message">Te riesset minga a vedè l\'imagin? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Ciama on utenza&lt;/a&gt;</string>
@@ -197,12 +197,12 @@
   <string name="preferences_heading_syncing">Sincronizzazzion</string>
   <string name="preferences_heading_data_usage">Utilizzazzion di dati</string>
   <string name="preferences_heading_experimental">Sperimental</string>
-  <string name="preference_title_sync_reading_lists_from_account">Sincronizzazion di liste de lettura</string>
-  <string name="preference_title_download_reading_list_articles">Descarega i vos di liste de lettura</string>
-  <string name="preference_summary_sync_reading_lists">Sincronizza i liste de lettura in su diversi dispositif cont el salvai in del to cunt Wikipedia.</string>
-  <string name="preference_summary_sync_reading_lists_from_account">Sincronizza i liste de lettura in su diversi dispositif cont el salvai in del to cunt Wikipedia \"%s\"</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Toeu via i liste de lettura sincronizzade de \"%s\"?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Questa azzion la scancelarà del tut tucce i list de lettura sincronizzad in del claud. Te voeuret toeu via tucce i liste sincronizzade de l\'utenza «%s»?</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Sincronizzazion di liste de lettura</string>
+  <string name="preference_title_download_reading_list_articles" fuzzy="true">Descarega i vos di liste de lettura</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">Sincronizza i liste de lettura in su diversi dispositif cont el salvai in del to cunt Wikipedia.</string>
+  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">Sincronizza i liste de lettura in su diversi dispositif cont el salvai in del to cunt Wikipedia \"%s\"</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">Toeu via i liste de lettura sincronizzade de \"%s\"?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">Questa azzion la scancelarà del tut tucce i list de lettura sincronizzad in del claud. Te voeuret toeu via tucce i liste sincronizzade de l\'utenza «%s»?</string>
   <string name="preference_title_auto_upload_crash_reports">Invia di segnalazzion de eror</string>
   <string name="preference_summary_auto_upload_crash_reports">Permet a l\'aplicazzion de invià in automatich i raport sora i arrest anormai a un terz fornidor de servizzi, de manera de podè toeu in esamm el to arrest anormal e corrensg l\'eror pussée failcment e a la svelta.</string>
   <string name="editing_error_spamblacklist">A l\'è stad rilevad un conligament a \'n domini blocad (%s). Teouvel via e preouva anmò.</string>
@@ -330,7 +330,7 @@
   <string name="error_blocked_reason">La reson fornida l\'è: %s</string>
   <string name="text_style_title">Tipo de caratter</string>
   <string name="theme_category_reading">Letura</string>
-  <string name="reading_list_activity_title">Lista de letura: %s</string>
+  <string name="reading_list_activity_title" fuzzy="true">Lista de letura: %s</string>
   <string name="notifications_mark_unread">Insegna come nananmò leggiud</string>
   <string name="preference_title_notification_poll">Verifica notifiche</string>
   <string name="preference_title_notification_system">Sistema</string>
