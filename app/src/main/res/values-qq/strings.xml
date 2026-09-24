@@ -2342,8 +2342,9 @@
   <string name="read_aloud_card_retry">Accessibility label for button to retry playing audio.</string>
   <string name="read_aloud_card_error">Message shown when the audio for the current article is not available.</string>
   <string name="read_aloud_card_keep_listening">Label for button that leads to listening to more of the selected article.</string>
-  <string name="read_aloud_card_audio_date">Attribution shown on an audio card when the article has changed since its audio was generated. The "%s" symbol is replaced with the date of the article content used to generate the audio. Please preserve the HTML a tag and do not translate the URL.</string>
+  <string name="read_aloud_card_audio_date">Attribution shown on an audio card when the article has changed since its audio was generated. The \"%s\" symbol is replaced with the date of the article content used to generate the audio. Please preserve the HTML a tag and do not translate the URL.</string>
   <string name="read_aloud_card_audio_attribution">Attribution shown on an audio card when its audio was generated from the current article revision. Please preserve the HTML a tag and do not translate the URL.</string>
+  <string name="read_aloud_lead_section_tooltip_text">Text for a tooltip that introduces the user to the text-to-speech feature.</string>
   <string name="read_aloud_lead_section_survey_title">Title of survey dialog related to this feature.</string>
   <string name="read_aloud_lead_section_survey_choice1">One of the response choices in a survey of how the user would prefer to listen to Wikipedia articles.</string>
   <string name="read_aloud_lead_section_survey_choice2">One of the response choices in a survey of how the user would prefer to listen to Wikipedia articles.</string>
@@ -2351,7 +2352,6 @@
   <string name="read_aloud_lead_section_survey_choice4">One of the response choices in a survey of how the user would prefer to listen to Wikipedia articles.</string>
   <string name="read_aloud_lead_section_survey_choice5">One of the response choices in a survey of how the user would prefer to listen to Wikipedia articles.</string>
   <string name="read_aloud_lead_section_beta_label">Label indicating that this is a beta feature.</string>
-  <string name="read_aloud_lead_section_tooltip_text">Text for a tooltip that introduces the user to the text-to-speech feature.</string>
   <string name="read_aloud_lead_section_report_subject">Subject of email for the user to compose when reporting an issue.</string>
   <string name="read_aloud_lead_section_report_body">Body of email for the user to compose when reporting an issue.</string>
   <string name="read_aloud_lead_section_about_experiment">Menu item for learning more about this experiment.</string>
