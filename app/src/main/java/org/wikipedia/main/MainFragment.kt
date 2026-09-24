@@ -54,6 +54,7 @@ import org.wikipedia.feed.HomeFragment
 import org.wikipedia.feed.image.FeaturedImage
 import org.wikipedia.feed.news.NewsActivity
 import org.wikipedia.feed.news.NewsItem
+import org.wikipedia.feed.readaloud.ReadAloudLeadSectionABTest
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.gallery.MediaDownloadReceiver
 import org.wikipedia.history.HistoryEntry
@@ -203,7 +204,9 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
 
         binding.mainNavTabLayout.setOverlayDot(NavTab.EDITS, !Prefs.isActivityTabOnboardingShown)
 
-        maybeShowReadingListsUpdateTooltip()
+        if (!maybeShowReadingListsUpdateTooltip()) {
+            maybeShowFeedNewModulesTooltip()
+        }
         Prefs.incrementExploreFeedVisitCount()
 
         notificationButtonView = NotificationButtonView(requireActivity())
@@ -566,7 +569,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
         }
     }
 
-    private fun maybeShowReadingListsUpdateTooltip() {
+    private fun maybeShowReadingListsUpdateTooltip(): Boolean {
         val endDate = LocalDate.of(2026, 9, 15)
         // Only show the tooltip to existing users and expire after September 15, 2026
         if (Prefs.exploreFeedVisitCount == 0) {
@@ -586,12 +589,31 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
                     )
                 }
             }
+            return true
         }
+        return false
     }
 
     private fun maybeShowSearchWidgetInstallPrompt() {
         if (DeviceUtil.areWidgetsSupported && !Prefs.searchWidgetInstallPromptShown && !SearchWidgetInstallDialog.isWidgetInstalled()) {
             ExclusiveBottomSheetPresenter.show(childFragmentManager, SearchWidgetInstallDialog())
+        }
+    }
+
+    private fun maybeShowFeedNewModulesTooltip() {
+        lifecycleScope.launch {
+            if (ReadAloudLeadSectionABTest().shouldShowToolTip()) {
+                Prefs.readAloudLeadSectionTooltipShown = true
+                binding.root.post {
+                    if (isAdded) {
+                        FeedbackUtil.showTooltip(requireActivity(), binding.mainNavTabLayout.findViewById(NavTab.HOME.id),
+                            getString(R.string.read_aloud_lead_section_tooltip_text), aboveOrBelow = true, autoDismiss = false, showDismissButton = true)
+                        // For the purposes of this experiment, explicitly clear today's cache of For You content,
+                        // so that the Audio content can be loaded when the user goes to For You.
+                        Prefs.homeForYouModulesToday = ""
+                    }
+                }
+            }
         }
     }
 

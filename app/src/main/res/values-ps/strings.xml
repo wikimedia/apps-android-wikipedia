@@ -1554,7 +1554,7 @@
   <string name="watchlist_filter_watchlist_activity_seen">کتل شوي بدلونونه</string>
   <string name="watchlist_filter_contribution_quality_header">د ونډې څنگه‌والي وړاندوينې</string>
   <string name="watchlist_filter_contribution_quality_good">شايد ډېر ښه</string>
-  <string name="watchlist_filter_contribution_quality_may_problems">شايد ستونزې ولري</string>
+  <string name="watchlist_filter_contribution_quality_may_problems">ښايي ستونزې ولري</string>
   <string name="watchlist_filter_contribution_quality_likely_problems">ډېره شونتيا لري چې ستونزې ولري</string>
   <string name="watchlist_filter_contribution_quality_bad">ډېره شونتيا لري چې ستونزې ولري</string>
   <string name="watchlist_filter_user_intent_header">د کارن هوډ وړاندوينې</string>
@@ -1698,7 +1698,7 @@
   <string name="patroller_tasks_filters_contribution_quality_header">د ونډې څنگه‌والي وړاندوينې</string>
   <string name="patroller_tasks_filters_contribution_quality_good">شايد ډېر ښه</string>
   <string name="patroller_tasks_filters_contribution_quality_good_desc">د نږدې ټولو ستونزو پرته سمونونو موندلو کې خورا ځير.</string>
-  <string name="patroller_tasks_filters_contribution_quality_may_problems">شايد ستونزې ولري</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems">ښايي ستونزې ولري</string>
   <string name="patroller_tasks_filters_contribution_quality_may_problems_desc">په لږې ځيرتيا د ډېرو نيمگړتياوو لرونکي يا زيان رسوونکي سمونونه مومي.</string>
   <string name="patroller_tasks_filters_contribution_quality_likely_problems">ډېره شونتيا لري چې ستونزې ولري</string>
   <string name="patroller_tasks_filters_contribution_quality_likely_problems_desc">په منځالې ځيرتيا سره د ستونزې سمونونو يوه منځاله برخه مومي.</string>
