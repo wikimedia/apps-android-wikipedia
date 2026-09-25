@@ -366,4 +366,3 @@ fun SearchResultPageItem(
         )
     }
 }
-  

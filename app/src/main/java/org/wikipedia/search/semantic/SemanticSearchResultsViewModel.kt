@@ -54,19 +54,26 @@ class SemanticSearchResultsViewModel(savedStateHandle: SavedStateHandle) : ViewM
 
             val semanticResponse = ServiceFactory.get(wikiSite).fullTextSearchResponse(searchQuery, semanticBatchSize, 0, semanticSearchType = "hl")
 
+            if (!semanticResponse.isSuccessful) {
+                _semanticSearchResultState.value = UiState.Success(emptyList())
+                return@launch
+            }
+
             val semanticResult = semanticResponse.body()?.query?.pages?.sortedBy { it.index }
                 ?.map { page ->
                     async {
-                        val pageAttributionResponse = ServiceFactory.getCoreRest(wikiSite).getAttribution(page.title)
+                        val pageAttributionResponse = runCatching {
+                            ServiceFactory.getCoreRest(wikiSite).getAttribution(page.title)
+                        }.getOrNull()
                         SearchResult(
                             page = page,
                             wiki = wikiSite,
                             coordinates = page.coordinates,
                             type = SearchResult.SearchResultType.SEMANTIC,
                             indexInApiCall = page.index,
-                            editCounts = pageAttributionResponse.trustAndRelevance?.contributorCounts,
-                            referenceCounts = pageAttributionResponse.trustAndRelevance?.referenceCount,
-                            lastUpdated = pageAttributionResponse.trustAndRelevance?.lastUpdated
+                            editCounts = pageAttributionResponse?.trustAndRelevance?.contributorCounts,
+                            referenceCounts = pageAttributionResponse?.trustAndRelevance?.referenceCount,
+                            lastUpdated = pageAttributionResponse?.trustAndRelevance?.lastUpdated
                         )
                     }
                 }?.awaitAll() ?: emptyList()
