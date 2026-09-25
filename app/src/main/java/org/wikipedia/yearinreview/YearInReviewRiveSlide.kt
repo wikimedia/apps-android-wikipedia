@@ -171,6 +171,7 @@ fun YearInReviewRiveSlide(
     accessibilityDescription: String,
     playing: Boolean,
     modifier: Modifier = Modifier,
+    imageUrls: Map<String, String?> = emptyMap(),
     onRiveError: (Throwable) -> Unit
 ) {
     when (riveFileResult) {
@@ -180,6 +181,7 @@ fun YearInReviewRiveSlide(
             riveFile = riveFileResult.value,
             spec = spec,
             textProperties = textProperties,
+            imageUrls = imageUrls,
             accessibilityDescription = accessibilityDescription,
             playing = playing,
             modifier = modifier,
@@ -195,6 +197,7 @@ private fun YearInReviewRiveArtboard(
     riveFile: RiveFile,
     spec: RiveSlideSpec,
     textProperties: Map<String, String>,
+    imageUrls: Map<String, String?>,
     accessibilityDescription: String,
     playing: Boolean,
     modifier: Modifier,
@@ -212,9 +215,13 @@ private fun YearInReviewRiveArtboard(
     val instanceSource = viewModelSource.instanceSource(spec.instanceType)
     val instanceResult = rememberViewModelInstanceResult(file = riveFile, source = instanceSource)
     val globalInstanceResult = rememberGlobalViewModelInstanceResult(riveFile, spec.globalViewModel)
+    val imageResults = rememberRiveImages(riveFile.riveWorker, imageUrls)
+    // waits for the images too, so the slide's animation never starts with the designer's sample pictures
+    val imagesLoading = imageResults.values.any { it is Result.Loading }
 
     when (val result = artboardResult.zip(stateMachineResult).zip(instanceResult).zip(globalInstanceResult)) {
         is Result.Loading -> RiveLoadingIndicator(modifier)
+        is Result.Success if imagesLoading -> RiveLoadingIndicator(modifier)
         is Result.Error -> RiveFailure(result.throwable, onRiveError)
         is Result.Success -> {
             val (artboardStateMachineAndInstance, globalInstance) = result.value
@@ -234,6 +241,15 @@ private fun YearInReviewRiveArtboard(
             LaunchedEffect(instance, textProperties) {
                 textProperties.forEach { (property, value) ->
                     instance.setString(property, value)
+                }
+            }
+            LaunchedEffect(instance, imageResults) {
+                imageResults.forEach { (property, imageResult) ->
+                    when (imageResult) {
+                        is Result.Success -> instance.setImage(property, imageResult.value)
+                        is Result.Error -> L.w(imageResult.throwable)
+                        Result.Loading -> Unit
+                    }
                 }
             }
             val textSizes = rememberScaledRiveTextSizes(spec.globalViewModel?.textSizes.orEmpty())
