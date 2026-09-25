@@ -130,7 +130,7 @@ private fun SemanticSearchInfoDialogContent(
                         prefixQuotationMark = quotationMark,
                         searchResult = searchResult,
                         onItemClick = null,
-                        onLinkClick = {  url ->
+                        onLinkClick = { url ->
                             // ignore in-article links
                         },
                         showLastUpdatedTime = false
