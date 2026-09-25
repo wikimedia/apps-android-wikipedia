@@ -2281,6 +2281,11 @@
     </plurals>
     <string name="year_in_review_highlights_share_button_title">Share highlights</string>
     <string name="year_in_review_highlights_logo_description">Wikipedia logo</string>
+    <string name="year_in_review_cover_title">Your Wikipedia Year in Review is here</string>
+    <plurals name="year_in_review_cover_body">
+        <item quantity="one">Thanks for spending %1$s day on your trusty Wikipedia App in %2$d.</item>
+        <item quantity="other">Thanks for spending %1$s days on your trusty Wikipedia App in %2$d.</item>
+    </plurals>
     <!-- Recommended collection -->
     <string name="recommended_reading_list_title">Discover</string>
     <string name="recommended_reading_list_onboarding_card_title">Discover articles picked just for you</string>

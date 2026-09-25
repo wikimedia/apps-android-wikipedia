@@ -50,20 +50,17 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Devices
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import app.rive.GetBitmapFun
+import app.rive.Result
 import org.wikipedia.R
 import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
-import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
-import org.wikipedia.theme.Theme
 import kotlin.math.roundToInt
 
 private val YearInReviewCardCornerRadius = 28.dp
@@ -173,7 +170,6 @@ private fun YearInReviewContent(
     val riveResourceIds = remember(pages) {
         pages.mapNotNull { page -> page.riveSpec?.resourceId }.distinct()
     }
-    // TODO: pass riveFiles[spec.resourceId] ?: Result.Loading to each Rive slide once they're added
     val riveFiles = rememberYearInReviewRiveFiles(
         riveWorker = riveWorker,
         riveFontsResult = riveFontsResult,
@@ -226,15 +222,18 @@ private fun YearInReviewContent(
                 beyondViewportPageCount = if (pages.size > 1) 1 else 0,
                 key = { page -> pages[page].id }
             ) { position ->
-                when (pages[position]) {
-                    is YearInReviewPage.ReadingDays -> {
-                        // TODO: Implement ReadingDays page content once Rive animation is ready
-                        Box(
-                            modifier = Modifier
-                                .fillMaxSize()
-                                .placeholderBackground()
-                        ) { }
-                    }
+                val page = pages[position]
+                val riveFileResult = page.riveSpec?.let { riveFiles[it.resourceId] } ?: Result.Loading
+                when (page) {
+                    is YearInReviewPage.Announcement -> YearInReviewCoverSlide(
+                        riveFileResult = riveFileResult,
+                        year = year,
+                        slideId = page.id,
+                        daysRead = page.daysRead,
+                        screenshotGetters = screenshotGetters,
+                        playing = pagerState.settledPage == position,
+                        onRiveError = onRiveError
+                    )
                 }
             }
 
@@ -262,7 +261,7 @@ private fun YearInReviewContent(
 
 private val YearInReviewPage.riveSpec: RiveSlideSpec?
     get() = when (this) {
-        is YearInReviewPage.ReadingDays -> null
+        is YearInReviewPage.Announcement -> CoverRiveSpec
     }
 
 @Composable
@@ -451,19 +450,5 @@ private fun YearInReviewBottomBar(
                 )
             }
         }
-    }
-}
-
-@Preview(showSystemUi = true, device = Devices.PIXEL_5)
-@Composable
-private fun YearInReviewScreenPreview() {
-    BaseTheme(currentTheme = Theme.BLACK) {
-        YearInReviewScreen(
-            uiState = YearInReviewUiState.Content(
-                year = YearInReviewViewModel.YIR_YEAR,
-                pages = listOf(YearInReviewPage.ReadingDays(id = "reading_days")),
-                isDonationEligible = true
-            )
-        )
     }
 }

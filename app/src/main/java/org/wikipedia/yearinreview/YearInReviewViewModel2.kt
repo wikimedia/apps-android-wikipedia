@@ -31,7 +31,9 @@ class YearInReviewViewModel2(
             val yearInReview = repository.getYearInReview(YearInReviewViewModel.YIR_YEAR)
             _uiState.value = YearInReviewUiState.Content(
                 year = yearInReview.year,
-                pages = listOf(YearInReviewPage.ReadingDays(id = "reading_days"), YearInReviewPage.ReadingDays(id = "reading_days_2")), // TODO: Populate actual pages
+                pages = listOf(
+                    YearInReviewPage.Announcement(id = "cover", daysRead = 150)
+                ), // TODO: Populate actual pages
                 isDonationEligible = yearInReview.isDonationEligible
             )
         }
@@ -57,9 +59,9 @@ sealed interface YearInReviewPage {
     val id: String
     val useDarkStatusBarIcons: Boolean
 
-    // TODO: this data class is just a placeholder for now, remove this when actual pages are implemented
-    data class ReadingDays(
+    data class Announcement(
         override val id: String,
-        override val useDarkStatusBarIcons: Boolean = false
+        override val useDarkStatusBarIcons: Boolean = false,
+        val daysRead: Int
     ) : YearInReviewPage
 }

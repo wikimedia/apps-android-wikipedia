@@ -41,6 +41,7 @@ import app.rive.sequence
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import org.wikipedia.R
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.util.log.L
 
@@ -87,7 +88,23 @@ data class RiveSlideFont(
 )
 
 // Registered once for the whole screen; a slide should never register its own, otherwise the pager unregisters them for other slides
-val YearInReviewRiveFonts = emptyList<RiveSlideFont>()
+val YearInReviewRiveFonts = listOf(
+    RiveSlideFont(resourceId = R.raw.san_serif_font_6815482, registrationKey = "SanSerifFont-6815482"),
+    RiveSlideFont(resourceId = R.raw.san_serif_font_regular_6847910, registrationKey = "SanSerifFont-Regular-6847910"),
+    RiveSlideFont(resourceId = R.raw.serif_font_6815481, registrationKey = "SerifFont-6815481")
+)
+
+// Shared by every slide in the Year in Review Rive file; sizes are in sp at the default text scale
+val YearInReviewRiveGlobalProperties = RiveGlobalViewModel(
+    name = "GlobalProperties",
+    instanceType = RiveInstanceType.Named("Instance"),
+    textSizes = mapOf(
+        "headlineFontSize" to 24f,
+        "headlineLineHeight" to 32f,
+        "bodyCopyFontSize" to 16f,
+        "bodyCopyLineHeight" to 24f
+    )
+)
 
 private const val MAX_RIVE_TEXT_SCALE = 1.5f
 
