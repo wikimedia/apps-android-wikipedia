@@ -80,7 +80,8 @@ fun SearchResultsScreen(
 ) {
     val searchResults = viewModel.searchResultsFlow.collectAsLazyPagingItems()
     val searchTerm = viewModel.searchTerm.collectAsState()
-    val isSemanticSearchEnabled = viewModel.isSemanticSearchEnabled.collectAsState()
+    val isSemanticSearchEnabledState = viewModel.isSemanticSearchEnabled.collectAsState()
+    val isSemanticSearchEnabled = isSemanticSearchEnabledState.value && viewModel.invokeSource != Constants.InvokeSource.PLACES
     val isSemanticSearchFirstUse = viewModel.isSemanticSearchFirstUse.collectAsState()
     val loadState = searchResults.loadState
     val countsPerLanguageCode = viewModel.countsPerLanguageCode
@@ -113,7 +114,7 @@ fun SearchResultsScreen(
         loadState.append is LoadState.NotLoading &&
         loadState.append.endOfPaginationReached &&
         searchResults.itemCount == 0 &&
-        !isSemanticSearchEnabled.value
+        !isSemanticSearchEnabled
 
     val shouldLogNoResultsImpression =
         shouldShowNoResults &&
@@ -121,7 +122,7 @@ fun SearchResultsScreen(
         viewModel.invokeSource == Constants.InvokeSource.PLACES
 
     val shouldShowSemanticSearchEntryPoint =
-        isSemanticSearchEnabled.value &&
+        isSemanticSearchEnabled &&
                 !searchTerm.value.isNullOrBlank() &&
                 loadState.refresh !is LoadState.Error &&
                 !isErrorState
@@ -175,7 +176,7 @@ fun SearchResultsScreen(
                 }
 
                 loadState.append is LoadState.NotLoading && loadState.append.endOfPaginationReached && searchResults.itemCount == 0 -> {
-                    if (!isSemanticSearchEnabled.value) {
+                    if (!isSemanticSearchEnabled) {
                         noSearchResults(
                             countsPerLanguageCode = countsPerLanguageCode,
                             onLanguageClick = onLanguageClick
