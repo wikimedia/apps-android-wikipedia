@@ -32,6 +32,7 @@ import org.wikipedia.compose.extensions.shimmerEffect
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.compose.theme.shimmerColors
+import org.wikipedia.theme.Theme
 
 @Composable
 fun SemanticSearchResultsSkeletonLoader(
@@ -85,39 +86,20 @@ fun SemanticSearchResultCardSkeletonLoader(
             Column(
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(16.dp)
-                        .clip(RoundedCornerShape(4.dp))
-                        .shimmerEffect(
-                            shimmerColors = shimmerColors,
-                            heightMultiplier = 0f,
-                            transition = transition
-                        )
-                )
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth(0.85f)
-                        .height(16.dp)
-                        .clip(RoundedCornerShape(4.dp))
-                        .shimmerEffect(
-                            shimmerColors = shimmerColors,
-                            heightMultiplier = 0f,
-                            transition = transition
-                        )
-                )
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth(0.5f)
-                        .height(16.dp)
-                        .clip(RoundedCornerShape(4.dp))
-                        .shimmerEffect(
-                            shimmerColors = shimmerColors,
-                            heightMultiplier = 0f,
-                            transition = transition
-                        )
-                )
+                val lineWidths = listOf(1f, 0.85f, 0.5f)
+                lineWidths.forEach { width ->
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth(width)
+                            .height(16.dp)
+                            .clip(RoundedCornerShape(4.dp))
+                            .shimmerEffect(
+                                shimmerColors = shimmerColors,
+                                heightMultiplier = 0f,
+                                transition = transition
+                            )
+                    )
+                }
             }
 
             Spacer(modifier = Modifier.height(14.dp))
@@ -219,10 +201,12 @@ fun SemanticSearchResultCardSkeletonLoader(
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 private fun SemanticSearchResultsSkeletonLoaderPreview() {
-    BaseTheme {
+    BaseTheme(
+        currentTheme = Theme.DARK
+    ) {
         SemanticSearchResultsSkeletonLoader()
     }
 }

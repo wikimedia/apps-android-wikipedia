@@ -85,7 +85,7 @@ import kotlin.math.ceil
 fun SemanticSearchResultsScreen(
     modifier: Modifier = Modifier,
     viewModel: SemanticSearchResultsViewModel,
-    onItemClick: (SearchResult, PageTitle, Boolean) -> Unit,
+    onItemClick: (PageTitle) -> Unit,
     onCloseClick: () -> Unit,
     onRatingClick: (Boolean, SearchResult) -> Unit,
     onLoading: (Boolean) -> Unit,
@@ -185,7 +185,7 @@ fun SemanticSearchResultsHeader(
                 tint = WikipediaTheme.colors.secondaryColor,
                 contentDescription = null
             )
-
+            Spacer(modifier = Modifier.width(2.dp))
             Text(
                 text = stringResource(R.string.semantic_search_beta_label),
                 style = MaterialTheme.typography.labelSmall,
@@ -253,7 +253,7 @@ fun SemanticSearchResultsContent(
     modifier: Modifier = Modifier,
     viewModel: SemanticSearchResultsViewModel,
     items: List<SearchResult>,
-    onItemClick: (SearchResult, PageTitle, Boolean) -> Unit
+    onItemClick: (PageTitle) -> Unit
 ) {
     Box(
         modifier = modifier
@@ -268,10 +268,10 @@ fun SemanticSearchResultsContent(
             items(items.size, key = { items[it].pageTitle }) { index ->
                 val searchResult = items[index]
                 SemanticSearchResultCard(
-                    prefixQuotationMark = SemanticSearchHelper.getQuotationMark(viewModel.languageCode),
+                    prefixQuotationMark = viewModel.quotationMarkMap[viewModel.languageCode] ?: "«",
                     showLastUpdatedTime = viewModel.languageCode == "ar",
                     searchResult = searchResult,
-                    onItemClick = { onItemClick(searchResult, searchResult.pageTitle, false) },
+                    onItemClick = { onItemClick(searchResult.pageTitle) },
                     onLinkClick = { url ->
                         // ignore in-article links
                     }
@@ -287,7 +287,7 @@ fun SemanticSearchResultCard(
     prefixQuotationMark: String,
     showLastUpdatedTime: Boolean,
     searchResult: SearchResult,
-    onItemClick: (() -> Unit)? = null,
+    onItemClick: () -> Unit,
     onLinkClick: (String) -> Unit
 ) {
     val articlePath = listOfNotNull(
@@ -334,7 +334,7 @@ fun SemanticSearchResultCard(
                     linkStyle = TextLinkStyles(
                         style = SpanStyle(
                             color = WikipediaTheme.colors.progressiveColor,
-                            fontSize = 16.sp
+                            fontSize = 14.sp
                         )
                     ),
                     linkInteractionListener = {
@@ -354,7 +354,7 @@ fun SemanticSearchResultCard(
                 color = WikipediaTheme.colors.placeholderColor
             )
 
-            Spacer(modifier = Modifier.height(14.dp))
+            Spacer(modifier = Modifier.height(8.dp))
 
             Row(
                 verticalAlignment = Alignment.CenterVertically,

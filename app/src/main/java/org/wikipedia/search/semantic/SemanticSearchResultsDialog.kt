@@ -7,10 +7,10 @@ import android.view.ViewGroup
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.viewModels
 import org.wikipedia.Constants
+import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.compose.theme.BaseTheme
-import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
-import org.wikipedia.page.PageActivity
+import org.wikipedia.search.SearchResultCallback
 
 class SemanticSearchResultsDialog : ExtendedBottomSheetDialogFragment() {
 
@@ -24,9 +24,8 @@ class SemanticSearchResultsDialog : ExtendedBottomSheetDialogFragment() {
                 BaseTheme {
                     SemanticSearchResultsScreen(
                         viewModel = viewModel,
-                        onItemClick = { result, title, fromSnippetLink ->
-                            val entry = HistoryEntry(title, HistoryEntry.SOURCE_SEARCH)
-                            startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, title))
+                        onItemClick = { title ->
+                            callback()?.navigateToTitle(title, true, 0)
                         },
                         onCloseClick = {
                             dismiss()
@@ -41,6 +40,10 @@ class SemanticSearchResultsDialog : ExtendedBottomSheetDialogFragment() {
                 }
             }
         }
+    }
+
+    private fun callback(): SearchResultCallback? {
+        return getCallback(this, SearchResultCallback::class.java)
     }
 
     companion object {
