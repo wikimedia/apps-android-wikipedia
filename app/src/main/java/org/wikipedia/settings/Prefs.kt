@@ -1005,4 +1005,20 @@ object Prefs {
     var isReadingListsUpdateTooltipShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_lists_update_tooltip_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_lists_update_tooltip_shown, value)
+
+    var isSemanticSearchEnabled
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_semantic_search_enabled, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_semantic_search_enabled, value)
+
+    var isSemanticSearchFirstUse
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_semantic_search_first_use, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_semantic_search_first_use, value)
+
+    var semanticSearchLanguageOverride
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_semantic_search_override_supported_language, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_semantic_search_override_supported_language, value)
+
+    var semanticSearchIsTestActive
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_semantic_search_is_test_active, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_semantic_search_is_test_active, value)
 }

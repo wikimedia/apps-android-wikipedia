@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -23,6 +24,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -44,17 +46,25 @@ import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import coil3.compose.AsyncImage
+import kotlinx.coroutines.FlowPreview
+import kotlinx.coroutines.flow.debounce
+import org.wikipedia.Constants
 import org.wikipedia.R
+import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.extensions.toAnnotatedStringWithBoldQuery
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.search.semantic.SemanticSearchEntryCard
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.views.imageservice.ImageService
+import kotlin.time.Duration.Companion.milliseconds
 
 const val SEARCH_LIST_TAG = "search_list"
 
+@OptIn(FlowPreview::class)
 @Composable
 fun SearchResultsScreen(
     modifier: Modifier = Modifier,
@@ -62,12 +72,17 @@ fun SearchResultsScreen(
     onNavigateToTitle: (SearchResult, Boolean, Int, Location?) -> Unit,
     onItemLongClick: (View, SearchResult, Int) -> Unit,
     onLanguageClick: (Int) -> Unit,
+    onSemanticSearchClick: (String?) -> Unit,
+    onSemanticSearchInfoClick: () -> Unit,
     onCloseSearch: () -> Unit,
     onRetrySearch: () -> Unit,
     onLoading: (Boolean) -> Unit,
 ) {
     val searchResults = viewModel.searchResultsFlow.collectAsLazyPagingItems()
     val searchTerm = viewModel.searchTerm.collectAsState()
+    val isSemanticSearchEnabledState = viewModel.isSemanticSearchEnabled.collectAsState()
+    val isSemanticSearchEnabled = isSemanticSearchEnabledState.value && viewModel.invokeSource != Constants.InvokeSource.PLACES
+    val isSemanticSearchFirstUse = viewModel.isSemanticSearchFirstUse.collectAsState()
     val loadState = searchResults.loadState
     val countsPerLanguageCode = viewModel.countsPerLanguageCode
 
@@ -77,43 +92,100 @@ fun SearchResultsScreen(
 
     // this is a callback to show loading indicator in the SearchFragment.
     // It is placed outside the UI logic to prevent flickering. We need to show the loader both initial load (refresh) and pagination (append) without hiding the list or conflicting with other UI states.
-
     val isLoading = loadState.refresh is LoadState.Loading || loadState.append is LoadState.Loading
     LaunchedEffect(isLoading) {
         onLoading(isLoading)
     }
 
+    // used to prevent flickering in the error state.
+    var isErrorState by remember { mutableStateOf(false) }
+    LaunchedEffect(loadState.refresh) {
+        snapshotFlow { loadState.refresh }
+            .debounce(200L.milliseconds)
+            .collect { state ->
+                isErrorState = when (state) {
+                    is LoadState.Error -> true
+                    else -> false
+                }
+            }
+    }
+
+    val shouldShowNoResults =
+        loadState.append is LoadState.NotLoading &&
+        loadState.append.endOfPaginationReached &&
+        searchResults.itemCount == 0 &&
+        !isSemanticSearchEnabled
+
+    val shouldLogNoResultsImpression =
+        shouldShowNoResults &&
+        countsPerLanguageCode.isNotEmpty() &&
+        viewModel.invokeSource == Constants.InvokeSource.PLACES
+
+    val shouldShowSemanticSearchEntryPoint =
+        isSemanticSearchEnabled &&
+                !searchTerm.value.isNullOrBlank() &&
+                loadState.refresh !is LoadState.Error &&
+                !isErrorState
+
+    LaunchedEffect(shouldLogNoResultsImpression) {
+        if (shouldLogNoResultsImpression) {
+            PlacesEvent.logAction("no_results_impression", "search_view")
+        }
+    }
+
     CompositionLocalProvider(LocalLayoutDirection provides layoutDirection) {
-        Box(
+        LazyColumn(
             modifier = modifier
         ) {
+            if (shouldShowSemanticSearchEntryPoint) {
+                item {
+                    SemanticSearchEntryCard(
+                        searchTerm = searchTerm.value,
+                        onCloseClick = { viewModel.disableSemanticSearch() },
+                        onInfoBtnClick = { onSemanticSearchInfoClick() },
+                        onSemanticSearchClick = {
+                            if (isSemanticSearchFirstUse.value) {
+                                Prefs.isSemanticSearchFirstUse = false
+                            }
+                            onSemanticSearchClick(searchTerm.value)
+                        },
+                        isFirstUse = isSemanticSearchFirstUse.value
+                    )
+                }
+            }
+
             when {
                 loadState.refresh is LoadState.Loading -> {} // when offline prevents UI from loading old list
 
                 loadState.refresh is LoadState.Error -> {
                     val error = (loadState.refresh as LoadState.Error).error
-                    WikiErrorView(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .align(Alignment.Center),
-                        caught = error,
-                        errorClickEvents = WikiErrorClickEvents(
-                            backClickListener = { onCloseSearch() },
-                            retryClickListener = { onRetrySearch() }
-                        )
-                    )
+                    item {
+                        Box(
+                            modifier = Modifier.fillParentMaxSize(),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            WikiErrorView(
+                                caught = error,
+                                errorClickEvents = WikiErrorClickEvents(
+                                    backClickListener = { onCloseSearch() },
+                                    retryClickListener = { onRetrySearch() }
+                                )
+                            )
+                        }
+                    }
                 }
 
                 loadState.append is LoadState.NotLoading && loadState.append.endOfPaginationReached && searchResults.itemCount == 0 -> {
-                    NoSearchResults(
-                        countsPerLanguageCode = countsPerLanguageCode,
-                        invokeSource = viewModel.invokeSource,
-                        onLanguageClick = onLanguageClick
-                    )
+                    if (!isSemanticSearchEnabled) {
+                        noSearchResults(
+                            countsPerLanguageCode = countsPerLanguageCode,
+                            onLanguageClick = onLanguageClick
+                        )
+                    }
                 }
 
                 else -> {
-                    SearchResultsList(
+                    searchResultItems(
                         searchResultsPage = searchResults,
                         searchTerm = searchTerm.value,
                         onItemClick = onNavigateToTitle,
@@ -125,35 +197,28 @@ fun SearchResultsScreen(
     }
 }
 
-@Composable
-fun SearchResultsList(
+private fun LazyListScope.searchResultItems(
     searchResultsPage: LazyPagingItems<SearchResult>,
     searchTerm: String?,
     onItemClick: (SearchResult, Boolean, Int, Location?) -> Unit,
     onItemLongClick: (View, SearchResult, Int) -> Unit,
-    modifier: Modifier = Modifier
 ) {
-    LazyColumn(
-        modifier = modifier
-            .testTag(SEARCH_LIST_TAG)
-    ) {
-        items(
-            count = searchResultsPage.itemCount
-        ) { index ->
-            searchResultsPage[index]?.let { result ->
-                SearchResultPageItem(
-                    modifier = Modifier
-                        .testTag("$SEARCH_LIST_TAG$index"),
-                    searchResultPage = result,
-                    searchTerm = searchTerm,
-                    onItemClick = {
-                        onItemClick(result, false, index, result.location)
-                    },
-                    onItemLongClick = { view ->
-                        onItemLongClick(view, result, index)
-                    }
-                )
-            }
+    items(
+        count = searchResultsPage.itemCount
+    ) { index ->
+        searchResultsPage[index]?.let { result ->
+            SearchResultPageItem(
+                modifier = Modifier
+                    .testTag("$SEARCH_LIST_TAG$index"),
+                searchResultPage = result,
+                searchTerm = searchTerm,
+                onItemClick = {
+                    onItemClick(result, false, index, result.location)
+                },
+                onItemLongClick = { view ->
+                    onItemLongClick(view, result, index)
+                }
+            )
         }
     }
 }

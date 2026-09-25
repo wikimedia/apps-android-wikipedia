@@ -17,6 +17,7 @@
 package org.wikipedia.compose.extensions
 
 import android.graphics.Typeface
+import android.text.Annotation
 import android.text.Layout
 import android.text.Spanned
 import android.text.style.AbsoluteSizeSpan
@@ -51,10 +52,11 @@ import org.wikipedia.util.StringUtil
 fun AnnotatedString.Companion.composeFromHtml(
     htmlString: String,
     linkStyles: TextLinkStyles?,
-    linkInteractionListener: LinkInteractionListener? = null
+    linkInteractionListener: LinkInteractionListener? = null,
+    highlightStyle: SpanStyle?
 ): AnnotatedString {
     val spanned = StringUtil.fromHtml(htmlString)
-    return spanned.toAnnotatedString(linkStyles, linkInteractionListener)
+    return spanned.toAnnotatedString(linkStyles, linkInteractionListener, highlightStyle)
 }
 
 // TODO
@@ -65,14 +67,16 @@ fun AnnotatedString.Companion.composeFromHtml(
 
 internal fun Spanned.toAnnotatedString(
     linkStyles: TextLinkStyles? = null,
-    linkInteractionListener: LinkInteractionListener? = null
+    linkInteractionListener: LinkInteractionListener? = null,
+    highlightStyle: SpanStyle? = null
 ): AnnotatedString {
     return AnnotatedString.Builder(capacity = length)
         .append(this)
         .also { it.addSpans(
             this,
             linkStyles,
-            linkInteractionListener
+            linkInteractionListener,
+            highlightStyle
         ) }
         .toAnnotatedString()
 }
@@ -80,7 +84,8 @@ internal fun Spanned.toAnnotatedString(
 private fun AnnotatedString.Builder.addSpans(
     spanned: Spanned,
     linkStyles: TextLinkStyles?,
-    linkInteractionListener: LinkInteractionListener?
+    linkInteractionListener: LinkInteractionListener?,
+    highlightStyle: SpanStyle?
 ) {
     spanned.getSpans(0, length, Any::class.java).forEach { span ->
         val range = TextRange(spanned.getSpanStart(span), spanned.getSpanEnd(span))
@@ -89,7 +94,8 @@ private fun AnnotatedString.Builder.addSpans(
             range.start,
             range.end,
             linkStyles,
-            linkInteractionListener
+            linkInteractionListener,
+            highlightStyle
         )
     }
 }
@@ -99,9 +105,15 @@ private fun AnnotatedString.Builder.addSpan(
     start: Int,
     end: Int,
     linkStyles: TextLinkStyles?,
-    linkInteractionListener: LinkInteractionListener?
+    linkInteractionListener: LinkInteractionListener?,
+    highlightStyle: SpanStyle?
 ) {
     when (span) {
+        is Annotation -> {
+            if ((span.key == "style" || span.key == "class") && span.value.contains("searchmatch")) {
+                highlightStyle?.let { addStyle(it, start, end) }
+            }
+        }
         is AbsoluteSizeSpan -> {
             // TODO(soboleva) need density object or make dip/px new units in TextUnit
         }

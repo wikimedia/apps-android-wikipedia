@@ -26,11 +26,14 @@ import org.wikipedia.databinding.FragmentSearchBinding
 import org.wikipedia.extensions.instrument
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.JsonUtil
+import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.places.PlacesActivity
 import org.wikipedia.readinglist.SaveArticleSheetDialog
 import org.wikipedia.search.db.RecentSearch
+import org.wikipedia.search.semantic.SemanticSearchInfoDialog
+import org.wikipedia.search.semantic.SemanticSearchResultsDialog
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesFragment
@@ -234,6 +237,14 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
 
     override fun onSearchProgressBar(enabled: Boolean) {
         binding.searchProgressBar.visibility = if (enabled) View.VISIBLE else View.GONE
+    }
+
+    override fun showSemanticSearchResultsDialog(query: String) {
+        ExclusiveBottomSheetPresenter.show(childFragmentManager, SemanticSearchResultsDialog.newInstance(query, searchLanguageCode, invokeSource))
+    }
+
+    override fun showSemanticSearchInfoDialog() {
+        ExclusiveBottomSheetPresenter.show(childFragmentManager, SemanticSearchInfoDialog())
     }
 
     private fun onSearchContainerClick() {
