@@ -185,7 +185,7 @@ fun SemanticSearchResultsHeader(
                 tint = WikipediaTheme.colors.secondaryColor,
                 contentDescription = null
             )
-
+            Spacer(modifier = Modifier.width(2.dp))
             Text(
                 text = stringResource(R.string.semantic_search_beta_label),
                 style = MaterialTheme.typography.labelSmall,
@@ -354,7 +354,7 @@ fun SemanticSearchResultCard(
                 color = WikipediaTheme.colors.placeholderColor
             )
 
-            Spacer(modifier = Modifier.height(14.dp))
+            Spacer(modifier = Modifier.height(8.dp))
 
             Row(
                 verticalAlignment = Alignment.CenterVertically,
