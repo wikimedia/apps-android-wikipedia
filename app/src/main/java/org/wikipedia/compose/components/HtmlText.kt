@@ -29,6 +29,7 @@ import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
 import androidx.core.net.toUri
 import org.wikipedia.WikipediaApp
+import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.extensions.composeFromHtml
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
@@ -47,6 +48,10 @@ fun HtmlText(
             fontSize = 14.sp
         )
     ),
+    highlightStyle: SpanStyle = SpanStyle(
+        color = ComposeColors.Gray700,
+        background = WikipediaTheme.colors.highlightColor
+    ),
     style: TextStyle = TextStyle(
         color = WikipediaTheme.colors.primaryColor,
         fontSize = 14.sp
@@ -63,7 +68,8 @@ fun HtmlText(
     val annotatedString = AnnotatedString.composeFromHtml(
         htmlString = text,
         linkStyles = linkStyle,
-        linkInteractionListener = linkInteractionListener
+        linkInteractionListener = linkInteractionListener,
+        highlightStyle = highlightStyle
     )
     var layoutResult by remember { mutableStateOf<TextLayoutResult?>(null) }
 
@@ -139,11 +145,11 @@ fun defaultLinkInteractionListener(wikiSite: WikiSite? = null): LinkInteractionL
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 private fun HtmlTextPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
-        HtmlText("This is an <em>example</em> of <strong>text</strong><br />with " +
+        HtmlText("This is an <em>example</em> of <span style=\"searchmatch\">text</span><br />with " +
                 "<a href=\"#foo\">html</a>, with nonstandard stuff<br />like <code>monospace</code>" +
                 " and <sup>superscript</sup>, too!")
     }
