@@ -32,7 +32,37 @@ class YearInReviewViewModel2(
             _uiState.value = YearInReviewUiState.Content(
                 year = yearInReview.year,
                 pages = listOf(
-                    YearInReviewPage.Announcement(id = "cover", daysRead = 150)
+                    YearInReviewPage.Announcement(id = "cover", daysRead = 150),
+                    // TODO: replace with real data
+                    YearInReviewPage.TopicRunnersUp(
+                        id = "topic_runners_up",
+                        topics = listOf(
+                            YearInReviewTopic(name = "Central America", articleCount = 14),
+                            YearInReviewTopic(name = "Visual art", articleCount = 12),
+                            YearInReviewTopic(name = "Politics and government", articleCount = 8)
+                        )
+                    ),
+                    // TODO: replace with real data
+                    YearInReviewPage.BiggestReadingDayArticles(
+                        id = "biggest_reading_day_articles",
+                        articles = listOf(
+                            YearInReviewArticle(
+                                title = "Pamela Anderson",
+                                description = "Canadian-American actress and model (born 1967)",
+                                thumbnailUrl = "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Pamela_Anderson-69699.jpg/330px-Pamela_Anderson-69699.jpg"
+                            ),
+                            YearInReviewArticle(
+                                title = "Pamukkale",
+                                description = "Natural site in Denizli Province in southwestern Turkey",
+                                thumbnailUrl = "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/Pamukkale%2C_Denizli_2026_68.jpg/330px-Pamukkale%2C_Denizli_2026_68.jpg"
+                            ),
+                            YearInReviewArticle(
+                                title = "Catherine, Princess of Wales",
+                                description = "Member of the British royal family (born 1982)",
+                                thumbnailUrl = "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/NE_Lac_Bab_Louta_Tazekka_Nov25_A7CR_09270-4_HDR1.jpg/330px-NE_Lac_Bab_Louta_Tazekka_Nov25_A7CR_09270-4_HDR1.jpg"
+                            )
+                        )
+                    )
                 ), // TODO: Populate actual pages
                 isDonationEligible = yearInReview.isDonationEligible
             )
@@ -64,4 +94,27 @@ sealed interface YearInReviewPage {
         override val useDarkStatusBarIcons: Boolean = false,
         val daysRead: Int
     ) : YearInReviewPage
+
+    data class TopicRunnersUp(
+        override val id: String,
+        override val useDarkStatusBarIcons: Boolean = false,
+        val topics: List<YearInReviewTopic>
+    ) : YearInReviewPage
+
+    data class BiggestReadingDayArticles(
+        override val id: String,
+        override val useDarkStatusBarIcons: Boolean = false,
+        val articles: List<YearInReviewArticle>
+    ) : YearInReviewPage
 }
+
+data class YearInReviewTopic(
+    val name: String,
+    val articleCount: Int
+)
+
+data class YearInReviewArticle(
+    val title: String,
+    val description: String,
+    val thumbnailUrl: String?
+)

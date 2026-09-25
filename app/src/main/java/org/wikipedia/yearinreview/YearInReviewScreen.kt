@@ -234,6 +234,23 @@ private fun YearInReviewContent(
                         playing = pagerState.settledPage == position,
                         onRiveError = onRiveError
                     )
+                    is YearInReviewPage.TopicRunnersUp -> YearInReviewTopicRunnersUpSlide(
+                        riveFileResult = riveFileResult,
+                        year = year,
+                        topics = page.topics,
+                        slideId = page.id,
+                        screenshotGetters = screenshotGetters,
+                        playing = pagerState.settledPage == position,
+                        onRiveError = onRiveError
+                    )
+                    is YearInReviewPage.BiggestReadingDayArticles -> TasteOfSomeArticlesSlide(
+                        riveFileResult = riveFileResult,
+                        articles = page.articles,
+                        slideId = page.id,
+                        screenshotGetters = screenshotGetters,
+                        playing = pagerState.settledPage == position,
+                        onRiveError = onRiveError
+                    )
                 }
             }
 
@@ -262,6 +279,8 @@ private fun YearInReviewContent(
 private val YearInReviewPage.riveSpec: RiveSlideSpec?
     get() = when (this) {
         is YearInReviewPage.Announcement -> CoverRiveSpec
+        is YearInReviewPage.TopicRunnersUp -> TopicRunnersUpRiveSpec
+        is YearInReviewPage.BiggestReadingDayArticles -> BiggestReadingDayArticlesRiveSpec
     }
 
 @Composable

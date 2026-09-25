@@ -2051,6 +2051,9 @@
   <string name="year_in_review_highlights_logo_description">Text for for the Wikipedia logo in year-in-review highlights.</string>
   <string name="year_in_review_cover_title">Title of the first (cover) slide of Year in Review. It is shown in capital letters.</string>
   <string name="year_in_review_cover_body">Message below the title of the first (cover) slide of Year in Review. %1$s will be replaced by the number of days the user read Wikipedia, and %2$d by the year.</string>
+  <string name="year_in_review_topic_runners_up_body">Text above the list of the user\'s second to fourth most-read topics in Year in Review. %d will be replaced by the year.</string>
+  <string name="year_in_review_topic_runners_up_article_count">Shown under each topic in the Year in Review list of runner-up topics. %s will be replaced by the number of articles the user read in that topic.</string>
+  <string name="year_in_review_biggest_reading_day_articles_headline">Text above a list of some of the articles the user read on the day they read the most, in Year in Review.</string>
   <string name="recommended_reading_list_title">Title for the recommended collection feature.</string>
   <string name="recommended_reading_list_onboarding_card_title">Title of the onboarding card for the recommended collection.</string>
   <string name="recommended_reading_list_onboarding_card_message">Message on the onboarding card for the recommended collection.</string>
