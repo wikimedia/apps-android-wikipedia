@@ -129,8 +129,10 @@ private fun SemanticSearchInfoDialogContent(
                             .padding(vertical = 16.dp),
                         prefixQuotationMark = quotationMark,
                         searchResult = searchResult,
-                        onItemClick = { /* non-op click */ },
-                        onLinkClick = { /* non-op click */ },
+                        onItemClick = null,
+                        onLinkClick = {  url ->
+                            // ignore in-article links
+                        },
                         showLastUpdatedTime = false
                     )
 
