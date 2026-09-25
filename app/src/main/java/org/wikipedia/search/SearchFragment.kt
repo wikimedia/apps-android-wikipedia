@@ -244,7 +244,7 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
     }
 
     override fun showSemanticSearchInfoDialog() {
-        ExclusiveBottomSheetPresenter.show(childFragmentManager, SemanticSearchInfoDialog())
+        ExclusiveBottomSheetPresenter.show(childFragmentManager, SemanticSearchInfoDialog(searchLanguageCode))
     }
 
     private fun onSearchContainerClick() {

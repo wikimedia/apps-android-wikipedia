@@ -8,8 +8,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -39,7 +37,7 @@ import org.wikipedia.search.SearchResult
 import org.wikipedia.search.SearchResult.SearchResultType
 import org.wikipedia.util.UriUtil
 
-class SemanticSearchInfoDialog : ExtendedBottomSheetDialogFragment(startExpanded = true) {
+class SemanticSearchInfoDialog(val languageCode: String) : ExtendedBottomSheetDialogFragment(startExpanded = true) {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
@@ -50,7 +48,8 @@ class SemanticSearchInfoDialog : ExtendedBottomSheetDialogFragment(startExpanded
                     onLearnMoreClick = {
                         UriUtil.visitInExternalBrowser(requireContext(), getString(R.string.semantic_search_info_learn_more_url).toUri())
                         dismiss()
-                    }
+                    },
+                    quotationMark = SemanticSearchHelper.getQuotationMark(languageCode)
                 )
             }
         }
@@ -60,7 +59,8 @@ class SemanticSearchInfoDialog : ExtendedBottomSheetDialogFragment(startExpanded
 @Composable
 private fun SemanticSearchInfoDialogContent(
     onCloseClick: () -> Unit,
-    onLearnMoreClick: () -> Unit
+    onLearnMoreClick: () -> Unit,
+    quotationMark: String
 ) {
 
     val snippet = stringResource(id = R.string.semantic_search_info_dialog_sample_snippet)
@@ -112,7 +112,7 @@ private fun SemanticSearchInfoDialogContent(
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(vertical = 16.dp),
-                        prefixQuotationMark = "«",
+                        prefixQuotationMark = quotationMark,
                         searchResult = searchResult,
                         onItemClick = { /* non-op click */ },
                         onLinkClick = { /* non-op click */ },
@@ -153,6 +153,7 @@ private fun SemanticSearchInfoDialogContent(
 fun SemanticSearchInfoDialogPreview() {
     SemanticSearchInfoDialogContent(
         onCloseClick = {},
-        onLearnMoreClick = { }
+        onLearnMoreClick = { },
+        quotationMark = SemanticSearchHelper.getQuotationMark("ja")
     )
 }
