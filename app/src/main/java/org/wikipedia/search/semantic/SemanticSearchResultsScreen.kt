@@ -268,7 +268,7 @@ fun SemanticSearchResultsContent(
             items(items.size, key = { items[it].pageTitle }) { index ->
                 val searchResult = items[index]
                 SemanticSearchResultCard(
-                    prefixQuotationMark = viewModel.quotationMarkMap[viewModel.languageCode] ?: "«",
+                    prefixQuotationMark = SemanticSearchHelper.getQuotationMark(viewModel.languageCode),
                     showLastUpdatedTime = viewModel.languageCode == "ar",
                     searchResult = searchResult,
                     onItemClick = { onItemClick(searchResult, searchResult.pageTitle, false) },
