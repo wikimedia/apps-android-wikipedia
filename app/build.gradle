@@ -229,11 +229,11 @@ dependencies {
     customImplementation libs.com.google.mlkit.language.id
 
     // For receiving push notifications for logged-in users.
-    prodImplementation libs.com.google.firebase.firebase.messaging.ktx3
-    betaImplementation libs.com.google.firebase.firebase.messaging.ktx3
-    alphaImplementation libs.com.google.firebase.firebase.messaging.ktx3
-    devImplementation libs.com.google.firebase.firebase.messaging.ktx3
-    customImplementation libs.com.google.firebase.firebase.messaging.ktx3
+    prodImplementation libs.com.google.firebase.firebase.messaging
+    betaImplementation libs.com.google.firebase.firebase.messaging
+    alphaImplementation libs.com.google.firebase.firebase.messaging
+    devImplementation libs.com.google.firebase.firebase.messaging
+    customImplementation libs.com.google.firebase.firebase.messaging
 
     // For integrating with Google Pay for donations
     prodImplementation libs.com.google.android.gms.play.services.wallet2
