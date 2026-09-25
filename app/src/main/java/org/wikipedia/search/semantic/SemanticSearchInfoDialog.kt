@@ -37,7 +37,10 @@ import org.wikipedia.search.SearchResult
 import org.wikipedia.search.SearchResult.SearchResultType
 import org.wikipedia.util.UriUtil
 
-class SemanticSearchInfoDialog(val languageCode: String) : ExtendedBottomSheetDialogFragment(startExpanded = true) {
+class SemanticSearchInfoDialog : ExtendedBottomSheetDialogFragment(startExpanded = true) {
+
+    private val languageCode: String
+        get() = arguments?.getString(ARG_LANGUAGE_CODE).orEmpty()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
@@ -51,6 +54,18 @@ class SemanticSearchInfoDialog(val languageCode: String) : ExtendedBottomSheetDi
                     },
                     quotationMark = SemanticSearchHelper.getQuotationMark(languageCode)
                 )
+            }
+        }
+    }
+
+    companion object {
+        private const val ARG_LANGUAGE_CODE = "language_code"
+
+        fun newInstance(languageCode: String): SemanticSearchInfoDialog {
+            return SemanticSearchInfoDialog().apply {
+                arguments = Bundle().apply {
+                    putString(ARG_LANGUAGE_CODE, languageCode)
+                }
             }
         }
     }
