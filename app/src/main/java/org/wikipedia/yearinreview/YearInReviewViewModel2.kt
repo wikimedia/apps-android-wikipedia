@@ -55,8 +55,11 @@ sealed interface YearInReviewUiState {
 
 sealed interface YearInReviewPage {
     val id: String
+    val useDarkStatusBarIcons: Boolean
 
+    // TODO: this data class is just a placeholder for now, remove this when actual pages are implemented
     data class ReadingDays(
-        override val id: String
+        override val id: String,
+        override val useDarkStatusBarIcons: Boolean = false
     ) : YearInReviewPage
 }

@@ -1,5 +1,6 @@
 package org.wikipedia.yearinreview
 
+import android.icu.text.NumberFormat
 import androidx.annotation.RawRes
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -13,6 +14,7 @@ import androidx.compose.runtime.produceState
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalResources
 import androidx.compose.ui.semantics.clearAndSetSemantics
@@ -100,6 +102,13 @@ private fun rememberScaledRiveTextSizes(baseTextSizes: Map<String, Float>): Map<
     }
 }
 
+// Uses the locale's own digits and separators, e.g. 1,234 in English and १,२३४ in Nepali
+@Composable
+fun rememberLocalizedNumber(number: Int): String {
+    val locale = LocalConfiguration.current.locales[0]
+    return remember(locale, number) { NumberFormat.getInstance(locale).format(number) }
+}
+
 @Composable
 fun rememberYearInReviewRiveWorker(onRiveError: (Throwable) -> Unit): RiveWorker? {
     val riveWorkerError = remember { mutableStateOf<Throwable?>(null) }
@@ -127,10 +136,34 @@ fun rememberYearInReviewRiveFonts(riveWorker: RiveWorker?, fonts: List<RiveSlide
     }.sequence().map { }
 }
 
+// Loads each .riv file once for the whole screen, so slides that share a file share one loaded copy.
+// A slide can also use its own .riv file: give its spec a different resourceId and that file is loaded separately.
+// Specs with the same resourceId but a different artboard still share the one loaded file.
 @Composable
-fun YearInReviewRiveSlide(
+fun rememberYearInReviewRiveFiles(
     riveWorker: RiveWorker?,
     riveFontsResult: Result<Unit>,
+    resourceIds: List<Int>
+): Map<Int, Result<RiveFile>> {
+    return resourceIds.distinct().associateWith { resourceId ->
+        key(resourceId) {
+            if (riveWorker == null) {
+                Result.Loading
+            } else {
+                riveFontsResult.andThen {
+                    rememberRiveFile(
+                        source = RiveFileSource.RawRes.from(resourceId),
+                        riveWorker = riveWorker
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun YearInReviewRiveSlide(
+    riveFileResult: Result<RiveFile>,
     slideId: String,
     screenshotGetters: MutableMap<String, GetBitmapFun>,
     spec: RiveSlideSpec,
@@ -140,23 +173,11 @@ fun YearInReviewRiveSlide(
     modifier: Modifier = Modifier,
     onRiveError: (Throwable) -> Unit
 ) {
-    if (riveWorker == null) {
-        // TODO: what will user see if riveWorker is null which means Rive failed to initialize for unknown reasons
-        return
-    }
-
-    val riveFileResult = riveFontsResult.andThen {
-        rememberRiveFile(
-            source = RiveFileSource.RawRes.from(spec.resourceId),
-            riveWorker = riveWorker
-        )
-    }
-
-    when (val result = riveFileResult) {
+    when (riveFileResult) {
         Result.Loading -> RiveLoadingIndicator(modifier)
-        is Result.Error -> RiveFailure(result.throwable, onRiveError)
+        is Result.Error -> RiveFailure(riveFileResult.throwable, onRiveError)
         is Result.Success -> YearInReviewRiveArtboard(
-            riveFile = result.value,
+            riveFile = riveFileResult.value,
             spec = spec,
             textProperties = textProperties,
             accessibilityDescription = accessibilityDescription,
