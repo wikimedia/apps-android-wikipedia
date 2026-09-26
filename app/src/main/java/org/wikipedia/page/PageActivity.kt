@@ -18,6 +18,7 @@ import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
+import androidx.core.content.IntentCompat
 import androidx.core.net.toUri
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -75,6 +76,7 @@ import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.readinglist.ReadingListActivity
 import org.wikipedia.readinglist.ReadingListMode
 import org.wikipedia.search.SearchActivity
+import org.wikipedia.search.semantic.SemanticSearchPageHooks
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.staticdata.MainPageNameData
@@ -658,6 +660,16 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                     ACTION_LOAD_IN_CURRENT_TAB_SQUASH == intent.action) && intent.hasExtra(EXTRA_HISTORYENTRY)) {
             val title = intent.parcelableExtra<PageTitle>(Constants.ARG_TITLE)
             val historyEntry = intent.parcelableExtra<HistoryEntry>(EXTRA_HISTORYENTRY)
+
+            if (Prefs.isSemanticSearchEnabled) {
+                val pageHooks = intent.parcelableExtra<SemanticSearchPageHooks>(Constants.SEMANTIC_SEARCH_PAGE_HOOKS)
+                val bundle = Bundle().apply {
+                    putString("section", pageHooks?.section)
+                    putString("snippet", pageHooks?.snippet)
+                }
+                pageFragment.arguments = bundle
+            }
+
             when (intent.action) {
                 ACTION_LOAD_IN_NEW_TAB -> loadPage(title, historyEntry, TabPosition.NEW_TAB_FOREGROUND)
                 ACTION_LOAD_IN_CURRENT_TAB -> loadPage(title, historyEntry, TabPosition.CURRENT_TAB)
@@ -932,6 +944,14 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                 .setClass(context, PageActivity::class.java)
                 .putExtra(EXTRA_HISTORYENTRY, entry)
                 .putExtra(Constants.ARG_TITLE, title)
+        }
+
+        fun newIntentForNewSemanticSearchTab(context: Context, title: PageTitle, entry: HistoryEntry, pageHooks: SemanticSearchPageHooks? = null): Intent {
+            return Intent(ACTION_LOAD_IN_NEW_TAB)
+                .setClass(context, PageActivity::class.java)
+                .putExtra(EXTRA_HISTORYENTRY, entry)
+                .putExtra(Constants.ARG_TITLE, title)
+                .putExtra(Constants.SEMANTIC_SEARCH_PAGE_HOOKS, pageHooks)
         }
 
         fun newIntentForCurrentTab(context: Context, entry: HistoryEntry, title: PageTitle, squashBackstack: Boolean = true): Intent {

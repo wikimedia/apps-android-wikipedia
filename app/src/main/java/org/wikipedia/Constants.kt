@@ -59,6 +59,7 @@ object Constants {
 
     val commonsWikiSite = WikiSite(Service.COMMONS_URL)
     val wikidataWikiSite = WikiSite(Service.WIKIDATA_URL)
+    const val SEMANTIC_SEARCH_PAGE_HOOKS = "semanticsearchpagehooks"
 
     enum class InvokeSource(val value: String) {
         ANNOUNCEMENT("announcement"),
@@ -116,6 +117,7 @@ object Constants {
         GAMES_HUB("gamesHub"),
         FEED_INTEREST_SELECTION("feedInterestSelection"),
         DID_YOU_KNOW("didYouKnow"),
+        SEMANTIC_SEARCH("semanticSearch")
     }
 
     enum class ImageEditType(name: String) {
