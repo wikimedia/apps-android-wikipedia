@@ -2435,6 +2435,8 @@
   <string name="home_feed_new_within_interest_card_heading">Nyt i din interesse</string>
   <string name="home_feed_new_within_interest_title">Nye artikler, der kan være i din interesse</string>
   <string name="home_feed_new_within_interest_subtitle">Nyligt oprettede artikler inden for emneområder, du følger</string>
+  <string name="home_feed_settings_read_aloud_lead_section_title">Lyt til artiklens introduktioner</string>
+  <string name="home_feed_settings_read_aloud_lead_section_subtitle">Genereret lyd til artikelintroduktioner inden for emneområder, du følger</string>
   <string name="home_feed_settings_because_you_read_subtitle">Forslag baseret på en nylig artikel fra din historie</string>
   <string name="home_feed_settings_continue_reading_title">Fortsæt læsning</string>
   <string name="home_feed_settings_continue_reading_subtitle">Spring tilbage til artikler, du ikke blev færdig med</string>
@@ -2477,6 +2479,25 @@
   <string name="home_feed_settings_games_title">Spil</string>
   <string name="home_feed_settings_games_subtitle">Daglige spil baseret på Wikipedia-indhold</string>
   <string name="home_feed_settings_discover_title">Opdag anbefalinger</string>
+  <string name="read_aloud_card_play">Spil</string>
+  <string name="read_aloud_card_pause">Pause</string>
+  <string name="read_aloud_card_retry">Prøv igen</string>
+  <string name="read_aloud_card_error">Lyd er ikke tilgængelig til denne artikel.</string>
+  <string name="read_aloud_card_keep_listening">Fortsæt med at lytte?</string>
+  <string name="read_aloud_card_audio_date">Denne lyd blev genereret ved hjælp af &lt;a href=\"https://www.mediawiki.org/wiki/Readers/Listening_to_Wikipedia/Model\"&gt;en tekst-til-tale-model&lt;/a&gt;, baseret på artikelindhold fra %s .</string>
+  <string name="read_aloud_card_audio_attribution">Denne lyd blev genereret ved hjælp af &lt;a href=\"https://www.mediawiki.org/wiki/Readers/Listening_to_Wikipedia/Model\"&gt;en tekst-til-tale-model&lt;/a&gt;.</string>
+  <string name="read_aloud_lead_section_tooltip_text">Ny betafunktion: Lyt til artikelintroduktioner i \"Til dig\"</string>
+  <string name="read_aloud_lead_section_survey_title">Hvordan er du interesseret i at lytte til Wikipedia?</string>
+  <string name="read_aloud_lead_section_survey_choice1">Artikelintroduktioner</string>
+  <string name="read_aloud_lead_section_survey_choice2">Et par afsnit af en artikel</string>
+  <string name="read_aloud_lead_section_survey_choice3">Hele artikler</string>
+  <string name="read_aloud_lead_section_survey_choice4">Flere korte uddrag fra forskellige artikler om et emne</string>
+  <string name="read_aloud_lead_section_survey_choice5">Andet:</string>
+  <string name="read_aloud_lead_section_beta_label">Beta</string>
+  <string name="read_aloud_lead_section_report_subject">Problemrapport - Lyt til artikelintroduktioner</string>
+  <string name="read_aloud_lead_section_report_body">Jeg er stødt på et problem med funktionen \"Lyt til artikelintroduktioner\":\n- [Beskriv det specifikke problem]\n\nDen adfærd, jeg gerne vil se, er:\n- [Beskriv den foreslåede løsning]</string>
+  <string name="read_aloud_lead_section_about_experiment">Om dette eksperiment</string>
+  <string name="read_aloud_lead_section_report_issue">Rapporter et problem</string>
   <string name="home_feed_settings_discover_subtitle">Artikler fra din Discover-samling</string>
   <string name="home_feed_discover_cta_title">Fra Discover</string>
   <string name="home_feed_discover_cta_description">Lær om nye emner, udvalgt specielt til dig. Vælg mellem daglige, ugentlige eller månedlige opdateringer.</string>
