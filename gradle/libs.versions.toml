@@ -9,7 +9,7 @@ coreKtx = "1.19.0"
 desugar_jdk_libs = "2.1.5"
 drawerlayout = "1.2.0"
 espressoVersion = "3.7.0"
-firebaseMessagingVersion = "24.1.2"
+firebaseMessagingVersion = "25.0.1"
 flexbox = "3.0.0"
 fragmentKtx = "1.9.0"
 glance = "1.2.0"
@@ -74,7 +74,7 @@ coil-gif = { module = "io.coil-kt.coil3:coil-gif", version.ref = "coilCompose" }
 coil-network-okhttp = { module = "io.coil-kt.coil3:coil-network-okhttp", version.ref = "coilCompose" }
 coil-svg = { module = "io.coil-kt.coil3:coil-svg", version.ref = "coilCompose" }
 com-google-android-gms-play-services-wallet2 = { module = "com.google.android.gms:play-services-wallet", version.ref = "googlePayVersion" }
-com-google-firebase-firebase-messaging-ktx3 = { module = "com.google.firebase:firebase-messaging-ktx", version.ref = "firebaseMessagingVersion" }
+com-google-firebase-firebase-messaging = { module = "com.google.firebase:firebase-messaging", version.ref = "firebaseMessagingVersion" }
 com-google-mlkit-language-id = { module = "com.google.mlkit:language-id", version.ref = "mlKitVersion" }
 commons-lang3 = { module = "org.apache.commons:commons-lang3", version.ref = "commonsLang3" }
 constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayout" }
