@@ -1237,4 +1237,16 @@
   <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">လတိုင်း</string>
   <string name="reading_challenge_onboarding_learn_more_button">ပိုမို လေ့လာရန်</string>
   <string name="reading_challenge_onboarding_prompt_login">ဝီကီပီးဒီးယားသို့ လော့ဂ်အင် / ပါဝင်ရန်</string>
+  <string name="year_in_review_days_read_headline_start">%d ခုနှစ်တွင် သင်သည် ဝီကီပီးဒီးယားကို</string>
+  <plurals name="year_in_review_days_read_headline_end">
+    <item quantity="other">ရက် ဖတ်ခဲ့သည်</item>
+  </plurals>
+  <plurals name="year_in_review_days_read_body">
+    <item quantity="other">သင့်လှုပ်ရှားမှုသည် %1$s တွင် အမြင့်ဆုံးဖြစ်ခဲ့ပြီး ထိုလအတွင်း %2$s ရက် ဖတ်ခဲ့သည်။</item>
+  </plurals>
+  <string name="year_in_review_longest_streak_headline_start">ယခုနှစ်တွင် သင်၏ အရှည်ဆုံး ဆက်တိုက်ဖတ်ရှုမှုမှာ</string>
+  <plurals name="year_in_review_longest_streak_headline_end">
+    <item quantity="other">ရက်</item>
+  </plurals>
+  <string name="year_in_review_longest_streak_body">%s အတွင်း နေ့စဉ် ဖတ်ရှုခြင်းကို တကယ်ပဲ နှစ်သက်လာခဲ့သည်။</string>
 </resources>

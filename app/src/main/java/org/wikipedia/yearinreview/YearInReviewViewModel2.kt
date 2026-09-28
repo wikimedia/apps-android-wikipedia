@@ -7,6 +7,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.wikipedia.util.log.L
+import java.time.LocalDate
+import java.time.Month
 
 // TODO: change the name of this class to YearInReviewViewModel once the old one is removed
 class YearInReviewViewModel2(
@@ -31,7 +33,22 @@ class YearInReviewViewModel2(
             val yearInReview = repository.getYearInReview(YearInReviewViewModel.YIR_YEAR)
             _uiState.value = YearInReviewUiState.Content(
                 year = yearInReview.year,
-                pages = listOf(YearInReviewPage.ReadingDays(id = "reading_days"), YearInReviewPage.ReadingDays(id = "reading_days_2")), // TODO: Populate actual pages
+                pages = listOf(
+                    // TODO: replace with real data
+                    YearInReviewPage.DaysRead(
+                        id = "days_read",
+                        daysRead = 47,
+                        peakMonth = Month.DECEMBER,
+                        peakMonthDaysRead = 20
+                    ),
+                    // TODO: replace with real data
+                    YearInReviewPage.LongestStreak(
+                        id = "longest_streak",
+                        streakDays = 50,
+                        streakStartDate = LocalDate.of(yearInReview.year, Month.MARCH, 4),
+                        streakEndDate = LocalDate.of(yearInReview.year, Month.MARCH, 14)
+                    )
+                ), // TODO: Populate actual pages
                 isDonationEligible = yearInReview.isDonationEligible
             )
         }
@@ -57,9 +74,19 @@ sealed interface YearInReviewPage {
     val id: String
     val useDarkStatusBarIcons: Boolean
 
-    // TODO: this data class is just a placeholder for now, remove this when actual pages are implemented
-    data class ReadingDays(
+    data class DaysRead(
         override val id: String,
-        override val useDarkStatusBarIcons: Boolean = false
+        override val useDarkStatusBarIcons: Boolean = false,
+        val daysRead: Int,
+        val peakMonth: Month,
+        val peakMonthDaysRead: Int
+    ) : YearInReviewPage
+
+    data class LongestStreak(
+        override val id: String,
+        override val useDarkStatusBarIcons: Boolean = false,
+        val streakDays: Int,
+        val streakStartDate: LocalDate,
+        val streakEndDate: LocalDate
     ) : YearInReviewPage
 }

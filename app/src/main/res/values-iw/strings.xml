@@ -2164,4 +2164,22 @@
   <string name="home_feed_games_module_cta_prompt_subtitle">מעבר למרכז המשחקים</string>
   <string name="home_feed_games_module_cta_prompt_button_text">מרכז המשחקים</string>
   <string name="random_article_widget_name">ערך אקראי</string>
+  <string name="year_in_review_days_read_headline_start">בשנת %d, קראת בוויקיפדיה במשך</string>
+  <plurals name="year_in_review_days_read_headline_end">
+    <item quantity="one">יום</item>
+    <item quantity="two">ימים</item>
+    <item quantity="other">ימים</item>
+  </plurals>
+  <plurals name="year_in_review_days_read_body">
+    <item quantity="one">הפעילות שלך הגיעה לשיא ב%1$s, כשקראת במשך %2$s יום.</item>
+    <item quantity="two">הפעילות שלך הגיעה לשיא ב%1$s, כשקראת ב־%2$s ימים שונים.</item>
+    <item quantity="other">הפעילות שלך הגיעה לשיא ב%1$s, כשקראת ב־%2$s ימים שונים.</item>
+  </plurals>
+  <string name="year_in_review_longest_streak_headline_start">השנה, הרצף הארוך ביותר שלך נמשך</string>
+  <plurals name="year_in_review_longest_streak_headline_end">
+    <item quantity="one">יום</item>
+    <item quantity="two">ימים</item>
+    <item quantity="other">ימים</item>
+  </plurals>
+  <string name="year_in_review_longest_streak_body">בתאריכים %s ממש נכנסת לשגרה של קריאה יומית.</string>
 </resources>

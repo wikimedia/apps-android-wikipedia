@@ -2401,4 +2401,16 @@
   <string name="home_feed_games_module_cta_prompt_subtitle">前往遊戲中心</string>
   <string name="home_feed_games_module_cta_prompt_button_text">遊戲中心</string>
   <string name="random_article_widget_name">隨機條目</string>
+  <string name="year_in_review_days_read_headline_start">%d年，你閱讀維基百科的天數為</string>
+  <plurals name="year_in_review_days_read_headline_end">
+    <item quantity="other">天</item>
+  </plurals>
+  <plurals name="year_in_review_days_read_body">
+    <item quantity="other">你的活躍度在%1$s達到高峰，那個月你有%2$s天在閱讀。</item>
+  </plurals>
+  <string name="year_in_review_longest_streak_headline_start">今年，你最長的連續閱讀紀錄為</string>
+  <plurals name="year_in_review_longest_streak_headline_end">
+    <item quantity="other">天</item>
+  </plurals>
+  <string name="year_in_review_longest_streak_body">從%s，你真正養成了每天閱讀的習慣。</string>
 </resources>

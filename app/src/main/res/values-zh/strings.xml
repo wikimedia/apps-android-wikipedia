@@ -2485,4 +2485,16 @@
     <item quantity="one">取消保存此条目将其从所有关联收藏中移除。</item>
     <item quantity="other">取消保存这些条目将其从所有关联收藏中移除。</item>
   </plurals>
+  <string name="year_in_review_days_read_headline_start">%d年，你阅读维基百科的天数为</string>
+  <plurals name="year_in_review_days_read_headline_end">
+    <item quantity="other">天</item>
+  </plurals>
+  <plurals name="year_in_review_days_read_body">
+    <item quantity="other">你的活跃度在%1$s达到顶峰，那个月你有%2$s天在阅读。</item>
+  </plurals>
+  <string name="year_in_review_longest_streak_headline_start">今年，你最长的连续阅读记录为</string>
+  <plurals name="year_in_review_longest_streak_headline_end">
+    <item quantity="other">天</item>
+  </plurals>
+  <string name="year_in_review_longest_streak_body">从%s，你真正养成了每天阅读的习惯。</string>
 </resources>

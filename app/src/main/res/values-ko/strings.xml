@@ -2370,4 +2370,16 @@
   <plurals name="reading_lists_articles_removed_from_collections">
     <item quantity="other">문서 %d가 관련된 모든 컬렉션에서 제거되었습니다.</item>
   </plurals>
+  <string name="year_in_review_days_read_headline_start">%d년에 위키백과를 읽은 날은</string>
+  <plurals name="year_in_review_days_read_headline_end">
+    <item quantity="other">일</item>
+  </plurals>
+  <plurals name="year_in_review_days_read_body">
+    <item quantity="other">활동이 가장 많았던 달은 %1$s이며, 이 달에 %2$s일 동안 읽었습니다.</item>
+  </plurals>
+  <string name="year_in_review_longest_streak_headline_start">올해 가장 긴 연속 기록은</string>
+  <plurals name="year_in_review_longest_streak_headline_end">
+    <item quantity="other">일</item>
+  </plurals>
+  <string name="year_in_review_longest_streak_body">%s 동안 매일 읽는 습관에 푹 빠졌습니다.</string>
 </resources>

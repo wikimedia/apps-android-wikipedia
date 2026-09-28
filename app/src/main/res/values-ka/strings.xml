@@ -801,4 +801,19 @@
   <string name="on_this_day_game_incorrect">არასწორია!</string>
   <string name="on_this_day_game_menu_info">გაიგეთ მეტი</string>
   <string name="on_this_day_game_notification_undo">დაბრუნება</string>
+  <string name="year_in_review_days_read_headline_start">%d წელს Wikipedia-ს კითხულობდით</string>
+  <plurals name="year_in_review_days_read_headline_end">
+    <item quantity="one">დღის განმავლობაში</item>
+    <item quantity="other">დღის განმავლობაში</item>
+  </plurals>
+  <plurals name="year_in_review_days_read_body">
+    <item quantity="one">ყველაზე აქტიური თვე იყო %1$s — ამ თვეში %2$s დღეს კითხულობდით.</item>
+    <item quantity="other">ყველაზე აქტიური თვე იყო %1$s — ამ თვეში %2$s სხვადასხვა დღეს კითხულობდით.</item>
+  </plurals>
+  <string name="year_in_review_longest_streak_headline_start">ამ წელს თქვენი ყველაზე ხანგრძლივი სერია გაგრძელდა</string>
+  <plurals name="year_in_review_longest_streak_headline_end">
+    <item quantity="one">დღე</item>
+    <item quantity="other">დღე</item>
+  </plurals>
+  <string name="year_in_review_longest_streak_body">%s პერიოდში ყოველდღიური კითხვის რიტმში ნამდვილად ჩაერთეთ.</string>
 </resources>

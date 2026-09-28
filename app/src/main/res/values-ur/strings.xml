@@ -720,4 +720,19 @@
   <string name="survey_dialog_option_very_unsatisfied">بہت غیر مطمئن</string>
   <string name="survey_dialog_submit">جمع کریں</string>
   <string name="survey_dialog_submitted_snackbar">رائے درج ہوگئی۔ شکریہ!</string>
+  <string name="year_in_review_days_read_headline_start">%d میں، آپ نے ویکیپیڈیا</string>
+  <plurals name="year_in_review_days_read_headline_end">
+    <item quantity="one">دن پڑھا</item>
+    <item quantity="other">دن پڑھا</item>
+  </plurals>
+  <plurals name="year_in_review_days_read_body">
+    <item quantity="one">آپ کی سرگرمی %1$s میں عروج پر تھی، جب آپ نے %2$s دن پڑھا۔</item>
+    <item quantity="other">آپ کی سرگرمی %1$s میں عروج پر تھی، جب آپ نے %2$s مختلف دنوں میں پڑھا۔</item>
+  </plurals>
+  <string name="year_in_review_longest_streak_headline_start">اس سال، آپ کا سب سے طویل سلسلہ</string>
+  <plurals name="year_in_review_longest_streak_headline_end">
+    <item quantity="one">دن تک چلا</item>
+    <item quantity="other">دن تک چلا</item>
+  </plurals>
+  <string name="year_in_review_longest_streak_body">%s کے دوران، آپ واقعی ہر روز پڑھنے کی لے میں آ گئے۔</string>
 </resources>

@@ -2396,4 +2396,22 @@
   <string name="reading_lists_remove_articles_confirm_dialog_title">¿Desguardar artículo?</string>
   <string name="reading_lists_remove_articles_confirm_button">No guardar</string>
   <string name="reading_lists_update_tooltip">Las listas de lectura ahora se llaman colecciones.</string>
+  <string name="year_in_review_days_read_headline_start">En %d, leíste Wikipedia durante</string>
+  <plurals name="year_in_review_days_read_headline_end">
+    <item quantity="one">día</item>
+    <item quantity="many">días</item>
+    <item quantity="other">días</item>
+  </plurals>
+  <plurals name="year_in_review_days_read_body">
+    <item quantity="one">Tu actividad alcanzó su punto máximo en %1$s, cuando leíste durante %2$s día.</item>
+    <item quantity="many">Tu actividad alcanzó su punto máximo en %1$s, cuando leíste durante %2$s días distintos.</item>
+    <item quantity="other">Tu actividad alcanzó su punto máximo en %1$s, cuando leíste durante %2$s días distintos.</item>
+  </plurals>
+  <string name="year_in_review_longest_streak_headline_start">Este año, tu racha más larga duró</string>
+  <plurals name="year_in_review_longest_streak_headline_end">
+    <item quantity="one">día</item>
+    <item quantity="many">días</item>
+    <item quantity="other">días</item>
+  </plurals>
+  <string name="year_in_review_longest_streak_body">Del %s, le tomaste el gusto a leer todos los días.</string>
 </resources>

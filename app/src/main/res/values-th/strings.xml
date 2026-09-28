@@ -1054,4 +1054,16 @@
   </plurals>
   <string name="year_in_review_highlights_share_button_title">แบ่งปันไฮไลต์</string>
   <string name="year_in_review_highlights_logo_description">โลโก้วิกิพีเดีย</string>
+  <string name="year_in_review_days_read_headline_start">ในปี %d คุณอ่านวิกิพีเดีย</string>
+  <plurals name="year_in_review_days_read_headline_end">
+    <item quantity="other">วัน</item>
+  </plurals>
+  <plurals name="year_in_review_days_read_body">
+    <item quantity="other">กิจกรรมของคุณพุ่งสูงสุดในเดือน%1$s โดยคุณอ่านถึง %2$s วัน</item>
+  </plurals>
+  <string name="year_in_review_longest_streak_headline_start">ปีนี้ สถิติการอ่านต่อเนื่องที่ยาวนานที่สุดของคุณคือ</string>
+  <plurals name="year_in_review_longest_streak_headline_end">
+    <item quantity="other">วัน</item>
+  </plurals>
+  <string name="year_in_review_longest_streak_body">ช่วง %s คุณติดนิสัยการอ่านทุกวันอย่างแท้จริง</string>
 </resources>

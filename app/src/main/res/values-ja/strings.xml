@@ -2267,4 +2267,16 @@
   <plurals name="reading_lists_unsave_articles_confirm_dialog_message">
     <item quantity="other">保存解除すると、すべての関連付けられたコレクションから記事を除去します。</item>
   </plurals>
+  <string name="year_in_review_days_read_headline_start">%d年、あなたがウィキペディアを読んだのは</string>
+  <plurals name="year_in_review_days_read_headline_end">
+    <item quantity="other">日</item>
+  </plurals>
+  <plurals name="year_in_review_days_read_body">
+    <item quantity="other">%1$sに活動がピークに達し、%2$s日間読みました。</item>
+  </plurals>
+  <string name="year_in_review_longest_streak_headline_start">今年、あなたの最長連続記録は</string>
+  <plurals name="year_in_review_longest_streak_headline_end">
+    <item quantity="other">日間</item>
+  </plurals>
+  <string name="year_in_review_longest_streak_body">%sには、毎日読む習慣がすっかり身につきました。</string>
 </resources>

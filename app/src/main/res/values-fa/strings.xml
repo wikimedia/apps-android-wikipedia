@@ -2273,4 +2273,19 @@
   <string name="reading_lists_save_sheet_empty_message">ذخیره مقالات در مجموعه‌ها.</string>
   <string name="reading_lists_save_sheet_create">ایجاد</string>
   <string name="reading_lists_update_tooltip">فهرست‌های مطالعه اکنون مجموعه‌ها نامیده می‌شوند.</string>
+  <string name="year_in_review_days_read_headline_start">در سال %d، ویکی‌پدیا را</string>
+  <plurals name="year_in_review_days_read_headline_end">
+    <item quantity="one">روز خواندید</item>
+    <item quantity="other">روز خواندید</item>
+  </plurals>
+  <plurals name="year_in_review_days_read_body">
+    <item quantity="one">اوج فعالیت شما در %1$s بود، وقتی %2$s روز مطالعه کردید.</item>
+    <item quantity="other">اوج فعالیت شما در %1$s بود، وقتی در %2$s روز مختلف مطالعه کردید.</item>
+  </plurals>
+  <string name="year_in_review_longest_streak_headline_start">امسال، طولانی‌ترین رشتهٔ مطالعهٔ شما</string>
+  <plurals name="year_in_review_longest_streak_headline_end">
+    <item quantity="one">روز طول کشید</item>
+    <item quantity="other">روز طول کشید</item>
+  </plurals>
+  <string name="year_in_review_longest_streak_body">از %s، واقعاً به مطالعهٔ هر روزه عادت کردید.</string>
 </resources>

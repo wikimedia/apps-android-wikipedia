@@ -1576,4 +1576,19 @@
   <string name="donation_reminders_prompt_negative_button">अभी नहीं</string>
   <string name="home_feed_did_you_know_title">क्या आप जानते हैं?</string>
   <string name="reading_lists_remove_articles_confirm_button" fuzzy="true">हटाएँ</string>
+  <string name="year_in_review_days_read_headline_start">%d में, आपने विकिपीडिया</string>
+  <plurals name="year_in_review_days_read_headline_end">
+    <item quantity="one">दिन पढ़ा</item>
+    <item quantity="other">दिन पढ़ा</item>
+  </plurals>
+  <plurals name="year_in_review_days_read_body">
+    <item quantity="one">आपकी गतिविधि %1$s में चरम पर थी, जब आपने %2$s दिन पढ़ा।</item>
+    <item quantity="other">आपकी गतिविधि %1$s में चरम पर थी, जब आपने %2$s अलग-अलग दिनों पर पढ़ा।</item>
+  </plurals>
+  <string name="year_in_review_longest_streak_headline_start">इस साल, आपकी सबसे लंबी लगातार पढ़ाई</string>
+  <plurals name="year_in_review_longest_streak_headline_end">
+    <item quantity="one">दिन चली</item>
+    <item quantity="other">दिन चली</item>
+  </plurals>
+  <string name="year_in_review_longest_streak_body">%s के दौरान, आपको हर दिन पढ़ने की अच्छी आदत लग गई।</string>
 </resources>

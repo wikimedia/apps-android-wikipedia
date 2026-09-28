@@ -2712,4 +2712,25 @@
   <string name="reading_lists_tab_all_articles">Все статьи</string>
   <string name="reading_lists_tab_collections">Коллекции</string>
   <string name="reading_lists_remove_articles_confirm_button" fuzzy="true">Удалить</string>
+  <string name="year_in_review_days_read_headline_start">В %d году вы читали Википедию</string>
+  <plurals name="year_in_review_days_read_headline_end">
+    <item quantity="one">день</item>
+    <item quantity="few">дня</item>
+    <item quantity="many">дней</item>
+    <item quantity="other">дня</item>
+  </plurals>
+  <plurals name="year_in_review_days_read_body">
+    <item quantity="one">Пик вашей активности пришёлся на %1$s: вы читали %2$s день.</item>
+    <item quantity="few">Пик вашей активности пришёлся на %1$s: вы читали %2$s разных дня.</item>
+    <item quantity="many">Пик вашей активности пришёлся на %1$s: вы читали %2$s разных дней.</item>
+    <item quantity="other">Пик вашей активности пришёлся на %1$s: вы читали %2$s дня.</item>
+  </plurals>
+  <string name="year_in_review_longest_streak_headline_start">В этом году ваша самая длинная серия длилась</string>
+  <plurals name="year_in_review_longest_streak_headline_end">
+    <item quantity="one">день</item>
+    <item quantity="few">дня</item>
+    <item quantity="many">дней</item>
+    <item quantity="other">дня</item>
+  </plurals>
+  <string name="year_in_review_longest_streak_body">В период %s вы по-настоящему втянулись в ежедневное чтение.</string>
 </resources>

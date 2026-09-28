@@ -2281,6 +2281,21 @@
     </plurals>
     <string name="year_in_review_highlights_share_button_title">Share highlights</string>
     <string name="year_in_review_highlights_logo_description">Wikipedia logo</string>
+    <string name="year_in_review_days_read_headline_start">In %d, you read Wikipedia on</string>
+    <plurals name="year_in_review_days_read_headline_end">
+        <item quantity="one">day</item>
+        <item quantity="other">days</item>
+    </plurals>
+    <plurals name="year_in_review_days_read_body">
+        <item quantity="one">Your activity peaked in %1$s, when you read on %2$s day.</item>
+        <item quantity="other">Your activity peaked in %1$s, when you read on %2$s different days.</item>
+    </plurals>
+    <string name="year_in_review_longest_streak_headline_start">This year, your longest streak lasted</string>
+    <plurals name="year_in_review_longest_streak_headline_end">
+        <item quantity="one">day</item>
+        <item quantity="other">days</item>
+    </plurals>
+    <string name="year_in_review_longest_streak_body">From %s, you really got into the groove of reading every day.</string>
     <!-- Recommended collection -->
     <string name="recommended_reading_list_title">Discover</string>
     <string name="recommended_reading_list_onboarding_card_title">Discover articles picked just for you</string>

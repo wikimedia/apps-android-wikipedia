@@ -1236,4 +1236,19 @@
   <string name="year_in_review_survey_submit">জমা দিন</string>
   <string name="year_in_review_disable_positive_button">হ্যাঁ, আমি নিশ্চিত</string>
   <string name="year_in_review_login_dialog_positive">উইকিপিডিয়ায় প্রবেশ করুন / যোগ দিন</string>
+  <string name="year_in_review_days_read_headline_start">%d সালে, আপনি উইকিপিডিয়া পড়েছেন</string>
+  <plurals name="year_in_review_days_read_headline_end">
+    <item quantity="one">দিন</item>
+    <item quantity="other">দিন</item>
+  </plurals>
+  <plurals name="year_in_review_days_read_body">
+    <item quantity="one">%1$s মাসে আপনার কার্যকলাপ সর্বোচ্চ ছিল, যখন আপনি %2$s দিন পড়েছেন।</item>
+    <item quantity="other">%1$s মাসে আপনার কার্যকলাপ সর্বোচ্চ ছিল, যখন আপনি %2$s ভিন্ন ভিন্ন দিনে পড়েছেন।</item>
+  </plurals>
+  <string name="year_in_review_longest_streak_headline_start">এই বছর, আপনার দীর্ঘতম ধারাবাহিকতা স্থায়ী ছিল</string>
+  <plurals name="year_in_review_longest_streak_headline_end">
+    <item quantity="one">দিন</item>
+    <item quantity="other">দিন</item>
+  </plurals>
+  <string name="year_in_review_longest_streak_body">%s সময়ে, আপনি প্রতিদিন পড়ার ছন্দে ভালোভাবেই মেতে উঠেছিলেন।</string>
 </resources>

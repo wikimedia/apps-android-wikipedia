@@ -2538,4 +2538,31 @@
   <string name="home_feed_settings_modules_title">الوحدات</string>
   <string name="home_feed_did_you_know_title">هل تعلم؟</string>
   <string name="home_feed_did_you_know_subtitle">حقائق مثيرة للاهتمام من مقالات اختارها محررون متطوعون</string>
+  <string name="year_in_review_days_read_headline_start">في عام %d، قرأت ويكيبيديا لمدة</string>
+  <plurals name="year_in_review_days_read_headline_end">
+    <item quantity="zero">يوم</item>
+    <item quantity="one">يوم</item>
+    <item quantity="two">يومين</item>
+    <item quantity="few">أيام</item>
+    <item quantity="many">يومًا</item>
+    <item quantity="other">يوم</item>
+  </plurals>
+  <plurals name="year_in_review_days_read_body">
+    <item quantity="zero">بلغ نشاطك ذروته في %1$s، عندما قرأت في %2$s يوم.</item>
+    <item quantity="one">بلغ نشاطك ذروته في %1$s، عندما قرأت في %2$s يوم.</item>
+    <item quantity="two">بلغ نشاطك ذروته في %1$s، عندما قرأت في %2$s يومين.</item>
+    <item quantity="few">بلغ نشاطك ذروته في %1$s، عندما قرأت في %2$s أيام مختلفة.</item>
+    <item quantity="many">بلغ نشاطك ذروته في %1$s، عندما قرأت في %2$s يومًا مختلفًا.</item>
+    <item quantity="other">بلغ نشاطك ذروته في %1$s، عندما قرأت في %2$s يوم مختلف.</item>
+  </plurals>
+  <string name="year_in_review_longest_streak_headline_start">هذا العام، استمرت أطول سلسلة قراءة لك</string>
+  <plurals name="year_in_review_longest_streak_headline_end">
+    <item quantity="zero">يوم</item>
+    <item quantity="one">يوم</item>
+    <item quantity="two">يومين</item>
+    <item quantity="few">أيام</item>
+    <item quantity="many">يومًا</item>
+    <item quantity="other">يوم</item>
+  </plurals>
+  <string name="year_in_review_longest_streak_body">من %s، اعتدت حقًا على القراءة كل يوم.</string>
 </resources>

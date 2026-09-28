@@ -1017,4 +1017,19 @@
   <string name="home_feed_games_module_cta_prompt_title">थप खेलहरू खेल्न चाहनुहुन्छ?</string>
   <string name="home_feed_games_module_cta_prompt_subtitle">खेल केन्द्रमा जानुहोस्</string>
   <string name="home_feed_games_module_cta_prompt_button_text">खेल हब</string>
+  <string name="year_in_review_days_read_headline_start">%d मा, तपाईंले विकिपिडिया</string>
+  <plurals name="year_in_review_days_read_headline_end">
+    <item quantity="one">दिन पढ्नुभयो</item>
+    <item quantity="other">दिन पढ्नुभयो</item>
+  </plurals>
+  <plurals name="year_in_review_days_read_body">
+    <item quantity="one">तपाईंको गतिविधि %1$s मा सबैभन्दा बढी थियो, जब तपाईंले %2$s दिन पढ्नुभयो।</item>
+    <item quantity="other">तपाईंको गतिविधि %1$s मा सबैभन्दा बढी थियो, जब तपाईंले %2$s फरक दिन पढ्नुभयो।</item>
+  </plurals>
+  <string name="year_in_review_longest_streak_headline_start">यस वर्ष, तपाईंको सबैभन्दा लामो निरन्तर पढाइ</string>
+  <plurals name="year_in_review_longest_streak_headline_end">
+    <item quantity="one">दिनसम्म चल्यो</item>
+    <item quantity="other">दिनसम्म चल्यो</item>
+  </plurals>
+  <string name="year_in_review_longest_streak_body">%s सम्म, तपाईंलाई हरेक दिन पढ्ने बानी राम्रैसँग बस्यो।</string>
 </resources>
