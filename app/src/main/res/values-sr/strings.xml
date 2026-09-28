@@ -1768,13 +1768,6 @@
   <string name="donation_reminders_experiment_label">ЕКСПЕРИМЕНТ</string>
   <string name="donation_reminders_settings_learn_more_button">Сазнајте више</string>
   <string name="donation_reminders_snackbar_modify_button_label">Измени</string>
-  <string name="hybrid_search_onboarding_learn_more">Сазнајте више</string>
-  <string name="hybrid_search_onboarding_opt_in_choice_title">Бета функције</string>
-  <string name="hybrid_search_beta_tag">Бета</string>
-  <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">РНК vs ДНК</string>
-  <string name="hybrid_search_onboarding_screen_title">Нов начин претраге</string>
-  <string name="hybrid_search_no_results_header">Нема резултата</string>
-  <string name="hybrid_search_who_is_prefix">Ко је %s?</string>
   <string name="reading_challenge_onboarding_learn_more_button">Сазнајте више</string>
   <string name="reading_challenge_onboarding_prompt_no_thanks">Не, хвала</string>
   <string name="reading_challenge_onboarding_prompt_login">Пријава / Придружите се Википедији</string>

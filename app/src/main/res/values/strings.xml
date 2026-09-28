@@ -2421,41 +2421,6 @@
     <string name="donation_reminders_eoe_give_monthly_button">Give monthly</string>
     <string name="donation_reminders_eoe_donate_dialog_title">How would you like to give monthly?</string>
 
-    <!-- Hybrid Search -->
-    <string name="hybrid_search_search_hint">Search or ask anything</string>
-    <string name="hybrid_search_article_search_hint">Ask about %s</string>
-    <string name="hybrid_search_suggestion_title">Search for:</string>
-    <string name="hybrid_search_onboarding_learn_more">Learn more</string>
-    <string name="hybrid_search_onboarding_search_title">Ask questions, get answers</string>
-    <string name="hybrid_search_onboarding_search_description">This experimental feature understands natural language. Instead of searching for keywords, describe what you want to know.</string>
-    <string name="hybrid_search_onboarding_opt_in_choice_title">Beta feature</string>
-    <string name="hybrid_search_onboarding_opt_in_choice_description">Available for a limited time during this experiment.</string>
-    <string name="hybrid_search_beta_tag">Beta</string>
-    <string name="hybrid_search_experimental_feature_switch_label">Join experiment</string>
-    <string name="hybrid_search_onboarding_search_example_title">Need inspiration?</string>
-    <string name="hybrid_search_onboarding_search_example_description">Use one of the search examples below.</string>
-    <string name="hybrid_search_onboarding_opt_out_toast_message">You\'ve opted out of the experiment.</string>
-    <string name="hybrid_search_onboarding_search_example_query_pluto_as_planet">When was Pluto unlisted as a planet?</string>
-    <string name="hybrid_search_onboarding_search_example_query_first_olympics">first Olympics</string>
-    <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">RNA vs DNA</string>
-    <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Why do people put pineapple on pizza?</string>
-    <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">What are the biggest cities in Europe?</string>
-    <string name="hybrid_search_onboarding_screen_title">A new way to search</string>
-    <string name="hybrid_search_results_header_description">Sourced from human written Wikipedia articles</string>
-    <string name="hybrid_search_results_rate_label">Rate this result</string>
-    <string name="hybrid_search_results_rated_label">Rated</string>
-    <string name="hybrid_search_results_rate_thumb_up">Rate thumbs up</string>
-    <string name="hybrid_search_results_rate_thumb_down">Rate thumbs down</string>
-    <string name="hybrid_lexical_search_results_empty">No article title matches this query.</string>
-    <string name="hybrid_search_results_empty">Enhanced search is temporarily unavailable.</string>
-    <string name="hybrid_search_no_results_header">No results</string>
-    <string name="hybrid_search_no_results_description">This topic isn\'t returning article excerpts at this moment. Here are some things you can try:</string>
-    <string name="hybrid_search_no_results_suggestion_rephrase_text">Rephrase your search</string>
-    <string name="hybrid_search_no_results_suggestion_try_related_topic">Try a related topic</string>
-    <string name="hybrid_search_error_message">Something went wrong. Please try again later.</string>
-    <string name="hybrid_search_who_is_prefix">Who is %s?</string>
-    <string name="hybrid_search_turn_off_experiment_label">Turn off this experiment</string>
-
     <!-- Reading challenge   -->
     <string name="reading_challenge_widget_name">Reading Challenge</string>
     <string name="reading_challenge_onboarding_header">Celebrate Wikipedia\'s 25th birthday by joining the 25-day reading challenge!</string>
@@ -2585,6 +2550,8 @@
     <string name="home_feed_new_within_interest_card_heading">New in your interest</string>
     <string name="home_feed_new_within_interest_title">New articles in your interests</string>
     <string name="home_feed_new_within_interest_subtitle">Recently created articles within topic areas you follow</string>
+    <string name="home_feed_settings_read_aloud_lead_section_title">Listen to article intros</string>
+    <string name="home_feed_settings_read_aloud_lead_section_subtitle">Generated audio for article introductions within topic areas you follow</string>
     <string name="home_feed_settings_because_you_read_subtitle">Suggestions based on a recent article from your history</string>
     <string name="home_feed_settings_continue_reading_title">Continue reading</string>
     <string name="home_feed_settings_continue_reading_subtitle">Jump back into articles you didn\'t finish</string>
@@ -2627,6 +2594,25 @@
     <string name="home_feed_settings_games_title">Games</string>
     <string name="home_feed_settings_games_subtitle">Daily games based on Wikipedia content</string>
     <string name="home_feed_settings_discover_title">Discover recommendations</string>
+    <string name="read_aloud_card_play">Play</string>
+    <string name="read_aloud_card_pause">Pause</string>
+    <string name="read_aloud_card_retry">Retry</string>
+    <string name="read_aloud_card_error">Audio is not available for this article.</string>
+    <string name="read_aloud_card_keep_listening">Keep listening?</string>
+    <string name="read_aloud_card_audio_date"><![CDATA[This audio was generated using <a href="https://www.mediawiki.org/wiki/Readers/Listening_to_Wikipedia/Model">a text-to-speech model</a>, based on article content from %s.]]></string>
+    <string name="read_aloud_card_audio_attribution"><![CDATA[This audio was generated using <a href="https://www.mediawiki.org/wiki/Readers/Listening_to_Wikipedia/Model">a text-to-speech model</a>.]]></string>
+    <string name="read_aloud_lead_section_tooltip_text">New beta feature: listen to article intros in \"For you\"</string>
+    <string name="read_aloud_lead_section_survey_title">How are you interested in listening to Wikipedia?</string>
+    <string name="read_aloud_lead_section_survey_choice1">Article introductions</string>
+    <string name="read_aloud_lead_section_survey_choice2">A few sections of an article</string>
+    <string name="read_aloud_lead_section_survey_choice3">Full articles</string>
+    <string name="read_aloud_lead_section_survey_choice4">Multiple short excerpts from different articles on a topic</string>
+    <string name="read_aloud_lead_section_survey_choice5">Other:</string>
+    <string name="read_aloud_lead_section_beta_label">Beta</string>
+    <string name="read_aloud_lead_section_report_subject">Issue report - Listen to article intros</string>
+    <string name="read_aloud_lead_section_report_body">I have encountered a problem with the \"Listen to article intros\" feature:\n- [Describe specific problem]\n\nThe behavior I would like to see is:\n- [Describe proposed solution]</string>
+    <string name="read_aloud_lead_section_about_experiment">About this experiment</string>
+    <string name="read_aloud_lead_section_report_issue">Report an issue</string>
     <string name="home_feed_settings_discover_subtitle">Articles from your Discover collection</string>
     <string name="home_feed_discover_cta_title">From Discover</string>
     <string name="home_feed_discover_cta_description">Learn about new topics, picked just for you. Choose between daily, weekly or monthly updates.</string>

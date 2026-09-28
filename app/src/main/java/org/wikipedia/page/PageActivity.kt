@@ -74,9 +74,9 @@ import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.readinglist.ReadingListActivity
 import org.wikipedia.readinglist.ReadingListMode
-import org.wikipedia.search.HybridSearchAbCTest
 import org.wikipedia.search.SearchActivity
 import org.wikipedia.settings.Prefs
+import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.suggestededits.PageSummaryForEdit
@@ -499,15 +499,16 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     }
 
     override fun onPageRequestEditSection(sectionId: Int, sectionAnchor: String?, title: PageTitle, highlightText: String?) {
+        val isVisualEditorEnabled = RemoteConfig.config.androidv1?.visualEditorEnabled ?: false
         val launchEditor = {
             val appInstallId = WikipediaApp.instance.appInstallID
-            if (Prefs.editorModeChoice == EDITOR_CHOICE_VE && Prefs.visualEditorEnabled) {
+            if (Prefs.editorModeChoice == EDITOR_CHOICE_VE && isVisualEditorEnabled) {
                 UriUtil.visitInExternalBrowser(this, title.getWebApiUrl("veaction=edit&section=$sectionId&appinstallid=$appInstallId").toUri())
             } else {
                 requestEditSectionLauncher.launch(EditSectionActivity.newIntent(this, sectionId, sectionAnchor, title, InvokeSource.PAGE_ACTIVITY, highlightText))
             }
         }
-        if (Prefs.editorModeChoiceShowDialog && Prefs.visualEditorEnabled) {
+        if (Prefs.editorModeChoiceShowDialog && isVisualEditorEnabled) {
             showEditorChoiceDialog(this, isSettingsScreen = false) { editorChoice, dontShowAgain ->
                 Prefs.editorModeChoice = editorChoice
                 Prefs.editorModeChoiceShowDialog = !dontShowAgain
@@ -897,13 +898,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     }
 
     fun updateSearchHint() {
-        if (Prefs.isHybridSearchOnboardingShown && HybridSearchAbCTest().isHybridSearchEnabled(WikipediaApp.instance.languageState.appLanguageCode) &&
-            pageFragment.title?.namespace() == Namespace.MAIN) {
-            val title = StringUtil.fromHtml(pageFragment.title?.displayText)
-            binding.pageToolbarButtonSearch.text = getString(R.string.hybrid_search_article_search_hint, title)
-        } else {
-            binding.pageToolbarButtonSearch.text = getString(R.string.search_hint)
-        }
+        binding.pageToolbarButtonSearch.text = getString(R.string.search_hint)
     }
 
     override fun onProvideAssistContent(outContent: AssistContent) {

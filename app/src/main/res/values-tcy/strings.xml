@@ -361,7 +361,7 @@
     <item quantity="one">This article will no longer be available offline.</item>
     <item quantity="other">These articles will no longer be available offline.</item>
   </plurals>
-  <string name="reading_list_remove_list_dialog_ok_button_text">ಸರಿ</string>
+  <string name="reading_list_remove_list_dialog_ok_button_text">ಆವು</string>
   <string name="reading_lists_preview_save_dialog_cancel">ವಜಾ ಮಲ್ಪುಲೆ</string>
   <string name="user_option_sync_label">ಪ್ರಾಸಸ್ತ್ಯೊಲು</string>
   <string name="notification_reverted_title">ಸೇರ್ಸಾಯಿನೆನ್ ಪಿರದಿಂಜಾನ್ಡ್</string>

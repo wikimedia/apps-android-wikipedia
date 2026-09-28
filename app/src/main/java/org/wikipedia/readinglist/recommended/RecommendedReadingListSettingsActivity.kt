@@ -18,6 +18,7 @@ import androidx.core.content.ContextCompat
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.concurrency.FlowEventBus
@@ -89,6 +90,8 @@ class RecommendedReadingListSettingsActivity : BaseActivity(), BaseActivity.Call
                     },
                     onNotificationStateChanged = {
                         RecommendedReadingListEvent.submit(if (it) "notifs_on_click" else "notifs_off_click", "discover_settings")
+                        TestKitchenAdapter.client.getInstrument("apps-notifications")
+                            .submitInteraction(action = "click", actionSource = "discover", actionSubtype = "settings", elementId = if (it) "notification_on" else "notification_off")
                         if (it) {
                             requestPermissionAndScheduleRecommendedReadingNotification()
                         } else {
