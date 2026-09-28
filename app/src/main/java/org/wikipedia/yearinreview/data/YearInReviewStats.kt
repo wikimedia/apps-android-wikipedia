@@ -1,8 +1,6 @@
 package org.wikipedia.yearinreview.data
 
 import kotlinx.serialization.Serializable
-import kotlinx.serialization.Transient
-import org.wikipedia.history.db.HistoryEntryWithImage
 
 @Serializable
 data class YearInReviewCachedStats(
@@ -12,33 +10,31 @@ data class YearInReviewCachedStats(
 
 @Serializable
 data class YearInReviewEditingStats(
-    val userEditsCount: Int,
-    val userEditsViewedTimes: Long
+    val contributionsEditCount: Int
 )
 
 @Serializable
 data class YearInReviewReadingStats(
-    val totalReadingTimeMinutes: Long,
-    val localReadingArticlesCount: Int,
-    val localSavedArticlesCount: Int,
-    val localSavedArticles: List<String>,
-    val localTopVisitedArticles: List<String>,
-    val localTopCategories: List<String>,
-    val favoriteTimeToRead: Int,
-    val favoriteDayToRead: Int,
-    val favoriteMonthDidMostReading: Int,
-    val geoStats: YearInReviewGeoStats
-)
+    val articlesReadCount: Int,
+    val visitedDaysCount: Int
+) {
+    val totalArticlesStatus get() = if (articlesReadCount >= MIN_ARTICLES_READ) {
+        YearInReviewInsightStatus.PERSONALIZED
+    } else {
+        YearInReviewInsightStatus.EMPTY_STATE
+    }
 
-@Serializable
-data class YearInReviewGeoStats(
-    val largestClusterLocation: Pair<Double, Double>,
-    val largestClusterTopLeft: Pair<Double, Double>,
-    val largestClusterBottomRight: Pair<Double, Double>,
-    val largestClusterCountryName: String,
-    val largestClusterArticles: List<String>,
-    @Transient val pagesWithCoordinates: List<HistoryEntryWithImage> = emptyList()
-)
+    val visitsStatus get() = if (visitedDaysCount >= MIN_VISITED_DAYS) {
+        YearInReviewInsightStatus.PERSONALIZED
+    } else {
+        YearInReviewInsightStatus.SUPPRESSED
+    }
+
+    companion object {
+        const val MIN_ARTICLES_READ = 3
+        const val MIN_VISITED_DAYS = 2
+    }
+}
 
 data class YearInReviewRewardData(
     val isDonor: Boolean,

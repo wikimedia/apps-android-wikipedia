@@ -96,7 +96,7 @@ class YearInReviewViewModel(
 
         val isCustomIconAllowed get() = Prefs.yearInReviewCachedStats[YIR_YEAR]?.let {
             YearInReviewDonationEligibility().hasDonatedWithinContributionsDateRange(YearInReviewConfig.cachedRemoteConfig) ||
-                    (it.editingStats?.userEditsCount ?: 0) > 0
+                    (it.editingStats?.contributionsEditCount ?: 0) > 0
         } == true
 
         fun updateYearInReviewModel(year: Int = YIR_YEAR, update: (YearInReviewModel) -> YearInReviewModel) {
