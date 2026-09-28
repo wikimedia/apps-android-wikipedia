@@ -157,11 +157,13 @@ fun ReadingListPageRow(
             }
         }
 
-        Spacer(modifier = Modifier.width(16.dp))
-        ArticleThumbnail(
-            thumbUrl = page.thumbUrl,
-            modifier = Modifier.alpha(if (page.isAvailable) 1f else 0.5f)
-        )
+        if (!page.thumbUrl.isNullOrEmpty()) {
+            Spacer(modifier = Modifier.width(16.dp))
+            ArticleThumbnail(
+                thumbUrl = page.thumbUrl,
+                modifier = Modifier.alpha(if (page.isAvailable) 1f else 0.5f)
+            )
+        }
     }
 }
 
@@ -198,7 +200,7 @@ private val THUMBNAIL_SIZE = 56.dp
 private val DOWNLOAD_BUTTON_SIZE = 32.dp
 
 @Composable
-private fun ArticleThumbnail(thumbUrl: String?, modifier: Modifier = Modifier) {
+private fun ArticleThumbnail(thumbUrl: String, modifier: Modifier = Modifier) {
     val thumbnail = modifier
         .size(THUMBNAIL_SIZE)
         .clip(RoundedCornerShape(8.dp))

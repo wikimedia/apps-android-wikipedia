@@ -5,10 +5,12 @@ import org.junit.Assert.assertNotNull
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.personalization.db.entity.InterestArticle
 import org.wikipedia.feed.personalization.db.entity.InterestTopic
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.Namespace
+import org.wikipedia.page.PageTitle
 import java.time.LocalDateTime
 
 @RunWith(RobolectricTestRunner::class)
@@ -24,9 +26,15 @@ class ForYouCollectionSavedTest {
                 article = InterestArticle("Article_title", "en", Namespace.MAIN, "Article title", "description", "thumbUrl")
             ),
             ForYouModuleRequest.NewWithinInterest(age = 0, index = 0, topics = listOf(InterestTopic("other-topic-id"))),
-            ForYouModuleRequest.BecauseYouRead(age = 0, index = 0),
-            ForYouModuleRequest.ContinueReading(age = 0, index = 0),
-            ForYouModuleRequest.Random(age = 0, index = 0)
+            ForYouModuleRequest.BecauseYouRead(age = 0, index = 0, seedTitle = PageTitle("Seed_article", WikiSite.forLanguageCode("en"))),
+            ForYouModuleRequest.ContinueReading(age = 0, index = 0, seedTitle = PageTitle("Other_seed", WikiSite.forLanguageCode("en"))),
+            ForYouModuleRequest.Random(age = 0, index = 0),
+            ForYouModuleRequest.ReadAloudLeadSection(
+                age = 0,
+                index = 0,
+                topic = InterestTopic("audio-topic-id"),
+                titles = listOf(PageTitle("Audio_article", WikiSite.forLanguageCode("en")))
+            )
         )
         val saved = ForYouCollectionSaved(
             dateTime = LocalDateTime.now(),

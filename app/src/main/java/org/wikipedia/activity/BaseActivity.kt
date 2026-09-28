@@ -42,6 +42,7 @@ import org.wikipedia.events.UnreadNotificationsEvent
 import org.wikipedia.games.onthisday.OnThisDayGameResultFragment
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
+import org.wikipedia.notifications.NotificationCategory
 import org.wikipedia.notifications.NotificationPresenter
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
@@ -130,8 +131,18 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
                         .submitInteraction(action = "app_open", actionSource = "widget", actionSubtype = widgetType)
                 }
                 InvokeSource.NOTIFICATION -> {
+                    val notificationCategory = intent.getSerializableExtra(Constants.INTENT_EXTRA_NOTIFICATION_CATEGORY) as NotificationCategory?
+                    val subType = when (notificationCategory) {
+                        NotificationCategory.GAMES -> "game"
+                        NotificationCategory.RECOMMENDED_READING_LISTS -> "discover"
+                        else -> null
+                    }
                     TestKitchenAdapter.client.getInstrument("apps-open")
-                        .submitInteraction(action = "app_open", actionSource = "notification")
+                        .submitInteraction(
+                            action = "app_open",
+                            actionSource = "notification",
+                            actionSubtype = subType
+                        )
                 }
                 InvokeSource.APP_SHORTCUTS -> {
                     val shortcutId = intent.getStringExtra(AppShortcuts.APP_SHORTCUT_ID)

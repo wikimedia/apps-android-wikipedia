@@ -60,7 +60,12 @@ object RecommendedReadingListNotificationManager {
             lang = null,
             icon = null,
             color = R.color.blue600,
-            bodyIntent = ReadingListActivity.newIntent(context, ReadingListMode.RECOMMENDED, Constants.InvokeSource.NOTIFICATION)
+            bodyIntent = ReadingListActivity.newIntent(
+                context = context,
+                readingListMode = ReadingListMode.RECOMMENDED,
+                invokeSource = Constants.InvokeSource.NOTIFICATION,
+                notificationCategory = NotificationCategory.RECOMMENDED_READING_LISTS
+            )
         )
     }
 
