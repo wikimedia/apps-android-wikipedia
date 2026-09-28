@@ -409,6 +409,9 @@ class HomeViewModel : ViewModel() {
     private val _tabsState = MutableStateFlow(TabsState(WikipediaApp.instance.tabCount, pulse = false))
     val tabsState = _tabsState.asStateFlow()
 
+    private val _readAloudExperimentAssigned = MutableStateFlow(ReadAloudLeadSectionABTest().isGroupAssigned())
+    val readAloudExperimentAssigned = _readAloudExperimentAssigned.asStateFlow()
+
     // Holds the API titles of Community-tab articles currently in the feed, to be queried whether they are saved in a reading list.
     // The "For you" tab does not contribute here; its cards resolve saved state lazily on overflow-menu tap (see resolveForYouSavedState in HomeFragment).
     private val _savedInReadingApiTitles = MutableStateFlow<List<String>>(emptyList())
@@ -820,13 +823,18 @@ class HomeViewModel : ViewModel() {
 
             // -- Read aloud lead section --
 
-            if (ReadAloudLeadSectionABTest().isTestActive() &&
-                ReadAloudArticlesRepository.isSupported(currentWikiSite)) {
-                ReadAloudLeadSectionABTest().maybeSendExposureEvent()
+            val readAloudLeadSectionTest = ReadAloudLeadSectionABTest()
+            if (readAloudLeadSectionTest.isTestActive() &&
+                ReadAloudArticlesRepository.isSupported(currentWikiSite) &&
+                AppDatabase.instance.topicInterestDao().hasAnyTopics()) {
+                readAloudLeadSectionTest.assignEligibleUserToGroup()
+                _readAloudExperimentAssigned.value = true
+                readAloudLeadSectionTest.maybeSendExposureEvent()
             }
+
             val readAloudDeferred = async(Dispatchers.IO) {
-                if (!ReadAloudLeadSectionABTest().isTestActive() ||
-                    !ReadAloudLeadSectionABTest().isTestGroupUser() ||
+                if (!readAloudLeadSectionTest.isTestActive() ||
+                    !readAloudLeadSectionTest.isTestGroupUser() ||
                     !ReadAloudArticlesRepository.isSupported(currentWikiSite)) {
                     return@async emptyList()
                 }

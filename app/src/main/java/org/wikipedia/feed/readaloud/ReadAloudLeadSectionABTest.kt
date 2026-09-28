@@ -5,11 +5,25 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.ABTest
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.settings.Prefs
+import org.wikipedia.settings.PrefsIoUtil
 import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.settings.SettingsRepository
 import org.wikipedia.settings.homefeed.ForYouModuleType
 
 class ReadAloudLeadSectionABTest : ABTest("readaloudleadsection", GROUP_SIZE_2) {
+    override fun assignGroup() = Unit
+
+    fun assignEligibleUserToGroup() {
+        if (!isGroupAssigned()) {
+            super.assignGroup()
+            PrefsIoUtil.setInt(preferenceKey, testGroup)
+        }
+    }
+
+    fun isGroupAssigned(): Boolean {
+        return PrefsIoUtil.getInt(preferenceKey, -1) != -1
+    }
+
     override fun getGroupName(): String {
         return when (group) {
             GROUP_2 -> "treatment"
