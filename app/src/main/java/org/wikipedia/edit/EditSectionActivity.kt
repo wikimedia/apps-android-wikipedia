@@ -17,6 +17,12 @@ import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.res.stringResource
 import androidx.core.app.ActivityCompat
 import androidx.core.net.toUri
 import androidx.core.os.postDelayed
@@ -40,8 +46,9 @@ import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.captcha.CaptchaHandler
 import org.wikipedia.captcha.CaptchaResult
+import org.wikipedia.compose.components.WikipediaAlertDialogWithCheckbox
+import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.databinding.ActivityEditSectionBinding
-import org.wikipedia.databinding.DialogWithCheckboxBinding
 import org.wikipedia.databinding.ItemEditActionbarButtonBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.MwException
@@ -72,7 +79,6 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
-import org.wikipedia.views.EditNoticesDialog
 import org.wikipedia.views.ViewUtil
 import java.io.IOException
 import java.util.concurrent.TimeUnit
@@ -144,9 +150,8 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
         }
     }
 
-    private val movementMethod = LinkMovementMethodExt { urlStr ->
-        UriUtil.visitInExternalBrowser(this, UriUtil.resolveProtocolRelativeUrl(viewModel.pageTitle.wikiSite, urlStr).toUri())
-    }
+    private var editSourcePromptVisible by mutableStateOf(false)
+    private var editNoticesVisible by mutableStateOf(false)
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -158,6 +163,8 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
         supportActionBar?.title = ""
 
         onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
+
+        binding.editSectionDialogComposeView.setContent { Dialogs() }
 
         syntaxHighlighter = SyntaxHighlighter(this, binding.editSectionText, binding.editSectionScroll)
         binding.editSectionScroll.isSmoothScrollingEnabled = false
@@ -671,23 +678,48 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
         if (viewModel.editNotices.isEmpty()) {
             return
         }
-        EditNoticesDialog(viewModel.pageTitle.wikiSite, viewModel.editNotices, this).show()
+        editNoticesVisible = true
+    }
+
+    @Composable
+    private fun Dialogs() {
+        BaseTheme {
+            if (editSourcePromptVisible) {
+                var doNotShowAgain by remember { mutableStateOf(false) }
+                WikipediaAlertDialogWithCheckbox(
+                    message = stringResource(R.string.talk_edit_disclaimer),
+                    checkboxText = stringResource(R.string.reading_list_prompt_turned_sync_on_dialog_do_not_show),
+                    isChecked = doNotShowAgain,
+                    onCheckedChange = { doNotShowAgain = it },
+                    confirmButtonText = stringResource(R.string.onboarding_got_it),
+                    wikiSite = viewModel.pageTitle.wikiSite,
+                    onDismissRequest = {
+                        Prefs.showEditTalkPageSourcePrompt = !doNotShowAgain
+                        editSourcePromptVisible = false
+                    }
+                )
+            }
+            if (editNoticesVisible) {
+                var autoShowEnabled by remember { mutableStateOf(Prefs.autoShowEditNotices) }
+                EditNoticesDialog(
+                    editNotices = viewModel.editNotices,
+                    autoShowEnabled = autoShowEnabled,
+                    onAutoShowChange = {
+                        autoShowEnabled = it
+                        Prefs.autoShowEditNotices = it
+                    },
+                    wikiSite = viewModel.pageTitle.wikiSite,
+                    onDismissRequest = { editNoticesVisible = false }
+                )
+            }
+        }
     }
 
     private fun maybeShowEditSourceDialog() {
         if (!Prefs.showEditTalkPageSourcePrompt || (viewModel.pageTitle.namespace() !== Namespace.TALK && viewModel.pageTitle.namespace() !== Namespace.USER_TALK)) {
             return
         }
-        val binding = DialogWithCheckboxBinding.inflate(layoutInflater)
-        binding.dialogMessage.text = StringUtil.fromHtml(getString(R.string.talk_edit_disclaimer))
-        binding.dialogMessage.movementMethod = movementMethod
-        MaterialAlertDialogBuilder(this@EditSectionActivity)
-            .setView(binding.root)
-            .setPositiveButton(R.string.onboarding_got_it) { dialog, _ -> dialog.dismiss() }
-            .setOnDismissListener {
-                Prefs.showEditTalkPageSourcePrompt = !binding.dialogCheckbox.isChecked
-            }
-            .show()
+        editSourcePromptVisible = true
     }
 
     private fun displaySectionText() {

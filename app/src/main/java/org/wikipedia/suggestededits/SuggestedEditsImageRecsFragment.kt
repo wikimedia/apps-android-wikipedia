@@ -1,6 +1,5 @@
 package org.wikipedia.suggestededits
 
-import android.content.pm.ActivityInfo
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -111,7 +110,6 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        requireActivity().requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 
         requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
 

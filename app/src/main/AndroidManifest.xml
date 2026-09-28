@@ -377,7 +377,8 @@
             android:name=".settings.AboutActivity"/>
 
         <activity
-            android:name=".games.onthisday.OnThisDayGameActivity"/>
+            android:name=".games.onthisday.OnThisDayGameActivity"
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".games.GamesHubActivity"/>
