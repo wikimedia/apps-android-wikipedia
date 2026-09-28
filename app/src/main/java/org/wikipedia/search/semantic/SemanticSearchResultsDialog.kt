@@ -12,7 +12,7 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.search.SearchResultCallback
 
-class SemanticSearchResultsDialog : ExtendedBottomSheetDialogFragment() {
+class SemanticSearchResultsDialog : ExtendedBottomSheetDialogFragment(keepBelowStatusBar = true) {
 
     private val viewModel: SemanticSearchResultsViewModel by viewModels()
 
