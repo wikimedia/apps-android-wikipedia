@@ -251,8 +251,8 @@ open class SyntaxHighlightableEditText : EditText {
         private const val CONTEXT_WORD_SLACK = 2
         private const val CONTEXT_WINDOW_LENGTH = 150
         private const val BOUNDARY_MATCH_WEIGHT = 0.25
-        private val CITATION_MARKER_REGEX = "\\[\\d+]".toRegex()
-        private val REF_TAG_REGEX = "<ref[^>]*/>|<ref[^>]*>.*?</ref>".toRegex(setOf(RegexOption.IGNORE_CASE, RegexOption.DOT_MATCHES_ALL))
+        private const val MAX_GAP_BETWEEN_WORDS = 500
+        private val CITATION_REGEX = "\\[\\d+]|<ref[^>]*/>|<ref[^>]*>.*?</ref>".toRegex(setOf(RegexOption.IGNORE_CASE, RegexOption.DOT_MATCHES_ALL))
         private val NON_WORD_REGEX = "[^\\p{L}\\p{N}]+".toRegex()
 
         fun findHighlightRange(wikitext: String, text: String, textBefore: String = "", textAfter: String = ""): IntRange? {
@@ -260,58 +260,28 @@ open class SyntaxHighlightableEditText : EditText {
             if (words.isEmpty()) {
                 return null
             }
+            val wordsPattern = words.joinToString("[\\s\\S]{0,$MAX_GAP_BETWEEN_WORDS}?") { Regex.escape(it) }.toRegex()
             val nearestWordsBefore = contextWords(textBefore).takeLast(CONTEXT_WORD_COUNT).reversed()
             val nearestWordsAfter = contextWords(textAfter).take(CONTEXT_WORD_COUNT)
-            val startsInsideWord = textBefore.lastOrNull()?.isLetterOrDigit() ?: false
-            val endsInsideWord = textAfter.firstOrNull()?.isLetterOrDigit() ?: false
             // maxByOrNull keeps the first candidate among equal scores, so without any matching
             // context we still fall back to highlighting the first occurrence.
-            return findHighlightCandidates(wikitext, words).maxByOrNull { range ->
-                val wikitextWordsBefore = contextWords(wikitext.substring(maxOf(0, range.first - CONTEXT_WINDOW_LENGTH), range.first)
-                    .replace(REF_TAG_REGEX, " ")).reversed()
-                val wikitextWordsAfter = contextWords(wikitext.substring(range.last + 1, minOf(wikitext.length, range.last + 1 + CONTEXT_WINDOW_LENGTH))
-                    .replace(REF_TAG_REGEX, " "))
-                val contextScore = countNearbyMatches(nearestWordsBefore, wikitextWordsBefore) +
-                        countNearbyMatches(nearestWordsAfter, wikitextWordsAfter)
-                val boundaryScore = listOf(
-                    (wikitext.getOrNull(range.first - 1)?.isLetterOrDigit() ?: false) == startsInsideWord,
-                    (wikitext.getOrNull(range.last + 1)?.isLetterOrDigit() ?: false) == endsInsideWord
-                ).count { it }
+            return wordsPattern.findAll(wikitext).map { it.range }.maxByOrNull { range ->
+                val wikitextWordsBefore = contextWords(wikitext.substring(maxOf(0, range.first - CONTEXT_WINDOW_LENGTH), range.first)).reversed()
+                val wikitextWordsAfter = contextWords(wikitext.substring(range.last + 1, minOf(wikitext.length, range.last + 1 + CONTEXT_WINDOW_LENGTH)))
+                // Context words are ordered nearest-first, and each one must appear at roughly the same
+                // distance in the wikitext, with some slack for markup such as link targets.
+                val contextScore = listOf(nearestWordsBefore to wikitextWordsBefore, nearestWordsAfter to wikitextWordsAfter)
+                    .sumOf { (renderedWords, wikitextWords) ->
+                        renderedWords.withIndex().count { (index, word) -> word in wikitextWords.take(index + 1 + CONTEXT_WORD_SLACK) }
+                    }
+                val boundaryScore = listOf(textBefore.lastOrNull() to wikitext.getOrNull(range.first - 1), textAfter.firstOrNull() to wikitext.getOrNull(range.last + 1))
+                    .count { (renderedChar, wikitextChar) -> (renderedChar?.isLetterOrDigit() == true) == (wikitextChar?.isLetterOrDigit() == true) }
                 contextScore + boundaryScore * BOUNDARY_MATCH_WEIGHT
             } ?: wikitext.indexOf(words.last()).let { if (it >= 0) it until it + words.last().length else null }
         }
 
-        private fun findHighlightCandidates(wikitext: String, words: List<String>): List<IntRange> {
-            val candidates = mutableListOf<IntRange>()
-            var start = wikitext.indexOf(words.first())
-            while (start >= 0) {
-                var end = start + words.first().length
-                for (word in words.drop(1)) {
-                    val pos = wikitext.indexOf(word, end)
-                    if (pos == -1) {
-                        return candidates
-                    }
-                    end = pos + word.length
-                }
-                candidates.add(start until end)
-                start = wikitext.indexOf(words.first(), start + 1)
-            }
-            return candidates
-        }
-
-        /**
-         * Counts the context words (ordered nearest-first) that appear at roughly the same distance
-         * from the candidate in the wikitext, allowing a few extra wikitext words for markup such as
-         * link targets.
-         */
-        private fun countNearbyMatches(nearestContextWords: List<String>, nearestWikitextWords: List<String>): Int {
-            return nearestContextWords.withIndex().count { (index, word) ->
-                word in nearestWikitextWords.take(index + 1 + CONTEXT_WORD_SLACK)
-            }
-        }
-
         private fun contextWords(text: String): List<String> {
-            return text.replace(CITATION_MARKER_REGEX, " ")
+            return text.replace(CITATION_REGEX, " ")
                 .split(NON_WORD_REGEX)
                 .filter { it.isNotEmpty() }
                 .map { it.lowercase() }
