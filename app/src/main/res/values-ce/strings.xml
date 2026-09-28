@@ -138,7 +138,7 @@
   <string name="reset_password_title">ДӀахӀоттайе пароль</string>
   <string name="reset_password_hint">Керла пароль</string>
   <string name="reset_password_button">Ӏалашйина чугӀо</string>
-  <string name="preference_title_logout">Болх дӀаберзор</string>
+  <string name="preference_title_logout">Ара</string>
   <string name="toast_logout_complete">Аккаунтан чуьра хьо ара ваьлла(йаьлла)</string>
   <string name="logout_dialog_cancel_button_text">Дӏайаккхар</string>
   <string name="logged_out_in_background_title">Аккаунтан чуьра хьо ара ваьлла(йаьлла)</string>

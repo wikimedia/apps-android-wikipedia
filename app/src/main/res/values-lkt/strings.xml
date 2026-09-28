@@ -1090,16 +1090,6 @@
   <string name="donation_reminders_gpay_text">Google Pay ogná mázaska %s kič’uŋ</string>
   <string name="donation_reminders_settings_no_thanks_btn_label">Hiyá</string>
   <string name="donation_reminders_settings_learn_more_button">Táku sáŋpȟa uŋspéič’iya</string>
-  <string name="hybrid_search_article_search_hint">%s awíyuŋǧa</string>
-  <string name="hybrid_search_suggestion_title">Olé:</string>
-  <string name="hybrid_search_onboarding_learn_more">Táku sáŋpȟa uŋspéič’iya</string>
-  <string name="hybrid_search_onboarding_opt_in_choice_title">Wíkhičhaŋye su</string>
-  <string name="hybrid_search_beta_tag">Wíkhičhaŋye su</string>
-  <string name="hybrid_search_onboarding_search_example_query_first_olympics">Olympics tȟokáheya</string>
-  <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">RNA na DNA ičhítȟokeča</string>
-  <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Europe makȟóčhe ektá, tukté otȟúŋwahe kiŋ iyótaŋ tȟáŋka he?</string>
-  <string name="hybrid_search_no_results_header">Tákuni iyéye šni</string>
-  <string name="hybrid_search_who_is_prefix">Tuwé %s he?</string>
   <string name="reading_challenge_onboarding_learn_more_button">Táku sáŋpȟa uŋspéič’iya</string>
   <string name="reading_challenge_onboarding_prompt_no_thanks">Hiyá</string>
   <string name="reading_challenge_onboarding_prompt_login">Wikipedia ogná čhaž\'óigwa</string>

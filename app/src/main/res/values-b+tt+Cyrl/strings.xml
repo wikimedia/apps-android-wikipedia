@@ -214,6 +214,7 @@
   <string name="email_recommendation_dialog_create_without_email_action">Электрон почтадан башка дәвам итү</string>
   <string name="email_recommendation_dialog_create_with_email_action">Электрон почта адресын өстәү</string>
   <string name="create_account_button">Хисапъязманы булдыру</string>
+  <string name="create_account_encourage_title">Википедиядә хисапъязма өстенлекләр бирә</string>
   <string name="create_account_name_unavailable">\"%s\" кулланучының исеме укылмый. Зинһар, башка исем сайлагыз.</string>
   <string name="create_account_ip_block_message">Гафу итегез, хәзерге вакытта сезнең IP-адресыгыз яңа хисапъязмаларны булдыру өчен блокланган.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:Мин блокланган</string>

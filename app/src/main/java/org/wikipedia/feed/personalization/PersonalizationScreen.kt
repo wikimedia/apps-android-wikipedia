@@ -70,10 +70,18 @@ fun PersonalizationScreen(
                 OnboardingBottomBar(
                     pagerState = pagerState,
                     onNavigationRightClick = {
+                        val currentPage = screens[pagerState.currentPage]
                         context.instrument?.submitInteraction(
                             "click",
                             elementId = "next_button",
-                            actionSource = pageActionSource[screens[pagerState.currentPage]]
+                            actionSource = pageActionSource[currentPage],
+                            actionContext = if (currentPage == PersonalizationPage.INTERESTS) {
+                                val topicsCount = interestUiState.value.topicsList.count { it.isSelected }
+                                mapOf(
+                                    "topics_count" to topicsCount,
+                                    "articles_count" to interestUiState.value.totalSelectedCount - topicsCount
+                                )
+                            } else null
                         )
                         coroutineScope.launch {
                             if (pagerState.currentPage < pagerState.pageCount - 1) {
