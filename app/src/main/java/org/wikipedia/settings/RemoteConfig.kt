@@ -72,14 +72,17 @@ object RemoteConfig {
         val siteKey: String = ""
     )
 
+    // TODO: remove this comment once remote config yir date names are confirmed
     @Suppress("unused")
     @Serializable
     class RemoteConfigYearInReview {
         val year: Int = 0
         @Serializable(with = LocalDateTimeSerializer::class) val activeStartDate: LocalDateTime = LocalDateTime.now()
         @Serializable(with = LocalDateTimeSerializer::class) val activeEndDate: LocalDateTime = LocalDateTime.now()
-        @Serializable(with = LocalDateTimeSerializer::class) val dataStartDate: LocalDateTime = LocalDateTime.now()
-        @Serializable(with = LocalDateTimeSerializer::class) val dataEndDate: LocalDateTime = LocalDateTime.now()
+        @Serializable(with = LocalDateTimeSerializer::class) val dataStartDate: LocalDateTime? = null
+        @Serializable(with = LocalDateTimeSerializer::class) val dataEndDate: LocalDateTime? = null
+        @Serializable(with = LocalDateTimeSerializer::class) val contributionsStartDate: LocalDateTime? = null
+        @Serializable(with = LocalDateTimeSerializer::class) val contributionsEndDate: LocalDateTime? = null
         val languages: Int = 0
         val articles: Long = 0
         val savedArticlesApps: Long = 0

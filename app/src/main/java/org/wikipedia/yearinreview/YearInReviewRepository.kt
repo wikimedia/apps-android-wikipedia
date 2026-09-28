@@ -29,13 +29,11 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import java.io.IOException
 import java.time.Instant
-import java.time.LocalDate
-import java.time.ZoneOffset
 import java.util.concurrent.TimeUnit
 import kotlin.math.abs
 
 interface YearInReviewRepository {
-    suspend fun getYearInReview(year: Int): YearInReviewSnapshot
+    suspend fun getYearInReview(): YearInReviewSnapshot
 }
 
 class YearInReviewRepositoryImpl(
@@ -43,7 +41,9 @@ class YearInReviewRepositoryImpl(
     private val historyEntryDao: HistoryEntryDao = AppDatabase.instance.historyEntryDao(),
     private val historyEntryWithImageDao: HistoryEntryWithImageDao = AppDatabase.instance.historyEntryWithImageDao(),
     private val readingListPageDao: ReadingListPageDao = AppDatabase.instance.readingListPageDao(),
-    private val categoryDao: CategoryDao = AppDatabase.instance.categoryDao()
+    private val categoryDao: CategoryDao = AppDatabase.instance.categoryDao(),
+    private val cache: YearInReviewCache = PrefsYearInReviewStore,
+    private val donationEligibility: YearInReviewDonationEligibility = YearInReviewDonationEligibility()
 ) : YearInReviewRepository {
 
     private val maxTopCategory = 5
@@ -51,34 +51,32 @@ class YearInReviewRepositoryImpl(
     private val maxTopArticles = 5
     private val minArticlesPerMapCluster = 2
 
-    override suspend fun getYearInReview(year: Int): YearInReviewSnapshot = coroutineScope {
+    override suspend fun getYearInReview(): YearInReviewSnapshot = coroutineScope {
+        val year = YearInReviewConfig.YEAR
         val remoteConfig = restService.getConfiguration().commonv1?.getYirForYear(year)
+        val insightsDateRange = YearInReviewConfig.insightsDateRange(remoteConfig)
         val isDonationEligible = remoteConfig != null && !remoteConfig.hideDonateCountryCodes.contains(GeoUtil.geoIPCountry.orEmpty())
-        val dataStartMillis = remoteConfig?.dataStartDate?.toInstant(ZoneOffset.UTC)?.toEpochMilli()
-        val dataEndMillis = remoteConfig?.dataEndDate?.toInstant(ZoneOffset.UTC)?.toEpochMilli()
 
-        val cachedStats = Prefs.yearInReviewCachedStats[year]
-        val editingStats: YearInReviewEditingStats?
-        val readingStats: YearInReviewReadingStats?
-        if (cachedStats != null) {
-            editingStats = cachedStats.editingStats
-            readingStats = if (cachedStats.readingStats != null && dataStartMillis != null && dataEndMillis != null) {
-                val pagesWithCoordinates = getPagesWithCoordinates(dataStartMillis, dataEndMillis)
-                cachedStats.readingStats.copy(geoStats = cachedStats.readingStats.geoStats.copy(pagesWithCoordinates = pagesWithCoordinates))
-            } else {
-                cachedStats.readingStats
-            }
+        val cachedStats = cache.get(year)
+        val needsEditingStats = AccountUtil.isLoggedIn && cachedStats?.editingStats == null
+        val editingStatsDeferred = if (needsEditingStats) {
+            async { getEditingStats(YearInReviewConfig.contributionsDateRange(remoteConfig)) }
         } else {
-            val editingStatsDeferred = async { getEditingStats(year) }
-            val readingStatsDeferred = async {
-                if (dataStartMillis != null && dataEndMillis != null) getReadingStats(year, dataStartMillis, dataEndMillis) else null
-            }
-            editingStats = editingStatsDeferred.await()
-            readingStats = readingStatsDeferred.await()
-            if (readingStats != null) {
-                Prefs.yearInReviewCachedStats += (year to YearInReviewCachedStats(readingStats, editingStats))
-                YearInReviewDialog.resetYearInReviewSurveyState()
-            }
+            null
+        }
+        val readingStatsDeferred = if (cachedStats?.readingStats == null) {
+            async { getReadingStats(insightsDateRange) }
+        } else {
+            null
+        }
+        val editingStats = cachedStats?.editingStats ?: editingStatsDeferred?.await()
+        val readingStats = cachedStats?.readingStats?.let {
+            val pagesWithCoordinates = getPagesWithCoordinates(insightsDateRange)
+            it.copy(geoStats = it.geoStats.copy(pagesWithCoordinates = pagesWithCoordinates))
+        } ?: readingStatsDeferred!!.await()
+        if (cachedStats?.readingStats == null || needsEditingStats) {
+            cache.put(year, YearInReviewCachedStats(readingStats, editingStats))
+            YearInReviewDialog.resetYearInReviewSurveyState()
         }
 
         YearInReviewSnapshot(
@@ -88,18 +86,20 @@ class YearInReviewRepositoryImpl(
             readingStats = readingStats,
             editingStats = editingStats,
             rewardData = YearInReviewRewardData(
-                isDonor = Prefs.donationResults.isNotEmpty(),
+                isDonor = donationEligibility.hasDonatedWithinContributionsDateRange(remoteConfig),
                 isEditor = editingStats?.userEditsCount?.let { it > 0 } == true
             )
         )
     }
 
-    private suspend fun getPagesWithCoordinates(startMillis: Long, endMillis: Long): List<HistoryEntryWithImage> {
-        return historyEntryWithImageDao.getEntriesWithCoordinates(256, startMillis, endMillis)
+    private suspend fun getPagesWithCoordinates(dateRange: YearInReviewDateRange): List<HistoryEntryWithImage> {
+        return historyEntryWithImageDao.getEntriesWithCoordinates(256, dateRange.startMillis, dateRange.endMillis)
             .distinctBy { it.apiTitle }
     }
 
-    private suspend fun getReadingStats(year: Int, startMillis: Long, endMillis: Long): YearInReviewReadingStats = coroutineScope {
+    private suspend fun getReadingStats(dateRange: YearInReviewDateRange): YearInReviewReadingStats = coroutineScope {
+        val startMillis = dateRange.startMillis
+        val endMillis = dateRange.endMillis
         val totalReadingTimeMinutes = async { historyEntryWithImageDao.getTimeSpentBetween(startMillis, endMillis) / 60 }
         val localReadingArticlesCount = async { historyEntryDao.getDistinctEntriesCountBetween(startMillis, endMillis) }
         val localSavedArticlesCount = async { readingListPageDao.getTotalSavedPagesBetween(startMillis, endMillis) ?: 0 }
@@ -113,13 +113,13 @@ class YearInReviewRepositoryImpl(
                 .map { StringUtil.fromHtml(it).toString() }
                 .filter { it.isNotBlank() }
         }
-        val localTopCategories = async { getTopVisitedCategories(year) }
+        val localTopCategories = async { getTopVisitedCategories(dateRange) }
         val favoriteTimeToRead = async { historyEntryDao.getFavoriteTimeToReadBetween(startMillis, endMillis) ?: 0 }
         val favoriteDayToRead = async {
             historyEntryDao.getFavoriteDayToReadBetween(startMillis, endMillis)?.let { if (it == 0) 7 else it } ?: 1
         }
         val favoriteMonthDidMostReading = async { historyEntryDao.getMostReadingMonthBetween(startMillis, endMillis) ?: 1 }
-        val geoStats = async { getGeoStats(startMillis, endMillis) }
+        val geoStats = async { getGeoStats(dateRange) }
 
         YearInReviewReadingStats(
             totalReadingTimeMinutes = totalReadingTimeMinutes.await(),
@@ -135,8 +135,8 @@ class YearInReviewRepositoryImpl(
         )
     }
 
-    private suspend fun getGeoStats(startMillis: Long, endMillis: Long): YearInReviewGeoStats {
-        var pagesWithCoordinates = getPagesWithCoordinates(startMillis, endMillis)
+    private suspend fun getGeoStats(dateRange: YearInReviewDateRange): YearInReviewGeoStats {
+        var pagesWithCoordinates = getPagesWithCoordinates(dateRange)
 
         var largestClusterLatitude = 0.0
         var largestClusterLongitude = 0.0
@@ -189,14 +189,14 @@ class YearInReviewRepositoryImpl(
         )
     }
 
-    private suspend fun getEditingStats(year: Int): YearInReviewEditingStats? {
+    private suspend fun getEditingStats(dateRange: YearInReviewDateRange): YearInReviewEditingStats? {
         if (!AccountUtil.isLoggedIn) {
             return null
         }
         val wikiSite = WikipediaApp.instance.wikiSite
         val userInfoResponse = ServiceFactory.get(wikiSite).getLocalAndGlobalUserInfo()
         return coroutineScope {
-            val editCount = async { getEditCount(year, userInfoResponse.query?.globalUserInfo?.id ?: 0) }
+            val editCount = async { getEditCount(dateRange, userInfoResponse.query?.globalUserInfo?.id ?: 0) }
             val editedPageViews = async { getEditedPageViews(wikiSite, userInfoResponse.query?.userInfo?.id ?: 0) }
             YearInReviewEditingStats(
                 userEditsCount = editCount.await(),
@@ -205,13 +205,13 @@ class YearInReviewRepositoryImpl(
         }
     }
 
-    private suspend fun getEditCount(year: Int, globalUserId: Int): Int {
+    private suspend fun getEditCount(dateRange: YearInReviewDateRange, globalUserId: Int): Int {
         return try {
             ServiceFactory.getRest(WikiSite(Service.WIKIMEDIA_URL))
                 .getEditsPerGlobalUserMonthly(
                     globalUserId,
-                    DateUtil.getYMDDateString(LocalDate.of(year, 1, 1)),
-                    DateUtil.getYMDDateString(LocalDate.of(year, 12, 31))
+                    DateUtil.getYMDDateString(dateRange.start),
+                    DateUtil.getYMDDateString(dateRange.endInclusive)
                 ).items.sumOf { it.editCount }
         } catch (e: IOException) {
             L.e(e)
@@ -240,8 +240,8 @@ class YearInReviewRepositoryImpl(
         }
     }
 
-    private suspend fun getTopVisitedCategories(year: Int): List<String> {
-        val categories = categoryDao.getTopCategoriesByYear(year = year, limit = maxTopCategory * 10)
+    private suspend fun getTopVisitedCategories(dateRange: YearInReviewDateRange): List<String> {
+        val categories = categoryDao.getTopCategoriesByYear(year = dateRange.endInclusive.year, limit = maxTopCategory * 10)
             .map { StringUtil.removeNamespace(it.title) }
             .filter { it.isNotBlank() }
         val (categoriesWithTwoSpaces, remainingCategories) = categories.partition { category -> category.count { it == ' ' } >= 2 }

@@ -47,6 +47,7 @@ import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.PageItemView
 import org.wikipedia.views.SwipeableItemTouchHelperCallback
 import org.wikipedia.views.WikiCardView
+import org.wikipedia.yearinreview.PrefsYearInReviewStore
 
 class HistoryFragment : Fragment(), BackPressedHandler {
     interface Callback {
@@ -465,6 +466,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
                         AppDatabase.instance.pageImagesDao().deleteAll()
                         AppDatabase.instance.categoryDao().deleteAll()
                         AppDatabase.instance.pageTopicDao().deleteAll()
+                        PrefsYearInReviewStore.onReadingHistoryCleared()
                         action()
                     }
                 }

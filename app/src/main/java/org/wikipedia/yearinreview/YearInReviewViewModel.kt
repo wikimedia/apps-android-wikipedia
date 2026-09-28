@@ -10,7 +10,6 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.log.L
-import java.time.LocalDateTime
 
 data class YearInReviewSnapshot(
     val year: Int,
@@ -33,9 +32,10 @@ sealed interface YearInReviewUiState {
 
 sealed interface YearInReviewPage {
     val id: String
+    val useDarkStatusBarIcons: Boolean
 
     data class ReadingDays(
-        override val id: String
+        override val id: String, override val useDarkStatusBarIcons: Boolean = false
     ) : YearInReviewPage
 }
 
@@ -57,7 +57,7 @@ class YearInReviewViewModel(
     fun loadYearInReview() {
         _uiState.value = YearInReviewUiState.Loading
         viewModelScope.launch(exceptionHandler) {
-            val yearInReview = repository.getYearInReview(YIR_YEAR)
+            val yearInReview = repository.getYearInReview()
             _uiState.value = YearInReviewUiState.Content(
                 year = yearInReview.year,
                 pages = listOf(YearInReviewPage.ReadingDays(id = "reading_days"), YearInReviewPage.ReadingDays(id = "reading_days_2")), // TODO: Populate actual pages
@@ -67,7 +67,7 @@ class YearInReviewViewModel(
     }
 
     companion object {
-        const val YIR_YEAR = 2025
+        const val YIR_YEAR = YearInReviewConfig.YEAR
         const val YIR_TAG = "yir_$YIR_YEAR"
         const val MAX_EDITED_TIMES = 500
         const val MIN_SAVED_ARTICLES = 3
@@ -80,21 +80,26 @@ class YearInReviewViewModel(
         // Whether Year-in-Review should be accessible at all.
         // (different from the user enabling/disabling it in Settings.)
         val isAccessible get(): Boolean {
-            if (Prefs.isShowDeveloperSettingsEnabled) {
-                return true
-            }
             val config = RemoteConfig.config.commonv1?.getYirForYear(YIR_YEAR)
-            val now = LocalDateTime.now()
-            return (config != null &&
-                    !config.hideCountryCodes.contains(GeoUtil.geoIPCountry) &&
-                    now.isAfter(config.activeStartDate) &&
-                    now.isBefore(config.activeEndDate))
+            return YearInReviewAvailability().isAvailable(
+                remoteConfig = config,
+                countryCode = GeoUtil.geoIPCountry,
+                developerOverride = Prefs.isShowDeveloperSettingsEnabled
+            )
         }
+
+        val canShowEntryPoint get() = YearInReviewAvailability().canShowEntryPoint(
+            remoteConfig = RemoteConfig.config.commonv1?.getYirForYear(YIR_YEAR),
+            countryCode = GeoUtil.geoIPCountry,
+            isEnabled = Prefs.isYearInReviewEnabled,
+            developerOverride = Prefs.isShowDeveloperSettingsEnabled
+        )
 
         var currentCampaignId: String? = null
 
         val isCustomIconAllowed get() = Prefs.yearInReviewCachedStats[YIR_YEAR]?.let {
-            Prefs.donationResults.isNotEmpty() || (it.editingStats?.userEditsCount ?: 0) > 0
+            YearInReviewDonationEligibility().hasDonatedWithinContributionsDateRange(YearInReviewConfig.cachedRemoteConfig) ||
+                    (it.editingStats?.userEditsCount ?: 0) > 0
         } == true
 
         fun updateYearInReviewModel(year: Int = YIR_YEAR, update: (YearInReviewModel) -> YearInReviewModel) {

@@ -34,8 +34,7 @@ class YearInReviewOnboardingActivity : BaseActivity() {
 
     private val loginLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
-            Prefs.yearInReviewModelData = emptyMap()
-            Prefs.yearInReviewCachedStats = emptyMap()
+            PrefsYearInReviewStore.clearAll()
             proceed()
         }
     }

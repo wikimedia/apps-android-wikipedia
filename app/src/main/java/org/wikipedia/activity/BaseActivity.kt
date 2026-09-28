@@ -376,8 +376,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         lifecycleScope.launch {
             when {
                 ReadingChallengeWidgetRepository.shouldShowOnboardingDialog() -> showReadingChallenge()
-                YearInReviewViewModel.isAccessible &&
-                        Prefs.isYearInReviewEnabled &&
+                YearInReviewViewModel.canShowEntryPoint &&
                         !Prefs.yearInReviewVisited -> {
                     yearInReviewLauncher.launch((YearInReviewOnboardingActivity.newIntent(this@BaseActivity)))
                 }
