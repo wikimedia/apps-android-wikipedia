@@ -35,6 +35,8 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.mutableStateOf
@@ -92,6 +94,7 @@ fun YearInReviewScreen(
     onShareClick: (Bitmap) -> Unit = {},
     onDonateClick: (String) -> Unit = { _ -> },
     onRetryClick: () -> Unit = {},
+    onStatusBarIconColorChange: (useDarkIcons: Boolean) -> Unit = {},
     onRiveError: (Throwable) -> Unit = {}
 ) {
     when (uiState) {
@@ -118,6 +121,7 @@ fun YearInReviewScreen(
                 onShareFeedbackClick = onShareFeedbackClick,
                 onShareClick = onShareClick,
                 onDonateClick = onDonateClick,
+                onStatusBarIconColorChange = onStatusBarIconColorChange,
                 onRiveError = onRiveError
             )
         }
@@ -153,12 +157,28 @@ private fun YearInReviewContent(
     onShareFeedbackClick: () -> Unit,
     onShareClick: (Bitmap) -> Unit,
     onDonateClick: (String) -> Unit,
+    onStatusBarIconColorChange: (useDarkIcons: Boolean) -> Unit,
     onRiveError: (Throwable) -> Unit
 ) {
     val pagerState = rememberPagerState { pages.size }
+    val useDarkStatusBarIcons by remember(pages) {
+        derivedStateOf { pages.getOrNull(pagerState.currentPage)?.useDarkStatusBarIcons ?: false }
+    }
+    LaunchedEffect(useDarkStatusBarIcons) {
+        onStatusBarIconColorChange(useDarkStatusBarIcons)
+    }
     val screenshotGetters = remember { mutableStateMapOf<String, GetBitmapFun>() }
     val riveWorker = rememberYearInReviewRiveWorker(onRiveError)
     val riveFontsResult = rememberYearInReviewRiveFonts(riveWorker, YearInReviewRiveFonts)
+    val riveResourceIds = remember(pages) {
+        pages.mapNotNull { page -> page.riveSpec?.resourceId }.distinct()
+    }
+    // TODO: pass riveFiles[spec.resourceId] ?: Result.Loading to each Rive slide once they're added
+    val riveFiles = rememberYearInReviewRiveFiles(
+        riveWorker = riveWorker,
+        riveFontsResult = riveFontsResult,
+        resourceIds = riveResourceIds
+    )
     InstallRiveSystemFontFallback()
     Scaffold(
         modifier = modifier,
@@ -203,6 +223,7 @@ private fun YearInReviewContent(
                         bottomEnd = YearInReviewCardCornerRadius
                     )),
                 state = pagerState,
+                beyondViewportPageCount = if (pages.size > 1) 1 else 0,
                 key = { page -> pages[page].id }
             ) { position ->
                 when (pages[position]) {
@@ -218,6 +239,7 @@ private fun YearInReviewContent(
             }
 
             YearInReviewTopBar(
+                iconColor = if (useDarkStatusBarIcons) ComposeColors.Black else ComposeColors.White,
                 onCloseClick = onCloseClick,
                 onLearnMoreClick = onLearnMoreClick,
                 onShareFeedbackClick = onShareFeedbackClick
@@ -237,6 +259,11 @@ private fun YearInReviewContent(
         }
     }
 }
+
+private val YearInReviewPage.riveSpec: RiveSlideSpec?
+    get() = when (this) {
+        is YearInReviewPage.ReadingDays -> null
+    }
 
 @Composable
 private fun YearInReviewProgressTracker(
@@ -277,6 +304,7 @@ private fun YearInReviewProgressTracker(
 @Composable
 @OptIn(ExperimentalMaterial3Api::class)
 private fun YearInReviewTopBar(
+    iconColor: Color,
     onCloseClick: () -> Unit,
     onLearnMoreClick: () -> Unit,
     onShareFeedbackClick: () -> Unit
@@ -295,7 +323,7 @@ private fun YearInReviewTopBar(
                 Icon(
                     modifier = Modifier.size(28.dp),
                     painter = painterResource(R.drawable.ic_wikipedia_w),
-                    tint = ComposeColors.White,
+                    tint = iconColor,
                     contentDescription = stringResource(R.string.year_in_review_topbar_w_icon)
                 )
             }
@@ -304,7 +332,7 @@ private fun YearInReviewTopBar(
             IconButton(onClick = onCloseClick) {
                 Icon(
                     painter = painterResource(R.drawable.ic_close_black_24dp),
-                    tint = ComposeColors.White,
+                    tint = iconColor,
                     contentDescription = stringResource(R.string.year_in_review_close)
                 )
             }
@@ -318,7 +346,7 @@ private fun YearInReviewTopBar(
                 ) {
                     Icon(
                         painter = painterResource(R.drawable.ic_more_vert_white_24dp),
-                        tint = ComposeColors.White,
+                        tint = iconColor,
                         contentDescription = stringResource(R.string.menu_feed_overflow_label)
                     )
                 }

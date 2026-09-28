@@ -10,6 +10,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.compose.runtime.getValue
 import androidx.core.net.toUri
+import androidx.core.view.WindowCompat
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.startup.AppInitializer
@@ -94,6 +95,10 @@ class YearInReviewActivity : BaseActivity() {
                             campaignId = campaignId
                         )
                         ExclusiveBottomSheetPresenter.show(supportFragmentManager, DonateDialog.newInstance(campaignId = campaignId, fromYiR = true))
+                    },
+                    onStatusBarIconColorChange = { useDarkIcons ->
+                        WindowCompat.getInsetsController(window, window.decorView)
+                            .isAppearanceLightStatusBars = useDarkIcons
                     },
                     onRetryClick = {
                         viewModel.loadYearInReview()
