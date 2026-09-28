@@ -696,15 +696,15 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
         binding.editSectionScroll.isVisible = true
         binding.editSectionText.isEnabled = viewModel.editingAllowed
         if (!viewModel.sectionWikitext.isNullOrEmpty()) {
-            scrollToHighlight(viewModel.textToHighlight)
+            scrollToHighlight(viewModel.textToHighlight, viewModel.textBeforeHighlight, viewModel.textAfterHighlight)
         }
     }
 
-    private fun scrollToHighlight(highlightText: String?) {
+    private fun scrollToHighlight(highlightText: String?, textBefore: String?, textAfter: String?) {
         if (highlightText == null || !TextUtils.isGraphic(highlightText)) {
             return
         }
-        binding.editSectionText.highlightText(highlightText)
+        binding.editSectionText.highlightText(highlightText, textBefore.orEmpty(), textAfter.orEmpty())
     }
 
     override fun getParentPageTitle(): PageTitle {
@@ -890,16 +890,21 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
         const val EXTRA_SECTION_ID = "sectionId"
         const val EXTRA_SECTION_ANCHOR = "sectionAnchor"
         const val EXTRA_HIGHLIGHT_TEXT = "sectionHighlightText"
+        const val EXTRA_HIGHLIGHT_TEXT_BEFORE = "sectionHighlightTextBefore"
+        const val EXTRA_HIGHLIGHT_TEXT_AFTER = "sectionHighlightTextAfter"
         const val EXTRA_REV_ID = "revId"
 
         fun newIntent(context: Context, sectionId: Int, sectionAnchor: String?, title: PageTitle,
                       invokeSource: Constants.InvokeSource, highlightText: String? = null,
-                      addImageTitle: PageTitle? = null, addImageSource: String = "", addImageSourceProjects: String = ""): Intent {
+                      addImageTitle: PageTitle? = null, addImageSource: String = "", addImageSourceProjects: String = "",
+                      highlightTextBefore: String? = null, highlightTextAfter: String? = null): Intent {
             return Intent(context, EditSectionActivity::class.java)
                 .putExtra(EXTRA_SECTION_ID, sectionId)
                 .putExtra(EXTRA_SECTION_ANCHOR, sectionAnchor)
                 .putExtra(Constants.ARG_TITLE, title)
                 .putExtra(EXTRA_HIGHLIGHT_TEXT, highlightText)
+                .putExtra(EXTRA_HIGHLIGHT_TEXT_BEFORE, highlightTextBefore)
+                .putExtra(EXTRA_HIGHLIGHT_TEXT_AFTER, highlightTextAfter)
                 .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
                 .putExtra(InsertMediaActivity.EXTRA_IMAGE_TITLE, addImageTitle)
                 .putExtra(InsertMediaActivity.EXTRA_IMAGE_SOURCE, addImageSource)
