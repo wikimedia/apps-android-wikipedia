@@ -184,7 +184,8 @@ class HomeFragment : Fragment(), LinkPreviewDialog.LoadPageCallback {
                         }
                     )
 
-                    if (selectedTab == HomeTab.FOR_YOU && !swipeToExplorePromptShown && forYouContentState.modules.isNotEmpty()) {
+                    if (selectedTab == HomeTab.FOR_YOU && !swipeToExplorePromptShown &&
+                        forYouContentState.modules.any { it !is ForYouModule.Placeholder }) {
                         val dismissSwipePrompt = {
                             swipeToExplorePromptShown = true
                             Prefs.isHomeSwipeToExplorePromptShown = true
@@ -276,6 +277,8 @@ class HomeFragment : Fragment(), LinkPreviewDialog.LoadPageCallback {
             }
             HomeAction.LoadMoreCommunityContent -> viewModel.loadCommunityContent()
             HomeAction.LoadMoreForYouContent -> viewModel.loadForYouContent()
+            is HomeAction.LoadForYouModules -> viewModel.loadForYouModules(action.slotKeys)
+            is HomeAction.RetryForYouModule -> viewModel.loadForYouModules(listOf(action.slotKey), retry = true)
             is HomeAction.HideCommunityCard -> {
                 val card = action.card
                 instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_overflow", elementId = "card_hide")

@@ -14,6 +14,8 @@ sealed interface HomeAction {
     data class RefreshTab(val tab: HomeTab) : HomeAction
     data object LoadMoreCommunityContent : HomeAction
     data object LoadMoreForYouContent : HomeAction
+    data class LoadForYouModules(val slotKeys: List<String>) : HomeAction
+    data class RetryForYouModule(val slotKey: String) : HomeAction
     data class HideCommunityCard(val card: Card) : HomeAction
     data class HideForYouCard(val module: ForYouModule, val card: ForYouCard) : HomeAction
     data class HideModule(val moduleKey: String) : HomeAction
