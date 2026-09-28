@@ -43,7 +43,7 @@ class HCaptchaHelper(
             hCaptcha?.setup(
                 HCaptchaConfig.builder()
                     .theme(if (WikipediaApp.instance.currentTheme.isDark) HCaptchaTheme.DARK else HCaptchaTheme.LIGHT)
-                    .siteKey(siteKey ?: config.siteKey)
+                    .siteKey(siteKey?.ifEmpty { null } ?: config.siteKey)
                     .host(config.baseURL.toUri().host)
                     .jsSrc(config.jsSrc)
                     .endpoint(config.endpoint)

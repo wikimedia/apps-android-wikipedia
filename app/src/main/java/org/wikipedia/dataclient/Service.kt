@@ -711,6 +711,7 @@ interface Service {
             @Field("summary") summary: String? = null,
             @Field("captchaid") captchaId: Long? = null,
             @Field("captchaword") captchaWord: String? = null,
+            @Field("wgConfirmEditForceShowCaptcha") forceShowCaptcha: String? = null,
             @Field("matags") tags: String? = null
     ): DiscussionToolsEditResponse
 
@@ -724,6 +725,7 @@ interface Service {
             @Field("summary") summary: String? = null,
             @Field("captchaid") captchaId: Long? = null,
             @Field("captchaword") captchaWord: String? = null,
+            @Field("wgConfirmEditForceShowCaptcha") forceShowCaptcha: String? = null,
             @Field("matags") tags: String? = null
     ): DiscussionToolsEditResponse
 
