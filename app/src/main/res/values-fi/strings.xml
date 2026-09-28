@@ -2379,6 +2379,9 @@
   <string name="home_feed_settings_places_of_interest_title">Kiinnostavat paikat</string>
   <string name="home_feed_settings_games_title">Pelit</string>
   <string name="home_feed_settings_games_subtitle">Wikipedian sisällön pohjalta valitut päivittäiset pelit</string>
+  <string name="read_aloud_card_play">Toista</string>
+  <string name="read_aloud_card_pause">Tauko</string>
+  <string name="read_aloud_card_retry">Yritä uudelleen</string>
   <string name="home_feed_discover_see_all_button">Selaa suosituksia</string>
   <string name="home_feed_for_you_screen_end_of_feed_title">Siinä kaikki tältä päivältä!</string>
   <string name="home_feed_for_you_screen_end_of_feed_description">Tule takaisin huomenna löytääksesi uusia, sinulle räätälöityjä artikkeleita.</string>
