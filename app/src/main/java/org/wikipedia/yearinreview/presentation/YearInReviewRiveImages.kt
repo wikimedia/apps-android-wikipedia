@@ -1,4 +1,4 @@
-package org.wikipedia.yearinreview
+package org.wikipedia.yearinreview.presentation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.key

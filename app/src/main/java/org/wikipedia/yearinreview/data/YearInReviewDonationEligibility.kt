@@ -1,4 +1,4 @@
-package org.wikipedia.yearinreview
+package org.wikipedia.yearinreview.data
 
 import org.wikipedia.donate.DonationResult
 import org.wikipedia.settings.Prefs

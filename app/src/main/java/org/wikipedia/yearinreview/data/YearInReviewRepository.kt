@@ -1,10 +1,8 @@
-package org.wikipedia.yearinreview
+package org.wikipedia.yearinreview.data
 
 import android.location.Geocoder
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
-import kotlinx.serialization.Serializable
-import kotlinx.serialization.Transient
 import org.maplibre.android.geometry.LatLng
 import org.maplibre.android.geometry.LatLngBounds
 import org.wikipedia.WikipediaApp
@@ -76,7 +74,7 @@ class YearInReviewRepositoryImpl(
         } ?: readingStatsDeferred!!.await()
         if (cachedStats?.readingStats == null || needsEditingStats) {
             cache.put(year, YearInReviewCachedStats(readingStats, editingStats))
-            YearInReviewDialog.resetYearInReviewSurveyState()
+            Prefs.yearInReviewSurveyState = YearInReviewSurveyState.NOT_TRIGGERED
         }
 
         YearInReviewSnapshot(
@@ -247,47 +245,4 @@ class YearInReviewRepositoryImpl(
         val (categoriesWithTwoSpaces, remainingCategories) = categories.partition { category -> category.count { it == ' ' } >= 2 }
         return (categoriesWithTwoSpaces + remainingCategories).take(maxTopCategory)
     }
-}
-
-@Serializable
-data class YearInReviewCachedStats(
-    val readingStats: YearInReviewReadingStats?,
-    val editingStats: YearInReviewEditingStats?
-)
-
-@Serializable
-data class YearInReviewEditingStats(
-    val userEditsCount: Int,
-    val userEditsViewedTimes: Long
-)
-
-@Serializable
-data class YearInReviewReadingStats(
-    val totalReadingTimeMinutes: Long,
-    val localReadingArticlesCount: Int,
-    val localSavedArticlesCount: Int,
-    val localSavedArticles: List<String>,
-    val localTopVisitedArticles: List<String>,
-    val localTopCategories: List<String>,
-    val favoriteTimeToRead: Int,
-    val favoriteDayToRead: Int,
-    val favoriteMonthDidMostReading: Int,
-    val geoStats: YearInReviewGeoStats
-)
-
-@Serializable
-data class YearInReviewGeoStats(
-    val largestClusterLocation: Pair<Double, Double>,
-    val largestClusterTopLeft: Pair<Double, Double>,
-    val largestClusterBottomRight: Pair<Double, Double>,
-    val largestClusterCountryName: String,
-    val largestClusterArticles: List<String>,
-    @Transient val pagesWithCoordinates: List<HistoryEntryWithImage> = emptyList()
-)
-
-data class YearInReviewRewardData(
-    val isDonor: Boolean,
-    val isEditor: Boolean
-) {
-    val isCustomIconUnlocked = isDonor || isEditor
 }

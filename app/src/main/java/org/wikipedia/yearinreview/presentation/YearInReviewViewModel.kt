@@ -1,4 +1,4 @@
-package org.wikipedia.yearinreview
+package org.wikipedia.yearinreview.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -10,15 +10,12 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.log.L
-
-data class YearInReviewSnapshot(
-    val year: Int,
-    val isDonationEligible: Boolean,
-    val remoteConfig: RemoteConfig.RemoteConfigYearInReview? = null,
-    val readingStats: YearInReviewReadingStats? = null,
-    val editingStats: YearInReviewEditingStats? = null,
-    val rewardData: YearInReviewRewardData
-)
+import org.wikipedia.yearinreview.data.YearInReviewAvailability
+import org.wikipedia.yearinreview.data.YearInReviewConfig
+import org.wikipedia.yearinreview.data.YearInReviewDonationEligibility
+import org.wikipedia.yearinreview.data.YearInReviewModel
+import org.wikipedia.yearinreview.data.YearInReviewRepository
+import org.wikipedia.yearinreview.data.YearInReviewRepositoryImpl
 
 sealed interface YearInReviewUiState {
     object Loading : YearInReviewUiState

@@ -41,7 +41,7 @@ import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.imageservice.CoilImageServiceLoader
 import org.wikipedia.views.imageservice.ImageService
-import org.wikipedia.yearinreview.PrefsYearInReviewStore
+import org.wikipedia.yearinreview.data.PrefsYearInReviewStore
 import java.util.UUID
 
 class WikipediaApp : Application() {

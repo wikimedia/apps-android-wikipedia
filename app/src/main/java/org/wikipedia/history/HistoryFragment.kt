@@ -47,7 +47,7 @@ import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.PageItemView
 import org.wikipedia.views.SwipeableItemTouchHelperCallback
 import org.wikipedia.views.WikiCardView
-import org.wikipedia.yearinreview.PrefsYearInReviewStore
+import org.wikipedia.yearinreview.data.PrefsYearInReviewStore
 
 class HistoryFragment : Fragment(), BackPressedHandler {
     interface Callback {

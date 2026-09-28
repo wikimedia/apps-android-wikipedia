@@ -80,7 +80,7 @@ import org.wikipedia.views.MultiSelectActionModeCallback
 import org.wikipedia.views.MultiSelectActionModeCallback.Companion.isTagType
 import org.wikipedia.views.PageItemView
 import org.wikipedia.views.SwipeableItemTouchHelperCallback
-import org.wikipedia.yearinreview.YearInReviewViewModel
+import org.wikipedia.yearinreview.presentation.YearInReviewViewModel
 import java.util.Date
 import java.util.Locale
 
