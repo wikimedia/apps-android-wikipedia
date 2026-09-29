@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.viewModels
 import org.wikipedia.Constants
+import org.wikipedia.R
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
@@ -15,6 +16,8 @@ import org.wikipedia.search.SearchResultCallback
 class SemanticSearchResultsDialog : ExtendedBottomSheetDialogFragment() {
 
     private val viewModel: SemanticSearchResultsViewModel by viewModels()
+
+    override fun getTheme() = R.style.App_BottomSheetDialogTheme_BelowStatusBar
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
