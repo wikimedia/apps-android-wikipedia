@@ -8,7 +8,6 @@ import android.view.View
 import androidx.annotation.StyleRes
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.doOnLayout
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -35,27 +34,33 @@ open class ExtendedBottomSheetDialogFragment(
 
     override fun onStart() {
         super.onStart()
-        dialog?.let {
-            it.window?.let { window ->
-                DeviceUtil.setNavigationBarColor(window, ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
+        dialog?.window?.let { window ->
+            DeviceUtil.setNavigationBarColor(window, ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
+        }
+        bottomSheet?.let { sheet ->
+            if (keepBelowStatusBar) {
+                (sheet.parent as? View)?.let { container ->
+                    container.removeOnLayoutChangeListener(sheetContainerLayoutChangeListener)
+                    container.addOnLayoutChangeListener(sheetContainerLayoutChangeListener)
+                }
             }
-            it.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)?.let { sheet ->
-                val behavior = BottomSheetBehavior.from(sheet)
-                if (keepBelowStatusBar) {
-                    limitMaxHeightBelowStatusBar(sheet, behavior)
-                }
-                if (startExpanded) {
-                    behavior.state = BottomSheetBehavior.STATE_EXPANDED
-                }
+            if (startExpanded) {
+                BottomSheetBehavior.from(sheet).state = BottomSheetBehavior.STATE_EXPANDED
             }
         }
     }
 
-    private fun limitMaxHeightBelowStatusBar(sheet: View, behavior: BottomSheetBehavior<View>) {
-        (sheet.parent as? View)?.doOnLayout { container ->
-            val statusBarHeight = ViewCompat.getRootWindowInsets(container)
-                ?.getInsets(WindowInsetsCompat.Type.statusBars())?.top ?: 0
-            behavior.maxHeight = container.height - statusBarHeight - DimenUtil.roundedDpToPx(EXPANDED_TOP_GAP_DP)
+    private val bottomSheet: View?
+        get() = dialog?.findViewById(com.google.android.material.R.id.design_bottom_sheet)
+
+    private val sheetContainerLayoutChangeListener = View.OnLayoutChangeListener { container, _, top, _, bottom, _, oldTop, _, oldBottom ->
+        if (bottom - top != oldBottom - oldTop) {
+            bottomSheet?.let { sheet ->
+                val statusBarHeight = ViewCompat.getRootWindowInsets(container)
+                    ?.getInsets(WindowInsetsCompat.Type.statusBars())?.top ?: 0
+                BottomSheetBehavior.from(sheet).maxHeight = container.height - statusBarHeight - DimenUtil.roundedDpToPx(EXPANDED_TOP_GAP_DP)
+                sheet.requestLayout()
+            }
         }
     }
 
