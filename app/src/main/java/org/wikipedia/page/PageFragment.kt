@@ -7,6 +7,10 @@ import android.content.Intent
 import android.content.res.Configuration
 import android.net.Uri
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.text.Highlights
+import android.util.Log
 import android.view.ActionMode
 import android.view.ActionProvider
 import android.view.Gravity
@@ -26,6 +30,7 @@ import androidx.core.animation.doOnEnd
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.net.toUri
+import androidx.core.os.postDelayed
 import androidx.core.view.forEach
 import androidx.core.widget.TextViewCompat
 import androidx.fragment.app.Fragment
@@ -107,6 +112,7 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.ThrowableUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
@@ -439,6 +445,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                             }
                         }
                         callback()?.onPageLoadComplete()
+                        scrollToSectionAndHighlight(section = arguments?.getString("section"), snippet = arguments?.getString("snippet"))
                     }
                 }
             }
@@ -779,6 +786,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             bridge.onPcsReady()
             articleInteractionEvent?.logLoaded()
             callback()?.onPageLoadComplete()
+            scrollToSectionAndHighlight(section = arguments?.getString("section"), snippet = arguments?.getString("snippet"))
 
             JsonUtil.decodeFromElement<PageMetadata>(payload)?.let { metadata ->
                 // Persist the list of topics for this article.
@@ -1311,6 +1319,60 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             EditAttemptStepEvent.logAbort(pageTitle = it, editCount = this.editCount)
         }
     }
+
+    fun scrollToSectionAndHighlight(section: String? = null, snippet: String? = null) {
+        Handler(Looper.getMainLooper()).postDelayed({
+            section?.let {
+                webView.evaluateJavascript("document.getElementById('$section').scrollIntoView({ behavior: 'smooth', block: 'start' });", null)
+                val textForHighlight = extractSearchString(snippet)
+                webView.evaluateJavascript(addTextHighlights(textForHighlight, section), null)
+            }
+        }, 100)
+    }
+
+    private fun extractSearchString(snippet: String?): String? {
+        val searchString = Regex("""<span class="searchmatch">(.*?)</span>""")
+            .find(snippet.orEmpty())
+            ?.groupValues
+            ?.getOrNull(1)
+            ?: return null
+
+        return StringUtil.fromHtml(searchString).toString()
+    }
+
+    private fun addTextHighlights(highlightSnippet: String?, section: String?): String {
+
+        Log.d("highlightSnippet", highlightSnippet.toString())
+        Log.d("section", section.toString())
+
+        return """
+            (function() {
+               let root = document.getElementById('$section');
+               
+               if (root.tagName !== 'SECTION') {
+                    root = root.closest('section') || root.parentElement
+               }
+               
+               const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+                            
+               let node;
+               while (node = walker.nextNode()) {
+                    const index = node.nodeValue.indexOf('$highlightSnippet');
+                    if (index !== -1) {
+                        const range = document.createRange();
+                        range.setStart(node, index);
+                        range.setEnd(node, index + '$highlightSnippet'.length);
+                        
+                        const highlightSpan = document.createElement('span');
+                        highlightSpan.style.backgroundColor = 'yellow';
+                        range.surroundContents(highlightSpan);
+                        return true
+                    }
+               }
+            })();
+        """
+    }
+
 
     private inner class AvCallback : AvPlayer.Callback {
         override fun onSuccess() {
