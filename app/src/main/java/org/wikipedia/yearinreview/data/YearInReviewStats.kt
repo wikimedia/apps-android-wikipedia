@@ -40,5 +40,5 @@ data class YearInReviewRewardData(
     val isDonor: Boolean,
     val isEditor: Boolean
 ) {
-    val isCustomIconUnlocked = isDonor || isEditor
+    val isContributor = isDonor || isEditor
 }

@@ -8,16 +8,16 @@ class YearInReviewRewardDataTest {
 
     @Test
     fun `custom icon is locked without a donation or edit`() {
-        assertFalse(YearInReviewRewardData(isDonor = false, isEditor = false).isCustomIconUnlocked)
+        assertFalse(YearInReviewRewardData(isDonor = false, isEditor = false).isContributor)
     }
 
     @Test
     fun `custom icon is unlocked for a donor`() {
-        assertTrue(YearInReviewRewardData(isDonor = true, isEditor = false).isCustomIconUnlocked)
+        assertTrue(YearInReviewRewardData(isDonor = true, isEditor = false).isContributor)
     }
 
     @Test
     fun `custom icon is unlocked for an editor`() {
-        assertTrue(YearInReviewRewardData(isDonor = false, isEditor = true).isCustomIconUnlocked)
+        assertTrue(YearInReviewRewardData(isDonor = false, isEditor = true).isContributor)
     }
 }

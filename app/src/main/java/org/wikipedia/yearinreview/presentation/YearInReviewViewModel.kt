@@ -27,15 +27,6 @@ sealed interface YearInReviewUiState {
     data class Error(val error: Throwable) : YearInReviewUiState
 }
 
-sealed interface YearInReviewPage {
-    val id: String
-    val useDarkStatusBarIcons: Boolean
-
-    data class ReadingDays(
-        override val id: String, override val useDarkStatusBarIcons: Boolean = false
-    ) : YearInReviewPage
-}
-
 class YearInReviewViewModel(
     private val repository: YearInReviewRepository = YearInReviewRepositoryImpl()
 ) : ViewModel() {
@@ -57,7 +48,7 @@ class YearInReviewViewModel(
             val yearInReview = repository.getYearInReview()
             _uiState.value = YearInReviewUiState.Content(
                 year = yearInReview.year,
-                pages = listOf(YearInReviewPage.ReadingDays(id = "reading_days"), YearInReviewPage.ReadingDays(id = "reading_days_2")), // TODO: Populate actual pages
+                pages = YearInReviewFlowDecider.pages(yearInReview),
                 isDonationEligible = yearInReview.isDonationEligible
             )
         }

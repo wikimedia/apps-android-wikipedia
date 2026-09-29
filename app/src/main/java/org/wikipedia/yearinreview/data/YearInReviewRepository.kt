@@ -43,6 +43,7 @@ class YearInReviewRepositoryImpl(
 
         return YearInReviewSnapshot(
             year = year,
+            isLoggedIn = AccountUtil.isLoggedIn,
             isDonationEligible = isDonationEligible,
             remoteConfig = remoteConfig,
             readingStats = readingStats,
