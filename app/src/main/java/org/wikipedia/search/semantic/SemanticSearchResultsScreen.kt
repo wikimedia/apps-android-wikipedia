@@ -357,10 +357,10 @@ fun SemanticSearchResultCard(
                 text = stringResource(R.string.semantic_search_results_read_in_article_label),
                 fontWeight = FontWeight.Medium,
                 fontSize = 13.sp,
-                color = WikipediaTheme.colors.placeholderColor
+                color = WikipediaTheme.colors.secondaryColor
             )
 
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(16.dp))
 
             Row(
                 verticalAlignment = Alignment.CenterVertically,
