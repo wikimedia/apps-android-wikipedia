@@ -2425,6 +2425,8 @@
   <string name="home_feed_new_within_interest_card_heading">Ново во вашиот интерес</string>
   <string name="home_feed_new_within_interest_title">Нови статии во вашите интереси</string>
   <string name="home_feed_new_within_interest_subtitle">Неодамна создадени статии на темите што ги следите</string>
+  <string name="home_feed_settings_read_aloud_lead_section_title">Слушајте воведи на статии</string>
+  <string name="home_feed_settings_read_aloud_lead_section_subtitle">Создадена звучна знимка за воведи на статии во тематските области што ги следите</string>
   <string name="home_feed_settings_because_you_read_subtitle">Предлози според скорешна статија од вашата историја</string>
   <string name="home_feed_settings_continue_reading_title">Продолжете со читање</string>
   <string name="home_feed_settings_continue_reading_subtitle">Вратете се на статијата што не ја довршивте</string>
@@ -2467,6 +2469,25 @@
   <string name="home_feed_settings_games_title">Игри</string>
   <string name="home_feed_settings_games_subtitle">Дневни игри со содржини на Википедија</string>
   <string name="home_feed_settings_discover_title">Предлози за „Откриј“</string>
+  <string name="read_aloud_card_play">Пушти</string>
+  <string name="read_aloud_card_pause">Паузирај</string>
+  <string name="read_aloud_card_retry">Пробај пак</string>
+  <string name="read_aloud_card_error">Оваа статија нема звучна снимка.</string>
+  <string name="read_aloud_card_keep_listening">Сакате да слушате уште?</string>
+  <string name="read_aloud_card_audio_date">Оваа звучна снимка е создадена користејќи &lt;a href=\"https://www.mediawiki.org/wiki/Readers/Listening_to_Wikipedia/Model\"&gt;модел за говорен текст&lt;/a&gt; според содржина на статијата од %s.</string>
+  <string name="read_aloud_card_audio_attribution">Оваа звучна снимка е создадена со &lt;a href=\"https://www.mediawiki.org/wiki/Readers/Listening_to_Wikipedia/Model\"&gt;модел за говорен текст&lt;/a&gt;.</string>
+  <string name="read_aloud_lead_section_tooltip_text">Нова бета-функција: слушајте воведи на статии во „За вас“</string>
+  <string name="read_aloud_lead_section_survey_title">Како сте заинтересирани да ја слушате Википедија?</string>
+  <string name="read_aloud_lead_section_survey_choice1">Воведи на статии</string>
+  <string name="read_aloud_lead_section_survey_choice2">Неколку оддели од статија</string>
+  <string name="read_aloud_lead_section_survey_choice3">Цели статии</string>
+  <string name="read_aloud_lead_section_survey_choice4">Повеќе кратки извадоци од различни статии на тема</string>
+  <string name="read_aloud_lead_section_survey_choice5">Друго:</string>
+  <string name="read_aloud_lead_section_beta_label">Бета</string>
+  <string name="read_aloud_lead_section_report_subject">Пријава на грешка — Слушајте воведи на статии</string>
+  <string name="read_aloud_lead_section_report_body">Наидов на проблем со функцијата „Слушајте воведи на статии“:\n- [Опишете го конкретниот проблем]\n\nШто сакате да се поправи:\n- [Опишете го предложеното решение]</string>
+  <string name="read_aloud_lead_section_about_experiment">За овој опит</string>
+  <string name="read_aloud_lead_section_report_issue">Пријави проблем</string>
   <string name="home_feed_settings_discover_subtitle">Статии од вашата збирка „Откриј“</string>
   <string name="home_feed_discover_cta_title">Од „Откриј“</string>
   <string name="home_feed_discover_cta_description">Дознајте за нови теми, избрани само за вас. Изберете дали да ги добивате дневно, неделно или месечно.</string>

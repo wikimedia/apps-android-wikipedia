@@ -91,7 +91,7 @@ fun SemanticSearchResultsScreen(
     onLoading: (Boolean) -> Unit,
 ) {
 
-    val searchResultsState = viewModel.semanticSearchResultState.collectAsState().value
+    val searchResultsState = viewModel.semanticSearchResultsState.collectAsState().value
 
     val languageCode = viewModel.languageCode
     val layoutDirection =

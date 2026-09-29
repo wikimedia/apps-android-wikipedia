@@ -5,10 +5,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.FlowPreview
-import kotlinx.coroutines.async
-import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
@@ -25,8 +24,8 @@ class SemanticSearchResultsViewModel(savedStateHandle: SavedStateHandle) : ViewM
     var languageCode = savedStateHandle.get<String>(SemanticSearchResultsDialog.ARG_LANGUAGE_CODE).orEmpty().ifEmpty { WikipediaApp.instance.languageState.appLanguageCode }
     val invokeSource = savedStateHandle.get<Constants.InvokeSource>(Constants.INTENT_EXTRA_INVOKE_SOURCE) ?: Constants.InvokeSource.SEARCH
 
-    private var _semanticSearchResultState = MutableStateFlow<UiState<List<SearchResult>>>(UiState.Loading)
-    val semanticSearchResultState = _semanticSearchResultState.asStateFlow()
+    private var _semanticSearchResultsState = MutableStateFlow<UiState<List<SearchResult>>>(UiState.Loading)
+    val semanticSearchResultsState = _semanticSearchResultsState.asStateFlow()
 
     init {
         loadSemanticSearchResults()
@@ -35,12 +34,12 @@ class SemanticSearchResultsViewModel(savedStateHandle: SavedStateHandle) : ViewM
     @OptIn(FlowPreview::class)
     fun loadSemanticSearchResults() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
-            _semanticSearchResultState.value = UiState.Error(throwable)
+            _semanticSearchResultsState.value = UiState.Error(throwable)
         }) {
-            _semanticSearchResultState.value = UiState.Loading
+            _semanticSearchResultsState.value = UiState.Loading
 
             if (searchQuery.isEmpty() || languageCode.isEmpty()) {
-                _semanticSearchResultState.value = UiState.Success(emptyList())
+                _semanticSearchResultsState.value = UiState.Success(emptyList())
                 return@launch
             }
 
@@ -49,30 +48,51 @@ class SemanticSearchResultsViewModel(savedStateHandle: SavedStateHandle) : ViewM
             val semanticResponse = ServiceFactory.get(wikiSite).fullTextSearchResponse(searchQuery, semanticBatchSize, 0, semanticSearchType = "hl")
 
             if (!semanticResponse.isSuccessful) {
-                _semanticSearchResultState.value = UiState.Success(emptyList())
+                _semanticSearchResultsState.value = UiState.Success(emptyList())
                 return@launch
             }
 
-            val semanticResult = semanticResponse.body()?.query?.pages?.sortedBy { it.index }
-                ?.map { page ->
-                    async {
-                        val pageAttributionResponse = runCatching {
-                            ServiceFactory.getCoreRest(wikiSite).getAttribution(page.title)
-                        }.getOrNull()
-                        SearchResult(
-                            page = page,
-                            wiki = wikiSite,
-                            coordinates = page.coordinates,
-                            type = SearchResult.SearchResultType.SEMANTIC,
-                            indexInApiCall = page.index,
-                            editCounts = pageAttributionResponse?.trustAndRelevance?.contributorCounts,
-                            referenceCounts = pageAttributionResponse?.trustAndRelevance?.referenceCount,
-                            lastUpdated = pageAttributionResponse?.trustAndRelevance?.lastUpdated
-                        )
-                    }
-                }?.awaitAll() ?: emptyList()
+            val pages = semanticResponse.body()?.query?.pages?.sortedBy { it.index }.orEmpty()
+            val semanticResults = pages.map { page ->
+                SearchResult(
+                    page = page,
+                    wiki = wikiSite,
+                    coordinates = page.coordinates,
+                    type = SearchResult.SearchResultType.SEMANTIC,
+                    indexInApiCall = page.index
+                )
+            }
 
-            _semanticSearchResultState.value = UiState.Success(semanticResult)
+            _semanticSearchResultsState.value = UiState.Success(semanticResults)
+
+            semanticResults.forEach {
+                launch {
+                    loadAttribution(wikiSite, it)
+                }
+            }
+        }
+    }
+
+    private suspend fun loadAttribution(wikiSite: WikiSite, searchResult: SearchResult) {
+        val trustAndRelevance = runCatching {
+            ServiceFactory.getCoreRest(wikiSite).getAttribution(searchResult.pageTitle.prefixedText)
+        }.getOrNull()?.trustAndRelevance ?: return
+
+        _semanticSearchResultsState.update { state ->
+            if (state !is UiState.Success) {
+                return@update state
+            }
+            UiState.Success(state.data.map {
+                if (it.pageTitle == searchResult.pageTitle) {
+                    it.copy(
+                        editCounts = trustAndRelevance.contributorCounts,
+                        referenceCounts = trustAndRelevance.referenceCount,
+                        lastUpdated = trustAndRelevance.lastUpdated
+                    )
+                } else {
+                    it
+                }
+            })
         }
     }
 }

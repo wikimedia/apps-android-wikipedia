@@ -2414,6 +2414,8 @@
   <string name="home_feed_new_within_interest_card_heading">Maraqlarınız arasından yeni</string>
   <string name="home_feed_new_within_interest_title">Maraqlarınız arasından yeni məqalələr</string>
   <string name="home_feed_new_within_interest_subtitle">İzlədiyiniz mövzu sahələrində son zamanlar yaradılan məqalələr</string>
+  <string name="home_feed_settings_read_aloud_lead_section_title">Məqalə girişlərini dinlə</string>
+  <string name="home_feed_settings_read_aloud_lead_section_subtitle">İzlədiyiniz mövzu sahələrində məqalə girişləri üçün yaradılan audio</string>
   <string name="home_feed_settings_because_you_read_subtitle">Tarixçənizə əsaslanan təkliflər</string>
   <string name="home_feed_settings_continue_reading_title">Oxumağa davam et</string>
   <string name="home_feed_settings_continue_reading_subtitle">Bitirmədiyiniz məqalələrə qayıdın</string>
@@ -2456,6 +2458,25 @@
   <string name="home_feed_settings_games_title">Oyunlar</string>
   <string name="home_feed_settings_games_subtitle">Vikipediya məzmununa əsaslanan gündəlik oyunlar</string>
   <string name="home_feed_settings_discover_title">Kəşf tövsiyələri</string>
+  <string name="read_aloud_card_play">Başlat</string>
+  <string name="read_aloud_card_pause">Dayandır</string>
+  <string name="read_aloud_card_retry">Yenidən cəhd et</string>
+  <string name="read_aloud_card_error">Bu məqalə üçün audio mövcud deyil.</string>
+  <string name="read_aloud_card_keep_listening">Dinləməyə davam edilsin?</string>
+  <string name="read_aloud_card_audio_date">Bu audio &lt;a href=\"https://www.mediawiki.org/wiki/Readers/Listening_to_Wikipedia/Model\"&gt;mətndən nitqə çevirmə modelindən&lt;/a&gt; istifadə edilməklə, %s məqaləsinin məzmunu əsasında yaradılıb.</string>
+  <string name="read_aloud_card_audio_attribution">Bu audio &lt;a href=\"https://www.mediawiki.org/wiki/Readers/Listening_to_Wikipedia/Model\"&gt;mətndən nitqə çevirmə modelindən&lt;/a&gt; istifadə edilməklə yaradılıb.</string>
+  <string name="read_aloud_lead_section_tooltip_text">Yeni beta xüsusiyyəti: məqalə girişlərini \"Sizin üçün\" bölməsində dinləyin</string>
+  <string name="read_aloud_lead_section_survey_title">Vikipediyaya qulaq asmaqda necə maraqlısınız?</string>
+  <string name="read_aloud_lead_section_survey_choice1">Məqalə girişləri</string>
+  <string name="read_aloud_lead_section_survey_choice2">Bir məqalənin bir neçə bölməsi</string>
+  <string name="read_aloud_lead_section_survey_choice3">Tam məqalələr</string>
+  <string name="read_aloud_lead_section_survey_choice4">Bir mövzuda müxtəlif məqalələrdən çoxsaylı qısa hissələr</string>
+  <string name="read_aloud_lead_section_survey_choice5">Digər:</string>
+  <string name="read_aloud_lead_section_beta_label">Beta</string>
+  <string name="read_aloud_lead_section_report_subject">Problem hesabatı - Məqalə girişlərini dinləmək</string>
+  <string name="read_aloud_lead_section_report_body">\"Məqalə girişlərini dinlə\" funksiyasında problemlə qarşılaşmışam:\n- [Konkret problemi təsvir edin]\n\nGörmək istədiyim davranış:\n- [Təklif olunan həlli təsvir edin]</string>
+  <string name="read_aloud_lead_section_about_experiment">Bu təcrübə haqqında</string>
+  <string name="read_aloud_lead_section_report_issue">Problemi bildir</string>
   <string name="home_feed_settings_discover_subtitle">Kəşf edilmiş kolleksiyanızdan məqalələr</string>
   <string name="home_feed_discover_cta_title">Kəşf etdən</string>
   <string name="home_feed_discover_cta_description">Yalnız sizin üçün seçilmiş yeni mövzular haqqında məlumat əldə edin. Gündəlik, həftəlik və ya aylıq yeniləmələr arasında seçim edin.</string>
