@@ -62,6 +62,7 @@
 * WwLMvmT
 * YeBoy371
 * Yusuke1109
+* おはぐろ蜻蛉
 * そらたこ
 * もなー(偽物)
 * ネイ
@@ -1689,7 +1690,7 @@
   <string name="patroller_tasks_filters_user_status_registered_desc">ログイン済みの編集者。</string>
   <string name="patroller_tasks_filters_user_status_newcomers">新規利用者</string>
   <string name="patroller_tasks_filters_user_status_newcomers_desc">活動が4日、編集が10回以下の登録済み編集者。</string>
-  <string name="patroller_tasks_filters_user_status_learners">初学者</string>
+  <string name="patroller_tasks_filters_user_status_learners">初心者</string>
   <string name="patroller_tasks_filters_user_status_learners_desc">編集経験が「新規利用者」と「経験者」の中間の登録済み編集者。</string>
   <string name="patroller_tasks_filters_user_status_experienced">経験者</string>
   <string name="patroller_tasks_filters_user_status_experienced_desc">500編集以上かつ30日以上の活動がある登録済み編集者。</string>

@@ -238,7 +238,7 @@ private fun CustomIconScreenHeaderPreview() {
         Box(
             modifier = Modifier.size(400.dp, 300.dp)
         ) {
-            CustomIconScreen(
+            YearInReviewScreenData.CustomIconScreen(
                 slideName = "test"
             ).Header(
                 context = LocalContext.current,
@@ -256,7 +256,7 @@ private fun CustomIconScreenButtonPreview() {
         Box(
             modifier = Modifier.size(400.dp, 200.dp)
         ) {
-            CustomIconScreen(
+            YearInReviewScreenData.CustomIconScreen(
                 allowDonate = true,
                 showDonateButton = true,
                 slideName = "test"
