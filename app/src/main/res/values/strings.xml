@@ -2550,6 +2550,8 @@
     <string name="home_feed_new_within_interest_card_heading">New in your interest</string>
     <string name="home_feed_new_within_interest_title">New articles in your interests</string>
     <string name="home_feed_new_within_interest_subtitle">Recently created articles within topic areas you follow</string>
+    <string name="home_feed_settings_read_aloud_lead_section_title">Listen to article intros</string>
+    <string name="home_feed_settings_read_aloud_lead_section_subtitle">Generated audio for article introductions within topic areas you follow</string>
     <string name="home_feed_settings_because_you_read_subtitle">Suggestions based on a recent article from your history</string>
     <string name="home_feed_settings_continue_reading_title">Continue reading</string>
     <string name="home_feed_settings_continue_reading_subtitle">Jump back into articles you didn\'t finish</string>
@@ -2592,6 +2594,25 @@
     <string name="home_feed_settings_games_title">Games</string>
     <string name="home_feed_settings_games_subtitle">Daily games based on Wikipedia content</string>
     <string name="home_feed_settings_discover_title">Discover recommendations</string>
+    <string name="read_aloud_card_play">Play</string>
+    <string name="read_aloud_card_pause">Pause</string>
+    <string name="read_aloud_card_retry">Retry</string>
+    <string name="read_aloud_card_error">Audio is not available for this article.</string>
+    <string name="read_aloud_card_keep_listening">Keep listening?</string>
+    <string name="read_aloud_card_audio_date"><![CDATA[This audio was generated using <a href="https://www.mediawiki.org/wiki/Readers/Listening_to_Wikipedia/Model">a text-to-speech model</a>, based on article content from %s.]]></string>
+    <string name="read_aloud_card_audio_attribution"><![CDATA[This audio was generated using <a href="https://www.mediawiki.org/wiki/Readers/Listening_to_Wikipedia/Model">a text-to-speech model</a>.]]></string>
+    <string name="read_aloud_lead_section_tooltip_text">New beta feature: listen to article intros in \"For you\"</string>
+    <string name="read_aloud_lead_section_survey_title">How are you interested in listening to Wikipedia?</string>
+    <string name="read_aloud_lead_section_survey_choice1">Article introductions</string>
+    <string name="read_aloud_lead_section_survey_choice2">A few sections of an article</string>
+    <string name="read_aloud_lead_section_survey_choice3">Full articles</string>
+    <string name="read_aloud_lead_section_survey_choice4">Multiple short excerpts from different articles on a topic</string>
+    <string name="read_aloud_lead_section_survey_choice5">Other:</string>
+    <string name="read_aloud_lead_section_beta_label">Beta</string>
+    <string name="read_aloud_lead_section_report_subject">Issue report - Listen to article intros</string>
+    <string name="read_aloud_lead_section_report_body">I have encountered a problem with the \"Listen to article intros\" feature:\n- [Describe specific problem]\n\nThe behavior I would like to see is:\n- [Describe proposed solution]</string>
+    <string name="read_aloud_lead_section_about_experiment">About this experiment</string>
+    <string name="read_aloud_lead_section_report_issue">Report an issue</string>
     <string name="home_feed_settings_discover_subtitle">Articles from your Discover collection</string>
     <string name="home_feed_discover_cta_title">From Discover</string>
     <string name="home_feed_discover_cta_description">Learn about new topics, picked just for you. Choose between daily, weekly or monthly updates.</string>
