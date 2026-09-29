@@ -39,7 +39,7 @@ android {
         applicationId 'org.wikipedia'
         minSdk = 24
         targetSdk = 37
-        versionCode 50608
+        versionCode 50609
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
@@ -205,6 +205,7 @@ dependencies {
     implementation libs.retrofit2.kotlinx.serialization.converter
     implementation libs.paging.compose
     implementation libs.lottie.compose
+    implementation libs.media3.exoplayer
 
     implementation libs.maplibre
     implementation libs.maplibre.annotation
@@ -228,11 +229,11 @@ dependencies {
     customImplementation libs.com.google.mlkit.language.id
 
     // For receiving push notifications for logged-in users.
-    prodImplementation libs.com.google.firebase.firebase.messaging.ktx3
-    betaImplementation libs.com.google.firebase.firebase.messaging.ktx3
-    alphaImplementation libs.com.google.firebase.firebase.messaging.ktx3
-    devImplementation libs.com.google.firebase.firebase.messaging.ktx3
-    customImplementation libs.com.google.firebase.firebase.messaging.ktx3
+    prodImplementation libs.com.google.firebase.firebase.messaging
+    betaImplementation libs.com.google.firebase.firebase.messaging
+    alphaImplementation libs.com.google.firebase.firebase.messaging
+    devImplementation libs.com.google.firebase.firebase.messaging
+    customImplementation libs.com.google.firebase.firebase.messaging
 
     // For integrating with Google Pay for donations
     prodImplementation libs.com.google.android.gms.play.services.wallet2

@@ -1500,6 +1500,7 @@
   <string name="revision_diff_line_removed">Odstraněn řádek</string>
   <string name="revision_diff_paragraph_added">Přidán odstavec</string>
   <string name="revision_diff_paragraph_removed">Odstraněn odstavec</string>
+  <string name="revision_diff_protected">Změny provedené v této revizi nejsou veřejně přístupné.</string>
   <string name="revision_undo_summary_hint">Shrnutí (volitelné)</string>
   <string name="revision_undo_reason">Sdílejte důvod zrušení konkrétní editace</string>
   <string name="revision_rollback_success">Editace byly vráceny.</string>

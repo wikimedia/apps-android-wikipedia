@@ -98,12 +98,26 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
         rtl = L10nUtil.isLangRTL(page.title.wikiSite.languageCode)
         binding.tocList.rtl = rtl
         binding.sidePanelContainer.setLayoutDirectionByLang(page.title.wikiSite.languageCode)
-        binding.sidePanelContainer.updateLayoutParams<DrawerLayout.LayoutParams> {
-            gravity = if (rtl) Gravity.LEFT else Gravity.RIGHT
+        val drawerGravity = if (rtl) Gravity.LEFT else Gravity.RIGHT
+        if ((binding.sidePanelContainer.layoutParams as DrawerLayout.LayoutParams).gravity != drawerGravity) {
+            binding.sidePanelContainer.updateLayoutParams<DrawerLayout.LayoutParams> {
+                gravity = drawerGravity
+            }
+            moveClosedDrawerToEdge(drawerGravity)
         }
         log()
         articleTocInteractionEvent = ArticleTocInteractionEvent(page.summary.pageId, page.title.wikiSite.dbName(), tocAdapter.count)
         articleTocInteractionEvent?.logClick()
+    }
+
+    @SuppressLint("RtlHardcoded")
+    private fun moveClosedDrawerToEdge(drawerGravity: Int) {
+        val drawerView = binding.sidePanelContainer
+        if (binding.navigationDrawer.isDrawerVisible(drawerView)) {
+            return
+        }
+        val closedLeft = if (drawerGravity == Gravity.LEFT) -drawerView.width else binding.navigationDrawer.width
+        drawerView.offsetLeftAndRight(closedLeft - drawerView.left)
     }
 
     private fun scrollToSection(section: Section?) {

@@ -2667,6 +2667,8 @@
   <string name="home_feed_new_within_interest_card_heading">Nowe artykuły z Twojego zainteresowania</string>
   <string name="home_feed_new_within_interest_title">Nowe artykuły z Twoich zainteresowań</string>
   <string name="home_feed_new_within_interest_subtitle">Najnowsze artykuły z kategorii, które obserwujesz</string>
+  <string name="home_feed_settings_read_aloud_lead_section_title">Posłuchaj wstępów do artykułów</string>
+  <string name="home_feed_settings_read_aloud_lead_section_subtitle">Wygenerowane nagrania dźwiękowe ze wstępami do artykułów z obszarów tematycznych, które obserwujesz</string>
   <string name="home_feed_settings_because_you_read_subtitle">Propozycje na podstawie ostatnio czytanego artykułu z historii</string>
   <string name="home_feed_settings_continue_reading_title">Czytaj dalej</string>
   <string name="home_feed_settings_continue_reading_subtitle">Wróć do niedokończonych artykułów</string>
@@ -2709,6 +2711,25 @@
   <string name="home_feed_settings_games_title">Gry</string>
   <string name="home_feed_settings_games_subtitle">Codzienne gry oparte na treściach z Wikipedii</string>
   <string name="home_feed_settings_discover_title">Rekomendacje z sekcji „Odkrywaj”</string>
+  <string name="read_aloud_card_play">Odtwórz</string>
+  <string name="read_aloud_card_pause">Wstrzymaj</string>
+  <string name="read_aloud_card_retry">Ponów próbę</string>
+  <string name="read_aloud_card_error">Nagranie dźwiękowe dla tego artykułu jest niedostępne.</string>
+  <string name="read_aloud_card_keep_listening">Kontynuować nagranie?</string>
+  <string name="read_aloud_card_audio_date">To nagranie zostało wygenerowane przy użyciu &lt;a href=\"https://www.mediawiki.org/wiki/Readers/Listening_to_Wikipedia/Model\"&gt;modelu syntezy mowy&lt;/a&gt; na podstawie treści artykułu z %s.</string>
+  <string name="read_aloud_card_audio_attribution">To nagranie zostało wygenerowane przy użyciu &lt;a href=\"https://www.mediawiki.org/wiki/Readers/Listening_to_Wikipedia/Model\"&gt;modelu syntezy mowy&lt;/a&gt;.</string>
+  <string name="read_aloud_lead_section_tooltip_text">Nowa funkcja eksperymentalna: słuchaj wstępów do artykułów w sekcji „Dla Ciebie”</string>
+  <string name="read_aloud_lead_section_survey_title">Jakich treści z Wikipedii chcesz słuchać?</string>
+  <string name="read_aloud_lead_section_survey_choice1">Wstępów do artykułów</string>
+  <string name="read_aloud_lead_section_survey_choice2">Kilku sekcji artykułu</string>
+  <string name="read_aloud_lead_section_survey_choice3">Całych artykułów</string>
+  <string name="read_aloud_lead_section_survey_choice4">Wielu krótkich fragmentów z różnych artykułów na dany temat</string>
+  <string name="read_aloud_lead_section_survey_choice5">Innych:</string>
+  <string name="read_aloud_lead_section_beta_label">Beta</string>
+  <string name="read_aloud_lead_section_report_subject">Zgłoszenie problemu – odsłuchiwanie wstępów do artykułów</string>
+  <string name="read_aloud_lead_section_report_body">Problem dotyczy funkcji „Posłuchaj wstępów do artykułów”:\n- [Opisz szczegółowo problem]\n\nOczekuję, że funkcja będzie działać w następujący sposób:\n- [Opisz proponowane rozwiązanie]</string>
+  <string name="read_aloud_lead_section_about_experiment">O tym eksperymencie</string>
+  <string name="read_aloud_lead_section_report_issue">Zgłoś problem</string>
   <string name="home_feed_settings_discover_subtitle">Artykuły z Twojej kolekcji polecanych artykułów</string>
   <string name="home_feed_discover_cta_title">Z sekcji „Odkrywaj”</string>
   <string name="home_feed_discover_cta_description">Poznawaj nowe tematy przygotowane specjalnie dla Ciebie. Wybierz aktualizacje codzienne, cotygodniowe lub comiesięczne.</string>
