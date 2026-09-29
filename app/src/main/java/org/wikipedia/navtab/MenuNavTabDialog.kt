@@ -26,7 +26,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.SuggestedEditsTasksActivity
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil.getThemedColorStateList
-import org.wikipedia.yearinreview.YearInReviewViewModel
+import org.wikipedia.yearinreview.presentation.YearInReviewViewModel
 
 class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
     interface Callback {

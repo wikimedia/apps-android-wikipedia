@@ -1,4 +1,4 @@
-package org.wikipedia.yearinreview
+package org.wikipedia.yearinreview.presentation
 
 import android.icu.text.NumberFormat
 import androidx.annotation.RawRes

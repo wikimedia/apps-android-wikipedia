@@ -1,4 +1,4 @@
-package org.wikipedia.yearinreview
+package org.wikipedia.yearinreview.data
 
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.RestService

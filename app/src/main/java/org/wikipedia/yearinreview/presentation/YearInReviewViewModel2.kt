@@ -1,4 +1,4 @@
-package org.wikipedia.yearinreview
+package org.wikipedia.yearinreview.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -7,6 +7,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.wikipedia.util.log.L
+import org.wikipedia.yearinreview.data.YearInReviewRepository
+import org.wikipedia.yearinreview.data.YearInReviewRepositoryImpl
 
 // TODO: change the name of this class to YearInReviewViewModel once the old one is removed
 class YearInReviewViewModel2(
@@ -37,11 +39,6 @@ class YearInReviewViewModel2(
         }
     }
 }
-
-data class YearInReviewSnapshot(
-    val year: Int,
-    val isDonationEligible: Boolean
-)
 
 sealed interface YearInReviewUiState {
     object Loading : YearInReviewUiState

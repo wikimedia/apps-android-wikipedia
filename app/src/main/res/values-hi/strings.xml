@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* AMAN KUMAR
 * Abijeet Patro
 * Adithyavr
 * Anamdas
@@ -51,6 +52,7 @@
   <string name="search_hint_voice_search">ध्वनि इनपुट खोज</string>
   <string name="search_hint_search_languages">भाषा के लिए खोजें</string>
   <string name="search_back_button_content_description">वापस जाएँ</string>
+  <string name="search_clear_query_content_description">स्पष्ट प्रश्न</string>
   <string name="search_icon_content_description">खोजें</string>
   <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">मेरी सूचियों को छाँटें</string>
   <string name="nav_item_suggested_edits">सम्पादन</string>

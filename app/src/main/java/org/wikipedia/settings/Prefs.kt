@@ -42,8 +42,8 @@ import org.wikipedia.util.ReleaseUtil.isDevRelease
 import org.wikipedia.util.StringUtil
 import org.wikipedia.watchlist.WatchlistFilterTypes
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetRepository
-import org.wikipedia.yearinreview.YearInReviewModel
-import org.wikipedia.yearinreview.YearInReviewSurveyState
+import org.wikipedia.yearinreview.data.YearInReviewModel
+import org.wikipedia.yearinreview.presentation.YearInReviewSurveyState
 import java.util.Date
 
 /** Shared preferences utility for convenient POJO access.  */
@@ -985,6 +985,22 @@ object Prefs {
     var homeFeedSurveyShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_home_feed_survey_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_home_feed_survey_shown, value)
+
+    var readAloudLeadSectionTooltipShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_read_aloud_lead_section_tooltip_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_read_aloud_lead_section_tooltip_shown, value)
+
+    var readAloudLeadSectionSurveyShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_read_aloud_lead_section_survey_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_read_aloud_lead_section_survey_shown, value)
+
+    var readAloudLeadSectionLastPlayedDate
+        get() = PrefsIoUtil.getString(R.string.preference_key_read_aloud_last_played_date, "").orEmpty()
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_read_aloud_last_played_date, value)
+
+    var readAloudLeadSectionOverrideConfig
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_read_aloud_lead_section_override_config, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_read_aloud_lead_section_override_config, value)
 
     var isReadingListsUpdateTooltipShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_lists_update_tooltip_shown, false)

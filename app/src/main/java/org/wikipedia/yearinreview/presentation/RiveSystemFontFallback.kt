@@ -1,4 +1,4 @@
-package org.wikipedia.yearinreview
+package org.wikipedia.yearinreview.presentation
 
 import android.icu.util.ULocale
 import androidx.compose.runtime.Composable

@@ -1,4 +1,4 @@
-package org.wikipedia.yearinreview
+package org.wikipedia.yearinreview.presentation
 
 import android.graphics.Bitmap
 import androidx.compose.runtime.Composable

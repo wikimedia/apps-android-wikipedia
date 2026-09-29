@@ -23,6 +23,7 @@ import org.wikipedia.donate.donationreminder.DonationReminderAbTest
 import org.wikipedia.donate.donationreminder.DonationReminderConfig
 import org.wikipedia.feed.interests.NewWithinInterestABTest
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
+import org.wikipedia.feed.readaloud.ReadAloudLeadSectionABTest
 import org.wikipedia.games.onthisday.OnThisDayGameNotificationManager
 import org.wikipedia.games.onthisday.OnThisDayGameNotificationState
 import org.wikipedia.history.HistoryEntry
@@ -44,7 +45,7 @@ import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.StringUtil.fromHtml
-import org.wikipedia.yearinreview.YearInReviewSurveyState
+import org.wikipedia.yearinreview.presentation.YearInReviewSurveyState
 import java.util.Date
 import java.util.concurrent.TimeUnit
 
@@ -335,7 +336,8 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
         screen.addPreference(category)
         listOf(
             DonationReminderAbTest(),
-            NewWithinInterestABTest()
+            NewWithinInterestABTest(),
+            ReadAloudLeadSectionABTest()
         ).forEach { abTest ->
             category.addPreference(IntPreference(screen.context).apply {
                 key = abTest.preferenceKey
