@@ -317,24 +317,30 @@ fun SemanticSearchResultCard(
             Box(
                 modifier = Modifier.fillMaxWidth(),
             ) {
+                val quotationMarkFontSize = 24.sp
+                val snippetFontSize = 14.sp
                 Text(
                     modifier = Modifier.offset(y = (-8).dp),
                     text = prefixQuotationMark,
-                    fontSize = 24.sp,
+                    fontSize = quotationMarkFontSize,
                     color = WikipediaTheme.colors.primaryColor
                 )
                 HtmlText(
                     text = leadingSpacesForQuotationMark(
                         quotationMark = prefixQuotationMark,
-                        quoteTextSize = 24.sp,
-                        contentTextSize = 16.sp,
+                        quoteTextSize = quotationMarkFontSize,
+                        contentTextSize = snippetFontSize,
                         reserveGap = 4.dp
                     ) + searchResult.snippet.orEmpty(),
+                    style = TextStyle(
+                        color = WikipediaTheme.colors.primaryColor,
+                        fontSize = snippetFontSize
+                    ),
                     color = WikipediaTheme.colors.primaryColor,
                     linkStyle = TextLinkStyles(
                         style = SpanStyle(
                             color = WikipediaTheme.colors.progressiveColor,
-                            fontSize = 14.sp
+                            fontSize = snippetFontSize
                         )
                     ),
                     linkInteractionListener = {

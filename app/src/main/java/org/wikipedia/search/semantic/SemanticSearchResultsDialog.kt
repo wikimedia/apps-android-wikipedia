@@ -25,7 +25,7 @@ class SemanticSearchResultsDialog : ExtendedBottomSheetDialogFragment() {
                     SemanticSearchResultsScreen(
                         viewModel = viewModel,
                         onItemClick = { title ->
-                            callback()?.navigateToTitle(title, true, 0)
+                            callback()?.navigateToTitle(title, false, 0)
                         },
                         onCloseClick = {
                             dismiss()
