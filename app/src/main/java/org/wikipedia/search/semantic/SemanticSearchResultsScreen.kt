@@ -276,7 +276,7 @@ fun SemanticSearchResultsContent(
                         SemanticSearchPageHooks(
                             snippet = searchResult.snippet,
                             section = searchResult.sectionTitle)
-                    )},
+                    ) },
                     onLinkClick = { url ->
                         // ignore in-article links
                     }

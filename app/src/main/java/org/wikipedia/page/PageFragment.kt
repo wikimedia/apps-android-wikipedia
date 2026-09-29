@@ -9,7 +9,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.text.Highlights
 import android.util.Log
 import android.view.ActionMode
 import android.view.ActionProvider
@@ -30,7 +29,6 @@ import androidx.core.animation.doOnEnd
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.net.toUri
-import androidx.core.os.postDelayed
 import androidx.core.view.forEach
 import androidx.core.widget.TextViewCompat
 import androidx.fragment.app.Fragment
@@ -1372,7 +1370,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             })();
         """
     }
-
 
     private inner class AvCallback : AvPlayer.Callback {
         override fun onSuccess() {
