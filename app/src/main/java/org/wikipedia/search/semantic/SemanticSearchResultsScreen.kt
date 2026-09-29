@@ -91,7 +91,7 @@ fun SemanticSearchResultsScreen(
     onLoading: (Boolean) -> Unit,
 ) {
 
-    val searchResultsState = viewModel.semanticSearchResultState.collectAsState().value
+    val searchResultsState = viewModel.semanticSearchResultsState.collectAsState().value
 
     val languageCode = viewModel.languageCode
     val layoutDirection =
@@ -322,24 +322,30 @@ fun SemanticSearchResultCard(
             Box(
                 modifier = Modifier.fillMaxWidth(),
             ) {
+                val quotationMarkFontSize = 24.sp
+                val snippetFontSize = 14.sp
                 Text(
                     modifier = Modifier.offset(y = (-8).dp),
                     text = prefixQuotationMark,
-                    fontSize = 24.sp,
+                    fontSize = quotationMarkFontSize,
                     color = WikipediaTheme.colors.primaryColor
                 )
                 HtmlText(
                     text = leadingSpacesForQuotationMark(
                         quotationMark = prefixQuotationMark,
-                        quoteTextSize = 24.sp,
-                        contentTextSize = 16.sp,
+                        quoteTextSize = quotationMarkFontSize,
+                        contentTextSize = snippetFontSize,
                         reserveGap = 4.dp
                     ) + searchResult.snippet.orEmpty(),
+                    style = TextStyle(
+                        color = WikipediaTheme.colors.primaryColor,
+                        fontSize = snippetFontSize
+                    ),
                     color = WikipediaTheme.colors.primaryColor,
                     linkStyle = TextLinkStyles(
                         style = SpanStyle(
                             color = WikipediaTheme.colors.progressiveColor,
-                            fontSize = 14.sp
+                            fontSize = snippetFontSize
                         )
                     ),
                     linkInteractionListener = {
@@ -356,10 +362,10 @@ fun SemanticSearchResultCard(
                 text = stringResource(R.string.semantic_search_results_read_in_article_label),
                 fontWeight = FontWeight.Medium,
                 fontSize = 13.sp,
-                color = WikipediaTheme.colors.placeholderColor
+                color = WikipediaTheme.colors.secondaryColor
             )
 
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(16.dp))
 
             Row(
                 verticalAlignment = Alignment.CenterVertically,

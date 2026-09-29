@@ -2159,6 +2159,7 @@
   <string name="home_feed_settings_for_you_modules_description">Wann Dir e Modul desaktivéiert, da gëtt et an Ärem „Fir Iech“-Feed verstoppt. Dir kënnt zu all Moment erëm hei reaktivéieren.</string>
   <string name="home_feed_settings_based_on_interest_title">Op Basis vun Ären Interessen</string>
   <string name="home_feed_settings_based_on_interest_subtitle">Artikelen, déi op d\'Theemen zougeschnidde sinn, déi Dir ausgewielt hutt.&lt;br /&gt;&lt;a \nhref=\"#drivingFeed\"&gt;Wat beaflosst Äre Feed?&lt;/a&gt;</string>
+  <string name="home_feed_settings_read_aloud_lead_section_title">Artikelaleedunge lauschteren</string>
   <string name="home_feed_settings_because_you_read_subtitle">Virschléi op Basis vun engem rezenten Artikel aus Ärem Historique</string>
   <string name="home_feed_settings_continue_reading_title">Viruliesen</string>
   <string name="home_feed_settings_continue_reading_subtitle">Gitt zeréck op Artikelen, déi Dir net fäerdeg gelies hutt</string>
@@ -2201,8 +2202,14 @@
   <string name="home_feed_settings_games_title">Spiller</string>
   <string name="home_feed_settings_games_subtitle">Deeglech Spiller op Basis vu Wikipedia-Contenu</string>
   <string name="home_feed_settings_discover_title">„Entdecken“-Recommandatiounen</string>
+  <string name="read_aloud_card_play">Ofspillen</string>
   <string name="read_aloud_card_pause">Pauséieren</string>
+  <string name="read_aloud_card_keep_listening">Weider lauschteren?</string>
+  <string name="read_aloud_lead_section_survey_choice1">Artikelaleedungen</string>
+  <string name="read_aloud_lead_section_survey_choice3">Ganz Artikelen</string>
   <string name="read_aloud_lead_section_beta_label">Beta</string>
+  <string name="read_aloud_lead_section_about_experiment">Iwwer dëst Experiment</string>
+  <string name="read_aloud_lead_section_report_issue">E Problem mellen</string>
   <string name="home_feed_settings_discover_subtitle">Artikelen aus Ärer „Entdecken“-Sammlung</string>
   <string name="home_feed_discover_cta_title">Vun „Entdecken“</string>
   <string name="home_feed_discover_cta_description">Gitt méi iwwer nei Theeme gewuer, déi just fir Iech erausgesicht goufen. Wielt tëscht deeglechen, wéchentlechen oder méintlechen Aktualiséierungen.</string>
