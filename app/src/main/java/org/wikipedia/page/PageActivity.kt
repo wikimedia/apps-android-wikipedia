@@ -97,8 +97,8 @@ import org.wikipedia.views.ObservableWebView
 import org.wikipedia.views.ViewUtil
 import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetRepository
-import org.wikipedia.yearinreview.YearInReviewDialog
-import org.wikipedia.yearinreview.YearInReviewViewModel
+import org.wikipedia.yearinreview.presentation.YearInReviewDialog
+import org.wikipedia.yearinreview.presentation.YearInReviewViewModel
 import java.time.LocalDate
 import java.util.Locale
 

@@ -42,8 +42,8 @@ import org.wikipedia.util.ReleaseUtil.isDevRelease
 import org.wikipedia.util.StringUtil
 import org.wikipedia.watchlist.WatchlistFilterTypes
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetRepository
-import org.wikipedia.yearinreview.YearInReviewModel
-import org.wikipedia.yearinreview.YearInReviewSurveyState
+import org.wikipedia.yearinreview.data.YearInReviewModel
+import org.wikipedia.yearinreview.presentation.YearInReviewSurveyState
 import java.util.Date
 
 /** Shared preferences utility for convenient POJO access.  */

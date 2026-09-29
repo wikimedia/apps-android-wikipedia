@@ -1,4 +1,4 @@
-package org.wikipedia.yearinreview
+package org.wikipedia.yearinreview.presentation
 
 import android.app.Activity
 import android.widget.ScrollView

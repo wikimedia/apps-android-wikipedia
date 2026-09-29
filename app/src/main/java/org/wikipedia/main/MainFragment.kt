@@ -92,9 +92,9 @@ import org.wikipedia.views.TabCountsView
 import org.wikipedia.views.imageservice.ImageService
 import org.wikipedia.watchlist.WatchlistActivity
 import org.wikipedia.widgets.SearchWidgetInstallDialog
-import org.wikipedia.yearinreview.YearInReviewDialog
-import org.wikipedia.yearinreview.YearInReviewOnboardingActivity
-import org.wikipedia.yearinreview.YearInReviewViewModel
+import org.wikipedia.yearinreview.presentation.YearInReviewDialog
+import org.wikipedia.yearinreview.presentation.YearInReviewOnboardingActivity
+import org.wikipedia.yearinreview.presentation.YearInReviewViewModel
 import java.io.File
 import java.time.LocalDate
 import java.util.concurrent.TimeUnit

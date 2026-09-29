@@ -1,4 +1,4 @@
-package org.wikipedia.yearinreview
+package org.wikipedia.yearinreview.presentation
 
 import android.graphics.Bitmap
 import android.location.Geocoder
@@ -25,16 +25,17 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.GeoUtil
-import org.wikipedia.util.GeoUtil.LocationClusterer
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UiState
 import org.wikipedia.util.log.L
+import org.wikipedia.yearinreview.data.YearInReviewModel
 import java.io.IOException
 import java.time.Instant
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.ZoneOffset
 import java.util.concurrent.TimeUnit
+import kotlin.collections.contains
 import kotlin.math.abs
 
 class YearInReviewViewModel : ViewModel() {
@@ -42,7 +43,8 @@ class YearInReviewViewModel : ViewModel() {
         L.e(throwable)
         _uiScreenListState.value = UiState.Error(throwable)
     }
-    private var _uiScreenListState = MutableStateFlow<UiState<List<YearInReviewScreenData>>>(UiState.Loading)
+    private var _uiScreenListState =
+        MutableStateFlow<UiState<List<YearInReviewScreenData>>>(UiState.Loading)
     val uiScreenListState = _uiScreenListState.asStateFlow()
 
     var screenshotHeaderBitmap = createBitmap(1, 1)
@@ -187,7 +189,7 @@ class YearInReviewViewModel : ViewModel() {
                 val largestClusterArticles = mutableListOf<String>()
                 if (pagesWithCoordinates.size > MIN_ARTICLES_PER_MAP_CLUSTER) {
                     try {
-                        val clusters = LocationClusterer().clusterLocations(
+                        val clusters = GeoUtil.LocationClusterer().clusterLocations(
                             locations = pagesWithCoordinates,
                             epsilonKm = 500.0,
                             minPoints = 3
@@ -200,7 +202,12 @@ class YearInReviewViewModel : ViewModel() {
 
                             val largestClusterBounds = LatLngBounds.Builder()
                             largestCluster.locations.forEach {
-                                largestClusterBounds.include(LatLng(it.geoLat ?: 0.0, it.geoLon ?: 0.0))
+                                largestClusterBounds.include(
+                                    LatLng(
+                                        it.geoLat ?: 0.0,
+                                        it.geoLon ?: 0.0
+                                    )
+                                )
                             }
                             val bounds = largestClusterBounds.build()
                             largestClusterTopLeft = Pair(bounds.latitudeNorth, bounds.longitudeEast)
