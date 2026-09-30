@@ -38,6 +38,7 @@ import java.util.concurrent.TimeUnit
 import kotlin.collections.contains
 import kotlin.math.abs
 
+// TODO: copy over logic to YearInReviewViewModel2 and remove this class once the new one is fully implemented
 class YearInReviewViewModel : ViewModel() {
     private val handler = CoroutineExceptionHandler { _, throwable ->
         L.e(throwable)

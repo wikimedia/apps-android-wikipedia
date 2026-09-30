@@ -92,8 +92,8 @@ import org.wikipedia.views.TabCountsView
 import org.wikipedia.views.imageservice.ImageService
 import org.wikipedia.watchlist.WatchlistActivity
 import org.wikipedia.widgets.SearchWidgetInstallDialog
+import org.wikipedia.yearinreview.presentation.YearInReviewActivity
 import org.wikipedia.yearinreview.presentation.YearInReviewDialog
-import org.wikipedia.yearinreview.presentation.YearInReviewOnboardingActivity
 import org.wikipedia.yearinreview.presentation.YearInReviewViewModel
 import java.io.File
 import java.time.LocalDate
@@ -496,7 +496,8 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
     }
 
     override fun yearInReviewClick() {
-        startActivity(YearInReviewOnboardingActivity.newIntent(requireActivity()))
+        // TODO yir: remove this later
+        startActivity(YearInReviewActivity.newIntent(requireActivity()))
     }
 
     fun setBottomNavVisible(visible: Boolean) {
