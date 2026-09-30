@@ -165,14 +165,12 @@ private fun YearInReviewContent(
     }
     val screenshotGetters = remember { mutableStateMapOf<String, GetBitmapFun>() }
     val riveWorker = rememberYearInReviewRiveWorker(onRiveError)
-    val riveFontsResult = rememberYearInReviewRiveFonts(riveWorker, YearInReviewRiveFonts)
     val riveResourceIds = remember(pages) {
         pages.mapNotNull { page -> page.riveSpec?.resourceId }.distinct()
     }
     // TODO: pass riveFiles[spec.resourceId] ?: Result.Loading to each Rive slide once they're added
     val riveFiles = rememberYearInReviewRiveFiles(
         riveWorker = riveWorker,
-        riveFontsResult = riveFontsResult,
         resourceIds = riveResourceIds
     )
     InstallRiveSystemFontFallback()

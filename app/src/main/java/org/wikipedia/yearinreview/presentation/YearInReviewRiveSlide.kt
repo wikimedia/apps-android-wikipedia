@@ -139,18 +139,19 @@ fun rememberYearInReviewRiveFonts(riveWorker: RiveWorker?, fonts: List<RiveSlide
 // Loads each .riv file once for the whole screen, so slides that share a file share one loaded copy.
 // A slide can also use its own .riv file: give its spec a different resourceId and that file is loaded separately.
 // Specs with the same resourceId but a different artboard still share the one loaded file.
+// riveFontsResult can be null if the app doesn't use any fonts, otherwise it should be the result of rememberYearInReviewRiveFonts().
 @Composable
 fun rememberYearInReviewRiveFiles(
     riveWorker: RiveWorker?,
-    riveFontsResult: Result<Unit>,
-    resourceIds: List<Int>
+    resourceIds: List<Int>,
+    riveFontsResult: Result<Unit>? = null
 ): Map<Int, Result<RiveFile>> {
     return resourceIds.distinct().associateWith { resourceId ->
         key(resourceId) {
             if (riveWorker == null) {
                 Result.Loading
             } else {
-                riveFontsResult.andThen {
+                (riveFontsResult ?: Result.Success(Unit)).andThen {
                     rememberRiveFile(
                         source = RiveFileSource.RawRes.from(resourceId),
                         riveWorker = riveWorker
