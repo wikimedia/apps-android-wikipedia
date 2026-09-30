@@ -23,7 +23,7 @@ object YearInReviewFlowDecider {
         } else {
             YearInReviewCollectiveInsight.entries.map { YearInReviewPage.Collective(it) } + listOfNotNull(youMatterPage(snapshot))
         }
-        return flowPages + YearInReviewPage.End
+        return listOf(YearInReviewPage.Cover) + flowPages + YearInReviewPage.End
     }
 
     private fun personalizedCandidates(snapshot: YearInReviewSnapshot): List<CandidatePage> {

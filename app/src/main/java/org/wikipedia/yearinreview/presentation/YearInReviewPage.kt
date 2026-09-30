@@ -15,6 +15,10 @@ sealed interface YearInReviewPage {
     val id: String
     val useDarkStatusBarIcons: Boolean get() = false
 
+    data object Cover : YearInReviewPage {
+        override val id = "cover"
+    }
+
     data class ArticlesRead(val isEmptyState: Boolean) : YearInReviewPage {
         override val id get() = if (isEmptyState) "total_articles_empty" else "total_articles"
     }
