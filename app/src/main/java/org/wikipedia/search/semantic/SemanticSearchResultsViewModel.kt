@@ -27,12 +27,6 @@ class SemanticSearchResultsViewModel(savedStateHandle: SavedStateHandle) : ViewM
     private var _semanticSearchResultsState = MutableStateFlow<UiState<List<SearchResult>>>(UiState.Loading)
     val semanticSearchResultsState = _semanticSearchResultsState.asStateFlow()
 
-    val quotationMarkMap = mapOf(
-        "ja" to "『",
-        "ar" to "❝",
-        "fr" to "«"
-    )
-
     init {
         loadSemanticSearchResults()
     }
