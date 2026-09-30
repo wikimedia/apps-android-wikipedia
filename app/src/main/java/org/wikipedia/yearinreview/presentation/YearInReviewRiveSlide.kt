@@ -139,18 +139,19 @@ fun rememberYearInReviewRiveFonts(riveWorker: RiveWorker?, fonts: List<RiveSlide
 // Loads each .riv file once for the whole screen, so slides that share a file share one loaded copy.
 // A slide can also use its own .riv file: give its spec a different resourceId and that file is loaded separately.
 // Specs with the same resourceId but a different artboard still share the one loaded file.
+// riveFontsResult can be null if the app doesn't use any fonts, otherwise it should be the result of rememberYearInReviewRiveFonts().
 @Composable
 fun rememberYearInReviewRiveFiles(
     riveWorker: RiveWorker?,
-    riveFontsResult: Result<Unit>,
-    resourceIds: List<Int>
+    resourceIds: List<Int>,
+    riveFontsResult: Result<Unit>? = null
 ): Map<Int, Result<RiveFile>> {
     return resourceIds.distinct().associateWith { resourceId ->
         key(resourceId) {
             if (riveWorker == null) {
                 Result.Loading
             } else {
-                riveFontsResult.andThen {
+                (riveFontsResult ?: Result.Success(Unit)).andThen {
                     rememberRiveFile(
                         source = RiveFileSource.RawRes.from(resourceId),
                         riveWorker = riveWorker
@@ -164,13 +165,13 @@ fun rememberYearInReviewRiveFiles(
 @Composable
 fun YearInReviewRiveSlide(
     riveFileResult: Result<RiveFile>,
-    slideId: String,
-    screenshotGetters: MutableMap<String, GetBitmapFun>,
     spec: RiveSlideSpec,
     textProperties: Map<String, String>,
     accessibilityDescription: String,
     playing: Boolean,
     modifier: Modifier = Modifier,
+    slideId: String? = null,
+    screenshotGetters: MutableMap<String, GetBitmapFun>? = null,
     imageUrls: Map<String, String?> = emptyMap(),
     onRiveError: (Throwable) -> Unit
 ) {
@@ -202,8 +203,8 @@ private fun YearInReviewRiveArtboard(
     playing: Boolean,
     modifier: Modifier,
     onRiveError: (Throwable) -> Unit,
-    slideId: String,
-    screenshotGetters: MutableMap<String, GetBitmapFun>
+    slideId: String?,
+    screenshotGetters: MutableMap<String, GetBitmapFun>?
 ) {
     // loading the artboard and state machine from the rive file
     val artboardResult = rememberArtboardResult(file = riveFile, artboardName = spec.artboardName)
@@ -234,8 +235,17 @@ private fun YearInReviewRiveArtboard(
                     emptyMap()
                 }
             }
+            val onBitmapAvailable: ((GetBitmapFun) -> Unit)? = if (slideId != null && screenshotGetters != null) {
+                { screenshotGetters[slideId] = it }
+            } else {
+                null
+            }
             DisposableEffect(slideId, screenshotGetters, riveFile, artboard, stateMachine, instance) {
-                onDispose { screenshotGetters.remove(slideId) }
+                onDispose {
+                    if (slideId != null) {
+                        screenshotGetters?.remove(slideId)
+                    }
+                }
             }
             // setting the provided text properties on the ViewModel instance
             LaunchedEffect(instance, textProperties) {
@@ -274,7 +284,7 @@ private fun YearInReviewRiveArtboard(
                 viewModelInstance = instance,
                 fit = fit,
                 pointerInputMode = RivePointerInputMode.Observe,
-                onBitmapAvailable = { screenshotGetters[slideId] = it },
+                onBitmapAvailable = onBitmapAvailable,
                 modifier = modifier
                     .fillMaxSize()
                     .clearAndSetSemantics {
