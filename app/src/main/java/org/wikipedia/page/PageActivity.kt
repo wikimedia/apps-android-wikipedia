@@ -461,7 +461,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         semanticSearchFeedbackJob = lifecycleScope.launch {
             delay(SemanticSearchFeedbackDialog.ARTICLE_DISPLAY_DELAY_MILLIS.milliseconds)
             withResumed {
-                // Don't interrupt the user if they are already interacting with another bottom sheet.
                 if (pageFragment.title == feedbackTitle && ExclusiveBottomSheetPresenter.getCurrentBottomSheet(supportFragmentManager) == null) {
                     ExclusiveBottomSheetPresenter.show(supportFragmentManager,
                         SemanticSearchFeedbackDialog.newInstance(feedbackTitle.wikiSite.languageCode))
