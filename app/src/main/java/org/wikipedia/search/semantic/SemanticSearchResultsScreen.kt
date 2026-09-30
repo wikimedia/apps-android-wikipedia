@@ -105,7 +105,7 @@ fun SemanticSearchResultsScreen(
     viewModel: SemanticSearchResultsViewModel,
     onItemClick: (PageTitle) -> Unit,
     onCloseClick: () -> Unit,
-    onFeedbackSubmit: (isPositive: Boolean, feedbackText: String) -> Unit,
+    onFeedbackSubmit: (isPositive: Boolean?, feedbackText: String) -> Unit,
     onLoading: (Boolean) -> Unit,
 ) {
 
@@ -154,6 +154,11 @@ fun SemanticSearchResultsScreen(
                         return@CompositionLocalProvider
                     }
                     SemanticSearchFeedbackContent(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(bottom = 16.dp, start = 16.dp, end = 16.dp)
+                            .clip(RoundedCornerShape(16.dp))
+                            .background(WikipediaTheme.colors.borderColor),
                         isVisible = feedbackState.isVisible,
                         selectedRating = feedbackState.isPositive,
                         onRatingClick = viewModel::selectFeedbackRating,
@@ -239,14 +244,16 @@ fun SemanticSearchResultsHeader(
 
 @Composable
 fun SemanticSearchFeedbackContent(
+    modifier: Modifier,
     isVisible: Boolean,
     selectedRating: Boolean?,
+    isInputAlwaysVisible: Boolean = false,
     onRatingClick: (Boolean) -> Unit,
-    onSubmitClick: (isPositive: Boolean, feedbackText: String) -> Unit
+    onSubmitClick: (isPositive: Boolean?, feedbackText: String) -> Unit
 ) {
     val feedbackTextState = rememberTextFieldState()
     val focusManager = LocalFocusManager.current
-    val fieldBackgroundColor = WikipediaTheme.colors.secondaryColor.copy(alpha = 0.3f)
+    val fieldBackgroundColor = WikipediaTheme.colors.secondaryColor.copy(alpha = 0.2f)
 
     AnimatedVisibility(
         visible = isVisible,
@@ -254,11 +261,7 @@ fun SemanticSearchFeedbackContent(
         exit = shrinkVertically() + fadeOut()
     ) {
         Column(
-            modifier = Modifier
-                .padding(start = 16.dp, end = 16.dp, bottom = 16.dp)
-                .fillMaxWidth()
-                .clip(RoundedCornerShape(16.dp))
-                .background(WikipediaTheme.colors.borderColor)
+            modifier = modifier
         ) {
             Row(
                 modifier = Modifier.padding(start = 16.dp, end = 4.dp, top = 4.dp, bottom = 4.dp),
@@ -287,7 +290,7 @@ fun SemanticSearchFeedbackContent(
             }
 
             AnimatedVisibility(
-                visible = selectedRating != null
+                visible = isInputAlwaysVisible || selectedRating != null
             ) {
                 Column(
                     modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 8.dp, bottom = 16.dp)
@@ -326,10 +329,8 @@ fun SemanticSearchFeedbackContent(
                             .fillMaxWidth()
                             .heightIn(min = 48.dp),
                         onClick = {
-                            selectedRating?.let {
-                                focusManager.clearFocus()
-                                onSubmitClick(it, feedbackTextState.text.toString().trim())
-                            }
+                            focusManager.clearFocus()
+                            onSubmitClick(selectedRating, feedbackTextState.text.toString().trim())
                         }
                     ) {
                         Text(
@@ -668,6 +669,7 @@ fun SemanticSearchFeedbackContentPreview() {
         currentTheme = Theme.LIGHT
     ) {
         SemanticSearchFeedbackContent(
+            modifier = Modifier,
             isVisible = true,
             selectedRating = true,
             onRatingClick = {},

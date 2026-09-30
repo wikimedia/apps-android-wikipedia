@@ -58,6 +58,14 @@ class SemanticSearchResultsViewModel(savedStateHandle: SavedStateHandle) : ViewM
         _feedbackState.update { it.copy(isVisible = false) }
     }
 
+    fun deferFeedbackToArticle(): Boolean {
+        if (!_feedbackState.value.isVisible) {
+            return false
+        }
+        _feedbackState.update { it.copy(isVisible = false) }
+        return true
+    }
+
     @OptIn(FlowPreview::class)
     fun loadSemanticSearchResults() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->

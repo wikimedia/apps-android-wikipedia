@@ -2429,4 +2429,6 @@
   <string name="semantic_search_results_feedback_input_hint">Hint text for the optional text field in the semantic search results feedback area, where the user can give more details about their feedback.</string>
   <string name="semantic_search_results_feedback_submit_button_text">Text for the button that submits the feedback in the semantic search results.</string>
   <string name="semantic_search_results_feedback_submitted_message">Message shown after the user submits feedback on the semantic search results.</string>
+  <string name="semantic_search_feedback_dialog_title">Title of the semantic search feedback dialog shown in the article screen.</string>
+  <string name="semantic_search_feedback_dialog_close_button_content_description">Content description for the button that closes the semantic search feedback dialog shown in the article screen.</string>
 </resources>

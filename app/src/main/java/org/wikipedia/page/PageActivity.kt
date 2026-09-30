@@ -27,10 +27,12 @@ import androidx.core.view.updateLayoutParams
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.lifecycle.withResumed
 import androidx.preference.PreferenceManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
@@ -75,6 +77,7 @@ import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.readinglist.ReadingListActivity
 import org.wikipedia.readinglist.ReadingListMode
 import org.wikipedia.search.SearchActivity
+import org.wikipedia.search.semantic.SemanticSearchFeedbackDialog
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.staticdata.MainPageNameData
@@ -101,6 +104,7 @@ import org.wikipedia.yearinreview.YearInReviewDialog
 import org.wikipedia.yearinreview.YearInReviewViewModel
 import java.time.LocalDate
 import java.util.Locale
+import kotlin.time.Duration.Companion.milliseconds
 
 class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.LoadPageCallback, FrameLayoutNavMenuTriggerer.Callback {
 
@@ -118,6 +122,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     private val isCabOpen get() = currentActionModes.isNotEmpty()
     private var exclusiveTooltipRunnable: Runnable? = null
     private var isTooltipShowing = false
+    private var isSemanticSearchFeedbackPending = false
 
     private val requestEditSectionLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == EditHandler.RESULT_REFRESH_PAGE) {
@@ -439,6 +444,23 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         lifecycleScope.launch {
             ReadingChallengeWidgetRepository(this@PageActivity).updateOnArticleRead(LocalDate.now())
         }
+        if (isSemanticSearchFeedbackPending) {
+            isSemanticSearchFeedbackPending = false
+            showSemanticSearchFeedbackAfterDelay()
+        }
+    }
+
+    private fun showSemanticSearchFeedbackAfterDelay() {
+        lifecycleScope.launch {
+            delay(SemanticSearchFeedbackDialog.ARTICLE_DISPLAY_DELAY_MILLIS.milliseconds)
+            withResumed {
+                // Don't interrupt the user if they are already interacting with another bottom sheet.
+                if (ExclusiveBottomSheetPresenter.getCurrentBottomSheet(supportFragmentManager) == null) {
+                    ExclusiveBottomSheetPresenter.show(supportFragmentManager,
+                        SemanticSearchFeedbackDialog.newInstance(pageFragment.title?.wikiSite?.languageCode.orEmpty()))
+                }
+            }
+        }
     }
 
     override fun onPageDismissBottomSheet() {
@@ -658,6 +680,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                     ACTION_LOAD_IN_CURRENT_TAB_SQUASH == intent.action) && intent.hasExtra(EXTRA_HISTORYENTRY)) {
             val title = intent.parcelableExtra<PageTitle>(Constants.ARG_TITLE)
             val historyEntry = intent.parcelableExtra<HistoryEntry>(EXTRA_HISTORYENTRY)
+            isSemanticSearchFeedbackPending = intent.getBooleanExtra(EXTRA_SHOW_SEMANTIC_SEARCH_FEEDBACK, false)
             when (intent.action) {
                 ACTION_LOAD_IN_NEW_TAB -> loadPage(title, historyEntry, TabPosition.NEW_TAB_FOREGROUND)
                 ACTION_LOAD_IN_CURRENT_TAB -> loadPage(title, historyEntry, TabPosition.CURRENT_TAB)
@@ -918,6 +941,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         const val ACTION_CREATE_NEW_TAB = "org.wikipedia.create_new_tab"
         const val ACTION_RESUME_READING = "org.wikipedia.resume_reading"
         const val EXTRA_HISTORYENTRY = "org.wikipedia.history.historyentry"
+        const val EXTRA_SHOW_SEMANTIC_SEARCH_FEEDBACK = "org.wikipedia.search.semantic.show_feedback"
 
         fun newIntent(context: Context): Intent {
             return Intent(ACTION_RESUME_READING).setClass(context, PageActivity::class.java)
