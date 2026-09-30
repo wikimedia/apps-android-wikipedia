@@ -9,7 +9,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
 import android.view.ActionMode
 import android.view.ActionProvider
 import android.view.Gravity
@@ -46,6 +45,7 @@ import kotlinx.serialization.json.float
 import kotlinx.serialization.json.jsonArray
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
+import org.json.JSONObject
 import org.wikipedia.BackPressedHandler
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
@@ -443,7 +443,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                             }
                         }
                         callback()?.onPageLoadComplete()
-                        scrollToSectionAndHighlight(section = arguments?.getString("section"), snippet = arguments?.getString("snippet"))
+                        semanticSearchTextHighlight(section = arguments?.getString("section"), snippet = arguments?.getString("snippet"))
                     }
                 }
             }
@@ -784,7 +784,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             bridge.onPcsReady()
             articleInteractionEvent?.logLoaded()
             callback()?.onPageLoadComplete()
-            scrollToSectionAndHighlight(section = arguments?.getString("section"), snippet = arguments?.getString("snippet"))
+            semanticSearchTextHighlight(section = arguments?.getString("section"), snippet = arguments?.getString("snippet"))
 
             JsonUtil.decodeFromElement<PageMetadata>(payload)?.let { metadata ->
                 // Persist the list of topics for this article.
@@ -1318,18 +1318,20 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
     }
 
-    fun scrollToSectionAndHighlight(section: String? = null, snippet: String? = null) {
+    fun semanticSearchTextHighlight(section: String? = null, snippet: String? = null) {
+        if (section.isNullOrEmpty() && snippet.isNullOrEmpty()) {
+            return
+        }
         Handler(Looper.getMainLooper()).postDelayed({
-            section?.let {
-                webView.evaluateJavascript("document.getElementById('$section').scrollIntoView({ behavior: 'smooth', block: 'start' });", null)
-                val textForHighlight = extractSearchString(snippet)
-                webView.evaluateJavascript(addTextHighlights(textForHighlight, section), null)
+            if (!isAdded) {
+                return@postDelayed
             }
+            highlightTextInSectionAndScroll(section?.let { StringUtil.addUnderscores(StringUtil.fromHtml(it).toString()) }, extractSearchString(snippet))
         }, 100)
     }
 
     private fun extractSearchString(snippet: String?): String? {
-        val searchString = Regex("""<span class="searchmatch">(.*?)</span>""")
+        val searchString = Regex("""<span\s+class=["']searchmatch["']\s*>(.*?)</span>""", RegexOption.DOT_MATCHES_ALL)
             .find(snippet.orEmpty())
             ?.groupValues
             ?.getOrNull(1)
@@ -1337,38 +1339,24 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
         return StringUtil.fromHtml(searchString).toString()
     }
+    private fun highlightTextInSectionAndScroll(headingId: String?, searchString: String?) {
+        if (headingId == null || searchString == null) {
+            return
+        }
+        val js = """
+            (function(headingId, searchString) {
+                const NAME = 'semantic-search-highlight';
+                const style = document.createElement('style');
+                style.textContent = '::highlight(' + NAME + ') { background-color: yellow; color: black; }';
+                document.head.appendChild(style);
 
-    private fun addTextHighlights(highlightSnippet: String?, section: String?): String {
-
-        Log.d("highlightSnippet", highlightSnippet.toString())
-        Log.d("section", section.toString())
-
-        return """
-            (function() {
-               let root = document.getElementById('$section');
-               
-               if (root.tagName !== 'SECTION') {
-                    root = root.closest('section') || root.parentElement
-               }
-               
-               const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
-                            
-               let node;
-               while (node = walker.nextNode()) {
-                    const index = node.nodeValue.indexOf('$highlightSnippet');
-                    if (index !== -1) {
-                        const range = document.createRange();
-                        range.setStart(node, index);
-                        range.setEnd(node, index + '$highlightSnippet'.length);
-                        
-                        const highlightSpan = document.createElement('span');
-                        highlightSpan.style.backgroundColor = 'yellow';
-                        range.surroundContents(highlightSpan);
-                        return true
-                    }
-               }
-            })();
+                //TODO: normalize text from both snippet and article (nfc, blanks etc)
+                //TODO: create a walker object and iterate for match
+                //TODO: if match, apply highlight & return, else return
+                
+            })(${JSONObject.quote(headingId)}, ${JSONObject.quote(searchString)});
         """
+        webView.evaluateJavascript(js, null)
     }
 
     private inner class AvCallback : AvPlayer.Callback {
