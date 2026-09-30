@@ -30,7 +30,9 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.input.InputTransformation
 import androidx.compose.foundation.text.input.TextFieldLineLimits
+import androidx.compose.foundation.text.input.maxLength
 import androidx.compose.foundation.text.input.rememberTextFieldState
 import androidx.compose.foundation.text.selection.TextSelectionColors
 import androidx.compose.material3.BottomSheetDefaults
@@ -298,6 +300,7 @@ fun SemanticSearchFeedbackContent(
                     TextField(
                         modifier = Modifier.fillMaxWidth(),
                         state = feedbackTextState,
+                        inputTransformation = InputTransformation.maxLength(286), // required by the API
                         lineLimits = TextFieldLineLimits.MultiLine(maxHeightInLines = 4),
                         shape = RoundedCornerShape(16.dp),
                         placeholder = {
