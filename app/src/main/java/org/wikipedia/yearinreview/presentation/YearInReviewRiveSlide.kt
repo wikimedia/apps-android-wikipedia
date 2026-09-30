@@ -86,7 +86,7 @@ private fun ViewModelSource.instanceSource(instanceType: RiveInstanceType) = whe
 sealed interface RiveFontSource {
     data class RawResource(@param:RawRes val resourceId: Int) : RiveFontSource
     // A family name from the device's fonts.xml, e.g. "sans-serif" or "serif"
-    data class SystemFamily(val familyName: String) : RiveFontSource
+    data class SystemFamily(val familyName: String, val weight: Int = 400) : RiveFontSource
 }
 
 // The registration key is the referenced font's file name in the Rive export zip, without the extension: "<asset name>-<asset id>"
@@ -98,7 +98,8 @@ data class RiveSlideFont(
 // Registered once for the whole screen; a slide should never register its own, otherwise the pager unregisters them for other slides
 val YearInReviewRiveFonts = listOf(
     RiveSlideFont(RiveFontSource.SystemFamily("serif"), registrationKey = "SerifFont-6815481"),
-    RiveSlideFont(RiveFontSource.SystemFamily("sans-serif"), registrationKey = "SanSerifFont-6815482")
+    RiveSlideFont(RiveFontSource.SystemFamily("sans-serif"), registrationKey = "SanSerifFont-Regular-6847910"),
+    RiveSlideFont(RiveFontSource.SystemFamily("sans-serif", weight = 700), registrationKey = "SanSerifFont-6815482")
 )
 
 private const val MAX_RIVE_TEXT_SCALE = 1.5f
@@ -357,8 +358,9 @@ private fun rememberFontBytes(source: RiveFontSource): Result<ByteArray> {
             val bytes = withContext(Dispatchers.IO) {
                 when (source) {
                     is RiveFontSource.RawResource -> resources.openRawResource(source.resourceId).use { it.readBytes() }
-                    is RiveFontSource.SystemFamily -> FontHelper.getFallbackFontBytes(Fonts.FontOpts(familyName = source.familyName))
-                        ?: throw IllegalStateException("No system font found for family ${source.familyName}")
+                    is RiveFontSource.SystemFamily -> FontHelper.getFallbackFontBytes(
+                        Fonts.FontOpts(familyName = source.familyName, weight = Fonts.Weight(source.weight))
+                    ) ?: throw IllegalStateException("No system font found for ${source.familyName} ${source.weight}")
                 }
             }
             Result.Success(bytes)
