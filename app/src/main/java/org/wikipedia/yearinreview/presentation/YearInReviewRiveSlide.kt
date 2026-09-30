@@ -165,13 +165,13 @@ fun rememberYearInReviewRiveFiles(
 @Composable
 fun YearInReviewRiveSlide(
     riveFileResult: Result<RiveFile>,
-    slideId: String,
-    screenshotGetters: MutableMap<String, GetBitmapFun>,
     spec: RiveSlideSpec,
     textProperties: Map<String, String>,
     accessibilityDescription: String,
     playing: Boolean,
     modifier: Modifier = Modifier,
+    slideId: String? = null,
+    screenshotGetters: MutableMap<String, GetBitmapFun>? = null,
     imageUrls: Map<String, String?> = emptyMap(),
     onRiveError: (Throwable) -> Unit
 ) {
@@ -203,8 +203,8 @@ private fun YearInReviewRiveArtboard(
     playing: Boolean,
     modifier: Modifier,
     onRiveError: (Throwable) -> Unit,
-    slideId: String,
-    screenshotGetters: MutableMap<String, GetBitmapFun>
+    slideId: String?,
+    screenshotGetters: MutableMap<String, GetBitmapFun>?
 ) {
     // loading the artboard and state machine from the rive file
     val artboardResult = rememberArtboardResult(file = riveFile, artboardName = spec.artboardName)
@@ -235,8 +235,17 @@ private fun YearInReviewRiveArtboard(
                     emptyMap()
                 }
             }
+            val onBitmapAvailable: ((GetBitmapFun) -> Unit)? = if (slideId != null && screenshotGetters != null) {
+                { screenshotGetters[slideId] = it }
+            } else {
+                null
+            }
             DisposableEffect(slideId, screenshotGetters, riveFile, artboard, stateMachine, instance) {
-                onDispose { screenshotGetters.remove(slideId) }
+                onDispose {
+                    if (slideId != null) {
+                        screenshotGetters?.remove(slideId)
+                    }
+                }
             }
             // setting the provided text properties on the ViewModel instance
             LaunchedEffect(instance, textProperties) {
@@ -275,7 +284,7 @@ private fun YearInReviewRiveArtboard(
                 viewModelInstance = instance,
                 fit = fit,
                 pointerInputMode = RivePointerInputMode.Observe,
-                onBitmapAvailable = { screenshotGetters[slideId] = it },
+                onBitmapAvailable = onBitmapAvailable,
                 modifier = modifier
                     .fillMaxSize()
                     .clearAndSetSemantics {
