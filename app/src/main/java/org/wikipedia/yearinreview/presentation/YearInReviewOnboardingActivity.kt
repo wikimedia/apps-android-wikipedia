@@ -27,6 +27,7 @@ import org.wikipedia.dataclient.mwapi.MwNotLoggedInException
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.UiState
+import org.wikipedia.yearinreview.data.PrefsYearInReviewStore
 import kotlin.getValue
 
 class YearInReviewOnboardingActivity : BaseActivity() {
@@ -34,7 +35,7 @@ class YearInReviewOnboardingActivity : BaseActivity() {
 
     private val loginLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
-            Prefs.yearInReviewModelData = emptyMap()
+            PrefsYearInReviewStore.clearAll()
             proceed()
         }
     }

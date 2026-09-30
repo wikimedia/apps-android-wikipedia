@@ -9,6 +9,7 @@ import org.wikipedia.analytics.eventplatform.YearInReviewEvent
 import org.wikipedia.databinding.DialogFeedbackOptionsBinding
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.yearinreview.data.YearInReviewSurveyState
 
 object YearInReviewDialog {
     fun maybeShowYearInReviewFeedbackDialog(activity: Activity) {
@@ -75,10 +76,4 @@ object YearInReviewDialog {
     fun resetYearInReviewSurveyState() {
         Prefs.yearInReviewSurveyState = YearInReviewSurveyState.NOT_TRIGGERED
     }
-}
-
-enum class YearInReviewSurveyState {
-    NOT_TRIGGERED,
-    SHOULD_SHOW,
-    SHOWN
 }

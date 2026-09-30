@@ -38,6 +38,7 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.history.db.HistoryEntryWithImage
 import org.wikipedia.theme.Theme
+import org.wikipedia.yearinreview.presentation.YearInReviewScreenData.CustomIconScreen
 
 fun Modifier.yearInReviewHeaderBackground(): Modifier {
     return this.background(

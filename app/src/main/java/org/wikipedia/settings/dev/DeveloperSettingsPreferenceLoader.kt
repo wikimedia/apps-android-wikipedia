@@ -45,7 +45,7 @@ import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.StringUtil.fromHtml
-import org.wikipedia.yearinreview.presentation.YearInReviewSurveyState
+import org.wikipedia.yearinreview.data.YearInReviewSurveyState
 import java.util.Date
 import java.util.concurrent.TimeUnit
 
