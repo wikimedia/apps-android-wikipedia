@@ -372,7 +372,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
                 ReadingChallengeWidgetRepository.shouldShowOnboardingDialog() -> showReadingChallenge()
                 YearInReviewViewModel.canShowEntryPoint &&
                         !Prefs.yearInReviewVisited -> {
-                    ExclusiveBottomSheetPresenter.show(supportFragmentManager, YearInReviewAnnouncementDialog.newInstance())
+                    ExclusiveBottomSheetPresenter.show(supportFragmentManager, YearInReviewAnnouncementDialog())
                 }
                 !isExternalArticleLink && CreateAccountEncourageViewModel.shouldShow() -> {
                     startActivity(CreateAccountEncourageActivity.newIntent(this@BaseActivity))

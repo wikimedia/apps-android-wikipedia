@@ -44,7 +44,7 @@ class YearInReviewAnnouncementDialog : ExtendedBottomSheetDialogFragment(startEx
         super.onCreate(savedInstanceState)
         initializeYearInReviewRive(requireContext())
         if (savedInstanceState == null) {
-            YearInReviewEvent.submit(action = "impression", slide = ANALYTICS_SLIDE)
+            YearInReviewEvent.submit(action = "impression", slide = "explore_prompt")
             Prefs.yearInReviewVisited = true
         }
     }
@@ -55,7 +55,7 @@ class YearInReviewAnnouncementDialog : ExtendedBottomSheetDialogFragment(startEx
                 BaseTheme {
                     YearInReviewAnnouncementScreen(
                         onCloseClick = {
-                            YearInReviewEvent.submit(action = "close_click", slide = ANALYTICS_SLIDE)
+                            YearInReviewEvent.submit(action = "close_click", slide = "explore_prompt")
                             showGetStartedLaterMessage()
                             dismiss()
                         },
@@ -66,7 +66,7 @@ class YearInReviewAnnouncementDialog : ExtendedBottomSheetDialogFragment(startEx
                             FeedbackUtil.composeEmail(requireContext(), subject = getString(R.string.year_in_review_feedback_email_subject))
                         },
                         onExploreClick = {
-                            YearInReviewEvent.submit(action = "continue_click", slide = ANALYTICS_SLIDE)
+                            YearInReviewEvent.submit(action = "continue_click", slide = "explore_prompt")
                             startActivity(YearInReviewActivity.newIntent(requireContext()))
                             dismiss()
                         }
@@ -86,13 +86,6 @@ class YearInReviewAnnouncementDialog : ExtendedBottomSheetDialogFragment(startEx
 
     private fun showGetStartedLaterMessage() {
         FeedbackUtil.showMessage(requireActivity(), getString(R.string.year_in_review_get_started_later))
-    }
-
-    companion object {
-        // Same slide name as the full-screen onboarding prompt this sheet replaces, so its analytics stay comparable
-        private const val ANALYTICS_SLIDE = "explore_prompt"
-
-        fun newInstance() = YearInReviewAnnouncementDialog()
     }
 }
 
