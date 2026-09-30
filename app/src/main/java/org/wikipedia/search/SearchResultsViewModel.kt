@@ -42,6 +42,7 @@ class SearchResultsViewModel : ViewModel() {
     private val batchSize = 10
     private val delayMillis = 200L
     var countsPerLanguageCode = mutableListOf<Pair<String, Int>>()
+    var isSemanticSearchFeedbackShown = false
 
     lateinit var invokeSource: Constants.InvokeSource
 

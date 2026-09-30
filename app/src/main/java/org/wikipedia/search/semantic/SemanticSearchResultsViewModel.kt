@@ -5,8 +5,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.FlowPreview
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
@@ -23,9 +25,13 @@ class SemanticSearchResultsViewModel(savedStateHandle: SavedStateHandle) : ViewM
     var searchQuery = savedStateHandle.get<String>(SemanticSearchResultsDialog.ARG_SEARCH_QUERY).orEmpty()
     var languageCode = savedStateHandle.get<String>(SemanticSearchResultsDialog.ARG_LANGUAGE_CODE).orEmpty().ifEmpty { WikipediaApp.instance.languageState.appLanguageCode }
     val invokeSource = savedStateHandle.get<Constants.InvokeSource>(Constants.INTENT_EXTRA_INVOKE_SOURCE) ?: Constants.InvokeSource.SEARCH
+    private val showFeedback = savedStateHandle.get<Boolean>(SemanticSearchResultsDialog.ARG_SHOW_FEEDBACK) ?: false
 
     private var _semanticSearchResultsState = MutableStateFlow<UiState<List<SearchResult>>>(UiState.Loading)
     val semanticSearchResultsState = _semanticSearchResultsState.asStateFlow()
+
+    private val _feedbackState = MutableStateFlow(FeedbackState())
+    val feedbackState = _feedbackState.asStateFlow()
 
     val quotationMarkMap = mapOf(
         "ja" to "『",
@@ -35,6 +41,21 @@ class SemanticSearchResultsViewModel(savedStateHandle: SavedStateHandle) : ViewM
 
     init {
         loadSemanticSearchResults()
+        if (showFeedback) {
+            viewModelScope.launch {
+                delay(FEEDBACK_DISPLAY_DELAY_MILLIS)
+                semanticSearchResultsState.first { it is UiState.Success && it.data.isNotEmpty() }
+                _feedbackState.update { it.copy(isVisible = true) }
+            }
+        }
+    }
+
+    fun selectFeedbackRating(isPositive: Boolean) {
+        _feedbackState.update { it.copy(isPositive = isPositive) }
+    }
+
+    fun submitFeedback() {
+        _feedbackState.update { it.copy(isVisible = false) }
     }
 
     @OptIn(FlowPreview::class)
@@ -100,5 +121,14 @@ class SemanticSearchResultsViewModel(savedStateHandle: SavedStateHandle) : ViewM
                 }
             })
         }
+    }
+
+    data class FeedbackState(
+        val isVisible: Boolean = false,
+        val isPositive: Boolean? = null
+    )
+
+    companion object {
+        private const val FEEDBACK_DISPLAY_DELAY_MILLIS = 3000L
     }
 }

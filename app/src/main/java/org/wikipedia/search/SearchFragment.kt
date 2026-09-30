@@ -240,11 +240,16 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
     }
 
     override fun showSemanticSearchResultsDialog(query: String) {
-        ExclusiveBottomSheetPresenter.show(childFragmentManager, SemanticSearchResultsDialog.newInstance(query, searchLanguageCode, invokeSource))
+        ExclusiveBottomSheetPresenter.show(childFragmentManager, SemanticSearchResultsDialog.newInstance(query, searchLanguageCode, invokeSource,
+            showFeedback = !searchResultsFragment.isSemanticSearchFeedbackShown))
     }
 
     override fun showSemanticSearchInfoDialog() {
         ExclusiveBottomSheetPresenter.show(childFragmentManager, SemanticSearchInfoDialog())
+    }
+
+    override fun onSemanticSearchFeedbackShown() {
+        searchResultsFragment.onSemanticSearchFeedbackShown()
     }
 
     private fun onSearchContainerClick() {

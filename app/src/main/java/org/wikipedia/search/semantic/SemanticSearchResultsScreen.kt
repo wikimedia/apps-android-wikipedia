@@ -1,6 +1,12 @@
 package org.wikipedia.search.semantic
 
 import android.text.TextPaint
+import androidx.annotation.DrawableRes
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.expandVertically
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.shrinkVertically
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -17,20 +23,27 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.input.TextFieldLineLimits
+import androidx.compose.foundation.text.input.rememberTextFieldState
+import androidx.compose.foundation.text.selection.TextSelectionColors
 import androidx.compose.material3.BottomSheetDefaults
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.collectAsState
@@ -38,17 +51,21 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.painter.BrushPainter
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.platform.rememberNestedScrollInteropConnection
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.selected
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.LinkAnnotation
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextLinkStyles
@@ -63,6 +80,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
 import org.wikipedia.R
+import org.wikipedia.compose.components.AppButton
 import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.components.WikiCard
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
@@ -87,11 +105,12 @@ fun SemanticSearchResultsScreen(
     viewModel: SemanticSearchResultsViewModel,
     onItemClick: (PageTitle) -> Unit,
     onCloseClick: () -> Unit,
-    onRatingClick: (Boolean, SearchResult) -> Unit,
+    onFeedbackSubmit: (isPositive: Boolean, feedbackText: String) -> Unit,
     onLoading: (Boolean) -> Unit,
 ) {
 
     val searchResultsState = viewModel.semanticSearchResultsState.collectAsState().value
+    val feedbackState = viewModel.feedbackState.collectAsState().value
 
     val languageCode = viewModel.languageCode
     val layoutDirection =
@@ -134,6 +153,15 @@ fun SemanticSearchResultsScreen(
                         SemanticSearchNoResultsContent()
                         return@CompositionLocalProvider
                     }
+                    SemanticSearchFeedbackContent(
+                        isVisible = feedbackState.isVisible,
+                        selectedRating = feedbackState.isPositive,
+                        onRatingClick = viewModel::selectFeedbackRating,
+                        onSubmitClick = { isPositive, feedbackText ->
+                            viewModel.submitFeedback()
+                            onFeedbackSubmit(isPositive, feedbackText)
+                        }
+                    )
                     SemanticSearchResultsContent(
                         viewModel = viewModel,
                         items = results,
@@ -206,6 +234,135 @@ fun SemanticSearchResultsHeader(
                 tint = WikipediaTheme.colors.primaryColor
             )
         }
+    }
+}
+
+@Composable
+fun SemanticSearchFeedbackContent(
+    isVisible: Boolean,
+    selectedRating: Boolean?,
+    onRatingClick: (Boolean) -> Unit,
+    onSubmitClick: (isPositive: Boolean, feedbackText: String) -> Unit
+) {
+    val feedbackTextState = rememberTextFieldState()
+    val focusManager = LocalFocusManager.current
+    val fieldBackgroundColor = WikipediaTheme.colors.secondaryColor.copy(alpha = 0.3f)
+
+    AnimatedVisibility(
+        visible = isVisible,
+        enter = expandVertically() + fadeIn(),
+        exit = shrinkVertically() + fadeOut()
+    ) {
+        Column(
+            modifier = Modifier
+                .padding(start = 16.dp, end = 16.dp, bottom = 16.dp)
+                .fillMaxWidth()
+                .clip(RoundedCornerShape(16.dp))
+                .background(WikipediaTheme.colors.borderColor)
+        ) {
+            Row(
+                modifier = Modifier.padding(start = 16.dp, end = 4.dp, top = 4.dp, bottom = 4.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    modifier = Modifier.weight(1f),
+                    text = stringResource(R.string.semantic_search_results_feedback_title),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = WikipediaTheme.colors.primaryColor
+                )
+                SemanticSearchFeedbackRatingButton(
+                    iconRes = R.drawable.ic_thumb_up,
+                    contentDescription = stringResource(R.string.semantic_search_results_feedback_thumb_up_content_description),
+                    isSelected = selectedRating == true,
+                    selectedBackgroundColor = fieldBackgroundColor,
+                    onClick = { onRatingClick(true) }
+                )
+                SemanticSearchFeedbackRatingButton(
+                    iconRes = R.drawable.ic_thumb_down,
+                    contentDescription = stringResource(R.string.semantic_search_results_feedback_thumb_down_content_description),
+                    isSelected = selectedRating == false,
+                    selectedBackgroundColor = fieldBackgroundColor,
+                    onClick = { onRatingClick(false) }
+                )
+            }
+
+            AnimatedVisibility(
+                visible = selectedRating != null
+            ) {
+                Column(
+                    modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 8.dp, bottom = 16.dp)
+                ) {
+                    TextField(
+                        modifier = Modifier.fillMaxWidth(),
+                        state = feedbackTextState,
+                        lineLimits = TextFieldLineLimits.MultiLine(maxHeightInLines = 4),
+                        shape = RoundedCornerShape(16.dp),
+                        placeholder = {
+                            Text(
+                                text = stringResource(R.string.semantic_search_results_feedback_input_hint)
+                            )
+                        },
+                        colors = TextFieldDefaults.colors(
+                            focusedTextColor = WikipediaTheme.colors.primaryColor,
+                            unfocusedTextColor = WikipediaTheme.colors.primaryColor,
+                            focusedContainerColor = fieldBackgroundColor,
+                            unfocusedContainerColor = fieldBackgroundColor,
+                            focusedPlaceholderColor = WikipediaTheme.colors.placeholderColor,
+                            unfocusedPlaceholderColor = WikipediaTheme.colors.placeholderColor,
+                            cursorColor = WikipediaTheme.colors.progressiveColor,
+                            selectionColors = TextSelectionColors(
+                                handleColor = WikipediaTheme.colors.progressiveColor,
+                                backgroundColor = WikipediaTheme.colors.progressiveColor.copy(alpha = 0.4f)
+                            ),
+                            focusedIndicatorColor = Color.Transparent,
+                            unfocusedIndicatorColor = Color.Transparent
+                        )
+                    )
+
+                    Spacer(modifier = Modifier.height(16.dp))
+
+                    AppButton(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .heightIn(min = 48.dp),
+                        onClick = {
+                            selectedRating?.let {
+                                focusManager.clearFocus()
+                                onSubmitClick(it, feedbackTextState.text.toString().trim())
+                            }
+                        }
+                    ) {
+                        Text(
+                            text = stringResource(R.string.semantic_search_results_feedback_submit_button_text),
+                            style = MaterialTheme.typography.labelLarge.copy(fontSize = 16.sp)
+                        )
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun SemanticSearchFeedbackRatingButton(
+    @DrawableRes iconRes: Int,
+    contentDescription: String,
+    isSelected: Boolean,
+    selectedBackgroundColor: Color,
+    onClick: () -> Unit
+) {
+    IconButton(
+        modifier = Modifier.semantics { selected = isSelected },
+        onClick = onClick,
+        colors = IconButtonDefaults.iconButtonColors(
+            containerColor = if (isSelected) selectedBackgroundColor else Color.Transparent
+        )
+    ) {
+        Icon(
+            painter = painterResource(iconRes),
+            contentDescription = contentDescription,
+            tint = WikipediaTheme.colors.primaryColor
+        )
     }
 }
 
@@ -500,6 +657,21 @@ fun SemanticSearchResultCardPreview() {
             ),
             onItemClick = {},
             onLinkClick = {}
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun SemanticSearchFeedbackContentPreview() {
+    BaseTheme(
+        currentTheme = Theme.LIGHT
+    ) {
+        SemanticSearchFeedbackContent(
+            isVisible = true,
+            selectedRating = true,
+            onRatingClick = {},
+            onSubmitClick = { _, _ -> }
         )
     }
 }
