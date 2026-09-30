@@ -37,6 +37,8 @@ import app.rive.rememberRiveFile
 import app.rive.rememberRiveWorkerOrNull
 import app.rive.rememberStateMachineResult
 import app.rive.rememberViewModelInstanceResult
+import app.rive.runtime.kotlin.fonts.FontHelper
+import app.rive.runtime.kotlin.fonts.Fonts
 import app.rive.sequence
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
@@ -81,13 +83,23 @@ private fun ViewModelSource.instanceSource(instanceType: RiveInstanceType) = whe
     is RiveInstanceType.Named -> namedInstance(instanceType.name)
 }
 
+sealed interface RiveFontSource {
+    data class RawResource(@param:RawRes val resourceId: Int) : RiveFontSource
+    // A family name from the device's fonts.xml, e.g. "sans-serif" or "serif"
+    data class SystemFamily(val familyName: String) : RiveFontSource
+}
+
+// The registration key is the referenced font's file name in the Rive export zip, without the extension: "<asset name>-<asset id>"
 data class RiveSlideFont(
-    @param:RawRes val resourceId: Int,
+    val source: RiveFontSource,
     val registrationKey: String
 )
 
 // Registered once for the whole screen; a slide should never register its own, otherwise the pager unregisters them for other slides
-val YearInReviewRiveFonts = emptyList<RiveSlideFont>()
+val YearInReviewRiveFonts = listOf(
+    RiveSlideFont(RiveFontSource.SystemFamily("serif"), registrationKey = "SerifFont-6815481"),
+    RiveSlideFont(RiveFontSource.SystemFamily("sans-serif"), registrationKey = "SanSerifFont-6815482")
+)
 
 private const val MAX_RIVE_TEXT_SCALE = 1.5f
 
@@ -129,7 +141,7 @@ fun rememberYearInReviewRiveFonts(riveWorker: RiveWorker?, fonts: List<RiveSlide
     }
     return fonts.map { font ->
         key(font.registrationKey) {
-            rememberRawResourceBytes(font.resourceId).andThen { bytes ->
+            rememberFontBytes(font.source).andThen { bytes ->
                 rememberRegisteredFont(riveWorker, font.registrationKey, bytes)
             }
         }
@@ -334,16 +346,20 @@ private fun RiveFailure(
 }
 
 @Composable
-private fun rememberRawResourceBytes(@RawRes resourceId: Int): Result<ByteArray> {
+private fun rememberFontBytes(source: RiveFontSource): Result<ByteArray> {
     val resources = LocalResources.current
     return produceState<Result<ByteArray>>(
         initialValue = Result.Loading,
         key1 = resources,
-        key2 = resourceId
+        key2 = source
     ) {
         value = try {
             val bytes = withContext(Dispatchers.IO) {
-                resources.openRawResource(resourceId).use { it.readBytes() }
+                when (source) {
+                    is RiveFontSource.RawResource -> resources.openRawResource(source.resourceId).use { it.readBytes() }
+                    is RiveFontSource.SystemFamily -> FontHelper.getFallbackFontBytes(Fonts.FontOpts(familyName = source.familyName))
+                        ?: throw IllegalStateException("No system font found for family ${source.familyName}")
+                }
             }
             Result.Success(bytes)
         } catch (cancellationException: CancellationException) {

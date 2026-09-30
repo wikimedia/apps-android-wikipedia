@@ -16,6 +16,7 @@ class YearInReviewFlowDeciderTest {
     @Test
     fun `logged-in data-rich user gets personalized slides in order`() {
         val expected = listOf(
+            YearInReviewPage.Cover,
             YearInReviewPage.ArticlesRead(isEmptyState = false),
             YearInReviewPage.Visits,
             YearInReviewPage.YouMatter(showLoginPrompt = false),
@@ -26,13 +27,13 @@ class YearInReviewFlowDeciderTest {
 
     @Test
     fun `logged-in low-data user gets collective slides`() {
-        val expected = collectiveSlides + YearInReviewPage.YouMatter(showLoginPrompt = false) + YearInReviewPage.End
+        val expected = listOf(YearInReviewPage.Cover) + collectiveSlides + YearInReviewPage.YouMatter(showLoginPrompt = false) + YearInReviewPage.End
         assertEquals(expected, YearInReviewFlowDecider.pages(snapshot(readingStats = lowDataStats)))
     }
 
     @Test
     fun `logged-out data-rich user gets collective slides with a login prompt`() {
-        val expected = collectiveSlides + YearInReviewPage.YouMatter(showLoginPrompt = true) + YearInReviewPage.End
+        val expected = listOf(YearInReviewPage.Cover) + collectiveSlides + YearInReviewPage.YouMatter(showLoginPrompt = true) + YearInReviewPage.End
         assertEquals(expected, YearInReviewFlowDecider.pages(snapshot(isLoggedIn = false, readingStats = dataRichStats)))
     }
 
@@ -44,7 +45,7 @@ class YearInReviewFlowDeciderTest {
 
     @Test
     fun `low-data contributor gets you matter slide`() {
-        val expected = collectiveSlides + YearInReviewPage.YouMatter(showLoginPrompt = false) + YearInReviewPage.End
+        val expected = listOf(YearInReviewPage.Cover) + collectiveSlides + YearInReviewPage.YouMatter(showLoginPrompt = false) + YearInReviewPage.End
         assertEquals(expected, YearInReviewFlowDecider.pages(snapshot(readingStats = lowDataStats, rewardData = contributorRewardData)))
     }
 
