@@ -32,6 +32,7 @@ import androidx.preference.PreferenceManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -122,7 +123,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     private val isCabOpen get() = currentActionModes.isNotEmpty()
     private var exclusiveTooltipRunnable: Runnable? = null
     private var isTooltipShowing = false
-    private var isSemanticSearchFeedbackPending = false
+    private var semanticSearchFeedbackTitle: PageTitle? = null
+    private var semanticSearchFeedbackJob: Job? = null
 
     private val requestEditSectionLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == EditHandler.RESULT_REFRESH_PAGE) {
@@ -444,23 +446,36 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         lifecycleScope.launch {
             ReadingChallengeWidgetRepository(this@PageActivity).updateOnArticleRead(LocalDate.now())
         }
-        if (isSemanticSearchFeedbackPending) {
-            isSemanticSearchFeedbackPending = false
-            showSemanticSearchFeedbackAfterDelay()
-        }
+        scheduleSemanticSearchFeedback()
     }
 
-    private fun showSemanticSearchFeedbackAfterDelay() {
-        lifecycleScope.launch {
+    private fun scheduleSemanticSearchFeedback() {
+        val feedbackTitle = semanticSearchFeedbackTitle ?: return
+        if (pageFragment.title != feedbackTitle) {
+            cancelSemanticSearchFeedback()
+            return
+        }
+        if (semanticSearchFeedbackJob != null) {
+            return
+        }
+        semanticSearchFeedbackJob = lifecycleScope.launch {
             delay(SemanticSearchFeedbackDialog.ARTICLE_DISPLAY_DELAY_MILLIS.milliseconds)
             withResumed {
                 // Don't interrupt the user if they are already interacting with another bottom sheet.
-                if (ExclusiveBottomSheetPresenter.getCurrentBottomSheet(supportFragmentManager) == null) {
+                if (pageFragment.title == feedbackTitle && ExclusiveBottomSheetPresenter.getCurrentBottomSheet(supportFragmentManager) == null) {
                     ExclusiveBottomSheetPresenter.show(supportFragmentManager,
-                        SemanticSearchFeedbackDialog.newInstance(pageFragment.title?.wikiSite?.languageCode.orEmpty()))
+                        SemanticSearchFeedbackDialog.newInstance(feedbackTitle.wikiSite.languageCode))
                 }
             }
+            semanticSearchFeedbackTitle = null
+            semanticSearchFeedbackJob = null
         }
+    }
+
+    private fun cancelSemanticSearchFeedback() {
+        semanticSearchFeedbackJob?.cancel()
+        semanticSearchFeedbackJob = null
+        semanticSearchFeedbackTitle = null
     }
 
     override fun onPageDismissBottomSheet() {
@@ -502,6 +517,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     override fun onPageLoadError(title: PageTitle) {
         supportActionBar?.title = title.displayText
         removeTransitionAnimState()
+        cancelSemanticSearchFeedback()
     }
 
     override fun onPageLoadErrorBackPressed() {
@@ -680,7 +696,10 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                     ACTION_LOAD_IN_CURRENT_TAB_SQUASH == intent.action) && intent.hasExtra(EXTRA_HISTORYENTRY)) {
             val title = intent.parcelableExtra<PageTitle>(Constants.ARG_TITLE)
             val historyEntry = intent.parcelableExtra<HistoryEntry>(EXTRA_HISTORYENTRY)
-            isSemanticSearchFeedbackPending = intent.getBooleanExtra(EXTRA_SHOW_SEMANTIC_SEARCH_FEEDBACK, false)
+            cancelSemanticSearchFeedback()
+            if (intent.getBooleanExtra(EXTRA_SHOW_SEMANTIC_SEARCH_FEEDBACK, false)) {
+                semanticSearchFeedbackTitle = title
+            }
             when (intent.action) {
                 ACTION_LOAD_IN_NEW_TAB -> loadPage(title, historyEntry, TabPosition.NEW_TAB_FOREGROUND)
                 ACTION_LOAD_IN_CURRENT_TAB -> loadPage(title, historyEntry, TabPosition.CURRENT_TAB)
