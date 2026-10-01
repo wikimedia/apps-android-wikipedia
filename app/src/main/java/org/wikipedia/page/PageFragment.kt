@@ -45,7 +45,6 @@ import kotlinx.serialization.json.float
 import kotlinx.serialization.json.jsonArray
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
-import org.json.JSONObject
 import org.wikipedia.BackPressedHandler
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
@@ -110,7 +109,6 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
-import org.wikipedia.util.StringUtil
 import org.wikipedia.util.ThrowableUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
@@ -443,7 +441,13 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                             }
                         }
                         callback()?.onPageLoadComplete()
-                        semanticSearchTextHighlight(section = arguments?.getString("section"), snippet = arguments?.getString("snippet"))
+                        JavaScriptActionHandler.semanticSearchTextHighlight(arguments?.getString("section"), arguments?.getString("snippet"))?.let { js ->
+                            Handler(Looper.getMainLooper()).postDelayed({
+                                if (isAdded) {
+                                    webView.evaluateJavascript(js, null)
+                                }
+                            }, 100)
+                        }
                     }
                 }
             }
@@ -784,7 +788,13 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             bridge.onPcsReady()
             articleInteractionEvent?.logLoaded()
             callback()?.onPageLoadComplete()
-            semanticSearchTextHighlight(section = arguments?.getString("section"), snippet = arguments?.getString("snippet"))
+            JavaScriptActionHandler.semanticSearchTextHighlight(arguments?.getString("section"), arguments?.getString("snippet"))?.let { js ->
+                Handler(Looper.getMainLooper()).postDelayed({
+                    if (isAdded) {
+                        webView.evaluateJavascript(js, null)
+                    }
+                }, 100)
+            }
 
             JsonUtil.decodeFromElement<PageMetadata>(payload)?.let { metadata ->
                 // Persist the list of topics for this article.
@@ -1316,96 +1326,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         title?.let {
             EditAttemptStepEvent.logAbort(pageTitle = it, editCount = this.editCount)
         }
-    }
-
-    fun semanticSearchTextHighlight(section: String? = null, snippet: String? = null) {
-        if (section.isNullOrEmpty() && snippet.isNullOrEmpty()) {
-            return
-        }
-        Handler(Looper.getMainLooper()).postDelayed({
-            if (!isAdded) {
-                return@postDelayed
-            }
-            highlightTextInSectionAndScroll(section?.let { StringUtil.addUnderscores(StringUtil.fromHtml(it).toString()) }, extractSearchString(snippet))
-        }, 100)
-    }
-
-    private fun extractSearchString(snippet: String?): String? {
-        val searchString = Regex("""<span\s+class=["']searchmatch["']\s*>(.*?)</span>""", RegexOption.DOT_MATCHES_ALL)
-            .find(snippet.orEmpty())
-            ?.groupValues
-            ?.getOrNull(1)
-            ?: return null
-
-        return StringUtil.fromHtml(searchString).toString()
-    }
-    private fun highlightTextInSectionAndScroll(headingId: String?, searchString: String?) {
-        if (headingId == null || searchString == null) {
-            return
-        }
-        val js = """
-            (function(headingId, searchString) {
-            
-                const NAME = 'semantic-search-highlight';
-                const style = document.createElement('style');
-                style.textContent = '::highlight(' + NAME + ') { background-color: yellow; color: black; }';
-                document.head.appendChild(style);
-                
-                const normalizeCharForMatch = ch => ch
-                    .toLowerCase()
-                    .normalize('NFKD')
-                    .replace(/[\s\p{Cf}]/gu, '')
-                    .replace(/\u03c2/g, '\u03c3')
-                    .replace(/[\u2018\u2019\u201a\u201b\u02bc\u2032]/g, "'")
-                    .replace(/[\u201c\u201d\u201e\u201f\u2033]/g, '"');
-
-                const root = document.getElementById(headingId)?.closest('section')
-                const query = Array.from(searchString, normalizeCharForMatch).join('');
-                if (!root || !query) {
-                    return false;
-                }
-
-                const walker = document.createTreeWalker(
-                    root, 
-                    NodeFilter.SHOW_TEXT,
-                    (node) => node.parentElement.closest('script, style, sup.reference, .mw-ref, .mwe-math-mathml-a11y')
-                        ? NodeFilter.FILTER_REJECT 
-                        : NodeFilter.FILTER_ACCEPT
-                );
-        
-                let normalizedSectionText = '';
-                const sources = [];
-                let node;
-                while ((node = walker.nextNode())) {
-                    let charIndexInTextNode = 0;
-                    Array.from(node.nodeValue).forEach((rawChar) => {
-                        const normalizedChar = normalizeCharForMatch(rawChar);
-                        normalizedSectionText += normalizedChar;
-                        for (let i = 0; i < normalizedChar.length; i++) {
-                            sources.push([node, charIndexInTextNode, charIndexInTextNode + rawChar.length]);
-                        }
-                        charIndexInTextNode += rawChar.length;
-                    });
-                }
-
-                const index = normalizedSectionText.indexOf(query);
-                if (index === -1) {
-                    return false;
-                }
-                const [startNode, startIndex] = sources[index];
-                const [endNode, , endIndex] = sources[index + query.length - 1];
-                const range = document.createRange();
-                range.setStart(startNode, startIndex);
-                range.setEnd(endNode, endIndex);
-                CSS.highlights.set(NAME, new Highlight(range));
-
-                const rect = range.getBoundingClientRect();
-                window.scrollTo({ top: window.scrollY + rect.top + rect.height / 2 - window.innerHeight / 2, behavior: 'instant' });
-                return true;
-                
-            })(${JSONObject.quote(headingId)}, ${JSONObject.quote(searchString)});
-        """
-        webView.evaluateJavascript(js, null)
     }
 
     private inner class AvCallback : AvPlayer.Callback {
