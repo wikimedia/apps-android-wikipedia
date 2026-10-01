@@ -320,11 +320,13 @@ private fun YearInReviewProgressTracker(
 
 @Composable
 @OptIn(ExperimentalMaterial3Api::class)
-private fun YearInReviewTopBar(
+fun YearInReviewTopBar(
     iconColor: Color,
     onCloseClick: () -> Unit,
     onLearnMoreClick: () -> Unit,
-    onShareFeedbackClick: () -> Unit
+    onShareFeedbackClick: () -> Unit,
+    showWikipediaLogo: Boolean = true,
+    windowInsets: WindowInsets = TopAppBarDefaults.windowInsets
 ) {
     var overflowMenuExpanded by remember { mutableStateOf(false) }
 
@@ -332,17 +334,20 @@ private fun YearInReviewTopBar(
         colors = TopAppBarDefaults.topAppBarColors(
             containerColor = Color.Transparent,
         ),
+        windowInsets = windowInsets,
         title = {
-            Box(
-                modifier = Modifier.fillMaxWidth(),
-                contentAlignment = Alignment.Center
-            ) {
-                Icon(
-                    modifier = Modifier.size(28.dp),
-                    painter = painterResource(R.drawable.ic_wikipedia_w),
-                    tint = iconColor,
-                    contentDescription = stringResource(R.string.year_in_review_topbar_w_icon)
-                )
+            if (showWikipediaLogo) {
+                Box(
+                    modifier = Modifier.fillMaxWidth(),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Icon(
+                        modifier = Modifier.size(28.dp),
+                        painter = painterResource(R.drawable.ic_wikipedia_w),
+                        tint = iconColor,
+                        contentDescription = stringResource(R.string.year_in_review_topbar_w_icon)
+                    )
+                }
             }
         },
         navigationIcon = {

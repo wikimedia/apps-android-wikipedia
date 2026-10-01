@@ -47,7 +47,6 @@ private suspend fun downloadImageBytes(url: String): ByteArray? {
                 if (!response.isSuccessful) {
                     throw IOException("HTTP ${response.code} for $url")
                 }
-                println("orange downloadImageBytes $url success")
                 response.body.bytes()
             }
         }
