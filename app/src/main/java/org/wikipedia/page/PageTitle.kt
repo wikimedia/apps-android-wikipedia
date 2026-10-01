@@ -195,7 +195,7 @@ data class PageTitle(
             wikiSite.scheme(),
             domain,
             if (LanguageUtil.isChineseVariant(domain)) wikiSite.languageCode else "wiki",
-            UriUtil.encodeURL(prefixedText),
+            Uri.encode(prefixedText, ":/"),
             if (!fragment.isNullOrEmpty()) "#" + UriUtil.encodeURL(fragment!!) else ""
         )
     }
