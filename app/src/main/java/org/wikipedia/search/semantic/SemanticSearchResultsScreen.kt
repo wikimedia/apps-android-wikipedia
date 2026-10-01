@@ -34,18 +34,16 @@ import androidx.compose.foundation.text.input.InputTransformation
 import androidx.compose.foundation.text.input.TextFieldLineLimits
 import androidx.compose.foundation.text.input.maxLength
 import androidx.compose.foundation.text.input.rememberTextFieldState
-import androidx.compose.foundation.text.selection.TextSelectionColors
 import androidx.compose.material3.BottomSheetDefaults
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
-import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.collectAsState
@@ -53,7 +51,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.painter.BrushPainter
 import androidx.compose.ui.input.nestedscroll.nestedScroll
@@ -255,7 +252,6 @@ fun SemanticSearchFeedbackContent(
 ) {
     val feedbackTextState = rememberTextFieldState()
     val focusManager = LocalFocusManager.current
-    val fieldBackgroundColor = WikipediaTheme.colors.secondaryColor.copy(alpha = 0.2f)
 
     AnimatedVisibility(
         visible = isVisible,
@@ -277,16 +273,16 @@ fun SemanticSearchFeedbackContent(
                 )
                 SemanticSearchFeedbackRatingButton(
                     iconRes = R.drawable.ic_thumb_up,
+                    selectedIconRes = R.drawable.ic_thumb_up_filled,
                     contentDescription = stringResource(R.string.semantic_search_results_feedback_thumb_up_content_description),
                     isSelected = selectedRating == true,
-                    selectedBackgroundColor = fieldBackgroundColor,
                     onClick = { onRatingClick(true) }
                 )
                 SemanticSearchFeedbackRatingButton(
                     iconRes = R.drawable.ic_thumb_down,
+                    selectedIconRes = R.drawable.ic_thumb_down_filled,
                     contentDescription = stringResource(R.string.semantic_search_results_feedback_thumb_down_content_description),
                     isSelected = selectedRating == false,
-                    selectedBackgroundColor = fieldBackgroundColor,
                     onClick = { onRatingClick(false) }
                 )
             }
@@ -297,31 +293,26 @@ fun SemanticSearchFeedbackContent(
                 Column(
                     modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 8.dp, bottom = 16.dp)
                 ) {
-                    TextField(
-                        modifier = Modifier.fillMaxWidth(),
+                    OutlinedTextField(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .background(color = WikipediaTheme.colors.paperColor),
                         state = feedbackTextState,
                         inputTransformation = InputTransformation.maxLength(286), // required by the API
                         lineLimits = TextFieldLineLimits.MultiLine(maxHeightInLines = 4),
-                        shape = RoundedCornerShape(16.dp),
+                        shape = RoundedCornerShape(4.dp),
                         placeholder = {
                             Text(
                                 text = stringResource(R.string.semantic_search_results_feedback_input_hint)
                             )
                         },
-                        colors = TextFieldDefaults.colors(
+                        colors = OutlinedTextFieldDefaults.colors(
                             focusedTextColor = WikipediaTheme.colors.primaryColor,
-                            unfocusedTextColor = WikipediaTheme.colors.primaryColor,
-                            focusedContainerColor = fieldBackgroundColor,
-                            unfocusedContainerColor = fieldBackgroundColor,
-                            focusedPlaceholderColor = WikipediaTheme.colors.placeholderColor,
-                            unfocusedPlaceholderColor = WikipediaTheme.colors.placeholderColor,
-                            cursorColor = WikipediaTheme.colors.progressiveColor,
-                            selectionColors = TextSelectionColors(
-                                handleColor = WikipediaTheme.colors.progressiveColor,
-                                backgroundColor = WikipediaTheme.colors.progressiveColor.copy(alpha = 0.4f)
-                            ),
-                            focusedIndicatorColor = Color.Transparent,
-                            unfocusedIndicatorColor = Color.Transparent
+                            focusedBorderColor = MaterialTheme.colorScheme.outline,
+                            unfocusedTextColor = MaterialTheme.colorScheme.onSurfaceVariant,
+                            unfocusedBorderColor = MaterialTheme.colorScheme.outline,
+                            cursorColor = WikipediaTheme.colors.primaryColor,
+                            errorTextColor = WikipediaTheme.colors.primaryColor
                         )
                     )
 
@@ -350,20 +341,17 @@ fun SemanticSearchFeedbackContent(
 @Composable
 private fun SemanticSearchFeedbackRatingButton(
     @DrawableRes iconRes: Int,
+    @DrawableRes selectedIconRes: Int,
     contentDescription: String,
     isSelected: Boolean,
-    selectedBackgroundColor: Color,
     onClick: () -> Unit
 ) {
     IconButton(
         modifier = Modifier.semantics { selected = isSelected },
-        onClick = onClick,
-        colors = IconButtonDefaults.iconButtonColors(
-            containerColor = if (isSelected) selectedBackgroundColor else Color.Transparent
-        )
+        onClick = onClick
     ) {
         Icon(
-            painter = painterResource(iconRes),
+            painter = painterResource(if (isSelected) selectedIconRes else iconRes),
             contentDescription = contentDescription,
             tint = WikipediaTheme.colors.primaryColor
         )
