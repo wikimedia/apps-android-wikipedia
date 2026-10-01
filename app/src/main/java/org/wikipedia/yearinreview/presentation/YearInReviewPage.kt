@@ -19,11 +19,11 @@ sealed interface YearInReviewPage {
         override val id = "cover"
     }
 
-    data class ArticlesRead(val isEmptyState: Boolean) : YearInReviewPage {
+    data class ArticlesRead(val isEmptyState: Boolean, val count: Int) : YearInReviewPage {
         override val id get() = if (isEmptyState) "total_articles_empty" else "total_articles"
     }
 
-    data object Visits : YearInReviewPage {
+    data class Visits(val days: Int) : YearInReviewPage {
         override val id = "visits"
     }
 
