@@ -1,5 +1,6 @@
 package org.wikipedia.yearinreview.presentation
 
+import android.content.Context
 import android.icu.text.NumberFormat
 import androidx.annotation.RawRes
 import androidx.compose.foundation.layout.Box
@@ -20,6 +21,7 @@ import androidx.compose.ui.platform.LocalResources
 import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.unit.sp
+import androidx.startup.AppInitializer
 import app.rive.ExperimentalRiveGlobalViewModels
 import app.rive.Fit
 import app.rive.GetBitmapFun
@@ -27,6 +29,7 @@ import app.rive.Result
 import app.rive.Rive
 import app.rive.RiveFile
 import app.rive.RiveFileSource
+import app.rive.RiveLog
 import app.rive.RivePointerInputMode
 import app.rive.ViewModelInstance
 import app.rive.ViewModelSource
@@ -37,12 +40,14 @@ import app.rive.rememberRiveFile
 import app.rive.rememberRiveWorkerOrNull
 import app.rive.rememberStateMachineResult
 import app.rive.rememberViewModelInstanceResult
+import app.rive.runtime.kotlin.RiveInitializer
 import app.rive.runtime.kotlin.fonts.FontHelper
 import app.rive.runtime.kotlin.fonts.Fonts
 import app.rive.sequence
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import org.wikipedia.BuildConfig
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.util.log.L
 
@@ -103,6 +108,14 @@ val YearInReviewRiveFonts = listOf(
 )
 
 private const val MAX_RIVE_TEXT_SCALE = 1.5f
+
+// Must run before any Rive composable is shown; initializing again is a no-op
+fun initializeYearInReviewRive(context: Context) {
+    if (BuildConfig.DEBUG) {
+        RiveLog.logger = RiveLog.LogcatLogger()
+    }
+    AppInitializer.getInstance(context).initializeComponent(RiveInitializer::class.java)
+}
 
 // Scales like a Compose Text would (including Android 14+ non-linear scaling), capped so text still fits the frame
 @Composable
