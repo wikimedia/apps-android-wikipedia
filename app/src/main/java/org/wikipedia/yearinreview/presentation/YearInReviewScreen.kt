@@ -159,8 +159,13 @@ private fun YearInReviewContent(
     onRiveError: (Throwable) -> Unit
 ) {
     val pagerState = rememberPagerState { pages.size }
+    val useWhiteTopBarIconsByPageId = remember { mutableStateMapOf<String, Boolean>() }
     val useDarkStatusBarIcons by remember(pages) {
-        derivedStateOf { pages.getOrNull(pagerState.currentPage)?.useDarkStatusBarIcons ?: false }
+        derivedStateOf {
+            pages.getOrNull(pagerState.currentPage)?.let { page ->
+                useWhiteTopBarIconsByPageId[page.id]?.not() ?: page.useDarkStatusBarIcons
+            } ?: false
+        }
     }
     LaunchedEffect(useDarkStatusBarIcons) {
         onStatusBarIconColorChange(useDarkStatusBarIcons)
@@ -239,6 +244,7 @@ private fun YearInReviewContent(
                             playing = pagerState.currentPage == position,
                             slideId = page.id,
                             screenshotGetters = screenshotGetters,
+                            onUseWhiteTopBarIconsChange = { useWhiteTopBarIconsByPageId[page.id] = it },
                             onRiveError = onRiveError
                         )
                     }

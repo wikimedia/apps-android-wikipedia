@@ -9,10 +9,12 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.key
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.produceState
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
@@ -58,7 +60,8 @@ data class RiveSlideSpec(
     val viewModelName: String,
     val instanceType: RiveInstanceType = RiveInstanceType.Default,
     val globalViewModel: RiveGlobalViewModel? = null,
-    val fit: RiveSlideFit = RiveSlideFit.Layout
+    val fit: RiveSlideFit = RiveSlideFit.Layout,
+    val isTopBarUiIconsWhite: String? = null
 )
 
 // A view model whose values every artboard in the file can read; left null when the app doesn't set them
@@ -196,6 +199,7 @@ fun YearInReviewRiveSlide(
     modifier: Modifier = Modifier,
     slideId: String? = null,
     screenshotGetters: MutableMap<String, GetBitmapFun>? = null,
+    onUseWhiteTopBarIconsChange: (Boolean) -> Unit = {},
     onRiveError: (Throwable) -> Unit
 ) {
     when (riveFileResult) {
@@ -211,7 +215,8 @@ fun YearInReviewRiveSlide(
             modifier = modifier,
             onRiveError = onRiveError,
             slideId = slideId,
-            screenshotGetters = screenshotGetters
+            screenshotGetters = screenshotGetters,
+            onUseWhiteTopBarIconsChange = onUseWhiteTopBarIconsChange
         )
     }
 }
@@ -227,7 +232,8 @@ private fun YearInReviewRiveArtboard(
     modifier: Modifier,
     onRiveError: (Throwable) -> Unit,
     slideId: String?,
-    screenshotGetters: MutableMap<String, GetBitmapFun>?
+    screenshotGetters: MutableMap<String, GetBitmapFun>?,
+    onUseWhiteTopBarIconsChange: (Boolean) -> Unit
 ) {
     // loading the artboard and state machine from the rive file
     val artboardResult = rememberArtboardResult(file = riveFile, artboardName = spec.artboardName)
@@ -275,6 +281,11 @@ private fun YearInReviewRiveArtboard(
                 textProperties.forEach { (property, value) ->
                     instance.setString(property, value)
                 }
+            }
+            val currentOnUseWhiteTopBarIconsChange by rememberUpdatedState(onUseWhiteTopBarIconsChange)
+            LaunchedEffect(instance, spec.isTopBarUiIconsWhite) {
+                val propertyName = spec.isTopBarUiIconsWhite ?: return@LaunchedEffect
+                instance.getBooleanFlow(propertyName).collect { currentOnUseWhiteTopBarIconsChange(it) }
             }
             LaunchedEffect(instance, imageResults) {
                 imageResults.forEach { (property, imageResult) ->

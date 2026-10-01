@@ -71,12 +71,13 @@ private val AllTemplatesGlobalProperties = RiveGlobalViewModel(
 
 // In all_templates.riv, each artboard has a matching state machine and a same-named view model instance holding sample text
 private fun allTemplatesSlideSpec(artboardName: String, viewModelName: String = "DataTemplate") = RiveSlideSpec(
-    resourceId = R.raw.all_templates,
+    resourceId = R.raw.all_templates_v2,
     artboardName = artboardName,
     stateMachineName = "$artboardName-statemachine",
     viewModelName = viewModelName,
     instanceType = RiveInstanceType.Named(artboardName),
-    globalViewModel = AllTemplatesGlobalProperties
+    globalViewModel = AllTemplatesGlobalProperties,
+    isTopBarUiIconsWhite = "isUIWhite"
 )
 
 // Artboards that show up to three articles or topics, each with an icon, title and subtitle
