@@ -182,17 +182,15 @@ class SavedPageSyncService(context: Context, params: WorkerParameters) : Corouti
 
             val summaryResponse = summaryCall.await()
             val mediaListResponse = mediaListCall.await()
-            val mobileHTMLResponse = mobileHTMLCall.await()
+            val mobileHTML = mobileHTMLCall.await()
 
             page.downloadProgress = MEDIA_LIST_PROGRESS
             FlowEventBus.post(PageDownloadEvent(page))
 
             val fileUrls = mutableSetOf<String>()
             // download css and javascript assets
-            mobileHTMLResponse.body.use {
-                fileUrls.addAll(PageComponentsUrlParser.parse(it.string(),
-                    pageTitle.wikiSite).filter { url -> url.isNotEmpty() })
-            }
+            fileUrls.addAll(PageComponentsUrlParser.parse(mobileHTML,
+                pageTitle.wikiSite).filter { url -> url.isNotEmpty() })
             if (Prefs.isImageDownloadEnabled) {
                 // download thumbnail and lead image
                 if (!summaryResponse.thumbnailUrl.isNullOrEmpty()) {
@@ -235,13 +233,13 @@ class SavedPageSyncService(context: Context, params: WorkerParameters) : Corouti
         }
     }
 
-    private suspend fun reqMobileHTML(pageTitle: PageTitle): okhttp3.Response {
+    private suspend fun reqMobileHTML(pageTitle: PageTitle): String {
         val request = makeUrlRequest(pageTitle.wikiSite,
                 ServiceFactory.getRestBasePath(pageTitle.wikiSite) +
                         RestService.PAGE_HTML_ENDPOINT + UriUtil.encodeURL(pageTitle.prefixedText),
                 pageTitle).build()
         return withContext(Dispatchers.IO) {
-            OkHttpConnectionFactory.client.newCall(request).execute()
+            OkHttpConnectionFactory.client.newCall(request).execute().use { it.body.string() }
         }
     }
 
