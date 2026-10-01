@@ -53,7 +53,7 @@ class SemanticSearchResultsDialog : ExtendedBottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.feedbackState.first { it.isPositive != null }
+            viewModel.feedbackState.first { it.isVisible }
             callback()?.onSemanticSearchFeedbackShown()
         }
     }
