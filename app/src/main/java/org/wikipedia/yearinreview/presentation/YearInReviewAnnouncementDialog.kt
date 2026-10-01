@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
@@ -17,6 +18,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.ComposeView
@@ -28,17 +33,29 @@ import androidx.core.net.toUri
 import app.rive.Result
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.YearInReviewEvent
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.components.AppButton
+import org.wikipedia.compose.components.WikipediaAlertDialog
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.login.LoginActivity
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.UriUtil
+import org.wikipedia.yearinreview.data.PrefsYearInReviewStore
 
 class YearInReviewAnnouncementDialog : ExtendedBottomSheetDialogFragment(startExpanded = true) {
+
+    private val loginLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
+            // Stats cached while logged out don't include the account's edits, so they're gathered again
+            PrefsYearInReviewStore.clearAll()
+            proceed()
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,6 +70,30 @@ class YearInReviewAnnouncementDialog : ExtendedBottomSheetDialogFragment(startEx
         return ComposeView(requireContext()).apply {
             setContent {
                 BaseTheme {
+                    var showLoginDialog by rememberSaveable { mutableStateOf(false) }
+                    if (showLoginDialog) {
+                        WikipediaAlertDialog(
+                            title = stringResource(R.string.year_in_review_login_dialog_title),
+                            message = stringResource(R.string.year_in_review_login_dialog_body),
+                            confirmButtonText = stringResource(R.string.year_in_review_login_dialog_positive),
+                            dismissButtonText = stringResource(R.string.year_in_review_login_dialog_negative),
+                            onDismissRequest = {
+                                showLoginDialog = false
+                            },
+                            onConfirmButtonClick = {
+                                YearInReviewEvent.submit(action = "login_click", slide = "explore_prompt")
+                                // Closed so that cancelling the login returns to the sheet, where Explore asks again
+                                showLoginDialog = false
+                                loginLauncher.launch(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_YEAR_IN_REVIEW))
+                            },
+                            onDismissButtonClick = {
+                                YearInReviewEvent.submit(action = "continue_click", slide = "explore_prompt")
+                                showLoginDialog = false
+                                proceed()
+                            }
+                        )
+                    }
+
                     YearInReviewAnnouncementScreen(
                         onCloseClick = {
                             YearInReviewEvent.submit(action = "close_click", slide = "explore_prompt")
@@ -66,9 +107,11 @@ class YearInReviewAnnouncementDialog : ExtendedBottomSheetDialogFragment(startEx
                             FeedbackUtil.composeEmail(requireContext(), subject = getString(R.string.year_in_review_feedback_email_subject))
                         },
                         onExploreClick = {
-                            YearInReviewEvent.submit(action = "continue_click", slide = "explore_prompt")
-                            startActivity(YearInReviewActivity.newIntent(requireContext()))
-                            dismiss()
+                            if (AccountUtil.isLoggedIn) {
+                                proceed()
+                            } else {
+                                showLoginDialog = true
+                            }
                         }
                     ) {
                         YearInReviewAnnouncementCover()
@@ -82,6 +125,11 @@ class YearInReviewAnnouncementDialog : ExtendedBottomSheetDialogFragment(startEx
     override fun onCancel(dialog: DialogInterface) {
         super.onCancel(dialog)
         showGetStartedLaterMessage()
+    }
+
+    private fun proceed() {
+        startActivity(YearInReviewActivity.newIntent(requireContext()))
+        dismiss()
     }
 
     private fun showGetStartedLaterMessage() {
