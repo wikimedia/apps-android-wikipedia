@@ -48,6 +48,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalResources
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.Dp
@@ -166,8 +167,12 @@ private fun YearInReviewContent(
     }
     val screenshotGetters = remember { mutableStateMapOf<String, GetBitmapFun>() }
     val riveWorker = rememberYearInReviewRiveWorker(onRiveError)
-    val riveResourceIds = remember(pages) {
-        pages.mapNotNull { page -> page.riveSpec?.resourceId }.distinct()
+    val resources = LocalResources.current
+    val riveContents = remember(pages) {
+        pages.associate { page -> page.id to YearInReviewRiveContentMapper.map(page, resources) }
+    }
+    val riveResourceIds = remember(riveContents) {
+        riveContents.values.mapNotNull { it?.spec?.resourceId }.distinct()
     }
     // Referenced fonts must be registered before the file loads, since Rive resolves them while loading it
     val riveFontsResult = rememberYearInReviewRiveFonts(riveWorker, YearInReviewRiveFonts)
@@ -224,15 +229,13 @@ private fun YearInReviewContent(
                 key = { page -> pages[page].id }
             ) { position ->
                 val page = pages[position]
-                val riveSpec = page.riveSpec
+                val content = riveContents[page.id]
                 when {
-                    riveSpec != null -> {
+                    // A custom slide, such as an interactive one, gets its own branch above this one
+                    content != null -> {
                         YearInReviewRiveSlide(
-                            riveFileResult = riveFiles[riveSpec.resourceId] ?: Result.Loading,
-                            spec = riveSpec,
-                            // TODO: pass the user's own stats once the page carries them; the spec's instance shows the designer's sample text until then
-                            textProperties = emptyMap(),
-                            accessibilityDescription = "",
+                            riveFileResult = riveFiles[content.spec.resourceId] ?: Result.Loading,
+                            content = content,
                             playing = pagerState.currentPage == position,
                             slideId = page.id,
                             screenshotGetters = screenshotGetters,
@@ -278,63 +281,6 @@ private fun YearInReviewContent(
         }
     }
 }
-
-private val YearInReviewPage.riveSpec: RiveSlideSpec?
-    get() = when (this) {
-        is YearInReviewPage.Cover -> allTemplatesSlideSpec("cover")
-        is YearInReviewPage.ArticlesRead -> allTemplatesSlideSpec(if (isEmptyState) "frame1-empty" else "frame1")
-        is YearInReviewPage.Visits -> allTemplatesSlideSpec("frame2")
-        is YearInReviewPage.TimeSpent -> allTemplatesSlideSpec("frame3")
-        is YearInReviewPage.ReadingStreak -> allTemplatesSlideSpec(if (isEmptyState) "frame4-empty" else "frame4")
-        is YearInReviewPage.ReadingPattern -> allTemplatesSlideSpec(if (isEmptyState) "frame5-empty" else "frame5")
-        is YearInReviewPage.TopTopic -> allTemplatesSlideSpec(if (isEmptyState) "frame6-empty" else "frame6")
-        is YearInReviewPage.OtherTopTopics -> allTemplatesListSlideSpec("frame7")
-        is YearInReviewPage.BiggestReadingDay -> allTemplatesSlideSpec("frame8")
-        is YearInReviewPage.BiggestReadingDayArticles -> allTemplatesListSlideSpec("frame9")
-        is YearInReviewPage.Category -> allTemplatesSlideSpec("frame13")
-        is YearInReviewPage.RevisitedArticles -> allTemplatesListSlideSpec(if (isEmptyState) "frame12-empty" else "frame12")
-        is YearInReviewPage.Geography -> allTemplatesListSlideSpec(if (isEmptyState) "frame14-empty" else "frame14")
-        is YearInReviewPage.SavedArticles -> allTemplatesListSlideSpec(if (isEmptyState) "frame15-empty" else "frame15")
-        is YearInReviewPage.TotalEdits -> allTemplatesSlideSpec(if (isEmptyState) "frame16-empty" else "frame16")
-        is YearInReviewPage.EditedArticleViews -> allTemplatesSlideSpec("frame17")
-        is YearInReviewPage.MostViewedEditedArticles -> allTemplatesListSlideSpec("frame18")
-        is YearInReviewPage.ThankYou -> allTemplatesSlideSpec("end")
-        // The file has no collective artboards yet, so these reuse the personal artboard closest to each insight
-        is YearInReviewPage.Collective -> when (insight) {
-            YearInReviewCollectiveInsight.HOURS_READ -> allTemplatesSlideSpec("frame3")
-            YearInReviewCollectiveInsight.LANGUAGES -> allTemplatesSlideSpec("frame2")
-            YearInReviewCollectiveInsight.ARTICLES -> allTemplatesSlideSpec("frame1")
-            YearInReviewCollectiveInsight.SAVED_ARTICLES -> allTemplatesListSlideSpec("frame15")
-            YearInReviewCollectiveInsight.VOLUNTEER_EDITORS -> allTemplatesSlideSpec("frame17")
-            YearInReviewCollectiveInsight.EDITS -> allTemplatesSlideSpec("frame16")
-            YearInReviewCollectiveInsight.GLOBAL_REACH -> allTemplatesListSlideSpec("frame14")
-        }
-        // TODO: else branch stands in for each page until its slide is built
-        else -> null
-    }
-
-private val AllTemplatesGlobalProperties = RiveGlobalViewModel(
-    name = "GlobalProperties",
-    textSizes = mapOf(
-        "headlineFontSize" to 24f,
-        "headlineLineHeight" to 25.44f,
-        "bodyCopyFontSize" to 16f,
-        "bodyCopyLineHeight" to 20f
-    )
-)
-
-// In all_templates.riv, each artboard has a matching state machine and a same-named view model instance holding sample text
-private fun allTemplatesSlideSpec(artboardName: String, viewModelName: String = "DataTemplate") = RiveSlideSpec(
-    resourceId = R.raw.all_templates,
-    artboardName = artboardName,
-    stateMachineName = "$artboardName-statemachine",
-    viewModelName = viewModelName,
-    instanceType = RiveInstanceType.Named(artboardName),
-    globalViewModel = AllTemplatesGlobalProperties
-)
-
-// Artboards that show up to three articles or topics, each with an icon, title and subtitle
-private fun allTemplatesListSlideSpec(artboardName: String) = allTemplatesSlideSpec(artboardName, viewModelName = "List")
 
 @Composable
 private fun YearInReviewProgressTracker(

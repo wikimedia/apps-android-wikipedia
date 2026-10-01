@@ -17,8 +17,8 @@ class YearInReviewFlowDeciderTest {
     fun `logged-in data-rich user gets personalized slides in order`() {
         val expected = listOf(
             YearInReviewPage.Cover,
-            YearInReviewPage.ArticlesRead(isEmptyState = false),
-            YearInReviewPage.Visits,
+            YearInReviewPage.ArticlesRead(isEmptyState = false, count = 3),
+            YearInReviewPage.Visits(days = 2),
             YearInReviewPage.YouMatter(showLoginPrompt = false),
             YearInReviewPage.End
         )

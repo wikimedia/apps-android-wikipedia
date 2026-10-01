@@ -178,14 +178,11 @@ fun rememberYearInReviewRiveFiles(
 @Composable
 fun YearInReviewRiveSlide(
     riveFileResult: Result<RiveFile>,
-    spec: RiveSlideSpec,
-    textProperties: Map<String, String>,
-    accessibilityDescription: String,
+    content: RiveSlideContent,
     playing: Boolean,
     modifier: Modifier = Modifier,
     slideId: String? = null,
     screenshotGetters: MutableMap<String, GetBitmapFun>? = null,
-    imageUrls: Map<String, String?> = emptyMap(),
     onRiveError: (Throwable) -> Unit
 ) {
     when (riveFileResult) {
@@ -193,10 +190,10 @@ fun YearInReviewRiveSlide(
         is Result.Error -> RiveFailure(riveFileResult.throwable, onRiveError)
         is Result.Success -> YearInReviewRiveArtboard(
             riveFile = riveFileResult.value,
-            spec = spec,
-            textProperties = textProperties,
-            imageUrls = imageUrls,
-            accessibilityDescription = accessibilityDescription,
+            spec = content.spec,
+            textProperties = content.textProperties,
+            imageUrls = content.imageUrls,
+            accessibilityDescription = content.accessibilityDescription,
             playing = playing,
             modifier = modifier,
             onRiveError = onRiveError,
