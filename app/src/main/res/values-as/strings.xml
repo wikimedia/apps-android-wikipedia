@@ -459,7 +459,6 @@
   <string name="reading_lists_menu_create_list" fuzzy="true">নতুন সূচী সৃষ্টি কৰক</string>
   <string name="reading_lists_menu_sort_by">ক্ৰমে সজাওক</string>
   <string name="reading_lists_refresh_sync_option">ছিংক সতেজ কৰক</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">লগিন / ছাইন আপ কৰক</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">এই প্ৰবন্ধটো এতিয়া অফলাইন উপলব্ধ হ\'ব।</item>
     <item quantity="other">এই প্ৰবন্ধকেইটা এতিয়া অফলাইন উপলব্ধ হ\'ব।</item>

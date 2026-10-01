@@ -564,7 +564,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">Di na mababasa offline ang %s sa mga ito:</string>
   <string name="reading_lists_sync_reminder_title" fuzzy="true">Buksan ang pag-sync ng mga babasahin?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">Pwede mo na\'ng i-sync ang mga artikulong naka-save sa mga babasahin mo gamit ang account mo sa Wikipedia. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Matuto pa&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Masi-sync na ang mga babasahin sa iba\'t-ibang device. Mag-login sa account mo sa Wikipedia at payagan na mai-save ang mga babasahin mo. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Matuto pa&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Buksan ang pag-sync</string>
   <string name="reading_list_login_reminder_title" fuzzy="true">I-sync ang mga babasahin</string>
   <string name="reading_lists_login_reminder_text" fuzzy="true">Masi-sync na ang mga babasahin sa iba\'t-ibang device. Mag-login sa account mo sa Wikipedia at payagan na mai-save ang mga babasahin mo.</string>
@@ -607,7 +606,6 @@
   <string name="reading_lists_menu_import_list" fuzzy="true">Mag-import ng listahan</string>
   <string name="reading_lists_menu_sort_by">Ayusin</string>
   <string name="reading_lists_refresh_sync_option">I-sync muli</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Mag-login/sumali</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Mababasa na ang artikulong ito offline.</item>
     <item quantity="other">Mababasa na ang mga artikulong ito offline.</item>

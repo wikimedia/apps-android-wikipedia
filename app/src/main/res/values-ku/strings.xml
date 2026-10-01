@@ -515,7 +515,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s wê êdî wek derhêl ne berdest in ji bo temamê lîstên xwendinê:</string>
   <string name="reading_lists_sync_reminder_title" fuzzy="true">Senktonîzekirina lîsta xwendinê bila were vekirin?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">Gotarên li lîstên xwendine qeydkirî, vêga dikarin bi hesaba te ya Wîkîpediyayê ve werin senkronîzekirin. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Zêdetir hîn bibe&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Lîstên xwendinê vêga dikarin bi temamê cîhazan re bên senkronîzekirin. Têkeve hesaba xwe ya Wîkîpediyayê û destûr bide ku lîstên te bên qeydkirin. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Zêdetir hîn bibe&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Senkronîzasyonê aktîv bike</string>
   <string name="reading_list_login_reminder_title" fuzzy="true">Lîstên xwendinê senkronîze bike</string>
   <string name="reading_lists_login_reminder_text" fuzzy="true">Lîstên xwendinê vêga li navbera cîhazên te dikarin bên senkronîzekirin. Têkeve hesabê xwe ya Wîkîpediyayê û destûr bide ku lîstên te bên qeydkirin.</string>
@@ -552,7 +551,6 @@
   <string name="reading_lists_menu_create_list" fuzzy="true">Lîsteke nû çêke</string>
   <string name="reading_lists_menu_sort_by">Rêz bike bi</string>
   <string name="reading_lists_refresh_sync_option">Senkronîzasyonê nû bike</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Têkeve / xwe qeyd bike</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Ev gotar wê wek derhêl berdest be.</item>
     <item quantity="other">Ev gotar wê wek derhêl berdest bin.</item>

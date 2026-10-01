@@ -61,6 +61,8 @@ import org.wikipedia.edit.EditSectionViewModel
 import org.wikipedia.edit.showEditorChoiceDialog
 import org.wikipedia.events.ArticleSavedOrDeletedEvent
 import org.wikipedia.events.ChangeTextSizeEvent
+import org.wikipedia.events.LoggedInEvent
+import org.wikipedia.events.LoggedOutEvent
 import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.history.HistoryEntry
@@ -72,9 +74,9 @@ import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.readinglist.ReadingListActivity
 import org.wikipedia.readinglist.ReadingListMode
-import org.wikipedia.search.HybridSearchAbCTest
 import org.wikipedia.search.SearchActivity
 import org.wikipedia.settings.Prefs
+import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.suggestededits.PageSummaryForEdit
@@ -172,7 +174,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
 
             SuggestedEditsSnackbars.show(this, action, it.resultCode != DescriptionEditSuccessActivity.RESULT_OK_FROM_EDIT_SUCCESS,
                 editLanguage, action !== DescriptionEditActivity.Action.ADD_DESCRIPTION && action !== DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION) {
-                pageFragment.page?.pageProperties?.leadImageName?.let { imageName ->
+                pageFragment.page?.leadImageName?.let { imageName ->
                     val wikiSite = WikiSite.forLanguageCode(pageFragment.leadImageEditLang.orEmpty().ifEmpty { app.appOrSystemLanguageCode })
                     val imageTitle = PageTitle("File:${StringUtil.removeNamespace(imageName)}", wikiSite)
                     if (action === DescriptionEditActivity.Action.ADD_IMAGE_TAGS) {
@@ -215,6 +217,13 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                                 }
                             }
                         }
+                        is LoggedInEvent -> {
+                            updateForLoginState()
+                            FeedbackUtil.showMessage(this@PageActivity, R.string.login_success_toast)
+                        }
+                        is LoggedOutEvent -> {
+                            updateForLoginState()
+                        }
                     }
                 }
             }
@@ -250,7 +259,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
             Prefs.showOneTimeCustomizeToolbarTooltip = false
         }
 
-        binding.pageToolbarButtonNotifications.isVisible = AccountUtil.isLoggedIn
         binding.pageToolbarButtonNotifications.setOnClickListener {
             pageFragment.articleInteractionEvent?.logNotificationClick()
             if (AccountUtil.isLoggedIn) {
@@ -294,6 +302,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
             // then we must have been launched with an Intent, so... handle it!
             handleIntent(intent)
         }
+        updateForLoginState()
     }
 
     override fun onStart() {
@@ -378,6 +387,10 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         super.onNewIntent(intent)
         setIntent(intent)
         handleIntent(intent)
+    }
+
+    private fun updateForLoginState() {
+        binding.pageToolbarButtonNotifications.isVisible = AccountUtil.isLoggedIn
     }
 
     private val onBackPressedCallback = object : OnBackPressedCallback(true) {
@@ -486,14 +499,16 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     }
 
     override fun onPageRequestEditSection(sectionId: Int, sectionAnchor: String?, title: PageTitle, highlightText: String?) {
+        val isVisualEditorEnabled = RemoteConfig.config.androidv1?.visualEditorEnabled ?: false
         val launchEditor = {
-            if (Prefs.editorModeChoice == EDITOR_CHOICE_VE && Prefs.visualEditorEnabled) {
-                UriUtil.visitInExternalBrowser(this, title.getWebApiUrl("veaction=edit&section=$sectionId").toUri())
+            val appInstallId = WikipediaApp.instance.appInstallID
+            if (Prefs.editorModeChoice == EDITOR_CHOICE_VE && isVisualEditorEnabled) {
+                UriUtil.visitInExternalBrowser(this, title.getWebApiUrl("veaction=edit&section=$sectionId&appinstallid=$appInstallId").toUri())
             } else {
                 requestEditSectionLauncher.launch(EditSectionActivity.newIntent(this, sectionId, sectionAnchor, title, InvokeSource.PAGE_ACTIVITY, highlightText))
             }
         }
-        if (Prefs.editorModeChoiceShowDialog && Prefs.visualEditorEnabled) {
+        if (Prefs.editorModeChoiceShowDialog && isVisualEditorEnabled) {
             showEditorChoiceDialog(this, isSettingsScreen = false) { editorChoice, dontShowAgain ->
                 Prefs.editorModeChoice = editorChoice
                 Prefs.editorModeChoiceShowDialog = !dontShowAgain
@@ -883,13 +898,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     }
 
     fun updateSearchHint() {
-        if (Prefs.isHybridSearchOnboardingShown && HybridSearchAbCTest().isHybridSearchEnabled(WikipediaApp.instance.languageState.appLanguageCode) &&
-            pageFragment.title?.namespace() == Namespace.MAIN) {
-            val title = StringUtil.fromHtml(pageFragment.title?.displayText)
-            binding.pageToolbarButtonSearch.text = getString(R.string.hybrid_search_article_search_hint, title)
-        } else {
-            binding.pageToolbarButtonSearch.text = getString(R.string.search_hint)
-        }
+        binding.pageToolbarButtonSearch.text = getString(R.string.search_hint)
     }
 
     override fun onProvideAssistContent(outContent: AssistContent) {

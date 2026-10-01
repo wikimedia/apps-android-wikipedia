@@ -490,7 +490,6 @@
   <string name="reading_lists_menu_create_list" fuzzy="true">Nujə sijohi soxte</string>
   <string name="reading_lists_menu_sort_by">Cešidin karde de</string>
   <string name="reading_lists_refresh_sync_option">Sinxronizasijə nujə karde</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Dəše / Ǧejd be</string>
   <string name="reading_list_toast_last_sync" fuzzy="true">Bo hande sijohijon sinxron kardə byən</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">COK</string>
   <string name="reading_list_delete_dialog_ok_button_text">COK</string>

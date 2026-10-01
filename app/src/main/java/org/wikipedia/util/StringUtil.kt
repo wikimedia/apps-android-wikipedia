@@ -5,7 +5,6 @@ import android.graphics.Color
 import android.graphics.Typeface
 import android.icu.text.CompactDecimalFormat
 import android.location.Location
-import android.os.Build
 import android.text.Spanned
 import android.text.style.BackgroundColorSpan
 import android.text.style.ForegroundColorSpan
@@ -27,7 +26,6 @@ import java.text.Normalizer
 import java.util.EnumSet
 import java.util.Locale
 import kotlin.math.absoluteValue
-import kotlin.math.roundToInt
 
 object StringUtil {
     private const val CSV_DELIMITER = ","
@@ -226,26 +224,9 @@ object StringUtil {
     }
 
     fun getPageViewText(context: Context, pageViews: Long): String {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            val primaryLocale = context.resources.configuration.locales[0]
-            val decimalFormat = CompactDecimalFormat.getInstance(primaryLocale, CompactDecimalFormat.CompactStyle.SHORT)
-            return decimalFormat.format(pageViews)
-        }
-        return when {
-            pageViews < 1000 -> pageViews.toString()
-            pageViews < 1000000 -> {
-                context.getString(
-                    R.string.view_top_read_card_pageviews_k_suffix,
-                    (pageViews / 1000f).roundToInt()
-                )
-            }
-            else -> {
-                context.getString(
-                    R.string.view_top_read_card_pageviews_m_suffix,
-                    (pageViews / 1000000f).roundToInt()
-                )
-            }
-        }
+        val primaryLocale = context.resources.configuration.locales[0]
+        val decimalFormat = CompactDecimalFormat.getInstance(primaryLocale, CompactDecimalFormat.CompactStyle.SHORT)
+        return decimalFormat.format(pageViews)
     }
 
     fun getDiffBytesText(context: Context, diffSize: Int): String {

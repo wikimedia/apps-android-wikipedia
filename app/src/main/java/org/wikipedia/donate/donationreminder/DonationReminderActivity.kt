@@ -12,6 +12,7 @@ import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingActivity.Companion.EXTRA_FROM_SETTINGS
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.UriUtil
@@ -29,22 +30,18 @@ class DonationReminderActivity : BaseActivity() {
                     onBackButtonClick = {
                         onBackPressedDispatcher.onBackPressed()
                     },
-                    onConfirmButtonClick = { message ->
+                    onConfirmButtonClick = {
                         DonationReminderHelper.shouldShowSettingSnackbar = true
                         setResult(RESULT_OK_FROM_DONATION_REMINDER)
                         finish()
                     },
                     onFooterButtonClick = {
-                        if (viewModel.isFromSettings) {
-                            UriUtil.visitInExternalBrowser(this, getString(R.string.donation_reminders_experiment_url).toUri())
-                            DonorExperienceEvent.logDonationReminderAction(
-                                activeInterface = "global_setting",
-                                action = "reminder_about_click"
-                            )
-                        } else {
-                            setResult(RESULT_OK_FROM_DONATION_REMINDER)
-                            finish()
-                        }
+                        DonorExperienceEvent.logDonationReminderAction(
+                            activeInterface = "reminder_config",
+                            action = "nothanks_click"
+                        )
+                        setResult(RESULT_OK_FROM_DONATION_REMINDER)
+                        finish()
                     },
                     wikiErrorClickEvents = WikiErrorClickEvents(
                         backClickListener = {
@@ -56,14 +53,14 @@ class DonationReminderActivity : BaseActivity() {
                     ),
                     onLearnMoreClick = {
                         DonorExperienceEvent.logDonationReminderAction(
-                            activeInterface = if (viewModel.isFromSettings) "global_setting" else "reminder_config",
+                            activeInterface = "reminder_overflow",
                             action = "overflow_learn_more_click"
                         )
                         UriUtil.visitInExternalBrowser(this, getString(R.string.donation_reminders_experiment_url).toUri())
                     },
                     onReportClick = {
                         DonorExperienceEvent.logDonationReminderAction(
-                            activeInterface = if (viewModel.isFromSettings) "global_setting" else "reminder_config",
+                            activeInterface = "reminder_overflow",
                             action = "overflow_problem_click"
                         )
                         FeedbackUtil.composeEmail(this,
@@ -74,6 +71,7 @@ class DonationReminderActivity : BaseActivity() {
             }
         }
         sendAnalysis()
+        enableWrapUp()
     }
 
     private fun sendAnalysis() {
@@ -82,6 +80,14 @@ class DonationReminderActivity : BaseActivity() {
                 activeInterface = "reminder_config",
                 action = "impression",
                 campaignId = DonationReminderHelper.getCampaignId()
+            )
+        }
+    }
+
+    private fun enableWrapUp() {
+        if (!DonationReminderHelper.isWrapUpEnabled) {
+            Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(
+                wrapUpEnabled = true
             )
         }
     }

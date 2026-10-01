@@ -551,7 +551,6 @@
   <string name="reading_lists_menu_create_list" fuzzy="true">নতুন তালিকা তৈরি করুন</string>
   <string name="reading_lists_menu_import_list" fuzzy="true">আমদানিতালিকা</string>
   <string name="reading_lists_menu_sort_by">সাজান</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">প্রবেশ করুন / নিবন্ধন করুন</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">এই নিবন্ধটি এখন অফলাইনে উপলব্ধ হবে।</item>
     <item quantity="other">এই নিবন্ধগুলি এখন অফলাইনে উপলব্ধ হবে।</item>

@@ -32,6 +32,7 @@ import kotlin.math.abs
 
 class GooglePayViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     val filledAmount = savedStateHandle.get<Float>(GooglePayActivity.FILLED_AMOUNT) ?: 0f
+    val checkedRecurringDonation = savedStateHandle.get<Boolean>(GooglePayActivity.CHECKED_RECURRING_DONATION) ?: false
     val uiState = MutableStateFlow(Resource<DonationConfig>())
     private var donationConfig: DonationConfig? = null
 

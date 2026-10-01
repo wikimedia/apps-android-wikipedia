@@ -477,7 +477,6 @@
   <string name="reading_lists_menu_import_list" fuzzy="true">सूची निर्यात गर्नुहोस्</string>
   <string name="reading_lists_menu_sort_by">द्वारा क्रमबद्ध</string>
   <string name="reading_lists_refresh_sync_option">सङ्क्रमण ताजा गर्नुहोस्</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">प्रवेश गर्नुहाेस् / खाता खाेल्नुहाेस्</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">यो लेख हाल अफलाइनमा उपलब्ध हुनेछ</item>
     <item quantity="other">यी लेखहरू हाल अफलाइनमा उपलब्ध हुनेछन्</item>
@@ -490,7 +489,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">रद्द गर्नुहोस्</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">रद्द गर्नुहोस्</string>
   <string name="reading_list_split_dialog_ok_button_text">हुन्छ</string>
-  <string name="reading_list_delete_lists_dialog_delete_button_text">मेट्ने</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">मेटाउनुहोस्</string>
   <string name="reading_list_activity_title" fuzzy="true">पठन सूची: %s</string>
   <string name="reading_list_notification_title" fuzzy="true">पठन सूची(हरू) निर्यात गरियो</string>
   <string name="reading_lists_action_menu_export_lists">निर्यात गर्नुहोस्</string>
@@ -551,7 +550,7 @@
   <string name="preference_summary_notification_milestone">निश्चित सम्पादन सङ्ख्या पुग्यो।</string>
   <string name="preference_title_notification_thanks">धन्यवाद</string>
   <string name="preference_summary_notification_thanks">कसैले तपाईलाई सम्पादन गरेकोमा धन्यवाद दिएका छन्</string>
-  <string name="preference_title_notification_revert">पूर्ववत्</string>
+  <string name="preference_title_notification_revert">पूर्ववत</string>
   <string name="preference_summary_notification_revert">तपाईको एउटा योगदान पूर्ववत् गरियो</string>
   <string name="preference_title_notification_login_fail">प्रवेश</string>
   <string name="preference_title_notification_mention">उल्लेख</string>
@@ -1015,6 +1014,14 @@
   <string name="home_feed_settings_default_view_confirm">यो परिवर्तन तपाईंले अर्को पटक एप खोल्दा लागू हुनेछ।</string>
   <string name="home_feed_settings_games_title">खेलहरू</string>
   <string name="home_feed_settings_games_subtitle">विकिपिडिया सामग्रीमा आधारित दैनिक खेलहरू</string>
+  <string name="read_aloud_card_play">बजाउनुहोस्</string>
+  <string name="read_aloud_card_retry">पुनः प्रयास गर्नुहोस्</string>
+  <string name="read_aloud_card_keep_listening">सुनिरहनुहोस्?</string>
+  <string name="read_aloud_lead_section_survey_title">तपाईंलाई विकिपिडिया सुन्न कतिको रुचि छ?</string>
+  <string name="read_aloud_lead_section_survey_choice1">लेख परिचयहरू</string>
+  <string name="read_aloud_lead_section_survey_choice3">पूर्ण लेखहरू</string>
+  <string name="read_aloud_lead_section_survey_choice5">अन्यः</string>
+  <string name="read_aloud_lead_section_report_issue">समस्या पेश गर्नुहाेस्</string>
   <string name="home_feed_games_module_cta_prompt_title">थप खेलहरू खेल्न चाहनुहुन्छ?</string>
   <string name="home_feed_games_module_cta_prompt_subtitle">खेल केन्द्रमा जानुहोस्</string>
   <string name="home_feed_games_module_cta_prompt_button_text">खेल हब</string>

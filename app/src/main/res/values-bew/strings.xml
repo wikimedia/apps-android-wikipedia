@@ -522,7 +522,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s kaga\' bakal lagi derak di luar-jala bakal semua daptar bacaan:</string>
   <string name="reading_lists_sync_reminder_title" fuzzy="true">Nyalain penjuntrungan daptar bacaan?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">Makalah nyang disimpen di daptar bacaan sekarang bisa dijuntrungin ke lu punya rèkening Wikipédi. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Belajarin lebi lanjut&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Daptar bacaan sekarang bisa dijuntrungin di mana-mana peralatan. Masup ke lu punya rèkening Wikipédi èn ijinin lu punya daptar disimpen. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Belajarin lebi lanjut&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Nyalain penjuntrungan</string>
   <string name="reading_list_login_reminder_title" fuzzy="true">Juntrungin daptar bacaan</string>
   <string name="reading_lists_login_reminder_text" fuzzy="true">Daptar bacaan sekarang bisa dijuntrungin di mana-mana peralatan. Masup ke lu punya rèkening Wikipédi èn ijinin lu punya daptar disimpen.</string>
@@ -565,7 +564,6 @@
   <string name="reading_lists_menu_import_list" fuzzy="true">Impor daptar</string>
   <string name="reading_lists_menu_sort_by">Sortir berales</string>
   <string name="reading_lists_refresh_sync_option">Segerin penjuntrungan</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Masup / daptar</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Ni makalah sekarang bakal derak di luar-jala.</item>
     <item quantity="other">Ni makalah sekarang pada bakal derak di luar-jala.</item>

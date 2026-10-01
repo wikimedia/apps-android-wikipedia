@@ -7,6 +7,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.Resource
@@ -54,6 +55,21 @@ class RecommendedReadingListSettingsViewModel : ViewModel() {
 
     fun toggleNotification(enabled: Boolean) {
         Prefs.isRecommendedReadingListNotificationEnabled = enabled
+        val frequencyForEvent = when (_uiState.value.updateFrequency) {
+            RecommendedReadingListUpdateFrequency.DAILY -> "daily"
+            RecommendedReadingListUpdateFrequency.WEEKLY -> "weekly"
+            RecommendedReadingListUpdateFrequency.MONTHLY -> "monthly"
+        }
+        TestKitchenAdapter.client.getInstrument("apps-notifications")
+            .submitInteraction(
+                action = "submit_click",
+                actionSource = "discover",
+                actionSubtype = "settings",
+                actionContext = mapOf(
+                    "article_count" to _uiState.value.articlesNumber,
+                    "frequency" to frequencyForEvent
+                )
+            )
         _uiState.value = _uiState.value.copy(isRecommendedReadingListNotificationEnabled = enabled)
     }
 

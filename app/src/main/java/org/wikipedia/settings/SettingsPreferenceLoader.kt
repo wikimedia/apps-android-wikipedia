@@ -61,13 +61,15 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
             }
         }
         findPreference(R.string.preference_key_editor_mode_choice).let {
-            updateVisualEditorPreference(it)
-            it.onPreferenceClickListener = Preference.OnPreferenceClickListener { prefs ->
-                showEditorChoiceDialog(activity, isSettingsScreen = true) { editorChoice, _ ->
-                    Prefs.editorModeChoice = editorChoice
-                    prefs.setSummary(if (editorChoice == EDITOR_CHOICE_VE) R.string.editor_select_dialog_ve_title else R.string.editor_select_dialog_source_title)
+            val isVisualEditorEnabled = updateVisualEditorPreference(it)
+            if (isVisualEditorEnabled) {
+                it.onPreferenceClickListener = Preference.OnPreferenceClickListener { prefs ->
+                    showEditorChoiceDialog(activity, isSettingsScreen = true) { editorChoice, _ ->
+                        Prefs.editorModeChoice = editorChoice
+                        prefs.setSummary(if (editorChoice == EDITOR_CHOICE_VE) R.string.editor_select_dialog_ve_title else R.string.editor_select_dialog_source_title)
+                    }
+                    true
                 }
-                true
             }
         }
 
@@ -140,6 +142,10 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
             isVisible = DonationReminderHelper.isEnabled
             onPreferenceClickListener =
                 Preference.OnPreferenceClickListener {
+                    DonorExperienceEvent.logDonationReminderAction(
+                        activeInterface = "global_setting",
+                        action = "donation_reminder_click"
+                    )
                     activity.startActivity(DonationReminderActivity.newIntent(activity, isFromSettings = true))
                     true
                 }
@@ -164,7 +170,7 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
     }
 
     private fun deviceInformation(): String {
-        return "\n\nVersion: ${BuildConfig.VERSION_NAME} \nDevice: ${Build.BRAND} ${Build.MODEL} (SDK: ${Build.VERSION.SDK_INT})\n"
+        return "\n\nVersion: ${BuildConfig.VERSION_NAME} \nDevice: ${Build.BRAND} ${Build.MODEL} (SDK: ${Build.VERSION.SDK_INT})\nAppInstallId: ${WikipediaApp.instance.appInstallID}"
     }
 
     fun updateLanguagePrefSummary() {
@@ -187,14 +193,15 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
         findPreference(R.string.preference_key_donation_reminders).summary = description
     }
 
-    fun updateVisualEditorPreference(visualEditorPref: Preference = findPreference(R.string.preference_key_editor_mode_choice)) {
-        if (Prefs.visualEditorEnabled) {
-            visualEditorPref.isVisible = true
-            visualEditorPref.setSummary(if (Prefs.editorModeChoice == EDITOR_CHOICE_VE) R.string.editor_select_dialog_ve_title else R.string.editor_select_dialog_source_title)
-        } else {
+    fun updateVisualEditorPreference(visualEditorPref: Preference = findPreference(R.string.preference_key_editor_mode_choice)): Boolean {
+        val isVisualEditorEnabled = RemoteConfig.config.androidv1?.visualEditorEnabled ?: false
+        if (!isVisualEditorEnabled) {
             visualEditorPref.isVisible = false
-            visualEditorPref.summary = null
+            return false
         }
+        visualEditorPref.isVisible = true
+        visualEditorPref.setSummary(if (Prefs.editorModeChoice == EDITOR_CHOICE_VE) R.string.editor_select_dialog_ve_title else R.string.editor_select_dialog_source_title)
+        return true
     }
 
     private inner class SyncReadingListsListener : Preference.OnPreferenceChangeListener {

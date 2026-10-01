@@ -509,7 +509,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">ఇక %s, చదివే జాబితా లన్నిటినీ లోనూ ఆఫ్‌లైనులో అందుబాటులో ఉండదు:</string>
   <string name="reading_lists_sync_reminder_title" fuzzy="true">చదివే జాబితా సింకును ఆన్ చేస్తారా?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">చదివే జాబితాల్లోకి చేర్చిన వ్యాసాలను ఇపుడు మీ వికీపీడియా ఖాతాకు సింకు చేసుకోవచ్చు. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;మరింత తెలుసుకోండి&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">చదివే జాబితాలను ఇపుడు అన్ని డివైసుల లోకీ సింకు చేసుకోవచ్చు. మీ వికీపీడియా ఖాతా లోకి లాగినై జాబితాలను భద్రపరచండి. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;మరింత తెలుసుకోండి&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">సింకును చేతనం చెయ్యండి</string>
   <string name="reading_list_login_reminder_title" fuzzy="true">చదివే జాబితాలను సింకు చెయ్యండి</string>
   <string name="reading_lists_login_button">వికీపీడియాలో లాగినవండి / చేరండి</string>
@@ -545,7 +544,6 @@
   <string name="reading_lists_menu_import_list" fuzzy="true">జాబితా దిగుమతి</string>
   <string name="reading_lists_menu_sort_by">ఇలా పేర్చు</string>
   <string name="reading_lists_refresh_sync_option">సింకును తాజాకరించు</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">లాగినవండి / నమోదవండి</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">ఈ వ్యాసం ఇప్పుడు ఆఫ్‌లైనులో అందుబాటులో ఉంటుంది.</item>
     <item quantity="other">ఈ వ్యాసాలు ఇప్పుడు ఆఫ్‌లైనులో అందుబాటులో ఉంటాయి.</item>

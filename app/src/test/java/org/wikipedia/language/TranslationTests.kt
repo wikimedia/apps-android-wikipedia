@@ -1,6 +1,8 @@
 package org.wikipedia.language
 
 import org.jsoup.Jsoup
+import org.jsoup.nodes.Document
+import org.jsoup.parser.Parser
 import org.junit.Assert.assertEquals
 import org.junit.Test
 import java.io.File
@@ -117,7 +119,7 @@ class TranslationTests {
         val basePluralsList = findStringItemInXML(baseFile, "plurals")
 
         // Step 2: check qq/strings.xml for plurals without items
-        val document = Jsoup.parse(qQFile, "UTF-8")
+        val document = parseStringsXml(qQFile)
         val pluralsElements = document.select("plurals")
         for (element in pluralsElements) {
             val name = element.attr("name")
@@ -199,10 +201,17 @@ class TranslationTests {
         return BAD_NAMES.any { pathname.name.startsWith("$STRINGS_DIRECTORY-$it") }
     }
 
+    // strings.xml must be parsed with the XML parser: the HTML parser mangles CDATA sections
+    // and promotes raw markup to real elements, which drops the format parameters that live in
+    // attributes from Element.text().
+    private fun parseStringsXml(xmlPath: File): Document {
+        return Jsoup.parse(xmlPath, "UTF-8", "", Parser.xmlParser())
+    }
+
     @Throws(Throwable::class)
     private fun findStringItemInXML(xmlPath: File, vararg strings: String): List<String> {
         val list = mutableListOf<String>()
-        val document = Jsoup.parse(xmlPath, "UTF-8")
+        val document = parseStringsXml(xmlPath)
 
         for (string in strings) {
             val elements = document.select(string)
@@ -217,7 +226,7 @@ class TranslationTests {
     @Throws(Throwable::class)
     private fun findMatchedParamsInXML(xmlPath: File, params: List<String>, quote: Boolean, ignorePluralOne: Boolean = false): Map<String, List<Int>> {
         val map = mutableMapOf<String, List<Int>>()
-        val document = Jsoup.parse(xmlPath, "UTF-8")
+        val document = parseStringsXml(xmlPath)
 
         // For string items
         // <string name="app_name_prod">Wikipedia</string>

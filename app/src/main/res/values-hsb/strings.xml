@@ -459,7 +459,6 @@
   <string name="reading_lists_menu_create_list" fuzzy="true">Nowu lisćinu wutworić</string>
   <string name="reading_lists_menu_sort_by">Sortěrować po</string>
   <string name="reading_lists_refresh_sync_option">Znowa synchronizować</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Přizjewić / konto wutworić</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Tutón nastawk je nětko offline přistupny.</item>
     <item quantity="two">Tutej nastawkaj stej nětko offline přistupnej.</item>

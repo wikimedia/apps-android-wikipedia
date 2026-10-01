@@ -362,7 +362,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s ၼႆႉ တေဢမ်ႇၸၢင်ႈၸႂ်ႉ ၽွင်းႁၢမ်းၼႅင်ႈ တွၼ်ႈတႃႇ သဵၼ်ႈမၢႆလူတင်းသဵင်ႈ:</string>
   <string name="reading_lists_sync_reminder_title" fuzzy="true">တေပိုတ်ႇ လွင်ႈၶူၼ်းၽဵင်ႇသဵၼ်ႈမၢႆလူၼႄႇ?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">ပွင်ႈၵႂၢမ်းဢၼ်သိမ်းသႂ်ႇဝႆႉၼႂ်း သဵၼ်ႈမၢႆလူၼၼ်ႉ ယၢမ်းလဵဝ် ၸၢင်ႈၶူၼ်းၽဵင်ႇၸူး ဢၶွင်ႉ ဝီႇၶီႇၽီးတီးယႃးၸဝ်ႈၵဝ်ႇယဝ်ႉ။ &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;လဵပ်ႈႁဵၼ်းထႅင်ႈ&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">သဵၼ်ႈမၢႆလူၼႆႉ ၸၢင်ႈၶူၼ်းၽဵင်ႇၼႂ်းၵႄႈ ၶိူင်ႈၸႂ်ႉလၢႆလၢႆဢၼ်။ လွၵ်ႉဢိၼ်ႇၸူး ဢၶွင်ႉဝီႇၶီႇၽီးတီးယႃးၸဝ်ႇၵဝ်ႇသေ ၶႂၢင်းပၼ် တွၼ်ႈတႃႇသိမ်းပၼ် သဵၼ်ႈမၢႆၸဝ်ႈၵဝ်ႇလႄႈ။\n&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;လဵပ်ႈႁဵၼ်းထႅင်ႈ&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">ပိုတ်ႇပၼ် လွင်ႈၶူၼ်းၽဵင်ႇ</string>
   <string name="reading_list_login_reminder_title" fuzzy="true">ၶူၼ်းၽဵင်ႇ သဵၼ်ႈမၢႆလူ</string>
   <string name="reading_lists_login_reminder_text" fuzzy="true">သဵၼ်ႈမၢႆလူၼႆႉ ၸၢင်ႈၶူၼ်းၽဵင်ႇၼႂ်းၵႄႈ ၶိူင်ႈၸႂ်ႉလၢႆလၢႆဢၼ်။ လွၵ်ႉဢိၼ်ႇၸူး ဢၶွင်ႉဝီႇၶီႇၽီးတီးယႃးၸဝ်ႇၵဝ်ႇသေ ၶႂၢင်းပၼ် တွၼ်ႈတႃႇသိမ်းပၼ် သဵၼ်ႈမၢႆၸဝ်ႈၵဝ်ႇလႄႈ။</string>
@@ -395,7 +394,6 @@
   <string name="reading_lists_menu_create_list" fuzzy="true">ၵေႃႇသၢင်ႈ သဵၼ်ႈမၢႆမႂ်ႇ</string>
   <string name="reading_lists_menu_sort_by">ၶပ်ႉၼင်ႇ</string>
   <string name="reading_lists_refresh_sync_option">ၽႅတ်းၶိုၼ်း ၶူၼ်းၽင်ႇ</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">လွၵ်ႉဢိၼ်ႇ / လူင်းၸိုဝ်ႈ</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">ပွင်ႈၵႂၢမ်းဢၼ်ၼႆႉ ယၢမ်းလဵဝ် ၸၢင်ႈၸႂ်ႉလႆႈတီႈ ဢွပ်ႉၾ်လၢႆးယဝ်ႉ။</item>
     <item quantity="other">ပွင်ႈၵႂၢမ်းၸိူဝ်းၼႆႉ ယၢမ်းလဵဝ် ၸၢင်ႈၸႂ်ႉလႆႈတီႈ ဢွပ်ႉၾ်လၢႆးယဝ်ႉ။</item>

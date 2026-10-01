@@ -3,6 +3,7 @@ package org.wikipedia.analytics.eventplatform
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import okhttp3.Response
+import org.wikipedia.WikipediaApp
 
 class ClientErrorEvent {
 
@@ -10,7 +11,10 @@ class ClientErrorEvent {
         EventPlatformClient.submit(ClientErrorEventImpl(
             message = throwable.message,
             errorClass = throwable::class.simpleName,
-            stackTrace = throwable.stackTrace.take(2).joinToString(",")
+            stackTrace = throwable.stackTrace.take(2).joinToString(","),
+            errorContext = ErrorContext(
+                appInstallId = WikipediaApp.instance.appInstallID
+            )
         ))
     }
 
@@ -23,6 +27,9 @@ class ClientErrorEvent {
                 method = response.request.method,
                 protocol = response.protocol.toString(),
                 statusCode = response.code
+            ),
+            errorContext = ErrorContext(
+                appInstallId = WikipediaApp.instance.appInstallID
             )
         ))
     }
@@ -33,7 +40,7 @@ class ClientErrorEvent {
     class ClientErrorEventImpl(
         private val message: String?,
         @SerialName("error_class") private val errorClass: String? = null,
-        @SerialName("error_context") private val errorContext: String? = null,
+        @SerialName("error_context") private val errorContext: ErrorContext? = null,
         @SerialName("stack_trace") private val stackTrace: String? = null,
         private val http: Http? = null,
         private val url: String? = null
@@ -45,5 +52,11 @@ class ClientErrorEvent {
         private val method: String? = null,
         private val protocol: String? = null,
         @SerialName("status_code") private val statusCode: Int? = null
+    )
+
+    @Suppress("unused")
+    @Serializable
+    class ErrorContext(
+        @SerialName("app_install_id") private val appInstallId: String? = null
     )
 }

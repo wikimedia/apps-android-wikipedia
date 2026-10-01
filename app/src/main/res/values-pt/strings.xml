@@ -603,7 +603,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s deixará de estar disponível offline para todas as listas de leitura:</string>
   <string name="reading_lists_sync_reminder_title" fuzzy="true">Deseja ativar a sincronização das listas de leitura?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">Os artigos guardados nas listas de leitura podem agora ser sincronizados com a sua conta da Wikipédia. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Saiba mais&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Agora as listas de leitura podem ser sincronizadas entre dispositivos. Inicie a sessão na sua conta da Wikipédia e permita que as suas listas sejam guardadas. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Saiba mais&lt;/a&gt;.</string>
   <string name="reading_lists_sync_reminder_action">Ativar sincronização</string>
   <string name="reading_list_login_reminder_title" fuzzy="true">Sincronizar listas de leitura</string>
   <string name="reading_lists_login_reminder_text" fuzzy="true">Agora é possível sincronizar as listas de leitura entre os dispositivos. Inicie a sessão na sua conta da Wikipédia e permita que as suas listas sejam guardadas.</string>
@@ -646,7 +645,6 @@
   <string name="reading_lists_menu_import_list" fuzzy="true">Importar lista</string>
   <string name="reading_lists_menu_sort_by">Ordenar por</string>
   <string name="reading_lists_refresh_sync_option">Atualizar sincronização</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Iniciar sessão/registar</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Este artigo agora estará disponível sem acesso à Internet.</item>
     <item quantity="other">Estes artigos agora estarão disponíveis sem acesso à Internet.</item>
@@ -1757,10 +1755,7 @@
   <string name="survey_dialog_general_maybe">Talvez</string>
   <string name="survey_dialog_input_hint">Comentários adicionais</string>
   <string name="survey_dialog_submitted_snackbar">Comentário enviado. Obrigado!</string>
-  <string name="on_this_day_game_entry_dialog_title">Introdução</string>
-  <string name="on_this_day_game_entry_dialog_subtitle">Jogos da Wikipédia</string>
   <string name="on_this_day_game_entry_dialog_button" fuzzy="true">Jogue o jogo de hoje</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message" fuzzy="true">Os jogos da Wikipédia estão disponíveis na feed de Explore.</string>
   <string name="on_this_day_game_title">Qual foi o primeiro?</string>
   <string name="on_this_day_game_dialog_button">Jogar</string>
   <string name="on_this_day_game_splash_message">Adivinhe qual o evento que ocorreu primeiro neste dia na história.</string>
@@ -1903,37 +1898,4 @@
   <string name="recommended_reading_list_settings_updates_base_snackbar_action">Anular</string>
   <string name="recommended_reading_list_settings_interests">Interesses</string>
   <string name="recommended_reading_list_settings_notifications_title">Notificações</string>
-  <string name="hybrid_search_search_hint">Pesquise ou pergunte qualquer coisa</string>
-  <string name="hybrid_search_article_search_hint">Pergunte sobre %s</string>
-  <string name="hybrid_search_suggestion_title">Pesquisar por:</string>
-  <string name="hybrid_search_onboarding_learn_more">Saiba mais</string>
-  <string name="hybrid_search_onboarding_search_title">Faça perguntas, obtenha respostas</string>
-  <string name="hybrid_search_onboarding_search_description">Este recurso experimental interpreta linguagem natural. Em vez de pesquisar por palavras-chave, descreva o que você quer saber.</string>
-  <string name="hybrid_search_onboarding_opt_in_choice_title">Recurso beta</string>
-  <string name="hybrid_search_onboarding_opt_in_choice_description">Disponível por tempo limitado durante este experimento.</string>
-  <string name="hybrid_search_beta_tag" fuzzy="true">Beta</string>
-  <string name="hybrid_search_experimental_feature_switch_label">Participar do experimento</string>
-  <string name="hybrid_search_onboarding_search_example_title">Precisa de inspiração?</string>
-  <string name="hybrid_search_onboarding_search_example_description">Use um dos exemplos de pesquisa abaixo.</string>
-  <string name="hybrid_search_onboarding_opt_out_toast_message">Você optou por não participar do experimento.</string>
-  <string name="hybrid_search_onboarding_search_example_query_pluto_as_planet">Quando Plutão deixou de ser considerado um planeta?</string>
-  <string name="hybrid_search_onboarding_search_example_query_first_olympics" fuzzy="true">Primeiras Olimpíadas</string>
-  <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">RNA vs. DNA</string>
-  <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Por que as pessoas colocam abacaxi na pizza?</string>
-  <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Quais são as maiores cidades da Europa?</string>
-  <string name="hybrid_search_onboarding_screen_title">Uma nova maneira de pesquisar</string>
-  <string name="hybrid_search_results_header_description" fuzzy="true">Trechos de artigos da Wikipédia, escrita por pessoas como você</string>
-  <string name="hybrid_search_results_rate_label">Avalie este resultado</string>
-  <string name="hybrid_search_results_rated_label">Avaliado</string>
-  <string name="hybrid_search_results_rate_thumb_up">Dê um joinha!</string>
-  <string name="hybrid_search_results_rate_thumb_down">Dê um voto negativo.</string>
-  <string name="hybrid_lexical_search_results_empty">Nenhum título de artigo corresponde a esta consulta.</string>
-  <string name="hybrid_search_results_empty">A pesquisa avançada está temporariamente indisponível.</string>
-  <string name="hybrid_search_no_results_header">Nenhum resultado</string>
-  <string name="hybrid_search_no_results_description">Este tópico não está retornando trechos de artigos no momento. Aqui estão algumas coisas que você pode tentar:</string>
-  <string name="hybrid_search_no_results_suggestion_rephrase_text">Reformular sua pesquisa</string>
-  <string name="hybrid_search_no_results_suggestion_try_related_topic">Tentar um tópico relacionado</string>
-  <string name="hybrid_search_error_message">Algo deu errado. Tente novamente mais tarde.</string>
-  <string name="hybrid_search_who_is_prefix">Quem é %s?</string>
-  <string name="hybrid_search_turn_off_experiment_label">Desative este experimento</string>
 </resources>

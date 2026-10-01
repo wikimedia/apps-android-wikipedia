@@ -265,6 +265,27 @@
   <string name="email_recommendation_dialog_create_without_email_action">Ohne E-Mail-Adresse fortfahren</string>
   <string name="email_recommendation_dialog_create_with_email_action">Eine E-Mail-Adresse hinzufügen</string>
   <string name="create_account_button">Benutzerkonto erstellen</string>
+  <string name="create_account_encourage_title">Wikipedia ist noch besser mit einem Konto</string>
+  <string name="create_account_encourage_year_in_review_title_zero">Sehen Sie Ihre Tage mit Leseaktivität im Jahresüberblick</string>
+  <plurals name="create_account_encourage_year_in_review_title">
+    <item quantity="one">Sehen Sie Ihren %1$d Tag mit Leseaktivität im Jahresüberblick</item>
+    <item quantity="other">Sehen Sie Ihre %1$d Tage mit Leseaktivität im Jahresüberblick</item>
+  </plurals>
+  <string name="create_account_encourage_year_in_review_description">Einmal im Jahr erhalten Sie einen Rückblick auf Ihre aktiven Lesetage und darauf, wohin das Jahr Sie geführt hat – bereit zum Teilen.</string>
+  <string name="create_account_encourage_saved_articles_title_zero">Synchronisieren Sie Ihre gespeicherten Artikel</string>
+  <plurals name="create_account_encourage_saved_articles_title">
+    <item quantity="one">Synchronisieren Sie Ihre %1$d gespeicherten Artikel</item>
+    <item quantity="other">Synchronisieren Sie Ihre %1$d gespeicherten Artikel</item>
+  </plurals>
+  <string name="create_account_encourage_saved_articles_description">Melden Sie sich bei Ihrem Wikipedia-Konto an, damit Ihre gespeicherten Artikel auf allen Geräten synchronisiert werden.</string>
+  <string name="create_account_encourage_activity_title_zero">Sehen Sie sich Ihre zuletzt gelesenen Artikel in der Registerkarte „Aktivität“ erneut an</string>
+  <plurals name="create_account_encourage_activity_title">
+    <item quantity="one">Sehen Sie sich Ihre %1$d zuletzt gelesenen Artikel in der Registerkarte „Aktivität“ erneut an</item>
+    <item quantity="other">Sehen Sie sich Ihre %1$d zuletzt gelesenen Artikel in der Registerkarte „Aktivität“ erneut an</item>
+  </plurals>
+  <string name="create_account_encourage_activity_description">Sehen Sie in der Registerkarte „Aktivität“ Ihre Lesezeit, erkundete Themen und die Reichweite Ihrer Beiträge</string>
+  <string name="create_account_encourage_edits_title">Erhalten Sie Anerkennung für Ihre Bearbeitungen</string>
+  <string name="create_account_encourage_edits_description">Erarbeiten Sie eine Erfolgsbilanz auf, auf die Sie stolz sein können: Beiträge zu Wikimedia-Projekten werden Ihrem Konto zugeordnet.</string>
   <string name="create_account_name_unavailable">Der Benutzername „%s“ ist nicht verfügbar. Bitte wähle einen anderen Namen aus.</string>
   <string name="create_account_ip_block_message">Leider ist deine IP-Adresse derzeit für das Erstellen neuer Benutzerkonten gesperrt.</string>
   <string name="create_account_ip_block_help_url">https://de.wikipedia.org/wiki/Wikipedia:Benutzersperrung</string>
@@ -353,6 +374,16 @@
   <string name="edit_notices_please_read">Bitte vor der Bearbeitung lesen</string>
   <string name="edit_notices_show_auto">Automatische Anzeige von Bearbeitungshinweisen</string>
   <string name="edit_notices_tooltip">Tippe auf diese Schaltfläche, um die Bearbeitungshinweise für diesen Artikel anzuzeigen.</string>
+  <string name="editor_select_dialog_title">Bearbeitungsmethode wählen</string>
+  <string name="editor_select_dialog_ve_title">Visuelles Bearbeiten</string>
+  <string name="editor_select_dialog_ve_subtitle">Änderungen direkt an der angezeigten Seite vornehmen. Wird im Browser geöffnet.</string>
+  <string name="editor_select_dialog_source_title">Quelltextbearbeitung</string>
+  <string name="editor_select_dialog_source_subtitle">Änderungen im Wikitext vornehmen. Bleibt in der App.</string>
+  <string name="editor_select_dialog_dont_show_again">Nicht mehr anzeigen. Diese Voreinstellung kann später in den Einstellungen geändert werden.</string>
+  <string name="editor_select_dialog_continue">Weiter</string>
+  <string name="editor_select_icon_ve_title">Im externen Browser öffnen</string>
+  <string name="editor_select_title_settings_screen">Bearbeitungseinstellung</string>
+  <string name="editor_select_save_btn_settings_screen">Speichern</string>
   <string name="find_next">Nächste finden</string>
   <string name="find_previous">Vorherige finden</string>
   <string name="find_first_occurence">Dies ist das erste Auftreten</string>
@@ -649,7 +680,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ist für keine Sammlung mehr offline verfügbar:</string>
   <string name="reading_lists_sync_reminder_title">Synchronisierung von Sammlungen anschalten?</string>
   <string name="reading_lists_sync_reminder_text">Artikel, die in Sammlungen gespeichert sind, können jetzt mit deinem Wikipedia-Benutzerkonto synchronisiert werden. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/de#Synced_reading_lists\"&gt;Mehr erfahren&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Sammlungen können jetzt zwischen deinen Geräten synchronisiert werden. Melde dich bei deinem Wikipedia-Benutzerkonto an und erlaube die Speicherung deiner Sammlungen. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/de#Synced_reading_lists\"&gt;Mehr erfahren&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Synchronisierung aktivieren</string>
   <string name="reading_list_login_reminder_title">Sammlungen synchronisieren</string>
   <string name="reading_lists_login_reminder_text">Sammlungen können jetzt zwischen Geräten synchronisiert werden. Melde dich bei deinem Wikipedia-Benutzerkonto an und erlaube die Speicherung deiner Sammlungen.</string>
@@ -692,7 +722,6 @@
   <string name="reading_lists_menu_import_list">Sammlung importieren</string>
   <string name="reading_lists_menu_sort_by">Sortieren nach</string>
   <string name="reading_lists_refresh_sync_option">Erneut synchronisieren</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Anmelden / Benutzerkonto erstellen</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Dieser Artikel ist jetzt offline verfügbar.</item>
     <item quantity="other">Diese Artikel sind jetzt offline verfügbar.</item>
@@ -1860,10 +1889,7 @@
   <string name="games_hub_activity_games_unavailable_message_learn_more_action">Mehr erfahren</string>
   <string name="games_hub_activity_overflow_view_game_stats">Spielstatistik ansehen</string>
   <string name="games_hub_activity_overflow_learn_more">Mehr erfahren</string>
-  <string name="on_this_day_game_entry_dialog_title">Wir präsentieren</string>
-  <string name="on_this_day_game_entry_dialog_subtitle">Wikipedia-Spiele</string>
   <string name="on_this_day_game_entry_dialog_button">Spielen</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia-Spiele findest du im Spielebereich im Menü „Mehr“.</string>
   <string name="on_this_day_game_title">Was war zuerst da?</string>
   <string name="on_this_day_game_dialog_button">Spielen</string>
   <string name="on_this_day_game_splash_message">Raten Sie, welches Ereignis an diesem Tag in der Geschichte zuerst stattgefunden hat.</string>
@@ -2271,8 +2297,8 @@
   <string name="donation_reminders_settings_title">Spendenerinnerungen</string>
   <string name="donation_reminders_settings_option_title">Spendenerinnerungen</string>
   <string name="donation_reminders_settings_thank_you_message">Schließe dich den 2 %% der Leser an, die spenden, damit Wikipedia werbefrei, aktuell und für alle zugänglich bleibt. Richte jetzt deine Spendenerinnerung ein.</string>
-  <string name="donation_reminders_settings_donation_info">Die Spenden gehen an die Wikimedia Foundation und zugehörige Organisationen, die stolzen Betreiber von Wikipedia und anderen freien Wissensprojekten.</string>
-  <string name="donation_reminders_settings_article_frequency_label">Wenn ich lese</string>
+  <string name="donation_reminders_settings_donation_info">Die Spenden gehen an die Wikimedia Foundation und zugehörige Organisationen, die stolzen Betreiber von Wikipedia und ihren Schwesterprojekten.</string>
+  <string name="donation_reminders_settings_article_frequency_label">Immer wenn ich lese</string>
   <string name="donation_reminders_settings_amount_label">Erinnere mich daran, zu spenden</string>
   <string name="donation_reminders_settings_confirm_btn_label">Erinnerung bestätigen</string>
   <string name="donation_reminders_settings_about_experiment_btn_label">Über dieses Experiment</string>
@@ -2281,10 +2307,12 @@
   <string name="donation_reminders_settings_warning_max_amount">Es sind maximal %s erlaubt</string>
   <string name="donation_reminders_settings_option_custom">Benutzerdefiniert…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Vielen Dank! Wir werden dich während der Laufzeit dieses Experiments jedes Mal, wenn du %2$s liest, an deine Spende in Höhe von %1$s erinnern.</string>
-  <string name="donation_reminders_first_milestone_reached_prompt_title">Du hast %1$s gelesen, seit du %2$s versprochen haben.</string>
-  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">Du hast weitere %1$s gelesen</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title">Du hast %1$s gelesen, seit du %2$s zugesagt hast!</string>
+  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">Du hast weitere %1$s gelesen!</string>
   <string name="donation_reminders_prompt_message">Am %1$s hast du eine Spendenerinnerung eingerichtet, um nach jeweils %2$s gelesenen Artikeln %3$s zu spenden. Bereit, deine Zusage einzulösen und Wikipedia zu unterstützen?</string>
+  <string name="donation_reminders_prompt_message_v2">Am %1$s hast du uns gebeten, dich ans Spenden zu erinnern, sobald du %2$s gelesen hast. Wenn dir Wikipedia Wissen im Wert von %3$s gebracht hat, schließe dich den 2 %% der Leser an, die spenden, und löse deine Zusage noch heute ein.</string>
   <string name="donation_reminders_prompt_positive_button">Jetzt spenden</string>
+  <string name="donation_reminders_prompt_positive_button_v2">Ja, jetzt spenden</string>
   <string name="donation_reminders_prompt_negative_button">Nicht jetzt</string>
   <string name="donation_reminders_gpay_text">Mit Google Pay %s spenden</string>
   <string name="donation_reminders_gpay_different_amount_text">Mit Google Pay einen anderen Betrag spenden</string>
@@ -2302,39 +2330,24 @@
   <string name="donation_reminders_settings_report_email_subject">Problembericht – Spendenerinnerungen</string>
   <string name="donation_reminders_settings_report_email_body">Ich habe ein Problem mit der Funktion „Spendenerinnerungen“ festgestellt:\n- [Problem beschreiben]\n- [Screenshots oder Links]\n\nDas erwartete Verhalten wäre:\n- [Gewünschte Lösung beschreiben]</string>
   <string name="donation_reminders_snackbar_modify_button_label">Ändern</string>
-  <string name="hybrid_search_search_hint">Suchen oder Frage stellen</string>
-  <string name="hybrid_search_article_search_hint">Frag etwas über %s</string>
-  <string name="hybrid_search_suggestion_title">Suchen nach:</string>
-  <string name="hybrid_search_onboarding_learn_more">Mehr erfahren</string>
-  <string name="hybrid_search_onboarding_search_title">Fragen stellen, Antworten erhalten</string>
-  <string name="hybrid_search_onboarding_search_description">Diese experimentelle Funktion versteht natürliche Sprache. Statt nach Stichwörtern zu suchen, beschreibe einfach, was du wissen möchtest.</string>
-  <string name="hybrid_search_onboarding_opt_in_choice_title">Betafunktion</string>
-  <string name="hybrid_search_onboarding_opt_in_choice_description">Für begrenzte Zeit während dieses Experiments verfügbar.</string>
-  <string name="hybrid_search_beta_tag">Beta</string>
-  <string name="hybrid_search_experimental_feature_switch_label">Am Experiment teilnehmen</string>
-  <string name="hybrid_search_onboarding_search_example_title">Brauchst du Inspiration?</string>
-  <string name="hybrid_search_onboarding_search_example_description">Verwende eines der Suchbeispiele unten.</string>
-  <string name="hybrid_search_onboarding_opt_out_toast_message">Du hast das Experiment deaktiviert.</string>
-  <string name="hybrid_search_onboarding_search_example_query_pluto_as_planet">Wann wurde Pluto der Planetenstatus aberkannt?</string>
-  <string name="hybrid_search_onboarding_search_example_query_first_olympics">Erste Olympische Spiele</string>
-  <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">RNA vs. DNA</string>
-  <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Warum kommt Ananas auf Pizza?</string>
-  <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Was sind die größten Städte Europas?</string>
-  <string name="hybrid_search_onboarding_screen_title">Eine neue Art zu suchen</string>
-  <string name="hybrid_search_results_header_description">Aus von Menschen verfassten Wikipedia-Artikeln</string>
-  <string name="hybrid_search_results_rate_label">Dieses Ergebnis bewerten</string>
-  <string name="hybrid_search_results_rated_label">Bewertet</string>
-  <string name="hybrid_search_results_rate_thumb_up">Positiv bewerten</string>
-  <string name="hybrid_search_results_rate_thumb_down">Negativ bewerten</string>
-  <string name="hybrid_lexical_search_results_empty">Kein Artikeltitel passt zu dieser Suchanfrage.</string>
-  <string name="hybrid_search_results_empty">Die erweiterte Suche ist vorübergehend nicht verfügbar.</string>
-  <string name="hybrid_search_no_results_header">Keine Ergebnisse</string>
-  <string name="hybrid_search_no_results_description">Zu diesem Thema können derzeit keine Artikelauszüge angezeigt werden. Folgendes kannst du versuchen:</string>
-  <string name="hybrid_search_no_results_suggestion_rephrase_text">Suche umformulieren</string>
-  <string name="hybrid_search_no_results_suggestion_try_related_topic">Verwandtes Thema suchen</string>
-  <string name="hybrid_search_error_message">Etwas ist schiefgelaufen. Bitte versuche es später erneut.</string>
-  <string name="hybrid_search_who_is_prefix">Wer ist %s?</string>
-  <string name="hybrid_search_turn_off_experiment_label">Dieses Experiment deaktivieren</string>
+  <string name="donation_reminders_settings_article_number_selection_label">Artikel</string>
+  <string name="donation_reminders_settings_custom_amount_label">Eigener Betrag</string>
+  <string name="donation_reminders_settings_update_reminder_button">Erinnerung aktualisieren</string>
+  <string name="donation_reminders_beta_label">Beta</string>
+  <string name="donation_reminders_wrap_up_title">Das war’s mit den Spendenerinnerungen</string>
+  <string name="donation_reminders_wrap_up_message">Danke, dass du die Spendenerinnerungen getestet hast, die sich nach deinen gelesenen Artikeln richten. Dein Feedback entscheidet, ob daraus eine dauerhafte Möglichkeit wird, auf Wikipedia zu spenden. Es dauert nur eine Minute und eine Spende ist nicht erforderlich.</string>
+  <string name="donation_reminders_wrap_up_share_feedback_button">Feedback geben</string>
+  <string name="donation_reminders_wrap_up_survey_title">Eine kurze Frage zu den Spendenerinnerungen</string>
+  <string name="donation_reminders_wrap_up_survey_message">Sollen Spendenerinnerungen, die sich nach deinen gelesenen Artikeln richten, eine dauerhafte Funktion werden?</string>
+  <string name="donation_reminders_wrap_up_survey_option_keep_it">Beibehalten</string>
+  <string name="donation_reminders_wrap_up_survey_option_remove_it">Entfernen</string>
+  <string name="donation_reminders_wrap_up_survey_option_not_sure">Weiß nicht</string>
+  <string name="donation_reminders_wrap_up_survey_optional_hint">Noch etwas? (optional)</string>
+  <string name="donation_reminders_wrap_up_survey_thank_you_message">Danke für dein Feedback. Deine Antwort hilft uns zu entscheiden, was wir als Nächstes entwickeln.</string>
+  <string name="donation_reminders_eoe_title">Das Experiment ist beendet</string>
+  <string name="donation_reminders_eoe_message">Wir zeigen keine Erinnerungen mehr in der App an, aber du kannst Wikipedia weiterhin unterstützen, indem du deinen zugesagten Betrag von %s monatlich spendest.</string>
+  <string name="donation_reminders_eoe_give_monthly_button">Monatlich spenden</string>
+  <string name="donation_reminders_eoe_donate_dialog_title">Wie möchtest du monatlich spenden?</string>
   <string name="reading_challenge_widget_name">Leseherausforderung</string>
   <string name="reading_challenge_onboarding_header">Feiere Wikipedias 25. Geburtstag mit der 25-Tage-Lese-Challenge!</string>
   <string name="reading_challenge_onboarding_read_title">Lies 25 Tage lang jeden Tag einen Artikel</string>
@@ -2458,8 +2471,11 @@
   <string name="home_feed_settings_for_you_modules_description">Wenn du ein Modul ausschaltest, wird es in deinem „Für dich“-Feed ausgeblendet. Du kannst es hier jederzeit wieder aktivieren.</string>
   <string name="home_feed_settings_based_on_interest_title">Basierend auf deinen Interessen</string>
   <string name="home_feed_settings_based_on_interest_subtitle">Artikel, die auf die von dir gewählten Themen zugeschnitten sind.&lt;br /&gt;&lt;a href=\"#drivingFeed\"&gt;Was deinen Feed bestimmt&lt;/a&gt;</string>
+  <string name="home_feed_new_within_interest_card_heading">Neu passend zu deinen Interessen</string>
   <string name="home_feed_new_within_interest_title">Neue Artikel zu deinen Interessen</string>
   <string name="home_feed_new_within_interest_subtitle">Kürzlich erstellte Artikel aus Themenbereichen, denen du folgst</string>
+  <string name="home_feed_settings_read_aloud_lead_section_title">Artikeleinleitungen anhören</string>
+  <string name="home_feed_settings_read_aloud_lead_section_subtitle">Automatisch erzeugte Audioversionen von Artikeleinleitungen aus Themenbereichen, denen du folgst</string>
   <string name="home_feed_settings_because_you_read_subtitle">Vorschläge basierend auf einem kürzlich gelesenen Artikel aus deinem Verlauf</string>
   <string name="home_feed_settings_continue_reading_title">Weiterlesen</string>
   <string name="home_feed_settings_continue_reading_subtitle">Kehre zu Artikeln zurück, die du nicht zu Ende gelesen hast</string>
@@ -2479,7 +2495,6 @@
   <string name="home_feed_for_you_screen_empty_ways_to_start">So legst du los:</string>
   <string name="home_feed_for_you_screen_empty_add_interests">Füge &lt;a href=\"#add_interests\"&gt;einige Interessen&lt;/a&gt; hinzu</string>
   <string name="home_feed_for_you_screen_empty_see_community">Sieh, was in der &lt;a href=\"#community_tab\"&gt;Gemeinschaft&lt;/a&gt; passiert</string>
-  <string name="home_feed_update_tooltip1">Neu: „Zufallsartikel“ und „Interessante Orte“ findest du unter „Für dich“, und „Schon gewusst?“ ist im Gemeinschaft-Tab.</string>
   <string name="home_feed_random_title">Zufällig</string>
   <string name="home_feed_random_subtitle">Zufälliger Artikel, der deine Neugier weckt</string>
   <string name="home_feed_random_shuffle_button">Mischen</string>
@@ -2503,6 +2518,25 @@
   <string name="home_feed_settings_games_title">Spiele</string>
   <string name="home_feed_settings_games_subtitle">Tägliche Spiele auf Basis von Wikipedia-Inhalten</string>
   <string name="home_feed_settings_discover_title">Entdecken-Empfehlungen</string>
+  <string name="read_aloud_card_play">Abspielen</string>
+  <string name="read_aloud_card_pause">Pausieren</string>
+  <string name="read_aloud_card_retry">Erneut versuchen</string>
+  <string name="read_aloud_card_error">Für diesen Artikel ist keine Audioversion verfügbar.</string>
+  <string name="read_aloud_card_keep_listening">Weiter anhören?</string>
+  <string name="read_aloud_card_audio_date">Diese Audioversion wurde mit &lt;a href=\"https://www.mediawiki.org/wiki/Readers/Listening_to_Wikipedia/Model\"&gt;einem Sprachsynthesemodell&lt;/a&gt; auf Grundlage des Artikelinhalts vom %s erzeugt.</string>
+  <string name="read_aloud_card_audio_attribution">Diese Audioversion wurde mit &lt;a href=\"https://www.mediawiki.org/wiki/Readers/Listening_to_Wikipedia/Model\"&gt;einem Sprachsynthesemodell&lt;/a&gt; erzeugt.</string>
+  <string name="read_aloud_lead_section_tooltip_text">Neue Betafunktion: Artikeleinleitungen in „Für dich“ anhören</string>
+  <string name="read_aloud_lead_section_survey_title">Wie möchtest du Wikipedia anhören?</string>
+  <string name="read_aloud_lead_section_survey_choice1">Artikeleinleitungen</string>
+  <string name="read_aloud_lead_section_survey_choice2">Einige Abschnitte eines Artikels</string>
+  <string name="read_aloud_lead_section_survey_choice3">Ganze Artikel</string>
+  <string name="read_aloud_lead_section_survey_choice4">Mehrere kurze Auszüge aus verschiedenen Artikeln zu einem Thema</string>
+  <string name="read_aloud_lead_section_survey_choice5">Sonstiges:</string>
+  <string name="read_aloud_lead_section_beta_label">Beta</string>
+  <string name="read_aloud_lead_section_report_subject">Problembericht – Artikeleinleitungen anhören</string>
+  <string name="read_aloud_lead_section_report_body">Ich habe ein Problem mit der Funktion „Artikeleinleitungen anhören“ festgestellt:\n- [Konkretes Problem beschreiben]\n\nDas gewünschte Verhalten wäre:\n- [Lösungsvorschlag beschreiben]</string>
+  <string name="read_aloud_lead_section_about_experiment">Über dieses Experiment</string>
+  <string name="read_aloud_lead_section_report_issue">Problem melden</string>
   <string name="home_feed_settings_discover_subtitle">Artikel aus deiner Entdecken-Sammlung</string>
   <string name="home_feed_discover_cta_title">Aus Entdecken</string>
   <string name="home_feed_discover_cta_description">Erfahre mehr über neue Themen, speziell für dich ausgewählt. Wähle zwischen täglichen, wöchentlichen oder monatlichen Updates.</string>
@@ -2533,7 +2567,7 @@
   <string name="reading_lists_empty_collections_description">Erstelle Sammlungen für Reiseziele, Lieblingsthemen und mehr.</string>
   <string name="reading_lists_create_new_collection">Neue Sammlung erstellen</string>
   <string name="reading_lists_remove_articles_confirm_dialog_title">Artikel nicht mehr speichern?</string>
-  <string name="reading_lists_remove_articles_confirm_button" fuzzy="true">Entfernen</string>
+  <string name="reading_lists_remove_articles_confirm_button">Nicht mehr speichern</string>
   <plurals name="reading_lists_remove_articles_confirm_dialog_message">
     <item quantity="one">Dieser Artikel wird aus allen zugehörigen Sammlungen entfernt.</item>
     <item quantity="other">Diese %d Artikel werden aus allen zugehörigen Sammlungen entfernt.</item>

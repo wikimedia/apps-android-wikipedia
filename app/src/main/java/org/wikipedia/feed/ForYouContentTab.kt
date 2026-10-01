@@ -46,10 +46,8 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import coil3.compose.SubcomposeAsyncImage
-import coil3.compose.SubcomposeAsyncImageContent
+import coil3.compose.AsyncImage
 import coil3.request.ImageRequest
-import coil3.request.allowHardware
 import org.wikipedia.R
 import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.components.HtmlText
@@ -70,6 +68,7 @@ import org.wikipedia.feed.model.PlacesOfInterestLocationPromptCard
 import org.wikipedia.feed.places.PlacesOfInterestArticlesModule
 import org.wikipedia.feed.places.PlacesOfInterestLocationPromptModule
 import org.wikipedia.feed.random.RandomModule
+import org.wikipedia.feed.readaloud.ReadAloudLeadSectionModule
 import org.wikipedia.feed.wikigames.GamesModule
 import org.wikipedia.page.PageTitle
 import org.wikipedia.theme.Theme
@@ -473,6 +472,29 @@ private fun LazyListScope.forYouModuleItem(
                 )
             }
         }
+        is ForYouModule.ReadAloudLeadSection -> {
+            item(key = key) {
+                ReadAloudLeadSectionModule(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(viewPortHeight),
+                    wikiSite = wikiSite,
+                    module = module,
+                    resolveSavedState = resolveSavedState,
+                    onPageClick = { card, entry -> onAction(HomeAction.PageClick(card, entry)) },
+                    onPageShareClick = { card, entry -> onAction(HomeAction.PageShareClick(card, entry)) },
+                    onPageBookmarkClick = { card, entry -> onAction(HomeAction.PageBookmarkClick(card, entry)) },
+                    onHideCardClick = { module, card -> onAction(HomeAction.HideForYouCard(module, card)) },
+                    onHideModuleClick = { onAction(HomeAction.HideModule(module.moduleKey())) },
+                    onCardInView = { onCardImpression(it, index) },
+                    onCustomizeClick = { onAction(HomeAction.CustomizeClick(it)) },
+                    onPlayClick = { onAction(HomeAction.ReadAloudPlayClick) },
+                    onShowSurvey = { onAction(HomeAction.ReadAloudShowSurvey) },
+                    onInfoClick = { onAction(HomeAction.ReadAloudShowInfo) },
+                    onReportIssueClick = { onAction(HomeAction.ReadAloudReportIssue) }
+                )
+            }
+        }
     }
 }
 
@@ -530,13 +552,11 @@ fun ForYouFeedMessageView(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(16.dp, Alignment.CenterVertically)
     ) {
-        SubcomposeAsyncImage(
+        AsyncImage(
             modifier = Modifier.size(125.dp),
             model = ImageRequest.Builder(context)
                 .data(illustrationResId)
-                .allowHardware(false)
                 .build(),
-            success = { SubcomposeAsyncImageContent() },
             contentDescription = null
         )
         Spacer(modifier = Modifier.height(16.dp))

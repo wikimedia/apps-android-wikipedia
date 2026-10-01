@@ -12,6 +12,7 @@
 * JohSan65
 * Jon Harald Søby
 * Kingu
+* Kvarts314
 * Laaknor
 * Macofe
 * MuratTheTurkish
@@ -39,7 +40,7 @@
   <string name="search_back_button_content_description">Gå tilbake</string>
   <string name="search_clear_query_content_description">Tøm spørring</string>
   <string name="search_icon_content_description">Søk</string>
-  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">Filtrer listene mine</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Filtrer samlingene mine</string>
   <string name="nav_item_suggested_edits">Redigeringer</string>
   <string name="nav_item_activity">Aktivitet</string>
   <string name="nav_item_more">Mer</string>
@@ -159,6 +160,7 @@
   <string name="search_no_results_found">Ingen resultater ble funnet</string>
   <string name="search_reading_list_no_results">Ingen treff i «%s»</string>
   <string name="search_reading_lists_no_results" fuzzy="true">Ingen treff i leselistene</string>
+  <string name="search_all_articles_no_results">Ingen resultater funnet i alle artikler</string>
   <string name="search_history_no_results">Ingen treff i historikken</string>
   <string name="edit_section_captcha_message">For å beskytte mot automatisk spam må du skrive inn ordene som vises under</string>
   <string name="edit_section_captcha_request_an_account_message">Kan du ikke se bildet? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Søk om konto her&lt;/a&gt;</string>
@@ -598,7 +600,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s vil ikke lenger være tilgjengelig offline via noen av leselistene:</string>
   <string name="reading_lists_sync_reminder_title" fuzzy="true">Skru på synkronisering av leselister?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">Artikler lagret i leselister kan synkroniseres med Wikipedia-kontoen din. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Finn ut mer&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Leselister kan synkroniseres på tvers av enheter. Logg inn med Wikipedia-kontoen din om du vil aktivere dette. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Finn ut mer&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Aktiver synkronisering</string>
   <string name="reading_list_login_reminder_title" fuzzy="true">Synkroniser leselister</string>
   <string name="reading_lists_login_reminder_text" fuzzy="true">Leselister kan sikkerhetskopieres og synkroniseres på tvers av enheter. Logg inn med Wikipedia-kontoen din om du vil aktivere dette.</string>
@@ -641,7 +642,6 @@
   <string name="reading_lists_menu_import_list" fuzzy="true">Importer liste</string>
   <string name="reading_lists_menu_sort_by">Sorter etter</string>
   <string name="reading_lists_refresh_sync_option">Synkroniser nå</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Logg inn / registrer deg</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Denne artikkelen vil nå være tilgjengelig offline.</item>
     <item quantity="other">Disse artiklene vil nå være tilgjengelig offline.</item>
@@ -1274,7 +1274,7 @@
   <string name="onboarding_welcome_title_v2">Den frie encyklopedien\n…på over 300 språk</string>
   <string name="onboarding_next">Neste</string>
   <string name="onboarding_fresh_install_knowledge_title">Hele verdens kunnskap</string>
-  <string name="onboarding_fresh_install_knowledge_text">Wikipedai er et gratis nettleksikon med 65 millioner artikler som er skrevet og vedlikeholdt med samarbeid på over 300 språk av et fellesskap av frivillige.</string>
+  <string name="onboarding_fresh_install_knowledge_text">Wikipedia er et gratis nettleksikon med 65 millioner artikler som er skrevet og vedlikeholdt med samarbeid på over 300 språk av et fellesskap av frivillige.</string>
   <string name="onboarding_fresh_install_knowledge_learn_more">Lær mer om Wikipedia</string>
   <string name="onboarding_app_languages_title">Les på mer enn 300 språk</string>
   <string name="onboarding_app_languages_text">Vi har lagt merke til følgende språk på enheten din:</string>
@@ -1803,10 +1803,7 @@
   <string name="games_hub_activity_games_unavailable_message_learn_more_action">Lær mer</string>
   <string name="games_hub_activity_overflow_view_game_stats">Se spillstatistikk</string>
   <string name="games_hub_activity_overflow_learn_more">Lær mer</string>
-  <string name="on_this_day_game_entry_dialog_title">Introduserer</string>
-  <string name="on_this_day_game_entry_dialog_subtitle">Wikipediaspill</string>
   <string name="on_this_day_game_entry_dialog_button">Spill</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia-spill er tilgjengelig i spillhubben, som du finner i «MER»-menyen.</string>
   <string name="on_this_day_game_title">Hva kom først?</string>
   <string name="on_this_day_game_dialog_button">Spill</string>
   <string name="on_this_day_game_splash_message">Gjett hvilken hendelse som kom først på denne dagen i historien.</string>
@@ -2023,4 +2020,5 @@
   <string name="recommended_reading_list_settings_notifications_title">Varsler</string>
   <string name="donation_reminders_settings_learn_more_button">Lær mer</string>
   <string name="reading_challenge_install_prompt_add">Legg til</string>
+  <string name="reading_lists_tab_all_articles">Alle artikler</string>
 </resources>

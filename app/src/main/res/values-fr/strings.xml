@@ -60,6 +60,7 @@
 * Obscaeris
 * Oujon
 * Oupsa
+* PPenloglou-WMF
 * Pa2chant.bis
 * Papawy
 * Pols12
@@ -283,6 +284,27 @@
   <string name="email_recommendation_dialog_create_without_email_action">Continuer sans adresse courriel</string>
   <string name="email_recommendation_dialog_create_with_email_action">Ajouter une adresse courriel</string>
   <string name="create_account_button">Créer un compte</string>
+  <string name="create_account_encourage_title">Wikipedia, c’est encore mieux avec un compte</string>
+  <string name="create_account_encourage_year_in_review_title_zero">Retrouvez vos jours de lecture dans la rétrospective de l’année</string>
+  <plurals name="create_account_encourage_year_in_review_title">
+    <item quantity="one">Retrouvez vos %1$d jours de lecture dans la rétrospective de l’année</item>
+    <item quantity="other">Retrouvez vos %1$d jours de lecture dans la rétrospective de l’année</item>
+  </plurals>
+  <string name="create_account_encourage_year_in_review_description">Une fois par an, retrouvez tout ce que vous avez lu dans la rétrospective, prête à être partagée.</string>
+  <string name="create_account_encourage_saved_articles_title_zero">Synchronisez vos articles enregistrés</string>
+  <plurals name="create_account_encourage_saved_articles_title">
+    <item quantity="one">Synchronisez vos %1$d articles enregistrés</item>
+    <item quantity="other">Synchronisez vos %1$d articles enregistrés</item>
+  </plurals>
+  <string name="create_account_encourage_saved_articles_description">Connectez-vous à votre compte Wikipedia pour synchroniser vos articles enregistrés sur tous vos appareils.</string>
+  <string name="create_account_encourage_activity_title_zero">Retrouvez vos dernières lectures dans Activité</string>
+  <plurals name="create_account_encourage_activity_title">
+    <item quantity="one">Retrouvez vos %1$d dernières lectures dans Activité</item>
+    <item quantity="other">Retrouvez vos %1$d dernières lectures dans Activité</item>
+  </plurals>
+  <string name="create_account_encourage_activity_description">Consultez votre temps de lecture, les sujets explorés et la portée de vos contributions dans l\'onglet Activité</string>
+  <string name="create_account_encourage_edits_title">Soyez reconnu pour vos contributions</string>
+  <string name="create_account_encourage_edits_description">Construisez une historique dont vous pouvez être fier, avec vos contributions aux projets Wikimedia associées à votre compte.</string>
   <string name="create_account_name_unavailable">Le nom d\'utilisateur « %s » n’est pas disponible. Veuillez choisir un autre nom.</string>
   <string name="create_account_ip_block_message">Désolé, votre adresse IP est actuellement bloquée pour créer de nouveaux comptes.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
@@ -659,7 +681,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s ne sera plus disponible en mode déconnecté dans toutes les listes de lecture :</string>
   <string name="reading_lists_sync_reminder_title" fuzzy="true">Activer la synchronisation de la liste de lecture ?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">Les articles enregistrés dans vos listes de lecture peuvent désormais être synchronisés avec votre compte Wikipédia. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;En savoir plus&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Vos listes de lecture peuvent désormais être synchronisées entre vos appareils. Connectez-vous à votre compte Wikipédia et autorisez leur sauvegarde. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;En savoir plus&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Activer la synchronisation</string>
   <string name="reading_list_login_reminder_title" fuzzy="true">Synchroniser les listes de lecture</string>
   <string name="reading_lists_login_reminder_text" fuzzy="true">Les listes de lecture peuvent maintenant être synchronisées entre appareils. Connectez-vous à votre compte Wikipédia et permettez à vos listes d’être enregistrées.</string>
@@ -702,7 +723,6 @@
   <string name="reading_lists_menu_import_list" fuzzy="true">Importer la liste</string>
   <string name="reading_lists_menu_sort_by">Trier par</string>
   <string name="reading_lists_refresh_sync_option">Rafraîchir la synchronisation</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Se connecter / s’inscrire</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Cet article est désormais disponible hors connexion.</item>
     <item quantity="other">Ces articles sont désormais disponibles hors connexion.</item>
@@ -1825,7 +1845,7 @@
   <string name="donate_gpay_activity_title">Sélectionnez le montant</string>
   <string name="donate_gpay_activity_title_with_currency">Choisissez un montant (en %s)</string>
   <string name="donate_gpay_check_transaction_fee">J\'ajouterai généreusement %s pour couvrir les frais de transaction afin de que vous puissiez conserver 100%% de mon don.</string>
-  <string name="donate_gpay_check_recurring">En faire un don mensuel récurrent.</string>
+  <string name="donate_gpay_check_recurring">Convertir en don mensuel.</string>
   <string name="donate_gpay_check_send_email">Oui, la Fondation Wikimedia peut m\'envoyer un courriel de temps en temps.</string>
   <string name="donate_gpay_minimum_amount">Veuillez sélectionner un montant (minimum %s)</string>
   <string name="donate_gpay_maximum_amount">Nous ne pouvons pas accepter de dons supérieurs à %s via notre application. Veuillez contacter notre équipe chargée des dons importants à l\'adresse benefactors@wikimedia.org.</string>
@@ -1870,10 +1890,7 @@
   <string name="games_hub_activity_games_unavailable_message_learn_more_action">En savoir plus</string>
   <string name="games_hub_activity_overflow_view_game_stats">Consulter les statistiques de jeu</string>
   <string name="games_hub_activity_overflow_learn_more">En savoir plus</string>
-  <string name="on_this_day_game_entry_dialog_title">Présentation</string>
-  <string name="on_this_day_game_entry_dialog_subtitle">Jeux de Wikipédia</string>
   <string name="on_this_day_game_entry_dialog_button">Jouer</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Les jeux Wikipédia sont disponibles dans la Centrale des jeux, accessible dans le menu PLUS.</string>
   <string name="on_this_day_game_title">Le plus ancien ?</string>
   <string name="on_this_day_game_dialog_button">Lecture</string>
   <string name="on_this_day_game_splash_message">Devinez quel événement s’est produit en premier ce jour-là dans l’histoire.</string>
@@ -2281,8 +2298,8 @@
   <string name="donation_reminders_settings_title">Comment devrions-nous vous le rappeler ?</string>
   <string name="donation_reminders_settings_option_title">Rappels de dons</string>
   <string name="donation_reminders_settings_thank_you_message">Votre générosité contribue à la vitalité de Wikipédia. Programmez un rappel de don en fonction du nombre d\'articles que vous lisez.</string>
-  <string name="donation_reminders_settings_donation_info">Les dons sont versés à la Fondation Wikimedia et à ses affiliés, hébergeurs fiers de Wikipédia et d’autres projets de savoir libre.</string>
-  <string name="donation_reminders_settings_article_frequency_label">Quand je lis</string>
+  <string name="donation_reminders_settings_donation_info" fuzzy="true">Les dons sont versés à la Fondation Wikimedia et à ses affiliés, hébergeurs fiers de Wikipédia et d’autres projets de savoir libre.</string>
+  <string name="donation_reminders_settings_article_frequency_label" fuzzy="true">Quand je lis</string>
   <string name="donation_reminders_settings_amount_label">Me rappeler de faire un don</string>
   <string name="donation_reminders_settings_confirm_btn_label">Confirmer le rappel</string>
   <string name="donation_reminders_settings_about_experiment_btn_label">À propos de cette expérimentation</string>
@@ -2291,8 +2308,8 @@
   <string name="donation_reminders_settings_warning_max_amount">Le maximum autorisé est %s</string>
   <string name="donation_reminders_settings_option_custom">Personnalisé</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Merci ! Nous vous rappellerons de faire un don de %1$s lorsque vous lirez %2$s pendant la durée de cette expérience.</string>
-  <string name="donation_reminders_first_milestone_reached_prompt_title">Vous avez lu %1$s depuis que vous avez promis %2$s</string>
-  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">Vous avez lu %1$s de plus</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title" fuzzy="true">Vous avez lu %1$s depuis que vous avez promis %2$s</string>
+  <string name="donation_reminders_subsequent_milestone_reached_prompt_title" fuzzy="true">Vous avez lu %1$s de plus</string>
   <string name="donation_reminders_prompt_message">Vous avez programmé un rappel de don sur %1$s pour donner %3$s à chaque %2$s que vous lisez. Prêt·e à concrétiser votre engagement envers Wikipédia ?</string>
   <string name="donation_reminders_prompt_positive_button">Faire un don maintenant</string>
   <string name="donation_reminders_prompt_negative_button">Pas maintenant</string>
@@ -2312,39 +2329,6 @@
   <string name="donation_reminders_settings_report_email_subject">Rapport sur les problèmes - Rappels de dons</string>
   <string name="donation_reminders_settings_report_email_body">J\'ai rencontré un problème avec la fonctionnalité de rappels de dons :\n- [Décrire le problème précis]\n- [Captures d\'écran ou liens]\n\nComportement souhaité :\n- [Décrire la solution proposée]</string>
   <string name="donation_reminders_snackbar_modify_button_label">Modifier</string>
-  <string name="hybrid_search_search_hint">Recherchez ou demandez ce que vous voulez</string>
-  <string name="hybrid_search_article_search_hint">Renseignez-vous sur %s</string>
-  <string name="hybrid_search_suggestion_title">Rechercher :</string>
-  <string name="hybrid_search_onboarding_learn_more">En savoir plus</string>
-  <string name="hybrid_search_onboarding_search_title">Posez des questions, obtenez des réponses</string>
-  <string name="hybrid_search_onboarding_search_description">Cette fonctionnalité expérimentale comprend le langage naturel. Au lieu de rechercher des mots-clés, décrivez ce que vous voulez savoir.</string>
-  <string name="hybrid_search_onboarding_opt_in_choice_title">Fonctionnalité bêta</string>
-  <string name="hybrid_search_onboarding_opt_in_choice_description">Disponible pour une durée limitée pendant cette expérience.</string>
-  <string name="hybrid_search_beta_tag">Bêta</string>
-  <string name="hybrid_search_experimental_feature_switch_label">Participer à l\'expérience</string>
-  <string name="hybrid_search_onboarding_search_example_title">Besoin d\'inspiration ?</string>
-  <string name="hybrid_search_onboarding_search_example_description">Utilisez l\'un des exemples de recherche ci-dessous.</string>
-  <string name="hybrid_search_onboarding_opt_out_toast_message">Vous avez choisi de ne pas participer à l\'expérience.</string>
-  <string name="hybrid_search_onboarding_search_example_query_pluto_as_planet">Quand Pluton a-t-elle été retirée de la liste des planètes ?</string>
-  <string name="hybrid_search_onboarding_search_example_query_first_olympics">premiers Jeux olympiques</string>
-  <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">ARN vs ADN</string>
-  <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Pourquoi met-on de l\'ananas sur la pizza ?</string>
-  <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Quelles sont les plus grandes villes d\'Europe ?</string>
-  <string name="hybrid_search_onboarding_screen_title">Une nouvelle façon de faire des recherches</string>
-  <string name="hybrid_search_results_header_description">Source : articles Wikipédia rédigés par des humains</string>
-  <string name="hybrid_search_results_rate_label">Évaluez ce résultat</string>
-  <string name="hybrid_search_results_rated_label">Évalué</string>
-  <string name="hybrid_search_results_rate_thumb_up">Évaluer comme un pouce levé</string>
-  <string name="hybrid_search_results_rate_thumb_down">Rate des pouces vers le bas</string>
-  <string name="hybrid_lexical_search_results_empty">Aucun titre d\'article ne correspond à cette requête.</string>
-  <string name="hybrid_search_results_empty">La recherche avancée est temporairement indisponible.</string>
-  <string name="hybrid_search_no_results_header">Aucun résultat</string>
-  <string name="hybrid_search_no_results_description">Ce sujet ne renvoie aucun extrait d\'article pour le moment. Voici quelques suggestions :</string>
-  <string name="hybrid_search_no_results_suggestion_rephrase_text">Reformulez votre recherche.</string>
-  <string name="hybrid_search_no_results_suggestion_try_related_topic">Essayez un sujet connexe.</string>
-  <string name="hybrid_search_error_message">Une erreur s\'est produite. Veuillez réessayer plus tard.</string>
-  <string name="hybrid_search_who_is_prefix">Qui est %s ?</string>
-  <string name="hybrid_search_turn_off_experiment_label">Désactivez cette expérience</string>
   <string name="reading_challenge_widget_name">Défi de lecture</string>
   <string name="reading_challenge_onboarding_header">Célébrez le 25e anniversaire de Wikipédia en participant au défi de lecture de 25 jours !</string>
   <string name="reading_challenge_onboarding_read_title">Lisez un article par jour et ce, pendant 25 jours</string>
@@ -2487,7 +2471,6 @@
   <string name="home_feed_for_you_screen_empty_ways_to_start">Comment commencer :</string>
   <string name="home_feed_for_you_screen_empty_add_interests">Ajoutez des &lt;a href=\"#add_interests\"&gt;centres d\'intérêt&lt;/a&gt;</string>
   <string name="home_feed_for_you_screen_empty_see_community">Voir ce qui se passe dans la &lt;a href=\"#community_tab\"&gt;communauté&lt;/a&gt;</string>
-  <string name="home_feed_update_tooltip1">Nouveautés : Les rubriques « Article aléatoire » et « Lieux d’intérêt » sont disponibles dans la section « Pour vous », et la rubrique « Le saviez-vous ? » se trouve dans l\'onglet Communauté.</string>
   <string name="home_feed_random_title">Aléatoire</string>
   <string name="home_feed_random_subtitle">Article aléatoire pour éveiller votre curiosité</string>
   <string name="home_feed_random_shuffle_button">Lecture aléatoire</string>

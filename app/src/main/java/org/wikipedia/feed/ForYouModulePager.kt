@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateMapOf
@@ -22,6 +23,7 @@ import org.wikipedia.feed.model.Card
 fun ForYouModulePager(
     modifier: Modifier = Modifier,
     module: ForYouModule,
+    pagerState: PagerState = rememberPagerState(pageCount = { module.cards.size }),
     onCardInView: (card: Card) -> Unit = {},
     content: @Composable (page: Int) -> Unit,
 ) {
@@ -32,7 +34,6 @@ fun ForYouModulePager(
                 pagerBounds = coordinates.parentLayoutCoordinates?.boundsInRoot()
             }
     ) {
-        val pagerState = rememberPagerState(pageCount = { module.cards.size })
         val aboveThresholdByPage = remember { mutableStateMapOf<Int, Boolean>() }
 
         HorizontalPager(

@@ -88,7 +88,7 @@
   <string name="page_content_description">Strona: %s</string>
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidane</string>
-  <string name="dialog_title_clear_history">Wyczyść historię przeglądania</string>
+  <string name="dialog_title_clear_history">Wyczyścić historię przeglądania?</string>
   <string name="dialog_message_clear_history">Spowoduje to usunięcie całej historii przeglądania. Czy na pewno chcesz to zrobić?</string>
   <string name="dialog_message_clear_history_yes">Tak</string>
   <string name="dialog_message_clear_history_no">Nie</string>
@@ -169,8 +169,8 @@
   <string name="langlinks_activity_title">Inne języki</string>
   <string name="langlinks_your_wikipedia_languages">Twoje języki Wikipedii</string>
   <string name="menu_save_changes">Opublikuj zmiany</string>
-  <string name="edit_saved_successfully">Edycja została opublikowana!</string>
-  <string name="stub_article_edit_saved_successfully">Edycja została opublikowana! Zmiany mogą być widoczne po pewnym czasie.</string>
+  <string name="edit_saved_successfully">Opublikowano edycję!</string>
+  <string name="stub_article_edit_saved_successfully">Opublikowano edycję! Zmiany mogą być widoczne po pewnym czasie.</string>
   <string name="dialog_message_edit_failed">Edycja nie powiodła się!</string>
   <string name="dialog_message_edit_failed_retry">Ponów próbę</string>
   <string name="dialog_message_edit_failed_cancel">Anuluj</string>
@@ -254,6 +254,33 @@
   <string name="email_recommendation_dialog_create_without_email_action">Kontynuuj bez adresu e-mail</string>
   <string name="email_recommendation_dialog_create_with_email_action">Dodaj adres e‐mail</string>
   <string name="create_account_button">Utwórz konto</string>
+  <string name="create_account_encourage_title">Odkryj pełnię możliwości Wikipedii z kontem</string>
+  <string name="create_account_encourage_year_in_review_title_zero">Przeżyj swój czytelniczy rok na nowo w podsumowaniu roku</string>
+  <plurals name="create_account_encourage_year_in_review_title">
+    <item quantity="one">Odkryj %1$d dzień czytania w podsumowaniu roku</item>
+    <item quantity="few">Odkryj %1$d dni czytania w podsumowaniu roku</item>
+    <item quantity="many">Odkryj %1$d dni czytania w podsumowaniu roku</item>
+    <item quantity="other">Odkryj %1$d dnia czytania w podsumowaniu roku</item>
+  </plurals>
+  <string name="create_account_encourage_year_in_review_description">Sprawdź, dokąd zaprowadziła Cię ciekawość w tym roku, i podziel się swoim zestawieniem.</string>
+  <string name="create_account_encourage_saved_articles_title_zero">Synchronizuj zapisane artykuły</string>
+  <plurals name="create_account_encourage_saved_articles_title">
+    <item quantity="one">Synchronizuj %1$d zapisany artykuł</item>
+    <item quantity="few">Synchronizuj %1$d zapisane artykuły</item>
+    <item quantity="many">Synchronizuj %1$d zapisanych artykułów</item>
+    <item quantity="other">Synchronizuj %1$d zapisanego artykułu</item>
+  </plurals>
+  <string name="create_account_encourage_saved_articles_description">Zaloguj się na swoje konto w Wikipedii, aby automatycznie synchronizować zapisane artykuły między wszystkimi swoimi urządzeniami.</string>
+  <string name="create_account_encourage_activity_title_zero">Przeglądaj swoją historię czytania w sekcji „Aktywność”</string>
+  <plurals name="create_account_encourage_activity_title">
+    <item quantity="one">Zobacz %1$d niedawno przeczytany artykuł w sekcji „Aktywność”</item>
+    <item quantity="few">Zobacz %1$d niedawno przeczytane artykuły w sekcji „Aktywność”</item>
+    <item quantity="many">Zobacz %1$d niedawno przeczytanych artykułów w sekcji „Aktywność”</item>
+    <item quantity="other">Zobacz %1$d niedawno przeczytanego artykułu w sekcji „Aktywność”</item>
+  </plurals>
+  <string name="create_account_encourage_activity_description">Śledź czas spędzony na czytaniu, zgłębiane zagadnienia oraz wpływ swoich edycji w sekcji „Aktywność”.</string>
+  <string name="create_account_encourage_edits_title">Zyskaj uznanie za wniesiony wkład</string>
+  <string name="create_account_encourage_edits_description">Buduj swój dorobek edytorski — Twój wkład we wszystkich projektach Wikimediów zostanie przypisany bezpośrednio do Twojego konta.</string>
   <string name="create_account_name_unavailable">Nazwa użytkownika „%s” nie jest dostępna. Wybierz inną nazwę.</string>
   <string name="create_account_ip_block_message">Niestety tworzenie kont z Twojego adresu IP jest w tej chwili zablokowane.</string>
   <string name="create_account_ip_block_help_url">https://pl.wikipedia.org/wiki/Wikipedia:Blokady_zakresów_IP</string>
@@ -262,7 +289,7 @@
   <string name="preferences_account_heading">Konto</string>
   <string name="wikipedia_app_faq">FAQ dotyczące aplikacji Wikipedii</string>
   <string name="send_feedback">Wyślij opinię o aplikacji</string>
-  <string name="create_account_account_created_toast">Konto zostało utworzone!</string>
+  <string name="create_account_account_created_toast">Utworzono konto!</string>
   <string name="preferences_heading_syncing">Synchronizowanie</string>
   <string name="preferences_heading_data_usage">Użycie danych</string>
   <string name="preferences_heading_experimental">Eksperymentalne</string>
@@ -344,11 +371,21 @@
   <string name="edit_notices_please_read">Przeczytaj przed edycją</string>
   <string name="edit_notices_show_auto">Pokazuj komunikaty automatycznie</string>
   <string name="edit_notices_tooltip">Dotknij tego przycisku, aby wyświetlić komunikaty dla tego artykułu.</string>
+  <string name="editor_select_dialog_title">Wybierz sposób edycji</string>
+  <string name="editor_select_dialog_ve_title">Edycja w edytorze wizualnym</string>
+  <string name="editor_select_dialog_ve_subtitle">Wprowadzaj zmiany bezpośrednio na wyświetlanej stronie. Otwiera się w przeglądarce.</string>
+  <string name="editor_select_dialog_source_title">Edycja kodu źródłowego</string>
+  <string name="editor_select_dialog_source_subtitle">Wprowadzaj zmiany za pomocą znaczników wikikodu. Bez opuszczania aplikacji.</string>
+  <string name="editor_select_dialog_dont_show_again">Nie pokazuj mi tego ponownie. Ustawienie domyślne możesz później zmienić w ustawieniach.</string>
+  <string name="editor_select_dialog_continue">Kontynuuj</string>
+  <string name="editor_select_icon_ve_title">Ikona „Otwórz w zewnętrznej przeglądarce”</string>
+  <string name="editor_select_title_settings_screen">Preferencje edycji</string>
+  <string name="editor_select_save_btn_settings_screen">Zapisz</string>
   <string name="find_next">Znajdź następne</string>
   <string name="find_previous">Znajdź poprzednie</string>
   <string name="find_first_occurence">Jest to pierwsze wystąpienie</string>
   <string name="find_last_occurence">Jest to ostatnie wystąpienie</string>
-  <string name="article_opened_in_background_tab">Artykuł został otwarty w karcie w tle.</string>
+  <string name="article_opened_in_background_tab">Otwarto artykuł w karcie w tle.</string>
   <string name="abusefilter_title_warn">To chyba nie jest konstruktywna edycja. Czy na pewno chcesz ją opublikować?</string>
   <string name="abusefilter_title_disallow">Nie możesz opublikować tej edycji. Wróć do niej i popraw ją.</string>
   <string name="abusefilter_text_warn">Automatyczny filtr uważa tę edycję za potencjalnie niekonstruktywną. Może ona zawierać jeden lub więcej z następujących błędów:&lt;br /&gt;&lt;br /&gt;· tekst pisany wyłącznie wielkimi literami,&lt;br /&gt;· kasowanie zawartości artykułu lub spam,&lt;br /&gt;· niezwiązane z artykułem linki zewnętrzne lub zdjęcia,&lt;br /&gt;· powtarzające się znaki.</string>
@@ -482,7 +519,7 @@
   <string name="page_footer_license_text">O ile nie zaznaczono inaczej, treść dostępna jest na licencji $1</string>
   <string name="empty_tab_title">Nowa karta</string>
   <string name="menu_save_all_tabs">Zapisz wszystkie karty</string>
-  <string name="error_blocked_title">Twoja nazwa użytkownika lub adres IP został zablokowany.</string>
+  <string name="error_blocked_title">Twoja nazwa użytkownika lub adres IP zostały zablokowane.</string>
   <string name="error_blocked_by">Blokada została dokonana przez &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
   <string name="error_blocked_reason">Podany powód to: %s</string>
   <string name="error_blocked_start">Początek blokady: %s</string>
@@ -617,10 +654,10 @@
     <item quantity="other">Usunięto %d artykułu z kolekcji</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">Usunięto %1$d artykuł z listy „%2$s”</item>
-    <item quantity="few">Usunięto %1$d artykuły z listy „%2$s”</item>
-    <item quantity="many">Usunięto %1$d artykułów z listy „%2$s”</item>
-    <item quantity="other">Usunięto %1$d artykułu z listy „%2$s”</item>
+    <item quantity="one">Usunięto %1$d artykuł z kolekcji „%2$s”</item>
+    <item quantity="few">Usunięto %1$d artykuły z kolekcji „%2$s”</item>
+    <item quantity="many">Usunięto %1$d artykułów z kolekcji „%2$s”</item>
+    <item quantity="other">Usunięto %1$d artykułu z kolekcji „%2$s”</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">Usunięto %d kolekcję</item>
@@ -641,8 +678,8 @@
   <string name="reading_lists_empty_message">Dodawaj artykuły do kolekcji artykułów do przeczytania później, dostępnych nawet w trybie offline.</string>
   <string name="reading_lists_search_empty_articles_title">Nie znaleziono żadnych zapisanych artykułów</string>
   <string name="reading_lists_search_empty_articles_message">Nie znaleziono „%s” w Twoich zapisanych artykułach.</string>
-  <string name="reading_lists_search_empty_collections_title">Nie znaleziono list</string>
-  <string name="reading_lists_search_empty_collections_message">Nie znaleziono „%s” w Twoich listach.</string>
+  <string name="reading_lists_search_empty_collections_title">Nie znaleziono kolekcji</string>
+  <string name="reading_lists_search_empty_collections_message">Nie znaleziono „%s” w Twoich Twoich kolekcjach.</string>
   <string name="reading_list_empty">W tej kolekcji nie ma dodanych artykułów.</string>
   <string name="reading_list_article_offline">Dostępne offline</string>
   <string name="reading_list_article_make_offline">Artykuł będzie dostępny offline</string>
@@ -664,7 +701,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">Artykuł „%s” nie będzie dostępny offline dla wszystkich kolekcji:</string>
   <string name="reading_lists_sync_reminder_title">Włączyć synchronizację kolekcji?</string>
   <string name="reading_lists_sync_reminder_text">Artykuły zapisane w kolekcjach mogą być teraz zsynchronizowane z Twoim kontem w Wikipedii. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Dowiedz się więcej&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Kolekcje mogą być teraz synchronizowane pomiędzy urządzeniami. Zaloguj się na swoje konto w Wikipedii i zezwól na zapisywanie kolekcji. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Dowiedz się więcej&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Włącz synchronizację</string>
   <string name="reading_list_login_reminder_title">Zsynchronizuj swoje kolekcje</string>
   <string name="reading_lists_login_reminder_text">Kolekcje mogą być teraz synchronizowane pomiędzy urządzeniami. Zaloguj się na swoje konto w Wikipedii i zezwól na zapisywanie kolekcji.</string>
@@ -701,15 +737,14 @@
   <string name="no_user_lists_title">Uporządkuj artykuły w kolekcje</string>
   <string name="no_user_lists_msg">Twórz kolekcje miejsc do odwiedzenia, ulubionych tematów i wielu innych.</string>
   <string name="reading_list_saved_list_rename">%1$s (autorstwa użytkownika)</string>
-  <string name="split_reading_list_message">Istnieje limit %d artykułów na kolekcję. Istniejące listy, których liczba przekracza ten limit, zostały podzielone na wiele kolekcji.</string>
+  <string name="split_reading_list_message">Istnieje limit %d artykułów na kolekcję. Istniejące kolekcje, których liczba przekracza ten limit, zostały podzielone na wiele kolekcji.</string>
   <string name="reading_list_move_article_limit_message">Nie można przenieść tego do tej kolekcji. Osiągnięto limit %2$d artykułów na kolekcję „%1$s”.</string>
   <string name="reading_list_article_limit_message">Nie można dodać tego do tej kolekcji. Osiągnięto limit %2$d artykułów na kolekcję „%1$s”.</string>
-  <string name="reading_lists_limit_message">Nie można utworzyć kolejnej kolekcji. Osiągnięto limit 100 list dla tego konta.</string>
+  <string name="reading_lists_limit_message">Nie można utworzyć kolejnej kolekcji. Osiągnięto limit 100 kolekcji dla tego konta.</string>
   <string name="reading_lists_menu_create_list">Utwórz nową kolekcję</string>
   <string name="reading_lists_menu_import_list">Importuj kolekcję</string>
   <string name="reading_lists_menu_sort_by">Sortuj według</string>
   <string name="reading_lists_refresh_sync_option">Odśwież synchronizację</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Zaloguj się / zarejestruj</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Ten artykuł będzie teraz dostępny w trybie offline.</item>
     <item quantity="few">Te artykuły będą teraz dostępne w trybie offline.</item>
@@ -998,7 +1033,7 @@
   <string name="description_edit_help_wikidata_guide">Wytyczne Wikidanych dotyczące tworzenia opisów</string>
   <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Dziękujemy za Twoje zainteresowanie edycją opisów artykułów! Aby wprowadzić dalsze zmiany, zaloguj się na swoje konto w Wikipedii.</string>
-  <string name="description_edit_license_notice">Zmieniając opis artykułu, wyrażam zgodę na &lt;a href=\"%1$s\"&gt;warunki korzystania&lt;/a&gt; i nieodwołalnie udostępniam moje artykuły na licencji &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_edit_license_notice">Zmieniając opis artykułu, wyrażam zgodę na &lt;a href=\"%1$s\"&gt;warunki korzystania&lt;/a&gt; i nieodwołalnie udostępniam mój wkład na licencji &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">zazwyczaj zaczynają się małą literą</string>
   <string name="description_edit_voice_input_description">Wprowadzanie głosowe</string>
   <string name="description_edit_learn_more">Dowiedz się więcej o opisach artykułów</string>
@@ -1022,8 +1057,8 @@
   <string name="description_edit_success_se_general_feed_link_snackbar">Podobało Ci się? Pomóż nam dodać więcej treści.</string>
   <string name="description_edit_success_encouragement">Dzięki Tobie Wikipedia stała się lepsza dla wszystkich</string>
   <string name="description_edit_success_done">Gotowe</string>
-  <string name="description_edit_success_did_you_know">Czy wiesz…</string>
-  <string name="description_edit_success_article_edit_hint">W tej aplikacji możesz również edytować artykuły. Następnym razem spróbuj poprawić literówki i krótkie zdania, klikając ikonę ^1</string>
+  <string name="description_edit_success_did_you_know">Czy wiesz, że…</string>
+  <string name="description_edit_success_article_edit_hint">…w tej aplikacji możesz również edytować artykuły. Następnym razem spróbuj poprawić literówki i krótkie zdania, klikając ikonę ^1</string>
   <string name="description_edit_tutorial_title_descriptions">Opis artykułu</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Podsumowuje artykuł, aby pomóc czytającym zrozumieć temat na pierwszy rzut oka</string>
   <string name="description_edit_tutorial_keep_it_short">Opis powinien być zwięzły</string>
@@ -1046,7 +1081,7 @@
   <string name="suggested_edits_tag_images">Dodaj znaczniki do obrazów</string>
   <string name="suggested_edits_edit_patrol">Patroluj ostatnie zmiany</string>
   <string name="suggested_edits_edit_patrol_hint">Przeglądaj ostatnie zmiany i oceniaj, czy są one zasadne, czy nie.</string>
-  <string name="suggested_edits_edit_patrol_review">Przejrzyj</string>
+  <string name="suggested_edits_edit_patrol_review">Przeglądaj</string>
   <string name="suggested_edits_review_description">Przejrzyj opis artykułu</string>
   <string name="suggested_edits_add_description_button">Dodaj opis</string>
   <string name="suggested_edits_edit_description_button">Edytuj opis</string>
@@ -1057,7 +1092,7 @@
   <string name="suggested_edits_review_image_caption">Przejrzyj podpis obrazu</string>
   <string name="suggested_edits_my_contributions">Mój wkład</string>
   <string name="suggested_edits_no_description">Ten plik nie ma opisu</string>
-  <string name="suggested_edits_license_notice">Dodając opis, wyrażam zgodę na &lt;a href=\"%1$s\"&gt;warunki korzystania&lt;/a&gt; i nieodwołalnie udostępniam mój wkład na licencji &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="suggested_edits_license_notice">Dodając opis artykułu, wyrażam zgodę na &lt;a href=\"%1$s\"&gt;warunki korzystania&lt;/a&gt; i nieodwołalnie udostępniam mój wkład na licencji &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Dodając opis obrazu, wyrażam zgodę na &lt;a href=\"%1$s\"&gt;warunki korzystania&lt;/a&gt; i nieodwołalnie udostępniam mój wkład na licencji &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Informacje</string>
   <string name="suggested_edits_task_add_description_title">Dodaj opisy artykułów</string>
@@ -1132,7 +1167,7 @@
   <string name="suggested_edits_edit_streak_stat_tooltip">Liczba dni z rzędu z dokonanym przez Ciebie wkładem. Przy dłuższej przerwie wyświetla datę ostatniej edycji.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Łączna liczba odsłon artykułów, w których masz swój wkład z ostatnich 30 dni.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Wyliczane na podstawie tego, ile razy jeden z Twoich wkładów został cofnięty (anulowany przez innego redaktora). Liczba cofniętych edycji: %d.</string>
-  <string name="suggested_edits_paused_message">Sugerowane edycje został wstrzymane do %1$s. Przepraszamy, %2$s, niektóre z Twoich ostatnich edycji zostały cofnięte.</string>
+  <string name="suggested_edits_paused_message">Sugerowane edycje zostały wstrzymane do %1$s. Przepraszamy, %2$s, niektóre z Twoich ostatnich edycji zostały cofnięte.</string>
   <string name="suggested_edits_disabled_message">Sugerowane edycje zostały wyłączone. Przepraszamy, %s, zbyt wiele Twoich ostatnich edycji zostało cofniętych.</string>
   <string name="suggested_edits_ip_blocked_message">Wygląda na to, że Twój adres IP (lub zakres adresów IP) ma obecnie zablokowany dostęp do edytowania Wikipedii.</string>
   <string name="suggested_edits_gate_message">Przepraszamy, %s, aby móc korzystać z tej funkcji, musisz dokonać co najmniej trzech edycji bezpośrednio w artykule.</string>
@@ -1516,7 +1551,7 @@
   <string name="templates_learn_more_link">Dowiedz się więcej</string>
   <string name="templates_description_incomplete">Szablony są tworzone przez użytkowników i mogą nie zawierać pełnych opisów.</string>
   <string name="templates_description_empty">Szablon „%s” nie ma jeszcze swojego opisu.</string>
-  <string name="templates_description_missing_data">W tym szablonie brakuje danych &lt;a href=\"%1$s\"&gt;TemplateData&lt;/a&gt;, a jego parametry zostały &lt;a href=\"%2$s\"&gt;wygenerowane automatycznie&lt;/a&gt;. W związku z tym szablon i jego parametry nie posiadają opisów.</string>
+  <string name="templates_description_missing_data">W tym szablonie brakuje danych &lt;a href=\"%1$s\"&gt;TemplateData&lt;/a&gt;, a jego parametry zostały &lt;a href=\"%2$s\"&gt;wygenerowane automatycznie&lt;/a&gt;. W związku z tym szablon i jego parametry nie zawierają opisów.</string>
   <string name="main_drawer_help">Pomoc</string>
   <string name="main_drawer_login">Zaloguj się / dołącz do Wikipedii</string>
   <string name="main_tooltip_action_button">Rozpocznij</string>
@@ -1614,11 +1649,11 @@
   <string name="watchlist_details_prev_edit">Poprzednia edycja</string>
   <string name="thank_label">Podziękuj</string>
   <string name="view_user_page">Wyświetl stronę użytkownika</string>
-  <string name="thank_dialog_title_text">Wyślij publiczne podziękowanie</string>
+  <string name="thank_dialog_title_text">Wysłać publiczne podziękowanie?</string>
   <string name="thank_dialog_text">Podziękowania to prosty sposób na wyrażenie uznania za pracę redaktora w Wikipedii. Podziękowań nie można cofnąć i są one widoczne publicznie</string>
-  <string name="thank_dialog_positive_button_text">Wyślij podziękowanie</string>
+  <string name="thank_dialog_positive_button_text">Podziękuj</string>
   <string name="thank_dialog_negative_button_text">Anuluj</string>
-  <string name="thank_success_message">Twoje podziękowanie zostało wysłane do %s 👍</string>
+  <string name="thank_success_message">Wysłano Twoje podziękowanie do %s 👍</string>
   <string name="menu_option_view_user_profile">Wyświetl stronę użytkownika</string>
   <string name="menu_option_view_user_talk">Wyświetl stronę dyskusji</string>
   <string name="menu_option_view_user_contributions">Wyświetl wkład użytkownika</string>
@@ -1954,10 +1989,7 @@
   <string name="games_hub_activity_games_unavailable_message_learn_more_action">Dowiedz się więcej</string>
   <string name="games_hub_activity_overflow_view_game_stats">Wyświetl statystyki gry</string>
   <string name="games_hub_activity_overflow_learn_more">Dowiedz się więcej</string>
-  <string name="on_this_day_game_entry_dialog_title">Przedstawiamy grę</string>
-  <string name="on_this_day_game_entry_dialog_subtitle">Gry Wikipedii</string>
   <string name="on_this_day_game_entry_dialog_button">Zagraj</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Gry Wikipedii są dostępne w sekcji „Centrum gier” w menu „Więcej”.</string>
   <string name="on_this_day_game_title">Co było pierwsze?</string>
   <string name="on_this_day_game_dialog_button">Zagraj</string>
   <string name="on_this_day_game_splash_message">Zgadnij, które wydarzenie miało miejsce jako pierwsze tego dnia w historii.</string>
@@ -2061,6 +2093,7 @@
   <string name="year_in_review_disable_positive_button">Tak, na pewno</string>
   <string name="year_in_review_disable_negative_button">Nie, dziękuję</string>
   <string name="year_in_review_setting_subtitle">Wyłączenie funkcji „Podsumowanie roku” spowoduje usunięcie wszystkich zapisanych spersonalizowanych statystyk oraz ukrycie podsumowania roku.</string>
+  <string name="year_in_review_screendeck_image_content_description">Zasób graficzny dla głównego zestawu kart Podsumowania roku</string>
   <string name="year_in_review_screenshot_error">Nie udało się wygenerować zrzutu ekranu: %s</string>
   <string name="year_in_review_share_subject">Moje podsumowanie roku w Wikipedii</string>
   <string name="year_in_review_share_body">Oto moje podsumowanie roku w Wikipedii. Utworzone za pomocą aplikacji Wikipedii na Androida %1$s %2$s</string>
@@ -2407,11 +2440,11 @@
   <string name="recommended_reading_list_settings_title">Ustawienia funkcji „Odkrywaj”</string>
   <string name="recommended_reading_list_settings_toggle">Kolekcja polecanych artykułów</string>
   <string name="recommended_reading_list_settings_toggle_disable_message">Funkcja „Odkrywaj” jest wyłączona. Wikipedia nie będzie Ci polecać artykułów do przeczytania.</string>
-  <string name="recommended_reading_list_settings_turn_off_dialog_title">Wyłączyć funkcję „Odkrywaj”</string>
-  <string name="recommended_reading_list_settings_turn_off_dialog_message">Jeśli wyłączysz funkcję „Odkrywaj”, przestaniesz otrzymywać %s listę polecanych artykułów z Wikipedii.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_title">Wyłączyć funkcję „Odkrywaj”?</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_message">Jeśli wyłączysz funkcję „Odkrywaj”, przestaniesz otrzymywać %s kolekcję polecanych artykułów z Wikipedii.</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">Wyłącz ją</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_negative_button">Nie, pozostaw włączoną</string>
-  <string name="recommended_reading_list_settings_turn_off_snackbar">Funkcja „Odkrywaj” została wyłączona. Możesz w dowolnym momencie włączyć ją ponownie w ustawieniach.</string>
+  <string name="recommended_reading_list_settings_turn_off_snackbar">Wyłączono funkcję „Odkrywaj”. Możesz w dowolnym momencie włączyć ją ponownie w ustawieniach.</string>
   <string name="recommended_reading_list_settings_articles">artykułów</string>
   <string name="recommended_reading_list_settings_updates_frequency">Aktualizacje %s</string>
   <string name="recommended_reading_list_settings_updates_frequency_daily">codziennie</string>
@@ -2449,7 +2482,7 @@
   <string name="donation_reminders_settings_title">Jak mamy Ci przypominać?</string>
   <string name="donation_reminders_settings_option_title">Przypomnienia o darowiznach</string>
   <string name="donation_reminders_settings_thank_you_message">Twoja hojność pomaga Wikipedii się rozwijać. Skonfiguruj przypomnienia o darowiznach na podstawie liczby przeczytanych artykułów.</string>
-  <string name="donation_reminders_settings_donation_info">Darowizny trafiają do Wikimedia Foundation i jej podmiotów stowarzyszonych, które z dumą prowadzą Wikipedię i inne projekty zapewniające swobodny dostęp do wiedzy.</string>
+  <string name="donation_reminders_settings_donation_info">Darowizny trafiają do Wikimedia Foundation i jej podmiotów stowarzyszonych, które z dumą prowadzą Wikipedię i jej projekty siostrzane.</string>
   <string name="donation_reminders_settings_article_frequency_label">Kiedy przeczytam</string>
   <string name="donation_reminders_settings_amount_label">Przypomnij mi o przekazaniu</string>
   <string name="donation_reminders_settings_confirm_btn_label">Potwierdź przypomnienie</string>
@@ -2460,9 +2493,11 @@
   <string name="donation_reminders_settings_option_custom">Niestandardowa…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Dziękujemy! Przypomnimy Ci o przekazaniu darowizny w wysokości %1$s, gdy przeczytasz %2$s w trakcie trwania tego eksperymentu.</string>
   <string name="donation_reminders_first_milestone_reached_prompt_title">Liczba przeczytanych artykułów od momentu zadeklarowania darowizny w wysokości %1$s: %2$s.</string>
-  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">Kolejne %1$s już przeczytane.</string>
+  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">Kolejne %1$s już przeczytane!</string>
   <string name="donation_reminders_prompt_message">W dniu %1$s ustawiono przypomnienia o darowiznach w wysokości %3$s za każde przeczytane %2$s. Czy chcesz podtrzymać swoją obietnicę wsparcia Wikipedii?</string>
+  <string name="donation_reminders_prompt_message_v2">W dniu %1$s po przeczytaniu %2$s artykułów mieliśmy przypomnieć Ci o przekazaniu darowizny. Jeśli Wikipedia zapewniła Ci wiedzę wartą %3$s, dołącz do 2%% osób czytających, które przekazują darowizny, i zrealizuj swoją obietnicę już dziś.</string>
   <string name="donation_reminders_prompt_positive_button">Przekaż teraz</string>
+  <string name="donation_reminders_prompt_positive_button_v2">Tak, przekaż darowiznę</string>
   <string name="donation_reminders_prompt_negative_button">Nie teraz</string>
   <string name="donation_reminders_gpay_text">Przekaż darowiznę w wysokości %s przez Google Pay</string>
   <string name="donation_reminders_gpay_different_amount_text">Przekaż darowiznę w innej wysokości przez Google Pay</string>
@@ -2482,39 +2517,24 @@
   <string name="donation_reminders_settings_report_email_subject">Zgłoszenie problemu – funkcja przypominania o darowiznach</string>
   <string name="donation_reminders_settings_report_email_body">Problem dotyczy funkcji przypominania o darowiznach:\n- [Opisz szczegółowo problem]\n- [Załącz zrzuty ekranu lub linki]\n\nOczekuję, że funkcja będzie działać w następujący sposób:\n- [Opisz proponowane rozwiązanie]</string>
   <string name="donation_reminders_snackbar_modify_button_label">Zmień</string>
-  <string name="hybrid_search_search_hint">Wyszukaj lub zapytaj o cokolwiek</string>
-  <string name="hybrid_search_article_search_hint">Zapytaj o %s</string>
-  <string name="hybrid_search_suggestion_title">Wyszukaj:</string>
-  <string name="hybrid_search_onboarding_learn_more">Dowiedz się więcej</string>
-  <string name="hybrid_search_onboarding_search_title">Zadawaj pytania, uzyskuj odpowiedzi</string>
-  <string name="hybrid_search_onboarding_search_description">Ta funkcja eksperymentalna rozumie język naturalny. Zamiast wyszukiwać słowa kluczowe, opisz, co chcesz wiedzieć.</string>
-  <string name="hybrid_search_onboarding_opt_in_choice_title">Funkcja eksperymentalna</string>
-  <string name="hybrid_search_onboarding_opt_in_choice_description">Dostępna przez ograniczony czas w ramach tego eksperymentu.</string>
-  <string name="hybrid_search_beta_tag">Beta</string>
-  <string name="hybrid_search_experimental_feature_switch_label">Dołącz do eksperymentu</string>
-  <string name="hybrid_search_onboarding_search_example_title">Potrzebujesz inspiracji?</string>
-  <string name="hybrid_search_onboarding_search_example_description">Skorzystaj z jednego z poniższych przykładów.</string>
-  <string name="hybrid_search_onboarding_opt_out_toast_message">Nie bierzesz udziału w eksperymencie.</string>
-  <string name="hybrid_search_onboarding_search_example_query_pluto_as_planet">Kiedy Pluton stracił status planety?</string>
-  <string name="hybrid_search_onboarding_search_example_query_first_olympics">pierwsze igrzyska olimpijskie</string>
-  <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">RNA a DNA</string>
-  <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Dlaczego ludzie dodają ananasa do pizzy?</string>
-  <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Jakie są największe miasta w Europie?</string>
-  <string name="hybrid_search_onboarding_screen_title">Wyszukuj po nowemu</string>
-  <string name="hybrid_search_results_header_description">Na podstawie artykułów z Wikipedii napisanych przez ludzi</string>
-  <string name="hybrid_search_results_rate_label">Oceń ten wynik</string>
-  <string name="hybrid_search_results_rated_label">Oceniono</string>
-  <string name="hybrid_search_results_rate_thumb_up">Oceń pozytywnie</string>
-  <string name="hybrid_search_results_rate_thumb_down">Oceń negatywnie</string>
-  <string name="hybrid_lexical_search_results_empty">Nie znaleziono żadnego tytułu artykułu pasującego do tego zapytania.</string>
-  <string name="hybrid_search_results_empty">Wyszukiwanie rozszerzone jest chwilowo niedostępne.</string>
-  <string name="hybrid_search_no_results_header">Brak wyników</string>
-  <string name="hybrid_search_no_results_description">Ten temat nie zwraca obecnie żadnych fragmentów artykułów. Oto kilka rzeczy, które możesz spróbować:</string>
-  <string name="hybrid_search_no_results_suggestion_rephrase_text">sformułuj zapytanie inaczej,</string>
-  <string name="hybrid_search_no_results_suggestion_try_related_topic">spróbuj wpisać powiązany temat.</string>
-  <string name="hybrid_search_error_message">Coś poszło nie tak. Spróbuj ponownie później.</string>
-  <string name="hybrid_search_who_is_prefix">Kim jest %s?</string>
-  <string name="hybrid_search_turn_off_experiment_label">Wyłącz ten eksperyment</string>
+  <string name="donation_reminders_settings_article_number_selection_label">Artykuły</string>
+  <string name="donation_reminders_settings_custom_amount_label">Własna kwota</string>
+  <string name="donation_reminders_settings_update_reminder_button">Zaktualizuj przypomnienie</string>
+  <string name="donation_reminders_beta_label">Beta</string>
+  <string name="donation_reminders_wrap_up_title">To już koniec przypomnień o darowiznach</string>
+  <string name="donation_reminders_wrap_up_message">Dziękujemy za przetestowanie przypomnień o darowiznach opartych na czytanych artykułach. Była to funkcja eksperymentalna, a Twoja opinia pozwoli nam zdecydować, czy stanie się ona stałą opcją wnoszenia darowizn w Wikipedii. Zajmie to około minuty i nie trzeba dokonywać darowizny.</string>
+  <string name="donation_reminders_wrap_up_share_feedback_button">Zostaw opinię</string>
+  <string name="donation_reminders_wrap_up_survey_title">Krótkie pytanie dotyczące przypomnień o darowiznach</string>
+  <string name="donation_reminders_wrap_up_survey_message">Czy przypomnienia o darowiznach oparte na czytanych artykułach powinny stać się stałą funkcją?</string>
+  <string name="donation_reminders_wrap_up_survey_option_keep_it">Tak, zostaw</string>
+  <string name="donation_reminders_wrap_up_survey_option_remove_it">Nie, usuń</string>
+  <string name="donation_reminders_wrap_up_survey_option_not_sure">Trudno powiedzieć</string>
+  <string name="donation_reminders_wrap_up_survey_optional_hint">Coś jeszcze? (opcjonalnie)</string>
+  <string name="donation_reminders_wrap_up_survey_thank_you_message">Dziękujemy za opinię. Twoja odpowiedź pomoże nam zdecydować, nad czym będziemy pracować dalej.</string>
+  <string name="donation_reminders_eoe_title">To koniec eksperymentu</string>
+  <string name="donation_reminders_eoe_message">Nie będziemy już wyświetlać przypomnień w aplikacji, ale nadal możesz nas wspierać, przekazując co miesiąc zadeklarowaną kwotę %s.</string>
+  <string name="donation_reminders_eoe_give_monthly_button">Wpłacaj co miesiąc</string>
+  <string name="donation_reminders_eoe_donate_dialog_title">W jaki sposób chcesz wpłacać co miesiąc?</string>
   <string name="reading_challenge_widget_name">Wyzwanie czytelnicze</string>
   <string name="reading_challenge_onboarding_header">Świętuj 25. urodziny Wikipedii, dołączając do 25-dniowego wyzwania czytelniczego!</string>
   <string name="reading_challenge_onboarding_read_title">Przeczytaj co najmniej 1 artykuł dziennie przez 25 dni</string>
@@ -2575,6 +2595,7 @@
   <string name="reading_challenge_widget_reminder_before_day_snoozes">Zanim dzień dobiegnie końca…	wciąż jest czas, by się czegoś nauczyć.</string>
   <string name="reading_challenge_widget_reminder_small_bit_counts">Nawet krótka lektura liczy się do Twojego celu.</string>
   <string name="reading_challenge_widget_reminder_one_article_away">Od serii dzieli Cię tylko jeden artykuł.</string>
+  <string name="reading_challenge_widget_reminder_jump_in_anytime">Wpadnij poczytać w wolnej chwili!</string>
   <string name="reading_challenge_widget_reminder_quiet_reading_moment">Chwila na spokojną lekturę?</string>
   <string name="reading_challenge_widget_reminder_keep_curiosity_going">Nie gaś swojej ciekawości.</string>
   <string name="reading_challenge_widget_enrolled_not_started_title">Do czytania, gotowi, start!</string>
@@ -2587,6 +2608,9 @@
   <string name="reading_challenge_widget_start_fresh_start_subtitle">Do Twojej serii brakuje już tylko jednego artykułu.</string>
   <string name="reading_challenge_widget_concluded_incomplete">Wyzwanie zakończone</string>
   <string name="reading_challenge_widget_concluded_complete">Udało Ci się!</string>
+  <string name="reading_challenge_widget_reward_title">Do twarzy Ci z ciekawością! 🛍️</string>
+  <string name="reading_challenge_widget_reward_body">Uczcij ukończenie wyzwania z 15%% zniżką w sklepie Wikipedii.</string>
+  <string name="reading_challenge_widget_reward_button_label">Odbierz 15%% żniżki w sklepie</string>
   <string name="explore_feed_new_update_prompt_title">Sekcja „Odkrywaj” to teraz „Strona główna” – w nowej odsłonie</string>
   <string name="explore_feed_new_update_prompt_new_name_title">Nowa nazwa</string>
   <string name="explore_feed_new_update_prompt_new_name_description">Kanał „Odkrywaj” zmienił nazwę na „Strona główna”. Znajdziesz go w tym samym miejscu.</string>
@@ -2640,8 +2664,11 @@
   <string name="home_feed_settings_for_you_modules_description">Wyłączenie modułu ukryje go w kanale „Dla Ciebie”. Możesz go włączyć ponownie w dowolnym momencie.</string>
   <string name="home_feed_settings_based_on_interest_title">Na podstawie Twoich zainteresowań</string>
   <string name="home_feed_settings_based_on_interest_subtitle">Artykuły dopasowane do wybranych tematów.&lt;br /&gt;&lt;a href=\"#drivingFeed\"&gt;Co kształtuje Twój kanał&lt;/a&gt;</string>
+  <string name="home_feed_new_within_interest_card_heading">Nowe artykuły z Twojego zainteresowania</string>
   <string name="home_feed_new_within_interest_title">Nowe artykuły z Twoich zainteresowań</string>
   <string name="home_feed_new_within_interest_subtitle">Najnowsze artykuły z kategorii, które obserwujesz</string>
+  <string name="home_feed_settings_read_aloud_lead_section_title">Posłuchaj wstępów do artykułów</string>
+  <string name="home_feed_settings_read_aloud_lead_section_subtitle">Wygenerowane nagrania dźwiękowe ze wstępami do artykułów z obszarów tematycznych, które obserwujesz</string>
   <string name="home_feed_settings_because_you_read_subtitle">Propozycje na podstawie ostatnio czytanego artykułu z historii</string>
   <string name="home_feed_settings_continue_reading_title">Czytaj dalej</string>
   <string name="home_feed_settings_continue_reading_subtitle">Wróć do niedokończonych artykułów</string>
@@ -2661,7 +2688,6 @@
   <string name="home_feed_for_you_screen_empty_ways_to_start">Jak zacząć:</string>
   <string name="home_feed_for_you_screen_empty_add_interests">Dodaj &lt;a href=\"#add_interests\"&gt;kilka zainteresowań&lt;/a&gt;</string>
   <string name="home_feed_for_you_screen_empty_see_community">Zobacz, co dzieje się w &lt;a href=\"#community_tab\"&gt;społeczności&lt;/a&gt;</string>
-  <string name="home_feed_update_tooltip1">Nowość: funkcje „Losowy artykuł” i „Miejsca w pobliżu” są dostępne w sekcji „Dla Ciebie”, a moduł „Czy wiesz…” znajduje się w zakładce „Społeczność”.</string>
   <string name="home_feed_random_title">Losowy artykuł</string>
   <string name="home_feed_random_subtitle">Losowy artykuł, który rozbudzi Twoją ciekawość</string>
   <string name="home_feed_random_shuffle_button">Losuj inne</string>
@@ -2685,6 +2711,25 @@
   <string name="home_feed_settings_games_title">Gry</string>
   <string name="home_feed_settings_games_subtitle">Codzienne gry oparte na treściach z Wikipedii</string>
   <string name="home_feed_settings_discover_title">Rekomendacje z sekcji „Odkrywaj”</string>
+  <string name="read_aloud_card_play">Odtwórz</string>
+  <string name="read_aloud_card_pause">Wstrzymaj</string>
+  <string name="read_aloud_card_retry">Ponów próbę</string>
+  <string name="read_aloud_card_error">Nagranie dźwiękowe dla tego artykułu jest niedostępne.</string>
+  <string name="read_aloud_card_keep_listening">Kontynuować nagranie?</string>
+  <string name="read_aloud_card_audio_date">To nagranie zostało wygenerowane przy użyciu &lt;a href=\"https://www.mediawiki.org/wiki/Readers/Listening_to_Wikipedia/Model\"&gt;modelu syntezy mowy&lt;/a&gt; na podstawie treści artykułu z %s.</string>
+  <string name="read_aloud_card_audio_attribution">To nagranie zostało wygenerowane przy użyciu &lt;a href=\"https://www.mediawiki.org/wiki/Readers/Listening_to_Wikipedia/Model\"&gt;modelu syntezy mowy&lt;/a&gt;.</string>
+  <string name="read_aloud_lead_section_tooltip_text">Nowa funkcja eksperymentalna: słuchaj wstępów do artykułów w sekcji „Dla Ciebie”</string>
+  <string name="read_aloud_lead_section_survey_title">Jakich treści z Wikipedii chcesz słuchać?</string>
+  <string name="read_aloud_lead_section_survey_choice1">Wstępów do artykułów</string>
+  <string name="read_aloud_lead_section_survey_choice2">Kilku sekcji artykułu</string>
+  <string name="read_aloud_lead_section_survey_choice3">Całych artykułów</string>
+  <string name="read_aloud_lead_section_survey_choice4">Wielu krótkich fragmentów z różnych artykułów na dany temat</string>
+  <string name="read_aloud_lead_section_survey_choice5">Innych:</string>
+  <string name="read_aloud_lead_section_beta_label">Beta</string>
+  <string name="read_aloud_lead_section_report_subject">Zgłoszenie problemu – odsłuchiwanie wstępów do artykułów</string>
+  <string name="read_aloud_lead_section_report_body">Problem dotyczy funkcji „Posłuchaj wstępów do artykułów”:\n- [Opisz szczegółowo problem]\n\nOczekuję, że funkcja będzie działać w następujący sposób:\n- [Opisz proponowane rozwiązanie]</string>
+  <string name="read_aloud_lead_section_about_experiment">O tym eksperymencie</string>
+  <string name="read_aloud_lead_section_report_issue">Zgłoś problem</string>
   <string name="home_feed_settings_discover_subtitle">Artykuły z Twojej kolekcji polecanych artykułów</string>
   <string name="home_feed_discover_cta_title">Z sekcji „Odkrywaj”</string>
   <string name="home_feed_discover_cta_description">Poznawaj nowe tematy przygotowane specjalnie dla Ciebie. Wybierz aktualizacje codzienne, cotygodniowe lub comiesięczne.</string>
@@ -2705,28 +2750,28 @@
   <string name="home_feed_games_module_cta_prompt_button_text">Centrum gier</string>
   <string name="random_article_widget_name">Losowy artykuł</string>
   <string name="reading_lists_tab_all_articles">Wszystkie artykuły</string>
-  <string name="reading_lists_tab_collections">Listy</string>
+  <string name="reading_lists_tab_collections">Kolekcje</string>
   <string name="reading_lists_filter_content_description">Filtruj zapisane artykuły</string>
   <string name="reading_lists_filter_not_in_collection">Nie w kolekcji</string>
   <string name="reading_lists_empty_not_in_collection_title">Wszystkie zapisane artykuły znajdują się w kolekcjach.</string>
   <string name="reading_lists_search_saved_articles">Wyszukaj zapisane artykuły</string>
-  <string name="reading_lists_search_collections">Wyszukaj listy</string>
+  <string name="reading_lists_search_collections">Wyszukaj kolekcje</string>
   <string name="reading_lists_empty_collections_title">Uporządkuj zapisane artykuły w kolekcje</string>
   <string name="reading_lists_empty_collections_description">Twórz kolekcje miejsc do odwiedzenia, ulubionych tematów i wielu innych.</string>
   <string name="reading_lists_create_new_collection">Utwórz nową kolekcję</string>
   <string name="reading_lists_remove_articles_confirm_dialog_title">Usunąć zapisany artykuł?</string>
-  <string name="reading_lists_remove_articles_confirm_button" fuzzy="true">Usuń</string>
+  <string name="reading_lists_remove_articles_confirm_button">Usuń</string>
   <plurals name="reading_lists_remove_articles_confirm_dialog_message">
-    <item quantity="one">Ten artykuł zostanie usunięty ze wszystkich powiązanych lisy.</item>
-    <item quantity="few">Te %d artykuły zostaną usunięte ze wszystkich powiązanych list.</item>
-    <item quantity="many">Te %d artykułów zostanie usuniętych ze wszystkich powiązanych list.</item>
-    <item quantity="other">Te %d artykułu zostanie usunięte ze wszystkich powiązanych list.</item>
+    <item quantity="one">Ten artykuł zostanie usunięty ze wszystkich powiązanych kolekcji.</item>
+    <item quantity="few">Te %d artykuły zostaną usunięte ze wszystkich powiązanych kolekcji.</item>
+    <item quantity="many">Te %d artykułów zostanie usuniętych ze wszystkich powiązanych kolekcji.</item>
+    <item quantity="other">Te %d artykułu zostanie usunięte ze wszystkich powiązanych kolekcji.</item>
   </plurals>
   <plurals name="reading_lists_articles_removed_from_collections">
-    <item quantity="one">Usunięto artykuł ze wszystkich powiązanych list.</item>
-    <item quantity="few">Usunięto %d artykuły ze wszystkich powiązanych list.</item>
-    <item quantity="many">Usunięto %d artykułów ze wszystkich powiązanych list.</item>
-    <item quantity="other">Usunięto %d artykułu ze wszystkich powiązanych list.</item>
+    <item quantity="one">Usunięto artykuł ze wszystkich powiązanych kolekcji.</item>
+    <item quantity="few">Usunięto %d artykuły ze wszystkich powiązanych kolekcji.</item>
+    <item quantity="many">Usunięto %d artykułów ze wszystkich powiązanych kolekcji.</item>
+    <item quantity="other">Usunięto %d artykułu ze wszystkich powiązanych kolekcji.</item>
   </plurals>
   <string name="reading_lists_save_sheet_empty_title">Zgromadź artykuły, które uwielbiasz</string>
   <string name="reading_lists_save_sheet_empty_message">Zapisz artykuły w kolekcjach.</string>

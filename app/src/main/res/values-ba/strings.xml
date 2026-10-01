@@ -572,7 +572,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">барлыҡ уҡыу исемлектәрендә  %s бите башҡаса офлайн-режимда  булмаясаҡ</string>
   <string name="reading_lists_sync_reminder_title" fuzzy="true">Уҡыу исемлеген синхронлаштырыуҙы ҡабыҙырғамы?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">Уҡыу исемлегендә һаҡланған мәҡәләләрҙе хәҙер Википедиялағы иҫәп яҙмаһы менән синхронлаштырырға мөмкин. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tr#Synced_reading_lists\"&gt;Күберәк белергә&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Уҡыу өсөн исемлектәрҙе хәҙер ҡулайламалар араһында синхронлаштырырға мөмкин. Википедияның иҫәп яҙмаһына инегеҙ һәм исемлектәрҙе һаҡларға рөхсәт итегеҙ. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Күберәк белергә&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Синхронлаштырыуҙы ҡабыҙырға</string>
   <string name="reading_list_login_reminder_title" fuzzy="true">Уҡыу исемлектәрен синхронлаштырырға</string>
   <string name="reading_lists_login_reminder_text" fuzzy="true">Уҡыу исемлеге хәҙер ҡоролмалар араһында синхронлаштырыла. Үҙегеҙҙең иҫәп яҙмаһына инегеҙ һәм исемлектәрҙе һаҡларға рөхсәт итегеҙ.</string>
@@ -615,7 +614,6 @@
   <string name="reading_lists_menu_import_list" fuzzy="true">Исемлекте импортлау</string>
   <string name="reading_lists_menu_sort_by">Айырыу</string>
   <string name="reading_lists_refresh_sync_option">Синхронлаштырыуҙы яңыртырға</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Инергә / теркәлергә</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Был мәҡәлә офлайн режимда асыласаҡ.</item>
     <item quantity="other">Был мәҡәләләр офлайн режимда асыласаҡ.</item>

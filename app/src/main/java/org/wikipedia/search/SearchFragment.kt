@@ -11,7 +11,6 @@ import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
-import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -38,7 +37,6 @@ import org.wikipedia.settings.languages.WikipediaLanguagesFragment
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
-import org.wikipedia.util.StringUtil
 import org.wikipedia.views.LanguageScrollView
 import java.util.Locale
 
@@ -51,7 +49,6 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
     private var articleTitle: String? = null
     private var query: String? = null
     private var returnLink = false
-    private var initiateHybridSearch = false
     private lateinit var recentSearchesFragment: RecentSearchesFragment
     private lateinit var searchResultsFragment: SearchResultsFragment
     private lateinit var invokeSource: InvokeSource
@@ -65,21 +62,15 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
         setSearchText("")
     }
 
-    private fun isHybridSearchEnabled(): Boolean = HybridSearchAbCTest().isHybridSearchEnabled(searchLanguageCode)
-
     private val searchQueryListener = object : SearchView.OnQueryTextListener {
         override fun onQueryTextSubmit(queryText: String): Boolean {
             DeviceUtil.hideSoftKeyboard(requireActivity())
-            if (isHybridSearchEnabled()) {
-                searchResultsFragment.showHybridSearch = true
-                startSearch(term = queryText, force = true, resetHybridSearch = false)
-            }
             return true
         }
 
         override fun onQueryTextChange(queryText: String): Boolean {
             binding.searchCabView.setCloseButtonVisibility(queryText)
-            startSearch(queryText.trim(), force = false, resetHybridSearch = searchResultsFragment.showHybridSearch)
+            startSearch(queryText.trim(), force = false)
             return true
         }
     }
@@ -112,7 +103,6 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
         query = requireArguments().getString(ARG_QUERY)
         articleTitle = requireArguments().getString(SearchActivity.EXTRA_TITLE)
         returnLink = requireArguments().getBoolean(SearchActivity.EXTRA_RETURN_LINK, false)
-        initiateHybridSearch = requireArguments().getBoolean(SearchActivity.EXTRA_SHOW_HYBRID_SEARCH, false)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -147,11 +137,7 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
 
     override fun onStart() {
         super.onStart()
-        val hybridSearchEnabled = initiateHybridSearch && isHybridSearchEnabled()
-        val languagePosition = if (hybridSearchEnabled) {
-            val languageCode = app.languageState.appLanguageCode
-            app.languageState.appLanguageCodes.indexOf(languageCode)
-        } else Prefs.selectedLanguagePositionInSearch
+        val languagePosition = Prefs.selectedLanguagePositionInSearch
 
         setUpLanguageScroll(languagePosition)
         startSearch(query, langBtnClicked)
@@ -160,17 +146,11 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
         if (!query.isNullOrEmpty()) {
             showPanel(PANEL_SEARCH_RESULTS)
         }
-        if (hybridSearchEnabled) {
-            searchResultsFragment.showHybridSearch = true
-        }
     }
 
     override fun onPause() {
         super.onPause()
         Prefs.selectedLanguagePositionInSearch = binding.searchLanguageScrollView.selectedPosition
-        if (searchResultsFragment.showHybridSearch && !isHybridSearchEnabled()) {
-            searchResultsFragment.showHybridSearch = false
-        }
     }
 
     private fun handleIntent(intent: Intent) {
@@ -267,7 +247,7 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
         requestAddLanguageLauncher.launch(WikipediaLanguagesActivity.newIntent(requireActivity(), InvokeSource.SEARCH))
     }
 
-    private fun startSearch(term: String?, force: Boolean, resetHybridSearch: Boolean = false) {
+    private fun startSearch(term: String?, force: Boolean) {
         if (!isSearchActive) {
             openSearch()
         }
@@ -287,7 +267,7 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
             }
             when (activePanel) {
                 PANEL_SEARCH_RESULTS -> {
-                    searchResultsFragment.startSearch(term, force, resetHybridSearch)
+                    searchResultsFragment.startSearch(term, force)
                 }
             }
         }, if (invokeSource == InvokeSource.PLACES || invokeSource == InvokeSource.VOICE || invokeSource == InvokeSource.INTENT_SHARE || invokeSource == InvokeSource.INTENT_PROCESS_TEXT) INTENT_DELAY_MILLIS else 0)
@@ -300,9 +280,6 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
         // automatically trigger the showing of the corresponding search results.
         if (!query.isNullOrBlank()) {
             binding.searchCabView.setQuery(query, false)
-        }
-        if (initiateHybridSearch) {
-            binding.searchCabView.clearFocus()
         }
     }
 
@@ -342,12 +319,6 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
         binding.searchCabView.queryHint =
             if (invokeSource == InvokeSource.PLACES) {
                 getString(R.string.places_search_hint)
-            } else if (Prefs.isHybridSearchOnboardingShown && HybridSearchAbCTest().isHybridSearchEnabled(WikipediaApp.instance.languageState.appLanguageCode)) {
-                if (articleTitle.isNullOrEmpty()) {
-                    getString(R.string.hybrid_search_search_hint)
-                } else {
-                    getString(R.string.hybrid_search_article_search_hint, StringUtil.fromHtml(articleTitle))
-                }
             } else {
                 getString(R.string.search_hint)
             }
@@ -395,15 +366,14 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
         private const val INTENT_DELAY_MILLIS = 500L
         const val RESULT_LANG_CHANGED = 98
 
-        fun newInstance(source: InvokeSource, query: String?, returnLink: Boolean = false, title: String? = null, initiateHybridSearch: Boolean = false): SearchFragment =
+        fun newInstance(source: InvokeSource, query: String?, returnLink: Boolean = false, title: String? = null): SearchFragment =
                 SearchFragment().apply {
-                    arguments = bundleOf(
-                        Constants.INTENT_EXTRA_INVOKE_SOURCE to source,
-                        ARG_QUERY to query,
-                        SearchActivity.EXTRA_RETURN_LINK to returnLink,
-                        SearchActivity.EXTRA_TITLE to title,
-                        SearchActivity.EXTRA_SHOW_HYBRID_SEARCH to initiateHybridSearch
-                    )
+                    arguments = Bundle().apply {
+                        putSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE, source)
+                        putString(ARG_QUERY, query)
+                        putBoolean(SearchActivity.EXTRA_RETURN_LINK, returnLink)
+                        putString(SearchActivity.EXTRA_TITLE, title)
+                    }
                 }
     }
 }
