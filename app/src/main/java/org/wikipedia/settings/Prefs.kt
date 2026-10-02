@@ -239,10 +239,6 @@ object Prefs {
         PrefsIoUtil.setInt(R.string.preference_key_reading_list_page_sort_mode, sortMode)
     }
 
-    var loginForceEmailAuth
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_login_force_email_auth, false)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_login_force_email_auth, value)
-
     var lastBackgroundLoginDateTime
         get() = PrefsIoUtil.getString(R.string.preference_key_last_background_login_date_time, "")
         set(value) = PrefsIoUtil.setString(R.string.preference_key_last_background_login_date_time, value)

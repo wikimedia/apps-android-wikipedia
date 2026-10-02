@@ -26,7 +26,6 @@
     <string name="preference_key_daily_event_time_task_name" translatable="false">dailyEventTask</string>
     <string name="preference_key_talk_offline_cleanup_task_name" translatable="false">talkOfflineCleanupTask</string>
     <string name="preference_key_login_groups" translatable="false">groups</string>
-    <string name="preference_key_login_force_email_auth" translatable="false">loginForceEmailAuth</string>
     <string name="preference_key_last_background_login_date_time" translatable="false">lastBackgroundLoginDateTime</string>
     <string name="preference_key_show_developer_settings" translatable="false">showDeveloperSettings</string>
     <string name="preference_key_last_run_time_format" translatable="false">%s-lastrun</string>
