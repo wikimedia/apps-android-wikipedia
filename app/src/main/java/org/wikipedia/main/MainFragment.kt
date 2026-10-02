@@ -133,6 +133,9 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
         }
     }
 
+    private val shouldShowYearInReviewDot get() =
+        YearInReviewViewModel.canShowEntryPoint && Prefs.yearInReviewActivityTabDotSeenYear != YearInReviewViewModel.YIR_YEAR
+
     var navTabBackStack = mutableListOf<NavTab>()
     val currentFragment get() = (binding.mainViewPager.adapter as NavTabFragmentPagerAdapter).getFragmentAt(binding.mainViewPager.currentItem)
 
@@ -178,11 +181,15 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
         binding.mainNavTabLayout.setOnItemSelectedListener { item ->
             navTabBackStack.clear()
             if (item.order == NavTab.EDITS.code()) {
+                if (YearInReviewViewModel.canShowEntryPoint) {
+                    Prefs.yearInReviewActivityTabDotSeenYear = YearInReviewViewModel.YIR_YEAR
+                }
+
                 if (!Prefs.isActivityTabOnboardingShown) {
                     activityTabOnboardingLauncher.launch(ActivityTabOnboardingActivity.newIntent(requireContext()))
-                    binding.mainNavTabLayout.setOverlayDot(NavTab.EDITS, false)
                     return@setOnItemSelectedListener false
                 }
+                binding.mainNavTabLayout.setOverlayDot(NavTab.EDITS, false)
             }
             if (item.order == NavTab.MORE.code()) {
                 ExclusiveBottomSheetPresenter.show(childFragmentManager, MenuNavTabDialog.newInstance())
@@ -201,7 +208,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
             true
         }
 
-        binding.mainNavTabLayout.setOverlayDot(NavTab.EDITS, !Prefs.isActivityTabOnboardingShown)
+        binding.mainNavTabLayout.setOverlayDot(NavTab.EDITS, !Prefs.isActivityTabOnboardingShown || shouldShowYearInReviewDot)
 
         if (!maybeShowReadingListsUpdateTooltip()) {
             maybeShowFeedNewModulesTooltip()
