@@ -209,7 +209,7 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
         switchToSearch(text)
     }
 
-    override fun navigateToTitle(item: PageTitle, inNewTab: Boolean, position: Int, location: Location?, showSemanticSearchFeedback: Boolean) {
+    override fun navigateToTitle(item: PageTitle, inNewTab: Boolean, position: Int, location: Location?, showSemanticSearchFeedback: Boolean, semanticSearchSnippet: String?) {
         if (!isAdded) {
             return
         }
@@ -226,7 +226,11 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
             val historyEntry = HistoryEntry(item, HistoryEntry.SOURCE_SEARCH)
             val intent = if (inNewTab) PageActivity.newIntentForNewTab(requireContext(), historyEntry, historyEntry.title)
             else PageActivity.newIntentForCurrentTab(requireContext(), historyEntry, historyEntry.title, false)
-            startActivity(intent.putExtra(PageActivity.EXTRA_SHOW_SEMANTIC_SEARCH_FEEDBACK, showSemanticSearchFeedback))
+            startActivity(
+                intent
+                    .putExtra(PageActivity.EXTRA_SHOW_SEMANTIC_SEARCH_FEEDBACK, showSemanticSearchFeedback)
+                    .putExtra(Constants.ARG_SEMANTIC_SEARCH_SNIPPET, semanticSearchSnippet)
+            )
         }
         closeSearch()
         DeviceUtil.hideSoftKeyboard(requireView())

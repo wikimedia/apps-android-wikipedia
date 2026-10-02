@@ -12,7 +12,8 @@ interface SearchResultCallback {
         inNewTab: Boolean,
         position: Int,
         location: Location? = null,
-        showSemanticSearchFeedback: Boolean = false
+        showSemanticSearchFeedback: Boolean = false,
+        semanticSearchSnippet: String? = null
     )
 
     fun setSearchText(text: String)

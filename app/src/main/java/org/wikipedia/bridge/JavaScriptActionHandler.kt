@@ -2,6 +2,7 @@ package org.wikipedia.bridge
 
 import android.content.Context
 import kotlinx.serialization.Serializable
+import org.json.JSONObject
 import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -13,6 +14,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.page.PageViewModel
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.StringUtil
 import java.time.LocalDateTime
 import java.time.temporal.ChronoUnit
 import java.util.Locale
@@ -202,6 +204,89 @@ object JavaScriptActionHandler {
                 "var elements = document.getElementsByTagName('audio');" +
                 "for(i=0; i<elements.length; i++) elements[i].pause();" +
                 "})();"
+    }
+
+    fun semanticSearchTextHighlight(headingId: String?, snippet: String?): String? {
+        if (headingId == null) {
+            return null
+        }
+        val searchString = extractSemanticSearchString(snippet) ?: return null
+        return highlightTextInSectionAndScroll(headingId, searchString)
+    }
+
+    private fun extractSemanticSearchString(snippet: String?): String? {
+        val searchString = Regex("""<span\s+class=["']searchmatch["']\s*>(.*?)</span>""", RegexOption.DOT_MATCHES_ALL)
+            .find(snippet.orEmpty())
+            ?.groupValues
+            ?.getOrNull(1)
+            ?: return null
+
+        return StringUtil.fromHtml(searchString).toString()
+    }
+
+    private fun highlightTextInSectionAndScroll(headingId: String, searchString: String): String {
+        return """
+            (function(headingId, searchString) {
+            
+                const NAME = 'semantic-search-highlight';
+                const style = document.createElement('style');
+                style.textContent = '::highlight(' + NAME + ') { background-color: yellow; }';
+                document.head.appendChild(style);
+                
+                const normalizeCharForMatch = ch => ch
+                    .toLowerCase()
+                    .normalize('NFKD')
+                    .replace(/[\s\p{Cf}]/gu, '')
+                    .replace(/\u03c2/g, '\u03c3')
+                    .replace(/[\u2018\u2019\u201a\u201b\u02bc\u2032]/g, "'")
+                    .replace(/[\u201c\u201d\u201e\u201f\u2033]/g, '"');
+
+                const root = document.getElementById(headingId)?.closest('section')
+                const query = Array.from(searchString, normalizeCharForMatch).join('');
+                if (!root || !query) {
+                    return false;
+                }
+
+                const walker = document.createTreeWalker(
+                    root, 
+                    NodeFilter.SHOW_TEXT,
+                    (node) => node.parentElement.closest('script, style, sup.reference, .mw-ref, .mwe-math-mathml-a11y')
+                        ? NodeFilter.FILTER_REJECT 
+                        : NodeFilter.FILTER_ACCEPT
+                );
+        
+                let normalizedSectionText = '';
+                const sources = [];
+                let node;
+                while ((node = walker.nextNode())) {
+                    let charIndexInTextNode = 0;
+                    Array.from(node.nodeValue).forEach((rawChar) => {
+                        const normalizedChar = normalizeCharForMatch(rawChar);
+                        normalizedSectionText += normalizedChar;
+                        for (let i = 0; i < normalizedChar.length; i++) {
+                            sources.push([node, charIndexInTextNode, charIndexInTextNode + rawChar.length]);
+                        }
+                        charIndexInTextNode += rawChar.length;
+                    });
+                }
+
+                const index = normalizedSectionText.indexOf(query);
+                if (index === -1) {
+                    return false;
+                }
+                const [startNode, startIndex] = sources[index];
+                const [endNode, , endIndex] = sources[index + query.length - 1];
+                const range = document.createRange();
+                range.setStart(startNode, startIndex);
+                range.setEnd(endNode, endIndex);
+                CSS.highlights.set(NAME, new Highlight(range));
+
+                const rect = range.getBoundingClientRect();
+                window.scrollTo({ top: window.scrollY + rect.top + rect.height / 2 - window.innerHeight / 2, behavior: 'instant' });
+                return true;
+                
+            })(${JSONObject.quote(headingId)}, ${JSONObject.quote(searchString)});
+        """
     }
 
     @Serializable
