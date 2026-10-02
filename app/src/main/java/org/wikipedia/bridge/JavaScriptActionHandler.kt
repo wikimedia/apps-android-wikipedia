@@ -206,8 +206,10 @@ object JavaScriptActionHandler {
                 "})();"
     }
 
-    fun semanticSearchTextHighlight(section: String?, snippet: String?): String? {
-        val headingId = section?.let { StringUtil.addUnderscores(StringUtil.fromHtml(it).toString()) } ?: return null
+    fun semanticSearchTextHighlight(headingId: String?, snippet: String?): String? {
+        if (headingId == null) {
+            return null
+        }
         val searchString = extractSemanticSearchString(snippet) ?: return null
         return highlightTextInSectionAndScroll(headingId, searchString)
     }

@@ -27,9 +27,8 @@ class SemanticSearchResultsDialog : ExtendedBottomSheetDialogFragment() {
                 BaseTheme {
                     SemanticSearchResultsScreen(
                         viewModel = viewModel,
-                        onItemClick = { title, pageHooks ->
-                            callback()?.updateInvokeSource(Constants.InvokeSource.SEMANTIC_SEARCH)
-                            callback()?.navigateToTitle(title, true, 0, semanticSearchPageHooks = pageHooks)
+                        onItemClick = { title, snippet ->
+                            callback()?.navigateToTitle(title, true, 0, semanticSearchSnippet = snippet)
                         },
                         onCloseClick = {
                             dismiss()

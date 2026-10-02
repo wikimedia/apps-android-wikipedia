@@ -59,7 +59,8 @@ object Constants {
 
     val commonsWikiSite = WikiSite(Service.COMMONS_URL)
     val wikidataWikiSite = WikiSite(Service.WIKIDATA_URL)
-    const val SEMANTIC_SEARCH_PAGE_HOOKS = "semanticsearchpagehooks"
+    // Semantic search A/B test: snippet passed from search results to the article for highlighting.
+    const val ARG_SEMANTIC_SEARCH_SNIPPET = "semanticSearchSnippet"
 
     enum class InvokeSource(val value: String) {
         ANNOUNCEMENT("announcement"),
@@ -116,8 +117,7 @@ object Constants {
         ACTIVITY_TAB("activityTab"),
         GAMES_HUB("gamesHub"),
         FEED_INTEREST_SELECTION("feedInterestSelection"),
-        DID_YOU_KNOW("didYouKnow"),
-        SEMANTIC_SEARCH("semanticSearch")
+        DID_YOU_KNOW("didYouKnow")
     }
 
     enum class ImageEditType(name: String) {

@@ -75,7 +75,6 @@ import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.readinglist.ReadingListActivity
 import org.wikipedia.readinglist.ReadingListMode
 import org.wikipedia.search.SearchActivity
-import org.wikipedia.search.semantic.SemanticSearchPageHooks
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.staticdata.MainPageNameData
@@ -660,13 +659,14 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
             val title = intent.parcelableExtra<PageTitle>(Constants.ARG_TITLE)
             val historyEntry = intent.parcelableExtra<HistoryEntry>(EXTRA_HISTORYENTRY)
 
-            if (Prefs.isSemanticSearchEnabled) {
-                val pageHooks = intent.parcelableExtra<SemanticSearchPageHooks>(Constants.SEMANTIC_SEARCH_PAGE_HOOKS)
-                val bundle = Bundle().apply {
-                    putString("section", pageHooks?.section)
-                    putString("snippet", pageHooks?.snippet)
-                }
-                pageFragment.arguments = bundle
+            // semantic search
+            val semanticSearchSnippet = if (Prefs.isSemanticSearchEnabled) intent.getStringExtra(Constants.ARG_SEMANTIC_SEARCH_SNIPPET) else null
+            intent.removeExtra(Constants.ARG_SEMANTIC_SEARCH_SNIPPET)
+            val fragmentArgs = pageFragment.arguments ?: Bundle().also { pageFragment.arguments = it }
+            if (semanticSearchSnippet != null) {
+                fragmentArgs.putString(Constants.ARG_SEMANTIC_SEARCH_SNIPPET, semanticSearchSnippet)
+            } else {
+                fragmentArgs.remove(Constants.ARG_SEMANTIC_SEARCH_SNIPPET)
             }
 
             when (intent.action) {
@@ -938,19 +938,12 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
             return Intent(ACTION_CREATE_NEW_TAB).setClass(context, PageActivity::class.java)
         }
 
-        fun newIntentForNewTab(context: Context, entry: HistoryEntry, title: PageTitle): Intent {
+        fun newIntentForNewTab(context: Context, entry: HistoryEntry, title: PageTitle, semanticSearchSnippet: String? = null): Intent {
             return Intent(ACTION_LOAD_IN_NEW_TAB)
                 .setClass(context, PageActivity::class.java)
                 .putExtra(EXTRA_HISTORYENTRY, entry)
                 .putExtra(Constants.ARG_TITLE, title)
-        }
-
-        fun newIntentForNewSemanticSearchTab(context: Context, title: PageTitle, entry: HistoryEntry, pageHooks: SemanticSearchPageHooks? = null): Intent {
-            return Intent(ACTION_LOAD_IN_NEW_TAB)
-                .setClass(context, PageActivity::class.java)
-                .putExtra(EXTRA_HISTORYENTRY, entry)
-                .putExtra(Constants.ARG_TITLE, title)
-                .putExtra(Constants.SEMANTIC_SEARCH_PAGE_HOOKS, pageHooks)
+                .apply { semanticSearchSnippet?.let { putExtra(Constants.ARG_SEMANTIC_SEARCH_SNIPPET, it) } }
         }
 
         fun newIntentForCurrentTab(context: Context, entry: HistoryEntry, title: PageTitle, squashBackstack: Boolean = true): Intent {

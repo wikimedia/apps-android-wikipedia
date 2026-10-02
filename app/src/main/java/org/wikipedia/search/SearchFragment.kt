@@ -33,7 +33,6 @@ import org.wikipedia.places.PlacesActivity
 import org.wikipedia.readinglist.SaveArticleSheetDialog
 import org.wikipedia.search.db.RecentSearch
 import org.wikipedia.search.semantic.SemanticSearchInfoDialog
-import org.wikipedia.search.semantic.SemanticSearchPageHooks
 import org.wikipedia.search.semantic.SemanticSearchResultsDialog
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
@@ -210,7 +209,7 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
         switchToSearch(text)
     }
 
-    override fun navigateToTitle(item: PageTitle, inNewTab: Boolean, position: Int, location: Location?, semanticSearchPageHooks: SemanticSearchPageHooks?) {
+    override fun navigateToTitle(item: PageTitle, inNewTab: Boolean, position: Int, location: Location?, semanticSearchSnippet: String?) {
         if (!isAdded) {
             return
         }
@@ -223,12 +222,9 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
                 .putExtra(PlacesActivity.EXTRA_LOCATION, location)
             requireActivity().setResult(SearchActivity.RESULT_LINK_SUCCESS, intent)
             requireActivity().finish()
-        } else if (invokeSource == InvokeSource.SEMANTIC_SEARCH) {
-            val historyEntry = HistoryEntry(item, HistoryEntry.SOURCE_SEARCH)
-            startActivity(PageActivity.newIntentForNewSemanticSearchTab(requireContext(), historyEntry.title, historyEntry, semanticSearchPageHooks))
         } else {
             val historyEntry = HistoryEntry(item, HistoryEntry.SOURCE_SEARCH)
-            startActivity(if (inNewTab) PageActivity.newIntentForNewTab(requireContext(), historyEntry, historyEntry.title)
+            startActivity(if (inNewTab) PageActivity.newIntentForNewTab(requireContext(), historyEntry, historyEntry.title, semanticSearchSnippet)
             else PageActivity.newIntentForCurrentTab(requireContext(), historyEntry, historyEntry.title, false))
         }
         closeSearch()
@@ -249,10 +245,6 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
 
     override fun showSemanticSearchInfoDialog() {
         ExclusiveBottomSheetPresenter.show(childFragmentManager, SemanticSearchInfoDialog())
-    }
-
-    override fun updateInvokeSource(source: InvokeSource) {
-        invokeSource = source
     }
 
     private fun onSearchContainerClick() {

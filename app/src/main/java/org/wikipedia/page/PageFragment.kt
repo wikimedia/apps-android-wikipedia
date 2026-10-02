@@ -441,7 +441,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                             }
                         }
                         callback()?.onPageLoadComplete()
-                        JavaScriptActionHandler.semanticSearchTextHighlight(arguments?.getString("section"), arguments?.getString("snippet"))?.let { js ->
+                        JavaScriptActionHandler.semanticSearchTextHighlight(model.title?.fragment, arguments?.getString(Constants.ARG_SEMANTIC_SEARCH_SNIPPET))?.let { js ->
+                            arguments?.remove(Constants.ARG_SEMANTIC_SEARCH_SNIPPET)
                             Handler(Looper.getMainLooper()).postDelayed({
                                 if (isAdded) {
                                     webView.evaluateJavascript(js, null)
@@ -788,7 +789,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             bridge.onPcsReady()
             articleInteractionEvent?.logLoaded()
             callback()?.onPageLoadComplete()
-            JavaScriptActionHandler.semanticSearchTextHighlight(arguments?.getString("section"), arguments?.getString("snippet"))?.let { js ->
+            JavaScriptActionHandler.semanticSearchTextHighlight(model.title?.fragment, arguments?.getString(Constants.ARG_SEMANTIC_SEARCH_SNIPPET))?.let { js ->
+                arguments?.remove(Constants.ARG_SEMANTIC_SEARCH_SNIPPET)
                 Handler(Looper.getMainLooper()).postDelayed({
                     if (isAdded) {
                         webView.evaluateJavascript(js, null)
