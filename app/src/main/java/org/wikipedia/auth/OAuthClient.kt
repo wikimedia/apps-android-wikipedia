@@ -2,7 +2,6 @@ package org.wikipedia.auth
 
 import android.content.Context
 import android.content.Intent
-import android.util.Base64
 import androidx.annotation.WorkerThread
 import androidx.core.net.toUri
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -34,8 +33,6 @@ import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.log.L
 import java.io.IOException
-import java.security.MessageDigest
-import java.security.SecureRandom
 import java.util.concurrent.locks.ReentrantLock
 import kotlin.concurrent.withLock
 
@@ -88,23 +85,12 @@ class OAuthClient(val context: Context) {
     }
 
     fun getLoginIntent(): Intent {
-        val secureRandom = SecureRandom()
-        val bytes = ByteArray(64)
-        secureRandom.nextBytes(bytes)
-
-        val encoding = Base64.URL_SAFE or Base64.NO_PADDING or Base64.NO_WRAP
-        val codeVerifier = Base64.encodeToString(bytes, encoding)
-
-        val digest = MessageDigest.getInstance("SHA-256")
-        val hash = digest.digest(codeVerifier.toByteArray())
-        val codeChallenge = Base64.encodeToString(hash, encoding)
-
+        // The builder generates the PKCE code verifier and challenge, as well as the state and nonce.
         val builder = AuthorizationRequest.Builder(
             authServiceConfig,
             CLIENT_ID,
             ResponseTypeValues.CODE,
             REDIRECT_URI.toUri())
-            .setCodeVerifier(codeVerifier, codeChallenge, "S256")
 
         // builder.setScopes(...)
 
