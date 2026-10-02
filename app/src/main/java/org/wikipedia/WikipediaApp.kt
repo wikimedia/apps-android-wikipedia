@@ -262,6 +262,7 @@ class WikipediaApp : Application() {
 
     fun resetAfterLogOut() {
         AccountUtil.removeAccount()
+        oauthClient.clearAuthState()
         Prefs.isPushNotificationTokenSubscribed = false
         Prefs.pushNotificationTokenOld = ""
         Prefs.lastBackgroundLoginDateTime = ""
