@@ -1,5 +1,6 @@
 package org.wikipedia.feed
 
+import org.wikipedia.compose.components.menu.PageOverflowMenuItem
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.FeaturedImageCard
@@ -21,6 +22,7 @@ sealed interface HomeAction {
     data class PageBookmarkClick(val card: Card, val historyEntry: HistoryEntry) : HomeAction
     data class PageShareClick(val card: Card, val historyEntry: HistoryEntry) : HomeAction
     data class PageOverflowClick(val card: Card, val pageSummary: PageSummary, val source: Int, val menuKey: String) : HomeAction
+    data class PageOverflowItemClick(val card: Card, val item: PageOverflowMenuItem, val historyEntry: HistoryEntry) : HomeAction
     data object PageOverflowDismiss : HomeAction
     data class NewsClick(val card: NewsCard, val newsItem: NewsItem) : HomeAction
     data class ImageClick(val card: FeaturedImageCard) : HomeAction
