@@ -441,14 +441,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                             }
                         }
                         callback()?.onPageLoadComplete()
-                        /*JavaScriptActionHandler.semanticSearchTextHighlight(model.title?.fragment, arguments?.getString(Constants.ARG_SEMANTIC_SEARCH_SNIPPET))?.let { js ->
-                            arguments?.remove(Constants.ARG_SEMANTIC_SEARCH_SNIPPET)
-                            Handler(Looper.getMainLooper()).postDelayed({
-                                if (isAdded) {
-                                    webView.evaluateJavascript(js, null)
-                                }
-                            }, 100)
-                        }*/
                     }
                 }
             }
@@ -814,10 +806,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                         model.title?.let {
                             if (!it.fragment.isNullOrEmpty()) {
                                 val snippet = arguments?.getString(Constants.ARG_SEMANTIC_SEARCH_SNIPPET)
+                                arguments?.remove(Constants.ARG_SEMANTIC_SEARCH_SNIPPET)
                                 val hasSemanticSearchHighlight = snippet?.contains("class=\"searchmatch\"") == true
                                 if (hasSemanticSearchHighlight) {
                                     JavaScriptActionHandler.semanticSearchTextHighlight(model.title?.fragment, snippet)?.let { js ->
-                                        arguments?.remove(Constants.ARG_SEMANTIC_SEARCH_SNIPPET)
                                         Handler(Looper.getMainLooper()).postDelayed({
                                             if (isAdded) {
                                                 webView.evaluateJavascript(js, null)
