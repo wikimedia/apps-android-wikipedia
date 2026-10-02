@@ -98,6 +98,7 @@ import org.wikipedia.page.shareafact.ShareHandler
 import org.wikipedia.page.tabs.Tab
 import org.wikipedia.places.PlacesActivity
 import org.wikipedia.readinglist.SaveArticleSheetDialog
+import org.wikipedia.search.semantic.SemanticSearchAbTest
 import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.talk.TalkTopicsActivity
@@ -441,14 +442,14 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                             }
                         }
                         callback()?.onPageLoadComplete()
-                        JavaScriptActionHandler.semanticSearchTextHighlight(model.title?.fragment, arguments?.getString(Constants.ARG_SEMANTIC_SEARCH_SNIPPET))?.let { js ->
+                        /*JavaScriptActionHandler.semanticSearchTextHighlight(model.title?.fragment, arguments?.getString(Constants.ARG_SEMANTIC_SEARCH_SNIPPET))?.let { js ->
                             arguments?.remove(Constants.ARG_SEMANTIC_SEARCH_SNIPPET)
                             Handler(Looper.getMainLooper()).postDelayed({
                                 if (isAdded) {
                                     webView.evaluateJavascript(js, null)
                                 }
                             }, 100)
-                        }
+                        }*/
                     }
                 }
             }
@@ -789,14 +790,14 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             bridge.onPcsReady()
             articleInteractionEvent?.logLoaded()
             callback()?.onPageLoadComplete()
-            JavaScriptActionHandler.semanticSearchTextHighlight(model.title?.fragment, arguments?.getString(Constants.ARG_SEMANTIC_SEARCH_SNIPPET))?.let { js ->
+            /*JavaScriptActionHandler.semanticSearchTextHighlight(model.title?.fragment, arguments?.getString(Constants.ARG_SEMANTIC_SEARCH_SNIPPET))?.let { js ->
                 arguments?.remove(Constants.ARG_SEMANTIC_SEARCH_SNIPPET)
                 Handler(Looper.getMainLooper()).postDelayed({
                     if (isAdded) {
                         webView.evaluateJavascript(js, null)
                     }
                 }, 100)
-            }
+            }*/
 
             JsonUtil.decodeFromElement<PageMetadata>(payload)?.let { metadata ->
                 // Persist the list of topics for this article.
@@ -822,6 +823,14 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                         model.title?.let {
                             if (!it.fragment.isNullOrEmpty()) {
                                 scrollToSection(it.fragment!!)
+                                JavaScriptActionHandler.semanticSearchTextHighlight(model.title?.fragment, arguments?.getString(Constants.ARG_SEMANTIC_SEARCH_SNIPPET))?.let { js ->
+                                    arguments?.remove(Constants.ARG_SEMANTIC_SEARCH_SNIPPET)
+                                    Handler(Looper.getMainLooper()).postDelayed({
+                                        if (isAdded) {
+                                            webView.evaluateJavascript(js, null)
+                                        }
+                                    }, 100)
+                                }
                             }
                         }
                     }, scrollDelay.toLong())
