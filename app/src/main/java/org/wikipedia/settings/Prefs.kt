@@ -831,6 +831,10 @@ object Prefs {
         } ?: YearInReviewSurveyState.NOT_TRIGGERED
         set(value) = PrefsIoUtil.setString(R.string.preference_key_yir_survey_state, value.name)
 
+    var yearInReviewActivityTabDotSeenYear
+        get() = PrefsIoUtil.getInt(R.string.preference_key_yir_activity_tab_dot_seen_year, 0)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_yir_activity_tab_dot_seen_year, value)
+
     var isRecommendedReadingListEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_recommended_reading_list_enabled, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_recommended_reading_list_enabled, value)
