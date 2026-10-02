@@ -495,6 +495,12 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 updateQuickActionsAndMenuOptions()
             }
         }
+
+        bridge.evaluate(JavaScriptActionHandler.setFindInArticleHighlightColor()) {
+            if (!isAdded) {
+                return@evaluate
+            }
+        }
     }
 
     private fun handleInternalLink(title: PageTitle) {

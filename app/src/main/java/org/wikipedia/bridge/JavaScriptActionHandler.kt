@@ -48,6 +48,29 @@ object JavaScriptActionHandler {
         return "pcs.c1.Page.getRevision();"
     }
 
+    fun setFindInArticleHighlightColor(currentHighlightColor: String = "#F7D779", highlightColor: String = "#F7D779B3"): String {
+        return "(function() { " +
+                "  var style = document.createElement('style');" +
+                "  style.innerHTML = `" +
+                "      :root::search-text {" +
+                "          background-color: $highlightColor !important;" +
+                "          color: #000000 !important;" +
+                "      }" +
+                "      :root::search-text:current {" +
+                "          background-color: $currentHighlightColor !important;" +
+                "          color: #000000 !important;" +
+                "      }" +
+                "      a::search-text { " +
+                "          text-decoration: underline !important; " +
+                "      }" +
+                "      a::search-text:current { " +
+                "          text-decoration: underline !important; " +
+                "      }" +
+                "  `;" +
+                "  document.head.appendChild(style);" +
+                "})();"
+    }
+
     fun expandCollapsedTables(expand: Boolean): String {
         return "pcs.c1.Page.expandOrCollapseTables($expand);" +
                 "var hideableSections = document.getElementsByClassName('pcs-section-hideable-header'); " +
