@@ -29,11 +29,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.input.InputTransformation
 import androidx.compose.foundation.text.input.TextFieldLineLimits
 import androidx.compose.foundation.text.input.maxLength
 import androidx.compose.foundation.text.input.rememberTextFieldState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.BottomSheetDefaults
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -157,7 +159,8 @@ fun SemanticSearchResultsScreen(
                             .fillMaxWidth()
                             .padding(bottom = 16.dp, start = 16.dp, end = 16.dp)
                             .clip(RoundedCornerShape(16.dp))
-                            .background(WikipediaTheme.colors.borderColor),
+                            .background(WikipediaTheme.colors.borderColor)
+                            .verticalScroll(rememberScrollState()),
                         isVisible = feedbackState.isVisible,
                         selectedRating = feedbackState.isPositive,
                         onRatingClick = viewModel::selectFeedbackRating,
