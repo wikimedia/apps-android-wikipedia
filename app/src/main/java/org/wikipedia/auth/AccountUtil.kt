@@ -4,7 +4,6 @@ import android.accounts.Account
 import android.accounts.AccountAuthenticatorResponse
 import android.accounts.AccountManager
 import android.app.Activity
-import android.os.Bundle
 import androidx.core.os.bundleOf
 import androidx.core.text.isDigitsOnly
 import org.wikipedia.R
@@ -25,6 +24,7 @@ import kotlin.math.max
 object AccountUtil {
     private const val CENTRALAUTH_USER_COOKIE_NAME = "centralauth_User"
     private const val TEMP_ACCOUNT_EXPIRY_DAYS = 90
+    private const val USER_DATA_OAUTH_STATE = "oauthState"
 
     fun updateAccount(response: AccountAuthenticatorResponse?, result: LoginResult) {
         if (createAccount(result.userName!!, result.password!!)) {
@@ -39,20 +39,21 @@ object AccountUtil {
         groups = result.groups
     }
 
-    fun updateAccount(response: AccountAuthenticatorResponse?, result: OAuthProfile) {
-        if (createAccount(result.userName, "")) {
-            response?.onResult(
-                Bundle().apply {
-                    putString(AccountManager.KEY_ACCOUNT_NAME, result.userName)
-                    putString(AccountManager.KEY_ACCOUNT_TYPE, accountType())
-                }
-            )
-        } else {
-            response?.onError(AccountManager.ERROR_CODE_REMOTE_EXCEPTION, "")
+    /**
+     * Creates the account for a user who logged in with OAuth, which stores their OAuth state
+     * (including the refresh token) instead of a password, so that it's removed along with the
+     * account, whether by logging out, uninstalling the app, or removing it in system settings.
+     */
+    fun updateAccount(profile: OAuthProfile, oauthState: String): Boolean {
+        if (!createAccount(profile.userName, null)) {
             L.d("account creation failure")
-            return
+            return false
         }
-        groups = result.groups.toSet()
+        // In case this account was previously logged in with a password.
+        setPassword(null)
+        this.oauthState = oauthState
+        groups = profile.groups.toSet()
+        return true
     }
 
     val isLoggedIn: Boolean
@@ -68,6 +69,13 @@ object AccountUtil {
         get() {
             val account = account()
             return if (account == null) null else accountManager().getPassword(account)
+        }
+
+    var oauthState: String?
+        get() = account()?.let { accountManager().getUserData(it, USER_DATA_OAUTH_STATE) }
+        set(value) {
+            val account = account() ?: return
+            accountManager().setUserData(account, USER_DATA_OAUTH_STATE, value)
         }
 
     val assertUser: String?
@@ -149,7 +157,7 @@ object AccountUtil {
         FlowEventBus.post(LoggedOutInBackgroundEvent())
     }
 
-    private fun createAccount(userName: String, password: String): Boolean {
+    private fun createAccount(userName: String, password: String?): Boolean {
         var account = account()
         if (account == null || account.name.isEmpty() || account.name != userName) {
             removeAccount()
@@ -159,7 +167,7 @@ object AccountUtil {
         return true
     }
 
-    private fun setPassword(password: String) {
+    private fun setPassword(password: String?) {
         val account = account()
         if (account != null) {
             accountManager().setPassword(account, password)

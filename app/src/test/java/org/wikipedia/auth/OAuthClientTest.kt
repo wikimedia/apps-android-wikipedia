@@ -13,7 +13,6 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.wikipedia.WikipediaApp
-import org.wikipedia.settings.Prefs
 import org.wikipedia.test.TestOAuthUtil
 import org.wikipedia.test.TestOAuthUtil.HOUR_MILLIS
 import java.util.concurrent.Executors
@@ -60,7 +59,7 @@ class OAuthClientTest {
         assertTrue(body.contains("client_id=${OAuthClient.CLIENT_ID}"))
 
         // The new refresh token must be persisted, since the server will no longer accept the old one.
-        val persistedState = AuthState.jsonDeserialize(Prefs.oauthState)
+        val persistedState = AuthState.jsonDeserialize(AccountUtil.oauthState!!)
         assertEquals("access2", persistedState.accessToken)
         assertEquals("refresh2", persistedState.refreshToken)
     }
@@ -106,7 +105,8 @@ class OAuthClientTest {
 
         assertNull(client.getFreshAccessToken())
         assertFalse(client.isLoggedIn)
-        assertNull(AuthState.jsonDeserialize(Prefs.oauthState).refreshToken)
+        assertNull(AccountUtil.account())
+        assertNull(AccountUtil.oauthState)
     }
 
     @Test
@@ -120,6 +120,28 @@ class OAuthClientTest {
         // ...and tries again on the next call.
         server.enqueue(TestOAuthUtil.tokenResponse("access2", "refresh2"))
         assertEquals("access2", client.getFreshAccessToken())
+    }
+
+    @Test
+    fun testRefreshedTokensAreLoadedFromAccountAfterRestart() {
+        server.enqueue(TestOAuthUtil.tokenResponse("access2", "refresh2"))
+        createClient(expiresInMillis = -HOUR_MILLIS).getFreshAccessToken()
+
+        val restartedClient = OAuthClient(WikipediaApp.instance)
+
+        assertEquals("access2", restartedClient.getFreshAccessToken())
+        assertEquals(1, server.requestCount)
+    }
+
+    @Test
+    fun testClearAuthStateRemovesTokensFromAccount() {
+        val client = createClient(expiresInMillis = HOUR_MILLIS)
+
+        client.clearAuthState()
+
+        assertFalse(client.isLoggedIn)
+        assertNull(AccountUtil.oauthState)
+        assertFalse(OAuthClient(WikipediaApp.instance).isLoggedIn)
     }
 
     private fun createClient(expiresInMillis: Long): OAuthClient {

@@ -71,7 +71,7 @@ class OAuthClient(val context: Context) {
 
     init {
         try {
-            authState = AuthState.jsonDeserialize(Prefs.oauthState)
+            authState = AuthState.jsonDeserialize(AccountUtil.oauthState.orEmpty())
         } catch (_: Exception) {
             authState = AuthState()
         }
@@ -111,16 +111,19 @@ class OAuthClient(val context: Context) {
                 callback.onComplete(exception)
                 return@performTokenRequest
             }
-            updateState(AuthState(authorizationResponse, response, null))
+            // We need the access token to look up the user name, which we need to create the account
+            // that stores our tokens, so they're not persisted until finishLogin().
+            updateState(AuthState(authorizationResponse, response, null), persist = false)
 
             MainScope().launch(CoroutineExceptionHandler { _, t ->
+                clearAuthState()
                 callback.onComplete(t as Exception)
             }) {
                 withContext(Dispatchers.IO) {
                     val profile = ServiceFactory.getCoreRest(WikipediaApp.instance.wikiSite).getOAuthProfile()
                     finishLogin(profile)
-                    callback.onComplete(null)
                 }
+                callback.onComplete(null)
             }
         }
     }
@@ -228,13 +231,19 @@ class OAuthClient(val context: Context) {
     }
 
     @Synchronized
-    private fun updateState(newState: AuthState) {
-        Prefs.oauthState = newState.jsonSerializeString()
+    private fun updateState(newState: AuthState, persist: Boolean = true) {
+        if (persist) {
+            AccountUtil.oauthState = newState.takeIf { it.isAuthorized }?.jsonSerializeString()
+        }
         authState = newState
     }
 
     private fun finishLogin(profile: OAuthProfile) {
-        AccountUtil.updateAccount(null, profile)
+        synchronized(this) {
+            if (!AccountUtil.updateAccount(profile, authState.jsonSerializeString())) {
+                throw IOException("Failed to create account for ${profile.userName}.")
+            }
+        }
         Prefs.isReadingListSyncEnabled = true
         Prefs.readingListPagesDeletedIds = emptySet()
         Prefs.readingListsDeletedIds = emptySet()
