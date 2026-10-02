@@ -179,19 +179,22 @@
             android:windowSoftInputMode="adjustResize|stateVisible"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
 
+        <!-- Replaces AppAuth's own declaration, which would handle every URI with our custom scheme,
+             including article links meant for PageActivity. A path is only matched if a host is given. -->
         <activity android:name="net.openid.appauth.RedirectUriReceiverActivity"
-            android:exported="true">
+            android:exported="true"
+            tools:node="replace">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
-                <data android:scheme="wikipedia" android:path="/callback"/>
+                <data android:scheme="wikipedia" android:host="oauth" android:path="/callback"/>
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
-                <data android:scheme="wikipedia" android:path="/logout"/>
+                <data android:scheme="wikipedia" android:host="oauth" android:path="/logout"/>
             </intent-filter>
         </activity>
 
