@@ -704,15 +704,9 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                 semanticSearchFeedbackTitle = title
             }
 
-            // semantic search
-            val semanticSearchSnippet = if (Prefs.isSemanticSearchEnabled) intent.getStringExtra(Constants.ARG_SEMANTIC_SEARCH_SNIPPET) else null
+            val semanticSearchSnippet = intent.getStringExtra(Constants.ARG_SEMANTIC_SEARCH_SNIPPET)
             intent.removeExtra(Constants.ARG_SEMANTIC_SEARCH_SNIPPET)
-            val fragmentArgs = pageFragment.arguments ?: Bundle().also { pageFragment.arguments = it }
-            if (semanticSearchSnippet != null) {
-                fragmentArgs.putString(Constants.ARG_SEMANTIC_SEARCH_SNIPPET, semanticSearchSnippet)
-            } else {
-                fragmentArgs.remove(Constants.ARG_SEMANTIC_SEARCH_SNIPPET)
-            }
+            pageFragment.semanticSearchSnippet = semanticSearchSnippet
 
             when (intent.action) {
                 ACTION_LOAD_IN_NEW_TAB -> loadPage(title, historyEntry, TabPosition.NEW_TAB_FOREGROUND)

@@ -194,6 +194,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     lateinit var shareHandler: ShareHandler
     lateinit var editHandler: EditHandler
     var revision = 0L
+    var semanticSearchSnippet: String? = null
 
     private val shouldCreateNewTab get() = currentTab.backStack.isNotEmpty()
     private val backgroundTabPosition get() = 0.coerceAtLeast(foregroundTabPosition - 1)
@@ -805,11 +806,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                         }
                         model.title?.let {
                             if (!it.fragment.isNullOrEmpty()) {
-                                val snippet = arguments?.getString(Constants.ARG_SEMANTIC_SEARCH_SNIPPET)
-                                arguments?.remove(Constants.ARG_SEMANTIC_SEARCH_SNIPPET)
-                                val hasSemanticSearchHighlight = snippet?.contains("class=\"searchmatch\"") == true
+                                val hasSemanticSearchHighlight = semanticSearchSnippet?.contains("class=\"searchmatch\"") == true
                                 if (hasSemanticSearchHighlight) {
-                                    JavaScriptActionHandler.semanticSearchTextHighlight(model.title?.fragment, snippet)?.let { js ->
+                                    JavaScriptActionHandler.semanticSearchTextHighlight(model.title?.fragment, semanticSearchSnippet)?.let { js ->
                                         Handler(Looper.getMainLooper()).postDelayed({
                                             if (isAdded) {
                                                 webView.evaluateJavascript(js, null)
