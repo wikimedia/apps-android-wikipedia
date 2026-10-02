@@ -796,6 +796,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 }
             }
 
+            // Clear semanticSearchSnippet for one time use
+            val snippet = semanticSearchSnippet
+            semanticSearchSnippet = null
+
             // do we have a URL fragment to scroll to?
             model.title?.let { prevTitle ->
                 if (!prevTitle.fragment.isNullOrEmpty() && scrollTriggerListener.stagedScrollY == 0) {
@@ -806,9 +810,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                         }
                         model.title?.let {
                             if (!it.fragment.isNullOrEmpty()) {
-                                val hasSemanticSearchHighlight = semanticSearchSnippet?.contains("class=\"searchmatch\"") == true
+                                val hasSemanticSearchHighlight = snippet?.contains("class=\"searchmatch\"") == true
                                 if (hasSemanticSearchHighlight) {
-                                    JavaScriptActionHandler.semanticSearchTextHighlight(model.title?.fragment, semanticSearchSnippet)?.let { js ->
+                                    JavaScriptActionHandler.semanticSearchTextHighlight(model.title?.fragment, snippet)?.let { js ->
                                         Handler(Looper.getMainLooper()).postDelayed({
                                             if (isAdded) {
                                                 webView.evaluateJavascript(js, null)
