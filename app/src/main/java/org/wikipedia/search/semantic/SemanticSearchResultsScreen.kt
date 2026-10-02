@@ -298,7 +298,7 @@ fun SemanticSearchFeedbackContent(
                             .fillMaxWidth()
                             .background(color = WikipediaTheme.colors.paperColor),
                         state = feedbackTextState,
-                        inputTransformation = InputTransformation.maxLength(286), // required by the API
+                        inputTransformation = InputTransformation.maxLength(230), // required by the API
                         lineLimits = TextFieldLineLimits.MultiLine(maxHeightInLines = 4),
                         shape = RoundedCornerShape(4.dp),
                         placeholder = {
