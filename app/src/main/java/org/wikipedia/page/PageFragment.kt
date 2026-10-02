@@ -793,9 +793,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 }
             }
 
-            // do we have a URL fragment to scroll to?
+            // do we have a URL fragment to scroll to? (A text fragment is scrolled to natively by the WebView.)
             model.title?.let { prevTitle ->
-                if (!prevTitle.fragment.isNullOrEmpty() && scrollTriggerListener.stagedScrollY == 0) {
+                if (!prevTitle.fragment.isNullOrEmpty() && scrollTriggerListener.stagedScrollY == 0 && model.highlightText.isNullOrEmpty()) {
                     val scrollDelay = 100
                     webView.postDelayed({
                         if (!isAdded) {
@@ -1004,7 +1004,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         setCurrentTabAndReset(selectedTabPosition)
     }
 
-    fun loadPage(title: PageTitle, entry: HistoryEntry, pushBackStack: Boolean, squashBackstack: Boolean, isRefresh: Boolean = false) {
+    fun loadPage(title: PageTitle, entry: HistoryEntry, pushBackStack: Boolean, squashBackstack: Boolean, isRefresh: Boolean = false, highlightText: String? = null) {
         // is the new title the same as what's already being displayed?
         if (currentTab.backStack.isNotEmpty() &&
                 title == currentTab.backStack[currentTab.backStackPosition].title) {
@@ -1020,10 +1020,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 app.tabList.last().clearBackstack()
             }
         }
-        loadPage(title, entry, pushBackStack, 0, isRefresh)
+        loadPage(title, entry, pushBackStack, 0, isRefresh, highlightText)
     }
 
-    fun loadPage(title: PageTitle, entry: HistoryEntry, pushBackStack: Boolean, stagedScrollY: Int, isRefresh: Boolean = false) {
+    fun loadPage(title: PageTitle, entry: HistoryEntry, pushBackStack: Boolean, stagedScrollY: Int, isRefresh: Boolean = false, highlightText: String? = null) {
         // clear the title in case the previous page load had failed.
         clearActivityActionBarTitle()
 
@@ -1050,6 +1050,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         model.page = null
         model.readingListPage = null
         model.forceNetwork = isRefresh
+        model.highlightText = highlightText
         webView.visibility = View.VISIBLE
         binding.pageActionsTabLayout.visibility = View.VISIBLE
         binding.pageActionsTabLayout.enableAllTabs()
