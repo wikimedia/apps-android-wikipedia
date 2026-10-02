@@ -4,10 +4,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.annotation.WorkerThread
 import androidx.core.net.toUri
-import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.MainScope
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import net.openid.appauth.AppAuthConfiguration
 import net.openid.appauth.AuthState
@@ -24,9 +21,11 @@ import okhttp3.Request
 import org.json.JSONException
 import org.json.JSONObject
 import org.wikipedia.WikipediaApp
+import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
+import org.wikipedia.events.LoggedInEvent
 import org.wikipedia.notifications.PollNotificationWorker
 import org.wikipedia.push.WikipediaFirebaseMessagingService
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
@@ -37,10 +36,6 @@ import java.util.concurrent.locks.ReentrantLock
 import kotlin.concurrent.withLock
 
 class OAuthClient(val context: Context) {
-    fun interface Callback {
-        fun onComplete(e: Exception?)
-    }
-
     // This is read from network threads without locking, so it must never be modified in place.
     // Instead, modify a copy and publish it with updateState().
     @Volatile
@@ -97,35 +92,24 @@ class OAuthClient(val context: Context) {
         return authorizationService.getAuthorizationRequestIntent(builder.build())
     }
 
-    fun handleAuthorizationResponse(intent: Intent, callback: Callback) {
-        val authorizationResponse = AuthorizationResponse.fromIntent(intent)
-        if (authorizationResponse == null) {
-            callback.onComplete(AuthorizationException.fromIntent(intent))
-            return
-        }
-
-        val tokenExchangeRequest = authorizationResponse.createTokenExchangeRequest()
-
-        authorizationService.performTokenRequest(tokenExchangeRequest) { response, exception ->
-            if (response == null) {
-                callback.onComplete(exception)
-                return@performTokenRequest
-            }
+    /**
+     * Completes logging in after the user authorized us in the browser, by exchanging the
+     * authorization code for tokens, and creating the user's account to store them in.
+     */
+    suspend fun handleAuthorizationResponse(authorizationResponse: AuthorizationResponse) {
+        withContext(Dispatchers.IO) {
+            val tokenResponse = executeTokenRequest(authorizationResponse.createTokenExchangeRequest())
             // We need the access token to look up the user name, which we need to create the account
-            // that stores our tokens, so they're not persisted until finishLogin().
-            updateState(AuthState(authorizationResponse, response, null), persist = false)
-
-            MainScope().launch(CoroutineExceptionHandler { _, t ->
+            // that stores our tokens, so they're not persisted until createAccount().
+            updateState(AuthState(authorizationResponse, tokenResponse, null), persist = false)
+            try {
+                createAccount(ServiceFactory.getCoreRest(WikipediaApp.instance.wikiSite).getOAuthProfile())
+            } catch (e: Throwable) {
                 clearAuthState()
-                callback.onComplete(t as Exception)
-            }) {
-                withContext(Dispatchers.IO) {
-                    val profile = ServiceFactory.getCoreRest(WikipediaApp.instance.wikiSite).getOAuthProfile()
-                    finishLogin(profile)
-                }
-                callback.onComplete(null)
+                throw e
             }
         }
+        onLoggedIn()
     }
 
     /**
@@ -238,20 +222,27 @@ class OAuthClient(val context: Context) {
         authState = newState
     }
 
-    private fun finishLogin(profile: OAuthProfile) {
-        synchronized(this) {
-            if (!AccountUtil.updateAccount(profile, authState.jsonSerializeString())) {
-                throw IOException("Failed to create account for ${profile.userName}.")
-            }
+    @Synchronized
+    private fun createAccount(profile: OAuthProfile) {
+        if (!AccountUtil.updateAccount(profile, authState.jsonSerializeString())) {
+            throw IOException("Failed to create account for ${profile.userName}.")
         }
+    }
+
+    private fun onLoggedIn() {
+        // Set reading list syncing to enabled (without the explicit setup instruction),
+        // so that the sync adapter can run at least once and check whether syncing is enabled
+        // on the server side.
         Prefs.isReadingListSyncEnabled = true
         Prefs.readingListPagesDeletedIds = emptySet()
         Prefs.readingListsDeletedIds = emptySet()
         Prefs.tempAccountWelcomeShown = false
         Prefs.tempAccountCreateDay = 0L
+        Prefs.lastBackgroundLoginDateTime = ""
         ReadingListSyncAdapter.manualSyncWithForce()
         PollNotificationWorker.schedulePollNotificationJob(WikipediaApp.instance)
         WikipediaFirebaseMessagingService.updateSubscription()
+        FlowEventBus.post(LoggedInEvent())
     }
 
     companion object {

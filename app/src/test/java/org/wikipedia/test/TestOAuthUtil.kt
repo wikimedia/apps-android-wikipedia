@@ -20,12 +20,7 @@ object TestOAuthUtil {
     // Creates an account with an authorized state whose token endpoint is the given server, so that
     // an OAuthClient constructed afterwards will refresh its tokens against it.
     fun persistAuthState(server: MockWebServer, accessToken: String, refreshToken: String, expiresInMillis: Long) {
-        val config = AuthorizationServiceConfiguration(server.url("/authorize").toString().toUri(), server.url("/token").toString().toUri())
-        val authRequest = AuthorizationRequest.Builder(config, OAuthClient.CLIENT_ID, ResponseTypeValues.CODE, OAuthClient.REDIRECT_URI.toUri()).build()
-        val authResponse = AuthorizationResponse.Builder(authRequest)
-            .setState(authRequest.state)
-            .setAuthorizationCode("code")
-            .build()
+        val authResponse = authorizationResponse(server)
         val tokenResponse = TokenResponse.Builder(authResponse.createTokenExchangeRequest())
             .setTokenType("Bearer")
             .setAccessToken(accessToken)
@@ -33,6 +28,16 @@ object TestOAuthUtil {
             .setAccessTokenExpirationTime(System.currentTimeMillis() + expiresInMillis)
             .build()
         AccountUtil.updateAccount(profile("Example"), AuthState(authResponse, tokenResponse, null).jsonSerializeString())
+    }
+
+    // What the browser returns once the user has authorized us, with a token endpoint at the given server.
+    fun authorizationResponse(server: MockWebServer): AuthorizationResponse {
+        val config = AuthorizationServiceConfiguration(server.url("/authorize").toString().toUri(), server.url("/token").toString().toUri())
+        val authRequest = AuthorizationRequest.Builder(config, OAuthClient.CLIENT_ID, ResponseTypeValues.CODE, OAuthClient.REDIRECT_URI.toUri()).build()
+        return AuthorizationResponse.Builder(authRequest)
+            .setState(authRequest.state)
+            .setAuthorizationCode("code")
+            .build()
     }
 
     fun profile(userName: String, groups: List<String> = listOf("user")): OAuthProfile {

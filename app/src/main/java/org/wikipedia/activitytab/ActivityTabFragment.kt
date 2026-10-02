@@ -373,8 +373,7 @@ class ActivityTabFragment : Fragment() {
                                 startActivity(
                                     LoginActivity.newIntent(
                                         requireContext(),
-                                        LoginActivity.SOURCE_ACTIVITY_TAB,
-                                        createAccountFirst = false
+                                        LoginActivity.SOURCE_ACTIVITY_TAB
                                     )
                                 )
                             },

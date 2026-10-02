@@ -156,12 +156,7 @@
     <string name="title_captcha">Enter CAPTCHA</string>
     <string name="edit_section_captcha_reload">Tap CAPTCHA to reload</string>
     <string name="nav_item_login">Log in to Wikipedia</string>
-    <string name="login_username_hint">Username</string>
-    <string name="login_password_hint">Password</string>
-    <string name="account_creation_password_hint">Password</string>
-    <string name="login_2fa_hint">Two-factor authentication code</string>
     <string name="login_2fa_other_workflow_error_msg">Two-factor authentication required! Please login from the main screen, and enter the code from your 2FA token.</string>
-    <string name="login_email_auth_hint">Email verification code</string>
     <string name="login_email_auth_other_workflow_error_msg">Email verification required! Please login from the main screen, and enter your email verification code.</string>
     <string name="login_background_error_msg">Unable to re-login. Please go back to the main screen and log in manually.</string>
     <string name="onboarding_card_login">Log in</string>
@@ -169,13 +164,7 @@
     <string name="reading_lists_sync_login">Log in</string>
     <string name="create_account_login">Log in</string>
     <string name="menu_login">Log in</string>
-    <string name="login_activity_title">Log in</string>
-    <string name="login_in_progress_dialog_message">Logging you in…</string>
     <string name="login_success_toast">Logged in!</string>
-    <string name="reset_password_title">Set your password</string>
-    <string name="reset_password_description">You logged in with a temporary password. To finish logging in, please set your new password here.</string>
-    <string name="reset_password_hint">New password</string>
-    <string name="reset_password_button">Save and log in</string>
     <string name="preference_title_logout">Log out</string>
     <string name="toast_logout_complete">Logged out</string>
     <string name="logout_prompt">This will log you out on all devices where you are currently logged in. Do you want to continue?</string>
@@ -194,27 +183,7 @@
     <string name="search_empty_message_multilingual_upgrade">Search Wikipedia in more languages</string>
     <string name="delete_selected_items">Delete selected items</string>
     <string name="wp_stylized"><![CDATA[<big>W</big>IKIPEDI<big>A</big>]]></string>
-    <string name="create_account_username_hint">Username</string>
-    <string name="login_dont_have_account">Don\'t have an account?</string>
     <string name="login_join_wikipedia">Join Wikipedia</string>
-    <string name="login_forgot_password">Forgot your password?</string>
-    <string name="create_account_already_have">Already have an account?</string>
-    <string name="create_account_activity_title">Create an account</string>
-    <string name="dialog_create_account_checking_progress">Verifying</string>
-    <string name="create_account_email_hint">Email (Optional)</string>
-    <string name="create_account_password_repeat_hint">Repeat password</string>
-    <string name="create_account_password_is_username">Password can\'t be the same as username</string>
-    <string name="create_account_passwords_mismatch_error">Passwords don\'t match</string>
-    <string name="create_account_email_error">Invalid email address</string>
-    <string name="create_account_username_error">Invalid characters in username</string>
-    <string name="create_account_password_error">The password must be at least 8 characters</string>
-    <string name="create_account_generic_error">Could not create account</string>
-    <string name="create_account_next">Next</string>
-    <string name="email_recommendation_dialog_title">Create account with no email address?</string>
-    <string name="email_recommendation_dialog_message"><![CDATA[Although the email address is optional, it is <b>highly recommended</b>, since an email is needed for account recovery if you ever lose your password.]]></string>
-    <string name="email_recommendation_message">Recommended since email is needed for account recovery.</string>
-    <string name="email_recommendation_dialog_create_without_email_action">Continue without email</string>
-    <string name="email_recommendation_dialog_create_with_email_action">Add an email address</string>
     <string name="create_account_button">Create account</string>
     <string name="create_account_encourage_title">Wikipedia is better with an account</string>
     <string name="create_account_encourage_year_in_review_title_zero">See your reading days come together in Year in Review</string>
@@ -237,15 +206,11 @@
     <string name="create_account_encourage_activity_description">See your reading time, explored topics, and the reach of your contributions in the Activity tab.</string>
     <string name="create_account_encourage_edits_title">Get credit for your edits</string>
     <string name="create_account_encourage_edits_description">Build a track record you can be proud of, with contributions across Wikimedia projects credited to your account.</string>
-    <string name="create_account_name_unavailable">The user name \"%s\" is not available. Please choose a different name.</string>
-    <string name="create_account_ip_block_message">Sorry, your IP address is currently blocked from creating new accounts.</string>
     <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
-    <string name="create_account_ip_block_details">Details</string>
     <string name="preferences_general_heading">General</string>
     <string name="preferences_account_heading">Account</string>
     <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
     <string name="send_feedback">Send app feedback</string>
-    <string name="create_account_account_created_toast">Account created!</string>
     <string name="preferences_heading_syncing">Syncing</string>
     <string name="preferences_heading_data_usage">Data usage</string>
     <string name="preferences_heading_experimental">Experimental</string>
@@ -503,7 +468,6 @@
     <string name="temp_account_anon_ip_edit_status"><![CDATA[<b>You are not logged in.</b> Once you make an edit, your IP address will be associated with your edits.]]></string>
     <string name="temp_account_anon_edit_status"><![CDATA[<b>You are not logged in.</b> Once you make an edit, a temporary account will be created for you to protect your privacy. <a href="%1$s">Learn more</a>]]></string>
     <string name="temp_account_edit_status"><![CDATA[<b>You are using a temporary account.</b> Your edit will be attributed to %1$s. <a href="%2$s">Learn more</a>.]]></string>
-    <string name="temp_account_login_status"><![CDATA[<b>You are currently using a temporary account.</b> Edits made with the temporary account %1$s will not be carried over to your permanent account when you log in. Log in or create an account to get credit to your username, among other benefits.]]></string>
     <string name="temp_account_end_session">End session</string>
     <string name="temp_account_end_session_confirm">This will log you out of your temporary account. Do you want to continue?</string>
 
