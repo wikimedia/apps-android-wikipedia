@@ -15,18 +15,15 @@ import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.analytics.eventplatform.WikiGamesEvent
-import org.wikipedia.analytics.eventplatform.YearInReviewEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ViewMainDrawerBinding
 import org.wikipedia.games.GamesHubActivity
 import org.wikipedia.games.WikiGames
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.places.PlacesActivity
-import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.SuggestedEditsTasksActivity
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil.getThemedColorStateList
-import org.wikipedia.yearinreview.presentation.YearInReviewViewModel
 
 class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
     interface Callback {
@@ -37,22 +34,13 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
         fun watchlistClick()
         fun contribsClick()
         fun donateClick(campaignId: String? = null)
-        fun yearInReviewClick()
     }
 
     private var _binding: ViewMainDrawerBinding? = null
     private val binding get() = _binding!!
 
-    private val yirEntrySlide get() = if (AccountUtil.isLoggedIn) "li_profile" else "lo_profile"
-    private val yirEnabled get() = YearInReviewViewModel.canShowEntryPoint
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = ViewMainDrawerBinding.inflate(inflater, container, false)
-
-        if (yirEnabled) {
-            YearInReviewEvent.submit(action = "impression", slide = yirEntrySlide)
-        }
-        binding.mainDrawerYearInReviewContainer.isVisible = yirEnabled
 
         binding.mainDrawerAccountContainer.setOnClickListener {
             BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerAccountContainer)
@@ -106,13 +94,6 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
             callback()?.donateClick()
             dismiss()
         }
-
-        binding.mainDrawerYearInReviewContainer.setOnClickListener {
-            YearInReviewEvent.submit(action = "start_click", slide = yirEntrySlide)
-            callback()?.yearInReviewClick()
-            dismiss()
-        }
-        binding.yearInReviewRedDot.isVisible = !Prefs.yearInReviewVisited
 
         binding.mainDrawerEditContainer.setOnClickListener {
             BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerEditContainer)

@@ -92,7 +92,6 @@ import org.wikipedia.views.TabCountsView
 import org.wikipedia.views.imageservice.ImageService
 import org.wikipedia.watchlist.WatchlistActivity
 import org.wikipedia.widgets.SearchWidgetInstallDialog
-import org.wikipedia.yearinreview.presentation.YearInReviewActivity
 import org.wikipedia.yearinreview.presentation.YearInReviewDialog
 import org.wikipedia.yearinreview.presentation.YearInReviewViewModel
 import java.io.File
@@ -493,11 +492,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
 
     override fun donateClick(campaignId: String?) {
         (requireActivity() as? BaseActivity)?.launchDonateDialog(campaignId = campaignId)
-    }
-
-    override fun yearInReviewClick() {
-        // TODO yir: remove this later
-        startActivity(YearInReviewActivity.newIntent(requireActivity()))
     }
 
     fun setBottomNavVisible(visible: Boolean) {
