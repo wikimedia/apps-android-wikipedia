@@ -2686,4 +2686,12 @@
         <item quantity="other">%d references</item>
     </plurals>
     <string name="semantic_search_results_last_updated_label">Last update %s</string>
+    <string name="semantic_search_results_feedback_title">Found what you were looking for?</string>
+    <string name="semantic_search_results_feedback_thumb_up_content_description">Thumbs up</string>
+    <string name="semantic_search_results_feedback_thumb_down_content_description">Thumbs down</string>
+    <string name="semantic_search_results_feedback_input_hint">Tell us more (optional)</string>
+    <string name="semantic_search_results_feedback_submit_button_text">Submit</string>
+    <string name="semantic_search_results_feedback_submitted_message">Thanks for your feedback</string>
+    <string name="semantic_search_feedback_dialog_title">Feedback</string>
+    <string name="semantic_search_feedback_dialog_close_button_content_description">Close the semantic search feedback</string>
 </resources>
