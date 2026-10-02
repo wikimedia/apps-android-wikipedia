@@ -456,9 +456,15 @@ class OnThisDayGamePlayFragment : Fragment() {
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyView() {
+        super.onDestroyView()
         mediaPlayer?.release()
+        mediaPlayer = null
+        cardAnimatorSetIn.removeAllListeners()
+        cardAnimatorSetIn.cancel()
+        cardAnimatorSetOut.removeAllListeners()
+        cardAnimatorSetOut.cancel()
+        _binding = null
     }
 
     companion object {

@@ -19,6 +19,7 @@ import okio.source
 import okio.use
 import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
+import org.wikipedia.extensions.closeSilently
 import org.wikipedia.offline.db.OfflineObject
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
@@ -205,8 +206,9 @@ class OfflineCacheInterceptor : Interceptor {
             if (!cacheRequestClosed) {
                 // discard(this, ExchangeCodec.DISCARD_STREAM_TIMEOUT_MILLIS, MILLISECONDS)
                 cacheRequestClosed = true
+                cacheSink.closeSilently()
             }
-            source.close()
+            source.closeSilently()
             if (failed) {
                 AppDatabase.instance.offlineObjectDao().deleteFilesForObject(obj)
             }
