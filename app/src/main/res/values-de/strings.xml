@@ -2297,8 +2297,8 @@
   <string name="donation_reminders_settings_title">Spendenerinnerungen</string>
   <string name="donation_reminders_settings_option_title">Spendenerinnerungen</string>
   <string name="donation_reminders_settings_thank_you_message">Schließe dich den 2 %% der Leser an, die spenden, damit Wikipedia werbefrei, aktuell und für alle zugänglich bleibt. Richte jetzt deine Spendenerinnerung ein.</string>
-  <string name="donation_reminders_settings_donation_info" fuzzy="true">Die Spenden gehen an die Wikimedia Foundation und zugehörige Organisationen, die stolzen Betreiber von Wikipedia und anderen freien Wissensprojekten.</string>
-  <string name="donation_reminders_settings_article_frequency_label" fuzzy="true">Wenn ich lese</string>
+  <string name="donation_reminders_settings_donation_info">Die Spenden gehen an die Wikimedia Foundation und zugehörige Organisationen, die stolzen Betreiber von Wikipedia und ihren Schwesterprojekten.</string>
+  <string name="donation_reminders_settings_article_frequency_label">Immer wenn ich lese</string>
   <string name="donation_reminders_settings_amount_label">Erinnere mich daran, zu spenden</string>
   <string name="donation_reminders_settings_confirm_btn_label">Erinnerung bestätigen</string>
   <string name="donation_reminders_settings_about_experiment_btn_label">Über dieses Experiment</string>
@@ -2307,10 +2307,12 @@
   <string name="donation_reminders_settings_warning_max_amount">Es sind maximal %s erlaubt</string>
   <string name="donation_reminders_settings_option_custom">Benutzerdefiniert…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Vielen Dank! Wir werden dich während der Laufzeit dieses Experiments jedes Mal, wenn du %2$s liest, an deine Spende in Höhe von %1$s erinnern.</string>
-  <string name="donation_reminders_first_milestone_reached_prompt_title" fuzzy="true">Du hast %1$s gelesen, seit du %2$s versprochen haben.</string>
-  <string name="donation_reminders_subsequent_milestone_reached_prompt_title" fuzzy="true">Du hast weitere %1$s gelesen</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title">Du hast %1$s gelesen, seit du %2$s zugesagt hast!</string>
+  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">Du hast weitere %1$s gelesen!</string>
   <string name="donation_reminders_prompt_message">Am %1$s hast du eine Spendenerinnerung eingerichtet, um nach jeweils %2$s gelesenen Artikeln %3$s zu spenden. Bereit, deine Zusage einzulösen und Wikipedia zu unterstützen?</string>
+  <string name="donation_reminders_prompt_message_v2">Am %1$s hast du uns gebeten, dich ans Spenden zu erinnern, sobald du %2$s gelesen hast. Wenn dir Wikipedia Wissen im Wert von %3$s gebracht hat, schließe dich den 2 %% der Leser an, die spenden, und löse deine Zusage noch heute ein.</string>
   <string name="donation_reminders_prompt_positive_button">Jetzt spenden</string>
+  <string name="donation_reminders_prompt_positive_button_v2">Ja, jetzt spenden</string>
   <string name="donation_reminders_prompt_negative_button">Nicht jetzt</string>
   <string name="donation_reminders_gpay_text">Mit Google Pay %s spenden</string>
   <string name="donation_reminders_gpay_different_amount_text">Mit Google Pay einen anderen Betrag spenden</string>
@@ -2328,6 +2330,24 @@
   <string name="donation_reminders_settings_report_email_subject">Problembericht – Spendenerinnerungen</string>
   <string name="donation_reminders_settings_report_email_body">Ich habe ein Problem mit der Funktion „Spendenerinnerungen“ festgestellt:\n- [Problem beschreiben]\n- [Screenshots oder Links]\n\nDas erwartete Verhalten wäre:\n- [Gewünschte Lösung beschreiben]</string>
   <string name="donation_reminders_snackbar_modify_button_label">Ändern</string>
+  <string name="donation_reminders_settings_article_number_selection_label">Artikel</string>
+  <string name="donation_reminders_settings_custom_amount_label">Eigener Betrag</string>
+  <string name="donation_reminders_settings_update_reminder_button">Erinnerung aktualisieren</string>
+  <string name="donation_reminders_beta_label">Beta</string>
+  <string name="donation_reminders_wrap_up_title">Das war’s mit den Spendenerinnerungen</string>
+  <string name="donation_reminders_wrap_up_message">Danke, dass du die Spendenerinnerungen getestet hast, die sich nach deinen gelesenen Artikeln richten. Dein Feedback entscheidet, ob daraus eine dauerhafte Möglichkeit wird, auf Wikipedia zu spenden. Es dauert nur eine Minute und eine Spende ist nicht erforderlich.</string>
+  <string name="donation_reminders_wrap_up_share_feedback_button">Feedback geben</string>
+  <string name="donation_reminders_wrap_up_survey_title">Eine kurze Frage zu den Spendenerinnerungen</string>
+  <string name="donation_reminders_wrap_up_survey_message">Sollen Spendenerinnerungen, die sich nach deinen gelesenen Artikeln richten, eine dauerhafte Funktion werden?</string>
+  <string name="donation_reminders_wrap_up_survey_option_keep_it">Beibehalten</string>
+  <string name="donation_reminders_wrap_up_survey_option_remove_it">Entfernen</string>
+  <string name="donation_reminders_wrap_up_survey_option_not_sure">Weiß nicht</string>
+  <string name="donation_reminders_wrap_up_survey_optional_hint">Noch etwas? (optional)</string>
+  <string name="donation_reminders_wrap_up_survey_thank_you_message">Danke für dein Feedback. Deine Antwort hilft uns zu entscheiden, was wir als Nächstes entwickeln.</string>
+  <string name="donation_reminders_eoe_title">Das Experiment ist beendet</string>
+  <string name="donation_reminders_eoe_message">Wir zeigen keine Erinnerungen mehr in der App an, aber du kannst Wikipedia weiterhin unterstützen, indem du deinen zugesagten Betrag von %s monatlich spendest.</string>
+  <string name="donation_reminders_eoe_give_monthly_button">Monatlich spenden</string>
+  <string name="donation_reminders_eoe_donate_dialog_title">Wie möchtest du monatlich spenden?</string>
   <string name="reading_challenge_widget_name">Leseherausforderung</string>
   <string name="reading_challenge_onboarding_header">Feiere Wikipedias 25. Geburtstag mit der 25-Tage-Lese-Challenge!</string>
   <string name="reading_challenge_onboarding_read_title">Lies 25 Tage lang jeden Tag einen Artikel</string>
@@ -2454,6 +2474,8 @@
   <string name="home_feed_new_within_interest_card_heading">Neu passend zu deinen Interessen</string>
   <string name="home_feed_new_within_interest_title">Neue Artikel zu deinen Interessen</string>
   <string name="home_feed_new_within_interest_subtitle">Kürzlich erstellte Artikel aus Themenbereichen, denen du folgst</string>
+  <string name="home_feed_settings_read_aloud_lead_section_title">Artikeleinleitungen anhören</string>
+  <string name="home_feed_settings_read_aloud_lead_section_subtitle">Automatisch erzeugte Audioversionen von Artikeleinleitungen aus Themenbereichen, denen du folgst</string>
   <string name="home_feed_settings_because_you_read_subtitle">Vorschläge basierend auf einem kürzlich gelesenen Artikel aus deinem Verlauf</string>
   <string name="home_feed_settings_continue_reading_title">Weiterlesen</string>
   <string name="home_feed_settings_continue_reading_subtitle">Kehre zu Artikeln zurück, die du nicht zu Ende gelesen hast</string>
@@ -2496,6 +2518,25 @@
   <string name="home_feed_settings_games_title">Spiele</string>
   <string name="home_feed_settings_games_subtitle">Tägliche Spiele auf Basis von Wikipedia-Inhalten</string>
   <string name="home_feed_settings_discover_title">Entdecken-Empfehlungen</string>
+  <string name="read_aloud_card_play">Abspielen</string>
+  <string name="read_aloud_card_pause">Pausieren</string>
+  <string name="read_aloud_card_retry">Erneut versuchen</string>
+  <string name="read_aloud_card_error">Für diesen Artikel ist keine Audioversion verfügbar.</string>
+  <string name="read_aloud_card_keep_listening">Weiter anhören?</string>
+  <string name="read_aloud_card_audio_date">Diese Audioversion wurde mit &lt;a href=\"https://www.mediawiki.org/wiki/Readers/Listening_to_Wikipedia/Model\"&gt;einem Sprachsynthesemodell&lt;/a&gt; auf Grundlage des Artikelinhalts vom %s erzeugt.</string>
+  <string name="read_aloud_card_audio_attribution">Diese Audioversion wurde mit &lt;a href=\"https://www.mediawiki.org/wiki/Readers/Listening_to_Wikipedia/Model\"&gt;einem Sprachsynthesemodell&lt;/a&gt; erzeugt.</string>
+  <string name="read_aloud_lead_section_tooltip_text">Neue Betafunktion: Artikeleinleitungen in „Für dich“ anhören</string>
+  <string name="read_aloud_lead_section_survey_title">Wie möchtest du Wikipedia anhören?</string>
+  <string name="read_aloud_lead_section_survey_choice1">Artikeleinleitungen</string>
+  <string name="read_aloud_lead_section_survey_choice2">Einige Abschnitte eines Artikels</string>
+  <string name="read_aloud_lead_section_survey_choice3">Ganze Artikel</string>
+  <string name="read_aloud_lead_section_survey_choice4">Mehrere kurze Auszüge aus verschiedenen Artikeln zu einem Thema</string>
+  <string name="read_aloud_lead_section_survey_choice5">Sonstiges:</string>
+  <string name="read_aloud_lead_section_beta_label">Beta</string>
+  <string name="read_aloud_lead_section_report_subject">Problembericht – Artikeleinleitungen anhören</string>
+  <string name="read_aloud_lead_section_report_body">Ich habe ein Problem mit der Funktion „Artikeleinleitungen anhören“ festgestellt:\n- [Konkretes Problem beschreiben]\n\nDas gewünschte Verhalten wäre:\n- [Lösungsvorschlag beschreiben]</string>
+  <string name="read_aloud_lead_section_about_experiment">Über dieses Experiment</string>
+  <string name="read_aloud_lead_section_report_issue">Problem melden</string>
   <string name="home_feed_settings_discover_subtitle">Artikel aus deiner Entdecken-Sammlung</string>
   <string name="home_feed_discover_cta_title">Aus Entdecken</string>
   <string name="home_feed_discover_cta_description">Erfahre mehr über neue Themen, speziell für dich ausgewählt. Wähle zwischen täglichen, wöchentlichen oder monatlichen Updates.</string>
