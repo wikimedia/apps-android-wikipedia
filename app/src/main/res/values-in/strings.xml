@@ -2002,6 +2002,8 @@
   <string name="reading_challenge_widget_name">Tantangan Membaca</string>
   <string name="reading_challenge_widget_explore_wikipedia_button">Jelajahi Wikipedia</string>
   <string name="reading_challenge_widget_join_challenge_button">Ikuti tantangannya</string>
+  <string name="read_aloud_card_play">Putar</string>
+  <string name="read_aloud_lead_section_survey_title">Bagaimana Anda tertarik untuk mendengarkan Wikipedia?</string>
   <string name="reading_lists_save_sheet_create">Buat</string>
   <string name="reading_lists_update_tooltip">Daftar bacaan sekarang disebut koleksi.</string>
 </resources>
