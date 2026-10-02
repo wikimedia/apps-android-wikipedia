@@ -68,6 +68,7 @@ import org.wikipedia.games.onthisday.OnThisDayGameViewModel
 import org.wikipedia.page.PageTitle
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.UiState
+import org.wikipedia.yearinreview.presentation.YearInReviewEntryCard
 import java.time.LocalDateTime
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -101,7 +102,10 @@ fun ActivityTabLoggedInScreen(
     onGameStatsClick: () -> Unit = {},
     onGamesRetry: () -> Unit = {},
     onDonationClick: () -> Unit = {},
-    onTimelineItemClick: (TimelineItem) -> Unit = {}
+    onTimelineItemClick: (TimelineItem) -> Unit = {},
+    showYearInReviewCard: Boolean = false,
+    isYearInReviewDataRich: Boolean = false,
+    onYirGetStartedClick: () -> Unit = {}
 ) {
     val timelineItems = timelineFlow.collectAsLazyPagingItems()
     val listState = rememberLazyListState()
@@ -109,10 +113,12 @@ fun ActivityTabLoggedInScreen(
 
     LaunchedEffect(scrollToGames) {
         if (scrollToGames && modules.isModuleVisible(ModuleType.GAMES, areGamesAvailable = areGamesAvailable)) {
-            val containerIndex = if (
+            val yearInReviewItemCount = if (showYearInReviewCard) 1 else 0
+            val readingHistoryItemCount = if (
                 modules.isModuleVisible(ModuleType.TIME_SPENT) ||
                 modules.isModuleVisible(ModuleType.READING_INSIGHTS)
             ) 1 else 0
+            val containerIndex = yearInReviewItemCount + readingHistoryItemCount
 
             gamesModuleOffsetInItem = 0
 
@@ -198,6 +204,21 @@ fun ActivityTabLoggedInScreen(
             LazyColumn(
                 state = listState
             ) {
+                if (showYearInReviewCard) {
+                    item {
+                        Box(
+                            modifier = Modifier
+                                .padding(paddingValues)
+                                .padding(start = 16.dp, end = 16.dp, top = 16.dp)
+                        ) {
+                            YearInReviewEntryCard(
+                                title = stringResource(if (isYearInReviewDataRich) R.string.year_in_review_entry_card_title_personalized else R.string.year_in_review_entry_card_title_collective),
+                                subtitle = stringResource(R.string.year_in_review_entry_card_subtitle),
+                                onGetStartedClick = onYirGetStartedClick
+                            )
+                        }
+                    }
+                }
                 if (modules.isModuleVisible(ModuleType.TIME_SPENT) || modules.isModuleVisible(ModuleType.READING_INSIGHTS)) {
                     item {
                         Column(
@@ -472,7 +493,9 @@ private fun ActivityTabLoggedInScreenPreview() {
                 bestStreak = 25
             )),
             impactUiState = UiState.Success(Pair(GrowthUserImpact(totalEditsCount = 12345), 123456)),
-            timelineFlow = emptyFlow()
+            timelineFlow = emptyFlow(),
+            showYearInReviewCard = true,
+            isYearInReviewDataRich = true
         )
     }
 }
