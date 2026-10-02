@@ -230,7 +230,7 @@ object JavaScriptActionHandler {
             
                 const NAME = 'semantic-search-highlight';
                 const style = document.createElement('style');
-                style.textContent = '::highlight(' + NAME + ') { background-color: yellow; color: black; }';
+                style.textContent = '::highlight(' + NAME + ') { background-color: yellow; }';
                 document.head.appendChild(style);
                 
                 const normalizeCharForMatch = ch => ch
