@@ -325,6 +325,7 @@ fun SemanticSearchFeedbackContent(
                         modifier = Modifier
                             .fillMaxWidth()
                             .heightIn(min = 48.dp),
+                        enabled = selectedRating != null,
                         onClick = {
                             focusManager.clearFocus()
                             onSubmitClick(selectedRating, feedbackTextState.text.toString().trim())
