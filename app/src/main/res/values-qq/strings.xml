@@ -1925,6 +1925,8 @@
   <string name="wikipedia_games_title">Title text for the Wikipedia Games.</string>
   <string name="wikipedia_games_subtitle">Subtitle text describing the Wikipedia Games as daily trivia games based on Wikipedia content.</string>
   <string name="year_in_review_learn_more">Button text for the Year in Review button Learn More.</string>
+  <string name="year_in_review_share_feedback">Menu item that opens an email for sharing feedback about Year in Review.</string>
+  <string name="year_in_review_feedback_email_subject">Subject line of the support email created when the user chooses to share feedback about Year in Review.</string>
   <string name="year_in_review_get_started">Button text for the Year in Review button Get Started.</string>
   <string name="year_in_review_topbar_w_icon">Content description of the W Wikipedia icon for the Year in Review scaffold.</string>
   <string name="year_in_review_navigate_left">Content description of the navigation left icon for the Year in Review Scaffold.</string>
