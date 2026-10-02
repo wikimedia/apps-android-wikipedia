@@ -26,11 +26,14 @@ import org.wikipedia.databinding.FragmentSearchBinding
 import org.wikipedia.extensions.instrument
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.JsonUtil
+import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.places.PlacesActivity
 import org.wikipedia.readinglist.SaveArticleSheetDialog
 import org.wikipedia.search.db.RecentSearch
+import org.wikipedia.search.semantic.SemanticSearchInfoDialog
+import org.wikipedia.search.semantic.SemanticSearchResultsDialog
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesFragment
@@ -206,7 +209,7 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
         switchToSearch(text)
     }
 
-    override fun navigateToTitle(item: PageTitle, inNewTab: Boolean, position: Int, location: Location?) {
+    override fun navigateToTitle(item: PageTitle, inNewTab: Boolean, position: Int, location: Location?, showSemanticSearchFeedback: Boolean) {
         if (!isAdded) {
             return
         }
@@ -221,8 +224,9 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
             requireActivity().finish()
         } else {
             val historyEntry = HistoryEntry(item, HistoryEntry.SOURCE_SEARCH)
-            startActivity(if (inNewTab) PageActivity.newIntentForNewTab(requireContext(), historyEntry, historyEntry.title)
-            else PageActivity.newIntentForCurrentTab(requireContext(), historyEntry, historyEntry.title, false))
+            val intent = if (inNewTab) PageActivity.newIntentForNewTab(requireContext(), historyEntry, historyEntry.title)
+            else PageActivity.newIntentForCurrentTab(requireContext(), historyEntry, historyEntry.title, false)
+            startActivity(intent.putExtra(PageActivity.EXTRA_SHOW_SEMANTIC_SEARCH_FEEDBACK, showSemanticSearchFeedback))
         }
         closeSearch()
         DeviceUtil.hideSoftKeyboard(requireView())
@@ -234,6 +238,19 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
 
     override fun onSearchProgressBar(enabled: Boolean) {
         binding.searchProgressBar.visibility = if (enabled) View.VISIBLE else View.GONE
+    }
+
+    override fun showSemanticSearchResultsDialog(query: String) {
+        ExclusiveBottomSheetPresenter.show(childFragmentManager, SemanticSearchResultsDialog.newInstance(query, searchLanguageCode, invokeSource,
+            showFeedback = !searchResultsFragment.isSemanticSearchFeedbackShown))
+    }
+
+    override fun showSemanticSearchInfoDialog() {
+        ExclusiveBottomSheetPresenter.show(childFragmentManager, SemanticSearchInfoDialog())
+    }
+
+    override fun onSemanticSearchFeedbackShown() {
+        searchResultsFragment.onSemanticSearchFeedbackShown()
     }
 
     private fun onSearchContainerClick() {

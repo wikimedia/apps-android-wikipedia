@@ -97,6 +97,14 @@ class SearchResultsFragment : Fragment() {
                         },
                         onLoading = { enabled ->
                             callback()?.onSearchProgressBar(enabled)
+                        },
+                        onSemanticSearchClick = { searchTerm ->
+                            searchTerm?.let {
+                                callback()?.showSemanticSearchResultsDialog(it)
+                            }
+                        },
+                        onSemanticSearchInfoClick = {
+                            callback()?.showSemanticSearchInfoDialog()
                         }
                     )
                 }
@@ -133,6 +141,12 @@ class SearchResultsFragment : Fragment() {
 
     fun setInvokeSource(invokeSource: Constants.InvokeSource) {
         viewModel.invokeSource = invokeSource
+    }
+
+    val isSemanticSearchFeedbackShown get() = viewModel.isSemanticSearchFeedbackShown
+
+    fun onSemanticSearchFeedbackShown() {
+        viewModel.isSemanticSearchFeedbackShown = true
     }
 
     private val searchLanguageCode
