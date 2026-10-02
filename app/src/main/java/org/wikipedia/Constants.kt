@@ -59,7 +59,6 @@ object Constants {
 
     val commonsWikiSite = WikiSite(Service.COMMONS_URL)
     val wikidataWikiSite = WikiSite(Service.WIKIDATA_URL)
-    // Semantic search A/B test: snippet passed from search results to the article for highlighting.
     const val ARG_SEMANTIC_SEARCH_SNIPPET = "semanticSearchSnippet"
 
     enum class InvokeSource(val value: String) {
