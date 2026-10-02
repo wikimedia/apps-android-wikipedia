@@ -36,6 +36,7 @@ import org.xml.sax.ContentHandler
 import org.xml.sax.Locator
 import org.xml.sax.XMLReader
 import java.util.Stack
+import java.util.WeakHashMap
 
 class CustomHtmlParser(private val handler: TagHandler) : TagHandler, ContentHandler {
     interface TagHandler {
@@ -298,7 +299,7 @@ class CustomHtmlParser(private val handler: TagHandler) : TagHandler, ContentHan
 
     companion object {
         private const val MIN_IMAGE_SIZE = 64
-        private val contextBmpMap = mutableMapOf<Context, MutableMap<String, BitmapDrawable>>()
+        private val contextBmpMap = WeakHashMap<Context, MutableMap<String, BitmapDrawable>>()
 
         fun fromHtml(html: String?, view: TextView? = null): Spanned {
             var sourceStr = html.orEmpty()

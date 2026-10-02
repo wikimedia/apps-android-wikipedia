@@ -538,9 +538,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     override fun onPageRequestEditSection(sectionId: Int, sectionAnchor: String?, title: PageTitle, highlightText: String?) {
         val isVisualEditorEnabled = RemoteConfig.config.androidv1?.visualEditorEnabled ?: false
         val launchEditor = {
-            val appInstallId = WikipediaApp.instance.appInstallID
             if (Prefs.editorModeChoice == EDITOR_CHOICE_VE && isVisualEditorEnabled) {
-                UriUtil.visitInExternalBrowser(this, title.getWebApiUrl("veaction=edit&section=$sectionId&appinstallid=$appInstallId").toUri())
+                openVisualEditorInExternalBrowser(title, sectionId)
             } else {
                 requestEditSectionLauncher.launch(EditSectionActivity.newIntent(this, sectionId, sectionAnchor, title, InvokeSource.PAGE_ACTIVITY, highlightText))
             }
@@ -554,6 +553,11 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         } else {
             launchEditor()
         }
+    }
+
+    private fun openVisualEditorInExternalBrowser(title: PageTitle, sectionId: Int) {
+        val appInstallId = WikipediaApp.instance.appInstallID
+        UriUtil.visitInExternalBrowser(this, title.getWebApiUrl("veaction=edit&section=$sectionId&returntoapp=1&appinstallid=$appInstallId").toUri())
     }
 
     override fun onPageRequestLangLinks(title: PageTitle, historyEntryId: Long) {
@@ -595,7 +599,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                     val title = PageTitle.titleForUri(uri, WikiSite(uri))
                     val sectionId = uri.getQueryParameter("section")?.toIntOrNull() ?: 0
                     // If the link is a VisualEditor edit link, then we should open it in an external browser.
-                    UriUtil.visitInExternalBrowser(this, title.getWebApiUrl("veaction=edit&section=$sectionId").toUri())
+                    openVisualEditorInExternalBrowser(title, sectionId)
                     return
                 }
             }
