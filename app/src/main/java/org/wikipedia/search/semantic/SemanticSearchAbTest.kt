@@ -25,7 +25,7 @@ class SemanticSearchAbTest : ABTest("semantic-search-phase-2", GROUP_SIZE_2) {
         return group != GROUP_1
     }
 
-    private fun isLanguageSupported(languageCode: String?): Boolean {
+    fun isLanguageSupported(languageCode: String?): Boolean {
         // TODO: remove the Prefs check before release
         if (Prefs.semanticSearchLanguageOverride) {
             return true

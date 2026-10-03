@@ -26,6 +26,7 @@ import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingAct
 import org.wikipedia.readinglist.recommended.RecommendedReadingListSettingsActivity
 import org.wikipedia.readinglist.recommended.RecommendedReadingListSource
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
+import org.wikipedia.search.semantic.SemanticSearchAbTest
 import org.wikipedia.settings.homefeed.HomeFeedSettingsActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.theme.ThemeFittingRoomActivity
@@ -167,6 +168,12 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
             FeedbackUtil.showMessage(activity, activity.resources.getString(messageResId))
             true
         }
+        findPreference(R.string.preference_key_semantic_search_enabled).apply {
+            onPreferenceClickListener = Preference.OnPreferenceClickListener {
+                Prefs.isSemanticSearchEnabled = !Prefs.isSemanticSearchEnabled
+                true
+            }
+        }
     }
 
     private fun deviceInformation(): String {
@@ -202,6 +209,17 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
         visualEditorPref.isVisible = true
         visualEditorPref.setSummary(if (Prefs.editorModeChoice == EDITOR_CHOICE_VE) R.string.editor_select_dialog_ve_title else R.string.editor_select_dialog_source_title)
         return true
+    }
+
+    fun updateSemanticSearchPreference() {
+        val semanticSearchPref = findPreference(R.string.preference_key_semantic_search_enabled)
+        val semanticSearchAbTest = SemanticSearchAbTest()
+        val currentLanguage = WikipediaApp.instance.languageState.appLanguageCodes[Prefs.selectedLanguagePositionInSearch]
+
+        // TODO: update with remote config or other logic
+        semanticSearchPref.isVisible = (semanticSearchAbTest.isTestActive() &&
+                semanticSearchAbTest.isTestGroupUser() &&
+                semanticSearchAbTest.isLanguageSupported(currentLanguage))
     }
 
     private inner class SyncReadingListsListener : Preference.OnPreferenceChangeListener {
