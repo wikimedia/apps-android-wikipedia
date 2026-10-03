@@ -53,11 +53,8 @@ object UriUtil {
     }
 
     /**
-     * Builds a URL fragment that uses a text directive (https://wicg.github.io/scroll-to-text-fragment/)
-     * to make the WebView natively scroll to and highlight the given text. If the text is not found,
-     * the browser falls back to the given section anchor.
-     * Longer passages are expressed as a "start,end" range, so that inline elements such as
-     * reference markers in the middle of the passage do not prevent a match.
+     * Builds a URL fragment to make the WebView natively scroll to and highlight the given text.
+     * If the text is not found, the browser falls back to the given section anchor.
      */
     fun buildTextFragment(highlightText: String, sectionAnchor: String? = null): String? {
         val words = highlightText.trim().split(Regex("\\s+")).filter { it.isNotEmpty() }
