@@ -81,8 +81,11 @@ class CommunicationBridge constructor(private val communicationBridgeListener: C
         if (communicationBridgeListener.model.shouldLoadAsMobileWeb) {
             communicationBridgeListener.webView.loadUrl(pageTitle.uri)
         } else {
+            val textFragment = communicationBridgeListener.model.highlightText?.let {
+                UriUtil.buildTextFragment(it, pageTitle.fragment)
+            }
             communicationBridgeListener.webView.loadUrl(ServiceFactory.getRestBasePath(pageTitle.wikiSite) +
-                    RestService.PAGE_HTML_ENDPOINT + UriUtil.encodeURL(pageTitle.prefixedText))
+                    RestService.PAGE_HTML_ENDPOINT + UriUtil.encodeURL(pageTitle.prefixedText) + textFragment.orEmpty())
         }
     }
 

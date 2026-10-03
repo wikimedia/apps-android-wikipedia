@@ -63,4 +63,13 @@ data class SearchResult(val pageTitle: PageTitle,
                 it.longitude = coordinates[0].lon
             }
     }
+
+    val firstSearchMatchText: String? get() {
+        val searchMatchHtml = snippet?.let { SEARCH_MATCH_REGEX.find(it)?.groupValues?.getOrNull(1) } ?: return null
+        return StringUtil.fromHtml(searchMatchHtml).toString().trim().ifEmpty { null }
+    }
+
+    companion object {
+        private val SEARCH_MATCH_REGEX = Regex("""<span\s+class=["']searchmatch["']\s*>(.*?)</span>""", RegexOption.DOT_MATCHES_ALL)
+    }
 }

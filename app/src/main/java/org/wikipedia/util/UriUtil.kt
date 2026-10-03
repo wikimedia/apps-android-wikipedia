@@ -24,6 +24,8 @@ object UriUtil {
     const val LOCAL_URL_CUSTOMIZE_FEED = "#customizefeed"
     const val LOCAL_URL_LANGUAGES = "#languages"
     const val WIKI_REGEX = "/(wiki|[a-z]{2,3}|[a-z]{2,3}-.*)/"
+    private const val TEXT_FRAGMENT_MAX_EXACT_WORDS = 8
+    private const val TEXT_FRAGMENT_RANGE_WORDS = 4
 
     fun decodeURL(url: String): String {
         return try {
@@ -48,6 +50,30 @@ object UriUtil {
         } catch (e: UnsupportedEncodingException) {
             throw RuntimeException(e)
         }
+    }
+
+    /**
+     * Builds a URL fragment to make the WebView natively scroll to and highlight the given text.
+     * If the text is not found, the browser falls back to the given section anchor.
+     */
+    fun buildTextFragment(highlightText: String, sectionAnchor: String? = null): String? {
+        val words = highlightText.trim().split(Regex("\\s+")).filter { it.isNotEmpty() }
+        if (words.isEmpty()) {
+            return null
+        }
+        val textParam = if (words.size > TEXT_FRAGMENT_MAX_EXACT_WORDS) {
+            encodeTextDirectiveParam(words.take(TEXT_FRAGMENT_RANGE_WORDS).joinToString(" ")) + "," +
+                    encodeTextDirectiveParam(words.takeLast(TEXT_FRAGMENT_RANGE_WORDS).joinToString(" "))
+        } else {
+            encodeTextDirectiveParam(words.joinToString(" "))
+        }
+        val encodedAnchor = if (sectionAnchor.isNullOrEmpty()) "" else encodeURL(sectionAnchor)
+        return "#$encodedAnchor:~:text=$textParam"
+    }
+
+    private fun encodeTextDirectiveParam(text: String): String {
+        // Dashes are delimiters for prefix/suffix terms in text directives, so they must be encoded too.
+        return encodeURL(text).replace("-", "%2D")
     }
 
     fun visitInExternalBrowser(context: Context, uri: Uri) {

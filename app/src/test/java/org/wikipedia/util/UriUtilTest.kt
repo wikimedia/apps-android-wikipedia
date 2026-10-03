@@ -91,6 +91,19 @@ class UriUtilTest {
         assertFalse(UriUtil.isDiffUrl("https://en.wikipedia.org/wiki/Cat"))
     }
 
+    @Test
+    fun testBuildTextFragment() {
+        assertEquals("#:~:text=Cats%20have%20excellent%20night%20vision",
+            UriUtil.buildTextFragment("Cats have excellent night vision"))
+        assertEquals("#Senses:~:text=Cats%20have%20excellent%20night%20vision",
+            UriUtil.buildTextFragment("  Cats have\nexcellent   night vision ", "Senses"))
+        assertEquals("#:~:text=well%2Dknown%2C%20a%20%26%20b",
+            UriUtil.buildTextFragment("well-known, a & b"))
+        assertEquals("#:~:text=one%20two%20three%20four,six%20seven%20eight%20nine",
+            UriUtil.buildTextFragment("one two three four five six seven eight nine"))
+        assertEquals(null, UriUtil.buildTextFragment("   "))
+    }
+
     companion object {
         /**
          * Inspired by

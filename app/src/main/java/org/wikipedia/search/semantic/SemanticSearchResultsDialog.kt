@@ -31,8 +31,10 @@ class SemanticSearchResultsDialog : ExtendedBottomSheetDialogFragment() {
                 BaseTheme {
                     SemanticSearchResultsScreen(
                         viewModel = viewModel,
-                        onItemClick = { title ->
-                            callback()?.navigateToTitle(title, false, 0, showSemanticSearchFeedback = viewModel.deferFeedbackToArticle())
+                        onItemClick = { searchResult ->
+                            callback()?.navigateToTitle(searchResult.pageTitle, false, 0,
+                                showSemanticSearchFeedback = viewModel.deferFeedbackToArticle(),
+                                highlightText = searchResult.firstSearchMatchText)
                         },
                         onCloseClick = {
                             dismiss()
