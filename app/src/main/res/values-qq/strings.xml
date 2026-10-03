@@ -2434,4 +2434,6 @@
   <string name="preference_heading_semantic_search">Semantic Search settings screen preference heading</string>
   <string name="preference_title_semantic_search_within_articles">Semantic Search setting screen preference title</string>
   <string name="preference_summary_semantic_search_jump_to_passage">Semantic Search settings screen preference summary</string>
+  <string name="semantic_search_snackbar_message">Snackbar message for modifying semantic search settings after being disabled</string>
+  <string name="semantic_search_snackbar_action_label">Snackbar action label for modifying semantic search settings after being disabled</string>
 </resources>

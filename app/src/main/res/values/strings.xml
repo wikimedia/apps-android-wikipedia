@@ -2697,4 +2697,6 @@
     <string name="preference_heading_semantic_search">Search</string>
     <string name="preference_title_semantic_search_within_articles">Search within articles</string>
     <string name="preference_summary_semantic_search_jump_to_passage">Jump straight to the relevant passage</string>
+    <string name="semantic_search_snackbar_message">Module hidden. You can make it visible again via Settings.</string>
+    <string name="semantic_search_snackbar_action_label">Modify</string>
 </resources>
