@@ -231,26 +231,11 @@ open class SyntaxHighlightableEditText : EditText {
         }
     }
 
-    fun highlightText(text: String) {
-        val curText = getText()
-        val words = text.split("\\s".toRegex()).filter { it.isNotBlank() }
-        var pos = 0
-        var firstPos = 0
-        for (word in words) {
-            pos = curText.indexOf(word, pos)
-            if (pos == -1) {
-                break
-            } else if (firstPos == 0) {
-                firstPos = pos
-            }
-        }
-        if (pos == -1) {
-            pos = curText.indexOf(words.last())
-            firstPos = pos
-        }
-        if (pos >= 0) {
-            setSelection(firstPos, pos + words.last().length)
-            val targetScrollPos = min(firstPos + 100, curText.length)
+    fun highlightText(text: String, textBefore: String = "", textAfter: String = "") {
+        val curText = getText().toString()
+        findHighlightRange(curText, text, textBefore, textAfter)?.let { range ->
+            setSelection(range.first, range.last + 1)
+            val targetScrollPos = min(range.first + 100, curText.length)
             requestFocus()
             postDelayed({
                 if (isAttachedToWindow && layout != null) {
@@ -258,6 +243,48 @@ open class SyntaxHighlightableEditText : EditText {
                     bringPointIntoView(targetScrollPos)
                 }
             }, 500)
+        }
+    }
+
+    companion object {
+        private const val CONTEXT_WORD_COUNT = 3
+        private const val CONTEXT_WORD_SLACK = 2
+        private const val CONTEXT_WINDOW_LENGTH = 150
+        private const val BOUNDARY_MATCH_WEIGHT = 0.25
+        private const val MAX_GAP_BETWEEN_WORDS = 500
+        private val CITATION_REGEX = "\\[\\d+]|<ref[^>]*/>|<ref[^>]*>.*?</ref>".toRegex(setOf(RegexOption.IGNORE_CASE, RegexOption.DOT_MATCHES_ALL))
+        private val NON_WORD_REGEX = "[^\\p{L}\\p{N}]+".toRegex()
+
+        fun findHighlightRange(wikitext: String, text: String, textBefore: String = "", textAfter: String = ""): IntRange? {
+            val words = text.split("\\s".toRegex()).filter { it.isNotBlank() }
+            if (words.isEmpty()) {
+                return null
+            }
+            val wordsPattern = words.joinToString("[\\s\\S]{0,$MAX_GAP_BETWEEN_WORDS}?") { Regex.escape(it) }.toRegex()
+            val nearestWordsBefore = contextWords(textBefore).takeLast(CONTEXT_WORD_COUNT).reversed()
+            val nearestWordsAfter = contextWords(textAfter).take(CONTEXT_WORD_COUNT)
+            // maxByOrNull keeps the first candidate among equal scores, so without any matching
+            // context we still fall back to highlighting the first occurrence.
+            return wordsPattern.findAll(wikitext).map { it.range }.maxByOrNull { range ->
+                val wikitextWordsBefore = contextWords(wikitext.substring(maxOf(0, range.first - CONTEXT_WINDOW_LENGTH), range.first)).reversed()
+                val wikitextWordsAfter = contextWords(wikitext.substring(range.last + 1, minOf(wikitext.length, range.last + 1 + CONTEXT_WINDOW_LENGTH)))
+                // Context words are ordered nearest-first, and each one must appear at roughly the same
+                // distance in the wikitext, with some slack for markup such as link targets.
+                val contextScore = listOf(nearestWordsBefore to wikitextWordsBefore, nearestWordsAfter to wikitextWordsAfter)
+                    .sumOf { (renderedWords, wikitextWords) ->
+                        renderedWords.withIndex().count { (index, word) -> word in wikitextWords.take(index + 1 + CONTEXT_WORD_SLACK) }
+                    }
+                val boundaryScore = listOf(textBefore.lastOrNull() to wikitext.getOrNull(range.first - 1), textAfter.firstOrNull() to wikitext.getOrNull(range.last + 1))
+                    .count { (renderedChar, wikitextChar) -> (renderedChar?.isLetterOrDigit() == true) == (wikitextChar?.isLetterOrDigit() == true) }
+                contextScore + boundaryScore * BOUNDARY_MATCH_WEIGHT
+            } ?: wikitext.indexOf(words.last()).let { if (it >= 0) it until it + words.last().length else null }
+        }
+
+        private fun contextWords(text: String): List<String> {
+            return text.replace(CITATION_REGEX, " ")
+                .split(NON_WORD_REGEX)
+                .filter { it.isNotEmpty() }
+                .map { it.lowercase() }
         }
     }
 }

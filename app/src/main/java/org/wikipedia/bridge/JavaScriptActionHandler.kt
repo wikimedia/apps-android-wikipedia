@@ -29,7 +29,25 @@ object JavaScriptActionHandler {
     }
 
     fun getTextSelection(): String {
-        return "pcs.c1.InteractionHandling.getSelectionInfo()"
+        return "(function() {" +
+                "  let info = pcs.c1.InteractionHandling.getSelectionInfo();" +
+                "  let selection = window.getSelection();" +
+                "  if (info && selection && selection.rangeCount > 0) {" +
+                "    let range = selection.getRangeAt(0);" +
+                "    let startNode = range.startContainer;" +
+                "    let startElement = startNode.nodeType === Node.ELEMENT_NODE ? startNode : startNode.parentElement;" +
+                "    let container = (startElement && startElement.closest('section')) || document.body;" +
+                "    let rangeBefore = document.createRange();" +
+                "    rangeBefore.setStart(container, 0);" +
+                "    rangeBefore.setEnd(range.startContainer, range.startOffset);" +
+                "    let rangeAfter = document.createRange();" +
+                "    rangeAfter.setStart(range.endContainer, range.endOffset);" +
+                "    rangeAfter.setEnd(container, container.childNodes.length);" +
+                "    info.textBefore = rangeBefore.toString().slice(-100);" +
+                "    info.textAfter = rangeAfter.toString().slice(0, 100);" +
+                "  }" +
+                "  return info;" +
+                "})();"
     }
 
     fun getOffsets(): String {
