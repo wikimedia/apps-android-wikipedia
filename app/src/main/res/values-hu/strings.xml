@@ -2437,6 +2437,8 @@
   <string name="home_feed_new_within_interest_card_heading">Új az érdeklődési körödben</string>
   <string name="home_feed_new_within_interest_title">Új szócikkek az érdeklődési köreidben</string>
   <string name="home_feed_new_within_interest_subtitle">Nemrég létrehozott szócikkek az általad követett témakörökben</string>
+  <string name="home_feed_settings_read_aloud_lead_section_title">Szócikk-bevezetők meghallgatása</string>
+  <string name="home_feed_settings_read_aloud_lead_section_subtitle">Generált hanganyag az általad követett témakörök szócikkeinek bevezetőihez</string>
   <string name="home_feed_settings_because_you_read_subtitle">Javaslatok az előzményeidben szereplő egyik nemrég olvasott cikk alapján</string>
   <string name="home_feed_settings_continue_reading_title">Olvasás folytatása</string>
   <string name="home_feed_settings_continue_reading_subtitle">Folytasd azokat a cikkeket, amelyeket nem fejeztél be</string>
@@ -2479,6 +2481,25 @@
   <string name="home_feed_settings_games_title">Játékok</string>
   <string name="home_feed_settings_games_subtitle">Napi játékok Wikipédia-tartalmak alapján</string>
   <string name="home_feed_settings_discover_title">Felfedezési ajánlások</string>
+  <string name="read_aloud_card_play">Lejátszás</string>
+  <string name="read_aloud_card_pause">Szünet</string>
+  <string name="read_aloud_card_retry">Újra</string>
+  <string name="read_aloud_card_error">Ehhez a szócikkhez nem érhető el hanganyag.</string>
+  <string name="read_aloud_card_keep_listening">Folytatod a hallgatást?</string>
+  <string name="read_aloud_card_audio_date">Ez a hanganyag &lt;a href=\"https://www.mediawiki.org/wiki/Readers/Listening_to_Wikipedia/Model\"&gt;szövegfelolvasó modell&lt;/a&gt; segítségével készült, a(z) %s időpontban elérhető szócikk tartalma alapján.</string>
+  <string name="read_aloud_card_audio_attribution">Ez a hanganyag &lt;a href=\"https://www.mediawiki.org/wiki/Readers/Listening_to_Wikipedia/Model\"&gt;szövegfelolvasó modell&lt;/a&gt; segítségével készült.</string>
+  <string name="read_aloud_lead_section_tooltip_text">Új bétafunkció: szócikk-bevezetők meghallgatása a „Neked” hírfolyamban</string>
+  <string name="read_aloud_lead_section_survey_title">Milyen módon hallgatnád szívesen a Wikipédiát?</string>
+  <string name="read_aloud_lead_section_survey_choice1">Szócikk-bevezetők</string>
+  <string name="read_aloud_lead_section_survey_choice2">Egy szócikk néhány szakasza</string>
+  <string name="read_aloud_lead_section_survey_choice3">Teljes szócikkek</string>
+  <string name="read_aloud_lead_section_survey_choice4">Több rövid részlet különböző, azonos témájú szócikkekből</string>
+  <string name="read_aloud_lead_section_survey_choice5">Egyéb:</string>
+  <string name="read_aloud_lead_section_beta_label">Béta</string>
+  <string name="read_aloud_lead_section_report_subject">Hibajelentés – Szócikk-bevezetők meghallgatása</string>
+  <string name="read_aloud_lead_section_report_body">Problémát tapasztaltam a „Szócikk-bevezetők meghallgatása” funkcióval:\n- [Írd le a konkrét problémát]\n\nA kívánt működés:\n- [Írd le a javasolt megoldást]</string>
+  <string name="read_aloud_lead_section_about_experiment">Erről a kísérletről</string>
+  <string name="read_aloud_lead_section_report_issue">Hibabejelentés</string>
   <string name="home_feed_settings_discover_subtitle">Szócikkek a Felfedezés gyűjteményedből</string>
   <string name="home_feed_discover_cta_title">A Felfedezésből</string>
   <string name="home_feed_discover_cta_description">Ismerj meg új témákat, kifejezetten neked válogatva. Válassz napi, heti vagy havi frissítéseket.</string>
