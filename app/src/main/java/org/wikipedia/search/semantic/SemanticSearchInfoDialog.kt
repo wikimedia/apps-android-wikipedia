@@ -49,7 +49,7 @@ class SemanticSearchInfoDialog : ExtendedBottomSheetDialogFragment(startExpanded
                 SemanticSearchInfoDialogContent(
                     onCloseClick = { dismiss() },
                     onLearnMoreClick = {
-                        UriUtil.visitInExternalBrowser(requireContext(), getString(R.string.semantic_search_info_learn_more_url).toUri())
+                        UriUtil.visitInExternalBrowser(requireContext(), getString(R.string.semantic_search_info_learn_more_link).toUri())
                         dismiss()
                     },
                     quotationMark = SemanticSearchHelper.getQuotationMark(languageCode)
