@@ -75,14 +75,15 @@ class SemanticSearchInfoDialog : ExtendedBottomSheetDialogFragment(startExpanded
 private fun SemanticSearchInfoDialogContent(
     onCloseClick: () -> Unit,
     onLearnMoreClick: () -> Unit,
-    quotationMark: String
+    quotationMark: String,
 ) {
 
     val snippet = stringResource(id = R.string.semantic_search_info_dialog_sample_snippet)
+    val titleAndDescription = stringResource(id = R.string.semantic_search_info_dialog_page_title_description)
 
     val searchResult = SearchResult(
-        pageTitle = PageTitle("Cats", WikiSite.preview()).apply {
-            description = "Cats"
+        pageTitle = PageTitle(titleAndDescription, WikiSite.preview()).apply {
+            description = titleAndDescription
             thumbUrl = "https://upload.wikimedia.org/wikipedia/commons/c/c7/Tabby_cat_with_blue_eyes-3336579.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"
         },
         redirectFrom = null,
@@ -90,7 +91,7 @@ private fun SemanticSearchInfoDialogContent(
         coordinates = null,
         snippet = snippet,
         indexInApiCall = 0,
-        sectionTitle = "Vision",
+        sectionTitle = "",
         editCounts = 2348,
         referenceCounts = 35
     )

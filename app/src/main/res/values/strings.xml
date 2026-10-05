@@ -2677,8 +2677,9 @@
     <string name="semantic_search_no_results_message">No results for this search</string>
     <string name="semantic_search_results_close_button_content_description">Close the semantic search results</string>
     <string name="semantic_search_results_read_in_article_label">Read in article</string>
-    <string name="semantic_search_info_dialog_search_string"> Can cats see in the dark?</string>
-    <string name="semantic_search_info_dialog_sample_snippet"><![CDATA[<span class="searchmatch">Cats have excellent night vision and can see at one sixth the light level required for human vision.<sup>: 43</sup> This is partly the result of </span>cat eyes having a tapetum lucidum, which reflects any light that passes through the retina back into the eye, thereby increasing the eye\'s sensitivity to dim light.<sup>[74]</sup> Large pupils are an adaptation to dim light. The do…]]></string>
+    <string name="semantic_search_info_dialog_search_string">How was the Moon formed?</string>
+    <string name="semantic_search_info_dialog_sample_snippet"><![CDATA[<span class="searchmatch">The prevailing theory is that the Moon formed out of the debris left over from a collision between Earth and an astronomical body the size of Mars, approximately 4.5 billion years ago, about 20 to 100 million years after the Solar System coalesced.</span> This is called the Giant-impact hypothesis.]]></string>
+    <string name="semantic_search_info_dialog_page_title_description">Origin of the Moon</string>
     <plurals name="semantic_search_result_contributors">
         <item quantity="one">%d contributor</item>
         <item quantity="other">%d contributors</item>
