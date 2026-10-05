@@ -1,5 +1,6 @@
 package org.wikipedia.activitytab
 
+import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -16,6 +17,7 @@ import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -35,6 +37,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.layout.positionInParent
@@ -60,6 +63,7 @@ import org.wikipedia.categories.db.Category
 import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.components.WikiLangCodeBox
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
+import org.wikipedia.compose.extensions.shimmerEffect
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
@@ -103,17 +107,17 @@ fun ActivityTabLoggedInScreen(
     onGamesRetry: () -> Unit = {},
     onDonationClick: () -> Unit = {},
     onTimelineItemClick: (TimelineItem) -> Unit = {},
-    showYearInReviewCard: Boolean = false,
-    isYearInReviewDataRich: Boolean = false,
+    yearInReviewEntryState: UiState<Boolean>? = null,
     onYirGetStartedClick: () -> Unit = {}
 ) {
+    val showYearInReviewEntry = yearInReviewEntryState is UiState.Loading || yearInReviewEntryState is UiState.Success
     val timelineItems = timelineFlow.collectAsLazyPagingItems()
     val listState = rememberLazyListState()
     var gamesModuleOffsetInItem by remember { mutableIntStateOf(0) }
 
     LaunchedEffect(scrollToGames) {
         if (scrollToGames && modules.isModuleVisible(ModuleType.GAMES, areGamesAvailable = areGamesAvailable)) {
-            val yearInReviewItemCount = if (showYearInReviewCard) 1 else 0
+            val yearInReviewItemCount = if (showYearInReviewEntry) 1 else 0
             val readingHistoryItemCount = if (
                 modules.isModuleVisible(ModuleType.TIME_SPENT) ||
                 modules.isModuleVisible(ModuleType.READING_INSIGHTS)
@@ -152,32 +156,44 @@ fun ActivityTabLoggedInScreen(
         }
 
         if (modules.noModulesVisible(haveAtLeastOneDonation = haveAtLeastOneDonation, areGamesAvailable = areGamesAvailable)) {
-            Box(
+            Column(
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(paddingValues)
             ) {
-                val scrollState = rememberScrollState()
-                Column(
+                if (showYearInReviewEntry) {
+                    LoggedInYearInReviewEntry(
+                        state = yearInReviewEntryState,
+                        onGetStartedClick = onYirGetStartedClick
+                    )
+                }
+                Box(
                     modifier = Modifier
-                        .align(Alignment.Center)
-                        .padding(horizontal = 16.dp)
-                        .verticalScroll(scrollState),
-                    horizontalAlignment = Alignment.CenterHorizontally
+                        .weight(1f)
+                        .fillMaxWidth()
                 ) {
-                    Image(
-                        modifier = Modifier.size(164.dp),
-                        painter = painterResource(R.drawable.illustration_activity_tab_empty),
-                        contentDescription = null
-                    )
-                    HtmlText(
-                        modifier = Modifier.padding(vertical = 16.dp),
-                        text = stringResource(R.string.activity_tab_customize_screen_no_modules_message),
-                        style = MaterialTheme.typography.bodyMedium,
-                        textAlign = TextAlign.Center,
-                        color = WikipediaTheme.colors.primaryColor,
-                        linkInteractionListener = { onCustomizeClick() }
-                    )
+                    val scrollState = rememberScrollState()
+                    Column(
+                        modifier = Modifier
+                            .align(Alignment.Center)
+                            .padding(horizontal = 16.dp)
+                            .verticalScroll(scrollState),
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        Image(
+                            modifier = Modifier.size(164.dp),
+                            painter = painterResource(R.drawable.illustration_activity_tab_empty),
+                            contentDescription = null
+                        )
+                        HtmlText(
+                            modifier = Modifier.padding(vertical = 16.dp),
+                            text = stringResource(R.string.activity_tab_customize_screen_no_modules_message),
+                            style = MaterialTheme.typography.bodyMedium,
+                            textAlign = TextAlign.Center,
+                            color = WikipediaTheme.colors.primaryColor,
+                            linkInteractionListener = { onCustomizeClick() }
+                        )
+                    }
                 }
                 return@Scaffold
             }
@@ -204,19 +220,13 @@ fun ActivityTabLoggedInScreen(
             LazyColumn(
                 state = listState
             ) {
-                if (showYearInReviewCard) {
+                if (showYearInReviewEntry) {
                     item {
-                        Box(
-                            modifier = Modifier
-                                .padding(paddingValues)
-                                .padding(start = 16.dp, end = 16.dp, top = 16.dp)
-                        ) {
-                            YearInReviewEntryCard(
-                                title = stringResource(if (isYearInReviewDataRich) R.string.year_in_review_entry_card_title_personalized else R.string.year_in_review_entry_card_title_collective),
-                                subtitle = stringResource(R.string.year_in_review_entry_card_subtitle),
-                                onGetStartedClick = onYirGetStartedClick
-                            )
-                        }
+                        LoggedInYearInReviewEntry(
+                            modifier = Modifier.padding(paddingValues),
+                            state = yearInReviewEntryState,
+                            onGetStartedClick = onYirGetStartedClick
+                        )
                     }
                 }
                 if (modules.isModuleVisible(ModuleType.TIME_SPENT) || modules.isModuleVisible(ModuleType.READING_INSIGHTS)) {
@@ -443,6 +453,35 @@ fun ActivityTabLoggedInScreen(
     }
 }
 
+@Composable
+private fun LoggedInYearInReviewEntry(
+    state: UiState<Boolean>?,
+    modifier: Modifier = Modifier,
+    onGetStartedClick: () -> Unit
+) {
+    val entryModifier = modifier.padding(start = 16.dp, end = 16.dp, top = 16.dp)
+    when (state) {
+        is UiState.Loading -> {
+            Box(
+                modifier = entryModifier
+                    .fillMaxWidth()
+                    .height(140.dp)
+                    .clip(RoundedCornerShape(12.dp))
+                    .shimmerEffect(transition = rememberInfiniteTransition())
+            )
+        }
+        is UiState.Success -> {
+            YearInReviewEntryCard(
+                modifier = entryModifier,
+                title = stringResource(if (state.data) R.string.year_in_review_entry_card_title_personalized else R.string.year_in_review_entry_card_title_collective),
+                subtitle = stringResource(R.string.year_in_review_entry_card_subtitle),
+                onGetStartedClick = onGetStartedClick
+            )
+        }
+        else -> {}
+    }
+}
+
 private val emptyReadingHistory = ActivityTabViewModel.ReadingHistory(
     timeSpentThisWeek = 0,
     articlesReadThisMonth = 0,
@@ -494,8 +533,7 @@ private fun ActivityTabLoggedInScreenPreview() {
             )),
             impactUiState = UiState.Success(Pair(GrowthUserImpact(totalEditsCount = 12345), 123456)),
             timelineFlow = emptyFlow(),
-            showYearInReviewCard = true,
-            isYearInReviewDataRich = true
+            yearInReviewEntryState = UiState.Success(true)
         )
     }
 }
@@ -543,7 +581,8 @@ private fun ActivityTabLoggedInScreenNoModulesPreview() {
             donationUiState = UiState.Success("Unknown"),
             wikiGamesUiState = UiState.Success(null),
             impactUiState = UiState.Success(Pair(GrowthUserImpact(), 0)),
-            timelineFlow = emptyFlow()
+            timelineFlow = emptyFlow(),
+            yearInReviewEntryState = UiState.Loading
         )
     }
 }

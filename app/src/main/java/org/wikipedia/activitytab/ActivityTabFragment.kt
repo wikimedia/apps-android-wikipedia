@@ -259,8 +259,7 @@ class ActivityTabFragment : Fragment() {
                 (requireActivity() as? BaseActivity)?.launchDonateDialog(campaignId = ActivityTabViewModel.CAMPAIGN_ID)
             },
             onTimelineItemClick = { handleTimelineItemClick(it) },
-            showYearInReviewCard = YearInReviewViewModel.canShowEntryPoint && yearInReviewEntryState is UiState.Success,
-            isYearInReviewDataRich = (yearInReviewEntryState as? UiState.Success)?.data == true,
+            yearInReviewEntryState = yearInReviewEntryState.takeIf { YearInReviewViewModel.canShowEntryPoint },
             onYirGetStartedClick = {
                 // TODO: add yir announcement activity
             }

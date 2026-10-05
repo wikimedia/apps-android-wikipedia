@@ -135,12 +135,19 @@ class ActivityTabViewModel : ViewModel() {
 
     private fun loadYearInReviewEntry() {
         yearInReviewEntryJob?.cancel()
-        _yearInReviewEntryState.value = UiState.Loading
         if (!AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount || !YearInReviewViewModel.canShowEntryPoint) {
+            _yearInReviewEntryState.value = UiState.Loading
             return
         }
+        // Keep showing the last result while refreshing, so the card doesn't turn back into a shimmer on every resume
+        val hasResult = _yearInReviewEntryState.value is UiState.Success
+        if (!hasResult) {
+            _yearInReviewEntryState.value = UiState.Loading
+        }
         yearInReviewEntryJob = viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
-            _yearInReviewEntryState.value = UiState.Error(throwable)
+            if (!hasResult) {
+                _yearInReviewEntryState.value = UiState.Error(throwable)
+            }
         }) {
             val snapshot = YearInReviewRepositoryImpl().getYearInReview()
             _yearInReviewEntryState.value = UiState.Success(YearInReviewFlowDecider.isDataRich(snapshot))
