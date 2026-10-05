@@ -1943,6 +1943,7 @@
   <string name="year_in_review_entry_card_title_collective">Title of the Year in Review card on the Activity tab, shown to users without enough reading data for a personalized Year in Review.</string>
   <string name="year_in_review_entry_card_title_personalized">Title of the Year in Review card on the Activity tab, shown to logged-in users with enough reading data for a personalized Year in Review.</string>
   <string name="year_in_review_entry_card_subtitle">Subtitle of the Year in Review card on the Activity tab.</string>
+  <string name="year_in_review_entry_card_data_low_subtitle">Subtitle of the Year in Review card on the Activity tab when there is not enough data for a personalized Year in Review.</string>
   <string name="year_in_review_survey_title">Title for the Year in Review survey</string>
   <string name="year_in_review_survey_subtitle">Subtitle for the Year in Review survey</string>
   <string name="year_in_review_reading_list_survey_title">Title for the Year in Review Collection survey. %d will be replaced by the current year.</string>

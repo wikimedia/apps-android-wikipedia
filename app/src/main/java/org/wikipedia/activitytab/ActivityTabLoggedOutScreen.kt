@@ -66,7 +66,7 @@ fun ActivityTabLoggedOutScreen(
                 Box(modifier = Modifier.padding(16.dp)) {
                     YearInReviewEntryCard(
                         title = stringResource(R.string.year_in_review_entry_card_title_collective),
-                        subtitle = stringResource(R.string.year_in_review_entry_card_subtitle),
+                        subtitle = stringResource(R.string.year_in_review_entry_card_data_low_subtitle),
                         onGetStartedClick = onYirGetStartedClick
                     )
                 }
