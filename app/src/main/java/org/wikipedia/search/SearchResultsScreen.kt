@@ -95,7 +95,7 @@ fun SearchResultsScreen(
     val loadState = searchResults.loadState
     val countsPerLanguageCode = viewModel.countsPerLanguageCode
     val coroutineScope = rememberCoroutineScope()
-    val snackBarHostState = remember { SnackbarHostState() }
+    val snackbarHostState = remember { SnackbarHostState() }
     val context = LocalContext.current
 
     val languageCode = viewModel.languageCode.collectAsState()
@@ -150,7 +150,7 @@ fun SearchResultsScreen(
             containerColor = WikipediaTheme.colors.paperColor,
             snackbarHost = {
                 SnackbarHost(
-                    hostState = snackBarHostState,
+                    hostState = snackbarHostState,
                     snackbar = { data ->
                         Snackbar(
                             message = data.visuals.message,
@@ -174,7 +174,7 @@ fun SearchResultsScreen(
                             onCloseClick = {
                                 viewModel.disableSemanticSearch()
                                 coroutineScope.launch {
-                                    snackBarHostState.showSnackbar(
+                                    snackbarHostState.showSnackbar(
                                         message = snackBarMessage,
                                         actionLabel = snackBarActionLabel,
                                         duration = SnackbarDuration.Short
