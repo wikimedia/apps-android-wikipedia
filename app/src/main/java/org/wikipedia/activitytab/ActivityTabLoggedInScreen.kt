@@ -474,7 +474,7 @@ private fun LoggedInYearInReviewEntry(
             YearInReviewEntryCard(
                 modifier = entryModifier,
                 title = stringResource(if (state.data) R.string.year_in_review_entry_card_title_personalized else R.string.year_in_review_entry_card_title_collective),
-                subtitle = stringResource(R.string.year_in_review_entry_card_subtitle),
+                subtitle = stringResource(if (state.data) R.string.year_in_review_entry_card_subtitle else R.string.year_in_review_entry_card_data_low_subtitle),
                 onGetStartedClick = onGetStartedClick
             )
         }
