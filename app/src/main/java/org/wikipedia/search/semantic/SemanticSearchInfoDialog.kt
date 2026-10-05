@@ -16,13 +16,16 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
 import org.wikipedia.R
@@ -35,6 +38,7 @@ import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.PageTitle
 import org.wikipedia.search.SearchResult
 import org.wikipedia.search.SearchResult.SearchResultType
+import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.UriUtil
 
 class SemanticSearchInfoDialog : ExtendedBottomSheetDialogFragment(startExpanded = true) {
@@ -79,6 +83,8 @@ private fun SemanticSearchInfoDialogContent(
     quotationMark: String,
     languageCode: String
 ) {
+    val layoutDirection =
+        if (L10nUtil.isLangRTL(languageCode)) LayoutDirection.Rtl else LayoutDirection.Ltr
 
     val thumbUrlByLanguage = when(languageCode) {
         "ja" -> "https://upload.wikimedia.org/wikipedia/commons/d/dd/Full_Moon_Luc_Viatour.jpg?utm_source=ja.wikipedia.org&utm_campaign=imageinfo&utm_content=original"
@@ -105,73 +111,75 @@ private fun SemanticSearchInfoDialogContent(
         referenceCounts = 35
     )
 
-    BaseTheme {
-        InfoActionScreen(
-            title = stringResource(id = R.string.semantic_search_info_dialog_title),
-            message = stringResource(id = R.string.semantic_search_info_dialog_message),
-            onCloseClick = onCloseClick,
-            bottomContent = {
-                Column(
-                    horizontalAlignment = Alignment.Start,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                ) {
-                    Spacer(modifier = Modifier.height(24.dp))
-                    Row(
-                        horizontalArrangement = Arrangement.Start,
-                    ) {
-                        Icon(
-                            painter = painterResource(id = R.drawable.outline_search_24),
-                            tint = WikipediaTheme.colors.primaryColor,
-                            contentDescription = null
-                        )
-                        Spacer(modifier = Modifier.width(8.dp))
-                        Text(
-                            text = stringResource(id = R.string.semantic_search_info_dialog_search_string),
-                            color = WikipediaTheme.colors.primaryColor,
-                            style = MaterialTheme.typography.titleMedium,
-                            fontWeight = FontWeight(600),
-                        )
-                    }
-                    SemanticSearchResultCard(
+    CompositionLocalProvider(LocalLayoutDirection provides layoutDirection) {
+        BaseTheme {
+            InfoActionScreen(
+                title = stringResource(id = R.string.semantic_search_info_dialog_title),
+                message = stringResource(id = R.string.semantic_search_info_dialog_message),
+                onCloseClick = onCloseClick,
+                bottomContent = {
+                    Column(
+                        horizontalAlignment = Alignment.Start,
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(vertical = 16.dp),
-                        prefixQuotationMark = quotationMark,
-                        searchResult = searchResult,
-                        onItemClick = { },
-                        onLinkClick = { url ->
-                            // ignore in-article links
-                        },
-                        showLastUpdatedTime = false
-                    )
-
-                    AppButton(
-                        onClick = onLearnMoreClick,
-                        backgroundColor = WikipediaTheme.colors.backgroundColor,
-                        modifier = Modifier.fillMaxWidth(),
                     ) {
+                        Spacer(modifier = Modifier.height(24.dp))
                         Row(
-                            verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.Center
+                            horizontalArrangement = Arrangement.Start,
                         ) {
-                            Text(
-                                text = stringResource(id = R.string.semantic_search_info_dialog_button_text),
-                                color = WikipediaTheme.colors.progressiveColor,
-                                style = MaterialTheme.typography.titleMedium
-                            )
-                            Spacer(modifier = Modifier.width(8.dp))
                             Icon(
-                                painter = painterResource(id = R.drawable.ic_open_in_new_black_24px),
-                                tint = WikipediaTheme.colors.progressiveColor,
+                                painter = painterResource(id = R.drawable.outline_search_24),
+                                tint = WikipediaTheme.colors.primaryColor,
                                 contentDescription = null
                             )
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Text(
+                                text = stringResource(id = R.string.semantic_search_info_dialog_search_string),
+                                color = WikipediaTheme.colors.primaryColor,
+                                style = MaterialTheme.typography.titleMedium,
+                                fontWeight = FontWeight(600),
+                            )
+                        }
+                        SemanticSearchResultCard(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(vertical = 16.dp),
+                            prefixQuotationMark = quotationMark,
+                            searchResult = searchResult,
+                            onItemClick = { },
+                            onLinkClick = { url ->
+                                // ignore in-article links
+                            },
+                            showLastUpdatedTime = false
+                        )
+
+                        AppButton(
+                            onClick = onLearnMoreClick,
+                            backgroundColor = WikipediaTheme.colors.backgroundColor,
+                            modifier = Modifier.fillMaxWidth(),
+                        ) {
+                            Row(
+                                verticalAlignment = Alignment.CenterVertically,
+                                horizontalArrangement = Arrangement.Center
+                            ) {
+                                Text(
+                                    text = stringResource(id = R.string.semantic_search_info_dialog_button_text),
+                                    color = WikipediaTheme.colors.progressiveColor,
+                                    style = MaterialTheme.typography.titleMedium
+                                )
+                                Spacer(modifier = Modifier.width(8.dp))
+                                Icon(
+                                    painter = painterResource(id = R.drawable.ic_open_in_new_black_24px),
+                                    tint = WikipediaTheme.colors.progressiveColor,
+                                    contentDescription = null
+                                )
+                            }
                         }
                     }
-                }
-            },
-            modifier = Modifier.fillMaxWidth()
-        )
+                },
+                modifier = Modifier.fillMaxWidth()
+            )
+        }
     }
 }
 
