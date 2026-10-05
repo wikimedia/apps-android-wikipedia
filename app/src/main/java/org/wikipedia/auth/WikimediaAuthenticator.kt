@@ -8,6 +8,7 @@ import android.content.Context
 import android.os.Bundle
 import androidx.core.os.bundleOf
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil.account
 import org.wikipedia.auth.AccountUtil.accountType
 import org.wikipedia.login.LoginActivity
@@ -47,6 +48,14 @@ class WikimediaAuthenticator(private val context: Context) : AbstractAccountAuth
     override fun hasFeatures(response: AccountAuthenticatorResponse,
                              account: Account, features: Array<String>): Bundle {
         return bundleOf(AccountManager.KEY_BOOLEAN_RESULT to false)
+    }
+
+    // Called when the user removes the account in the system settings, which also deletes the
+    // OAuth tokens stored in it, but not the copies in memory, cookies, or push notification
+    // subscription, so log out of the app, too.
+    override fun getAccountRemovalAllowed(response: AccountAuthenticatorResponse, account: Account): Bundle {
+        WikipediaApp.instance.logOut()
+        return bundleOf(AccountManager.KEY_BOOLEAN_RESULT to true)
     }
 
     private fun supportedAccountType(type: String?): Boolean {

@@ -7,13 +7,11 @@ import kotlinx.coroutines.withContext
 import org.json.JSONException
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.createaccount.CreateAccountException
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwException
 import org.wikipedia.dataclient.mwapi.MwServiceError
 import org.wikipedia.dataclient.okhttp.HttpStatusException
-import org.wikipedia.login.LoginFailedException
 import java.net.SocketException
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
@@ -52,8 +50,7 @@ object ThrowableUtil {
                             inner.localizedMessage))
         } else if (e is HttpStatusException) {
             AppError(e.message!!, e.code.toString())
-        } else if (inner is LoginFailedException || inner is CreateAccountException ||
-                inner is MwException) {
+        } else if (inner is MwException) {
             AppError(inner.localizedMessage!!, "")
         } else if (throwableContainsException(e, JSONException::class.java)) {
             AppError(context.getString(R.string.error_response_malformed),

@@ -48,7 +48,7 @@ class CreateAccountEncourageActivity : BaseActivity() {
                     },
                     onCreateAccountClick = {
                         instrument?.submitInteraction("click", elementId = "create_account")
-                        requestLogin.launch(LoginActivity.newIntent(this, LoginActivity.SOURCE_ENCOURAGE, createAccountFirst = true))
+                        requestLogin.launch(LoginActivity.newIntent(this, LoginActivity.SOURCE_ENCOURAGE))
                     },
                     onMaybeLaterClick = {
                         instrument?.submitInteraction("click", elementId = "maybe_later")
