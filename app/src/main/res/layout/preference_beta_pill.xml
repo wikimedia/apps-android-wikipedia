@@ -28,6 +28,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:importantForAccessibility="no"
+                android:contentDescription="@null"
                 android:src="@drawable/ic_experiment_24dp"
                 app:tint="?attr/secondary_color" />
 
