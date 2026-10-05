@@ -65,7 +65,6 @@ import org.wikipedia.compose.extensions.toAnnotatedStringWithBoldQuery
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.search.semantic.SemanticSearchEntryCard
 import org.wikipedia.settings.Prefs
-import org.wikipedia.settings.SettingsActivity
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.views.imageservice.ImageService
@@ -83,6 +82,7 @@ fun SearchResultsScreen(
     onLanguageClick: (Int) -> Unit,
     onSemanticSearchClick: (String?) -> Unit,
     onSemanticSearchInfoClick: () -> Unit,
+    onSemanticSearchSettingsClick: () -> Unit,
     onCloseSearch: () -> Unit,
     onRetrySearch: () -> Unit,
     onLoading: (Boolean) -> Unit,
@@ -96,7 +96,6 @@ fun SearchResultsScreen(
     val countsPerLanguageCode = viewModel.countsPerLanguageCode
     val coroutineScope = rememberCoroutineScope()
     val snackbarHostState = remember { SnackbarHostState() }
-    val context = LocalContext.current
 
     val languageCode = viewModel.languageCode.collectAsState()
     val layoutDirection =
@@ -156,7 +155,7 @@ fun SearchResultsScreen(
                             message = data.visuals.message,
                             actionLabel = data.visuals.actionLabel,
                             onActionClick = {
-                                context.startActivity(SettingsActivity.newIntent(context))
+                                onSemanticSearchSettingsClick()
                             }
                         )
                     }

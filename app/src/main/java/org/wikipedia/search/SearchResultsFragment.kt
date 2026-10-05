@@ -23,6 +23,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.extensions.instrument
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.readinglist.LongPressMenu
+import org.wikipedia.settings.SettingsActivity
 
 class SearchResultsFragment : Fragment() {
 
@@ -105,6 +106,9 @@ class SearchResultsFragment : Fragment() {
                         },
                         onSemanticSearchInfoClick = {
                             callback()?.showSemanticSearchInfoDialog()
+                        },
+                        onSemanticSearchSettingsClick = {
+                            startActivity(SettingsActivity.newIntent(requireContext()))
                         }
                     )
                 }
