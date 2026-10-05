@@ -1,8 +1,11 @@
 package org.wikipedia.settings.dev.playground
 
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.ReleaseUtil
+import org.wikipedia.yearinreview.data.YearInReviewConfig
 import org.wikipedia.yearinreview.data.YearInReviewReadingStats
+import org.wikipedia.yearinreview.data.YearInReviewRewardData
 import org.wikipedia.yearinreview.data.YearInReviewSnapshot
 
 enum class YearInReviewPlaygroundData(val label: String, val readingStats: YearInReviewReadingStats?) {
@@ -12,12 +15,20 @@ enum class YearInReviewPlaygroundData(val label: String, val readingStats: YearI
 }
 
 object YearInReviewPlayground {
-    // Only replaces the returned snapshot, so the real reading history and cached stats are left untouched.
-    fun applyTo(snapshot: YearInReviewSnapshot): YearInReviewSnapshot {
-        if (!ReleaseUtil.isPreProdRelease) {
-            return snapshot
+    // null when real data is chosen, and always outside pre-production builds
+    val snapshot: YearInReviewSnapshot? get() {
+        val data = Prefs.yearInReviewPlaygroundData
+        if (!ReleaseUtil.isPreProdRelease || data == YearInReviewPlaygroundData.REAL) {
+            return null
         }
-        val readingStats = Prefs.yearInReviewPlaygroundData.readingStats ?: return snapshot
-        return snapshot.copy(readingStats = readingStats)
+        // Login stays real, so the personalized flow still needs a logged-in user.
+        return YearInReviewSnapshot(
+            year = YearInReviewConfig.YEAR,
+            isLoggedIn = AccountUtil.isLoggedIn,
+            isDonationEligible = true,
+            remoteConfig = YearInReviewConfig.cachedRemoteConfig,
+            readingStats = data.readingStats ?: YearInReviewReadingStats(articlesReadCount = 0, visitedDaysCount = 0),
+            rewardData = YearInReviewRewardData(isDonor = false, isEditor = false)
+        )
     }
 }

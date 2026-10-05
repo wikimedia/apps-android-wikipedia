@@ -139,12 +139,12 @@ private fun ReadingDataCard(
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             Text(
-                text = "Reading data",
+                text = "Year in Review data",
                 style = MaterialTheme.typography.titleMedium,
                 color = WikipediaTheme.colors.primaryColor
             )
             Text(
-                text = "Replaces the reading stats used to pick the personalized or collective flow, for both the Year in Review flow and the Activity tab card. " +
+                text = "Uses a test snapshot instead of your real Year in Review data, for both the Year in Review flow and the Activity tab card. " +
                         "Your real reading history isn't changed. Takes effect the next time Year in Review or the Activity tab loads.",
                 style = MaterialTheme.typography.bodySmall,
                 color = WikipediaTheme.colors.secondaryColor
@@ -186,7 +186,7 @@ private fun ReadingDataCard(
                                 color = WikipediaTheme.colors.primaryColor
                             )
                             Text(
-                                text = data.readingStats?.let { describe(it) } ?: "Uses your actual reading history.",
+                                text = data.readingStats?.let { describe(it) } ?: "Uses your actual Year in Review data.",
                                 style = MaterialTheme.typography.bodySmall,
                                 color = WikipediaTheme.colors.secondaryColor
                             )

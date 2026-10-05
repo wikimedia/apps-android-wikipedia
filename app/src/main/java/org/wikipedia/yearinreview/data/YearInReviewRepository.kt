@@ -9,7 +9,6 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.history.db.HistoryEntryDao
 import org.wikipedia.settings.Prefs
-import org.wikipedia.settings.dev.playground.YearInReviewPlayground
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.log.L
@@ -42,7 +41,7 @@ class YearInReviewRepositoryImpl(
             Prefs.yearInReviewSurveyState = YearInReviewSurveyState.NOT_TRIGGERED
         }
 
-        return YearInReviewPlayground.applyTo(YearInReviewSnapshot(
+        return YearInReviewSnapshot(
             year = year,
             isLoggedIn = AccountUtil.isLoggedIn,
             isDonationEligible = isDonationEligible,
@@ -53,7 +52,7 @@ class YearInReviewRepositoryImpl(
                 isDonor = donationEligibility.hasDonatedWithinContributionsDateRange(remoteConfig),
                 isEditor = (editingStats?.contributionsEditCount ?: 0) > 0
             )
-        ))
+        )
     }
 
     private suspend fun getReadingStats(dateRange: YearInReviewDateRange): YearInReviewReadingStats {
