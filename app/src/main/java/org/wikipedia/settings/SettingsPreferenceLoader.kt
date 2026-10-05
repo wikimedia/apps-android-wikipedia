@@ -168,12 +168,6 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
             FeedbackUtil.showMessage(activity, activity.resources.getString(messageResId))
             true
         }
-        findPreference(R.string.preference_key_semantic_search_enabled).apply {
-            onPreferenceClickListener = Preference.OnPreferenceClickListener {
-                Prefs.isSemanticSearchEnabled = !Prefs.isSemanticSearchEnabled
-                true
-            }
-        }
     }
 
     private fun deviceInformation(): String {
