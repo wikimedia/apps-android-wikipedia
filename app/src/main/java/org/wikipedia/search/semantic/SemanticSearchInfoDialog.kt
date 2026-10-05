@@ -52,7 +52,8 @@ class SemanticSearchInfoDialog : ExtendedBottomSheetDialogFragment(startExpanded
                         UriUtil.visitInExternalBrowser(requireContext(), getString(R.string.semantic_search_info_learn_more_link).toUri())
                         dismiss()
                     },
-                    quotationMark = SemanticSearchHelper.getQuotationMark(languageCode)
+                    quotationMark = SemanticSearchHelper.getQuotationMark(languageCode),
+                    languageCode = languageCode
                 )
             }
         }
@@ -76,7 +77,15 @@ private fun SemanticSearchInfoDialogContent(
     onCloseClick: () -> Unit,
     onLearnMoreClick: () -> Unit,
     quotationMark: String,
+    languageCode: String
 ) {
+
+    val thumbUrlByLanguage = when(languageCode) {
+        "ja" -> "https://upload.wikimedia.org/wikipedia/commons/d/dd/Full_Moon_Luc_Viatour.jpg?utm_source=ja.wikipedia.org&utm_campaign=imageinfo&utm_content=original"
+        "ar" -> "https://upload.wikimedia.org/wikipedia/commons/e/e1/FullMoon2010.jpg?utm_source=ary.wikipedia.org&utm_campaign=imageinfo&utm_content=original"
+        "fr" -> "https://upload.wikimedia.org/wikipedia/commons/e/e1/FullMoon2010.jpg?utm_source=fr.wikipedia.org&utm_campaign=imageinfo&utm_content=original"
+        else -> "https://upload.wikimedia.org/wikipedia/commons/e/e1/FullMoon2010.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original"
+    }
 
     val snippet = stringResource(id = R.string.semantic_search_info_dialog_sample_snippet)
     val titleAndDescription = stringResource(id = R.string.semantic_search_info_dialog_page_title_description)
@@ -84,7 +93,7 @@ private fun SemanticSearchInfoDialogContent(
     val searchResult = SearchResult(
         pageTitle = PageTitle(titleAndDescription, WikiSite.preview()).apply {
             description = titleAndDescription
-            thumbUrl = "https://upload.wikimedia.org/wikipedia/commons/c/c7/Tabby_cat_with_blue_eyes-3336579.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"
+            thumbUrl = thumbUrlByLanguage
         },
         redirectFrom = null,
         type = SearchResultType.SEMANTIC,
@@ -172,6 +181,7 @@ fun SemanticSearchInfoDialogPreview() {
     SemanticSearchInfoDialogContent(
         onCloseClick = {},
         onLearnMoreClick = { },
-        quotationMark = SemanticSearchHelper.getQuotationMark("ja")
+        quotationMark = SemanticSearchHelper.getQuotationMark("ja"),
+        languageCode = "ja"
     )
 }
