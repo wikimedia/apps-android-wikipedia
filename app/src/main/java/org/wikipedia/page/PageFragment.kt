@@ -815,7 +815,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                                     JavaScriptActionHandler.semanticSearchTextHighlight(model.title?.fragment, snippet)?.let { js ->
                                         Handler(Looper.getMainLooper()).postDelayed({
                                             if (isAdded) {
-                                                webView.evaluateJavascript(js, null)
+                                                bridge.evaluateImmediate(js, null)
                                             }
                                         }, 100)
                                     }
