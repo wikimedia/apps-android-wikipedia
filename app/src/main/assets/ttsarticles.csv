@@ -110,6 +110,7 @@ architecture,Herbert and Katherine Jacobs First House,https://en.wikipedia.org/w
 architecture,Herbert and Katherine Jacobs Second House,https://en.wikipedia.org/wiki/Herbert_and_Katherine_Jacobs_Second_House,Recommendation,0.0
 architecture,Bernard Schwartz House,https://en.wikipedia.org/wiki/Bernard_Schwartz_House,Recommendation,0.14
 architecture,Gerald B. and Beverley Tonkens House,https://en.wikipedia.org/wiki/Gerald_B._and_Beverley_Tonkens_House,Recommendation,0.0
+architecture,Moscow City Hall Building,https://en.wikipedia.org/wiki/Moscow_City_Hall_Building,Seed,0.0
 architecture,Monument to Lenin on Tverskaya Square,https://en.wikipedia.org/wiki/Monument_to_Lenin_on_Tverskaya_Square,Recommendation,0.0
 architecture,Council of Labor and Defense Building,https://en.wikipedia.org/wiki/Council_of_Labor_and_Defense_Building,Recommendation,0.0
 architecture,Tverskoy District,https://en.wikipedia.org/wiki/Tverskoy_District,Recommendation,0.0
@@ -1259,6 +1260,7 @@ music,Don't Cry for Me Argentina,https://en.wikipedia.org/wiki/Don%27t_Cry_for_M
 music,Nikolai Obukhov,https://en.wikipedia.org/wiki/Nikolai_Obukhov,Seed,0.0
 music,Croix Sonore,https://en.wikipedia.org/wiki/Croix_Sonore,Recommendation,0.0
 music,Alexander Scriabin,https://en.wikipedia.org/wiki/Alexander_Scriabin,Recommendation,0.0
+music,Saint Petersburg Conservatory,https://en.wikipedia.org/wiki/Saint_Petersburg_Conservatory,Recommendation,0.0
 music,Let It Enfold You,https://en.wikipedia.org/wiki/Let_It_Enfold_You,Seed,0.0
 music,The Fire (Senses Fail album),https://en.wikipedia.org/wiki/The_Fire_%28Senses_Fail_album%29,Recommendation,0.0
 music,Forget What You Know,https://en.wikipedia.org/wiki/Forget_What_You_Know,Recommendation,0.0
@@ -2268,7 +2270,6 @@ biography,Antiochus VII Sidetes,https://en.wikipedia.org/wiki/Antiochus_VII_Side
 biography,Alexander Balas,https://en.wikipedia.org/wiki/Alexander_Balas,Recommendation,0.0
 biography,Richard Hawes,https://en.wikipedia.org/wiki/Richard_Hawes,Seed,0.0
 biography,Confederate government of Kentucky,https://en.wikipedia.org/wiki/Confederate_government_of_Kentucky,Recommendation,0.0
-biography,George W. Johnson (governor),https://en.wikipedia.org/wiki/George_W._Johnson_%28governor%29,Recommendation,0.0
 biography,Kentucky in the American Civil War,https://en.wikipedia.org/wiki/Kentucky_in_the_American_Civil_War,Recommendation,0.14
 biography,R. A. B. Mynors,https://en.wikipedia.org/wiki/R._A._B._Mynors,Seed,0.0
 biography,L. D. Reynolds,https://en.wikipedia.org/wiki/L._D._Reynolds,Recommendation,0.0
@@ -2368,6 +2369,7 @@ biography,Edward Hutchinson (mercer),https://en.wikipedia.org/wiki/Edward_Hutchi
 biography,John Wheelwright,https://en.wikipedia.org/wiki/John_Wheelwright,Recommendation,0.0
 biography,Nadezhda Stasova,https://en.wikipedia.org/wiki/Nadezhda_Stasova,Seed,0.0
 biography,Anna Filosofova,https://en.wikipedia.org/wiki/Anna_Filosofova,Recommendation,0.0
+biography,Maria Trubnikova,https://en.wikipedia.org/wiki/Maria_Trubnikova,Recommendation,0.0
 biography,Bestuzhev Courses,https://en.wikipedia.org/wiki/Bestuzhev_Courses,Recommendation,0.14
 biography,"Mary, Queen of Scots",https://en.wikipedia.org/wiki/Mary%2C_Queen_of_Scots,Seed,0.29
 biography,"Henry Stuart, Lord Darnley",https://en.wikipedia.org/wiki/Henry_Stuart%2C_Lord_Darnley,Recommendation,0.0
@@ -2738,6 +2740,7 @@ business-and-economics,Pearl River Piano Group,https://en.wikipedia.org/wiki/Pea
 business-and-economics,Grotrian-Steinweg,https://en.wikipedia.org/wiki/Grotrian-Steinweg,Recommendation,0.0
 business-and-economics,Robert Russ (music producer),https://en.wikipedia.org/wiki/Robert_Russ_%28music_producer%29,Recommendation,0.0
 business-and-economics,Parex Bank,https://en.wikipedia.org/wiki/Parex_Bank,Seed,0.0
+business-and-economics,Valērijs Kargins,https://en.wikipedia.org/wiki/Val%C4%93rijs_Kargins,Recommendation,0.0
 business-and-economics,Lato Lapsa,https://en.wikipedia.org/wiki/Lato_Lapsa,Recommendation,0.14
 business-and-economics,Ūkio bankas,https://en.wikipedia.org/wiki/%C5%AAkio_bankas,Recommendation,0.0
 business-and-economics,Frasers Property,https://en.wikipedia.org/wiki/Frasers_Property,Seed,0.0
@@ -2820,6 +2823,7 @@ education,Education in Quebec,https://en.wikipedia.org/wiki/Education_in_Quebec,
 education,University of Kinshasa,https://en.wikipedia.org/wiki/University_of_Kinshasa,Recommendation,0.0
 education,Education in France,https://en.wikipedia.org/wiki/Education_in_France,Recommendation,0.0
 education,Education in Tunisia,https://en.wikipedia.org/wiki/Education_in_Tunisia,Recommendation,0.14
+education,Education in Mauritania,https://en.wikipedia.org/wiki/Education_in_Mauritania,Recommendation,0.0
 education,École normale supérieure,https://en.wikipedia.org/wiki/%C3%89cole_normale_sup%C3%A9rieure,Recommendation,0.0
 education,Education in Luxembourg,https://en.wikipedia.org/wiki/Education_in_Luxembourg,Recommendation,0.0
 education,Education in Madagascar,https://en.wikipedia.org/wiki/Education_in_Madagascar,Recommendation,0.0
@@ -3137,6 +3141,8 @@ food-and-drink,Georgiana Hill (cookery book writer),https://en.wikipedia.org/wik
 food-and-drink,The Cookery Book of Lady Clark of Tillypronie,https://en.wikipedia.org/wiki/The_Cookery_Book_of_Lady_Clark_of_Tillypronie,Recommendation,0.0
 food-and-drink,Armenian wine,https://en.wikipedia.org/wiki/Armenian_wine,Seed,0.0
 food-and-drink,Vedi Alco Winery,https://en.wikipedia.org/wiki/Vedi_Alco_Winery,Recommendation,0.0
+food-and-drink,Ijevan Wine-Brandy Factory,https://en.wikipedia.org/wiki/Ijevan_Wine-Brandy_Factory,Recommendation,0.0
+food-and-drink,MAP Wine and Brandy Factory,https://en.wikipedia.org/wiki/MAP_Wine_and_Brandy_Factory,Recommendation,0.0
 food-and-drink,Burger King grilled chicken sandwiches,https://en.wikipedia.org/wiki/Burger_King_grilled_chicken_sandwiches,Seed,0.29
 food-and-drink,Burger King products,https://en.wikipedia.org/wiki/Burger_King_products,Recommendation,0.14
 food-and-drink,Whopper,https://en.wikipedia.org/wiki/Whopper,Recommendation,0.14
@@ -3218,6 +3224,7 @@ history,Khentkaus I,https://en.wikipedia.org/wiki/Khentkaus_I,Recommendation,0.0
 history,Bikheris,https://en.wikipedia.org/wiki/Bikheris,Recommendation,0.0
 history,Thamphthis,https://en.wikipedia.org/wiki/Thamphthis,Recommendation,0.0
 history,Neferefre,https://en.wikipedia.org/wiki/Neferefre,Seed,0.0
+history,Abusir,https://en.wikipedia.org/wiki/Abusir,Recommendation,0.0
 history,Khentkaus III,https://en.wikipedia.org/wiki/Khentkaus_III,Recommendation,0.14
 history,Abu Gorab,https://en.wikipedia.org/wiki/Abu_Gorab,Recommendation,0.0
 history,Ramesses VI,https://en.wikipedia.org/wiki/Ramesses_VI,Seed,0.0
@@ -3267,6 +3274,7 @@ history,Qakare Ibi,https://en.wikipedia.org/wiki/Qakare_Ibi,Recommendation,0.0
 history,Pyramid of Senusret II,https://en.wikipedia.org/wiki/Pyramid_of_Senusret_II,Seed,0.0
 history,Sithathoriunet,https://en.wikipedia.org/wiki/Sithathoriunet,Recommendation,0.0
 history,Pyramid of Senusret III,https://en.wikipedia.org/wiki/Pyramid_of_Senusret_III,Recommendation,0.0
+history,El Lahun,https://en.wikipedia.org/wiki/El_Lahun,Recommendation,0.0
 history,Pyramid of Nyuserre,https://en.wikipedia.org/wiki/Pyramid_of_Nyuserre,Seed,0.0
 history,Double Pyramid,https://en.wikipedia.org/wiki/Double_Pyramid,Recommendation,0.0
 history,Fifth Dynasty of Egypt,https://en.wikipedia.org/wiki/Fifth_Dynasty_of_Egypt,Recommendation,0.0
@@ -3289,9 +3297,11 @@ history,John II Komnenos,https://en.wikipedia.org/wiki/John_II_Komnenos,Recommen
 history,Byzantine Empire under the Komnenos dynasty,https://en.wikipedia.org/wiki/Byzantine_Empire_under_the_Komnenos_dynasty,Recommendation,0.0
 history,Sennacherib,https://en.wikipedia.org/wiki/Sennacherib,Seed,0.0
 history,Sargonid dynasty,https://en.wikipedia.org/wiki/Sargonid_dynasty,Recommendation,0.0
+history,Esarhaddon,https://en.wikipedia.org/wiki/Esarhaddon,Recommendation,0.0
 history,Sargon II,https://en.wikipedia.org/wiki/Sargon_II,Recommendation,0.0
 history,Gilgamesh and Aga,https://en.wikipedia.org/wiki/Gilgamesh_and_Aga,Seed,0.0
 history,Aga of Kish,https://en.wikipedia.org/wiki/Aga_of_Kish,Recommendation,0.0
+history,Enmebaragesi,https://en.wikipedia.org/wiki/Enmebaragesi,Recommendation,0.0
 history,Birhurtura,https://en.wikipedia.org/wiki/Birhurtura,Recommendation,0.0
 history,Theodore II Laskaris,https://en.wikipedia.org/wiki/Theodore_II_Laskaris,Seed,0.0
 history,John III Doukas Vatatzes,https://en.wikipedia.org/wiki/John_III_Doukas_Vatatzes,Recommendation,0.0
@@ -3319,6 +3329,7 @@ history,Set (deity),https://en.wikipedia.org/wiki/Set_%28deity%29,Recommendation
 history,Eye of Horus,https://en.wikipedia.org/wiki/Eye_of_Horus,Recommendation,0.0
 history,Rekhyt,https://en.wikipedia.org/wiki/Rekhyt,Seed,0.0
 history,Khnum,https://en.wikipedia.org/wiki/Khnum,Recommendation,0.0
+history,Ra,https://en.wikipedia.org/wiki/Ra,Recommendation,0.0
 history,Akhty (deity),https://en.wikipedia.org/wiki/Akhty_%28deity%29,Recommendation,0.0
 history,Cleopatra,https://en.wikipedia.org/wiki/Cleopatra,Seed,0.14
 history,Reign of Cleopatra,https://en.wikipedia.org/wiki/Reign_of_Cleopatra,Recommendation,0.14
@@ -3418,6 +3429,7 @@ military-and-warfare,Charles Pelot Summerall,https://en.wikipedia.org/wiki/Charl
 military-and-warfare,John L. Hines,https://en.wikipedia.org/wiki/John_L._Hines,Recommendation,0.0
 military-and-warfare,Battle of the Saw,https://en.wikipedia.org/wiki/Battle_of_the_Saw,Seed,0.0
 military-and-warfare,Battle of Leptis Parva,https://en.wikipedia.org/wiki/Battle_of_Leptis_Parva,Recommendation,0.0
+military-and-warfare,Hamilcar Barca,https://en.wikipedia.org/wiki/Hamilcar_Barca,Recommendation,0.29
 military-and-warfare,Second Punic War,https://en.wikipedia.org/wiki/Second_Punic_War,Recommendation,1.29
 military-and-warfare,Battle of the Bagradas River (240 BC),https://en.wikipedia.org/wiki/Battle_of_the_Bagradas_River_%28240_BC%29,Seed,0.0
 military-and-warfare,Mathos,https://en.wikipedia.org/wiki/Mathos,Recommendation,0.0
@@ -3502,6 +3514,7 @@ military-and-warfare,HMS Bellerophon (1907),https://en.wikipedia.org/wiki/HMS_Be
 military-and-warfare,Siege of Tunis (Mercenary War),https://en.wikipedia.org/wiki/Siege_of_Tunis_%28Mercenary_War%29,Seed,0.0
 military-and-warfare,Battle of Utica,https://en.wikipedia.org/wiki/Battle_of_Utica,Recommendation,0.0
 military-and-warfare,Punic Wars,https://en.wikipedia.org/wiki/Punic_Wars,Recommendation,0.0
+military-and-warfare,Hasdrubal Barca,https://en.wikipedia.org/wiki/Hasdrubal_Barca,Recommendation,0.43
 military-and-warfare,Battle of Winwick,https://en.wikipedia.org/wiki/Battle_of_Winwick,Seed,0.0
 military-and-warfare,Scottish invasion of England (1648),https://en.wikipedia.org/wiki/Scottish_invasion_of_England_%281648%29,Recommendation,0.0
 military-and-warfare,Battle of Preston (1648),https://en.wikipedia.org/wiki/Battle_of_Preston_%281648%29,Recommendation,0.0
@@ -3622,6 +3635,7 @@ philosophy-and-religion,World Youth Day 2023,https://en.wikipedia.org/wiki/World
 philosophy-and-religion,World Youth Day,https://en.wikipedia.org/wiki/World_Youth_Day,Recommendation,0.0
 philosophy-and-religion,World Youth Day 2019,https://en.wikipedia.org/wiki/World_Youth_Day_2019,Recommendation,0.0
 philosophy-and-religion,World Youth Day 2013,https://en.wikipedia.org/wiki/World_Youth_Day_2013,Recommendation,0.0
+philosophy-and-religion,Zuism,https://en.wikipedia.org/wiki/Zuism,Seed,0.0
 philosophy-and-religion,Religion in Iceland,https://en.wikipedia.org/wiki/Religion_in_Iceland,Recommendation,0.0
 philosophy-and-religion,Sumerian religion,https://en.wikipedia.org/wiki/Sumerian_religion,Recommendation,0.0
 philosophy-and-religion,Ancient Semitic religion,https://en.wikipedia.org/wiki/Ancient_Semitic_religion,Recommendation,0.0
@@ -3666,6 +3680,7 @@ philosophy-and-religion,Pentecostalism in Brazil,https://en.wikipedia.org/wiki/P
 philosophy-and-religion,Catholic Church in Guatemala,https://en.wikipedia.org/wiki/Catholic_Church_in_Guatemala,Recommendation,0.0
 philosophy-and-religion,Catholic charismatic renewal in Latin America,https://en.wikipedia.org/wiki/Catholic_charismatic_renewal_in_Latin_America,Recommendation,0.0
 philosophy-and-religion,Orthodox Church of the Czech Lands and Slovakia,https://en.wikipedia.org/wiki/Orthodox_Church_of_the_Czech_Lands_and_Slovakia,Seed,0.0
+philosophy-and-religion,Eparchy of Mukachevo and Prešov,https://en.wikipedia.org/wiki/Eparchy_of_Mukachevo_and_Pre%C5%A1ov,Recommendation,0.0
 philosophy-and-religion,Slovak Greek Catholic Church,https://en.wikipedia.org/wiki/Slovak_Greek_Catholic_Church,Recommendation,0.0
 philosophy-and-religion,Saint Gorazd,https://en.wikipedia.org/wiki/Saint_Gorazd,Recommendation,0.0
 philosophy-and-religion,Henry Conwell,https://en.wikipedia.org/wiki/Henry_Conwell,Seed,0.0
@@ -3705,6 +3720,7 @@ philosophy-and-religion,Ashtabujakaram,https://en.wikipedia.org/wiki/Ashtabujaka
 philosophy-and-religion,Tiruththanka,https://en.wikipedia.org/wiki/Tiruththanka,Recommendation,0.0
 philosophy-and-religion,Tiruvelukkai,https://en.wikipedia.org/wiki/Tiruvelukkai,Recommendation,0.0
 philosophy-and-religion,Russian Orthodox Diocese of Sourozh,https://en.wikipedia.org/wiki/Russian_Orthodox_Diocese_of_Sourozh,Seed,0.0
+philosophy-and-religion,Elisey Ganaba,https://en.wikipedia.org/wiki/Elisey_Ganaba,Recommendation,0.0
 philosophy-and-religion,Basil Osborne,https://en.wikipedia.org/wiki/Basil_Osborne,Recommendation,0.0
 philosophy-and-religion,Diocese of The Hague and the Netherlands,https://en.wikipedia.org/wiki/Diocese_of_The_Hague_and_the_Netherlands,Recommendation,0.0
 philosophy-and-religion,Ninety-five Theses,https://en.wikipedia.org/wiki/Ninety-five_Theses,Seed,0.0
@@ -3723,6 +3739,7 @@ philosophy-and-religion,Archdiocese of Miami,https://en.wikipedia.org/wiki/Archd
 philosophy-and-religion,Gilberto Fernández (bishop),https://en.wikipedia.org/wiki/Gilberto_Fern%C3%A1ndez_%28bishop%29,Recommendation,0.0
 philosophy-and-religion,Cathedral of Saint Mary (Miami),https://en.wikipedia.org/wiki/Cathedral_of_Saint_Mary_%28Miami%29,Recommendation,0.0
 philosophy-and-religion,Fernando Isern,https://en.wikipedia.org/wiki/Fernando_Isern,Recommendation,0.0
+philosophy-and-religion,Abraham of Angamaly,https://en.wikipedia.org/wiki/Abraham_of_Angamaly,Seed,0.14
 philosophy-and-religion,India (East Syriac ecclesiastical province),https://en.wikipedia.org/wiki/India_%28East_Syriac_ecclesiastical_province%29,Recommendation,0.29
 philosophy-and-religion,Synod of Diamper,https://en.wikipedia.org/wiki/Synod_of_Diamper,Recommendation,0.0
 philosophy-and-religion,Jacob of Muttuchira,https://en.wikipedia.org/wiki/Jacob_of_Muttuchira,Recommendation,0.0
@@ -4102,6 +4119,7 @@ society,Sámi Americans,https://en.wikipedia.org/wiki/S%C3%A1mi_Americans,Seed,0
 society,Nordic and Scandinavian Americans,https://en.wikipedia.org/wiki/Nordic_and_Scandinavian_Americans,Recommendation,0.0
 society,Samuel Balto,https://en.wikipedia.org/wiki/Samuel_Balto,Recommendation,0.0
 society,Sámi people,https://en.wikipedia.org/wiki/S%C3%A1mi_people,Recommendation,0.86
+society,Cirebonese people,https://en.wikipedia.org/wiki/Cirebonese_people,Seed,0.0
 society,Cirebon,https://en.wikipedia.org/wiki/Cirebon,Recommendation,0.14
 society,Cirebon Regency,https://en.wikipedia.org/wiki/Cirebon_Regency,Recommendation,0.14
 society,Sultanate of Cirebon,https://en.wikipedia.org/wiki/Sultanate_of_Cirebon,Recommendation,0.0
@@ -4149,6 +4167,7 @@ society,Nervii,https://en.wikipedia.org/wiki/Nervii,Seed,0.0
 society,Menapii,https://en.wikipedia.org/wiki/Menapii,Recommendation,0.0
 society,Belgae,https://en.wikipedia.org/wiki/Belgae,Recommendation,0.0
 society,Morini,https://en.wikipedia.org/wiki/Morini,Recommendation,0.0
+society,Dhondup Wangchen,https://en.wikipedia.org/wiki/Dhondup_Wangchen,Seed,0.0
 society,Jigme Gyatso,https://en.wikipedia.org/wiki/Jigme_Gyatso,Recommendation,0.0
 society,Leaving Fear Behind,https://en.wikipedia.org/wiki/Leaving_Fear_Behind,Recommendation,0.0
 society,Jigme Gyatso (Tibetan independence activist),https://en.wikipedia.org/wiki/Jigme_Gyatso_%28Tibetan_independence_activist%29,Recommendation,0.0
@@ -4214,6 +4233,7 @@ transportation,UPS Airlines,https://en.wikipedia.org/wiki/UPS_Airlines,Recommend
 transportation,DHL Aviation,https://en.wikipedia.org/wiki/DHL_Aviation,Recommendation,0.0
 transportation,Rogožarski IK-3,https://en.wikipedia.org/wiki/Rogo%C5%BEarski_IK-3,Seed,0.14
 transportation,Ikarus IK-2,https://en.wikipedia.org/wiki/Ikarus_IK-2,Recommendation,0.0
+transportation,Royal Yugoslav Air Force,https://en.wikipedia.org/wiki/Royal_Yugoslav_Air_Force,Recommendation,0.0
 transportation,Messerschmitt Bf 109 in Yugoslav service,https://en.wikipedia.org/wiki/Messerschmitt_Bf_109_in_Yugoslav_service,Recommendation,0.0
 transportation,SM U-1 (Austria-Hungary),https://en.wikipedia.org/wiki/SM_U-1_%28Austria-Hungary%29,Seed,0.0
 transportation,SM U-2 (Austria-Hungary),https://en.wikipedia.org/wiki/SM_U-2_%28Austria-Hungary%29,Recommendation,0.0
@@ -5157,6 +5177,7 @@ geographical,Volcán Putana,https://en.wikipedia.org/wiki/Volc%C3%A1n_Putana,Rec
 geographical,1257 Samalas eruption,https://en.wikipedia.org/wiki/1257_Samalas_eruption,Seed,0.0
 geographical,Pamatan,https://en.wikipedia.org/wiki/Pamatan,Recommendation,0.0
 geographical,Lake Segara Anak,https://en.wikipedia.org/wiki/Lake_Segara_Anak,Recommendation,0.0
+geographical,Mount Rinjani,https://en.wikipedia.org/wiki/Mount_Rinjani,Recommendation,0.0
 geographical,Newberry Volcano,https://en.wikipedia.org/wiki/Newberry_Volcano,Seed,0.0
 geographical,Medicine Lake Volcano,https://en.wikipedia.org/wiki/Medicine_Lake_Volcano,Recommendation,0.0
 geographical,Mount Mazama,https://en.wikipedia.org/wiki/Mount_Mazama,Recommendation,0.0
@@ -5369,6 +5390,7 @@ engineering,Republic Airport,https://en.wikipedia.org/wiki/Republic_Airport,Seed
 engineering,Runway excursion,https://en.wikipedia.org/wiki/Runway_excursion,Recommendation,0.57
 engineering,Peter O. Knight Airport,https://en.wikipedia.org/wiki/Peter_O._Knight_Airport,Recommendation,0.0
 engineering,Fort Lauderdale Executive Airport,https://en.wikipedia.org/wiki/Fort_Lauderdale_Executive_Airport,Recommendation,0.0
+engineering,Morava Airport,https://en.wikipedia.org/wiki/Morava_Airport,Seed,0.0
 engineering,Tuzla International Airport,https://en.wikipedia.org/wiki/Tuzla_International_Airport,Recommendation,1.14
 engineering,Airports of Serbia,https://en.wikipedia.org/wiki/Airports_of_Serbia,Recommendation,0.0
 engineering,Sarajevo International Airport,https://en.wikipedia.org/wiki/Sarajevo_International_Airport,Recommendation,0.0
@@ -5703,7 +5725,6 @@ mathematics,Problem of Apollonius,https://en.wikipedia.org/wiki/Problem_of_Apoll
 mathematics,Special cases of Apollonius' problem,https://en.wikipedia.org/wiki/Special_cases_of_Apollonius%27_problem,Recommendation,0.0
 mathematics,Tangent lines to circles,https://en.wikipedia.org/wiki/Tangent_lines_to_circles,Recommendation,0.0
 mathematics,Analytic geometry,https://en.wikipedia.org/wiki/Analytic_geometry,Recommendation,0.0
-mathematics,Descartes' theorem,https://en.wikipedia.org/wiki/Descartes%27_theorem,Recommendation,0.0
 mathematics,Inversive geometry,https://en.wikipedia.org/wiki/Inversive_geometry,Recommendation,0.0
 mathematics,Perfect graph,https://en.wikipedia.org/wiki/Perfect_graph,Seed,0.0
 mathematics,Perfect graph theorem,https://en.wikipedia.org/wiki/Perfect_graph_theorem,Recommendation,0.0
@@ -6418,6 +6439,7 @@ africa,Nyaung-gan,https://en.wikipedia.org/wiki/Nyaung-gan,Recommendation,0.0
 africa,"Kissi, Burkina Faso",https://en.wikipedia.org/wiki/Kissi%2C_Burkina_Faso,Recommendation,0.0
 africa,Ghaba,https://en.wikipedia.org/wiki/Ghaba,Recommendation,0.0
 africa,Nile,https://en.wikipedia.org/wiki/Nile,Seed,0.0
+africa,Flooding of the Nile,https://en.wikipedia.org/wiki/Flooding_of_the_Nile,Recommendation,0.0
 africa,Atbarah River,https://en.wikipedia.org/wiki/Atbarah_River,Recommendation,0.0
 africa,Geography of Egypt,https://en.wikipedia.org/wiki/Geography_of_Egypt,Recommendation,0.0
 africa,Ranavalona I,https://en.wikipedia.org/wiki/Ranavalona_I,Seed,0.0
@@ -6451,6 +6473,7 @@ africa,Strand Street,https://en.wikipedia.org/wiki/Strand_Street,Recommendation,
 africa,Mausoleum of Moulay Ismail,https://en.wikipedia.org/wiki/Mausoleum_of_Moulay_Ismail,Seed,0.0
 africa,Kasbah of Moulay Ismail,https://en.wikipedia.org/wiki/Kasbah_of_Moulay_Ismail,Recommendation,0.0
 africa,Meknes,https://en.wikipedia.org/wiki/Meknes,Recommendation,0.43
+africa,Lalla Aouda Mosque,https://en.wikipedia.org/wiki/Lalla_Aouda_Mosque,Recommendation,0.0
 africa,Evelyn Mase,https://en.wikipedia.org/wiki/Evelyn_Mase,Seed,0.0
 africa,Albertina Sisulu,https://en.wikipedia.org/wiki/Albertina_Sisulu,Recommendation,0.0
 africa,Makaziwe Mandela,https://en.wikipedia.org/wiki/Makaziwe_Mandela,Recommendation,0.0
@@ -6663,8 +6686,11 @@ asia,Ba Cụt,https://en.wikipedia.org/wiki/Ba_C%E1%BB%A5t,Seed,0.0
 asia,Hòa Hảo,https://en.wikipedia.org/wiki/H%C3%B2a_H%E1%BA%A3o,Recommendation,0.0
 asia,Trần Văn Soái,https://en.wikipedia.org/wiki/Tr%E1%BA%A7n_V%C4%83n_So%C3%A1i,Recommendation,0.0
 asia,Nguyen Giac Ngo,https://en.wikipedia.org/wiki/Nguyen_Giac_Ngo,Recommendation,0.0
+asia,Muang Sing,https://en.wikipedia.org/wiki/Muang_Sing,Seed,0.0
+asia,Luang Namtha province,https://en.wikipedia.org/wiki/Luang_Namtha_province,Recommendation,0.29
 asia,Tai Lue people,https://en.wikipedia.org/wiki/Tai_Lue_people,Recommendation,0.0
 asia,Yang people,https://en.wikipedia.org/wiki/Yang_people,Recommendation,0.0
+asia,China–Myanmar relations,https://en.wikipedia.org/wiki/China%E2%80%93Myanmar_relations,Seed,0.0
 asia,2021 Myanmar coup d'état,https://en.wikipedia.org/wiki/2021_Myanmar_coup_d%27%C3%A9tat,Recommendation,0.0
 asia,Aung San Suu Kyi,https://en.wikipedia.org/wiki/Aung_San_Suu_Kyi,Recommendation,0.0
 asia,2020 Myanmar general election,https://en.wikipedia.org/wiki/2020_Myanmar_general_election,Recommendation,0.0
@@ -6749,7 +6775,6 @@ asia,Religion in Western Ganga kingdom,https://en.wikipedia.org/wiki/Religion_in
 asia,Chavundaraya,https://en.wikipedia.org/wiki/Chavundaraya,Recommendation,0.0
 asia,Tiruchirappalli,https://en.wikipedia.org/wiki/Tiruchirappalli,Seed,0.0
 asia,Tiruchirappalli City Municipal Corporation,https://en.wikipedia.org/wiki/Tiruchirappalli_City_Municipal_Corporation,Recommendation,0.0
-asia,Tiruchirappalli railway division,https://en.wikipedia.org/wiki/Tiruchirappalli_railway_division,Recommendation,0.0
 asia,Economy of Tiruchirappalli,https://en.wikipedia.org/wiki/Economy_of_Tiruchirappalli,Recommendation,0.0
 asia,Battle of Red Cliffs,https://en.wikipedia.org/wiki/Battle_of_Red_Cliffs,Seed,0.0
 asia,Cao Pi's invasions of Eastern Wu,https://en.wikipedia.org/wiki/Cao_Pi%27s_invasions_of_Eastern_Wu,Recommendation,0.0
@@ -6758,6 +6783,7 @@ asia,Battle of Changban,https://en.wikipedia.org/wiki/Battle_of_Changban,Recomme
 asia,Garegin Apresov,https://en.wikipedia.org/wiki/Garegin_Apresov,Seed,0.29
 asia,Sheng Shicai,https://en.wikipedia.org/wiki/Sheng_Shicai,Recommendation,0.0
 asia,1937 Islamic rebellion in Xinjiang,https://en.wikipedia.org/wiki/1937_Islamic_rebellion_in_Xinjiang,Recommendation,0.0
+asia,Ruhulla Akhundov,https://en.wikipedia.org/wiki/Ruhulla_Akhundov,Recommendation,0.0
 asia,Zhao Chongguo,https://en.wikipedia.org/wiki/Zhao_Chongguo,Seed,0.0
 asia,Yizhixie,https://en.wikipedia.org/wiki/Yizhixie,Recommendation,0.0
 asia,Junchen,https://en.wikipedia.org/wiki/Junchen,Recommendation,0.0
@@ -6987,6 +7013,7 @@ europe,Chew Magna,https://en.wikipedia.org/wiki/Chew_Magna,Recommendation,0.0
 europe,"St Andrew's Church, Chew Stoke",https://en.wikipedia.org/wiki/St_Andrew%27s_Church%2C_Chew_Stoke,Recommendation,0.0
 europe,Chelwood,https://en.wikipedia.org/wiki/Chelwood,Recommendation,0.0
 europe,Hungarian occupation of Yugoslav territories,https://en.wikipedia.org/wiki/Hungarian_occupation_of_Yugoslav_territories,Seed,0.0
+europe,Novi Sad raid,https://en.wikipedia.org/wiki/Novi_Sad_raid,Recommendation,0.0
 europe,Commissioner Government,https://en.wikipedia.org/wiki/Commissioner_Government,Recommendation,0.0
 europe,Délvidék,https://en.wikipedia.org/wiki/D%C3%A9lvid%C3%A9k,Recommendation,0.0
 europe,Byzantine civil war of 1341–1347,https://en.wikipedia.org/wiki/Byzantine_civil_war_of_1341%E2%80%931347,Seed,0.0
