@@ -143,6 +143,12 @@ class SearchResultsFragment : Fragment() {
         viewModel.invokeSource = invokeSource
     }
 
+    val isSemanticSearchFeedbackShown get() = viewModel.isSemanticSearchFeedbackShown
+
+    fun onSemanticSearchFeedbackShown() {
+        viewModel.isSemanticSearchFeedbackShown = true
+    }
+
     private val searchLanguageCode
         get() =
             if (isAdded) (requireParentFragment() as SearchFragment).searchLanguageCode else WikipediaApp.instance.languageState.appLanguageCode

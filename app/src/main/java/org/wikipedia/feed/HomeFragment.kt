@@ -30,6 +30,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.compose.components.WikipediaAlertDialog
+import org.wikipedia.compose.components.menu.PageOverflowMenuItem
 import org.wikipedia.compose.components.menu.PageOverflowMenuViewModel
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.database.AppDatabase
@@ -99,6 +100,8 @@ class HomeFragment : Fragment(), LinkPreviewDialog.LoadPageCallback {
         .startFunnel("home_feed").also {
             if (NewWithinInterestABTest().isTestActive()) {
                 it.setExperiment(TestKitchenAdapter.getExperiment(NewWithinInterestABTest()))
+            } else if (ReadAloudLeadSectionABTest().isTestActive()) {
+                it.setExperiment(TestKitchenAdapter.getExperiment(ReadAloudLeadSectionABTest()))
             }
         }
 
@@ -124,17 +127,6 @@ class HomeFragment : Fragment(), LinkPreviewDialog.LoadPageCallback {
                 viewModel.forYouNetworkLatency.collectLatest {
                     if (it > 0) {
                         instrument.submitInteraction("timing", actionSource = "for_you_latency", actionContext = mapOf("latency" to it))
-                    }
-                }
-            }
-        }
-
-        lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.CREATED) {
-                viewModel.readAloudExperimentAssigned.collectLatest { assigned ->
-                    val test = ReadAloudLeadSectionABTest()
-                    if (assigned && test.isTestActive() && !NewWithinInterestABTest().isTestActive()) {
-                        instrument.setExperiment(TestKitchenAdapter.getExperiment(test))
                     }
                 }
             }
@@ -323,35 +315,34 @@ class HomeFragment : Fragment(), LinkPreviewDialog.LoadPageCallback {
                 ShareUtil.shareText(requireContext(), action.historyEntry.title)
             }
             is HomeAction.PageOverflowClick -> {
-                val card = action.card
                 pageOverflowMenuViewModel.onPageOverflowClick(
-                    context = requireContext(),
                     wikiSite = wikiSite,
                     pageSummary = action.pageSummary,
                     source = action.source,
-                    menuKey = action.menuKey,
-                    onOpenPage = { entry ->
-                        instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_item_overflow", elementId = "article_open", pageData = TestKitchenAdapter.getPageData(pageTitle = entry.title))
-                        (parentFragment as? MainFragment)?.onFeedSelectPage(entry, false)
-                    },
-                    onOpenInNewTab = { entry ->
-                        instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_item_overflow", elementId = "article_open_new_tab", pageData = TestKitchenAdapter.getPageData(pageTitle = entry.title))
-                        (parentFragment as? MainFragment)?.onFeedSelectPage(entry, true)
-                        viewModel.updateTabCount(true)
-                    },
-                    onSaveRequest = { entry ->
-                        instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_item_overflow", elementId = "article_save", pageData = TestKitchenAdapter.getPageData(pageTitle = entry.title))
-                        (parentFragment as? MainFragment)?.onFeedSavePage(entry)
-                    },
-                    onShareRequest = { entry ->
-                        instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_item_overflow", elementId = "article_share", pageData = TestKitchenAdapter.getPageData(pageTitle = entry.title))
-                        (parentFragment as? MainFragment)?.onFeedSharePage(entry)
-                    },
-                    onLinkCopyRequest = { entry ->
-                        instrument.submitInteraction("click", actionSource = card.javaClass.simpleName, actionSubtype = "feed_item_overflow", elementId = "article_copy_link", pageData = TestKitchenAdapter.getPageData(pageTitle = entry.title))
-                        (parentFragment as? MainFragment)?.onFeedCopyLink(entry)
-                    }
+                    menuKey = action.menuKey
                 )
+            }
+            is HomeAction.PageOverflowItemClick -> {
+                val entry = action.historyEntry
+                val elementId = when (action.item) {
+                    PageOverflowMenuItem.OPEN_PAGE -> "article_open"
+                    PageOverflowMenuItem.OPEN_IN_NEW_TAB -> "article_open_new_tab"
+                    PageOverflowMenuItem.SAVE -> "article_save"
+                    PageOverflowMenuItem.SHARE -> "article_share"
+                    PageOverflowMenuItem.COPY_LINK -> "article_copy_link"
+                }
+                instrument.submitInteraction("click", actionSource = action.card.javaClass.simpleName, actionSubtype = "feed_item_overflow", elementId = elementId, pageData = TestKitchenAdapter.getPageData(pageTitle = entry.title))
+                val mainFragment = parentFragment as? MainFragment
+                when (action.item) {
+                    PageOverflowMenuItem.OPEN_PAGE -> mainFragment?.onFeedSelectPage(entry, false)
+                    PageOverflowMenuItem.OPEN_IN_NEW_TAB -> {
+                        mainFragment?.onFeedSelectPage(entry, true)
+                        viewModel.updateTabCount(true)
+                    }
+                    PageOverflowMenuItem.SAVE -> mainFragment?.onFeedSavePage(entry)
+                    PageOverflowMenuItem.SHARE -> mainFragment?.onFeedSharePage(entry)
+                    PageOverflowMenuItem.COPY_LINK -> mainFragment?.onFeedCopyLink(entry)
+                }
             }
             HomeAction.PageOverflowDismiss -> {
                 pageOverflowMenuViewModel.dismissPageOverflowMenu()

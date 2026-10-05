@@ -99,15 +99,10 @@ fun SearchResultsScreen(
 
     // used to prevent flickering in the error state.
     var isErrorState by remember { mutableStateOf(false) }
-    LaunchedEffect(loadState.refresh) {
-        snapshotFlow { loadState.refresh }
+    LaunchedEffect(searchResults) {
+        snapshotFlow { searchResults.loadState.refresh is LoadState.Error }
             .debounce(200L.milliseconds)
-            .collect { state ->
-                isErrorState = when (state) {
-                    is LoadState.Error -> true
-                    else -> false
-                }
-            }
+            .collect { isErrorState = it }
     }
 
     val shouldShowNoResults =
