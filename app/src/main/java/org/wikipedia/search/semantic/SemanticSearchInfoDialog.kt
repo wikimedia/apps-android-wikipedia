@@ -86,7 +86,7 @@ private fun SemanticSearchInfoDialogContent(
     val layoutDirection =
         if (L10nUtil.isLangRTL(languageCode)) LayoutDirection.Rtl else LayoutDirection.Ltr
 
-    val thumbUrlByLanguage = when(languageCode) {
+    val thumbUrlByLanguage = when (languageCode) {
         "ja" -> "https://upload.wikimedia.org/wikipedia/commons/d/dd/Full_Moon_Luc_Viatour.jpg?utm_source=ja.wikipedia.org&utm_campaign=imageinfo&utm_content=original"
         "ar" -> "https://upload.wikimedia.org/wikipedia/commons/e/e1/FullMoon2010.jpg?utm_source=ary.wikipedia.org&utm_campaign=imageinfo&utm_content=original"
         "fr" -> "https://upload.wikimedia.org/wikipedia/commons/e/e1/FullMoon2010.jpg?utm_source=fr.wikipedia.org&utm_campaign=imageinfo&utm_content=original"
