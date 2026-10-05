@@ -20,23 +20,27 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.airbnb.lottie.compose.LottieAnimation
-import com.airbnb.lottie.compose.LottieCompositionSpec
-import com.airbnb.lottie.compose.LottieConstants
-import com.airbnb.lottie.compose.rememberLottieComposition
+import app.rive.Result
+import app.rive.Rive
+import app.rive.RiveFileSource
+import app.rive.RivePointerInputMode
+import app.rive.rememberRiveFile
+import app.rive.rememberRiveWorkerOrNull
 import kotlinx.coroutines.delay
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
+import app.rive.runtime.kotlin.core.Rive as RiveRuntime
 
 class ExploreFeedBuildingActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -65,8 +69,6 @@ fun ExploreFeedBuildingScreen(
     modifier: Modifier = Modifier,
     onFinished: () -> Unit
 ) {
-    val animationAsset by rememberLottieComposition(LottieCompositionSpec.Asset("lottie/explore_feed_building.lottie"))
-
     LaunchedEffect(Unit) {
         delay(2000)
         onFinished()
@@ -99,13 +101,29 @@ fun ExploreFeedBuildingScreen(
             Box(
                 modifier = Modifier.height(185.dp)
             ) {
-                LottieAnimation(
-                    modifier = Modifier.fillMaxSize(),
-                    composition = animationAsset,
-                    iterations = LottieConstants.IterateForever
+                HomeFeedAnimation(
+                    modifier = Modifier.fillMaxSize()
                 )
             }
         }
+    }
+}
+
+@Composable
+private fun HomeFeedAnimation(modifier: Modifier = Modifier) {
+    val context = LocalContext.current
+    val isRiveRuntimeLoaded = remember { runCatching { RiveRuntime.init(context) }.isSuccess }
+    if (!isRiveRuntimeLoaded) {
+        return
+    }
+    val riveWorker = rememberRiveWorkerOrNull() ?: return
+    val riveFile = rememberRiveFile(RiveFileSource.RawRes.from(R.raw.home_feed_animation), riveWorker)
+    if (riveFile is Result.Success) {
+        Rive(
+            file = riveFile.value,
+            modifier = modifier,
+            pointerInputMode = RivePointerInputMode.Observe
+        )
     }
 }
 
