@@ -92,11 +92,12 @@
             android:summary="@string/preference_summary_prefer_offline_content" />
     </PreferenceCategory>
     <PreferenceCategory
+        android:key="@string/preference_key_semantic_search_settings_category"
         android:title="@string/preference_heading_semantic_search">
         <Preference
             android:layout="@layout/preference_beta_pill"
             android:selectable="false" />
-        <org.wikipedia.settings.SwitchPreferenceMultiLine
+        <org.wikipedia.settings.SwitchPreferenceBetaPill
             android:key="@string/preference_key_semantic_search_enabled"
             android:defaultValue="true"
             android:title="@string/preference_title_semantic_search_within_articles"

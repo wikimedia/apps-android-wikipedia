@@ -212,7 +212,7 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
     }
 
     fun updateSemanticSearchPreference() {
-        val semanticSearchPref = findPreference(R.string.preference_key_semantic_search_enabled)
+        val semanticSearchPref = findPreference(R.string.preference_key_semantic_search_settings_category)
         val semanticSearchAbTest = SemanticSearchAbTest()
         val currentLanguage = WikipediaApp.instance.languageState.appLanguageCodes[Prefs.selectedLanguagePositionInSearch]
 
