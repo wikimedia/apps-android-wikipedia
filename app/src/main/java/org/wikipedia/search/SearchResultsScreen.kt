@@ -237,11 +237,6 @@ fun SearchResultsScreen(
     }
 }
 
-@Composable
-fun Visuals() {
-    TODO("Not yet implemented")
-}
-
 private fun LazyListScope.searchResultItems(
     searchResultsPage: LazyPagingItems<SearchResult>,
     searchTerm: String?,
