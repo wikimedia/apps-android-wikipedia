@@ -2,11 +2,12 @@ package org.wikipedia.activitytab
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
@@ -45,26 +46,29 @@ fun ActivityTabLoggedOutScreen(
             .background(WikipediaTheme.colors.paperColor),
         containerColor = WikipediaTheme.colors.paperColor
     ) { paddingValues ->
-        Column(
+        BoxWithConstraints(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(paddingValues)
         ) {
-            Box(
+            // The spacers center the prompt and keep the card at the bottom while everything fits, and collapse so the whole screen scrolls when it doesn't.
+            Column(
                 modifier = Modifier
-                    .weight(1f)
-                    .fillMaxWidth()
+                    .fillMaxSize()
+                    .verticalScroll(rememberScrollState())
+                    .heightIn(min = maxHeight),
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
+                Spacer(modifier = Modifier.weight(1f))
                 LoggedOutPrompt(
-                    modifier = Modifier.align(Alignment.Center),
                     onCreateAccountClick = onCreateAccountClick,
                     onLoginClick = onLoginClick
                 )
-            }
+                Spacer(modifier = Modifier.weight(1f))
 
-            if (showYearInReviewCard) {
-                Box(modifier = Modifier.padding(16.dp)) {
+                if (showYearInReviewCard) {
                     YearInReviewEntryCard(
+                        modifier = Modifier.padding(16.dp),
                         title = stringResource(R.string.year_in_review_entry_card_title_collective),
                         subtitle = stringResource(R.string.year_in_review_entry_card_data_low_subtitle),
                         onGetStartedClick = onYirGetStartedClick
@@ -81,12 +85,8 @@ private fun LoggedOutPrompt(
     onCreateAccountClick: () -> Unit,
     onLoginClick: () -> Unit
 ) {
-    val scrollState = rememberScrollState()
-
     Column(
-        modifier = modifier
-            .padding(horizontal = 16.dp)
-            .verticalScroll(scrollState),
+        modifier = modifier.padding(horizontal = 16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Image(

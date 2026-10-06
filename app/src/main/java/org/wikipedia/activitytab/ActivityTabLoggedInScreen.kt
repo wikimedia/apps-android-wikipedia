@@ -5,12 +5,14 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.widthIn
@@ -156,47 +158,42 @@ fun ActivityTabLoggedInScreen(
         }
 
         if (modules.noModulesVisible(haveAtLeastOneDonation = haveAtLeastOneDonation, areGamesAvailable = areGamesAvailable)) {
-            Column(
+            BoxWithConstraints(
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(paddingValues)
             ) {
-                if (showYearInReviewEntry) {
-                    LoggedInYearInReviewEntry(
-                        state = yearInReviewEntryState,
-                        onGetStartedClick = onYirGetStartedClick
-                    )
-                }
-                Box(
+                Column(
                     modifier = Modifier
-                        .weight(1f)
-                        .fillMaxWidth()
+                        .fillMaxSize()
+                        .verticalScroll(rememberScrollState())
+                        .heightIn(min = maxHeight),
+                    horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    val scrollState = rememberScrollState()
-                    Column(
-                        modifier = Modifier
-                            .align(Alignment.Center)
-                            .padding(horizontal = 16.dp)
-                            .verticalScroll(scrollState),
-                        horizontalAlignment = Alignment.CenterHorizontally
-                    ) {
-                        Image(
-                            modifier = Modifier.size(164.dp),
-                            painter = painterResource(R.drawable.illustration_activity_tab_empty),
-                            contentDescription = null
-                        )
-                        HtmlText(
-                            modifier = Modifier.padding(vertical = 16.dp),
-                            text = stringResource(R.string.activity_tab_customize_screen_no_modules_message),
-                            style = MaterialTheme.typography.bodyMedium,
-                            textAlign = TextAlign.Center,
-                            color = WikipediaTheme.colors.primaryColor,
-                            linkInteractionListener = { onCustomizeClick() }
+                    if (showYearInReviewEntry) {
+                        LoggedInYearInReviewEntry(
+                            state = yearInReviewEntryState,
+                            onGetStartedClick = onYirGetStartedClick
                         )
                     }
+                    Spacer(modifier = Modifier.weight(1f))
+                    Image(
+                        modifier = Modifier.size(164.dp),
+                        painter = painterResource(R.drawable.illustration_activity_tab_empty),
+                        contentDescription = null
+                    )
+                    HtmlText(
+                        modifier = Modifier.padding(horizontal = 16.dp, vertical = 16.dp),
+                        text = stringResource(R.string.activity_tab_customize_screen_no_modules_message),
+                        style = MaterialTheme.typography.bodyMedium,
+                        textAlign = TextAlign.Center,
+                        color = WikipediaTheme.colors.primaryColor,
+                        linkInteractionListener = { onCustomizeClick() }
+                    )
+                    Spacer(modifier = Modifier.weight(1f))
                 }
-                return@Scaffold
             }
+            return@Scaffold
         }
 
         PullToRefreshBox(
