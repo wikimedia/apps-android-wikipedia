@@ -441,6 +441,7 @@ fun SemanticSearchResultCard(
     showLastUpdatedTime: Boolean,
     searchResult: SearchResult,
     onItemClick: (() -> Unit)? = null,
+    showReadInArticleText: Boolean = true,
     onLinkClick: (String) -> Unit
 ) {
     val articlePath = listOfNotNull(
@@ -506,12 +507,14 @@ fun SemanticSearchResultCard(
 
             Spacer(modifier = Modifier.height(4.dp))
 
-            Text(
-                text = stringResource(R.string.semantic_search_results_read_in_article_label),
-                fontWeight = FontWeight.Medium,
-                fontSize = 13.sp,
-                color = WikipediaTheme.colors.secondaryColor
-            )
+            if (showReadInArticleText) {
+                Text(
+                    text = stringResource(R.string.semantic_search_results_read_in_article_label),
+                    fontWeight = FontWeight.Medium,
+                    fontSize = 13.sp,
+                    color = WikipediaTheme.colors.secondaryColor
+                )
+            }
 
             Spacer(modifier = Modifier.height(16.dp))
 

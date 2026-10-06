@@ -150,7 +150,8 @@ private fun SemanticSearchInfoDialogContent(
                             onLinkClick = { url ->
                                 // ignore in-article links
                             },
-                            showLastUpdatedTime = false
+                            showLastUpdatedTime = false,
+                            showReadInArticleText = false
                         )
 
                         AppButton(
