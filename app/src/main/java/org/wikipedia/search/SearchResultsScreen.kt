@@ -155,6 +155,7 @@ fun SearchResultsScreen(
                             message = data.visuals.message,
                             actionLabel = data.visuals.actionLabel,
                             onActionClick = {
+                                data.dismiss()
                                 onSemanticSearchSettingsClick()
                             }
                         )
