@@ -5,6 +5,7 @@ import org.wikipedia.R
 import org.wikipedia.yearinreview.data.YearInReviewConfig
 import java.time.Month
 import java.time.format.TextStyle
+import java.util.concurrent.TimeUnit
 
 /**
  * Maps each page to its Rive content, or null when the page doesn't use Rive.
@@ -24,24 +25,32 @@ object YearInReviewRiveContentMapper {
             spec = allTemplatesSlideSpec(if (page.isEmptyState) "frame1-empty" else "frame1"),
             textProperties = mapOf(
                 "headline" to resources.getString(if (page.isEmptyState) R.string.yir_article_count_empty_headline else R.string.yir_article_count_headline),
-                "bodyCopy" to if (page.isEmptyState) resources.getString(R.string.yir_article_count_empty_supporting) else resources.getQuantityString(R.plurals.yir_article_count_supporting_top, page.count, page.count),
+                "bodyCopy" to if (page.isEmptyState) resources.getString(R.string.yir_article_count_empty_supporting) else
+                    resources.getQuantityString(R.plurals.yir_article_count_supporting_top, page.count, page.percentile, page.averageCount),
                 "data" to page.count.toString()
             )
         )
         is YearInReviewPage.Visits -> RiveSlideContent(
             spec = allTemplatesSlideSpec("frame2"),
             textProperties = mapOf(
-                "headline" to resources.getString(R.string.yir_days_visited_headline, YearInReviewConfig.YEAR),
+                "Headline" to resources.getString(R.string.yir_days_visited_headline, YearInReviewConfig.YEAR),
                 "bodyCopy" to resources.getQuantityString(
                     R.plurals.yir_days_visited_supporting,
                     page.peakMonthVisitedDays,
                     Month.of(page.peakMonth).getDisplayName(TextStyle.FULL_STANDALONE, resources.configuration.locales[0]),
                     page.peakMonthVisitedDays
                 ),
-                "data" to page.days.toString()
+                "Data" to page.days.toString()
             )
         )
-        is YearInReviewPage.TimeSpent -> RiveSlideContent(allTemplatesSlideSpec("frame3"))
+        is YearInReviewPage.TimeSpent -> RiveSlideContent(
+            spec = allTemplatesSlideSpec("frame3"),
+            textProperties = mapOf(
+                "Headline" to resources.getString(R.string.yir_minutes_read_headline),
+                "data" to page.duration.toString(),
+                "bodyCopy" to resources.getString(R.string.yir_minutes_read_supporting, getTimeSpentComment(resources, page.duration))
+            )
+        )
         is YearInReviewPage.ReadingStreak -> RiveSlideContent(allTemplatesSlideSpec(if (page.isEmptyState) "frame4-empty" else "frame4"))
         is YearInReviewPage.ReadingPattern -> RiveSlideContent(allTemplatesSlideSpec(if (page.isEmptyState) "frame5-empty" else "frame5"))
         is YearInReviewPage.TopTopic -> RiveSlideContent(allTemplatesSlideSpec(if (page.isEmptyState) "frame6-empty" else "frame6"))
@@ -98,3 +107,19 @@ private fun allTemplatesSlideSpec(artboardName: String, viewModelName: String = 
 
 // Artboards that show up to three articles or topics, each with an icon, title and subtitle
 private fun allTemplatesListSlideSpec(artboardName: String) = allTemplatesSlideSpec(artboardName, viewModelName = "List")
+
+private fun getTimeSpentComment(resources: Resources, minutes: Long): String {
+    return when {
+        minutes >= 2800 -> resources.getQuantityString(R.plurals.yir_time_spent_comment_2800, TimeUnit.MINUTES.toDays(minutes).toInt())
+        minutes >= 1441 -> resources.getString(R.string.yir_time_spent_comment_1441)
+        minutes >= 540 -> resources.getString(R.string.yir_time_spent_comment_540)
+        minutes >= 121 -> resources.getString(R.string.yir_time_spent_comment_121)
+        minutes >= 93 -> resources.getString(R.string.yir_time_spent_comment_93)
+        minutes >= 31 -> resources.getString(R.string.yir_time_spent_comment_31)
+        minutes >= 19 -> resources.getString(R.string.yir_time_spent_comment_19)
+        minutes >= 13 -> resources.getString(R.string.yir_time_spent_comment_13)
+        minutes >= 9 -> resources.getString(R.string.yir_time_spent_comment_9)
+        minutes >= 1 -> resources.getString(R.string.yir_time_spent_comment_1)
+        else -> ""
+    }
+}

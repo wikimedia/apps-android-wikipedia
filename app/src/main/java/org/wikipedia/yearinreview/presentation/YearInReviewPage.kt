@@ -19,7 +19,7 @@ sealed interface YearInReviewPage {
         override val id = "cover"
     }
 
-    data class ArticlesRead(val isEmptyState: Boolean, val count: Int) : YearInReviewPage {
+    data class ArticlesRead(val isEmptyState: Boolean, val count: Int, val percentile: String, val averageCount: Int) : YearInReviewPage {
         override val id get() = if (isEmptyState) "total_articles_empty" else "total_articles"
     }
 
