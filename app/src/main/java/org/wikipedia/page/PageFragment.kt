@@ -815,7 +815,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                                     JavaScriptActionHandler.semanticSearchTextHighlight(model.title?.fragment, snippet)?.let { js ->
                                         Handler(Looper.getMainLooper()).postDelayed({
                                             if (isAdded) {
-                                                bridge.evaluateImmediate(js, null)
+                                                bridge.evaluateImmediate(js) { result ->
+                                                    L.d("PCS jump-to-highlight $result")
+                                                }
                                             }
                                         }, 100)
                                     }
