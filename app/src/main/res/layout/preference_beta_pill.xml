@@ -25,8 +25,8 @@
             android:paddingVertical="4dp">
 
             <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
                 android:importantForAccessibility="no"
                 android:contentDescription="@null"
                 android:src="@drawable/ic_experiment_24dp"
