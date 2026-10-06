@@ -10,8 +10,8 @@ import org.wikipedia.yearinreview.data.YearInReviewSnapshot
 
 enum class YearInReviewPlaygroundData(val label: String, val readingStats: YearInReviewReadingStats?) {
     REAL("Real data", null),
-    LOW_DATA("Low data", YearInReviewReadingStats(articlesReadCount = 0, visitedDaysCount = 0)),
-    DATA_RICH("Data rich", YearInReviewReadingStats(articlesReadCount = 120, visitedDaysCount = 45))
+    LOW_DATA("Low data", YearInReviewReadingStats(articlesReadCount = 0, visitedDaysCount = 0, peakMonth = 0, peakMonthVisitedDays = 0)),
+    DATA_RICH("Data rich", YearInReviewReadingStats(articlesReadCount = 120, visitedDaysCount = 45, peakMonth = 12, peakMonthVisitedDays = 20))
 }
 
 object YearInReviewPlayground {
@@ -27,7 +27,7 @@ object YearInReviewPlayground {
             isLoggedIn = AccountUtil.isLoggedIn,
             isDonationEligible = true,
             remoteConfig = YearInReviewConfig.cachedRemoteConfig,
-            readingStats = data.readingStats ?: YearInReviewReadingStats(articlesReadCount = 0, visitedDaysCount = 0),
+            readingStats = data.readingStats ?: YearInReviewReadingStats(articlesReadCount = 0, visitedDaysCount = 0, peakMonth = 0, peakMonthVisitedDays = 0),
             rewardData = YearInReviewRewardData(isDonor = false, isEditor = false)
         )
     }

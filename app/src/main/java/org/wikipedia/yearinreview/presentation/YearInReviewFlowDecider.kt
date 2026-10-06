@@ -32,7 +32,13 @@ object YearInReviewFlowDecider {
             CandidatePage(status = readingStats.totalArticlesStatus) {
                 YearInReviewPage.ArticlesRead(isEmptyState = readingStats.totalArticlesStatus == YearInReviewInsightStatus.EMPTY_STATE, count = readingStats.articlesReadCount)
             },
-            CandidatePage(status = readingStats.visitsStatus) { YearInReviewPage.Visits(days = readingStats.visitedDaysCount, month = readingStats.monthOfPeak) }
+            CandidatePage(status = readingStats.visitsStatus) {
+                YearInReviewPage.Visits(
+                    days = readingStats.visitedDaysCount,
+                    peakMonth = readingStats.peakMonth,
+                    peakMonthVisitedDays = readingStats.peakMonthVisitedDays
+                )
+            }
         )
     }
 

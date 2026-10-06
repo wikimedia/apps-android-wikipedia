@@ -17,7 +17,8 @@ data class YearInReviewEditingStats(
 data class YearInReviewReadingStats(
     val articlesReadCount: Int,
     val visitedDaysCount: Int,
-    val monthOfPeak: String, // TODO
+    val peakMonth: Int,
+    val peakMonthVisitedDays: Int
 ) {
     val totalArticlesStatus get() = if (articlesReadCount >= MIN_ARTICLES_READ) {
         YearInReviewInsightStatus.PERSONALIZED

@@ -2,6 +2,9 @@ package org.wikipedia.yearinreview.presentation
 
 import android.content.res.Resources
 import org.wikipedia.R
+import org.wikipedia.yearinreview.data.YearInReviewConfig
+import java.time.Month
+import java.time.format.TextStyle
 
 /**
  * Maps each page to its Rive content, or null when the page doesn't use Rive.
@@ -14,7 +17,7 @@ object YearInReviewRiveContentMapper {
             spec = allTemplatesSlideSpec("cover"),
             textProperties = mapOf(
                 "coverTitle" to resources.getString(R.string.yir_intro_headline),
-                "bodyCopy" to resources.getQuantityString(R.plurals.yir_intro_supporting, page.daysSpent, page.daysSpent)
+                "bodyCopy" to resources.getQuantityString(R.plurals.yir_intro_supporting, page.daysSpent, page.daysSpent, YearInReviewConfig.YEAR)
             )
         )
         is YearInReviewPage.ArticlesRead -> RiveSlideContent(
@@ -28,8 +31,13 @@ object YearInReviewRiveContentMapper {
         is YearInReviewPage.Visits -> RiveSlideContent(
             spec = allTemplatesSlideSpec("frame2"),
             textProperties = mapOf(
-                "headline" to resources.getString(R.string.yir_days_visited_headline),
-                "bodyCopy" to resources.getQuantityString(R.plurals.yir_days_visited_supporting, page.days, page.month, page.days),
+                "headline" to resources.getString(R.string.yir_days_visited_headline, YearInReviewConfig.YEAR),
+                "bodyCopy" to resources.getQuantityString(
+                    R.plurals.yir_days_visited_supporting,
+                    page.peakMonthVisitedDays,
+                    Month.of(page.peakMonth).getDisplayName(TextStyle.FULL_STANDALONE, resources.configuration.locales[0]),
+                    page.peakMonthVisitedDays
+                ),
                 "data" to page.days.toString()
             )
         )

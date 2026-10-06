@@ -23,7 +23,7 @@ sealed interface YearInReviewPage {
         override val id get() = if (isEmptyState) "total_articles_empty" else "total_articles"
     }
 
-    data class Visits(val days: Int, val month: String) : YearInReviewPage {
+    data class Visits(val days: Int, val peakMonth: Int, val peakMonthVisitedDays: Int) : YearInReviewPage {
         override val id = "visits"
     }
 
