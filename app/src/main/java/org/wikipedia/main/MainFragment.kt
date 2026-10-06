@@ -208,8 +208,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
             true
         }
 
-        binding.mainNavTabLayout.setOverlayDot(NavTab.EDITS, !Prefs.isActivityTabOnboardingShown || shouldShowYearInReviewDot)
-
         if (!maybeShowReadingListsUpdateTooltip()) {
             maybeShowFeedNewModulesTooltip()
         }
@@ -233,6 +231,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
         downloadReceiver.register(requireContext(), downloadReceiverCallback)
         // reset the last-page-viewed timer
         Prefs.pageLastShown = 0
+        binding.mainNavTabLayout.setOverlayDot(NavTab.EDITS, !Prefs.isActivityTabOnboardingShown || shouldShowYearInReviewDot)
         YearInReviewDialog.maybeShowYearInReviewFeedbackDialog(requireActivity())
         if (YearInReviewViewModel.getYearInReviewModel()?.isReadingListCreated == true) {
             onNavigateTo(NavTab.READING_LISTS) // Navigate to reading lists only if Year in Review reading list is created
