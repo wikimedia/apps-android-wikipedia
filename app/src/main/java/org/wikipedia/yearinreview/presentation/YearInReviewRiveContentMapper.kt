@@ -95,7 +95,7 @@ private val AllTemplatesGlobalProperties = RiveGlobalViewModel(
 )
 
 // In all_templates.riv, each artboard has a matching state machine and a same-named view model instance holding sample text
-private fun allTemplatesSlideSpec(artboardName: String, viewModelName: String = "DataTemplate") = RiveSlideSpec(
+fun allTemplatesSlideSpec(artboardName: String, viewModelName: String = "DataTemplate") = RiveSlideSpec(
     resourceId = R.raw.all_templates_v2,
     artboardName = artboardName,
     stateMachineName = "$artboardName-statemachine",
