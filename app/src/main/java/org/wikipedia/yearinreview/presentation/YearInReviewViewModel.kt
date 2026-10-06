@@ -8,6 +8,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
+import org.wikipedia.settings.dev.playground.YearInReviewPlayground
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.yearinreview.data.YearInReviewAvailability
@@ -45,7 +46,7 @@ class YearInReviewViewModel(
     fun loadYearInReview() {
         _uiState.value = YearInReviewUiState.Loading
         viewModelScope.launch(exceptionHandler) {
-            val yearInReview = repository.getYearInReview()
+            val yearInReview = YearInReviewPlayground.snapshot ?: repository.getYearInReview()
             _uiState.value = YearInReviewUiState.Content(
                 year = yearInReview.year,
                 pages = YearInReviewFlowDecider.pages(yearInReview),

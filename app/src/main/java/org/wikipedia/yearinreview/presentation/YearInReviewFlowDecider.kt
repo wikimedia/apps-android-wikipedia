@@ -30,9 +30,9 @@ object YearInReviewFlowDecider {
         val readingStats = snapshot.readingStats
         return listOf(
             CandidatePage(status = readingStats.totalArticlesStatus) {
-                YearInReviewPage.ArticlesRead(isEmptyState = readingStats.totalArticlesStatus == YearInReviewInsightStatus.EMPTY_STATE)
+                YearInReviewPage.ArticlesRead(isEmptyState = readingStats.totalArticlesStatus == YearInReviewInsightStatus.EMPTY_STATE, count = readingStats.articlesReadCount)
             },
-            CandidatePage(status = readingStats.visitsStatus) { YearInReviewPage.Visits }
+            CandidatePage(status = readingStats.visitsStatus) { YearInReviewPage.Visits(days = readingStats.visitedDaysCount) }
         )
     }
 
