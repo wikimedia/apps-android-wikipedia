@@ -1925,9 +1925,9 @@
   <string name="wikipedia_games_title">Title text for the Wikipedia Games.</string>
   <string name="wikipedia_games_subtitle">Subtitle text describing the Wikipedia Games as daily trivia games based on Wikipedia content.</string>
   <string name="yir_intro_headline">Headline of the intro slide of the personalized Year in Review.</string>
-  <string name="yir_intro_supporting">Supporting text of the intro slide of the personalized Year in Review. %1$d will be replaced by the number of days the user used the app, and %2$d will be replaced by the year.</string>
+  <string name="yir_intro_supporting">Supporting text of the intro slide of the personalized Year in Review. %1$d will be replaced by the number of days the user used the app, and %2$d will be replaced by the year. The plural form is chosen by the number that replaces %1$d.</string>
   <string name="yir_article_count_headline">Headline of the Year in Review slide that shows how many articles the user read.</string>
-  <string name="yir_article_count_supporting_top">Supporting text of the Year in Review article count slide, shown when the user is in the top percentile of readers. %1$d will be replaced by the percentile (e.g. 50), and %2$d will be replaced by the formatted average number of articles a person reads per year.</string>
+  <string name="yir_article_count_supporting_top">Supporting text of the Year in Review article count slide, shown when the user is in the top percentile of readers. %1$d will be replaced by the percentile (e.g. 50), and %2$d will be replaced by the formatted average number of articles a person reads per year. The plural form is chosen by the number that replaces %2$d.</string>
   <string name="yir_article_count_supporting">Supporting text of the Year in Review article count slide, shown when the user is not in the top percentile of readers.</string>
   <string name="yir_article_count_empty_headline">Headline of the Year in Review article count slide, shown when the user has not read any articles.</string>
   <string name="yir_article_count_empty_supporting">Supporting text of the Year in Review article count slide, shown when the user has not read any articles.</string>
@@ -1952,7 +1952,7 @@
   <string name="yir_biggest_reading_day_supporting">Supporting text of the Year in Review biggest reading day slide. %1$d will be replaced by the number of minutes.</string>
   <string name="yir_articles_read_headline">Headline of the Year in Review slide that lists a sample of articles the user read.</string>
   <string name="yir_most_time_article_headline">Headline of the Year in Review slide that asks the user to guess which article they spent the most time on.</string>
-  <string name="yir_most_time_article_supporting">Supporting text of the Year in Review slide that reveals the article the user spent the most time on. %1$d will be replaced by the number of minutes, and %2$d will be replaced by the year.</string>
+  <string name="yir_most_time_article_supporting">Supporting text of the Year in Review slide that reveals the article the user spent the most time on. %1$d will be replaced by the number of minutes, and %2$d will be replaced by the year. The plural form is chosen by the number that replaces %1$d.</string>
   <string name="yir_rabbit_hole_headline">Headline of the Year in Review slide that asks the user to guess their deepest rabbit hole (longest chain of links followed).</string>
   <string name="yir_rabbit_hole_depth_headline">Headline of the Year in Review slide that reveals the user\'s deepest rabbit hole. %1$d will be replaced by the number of links followed.</string>
   <string name="yir_rabbit_hole_depth_supporting">Supporting text of the Year in Review slide that reveals the user\'s deepest rabbit hole.</string>
@@ -2016,7 +2016,7 @@
   <string name="yir_open_tabs_headline">Headline of the Year in Review card that invites the user to revisit their open tabs.</string>
   <string name="yir_share_text">Text used when sharing the Year in Review. %1$d will be replaced by the year, and %2$s will be replaced by a URL.</string>
   <string name="yir_cover_title">Title shown on the opening slide of the Year in Review feature</string>
-  <string name="yir_cover_body">Text shown in the opening slide of the Year in Review feature. %1$d is replaced with the total days spent using the app, and %2$d is replaced with the year.</string>
+  <string name="yir_cover_body">Text shown in the opening slide of the Year in Review feature. %1$d is replaced with the total days spent using the app, and %2$d is replaced with the year. The plural form is chosen by the number that replaces %1$d.</string>
   <string name="yir_topic_comment_architecture">Comment shown in the Year in Review top topic slide when the user\'s top topic is \"Architecture\".</string>
   <string name="yir_topic_comment_art">Comment shown in the Year in Review top topic slide when the user\'s top topic is \"Art\".</string>
   <string name="yir_topic_comment_comics_and_anime">Comment shown in the Year in Review top topic slide when the user\'s top topic is \"Comics and anime\".</string>
