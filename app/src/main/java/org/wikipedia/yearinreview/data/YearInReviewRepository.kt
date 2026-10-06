@@ -27,8 +27,8 @@ class YearInReviewRepositoryImpl(
 
     override suspend fun getYearInReview(): YearInReviewSnapshot {
         val year = YearInReviewConfig.YEAR
-        val remoteConfig = restService.getConfiguration().commonv1?.getYirForYear(year)
-        val isDonationEligible = remoteConfig != null && !remoteConfig.hideDonateCountryCodes.contains(GeoUtil.geoIPCountry.orEmpty())
+        val remoteConfig = restService.getConfiguration().commonv1?.getYirForYear(year)!!
+        val isDonationEligible = !remoteConfig.hideDonateCountryCodes.contains(GeoUtil.geoIPCountry.orEmpty())
 
         val cachedStats = cache.get(year)
         val readingStats = cachedStats?.readingStats ?: getReadingStats(YearInReviewConfig.insightsDateRange(remoteConfig))
@@ -56,9 +56,12 @@ class YearInReviewRepositoryImpl(
     }
 
     private suspend fun getReadingStats(dateRange: YearInReviewDateRange): YearInReviewReadingStats {
+        val peakMonth = historyEntryDao.getPeakMonthByVisitedDaysBetween(dateRange.startMillis, dateRange.endMillis)
         return YearInReviewReadingStats(
             articlesReadCount = historyEntryDao.getDistinctEntriesCountBetween(dateRange.startMillis, dateRange.endMillis),
-            visitedDaysCount = historyEntryDao.getDistinctDaysCountBetween(dateRange.startMillis, dateRange.endMillis)
+            visitedDaysCount = historyEntryDao.getDistinctDaysCountBetween(dateRange.startMillis, dateRange.endMillis),
+            peakMonth = peakMonth?.month ?: 0,
+            peakMonthVisitedDays = peakMonth?.visitedDays ?: 0
         )
     }
 

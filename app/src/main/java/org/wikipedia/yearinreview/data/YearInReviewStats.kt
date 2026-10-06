@@ -16,7 +16,9 @@ data class YearInReviewEditingStats(
 @Serializable
 data class YearInReviewReadingStats(
     val articlesReadCount: Int,
-    val visitedDaysCount: Int
+    val visitedDaysCount: Int,
+    val peakMonth: Int,
+    val peakMonthVisitedDays: Int
 ) {
     val totalArticlesStatus get() = if (articlesReadCount >= MIN_ARTICLES_READ) {
         YearInReviewInsightStatus.PERSONALIZED

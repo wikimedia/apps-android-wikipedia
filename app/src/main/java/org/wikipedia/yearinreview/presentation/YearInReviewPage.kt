@@ -15,15 +15,15 @@ sealed interface YearInReviewPage {
     val id: String
     val useDarkStatusBarIcons: Boolean get() = false
 
-    data object Cover : YearInReviewPage {
+    data class Cover(val daysSpent: Int) : YearInReviewPage {
         override val id = "cover"
     }
 
-    data class ArticlesRead(val isEmptyState: Boolean, val count: Int) : YearInReviewPage {
+    data class ArticlesRead(val isEmptyState: Boolean, val count: Int, val percentile: String, val averageCount: Int) : YearInReviewPage {
         override val id get() = if (isEmptyState) "total_articles_empty" else "total_articles"
     }
 
-    data class Visits(val days: Int) : YearInReviewPage {
+    data class Visits(val days: Int, val peakMonth: Int, val peakMonthVisitedDays: Int) : YearInReviewPage {
         override val id = "visits"
     }
 
