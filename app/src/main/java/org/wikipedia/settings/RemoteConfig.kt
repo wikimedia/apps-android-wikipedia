@@ -4,7 +4,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.json.LocalDateTimeSerializer
-import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.log.L
 import java.time.LocalDateTime
 
@@ -45,7 +44,7 @@ object RemoteConfig {
         val yir: List<RemoteConfigYearInReview> = emptyList()
 
         fun getYirForYear(year: Int): RemoteConfigYearInReview? {
-            return yir.find { it.year == year } ?: (if (ReleaseUtil.isPreBetaRelease) yir.firstOrNull() else null)
+            return yir.find { it.year == year }
         }
     }
 
