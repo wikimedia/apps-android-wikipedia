@@ -181,6 +181,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
         binding.mainNavTabLayout.setOnItemSelectedListener { item ->
             navTabBackStack.clear()
             if (item.order == NavTab.EDITS.code()) {
+                binding.mainNavTabLayout.setOverlayDot(NavTab.EDITS, false)
                 if (YearInReviewViewModel.canShowEntryPoint) {
                     Prefs.yearInReviewActivityTabDotSeenYear = YearInReviewViewModel.YIR_YEAR
                 }
@@ -189,7 +190,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
                     activityTabOnboardingLauncher.launch(ActivityTabOnboardingActivity.newIntent(requireContext()))
                     return@setOnItemSelectedListener false
                 }
-                binding.mainNavTabLayout.setOverlayDot(NavTab.EDITS, false)
             }
             if (item.order == NavTab.MORE.code()) {
                 ExclusiveBottomSheetPresenter.show(childFragmentManager, MenuNavTabDialog.newInstance())

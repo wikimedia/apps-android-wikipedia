@@ -146,7 +146,7 @@ class ActivityTabViewModel : ViewModel() {
         }
         yearInReviewEntryJob = viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             if (!hasResult) {
-                _yearInReviewEntryState.value = UiState.Error(throwable)
+                _yearInReviewEntryState.value = UiState.Success(false)
             }
         }) {
             val snapshot = YearInReviewRepositoryImpl().getYearInReview()
