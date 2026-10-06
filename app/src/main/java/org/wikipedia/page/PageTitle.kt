@@ -6,7 +6,7 @@ import kotlinx.parcelize.Parcelize
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.language.LanguageUtil
+import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.staticdata.ContributionsNameData
 import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.util.StringUtil
@@ -194,7 +194,7 @@ data class PageTitle(
             "%1\$s://%2\$s/%3\$s/%4\$s%5\$s",
             wikiSite.scheme(),
             domain,
-            if (LanguageUtil.isChineseVariant(domain)) wikiSite.languageCode else "wiki",
+            if (WikiSite.authorityToLanguageCode(domain) == AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE) wikiSite.languageCode else "wiki",
             UriUtil.encodeURL(prefixedText),
             if (!fragment.isNullOrEmpty()) "#" + UriUtil.encodeURL(fragment!!) else ""
         )

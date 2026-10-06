@@ -173,6 +173,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
         binding.mainViewPager.registerOnPageChangeCallback(pageChangeCallback)
         binding.mainNavTabLayout.descendants.filterIsInstance<TextView>().forEach {
             it.maxLines = 2
+            it.textAlignment = View.TEXT_ALIGNMENT_CENTER
         }
         val shouldShowRedDotForRecommendedReadingList = (!Prefs.isRecommendedReadingListOnboardingShown) || (Prefs.isRecommendedReadingListEnabled && Prefs.isNewRecommendedReadingListGenerated)
         binding.mainNavTabLayout.setOverlayDot(NavTab.READING_LISTS, shouldShowRedDotForRecommendedReadingList)
