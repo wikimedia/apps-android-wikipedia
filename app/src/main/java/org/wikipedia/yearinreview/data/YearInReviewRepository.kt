@@ -27,7 +27,9 @@ class YearInReviewRepositoryImpl(
 
     override suspend fun getYearInReview(): YearInReviewSnapshot {
         val year = YearInReviewConfig.YEAR
-        val remoteConfig = restService.getConfiguration().commonv1?.getYirForYear(year)!!
+        val remoteConfig = restService.getConfiguration().commonv1?.getYirForYear(year) ?: YearInReviewConfig.fallbackConfig.also {
+            L.e("Using fallback remote configuration!")
+        }
         val isDonationEligible = !remoteConfig.hideDonateCountryCodes.contains(GeoUtil.geoIPCountry.orEmpty())
 
         val cachedStats = cache.get(year)
