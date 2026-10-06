@@ -440,7 +440,7 @@ fun SemanticSearchResultCard(
     prefixQuotationMark: String,
     showLastUpdatedTime: Boolean,
     searchResult: SearchResult,
-    onItemClick: () -> Unit,
+    onItemClick: (() -> Unit)? = null,
     onLinkClick: (String) -> Unit
 ) {
     val articlePath = listOfNotNull(
