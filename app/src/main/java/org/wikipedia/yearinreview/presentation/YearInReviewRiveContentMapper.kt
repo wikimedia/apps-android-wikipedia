@@ -10,18 +10,26 @@ import org.wikipedia.R
 object YearInReviewRiveContentMapper {
     // TODO: the text properties are only for test, should be replaced with actual values later
     fun map(page: YearInReviewPage, resources: Resources): RiveSlideContent? = when (page) {
-        is YearInReviewPage.Cover -> RiveSlideContent(allTemplatesSlideSpec("cover"))
+        is YearInReviewPage.Cover -> RiveSlideContent(
+            spec = allTemplatesSlideSpec("cover"),
+            textProperties = mapOf(
+                "coverTitle" to resources.getString(R.string.yir_intro_headline),
+                "bodyCopy" to resources.getQuantityString(R.plurals.yir_intro_supporting, page.daysSpent, page.daysSpent)
+            )
+        )
         is YearInReviewPage.ArticlesRead -> RiveSlideContent(
             spec = allTemplatesSlideSpec(if (page.isEmptyState) "frame1-empty" else "frame1"),
             textProperties = mapOf(
-                "bodyCopy" to "This is a test of the RiveSlideContent mapping.",
+                "headline" to resources.getString(if (page.isEmptyState) R.string.yir_article_count_empty_headline else R.string.yir_article_count_headline),
+                "bodyCopy" to if (page.isEmptyState) resources.getString(R.string.yir_article_count_empty_supporting) else resources.getQuantityString(R.plurals.yir_article_count_supporting_top, page.count, page.count),
                 "data" to page.count.toString()
             )
         )
         is YearInReviewPage.Visits -> RiveSlideContent(
             spec = allTemplatesSlideSpec("frame2"),
             textProperties = mapOf(
-                "bodyCopy" to "This is a test of the RiveSlideContent mapping.",
+                "headline" to resources.getString(R.string.yir_days_visited_headline),
+                "bodyCopy" to resources.getQuantityString(R.plurals.yir_days_visited_supporting, page.days, page.month, page.days),
                 "data" to page.days.toString()
             )
         )

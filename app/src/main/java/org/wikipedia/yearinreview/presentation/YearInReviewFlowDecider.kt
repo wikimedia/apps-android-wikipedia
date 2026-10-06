@@ -23,7 +23,7 @@ object YearInReviewFlowDecider {
         } else {
             YearInReviewCollectiveInsight.entries.map { YearInReviewPage.Collective(it) } + listOfNotNull(youMatterPage(snapshot))
         }
-        return listOf(YearInReviewPage.Cover) + flowPages + YearInReviewPage.End
+        return listOf(YearInReviewPage.Cover(daysSpent = snapshot.readingStats.visitedDaysCount)) + flowPages + YearInReviewPage.End
     }
 
     private fun personalizedCandidates(snapshot: YearInReviewSnapshot): List<CandidatePage> {
@@ -32,7 +32,7 @@ object YearInReviewFlowDecider {
             CandidatePage(status = readingStats.totalArticlesStatus) {
                 YearInReviewPage.ArticlesRead(isEmptyState = readingStats.totalArticlesStatus == YearInReviewInsightStatus.EMPTY_STATE, count = readingStats.articlesReadCount)
             },
-            CandidatePage(status = readingStats.visitsStatus) { YearInReviewPage.Visits(days = readingStats.visitedDaysCount) }
+            CandidatePage(status = readingStats.visitsStatus) { YearInReviewPage.Visits(days = readingStats.visitedDaysCount, month = readingStats.monthOfPeak) }
         )
     }
 
