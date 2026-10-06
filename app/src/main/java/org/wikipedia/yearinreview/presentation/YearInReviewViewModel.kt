@@ -77,7 +77,7 @@ class YearInReviewViewModel(
             )
         }
 
-        val canShowEntryPoint get() = YearInReviewAvailability().canShowEntryPoint(
+        val canShowEntryPoint get() = YearInReviewPlayground.canShowEntryPoint ?: YearInReviewAvailability().canShowEntryPoint(
             remoteConfig = RemoteConfig.config.commonv1?.getYirForYear(YIR_YEAR),
             countryCode = GeoUtil.geoIPCountry,
             isEnabled = Prefs.isYearInReviewEnabled,
