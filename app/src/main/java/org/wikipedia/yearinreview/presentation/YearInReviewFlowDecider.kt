@@ -30,7 +30,12 @@ object YearInReviewFlowDecider {
         val readingStats = snapshot.readingStats
         return listOf(
             CandidatePage(status = readingStats.totalArticlesStatus) {
-                YearInReviewPage.ArticlesRead(isEmptyState = readingStats.totalArticlesStatus == YearInReviewInsightStatus.EMPTY_STATE, count = readingStats.articlesReadCount)
+                YearInReviewPage.ArticlesRead(
+                    isEmptyState = readingStats.totalArticlesStatus == YearInReviewInsightStatus.EMPTY_STATE,
+                    count = readingStats.articlesReadCount,
+                    percentile = getTopReadPercentile(snapshot),
+                    averageCount = snapshot.remoteConfig.averageArticlesReadPerYear
+                )
             },
             CandidatePage(status = readingStats.visitsStatus) {
                 YearInReviewPage.Visits(
@@ -58,5 +63,11 @@ object YearInReviewFlowDecider {
 
     private fun youMatterPage(snapshot: YearInReviewSnapshot): YearInReviewPage? {
         return if (snapshot.isDonationEligible) YearInReviewPage.YouMatter(showLoginPrompt = !snapshot.isLoggedIn) else null
+    }
+
+    private fun getTopReadPercentile(snapshot: YearInReviewSnapshot): String {
+        return snapshot.remoteConfig?.topReadPercentages?.find {
+            snapshot.readingStats.articlesReadCount > it.min && snapshot.readingStats.articlesReadCount <= it.max
+        }?.identifier.orEmpty()
     }
 }
