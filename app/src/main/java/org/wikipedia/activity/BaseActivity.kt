@@ -60,7 +60,7 @@ import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeInstallWidgetDialog
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeOnboardingActivity
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetRepository
-import org.wikipedia.yearinreview.presentation.YearInReviewAnnouncementDialog
+import org.wikipedia.yearinreview.presentation.YearInReviewOnboardingActivity
 import org.wikipedia.yearinreview.presentation.YearInReviewViewModel
 
 abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callback {
@@ -96,6 +96,12 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
 
     private val notificationPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
         // TODO: Show message(s) to the user if they deny the permission
+    }
+
+    private val yearInReviewLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == RESULT_CANCELED) {
+            FeedbackUtil.showMessage(this, getString(R.string.year_in_review_get_started_later))
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -372,7 +378,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
                 ReadingChallengeWidgetRepository.shouldShowOnboardingDialog() -> showReadingChallenge()
                 YearInReviewViewModel.canShowEntryPoint &&
                         !Prefs.yearInReviewVisited -> {
-                    ExclusiveBottomSheetPresenter.show(supportFragmentManager, YearInReviewAnnouncementDialog())
+                    yearInReviewLauncher.launch(YearInReviewOnboardingActivity.newIntent(this@BaseActivity))
                 }
                 !isExternalArticleLink && CreateAccountEncourageViewModel.shouldShow() -> {
                     startActivity(CreateAccountEncourageActivity.newIntent(this@BaseActivity))

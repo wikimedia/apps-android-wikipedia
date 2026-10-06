@@ -1,217 +1,110 @@
 package org.wikipedia.yearinreview.presentation
 
-import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.aspectRatio
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.BottomAppBar
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.platform.LocalResources
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.core.net.toUri
-import coil3.compose.AsyncImage
-import coil3.request.ImageRequest
+import app.rive.Result
 import org.wikipedia.R
-import org.wikipedia.analytics.eventplatform.YearInReviewEvent
+import org.wikipedia.compose.ComposeColors
+import org.wikipedia.compose.components.AppButton
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.UiState
-import org.wikipedia.util.UriUtil
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun YearInReviewOnboardingScreen(
+    uiState: UiState<Boolean>,
+    onCloseClick: () -> Unit,
+    onLearnMoreClick: () -> Unit,
+    onShareFeedbackClick: () -> Unit,
+    onExploreClick: () -> Unit,
     modifier: Modifier = Modifier,
-    uiState: UiState<Boolean> = UiState.Loading,
-    onBackButtonClick: () -> Unit,
-    onGetStartedClick: () -> Unit
-) {
-    Scaffold(
-        modifier = modifier,
-        containerColor = WikipediaTheme.colors.paperColor,
-        topBar = {
-            TopAppBar(
-                colors = TopAppBarDefaults.topAppBarColors(containerColor = WikipediaTheme.colors.paperColor),
-                title = {},
-                navigationIcon = {
-                    IconButton(onClick = { onBackButtonClick() }) {
-                        Icon(
-                            painter = painterResource(R.drawable.ic_close_black_24dp),
-                            tint = WikipediaTheme.colors.primaryColor,
-                            contentDescription = stringResource(R.string.year_in_review_close)
-                        )
-                    }
-                }
-            )
-        },
-        bottomBar = {
-            YearInReviewOnboardingBottomBar(
-                onGetStartedClick = onGetStartedClick,
-                uiState = uiState
-            )
-        },
-        content = { paddingValues ->
-            YearInReviewOnboardingContent(
-                modifier = modifier
-                    .padding(paddingValues)
-            )
-        }
-    )
-}
-
-@Composable
-fun YearInReviewOnboardingContent(
-    modifier: Modifier = Modifier
+    coverContent: @Composable BoxScope.() -> Unit
 ) {
     Column(
-        verticalArrangement = Arrangement.Top,
         modifier = modifier
-            .fillMaxHeight()
+            .fillMaxSize()
+            .background(WikipediaTheme.colors.paperColor)
+            .navigationBarsPadding()
     ) {
-        Column(
+        // Drawn behind the status bar, which the top bar pads itself below
+        Box(
             modifier = Modifier
+                .fillMaxWidth()
                 .weight(1f)
-                .verticalScroll(rememberScrollState())
+                .placeholderBackground()
         ) {
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .aspectRatio(3f / 2f)
-                    .clip(RoundedCornerShape(16.dp)),
-                contentAlignment = Alignment.Center
-            ) {
-                AsyncImage(
-                    model = ImageRequest.Builder(LocalContext.current)
-                        .data(R.drawable.yir_puzzle_pinch)
-                        .build(),
-                    contentDescription = stringResource(R.string.year_in_review_screendeck_image_content_description),
-                    modifier = Modifier.fillMaxSize()
-                )
-            }
-            Text(
-                modifier = Modifier
-                    .padding(top = 16.dp, start = 16.dp, end = 8.dp),
-                text = stringResource(R.string.year_in_review_get_started_headline),
-                color = WikipediaTheme.colors.primaryColor,
-                style = MaterialTheme.typography.headlineMedium,
-                textAlign = TextAlign.Center
-            )
-            Text(
-                modifier = Modifier
-                    .padding(top = 10.dp, start = 16.dp, end = 16.dp, bottom = 16.dp),
-                text = stringResource(R.string.year_in_review_get_started_bodytext),
-                color = WikipediaTheme.colors.primaryColor,
-                style = MaterialTheme.typography.bodyLarge,
-                textAlign = TextAlign.Center
+            coverContent()
+            YearInReviewTopBar(
+                iconColor = ComposeColors.White,
+                onCloseClick = onCloseClick,
+                onLearnMoreClick = onLearnMoreClick,
+                onShareFeedbackClick = onShareFeedbackClick,
+                showWikipediaLogo = false
             )
         }
-        Text(
+        AppButton(
             modifier = Modifier
-                .padding(top = 10.dp, start = 16.dp, end = 16.dp),
-            text = stringResource(R.string.year_in_review_get_started_info),
-            color = WikipediaTheme.colors.secondaryColor,
-            style = MaterialTheme.typography.bodySmall,
-            textAlign = TextAlign.Center
-        )
+                .fillMaxWidth()
+                .padding(16.dp),
+            // Waits for the login check, so a stale session is caught before choosing the logged-in or logged-out flow
+            enabled = uiState !is UiState.Loading,
+            onClick = onExploreClick
+        ) {
+            Text(text = stringResource(R.string.year_in_review_announcement_explore))
+        }
     }
 }
 
 @Composable
-fun YearInReviewOnboardingBottomBar(
-    onGetStartedClick: () -> Unit,
-    uiState: UiState<Boolean>
-) {
-    val context = LocalContext.current
-    val mediaWikiUrl = stringResource(R.string.year_in_review_media_wiki_url)
-    BottomAppBar(
-        containerColor = WikipediaTheme.colors.paperColor,
-        content = {
-            Row(
-                horizontalArrangement = Arrangement.SpaceBetween,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 10.dp)
-            ) {
-                OutlinedButton(
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = WikipediaTheme.colors.paperColor,
-                        contentColor = WikipediaTheme.colors.progressiveColor),
-                    modifier = Modifier
-                        .weight(1f)
-                        .padding(end = 12.dp),
-                    onClick = {
-                        YearInReviewEvent.submit(action = "learn_click", slide = "explore_prompt")
-                        UriUtil.handleExternalLink(
-                            context = context,
-                            uri = mediaWikiUrl.toUri()
-                        )
-                    }
-                ) {
-                    Text(
-                        text = stringResource(R.string.year_in_review_learn_more),
-                        style = MaterialTheme.typography.labelLarge
-                    )
-                }
-                Button(
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = WikipediaTheme.colors.progressiveColor,
-                        contentColor = WikipediaTheme.colors.paperColor
-                    ),
-                    enabled = uiState !is UiState.Loading,
-                    modifier = Modifier
-                        .weight(1f)
-                        .padding(start = 12.dp),
-                    onClick = {
-                        YearInReviewEvent.submit(action = "start_click", slide = "explore_prompt")
-                        onGetStartedClick()
-                    }
-                ) {
-                    Text(
-                        text = stringResource(R.string.year_in_review_get_started),
-                        style = MaterialTheme.typography.labelLarge
-                    )
-                }
-            }
-        }
+fun YearInReviewOnboardingCover() {
+    val resources = LocalResources.current
+    val accessibilityDescription = stringResource(R.string.year_in_review_get_started_headline)
+    val content = remember(resources, accessibilityDescription) {
+        YearInReviewRiveContentMapper.map(YearInReviewPage.Cover, resources)?.copy(accessibilityDescription = accessibilityDescription)
+    } ?: return
+    // If Rive fails, the cover's placeholder background stays in place and Explore still works, so errors are only logged
+    val riveWorker = rememberYearInReviewRiveWorker(onRiveError = {})
+    val riveFontsResult = rememberYearInReviewRiveFonts(riveWorker, YearInReviewRiveFonts)
+    val riveFiles = rememberYearInReviewRiveFiles(
+        riveWorker = riveWorker,
+        resourceIds = listOf(content.spec.resourceId),
+        riveFontsResult = riveFontsResult
+    )
+    InstallRiveSystemFontFallback()
+    YearInReviewRiveSlide(
+        riveFileResult = riveFiles[content.spec.resourceId] ?: Result.Loading,
+        content = content,
+        playing = true,
+        onRiveError = {}
     )
 }
 
 @Preview
 @Composable
-fun YearInReviewOnboardingScreenPreview() {
-    BaseTheme(
-        currentTheme = Theme.LIGHT
-    ) {
+private fun YearInReviewOnboardingScreenPreview() {
+    BaseTheme(currentTheme = Theme.LIGHT) {
         YearInReviewOnboardingScreen(
-            onBackButtonClick = {},
-            onGetStartedClick = {}
+            uiState = UiState.Success(false),
+            onCloseClick = {},
+            onLearnMoreClick = {},
+            onShareFeedbackClick = {},
+            onExploreClick = {},
+            coverContent = {}
         )
     }
 }
