@@ -166,13 +166,13 @@ fun GeoScreenContent(
                                         )
                                     }.take(YearInReviewViewModel.MAX_ARTICLES_ON_MAP)
                                     nearbyPages.forEach { page ->
-                                        page.annotation = symbolManager.create(
+                                        val symbol = symbolManager.create(
                                             SymbolOptions()
                                                 .withLatLng(LatLng(page.latitude, page.longitude))
                                                 .withTextFont(PlacesFragment.MARKER_FONT_STACK)
                                                 .withIconImage(PlacesFragment.MARKER_DRAWABLE)
                                         )
-                                        symbolManager.update(page.annotation)
+                                        symbolManager.update(symbol)
 
                                         val url = page.pageTitle.thumbUrl
                                         if (Prefs.isImageDownloadEnabled && !url.isNullOrEmpty()) {
@@ -182,12 +182,9 @@ fun GeoScreenContent(
                                                         return@loadImage
                                                     }
                                                     val bmp = PlacesFragment.getMarkerBitmap(bitmap, markerRect, markerPaintSrc, markerPaintSrcIn, markerBorderPaint)
-                                                    page.bitmap = bmp
                                                     map.style?.addImage(url, bmp.toDrawable(context.resources))
-                                                    page.annotation?.let { annotation ->
-                                                        annotation.iconImage = url
-                                                        symbolManager.update(annotation)
-                                                    }
+                                                    symbol.iconImage = url
+                                                    symbolManager.update(symbol)
                                                 }
                                             )
                                         }
