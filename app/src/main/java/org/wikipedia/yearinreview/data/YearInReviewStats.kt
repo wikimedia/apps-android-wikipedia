@@ -32,9 +32,12 @@ data class YearInReviewReadingStats(
         YearInReviewInsightStatus.SUPPRESSED
     }
 
+    val hasPeakMonth get() = peakMonthVisitedDays >= MIN_PEAK_MONTH_VISITED_DAYS
+
     companion object {
         const val MIN_ARTICLES_READ = 3
         const val MIN_VISITED_DAYS = 2
+        const val MIN_PEAK_MONTH_VISITED_DAYS = 2
     }
 }
 

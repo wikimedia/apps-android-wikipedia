@@ -1,5 +1,7 @@
 package org.wikipedia.yearinreview.presentation
 
+import org.wikipedia.history.db.MonthVisitedDays
+
 // Declared in the order the collective flow shows them. Values come from the remote config.
 enum class YearInReviewCollectiveInsight {
     HOURS_READ,
@@ -23,7 +25,7 @@ sealed interface YearInReviewPage {
         override val id get() = if (isEmptyState) "total_articles_empty" else "total_articles"
     }
 
-    data class Visits(val days: Int, val peakMonth: Int, val peakMonthVisitedDays: Int) : YearInReviewPage {
+    data class Visits(val days: Int, val peakMonth: MonthVisitedDays?) : YearInReviewPage {
         override val id = "visits"
     }
 
