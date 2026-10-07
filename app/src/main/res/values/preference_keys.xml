@@ -31,7 +31,6 @@
     <string name="preference_key_show_developer_settings" translatable="false">showDeveloperSettings</string>
     <string name="preference_key_last_run_time_format" translatable="false">%s-lastrun</string>
     <string name="preference_key_tabs" translatable="false">tabs</string>
-    <string name="preference_key_customize_home_feed" translatable="false">customizeHomeFeed</string>
     <string name="preference_key_show_link_previews" translatable="false">showLinkPreviews</string>
     <string name="preference_key_collapse_tables" translatable="false">collapseTables</string>
     <string name="preference_key_session_data" translatable="false">session_data</string>
@@ -47,7 +46,6 @@
     <string name="preference_key_total_anon_descriptions_edited" translatable="false">totalAnonDescriptionsEdited</string>
     <string name="preference_key_missing_description_test" translatable="false">findArticleWithMissingDescription</string>
     <string name="preference_key_missing_description_test2" translatable="false">findArticleWithMissingSecondLangDescription</string>
-    <string name="preference_category_sync" translatable="false">syncSettings</string>
     <string name="preference_key_sync_reading_lists" translatable="false">syncReadingLists</string>
     <string name="preference_key_reading_list_sync_reminder_enabled" translatable="false">readingListSyncReminder</string>
     <string name="preference_key_reading_list_login_reminder_enabled" translatable="false">readingListLoginReminder</string>
@@ -81,9 +79,6 @@
     <string name="preference_key_reading_list_pages_deleted_ids" translatable="false">readingListPagesDeletedIds</string>
     <string name="preference_key_show_reading_lists_sync_prompt" translatable="false">showReadingListsSyncPrompt</string>
     <string name="preference_key_reading_lists_first_time_sync" translatable="false">readingListsFirstTimeSyncV2</string>
-    <string name="preference_key_about_wikipedia_app" translatable="false">aboutWikipediaApp</string>
-    <string name="preference_key_send_feedback" translatable="false">sendFeedback</string>
-    <string name="preference_key_logout" translatable="false">logOut</string>
     <string name="preference_key_download_only_over_wifi" translatable="false">downloadOnlyOverWiFi</string>
     <string name="preference_key_download_reading_list_articles" translatable="false">downloadReadingListArticles</string>
     <string name="preference_key_remote_notifications_seen_time" translatable="false">remoteNotificationsSeenTime</string>
@@ -180,7 +175,6 @@
     <string name="preference_key_impact_last_query_time" translatable="false">impactLastQueryTime</string>
     <string name="preference_key_impact_last_response_body" translatable="false">impactLastResponseBody</string>
     <string name="preference_key_default_places_location_latlng" translatable="false">placesDefaultLocationLatLng</string>
-    <string name="preference_key_delete_local_donation_history" translatable="false">deleteLocalDonationHistory</string>
     <string name="preference_key_playground_category" translatable="false">categoryPlayground</string>
     <string name="preference_key_otd_is_archive_game_playing" translatable="false">isArchiveGamePlaying</string>
     <string name="preference_key_otd_sound_on" translatable="false">isOtdSoundOn</string>
@@ -188,7 +182,6 @@
     <string name="preference_key_year_in_review_visited" translatable="false">yearInReviewVisited</string>
     <string name="preference_key_yir_survey_state" translatable="false">yirSurveyState</string>
     <string name="preference_key_selected_app_icon" translatable="false">selectedAppIcon</string>
-    <string name="preference_category_recommended_reading_list" translatable="false">recommendedReadingListSettings</string>
     <string name="preference_key_recommended_reading_list_enabled" translatable="false">recommendedReadingListEnabled</string>
     <string name="preference_key_recommended_reading_list_articles_number" translatable="false">recommendedReadingListArticlesNumber</string>
     <string name="preference_key_recommended_reading_list_update_frequency" translatable="false">recommendedReadingListUpdateFrequency</string>
@@ -201,11 +194,9 @@
     <string name="preference_key_recommended_reading_list_new_list_generated" translatable="false">recommendedReadingListNewListGenerated</string>
     <string name="preference_key_recommended_reading_list_reset" translatable="false">recommendedReadingListReset</string>
     <string name="preference_key_donation_reminder_config" translatable="false">donationReminderConfig</string>
-    <string name="preference_key_donation_reminders" translatable="false">donationReminder</string>
     <string name="preference_key_donation_reminders_dev_reset" translatable="false">donationReminderDevReset</string>
     <string name="preference_key_donation_reminders_dev_reset_seen_date" translatable="false">donationReminderDevResetSeenDate</string>
     <string name="preference_key_donation_reminders_dev_wrap_up_enabled" translatable="false">donationReminderDevWrapUpEnabled</string>
-    <string name="preference_category_donations" translatable="false">donations</string>
     <string name="preference_key_activity_tab_modules" translatable="false">activityTabModules</string>
     <string name="preference_key_activity_tab_onboarding_shown" translatable="false">activityTabOnboardingShown</string>
     <string name="preference_key_yir_model_data" translatable="false">yirModelData</string>
