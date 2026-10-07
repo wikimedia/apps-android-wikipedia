@@ -2616,9 +2616,6 @@
   <string name="semantic_search_results_feedback_submitted_message">Message shown after the user submits feedback on the semantic search results.</string>
   <string name="semantic_search_feedback_dialog_title">Title of the semantic search feedback dialog shown in the article screen.</string>
   <string name="semantic_search_feedback_dialog_close_button_content_description">Content description for the button that closes the semantic search feedback dialog shown in the article screen.</string>
-  <string name="semantic_search_info_dialog_search_string">Text for the search string in the semantic search info dialog.</string>
-  <string name="semantic_search_info_dialog_sample_snippet">Text for the sample snippet in the semantic search info dialog. Please preserve the HTML span with class "searchmatch" (do not translate the class name), since it marks the highlighted passage. The span should wrap the sentence that answers the question.</string>
-  <string name="semantic_search_info_dialog_page_title_description">Article page title and description used for the info dialog</string>
   <string name="preference_heading_semantic_search">Semantic Search settings screen preference heading</string>
   <string name="preference_title_semantic_search_within_articles">Semantic Search setting screen preference title</string>
   <string name="preference_summary_semantic_search_jump_to_passage">Semantic Search settings screen preference summary</string>

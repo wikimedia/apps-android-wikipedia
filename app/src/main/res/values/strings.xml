@@ -2882,9 +2882,6 @@
     <string name="semantic_search_results_feedback_submitted_message">Thanks for your feedback</string>
     <string name="semantic_search_feedback_dialog_title">Feedback</string>
     <string name="semantic_search_feedback_dialog_close_button_content_description">Close the semantic search feedback</string>
-    <string name="semantic_search_info_dialog_search_string">How was the Moon formed?</string>
-    <string name="semantic_search_info_dialog_sample_snippet"><![CDATA[<span class=\"searchmatch\">The prevailing theory is that the Moon formed out of the debris left over from a collision between Earth and an astronomical body the size of Mars, approximately 4.5 billion years ago, about 20 to 100 million years after the Solar System coalesced.</span> This is called the Giant-impact hypothesis.]]></string>
-    <string name="semantic_search_info_dialog_page_title_description">Origin of the Moon</string>
     <string name="preference_heading_semantic_search">Search</string>
     <string name="preference_title_semantic_search_within_articles">Search within articles</string>
     <string name="preference_summary_semantic_search_jump_to_passage">Jump straight to the relevant passage</string>
