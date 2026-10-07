@@ -193,7 +193,7 @@
   <string name="logged_out_in_background_cancel">Nullañ</string>
   <string name="account_vanish_request_title">Diankañ ar gont</string>
   <string name="account_vanish_request_confirm_title">Gouzavadenn diankañ ur gont</string>
-  <string name="account_vanish_request_confirm">Un &lt;b&gt;doare diwezhañ&lt;/b&gt; eo an diankañ ha ne zlefe &lt;b&gt;bezañ implijet nemet pa vennit paouez da viken da gemmañ&lt;/b&gt; ha kuzhat kement eus ho tegasadennoù kozh ha ma c\'heller.&lt;br /&gt;&lt;br /&gt;Diverkañ ur gont e Wikipedia a vez graet dre gemmañ anv ho kont evit ma ne c\'hellfe ket tud all anavezout ho tegasadennoù en un argerzh anvet diankañ ur gont. &lt;b&gt;Diankañ ne warant ket an dizanv klok ha ne zilam ket degasadennoù d\'ar raktresoù&lt;/b&gt; .</string>
+  <string name="account_vanish_request_confirm">Un &lt;b&gt;doare diwezhañ&lt;/b&gt; eo an diankañ ha ne zlefe &lt;b&gt;bezañ implijet nemet pa vennit paouez da viken da gemmañ&lt;/b&gt; ha kuzhat kement eus ho tegasadennoù kozh ha ma c\'heller.&lt;br /&gt;&lt;br /&gt;Diverkañ ur gont e Wikipedia a vez graet dre gemmañ anv ho kont evit ma ne c\'hellfe ket tud all anavezout ho tegasadennoù en un argerzh anvet diankañ ur gont. &lt;b&gt;Diankañ ne warant ket an dizanv klok ha ne zilam ket degasadennoù d\'ar raktresoù&lt;/b&gt;.</string>
   <string name="history_empty_title">Pennad ebet lennet nevez zo</string>
   <string name="history_empty_message">Heuliañ ar pezh hoc\'h eus lennet amañ</string>
   <string name="history_offline_articles_toast">Pennadoù zo eus an istor ne c\'haller lenn ezlinenn.</string>
@@ -524,7 +524,7 @@
   <string name="temp_account_anon_ip_edit_status">&lt;b&gt;N\'emaoc\'h ket kevreet.&lt;/b&gt; P\'ho po graet ur gemmadenn e vo staget ho chomlec\'h IP ouzh ho kemmoù.</string>
   <string name="temp_account_anon_edit_status">&lt;b&gt;N\'emaoc\'h ket kevreet.&lt;/b&gt; P\'ho po graet ur gemmadenn, ur gont verrbad a vo krouet evit gwareziñ ho prevezded. &lt;a href=\"%1$s\"&gt;Gouzout hiroc\'h&lt;/a&gt;</string>
   <string name="temp_account_edit_status">&lt;b&gt;Emaoc\'h oc\'h implijout ur gont verrbad.&lt;/b&gt; Staget e vo ho kemmadenn ouzh %1$s. &lt;a href=\"%2$s\"&gt;Gouzout hiroc\'h&lt;/a&gt;.</string>
-  <string name="temp_account_login_status">&lt;b&gt;Emaoc\'h oc\'h implijout ur gont verrbad.&lt;/b&gt; Ar c\'hemmoù graet gant ar gont verrnad %1$s ne vint ket treuzkaset d\'ho kont pad pa gevreot. Kevreit pe krouit ur gont evit ma vefe deroet kred d\'o anv implijer, e-touez spletoù all.</string>
+  <string name="temp_account_login_status">&lt;b&gt;Emaoc\'h oc\'h implijout ur gont verrbad.&lt;/b&gt; Ar c\'hemmoù graet gant ar gont verrbad %1$s ne vint ket treuzkaset d\'ho kont pad pa gevreot. Kevreit pe krouit ur gont evit ma vefe deroet kred d\'ho anv implijer, e-touez spletoù all.</string>
   <string name="temp_account_end_session">Echuiñ an dalc\'h</string>
   <string name="temp_account_end_session_confirm">Digevreet e viot diouzh ho kont berrbad. Ha kenderc\'hel a vennit ober ?</string>
   <string name="crash_report_activity_title">Fazi an arload</string>
@@ -1454,7 +1454,7 @@
   <string name="onboarding_welcome_title_v2">An Holloueziadur digor\n... en ouzhpenn 300 yezh</string>
   <string name="onboarding_next">War-lerc\'h</string>
   <string name="onboarding_fresh_install_knowledge_title">Gouiziegezh ar bed a-bezh</string>
-  <string name="onboarding_fresh_install_knowledge_text">Wikipedia zo un hollouezhiadur frank enlinenn 65 milion a bennadoù ennañ, aozet a-gevret ha dalc\'het e ratre e muioc\'h eget 300 yezh gant ur gumuniezh tud a-youl vat.</string>
+  <string name="onboarding_fresh_install_knowledge_text">Wikipedia zo un hollouezhiadur frank enlinenn 65 milion a bennadoù ennañ, aozet a-gevret ha dalc\'het e ratre e muioc\'h eget 300 yezh gant ur gumuniezh tud a-youl-vat.</string>
   <string name="onboarding_fresh_install_knowledge_learn_more">Deskit hiroc\'h a-zivout Wikipedia</string>
   <string name="onboarding_app_languages_title">Lennit e muioc\'h eget 300 yezh</string>
   <string name="onboarding_app_languages_text">Merket hon eus ar yezhoù-mañ en ho ardivink :</string>
@@ -1732,9 +1732,9 @@
   <string name="watchlist_filter_user_intent_may_problems">Feiz fall marteze</string>
   <string name="watchlist_filter_user_intent_likely_problems">Feiz fall moarvat</string>
   <string name="watchlist_filter_user_intent_bad">Feiz fall emichañs</string>
-  <string name="watchlist_filter_user_status_header">Enrolladur ha skiant-prenet an implijer</string>
-  <string name="watchlist_filter_user_status_unregistered">N\'emañ ket enrollet</string>
-  <string name="watchlist_filter_user_status_registered">Enskrivet</string>
+  <string name="watchlist_filter_user_status_header">Marilhadur ha chemet an implijer</string>
+  <string name="watchlist_filter_user_status_unregistered">N\'emañ ket marilhet</string>
+  <string name="watchlist_filter_user_status_registered">Marilhet</string>
   <string name="watchlist_filter_user_status_newcomers">Tud nevez-deuet</string>
   <string name="watchlist_filter_user_status_learners">Deskarded</string>
   <string name="watchlist_filter_user_status_experienced">Implijerien arroutet</string>
@@ -1855,9 +1855,9 @@
   <string name="patroller_tasks_filters_wiki_filter_header">Wiki</string>
   <string name="patroller_tasks_filters_all_text">Pep tra</string>
   <string name="patroller_tasks_filters_user_status_header">Enskrivadur ha skiant-prenet an implijer</string>
-  <string name="patroller_tasks_filters_user_status_unregistered">N\'emañ ket enrollet</string>
+  <string name="patroller_tasks_filters_user_status_unregistered">N\'emañ ket marilhet</string>
   <string name="patroller_tasks_filters_user_status_unregistered_desc">Aozerien n\'int ket kevreet.</string>
-  <string name="patroller_tasks_filters_user_status_registered">Enskrivet</string>
+  <string name="patroller_tasks_filters_user_status_registered">Marilhet</string>
   <string name="patroller_tasks_filters_user_status_registered_desc">Aozerien kevreet</string>
   <string name="patroller_tasks_filters_user_status_newcomers">Tud nevez-deuet</string>
   <string name="patroller_tasks_filters_user_status_newcomers_desc">Aozerien enrollet dezho nebeutoc\'h eget 10 kemm en obererezh 4 devezh.</string>
@@ -2208,11 +2208,11 @@
     <item quantity="other">%s gwech hoc\'h eus graet kemmoù</item>
   </plurals>
   <plurals name="year_in_review_slide_edited_times_body">
-    <item quantity="one">Trugarez deoc\'h pa \'z oc\'h unan eus ar berzhidi a-youl vat a gemm raktresoù Wikimedia er bed a-bezh. Emyoulidi eveldoc\'h o deus graet %,d kemm dre tremen 300 yezh disheñvel e Wikipedia.</item>
-    <item quantity="two">Trugarez deoc\'h pa \'z oc\'h unan eus ar berzhidi a-youl vat a gemm raktresoù Wikimedia er bed a-bezh. Emyoulidi eveldoc\'h o deus graet %,d kemm dre tremen 300 yezh disheñvel e Wikipedia.</item>
-    <item quantity="few">Trugarez deoc\'h pa \'z oc\'h unan eus ar berzhidi a-youl vat a gemm raktresoù Wikimedia er bed a-bezh. Emyoulidi eveldoc\'h o deus graet %,d kemm dre tremen 300 yezh disheñvel e Wikipedia.</item>
-    <item quantity="many">Trugarez deoc\'h pa \'z oc\'h unan eus ar berzhidi a-youl vat a gemm raktresoù Wikimedia er bed a-bezh. Emyoulidi eveldoc\'h o deus graet %,d kemm dre tremen 300 yezh disheñvel e Wikipedia.</item>
-    <item quantity="other">Trugarez deoc\'h pa \'z oc\'h unan eus ar berzhidi a-youl vat a gemm raktresoù Wikimedia er bed a-bezh. Emyoulidi eveldoc\'h o deus graet %,d kemm dre tremen 300 yezh disheñvel e Wikipedia.</item>
+    <item quantity="one">Trugarez deoc\'h pa \'z oc\'h unan eus ar berzhidi a-youl-vat a gemm raktresoù Wikimedia er bed a-bezh. Emyoulidi eveldoc\'h o deus graet %,d kemm dre tremen 300 yezh disheñvel e Wikipedia.</item>
+    <item quantity="two">Trugarez deoc\'h pa \'z oc\'h unan eus ar berzhidi a-youl-vat a gemm raktresoù Wikimedia er bed a-bezh. Emyoulidi eveldoc\'h o deus graet %,d kemm dre tremen 300 yezh disheñvel e Wikipedia.</item>
+    <item quantity="few">Trugarez deoc\'h pa \'z oc\'h unan eus ar berzhidi a-youl-vat a gemm raktresoù Wikimedia er bed a-bezh. Emyoulidi eveldoc\'h o deus graet %,d kemm dre tremen 300 yezh disheñvel e Wikipedia.</item>
+    <item quantity="many">Trugarez deoc\'h pa \'z oc\'h unan eus ar berzhidi a-youl-vat a gemm raktresoù Wikimedia er bed a-bezh. Emyoulidi eveldoc\'h o deus graet %,d kemm dre tremen 300 yezh disheñvel e Wikipedia.</item>
+    <item quantity="other">Trugarez deoc\'h pa \'z oc\'h unan eus ar berzhidi a-youl-vat a gemm raktresoù Wikimedia er bed a-bezh. Emyoulidi eveldoc\'h o deus graet %,d kemm dre tremen 300 yezh disheñvel e Wikipedia.</item>
   </plurals>
   <plurals name="year_in_review_slide_app_edited_times_headline">
     <item quantity="one">%,d kemm zo bet graet gant perzhidi da arloadoù ofisiel Wikipedia</item>
@@ -2221,7 +2221,7 @@
     <item quantity="many">%,d kemm zo bet graet gant perzhidi da arloadoù ofisiel Wikipedia</item>
     <item quantity="other">%,d kemm zo bet graet gant perzhidi da arloadoù ofisiel Wikipedia</item>
   </plurals>
-  <string name="year_in_review_slide_app_edited_times_body">Hor c\'humuniezh perzhidi a-youl vat, donezonerien, ha milmilionoù a lennerien eveldoc\'h er bed a-bezh eo kalon hag ene Wikipedia – a-unvan evit lodañ ur moned digor da ditouroù solius.</string>
+  <string name="year_in_review_slide_app_edited_times_body">Hor c\'humuniezh perzhidi a-youl-vat, donezonerien, ha milmilionoù a lennerien eveldoc\'h er bed a-bezh eo kalon hag ene Wikipedia – a-unvan evit lodañ ur moned digor da ditouroù solius.</string>
   <plurals name="year_in_review_slide_english_edited_times_headline">
     <item quantity="one">%,d kemm zo bet graet gant ar berzhidi er bloaz-mañ</item>
     <item quantity="two">%,d kemm zo bet graet gant ar berzhidi er bloaz-mañ</item>
@@ -2712,7 +2712,7 @@
   <string name="explore_feed_onboarding_curiosity_title">Kit da heul ho c\'hoant gouzout</string>
   <string name="explore_feed_onboarding_curiosity_description">Diuzit dodennoù ez oc\'h dedennet ganto, ha pesonelaet e vo ho kwazh ganimp.\n\n\nDastuman an nebeutañ a roadennoù a reomp, ha dizanv int.</string>
   <string name="explore_feed_deselect_all_button_label">Diziuzañ an holl</string>
-  <string name="explore_feed_potd_subtitle">Skeudennoù pemdeziek e Wikimedia Commons, diuzet gant kenlabourerien a-youl vat</string>
+  <string name="explore_feed_potd_subtitle">Skeudennoù pemdeziek e Wikimedia Commons, diuzet gant kenlabourerien a-youl-vat</string>
   <string name="explore_feed_featured_article_subtitle">A-douez ar pennadoù gwellañ e Wikipedia, diuzet bemdez gant aozerien, eo ar pennadoù heverk.</string>
   <string name="explore_feed_preference_selection_screen_title">Petra a fellfe deoc\'h gwelet da gentañ ?</string>
   <string name="explore_feed_preference_community_content_title">Endalc\'had liammet ouzh ar Gumuniezh</string>
@@ -2751,7 +2751,7 @@
   <string name="home_feed_settings_continue_reading_title">Kenderc\'hel da lenn</string>
   <string name="home_feed_settings_continue_reading_subtitle">Distreiñ da bennadoù n\'hoc\'h eus ket echuet lenn</string>
   <string name="home_feed_did_you_know_title">Ha gouzout a rit ?</string>
-  <string name="home_feed_did_you_know_subtitle">Fedoù dedennus diwar bennadoù diuzet gant aozerien a-youl vat</string>
+  <string name="home_feed_did_you_know_subtitle">Fedoù dedennus diwar bennadoù diuzet gant aozerien a-youl-vat</string>
   <string name="home_feed_did_you_know_more_label">Muioc\'h a « Ha gouzout a rit ? »</string>
   <string name="home_feed_settings_community_empty_dialog_title">Goullo e vo ho kwazh Kumuniezh</string>
   <string name="home_feed_settings_for_you_empty_dialog_title">Goullo e voe ho kwazh \"Evidoc\'h\"</string>

@@ -23,16 +23,27 @@ object YearInReviewFlowDecider {
         } else {
             YearInReviewCollectiveInsight.entries.map { YearInReviewPage.Collective(it) } + listOfNotNull(youMatterPage(snapshot))
         }
-        return listOf(YearInReviewPage.Cover) + flowPages + YearInReviewPage.End
+        return listOf(YearInReviewPage.Cover(daysSpent = snapshot.readingStats.visitedDaysCount)) + flowPages + YearInReviewPage.End
     }
 
     private fun personalizedCandidates(snapshot: YearInReviewSnapshot): List<CandidatePage> {
         val readingStats = snapshot.readingStats
         return listOf(
             CandidatePage(status = readingStats.totalArticlesStatus) {
-                YearInReviewPage.ArticlesRead(isEmptyState = readingStats.totalArticlesStatus == YearInReviewInsightStatus.EMPTY_STATE, count = readingStats.articlesReadCount)
+                YearInReviewPage.ArticlesRead(
+                    isEmptyState = readingStats.totalArticlesStatus == YearInReviewInsightStatus.EMPTY_STATE,
+                    count = readingStats.articlesReadCount,
+                    percentile = getTopReadPercentile(snapshot),
+                    averageCount = snapshot.remoteConfig.averageArticlesReadPerYear
+                )
             },
-            CandidatePage(status = readingStats.visitsStatus) { YearInReviewPage.Visits(days = readingStats.visitedDaysCount) }
+            CandidatePage(status = readingStats.visitsStatus) {
+                YearInReviewPage.Visits(
+                    days = readingStats.visitedDaysCount,
+                    peakMonth = readingStats.peakMonth,
+                    peakMonthVisitedDays = readingStats.peakMonthVisitedDays
+                )
+            }
         )
     }
 
@@ -52,5 +63,11 @@ object YearInReviewFlowDecider {
 
     private fun youMatterPage(snapshot: YearInReviewSnapshot): YearInReviewPage? {
         return if (snapshot.isDonationEligible) YearInReviewPage.YouMatter(showLoginPrompt = !snapshot.isLoggedIn) else null
+    }
+
+    private fun getTopReadPercentile(snapshot: YearInReviewSnapshot): String {
+        return snapshot.remoteConfig?.topReadPercentages?.find {
+            snapshot.readingStats.articlesReadCount > it.min && snapshot.readingStats.articlesReadCount <= it.max
+        }?.identifier.orEmpty()
     }
 }

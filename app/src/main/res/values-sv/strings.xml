@@ -38,7 +38,7 @@
   <string name="search_back_button_content_description">Gå tillbaka</string>
   <string name="search_clear_query_content_description">Rensa förfrågan</string>
   <string name="search_icon_content_description">Sök</string>
-  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">Filtrera mina listor</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Filtrera mina samlingar</string>
   <string name="nav_item_suggested_edits">Redigeringar</string>
   <string name="nav_item_activity">Aktivitet</string>
   <string name="nav_item_more">Mer</string>
@@ -105,16 +105,16 @@
   <string name="menu_page_watched">Bevakas</string>
   <string name="edit_section_find_in_page">Hitta på sidan</string>
   <string name="menu_page_font_and_theme">Teckensnitt och tema</string>
-  <string name="menu_page_add_to_list" fuzzy="true">Lägg till i läslista</string>
+  <string name="menu_page_add_to_list">Lägg till i samling</string>
   <string name="menu_page_add_to_default_list">Spara</string>
-  <string name="feed_card_add_to_list" fuzzy="true">Lägg till i läslista</string>
+  <string name="feed_card_add_to_list">Lägg till i samling</string>
   <string name="feed_card_add_to_default_list">Spara</string>
   <string name="menu_page_share">Dela länk</string>
   <string name="menu_article_share">Dela artikel</string>
   <string name="menu_page_article_share">Dela</string>
   <string name="menu_page_open_a_new_tab">Öppna en ny flik</string>
   <string name="menu_page_new_tab">Ny flik</string>
-  <string name="menu_page_reading_lists" fuzzy="true">Läslistor</string>
+  <string name="menu_page_reading_lists">Samlingar</string>
   <string name="menu_page_recently_viewed">Nyligen lästa</string>
   <string name="menu_page_archive">Arkiv</string>
   <string name="menu_long_press_open_page">Öppna</string>
@@ -158,7 +158,9 @@
   <string name="menu_show_toc">Innehållsförteckning</string>
   <string name="search_no_results_found">Inga resultat hittades</string>
   <string name="search_reading_list_no_results">Inga resultat hittades i \"%s\"</string>
-  <string name="search_reading_lists_no_results" fuzzy="true">Inga resultat hittades i läslistor</string>
+  <string name="search_reading_lists_no_results">Inga resultat hittades i samlingar</string>
+  <string name="search_all_articles_no_results">Inga resultat hittades i alla artiklar</string>
+  <string name="search_collections_no_results">Inga resultat hittades i samlingar</string>
   <string name="search_history_no_results">Inga resultat hittades i historik</string>
   <string name="edit_section_captcha_message">För att skydda mot automatiserad reklam, var god skriv in orden som visas nedan</string>
   <string name="edit_section_captcha_request_an_account_message">Kan du inte se bilden? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Begär ett konto&lt;/a&gt;</string>
@@ -226,6 +228,27 @@
   <string name="email_recommendation_dialog_create_without_email_action">Fortsätt utan e-post</string>
   <string name="email_recommendation_dialog_create_with_email_action">Lägg till en e-postadress</string>
   <string name="create_account_button">Skapa konto</string>
+  <string name="create_account_encourage_title">Wikipedia är bättre med ett konto</string>
+  <string name="create_account_encourage_year_in_review_title_zero">Se dina läsdagar sammanfalla i årsöversikten</string>
+  <plurals name="create_account_encourage_year_in_review_title">
+    <item quantity="one">Se dina %1$d läsdagar sammanfalla i årsöversikt</item>
+    <item quantity="other">Se dina %1$d läsdagar sammanfalla i årsöversikt</item>
+  </plurals>
+  <string name="create_account_encourage_year_in_review_description">En gång om året kommer dina läsdagar tillbaka som en återblick på vart året tog dig och är redo att delas.</string>
+  <string name="create_account_encourage_saved_articles_title_zero">Synkronisera dina sparade artiklar</string>
+  <plurals name="create_account_encourage_saved_articles_title">
+    <item quantity="one">Synkronisera din sparade artikel</item>
+    <item quantity="other">Synkronisera dina %1$d sparade artiklar</item>
+  </plurals>
+  <string name="create_account_encourage_saved_articles_description">Logga in på ditt Wikipedia-konto för att låta dina sparade artiklar synkroniseras mellan enheter.</string>
+  <string name="create_account_encourage_activity_title_zero">Gå igenom dina senaste läsningar med Aktivitet</string>
+  <plurals name="create_account_encourage_activity_title">
+    <item quantity="one">Gå igenom din senaste läsning med Aktivitet</item>
+    <item quantity="other">Gå igenom dina senaste %1$d läsningar med Aktivitet</item>
+  </plurals>
+  <string name="create_account_encourage_activity_description">Se din lästid, utforskade ämnen och räckvidden för dina bidrag på fliken Aktivitet.</string>
+  <string name="create_account_encourage_edits_title">Få erkännande för dina redigeringar</string>
+  <string name="create_account_encourage_edits_description">Bygg upp en meritlista du kan vara stolt över med bidrag från olika Wikimedia-projekt där erkännande ges till ditt konto.</string>
   <string name="create_account_name_unavailable">Användarnamnet \"%s\" är inte tillgängligt. Var god välj ett annat namn.</string>
   <string name="create_account_ip_block_message">Tyvärr, din IP-adress har för tillfället blockerats från att skapa nya konton.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
@@ -238,12 +261,12 @@
   <string name="preferences_heading_syncing">Synkronisering</string>
   <string name="preferences_heading_data_usage">Dataanvändning</string>
   <string name="preferences_heading_experimental">\nExperimentell</string>
-  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Synkronisering av läslistor</string>
-  <string name="preference_title_download_reading_list_articles" fuzzy="true">Ladda ned artiklar från läslistor</string>
-  <string name="preference_summary_sync_reading_lists" fuzzy="true">Synkronisera läslistor över olika enheter genom att spara dem till ditt Wikipedia-konto</string>
-  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">Synkronisera läslistor över olika enheter genom att spara dem till ditt Wikipedia-konto %s</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">Ta bort synkroniserade läslistor från \"%s\"?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">Detta kommer att radera alla tidigare synkroniserade läslistor från fjärrlagringen helt och hållet. Ta bort alla synkroniserade listor från ditt konto \"%s\"?</string>
+  <string name="preference_title_sync_reading_lists_from_account">Synkronisera samlingar</string>
+  <string name="preference_title_download_reading_list_articles">Ladda ned artiklar från samlingar</string>
+  <string name="preference_summary_sync_reading_lists">Synkronisera samlingar över olika enheter genom att spara dem till ditt Wikipedia-konto</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Synkronisera samlingar över olika enheter genom att spara dem till ditt Wikipedia-konto %s</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Ta bort synkroniserade samlingar från \"%s\"?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Detta kommer att radera alla tidigare synkroniserade samlingar från fjärrlagringen helt och hållet. Ta bort alla synkroniserade listor från ditt konto \"%s\"?</string>
   <string name="preference_title_auto_upload_crash_reports">Skicka kraschrapporter</string>
   <string name="preference_summary_auto_upload_crash_reports">Låter appen automatiskt skicka kraschrapporter till en tredjepartstjänst så att vi kan granska din krasch och åtgärda felet snabbare och lättare.</string>
   <string name="editing_error_spamblacklist">Länkar till blockerade domäner (%s) har upptäckts. Vänligen ta bort dessa och försök igen.</string>
@@ -314,6 +337,16 @@
   <string name="edit_notices_please_read">Var god läs detta innan du redigerar</string>
   <string name="edit_notices_show_auto">Visa redigeringsnotiser automatiskt</string>
   <string name="edit_notices_tooltip">Tryck på denna knapp för att visa redigeringsnotiser för denna artikel.</string>
+  <string name="editor_select_dialog_title">Välj hur du vill redigera</string>
+  <string name="editor_select_dialog_ve_title">Visuell redigering</string>
+  <string name="editor_select_dialog_ve_subtitle">Gör ändringar direkt på sidan du ser. Öppnas i din webbläsare.</string>
+  <string name="editor_select_dialog_source_title">Wikitextredigering</string>
+  <string name="editor_select_dialog_source_subtitle">Gör ändringar med wikitext. Stannar kvar i appen.</string>
+  <string name="editor_select_dialog_dont_show_again">Visa inte detta igen. Standardinställningen kan ändras senare i Inställningar.</string>
+  <string name="editor_select_dialog_continue">Fortsätt</string>
+  <string name="editor_select_icon_ve_title">Ikon för att öppna i extern webbläsare</string>
+  <string name="editor_select_title_settings_screen">Redigeringsinställning</string>
+  <string name="editor_select_save_btn_settings_screen">Spara</string>
   <string name="find_next">Sök nästa</string>
   <string name="find_previous">Sök föregående</string>
   <string name="find_first_occurence">Detta är den första förekomsten</string>
@@ -385,8 +418,8 @@
   <string name="unnamed_tab_closed">Flik stängdes.</string>
   <string name="tab_item_closed">%s stängdes.</string>
   <string name="all_tab_items_closed">Alla flikar stängdes.</string>
-  <string name="tool_tip_bookmark_icon_title" fuzzy="true">Lägg till i läslista</string>
-  <string name="tool_tip_bookmark_icon_text" fuzzy="true">Tryck på bokmärkesikonen för att spara artikeln i en läslista.</string>
+  <string name="tool_tip_bookmark_icon_title">Lägg till i samling</string>
+  <string name="tool_tip_bookmark_icon_text">Tryck på bokmärkesikonen för att spara artikeln i en samlingar.</string>
   <string name="page_view_in_browser">Visa sidan i webbläsaren</string>
   <string name="tool_tip_toc_title">Snabbåtkomst till innehållsförteckningen</string>
   <string name="tool_tip_toc_text">Du kan nu svepa åt vänster för att öppna innehållsförteckningen samt även trycka på och dra i denna rullknapp för att snabbt hoppa till olika avsnitt i en artikeln.</string>
@@ -399,9 +432,9 @@
   <string name="button_continue_to_talk_page">Öppna diskussionssidan</string>
   <string name="button_continue_to_disambiguation">Visa liknande sidor</string>
   <string name="link_preview_disambiguation_description">Denna titel relaterar till fler än en sida:</string>
-  <string name="button_add_to_reading_list" fuzzy="true">Lägg till i läslista</string>
+  <string name="button_add_to_reading_list">Lägg till i samling</string>
   <string name="page_offline_notice_cannot_load_while_offline">Artikeln kan inte läsas in utan uppkoppling.</string>
-  <string name="page_offline_notice_add_to_reading_list" fuzzy="true">Tips: Lägg till artikeln i en läslista och den kommer att laddas ned så fort du blir online igen.</string>
+  <string name="page_offline_notice_add_to_reading_list">Tips: Lägg till artikeln i en samling och den kommer att laddas ned så fort du blir online igen.</string>
   <string name="page_offline_notice_last_date">Du läser en offlineversion av denna artikel som sparades den %s.</string>
   <string name="redirected_from_snackbar">Omdirigerad från \"%s\"</string>
   <string name="button_get_directions">Få vägbeskrivningar</string>
@@ -512,17 +545,17 @@
   <string name="editing_monospace_font_label">Använd typsnitt med fast bredd</string>
   <string name="editing_typing_suggestions">Visa skrivförslag</string>
   <string name="nav_item_saved">Sparade</string>
-  <string name="reading_list_save_to" fuzzy="true">Spara i läslista</string>
-  <string name="reading_list_move_to" fuzzy="true">Flytta till läslista</string>
+  <string name="reading_list_save_to">Spara i samling</string>
+  <string name="reading_list_move_to">Flytta till samling</string>
   <string name="reading_list_create_new">Skapa ny</string>
-  <string name="reading_list_title_exists" fuzzy="true">Läslistan \"%s\" finns redan.</string>
+  <string name="reading_list_title_exists">Samlingen \"%s\" finns redan.</string>
   <string name="reading_list_article_added_to_named">Lade till %1$s i %2$s.</string>
-  <string name="reading_list_article_added_to_default_list" fuzzy="true">Sparade %s. Vill du lägga till den i en lista?</string>
+  <string name="reading_list_article_added_to_default_list">Sparade %s. Vill du lägga till den i en samling?</string>
   <string name="reading_list_article_moved_to_named">Flyttade %1$s till %2$s.</string>
   <string name="reading_list_article_already_exists_message">%1$s innehåller redan %2$s.</string>
   <string name="reading_list_articles_already_exist_message">%s innehåller redan alla artiklar.</string>
-  <string name="reading_list_added_view_button" fuzzy="true">Visa lista</string>
-  <string name="reading_list_add_to_list_button" fuzzy="true">Lägg till i lista</string>
+  <string name="reading_list_added_view_button">Visa samling</string>
+  <string name="reading_list_add_to_list_button">Lägg till i samling</string>
   <plurals name="format_reading_list_statistical_summary_without_size">
     <item quantity="one">1 artikel</item>
     <item quantity="other">%d artiklar</item>
@@ -547,63 +580,72 @@
   <string name="reading_list_sort_by_recent_desc">Sortera efter tilläggsdatum (äldsta)</string>
   <string name="reading_list_sort_by_created">Sortera efter skapandedatum (nyaste)</string>
   <string name="reading_list_sort_by_created_desc">Sortera efter skapandedatum (äldsta)</string>
-  <string name="reading_list_menu_delete" fuzzy="true">Radera lista</string>
-  <string name="reading_list_menu_export" fuzzy="true">Exportera lista</string>
+  <string name="reading_list_menu_delete">Radera samling</string>
+  <string name="reading_list_menu_export">Exportera samling</string>
   <string name="reading_list_menu_select">Markera</string>
   <string name="reading_list_menu_unselect">Avmarkera</string>
-  <string name="reading_list_export_write_permission_rationale" fuzzy="true">Behörighet för att skriva till lagringsutrymmet på din enhet krävs för att exportera din läslista.</string>
+  <string name="reading_list_export_write_permission_rationale">Behörighet för att skriva till lagringsutrymmet på din enhet krävs för att exportera din samling.</string>
   <string name="reading_list_menu_rename">Redigera namn/beskrivning</string>
   <string name="reading_list_action_menu_remove_from_offline">Ta bort från offline</string>
   <string name="reading_list_action_menu_save_for_offline">Spara för offline</string>
   <string name="reading_list_action_menu_remove_all_from_offline">Ta bort alla från offline</string>
   <string name="reading_list_action_menu_save_all_for_offline">Spara alla för offline</string>
-  <string name="reading_list_action_menu_add_to_another_list" fuzzy="true">Lägg till i en annan lista</string>
-  <string name="reading_list_action_menu_move_to_another_list" fuzzy="true">Flytta till en annan lista</string>
-  <string name="reading_list_name_sample" fuzzy="true">Min läslista</string>
-  <string name="reading_list_name_hint" fuzzy="true">Namn på denna lista</string>
+  <string name="reading_list_action_menu_add_to_another_list">Lägg till i en annan samling</string>
+  <string name="reading_list_action_menu_move_to_another_list">Flytta till en annan samling</string>
+  <string name="reading_list_name_sample">Min samling</string>
+  <string name="reading_list_name_hint">Namn på denna samling</string>
   <string name="reading_list_description_hint">Beskrivning (valfri)</string>
-  <string name="reading_list_item_deleted" fuzzy="true">%s togs bort från listan</string>
+  <string name="reading_list_item_deleted">%s togs bort från samlingen</string>
   <string name="reading_list_item_deleted_from_list">%1$s togs bort från %2$s</string>
-  <plurals name="reading_list_articles_deleted" fuzzy="true">
-    <item quantity="one">%d artikel togs bort från listan</item>
-    <item quantity="other">%d artiklar togs bort från listan</item>
+  <plurals name="reading_list_articles_deleted">
+    <item quantity="one">%d artikel togs bort från samlingen</item>
+    <item quantity="other">%d artiklar togs bort från samlingen</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
     <item quantity="one">%1$d artikel togs bort från %2$s</item>
     <item quantity="other">%1$d artiklar togs bort från %2$s</item>
   </plurals>
-  <plurals name="reading_lists_deleted_message" fuzzy="true">
-    <item quantity="one">%d lista raderades</item>
-    <item quantity="other">%d listor raderades</item>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="one">%d samling raderades</item>
+    <item quantity="other">%d samlingar raderades</item>
   </plurals>
-  <string name="reading_lists_default_list_delete_message" fuzzy="true">Standardlistan (%s) kan inte raderas.</string>
-  <string name="reading_lists_default_plus_one_list_delete_message" fuzzy="true">%1$s raderades. Standardlistan (%2$s) kan inte raderas.</string>
-  <string name="reading_lists_default_plus_many_lists_delete_message" fuzzy="true">Listor raderades. Standardlistan (%s) kan inte raderas.</string>
-  <string name="single_list_json_file_name" fuzzy="true">%s (Wikipedia-läslista).json</string>
-  <string name="multiple_lists_json_file_name" fuzzy="true">Wikipedia-läslistor (%s och fler).json</string>
-  <string name="reading_list_items_deleted" fuzzy="true">%d artiklar togs bort från listan</string>
-  <string name="reading_lists_item_deleted" fuzzy="true">%s togs bort från listan</string>
+  <string name="reading_lists_default_list_delete_message">Standardsamlingen (%s) kan inte raderas.</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">%1$s raderades. Standardsamlingen (%2$s) kan inte raderas.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">Listor raderades. Standardsamlingen (%s) kan inte raderas.</string>
+  <string name="single_list_json_file_name">%s (Wikipedia-samling).json</string>
+  <string name="multiple_lists_json_file_name">Wikipedia-samlingar (%s och fler).json</string>
+  <string name="reading_list_items_deleted">%d artiklar togs bort från samlingen</string>
+  <string name="reading_lists_item_deleted">%s togs bort från samlingen</string>
   <string name="reading_list_item_delete_undo">Ångra</string>
   <string name="reading_list_deleted">%s raderades</string>
-  <string name="saved_list_empty_title" fuzzy="true">Inga sparade sidor ännu</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Lägg till artiklar i en lista för att läsa senare, även när du saknar uppkoppling.</string>
-  <string name="reading_list_empty" fuzzy="true">Du har inte lagt till några artiklar i denna lista.</string>
+  <string name="saved_list_empty_title">Inga sparade artiklar ännu</string>
+  <string name="reading_lists_empty_message">Lägg till artiklar i en samling för att läsa senare, även när du saknar uppkoppling.</string>
+  <string name="reading_lists_search_empty_articles_title">Inga sparade artiklar hittades</string>
+  <string name="reading_lists_search_empty_articles_message">Vi kunde inte hitta \"%s\" i dina sparade artiklar.</string>
+  <string name="reading_lists_search_empty_collections_title">Inga samlingar hittades</string>
+  <string name="reading_lists_search_empty_collections_message">Vi kunde inte hitta \"%s\" i dina samlingar.</string>
+  <string name="reading_list_empty">Du har inte lagt till några artiklar i denna samling.</string>
   <string name="reading_list_article_offline">Tillgänglig offline</string>
   <string name="reading_list_article_make_offline">Gör denna artikel tillgänglig offline</string>
-  <string name="reading_list_add_to_other_list" fuzzy="true">Lägg till i en annan läslista</string>
-  <string name="reading_list_move_to_other_list" fuzzy="true">Flytta till en annan läslista</string>
-  <string name="reading_list_move_from_to_other_list" fuzzy="true">Flytta från %s till en annan läslista</string>
+  <string name="reading_list_add_to_other_list">Lägg till i en annan samling</string>
+  <string name="reading_list_move_to_other_list">Flytta till en annan samling</string>
+  <string name="reading_list_add_to_collection">Lägg till i en samling</string>
+  <plurals name="reading_list_in_collections">
+    <item quantity="one">I 1 samling</item>
+    <item quantity="other">I %d samlingar</item>
+  </plurals>
+  <string name="reading_list_move_from_to_other_list">Flytta från %s till en annan samling</string>
   <string name="reading_list_remove_from_list">Ta bort från %s</string>
-  <string name="reading_list_remove_from_lists" fuzzy="true">Ta bort från läslistor</string>
+  <string name="reading_list_remove_from_lists">Ta bort från samlingar</string>
   <string name="reading_list_select_item">Markera</string>
   <string name="reading_list_confirm_remove_article_from_offline">Ta bort från offline</string>
-  <string name="reading_list_confirm_remove_article_from_offline_title" fuzzy="true">Artikeln förekommer i flera listor</string>
-  <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s kommer inte längre vara tillgänglig offline för alla läslistor:</string>
-  <string name="reading_lists_sync_reminder_title" fuzzy="true">Aktivera synkronisering av läslistor?</string>
-  <string name="reading_lists_sync_reminder_text" fuzzy="true">Artiklar som har sparats i läslistor kan nu synkroniseras till ditt Wikipedia-konto. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Läs mer&lt;/a&gt;</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title">Artikeln förekommer i flera samlingar</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message">%s kommer inte längre vara tillgänglig offline för alla samlingar:</string>
+  <string name="reading_lists_sync_reminder_title">Aktivera synkronisering av samlingar?</string>
+  <string name="reading_lists_sync_reminder_text">Artiklar som har sparats i samlingar kan nu synkroniseras till ditt Wikipedia-konto. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Läs mer&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Aktivera synkronisering</string>
-  <string name="reading_list_login_reminder_title" fuzzy="true">Synkronisera läslistor</string>
-  <string name="reading_lists_login_reminder_text" fuzzy="true">Läslistor kan nu synkroniseras över enheter. Logga in med ditt Wikipediakonto och tillåt dina listor att sparas.</string>
+  <string name="reading_list_login_reminder_title">Synkronisera samlingar</string>
+  <string name="reading_lists_login_reminder_text">Samlingar kan nu synkroniseras över enheter. Logga in med ditt Wikipediakonto och tillåt dina listor att sparas.</string>
   <string name="reading_lists_login_button">Logga in / skapa konto på Wikipedia</string>
   <string name="reading_lists_ignore_button">Inte nu</string>
   <string name="reading_lists_confirm_remote_delete_yes">Ja</string>
@@ -612,35 +654,35 @@
   <string name="reading_list_articles_added_to_named">Lade till %1$d artiklar i %2$s</string>
   <string name="reading_list_articles_moved_to_named">Flyttade %1$d artiklar till %2$s</string>
   <string name="reading_list_delete_confirm">Är du säker på att du vill radera %s?</string>
-  <string name="reading_list_delete_lists_confirm_dialog_title" fuzzy="true">Radera markerade listor?</string>
-  <plurals name="reading_list_delete_lists_confirm_dialog_message" fuzzy="true">
-    <item quantity="one">Är du säker på att du vill radera %d lista?</item>
-    <item quantity="other">Är du säker på att du vill radera %d listor?</item>
+  <string name="reading_list_delete_lists_confirm_dialog_title">Radera markerade samlingar?</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+    <item quantity="one">Är du säker på att du vill radera %d samling?</item>
+    <item quantity="other">Är du säker på att du vill radera %d samlingar?</item>
   </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Logga in för att aktivera synkronisering</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_text" fuzzy="true">Logga in för att tillåta att dina läslistor sparas till ditt konto.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Logga in för att tillåta att dina samlingar sparas till ditt konto.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Avbryt</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Logga in</string>
-  <string name="reading_list_turned_sync_off_dialog_title" fuzzy="true">Synkronisering av läslistor är inaktiverad</string>
-  <string name="reading_list_turned_sync_off_dialog_text" fuzzy="true">Synkronisering av läslistor är inaktiverad för ditt konto och sparade artiklar på dina inloggade enheter säkerhetskopieras inte. Aktivera synkronisering av läslistor i inställningarna.</string>
+  <string name="reading_list_turned_sync_off_dialog_title">Synkronisering av samlingar har inaktiverats</string>
+  <string name="reading_list_turned_sync_off_dialog_text">Synkronisering av samlingar har inaktiverats för ditt konto och sparade artiklar på dina inloggade enheter säkerhetskopieras inte. Aktivera synkronisering av läslistor i inställningarna.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Inställningar</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_title" fuzzy="true">Aktivera synkronisering av läslistor?</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_text" fuzzy="true">Artiklar som sparas i läslistor kan nu synkroniseras till ditt Wikipedia-konto. &lt;a href=\"#faq\"&gt;Läs mer&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">Aktivera synkronisering av samlingar?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">Artiklar som sparas i samlingar kan nu synkroniseras till ditt Wikipedia-konto. &lt;a href=\"#faq\"&gt;Läs mer&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Visa inte detta igen</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Aktivera synkronisering</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nej tack</string>
   <string name="default_reading_list_name">Sparade</string>
-  <string name="default_reading_list_description" fuzzy="true">Standardlista för dina sparade artiklar</string>
-  <string name="no_user_lists_title" fuzzy="true">Organisera artiklar till listor</string>
-  <string name="no_user_lists_msg" fuzzy="true">Skapa listor för platser att åka till, favoritämnen och mycket mer</string>
+  <string name="default_reading_list_description">Standardsamling för dina sparade artiklar</string>
+  <string name="no_user_lists_title">Organisera artiklar i samlingar</string>
+  <string name="no_user_lists_msg">Skapa samlingar för platser att åka till, favoritämnen och mycket mer</string>
   <string name="reading_list_saved_list_rename">%1$s (skapad av användare)</string>
-  <string name="split_reading_list_message" fuzzy="true">Det finns en gräns på %d artiklar per läslista. Befintliga listor med fler än denna gräns har delats upp i flera listor.</string>
-  <string name="reading_list_move_article_limit_message" fuzzy="true">Kan inte flytta till denna lista. Du har nått gränsen på %2$d artiklar per lista för \"%1$s\".</string>
-  <string name="reading_list_article_limit_message" fuzzy="true">Kan inte lägga till i denna lista. Du har nått gränsen på %2$d artiklar per lista för \"%1$s\".</string>
-  <string name="reading_lists_limit_message" fuzzy="true">Kan inte skapa en till lista. Du har nått gränsen på 100 läslistor per konto.</string>
-  <string name="reading_lists_menu_create_list" fuzzy="true">Skapa ny lista</string>
-  <string name="reading_lists_menu_import_list" fuzzy="true">Importera lista</string>
+  <string name="split_reading_list_message">Det finns en gräns på %d artiklar per samling. Befintliga samlingar med fler än denna gräns har delats upp i flera samlingar.</string>
+  <string name="reading_list_move_article_limit_message">Kan inte flytta till denna samling. Du har nått gränsen på %2$d artiklar per samling för \"%1$s\".</string>
+  <string name="reading_list_article_limit_message">Kan inte lägga till i denna samling. Du har nått gränsen på %2$d artiklar per samling för \"%1$s\".</string>
+  <string name="reading_lists_limit_message">Kan inte skapa en till samling. Du har nått gränsen på 100 samlingar per konto.</string>
+  <string name="reading_lists_menu_create_list">Skapa ny samling</string>
+  <string name="reading_lists_menu_import_list">Importera samling</string>
   <string name="reading_lists_menu_sort_by">Sortera efter</string>
   <string name="reading_lists_refresh_sync_option">Uppdatera synkronisering</string>
   <plurals name="reading_list_article_offline_message">
@@ -651,7 +693,7 @@
     <item quantity="one">Denna artikel kommer inte längre vara tillgänglig offline.</item>
     <item quantity="other">Dessa artiklar kommer inte längre vara tillgängliga offline.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync" fuzzy="true">Läslistorna har synkroniserats</string>
+  <string name="reading_list_toast_last_sync">Samlingar har synkroniserats</string>
   <string name="reading_list_menu_last_sync">Senaste synkronisering: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_dialog_ok_button_text">OK</string>
@@ -661,31 +703,31 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Avbryt</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">Radera</string>
-  <string name="reading_list_activity_title" fuzzy="true">Läslista: %s</string>
-  <string name="reading_list_notification_title" fuzzy="true">Läslistor importerades</string>
-  <string name="reading_list_notification_text" fuzzy="true">%d läslista/-or har exporterats som \'reading_lists export.json\' till din nedladdningsmapp</string>
-  <string name="reading_list_notification_detailed_text" fuzzy="true">Läslistor har exporterats till \'reading_lists_export.json\'</string>
+  <string name="reading_list_activity_title">Samling: %s</string>
+  <string name="reading_list_notification_title">Samlingar exporterades</string>
+  <string name="reading_list_notification_text">%d samlingar har exporterats som \"reading_lists export.json\" till din nedladdningsmapp</string>
+  <string name="reading_list_notification_detailed_text">Samlingar har exporterats till \"reading_lists_export.json\"</string>
   <string name="reading_lists_action_menu_export_lists">Exportera</string>
   <string name="reading_lists_import_file_picker_title">Välj filen att importera</string>
-  <string name="reading_lists_import_failure_message" fuzzy="true">Läslistor har importerats</string>
-  <string name="reading_lists_export_select_lists_message" fuzzy="true">Välj listor att exportera</string>
-  <string name="reading_lists_export_completed_message" fuzzy="true">Läslistor importerades</string>
-  <plurals name="reading_list_export_failed_message" fuzzy="true">
-    <item quantity="one">Misslyckades att exportera läslista</item>
-    <item quantity="other">Misslyckades att exportera läslistor</item>
+  <string name="reading_lists_import_failure_message">Samling misslyckades att importeras</string>
+  <string name="reading_lists_export_select_lists_message">Välj samlingar att exportera</string>
+  <string name="reading_lists_export_completed_message">Samlingar exporterades</string>
+  <plurals name="reading_list_export_failed_message">
+    <item quantity="one">Misslyckades att exportera samling</item>
+    <item quantity="other">Misslyckades att exportera samlingar</item>
   </plurals>
-  <plurals name="reading_list_import_success_message" fuzzy="true">
-    <item quantity="one">Misslyckades att importera läslista</item>
-    <item quantity="other">Misslyckades att importera läslistor</item>
+  <plurals name="reading_list_import_success_message">
+    <item quantity="one">Samling importerades</item>
+    <item quantity="other">Samlingar improterades</item>
   </plurals>
-  <string name="reading_lists_preview_header_title" fuzzy="true">Delad lista</string>
+  <string name="reading_lists_preview_header_title">Delad samling</string>
   <string name="reading_lists_preview_save_button">Spara</string>
-  <string name="reading_lists_preview_save_dialog_title" fuzzy="true">Spara lista</string>
-  <string name="reading_lists_preview_save_dialog_text" fuzzy="true">Namnge lista och välj artiklar att spara.</string>
+  <string name="reading_lists_preview_save_dialog_title">Spara samling</string>
+  <string name="reading_lists_preview_save_dialog_text">Namnge samling och välj artiklar att spara.</string>
   <string name="reading_lists_preview_save_dialog_title_hint">Titel</string>
   <string name="reading_lists_preview_save_dialog_cancel">Avbryt</string>
   <string name="reading_lists_preview_save_dialog_save">Spara</string>
-  <string name="reading_lists_preview_saved_snackbar" fuzzy="true">Läslista sparades</string>
+  <string name="reading_lists_preview_saved_snackbar">Samling sparades</string>
   <string name="reading_lists_preview_saved_snackbar_action">Visa</string>
   <string name="user_option_sync_label">Inställningar</string>
   <string name="notification_reverted_title">Återställd redigering</string>
@@ -694,8 +736,8 @@
   <string name="notification_syncing_pause_button">Pausa</string>
   <string name="notification_syncing_resume_button">Återuppta</string>
   <string name="notification_syncing_cancel_button">Avbryt</string>
-  <string name="notification_syncing_reading_list_channel_title" fuzzy="true">Synkroniserar läslistor</string>
-  <string name="notification_syncing_reading_list_channel_description" fuzzy="true">Förlopp för synkronisering av läslistor</string>
+  <string name="notification_syncing_reading_list_channel_title">Synkroniserar samlingar</string>
+  <string name="notification_syncing_reading_list_channel_description">Förlopp för synkronisering av samlingar</string>
   <string name="notification_many_unread">Du har %d olästa aviseringar</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Laddar ned artikel</item>
@@ -709,17 +751,17 @@
     <item quantity="one">%1$d artikel kvar</item>
     <item quantity="other">%1$d artiklar kvar</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_channel_name" fuzzy="true">
-    <item quantity="one">Synkroniserar läslista</item>
-    <item quantity="other">Synkroniserar läslistor</item>
+  <plurals name="notification_syncing_reading_list_channel_name">
+    <item quantity="one">Synkroniserar samling</item>
+    <item quantity="other">Synkroniserar samlingar</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_title" fuzzy="true">
-    <item quantity="one">Synkroniserar %1$d lista…</item>
-    <item quantity="other">Synkroniserar %1$d listor…</item>
+  <plurals name="notification_syncing_reading_list_title">
+    <item quantity="one">Synkroniserar %1$d samling…</item>
+    <item quantity="other">Synkroniserar %1$d samlingar…</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_description" fuzzy="true">
-    <item quantity="one">%1$d lista kvar</item>
-    <item quantity="other">%1$d listor kvar</item>
+  <plurals name="notification_syncing_reading_list_description">
+    <item quantity="one">%1$d samling kvar</item>
+    <item quantity="other">%1$d samlingar kvar</item>
   </plurals>
   <string name="notification_echo_channel_description">Wikipedia-aviseringar</string>
   <string name="notifications_activity_title">Aviseringar</string>
@@ -1263,8 +1305,8 @@
   <string name="onboarding_maybe_later">Kanske senare</string>
   <string name="onboarding_explore_title">Nya sätt att utforska</string>
   <string name="onboarding_explore_text">Gör en djupdykning i Wikipedia genom att uppdatera hemflödet. &lt;br/&gt; &lt;b&gt;Anpassa&lt;/b&gt; flödet för att möta dina intressen – vare sig det handlar om historiska händelser &lt;b&gt;på denna dag&lt;/b&gt; eller kasta tärningen och få en &lt;b&gt;slumpartikel&lt;/b&gt;.</string>
-  <string name="onboarding_reading_list_sync_title" fuzzy="true">Läslistor med synkronisering</string>
-  <string name="onboarding_reading_list_sync_text_v2" fuzzy="true">Du kan skapa läslistor från artiklar du vill läsa senare, även när du inte har någon uppkoppling. &lt;br/&gt;Logga in på ditt Wikipedia-konto för att synkronisera dina läslistor. &lt;a href=\"#login\"&gt;Registrera dig på Wikipedia&lt;/a&gt;</string>
+  <string name="onboarding_reading_list_sync_title">Samlingar med synkronisering</string>
+  <string name="onboarding_reading_list_sync_text_v2">Du kan skapa samlingar från artiklar du vill läsa senare, även när du inte har någon uppkoppling. &lt;br/&gt;Logga in på ditt Wikipedia-konto för att synkronisera dina samlingar. &lt;a href=\"#login\"&gt;Registrera dig på Wikipedia&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Data och integritet</string>
   <string name="onboarding_data_privacy_text">Vi anser att du inte ska behöva lämna personlig information för att delta i rörelsen för fri kunskap. Användningsdata som samlas in för den här appen är anonym.&lt;br/&gt;&lt;br/&gt;Läs mer om vår &lt;a href=\"#privacy\"&gt;integritetspolicy&lt;/a&gt; och &lt;a href=\"#termsOfUse\"&gt;användarvillkor&lt;/a&gt; .</string>
   <string name="onboarding_analytics_switch_title">Skicka användningsdata</string>
@@ -1599,16 +1641,16 @@
   <string name="user_contrib_filter_activity_title">Filterbidrag</string>
   <string name="action_item_view_on_map">Visa på kartan</string>
   <string name="action_item_view_on_map_unavailable">Geografiska koordinater är inte tillgängliga för den här sidan</string>
-  <string name="shareable_reading_lists_import_dialog_title" fuzzy="true">Importera delad läslista</string>
-  <string name="shareable_reading_lists_import_dialog_content" fuzzy="true">Hur vill du namnge listan som har delats med dig?</string>
+  <string name="shareable_reading_lists_import_dialog_title">Importera delad samling</string>
+  <string name="shareable_reading_lists_import_dialog_content">Hur vill du namnge samlingen som har delats med dig?</string>
   <string name="shareable_reading_lists_new_indicator">*ny*</string>
-  <string name="shareable_reading_lists_new_install_dialog_title" fuzzy="true">En läslista har delats med dig</string>
-  <string name="shareable_reading_lists_new_install_dialog_content" fuzzy="true">Vi har märkt att en läslista har delats med dig. För att se denna lista i appen går du tillbaka till originalmeddelandet och trycker på länken igen.</string>
+  <string name="shareable_reading_lists_new_install_dialog_title">En samling har delats med dig</string>
+  <string name="shareable_reading_lists_new_install_dialog_content">Vi har märkt att en samling har delats med dig. För att se denna samling i appen går du tillbaka till originalmeddelandet och trycker på länken igen.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Jag förstår</string>
-  <string name="shareable_reading_lists_new_imported_snackbar" fuzzy="true">Läslistan importerad</string>
+  <string name="shareable_reading_lists_new_imported_snackbar">Samling importerades</string>
   <string name="reading_list_share_menu_label">Dela…</string>
-  <string name="reading_list_share_menu_tooltip" fuzzy="true">Dela denna läslista med andra</string>
-  <string name="reading_list_share_message_v2" fuzzy="true">Hej! Jag skulle vilja dela min Wikipedia-läslista med dig:</string>
+  <string name="reading_list_share_menu_tooltip">Dela denna samling med andra</string>
+  <string name="reading_list_share_message_v2">Hej! Jag skulle vilja dela min Wikipedia-samling med dig:</string>
   <string name="talk_templates_empty_message">Skapa dina egna meddelanden eller använd &lt;a href=\"#\"&gt;exempelmeddelanden&lt;/a&gt; för att komma igång.</string>
   <string name="talk_templates_new_message_title">Nytt meddelande</string>
   <string name="talk_templates_new_message_subject_hint">Ämne</string>
@@ -1897,8 +1939,8 @@
   <string name="year_in_review_get_started_later">Du kan komma åt din årsöversikt senare i Mer-menyn.</string>
   <string name="year_in_review_survey_title">Hjälp till att förbättra årsöversikten</string>
   <string name="year_in_review_survey_subtitle">Är du nöjd med denna funktion?</string>
-  <string name="year_in_review_reading_list_survey_title" fuzzy="true">Hjälp till att förbättra läslistan till årsöversikten för %d.</string>
-  <string name="year_in_review_reading_list_survey_subtitle" fuzzy="true">Är du nöjd med din läslista?</string>
+  <string name="year_in_review_reading_list_survey_title">Hjälp till att förbättra samlingen till årsöversikten för %d.</string>
+  <string name="year_in_review_reading_list_survey_subtitle">Är du nöjd med din samling?</string>
   <string name="year_in_review_survey_very_satisfied">Mycket nöjd</string>
   <string name="year_in_review_survey_satisfied">Nöjd</string>
   <string name="year_in_review_survey_neutral">Neutral</string>
@@ -2006,7 +2048,7 @@
     <item quantity="one">Appanvändare hade %,d sparad artikel</item>
     <item quantity="other">Appanvändare hade %,d sparade artiklar</item>
   </plurals>
-  <string name="year_in_review_slide_global_saved_articles_body" fuzzy="true">Genom att lägga till artiklar i läslistor kan du komma åt artiklar även när du är offline. Du kan också logga in för att synkronisera läslistor mellan enheter.</string>
+  <string name="year_in_review_slide_global_saved_articles_body">Genom att lägga till artiklar i samlingar kan du komma åt artiklar även när du är offline. Du kan också logga in för att synkronisera samlingar mellan enheter.</string>
   <string name="year_in_review_slide_reading_patterns_headline">Du har ett tydligt läsmönster</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">Favorittidpunkt för att läsa</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">Favoritdag för att läsa</string>
@@ -2074,8 +2116,8 @@
     <item quantity="other">Appanvändare läste Wikipedia-artiklar %,d gånger</item>
   </plurals>
   <string name="year_in_review_slide_viewed_articles_times_body">För människor runt om i världen är Wikipedia det första anhalten för att besvara en fråga, söka information för skolan eller jobbet eller lära sig ny fakta.</string>
-  <string name="year_in_review_reading_list_dialog_title" fuzzy="true">Skapa din läslista till årsöversikten för %d?</string>
-  <string name="year_in_review_reading_list_dialog_message" fuzzy="true">Wikipedias årsöversikt skapar en läslista över de artiklar du har läst mest tid under %1$d. &lt;a href=\"%2$s\"&gt;Läs mer&lt;/a&gt;</string>
+  <string name="year_in_review_reading_list_dialog_title">Skapa din samling till årsöversikten för %d?</string>
+  <string name="year_in_review_reading_list_dialog_message">Wikipedias årsöversikt skapar en samling över de artiklar du har läst mest tid under %1$d. &lt;a href=\"%2$s\"&gt;Läs mer&lt;/a&gt;</string>
   <string name="year_in_review_reading_list_dialog_positive_button_label">Skapa</string>
   <string name="year_in_review_reading_list_dialog_negative_button_label">Nej tack</string>
   <string name="year_in_review_reading_list_title">Årsöversikt för %d</string>
@@ -2132,12 +2174,12 @@
   <string name="year_in_review_highlights_logo_description">Wikipedias logotyp</string>
   <string name="recommended_reading_list_title">Upptäck</string>
   <string name="recommended_reading_list_onboarding_card_title">Upptäck artiklar utvalda för just dig</string>
-  <string name="recommended_reading_list_onboarding_card_message" fuzzy="true">Veckans läslista av Wikipediaartiklar, utvalda för dig.</string>
+  <string name="recommended_reading_list_onboarding_card_message">Veckans samling med Wikipediaartiklar som är utvald för dig.</string>
   <string name="recommended_reading_list_onboarding_card_new">Ny!</string>
   <string name="recommended_reading_list_onboarding_card_positive_button">Sätt igång</string>
   <string name="recommended_reading_list_onboarding_card_negative_button">Nej tack</string>
-  <string name="recommended_reading_list_onboarding_card_negative_snackbar" fuzzy="true">Om du vill ställa in din rekommenderade läslista senare kan du gå till inställningarna.</string>
-  <string name="recommended_reading_list_interest_source_message" fuzzy="true">Hur ska vi bygga upp din rekommenderade läslista?</string>
+  <string name="recommended_reading_list_onboarding_card_negative_snackbar">Om du vill ställa in din rekommenderade samling senare kan du gå till inställningarna.</string>
+  <string name="recommended_reading_list_interest_source_message">Hur ska vi bygga upp din rekommenderade samling?</string>
   <string name="recommended_reading_list_interest_source_interests">Låt mig välja utifrån mina intressen</string>
   <string name="recommended_reading_list_interest_source_saved">Välj åt mig baserat på mina sparade artiklar</string>
   <string name="recommended_reading_list_interest_source_history">Välj åt mig baserat på min läshistorik</string>
@@ -2161,9 +2203,9 @@
     <item quantity="one">• %d artikel</item>
     <item quantity="other">• %d artiklar</item>
   </plurals>
-  <string name="recommended_reading_list_page_description_daily" fuzzy="true">Din dagliga läslista. Lär dig om nya ämnen, utvalda bara för dig. Uppdateringar vid midnatt.</string>
-  <string name="recommended_reading_list_page_description_weekly" fuzzy="true">Din veckovisa läslista. Lär dig mer om nya ämnen, utvalda för dig. Uppdaterar i början av veckan.</string>
-  <string name="recommended_reading_list_page_description_monthly" fuzzy="true">Din månatliga läslista. Lär dig om nya ämnen, utvalda bara för dig. Uppdateringar den första i varje månad.</string>
+  <string name="recommended_reading_list_page_description_daily">Din dagliga samling. Lär dig om nya ämnen, utvalda bara för dig. Uppdateras vid midnatt.</string>
+  <string name="recommended_reading_list_page_description_weekly">Din veckovisa samling. Lär dig mer om nya ämnen, utvalda för dig. Uppdateras i början av veckan.</string>
+  <string name="recommended_reading_list_page_description_monthly">Din månatliga samling. Lär dig om nya ämnen, utvalda bara för dig. Uppdateras i början på varje månad.</string>
   <string name="recommended_reading_list_page_overflow_customize">Anpassa</string>
   <string name="recommended_reading_list_page_overflow_about">Om den här funktionen</string>
   <string name="recommended_reading_list_page_snackbar">Upptäck uppdateras med %1$d nya artiklar varje %2$s. Dina rekommendationer lagras lokalt på din enhet.</string>
@@ -2173,7 +2215,7 @@
   <string name="recommended_reading_list_page_snackbar_month">Månad</string>
   <string name="recommended_reading_list_settings_section_header">Rekommendationer</string>
   <string name="recommended_reading_list_settings_title">Upptäck inställningar</string>
-  <string name="recommended_reading_list_settings_toggle" fuzzy="true">Läslista i upptäck</string>
+  <string name="recommended_reading_list_settings_toggle">Samling i Upptäck</string>
   <string name="recommended_reading_list_settings_toggle_disable_message">Upptäck är avslaget. Wikipedia kommer inte rekommendera artiklar att läsa till dig.</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_title">Stäng av Upptäck?</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_message">Om du stänger av Upptäck kommer du inte längre att få %s läsrekommendationer från Wikipedia.</string>
@@ -2208,7 +2250,7 @@
   <string name="recommended_reading_list_settings_notifications_dialog_message">Om du stänger av aviseringar får du inte längre påminnelser när Upptäck uppdateras.</string>
   <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Stäng av dem</string>
   <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Nej, behåll dem på</string>
-  <string name="recommended_reading_list_notification_title" fuzzy="true">Din %s läslista i upptäck är redo.</string>
+  <string name="recommended_reading_list_notification_title">Din %s samling i Upptäck är redo.</string>
   <string name="recommended_reading_list_notification_subtitle">Tryck för att se dina senaste rekommendationer.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">När din Upptäck uppdateras kommer Wikipedia skicka en rekommendation till dig.</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">Upptäck är påslaget. Wikipedia kommer rekommendera artiklar att läsa till dig.</string>
@@ -2217,8 +2259,8 @@
   <string name="donation_reminders_settings_title">Hur ska vi påminna dig?</string>
   <string name="donation_reminders_settings_option_title">Påminnelser om donationer</string>
   <string name="donation_reminders_settings_thank_you_message">Din generositet hjälper Wikipedia att blomstra. Sätt en donationspåminnelse baserat på antalet artiklar du läser.</string>
-  <string name="donation_reminders_settings_donation_info" fuzzy="true">Donationer går till Wikimedia Foundation och dess dotterbolag, som är stolta värdar för Wikipedia och andra fria kunskapsportaler.</string>
-  <string name="donation_reminders_settings_article_frequency_label" fuzzy="true">När jag läser</string>
+  <string name="donation_reminders_settings_donation_info">Donationer går till Wikimedia Foundation och dess dotterbolag, som är stolta värdar för Wikipedia och dess systerwebbplatser.</string>
+  <string name="donation_reminders_settings_article_frequency_label">När jag läser</string>
   <string name="donation_reminders_settings_amount_label">Påminn mig om att donera</string>
   <string name="donation_reminders_settings_confirm_btn_label">Bekräfta påminnelse</string>
   <string name="donation_reminders_settings_about_experiment_btn_label">Om det här experimentet</string>
@@ -2227,10 +2269,12 @@
   <string name="donation_reminders_settings_warning_max_amount">Maximalt %s är tillåtet</string>
   <string name="donation_reminders_settings_option_custom">Anpassad…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Tack! Vi påminner dig om att donera %1$s när du har läst %2$s medan experimentet pågår.</string>
-  <string name="donation_reminders_first_milestone_reached_prompt_title" fuzzy="true">Du har läst %1$s sedan du lovade %2$s</string>
-  <string name="donation_reminders_subsequent_milestone_reached_prompt_title" fuzzy="true">Du har läst ytterligare %1$s</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title">Du har läst %1$s sedan du lovade %2$s!</string>
+  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">Du har läst ytterligare %1$s!</string>
   <string name="donation_reminders_prompt_message">Du har satt en donationspåminnelse på %1$s för att ge %3$s efter varje %2$s du läser. Är du redo att fullfölja ditt löfte om att stödja Wikipedia?</string>
+  <string name="donation_reminders_prompt_message_v2">%1$s bad du oss att påminna dig om att donera efter att ha läst %2$s. Gör som 2 %% av läsarna har gjort och fullfölj ditt löfte idag om Wikipedia har försett dig med kunskap för %3$s.</string>
   <string name="donation_reminders_prompt_positive_button">Donera nu</string>
+  <string name="donation_reminders_prompt_positive_button_v2">Ja, donera nu</string>
   <string name="donation_reminders_prompt_negative_button">Inte nu</string>
   <string name="donation_reminders_gpay_text">Donera %s med Google Pay</string>
   <string name="donation_reminders_gpay_different_amount_text">Donera ett annat belopp med Google Pay</string>
@@ -2248,6 +2292,24 @@
   <string name="donation_reminders_settings_report_email_subject">Problemrapport - Donationspåminnelser</string>
   <string name="donation_reminders_settings_report_email_body">Jag har stött på ett problem med Wikipedias donationspåminnelsefunktion:\n- [Beskriv det specifika problemet]\n- [Skärmdumpar eller länkar]\n\nBeteendet jag förväntade mig var:\n- [Beskriv en föreslagen lösning]</string>
   <string name="donation_reminders_snackbar_modify_button_label">Modifiera</string>
+  <string name="donation_reminders_settings_article_number_selection_label">Artiklar</string>
+  <string name="donation_reminders_settings_custom_amount_label">Anpassat belopp</string>
+  <string name="donation_reminders_settings_update_reminder_button">Uppdatera påminnelse</string>
+  <string name="donation_reminders_beta_label">Beta</string>
+  <string name="donation_reminders_wrap_up_title">Det var en sammanfattning av påminnelser om donationer</string>
+  <string name="donation_reminders_wrap_up_message">Tack för att du testar påminnelser om donationer baserat på de artiklar du läser. Din återkoppling avgör om detta blir ett permanent sätt att donera till Wikipedia. Det tar bara en minut och ingen donation krävs.</string>
+  <string name="donation_reminders_wrap_up_share_feedback_button">Dela återkoppling</string>
+  <string name="donation_reminders_wrap_up_survey_title">En snabb fråga om påminnelser om donationer</string>
+  <string name="donation_reminders_wrap_up_survey_message">Bör påminnelser om donationer baserade på artiklar man läser bli en permanent funktion?</string>
+  <string name="donation_reminders_wrap_up_survey_option_keep_it">Behåll det</string>
+  <string name="donation_reminders_wrap_up_survey_option_remove_it">Ta bort det</string>
+  <string name="donation_reminders_wrap_up_survey_option_not_sure">Osäker</string>
+  <string name="donation_reminders_wrap_up_survey_optional_hint">Någonting annat? (Valfritt)</string>
+  <string name="donation_reminders_wrap_up_survey_thank_you_message">Tack för din återkoppling. Ditt svar hjälper oss att avgöra vad vi ska bygga härnäst.</string>
+  <string name="donation_reminders_eoe_title">Detta är slutet på experimentet</string>
+  <string name="donation_reminders_eoe_message">Vi kommer inte längre att visa påminnelser i appen, men du kan fortfarande stödja genom att donera ditt utlovade belopp %s varje månad.</string>
+  <string name="donation_reminders_eoe_give_monthly_button">Ge månadsvis</string>
+  <string name="donation_reminders_eoe_donate_dialog_title">Hur skulle du vilja ge varje månad?</string>
   <string name="reading_challenge_widget_name">Läsutmaning</string>
   <string name="reading_challenge_onboarding_header">Fira Wikipedias 25-årsdag och anta utmaningen att läsa 25 dagar i rad!</string>
   <string name="reading_challenge_onboarding_read_title">Läs 1 artikel om dagen i 25 dagar</string>
@@ -2336,7 +2398,7 @@
   <string name="explore_feed_for_you_tab_label">För dig</string>
   <string name="explore_feed_date_today">I dag — %s</string>
   <string name="explore_feed_load_previous_day_label">Läs in föregående dag</string>
-  <string name="explore_feed_from_reading_list" fuzzy="true">Från din läslista</string>
+  <string name="explore_feed_from_reading_list">Från din samling</string>
   <string name="explore_feed_because_of_interest">På grund av ditt intresse: %s</string>
   <string name="explore_feed_onboarding_curiosity_title">Följ din nyfikenhet</string>
   <string name="explore_feed_onboarding_curiosity_description">Välj ämnen som intresserar dig, så anpassar vi ditt flöde.\n\nVi samlar in minimalt med anonymiserad data.</string>
@@ -2371,6 +2433,11 @@
   <string name="home_feed_settings_for_you_modules_description">Om du inaktiverar en modul döljs den från ditt flöde \"För dig\". Du kan återaktivera den här när som helst.</string>
   <string name="home_feed_settings_based_on_interest_title">Baserat på dina intressen</string>
   <string name="home_feed_settings_based_on_interest_subtitle">Artiklar som har anpassats till dina valda ämnen.&lt;br /&gt;&lt;a href=\"#drivingFeed\"&gt;Vad som driver ditt flöde&lt;/a&gt;</string>
+  <string name="home_feed_new_within_interest_card_heading">Nytt som intresserar dig</string>
+  <string name="home_feed_new_within_interest_title">Nya artiklar som intresserar dig</string>
+  <string name="home_feed_new_within_interest_subtitle">Nyligen skapade artiklar inom ämnesområden du följer</string>
+  <string name="home_feed_settings_read_aloud_lead_section_title">Lyssna på artikelintroduktioner</string>
+  <string name="home_feed_settings_read_aloud_lead_section_subtitle">Genererat ljud för artikelintroduktioner inom ämnesområden du följer</string>
   <string name="home_feed_settings_because_you_read_subtitle">Förslag baserade på en nyligen läst artikel från din historik</string>
   <string name="home_feed_settings_continue_reading_title">Fortsätt läsa</string>
   <string name="home_feed_settings_continue_reading_subtitle">Hoppa tillbaka till artiklar du inte slutförde</string>
@@ -2413,13 +2480,32 @@
   <string name="home_feed_settings_games_title">Spel</string>
   <string name="home_feed_settings_games_subtitle">Dagliga spel baserade på Wikipedia-innehåll</string>
   <string name="home_feed_settings_discover_title">Upptäck rekommendationer</string>
-  <string name="home_feed_settings_discover_subtitle" fuzzy="true">Artiklar från din läslista i Upptäck</string>
+  <string name="read_aloud_card_play">Spela upp</string>
+  <string name="read_aloud_card_pause">Pausa</string>
+  <string name="read_aloud_card_retry">Försök igen</string>
+  <string name="read_aloud_card_error">Ljud finns inte tillgängligt för den här artikeln.</string>
+  <string name="read_aloud_card_keep_listening">Vill du fortsätta lyssna?</string>
+  <string name="read_aloud_card_audio_date">Detta ljud genererades med &lt;a href=\"https://www.mediawiki.org/wiki/Readers/Listening_to_Wikipedia/Model\"&gt;en text-till-tal-modell&lt;/a&gt;, baserat på artikelinnehåll från %s.</string>
+  <string name="read_aloud_card_audio_attribution">Detta ljud genererades med hjälp av &lt;a href=\"https://www.mediawiki.org/wiki/Readers/Listening_to_Wikipedia/Model\"&gt;en text-till-tal-modell&lt;/a&gt;.</string>
+  <string name="read_aloud_lead_section_tooltip_text">Ny betafunktion: lyssna på artikelintroduktioner i \"För dig\"</string>
+  <string name="read_aloud_lead_section_survey_title">Hur mycket intresserad är du av att lyssna på Wikipedia?</string>
+  <string name="read_aloud_lead_section_survey_choice1">Artikelintroduktioner</string>
+  <string name="read_aloud_lead_section_survey_choice2">Några avsnitt i en artikel</string>
+  <string name="read_aloud_lead_section_survey_choice3">Fullständiga artiklar</string>
+  <string name="read_aloud_lead_section_survey_choice4">Flera korta utdrag från olika artiklar om ett ämne</string>
+  <string name="read_aloud_lead_section_survey_choice5">Övrigt:</string>
+  <string name="read_aloud_lead_section_beta_label">Beta</string>
+  <string name="read_aloud_lead_section_report_subject">Problemrapport - Lyssna på artikelintroduktioner</string>
+  <string name="read_aloud_lead_section_report_body">Jag har stött på ett problem med funktionen \"Lyssna på artikelintroduktioner\":\n- [Beskriv det specifika problemet]\n\nBeteende jag skulle vilja ha:\n- [Beskriv ett lösningsförslag]</string>
+  <string name="read_aloud_lead_section_about_experiment">Om det här experimentet</string>
+  <string name="read_aloud_lead_section_report_issue">Rapportera ett problem</string>
+  <string name="home_feed_settings_discover_subtitle">Artiklar från din samling i Upptäck</string>
   <string name="home_feed_discover_cta_title">Från Upptäck</string>
   <string name="home_feed_discover_cta_description">Läs om nya ämnen som är utvalda just för dig. Välj mellan dagliga, veckovisa eller månatliga uppdateringar.</string>
-  <string name="home_feed_discover_cta_button" fuzzy="true">Aktivera läslistan i Upptäck</string>
+  <string name="home_feed_discover_cta_button">Aktivera samling i Upptäck</string>
   <string name="home_feed_discover_card_footer">Från Upptäck • Uppdateras %s</string>
   <string name="home_feed_discover_see_all_title">Det finns mer att upptäcka</string>
-  <string name="home_feed_discover_see_all_description" fuzzy="true">Din personliga läslista har fler berättelser som är utvalda just för dig.</string>
+  <string name="home_feed_discover_see_all_description">Din personliga samling har fler berättelser som är utvalda just för dig.</string>
   <string name="home_feed_discover_see_all_button">Utforska alla rekommendationer</string>
   <string name="home_feed_places_of_interest_card_footer">%1$s • Baserat på din plats i Platser</string>
   <string name="home_feed_for_you_screen_end_of_feed_title">Det var allt för idag!</string>
@@ -2434,10 +2520,16 @@
   <string name="random_article_widget_name">Slumpartikel</string>
   <string name="reading_lists_tab_all_articles">Alla artiklar</string>
   <string name="reading_lists_tab_collections">Samlingar</string>
+  <string name="reading_lists_filter_content_description">Filtrera sparade artiklar</string>
+  <string name="reading_lists_filter_not_in_collection">Inte i en samling</string>
+  <string name="reading_lists_empty_not_in_collection_title">Alla sparade artiklar finns i samlingar.</string>
   <string name="reading_lists_search_saved_articles">Sök i sparade artiklar</string>
   <string name="reading_lists_search_collections">Sök i samlingar</string>
-  <string name="reading_lists_remove_articles_confirm_dialog_title" fuzzy="true">Ta bort sparade artiklar?</string>
-  <string name="reading_lists_remove_articles_confirm_button" fuzzy="true">Ta bort</string>
+  <string name="reading_lists_empty_collections_title">Organisera sparade artiklar i samlingar</string>
+  <string name="reading_lists_empty_collections_description">Skapa samlingar för platser att åka till, favoritämnen och mycket mer.</string>
+  <string name="reading_lists_create_new_collection">Skapa en ny samling</string>
+  <string name="reading_lists_remove_articles_confirm_dialog_title">Ta bort sparade artiklar?</string>
+  <string name="reading_lists_remove_articles_confirm_button">Ta bort</string>
   <plurals name="reading_lists_remove_articles_confirm_dialog_message">
     <item quantity="one">Denna artikel kommer att tas bort från alla associerade samlingar.</item>
     <item quantity="other">Dessa %d artiklar kommer att tas bort från alla associerade samlingar.</item>
@@ -2445,5 +2537,13 @@
   <plurals name="reading_lists_articles_removed_from_collections">
     <item quantity="one">Artikel togs bort från alla associerade samlingar.</item>
     <item quantity="other">%d artiklar togs bort från alla associerade samlingar.</item>
+  </plurals>
+  <string name="reading_lists_save_sheet_empty_title">Samla artiklarna du älskar</string>
+  <string name="reading_lists_save_sheet_empty_message">Spara artiklar i samlingar.</string>
+  <string name="reading_lists_save_sheet_create">Skapa</string>
+  <string name="reading_lists_update_tooltip">Läslistor kallas numera samlingar.</string>
+  <plurals name="reading_lists_unsave_articles_confirm_dialog_message">
+    <item quantity="one">Denna artikel kommer att tas bort från alla associerade samlingar.</item>
+    <item quantity="other">Dessa artiklar kommer att tas bort från alla associerade samlingar.</item>
   </plurals>
 </resources>
