@@ -2096,7 +2096,10 @@
     <string name="yir_places_headline">Your reading practically took you to:</string>
     <string name="yir_places_empty_headline">Your reading took you all over the map</string>
     <string name="yir_places_empty_supporting">In %1$d, you traveled all over Wikipedia. Check out the Places feature for ideas on where to go when you\'re on the go.</string>
-    <string name="yir_saved_articles_headline">Articles you saved for later:</string>
+    <plurals name="yir_saved_articles_headline">
+        <item quantity="one">Article you saved for later: %1$d</item>
+        <item quantity="other">Articles you saved for later: %1$d</item>
+    </plurals>
     <string name="yir_saved_articles_empty_headline">You have 0 articles saved</string>
     <string name="yir_saved_articles_empty_supporting">You currently have 0 articles saved. Look for the bookmark icon on an article, so you can read up on whatever… later.</string>
     <string name="yir_edits_headline">Edits you made:</string>

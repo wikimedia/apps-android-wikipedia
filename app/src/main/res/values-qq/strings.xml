@@ -1991,7 +1991,10 @@
   <string name="yir_places_headline">Headline of the Year in Review slide that lists places related to the articles the user read.</string>
   <string name="yir_places_empty_headline">Headline of the Year in Review places slide, shown when there is no single place that stands out.</string>
   <string name="yir_places_empty_supporting">Supporting text of the Year in Review places slide, shown when there is no single place that stands out. %1$d will be replaced by the year.</string>
-  <string name="yir_saved_articles_headline">Headline of the Year in Review slide that shows how many articles the user saved.</string>
+  <plurals name="yir_saved_articles_headline">
+    <item quantity="one">Headline of the Year in Review slide that shows how many articles the user saved. %1$d is the number of articles.</item>
+    <item quantity="other">Headline of the Year in Review slide that shows how many articles the user saved. %1$d is the number of articles.</item>
+  </plurals>
   <string name="yir_saved_articles_empty_headline">Headline of the Year in Review saved articles slide, shown when the user has no saved articles.</string>
   <string name="yir_saved_articles_empty_supporting">Supporting text of the Year in Review saved articles slide, shown when the user has no saved articles.</string>
   <string name="yir_edits_headline">Headline of the Year in Review slide that shows how many edits the user made.</string>
