@@ -207,10 +207,7 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
 
     fun updateSemanticSearchPreference() {
         val semanticSearchPref = findPreference(R.string.preference_key_semantic_search_settings_category)
-        val semanticSearchAbTest = SemanticSearchAbTest()
-
-        // TODO: update with remote config or other logic
-        semanticSearchPref.isVisible = semanticSearchAbTest.isTestActive() && semanticSearchAbTest.isTestGroupUser()
+        semanticSearchPref.isVisible = SemanticSearchAbTest().isSemanticSearchSettingVisible()
     }
 
     private inner class SyncReadingListsListener : Preference.OnPreferenceChangeListener {

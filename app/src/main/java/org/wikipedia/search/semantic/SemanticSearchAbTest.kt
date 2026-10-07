@@ -13,7 +13,7 @@ class SemanticSearchAbTest : ABTest("semantic-search-phase-2", GROUP_SIZE_2) {
         }
     }
 
-    fun isTestActive(): Boolean {
+    private fun isTestActive(): Boolean {
         // TODO: remove the Prefs check before release
         if (Prefs.semanticSearchIsTestActive) {
             return true
@@ -21,7 +21,7 @@ class SemanticSearchAbTest : ABTest("semantic-search-phase-2", GROUP_SIZE_2) {
         return RemoteConfig.config.androidv1?.hybridSearchEnabled ?: false // TODO: update to the new variable.
     }
 
-    fun isTestGroupUser(): Boolean {
+    private fun isTestGroupUser(): Boolean {
         return group != GROUP_1
     }
 
@@ -36,6 +36,10 @@ class SemanticSearchAbTest : ABTest("semantic-search-phase-2", GROUP_SIZE_2) {
     private val supportedLanguages = listOf(
         "ja", "ar", "fr"
     )
+
+    fun isSemanticSearchSettingVisible(): Boolean {
+        return isTestActive() && isTestGroupUser()
+    }
 
     fun isSemanticSearchEnabled(languageCode: String?): Boolean {
         return isTestActive() && Prefs.isSemanticSearchEnabled && isTestGroupUser() && isLanguageSupported(languageCode)
