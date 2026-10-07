@@ -1945,7 +1945,7 @@
   <string name="yir_minutes_read_headline">Headline of the Year in Review slide that shows how many minutes the user spent reading.</string>
   <string name="yir_minutes_read_supporting">Supporting text of the Year in Review minutes read slide. %1$s is replaced by a comment about the length of time spent reading.</string>
   <string name="yir_reading_streak_headline">Headline of the Year in Review slide that shows the user\'s longest reading streak.</string>
-  <string name="yir_reading_streak_supporting">Supporting text of the Year in Review reading streak slide. %1$s will be replaced by the localized date range of the streak (e.g. \"March 4–14\").</string>
+  <string name="yir_reading_streak_supporting">Supporting text of the Year in Review reading streak slide. %1$s and %2$s will be replaced by the localized date range of the streak (e.g. \"March 4–14\").</string>
   <string name="yir_reading_streak_empty_headline">Headline of the Year in Review reading streak slide, shown when the user has no reading streaks.</string>
   <plurals name="yir_reading_streak_empty_supporting">
     <item quantity="one">Supporting text of the Year in Review reading streak slide, shown when the user has no reading streaks. %1$d will be replaced by the minimum number of consecutive days that count as a streak.</item>
@@ -1991,7 +1991,10 @@
   <string name="yir_places_headline">Headline of the Year in Review slide that lists places related to the articles the user read.</string>
   <string name="yir_places_empty_headline">Headline of the Year in Review places slide, shown when there is no single place that stands out.</string>
   <string name="yir_places_empty_supporting">Supporting text of the Year in Review places slide, shown when there is no single place that stands out. %1$d will be replaced by the year.</string>
-  <string name="yir_saved_articles_headline">Headline of the Year in Review slide that shows how many articles the user saved.</string>
+  <plurals name="yir_saved_articles_headline">
+    <item quantity="one">Headline of the Year in Review slide that shows how many articles the user saved. %1$d is the number of articles.</item>
+    <item quantity="other">Headline of the Year in Review slide that shows how many articles the user saved. %1$d is the number of articles.</item>
+  </plurals>
   <string name="yir_saved_articles_empty_headline">Headline of the Year in Review saved articles slide, shown when the user has no saved articles.</string>
   <string name="yir_saved_articles_empty_supporting">Supporting text of the Year in Review saved articles slide, shown when the user has no saved articles.</string>
   <string name="yir_edits_headline">Headline of the Year in Review slide that shows how many edits the user made.</string>

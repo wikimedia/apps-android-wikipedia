@@ -190,6 +190,7 @@
     <string name="preference_key_yir_survey_state" translatable="false">yirSurveyState</string>
     <string name="preference_key_yir_playground" translatable="false">yirPlayground</string>
     <string name="preference_key_yir_playground_data" translatable="false">yirPlaygroundData</string>
+    <string name="preference_key_yir_playground_entry_point" translatable="false">yirPlaygroundEntryPoint</string>
     <string name="preference_key_selected_app_icon" translatable="false">selectedAppIcon</string>
     <string name="preference_category_recommended_reading_list" translatable="false">recommendedReadingListSettings</string>
     <string name="preference_key_recommended_reading_list_enabled" translatable="false">recommendedReadingListEnabled</string>

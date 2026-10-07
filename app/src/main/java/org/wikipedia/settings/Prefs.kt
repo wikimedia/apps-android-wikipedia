@@ -35,6 +35,7 @@ import org.wikipedia.readinglist.recommended.RecommendedReadingListSource
 import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
 import org.wikipedia.readinglist.recommended.SourceWithOffset
 import org.wikipedia.settings.dev.playground.YearInReviewPlaygroundData
+import org.wikipedia.settings.dev.playground.YearInReviewPlaygroundEntryPoint
 import org.wikipedia.suggestededits.SuggestedEditsRecentEditsFilterTypes
 import org.wikipedia.theme.Theme.Companion.fallback
 import org.wikipedia.util.DateUtil.dbDateFormat
@@ -841,6 +842,11 @@ object Prefs {
     var yearInReviewActivityTabDotSeenYear
         get() = PrefsIoUtil.getInt(R.string.preference_key_yir_activity_tab_dot_seen_year, 0)
         set(value) = PrefsIoUtil.setInt(R.string.preference_key_yir_activity_tab_dot_seen_year, value)
+
+    var yearInReviewPlaygroundEntryPoint
+        get() = JsonUtil.decodeFromString<YearInReviewPlaygroundEntryPoint>(PrefsIoUtil.getString(R.string.preference_key_yir_playground_entry_point, null))
+            ?: YearInReviewPlaygroundEntryPoint()
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_yir_playground_entry_point, JsonUtil.encodeToString(value))
 
     var isRecommendedReadingListEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_recommended_reading_list_enabled, false)
