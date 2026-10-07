@@ -24,8 +24,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
@@ -33,16 +33,19 @@ import androidx.compose.ui.unit.dp
 import org.wikipedia.R
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.extensions.getString
 import org.wikipedia.theme.Theme
 
 @Composable
 fun SemanticSearchEntryCard(
+    languageCode: String,
     searchTerm: String?,
     isFirstUse: Boolean,
     onInfoBtnClick: () -> Unit,
     onCloseClick: () -> Unit,
     onSemanticSearchClick: () -> Unit
 ) {
+    val context = LocalContext.current
     Column(
         modifier = Modifier
             .padding(top = 12.dp)
@@ -74,7 +77,7 @@ fun SemanticSearchEntryCard(
                     )
                     Spacer(modifier = Modifier.width(2.dp))
                     Text(
-                        text = stringResource(R.string.semantic_search_beta_label),
+                        text = context.getString(languageCode, R.string.semantic_search_beta_label),
                         style = MaterialTheme.typography.labelSmall,
                         fontWeight = FontWeight.Medium,
                         color = WikipediaTheme.colors.primaryColor
@@ -88,7 +91,7 @@ fun SemanticSearchEntryCard(
                     Icon(
                         painter = painterResource(R.drawable.ic_info_outline_black_24dp),
                         tint = WikipediaTheme.colors.placeholderColor,
-                        contentDescription = stringResource(R.string.semantic_search_info_btn_content_description)
+                        contentDescription = context.getString(languageCode, R.string.semantic_search_info_btn_content_description)
                     )
                 }
             }
@@ -100,7 +103,7 @@ fun SemanticSearchEntryCard(
                 Icon(
                     painter = painterResource(R.drawable.ic_close_black_24dp),
                     tint = WikipediaTheme.colors.progressiveColor,
-                    contentDescription = stringResource(R.string.semantic_search_close_btn_content_description)
+                    contentDescription = context.getString(languageCode, R.string.semantic_search_close_btn_content_description)
                 )
             }
         }
@@ -132,13 +135,13 @@ fun SemanticSearchEntryCard(
                 }
 
                 Text(
-                    text = stringResource(R.string.semantic_search_entry_point_card_message),
+                    text = context.getString(languageCode, R.string.semantic_search_entry_point_card_message),
                     style = MaterialTheme.typography.bodyMedium,
                     color = WikipediaTheme.colors.secondaryColor
                 )
                 if (isFirstUse) {
                     Text(
-                        text = stringResource(R.string.semantic_search_entry_point_card_text_button),
+                        text = context.getString(languageCode, R.string.semantic_search_entry_point_card_text_button),
                         style = MaterialTheme.typography.bodyMedium,
                         fontWeight = FontWeight.Medium,
                         color = WikipediaTheme.colors.progressiveColor
@@ -166,17 +169,13 @@ private fun SemanticSearchEntryCardPreview() {
     BaseTheme(
         currentTheme = Theme.LIGHT
     ) {
-        Column(
-            modifier = Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.Center
-        ) {
-            SemanticSearchEntryCard(
-                searchTerm = "what is communication",
-                onCloseClick = {},
-                onInfoBtnClick = {},
-                onSemanticSearchClick = {},
-                isFirstUse = false
-            )
-        }
+        SemanticSearchEntryCard(
+            languageCode = "en",
+            searchTerm = "what is communication",
+            onCloseClick = {},
+            onInfoBtnClick = {},
+            onSemanticSearchClick = {},
+            isFirstUse = false
+        )
     }
 }

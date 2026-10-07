@@ -135,6 +135,7 @@ fun SearchResultsScreen(
             if (shouldShowSemanticSearchEntryPoint) {
                 item {
                     SemanticSearchEntryCard(
+                        languageCode = languageCode.value,
                         searchTerm = searchTerm.value,
                         onCloseClick = { viewModel.disableSemanticSearch() },
                         onInfoBtnClick = { onSemanticSearchInfoClick() },
