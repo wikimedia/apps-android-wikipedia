@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -17,7 +19,10 @@ import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
+import androidx.compose.material3.ExtendedFloatingActionButton
+import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -26,10 +31,13 @@ import androidx.compose.material3.RadioButton
 import androidx.compose.material3.RadioButtonDefaults
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -42,6 +50,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.compose.theme.BaseTheme
@@ -49,7 +59,9 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
+import org.wikipedia.util.log.L
 import org.wikipedia.yearinreview.data.YearInReviewConfig
+import org.wikipedia.yearinreview.presentation.YearInReviewActivity
 import org.wikipedia.yearinreview.presentation.YearInReviewViewModel
 
 class YearInReviewPlaygroundDialog : ExtendedBottomSheetDialogFragment(startExpanded = true) {
@@ -62,6 +74,11 @@ class YearInReviewPlaygroundDialog : ExtendedBottomSheetDialogFragment(startExpa
                     var entryPoint by remember { mutableStateOf(Prefs.yearInReviewPlaygroundEntryPoint) }
                     val isYearInReviewEnabled = Prefs.isYearInReviewEnabled
                     val hiddenCountryCodes = remember { YearInReviewPlayground.hiddenCountryCodes }
+                    var historyState by remember {
+                        mutableStateOf(YearInReviewPlaygroundHistoryState(YearInReviewPlaygroundHistorySeeder.dateRange.let { "${it.start} to ${it.endInclusive}" }))
+                    }
+                    val scope = rememberCoroutineScope()
+                    LaunchedEffect(Unit) { historyState = YearInReviewPlaygroundHistorySeeder.withReadingStats(historyState) }
                     YearInReviewPlaygroundScreen(
                         isLoggedIn = AccountUtil.isLoggedIn && !AccountUtil.isTemporaryAccount,
                         selectedData = selectedData,
@@ -77,6 +94,22 @@ class YearInReviewPlaygroundDialog : ExtendedBottomSheetDialogFragment(startExpa
                             entryPoint = it
                             Prefs.yearInReviewPlaygroundEntryPoint = it
                         },
+                        historyState = historyState,
+                        onTestHistoryChange = { preset ->
+                            historyState = historyState.copy(isUpdating = true, error = null)
+                            scope.launch {
+                                historyState = try {
+                                    YearInReviewPlaygroundHistorySeeder.update(preset?.history)
+                                    YearInReviewPlaygroundHistorySeeder.withReadingStats(historyState.copy(selectedPreset = preset, isUpdating = false))
+                                } catch (e: CancellationException) {
+                                    throw e
+                                } catch (e: Exception) {
+                                    L.e(e)
+                                    historyState.copy(isUpdating = false, error = e.message ?: "Unable to update reading history. Try again.")
+                                }
+                            }
+                        },
+                        onLaunchClick = { startActivity(YearInReviewActivity.newIntent(requireContext())) },
                         onBackClick = { dismiss() }
                     )
                 }
@@ -102,52 +135,70 @@ fun YearInReviewPlaygroundScreen(
     hiddenReasons: List<String>,
     hiddenCountryCodes: List<String>,
     onEntryPointChange: (YearInReviewPlaygroundEntryPoint) -> Unit,
+    historyState: YearInReviewPlaygroundHistoryState,
+    onTestHistoryChange: (YearInReviewPlaygroundHistoryPreset?) -> Unit,
+    onLaunchClick: () -> Unit,
     onBackClick: () -> Unit
 ) {
-    Column(
+    Box(
         modifier = Modifier
             .fillMaxSize()
             .background(WikipediaTheme.colors.paperColor)
     ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            IconButton(onClick = onBackClick) {
-                Icon(
-                    painter = painterResource(R.drawable.ic_arrow_back_black_24dp),
-                    contentDescription = stringResource(R.string.nav_item_back),
-                    tint = WikipediaTheme.colors.primaryColor
+        Column {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                IconButton(onClick = onBackClick) {
+                    Icon(
+                        painter = painterResource(R.drawable.ic_arrow_back_black_24dp),
+                        contentDescription = stringResource(R.string.nav_item_back),
+                        tint = WikipediaTheme.colors.primaryColor
+                    )
+                }
+                Text(
+                    modifier = Modifier.padding(start = 8.dp),
+                    text = "Year in Review Playground",
+                    style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold, fontSize = 18.sp),
+                    color = WikipediaTheme.colors.primaryColor
                 )
             }
-            Text(
-                modifier = Modifier.padding(start = 8.dp),
-                text = "Year in Review Playground",
-                style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold, fontSize = 18.sp),
-                color = WikipediaTheme.colors.primaryColor
-            )
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .verticalScroll(rememberScrollState())
+                    // Leaves room below the last card for the launch button
+                    .padding(start = 16.dp, top = 16.dp, end = 16.dp, bottom = 88.dp),
+                verticalArrangement = Arrangement.spacedBy(16.dp)
+            ) {
+                ReadingDataCard(
+                    isLoggedIn = isLoggedIn,
+                    selectedData = selectedData,
+                    onDataSelected = onDataSelected,
+                    historyState = historyState,
+                    onTestHistoryChange = onTestHistoryChange
+                )
+                EntryPointCard(
+                    entryPoint = entryPoint,
+                    canShowEntryPoint = canShowEntryPoint,
+                    hiddenReasons = hiddenReasons,
+                    hiddenCountryCodes = hiddenCountryCodes,
+                    onEntryPointChange = onEntryPointChange
+                )
+            }
         }
-        Column(
+        ExtendedFloatingActionButton(
             modifier = Modifier
-                .fillMaxSize()
-                .verticalScroll(rememberScrollState())
+                .align(Alignment.BottomEnd)
                 .padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(16.dp)
+            containerColor = WikipediaTheme.colors.progressiveColor,
+            contentColor = WikipediaTheme.colors.paperColor,
+            onClick = onLaunchClick
         ) {
-            ReadingDataCard(
-                isLoggedIn = isLoggedIn,
-                selectedData = selectedData,
-                onDataSelected = onDataSelected
-            )
-            EntryPointCard(
-                entryPoint = entryPoint,
-                canShowEntryPoint = canShowEntryPoint,
-                hiddenReasons = hiddenReasons,
-                hiddenCountryCodes = hiddenCountryCodes,
-                onEntryPointChange = onEntryPointChange
-            )
+            Text("Launch Year in Review")
         }
     }
 }
@@ -156,12 +207,13 @@ fun YearInReviewPlaygroundScreen(
 private fun ReadingDataCard(
     isLoggedIn: Boolean,
     selectedData: YearInReviewPlaygroundData,
-    onDataSelected: (YearInReviewPlaygroundData) -> Unit
+    onDataSelected: (YearInReviewPlaygroundData) -> Unit,
+    historyState: YearInReviewPlaygroundHistoryState,
+    onTestHistoryChange: (YearInReviewPlaygroundHistoryPreset?) -> Unit
 ) {
     PlaygroundCard(title = "Year in Review data") {
         Text(
-            text = "Uses a test snapshot instead of your real Year in Review data, for both the Year in Review flow and the Activity tab card. " +
-                    "Your real reading history isn't changed. Takes effect the next time Year in Review or the Activity tab loads.",
+            text = "The data used by the Year in Review flow and the Activity tab card. Takes effect the next time either loads.",
             style = MaterialTheme.typography.bodyMedium,
             color = WikipediaTheme.colors.secondaryColor
         )
@@ -181,6 +233,46 @@ private fun ReadingDataCard(
             description = { it.description },
             onOptionSelected = onDataSelected
         )
+        if (selectedData == YearInReviewPlaygroundData.REAL) {
+            historyState.flowSummary?.let {
+                Text(text = it, style = MaterialTheme.typography.bodyMedium, color = WikipediaTheme.colors.primaryColor)
+            }
+            PlaygroundSectionTitle(title = "Test reading history", enabled = !historyState.isUpdating, note = historyState.dateRange)
+            Text(
+                text = "Each preset replaces earlier test entries with the fewest needed for that slide state. Your real history counts too.",
+                style = MaterialTheme.typography.bodyMedium,
+                color = WikipediaTheme.colors.secondaryColor
+            )
+            FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                YearInReviewPlaygroundHistoryPreset.entries.forEach { preset ->
+                    FilterChip(
+                        selected = preset == historyState.selectedPreset,
+                        onClick = { onTestHistoryChange(preset) },
+                        enabled = !historyState.isUpdating,
+                        label = { Text(preset.label, color = WikipediaTheme.colors.primaryColor) }
+                    )
+                }
+            }
+            (historyState.error ?: historyState.warning ?: historyState.selectedPreset?.description)?.let {
+                Text(
+                    text = it,
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = when {
+                        historyState.error != null -> WikipediaTheme.colors.destructiveColor
+                        historyState.warning != null -> WikipediaTheme.colors.warningColor
+                        else -> WikipediaTheme.colors.secondaryColor
+                    }
+                )
+            }
+            TextButton(
+                modifier = Modifier.align(Alignment.End),
+                colors = ButtonDefaults.textButtonColors(contentColor = WikipediaTheme.colors.destructiveColor),
+                enabled = !historyState.isUpdating,
+                onClick = { onTestHistoryChange(null) }
+            ) {
+                Text("Clear test entries")
+            }
+        }
     }
 }
 
@@ -420,13 +512,20 @@ private fun YearInReviewPlaygroundScreenPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         YearInReviewPlaygroundScreen(
             isLoggedIn = false,
-            selectedData = YearInReviewPlaygroundData.DATA_RICH,
+            selectedData = YearInReviewPlaygroundData.REAL,
             onDataSelected = {},
             entryPoint = YearInReviewPlaygroundEntryPoint(useTestValues = true, date = YearInReviewPlaygroundDate.ACTIVE, countryCode = "RU"),
             canShowEntryPoint = false,
             hiddenReasons = listOf("RU is a hidden country"),
             hiddenCountryCodes = listOf("RU", "IR", "CN"),
             onEntryPointChange = {},
+            historyState = YearInReviewPlaygroundHistoryState(
+                dateRange = "2026-01-01 to 2026-11-30",
+                selectedPreset = YearInReviewPlaygroundHistoryPreset.VISITS_WITH_PEAK_MONTH,
+                flowSummary = "Personalized flow\n3 articles read · 2 visited days · 2 days in the peak month"
+            ),
+            onTestHistoryChange = {},
+            onLaunchClick = {},
             onBackClick = {}
         )
     }

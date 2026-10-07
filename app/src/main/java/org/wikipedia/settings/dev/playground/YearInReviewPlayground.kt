@@ -16,10 +16,10 @@ import java.time.LocalDate
 import java.time.ZoneOffset
 
 enum class YearInReviewPlaygroundData(val label: String, val description: String, val readingStats: YearInReviewReadingStats?) {
-    REAL("Real data", "Uses your actual Year in Review data.", null),
-    LOW_DATA("Low data", "Not enough reading for a personalized Year in Review.",
+    REAL("Real data", "Uses your real data, like reading history and edits. Add test entries below to try slide states.", null),
+    LOW_DATA("Low data", "Fixed test data for the collective flow. Only tests the flow, it doesn't use any of your real data.",
         YearInReviewReadingStats(articlesReadCount = 0, visitedDaysCount = 0, peakMonth = 0, peakMonthVisitedDays = 0)),
-    DATA_RICH("Data rich", "Enough reading for a personalized Year in Review.",
+    DATA_RICH("Data rich", "Fixed test data for the personalized flow. Only tests the flow, it doesn't use any of your real data.",
         YearInReviewReadingStats(articlesReadCount = 120, visitedDaysCount = 45, peakMonth = 12, peakMonthVisitedDays = 20))
 }
 
