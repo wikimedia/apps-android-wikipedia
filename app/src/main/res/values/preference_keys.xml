@@ -232,4 +232,5 @@
     <string name="preference_key_semantic_search_first_use" translatable="false">semanticSearchFirstUse</string>
     <string name="preference_key_semantic_search_override_supported_language" translatable="false">semanticSearchOverrideSupportedLanguage</string>
     <string name="preference_key_semantic_search_is_test_active" translatable="false">semanticSearchIsTestActive</string>
+    <string name="preference_key_semantic_search_settings_category" translatable="false">semanticSearchSettingsCategory</string>
 </resources>
