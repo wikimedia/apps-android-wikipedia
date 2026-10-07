@@ -2,7 +2,10 @@ package org.wikipedia.yearinreview.presentation
 
 import android.content.res.Resources
 import org.wikipedia.R
+import org.wikipedia.topics.ArticleTopic
+import org.wikipedia.topics.ArticleTopics
 import org.wikipedia.yearinreview.data.YearInReviewConfig
+import org.wikipedia.yearinreview.data.YearInReviewReadingStats
 import java.time.Month
 import java.time.format.TextStyle
 import java.util.concurrent.TimeUnit
@@ -51,20 +54,91 @@ object YearInReviewRiveContentMapper {
                 "bodyCopy" to resources.getString(R.string.yir_minutes_read_supporting, getTimeSpentComment(resources, page.duration))
             )
         )
-        is YearInReviewPage.ReadingStreak -> RiveSlideContent(allTemplatesSlideSpec(if (page.isEmptyState) "frame4-empty" else "frame4"))
-        is YearInReviewPage.ReadingPattern -> RiveSlideContent(allTemplatesSlideSpec(if (page.isEmptyState) "frame5-empty" else "frame5"))
-        is YearInReviewPage.TopTopic -> RiveSlideContent(allTemplatesSlideSpec(if (page.isEmptyState) "frame6-empty" else "frame6"))
-        is YearInReviewPage.OtherTopTopics -> RiveSlideContent(allTemplatesListSlideSpec("frame7"))
-        is YearInReviewPage.BiggestReadingDay -> RiveSlideContent(allTemplatesSlideSpec("frame8"))
-        is YearInReviewPage.BiggestReadingDayArticles -> RiveSlideContent(allTemplatesListSlideSpec("frame9"))
-        is YearInReviewPage.Category -> RiveSlideContent(allTemplatesSlideSpec("frame13"))
-        is YearInReviewPage.RevisitedArticles -> RiveSlideContent(allTemplatesListSlideSpec(if (page.isEmptyState) "frame12-empty" else "frame12"))
-        is YearInReviewPage.Geography -> RiveSlideContent(allTemplatesListSlideSpec(if (page.isEmptyState) "frame14-empty" else "frame14"))
-        is YearInReviewPage.SavedArticles -> RiveSlideContent(allTemplatesListSlideSpec(if (page.isEmptyState) "frame15-empty" else "frame15"))
-        is YearInReviewPage.TotalEdits -> RiveSlideContent(allTemplatesSlideSpec(if (page.isEmptyState) "frame16-empty" else "frame16"))
-        is YearInReviewPage.EditedArticleViews -> RiveSlideContent(allTemplatesSlideSpec("frame17"))
-        is YearInReviewPage.MostViewedEditedArticles -> RiveSlideContent(allTemplatesListSlideSpec("frame18"))
-        is YearInReviewPage.ThankYou -> RiveSlideContent(allTemplatesSlideSpec("end"))
+        is YearInReviewPage.ReadingStreak -> RiveSlideContent(
+            spec = allTemplatesSlideSpec(if (page.isEmptyState) "frame4-empty" else "frame4"),
+            textProperties = mapOf(
+                "Headline" to resources.getString(if (page.isEmptyState) R.string.yir_reading_streak_empty_headline else R.string.yir_reading_streak_headline),
+                // TODO:
+                "data" to "",
+                "bodyCopy" to if (page.isEmptyState) resources.getQuantityString(R.plurals.yir_reading_streak_empty_supporting, YearInReviewReadingStats.MIN_ARTICLES_READ, YearInReviewReadingStats.MIN_ARTICLES_READ)
+                else resources.getString(R.string.yir_reading_streak_supporting, "", "")
+            )
+        )
+        is YearInReviewPage.ReadingPattern -> RiveSlideContent(
+            spec = allTemplatesSlideSpec(if (page.isEmptyState) "frame5-empty" else "frame5"),
+            textProperties = mapOf(
+                "Headline" to resources.getString(if (page.isEmptyState) R.string.yir_reading_time_empty_headline else R.string.yir_reading_time_headline),
+                // TODO:
+                "data" to "",
+                "bodyCopy" to if (page.isEmptyState) resources.getString(R.string.yir_reading_time_empty_supporting)
+                else resources.getQuantityString(R.plurals.yir_reading_time_supporting, 0, 0)
+            )
+        )
+        is YearInReviewPage.TopTopic -> RiveSlideContent(
+            spec = allTemplatesSlideSpec(if (page.isEmptyState) "frame6-empty" else "frame6"),
+            textProperties = mapOf(
+                "Headline" to resources.getString(if (page.isEmptyState) R.string.yir_top_topic_empty_headline else R.string.yir_top_topic_headline, YearInReviewConfig.YEAR),
+                // TODO:
+                "data" to "",
+                "bodyCopy" to if (page.isEmptyState) resources.getString(R.string.yir_top_topic_empty_supporting)
+                else resources.getQuantityString(R.plurals.yir_top_topic_supporting, 0, "", "", 0, getTopicComment(resources, ArticleTopics.all.first()))
+            )
+        )
+        is YearInReviewPage.OtherTopTopics -> RiveSlideContent(
+            spec = allTemplatesListSlideSpec("frame7"),
+            textProperties = mapOf(
+            )
+        )
+        is YearInReviewPage.BiggestReadingDay -> RiveSlideContent(
+            spec = allTemplatesSlideSpec("frame8"),
+            textProperties = mapOf(
+            )
+        )
+        is YearInReviewPage.BiggestReadingDayArticles -> RiveSlideContent(
+            spec = allTemplatesListSlideSpec("frame9"),
+            textProperties = mapOf(
+            )
+        )
+        is YearInReviewPage.Category -> RiveSlideContent(
+            spec = allTemplatesSlideSpec("frame13"),
+            textProperties = mapOf(
+            )
+        )
+        is YearInReviewPage.RevisitedArticles -> RiveSlideContent(
+            spec = allTemplatesListSlideSpec(if (page.isEmptyState) "frame12-empty" else "frame12"),
+            textProperties = mapOf(
+            )
+        )
+        is YearInReviewPage.Geography -> RiveSlideContent(
+            spec = allTemplatesListSlideSpec(if (page.isEmptyState) "frame14-empty" else "frame14"),
+            textProperties = mapOf(
+            )
+        )
+        is YearInReviewPage.SavedArticles -> RiveSlideContent(
+            spec = allTemplatesListSlideSpec(if (page.isEmptyState) "frame15-empty" else "frame15"),
+            textProperties = mapOf(
+            )
+        )
+        is YearInReviewPage.TotalEdits -> RiveSlideContent(
+            spec = allTemplatesSlideSpec(if (page.isEmptyState) "frame16-empty" else "frame16"),
+            textProperties = mapOf(
+            )
+        )
+        is YearInReviewPage.EditedArticleViews -> RiveSlideContent(
+            spec = allTemplatesSlideSpec("frame17"),
+            textProperties = mapOf(
+            )
+        )
+        is YearInReviewPage.MostViewedEditedArticles -> RiveSlideContent(
+            spec = allTemplatesListSlideSpec("frame18"),
+            textProperties = mapOf(
+            )
+        )
+        is YearInReviewPage.ThankYou -> RiveSlideContent(
+            spec = allTemplatesSlideSpec("end"),
+            textProperties = mapOf(
+            )
+        )
         // The file has no collective artboards yet, so these reuse the personal artboard closest to each insight
         is YearInReviewPage.Collective -> when (page.insight) {
             YearInReviewCollectiveInsight.HOURS_READ -> RiveSlideContent(allTemplatesSlideSpec("frame3"))
@@ -122,4 +196,51 @@ private fun getTimeSpentComment(resources: Resources, minutes: Long): String {
         minutes >= 1 -> resources.getString(R.string.yir_time_spent_comment_1)
         else -> ""
     }
+}
+
+private fun getTopicComment(resources: Resources, topic: ArticleTopic): String {
+    // Listed explicitly, so the strings survive resource shrinking
+    val resId = when (topic.topicId) {
+        "architecture" -> R.string.yir_topic_comment_architecture
+        "art" -> R.string.yir_topic_comment_art
+        "comics-and-anime" -> R.string.yir_topic_comment_comics_and_anime
+        "entertainment" -> R.string.yir_topic_comment_entertainment
+        "fashion" -> R.string.yir_topic_comment_fashion
+        "literature" -> R.string.yir_topic_comment_literature
+        "music" -> R.string.yir_topic_comment_music
+        "performing-arts" -> R.string.yir_topic_comment_performing_arts
+        "sports" -> R.string.yir_topic_comment_sports
+        "tv-and-film" -> R.string.yir_topic_comment_tv_and_film
+        "video-games" -> R.string.yir_topic_comment_video_games
+        "biography" -> R.string.yir_topic_comment_biography
+        "women" -> R.string.yir_topic_comment_women
+        "business-and-economics" -> R.string.yir_topic_comment_business_and_economics
+        "education" -> R.string.yir_topic_comment_education
+        "food-and-drink" -> R.string.yir_topic_comment_food_and_drink
+        "history" -> R.string.yir_topic_comment_history
+        "military-and-warfare" -> R.string.yir_topic_comment_military_and_warfare
+        "philosophy-and-religion" -> R.string.yir_topic_comment_philosophy_and_religion
+        "politics-and-government" -> R.string.yir_topic_comment_politics_and_government
+        "society" -> R.string.yir_topic_comment_society
+        "transportation" -> R.string.yir_topic_comment_transportation
+        "biology" -> R.string.yir_topic_comment_biology
+        "chemistry" -> R.string.yir_topic_comment_chemistry
+        "computers-and-internet" -> R.string.yir_topic_comment_computers_and_internet
+        "earth-and-environment" -> R.string.yir_topic_comment_earth_and_environment
+        "engineering" -> R.string.yir_topic_comment_engineering
+        "general-science" -> R.string.yir_topic_comment_general_science
+        "mathematics" -> R.string.yir_topic_comment_mathematics
+        "medicine-and-health" -> R.string.yir_topic_comment_medicine_and_health
+        "physics" -> R.string.yir_topic_comment_physics
+        "technology" -> R.string.yir_topic_comment_technology
+        "africa" -> R.string.yir_topic_comment_africa
+        "asia" -> R.string.yir_topic_comment_asia
+        "central-america" -> R.string.yir_topic_comment_central_america
+        "europe" -> R.string.yir_topic_comment_europe
+        "north-america" -> R.string.yir_topic_comment_north_america
+        "oceania" -> R.string.yir_topic_comment_oceania
+        "south-america" -> R.string.yir_topic_comment_south_america
+        else -> null
+    }
+    return resId?.let { resources.getString(it) }.orEmpty()
 }

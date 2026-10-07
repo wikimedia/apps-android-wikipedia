@@ -2050,7 +2050,7 @@
     <string name="yir_minutes_read_headline">Total minutes spent reading:</string>
     <string name="yir_minutes_read_supporting">%1$s Time flies when you\'re falling down a rabbit hole.</string>
     <string name="yir_reading_streak_headline">Days in your longest reading streak:</string>
-    <string name="yir_reading_streak_supporting">From %1$s, you really got into the groove of reading every day.</string>
+    <string name="yir_reading_streak_supporting">From %1$s–%2$s, you really got into the groove of reading every day.</string>
     <string name="yir_reading_streak_empty_headline">0 reading streaks… yet</string>
     <plurals name="yir_reading_streak_empty_supporting">
         <item quantity="one">It\'s not a streak until you\'ve done it for %1$d consecutive day. Why not start now?</item>
