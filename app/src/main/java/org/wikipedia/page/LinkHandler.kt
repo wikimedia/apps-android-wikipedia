@@ -25,7 +25,7 @@ abstract class LinkHandler(protected val context: Context) : JSEventListener, Ur
     // message from JS bridge:
     override fun onMessage(messageType: String, messagePayload: JsonObject?) {
         messagePayload?.let {
-            onUrlClick(UriUtil.decodeURL(it["href"]?.jsonPrimitive?.content.orEmpty()),
+            onUrlClick(it["href"]?.jsonPrimitive?.content.orEmpty(),
                 it["title"]?.jsonPrimitive?.content,
                 it["text"]?.jsonPrimitive?.content.orEmpty())
         }
