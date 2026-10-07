@@ -208,16 +208,9 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
     fun updateSemanticSearchPreference() {
         val semanticSearchPref = findPreference(R.string.preference_key_semantic_search_settings_category)
         val semanticSearchAbTest = SemanticSearchAbTest()
-        val currentLanguage = WikipediaApp
-            .instance
-            .languageState
-            .appLanguageCodes
-            .getOrNull(Prefs.selectedLanguagePositionInSearch) ?: WikipediaApp.instance.languageState.appLanguageCode
 
         // TODO: update with remote config or other logic
-        semanticSearchPref.isVisible = (semanticSearchAbTest.isTestActive() &&
-                semanticSearchAbTest.isTestGroupUser() &&
-                semanticSearchAbTest.isLanguageSupported(currentLanguage))
+        semanticSearchPref.isVisible = semanticSearchAbTest.isTestActive() && semanticSearchAbTest.isTestGroupUser()
     }
 
     private inner class SyncReadingListsListener : Preference.OnPreferenceChangeListener {
