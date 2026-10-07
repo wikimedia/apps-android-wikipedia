@@ -33,19 +33,27 @@ object YearInReviewRiveContentMapper {
                 "data" to page.count.toString()
             )
         )
-        is YearInReviewPage.Visits -> RiveSlideContent(
-            spec = allTemplatesSlideSpec("frame2"),
-            textProperties = mapOf(
-                "headline" to resources.getString(R.string.yir_days_visited_headline, YearInReviewConfig.YEAR),
-                "bodyCopy" to resources.getQuantityString(
+        is YearInReviewPage.Visits -> {
+            val headline = resources.getString(R.string.yir_days_visited_headline, YearInReviewConfig.YEAR)
+            val data = page.days.toString()
+            val bodyCopy = page.peakMonth?.let {
+                resources.getQuantityString(
                     R.plurals.yir_days_visited_supporting,
-                    page.peakMonthVisitedDays,
-                    Month.of(page.peakMonth).getDisplayName(TextStyle.FULL_STANDALONE, resources.configuration.locales[0]),
-                    page.peakMonthVisitedDays
+                    it.visitedDays,
+                    Month.of(it.month).getDisplayName(TextStyle.FULL_STANDALONE, resources.configuration.locales[0]),
+                    it.visitedDays
+                )
+            }.orEmpty()
+            RiveSlideContent(
+                spec = allTemplatesSlideSpec("frame2", instanceType = RiveInstanceType.Blank),
+                textProperties = mapOf(
+                    "headline" to headline,
+                    "data" to data,
+                    "bodyCopy" to bodyCopy
                 ),
-                "Data" to page.days.toString()
+                accessibilityDescription = listOf(headline, data, bodyCopy).filter { it.isNotEmpty() }.joinToString("\n")
             )
-        )
+        }
         is YearInReviewPage.TimeSpent -> RiveSlideContent(
             spec = allTemplatesSlideSpec("frame3"),
             textProperties = mapOf(
@@ -209,12 +217,16 @@ private val AllTemplatesGlobalProperties = RiveGlobalViewModel(
 )
 
 // In all_templates.riv, each artboard has a matching state machine and a same-named view model instance holding sample text
-private fun allTemplatesSlideSpec(artboardName: String, viewModelName: String = "DataTemplate") = RiveSlideSpec(
+private fun allTemplatesSlideSpec(
+    artboardName: String,
+    viewModelName: String = "DataTemplate",
+    instanceType: RiveInstanceType = RiveInstanceType.Named(artboardName)
+) = RiveSlideSpec(
     resourceId = R.raw.all_templates_v2,
     artboardName = artboardName,
     stateMachineName = "$artboardName-statemachine",
     viewModelName = viewModelName,
-    instanceType = RiveInstanceType.Named(artboardName),
+    instanceType = instanceType,
     globalViewModel = AllTemplatesGlobalProperties,
     isTopBarUiIconsWhite = "isUIWhite"
 )
