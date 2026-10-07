@@ -2854,10 +2854,10 @@
     </plurals>
 
     <!-- Semantic search -->
-    <string name="semantic_search_entry_point_card_message">Search within articles and jump straight to the relevant passage.</string>
+    <string name="semantic_search_entry_point_card_message">Search within articles and jump straight to the relevant passage</string>
     <string name="semantic_search_entry_point_card_text_button">Try it now</string>
     <string name="semantic_search_info_dialog_title">What is this feature?</string>
-    <string name="semantic_search_info_dialog_message">With dive you can find answers to your questions inside Wikipedia articles. We will retrieve the exact Wikipedia passage and you can go straight to it in article to get more context.</string>
+    <string name="semantic_search_info_dialog_message">Find answers to your questions inside Wikipedia articles and jump straight into the relevant passage. \n\nPassages are drawn from articles that people researched, wrote, and edited, each one backed by cited sources you can check.</string>
     <string name="semantic_search_info_dialog_button_text">Learn more</string>
     <string name="semantic_search_info_btn_content_description">Semantic search information icon button</string>
     <string name="semantic_search_close_btn_content_description">Semantic search disable and close icon button</string>
@@ -2882,4 +2882,9 @@
     <string name="semantic_search_results_feedback_submitted_message">Thanks for your feedback</string>
     <string name="semantic_search_feedback_dialog_title">Feedback</string>
     <string name="semantic_search_feedback_dialog_close_button_content_description">Close the semantic search feedback</string>
+    <string name="preference_heading_semantic_search">Search</string>
+    <string name="preference_title_semantic_search_within_articles">Search within articles</string>
+    <string name="preference_summary_semantic_search_jump_to_passage">Jump straight to the relevant passage</string>
+    <string name="semantic_search_snackbar_message">Module hidden. You can make it visible again via Settings</string>
+    <string name="semantic_search_snackbar_action_label">Modify</string>
 </resources>

@@ -499,8 +499,8 @@
 
     <PreferenceCategory android:title="Playground">
         <Preference
-            android:key="@string/preference_key_playground_category"
-            android:title="Category" />
+            android:key="@string/preference_key_reading_challenge_widgets"
+            android:title="Reading Challenge Widget Configurations" />
     </PreferenceCategory>
 
     <PreferenceCategory android:title="Year in Review">
@@ -546,12 +546,6 @@
             android:title="@string/preference_key_game_stats_snackbar_shown" />
 
 
-    </PreferenceCategory>
-
-    <PreferenceCategory android:title="Reading Challenge Widget">
-        <Preference
-            android:key="@string/preference_key_reading_challenge_widgets"
-            android:title="Reading Challenge Widget Configurations" />
     </PreferenceCategory>
 
     <PreferenceCategory android:title="New Home Feed">
