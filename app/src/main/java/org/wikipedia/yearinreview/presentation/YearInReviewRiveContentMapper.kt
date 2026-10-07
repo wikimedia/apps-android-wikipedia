@@ -20,7 +20,7 @@ object YearInReviewRiveContentMapper {
         is YearInReviewPage.Cover -> RiveSlideContent(
             spec = allTemplatesSlideSpec("cover"),
             textProperties = mapOf(
-                "coverTitle" to resources.getString(R.string.yir_intro_headline),
+                "coverTitle" to resources.getString(R.string.yir_intro_headline).uppercase(),
                 "bodyCopy" to resources.getQuantityString(R.plurals.yir_intro_supporting, page.daysSpent, page.daysSpent, YearInReviewConfig.YEAR)
             )
         )
@@ -36,7 +36,7 @@ object YearInReviewRiveContentMapper {
         is YearInReviewPage.Visits -> RiveSlideContent(
             spec = allTemplatesSlideSpec("frame2"),
             textProperties = mapOf(
-                "Headline" to resources.getString(R.string.yir_days_visited_headline, YearInReviewConfig.YEAR),
+                "headline" to resources.getString(R.string.yir_days_visited_headline, YearInReviewConfig.YEAR),
                 "bodyCopy" to resources.getQuantityString(
                     R.plurals.yir_days_visited_supporting,
                     page.peakMonthVisitedDays,
@@ -49,7 +49,7 @@ object YearInReviewRiveContentMapper {
         is YearInReviewPage.TimeSpent -> RiveSlideContent(
             spec = allTemplatesSlideSpec("frame3"),
             textProperties = mapOf(
-                "Headline" to resources.getString(R.string.yir_minutes_read_headline),
+                "headline" to resources.getString(R.string.yir_minutes_read_headline),
                 "data" to page.duration.toString(),
                 "bodyCopy" to resources.getString(R.string.yir_minutes_read_supporting, getTimeSpentComment(resources, page.duration))
             )
@@ -57,7 +57,7 @@ object YearInReviewRiveContentMapper {
         is YearInReviewPage.ReadingStreak -> RiveSlideContent(
             spec = allTemplatesSlideSpec(if (page.isEmptyState) "frame4-empty" else "frame4"),
             textProperties = mapOf(
-                "Headline" to resources.getString(if (page.isEmptyState) R.string.yir_reading_streak_empty_headline else R.string.yir_reading_streak_headline),
+                "headline" to resources.getString(if (page.isEmptyState) R.string.yir_reading_streak_empty_headline else R.string.yir_reading_streak_headline),
                 // TODO:
                 "data" to "",
                 "bodyCopy" to if (page.isEmptyState) resources.getQuantityString(R.plurals.yir_reading_streak_empty_supporting, YearInReviewReadingStats.MIN_ARTICLES_READ, YearInReviewReadingStats.MIN_ARTICLES_READ)
@@ -67,7 +67,7 @@ object YearInReviewRiveContentMapper {
         is YearInReviewPage.ReadingPattern -> RiveSlideContent(
             spec = allTemplatesSlideSpec(if (page.isEmptyState) "frame5-empty" else "frame5"),
             textProperties = mapOf(
-                "Headline" to resources.getString(if (page.isEmptyState) R.string.yir_reading_time_empty_headline else R.string.yir_reading_time_headline),
+                "headline" to resources.getString(if (page.isEmptyState) R.string.yir_reading_time_empty_headline else R.string.yir_reading_time_headline),
                 // TODO:
                 "data" to "",
                 "bodyCopy" to if (page.isEmptyState) resources.getString(R.string.yir_reading_time_empty_supporting)
@@ -77,7 +77,7 @@ object YearInReviewRiveContentMapper {
         is YearInReviewPage.TopTopic -> RiveSlideContent(
             spec = allTemplatesSlideSpec(if (page.isEmptyState) "frame6-empty" else "frame6"),
             textProperties = mapOf(
-                "Headline" to resources.getString(if (page.isEmptyState) R.string.yir_top_topic_empty_headline else R.string.yir_top_topic_headline, YearInReviewConfig.YEAR),
+                "headline" to resources.getString(if (page.isEmptyState) R.string.yir_top_topic_empty_headline else R.string.yir_top_topic_headline, YearInReviewConfig.YEAR),
                 // TODO:
                 "data" to "",
                 "bodyCopy" to if (page.isEmptyState) resources.getString(R.string.yir_top_topic_empty_supporting)
@@ -136,7 +136,7 @@ object YearInReviewRiveContentMapper {
             spec = allTemplatesListSlideSpec(if (page.isEmptyState) "frame15-empty" else "frame15"),
             textProperties = mapOf(
                 // TODO:
-                "Headline" to resources.getString(R.string.yir_saved_articles_empty_headline),
+                "headline" to resources.getString(R.string.yir_saved_articles_empty_headline),
                 "bodyCopy" to if (page.isEmptyState) resources.getString(R.string.yir_saved_articles_empty_supporting)
                 else resources.getQuantityString(R.plurals.yir_saved_articles_headline, 0, 0)
             )
@@ -145,18 +145,18 @@ object YearInReviewRiveContentMapper {
             spec = allTemplatesSlideSpec(if (page.isEmptyState) "frame16-empty" else "frame16"),
             textProperties = mapOf(
                 // TODO:
-                "Headline" to resources.getString(if (page.isEmptyState) R.string.yir_edits_empty_headline else R.string.yir_edits_headline),
+                "headline" to resources.getString(if (page.isEmptyState) R.string.yir_edits_empty_headline else R.string.yir_edits_headline),
                 "bodyCopy" to resources.getString(if (page.isEmptyState) R.string.yir_edits_empty_supporting else R.string.yir_edits_supporting),
-                "Data" to ""
+                "data" to ""
             )
         )
         is YearInReviewPage.EditedArticleViews -> RiveSlideContent(
             spec = allTemplatesSlideSpec("frame17"),
             textProperties = mapOf(
                 // TODO:
-                "Headline" to resources.getString(R.string.yir_edit_views_headline),
+                "headline" to resources.getString(R.string.yir_edit_views_headline),
                 "bodyCopy" to resources.getString(R.string.yir_edit_views_supporting, YearInReviewConfig.YEAR),
-                "Data" to ""
+                "data" to ""
             )
         )
         is YearInReviewPage.MostViewedEditedArticles -> RiveSlideContent(
@@ -167,12 +167,12 @@ object YearInReviewRiveContentMapper {
             )
         )
         is YearInReviewPage.ThankYou -> RiveSlideContent(
-            spec = allTemplatesSlideSpec("frame19"),
+            spec = allTemplatesSlideSpec("end"),
             textProperties = mapOf(
                 // TODO:
-                "coverTitle" to resources.getString(R.string.yir_contributor_thanks_headline),
+                "coverTitle" to resources.getString(R.string.yir_contributor_thanks_headline).uppercase(),
                 "bodyCopy" to resources.getString(R.string.yir_contributor_thanks_supporting, getDonorEditorString(resources, page.isDonor, page.isEditor)),
-                "Data" to ""
+                "data" to ""
             )
         )
         // The file has no collective artboards yet, so these reuse the personal artboard closest to each insight
@@ -197,6 +197,10 @@ object YearInReviewRiveContentMapper {
 private val AllTemplatesGlobalProperties = RiveGlobalViewModel(
     name = "GlobalProperties",
     textSizes = mapOf(
+        "coverGlyphsFontSize" to 44f,
+        "coverGlyphsLineHeight" to 48f,
+        "dataNumberFontSize" to 72f,
+        "dataNumbersLineHeight" to 76f,
         "headlineFontSize" to 24f,
         "headlineLineHeight" to 25.44f,
         "bodyCopyFontSize" to 16f,
