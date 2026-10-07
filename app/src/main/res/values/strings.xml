@@ -2050,7 +2050,7 @@
     <string name="yir_minutes_read_headline">Total minutes spent reading:</string>
     <string name="yir_minutes_read_supporting">%1$s Time flies when you\'re falling down a rabbit hole.</string>
     <string name="yir_reading_streak_headline">Days in your longest reading streak:</string>
-    <string name="yir_reading_streak_supporting">From %1$s, you really got into the groove of reading every day.</string>
+    <string name="yir_reading_streak_supporting">From %1$s–%2$s, you really got into the groove of reading every day.</string>
     <string name="yir_reading_streak_empty_headline">0 reading streaks… yet</string>
     <plurals name="yir_reading_streak_empty_supporting">
         <item quantity="one">It\'s not a streak until you\'ve done it for %1$d consecutive day. Why not start now?</item>
@@ -2096,7 +2096,10 @@
     <string name="yir_places_headline">Your reading practically took you to:</string>
     <string name="yir_places_empty_headline">Your reading took you all over the map</string>
     <string name="yir_places_empty_supporting">In %1$d, you traveled all over Wikipedia. Check out the Places feature for ideas on where to go when you\'re on the go.</string>
-    <string name="yir_saved_articles_headline">Articles you saved for later:</string>
+    <plurals name="yir_saved_articles_headline">
+        <item quantity="one">Article you saved for later: %1$d</item>
+        <item quantity="other">Articles you saved for later: %1$d</item>
+    </plurals>
     <string name="yir_saved_articles_empty_headline">You have 0 articles saved</string>
     <string name="yir_saved_articles_empty_supporting">You currently have 0 articles saved. Look for the bookmark icon on an article, so you can read up on whatever… later.</string>
     <string name="yir_edits_headline">Edits you made:</string>
