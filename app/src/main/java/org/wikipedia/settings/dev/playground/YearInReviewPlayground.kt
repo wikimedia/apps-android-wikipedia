@@ -87,8 +87,8 @@ object YearInReviewPlayground {
     // null when real data is chosen, and always outside pre-production builds
     val snapshot: YearInReviewSnapshot? get() {
         val data = Prefs.yearInReviewPlaygroundData
-        val remoteConfig = YearInReviewConfig.cachedRemoteConfig
-        if (!ReleaseUtil.isPreProdRelease || data == YearInReviewPlaygroundData.REAL || remoteConfig == null) {
+        val remoteConfig = YearInReviewConfig.cachedRemoteConfig ?: YearInReviewConfig.fallbackConfig
+        if (!ReleaseUtil.isPreProdRelease || data == YearInReviewPlaygroundData.REAL) {
             return null
         }
         // Login stays real, so the personalized flow still needs a logged-in user.
