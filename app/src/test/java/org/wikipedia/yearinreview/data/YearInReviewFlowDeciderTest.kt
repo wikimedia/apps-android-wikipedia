@@ -2,6 +2,7 @@ package org.wikipedia.yearinreview.data
 
 import org.junit.Assert.assertEquals
 import org.junit.Test
+import org.wikipedia.history.db.MonthVisitedDays
 import org.wikipedia.yearinreview.presentation.YearInReviewCollectiveInsight
 import org.wikipedia.yearinreview.presentation.YearInReviewFlowDecider
 import org.wikipedia.yearinreview.presentation.YearInReviewPage
@@ -18,11 +19,18 @@ class YearInReviewFlowDeciderTest {
         val expected = listOf(
             YearInReviewPage.Cover(daysSpent = 2),
             YearInReviewPage.ArticlesRead(isEmptyState = false, count = 3, percentile = "", averageCount = YearInReviewConfig.fallbackConfig.averageArticlesReadPerYear),
-            YearInReviewPage.Visits(days = 2, peakMonth = 1, peakMonthVisitedDays = 2),
+            YearInReviewPage.Visits(days = 2, peakMonth = MonthVisitedDays(month = 1, visitedDays = 2)),
             YearInReviewPage.YouMatter(showLoginPrompt = false),
             YearInReviewPage.End
         )
         assertEquals(expected, YearInReviewFlowDecider.pages(snapshot(readingStats = dataRichStats)))
+    }
+
+    @Test
+    fun `visits slide has no peak month when no month had 2 visited days`() {
+        val stats = YearInReviewReadingStats(articlesReadCount = 3, visitedDaysCount = 2, peakMonth = 3, peakMonthVisitedDays = 1)
+        val slides = YearInReviewFlowDecider.pages(snapshot(readingStats = stats))
+        assertEquals(YearInReviewPage.Visits(days = 2, peakMonth = null), slides.filterIsInstance<YearInReviewPage.Visits>().single())
     }
 
     @Test

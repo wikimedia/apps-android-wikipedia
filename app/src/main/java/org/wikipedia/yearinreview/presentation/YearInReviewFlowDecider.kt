@@ -1,5 +1,6 @@
 package org.wikipedia.yearinreview.presentation
 
+import org.wikipedia.history.db.MonthVisitedDays
 import org.wikipedia.yearinreview.data.YearInReviewInsightStatus
 import org.wikipedia.yearinreview.data.YearInReviewSnapshot
 
@@ -40,8 +41,7 @@ object YearInReviewFlowDecider {
             CandidatePage(status = readingStats.visitsStatus) {
                 YearInReviewPage.Visits(
                     days = readingStats.visitedDaysCount,
-                    peakMonth = readingStats.peakMonth,
-                    peakMonthVisitedDays = readingStats.peakMonthVisitedDays
+                    peakMonth = if (readingStats.hasPeakMonth) MonthVisitedDays(readingStats.peakMonth, readingStats.peakMonthVisitedDays) else null
                 )
             }
         )
