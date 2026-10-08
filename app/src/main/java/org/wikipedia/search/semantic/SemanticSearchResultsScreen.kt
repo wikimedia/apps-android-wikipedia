@@ -521,7 +521,7 @@ fun SemanticSearchResultCard(
 
             Spacer(modifier = Modifier.height(4.dp))
 
-            if (showReadInArticleText){
+            if (showReadInArticleText) {
                 Text(
                     text = context.getString(languageCode, R.string.semantic_search_results_read_in_article_label),
                     fontWeight = FontWeight.Medium,
