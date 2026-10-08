@@ -21,11 +21,14 @@ import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExtendedFloatingActionButton
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.RadioButtonDefaults
@@ -62,6 +65,7 @@ import org.wikipedia.theme.Theme
 import org.wikipedia.util.log.L
 import org.wikipedia.yearinreview.data.YearInReviewConfig
 import org.wikipedia.yearinreview.presentation.YearInReviewActivity
+import org.wikipedia.yearinreview.presentation.YearInReviewPage
 import org.wikipedia.yearinreview.presentation.YearInReviewViewModel
 
 class YearInReviewPlaygroundDialog : ExtendedBottomSheetDialogFragment(startExpanded = true) {
@@ -72,6 +76,10 @@ class YearInReviewPlaygroundDialog : ExtendedBottomSheetDialogFragment(startExpa
                 BaseTheme {
                     var selectedData by remember { mutableStateOf(Prefs.yearInReviewPlaygroundData) }
                     var entryPoint by remember { mutableStateOf(Prefs.yearInReviewPlaygroundEntryPoint) }
+                    var previewPageId by remember {
+                        YearInReviewPlayground.previewPageId = null
+                        mutableStateOf<String?>(null)
+                    }
                     val isYearInReviewEnabled = Prefs.isYearInReviewEnabled
                     val hiddenCountryCodes = remember { YearInReviewPlayground.hiddenCountryCodes }
                     var historyState by remember {
@@ -85,6 +93,13 @@ class YearInReviewPlaygroundDialog : ExtendedBottomSheetDialogFragment(startExpa
                         onDataSelected = {
                             selectedData = it
                             Prefs.yearInReviewPlaygroundData = it
+                            previewPageId = null
+                            YearInReviewPlayground.previewPageId = null
+                        },
+                        previewPageId = previewPageId,
+                        onPreviewPageSelected = {
+                            previewPageId = it
+                            YearInReviewPlayground.previewPageId = it
                         },
                         entryPoint = entryPoint,
                         canShowEntryPoint = remember(entryPoint) { YearInReviewViewModel.canShowEntryPoint },
@@ -130,6 +145,8 @@ fun YearInReviewPlaygroundScreen(
     isLoggedIn: Boolean,
     selectedData: YearInReviewPlaygroundData,
     onDataSelected: (YearInReviewPlaygroundData) -> Unit,
+    previewPageId: String?,
+    onPreviewPageSelected: (String?) -> Unit,
     entryPoint: YearInReviewPlaygroundEntryPoint,
     canShowEntryPoint: Boolean,
     hiddenReasons: List<String>,
@@ -178,6 +195,8 @@ fun YearInReviewPlaygroundScreen(
                     isLoggedIn = isLoggedIn,
                     selectedData = selectedData,
                     onDataSelected = onDataSelected,
+                    previewPageId = previewPageId,
+                    onPreviewPageSelected = onPreviewPageSelected,
                     historyState = historyState,
                     onTestHistoryChange = onTestHistoryChange
                 )
@@ -208,6 +227,8 @@ private fun ReadingDataCard(
     isLoggedIn: Boolean,
     selectedData: YearInReviewPlaygroundData,
     onDataSelected: (YearInReviewPlaygroundData) -> Unit,
+    previewPageId: String?,
+    onPreviewPageSelected: (String?) -> Unit,
     historyState: YearInReviewPlaygroundHistoryState,
     onTestHistoryChange: (YearInReviewPlaygroundHistoryPreset?) -> Unit
 ) {
@@ -227,7 +248,7 @@ private fun ReadingDataCard(
             color = if (isLoggedIn) WikipediaTheme.colors.successColor else WikipediaTheme.colors.destructiveColor
         )
         PlaygroundOptions(
-            options = YearInReviewPlaygroundData.entries,
+            options = YearInReviewPlaygroundData.entries.filter { it.previewPages == null },
             selectedOption = selectedData,
             label = { it.label },
             description = { it.description },
@@ -273,8 +294,72 @@ private fun ReadingDataCard(
                 Text("Clear test entries")
             }
         }
+        PlaygroundSectionTitle(title = "Preview", enabled = true)
+        Text(
+            text = "Fixed slides with sample data, for checking how every slide looks. Skips the flow logic, so login and data don't matter.",
+            style = MaterialTheme.typography.bodyMedium,
+            color = WikipediaTheme.colors.secondaryColor
+        )
+        PlaygroundOptions(
+            options = YearInReviewPlaygroundData.entries.filter { it.previewPages != null },
+            selectedOption = selectedData,
+            label = { it.label },
+            description = { it.description },
+            onOptionSelected = onDataSelected
+        )
+        selectedData.previewPages?.let { previewPages ->
+            PreviewSlidePicker(
+                pages = previewPages,
+                selectedPageId = previewPageId,
+                onPageSelected = onPreviewPageSelected
+            )
+        }
     }
 }
+
+@Composable
+private fun PreviewSlidePicker(
+    pages: List<YearInReviewPage>,
+    selectedPageId: String?,
+    onPageSelected: (String?) -> Unit
+) {
+    var expanded by remember { mutableStateOf(false) }
+    val selectedIndex = pages.indexOfFirst { it.id == selectedPageId }
+    Box {
+        OutlinedButton(
+            modifier = Modifier.fillMaxWidth(),
+            onClick = { expanded = true }
+        ) {
+            Text(
+                text = if (selectedIndex >= 0) "Slide: ${slideLabel(selectedIndex, pages[selectedIndex])}" else "Slides: all ${pages.size}",
+                color = WikipediaTheme.colors.progressiveColor
+            )
+        }
+        DropdownMenu(
+            expanded = expanded,
+            onDismissRequest = { expanded = false }
+        ) {
+            DropdownMenuItem(
+                text = { Text("All ${pages.size} slides") },
+                onClick = {
+                    expanded = false
+                    onPageSelected(null)
+                }
+            )
+            pages.forEachIndexed { index, page ->
+                DropdownMenuItem(
+                    text = { Text(slideLabel(index, page)) },
+                    onClick = {
+                        expanded = false
+                        onPageSelected(page.id)
+                    }
+                )
+            }
+        }
+    }
+}
+
+private fun slideLabel(index: Int, page: YearInReviewPage) = "${index + 1}. ${page.id}"
 
 @Composable
 private fun EntryPointCard(
@@ -514,6 +599,8 @@ private fun YearInReviewPlaygroundScreenPreview() {
             isLoggedIn = false,
             selectedData = YearInReviewPlaygroundData.REAL,
             onDataSelected = {},
+            previewPageId = null,
+            onPreviewPageSelected = {},
             entryPoint = YearInReviewPlaygroundEntryPoint(useTestValues = true, date = YearInReviewPlaygroundDate.ACTIVE, countryCode = "RU"),
             canShowEntryPoint = false,
             hiddenReasons = listOf("RU is a hidden country"),

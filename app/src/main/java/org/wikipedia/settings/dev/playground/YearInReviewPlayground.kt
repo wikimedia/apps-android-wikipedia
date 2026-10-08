@@ -11,16 +11,25 @@ import org.wikipedia.yearinreview.data.YearInReviewConfig
 import org.wikipedia.yearinreview.data.YearInReviewReadingStats
 import org.wikipedia.yearinreview.data.YearInReviewRewardData
 import org.wikipedia.yearinreview.data.YearInReviewSnapshot
+import org.wikipedia.yearinreview.presentation.YearInReviewPage
 import java.time.Clock
 import java.time.LocalDate
 import java.time.ZoneOffset
 
-enum class YearInReviewPlaygroundData(val label: String, val description: String, val readingStats: YearInReviewReadingStats?) {
+// Previews set pages, which replace the flow decider's pages
+enum class YearInReviewPlaygroundData(
+    val label: String,
+    val description: String,
+    val readingStats: YearInReviewReadingStats?,
+    val previewPages: List<YearInReviewPage>? = null
+) {
     REAL("Real data", "Uses your real data, like reading history and edits. Add test entries below to try slide states.", null),
     LOW_DATA("Low data", "Fixed test data for the collective flow. Only tests the flow, it doesn't use any of your real data.",
         YearInReviewReadingStats(articlesReadCount = 0, visitedDaysCount = 0, peakMonth = 0, peakMonthVisitedDays = 0)),
     DATA_RICH("Data rich", "Fixed test data for the personalized flow. Only tests the flow, it doesn't use any of your real data.",
-        YearInReviewReadingStats(articlesReadCount = 120, visitedDaysCount = 45, peakMonth = 12, peakMonthVisitedDays = 20))
+        YearInReviewReadingStats(articlesReadCount = 120, visitedDaysCount = 45, peakMonth = 12, peakMonthVisitedDays = 20)),
+    ALL_SLIDES("All slides", "Every personalized slide, with the cover and closing slides.", null, YearInReviewPlaygroundPreview.allSlides),
+    ALL_EMPTY_STATES("All empty states", "Every empty state slide, with the cover and closing slides.", null, YearInReviewPlaygroundPreview.emptyStates)
 }
 
 val testActiveStartDate: LocalDate = LocalDate.of(YearInReviewConfig.YEAR, 12, 1)
@@ -84,6 +93,9 @@ data class YearInReviewPlaygroundEntryPoint(
 }
 
 object YearInReviewPlayground {
+    // The one preview slide to show, or null for the whole deck.
+    var previewPageId: String? = null
+
     // null when real data is chosen, and always outside pre-production builds
     val snapshot: YearInReviewSnapshot? get() {
         val data = Prefs.yearInReviewPlaygroundData
@@ -100,6 +112,16 @@ object YearInReviewPlayground {
             readingStats = data.readingStats ?: YearInReviewReadingStats(articlesReadCount = 0, visitedDaysCount = 0, peakMonth = 0, peakMonthVisitedDays = 0),
             rewardData = YearInReviewRewardData(isDonor = false, isEditor = false)
         )
+    }
+
+    // null unless a preview is chosen, and always outside pre-production builds
+    val pages: List<YearInReviewPage>? get() {
+        val previewPages = Prefs.yearInReviewPlaygroundData.previewPages
+        if (!ReleaseUtil.isPreProdRelease || previewPages == null) {
+            return null
+        }
+        // The chosen slide, or the whole deck when none is chosen
+        return previewPages.filter { it.id == previewPageId }.ifEmpty { previewPages }
     }
 
     // The countries hidden in the latest live remote config entry, since this year's entry may not be published yet

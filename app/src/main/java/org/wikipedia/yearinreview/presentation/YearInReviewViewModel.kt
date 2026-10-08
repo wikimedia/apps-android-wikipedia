@@ -49,7 +49,7 @@ class YearInReviewViewModel(
             val yearInReview = YearInReviewPlayground.snapshot ?: repository.getYearInReview()
             _uiState.value = YearInReviewUiState.Content(
                 year = yearInReview.year,
-                pages = YearInReviewFlowDecider.pages(yearInReview),
+                pages = YearInReviewPlayground.pages ?: YearInReviewFlowDecider.pages(yearInReview),
                 isDonationEligible = yearInReview.isDonationEligible
             )
         }
