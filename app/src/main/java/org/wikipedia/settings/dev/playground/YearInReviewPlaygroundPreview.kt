@@ -13,7 +13,7 @@ object YearInReviewPlaygroundPreview {
     private val averageArticlesReadPerYear = YearInReviewConfig.fallbackConfig.averageArticlesReadPerYear
 
     // this excludes LongestReadGuess, LongestReadReveal, RabbitHoleGuess, and RabbitHoleReveal which are not included in the template
-    val allSlides = listOf(
+    val allSlides get() = listOf(
         YearInReviewPage.Cover(daysSpent = 45),
         YearInReviewPage.ArticlesRead(isEmptyState = false, count = 120, percentile = "5", averageCount = averageArticlesReadPerYear),
         YearInReviewPage.Visits(days = 45, peakMonth = MonthVisitedDays(month = 9, visitedDays = 20)),
@@ -26,11 +26,11 @@ object YearInReviewPlaygroundPreview {
             articles = listOf("Abbey Road") + (1..15).map { "Music article $it" } + "Woodstock"
         ),
         YearInReviewPage.OtherTopTopics(
-            topicArticleCounts = mapOf(
+            topicArticleCounts = listOf(
                 ArticleTopics.all[0] to 14,
                 ArticleTopics.all[5] to 12,
                 ArticleTopics.all[7] to 8
-            )
+            ).takeRandomCount().toMap()
         ),
         YearInReviewPage.BiggestReadingDay(date = "September 30", minutesSpent = 423),
         YearInReviewPage.BiggestReadingDayArticles(
@@ -50,7 +50,7 @@ object YearInReviewPlaygroundPreview {
                     description = "Large rainforest in South America",
                     thumbnailUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Amazon17_%285641020319%29.jpg/120px-Amazon17_%285641020319%29.jpg"
                 )
-            )
+            ).takeRandomCount()
         ),
         YearInReviewPage.Category(categoryName = "LIGHTHOUSES IN SCOTLAND"),
         YearInReviewPage.RevisitedArticles(
@@ -134,4 +134,7 @@ object YearInReviewPlaygroundPreview {
         YearInReviewPage.TotalEdits(isEmptyState = true, editCount = 0),
         YearInReviewPage.End
     )
+
+    // Between 1 and all of the items, so slides with a variable number of rows can be checked
+    private fun <T> List<T>.takeRandomCount() = take((1..size).random())
 }

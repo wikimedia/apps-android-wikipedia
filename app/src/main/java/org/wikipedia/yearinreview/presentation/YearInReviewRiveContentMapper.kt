@@ -98,7 +98,8 @@ object YearInReviewRiveContentMapper {
                 "bodyText" to resources.getString(R.string.yir_runner_up_topics_headline, YearInReviewConfig.YEAR)
             ) + listRows(page.topicArticleCounts.map { (topic, count) ->
                 resources.getString(topic.msgKey) to resources.getQuantityString(R.plurals.yir_runner_up_topics_article_count, count, count)
-            })
+            }),
+            numberProperties = listItemCount(page.topicArticleCounts.size)
         )
         is YearInReviewPage.BiggestReadingDay -> RiveSlideContent(
             spec = allTemplatesSlideSpec("frame8"),
@@ -118,6 +119,7 @@ object YearInReviewRiveContentMapper {
             textProperties = mapOf(
                 "headline" to resources.getString(R.string.yir_articles_read_headline)
             ) + listRows(page.articles.map { it.title to it.description }),
+            numberProperties = listItemCount(page.articles.size),
             imageUrls = listIcons(page.articles.map { it.thumbnailUrl })
         )
         is YearInReviewPage.Category -> RiveSlideContent(
@@ -273,6 +275,11 @@ private fun listRows(titlesAndSubtitles: List<Pair<String, String>>): Map<String
 // Rows without an image are cleared, so the instance's sample picture doesn't show
 private fun listIcons(imageUrls: List<String?>): Map<String, String?> {
     return (1..LIST_ROW_COUNT).associate { row -> "icon$row" to imageUrls.getOrNull(row - 1) }
+}
+
+// frame7 and frame9 have this property so far.
+private fun listItemCount(itemCount: Int): Map<String, Int> {
+    return mapOf("numOfListItems" to itemCount.coerceAtMost(LIST_ROW_COUNT))
 }
 
 private const val LIST_ROW_COUNT = 3

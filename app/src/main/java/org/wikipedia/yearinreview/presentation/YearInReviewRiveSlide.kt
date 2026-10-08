@@ -211,6 +211,7 @@ fun YearInReviewRiveSlide(
             riveFile = riveFileResult.value,
             spec = content.spec,
             textProperties = content.textProperties,
+            numberProperties = content.numberProperties,
             imageUrls = content.imageUrls,
             accessibilityDescription = content.accessibilityDescription,
             playing = playing,
@@ -228,6 +229,7 @@ private fun YearInReviewRiveArtboard(
     riveFile: RiveFile,
     spec: RiveSlideSpec,
     textProperties: Map<String, String>,
+    numberProperties: Map<String, Int>,
     imageUrls: Map<String, String?>,
     accessibilityDescription: String,
     playing: Boolean,
@@ -283,6 +285,12 @@ private fun YearInReviewRiveArtboard(
             LaunchedEffect(instance, textProperties) {
                 textProperties.forEach { (property, value) ->
                     instance.setString(property, value)
+                }
+            }
+            // Rive numbers are always floats
+            LaunchedEffect(instance, numberProperties) {
+                numberProperties.forEach { (property, value) ->
+                    instance.setNumber(property, value.toFloat())
                 }
             }
             val currentOnUseWhiteTopBarIconsChange by rememberUpdatedState(onUseWhiteTopBarIconsChange)

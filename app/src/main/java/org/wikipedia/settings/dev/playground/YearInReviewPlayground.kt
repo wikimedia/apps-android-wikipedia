@@ -16,20 +16,20 @@ import java.time.Clock
 import java.time.LocalDate
 import java.time.ZoneOffset
 
-// Previews set pages, which replace the flow decider's pages
+// Previews set pages, which replace the flow decider's pages. They're built on each load, so their sample data can vary.
 enum class YearInReviewPlaygroundData(
     val label: String,
     val description: String,
     val readingStats: YearInReviewReadingStats?,
-    val previewPages: List<YearInReviewPage>? = null
+    val previewPages: (() -> List<YearInReviewPage>)? = null
 ) {
     REAL("Real data", "Uses your real data, like reading history and edits. Add test entries below to try slide states.", null),
     LOW_DATA("Low data", "Fixed test data for the collective flow. Only tests the flow, it doesn't use any of your real data.",
         YearInReviewReadingStats(articlesReadCount = 0, visitedDaysCount = 0, peakMonth = 0, peakMonthVisitedDays = 0)),
     DATA_RICH("Data rich", "Fixed test data for the personalized flow. Only tests the flow, it doesn't use any of your real data.",
         YearInReviewReadingStats(articlesReadCount = 120, visitedDaysCount = 45, peakMonth = 12, peakMonthVisitedDays = 20)),
-    ALL_SLIDES("All slides", "Every personalized slide, with the cover and closing slides.", null, YearInReviewPlaygroundPreview.allSlides),
-    ALL_EMPTY_STATES("All empty states", "Every empty state slide, with the cover and closing slides.", null, YearInReviewPlaygroundPreview.emptyStates)
+    ALL_SLIDES("All slides", "Every personalized slide, with the cover and closing slides.", null, { YearInReviewPlaygroundPreview.allSlides }),
+    ALL_EMPTY_STATES("All empty states", "Every empty state slide, with the cover and closing slides.", null, { YearInReviewPlaygroundPreview.emptyStates })
 }
 
 val testActiveStartDate: LocalDate = LocalDate.of(YearInReviewConfig.YEAR, 12, 1)
@@ -116,7 +116,7 @@ object YearInReviewPlayground {
 
     // null unless a preview is chosen, and always outside pre-production builds
     val pages: List<YearInReviewPage>? get() {
-        val previewPages = Prefs.yearInReviewPlaygroundData.previewPages
+        val previewPages = Prefs.yearInReviewPlaygroundData.previewPages?.invoke()
         if (!ReleaseUtil.isPreProdRelease || previewPages == null) {
             return null
         }

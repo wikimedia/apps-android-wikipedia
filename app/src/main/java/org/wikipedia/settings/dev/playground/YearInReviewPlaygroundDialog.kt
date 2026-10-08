@@ -309,7 +309,7 @@ private fun ReadingDataCard(
         )
         selectedData.previewPages?.let { previewPages ->
             PreviewSlidePicker(
-                pages = previewPages,
+                pages = remember(selectedData) { previewPages() },
                 selectedPageId = previewPageId,
                 onPageSelected = onPreviewPageSelected
             )
