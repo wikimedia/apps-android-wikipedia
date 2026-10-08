@@ -59,8 +59,6 @@ object Constants {
 
     val commonsWikiSite = WikiSite(Service.COMMONS_URL)
     val wikidataWikiSite = WikiSite(Service.WIKIDATA_URL)
-    const val ARG_SEMANTIC_SEARCH_SNIPPET = "semanticSearchSnippet"
-
     enum class InvokeSource(val value: String) {
         ANNOUNCEMENT("announcement"),
         APP_SHORTCUTS("appShortcuts"),

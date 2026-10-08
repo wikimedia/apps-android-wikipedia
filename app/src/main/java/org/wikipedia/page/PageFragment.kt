@@ -7,8 +7,6 @@ import android.content.Intent
 import android.content.res.Configuration
 import android.net.Uri
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.view.ActionMode
 import android.view.ActionProvider
 import android.view.Gravity
@@ -194,7 +192,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     lateinit var shareHandler: ShareHandler
     lateinit var editHandler: EditHandler
     var revision = 0L
-    var semanticSearchSnippet: String? = null
 
     private val shouldCreateNewTab get() = currentTab.backStack.isNotEmpty()
     private val backgroundTabPosition get() = 0.coerceAtLeast(foregroundTabPosition - 1)
@@ -796,10 +793,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 }
             }
 
-            // Clear semanticSearchSnippet for one time use
-            val snippet = semanticSearchSnippet
-            semanticSearchSnippet = null
-
             // do we have a URL fragment to scroll to?
             model.title?.let { prevTitle ->
                 if (!prevTitle.fragment.isNullOrEmpty() && scrollTriggerListener.stagedScrollY == 0) {
@@ -810,14 +803,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                         }
                         model.title?.let {
                             if (!it.fragment.isNullOrEmpty()) {
-                                val hasSemanticSearchHighlight = snippet?.contains("class=\"searchmatch\"") == true
-                                if (hasSemanticSearchHighlight) {
-                                    JavaScriptActionHandler.semanticSearchTextHighlight(model.title?.fragment, snippet)?.let { js ->
-                                        Handler(Looper.getMainLooper()).postDelayed({
-                                            if (isAdded) {
-                                                webView.evaluateJavascript(js, null)
-                                            }
-                                        }, 100)
+                                if (!it.highlightText.isNullOrEmpty()) {
+                                    bridge.evaluateImmediate(JavaScriptActionHandler.jumpToHighlightOrSection(model.title?.fragment, it.highlightText)) { result ->
+                                        L.d("PCS jump-to-highlight $result")
                                     }
                                 } else {
                                     scrollToSection(it.fragment!!)

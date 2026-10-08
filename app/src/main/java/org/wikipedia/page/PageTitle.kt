@@ -11,7 +11,7 @@ import org.wikipedia.staticdata.ContributionsNameData
 import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
-import java.util.*
+import java.util.Locale
 
 /**
  * Represents certain vital information about a page, including the title, namespace,
@@ -34,7 +34,8 @@ data class PageTitle(
     var description: String? = null,
     // TODO: remove after the restbase endpoint supports ZH variants.
     @SerialName("displayText") private var _displayText: String? = null,
-    var extract: String? = null
+    var extract: String? = null,
+    var highlightText: String? = null
 ) : Parcelable {
 
     var text: String
