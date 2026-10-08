@@ -57,7 +57,7 @@ class YearInReviewRepositoryImpl(
         )
     }
 
-    private suspend fun getReadingStats(dateRange: YearInReviewDateRange): YearInReviewReadingStats {
+    suspend fun getReadingStats(dateRange: YearInReviewDateRange): YearInReviewReadingStats {
         val peakMonth = historyEntryDao.getPeakMonthByVisitedDaysBetween(dateRange.startMillis, dateRange.endMillis)
         return YearInReviewReadingStats(
             articlesReadCount = historyEntryDao.getDistinctEntriesCountBetween(dateRange.startMillis, dateRange.endMillis),
