@@ -1966,6 +1966,10 @@
   <string name="yir_top_topic_empty_headline">Headline of the Year in Review top topic slide, shown when the user has no single top topic. %1$d will be replaced by the year.</string>
   <string name="yir_top_topic_empty_supporting">Supporting text of the Year in Review top topic slide, shown when the user has no single top topic.</string>
   <string name="yir_runner_up_topics_headline">Headline of the Year in Review slide that lists the user\'s runner-up topics. %1$d will be replaced by the year.</string>
+  <plurals name="yir_runner_up_topics_article_count">
+    <item quantity="one">Shown under each topic on the Year in Review runner-up topics slide. %1$d will be replaced by the number of articles the user read in that topic.</item>
+    <item quantity="other">Shown under each topic on the Year in Review runner-up topics slide. %1$d will be replaced by the number of articles the user read in that topic.</item>
+  </plurals>
   <string name="yir_biggest_reading_day_headline">Headline of the Year in Review slide that shows the day the user read the most.</string>
   <plurals name="yir_biggest_reading_day_supporting">
     <item quantity="one">Supporting text of the Year in Review biggest reading day slide. %1$d will be replaced by the number of minutes.</item>
@@ -1989,11 +1993,19 @@
   <string name="yir_reread_articles_empty_headline">Headline of the Year in Review re-read articles slide, shown when the user did not read any article more than once.</string>
   <string name="yir_reread_articles_empty_supporting">Supporting text of the Year in Review re-read articles slide, shown when the user did not read any article more than once.</string>
   <string name="yir_places_headline">Headline of the Year in Review slide that lists places related to the articles the user read.</string>
+  <plurals name="yir_places_article_count">
+    <item quantity="one">Shown under each place on the Year in Review places slide. %1$d will be replaced by the number of articles the user read about that place.</item>
+    <item quantity="other">Shown under each place on the Year in Review places slide. %1$d will be replaced by the number of articles the user read about that place.</item>
+  </plurals>
   <string name="yir_places_empty_headline">Headline of the Year in Review places slide, shown when there is no single place that stands out.</string>
   <string name="yir_places_empty_supporting">Supporting text of the Year in Review places slide, shown when there is no single place that stands out. %1$d will be replaced by the year.</string>
   <plurals name="yir_saved_articles_headline">
     <item quantity="one">Headline of the Year in Review slide that shows how many articles the user saved. %1$d is the number of articles.</item>
     <item quantity="other">Headline of the Year in Review slide that shows how many articles the user saved. %1$d is the number of articles.</item>
+  </plurals>
+  <plurals name="yir_article_view_count">
+    <item quantity="one">Shown under an article on Year in Review slides that list articles with their view counts. %1$s will be replaced by the formatted number of views.</item>
+    <item quantity="other">Shown under an article on Year in Review slides that list articles with their view counts. %1$s will be replaced by the formatted number of views.</item>
   </plurals>
   <string name="yir_saved_articles_empty_headline">Headline of the Year in Review saved articles slide, shown when the user has no saved articles.</string>
   <string name="yir_saved_articles_empty_supporting">Supporting text of the Year in Review saved articles slide, shown when the user has no saved articles.</string>
