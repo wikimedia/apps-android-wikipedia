@@ -36,13 +36,14 @@ import org.wikipedia.compose.components.InfoActionScreen
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.extensions.getString
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.PageTitle
 import org.wikipedia.search.SearchResult
 import org.wikipedia.search.SearchResult.SearchResultType
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.UriUtil
-import org.wikipedia.extensions.getString
+
 class SemanticSearchInfoDialog : ExtendedBottomSheetDialogFragment(startExpanded = true) {
 
     private val languageCode: String
@@ -216,7 +217,6 @@ private fun getSemanticSearchInfoDialogText(languageCode: String): InfoDialogTex
                     thumbnailUrl = R.string.semantic_search_info_dialog_article_thumbnail_url_en)
     }
 }
-
 
 @Preview(showBackground = true)
 @Composable
