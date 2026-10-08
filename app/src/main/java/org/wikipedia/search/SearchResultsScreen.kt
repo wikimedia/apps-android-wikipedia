@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -16,10 +15,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.SnackbarDuration
-import androidx.compose.material3.SnackbarHost
-import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
@@ -28,7 +23,6 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
@@ -54,11 +48,9 @@ import androidx.paging.compose.collectAsLazyPagingItems
 import coil3.compose.AsyncImage
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.debounce
-import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.PlacesEvent
-import org.wikipedia.compose.components.Snackbar
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.extensions.toAnnotatedStringWithBoldQuery
@@ -82,7 +74,7 @@ fun SearchResultsScreen(
     onLanguageClick: (Int) -> Unit,
     onSemanticSearchClick: (String?) -> Unit,
     onSemanticSearchInfoClick: () -> Unit,
-    onSemanticSearchSettingsClick: () -> Unit,
+    onSemanticSearchCloseClick: () -> Unit,
     onCloseSearch: () -> Unit,
     onRetrySearch: () -> Unit,
     onLoading: (Boolean) -> Unit,
@@ -94,8 +86,6 @@ fun SearchResultsScreen(
     val isSemanticSearchFirstUse = viewModel.isSemanticSearchFirstUse.collectAsState()
     val loadState = searchResults.loadState
     val countsPerLanguageCode = viewModel.countsPerLanguageCode
-    val coroutineScope = rememberCoroutineScope()
-    val snackbarHostState = remember { SnackbarHostState() }
 
     val languageCode = viewModel.languageCode.collectAsState()
     val layoutDirection =
@@ -140,97 +130,66 @@ fun SearchResultsScreen(
     }
 
     CompositionLocalProvider(LocalLayoutDirection provides layoutDirection) {
-
-        val snackBarMessage = stringResource(R.string.semantic_search_snackbar_message)
-        val snackBarActionLabel = stringResource(R.string.semantic_search_snackbar_action_label)
-
-        Scaffold(
-            contentWindowInsets = WindowInsets(0, 0, 0, 0),
-            containerColor = WikipediaTheme.colors.paperColor,
-            snackbarHost = {
-                SnackbarHost(
-                    hostState = snackbarHostState,
-                    snackbar = { data ->
-                        Snackbar(
-                            message = data.visuals.message,
-                            actionLabel = data.visuals.actionLabel,
-                            onActionClick = {
-                                data.dismiss()
-                                onSemanticSearchSettingsClick()
+        LazyColumn(
+            modifier = modifier
+        ) {
+            if (shouldShowSemanticSearchEntryPoint) {
+                item {
+                    SemanticSearchEntryCard(
+                        searchTerm = searchTerm.value,
+                        onCloseClick = {
+                            viewModel.disableSemanticSearch()
+                            onSemanticSearchCloseClick()
+                        },
+                        onInfoBtnClick = { onSemanticSearchInfoClick() },
+                        onSemanticSearchClick = {
+                            if (isSemanticSearchFirstUse.value) {
+                                Prefs.isSemanticSearchFirstUse = false
                             }
-                        )
-                    }
-                )
+                            onSemanticSearchClick(searchTerm.value)
+                        },
+                        isFirstUse = isSemanticSearchFirstUse.value
+                    )
+                }
             }
-        ) { innerPadding ->
-            LazyColumn(
-                modifier = modifier,
-                contentPadding = innerPadding
-            ) {
-                if (shouldShowSemanticSearchEntryPoint) {
+
+            when {
+                loadState.refresh is LoadState.Loading -> {} // when offline prevents UI from loading old list
+
+                loadState.refresh is LoadState.Error -> {
+                    val error = (loadState.refresh as LoadState.Error).error
                     item {
-                        SemanticSearchEntryCard(
-                            searchTerm = searchTerm.value,
-                            onCloseClick = {
-                                viewModel.disableSemanticSearch()
-                                coroutineScope.launch {
-                                    snackbarHostState.showSnackbar(
-                                        message = snackBarMessage,
-                                        actionLabel = snackBarActionLabel,
-                                        duration = SnackbarDuration.Short
-                                    )
-                                }
-                            },
-                            onInfoBtnClick = { onSemanticSearchInfoClick() },
-                            onSemanticSearchClick = {
-                                if (isSemanticSearchFirstUse.value) {
-                                    Prefs.isSemanticSearchFirstUse = false
-                                }
-                                onSemanticSearchClick(searchTerm.value)
-                            },
-                            isFirstUse = isSemanticSearchFirstUse.value
+                        Box(
+                            modifier = Modifier.fillParentMaxSize(),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            WikiErrorView(
+                                caught = error,
+                                errorClickEvents = WikiErrorClickEvents(
+                                    backClickListener = { onCloseSearch() },
+                                    retryClickListener = { onRetrySearch() }
+                                )
+                            )
+                        }
+                    }
+                }
+
+                loadState.append is LoadState.NotLoading && loadState.append.endOfPaginationReached && searchResults.itemCount == 0 -> {
+                    if (!isSemanticSearchEnabled) {
+                        noSearchResults(
+                            countsPerLanguageCode = countsPerLanguageCode,
+                            onLanguageClick = onLanguageClick
                         )
                     }
                 }
 
-                when {
-                    loadState.refresh is LoadState.Loading -> {} // when offline prevents UI from loading old list
-
-                    loadState.refresh is LoadState.Error -> {
-                        val error = (loadState.refresh as LoadState.Error).error
-                        item {
-                            Box(
-                                modifier = Modifier.fillParentMaxSize(),
-                                contentAlignment = Alignment.Center
-                            ) {
-                                WikiErrorView(
-                                    caught = error,
-                                    errorClickEvents = WikiErrorClickEvents(
-                                        backClickListener = { onCloseSearch() },
-                                        retryClickListener = { onRetrySearch() }
-                                    )
-                                )
-                            }
-                        }
-                    }
-
-                    loadState.append is LoadState.NotLoading && loadState.append.endOfPaginationReached && searchResults.itemCount == 0 -> {
-                        if (!isSemanticSearchEnabled) {
-                            noSearchResults(
-                                countsPerLanguageCode = countsPerLanguageCode,
-                                onLanguageClick = onLanguageClick
-                            )
-                        }
-                    }
-
-                    else -> {
-                        searchResultItems(
-                            searchResultsPage = searchResults,
-                            searchTerm = searchTerm.value,
-                            onItemClick = onNavigateToTitle,
-                            onItemLongClick = onItemLongClick
-                        )
-                    }
+                else -> {
+                    searchResultItems(
+                        searchResultsPage = searchResults,
+                        searchTerm = searchTerm.value,
+                        onItemClick = onNavigateToTitle,
+                        onItemLongClick = onItemLongClick
+                    )
                 }
             }
         }
