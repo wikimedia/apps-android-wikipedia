@@ -1,6 +1,19 @@
 package org.wikipedia.yearinreview.presentation
 
 import org.wikipedia.history.db.MonthVisitedDays
+import org.wikipedia.topics.ArticleTopic
+
+data class YearInReviewArticle(
+    val title: String,
+    val description: String,
+    val thumbnailUrl: String?
+)
+
+data class YearInReviewArticleViewCount(
+    val title: String,
+    val viewCount: Int,
+    val thumbnailUrl: String?
+)
 
 // Declared in the order the collective flow shows them. Values come from the remote config.
 enum class YearInReviewCollectiveInsight {
@@ -33,27 +46,27 @@ sealed interface YearInReviewPage {
         override val id = "time_spent"
     }
 
-    data class ReadingStreak(val isEmptyState: Boolean) : YearInReviewPage {
+    data class ReadingStreak(val isEmptyState: Boolean, val longestStreak: Int, val streakStartDate: String, val streakEndDate: String) : YearInReviewPage {
         override val id get() = if (isEmptyState) "reading_streak_empty" else "reading_streak"
     }
 
-    data class ReadingPattern(val isEmptyState: Boolean) : YearInReviewPage {
+    data class ReadingPattern(val isEmptyState: Boolean, val favoriteTime: String, val favoriteTimePercentage: Int) : YearInReviewPage {
         override val id get() = if (isEmptyState) "reading_pattern_empty" else "reading_pattern"
     }
 
-    data class TopTopic(val isEmptyState: Boolean) : YearInReviewPage {
+    data class TopTopic(val isEmptyState: Boolean, val topic: ArticleTopic, val articles: List<String>) : YearInReviewPage {
         override val id get() = if (isEmptyState) "top_topic_empty" else "top_topic"
     }
 
-    data object OtherTopTopics : YearInReviewPage {
+    data class OtherTopTopics(val topicArticleCounts: Map<ArticleTopic, Int>) : YearInReviewPage {
         override val id = "other_top_topics"
     }
 
-    data object BiggestReadingDay : YearInReviewPage {
+    data class BiggestReadingDay(val date: String, val minutesSpent: Int) : YearInReviewPage {
         override val id = "biggest_reading_day"
     }
 
-    data object BiggestReadingDayArticles : YearInReviewPage {
+    data class BiggestReadingDayArticles(val articles: List<YearInReviewArticle>) : YearInReviewPage {
         override val id = "biggest_reading_day_articles"
     }
 
@@ -73,31 +86,31 @@ sealed interface YearInReviewPage {
         override val id = "rabbit_hole_reveal"
     }
 
-    data object Category : YearInReviewPage {
+    data class Category(val categoryName: String) : YearInReviewPage {
         override val id = "category"
     }
 
-    data class RevisitedArticles(val isEmptyState: Boolean) : YearInReviewPage {
+    data class RevisitedArticles(val isEmptyState: Boolean, val articles: List<YearInReviewArticle>) : YearInReviewPage {
         override val id get() = if (isEmptyState) "revisited_articles_empty" else "revisited_articles"
     }
 
-    data class Geography(val isEmptyState: Boolean) : YearInReviewPage {
+    data class Geography(val isEmptyState: Boolean, val placeArticleCounts: Map<String, Int>) : YearInReviewPage {
         override val id get() = if (isEmptyState) "geography_empty" else "geography"
     }
 
-    data class SavedArticles(val isEmptyState: Boolean) : YearInReviewPage {
+    data class SavedArticles(val isEmptyState: Boolean, val savedCount: Int, val articles: List<YearInReviewArticleViewCount>) : YearInReviewPage {
         override val id get() = if (isEmptyState) "saved_articles_empty" else "saved_articles"
     }
 
-    data class TotalEdits(val isEmptyState: Boolean) : YearInReviewPage {
+    data class TotalEdits(val isEmptyState: Boolean, val editCount: Int) : YearInReviewPage {
         override val id get() = if (isEmptyState) "total_edits_empty" else "total_edits"
     }
 
-    data object EditedArticleViews : YearInReviewPage {
+    data class EditedArticleViews(val viewCount: Long) : YearInReviewPage {
         override val id = "edited_article_views"
     }
 
-    data object MostViewedEditedArticles : YearInReviewPage {
+    data class MostViewedEditedArticles(val articles: List<YearInReviewArticleViewCount>) : YearInReviewPage {
         override val id = "most_viewed_edited_articles"
     }
 

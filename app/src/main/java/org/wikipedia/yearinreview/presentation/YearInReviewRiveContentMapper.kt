@@ -1,11 +1,12 @@
 package org.wikipedia.yearinreview.presentation
 
 import android.content.res.Resources
+import android.view.View
 import org.wikipedia.R
 import org.wikipedia.topics.ArticleTopic
-import org.wikipedia.topics.ArticleTopics
 import org.wikipedia.yearinreview.data.YearInReviewConfig
 import org.wikipedia.yearinreview.data.YearInReviewReadingStats
+import java.text.NumberFormat
 import java.time.Month
 import java.time.format.TextStyle
 import java.util.concurrent.TimeUnit
@@ -67,112 +68,142 @@ object YearInReviewRiveContentMapper {
             textProperties = mapOf(
                 "headline" to resources.getString(if (page.isEmptyState) R.string.yir_reading_streak_empty_headline else R.string.yir_reading_streak_headline),
                 // TODO:
-                "data" to "",
+                "data" to page.longestStreak.toString(),
                 "bodyCopy" to if (page.isEmptyState) resources.getQuantityString(R.plurals.yir_reading_streak_empty_supporting, YearInReviewReadingStats.MIN_ARTICLES_READ, YearInReviewReadingStats.MIN_ARTICLES_READ)
-                else resources.getString(R.string.yir_reading_streak_supporting, "", "")
+                else resources.getString(R.string.yir_reading_streak_supporting, page.streakStartDate, page.streakEndDate)
             )
         )
         is YearInReviewPage.ReadingPattern -> RiveSlideContent(
             spec = allTemplatesSlideSpec(if (page.isEmptyState) "frame5-empty" else "frame5"),
             textProperties = mapOf(
                 "headline" to resources.getString(if (page.isEmptyState) R.string.yir_reading_time_empty_headline else R.string.yir_reading_time_headline),
-                // TODO:
-                "data" to "",
+                "data" to page.favoriteTime,
                 "bodyCopy" to if (page.isEmptyState) resources.getString(R.string.yir_reading_time_empty_supporting)
-                else resources.getQuantityString(R.plurals.yir_reading_time_supporting, 0, 0)
+                else resources.getQuantityString(R.plurals.yir_reading_time_supporting, page.favoriteTimePercentage, page.favoriteTimePercentage)
             )
         )
         is YearInReviewPage.TopTopic -> RiveSlideContent(
             spec = allTemplatesSlideSpec(if (page.isEmptyState) "frame6-empty" else "frame6"),
             textProperties = mapOf(
                 "headline" to resources.getString(if (page.isEmptyState) R.string.yir_top_topic_empty_headline else R.string.yir_top_topic_headline, YearInReviewConfig.YEAR),
-                // TODO:
-                "data" to "",
+                "data" to if (page.isEmptyState) "" else resources.getString(page.topic.msgKey).uppercase(),
                 "bodyCopy" to if (page.isEmptyState) resources.getString(R.string.yir_top_topic_empty_supporting)
-                else resources.getQuantityString(R.plurals.yir_top_topic_supporting, 0, "", "", 0, getTopicComment(resources, ArticleTopics.all.first()))
+                else resources.getQuantityString(R.plurals.yir_top_topic_supporting, page.articles.size,
+                    page.articles.first(), page.articles.last(), page.articles.size, getTopicComment(resources, page.topic))
             )
         )
         is YearInReviewPage.OtherTopTopics -> RiveSlideContent(
-            spec = allTemplatesListSlideSpec("frame7"),
+            spec = allTemplatesListSlideSpec(artboardName = "frame7"),
             textProperties = mapOf(
-                "bodyText" to resources.getString(R.string.yir_runner_up_topics_headline),
-                // TODO
-            )
+                "bodyText" to resources.getString(R.string.yir_runner_up_topics_headline, YearInReviewConfig.YEAR)
+            ) + listRows(page.topicArticleCounts.map { (topic, count) ->
+                resources.getString(topic.msgKey) to resources.getQuantityString(R.plurals.yir_runner_up_topics_article_count, count, count)
+            })
         )
         is YearInReviewPage.BiggestReadingDay -> RiveSlideContent(
             spec = allTemplatesSlideSpec("frame8"),
             textProperties = mapOf(
                 "headline" to resources.getString(R.string.yir_biggest_reading_day_headline),
-                // TODO:
-                "data" to "",
-                "bodyCopy" to resources.getQuantityString(R.plurals.yir_biggest_reading_day_supporting, 0, 0)
+                "data" to page.date,
+                "bodyCopy" to resources.getQuantityString(R.plurals.yir_biggest_reading_day_supporting, page.minutesSpent, page.minutesSpent)
             )
         )
         is YearInReviewPage.BiggestReadingDayArticles -> RiveSlideContent(
-            spec = allTemplatesListSlideSpec("frame9"),
+            // v3 splits frame9 into a left-to-right and a right-to-left artboard, which share one state machine and instance
+            spec = allTemplatesSlideSpec(
+                artboardName = if (resources.configuration.layoutDirection == View.LAYOUT_DIRECTION_RTL) "frame9-rightToLeft" else "frame9-leftToRight",
+                viewModelName = "List",
+                instanceType = RiveInstanceType.Named("frame9"),
+                stateMachineName = "frame9-statemachine"
+            ),
             textProperties = mapOf(
-                "headline" to resources.getString(R.string.yir_articles_read_headline),
-                // TODO
-            )
+                "headline" to resources.getString(R.string.yir_articles_read_headline)
+            ) + listRows(page.articles.map { it.title to it.description }),
+            imageUrls = listIcons(page.articles.map { it.thumbnailUrl })
         )
         is YearInReviewPage.Category -> RiveSlideContent(
-            spec = allTemplatesSlideSpec("frame13"),
+            spec = allTemplatesSlideSpec("frame12", stateMachineName = "frame13-statemachine"),
             textProperties = mapOf(
                 "headline" to resources.getString(R.string.yir_niche_category_headline),
-                // TODO:
-                "data" to "",
+                "data" to page.categoryName,
                 "bodyCopy" to resources.getString(R.string.yir_niche_category_supporting)
             )
         )
-        is YearInReviewPage.RevisitedArticles -> RiveSlideContent(
-            spec = allTemplatesListSlideSpec(if (page.isEmptyState) "frame12-empty" else "frame12"),
-            textProperties = mapOf(
-                "headline" to resources.getString(R.string.yir_reread_articles_empty_headline),
-                // TODO:
-                "data" to "",
-                "bodyCopy" to resources.getString(if (page.isEmptyState) R.string.yir_reread_articles_empty_supporting else R.string.yir_reread_articles_headline)
+        is YearInReviewPage.RevisitedArticles -> if (page.isEmptyState) {
+            RiveSlideContent(
+                spec = allTemplatesListSlideSpec("frame13-empty", stateMachineName = "frame12-empty-statemachine"),
+                textProperties = mapOf(
+                    "headline" to resources.getString(R.string.yir_reread_articles_empty_headline),
+                    "bodyText" to resources.getString(R.string.yir_reread_articles_empty_supporting)
+                )
             )
-        )
-        is YearInReviewPage.Geography -> RiveSlideContent(
-            spec = allTemplatesListSlideSpec(if (page.isEmptyState) "frame14-empty" else "frame14"),
-            textProperties = mapOf(
-                "headline" to resources.getString(if (page.isEmptyState) R.string.yir_places_empty_headline else R.string.yir_places_headline),
-                // TODO
+        } else {
+            RiveSlideContent(
+                spec = allTemplatesListSlideSpec("frame13", stateMachineName = "frame12-statemachine"),
+                textProperties = mapOf(
+                    "bodyText" to resources.getString(R.string.yir_reread_articles_headline)
+                ) + listRows(page.articles.map { it.title to it.description }),
+                imageUrls = listIcons(page.articles.map { it.thumbnailUrl })
             )
-        )
-        is YearInReviewPage.SavedArticles -> RiveSlideContent(
-            spec = allTemplatesListSlideSpec(if (page.isEmptyState) "frame15-empty" else "frame15"),
-            textProperties = mapOf(
-                // TODO:
-                "headline" to resources.getString(R.string.yir_saved_articles_empty_headline),
-                "bodyCopy" to if (page.isEmptyState) resources.getString(R.string.yir_saved_articles_empty_supporting)
-                else resources.getQuantityString(R.plurals.yir_saved_articles_headline, 0, 0)
+        }
+        is YearInReviewPage.Geography -> if (page.isEmptyState) {
+            RiveSlideContent(
+                spec = allTemplatesListSlideSpec("frame14-empty"),
+                textProperties = mapOf(
+                    "headline" to resources.getString(R.string.yir_places_empty_headline),
+                    "bodyText" to resources.getString(R.string.yir_places_empty_supporting, YearInReviewConfig.YEAR)
+                )
             )
-        )
+        } else {
+            RiveSlideContent(
+                spec = allTemplatesListSlideSpec("frame14"),
+                textProperties = mapOf(
+                    "bodyText" to resources.getString(R.string.yir_places_headline)
+                ) + listRows(page.placeArticleCounts.map { (place, count) ->
+                    place to resources.getQuantityString(R.plurals.yir_places_article_count, count, count)
+                }),
+                imageUrls = listIcons(emptyList())
+            )
+        }
+        is YearInReviewPage.SavedArticles -> if (page.isEmptyState) {
+            RiveSlideContent(
+                spec = allTemplatesListSlideSpec("frame15-empty"),
+                textProperties = mapOf(
+                    "headline" to resources.getString(R.string.yir_saved_articles_empty_headline),
+                    "bodyText" to resources.getString(R.string.yir_saved_articles_empty_supporting)
+                )
+            )
+        } else {
+            RiveSlideContent(
+                spec = allTemplatesListSlideSpec("frame15"),
+                textProperties = mapOf(
+                    "bodyText" to resources.getQuantityString(R.plurals.yir_saved_articles_headline, page.savedCount, page.savedCount)
+                ) + listRows(page.articles.map { it.title to getViewCountText(resources, it.viewCount) }),
+                imageUrls = listIcons(page.articles.map { it.thumbnailUrl })
+            )
+        }
         is YearInReviewPage.TotalEdits -> RiveSlideContent(
             spec = allTemplatesSlideSpec(if (page.isEmptyState) "frame16-empty" else "frame16"),
             textProperties = mapOf(
-                // TODO:
                 "headline" to resources.getString(if (page.isEmptyState) R.string.yir_edits_empty_headline else R.string.yir_edits_headline),
-                "bodyCopy" to resources.getString(if (page.isEmptyState) R.string.yir_edits_empty_supporting else R.string.yir_edits_supporting),
-                "data" to ""
+                "data" to if (page.isEmptyState) "" else page.editCount.toString(),
+                "bodyCopy" to resources.getString(if (page.isEmptyState) R.string.yir_edits_empty_supporting else R.string.yir_edits_supporting)
             )
         )
         is YearInReviewPage.EditedArticleViews -> RiveSlideContent(
             spec = allTemplatesSlideSpec("frame17"),
             textProperties = mapOf(
-                // TODO:
                 "headline" to resources.getString(R.string.yir_edit_views_headline),
                 "bodyCopy" to resources.getString(R.string.yir_edit_views_supporting, YearInReviewConfig.YEAR),
-                "data" to ""
+                "data" to formatNumber(resources, page.viewCount)
             )
         )
         is YearInReviewPage.MostViewedEditedArticles -> RiveSlideContent(
             spec = allTemplatesListSlideSpec("frame18"),
             textProperties = mapOf(
-                // TODO:
                 "bodyText" to resources.getString(R.string.yir_most_viewed_edited_articles_headline)
-            )
+            ) + listRows(page.articles.map { it.title to getViewCountText(resources, it.viewCount) }),
+            imageUrls = listIcons(page.articles.map { it.thumbnailUrl })
         )
         is YearInReviewPage.ThankYou -> RiveSlideContent(
             spec = allTemplatesSlideSpec("end"),
@@ -220,11 +251,12 @@ private val AllTemplatesGlobalProperties = RiveGlobalViewModel(
 private fun allTemplatesSlideSpec(
     artboardName: String,
     viewModelName: String = "DataTemplate",
-    instanceType: RiveInstanceType = RiveInstanceType.Named(artboardName)
+    instanceType: RiveInstanceType = RiveInstanceType.Named(artboardName),
+    stateMachineName: String = "$artboardName-statemachine"
 ) = RiveSlideSpec(
-    resourceId = R.raw.all_templates_v2,
+    resourceId = R.raw.all_templates_v3,
     artboardName = artboardName,
-    stateMachineName = "$artboardName-statemachine",
+    stateMachineName = stateMachineName,
     viewModelName = viewModelName,
     instanceType = instanceType,
     globalViewModel = AllTemplatesGlobalProperties,
@@ -232,7 +264,33 @@ private fun allTemplatesSlideSpec(
 )
 
 // Artboards that show up to three articles or topics, each with an icon, title and subtitle
-private fun allTemplatesListSlideSpec(artboardName: String) = allTemplatesSlideSpec(artboardName, viewModelName = "List")
+private fun allTemplatesListSlideSpec(artboardName: String, stateMachineName: String = "$artboardName-statemachine") =
+    allTemplatesSlideSpec(artboardName, viewModelName = "List", stateMachineName = stateMachineName)
+
+// Fills the List view model's numbered rows. Rows without an item are cleared, so the instance's sample text doesn't show.
+private fun listRows(titlesAndSubtitles: List<Pair<String, String>>): Map<String, String> {
+    return (1..LIST_ROW_COUNT).flatMap { row ->
+        val (title, subtitle) = titlesAndSubtitles.getOrNull(row - 1) ?: ("" to "")
+        listOf("articleTitle$row" to title, "subTitle$row" to subtitle)
+    }.toMap()
+}
+
+// Rows without an image are cleared, so the instance's sample picture doesn't show
+private fun listIcons(imageUrls: List<String?>): Map<String, String?> {
+    return (1..LIST_ROW_COUNT).associate { row -> "icon$row" to imageUrls.getOrNull(row - 1) }
+}
+
+private const val LIST_ROW_COUNT = 3
+
+// "1,234 views"
+private fun getViewCountText(resources: Resources, viewCount: Int): String {
+    return resources.getQuantityString(R.plurals.yir_article_view_count, viewCount, formatNumber(resources, viewCount.toLong()))
+}
+
+// With the locale's own digits and separators, e.g. 1,234 in English and १,२३४ in Nepali
+private fun formatNumber(resources: Resources, number: Long): String {
+    return NumberFormat.getInstance(resources.configuration.locales[0]).format(number)
+}
 
 private fun getTimeSpentComment(resources: Resources, minutes: Long): String {
     return when {
