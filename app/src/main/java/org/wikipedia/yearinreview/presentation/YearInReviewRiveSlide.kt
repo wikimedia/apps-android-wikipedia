@@ -57,7 +57,6 @@ import org.wikipedia.util.log.L
 data class RiveSlideSpec(
     @param:RawRes val resourceId: Int,
     val artboardName: String,
-    val stateMachineName: String,
     val viewModelName: String,
     val instanceType: RiveInstanceType = RiveInstanceType.Default,
     val globalViewModel: RiveGlobalViewModel? = null,
@@ -241,7 +240,7 @@ private fun YearInReviewRiveArtboard(
     // loading the artboard and state machine from the rive file
     val artboardResult = rememberArtboardResult(file = riveFile, artboardName = spec.artboardName)
     val stateMachineResult = artboardResult.andThen { artboard ->
-        rememberStateMachineResult(artboard, spec.stateMachineName)
+        rememberStateMachineResult(artboard)
     }
     // creating ViewModel instance based on the spec
     val viewModelSource = ViewModelSource.Named(spec.viewModelName)
