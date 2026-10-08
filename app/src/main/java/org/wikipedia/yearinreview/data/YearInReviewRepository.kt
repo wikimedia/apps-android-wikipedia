@@ -16,7 +16,6 @@ import java.io.IOException
 
 interface YearInReviewRepository {
     suspend fun getYearInReview(): YearInReviewSnapshot
-    suspend fun getOnboardingDaysSpent(): Int
 }
 
 class YearInReviewRepositoryImpl(
@@ -56,13 +55,6 @@ class YearInReviewRepositoryImpl(
                 isEditor = (editingStats?.contributionsEditCount ?: 0) > 0
             )
         )
-    }
-
-    override suspend fun getOnboardingDaysSpent(): Int {
-        val remoteConfig = restService.getConfiguration().commonv1?.getYirForYear(YearInReviewConfig.YEAR)
-        val cachedStats = cache.get(YearInReviewConfig.YEAR)
-        val readingStats = cachedStats?.readingStats ?: getReadingStats(YearInReviewConfig.insightsDateRange(remoteConfig))
-        return readingStats.articlesReadCount
     }
 
     private suspend fun getReadingStats(dateRange: YearInReviewDateRange): YearInReviewReadingStats {
