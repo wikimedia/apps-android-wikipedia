@@ -58,6 +58,9 @@ interface HistoryEntryDao {
     @Query("DELETE FROM HistoryEntry")
     suspend fun deleteAll()
 
+    @Query("DELETE FROM HistoryEntry WHERE apiTitle LIKE :prefix || '%'")
+    suspend fun deleteByApiTitlePrefix(prefix: String)
+
     @Query("DELETE FROM HistoryEntry WHERE authority = :authority AND lang = :lang AND namespace = :namespace AND apiTitle = :apiTitle")
     suspend fun deleteBy(authority: String, lang: String, namespace: String?, apiTitle: String)
 

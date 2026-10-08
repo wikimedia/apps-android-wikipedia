@@ -2071,6 +2071,10 @@
     <string name="yir_top_topic_empty_headline">Your #1 topic of %1$d is… all of them</string>
     <string name="yir_top_topic_empty_supporting">With so many interests, there\'s no one topic that defined your reading habits.</string>
     <string name="yir_runner_up_topics_headline">And your runners-up for %1$d:</string>
+    <plurals name="yir_runner_up_topics_article_count">
+        <item quantity="one">%1$d article</item>
+        <item quantity="other">%1$d articles</item>
+    </plurals>
     <string name="yir_biggest_reading_day_headline">Biggest reading day:</string>
     <plurals name="yir_biggest_reading_day_supporting">
         <item quantity="one">You spent a total of %1$d minute on Wikipedia. How\'s that for being productive?</item>
@@ -2094,11 +2098,19 @@
     <string name="yir_reread_articles_empty_headline">You\'re not a re-reader</string>
     <string name="yir_reread_articles_empty_supporting">So much for looking at an article twice. You prefer novelty and falling down new rabbit holes.</string>
     <string name="yir_places_headline">Your reading practically took you to:</string>
+    <plurals name="yir_places_article_count">
+        <item quantity="one">Based on %1$d article</item>
+        <item quantity="other">Based on %1$d articles</item>
+    </plurals>
     <string name="yir_places_empty_headline">Your reading took you all over the map</string>
     <string name="yir_places_empty_supporting">In %1$d, you traveled all over Wikipedia. Check out the Places feature for ideas on where to go when you\'re on the go.</string>
     <plurals name="yir_saved_articles_headline">
         <item quantity="one">Article you saved for later: %1$d</item>
         <item quantity="other">Articles you saved for later: %1$d</item>
+    </plurals>
+    <plurals name="yir_article_view_count">
+        <item quantity="one">%1$s view</item>
+        <item quantity="other">%1$s views</item>
     </plurals>
     <string name="yir_saved_articles_empty_headline">You have 0 articles saved</string>
     <string name="yir_saved_articles_empty_supporting">You currently have 0 articles saved. Look for the bookmark icon on an article, so you can read up on whatever… later.</string>
