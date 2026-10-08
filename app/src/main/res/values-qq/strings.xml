@@ -2600,8 +2600,6 @@
   <string name="semantic_search_results_close_button_content_description">Text for the close the semantic search results button.</string>
   <string name="semantic_search_results_read_in_article_label">Text that indicates the full article is available in the article screen.</string>
   <string name="semantic_search_info_dialog_search_string">Text for the search string in the semantic search info dialog.</string>
-  <string name="semantic_search_info_dialog_sample_snippet">Text for the sample snippet in the semantic search info dialog. Please preserve the HTML span with class "searchmatch" (do not translate the class name), since it marks the highlighted passage. The span should wrap the sentence that answers the question.</string>
-    <string name="semantic_search_info_dialog_page_title_description">Article page title and description used for the info dialog</string>
   <plurals name="semantic_search_result_contributors">
       <item quantity="one">Text of the number of the contributors in the semantic search result. %d is replaced by the number of contributors.</item>
       <item quantity="other">Text of the number of the contributors in the semantic search result. %d is replaced by the number of contributors.</item>
