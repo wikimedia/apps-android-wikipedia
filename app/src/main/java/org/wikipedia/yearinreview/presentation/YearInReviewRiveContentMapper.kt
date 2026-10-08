@@ -160,8 +160,7 @@ object YearInReviewRiveContentMapper {
                     "bodyText" to resources.getString(R.string.yir_places_headline)
                 ) + listRows(page.placeArticleCounts.map { (place, count) ->
                     place to resources.getQuantityString(R.plurals.yir_places_article_count, count, count)
-                }),
-                imageUrls = listIcons(emptyList())
+                })
             )
         }
         is YearInReviewPage.SavedArticles -> if (page.isEmptyState) {
