@@ -91,22 +91,18 @@ private fun SemanticSearchInfoDialogContent(
     val layoutDirection =
         if (L10nUtil.isLangRTL(languageCode)) LayoutDirection.Rtl else LayoutDirection.Ltr
 
-    val snippet = stringResource(id = dialogTextData.snippet)
-    val title = stringResource(id = dialogTextData.title)
-    val sectionTitle = stringResource(id = dialogTextData.sectionTitle)
-    val thumbnailUrl = stringResource(id = dialogTextData.thumbnailUrl)
-
     val searchResult = SearchResult(
-        pageTitle = PageTitle(title, WikiSite.preview()).apply {
-            description = title
-            thumbUrl = thumbnailUrl
-        },
+        pageTitle = PageTitle(
+            stringResource(id = dialogTextData.title),
+            WikiSite.preview()).apply {
+                thumbUrl = stringResource(id = dialogTextData.thumbnailUrl)
+            },
         redirectFrom = null,
         type = SearchResultType.SEMANTIC,
         coordinates = null,
-        snippet = snippet,
+        snippet = stringResource(id = dialogTextData.snippet),
         indexInApiCall = 0,
-        sectionTitle = sectionTitle,
+        sectionTitle = stringResource(id = dialogTextData.sectionTitle),
         editCounts = 2348,
         referenceCounts = 35
     )
