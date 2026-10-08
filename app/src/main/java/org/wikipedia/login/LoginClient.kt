@@ -9,6 +9,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.dataclient.SharedPreferenceCookieManager
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.log.L
@@ -35,6 +36,11 @@ class LoginClient {
             if (Prefs.loginForceEmailAuth) {
                 enqueueForceEmailAuth = true
             }
+
+            // For investigating https://phabricator.wikimedia.org/T439670
+            // Not intended as a permanent solution, since this removes the user's temporary account, if they have one.
+            SharedPreferenceCookieManager.instance.clearAllCookies()
+
             val loginToken = token ?: getLoginToken(wiki)
             var loginResult = ServiceFactory.get(wiki).postLogIn(user = userName, pass = password, retype = retypedPassword,
                 twoFactorCode = twoFactorCode, emailAuthToken = emailAuthCode,

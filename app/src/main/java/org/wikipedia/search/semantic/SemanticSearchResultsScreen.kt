@@ -64,7 +64,6 @@ import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.platform.rememberNestedScrollInteropConnection
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.selected
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.LinkAnnotation
@@ -89,6 +88,8 @@ import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.extensions.getResources
+import org.wikipedia.extensions.getString
 import org.wikipedia.page.PageTitle
 import org.wikipedia.search.SearchResult
 import org.wikipedia.theme.Theme
@@ -138,6 +139,7 @@ fun SemanticSearchResultsScreen(
             )
 
             SemanticSearchResultsHeader(
+                languageCode = viewModel.languageCode,
                 onCloseClick = onCloseClick
             )
 
@@ -151,10 +153,13 @@ fun SemanticSearchResultsScreen(
                     onLoading(false)
                     val results = searchResultsState.data
                     if (results.isEmpty()) {
-                        SemanticSearchNoResultsContent()
+                        SemanticSearchNoResultsContent(
+                            languageCode = viewModel.languageCode
+                        )
                         return@CompositionLocalProvider
                     }
                     SemanticSearchFeedbackContent(
+                        languageCode = viewModel.languageCode,
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(bottom = 16.dp, start = 16.dp, end = 16.dp)
@@ -194,8 +199,10 @@ fun SemanticSearchResultsScreen(
 
 @Composable
 fun SemanticSearchResultsHeader(
+    languageCode: String,
     onCloseClick: () -> Unit
 ) {
+    val context = LocalContext.current
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -222,7 +229,7 @@ fun SemanticSearchResultsHeader(
             )
             Spacer(modifier = Modifier.width(2.dp))
             Text(
-                text = stringResource(R.string.semantic_search_beta_label),
+                text = context.getString(languageCode, R.string.semantic_search_beta_label),
                 style = MaterialTheme.typography.labelSmall,
                 fontWeight = FontWeight.Medium,
                 color = WikipediaTheme.colors.primaryColor
@@ -237,7 +244,7 @@ fun SemanticSearchResultsHeader(
         ) {
             Icon(
                 painter = painterResource(R.drawable.ic_close_black_24dp),
-                contentDescription = stringResource(R.string.semantic_search_results_close_button_content_description),
+                contentDescription = context.getString(languageCode, R.string.semantic_search_results_close_button_content_description),
                 tint = WikipediaTheme.colors.primaryColor
             )
         }
@@ -247,12 +254,14 @@ fun SemanticSearchResultsHeader(
 @Composable
 fun SemanticSearchFeedbackContent(
     modifier: Modifier,
+    languageCode: String,
     isVisible: Boolean,
     selectedRating: Boolean?,
     isInputAlwaysVisible: Boolean = false,
     onRatingClick: (Boolean) -> Unit,
     onSubmitClick: (isPositive: Boolean?, feedbackText: String) -> Unit
 ) {
+    val context = LocalContext.current
     val feedbackTextState = rememberTextFieldState()
     val focusManager = LocalFocusManager.current
 
@@ -270,21 +279,21 @@ fun SemanticSearchFeedbackContent(
             ) {
                 Text(
                     modifier = Modifier.weight(1f),
-                    text = stringResource(R.string.semantic_search_results_feedback_title),
+                    text = context.getString(languageCode, R.string.semantic_search_results_feedback_title),
                     style = MaterialTheme.typography.bodyMedium,
                     color = WikipediaTheme.colors.primaryColor
                 )
                 SemanticSearchFeedbackRatingButton(
                     iconRes = R.drawable.ic_thumb_up,
                     selectedIconRes = R.drawable.ic_thumb_up_filled,
-                    contentDescription = stringResource(R.string.semantic_search_results_feedback_thumb_up_content_description),
+                    contentDescription = context.getString(languageCode, R.string.semantic_search_results_feedback_thumb_up_content_description),
                     isSelected = selectedRating == true,
                     onClick = { onRatingClick(true) }
                 )
                 SemanticSearchFeedbackRatingButton(
                     iconRes = R.drawable.ic_thumb_down,
                     selectedIconRes = R.drawable.ic_thumb_down_filled,
-                    contentDescription = stringResource(R.string.semantic_search_results_feedback_thumb_down_content_description),
+                    contentDescription = context.getString(languageCode, R.string.semantic_search_results_feedback_thumb_down_content_description),
                     isSelected = selectedRating == false,
                     onClick = { onRatingClick(false) }
                 )
@@ -306,7 +315,7 @@ fun SemanticSearchFeedbackContent(
                         shape = RoundedCornerShape(4.dp),
                         placeholder = {
                             Text(
-                                text = stringResource(R.string.semantic_search_results_feedback_input_hint)
+                                text = context.getString(languageCode, R.string.semantic_search_results_feedback_input_hint)
                             )
                         },
                         colors = OutlinedTextFieldDefaults.colors(
@@ -332,7 +341,7 @@ fun SemanticSearchFeedbackContent(
                         }
                     ) {
                         Text(
-                            text = stringResource(R.string.semantic_search_results_feedback_submit_button_text),
+                            text = context.getString(languageCode, R.string.semantic_search_results_feedback_submit_button_text),
                             style = MaterialTheme.typography.labelLarge.copy(fontSize = 16.sp)
                         )
                     }
@@ -364,8 +373,10 @@ private fun SemanticSearchFeedbackRatingButton(
 
 @Composable
 fun SemanticSearchNoResultsContent(
+    languageCode: String,
     modifier: Modifier = Modifier
 ) {
+    val context = LocalContext.current
     Column(
         modifier = modifier
             .fillMaxWidth()
@@ -378,7 +389,7 @@ fun SemanticSearchNoResultsContent(
         )
         Spacer(modifier = Modifier.height(16.dp))
         Text(
-            text = stringResource(R.string.semantic_search_no_results_message),
+            text = context.getString(languageCode, R.string.semantic_search_no_results_message),
             color = WikipediaTheme.colors.primaryColor,
             style = MaterialTheme.typography.bodyMedium,
             textAlign = TextAlign.Center
@@ -421,6 +432,7 @@ fun SemanticSearchResultsContent(
             items(items.size, key = { items[it].pageTitle }) { index ->
                 val searchResult = items[index]
                 SemanticSearchResultCard(
+                    languageCode = viewModel.languageCode,
                     prefixQuotationMark = SemanticSearchHelper.getQuotationMark(viewModel.languageCode),
                     showLastUpdatedTime = viewModel.languageCode == "ar",
                     searchResult = searchResult,
@@ -437,6 +449,7 @@ fun SemanticSearchResultsContent(
 @Composable
 fun SemanticSearchResultCard(
     modifier: Modifier = Modifier,
+    languageCode: String,
     prefixQuotationMark: String,
     showLastUpdatedTime: Boolean,
     searchResult: SearchResult,
@@ -444,6 +457,7 @@ fun SemanticSearchResultCard(
     showReadInArticleText: Boolean = true,
     onLinkClick: (String) -> Unit
 ) {
+    val context = LocalContext.current
     val articlePath = listOfNotNull(
         searchResult.pageTitle.displayText.takeIf { it.isNotBlank() },
         searchResult.sectionTitle?.takeIf { it.isNotBlank() }
@@ -507,9 +521,9 @@ fun SemanticSearchResultCard(
 
             Spacer(modifier = Modifier.height(4.dp))
 
-            if (showReadInArticleText) {
+            if (showReadInArticleText){
                 Text(
-                    text = stringResource(R.string.semantic_search_results_read_in_article_label),
+                    text = context.getString(languageCode, R.string.semantic_search_results_read_in_article_label),
                     fontWeight = FontWeight.Medium,
                     fontSize = 13.sp,
                     color = WikipediaTheme.colors.secondaryColor
@@ -585,9 +599,9 @@ fun SemanticSearchResultCard(
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     val itemIcon = if (showLastUpdatedTime) R.drawable.ic_schedule_24dp else
                         R.drawable.ic_references_24dp
-                    val itemText = if (showLastUpdatedTime) stringResource(R.string.semantic_search_results_last_updated_label,
+                    val itemText = if (showLastUpdatedTime) context.getString(languageCode, R.string.semantic_search_results_last_updated_label,
                         DateUtil.getMonthWithYearString(lastUpdatedDate)) else
-                        pluralStringResource(R.plurals.semantic_search_result_references, referenceCounts, referenceCounts)
+                        context.getResources(languageCode).getQuantityString(R.plurals.semantic_search_result_references, referenceCounts, referenceCounts)
                     Icon(
                         painter = painterResource(itemIcon),
                         modifier = Modifier.size(15.dp),
@@ -644,6 +658,7 @@ fun SemanticSearchResultCardPreview() {
         currentTheme = Theme.LIGHT
     ) {
         SemanticSearchResultCard(
+            languageCode = wikiSite.languageCode,
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(16.dp),
@@ -668,6 +683,7 @@ fun SemanticSearchFeedbackContentPreview() {
     ) {
         SemanticSearchFeedbackContent(
             modifier = Modifier,
+            languageCode = "en",
             isVisible = true,
             selectedRating = true,
             onRatingClick = {},
@@ -682,6 +698,9 @@ fun SemanticSearchNoResultsPreview() {
     BaseTheme(
         currentTheme = Theme.LIGHT
     ) {
-        SemanticSearchNoResultsContent()
+        SemanticSearchNoResultsContent(
+            languageCode = "en",
+            modifier = Modifier
+        )
     }
 }

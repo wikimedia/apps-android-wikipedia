@@ -4,7 +4,6 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -17,6 +16,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.search.SearchResult
 import org.wikipedia.util.UiState
+import kotlin.time.Duration.Companion.milliseconds
 
 class SemanticSearchResultsViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
@@ -35,13 +35,6 @@ class SemanticSearchResultsViewModel(savedStateHandle: SavedStateHandle) : ViewM
 
     init {
         loadSemanticSearchResults()
-        if (showFeedback) {
-            viewModelScope.launch {
-                delay(FEEDBACK_DISPLAY_DELAY_MILLIS)
-                semanticSearchResultsState.first { it is UiState.Success && it.data.isNotEmpty() }
-                _feedbackState.update { it.copy(isVisible = true) }
-            }
-        }
     }
 
     fun selectFeedbackRating(isPositive: Boolean) {
@@ -60,7 +53,6 @@ class SemanticSearchResultsViewModel(savedStateHandle: SavedStateHandle) : ViewM
         return true
     }
 
-    @OptIn(FlowPreview::class)
     fun loadSemanticSearchResults() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             _semanticSearchResultsState.value = UiState.Error(throwable)
@@ -98,6 +90,18 @@ class SemanticSearchResultsViewModel(savedStateHandle: SavedStateHandle) : ViewM
                 launch {
                     loadAttribution(wikiSite, it)
                 }
+            }
+
+            initFeedbackState()
+        }
+    }
+
+    private fun initFeedbackState() {
+        if (showFeedback) {
+            viewModelScope.launch {
+                delay(FEEDBACK_DISPLAY_DELAY_MILLIS.milliseconds)
+                semanticSearchResultsState.first { it is UiState.Success && it.data.isNotEmpty() }
+                _feedbackState.update { it.copy(isVisible = true) }
             }
         }
     }
