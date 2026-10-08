@@ -590,7 +590,7 @@ fun SemanticSearchResultCard(
                     )
                     Spacer(modifier = Modifier.width(4.dp))
                     Text(
-                        text = pluralStringResource(R.plurals.semantic_search_result_contributors, editCount, editCount),
+                        text = context.getResources(languageCode).getQuantityString(R.plurals.semantic_search_result_contributors, editCount, editCount),
                         fontSize = 12.sp,
                         color = WikipediaTheme.colors.secondaryColor
                     )
