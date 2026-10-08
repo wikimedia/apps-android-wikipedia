@@ -2268,4 +2268,15 @@
   <plurals name="reading_lists_unsave_articles_confirm_dialog_message">
     <item quantity="other">保存解除すると、すべての関連付けられたコレクションから記事を除去します。</item>
   </plurals>
+  <string name="yir_articles_read_headline">あなたが読んだ記事の一部：</string>
+  <string name="yir_intro_headline">Wikipediaの1年のふりかえりが届きました</string>
+  <plurals name="yir_intro_supporting">
+    <item quantity="other">%2$d年、Wikipediaアプリで%1$d日間を過ごしていただきありがとうございます。</item>
+  </plurals>
+  <string name="yir_article_count_headline">あなたが読んだ記事の総数：</string>
+  <plurals name="yir_article_count_supporting_top">
+    <item quantity="other">これは世界のWikipedia読者の上位%1$s%%に入る数です。平均的な読者は年間%2$d本の記事を読みます。</item>
+  </plurals>
+  <string name="yir_article_count_empty_headline">発見を待つ記事が何百万本もあります</string>
+  <string name="yir_article_count_empty_supporting">Wikipediaで学べることの多さに、きっと驚くはずです。</string>
 </resources>

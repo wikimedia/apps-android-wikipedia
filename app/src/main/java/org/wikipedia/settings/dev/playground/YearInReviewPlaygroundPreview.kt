@@ -1,11 +1,14 @@
 package org.wikipedia.settings.dev.playground
 
+import android.text.TextUtils
+import android.view.View
 import org.wikipedia.history.db.MonthVisitedDays
 import org.wikipedia.topics.ArticleTopics
 import org.wikipedia.yearinreview.data.YearInReviewConfig
 import org.wikipedia.yearinreview.presentation.YearInReviewArticle
 import org.wikipedia.yearinreview.presentation.YearInReviewArticleViewCount
 import org.wikipedia.yearinreview.presentation.YearInReviewPage
+import java.util.Locale
 
 // Fixed decks that skip the flow decider, so every slide can be seen before its data is built.
 // A new page type needs a line here, or it can't be previewed.
@@ -34,23 +37,7 @@ object YearInReviewPlaygroundPreview {
         ),
         YearInReviewPage.BiggestReadingDay(date = "September 30", minutesSpent = 423),
         YearInReviewPage.BiggestReadingDayArticles(
-            articles = listOf(
-                YearInReviewArticle(
-                    title = "Association football",
-                    description = "Team sport played with a ball",
-                    thumbnailUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Football_in_Bloomington%2C_Indiana%2C_1995.jpg/120px-Football_in_Bloomington%2C_Indiana%2C_1995.jpg"
-                ),
-                YearInReviewArticle(
-                    title = "Computer",
-                    description = "Programmable machine that processes data",
-                    thumbnailUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/ENIAC-changing_a_tube_%28cropped%29.jpg/120px-ENIAC-changing_a_tube_%28cropped%29.jpg"
-                ),
-                YearInReviewArticle(
-                    title = "Amazon rainforest",
-                    description = "Large rainforest in South America",
-                    thumbnailUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Amazon17_%285641020319%29.jpg/120px-Amazon17_%285641020319%29.jpg"
-                )
-            ).takeRandomCount()
+            articles = localizedSampleArticles.takeRandomCount()
         ),
         YearInReviewPage.Category(categoryName = "LIGHTHOUSES IN SCOTLAND"),
         YearInReviewPage.RevisitedArticles(
@@ -119,6 +106,36 @@ object YearInReviewPlaygroundPreview {
         YearInReviewPage.ThankYou(isEditor = true, isDonor = true),
         YearInReviewPage.YouMatter(showLoginPrompt = false),
         YearInReviewPage.End
+    )
+
+    private val localizedSampleArticles get() = when {
+        TextUtils.getLayoutDirectionFromLocale(Locale.getDefault()) == View.LAYOUT_DIRECTION_RTL -> arabicSampleArticles
+        Locale.getDefault().language == "ja" -> japaneseSampleArticles
+        else -> englishSampleArticles
+    }
+
+    private val footballThumbnailUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Football_in_Bloomington%2C_Indiana%2C_1995.jpg/120px-Football_in_Bloomington%2C_Indiana%2C_1995.jpg"
+    private val computerThumbnailUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/ENIAC-changing_a_tube_%28cropped%29.jpg/120px-ENIAC-changing_a_tube_%28cropped%29.jpg"
+    private val rainforestThumbnailUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Amazon17_%285641020319%29.jpg/120px-Amazon17_%285641020319%29.jpg"
+
+    private val englishSampleArticles = listOf(
+        YearInReviewArticle(title = "Association football", description = "Team sport played with a ball", thumbnailUrl = footballThumbnailUrl),
+        YearInReviewArticle(title = "Computer", description = "Programmable machine that processes data", thumbnailUrl = computerThumbnailUrl),
+        YearInReviewArticle(title = "Amazon rainforest", description = "Large rainforest in South America", thumbnailUrl = rainforestThumbnailUrl)
+    )
+
+    // Lets Design check the right-to-left artboards with real Arabic text
+    private val arabicSampleArticles = listOf(
+        YearInReviewArticle(title = "كرة القدم", description = "رياضة جماعية تُلعب بالكرة", thumbnailUrl = footballThumbnailUrl),
+        YearInReviewArticle(title = "حاسوب", description = "آلة قابلة للبرمجة لمعالجة البيانات", thumbnailUrl = computerThumbnailUrl),
+        YearInReviewArticle(title = "غابات الأمازون المطيرة", description = "غابة مطيرة كبيرة في أمريكا الجنوبية", thumbnailUrl = rainforestThumbnailUrl)
+    )
+
+    // Lets Design check non-Latin text in a left-to-right list
+    private val japaneseSampleArticles = listOf(
+        YearInReviewArticle(title = "サッカー", description = "ボールを使うチームスポーツ", thumbnailUrl = footballThumbnailUrl),
+        YearInReviewArticle(title = "コンピュータ", description = "データを処理するプログラム可能な機械", thumbnailUrl = computerThumbnailUrl),
+        YearInReviewArticle(title = "アマゾン熱帯雨林", description = "南アメリカにある広大な熱帯雨林", thumbnailUrl = rainforestThumbnailUrl)
     )
 
     // Visits has no empty state: it's left out of the flow instead

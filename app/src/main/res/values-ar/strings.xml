@@ -2538,4 +2538,5 @@
   <string name="home_feed_settings_modules_title">الوحدات</string>
   <string name="home_feed_did_you_know_title">هل تعلم؟</string>
   <string name="home_feed_did_you_know_subtitle">حقائق مثيرة للاهتمام من مقالات اختارها محررون متطوعون</string>
+  <string name="yir_articles_read_headline">لمحة عن المقالات التي قرأتها:</string>
 </resources>
