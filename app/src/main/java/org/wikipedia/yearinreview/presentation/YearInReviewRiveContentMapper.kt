@@ -109,12 +109,11 @@ object YearInReviewRiveContentMapper {
             )
         )
         is YearInReviewPage.BiggestReadingDayArticles -> RiveSlideContent(
-            // v3 splits frame9 into a left-to-right and a right-to-left artboard, which share one state machine and instance
+            // v3 splits frame9 into a left-to-right and a right-to-left artboard, which share one instance
             spec = allTemplatesSlideSpec(
                 artboardName = if (resources.configuration.layoutDirection == View.LAYOUT_DIRECTION_RTL) "frame9-rightToLeft" else "frame9-leftToRight",
                 viewModelName = "List",
-                instanceType = RiveInstanceType.Named("frame9"),
-                stateMachineName = "frame9-statemachine"
+                instanceType = RiveInstanceType.Named("frame9")
             ),
             textProperties = mapOf(
                 "headline" to resources.getString(R.string.yir_articles_read_headline)
@@ -122,7 +121,7 @@ object YearInReviewRiveContentMapper {
             imageUrls = listIcons(page.articles.map { it.thumbnailUrl })
         )
         is YearInReviewPage.Category -> RiveSlideContent(
-            spec = allTemplatesSlideSpec("frame12", stateMachineName = "frame13-statemachine"),
+            spec = allTemplatesSlideSpec("frame12"),
             textProperties = mapOf(
                 "headline" to resources.getString(R.string.yir_niche_category_headline),
                 "data" to page.categoryName,
@@ -131,7 +130,7 @@ object YearInReviewRiveContentMapper {
         )
         is YearInReviewPage.RevisitedArticles -> if (page.isEmptyState) {
             RiveSlideContent(
-                spec = allTemplatesListSlideSpec("frame13-empty", stateMachineName = "frame12-empty-statemachine"),
+                spec = allTemplatesListSlideSpec("frame13-empty"),
                 textProperties = mapOf(
                     "headline" to resources.getString(R.string.yir_reread_articles_empty_headline),
                     "bodyText" to resources.getString(R.string.yir_reread_articles_empty_supporting)
@@ -139,7 +138,7 @@ object YearInReviewRiveContentMapper {
             )
         } else {
             RiveSlideContent(
-                spec = allTemplatesListSlideSpec("frame13", stateMachineName = "frame12-statemachine"),
+                spec = allTemplatesListSlideSpec("frame13"),
                 textProperties = mapOf(
                     "bodyText" to resources.getString(R.string.yir_reread_articles_headline)
                 ) + listRows(page.articles.map { it.title to it.description }),
@@ -247,16 +246,14 @@ private val AllTemplatesGlobalProperties = RiveGlobalViewModel(
     )
 )
 
-// In all_templates.riv, each artboard has a matching state machine and a same-named view model instance holding sample text
+// In all_templates.riv, each artboard has a same-named view model instance holding sample text
 private fun allTemplatesSlideSpec(
     artboardName: String,
     viewModelName: String = "DataTemplate",
-    instanceType: RiveInstanceType = RiveInstanceType.Named(artboardName),
-    stateMachineName: String = "$artboardName-statemachine"
+    instanceType: RiveInstanceType = RiveInstanceType.Named(artboardName)
 ) = RiveSlideSpec(
     resourceId = R.raw.all_templates_v3,
     artboardName = artboardName,
-    stateMachineName = stateMachineName,
     viewModelName = viewModelName,
     instanceType = instanceType,
     globalViewModel = AllTemplatesGlobalProperties,
@@ -264,8 +261,7 @@ private fun allTemplatesSlideSpec(
 )
 
 // Artboards that show up to three articles or topics, each with an icon, title and subtitle
-private fun allTemplatesListSlideSpec(artboardName: String, stateMachineName: String = "$artboardName-statemachine") =
-    allTemplatesSlideSpec(artboardName, viewModelName = "List", stateMachineName = stateMachineName)
+private fun allTemplatesListSlideSpec(artboardName: String) = allTemplatesSlideSpec(artboardName, viewModelName = "List")
 
 // Fills the List view model's numbered rows. Rows without an item are cleared, so the instance's sample text doesn't show.
 private fun listRows(titlesAndSubtitles: List<Pair<String, String>>): Map<String, String> {
