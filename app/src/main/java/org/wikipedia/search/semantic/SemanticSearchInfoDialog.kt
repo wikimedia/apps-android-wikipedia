@@ -151,7 +151,8 @@ private fun SemanticSearchInfoDialogContent(
                                 // ignore in-article links
                             },
                             showLastUpdatedTime = false,
-                            showReadInArticleText = false
+                            showReadInArticleText = false,
+                            languageCode = languageCode
                         )
 
                         AppButton(
