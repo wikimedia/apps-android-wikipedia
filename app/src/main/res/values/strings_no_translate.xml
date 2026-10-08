@@ -115,4 +115,25 @@
     <string name="splash_clip_from" translatable="false">M 0 0 L 0 432 L 432 432 L 432 0 Z M 307.7 168.32 C 307.7 168.32 307.7 168.32 307.7 168.32 C 307.7 168.32 307.7 168.32 307.7 168.32 C 307.7 168.32 307.7 168.32 307.7 168.32 C 307.7 168.32 307.7 168.32 307.7 168.32 Z</string>
     <string name="splash_clip_to" translatable="false">M 0 0 L 0 432 L 432 432 L 432 0 Z M 307.7 168.32 C 307.7 168.32 307.7 168.32 307.7 168.32 C 307.7 168.32 307.7 168.32 307.7 168.32 C 307.7 168.32 307.7 168.32 307.7 168.32 C 307.7 168.32 307.7 168.32 307.7 168.32 Z</string>
     <string name="splash_star" translatable="false">M Z</string>
+
+    <!-- Semantic Search Curated Content for info Dialog -->
+    <string name="semantic_search_info_dialog_article_title_en" translatable="false">Moon</string>
+    <string name="semantic_search_info_dialog_article_section_title_en" translatable="false">Formation</string>
+    <string name="semantic_search_info_dialog_sample_snippet_en" translatable="false"><![CDATA[The prevailing theory is that the Earth–Moon system formed after a giant impact of a Mars -sized body (named Theia) with the proto-Earth. <span class=\"searchmatch\">The oblique impact blasted material into orbit about the Earth</span> and the material accreted and formed the Moon just beyond the Earth&#039;s Roche limit of ~ 2.56 R.]]></string>
+    <string name="semantic_search_info_dialog_article_thumbnail_url_en" translatable="false">https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/FullMoon2010.jpg/120px-FullMoon2010.jpg</string>
+
+    <string name="semantic_search_info_dialog_article_title_ar" translatable="false">القمر</string>
+    <string name="semantic_search_info_dialog_article_section_title_ar" translatable="false">نشوء القمر</string>
+    <string name="semantic_search_info_dialog_sample_snippet_ar" translatable="false"><![CDATA[اقترحت عدة نظريات لتفسير تشكل القمر قبل 4.527 ± 0.010 مليار سنة، إحدى الفرضيات تفرض بأن القمر انشطر من القشرة الأرضية بسبب القوة الطاردة المركزية ، خلال فترة امتدت بين 30 و50 مليون سنة من تشكل المجموعة الشمسية ، والذي يتطلب دورانا ذاتيا ، كبيرا للأرض وقد نجحت الجاذبية في وضع القمر المتشكل في مسار حولها والذي سيتطلب بدوره توسعا كبيرا للغلاف الجوي الأرضي لتبديد الطاقة الناتجة عن ابتعاد القمر ومرروه، ليعاد تشكيل القمر والأرض ضمن القرص المزود الأساسي. وهذا لا يستطيع تفسير استنزاف الحديد من القمر. كما لا تستطيع هذه الفرضية تفسير الزخم الزاوي الكبير لنظام الأرض-قمر.]]></string>
+    <string name="semantic_search_info_dialog_article_thumbnail_url_ar" translatable="false">https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/FullMoon2010.jpg/120px-FullMoon2010.jpg</string>
+
+    <string name="semantic_search_info_dialog_article_title_fr" translatable="false">Lune</string>
+    <string name="semantic_search_info_dialog_article_section_title_fr" translatable="false">Formation</string>
+    <string name="semantic_search_info_dialog_sample_snippet_fr" translatable="false"><![CDATA[<span class=\"searchmatch\">La Lune commence à se former il y a 4,51 milliards d&#039;années</span>, de 30 à 60 millions d&#039;années après la formation du Système solaire,. Plusieurs mécanismes de formation sont proposés, parmi lesquels la séparation de la Lune à partir de la croûte terrestre par la force centrifuge (ce qui exigerait une vitesse de rotation initiale de la Terre trop élevée),, la capture gravitationnelle d&#039;une Lune préformée (ce qui nécessiterait cependant une atmosphère terrestre étendue irréaliste pour dissiper l&#039;énergie de la Lune de passage), et la co-formation de la Terre et de la Lune dans le disque d&#039;accrétion primordial (ce qui ne peut pas expliquer la disparition des métaux dans la Lune),,. Ces hypothèses ne peuvent pas non plus expliquer le moment cinétique élevé du système Terre-Lune]]></string>
+    <string name="semantic_search_info_dialog_article_thumbnail_url_fr" translatable="false">https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/FullMoon2010.jpg/120px-FullMoon2010.jpg</string>
+
+    <string name="semantic_search_info_dialog_article_title_ja" translatable="false">月</string>
+    <string name="semantic_search_info_dialog_article_section_title_ja" translatable="false">古典的学説</string>
+    <string name="semantic_search_info_dialog_sample_snippet_ja" translatable="false"><![CDATA[だが、いずれの説も現在の月の力学的・物質科学的な特徴を矛盾なく説明することができなかった。まず、親子説では地球-月系の現在の全 角運動量 を原始地球が単独で持っていたとは考えにくい。兄弟説では月の平均密度から推定される全体的な組成が、地球と比較して金属鉄に乏しいことを説明できない。また、他人説では地球の重力圏外から進入する月が、地球からちょうど良い距離に接近して衛星軌道へ捕らえられる可能性が低い。また、 アポロ計画 により採取された 月の石 の分析結果から判明した地球の マントル と月の石の化学組成や 酸素同位体 比の類似性も、他人説は説明できない。一方で、 月の石 の 放射年代測定 により月が<span class="searchmatch">約45億5000万年前に</span>誕生したこと、月の高地が斜長岩からなることから月はその歴史の初期に高温だったことが明らかとなった。これらの証拠から、有力視されるようになったのが巨大衝突説である。]]></string>
+    <string name="semantic_search_info_dialog_article_thumbnail_url_ja" translatable="false">https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Full_Moon_Luc_Viatour.jpg/120px-Full_Moon_Luc_Viatour.jpg</string>
 </resources>

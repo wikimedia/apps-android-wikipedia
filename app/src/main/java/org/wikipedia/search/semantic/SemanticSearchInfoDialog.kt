@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -20,6 +21,7 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -40,7 +42,7 @@ import org.wikipedia.search.SearchResult
 import org.wikipedia.search.SearchResult.SearchResultType
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.UriUtil
-
+import org.wikipedia.extensions.getString
 class SemanticSearchInfoDialog : ExtendedBottomSheetDialogFragment(startExpanded = true) {
 
     private val languageCode: String
@@ -83,30 +85,27 @@ private fun SemanticSearchInfoDialogContent(
     quotationMark: String,
     languageCode: String
 ) {
+    val context = LocalContext.current
+    val dialogTextData = getSemanticSearchInfoDialogText(languageCode)
     val layoutDirection =
         if (L10nUtil.isLangRTL(languageCode)) LayoutDirection.Rtl else LayoutDirection.Ltr
 
-    val thumbUrlByLanguage = when (languageCode) {
-        "ja" -> "https://upload.wikimedia.org/wikipedia/commons/d/dd/Full_Moon_Luc_Viatour.jpg?utm_source=ja.wikipedia.org&utm_campaign=imageinfo&utm_content=original"
-        "ar" -> "https://upload.wikimedia.org/wikipedia/commons/e/e1/FullMoon2010.jpg?utm_source=ary.wikipedia.org&utm_campaign=imageinfo&utm_content=original"
-        "fr" -> "https://upload.wikimedia.org/wikipedia/commons/e/e1/FullMoon2010.jpg?utm_source=fr.wikipedia.org&utm_campaign=imageinfo&utm_content=original"
-        else -> "https://upload.wikimedia.org/wikipedia/commons/e/e1/FullMoon2010.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original"
-    }
-
-    val snippet = stringResource(id = R.string.semantic_search_info_dialog_sample_snippet)
-    val titleAndDescription = stringResource(id = R.string.semantic_search_info_dialog_page_title_description)
+    val snippet = stringResource(id = dialogTextData.snippet)
+    val title = stringResource(id = dialogTextData.title)
+    val sectionTitle = stringResource(id = dialogTextData.sectionTitle)
+    val thumbnailUrl = stringResource(id = dialogTextData.thumbnailUrl)
 
     val searchResult = SearchResult(
-        pageTitle = PageTitle(titleAndDescription, WikiSite.preview()).apply {
-            description = titleAndDescription
-            thumbUrl = thumbUrlByLanguage
+        pageTitle = PageTitle(title, WikiSite.preview()).apply {
+            description = title
+            thumbUrl = thumbnailUrl
         },
         redirectFrom = null,
         type = SearchResultType.SEMANTIC,
         coordinates = null,
         snippet = snippet,
         indexInApiCall = 0,
-        sectionTitle = "",
+        sectionTitle = sectionTitle,
         editCounts = 2348,
         referenceCounts = 35
     )
@@ -114,8 +113,8 @@ private fun SemanticSearchInfoDialogContent(
     CompositionLocalProvider(LocalLayoutDirection provides layoutDirection) {
         BaseTheme {
             InfoActionScreen(
-                title = stringResource(id = R.string.semantic_search_info_dialog_title),
-                message = stringResource(id = R.string.semantic_search_info_dialog_message),
+                title = context.getString(languageCode, R.string.semantic_search_info_dialog_title),
+                message = context.getString(languageCode, R.string.semantic_search_info_dialog_message),
                 onCloseClick = onCloseClick,
                 bottomContent = {
                     Column(
@@ -134,7 +133,7 @@ private fun SemanticSearchInfoDialogContent(
                             )
                             Spacer(modifier = Modifier.width(8.dp))
                             Text(
-                                text = stringResource(id = R.string.semantic_search_info_dialog_search_string),
+                                text = context.getString(languageCode, R.string.semantic_search_info_dialog_search_string),
                                 color = WikipediaTheme.colors.primaryColor,
                                 style = MaterialTheme.typography.titleMedium,
                                 fontWeight = FontWeight(600),
@@ -165,7 +164,7 @@ private fun SemanticSearchInfoDialogContent(
                                 horizontalArrangement = Arrangement.Center
                             ) {
                                 Text(
-                                    text = stringResource(id = R.string.semantic_search_info_dialog_button_text),
+                                    text = context.getString(languageCode, R.string.on_this_day_game_menu_info),
                                     color = WikipediaTheme.colors.progressiveColor,
                                     style = MaterialTheme.typography.titleMedium
                                 )
@@ -184,6 +183,40 @@ private fun SemanticSearchInfoDialogContent(
         }
     }
 }
+
+private data class InfoDialogTextConfig(
+    @StringRes val title: Int,
+    @StringRes val sectionTitle: Int,
+    @StringRes val snippet: Int,
+    @StringRes val thumbnailUrl: Int
+)
+
+private fun getSemanticSearchInfoDialogText(languageCode: String): InfoDialogTextConfig {
+
+    return when (languageCode) {
+        "ja" -> InfoDialogTextConfig(
+                    title = R.string.semantic_search_info_dialog_article_title_ja,
+                    sectionTitle = R.string.semantic_search_info_dialog_article_section_title_ja,
+                    snippet = R.string.semantic_search_info_dialog_sample_snippet_ja,
+                    thumbnailUrl = R.string.semantic_search_info_dialog_article_thumbnail_url_ja)
+        "fr" -> InfoDialogTextConfig(
+                    title = R.string.semantic_search_info_dialog_article_title_fr,
+                    sectionTitle = R.string.semantic_search_info_dialog_article_section_title_fr,
+                    snippet = R.string.semantic_search_info_dialog_sample_snippet_fr,
+                    thumbnailUrl = R.string.semantic_search_info_dialog_article_thumbnail_url_fr)
+        "ar" -> InfoDialogTextConfig(
+                    title = R.string.semantic_search_info_dialog_article_title_ar,
+                    sectionTitle = R.string.semantic_search_info_dialog_article_section_title_ar,
+                    snippet = R.string.semantic_search_info_dialog_sample_snippet_ar,
+                    thumbnailUrl = R.string.semantic_search_info_dialog_article_thumbnail_url_ar)
+        else -> InfoDialogTextConfig(
+                    title = R.string.semantic_search_info_dialog_article_title_en,
+                    sectionTitle = R.string.semantic_search_info_dialog_article_section_title_en,
+                    snippet = R.string.semantic_search_info_dialog_sample_snippet_en,
+                    thumbnailUrl = R.string.semantic_search_info_dialog_article_thumbnail_url_en)
+    }
+}
+
 
 @Preview(showBackground = true)
 @Composable
