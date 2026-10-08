@@ -1,6 +1,7 @@
 package org.wikipedia.yearinreview.presentation
 
 import android.content.res.Resources
+import android.view.View
 import org.wikipedia.R
 import org.wikipedia.topics.ArticleTopic
 import org.wikipedia.topics.ArticleTopics
@@ -109,14 +110,19 @@ object YearInReviewRiveContentMapper {
             )
         )
         is YearInReviewPage.BiggestReadingDayArticles -> RiveSlideContent(
-            spec = allTemplatesListSlideSpec("frame9"),
+            // v3 splits frame9 into a left-to-right and a right-to-left artboard, which share one instance
+            spec = allTemplatesSlideSpec(
+                artboardName = if (resources.configuration.layoutDirection == View.LAYOUT_DIRECTION_RTL) "frame9-rightToLeft" else "frame9-leftToRight",
+                viewModelName = "List",
+                instanceType = RiveInstanceType.Named("frame9")
+            ),
             textProperties = mapOf(
                 "headline" to resources.getString(R.string.yir_articles_read_headline),
                 // TODO
             )
         )
         is YearInReviewPage.Category -> RiveSlideContent(
-            spec = allTemplatesSlideSpec("frame13"),
+            spec = allTemplatesSlideSpec("frame12"),
             textProperties = mapOf(
                 "headline" to resources.getString(R.string.yir_niche_category_headline),
                 // TODO:
@@ -125,7 +131,7 @@ object YearInReviewRiveContentMapper {
             )
         )
         is YearInReviewPage.RevisitedArticles -> RiveSlideContent(
-            spec = allTemplatesListSlideSpec(if (page.isEmptyState) "frame12-empty" else "frame12"),
+            spec = allTemplatesListSlideSpec(if (page.isEmptyState) "frame13-empty" else "frame13"),
             textProperties = mapOf(
                 "headline" to resources.getString(R.string.yir_reread_articles_empty_headline),
                 // TODO:
@@ -216,7 +222,7 @@ private val AllTemplatesGlobalProperties = RiveGlobalViewModel(
     )
 )
 
-// In all_templates.riv, each artboard has a matching state machine and a same-named view model instance holding sample text
+// In all_templates.riv, each artboard has same-named view model instance holding sample text
 private fun allTemplatesSlideSpec(
     artboardName: String,
     viewModelName: String = "DataTemplate",
@@ -224,7 +230,6 @@ private fun allTemplatesSlideSpec(
 ) = RiveSlideSpec(
     resourceId = R.raw.all_templates_v3,
     artboardName = artboardName,
-    stateMachineName = "$artboardName-statemachine",
     viewModelName = viewModelName,
     instanceType = instanceType,
     globalViewModel = AllTemplatesGlobalProperties,
