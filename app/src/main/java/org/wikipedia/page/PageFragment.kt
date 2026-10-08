@@ -802,14 +802,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                             return@postDelayed
                         }
                         model.title?.let {
-                            L.d("PCS jump-to-fragment ${it.highlightText}")
-                            if (!it.highlightText.isNullOrEmpty()) {
-                                bridge.evaluateImmediate(JavaScriptActionHandler.jumpToHighlightOrSection(it.fragment, it.highlightText)) { result ->
-                                    L.d("PCS jump-to-highlight $result")
-                                }
-                            } else if (!it.fragment.isNullOrEmpty()) {
-                                scrollToSection(it.fragment!!)
-                            }
+                            jumpToHighlightOrSection(it.fragment, it.highlightText)
                         }
                     }, scrollDelay.toLong())
                 }
@@ -1015,8 +1008,13 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 title == currentTab.backStack[currentTab.backStackPosition].title) {
             if (model.page == null || isRefresh) {
                 pageFragmentLoadState.loadFromBackStack()
-            } else if (!title.fragment.isNullOrEmpty()) {
-                scrollToSection(title.fragment!!)
+            } else {
+                // Keep model.title in sync so that a pending final_setup does not jump to a stale target.
+                model.title?.let {
+                    it.fragment = title.fragment
+                    it.highlightText = title.highlightText
+                }
+                jumpToHighlightOrSection(title.fragment, title.highlightText)
             }
             return
         }
@@ -1175,6 +1173,16 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             return
         }
         bridge.execute(JavaScriptActionHandler.prepareToScrollTo(sectionAnchor, false))
+    }
+
+    private fun jumpToHighlightOrSection(sectionAnchor: String?, highlightText: String?) {
+        if (!highlightText.isNullOrEmpty()) {
+            bridge.evaluate(JavaScriptActionHandler.jumpToHighlightOrSection(sectionAnchor, highlightText)) { result ->
+                // ignore
+            }
+        } else if (!sectionAnchor.isNullOrEmpty()) {
+            scrollToSection(sectionAnchor)
+        }
     }
 
     fun onPageLoadError(caught: Throwable) {
