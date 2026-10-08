@@ -5,7 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -20,17 +19,12 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.airbnb.lottie.compose.LottieAnimation
-import com.airbnb.lottie.compose.LottieCompositionSpec
-import com.airbnb.lottie.compose.LottieConstants
-import com.airbnb.lottie.compose.rememberLottieComposition
 import kotlinx.coroutines.delay
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
@@ -65,8 +59,6 @@ fun ExploreFeedBuildingScreen(
     modifier: Modifier = Modifier,
     onFinished: () -> Unit
 ) {
-    val animationAsset by rememberLottieComposition(LottieCompositionSpec.Asset("lottie/explore_feed_building.lottie"))
-
     LaunchedEffect(Unit) {
         delay(2000)
         onFinished()
@@ -96,15 +88,11 @@ fun ExploreFeedBuildingScreen(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            Box(
-                modifier = Modifier.height(185.dp)
-            ) {
-                LottieAnimation(
-                    modifier = Modifier.fillMaxSize(),
-                    composition = animationAsset,
-                    iterations = LottieConstants.IterateForever
-                )
-            }
+            ExploreFeedBuildingAnimation(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(185.dp)
+            )
         }
     }
 }
