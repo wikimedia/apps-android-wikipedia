@@ -204,20 +204,25 @@ object Prefs {
         get() = PrefsIoUtil.getLong(R.string.preference_key_page_last_shown, 0)
         set(value) = PrefsIoUtil.setLong(R.string.preference_key_page_last_shown, value)
 
-    val isImageDownloadEnabled
+    var isImageDownloadEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_images, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_images, value)
 
-    val isDownloadOnlyOverWiFiEnabled
+    var isDownloadOnlyOverWiFiEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_download_only_over_wifi, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_download_only_over_wifi, value)
 
-    val isDownloadingReadingListArticlesEnabled
+    var isDownloadingReadingListArticlesEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_download_reading_list_articles, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_download_reading_list_articles, value)
 
-    val isLinkPreviewEnabled
+    var isLinkPreviewEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_link_previews, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_link_previews, value)
 
-    val isCollapseTablesEnabled
+    var isCollapseTablesEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_collapse_tables, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_collapse_tables, value)
 
     fun getReadingListSortMode(defaultValue: Int): Int {
         return PrefsIoUtil.getInt(R.string.preference_key_reading_list_sort_mode, defaultValue)
@@ -327,6 +332,10 @@ object Prefs {
 
     fun preferOfflineContent(): Boolean {
         return PrefsIoUtil.getBoolean(R.string.preference_key_prefer_offline_content, false)
+    }
+
+    fun setPreferOfflineContent(enabled: Boolean) {
+        PrefsIoUtil.setBoolean(R.string.preference_key_prefer_offline_content, enabled)
     }
 
     var feedCardsEnabled
