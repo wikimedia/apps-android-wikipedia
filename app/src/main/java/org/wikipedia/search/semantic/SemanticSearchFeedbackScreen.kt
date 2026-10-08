@@ -21,9 +21,9 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -32,6 +32,7 @@ import androidx.compose.ui.unit.dp
 import org.wikipedia.R
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.extensions.getString
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.L10nUtil
 
@@ -47,6 +48,8 @@ fun SemanticSearchFeedbackScreen(
 ) {
     val layoutDirection =
         if (L10nUtil.isLangRTL(languageCode)) LayoutDirection.Rtl else LayoutDirection.Ltr
+
+    val context = LocalContext.current
 
     CompositionLocalProvider(LocalLayoutDirection provides layoutDirection) {
         Column(
@@ -69,7 +72,7 @@ fun SemanticSearchFeedbackScreen(
                         .align(Alignment.Center)
                         .fillMaxWidth(),
                     textAlign = TextAlign.Center,
-                    text = stringResource(R.string.semantic_search_feedback_dialog_title),
+                    text = context.getString(languageCode, R.string.semantic_search_feedback_dialog_title),
                     style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Medium),
                     color = WikipediaTheme.colors.primaryColor
                 )
@@ -80,7 +83,7 @@ fun SemanticSearchFeedbackScreen(
                 ) {
                     Icon(
                         painter = painterResource(R.drawable.ic_close_black_24dp),
-                        contentDescription = stringResource(R.string.semantic_search_feedback_dialog_close_button_content_description),
+                        contentDescription = context.getString(languageCode, R.string.semantic_search_feedback_dialog_close_button_content_description),
                         tint = WikipediaTheme.colors.primaryColor
                     )
                 }
@@ -94,6 +97,7 @@ fun SemanticSearchFeedbackScreen(
                     .fillMaxWidth()
                     .clip(RoundedCornerShape(16.dp))
                     .background(WikipediaTheme.colors.paperColor),
+                languageCode = languageCode,
                 isVisible = true,
                 selectedRating = selectedRating,
                 isInputAlwaysVisible = true,

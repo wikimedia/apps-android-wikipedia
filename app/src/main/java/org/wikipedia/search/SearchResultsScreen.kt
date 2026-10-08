@@ -74,6 +74,7 @@ fun SearchResultsScreen(
     onLanguageClick: (Int) -> Unit,
     onSemanticSearchClick: (String?) -> Unit,
     onSemanticSearchInfoClick: () -> Unit,
+    onSemanticSearchCloseClick: () -> Unit,
     onCloseSearch: () -> Unit,
     onRetrySearch: () -> Unit,
     onLoading: (Boolean) -> Unit,
@@ -135,8 +136,12 @@ fun SearchResultsScreen(
             if (shouldShowSemanticSearchEntryPoint) {
                 item {
                     SemanticSearchEntryCard(
+                        languageCode = languageCode.value,
                         searchTerm = searchTerm.value,
-                        onCloseClick = { viewModel.disableSemanticSearch() },
+                        onCloseClick = {
+                            viewModel.disableSemanticSearch()
+                            onSemanticSearchCloseClick()
+                        },
                         onInfoBtnClick = { onSemanticSearchInfoClick() },
                         onSemanticSearchClick = {
                             if (isSemanticSearchFirstUse.value) {

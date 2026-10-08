@@ -15,14 +15,18 @@ import androidx.lifecycle.repeatOnLifecycle
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
+import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.extensions.getString
 import org.wikipedia.extensions.instrument
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.readinglist.LongPressMenu
+import org.wikipedia.settings.SettingsActivity
+import org.wikipedia.util.FeedbackUtil
 
 class SearchResultsFragment : Fragment() {
 
@@ -105,6 +109,15 @@ class SearchResultsFragment : Fragment() {
                         },
                         onSemanticSearchInfoClick = {
                             callback()?.showSemanticSearchInfoDialog()
+                        },
+                        onSemanticSearchCloseClick = {
+                            val messageText = requireContext().getString(searchLanguageCode, R.string.semantic_search_snackbar_message)
+                            val actionButtonText = requireContext().getString(searchLanguageCode, R.string.semantic_search_snackbar_action_label)
+                            FeedbackUtil.makeSnackbar(requireActivity(), messageText)
+                                .setAction(actionButtonText) {
+                                    startActivity(SettingsActivity.newIntent(requireContext()))
+                                }
+                                .show()
                         }
                     )
                 }
