@@ -119,7 +119,7 @@
     <!-- Semantic Search Curated Content for info Dialog -->
     <string name="semantic_search_info_dialog_article_title_en" translatable="false">Moon</string>
     <string name="semantic_search_info_dialog_article_section_title_en" translatable="false">Formation</string>
-    <string name="semantic_search_info_dialog_sample_snippet_en" translatable="false"><![CDATA[The prevailing theory is that the Earth–Moon system formed after a giant impact of a Mars -sized body (named Theia) with the proto-Earth. <span class=\"searchmatch\">The oblique impact blasted material into orbit about the Earth</span> and the material accreted and formed the Moon just beyond the Earth&#039;s Roche limit of ~ 2.56 R.]]></string>
+    <string name="semantic_search_info_dialog_sample_snippet_en" translatable="false"><![CDATA[The prevailing theory is that the Earth–Moon system formed after a giant impact of a Mars-sized body (named Theia) with the proto-Earth. <span class=\"searchmatch\">The oblique impact blasted material into orbit about the Earth</span> and the material accreted and formed the Moon just beyond the Earth&#039;s Roche limit of ~ 2.56 R.]]></string>
     <string name="semantic_search_info_dialog_article_thumbnail_url_en" translatable="false">https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/FullMoon2010.jpg/60px-FullMoon2010.jpg</string>
 
     <string name="semantic_search_info_dialog_article_title_ar" translatable="false">القمر</string>
