@@ -8,7 +8,8 @@ import org.wikipedia.WikipediaApp
 
 class SemanticSearchFeedbackViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
-    val languageCode = savedStateHandle.get<String>(SemanticSearchFeedbackDialog.ARG_LANGUAGE_CODE).orEmpty().ifEmpty { WikipediaApp.instance.languageState.appLanguageCode }
+    val languageCode = savedStateHandle.get<String>(SemanticSearchFeedbackDialog.ARG_LANGUAGE_CODE)
+        .orEmpty().ifEmpty { WikipediaApp.instance.languageState.appLanguageCode }
 
     private val _selectedRating = MutableStateFlow<Boolean?>(null)
     val selectedRating = _selectedRating.asStateFlow()

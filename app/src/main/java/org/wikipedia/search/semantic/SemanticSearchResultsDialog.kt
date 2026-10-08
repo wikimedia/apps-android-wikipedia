@@ -13,6 +13,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.compose.theme.BaseTheme
+import org.wikipedia.extensions.getString
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.search.SearchResultCallback
 import org.wikipedia.util.FeedbackUtil
@@ -39,7 +40,8 @@ class SemanticSearchResultsDialog : ExtendedBottomSheetDialogFragment() {
                         },
                         onFeedbackSubmit = { isPositive, feedbackText ->
                             // TODO: send the feedback to instrumentation in another ticket.
-                            FeedbackUtil.makeSnackbar(requireView(), getString(R.string.semantic_search_results_feedback_submitted_message)).show()
+                            val message = requireContext().getString(viewModel.languageCode, R.string.semantic_search_results_feedback_submitted_message)
+                            FeedbackUtil.makeSnackbar(requireView(), message).show()
                         },
                         onLoading = {
                             // TODO: maybe instrumentation?

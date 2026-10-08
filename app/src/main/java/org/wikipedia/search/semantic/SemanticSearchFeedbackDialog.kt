@@ -9,6 +9,7 @@ import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.viewModels
 import org.wikipedia.R
 import org.wikipedia.compose.theme.BaseTheme
+import org.wikipedia.extensions.getString
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.util.FeedbackUtil
 
@@ -31,7 +32,8 @@ class SemanticSearchFeedbackDialog : ExtendedBottomSheetDialogFragment(startExpa
                         },
                         onSubmitClick = { isPositive, feedbackText ->
                             // TODO: send the feedback to instrumentation in another ticket.
-                            FeedbackUtil.showMessage(requireActivity(), R.string.semantic_search_results_feedback_submitted_message)
+                            val message = requireContext().getString(viewModel.languageCode, R.string.semantic_search_results_feedback_submitted_message)
+                            FeedbackUtil.showMessage(requireActivity(), message)
                             dismiss()
                         }
                     )
