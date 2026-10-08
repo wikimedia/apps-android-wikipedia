@@ -130,7 +130,7 @@ private fun SemanticSearchInfoDialogContent(
                             )
                             Spacer(modifier = Modifier.width(8.dp))
                             Text(
-                                text = context.getString(languageCode, R.string.semantic_search_info_dialog_search_string),
+                                text = stringResource(id = dialogTextData.searchString),
                                 color = WikipediaTheme.colors.primaryColor,
                                 style = MaterialTheme.typography.titleMedium,
                                 fontWeight = FontWeight(600),
@@ -185,7 +185,8 @@ private data class InfoDialogTextConfig(
     @StringRes val title: Int,
     @StringRes val sectionTitle: Int,
     @StringRes val snippet: Int,
-    @StringRes val thumbnailUrl: Int
+    @StringRes val thumbnailUrl: Int,
+    @StringRes val searchString: Int
 )
 
 private fun getSemanticSearchInfoDialogText(languageCode: String): InfoDialogTextConfig {
@@ -195,22 +196,26 @@ private fun getSemanticSearchInfoDialogText(languageCode: String): InfoDialogTex
                     title = R.string.semantic_search_info_dialog_article_title_ja,
                     sectionTitle = R.string.semantic_search_info_dialog_article_section_title_ja,
                     snippet = R.string.semantic_search_info_dialog_sample_snippet_ja,
-                    thumbnailUrl = R.string.semantic_search_info_dialog_article_thumbnail_url_ja)
+                    thumbnailUrl = R.string.semantic_search_info_dialog_article_thumbnail_url_ja,
+                    searchString = R.string.semantic_search_info_dialog_search_string_ja)
         "fr" -> InfoDialogTextConfig(
                     title = R.string.semantic_search_info_dialog_article_title_fr,
                     sectionTitle = R.string.semantic_search_info_dialog_article_section_title_fr,
                     snippet = R.string.semantic_search_info_dialog_sample_snippet_fr,
-                    thumbnailUrl = R.string.semantic_search_info_dialog_article_thumbnail_url_fr)
+                    thumbnailUrl = R.string.semantic_search_info_dialog_article_thumbnail_url_fr,
+                    searchString = R.string.semantic_search_info_dialog_search_string_fr)
         "ar" -> InfoDialogTextConfig(
                     title = R.string.semantic_search_info_dialog_article_title_ar,
                     sectionTitle = R.string.semantic_search_info_dialog_article_section_title_ar,
                     snippet = R.string.semantic_search_info_dialog_sample_snippet_ar,
-                    thumbnailUrl = R.string.semantic_search_info_dialog_article_thumbnail_url_ar)
+                    thumbnailUrl = R.string.semantic_search_info_dialog_article_thumbnail_url_ar,
+                    searchString = R.string.semantic_search_info_dialog_search_string_ar)
         else -> InfoDialogTextConfig(
                     title = R.string.semantic_search_info_dialog_article_title_en,
                     sectionTitle = R.string.semantic_search_info_dialog_article_section_title_en,
                     snippet = R.string.semantic_search_info_dialog_sample_snippet_en,
-                    thumbnailUrl = R.string.semantic_search_info_dialog_article_thumbnail_url_en)
+                    thumbnailUrl = R.string.semantic_search_info_dialog_article_thumbnail_url_en,
+                    searchString = R.string.semantic_search_info_dialog_search_string_en)
     }
 }
 
