@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -14,13 +15,16 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.selection.selectableGroup
+import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.RadioButtonDefaults
+import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -45,7 +49,8 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
-import org.wikipedia.yearinreview.data.YearInReviewReadingStats
+import org.wikipedia.yearinreview.data.YearInReviewConfig
+import org.wikipedia.yearinreview.presentation.YearInReviewViewModel
 
 class YearInReviewPlaygroundDialog : ExtendedBottomSheetDialogFragment(startExpanded = true) {
 
@@ -54,12 +59,23 @@ class YearInReviewPlaygroundDialog : ExtendedBottomSheetDialogFragment(startExpa
             setContent {
                 BaseTheme {
                     var selectedData by remember { mutableStateOf(Prefs.yearInReviewPlaygroundData) }
+                    var entryPoint by remember { mutableStateOf(Prefs.yearInReviewPlaygroundEntryPoint) }
+                    val isYearInReviewEnabled = Prefs.isYearInReviewEnabled
+                    val hiddenCountryCodes = remember { YearInReviewPlayground.hiddenCountryCodes }
                     YearInReviewPlaygroundScreen(
                         isLoggedIn = AccountUtil.isLoggedIn && !AccountUtil.isTemporaryAccount,
                         selectedData = selectedData,
                         onDataSelected = {
                             selectedData = it
                             Prefs.yearInReviewPlaygroundData = it
+                        },
+                        entryPoint = entryPoint,
+                        canShowEntryPoint = remember(entryPoint) { YearInReviewViewModel.canShowEntryPoint },
+                        hiddenReasons = remember(entryPoint) { entryPoint.hiddenReasons(isYearInReviewEnabled, hiddenCountryCodes) },
+                        hiddenCountryCodes = hiddenCountryCodes,
+                        onEntryPointChange = {
+                            entryPoint = it
+                            Prefs.yearInReviewPlaygroundEntryPoint = it
                         },
                         onBackClick = { dismiss() }
                     )
@@ -81,6 +97,11 @@ fun YearInReviewPlaygroundScreen(
     isLoggedIn: Boolean,
     selectedData: YearInReviewPlaygroundData,
     onDataSelected: (YearInReviewPlaygroundData) -> Unit,
+    entryPoint: YearInReviewPlaygroundEntryPoint,
+    canShowEntryPoint: Boolean,
+    hiddenReasons: List<String>,
+    hiddenCountryCodes: List<String>,
+    onEntryPointChange: (YearInReviewPlaygroundEntryPoint) -> Unit,
     onBackClick: () -> Unit
 ) {
     Column(
@@ -120,6 +141,13 @@ fun YearInReviewPlaygroundScreen(
                 selectedData = selectedData,
                 onDataSelected = onDataSelected
             )
+            EntryPointCard(
+                entryPoint = entryPoint,
+                canShowEntryPoint = canShowEntryPoint,
+                hiddenReasons = hiddenReasons,
+                hiddenCountryCodes = hiddenCountryCodes,
+                onEntryPointChange = onEntryPointChange
+            )
         }
     }
 }
@@ -130,6 +158,114 @@ private fun ReadingDataCard(
     selectedData: YearInReviewPlaygroundData,
     onDataSelected: (YearInReviewPlaygroundData) -> Unit
 ) {
+    PlaygroundCard(title = "Year in Review data") {
+        Text(
+            text = "Uses a test snapshot instead of your real Year in Review data, for both the Year in Review flow and the Activity tab card. " +
+                    "Your real reading history isn't changed. Takes effect the next time Year in Review or the Activity tab loads.",
+            style = MaterialTheme.typography.bodyMedium,
+            color = WikipediaTheme.colors.secondaryColor
+        )
+        Text(
+            text = if (isLoggedIn) {
+                "Logged in as ${AccountUtil.userName}."
+            } else {
+                "You're not logged in. Data rich only shows the personalized flow when you're logged in, so log in first."
+            },
+            style = MaterialTheme.typography.bodyMedium,
+            color = if (isLoggedIn) WikipediaTheme.colors.successColor else WikipediaTheme.colors.destructiveColor
+        )
+        PlaygroundOptions(
+            options = YearInReviewPlaygroundData.entries,
+            selectedOption = selectedData,
+            label = { it.label },
+            description = { it.description },
+            onOptionSelected = onDataSelected
+        )
+    }
+}
+
+@Composable
+private fun EntryPointCard(
+    entryPoint: YearInReviewPlaygroundEntryPoint,
+    canShowEntryPoint: Boolean,
+    hiddenReasons: List<String>,
+    hiddenCountryCodes: List<String>,
+    onEntryPointChange: (YearInReviewPlaygroundEntryPoint) -> Unit
+) {
+    val isDateAndCountryChecked = entryPoint.useTestValues && entryPoint.hasRemoteConfig
+    PlaygroundCard(title = "Entry point checks") {
+        Text(
+            text = "Controls whether the Year in Review entry points show. " +
+                    "The checks combine: each one below can hide the entry point on its own. The Year in Review setting always stays real.",
+            style = MaterialTheme.typography.bodyMedium,
+            color = WikipediaTheme.colors.secondaryColor
+        )
+        Text(
+            text = when {
+                !entryPoint.useTestValues -> "Entry point: ${if (canShowEntryPoint) "shown" else "hidden"} (real checks)"
+                canShowEntryPoint -> "Entry point: shown"
+                else -> "Entry point: hidden, because ${hiddenReasons.joinToString(", and ")}"
+            },
+            style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Bold),
+            color = if (canShowEntryPoint) WikipediaTheme.colors.successColor else WikipediaTheme.colors.destructiveColor
+        )
+        PlaygroundSwitch(
+            title = "Use test values",
+            description = if (entryPoint.useTestValues) {
+                "The remote config, date and country below are used instead of the real ones."
+            } else {
+                "Off: the real remote config, country and date are used. While developer settings are on, the entry point always shows."
+            },
+            checked = entryPoint.useTestValues,
+            onCheckedChange = { onEntryPointChange(entryPoint.copy(useTestValues = it)) }
+        )
+        PlaygroundSectionTitle(title = "Remote config for ${YearInReviewConfig.YEAR}", enabled = entryPoint.useTestValues)
+        PlaygroundOptions(
+            options = listOf(true, false),
+            selectedOption = entryPoint.hasRemoteConfig,
+            label = { hasRemoteConfig -> if (hasRemoteConfig) "Published" else "Not published" },
+            description = { hasRemoteConfig ->
+                if (hasRemoteConfig) "Active from $testActiveStartDate to $testActiveEndDate." else "The entry point is hidden, and the date and country aren't checked."
+            },
+            enabled = entryPoint.useTestValues,
+            onOptionSelected = { onEntryPointChange(entryPoint.copy(hasRemoteConfig = it)) }
+        )
+        PlaygroundSectionTitle(
+            title = "Date",
+            enabled = isDateAndCountryChecked,
+            note = if (entryPoint.useTestValues && !entryPoint.hasRemoteConfig) "Not checked: remote config isn't published" else null
+        )
+        PlaygroundOptions(
+            options = YearInReviewPlaygroundDate.entries,
+            selectedOption = entryPoint.date,
+            label = { it.label },
+            description = { it.description },
+            enabled = isDateAndCountryChecked,
+            onOptionSelected = { onEntryPointChange(entryPoint.copy(date = it)) }
+        )
+        PlaygroundSectionTitle(
+            title = "Country",
+            enabled = isDateAndCountryChecked,
+            note = if (entryPoint.useTestValues && !entryPoint.hasRemoteConfig) "Not checked: remote config isn't published" else null
+        )
+        CountryCodeField(
+            value = entryPoint.countryCode,
+            enabled = isDateAndCountryChecked,
+            onValueChange = { onEntryPointChange(entryPoint.copy(countryCode = it)) }
+        )
+        Text(
+            text = "Hidden in (from the latest live remote config): ${hiddenCountryCodes.joinToString()}",
+            style = MaterialTheme.typography.bodyMedium,
+            color = if (isDateAndCountryChecked) WikipediaTheme.colors.secondaryColor else WikipediaTheme.colors.inactiveColor
+        )
+    }
+}
+
+@Composable
+private fun PlaygroundCard(
+    title: String,
+    content: @Composable ColumnScope.() -> Unit
+) {
     Card {
         Column(
             modifier = Modifier
@@ -139,71 +275,146 @@ private fun ReadingDataCard(
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             Text(
-                text = "Year in Review data",
-                style = MaterialTheme.typography.titleMedium,
+                text = title,
+                style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
                 color = WikipediaTheme.colors.primaryColor
             )
+            content()
+        }
+    }
+}
+
+@Composable
+private fun PlaygroundSectionTitle(
+    title: String,
+    enabled: Boolean,
+    note: String? = null
+) {
+    Text(
+        modifier = Modifier.padding(top = 8.dp),
+        text = if (note != null) "$title · $note" else title,
+        style = MaterialTheme.typography.labelLarge,
+        color = if (enabled) WikipediaTheme.colors.primaryColor else WikipediaTheme.colors.inactiveColor
+    )
+}
+
+@Composable
+private fun PlaygroundSwitch(
+    title: String,
+    description: String,
+    checked: Boolean,
+    onCheckedChange: (Boolean) -> Unit,
+    enabled: Boolean = true
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .toggleable(
+                value = checked,
+                enabled = enabled,
+                role = Role.Switch,
+                onValueChange = onCheckedChange
+            )
+            .padding(vertical = 8.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Column(modifier = Modifier.weight(1f)) {
             Text(
-                text = "Uses a test snapshot instead of your real Year in Review data, for both the Year in Review flow and the Activity tab card. " +
-                        "Your real reading history isn't changed. Takes effect the next time Year in Review or the Activity tab loads.",
-                style = MaterialTheme.typography.bodySmall,
-                color = WikipediaTheme.colors.secondaryColor
+                text = title,
+                style = MaterialTheme.typography.bodyLarge,
+                color = if (enabled) WikipediaTheme.colors.primaryColor else WikipediaTheme.colors.inactiveColor
             )
             Text(
-                text = if (isLoggedIn) {
-                    "Logged in as ${AccountUtil.userName}."
-                } else {
-                    "You're not logged in. Data rich only shows the personalized flow when you're logged in, so log in first."
-                },
-                style = MaterialTheme.typography.bodySmall,
-                color = if (isLoggedIn) WikipediaTheme.colors.successColor else WikipediaTheme.colors.destructiveColor
+                text = description,
+                style = MaterialTheme.typography.bodyMedium,
+                color = if (enabled) WikipediaTheme.colors.secondaryColor else WikipediaTheme.colors.inactiveColor
             )
-            Column(modifier = Modifier.selectableGroup()) {
-                YearInReviewPlaygroundData.entries.forEach { data ->
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .selectable(
-                                selected = data == selectedData,
-                                onClick = { onDataSelected(data) },
-                                role = Role.RadioButton
-                            )
-                            .padding(vertical = 8.dp),
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        RadioButton(
-                            selected = data == selectedData,
-                            onClick = null,
-                            colors = RadioButtonDefaults.colors(
-                                selectedColor = WikipediaTheme.colors.progressiveColor,
-                                unselectedColor = WikipediaTheme.colors.primaryColor
-                            )
-                        )
-                        Column(modifier = Modifier.padding(start = 12.dp)) {
-                            Text(
-                                text = data.label,
-                                style = MaterialTheme.typography.bodyLarge,
-                                color = WikipediaTheme.colors.primaryColor
-                            )
-                            Text(
-                                text = data.readingStats?.let { describe(it) } ?: "Uses your actual Year in Review data.",
-                                style = MaterialTheme.typography.bodySmall,
-                                color = WikipediaTheme.colors.secondaryColor
-                            )
-                        }
-                    }
+        }
+        Switch(
+            modifier = Modifier.padding(start = 12.dp),
+            checked = checked,
+            onCheckedChange = null,
+            enabled = enabled
+        )
+    }
+}
+
+// Only saves complete two-letter codes, so the check never runs against a partly typed one
+@Composable
+private fun CountryCodeField(
+    value: String,
+    enabled: Boolean,
+    onValueChange: (String) -> Unit
+) {
+    var text by remember { mutableStateOf(value) }
+    OutlinedTextField(
+        value = text,
+        onValueChange = { newText ->
+            if (newText.length <= 2 && newText.all { it.isLetter() }) {
+                text = newText.uppercase()
+                if (text.length == 2) {
+                    onValueChange(text)
+                }
+            }
+        },
+        modifier = Modifier.fillMaxWidth(),
+        enabled = enabled,
+        label = { Text("Country code") },
+        isError = enabled && text.length != 2,
+        singleLine = true
+    )
+}
+
+@Composable
+private fun <T> PlaygroundOptions(
+    options: List<T>,
+    selectedOption: T,
+    label: (T) -> String,
+    description: (T) -> String,
+    onOptionSelected: (T) -> Unit,
+    enabled: Boolean = true
+) {
+    Column(modifier = Modifier.selectableGroup()) {
+        options.forEach { option ->
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .selectable(
+                        selected = option == selectedOption,
+                        enabled = enabled,
+                        onClick = { onOptionSelected(option) },
+                        role = Role.RadioButton
+                    )
+                    .padding(vertical = 8.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                RadioButton(
+                    selected = option == selectedOption,
+                    onClick = null,
+                    enabled = enabled,
+                    colors = RadioButtonDefaults.colors(
+                        selectedColor = WikipediaTheme.colors.progressiveColor,
+                        unselectedColor = WikipediaTheme.colors.primaryColor
+                    )
+                )
+                Column(modifier = Modifier.padding(start = 12.dp)) {
+                    Text(
+                        text = label(option),
+                        style = MaterialTheme.typography.bodyLarge,
+                        color = if (enabled) WikipediaTheme.colors.primaryColor else WikipediaTheme.colors.inactiveColor
+                    )
+                    Text(
+                        text = description(option),
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = if (enabled) WikipediaTheme.colors.secondaryColor else WikipediaTheme.colors.inactiveColor
+                    )
                 }
             }
         }
     }
 }
 
-private fun describe(readingStats: YearInReviewReadingStats): String {
-    return "${readingStats.articlesReadCount} articles read (personalized from ${YearInReviewReadingStats.MIN_ARTICLES_READ}), " +
-            "${readingStats.visitedDaysCount} days visited (personalized from ${YearInReviewReadingStats.MIN_VISITED_DAYS})"
-}
-
-@Preview
+@Preview(heightDp = 1400)
 @Composable
 private fun YearInReviewPlaygroundScreenPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
@@ -211,6 +422,11 @@ private fun YearInReviewPlaygroundScreenPreview() {
             isLoggedIn = false,
             selectedData = YearInReviewPlaygroundData.DATA_RICH,
             onDataSelected = {},
+            entryPoint = YearInReviewPlaygroundEntryPoint(useTestValues = true, date = YearInReviewPlaygroundDate.ACTIVE, countryCode = "RU"),
+            canShowEntryPoint = false,
+            hiddenReasons = listOf("RU is a hidden country"),
+            hiddenCountryCodes = listOf("RU", "IR", "CN"),
+            onEntryPointChange = {},
             onBackClick = {}
         )
     }

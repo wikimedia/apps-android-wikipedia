@@ -50,13 +50,13 @@ import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.wikipedia.BuildConfig
+import org.wikipedia.R
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.util.log.L
 
 data class RiveSlideSpec(
     @param:RawRes val resourceId: Int,
     val artboardName: String,
-    val stateMachineName: String,
     val viewModelName: String,
     val instanceType: RiveInstanceType = RiveInstanceType.Default,
     val globalViewModel: RiveGlobalViewModel? = null,
@@ -93,8 +93,9 @@ private fun ViewModelSource.instanceSource(instanceType: RiveInstanceType) = whe
 
 sealed interface RiveFontSource {
     data class RawResource(@param:RawRes val resourceId: Int) : RiveFontSource
-    // A family name from the device's fonts.xml, e.g. "sans-serif" or "serif"
-    data class SystemFamily(val familyName: String, val weight: Int = 400) : RiveFontSource
+    // A family name from the device's fonts.xml, e.g. "sans-serif" or "serif", at its regular weight. Other weights can't be requested:
+    // on recent devices every weight of a family is one variable font file, and Rive can only draw such a font at its default weight.
+    data class SystemFamily(val familyName: String) : RiveFontSource
 }
 
 // The registration key is the referenced font's file name in the Rive export zip, without the extension: "<asset name>-<asset id>"
@@ -106,8 +107,9 @@ data class RiveSlideFont(
 // Registered once for the whole screen; a slide should never register its own, otherwise the pager unregisters them for other slides
 val YearInReviewRiveFonts = listOf(
     RiveSlideFont(RiveFontSource.SystemFamily("serif"), registrationKey = "SerifFont-6815481"),
-    RiveSlideFont(RiveFontSource.SystemFamily("sans-serif"), registrationKey = "SanSerifFont-Regular-6847910"),
-    RiveSlideFont(RiveFontSource.SystemFamily("sans-serif", weight = 700), registrationKey = "SanSerifFont-6815482")
+    // Static instances of the variable Roboto Flex at weights 400 and 700, since Rive can't pick a weight from a variable font
+    RiveSlideFont(RiveFontSource.RawResource(R.raw.robotoflex_regular), registrationKey = "SanSerifFont-Regular-6847910"),
+    RiveSlideFont(RiveFontSource.RawResource(R.raw.robotoflex_bold), registrationKey = "SanSerifFont-6815482")
 )
 
 private const val MAX_RIVE_TEXT_SCALE = 1.5f
@@ -238,7 +240,7 @@ private fun YearInReviewRiveArtboard(
     // loading the artboard and state machine from the rive file
     val artboardResult = rememberArtboardResult(file = riveFile, artboardName = spec.artboardName)
     val stateMachineResult = artboardResult.andThen { artboard ->
-        rememberStateMachineResult(artboard, spec.stateMachineName)
+        rememberStateMachineResult(artboard)
     }
     // creating ViewModel instance based on the spec
     val viewModelSource = ViewModelSource.Named(spec.viewModelName)
@@ -379,9 +381,8 @@ private fun rememberFontBytes(source: RiveFontSource): Result<ByteArray> {
             val bytes = withContext(Dispatchers.IO) {
                 when (source) {
                     is RiveFontSource.RawResource -> resources.openRawResource(source.resourceId).use { it.readBytes() }
-                    is RiveFontSource.SystemFamily -> FontHelper.getFallbackFontBytes(
-                        Fonts.FontOpts(familyName = source.familyName, weight = Fonts.Weight(source.weight))
-                    ) ?: throw IllegalStateException("No system font found for ${source.familyName} ${source.weight}")
+                    is RiveFontSource.SystemFamily -> FontHelper.getFallbackFontBytes(Fonts.FontOpts(familyName = source.familyName))
+                        ?: throw IllegalStateException("No system font found for ${source.familyName}")
                 }
             }
             Result.Success(bytes)
