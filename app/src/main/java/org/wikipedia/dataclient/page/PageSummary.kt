@@ -64,6 +64,7 @@ class PageSummary(
         titles?.canonical?.let {
             newTitle = PageTitle(it, title.wikiSite, title.thumbUrl)
             newTitle.fragment = title.fragment
+            newTitle.highlightText = title.highlightText
         }
         newTitle.description = description
         return newTitle

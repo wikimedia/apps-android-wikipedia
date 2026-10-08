@@ -793,23 +793,22 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 }
             }
 
-            // do we have a URL fragment to scroll to?
+            // do we have a URL fragment or highlight text to scroll to?
             model.title?.let { prevTitle ->
-                if (!prevTitle.fragment.isNullOrEmpty() && scrollTriggerListener.stagedScrollY == 0) {
+                if ((!prevTitle.fragment.isNullOrEmpty() || !prevTitle.highlightText.isNullOrEmpty()) && scrollTriggerListener.stagedScrollY == 0) {
                     val scrollDelay = 100
                     webView.postDelayed({
                         if (!isAdded) {
                             return@postDelayed
                         }
                         model.title?.let {
-                            if (!it.fragment.isNullOrEmpty()) {
-                                if (!it.highlightText.isNullOrEmpty()) {
-                                    bridge.evaluateImmediate(JavaScriptActionHandler.jumpToHighlightOrSection(model.title?.fragment, it.highlightText)) { result ->
-                                        L.d("PCS jump-to-highlight $result")
-                                    }
-                                } else {
-                                    scrollToSection(it.fragment!!)
+                            L.d("PCS jump-to-fragment ${it.highlightText}")
+                            if (!it.highlightText.isNullOrEmpty()) {
+                                bridge.evaluateImmediate(JavaScriptActionHandler.jumpToHighlightOrSection(it.fragment, it.highlightText)) { result ->
+                                    L.d("PCS jump-to-highlight $result")
                                 }
+                            } else if (!it.fragment.isNullOrEmpty()) {
+                                scrollToSection(it.fragment!!)
                             }
                         }
                     }, scrollDelay.toLong())
