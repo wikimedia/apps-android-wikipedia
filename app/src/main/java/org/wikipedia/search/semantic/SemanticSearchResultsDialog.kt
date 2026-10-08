@@ -34,15 +34,12 @@ class SemanticSearchResultsDialog : ExtendedBottomSheetDialogFragment() {
                     SemanticSearchResultsScreen(
                         viewModel = viewModel,
                         onItemClick = { title, snippet ->
-                            val highlightText = StringUtil.extractStringFromStyle("searchmatch", snippet)
-                            title.apply {
-                                this.highlightText = highlightText
-                            }
                             callback()?.navigateToTitle(
                                 item = title,
                                 inNewTab = false,
                                 position = 0,
-                                showSemanticSearchFeedback = viewModel.deferFeedbackToArticle()
+                                showSemanticSearchFeedback = viewModel.deferFeedbackToArticle(),
+                                highlightText = StringUtil.extractStringFromStyle("searchmatch", snippet)
                             )
                         },
                         onCloseClick = {
