@@ -222,7 +222,7 @@ private fun allTemplatesSlideSpec(
     viewModelName: String = "DataTemplate",
     instanceType: RiveInstanceType = RiveInstanceType.Named(artboardName)
 ) = RiveSlideSpec(
-    resourceId = R.raw.all_templates_v2,
+    resourceId = R.raw.all_templates_v3,
     artboardName = artboardName,
     stateMachineName = "$artboardName-statemachine",
     viewModelName = viewModelName,
