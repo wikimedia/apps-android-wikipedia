@@ -432,13 +432,10 @@ fun SemanticSearchResultsContent(
                 val searchResult = items[index]
                 SemanticSearchResultCard(
                     languageCode = viewModel.languageCode,
-                    prefixQuotationMark = SemanticSearchHelper.getQuotationMark(viewModel.languageCode),
+                    prefixQuotationMark = SemanticSearchAbTest.getQuotationMark(viewModel.languageCode),
                     showLastUpdatedTime = viewModel.languageCode == "ar",
                     searchResult = searchResult,
-                    onItemClick = { onItemClick(searchResult.pageTitle, searchResult.snippet) },
-                    onLinkClick = { url ->
-                        // ignore in-article links
-                    }
+                    onItemClick = { onItemClick(searchResult.pageTitle, searchResult.snippet) }
                 )
             }
         }
@@ -448,13 +445,13 @@ fun SemanticSearchResultsContent(
 @Composable
 fun SemanticSearchResultCard(
     modifier: Modifier = Modifier,
+    searchResult: SearchResult,
     languageCode: String,
     prefixQuotationMark: String,
     showLastUpdatedTime: Boolean,
-    searchResult: SearchResult,
-    onItemClick: (() -> Unit)? = null,
     showReadInArticleText: Boolean = true,
-    onLinkClick: (String) -> Unit
+    onItemClick: (() -> Unit)? = null,
+    onLinkClick: (String) -> Unit = { }
 ) {
     val context = LocalContext.current
     val articlePath = listOfNotNull(
@@ -668,8 +665,7 @@ fun SemanticSearchResultCardPreview() {
                 searchResultType = SearchResult.SearchResultType.SEMANTIC,
                 snippet = snippet
             ),
-            onItemClick = {},
-            onLinkClick = {}
+            onItemClick = {}
         )
     }
 }

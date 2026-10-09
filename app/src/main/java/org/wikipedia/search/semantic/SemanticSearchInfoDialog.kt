@@ -26,7 +26,6 @@ import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
@@ -46,8 +45,7 @@ import org.wikipedia.util.UriUtil
 
 class SemanticSearchInfoDialog : ExtendedBottomSheetDialogFragment(startExpanded = true) {
 
-    private val languageCode: String
-        get() = arguments?.getString(ARG_LANGUAGE_CODE).orEmpty()
+    override fun getTheme() = R.style.App_BottomSheetDialogTheme_BelowStatusBar
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
@@ -59,8 +57,7 @@ class SemanticSearchInfoDialog : ExtendedBottomSheetDialogFragment(startExpanded
                         UriUtil.visitInExternalBrowser(requireContext(), getString(R.string.semantic_search_info_learn_more_link).toUri())
                         dismiss()
                     },
-                    quotationMark = SemanticSearchHelper.getQuotationMark(languageCode),
-                    languageCode = languageCode
+                    languageCode = requireArguments().getString(ARG_LANGUAGE_CODE).orEmpty()
                 )
             }
         }
@@ -83,28 +80,28 @@ class SemanticSearchInfoDialog : ExtendedBottomSheetDialogFragment(startExpanded
 private fun SemanticSearchInfoDialogContent(
     onCloseClick: () -> Unit,
     onLearnMoreClick: () -> Unit,
-    quotationMark: String,
     languageCode: String
 ) {
     val context = LocalContext.current
-    val dialogTextData = getSemanticSearchInfoDialogText(languageCode)
+    val dialogTextData = getSampleContent(languageCode)
     val layoutDirection =
         if (L10nUtil.isLangRTL(languageCode)) LayoutDirection.Rtl else LayoutDirection.Ltr
+    val pageTitle = PageTitle(
+        stringResource(id = dialogTextData.title),
+        WikiSite.forLanguageCode(languageCode)
+    ).apply {
+        thumbUrl = stringResource(id = dialogTextData.thumbnailUrl)
+    }
 
     val searchResult = SearchResult(
-        pageTitle = PageTitle(
-            stringResource(id = dialogTextData.title),
-            WikiSite.preview()).apply {
-                thumbUrl = stringResource(id = dialogTextData.thumbnailUrl)
-            },
+        pageTitle = pageTitle,
         redirectFrom = null,
         type = SearchResultType.SEMANTIC,
-        coordinates = null,
         snippet = stringResource(id = dialogTextData.snippet),
-        indexInApiCall = 0,
         sectionTitle = stringResource(id = dialogTextData.sectionTitle),
         editCounts = 2348,
-        referenceCounts = 35
+        referenceCounts = 35,
+        lastUpdated = "2026-10-05T12:00:00Z"
     )
 
     CompositionLocalProvider(LocalLayoutDirection provides layoutDirection) {
@@ -133,22 +130,18 @@ private fun SemanticSearchInfoDialogContent(
                                 text = stringResource(id = dialogTextData.searchString),
                                 color = WikipediaTheme.colors.primaryColor,
                                 style = MaterialTheme.typography.titleMedium,
-                                fontWeight = FontWeight(600),
+                                fontWeight = FontWeight.SemiBold,
                             )
                         }
                         SemanticSearchResultCard(
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .padding(vertical = 16.dp),
-                            prefixQuotationMark = quotationMark,
                             searchResult = searchResult,
-                            onItemClick = null,
-                            onLinkClick = { url ->
-                                // ignore in-article links
-                            },
-                            showLastUpdatedTime = false,
-                            showReadInArticleText = false,
-                            languageCode = languageCode
+                            languageCode = languageCode,
+                            prefixQuotationMark = SemanticSearchAbTest.getQuotationMark(languageCode),
+                            showLastUpdatedTime = languageCode == "ar",
+                            showReadInArticleText = false
                         )
 
                         AppButton(
@@ -189,7 +182,7 @@ private data class InfoDialogTextConfig(
     @StringRes val searchString: Int
 )
 
-private fun getSemanticSearchInfoDialogText(languageCode: String): InfoDialogTextConfig {
+private fun getSampleContent(languageCode: String): InfoDialogTextConfig {
 
     return when (languageCode) {
         "ja" -> InfoDialogTextConfig(
@@ -217,15 +210,4 @@ private fun getSemanticSearchInfoDialogText(languageCode: String): InfoDialogTex
                     thumbnailUrl = R.string.semantic_search_info_dialog_article_thumbnail_url_en,
                     searchString = R.string.semantic_search_info_dialog_search_string_en)
     }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun SemanticSearchInfoDialogPreview() {
-    SemanticSearchInfoDialogContent(
-        onCloseClick = {},
-        onLearnMoreClick = { },
-        quotationMark = SemanticSearchHelper.getQuotationMark("ja"),
-        languageCode = "ja"
-    )
 }
