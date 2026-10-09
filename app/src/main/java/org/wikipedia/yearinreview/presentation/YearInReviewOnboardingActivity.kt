@@ -120,6 +120,10 @@ class YearInReviewOnboardingActivity : BaseActivity() {
                         YearInReviewEvent.submit(action = "learn_click", slide = "explore_prompt")
                         UriUtil.handleExternalLink(this, getString(R.string.year_in_review_media_wiki_url).toUri())
                     },
+                    onAboutInsightsClick = {
+                        YearInReviewEvent.submit(action = "about_insights_click", slide = "explore_prompt")
+                        UriUtil.visitInExternalBrowser(context = this, uri = getString(R.string.year_in_review_media_wiki_faq_url).toUri())
+                    },
                     onShareFeedbackClick = {
                         FeedbackUtil.composeEmail(this, subject = getString(R.string.year_in_review_feedback_email_subject))
                     },

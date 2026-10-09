@@ -40,6 +40,7 @@ fun YearInReviewOnboardingScreen(
     uiState: UiState<Pair<Boolean, YearInReviewSnapshot>>,
     onCloseClick: () -> Unit,
     onLearnMoreClick: () -> Unit,
+    onAboutInsightsClick: () -> Unit,
     onShareFeedbackClick: () -> Unit,
     onExploreClick: () -> Unit,
     onRetryClick: () -> Unit,
@@ -90,6 +91,7 @@ fun YearInReviewOnboardingScreen(
                 iconColor = if (isError) WikipediaTheme.colors.primaryColor else ComposeColors.White,
                 onCloseClick = onCloseClick,
                 onLearnMoreClick = onLearnMoreClick,
+                onAboutInsightsClick = onAboutInsightsClick,
                 onShareFeedbackClick = onShareFeedbackClick,
                 showWikipediaLogo = false
             )
@@ -152,6 +154,7 @@ private fun YearInReviewOnboardingScreenLoadingPreview() {
             uiState = UiState.Loading,
             onCloseClick = {},
             onLearnMoreClick = {},
+            onAboutInsightsClick = {},
             onShareFeedbackClick = {},
             onExploreClick = {},
             onRetryClick = {},
@@ -176,6 +179,7 @@ private fun YearInReviewOnboardingScreenLoadedPreview() {
             uiState = UiState.Success(false to snapshot),
             onCloseClick = {},
             onLearnMoreClick = {},
+            onAboutInsightsClick = {},
             onShareFeedbackClick = {},
             onExploreClick = {},
             onRetryClick = {},
