@@ -839,6 +839,10 @@ object Prefs {
         } ?: YearInReviewPlaygroundData.REAL
         set(value) = PrefsIoUtil.setString(R.string.preference_key_yir_playground_data, value.name)
 
+    var yearInReviewActivityTabDotSeenYear
+        get() = PrefsIoUtil.getInt(R.string.preference_key_yir_activity_tab_dot_seen_year, 0)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_yir_activity_tab_dot_seen_year, value)
+
     var yearInReviewPlaygroundEntryPoint
         get() = JsonUtil.decodeFromString<YearInReviewPlaygroundEntryPoint>(PrefsIoUtil.getString(R.string.preference_key_yir_playground_entry_point, null))
             ?: YearInReviewPlaygroundEntryPoint()

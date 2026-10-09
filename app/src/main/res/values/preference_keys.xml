@@ -185,6 +185,7 @@
     <string name="preference_key_otd_sound_on" translatable="false">isOtdSoundOn</string>
     <string name="preference_key_year_in_review_is_enabled" translatable="false">isYearInReviewEnabled</string>
     <string name="preference_key_year_in_review_visited" translatable="false">yearInReviewVisited</string>
+    <string name="preference_key_yir_activity_tab_dot_seen_year" translatable="false">yearInReviewActivityTabDotSeenYear</string>
     <string name="preference_key_yir_survey_state" translatable="false">yirSurveyState</string>
     <string name="preference_key_yir_playground" translatable="false">yirPlayground</string>
     <string name="preference_key_yir_playground_data" translatable="false">yirPlaygroundData</string>
