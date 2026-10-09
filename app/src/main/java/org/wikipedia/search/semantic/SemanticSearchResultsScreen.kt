@@ -63,7 +63,6 @@ import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.platform.rememberNestedScrollInteropConnection
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.semantics.selected
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.LinkAnnotation
@@ -433,7 +432,7 @@ fun SemanticSearchResultsContent(
                 val searchResult = items[index]
                 SemanticSearchResultCard(
                     languageCode = viewModel.languageCode,
-                    prefixQuotationMark = viewModel.quotationMarkMap[viewModel.languageCode] ?: "«",
+                    prefixQuotationMark = SemanticSearchHelper.getQuotationMark(viewModel.languageCode),
                     showLastUpdatedTime = viewModel.languageCode == "ar",
                     searchResult = searchResult,
                     onItemClick = { onItemClick(searchResult.pageTitle, searchResult.snippet) },
@@ -453,7 +452,8 @@ fun SemanticSearchResultCard(
     prefixQuotationMark: String,
     showLastUpdatedTime: Boolean,
     searchResult: SearchResult,
-    onItemClick: () -> Unit,
+    onItemClick: (() -> Unit)? = null,
+    showReadInArticleText: Boolean = true,
     onLinkClick: (String) -> Unit
 ) {
     val context = LocalContext.current
@@ -520,12 +520,14 @@ fun SemanticSearchResultCard(
 
             Spacer(modifier = Modifier.height(4.dp))
 
-            Text(
-                text = context.getString(languageCode, R.string.semantic_search_results_read_in_article_label),
-                fontWeight = FontWeight.Medium,
-                fontSize = 13.sp,
-                color = WikipediaTheme.colors.secondaryColor
-            )
+            if (showReadInArticleText) {
+                Text(
+                    text = context.getString(languageCode, R.string.semantic_search_results_read_in_article_label),
+                    fontWeight = FontWeight.Medium,
+                    fontSize = 13.sp,
+                    color = WikipediaTheme.colors.secondaryColor
+                )
+            }
 
             Spacer(modifier = Modifier.height(16.dp))
 
@@ -587,7 +589,7 @@ fun SemanticSearchResultCard(
                     )
                     Spacer(modifier = Modifier.width(4.dp))
                     Text(
-                        text = pluralStringResource(R.plurals.semantic_search_result_contributors, editCount, editCount),
+                        text = context.getResources(languageCode).getQuantityString(R.plurals.semantic_search_result_contributors, editCount, editCount),
                         fontSize = 12.sp,
                         color = WikipediaTheme.colors.secondaryColor
                     )
