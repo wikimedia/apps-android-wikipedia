@@ -2227,6 +2227,7 @@
     </plurals>
 
     <string name="year_in_review_learn_more">Learn more</string>
+    <string name="year_in_review_about_your_insights">About your insights</string>
     <string name="year_in_review_share_feedback">Share feedback</string>
     <string name="year_in_review_feedback_email_subject">Year in Review Feedback</string>
     <string name="year_in_review_get_started">Get started</string>
@@ -2242,6 +2243,7 @@
     <string name="year_in_review_get_started_headline">Explore your Wikipedia Year in Review</string>
     <string name="year_in_review_get_started_bodytext">See insights about which articles you read on the Wikipedia app and the edits you made.</string>
     <string name="year_in_review_get_started_info">Your reading history is kept protected. Reading insights are calculated using locally stored data on your device.</string>
+    <string name="year_in_review_get_started_later_activity">You can access your Year in Review later in Activity.</string>
     <string name="year_in_review_get_started_later">You can access your Year in Review later in the More menu.</string>
     <string name="year_in_review_entry_card_title_collective">Our Year in Review is here</string>
     <string name="year_in_review_entry_card_title_personalized">Your Year in Review is here</string>
