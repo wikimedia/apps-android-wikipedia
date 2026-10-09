@@ -30,19 +30,19 @@ object RemoteConfig {
 
     @Suppress("unused")
     @Serializable
-    class RemoteConfigImpl(
-        val commonv1: RemoteConfigCommonV1? = null,
+    class RemoteConfigImpl {
+        val commonv1: RemoteConfigCommonV1? = null
         val androidv1: RemoteConfigAndroidV1? = null
-    ) {
+
         val disableReadingListSync
             get() = androidv1?.disableReadingListSync == true
     }
 
     @Suppress("unused")
     @Serializable
-    class RemoteConfigCommonV1(
-        @SerialName("yirv2") val yir: List<RemoteConfigYearInReview> = emptyList()
-    ) {
+    class RemoteConfigCommonV1 {
+        val yir: List<RemoteConfigYearInReview> = emptyList()
+
         fun getYirForYear(year: Int): RemoteConfigYearInReview? {
             return yir.find { it.year == year }
         }
@@ -50,16 +50,15 @@ object RemoteConfig {
 
     @Suppress("unused")
     @Serializable
-    class RemoteConfigAndroidV1(
-        val disableReadingListSync: Boolean? = false,
-        val hCaptcha: RemoteConfigHCaptcha? = null,
-        val hybridSearchEnabled: Boolean? = null,
-        val hybridSearchLanguages: List<String>? = null,
-        val newArticlesWithinInterestEnabled: Boolean? = null,
-        val visualEditorEnabled: Boolean? = null,
-        val readAloudLeadSectionEnabled: Boolean? = null,
-        val yirMinAppVersion: Int? = null
-    )
+    class RemoteConfigAndroidV1 {
+        val disableReadingListSync = false
+        val hCaptcha: RemoteConfigHCaptcha? = null
+        val hybridSearchEnabled: Boolean? = null
+        val hybridSearchLanguages: List<String>? = null
+        val newArticlesWithinInterestEnabled: Boolean? = null
+        val visualEditorEnabled: Boolean? = null
+        val readAloudLeadSectionEnabled: Boolean? = null
+    }
 
     @Suppress("unused")
     @Serializable

@@ -88,6 +88,7 @@ fun YearInReviewScreen(
     modifier: Modifier = Modifier,
     onCloseClick: () -> Unit = {},
     onLearnMoreClick: () -> Unit = {},
+    onAboutInsightsClick: () -> Unit = {},
     onShareFeedbackClick: () -> Unit = {},
     onShareClick: (Bitmap) -> Unit = {},
     onDonateClick: (String) -> Unit = { _ -> },
@@ -116,6 +117,7 @@ fun YearInReviewScreen(
                 showDonateButton = uiState.isDonationEligible,
                 onCloseClick = onCloseClick,
                 onLearnMoreClick = onLearnMoreClick,
+                onAboutInsightsClick = onAboutInsightsClick,
                 onShareFeedbackClick = onShareFeedbackClick,
                 onShareClick = onShareClick,
                 onDonateClick = onDonateClick,
@@ -152,6 +154,7 @@ private fun YearInReviewContent(
     modifier: Modifier = Modifier,
     onCloseClick: () -> Unit,
     onLearnMoreClick: () -> Unit,
+    onAboutInsightsClick: () -> Unit,
     onShareFeedbackClick: () -> Unit,
     onShareClick: (Bitmap) -> Unit,
     onDonateClick: (String) -> Unit,
@@ -270,7 +273,8 @@ private fun YearInReviewContent(
                 iconColor = if (useDarkStatusBarIcons) ComposeColors.Black else ComposeColors.White,
                 onCloseClick = onCloseClick,
                 onLearnMoreClick = onLearnMoreClick,
-                onShareFeedbackClick = onShareFeedbackClick
+                onShareFeedbackClick = onShareFeedbackClick,
+                onAboutInsightsClick = onAboutInsightsClick
             )
 
             YearInReviewProgressTracker(
@@ -330,6 +334,7 @@ fun YearInReviewTopBar(
     iconColor: Color,
     onCloseClick: () -> Unit,
     onLearnMoreClick: () -> Unit,
+    onAboutInsightsClick: () -> Unit,
     onShareFeedbackClick: () -> Unit,
     showWikipediaLogo: Boolean = true,
     windowInsets: WindowInsets = TopAppBarDefaults.windowInsets
@@ -402,6 +407,26 @@ fun YearInReviewTopBar(
                         onClick = {
                             overflowMenuExpanded = false
                             onLearnMoreClick()
+                        }
+                    )
+                    DropdownMenuItem(
+                        leadingIcon = {
+                            Icon(
+                                painter = painterResource(R.drawable.baseline_info_24),
+                                tint = WikipediaTheme.colors.secondaryColor,
+                                contentDescription = null
+                            )
+                        },
+                        text = {
+                            Text(
+                                text = stringResource(R.string.year_in_review_about_your_insights),
+                                style = MaterialTheme.typography.bodyLarge,
+                                color = WikipediaTheme.colors.primaryColor
+                            )
+                        },
+                        onClick = {
+                            overflowMenuExpanded = false
+                            onAboutInsightsClick()
                         }
                     )
                     DropdownMenuItem(

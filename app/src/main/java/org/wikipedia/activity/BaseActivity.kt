@@ -100,8 +100,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
 
     private val yearInReviewLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_CANCELED) {
-            // TODO: update the string
-            // FeedbackUtil.showMessage(this, getString(R.string.year_in_review_get_started_later))
+            FeedbackUtil.showMessage(this, getString(R.string.year_in_review_get_started_later))
         }
     }
 
@@ -379,7 +378,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
                 ReadingChallengeWidgetRepository.shouldShowOnboardingDialog() -> showReadingChallenge()
                 YearInReviewViewModel.canShowEntryPoint &&
                         !Prefs.yearInReviewVisited -> {
-                    yearInReviewLauncher.launch((YearInReviewOnboardingActivity.newIntent(this@BaseActivity)))
+                    yearInReviewLauncher.launch(YearInReviewOnboardingActivity.newIntent(this@BaseActivity))
                 }
                 !isExternalArticleLink && CreateAccountEncourageViewModel.shouldShow() -> {
                     startActivity(CreateAccountEncourageActivity.newIntent(this@BaseActivity))

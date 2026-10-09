@@ -49,7 +49,10 @@ class YearInReviewActivity : BaseActivity() {
                         finish()
                     },
                     onLearnMoreClick = {
-                        UriUtil.visitInExternalBrowser(context = this, uri = getString(R.string.year_in_review_reading_list_learn_more).toUri())
+                        UriUtil.visitInExternalBrowser(context = this, uri = getString(R.string.year_in_review_media_wiki_url).toUri())
+                    },
+                    onAboutInsightsClick = {
+                        UriUtil.visitInExternalBrowser(context = this, uri = getString(R.string.year_in_review_media_wiki_faq_url).toUri())
                     },
                     onShareFeedbackClick = {
                         FeedbackUtil.composeEmail(

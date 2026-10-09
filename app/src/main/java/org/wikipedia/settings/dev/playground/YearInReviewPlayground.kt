@@ -1,8 +1,8 @@
 package org.wikipedia.settings.dev.playground
 
 import kotlinx.serialization.Serializable
-import org.wikipedia.BuildConfig
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.ReleaseUtil
@@ -53,10 +53,7 @@ data class YearInReviewPlaygroundEntryPoint(
     val countryCode: String = "RU"
 ) {
     fun canShowEntryPoint(isEnabled: Boolean, hiddenCountryCodes: List<String>): Boolean {
-        return YearInReviewAvailability(
-            YearInReviewConfig.YEAR,
-            Clock.fixed(date.date.atStartOfDay(ZoneOffset.UTC).toInstant(), ZoneOffset.UTC)
-        ).canShowEntryPoint(
+        return YearInReviewAvailability(Clock.fixed(date.date.atStartOfDay(ZoneOffset.UTC).toInstant(), ZoneOffset.UTC)).canShowEntryPoint(
             remoteConfig = if (hasRemoteConfig) testRemoteConfig(hiddenCountryCodes) else null,
             countryCode = countryCode,
             isEnabled = isEnabled
@@ -81,21 +78,16 @@ data class YearInReviewPlaygroundEntryPoint(
         }
     }
 
-    private fun testRemoteConfig(hiddenCountryCodes: List<String>): RemoteConfig.RemoteConfigImpl {
-        return RemoteConfig.RemoteConfigImpl(
-            androidv1 = RemoteConfig.RemoteConfigAndroidV1(
-                yirMinAppVersion = BuildConfig.VERSION_CODE
-            ),
-            commonv1 = RemoteConfig.RemoteConfigCommonV1(
-                yir = listOf(
-                    RemoteConfig.RemoteConfigYearInReview(
-                        year = YearInReviewConfig.YEAR,
-                        activeStartDate = testActiveStartDate.atStartOfDay(),
-                        activeEndDate = testActiveEndDate.atStartOfDay(),
-                        hideCountryCodes = hiddenCountryCodes
-                    )
-                )
-            )
+    private fun testRemoteConfig(hiddenCountryCodes: List<String>): RemoteConfig.RemoteConfigYearInReview {
+        return JsonUtil.json.decodeFromString(
+            """
+            {
+              "year": ${YearInReviewConfig.YEAR},
+              "activeStartDate": "${testActiveStartDate}T00:00:00",
+              "activeEndDate": "${testActiveEndDate}T00:00:00",
+              "hideCountryCodes": [${hiddenCountryCodes.joinToString { "\"$it\"" }}]
+            }
+            """
         )
     }
 }

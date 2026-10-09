@@ -69,15 +69,16 @@ class YearInReviewViewModel(
         // Whether Year-in-Review should be accessible at all.
         // (different from the user enabling/disabling it in Settings.)
         val isAccessible get(): Boolean {
-            return YearInReviewAvailability(YIR_YEAR).isAvailable(
-                remoteConfig = RemoteConfig.config,
+            val config = RemoteConfig.config.commonv1?.getYirForYear(YIR_YEAR)
+            return YearInReviewAvailability().isAvailable(
+                remoteConfig = config,
                 countryCode = GeoUtil.geoIPCountry,
                 developerOverride = Prefs.isShowDeveloperSettingsEnabled
             )
         }
 
-        val canShowEntryPoint get() = YearInReviewPlayground.canShowEntryPoint ?: YearInReviewAvailability(YIR_YEAR).canShowEntryPoint(
-            remoteConfig = RemoteConfig.config,
+        val canShowEntryPoint get() = YearInReviewPlayground.canShowEntryPoint ?: YearInReviewAvailability().canShowEntryPoint(
+            remoteConfig = RemoteConfig.config.commonv1?.getYirForYear(YIR_YEAR),
             countryCode = GeoUtil.geoIPCountry,
             isEnabled = Prefs.isYearInReviewEnabled,
             developerOverride = Prefs.isShowDeveloperSettingsEnabled
