@@ -76,6 +76,7 @@ import org.wikipedia.util.UiState
 import org.wikipedia.util.UriUtil
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeRewardDialog
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetRepository
+import org.wikipedia.yearinreview.presentation.YearInReviewActivity
 import org.wikipedia.yearinreview.presentation.YearInReviewViewModel
 
 class ActivityTabFragment : Fragment() {
@@ -156,7 +157,8 @@ class ActivityTabFragment : Fragment() {
                             },
                             showYearInReviewCard = YearInReviewViewModel.canShowEntryPoint,
                             onYirGetStartedClick = {
-                                // TODO: add yir announcement activity
+                                ActivityTabEvent.submit(activeInterface = "activity_tab_login", action = "yir_click")
+                                startActivity(YearInReviewActivity.newIntent(requireContext()))
                             }
                         )
                     }
@@ -261,7 +263,8 @@ class ActivityTabFragment : Fragment() {
             onTimelineItemClick = { handleTimelineItemClick(it) },
             yearInReviewEntryState = yearInReviewEntryState.takeIf { YearInReviewViewModel.canShowEntryPoint },
             onYirGetStartedClick = {
-                // TODO: add yir announcement activity
+                ActivityTabEvent.submit(activeInterface = "activity_tab", action = "yir_click")
+                startActivity(YearInReviewActivity.newIntent(requireContext()))
             }
         )
     }
