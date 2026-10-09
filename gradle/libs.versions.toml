@@ -43,6 +43,7 @@ photoview = "1.0.3"
 preferenceKtx = "1.2.1"
 recyclerview = "1.4.0"
 retrofitVersion = "3.0.0"
+riveAndroid = "11.12.0"
 robolectric = "4.17"
 roomVersion = "2.8.5"
 swiperefreshlayout = "1.2.0"
@@ -53,7 +54,6 @@ composeBom = "2026.09.00"
 composeActivity = "1.13.0"
 composeViewModel = "2.11.0"
 uiGraphics = "1.12.0"
-lottieCompose = "6.7.1"
 datastorePreferences = "1.2.1"
 
 
@@ -114,6 +114,7 @@ preference-ktx = { module = "androidx.preference:preference-ktx", version.ref = 
 recyclerview = { module = "androidx.recyclerview:recyclerview", version.ref = "recyclerview" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofitVersion" }
 retrofit2-kotlinx-serialization-converter = { module = "com.squareup.retrofit2:converter-kotlinx-serialization", version.ref = "retrofitVersion" }
+rive-android = { module = "app.rive:rive-android", version.ref = "riveAndroid" }
 robolectric = { module = "org.robolectric:robolectric", version.ref = "robolectric" }
 room-testing = { module = "androidx.room:room-testing", version.ref = "roomVersion" }
 swiperefreshlayout = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version.ref = "swiperefreshlayout" }
@@ -128,7 +129,6 @@ compose-activity = { module = "androidx.activity:activity-compose", version.ref 
 compose-view-model = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "composeViewModel" }
 compose-test = { module = "androidx.compose.ui:ui-test-junit4" }
 compose-debug-test = { module = "androidx.compose.ui:ui-test-manifest" }
-lottie-compose = { module = "com.airbnb.android:lottie-compose", version.ref = "lottieCompose" }
 androidx-glance-material3 = { module = "androidx.glance:glance-material3", version.ref = "glance" }
 androidx-glance-appwidget = { module = "androidx.glance:glance-appwidget", version.ref = "glance" }
 androidx-glance-preview = { module = "androidx.glance:glance-preview", version.ref = "glance" }
