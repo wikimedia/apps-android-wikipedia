@@ -105,7 +105,7 @@ import kotlin.math.ceil
 fun SemanticSearchResultsScreen(
     modifier: Modifier = Modifier,
     viewModel: SemanticSearchResultsViewModel,
-    onItemClick: (PageTitle) -> Unit,
+    onItemClick: (PageTitle, String?) -> Unit,
     onCloseClick: () -> Unit,
     onFeedbackSubmit: (isPositive: Boolean?, feedbackText: String) -> Unit,
     onLoading: (Boolean) -> Unit,
@@ -417,7 +417,7 @@ fun SemanticSearchResultsContent(
     modifier: Modifier = Modifier,
     viewModel: SemanticSearchResultsViewModel,
     items: List<SearchResult>,
-    onItemClick: (PageTitle) -> Unit
+    onItemClick: (PageTitle, String?) -> Unit
 ) {
     Box(
         modifier = modifier
@@ -436,7 +436,7 @@ fun SemanticSearchResultsContent(
                     prefixQuotationMark = viewModel.quotationMarkMap[viewModel.languageCode] ?: "«",
                     showLastUpdatedTime = viewModel.languageCode == "ar",
                     searchResult = searchResult,
-                    onItemClick = { onItemClick(searchResult.pageTitle) },
+                    onItemClick = { onItemClick(searchResult.pageTitle, searchResult.snippet) },
                     onLinkClick = { url ->
                         // ignore in-article links
                     }

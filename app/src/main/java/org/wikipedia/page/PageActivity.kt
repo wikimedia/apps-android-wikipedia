@@ -703,10 +703,11 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
             if (intent.getBooleanExtra(EXTRA_SHOW_SEMANTIC_SEARCH_FEEDBACK, false)) {
                 semanticSearchFeedbackTitle = title
             }
+            val highlightText = intent.getStringExtra(EXTRA_HIGHLIGHT_TEXT)
             when (intent.action) {
                 ACTION_LOAD_IN_NEW_TAB -> loadPage(title, historyEntry, TabPosition.NEW_TAB_FOREGROUND)
-                ACTION_LOAD_IN_CURRENT_TAB -> loadPage(title, historyEntry, TabPosition.CURRENT_TAB)
-                ACTION_LOAD_IN_CURRENT_TAB_SQUASH -> loadPage(title, historyEntry, TabPosition.CURRENT_TAB_SQUASH)
+                ACTION_LOAD_IN_CURRENT_TAB -> loadPage(title, historyEntry, TabPosition.CURRENT_TAB, highlightText)
+                ACTION_LOAD_IN_CURRENT_TAB_SQUASH -> loadPage(title, historyEntry, TabPosition.CURRENT_TAB_SQUASH, highlightText)
             }
             intent.getStringExtra(Constants.INTENT_EXTRA_REVERT_QNUMBER)?.let {
                 showDescriptionEditRevertDialog(it)
@@ -736,8 +737,9 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
      * @param entry HistoryEntry associated with this page.
      * @param position Whether to open this page in the current tab, a new background tab, or new
      * foreground tab.
+     * @param highlightText Text to highlight and scroll to once the page loads, only for the current tab.
      */
-    private fun loadPage(pageTitle: PageTitle?, entry: HistoryEntry?, position: TabPosition) {
+    private fun loadPage(pageTitle: PageTitle?, entry: HistoryEntry?, position: TabPosition, highlightText: String? = null) {
         if (isDestroyed || pageTitle == null || entry == null) {
             return
         }
@@ -762,8 +764,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
             hideLinkPreview()
             onPageCloseActionMode()
             when (position) {
-                TabPosition.CURRENT_TAB -> pageFragment.loadPage(pageTitle, entry, pushBackStack = true, squashBackstack = false)
-                TabPosition.CURRENT_TAB_SQUASH -> pageFragment.loadPage(pageTitle, entry, pushBackStack = true, squashBackstack = true)
+                TabPosition.CURRENT_TAB -> pageFragment.loadPage(pageTitle, entry, pushBackStack = true, squashBackstack = false, highlightText = highlightText)
+                TabPosition.CURRENT_TAB_SQUASH -> pageFragment.loadPage(pageTitle, entry, pushBackStack = true, squashBackstack = true, highlightText = highlightText)
                 TabPosition.NEW_TAB_BACKGROUND -> pageFragment.openInNewBackgroundTab(pageTitle, entry)
                 TabPosition.NEW_TAB_FOREGROUND -> pageFragment.openInNewForegroundTab(pageTitle, entry)
                 else -> pageFragment.openFromExistingTab(pageTitle, entry)
@@ -964,6 +966,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         const val ACTION_RESUME_READING = "org.wikipedia.resume_reading"
         const val EXTRA_HISTORYENTRY = "org.wikipedia.history.historyentry"
         const val EXTRA_SHOW_SEMANTIC_SEARCH_FEEDBACK = "org.wikipedia.search.semantic.show_feedback"
+        const val EXTRA_HIGHLIGHT_TEXT = "org.wikipedia.page.highlight_text"
 
         fun newIntent(context: Context): Intent {
             return Intent(ACTION_RESUME_READING).setClass(context, PageActivity::class.java)

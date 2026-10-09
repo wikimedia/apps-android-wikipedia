@@ -17,6 +17,7 @@ import org.wikipedia.extensions.getString
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.search.SearchResultCallback
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.StringUtil
 
 class SemanticSearchResultsDialog : ExtendedBottomSheetDialogFragment() {
 
@@ -32,8 +33,14 @@ class SemanticSearchResultsDialog : ExtendedBottomSheetDialogFragment() {
                 BaseTheme {
                     SemanticSearchResultsScreen(
                         viewModel = viewModel,
-                        onItemClick = { title ->
-                            callback()?.navigateToTitle(title, false, 0, showSemanticSearchFeedback = viewModel.deferFeedbackToArticle())
+                        onItemClick = { title, snippet ->
+                            callback()?.navigateToTitle(
+                                item = title,
+                                inNewTab = false,
+                                position = 0,
+                                showSemanticSearchFeedback = viewModel.deferFeedbackToArticle(),
+                                highlightText = StringUtil.extractStringFromStyle("searchmatch", snippet)
+                            )
                         },
                         onCloseClick = {
                             dismiss()
