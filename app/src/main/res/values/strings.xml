@@ -2036,8 +2036,8 @@
     </plurals>
     <string name="yir_article_count_headline">Your total article count:</string>
     <plurals name="yir_article_count_supporting_top">
-        <item quantity="one">That puts you in the top %1$d%% of Wikipedia readers globally. The average person reads %2$d article a year.</item>
-        <item quantity="other">That puts you in the top %1$d%% of Wikipedia readers globally. The average person reads %2$d articles a year.</item>
+        <item quantity="one">That puts you in the top %1$s%% of Wikipedia readers globally. The average person reads %2$d article a year.</item>
+        <item quantity="other">That puts you in the top %1$s%% of Wikipedia readers globally. The average person reads %2$d articles a year.</item>
     </plurals>
     <string name="yir_article_count_supporting">You\'ve been exploring all year. Every article added something to what you know.</string>
     <string name="yir_article_count_empty_headline">You have millions of articles to discover</string>
@@ -2048,9 +2048,9 @@
         <item quantity="other">Your activity peaked in %1$s, when you read on %2$d different days.</item>
     </plurals>
     <string name="yir_minutes_read_headline">Total minutes spent reading:</string>
-    <string name="yir_minutes_read_supporting">That\'s longer than a full night\'s sleep. Time flies when you\'re falling down a rabbit hole.</string>
+    <string name="yir_minutes_read_supporting">%1$s Time flies when you\'re falling down a rabbit hole.</string>
     <string name="yir_reading_streak_headline">Days in your longest reading streak:</string>
-    <string name="yir_reading_streak_supporting">From %1$s, you really got into the groove of reading every day.</string>
+    <string name="yir_reading_streak_supporting">From %1$s–%2$s, you really got into the groove of reading every day.</string>
     <string name="yir_reading_streak_empty_headline">0 reading streaks… yet</string>
     <plurals name="yir_reading_streak_empty_supporting">
         <item quantity="one">It\'s not a streak until you\'ve done it for %1$d consecutive day. Why not start now?</item>
@@ -2212,10 +2212,7 @@
     <string name="yir_topic_comment_oceania">Your reading carried you out to Oceania this year.</string>
     <string name="yir_topic_comment_south_america">Your reading took you across South America this year.</string>
 
-    <plurals name="yir_time_spent_comment_1">
-        <item quantity="one">That\'s longer than it takes a hummingbird\'s heart to beat %1$,d time.</item>
-        <item quantity="other">That\'s longer than it takes a hummingbird\'s heart to beat %1$,d times.</item>
-    </plurals>
+    <string name="yir_time_spent_comment_1">That\'s longer than it takes a hummingbird\'s heart to beat 1200 times.</string>
     <string name="yir_time_spent_comment_9">That\'s longer than it takes sunlight to travel from the sun to Earth.</string>
     <string name="yir_time_spent_comment_13">That\'s longer than it takes to hard-boil an egg.</string>
     <string name="yir_time_spent_comment_19">That\'s longer than the average time it takes people to fall asleep.</string>
@@ -2223,16 +2220,15 @@
     <string name="yir_time_spent_comment_93">That\'s longer than it takes the International Space Station to orbit Earth once.</string>
     <string name="yir_time_spent_comment_121">That\'s longer than the current marathon world record.</string>
     <string name="yir_time_spent_comment_540">That\'s longer than a full night\'s sleep.</string>
-    <plurals name="yir_time_spent_comment_1441">
-        <item quantity="one">That\'s longer than it takes a queen honeybee to lay up to %1$,d egg.</item>
-        <item quantity="other">That\'s longer than it takes a queen honeybee to lay up to %1$,d eggs.</item>
-    </plurals>
+    <string name="yir_time_spent_comment_1441">That\'s longer than it takes a queen honeybee to lay up to 2000 eggs.</string>
     <plurals name="yir_time_spent_comment_2800">
         <item quantity="one">That\'s longer than %1$d entire day.</item>
         <item quantity="other">That\'s longer than %1$d entire days.</item>
     </plurals>
 
     <string name="year_in_review_learn_more">Learn more</string>
+    <string name="year_in_review_share_feedback">Share feedback</string>
+    <string name="year_in_review_feedback_email_subject">Year in Review Feedback</string>
     <string name="year_in_review_get_started">Get started</string>
     <string name="year_in_review_topbar_w_icon">Wikipedia W Icon</string>
     <string name="year_in_review_navigate_left">Navigate left</string>
