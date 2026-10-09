@@ -793,18 +793,17 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 }
             }
 
-            // do we have a URL fragment to scroll to?
+            // do we have a URL fragment or highlight text to scroll to?
             model.title?.let { prevTitle ->
-                if (!prevTitle.fragment.isNullOrEmpty() && scrollTriggerListener.stagedScrollY == 0) {
+                if ((!prevTitle.fragment.isNullOrEmpty() || !model.pendingHighlightText.isNullOrEmpty()) && scrollTriggerListener.stagedScrollY == 0) {
                     val scrollDelay = 100
                     webView.postDelayed({
                         if (!isAdded) {
                             return@postDelayed
                         }
                         model.title?.let {
-                            if (!it.fragment.isNullOrEmpty()) {
-                                scrollToSection(it.fragment!!)
-                            }
+                            jumpToHighlightOrSection(it.fragment, model.pendingHighlightText)
+                            model.pendingHighlightText = null
                         }
                     }, scrollDelay.toLong())
                 }
@@ -1004,14 +1003,17 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         setCurrentTabAndReset(selectedTabPosition)
     }
 
-    fun loadPage(title: PageTitle, entry: HistoryEntry, pushBackStack: Boolean, squashBackstack: Boolean, isRefresh: Boolean = false) {
+    fun loadPage(title: PageTitle, entry: HistoryEntry, pushBackStack: Boolean, squashBackstack: Boolean, isRefresh: Boolean = false, highlightText: String? = null) {
         // is the new title the same as what's already being displayed?
         if (currentTab.backStack.isNotEmpty() &&
                 title == currentTab.backStack[currentTab.backStackPosition].title) {
             if (model.page == null || isRefresh) {
                 pageFragmentLoadState.loadFromBackStack()
-            } else if (!title.fragment.isNullOrEmpty()) {
-                scrollToSection(title.fragment!!)
+            } else {
+                // Keep the model in sync so that a pending final_setup does not jump to a stale target.
+                model.title?.fragment = title.fragment
+                model.pendingHighlightText = highlightText
+                jumpToHighlightOrSection(title.fragment, highlightText)
             }
             return
         }
@@ -1020,10 +1022,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 app.tabList.last().clearBackstack()
             }
         }
-        loadPage(title, entry, pushBackStack, 0, isRefresh)
+        loadPage(title, entry, pushBackStack, 0, isRefresh, highlightText)
     }
 
-    fun loadPage(title: PageTitle, entry: HistoryEntry, pushBackStack: Boolean, stagedScrollY: Int, isRefresh: Boolean = false) {
+    fun loadPage(title: PageTitle, entry: HistoryEntry, pushBackStack: Boolean, stagedScrollY: Int, isRefresh: Boolean = false, highlightText: String? = null) {
         // clear the title in case the previous page load had failed.
         clearActivityActionBarTitle()
 
@@ -1046,6 +1048,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         errorState = false
         binding.pageError.visibility = View.GONE
         model.title = title
+        model.pendingHighlightText = highlightText
         model.curEntry = entry
         model.page = null
         model.readingListPage = null
@@ -1169,7 +1172,18 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         if (!isAdded) {
             return
         }
+        bridge.execute(JavaScriptActionHandler.clearHighlight())
         bridge.execute(JavaScriptActionHandler.prepareToScrollTo(sectionAnchor, false))
+    }
+
+    private fun jumpToHighlightOrSection(sectionAnchor: String?, highlightText: String?) {
+        if (!highlightText.isNullOrEmpty()) {
+            bridge.evaluate(JavaScriptActionHandler.jumpToHighlightOrSection(sectionAnchor, highlightText)) { result ->
+                // ignore
+            }
+        } else if (!sectionAnchor.isNullOrEmpty()) {
+            scrollToSection(sectionAnchor)
+        }
     }
 
     fun onPageLoadError(caught: Throwable) {
