@@ -9,8 +9,11 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.history.db.HistoryEntryDao
 import org.wikipedia.settings.Prefs
+import org.wikipedia.topics.ArticleTopics
+import org.wikipedia.topics.db.PageTopicDao
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.GeoUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import java.io.IOException
 
@@ -21,6 +24,7 @@ interface YearInReviewRepository {
 class YearInReviewRepositoryImpl(
     private val restService: RestService = ServiceFactory.getRest(WikipediaApp.instance.wikiSite),
     private val historyEntryDao: HistoryEntryDao = AppDatabase.instance.historyEntryDao(),
+    private val pageTopicDao: PageTopicDao = AppDatabase.instance.pageTopicDao(),
     private val cache: YearInReviewCache = PrefsYearInReviewStore,
     private val donationEligibility: YearInReviewDonationEligibility = YearInReviewDonationEligibility()
 ) : YearInReviewRepository {
@@ -58,12 +62,25 @@ class YearInReviewRepositoryImpl(
     }
 
     suspend fun getReadingStats(dateRange: YearInReviewDateRange): YearInReviewReadingStats {
+        // TODO: parallelize all of the suspend calls below:
         val peakMonth = historyEntryDao.getPeakMonthByVisitedDaysBetween(dateRange.startMillis, dateRange.endMillis)
+
+        val topTopic = pageTopicDao.getTopTopicsByArticleCount(dateRange.startMillis, dateRange.endMillis)
+            .map { it.topic }
+            .firstOrNull()?.let {
+                ArticleTopics.all.find { topic -> topic.taxonIds.contains(it) }
+            }
+
         return YearInReviewReadingStats(
             articlesReadCount = historyEntryDao.getDistinctEntriesCountBetween(dateRange.startMillis, dateRange.endMillis),
             visitedDaysCount = historyEntryDao.getDistinctDaysCountBetween(dateRange.startMillis, dateRange.endMillis),
             peakMonth = peakMonth?.month ?: 0,
-            peakMonthVisitedDays = peakMonth?.visitedDays ?: 0
+            peakMonthVisitedDays = peakMonth?.visitedDays ?: 0,
+            topTopic = topTopic,
+            topTopicArticles = topTopic?.let { topic ->
+                pageTopicDao.findEntriesByTopic(topic.taxonIds.firstOrNull().orEmpty(), dateRange.startMillis, dateRange.endMillis, limit = 3)
+                    .map { StringUtil.fromHtml(it.displayTitle).toString() }
+            }
         )
     }
 
