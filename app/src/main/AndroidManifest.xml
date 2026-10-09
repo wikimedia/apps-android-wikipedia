@@ -386,9 +386,6 @@
             android:name=".readinglist.recommended.RecommendedReadingListOnboardingActivity"/>
 
         <activity
-            android:name=".settings.dev.playground.CategoryDeveloperPlayGround"/>
-
-        <activity
             android:name=".yearinreview.presentation.YearInReviewOnboardingActivity"/>
 
         <activity

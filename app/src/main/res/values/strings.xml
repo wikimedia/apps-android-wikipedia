@@ -2036,8 +2036,8 @@
     </plurals>
     <string name="yir_article_count_headline">Your total article count:</string>
     <plurals name="yir_article_count_supporting_top">
-        <item quantity="one">That puts you in the top %1$s%% of Wikipedia readers globally. The average person reads %2$d article a year.</item>
-        <item quantity="other">That puts you in the top %1$s%% of Wikipedia readers globally. The average person reads %2$d articles a year.</item>
+        <item quantity="one">That puts you in the top %1$d%% of Wikipedia readers globally. The average person reads %2$d article a year.</item>
+        <item quantity="other">That puts you in the top %1$d%% of Wikipedia readers globally. The average person reads %2$d articles a year.</item>
     </plurals>
     <string name="yir_article_count_supporting">You\'ve been exploring all year. Every article added something to what you know.</string>
     <string name="yir_article_count_empty_headline">You have millions of articles to discover</string>
@@ -2048,9 +2048,9 @@
         <item quantity="other">Your activity peaked in %1$s, when you read on %2$d different days.</item>
     </plurals>
     <string name="yir_minutes_read_headline">Total minutes spent reading:</string>
-    <string name="yir_minutes_read_supporting">%1$s Time flies when you\'re falling down a rabbit hole.</string>
+    <string name="yir_minutes_read_supporting">That\'s longer than a full night\'s sleep. Time flies when you\'re falling down a rabbit hole.</string>
     <string name="yir_reading_streak_headline">Days in your longest reading streak:</string>
-    <string name="yir_reading_streak_supporting">From %1$s–%2$s, you really got into the groove of reading every day.</string>
+    <string name="yir_reading_streak_supporting">From %1$s, you really got into the groove of reading every day.</string>
     <string name="yir_reading_streak_empty_headline">0 reading streaks… yet</string>
     <plurals name="yir_reading_streak_empty_supporting">
         <item quantity="one">It\'s not a streak until you\'ve done it for %1$d consecutive day. Why not start now?</item>
@@ -2212,7 +2212,10 @@
     <string name="yir_topic_comment_oceania">Your reading carried you out to Oceania this year.</string>
     <string name="yir_topic_comment_south_america">Your reading took you across South America this year.</string>
 
-    <string name="yir_time_spent_comment_1">That\'s longer than it takes a hummingbird\'s heart to beat 1200 times.</string>
+    <plurals name="yir_time_spent_comment_1">
+        <item quantity="one">That\'s longer than it takes a hummingbird\'s heart to beat %1$,d time.</item>
+        <item quantity="other">That\'s longer than it takes a hummingbird\'s heart to beat %1$,d times.</item>
+    </plurals>
     <string name="yir_time_spent_comment_9">That\'s longer than it takes sunlight to travel from the sun to Earth.</string>
     <string name="yir_time_spent_comment_13">That\'s longer than it takes to hard-boil an egg.</string>
     <string name="yir_time_spent_comment_19">That\'s longer than the average time it takes people to fall asleep.</string>
@@ -2220,15 +2223,16 @@
     <string name="yir_time_spent_comment_93">That\'s longer than it takes the International Space Station to orbit Earth once.</string>
     <string name="yir_time_spent_comment_121">That\'s longer than the current marathon world record.</string>
     <string name="yir_time_spent_comment_540">That\'s longer than a full night\'s sleep.</string>
-    <string name="yir_time_spent_comment_1441">That\'s longer than it takes a queen honeybee to lay up to 2000 eggs.</string>
+    <plurals name="yir_time_spent_comment_1441">
+        <item quantity="one">That\'s longer than it takes a queen honeybee to lay up to %1$,d egg.</item>
+        <item quantity="other">That\'s longer than it takes a queen honeybee to lay up to %1$,d eggs.</item>
+    </plurals>
     <plurals name="yir_time_spent_comment_2800">
         <item quantity="one">That\'s longer than %1$d entire day.</item>
         <item quantity="other">That\'s longer than %1$d entire days.</item>
     </plurals>
 
     <string name="year_in_review_learn_more">Learn more</string>
-    <string name="year_in_review_share_feedback">Share feedback</string>
-    <string name="year_in_review_feedback_email_subject">Year in Review Feedback</string>
     <string name="year_in_review_get_started">Get started</string>
     <string name="year_in_review_topbar_w_icon">Wikipedia W Icon</string>
     <string name="year_in_review_navigate_left">Navigate left</string>
@@ -2863,4 +2867,39 @@
         <item quantity="one">Unsaving this article will remove it from all associated collections.</item>
         <item quantity="other">Unsaving these articles will remove it from all associated collections.</item>
     </plurals>
+
+    <!-- Semantic search -->
+    <string name="semantic_search_entry_point_card_message">Search within articles and jump straight to the relevant passage</string>
+    <string name="semantic_search_entry_point_card_text_button">Try it now</string>
+    <string name="semantic_search_info_dialog_title">What is this feature?</string>
+    <string name="semantic_search_info_dialog_message">Find answers to your questions inside Wikipedia articles and jump straight into the relevant passage. \n\nPassages are drawn from articles that people researched, wrote, and edited, each one backed by cited sources you can check.</string>
+    <string name="semantic_search_info_dialog_button_text">Learn more</string>
+    <string name="semantic_search_info_btn_content_description">Semantic search information icon button</string>
+    <string name="semantic_search_close_btn_content_description">Semantic search disable and close icon button</string>
+    <string name="semantic_search_beta_label">Beta</string>
+    <string name="semantic_search_no_results_message">No results for this search</string>
+    <string name="semantic_search_results_close_button_content_description">Close the semantic search results</string>
+    <string name="semantic_search_results_read_in_article_label">Read in article</string>
+    <plurals name="semantic_search_result_contributors">
+        <item quantity="one">%d contributor</item>
+        <item quantity="other">%d contributors</item>
+    </plurals>
+    <plurals name="semantic_search_result_references">
+        <item quantity="one">%d reference</item>
+        <item quantity="other">%d references</item>
+    </plurals>
+    <string name="semantic_search_results_last_updated_label">Last update %s</string>
+    <string name="semantic_search_results_feedback_title">Found what you were looking for?</string>
+    <string name="semantic_search_results_feedback_thumb_up_content_description">Thumbs up</string>
+    <string name="semantic_search_results_feedback_thumb_down_content_description">Thumbs down</string>
+    <string name="semantic_search_results_feedback_input_hint">Tell us more (optional)</string>
+    <string name="semantic_search_results_feedback_submit_button_text">Submit</string>
+    <string name="semantic_search_results_feedback_submitted_message">Thanks for your feedback</string>
+    <string name="semantic_search_feedback_dialog_title">Feedback</string>
+    <string name="semantic_search_feedback_dialog_close_button_content_description">Close the semantic search feedback</string>
+    <string name="preference_heading_semantic_search">Search</string>
+    <string name="preference_title_semantic_search_within_articles">Search within articles</string>
+    <string name="preference_summary_semantic_search_jump_to_passage">Jump straight to the relevant passage</string>
+    <string name="semantic_search_snackbar_message">Module hidden. You can make it visible again via Settings</string>
+    <string name="semantic_search_snackbar_action_label">Modify</string>
 </resources>
