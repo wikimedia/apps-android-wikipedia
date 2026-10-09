@@ -41,6 +41,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -55,13 +56,14 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
-import app.rive.GetBitmapFun
 import app.rive.Result
 import org.wikipedia.R
 import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.theme.WikipediaTheme
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.launch
 import kotlin.math.roundToInt
 
 private val YearInReviewCardCornerRadius = 28.dp
@@ -173,7 +175,9 @@ private fun YearInReviewContent(
     LaunchedEffect(useDarkStatusBarIcons) {
         onStatusBarIconColorChange(useDarkStatusBarIcons)
     }
-    val screenshotGetters = remember { mutableStateMapOf<String, GetBitmapFun>() }
+    val shareImageRenderers = remember { mutableStateMapOf<String, RenderShareImage>() }
+    var isRenderingShareImage by remember { mutableStateOf(false) }
+    val coroutineScope = rememberCoroutineScope()
     val riveWorker = rememberYearInReviewRiveWorker(onRiveError)
     val resources = LocalResources.current
     val riveContents = remember(pages) {
@@ -197,18 +201,23 @@ private fun YearInReviewContent(
         bottomBar = {
             YearInReviewBottomBar(
                 showDonateButton = showDonateButton && pages.isNotEmpty(),
-                shareEnabled = pages.getOrNull(pagerState.currentPage)?.let { page ->
-                    screenshotGetters.containsKey(page.id)
+                shareEnabled = !isRenderingShareImage && pages.getOrNull(pagerState.currentPage)?.let { page ->
+                    shareImageRenderers.containsKey(page.id)
                 } == true,
                 onShareClick = {
-                    val page = pages.getOrNull(pagerState.currentPage)
-                    if (page != null) {
-                        try {
-                            screenshotGetters[page.id]?.invoke()?.let { bitmap ->
-                                onShareClick(bitmap)
+                    val renderShareImage = pages.getOrNull(pagerState.currentPage)?.let { shareImageRenderers[it.id] }
+                    if (renderShareImage != null) {
+                        isRenderingShareImage = true
+                        coroutineScope.launch {
+                            try {
+                                onShareClick(renderShareImage())
+                            } catch (cancellationException: CancellationException) {
+                                throw cancellationException
+                            } catch (exception: Exception) {
+                                onRiveError(exception)
+                            } finally {
+                                isRenderingShareImage = false
                             }
-                        } catch (exception: Exception) {
-                            onRiveError(exception)
                         }
                     }
                 },
@@ -246,7 +255,7 @@ private fun YearInReviewContent(
                             content = content,
                             playing = pagerState.currentPage == position,
                             slideId = page.id,
-                            screenshotGetters = screenshotGetters,
+                            shareImageRenderers = shareImageRenderers,
                             onUseWhiteTopBarIconsChange = { useWhiteTopBarIconsByPageId[page.id] = it },
                             onRiveError = onRiveError
                         )

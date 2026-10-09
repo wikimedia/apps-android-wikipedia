@@ -26,7 +26,6 @@ import androidx.compose.ui.unit.sp
 import androidx.startup.AppInitializer
 import app.rive.ExperimentalRiveGlobalViewModels
 import app.rive.Fit
-import app.rive.GetBitmapFun
 import app.rive.Result
 import app.rive.Rive
 import app.rive.RiveFile
@@ -53,6 +52,7 @@ import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.util.log.L
+import kotlin.time.Duration
 
 data class RiveSlideSpec(
     @param:RawRes val resourceId: Int,
@@ -61,7 +61,9 @@ data class RiveSlideSpec(
     val instanceType: RiveInstanceType = RiveInstanceType.Default,
     val globalViewModel: RiveGlobalViewModel? = null,
     val fit: RiveSlideFit = RiveSlideFit.Layout,
-    val isTopBarUiIconsWhite: String? = null
+    val isTopBarUiIconsWhite: String? = null,
+    // How far into the slide's state machine the shared image is taken
+    val shareFrameTime: Duration = Duration.ZERO
 )
 
 // A view model whose values every artboard in the file can read; left null when the app doesn't set them
@@ -85,7 +87,7 @@ sealed interface RiveInstanceType {
     data class Named(val name: String) : RiveInstanceType
 }
 
-private fun ViewModelSource.instanceSource(instanceType: RiveInstanceType) = when (instanceType) {
+fun ViewModelSource.instanceSource(instanceType: RiveInstanceType) = when (instanceType) {
     RiveInstanceType.Default -> defaultInstance()
     RiveInstanceType.Blank -> blankInstance()
     is RiveInstanceType.Named -> namedInstance(instanceType.name)
@@ -200,7 +202,7 @@ fun YearInReviewRiveSlide(
     playing: Boolean,
     modifier: Modifier = Modifier,
     slideId: String? = null,
-    screenshotGetters: MutableMap<String, GetBitmapFun>? = null,
+    shareImageRenderers: MutableMap<String, RenderShareImage>? = null,
     onUseWhiteTopBarIconsChange: (Boolean) -> Unit = {},
     onRiveError: (Throwable) -> Unit
 ) {
@@ -218,7 +220,7 @@ fun YearInReviewRiveSlide(
             modifier = modifier,
             onRiveError = onRiveError,
             slideId = slideId,
-            screenshotGetters = screenshotGetters,
+            shareImageRenderers = shareImageRenderers,
             onUseWhiteTopBarIconsChange = onUseWhiteTopBarIconsChange
         )
     }
@@ -236,7 +238,7 @@ private fun YearInReviewRiveArtboard(
     modifier: Modifier,
     onRiveError: (Throwable) -> Unit,
     slideId: String?,
-    screenshotGetters: MutableMap<String, GetBitmapFun>?,
+    shareImageRenderers: MutableMap<String, RenderShareImage>?,
     onUseWhiteTopBarIconsChange: (Boolean) -> Unit
 ) {
     // loading the artboard and state machine from the rive file
@@ -269,15 +271,18 @@ private fun YearInReviewRiveArtboard(
                     emptyMap()
                 }
             }
-            val onBitmapAvailable: ((GetBitmapFun) -> Unit)? = if (slideId != null && screenshotGetters != null) {
-                { screenshotGetters[slideId] = it }
-            } else {
-                null
-            }
-            DisposableEffect(slideId, screenshotGetters, riveFile, artboard, stateMachine, instance) {
+            DisposableEffect(slideId, shareImageRenderers, riveFile, spec, textProperties, numberProperties, imageResults) {
+                if (slideId != null && shareImageRenderers != null) {
+                    val images = imageResults.mapNotNull { (property, imageResult) ->
+                        (imageResult as? Result.Success)?.value?.let { property to it }
+                    }.toMap()
+                    shareImageRenderers[slideId] = {
+                        renderRiveShareImage(riveFile, spec, textProperties, numberProperties, images)
+                    }
+                }
                 onDispose {
                     if (slideId != null) {
-                        screenshotGetters?.remove(slideId)
+                        shareImageRenderers?.remove(slideId)
                     }
                 }
             }
@@ -329,7 +334,6 @@ private fun YearInReviewRiveArtboard(
                 viewModelInstance = instance,
                 fit = fit,
                 pointerInputMode = RivePointerInputMode.Observe,
-                onBitmapAvailable = onBitmapAvailable,
                 modifier = modifier
                     .fillMaxSize()
                     .clearAndSetSemantics {

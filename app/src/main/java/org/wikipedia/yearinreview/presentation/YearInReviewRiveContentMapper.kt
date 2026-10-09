@@ -10,6 +10,8 @@ import java.text.NumberFormat
 import java.time.Month
 import java.time.format.TextStyle
 import java.util.concurrent.TimeUnit
+import kotlin.time.Duration
+import kotlin.time.Duration.Companion.seconds
 
 /**
  * Maps each page to its Rive content, or null when the page doesn't use Rive.
@@ -244,6 +246,37 @@ private val AllTemplatesGlobalProperties = RiveGlobalViewModel(
     )
 )
 
+// TODO: placeholder times until design gives the pause point of each artboard
+private val AllTemplatesShareFrameTimes = mapOf(
+    "cover" to 3.seconds,
+    "frame1" to 3.seconds,
+    "frame1-empty" to 3.seconds,
+    "frame2" to 3.seconds,
+    "frame3" to 3.seconds,
+    "frame4" to 3.seconds,
+    "frame4-empty" to 3.seconds,
+    "frame5" to 3.seconds,
+    "frame5-empty" to 3.seconds,
+    "frame6" to 3.seconds,
+    "frame6-empty" to 3.seconds,
+    "frame7" to 3.seconds,
+    "frame8" to 3.seconds,
+    "frame9-leftToRight" to 3.seconds,
+    "frame9-rightToLeft" to 3.seconds,
+    "frame12" to 3.seconds,
+    "frame13" to 3.seconds,
+    "frame13-empty" to 3.seconds,
+    "frame14" to 3.seconds,
+    "frame14-empty" to 3.seconds,
+    "frame15" to 3.seconds,
+    "frame15-empty" to 3.seconds,
+    "frame16" to 3.seconds,
+    "frame16-empty" to 3.seconds,
+    "frame17" to 3.seconds,
+    "frame18" to 3.seconds,
+    "end" to 3.seconds
+)
+
 // In all_templates.riv, each artboard has a same-named view model instance holding sample text
 fun allTemplatesSlideSpec(
     artboardName: String,
@@ -255,7 +288,8 @@ fun allTemplatesSlideSpec(
     viewModelName = viewModelName,
     instanceType = instanceType,
     globalViewModel = AllTemplatesGlobalProperties,
-    isTopBarUiIconsWhite = "isUIWhite"
+    isTopBarUiIconsWhite = "isUIWhite",
+    shareFrameTime = AllTemplatesShareFrameTimes[artboardName] ?: Duration.ZERO
 )
 
 // Artboards that show up to three articles or topics, each with an icon, title and subtitle
