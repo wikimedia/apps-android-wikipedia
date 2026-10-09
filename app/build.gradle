@@ -207,8 +207,12 @@ dependencies {
     implementation libs.lottie.compose
     implementation libs.media3.exoplayer
 
+    // Use the OpenGL ES variant of MapLibre, since the default variant requires Vulkan, which is
+    // not available on some lower-budget devices, and causes the Play Store to exclude those devices.
     implementation libs.maplibre
-    implementation libs.maplibre.annotation
+    implementation(libs.maplibre.annotation) {
+        exclude group: 'org.maplibre.gl', module: 'android-sdk'
+    }
 
     implementation libs.androidx.room.runtime
     annotationProcessor libs.androidx.room.compiler

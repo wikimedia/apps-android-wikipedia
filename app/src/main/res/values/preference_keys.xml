@@ -181,7 +181,6 @@
     <string name="preference_key_impact_last_response_body" translatable="false">impactLastResponseBody</string>
     <string name="preference_key_default_places_location_latlng" translatable="false">placesDefaultLocationLatLng</string>
     <string name="preference_key_delete_local_donation_history" translatable="false">deleteLocalDonationHistory</string>
-    <string name="preference_key_playground_category" translatable="false">categoryPlayground</string>
     <string name="preference_key_otd_is_archive_game_playing" translatable="false">isArchiveGamePlaying</string>
     <string name="preference_key_otd_sound_on" translatable="false">isOtdSoundOn</string>
     <string name="preference_key_year_in_review_is_enabled" translatable="false">isYearInReviewEnabled</string>

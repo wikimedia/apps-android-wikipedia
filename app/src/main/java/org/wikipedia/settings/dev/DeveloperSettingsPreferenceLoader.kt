@@ -1,7 +1,6 @@
 package org.wikipedia.settings.dev
 
 import android.content.DialogInterface
-import android.content.Intent
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -38,7 +37,6 @@ import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequen
 import org.wikipedia.settings.BasePreferenceLoader
 import org.wikipedia.settings.IntPreference
 import org.wikipedia.settings.Prefs
-import org.wikipedia.settings.dev.playground.CategoryDeveloperPlayGround
 import org.wikipedia.settings.dev.playground.ReadingChallengePlayGroundDialog
 import org.wikipedia.settings.dev.playground.YearInReviewPlaygroundDialog
 import org.wikipedia.setupLeakCanary
@@ -229,10 +227,6 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             Prefs.otdNotificationState = OnThisDayGameNotificationState.NO_INTERACTED
             OnThisDayGameNotificationManager.cancelDailyGameNotification(activity)
             FeedbackUtil.showMessage(activity, "Notification state reset.")
-            true
-        }
-        findPreference(R.string.preference_key_playground_category).onPreferenceClickListener = Preference.OnPreferenceClickListener {
-            activity.startActivity(Intent(activity, CategoryDeveloperPlayGround::class.java))
             true
         }
         (findPreference(R.string.preference_key_recommended_reading_list_notification_simulator) as ListPreference).apply {
