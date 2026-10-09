@@ -1,0 +1,115 @@
+package org.wikipedia.yearinreview.presentation
+
+import android.content.Context
+import android.content.Intent
+import android.graphics.Color
+import android.os.Bundle
+import androidx.activity.SystemBarStyle
+import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
+import androidx.compose.runtime.getValue
+import androidx.core.net.toUri
+import androidx.core.view.WindowCompat
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.lifecycleScope
+import org.wikipedia.R
+import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
+import org.wikipedia.analytics.eventplatform.EventPlatformClient
+import org.wikipedia.analytics.eventplatform.YearInReviewEvent
+import org.wikipedia.compose.theme.BaseTheme
+import org.wikipedia.donate.DonateDialog
+import org.wikipedia.page.ExclusiveBottomSheetPresenter
+import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ShareUtil
+import org.wikipedia.util.UriUtil
+
+class YearInReviewActivity : BaseActivity() {
+
+    private val viewModel: YearInReviewViewModel by viewModels()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        initializeYearInReviewRive(this)
+
+        enableEdgeToEdge(
+            statusBarStyle = SystemBarStyle.dark(Color.TRANSPARENT),
+            navigationBarStyle = SystemBarStyle.dark(Color.TRANSPARENT)
+        )
+
+        setContent {
+            BaseTheme {
+                val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+
+                YearInReviewScreen(
+                    uiState = uiState,
+                    onCloseClick = {
+                        finish()
+                    },
+                    onLearnMoreClick = {
+                        UriUtil.visitInExternalBrowser(context = this, uri = getString(R.string.year_in_review_media_wiki_url).toUri())
+                    },
+                    onAboutInsightsClick = {
+                        UriUtil.visitInExternalBrowser(context = this, uri = getString(R.string.year_in_review_media_wiki_faq_url).toUri())
+                    },
+                    onShareFeedbackClick = {
+                        FeedbackUtil.composeEmail(
+                            context = this,
+                            subject = getString(R.string.year_in_review_feedback_email_subject)
+                        )
+                    },
+                    onShareClick = { bitmap ->
+                        val shareUrl = getString(R.string.year_in_review_share_url) + YearInReviewViewModel.YIR_TAG
+                        val shareText = String.format(
+                            getString(R.string.year_in_review_share_body),
+                            shareUrl,
+                            getString(R.string.year_in_review_hashtag)
+                        )
+                        ShareUtil.shareImage(
+                            coroutineScope = lifecycleScope,
+                            context = this,
+                            bmp = bitmap,
+                            imageFileName = YearInReviewViewModel.YIR_TAG,
+                            subject = getString(R.string.year_in_review_share_subject),
+                            text = shareText
+                        )
+                    },
+                    onDonateClick = { currentSlide ->
+                        EventPlatformClient.submit(
+                            BreadCrumbLogEvent(
+                                screen_name = "year_in_review",
+                                action = "donate_click"
+                            )
+                        )
+                        val campaignId = "appmenu_yir_$currentSlide"
+                        YearInReviewViewModel.currentCampaignId = campaignId
+                        YearInReviewEvent.submit(
+                            action = "donate_start_click_yir",
+                            slide = currentSlide,
+                            campaignId = campaignId
+                        )
+                        ExclusiveBottomSheetPresenter.show(supportFragmentManager, DonateDialog.newInstance(campaignId = campaignId, fromYiR = true))
+                    },
+                    onStatusBarIconColorChange = { useDarkIcons ->
+                        WindowCompat.getInsetsController(window, window.decorView)
+                            .isAppearanceLightStatusBars = useDarkIcons
+                    },
+                    onRetryClick = {
+                        viewModel.loadYearInReview()
+                    },
+                    onRiveError = { throwable ->
+                        FeedbackUtil.showError(this, throwable)
+                    }
+                )
+            }
+        }
+    }
+
+    companion object {
+        fun newIntent(context: Context): Intent {
+            return Intent(context, YearInReviewActivity::class.java)
+        }
+    }
+}

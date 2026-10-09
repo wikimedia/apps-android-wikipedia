@@ -28,6 +28,18 @@ interface HistoryEntryDao {
     @Query("SELECT COUNT(*) FROM (SELECT DISTINCT HistoryEntry.lang, HistoryEntry.apiTitle FROM HistoryEntry WHERE timestamp BETWEEN :startMillis AND :endMillis)")
     suspend fun getDistinctEntriesCountBetween(startMillis: Long, endMillis: Long = System.currentTimeMillis()): Int
 
+    @Query("SELECT COUNT(DISTINCT date(timestamp / 1000, 'unixepoch', 'localtime')) FROM HistoryEntry WHERE timestamp BETWEEN :startMillis AND :endMillis")
+    suspend fun getDistinctDaysCountBetween(startMillis: Long, endMillis: Long): Int
+
+    // The calendar month with the most distinct reading days. Months are grouped with their year, so a range that
+    // spans a new year doesn't merge two Decembers; a tie goes to the more recent month. Null when there's no history.
+    @Query("SELECT CAST(strftime('%m', timestamp / 1000, 'unixepoch', 'localtime') AS INTEGER) AS month, " +
+            "COUNT(DISTINCT date(timestamp / 1000, 'unixepoch', 'localtime')) AS visitedDays " +
+            "FROM HistoryEntry WHERE timestamp BETWEEN :startMillis AND :endMillis " +
+            "GROUP BY strftime('%Y-%m', timestamp / 1000, 'unixepoch', 'localtime') " +
+            "ORDER BY visitedDays DESC, MAX(timestamp) DESC LIMIT 1")
+    suspend fun getPeakMonthByVisitedDaysBetween(startMillis: Long, endMillis: Long): MonthVisitedDays?
+
     @Query("SELECT COUNT(*) FROM (SELECT DISTINCT HistoryEntry.lang, HistoryEntry.apiTitle FROM HistoryEntry WHERE timestamp > :timestamp)")
     suspend fun getDistinctEntriesCountSince(timestamp: Long): Int?
 
@@ -45,6 +57,9 @@ interface HistoryEntryDao {
 
     @Query("DELETE FROM HistoryEntry")
     suspend fun deleteAll()
+
+    @Query("DELETE FROM HistoryEntry WHERE apiTitle LIKE :prefix || '%'")
+    suspend fun deleteByApiTitlePrefix(prefix: String)
 
     @Query("DELETE FROM HistoryEntry WHERE authority = :authority AND lang = :lang AND namespace = :namespace AND apiTitle = :apiTitle")
     suspend fun deleteBy(authority: String, lang: String, namespace: String?, apiTitle: String)

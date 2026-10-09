@@ -92,9 +92,8 @@ import org.wikipedia.views.TabCountsView
 import org.wikipedia.views.imageservice.ImageService
 import org.wikipedia.watchlist.WatchlistActivity
 import org.wikipedia.widgets.SearchWidgetInstallDialog
-import org.wikipedia.yearinreview.YearInReviewDialog
-import org.wikipedia.yearinreview.YearInReviewOnboardingActivity
-import org.wikipedia.yearinreview.YearInReviewViewModel
+import org.wikipedia.yearinreview.presentation.YearInReviewDialog
+import org.wikipedia.yearinreview.presentation.YearInReviewViewModel
 import java.io.File
 import java.time.LocalDate
 import java.util.concurrent.TimeUnit
@@ -133,6 +132,9 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
             onNavigateTo(NavTab.EDITS)
         }
     }
+
+    private val shouldShowYearInReviewDot get() =
+        YearInReviewViewModel.canShowEntryPoint && Prefs.yearInReviewActivityTabDotSeenYear != YearInReviewViewModel.YIR_YEAR
 
     var navTabBackStack = mutableListOf<NavTab>()
     val currentFragment get() = (binding.mainViewPager.adapter as NavTabFragmentPagerAdapter).getFragmentAt(binding.mainViewPager.currentItem)
@@ -180,9 +182,13 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
         binding.mainNavTabLayout.setOnItemSelectedListener { item ->
             navTabBackStack.clear()
             if (item.order == NavTab.EDITS.code()) {
+                binding.mainNavTabLayout.setOverlayDot(NavTab.EDITS, false)
+                if (YearInReviewViewModel.canShowEntryPoint) {
+                    Prefs.yearInReviewActivityTabDotSeenYear = YearInReviewViewModel.YIR_YEAR
+                }
+
                 if (!Prefs.isActivityTabOnboardingShown) {
                     activityTabOnboardingLauncher.launch(ActivityTabOnboardingActivity.newIntent(requireContext()))
-                    binding.mainNavTabLayout.setOverlayDot(NavTab.EDITS, false)
                     return@setOnItemSelectedListener false
                 }
             }
@@ -202,8 +208,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
             }
             true
         }
-
-        binding.mainNavTabLayout.setOverlayDot(NavTab.EDITS, !Prefs.isActivityTabOnboardingShown)
 
         if (!maybeShowReadingListsUpdateTooltip()) {
             maybeShowFeedNewModulesTooltip()
@@ -228,6 +232,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
         downloadReceiver.register(requireContext(), downloadReceiverCallback)
         // reset the last-page-viewed timer
         Prefs.pageLastShown = 0
+        binding.mainNavTabLayout.setOverlayDot(NavTab.EDITS, !Prefs.isActivityTabOnboardingShown || shouldShowYearInReviewDot)
         YearInReviewDialog.maybeShowYearInReviewFeedbackDialog(requireActivity())
         if (YearInReviewViewModel.getYearInReviewModel()?.isReadingListCreated == true) {
             onNavigateTo(NavTab.READING_LISTS) // Navigate to reading lists only if Year in Review reading list is created
@@ -494,10 +499,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
 
     override fun donateClick(campaignId: String?) {
         (requireActivity() as? BaseActivity)?.launchDonateDialog(campaignId = campaignId)
-    }
-
-    override fun yearInReviewClick() {
-        startActivity(YearInReviewOnboardingActivity.newIntent(requireActivity()))
     }
 
     fun setBottomNavVisible(visible: Boolean) {

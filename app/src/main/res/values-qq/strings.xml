@@ -2119,6 +2119,7 @@
     <item quantity="other">Comment shown in the Year in Review minutes read slide when the user spent at least 2800 minutes reading. %1$d will be replaced by the number of whole days the user spent reading.</item>
   </plurals>
   <string name="year_in_review_learn_more">Button text for the Year in Review button Learn More.</string>
+  <string name="year_in_review_about_your_insights">Menu item that navigates to a page explaining how insights are processed.</string>
   <string name="year_in_review_share_feedback">Menu item that opens an email for sharing feedback about Year in Review.</string>
   <string name="year_in_review_feedback_email_subject">Subject line of the support email created when the user chooses to share feedback about Year in Review.</string>
   <string name="year_in_review_get_started">Button text for the Year in Review button Get Started.</string>
@@ -2134,7 +2135,12 @@
   <string name="year_in_review_get_started_headline">Healine text for the year in review get started page</string>
   <string name="year_in_review_get_started_bodytext">Body text for the year in review get started page.</string>
   <string name="year_in_review_get_started_info">Info text for the year in review get started page.</string>
+  <string name="year_in_review_get_started_later_activity">Snackbar message for the year in review that indicates the feature can be visited in the Activity tab.</string>
   <string name="year_in_review_get_started_later">Snackbar message for the year in review that indicates the feature can be visited in the More menu.</string>
+  <string name="year_in_review_entry_card_title_collective">Title of the Year in Review card on the Activity tab, shown to users without enough reading data for a personalized Year in Review.</string>
+  <string name="year_in_review_entry_card_title_personalized">Title of the Year in Review card on the Activity tab, shown to logged-in users with enough reading data for a personalized Year in Review.</string>
+  <string name="year_in_review_entry_card_subtitle">Subtitle of the Year in Review card on the Activity tab.</string>
+  <string name="year_in_review_entry_card_data_low_subtitle">Subtitle of the Year in Review card on the Activity tab when there is not enough data for a personalized Year in Review.</string>
   <string name="year_in_review_survey_title">Title for the Year in Review survey</string>
   <string name="year_in_review_survey_subtitle">Subtitle for the Year in Review survey</string>
   <string name="year_in_review_reading_list_survey_title">Title for the Year in Review Collection survey. %d will be replaced by the current year.</string>
