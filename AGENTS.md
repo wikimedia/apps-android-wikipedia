@@ -57,7 +57,6 @@ Classes and packages are organized roughly by "feature":
 - Room for database management.
 - Paging 3 (`paging-compose`, `paging-runtime-ktx`) for paginated list data.
 - MapLibre (`org.maplibre.gl:android-sdk`) for map rendering in the Places feature.
-- Lottie Compose (`lottie-compose`) for Lottie animations.
 - Glance (`glance-appwidget`, `glance-material3`) for home-screen app widgets.
 - WorkManager (`work-runtime-ktx`) for background/recurring tasks in `recurring/`.
 - JUnit and Robolectric for unit tests; MockK for mocking.
