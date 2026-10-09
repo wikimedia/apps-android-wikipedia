@@ -65,32 +65,18 @@ private val instrument = TestKitchenAdapter.client.getInstrument("apps-editing")
 
 fun showEditorChoiceDialog(
     context: Context,
-    isSettingsScreen: Boolean,
     onResult: (editorChoice: Int, dontShowAgain: Boolean) -> Unit
 ) {
 
-    val dialogConfig = if (isSettingsScreen) {
-        instrument.submitInteraction(
-            action = "click",
-            actionSource = "settings",
-            elementId = "editing_method"
-        )
-        EditorChoiceDialogConfig(
-            dialogTitle = R.string.editor_select_title_settings_screen,
-            confirmButtonText = R.string.editor_select_save_btn_settings_screen,
-            isInSettingsScreen = true
-        )
-    } else {
-        instrument.submitInteraction(
-            action = "impression",
-            actionSource = "edit_choice_select"
-        )
-        EditorChoiceDialogConfig(
-            dialogTitle = R.string.editor_select_dialog_title,
-            confirmButtonText = R.string.editor_select_dialog_continue,
-            isInSettingsScreen = false
-        )
-    }
+    instrument.submitInteraction(
+        action = "impression",
+        actionSource = "edit_choice_select"
+    )
+    val dialogConfig = EditorChoiceDialogConfig(
+        dialogTitle = R.string.editor_select_dialog_title,
+        confirmButtonText = R.string.editor_select_dialog_continue,
+        isInSettingsScreen = false
+    )
 
     val composeView = ComposeView(context)
 
@@ -104,39 +90,23 @@ fun showEditorChoiceDialog(
                 initialChoice = Prefs.editorModeChoice,
                 dialogConfigData = dialogConfig,
                 onCancel = {
-                    if (!isSettingsScreen) {
-                        instrument.submitInteraction(
-                            action = "click",
-                            actionSource = "edit_choice_select",
-                            elementId = "edit_choice_cancel"
-                        )
-                    } else {
-                        instrument.submitInteraction(
-                            action = "click",
-                            actionSource = "settings",
-                            elementId = "cancel_editing_button"
-                        )
-                    }
+                    instrument.submitInteraction(
+                        action = "click",
+                        actionSource = "edit_choice_select",
+                        elementId = "edit_choice_cancel"
+                    )
                     dialog.dismiss()
                 },
                 onConfirm = { editorChoice, dontShowAgain ->
-                    if (!isSettingsScreen) {
-                        instrument.submitInteraction(
-                            action = "click",
-                            actionSource = "edit_choice_select",
-                            elementId = "edit_choice_submit",
-                            actionContext = mapOf(
-                                "edit_choice" to if (editorChoice == EDITOR_CHOICE_VE) "visual" else "source",
-                                "is_default" to dontShowAgain
-                            )
+                    instrument.submitInteraction(
+                        action = "click",
+                        actionSource = "edit_choice_select",
+                        elementId = "edit_choice_submit",
+                        actionContext = mapOf(
+                            "edit_choice" to if (editorChoice == EDITOR_CHOICE_VE) "visual" else "source",
+                            "is_default" to dontShowAgain
                         )
-                    } else {
-                        instrument.submitInteraction(
-                            action = "click",
-                            actionSource = "settings",
-                            elementId = if (editorChoice == EDITOR_CHOICE_VE) "visual_editing" else "source_editing"
-                        )
-                    }
+                    )
                     onResult(editorChoice, dontShowAgain)
                     dialog.dismiss()
                 }
@@ -197,6 +167,11 @@ fun EditorChoiceContent(
                     selectedEditor = EDITOR_CHOICE_VE
                     if (dialogConfigData.isInSettingsScreen) {
                         Prefs.editorModeChoice = EDITOR_CHOICE_VE
+                        instrument.submitInteraction(
+                            action = "click",
+                            actionSource = "settings",
+                            elementId = "visual_editing"
+                        )
                     }
                 },
                 shouldShowOpenInNewIcon = !dialogConfigData.isInSettingsScreen
@@ -215,6 +190,11 @@ fun EditorChoiceContent(
                     selectedEditor = EDITOR_CHOICE_SOURCE
                     if (dialogConfigData.isInSettingsScreen) {
                         Prefs.editorModeChoice = EDITOR_CHOICE_SOURCE
+                        instrument.submitInteraction(
+                            action = "click",
+                            actionSource = "settings",
+                            elementId = "source_editing"
+                        )
                     }
                 }
             )
