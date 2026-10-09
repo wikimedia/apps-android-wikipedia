@@ -51,6 +51,11 @@ object YearInReviewFlowDecider {
                     topic = readingStats.topTopic ?: ArticleTopics.all.first(),
                     articles = readingStats.topTopicArticles.orEmpty()
                 )
+            },
+            CandidatePage(status = readingStats.otherTopicsStatus) {
+                YearInReviewPage.OtherTopTopics(
+                    topicArticleCounts = readingStats.topicArticleCountMap
+                )
             }
         )
     }

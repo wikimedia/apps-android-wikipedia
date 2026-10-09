@@ -65,11 +65,10 @@ class YearInReviewRepositoryImpl(
         // TODO: parallelize all of the suspend calls below:
         val peakMonth = historyEntryDao.getPeakMonthByVisitedDaysBetween(dateRange.startMillis, dateRange.endMillis)
 
-        val topTopic = pageTopicDao.getTopTopicsByArticleCount(dateRange.startMillis, dateRange.endMillis)
-            .map { it.topic }
-            .firstOrNull()?.let {
-                ArticleTopics.all.find { topic -> topic.taxonIds.contains(it) }
-            }
+        val topTopics = pageTopicDao.getTopTopicsByArticleCount(dateRange.startMillis, dateRange.endMillis).take(3)
+        val topTopic = topTopics.map { it.topic }.firstOrNull()?.let {
+            ArticleTopics.all.find { topic -> topic.taxonIds.contains(it) }
+        }
 
         return YearInReviewReadingStats(
             articlesReadCount = historyEntryDao.getDistinctEntriesCountBetween(dateRange.startMillis, dateRange.endMillis),
@@ -80,7 +79,13 @@ class YearInReviewRepositoryImpl(
             topTopicArticles = topTopic?.let { topic ->
                 pageTopicDao.findEntriesByTopic(topic.taxonIds.firstOrNull().orEmpty(), dateRange.startMillis, dateRange.endMillis, limit = 3)
                     .map { StringUtil.fromHtml(it.displayTitle).toString() }
-            }
+            },
+            topicArticleCountMap = topTopics.associate { entry ->
+                val topic = ArticleTopics.all.find { topic -> topic.taxonIds.contains(entry.topic) }
+                topic to entry.articleCount
+            }.mapNotNull {
+                if (it.key != null) it.key!! to it.value else null
+            }.associate { it.first to it.second }
         )
     }
 
