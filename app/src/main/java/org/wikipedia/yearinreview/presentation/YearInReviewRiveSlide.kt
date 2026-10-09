@@ -18,6 +18,7 @@ import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalResources
 import androidx.compose.ui.semantics.clearAndSetSemantics
@@ -271,13 +272,14 @@ private fun YearInReviewRiveArtboard(
                     emptyMap()
                 }
             }
-            DisposableEffect(slideId, shareImageRenderers, riveFile, spec, textProperties, numberProperties, imageResults) {
+            val context = LocalContext.current
+            DisposableEffect(slideId, shareImageRenderers, context, riveFile, spec, textProperties, numberProperties, imageResults) {
                 if (slideId != null && shareImageRenderers != null) {
                     val images = imageResults.mapNotNull { (property, imageResult) ->
                         (imageResult as? Result.Success)?.value?.let { property to it }
                     }.toMap()
                     shareImageRenderers[slideId] = {
-                        renderRiveShareImage(riveFile, spec, textProperties, numberProperties, images)
+                        renderRiveShareImage(context, riveFile, spec, textProperties, numberProperties, images)
                     }
                 }
                 onDispose {
