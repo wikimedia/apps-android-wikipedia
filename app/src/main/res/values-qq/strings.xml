@@ -2136,7 +2136,6 @@
   <string name="year_in_review_get_started_bodytext">Body text for the year in review get started page.</string>
   <string name="year_in_review_get_started_info">Info text for the year in review get started page.</string>
   <string name="year_in_review_get_started_later_activity">Snackbar message for the year in review that indicates the feature can be visited in the Activity tab.</string>
-  <string name="year_in_review_get_started_later">Snackbar message for the year in review that indicates the feature can be visited in the More menu.</string>
   <string name="year_in_review_entry_card_title_collective">Title of the Year in Review card on the Activity tab, shown to users without enough reading data for a personalized Year in Review.</string>
   <string name="year_in_review_entry_card_title_personalized">Title of the Year in Review card on the Activity tab, shown to logged-in users with enough reading data for a personalized Year in Review.</string>
   <string name="year_in_review_entry_card_subtitle">Subtitle of the Year in Review card on the Activity tab.</string>
