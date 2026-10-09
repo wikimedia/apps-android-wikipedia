@@ -9,6 +9,7 @@ import androidx.paging.cachedIn
 import androidx.paging.insertSeparators
 import androidx.paging.map
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -40,6 +41,9 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.UiState
+import org.wikipedia.yearinreview.data.YearInReviewRepositoryImpl
+import org.wikipedia.yearinreview.presentation.YearInReviewFlowDecider
+import org.wikipedia.yearinreview.presentation.YearInReviewViewModel
 import java.time.Instant
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -49,6 +53,10 @@ import java.util.concurrent.TimeUnit
 import kotlin.math.abs
 
 class ActivityTabViewModel : ViewModel() {
+    private var yearInReviewEntryJob: Job? = null
+    private val _yearInReviewEntryState = MutableStateFlow<UiState<Boolean>>(UiState.Loading)
+    val yearInReviewEntryState = _yearInReviewEntryState.asStateFlow()
+
     private val _readingHistoryState = MutableStateFlow<UiState<ReadingHistory>>(UiState.Loading)
     val readingHistoryState: StateFlow<UiState<ReadingHistory>> = _readingHistoryState.asStateFlow()
 
@@ -115,6 +123,7 @@ class ActivityTabViewModel : ViewModel() {
 
     fun loadAll() {
         loadReadingHistory()
+        loadYearInReviewEntry()
         if (!AccountUtil.isLoggedIn) {
             return
         }
@@ -122,6 +131,27 @@ class ActivityTabViewModel : ViewModel() {
         loadWikiGamesStats()
         loadImpact()
         refreshTimeline()
+    }
+
+    private fun loadYearInReviewEntry() {
+        yearInReviewEntryJob?.cancel()
+        if (!AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount || !YearInReviewViewModel.canShowEntryPoint) {
+            _yearInReviewEntryState.value = UiState.Loading
+            return
+        }
+        // Keep showing the last result while refreshing, so the card doesn't turn back into a shimmer on every resume
+        val hasResult = _yearInReviewEntryState.value is UiState.Success
+        if (!hasResult) {
+            _yearInReviewEntryState.value = UiState.Loading
+        }
+        yearInReviewEntryJob = viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            if (!hasResult) {
+                _yearInReviewEntryState.value = UiState.Success(false)
+            }
+        }) {
+            val snapshot = YearInReviewRepositoryImpl().getYearInReview()
+            _yearInReviewEntryState.value = UiState.Success(YearInReviewFlowDecider.isDataRich(snapshot))
+        }
     }
 
     private fun refreshTimeline() {

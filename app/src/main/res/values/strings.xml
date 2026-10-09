@@ -2243,6 +2243,10 @@
     <string name="year_in_review_get_started_bodytext">See insights about which articles you read on the Wikipedia app and the edits you made.</string>
     <string name="year_in_review_get_started_info">Your reading history is kept protected. Reading insights are calculated using locally stored data on your device.</string>
     <string name="year_in_review_get_started_later">You can access your Year in Review later in the More menu.</string>
+    <string name="year_in_review_entry_card_title_collective">Our Year in Review is here</string>
+    <string name="year_in_review_entry_card_title_personalized">Your Year in Review is here</string>
+    <string name="year_in_review_entry_card_subtitle">Rediscover your year on Wikipedia.</string>
+    <string name="year_in_review_entry_card_data_low_subtitle">There wasn’t enough activity to generate your own Year in Review this time, but you can still explore what the world discovered together.</string>
     <string name="year_in_review_survey_title">Help improve Year in Review</string>
     <string name="year_in_review_survey_subtitle">Are you satisfied with this feature?</string>
     <string name="year_in_review_reading_list_survey_title">Help improve the Year in Review %d collection.</string>
