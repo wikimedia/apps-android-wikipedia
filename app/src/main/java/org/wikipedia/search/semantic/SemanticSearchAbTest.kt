@@ -44,4 +44,18 @@ class SemanticSearchAbTest : ABTest("semantic-search-phase-2", GROUP_SIZE_2) {
     fun isSemanticSearchEnabled(languageCode: String?): Boolean {
         return isTestActive() && Prefs.isSemanticSearchEnabled && isTestGroupUser() && isLanguageSupported(languageCode)
     }
+
+    companion object {
+
+        private const val DEFAULT_QUOTATION_MARK = "«"
+        private val quotationMarkMap = mapOf(
+            "ja" to "『",
+            "ar" to "❝",
+            "fr" to "«"
+        )
+
+        fun getQuotationMark(languageCode: String): String {
+            return quotationMarkMap[languageCode] ?: DEFAULT_QUOTATION_MARK
+        }
+    }
 }
