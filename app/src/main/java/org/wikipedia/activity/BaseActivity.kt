@@ -100,7 +100,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
 
     private val yearInReviewLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_CANCELED) {
-            FeedbackUtil.showMessage(this, getString(R.string.year_in_review_get_started_later))
+            FeedbackUtil.showMessage(this, getString(R.string.year_in_review_get_started_later_activity))
         }
     }
 

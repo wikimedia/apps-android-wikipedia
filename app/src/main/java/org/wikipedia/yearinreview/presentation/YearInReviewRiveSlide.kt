@@ -202,6 +202,7 @@ fun YearInReviewRiveSlide(
     slideId: String? = null,
     screenshotGetters: MutableMap<String, GetBitmapFun>? = null,
     onUseWhiteTopBarIconsChange: (Boolean) -> Unit = {},
+    onRiveLoaded: () -> Unit = {},
     onRiveError: (Throwable) -> Unit
 ) {
     when (riveFileResult) {
@@ -219,7 +220,8 @@ fun YearInReviewRiveSlide(
             onRiveError = onRiveError,
             slideId = slideId,
             screenshotGetters = screenshotGetters,
-            onUseWhiteTopBarIconsChange = onUseWhiteTopBarIconsChange
+            onUseWhiteTopBarIconsChange = onUseWhiteTopBarIconsChange,
+            onRiveLoaded = onRiveLoaded
         )
     }
 }
@@ -237,7 +239,8 @@ private fun YearInReviewRiveArtboard(
     onRiveError: (Throwable) -> Unit,
     slideId: String?,
     screenshotGetters: MutableMap<String, GetBitmapFun>?,
-    onUseWhiteTopBarIconsChange: (Boolean) -> Unit
+    onUseWhiteTopBarIconsChange: (Boolean) -> Unit,
+    onRiveLoaded: () -> Unit
 ) {
     // loading the artboard and state machine from the rive file
     val artboardResult = rememberArtboardResult(file = riveFile, artboardName = spec.artboardName)
@@ -292,6 +295,10 @@ private fun YearInReviewRiveArtboard(
                 numberProperties.forEach { (property, value) ->
                     instance.setNumber(property, value.toFloat())
                 }
+            }
+            val currentOnRiveLoaded by rememberUpdatedState(onRiveLoaded)
+            LaunchedEffect(artboard, instance) {
+                currentOnRiveLoaded()
             }
             val currentOnUseWhiteTopBarIconsChange by rememberUpdatedState(onUseWhiteTopBarIconsChange)
             LaunchedEffect(instance, spec.isTopBarUiIconsWhite) {
