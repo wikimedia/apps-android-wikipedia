@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.selection.selectableGroup
@@ -22,6 +23,7 @@ import androidx.compose.material3.Checkbox
 import androidx.compose.material3.CheckboxDefaults
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.RadioButtonDefaults
@@ -144,10 +146,11 @@ fun showEditorChoiceDialog(
 }
 
 @Composable
-private fun EditorChoiceContent(
+fun EditorChoiceContent(
     initialChoice: Int,
     dialogConfigData: EditorChoiceDialogConfig,
     onCancel: () -> Unit = {},
+    onBackArrowClicked: (() -> Unit)? = null,
     onConfirm: (editorChoice: Int, dontShowAgain: Boolean) -> Unit = { _, _ -> }
 ) {
     var selectedEditor by remember { mutableIntStateOf(initialChoice) }
@@ -158,19 +161,44 @@ private fun EditorChoiceContent(
             .padding(vertical = 4.dp)
             .verticalScroll(rememberScrollState())
     ) {
-        Text(
-            modifier = Modifier.padding(start = 16.dp, top = 24.dp, end = 16.dp, bottom = 16.dp),
-            text = stringResource(dialogConfigData.dialogTitle),
-            style = MaterialTheme.typography.headlineSmall,
-            color = WikipediaTheme.colors.primaryColor
-        )
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Start,
+            modifier = Modifier
+                .fillMaxWidth()
+                .wrapContentHeight()
+                .padding(top = 24.dp, bottom = 16.dp)
+        ) {
+            if (dialogConfigData.isInSettingsScreen) {
+                IconButton(
+                    onClick = { onBackArrowClicked?.invoke() }
+                ) {
+                    Icon(
+                        painter = painterResource(R.drawable.ic_arrow_back_black_24dp),
+                        contentDescription = null
+                    )
+                }
+            }
+
+            Text(
+                modifier = Modifier.padding(horizontal = 16.dp),
+                text = stringResource(dialogConfigData.dialogTitle),
+                style = MaterialTheme.typography.headlineSmall,
+                color = WikipediaTheme.colors.primaryColor
+            )
+        }
 
         Column(modifier = Modifier.selectableGroup()) {
             EditorOption(
                 title = stringResource(R.string.editor_select_dialog_ve_title),
                 subtitle = stringResource(R.string.editor_select_dialog_ve_subtitle),
                 selected = selectedEditor == EDITOR_CHOICE_VE,
-                onClick = { selectedEditor = EDITOR_CHOICE_VE },
+                onClick = {
+                    selectedEditor = EDITOR_CHOICE_VE
+                    if (dialogConfigData.isInSettingsScreen) {
+                        Prefs.editorModeChoice = EDITOR_CHOICE_VE
+                    }
+                },
                 shouldShowOpenInNewIcon = !dialogConfigData.isInSettingsScreen
             )
 
@@ -183,7 +211,12 @@ private fun EditorChoiceContent(
                 title = stringResource(R.string.editor_select_dialog_source_title),
                 subtitle = stringResource(R.string.editor_select_dialog_source_subtitle),
                 selected = selectedEditor == EDITOR_CHOICE_SOURCE,
-                onClick = { selectedEditor = EDITOR_CHOICE_SOURCE }
+                onClick = {
+                    selectedEditor = EDITOR_CHOICE_SOURCE
+                    if (dialogConfigData.isInSettingsScreen) {
+                        Prefs.editorModeChoice = EDITOR_CHOICE_SOURCE
+                    }
+                }
             )
         }
 
@@ -223,25 +256,27 @@ private fun EditorChoiceContent(
 
         Spacer(modifier = Modifier.height(8.dp))
 
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(start = 16.dp, top = 16.dp, end = 16.dp, bottom = 8.dp),
-            horizontalArrangement = Arrangement.End,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            TextButton(onClick = onCancel) {
-                Text(
-                    text = stringResource(android.R.string.cancel),
-                    style = MaterialTheme.typography.labelLarge,
-                    color = WikipediaTheme.colors.secondaryColor
-                )
-            }
-            Spacer(modifier = Modifier.width(8.dp))
-            AppButton(
-                onClick = { onConfirm(selectedEditor, dontShowAgain) },
+        if (!dialogConfigData.isInSettingsScreen) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 16.dp, top = 16.dp, end = 16.dp, bottom = 8.dp),
+                horizontalArrangement = Arrangement.End,
+                verticalAlignment = Alignment.CenterVertically
             ) {
-                Text(stringResource(dialogConfigData.confirmButtonText))
+                TextButton(onClick = onCancel) {
+                    Text(
+                        text = stringResource(android.R.string.cancel),
+                        style = MaterialTheme.typography.labelLarge,
+                        color = WikipediaTheme.colors.secondaryColor
+                    )
+                }
+                Spacer(modifier = Modifier.width(8.dp))
+                AppButton(
+                    onClick = { onConfirm(selectedEditor, dontShowAgain) },
+                ) {
+                    Text(stringResource(dialogConfigData.confirmButtonText))
+                }
             }
         }
     }
