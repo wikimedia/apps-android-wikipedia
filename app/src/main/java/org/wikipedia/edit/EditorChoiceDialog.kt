@@ -145,7 +145,8 @@ fun EditorChoiceContent(
                 ) {
                     Icon(
                         painter = painterResource(R.drawable.ic_arrow_back_black_24dp),
-                        contentDescription = null
+                        contentDescription = stringResource(R.string.search_back_button_content_description),
+                        tint = WikipediaTheme.colors.primaryColor
                     )
                 }
             }
