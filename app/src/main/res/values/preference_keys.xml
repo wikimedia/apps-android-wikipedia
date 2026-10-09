@@ -185,7 +185,11 @@
     <string name="preference_key_otd_sound_on" translatable="false">isOtdSoundOn</string>
     <string name="preference_key_year_in_review_is_enabled" translatable="false">isYearInReviewEnabled</string>
     <string name="preference_key_year_in_review_visited" translatable="false">yearInReviewVisited</string>
+    <string name="preference_key_yir_activity_tab_dot_seen_year" translatable="false">yearInReviewActivityTabDotSeenYear</string>
     <string name="preference_key_yir_survey_state" translatable="false">yirSurveyState</string>
+    <string name="preference_key_yir_playground" translatable="false">yirPlayground</string>
+    <string name="preference_key_yir_playground_data" translatable="false">yirPlaygroundData</string>
+    <string name="preference_key_yir_playground_entry_point" translatable="false">yirPlaygroundEntryPoint</string>
     <string name="preference_key_selected_app_icon" translatable="false">selectedAppIcon</string>
     <string name="preference_category_recommended_reading_list" translatable="false">recommendedReadingListSettings</string>
     <string name="preference_key_recommended_reading_list_enabled" translatable="false">recommendedReadingListEnabled</string>
@@ -208,6 +212,7 @@
     <string name="preference_key_activity_tab_modules" translatable="false">activityTabModules</string>
     <string name="preference_key_activity_tab_onboarding_shown" translatable="false">activityTabOnboardingShown</string>
     <string name="preference_key_yir_model_data" translatable="false">yirModelData</string>
+    <string name="preference_key_yir_cached_stats" translatable="false">yirCachedStats</string>
     <string name="preference_key_game_stats_snackbar_shown" translatable="false">gameStatsSnackbarShown</string>
     <string name="preference_key_reading_challenge_streak" translatable="false">readingChallengeStreak</string>
     <string name="preference_key_reading_challenge_enrolled" translatable="false">readingChallengeEnrolled</string>

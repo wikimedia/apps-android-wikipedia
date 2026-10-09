@@ -60,8 +60,8 @@ import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeInstallWidgetDialog
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeOnboardingActivity
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetRepository
-import org.wikipedia.yearinreview.YearInReviewOnboardingActivity
-import org.wikipedia.yearinreview.YearInReviewViewModel
+import org.wikipedia.yearinreview.presentation.YearInReviewOnboardingActivity
+import org.wikipedia.yearinreview.presentation.YearInReviewViewModel
 
 abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callback {
     interface Callback {
@@ -100,7 +100,8 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
 
     private val yearInReviewLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_CANCELED) {
-            FeedbackUtil.showMessage(this, getString(R.string.year_in_review_get_started_later))
+            // TODO: update the string
+            // FeedbackUtil.showMessage(this, getString(R.string.year_in_review_get_started_later))
         }
     }
 
@@ -376,8 +377,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         lifecycleScope.launch {
             when {
                 ReadingChallengeWidgetRepository.shouldShowOnboardingDialog() -> showReadingChallenge()
-                YearInReviewViewModel.isAccessible &&
-                        Prefs.isYearInReviewEnabled &&
+                YearInReviewViewModel.canShowEntryPoint &&
                         !Prefs.yearInReviewVisited -> {
                     yearInReviewLauncher.launch((YearInReviewOnboardingActivity.newIntent(this@BaseActivity)))
                 }

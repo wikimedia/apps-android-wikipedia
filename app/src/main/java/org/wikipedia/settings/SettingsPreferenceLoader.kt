@@ -30,7 +30,8 @@ import org.wikipedia.settings.homefeed.HomeFeedSettingsActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.theme.ThemeFittingRoomActivity
 import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.yearinreview.YearInReviewViewModel
+import org.wikipedia.yearinreview.data.PrefsYearInReviewStore
+import org.wikipedia.yearinreview.presentation.YearInReviewViewModel
 
 internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : BasePreferenceLoader(fragment) {
     override fun loadPreferences() {
@@ -98,7 +99,7 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
                     .setMessage(R.string.year_in_review_setting_subtitle)
                     .setPositiveButton(R.string.year_in_review_disable_positive_button) { _, _ ->
                         YearInReviewEvent.submit(action = "yir_off_confirm_click", slide = "setting")
-                        Prefs.yearInReviewModelData = emptyMap()
+                        PrefsYearInReviewStore.clearAll()
                         (preference as SwitchPreferenceCompat).isChecked = false
                     }
                     .setNegativeButton(R.string.year_in_review_disable_negative_button) { _, _ ->
