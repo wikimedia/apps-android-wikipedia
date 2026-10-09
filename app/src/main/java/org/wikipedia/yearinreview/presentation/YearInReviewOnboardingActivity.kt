@@ -138,8 +138,8 @@ class YearInReviewOnboardingActivity : BaseActivity() {
                     onRetryClick = {
                         viewModel.load()
                     }
-                ) { snapshot ->
-                    YearInReviewOnboardingCover(snapshot)
+                ) { snapshot, onCoverReady ->
+                    YearInReviewOnboardingCover(snapshot, onCoverReady)
                 }
             }
         }
