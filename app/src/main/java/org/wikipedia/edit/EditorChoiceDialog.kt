@@ -88,7 +88,7 @@ fun showEditorChoiceDialog(
         BaseTheme {
             EditorChoiceContent(
                 initialChoice = Prefs.editorModeChoice,
-                dialogConfigData = dialogConfig,
+                isInSettingsScreen = false,
                 onCancel = {
                     instrument.submitInteraction(
                         action = "click",
@@ -118,9 +118,8 @@ fun showEditorChoiceDialog(
 @Composable
 fun EditorChoiceContent(
     initialChoice: Int,
-    dialogConfigData: EditorChoiceDialogConfig,
+    isInSettingsScreen: Boolean = false,
     onCancel: () -> Unit = {},
-    onBackArrowClicked: (() -> Unit)? = null,
     onConfirm: (editorChoice: Int, dontShowAgain: Boolean) -> Unit = { _, _ -> }
 ) {
     var selectedEditor by remember { mutableIntStateOf(initialChoice) }
@@ -129,7 +128,7 @@ fun EditorChoiceContent(
     val onEditOptionSelected: (Int) -> Unit = { editorChoice ->
         selectedEditor = editorChoice
         // prevent unnecessary instrument calls
-        if (dialogConfigData.isInSettingsScreen && Prefs.editorModeChoice != editorChoice) {
+        if (isInSettingsScreen && Prefs.editorModeChoice != editorChoice) {
             Prefs.editorModeChoice = editorChoice
             instrument.submitInteraction(
                 action = "click",
@@ -144,29 +143,10 @@ fun EditorChoiceContent(
             .padding(vertical = 4.dp)
             .verticalScroll(rememberScrollState())
     ) {
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.Start,
-            modifier = Modifier
-                .fillMaxWidth()
-                .wrapContentHeight()
-                .padding(top = 24.dp, bottom = 16.dp)
-        ) {
-            if (dialogConfigData.isInSettingsScreen) {
-                IconButton(
-                    onClick = { onBackArrowClicked?.invoke() }
-                ) {
-                    Icon(
-                        painter = painterResource(R.drawable.ic_arrow_back_black_24dp),
-                        contentDescription = stringResource(R.string.search_back_button_content_description),
-                        tint = WikipediaTheme.colors.primaryColor
-                    )
-                }
-            }
-
+        if (!isInSettingsScreen) {
             Text(
-                modifier = Modifier.padding(horizontal = 16.dp),
-                text = stringResource(dialogConfigData.dialogTitle),
+                modifier = Modifier.padding(start = 16.dp, top = 24.dp, end = 16.dp, bottom = 16.dp),
+                text = stringResource(R.string.editor_select_dialog_title),
                 style = MaterialTheme.typography.headlineSmall,
                 color = WikipediaTheme.colors.primaryColor
             )
@@ -178,7 +158,7 @@ fun EditorChoiceContent(
                 subtitle = stringResource(R.string.editor_select_dialog_ve_subtitle),
                 selected = selectedEditor == EDITOR_CHOICE_VE,
                 onClick = { onEditOptionSelected(EDITOR_CHOICE_VE) },
-                shouldShowOpenInNewIcon = !dialogConfigData.isInSettingsScreen
+                shouldShowOpenInNewIcon = !isInSettingsScreen
             )
 
             HorizontalDivider(
@@ -194,7 +174,7 @@ fun EditorChoiceContent(
             )
         }
 
-        if (!dialogConfigData.isInSettingsScreen) {
+        if (!isInSettingsScreen) {
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -230,7 +210,7 @@ fun EditorChoiceContent(
 
         Spacer(modifier = Modifier.height(8.dp))
 
-        if (!dialogConfigData.isInSettingsScreen) {
+        if (!isInSettingsScreen) {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -249,7 +229,7 @@ fun EditorChoiceContent(
                 AppButton(
                     onClick = { onConfirm(selectedEditor, dontShowAgain) },
                 ) {
-                    Text(stringResource(dialogConfigData.confirmButtonText))
+                    Text(stringResource(R.string.editor_select_dialog_continue))
                 }
             }
         }
@@ -338,11 +318,7 @@ private fun EditorChoiceDialogNonSettingsScreenPreview() {
     ) {
         EditorChoiceContent(
             initialChoice = EDITOR_CHOICE_SOURCE,
-            dialogConfigData = EditorChoiceDialogConfig(
-                dialogTitle = R.string.editor_select_dialog_title,
-                confirmButtonText = R.string.editor_select_dialog_continue,
-                isInSettingsScreen = false
-            ),
+            isInSettingsScreen = false,
         )
     }
 }
@@ -355,11 +331,7 @@ private fun EditorChoiceDialogSettingsScreenPreview() {
     ) {
         EditorChoiceContent(
             initialChoice = EDITOR_CHOICE_SOURCE,
-            EditorChoiceDialogConfig(
-                dialogTitle = R.string.editor_select_title_settings_screen,
-                confirmButtonText = R.string.editor_select_save_btn_settings_screen,
-                isInSettingsScreen = true
-            )
+            isInSettingsScreen = true
         )
     }
 }
