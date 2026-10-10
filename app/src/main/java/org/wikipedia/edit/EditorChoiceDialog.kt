@@ -307,16 +307,3 @@ private fun EditorChoiceDialogNonSettingsScreenPreview() {
         )
     }
 }
-
-@Preview(showBackground = true)
-@Composable
-private fun EditorChoiceDialogSettingsScreenPreview() {
-    BaseTheme(
-        currentTheme = Theme.LIGHT
-    ) {
-        EditorChoiceContent(
-            initialChoice = EDITOR_CHOICE_SOURCE,
-            isInSettingsScreen = true
-        )
-    }
-}

@@ -18,7 +18,9 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.compose.components.WikiTopAppBar
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.edit.EDITOR_CHOICE_SOURCE
 import org.wikipedia.edit.EditorChoiceContent
+import org.wikipedia.theme.Theme
 
 class VisualEditorSettingsActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,6 +29,7 @@ class VisualEditorSettingsActivity : BaseActivity() {
         setContent {
             BaseTheme {
                 VisualEditorSettingsScreen(
+                    initialChoice = Prefs.editorModeChoice,
                     onBackArrowClicked = { finish() }
                 )
             }
@@ -42,6 +45,7 @@ class VisualEditorSettingsActivity : BaseActivity() {
 
 @Composable
 fun VisualEditorSettingsScreen(
+    initialChoice: Int,
     onBackArrowClicked: () -> Unit,
 ) {
     Scaffold(
@@ -51,7 +55,7 @@ fun VisualEditorSettingsScreen(
         topBar = {
             WikiTopAppBar(
                 title = stringResource(R.string.editor_select_title_settings_screen),
-                onNavigationClick = { onBackArrowClicked() }
+                onNavigationClick = onBackArrowClicked
             )
         },
         containerColor = WikipediaTheme.colors.paperColor
@@ -60,10 +64,8 @@ fun VisualEditorSettingsScreen(
             Modifier.padding(innerPadding)
         ) {
             EditorChoiceContent(
-                initialChoice = Prefs.editorModeChoice,
-                isInSettingsScreen = true,
-                onCancel = {},
-                onConfirm = { _, _ -> },
+                initialChoice = initialChoice,
+                isInSettingsScreen = true
             )
         }
     }
@@ -72,8 +74,9 @@ fun VisualEditorSettingsScreen(
 @Preview(showBackground = true)
 @Composable
 fun VisualEditorSettingsScreenPreview() {
-    BaseTheme {
+    BaseTheme(currentTheme = Theme.LIGHT) {
         VisualEditorSettingsScreen(
+            initialChoice = EDITOR_CHOICE_SOURCE,
             onBackArrowClicked = {}
         )
     }
