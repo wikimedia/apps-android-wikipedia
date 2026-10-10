@@ -71,7 +71,9 @@ class SearchResultsViewModel : ViewModel() {
         viewModelScope,
         SharingStarted.Eagerly,
         semanticSearchAbTest.isSemanticSearchEnabled(_languageCode.value)
-    )
+    ).apply {
+        semanticSearchAbTest.maybeSendExposureEvent()
+    }
 
     val isSemanticSearchFirstUse = semanticSearchIsFirstUsePrefUpdates
         .map { Prefs.isSemanticSearchFirstUse }
@@ -128,6 +130,15 @@ class SearchResultsViewModel : ViewModel() {
                 put("position", result.indexInApiCall)
                 put("type", result.type)
             }
+        }
+    }
+
+    fun getSemanticSearchEventActionContext(): Map<String, Any> {
+        return buildMap {
+            put("eligible", true)
+            put("search_id_pre", lastXSearchIdPrefix)
+            put("search_id_ful", lastXSearchIdFullText)
+            put("search_id_sem", "")
         }
     }
 

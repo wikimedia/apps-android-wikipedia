@@ -25,6 +25,7 @@ import org.wikipedia.extensions.getString
 import org.wikipedia.extensions.instrument
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.readinglist.LongPressMenu
+import org.wikipedia.search.semantic.SemanticSearchAbTest
 import org.wikipedia.settings.SettingsActivity
 import org.wikipedia.util.FeedbackUtil
 
@@ -59,6 +60,12 @@ class SearchResultsFragment : Fragment() {
                             "show_search_result",
                             actionContext = viewModel.getStandardEventActionContext()
                         )
+                        SemanticSearchAbTest().shouldSendEvent {
+                            requireActivity().instrument?.submitInteraction("dive_entry_impression",
+                                elementId = "dive_entry_opportunity",
+                                actionContext = viewModel.getSemanticSearchEventActionContext()
+                            )
+                        }
                     }
                 }
             }
@@ -118,6 +125,16 @@ class SearchResultsFragment : Fragment() {
                                     startActivity(SettingsActivity.newIntent(requireContext()))
                                 }
                                 .show()
+                        },
+                        isQueryEligible = { isQueryEligible ->
+                            SemanticSearchAbTest().shouldSendEvent {
+                                requireActivity().instrument?.submitInteraction("dive_query_eligibilty",
+                                    actionContext = mapOf(
+                                        "eligible" to isQueryEligible, // TODO: confirm with Shay: the quality of the query they're submitting
+                                        "rules_version" to "1"
+                                    )
+                                )
+                            }
                         }
                     )
                 }
