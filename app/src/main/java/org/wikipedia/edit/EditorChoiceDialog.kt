@@ -54,13 +54,6 @@ import org.wikipedia.theme.Theme
 
 const val EDITOR_CHOICE_VE = 0
 const val EDITOR_CHOICE_SOURCE = 1
-
-data class EditorChoiceDialogConfig(
-    @param:StringRes val dialogTitle: Int,
-    @param:StringRes val confirmButtonText: Int,
-    val isInSettingsScreen: Boolean
-)
-
 private val instrument = TestKitchenAdapter.client.getInstrument("apps-editing")
 
 fun showEditorChoiceDialog(
@@ -71,11 +64,6 @@ fun showEditorChoiceDialog(
     instrument.submitInteraction(
         action = "impression",
         actionSource = "edit_choice_select"
-    )
-    val dialogConfig = EditorChoiceDialogConfig(
-        dialogTitle = R.string.editor_select_dialog_title,
-        confirmButtonText = R.string.editor_select_dialog_continue,
-        isInSettingsScreen = false
     )
 
     val composeView = ComposeView(context)
