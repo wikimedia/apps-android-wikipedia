@@ -45,6 +45,7 @@ class RecentSearchesFragment : Fragment() {
     private val coroutineExceptionHandler = CoroutineExceptionHandler { _, throwable -> L.e(throwable) }
     var callback: Callback? = null
     val recentSearchList = mutableListOf<RecentSearch>()
+    val searchLanguageCode get() = (parentFragment as SearchFragment).searchLanguageCode
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentSearchRecentBinding.inflate(inflater, container, false)

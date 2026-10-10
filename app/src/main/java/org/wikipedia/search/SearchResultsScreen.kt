@@ -78,6 +78,7 @@ fun SearchResultsScreen(
     onCloseSearch: () -> Unit,
     onRetrySearch: () -> Unit,
     onLoading: (Boolean) -> Unit,
+    isQueryEligible: (Boolean) -> Unit
 ) {
     val searchResults = viewModel.searchResultsFlow.collectAsLazyPagingItems()
     val searchTerm = viewModel.searchTerm.collectAsState()
@@ -185,6 +186,7 @@ fun SearchResultsScreen(
                 }
 
                 else -> {
+                    isQueryEligible(searchTerm.value != null && searchResults.itemCount > 0)
                     searchResultItems(
                         searchResultsPage = searchResults,
                         searchTerm = searchTerm.value,

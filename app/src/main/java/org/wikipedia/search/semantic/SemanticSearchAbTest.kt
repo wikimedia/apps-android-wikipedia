@@ -1,5 +1,6 @@
 package org.wikipedia.search.semantic
 
+import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.ABTest
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
@@ -8,8 +9,8 @@ class SemanticSearchAbTest : ABTest("semantic-search-phase-2", GROUP_SIZE_2) {
     // TODO: confirm with data about the abTestName & group name
     override fun getGroupName(): String {
         return when (group) {
-            GROUP_2 -> "b"
-            else -> "a"
+            GROUP_2 -> "treatment"
+            else -> "control"
         }
     }
 
@@ -41,12 +42,21 @@ class SemanticSearchAbTest : ABTest("semantic-search-phase-2", GROUP_SIZE_2) {
         return isTestActive() && isTestGroupUser()
     }
 
+    fun isSemanticSearchEligible(languageCode: String?): Boolean {
+        return isTestActive() && isLanguageSupported(languageCode)
+    }
+
     fun isSemanticSearchEnabled(languageCode: String?): Boolean {
-        return isTestActive() && Prefs.isSemanticSearchEnabled && isTestGroupUser() && isLanguageSupported(languageCode)
+        return isSemanticSearchEligible(languageCode) && isTestGroupUser() && Prefs.isSemanticSearchEnabled
+    }
+
+    fun shouldSendEvent(function: () -> (Unit)) {
+        if (WikipediaApp.instance.languageState.appLanguageCodes.any { isSemanticSearchEligible(it) }) {
+            function.invoke()
+        }
     }
 
     companion object {
-
         private const val DEFAULT_QUOTATION_MARK = "«"
         private val quotationMarkMap = mapOf(
             "ja" to "『",
