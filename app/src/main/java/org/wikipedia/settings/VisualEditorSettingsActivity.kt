@@ -58,7 +58,7 @@ fun VisualEditorSettingsScreen(
     ) { innerPadding ->
         Box(
             Modifier.padding(innerPadding)
-        ){
+        ) {
             EditorChoiceContent(
                 initialChoice = Prefs.editorModeChoice,
                 isInSettingsScreen = true,
