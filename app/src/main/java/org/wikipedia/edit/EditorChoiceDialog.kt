@@ -126,6 +126,19 @@ fun EditorChoiceContent(
     var selectedEditor by remember { mutableIntStateOf(initialChoice) }
     var dontShowAgain by remember { mutableStateOf(false) }
 
+    val onEditOptionSelected: (Int) -> Unit = { editorChoice ->
+        selectedEditor = editorChoice
+        // prevent unnecessary instrument calls
+        if (dialogConfigData.isInSettingsScreen && Prefs.editorModeChoice != editorChoice) {
+            Prefs.editorModeChoice = editorChoice
+            instrument.submitInteraction(
+                action = "click",
+                actionSource = "settings",
+                elementId = if (editorChoice == EDITOR_CHOICE_VE) "visual_editing" else "source_editing"
+            )
+        }
+    }
+
     Column(
         modifier = Modifier
             .padding(vertical = 4.dp)
@@ -164,17 +177,7 @@ fun EditorChoiceContent(
                 title = stringResource(R.string.editor_select_dialog_ve_title),
                 subtitle = stringResource(R.string.editor_select_dialog_ve_subtitle),
                 selected = selectedEditor == EDITOR_CHOICE_VE,
-                onClick = {
-                    selectedEditor = EDITOR_CHOICE_VE
-                    if (dialogConfigData.isInSettingsScreen) {
-                        Prefs.editorModeChoice = EDITOR_CHOICE_VE
-                        instrument.submitInteraction(
-                            action = "click",
-                            actionSource = "settings",
-                            elementId = "visual_editing"
-                        )
-                    }
-                },
+                onClick = { onEditOptionSelected(EDITOR_CHOICE_VE) },
                 shouldShowOpenInNewIcon = !dialogConfigData.isInSettingsScreen
             )
 
@@ -187,17 +190,7 @@ fun EditorChoiceContent(
                 title = stringResource(R.string.editor_select_dialog_source_title),
                 subtitle = stringResource(R.string.editor_select_dialog_source_subtitle),
                 selected = selectedEditor == EDITOR_CHOICE_SOURCE,
-                onClick = {
-                    selectedEditor = EDITOR_CHOICE_SOURCE
-                    if (dialogConfigData.isInSettingsScreen) {
-                        Prefs.editorModeChoice = EDITOR_CHOICE_SOURCE
-                        instrument.submitInteraction(
-                            action = "click",
-                            actionSource = "settings",
-                            elementId = "source_editing"
-                        )
-                    }
-                }
+                onClick = { onEditOptionSelected(EDITOR_CHOICE_SOURCE) }
             )
         }
 
