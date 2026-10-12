@@ -2075,7 +2075,6 @@
   <string name="year_in_review_get_started_headline">Изучите ваш «Обзор года» в Википедии</string>
   <string name="year_in_review_get_started_bodytext">Смотрите вашу статистику о прочитанных статьях в приложении Википедии и внесённых правках.</string>
   <string name="year_in_review_get_started_info">Ваша история чтения защищена. Аналитика чтения рассчитывается на основе данных, сохранённых локально на вашем устройстве.</string>
-  <string name="year_in_review_get_started_later">Вы можете просмотреть «Обзор года» позже, нажав в меню «Ещё».</string>
   <string name="year_in_review_survey_title">Помогите улучшить «Обзор года»</string>
   <string name="year_in_review_survey_subtitle">Вы довольны этой функцией?</string>
   <string name="year_in_review_reading_list_survey_title" fuzzy="true">Помогите улучшить список для чтения в «Обзоре года %d».</string>

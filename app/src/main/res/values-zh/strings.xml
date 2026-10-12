@@ -1942,7 +1942,6 @@
   <string name="year_in_review_get_started_headline">探索您的维基百科年度回顾</string>
   <string name="year_in_review_get_started_bodytext">查看有关您在维基百科应用程序上所阅读的条目和所作编辑的深入分析。</string>
   <string name="year_in_review_get_started_info">您的阅读历史记录受到保护。阅读分析数据基于您设备本地存储的数据计算得出。</string>
-  <string name="year_in_review_get_started_later">您可以稍后在“更多”菜单中查看您的年度回顾。</string>
   <string name="year_in_review_survey_title">帮助改进年度回顾</string>
   <string name="year_in_review_survey_subtitle">您对该功能满意吗？</string>
   <string name="year_in_review_reading_list_survey_title">帮助改进%d年度回顾收藏。</string>

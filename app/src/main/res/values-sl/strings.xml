@@ -1325,6 +1325,7 @@
   <string name="onboarding_multilingual_secondary_text">Na vaši napravi smo našli naslednje:</string>
   <string name="onboarding_multilingual_add_language_text">Dodajte ali uredite jezike</string>
   <string name="onboarding_welcome_title_v2">Prosta enciklopedija\n… v več kot 300 jezikih</string>
+  <string name="onboarding_fresh_install_knowledge_title">Vse znanje sveta</string>
   <string name="onboarding_fresh_install_knowledge_text">Wikipedija je prosta spletna enciklopedija s 65 milijoni člankov, ki jo sodelovalno piše in vzdržuje v več kot 300 jezikih skupnost prostovoljcev.</string>
   <string name="onboarding_fresh_install_knowledge_learn_more">Izvedite več o Wikipediji</string>
   <string name="onboarding_app_languages_title">Berite v več kot 300 jezikih</string>
