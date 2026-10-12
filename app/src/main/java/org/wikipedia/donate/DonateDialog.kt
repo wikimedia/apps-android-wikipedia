@@ -23,7 +23,6 @@ import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.CustomTabsUtil
 import org.wikipedia.util.DimenUtil
-import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
 
 class DonateDialog : ExtendedBottomSheetDialogFragment() {
@@ -68,11 +67,8 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
                             }
 
                             is Resource.Error -> {
-                                binding.progressBar.isVisible = false
-                                FeedbackUtil.showMessage(
-                                    this@DonateDialog,
-                                    it.throwable.localizedMessage.orEmpty()
-                                )
+                                // Bounce right out to external donation workflow.
+                                onDonateClicked()
                             }
 
                             is Resource.Success -> {

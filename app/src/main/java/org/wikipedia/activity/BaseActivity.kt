@@ -34,7 +34,6 @@ import org.wikipedia.createaccount.CreateAccountEncourageActivity
 import org.wikipedia.createaccount.CreateAccountEncourageViewModel
 import org.wikipedia.donate.DonateDialog
 import org.wikipedia.events.LoggedOutInBackgroundEvent
-import org.wikipedia.events.ReadingListsEnableDialogEvent
 import org.wikipedia.events.ReadingListsNoLongerSyncedEvent
 import org.wikipedia.events.SplitLargeListsEvent
 import org.wikipedia.events.ThemeFontChangeEvent
@@ -195,9 +194,6 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
                         }
                         is ReadingListsNoLongerSyncedEvent -> {
                             ReadingListSyncBehaviorDialogs.detectedRemoteTornDownDialog(this@BaseActivity)
-                        }
-                        is ReadingListsEnableDialogEvent, (this@BaseActivity is MainActivity) -> {
-                            ReadingListSyncBehaviorDialogs.promptEnableSyncDialog(this@BaseActivity)
                         }
                         is LoggedOutInBackgroundEvent -> {
                             maybeShowLoggedOutInBackgroundDialog()
