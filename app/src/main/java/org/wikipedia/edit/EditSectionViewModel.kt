@@ -28,6 +28,8 @@ class EditSectionViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     var sectionID = savedStateHandle[EditSectionActivity.EXTRA_SECTION_ID] ?: -1
     var sectionAnchor = savedStateHandle.get<String>(EditSectionActivity.EXTRA_SECTION_ANCHOR)
     var textToHighlight = savedStateHandle.get<String>(EditSectionActivity.EXTRA_HIGHLIGHT_TEXT)
+    val textBeforeHighlight = savedStateHandle.get<String>(EditSectionActivity.EXTRA_HIGHLIGHT_TEXT_BEFORE)
+    val textAfterHighlight = savedStateHandle.get<String>(EditSectionActivity.EXTRA_HIGHLIGHT_TEXT_AFTER)
     var sectionWikitext: String? = null
     var sectionWikitextOriginal: String? = null
     var tempAccountsEnabled = true

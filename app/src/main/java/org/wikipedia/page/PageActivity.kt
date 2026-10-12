@@ -498,13 +498,15 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         currentActionModes.clear()
     }
 
-    override fun onPageRequestEditSection(sectionId: Int, sectionAnchor: String?, title: PageTitle, highlightText: String?) {
+    override fun onPageRequestEditSection(sectionId: Int, sectionAnchor: String?, title: PageTitle, highlightText: String?,
+                                          highlightTextBefore: String?, highlightTextAfter: String?) {
         val isVisualEditorEnabled = RemoteConfig.config.androidv1?.visualEditorEnabled ?: false
         val launchEditor = {
             if (Prefs.editorModeChoice == EDITOR_CHOICE_VE && isVisualEditorEnabled) {
                 openVisualEditorInExternalBrowser(title, sectionId)
             } else {
-                requestEditSectionLauncher.launch(EditSectionActivity.newIntent(this, sectionId, sectionAnchor, title, InvokeSource.PAGE_ACTIVITY, highlightText))
+                requestEditSectionLauncher.launch(EditSectionActivity.newIntent(this, sectionId, sectionAnchor, title, InvokeSource.PAGE_ACTIVITY, highlightText,
+                    highlightTextBefore = highlightTextBefore, highlightTextAfter = highlightTextAfter))
             }
         }
         if (Prefs.editorModeChoiceShowDialog && isVisualEditorEnabled) {

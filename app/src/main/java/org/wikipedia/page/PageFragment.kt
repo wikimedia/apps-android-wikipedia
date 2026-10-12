@@ -138,7 +138,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         fun onPageLoadErrorBackPressed()
         fun onPageSetToolbarElevationEnabled(enabled: Boolean)
         fun onPageCloseActionMode()
-        fun onPageRequestEditSection(sectionId: Int, sectionAnchor: String?, title: PageTitle, highlightText: String?)
+        fun onPageRequestEditSection(sectionId: Int, sectionAnchor: String?, title: PageTitle, highlightText: String?,
+                                     highlightTextBefore: String?, highlightTextAfter: String?)
         fun onPageRequestLangLinks(title: PageTitle, historyEntryId: Long)
         fun onPageRequestGallery(title: PageTitle, fileName: String, wikiSite: WikiSite, revision: Long, isLeadImage: Boolean, options: ActivityOptionsCompat?)
         fun onPageRequestAddImageTags(mwQueryPage: MwQueryPage, invokeSource: InvokeSource)
@@ -1114,8 +1115,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
     }
 
-    fun onRequestEditSection(sectionId: Int, sectionAnchor: String?, title: PageTitle, highlightText: String?) {
-        callback()?.onPageRequestEditSection(sectionId, sectionAnchor, title, highlightText)
+    fun onRequestEditSection(sectionId: Int, sectionAnchor: String?, title: PageTitle, highlightText: String?,
+                             highlightTextBefore: String? = null, highlightTextAfter: String? = null) {
+        callback()?.onPageRequestEditSection(sectionId, sectionAnchor, title, highlightText, highlightTextBefore, highlightTextAfter)
     }
 
     fun sharePageLink() {

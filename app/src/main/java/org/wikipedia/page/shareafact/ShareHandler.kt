@@ -15,12 +15,12 @@ import org.wikipedia.wiktionary.WiktionaryDialog
 class ShareHandler(private val fragment: PageFragment, private val bridge: CommunicationBridge) {
     private var webViewActionMode: ActionMode? = null
 
-    private fun onEditHerePayload(sectionID: Int, text: String, isEditingDescription: Boolean) {
-        if (sectionID == 0 && isEditingDescription) {
-            fragment.verifyBeforeEditingDescription(text, Constants.InvokeSource.PAGE_EDIT_HIGHLIGHT)
+    private fun onEditHerePayload(message: TextSelectResponse) {
+        if (message.section == 0 && message.isTitleDescription) {
+            fragment.verifyBeforeEditingDescription(message.text, Constants.InvokeSource.PAGE_EDIT_HIGHLIGHT)
         } else {
-            if (sectionID >= 0) {
-                fragment.editHandler.startEditingSection(sectionID, text)
+            if (message.section >= 0) {
+                fragment.editHandler.startEditingSection(message.section, message.text, message.textBefore, message.textAfter)
             }
         }
     }
@@ -74,7 +74,7 @@ class ShareHandler(private val fragment: PageFragment, private val bridge: Commu
                     val message = JsonUtil.decodeFromString<TextSelectResponse>(value)!!
                     when (purpose) {
                         PAYLOAD_PURPOSE_DEFINE -> showWiktionaryDefinition(message.text)
-                        PAYLOAD_PURPOSE_EDIT_HERE -> onEditHerePayload(message.section, message.text, message.isTitleDescription)
+                        PAYLOAD_PURPOSE_EDIT_HERE -> onEditHerePayload(message)
                         else -> L.d("Unknown purpose=$purpose")
                     }
                 } catch (e: Exception) {
@@ -90,6 +90,8 @@ class ShareHandler(private val fragment: PageFragment, private val bridge: Commu
         val text: String = ""
         val section: Int = 0
         val isTitleDescription: Boolean = false
+        val textBefore: String = ""
+        val textAfter: String = ""
     }
 
     companion object {
