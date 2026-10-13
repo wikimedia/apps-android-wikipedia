@@ -2095,6 +2095,10 @@
     <string name="yir_niche_category_headline">Talk about having niche interests, like:</string>
     <string name="yir_niche_category_supporting">For one reason or another, when it came to this category, you went all in!</string>
     <string name="yir_reread_articles_headline">Some articles in your rotation:</string>
+    <plurals name="yir_reread_articles_visits_count">
+        <item quantity="one">%1$d visits</item>
+        <item quantity="other">%1$d visits</item>
+    </plurals>
     <string name="yir_reread_articles_empty_headline">You\'re not a re-reader</string>
     <string name="yir_reread_articles_empty_supporting">So much for looking at an article twice. You prefer novelty and falling down new rabbit holes.</string>
     <string name="yir_places_headline">Your reading practically took you to:</string>

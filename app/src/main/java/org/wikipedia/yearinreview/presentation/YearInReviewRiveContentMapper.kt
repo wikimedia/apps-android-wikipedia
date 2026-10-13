@@ -136,7 +136,7 @@ object YearInReviewRiveContentMapper {
                 spec = allTemplatesListSlideSpec("frame13"),
                 textProperties = mapOf(
                     "bodyText" to resources.getString(R.string.yir_reread_articles_headline)
-                ) + listRows(page.articles.map { StringUtil.fromHtml(it.first.displayText).toString() to it.first.description.orEmpty() }),
+                ) + listRows(page.articles.map { StringUtil.fromHtml(it.first.displayText).toString() to resources.getQuantityString(R.plurals.yir_reread_articles_visits_count, it.second, it.second) }),
                 imageUrls = listIcons(page.articles.map { it.first.thumbUrl })
             )
         }
