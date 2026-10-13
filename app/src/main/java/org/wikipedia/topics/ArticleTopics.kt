@@ -1,7 +1,9 @@
 package org.wikipedia.topics
 
+import kotlinx.serialization.Serializable
 import org.wikipedia.R
 
+@Serializable
 data class ArticleTopic(
     val topicId: String,
     val msgKey: Int,

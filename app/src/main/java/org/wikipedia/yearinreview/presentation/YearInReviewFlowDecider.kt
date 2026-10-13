@@ -1,6 +1,7 @@
 package org.wikipedia.yearinreview.presentation
 
 import org.wikipedia.history.db.MonthVisitedDays
+import org.wikipedia.topics.ArticleTopics
 import org.wikipedia.yearinreview.data.YearInReviewInsightStatus
 import org.wikipedia.yearinreview.data.YearInReviewSnapshot
 
@@ -42,6 +43,18 @@ object YearInReviewFlowDecider {
                 YearInReviewPage.Visits(
                     days = readingStats.visitedDaysCount,
                     peakMonth = if (readingStats.hasPeakMonth) MonthVisitedDays(readingStats.peakMonth, readingStats.peakMonthVisitedDays) else null
+                )
+            },
+            CandidatePage(status = readingStats.topTopicsStatus) {
+                YearInReviewPage.TopTopic(
+                    isEmptyState = readingStats.topTopicsStatus == YearInReviewInsightStatus.EMPTY_STATE,
+                    topic = readingStats.topTopic ?: ArticleTopics.all.first(),
+                    articles = readingStats.topTopicArticles.orEmpty()
+                )
+            },
+            CandidatePage(status = readingStats.otherTopicsStatus) {
+                YearInReviewPage.OtherTopTopics(
+                    topicArticleCounts = readingStats.topicArticleCountMap
                 )
             }
         )

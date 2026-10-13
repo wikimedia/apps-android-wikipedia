@@ -28,32 +28,26 @@ object YearInReviewRiveContentMapper {
             spec = allTemplatesSlideSpec(if (page.isEmptyState) "frame1-empty" else "frame1"),
             textProperties = mapOf(
                 "headline" to resources.getString(if (page.isEmptyState) R.string.yir_article_count_empty_headline else R.string.yir_article_count_headline),
+                "data" to page.count.toString(),
                 "bodyCopy" to if (page.isEmptyState) resources.getString(R.string.yir_article_count_empty_supporting) else
-                    resources.getQuantityString(R.plurals.yir_article_count_supporting_top, page.count, page.percentile, page.averageCount),
-                "data" to page.count.toString()
+                    resources.getQuantityString(R.plurals.yir_article_count_supporting_top, page.count, page.percentile, page.averageCount)
             )
         )
-        is YearInReviewPage.Visits -> {
-            val headline = resources.getString(R.string.yir_days_visited_headline, YearInReviewConfig.YEAR)
-            val data = page.days.toString()
-            val bodyCopy = page.peakMonth?.let {
-                resources.getQuantityString(
-                    R.plurals.yir_days_visited_supporting,
-                    it.visitedDays,
-                    Month.of(it.month).getDisplayName(TextStyle.FULL_STANDALONE, resources.configuration.locales[0]),
-                    it.visitedDays
-                )
-            }.orEmpty()
-            RiveSlideContent(
-                spec = allTemplatesSlideSpec("frame2", instanceType = RiveInstanceType.Blank),
-                textProperties = mapOf(
-                    "headline" to headline,
-                    "data" to data,
-                    "bodyCopy" to bodyCopy
-                ),
-                accessibilityDescription = listOf(headline, data, bodyCopy).filter { it.isNotEmpty() }.joinToString("\n")
+        is YearInReviewPage.Visits -> RiveSlideContent(
+            spec = allTemplatesSlideSpec("frame2", instanceType = RiveInstanceType.Blank),
+            textProperties = mapOf(
+                "headline" to resources.getString(R.string.yir_days_visited_headline, YearInReviewConfig.YEAR),
+                "data" to page.days.toString(),
+                "bodyCopy" to page.peakMonth?.let {
+                    resources.getQuantityString(
+                        R.plurals.yir_days_visited_supporting,
+                        it.visitedDays,
+                        Month.of(it.month).getDisplayName(TextStyle.FULL_STANDALONE, resources.configuration.locales[0]),
+                        it.visitedDays
+                    )
+                }.orEmpty()
             )
-        }
+        )
         is YearInReviewPage.TimeSpent -> RiveSlideContent(
             spec = allTemplatesSlideSpec("frame3"),
             textProperties = mapOf(
@@ -192,8 +186,8 @@ object YearInReviewRiveContentMapper {
             spec = allTemplatesSlideSpec("frame17"),
             textProperties = mapOf(
                 "headline" to resources.getString(R.string.yir_edit_views_headline),
-                "bodyCopy" to resources.getString(R.string.yir_edit_views_supporting, YearInReviewConfig.YEAR),
-                "data" to formatNumber(resources, page.viewCount)
+                "data" to formatNumber(resources, page.viewCount),
+                "bodyCopy" to resources.getString(R.string.yir_edit_views_supporting, YearInReviewConfig.YEAR)
             )
         )
         is YearInReviewPage.MostViewedEditedArticles -> RiveSlideContent(
