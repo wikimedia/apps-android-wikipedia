@@ -20,6 +20,8 @@ import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.analytics.eventplatform.YearInReviewEvent
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.donate.DonateDialog
+import org.wikipedia.feed.personalization.PersonalizationActivity
+import org.wikipedia.games.GamesHubActivity
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ShareUtil
@@ -91,6 +93,16 @@ class YearInReviewActivity : BaseActivity() {
                             campaignId = campaignId
                         )
                         ExclusiveBottomSheetPresenter.show(supportFragmentManager, DonateDialog.newInstance(campaignId = campaignId, fromYiR = true))
+                    },
+                    onEndCardClick = { card ->
+                        when (card) {
+                            YearInReviewEndCard.GAMES -> startActivity(GamesHubActivity.newIntent(this))
+                            YearInReviewEndCard.CUSTOMIZE_HOME -> startActivity(PersonalizationActivity.newIntent(this, showInterestsOnly = true))
+                            // TODO: open these once their destination URLs are finalized
+                            YearInReviewEndCard.STORE_DISCOUNT,
+                            YearInReviewEndCard.COMMUNITY_RECAP,
+                            YearInReviewEndCard.QUIZ -> { }
+                        }
                     },
                     onStatusBarIconColorChange = { useDarkIcons ->
                         WindowCompat.getInsetsController(window, window.decorView)

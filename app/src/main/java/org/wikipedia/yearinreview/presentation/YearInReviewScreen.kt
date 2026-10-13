@@ -65,7 +65,7 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import kotlin.math.roundToInt
 
 private val YearInReviewCardCornerRadius = 28.dp
-private val TopAppBarHeight = 64.dp
+internal val TopAppBarHeight = 64.dp
 
 fun Modifier.placeholderBackground() = background(
     brush = Brush.linearGradient(
@@ -92,6 +92,7 @@ fun YearInReviewScreen(
     onShareFeedbackClick: () -> Unit = {},
     onShareClick: (Bitmap) -> Unit = {},
     onDonateClick: (String) -> Unit = { _ -> },
+    onEndCardClick: (YearInReviewEndCard) -> Unit = {},
     onRetryClick: () -> Unit = {},
     onStatusBarIconColorChange: (useDarkIcons: Boolean) -> Unit = {},
     onRiveError: (Throwable) -> Unit = {}
@@ -121,6 +122,7 @@ fun YearInReviewScreen(
                 onShareFeedbackClick = onShareFeedbackClick,
                 onShareClick = onShareClick,
                 onDonateClick = onDonateClick,
+                onEndCardClick = onEndCardClick,
                 onStatusBarIconColorChange = onStatusBarIconColorChange,
                 onRiveError = onRiveError
             )
@@ -158,6 +160,7 @@ private fun YearInReviewContent(
     onShareFeedbackClick: () -> Unit,
     onShareClick: (Bitmap) -> Unit,
     onDonateClick: (String) -> Unit,
+    onEndCardClick: (YearInReviewEndCard) -> Unit,
     onStatusBarIconColorChange: (useDarkIcons: Boolean) -> Unit,
     onRiveError: (Throwable) -> Unit
 ) {
@@ -239,6 +242,11 @@ private fun YearInReviewContent(
                 val page = pages[position]
                 val content = riveContents[page.id]
                 when {
+                    page is YearInReviewPage.End -> {
+                        YearInReviewEndSlide(
+                            onCardActionClick = onEndCardClick
+                        )
+                    }
                     // A custom slide, such as an interactive one, gets its own branch above this one
                     content != null -> {
                         YearInReviewRiveSlide(

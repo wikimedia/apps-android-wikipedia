@@ -128,5 +128,7 @@ sealed interface YearInReviewPage {
 
     data object End : YearInReviewPage {
         override val id = "end"
+        // The top of the slide is a light sky
+        override val useDarkStatusBarIcons = true
     }
 }
