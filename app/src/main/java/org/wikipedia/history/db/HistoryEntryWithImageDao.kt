@@ -8,6 +8,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.search.SearchResult
 import org.wikipedia.search.SearchResults
+import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.util.StringUtil
 import java.text.DateFormat
 import java.util.Calendar
@@ -67,6 +68,7 @@ interface HistoryEntryWithImageDao {
     suspend fun getRandomRecentReadEntries(sinceMillis: Long, excludeSource1: Int, excludeSource2: Int, excludeSource3: Int, minTimeSpent: Int, limit: Int, langCode: String? = null): List<HistoryEntryWithImage>
 
     // One row per article (its most recent visit in the range), most-visited first; ties go to the more recently visited.
+    // Only mainspace articles are counted, excluding the Main Page of the given language.
     @Query("""
         SELECT HistoryEntry.*, PageImage.imageName, PageImage.description, PageImage.geoLat, PageImage.geoLon, PageImage.timeSpentSec, RepeatedEntries.visit_count AS visitCount
         FROM HistoryEntry
@@ -74,6 +76,8 @@ interface HistoryEntryWithImageDao {
         INNER JOIN (
             SELECT lang, namespace, apiTitle, MAX(timestamp) AS max_timestamp, COUNT(*) AS visit_count FROM HistoryEntry
             WHERE timestamp BETWEEN :startMillis AND :endMillis
+            AND (namespace IS NULL OR namespace = '' OR namespace = 'MAIN')
+            AND NOT (lang = :mainPageLang AND apiTitle = :mainPageApiTitle)
             GROUP BY lang, namespace, apiTitle
             HAVING COUNT(*) > 1
         ) RepeatedEntries ON HistoryEntry.lang = RepeatedEntries.lang AND HistoryEntry.namespace = RepeatedEntries.namespace AND HistoryEntry.apiTitle = RepeatedEntries.apiTitle AND HistoryEntry.timestamp = RepeatedEntries.max_timestamp
@@ -82,7 +86,7 @@ interface HistoryEntryWithImageDao {
     """
     )
     @RewriteQueriesToDropUnusedColumns
-    suspend fun getEntriesVisitedMultipleTimesBetween(startMillis: Long, endMillis: Long, limit: Int): List<HistoryEntryWithVisitCount>
+    suspend fun getEntriesVisitedMultipleTimesBetween(startMillis: Long, endMillis: Long, mainPageLang: String, mainPageApiTitle: String, limit: Int): List<HistoryEntryWithVisitCount>
 
     suspend fun findHistoryItem(wikiSite: WikiSite, searchQuery: String): SearchResults {
         var normalizedQuery = StringUtils.stripAccents(searchQuery)
@@ -103,8 +107,10 @@ interface HistoryEntryWithImageDao {
         return getHistoryEntriesWithOffset(limit, 0).map { toHistoryEntry(it) }
     }
 
-    suspend fun findEntriesVisitedMultipleTimesBetween(startMillis: Long, endMillis: Long, limit: Int): List<Pair<HistoryEntry, Int>> {
-        return getEntriesVisitedMultipleTimesBetween(startMillis, endMillis, limit).map { toHistoryEntry(it.entryWithImage) to it.visitCount }
+    suspend fun findEntriesVisitedMultipleTimesBetween(startMillis: Long, endMillis: Long, languageCode: String, limit: Int): List<Pair<HistoryEntry, Int>> {
+        val mainPageApiTitle = StringUtil.addUnderscores(MainPageNameData.valueFor(languageCode))
+        return getEntriesVisitedMultipleTimesBetween(startMillis, endMillis, languageCode, mainPageApiTitle, limit)
+            .map { toHistoryEntry(it.entryWithImage) to it.visitCount }
     }
 
     suspend fun filterHistoryItemsWithoutTime(searchQuery: String = ""): List<HistoryEntry> {
