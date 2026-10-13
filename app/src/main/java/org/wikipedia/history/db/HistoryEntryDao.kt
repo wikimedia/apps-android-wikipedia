@@ -25,6 +25,9 @@ interface HistoryEntryDao {
     @Query("SELECT * FROM HistoryEntry WHERE authority = :authority AND lang = :lang AND apiTitle = :apiTitle AND timestamp = :timestamp LIMIT 1")
     suspend fun findEntryBy(authority: String, lang: String, apiTitle: String, timestamp: Long): HistoryEntry?
 
+    @Query("SELECT COUNT(*) FROM HistoryEntry WHERE timestamp BETWEEN :startMillis AND :endMillis")
+    suspend fun getEntriesCountBetween(startMillis: Long, endMillis: Long): Int
+
     @Query("SELECT COUNT(*) FROM (SELECT DISTINCT HistoryEntry.lang, HistoryEntry.apiTitle FROM HistoryEntry WHERE timestamp BETWEEN :startMillis AND :endMillis)")
     suspend fun getDistinctEntriesCountBetween(startMillis: Long, endMillis: Long = System.currentTimeMillis()): Int
 
@@ -61,8 +64,8 @@ interface HistoryEntryDao {
     @Query("DELETE FROM HistoryEntry")
     suspend fun deleteAll()
 
-    @Query("DELETE FROM HistoryEntry WHERE apiTitle LIKE :prefix || '%'")
-    suspend fun deleteByApiTitlePrefix(prefix: String)
+    @Query("DELETE FROM HistoryEntry WHERE displayTitle LIKE :prefix || '%'")
+    suspend fun deleteByDisplayTitlePrefix(prefix: String)
 
     @Query("DELETE FROM HistoryEntry WHERE authority = :authority AND lang = :lang AND namespace = :namespace AND apiTitle = :apiTitle")
     suspend fun deleteBy(authority: String, lang: String, namespace: String?, apiTitle: String)
