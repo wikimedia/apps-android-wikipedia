@@ -234,10 +234,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
         Prefs.pageLastShown = 0
         binding.mainNavTabLayout.setOverlayDot(NavTab.EDITS, !Prefs.isActivityTabOnboardingShown || shouldShowYearInReviewDot)
         YearInReviewDialog.maybeShowYearInReviewFeedbackDialog(requireActivity())
-        if (YearInReviewViewModel.getYearInReviewModel()?.isReadingListCreated == true) {
-            onNavigateTo(NavTab.READING_LISTS) // Navigate to reading lists only if Year in Review reading list is created
-            YearInReviewViewModel.updateYearInReviewModel { it.copy(isReadingListCreated = false) }
-        }
     }
 
     override fun onDestroyView() {
