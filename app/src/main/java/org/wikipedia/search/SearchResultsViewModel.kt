@@ -28,6 +28,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.search.semantic.SemanticSearchAbTest
 import org.wikipedia.settings.Prefs
+import kotlin.time.Duration.Companion.milliseconds
 
 class SearchResultsViewModel : ViewModel() {
     private val semanticSearchAbTest = SemanticSearchAbTest()
@@ -43,6 +44,7 @@ class SearchResultsViewModel : ViewModel() {
     private val delayMillis = 200L
     var countsPerLanguageCode = mutableListOf<Pair<String, Int>>()
     var isSemanticSearchFeedbackShown = false
+    var isFromRecentSearch = false
 
     lateinit var invokeSource: Constants.InvokeSource
 
@@ -89,7 +91,7 @@ class SearchResultsViewModel : ViewModel() {
         ExperimentalCoroutinesApi::class
     ) // TODO: revisit if the debounce method changed.
     val searchResultsFlow =
-        combine(_searchTerm.debounce(delayMillis), _languageCode, _refreshSearchResults) { term, lang, _ ->
+        combine(_searchTerm.debounce(delayMillis.milliseconds), _languageCode, _refreshSearchResults) { term, lang, _ ->
             Pair(term, lang)
         }.flatMapLatest { (term, lang) ->
             _searchTermForLogging.emit(term)

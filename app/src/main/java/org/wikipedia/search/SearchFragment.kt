@@ -32,6 +32,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.places.PlacesActivity
 import org.wikipedia.readinglist.SaveArticleSheetDialog
 import org.wikipedia.search.db.RecentSearch
+import org.wikipedia.search.semantic.SemanticSearchAbTest
 import org.wikipedia.search.semantic.SemanticSearchInfoDialog
 import org.wikipedia.search.semantic.SemanticSearchResultsDialog
 import org.wikipedia.settings.Prefs
@@ -134,6 +135,12 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
         }
 
         requireActivity().instrument?.submitInteraction("search_impression", actionSource = invokeSource.value)
+
+        SemanticSearchAbTest().shouldSendEvent {
+            requireActivity().instrument?.submitInteraction("impression",
+                actionSubtype = invokeSource.value
+            )
+        }
 
         return binding.root
     }
@@ -272,10 +279,12 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
         if (!isSearchActive) {
             openSearch()
         }
+        var isFromRecentSearch = false
         if (term.isNullOrEmpty()) {
             showPanel(PANEL_RECENT_SEARCHES)
         } else if (activePanel == PANEL_RECENT_SEARCHES) {
             // start with title search...
+            isFromRecentSearch = true
             showPanel(PANEL_SEARCH_RESULTS)
         }
         query = term
@@ -288,7 +297,7 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
             }
             when (activePanel) {
                 PANEL_SEARCH_RESULTS -> {
-                    searchResultsFragment.startSearch(term, force)
+                    searchResultsFragment.startSearch(term, force, isFromRecentSearch)
                 }
             }
         }, if (invokeSource == InvokeSource.PLACES || invokeSource == InvokeSource.VOICE || invokeSource == InvokeSource.INTENT_SHARE || invokeSource == InvokeSource.INTENT_PROCESS_TEXT) INTENT_DELAY_MILLIS else 0)

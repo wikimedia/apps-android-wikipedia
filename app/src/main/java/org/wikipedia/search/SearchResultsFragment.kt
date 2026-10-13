@@ -18,6 +18,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil.getCallback
+import org.wikipedia.analytics.ABTest
 import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.dataclient.WikiSite
@@ -48,6 +49,17 @@ class SearchResultsFragment : Fragment() {
                         requireActivity().instrument?.submitInteraction(
                             "search_init", actionContext = mapOf("query" to query)
                         )
+                        SemanticSearchAbTest().shouldSendEvent {
+                            val isRecent = viewModel.isFromRecentSearch
+                            requireActivity().instrument?.submitInteraction("init",
+                                actionSubtype = if (isRecent) "recent_search" else null,
+                                elementId = if (isRecent) "search_result" else null,
+                                actionContext = mapOf(
+                                    "query" to query,
+                                    "query_trunc" to (query.length > 256)
+                                )
+                            )
+                        }
                     }
                 }
             }
@@ -60,10 +72,10 @@ class SearchResultsFragment : Fragment() {
                             "show_search_result",
                             actionContext = viewModel.getStandardEventActionContext()
                         )
-                        SemanticSearchAbTest().shouldSendEvent {
-                            requireActivity().instrument?.submitInteraction("dive_entry_impression",
-                                elementId = "dive_entry_opportunity",
-                                actionContext = viewModel.getSemanticSearchEventActionContext()
+                        SemanticSearchAbTest().shouldSendEvent(group = ABTest.GROUP_1) {
+                            requireActivity().instrument?.submitInteraction("impression",
+                                elementId = "search_result",
+                                actionContext = viewModel.getStandardEventActionContext()
                             )
                         }
                     }
@@ -84,6 +96,13 @@ class SearchResultsFragment : Fragment() {
                                 pageData = TestKitchenAdapter.getPageData(result.pageTitle),
                                 actionContext = viewModel.getStandardEventActionContext(result)
                             )
+
+                            SemanticSearchAbTest().shouldSendEvent(group = ABTest.GROUP_1) {
+                                requireActivity().instrument?.submitInteraction("click",
+                                    elementId = "search_result",
+                                    actionContext = viewModel.getStandardEventActionContext(result)
+                                )
+                            }
 
                             callback()?.navigateToTitle(result.pageTitle, inNewTab, position, location)
                         },
@@ -125,16 +144,6 @@ class SearchResultsFragment : Fragment() {
                                     startActivity(SettingsActivity.newIntent(requireContext()))
                                 }
                                 .show()
-                        },
-                        isQueryEligible = { isQueryEligible ->
-                            SemanticSearchAbTest().shouldSendEvent {
-                                requireActivity().instrument?.submitInteraction("dive_query_eligibilty",
-                                    actionContext = mapOf(
-                                        "eligible" to isQueryEligible, // TODO: confirm with Shay: the quality of the query they're submitting
-                                        "rules_version" to "1"
-                                    )
-                                )
-                            }
                         }
                     )
                 }
@@ -150,7 +159,7 @@ class SearchResultsFragment : Fragment() {
         composeView?.visibility = View.GONE
     }
 
-    fun startSearch(term: String?, force: Boolean) {
+    fun startSearch(term: String?, force: Boolean, isFromRecentSearch: Boolean) {
         if (!force && viewModel.searchTerm.value == term && viewModel.languageCode.value == searchLanguageCode) {
             return
         }
@@ -158,6 +167,7 @@ class SearchResultsFragment : Fragment() {
         requireActivity().instrument?.setDefaultMediaWikiData(WikiSite.forLanguageCode(searchLanguageCode).dbName())
         viewModel.updateLanguageCode(searchLanguageCode)
         viewModel.updateSearchTerm(if (term.isNullOrBlank()) "" else term)
+        viewModel.isFromRecentSearch = isFromRecentSearch
 
         // If user changes the language, make sure to turn off hybrid search screen.
         if (force) {

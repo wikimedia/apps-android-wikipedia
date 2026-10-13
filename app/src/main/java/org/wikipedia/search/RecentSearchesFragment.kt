@@ -17,6 +17,7 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.ABTest
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentSearchRecentBinding
 import org.wikipedia.dataclient.ServiceFactory
@@ -25,6 +26,7 @@ import org.wikipedia.dataclient.mwapi.MwQueryResult
 import org.wikipedia.extensions.instrument
 import org.wikipedia.page.Namespace
 import org.wikipedia.search.db.RecentSearch
+import org.wikipedia.search.semantic.SemanticSearchAbTest
 import org.wikipedia.util.FeedbackUtil.setButtonTooltip
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
@@ -156,6 +158,17 @@ class RecentSearchesFragment : Fragment() {
 
             requireActivity().instrument?.submitInteraction("click", elementId = "recent_search",
                 actionContext = mapOf("query" to text))
+
+            SemanticSearchAbTest().shouldSendEvent(group = ABTest.GROUP_1) {
+                requireActivity().instrument?.submitInteraction("click",
+                    actionSubtype = "recent_search",
+                    elementId = "search_result",
+                    actionContext = mapOf(
+                        "query" to text,
+                        "query_trunc" to (text.length > 256)
+                    )
+                )
+            }
 
             callback?.switchToSearch(text)
         }
