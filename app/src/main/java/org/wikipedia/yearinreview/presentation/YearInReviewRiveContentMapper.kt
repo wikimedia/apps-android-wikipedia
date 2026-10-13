@@ -28,7 +28,7 @@ object YearInReviewRiveContentMapper {
             spec = allTemplatesSlideSpec(if (page.isEmptyState) "frame1-empty" else "frame1"),
             textProperties = mapOf(
                 "headline" to resources.getString(if (page.isEmptyState) R.string.yir_article_count_empty_headline else R.string.yir_article_count_headline),
-                "data" to page.count.toString(),
+                "data" to formatNumber(resources, page.count.toLong()),
                 "bodyCopy" to when {
                     page.isEmptyState -> resources.getString(R.string.yir_article_count_empty_supporting)
                     page.percentile.toDoubleOrNull()?.let { it > 0 && it <= 50 } == true ->
