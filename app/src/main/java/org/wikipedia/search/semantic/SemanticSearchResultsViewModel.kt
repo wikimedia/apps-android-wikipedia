@@ -118,7 +118,7 @@ class SemanticSearchResultsViewModel(savedStateHandle: SavedStateHandle) : ViewM
             UiState.Success(state.data.map {
                 if (it.pageTitle == searchResult.pageTitle) {
                     it.copy(
-                        editCounts = trustAndRelevance.contributorCounts,
+                        editCounts = trustAndRelevance.contributorCounts?.totalUnique,
                         referenceCounts = trustAndRelevance.referenceCount,
                         lastUpdated = trustAndRelevance.lastUpdated
                     )

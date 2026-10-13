@@ -5,6 +5,7 @@ import org.wikipedia.BuildConfig
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
+import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.yearinreview.data.YearInReviewAvailability
 import org.wikipedia.yearinreview.data.YearInReviewConfig
@@ -69,6 +70,9 @@ data class YearInReviewPlaygroundEntryPoint(
         return buildList {
             if (!isEnabled) {
                 add("Year in Review is turned off in Settings")
+            }
+            if (!DeviceUtil.isOpenGlEs3Supported) {
+                add("this device doesn't support OpenGL ES 3.0")
             }
             if (!hasRemoteConfig) {
                 add("the remote config isn't published")
