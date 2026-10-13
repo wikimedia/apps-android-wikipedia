@@ -8,6 +8,7 @@ import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.history.db.HistoryEntryDao
+import org.wikipedia.history.db.HistoryEntryWithImageDao
 import org.wikipedia.settings.Prefs
 import org.wikipedia.topics.ArticleTopics
 import org.wikipedia.topics.db.PageTopicDao
@@ -24,6 +25,7 @@ interface YearInReviewRepository {
 class YearInReviewRepositoryImpl(
     private val restService: RestService = ServiceFactory.getRest(WikipediaApp.instance.wikiSite),
     private val historyEntryDao: HistoryEntryDao = AppDatabase.instance.historyEntryDao(),
+    private val historyEntryWithImageDao: HistoryEntryWithImageDao = AppDatabase.instance.historyEntryWithImageDao(),
     private val pageTopicDao: PageTopicDao = AppDatabase.instance.pageTopicDao(),
     private val cache: YearInReviewCache = PrefsYearInReviewStore,
     private val donationEligibility: YearInReviewDonationEligibility = YearInReviewDonationEligibility()
@@ -64,6 +66,8 @@ class YearInReviewRepositoryImpl(
     suspend fun getReadingStats(dateRange: YearInReviewDateRange): YearInReviewReadingStats {
         // TODO: parallelize all of the suspend calls below:
         val peakMonth = historyEntryDao.getPeakMonthByVisitedDaysBetween(dateRange.startMillis, dateRange.endMillis)
+
+        val articlesReadMoreThanOnce = historyEntryWithImageDao.findEntriesVisitedMultipleTimesBetween(dateRange.startMillis, dateRange.endMillis, limit = 3)
 
         val topTopics = pageTopicDao.getTopTopicsByArticleCount(dateRange.startMillis, dateRange.endMillis).take(4)
         val topTopic = topTopics.map { it.topic }.firstOrNull()?.let {
