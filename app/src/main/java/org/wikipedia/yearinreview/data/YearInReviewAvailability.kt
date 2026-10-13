@@ -2,6 +2,7 @@ package org.wikipedia.yearinreview.data
 
 import org.wikipedia.BuildConfig
 import org.wikipedia.settings.RemoteConfig
+import org.wikipedia.util.DeviceUtil
 import java.time.Clock
 import java.time.Instant
 import java.time.ZoneOffset
@@ -15,6 +16,10 @@ class YearInReviewAvailability(
         countryCode: String?,
         developerOverride: Boolean = false
     ): Boolean {
+        // Rive requires GL ES 3.0, so no point in proceeding if the device doesn't support it.
+        if (!DeviceUtil.isOpenGlEs3Supported) {
+            return false
+        }
         if (developerOverride) {
             return true
         }
