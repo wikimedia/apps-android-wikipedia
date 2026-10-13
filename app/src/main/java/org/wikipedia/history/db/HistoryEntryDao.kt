@@ -28,8 +28,8 @@ interface HistoryEntryDao {
     @Query("SELECT COUNT(*) FROM (SELECT DISTINCT HistoryEntry.lang, HistoryEntry.apiTitle FROM HistoryEntry WHERE timestamp BETWEEN :startMillis AND :endMillis)")
     suspend fun getDistinctEntriesCountBetween(startMillis: Long, endMillis: Long = System.currentTimeMillis()): Int
 
-    @Query("SELECT COUNT(*) FROM (SELECT DISTINCT lang, apiTitle FROM HistoryEntry WHERE namespace = '' AND source != ${HistoryEntry.SOURCE_MAIN_PAGE} AND timestamp BETWEEN :startMillis AND :endMillis)")
-    suspend fun getDistinctArticlesCountBetween(startMillis: Long, endMillis: Long): Int
+    @Query("SELECT COUNT(*) FROM (SELECT DISTINCT lang, apiTitle FROM HistoryEntry WHERE namespace = '' AND apiTitle NOT IN (:excludedTitles) AND timestamp BETWEEN :startMillis AND :endMillis)")
+    suspend fun getDistinctArticlesCountBetween(startMillis: Long, endMillis: Long, excludedTitles: List<String>): Int
 
     @Query("SELECT COUNT(DISTINCT date(timestamp / 1000, 'unixepoch', 'localtime')) FROM HistoryEntry WHERE timestamp BETWEEN :startMillis AND :endMillis")
     suspend fun getDistinctDaysCountBetween(startMillis: Long, endMillis: Long): Int
