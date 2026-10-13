@@ -68,7 +68,7 @@ interface HistoryEntryWithImageDao {
 
     // One row per article (its most recent visit in the range), most-visited first; ties go to the more recently visited.
     @Query("""
-        SELECT HistoryEntry.*, PageImage.imageName, PageImage.description, PageImage.geoLat, PageImage.geoLon, PageImage.timeSpentSec
+        SELECT HistoryEntry.*, PageImage.imageName, PageImage.description, PageImage.geoLat, PageImage.geoLon, PageImage.timeSpentSec, RepeatedEntries.visit_count AS visitCount
         FROM HistoryEntry
         LEFT OUTER JOIN PageImage ON (HistoryEntry.namespace = PageImage.namespace AND HistoryEntry.apiTitle = PageImage.apiTitle AND HistoryEntry.lang = PageImage.lang)
         INNER JOIN (
@@ -82,7 +82,7 @@ interface HistoryEntryWithImageDao {
     """
     )
     @RewriteQueriesToDropUnusedColumns
-    suspend fun getEntriesVisitedMultipleTimesBetween(startMillis: Long, endMillis: Long, limit: Int): List<HistoryEntryWithImage>
+    suspend fun getEntriesVisitedMultipleTimesBetween(startMillis: Long, endMillis: Long, limit: Int): List<HistoryEntryWithVisitCount>
 
     suspend fun findHistoryItem(wikiSite: WikiSite, searchQuery: String): SearchResults {
         var normalizedQuery = StringUtils.stripAccents(searchQuery)
@@ -103,8 +103,8 @@ interface HistoryEntryWithImageDao {
         return getHistoryEntriesWithOffset(limit, 0).map { toHistoryEntry(it) }
     }
 
-    suspend fun findEntriesVisitedMultipleTimesBetween(startMillis: Long, endMillis: Long, limit: Int): List<HistoryEntry> {
-        return getEntriesVisitedMultipleTimesBetween(startMillis, endMillis, limit).map { toHistoryEntry(it) }
+    suspend fun findEntriesVisitedMultipleTimesBetween(startMillis: Long, endMillis: Long, limit: Int): List<Pair<HistoryEntry, Int>> {
+        return getEntriesVisitedMultipleTimesBetween(startMillis, endMillis, limit).map { toHistoryEntry(it.entryWithImage) to it.visitCount }
     }
 
     suspend fun filterHistoryItemsWithoutTime(searchQuery: String = ""): List<HistoryEntry> {

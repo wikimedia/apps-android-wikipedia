@@ -1,6 +1,7 @@
 package org.wikipedia.yearinreview.presentation
 
 import org.wikipedia.history.db.MonthVisitedDays
+import org.wikipedia.page.PageTitle
 import org.wikipedia.topics.ArticleTopic
 
 data class YearInReviewArticle(
@@ -90,7 +91,7 @@ sealed interface YearInReviewPage {
         override val id = "category"
     }
 
-    data class RevisitedArticles(val isEmptyState: Boolean, val articles: List<YearInReviewArticle>) : YearInReviewPage {
+    data class RevisitedArticles(val isEmptyState: Boolean, val articles: List<Pair<PageTitle, Int>>) : YearInReviewPage {
         override val id get() = if (isEmptyState) "revisited_articles_empty" else "revisited_articles"
     }
 

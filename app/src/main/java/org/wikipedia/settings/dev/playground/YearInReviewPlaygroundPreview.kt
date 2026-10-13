@@ -1,6 +1,8 @@
 package org.wikipedia.settings.dev.playground
 
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.history.db.MonthVisitedDays
+import org.wikipedia.page.PageTitle
 import org.wikipedia.topics.ArticleTopics
 import org.wikipedia.yearinreview.data.YearInReviewConfig
 import org.wikipedia.yearinreview.presentation.YearInReviewArticle
@@ -56,21 +58,27 @@ object YearInReviewPlaygroundPreview {
         YearInReviewPage.RevisitedArticles(
             isEmptyState = false,
             articles = listOf(
-                YearInReviewArticle(
-                    title = "Moon",
+                PageTitle(
+                    text = "Moon",
+                    wiki = WikiSite.preview(),
+                    thumbUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/FullMoon2010.jpg/120px-FullMoon2010.jpg",
                     description = "Natural satellite orbiting Earth",
-                    thumbnailUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/FullMoon2010.jpg/120px-FullMoon2010.jpg"
-                ),
-                YearInReviewArticle(
-                    title = "Leonardo da Vinci",
+                    displayText = "Moon"
+                ) to 10,
+                PageTitle(
+                    text = "Leonardo da Vinci",
+                    wiki = WikiSite.preview(),
+                    thumbUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Francesco_Melzi_-_Portrait_of_Leonardo_%28colour_correction%29.png/120px-Francesco_Melzi_-_Portrait_of_Leonardo_%28colour_correction%29.png",
                     description = "Italian polymath (1452–1519)",
-                    thumbnailUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Francesco_Melzi_-_Portrait_of_Leonardo_%28colour_correction%29.png/120px-Francesco_Melzi_-_Portrait_of_Leonardo_%28colour_correction%29.png"
-                ),
-                YearInReviewArticle(
-                    title = "Python (programming language)",
+                    displayText = "Leonardo da Vinci"
+                ) to 9,
+                PageTitle(
+                    text = "Python (programming language)",
+                    wiki = WikiSite.preview(),
+                    thumbUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/120px-Python-logo-notext.svg.png",
                     description = "General-purpose programming language",
-                    thumbnailUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/120px-Python-logo-notext.svg.png"
-                )
+                    displayText = "Python (programming language)"
+                ) to 8
             )
         ),
         YearInReviewPage.Geography(isEmptyState = false, placeArticleCounts = mapOf("Brazil" to 12)),
