@@ -95,7 +95,7 @@ class YearInReviewRepositoryImpl(
                 topic to entry.articleCount
             }.mapNotNull {
                 if (it.key != null) it.key!! to it.value else null
-            }.associate { it.first to it.second }
+            }.associate { it.first.topicId to it.second }
         )
     }
 

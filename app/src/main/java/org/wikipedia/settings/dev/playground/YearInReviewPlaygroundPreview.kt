@@ -29,9 +29,9 @@ object YearInReviewPlaygroundPreview {
         ),
         YearInReviewPage.OtherTopTopics(
             topicArticleCounts = listOf(
-                ArticleTopics.all[0] to 14,
-                ArticleTopics.all[5] to 12,
-                ArticleTopics.all[7] to 8
+                ArticleTopics.all[0].topicId to 14,
+                ArticleTopics.all[5].topicId to 12,
+                ArticleTopics.all[7].topicId to 8
             ).takeRandomCount().toMap()
         ),
         YearInReviewPage.BiggestReadingDay(date = "September 30", minutesSpent = 423),
