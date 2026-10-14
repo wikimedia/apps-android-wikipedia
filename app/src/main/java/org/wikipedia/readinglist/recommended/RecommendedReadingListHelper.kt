@@ -176,7 +176,7 @@ object RecommendedReadingListHelper {
         }
         Prefs.isNewRecommendedReadingListGenerated = true
         FlowEventBus.post(NewRecommendedReadingListEvent())
-        return finalList.distinctBy { it.lang to it.apiTitle }.shuffled().take(Prefs.recommendedReadingListArticlesNumber)
+        return finalList.shuffled().take(Prefs.recommendedReadingListArticlesNumber)
     }
 
     private suspend fun getRecommendedPage(sourceWithOffset: SourceWithOffset, offset: Int, takeSize: Int, alreadyPicked: List<PageTitle>): List<PageTitle> {
