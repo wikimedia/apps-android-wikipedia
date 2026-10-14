@@ -30,12 +30,12 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.UiState
 import org.wikipedia.yearinreview.data.YearInReviewConfig
-import org.wikipedia.yearinreview.data.YearInReviewSnapshot
+import org.wikipedia.yearinreview.data.YearInReviewEntryStats
 
 @Composable
 fun YearInReviewOnboardingScreen(
-    // The user's logged-in state, and their Year in Review snapshot
-    uiState: UiState<Pair<Boolean, YearInReviewSnapshot>>,
+    // The user's logged-in state, and their entry stats
+    uiState: UiState<Pair<Boolean, YearInReviewEntryStats>>,
     onCloseClick: () -> Unit,
     onLearnMoreClick: () -> Unit,
     onAboutInsightsClick: () -> Unit,
@@ -43,7 +43,7 @@ fun YearInReviewOnboardingScreen(
     onExploreClick: () -> Unit,
     onRetryClick: () -> Unit,
     modifier: Modifier = Modifier,
-    coverContent: @Composable BoxScope.(snapshot: YearInReviewSnapshot, onCoverReady: () -> Unit) -> Unit
+    coverContent: @Composable BoxScope.(entryStats: YearInReviewEntryStats, onCoverReady: () -> Unit) -> Unit
 ) {
     val isError = uiState is UiState.Error
     var isCoverReady by remember { mutableStateOf(false) }
@@ -86,7 +86,6 @@ fun YearInReviewOnboardingScreen(
                         retryClickListener = onRetryClick,
                         backClickListener = onCloseClick
                     ),
-                    // The snapshot also fails without the remote config, which isn't a network error but is still worth retrying
                     retryForGenericError = true
                 )
             }
@@ -105,17 +104,17 @@ fun YearInReviewOnboardingScreen(
 }
 
 @Composable
-fun YearInReviewOnboardingCover(snapshot: YearInReviewSnapshot, onCoverReady: () -> Unit) {
+fun YearInReviewOnboardingCover(entryStats: YearInReviewEntryStats, onCoverReady: () -> Unit) {
     val resources = LocalResources.current
     val accessibilityDescription = stringResource(R.string.year_in_review_get_started_headline)
-    val content = remember(resources, accessibilityDescription, snapshot) {
-        val isPersonalized = YearInReviewFlowDecider.isDataRich(snapshot)
-        val daysSpent = snapshot.readingStats.visitedDaysCount
+    val content = remember(resources, accessibilityDescription, entryStats) {
+        val isDataRich = entryStats.isDataRich
+        val daysSpent = entryStats.visitedDaysCount
         RiveSlideContent(
             spec = allTemplatesSlideSpec("cover"),
             textProperties = mapOf(
-                "coverTitle" to resources.getString(if (isPersonalized) R.string.yir_intro_headline else R.string.yir_community_intro_headline),
-                "bodyCopy" to if (isPersonalized) {
+                "coverTitle" to resources.getString(if (isDataRich) R.string.yir_intro_headline else R.string.yir_community_intro_headline),
+                "bodyCopy" to if (isDataRich) {
                     resources.getQuantityString(R.plurals.yir_intro_supporting, daysSpent, daysSpent, YearInReviewConfig.YEAR)
                 } else {
                     resources.getString(R.string.yir_community_intro_supporting)

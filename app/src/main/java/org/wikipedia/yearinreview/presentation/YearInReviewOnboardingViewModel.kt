@@ -12,16 +12,16 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.util.UiState
 import org.wikipedia.util.log.L
+import org.wikipedia.yearinreview.data.YearInReviewEntryStats
 import org.wikipedia.yearinreview.data.YearInReviewRepository
 import org.wikipedia.yearinreview.data.YearInReviewRepositoryImpl
-import org.wikipedia.yearinreview.data.YearInReviewSnapshot
 
 class YearInReviewOnboardingViewModel : ViewModel() {
     private val handler = CoroutineExceptionHandler { _, throwable ->
         L.e(throwable)
         _uiState.value = UiState.Error(throwable)
     }
-    private var _uiState = MutableStateFlow<UiState<Pair<Boolean, YearInReviewSnapshot>>>(UiState.Loading)
+    private var _uiState = MutableStateFlow<UiState<Pair<Boolean, YearInReviewEntryStats>>>(UiState.Loading)
     val uiState = _uiState.asStateFlow()
 
     private val repository: YearInReviewRepository = YearInReviewRepositoryImpl()
@@ -33,14 +33,14 @@ class YearInReviewOnboardingViewModel : ViewModel() {
     fun load() {
         viewModelScope.launch(handler) {
             _uiState.value = UiState.Loading
-            val snapshot = async { repository.getYearInReview() }
+            val entryStats = async { repository.getEntryStats() }
 
             if (AccountUtil.isLoggedIn) {
                 // Make a call to get user info, which will assert the user is logged in.
                 // (If the user is no longer logged in, it will throw.)
                 ServiceFactory.get(WikipediaApp.instance.wikiSite).getUserInfo()
             }
-            _uiState.value = UiState.Success(Pair(AccountUtil.isLoggedIn, snapshot.await()))
+            _uiState.value = UiState.Success(Pair(AccountUtil.isLoggedIn, entryStats.await()))
         }
     }
 }
