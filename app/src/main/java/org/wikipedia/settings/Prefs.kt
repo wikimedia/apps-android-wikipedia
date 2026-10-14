@@ -45,7 +45,6 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.watchlist.WatchlistFilterTypes
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetRepository
 import org.wikipedia.yearinreview.data.YearInReviewCachedStats
-import org.wikipedia.yearinreview.data.YearInReviewModel
 import org.wikipedia.yearinreview.data.YearInReviewSurveyState
 import java.util.Date
 
@@ -918,11 +917,6 @@ object Prefs {
     var isActivityTabOnboardingShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_activity_tab_onboarding_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_activity_tab_onboarding_shown, value)
-
-    var yearInReviewModelData
-        get() = JsonUtil.decodeFromString<Map<Int, YearInReviewModel>>(PrefsIoUtil.getString(R.string.preference_key_yir_model_data, null))
-            ?: emptyMap()
-        set(modelDataWithYear) = PrefsIoUtil.setString(R.string.preference_key_yir_model_data, JsonUtil.encodeToString(modelDataWithYear))
 
     var yearInReviewCachedStats
         get() = JsonUtil.decodeFromString<Map<Int, YearInReviewCachedStats>>(PrefsIoUtil.getString(R.string.preference_key_yir_cached_stats, null))

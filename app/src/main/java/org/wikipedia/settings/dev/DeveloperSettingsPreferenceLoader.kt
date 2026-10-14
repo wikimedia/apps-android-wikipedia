@@ -45,6 +45,7 @@ import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.StringUtil.fromHtml
+import org.wikipedia.yearinreview.data.YearInReviewEndScreenABTest
 import org.wikipedia.yearinreview.data.YearInReviewSurveyState
 import java.util.Date
 import java.util.concurrent.TimeUnit
@@ -343,6 +344,7 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             NewWithinInterestABTest(),
             ReadAloudLeadSectionABTest(),
             SemanticSearchAbTest()
+            YearInReviewEndScreenABTest()
         ).forEach { abTest ->
             category.addPreference(IntPreference(screen.context).apply {
                 key = abTest.preferenceKey

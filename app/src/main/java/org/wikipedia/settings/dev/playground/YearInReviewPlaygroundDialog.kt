@@ -114,8 +114,8 @@ class YearInReviewPlaygroundDialog : ExtendedBottomSheetDialogFragment(startExpa
                             historyState = historyState.copy(isUpdating = true, error = null)
                             scope.launch {
                                 historyState = try {
-                                    YearInReviewPlaygroundHistorySeeder.update(preset?.history)
-                                    YearInReviewPlaygroundHistorySeeder.withReadingStats(historyState.copy(selectedPreset = preset, isUpdating = false))
+                                    val testEntries = YearInReviewPlaygroundHistorySeeder.update(preset?.history)
+                                    YearInReviewPlaygroundHistorySeeder.withReadingStats(historyState.copy(selectedPreset = preset, testEntries = testEntries, isUpdating = false))
                                 } catch (e: CancellationException) {
                                     throw e
                                 } catch (e: Exception) {
@@ -284,6 +284,9 @@ private fun ReadingDataCard(
                         else -> WikipediaTheme.colors.secondaryColor
                     }
                 )
+            }
+            historyState.testEntries?.let {
+                Text(text = it.summary, style = MaterialTheme.typography.bodyMedium, color = WikipediaTheme.colors.primaryColor)
             }
             TextButton(
                 modifier = Modifier.align(Alignment.End),
@@ -609,7 +612,7 @@ private fun YearInReviewPlaygroundScreenPreview() {
             historyState = YearInReviewPlaygroundHistoryState(
                 dateRange = "2026-01-01 to 2026-11-30",
                 selectedPreset = YearInReviewPlaygroundHistoryPreset.VISITS_WITH_PEAK_MONTH,
-                flowSummary = "Personalized flow\n3 articles read · 2 visited days · 2 days in the peak month"
+                flowSummary = "Flow: Personalized\nArticles read: 3\nVisited days: 2\nVisited days in the peak month: 2"
             ),
             onTestHistoryChange = {},
             onLaunchClick = {},

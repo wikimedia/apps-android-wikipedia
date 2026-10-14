@@ -25,7 +25,7 @@ object YearInReviewFlowDecider {
         } else {
             YearInReviewCollectiveInsight.entries.map { YearInReviewPage.Collective(it) } + listOfNotNull(youMatterPage(snapshot))
         }
-        return listOf(YearInReviewPage.Cover(daysSpent = snapshot.readingStats.visitedDaysCount)) + flowPages + YearInReviewPage.End
+        return listOf(YearInReviewPage.Cover(daysSpent = snapshot.readingStats.visitedDaysCount)) + flowPages + YearInReviewPage.End(isDonor = snapshot.rewardData.isContributor)
     }
 
     private fun personalizedCandidates(snapshot: YearInReviewSnapshot): List<CandidatePage> {
@@ -56,6 +56,12 @@ object YearInReviewFlowDecider {
                 YearInReviewPage.OtherTopTopics(
                     topicArticleCounts = readingStats.topicArticleCountMap
                 )
+            },
+            CandidatePage(status = readingStats.articlesRevisitedStatus) {
+                YearInReviewPage.RevisitedArticles(
+                    isEmptyState = readingStats.articlesRevisitedStatus == YearInReviewInsightStatus.EMPTY_STATE,
+                    articles = readingStats.articlesRevisited
+                )
             }
         )
     }
@@ -79,7 +85,7 @@ object YearInReviewFlowDecider {
     }
 
     private fun getTopReadPercentile(snapshot: YearInReviewSnapshot): String {
-        return snapshot.remoteConfig?.topReadPercentages?.find {
+        return snapshot.remoteConfig.topReadPercentages.find {
             snapshot.readingStats.articlesReadCount > it.min && snapshot.readingStats.articlesReadCount <= it.max
         }?.identifier.orEmpty()
     }
