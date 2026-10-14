@@ -10,6 +10,7 @@ import kotlinx.coroutines.launch
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.settings.dev.playground.YearInReviewPlayground
 import org.wikipedia.util.UiState
 import org.wikipedia.util.log.L
 import org.wikipedia.yearinreview.data.YearInReviewEntryStats
@@ -33,7 +34,7 @@ class YearInReviewOnboardingViewModel : ViewModel() {
     fun load() {
         viewModelScope.launch(handler) {
             _uiState.value = UiState.Loading
-            val entryStats = async { repository.getEntryStats() }
+            val entryStats = async { YearInReviewPlayground.entryStats ?: repository.getEntryStats() }
 
             if (AccountUtil.isLoggedIn) {
                 // Make a call to get user info, which will assert the user is logged in.

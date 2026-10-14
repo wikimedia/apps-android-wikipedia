@@ -40,6 +40,7 @@ import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.settings.Prefs
+import org.wikipedia.settings.dev.playground.YearInReviewPlayground
 import org.wikipedia.util.UiState
 import org.wikipedia.yearinreview.data.YearInReviewRepositoryImpl
 import org.wikipedia.yearinreview.presentation.YearInReviewViewModel
@@ -148,7 +149,8 @@ class ActivityTabViewModel : ViewModel() {
                 _yearInReviewEntryState.value = UiState.Success(false)
             }
         }) {
-            _yearInReviewEntryState.value = UiState.Success(YearInReviewRepositoryImpl().getEntryStats().isDataRich)
+            val entryStats = YearInReviewPlayground.entryStats ?: YearInReviewRepositoryImpl().getEntryStats()
+            _yearInReviewEntryState.value = UiState.Success(entryStats.isDataRich)
         }
     }
 

@@ -234,7 +234,7 @@ private fun ReadingDataCard(
 ) {
     PlaygroundCard(title = "Year in Review data") {
         Text(
-            text = "The data used by the Year in Review flow and the Activity tab card. Takes effect the next time either loads.",
+            text = "The data used by the Activity tab card, the announcement and the slides. Takes effect the next time each one loads.",
             style = MaterialTheme.typography.bodyMedium,
             color = WikipediaTheme.colors.secondaryColor
         )
@@ -242,7 +242,7 @@ private fun ReadingDataCard(
             text = if (isLoggedIn) {
                 "Logged in as ${AccountUtil.userName}."
             } else {
-                "You're not logged in. Data rich only shows the personalized flow when you're logged in, so log in first."
+                "You're not logged in. Personalized only shows the personalized slides when you're logged in, so log in first."
             },
             style = MaterialTheme.typography.bodyMedium,
             color = if (isLoggedIn) WikipediaTheme.colors.successColor else WikipediaTheme.colors.destructiveColor
@@ -612,7 +612,7 @@ private fun YearInReviewPlaygroundScreenPreview() {
             historyState = YearInReviewPlaygroundHistoryState(
                 dateRange = "2026-01-01 to 2026-11-30",
                 selectedPreset = YearInReviewPlaygroundHistoryPreset.VISITS_WITH_PEAK_MONTH,
-                flowSummary = "Flow: Personalized\nArticles read: 3\nVisited days: 2\nVisited days in the peak month: 2"
+                flowSummary = "Entry card and announcement: Data-rich\nSlides: Personalized\nArticles read: 3\nVisited days: 2\nVisited days in the peak month: 2"
             ),
             onTestHistoryChange = {},
             onLaunchClick = {},
