@@ -24,7 +24,7 @@ data class YearInReviewReadingStats(
     val articlesRevisited: List<Pair<PageTitle, Int>> = emptyList(),
     val topTopic: ArticleTopic? = null,
     val topTopicArticles: List<String>? = emptyList(),
-    val topicArticleCountMap: Map<ArticleTopic, Int> = emptyMap()
+    val topicArticleCountMap: Map<String, Int> = emptyMap()
 ) {
     val totalArticlesStatus get() = if (articlesReadCount >= MIN_ARTICLES_READ) {
         YearInReviewInsightStatus.PERSONALIZED
