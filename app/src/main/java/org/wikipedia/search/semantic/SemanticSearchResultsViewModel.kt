@@ -33,6 +33,8 @@ class SemanticSearchResultsViewModel(savedStateHandle: SavedStateHandle) : ViewM
     private val _feedbackState = MutableStateFlow(FeedbackState())
     val feedbackState = _feedbackState.asStateFlow()
 
+    var lastXSearchIdSemantic = ""
+
     init {
         loadSemanticSearchResults()
     }
@@ -72,7 +74,7 @@ class SemanticSearchResultsViewModel(savedStateHandle: SavedStateHandle) : ViewM
                 _semanticSearchResultsState.value = UiState.Success(emptyList())
                 return@launch
             }
-
+            lastXSearchIdSemantic = semanticResponse.headers()["x-search-id"].orEmpty()
             val pages = semanticResponse.body()?.query?.pages?.sortedBy { it.index }.orEmpty()
             val semanticResults = pages.map { page ->
                 SearchResult(

@@ -97,6 +97,7 @@ class SearchResultsFragment : Fragment() {
                                 actionContext = viewModel.getStandardEventActionContext(result)
                             )
 
+                            // TODO: use combine logic with slide semantic search results.
                             SemanticSearchAbTest().shouldSendEvent(group = ABTest.GROUP_1) {
                                 requireActivity().instrument?.submitInteraction("click",
                                     elementId = "search_result",
@@ -128,15 +129,35 @@ class SearchResultsFragment : Fragment() {
                         onLoading = { enabled ->
                             callback()?.onSearchProgressBar(enabled)
                         },
-                        onSemanticSearchClick = { searchTerm ->
+                        onSemanticSearchClick = { searchTerm, isFirstUse ->
+                            SemanticSearchAbTest().shouldSendEvent {
+                                requireActivity().instrument?.submitInteraction("click",
+                                    elementId = "enter_semantic_search"
+                                )
+                                if (isFirstUse) {
+                                    requireActivity().instrument?.submitInteraction("click",
+                                        elementId = "try_now_button"
+                                    )
+                                }
+                            }
                             searchTerm?.let {
                                 callback()?.showSemanticSearchResultsDialog(it)
                             }
                         },
                         onSemanticSearchInfoClick = {
+                            SemanticSearchAbTest().shouldSendEvent {
+                                requireActivity().instrument?.submitInteraction("click",
+                                    elementId = "info_button"
+                                )
+                            }
                             callback()?.showSemanticSearchInfoDialog()
                         },
                         onSemanticSearchCloseClick = {
+                            SemanticSearchAbTest().shouldSendEvent {
+                                requireActivity().instrument?.submitInteraction("click",
+                                    elementId = "close_semantic_button"
+                                )
+                            }
                             val messageText = requireContext().getString(searchLanguageCode, R.string.semantic_search_snackbar_message)
                             val actionButtonText = requireContext().getString(searchLanguageCode, R.string.semantic_search_snackbar_action_label)
                             FeedbackUtil.makeSnackbar(requireActivity(), messageText)

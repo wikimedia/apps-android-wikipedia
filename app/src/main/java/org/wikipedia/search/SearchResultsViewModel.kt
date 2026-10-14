@@ -135,15 +135,6 @@ class SearchResultsViewModel : ViewModel() {
         }
     }
 
-    fun getSemanticSearchEventActionContext(): Map<String, Any> {
-        return buildMap {
-            put("eligible", true)
-            put("search_id_pre", lastXSearchIdPrefix)
-            put("search_id_ful", lastXSearchIdFullText)
-            put("search_id_sem", "")
-        }
-    }
-
     fun disableSemanticSearch() {
         Prefs.isSemanticSearchEnabled = false
     }

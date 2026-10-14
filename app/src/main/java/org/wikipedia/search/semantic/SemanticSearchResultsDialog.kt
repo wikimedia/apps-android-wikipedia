@@ -14,6 +14,7 @@ import org.wikipedia.R
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.extensions.getString
+import org.wikipedia.extensions.instrument
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.search.SearchResultCallback
 import org.wikipedia.util.FeedbackUtil
@@ -27,7 +28,6 @@ class SemanticSearchResultsDialog : ExtendedBottomSheetDialogFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
-
         return ComposeView(requireContext()).apply {
             setContent {
                 BaseTheme {
@@ -43,6 +43,12 @@ class SemanticSearchResultsDialog : ExtendedBottomSheetDialogFragment() {
                             )
                         },
                         onCloseClick = {
+                            SemanticSearchAbTest().shouldSendEvent {
+                                requireActivity().instrument?.submitInteraction("click",
+                                    actionSubtype = "semantic_result",
+                                    elementId = "close_result_button"
+                                )
+                            }
                             dismiss()
                         },
                         onFeedbackSubmit = { isPositive, feedbackText ->
@@ -51,7 +57,17 @@ class SemanticSearchResultsDialog : ExtendedBottomSheetDialogFragment() {
                             FeedbackUtil.makeSnackbar(requireView(), message).show()
                         },
                         onLoading = {
-                            // TODO: maybe instrumentation?
+                            if (!it) {
+                                SemanticSearchAbTest().shouldSendEvent {
+                                    requireActivity().instrument?.submitInteraction("impression",
+                                        actionSubtype = "semantic_result",
+                                        elementId = "close_result_button",
+                                        actionContext = mapOf(
+                                            "search_id_sem" to viewModel.lastXSearchIdSemantic
+                                        )
+                                    )
+                                }
+                            }
                         }
                     )
                 }

@@ -147,7 +147,10 @@ class RecentSearchesFragment : Fragment() {
     private open inner class RecentSearchItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener, SwipeableItemTouchHelperCallback.Callback {
         private lateinit var recentSearch: RecentSearch
 
+        private var position: Int = 0
+
         open fun bindItem(position: Int) {
+            this.position = position
             recentSearch = recentSearchList[position]
             itemView.setOnClickListener(this)
             (itemView as TextView).text = recentSearch.text
@@ -164,6 +167,7 @@ class RecentSearchesFragment : Fragment() {
                     actionSubtype = "recent_search",
                     elementId = "search_result",
                     actionContext = mapOf(
+                        "position" to (position + 1),
                         "query" to text,
                         "query_trunc" to (text.length > 256)
                     )
