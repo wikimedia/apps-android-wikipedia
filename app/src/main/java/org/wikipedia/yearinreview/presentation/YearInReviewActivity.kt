@@ -19,6 +19,7 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.analytics.eventplatform.YearInReviewEvent
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.donate.DonateDialog
 import org.wikipedia.feed.personalization.PersonalizationActivity
@@ -27,6 +28,7 @@ import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.UriUtil
+import org.wikipedia.yearinreview.data.YearInReviewEndScreenABTest
 
 class YearInReviewActivity : BaseActivity() {
 
@@ -34,6 +36,10 @@ class YearInReviewActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        _instrument = TestKitchenAdapter.client.getInstrument("apps-year-in-review")
+            .startFunnel("year-in-review")
+            .setExperiment(TestKitchenAdapter.getExperiment(YearInReviewEndScreenABTest()))
 
         initializeYearInReviewRive(this)
 
