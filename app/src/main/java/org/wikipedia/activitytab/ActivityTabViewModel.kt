@@ -42,7 +42,6 @@ import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.UiState
 import org.wikipedia.yearinreview.data.YearInReviewRepositoryImpl
-import org.wikipedia.yearinreview.presentation.YearInReviewFlowDecider
 import org.wikipedia.yearinreview.presentation.YearInReviewViewModel
 import java.time.Instant
 import java.time.LocalDate
@@ -149,8 +148,7 @@ class ActivityTabViewModel : ViewModel() {
                 _yearInReviewEntryState.value = UiState.Success(false)
             }
         }) {
-            val snapshot = YearInReviewRepositoryImpl().getYearInReview()
-            _yearInReviewEntryState.value = UiState.Success(YearInReviewFlowDecider.isDataRich(snapshot))
+            _yearInReviewEntryState.value = UiState.Success(YearInReviewRepositoryImpl().getEntryStats().isDataRich)
         }
     }
 
